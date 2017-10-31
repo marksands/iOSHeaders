@@ -22,10 +22,11 @@
 @property(readonly, nonatomic) __weak CPLEngineLibrary *engineLibrary; // @synthesize engineLibrary=_engineLibrary;
 - (void).cxx_destruct;
 - (void)networkStateDidChangeForNetworkWatched:(id)arg1;
-- (_Bool)isNetworkConnected;
+@property(readonly, nonatomic) _Bool isOnCellularOrUnknown;
+@property(readonly, nonatomic) _Bool isNetworkConnected;
 - (void)getStatusWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (unsigned long long)freeDiskSpaceSize;
-- (unsigned long long)diskPressureState;
+@property(readonly, nonatomic) unsigned long long freeDiskSpaceSize;
+@property(readonly, nonatomic) unsigned long long diskPressureState;
 - (id)componentName;
 - (void)closeAndDeactivate:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)openWithCompletionHandler:(CDUnknownBlockType)arg1;

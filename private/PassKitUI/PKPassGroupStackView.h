@@ -49,6 +49,7 @@
         unsigned int isContinuingModalPresentation:1;
         unsigned int forceSubheaderUpdate:1;
         unsigned int forceFooterUpdate:1;
+        unsigned int preventFooterLayout:1;
         unsigned int mutatingForcePileOffscreen:1;
     } _layoutState;
     struct CGSize _lastBoundsSize;
@@ -84,6 +85,7 @@
     PKPaymentService *_paymentService;
     PKPassFooterView *_passFooterView;
     _Bool _showingFooter;
+    _Bool _invalidated;
     PKPassthroughView *_headerContainerView;
     PKPassthroughView *_subheaderContainerView;
     PKPassthroughView *_passContainerView;
@@ -119,7 +121,7 @@
 - (void)groupViewDidUpdatePageControlVisibility:(id)arg1;
 - (_Bool)groupView:(id)arg1 deleteButtonEnabledForPass:(id)arg2;
 - (void)groupView:(id)arg1 deleteButtonPressedForPass:(id)arg2;
-- (void)groupView:(id)arg1 didScrollToPassView:(id)arg2;
+- (void)groupView:(id)arg1 frontmostPassViewDidChange:(id)arg2;
 - (void)groupView:(id)arg1 resizeButtonPressedForPass:(id)arg2 withBarcode:(_Bool)arg3;
 - (struct CGRect)groupView:(id)arg1 targetPageControlFrameForProposedFrame:(struct CGRect)arg2;
 - (long long)groupViewContentModeForFrontmostPassWhenPiled:(id)arg1 withDefaultContentMode:(long long)arg2;
@@ -270,6 +272,7 @@
 - (void)_tileGroupsForState:(long long)arg1 eager:(_Bool)arg2;
 - (id)_loadGroupViewAtIndex:(unsigned long long)arg1 forState:(long long)arg2 presentationState:(long long)arg3 cached:(_Bool *)arg4;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)invalidate;
 - (void)updatePeerPaymentFooterViewIfNecessary;
 @property(nonatomic) id <PKPassGroupStackViewDelegate><UIScrollViewDelegate> delegate; // @dynamic delegate;
 @property(readonly, nonatomic) _Bool isPresentingPassViewFront;

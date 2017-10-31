@@ -20,6 +20,7 @@
 @property(nonatomic) __weak id <CCUIContentModuleContextDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, copy, nonatomic) NSString *moduleIdentifier; // @synthesize moduleIdentifier=_moduleIdentifier;
 - (void).cxx_destruct;
+- (void)dismissControlCenter;
 - (void)dismissModule;
 - (void)requestExpandModule;
 - (void)enqueueStatusUpdate:(id)arg1;

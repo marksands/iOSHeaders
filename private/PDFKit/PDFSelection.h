@@ -67,6 +67,7 @@
 - (id)selectionsByLine;
 - (struct _NSRange)rangeAtIndex:(unsigned long long)arg1 onPage:(id)arg2;
 - (unsigned long long)numberOfTextRangesOnPage:(id)arg1;
+- (id)pdfSelectionUUID;
 - (struct CGRect)lastSpanBoundsForPage:(id)arg1;
 - (struct CGRect)firstSpanBoundsForPage:(id)arg1;
 - (struct CGRect)spanBoundsForPage:(id)arg1 atPoint:(struct CGPoint)arg2;

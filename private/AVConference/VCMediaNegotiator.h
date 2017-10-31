@@ -54,6 +54,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)negotiateAudioREDPayload:(id)arg1;
 - (_Bool)negotiateAudioDTXPayload:(id)arg1;
 - (_Bool)negotiateAudioPrimaryPayload:(id)arg1;
+- (void)negotateAudioUseSBR:(id)arg1 audioRuleCollection:(id)arg2;
 - (void)negotiateAudioAllowRecording:(id)arg1;
 - (id)newCompressedBlob:(id)arg1;
 - (id)newDecompressedBlob:(id)arg1;

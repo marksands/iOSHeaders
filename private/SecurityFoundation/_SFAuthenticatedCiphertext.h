@@ -16,6 +16,9 @@
 - (void).cxx_destruct;
 @property(readonly) NSData *initializationVector;
 @property(readonly) NSData *authenticationCode;
+- (id)debugDescription;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithCiphertext:(id)arg1 authenticationCode:(id)arg2 initializationVector:(id)arg3;
 
 @end

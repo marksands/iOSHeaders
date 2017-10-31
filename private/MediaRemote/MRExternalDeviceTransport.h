@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) _Bool requiresCustomPairing; // @synthesize requiresCustomPairing=_requiresCustomPairing;
 - (_Bool)getInputStream:(id *)arg1 outputStream:(id *)arg2;
+@property(nonatomic) _Bool shouldUseSystemAuthenticationPrompt; // @dynamic shouldUseSystemAuthenticationPrompt;
 @property(readonly, nonatomic) long long port;
 @property(readonly, nonatomic) NSString *hostname;
 @property(readonly, nonatomic) NSString *name;

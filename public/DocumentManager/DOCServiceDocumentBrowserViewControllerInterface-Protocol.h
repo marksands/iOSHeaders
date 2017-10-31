@@ -7,6 +7,7 @@
 @class FPSandboxingURLWrapper, NSArray, NSString;
 
 @protocol DOCServiceDocumentBrowserViewControllerInterface
+- (void)_renameDocumentAtURL:(FPSandboxingURLWrapper *)arg1 newName:(NSString *)arg2 completion:(void (^)(FPSandboxingURLWrapper *, NSError *))arg3;
 - (void)_clearCurrentOpenInteraction;
 - (void)_dismissAllPresentedViewControllers:(_Bool)arg1 completion:(void (^)(void))arg2;
 - (void)_setCreateButtonTitle:(NSString *)arg1;

@@ -18,7 +18,6 @@
 @property(readonly, copy, nonatomic) NSNumber *mpcReporting_privateListeningEnabled;
 @property(readonly, copy, nonatomic) NSData *mpcReporting_jingleTimedMetadata;
 @property(readonly, nonatomic) unsigned long long mpcReporting_itemType;
-@property(readonly, copy, nonatomic) NSString *mpcReporting_householdID;
 @property(readonly, nonatomic) _Bool mpcReporting_isValidReportingItem;
 @property(readonly, nonatomic) long long mpcReporting_equivalencySourceAdamID;
 @property(readonly, nonatomic) id <MPCReportingIdentityPropertiesLoading> mpcReporting_identityPropertiesLoader;

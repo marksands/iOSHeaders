@@ -7,6 +7,7 @@
 #import "UIView.h"
 
 @interface UIView (HUAdditions)
++ (void)hu_enableAnimations:(_Bool)arg1 forBlock:(CDUnknownBlockType)arg2;
 - (void)hu_autoSizeByConstrainingWidth:(double)arg1;
 - (void)hu_traverseViewHierarchy:(CDUnknownBlockType)arg1;
 - (void)hu_setFramePreservingTransform:(struct CGRect)arg1;

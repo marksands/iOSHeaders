@@ -23,6 +23,7 @@
 @property(readonly, nonatomic) NSSet *featureNames;
 - (id)featureValueForName:(id)arg1;
 - (id)initWithDictionary:(id)arg1 error:(id *)arg2;
+- (id)initWithFeatureValueDictionary:(id)arg1;
 - (id)initWithFeatureProvider:(id)arg1;
 - (id)initWithFeatureProvider:(id)arg1 featureNames:(id)arg2;
 

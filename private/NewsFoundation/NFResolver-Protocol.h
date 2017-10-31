@@ -14,5 +14,7 @@
 - (id)resolveProtocol:(Protocol *)arg1;
 - (id)resolveClass:(Class)arg1 name:(NSString *)arg2;
 - (id)resolveClass:(Class)arg1;
+- (void)linkResolverWithLinkBlock:(void (^)(void (^)(void)))arg1;
+- (id <NFResolver>)currentObjectGraphResolver:(unsigned long long)arg1;
 @end
 

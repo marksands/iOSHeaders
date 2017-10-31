@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString, UIImage, UIKeyboardDockItemButton, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIView;
+@class NSString, UIImage, UIKeyboardDockItemButton, UILongPressGestureRecognizer, UIPanGestureRecognizer;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardDockItem : NSObject
@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *imageName; // @synthesize imageName=_imageName;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) UIView *view;
+@property(readonly, nonatomic) UIKeyboardDockItemButton *view;
 @property(nonatomic) _Bool enabled;
 - (id)imageWithRenderConfig:(id)arg1;
 - (id)initWithImageName:(id)arg1 identifier:(id)arg2;

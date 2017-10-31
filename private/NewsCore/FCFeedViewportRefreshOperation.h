@@ -10,6 +10,7 @@
 
 @interface FCFeedViewportRefreshOperation : FCOperation
 {
+    id <FCAppConfiguration> _appConfiguration;
     FCFeedViewport *_viewport;
     FCFeedDescriptor *_feedDescriptor;
     CDUnknownBlockType _refreshCompletionHandler;
@@ -22,6 +23,7 @@
 @property(copy, nonatomic) CDUnknownBlockType refreshCompletionHandler; // @synthesize refreshCompletionHandler=_refreshCompletionHandler;
 @property(retain, nonatomic) FCFeedDescriptor *feedDescriptor; // @synthesize feedDescriptor=_feedDescriptor;
 @property(retain, nonatomic) FCFeedViewport *viewport; // @synthesize viewport=_viewport;
+@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;

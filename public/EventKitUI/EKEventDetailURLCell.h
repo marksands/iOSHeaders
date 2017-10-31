@@ -13,12 +13,15 @@ __attribute__((visibility("hidden")))
 {
     UILabel *_URLTitleView;
     UITextView *_URLView;
+    int _lastLayoutPosition;
 }
 
 - (void).cxx_destruct;
 - (id)_URLView;
 - (id)_URLTitleView;
 - (void)layoutForWidth:(double)arg1 position:(int)arg2;
+- (void)_layoutForWidth:(double)arg1 position:(int)arg2;
+- (void)layoutSubviews;
 - (_Bool)update;
 - (void)setURL:(id)arg1;
 - (id)initWithEvent:(id)arg1 editable:(_Bool)arg2 style:(long long)arg3;

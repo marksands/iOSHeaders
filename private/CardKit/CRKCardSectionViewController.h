@@ -6,13 +6,14 @@
 
 #import "UIViewController.h"
 
+#import "CRKFeedbackDelegate.h"
 #import "INUIRemoteViewControllerDelegate.h"
 #import "SFFeedbackListener.h"
 #import "SearchUIFeedbackDelegate.h"
 
-@class CRKOverlayButton, INUIRemoteViewController, NSArray, NSString, UIView<CRKCardSectionView>;
+@class CRKCardSectionViewConfiguration, CRKOverlayButton, INUIRemoteViewController, NSArray, NSString, UIView<CRKCardSectionView>;
 
-@interface CRKCardSectionViewController : UIViewController <INUIRemoteViewControllerDelegate, SearchUIFeedbackDelegate, SFFeedbackListener>
+@interface CRKCardSectionViewController : UIViewController <INUIRemoteViewControllerDelegate, SearchUIFeedbackDelegate, SFFeedbackListener, CRKFeedbackDelegate>
 {
     CRKOverlayButton *_overlayButton;
     _Bool _loading;
@@ -22,13 +23,16 @@
     id <CRKCardSectionViewControllerDelegate> _delegate;
     id <CRKCardSectionViewControllerDataSource> _dataSource;
     id <CRCardSection> _cardSection;
+    CRKCardSectionViewConfiguration *_viewConfiguration;
     NSArray *_extraCommands;
 }
 
++ (id)cardSectionViewControllerForViewConfiguration:(id)arg1 dataSource:(id)arg2;
 + (void)registerCardSectionViewController;
 + (id)cardSectionClasses;
 + (id)cardSectionViewControllerForCardSection:(id)arg1 dataSource:(id)arg2;
 @property(retain, nonatomic, getter=_extraCommands, setter=_setExtraCommands:) NSArray *extraCommands; // @synthesize extraCommands=_extraCommands;
+@property(retain, nonatomic) CRKCardSectionViewConfiguration *viewConfiguration; // @synthesize viewConfiguration=_viewConfiguration;
 @property(nonatomic, getter=isCompressed) _Bool compressed; // @synthesize compressed=_compressed;
 @property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
 @property(nonatomic, getter=isLoading) _Bool loading; // @synthesize loading=_loading;
@@ -37,9 +41,21 @@
 @property(nonatomic) __weak id <CRKCardSectionViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) INUIRemoteViewController *_remoteViewController; // @synthesize _remoteViewController;
 - (void).cxx_destruct;
+- (void)cardSectionViewDidInvalidateSizeForCardSection:(id)arg1;
+- (void)controllerForCard:(id)arg1 didReceiveAsyncCard:(id)arg2 withAsyncCardReceiptFeedback:(id)arg3;
+- (void)controllerForCard:(id)arg1 didRequestAsyncCard:(id)arg2 withAsyncCardRequestFeedback:(id)arg3;
+- (void)cardSectionViewDidDisappearForCardSection:(id)arg1 withDisappearanceFeedback:(id)arg2;
+- (void)cardSectionViewDidAppearForCardSection:(id)arg1 withAppearanceFeedback:(id)arg2;
+- (void)cardSectionViewWillAppearForCardSection:(id)arg1 withAppearanceFeedback:(id)arg2;
+- (void)cardViewDidDisappearForCard:(id)arg1 withDisappearanceFeedback:(id)arg2;
+- (void)cardViewDidAppearForCard:(id)arg1 withAppearanceFeedback:(id)arg2;
+- (void)cardViewWillAppearForCard:(id)arg1 withAppearanceFeedback:(id)arg2;
+- (_Bool)shouldHandleEngagement:(id)arg1 forCardSection:(id)arg2;
+- (void)userDidEngageCardSection:(id)arg1 withEngagementFeedback:(id)arg2;
 - (void)cardSectionViewDidSelectPreferredPunchoutIndex:(long long)arg1;
 - (void)presentViewController:(id)arg1;
 - (void)cardSectionViewDidInvalidateSize:(id)arg1;
+- (void)cardSectionViewDidInvalidateSize:(id)arg1 animate:(_Bool)arg2;
 - (void)didEngageCardSection:(id)arg1;
 - (void)remoteViewControllerServiceDidTerminate:(id)arg1;
 - (void)remoteViewController:(id)arg1 requestsHandlingOfIntent:(id)arg2;
@@ -77,6 +93,7 @@
 - (void)_cancelTouchesIfNecessary;
 - (void)_finishLoadingViewIfNecessary;
 - (void)_loadCardSectionView;
+- (_Bool)_isTitleSectionViewController;
 - (_Bool)_isLoadedWithIntentsUIView;
 - (id)_unhandledParameters;
 - (_Bool)_expectsSearchUIView;

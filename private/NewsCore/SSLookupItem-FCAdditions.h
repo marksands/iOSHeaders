@@ -8,7 +8,6 @@
 
 @interface SSLookupItem (FCAdditions)
 - (_Bool)isPeriodValid:(id)arg1;
-- (id)trialPeriodInISO_8601;
 - (id)subscriptionPeriodInISO_8601;
 - (id)introductoryOffers;
 - (id)offerName;

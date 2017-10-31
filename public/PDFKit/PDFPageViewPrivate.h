@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CALayer, NSMapTable, NSMutableArray, NSObject<PDFPageLayerGeometryInterface>, PDFPage, PDFPageLayer, PDFPagePopupLayer, PDFPageSearchLayer, PDFPageSelectionLayer, PDFRenderingProperties, UIImage, UITextView;
+@class CALayer, NSMutableArray, NSObject<PDFPageLayerGeometryInterface>, PDFAnnotation, PDFPage, PDFPageLayer, PDFPageLayerEffect, PDFRenderingProperties, UIImage, UITextView, UIView;
 
 __attribute__((visibility("hidden")))
 @interface PDFPageViewPrivate : NSObject
@@ -15,27 +15,20 @@ __attribute__((visibility("hidden")))
     PDFRenderingProperties *renderingProperties;
     PDFPage *page;
     PDFPageLayer *pageLayer;
-    PDFPageSearchLayer *searchLayer;
-    PDFPageSelectionLayer *selectionLayer;
+    PDFPageLayerEffect *searchLayer;
+    PDFPageLayerEffect *selectionLayer;
+    NSMutableArray *pageAnnotationEffects;
+    PDFAnnotation *activeWidgetAnnotation;
+    UIView *activeWidgetControl;
+    NSMutableArray *pageSignatures;
     CALayer *backgroundLayer;
     UIImage *backgroundImage;
     int backgroundQuality;
-    NSMutableArray *pageMarkups;
-    PDFPagePopupLayer *popupLayer;
-    NSMapTable *pageWidgetMapTable;
-    NSMutableArray *pageSignatures;
-    NSMutableArray *pageAnnotationEffects;
     unsigned long long visibilityDelegateIndex;
     _Bool isPerformingUndo;
     CALayer *bookmarkLayer;
     struct CGSize bookmarkSize;
     UITextView *activeTextView;
-    CALayer *textMagnifierLayer;
-    struct CGImage *magnifierImageMask;
-    struct CGSize magnifierSize;
-    CALayer *lollipopMagnifierLayer;
-    struct CGImage *lollipopImageMask;
-    struct CGSize lollipopSize;
 }
 
 - (void).cxx_destruct;

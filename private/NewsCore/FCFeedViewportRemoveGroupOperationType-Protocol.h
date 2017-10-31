@@ -13,6 +13,7 @@
 @property(retain, nonatomic) FCFeedDescriptor *feedDescriptor;
 @property(retain, nonatomic) NSString *groupID;
 @property(retain, nonatomic) FCFeedViewport *viewport;
+@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration;
 - (void)start;
 @end
 

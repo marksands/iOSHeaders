@@ -10,6 +10,8 @@
 
 @protocol _SFPBRichTitleCardSection <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasFootnote;
+@property(copy, nonatomic) NSString *footnote;
 @property(copy, nonatomic) NSArray *offers;
 @property(readonly, nonatomic) _Bool hasPlayActionAlign;
 @property(nonatomic) int playActionAlign;

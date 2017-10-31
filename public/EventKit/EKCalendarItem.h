@@ -193,6 +193,7 @@
 - (void)setUniqueId:(id)arg1;
 - (id)uniqueId;
 - (id)description;
+- (void)willSave;
 - (void)setLocalCustomObject:(id)arg1 forKey:(id)arg2;
 - (id)localCustomObjectForKey:(id)arg1;
 - (void)setCustomObject:(id)arg1 forKey:(id)arg2;

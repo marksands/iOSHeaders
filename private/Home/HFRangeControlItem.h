@@ -16,6 +16,8 @@
 }
 
 + (_Bool)_hasWritableCharacteristicsOfType:(id)arg1 valueSource:(id)arg2;
++ (id)numberValueFormatter;
++ (id)readOnlyCharacteristicTypes;
 + (Class)valueClass;
 @property(readonly, copy, nonatomic) NSString *maximumCharacteristicType; // @synthesize maximumCharacteristicType=_maximumCharacteristicType;
 @property(readonly, copy, nonatomic) NSString *minimumCharacteristicType; // @synthesize minimumCharacteristicType=_minimumCharacteristicType;
@@ -31,10 +33,11 @@
 @property(readonly, copy, nonatomic) NSNumber *stepValue;
 @property(readonly, copy, nonatomic) NSNumber *maximumValue;
 @property(readonly, copy, nonatomic) NSNumber *minimumValue;
+- (id)resultsForBatchReadResponse:(id)arg1;
 - (id)characteristicValuesForValue:(id)arg1;
 - (id)valueForCharacteristicValues:(id)arg1;
-- (id)copyWithCharacteristicTypes:(id)arg1 valueSource:(id)arg2;
-- (id)initWithValueSource:(id)arg1 characteristicTypes:(id)arg2 displayResults:(id)arg3;
+- (id)copyWithCharacteristicOptions:(id)arg1 valueSource:(id)arg2;
+- (id)initWithValueSource:(id)arg1 characteristicOptions:(id)arg2 displayResults:(id)arg3;
 - (id)initWithValueSource:(id)arg1 targetCharacteristicTypes:(id)arg2 minimumCharacteristicType:(id)arg3 maximumCharacteristicType:(id)arg4 displayResults:(id)arg5;
 
 @end

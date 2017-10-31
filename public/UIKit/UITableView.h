@@ -227,6 +227,8 @@
         unsigned int delegateSwipeAccessoryPushed:1;
         unsigned int delegateShouldDrawTopSeparatorForSection:1;
         unsigned int delegateShouldDrawBottomSeparatorForSection:1;
+        unsigned int delegateShouldHaveFullLengthTopSeparatorForSection:1;
+        unsigned int delegateShouldHaveFullLengthBottomSeparatorForSection:1;
         unsigned int delegateWillBeginSwiping:1;
         unsigned int delegateDidEndSwiping:1;
         unsigned int delegateCanFocusRow_deprecated:1;
@@ -819,6 +821,7 @@
 - (void)_scrollFirstResponderCellToVisible:(_Bool)arg1;
 - (void)setContentInset:(struct UIEdgeInsets)arg1;
 - (void)_updateForChangeInEffectiveContentInset;
+- (void)setContentSize:(struct CGSize)arg1;
 - (void)setContentOffset:(struct CGPoint)arg1;
 - (void)setShowsVerticalScrollIndicator:(_Bool)arg1;
 - (void)setShowsHorizontalScrollIndicator:(_Bool)arg1;
@@ -906,6 +909,8 @@
 - (void)_setDrawsSeparatorAtTopOfSections:(_Bool)arg1;
 - (_Bool)_shouldDrawSeparatorAtBottomOfSection:(long long)arg1;
 - (_Bool)_shouldDrawSeparatorAtTopOfSection:(long long)arg1;
+- (_Bool)_shouldHaveFullLengthBottomSeparatorForCellAtIndexPath:(id)arg1;
+- (_Bool)_shouldHaveFullLengthTopSeparatorForCellAtIndexPath:(id)arg1;
 - (id)separatorBottomShadowColor;
 - (void)setSeparatorBottomShadowColor:(id)arg1;
 - (id)separatorTopShadowColor;
@@ -963,6 +968,8 @@
 - (void)endUpdates;
 - (void)endUpdatesWithContext:(id)arg1;
 - (void)beginUpdates;
+- (void)_endSuspendingUpdates;
+- (void)_beginSuspendingUpdates;
 - (void)scrollToNearestSelectedRowAtScrollPosition:(long long)arg1 animated:(_Bool)arg2;
 - (void)_scrollToRowAtIndexPath:(id)arg1 atScrollPosition:(long long)arg2 animated:(_Bool)arg3 usingPresentationValues:(_Bool)arg4;
 - (void)scrollToRowAtIndexPath:(id)arg1 atScrollPosition:(long long)arg2 animated:(_Bool)arg3;
@@ -1085,8 +1092,6 @@
 - (id)deleteConfirmationIndexPath;
 - (void)_sendDidEndEditingForIndexPath:(id)arg1;
 - (void)_sendWillBeginEditingForIndexPath:(id)arg1;
-- (void)_validateSectionHeadersAndFooters;
-- (void)_validateCells;
 - (void)_languageChanged;
 - (_Bool)_shouldDisplayTopSeparator;
 - (_Bool)_hasSwipeToDeleteRow;
@@ -1100,7 +1105,8 @@
 - (_Bool)_shouldChangeIndexBasedOnValueChanged;
 - (void)_accessoryButtonAction:(id)arg1;
 - (_Bool)_canEditRowAtIndexPath:(id)arg1;
-- (void)_updateAnimationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
+- (void)_removeOrphanedViews:(id)arg1;
+- (void)_updateAnimationDidStopWithOldVisibleViews:(id)arg1 finished:(_Bool)arg2 context:(id)arg3;
 - (void)_updateWithItems:(id)arg1 updateSupport:(id)arg2;
 - (void)_resignFirstResponderInDeletedSectionOrRow:(_Bool)arg1;
 - (void)_endAnimatingCells;

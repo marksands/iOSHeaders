@@ -11,6 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface _UIKeyboardTextSelectionGestureController : NSObject
 {
+    NSMutableArray *_deallocHandlers;
     _Bool _wasScrollingEnabled;
     _Bool _wasNestedPinchingDisabled;
     _Bool _suppressTwoFingerPan;
@@ -75,6 +76,8 @@ __attribute__((visibility("hidden")))
 - (void)_cleanupDeadGesturesIfNecessary;
 - (id)selectionController;
 - (void)dealloc;
+- (void)removeDeallocationHandler:(id)arg1;
+- (id)addDeallocationHandler:(CDUnknownBlockType)arg1;
 - (id)init;
 - (Class)gestureCluster;
 

@@ -10,17 +10,18 @@
 
 @interface FCFeedResponse : NSObject
 {
+    _Bool _exhaustedRequestRange;
     NSString *_feedID;
     NSArray *_feedItems;
-    FCFeedRange *_feedRange;
     NSError *_error;
 }
 
 @property(copy, nonatomic) NSError *error; // @synthesize error=_error;
-@property(copy, nonatomic) FCFeedRange *feedRange; // @synthesize feedRange=_feedRange;
+@property(nonatomic) _Bool exhaustedRequestRange; // @synthesize exhaustedRequestRange=_exhaustedRequestRange;
 @property(copy, nonatomic) NSArray *feedItems; // @synthesize feedItems=_feedItems;
 @property(copy, nonatomic) NSString *feedID; // @synthesize feedID=_feedID;
 - (void).cxx_destruct;
+@property(readonly, copy, nonatomic) FCFeedRange *feedRange;
 - (id)feedResponseByMergingWithResponse:(id)arg1;
 
 @end

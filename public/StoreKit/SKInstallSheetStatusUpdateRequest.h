@@ -19,6 +19,7 @@
 @property(copy, nonatomic) NSString *bundleId; // @synthesize bundleId=_bundleId;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 - (void)_sendXPCMessage;
+- (void)_handleReply:(id)arg1;
 - (id)initWithAppBundleId:(id)arg1 isInstallSheetOpen:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 @end

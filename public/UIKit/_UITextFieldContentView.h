@@ -13,13 +13,12 @@
 __attribute__((visibility("hidden")))
 @interface _UITextFieldContentView : UIView <_UITextTiledLayerDelegate>
 {
+    id <_UITextFieldContentViewContextProvider> _provider;
     NSMutableSet *_ghostedRanges;
     NSArray *_maskedRects;
-    id <_UITextFieldContentViewContext> _context;
 }
 
 + (Class)layerClass;
-@property(readonly, nonatomic) __weak id <_UITextFieldContentViewContext> context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)drawTextInRect:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1;
@@ -27,7 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)setNeedsLayout;
 - (void)removeAllGhostedRanges;
 - (void)addGhostedRange:(struct _NSRange)arg1;
-- (id)initWithContentContext:(id)arg1;
+- (id)initWithContentContextProvider:(id)arg1;
 - (id)layer;
 
 // Remaining properties

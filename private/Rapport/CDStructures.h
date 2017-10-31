@@ -10,6 +10,10 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct NSMutableArray {
+    Class _field1;
+};
+
 struct NSMutableDictionary {
     Class _field1;
 };

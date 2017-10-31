@@ -6,12 +6,12 @@
 
 #import <MediaPlaybackCore/MPCPlayer.h>
 
-#import "MPNowPlayingPlaybackQueueDataSource_Private.h"
+#import "MPNowPlayingPlaybackQueueDataSource.h"
 #import "MPRemoteCommandDelegate_Private.h"
 
 @class MPAVController, MPAVItem, MPCMediaPlayerLegacyAVController, MPCMediaPlayerLegacyItem, MPCMediaPlayerLegacyItemContainer, MPCMediaPlayerLegacyNowPlayingObserver, MPCMediaPlayerLegacyReportingController, MPCPlaybackIntent, MPLibraryAddStatusObserver, NSMapTable, NSObject<OS_dispatch_queue>, NSString;
 
-@interface MPCMediaPlayerLegacyPlayer : MPCPlayer <MPNowPlayingPlaybackQueueDataSource_Private, MPRemoteCommandDelegate_Private>
+@interface MPCMediaPlayerLegacyPlayer : MPCPlayer <MPNowPlayingPlaybackQueueDataSource, MPRemoteCommandDelegate_Private>
 {
     NSMapTable *_avItemToPlayerItemWeakMap;
     MPCMediaPlayerLegacyItemContainer *_currentContainer;
@@ -62,8 +62,8 @@
 - (void)_handleSetQueueCommandEvent:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handleInsertIntoQueueCommandEvent:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_getPlaybackContextForPlaybackQueue:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (id)nowPlayingContentItemForIdentifier:(id)arg1;
-- (id)nowPlayingContentItemsForRequest:(void *)arg1 range:(CDStruct_339ad95e *)arg2;
+- (id)nowPlayingInfoCenter:(id)arg1 contentItemForID:(id)arg2;
+- (id)nowPlayingInfoCenter:(id)arg1 contentItemIDForOffset:(long long)arg2;
 - (_Bool)_shouldVendContentItemForOffset:(long long)arg1;
 - (id)contentItemIdentifierForOffset:(long long)arg1;
 - (id)contentItemForOffset:(long long)arg1;

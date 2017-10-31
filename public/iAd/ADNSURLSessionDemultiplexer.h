@@ -12,6 +12,7 @@
 
 @interface ADNSURLSessionDemultiplexer : NSObject <NSURLSessionDataDelegate>
 {
+    _Bool _sessionMarkedInvalid;
     NSString *_identifier;
     long long _requestCount;
     NSMutableDictionary *_taskInfoByTaskIdentifier;
@@ -22,6 +23,7 @@
     CDUnknownBlockType _sessionInvalidated;
 }
 
+@property(nonatomic) _Bool sessionMarkedInvalid; // @synthesize sessionMarkedInvalid=_sessionMarkedInvalid;
 @property(copy, nonatomic) CDUnknownBlockType sessionInvalidated; // @synthesize sessionInvalidated=_sessionInvalidated;
 @property(nonatomic) long long maximumRequestCount; // @synthesize maximumRequestCount=_maximumRequestCount;
 @property(nonatomic) NSObject<OS_dispatch_queue> *demuxQueue; // @synthesize demuxQueue=_demuxQueue;

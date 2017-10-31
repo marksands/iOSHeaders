@@ -85,7 +85,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)addClient:(id)arg1;
 - (void)flushEventQueue:(struct AudioEventQueue_t *)arg1;
 - (void)processEventQueue:(struct AudioEventQueue_t *)arg1 clientList:(id)arg2;
-- (void)computeHardwarePreferences;
+@property(readonly, nonatomic) NSDictionary *vpOperatingModeToAudioSessionMediaFormatMapping;
 - (void)setOutputMetering;
 - (void)setInputMetering;
 - (void)dealloc;

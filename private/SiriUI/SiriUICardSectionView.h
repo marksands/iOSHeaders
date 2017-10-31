@@ -13,6 +13,7 @@
 @interface SiriUICardSectionView : UIView <CRKCardSectionView>
 {
     UIView<CRKComposableView> *_composedSuperview;
+    NSString *_cardSectionViewIdentifier;
     UIView<SiriUIReusableView> *_headerView;
     UIView *_contentView;
     UIView<SiriUIReusableView> *_footerView;
@@ -28,14 +29,15 @@
 @property(retain, nonatomic) UIView<SiriUIReusableView> *footerView; // @synthesize footerView=_footerView;
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) UIView<SiriUIReusableView> *headerView; // @synthesize headerView=_headerView;
+@property(copy, nonatomic) NSString *cardSectionViewIdentifier; // @synthesize cardSectionViewIdentifier=_cardSectionViewIdentifier;
 @property(nonatomic) __weak UIView<CRKComposableView> *composedSuperview; // @synthesize composedSuperview=_composedSuperview;
 - (void).cxx_destruct;
 - (void)removeFromComposedSuperview;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties
-@property(copy, nonatomic) NSString *cardSectionViewIdentifier;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

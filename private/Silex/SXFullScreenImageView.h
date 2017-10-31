@@ -11,10 +11,10 @@
 
 @class NSString, SXImageView, UIActivityIndicatorView, UIScrollView, UITapGestureRecognizer;
 
-@interface SXFullScreenImageView : UIView <UIGestureRecognizerDelegate, UIScrollViewDelegate>
+@interface SXFullscreenImageView : UIView <UIGestureRecognizerDelegate, UIScrollViewDelegate>
 {
     _Bool _isZooming;
-    id <SXFullScreenImageViewDelegate> _delegate;
+    id <SXFullscreenImageViewDelegate> _delegate;
     SXImageView *_contentView;
     UIScrollView *_scrollView;
     UITapGestureRecognizer *_doubleTapGestureRecognizer;
@@ -36,7 +36,7 @@
 @property(retain, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(nonatomic) struct CGRect contentViewFrame; // @synthesize contentViewFrame=_contentViewFrame;
 @property(retain, nonatomic) SXImageView *contentView; // @synthesize contentView=_contentView;
-@property(nonatomic) __weak id <SXFullScreenImageViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <SXFullscreenImageViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)scrollViewDidZoom:(id)arg1;
 - (id)viewForZoomingInScrollView:(id)arg1;

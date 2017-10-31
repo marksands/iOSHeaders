@@ -116,12 +116,12 @@ __attribute__((visibility("hidden")))
     NSString *_watchExtensionBundleIdentifier;
     unsigned long long _forcedNetworkServiceType;
     NSDictionary *_overriddenDelegateOptions;
-    NSArray *_suppressedHTTPHeaders;
+    NSSet *_suppressedAutoAddedHTTPHeaders;
 }
 
 + (_Bool)supportsSecureCoding;
-- (void)set_suppressedHTTPHeaders:(id)arg1;
-- (id)_suppressedHTTPHeaders;
+- (void)set_suppressedAutoAddedHTTPHeaders:(id)arg1;
+- (id)_suppressedAutoAddedHTTPHeaders;
 - (void)set_overriddenDelegateOptions:(id)arg1;
 - (id)_overriddenDelegateOptions;
 - (void)set_forcedNetworkServiceType:(unsigned long long)arg1;

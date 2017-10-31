@@ -15,8 +15,10 @@
     UIImage *_uiImage;
     double _cornerRadius;
     struct CGSize _size;
+    struct CGSize _forcedSize;
 }
 
+@property struct CGSize forcedSize; // @synthesize forcedSize=_forcedSize;
 @property double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property _Bool shouldCropToCircle; // @synthesize shouldCropToCircle=_shouldCropToCircle;
 @property _Bool isTemplate; // @synthesize isTemplate=_isTemplate;

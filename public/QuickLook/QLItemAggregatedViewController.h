@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)preferredContentSize;
 - (id)printer;
 - (long long)preferredWhitePointAdaptivityStyle;
+- (_Bool)automaticallyUpdateScrollViewIndicatorInset;
 - (_Bool)automaticallyUpdateScrollViewContentInset;
 - (_Bool)automaticallyUpdateScrollViewContentOffset;
 - (void)performFirstTimeAppearanceActions:(unsigned long long)arg1;

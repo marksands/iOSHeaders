@@ -13,6 +13,7 @@
 @interface NTSectionConfigSectionDescriptor : NSObject <NTSectionDescriptor>
 {
     _Bool _displaysAsVideoPlaylist;
+    _Bool _useNameColorInWidget;
     _Bool _videoPlaysMutedByDefault;
     int _readArticlesFilterMethod;
     int _seenArticlesFilterMethod;
@@ -34,16 +35,21 @@
     NSString *_discoverMoreVideosSubtitle;
     NSURL *_discoverMoreVideosURL;
     NSString *_backgroundGradientColor;
+    NSString *_actionTitle;
+    NSURL *_actionURL;
     NSObject<NTSectionFetchDescriptor> *_fetchDescriptor;
 }
 
 @property(copy, nonatomic) NSObject<NTSectionFetchDescriptor> *fetchDescriptor; // @synthesize fetchDescriptor=_fetchDescriptor;
+@property(readonly, copy, nonatomic) NSURL *actionURL; // @synthesize actionURL=_actionURL;
+@property(readonly, copy, nonatomic) NSString *actionTitle; // @synthesize actionTitle=_actionTitle;
 @property(readonly, nonatomic) _Bool videoPlaysMutedByDefault; // @synthesize videoPlaysMutedByDefault=_videoPlaysMutedByDefault;
 @property(readonly, nonatomic) int leadingCellPromotionPolicy; // @synthesize leadingCellPromotionPolicy=_leadingCellPromotionPolicy;
 @property(readonly, copy, nonatomic) NSString *backgroundGradientColor; // @synthesize backgroundGradientColor=_backgroundGradientColor;
 @property(readonly, copy, nonatomic) NSURL *discoverMoreVideosURL; // @synthesize discoverMoreVideosURL=_discoverMoreVideosURL;
 @property(readonly, copy, nonatomic) NSString *discoverMoreVideosSubtitle; // @synthesize discoverMoreVideosSubtitle=_discoverMoreVideosSubtitle;
 @property(readonly, copy, nonatomic) NSString *discoverMoreVideosTitle; // @synthesize discoverMoreVideosTitle=_discoverMoreVideosTitle;
+@property(readonly, nonatomic) _Bool useNameColorInWidget; // @synthesize useNameColorInWidget=_useNameColorInWidget;
 @property(readonly, nonatomic) _Bool displaysAsVideoPlaylist; // @synthesize displaysAsVideoPlaylist=_displaysAsVideoPlaylist;
 @property(readonly, nonatomic) long long supplementalIntraSectionFilterOptions; // @synthesize supplementalIntraSectionFilterOptions=_supplementalIntraSectionFilterOptions;
 @property(readonly, nonatomic) long long supplementalInterSectionFilterOptions; // @synthesize supplementalInterSectionFilterOptions=_supplementalInterSectionFilterOptions;
@@ -64,7 +70,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)incrementalLimitTransformationWithFeedPersonalizer:(id)arg1 limit:(unsigned long long)arg2 priorFeedItems:(id)arg3;
 - (id)incrementalSortTransformationWithFeedPersonalizer:(id)arg1;
-- (id)extractResultsFromCatchUpOperation:(id)arg1;
+- (id)assembleResultsWithCatchUpOperation:(id)arg1;
 - (void)configureCatchUpOperationWithFetchRequest:(id)arg1;
 - (id)initWithSectionConfig:(id)arg1 appConfiguration:(id)arg2 todayData:(id)arg3 supplementalFeedFilterOptions:(long long)arg4;
 - (id)init;

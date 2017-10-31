@@ -16,8 +16,10 @@ __attribute__((visibility("hidden")))
     double _lastResumeTime;
     double _lastPauseTime;
     double _runTime;
+    int _state;
 }
 
+@property int state; // @synthesize state=_state;
 - (void)setCancelCallbacks:(CDUnknownBlockType)arg1;
 - (void)resumeCallbacksForTimer;
 - (void)suspendCallbacksForTimer;

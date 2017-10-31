@@ -18,8 +18,8 @@
 - (void).cxx_destruct;
 - (void)_reportFolderItemSyncSuccess:(_Bool)arg1 forFolderWithID:(id)arg2 withItemsCount:(unsigned long long)arg3;
 - (id)mailboxes;
-- (int)performMailboxRequest:(id)arg1 mailbox:(id)arg2 previousTag:(id)arg3 consumer:(id)arg4;
-- (int)performMailboxRequests:(id)arg1 mailbox:(id)arg2 previousTag:(id)arg3 consumer:(id)arg4;
+- (int)performMailboxRequest:(id)arg1 mailbox:(id)arg2 previousTag:(id)arg3 clientWinsOnSyncConflict:(_Bool)arg4 consumer:(id)arg5;
+- (int)performMailboxRequests:(id)arg1 mailbox:(id)arg2 previousTag:(id)arg3 clientWinsOnSyncConflict:(_Bool)arg4 consumer:(id)arg5;
 - (id)_copySetFlagsActionForRequest:(id)arg1;
 - (void)performFolderChange:(id)arg1;
 - (int)performResolveRecipientsRequest:(id)arg1 consumer:(id)arg2;

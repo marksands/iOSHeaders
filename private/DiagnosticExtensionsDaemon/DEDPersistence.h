@@ -23,6 +23,7 @@
 - (void)removeBugSession:(id)arg1;
 - (void)updateBugSession:(id)arg1;
 - (id)loadSavedBugSessions;
+- (id)loadSavedSessionsFromPlist:(id)arg1;
 - (id)init;
 
 @end

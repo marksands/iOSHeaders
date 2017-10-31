@@ -6,15 +6,25 @@
 
 #import "PSListController.h"
 
+@class NSString;
+
 @interface PSUISiriContentRestrictionsController : PSListController
 {
+    NSString *_cachedCountryCode;
 }
 
+- (void).cxx_destruct;
 - (id)featureValue:(id)arg1;
 - (void)setFeatureValue:(id)arg1 specifier:(id)arg2;
 - (id)reversedBoolFeatureValue:(id)arg1;
 - (void)setReversedBoolFeatureValue:(id)arg1 specifier:(id)arg2;
 - (id)specifiers;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)dealloc;
+- (void)_continueInitialization;
+- (void)_updateCountryCodeOnMainThread;
+- (void)_countryCodeDidChange:(id)arg1;
 
 @end
 

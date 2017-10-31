@@ -11,8 +11,9 @@
 }
 
 + (id)sharedStoreArtworkDataSource;
+- (id)_bestLookupItemArtworkForCatalog:(id)arg1 size:(struct CGSize)arg2;
 - (id)_bestURLForCatalog:(id)arg1 size:(struct CGSize)arg2;
-- (void)getExportableArtworkURLForCatalog:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)getExportableArtworkPropertiesForCatalog:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)wantsBackgroundImageDecompression;
 - (id)supportedSizesForCatalog:(id)arg1;
 - (id)sortedSupportedSizesForCatalog:(id)arg1;

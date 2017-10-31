@@ -64,6 +64,7 @@ __attribute__((visibility("hidden")))
 - (void)alreadylocked_updateObservingRemoteChanges;
 - (void)removePreferencesObserver:(id)arg1;
 - (void)alreadylocked_removePreferencesObserver:(id)arg1;
+- (void)forEachObserver:(CDUnknownBlockType)arg1;
 - (void)addPreferencesObserver:(id)arg1;
 - (void)alreadylocked_addPreferencesObserver:(id)arg1;
 - (id)initWithContainingPreferences:(id)arg1;

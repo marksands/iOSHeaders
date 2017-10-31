@@ -39,6 +39,7 @@
 - (void)pauseCurrentSession;
 - (void)disconnectHealthServiceSession;
 - (void)deliverFinalValues:(CDUnknownBlockType)arg1;
+- (void)sendInitialValues;
 - (void)connectToHealthServiceSession:(unsigned long long)arg1;
 @property(readonly, nonatomic) HDHealthServiceManager *healthServiceManager;
 - (void)dealloc;

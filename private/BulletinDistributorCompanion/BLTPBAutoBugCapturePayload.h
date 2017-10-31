@@ -8,19 +8,16 @@
 
 #import "NSCopying.h"
 
-@class BLTPBAutoBugCapturePayloadSendFail;
+@class BLTPBAutoBugCapturePayloadSectionInfoDoesNotExist, BLTPBAutoBugCapturePayloadSendFail;
 
 @interface BLTPBAutoBugCapturePayload : PBCodable <NSCopying>
 {
-    int _eventType;
+    BLTPBAutoBugCapturePayloadSectionInfoDoesNotExist *_sectionInfoDoesNotExist;
     BLTPBAutoBugCapturePayloadSendFail *_sendFailInfo;
-    struct {
-        unsigned int eventType:1;
-    } _has;
 }
 
+@property(retain, nonatomic) BLTPBAutoBugCapturePayloadSectionInfoDoesNotExist *sectionInfoDoesNotExist; // @synthesize sectionInfoDoesNotExist=_sectionInfoDoesNotExist;
 @property(retain, nonatomic) BLTPBAutoBugCapturePayloadSendFail *sendFailInfo; // @synthesize sendFailInfo=_sendFailInfo;
-@property(nonatomic) int eventType; // @synthesize eventType=_eventType;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -31,8 +28,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasSectionInfoDoesNotExist;
 @property(readonly, nonatomic) _Bool hasSendFailInfo;
-@property(nonatomic) _Bool hasEventType;
 
 @end
 

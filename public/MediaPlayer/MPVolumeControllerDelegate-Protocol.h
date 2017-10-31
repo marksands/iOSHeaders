@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
-@class MPVolumeController;
+@class MPVolumeController, NSString;
 
 @protocol MPVolumeControllerDelegate <NSObject>
 
 @optional
 - (void)volumeController:(MPVolumeController *)arg1 EUVolumeLimitEnforcedDidChange:(_Bool)arg2;
 - (void)volumeController:(MPVolumeController *)arg1 EUVolumeLimitDidChange:(float)arg2;
-- (void)volumeController:(MPVolumeController *)arg1 mutedStateDidChange:(_Bool)arg2;
 - (void)volumeController:(MPVolumeController *)arg1 volumeWarningStateDidChange:(long long)arg2;
+- (void)volumeController:(MPVolumeController *)arg1 mutedStateDidChange:(_Bool)arg2;
 - (void)volumeController:(MPVolumeController *)arg1 volumeValueDidChange:(float)arg2;
+- (void)volumeController:(MPVolumeController *)arg1 volumeControlLabelDidChange:(NSString *)arg2;
+- (void)volumeController:(MPVolumeController *)arg1 volumeControlAvailableDidChange:(_Bool)arg2;
 @end
 

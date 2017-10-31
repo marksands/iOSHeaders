@@ -31,6 +31,7 @@
 + (id)supportedConstraintClasses;
 + (id)supportedValueClasses;
 + (id)logCategory;
++ (id)shortDescription;
 @property(retain, nonatomic) _HMContext *context; // @synthesize context=_context;
 @property(retain, nonatomic) HMAccessorySettings *accessorySettings; // @synthesize accessorySettings=_accessorySettings;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
@@ -51,6 +52,8 @@
 - (void)updateValue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handleUpdatedValue:(id)arg1;
 @property(copy) id <NSCopying><NSSecureCoding> value; // @synthesize value=_value;
+- (void)updateConstraints:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)replaceConstraints:(id)arg1 withConstraints:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)removeConstraint:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handleRemovedConstraint:(id)arg1;
 - (void)notifyDelegateOfRemovedConstraint:(id)arg1;
@@ -60,18 +63,21 @@
 - (void)notifyDelegateOfAddedConstraint:(id)arg1;
 - (void)addConstraint:(id)arg1;
 - (id)constraintWithType:(long long)arg1;
+- (void)setConstraints:(id)arg1;
 @property(readonly, copy) NSArray *constraints;
 - (void)_registerNotificationHandlers;
 - (void)configureWithAccessorySettings:(id)arg1 context:(id)arg2;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue;
+@property(readonly, copy) NSString *description;
+@property(readonly, copy) NSString *debugDescription;
+- (id)descriptionWithPointer:(_Bool)arg1;
+- (id)shortDescription;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (void)dealloc;
 - (id)initWithType:(long long)arg1 properties:(unsigned long long)arg2 name:(id)arg3 constraints:(id)arg4;
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) Class superclass;
 
 @end

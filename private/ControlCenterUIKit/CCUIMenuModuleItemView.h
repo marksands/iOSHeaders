@@ -28,7 +28,7 @@
 @property(readonly, copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
 - (void).cxx_destruct;
 - (void)_updateForStateChange;
-- (struct UIEdgeInsets)_labelInsets;
+- (struct NSDirectionalEdgeInsets)_labelInsets;
 - (double)_glyphMargin;
 - (double)_titleBaselineToBottom;
 - (double)_titleBaselineToTop;

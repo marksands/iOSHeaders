@@ -66,6 +66,7 @@
     id _duetContextRegistration;
     _Bool _powerOptimizationsForExpensiveNetworkingDisabled;
     CUTWeakReference *_weakConnectionManager;
+    double _nonCellularEarlyFireConstantInterval;
 }
 
 + (_Bool)_isCachedKeepAliveIntervalStillValid:(double)arg1 date:(id)arg2;
@@ -74,6 +75,7 @@
 + (Class)growthAlgorithmClass;
 @property(nonatomic) _Bool powerOptimizationsForExpensiveNetworkingDisabled; // @synthesize powerOptimizationsForExpensiveNetworkingDisabled=_powerOptimizationsForExpensiveNetworkingDisabled;
 @property(nonatomic) _Bool alwaysWantsInterfaceChangeCallbacks; // @synthesize alwaysWantsInterfaceChangeCallbacks=_alwaysWantsInterfaceChangeCallbacks;
+@property(nonatomic) double nonCellularEarlyFireConstantInterval; // @synthesize nonCellularEarlyFireConstantInterval=_nonCellularEarlyFireConstantInterval;
 @property(readonly, nonatomic) int lastProcessedAction; // @synthesize lastProcessedAction=_lastProcessedAction;
 @property(nonatomic) long long interfaceIdentifier; // @synthesize interfaceIdentifier=_interfaceIdentifier;
 @property(nonatomic) double keepAliveGracePeriod; // @synthesize keepAliveGracePeriod=_keepAliveGracePeriod;

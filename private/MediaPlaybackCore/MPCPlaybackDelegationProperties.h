@@ -10,12 +10,13 @@
 #import "NSMutableCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSString, NSTimeZone;
+@class MPCPrivateListeningStateSource, NSString, NSTimeZone;
 
 @interface MPCPlaybackDelegationProperties : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
 {
     NSString *_deviceGUID;
     NSString *_deviceName;
+    MPCPrivateListeningStateSource *_privateListeningStateSource;
     long long _systemReleaseType;
     NSString *_requestUserAgent;
     unsigned long long _storeAccountID;
@@ -26,6 +27,7 @@
 @property(readonly, copy, nonatomic) NSTimeZone *timeZone; // @synthesize timeZone=_timeZone;
 @property(readonly, copy, nonatomic) NSString *requestUserAgent; // @synthesize requestUserAgent=_requestUserAgent;
 @property(readonly, nonatomic) long long systemReleaseType; // @synthesize systemReleaseType=_systemReleaseType;
+@property(readonly, copy, nonatomic) MPCPrivateListeningStateSource *privateListeningStateSource; // @synthesize privateListeningStateSource=_privateListeningStateSource;
 @property(readonly, copy, nonatomic) NSString *deviceName; // @synthesize deviceName=_deviceName;
 @property(readonly, copy, nonatomic) NSString *deviceGUID; // @synthesize deviceGUID=_deviceGUID;
 @property(readonly, nonatomic) unsigned long long storeAccountID; // @synthesize storeAccountID=_storeAccountID;
@@ -35,7 +37,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithStoreAccountID:(unsigned long long)arg1 deviceGUID:(id)arg2;
+- (id)initWithStoreAccountID:(unsigned long long)arg1 deviceGUID:(id)arg2 privateListeningStateSource:(id)arg3;
 
 @end
 

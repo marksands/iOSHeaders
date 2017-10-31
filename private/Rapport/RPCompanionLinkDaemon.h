@@ -8,68 +8,77 @@
 
 #import "NSXPCListenerDelegate.h"
 
-@class CUBluetoothClient, CUBonjourAdvertiser, CUBonjourBrowser, CUPairingManager, CUTCPServer, NSData, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSXPCListener, RPCompanionLinkDevice;
+@class CUBluetoothClient, CUBonjourAdvertiser, CUBonjourBrowser, CUHomeKitManager, CUNetLinkManager, CUPairingManager, CUSystemMonitor, CUTCPServer, CUWiFiManager, NSData, NSObject<OS_dispatch_queue>, NSObject<OS_os_transaction>, NSString, NSXPCListener, RPCompanionLinkConnection, RPCompanionLinkDevice;
 
 @interface RPCompanionLinkDaemon : NSObject <NSXPCListenerDelegate>
 {
+    struct NSMutableDictionary *_activeDevices;
     CUBonjourAdvertiser *_bonjourAdvertiser;
     CUBonjourBrowser *_bonjourBrowser;
-    NSData *_btAdvAddr;
+    NSData *_btAdvAddrData;
+    NSString *_btAdvAddrStr;
     CUBluetoothClient *_btClient;
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
     NSData *_homeKitAuthTag;
+    _Bool _homeKitGettingIdentity;
     NSData *_homeKitIRK;
     NSData *_homeKitLTPK;
+    CUHomeKitManager *_homeKitManager;
     NSData *_homeKitNonce;
+    CUPairingManager *_homeKitPairingManager;
     NSData *_homeKitRotatingID;
     NSData *_homeKitUniqueIDData;
     NSString *_homeKitUniqueIDStr;
-    RPCompanionLinkDevice *_localDevice;
-    NSData *_pairingAltIRK;
-    NSData *_pairingAuthTag;
-    struct NSMutableDictionary *_pairingPeers;
-    CUPairingManager *_pairingMonitor;
+    CUNetLinkManager *_netLinkManager;
+    RPCompanionLinkDevice *_localDeviceInfo;
+    RPCompanionLinkConnection *_personalCnx;
+    unsigned long long _startTicks;
+    unsigned long long _startTicksFull;
+    CUSystemMonitor *_systemMonitor;
     struct NSMutableDictionary *_tcpClientConnections;
     struct NSMutableSet *_tcpServerConnections;
     CUTCPServer *_tcpServer;
+    NSObject<OS_os_transaction> *_osTransaction;
+    struct NSMutableDictionary *_unauthDevices;
+    CUWiFiManager *_wifiManager;
     struct NSMutableSet *_xpcConnections;
     NSXPCListener *_xpcListener;
     unsigned int _xpcLastID;
     _Bool _prefClientEnabled;
-    NSString *_prefDeviceRole;
+    _Bool _prefCommunal;
     unsigned int _prefMaxConnectionCount;
     _Bool _prefServerEnabled;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
-    struct NSMutableDictionary *_activeDevices;
 }
 
-@property(readonly, nonatomic) NSMutableDictionary *activeDevices; // @synthesize activeDevices=_activeDevices;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
 - (void)_xpcConnectionInvalidated:(id)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
-- (id)_uniqueID;
-- (void)_pairingUpdateInfo:(_Bool)arg1;
-- (id)_pairedPeerForBonjourDevice:(id)arg1;
 - (void)_homeKitUpdateInfo:(_Bool)arg1;
 - (id)_homeKitDecryptRotatingIDForBonjourDevice:(id)arg1;
 - (_Bool)_homeKitAuthMatchForBonjourDevice:(id)arg1;
 - (void)_forEachMatchingDestinationID:(id)arg1 handler:(CDUnknownBlockType)arg2;
-- (_Bool)_destinationID:(id)arg1 matchesConnection:(id)arg2;
+- (void)_forEachConnectionWithHandler:(CDUnknownBlockType)arg1;
+- (_Bool)_destinationID:(id)arg1 matchesCnx:(id)arg2;
+- (void)_homeKitSelfAccessoryUpdated;
+- (void)_homeKitSelfAccessoryMediaAccessUpdated;
+- (void)_homeKitSelfAccessoryAppDataUpdated:(id)arg1;
+- (void)_homeKitIdentityUpdated:(id)arg1 error:(id)arg2;
+- (void)_homeKitEnsureStopped;
+- (void)_homeKitEnsureStarted;
 - (void)sendRequestID:(id)arg1 request:(id)arg2 destinationID:(id)arg3 xpcID:(unsigned int)arg4 responseHandler:(CDUnknownBlockType)arg5;
 - (void)sendEventID:(id)arg1 event:(id)arg2 destinationID:(id)arg3 options:(id)arg4 completion:(CDUnknownBlockType)arg5;
-- (void)_receivedRequestID:(id)arg1 request:(id)arg2 responseHandler:(CDUnknownBlockType)arg3;
-- (void)_receivedEventID:(id)arg1 event:(id)arg2;
-- (void)_pairingMonitorPeerChanged:(id)arg1;
-- (void)_pairingMonitorPeerRemoved:(id)arg1;
-- (void)_pairingMonitorPeerAdded:(id)arg1;
-- (void)_pairingMonitorIdentityUpdated:(id)arg1 error:(id)arg2;
-- (void)_pairingMonitorHomeKitIdentityUpdated:(id)arg1 error:(id)arg2;
-- (void)_pairingMonitorEnsureStopped;
-- (void)_pairingMonitorEnsureStarted;
+- (void)_receivedRequestID:(id)arg1 request:(id)arg2 options:(id)arg3 responseHandler:(CDUnknownBlockType)arg4 unauth:(_Bool)arg5;
+- (void)_receivedEventID:(id)arg1 event:(id)arg2 options:(id)arg3 unauth:(_Bool)arg4;
+- (void)_reachabilityEnsureStopped;
+- (void)_reachabilityEnsureStarted;
+- (void)_personalDeviceUpdate;
 - (void)_localDeviceUpdate;
-- (void)_connectionStateChanged:(unsigned int)arg1 connection:(id)arg2;
+- (void)_connectionStateChanged:(unsigned int)arg1 cnx:(id)arg2;
+- (void)_activeDeviceRemoved:(id)arg1 cnx:(id)arg2;
+- (void)_activeDeviceAdded:(id)arg1 cnx:(id)arg2;
 - (void)_serverTCPHandleConnectionEnded:(id)arg1;
 - (void)_serverTCPHandleConnectionStarted:(id)arg1;
 - (void)_serverTCPEnsureStopped;
@@ -81,14 +90,20 @@
 - (void)_serverBonjourEnsureStarted;
 - (void)_serverEnsureStopped;
 - (void)_serverEnsureStarted;
+- (_Bool)_serverShouldRun;
+- (void)_clientConnectionEndedUnauth:(id)arg1 client:(id)arg2 device:(id)arg3 publicID:(id)arg4;
+- (_Bool)_clientConnectionStartUnauth:(id)arg1 client:(id)arg2 publicID:(id)arg3 error:(id *)arg4;
+- (void)_clientBonjourLostUnauthDevice:(id)arg1;
+- (void)_clientBonjourFoundUnauthDevice:(id)arg1;
+- (void)_clientConnectionEnded:(id)arg1 uniqueID:(id)arg2;
 - (void)_clientConnectionStart:(id)arg1 uniqueID:(id)arg2;
-- (void)_clientBonjourChangedDevice:(id)arg1;
 - (void)_clientBonjourLostDevice:(id)arg1;
 - (void)_clientBonjourFoundDevice:(id)arg1;
 - (void)_clientBonjourEnsureStopped;
 - (void)_clientBonjourEnsureStarted;
 - (void)_clientEnsureStopped;
 - (void)_clientEnsureStarted;
+- (void)_updateAssertions;
 - (void)_update;
 - (void)prefsChanged;
 - (void)_invalidated;
@@ -96,12 +111,12 @@
 - (void)invalidate;
 - (void)_activate;
 - (void)activate;
-- (id)detailedDescription;
-@property(readonly, copy) NSString *description;
+- (id)descriptionWithLevel:(int)arg1;
 - (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

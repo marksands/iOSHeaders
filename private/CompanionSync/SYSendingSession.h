@@ -6,7 +6,7 @@
 
 #import <CompanionSync/SYSession.h>
 
-@class NSMutableIndexSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSObject<OS_os_activity>, _SYCountedSemaphore;
+@class NSMutableArray, NSMutableIndexSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSObject<OS_os_activity>, SYMessageStatusRecord, _SYCountedSemaphore;
 
 @interface SYSendingSession : SYSession
 {
@@ -21,6 +21,9 @@
     NSObject<OS_os_activity> *_sessionActivity;
     double _sessionStartTime;
     struct NSMutableDictionary *_batchObjectIDsByBatchIndex;
+    SYMessageStatusRecord *_startMessageID;
+    SYMessageStatusRecord *_endMessageID;
+    NSMutableArray *_batchMessageIDs;
     struct os_unfair_lock_s _flagsLock;
     struct {
         unsigned int state:4;

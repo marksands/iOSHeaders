@@ -17,6 +17,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)computedNameForCategoryType:(id)arg1 inRoom:(id)arg2;
 @property(readonly) HMDMediaProfile *mediaProfile; // @synthesize mediaProfile=_mediaProfile;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
@@ -25,14 +26,23 @@
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (id)transactionWithObjectChangeType:(unsigned long long)arg1;
 - (void)handleUpdatedPassword:(id)arg1;
+- (void)handleUpdatedMinimumUserPriviledge:(long long)arg1;
+- (long long)reachableTransports;
+- (void)setRemotelyReachable:(_Bool)arg1;
+- (void)notifyConnectivityChangedWithReachabilityState:(_Bool)arg1;
 - (void)handleUpdatedAdvertisement:(id)arg1;
 - (void)setAdvertisement:(id)arg1;
 @property(readonly, copy) HMDMediaAccessoryAdvertisement *advertisement; // @synthesize advertisement=_advertisement;
+- (void)handleRoomNameChanged:(id)arg1;
+- (id)name;
 - (void)removeAdvertisement:(id)arg1;
 - (void)addAdvertisement:(id)arg1;
-- (void)configure:(id)arg1 msgDispatcher:(id)arg2 accessoryConfigureGroup:(id)arg3;
+- (void)_registerForMessages;
 - (id)init;
 - (id)initWithTransaction:(id)arg1 home:(id)arg2;
+- (id)assistantObject;
+- (id)_hashRouteID:(id)arg1;
+- (id)url;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

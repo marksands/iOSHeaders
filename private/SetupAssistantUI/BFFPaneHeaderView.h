@@ -21,9 +21,11 @@
     UILabel *_detailTextLabel;
     UILabel *_subLabel;
     double _flexibleHeight;
+    double _customTopPadding;
 }
 
 @property(nonatomic, getter=isTextLabelAlignedByLastBaseline) _Bool textLabelAlignedByLastBaseline; // @synthesize textLabelAlignedByLastBaseline=_textLabelAlignedByLastBaseline;
+@property(nonatomic) double customTopPadding; // @synthesize customTopPadding=_customTopPadding;
 @property(nonatomic) _Bool useMinimumTopPadding; // @synthesize useMinimumTopPadding=_useMinimumTopPadding;
 @property(nonatomic) double flexibleHeight; // @synthesize flexibleHeight=_flexibleHeight;
 @property(readonly, nonatomic) UILabel *subLabel; // @synthesize subLabel=_subLabel;

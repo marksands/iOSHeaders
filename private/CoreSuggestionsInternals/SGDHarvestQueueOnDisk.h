@@ -19,6 +19,7 @@
     SGDHarvestQueueFileReader *_reader;
     long long _idCounter;
     // Error parsing type: AQ, name: _count
+    // Error parsing type: AQ, name: _countHighPriority
     // Error parsing type: AQ, name: _maxQueueItems
     id _lockStateChangeToken;
 }

@@ -8,7 +8,7 @@
 
 #import "NUPage.h"
 
-@class FCArticle, FCAsyncOnceOperation, NSString, NUPageStyle, UIViewController<NUPagable>;
+@class FCArticle, FCAsyncOnceOperation, NSString, NUPageStyle, UIViewController<NUPageable>;
 
 @interface NUArticlePage : NSObject <NUPage>
 {
@@ -19,12 +19,12 @@
     id <NUActivityProvider> _activityProvider;
     FCAsyncOnceOperation *_asyncOnceOperation;
     id <FCOperationCanceling> _asyncOnceCancelHandler;
-    UIViewController<NUPagable> *_articleViewController;
+    UIViewController<NUPageable> *_articleViewController;
     unsigned long long _pageNextAction;
 }
 
 @property(nonatomic) unsigned long long pageNextAction; // @synthesize pageNextAction=_pageNextAction;
-@property(retain, nonatomic) UIViewController<NUPagable> *articleViewController; // @synthesize articleViewController=_articleViewController;
+@property(retain, nonatomic) UIViewController<NUPageable> *articleViewController; // @synthesize articleViewController=_articleViewController;
 @property(retain, nonatomic) id <FCOperationCanceling> asyncOnceCancelHandler; // @synthesize asyncOnceCancelHandler=_asyncOnceCancelHandler;
 @property(retain, nonatomic) FCAsyncOnceOperation *asyncOnceOperation; // @synthesize asyncOnceOperation=_asyncOnceOperation;
 @property(retain, nonatomic) id <NUActivityProvider> activityProvider; // @synthesize activityProvider=_activityProvider;

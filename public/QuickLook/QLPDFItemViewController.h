@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (void)prepareForDrawingPages:(struct _NSRange)arg1 ofSize:(struct CGSize)arg2;
 - (void)numberOfPagesWithSize:(struct CGSize)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)printer;
+- (_Bool)automaticallyUpdateScrollViewIndicatorInset;
 - (_Bool)automaticallyUpdateScrollViewContentInset;
 - (_Bool)automaticallyUpdateScrollViewContentOffset;
 - (void)setAppearance:(id)arg1 animated:(_Bool)arg2;

@@ -4,39 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIView.h"
-
-#import "UIPopoverControllerDelegate.h"
-
-@class NSString, WKContentView;
+#import "NSObject.h"
 
 __attribute__((visibility("hidden")))
-@interface WKAirPlayRoutePicker : UIView <UIPopoverControllerDelegate>
+@interface WKAirPlayRoutePicker : NSObject
 {
-    struct RetainPtr<MPAVRoutingController> _routingController;
-    struct RetainPtr<MPAudioVideoRoutingPopoverController> _popoverController;
-    struct RetainPtr<MPAVRoutingSheet> _actionSheet;
-    WKContentView *_view;
+    struct RetainPtr<MPMediaControlsViewController> _actionSheet;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)show:(_Bool)arg1 fromRect:(struct CGRect)arg2;
-- (void)showAirPlayPickerIPhone:(long long)arg1;
-- (void)showAirPlayPickerIPad:(long long)arg1 fromRect:(struct CGRect)arg2;
-- (void)_dismissAirPlayRoutePickerIPad;
-- (void)_windowDidRotate:(id)arg1;
-- (void)_windowWillRotate:(id)arg1;
-- (void)_presentAirPlayPopoverAnimated:(_Bool)arg1 fromRect:(struct CGRect)arg2;
-- (void)popoverControllerDidDismissPopover:(id)arg1;
+- (void)showFromView:(id)arg1;
 - (void)dealloc;
-- (id)initWithView:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

@@ -4,14 +4,8 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "FLExtensionRemoteInterface.h"
 
-@class FLFollowUpAction, FLFollowUpItem;
-
-@protocol FLExtensionRemoteContextInterface <NSObject>
-- (void)processFollowUpItem:(FLFollowUpItem *)arg1 selectedAction:(FLFollowUpAction *)arg2 completion:(void (^)(_Bool))arg3;
-
-@optional
-- (void)followUpPerformUpdateWithCompletionHandler:(void (^)(unsigned long long))arg1;
+@protocol FLExtensionRemoteContextInterface <FLExtensionRemoteInterface>
 @end
 

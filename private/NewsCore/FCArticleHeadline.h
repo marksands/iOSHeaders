@@ -6,7 +6,7 @@
 
 #import <NewsCore/FCHeadline.h>
 
-@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCHeadlineThumbnail, FCInterestToken, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSObject<FCChannelProviding>, NSString, NSURL, NTPBArticleRecord;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCHeadlineThumbnail, FCInterestToken, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSString, NSURL, NTPBArticleRecord;
 
 @interface FCArticleHeadline : FCHeadline
 {
@@ -16,6 +16,7 @@
     _Bool _isDraft;
     _Bool _featureCandidate;
     _Bool _needsRapidUpdates;
+    _Bool _showMinimalChrome;
     _Bool _paid;
     _Bool _canBePurchased;
     NSString *_versionIdentifier;
@@ -25,11 +26,12 @@
     NSString *_clusterID;
     unsigned long long _contentType;
     NSString *_title;
+    NSString *_titleCompact;
     NSString *_primaryAudience;
     NSDate *_publishDate;
     long long _publisherArticleVersion;
     long long _backendArticleVersion;
-    NSObject<FCChannelProviding> *_sourceChannel;
+    id <FCChannelProviding> _sourceChannel;
     NSString *_sourceName;
     FCHeadlineThumbnail *_thumbnailLQ;
     FCHeadlineThumbnail *_thumbnail;
@@ -77,6 +79,7 @@
 - (void)setPaid:(_Bool)arg1;
 - (_Bool)isPaid;
 - (long long)minimumNewsVersion;
+- (_Bool)showMinimalChrome;
 - (_Bool)needsRapidUpdates;
 - (void)setStoryStyle:(id)arg1;
 - (id)storyStyle;
@@ -134,6 +137,8 @@
 - (void)setPublishDate:(id)arg1;
 - (id)publishDate;
 - (id)primaryAudience;
+- (void)setTitleCompact:(id)arg1;
+- (id)titleCompact;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void)setContentType:(unsigned long long)arg1;
 - (unsigned long long)contentType;
@@ -146,8 +151,10 @@
 - (id)versionIdentifier;
 - (void).cxx_destruct;
 - (id)publisherID;
+- (id)backingArticleRecordData;
 - (id)endOfArticleTopicIDs;
 - (id)contentManifestWithContext:(id)arg1;
+- (id)initWithArticleRecordData:(id)arg1 sourceChannel:(id)arg2 assetManager:(id)arg3;
 - (id)initWithArticleRecord:(id)arg1 articleInterestToken:(id)arg2 sourceChannel:(id)arg3 storyStyleConfigs:(id)arg4 storyTypeTimeout:(long long)arg5 rapidUpdatesTimeout:(long long)arg6 assetManager:(id)arg7;
 - (id)init;
 

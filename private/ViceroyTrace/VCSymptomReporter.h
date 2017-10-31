@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 - (id)symptomNameWithDomain:(id)arg1 subtypeContext:(id)arg2;
 - (int)reportSymptomWithDictionary:(id)arg1;
 - (int)reportSymptomWithType:(id)arg1 subType:(id)arg2 context:(id)arg3;
+- (int)reportQRATKNTokenError;
 - (int)reportIDSDataChannelEventUsageError;
 - (int)reportAUIOTimestampJumped;
 - (int)reportNegativeJitterBufferSize;

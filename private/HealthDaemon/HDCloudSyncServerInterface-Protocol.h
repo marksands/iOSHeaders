@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSNumber, NSProgress, NSString;
+@class NSArray, NSNumber, NSProgress, NSString, NSUUID;
 
 @protocol HDCloudSyncServerInterface <NSObject>
-- (NSProgress *)remote_waitOnHealthCloudSyncWithCompletion:(void (^)(long long, NSError *))arg1;
+- (NSProgress *)remote_waitOnHealthCloudSyncWithUUID:(NSUUID *)arg1 completion:(void (^)(long long, NSError *))arg2;
 - (NSProgress *)retmote_fetchCloudSyncProgressWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (NSProgress *)remote_disableCloudSyncAndDeleteAllCloudDataWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)remote_fetchCloudSyncStatusWithCompletion:(void (^)(_Bool, NSDate *, NSDate *, _Bool, NSError *))arg1;

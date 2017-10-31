@@ -6,12 +6,14 @@
 
 #import "NSObject.h"
 
+#import "FCJSONEncodableObjectProviding.h"
 #import "FCOperationThrottlerDelegate.h"
 
-@class FCKeyValueStoreClassRegistry, FCMutexLock, NSMutableDictionary, NSString;
+@class FCKeyValueStoreClassRegistry, NFMutexLock, NSDictionary, NSMutableDictionary, NSString;
 
-@interface FCKeyValueStore : NSObject <FCOperationThrottlerDelegate>
+@interface FCKeyValueStore : NSObject <FCOperationThrottlerDelegate, FCJSONEncodableObjectProviding>
 {
+    _Bool _shouldExportJSONSidecar;
     _Bool _needSave;
     NSString *_name;
     unsigned long long _storeSize;
@@ -21,14 +23,22 @@
     unsigned long long _optionsMask;
     FCKeyValueStoreClassRegistry *_classRegistry;
     id <FCKeyValueStoreMigrating> _migrator;
-    FCMutexLock *_writeLock;
+    NFMutexLock *_writeLock;
     id <FCOperationThrottler> _saveThrottler;
+    CDUnknownBlockType _objectHandler;
+    CDUnknownBlockType _arrayObjectHandler;
+    CDUnknownBlockType _dictionaryKeyHandler;
+    CDUnknownBlockType _dictionaryValueHandler;
 }
 
 + (_Bool)shouldDumpToJSON;
 + (id)persistenceQueue;
+@property(copy, nonatomic) CDUnknownBlockType dictionaryValueHandler; // @synthesize dictionaryValueHandler=_dictionaryValueHandler;
+@property(copy, nonatomic) CDUnknownBlockType dictionaryKeyHandler; // @synthesize dictionaryKeyHandler=_dictionaryKeyHandler;
+@property(copy, nonatomic) CDUnknownBlockType arrayObjectHandler; // @synthesize arrayObjectHandler=_arrayObjectHandler;
+@property(copy, nonatomic) CDUnknownBlockType objectHandler; // @synthesize objectHandler=_objectHandler;
 @property(retain, nonatomic) id <FCOperationThrottler> saveThrottler; // @synthesize saveThrottler=_saveThrottler;
-@property(retain, nonatomic) FCMutexLock *writeLock; // @synthesize writeLock=_writeLock;
+@property(retain, nonatomic) NFMutexLock *writeLock; // @synthesize writeLock=_writeLock;
 @property(retain, nonatomic) id <FCKeyValueStoreMigrating> migrator; // @synthesize migrator=_migrator;
 @property(retain, nonatomic) FCKeyValueStoreClassRegistry *classRegistry; // @synthesize classRegistry=_classRegistry;
 @property(nonatomic) unsigned long long optionsMask; // @synthesize optionsMask=_optionsMask;
@@ -38,8 +48,15 @@
 @property(retain, nonatomic) NSMutableDictionary *objectsByKey; // @synthesize objectsByKey=_objectsByKey;
 @property(nonatomic) unsigned long long storeSize; // @synthesize storeSize=_storeSize;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(nonatomic) _Bool shouldExportJSONSidecar; // @synthesize shouldExportJSONSidecar=_shouldExportJSONSidecar;
 - (void).cxx_destruct;
+- (id)fc_jsonString;
+- (id)fc_jsonStringWithDictionary:(id)arg1;
+- (id)fc_jsonEncodableDictionary;
+- (id)fc_jsonEncodableDictionaryWithDictionary:(id)arg1;
+- (id)jsonEncodableObject;
 - (void)setOptionBackupEnabled:(_Bool)arg1;
+- (_Bool)_persistOnlyInMemoryEnabled;
 - (_Bool)_isBackupEnabled;
 - (_Bool)_shouldMigrateOnUpgrade;
 - (void)_clearStore;
@@ -47,10 +64,13 @@
 - (void)_queueSave;
 - (void)_logCacheStatus;
 - (void)_saveAsyncWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)_maybeSaveJSONRepresentationOfDictionary:(id)arg1;
+- (void)_maybeSaveJSONRepresentationWithDictionary:(id)arg1;
 - (id)_loadFromDisk;
+- (id)_dictionary;
 - (void)operationThrottler:(id)arg1 performAsyncOperationWithCompletion:(CDUnknownBlockType)arg2;
+- (void)setJSONEncodingHandlersWithObjectHandler:(CDUnknownBlockType)arg1 arrayObjectHandler:(CDUnknownBlockType)arg2 dictionaryKeyHandler:(CDUnknownBlockType)arg3 dictionaryValueHandler:(CDUnknownBlockType)arg4;
 - (void)saveWithCompletionHandler:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) NSDictionary *asDictionary;
 - (void)addAllEntriesToDictionary:(id)arg1;
 - (id)allKeys;
 - (_Bool)boolValueForKey:(id)arg1;

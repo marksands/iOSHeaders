@@ -23,7 +23,9 @@
 - (void)stop;
 - (void)start;
 - (void)dealloc;
+- (id)initWithMode:(long long)arg1 error:(id *)arg2 streamToken:(long long)arg3;
 - (id)initWithMode:(long long)arg1 error:(id *)arg2;
+- (id)initWithStreamToken:(long long)arg1 error:(id *)arg2;
 
 @end
 

@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     BRCDirectoryItem *_directoryItem;
     BRCTreeEnumerator *_treeEnumerator;
     NSMutableSet *_trackedDocIDs;
+    NSSet *_docIDsToCancel;
     NSMutableArray *_callbacks;
     NSError *_lastDownloadError;
     _Bool _isStillEnumeratingDirectory;

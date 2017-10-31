@@ -67,6 +67,8 @@
 - (void)_disableConstraints;
 - (void)_configurePaletteConstraintsForBoundary;
 - (void)_updateBackgroundConstraintsIfNecessary;
+- (void)_propagateBackgroundToContents;
+- (_Bool)_shouldUpdateBackground;
 - (void)_updateLayoutForCurrentConfiguration;
 - (void)_configureConstraintsForBackground:(id)arg1;
 - (_Bool)paletteIsHidden;

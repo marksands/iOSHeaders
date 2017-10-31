@@ -11,6 +11,7 @@
 @protocol AXUIAlertDelegate <NSObject>
 
 @optional
+- (void)alertWithIdentifierWasActivated:(NSString *)arg1;
 - (void)alertWithIdentifierDidDisappear:(NSString *)arg1;
 - (void)alertWithIdentifierDidAppear:(NSString *)arg1;
 - (id <AXUIAlertStyleProvider>)styleProviderForAlertWithIdentifier:(NSString *)arg1;

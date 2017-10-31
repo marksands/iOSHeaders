@@ -19,7 +19,7 @@
 - (void).cxx_destruct;
 - (void)setGlyphColor:(id)arg1;
 - (double)animationDuration;
-- (void)animateWithDelay:(double)arg1 completionDelay:(double)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)animateWithBeginTime:(double)arg1 completionDelay:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (long long)acknowledgmentType;
 
 @end

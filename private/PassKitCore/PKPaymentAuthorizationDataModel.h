@@ -23,7 +23,7 @@
     NSMutableDictionary *_remoteDeviceToAcceptedInstruments;
     NSArray *_allRemoteDevices;
     NSMutableDictionary *_statusForPass;
-    PKPaymentPass *_paymentPassForErrors;
+    NSString *_paymentApplicationIdentifierForErrors;
     NSArray *_clientErrors;
     _Bool _shippingEditable;
     PKPaymentPass *_pass;
@@ -111,7 +111,6 @@
 @property(retain, nonatomic) PKRemoteDevice *remoteDevice; // @synthesize remoteDevice=_remoteDevice;
 @property(readonly, nonatomic) NSArray *allNearbyRemoteDevices;
 @property(readonly, nonatomic) NSArray *remoteDevices;
-- (void)updatePass:(id)arg1;
 - (void)setPass:(id)arg1 paymentApplication:(id)arg2;
 @property(retain, nonatomic) PKPaymentPass *pass; // @synthesize pass=_pass;
 - (_Bool)isValidWithError:(id *)arg1;
@@ -138,6 +137,7 @@
 @property(readonly, nonatomic) NSString *currencyCode;
 @property(readonly, nonatomic) NSString *merchantName;
 - (void)setShippingAddressErrors:(id)arg1;
+- (void)updateBillingErrors;
 - (_Bool)shouldUpdateContactDataItem;
 - (id)initWithMode:(long long)arg1;
 - (id)init;

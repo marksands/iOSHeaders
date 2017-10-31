@@ -28,6 +28,7 @@
     double _invalidatationTimestamp;
     NSMutableDictionary *_coelscingTransactionPackets;
     NSMutableArray *_transactionSources;
+    NSMutableDictionary *_cachedContentItemUpdates;
     MRPlaybackQueuePlayerClient *_playbackQueueClient;
     MRNowPlayingPlayerClientCallbacks *_clientCallbacks;
 }
@@ -35,8 +36,14 @@
 @property(readonly, nonatomic) MRNowPlayingPlayerClientCallbacks *clientCallbacks; // @synthesize clientCallbacks=_clientCallbacks;
 @property(readonly, nonatomic) MRPlaybackQueuePlayerClient *playbackQueueClient; // @synthesize playbackQueueClient=_playbackQueueClient;
 @property(readonly, nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
+- (void)registerCallbacks;
 - (id)description;
 - (void)contentItemsUpdatedNotification:(id)arg1;
+- (void)updatePlaybackQueueWithCachedUpdates:(void *)arg1 forPendingRequest:(void *)arg2;
+- (void)clearCachedContentItemArtworkForItems:(struct __CFArray *)arg1;
+- (void)cacheContentItemUpdates:(struct __CFArray *)arg1;
+- (void)startCachingContentItemUpdatesForItem:(void *)arg1 forPendingRequest:(void *)arg2;
+- (void)addPendingRequest:(void *)arg1;
 - (void)transactionDidEnd:(id)arg1;
 - (void)_onQueue_sendTransaction:(unsigned long long)arg1 withPackets:(id)arg2;
 - (void)sendTransaction:(unsigned long long)arg1 withPackets:(id)arg2;

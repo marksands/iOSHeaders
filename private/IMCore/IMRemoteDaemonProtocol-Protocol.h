@@ -80,6 +80,7 @@
 - (void)requestVCWithPerson:(NSString *)arg1 properties:(NSDictionary *)arg2 conference:(NSString *)arg3 account:(NSString *)arg4;
 - (void)sendCommand:(NSNumber *)arg1 withProperties:(NSDictionary *)arg2 toPerson:(NSString *)arg3 account:(NSString *)arg4 toChatID:(NSString *)arg5 identifier:(NSString *)arg6 style:(unsigned char)arg7;
 - (void)sendCommand:(NSNumber *)arg1 withProperties:(NSDictionary *)arg2 toPerson:(NSString *)arg3 account:(NSString *)arg4;
+- (void)sendNotificationMessageToUniqueID:(NSString *)arg1 withCommand:(long long)arg2;
 - (void)passwordUpdatedAccount:(NSString *)arg1;
 - (void)setBlockIdleStatus:(_Bool)arg1 account:(NSString *)arg2;
 - (void)setBlockList:(NSArray *)arg1 account:(NSString *)arg2;
@@ -146,6 +147,7 @@
 - (void)markPlayedForMessageGUID:(NSString *)arg1;
 - (void)storeItem:(IMItem *)arg1 inChatGUID:(NSString *)arg2;
 - (void)markReadForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 messages:(NSArray *)arg4 clientUnreadCount:(unsigned long long)arg5;
+- (void)markReadForMessageGUID:(NSString *)arg1 callerOrigin:(long long)arg2;
 - (void)markReadForMessageGUID:(NSString *)arg1;
 - (void)updateMessage:(IMMessageItem *)arg1;
 - (void)markAsSpamForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 chatID:(NSString *)arg4 queryID:(NSString *)arg5 autoReport:(_Bool)arg6;

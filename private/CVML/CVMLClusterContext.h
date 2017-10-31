@@ -20,6 +20,7 @@
     NSString *_clusterMethod;
 }
 
++ (id)clustererModelFileNamesFromState:(id)arg1 storedInPath:(id)arg2 error:(id *)arg3;
 @property(readonly) _Bool useClusterObservation; // @synthesize useClusterObservation=_useClusterObservation;
 @property(readonly) NSString *clusterMethod; // @synthesize clusterMethod=_clusterMethod;
 @property(retain) CVMLSimilarityMatrix *matrix; // @synthesize matrix=_matrix;

@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "HUQuickControlPresentableView.h"
+#import "NSObject.h"
 
 @class HUQuickControlViewProfile;
 
-@protocol HUQuickControlControllableView <HUQuickControlPresentableView>
+@protocol HUQuickControlControllableView <NSObject>
 @property(copy, nonatomic) HUQuickControlViewProfile *profile;
 @property(retain, nonatomic) id value;
 - (id)initWithProfile:(HUQuickControlViewProfile *)arg1;

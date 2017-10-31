@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isOld;
 - (void)_acknowledgeWithSuccess:(_Bool)arg1;
 - (void)acknowledgeWithSuccess:(_Bool)arg1;
+- (double)fractionCompleted;
 - (void)resume;
 - (void)prioritize;
 - (void)pause;
@@ -42,7 +43,8 @@ __attribute__((visibility("hidden")))
 - (void)setTotalUnitCount:(long long)arg1;
 - (void)resignCurrent;
 - (void)becomeCurrentWithPendingUnitCount:(long long)arg1;
-- (void)_setRemoteValue:(id)arg1 forKey:(id)arg2 inUserInfo:(_Bool)arg3;
+- (void)_setRemoteValues:(id)arg1 forKeys:(id)arg2;
+- (void)_setRemoteUserInfoValue:(id)arg1 forKey:(id)arg2;
 - (void)_invokeUnpublishingHandler;
 - (void)_invokePublishingHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;

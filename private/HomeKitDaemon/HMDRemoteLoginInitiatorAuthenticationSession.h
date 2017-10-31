@@ -19,7 +19,7 @@
 - (void).cxx_destruct;
 - (id)description;
 - (void)dealloc;
-- (id)initWithSessionID:(id)arg1 remoteAuthentication:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)initWithSessionID:(id)arg1 remoteAuthentication:(id)arg2 completion:(CDUnknownBlockType)arg3 home:(id)arg4;
 
 @end
 

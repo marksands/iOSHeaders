@@ -28,6 +28,7 @@
 @property(retain, nonatomic) id <BLTSectionInfoListProvider> overrideProvider; // @synthesize overrideProvider=_overrideProvider;
 @property(nonatomic) __weak id <BLTSectionInfoListDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)reloadBBSection:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_migrateFromExternalDeviceSwitchToOverrides:(id)arg1;
 - (id)sectionOverrideOnlyForSectionID:(id)arg1;
 - (id)sectionOverridesOnly;

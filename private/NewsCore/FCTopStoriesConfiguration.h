@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
+
 @class NSDictionary, NSString, NTPBTopStoriesConfig;
 
-@interface FCTopStoriesConfiguration : NSObject
+@interface FCTopStoriesConfiguration : NSObject <NSCopying>
 {
     NTPBTopStoriesConfig *_pbConfig;
     _Bool _pinningEnabled;
@@ -28,6 +30,7 @@
 @property(readonly, nonatomic, getter=isPromotingEnabled) _Bool promotingEnabled; // @synthesize promotingEnabled=_promotingEnabled;
 @property(readonly, nonatomic, getter=isPinningEnabled) _Bool pinningEnabled; // @synthesize pinningEnabled=_pinningEnabled;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithPBTopStoriesConfig:(id)arg1;

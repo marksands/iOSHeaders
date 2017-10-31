@@ -29,6 +29,7 @@
     _Bool _wiFiEmergencyCallingSupported;
     _Bool _voLTECallingCurrentlyAvailable;
     _Bool _accountsMatchForSecondaryCalling;
+    _Bool _accountsSupportSecondaryCalling;
     _Bool _supportsThumperCalling;
     _Bool _thumperCallingCurrentlyAvailable;
     _Bool _thumperCallingAllowedForCurrentDevice;
@@ -75,6 +76,7 @@
 @property(nonatomic, getter=isThumperCallingAllowedForCurrentDevice) _Bool thumperCallingAllowedForCurrentDevice; // @synthesize thumperCallingAllowedForCurrentDevice=_thumperCallingAllowedForCurrentDevice;
 @property(nonatomic, getter=isThumperCallingCurrentlyAvailable) _Bool thumperCallingCurrentlyAvailable; // @synthesize thumperCallingCurrentlyAvailable=_thumperCallingCurrentlyAvailable;
 @property(nonatomic) _Bool supportsThumperCalling; // @synthesize supportsThumperCalling=_supportsThumperCalling;
+@property(nonatomic) _Bool accountsSupportSecondaryCalling; // @synthesize accountsSupportSecondaryCalling=_accountsSupportSecondaryCalling;
 @property(nonatomic) _Bool accountsMatchForSecondaryCalling; // @synthesize accountsMatchForSecondaryCalling=_accountsMatchForSecondaryCalling;
 @property(copy, nonatomic) TUCTCapabilityInfo *voLTECallingCapabilityInfo; // @synthesize voLTECallingCapabilityInfo=_voLTECallingCapabilityInfo;
 @property(nonatomic, getter=isVoLTECallingCurrentlyAvailable) _Bool voLTECallingCurrentlyAvailable; // @synthesize voLTECallingCurrentlyAvailable=_voLTECallingCurrentlyAvailable;
@@ -100,7 +102,6 @@
 - (id)publiclyAccessibleCopy;
 - (id)deviceIDForPhoneNumber:(id)arg1;
 @property(readonly, nonatomic) TUCloudCallingDevice *defaultPairedDevice;
-@property(readonly, nonatomic) _Bool accountsSupportSecondaryCalling;
 @property(readonly, copy) NSString *description;
 
 // Remaining properties

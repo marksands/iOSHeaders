@@ -9,6 +9,8 @@
 @protocol CRFeedbackListener <NSObject>
 
 @optional
+- (_Bool)shouldHandleEngagement:(id <CRCardSectionEngagementFeedback>)arg1 forCardSection:(id <CRCardSection>)arg2;
+- (void)cardSectionViewDidInvalidateSizeForCardSection:(id <CRCardSection>)arg1;
 - (void)controllerForCard:(id <CRCard>)arg1 didReceiveAsyncCard:(id <CRCard>)arg2 withAsyncCardReceiptFeedback:(id <CRAsyncCardReceiptFeedback>)arg3;
 - (void)controllerForCard:(id <CRCard>)arg1 didRequestAsyncCard:(id <CRCard>)arg2 withAsyncCardRequestFeedback:(id <CRAsyncCardRequestFeedback>)arg3;
 - (void)cardSectionViewDidDisappearForCardSection:(id <CRCardSection>)arg1 withDisappearanceFeedback:(id <CRCardSectionViewDisappearanceFeedback>)arg2;

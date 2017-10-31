@@ -56,6 +56,8 @@
 - (void)startLeechingVisits;
 - (void)stopMonitoringVisits;
 - (void)startMonitoringVisits;
+- (void)performBluePOIQueryLookingBack:(double)arg1 lookingAhead:(double)arg2 reply:(void (^)(NSArray *, NSArray *, NSArray *, NSError *))arg3;
+- (void)fetchCurrentPredictedLocationsOfInterestLookingBack:(double)arg1 lookingAhead:(double)arg2 reply:(void (^)(NSArray *, NSError *))arg3;
 - (void)fetchPredictedLocationsOfInterestOnDate:(NSDate *)arg1 withReply:(void (^)(NSArray *, NSError *))arg2;
 - (void)fetchPredictedLocationsOfInterestAssociatedToTitle:(NSString *)arg1 location:(NSString *)arg2 calendarIdentifier:(NSString *)arg3 withReply:(void (^)(NSArray *, NSError *))arg4;
 - (void)fetchLocationsOfInterestAssociatedToIdentifier:(NSString *)arg1 withReply:(void (^)(NSArray *, NSError *))arg2;

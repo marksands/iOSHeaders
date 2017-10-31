@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class FIUIBadge, GLKTextureInfo, NSAttributedString, NSDictionary, NSString, UIImage, UIPanGestureRecognizer, UITapGestureRecognizer;
+@class FIUIBadge, GLKTextureInfo, NSAttributedString, NSDictionary, NSString, UIImage, UILongPressGestureRecognizer, UIPanGestureRecognizer, UITapGestureRecognizer;
 
 @interface FIUIBadgeView : HKGLView <UIGestureRecognizerDelegate>
 {
@@ -38,6 +38,7 @@
     double _spinRate;
     UIPanGestureRecognizer *_spinRecognizer;
     UITapGestureRecognizer *_tapRecognizer;
+    UILongPressGestureRecognizer *_longPressRecognizer;
     _Bool _magnetsEngaged;
     union _GLKVector3 _modelBaseColor;
     union _GLKVector3 _modelEnamelColor;
@@ -84,6 +85,8 @@
 - (void)_context_setup;
 - (void)_applyImpulse:(double)arg1;
 - (void)_tapped:(id)arg1;
+- (void)_spin360Degrees;
+- (void)_longPressInternalOnly:(id)arg1;
 - (void)_panned:(id)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)_forEachProgram:(CDUnknownBlockType)arg1;

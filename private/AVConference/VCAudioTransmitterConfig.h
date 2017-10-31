@@ -20,14 +20,17 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_audioPayloads;
     VCAudioPayload *_chosenAudioPayload;
     VCAudioPayload *_chosenDTXPayload;
-    int _chosenRedPayloadType;
     unsigned char _packetsPerBundle;
     _Bool _useAFRC;
     int _bundlingScheme;
     _Bool _isUseCaseWatchContinuity;
     _Bool _allowAudioSwitching;
     _Bool _supportsAdaptation;
+    int _chosenRedPayloadType;
     _Bool _redEnabled;
+    _Bool _includeRedSequenceOffset;
+    unsigned int _redNumPayloads;
+    unsigned int _redMaxDelay20ms;
     _Bool _transmitROC;
     _Bool _needsPacketThread;
     int _operatingMode;
@@ -41,6 +44,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool ignoreSilence; // @synthesize ignoreSilence=_ignoreSilence;
 @property(nonatomic) _Bool transmitROC; // @synthesize transmitROC=_transmitROC;
 @property(retain, nonatomic) AVCStatisticsCollector *statisticsCollector; // @synthesize statisticsCollector=_statisticsCollector;
+@property(nonatomic) unsigned int redMaxDelay20ms; // @synthesize redMaxDelay20ms=_redMaxDelay20ms;
+@property(nonatomic) unsigned int redNumPayloads; // @synthesize redNumPayloads=_redNumPayloads;
+@property(nonatomic) _Bool includeRedSequenceOffset; // @synthesize includeRedSequenceOffset=_includeRedSequenceOffset;
 @property(nonatomic, getter=isRedEnabled) _Bool redEnabled; // @synthesize redEnabled=_redEnabled;
 @property(retain, nonatomic) VCTransportSession *transportSession; // @synthesize transportSession=_transportSession;
 @property(nonatomic) struct opaqueRTCReporting *reportingAgent; // @synthesize reportingAgent=_reportingAgent;

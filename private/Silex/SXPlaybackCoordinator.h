@@ -26,13 +26,13 @@
     NSHashTable *_observers;
     SXAVPlayer *_player;
     CDUnknownBlockType _cancelHandler;
-    SXKeyValueObserver *_playerItemTracksObserver;
+    SXKeyValueObserver *_playerItemPresentationSizeObserver;
     SXKeyValueObserver *_readyForDisplayObserver;
     struct CGSize _dimensions;
 }
 
 @property(retain, nonatomic) SXKeyValueObserver *readyForDisplayObserver; // @synthesize readyForDisplayObserver=_readyForDisplayObserver;
-@property(retain, nonatomic) SXKeyValueObserver *playerItemTracksObserver; // @synthesize playerItemTracksObserver=_playerItemTracksObserver;
+@property(retain, nonatomic) SXKeyValueObserver *playerItemPresentationSizeObserver; // @synthesize playerItemPresentationSizeObserver=_playerItemPresentationSizeObserver;
 @property(nonatomic) _Bool initiatedPlayback; // @synthesize initiatedPlayback=_initiatedPlayback;
 @property(copy, nonatomic) CDUnknownBlockType cancelHandler; // @synthesize cancelHandler=_cancelHandler;
 @property(retain, nonatomic) SXAVPlayer *player; // @synthesize player=_player;
@@ -48,9 +48,8 @@
 - (void).cxx_destruct;
 - (void)removeReadyForDisplayObserver;
 - (void)addReadyForDisplayObserver;
-- (void)loadVideoDimensions;
-- (void)removePlayerItemTracksObserver;
-- (void)addPlayerItemTracksObserver;
+- (void)removePlayerItemPresentationSizeObserver;
+- (void)addPlayerItemPresentationSizeObserver;
 - (void)updateMediaSelectionOptionAvailability;
 - (void)loadAvailableMediaCharacteristics;
 - (void)muteStateChanged:(_Bool)arg1;

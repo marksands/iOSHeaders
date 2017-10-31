@@ -16,6 +16,8 @@
     long long _storeSagaID;
 }
 
++ (id)MPMediaDownloadsFromATAssets:(id)arg1;
++ (id)MPMediaDownloadsFromMPStoreDownloads:(id)arg1;
 @property long long storeSagaID; // @synthesize storeSagaID=_storeSagaID;
 @property long long libraryID; // @synthesize libraryID=_libraryID;
 @property(nonatomic) double downloadProgress; // @synthesize downloadProgress=_downloadProgress;

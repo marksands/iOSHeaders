@@ -21,10 +21,6 @@
 @property(retain, nonatomic) HMAccessory *accessory; // @synthesize accessory=_accessory;
 - (void).cxx_destruct;
 - (id)serviceLikeBuilderInHome:(id)arg1;
-- (id)controlPanelItems;
-- (id)allControlItems;
-- (id)incrementalStateControlItem;
-- (id)primaryStateControlItem;
 - (id)accessories;
 - (id)services;
 @property(readonly, nonatomic) id <HFHomeKitObject> homeKitObject;

@@ -40,10 +40,10 @@ __attribute__((visibility("hidden")))
 - (void)collectVideoConfigMetrics:(struct __CFDictionary *)arg1;
 - (void)onRtcpEnabledChanged;
 - (void)onRtcpSendIntervalChanged;
-- (void)onResume;
-- (void)onPause;
-- (void)onStop;
-- (void)onStart;
+- (void)onResumeWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)onPauseWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)onStopWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)onStartWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)onConfigureStreamWithConfiguration:(id)arg1 error:(id *)arg2;
 - (void)onCallIDChanged;
 - (id)supportedPayloads;

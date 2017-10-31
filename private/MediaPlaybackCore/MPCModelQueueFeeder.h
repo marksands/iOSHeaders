@@ -31,6 +31,7 @@
     MPModelResponse *_response;
     NSString *_rtcReportingPlayQueueSourceIdentifier;
     MPShuffleController *_shuffleController;
+    NSString *_siriAssetInfo;
     _Bool _isSiriInitiated;
     MPIdentifierSet *_startItemIdentifiers;
     MPCPlaybackRequestEnvironment *_playbackRequestEnvironment;

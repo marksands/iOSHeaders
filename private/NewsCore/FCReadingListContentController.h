@@ -10,7 +10,7 @@
 #import "FCNetworkReachabilityObserving.h"
 #import "FCOperationThrottlerDelegate.h"
 
-@class FCCloudContext, FCKeyedOperationQueue, FCThreadSafeMutableSet, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSOperationQueue, NSSet, NSString;
+@class FCCloudContext, FCKeyedOperationQueue, FCThreadSafeMutableSet, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_group>, NSSet, NSString;
 
 @interface FCReadingListContentController : NSObject <FCKeyedOperationQueueDelegate, FCOperationThrottlerDelegate, FCNetworkReachabilityObserving>
 {
@@ -21,23 +21,19 @@
     NSDictionary *_holdInterestTokensByArticleID;
     FCKeyedOperationQueue *_articleContentDownloadKeyQueue;
     id <FCOperationThrottler> _updateHoldInterestTokensThrottler;
-    NSObject<OS_dispatch_queue> *_updateHoldInterestTokensQueue;
     NSMutableDictionary *_outstandingOperationsByArticleID;
     FCCloudContext *_context;
     NSObject<OS_dispatch_group> *_articleContentDownloadGroup;
     NSMutableSet *_fetchResults;
-    NSOperationQueue *_operationSerialQueue;
     FCThreadSafeMutableSet *_readingListAvailableForOfflineReading;
 }
 
 @property(retain, nonatomic) FCThreadSafeMutableSet *readingListAvailableForOfflineReading; // @synthesize readingListAvailableForOfflineReading=_readingListAvailableForOfflineReading;
-@property(retain, nonatomic) NSOperationQueue *operationSerialQueue; // @synthesize operationSerialQueue=_operationSerialQueue;
 @property(nonatomic) _Bool hasBeenEnabled; // @synthesize hasBeenEnabled=_hasBeenEnabled;
 @property(retain, nonatomic) NSMutableSet *fetchResults; // @synthesize fetchResults=_fetchResults;
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *articleContentDownloadGroup; // @synthesize articleContentDownloadGroup=_articleContentDownloadGroup;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
 @property(retain, nonatomic) NSMutableDictionary *outstandingOperationsByArticleID; // @synthesize outstandingOperationsByArticleID=_outstandingOperationsByArticleID;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *updateHoldInterestTokensQueue; // @synthesize updateHoldInterestTokensQueue=_updateHoldInterestTokensQueue;
 @property(retain, nonatomic) id <FCOperationThrottler> updateHoldInterestTokensThrottler; // @synthesize updateHoldInterestTokensThrottler=_updateHoldInterestTokensThrottler;
 @property(retain, nonatomic) FCKeyedOperationQueue *articleContentDownloadKeyQueue; // @synthesize articleContentDownloadKeyQueue=_articleContentDownloadKeyQueue;
 @property(copy, nonatomic) NSDictionary *holdInterestTokensByArticleID; // @synthesize holdInterestTokensByArticleID=_holdInterestTokensByArticleID;

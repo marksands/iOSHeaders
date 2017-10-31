@@ -11,6 +11,7 @@
 @protocol SFImagesCardSection <SFCardSection>
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+@property(nonatomic) _Bool borderless;
 @property(copy, nonatomic) NSArray *images;
 @property(retain, nonatomic) SFColor *backgroundColor;
 @property(nonatomic) int separatorStyle;

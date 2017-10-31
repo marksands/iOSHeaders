@@ -25,7 +25,7 @@
 - (void)observer:(id)arg1 updateSectionInfo:(id)arg2;
 - (void)_getBBSectionInfoExtendedProperties:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_reloadSectionInfosWithCompletion:(CDUnknownBlockType)arg1;
-- (void)updateSectionInfoBySectionIDs:(id)arg1;
+- (void)updateSectionInfoBySectionIDs:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)reloadWithCompletion:(CDUnknownBlockType)arg1;
 - (void)observer:(id)arg1 noteServerConnectionStateChanged:(_Bool)arg2;
 - (void)_settingsGatewayReconnected:(id)arg1;

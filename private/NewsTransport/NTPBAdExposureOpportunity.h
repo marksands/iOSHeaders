@@ -14,8 +14,10 @@
 {
     long long _adErrorCode;
     NSString *_adCreativeId;
+    int _adCreativeType;
     NSString *_adOpportunityId;
     NSString *_adSlotId;
+    int _adType;
     NSData *_articleViewingSessionId;
     int _durationInFeed;
     int _errorCode;
@@ -31,6 +33,8 @@
     _Bool _isViewable;
     struct {
         unsigned int adErrorCode:1;
+        unsigned int adCreativeType:1;
+        unsigned int adType:1;
         unsigned int durationInFeed:1;
         unsigned int errorCode:1;
         unsigned int exposureLocationType:1;
@@ -66,6 +70,14 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsAdCreativeType:(id)arg1;
+- (id)adCreativeTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasAdCreativeType;
+@property(nonatomic) int adCreativeType; // @synthesize adCreativeType=_adCreativeType;
+- (int)StringAsAdType:(id)arg1;
+- (id)adTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasAdType;
+@property(nonatomic) int adType; // @synthesize adType=_adType;
 @property(nonatomic) _Bool hasAdErrorCode;
 @property(readonly, nonatomic) _Bool hasEventId;
 @property(readonly, nonatomic) _Bool hasAdOpportunityId;

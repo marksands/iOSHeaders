@@ -13,7 +13,7 @@
 - (void)triggerUserRegistryCheck:(NSDictionary *)arg1 withReply:(void (^)(NSError *))arg2;
 - (void)fetchAllDeviceKeys:(NSDictionary *)arg1 withReply:(void (^)(NSString *, NSData *, NSData *, NSArray *, NSError *))arg2;
 - (void)manateeStatus:(NSString *)arg1 complete:(void (^)(unsigned int))arg2;
-- (void)createIdentity:(NSString *)arg1 roll:(_Bool)arg2 complete:(void (^)(NSData *, NSError *))arg3;
+- (void)createIdentity:(NSString *)arg1 roll:(_Bool)arg2 complete:(void (^)(NSData *, PCSMTT *, NSError *))arg3;
 - (void)triggerSyncingWithEscrowProxy:(NSString *)arg1 complete:(void (^)(_Bool, NSError *))arg2;
 - (void)triggerWatchSyncing:(void (^)(void))arg1;
 - (void)triggerDaily:(NSDictionary *)arg1 withReply:(void (^)(NSDictionary *, NSError *))arg2;

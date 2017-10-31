@@ -53,7 +53,7 @@
 - (void)handleExecutionCompleted:(id)arg1 startDate:(id)arg2 error:(id)arg3 readResponse:(id)arg4 response:(id)arg5;
 - (void)_logDuetEvent:(id)arg1 endDate:(id)arg2 message:(id)arg3;
 - (void)_logDuetRoomEvent;
-- (id)_generateOverallError:(id)arg1;
+- (id)_generateOverallError:(id)arg1 forSource:(unsigned long long)arg2;
 - (void)_handleRemoveAppDataModel:(id)arg1 message:(id)arg2;
 - (void)_handleUpdateAppDataModel:(id)arg1 message:(id)arg2;
 - (void)_handleReplaceActionValueRequest:(id)arg1;
@@ -73,6 +73,7 @@
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)containsUnsecuringAction;
 - (_Bool)containsSecureCharacteristic;
 - (_Bool)_fixupActions;
 @property(readonly, nonatomic) NSString *serializedIdentifier;

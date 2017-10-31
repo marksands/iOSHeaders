@@ -9,17 +9,22 @@
 #import "CPLAbstractObject.h"
 #import "CPLBatchExtractionStrategyStorage.h"
 
-@class CPLBatchExtractionStrategy, CPLPlatformObject, NSMutableDictionary, NSString;
+@class CPLBatchExtractionStrategy, CPLPlatformObject, NSDate, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CPLEnginePushRepository : CPLEngineStorage <CPLAbstractObject, CPLBatchExtractionStrategyStorage>
 {
     NSMutableDictionary *_propertiesPerClass;
     CPLBatchExtractionStrategy *_extractionStrategy;
     NSString *_lastStrategyName;
+    NSObject<OS_dispatch_queue> *_uploadRateQueue;
+    NSDate *_lastUploadRateUpdateDate;
+    double _lastApproximativeUploadRate;
 }
 
 - (void).cxx_destruct;
 - (id)status;
+@property(readonly, nonatomic) unsigned long long maximumResourceSizePerBatch;
+- (void)updateApproximativeUploadRate:(double)arg1;
 - (_Bool)removeChange:(id)arg1 error:(id *)arg2;
 - (id)allChanges;
 - (id)allChangesWithClass:(Class)arg1 secondaryIdentifier:(id)arg2;

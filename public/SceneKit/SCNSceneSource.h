@@ -8,14 +8,13 @@
 
 #import "NSKeyedUnarchiverDelegate.h"
 
-@class NSData, NSDictionary, NSOperationQueue, NSString, NSURL;
+@class NSData, NSDictionary, NSString, NSURL;
 
 @interface SCNSceneSource : NSObject <NSKeyedUnarchiverDelegate>
 {
     struct __C3DSceneSource *_sceneSource;
     struct __C3DScene *_lastLoadedScene;
     NSDictionary *_lastOptions;
-    NSOperationQueue *_downloadingQueue;
     _Bool _sceneLoaded;
     NSDictionary *_sceneSourceOptions;
 }

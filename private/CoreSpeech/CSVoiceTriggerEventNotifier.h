@@ -24,6 +24,7 @@
 - (void)_notifySpeakerReject:(id)arg1;
 - (void)_notifyNearMissEvent:(id)arg1;
 - (void)_notifyTriggerEvent:(id)arg1;
+- (id)_createVoiceTriggerEventInfoString:(id)arg1;
 - (void)keywordDetectorDidDetectKeyword;
 - (void)voiceTriggerDidDetectTwoShotAtTime:(double)arg1;
 - (void)voiceTriggerDidDetectSpeakerReject:(id)arg1;
@@ -31,6 +32,7 @@
 - (void)voiceTriggerDidDetectKeyword:(id)arg1;
 - (void)unregisterObserver:(id)arg1;
 - (void)registerObserver:(id)arg1;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

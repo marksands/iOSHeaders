@@ -29,9 +29,15 @@
     SFAirport *_divertedAirport;
     NSString *_title;
     NSString *_baggageClaim;
+    NSDate *_departureGateClosedTime;
+    NSDate *_departureRunwayTime;
+    NSDate *_arrivalRunwayTime;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSDate *arrivalRunwayTime; // @synthesize arrivalRunwayTime=_arrivalRunwayTime;
+@property(copy, nonatomic) NSDate *departureRunwayTime; // @synthesize departureRunwayTime=_departureRunwayTime;
+@property(copy, nonatomic) NSDate *departureGateClosedTime; // @synthesize departureGateClosedTime=_departureGateClosedTime;
 @property(copy, nonatomic) NSString *baggageClaim; // @synthesize baggageClaim=_baggageClaim;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) SFAirport *divertedAirport; // @synthesize divertedAirport=_divertedAirport;

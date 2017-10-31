@@ -8,10 +8,11 @@
 
 #import "NUIContainerGridViewDelegate.h"
 
-@class NSString, NUIContainerGridView, TLKImage, TLKImageView, TLKMultilineText, TLKVibrantLabel;
+@class NSString, NUIContainerGridView, TLKBadgedLabel, TLKImage, TLKImageView, TLKMultilineText, TLKVibrantLabel;
 
 @interface TLKSplitHeaderView : TLKView <NUIContainerGridViewDelegate>
 {
+    _Bool _shouldBadgeSubtitle;
     TLKMultilineText *_title;
     TLKMultilineText *_subtitle1;
     TLKMultilineText *_subtitle2;
@@ -30,13 +31,11 @@
     TLKVibrantLabel *_trailingSubtitleLabel;
     TLKVibrantLabel *_titleLabel;
     TLKVibrantLabel *_subtitle1Label;
-    TLKVibrantLabel *_subtitle2Label;
-    struct CGSize _fittingSize;
+    TLKBadgedLabel *_subtitle2Label;
 }
 
 + (id)footnoteFont;
-@property struct CGSize fittingSize; // @synthesize fittingSize=_fittingSize;
-@property(retain) TLKVibrantLabel *subtitle2Label; // @synthesize subtitle2Label=_subtitle2Label;
+@property(retain) TLKBadgedLabel *subtitle2Label; // @synthesize subtitle2Label=_subtitle2Label;
 @property(retain) TLKVibrantLabel *subtitle1Label; // @synthesize subtitle1Label=_subtitle1Label;
 @property(retain) TLKVibrantLabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain) TLKVibrantLabel *trailingSubtitleLabel; // @synthesize trailingSubtitleLabel=_trailingSubtitleLabel;
@@ -52,6 +51,7 @@
 @property(retain) TLKMultilineText *leadingSubtitle; // @synthesize leadingSubtitle=_leadingSubtitle;
 @property(retain) TLKMultilineText *leadingTitle; // @synthesize leadingTitle=_leadingTitle;
 @property(retain) TLKImage *leadingImage; // @synthesize leadingImage=_leadingImage;
+@property _Bool shouldBadgeSubtitle; // @synthesize shouldBadgeSubtitle=_shouldBadgeSubtitle;
 @property(retain) TLKMultilineText *subtitle2; // @synthesize subtitle2=_subtitle2;
 @property(retain) TLKMultilineText *subtitle1; // @synthesize subtitle1=_subtitle1;
 @property(retain) TLKMultilineText *title; // @synthesize title=_title;
@@ -65,11 +65,6 @@
 - (id)leadingImageInView;
 - (_Bool)secondRowIsHidden;
 - (struct CGSize)containerView:(id)arg1 systemLayoutSizeFittingSize:(struct CGSize)arg2 forArrangedSubview:(id)arg3;
-- (long long)containerGridView:(id)arg1 verticalAlignmentForArrangedSubview:(id)arg2;
-- (long long)containerGridView:(id)arg1 horizontalAlignmentForArrangedSubview:(id)arg2;
-- (void)centerWithView:(id)arg1 forColumn:(unsigned long long)arg2;
-- (void)containerViewDidLayoutArrangedSubviews:(id)arg1;
-- (void)containerView:(id)arg1 willMeasureArrangedSubviewsFittingSize:(struct CGSize)arg2 forReason:(long long)arg3;
 - (void)observedPropertiesChanged;
 - (id)vibrantFootnoteLabel:(_Bool)arg1;
 - (id)thirdRowOfViews;
@@ -78,6 +73,7 @@
 - (id)grid;
 - (void)styleDidChange:(unsigned long long)arg1;
 - (id)observableProperties;
+- (struct UIEdgeInsets)effectiveAlignmentRectInsets;
 - (id)init;
 
 // Remaining properties

@@ -15,14 +15,16 @@
     id <FCContentContext> _contentContext;
     id <NUFontRegistration> _fontRegistration;
     SXHost *_host;
+    id <NUEmbedDataManager> _embedDataManager;
 }
 
+@property(readonly, nonatomic) id <NUEmbedDataManager> embedDataManager; // @synthesize embedDataManager=_embedDataManager;
 @property(readonly, nonatomic) SXHost *host; // @synthesize host=_host;
 @property(readonly, nonatomic) id <NUFontRegistration> fontRegistration; // @synthesize fontRegistration=_fontRegistration;
 @property(readonly, nonatomic) id <FCContentContext> contentContext; // @synthesize contentContext=_contentContext;
 - (void).cxx_destruct;
 - (id)createArticleDataProviderWithArticle:(id)arg1;
-- (id)initWithContentContext:(id)arg1 fontRegistration:(id)arg2 host:(id)arg3;
+- (id)initWithContentContext:(id)arg1 fontRegistration:(id)arg2 host:(id)arg3 embedDataManager:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -17,6 +17,7 @@
     NSDictionary *_clientDefinedTraits;
 }
 
++ (id)_defaultTraitCollection;
 + (id)_emptyTraitCollection;
 + (id)_traitCollectionWithValue:(id)arg1 forTraitNamed:(id)arg2;
 + (id)traitCollectionWithPreferredContentSizeCategory:(id)arg1;

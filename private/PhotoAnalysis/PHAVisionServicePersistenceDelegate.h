@@ -84,10 +84,15 @@
 - (_Bool)persistGeneratedFaceCrops:(id)arg1 error:(id *)arg2;
 - (_Bool)updateFaceprint:(id)arg1 ofPersistedFace:(id)arg2 error:(id *)arg3;
 - (id)faceprintsByFaceLocalIdentifiers:(id)arg1 version:(unsigned int)arg2 error:(id *)arg3;
-- (_Bool)cleanupInconsistentlyClusteredFacesWithCanceler:(id)arg1 error:(id *)arg2;
-- (id)_fetchResultForInconsistentlyClusteredFacesInPhotoLibrary:(id)arg1;
+- (_Bool)cleanupGroupedFacesWithClusterSequenceNumberSetToZeroWithCanceler:(id)arg1 error:(id *)arg2;
+- (_Bool)cleanupUngroupedFacesWithNonZeroClusterSequenceNumbersWithCanceler:(id)arg1 error:(id *)arg2;
+- (_Bool)_resetFaceClusterSequenceNumberOfFacesInFetchResult:(id)arg1 inPhotoLibrary:(id)arg2 canceler:(id)arg3 error:(id *)arg4;
+- (id)_fetchResultForUngroupedFacesWithNonZeroClusterSequenceNumberInPhotoLibrary:(id)arg1;
+- (id)_fetchResultForGroupedFacesWithClusterSequenceNumberSetToZeroInPhotoLibrary:(id)arg1;
 - (_Bool)persistFaces:(id)arg1 deleteFaces:(id)arg2 forAsset:(id)arg3 persistedFaces:(id *)arg4 error:(id *)arg5;
-- (_Bool)unclusterFaces:(id)arg1 canceler:(id)arg2 error:(id *)arg3;
+- (_Bool)_ungroupFaceClusterSequenceNumbers:(id)arg1 canceler:(id)arg2 error:(id *)arg3;
+- (_Bool)ungroupFaceClusterSequenceNumbers:(id)arg1 batchSizeForUnclusteringFaces:(unsigned long long)arg2 canceler:(id)arg3 error:(id *)arg4;
+- (void)_categorizeGroupedFacesInFetchResult:(id)arg1 intoFaceLocalIdentifiersByFaceGroup:(id)arg2 ungroupedFaceLocalIdentifiers:(id *)arg3 canceler:(id)arg4 photoLibrary:(id)arg5;
 - (id)invalidFaceClusterSequenceNumbersInClusterSequenceNumbers:(id)arg1 canceler:(id)arg2 error:(id *)arg3;
 - (_Bool)resetClusterSequenceNumberOfFacesWithLocalIdentifiers:(id)arg1 error:(id *)arg2;
 - (id)facesFromAsset:(id)arg1 error:(id *)arg2;

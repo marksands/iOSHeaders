@@ -6,7 +6,7 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class FCFeedDatabase, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary;
+@class FCFeedDatabase, FCHeldRecords, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary;
 
 @interface FCFeedRequestOperation : FCOperation
 {
@@ -23,13 +23,15 @@
     NSDictionary *_feedRequestsByFeedID;
     NSDictionary *_databaseLookupsByFeedID;
     NSMutableDictionary *_resultFeedResponses;
-    NSMutableArray *_resultHeldArticleAndTagRecords;
+    FCHeldRecords *_resultHeldArticleRecords;
+    FCHeldRecords *_resultHeldTagRecords;
 }
 
 + (_Bool)_orderFeedTopKEnabled;
 + (id)feedRequestContentEnvironmentTokenWithContext:(id)arg1;
 + (void)initialize;
-@property(retain, nonatomic) NSMutableArray *resultHeldArticleAndTagRecords; // @synthesize resultHeldArticleAndTagRecords=_resultHeldArticleAndTagRecords;
+@property(retain, nonatomic) FCHeldRecords *resultHeldTagRecords; // @synthesize resultHeldTagRecords=_resultHeldTagRecords;
+@property(retain, nonatomic) FCHeldRecords *resultHeldArticleRecords; // @synthesize resultHeldArticleRecords=_resultHeldArticleRecords;
 @property(retain, nonatomic) NSMutableDictionary *resultFeedResponses; // @synthesize resultFeedResponses=_resultFeedResponses;
 @property(retain, nonatomic) NSDictionary *databaseLookupsByFeedID; // @synthesize databaseLookupsByFeedID=_databaseLookupsByFeedID;
 @property(retain, nonatomic) NSDictionary *feedRequestsByFeedID; // @synthesize feedRequestsByFeedID=_feedRequestsByFeedID;
@@ -44,6 +46,7 @@
 @property(retain, nonatomic) FCFeedDatabase *feedDatabase; // @synthesize feedDatabase=_feedDatabase;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (_Bool)_countOfDroppedFeeds;
 - (unsigned long long)_orderFeedTopKFromBin:(long long)arg1 timeInterval:(double)arg2;
 - (id)_orderFeedIDFromFeedID:(id)arg1;
 - (id)_failureResponseForRequest:(id)arg1 error:(id)arg2;

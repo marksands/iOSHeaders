@@ -56,7 +56,7 @@
 - (id)newlySubscribedTagIDsInDateRange:(id)arg1;
 - (void)fetchSubscribedTagsWithCallbackQueue:(id)arg1 preferCache:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)fetchAllTagsWithCallbackQueue:(id)arg1 maximumCachedAge:(double)arg2 qualityOfService:(long long)arg3 completion:(CDUnknownBlockType)arg4;
-- (id)_extraTagsWithPreSubscribedNotificationSupport;
+- (void)_fetchExtraTagsWithPreSubscribedNotificationSupportWithCompletion:(CDUnknownBlockType)arg1;
 - (void)refreshSubscriptionTags;
 - (id)subscriptionSurfacingHeadline:(id)arg1;
 - (_Bool)hasNotificationsEnabledForTag:(id)arg1;

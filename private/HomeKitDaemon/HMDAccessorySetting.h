@@ -34,7 +34,7 @@
 + (id)supportedValueClasses;
 + (id)logCategory;
 @property(retain, nonatomic) HMFMessageDispatcher *messageDispatcher; // @synthesize messageDispatcher=_messageDispatcher;
-@property(retain, nonatomic) HMDAccessory *accessory; // @synthesize accessory=_accessory;
+@property(nonatomic) __weak HMDAccessory *accessory; // @synthesize accessory=_accessory;
 @property(readonly) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(readonly, copy) NSString *name; // @synthesize name=_name;
@@ -58,13 +58,17 @@
 - (id)valueUpdateNotificationWithMessage:(id)arg1;
 - (void)_relayUpdateValue:(id)arg1 message:(id)arg2;
 - (void)_handleUpdateValue:(id)arg1;
-- (_Bool)isValidValue:(id)arg1;
 @property(copy) id value; // @synthesize value=_value;
+- (void)_handleUpdatedConstraints:(id)arg1;
+- (void)_handleReplaceConstraints:(id)arg1;
 - (void)_handleRemoveConstraint:(id)arg1;
 - (void)removeConstraint:(id)arg1;
 - (void)_handleAddConstraint:(id)arg1;
 - (void)addConstraint:(id)arg1;
+- (void)setConstraints:(id)arg1;
 @property(readonly, copy) NSArray *constraints;
+- (_Bool)isValid:(id *)arg1;
+@property(readonly) NSString *keyPath;
 @property(readonly) long long type; // @synthesize type=_type;
 - (_Bool)_shouldAcceptMessage:(id)arg1;
 - (void)registerForMessages;

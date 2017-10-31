@@ -6,11 +6,11 @@
 
 #import "UIViewController.h"
 
-#import "NUPagable.h"
+#import "NUPageable.h"
 
 @class NSString, NUCanvas, NUViewNode;
 
-@interface NUWelcomeToNewsViewController : UIViewController <NUPagable>
+@interface NUWelcomeToNewsViewController : UIViewController <NUPageable>
 {
     id <NULoadingDelegate> _loadingDelegate;
     NUCanvas *_canvas;

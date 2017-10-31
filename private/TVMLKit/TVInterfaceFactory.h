@@ -46,6 +46,7 @@
 - (void)_registerControllerTransitioningCreator:(CDUnknownBlockType)arg1 withType:(unsigned long long)arg2;
 - (id)_viewControllerFromElement:(id)arg1 existingController:(id)arg2;
 - (id)_viewFromElement:(id)arg1 existingView:(id)arg2;
+- (void)_registerProductTemplateURL:(id)arg1 forTemplateName:(id)arg2 includeParentStyleSheets:(_Bool)arg3;
 - (void)_registerViewControllerCreator:(CDUnknownBlockType)arg1 withType:(unsigned long long)arg2;
 - (void)_registerViewCreator:(CDUnknownBlockType)arg1 withType:(unsigned long long)arg2;
 - (Class)collectionViewCellClassForElement:(id)arg1;
@@ -53,7 +54,9 @@
 - (id)URLForResource:(id)arg1;
 - (id)viewControllerForElement:(id)arg1 existingViewController:(id)arg2;
 - (id)viewForElement:(id)arg1 existingView:(id)arg2;
+- (void)_darkerSystemColorStatusChanged:(id)arg1;
 - (void)setup;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

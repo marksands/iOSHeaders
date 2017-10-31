@@ -102,12 +102,12 @@
 - (void)_stopDataConfigResetTimers;
 - (void)_startDataConfigResetTimers;
 @property(nonatomic) _Bool decryptionFailed; // @synthesize decryptionFailed=_decryptionFailed;
-- (void)_postNotificationForDataSyncInProgress:(_Bool)arg1 dataSyncState:(unsigned long long)arg2;
+- (void)_postNotificationForDataSyncInProgress:(_Bool)arg1 dataSyncState:(unsigned long long)arg2 forcePost:(_Bool)arg3;
 - (void)handleKeychainSyncStateChangedNotification:(id)arg1;
 - (void)_updateKeychainSyncEnabled:(_Bool)arg1;
 - (void)dealloc;
 - (void)_registerForMessages;
-- (id)initWithName:(id)arg1 homeManager:(id)arg2 messageDispatcher:(id)arg3 serverTokenAvailable:(_Bool)arg4 homeDataHasBeenDecrypted:(_Bool)arg5 localDataDecryptionFailed:(_Bool)arg6 totalHomes:(long long)arg7 currentAccount:(id)arg8;
+- (id)initWithName:(id)arg1 homeManager:(id)arg2 messageDispatcher:(id)arg3 serverTokenAvailable:(_Bool)arg4 homeDataHasBeenDecrypted:(_Bool)arg5 homeManagerServerTokenAvailable:(_Bool)arg6 localDataDecryptionFailed:(_Bool)arg7 totalHomes:(long long)arg8 currentAccount:(id)arg9;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

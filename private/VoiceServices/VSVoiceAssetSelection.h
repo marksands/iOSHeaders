@@ -13,13 +13,14 @@
     VSVoiceAsset *_voiceData;
     ASAsset *_asset;
     NSString *_builtInVoicePath;
+    NSString *_voicePath;
 }
 
+@property(retain, nonatomic) NSString *voicePath; // @synthesize voicePath=_voicePath;
 @property(retain) NSString *builtInVoicePath; // @synthesize builtInVoicePath=_builtInVoicePath;
 @property(retain) ASAsset *asset; // @synthesize asset=_asset;
 @property(retain) VSVoiceAsset *voiceData; // @synthesize voiceData=_voiceData;
 - (void).cxx_destruct;
-- (id)voicePath;
 - (id)key;
 
 @end

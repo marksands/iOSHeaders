@@ -9,6 +9,7 @@
 @class HKAuthorizationRequestRecord, HKObjectAuthorizationPromptSession, NSDate, NSError, NSUUID, _HKWorkoutEvent;
 
 @protocol HKHealthStoreClientInterface <NSObject>
+- (void)clientRemote_waitOnHealthCloudSyncWithProgressDidStartWithUUID:(NSUUID *)arg1;
 - (void)clientRemote_deliverWorkoutEvent:(_HKWorkoutEvent *)arg1 forSessionUUID:(NSUUID *)arg2;
 - (void)clientRemote_deliverWorkoutSessionError:(NSError *)arg1 forSessionUUID:(NSUUID *)arg2;
 - (void)clientRemote_deliverWorkoutSessionChangedToState:(long long)arg1 fromState:(long long)arg2 date:(NSDate *)arg3 forSessionUUID:(NSUUID *)arg4;

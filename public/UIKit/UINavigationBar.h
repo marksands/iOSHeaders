@@ -158,6 +158,7 @@
 @property(readonly, nonatomic) _UINavigationItemButtonView *currentBackButton;
 - (_Bool)_shouldShowBackButtonForNavigationItem:(id)arg1;
 - (_Bool)_hasBackButton;
+- (_Bool)_hasLegacyProvider;
 - (void)_animateForSearchPresentation:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool _wantsLargeTitleDisplayed;
 @property(retain, nonatomic) _UINavigationControllerRefreshControlHost *refreshControlHost;
@@ -273,6 +274,7 @@
 - (void)_setDecodedItems:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (_Bool)_hostsLayoutEngineAllowsTAMIC_NO;
 - (void)_commonNavBarInit;
 - (_Bool)_subclassImplementsDrawRect;
 - (void)_updateOpacity;

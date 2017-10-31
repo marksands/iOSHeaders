@@ -11,6 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface SFProcessDictionary : NSObject
 {
+    NSMutableDictionary *_pidToBundleIdentifierMap;
     NSMutableSet *_pidsPendingTermination;
     NSMutableArray *_recentlyReferencedPIDs;
     NSCountedSet *_references;
@@ -21,12 +22,13 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) unsigned long long cacheCapacity; // @synthesize cacheCapacity=_cacheCapacity;
 - (void).cxx_destruct;
-- (id)incrementReferenceForPID:(int)arg1 valueCreationBlock:(CDUnknownBlockType)arg2;
+- (id)incrementReferenceForPID:(int)arg1 bundleIdentifier:(id)arg2 valueCreationBlock:(CDUnknownBlockType)arg3;
 - (void)_removeUnreferencedObjectsIfNeeded;
 - (void)decrementReferenceForPID:(int)arg1;
 - (void)_removeValueForPID:(id)arg1;
 - (void)_handleProcessTermination:(int)arg1;
 - (void)_handleApplicationStateUpdate:(id)arg1;
+- (void)_updateInterestedApplications;
 - (void)dealloc;
 - (id)init;
 - (id)initWithCacheCapacity:(unsigned long long)arg1;

@@ -6,15 +6,10 @@
 
 #import "NSString.h"
 
-#import "HFStringGenerator.h"
-
-@interface NSString (HFAdditions) <HFStringGenerator>
+@interface NSString (HFAdditions)
 + (id)hf_formattedPersonNameForFirstName:(id)arg1 lastName:(id)arg2;
 - (id)hf_toHexString:(char *)arg1 length:(unsigned int)arg2;
 - (unsigned int)hf_UTF8Length;
-- (_Bool)prefersDynamicString;
-- (id)stringWithAttributes:(id)arg1;
-- (id)dynamicStringForSize:(struct CGSize)arg1 attributes:(id)arg2;
 - (id)hf_stringByLowercasingFirstWord;
 - (id)hf_stringByCapitalizingFirstWord;
 - (id)hf_stringByTransformingFirstWordUsingBlock:(CDUnknownBlockType)arg1;
@@ -23,11 +18,5 @@
 - (id)hf_SHA256;
 - (id)hf_SHA1;
 - (id)hf_MD5;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 @end
 

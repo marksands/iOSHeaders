@@ -14,9 +14,6 @@
 - (_Bool)siriCore_supportedByLocalSession;
 - (void)siriCore_setSessionRequestId:(id)arg1;
 - (id)siriCore_requestId;
-- (void)siriCore_dispatchSendCompletionsWithResult:(long long)arg1 error:(id)arg2;
-- (void)siriCore_addSendCompletion:(CDUnknownBlockType)arg1;
-- (_Bool)siriCore_supportsSendCompletions;
 - (void)siriCore_logDiagnostics;
 - (_Bool)siriCore_isRestartable;
 - (_Bool)siriCore_isRetryable;

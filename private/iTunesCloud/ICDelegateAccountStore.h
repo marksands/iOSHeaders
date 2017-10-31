@@ -9,7 +9,7 @@
 #import "ICDelegateAccountStoreWriter.h"
 #import "ICSQLiteConnectionDelegate.h"
 
-@class ICDelegateAccountStoreOptions, NSMutableArray, NSString, NSXPCConnection;
+@class ICDelegateAccountStoreOptions, ICDelegateAccountStoreXPCWriter, NSMutableArray, NSString;
 
 @interface ICDelegateAccountStore : NSObject <ICSQLiteConnectionDelegate, ICDelegateAccountStoreWriter>
 {
@@ -17,8 +17,8 @@
     _Bool _isOpen;
     struct os_unfair_lock_s _lock;
     ICDelegateAccountStoreOptions *_options;
-    NSXPCConnection *_singleWriterConnection;
     ICDelegateAccountStore *_strongSelf;
+    ICDelegateAccountStoreXPCWriter *_xpcWriter;
 }
 
 + (void)openWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -26,13 +26,12 @@
 - (void)_writeXPCUsingBlock:(CDUnknownBlockType)arg1;
 - (void)_writeUsingBlock:(CDUnknownBlockType)arg1;
 - (void)_writeSQLUsingBlock:(CDUnknownBlockType)arg1;
-- (id)_singleWriterXPCConnection;
-- (void)_singleWriterXPCConnectionDidInvalidate:(id)arg1;
 - (void)_resetCorruptionUsingXPC;
 - (_Bool)_resetCorruptionUsingSQL;
 - (void)_recycleConnection:(id)arg1;
+- (void)_postDidChangeNotification;
 - (id)_popConnection;
-- (void)_openWithSingleWriterConnection:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_openWithXPCWriter:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)connectionNeedsResetForCorruption:(id)arg1;
 - (void)setToken:(id)arg1 forUserIdentity:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setIdentityProperties:(id)arg1 forUserIdentity:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -41,7 +40,6 @@
 - (void)removeIdentityPropertiesForUserIdentity:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removeDelegationUUIDs:(id)arg1 forUserIdentity:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)removeAllTokensWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)invalidate;
 - (void)addDelegationUUIDs:(id)arg1 forUserIdentity:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)readUsingBlock:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSString *databasePath;

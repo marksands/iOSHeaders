@@ -99,6 +99,7 @@
 - (id)_systemEmbeddedSoundDirectory;
 - (id)_baseDirectoryForAlertToneSoundFiles;
 - (id)_alarmWakeUpRingtoneDirectory;
+- (_Bool)_removeAllTones;
 - (int)_lockManifestAtPath:(id)arg1;
 - (_Bool)_removeTonesFromManifestAtPath:(id)arg1 fileNames:(id)arg2 shouldSkipReload:(_Bool)arg3 alreadyLockedManifest:(_Bool)arg4 removedEntries:(id *)arg5;
 - (_Bool)_removeToneFromManifestAtPath:(id)arg1 fileName:(id)arg2;

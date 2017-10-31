@@ -17,6 +17,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)dealloc;
 - (id)initWithCVPixelBuffer:(struct __CVBuffer *)arg1;
 
 @end

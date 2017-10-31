@@ -39,12 +39,13 @@ __attribute__((visibility("hidden")))
 - (void)registerDirectoryWithFilePath:(id)arg1;
 - (void)updateCaptureSizesWithFirstFrame:(struct opaqueCMSampleBuffer *)arg1;
 - (void)appendSampleWithWriter:(id)arg1 buffer:(id)arg2 sample:(struct opaqueCMSampleBuffer *)arg3;
-- (void)finishWritingWithWriter:(id)arg1 transactionID:(id)arg2;
 - (void)flushHistoryBuffers;
 - (void)updateVideoBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2 cameraStatusBits:(unsigned char)arg3 timestamp:(unsigned int)arg4;
 - (struct __CVBuffer *)copyBuffer:(struct opaqueCMSampleBuffer *)arg1;
 - (void)updateAudioBuffer:(id)arg1 WithSample:(struct opaqueCMSampleBuffer *)arg2 timestamp:(unsigned int)arg3;
-- (void)handlePendingRequests;
+- (void)handlePendingRequestsWithSourceURL:(id)arg1 error:(id)arg2;
+- (void)handlePendingRequestSuccessWithSourceURL:(id)arg1;
+- (void)handlePendingRequestWithError:(id)arg1;
 - (void)handleSinglePendingRequestWithTransactionID:(id)arg1 sourceURL:(id)arg2;
 - (int)rewriteMovieMetadataWithURL:(id)arg1 transactionID:(id)arg2;
 - (id)getFilePathWithTransactionID:(id)arg1 type:(unsigned char)arg2;

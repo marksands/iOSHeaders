@@ -182,7 +182,6 @@
 - (_Bool)_isDisplayingSuggestion;
 - (void)_configureItemsForStoreConstraintsGivenCalendar:(id)arg1;
 - (id)items;
-- (void)_setUpAttendeesWithAcceptedItem:(id)arg1 declinedItem:(id)arg2 maybeItem:(id)arg3 noReplyItem:(id)arg4;
 - (void)_keyboardWasHidden:(id)arg1;
 - (void)_keyboardWasShown:(id)arg1;
 - (void)_localeChanged;

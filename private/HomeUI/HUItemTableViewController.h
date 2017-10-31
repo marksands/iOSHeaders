@@ -23,16 +23,14 @@
     NSMutableArray *_foregroundUpdateFutures;
     NSMutableSet *_registeredCellClasses;
     id <NACancelable> _deferredVisibilityUpdate;
-    NSMapTable *_textFieldToIndexPathMap;
-    NSMapTable *_indexPathToTextFieldMap;
+    NSMapTable *_textFieldToCellMap;
     HUGridLayoutOptions *_gridLayoutOptions;
 }
 
 + (unsigned long long)updateMode;
 + (_Bool)adoptsDefaultGridLayoutMargins;
 @property(retain, nonatomic) HUGridLayoutOptions *gridLayoutOptions; // @synthesize gridLayoutOptions=_gridLayoutOptions;
-@property(readonly, nonatomic) NSMapTable *indexPathToTextFieldMap; // @synthesize indexPathToTextFieldMap=_indexPathToTextFieldMap;
-@property(readonly, nonatomic) NSMapTable *textFieldToIndexPathMap; // @synthesize textFieldToIndexPathMap=_textFieldToIndexPathMap;
+@property(readonly, nonatomic) NSMapTable *textFieldToCellMap; // @synthesize textFieldToCellMap=_textFieldToCellMap;
 @property(retain, nonatomic) id <NACancelable> deferredVisibilityUpdate; // @synthesize deferredVisibilityUpdate=_deferredVisibilityUpdate;
 @property(nonatomic) _Bool visibilityUpdatesEnabled; // @synthesize visibilityUpdatesEnabled=_visibilityUpdatesEnabled;
 @property(readonly, nonatomic) NSMutableSet *registeredCellClasses; // @synthesize registeredCellClasses=_registeredCellClasses;
@@ -90,7 +88,6 @@
 - (void)_dispatchUpdateForCell:(id)arg1 item:(id)arg2 indexPath:(id)arg3 animated:(_Bool)arg4;
 - (id)textFieldForVisibleItem:(id)arg1;
 - (id)moduleControllerForItem:(id)arg1;
-- (id)subclass_preloadContent;
 - (id)childViewControllersToPreload;
 - (id)itemTableFooterView;
 - (id)itemTableHeaderView;
@@ -112,6 +109,7 @@
 - (void)setupCell:(id)arg1 forItem:(id)arg2 indexPath:(id)arg3;
 - (Class)cellClassForItem:(id)arg1 indexPath:(id)arg2;
 - (id)itemModuleControllers;
+- (_Bool)bypassInitialItemUpdateReload;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillLayoutSubviews;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;

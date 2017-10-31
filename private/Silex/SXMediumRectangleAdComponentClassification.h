@@ -14,9 +14,7 @@
 + (int)role;
 + (id)typeString;
 - (_Bool)isCollapsible;
-- (Class)componentSizerClass;
 - (Class)componentModelClass;
-- (Class)componentViewClass;
 
 @end
 

@@ -40,10 +40,11 @@
 - (void)scheduleClusteringOfFacesWithLocalIdentifiers:(id)arg1;
 - (id)analyzeImage:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (void)stop;
-- (void)start:(CDUnknownBlockType)arg1;
+- (void)startAndSyncClusterCacheWithLibrary:(_Bool)arg1 reply:(CDUnknownBlockType)arg2;
 - (id)initWithPersistenceDelegate:(id)arg1 notificationListener:(id)arg2 options:(id)arg3;
 - (_Bool)buildPersonsWithCanceler:(id)arg1 keyFaceUpdateBlock:(CDUnknownBlockType)arg2 error:(id *)arg3;
 - (id)context;
+- (void)resetClusterer;
 - (_Bool)clustererIsReadyToReturnSuggestions;
 - (long long)clustererState;
 - (id)differencesBetweenClustersInClusterCacheAndLibrary:(id *)arg1;

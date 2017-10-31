@@ -9,15 +9,15 @@
 @class JSValue, NSArray, NSNumber;
 
 @protocol WLKUIOnboardingInterface <JSExport>
-@property(readonly, nonatomic, getter=isTvosMigrated) _Bool tvosMigrated;
 @property(readonly, nonatomic) _Bool isShowing;
 @property(readonly, nonatomic) NSArray *eligibleBids;
 @property(readonly, nonatomic, getter=isOptedInCached) NSNumber *optedInCached;
 @property(readonly, nonatomic, getter=isOptedIn) _Bool optedIn;
-- (void)migrateTvos:(JSValue *)arg1;
 - (void)dismiss;
 - (void)showForBids:(NSArray *)arg1:(JSValue *)arg2:(JSValue *)arg3;
 - (void)show:(JSValue *)arg1;
+- (void)fetchEligibleBids:(JSValue *)arg1;
 - (void)setOptedIn:(_Bool)arg1:(JSValue *)arg2;
+- (void)fetchOptedIn:(JSValue *)arg1;
 @end
 

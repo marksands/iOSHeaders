@@ -40,6 +40,7 @@
     NSString *_pendingPayStateTextOverride;
     unsigned long long _payStateTransitionCounter;
     long long _pendingPayState;
+    _Bool _pendingPayStateAnimated;
     long long _currentPayState;
     unsigned long long _authenticatorState;
     _Bool _authenticating;
@@ -53,13 +54,13 @@
     long long _transactionSubstate;
     _Bool _holdingTerminalSubstate;
     NSObject<OS_dispatch_source> *_transactionResolutionTimer;
+    NSObject<OS_dispatch_source> *_transactionTerminalResponseTimer;
     _Bool _presentingPasscode;
     _Bool _requiresPasscodeDismissal;
     UIViewController *_passcodePresenterVC;
     _Bool _inBackground;
     unsigned long long _deactivationReasons;
     _Bool _isVisible;
-    _Bool _shouldShowApplications;
     _Bool _valueAddedServiceInfoViewHidden;
     _Bool _waitingForPasses;
     double _lastFieldExitTime;
@@ -68,6 +69,7 @@
     double _lastTransactionTime;
     NSObject<OS_dispatch_source> *_summaryAuthenticationTimer;
     long long _style;
+    _Bool _encounteredTerminalFailure;
     NSMutableArray *_valueAddedPasses;
 }
 
@@ -121,6 +123,8 @@
 - (void)_applyPayState:(long long)arg1 withTextOverride:(id)arg2;
 - (void)_applyPayState:(long long)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)_cancelTerminalResponseTimeout;
+- (void)_beginTerminalResponseTimeout;
 - (void)_cancelHoldingTerminalTransactionSubstateIfNecessary;
 - (void)_finishHoldingTerminalTransactionSubstateAfterDelay:(double)arg1;
 - (void)_applyTerminalTransactionSubstateWithSuccess:(_Bool)arg1 reset:(_Bool)arg2;
@@ -174,6 +178,7 @@
 - (void)contactlessInterfaceSessionDidExitField:(id)arg1;
 - (void)_handleContactlessInterfaceSessionDidEnterField:(id)arg1 withProperties:(id)arg2;
 - (void)contactlessInterfaceSessionDidEnterField:(id)arg1 withProperties:(id)arg2;
+- (void)contactlessInterfaceSessionDidTerminate:(id)arg1;
 - (void)contactlessInterfaceSessionDidFail:(id)arg1 forPaymentApplication:(id)arg2 paymentPass:(id)arg3 valueAddedServicePasses:(id)arg4;
 - (void)contactlessInterfaceSessionDidFailTransaction:(id)arg1 forPaymentApplication:(id)arg2 paymentPass:(id)arg3;
 - (void)contactlessInterfaceSessionDidFailDeferredAuthorization:(id)arg1;
@@ -202,6 +207,7 @@
 - (void)authenticatorWillRestartEvaluation:(id)arg1;
 - (_Bool)_recognizingBiometrics;
 - (void)paymentApplicationView:(id)arg1 didSelectApplication:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)invalidate;
 - (void)didBecomeHiddenAnimated:(_Bool)arg1;
 - (void)willBecomeHiddenAnimated:(_Bool)arg1;
 - (void)didBecomeVisibleAnimated:(_Bool)arg1;

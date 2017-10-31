@@ -21,8 +21,10 @@
 - (_Bool)isABContactASuggestion;
 - (id)getLocalizedCallerIdLabelForContact:(id)arg1 forCallerId:(id)arg2 withCallerIdIsEmail:(_Bool)arg3;
 - (id)getPersonsNameForContact:(id)arg1;
-- (id)getRecordId:(id)arg1 isEmail:(_Bool)arg2;
-- (id)fetchCNContact:(id)arg1 isEmail:(_Bool)arg2;
+- (id)fetchCNContactsMatchingPredicate:(id)arg1 keysToKetch:(id)arg2 error:(id *)arg3;
+- (id)fetchFullCNContactForContactIdentifier:(id)arg1 isEmail:(_Bool)arg2;
+- (id)getRecordId:(id)arg1 countryCode:(id)arg2 isEmail:(_Bool)arg3;
+- (id)fetchCNContact:(id)arg1 countryCode:(id)arg2 isEmail:(_Bool)arg3;
 - (id)init;
 
 // Remaining properties

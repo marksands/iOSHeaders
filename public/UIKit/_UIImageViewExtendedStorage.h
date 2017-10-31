@@ -8,11 +8,12 @@
 
 #import "CAAnimationDelegate.h"
 
-@class CIContext, NSArray, NSString, UIImage;
+@class CIContext, NSArray, NSString, UIImage, UIImageView;
 
 __attribute__((visibility("hidden")))
 @interface _UIImageViewExtendedStorage : NSObject <CAAnimationDelegate>
 {
+    UIImageView *_imageView;
     _Bool _highlighted;
     UIImage *_image;
     UIImage *_highlightedImage;
@@ -32,6 +33,7 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
+- (id)initForImageView:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

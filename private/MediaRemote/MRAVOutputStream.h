@@ -12,10 +12,12 @@ __attribute__((visibility("hidden")))
 @interface MRAVOutputStream : MRAVBufferedOutputStream
 {
     AVOutputContextCommunicationChannel *_communicationChannel;
+    _Bool _channelIsOpen;
     AVOutputContext *_outputContext;
 }
 
 @property(readonly, nonatomic) AVOutputContext *outputContext; // @synthesize outputContext=_outputContext;
+- (void)_outputContextDidCloseCommunicationChannelNotification:(id)arg1;
 - (_Bool)hasSpaceAvailable;
 - (long long)write:(const char *)arg1 maxLength:(unsigned long long)arg2;
 - (id)description;

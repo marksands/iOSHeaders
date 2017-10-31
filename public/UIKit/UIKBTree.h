@@ -197,7 +197,9 @@
 - (CDStruct_227bb23d)stylingFromVisualStyle;
 - (void)setVisualStyle:(int)arg1;
 - (int)visualStyle;
+- (struct CGRect)keyUnionPaddedFrame;
 - (struct CGRect)keyUnionFrame;
+- (struct CGRect)keyUnionFramePadded:(_Bool)arg1;
 - (struct CGPoint)navigationPointOfKey;
 - (void)setPaddedFrame:(struct CGRect)arg1;
 - (struct CGRect)paddedFrame;

@@ -10,7 +10,7 @@
 #import "SiriUISiriStatusViewProtocol.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class AVPlayerItem, AVPlayerLayer, AVPlayerLooper, AVQueuePlayer, NSString, SUICFlamesView, SiriUIConfiguration, UIButton, UILongPressGestureRecognizer, UIScreen;
+@class AVAudioSession, AVPlayerItem, AVPlayerLayer, AVPlayerLooper, AVQueuePlayer, NSObject<OS_dispatch_group>, NSString, SUICFlamesView, SiriUIConfiguration, UIButton, UILongPressGestureRecognizer, UIScreen;
 
 @interface SiriUISiriStatusView : UIView <SUICFlamesViewDelegate, UIGestureRecognizerDelegate, SiriUISiriStatusViewProtocol>
 {
@@ -19,10 +19,12 @@
     UIView *_flamesContainerView;
     SUICFlamesView *_flamesView;
     UIView *_glyphView;
-    AVPlayerItem *_itemToLoop;
     AVPlayerLayer *_glyphLayer;
     AVPlayerLooper *_glyphPlayerLooper;
     AVQueuePlayer *_glyphQueuePlayer;
+    AVPlayerItem *_glyphPlayerItem;
+    NSObject<OS_dispatch_group> *_glyphConfigurationGroup;
+    AVAudioSession *_glyphAuxiliaryAudioSession;
     double _lastStateChangeTime;
     UIScreen *_screen;
     int _deferredFlamesViewState;
@@ -46,6 +48,8 @@
 @property(nonatomic) double disabledMicOpacity; // @synthesize disabledMicOpacity=_disabledMicOpacity;
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
 - (void).cxx_destruct;
+- (void)_createLooperIfNeeded;
+- (void)_configureGlyph;
 - (float)audioLevelForFlamesView:(id)arg1;
 - (void)_handleKeyboardWillHideNotification:(id)arg1;
 - (void)_handleKeyboardDidShowNotification:(id)arg1;
@@ -71,7 +75,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) UIView *flamesContainerView;
 - (void)dealloc;
-- (void)_createLooperIfNeeded;
+- (void)configureGlyphWithCompletion:(CDUnknownBlockType)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 screen:(id)arg2 textInputEnabled:(_Bool)arg3 configuration:(id)arg4;
 
 // Remaining properties

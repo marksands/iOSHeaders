@@ -25,7 +25,6 @@
     HFHomeBuilder *_homeBuilder;
 }
 
-+ (_Bool)_isICloudEnabled;
 + (CDUnknownBlockType)residentDeviceItemComparator;
 @property(retain, nonatomic) HFHomeBuilder *homeBuilder; // @synthesize homeBuilder=_homeBuilder;
 @property(retain, nonatomic) HFResidentDeviceItemProvider *residentDeviceItemProvider; // @synthesize residentDeviceItemProvider=_residentDeviceItemProvider;

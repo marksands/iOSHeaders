@@ -20,6 +20,8 @@
     AVPlayerLayer *_video;
     AVPlayer *_player;
     AVPlayerItem *_playerItem;
+    _Bool _playerWasRemoved;
+    _Bool _playerStarted;
     CDUnknownBlockType _continueHandler;
 }
 

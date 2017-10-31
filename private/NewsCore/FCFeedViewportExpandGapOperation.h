@@ -10,8 +10,10 @@
 
 @interface FCFeedViewportExpandGapOperation : FCOperation
 {
+    _Bool _lightweightOnly;
     _Bool _cachedOnly;
     _Bool _offlineMode;
+    id <FCAppConfiguration> _appConfiguration;
     FCCloudContext *_context;
     FCFeedViewport *_viewport;
     FCFeedDescriptor *_feedDescriptor;
@@ -30,6 +32,7 @@
 @property(copy, nonatomic) CDUnknownBlockType expandGapCompletionHandler; // @synthesize expandGapCompletionHandler=_expandGapCompletionHandler;
 @property _Bool offlineMode; // @synthesize offlineMode=_offlineMode;
 @property(nonatomic) _Bool cachedOnly; // @synthesize cachedOnly=_cachedOnly;
+@property _Bool lightweightOnly; // @synthesize lightweightOnly=_lightweightOnly;
 @property(nonatomic) long long gapExpansionPolicy; // @synthesize gapExpansionPolicy=_gapExpansionPolicy;
 @property(nonatomic) unsigned long long gapExpansionDirection; // @synthesize gapExpansionDirection=_gapExpansionDirection;
 @property(copy, nonatomic) FCFeedViewportBookmark *bookmark; // @synthesize bookmark=_bookmark;
@@ -38,6 +41,7 @@
 @property(retain, nonatomic) FCFeedDescriptor *feedDescriptor; // @synthesize feedDescriptor=_feedDescriptor;
 @property(retain, nonatomic) FCFeedViewport *viewport; // @synthesize viewport=_viewport;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
+@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;
 - (id)_groupEmitterWithIdentifier:(id)arg1;
 - (void)operationWillFinishWithError:(id)arg1;

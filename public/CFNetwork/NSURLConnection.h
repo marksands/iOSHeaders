@@ -22,9 +22,9 @@
 + (id)sendSynchronousRequest:(id)arg1 returningResponse:(id *)arg2 error:(id *)arg3;
 + (id)connectionWithRequest:(id)arg1 delegate:(id)arg2;
 + (void)_setMIMETypesWithNoSizeLimit:(id)arg1;
-+ (void)_resourceLoadLoop:(id)arg1;
 + (void)_setLoaderThreadPriority:(int)arg1;
 + (struct __CFRunLoop *)resourceLoaderRunLoop;
++ (void)withResourceLoaderRunLoopAsync:(CDUnknownBlockType)arg1;
 + (unsigned long long)_timingDataOptions;
 + (void)_collectTimingDataWithOptions:(unsigned long long)arg1;
 + (_Bool)_collectsTimingData;

@@ -24,8 +24,6 @@ __attribute__((visibility("hidden")))
 - (void)_updateLollipopDrag:(id)arg1;
 - (void)_updateWordDrag:(id)arg1;
 - (_Bool)_canWordDrag:(id)arg1;
-- (void)_postAnnotationNotification:(id)arg1;
-- (void)_handleAnnotation:(id)arg1;
 - (_Bool)_shouldHandleAnnotation:(id)arg1;
 - (void)_updateState:(int)arg1 forGesture:(id)arg2;
 - (void)showTextSelectionMenu:(_Bool)arg1;
@@ -34,10 +32,18 @@ __attribute__((visibility("hidden")))
 - (_Bool)isDraggingLollipop;
 - (_Bool)isTouchingLollipop:(id)arg1;
 - (void)handleGesture:(id)arg1;
+- (void)_annotationHit:(id)arg1;
+- (void)_doButtonHit:(id)arg1;
+- (void)_handleButtonHit:(id)arg1;
+- (void)_postAnnotationHitNotification:(id)arg1;
+- (void)_postAnnotationWillHitNotification:(id)arg1;
 - (id)_annotationFollowing:(id)arg1 wrapAround:(_Bool)arg2;
 - (id)_annotationPreceding:(id)arg1 wrapAround:(_Bool)arg2;
+- (void)removeActiveAnnotation;
 - (void)activateNextAnnotation:(_Bool)arg1;
 - (void)interactWithAnnotation:(id)arg1;
+- (void)setActiveAnnotation:(id)arg1;
+- (id)activeAnnotation;
 - (void)dealloc;
 - (id)initWithView:(id)arg1;
 - (struct CGPoint)_convertPoint:(struct CGPoint)arg1 toPageView:(id)arg2;

@@ -24,6 +24,8 @@
 - (int)performFetchMessageSearchResultRequests:(NSArray *)arg1 consumer:(id <DAMailboxFetchSearchResultConsumer>)arg2;
 - (int)performFetchAttachmentRequest:(DAMessageFetchAttachmentRequest *)arg1 consumer:(id <DAMessageFetchAttachmentConsumer>)arg2;
 - (int)performMoveRequests:(NSArray *)arg1 consumer:(id <DAMessageMoveRequestConsumer>)arg2;
+- (int)performMailboxRequests:(NSArray *)arg1 mailbox:(NSString *)arg2 previousTag:(NSString *)arg3 clientWinsOnSyncConflict:(_Bool)arg4 isUserRequested:(_Bool)arg5 consumer:(id <DAMailboxRequestConsumer>)arg6;
+- (int)performMailboxRequest:(DAMailboxRequest *)arg1 mailbox:(NSString *)arg2 previousTag:(NSString *)arg3 clientWinsOnSyncConflict:(_Bool)arg4 isUserRequested:(_Bool)arg5 consumer:(id <DAMailboxRequestConsumer>)arg6;
 - (int)performMailboxRequests:(NSArray *)arg1 mailbox:(NSString *)arg2 previousTag:(NSString *)arg3 isUserRequested:(_Bool)arg4 consumer:(id <DAMailboxRequestConsumer>)arg5;
 - (int)performMailboxRequest:(DAMailboxRequest *)arg1 mailbox:(NSString *)arg2 previousTag:(NSString *)arg3 isUserRequested:(_Bool)arg4 consumer:(id <DAMailboxRequestConsumer>)arg5;
 - (int)sendSmartMessageWithRFC822Data:(NSData *)arg1 messageID:(NSString *)arg2 outgoingMessageType:(int)arg3 originalMessageFolderID:(NSString *)arg4 originalMessageItemID:(NSString *)arg5 originalMessageLongID:(NSString *)arg6 originalAccountID:(NSString *)arg7 replaceOriginalMime:(_Bool)arg8 isUserRequested:(_Bool)arg9 consumer:(id <DAMessageSendConsumer>)arg10 context:(id)arg11;

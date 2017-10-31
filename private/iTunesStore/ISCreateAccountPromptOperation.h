@@ -17,6 +17,8 @@
 @property(retain, nonatomic) NSString *reason; // @synthesize reason=_reason;
 @property(nonatomic) long long responseType; // @synthesize responseType=_responseType;
 - (void).cxx_destruct;
+- (_Bool)_hasActiveICloudAccount;
+- (long long)_mapCorrectSelectedButtonWithDialog:(id)arg1;
 - (id)_newCreateAccountDialog;
 - (void)run;
 - (id)initWithReason:(id)arg1;

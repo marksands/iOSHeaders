@@ -51,6 +51,7 @@
 - (void).cxx_destruct;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (_Bool)isEqualToStatus:(id)arg1;
 - (id)initWithResponseDictionary:(id)arg1;
 
 @end

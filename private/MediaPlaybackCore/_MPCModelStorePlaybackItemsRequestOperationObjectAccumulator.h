@@ -24,15 +24,15 @@
 @property(readonly, nonatomic) NSDictionary *equivalencyMapping; // @synthesize equivalencyMapping=_equivalencyMapping;
 @property(readonly, nonatomic) _Bool allowsExplicitContent; // @synthesize allowsExplicitContent=_allowsExplicitContent;
 - (void).cxx_destruct;
-- (id)_modelObjectWithStoreItemMetadata:(id)arg1;
+- (id)_modelObjectWithStoreItemMetadata:(id)arg1 requestModelObject:(id)arg2;
 - (struct MPModelStorePlaybackItemEligibility)_eligibilityForItem:(id)arg1;
 - (void)_addItemsForChildrenOfMetadata:(id)arg1;
 - (void)_addEquivalencyForMetadata:(id)arg1 requestStoreIdentifier:(id)arg2;
 - (void)_addAnonymousContainerSection;
 - (void)appendMetadataResponse:(id)arg1 forRequestSectionedModelObjects:(id)arg2;
 - (void)appendMetadataResponse:(id)arg1 forRequestStoreIdentifiers:(id)arg2;
-- (void)appendMetadata:(id)arg1 requestStoreIdentifier:(id)arg2;
-- (void)appendEmptySectionForMetadata:(id)arg1 requestStoreIdentifier:(id)arg2;
+- (void)appendMetadata:(id)arg1 requestStoreIdentifier:(id)arg2 requestModelObject:(id)arg3;
+- (void)appendEmptySectionForMetadata:(id)arg1 requestStoreIdentifier:(id)arg2 requestModelObject:(id)arg3;
 - (id)initWithRequest:(id)arg1 shouldLibraryPersonalize:(_Bool)arg2 allowsExplicitContent:(_Bool)arg3;
 
 @end

@@ -24,10 +24,12 @@
 - (_Bool)contactIsTTYContact:(id)arg1;
 - (_Bool)deleteConversationWithCallUID:(id)arg1;
 - (void)registerResponseBlock:(CDUnknownBlockType)arg1 forUUID:(id)arg2;
+- (void)setShouldSuppressIncomingNotification:(_Bool)arg1;
 - (void)cancelCallPromptDisplay;
 - (void)displayCallPromptForContact:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)handleMessageError:(id)arg1 destructive:(_Bool)arg2;
 - (void)handleMessageWithPayload:(id)arg1 forIdentifier:(unsigned long long)arg2;
+- (void)_managerAXPIDState:(_Bool)arg1;
 - (void)resetConnection;
 - (void)dealloc;
 - (id)init;

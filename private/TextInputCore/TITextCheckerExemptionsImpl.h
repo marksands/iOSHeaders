@@ -20,8 +20,8 @@
 
 + (id)sharedTextCheckerExemptionsImpl;
 @property(copy, nonatomic) NSUUID *userDictionaryUUID; // @synthesize userDictionaryUUID=_userDictionaryUUID;
-@property(retain) NSSet *userDictionaryTokens; // @synthesize userDictionaryTokens=_userDictionaryTokens;
-@property(retain) NSSet *addressBookTokens; // @synthesize addressBookTokens=_addressBookTokens;
+@property(retain, nonatomic) NSSet *userDictionaryTokens; // @synthesize userDictionaryTokens=_userDictionaryTokens;
+@property(retain, nonatomic) NSSet *addressBookTokens; // @synthesize addressBookTokens=_addressBookTokens;
 - (void)removeObserverAssertion;
 - (void)addObserverAssertion;
 - (_Bool)stringIsExemptFromChecker:(id)arg1;

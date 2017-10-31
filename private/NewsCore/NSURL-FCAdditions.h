@@ -9,6 +9,7 @@
 @interface NSURL (FCAdditions)
 + (id)fc_fileURLForWidgetReferralItemWithName:(id)arg1;
 + (id)fc_safeURLWithString:(id)arg1;
+- (id)fc_URLByAddingQueryItem:(id)arg1;
 - (id)fc_URLByDeletingFragment;
 - (id)fc_URLByDeletingQuery;
 - (_Bool)_isFeldsparOldChannelURL;

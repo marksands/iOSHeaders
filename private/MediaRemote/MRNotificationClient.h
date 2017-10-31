@@ -43,6 +43,7 @@
 @property(readonly, nonatomic, getter=isRegisteredForNowPlayingNotifications) _Bool registeredForNowPlayingNotifications;
 - (void)unregisterForNowPlayingNotifications;
 - (void)registerForNowPlayingNotificationsWithQueue:(id)arg1;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *nowPlayingNotificationQueue;
 @property(copy, nonatomic) CDUnknownBlockType notificationCallback;
 - (void)dealloc;
 - (id)initWithNotificationCallback:(CDUnknownBlockType)arg1;

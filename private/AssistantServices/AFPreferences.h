@@ -22,6 +22,7 @@
 - (void).cxx_destruct;
 - (_Bool)cardLoggingEnabled;
 - (void)setCardLoggingEnabled:(_Bool)arg1;
+- (_Bool)shouldLogForQA;
 - (_Bool)fileLoggingIsEnabled;
 - (void)setFileLoggingIsEnabled:(_Bool)arg1;
 - (void)_setLoggingDefaultValue:(id)arg1 forKey:(id)arg2;
@@ -65,6 +66,8 @@
 - (_Bool)limitedAudioLoggingEnabled;
 - (void)setMyriadDeviceGroup:(id)arg1;
 - (id)myriadDeviceGroup;
+- (void)setMyriadDuckingEnabled:(_Bool)arg1;
+- (_Bool)myriadDuckingEnabled;
 - (void)setMyriadCoordinationEnabled:(_Bool)arg1;
 - (_Bool)myriadCoordinationEnabled;
 - (void)setStreamingDictationEnabled:(_Bool)arg1;
@@ -87,6 +90,8 @@
 - (_Bool)showsHoldToTalkIndicator;
 - (void)setDebugButtonIsEnabled:(_Bool)arg1;
 - (_Bool)debugButtonIsEnabled;
+- (void)setShowServerOnUI:(_Bool)arg1;
+- (_Bool)showServerOnUI;
 - (void)resetSessionLanguage;
 - (void)getOfflineDictationStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)setDictationIsEnabled:(_Bool)arg1;

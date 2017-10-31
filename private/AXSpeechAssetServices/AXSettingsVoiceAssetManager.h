@@ -27,6 +27,7 @@
 - (id)_speechAssetUpdaterClient;
 - (void)deleteDownloadAlternateVoice:(id)arg1;
 - (void)stopDownloadingAlternateVoice:(id)arg1;
+- (void)_removeSiriVoiceUsage:(id)arg1;
 - (void)_requestVoiceAlternateVoiceDownloadProgress:(id)arg1;
 - (void)requestVoiceAlternateVoiceDownloadProgress:(id)arg1;
 - (void)_startDownloadingAlternateVoice:(id)arg1;

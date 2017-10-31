@@ -26,6 +26,7 @@
     double _barHeight;
 }
 
++ (id)monoSpacedFontWithFont:(id)arg1;
 + (id)newHUDLabel;
 + (id)stringForTimeIntervalSince1970:(double)arg1 withInterval:(long long)arg2 isDouble:(_Bool)arg3 isLeft:(_Bool)arg4;
 + (void)initializeDateFormattersIfNeededForInterval:(long long)arg1 withTimeZone:(id)arg2;

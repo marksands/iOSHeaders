@@ -7,6 +7,6 @@
 #import "NSMapTable.h"
 
 @interface NSMapTable (FCAdditions)
-- (id)nf_objectsForKeys:(id)arg1;
+- (id)fc_objectsForKeys:(id)arg1;
 @end
 

@@ -63,7 +63,7 @@
 - (void)_dismissPicker;
 - (void)_tapPickerCancelButton;
 - (void)newFolderNameTextFieldDidChange:(id)arg1;
-- (void)createNewFolder:(id)arg1;
+- (void)createNewFolderWithMaxThumbnailSize:(struct CGSize)arg1;
 - (void)showLocationOnTopOfCurrentBrowser:(id)arg1 animated:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)browser:(id)arg1 didResolveShownLocation:(id)arg2 previousLocation:(id)arg3;
 - (void)browser:(id)arg1 wantsToShowLocation:(id)arg2 forceReplaceLocation:(_Bool)arg3;
@@ -90,7 +90,7 @@
 - (void)_displayInfoControllerWithItem:(id)arg1 inTagMode:(_Bool)arg2;
 - (void)_displayInfoControllerForCurrentFolder:(id)arg1;
 - (void)browser:(id)arg1 wantsToShowInfoForItem:(id)arg2;
-- (void)browserWantsToCreateNewFolder:(id)arg1;
+- (void)browserWantsToCreateNewFolder:(id)arg1 maxThumbnailSize:(struct CGSize)arg2;
 - (void)_createDocumentActionFromNavigationBarAction:(id)arg1;
 - (id)multipleSelectionAction;
 - (void)_deleteAllItems:(id)arg1;
@@ -114,6 +114,7 @@
 - (id)selectAllButton;
 - (id)_trailingNavigationButtonsForViewController:(id)arg1;
 - (id)_leadingNavigationButtonsForViewController:(id)arg1;
+- (_Bool)_wantsCustomSearchbarLayout;
 - (_Bool)_canPopViewController;
 - (_Bool)_canNavigateBack;
 - (void)_updatePalette:(_Bool)arg1;
@@ -140,7 +141,7 @@
 - (void)_updateToolbarActionsForViewcontroller:(id)arg1;
 - (_Bool)canPerformAction:(id)arg1;
 - (_Bool)_canCreateDocumentsFromViewController:(id)arg1;
-- (_Bool)_shouldShowCreateDocuments;
+- (_Bool)_shouldShowCreateDocumentsOnViewController:(id)arg1;
 - (void)clearCurrentOpenInteraction;
 - (void)clearCurrentInteraction;
 - (void)viewWillAppear:(_Bool)arg1;
@@ -152,6 +153,7 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)revealDocumentAtURL:(id)arg1 importIfNeeded:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_updateAppearance:(id)arg1 onSearchBar:(id)arg2;
 - (id)_defaultTitleTextAttributes;
 - (void)_updateOverlayOnViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)_updateOverlayOnViewController:(id)arg1;

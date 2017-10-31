@@ -6,16 +6,18 @@
 
 #import "NSOperation.h"
 
-@class NSDictionary, NSError, NSString, NSURL, SSURLConnectionResponse;
+@class NSDictionary, NSError, NSString, NSURL, NSXPCConnection, SSURLConnectionResponse;
 
 @interface WLKNetworkRequestOperation : NSOperation
 {
     NSError *_error;
     id _response;
     unsigned long long _numRetries;
+    NSXPCConnection *_connection;
     _Bool _allowAuthentication;
     _Bool _requiresMescal;
     _Bool _encodeQueryParams;
+    _Bool _runsInDaemon;
     id <WLKNetworkRequestOperationDelegate> _delegate;
     NSDictionary *_additionalHeaderFields;
     NSString *_serverRouteKey;
@@ -31,9 +33,12 @@
     NSURL *_baseURL;
 }
 
++ (void)logNetworkHeaders:(id)arg1 identifier:(id)arg2;
++ (void)_networkRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (id)_defaultBaseURL;
 + (unsigned long long)preferredCachePolicy;
 @property(copy, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
+@property(nonatomic) _Bool runsInDaemon; // @synthesize runsInDaemon=_runsInDaemon;
 @property(retain, nonatomic) NSString *callerOverride; // @synthesize callerOverride=_callerOverride;
 @property(readonly, copy, nonatomic) SSURLConnectionResponse *fullResponse; // @synthesize fullResponse=_fullResponse;
 @property(readonly, copy, nonatomic) NSString *httpMethod; // @synthesize httpMethod=_httpMethod;
@@ -52,6 +57,7 @@
 @property(nonatomic) _Bool allowAuthentication; // @synthesize allowAuthentication=_allowAuthentication;
 @property(nonatomic) __weak id <WLKNetworkRequestOperationDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (id)_connection;
 - (id)_runNetworkOperationAndReturnError:(id *)arg1;
 - (void)_finishWithResponse:(id)arg1;
 - (void)_failWithError:(id)arg1;

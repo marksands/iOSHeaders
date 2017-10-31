@@ -14,7 +14,6 @@
 {
     _Bool _allowDigitalZoom;
     unsigned long long _maskedCameraCorners;
-    double _badgeInset;
     NSLayoutYAxisAnchor *_badgeTopAnchor;
     HUCameraErrorContent *_errorContent;
     HURemoteContextHostingView *_cameraContainerView;
@@ -28,11 +27,14 @@
     UITapGestureRecognizer *_doubleTapRecognizer;
     NSArray *_staticConstraints;
     NSLayoutConstraint *_cameraAspectRatioConstraint;
-    NSArray *_badgeInsetConstraints;
+    NSLayoutConstraint *_badgeTopConstraint;
+    NSLayoutConstraint *_badgeLeadingConstraint;
+    struct UIOffset _badgeOffset;
 }
 
 + (_Bool)requiresConstraintBasedLayout;
-@property(retain, nonatomic) NSArray *badgeInsetConstraints; // @synthesize badgeInsetConstraints=_badgeInsetConstraints;
+@property(retain, nonatomic) NSLayoutConstraint *badgeLeadingConstraint; // @synthesize badgeLeadingConstraint=_badgeLeadingConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *badgeTopConstraint; // @synthesize badgeTopConstraint=_badgeTopConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *cameraAspectRatioConstraint; // @synthesize cameraAspectRatioConstraint=_cameraAspectRatioConstraint;
 @property(retain, nonatomic) NSArray *staticConstraints; // @synthesize staticConstraints=_staticConstraints;
 @property(retain, nonatomic) UITapGestureRecognizer *doubleTapRecognizer; // @synthesize doubleTapRecognizer=_doubleTapRecognizer;
@@ -47,7 +49,7 @@
 @property(nonatomic) _Bool allowDigitalZoom; // @synthesize allowDigitalZoom=_allowDigitalZoom;
 @property(retain, nonatomic) HUCameraErrorContent *errorContent; // @synthesize errorContent=_errorContent;
 @property(retain, nonatomic) NSLayoutYAxisAnchor *badgeTopAnchor; // @synthesize badgeTopAnchor=_badgeTopAnchor;
-@property(nonatomic) double badgeInset; // @synthesize badgeInset=_badgeInset;
+@property(nonatomic) struct UIOffset badgeOffset; // @synthesize badgeOffset=_badgeOffset;
 @property(nonatomic) unsigned long long maskedCameraCorners; // @synthesize maskedCameraCorners=_maskedCameraCorners;
 - (void).cxx_destruct;
 - (struct CGRect)_computeZoomRectForLocation:(struct CGPoint)arg1 andScale:(double)arg2;

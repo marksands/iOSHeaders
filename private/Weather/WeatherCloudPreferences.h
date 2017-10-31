@@ -24,6 +24,7 @@
 - (_Bool)shouldWriteCitiesToCloud:(id)arg1;
 - (void)saveCitiesToCloud:(id)arg1;
 - (void)setCloudStoreCities:(id)arg1;
+- (void)_synchronize:(_Bool)arg1;
 - (void)cloudPersistenceDidSynchronize:(id)arg1;
 - (void)forceSync;
 - (id)prepareLocalCitiesForReconciliation:(id)arg1 isInitialSync:(_Bool)arg2;

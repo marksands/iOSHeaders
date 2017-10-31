@@ -23,6 +23,7 @@
     _Bool _isQuickGlance;
     _Bool _isStreaming;
     _Bool _isStaticCorrection;
+    _Bool _isFuzzyMatch;
     _Bool _publiclyIndexable;
     int _auxiliaryBottomTextColor;
     int _topHit;
@@ -116,6 +117,7 @@
 @property(copy, nonatomic) NSString *correctedQuery; // @synthesize correctedQuery=_correctedQuery;
 @property(copy, nonatomic) NSString *intendedQuery; // @synthesize intendedQuery=_intendedQuery;
 @property(copy, nonatomic) NSDictionary *localFeatures; // @synthesize localFeatures=_localFeatures;
+@property(nonatomic) _Bool isFuzzyMatch; // @synthesize isFuzzyMatch=_isFuzzyMatch;
 @property(nonatomic) _Bool isStaticCorrection; // @synthesize isStaticCorrection=_isStaticCorrection;
 @property(retain, nonatomic) SFImage *icon; // @synthesize icon=_icon;
 @property(copy, nonatomic) NSString *resultBundleId; // @synthesize resultBundleId=_resultBundleId;

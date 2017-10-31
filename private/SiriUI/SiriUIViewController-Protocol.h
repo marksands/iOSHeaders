@@ -16,9 +16,11 @@
 - (void)siriWillActivateFromSource:(long long)arg1;
 
 @optional
+- (_Bool)shouldHidePriorViews;
 - (void)siriDidStopSpeakingWithIdentifier:(NSString *)arg1 speechQueueIsEmpty:(_Bool)arg2;
 - (void)siriDidStartSpeakingWithIdentifier:(NSString *)arg1;
 - (double)baselineOffsetFromBottom;
+- (double)desiredPinnedTopPadding;
 - (double)desiredTopPaddingBelowController:(id <SiriUIViewController>)arg1;
 - (void)siriDidScrollVisible:(_Bool)arg1;
 - (void)handleAceCommand:(AceObject *)arg1;

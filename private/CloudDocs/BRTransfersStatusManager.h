@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSOperationQueue, NSProgress;
+@class NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSOperationQueue, NSProgress;
 
 @interface BRTransfersStatusManager : NSObject
 {
     NSMutableArray *_transfers;
-    NSOperationQueue *_queue;
+    NSOperationQueue *_operationQueue;
     NSProgress *_globalUploadProgress;
     NSProgress *_globalDownloadProgress;
-    NSMutableArray *_coordinators;
     id _globalProgressSubscriber;
     unsigned long long _shouldHideGlobalDownloadProgressCount;
+    NSObject<OS_dispatch_source> *_timerToDisplayGlobalProgress;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (id)defaultManager;
@@ -26,6 +27,8 @@
 - (void)insertTransfer:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addTransfer:(id)arg1;
 - (void)removeTransfer:(id)arg1;
+- (void)_setupTimerToDisplayGlobalProgress;
+- (void)showGlobalProgressIfNeeded;
 - (void)stopObservingItemDownloadProgress:(id)arg1;
 - (id)startObservingItemDownloadProgressAtURL:(id)arg1;
 - (void)downloadAndObserveItemAtURL:(id)arg1 handler:(CDUnknownBlockType)arg2;

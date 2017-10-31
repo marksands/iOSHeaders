@@ -14,8 +14,18 @@
 {
 }
 
-+ (_Bool)isAbsintheV3V4Enabled;
-+ (void)setEnableAbsintheV3V4:(_Bool)arg1;
++ (_Bool)isLiveDeliveryWarmUpEnabled;
++ (void)setEnableLiveDeliveryWarmUp:(_Bool)arg1;
++ (_Bool)isDebugPiscoLoggingEnabled;
++ (void)setEnableDebugPiscoLogging:(_Bool)arg1;
++ (_Bool)isDeviceScoringEnabled;
++ (void)setEnableDeviceScoring:(_Bool)arg1;
++ (_Bool)isBAACertEnabled;
++ (void)setEnableBAACert:(_Bool)arg1;
++ (_Bool)isAbsintheV4Enabled;
++ (void)setEnableAbsintheV4:(_Bool)arg1;
++ (_Bool)isPiscoEnabled;
++ (void)setEnablePisco:(_Bool)arg1;
 + (id)phoneNumberValidationPreflightTestData;
 + (void)setPhoneNumberValidationPreflightTestData:(id)arg1;
 + (long long)phoneNumberValidationMode;

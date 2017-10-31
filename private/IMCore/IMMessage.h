@@ -39,6 +39,7 @@
     NSDictionary *_messageSummaryInfo;
     NSString *_associatedBalloonBundleID;
     NSData *_customTypingIndicatorIcon;
+    NSString *_notificationIDSTokenURI;
     struct _NSRange _associatedMessageRange;
 }
 
@@ -59,6 +60,7 @@
 + (id)editedMessageWithOriginalMessage:(id)arg1 originalPrefixedGUID:(id)arg2 newBody:(id)arg3;
 + (id)instantMessageWithAssociatedMessageContent:(id)arg1 flags:(unsigned long long)arg2 associatedMessageGUID:(id)arg3 associatedMessageType:(long long)arg4 associatedMessageRange:(struct _NSRange)arg5 messageSummaryInfo:(id)arg6;
 @property(nonatomic) _Bool isSOS; // @synthesize isSOS=_isSOS;
+@property(retain, nonatomic) NSString *notificationIDSTokenURI; // @synthesize notificationIDSTokenURI=_notificationIDSTokenURI;
 @property(retain, nonatomic) NSData *customTypingIndicatorIcon; // @synthesize customTypingIndicatorIcon=_customTypingIndicatorIcon;
 @property(retain, nonatomic) NSDate *timeExpressiveSendPlayed; // @synthesize timeExpressiveSendPlayed=_timeExpressiveSendPlayed;
 @property(retain, nonatomic) NSString *expressiveSendStyleID; // @synthesize expressiveSendStyleID=_expressiveSendStyleID;

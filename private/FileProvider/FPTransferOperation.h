@@ -34,6 +34,7 @@
 - (void)presendNotifications;
 - (void)finishWithResult:(id)arg1 error:(id)arg2;
 - (void)mainWithExtensionProxy:(id)arg1;
+- (_Bool)preflightOperation;
 - (id)operationDescription;
 - (id)initWithItems:(id)arg1 destinationFolder:(id)arg2 copyItems:(_Bool)arg3;
 - (id)initWithSourceURLs:(id)arg1 destinationFolder:(id)arg2 copyItems:(_Bool)arg3;

@@ -27,10 +27,10 @@
 - (long long)feedFilterOptions;
 - (long long)feedSortMethod;
 - (id)feedPaginator;
-- (_Bool)shouldFilterFeedGroupEmitter:(id)arg1;
+- (_Bool)shouldFilterFeedGroupEmitter:(id)arg1 withAppConfiguration:(id)arg2;
 - (void)prepareToProvideFeedGroupEmittersWithCallbackQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (id)feedGroupEmitters;
-- (id)offlineFeedGroupEmitters;
+- (id)feedGroupEmittersWithAppConfiguration:(id)arg1;
+- (id)offlineFeedGroupEmittersWithAppConfiguration:(id)arg1;
 - (id)iAdFeedID;
 - (id)name;
 - (_Bool)derivesContentsFromExplicitSubscriptions;

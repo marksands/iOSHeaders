@@ -40,8 +40,11 @@
 - (id)animationControllerForDismissedController:(id)arg1;
 - (id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3;
 - (void)tapGestureRecognized:(id)arg1;
+- (void)didSelectRoute:(id)arg1;
 - (void)didReceiveInteraction;
 - (void)dismiss;
+- (void)stopPrewarming;
+- (void)startPrewarming;
 - (_Bool)prefersStatusBarHidden;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;

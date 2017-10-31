@@ -28,6 +28,7 @@
     CDUnknownBlockType _tileKeyIsDownloadedPredicate;
     double _stepSizeInMeters;
     GEOApplicationAuditToken *_token;
+    struct GEOOnce_s _didTearDown;
 }
 
 + (id)preloaderForRoute:(id)arg1;
@@ -59,7 +60,9 @@
 - (_Bool)minimalDebuggingEnabled;
 - (_Bool)isSufficientlyLoaded;
 - (void)_withDownloadedRegionsOnQueue:(id)arg1 perform:(CDUnknownBlockType)arg2;
+- (void)performTearDown;
 - (void)dealloc;
+- (void)tearDown;
 - (id)initWithRoute:(id)arg1 loggingEnabled:(_Bool)arg2 minimalDebugging:(_Bool)arg3 fullDebugging:(_Bool)arg4 batteryHandler:(CDUnknownBlockType)arg5;
 - (id)init;
 

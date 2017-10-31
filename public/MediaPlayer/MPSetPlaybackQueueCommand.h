@@ -15,8 +15,10 @@
     NSMutableSet *_registeredCustomQueueIdentifiers;
     _Bool _supportsSharedQueue;
     NSObject<OS_dispatch_queue> *_serialQueue;
+    long long _upNextItemCount;
 }
 
+@property(nonatomic) long long upNextItemCount; // @synthesize upNextItemCount=_upNextItemCount;
 - (void).cxx_destruct;
 - (id)_mediaRemoteCommandInfoOptions;
 - (void)setSupportedSharedQueue:(_Bool)arg1;

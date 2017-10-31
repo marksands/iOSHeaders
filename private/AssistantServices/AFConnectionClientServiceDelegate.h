@@ -17,6 +17,8 @@
 }
 
 - (void).cxx_destruct;
+- (oneway void)startPlaybackDidFail:(long long)arg1;
+- (oneway void)willProcessStartPlayback:(long long)arg1;
 - (oneway void)audioPlaybackRequestDidStop:(id)arg1 error:(id)arg2;
 - (oneway void)audioPlaybackRequestDidNotStart:(id)arg1 error:(id)arg2;
 - (oneway void)audioPlaybackRequestDidStart:(id)arg1;

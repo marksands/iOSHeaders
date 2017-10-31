@@ -6,14 +6,16 @@
 
 #import <Home/HFTransformItem.h>
 
+#import "HFAccessoryVendor.h"
 #import "HFHomeKitItemProtocol.h"
 
 @class HFItem<HFHomeKitItemProtocol>, NSString;
 
-@interface HFHomeKitTransformItem : HFTransformItem <HFHomeKitItemProtocol>
+@interface HFHomeKitTransformItem : HFTransformItem <HFHomeKitItemProtocol, HFAccessoryVendor>
 {
 }
 
+- (id)accessories;
 @property(readonly, nonatomic) id <HFHomeKitObject> homeKitObject;
 @property(readonly, nonatomic) HFItem<HFHomeKitItemProtocol> *sourceHomeKitItem;
 

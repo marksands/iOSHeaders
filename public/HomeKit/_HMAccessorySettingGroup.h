@@ -30,6 +30,7 @@
 + (id)supportedSettingsClasses;
 + (_Bool)supportsSecureCoding;
 + (id)logCategory;
++ (id)shortDescription;
 @property(retain, nonatomic) _HMContext *context; // @synthesize context=_context;
 @property(retain, nonatomic) HMAccessorySettings *accessorySettings; // @synthesize accessorySettings=_accessorySettings;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
@@ -69,6 +70,10 @@
 @property(readonly, copy) NSArray *settings;
 - (void)_registerNotificationHandlers;
 - (void)configureWithAccessorySettings:(id)arg1 context:(id)arg2;
+@property(readonly, copy) NSString *description;
+@property(readonly, copy) NSString *debugDescription;
+- (id)descriptionWithPointer:(_Bool)arg1;
+- (id)shortDescription;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (void)dealloc;
@@ -76,8 +81,6 @@
 - (id)init;
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) Class superclass;
 
 @end

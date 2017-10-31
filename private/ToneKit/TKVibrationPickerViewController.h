@@ -10,7 +10,7 @@
 #import "TKVibrationRecorderViewControllerDelegate.h"
 #import "UINavigationControllerDelegate.h"
 
-@class NSArray, NSIndexPath, NSMutableDictionary, NSString, NSTimer, TKVibratorController, TLVibrationManager;
+@class NSArray, NSIndexPath, NSMutableDictionary, NSString, NSTimer, NSURL, TKVibratorController, TLVibrationManager;
 
 @interface TKVibrationPickerViewController : UITableViewController <TKVibrationPickerTableViewCellDelegate, TKVibrationRecorderViewControllerDelegate, UINavigationControllerDelegate>
 {
@@ -33,7 +33,7 @@
     TLVibrationManager *_vibrationManager;
     TKVibratorController *_vibratorController;
     NSTimer *_vibrationShouldStopTimer;
-    NSArray *_sortedVibrationIdentifiers;
+    NSURL *_temporaryDirectoryForSystemVibrationIdentifiers;
     NSArray *_sortedUserGeneratedVibrationIdentifiers;
     NSIndexPath *_indexPathOfCellBeingDeleted;
     NSMutableDictionary *_sectionHeaderViews;
@@ -106,7 +106,13 @@
 - (id)_indexPathForVibrationWithIdentifier:(id)arg1;
 - (id)_identifierOfVibrationAtIndexPath:(id)arg1;
 - (id)_sortedUserGeneratedVibrationIdentifiers;
-- (id)_sortedVibrationIdentifiers;
+- (unsigned long long)_indexOfSystemVibrationIdentifier:(id)arg1;
+- (id)_systemVibrationIdentifierAtIndex:(unsigned long long)arg1;
+- (unsigned long long)_numberOfSystemVibrationIdentifiers;
+- (void)_ensureSystemVibrationIdentifiersAreInitialized;
+- (id)_fileNameForIndexOfSystemVibrationIdentifier:(id)arg1;
+- (id)_fileNameForSystemVibrationIdentifierAtIndex:(unsigned long long)arg1;
+- (id)_fileNameForSystemVibrationIdentifiersCount;
 - (id)_sortedArrayWithVibrationIdentifiers:(id)arg1 allowsDuplicateVibrationNames:(_Bool)arg2;
 - (id)_selectedVibrationIndexPath;
 - (id)_sanitizeVibrationIdentifierForPlayback:(id)arg1;

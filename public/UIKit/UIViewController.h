@@ -816,6 +816,7 @@
 @property(readonly, retain, nonatomic) id <UILayoutSupport><_UILayoutItem> topLayoutGuide; // @synthesize topLayoutGuide=_topLayoutGuide;
 - (id)safeAreaLayoutGuide;
 @property(readonly, nonatomic) struct UIEdgeInsets _viewSafeAreaInsetsFromScene;
+- (struct CGRect)_viewFrameInWindowForContentOverlayInsetsCalculation;
 - (struct UIEdgeInsets)_sceneSafeAreaInsetsOverlap;
 - (struct UIEdgeInsets)_devicePeripheryInsets;
 - (void)setValue:(id)arg1 forKey:(id)arg2;

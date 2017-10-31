@@ -25,7 +25,6 @@
 
 + (id)localMediaItemForStoreIdentifiers:(id)arg1;
 + (id)font;
-+ (id)playButton;
 + (_Bool)supportsResult:(id)arg1;
 @property struct CGSize captionLabelSize; // @synthesize captionLabelSize=_captionLabelSize;
 @property struct CGSize playButtonSize; // @synthesize playButtonSize=_playButtonSize;

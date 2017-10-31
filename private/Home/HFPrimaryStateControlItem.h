@@ -26,9 +26,9 @@
 - (id)togglePrimaryState;
 - (id)writePrimaryState:(long long)arg1;
 - (id)writeValue:(id)arg1;
-- (id)copyWithCharacteristicTypes:(id)arg1 valueSource:(id)arg2;
-- (_Bool)canCopyWithCharacteristicTypeSubset:(id)arg1;
-- (id)initWithValueSource:(id)arg1 characteristicTypes:(id)arg2 displayResults:(id)arg3;
+- (id)copyWithCharacteristicOptions:(id)arg1 valueSource:(id)arg2;
+- (_Bool)canCopyWithCharacteristicOptions:(id)arg1;
+- (id)initWithValueSource:(id)arg1 characteristicOptions:(id)arg2 displayResults:(id)arg3;
 - (id)initWithValueSource:(id)arg1 characteristicType:(id)arg2 valueTransformer:(id)arg3 displayResults:(id)arg4;
 
 // Remaining properties

@@ -33,24 +33,26 @@
     UITapGestureRecognizer *_collectionViewDismissalTapGesture;
     UIPanGestureRecognizer *_collectionViewScrollPanGesture;
     NSHashTable *_blockingGestureRecognizers;
-    _Bool _interactiveTransition;
     NSUUID *_currentTransitionUUID;
     CCUIOverlayTransitionState *_previousTransitionState;
     CCUIStatusBarStyleSnapshot *_hostStatusBarStyleSnapshot;
     _Bool _reachabilityActive;
     unsigned long long _presentationState;
+    unsigned long long _transitionState;
     id <CCUIHostStatusBarStyleProvider> _hostStatusBarStyleProvider;
 }
 
 + (id)_presentationProviderForDevice;
 @property(nonatomic, getter=isReachabilityActive) _Bool reachabilityActive; // @synthesize reachabilityActive=_reachabilityActive;
 @property(nonatomic) __weak id <CCUIHostStatusBarStyleProvider> hostStatusBarStyleProvider; // @synthesize hostStatusBarStyleProvider=_hostStatusBarStyleProvider;
+@property(readonly, nonatomic) unsigned long long transitionState; // @synthesize transitionState=_transitionState;
 @property(nonatomic) unsigned long long presentationState; // @synthesize presentationState=_presentationState;
 - (void).cxx_destruct;
 - (_Bool)_gestureRecognizerIsActive:(id)arg1;
 - (void)_setupPanGestureFailureRequirements;
 - (void)_updateHotPocket:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_updateHotPocketAnimated:(_Bool)arg1;
+- (void)_updateChevronStateForTransitionState:(id)arg1;
 - (_Bool)_scrollViewCanAcceptDownwardsPan;
 - (_Bool)_scrollViewIsScrollable;
 - (_Bool)_scrollPanGestureRecognizerCanBeginForGestureVelocity:(struct CGPoint)arg1;
@@ -73,6 +75,7 @@
 - (void)endPresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
 - (void)updatePresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
 - (void)beginPresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
+- (void)dismissControlCenterForContentModuleContext:(id)arg1;
 - (id)compactStyleRequestForStatusBar:(id)arg1;
 @property(readonly, nonatomic) double reachabilityOffset;
 @property(readonly, copy, nonatomic) CCUIStatusBarStyleSnapshot *overlayStatusBarStyle;

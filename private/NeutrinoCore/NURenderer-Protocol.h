@@ -9,6 +9,6 @@
 @class CIImage, CIRenderDestination, CIRenderTask;
 
 @protocol NURenderer <NSObject>
-- (CIRenderTask *)renderImage:(CIImage *)arg1 toDestination:(CIRenderDestination *)arg2 bounds:(CDStruct_996ac03c)arg3 error:(out id *)arg4;
+- (CIRenderTask *)renderImage:(CIImage *)arg1 rect:(CDStruct_996ac03c)arg2 toDestination:(CIRenderDestination *)arg3 atPoint:(CDStruct_912cb5d2)arg4 error:(out id *)arg5;
 @end
 

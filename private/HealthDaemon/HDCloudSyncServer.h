@@ -14,7 +14,7 @@
 {
 }
 
-- (id)remote_waitOnHealthCloudSyncWithCompletion:(CDUnknownBlockType)arg1;
+- (id)remote_waitOnHealthCloudSyncWithUUID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)retmote_fetchCloudSyncProgressWithCompletion:(CDUnknownBlockType)arg1;
 - (id)remote_disableCloudSyncAndDeleteAllCloudDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_fetchCloudSyncStatusWithCompletion:(CDUnknownBlockType)arg1;

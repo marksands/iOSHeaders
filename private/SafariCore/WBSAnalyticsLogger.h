@@ -26,6 +26,9 @@
 - (void)submitAutomaticReaderActivation:(int)arg1;
 - (void)didToggleDomainSpecificAutomaticReader:(_Bool)arg1;
 - (void)didToggleGloballyUseAutomaticReader:(_Bool)arg1;
+- (void)_didSelectFavoritesGridItemOfSection:(int)arg1 type:(int)arg2 atIndex:(unsigned long long)arg3 itemsPerRow:(unsigned long long)arg4 isNewTabPage:(_Bool)arg5;
+- (void)didSelectFavoritesGridFrequentlyVisitedItemAtIndex:(unsigned long long)arg1 itemsPerRow:(unsigned long long)arg2 isNewTabPage:(_Bool)arg3;
+- (void)didSelectFavoritesGridItemOfType:(int)arg1 atIndex:(unsigned long long)arg2 itemsPerRow:(unsigned long long)arg3 isNewTabPage:(_Bool)arg4;
 - (void)userTappedAutoFillQuickTypeSuggestionWithCategory:(int)arg1 formProperty:(id)arg2;
 - (void)showedAutoFillQuickTypeSuggestionWithCategory:(int)arg1 formProperty:(id)arg2;
 - (void)didSelectContactAutoFillSet:(int)arg1 hasPreviouslyCustomizedSet:(_Bool)arg2;

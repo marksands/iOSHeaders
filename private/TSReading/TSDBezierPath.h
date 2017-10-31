@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
-@interface TSDBezierPath : NSObject <NSCopying, NSCoding>
+@interface TSDBezierPath : NSObject <NSCopying, NSSecureCoding>
 {
     long long sfr_elementCount;
     long long sfr_elementMax;
@@ -36,6 +36,7 @@
     } sfr_bpFlags;
 }
 
++ (_Bool)supportsSecureCoding;
 + (double)defaultLineWidth;
 + (void)setDefaultLineWidth:(double)arg1;
 + (unsigned long long)defaultLineJoinStyle;

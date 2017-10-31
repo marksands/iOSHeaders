@@ -21,11 +21,13 @@
     long long _repeatType;
     NSString *_playActivityFeatureName;
     NSData *_playActivityRecommendationData;
+    NSString *_siriAssetInfo;
     NSString *_siriReferenceIdentifier;
 }
 
 + (Class)queueFeederClass;
 @property(copy, nonatomic) NSString *siriReferenceIdentifier; // @synthesize siriReferenceIdentifier=_siriReferenceIdentifier;
+@property(copy, nonatomic) NSString *siriAssetInfo; // @synthesize siriAssetInfo=_siriAssetInfo;
 @property(copy, nonatomic) NSData *playActivityRecommendationData; // @synthesize playActivityRecommendationData=_playActivityRecommendationData;
 @property(copy, nonatomic) NSString *playActivityFeatureName; // @synthesize playActivityFeatureName=_playActivityFeatureName;
 @property(nonatomic) long long repeatType; // @synthesize repeatType=_repeatType;

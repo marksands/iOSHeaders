@@ -12,6 +12,7 @@
 {
 }
 
+- (void)processRendition:(id)arg1 withBackstop:(id)arg2;
 - (id)initWithEntity:(id)arg1 insertIntoManagedObjectContext:(id)arg2;
 
 // Remaining properties

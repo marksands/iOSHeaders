@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) _Bool shouldRequireCellular;
 @property(readonly, nonatomic) _Bool shouldDisableCellular;
 @property(readonly, nonatomic) SSURLRequestProperties *requestProperties;
+@property(readonly, nonatomic) NSData *rawResponseData;
 @property(readonly, nonatomic) _Bool isURLBagRequest;
 @property(readonly, nonatomic) SSBag *bag;
 @property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;

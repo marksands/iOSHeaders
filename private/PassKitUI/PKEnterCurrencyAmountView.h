@@ -26,10 +26,10 @@
     UILabel *_amountLabel;
     PKNumberPadInputView *_numberPad;
     NSNumberFormatter *_currentAmountFormatter;
-    NSString *_amountString;
+    NSString *_localizedAmountString;
 }
 
-@property(retain, nonatomic) NSString *amountString; // @synthesize amountString=_amountString;
+@property(retain, nonatomic) NSString *localizedAmountString; // @synthesize localizedAmountString=_localizedAmountString;
 @property(retain, nonatomic) NSNumberFormatter *currentAmountFormatter; // @synthesize currentAmountFormatter=_currentAmountFormatter;
 @property(retain, nonatomic) PKNumberPadInputView *numberPad; // @synthesize numberPad=_numberPad;
 @property(retain, nonatomic) UILabel *amountLabel; // @synthesize amountLabel=_amountLabel;
@@ -46,11 +46,9 @@
 - (void).cxx_destruct;
 - (void)_createSubviews;
 - (double)_topPaddingForCurrencySymbol;
-- (id)_decimalNumberFromPosixString:(id)arg1;
-- (id)_posixStringFromDecimalNumber:(id)arg1;
-- (id)_posixFormatter;
 - (void)_updateContent;
 - (void)_createAmountFormatter;
+- (unsigned long long)_numberOfDecimalPlacesInString:(id)arg1 decimalSeperator:(id)arg2;
 - (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (struct CGSize)intrinsicContentSize;
 - (void)layoutSubviews;

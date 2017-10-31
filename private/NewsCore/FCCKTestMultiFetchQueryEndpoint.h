@@ -14,7 +14,7 @@
 {
 }
 
-- (void)handleQueryOperation:(id)arg1 withRecords:(id)arg2;
+- (void)handleQueryOperation:(id)arg1 withRecords:(id)arg2 droppedFeeds:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

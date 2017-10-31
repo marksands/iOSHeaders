@@ -9,7 +9,7 @@
 #import "MTAgentDiagnosticDelegate.h"
 #import "MTSystemStateDelegate.h"
 
-@class MTAgentDiagnosticListener, MTAgentNotificationManager, MTAlarmScheduler, MTAlarmServer, MTAlarmStorage, MTAlarmSyncDataModel, MTLanguageChangeListener, MTMetrics, MTPairedDeviceListener, MTSleepMetrics, MTSleepMonitor, MTSyncCommandListener, MTSyncManager, MTSyncMonitor, MTSyncStorage, MTSystemStateListener, MTTimeListener, MTTimerScheduler, MTTimerServer, MTTimerStorage, NSDate, NSString;
+@class MTAgentDiagnosticListener, MTAgentNotificationManager, MTAlarmScheduler, MTAlarmServer, MTAlarmSnapshot, MTAlarmStorage, MTAlarmSyncDataModel, MTLanguageChangeListener, MTMetrics, MTPairedDeviceListener, MTSleepMetrics, MTSleepMonitor, MTSyncCommandListener, MTSyncManager, MTSyncMonitor, MTSyncStorage, MTSystemStateListener, MTTimeListener, MTTimerScheduler, MTTimerServer, MTTimerSnapshot, MTTimerStorage, NSDate, NSString;
 
 @interface MTAgent : NSObject <MTAgentDiagnosticDelegate, MTSystemStateDelegate>
 {
@@ -26,6 +26,7 @@
     MTAlarmSyncDataModel *_alarmSyncDataModel;
     MTAlarmScheduler *_alarmScheduler;
     MTSyncStorage *_alarmSyncStorage;
+    MTAlarmSnapshot *_alarmSnapshot;
     MTAlarmStorage *_alarmStorage;
     MTSyncManager *_syncManager;
     MTSyncMonitor *_syncMonitor;
@@ -34,6 +35,7 @@
     MTMetrics *_syncMetrics;
     MTTimerServer *_timerServer;
     MTTimerScheduler *_timerScheduler;
+    MTTimerSnapshot *_timerSnapshot;
     MTTimerStorage *_timerStorage;
     id <MTNotificationPoster> _notificationPoster;
 }
@@ -41,6 +43,7 @@
 + (id)agent;
 @property(retain, nonatomic) id <MTNotificationPoster> notificationPoster; // @synthesize notificationPoster=_notificationPoster;
 @property(retain, nonatomic) MTTimerStorage *timerStorage; // @synthesize timerStorage=_timerStorage;
+@property(retain, nonatomic) MTTimerSnapshot *timerSnapshot; // @synthesize timerSnapshot=_timerSnapshot;
 @property(retain, nonatomic) MTTimerScheduler *timerScheduler; // @synthesize timerScheduler=_timerScheduler;
 @property(retain, nonatomic) MTTimerServer *timerServer; // @synthesize timerServer=_timerServer;
 @property(retain, nonatomic) MTMetrics *syncMetrics; // @synthesize syncMetrics=_syncMetrics;
@@ -49,6 +52,7 @@
 @property(retain, nonatomic) MTSyncMonitor *syncMonitor; // @synthesize syncMonitor=_syncMonitor;
 @property(retain, nonatomic) MTSyncManager *syncManager; // @synthesize syncManager=_syncManager;
 @property(retain, nonatomic) MTAlarmStorage *alarmStorage; // @synthesize alarmStorage=_alarmStorage;
+@property(retain, nonatomic) MTAlarmSnapshot *alarmSnapshot; // @synthesize alarmSnapshot=_alarmSnapshot;
 @property(retain, nonatomic) MTSyncStorage *alarmSyncStorage; // @synthesize alarmSyncStorage=_alarmSyncStorage;
 @property(retain, nonatomic) MTAlarmScheduler *alarmScheduler; // @synthesize alarmScheduler=_alarmScheduler;
 @property(retain, nonatomic) MTAlarmSyncDataModel *alarmSyncDataModel; // @synthesize alarmSyncDataModel=_alarmSyncDataModel;

@@ -9,14 +9,14 @@
 #import "FAFamilySetupPageDelegate.h"
 #import "RemoteUIControllerDelegate.h"
 
-@class AAGrandSlamSigner, ACAccount, ACAccountStore, NSArray, NSMutableURLRequest, NSString, RemoteUIController, UIActivityIndicatorView, UINavigationItem;
+@class AAGrandSlamSigner, AAUIRemoteUIController, ACAccount, ACAccountStore, NSArray, NSMutableURLRequest, NSString, UIActivityIndicatorView, UINavigationItem;
 
 @interface FAFamilySetupViewController : AAUIBleachedNavigationController <FAFamilySetupPageDelegate, RemoteUIControllerDelegate>
 {
     ACAccount *_account;
     ACAccountStore *_accountStore;
     AAGrandSlamSigner *_grandSlamSigner;
-    RemoteUIController *_remoteUIController;
+    AAUIRemoteUIController *_remoteUIController;
     NSMutableURLRequest *_startRemoteUIRequest;
     NSMutableURLRequest *_currentRemoteUIRequest;
     _Bool _isShowingSpinner;

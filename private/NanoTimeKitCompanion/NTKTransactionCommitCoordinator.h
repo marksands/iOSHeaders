@@ -13,6 +13,7 @@
     NSMutableArray *_commitHandlers;
 }
 
++ (void)flushCommitHandlers;
 + (id)_sharedInstance;
 + (_Bool)addImplicitTransactionCommitHandler:(CDUnknownBlockType)arg1;
 - (void).cxx_destruct;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class APReceiverMediaRemoteCommunicationChannelInternal;
+@class APReceiverMediaRemoteCommunicationChannelInternal, NSString;
 
 @interface APReceiverMediaRemoteCommunicationChannel : NSObject
 {
@@ -17,6 +17,7 @@
 - (void)invalidate;
 - (void)sendData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithDictionary:(id)arg1;
+@property(readonly, nonatomic) NSString *uuid;
 
 @end
 

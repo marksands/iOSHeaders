@@ -20,7 +20,7 @@
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
 @property _Bool expanded; // @synthesize expanded=_expanded;
 - (void)didPressMoreButton;
-- (void)updateWithCardSection:(id)arg1;
+- (void)updateWithRowModel:(id)arg1;
 - (id)setupContentView;
 
 // Remaining properties

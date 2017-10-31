@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AFMyriadRecord, AFPowerAssertionManager, NSDate, NSDateFormatter, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSString, NSUUID, _DKKnowledgeStore;
+@class AFMyriadEmergencyCallPunchout, AFMyriadRecord, AFPowerAssertionManager, NSDate, NSDateFormatter, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSString, NSUUID, _DKKnowledgeStore;
 
 @interface AFMyriadCoordinator : NSObject
 {
@@ -15,9 +15,13 @@
     unsigned long long _previousState;
     NSMutableDictionary *_replies;
     NSMutableDictionary *_replyCounts;
+    NSMutableSet *_previousTrumps;
+    NSMutableSet *_incomingTrumps;
     id _delegate;
-    NSString *_deviceClass;
+    NSString *_deviceClassName;
+    unsigned char _deviceClass;
     int _deviceAdjust;
+    double _deviceDelay;
     unsigned char _deviceGroup;
     NSObject<OS_dispatch_queue> *_myriadWorkQueue;
     NSObject<OS_dispatch_queue> *_myriadWaitWiProxQueue;
@@ -27,7 +31,9 @@
     NSObject<OS_dispatch_source> *_timer;
     NSObject<OS_dispatch_semaphore> *_wiproxReadinessSemaphore;
     AFPowerAssertionManager *_powerAssertionManager;
+    struct __CFNotificationCenter *_center;
     AFMyriadRecord *_triggerRecord;
+    unsigned long long _voiceTriggerTime;
     int _nTimesContinued;
     int _nTimesExtended;
     BOOL _incomingAdjustment;
@@ -46,24 +52,31 @@
     NSDateFormatter *_dateFormat;
     _DKKnowledgeStore *_coreDuetStore;
     NSUUID *_designatedSelfID;
-    NSDate *_lastSiriActivationTime;
+    double _lastSiriActivationTime;
     NSDate *_triggerTime;
     int _nDeltaTs;
+    AFMyriadEmergencyCallPunchout *_callPunchout;
     unsigned long long _lastDecisionTime;
     _Bool _lastDecision;
     unsigned short _lastPHash;
+    double _lastEmergencyAttempt;
+    _Bool _wasEmergency;
 }
 
 + (void)clearCurrentCoordinator;
 + (id)currentCoordinator;
 - (void).cxx_destruct;
+- (void)_signalEmergencyCallHandled;
 - (unsigned short)recentEventBump;
 - (void)logCoreDuetResults:(id)arg1;
 - (id)activityEventStream;
-- (void)_waitWiProxForeverAndExecute:(CDUnknownBlockType)arg1;
 - (void)_waitWiProxAndExecute:(CDUnknownBlockType)arg1;
 - (void)_waitWiProx:(long long)arg1 andExecute:(CDUnknownBlockType)arg2;
+- (_Bool)_testAndUpdateWedgeFilter:(id)arg1;
+- (_Bool)_inTaskTriggerWasTooSoon;
 - (id)_sortedReplies;
+- (_Bool)_isAPhone:(unsigned char)arg1;
+- (_Bool)_shouldHandleEmergency;
 - (_Bool)_shouldContinueFor:(id)arg1;
 - (id)responseObject:(unsigned short)arg1;
 - (id)emergencyHandledRecord;
@@ -89,10 +102,13 @@
 - (void)_unduck;
 - (void)_stopAdvertisingAndListening;
 - (void)stopListening;
+- (void)stopAdvertising;
 - (void)startListening;
+- (void)preheatWiProx;
 - (void)resetReplies;
 - (id)_stateAsString:(unsigned long long)arg1;
 - (id)_stateAsString;
+- (void)enterState:(unsigned long long)arg1;
 - (void)_enterState:(unsigned long long)arg1;
 - (void)_startTimer:(id)arg1 for:(float)arg2 thenEnterState:(unsigned long long)arg3;
 - (void)_startTimer:(id)arg1 until:(id)arg2 thenExecute:(CDUnknownBlockType)arg3;
@@ -100,17 +116,24 @@
 - (void)_startListenTimer;
 - (void)_CreateDispatchTimerForEvent:(id)arg1 toExecute:(CDUnknownBlockType)arg2;
 - (void)_CreateDispatchTimerFor:(double)arg1 toExecute:(CDUnknownBlockType)arg2;
+- (void)setupEnabled:(_Bool)arg1;
+- (void)setInTask:(_Bool)arg1;
 - (_Bool)inTask;
 - (void)endTask;
 - (void)endAdvertisingWithDeviceProhibitions:(id)arg1;
+- (void)_endAdvertisingWithDeviceProhibitions:(id)arg1;
+- (id)_endAdvertisingAnalyticsContext:(_Bool)arg1;
 - (void)endAdvertising;
 - (void)endAdvertisingAfterDelay:(float)arg1;
 - (void)startResponseAdvertising:(unsigned short)arg1;
 - (void)startAdvertisingFromInTaskVoiceTrigger;
+- (void)startAdvertisingEmergency;
 - (void)startAdvertisingEmergencyHandled;
 - (void)startAdvertisingFromOutgoingTrigger;
 - (void)startAdvertisingFromDirectTrigger;
+- (void)startWatchAdvertisingFromDirectTrigger;
 - (void)startWatchAdvertisingFromVoiceTrigger;
+- (double)_targetDelayAfterTrigger:(unsigned long long)arg1;
 - (void)_startAdvertisingFromVoiceTriggerAdjusted:(BOOL)arg1;
 - (void)startAdvertisingFromVoiceTriggerAdjusted:(BOOL)arg1;
 - (void)_startAdvertisingFromVoiceTrigger;

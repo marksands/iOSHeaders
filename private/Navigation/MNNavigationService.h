@@ -165,6 +165,7 @@
 - (void)prepareNavigationWithRouteDetails:(id)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
+- (_Bool)isOpenForClient:(id)arg1;
 - (void)closeForClient:(id)arg1;
 - (void)openForClient:(id)arg1;
 - (id)init;

@@ -6,18 +6,18 @@
 
 #import "NSObject.h"
 
-#import "NUURLHandler.h"
+#import "NUURLHandling.h"
 
 @class NSExtensionContext, NSString;
 
-@interface NUExtensionURLHandler : NSObject <NUURLHandler>
+@interface NUExtensionURLHandler : NSObject <NUURLHandling>
 {
     NSExtensionContext *_extensionContext;
 }
 
 @property(readonly, nonatomic) NSExtensionContext *extensionContext; // @synthesize extensionContext=_extensionContext;
 - (void).cxx_destruct;
-- (void)openURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)openURL:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)initWithExtensionContext:(id)arg1;
 
 // Remaining properties

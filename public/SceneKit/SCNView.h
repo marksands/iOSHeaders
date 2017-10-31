@@ -60,6 +60,7 @@
 - (void)_searchForFocusRegionsInContext:(id)arg1;
 - (struct CGRect)_focusFrameForSCNNode:(id)arg1;
 - (id)_getFocusableNodes;
+- (void)safeAreaInsetsDidChange;
 - (void)_enterBackground:(id)arg1;
 - (void)_flushDisplayLink;
 - (void)_enterForeground:(id)arg1;

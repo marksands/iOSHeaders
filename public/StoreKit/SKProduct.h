@@ -6,13 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDecimalNumber, NSLocale, NSString;
+@class NSArray, NSDecimalNumber, NSLocale, NSString, SKProductDiscount, SKProductSubscriptionPeriod;
 
 @interface SKProduct : NSObject
 {
     id _internal;
+    SKProductSubscriptionPeriod *_subscriptionPeriod;
+    SKProductDiscount *_introductoryPrice;
 }
 
+@property(readonly, nonatomic) SKProductDiscount *introductoryPrice; // @synthesize introductoryPrice=_introductoryPrice;
+@property(readonly, nonatomic) SKProductSubscriptionPeriod *subscriptionPeriod; // @synthesize subscriptionPeriod=_subscriptionPeriod;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (void)_setProductIdentifier:(id)arg1;

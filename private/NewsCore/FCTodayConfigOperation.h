@@ -10,6 +10,7 @@
 
 @interface FCTodayConfigOperation : FCOperation
 {
+    id <FCAppConfiguration> _appConfiguration;
     id <FCContentContext> _context;
     NSString *_widgetConfigID;
     NSArray *_networkEvents;
@@ -24,6 +25,7 @@
 @property(copy, nonatomic) NSArray *networkEvents; // @synthesize networkEvents=_networkEvents;
 @property(copy, nonatomic) NSString *widgetConfigID; // @synthesize widgetConfigID=_widgetConfigID;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
+@property(copy) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;
 - (void)_collectRecordIDsReferencedBySectionConfig:(id)arg1 withArticleListIDs:(id)arg2 articleIDs:(id)arg3;
 - (void)operationWillFinishWithError:(id)arg1;

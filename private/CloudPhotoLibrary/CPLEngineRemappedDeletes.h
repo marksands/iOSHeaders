@@ -20,6 +20,7 @@
 - (void)writeTransactionDidFail;
 - (_Bool)resetWithError:(id *)arg1;
 - (id)realIdentifierForRemappedIdentifier:(id)arg1;
+- (id)_fixupRemappedDeletesAndReturnBestCloudIdentifierFromRemappedIdentifiers:(id)arg1 fallback:(id)arg2;
 - (void)discardDeleteForRemappedRecordWithIdentifier:(id)arg1;
 - (void)scheduleDeleteForRemappedRecordWithIdentifier:(id)arg1 realIdentifier:(id)arg2 asap:(_Bool)arg3;
 

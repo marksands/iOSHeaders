@@ -11,7 +11,7 @@
 @class NSString;
 
 @interface NSArray (INIntentResolutionResultDataProviding) <INIntentResolutionResultDataProviding>
-- (id)resolutionResultDataForIntent:(id)arg1 intentSlotDescription:(id)arg2;
+- (id)resolutionResultDataForIntent:(id)arg1 intentSlotDescription:(id)arg2 error:(id *)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

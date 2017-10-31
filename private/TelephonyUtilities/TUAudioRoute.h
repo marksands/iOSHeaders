@@ -4,48 +4,39 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <TelephonyUtilities/TURoute.h>
 
-@class NSArray, NSDictionary, NSString, TUAudioRoutePreferredRouteOptions;
+@class NSDictionary, NSString;
 
-@interface TUAudioRoute : NSObject
+@interface TUAudioRoute : TURoute
 {
-    NSString *_uniqueIdentifier;
-    NSString *_name;
-    TUAudioRoutePreferredRouteOptions *_preferredRouteOptions;
+    NSString *_avAudioRouteName;
     NSDictionary *_route;
 }
 
 @property(readonly, copy, nonatomic) NSDictionary *route; // @synthesize route=_route;
-@property(retain, nonatomic) TUAudioRoutePreferredRouteOptions *preferredRouteOptions; // @synthesize preferredRouteOptions=_preferredRouteOptions;
-@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-@property(copy, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+@property(readonly, copy, nonatomic) NSString *avAudioRouteName; // @synthesize avAudioRouteName=_avAudioRouteName;
 - (void).cxx_destruct;
-- (unsigned long long)hash;
-- (_Bool)isEqualToTUAudioRoute:(id)arg1;
-- (_Bool)isEqual:(id)arg1;
-@property(readonly, nonatomic) NSArray *identifiersOfOtherConnectedDevices;
-- (void)_updatePreferredRouteOptions;
-- (_Bool)_routeNameEqualTo:(id)arg1;
+- (id)identifiersOfOtherConnectedDevices;
 - (_Bool)_routeTypeEqualTo:(id)arg1;
 @property(readonly, nonatomic, getter=isHeadphoneJackConnected) _Bool headphoneJackConnected;
 @property(readonly, copy, nonatomic) NSString *bluetoothProductIdentifier;
-@property(readonly, nonatomic) long long deviceModelType;
-@property(readonly, nonatomic, getter=isPreferred) _Bool preferred;
-@property(readonly, nonatomic) long long bluetoothEndpointType;
-@property(readonly, nonatomic, getter=isDefaultRoute) _Bool defaultRoute;
-@property(readonly, nonatomic, getter=isWirelessHeadset) _Bool wirelessHeadset;
-@property(readonly, nonatomic, getter=isWiredHeadset) _Bool wiredHeadset;
-@property(readonly, nonatomic, getter=isWiredHeadphones) _Bool wiredHeadphones;
-@property(readonly, nonatomic, getter=isBluetooth) _Bool bluetooth;
-@property(readonly, nonatomic, getter=isBluetoothLE) _Bool bluetoothLE;
-@property(readonly, nonatomic, getter=isCarAudio) _Bool carAudio;
-@property(readonly, nonatomic, getter=isAirTunes) _Bool airTunes;
-@property(readonly, nonatomic, getter=isSpeaker) _Bool speaker;
-@property(readonly, nonatomic, getter=isReceiver) _Bool receiver;
-@property(readonly, nonatomic, getter=isHandset) _Bool handset;
-@property(readonly, nonatomic, getter=isCurrentlyPicked) _Bool currentlyPicked;
-- (id)description;
+- (long long)deviceType;
+- (_Bool)isPreferredAndActive;
+- (_Bool)isPreferred;
+- (long long)bluetoothEndpointType;
+- (_Bool)isDefaultRoute;
+- (_Bool)isWirelessHeadset;
+- (_Bool)isWiredHeadset;
+- (_Bool)isWiredHeadphones;
+- (_Bool)isBluetooth;
+- (_Bool)isBluetoothLE;
+- (_Bool)isCarAudio;
+- (_Bool)isAirTunes;
+- (_Bool)isSpeaker;
+- (_Bool)isReceiver;
+- (_Bool)isHandset;
+- (_Bool)isCurrentlyPicked;
 - (id)initWithDictionary:(id)arg1;
 
 @end

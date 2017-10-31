@@ -6,41 +6,45 @@
 
 #import "NSObject.h"
 
+#import "HMFLogging.h"
+#import "HMFMessageReceiver.h"
 #import "HMObjectMerge.h"
 #import "NSSecureCoding.h"
 
-@class HMDelegateCaller, HMHome, HMHomeAccessControl, HMThreadSafeMutableArrayCollection, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMAssistantAccessControl, HMFPairingIdentity, HMHome, HMHomeAccessControl, HMThreadSafeMutableArrayCollection, NSObject<OS_dispatch_queue>, NSString, NSUUID, _HMContext;
 
-@interface HMUser : NSObject <NSSecureCoding, HMObjectMerge>
+@interface HMUser : NSObject <HMFLogging, HMFMessageReceiver, NSSecureCoding, HMObjectMerge>
 {
     HMThreadSafeMutableArrayCollection *_pendingAccessoryInvitations;
     _Bool _currentUser;
+    _HMContext *_context;
     NSUUID *_uniqueIdentifier;
     NSString *_name;
     HMHomeAccessControl *_homeAccessControl;
+    HMAssistantAccessControl *_assistantAccessControl;
     NSString *_userID;
     HMHome *_home;
-    NSObject<OS_dispatch_queue> *_clientQueue;
+    HMFPairingIdentity *_pairingIdentity;
     NSObject<OS_dispatch_queue> *_propertyQueue;
+    id <HMUserDelegatePrivate> _delegate;
     NSUUID *_uuid;
-    HMDelegateCaller *_delegateCaller;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) HMDelegateCaller *delegateCaller; // @synthesize delegateCaller=_delegateCaller;
++ (id)logCategory;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
+@property __weak id <HMUserDelegatePrivate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 - (void).cxx_destruct;
-- (void)_configure:(id)arg1 clientQueue:(id)arg2 delegateCaller:(id)arg3;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+- (id)messageDestination;
+@property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 - (_Bool)_mergeWithNewAccessoryInvitations:(id)arg1 operations:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)_unconfigure;
-- (id)initWithUserID:(id)arg1 name:(id)arg2 uuid:(id)arg3 home:(id)arg4 owner:(_Bool)arg5 administrator:(_Bool)arg6;
-- (id)initWithUserID:(id)arg1 name:(id)arg2 uuid:(id)arg3 home:(id)arg4;
-- (id)init;
+- (id)logIdentifier;
+@property(copy) HMFPairingIdentity *pairingIdentity; // @synthesize pairingIdentity=_pairingIdentity;
 - (void)_updatePresenceAuthorizationStatus:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updatePresenceAuthorizationStatus:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)mergePendingAccessoryInvitationsWithOutgoingInvitation:(id)arg1 operations:(id)arg2;
@@ -50,10 +54,22 @@
 @property(nonatomic, getter=isCurrentUser) _Bool currentUser; // @synthesize currentUser=_currentUser;
 @property(nonatomic) __weak HMHome *home; // @synthesize home=_home;
 @property(copy, nonatomic) NSString *userID; // @synthesize userID=_userID;
+- (id)assistantAccessControlForHome:(id)arg1;
+- (void)_handleUpdatedAssistantAccessControl:(id)arg1;
+- (void)updateAssistantAccessControl:(id)arg1 forHome:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+@property(copy) HMAssistantAccessControl *assistantAccessControl; // @synthesize assistantAccessControl=_assistantAccessControl;
 - (void)updateHomeAccessControl:(_Bool)arg1 remoteAccess:(_Bool)arg2;
 @property(retain, nonatomic) HMHomeAccessControl *homeAccessControl; // @synthesize homeAccessControl=_homeAccessControl;
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue;
+@property(retain) _HMContext *context; // @synthesize context=_context;
+- (void)_registerNotificationHandlers;
+- (void)_unconfigure;
+- (void)_configureWith:(id)arg1 context:(id)arg2;
+- (void)dealloc;
+- (id)initWithUserID:(id)arg1 name:(id)arg2 uuid:(id)arg3 home:(id)arg4 accessControls:(id)arg5;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

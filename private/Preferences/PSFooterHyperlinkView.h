@@ -34,6 +34,7 @@
 @property(retain) NSString *text;
 - (void)layoutSubviews;
 - (struct UIEdgeInsets)textInsets;
+- (_Bool)isValidLinkRange;
 - (void)_linkify;
 - (id)initWithSpecifier:(id)arg1;
 

@@ -38,6 +38,7 @@
     NSLayoutConstraint *_oldPasswordHeightConstraint;
     NSLayoutConstraint *_disclaimerHeightConstraint;
     NSLayoutConstraint *_biometricIDZeroHeightConstraint;
+    NSLayoutConstraint *_biometricIDTopConstraint;
     long long _incorrectPasswordAttempts;
     UIView *_biometricIDContainer;
     CDUnknownBlockType _completionHandler;
@@ -52,6 +53,7 @@
 @property(nonatomic) __weak UIView *biometricIDContainer; // @synthesize biometricIDContainer=_biometricIDContainer;
 @property(nonatomic) long long incorrectPasswordAttempts; // @synthesize incorrectPasswordAttempts=_incorrectPasswordAttempts;
 @property(readonly, nonatomic) _Bool isSetupForInitialPassword; // @synthesize isSetupForInitialPassword=_isSetupForInitialPassword;
+@property(nonatomic) __weak NSLayoutConstraint *biometricIDTopConstraint; // @synthesize biometricIDTopConstraint=_biometricIDTopConstraint;
 @property(nonatomic) __weak NSLayoutConstraint *biometricIDZeroHeightConstraint; // @synthesize biometricIDZeroHeightConstraint=_biometricIDZeroHeightConstraint;
 @property(nonatomic) __weak NSLayoutConstraint *disclaimerHeightConstraint; // @synthesize disclaimerHeightConstraint=_disclaimerHeightConstraint;
 @property(nonatomic) __weak NSLayoutConstraint *oldPasswordHeightConstraint; // @synthesize oldPasswordHeightConstraint=_oldPasswordHeightConstraint;

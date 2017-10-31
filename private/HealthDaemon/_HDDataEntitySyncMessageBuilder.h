@@ -20,8 +20,8 @@
     _Bool _hasSentObject;
     _Bool _didSendFinal;
     _Bool _requiresLocalSourceConversion;
-    NSMutableDictionary *_localSourceMapping;
-    NSMutableDictionary *_localProvenanceMapping;
+    NSMutableDictionary *_syncPrimarySourceMapping;
+    NSMutableDictionary *_syncPrimaryProvenanceMapping;
     long long _maxEncodedBytesPerMessage;
     long long _lastSyncAnchor;
     HDSyncSession *_syncSession;

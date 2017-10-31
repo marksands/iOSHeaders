@@ -14,6 +14,7 @@
     unsigned long long _contentType;
     NSString *_canonicalID;
     NSString *_title;
+    NSString *_shortTitle;
     NSString *_descriptiveText;
     WLKArtworkVariantListing *_images;
     NSNumber *_commonSenseBeginsAge;
@@ -26,6 +27,7 @@
 @property(readonly, nonatomic) NSNumber *commonSenseBeginsAge; // @synthesize commonSenseBeginsAge=_commonSenseBeginsAge;
 @property(readonly, nonatomic) WLKArtworkVariantListing *images; // @synthesize images=_images;
 @property(readonly, copy, nonatomic) NSString *descriptiveText; // @synthesize descriptiveText=_descriptiveText;
+@property(readonly, copy, nonatomic) NSString *shortTitle; // @synthesize shortTitle=_shortTitle;
 @property(readonly, copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) _Bool isEvod; // @synthesize isEvod=_isEvod;
 @property(readonly, copy, nonatomic) NSString *canonicalID; // @synthesize canonicalID=_canonicalID;

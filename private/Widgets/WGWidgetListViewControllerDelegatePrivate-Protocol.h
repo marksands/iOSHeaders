@@ -6,12 +6,12 @@
 
 #import "WGWidgetListViewControllerDelegate.h"
 
-@class UIView, WGWidgetListViewController;
+@class WGWidgetListViewController;
 
 @protocol WGWidgetListViewControllerDelegatePrivate <WGWidgetListViewControllerDelegate>
 
 @optional
-- (struct UIEdgeInsets)contentOccludingInsetForWidgetListViewController:(WGWidgetListViewController *)arg1;
-- (UIView *)widgetListViewController:(WGWidgetListViewController *)arg1 newCustomBackgroundViewForItemInList:(id)arg2;
+- (struct UIEdgeInsets)widgetListViewController:(WGWidgetListViewController *)arg1 contentOccludingInsetsForInterfaceOrientation:(long long)arg2;
+- (struct CGSize)widgetListViewController:(WGWidgetListViewController *)arg1 sizeForInterfaceOrientation:(long long)arg2;
 @end
 

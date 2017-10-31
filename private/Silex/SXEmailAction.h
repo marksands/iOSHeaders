@@ -17,10 +17,7 @@
 @property(readonly, nonatomic) NSString *subject; // @synthesize subject=_subject;
 @property(readonly, nonatomic) NSString *recipient; // @synthesize recipient=_recipient;
 - (void).cxx_destruct;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (Class)handlerClass;
-- (id)initWithSubject:(id)arg1 recipient:(id)arg2 addition:(id)arg3;
-- (id)initWithAddition:(id)arg1;
+- (id)initWithRecipient:(id)arg1 subject:(id)arg2;
 
 @end
 

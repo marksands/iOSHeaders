@@ -12,7 +12,7 @@
 #import "_DKKnowledgeQuerying.h"
 #import "_DKKnowledgeSaving.h"
 
-@class NSObject<OS_dispatch_queue>, NSString, NSURL, NSUUID, _DKCoreDataStorage, _DKPreferences;
+@class NSHashTable, NSObject<OS_dispatch_queue>, NSString, NSURL, NSUUID, _DKCoreDataStorage, _DKPreferences;
 
 @interface _DKKnowledgeStorage : NSObject <_DKCoreDataStorageDelegate, _DKKnowledgeEventStreamDeleting, _DKKnowledgeSaving, _DKKnowledgeDeleting, _DKKnowledgeQuerying>
 {
@@ -20,6 +20,7 @@
     NSObject<OS_dispatch_queue> *_defaultResponseQueue;
     NSString *_directory;
     NSURL *_modelURL;
+    NSHashTable *_knowledgeStorageEventNotificationDelegates;
     unsigned long long _insertsAndDeletesObserverCount;
     NSUUID *_deviceUUID;
     _Bool _localOnly;
@@ -39,7 +40,6 @@
 - (id)deviceUUID;
 - (void)decrementInsertsAndDeletesObserverCount;
 - (void)incrementInsertsAndDeletesObserverCount;
-- (void)_sendInsertsAndDeletesNotificationWithNotification:(id)arg1;
 - (void)_databaseChangedWithNotification:(id)arg1;
 - (id)lastChangeSetWithEntityName:(id)arg1 error:(id *)arg2;
 - (void)startSyncUpToCloudWithResponseQueue:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
@@ -79,6 +79,8 @@
 - (id)errorForException:(id)arg1;
 - (void)handleNilArrayError:(CDUnknownBlockType)arg1 queue:(id)arg2;
 - (id)removeBadObjects:(id)arg1;
+- (void)removeKnowledgeStorageEventNotificationDelegate:(id)arg1;
+- (void)addKnowledgeStorageEventNotificationDelegate:(id)arg1;
 - (_Bool)deleteSyncStorage;
 - (_Bool)deleteStorage;
 @property(readonly, nonatomic) _DKCoreDataStorage *syncStorage; // @synthesize syncStorage=_syncStorage;

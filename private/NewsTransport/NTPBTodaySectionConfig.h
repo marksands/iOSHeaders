@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSString, NTPBArticleIDsTodaySectionSpecificConfig, NTPBArticleListTodaySectionSpecificConfig, NTPBForYouTodaySectionSpecificConfig, NTPBPersonalizedSectionPresenceConfig, NTPBPersonalizedTodaySectionSpecificConfig;
+@class NSString, NTPBArticleIDsTodaySectionSpecificConfig, NTPBArticleListTodaySectionSpecificConfig, NTPBForYouTodaySectionSpecificConfig, NTPBItemsTodaySectionSpecificConfig, NTPBPersonalizedSectionPresenceConfig, NTPBPersonalizedTodaySectionSpecificConfig;
 
 @interface NTPBTodaySectionConfig : PBCodable <NSCopying>
 {
@@ -34,7 +34,10 @@
     NSString *_discoverMoreVideosTitle;
     NSString *_discoverMoreVideosUrl;
     NTPBForYouTodaySectionSpecificConfig *_forYouTodaySectionConfig;
+    NSString *_groupActionTitle;
+    NSString *_groupActionUrl;
     NSString *_identifier;
+    NTPBItemsTodaySectionSpecificConfig *_itemsTodaySectionConfig;
     int _leadingCellPromotionPolicy;
     NSString *_name;
     NSString *_nameColor;
@@ -50,6 +53,7 @@
     _Bool _glanceable;
     _Bool _presenceDeterminedByPersonalization;
     _Bool _shownInFavoritesOnlyMode;
+    _Bool _useNameColorInWidget;
     _Bool _videoPlaysMutedByDefault;
     struct {
         unsigned int cachedResultCutoffTime:1;
@@ -69,10 +73,15 @@
         unsigned int glanceable:1;
         unsigned int presenceDeterminedByPersonalization:1;
         unsigned int shownInFavoritesOnlyMode:1;
+        unsigned int useNameColorInWidget:1;
         unsigned int videoPlaysMutedByDefault:1;
     } _has;
 }
 
+@property(nonatomic) _Bool useNameColorInWidget; // @synthesize useNameColorInWidget=_useNameColorInWidget;
+@property(retain, nonatomic) NTPBItemsTodaySectionSpecificConfig *itemsTodaySectionConfig; // @synthesize itemsTodaySectionConfig=_itemsTodaySectionConfig;
+@property(retain, nonatomic) NSString *groupActionUrl; // @synthesize groupActionUrl=_groupActionUrl;
+@property(retain, nonatomic) NSString *groupActionTitle; // @synthesize groupActionTitle=_groupActionTitle;
 @property(retain, nonatomic) NSString *referralBarName; // @synthesize referralBarName=_referralBarName;
 @property(nonatomic) unsigned long long personalizedPresenceFeatureClickPrior; // @synthesize personalizedPresenceFeatureClickPrior=_personalizedPresenceFeatureClickPrior;
 @property(nonatomic) unsigned long long personalizedPresenceFeatureImpressionPrior; // @synthesize personalizedPresenceFeatureImpressionPrior=_personalizedPresenceFeatureImpressionPrior;
@@ -110,6 +119,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasUseNameColorInWidget;
+@property(readonly, nonatomic) _Bool hasItemsTodaySectionConfig;
+@property(readonly, nonatomic) _Bool hasGroupActionUrl;
+@property(readonly, nonatomic) _Bool hasGroupActionTitle;
 @property(readonly, nonatomic) _Bool hasReferralBarName;
 @property(nonatomic) _Bool hasPersonalizedPresenceFeatureClickPrior;
 @property(nonatomic) _Bool hasPersonalizedPresenceFeatureImpressionPrior;

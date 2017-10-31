@@ -51,6 +51,8 @@
 - (void)removeFromSuperview;
 - (void)dealloc;
 - (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

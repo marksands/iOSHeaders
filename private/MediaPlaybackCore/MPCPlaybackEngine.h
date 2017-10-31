@@ -10,6 +10,7 @@
 
 @interface MPCPlaybackEngine : NSObject
 {
+    _Bool _isPreparingForImminentPlaybackIntent;
     _Bool _pictureInPictureSupported;
     _Bool _videoSupported;
     _Bool _stateRestorationSupported;
@@ -43,6 +44,7 @@
 - (void)_restorePlaybackStateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_preservePlaybackStateImmediately;
 - (void)schedulePlaybackStatePreservation;
+- (void)prepareForImminentPlaybackIntent;
 - (id)_playerForMusicPlayerServer;
 @property(readonly, nonatomic) UIView *videoView;
 - (void)reportUserSeekFromTime:(double)arg1 toTime:(double)arg2;

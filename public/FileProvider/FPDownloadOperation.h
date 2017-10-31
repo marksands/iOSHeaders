@@ -6,11 +6,13 @@
 
 #import <FileProvider/FPActionOperation.h>
 
-@class NSArray, NSFileCoordinator;
+@class NSArray, NSFileCoordinator, NSMutableSet, NSObject<OS_dispatch_source>;
 
 @interface FPDownloadOperation : FPActionOperation
 {
     NSArray *_items;
+    NSMutableSet *_itemsPendingCoordination;
+    NSObject<OS_dispatch_source> *_stitchingTimer;
     NSFileCoordinator *_fileCoordinator;
     CDUnknownBlockType _downloadCompletionBlock;
 }
@@ -18,6 +20,7 @@
 @property(copy, nonatomic) CDUnknownBlockType downloadCompletionBlock; // @synthesize downloadCompletionBlock=_downloadCompletionBlock;
 - (void).cxx_destruct;
 - (void)presendNotifications;
+- (void)showItemsAsDownloadingEvenIfDownloaded:(_Bool)arg1;
 - (void)finishWithResult:(id)arg1 error:(id)arg2;
 - (oneway void)cancel;
 - (void)main;

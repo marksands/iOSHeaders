@@ -6,26 +6,55 @@
 
 #import "UIViewController.h"
 
-@class NSURL, WKWebView;
+#import "HUPreloadableViewController.h"
+#import "MFMailComposeViewControllerDelegate.h"
+#import "WKNavigationDelegate.h"
 
-@interface HUSoftwareUpdateLicenseViewController : UIViewController
+@class HMHTMLDocument, NAFuture, NSString, NSURL, UIButton, UIScrollView, WKWebView;
+
+@interface HUSoftwareUpdateLicenseViewController : UIViewController <WKNavigationDelegate, MFMailComposeViewControllerDelegate, HUPreloadableViewController>
 {
-    NSURL *_url;
+    NSURL *_URL;
+    HMHTMLDocument *_document;
     CDUnknownBlockType _agreeHandler;
     CDUnknownBlockType _disagreeHandler;
+    UIScrollView *_scrollView;
+    UIButton *_emailButton;
     WKWebView *_webView;
+    NAFuture *_loadFuture;
 }
 
-@property(retain, nonatomic) WKWebView *webView; // @synthesize webView=_webView;
+@property(readonly, nonatomic) NAFuture *loadFuture; // @synthesize loadFuture=_loadFuture;
+@property(readonly, nonatomic) WKWebView *webView; // @synthesize webView=_webView;
+@property(readonly, nonatomic) UIButton *emailButton; // @synthesize emailButton=_emailButton;
+@property(readonly, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(copy, nonatomic) CDUnknownBlockType disagreeHandler; // @synthesize disagreeHandler=_disagreeHandler;
 @property(copy, nonatomic) CDUnknownBlockType agreeHandler; // @synthesize agreeHandler=_agreeHandler;
-@property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;
+@property(readonly, copy, nonatomic) HMHTMLDocument *document; // @synthesize document=_document;
+@property(readonly, copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
+- (void)_emailTermsAndConditions:(id)arg1;
+- (void)mailComposeController:(id)arg1 didFinishWithResult:(long long)arg2 error:(id)arg3;
+- (void)webView:(id)arg1 didFailNavigation:(id)arg2 withError:(id)arg3;
+- (void)webView:(id)arg1 didFinishNavigation:(id)arg2;
+- (void)_startLoadWithDocument:(id)arg1 orMaybeAURL:(id)arg2;
 - (void)_disagreeToTerms:(id)arg1;
 - (void)_agreeToTerms:(id)arg1;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)viewDidLoad;
+- (void)viewWillLayoutSubviews;
 - (void)loadView;
+- (id)hu_preloadContent;
+- (void)dealloc;
+- (id)_initWithDocument:(id)arg1 orMaybeAURL:(id)arg2;
+- (id)initWithDocument:(id)arg1;
 - (id)initWithURL:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

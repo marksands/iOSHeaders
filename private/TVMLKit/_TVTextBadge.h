@@ -15,9 +15,11 @@ __attribute__((visibility("hidden")))
     NSString *_type;
     UIColor *_tintColor;
     double _cornerRadius;
+    double _lineWidth;
 }
 
 + (id)textBadgeViewWithElement:(id)arg1 existingView:(id)arg2;
+@property(nonatomic) double lineWidth; // @synthesize lineWidth=_lineWidth;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
 @property(retain, nonatomic) NSString *type; // @synthesize type=_type;

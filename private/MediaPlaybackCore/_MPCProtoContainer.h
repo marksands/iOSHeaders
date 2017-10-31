@@ -8,19 +8,21 @@
 
 #import "NSCopying.h"
 
-@class NSMutableArray, _MPCProtoContainerIdentifierSet;
+@class NSMutableArray, NSString, _MPCProtoContainerIdentifierSet;
 
 @interface _MPCProtoContainer : PBCodable <NSCopying>
 {
     int _containerType;
     _MPCProtoContainerIdentifierSet *_identifierSet;
     NSMutableArray *_items;
+    NSString *_playActivityFeatureName;
     struct {
         unsigned int containerType:1;
     } _has;
 }
 
 + (Class)itemType;
+@property(retain, nonatomic) NSString *playActivityFeatureName; // @synthesize playActivityFeatureName=_playActivityFeatureName;
 @property(retain, nonatomic) NSMutableArray *items; // @synthesize items=_items;
 @property(retain, nonatomic) _MPCProtoContainerIdentifierSet *identifierSet; // @synthesize identifierSet=_identifierSet;
 - (void).cxx_destruct;
@@ -32,6 +34,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasPlayActivityFeatureName;
 - (id)itemAtIndex:(unsigned long long)arg1;
 - (unsigned long long)itemsCount;
 - (void)addItem:(id)arg1;

@@ -6,11 +6,6 @@
 
 #import "UIScrollViewDelegate.h"
 
-@class UIView;
-
 @protocol WGWidgetListViewControllerDelegate <UIScrollViewDelegate>
-
-@optional
-- (UIView *)newCustomBackgroundViewForItemInList:(id)arg1;
 @end
 

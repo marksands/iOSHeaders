@@ -6,12 +6,13 @@
 
 #import "ISURLOperationDelegate.h"
 
-@class ISStoreURLOperation, NSNumber, NSString;
+@class ISStoreURLOperation, NSNumber, NSString, SSAuthenticationContext;
 
 @protocol ISStoreURLOperationDelegate <ISURLOperationDelegate>
 
 @optional
 - (_Bool)operation:(ISStoreURLOperation *)arg1 shouldSetStoreFrontID:(NSString *)arg2;
+- (void)operation:(ISStoreURLOperation *)arg1 shouldAuthenticateWithContext:(SSAuthenticationContext *)arg2 responseHandler:(void (^)(SSAuthenticateResponse *, NSError *))arg3;
 - (void)operation:(ISStoreURLOperation *)arg1 didAuthenticateWithDSID:(NSNumber *)arg2;
 @end
 

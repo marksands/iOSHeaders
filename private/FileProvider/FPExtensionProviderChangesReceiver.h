@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     FPItemCollection *_localStorageCollection;
     int _notifyToken;
     int _settingsChangedToken;
+    _Bool _invalidated;
     CDUnknownBlockType _changesHandler;
     NSString *_identifier;
 }
@@ -33,7 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)collection:(id)arg1 didDeleteItemsAtIndexPaths:(id)arg2;
 - (void)collection:(id)arg1 didMoveItemsFromIndexPaths:(id)arg2 toIndexPaths:(id)arg3;
 - (void)collection:(id)arg1 didInsertItemsAtIndexPaths:(id)arg2;
-- (void)updateProviderInfo;
+- (void)updateProviderInfoWithAttemptCount:(unsigned long long)arg1;
 - (id)init;
 
 // Remaining properties

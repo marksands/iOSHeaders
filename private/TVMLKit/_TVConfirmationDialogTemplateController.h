@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)updateWithViewElement:(id)arg1;
 @property(readonly, nonatomic) _TVConfirmationDialogTemplateView *templateView;
 - (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)_setupTimer;
 - (void)dealloc;

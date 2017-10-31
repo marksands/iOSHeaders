@@ -32,7 +32,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)startOperation:(id)arg1 toFetchDefaultContainerForBundleIdentifier:(id)arg2 englishName:(id)arg3 inDomainIdentifier:(id)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)startOperation:(id)arg1 toFetchItemID:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (void)startOperation:(id)arg1 toFetchParentForItem:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)startOperation:(id)arg1 toFetchParentForItem:(id)arg2 recursively:(_Bool)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)startOperation:(id)arg1 toCreateFolderWithName:(id)arg2 underParent:(id)arg3 bounceOnCollision:(_Bool)arg4 bounceIndex:(unsigned long long)arg5 reply:(CDUnknownBlockType)arg6;
 - (void)startOperation:(id)arg1 toCreateFolderWithName:(id)arg2 underParent:(id)arg3 bounceOnCollision:(_Bool)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)startOperation:(id)arg1 toDeleteItems:(id)arg2 reply:(CDUnknownBlockType)arg3;

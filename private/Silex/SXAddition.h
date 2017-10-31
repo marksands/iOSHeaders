@@ -8,7 +8,7 @@
 
 #import "SXClassFactoryProtocol.h"
 
-@class NSString, SXAction;
+@class NSString;
 
 @interface SXAddition : SXJSONObject <SXClassFactoryProtocol>
 {
@@ -16,7 +16,6 @@
 
 + (id)typeString;
 + (void)initializeObject;
-@property(readonly, nonatomic) SXAction *action;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

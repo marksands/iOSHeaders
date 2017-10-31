@@ -23,8 +23,6 @@ __attribute__((visibility("hidden")))
 - (void)requestDidParseJSONObject:(id)arg1;
 - (_Bool)hasRequestBody;
 - (id)url;
-- (id)sourceApplicationSecondaryIdentifier;
-- (id)sourceApplicationBundleIdentifier;
 - (long long)partitionType;
 - (long long)serverType;
 - (_Bool)usesiCloudAuthToken;

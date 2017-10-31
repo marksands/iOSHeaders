@@ -36,7 +36,6 @@
 - (void).cxx_destruct;
 - (void)willBeginPreviewInteractionForAvatarView:(id)arg1;
 - (id)presentingViewControllerForAvatarView:(id)arg1;
-- (struct CGRect)containerView:(id)arg1 layoutFrameForArrangedSubview:(id)arg2 withProposedFrame:(struct CGRect)arg3;
 - (long long)containerStackView:(id)arg1 alignmentForArrangedSubview:(id)arg2;
 - (_Bool)arrangedViewMustCenter:(id)arg1;
 - (void)updateForceTouchRecognizerWithResult:(id)arg1;
@@ -45,9 +44,6 @@
 - (id)contactInlineActionViewController;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)containerViewDidInvalidateIntrinsicContentSize:(id)arg1;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)updateLayoutMargins;
-- (void)setSectionLocation:(int)arg1;
 - (id)initWithRowModel:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 
 // Remaining properties

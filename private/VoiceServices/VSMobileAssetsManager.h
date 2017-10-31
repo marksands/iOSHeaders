@@ -11,6 +11,7 @@
 @interface VSMobileAssetsManager : NSObject
 {
     NSObject<OS_dispatch_queue> *_cacheConcurrentQueue;
+    NSObject<OS_dispatch_queue> *_assetQueryQueue;
     NSMutableDictionary *_voiceSelectionCache;
     NSMutableDictionary *_voiceResourceCache;
 }
@@ -32,13 +33,14 @@
 + (id)sharedManager;
 @property(retain, nonatomic) NSMutableDictionary *voiceResourceCache; // @synthesize voiceResourceCache=_voiceResourceCache;
 @property(retain, nonatomic) NSMutableDictionary *voiceSelectionCache; // @synthesize voiceSelectionCache=_voiceSelectionCache;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *assetQueryQueue; // @synthesize assetQueryQueue=_assetQueryQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *cacheConcurrentQueue; // @synthesize cacheConcurrentQueue=_cacheConcurrentQueue;
 - (void).cxx_destruct;
 - (id)voiceDataFromAsset:(id)arg1;
 - (id)_localVoiceForLanguage:(id)arg1 gender:(long long)arg2;
 - (id)_builtInVoiceForLanguage:(id)arg1;
 - (id)legacyLocalVocalizerVoiceAssetForLanguage:(id)arg1;
-- (_Bool)_purgeAsset:(id)arg1;
+- (_Bool)purgeAsset:(id)arg1;
 - (void)_downloadAsset:(id)arg1 withOptions:(id)arg2 progressHandler:(CDUnknownBlockType)arg3;
 - (void)_downloadAsset:(id)arg1 withOptions:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)voiceAssetWithName:(id)arg1 localOnly:(_Bool)arg2 outError:(id *)arg3;
@@ -55,10 +57,14 @@
 - (void)resetCache;
 - (void)cleanOldVoiceResources;
 - (id)cleanUnusedVoiceAssets;
+- (id)inactiveVoiceAssets;
+- (id)activeVoiceAssets;
 - (void)reinstallVoiceData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)amendVoiceWithDefaultSettings:(id)arg1;
 - (id)_nonCacheVoiceResourcesAssetsForLanguage:(id)arg1;
-- (id)_preinstalledVoiceForLanguage:(id)arg1 gender:(long long)arg2;
+- (id)selectPreinstalledVoiceForLanguage:(id)arg1 gender:(long long)arg2;
+- (id)preinstalledVoicesForLanguage:(id)arg1 gender:(long long)arg2;
+- (id)voiceAssetFromPreinstallMetadata:(id)arg1;
 - (id)preinstallAssetsMetadata;
 - (id)_nonCacheVoiceSelectionForLanguage:(id)arg1 type:(long long)arg2 gender:(long long)arg3 footprint:(long long)arg4;
 - (id)init;

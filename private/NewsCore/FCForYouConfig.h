@@ -8,11 +8,12 @@
 
 #import "NSCopying.h"
 
-@class FCGroupConfig, FCInterestToken, FCTopStoriesGroupConfig, NSArray, NSDate, NSString, NTPBForYouConfigRecord;
+@class FCGroupConfig, FCInterestToken, FCSpecialEventGroupConfig, FCTopStoriesGroupConfig, NSArray, NSDate, NSString, NTPBForYouConfigRecord;
 
 @interface FCForYouConfig : NSObject <NSCopying>
 {
-    FCGroupConfig *_breakingNewsGroupConfig;
+    FCSpecialEventGroupConfig *_breakingNewsGroupConfig;
+    FCSpecialEventGroupConfig *_specialEventGroupConfig;
     FCTopStoriesGroupConfig *_topStoriesGroupConfig;
     FCGroupConfig *_trendingGroupConfig;
     FCGroupConfig *_coverArticlesGroupConfig;
@@ -27,7 +28,8 @@
 @property(retain, nonatomic) FCGroupConfig *coverArticlesGroupConfig; // @synthesize coverArticlesGroupConfig=_coverArticlesGroupConfig;
 @property(retain, nonatomic) FCGroupConfig *trendingGroupConfig; // @synthesize trendingGroupConfig=_trendingGroupConfig;
 @property(retain, nonatomic) FCTopStoriesGroupConfig *topStoriesGroupConfig; // @synthesize topStoriesGroupConfig=_topStoriesGroupConfig;
-@property(retain, nonatomic) FCGroupConfig *breakingNewsGroupConfig; // @synthesize breakingNewsGroupConfig=_breakingNewsGroupConfig;
+@property(retain, nonatomic) FCSpecialEventGroupConfig *specialEventGroupConfig; // @synthesize specialEventGroupConfig=_specialEventGroupConfig;
+@property(retain, nonatomic) FCSpecialEventGroupConfig *breakingNewsGroupConfig; // @synthesize breakingNewsGroupConfig=_breakingNewsGroupConfig;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSDate *fetchedDate;
@@ -36,6 +38,7 @@
 @property(readonly, nonatomic) NSString *coverArticlesArticleListID;
 @property(readonly, nonatomic) NSString *trendingArticleListID;
 @property(readonly, nonatomic) NSArray *topStoriesCombinedArticleIDs;
+@property(readonly, nonatomic) NSArray *specialEventArticleIDs;
 @property(readonly, nonatomic) NSArray *breakingNewsArticleIDs;
 - (id)initWithRecord:(id)arg1 interestToken:(id)arg2;
 

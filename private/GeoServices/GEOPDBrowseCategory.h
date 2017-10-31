@@ -22,14 +22,17 @@
     int _subCategoryType;
     NSMutableArray *_subCategorys;
     NSData *_suggestionEntryMetadata;
+    _Bool _isSubCategorySameAsTopLevel;
     struct {
         unsigned int displayMode:1;
         unsigned int sortOrder:1;
         unsigned int subCategoryType:1;
+        unsigned int isSubCategorySameAsTopLevel:1;
     } _has;
 }
 
 + (Class)subCategoryType;
+@property(nonatomic) _Bool isSubCategorySameAsTopLevel; // @synthesize isSubCategorySameAsTopLevel=_isSubCategorySameAsTopLevel;
 @property(retain, nonatomic) NSString *popularDisplayToken; // @synthesize popularDisplayToken=_popularDisplayToken;
 @property(retain, nonatomic) NSString *shortDisplayString; // @synthesize shortDisplayString=_shortDisplayString;
 @property(retain, nonatomic) NSMutableArray *subCategorys; // @synthesize subCategorys=_subCategorys;
@@ -47,6 +50,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIsSubCategorySameAsTopLevel;
 - (int)StringAsSubCategoryType:(id)arg1;
 - (id)subCategoryTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasSubCategoryType;

@@ -29,8 +29,10 @@
     int _source;
     id <MKLocationManagerOperation> _singleLocationUpdate;
     GEOMapServiceTraits *_traits;
+    _Bool _shouldDisplayNoResults;
 }
 
+@property(readonly, nonatomic, getter=_shouldDisplayNoResults) _Bool shouldDisplayNoResults; // @synthesize shouldDisplayNoResults=_shouldDisplayNoResults;
 @property(retain, nonatomic) GEOMapServiceTraits *traits; // @synthesize traits=_traits;
 @property(nonatomic) unsigned long long mapType; // @synthesize mapType=_mapType;
 @property(retain, nonatomic) CLLocation *deviceLocation; // @synthesize deviceLocation=_deviceLocation;
@@ -60,7 +62,7 @@
 - (void)_schedulePendingRequest;
 - (void)_fireRequest;
 - (void)_handleError:(id)arg1 forTicket:(id)arg2;
-- (void)_handleCompletion:(id)arg1 forTicket:(id)arg2;
+- (void)_handleCompletion:(id)arg1 shouldDisplayNoResults:(_Bool)arg2 forTicket:(id)arg3;
 - (void)dealloc;
 - (id)init;
 

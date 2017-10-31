@@ -8,7 +8,7 @@
 
 #import "HFHomeObserver.h"
 
-@class HFItem, HUSoftwareUpdateFetchItem, HUSoftwareUpdateItemModule, NAFuture, NSString;
+@class HFItem, HMHome, HUSoftwareUpdateFetchItem, HUSoftwareUpdateItemModule, NAFuture, NSString;
 
 @interface HUSoftwareUpdateStandaloneItemManager : HFItemManager <HFHomeObserver>
 {
@@ -16,17 +16,21 @@
     HUSoftwareUpdateFetchItem *_fetchItem;
     HUSoftwareUpdateItemModule *_softwareUpdateModule;
     NAFuture *_softwareUpdateFetchFuture;
+    HMHome *_overrideHome;
 }
 
+@property(retain, nonatomic) HMHome *overrideHome; // @synthesize overrideHome=_overrideHome;
 @property(retain, nonatomic) NAFuture *softwareUpdateFetchFuture; // @synthesize softwareUpdateFetchFuture=_softwareUpdateFetchFuture;
 @property(retain, nonatomic) HUSoftwareUpdateItemModule *softwareUpdateModule; // @synthesize softwareUpdateModule=_softwareUpdateModule;
 @property(retain, nonatomic) HUSoftwareUpdateFetchItem *fetchItem; // @synthesize fetchItem=_fetchItem;
 @property(retain, nonatomic) HFItem *autoUpdateItem; // @synthesize autoUpdateItem=_autoUpdateItem;
 - (void).cxx_destruct;
 - (void)home:(id)arg1 didUpdateAutomaticSoftwareUpdateEnabled:(_Bool)arg2;
+- (id)triggerSoftwareUpdateFetch;
 - (id)_buildSectionsWithDisplayedItems:(id)arg1;
 - (id)_buildItemProvidersForHome:(id)arg1;
-- (id)initWithDelegate:(id)arg1 softwareUpdateFetchFuture:(id)arg2;
+- (id)_homeFuture;
+- (id)initWithDelegate:(id)arg1 home:(id)arg2;
 - (id)initWithDelegate:(id)arg1 sourceItem:(id)arg2;
 
 // Remaining properties

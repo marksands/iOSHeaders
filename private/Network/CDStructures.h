@@ -54,7 +54,7 @@ struct netcore_stats_tcp_report {
         struct {
             struct netcore_stats_tcp_statistics_report statistics_report;
             struct netcore_stats_tcp_cell_fallback_report fallback_report;
-            struct netcore_stats_tcp_statistics_report connection_attempts[10];
+            struct netcore_stats_tcp_statistics_report connection_attempts[8];
             int report_reason;
             unsigned int ip_address_attempt_count;
         } legacy;
@@ -179,7 +179,8 @@ struct nw_connection_report_s {
     unsigned int used_tfo:1;
     unsigned int tls_version_timeout:1;
     unsigned int first_party:1;
-    unsigned int __pad_bits:5;
+    unsigned int tls13_configured:1;
+    unsigned int __pad_bits:4;
     unsigned char __pad[3];
 };
 

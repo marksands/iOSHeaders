@@ -15,6 +15,8 @@
     struct vector<float, std::__1::allocator<float>> _beepFloatVec;
     struct vector<float, std::__1::allocator<float>> _floatBuffer;
     struct vector<short, std::__1::allocator<short>> _shortBuffer;
+    unsigned long long _numTotalInputSamples;
+    unsigned long long _numTotalOutputSamples;
     id <CSBeepCancellerDelegate> _delegate;
 }
 

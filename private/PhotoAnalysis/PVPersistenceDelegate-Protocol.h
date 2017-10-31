@@ -49,8 +49,9 @@
 - (_Bool)persistGeneratedFaceCrops:(NSArray *)arg1 error:(id *)arg2;
 - (_Bool)updateFaceprint:(PVFaceprint *)arg1 ofPersistedFace:(PVFace *)arg2 error:(id *)arg3;
 - (NSDictionary *)faceprintsByFaceLocalIdentifiers:(NSArray *)arg1 version:(unsigned int)arg2 error:(id *)arg3;
-- (_Bool)cleanupInconsistentlyClusteredFacesWithCanceler:(PVCanceler *)arg1 error:(id *)arg2;
-- (_Bool)unclusterFaces:(NSArray *)arg1 canceler:(PVCanceler *)arg2 error:(id *)arg3;
+- (_Bool)cleanupGroupedFacesWithClusterSequenceNumberSetToZeroWithCanceler:(PVCanceler *)arg1 error:(id *)arg2;
+- (_Bool)cleanupUngroupedFacesWithNonZeroClusterSequenceNumbersWithCanceler:(PVCanceler *)arg1 error:(id *)arg2;
+- (_Bool)ungroupFaceClusterSequenceNumbers:(NSArray *)arg1 batchSizeForUnclusteringFaces:(unsigned long long)arg2 canceler:(PVCanceler *)arg3 error:(id *)arg4;
 - (_Bool)persistFaces:(NSArray *)arg1 deleteFaces:(NSArray *)arg2 forAsset:(id)arg3 persistedFaces:(id *)arg4 error:(id *)arg5;
 - (NSSet *)invalidFaceClusterSequenceNumbersInClusterSequenceNumbers:(NSSet *)arg1 canceler:(PVCanceler *)arg2 error:(id *)arg3;
 - (_Bool)resetClusterSequenceNumberOfFacesWithLocalIdentifiers:(NSArray *)arg1 error:(id *)arg2;

@@ -28,6 +28,7 @@
 @property(retain, nonatomic) HMAccessorySetting *setting; // @synthesize setting=_setting;
 @property(retain, nonatomic) HMAccessorySettings *settings; // @synthesize settings=_settings;
 - (void).cxx_destruct;
+- (void)_accessorySettingReflectionStateDidUpdate:(id)arg1;
 - (void)_accessorySettingDidUpdate:(id)arg1;
 - (void)settingsDidUpdate:(id)arg1;
 - (void)settingsWillUpdate:(id)arg1;

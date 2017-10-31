@@ -21,10 +21,6 @@
 @property(readonly, nonatomic) id <HFCharacteristicValueSource> valueSource; // @synthesize valueSource=_valueSource;
 - (void).cxx_destruct;
 - (id)serviceLikeBuilderInHome:(id)arg1;
-- (id)controlPanelItems;
-- (id)allControlItems;
-- (id)incrementalStateControlItem;
-- (id)primaryStateControlItem;
 - (id)services;
 - (id)accessories;
 @property(readonly, nonatomic) id <HFHomeKitObject> homeKitObject;

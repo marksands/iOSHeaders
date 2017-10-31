@@ -6,7 +6,7 @@
 
 #import <MediaPlaybackCore/MPCPlaybackDelegationProperties.h>
 
-@class NSString, NSTimeZone;
+@class MPCPrivateListeningStateSource, NSString, NSTimeZone;
 
 @interface MPCMutablePlaybackDelegationProperties : MPCPlaybackDelegationProperties
 {
@@ -15,6 +15,7 @@
 @property(copy, nonatomic) NSTimeZone *timeZone; // @dynamic timeZone;
 @property(nonatomic) long long systemReleaseType; // @dynamic systemReleaseType;
 @property(copy, nonatomic) NSString *requestUserAgent; // @dynamic requestUserAgent;
+@property(copy, nonatomic) MPCPrivateListeningStateSource *privateListeningStateSource; // @dynamic privateListeningStateSource;
 @property(copy, nonatomic) NSString *deviceName; // @dynamic deviceName;
 @property(copy, nonatomic) NSString *deviceGUID; // @dynamic deviceGUID;
 @property(nonatomic) unsigned long long storeAccountID; // @dynamic storeAccountID;

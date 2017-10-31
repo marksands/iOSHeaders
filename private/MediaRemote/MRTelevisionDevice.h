@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <MediaRemote/MRExternalDevice.h>
+#import <MediaRemote/MRTransportExternalDevice.h>
 
 @class NSObject<OS_dispatch_queue>;
 
 __attribute__((visibility("hidden")))
-@interface MRTelevisionDevice : MRExternalDevice
+@interface MRTelevisionDevice : MRTransportExternalDevice
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
     _Bool _hiliteMode;

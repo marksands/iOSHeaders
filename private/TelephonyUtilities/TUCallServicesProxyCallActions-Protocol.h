@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString, TUAnswerRequest, TUDialRequest, TUProxyCall;
+@class IDSDestination, NSString, TUAnswerRequest, TUDialRequest, TUProxyCall;
 
 @protocol TUCallServicesProxyCallActions <NSObject>
 - (oneway void)setDownlinkMuted:(_Bool)arg1 forCallWithUniqueProxyIdentifier:(NSString *)arg2;
@@ -20,7 +20,7 @@
 - (oneway void)updateCallWithProxy:(TUProxyCall *)arg1;
 - (oneway void)sendHardPauseDigitsForCallWithUniqueProxyIdentifier:(NSString *)arg1;
 - (oneway void)pullHostedCallsFromPairedHostDevice;
-- (oneway void)pushHostedCallsToPairedClientDevice;
+- (oneway void)pushHostedCallsToDestination:(IDSDestination *)arg1;
 - (oneway void)pushRelayingCallsToHostWithSourceIdentifier:(NSString *)arg1;
 - (oneway void)pullRelayingCallsFromClient;
 - (oneway void)setTTYType:(int)arg1 forCallWithUniqueProxyIdentifier:(NSString *)arg2;

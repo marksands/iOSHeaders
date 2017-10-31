@@ -15,14 +15,19 @@ struct __CFArray;
 struct __CFDictionary;
 
 struct _resultset_computation_ctx {
-    double *_field1;
+    float *_field1;
     _Bool _field2;
     _Bool _field3;
     _Bool _field4;
-    double _field5;
-    double _field6;
-    double _field7;
-    double _field8[44];
+    float _field5;
+    float _field6;
+    float _field7;
+    float _field8[44];
+};
+
+struct fan_out_value {
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct prs_feature_population_ctx_t {

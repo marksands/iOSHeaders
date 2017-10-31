@@ -40,6 +40,7 @@
 - (void)setPasteConfiguration:(id)arg1;
 - (id)pasteConfiguration;
 - (id)_effectivePasteConfiguration;
+- (_Bool)_shouldRestorationInputViewsOnlyWhenKeepingFirstResponder;
 - (_Bool)_supportsBecomeFirstResponderWhenPossible;
 - (_Bool)_canBecomeFirstResponderWhenPossible;
 - (_Bool)_becomeFirstResponderWhenPossible;

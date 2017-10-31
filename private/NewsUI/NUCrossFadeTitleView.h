@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NUCrossFadeViewAnimator, NUTextAndGlyphView, UIImageView, UILabel;
+@class NUCrossFadeViewAnimator, NUTextAndGlyphView, NUTitleViewUpdate, UIImageView, UILabel;
 
 @interface NUCrossFadeTitleView : UIView
 {
@@ -16,8 +16,10 @@
     NUTextAndGlyphView *_textAndGlyphView;
     unsigned long long _displayValueType;
     NUCrossFadeViewAnimator *_animator;
+    NUTitleViewUpdate *_update;
 }
 
+@property(retain, nonatomic) NUTitleViewUpdate *update; // @synthesize update=_update;
 @property(readonly, nonatomic) NUCrossFadeViewAnimator *animator; // @synthesize animator=_animator;
 @property(nonatomic) unsigned long long displayValueType; // @synthesize displayValueType=_displayValueType;
 @property(readonly, nonatomic) NUTextAndGlyphView *textAndGlyphView; // @synthesize textAndGlyphView=_textAndGlyphView;
@@ -29,6 +31,7 @@
 - (id)_applyStylesToText:(id)arg1 styleType:(unsigned long long)arg2;
 - (id)applyStylesToValueFromTitleViewUpdate:(id)arg1;
 - (id)viewForValueType:(unsigned long long)arg1;
+- (void)relayoutWithAnimation:(_Bool)arg1;
 @property(readonly, nonatomic) struct CGRect visibleFrame;
 - (void)updateTitleViewWithUpdate:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)layoutSubviews;

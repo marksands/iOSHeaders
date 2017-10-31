@@ -30,6 +30,7 @@
 @property(readonly, nonatomic) TVColor *highlightColor;
 @property(readonly, nonatomic) long long contentAlignment;
 @property(readonly, nonatomic) long long alignment;
+- (id)shadow;
 @property(readonly, nonatomic) double width;
 @property(readonly, nonatomic) long long textAlignment;
 @property(readonly, nonatomic) struct UIEdgeInsets padding;
@@ -42,6 +43,7 @@
 @property(readonly, nonatomic) double height;
 @property(readonly, nonatomic) NSString *fontWeight;
 @property(readonly, nonatomic) double fontSize;
+- (id)textTransform;
 @property(readonly, nonatomic) TVColor *color;
 @property(readonly, nonatomic) TVColor *backgroundColor;
 - (id)valueForStyleProperty:(id)arg1;

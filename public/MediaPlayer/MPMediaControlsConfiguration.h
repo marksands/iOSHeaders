@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class NSString;
 
-@interface MPMediaControlsConfiguration : NSObject <NSSecureCoding>
+@interface MPMediaControlsConfiguration : NSObject <NSSecureCoding, NSCopying>
 {
     long long _style;
     NSString *_routingContextUID;
@@ -22,6 +23,7 @@
 @property(copy, nonatomic) NSString *routingContextUID; // @synthesize routingContextUID=_routingContextUID;
 @property(nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;

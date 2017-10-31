@@ -27,7 +27,7 @@
     struct CGRect _contentFrame;
 }
 
-@property(readonly, nonatomic) UIScrollView *view; // @synthesize view=_view;
+@property(readonly, nonatomic) __weak UIScrollView *view; // @synthesize view=_view;
 @property(nonatomic) _Bool groupChanges; // @synthesize groupChanges=_groupChanges;
 @property(retain, nonatomic) SXViewport *viewportBeforeUpdates; // @synthesize viewportBeforeUpdates=_viewportBeforeUpdates;
 @property(retain, nonatomic) NSHashTable *interfaceOrientationListeners; // @synthesize interfaceOrientationListeners=_interfaceOrientationListeners;
@@ -47,6 +47,7 @@
 - (id)debugDescriptionForViewport:(id)arg1;
 - (id)stringForAppearState:(unsigned long long)arg1;
 - (id)stringFroInterfaceOrientation:(long long)arg1;
+- (struct CGPoint)convertPointToViewportCoordinateSpace:(struct CGPoint)arg1 fromView:(id)arg2;
 - (struct CGRect)convertRectToViewportCoordinateSpace:(struct CGRect)arg1 fromView:(id)arg2;
 - (struct CGRect)convertRect:(struct CGRect)arg1 fromView:(id)arg2;
 - (struct CGRect)convertRect:(struct CGRect)arg1 toView:(id)arg2;

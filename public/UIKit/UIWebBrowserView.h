@@ -68,6 +68,7 @@
 @property(retain, nonatomic) DOMNode *_currentAssistedNode; // @synthesize _currentAssistedNode;
 @property(retain, nonatomic) NSObject<UIFormPeripheral> *_input; // @synthesize _input;
 @property(retain, nonatomic) UIWebFormAccessory *_accessory; // @synthesize _accessory;
+- (_Bool)_shouldRestorationInputViewsOnlyWhenKeepingFirstResponder;
 - (void)_setUnobscuredSafeAreaInsets:(struct UIEdgeInsets)arg1;
 - (id)_collectAdditionalSubviews;
 - (void)webViewDidCommitCompositingLayerChanges:(id)arg1;

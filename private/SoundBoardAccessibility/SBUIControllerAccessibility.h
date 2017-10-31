@@ -6,35 +6,39 @@
 
 #import <SoundBoardAccessibility/__SBUIControllerAccessibility_super.h>
 
-@interface SBUIControllerAccessibility : __SBUIControllerAccessibility_super
+#import "SBUIConntrollerAccessibilityProtocol.h"
+
+@class NSString;
+
+@interface SBUIControllerAccessibility : __SBUIControllerAccessibility_super <SBUIConntrollerAccessibilityProtocol>
 {
 }
 
 + (void)_accessibilityPerformValidations:(id)arg1;
 + (Class)safeCategoryBaseClass;
 + (id)safeCategoryTargetClassName;
-- (void)hidInterfaceButton:(unsigned long long)arg1 changedState:(_Bool)arg2 atTime:(unsigned long long)arg3;
-- (void)_accessibilityStartCoalescingTapsWithDelay:(double)arg1;
-- (_Bool)_accessibilityIsButtonDown;
-- (void)_accessibilityUpdateSoundBoardState:(_Bool)arg1 forButton:(unsigned long long)arg2;
-- (void)_accessibilityUpdateState:(_Bool)arg1 forButton:(unsigned long long)arg2;
-- (unsigned long long)_accessibilityButtonToSoundBoardButton:(unsigned long long)arg1;
-- (unsigned long long)_accessibilitySoundBoardButtonToAccessibilityButton:(unsigned long long)arg1;
-- (void)_accessibilitySpeakButtonLabel:(unsigned long long)arg1;
+- (void)updateLEDBehavior:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)_updateVoiceOverVisualizationState;
+- (_Bool)SBUIStateStructValidated;
+- (_Bool)hidInterfaceButton:(unsigned long long)arg1 changedDownState:(_Bool)arg2 heldState:(_Bool)arg3 timestamp:(unsigned long long)arg4;
+- (void)_accessibilityHidInterfaceButton:(unsigned long long)arg1 changedAtTimestamp:(unsigned long long)arg2;
+- (void)hidInterfaceButton:(unsigned long long)arg1 cancelledEventAtTime:(unsigned long long)arg2;
+- (void)hidInterfaceButton:(unsigned long long)arg1 endedHoldAtTime:(unsigned long long)arg2;
+- (void)hidInterfaceButton:(unsigned long long)arg1 beganHoldAtTime:(unsigned long long)arg2;
+- (void)hidInterfaceButton:(unsigned long long)arg1 registeredTapAtTime:(unsigned long long)arg2;
+- (void)hidInterfaceButton:(unsigned long long)arg1 touchMightHaveBegunAtTime:(unsigned long long)arg2;
 - (void)_accessibilitySetTapAssistanceTimer:(id)arg1;
 - (id)_accessibilityTapAssistanceTimer;
 - (void)_accessibilitySetCoalesceTimer:(id)arg1;
 - (id)_accessibilityCoalesceTimer;
-- (void)_accessibilitySetHysterisisTimer:(id)arg1;
-- (id)_accessibilityHysterisisTimer;
-- (void)_accessibilitySetSoundBoardButtonState:(id)arg1;
-- (id)_accessibilitySoundBoardButtonState;
-- (void)_accessibilitySetButtonState:(id)arg1;
-- (id)_accessibilityButtonState;
-- (void)_accessibilitySetTapIsDown:(_Bool)arg1;
-- (_Bool)_accessibilityTapIsDown;
-- (void)_accessibilitySetTapIsHolding:(_Bool)arg1;
-- (_Bool)_accessibilityTapIsHolding;
+- (void)_accessibilitySetHysteresisLongPressTimer:(id)arg1;
+- (id)_accessibilityHysteresisLongPressTimer;
+- (void)_accessibilitySetHysteresisTimer:(id)arg1;
+- (id)_accessibilityHysteresisTimer;
+- (void)_accessibilitySetButtonLongHeld:(_Bool)arg1;
+- (_Bool)_accessibilityButtonLongHeld;
+- (void)_accessibilitySetButtonHeld:(_Bool)arg1;
+- (_Bool)_accessibilityButtonHeld;
 - (void)_accessibilitySetButtonTapCount:(unsigned long long)arg1;
 - (unsigned long long)_accessibilityButtonTapCount;
 - (void)_accessibilitySetTapAssistanceButton:(unsigned long long)arg1;
@@ -43,6 +47,12 @@
 - (unsigned long long)_accessibilityHoldButton;
 - (void)_accessibilitySetSelectedButton:(unsigned long long)arg1;
 - (unsigned long long)_accessibilitySelectedButton;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

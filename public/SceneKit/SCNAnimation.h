@@ -35,7 +35,7 @@
     CDUnknownBlockType _animationDidStart;
     CDUnknownBlockType _animationDidStop;
     NSMutableDictionary *_userInfo;
-    id _caAnimation;
+    id _caAnimationCache;
     id _userAnimation;
     _Bool _didMutate;
 }

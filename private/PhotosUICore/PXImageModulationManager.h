@@ -22,6 +22,7 @@
         _Bool imageModulationIntensity;
         _Bool requestedEDRHeadroomFactor;
         _Bool finalRequestedEDRHeadroomFactor;
+        _Bool desiredDynamicRange;
         _Bool imageLayerModulators;
     } _needsUpdateFlags;
     double _lastRequestedEDRHeadroomChangeTime;
@@ -62,6 +63,8 @@
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)_updateImageLayerModulatorsIfNeeded;
 - (void)_invalidateImageLayerModulators;
+- (void)_updateDesiredDynamicRangeIfNeeded;
+- (void)_invalidateDesiredDynamicRange;
 - (void)_updateFinalRequestedEDRHeadroomFactorIfNeeded;
 - (void)_invalidateFinalRequestedEDRHeadroomFactor;
 - (void)_updateRequestedEDRHeadroomFactorIfNeeded;

@@ -17,6 +17,8 @@
     NSIndexPath *_lastPreviewedIndexPath;
     double _lastPreviewDelay;
     unsigned long long _autohighlightScrollPosition;
+    _Bool _configureForListTemplate;
+    long long _listTemplateAlignment;
     _Bool _centered;
     id <__TVShelfViewControllerDelegate> _delegate;
     unsigned long long _speedBumpEdges;

@@ -190,6 +190,7 @@
 - (void)removeAnnotation:(id)arg1;
 - (void)addAnnotations:(id)arg1;
 - (void)addAnnotation:(id)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)layoutMapView;
 - (void)layoutSubviews;
 - (void)setupGestures;

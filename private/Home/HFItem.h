@@ -24,8 +24,8 @@
 @property(retain, nonatomic) NSDictionary *latestResults; // @synthesize latestResults=_latestResults;
 - (void).cxx_destruct;
 - (id)_finalOutcomeForSubclassOutcome:(id)arg1 previousResults:(id)arg2 updateOptions:(id)arg3;
-- (id)debugDescription;
 - (id)description;
+- (id)debugDescription;
 - (_Bool)resultsContainRequiredProperties:(id)arg1;
 - (id)_subclass_updateWithOptions:(id)arg1;
 - (unsigned long long)_effectiveLoadingStateForSuggestedLoadingState:(unsigned long long)arg1;

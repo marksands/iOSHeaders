@@ -10,13 +10,13 @@
 
 @interface WLKCanonicalPlayablesRequestOperation : WLKNetworkRequestOperation
 {
-    NSString *_canonicalID;
+    NSString *_contentID;
 }
 
-@property(readonly, copy, nonatomic) NSString *canonicalID; // @synthesize canonicalID=_canonicalID;
+@property(readonly, copy, nonatomic) NSString *contentID; // @synthesize contentID=_contentID;
 - (void).cxx_destruct;
 - (id)responseProcessor;
-- (id)initWithCanonicalID:(id)arg1 profiles:(id)arg2;
+- (id)initWithContentID:(id)arg1 profiles:(id)arg2;
 
 @end
 

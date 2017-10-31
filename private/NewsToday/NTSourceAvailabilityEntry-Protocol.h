@@ -9,6 +9,6 @@
 @protocol NTSourceAvailabilityEntry <NSObject>
 @property(copy, nonatomic) CDUnknownBlockType availabilityChangedNotificationBlock;
 @property(readonly, nonatomic, getter=isAvailable) _Bool available;
-@property(readonly, nonatomic) Class headlineResultsFetchDescriptorClass;
+@property(readonly, nonatomic) Class todayResultsFetchDescriptorClass;
 @end
 

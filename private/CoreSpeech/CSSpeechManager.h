@@ -12,10 +12,11 @@
 #import "CSStateMachineDelegate.h"
 #import "CSVoiceTriggerDelegate.h"
 
-@class CSAsset, CSAudioCircularBuffer, CSAudioRecorder, CSContinuousVoiceTrigger, CSKeywordDetector, CSMyriadPHash, CSSelfTriggerDetector, CSStateMachine, CSVoiceTriggerEventNotifier, CSVoiceTriggerFidesClient, CSVoiceTriggerFileLogger, CSVoiceTriggerFirstPass, CSVoiceTriggerSecondPass, NSDictionary, NSHashTable, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
+@class CSAsset, CSAudioCircularBuffer, CSAudioRecorder, CSContinuousVoiceTrigger, CSKeywordDetector, CSMyriadPHash, CSSelfTriggerDetector, CSSmartSiriVolume, CSStateMachine, CSVoiceTriggerEventNotifier, CSVoiceTriggerFidesClient, CSVoiceTriggerFileLogger, CSVoiceTriggerFirstPass, CSVoiceTriggerSecondPass, NSDictionary, NSHashTable, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSUUID;
 
 @interface CSSpeechManager : NSObject <CSAudioRecorderDelegate, CSStateMachineDelegate, CSVoiceTriggerDelegate, CSAssetManagerDelegate, CSLanguageCodeUpdateMonitorDelegate>
 {
+    float _systemVolumeValue;
     CSAudioRecorder *_audioRecorder;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_assetQueryQueue;
@@ -30,26 +31,35 @@
     CSSelfTriggerDetector *_selfTriggerDetector;
     CSContinuousVoiceTrigger *_continuousVoiceTrigger;
     CSKeywordDetector *_keywordDetector;
+    CSSmartSiriVolume *_smartSiriVolume;
     CSMyriadPHash *_myriad;
     CSVoiceTriggerFidesClient *_voiceTriggerFidesClient;
     NSHashTable *_activeAudioProcessors;
+    NSHashTable *_continuousAudioProcessors;
     unsigned long long _lastForwardedSampleCount;
     unsigned long long _secondPassStartSampleCount;
     unsigned long long _clientStartSampleCount;
     long long _recordingPendingTimeout;
     NSDictionary *_lastVoiceTriggerEventInfo;
     NSObject<OS_dispatch_source> *_listenPollingTimer;
+    NSUUID *_pendingSetRecordModeToRecordingToken;
+    CDUnknownBlockType _pendingSetRecordModeToRecordingCompletion;
 }
 
+@property(nonatomic) float systemVolumeValue; // @synthesize systemVolumeValue=_systemVolumeValue;
+@property(copy, nonatomic) CDUnknownBlockType pendingSetRecordModeToRecordingCompletion; // @synthesize pendingSetRecordModeToRecordingCompletion=_pendingSetRecordModeToRecordingCompletion;
+@property(retain, nonatomic) NSUUID *pendingSetRecordModeToRecordingToken; // @synthesize pendingSetRecordModeToRecordingToken=_pendingSetRecordModeToRecordingToken;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *listenPollingTimer; // @synthesize listenPollingTimer=_listenPollingTimer;
 @property(retain, nonatomic) NSDictionary *lastVoiceTriggerEventInfo; // @synthesize lastVoiceTriggerEventInfo=_lastVoiceTriggerEventInfo;
 @property(nonatomic) long long recordingPendingTimeout; // @synthesize recordingPendingTimeout=_recordingPendingTimeout;
 @property(nonatomic) unsigned long long clientStartSampleCount; // @synthesize clientStartSampleCount=_clientStartSampleCount;
 @property(nonatomic) unsigned long long secondPassStartSampleCount; // @synthesize secondPassStartSampleCount=_secondPassStartSampleCount;
 @property(nonatomic) unsigned long long lastForwardedSampleCount; // @synthesize lastForwardedSampleCount=_lastForwardedSampleCount;
+@property(retain, nonatomic) NSHashTable *continuousAudioProcessors; // @synthesize continuousAudioProcessors=_continuousAudioProcessors;
 @property(retain, nonatomic) NSHashTable *activeAudioProcessors; // @synthesize activeAudioProcessors=_activeAudioProcessors;
 @property(retain, nonatomic) CSVoiceTriggerFidesClient *voiceTriggerFidesClient; // @synthesize voiceTriggerFidesClient=_voiceTriggerFidesClient;
 @property(retain, nonatomic) CSMyriadPHash *myriad; // @synthesize myriad=_myriad;
+@property(retain, nonatomic) CSSmartSiriVolume *smartSiriVolume; // @synthesize smartSiriVolume=_smartSiriVolume;
 @property(retain, nonatomic) CSKeywordDetector *keywordDetector; // @synthesize keywordDetector=_keywordDetector;
 @property(retain, nonatomic) CSContinuousVoiceTrigger *continuousVoiceTrigger; // @synthesize continuousVoiceTrigger=_continuousVoiceTrigger;
 @property(retain, nonatomic) CSSelfTriggerDetector *selfTriggerDetector; // @synthesize selfTriggerDetector=_selfTriggerDetector;
@@ -65,15 +75,19 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) CSAudioRecorder *audioRecorder; // @synthesize audioRecorder=_audioRecorder;
 - (void).cxx_destruct;
+- (float)getEstimatedTTSVolume;
 - (id)_eventName:(unsigned long long)arg1;
 - (id)_stateName:(long long)arg1;
+- (void)_reinitializeSmartSiriVolumeWithAsset:(id)arg1;
 - (void)_reinitializeVoiceTriggerWithAsset:(id)arg1;
 - (void)_reinitializeVoiceTriggerIfNeeded;
 - (void)CSLanguageCodeUpdateMonitor:(id)arg1 didReceiveLanguageCodeChanged:(id)arg2;
 - (void)CSAssetManagerDidDownloadNewAsset:(id)arg1;
 - (unsigned long long)hostTimeFromSampleCount:(unsigned long long)arg1;
+- (void)voiceTriggerDidDetectTwoShotAtTime:(double)arg1;
 - (void)voiceTriggerDidDetectKeyword:(id)arg1;
 - (void)voiceTriggerDetectedOnAOP:(id)arg1;
+- (void)audioRecorderDisconnected:(id)arg1;
 - (void)audioRecorderEndRecordInterruption:(id)arg1;
 - (void)audioRecorderBeginRecordInterruption:(id)arg1 withContext:(id)arg2;
 - (void)audioRecorderBeginRecordInterruption:(id)arg1;
@@ -83,24 +97,29 @@
 - (void)audioRecorderBufferAvailable:(id)arg1 buffer:(id)arg2;
 - (void)audioRecorderBufferAvailable:(id)arg1 buffer:(id)arg2 atTime:(unsigned long long)arg3;
 - (id)_getClientRecordContext;
-- (void)_stopKeywordDetector;
-- (void)_startKeywordDetector;
-- (void)_stopContinuousVoiceTrigger;
-- (void)_startContinuousVoiceTrigger;
-- (void)_stopSelfTriggerDetector;
-- (void)_startSelfTriggerDetector;
-- (void)_stopSecondPassVoiceTrigger;
-- (void)_startSecondPassVoiceTrigger;
-- (void)_stopFirstPassVoiceTrigger;
-- (void)_startFirstPassVoiceTrigger;
+- (void)_systemVolumeDidChange:(id)arg1;
+- (float)_volumeFromAVSystemController;
+- (void)_startForwardingToSmartSiriVolume;
+- (void)_stopForwardingToKeywordDetector;
+- (void)_startForwardingToKeywordDetector;
+- (void)_stopForwardingToContinuousVoiceTrigger;
+- (void)_startForwardingToContinuousVoiceTrigger;
+- (void)_stopForwardingToSelfTriggerDetector;
+- (void)_startForwardingToSelfTriggerDetector;
+- (void)_stopForwardingToSecondPassVoiceTrigger;
+- (void)_startForwardingToSecondPassVoiceTrigger;
+- (void)_stopForwardingToFirstPassVoiceTrigger;
+- (void)_startForwardingToFirstPassVoiceTrigger;
 - (void)_stopForwardingToClient;
 - (void)_startForwardingToClient;
+- (void)_destroyAudioRecorderIfNeeded;
 - (void)_stopListenPolling;
 - (void)_startListenPolling;
 - (void)_createListenPollingTimer;
 - (void)didIgnoreEvent:(long long)arg1 from:(long long)arg2;
 - (void)didTransitFrom:(long long)arg1 to:(long long)arg2 by:(long long)arg3;
 - (void)mediaserverdDidRestart;
+- (void)audioRecorderLostMediaserverd:(id)arg1;
 - (void)stopRecordingWithEvent:(unsigned long long)arg1;
 - (void)_startRecordingForClient:(id)arg1 error:(id *)arg2;
 - (_Bool)startRecordingWithSetting:(id)arg1 event:(unsigned long long)arg2 error:(id *)arg3;
@@ -109,6 +128,9 @@
 - (void)releaseClientAudioSession:(unsigned long long)arg1;
 - (void)releaseClientAudioSession;
 - (_Bool)_setCurrentContext:(id)arg1 error:(id *)arg2;
+- (void)_performPendingSetRecordModeToRecordingForReason:(id)arg1;
+- (void)_cancelPendingSetRecordModeToRecordingForReason:(id)arg1;
+- (void)_scheduleSetRecordModeToRecordingWithDelay:(double)arg1 forReason:(id)arg2 validator:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
 - (_Bool)_setRecordMode:(long long)arg1 error:(id *)arg2;
 - (_Bool)_startListening:(id *)arg1;
 - (_Bool)_startRecordingWithSettings:(id)arg1 error:(id *)arg2;
@@ -127,11 +149,15 @@
 - (long long)getCurrentState;
 - (void)_setupStateMachine;
 - (void)registerSpeechController:(id)arg1;
+- (void)_setupSmartSiriVolume;
 - (void)_setupCircularBuffer;
+- (void)_startVoiceTrigger;
 - (void)_setupVoiceTrigger;
+- (id)_getSmartSiriVolumeAsset;
 - (id)_getVoiceTriggerAsset;
 - (void)_reset;
 - (void)reset;
+- (void)startManager;
 - (void)dealloc;
 - (id)initWithVoiceTriggerFirstPass:(id)arg1 voicetriggerSecondPass:(id)arg2 voicetriggerEventNotifier:(id)arg3 audioRecorder:(id)arg4;
 - (id)init;

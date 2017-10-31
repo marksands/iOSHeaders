@@ -19,6 +19,7 @@
     NSArray *_playActivityEvents;
     ICRadioPlaybackHistory *_playbackContext;
     NSNumber *_privateListeningEnabled;
+    NSNumber *_delegatedPrivateListeningEnabled;
     long long _reasonType;
     ICStoreRequestContext *_requestContext;
     NSString *_stationHash;
@@ -38,6 +39,7 @@
 @property(nonatomic) _Bool shouldResponseContainStationMetadata; // @synthesize shouldResponseContainStationMetadata=_shouldResponseContainStationMetadata;
 @property(copy, nonatomic) ICStoreRequestContext *requestContext; // @synthesize requestContext=_requestContext;
 @property(nonatomic) long long reasonType; // @synthesize reasonType=_reasonType;
+@property(copy, nonatomic, getter=isDelegatedPrivateListeningEnabled) NSNumber *delegatedPrivateListeningEnabled; // @synthesize delegatedPrivateListeningEnabled=_delegatedPrivateListeningEnabled;
 @property(copy, nonatomic, getter=isPrivateListeningEnabled) NSNumber *privateListeningEnabled; // @synthesize privateListeningEnabled=_privateListeningEnabled;
 @property(nonatomic, getter=isPreservingCurrentlyPlayingItem) _Bool preservingCurrentlyPlayingItem; // @synthesize preservingCurrentlyPlayingItem=_preservingCurrentlyPlayingItem;
 @property(copy, nonatomic) ICRadioPlaybackHistory *playbackContext; // @synthesize playbackContext=_playbackContext;

@@ -6,14 +6,17 @@
 
 #import <SearchUI/SearchUIMovieCardSectionBuyButtonView.h>
 
+@class SearchUIWatchListUtilities;
+
 @interface SearchUIMovieCardSectionUpNextButtonView : SearchUIMovieCardSectionBuyButtonView
 {
-    _Bool _isInUpNext;
+    SearchUIWatchListUtilities *_watchListUtility;
 }
 
-@property _Bool isInUpNext; // @synthesize isInUpNext=_isInUpNext;
+@property(retain) SearchUIWatchListUtilities *watchListUtility; // @synthesize watchListUtility=_watchListUtility;
+- (void).cxx_destruct;
 - (void)buttonPressed;
-- (void)updateUpNextStatus:(_Bool)arg1;
+- (void)updateUpNextStatus;
 - (id)initIsInUpNext:(_Bool)arg1 cardSectionView:(id)arg2;
 
 @end

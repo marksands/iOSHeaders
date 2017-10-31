@@ -14,7 +14,6 @@
 
 + (CDUnknownBlockType)valueClassBlockForPropertyWithName:(id)arg1;
 + (id)typeString;
-- (Class)componentViewClass;
 
 // Remaining properties
 @property(readonly, nonatomic) SXJSONArray *inlineTextStyles; // @dynamic inlineTextStyles;

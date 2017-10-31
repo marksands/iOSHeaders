@@ -13,10 +13,11 @@
 @interface HMDDeviceNotificationHandler : HMFObject <HMFTimerDelegate>
 {
     _Bool _delaySupported;
+    HMDHome *_home;
     NSString *_destination;
     NSString *_requestIdentifier;
-    HMDHome *_home;
     NSMutableSet *_updatedCharacteristics;
+    NSMutableSet *_updatedMediaProperties;
     HMFTimer *_coalesceTimer;
     HMFTimer *_delayTimer;
     NSUUID *_notificationUpdateIdentifier;
@@ -26,14 +27,16 @@
 @property(nonatomic) _Bool delaySupported; // @synthesize delaySupported=_delaySupported;
 @property(retain, nonatomic) HMFTimer *delayTimer; // @synthesize delayTimer=_delayTimer;
 @property(retain, nonatomic) HMFTimer *coalesceTimer; // @synthesize coalesceTimer=_coalesceTimer;
+@property(retain, nonatomic) NSMutableSet *updatedMediaProperties; // @synthesize updatedMediaProperties=_updatedMediaProperties;
 @property(retain, nonatomic) NSMutableSet *updatedCharacteristics; // @synthesize updatedCharacteristics=_updatedCharacteristics;
-@property(nonatomic) __weak HMDHome *home; // @synthesize home=_home;
 @property(retain, nonatomic) NSString *requestIdentifier; // @synthesize requestIdentifier=_requestIdentifier;
 @property(retain, nonatomic) NSString *destination; // @synthesize destination=_destination;
+@property(nonatomic) __weak HMDHome *home; // @synthesize home=_home;
 - (void).cxx_destruct;
 - (void)timerDidFire:(id)arg1;
 - (id)_dispatchNotification;
 - (id)_beginCoalesce:(_Bool)arg1;
+- (id)sendNotificationForMediaProperties:(id)arg1 withRequestIdentifier:(id)arg2;
 - (id)sendNotificationForCharacteristicChanges:(id)arg1 withRequestIdentifier:(id)arg2;
 - (id)initWithDestination:(id)arg1 watchDevice:(_Bool)arg2 withRequestIdentifier:(id)arg3 home:(id)arg4;
 

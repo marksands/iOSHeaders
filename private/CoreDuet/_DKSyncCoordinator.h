@@ -8,11 +8,12 @@
 
 #import "APSConnectionDelegate.h"
 
-@class APSConnection, NSArray, NSObject<OS_dispatch_queue>, NSString, _DKKnowledgeStorage, _DKSyncState;
+@class APSConnection, NSArray, NSHashTable, NSObject<OS_dispatch_queue>, NSString, _DKKnowledgeStorage, _DKSyncState, _DKThrottledActivity;
 
 @interface _DKSyncCoordinator : NSObject <APSConnectionDelegate>
 {
     NSObject<OS_dispatch_queue> *_executionQueue;
+    _DKThrottledActivity *_activityThrottler;
     NSString *_triggeredSyncDelayActivityName;
     NSString *_syncActivityName;
     _DKSyncState *_syncState;
@@ -25,6 +26,7 @@
     _Bool _triggeredSyncObserverRegistered;
     NSArray *_streamNamesObservedForAdditions;
     NSArray *_streamNamesObservedForDeletions;
+    NSHashTable *_syncCoordinatorEventNotificationDelegates;
     _DKKnowledgeStorage *_storage;
 }
 
@@ -49,22 +51,23 @@
 - (void)_cloudSyncAvailabilityDidChange:(id)arg1;
 - (void)_unregisterDatabaseObservers;
 - (void)_registerDatabaseObservers;
-- (void)_databaseDidDeleteFromStream:(id)arg1;
+- (void)knowledgeStorage:(id)arg1 didDeleteEventsWithStreamNameCounts:(id)arg2;
 - (void)_databaseDidDeleteFromStreamName:(id)arg1;
-- (void)_databaseDidAddToStream:(id)arg1;
+- (void)knowledgeStorage:(id)arg1 didInsertEventsWithStreamNameCounts:(id)arg2;
 - (void)_databaseDidAddToStreamName:(id)arg1;
 - (void)_checkIfNumChangesTriggersSync;
 - (void)_databaseDidHaveInsertsAndDeletesWithInsertsAndDeletesCount:(unsigned long long)arg1;
-- (void)_databaseDidHaveInsertsAndDeletes:(id)arg1;
+- (void)knowledgeStorage:(id)arg1 didHaveInsertsAndDeletesWithCount:(unsigned long long)arg2;
 - (void)_unregisterPeriodicJob;
 - (void)_registerPeriodicJob;
 - (double)_intervalForJobGivenPolicy:(id)arg1 isSingleDevice:(_Bool)arg2;
 - (void)_performPeriodicJob;
 - (void)_sendNotificationsForCreatedDeletionChangeSet:(id)arg1;
 - (void)_sendNotificationsForCreatedAdditionChangeSet:(id)arg1;
-- (void)_sendNotificationsForCreatedChangeSet:(id)arg1;
 - (void)_sendNotificationsForAppliedRemoteDeletionChangeSet:(id)arg1 deleted:(unsigned long long)arg2;
 - (void)_sendNotificationsForAppliedRemoteAdditionChangeSet:(id)arg1;
+- (void)removeSyncCoordinatorEventNotificationDelegate:(id)arg1;
+- (void)addSyncCoordinatorEventNotificationDelegate:(id)arg1;
 - (_Bool)_performSyncUpWithPolicy:(id)arg1 queryStartDate:(id)arg2 localChangeSets:(id)arg3 error:(id *)arg4;
 - (_Bool)_performSyncDownWithPolicy:(id)arg1 deletionChangeSets:(id)arg2;
 - (_Bool)_performSyncDownWithPolicy:(id)arg1 additionChangeSets:(id)arg2;

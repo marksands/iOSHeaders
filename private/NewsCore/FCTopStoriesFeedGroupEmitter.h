@@ -15,7 +15,7 @@
 }
 
 @property(readonly, nonatomic) _Bool isRequiredByFollowingEmitters;
-@property(readonly, nonatomic) _Bool requiresForYouCatchUpOperation;
+@property(readonly, nonatomic) long long requiredForYouContentTypes;
 - (id)backingChannelTagIDWithAppConfig:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *groupEmitterIdentifier;
 - (_Bool)canEmitGroupsWithType:(long long)arg1;

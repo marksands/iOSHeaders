@@ -61,8 +61,6 @@
 - (void)_userChangedScrollViewMagnificationNotification:(id)arg1;
 - (void)_updateMinMaxZoomFactor;
 - (struct CGSize)_medianSizeForCurrentDocumentInPDFViewWithGetter:(CDUnknownBlockType)arg1;
-- (struct CGPoint)_minimumContentOffset;
-- (struct CGPoint)_maximumContentOffset;
 - (void)_recoverFromRotation;
 - (void)_prepareToRotate;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;

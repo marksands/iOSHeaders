@@ -24,6 +24,7 @@
 @property(readonly, nonatomic) unsigned int gid; // @synthesize gid=_gid;
 @property(readonly, nonatomic) unsigned int uid; // @synthesize uid=_uid;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSURL *userVolumeURL;
 @property(readonly, nonatomic) NSURL *frameworkURL;
 @property(readonly, nonatomic) NSURL *promiseStagingRootDirectory;
 @property(readonly, nonatomic) NSURL *oldSupportDirectory;

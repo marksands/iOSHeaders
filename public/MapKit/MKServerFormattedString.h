@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class MKServerFormattedStringParameters;
 
-@interface MKServerFormattedString : NSObject <NSCopying, NSCoding>
+@interface MKServerFormattedString : NSObject <NSCopying, NSSecureCoding>
 {
     id <GEOServerFormattedString> _geoServerString;
     MKServerFormattedStringParameters *_parameters;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) MKServerFormattedStringParameters *parameters; // @synthesize parameters=_parameters;
 @property(readonly, nonatomic) id <GEOServerFormattedString> geoServerString; // @synthesize geoServerString=_geoServerString;
 - (void).cxx_destruct;

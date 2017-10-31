@@ -43,6 +43,7 @@
     // Error parsing type: {?="columns"[4]}, name: _sessionOriginTransform
 }
 
++ (void)initialize;
 @property(nonatomic) unsigned long long powerUsage; // @synthesize powerUsage=_powerUsage;
 // Error parsing type for property sessionOriginTransform:
 // Property attributes: T{?=[4]},N,V_sessionOriginTransform

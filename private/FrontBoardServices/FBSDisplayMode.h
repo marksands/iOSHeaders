@@ -20,11 +20,13 @@
     double _scaleOverride;
     double _refreshRate;
     long long _gamut;
+    long long _hdr;
     long long _rotation;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)_emptyMode;
+@property(readonly, nonatomic) long long hdrMode; // @synthesize hdrMode=_hdr;
 @property(readonly, nonatomic) long long colorGamut; // @synthesize colorGamut=_gamut;
 @property(readonly, nonatomic) double refreshRate; // @synthesize refreshRate=_refreshRate;
 @property(readonly, copy) NSString *description;
@@ -39,6 +41,7 @@
 - (unsigned long long)_width;
 - (id)_referenceSizeDescription;
 - (long long)_rotation;
+- (id)_caHDRMode;
 - (id)_caColorGamut;
 - (double)_caRefreshRate;
 - (unsigned long long)_caPreferredScale;
@@ -47,7 +50,8 @@
 @property(readonly, nonatomic) struct CGSize size;
 @property(readonly, nonatomic) double scale;
 @property(readonly, nonatomic) struct CGSize pixelSize;
-- (id)_initWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2 preferredScale:(unsigned long long)arg3 scaleOverride:(double)arg4 refreshRate:(double)arg5 gamut:(long long)arg6 rotation:(long long)arg7 validityCheck:(long long)arg8;
+- (id)_initWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2 preferredScale:(unsigned long long)arg3 scaleOverride:(double)arg4 refreshRate:(double)arg5 gamut:(long long)arg6 hdr:(long long)arg7 rotation:(long long)arg8 validityCheck:(long long)arg9;
+- (id)_initWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2 scale:(unsigned long long)arg3 refreshRate:(double)arg4 gamut:(long long)arg5 hdr:(long long)arg6;
 - (id)_initWithCADisplayMode:(id)arg1 scale:(double)arg2 rotation:(long long)arg3;
 - (id)init;
 

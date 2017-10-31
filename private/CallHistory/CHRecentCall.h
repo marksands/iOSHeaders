@@ -135,7 +135,8 @@
 - (id)addressBookRecordIdSync;
 - (id)contactRefSync;
 - (id)contactIdentifierSync;
-- (void)fetchAndSetContactsValuesSync;
+- (void)fetchAndSetFullContactSync;
+- (void)fetchAndSetContactIdentifierSync;
 @property(nonatomic) _Bool read; // @synthesize read=_read;
 - (void)createOccurrenceArraySync;
 - (id)callOccurrencesSync;

@@ -45,7 +45,7 @@
     UIEventFetcher *_eventFetcher;
     UIEventDispatcher *_eventDispatcher;
     struct {
-        unsigned int deactivatingReasonFlags:13;
+        unsigned int deactivatingReasonFlags:14;
         unsigned int isLaunchedSuspended:1;
         unsigned int calledNonSuspendedLaunchDelegate:1;
         unsigned int calledSuspendedLaunchDelegate:1;

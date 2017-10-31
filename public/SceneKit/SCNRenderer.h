@@ -50,6 +50,7 @@
     struct __C3DEngineContext *_engineContext;
     unsigned long long _renderingAPI;
     struct SCNVector4 __viewport;
+    // Error parsing type: , name: __drawableSafeAreaInsets
     EAGLContext *_glContext;
     id <SCNRenderContext> _renderContext;
     unsigned int _jitteringEnabled:1;
@@ -117,6 +118,8 @@
 @property(retain, nonatomic) SCNNode *audioListener;
 @property(readonly, nonatomic) AVAudioEnvironmentNode *audioEnvironmentNode;
 @property(readonly, nonatomic) AVAudioEngine *audioEngine;
+- (void)set_drawableSafeAreaInsets: /* Error: Ran out of types for this method. */;
+-     // Error parsing type: 16@0:8, name: _drawableSafeAreaInsets
 - (void)set_viewport:(struct SCNVector4)arg1;
 - (struct SCNVector4)_viewport;
 - (id)_authoringEnvironment;

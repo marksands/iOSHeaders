@@ -33,14 +33,10 @@
 - (void)_performPurchaseUsingTouchID;
 - (void)_performPurchaseUsingSettingsUI;
 - (void)_adoptRemoteUIWithPurchaseToken:(id)arg1 buyParameters:(id)arg2 requestHeaders:(id)arg3;
-- (void)_adoptRemoteUI;
 - (void)_buyProductShouldUseToken:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)_storageContextHeaderDictionary;
 - (id)_storageContextJSONString;
-- (id)_buyProductRequestWithAccount:(id)arg1 token:(id)arg2;
-- (id)_buyProductURL;
-- (id)_buyProductQueryFragment;
-- (id)_buyProductQueryItems;
+- (id)_dummyRequestWithAccount:(id)arg1 token:(id)arg2;
 - (id)_buyProductQueryDictionary;
 - (id)_buyProductQueryKeySet;
 @property(readonly, nonatomic) NSDictionary *storagePurchaseKeybag;

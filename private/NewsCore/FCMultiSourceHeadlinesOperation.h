@@ -10,6 +10,7 @@
 
 @interface FCMultiSourceHeadlinesOperation : FCOperation
 {
+    id <FCAppConfiguration> _appConfiguration;
     id <FCContentContext> _context;
     NSArray *_articleListIDs;
     NSSet *_articleIDs;
@@ -30,6 +31,7 @@
 @property(copy, nonatomic) NSSet *articleIDs; // @synthesize articleIDs=_articleIDs;
 @property(copy, nonatomic) NSArray *articleListIDs; // @synthesize articleListIDs=_articleListIDs;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
+@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;

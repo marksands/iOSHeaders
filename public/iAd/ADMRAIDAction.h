@@ -21,6 +21,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)doesURLOpenNews:(id)arg1;
++ (id)errorDescriptionForActionType:(long long)arg1 errorType:(long long)arg2;
 + (id)descriptionForActionType:(long long)arg1;
 @property(retain, nonatomic) NSDictionary *calendarEventInfo; // @synthesize calendarEventInfo=_calendarEventInfo;
 @property(nonatomic) struct CGSize maximumExpandedSize; // @synthesize maximumExpandedSize=_maximumExpandedSize;

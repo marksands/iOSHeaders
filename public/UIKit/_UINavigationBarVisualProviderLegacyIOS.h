@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (_Bool)_shim_34415965;
 - (void)_shim_30244716;
 - (void)_shim_updateBackgroundViewIgnoringFlag;
 - (_Bool)_shim_throwConstraintExceptions;

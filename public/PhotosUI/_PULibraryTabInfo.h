@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *iconName; // @synthesize iconName=_iconName;
 @property(retain, nonatomic) NSString *labelKey; // @synthesize labelKey=_labelKey;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *landscapeIconName;
 
 @end
 

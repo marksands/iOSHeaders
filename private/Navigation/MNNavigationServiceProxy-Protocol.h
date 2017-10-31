@@ -9,6 +9,7 @@
 @class GEOComposedWaypoint, MNActiveRouteDetails, MNAudioOutputSetting, MNRoutePlanningDetails, MNSettings, MNTrafficIncidentAlertDetails, NSData;
 
 @protocol MNNavigationServiceProxy <NSObject>
+- (void)acquireDesiredResourcePolicy;
 - (void)interfaceHashesWithHandler:(void (^)(unsigned long long, unsigned long long))arg1;
 - (void)recordTraceBookmarkAtCurrentPositionWthScreenshotData:(NSData *)arg1;
 - (void)setTracePosition:(double)arg1;

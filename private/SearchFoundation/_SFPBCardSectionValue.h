@@ -9,7 +9,7 @@
 #import "NSSecureCoding.h"
 #import "_SFPBCardSectionValue.h"
 
-@class NSData, NSString, _SFPBActivityIndicatorCardSection, _SFPBAppLinkCardSection, _SFPBAudioPlaybackCardSection, _SFPBDescriptionCardSection, _SFPBDetailedRowCardSection, _SFPBFlightCardSection, _SFPBImagesCardSection, _SFPBKeyValueDataCardSection, _SFPBMapCardSection, _SFPBMediaInfoCardSection, _SFPBMediaPlayerCardSection, _SFPBMessageCardSection, _SFPBMetaInfoCardSection, _SFPBNowPlayingCardSection, _SFPBRichTitleCardSection, _SFPBRowCardSection, _SFPBScoreboardCardSection, _SFPBSectionHeaderCardSection, _SFPBSelectableGridCardSection, _SFPBSocialMediaPostCardSection, _SFPBStockChartCardSection, _SFPBSuggestionCardSection, _SFPBTableHeaderRowCardSection, _SFPBTableRowCardSection, _SFPBTextColumnsCardSection, _SFPBTitleCardSection, _SFPBTrackListCardSection, _SFPBWebCardSection;
+@class NSData, NSString, _SFPBActivityIndicatorCardSection, _SFPBAppLinkCardSection, _SFPBAudioPlaybackCardSection, _SFPBDescriptionCardSection, _SFPBDetailedRowCardSection, _SFPBFlightCardSection, _SFPBImagesCardSection, _SFPBKeyValueDataCardSection, _SFPBMapCardSection, _SFPBMediaInfoCardSection, _SFPBMediaPlayerCardSection, _SFPBMessageCardSection, _SFPBMetaInfoCardSection, _SFPBNowPlayingCardSection, _SFPBRichTitleCardSection, _SFPBRowCardSection, _SFPBScoreboardCardSection, _SFPBSectionHeaderCardSection, _SFPBSelectableGridCardSection, _SFPBSocialMediaPostCardSection, _SFPBStockChartCardSection, _SFPBSuggestionCardSection, _SFPBTableHeaderRowCardSection, _SFPBTableRowCardSection, _SFPBTextColumnsCardSection, _SFPBTitleCardSection, _SFPBTrackListCardSection, _SFPBWatchListCardSection, _SFPBWebCardSection;
 
 @interface _SFPBCardSectionValue : PBCodable <_SFPBCardSectionValue, NSSecureCoding>
 {
@@ -41,8 +41,10 @@
     _SFPBSelectableGridCardSection *_selectableGridCardSection;
     _SFPBSectionHeaderCardSection *_sectionHeaderCardSection;
     _SFPBMetaInfoCardSection *_metaInfoCardSection;
+    _SFPBWatchListCardSection *_watchListCardSection;
 }
 
+@property(retain, nonatomic) _SFPBWatchListCardSection *watchListCardSection; // @synthesize watchListCardSection=_watchListCardSection;
 @property(retain, nonatomic) _SFPBMetaInfoCardSection *metaInfoCardSection; // @synthesize metaInfoCardSection=_metaInfoCardSection;
 @property(retain, nonatomic) _SFPBSectionHeaderCardSection *sectionHeaderCardSection; // @synthesize sectionHeaderCardSection=_sectionHeaderCardSection;
 @property(retain, nonatomic) _SFPBSelectableGridCardSection *selectableGridCardSection; // @synthesize selectableGridCardSection=_selectableGridCardSection;
@@ -80,6 +82,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasWatchListCardSection;
 @property(readonly, nonatomic) _Bool hasMetaInfoCardSection;
 @property(readonly, nonatomic) _Bool hasSectionHeaderCardSection;
 @property(readonly, nonatomic) _Bool hasSelectableGridCardSection;

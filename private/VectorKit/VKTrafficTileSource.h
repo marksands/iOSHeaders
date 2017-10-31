@@ -44,6 +44,7 @@ __attribute__((visibility("hidden")))
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
 - (void)_fetchedTile:(id)arg1;
 - (void)didFailToLoadTileKey:(const struct _GEOTileKey *)arg1 error:(id)arg2;
+- (void)_notifyRoadsTileSourceOfErrorForSourceKey:(const struct VKTileKey *)arg1;
 - (void)fetchTileForKey:(const struct VKTileKey *)arg1 sourceKey:(const struct VKTileKey *)arg2;
 - (void)fetchTileForKey:(const struct VKTileKey *)arg1;
 - (void)setContentScale:(double)arg1;
@@ -53,6 +54,7 @@ __attribute__((visibility("hidden")))
 - (long long)maximumZoomLevelWithoutOverride;
 - (long long)maximumZoomLevel;
 - (void)_acceptTileIfComplete:(id)arg1 forKey:(const struct VKTileKey *)arg2;
+- (void)_failTilesForFailedDynamicTile:(const struct VKTileKey *)arg1;
 - (void)_acceptPendingTilesIfCompletedWithTile:(id)arg1;
 - (void)_constructTile:(id)arg1 forKey:(struct VKTileKey)arg2;
 - (void)populateVisibleTileSets:(id)arg1 withTiles:(id)arg2;

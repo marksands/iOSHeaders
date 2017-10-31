@@ -40,6 +40,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (double)_resizeAnimationDuration;
 - (struct CGSize)_minimumSizeForDismissButton;
+- (_Bool)_shouldDisableAvoidsKeyboard;
 - (CDStruct_758ece87)_currentLayoutGeometry;
 - (void)_handleDismiss:(id)arg1;
 - (void)_dismiss;

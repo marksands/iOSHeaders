@@ -19,8 +19,10 @@ __attribute__((visibility("hidden")))
     int _dtxPayload;
     int _redPayload;
     NSMutableArray *_secondaryPayloads;
+    _Bool _useSBR;
 }
 
+@property(nonatomic) _Bool useSBR; // @synthesize useSBR=_useSBR;
 @property(nonatomic) unsigned int remoteSSRC; // @synthesize remoteSSRC=_remoteSSRC;
 @property(nonatomic) _Bool allowSwitching; // @synthesize allowSwitching=_allowSwitching;
 @property(nonatomic) unsigned int audioUnitModel; // @synthesize audioUnitModel=_audioUnitModel;

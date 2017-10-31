@@ -60,6 +60,7 @@
 - (id)siriViewController:(id)arg1 domainObjectForIdentifier:(id)arg2;
 - (void)siriViewController:(id)arg1 openURL:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)siriViewController:(id)arg1 openURL:(id)arg2;
+- (void)siriViewController:(id)arg1 performAceCommands:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)siriViewController:(id)arg1 performAceCommands:(id)arg2;
 - (double)siriSnippetViewControllerExpectedWidth:(id)arg1;
 - (id)siriEnabledAppListForSiriViewController:(id)arg1;

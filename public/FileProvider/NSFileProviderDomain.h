@@ -23,6 +23,7 @@
 @property(readonly, copy) NSString *displayName; // @synthesize displayName=_displayName;
 @property(readonly, copy) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (id)description;
 - (id)plistDictionary;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

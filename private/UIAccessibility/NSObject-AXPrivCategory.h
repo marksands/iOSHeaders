@@ -22,7 +22,6 @@
 - (id)accessibilityUserDefinedIsMainWindow;
 - (id)accessibilityUserDefinedWindowVisible;
 - (id)isAccessibilityUserDefinedScrollAncestor;
-- (id)isAccessibilityUserDefinedWindow;
 - (_Bool)_accessibilityUseContextlessPassthroughForDrag;
 - (id)_accessibilityAddToDragSessionCustomAction;
 - (id)_accessibilityDropPointDescriptorDictionaryRepresentations;
@@ -30,6 +29,8 @@
 - (id)_accessibilityDragSourceDescriptorDictionaryRepresentations;
 - (id)_accessibilityAllDragSourceDescriptors;
 - (id)_accessibilityFilterInteractionLocationDescriptorsForVisible:(id)arg1;
+- (_Bool)_accessibilityRealtimeHasUnread;
+- (_Bool)_accessibilityRealtimeCompleted;
 - (_Bool)accessibilityIsAttachmentElement;
 - (id)_accessibilityCustomActionGroupIdentifier;
 - (_Bool)_accessibilityIsDraggableElementAttribute;
@@ -87,6 +88,7 @@
 - (_Bool)_accessibilityWebSearchResultsActive;
 - (_Bool)accessibilityIsComboBox;
 - (void)_accessibilityIncreaseSelection:(id)arg1;
+- (_Bool)_accessibilityIsRealtimeElement;
 - (id)accessibilityExpandedTextValue;
 - (id)accessibilitySortDirection;
 - (id)accessibilityInvalidStatus;
@@ -563,6 +565,7 @@
 - (id)accessibilityHeaderElements;
 - (_Bool)_accessibilityCanPerformAction:(int)arg1;
 - (_Bool)__accessibilitySupportsSecondaryActivateAction;
+- (id)_accessibilityHeadingLevel;
 - (_Bool)__accessibilitySupportsActivateAction;
 - (void)_accessibilitySetShouldPreventOpaqueScrolling:(_Bool)arg1;
 - (_Bool)_accessibilityShouldPreventOpaqueScrolling;
@@ -669,8 +672,6 @@
 - (_Bool)_accessibilityIsMainWindow;
 - (void)_setAccessibilityWindowVisible:(_Bool)arg1;
 - (_Bool)_accessibilityWindowVisible;
-- (void)setIsAccessibilityWindow:(_Bool)arg1;
-- (_Bool)accessibilityIsWindow;
 - (_Bool)_accessibilitySelfFoundByHitTesting;
 - (id)_accessibilityBaseHitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (_Bool)_accessibilityAllowOutOfBoundsHitTestAtPoint:(struct CGPoint)arg1 withEvent:(id)arg2;

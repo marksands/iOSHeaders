@@ -63,9 +63,11 @@
     SFImage *_imageOverlay;
     SFActionItem *_playAction;
     NSArray *_offers;
+    NSString *_footnote;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *footnote; // @synthesize footnote=_footnote;
 @property(copy, nonatomic) NSArray *offers; // @synthesize offers=_offers;
 @property(nonatomic) int playActionAlign; // @synthesize playActionAlign=_playActionAlign;
 @property(retain, nonatomic) SFActionItem *playAction; // @synthesize playAction=_playAction;

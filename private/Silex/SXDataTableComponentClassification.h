@@ -13,8 +13,6 @@
 + (id)typeString;
 - (id)textRules;
 - (Class)componentModelClass;
-- (Class)componentViewClass;
-- (Class)componentSizerClass;
 
 @end
 

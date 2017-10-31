@@ -15,7 +15,7 @@
 }
 
 - (_Bool)insertEveryRefreshSession;
-@property(readonly, nonatomic) _Bool requiresForYouCatchUpOperation;
+@property(readonly, nonatomic) long long requiredForYouContentTypes;
 @property(readonly, copy, nonatomic) NSString *groupEmitterIdentifier;
 - (_Bool)canEmitGroupsWithType:(long long)arg1;
 - (_Bool)wantsToInsertGroup:(id)arg1 withContext:(id)arg2;

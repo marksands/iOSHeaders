@@ -21,6 +21,7 @@
     long long _yesterdayActivityCacheIndex;
     long long _tomorrowActivityCacheIndex;
     _Bool _cacheIndicesAreSet;
+    NSTimeZone *_currentTimeZone;
     NSDateInterval *_todayDateInterval;
     NSDateInterval *_yesterdayDateInterval;
     _Bool _existingActivityCachesAreSet;
@@ -42,6 +43,7 @@
     long long _wheelchairUse;
     CMPedometer *_pedometer;
     CMPedometerData *_lastPedometerData;
+    int _rebuildCacheNotificationToken;
     NSDate *_dateOverride;
     NSTimeZone *_timeZoneOverride;
 }
@@ -63,8 +65,8 @@
 - (void)_queue_deleteActivityCaches:(id)arg1;
 - (void)database:(id)arg1 protectedDataDidBecomeAvailable:(_Bool)arg2;
 - (void)daemonReady:(id)arg1;
+- (void)_queue_rebuildCachesIfNeededForTimeChange;
 - (void)_didReceiveSignificantTimeChangeNotification;
-- (void)_significantTimeChangeOccurred:(id)arg1;
 - (void)_queue_registerForSignificantTimeChangeNotification;
 - (void)_queue_streamSamplesAdded;
 - (void)samplesOfTypesWereRemoved:(id)arg1 anchor:(id)arg2;
@@ -73,7 +75,7 @@
 - (void)_calculateCacheIndicesWithTodayIndex:(long long *)arg1 yesterdayIndex:(long long *)arg2 tomorrowIndex:(long long *)arg3 todayStart:(id)arg4 yesterdayStart:(id)arg5 tomorrowStart:(id)arg6 calendar:(id)arg7;
 - (id)_queue_gregorianCalendar;
 - (id)_queue_currentTimeZone;
-- (id)_queue_today;
+- (id)_queue_currentDate;
 - (void)_queue_resetDataSource;
 - (void)_queue_resetDailyGoals;
 - (void)_queue_resetCacheIndices;

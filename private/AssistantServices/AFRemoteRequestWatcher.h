@@ -11,7 +11,6 @@
 @interface AFRemoteRequestWatcher : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
-    int _requestToken;
     CDUnknownBlockType _requestHandler;
     int _speechRequestToken;
     CDUnknownBlockType _speechRequestHandler;

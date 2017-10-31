@@ -29,6 +29,7 @@
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
+- (_Bool)hasContentModificationsRelativeTo:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)_initWithUUID:(id)arg1 type:(long long)arg2 URL:(id)arg3;

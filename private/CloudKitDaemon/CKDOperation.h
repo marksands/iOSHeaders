@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     _Bool _useEncryption;
     _Bool _isProxyOperation;
     _Bool _shouldPipelineFetchAllChangesRequests;
+    // Error parsing type: Ai, name: _pcsWaitCount
     CKDURLRequest *_request;
     CKTimeLogger *_timeLogger;
     NSDate *_startDate;
@@ -46,6 +47,9 @@ __attribute__((visibility("hidden")))
 
 + (long long)isPredominatelyDownload;
 + (id)_globalOperationCallbackQueueForQOS:(long long)arg1;
+// Error parsing type for property pcsWaitCount:
+// Property attributes: TAi,N,V_pcsWaitCount
+
 @property(retain, nonatomic) NSString *clientSuppliedDeviceIdentifier; // @synthesize clientSuppliedDeviceIdentifier=_clientSuppliedDeviceIdentifier;
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *childOperationsGroup; // @synthesize childOperationsGroup=_childOperationsGroup;
 @property(retain, nonatomic) id <NSObject> powerAssertion; // @synthesize powerAssertion=_powerAssertion;
@@ -92,6 +96,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool shouldCheckAppVersion;
 - (void)_setIsExecuting:(_Bool)arg1;
 - (void)_setIsFinished:(_Bool)arg1;
+- (_Bool)isWaitingOnPCS;
+- (void)noteOperationDidFinishWaitingOnPCS;
+- (void)noteOperationWillWaitOnPCS;
 - (void)_acquirePowerAssertionsForSelfAndParent;
 - (void)_acquirePowerAssertion;
 - (void)_dropPowerAssertionsForSelfAndParent;

@@ -65,6 +65,7 @@ __attribute__((visibility("hidden")))
     _Bool _isRemoteCellular_LowestConnectionQuality;
     _Bool _isConnectedOnIPv6_LowestConnectionQuality;
     _Bool _isRedEnabled;
+    _Bool _includeRedSequenceOffset;
     unsigned int _redNumPayloads;
     unsigned int _redMaxDelay20ms;
     _Bool _transmitROC;

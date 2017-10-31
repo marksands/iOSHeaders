@@ -11,6 +11,7 @@
 + (id)fc_offlineErrorWithReason:(long long)arg1;
 + (id)fc_canaryDownError;
 + (id)fc_notAvailableError;
++ (id)fc_requestDroppedErrorForDroppedFeeds:(unsigned long long)arg1 totalFeeds:(unsigned long long)arg2;
 + (id)fc_feedDroppedError;
 + (id)fc_belowMinimumVersionError;
 + (id)fc_notCachedError;

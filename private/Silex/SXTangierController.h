@@ -25,9 +25,11 @@
     id <SXTangierControllerDelegate> _delegate;
     STTextTangierCanvasViewController *_cvc;
     STTextTangierInteractiveCanvasController *_icc;
+    unsigned long long _initialSubviewCount;
     SXViewport *_viewport;
     STScrollView *_scrollView;
-    unsigned long long _initialSubviewCount;
+    id <SXComponentActionHandler> _componentActionHandler;
+    id <SXTangierDragItemProvider> _dragItemProvider;
     STTangierTextRenderCollector *_textRenderCollector;
     STTangierRepDirectLayerHostProvider *_directLayerHostProvider;
     UIView *_underRepsHost;
@@ -49,10 +51,12 @@
 @property(readonly, nonatomic) UIView *underRepsHost; // @synthesize underRepsHost=_underRepsHost;
 @property(readonly, nonatomic) STTangierRepDirectLayerHostProvider *directLayerHostProvider; // @synthesize directLayerHostProvider=_directLayerHostProvider;
 @property(readonly, nonatomic) STTangierTextRenderCollector *textRenderCollector; // @synthesize textRenderCollector=_textRenderCollector;
-@property(nonatomic) unsigned long long initialSubviewCount; // @synthesize initialSubviewCount=_initialSubviewCount;
-@property(nonatomic) _Bool rebuildFlows; // @synthesize rebuildFlows=_rebuildFlows;
+@property(readonly, nonatomic) id <SXTangierDragItemProvider> dragItemProvider; // @synthesize dragItemProvider=_dragItemProvider;
+@property(readonly, nonatomic) id <SXComponentActionHandler> componentActionHandler; // @synthesize componentActionHandler=_componentActionHandler;
 @property(retain, nonatomic) STScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) SXViewport *viewport; // @synthesize viewport=_viewport;
+@property(nonatomic) unsigned long long initialSubviewCount; // @synthesize initialSubviewCount=_initialSubviewCount;
+@property(nonatomic) _Bool rebuildFlows; // @synthesize rebuildFlows=_rebuildFlows;
 @property(readonly, nonatomic) STTextTangierInteractiveCanvasController *icc; // @synthesize icc=_icc;
 @property(readonly, nonatomic) STTextTangierCanvasViewController *cvc; // @synthesize cvc=_cvc;
 @property(nonatomic) __weak id <SXTangierControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -99,7 +103,7 @@
 - (void)teardown;
 - (void)updatePresentationState;
 - (void)viewport:(id)arg1 appearStateChangedFromState:(unsigned long long)arg2;
-- (id)init;
+- (id)initWithViewport:(id)arg1 scrollView:(id)arg2 componentActionHandler:(id)arg3 dragItemProvider:(id)arg4;
 
 // Remaining properties
 @property(readonly, nonatomic) _Bool allowEditMenuToAppear;

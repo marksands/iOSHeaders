@@ -19,7 +19,7 @@
 @property(copy, nonatomic) NSString *deviceOSVersion; // @synthesize deviceOSVersion=_deviceOSVersion;
 @property(copy, nonatomic) NSString *deviceType; // @synthesize deviceType=_deviceType;
 - (void).cxx_destruct;
-- (void)appConfigurationDidChange:(id)arg1;
+- (void)appConfigurationManager:(id)arg1 appConfigurationDidChange:(id)arg2;
 - (id)_notificationDataInDropbox;
 - (void)_updateNotificationDropboxDataWithBaseURL:(id)arg1 notificationUserID:(id)arg2 deviceToken:(id)arg3 storefrontID:(id)arg4;
 - (id)_notificationEntityWithChannelIDs:(id)arg1 isPaid:(_Bool)arg2;

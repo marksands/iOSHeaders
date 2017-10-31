@@ -22,7 +22,7 @@
 @property(retain, nonatomic) UIImageView *h1; // @synthesize h1=_h1;
 - (void).cxx_destruct;
 - (double)animationDuration;
-- (void)animateWithDelay:(double)arg1 completionDelay:(double)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)animateWithBeginTime:(double)arg1 completionDelay:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (struct CGPoint)glyphOffset;
 - (long long)acknowledgmentType;
 - (void)setGlyphColor:(id)arg1;

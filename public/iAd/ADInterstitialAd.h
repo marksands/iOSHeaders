@@ -80,6 +80,7 @@
 - (void)_presentFromViewController:(id)arg1;
 - (void)presentFromViewController:(id)arg1;
 - (_Bool)presentInView:(id)arg1;
+- (_Bool)_shouldClampPresentedFrame;
 - (void)cancelAction;
 @property(readonly, nonatomic) UIViewController *presentingViewController;
 @property(nonatomic) __weak UIViewController *internalPresentingViewController;

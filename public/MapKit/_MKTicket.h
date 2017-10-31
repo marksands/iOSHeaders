@@ -8,7 +8,7 @@
 
 #import "MKMapServiceTicket.h"
 
-@class GEODirectionIntent, GEOMapRegion, GEOMapServiceTraits, GEORelatedSearchSuggestion, NSArray, NSError, NSString;
+@class GEODirectionIntent, GEOMapRegion, GEOMapServiceTraits, GEORelatedSearchSuggestion, GEOResolvedItem, NSArray, NSError, NSString;
 
 __attribute__((visibility("hidden")))
 @interface _MKTicket : NSObject <MKMapServiceTicket>
@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *displayHeaderSubstitutes;
 @property(readonly, nonatomic) NSString *resultDisplayHeader;
 @property(readonly, nonatomic) GEODirectionIntent *directionIntent;
+@property(readonly, nonatomic) GEOResolvedItem *clientResolvedResult;
 @property(readonly, nonatomic) int searchResultType;
 @property(readonly, nonatomic) NSArray *browseCategories;
 @property(readonly, nonatomic) GEORelatedSearchSuggestion *defaultRelatedSuggestion;

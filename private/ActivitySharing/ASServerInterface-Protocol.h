@@ -9,6 +9,7 @@
 @class NSNumber, NSString;
 
 @protocol ASServerInterface <NSObject>
+- (void)remote_consolidateRelationshipEventsForFriendWithUUID:(NSString *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)remote_fetchAreMultipleDevicesSharingDataForSnapshotIndex:(NSNumber *)arg1 withCompletion:(void (^)(_Bool, _Bool, NSError *))arg2;
 - (void)remote_clearFriendListWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)remote_cloudKitAccountStatusWithCompletion:(void (^)(_Bool, _Bool, NSError *))arg1;

@@ -16,6 +16,7 @@
     _Bool _invalidateDone;
     _Bool _scanning;
     NSObject<OS_dispatch_source> *_scanTimer;
+    _Bool _suspended;
     struct LogCategory *_ucat;
     unsigned int _changeFlags;
     unsigned int _scanFlags;
@@ -43,6 +44,8 @@
 - (void)_scanWiFiProcessResult:(id)arg1;
 - (void)_scanWiFiFinished:(id)arg1 status:(int)arg2;
 - (void)_scanWiFiStart;
+- (void)resume;
+- (void)suspend;
 - (void)_invalidated;
 - (void)invalidate;
 - (void)activate;

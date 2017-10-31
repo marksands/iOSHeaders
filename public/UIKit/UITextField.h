@@ -24,14 +24,14 @@
 #import "UIViewGhostedRangeSupporting.h"
 #import "_UIFloatingContentViewDelegate.h"
 #import "_UILayoutBaselineUpdating.h"
+#import "_UITextFieldContentViewContextProvider.h"
 #import "_UITextFieldContent_Internal.h"
 #import "_UITextFieldVisualStyleSubject.h"
 
-@class CUICatalog, CUIStyleEffectConfiguration, NSArray, NSAttributedString, NSDictionary, NSIndexSet, NSLayoutConstraint, NSLayoutManager, NSString, NSTextContainer, NSTextStorage, UIButton, UIColor, UIDragInteraction, UIDropInteraction, UIFieldEditor, UIFont, UIImage, UIImageView, UIInputContextHistory, UILabel, UIPasteConfiguration, UISystemInputViewController, UITapGestureRecognizer, UITextFieldAtomBackgroundView, UITextFieldBackgroundView, UITextFieldBorderView, UITextFieldLabel, UITextInputTraits, UITextInteractionAssistant, UITextPasteController, UITextPosition, UITextRange, UIView, UIVisualEffectView, _UIBaselineLayoutStrut, _UICascadingTextStorage, _UIDetachedFieldEditorBackgroundView, _UIFloatingContentView, _UIFullFontSize, _UITextFieldContentView, _UITextFieldVisualStyle;
+@class CUICatalog, CUIStyleEffectConfiguration, NSArray, NSAttributedString, NSDictionary, NSIndexSet, NSLayoutConstraint, NSLayoutManager, NSString, NSTextContainer, NSTextStorage, UIButton, UIColor, UIDragInteraction, UIDropInteraction, UIFieldEditor, UIFont, UIImage, UIImageView, UIInputContextHistory, UILabel, UIPasteConfiguration, UISystemInputViewController, UITapGestureRecognizer, UITextFieldAtomBackgroundView, UITextFieldBackgroundView, UITextFieldBorderView, UITextFieldLabel, UITextInputTraits, UITextInteractionAssistant, UITextPasteController, UITextPosition, UITextRange, UIView, UIVisualEffectView, _UIBaselineLayoutStrut, _UICascadingTextStorage, _UIDetachedFieldEditorBackgroundView, _UIFieldEditorLayoutManager, _UIFloatingContentView, _UIFullFontSize, _UITextFieldContentView, _UITextFieldVisualStyle;
 
-@interface UITextField : UIControl <UIKeyboardInput, _UILayoutBaselineUpdating, _UIFloatingContentViewDelegate, UIGestureRecognizerDelegate, UIKeyInputPrivate, _UITextFieldVisualStyleSubject, UIViewGhostedRangeSupporting, UITextInputTraits_Private, _UITextFieldContent_Internal, UIPopoverControllerDelegate, UITextDragSupporting, UITextDropSupporting, UITextPasteConfigurationSupporting_Internal, UITextFieldContent, UITextDraggable, UITextDroppable, UITextPasteConfigurationSupporting, UITextInput, NSCoding, UIContentSizeCategoryAdjusting>
+@interface UITextField : UIControl <UIKeyboardInput, _UILayoutBaselineUpdating, _UIFloatingContentViewDelegate, UIGestureRecognizerDelegate, UIKeyInputPrivate, _UITextFieldVisualStyleSubject, UIViewGhostedRangeSupporting, UITextInputTraits_Private, _UITextFieldContent_Internal, UIPopoverControllerDelegate, _UITextFieldContentViewContextProvider, UITextDragSupporting, UITextDropSupporting, UITextPasteConfigurationSupporting_Internal, UITextFieldContent, UITextDraggable, UITextDroppable, UITextPasteConfigurationSupporting, UITextInput, NSCoding, UIContentSizeCategoryAdjusting>
 {
-    _UICascadingTextStorage *_prewarmedTextStorage;
     long long _borderStyle;
     double _minimumFontSize;
     id _delegate;
@@ -70,6 +70,9 @@
     UITextInteractionAssistant *_interactionAssistant;
     UITapGestureRecognizer *_selectGestureRecognizer;
     UIFieldEditor *_fieldEditor;
+    NSTextContainer *__textContainer;
+    _UIFieldEditorLayoutManager *__layoutManager;
+    _UICascadingTextStorage *_textStorage;
     UITextPasteController *_pasteController;
     UIView *_inputView;
     UIView *_inputAccessoryView;
@@ -102,7 +105,6 @@
         unsigned int blurEnabled:1;
         unsigned int disableFocus:1;
         unsigned int disableRemoteTextEditing:1;
-        unsigned int prewarmedTextStorageReady:1;
         unsigned int allowsAttachments:1;
     } _textFieldFlags;
     _Bool _deferringBecomeFirstResponder;
@@ -154,9 +156,10 @@
 - (void)_disableClipToBoundsForBorderStyleNone;
 - (id)_effectiveContentView;
 - (id)_floatingContentView;
+- (id)_contextForTextFieldContentView;
 - (void)_addTextContentView;
 - (void)_initContentView;
-- (void)_initPrewarmedTextStorage;
+- (void)_initTextStorage;
 - (struct _NSRange)_visibleRangeWithLayout:(_Bool)arg1;
 - (void)_pasteSessionDidFinish;
 - (void)_performPasteOfAttributedString:(id)arg1 toRange:(id)arg2 animator:(id)arg3 completion:(CDUnknownBlockType)arg4;
@@ -475,6 +478,9 @@
 - (id)_text;
 @property(nonatomic) _Bool allowsAttachments;
 @property(nonatomic) long long nonEditingLinebreakMode;
+- (id)_textStorage;
+- (id)_textContainer;
+- (id)_layoutManager;
 @property(readonly, nonatomic) NSTextStorage *textStorage;
 @property(readonly, nonatomic) NSTextContainer *textContainer;
 @property(readonly, nonatomic) NSLayoutManager *layoutManager;
@@ -482,7 +488,9 @@
 @property(nonatomic) long long keyboardAppearance; // @dynamic keyboardAppearance;
 @property(nonatomic) _Bool displaySecureEditsUsingPlainText; // @dynamic displaySecureEditsUsingPlainText;
 @property(nonatomic) _Bool displaySecureTextUsingPlainText; // @dynamic displaySecureTextUsingPlainText;
+- (void)_didChangeSecureTextEntry;
 @property(nonatomic, getter=isSecureTextEntry) _Bool secureTextEntry; // @dynamic secureTextEntry;
+@property(nonatomic, getter=isDevicePasscodeEntry) _Bool devicePasscodeEntry;
 - (id)_secureString:(id)arg1;
 - (void)_updateForTintColor;
 - (void)tintColorDidChange;
@@ -646,7 +654,6 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(nonatomic) _Bool deferBecomingResponder; // @dynamic deferBecomingResponder;
 @property(readonly, copy) NSString *description;
-@property(nonatomic, getter=isDevicePasscodeEntry) _Bool devicePasscodeEntry;
 @property(nonatomic) _Bool disableInputBars;
 @property(nonatomic) _Bool disablePrediction;
 @property(nonatomic) int emptyContentReturnKeyType;

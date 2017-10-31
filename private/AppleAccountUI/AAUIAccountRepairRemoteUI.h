@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "RUILoaderDelegate.h"
 #import "RUIObjectModelDelegate.h"
 
 @class ACAccount, ACAccountStore, NSDictionary, NSMutableArray, NSString, RUILoader, UIAlertView, UINavigationController, UIViewController;
 
-@interface AAUIAccountRepairRemoteUI : NSObject <RUIObjectModelDelegate>
+@interface AAUIAccountRepairRemoteUI : NSObject <RUILoaderDelegate, RUIObjectModelDelegate>
 {
     UINavigationController *_parentNavController;
     UIViewController *_originatingViewController;
@@ -41,6 +42,7 @@
 - (void)objectModelPressedBack:(id)arg1;
 - (void)objectModel:(id)arg1 pressedLink:(id)arg2 httpMethod:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)objectModel:(id)arg1 pressedButton:(id)arg2 attributes:(id)arg3;
+- (id)sessionConfigurationForLoader:(id)arg1;
 - (void)loader:(id)arg1 didFailWithError:(id)arg2;
 - (void)loader:(id)arg1 receivedObjectModel:(id)arg2 actionSignal:(unsigned long long)arg3;
 - (void)presentFromViewController:(id)arg1 modal:(_Bool)arg2;

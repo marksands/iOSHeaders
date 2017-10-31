@@ -23,6 +23,7 @@
 @property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
 @property(nonatomic) __weak id <SXDragManagerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (void)updateAccessibilityDragSourceDescriptorsForDraggableElement:(id)arg1;
 - (_Bool)dragSession:(id)arg1 containsDragItemWithIdentifier:(id)arg2;
 - (id)dragItemForObject:(id)arg1 withSession:(id)arg2;
 - (void)dragInteraction:(id)arg1 session:(id)arg2 didEndWithOperation:(unsigned long long)arg3;

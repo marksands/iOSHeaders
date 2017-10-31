@@ -22,6 +22,8 @@
 @property(copy) NSURL *URL;
 - (void)setContentDispositionEncodingFallbackArray:(id)arg1;
 - (void)_setPayloadTransmissionTimeout:(double)arg1;
+- (void)_setIgnoreHSTS:(_Bool)arg1;
+- (void)_setPreventHSTSStorage:(_Bool)arg1;
 - (void)_setRequiresShortConnectionTimeout:(_Bool)arg1;
 - (void)_setStartTimeoutDate:(id)arg1;
 - (void)_setTimeWindowDuration:(double)arg1;

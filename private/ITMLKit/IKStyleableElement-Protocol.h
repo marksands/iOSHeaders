@@ -10,5 +10,7 @@
 @property(retain, nonatomic) IKViewElementStyleComposer *styleComposer;
 @property(readonly, copy, nonatomic) NSString *elementName;
 @property(readonly, nonatomic) __weak id <IKStyleableElement> parentStyleableElement;
+- (void)setObject:(id)arg1 forKeyedSubscript:(id <NSCopying>)arg2;
+- (id)objectForKeyedSubscript:(id)arg1;
 @end
 

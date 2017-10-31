@@ -28,6 +28,7 @@
 @property(readonly, nonatomic) UIColor *vibrationPickerCellTextColor;
 @property(readonly, nonatomic) UIFont *vibrationPickerCellTextFont;
 @property(readonly, nonatomic) long long vibrationPickerTableViewSeparatorStyle;
+@property(readonly, nonatomic) UIColor *vibrationPickerCustomBackgroundColor;
 @property(readonly, nonatomic) _Bool vibrationPickerUsesOpaqueBackground;
 @property(readonly, nonatomic) struct UIEdgeInsets tonePickerHeaderTextPaddingInsets;
 @property(readonly, nonatomic) struct UIOffset tonePickerHeaderTextShadowOffset;

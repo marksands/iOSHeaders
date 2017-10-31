@@ -6,19 +6,21 @@
 
 #import "NSObject.h"
 
-#import "FCFeedTransforming.h"
+#import "NTFeedTransforming.h"
 
 @class NSString;
 
-@interface NTSectionFeedFilterTransformation : NSObject <FCFeedTransforming>
+@interface NTSectionFeedFilterTransformation : NSObject <NTFeedTransforming>
 {
-    id <FCFeedTransforming> _underlyingTransformation;
+    unsigned long long _embedsLimit;
+    id <NTFeedTransforming> _underlyingTransformation;
 }
 
-@property(retain, nonatomic) id <FCFeedTransforming> underlyingTransformation; // @synthesize underlyingTransformation=_underlyingTransformation;
+@property(readonly, nonatomic) id <NTFeedTransforming> underlyingTransformation; // @synthesize underlyingTransformation=_underlyingTransformation;
+@property(readonly, nonatomic) unsigned long long embedsLimit; // @synthesize embedsLimit=_embedsLimit;
 - (void).cxx_destruct;
 - (id)transformFeedItems:(id)arg1;
-- (id)initWithSubscribedTagIDs:(id)arg1 mutedTagIDs:(id)arg2 purchasedTagIDs:(id)arg3 readArticlesFilterMethod:(int)arg4 recentlyReadHistoryItems:(id)arg5 seenArticlesFilterMethod:(int)arg6 minimumTimeSinceFirstSeenToFilter:(double)arg7 recentlySeenHistoryItems:(id)arg8 supplementalFeedFilterOptions:(long long)arg9 otherArticleIDs:(id)arg10 otherClusterIDs:(id)arg11 filterDate:(id)arg12;
+- (id)initWithSubscribedTagIDs:(id)arg1 mutedTagIDs:(id)arg2 purchasedTagIDs:(id)arg3 readArticlesFilterMethod:(int)arg4 recentlyReadHistoryItems:(id)arg5 seenArticlesFilterMethod:(int)arg6 minimumTimeSinceFirstSeenToFilter:(double)arg7 recentlySeenHistoryItems:(id)arg8 supplementalFeedFilterOptions:(long long)arg9 embedsLimit:(unsigned long long)arg10 otherArticleIDs:(id)arg11 otherClusterIDs:(id)arg12 filterDate:(id)arg13;
 - (id)init;
 
 // Remaining properties

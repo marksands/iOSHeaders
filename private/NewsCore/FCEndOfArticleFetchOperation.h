@@ -6,7 +6,7 @@
 
 #import <NewsCore/FCFetchOperation.h>
 
-@class FCCloudContext, FCFeedTransformationEndOfArticle, FCFeedTransformationPersonalizedSort, FCFeedTransformationUnreadFirst, FCHeadline;
+@class FCCloudContext, FCFeedTransformationPersonalizedSort, FCFeedTransformationUnreadFirst, FCHeadline;
 
 @interface FCEndOfArticleFetchOperation : FCFetchOperation
 {
@@ -23,10 +23,8 @@
     FCHeadline *_headline;
     FCFeedTransformationPersonalizedSort *_personalizationTransform;
     FCFeedTransformationUnreadFirst *_unreadTransformation;
-    FCFeedTransformationEndOfArticle *_endOfArticleTransform;
 }
 
-@property(retain, nonatomic) FCFeedTransformationEndOfArticle *endOfArticleTransform; // @synthesize endOfArticleTransform=_endOfArticleTransform;
 @property(retain, nonatomic) FCFeedTransformationUnreadFirst *unreadTransformation; // @synthesize unreadTransformation=_unreadTransformation;
 @property(retain, nonatomic) FCFeedTransformationPersonalizedSort *personalizationTransform; // @synthesize personalizationTransform=_personalizationTransform;
 @property(retain, nonatomic) FCHeadline *headline; // @synthesize headline=_headline;
@@ -41,7 +39,7 @@
 @property _Bool fetchPublisherHeadlines; // @synthesize fetchPublisherHeadlines=_fetchPublisherHeadlines;
 @property _Bool fetchAllTopics; // @synthesize fetchAllTopics=_fetchAllTopics;
 - (void).cxx_destruct;
-- (void)_streamingHeadlinesForArticleIDs:(id)arg1 callbackQueue:(id)arg2 minimumResultCount:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_streamingHeadlinesForArticleIDs:(id)arg1 endOfArticleTransform:(id)arg2 callbackQueue:(id)arg3 minimumResultCount:(unsigned long long)arg4 completion:(CDUnknownBlockType)arg5;
 - (id)_streamingHeadlinesForFeedItems:(id)arg1 tagsByID:(id)arg2;
 - (void)_fetchThumbnailsForHeadlines:(id)arg1 callbackQueue:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)_filterHeadlines:(id)arg1 completion:(CDUnknownBlockType)arg2;

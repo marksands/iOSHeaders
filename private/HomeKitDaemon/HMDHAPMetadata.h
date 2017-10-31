@@ -18,6 +18,7 @@
     NSDictionary *_rawPlist;
     HAPMetadata *_hapMetadata;
     NSSet *_hmRequiresDeviceUnlockTuples;
+    NSDictionary *_hmAllowableSecuringWrites;
     NSDictionary *_hmAccessoryCategories;
     NSSet *_hmBlacklistedServices;
     NSSet *_hmBlacklistedCharacteristics;
@@ -58,6 +59,7 @@
 @property(retain, nonatomic) NSSet *hmBlacklistedCharacteristics; // @synthesize hmBlacklistedCharacteristics=_hmBlacklistedCharacteristics;
 @property(retain, nonatomic) NSSet *hmBlacklistedServices; // @synthesize hmBlacklistedServices=_hmBlacklistedServices;
 @property(retain, nonatomic) NSDictionary *hmAccessoryCategories; // @synthesize hmAccessoryCategories=_hmAccessoryCategories;
+@property(retain, nonatomic) NSDictionary *hmAllowableSecuringWrites; // @synthesize hmAllowableSecuringWrites=_hmAllowableSecuringWrites;
 @property(retain, nonatomic) NSSet *hmRequiresDeviceUnlockTuples; // @synthesize hmRequiresDeviceUnlockTuples=_hmRequiresDeviceUnlockTuples;
 @property(retain, nonatomic) HAPMetadata *hapMetadata; // @synthesize hapMetadata=_hapMetadata;
 @property(readonly, nonatomic) NSDictionary *rawPlist; // @synthesize rawPlist=_rawPlist;
@@ -66,7 +68,7 @@
 @property(retain, nonatomic) NSNumber *version; // @synthesize version=_version;
 - (void).cxx_destruct;
 - (id)protoBufObjectWithEncodingOption:(id)arg1;
-- (id)statusHAPCharacteristicTypes;
+- (id)statusHAPCharacteristicTypesForServiceType;
 - (id)aliasedHAPServiceTypes;
 - (id)aliasedHAPCharacteristicTypes;
 - (_Bool)checkTupleExistsInSet:(id)arg1 forChrType:(id)arg2 svcType:(id)arg3;
@@ -76,6 +78,7 @@
 - (id)parseCharacteristicArray:(id)arg1;
 - (id)parseServiceArray:(id)arg1;
 - (void)parseAndSetHMCategories:(id)arg1;
+- (void)parseAndSetAllowableSecuringWrites:(id)arg1;
 - (id)parseMetadataTupleSetFromPlist:(id)arg1;
 - (_Bool)parseAndSetAssistantMetadataWithAssistantPlist:(id)arg1;
 - (_Bool)parseAndSetHMMetadataWithHMPlist:(id)arg1;
@@ -86,7 +89,7 @@
 - (id)mapToAssistantUnitName:(id)arg1;
 - (id)mapCharacteristicValueType:(id)arg1;
 - (id)characteristicValueUnit:(id)arg1;
-- (id)getStatusCharacteristicTypes:(id)arg1;
+- (id)getStatusCharacteristicTypes:(id)arg1 forServiceType:(id)arg2;
 - (id)getCharacteristicTypeAlias:(id)arg1;
 - (id)getAliasedCharacteristicTypes:(id)arg1;
 - (id)getServiceTypeAlias:(id)arg1;
@@ -94,9 +97,11 @@
 - (id)mapWriteCharacteristicFromAssistantName:(id)arg1;
 - (id)mapReadCharacteristicFromAssistantName:(id)arg1;
 - (id)mapToAssistantCharacteristicName:(id)arg1;
+- (id)mapToAssistantServiceSubtypeName:(id)arg1;
 - (id)mapFromAssistantServiceName:(id)arg1;
 - (id)mapToAssistantServiceName:(id)arg1;
 - (_Bool)supportsLocalization:(id)arg1;
+- (id)serviceSubtypeForValue:(id)arg1 forServiceType:(id)arg2;
 - (id)categoryForType:(id)arg1;
 - (id)categoryForIdentifier:(id)arg1;
 - (id)audioAccessoryCategory;
@@ -112,6 +117,7 @@
 - (_Bool)shouldCoalesceCharacteristicNotifications:(id)arg1 forService:(id)arg2;
 - (_Bool)requiresTimedWrite:(id)arg1 forService:(id)arg2;
 - (_Bool)requiresDeviceUnlock:(id)arg1 forService:(id)arg2;
+- (_Bool)allowsSecuringWriteFor:(id)arg1 withValue:(id)arg2;
 - (id)descriptionForCharacteristicType:(id)arg1;
 - (id)descriptionForServiceType:(id)arg1;
 - (id)validateAssociatedServiceType:(id)arg1 forService:(id)arg2;

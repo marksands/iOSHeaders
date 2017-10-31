@@ -117,6 +117,7 @@
 + (id)predicateForContactsMatchingString:(id)arg1 accountIdentifier:(id)arg2 containerIdentifier:(id)arg3 groupIdentifier:(id)arg4;
 + (id)predicateForPreferredNameInContainersWithIdentifiers:(id)arg1 groupsWithIdentifiers:(id)arg2;
 + (id)predicateForPreferredNameInRange:(struct _NSRange)arg1;
++ (id)predicateForContactMatchingPhoneNumberWithDigits:(id)arg1 countryCode:(id)arg2;
 + (id)predicateForContactsMatchingPhoneNumber:(id)arg1 prefixHint:(id)arg2;
 + (id)predicateForContactsMatchingPhoneNumber:(id)arg1;
 + (id)predicateForContactMatchingPhoneNumber:(id)arg1;

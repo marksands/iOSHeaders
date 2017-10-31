@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
     NSIndexPath *_dragStartNextPageIndexPath;
     NSIndexPath *_dragStartPreviousPageIndexPath;
     NSDictionary *_opacities;
+    struct CGSize _lastLayoutSize;
     struct CGPoint _dragStartOffset;
 }
 
@@ -60,6 +61,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool forceReloadInitiallyHiddenCandidates; // @synthesize forceReloadInitiallyHiddenCandidates=_forceReloadInitiallyHiddenCandidates;
 @property(nonatomic) _Bool canExtend; // @synthesize canExtend=_canExtend;
 @property(retain, nonatomic) NSArray *filteredCandidates; // @synthesize filteredCandidates=_filteredCandidates;
+@property(nonatomic) struct CGSize lastLayoutSize; // @synthesize lastLayoutSize=_lastLayoutSize;
 @property(retain, nonatomic) TIKeyboardCandidateResultSet *candidateResultSet; // @synthesize candidateResultSet=_candidateResultSet;
 @property(retain, nonatomic) UIKBThemedView *secondaryCandidatesViewEdgeGradient; // @synthesize secondaryCandidatesViewEdgeGradient=_secondaryCandidatesViewEdgeGradient;
 @property(nonatomic) unsigned long long currentCandidateViewIndex; // @synthesize currentCandidateViewIndex=_currentCandidateViewIndex;

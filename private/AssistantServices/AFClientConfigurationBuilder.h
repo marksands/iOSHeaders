@@ -11,10 +11,14 @@
 @interface AFClientConfigurationBuilder : NSObject
 {
     AFClientConfiguration *_baseObject;
+    _Bool _isDeviceInSetupFlow;
+    _Bool _isDeviceInCarDNDMode;
     AFAudioPlaybackRequest *_tapToSiriAudioPlaybackRequest;
     AFAudioPlaybackRequest *_twoShotAudioPlaybackRequest;
     struct _builderFlags {
         unsigned int isDirty:1;
+        unsigned int hasIsDeviceInSetupFlow:1;
+        unsigned int hasIsDeviceInCarDNDMode:1;
         unsigned int hasTapToSiriAudioPlaybackRequest:1;
         unsigned int hasTwoShotAudioPlaybackRequest:1;
     } _builderFlags;
@@ -24,6 +28,8 @@
 - (id)build;
 - (id)setTwoShotAudioPlaybackRequest:(id)arg1;
 - (id)setTapToSiriAudioPlaybackRequest:(id)arg1;
+- (id)setIsDeviceInCarDNDMode:(_Bool)arg1;
+- (id)setIsDeviceInSetupFlow:(_Bool)arg1;
 - (id)initWithBaseObject:(id)arg1;
 - (id)init;
 

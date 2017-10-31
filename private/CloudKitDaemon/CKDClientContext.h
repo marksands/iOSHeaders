@@ -29,6 +29,7 @@
     NSURL *_publicShareServiceURL;
     NSURL *_publicDeviceServiceURL;
     NSURL *_publicCodeServiceURL;
+    NSURL *_publicMetricsServiceURL;
     NSString *_containerScopedUserID;
     NSHashTable *_proxies;
     long long _cachedEnvironment;
@@ -142,6 +143,7 @@
 @property(retain, nonatomic) NSHashTable *proxies; // @synthesize proxies=_proxies;
 @property(nonatomic) _Bool isForClouddInternalUse; // @synthesize isForClouddInternalUse=_isForClouddInternalUse;
 @property(retain, nonatomic) NSString *containerScopedUserID; // @synthesize containerScopedUserID=_containerScopedUserID;
+@property(retain, nonatomic) NSURL *publicMetricsServiceURL; // @synthesize publicMetricsServiceURL=_publicMetricsServiceURL;
 @property(retain, nonatomic) NSURL *publicCodeServiceURL; // @synthesize publicCodeServiceURL=_publicCodeServiceURL;
 @property(retain, nonatomic) NSURL *publicDeviceServiceURL; // @synthesize publicDeviceServiceURL=_publicDeviceServiceURL;
 @property(retain, nonatomic) NSURL *publicShareServiceURL; // @synthesize publicShareServiceURL=_publicShareServiceURL;
@@ -183,6 +185,8 @@
 - (id)description;
 - (id)CKPropertiesDescription;
 - (double)publicIdentitiesExpirationTimeout;
+@property(readonly, nonatomic) unsigned long long c2MetricsReportFrequencyBase;
+@property(readonly, nonatomic) unsigned long long c2MetricsReportFrequency;
 - (void)showUserNotification:(void *)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)performRequest:(id)arg1;
 - (void)tearDownAssetTransfers;

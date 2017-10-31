@@ -15,10 +15,7 @@
 
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (Class)handlerClass;
-- (id)initWithURL:(id)arg1 addition:(id)arg2;
-- (id)initWithAddition:(id)arg1;
+- (id)initWithURL:(id)arg1;
 
 @end
 

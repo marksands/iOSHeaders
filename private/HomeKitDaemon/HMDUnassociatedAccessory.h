@@ -6,16 +6,17 @@
 
 #import "HMFObject.h"
 
+#import "HMFLogging.h"
 #import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
 @class HMAccessoryCategory, HMFMessageDispatcher, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
-@interface HMDUnassociatedAccessory : HMFObject <HMFMessageReceiver, NSSecureCoding>
+@interface HMDUnassociatedAccessory : HMFObject <HMFLogging, HMFMessageReceiver, NSSecureCoding>
 {
+    NSUUID *_uuid;
     NSString *_name;
     HMAccessoryCategory *_category;
-    NSUUID *_uuid;
     NSString *_identifier;
     long long _associationOptions;
     NSObject<OS_dispatch_queue> *_clientQueue;
@@ -24,6 +25,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)logCategory;
 + (id)shortDescription;
 + (id)otherAccessoryCategory;
 @property(readonly, nonatomic) HMFMessageDispatcher *messageDispatcher; // @synthesize messageDispatcher=_messageDispatcher;
@@ -38,6 +40,7 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (id)messageDestination;
+- (id)logIdentifier;
 - (void)identifyWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_handleIdentify:(id)arg1;
 @property(readonly, getter=isReachable) _Bool reachable;

@@ -10,7 +10,7 @@
 #import "AVVoiceControllerRecordDelegate.h"
 #import "CSBeepCancellerDelegate.h"
 
-@class AVVoiceController, CSAudioSampleRateConverter, CSAudioZeroFilter, CSBeepCanceller, NSString;
+@class AVVoiceController, CSAudioSampleRateConverter, CSAudioZeroCounter, CSAudioZeroFilter, CSBeepCanceller, CSRemoteRecordClient, NSDictionary, NSString;
 
 @interface CSAudioRecorder : NSObject <AVVoiceControllerRecordDelegate, AVVoiceControllerPlaybackDelegate, CSBeepCancellerDelegate>
 {
@@ -24,6 +24,10 @@
     struct AudioBufferList *_pNonInterleavedABL;
     CSAudioSampleRateConverter *_sampleRateConverter;
     _Bool _needSampleRateConversion;
+    CSRemoteRecordClient *_remoteRecordClient;
+    NSDictionary *_latestContext;
+    _Bool _shouldUseRemoteRecord;
+    CSAudioZeroCounter *_continuousZeroCounter;
     id <CSAudioRecorderDelegate> _delegate;
 }
 
@@ -44,6 +48,8 @@
 - (void)voiceControllerRecordHardwareConfigurationDidChange:(id)arg1 toConfiguration:(int)arg2;
 - (void)voiceControllerDidStopRecording:(id)arg1 forReason:(long long)arg2;
 - (void)voiceControllerDidStartRecording:(id)arg1 successfully:(_Bool)arg2 error:(id)arg3;
+- (void)_audioRecorderDidStopRecordingForReason:(long long)arg1;
+- (void)_audioRecorderDidStartRecordingSuccessfully:(_Bool)arg1 error:(id)arg2;
 - (id)metrics;
 - (float)averagePowerForChannel:(unsigned long long)arg1;
 - (float)peakPowerForChannel:(unsigned long long)arg1;
@@ -68,6 +74,7 @@
 - (void)stopRecording;
 - (_Bool)startRecording;
 - (_Bool)startRecording:(id *)arg1;
+- (_Bool)_shouldUseRemoteRecordForContext:(id)arg1;
 - (_Bool)startRecordingWithSettings:(id)arg1 error:(id *)arg2;
 - (void)_resetZeroFilter;
 - (double)getRecordBufferDuration;
@@ -81,7 +88,9 @@
 - (_Bool)prepareRecordWithSettings:(id)arg1 error:(id *)arg2;
 - (id)_beepCanceller;
 - (id)_voiceControllerWithContext:(id)arg1 error:(id *)arg2;
+- (void)_destroyVoiceController;
 - (void)dealloc;
+- (void)willDestroy;
 - (id)initWithContext:(id)arg1 error:(id *)arg2;
 
 // Remaining properties

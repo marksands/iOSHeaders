@@ -15,10 +15,10 @@
     _Bool _utteranceUserInteractionEnabled;
     AceObject *aceObject;
     SiriUISashItem *_sashItem;
-    id <SiriUIAceObjectViewControllerDelegate> _delegate;
+    id <SiriUIBaseAceObjectViewControllerDelegate> _delegate;
 }
 
-@property(nonatomic) __weak id <SiriUIAceObjectViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <SiriUIBaseAceObjectViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic, getter=isUtteranceUserInteractionEnabled) _Bool utteranceUserInteractionEnabled; // @synthesize utteranceUserInteractionEnabled=_utteranceUserInteractionEnabled;
 @property(retain, nonatomic) AceObject *aceObject; // @synthesize aceObject;
 - (void).cxx_destruct;

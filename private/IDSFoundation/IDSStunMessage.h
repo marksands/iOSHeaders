@@ -38,8 +38,8 @@
 - (void)_addUInt32Attribute:(long long)arg1 value:(unsigned int)arg2;
 - (void)_addUInt16Attribute:(long long)arg1 value:(unsigned short)arg2;
 - (_Bool)dataIndicationToBuffer:(char *)arg1 outputLength:(int *)arg2 data:(char *)arg3 dataLen:(int)arg4 keyData:(id)arg5;
-- (_Bool)bindingResponseToBuffer:(char *)arg1 outputLength:(int *)arg2 transactionID:(id)arg3 nominateCount:(int)arg4 echoTime:(unsigned short)arg5 delay:(unsigned short)arg6 keyData:(id)arg7;
-- (_Bool)bindingRequestToBuffer:(char *)arg1 outputLength:(int *)arg2 transactionID:(char *)arg3 nominateCount:(int)arg4 userName:(char *)arg5 usernameLen:(int)arg6 sendTime:(unsigned short)arg7 keyData:(id)arg8;
+- (_Bool)stunResponseToBuffer:(char *)arg1 outputLength:(int *)arg2 transactionID:(id)arg3 reqCount:(int)arg4 echoTime:(unsigned short)arg5 delay:(unsigned short)arg6 keyData:(id)arg7;
+- (_Bool)stunRequestToBuffer:(char *)arg1 outputLength:(int *)arg2 transactionID:(char *)arg3 reqCount:(int)arg4 userName:(char *)arg5 usernameLen:(int)arg6 sendTime:(unsigned short)arg7 keyData:(id)arg8;
 - (_Bool)refreshRequestToBuffer:(char *)arg1 outputLength:(int *)arg2 lifeTime:(int)arg3;
 - (_Bool)channelBindRequestWithDictionaryToBuffer:(id)arg1 outputBuffer:(char *)arg2 outputLength:(int *)arg3 channelNumber:(unsigned short)arg4;
 - (_Bool)allocationRequestWithDictionaryToBuffer:(id)arg1 outputBuffer:(char *)arg2 outputLength:(int *)arg3 lifeTime:(int)arg4;

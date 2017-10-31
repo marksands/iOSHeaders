@@ -9,8 +9,10 @@
 __attribute__((visibility("hidden")))
 @interface UIKeyboardDockItemButton : UIButton
 {
+    struct CGRect _tapActionRegion;
 }
 
+@property(nonatomic) struct CGRect tapActionRegion; // @synthesize tapActionRegion=_tapActionRegion;
 - (struct CGRect)imageRectForContentRect:(struct CGRect)arg1;
 
 @end

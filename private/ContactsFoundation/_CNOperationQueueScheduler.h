@@ -13,6 +13,7 @@
 @interface _CNOperationQueueScheduler : NSObject <CNScheduler>
 {
     NSOperationQueue *_queue;
+    _Bool _isQualityOfServiceSpecified;
 }
 
 + (id)operationWithQualityOfService:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
@@ -20,8 +21,10 @@
 - (double)timestamp;
 - (id)afterDelay:(double)arg1 performBlock:(CDUnknownBlockType)arg2 qualityOfService:(unsigned long long)arg3;
 - (id)afterDelay:(double)arg1 performBlock:(CDUnknownBlockType)arg2;
+- (CDUnknownBlockType)blockWithCurrentQualityOfServiceForBlock:(CDUnknownBlockType)arg1 ifAllowedForRequestedQualityOfService:(unsigned long long)arg2;
 - (id)performCancelableBlock:(CDUnknownBlockType)arg1 qualityOfService:(unsigned long long)arg2;
 - (id)performCancelableBlock:(CDUnknownBlockType)arg1;
+- (void)_enqueueBlock:(CDUnknownBlockType)arg1 qualityOfService:(unsigned long long)arg2;
 - (void)performBlock:(CDUnknownBlockType)arg1 qualityOfService:(unsigned long long)arg2;
 - (void)performBlock:(CDUnknownBlockType)arg1;
 - (id)initWithMaxConcurrentOperationCount:(long long)arg1 qualityOfService:(unsigned long long)arg2;

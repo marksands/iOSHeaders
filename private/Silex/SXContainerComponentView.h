@@ -39,7 +39,7 @@
 - (double)suggestedContainerHeightForWidth:(double)arg1;
 - (struct CGRect)originalFrameForContentView:(id)arg1 behavior:(id)arg2;
 - (id)contentViewForBehavior:(id)arg1;
-- (void)presentComponent;
+- (void)presentComponentWithChanges:(CDStruct_1cc9d0d0)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

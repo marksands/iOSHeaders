@@ -11,6 +11,7 @@
 @interface FCFeedViewportExpandPersistenceGapOperation : FCOperation
 {
     _Bool _cachedOnly;
+    id <FCAppConfiguration> _appConfiguration;
     FCCloudContext *_context;
     FCFeedViewport *_viewport;
     FCFeedViewportPersistenceGap *_gap;
@@ -34,6 +35,7 @@
 @property(copy, nonatomic) FCFeedViewportPersistenceGap *gap; // @synthesize gap=_gap;
 @property(retain, nonatomic) FCFeedViewport *viewport; // @synthesize viewport=_viewport;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
+@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;

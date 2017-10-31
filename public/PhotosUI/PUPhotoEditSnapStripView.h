@@ -8,7 +8,6 @@
 
 @class NSArray, PUStripViewInternal;
 
-__attribute__((visibility("hidden")))
 @interface PUPhotoEditSnapStripView : UIView
 {
     PUStripViewInternal *_stripView;

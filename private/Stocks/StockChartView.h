@@ -80,6 +80,7 @@
 - (void)updateHUDView;
 - (void)setShowingHUD:(_Bool)arg1;
 - (id)HUDView;
+- (void)hideOtherGraphViews;
 - (void)stockGraphViewReadyForDisplay:(id)arg1;
 - (void)renderGraphDataIfNeeded;
 - (void)renderGraphDataIfNeededForMode:(id)arg1;

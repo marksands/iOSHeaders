@@ -10,6 +10,7 @@
 + (_Bool)fc_string:(id)arg1 isEqualToString:(id)arg2;
 + (id)stringWithValue:(id)arg1;
 + (id)fc_string:(CDUnknownBlockType)arg1;
+- (_Bool)fc_isValidColorHexString;
 - (unsigned long long)fc_unsignedLongLongValue;
 - (_Bool)fc_hasTagIDPrefix;
 - (_Bool)fc_hasArticleIDPrefix;

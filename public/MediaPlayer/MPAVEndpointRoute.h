@@ -15,19 +15,27 @@
 }
 
 + (void)getActiveEndpointRouteWithCompletion:(CDUnknownBlockType)arg1;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) void *endpoint; // @synthesize endpoint=_endpoint;
 - (void).cxx_destruct;
+- (void)_endpointOutputDevicesDidChange:(id)arg1;
 - (long long)routeSubtype;
 - (long long)routeType;
+- (id)groupUID;
 - (id)routeUID;
+- (_Bool)isRoutingToWirelessDevice;
+- (_Bool)isDeviceSpeakerRoute;
 - (_Bool)isDeviceRoute;
-- (_Bool)isB238Route;
+- (_Bool)isHomePodRoute;
 - (_Bool)isAppleTVRoute;
 - (_Bool)canAccessRemoteAssets;
 - (id)connection;
 - (id)description;
+- (id)routeName;
 - (void)dealloc;
 - (id)initWithEndpoint:(void *)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

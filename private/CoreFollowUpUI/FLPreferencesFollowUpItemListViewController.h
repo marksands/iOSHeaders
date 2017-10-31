@@ -6,22 +6,23 @@
 
 #import "PSListController.h"
 
-@class UIViewController;
+#import "FLSpecifierTapHandlerDelegate.h"
 
-@interface FLPreferencesFollowUpItemListViewController : PSListController
+@class FLSpecifierTapHandler, NSString, UIViewController;
+
+@interface FLPreferencesFollowUpItemListViewController : PSListController <FLSpecifierTapHandlerDelegate>
 {
     id <FLViewModel> _topViewModel;
-    _Bool _extensionActive;
+    FLSpecifierTapHandler *_actionHandler;
     UIViewController *_presentationContext;
 }
 
 @property(retain, nonatomic) UIViewController *presentationContext; // @synthesize presentationContext=_presentationContext;
 - (void).cxx_destruct;
-- (void)stopSpinnerForSpecifier:(id)arg1;
-- (void)startSpinnerForSpecifier:(id)arg1;
 - (void)_dismissFlowWithError:(id)arg1;
 - (void)_showRadarPromptForItem:(id)arg1 action:(id)arg2;
-- (void)handleActionForItem:(id)arg1 fromSpecifier:(id)arg2;
+- (void)preflightNetworkConnectivityForHandler:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)startPresentingForHandler:(id)arg1 withRemoteController:(id)arg2;
 - (void)actionTapped:(id)arg1;
 - (id)detailSpecifiersForFollowUpItem:(id)arg1;
 - (id)followUpItemSpecifiers;
@@ -29,6 +30,12 @@
 - (id)specifiers;
 - (void)setSpecifier:(id)arg1;
 - (id)_topViewModel;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

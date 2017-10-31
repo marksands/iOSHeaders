@@ -7,6 +7,8 @@
 #import "NSDate.h"
 
 @interface NSDate (IMCoreAdditions)
++ (_Bool)useCourierTime;
++ (id)__im_dateWithCurrentServerTime;
 + (id)__im_dateWithNanosecondTimeIntervalSinceReferenceDate:(long long)arg1;
 - (long long)differenceFromDate:(id)arg1;
 - (_Bool)isToday;

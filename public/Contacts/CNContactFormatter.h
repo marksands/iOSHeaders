@@ -6,9 +6,11 @@
 
 #import "NSFormatter.h"
 
+#import "NSSecureCoding.h"
+
 @class NSPersonNameComponentsFormatter;
 
-@interface CNContactFormatter : NSFormatter
+@interface CNContactFormatter : NSFormatter <NSSecureCoding>
 {
     _Bool _ignoresOrganization;
     _Bool _ignoresNickname;
@@ -19,6 +21,7 @@
     long long _sortOrder;
 }
 
++ (_Bool)supportsSecureCoding;
 + (_Bool)styleSupportsFallBackToFullNameStyle:(long long)arg1;
 + (id)delimiterForContact:(id)arg1;
 + (id)descriptorForRequiredKeysForDelimiter;

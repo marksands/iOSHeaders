@@ -30,6 +30,7 @@
 - (void)_sendDelegateEvent:(unsigned long long)arg1;
 - (void)matchOperation:(id)arg1 matchedWithResult:(id)arg2;
 - (void)operation:(id)arg1 presenceStateChanged:(_Bool)arg2;
+- (void)matchOperation:(id)arg1 failedWithReason:(long long)arg2;
 - (void)operation:(id)arg1 stateChanged:(long long)arg2;
 - (void)operation:(id)arg1 finishedWithReason:(long long)arg2;
 - (id)_trackerForOperation:(id)arg1;

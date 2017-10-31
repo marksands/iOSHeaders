@@ -10,6 +10,8 @@
 
 @protocol _CPSearchResultForFeedback <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasIsFuzzyMatch;
+@property(nonatomic) _Bool isFuzzyMatch;
 @property(readonly, nonatomic) _Bool hasUserInput;
 @property(copy, nonatomic) NSString *userInput;
 @property(readonly, nonatomic) _Bool hasFbr;

@@ -243,6 +243,18 @@ struct _VCHardwareConfiguration {
     struct _VCBitrateConfiguration _field7;
 };
 
+struct _VCTextReceiverConfiguration {
+    struct tagHANDLE *_field1;
+    unsigned int _field2;
+};
+
+struct _VCTextTransmitterConfiguration {
+    struct tagHANDLE *rtpHandle;
+    unsigned int sampleRate;
+    _Bool isRedEnabled;
+    unsigned int numRedundantPayloads;
+};
+
 struct _VCVideoFormat {
     unsigned int _field1;
     unsigned int _field2;
@@ -320,6 +332,28 @@ struct tagAccessUnitHeaderInfo {
     unsigned short accessUnitSize[3];
 };
 
+struct tagAudioFrame {
+    int _field1;
+    int _field2;
+    _Bool _field3;
+    unsigned short _field4;
+    unsigned int _field5;
+    unsigned char _field6[800];
+    int _field7;
+    int _field8;
+    unsigned char _field9[16];
+    unsigned char _field10;
+    int _field11;
+    int _field12;
+    double _field13;
+    int _field14;
+    CDUnknownFunctionPointerType _field15;
+    void *_field16;
+    struct tagDecoderSettings *_field17;
+    struct tagAudioFrame *_field18;
+    struct tagAudioFrame *_field19;
+};
+
 struct tagAudioHeaderData {
     int _field1;
     unsigned int _field2;
@@ -329,6 +363,33 @@ struct tagAudioHeaderData {
     int _field6;
     int _field7;
     int _field8;
+};
+
+struct tagAudioPacket {
+    int _field1;
+    int _field2;
+    int _field3;
+    _Bool _field4;
+    unsigned short _field5;
+    unsigned int _field6;
+    int _field7;
+    double _field8;
+    int _field9;
+    unsigned char _field10[1472];
+    int _field11;
+    unsigned char _field12[256];
+    unsigned char _field13;
+    struct tagAudioFrame *_field14[4];
+    int _field15;
+    double _field16;
+    int _field17;
+    struct tagDecoderSettings *_field18;
+};
+
+struct tagAudioPacketArray {
+    struct tagAudioPacket *_field1[100];
+    unsigned int _field2;
+    unsigned int _field3;
 };
 
 struct tagAudioPacketData {
@@ -416,6 +477,8 @@ struct tagCommNATInfo {
     unsigned short _field3[3];
     unsigned int _field4;
 };
+
+struct tagDecoderSettings;
 
 struct tagFIR_RTCP {
     unsigned int _field1;
@@ -642,6 +705,10 @@ struct tagVCRealTimeThread {
     unsigned int threadOptions;
 };
 
+struct tagVCRealTimeThreadParameters {
+    int _field1;
+};
+
 struct tagVCSourceDestinationInfo {
     int _field1;
     union {
@@ -675,6 +742,11 @@ struct tagVCStatisticsCollection {
     CDStruct_1c8e0384 _field7;
     CDStruct_1c8e0384 _field8;
     CDStruct_7523a67d _field9;
+};
+
+struct tagVCTextJitterBufferConfiguration {
+    unsigned int sampleRate;
+    id delegate;
 };
 
 struct tagWRMMetricsInfo {

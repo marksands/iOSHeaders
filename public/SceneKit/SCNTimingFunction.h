@@ -18,6 +18,7 @@
 + (id)functionWithTimingMode:(long long)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (struct __C3DTimingFunction *)c3dTimingFunction;
 - (void)dealloc;
 - (id)initWithTimingFunctionRef:(struct __C3DTimingFunction *)arg1;
 

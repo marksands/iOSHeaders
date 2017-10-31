@@ -21,6 +21,7 @@
 - (void).cxx_destruct;
 - (CDUnknownBlockType)_clientQueueSuccessCompletion:(CDUnknownBlockType)arg1;
 - (void)_remoteProxy:(CDUnknownBlockType)arg1;
+- (void)consolidateRelationshipEventsForFriendWithUUID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAreMultipleDevicesSharingDataForSnapshotIndex:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)clearFriendListWithCompletion:(CDUnknownBlockType)arg1;
 - (void)cloudKitAccountStatusWithCompletion:(CDUnknownBlockType)arg1;

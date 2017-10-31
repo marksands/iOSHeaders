@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)controllerForDeviceRole:(int)arg1;
+@property(readonly, nonatomic) unsigned int state; // @synthesize state=_state;
 @property(nonatomic) _Bool isGKVoiceChat; // @synthesize isGKVoiceChat=_isGKVoiceChat;
 @property(nonatomic, getter=isMuted) _Bool muted; // @synthesize muted=_isMuted;
 @property(readonly, nonatomic) struct AudioStreamBasicDescription clientAudioFormat; // @synthesize clientAudioFormat=_clientFormat;

@@ -7,6 +7,7 @@
 #import "NSError.h"
 
 @interface NSError (HFErrorHandlerAdditions)
++ (id)hf_errorWithCode:(long long)arg1 operation:(id)arg2 options:(id)arg3;
 - (id)hf_errorWithOperationType:(id)arg1 failedItemName:(id)arg2;
 - (id)hf_errorWithOperationType:(id)arg1 options:(id)arg2;
 @end

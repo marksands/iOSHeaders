@@ -71,6 +71,7 @@
 - (void)loadView;
 @property(readonly, nonatomic) double throttleDelay;
 - (void)displayAllSupportedTypesDisabled;
+- (void)updateDesiredTitleFontSizeIfNeeded;
 - (void)dealloc;
 - (id)initWithActionListDataSource:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

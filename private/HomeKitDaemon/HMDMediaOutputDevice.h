@@ -4,37 +4,32 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "HMFObject.h"
 
-@class AVOutputDevice, NSString;
+@class NSString;
 
-@interface HMDMediaOutputDevice : NSObject
+@interface HMDMediaOutputDevice : HMFObject
 {
-    _Bool _groupable;
-    unsigned int _type;
     void *_outputDevice;
     NSString *_uniqueIdentifier;
-    NSString *_groupIdentifier;
     NSString *_name;
     NSString *_modelID;
 }
 
 @property(readonly, nonatomic) NSString *modelID; // @synthesize modelID=_modelID;
-@property(readonly, nonatomic, getter=isGroupable) _Bool groupable; // @synthesize groupable=_groupable;
-@property(readonly, nonatomic) unsigned int type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(nonatomic) void *outputDevice; // @synthesize outputDevice=_outputDevice;
 - (void).cxx_destruct;
 - (_Bool)shouldCreateAppleMediaAccessory;
-- (_Bool)shouldCreateWHAAccessory;
-@property(readonly, nonatomic) NSString *groupIdentifier; // @synthesize groupIdentifier=_groupIdentifier;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (void)dealloc;
+@property(readonly, nonatomic) unsigned int deviceType;
+@property(readonly, nonatomic, getter=isRemoteControllable) _Bool remoteControllable;
+@property(readonly, nonatomic, getter=isGroupable) _Bool groupable;
 - (id)initWithOutputDevice:(void *)arg1;
-@property(readonly) AVOutputDevice *av_OutputDevice;
 
 @end
 

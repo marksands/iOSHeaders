@@ -10,6 +10,7 @@
 {
 }
 
++ (id)utilities;
 + (id)checkpointTraceSystem;
 + (id)checkpointTraceProcess;
 + (id)checkpointTraceThread;

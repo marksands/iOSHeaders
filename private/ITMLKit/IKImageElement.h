@@ -14,6 +14,7 @@
     double _srcHeight;
     NSDictionary *_srcset;
     unsigned long long _imageType;
+    double _aspectRatio;
     NSURL *_resolvedURL;
     NSArray *_srcsetRules;
 }
@@ -21,6 +22,7 @@
 + (_Bool)shouldParseChildDOMElements;
 @property(retain, nonatomic) NSArray *srcsetRules; // @synthesize srcsetRules=_srcsetRules;
 @property(retain, nonatomic) NSURL *resolvedURL; // @synthesize resolvedURL=_resolvedURL;
+@property(readonly, nonatomic) double aspectRatio; // @synthesize aspectRatio=_aspectRatio;
 @property(readonly, nonatomic) unsigned long long imageType; // @synthesize imageType=_imageType;
 @property(readonly, retain, nonatomic) NSDictionary *srcset; // @synthesize srcset=_srcset;
 - (void).cxx_destruct;

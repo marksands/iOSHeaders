@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     double _timeoutTime;
     NSError *_recvdError;
     _Bool _hasBeenCalledBack;
+    _Bool _timerStarted;
 }
 
 - (id)description;

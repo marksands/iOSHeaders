@@ -10,6 +10,18 @@
 {
 }
 
++ (void)_logEngagementFeedbackForItems:(id)arg1 domain:(struct PPMPortraitDomain_)arg2;
++ (void)_logOverallEngagement:(id)arg1 domain:(struct PPMPortraitDomain_)arg2;
++ (void)_logUsedFeedbackForItems:(id)arg1 domain:(struct PPMPortraitDomain_)arg2;
++ (void)portraitFeedbackNamedEntitiesOverallEngagement:(id)arg1;
++ (void)portraitFeedbackMappedTopicsOverallEngagement:(id)arg1 forMapping:(id)arg2;
++ (void)portraitFeedbackTopicsOverallEngagement:(id)arg1;
++ (void)portraitFeedbackEngagedNamedEntities:(id)arg1;
++ (void)portraitFeedbackEngagedMappedTopics:(id)arg1 forMapping:(id)arg2;
++ (void)portraitFeedbackEngagedTopics:(id)arg1;
++ (void)portraitFeedbackUsedNamedEntities:(id)arg1;
++ (void)portraitFeedbackUsedMappedTopics:(id)arg1 forMapping:(id)arg2;
++ (void)portraitFeedbackUsedTopics:(id)arg1;
 + (unsigned long long)assetVersion;
 + (id)getClientBundleId;
 + (void)registerCloudKitDisabledBundleIdRewriteHandler;

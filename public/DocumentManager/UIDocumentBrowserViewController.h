@@ -67,6 +67,7 @@
 @property(nonatomic) _Bool allowsDocumentCreation; // @synthesize allowsDocumentCreation=_allowsDocumentCreation;
 @property(nonatomic) __weak id <UIDocumentBrowserViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_renameDocumentAtURL:(id)arg1 newName:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_didTriggerBarButtonWithUUID:(id)arg1;
 - (void)_updateRemoteBarButtonFrames:(id)arg1 forUUID:(id)arg2;
 - (void)_failedToImportDocumentAtURL:(id)arg1 error:(id)arg2;

@@ -8,6 +8,8 @@
 
 @interface NSString (SafariCoreExtras)
 + (void)safari_reverseEnumerateComponents:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
+@property(readonly, copy, nonatomic) NSString *safari_userVisibleSafariBundleVersionFromFullVersion;
+@property(readonly, copy, nonatomic) NSString *safari_stringByNormalizingVersionString;
 - (_Bool)safari_containsPeriodOrHomoglyphForPeriod;
 - (_Bool)safari_hasLocalizedCaseInsensitivePrefix:(id)arg1;
 - (_Bool)safari_hasCaseInsensitiveSuffix:(id)arg1;

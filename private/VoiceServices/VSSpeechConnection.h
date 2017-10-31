@@ -46,8 +46,7 @@
 - (void)updateWithConnectionIdentifier:(id)arg1;
 @property(readonly, nonatomic) VSPresynthesizedAudioRequest *presynthesizedAudioRequest;
 - (void)setPresynthesizedAudioRequest:(id)arg1;
-@property(readonly, nonatomic) VSSpeechRequest *synthesisRequest;
-- (void)setSynthesisRequest:(id)arg1;
+- (id)concurrentSynthesisRequests;
 @property(readonly, nonatomic) VSSpeechRequest *request;
 - (void)setRequest:(id)arg1;
 - (void)_connectionInvalidated;

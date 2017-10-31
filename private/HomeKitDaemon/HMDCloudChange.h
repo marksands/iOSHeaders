@@ -29,6 +29,7 @@
 @property(retain, nonatomic) HMDBackingStoreModelObject *objectChange; // @synthesize objectChange=_objectChange;
 - (void).cxx_destruct;
 - (void)replayChange:(id)arg1 stagedChange:(id)arg2;
+- (void)resetRecord;
 - (void)updateChangeWithRecord:(id)arg1;
 @property(readonly, nonatomic) CKRecordID *recordID;
 @property(readonly, nonatomic) CKRecord *record;
@@ -41,6 +42,7 @@
 @property(readonly, nonatomic, getter=isPushAfterApply) _Bool pushAfterApply;
 @property(readonly, nonatomic, getter=isDropStagedAfterApply) _Bool dropStagedAfterApply;
 @property(readonly, nonatomic, getter=isDropAfterApply) _Bool dropAfterApply;
+@property(readonly, nonatomic, getter=isDropAndDoNotApply) _Bool dropAndDoNotApply;
 @property(readonly, nonatomic, getter=isInvalid) _Bool invalidChange;
 @property(readonly, nonatomic, getter=isDeleted) _Bool deleteChange;
 @property(readonly, nonatomic, getter=isUpdated) _Bool updateChange;

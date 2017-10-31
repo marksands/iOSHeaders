@@ -24,6 +24,7 @@
 - (void)layoutSubviews;
 - (void)setLocationReadings:(id)arg1;
 - (void)_toggleMapType;
+- (id)routeImageForSharing;
 - (void)_setRouteMapType:(unsigned long long)arg1;
 - (void)_clearMapViewIfNeeded;
 - (id)init;

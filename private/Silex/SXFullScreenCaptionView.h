@@ -11,15 +11,17 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSString, STStandaloneTextInfo, STStandaloneTextLayout, STTextTangierDocumentRoot, STTextTangierStorage, SXAutoSizedCanvasController, SXFullScreenCaption, SXTextSource, UIScrollView, UISwipeGestureRecognizer, UITapGestureRecognizer, UIVisualEffectView;
+@class NSString, STStandaloneTextInfo, STStandaloneTextLayout, STTextTangierDocumentRoot, STTextTangierStorage, SXAutoSizedCanvasController, SXFullscreenCaption, SXTextSource, UIScrollView, UISwipeGestureRecognizer, UITapGestureRecognizer, UIVisualEffectView;
 
-@interface SXFullScreenCaptionView : UIView <SXAutoSizedCanvasControllerDelegate, STStandaloneTextLayoutDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate>
+@interface SXFullscreenCaptionView : UIView <SXAutoSizedCanvasControllerDelegate, STStandaloneTextLayoutDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate>
 {
     int _expansionMode;
-    id <SXFullScreenCaptionViewDelegate> _delegate;
-    SXFullScreenCaption *_caption;
+    id <SXFullscreenCaptionViewDelegate> _delegate;
+    SXFullscreenCaption *_caption;
     unsigned long long _viewIndex;
     UITapGestureRecognizer *_tapGestureRecognizer;
+    id <SXActionProvider> _actionProvider;
+    id <SXComponentActionHandler> _actionHandler;
     SXAutoSizedCanvasController *_autoSizeCanvasController;
     STTextTangierDocumentRoot *_documentRoot;
     STStandaloneTextInfo *_captionInfo;
@@ -48,11 +50,13 @@
 @property(retain, nonatomic) STStandaloneTextInfo *captionInfo; // @synthesize captionInfo=_captionInfo;
 @property(retain, nonatomic) STTextTangierDocumentRoot *documentRoot; // @synthesize documentRoot=_documentRoot;
 @property(retain, nonatomic) SXAutoSizedCanvasController *autoSizeCanvasController; // @synthesize autoSizeCanvasController=_autoSizeCanvasController;
+@property(readonly, nonatomic) id <SXComponentActionHandler> actionHandler; // @synthesize actionHandler=_actionHandler;
+@property(readonly, nonatomic) id <SXActionProvider> actionProvider; // @synthesize actionProvider=_actionProvider;
 @property(retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
 @property(readonly, nonatomic) int expansionMode; // @synthesize expansionMode=_expansionMode;
 @property(readonly, nonatomic) unsigned long long viewIndex; // @synthesize viewIndex=_viewIndex;
-@property(readonly, nonatomic) SXFullScreenCaption *caption; // @synthesize caption=_caption;
-@property(nonatomic) __weak id <SXFullScreenCaptionViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) SXFullscreenCaption *caption; // @synthesize caption=_caption;
+@property(nonatomic) __weak id <SXFullscreenCaptionViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)scrollViewDidScroll:(id)arg1;
 - (_Bool)forceFullExpandsionMode;
@@ -80,7 +84,7 @@
 - (void)createBackgroundView;
 - (void)updateWithCaption:(id)arg1 forViewIndex:(unsigned long long)arg2 animated:(_Bool)arg3;
 - (void)dealloc;
-- (id)init;
+- (id)initWithActionProvider:(id)arg1 actionHandler:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -11,6 +11,7 @@
 @protocol HFHomeStatusVisible <NSObject>
 @property(readonly, nonatomic) _Bool hf_hasSetVisibleInHomeStatus;
 @property(readonly, nonatomic) _Bool hf_isVisibleInHomeStatus;
+@property(readonly, nonatomic) _Bool hf_supportsHomeStatus;
 - (NAFuture *)hf_updateIsVisibleInHomeStatus:(_Bool)arg1;
 @end
 

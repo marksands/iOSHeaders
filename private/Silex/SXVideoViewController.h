@@ -13,7 +13,7 @@
 #import "SXVolumeObserver.h"
 #import "UIViewControllerTransitioningDelegate.h"
 
-@class NSMutableArray, NSString, SXMediaSelectionController, SXPlaybackCoordinator, SXScreenDimmingManager, SXVideoControlsViewController, SXVideoPlaybackQueue, SXVideoView, SXVideoViewControllerConfiguration, SXVolumeController;
+@class NSMutableArray, NSString, SXMediaSelectionController, SXPlaybackCoordinator, SXScreenDimmingManager, SXVideoControlsViewController, SXVideoPlaybackQueue, SXVideoView, SXVideoViewControllerConfiguration, SXVideoVisibilityMonitor, SXVolumeController;
 
 @interface SXVideoViewController : UIViewController <SXVideoPlaybackObserver, UIViewControllerTransitioningDelegate, SXVideoControlsViewControllerDelegate, SXPlaybackTransitionCoordinatorDelegate, SXVolumeObserver, SXVideoViewDelegate>
 {
@@ -30,8 +30,10 @@
     SXMediaSelectionController *_mediaSelectionController;
     SXScreenDimmingManager *_screenDimmingManager;
     SXVolumeController *_volumeController;
+    SXVideoVisibilityMonitor *_videoVisibilityMonitor;
 }
 
+@property(readonly, nonatomic) SXVideoVisibilityMonitor *videoVisibilityMonitor; // @synthesize videoVisibilityMonitor=_videoVisibilityMonitor;
 @property(readonly, nonatomic) SXVolumeController *volumeController; // @synthesize volumeController=_volumeController;
 @property(readonly, nonatomic) SXScreenDimmingManager *screenDimmingManager; // @synthesize screenDimmingManager=_screenDimmingManager;
 @property(readonly, nonatomic) SXMediaSelectionController *mediaSelectionController; // @synthesize mediaSelectionController=_mediaSelectionController;
@@ -83,6 +85,9 @@
 @property(readonly, nonatomic) _Bool muted;
 - (void)pause;
 - (void)play;
+- (void)dealloc;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithConfiguration:(id)arg1;
 

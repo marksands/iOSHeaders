@@ -7,17 +7,17 @@
 #import "NSObject.h"
 
 #import "SXDragManagerDataSource.h"
-#import "SXFullScreenCaptionViewDelegate.h"
-#import "SXFullScreenImageViewDelegate.h"
+#import "SXFullscreenCaptionViewDelegate.h"
+#import "SXFullscreenImageViewDelegate.h"
 #import "SXFullscreenNavigationBarViewDelegate.h"
 #import "SXItemizedScrollViewDataSource.h"
 #import "SXItemizedScrollViewDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSString, SXDragManager, SXFullScreenCaptionView, SXFullscreenNavigationBarView, SXItemizedScrollView, UIColor, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, UITapGestureRecognizer, UIView;
+@class NSString, SXDragManager, SXFullscreenCaptionView, SXFullscreenNavigationBarView, SXItemizedScrollView, UIColor, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, UITapGestureRecognizer, UIView;
 
-@interface SXFullScreenCanvasController : NSObject <UIGestureRecognizerDelegate, UIScrollViewDelegate, SXFullScreenImageViewDelegate, SXItemizedScrollViewDataSource, SXItemizedScrollViewDelegate, SXFullScreenCaptionViewDelegate, SXFullscreenNavigationBarViewDelegate, SXDragManagerDataSource>
+@interface SXFullscreenCanvasController : NSObject <UIGestureRecognizerDelegate, UIScrollViewDelegate, SXFullscreenImageViewDelegate, SXItemizedScrollViewDataSource, SXItemizedScrollViewDelegate, SXFullscreenCaptionViewDelegate, SXFullscreenNavigationBarViewDelegate, SXDragManagerDataSource>
 {
     _Bool _isFullscreen;
     _Bool _isTransitioning;
@@ -30,8 +30,9 @@
     _Bool _lessTouchesAreInterupting;
     _Bool _isSupressingColorSettings;
     int _previousExpansionMode;
-    id <SXFullScreenCanvasShowable> _showable;
+    id <SXFullscreenCanvasShowable> _showable;
     unsigned long long _sharingPolicy;
+    id <SXFullscreenCaptionViewFactory> _captionViewFactory;
     UIPanGestureRecognizer *_panGestureRecognizer;
     UIPinchGestureRecognizer *_pinchGestureRecognizer;
     UIRotationGestureRecognizer *_rotationGestureRecognizer;
@@ -47,7 +48,7 @@
     UIView *_canvasView;
     SXItemizedScrollView *_itemizedScrollView;
     SXFullscreenNavigationBarView *_navigationBarView;
-    SXFullScreenCaptionView *_captionView;
+    SXFullscreenCaptionView *_captionView;
     SXDragManager *_dragManager;
     struct CGPoint _currentTranslation;
     struct CGPoint _startingAnchorPoint;
@@ -58,7 +59,7 @@
 @property(retain, nonatomic) SXDragManager *dragManager; // @synthesize dragManager=_dragManager;
 @property(nonatomic) _Bool isSupressingColorSettings; // @synthesize isSupressingColorSettings=_isSupressingColorSettings;
 @property(nonatomic) int previousExpansionMode; // @synthesize previousExpansionMode=_previousExpansionMode;
-@property(retain, nonatomic) SXFullScreenCaptionView *captionView; // @synthesize captionView=_captionView;
+@property(retain, nonatomic) SXFullscreenCaptionView *captionView; // @synthesize captionView=_captionView;
 @property(retain, nonatomic) SXFullscreenNavigationBarView *navigationBarView; // @synthesize navigationBarView=_navigationBarView;
 @property(retain, nonatomic) SXItemizedScrollView *itemizedScrollView; // @synthesize itemizedScrollView=_itemizedScrollView;
 @property(retain, nonatomic) UIView *canvasView; // @synthesize canvasView=_canvasView;
@@ -85,10 +86,11 @@
 @property(readonly, nonatomic) UIRotationGestureRecognizer *rotationGestureRecognizer; // @synthesize rotationGestureRecognizer=_rotationGestureRecognizer;
 @property(readonly, nonatomic) UIPinchGestureRecognizer *pinchGestureRecognizer; // @synthesize pinchGestureRecognizer=_pinchGestureRecognizer;
 @property(readonly, nonatomic) UIPanGestureRecognizer *panGestureRecognizer; // @synthesize panGestureRecognizer=_panGestureRecognizer;
+@property(readonly, nonatomic) id <SXFullscreenCaptionViewFactory> captionViewFactory; // @synthesize captionViewFactory=_captionViewFactory;
 @property(readonly, nonatomic) unsigned long long sharingPolicy; // @synthesize sharingPolicy=_sharingPolicy;
 @property(readonly, nonatomic) _Bool isTransitioning; // @synthesize isTransitioning=_isTransitioning;
 @property(nonatomic) _Bool isFullscreen; // @synthesize isFullscreen=_isFullscreen;
-@property(readonly, nonatomic) __weak id <SXFullScreenCanvasShowable> showable; // @synthesize showable=_showable;
+@property(readonly, nonatomic) __weak id <SXFullscreenCanvasShowable> showable; // @synthesize showable=_showable;
 - (void).cxx_destruct;
 - (void)fullscreenNavigationBarViewDoneButtonPressed:(id)arg1;
 - (_Bool)captionView:(id)arg1 tapGestureRecognizerShouldBegin:(id)arg2;
@@ -147,7 +149,7 @@
 - (void)didFinishFullscreenActiveIndex:(unsigned long long)arg1;
 - (void)setupScrollViewIfNeededWithActiveIndex:(unsigned long long)arg1;
 - (void)dealloc;
-- (id)initWithShowable:(id)arg1 sharingPolicy:(unsigned long long)arg2;
+- (id)initWithShowable:(id)arg1 captionViewFactory:(id)arg2 sharingPolicy:(unsigned long long)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

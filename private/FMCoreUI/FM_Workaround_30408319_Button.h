@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 - (void)layoutSubviews;
 - (void)updateConstraints;
+- (void)setContentEdgeInsets:(struct UIEdgeInsets)arg1;
 
 @end
 

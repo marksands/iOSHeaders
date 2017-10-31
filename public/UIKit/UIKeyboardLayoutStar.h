@@ -254,6 +254,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (double)hitBuffer;
 - (struct CGRect)_paddedKeyUnionFrame;
+- (_Bool)_handleTouchForEmojiInputView;
 - (void)setSplit:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_autoSplit:(id)arg1;
 - (void)setSplitProgress:(double)arg1;
@@ -316,6 +317,7 @@ __attribute__((visibility("hidden")))
 - (void)didClearInput;
 - (void)touchMultitapTimer;
 - (void)cancelMultitapTimer;
+- (_Bool)isMultitapKey:(id)arg1;
 - (void)handleMultitapTimerFired;
 - (void)multitapExpired;
 - (void)endMultitapForKey:(id)arg1;
@@ -330,6 +332,7 @@ __attribute__((visibility("hidden")))
 - (void)deleteHandwritingStrokesAtIndexes:(id)arg1;
 - (void)clearHandwritingStrokesIfNeededAndNotify:(_Bool)arg1;
 - (id)createKeyEventForStringAction:(id)arg1 forKey:(id)arg2 inputFlags:(int)arg3;
+- (id)currentRepresentedStringForDualDisplayKey:(id)arg1;
 - (void)updatePhysicalKeyboardEvent:(id)arg1 withMarkedInput:(id)arg2;
 - (_Bool)isDeadkeyInput:(id)arg1;
 - (void)performHitTestForTouchInfo:(id)arg1 touchStage:(int)arg2 executionContextPassingUIKBTree:(id)arg3;
@@ -432,6 +435,7 @@ __attribute__((visibility("hidden")))
 - (id)internationalKeyDisplayStringOnEmojiKeyboard;
 - (void)updateLocalizedDisplayStringOnEmojiInternationalWithKeyplane:(id)arg1 withInputMode:(id)arg2;
 - (_Bool)canProduceString:(id)arg1;
+- (double)lastTouchDownTimestamp;
 - (double)lastTouchUpTimestamp;
 - (void)setKeyboardName:(id)arg1 appearance:(long long)arg2;
 - (void)updateKeyboardForKeyplane:(id)arg1;

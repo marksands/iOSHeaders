@@ -13,9 +13,10 @@
     _Bool _isInternalDevice;
     _Bool _policyDisabled;
     NSString *_searchString;
+    CSAttributeEvaluator *_fuzzyEvaluator;
     CSAttributeEvaluator *_evaluator;
     NSMapTable *_bundleFeatures;
-    double *_bundleFeaturesScratchBuf;
+    float *_bundleFeaturesScratchBuf;
     double _experimentalWeight1;
     double _experimentalWeight2;
     NSString *_meContactIdentifier;
@@ -39,10 +40,11 @@
 @property(retain, nonatomic) NSString *meContactIdentifier; // @synthesize meContactIdentifier=_meContactIdentifier;
 @property(nonatomic) double experimentalWeight2; // @synthesize experimentalWeight2=_experimentalWeight2;
 @property(nonatomic) double experimentalWeight1; // @synthesize experimentalWeight1=_experimentalWeight1;
-@property(nonatomic) double *bundleFeaturesScratchBuf; // @synthesize bundleFeaturesScratchBuf=_bundleFeaturesScratchBuf;
+@property(nonatomic) float *bundleFeaturesScratchBuf; // @synthesize bundleFeaturesScratchBuf=_bundleFeaturesScratchBuf;
 @property(retain, nonatomic) NSMapTable *bundleFeatures; // @synthesize bundleFeatures=_bundleFeatures;
 @property _Bool isInternalDevice; // @synthesize isInternalDevice=_isInternalDevice;
 @property(retain, nonatomic) CSAttributeEvaluator *evaluator; // @synthesize evaluator=_evaluator;
+@property(retain, nonatomic) CSAttributeEvaluator *fuzzyEvaluator; // @synthesize fuzzyEvaluator=_fuzzyEvaluator;
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 - (void).cxx_destruct;
 - (void)prepareItems:(id)arg1 inBundle:(id)arg2;
@@ -54,7 +56,7 @@
 - (void)updateScoresForPreparedItems:(id)arg1;
 - (_Bool)updateFeedbackScoresForPreparedItems:(id)arg1 currentL2ModelVersion:(id *)arg2 currentL2ShadowModelVersion:(id *)arg3 currentL3ModelVersion:(id *)arg4;
 - (void)hackMusicResultsWithItem:(id)arg1 featureVector:(id)arg2;
-- (double *)computeScoresForVectors:(id)arg1 withBundleFeatures:(id)arg2;
+- (float *)computeScoresForVectors:(id)arg1 withBundleFeatures:(id)arg2;
 - (void)computeRelativeFeatureForContext:(id)arg1 items:(id)arg2;
 - (void)relevantResultSetPRSL2FeaturesFromBundleFeature:(unsigned long long)arg1 absRankFeatureOut:(unsigned long long *)arg2 relRankFeatureOut:(unsigned long long *)arg3;
 - (void)populateMailContactFeaturesWithMailItems:(id)arg1 contactItems:(id)arg2;

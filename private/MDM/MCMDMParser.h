@@ -92,7 +92,6 @@
 - (id)_certificateList:(id)arg1;
 - (id)_allowedDeviceQueriesForAccessRights:(int)arg1;
 - (id)_deviceInformationWithRequest:(id)arg1 accessRights:(int)arg2;
-- (id)_DMFKeyFromMCKey:(id)arg1;
 - (id)_deleteUser:(id)arg1;
 - (id)_logOutUser:(id)arg1;
 - (id)_userList:(id)arg1;

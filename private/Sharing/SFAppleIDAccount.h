@@ -12,7 +12,6 @@
 
 @interface SFAppleIDAccount : NSObject <NSSecureCoding>
 {
-    _Bool _dirty;
     _Bool _forceValidation;
     NSString *_altDSID;
     NSString *_appleID;
@@ -38,7 +37,6 @@
 @property(retain, nonatomic) NSDate *lastConnectAttemptDate; // @synthesize lastConnectAttemptDate=_lastConnectAttemptDate;
 @property(retain, nonatomic) SFAppleIDIdentity *identity; // @synthesize identity=_identity;
 @property(nonatomic) _Bool forceValidation; // @synthesize forceValidation=_forceValidation;
-@property(nonatomic, getter=isDirty) _Bool dirty; // @synthesize dirty=_dirty;
 @property(retain, nonatomic) SFAppleIDContactInfo *contactInfo; // @synthesize contactInfo=_contactInfo;
 @property(retain, nonatomic) NSString *certificateToken; // @synthesize certificateToken=_certificateToken;
 @property(readonly, nonatomic) NSString *appleID; // @synthesize appleID=_appleID;

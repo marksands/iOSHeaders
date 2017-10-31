@@ -6,37 +6,32 @@
 
 #import "NSObject.h"
 
-@class AVOutputDeviceDiscoverySession, NSArray, NSObject<OS_dispatch_queue>;
+@class NSArray, NSObject<OS_dispatch_queue>;
 
-__attribute__((visibility("hidden")))
 @interface MRAVRoutingDiscoverySession : NSObject
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
-    AVOutputDeviceDiscoverySession *_avDiscoverySession;
     struct NSMutableDictionary *_endpointsChangedCallbacks;
     struct NSMutableDictionary *_outputDevicesChangedCallbacks;
-    struct NSMapTable *_groupIDsToWeakEndpointsTable;
-    struct NSMapTable *_deviceIDsToWeakOutputDevicesTable;
-    unsigned int _endpointFeatures;
-    unsigned int _discoveryMode;
-    NSArray *_availableEndpoints;
 }
 
-@property(copy, nonatomic) NSArray *availableEndpoints; // @synthesize availableEndpoints=_availableEndpoints;
-@property(nonatomic) unsigned int discoveryMode; // @synthesize discoveryMode=_discoveryMode;
-@property(readonly, nonatomic) unsigned int endpointFeatures; // @synthesize endpointFeatures=_endpointFeatures;
-- (void)_reloadAvailableEndpoints;
-- (void)_unregisterNotifications;
-- (void)_registerNotifications;
-- (void)_availableOutputDevicesDidChangeNotification:(id)arg1;
++ (id)discoverySessionWithEndpointFeatures:(unsigned int)arg1;
 - (void)removeOutputDevicesChangedCallback:(id)arg1;
 - (void)removeEndpointsChangedCallback:(id)arg1;
 - (id)addOutputDevicesChangedCallback:(CDUnknownBlockType)arg1;
 - (id)addEndpointsChangedCallback:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) NSArray *availableOutputDevices;
-@property(readonly, nonatomic) _Bool hasAvailableEndpoints;
+@property(readonly, nonatomic) NSArray *outputDevicesChangedCallbacks;
+@property(readonly, nonatomic) NSArray *endpointsChangedCallbacks;
 - (void)dealloc;
-- (id)initWithEndpointFeatures:(unsigned int)arg1;
+- (id)_init;
+
+// Remaining properties
+@property(readonly, nonatomic) NSArray *availableEndpoints; // @dynamic availableEndpoints;
+@property(readonly, nonatomic) NSArray *availableOutputDevices; // @dynamic availableOutputDevices;
+@property(nonatomic) unsigned int discoveryMode; // @dynamic discoveryMode;
+@property(readonly, nonatomic) unsigned int endpointFeatures; // @dynamic endpointFeatures;
+@property(readonly, nonatomic) _Bool hasAvailableEndpoints; // @dynamic hasAvailableEndpoints;
+@property(nonatomic) unsigned int targetAudioSessionID; // @dynamic targetAudioSessionID;
 
 @end
 

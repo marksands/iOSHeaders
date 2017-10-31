@@ -6,32 +6,36 @@
 
 #import "HMFObject.h"
 
-@class HMDApplicationInfo, NSArray, NSHashTable, NSObject<OS_dispatch_queue>;
+#import "HMFLogging.h"
 
-@interface HMDProcessInfo : HMFObject
+@class HMDApplicationInfo, NSArray, NSHashTable, NSObject<OS_dispatch_queue>, NSString;
+
+@interface HMDProcessInfo : HMFObject <HMFLogging>
 {
     _Bool _viewService;
     int _pid;
     unsigned long long _state;
     HMDApplicationInfo *_appInfo;
     NSArray *_runningReasons;
-    NSObject<OS_dispatch_queue> *_clientQueue;
+    NSObject<OS_dispatch_queue> *_xpcQueue;
+    NSObject<OS_dispatch_queue> *_propertyQueue;
     NSHashTable *_connectionProxies;
 }
 
++ (id)logCategory;
 @property(readonly, nonatomic) NSHashTable *connectionProxies; // @synthesize connectionProxies=_connectionProxies;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *xpcQueue; // @synthesize xpcQueue=_xpcQueue;
 @property(retain, nonatomic) NSArray *runningReasons; // @synthesize runningReasons=_runningReasons;
+@property(readonly, nonatomic) int pid; // @synthesize pid=_pid;
 @property(readonly, nonatomic) __weak HMDApplicationInfo *appInfo; // @synthesize appInfo=_appInfo;
 @property(readonly, nonatomic, getter=isViewService) _Bool viewService; // @synthesize viewService=_viewService;
-@property(nonatomic) unsigned long long state; // @synthesize state=_state;
-@property(readonly, nonatomic) int pid; // @synthesize pid=_pid;
 - (void).cxx_destruct;
-- (id)activeRequestIdentifiers;
+- (id)_activeRequestIdentifiers;
 - (void)initiateRefresh;
 - (void)removeConnectionProxy:(id)arg1;
 - (void)addConnectionProxy:(id)arg1;
-@property(readonly, nonatomic) unsigned long long proxyCount;
+- (unsigned long long)proxyCount;
 - (void)deactivate;
 - (void)activate;
 @property(readonly, nonatomic, getter=isTerminated) _Bool terminated;
@@ -39,9 +43,16 @@
 @property(readonly, nonatomic, getter=isBackgrounded) _Bool background;
 @property(readonly, nonatomic, getter=isBackgroundUpgradedToForeground) _Bool backgroundUpgradedToForeground;
 @property(readonly, nonatomic, getter=isForegrounded) _Bool foreground;
-- (id)description;
-- (id)initWithConnectionProxy:(id)arg1 application:(id)arg2 processId:(int)arg3;
+@property(nonatomic) unsigned long long state; // @synthesize state=_state;
+@property(readonly, copy) NSString *description;
+- (id)logIdentifier;
+- (id)initWithConnectionProxy:(id)arg1 application:(id)arg2 processId:(int)arg3 xpcQueue:(id)arg4;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -57,6 +57,8 @@
 
 + (id)redoButtonImage;
 + (id)undoButtonImage;
++ (id)redoButtonImageWithStyle:(unsigned long long)arg1;
++ (id)undoButtonImageWithStyle:(unsigned long long)arg1;
 @property(nonatomic) _Bool useThickInks; // @synthesize useThickInks=_useThickInks;
 @property(nonatomic, getter=isTranslucent) _Bool translucent; // @synthesize translucent=_translucent;
 @property(nonatomic, getter=isShareButtonHidden) _Bool shareButtonHidden; // @synthesize shareButtonHidden=_shareButtonHidden;

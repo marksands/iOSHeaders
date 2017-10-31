@@ -14,7 +14,7 @@
 {
 }
 
-@property(readonly, nonatomic) _Bool requiresForYouCatchUpOperation;
+@property(readonly, nonatomic) long long requiredForYouContentTypes;
 - (_Bool)canMergeGroupsUnconditionally;
 @property(readonly, copy, nonatomic) NSString *groupEmitterIdentifier;
 - (_Bool)canEmitGroupsWithType:(long long)arg1;

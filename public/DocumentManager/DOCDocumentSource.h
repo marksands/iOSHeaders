@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSString, UIImage;
+@class FPProvider, NSArray, NSString, UIImage;
 
 @interface DOCDocumentSource : NSObject <NSSecureCoding, NSCopying>
 {
@@ -20,6 +20,7 @@
     NSString *_promptText;
     NSString *_identifier;
     NSArray *_documentTypes;
+    FPProvider *_searching_fileProvider;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -29,10 +30,11 @@
 + (id)startSearchingSourcesForBundleIdentifier:(id)arg1 updateBlock:(CDUnknownBlockType)arg2;
 + (void)setDefaultSourceIdentifier:(id)arg1 forBundleIdentifier:(id)arg2;
 + (id)sourceIdentifierOrderWithDefault:(id)arg1;
-+ (id)defaultSourceForSourceIdentifier:(id)arg1 sources:(id)arg2;
++ (id)defaultSourceForBundleIdentifier:(id)arg1 defaultSourceIdentifier:(id)arg2 sources:(id)arg3;
 + (void)defaultSourceForBundleIdentifier:(id)arg1 selectedSourceIdentifier:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 + (id)defaultSourceIdentifierForBundleIdentifier:(id)arg1;
 + (_Bool)isICloudFileProviderEnabled;
+@property FPProvider *searching_fileProvider; // @synthesize searching_fileProvider=_searching_fileProvider;
 @property(copy) NSArray *documentTypes; // @synthesize documentTypes=_documentTypes;
 @property(copy) NSString *identifier; // @synthesize identifier=_identifier;
 @property(copy) NSString *promptText; // @synthesize promptText=_promptText;

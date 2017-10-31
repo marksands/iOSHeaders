@@ -10,6 +10,7 @@
 
 @protocol SBRemoteAlertDelegate <NSObject>
 - (void)remoteAlert:(id <SBRemoteAlert>)arg1 didTerminateWithError:(NSError *)arg2;
+- (void)remoteAlertDidRequestInvalidation:(id <SBRemoteAlert>)arg1;
 - (void)remoteAlertDidRequestDismissal:(id <SBRemoteAlert>)arg1;
 - (void)remoteAlertDidDeactivate:(id <SBRemoteAlert>)arg1;
 - (void)remoteAlertDidActivate:(id <SBRemoteAlert>)arg1;

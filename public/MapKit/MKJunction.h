@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
-@interface MKJunction : NSObject <NSCoding>
+@interface MKJunction : NSObject <NSSecureCoding>
 {
     struct GEOJunctionElement *_elements;
     unsigned long long _count;
@@ -18,6 +18,7 @@
     struct GEOJunctionElement *_snapped[8];
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

@@ -12,6 +12,8 @@
 {
 }
 
++ (id)clockNameForClockIdentifier:(unsigned long long)arg1;
++ (id)diagnosticInfoForService:(unsigned int)arg1;
 + (id)diagnosticDescriptionForService:(unsigned int)arg1 withIndent:(id)arg2;
 + (unsigned long long)clockIdentifierForInterfaceName:(id)arg1;
 + (id)iokitMatchingDictionaryForClockIdentifier:(unsigned long long)arg1;
@@ -53,6 +55,8 @@
 - (_Bool)getRateRatioNumerator:(unsigned long long *)arg1 denominator:(unsigned long long *)arg2 machAnchor:(unsigned long long *)arg3 andDomainAnchor:(unsigned long long *)arg4 forGrandmasterIdentity:(unsigned long long *)arg5 withError:(id *)arg6;
 - (unsigned long long)convertFromDomainToMachAbsoluteTime:(unsigned long long)arg1 grandmasterUsed:(unsigned long long *)arg2;
 - (unsigned long long)convertFromMachAbsoluteToDomainTime:(unsigned long long)arg1 grandmasterUsed:(unsigned long long *)arg2;
+- (unsigned long long)convertFrom128BitgPTPTimeToMachAbsoluteTime:(CDStruct_4bcfbbae)arg1 grandmasterUsed:(unsigned long long *)arg2;
+- (CDStruct_4bcfbbae)convertFromMachAbsoluteTo128BitgPTPTime:(unsigned long long)arg1 grandmasterUsed:(unsigned long long *)arg2;
 - (unsigned long long)machAbsoluteFromgPTPTime:(id)arg1;
 - (id)gPTPTimeFromMachAbsoluteTime:(unsigned long long)arg1;
 - (_Bool)convertFrom32BitASTime:(unsigned int *)arg1 toMachAbsoluteTime:(unsigned long long *)arg2 withCount:(unsigned int)arg3;

@@ -9,11 +9,14 @@
 #import "ICDelegateAccountStoreService.h"
 #import "NSXPCListenerDelegate.h"
 
-@class ICUserIdentityStore, NSString, NSXPCListener, NSXPCListenerEndpoint;
+@class ICUserIdentityStore, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSXPCListener, NSXPCListenerEndpoint;
 
 @interface ICDelegateAccountStoreServiceListener : NSObject <NSXPCListenerDelegate, ICDelegateAccountStoreService>
 {
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    NSObject<OS_dispatch_queue> *_callbackQueue;
     _Bool _ignoresEntitlements;
+    NSMutableArray *_connections;
     NSXPCListener *_listener;
     ICUserIdentityStore *_testingIdentityStore;
 }
@@ -22,6 +25,7 @@
 + (id)machServiceListener;
 - (void).cxx_destruct;
 - (id)_identityStore;
+- (void)_userIdentityStoreDelegateAccountStoreDidChangeNotification:(id)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)setToken:(id)arg1 forUserIdentity:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setIdentityProperties:(id)arg1 forUserIdentity:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

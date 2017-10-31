@@ -17,6 +17,8 @@
     NSMutableDictionary *_styleDict;
 }
 
++ (id)_updatedEdgeInsetsDeclaration:(id)arg1 withValue:(double)arg2 forIndex:(unsigned long long)arg3;
++ (id)_clonedCSSDeclarationEdgeInsetsFromDeclaration:(id)arg1;
 + (id)elementStyleWithParentStyle:(id)arg1 elementStyle:(id)arg2 elementStyleOverrides:(id)arg3;
 + (id)elementStyleWithSelector:(id)arg1 aggregatingStyles:(id)arg2;
 + (id)elementStyleWithSelector:(id)arg1 cssRule:(id)arg2 filterBlockedStyles:(_Bool)arg3;
@@ -34,6 +36,7 @@
 + (void)unregisterStyles;
 + (id)registeredAliases;
 + (id)registeredStyles;
++ (void)registerEdgeInsetStyle:(id)arg1 aliasName:(id)arg2 withPositionStyleNames:(id)arg3 inherited:(_Bool)arg4;
 + (void)registerStyle:(id)arg1 aliasName:(id)arg2 withType:(unsigned long long)arg3 inherited:(_Bool)arg4;
 + (void)registerStyle:(id)arg1 withType:(unsigned long long)arg2 inherited:(_Bool)arg3;
 + (void)initialize;
@@ -42,13 +45,14 @@
 @property(readonly, copy, nonatomic) IKCSSRule *cssRule; // @synthesize cssRule=_cssRule;
 - (void).cxx_destruct;
 - (id)_styleNameForAlias:(id)arg1;
-- (void)_setDeclaration:(id)arg1 forKey:(id)arg2;
+- (void)_addDeclaration:(id)arg1;
 - (void)_addElementStyle:(id)arg1;
 - (void)_addParentStyle:(id)arg1;
 - (struct UIEdgeInsets)_edgeInsetsForStyleKey:(id)arg1;
 - (id)_newColorFromString:(id)arg1;
 - (id)_gradientFromString:(id)arg1;
 - (unsigned long long)typeForStyle:(id)arg1;
+- (_Bool)requiresDynamicEvaluation;
 @property(readonly, nonatomic) _Bool hidden;
 @property(readonly, nonatomic) NSNumber *letterSpacing;
 @property(readonly, nonatomic) NSString *maxHeight;

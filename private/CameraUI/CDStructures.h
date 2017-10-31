@@ -124,3 +124,20 @@ typedef struct {
     long long epoch;
 } CDStruct_1b6d18a9;
 
+typedef struct {
+    double _field1;
+    double _field2;
+    struct CGPoint _field3;
+} CDStruct_d1ca95b4;
+
+typedef struct {
+    double _field1;
+    struct CGPoint _field2;
+} CDStruct_f31c9284;
+
+typedef struct {
+    struct CGPoint _field1;
+    struct CGPoint _field2;
+    double _field3;
+} CDStruct_9c823225;
+

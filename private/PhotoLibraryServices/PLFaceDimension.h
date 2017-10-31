@@ -29,6 +29,7 @@
 - (double)photosFaceRepresentationCenterX;
 - (long long)photosFaceRepresentationSourceHeight;
 - (long long)photosFaceRepresentationSourceWidth;
+- (id)description;
 - (id)initWithSourceWidth:(long long)arg1 sourceHeight:(long long)arg2 centerX:(double)arg3 centerY:(double)arg4 size:(double)arg5;
 
 @end

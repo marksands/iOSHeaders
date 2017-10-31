@@ -52,6 +52,7 @@
 + (_Bool)isValidEnvironment:(id)arg1;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *ivarQueue; // @synthesize ivarQueue=_ivarQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
+- (void)requestKeepAlive;
 - (void)invalidateTokenForTopic:(id)arg1 identifier:(id)arg2;
 - (void)requestTokenForTopic:(id)arg1 identifier:(id)arg2;
 - (void)sendFakeMessage:(id)arg1;

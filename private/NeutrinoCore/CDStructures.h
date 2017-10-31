@@ -48,8 +48,9 @@ struct CGSize {
 struct Context {
     CDUnknownFunctionPointerType *_field1;
     int _field2;
-    id _field3;
+    int _field3;
     id _field4;
+    id _field5;
 };
 
 struct DataSet {

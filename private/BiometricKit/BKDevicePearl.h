@@ -19,6 +19,8 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic) __weak id <BKDevicePearlDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (_Bool)clearIdentityMigrationFailureForUser:(unsigned int)arg1 error:(id *)arg2;
+- (id)queryIdentityMigrationFailureForUser:(unsigned int)arg1 error:(id *)arg2;
 - (id)fieldDiagnosticsTatsuManifestWithError:(id *)arg1;
 - (id)fieldDiagnosticsEncryptionKeyWithError:(id *)arg1;
 - (id)fieldDiagnosticsRemainingTimeWithError:(id *)arg1;

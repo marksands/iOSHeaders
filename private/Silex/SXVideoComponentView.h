@@ -14,19 +14,31 @@
 #import "SXVideoPlayerViewControllerDelegate.h"
 #import "SXViewportChangeListener.h"
 
-@class NSString, SXPosterFrameView, SXVideoPlayerViewController;
+@class NSString, SXAdController, SXPosterFrameView, SXVideoAnalyticsRouter, SXVideoComponentAnalyticsReporting, SXVideoPlayerViewController;
 
 @interface SXVideoComponentView : SXMediaComponentView <SXViewportChangeListener, SXMediaPlaybackDelegate, SXVideoPlayerViewControllerDelegate, SXVideoPlayerViewControllerDataSource, SXVideoAdProviderDataSource, SXReachabilityObserver, SXFullscreenVideoPlaybackCandidate>
 {
     _Bool _isReceivingViewportDynamicBoundsChanges;
     SXVideoPlayerViewController *_videoPlayerViewController;
+    SXAdController *_adController;
+    id <SXResourceDataSource> _resourceDataSource;
+    id <SXReachabilityProvider> _reachabilityProvider;
+    id <SXAppStateMonitor> _appStateMonitor;
     SXPosterFrameView *_posterFrame;
     CDUnknownBlockType _thumbnailRequestCancelHandler;
+    SXVideoAnalyticsRouter *_analyticsRouter;
+    SXVideoComponentAnalyticsReporting *_videoComponentAnalyticsReporter;
 }
 
+@property(retain, nonatomic) SXVideoComponentAnalyticsReporting *videoComponentAnalyticsReporter; // @synthesize videoComponentAnalyticsReporter=_videoComponentAnalyticsReporter;
+@property(retain, nonatomic) SXVideoAnalyticsRouter *analyticsRouter; // @synthesize analyticsRouter=_analyticsRouter;
 @property(copy, nonatomic) CDUnknownBlockType thumbnailRequestCancelHandler; // @synthesize thumbnailRequestCancelHandler=_thumbnailRequestCancelHandler;
 @property(retain, nonatomic) SXPosterFrameView *posterFrame; // @synthesize posterFrame=_posterFrame;
 @property(nonatomic) _Bool isReceivingViewportDynamicBoundsChanges; // @synthesize isReceivingViewportDynamicBoundsChanges=_isReceivingViewportDynamicBoundsChanges;
+@property(readonly, nonatomic) id <SXAppStateMonitor> appStateMonitor; // @synthesize appStateMonitor=_appStateMonitor;
+@property(readonly, nonatomic) id <SXReachabilityProvider> reachabilityProvider; // @synthesize reachabilityProvider=_reachabilityProvider;
+@property(readonly, nonatomic) id <SXResourceDataSource> resourceDataSource; // @synthesize resourceDataSource=_resourceDataSource;
+@property(readonly, nonatomic) SXAdController *adController; // @synthesize adController=_adController;
 @property(retain, nonatomic) SXVideoPlayerViewController *videoPlayerViewController; // @synthesize videoPlayerViewController=_videoPlayerViewController;
 - (void).cxx_destruct;
 - (_Bool)allowHierarchyRemoval;
@@ -41,7 +53,7 @@
 - (_Bool)canEnterFullscreen;
 - (void)visibilityStateDidChangeFromState:(long long)arg1;
 - (void)pausePrerollIfNeeded;
-- (_Bool)playbackIsAllowedForMode:(unsigned long long)arg1;
+- (_Bool)videoPlayerIsMoreThan50PercentVisible;
 - (void)viewport:(id)arg1 interfaceOrientationChangedFromOrientation:(long long)arg2;
 - (void)viewport:(id)arg1 appearStateChangedFromState:(unsigned long long)arg2;
 - (void)viewport:(id)arg1 dynamicBoundsDidChangeFromBounds:(struct CGRect)arg2;
@@ -61,8 +73,9 @@
 - (void)loadPosterFrameImage;
 - (void)discardContents;
 - (void)renderContents;
-- (void)presentComponent;
-- (id)initWithComponent:(id)arg1 configuration:(id)arg2 context:(id)arg3 analyticsReporting:(id)arg4 appStateMonitor:(id)arg5;
+- (void)presentComponentWithChanges:(CDStruct_1cc9d0d0)arg1;
+- (void)loadComponent:(id)arg1;
+- (id)initWithDocumentController:(id)arg1 viewport:(id)arg2 presentationDelegate:(id)arg3 analyticsReporting:(id)arg4 componentStyleRendererFactory:(id)arg5 appStateMonitor:(id)arg6 resourceDataSource:(id)arg7 reachabilityProvider:(id)arg8 adController:(id)arg9;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

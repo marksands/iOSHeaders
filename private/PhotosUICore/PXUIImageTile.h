@@ -10,7 +10,7 @@
 #import "PXReusableObject.h"
 #import "PXUIViewBasicTile.h"
 
-@class NSString, PXImageRequester, PXImageViewSpec, PXUIImageView, UIView, UIVisualEffectView;
+@class NSString, PXImageRequester, PXImageUIView, PXImageViewSpec, UIView, UIVisualEffectView;
 
 @interface PXUIImageTile : NSObject <PXChangeObserver, PXUIViewBasicTile, PXReusableObject>
 {
@@ -22,7 +22,7 @@
         _Bool image;
         _Bool blurEffectView;
     } _needsUpdateFlags;
-    PXUIImageView *_imageView;
+    PXImageUIView *_imageView;
     unsigned long long _animationFlags;
     _Bool _applyBlurEffect;
     PXImageRequester *_imageRequester;

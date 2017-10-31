@@ -6,13 +6,15 @@
 
 #import <HomeKit/HMAccessoryProfile.h>
 
+#import "HMAccessorySettingsContainer.h"
+#import "HMMediaObject.h"
 #import "_HMMediaProfileDelegate.h"
 
-@class HMAccessorySettings, HMMediaSession, NSObject<OS_dispatch_queue>, NSString;
+@class HMAccessorySettings, HMHome, HMMediaSession, NSObject<OS_dispatch_queue>, NSString;
 
-@interface HMMediaProfile : HMAccessoryProfile <_HMMediaProfileDelegate>
+@interface HMMediaProfile : HMAccessoryProfile <_HMMediaProfileDelegate, HMMediaObject, HMAccessorySettingsContainer>
 {
-    HMAccessorySettings *_settings;
+    NSString *_routeUID;
     id <HMMediaProfileDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_propertyQueue;
 }
@@ -22,11 +24,10 @@
 - (void).cxx_destruct;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 - (void)mediaProfile:(id)arg1 didUpdateMediaSession:(id)arg2;
-- (void)mediaProfile:(id)arg1 didUpdateRootGroup:(id)arg2;
+@property(readonly) __weak HMHome *containerHome;
+@property(readonly, nonatomic) NSString *routeUID; // @synthesize routeUID=_routeUID;
 @property(readonly, copy) HMMediaSession *mediaSession;
-- (void)_notifyDelegateOfUpdatedSettings:(id)arg1;
-- (void)setSettings:(id)arg1;
-@property(readonly) HMAccessorySettings *settings; // @synthesize settings=_settings;
+@property(readonly) HMAccessorySettings *settings;
 - (id)initWithAccessoryProfile:(id)arg1;
 - (id)init;
 

@@ -23,6 +23,7 @@
 @property __weak id <FACircleRemoteUIDelegateDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) FACircleContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (void)_broadcastFamilyDidChangeNotification;
 - (void)_reportRequestFailureWithResponse:(id)arg1;
 - (void)remoteUIController:(id)arg1 didRemoveObjectModel:(id)arg2;
 - (void)remoteUIController:(id)arg1 didReceiveObjectModel:(id)arg2 actionSignal:(unsigned long long *)arg3;

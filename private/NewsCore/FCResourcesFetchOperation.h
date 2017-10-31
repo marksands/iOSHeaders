@@ -12,14 +12,14 @@
 {
     _Bool _shouldDownloadAssets;
     long long _cacheLifetimeHint;
-    NSArray *_resourceIDs;
     id <FCContentContext> _context;
+    NSArray *_resourceIDs;
     NSArray *_resources;
 }
 
 @property(retain, nonatomic) NSArray *resources; // @synthesize resources=_resources;
-@property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
 @property(readonly, nonatomic) NSArray *resourceIDs; // @synthesize resourceIDs=_resourceIDs;
+@property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
 @property(nonatomic) long long cacheLifetimeHint; // @synthesize cacheLifetimeHint=_cacheLifetimeHint;
 @property(nonatomic) _Bool shouldDownloadAssets; // @synthesize shouldDownloadAssets=_shouldDownloadAssets;
 - (void).cxx_destruct;
@@ -27,7 +27,6 @@
 - (id)completeFetchOperation;
 - (id)downloadAssetsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)fetchResourcesWithCompletion:(CDUnknownBlockType)arg1;
-- (id)initWithContext:(id)arg1 resourceURLs:(id)arg2;
 - (id)initWithContext:(id)arg1 resourceIDs:(id)arg2;
 - (id)init;
 

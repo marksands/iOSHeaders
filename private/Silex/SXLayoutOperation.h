@@ -8,7 +8,7 @@
 
 #import "SXLayouterDelegate.h"
 
-@class NSString, SXLayoutAttributes, SXLayoutBlueprint, SXLayoutDataProvider;
+@class NSString, SXDynamicAdController, SXLayoutAttributes, SXLayoutBlueprint, SXLayoutDataProvider;
 
 @interface SXLayoutOperation : NSOperation <SXLayouterDelegate>
 {
@@ -19,11 +19,13 @@
     SXLayoutAttributes *_layoutAttributes;
     SXLayoutBlueprint *_layoutBlueprint;
     NSString *_targetComponentIdentifier;
-    id <SXDynamicAdController> _dynamicAdController;
+    id <SXComponentSizerEngine> _componentSizerEngine;
+    SXDynamicAdController *_dynamicAdController;
     struct CGSize _viewportSize;
 }
 
-@property(readonly, nonatomic) id <SXDynamicAdController> dynamicAdController; // @synthesize dynamicAdController=_dynamicAdController;
+@property(readonly, nonatomic) SXDynamicAdController *dynamicAdController; // @synthesize dynamicAdController=_dynamicAdController;
+@property(readonly, nonatomic) id <SXComponentSizerEngine> componentSizerEngine; // @synthesize componentSizerEngine=_componentSizerEngine;
 @property(retain, nonatomic) NSString *targetComponentIdentifier; // @synthesize targetComponentIdentifier=_targetComponentIdentifier;
 @property(retain, nonatomic) SXLayoutBlueprint *layoutBlueprint; // @synthesize layoutBlueprint=_layoutBlueprint;
 @property(retain, nonatomic) SXLayoutAttributes *layoutAttributes; // @synthesize layoutAttributes=_layoutAttributes;
@@ -49,7 +51,7 @@
 - (_Bool)isExecuting;
 - (_Bool)isAsynchronous;
 - (void)start;
-- (id)initWithViewportSize:(struct CGSize)arg1 constrainedToWidth:(double)arg2 layoutDataProvider:(id)arg3 dynamicAdController:(id)arg4;
+- (id)initWithViewportSize:(struct CGSize)arg1 constrainedToWidth:(double)arg2 layoutDataProvider:(id)arg3 componentSizerEngine:(id)arg4 dynamicAdController:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

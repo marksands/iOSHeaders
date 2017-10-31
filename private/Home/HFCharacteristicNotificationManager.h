@@ -7,22 +7,27 @@
 #import "NSObject.h"
 
 #import "HFHomeManagerObserver.h"
+#import "HFHomeObserver.h"
 
 @class HMHome, NSDate, NSMutableSet, NSString;
 
-@interface HFCharacteristicNotificationManager : NSObject <HFHomeManagerObserver>
+@interface HFCharacteristicNotificationManager : NSObject <HFHomeManagerObserver, HFHomeObserver>
 {
+    _Bool _hasRegisteredForMediaAccessoryControl;
     NSDate *_lastNotificationsEnableRequestDate;
     NSMutableSet *_notificationsEnabledReasons;
     HMHome *_notificationsEnabledHome;
 }
 
 + (id)sharedManager;
+@property(nonatomic) _Bool hasRegisteredForMediaAccessoryControl; // @synthesize hasRegisteredForMediaAccessoryControl=_hasRegisteredForMediaAccessoryControl;
 @property(retain, nonatomic) HMHome *notificationsEnabledHome; // @synthesize notificationsEnabledHome=_notificationsEnabledHome;
 @property(readonly, nonatomic) NSMutableSet *notificationsEnabledReasons; // @synthesize notificationsEnabledReasons=_notificationsEnabledReasons;
 @property(retain, nonatomic) NSDate *lastNotificationsEnableRequestDate; // @synthesize lastNotificationsEnableRequestDate=_lastNotificationsEnableRequestDate;
 - (void).cxx_destruct;
 - (void)_updateNotificationsEnabled;
+- (void)home:(id)arg1 didRemoveAccessory:(id)arg2;
+- (void)home:(id)arg1 didAddAccessory:(id)arg2;
 - (void)homeKitDispatcher:(id)arg1 manager:(id)arg2 didChangeHome:(id)arg3;
 - (void)homeManagerDidFinishInitialDatabaseLoad:(id)arg1;
 @property(readonly, nonatomic) _Bool notificationsEnabled;

@@ -76,6 +76,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)canSwipeToDismiss;
 - (_Bool)shouldAcceptTouch:(id)arg1 ofGestureRecognizer:(id)arg2;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (_Bool)automaticallyUpdateScrollViewIndicatorInset;
 - (_Bool)automaticallyUpdateScrollViewContentInset;
 - (_Bool)automaticallyUpdateScrollViewContentOffset;
 - (id)scrollView;

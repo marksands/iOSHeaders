@@ -110,6 +110,7 @@
 - (id)oldestMessageInMailbox:(id)arg1;
 - (void)setMostRecentStatusCount:(unsigned long long)arg1 forMailbox:(id)arg2;
 - (unsigned long long)mostRecentStatusCountForMailbox:(id)arg1;
+- (void)adjustLastSyncStatusCountBy:(long long)arg1 forMailbox:(id)arg2;
 - (void)setLastSyncAndMostRecentStatusCount:(unsigned long long)arg1 forMailbox:(id)arg2;
 - (long long)statusCountDeltaForMailbox:(id)arg1;
 - (void)setServerUnreadOnlyOnServerCount:(unsigned long long)arg1 forMailbox:(id)arg2;

@@ -53,7 +53,6 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(retain, nonatomic) id secondaryValue;
-@property(nonatomic) long long sizeSubclass;
 @property(readonly) Class superclass;
 
 @end

@@ -31,6 +31,7 @@
 @property(nonatomic) unsigned long long attributeTokenCount; // @synthesize attributeTokenCount=_attributeTokenCount;
 @property(nonatomic) _Bool matchOncePerTerm; // @synthesize matchOncePerTerm=_matchOncePerTerm;
 - (void).cxx_destruct;
+- (unsigned long long)evaluateAttribute:(id)arg1 ignoreSubtokens:(_Bool)arg2 withFuzzyHandler:(CDUnknownBlockType)arg3;
 - (unsigned long long)evaluateAttribute:(id)arg1 ignoreSubtokens:(_Bool)arg2 withHandler:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) NSArray *queryTerms;
 - (void)dealloc;

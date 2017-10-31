@@ -13,6 +13,7 @@
 - (void)userEventOccurredWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)isMagnifierVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)launchMagnifierAppWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
+- (void)reactivateInCallServiceWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)forceLoadGAXBundleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (NSArray *)runningAppProcessesWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (id)focusedAppProcessWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
@@ -86,6 +87,8 @@
 - (_Bool)handleToggleIncomingCallWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)isVoiceControlRunningWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)hideAlertWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
+- (void)serverInstance:(_AXSpringBoardServerInstance *)arg1 hideRemoteViewType:(long long)arg2 withData:(id)arg3;
+- (void)serverInstance:(_AXSpringBoardServerInstance *)arg1 showRemoteViewType:(long long)arg2 withData:(id)arg3;
 - (void)serverInstance:(_AXSpringBoardServerInstance *)arg1 showAlertType:(long long)arg2 withHandler:(void (^)(long long))arg3 withData:(id)arg4;
 @end
 

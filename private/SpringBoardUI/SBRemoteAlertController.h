@@ -26,6 +26,7 @@
 + (_Bool)isDefinition:(id)arg1 allowedForAuditToken:(id)arg2;
 - (void).cxx_destruct;
 - (void)remoteAlert:(id)arg1 didTerminateWithError:(id)arg2;
+- (void)remoteAlertDidRequestInvalidation:(id)arg1;
 - (void)remoteAlertDidRequestDismissal:(id)arg1;
 - (void)remoteAlertDidDeactivate:(id)arg1;
 - (void)remoteAlertDidActivate:(id)arg1;

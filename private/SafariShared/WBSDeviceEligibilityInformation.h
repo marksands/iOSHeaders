@@ -6,22 +6,23 @@
 
 #import "NSObject.h"
 
-@class NSDate;
+@class NSArray, NSDate;
 
 @interface WBSDeviceEligibilityInformation : NSObject
 {
+    _Bool _hasWindowsDevices;
     NSDate *_dateOfLatestDAVAccessByIneligibleWindowsDevice;
-    unsigned long long _numberOfPotentiallyEligibleDevices;
-    unsigned long long _numberOfDevicesPotentiallyEligibleAfterUpdate;
+    NSArray *_devices;
 }
 
-@property(readonly, nonatomic) unsigned long long numberOfDevicesPotentiallyEligibleAfterUpdate; // @synthesize numberOfDevicesPotentiallyEligibleAfterUpdate=_numberOfDevicesPotentiallyEligibleAfterUpdate;
-@property(readonly, nonatomic) unsigned long long numberOfPotentiallyEligibleDevices; // @synthesize numberOfPotentiallyEligibleDevices=_numberOfPotentiallyEligibleDevices;
+@property(readonly, nonatomic) _Bool hasWindowsDevices; // @synthesize hasWindowsDevices=_hasWindowsDevices;
+@property(readonly, nonatomic) NSArray *devices; // @synthesize devices=_devices;
 @property(readonly, nonatomic) NSDate *dateOfLatestDAVAccessByIneligibleWindowsDevice; // @synthesize dateOfLatestDAVAccessByIneligibleWindowsDevice=_dateOfLatestDAVAccessByIneligibleWindowsDevice;
 - (void).cxx_destruct;
 - (id)description;
+- (CDStruct_4bcfbbae)potentiallyEligibleDevicesWithEligibleOperatingSystemVersionRanges:(id)arg1;
 - (id)initWithDeviceListResponseDictionary:(id)arg1;
-- (id)initWithDateOfLatestDAVAccessByIneligibleWindowsDevice:(id)arg1 numberOfPotentiallyEligibleDevices:(unsigned long long)arg2 numberOfDevicesPotentiallyEligibleAfterUpdate:(unsigned long long)arg3;
+- (id)initWithDateOfLatestDAVAccessByIneligibleWindowsDevice:(id)arg1 devices:(id)arg2 hasWindowsDevices:(_Bool)arg3;
 
 @end
 

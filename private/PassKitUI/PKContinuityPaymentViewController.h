@@ -70,6 +70,7 @@
 - (void)authorizationDidAuthorizePaymentCompleteWithResult:(id)arg1;
 - (void)_processClientCallback:(id)arg1;
 - (_Bool)paymentAuthorizationStateMachine:(id)arg1 didTransitionFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3 withParam:(id)arg4;
+- (void)invalidate;
 - (void)updatePaymentWithClientUpdate:(id)arg1;
 - (void)_updateCardView;
 - (void)_timeoutFired;

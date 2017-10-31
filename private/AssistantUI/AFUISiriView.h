@@ -21,7 +21,6 @@
     _Bool _safeAreaInsetsSuspended;
     UIView *_dimmingAndLockContainer;
     UIView *_statusViewContainer;
-    UIView<SiriUISiriStatusViewProtocol> *_siriStatusView;
     SiriUIAudioRoutePickerButton *_audioRoutePickerButton;
     SiriUIHelpButton *_helpButton;
     SiriUIContentButton *_reportBugButton;
@@ -51,11 +50,13 @@
     id <AFUISiriViewDelegate> _delegate;
     long long _siriSessionState;
     long long _mode;
+    UIView<SiriUISiriStatusViewProtocol> *_siriStatusView;
     UIView *_frozenBackdropSnapshotView;
 }
 
 + (void)_animateView:(id)arg1 fromYPosition:(double)arg2 toYPosition:(double)arg3 fade:(long long)arg4 completion:(CDUnknownBlockType)arg5;
 @property(retain, nonatomic) UIView *frozenBackdropSnapshotView; // @synthesize frozenBackdropSnapshotView=_frozenBackdropSnapshotView;
+@property(retain, nonatomic) UIView<SiriUISiriStatusViewProtocol> *siriStatusView; // @synthesize siriStatusView=_siriStatusView;
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
 @property(nonatomic) long long siriSessionState; // @synthesize siriSessionState=_siriSessionState;
 @property(nonatomic, getter=isInFluidDismissal) _Bool inFluidDismissal; // @synthesize inFluidDismissal=_inFluidDismissal;
@@ -79,7 +80,7 @@
 - (void)siriStatusViewWasTapped:(id)arg1;
 - (float)audioLevelForSiriStatusView:(id)arg1;
 - (void)cancelShowingPasscodeUnlock;
-- (void)showPasscodeUnlockWithStatusText:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 unlockCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)showPasscodeUnlockWithStatusText:(id)arg1 subTitle:(id)arg2 completionHandler:(CDUnknownBlockType)arg3 unlockCompletionHandler:(CDUnknownBlockType)arg4;
 - (void)_configureEyesFreeLogo;
 - (_Bool)_helpButtonIsVisible;
 - (void)pulseHelpButton;

@@ -57,7 +57,8 @@ __attribute__((visibility("hidden")))
 - (void)describeInBuffer:(id)arg1 aggregateOfJobsMatching:(id)arg2 context:(id)arg3;
 - (id)descriptionForJobsMatching:(id)arg1 context:(id)arg2;
 - (id)descriptionForJobsMatching:(id)arg1 ordering:(id)arg2 additionalColumns:(id)arg3 additionalValuesHandler:(CDUnknownBlockType)arg4 context:(id)arg5;
-- (_Bool)haveIdleJobsMatching:(id)arg1;
+- (int)jobStateFor:(id)arg1;
+- (_Bool)haveActiveJobsMatching:(id)arg1;
 - (_Bool)canRetryJobWithID:(id)arg1;
 - (id)initWithSession:(id)arg1 name:(id)arg2 tableName:(id)arg3;
 @property(readonly) _Bool closed;

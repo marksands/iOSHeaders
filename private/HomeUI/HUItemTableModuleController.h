@@ -6,15 +6,25 @@
 
 #import "NSObject.h"
 
-@class HFItemModule;
+#import "HUItemTableTextEditingController.h"
 
-@interface HUItemTableModuleController : NSObject
+@class HFItemModule, NSString;
+
+@interface HUItemTableModuleController : NSObject <HUItemTableTextEditingController>
 {
     HFItemModule *_module;
 }
 
 @property(readonly, nonatomic) HFItemModule *module; // @synthesize module=_module;
 - (void).cxx_destruct;
+- (id)textFieldForVisibleItem:(id)arg1;
+- (void)textFieldDidEndEditing:(id)arg1 item:(id)arg2;
+- (void)textFieldDidBeginEditing:(id)arg1 item:(id)arg2;
+- (void)textDidChange:(id)arg1 forTextField:(id)arg2 item:(id)arg3;
+- (id)currentTextForTextField:(id)arg1 item:(id)arg2;
+- (id)placeholderTextForTextField:(id)arg1 item:(id)arg2;
+- (id)defaultTextForTextField:(id)arg1 item:(id)arg2;
+- (_Bool)shouldManageTextFieldForItem:(id)arg1;
 - (long long)rowAnimationForOperationType:(unsigned long long)arg1 item:(id)arg2 suggestedAnimation:(long long)arg3;
 - (void)accessoryButtonTappedForItem:(id)arg1;
 - (unsigned long long)didSelectItem:(id)arg1;
@@ -24,6 +34,12 @@
 - (void)setupCell:(id)arg1 forItem:(id)arg2;
 - (Class)cellClassForItem:(id)arg1;
 - (id)initWithModule:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

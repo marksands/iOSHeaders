@@ -6,17 +6,26 @@
 
 #import "IKJSObject.h"
 
+#import "WLKNotificationCenterDelegate.h"
 #import "WLKUINotificationCenter.h"
 
-@interface WLKUINotificationCenter : IKJSObject <WLKUINotificationCenter>
+@class NSString, WLKNotificationCenter;
+
+@interface WLKUINotificationCenter : IKJSObject <WLKNotificationCenterDelegate, WLKUINotificationCenter>
 {
-    id <WLKUINotificationsImpl> _impl;
+    WLKNotificationCenter *_center;
 }
 
 - (void).cxx_destruct;
 - (void)handleAction:(id)arg1;
 - (void)post:(id)arg1:(id)arg2:(id)arg3:(id)arg4;
 - (id)initWithAppContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

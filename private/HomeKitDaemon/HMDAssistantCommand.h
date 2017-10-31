@@ -49,7 +49,12 @@
 - (void)handleSetColor:(id)arg1 forObjects:(id)arg2 service:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)readRequestsForCharacteristic:(id)arg1;
 - (id)addStatusCharacteristicsIfNeeded:(id)arg1;
+- (void)addLinkedServiceCharacteristicsFor:(id)arg1 toCollection:(id)arg2 assistantObjects:(id)arg3;
+- (void)addBridgedAcessoryCharacteristicsFor:(id)arg1 toCollection:(id)arg2 assistantObjects:(id)arg3;
+- (id)addCharacteristicsFromRelatedServicesFor:(id)arg1 assistantObjects:(id)arg2;
+- (void)addCharacteristicWithType:(id)arg1 fromService:(id)arg2 toCollection:(id)arg3 assistantObjects:(id)arg4;
 - (void)addActivationCharacteristicsIfNeeded:(id)arg1 forCharacteristic:(id)arg2;
+- (void)addIfNeededActivationCharacteristic:(id)arg1 fromService:(id)arg2 toCollection:(id)arg3;
 - (id)handleReadWriteResponses:(id)arg1 error:(id)arg2 forAction:(id)arg3 inServiceType:(id)arg4 results:(id)arg5 forObjects:(id)arg6;
 - (_Bool)populateColorResult:(id)arg1 serviceType:(id)arg2 service:(id)arg3 action:(id)arg4 responses:(id)arg5 forObjects:(id)arg6;
 - (id)parseColorEncoding:(id)arg1;
@@ -71,7 +76,7 @@
 - (void)_logEvent:(id)arg1;
 - (id)filterObjects:(id)arg1 forCharacteristics:(id)arg2;
 - (id)filterObjects:(id)arg1 forCharacteristicTypes:(id)arg2;
-- (id)objectsWithSearchFilter:(id)arg1 inHome:(id)arg2;
+- (id)objectsWithSearchFilter:(id)arg1 inHome:(id)arg2 overrideServiceTypeIfNeeded:(id *)arg3;
 - (id)getoverridingHomeUUIDFromName:(id)arg1;
 - (id)filterObjects:(id)arg1 byCharacteristicType:(id)arg2;
 - (id)filterObjects:(id)arg1 byAttribute:(id)arg2 forActionType:(id)arg3;

@@ -77,6 +77,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)_tableView:(id)arg1 canFocusRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didEndSwipingRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willBeginSwipingRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 shouldHaveFullLengthBottomSeparatorForSection:(long long)arg2;
+- (_Bool)tableView:(id)arg1 shouldHaveFullLengthTopSeparatorForSection:(long long)arg2;
 - (_Bool)tableView:(id)arg1 shouldDrawBottomSeparatorForSection:(long long)arg2;
 - (_Bool)tableView:(id)arg1 shouldDrawTopSeparatorForSection:(long long)arg2;
 - (void)tableView:(id)arg1 swipeAccessoryButtonPushedForRowAtIndexPath:(id)arg2;

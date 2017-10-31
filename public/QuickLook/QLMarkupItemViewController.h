@@ -9,7 +9,7 @@
 #import "MarkupViewControllerDelegate.h"
 #import "PDFViewDelegate.h"
 
-@class NSString, QLDelegateProxy, QLMUViewController;
+@class NSNumber, NSString, QLDelegateProxy, QLMUViewController;
 
 __attribute__((visibility("hidden")))
 @interface QLMarkupItemViewController : QLItemViewController <MarkupViewControllerDelegate, PDFViewDelegate>
@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     _Bool _hasChangesToUndo;
     _Bool _hasChangesToRedo;
     QLMUViewController *_markupViewController;
+    NSNumber *_shouldAllowEditingContents;
     double _topInset;
     QLDelegateProxy *_pdfDocumentDelegateProxy;
 }
@@ -27,6 +28,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool hasChangesToUndo; // @synthesize hasChangesToUndo=_hasChangesToUndo;
 @property(retain, nonatomic) QLDelegateProxy *pdfDocumentDelegateProxy; // @synthesize pdfDocumentDelegateProxy=_pdfDocumentDelegateProxy;
 @property double topInset; // @synthesize topInset=_topInset;
+@property(retain, nonatomic) NSNumber *shouldAllowEditingContents; // @synthesize shouldAllowEditingContents=_shouldAllowEditingContents;
 @property(retain, nonatomic) QLMUViewController *markupViewController; // @synthesize markupViewController=_markupViewController;
 - (void).cxx_destruct;
 - (void)controllerWantsToShowShareSheet:(id)arg1;

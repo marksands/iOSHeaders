@@ -18,7 +18,6 @@
     _Bool _prioritize;
     _Bool _cancelOnHTTPErrors;
     _Bool _extendedCertificateValidationRequired;
-    _Bool _shouldRetry;
     NSProgress *_progress;
     unsigned long long _maxRetryCount;
     ICRequestContext *_requestContext;
@@ -36,6 +35,7 @@
     NSURL *_responseDataURL;
     NSError *_error;
     NSDictionary *_avDownloadOptions;
+    long long _handlingType;
     double _lastUpdateTime;
     double _lastProgressUpdateTime;
     CDUnknownBlockType _completionHandler;
@@ -44,7 +44,7 @@
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(nonatomic) double lastProgressUpdateTime; // @synthesize lastProgressUpdateTime=_lastProgressUpdateTime;
 @property(nonatomic) double lastUpdateTime; // @synthesize lastUpdateTime=_lastUpdateTime;
-@property(nonatomic) _Bool shouldRetry; // @synthesize shouldRetry=_shouldRetry;
+@property(nonatomic) long long handlingType; // @synthesize handlingType=_handlingType;
 @property(retain, nonatomic) NSDictionary *avDownloadOptions; // @synthesize avDownloadOptions=_avDownloadOptions;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSURL *responseDataURL; // @synthesize responseDataURL=_responseDataURL;

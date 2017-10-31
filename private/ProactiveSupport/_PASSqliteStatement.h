@@ -21,6 +21,7 @@
 
 @property(readonly, nonatomic) struct sqlite3_stmt *stmt; // @synthesize stmt=_stmt;
 - (void).cxx_destruct;
+- (_Bool)isColumnNull:(int)arg1;
 - (double)getDoubleForColumn:(int)arg1;
 - (long long)getInt64ForColumn:(int)arg1;
 - (long long)getIntegerForColumn:(int)arg1;

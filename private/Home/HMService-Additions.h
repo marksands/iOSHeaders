@@ -11,9 +11,11 @@
 + (id)hf_roomsForServices:(id)arg1;
 + (id)hf_standardServices;
 - (_Bool)hf_canGroupWithService:(id)arg1;
+- (id)hf_parentService;
 - (_Bool)_hf_isDirectlyOrIndirectlyLinkedToService:(id)arg1;
 - (id)hf_childServices;
-- (id)hf_linkedServiceOfType:(id)arg1;
+- (id)hf_childServicesOfType:(id)arg1;
+- (id)_hf_firstLinkedServiceOfType:(id)arg1;
 - (id)hf_labelNamespaceCharacteristic;
 - (id)hf_labelIndexCharacteristic;
 - (unsigned long long)hf_fallbackProgrammableSwitchIndex;

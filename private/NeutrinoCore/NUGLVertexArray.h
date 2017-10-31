@@ -14,7 +14,6 @@
     NSArray *_locations;
     _Bool _needsUpdate;
     NUGLVertexLayout *_layout;
-    long long _mode;
     long long _capacity;
     long long _count;
     NSArray *_attributeLocations;
@@ -23,9 +22,9 @@
 @property(copy, nonatomic) NSArray *attributeLocations; // @synthesize attributeLocations=_attributeLocations;
 @property(readonly, nonatomic) long long count; // @synthesize count=_count;
 @property(readonly, nonatomic) long long capacity; // @synthesize capacity=_capacity;
-@property(readonly, nonatomic) long long mode; // @synthesize mode=_mode;
 @property(readonly, nonatomic) NUGLVertexLayout *layout; // @synthesize layout=_layout;
 - (void).cxx_destruct;
+- (void)_growToCapacity:(long long)arg1 context:(id)arg2;
 - (struct _NSRange)writeVertexData:(long long)arg1 context:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (struct _NSRange)bufferRangeForVertexRange:(struct _NSRange)arg1;
 - (void)readVertexDataInRange:(struct _NSRange)arg1 context:(id)arg2 block:(CDUnknownBlockType)arg3;
@@ -34,8 +33,7 @@
 - (void)delete;
 - (void)generate:(id)arg1;
 - (void)reset;
-@property(readonly) unsigned int glMode;
-- (id)initWithLayout:(id)arg1 mode:(long long)arg2 capacity:(long long)arg3;
+- (id)initWithLayout:(id)arg1 capacity:(long long)arg2;
 - (id)init;
 
 @end

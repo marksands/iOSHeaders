@@ -7,6 +7,7 @@
 #import "NSArray.h"
 
 @interface NSArray (HMFoundation)
+- (_Bool)hmf_objectsAreKindOfClass:(Class)arg1;
 @property(readonly, getter=hmf_isEmpty) _Bool hmf_empty;
 @end
 

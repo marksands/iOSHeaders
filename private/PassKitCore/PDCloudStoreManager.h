@@ -62,13 +62,13 @@
 - (id)_originDeviceIDForCloudStoreRecord:(id)arg1;
 - (id)_passUniqueIdentifierForCloudStoreRecord:(id)arg1;
 - (_Bool)_canFormTransactionFromCloudStoreRecord:(id)arg1;
-- (id)_parseRecords:(id)arg1 shouldUpdateLocalDatabase:(_Bool)arg2;
+- (id)_parseRecords:(id)arg1 shouldUpdateLocalDatabase:(_Bool)arg2 updateReasons:(unsigned long long)arg3;
 - (id)_recordNamesAssociatedWithRecordName:(id)arg1 inZone:(id)arg2;
 - (id)_strippedRecordName:(id)arg1;
 - (id)_serviceIdentifierForRecord:(id)arg1;
 - (id)_serviceIdentifierForRecordType:(id)arg1 recordID:(id)arg2;
 - (_Bool)_isTransactionItemFromRecordType:(id)arg1;
-- (void)_fetchCounterpartRecordsWithFetchedRecords:(id)arg1 zone:(id)arg2 shouldUpdateLocalDatabase:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_fetchCounterpartRecordsWithFetchedRecords:(id)arg1 zone:(id)arg2 shouldUpdateLocalDatabase:(_Bool)arg3 updateReasons:(unsigned long long)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)_saveServerFetchTimestamps;
 - (id)_cachedFetchTimestamps;
 - (id)_serverChangeTokenFromArchiveData:(id)arg1;
@@ -90,8 +90,10 @@
 - (id)cloudStoreSpecificKeysForItem:(id)arg1;
 - (void)initialCloudDatabaseSetupWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchAndStoreRecordsForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_fetchAndStoreChangesWithForceFetch:(_Bool)arg1 updateReasons:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)fetchAndStoreChangesWithForceFetch:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)insertOrUpdatePaymentTransaction:(id)arg1 withOriginDeviceID:(id)arg2 forPassUniqueIdentifier:(id)arg3 paymentApplication:(id)arg4 withInsertionMode:(unsigned long long)arg5 performTruncation:(_Bool)arg6;
+- (void)_fetchAndStoreChangesWithUpdateReasons:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAndStoreChangesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)removeItemsWithRecordNames:(id)arg1 itemClass:(Class)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updateCloudStoreWithLocalItems:(id)arg1 recordSpecificKeys:(id)arg2 completion:(CDUnknownBlockType)arg3;

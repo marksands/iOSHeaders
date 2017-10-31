@@ -49,6 +49,7 @@ __attribute__((visibility("hidden")))
 - (void)_enumerateStoresUsingBlock:(CDUnknownBlockType)arg1;
 - (id)_allStoreResultsWithError:(id *)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)requestAccessForEntityType:(long long)arg1;
+- (id)mainContactStore;
 @property(readonly, nonatomic) __weak CNContactStore *mainStore;
 - (_Bool)store:(id)arg1 supportsSelector:(SEL)arg2;
 - (id)initWithContactStores:(id)arg1;

@@ -14,12 +14,16 @@
     HFHomeKitDispatcher *_homeKitDispatcher;
 }
 
++ (id)homeKitObjectURLForDestination:(unsigned long long)arg1 secondaryDestination:(unsigned long long)arg2 UUID:(id)arg3;
++ (id)_URLComponentsForDestination:(unsigned long long)arg1;
 + (id)aboutResidentDeviceURL;
 @property(readonly, nonatomic) HFHomeKitDispatcher *homeKitDispatcher; // @synthesize homeKitDispatcher=_homeKitDispatcher;
 @property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;
 - (void).cxx_destruct;
 - (id)_homeKitIdentifier;
+- (id)description;
 @property(readonly, nonatomic) NAFuture *homeKitObjectFuture; // @dynamic homeKitObjectFuture;
+@property(readonly, nonatomic) unsigned long long secondaryDestination;
 @property(readonly, nonatomic) unsigned long long destination; // @dynamic destination;
 - (id)initWithURL:(id)arg1 homeKitDispatcher:(id)arg2;
 - (id)initWithURL:(id)arg1;

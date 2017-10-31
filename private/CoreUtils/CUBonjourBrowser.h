@@ -47,7 +47,7 @@
 - (void)invalidate;
 - (void)_interrupted;
 - (void)activate;
-- (id)detailedDescription;
+- (id)descriptionWithLevel:(int)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)init;

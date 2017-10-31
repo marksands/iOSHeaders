@@ -17,9 +17,9 @@
 
 @property(retain) id <NUSurfaceImage> image; // @synthesize image=_image;
 - (void).cxx_destruct;
+@property(readonly, copy) NSString *debugDescription;
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) NUImageGeometry *geometry;
 @property(readonly) unsigned long long hash;

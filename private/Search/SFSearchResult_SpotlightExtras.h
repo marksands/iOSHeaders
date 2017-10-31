@@ -8,21 +8,22 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSData, NSDate, NSMutableArray, NSNumber, NSString, PRSL2FeatureVector, PRSL3FeatureVector, PRSRankingItem;
+@class NSArray, NSData, NSDate, NSMutableArray, NSNumber, NSString, PRSL2FeatureVector, PRSL3FeatureVector, PRSRankingItem, SFPunchout;
 
 @interface SFSearchResult_SpotlightExtras : SFSearchResult <NSSecureCoding>
 {
+    SFPunchout *_cachedPunchout;
     _Bool _coreSpotlightSourced;
     _Bool _isParsecResult;
     _Bool _hasAssociatedUserActivity;
+    float _l3score;
+    float _l2score;
     NSString *_queryString;
     NSString *_protectionClass;
     NSNumber *_fileIdentifier;
     NSNumber *_parentFileIdentifier;
     NSString *_filename;
     NSNumber *_documentIdentifier;
-    double _l3score;
-    double _l2score;
     NSString *_launchString;
     NSArray *_launchDates;
     PRSL2FeatureVector *_L2FeatureVector;
@@ -64,8 +65,8 @@
 @property(retain, nonatomic) NSArray *launchDates; // @synthesize launchDates=_launchDates;
 @property(retain, nonatomic) NSString *launchString; // @synthesize launchString=_launchString;
 @property(nonatomic) _Bool isParsecResult; // @synthesize isParsecResult=_isParsecResult;
-@property(nonatomic) double l2score; // @synthesize l2score=_l2score;
-@property(nonatomic) double l3score; // @synthesize l3score=_l3score;
+@property(nonatomic) float l2score; // @synthesize l2score=_l2score;
+@property(nonatomic) float l3score; // @synthesize l3score=_l3score;
 @property(nonatomic) struct ranking_index_score_t score; // @synthesize score=_score;
 @property(retain, nonatomic) NSNumber *documentIdentifier; // @synthesize documentIdentifier=_documentIdentifier;
 @property(retain, nonatomic) NSString *filename; // @synthesize filename=_filename;
@@ -75,6 +76,7 @@
 @property(retain, nonatomic) NSString *protectionClass; // @synthesize protectionClass=_protectionClass;
 @property(retain, nonatomic) NSString *queryString; // @synthesize queryString=_queryString;
 - (void).cxx_destruct;
+- (id)punchout;
 - (id)debugDescription;
 - (void)setUrl:(id)arg1;
 - (long long)compare:(id)arg1;

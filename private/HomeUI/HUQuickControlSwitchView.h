@@ -8,24 +8,39 @@
 
 #import "HUQuickControlControllableView.h"
 
-@class HUQuickControlSwitchViewProfile, NSString;
+@class HUDynamicFormattingLabel, HUIconView, HUQuickControlSwitchViewProfile, NSLayoutConstraint, NSString;
 
 @interface HUQuickControlSwitchView : UIView <HUQuickControlControllableView>
 {
     HUQuickControlSwitchViewProfile *_profile;
     UIView *_wellView;
     UIView *_knobView;
+    HUDynamicFormattingLabel *_supplementaryValueLabel;
+    HUIconView *_decorationIconView;
     double _switchValue;
+    NSLayoutConstraint *_aspectRatioConstraint;
 }
 
++ (_Bool)requiresConstraintBasedLayout;
+@property(retain, nonatomic) NSLayoutConstraint *aspectRatioConstraint; // @synthesize aspectRatioConstraint=_aspectRatioConstraint;
 @property(nonatomic) double switchValue; // @synthesize switchValue=_switchValue;
+@property(retain, nonatomic) HUIconView *decorationIconView; // @synthesize decorationIconView=_decorationIconView;
+@property(retain, nonatomic) HUDynamicFormattingLabel *supplementaryValueLabel; // @synthesize supplementaryValueLabel=_supplementaryValueLabel;
 @property(retain, nonatomic) UIView *knobView; // @synthesize knobView=_knobView;
 @property(retain, nonatomic) UIView *wellView; // @synthesize wellView=_wellView;
 @property(copy, nonatomic) HUQuickControlSwitchViewProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
+- (void)_createSupplementaryValueLabelIfNecessary;
+- (_Bool)_createDecorationIconViewIfNecessary;
+- (void)_updateSupplementaryValueLabelAnimated:(_Bool)arg1;
+- (void)_updateDecorationIconDescriptorAnimated:(_Bool)arg1;
 @property(retain, nonatomic) id value;
+- (struct CGPoint)_knobCenterForMetrics:(CDStruct_2418a849)arg1 switchValue:(double)arg2;
+- (struct CGSize)_knobSizeForMetrics:(CDStruct_2418a849)arg1;
+- (struct CGRect)_knobFrameForMetrics:(CDStruct_2418a849)arg1 switchValue:(double)arg2;
 - (void)layoutSubviews;
 - (struct CGSize)intrinsicContentSize;
+- (void)updateConstraints;
 - (id)initWithProfile:(id)arg1;
 
 // Remaining properties
@@ -33,7 +48,6 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(retain, nonatomic) id secondaryValue;
-@property(nonatomic) long long sizeSubclass;
 @property(readonly) Class superclass;
 
 @end

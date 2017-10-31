@@ -42,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (id)primitiveValueForKey:(id)arg1;
 @property(readonly, nonatomic) _Bool hasPersistentChangedValues;
 @property(readonly, nonatomic) _Bool hasChanges;
+- (void)_setCommittedValues:(id)arg1 registeringUndo:(_Bool)arg2;
 - (id)initWithItemKind:(id)arg1 insertIntoEditingContext:(id)arg2;
 - (id)init;
 

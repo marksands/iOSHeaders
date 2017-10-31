@@ -6,7 +6,7 @@
 
 #import "PLMomentGenerationDataManagement.h"
 
-@class NSDictionary, NSOrderedSet;
+@class NSDictionary;
 
 @protocol PLMomentGenerationDataManagement_Private <PLMomentGenerationDataManagement>
 
@@ -16,8 +16,5 @@
 - (void)refreshAllObjects;
 - (void)refreshObject:(id)arg1 mergeChanges:(_Bool)arg2;
 - (void)invalidateLocationDataForAssetsInMoment:(id <PLMomentData>)arg1;
-- (void)insertMomentIntoAllMoments:(id <PLMomentData>)arg1 atIndex:(unsigned long long)arg2;
-- (void)removeMomentFromAllMoments:(id <PLMomentData>)arg1;
-- (NSOrderedSet *)allMomentsInLibrary;
 @end
 

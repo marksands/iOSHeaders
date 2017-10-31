@@ -9,6 +9,6 @@
 @class INIntent, INIntentSlotDescription, NSData;
 
 @protocol INIntentResolutionResultDataProviding <NSObject>
-- (NSData *)resolutionResultDataForIntent:(INIntent *)arg1 intentSlotDescription:(INIntentSlotDescription *)arg2;
+- (NSData *)resolutionResultDataForIntent:(INIntent *)arg1 intentSlotDescription:(INIntentSlotDescription *)arg2 error:(id *)arg3;
 @end
 

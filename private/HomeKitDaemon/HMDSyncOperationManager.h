@@ -21,7 +21,6 @@
     HMDSyncOperationQueue *_cloudPushOperations;
     NSMutableArray *_cloudVerifyAccountOperations;
     HMDSyncOperationQueue *_cloudFetchOperations;
-    NSMutableArray *_idsMergeOperations;
     NSMutableArray *_cloudZonePushOperations;
     NSMutableDictionary *_cloudZonePushOperationsMap;
     NSMutableArray *_cloudZoneFetchOperations;
@@ -40,7 +39,6 @@
 @property(retain, nonatomic) NSMutableArray *cloudZoneFetchOperations; // @synthesize cloudZoneFetchOperations=_cloudZoneFetchOperations;
 @property(retain, nonatomic) NSMutableDictionary *cloudZonePushOperationsMap; // @synthesize cloudZonePushOperationsMap=_cloudZonePushOperationsMap;
 @property(retain, nonatomic) NSMutableArray *cloudZonePushOperations; // @synthesize cloudZonePushOperations=_cloudZonePushOperations;
-@property(retain, nonatomic) NSMutableArray *idsMergeOperations; // @synthesize idsMergeOperations=_idsMergeOperations;
 @property(retain, nonatomic) HMDSyncOperationQueue *cloudFetchOperations; // @synthesize cloudFetchOperations=_cloudFetchOperations;
 @property(retain, nonatomic) NSMutableArray *cloudVerifyAccountOperations; // @synthesize cloudVerifyAccountOperations=_cloudVerifyAccountOperations;
 @property(retain, nonatomic) HMDSyncOperationQueue *cloudPushOperations; // @synthesize cloudPushOperations=_cloudPushOperations;

@@ -27,6 +27,11 @@
 - (id)createCloudZoneChangeTemporaryCache:(_Bool)arg1;
 - (_Bool)isRootRecord:(id)arg1;
 - (void)addCloudRecord:(id)arg1 ownerID:(id)arg2;
+- (void)markMigratedObjectsAsMigrated;
+- (void)fetchMigratedObjects:(CDUnknownBlockType)arg1;
+- (void)cloudRecordsForParentID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)cloudRecordWithObjectID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)cloudRecordWithObjectIDs:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)description;
 
 @end

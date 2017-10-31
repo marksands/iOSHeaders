@@ -8,7 +8,7 @@
 
 #import "RPCompanionLinkXPCServerInterface.h"
 
-@class NSMutableSet, NSObject<OS_dispatch_queue>, NSXPCConnection, RPCompanionLinkClient, RPCompanionLinkDaemon;
+@class NSObject<OS_dispatch_queue>, NSXPCConnection, RPCompanionLinkClient, RPCompanionLinkDaemon;
 
 __attribute__((visibility("hidden")))
 @interface RPCompanionLinkXPCConnection : NSObject <RPCompanionLinkXPCServerInterface>
@@ -18,8 +18,8 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     _Bool _entitled;
     _Bool _localDeviceUpdated;
-    NSMutableSet *_registeredEventIDs;
-    NSMutableSet *_registeredRequestIDs;
+    struct NSMutableDictionary *_registeredEvents;
+    struct NSMutableDictionary *_registeredRequests;
     NSXPCConnection *_xpcCnx;
     unsigned int _xpcID;
 }
@@ -32,12 +32,12 @@ __attribute__((visibility("hidden")))
 - (void)companionLinkSendEventID:(id)arg1 event:(id)arg2 destinationID:(id)arg3 options:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)companionLinkDeregisterEventID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)companionLinkRegisterEventID:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)companionLinkInvalidateTransactionID:(id)arg1;
-- (void)companionLinkActivateTransactionID:(id)arg1 label:(id)arg2;
 - (void)companionLinkActivateClient:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)companionLinkInvalidateAssertion:(id)arg1;
+- (void)companionLinkActivateAssertion:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)_entitledAndReturnError:(id *)arg1;
 - (void)connectionInvalidated;
-- (id)initWithDaemon:(id)arg1 xpcConnection:(id)arg2;
+- (id)initWithDaemon:(id)arg1 xpcCnx:(id)arg2;
 
 @end
 

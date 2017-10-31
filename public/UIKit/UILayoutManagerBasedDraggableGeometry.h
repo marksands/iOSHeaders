@@ -24,7 +24,7 @@
 - (void).cxx_destruct;
 - (struct CGRect)_textRectForRange:(struct _NSRange)arg1 inView:(id)arg2;
 - (struct CGPoint)_textOriginOffsetForRange:(struct _NSRange)arg1 inView:(id)arg2;
-- (void)_renderTextInRange:(struct _NSRange)arg1 image:(out id *)arg2 boundingRectangles:(out id *)arg3 unified:(_Bool)arg4;
+- (void)_renderTextInRange:(struct _NSRange)arg1 image:(out id *)arg2 boundingRectangles:(out id *)arg3 forLifting:(_Bool)arg4;
 - (_Bool)_isUsableLink:(id)arg1;
 - (id)_textStorage;
 - (CDUnknownBlockType)_previewProviderForTextInRange:(struct _NSRange)arg1;

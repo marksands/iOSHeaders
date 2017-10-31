@@ -45,7 +45,7 @@
 - (void).cxx_destruct;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)contactStoreDidChange;
-- (_Bool)_locationIsValidToSend:(id)arg1;
+- (_Bool)locationIsValidToSend:(id)arg1;
 - (void)isSendingLocationUpdate:(CDUnknownBlockType)arg1;
 - (void)mostRecentLocationSentWithCompletion:(CDUnknownBlockType)arg1;
 - (long long)currentSOSInitiationState;
@@ -55,6 +55,7 @@
 - (void)willStartSendingLocationUpdate;
 - (_Bool)notificationEnabledAndContactsExist;
 - (void)sosPersistentTimerLocationMangerTimerFired:(id)arg1 location:(id)arg2;
+- (void)didDismissSOSBeforeSOSCall:(long long)arg1;
 - (void)dismissSOSWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateCurrentSOSInteractiveState:(long long)arg1;
 - (void)updateCurrentSOSInitiationState:(long long)arg1;

@@ -10,6 +10,8 @@
 
 @interface FCFeedViewportExpandGroupGapOperation : FCOperation
 {
+    _Bool _lightweightOnly;
+    id <FCAppConfiguration> _appConfiguration;
     FCCloudContext *_context;
     FCFeedViewport *_viewport;
     FCFeedDescriptor *_feedDescriptor;
@@ -34,18 +36,21 @@
 @property(retain, nonatomic) FCDateRange *refreshDateRange; // @synthesize refreshDateRange=_refreshDateRange;
 @property(retain, nonatomic) NSArray *feedGroupEmitters; // @synthesize feedGroupEmitters=_feedGroupEmitters;
 @property(copy, nonatomic) CDUnknownBlockType expandGapCompletionHandler; // @synthesize expandGapCompletionHandler=_expandGapCompletionHandler;
+@property _Bool lightweightOnly; // @synthesize lightweightOnly=_lightweightOnly;
 @property(nonatomic) long long gapExpansionPolicy; // @synthesize gapExpansionPolicy=_gapExpansionPolicy;
 @property(nonatomic) unsigned long long desiredHeadlineCount; // @synthesize desiredHeadlineCount=_desiredHeadlineCount;
 @property(copy, nonatomic) FCFeedViewportGap *gap; // @synthesize gap=_gap;
 @property(retain, nonatomic) FCFeedDescriptor *feedDescriptor; // @synthesize feedDescriptor=_feedDescriptor;
 @property(retain, nonatomic) FCFeedViewport *viewport; // @synthesize viewport=_viewport;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
+@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;
 - (id)_associatedForYouCatchUpOperationForEdition:(id)arg1;
 - (id)_groupsFromRefreshSessionContainingGap:(id)arg1 internalElements:(id)arg2;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;
 - (void)prepareOperation;
+- (_Bool)validateOperation;
 
 @end
 

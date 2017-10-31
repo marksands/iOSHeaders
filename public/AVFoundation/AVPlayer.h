@@ -15,6 +15,10 @@
     AVPlayerInternal *_player;
 }
 
++ (long long)availableHDRModes;
++ (void)registerForScreenConnectionChanges;
++ (void)fireAvailableHDRModesDidChangeNotification;
++ (void)checkForAvailableHDRModesChanges;
 + (_Bool)automaticallyNotifiesObserversOfUsesAirPlayVideoWhileAirPlayScreenIsActive;
 + (_Bool)automaticallyNotifiesObserversOfAirPlayVideoActive;
 + (_Bool)automaticallyNotifiesObserversOfUsesAudioOnlyModeForExternalPlayback;

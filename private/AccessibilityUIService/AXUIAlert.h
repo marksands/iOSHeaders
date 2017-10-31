@@ -6,11 +6,16 @@
 
 #import "UIView.h"
 
+@class AXUIAlertContext;
+
 @interface AXUIAlert : UIView
 {
+    AXUIAlertContext *_context;
 }
 
 + (id)alertWithType:(unsigned long long)arg1 text:(id)arg2 subtitleText:(id)arg3 iconImage:(id)arg4 styleProvider:(id)arg5;
+@property(nonatomic) __weak AXUIAlertContext *context; // @synthesize context=_context;
+- (void).cxx_destruct;
 - (void)addToContainerView:(id)arg1;
 
 @end

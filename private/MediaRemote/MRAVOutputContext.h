@@ -8,7 +8,6 @@
 
 @class AVOutputContext, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
-__attribute__((visibility("hidden")))
 @interface MRAVOutputContext : NSObject
 {
     NSArray *_outputDevices;
@@ -19,6 +18,7 @@ __attribute__((visibility("hidden")))
     AVOutputContext *_avOutputContext;
 }
 
++ (id)createOutputContextWithUniqueIdentifier:(id)arg1;
 + (id)sharedSystemScreenContext;
 + (id)sharedSystemAudioContext;
 + (id)sharedAudioPresentationContext;
@@ -31,9 +31,13 @@ __attribute__((visibility("hidden")))
 - (id)_pendingModifications;
 - (void)_reloadOutputDevices;
 - (void)_unregisterNotifications;
+- (void)_handleOutputDeviceVolumeDidChangeNotification:(id)arg1;
+- (void)_handleOutputContextVolumeDidChangeNotification:(id)arg1;
 - (void)_registerNotifications;
 - (void)_outputContextChangeInitiatedNotification:(id)arg1;
 - (void)_outputDevicesDidChangeNotification:(id)arg1;
+@property(nonatomic) float volume;
+@property(readonly, nonatomic, getter=isVolumeControlAvailable) _Bool volumeControlAvailable;
 - (void)removeAllOutputDevicesWithCallbackQueue:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)removeOutputDevices:(id)arg1 withCallbackQueue:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (void)addOutputDevices:(id)arg1 withCallbackQueue:(id)arg2 block:(CDUnknownBlockType)arg3;

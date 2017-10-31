@@ -11,6 +11,7 @@
 @protocol SFRichTitleCardSection <SFTitleCardSection>
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+@property(copy, nonatomic) NSString *footnote;
 @property(copy, nonatomic) NSArray *offers;
 @property(nonatomic) int playActionAlign;
 @property(retain, nonatomic) SFActionItem *playAction;

@@ -16,6 +16,7 @@
     _Bool _wantsHTML;
     _Bool _wantsText;
     _Bool _setupComplete;
+    _Bool _skipFileProviderItems;
     int _supportedJobs;
     // Error parsing type: AI, name: _requestCount
     NSSet *_bundleIDs;
@@ -23,11 +24,14 @@
     NSSet *_INIntentClassNames;
     NSString *_serviceName;
     NSObject<OS_dispatch_queue> *_senderQueue;
+    double _minDate;
     NSObject<OS_dispatch_semaphore> *_setupSemaphore;
 }
 
 + (void)setup;
 @property(retain) NSObject<OS_dispatch_semaphore> *setupSemaphore; // @synthesize setupSemaphore=_setupSemaphore;
+@property(nonatomic) double minDate; // @synthesize minDate=_minDate;
+@property(nonatomic) _Bool skipFileProviderItems; // @synthesize skipFileProviderItems=_skipFileProviderItems;
 @property(nonatomic) _Bool setupComplete; // @synthesize setupComplete=_setupComplete;
 @property(nonatomic) _Bool wantsText; // @synthesize wantsText=_wantsText;
 @property(nonatomic) _Bool wantsHTML; // @synthesize wantsHTML=_wantsHTML;

@@ -21,6 +21,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isTruncatingNotes; // @synthesize isTruncatingNotes=_isTruncatingNotes;
 - (void).cxx_destruct;
 - (void)layoutForWidth:(double)arg1 position:(int)arg2;
+- (double)_layoutForWidth:(double)arg1;
+- (void)layoutSubviews;
 - (void)setIsTruncatingNotes:(_Bool)arg1;
 - (id)_notesView;
 - (id)_notesTitleView;

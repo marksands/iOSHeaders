@@ -25,14 +25,17 @@
     _Bool _homeAppInstallUserDidChoose;
     HMDeviceSetupOperation *_homeKitDeviceSetupOperation;
     HMAccessory *_homeKitAccessory;
+    _Bool _reselectHome;
     HMRoom *_homeKitSelectedRoom;
     _Bool _homeKitAddedAccessory;
     _Bool _homeKitAddedAppData;
     _Bool _configuredStereoPairSelf;
     _Bool _configuredStereoPairPeer;
+    _Bool _personalRequestsDone;
     _Bool _hasHomePod;
     _Bool _keyExchangeOnly;
     _Bool _pauseAfterUserInput;
+    _Bool _personalRequestsEnabled;
     int _stereoRole;
     NSDictionary *_appDataSelf;
     NSDictionary *_appDataStereoCounterpart;
@@ -58,6 +61,7 @@
 @property(copy, nonatomic) CDUnknownBlockType promptToInstallHomeAppHandler; // @synthesize promptToInstallHomeAppHandler=_promptToInstallHomeAppHandler;
 @property(copy, nonatomic) CDUnknownBlockType promptForRoomHandler; // @synthesize promptForRoomHandler=_promptForRoomHandler;
 @property(copy, nonatomic) CDUnknownBlockType promptForHomeHandler; // @synthesize promptForHomeHandler=_promptForHomeHandler;
+@property(nonatomic) _Bool personalRequestsEnabled; // @synthesize personalRequestsEnabled=_personalRequestsEnabled;
 @property(copy, nonatomic) CDUnknownBlockType pauseHandler; // @synthesize pauseHandler=_pauseHandler;
 @property(nonatomic) _Bool pauseAfterUserInput; // @synthesize pauseAfterUserInput=_pauseAfterUserInput;
 @property(readonly, nonatomic) double metricUserSeconds; // @synthesize metricUserSeconds=_metricUserSeconds;
@@ -73,6 +77,8 @@
 - (void).cxx_destruct;
 - (void)_updateHomeHasHomePod;
 - (void)_restoreHomeApp;
+- (void)_removeSimilarRoomNames:(id)arg1 home:(id)arg2;
+- (id)_normalizedString:(id)arg1;
 - (_Bool)_isOwnerOfHome:(id)arg1;
 - (void)_findStereoCounterpartWithCompletion:(CDUnknownBlockType)arg1;
 - (void)findStereoCounterpartWithCompletion:(CDUnknownBlockType)arg1;
@@ -80,6 +86,7 @@
 - (void)homeManagerDidUpdateDataSyncState:(id)arg1;
 - (void)accessoryBrowser:(id)arg1 didRemoveNewAccessory:(id)arg2;
 - (void)accessoryBrowser:(id)arg1 didFindNewAccessory:(id)arg2;
+- (void)_runPersonalRequestsStart;
 - (_Bool)_runHomeKitConfigureStereoPairPeer;
 - (_Bool)_runHomeKitConfigureStereoPairSelf;
 - (void)_runHomeKitAddAppData;
@@ -88,13 +95,13 @@
 - (void)_runHomeKitAddAccessory;
 - (void)_runHomeKitSelectRoom;
 - (void)_runHomeKitAddHome;
-- (id)_runHomeKitAutoSelectHome;
+- (id)_runHomeKitAutoSelectHome:(_Bool)arg1;
 - (void)_runHomeKitDeviceSetup;
-- (void)_runHomeKitInstallHomeApp;
 - (void)_runInit;
 - (void)_run;
 - (void)_startTimeout:(double)arg1;
 - (void)selectRoom:(id)arg1;
+- (void)reselectHome;
 - (void)selectHome:(id)arg1;
 - (void)resume;
 - (void)homeAppInstallChoice:(_Bool)arg1;

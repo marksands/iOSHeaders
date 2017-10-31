@@ -9,6 +9,7 @@
 @class AFUIRequestOptions, NSString, NSURL;
 
 @protocol SVSSiriViewControllerHosting <NSObject>
+- (void)serviceDidRequestCurrentTextInput:(void (^)(NSString *))arg1;
 - (void)serviceDidEndTaptoEdit;
 - (void)serviceWillBeginTapToEdit;
 - (void)serviceDidResetTextInput;

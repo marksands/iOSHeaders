@@ -7,20 +7,27 @@
 #import "NSObject.h"
 
 #import "FCAppActivityMonitor.h"
+#import "SXAppStateMonitor.h"
 
-@class NSHashTable, NSNotificationCenter, NSString;
+@class NSHashTable, NSMutableSet, NSNotificationCenter, NSString;
 
-@interface NUExtensionAppActivityMonitor : NSObject <FCAppActivityMonitor>
+@interface NUExtensionAppActivityMonitor : NSObject <FCAppActivityMonitor, SXAppStateMonitor>
 {
     NSNotificationCenter *_notificationCenter;
     NSHashTable *_observers;
+    NSMutableSet *_activeObserverBlocks;
+    NSMutableSet *_backgroundObserverBlocks;
 }
 
+@property(readonly, nonatomic) NSMutableSet *backgroundObserverBlocks; // @synthesize backgroundObserverBlocks=_backgroundObserverBlocks;
+@property(readonly, nonatomic) NSMutableSet *activeObserverBlocks; // @synthesize activeObserverBlocks=_activeObserverBlocks;
 @property(readonly, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(readonly, nonatomic) NSNotificationCenter *notificationCenter; // @synthesize notificationCenter=_notificationCenter;
 - (void).cxx_destruct;
 - (void)applicationDidEnterBackgroundNotification:(id)arg1;
 - (void)applicationDidBecomeActiveNotification:(id)arg1;
+- (void)performOnApplicationDidEnterBackground:(CDUnknownBlockType)arg1;
+- (void)performOnApplicationDidBecomeActive:(CDUnknownBlockType)arg1;
 - (void)addObserver:(id)arg1;
 - (void)dealloc;
 - (id)initWithNotificationCenter:(id)arg1;

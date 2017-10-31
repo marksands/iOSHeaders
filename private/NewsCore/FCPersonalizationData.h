@@ -27,6 +27,7 @@
     FCUserInfo *_userInfo;
 }
 
++ (void)configureKeyValueStoreForJSONHandling:(id)arg1;
 + (id)localStoreMigrator;
 + (id)desiredKeys;
 + (id)commandsToMergeLocalDataToCloud:(id)arg1;
@@ -52,7 +53,7 @@
 - (void).cxx_destruct;
 - (void)operationThrottler:(id)arg1 performAsyncOperationWithCompletion:(CDUnknownBlockType)arg2;
 - (void)userInfoDidChangeFeldsparID:(id)arg1 fromCloud:(_Bool)arg2;
-- (void)appConfigurationDidChange:(id)arg1;
+- (void)appConfigurationManager:(id)arg1 appConfigurationDidChange:(id)arg2;
 - (id)aggregateForFeatureKey:(id)arg1;
 - (void)enumerateAggregatesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)aggregatesForFeatureKeys:(id)arg1;

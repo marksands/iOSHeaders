@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSCopying.h"
+#import "NFCopying.h"
 #import "NSObject.h"
 
 @class NSArray, NSString;
 
-@protocol NFLFeedTileInfo <NSObject, NSCopying>
+@protocol NFLFeedTileInfo <NSObject, NFCopying>
 @property(readonly, nonatomic) NSArray *underlyingFeedElements;
 @property(readonly, nonatomic) unsigned long long bookmarkOffsetType;
 @property(readonly, nonatomic) _Bool bookmarkable;

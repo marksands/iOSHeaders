@@ -13,7 +13,6 @@
 }
 
 + (id)typeString;
-- (Class)componentViewClass;
 
 // Remaining properties
 @property(readonly, nonatomic) SXStrokeStyle *stroke; // @dynamic stroke;

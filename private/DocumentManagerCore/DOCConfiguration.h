@@ -45,6 +45,7 @@
     NSArray *_excludedDocumentTypes;
     NSArray *_urls;
     NSString *_hostIdentifier;
+    NSString *_hostBundleTitle;
     NSArray *_hiddenSourcesIdentifiers;
     unsigned long long _maximumNumberOfItemsToFetch;
     unsigned long long _maximumNumberOfRows;
@@ -92,6 +93,7 @@
 @property _Bool neverCreateBookmarkForOpenInPlace; // @synthesize neverCreateBookmarkForOpenInPlace=_neverCreateBookmarkForOpenInPlace;
 @property _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 @property _Bool forPickingDocuments; // @synthesize forPickingDocuments=_forPickingDocuments;
+@property(copy, nonatomic) NSString *hostBundleTitle; // @synthesize hostBundleTitle=_hostBundleTitle;
 @property(copy, nonatomic) NSString *hostIdentifier; // @synthesize hostIdentifier=_hostIdentifier;
 @property(retain) NSArray *urls; // @synthesize urls=_urls;
 @property(copy, nonatomic) NSArray *excludedDocumentTypes; // @synthesize excludedDocumentTypes=_excludedDocumentTypes;
@@ -101,6 +103,7 @@
 @property(retain) DOCConcreteLocation *defaultLocation; // @synthesize defaultLocation=_defaultLocation;
 - (void).cxx_destruct;
 - (unsigned long long)interactionModeForPreparing;
+@property(readonly) _Bool isFilesApp;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

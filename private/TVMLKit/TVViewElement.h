@@ -23,6 +23,7 @@
 - (void)dispatchEventOfType:(long long)arg1 canBubble:(_Bool)arg2 cancellable:(_Bool)arg3 extraInfo:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)resetProperty:(long long)arg1;
 @property(readonly, nonatomic) long long updateType;
+@property(readonly, nonatomic) long long semanticContentAttribute;
 @property(readonly, nonatomic) NSString *autoHighlightIdentifier;
 @property(readonly, nonatomic) TVViewElementStyle *style;
 @property(readonly, nonatomic) NSDictionary *attributes;

@@ -23,6 +23,7 @@
 @property(retain, nonatomic) HMDRemoteLoginInitiatorSession *loginSession; // @synthesize loginSession=_loginSession;
 - (void).cxx_destruct;
 - (void)didCompleteAuthentication:(id)arg1 error:(id)arg2 loggedInAccount:(id)arg3;
+- (void)_resetCurrentSession:(id)arg1;
 - (void)_callCompletion:(id)arg1 loggedInAccount:(id)arg2 authSession:(id)arg3;
 - (void)_handleSignoutResponse:(id)arg1 error:(id)arg2 message:(id)arg3;
 - (void)_handleRemoteLoginSignout:(id)arg1;

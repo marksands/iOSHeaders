@@ -46,8 +46,8 @@
 - (id)_thumbnailsFetchOperationForProviderIdentifier:(id)arg1 itemIDs:(id)arg2 withSize:(struct CGSize)arg3 scale:(double)arg4;
 - (id)thumbnailsFetchOperationForItems:(id)arg1 withSize:(struct CGSize)arg2 scale:(double)arg3;
 - (id)recursiveFolderCollectionForProvider:(id)arg1;
-- (id)newCollectionWithIdentifier:(id)arg1 providerIdentifier:(id)arg2;
 - (id)collectionWithIdentifier:(id)arg1 domainIdentifier:(id)arg2 providerIdentifier:(id)arg3 fileTypes:(id)arg4;
+- (id)collectionWithIdentifier:(id)arg1 providerIdentifier:(id)arg2 fileTypes:(id)arg3;
 - (id)collectionForFolderItem:(id)arg1 fileTypes:(id)arg2;
 - (id)init;
 - (id)rootCollectionForProvider:(id)arg1 fileTypes:(id)arg2;

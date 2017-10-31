@@ -20,6 +20,7 @@
     int _itemType;
     _INPBLocation *_location;
     int _locationSearchType;
+    NSString *_notebookItemIdentifier;
     int _status;
     _INPBDataString *_title;
     struct {
@@ -31,6 +32,7 @@
 }
 
 + (id)options;
+@property(retain, nonatomic) NSString *notebookItemIdentifier; // @synthesize notebookItemIdentifier=_notebookItemIdentifier;
 @property(retain, nonatomic) _INPBDateTimeRange *dateTime; // @synthesize dateTime=_dateTime;
 @property(retain, nonatomic) _INPBLocation *location; // @synthesize location=_location;
 @property(retain, nonatomic) NSString *content; // @synthesize content=_content;
@@ -46,6 +48,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasNotebookItemIdentifier;
 - (int)StringAsDateSearchType:(id)arg1;
 - (id)dateSearchTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasDateSearchType;

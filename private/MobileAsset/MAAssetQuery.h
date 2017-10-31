@@ -28,6 +28,7 @@
 - (void)queryMetaData:(CDUnknownBlockType)arg1;
 - (void)getResultsFromMessage:(id)arg1;
 - (long long)addKeyValuePair:(id)arg1 with:(id)arg2;
+- (long long)addKeyValueArray:(id)arg1 with:(id)arg2;
 - (void)returnTypes:(long long)arg1;
 - (void)augmentResultsWithState:(_Bool)arg1;
 - (void)dealloc;

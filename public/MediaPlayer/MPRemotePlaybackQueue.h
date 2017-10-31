@@ -21,6 +21,7 @@
 @property(nonatomic) long long replaceIntent;
 @property(nonatomic) _Bool shouldOverrideManuallyCuratedQueue;
 @property(copy, nonatomic) NSString *siriRecommendationIdentifier;
+@property(readonly, copy, nonatomic) NSString *siriAssetInfo;
 @property(nonatomic, getter=isRequestingImmediatePlayback) _Bool requestingImmediatePlayback;
 - (void)dealloc;
 - (id)init;

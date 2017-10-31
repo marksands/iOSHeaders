@@ -4,72 +4,30 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <MediaRemote/MRProtocolClientConnection.h>
 
-#import "MRProtocolMessageQueueDataSource.h"
-#import "MRProtocolMessageQueueDelegate.h"
-#import "MSVMessageParserDelegate.h"
-#import "NSStreamDelegate.h"
+@class MRCryptoPairingSession;
 
-@class MRCryptoPairingSession, MRProtocolMessageQueue, MSVMessageParser, NSInputStream, NSOutputStream, NSRunLoop, NSString;
-
-@interface MRExternalClientConnection : NSObject <NSStreamDelegate, MSVMessageParserDelegate, MRProtocolMessageQueueDelegate, MRProtocolMessageQueueDataSource>
+@interface MRExternalClientConnection : MRProtocolClientConnection
 {
-    MSVMessageParser *_parser;
-    NSRunLoop *_runLoop;
-    MRProtocolMessageQueue *_messageQueue;
-    unsigned long long _firstClientNanoseconds;
-    unsigned long long _firstDeviceTicks;
-    _Bool _disconnected;
     _Bool _registeredToNowPlayingUpdates;
-    _Bool _registeredToNowPlayingArtworkUpdates;
     _Bool _registeredVolumeControlAvailabilityUpdates;
     _Bool _registeredKeyboardUpdates;
     _Bool _cryptoEnabled;
     unsigned int _voiceRecordingState;
-    NSInputStream *_inputStream;
-    NSOutputStream *_outputStream;
-    id <MRExternalClientConnectionDelegate> _delegate;
     MRCryptoPairingSession *_cryptoSession;
 }
 
 @property(nonatomic) _Bool cryptoEnabled; // @synthesize cryptoEnabled=_cryptoEnabled;
 @property(retain, nonatomic) MRCryptoPairingSession *cryptoSession; // @synthesize cryptoSession=_cryptoSession;
-@property(nonatomic) id <MRExternalClientConnectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned int voiceRecordingState; // @synthesize voiceRecordingState=_voiceRecordingState;
 @property(nonatomic) _Bool registeredKeyboardUpdates; // @synthesize registeredKeyboardUpdates=_registeredKeyboardUpdates;
 @property(nonatomic) _Bool registeredVolumeControlAvailabilityUpdates; // @synthesize registeredVolumeControlAvailabilityUpdates=_registeredVolumeControlAvailabilityUpdates;
-@property(nonatomic) _Bool registeredToNowPlayingArtworkUpdates; // @synthesize registeredToNowPlayingArtworkUpdates=_registeredToNowPlayingArtworkUpdates;
 @property(nonatomic) _Bool registeredToNowPlayingUpdates; // @synthesize registeredToNowPlayingUpdates=_registeredToNowPlayingUpdates;
-@property(readonly, nonatomic) NSOutputStream *outputStream; // @synthesize outputStream=_outputStream;
-@property(readonly, nonatomic) NSInputStream *inputStream; // @synthesize inputStream=_inputStream;
-- (void)_notifyDelegateClientDidRecieveMessage:(id)arg1;
-- (void)_notifyDelegateClientDidDisconnect;
-- (void)_setQOSPropertiesOnStream:(id)arg1;
-- (void)_closeStream:(id)arg1;
-- (void)_openStream:(id)arg1;
-- (void)_disconnectClient;
-- (void)_adjustTimestamp:(id)arg1;
-- (void)_preProcessMessage:(id)arg1 data:(id)arg2;
-- (void)_parseMessageData:(id)arg1;
-- (void)_flush;
-- (void)_sendMessage:(id)arg1 queue:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (id)messageQueue:(id)arg1 dataForMessage:(id)arg2;
-- (unsigned long long)messageQueue:(id)arg1 processData:(id)arg2 atReadPosition:(long long)arg3;
-- (void)parser:(id)arg1 didParseMessage:(id)arg2;
-- (void)_stream:(id)arg1 handleEvent:(unsigned long long)arg2;
-- (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
-- (void)sendMessage:(id)arg1 queue:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (void)sendMessage:(id)arg1;
-@property(readonly, nonatomic) _Bool streamsAreValid;
+- (id)decryptData:(id)arg1 error:(id *)arg2;
+- (id)encryptDataForMessage:(id)arg1;
 - (void)dealloc;
 - (id)initWithInputStream:(id)arg1 outputStream:(id)arg2 runLoop:(id)arg3;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

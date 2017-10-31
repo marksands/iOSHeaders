@@ -9,7 +9,7 @@
 #import "PLAssetContainer.h"
 #import "PLMomentData_Private.h"
 
-@class CLLocation, NSArray, NSData, NSDate, NSObject<NSCopying>, NSOrderedSet, NSString, PLManagedAsset, PLMomentLibrary, PLMomentList, PLMomentNameInfo;
+@class CLLocation, NSArray, NSData, NSDate, NSObject<NSCopying>, NSOrderedSet, NSString, PLManagedAsset, PLMomentList, PLMomentNameInfo;
 
 @interface PLMoment : PLManagedObject <PLAssetContainer, PLMomentData_Private>
 {
@@ -22,7 +22,6 @@
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
 + (id)allAssetsIncludedInMomentsInLibrary:(id)arg1;
-+ (id)allMomentsInLibrary:(id)arg1;
 + (id)allAssetsIncludedInMomentsInManagedObjectContext:(id)arg1 IDsOnly:(_Bool)arg2 error:(id *)arg3;
 + (id)predicateForAssetsIncludedInMoments;
 + (id)allMomentsRequiringAnalysisInManagedObjectContext:(id)arg1 error:(id *)arg2;
@@ -94,7 +93,6 @@
 @property(readonly) unsigned long long hash;
 @property(retain, nonatomic) PLMomentList *megaMomentList; // @dynamic megaMomentList;
 @property(retain, nonatomic) NSDate *modificationDate; // @dynamic modificationDate;
-@property(retain, nonatomic) PLMomentLibrary *momentLibrary; // @dynamic momentLibrary;
 @property(retain, nonatomic) NSDate *representativeDate; // @dynamic representativeDate;
 @property(retain, nonatomic) NSData *reverseLocationData; // @dynamic reverseLocationData;
 @property(nonatomic) _Bool reverseLocationDataContainsLocation; // @dynamic reverseLocationDataContainsLocation;

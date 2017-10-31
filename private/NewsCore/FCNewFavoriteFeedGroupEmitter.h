@@ -26,7 +26,7 @@
 @property(readonly, nonatomic) _Bool emitsSingletonGroups;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) _Bool isRequiredByFollowingEmitters;
-@property(readonly, nonatomic) _Bool requiresForYouCatchUpOperation;
+@property(readonly, nonatomic) long long requiredForYouContentTypes;
 @property(readonly) Class superclass;
 
 @end

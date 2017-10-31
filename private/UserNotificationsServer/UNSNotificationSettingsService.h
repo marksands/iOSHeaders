@@ -19,7 +19,6 @@
 - (void)_queue_getAuthorizedBundleIdentifiersForBundleIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_queue_getNotificationSettingsForBundleIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)_queue_isCarPlayAvailableForApplication:(id)arg1;
-- (_Bool)_queue_isAuthorizationModificationRestrictedForApplication:(id)arg1;
 - (void)_queue_requestAuthorizationWithOptions:(unsigned long long)arg1 forBundleIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)getAuthorizedBundleIdentifiersForBundleIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)authorizedBundleIdentifiersForBundleIdentifiers:(id)arg1;

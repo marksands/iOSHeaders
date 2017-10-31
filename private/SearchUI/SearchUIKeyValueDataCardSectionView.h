@@ -14,7 +14,7 @@
 
 + (int)separatorStyleForCardSection:(id)arg1;
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
-- (void)updateWithCardSection:(id)arg1;
+- (void)updateWithRowModel:(id)arg1;
 - (id)convertSFKeyValueData:(id)arg1;
 - (id)setupContentView;
 

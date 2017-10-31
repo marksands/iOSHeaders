@@ -13,38 +13,54 @@
 @interface VSInstrumentMetrics : NSObject <NSSecureCoding>
 {
     _Bool _isWarmStart;
-    _Bool _isSynthesisCached;
+    _Bool _isSpeechRequest;
+    _Bool _isCacheHitFromDisk;
+    _Bool _isCacheHitFromMemory;
     NSString *_utterance;
     NSString *_voiceAssetKey;
     unsigned long long _requestCreatedTimestamp;
+    unsigned long long _eagerRequestCreatedTimeStampDiffs;
     unsigned long long _synthesisBeginTimestamp;
     unsigned long long _synthesisEndTimestamp;
     unsigned long long _speechBeginTimestamp;
     unsigned long long _speechEndTimestamp;
     unsigned long long _audioStartTimestampDiffs;
     double _audioDuration;
+    unsigned long long _synthesisToSpeechTimeGap;
+    unsigned long long _waitForSynthesisToFinishTimeDelay;
 }
 
 + (_Bool)supportsSecureCoding;
-@property double audioDuration; // @synthesize audioDuration=_audioDuration;
-@property _Bool isSynthesisCached; // @synthesize isSynthesisCached=_isSynthesisCached;
+@property _Bool isCacheHitFromMemory; // @synthesize isCacheHitFromMemory=_isCacheHitFromMemory;
+@property _Bool isCacheHitFromDisk; // @synthesize isCacheHitFromDisk=_isCacheHitFromDisk;
+@property unsigned long long waitForSynthesisToFinishTimeDelay; // @synthesize waitForSynthesisToFinishTimeDelay=_waitForSynthesisToFinishTimeDelay;
+@property unsigned long long synthesisToSpeechTimeGap; // @synthesize synthesisToSpeechTimeGap=_synthesisToSpeechTimeGap;
+@property _Bool isSpeechRequest; // @synthesize isSpeechRequest=_isSpeechRequest;
 @property _Bool isWarmStart; // @synthesize isWarmStart=_isWarmStart;
+@property double audioDuration; // @synthesize audioDuration=_audioDuration;
 @property unsigned long long audioStartTimestampDiffs; // @synthesize audioStartTimestampDiffs=_audioStartTimestampDiffs;
 @property unsigned long long speechEndTimestamp; // @synthesize speechEndTimestamp=_speechEndTimestamp;
 @property unsigned long long speechBeginTimestamp; // @synthesize speechBeginTimestamp=_speechBeginTimestamp;
 @property unsigned long long synthesisEndTimestamp; // @synthesize synthesisEndTimestamp=_synthesisEndTimestamp;
 @property unsigned long long synthesisBeginTimestamp; // @synthesize synthesisBeginTimestamp=_synthesisBeginTimestamp;
+@property unsigned long long eagerRequestCreatedTimeStampDiffs; // @synthesize eagerRequestCreatedTimeStampDiffs=_eagerRequestCreatedTimeStampDiffs;
 @property unsigned long long requestCreatedTimestamp; // @synthesize requestCreatedTimestamp=_requestCreatedTimestamp;
 @property(copy) NSString *voiceAssetKey; // @synthesize voiceAssetKey=_voiceAssetKey;
 @property(copy) NSString *utterance; // @synthesize utterance=_utterance;
 - (void).cxx_destruct;
-- (double)audioQueueLatency;
+- (double)synthesisToSpeechTime;
+- (double)waitForSynthesisToFinishTime;
 - (double)ttsTotalLatency;
-- (double)ttsSynthesisLatency;
 - (double)synthesisLatency;
+- (double)eagerRequestTimeGap;
+- (_Bool)isSynthesisCached;
+- (double)ttsSynthesisLatency;
+- (double)audioQueueLatency;
+- (double)timeToSpeakLatency;
 - (double)_clockFactor;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)description;
 
 @end
 

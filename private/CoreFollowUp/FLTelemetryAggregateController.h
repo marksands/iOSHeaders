@@ -17,6 +17,7 @@
 - (void)captureItemRemoval:(id)arg1;
 - (void)captureItemView:(id)arg1;
 - (void)captureItemAddition:(id)arg1;
+- (void)captureCurrentState:(id)arg1;
 - (void)captureClientRemoval:(id)arg1;
 - (void)captureClientAddition:(id)arg1;
 - (void)captureGroupRemoval:(id)arg1;

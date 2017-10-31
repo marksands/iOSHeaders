@@ -54,6 +54,8 @@
 - (void)_resourceLoadStatisticsSetIsGrandfathered:(_Bool)arg1 forHost:(id)arg2;
 - (void)_resourceLoadStatisticsHadUserInteraction:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_resourceLoadStatisticsSetHadUserInteraction:(_Bool)arg1 forHost:(id)arg2;
+- (void)_resourceLoadStatisticsIsRegisteredAsRedirectingTo:(id)arg1 hostRedirectedTo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_resourceLoadStatisticsIsRegisteredAsSubFrameUnder:(id)arg1 topFrameHost:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_resourceLoadStatisticsIsPrevalentResource:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_resourceLoadStatisticsSetIsPrevalentResource:(_Bool)arg1 forHost:(id)arg2;
 - (void)_resourceLoadStatisticsSetLastSeen:(double)arg1 forHost:(id)arg2;

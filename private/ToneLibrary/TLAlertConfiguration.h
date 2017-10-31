@@ -19,6 +19,7 @@
     _Bool _forPreview;
     _Bool _shouldRepeat;
     _Bool _shouldIgnoreRingerSwitch;
+    _Bool _shouldForcePlayingAtUserSelectedAudioVolume;
     float _audioVolume;
     long long _type;
     NSString *_topic;
@@ -33,6 +34,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool shouldForcePlayingAtUserSelectedAudioVolume; // @synthesize shouldForcePlayingAtUserSelectedAudioVolume=_shouldForcePlayingAtUserSelectedAudioVolume;
 @property(nonatomic) _Bool shouldIgnoreRingerSwitch; // @synthesize shouldIgnoreRingerSwitch=_shouldIgnoreRingerSwitch;
 @property(nonatomic) _Bool shouldRepeat; // @synthesize shouldRepeat=_shouldRepeat;
 @property(nonatomic) double maximumDuration; // @synthesize maximumDuration=_maximumDuration;

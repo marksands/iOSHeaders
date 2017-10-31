@@ -9,6 +9,7 @@
 @class UIImageView, UILabel, UIView;
 
 @protocol MPAVRoutingThemeableCellView <NSObject>
+- (void)setSubtitleViewAlpha:(double)arg1;
 - (UIView *)separatorView;
 - (UIImageView *)iconView;
 - (UILabel *)subtitleView;

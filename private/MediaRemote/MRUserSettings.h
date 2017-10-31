@@ -21,8 +21,8 @@
 - (double)_doubleValueForKey:(id)arg1 usingDefaultValue:(double)arg2;
 - (_Bool)_boolValueForKey:(id)arg1 usingDefaultValue:(_Bool)arg2;
 @property(nonatomic) NSArray *connectedClientPIDs;
+@property(readonly, nonatomic) _Bool useGenericTransportForHostedEndpoints;
 @property(readonly, nonatomic) _Bool useSystemAudioContextForAirPlayTransport;
-@property(readonly, nonatomic, getter=isAirPlay2Enabled) _Bool airPlay2Enabled;
 @property(readonly, nonatomic) double transactionWaitDurationOnNetworkSend;
 @property(readonly, nonatomic) double transactionWaitDurationOnXpcSend;
 @property(readonly, nonatomic) double transactionWaitDurationOnOutOfMemory;
@@ -40,6 +40,7 @@
 @property(readonly, nonatomic) long long externalDeviceSocketQOSLevel;
 @property(readonly, nonatomic) _Bool hasExternalDeviceSocketQOSLevelSet;
 @property(readonly, nonatomic) _Bool shouldLogPairingSetupCode;
+@property(readonly, nonatomic) _Bool shouldInitializeGenericBonjourService;
 @property(readonly, nonatomic) _Bool shouldInitializeTelevisionBonjourService;
 @property(readonly, nonatomic) _Bool deviceSupportsExternalRemoteControl;
 @property(readonly, nonatomic) _Bool useDebugAVRouteWithoutVolumeControl;

@@ -7,12 +7,12 @@
 #import "FCClassifiable.h"
 #import "FCFeedElement.h"
 #import "FCFeedTransformationItem.h"
-#import "NSCopying.h"
+#import "NFCopying.h"
 #import "NSObject.h"
 
-@class FCArticleContentManifest, FCCoverArt, FCFeedPersonalizedArticleScoreProfile, FCHeadlineThumbnail, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSObject<FCChannelProviding>, NSString, NSURL;
+@class FCArticleContentManifest, FCCoverArt, FCFeedPersonalizedArticleScoreProfile, FCHeadlineThumbnail, FCTopStoriesStyleConfiguration, NSArray, NSData, NSDate, NSSet, NSString, NSURL;
 
-@protocol FCHeadlineProviding <NSObject, NSCopying, FCFeedElement, FCClassifiable, FCFeedTransformationItem>
+@protocol FCHeadlineProviding <NSObject, NFCopying, FCFeedElement, FCClassifiable, FCFeedTransformationItem>
 @property(readonly, nonatomic) id <FCNativeAdProviding> associatedAd;
 @property(readonly, nonatomic) _Bool isBlockedExplicitContent;
 @property(readonly, nonatomic) _Bool showSubscriptionRequiredText;
@@ -26,10 +26,12 @@
 @property(readonly, nonatomic) _Bool isTopStory;
 @property(readonly, nonatomic) FCFeedPersonalizedArticleScoreProfile *scoreProfile;
 @property(readonly, nonatomic) double tileProminenceScore;
+@property(readonly, copy, nonatomic) NSSet *surfacedByTagIDs;
 @property(readonly, copy, nonatomic) NSString *surfacedByBinID;
 @property(readonly, copy, nonatomic) NSString *surfacedByTopicID;
 @property(readonly, copy, nonatomic) NSString *surfacedByChannelID;
 @property(readonly, copy, nonatomic) NSString *surfacedBySectionID;
+@property(readonly, nonatomic) _Bool showMinimalChrome;
 @property(readonly, nonatomic) _Bool needsRapidUpdates;
 @property(readonly, nonatomic) FCCoverArt *coverArt;
 @property(readonly, nonatomic, getter=isPaid) _Bool paid;
@@ -69,9 +71,10 @@
 @property(readonly, nonatomic) _Bool hasThumbnail;
 @property(readonly, nonatomic) struct CGRect thumbnailFocalFrame;
 @property(readonly, copy, nonatomic) NSString *sourceName;
-@property(readonly, copy, nonatomic) NSObject<FCChannelProviding> *sourceChannel;
+@property(readonly, copy, nonatomic) id <FCChannelProviding> sourceChannel;
 @property(readonly, nonatomic) long long backendArticleVersion;
 @property(readonly, copy, nonatomic) NSDate *publishDate;
+@property(readonly, copy, nonatomic) NSString *titleCompact;
 @property(readonly, copy, nonatomic) NSString *title;
 @property(readonly, copy, nonatomic) NSString *primaryAudience;
 @property(readonly, nonatomic) unsigned long long contentType;
@@ -82,6 +85,7 @@
 @property(readonly, copy, nonatomic) NSString *versionIdentifier;
 
 @optional
+@property(readonly, nonatomic) NSData *backingArticleRecordData;
 - (FCArticleContentManifest *)contentManifestWithContext:(id <FCContentContext>)arg1;
 @end
 

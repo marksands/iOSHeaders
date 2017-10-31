@@ -18,7 +18,7 @@
 @property(copy, nonatomic) CDUnknownBlockType availabilityChangedNotificationBlock; // @synthesize availabilityChangedNotificationBlock=_availabilityChangedNotificationBlock;
 - (void).cxx_destruct;
 @property(readonly, nonatomic, getter=isAvailable) _Bool available;
-@property(readonly, nonatomic) Class headlineResultsFetchDescriptorClass;
+@property(readonly, nonatomic) Class todayResultsFetchDescriptorClass;
 - (id)init;
 
 // Remaining properties

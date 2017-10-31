@@ -21,10 +21,12 @@
         unsigned int queryId:1;
         unsigned int isLocalApplicationResult:1;
         unsigned int publiclyIndexable:1;
+        unsigned int isFuzzyMatch:1;
     } _has;
     _Bool _isStaticCorrection;
     _Bool _isLocalApplicationResult;
     _Bool _publiclyIndexable;
+    _Bool _isFuzzyMatch;
     int _topHit;
     int _type;
     NSString *_identifier;
@@ -45,6 +47,7 @@
     NSString *_userInput;
 }
 
+@property(nonatomic) _Bool isFuzzyMatch; // @synthesize isFuzzyMatch=_isFuzzyMatch;
 @property(copy, nonatomic) NSString *userInput; // @synthesize userInput=_userInput;
 @property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
 @property(nonatomic) _Bool publiclyIndexable; // @synthesize publiclyIndexable=_publiclyIndexable;
@@ -75,6 +78,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasIsFuzzyMatch;
 @property(readonly, nonatomic) _Bool hasUserInput;
 @property(readonly, nonatomic) _Bool hasFbr;
 @property(readonly, nonatomic) _Bool hasPubliclyIndexable;

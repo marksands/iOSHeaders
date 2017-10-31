@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSDictionary, NSIndexSet, NSMutableArray, NSString, Protocol, _UIFeedbackParameters, _UIFeedbackPattern;
+@class NSDictionary, NSIndexSet, NSMutableArray, NSSet, NSString, Protocol, _UIFeedbackParameters, _UIFeedbackPattern;
 
 @interface _UIFeedback : NSObject <NSCopying, NSSecureCoding>
 {
@@ -58,6 +58,7 @@
 @property(readonly, nonatomic, getter=_effectiveDelay) double effectiveDelay;
 @property(readonly, nonatomic, getter=_allSystemSoundIDs) NSIndexSet *allSystemSoundIDs;
 @property(readonly, nonatomic, getter=_allEventTypes) NSIndexSet *allEventTypes;
+@property(readonly, nonatomic, getter=_allFeedbacks) NSSet *allFeedbacks;
 @property(readonly, nonatomic, getter=_effectiveSystemSoundID) unsigned int effectiveSystemSoundID;
 @property(readonly, nonatomic, getter=_effectiveEventType) unsigned long long effectiveEventType;
 @property(readonly, nonatomic, getter=_effectivePlayableFeedbackTypes) unsigned long long effectivePlayableFeedbackTypes;

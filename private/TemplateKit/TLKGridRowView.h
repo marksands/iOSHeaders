@@ -35,6 +35,7 @@
 - (void)observedPropertiesChanged;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (_Bool)isLayoutSizeDependentOnPerpendicularAxis;
 - (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (void)styleDidChange:(unsigned long long)arg1;

@@ -8,24 +8,51 @@
 
 #import "NSSecureCoding.h"
 
-@class NSString;
+@class CUBonjourDevice, NSString, NSUUID;
 
 @interface RPCompanionLinkDevice : NSObject <NSSecureCoding>
 {
+    _Bool _personal;
+    _Bool _changed;
+    unsigned int _flags;
+    int _personalRequestsState;
     NSString *_groupID;
     NSString *_identifier;
+    NSString *_idsDeviceIdentifier;
+    NSString *_idsPersonalDeviceIdentifier;
     NSString *_model;
     NSString *_name;
+    NSString *_publicIdentifier;
     NSString *_role;
+    NSString *_roomName;
+    NSString *_tightSyncGroupID;
+    CUBonjourDevice *_bonjourDevice;
+    NSUUID *_pairingIdentifier;
+    NSString *_password;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *password; // @synthesize password=_password;
+@property(copy, nonatomic) NSUUID *pairingIdentifier; // @synthesize pairingIdentifier=_pairingIdentifier;
+@property(nonatomic) _Bool changed; // @synthesize changed=_changed;
+@property(retain, nonatomic) CUBonjourDevice *bonjourDevice; // @synthesize bonjourDevice=_bonjourDevice;
+@property(copy, nonatomic) NSString *tightSyncGroupID; // @synthesize tightSyncGroupID=_tightSyncGroupID;
+@property(copy, nonatomic) NSString *roomName; // @synthesize roomName=_roomName;
 @property(copy, nonatomic) NSString *role; // @synthesize role=_role;
+@property(copy, nonatomic) NSString *publicIdentifier; // @synthesize publicIdentifier=_publicIdentifier;
+@property(readonly, nonatomic) int personalRequestsState; // @synthesize personalRequestsState=_personalRequestsState;
+@property(nonatomic, getter=isPersonal) _Bool personal; // @synthesize personal=_personal;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *model; // @synthesize model=_model;
+@property(copy, nonatomic) NSString *idsPersonalDeviceIdentifier; // @synthesize idsPersonalDeviceIdentifier=_idsPersonalDeviceIdentifier;
+@property(copy, nonatomic) NSString *idsDeviceIdentifier; // @synthesize idsDeviceIdentifier=_idsDeviceIdentifier;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, copy, nonatomic) NSString *groupID; // @synthesize groupID=_groupID;
+@property(nonatomic) unsigned int flags; // @synthesize flags=_flags;
 - (void).cxx_destruct;
+- (unsigned int)updateWithBonjourDevice:(id)arg1;
+@property(readonly, copy, nonatomic) NSString *effectiveIdentifier;
+- (id)descriptionWithLevel:(int)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -125,7 +125,7 @@
 - (void)suspend;
 - (_Bool)resume:(id *)arg1;
 - (void)setDelegate:(id)arg1 queue:(id)arg2;
-@property(readonly, nonatomic) SYSession *currentSession;
+@property(readonly) SYSession *currentSession;
 @property(readonly, nonatomic) _Bool targetIsInProximity;
 @property(readonly, nonatomic) _Bool isMasterStore;
 - (void)_whenSessionEnds:(CDUnknownBlockType)arg1;

@@ -34,10 +34,12 @@
     NSString *_referrerURL;
     long long _purchaseID;
     NSArray *_requiredCapabilities;
+    NSNumber *_purchaserDSID;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool sendGUID; // @synthesize sendGUID=_sendGUID;
+@property(copy, nonatomic) NSNumber *purchaserDSID; // @synthesize purchaserDSID=_purchaserDSID;
 @property(nonatomic) _Bool shouldCancelForInstalledBundleItems; // @synthesize shouldCancelForInstalledBundleItems=_shouldCancelForInstalledBundleItems;
 @property(copy, nonatomic) NSArray *requiredCapabilities; // @synthesize requiredCapabilities=_requiredCapabilities;
 @property long long purchaseID; // @synthesize purchaseID=_purchaseID;

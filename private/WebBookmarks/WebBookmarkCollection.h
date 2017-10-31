@@ -21,6 +21,7 @@
     _Bool _dirty;
     SafariFetcherServerProxy *_safariFetcherServerProxy;
     _Bool _readonly;
+    _Bool _skipExternalNotifications;
     long long _mergeMode;
     WBDatabaseLockAcquisitor *_databaseLockAcquisitor;
     long long _lastObservedLocalMigrationState;
@@ -323,11 +324,12 @@
 - (_Bool)_primaryCollection;
 - (id)initWithPath:(id)arg1 migratingBookmarksPlist:(id)arg2 syncAnchorPlist:(id)arg3;
 - (_Bool)_setupWithPath:(id)arg1 migratingBookmarksPlist:(id)arg2 syncAnchorPlist:(id)arg3 checkIntegrity:(_Bool)arg4;
-- (id)initWithPath:(id)arg1 migratingBookmarksPlist:(id)arg2 syncAnchorPlist:(id)arg3 checkIntegrity:(_Bool)arg4 readonlyCollection:(_Bool)arg5;
+- (id)initWithPath:(id)arg1 migratingBookmarksPlist:(id)arg2 syncAnchorPlist:(id)arg3 checkIntegrity:(_Bool)arg4 readonlyCollection:(_Bool)arg5 skipExternalNotifications:(_Bool)arg6;
 - (_Bool)_checkDatabaseIntegrity;
 - (_Bool)_verifyAllTablesExist:(int *)arg1;
 - (_Bool)_openDatabaseAtPath:(id)arg1 checkIntegrity:(_Bool)arg2 error:(id *)arg3;
-- (id)initSafariBookmarkCollectionCheckingIntegrity:(_Bool)arg1 readonlyCollection:(_Bool)arg2;
+- (id)initSafariBookmarkCollectionCheckingIntegrity:(_Bool)arg1 readonlyCollection:(_Bool)arg2 skipExternalNotifications:(_Bool)arg3;
+- (id)initSafariBookmarkCollectionCheckingIntegrity:(_Bool)arg1 skipExternalNotifications:(_Bool)arg2;
 - (id)initSafariBookmarkCollectionCheckingIntegrity:(_Bool)arg1;
 - (id)initReadonlySafariBookmarkCollection;
 - (id)initWithPath:(id)arg1;

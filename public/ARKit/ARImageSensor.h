@@ -30,6 +30,7 @@
     long long _renderFramesPerSecond;
 }
 
++ (float)defaultLensPosition;
 + (id)bestFormatForDevice:(id)arg1 withResolution:(CDStruct_79c71658)arg2 pixelFormatType:(unsigned int)arg3 frameRate:(double)arg4;
 + (double)closestFrameRateIn:(id)arg1 target:(double)arg2 preferHigher:(_Bool)arg3;
 @property _Bool interrupted; // @synthesize interrupted=_interrupted;

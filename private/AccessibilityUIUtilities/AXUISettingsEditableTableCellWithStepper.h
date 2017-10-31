@@ -10,6 +10,7 @@
 
 @interface AXUISettingsEditableTableCellWithStepper : AXUISettingsEditableTextCell
 {
+    _Bool _specifierVersion;
     UIStepper *_stepper;
     id <AXUISettingsEditableTableCellWithStepperDelegate> _delegate;
     UILabel *_secondsLabel;
@@ -20,6 +21,7 @@
 @property(retain, nonatomic) UIStepper *stepper; // @synthesize stepper=_stepper;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)didMoveToSuperview;
 - (void)_updateSecondsLabelForDelegate:(id)arg1;
 - (void)_updateSecondsLabel;

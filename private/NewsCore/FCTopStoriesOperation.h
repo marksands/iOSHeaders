@@ -10,6 +10,7 @@
 
 @interface FCTopStoriesOperation : FCOperation
 {
+    id <FCAppConfiguration> _appConfiguration;
     FCCloudContext *_context;
     id <FCChannelProviding> _topStoriesChannel;
     NSArray *_mandatoryHeadlines;
@@ -28,6 +29,7 @@
 @property(copy) NSArray *mandatoryHeadlines; // @synthesize mandatoryHeadlines=_mandatoryHeadlines;
 @property(copy) id <FCChannelProviding> topStoriesChannel; // @synthesize topStoriesChannel=_topStoriesChannel;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
+@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;
 - (void)_checkShouldShowTopStoriesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)operationWillFinishWithError:(id)arg1;

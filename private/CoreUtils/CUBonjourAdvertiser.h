@@ -14,6 +14,7 @@
     _Bool _activated;
     struct BonjourAdvertiserPrivate *_bonjourAdvertiser;
     _Bool _invalidateCalled;
+    _Bool _started;
     struct LogCategory *_ucat;
     _Bool _updating;
     _Bool _advertiseFlagsChanged;
@@ -48,13 +49,14 @@
 @property(nonatomic) unsigned long long advertiseFlags; // @synthesize advertiseFlags=_advertiseFlags;
 - (void).cxx_destruct;
 - (void)_updateTXTDictionary;
-- (void)_updateLocked:(_Bool)arg1;
-- (void)_update:(_Bool)arg1;
+- (void)_updateLocked;
+- (void)_update;
 - (void)performUpdate:(CDUnknownBlockType)arg1;
 - (void)invalidate;
 - (void)_activateSafeInvokeBlock:(CDUnknownBlockType)arg1;
 - (void)_activate;
 - (void)activate;
+- (id)descriptionWithLevel:(int)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)init;

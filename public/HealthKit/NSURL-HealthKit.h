@@ -7,6 +7,8 @@
 #import "NSURL.h"
 
 @interface NSURL (HealthKit)
++ (id)hk_tapToRadarURLForBundleID:(id)arg1 title:(id)arg2 description:(id)arg3 classification:(long long)arg4 reproducibility:(long long)arg5 keywords:(id)arg6;
++ (id)hk_tapToHealthRadarURLWithTitle:(id)arg1 description:(id)arg2 classification:(long long)arg3 reproducibility:(long long)arg4 keywords:(id)arg5;
 - (id)hk_valueForFirstInstanceOfParameterNamed:(id)arg1;
 @end
 

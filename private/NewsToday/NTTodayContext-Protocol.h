@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NTHeadlineResultsSource.h"
 #import "NTTodayEventTracker.h"
+#import "NTTodayResultsSource.h"
 
-@protocol NTTodayContext <NTHeadlineResultsSource, NTTodayEventTracker>
+@protocol NTTodayContext <NTTodayResultsSource, NTTodayEventTracker>
 @property(copy, nonatomic) CDUnknownBlockType newResultsHandler;
 @end
 

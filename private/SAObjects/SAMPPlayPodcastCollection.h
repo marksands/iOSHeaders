@@ -16,9 +16,11 @@
 + (id)playPodcastCollection;
 - (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
+@property(nonatomic) _Bool startPlaying;
 @property(retain, nonatomic) SAMPPodcastCollection *podcastCollection;
 @property(copy, nonatomic) NSArray *hashedRouteUIDs;
 @property(copy, nonatomic) NSString *episodePlaybackOrder;
+@property(copy, nonatomic) NSString *assetInfo;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

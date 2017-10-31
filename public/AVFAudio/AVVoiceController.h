@@ -80,6 +80,7 @@
 - (void)finishedRecording;
 - (void)recordBufferReceived:(struct MyAudioQueueBuffer *)arg1 atTime:(unsigned long long)arg2;
 - (void)avAudioPCMRecordBufferReceived:(id)arg1 atTime:(unsigned long long)arg2;
+- (void)avAudioPCMRecordBufferListReceived:(struct AudioBufferList *)arg1 atTime:(unsigned long long)arg2;
 - (void)lpcmRecordBufferReceived:(struct AudioQueueBuffer *)arg1 atTime:(unsigned long long)arg2;
 - (void)beganRecording;
 - (void)handleMediaServerReset:(id)arg1;
@@ -96,6 +97,7 @@
 @property(readonly, retain) NSXPCConnection *voiceTriggerServerConnection; // @dynamic voiceTriggerServerConnection;
 @property id <AVVoiceControllerVoiceTriggerDelegate> voiceTriggerDelegate;
 @property(readonly) unsigned long long voiceTriggerPastDataFramesAvailable;
+@property(readonly) unsigned long long numberOfChannels;
 @property(setter=setDuckOthersOption:) _Bool duckOthersOption;
 @property(readonly) AVAudioFormat *pcmRecordBufferFormat;
 @property(getter=isSynchronousCallbackEnabled) _Bool synchronousCallbackEnabled;

@@ -34,7 +34,7 @@
 - (void)_updateWithBag:(id)arg1;
 - (void)invalidateBag;
 - (id)getBag;
-- (void)_subscriptionStatusChanged;
+- (void)_subscriptionStatusDidChanged:(id)arg1;
 - (id)_subscriptionStatusDictionaryWithStatus:(id)arg1 isFinal:(_Bool)arg2;
 - (void)_accountStoreChanged;
 - (void)signOut;

@@ -14,10 +14,12 @@
 {
     NSString *_articleId;
     NSString *_sourceChannelId;
+    NSString *_webEmbedId;
     int _widgetArticleCount;
     int _widgetArticleCountInSection;
     int _widgetArticleRank;
     int _widgetArticleRankInSection;
+    int _widgetContentType;
     int _widgetSectionDisplayRank;
     NSString *_widgetSectionId;
     struct {
@@ -25,10 +27,12 @@
         unsigned int widgetArticleCountInSection:1;
         unsigned int widgetArticleRank:1;
         unsigned int widgetArticleRankInSection:1;
+        unsigned int widgetContentType:1;
         unsigned int widgetSectionDisplayRank:1;
     } _has;
 }
 
+@property(retain, nonatomic) NSString *webEmbedId; // @synthesize webEmbedId=_webEmbedId;
 @property(nonatomic) int widgetArticleCountInSection; // @synthesize widgetArticleCountInSection=_widgetArticleCountInSection;
 @property(nonatomic) int widgetArticleCount; // @synthesize widgetArticleCount=_widgetArticleCount;
 @property(nonatomic) int widgetArticleRank; // @synthesize widgetArticleRank=_widgetArticleRank;
@@ -46,6 +50,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasWebEmbedId;
+- (int)StringAsWidgetContentType:(id)arg1;
+- (id)widgetContentTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasWidgetContentType;
+@property(nonatomic) int widgetContentType; // @synthesize widgetContentType=_widgetContentType;
 @property(nonatomic) _Bool hasWidgetArticleCountInSection;
 @property(nonatomic) _Bool hasWidgetArticleCount;
 @property(nonatomic) _Bool hasWidgetArticleRank;

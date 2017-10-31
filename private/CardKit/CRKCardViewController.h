@@ -8,19 +8,21 @@
 
 #import "CRKCardSectionViewControllerDataSource.h"
 #import "CRKCardSectionViewControllerDelegate.h"
+#import "CRKCardSectionViewProviderHelping.h"
+#import "CRKFeedbackDelegate.h"
 #import "SearchUIFeedbackDelegate.h"
 
 @class CRKComposedStackView, NSMapTable, NSMutableArray, NSString;
 
-@interface CRKCardViewController : UIViewController <CRKCardSectionViewControllerDelegate, CRKCardSectionViewControllerDataSource, SearchUIFeedbackDelegate>
+@interface CRKCardViewController : UIViewController <CRKCardSectionViewControllerDelegate, CRKCardSectionViewControllerDataSource, SearchUIFeedbackDelegate, CRKCardSectionViewProviderHelping, CRKFeedbackDelegate>
 {
+    id <CRKCardSectionViewProviderManaging> _cardSectionViewProviderManager;
     NSMutableArray *_cardSectionViewControllers;
     NSMapTable *_cardSectionsToCardSectionViewControllersMapTable;
     NSMapTable *_handledParametersForInteraction;
     NSMutableArray *_pendingDismissalCommands;
     _Bool _loaded;
     NSMutableArray *_loadingCardSections;
-    NSMutableArray *_tableCardSections;
     _Bool _indicatingActivity;
     id <CRCard> _card;
     id <CRKCardViewControllerDelegate> _delegate;
@@ -34,10 +36,13 @@
 @property(nonatomic) __weak id <CRKCardViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) id <CRCard> card; // @synthesize card=_card;
 - (void).cxx_destruct;
+- (id)defaultFeedbackDelegate;
 - (void)cardSectionViewDidDisappearForCardSection:(id)arg1 withDisappearanceFeedback:(id)arg2;
 - (void)cardSectionViewDidAppearForCardSection:(id)arg1 withAppearanceFeedback:(id)arg2;
 - (void)cardSectionViewWillAppearForCardSection:(id)arg1 withAppearanceFeedback:(id)arg2;
 - (void)userDidEngageCardSection:(id)arg1 withEngagementFeedback:(id)arg2;
+- (void)cardSectionViewDidSelectPreferredPunchoutIndex:(long long)arg1;
+- (void)presentViewController:(id)arg1;
 - (void)didEngageCardSection:(id)arg1;
 - (id)cardSectionViewController:(id)arg1 interfaceSectionsForInteraction:(id)arg2;
 - (id)cardSectionViewController:(id)arg1 handledParametersForInteraction:(id)arg2;
@@ -77,7 +82,6 @@
 - (void)_cancelTouchesIfNecessary;
 - (id)_loadCardSectionViewControllerFromCardSection:(id)arg1;
 - (void)_loadCardSectionViewControllersFromCard:(id)arg1;
-- (void)_configureTableRowCardSections:(id)arg1;
 - (id)_initWithCoder:(id)arg1;
 - (id)_initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)_initWithCard:(id)arg1;

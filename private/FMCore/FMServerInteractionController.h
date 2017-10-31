@@ -7,11 +7,10 @@
 #import "NSObject.h"
 
 #import "NSURLSessionDelegate.h"
-#import "NSURLSessionTaskDelegate.h"
 
 @class NSMutableSet, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, NSURLSession, NSURLSessionConfiguration;
 
-@interface FMServerInteractionController : NSObject <NSURLSessionDelegate, NSURLSessionTaskDelegate>
+@interface FMServerInteractionController : NSObject <NSURLSessionDelegate>
 {
     NSObject<OS_dispatch_queue> *dq_inFlightCommands;
     NSMutableSet *inFlightCommands;
@@ -25,6 +24,7 @@
 @property(retain, nonatomic) NSOperationQueue *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
 - (void)processResponseForCommand:(id)arg1 callback:(CDUnknownBlockType)arg2;
+- (void)URLSession:(id)arg1 didBecomeInvalidWithError:(id)arg2;
 - (void)networkActivityStatus:(_Bool)arg1;
 - (void)invalidate;
 - (void)cancelAllCommands;

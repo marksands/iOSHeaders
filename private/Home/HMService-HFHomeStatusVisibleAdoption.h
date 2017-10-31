@@ -14,6 +14,7 @@
 - (id)hf_updateIsVisibleInHomeStatus:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool hf_hasSetVisibleInHomeStatus;
 @property(readonly, nonatomic) _Bool hf_isVisibleInHomeStatus;
+@property(readonly, nonatomic) _Bool hf_supportsHomeStatus;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

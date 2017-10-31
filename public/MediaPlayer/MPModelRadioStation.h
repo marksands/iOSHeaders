@@ -16,9 +16,12 @@
     NSString *_name;
     NSString *_editorNotes;
     NSString *_shortEditorNotes;
+    long long _type;
     CDUnknownBlockType _artworkCatalogBlock;
 }
 
++ (id)__MPModelPropertyRadioStationType__PROPERTY;
++ (id)__type__KEY;
 + (id)__MPModelPropertyRadioStationAllowsItemLiking__PROPERTY;
 + (id)__allowsItemLiking__KEY;
 + (id)__MPModelPropertyRadioStationArtwork__PROPERTY;
@@ -35,6 +38,7 @@
 + (id)__beats1__KEY;
 + (id)storeItemMetadataRequestItemIdentifierForIdentifiers:(id)arg1;
 @property(copy, nonatomic) CDUnknownBlockType artworkCatalogBlock; // @synthesize artworkCatalogBlock=_artworkCatalogBlock;
+@property(nonatomic) long long type; // @synthesize type=_type;
 @property(nonatomic) _Bool allowsItemLiking; // @synthesize allowsItemLiking=_allowsItemLiking;
 @property(nonatomic) _Bool hasExplicitContent; // @synthesize hasExplicitContent=_hasExplicitContent;
 @property(copy, nonatomic) NSString *shortEditorNotes; // @synthesize shortEditorNotes=_shortEditorNotes;

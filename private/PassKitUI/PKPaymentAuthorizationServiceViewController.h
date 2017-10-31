@@ -6,6 +6,7 @@
 
 #import "UIViewController.h"
 
+#import "AKAppleIDAuthenticationInAppContextDelegate.h"
 #import "PKAuthenticatorDelegate.h"
 #import "PKPaymentAuthorizationFooterViewDelegate.h"
 #import "PKPaymentAuthorizationServiceProtocol.h"
@@ -16,7 +17,7 @@
 
 @class NSLayoutConstraint, NSString, PKAuthenticator, PKPaymentAuthorizationFooterView, PKPaymentAuthorizationLayout, PKPaymentAuthorizationPasswordButtonView, PKPaymentAuthorizationStateMachine, PKPaymentAuthorizationSummaryItemsView, PKPaymentAuthorizationTotalView, PKPaymentPreferencesViewController, PKPhysicalButtonView, UIBarButtonItem, UITableView, UIView;
 
-@interface PKPaymentAuthorizationServiceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, PKPaymentAuthorizationFooterViewDelegate, PKAuthenticatorDelegate, PKPaymentAuthorizationStateMachineDelegate, PKPaymentAuthorizationServiceProtocol>
+@interface PKPaymentAuthorizationServiceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, PKPaymentAuthorizationFooterViewDelegate, PKAuthenticatorDelegate, PKPaymentAuthorizationStateMachineDelegate, AKAppleIDAuthenticationInAppContextDelegate, PKPaymentAuthorizationServiceProtocol>
 {
     PKPaymentAuthorizationLayout *_layout;
     long long _authorizationMode;
@@ -46,6 +47,7 @@
     _Bool _bypassAuthenticator;
     double _keyboardHeight;
     _Bool _isPad;
+    _Bool _needsFinalCallback;
     long long _preferencesStyle;
     struct __IOHIDEventSystemClient *_hidSystemClient;
     unsigned long long _biometryAttempts;
@@ -66,8 +68,10 @@
 @property(retain, nonatomic) PKAuthenticator *authenticator; // @synthesize authenticator=_authenticator;
 @property(retain, nonatomic) PKPaymentAuthorizationStateMachine *stateMachine; // @synthesize stateMachine=_stateMachine;
 - (void).cxx_destruct;
+- (void)contextWillBeginPresentingSecondaryUI:(id)arg1;
 - (void)_removeSimulatorHIDListener;
 - (void)_startSimulatorHIDListener;
+- (void)_sendDidEncounterAuthorizationEventIfNecessary:(unsigned long long)arg1;
 - (void)_updatePhysicalButtonInstruction;
 - (void)_setUserIntentRequired:(_Bool)arg1 shouldIgnorePhysicalButton:(_Bool)arg2;
 - (void)_updateUserIntentRequired;
@@ -92,6 +96,7 @@
 - (Class)_tableViewClassForDataItem:(id)arg1;
 - (void)_removePassphraseViewFromHierarchyWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_addPassphraseViewControllerToHierarchy:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)_updateFooterStateForBiometricMatchMissIfNecessary;
 - (void)resumeAndUpdateContentSize;
 - (void)cancelPressed:(id)arg1;
 - (void)_payWithPasswordPressed:(id)arg1;
@@ -111,6 +116,7 @@
 - (void)dismissPasscodeViewController;
 - (void)presentPasscodeViewController:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)biometricAttemptFailed;
+- (void)authenticatorDidEncounterBiometricLockout:(id)arg1;
 - (void)authenticatorDidEncounterMatchMiss:(id)arg1;
 - (void)authenticator:(id)arg1 didRequestUserAction:(long long)arg2;
 - (void)authenticatorDidEncounterFingerOff:(id)arg1;
@@ -143,6 +149,7 @@
 - (void)_invalidPaymentDataWithParam:(id)arg1;
 - (void)_processClientCallback:(id)arg1;
 - (_Bool)paymentAuthorizationStateMachine:(id)arg1 didTransitionFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3 withParam:(id)arg4;
+- (void)invalidate;
 - (id)handlePaymentRequest:(id)arg1 fromAppWithLocalizedName:(id)arg2 andApplicationIdentifier:(id)arg3;
 - (void)keyboardWillHide:(id)arg1;
 - (void)keyboardWillShow:(id)arg1;

@@ -12,6 +12,7 @@
 
 @interface CKChatItemCachedSizeMetrics : NSObject <NSSecureCoding>
 {
+    NSString *_chatItemGUID;
     NSString *_key;
     NSDate *_lastAccess;
     IMDoubleLinkedListNode *_node;
@@ -25,6 +26,7 @@
 @property(nonatomic) struct UIEdgeInsets textAlignmentInsets; // @synthesize textAlignmentInsets=_textAlignmentInsets;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(retain, nonatomic) NSString *key; // @synthesize key=_key;
+@property(retain, nonatomic) NSString *chatItemGUID; // @synthesize chatItemGUID=_chatItemGUID;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

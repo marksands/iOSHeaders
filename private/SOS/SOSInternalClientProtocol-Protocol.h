@@ -7,8 +7,9 @@
 #import "SOSClientProtocol.h"
 
 @protocol SOSInternalClientProtocol <SOSClientProtocol>
+- (void)didDismissClientSOSBeforeSOSCall:(long long)arg1;
 - (void)dismissClientSOSWithCompletion:(void (^)(_Bool))arg1;
-- (void)updateCurrentSOSInteractiveState:(long long)arg1;
-- (void)updateCurrentSOSInitiationState:(long long)arg1;
+- (void)updateClientCurrentSOSInteractiveState:(long long)arg1;
+- (void)updateClientCurrentSOSInitiationState:(long long)arg1;
 @end
 

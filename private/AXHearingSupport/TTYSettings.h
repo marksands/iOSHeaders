@@ -22,7 +22,10 @@
 @property(retain, nonatomic) NSMutableSet *synchronizePreferences; // @synthesize synchronizePreferences=_synchronizePreferences;
 @property(retain, nonatomic) NSMutableSet *registeredNotifications; // @synthesize registeredNotifications=_registeredNotifications;
 - (void).cxx_destruct;
+@property(nonatomic) _Bool enableRTTOnAlliPhones;
+@property(nonatomic) _Bool enableRTTOniPadsAndiPods;
 @property(nonatomic) _Bool internalOverrideTTYAvailability;
+@property(nonatomic) _Bool hasReceivedRTTCall;
 @property(retain, nonatomic) NSString *preferredRelayNumber;
 @property(nonatomic) _Bool ttyShouldBeRealtime;
 @property(nonatomic) double lastDBVacuum;

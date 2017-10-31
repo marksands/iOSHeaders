@@ -8,7 +8,7 @@
 
 #import "AXSpringBoardServerInstanceDelegate.h"
 
-@class AXAssertion, AXSpringBoardServerSideAppManager, NSMutableArray, NSString, UIAlertController, UIWindow;
+@class AXAssertion, AXSpringBoardServerAlertManager, AXSpringBoardServerSideAppManager, NSMutableArray, NSString, UIAlertController, UIWindow;
 
 @interface AXSpringBoardServerHelper : NSObject <AXSpringBoardServerInstanceDelegate>
 {
@@ -18,6 +18,7 @@
     _Bool _shouldOverrideInterfaceOrientation;
     NSMutableArray *_notificationObservers;
     AXSpringBoardServerSideAppManager *_sideAppManager;
+    AXSpringBoardServerAlertManager *_alertManager;
     UIAlertController *_alertControllerToDismissAfterPresentation;
     AXAssertion *_disableSystemGesturesAssertionForAlert;
     UIAlertController *_zoomConflictController;
@@ -54,6 +55,7 @@
 @property(retain, nonatomic) UIAlertController *zoomConflictController; // @synthesize zoomConflictController=_zoomConflictController;
 @property(retain, nonatomic) AXAssertion *disableSystemGesturesAssertionForAlert; // @synthesize disableSystemGesturesAssertionForAlert=_disableSystemGesturesAssertionForAlert;
 @property(retain, nonatomic) UIAlertController *alertControllerToDismissAfterPresentation; // @synthesize alertControllerToDismissAfterPresentation=_alertControllerToDismissAfterPresentation;
+@property(retain, nonatomic) AXSpringBoardServerAlertManager *alertManager; // @synthesize alertManager=_alertManager;
 @property(retain, nonatomic) AXSpringBoardServerSideAppManager *sideAppManager; // @synthesize sideAppManager=_sideAppManager;
 - (void).cxx_destruct;
 - (void)activeInterfaceOrientationDidChangeToOrientation:(long long)arg1 willAnimateWithDuration:(double)arg2 fromOrientation:(long long)arg3;
@@ -118,6 +120,7 @@
 - (id)dashBoardViewController;
 - (_Bool)isMagnifierVisibleWithServerInstance:(id)arg1;
 - (void)launchMagnifierAppWithServerInstance:(id)arg1;
+- (void)reactivateInCallServiceWithServerInstance:(id)arg1;
 - (void)forceLoadGAXBundleWithServerInstance:(id)arg1;
 - (void)revealSpotlightWithServerInstance:(id)arg1;
 - (id)medusaBundleIDsToLayoutRoles;
@@ -180,6 +183,8 @@
 - (double)volumeLevelWithServerInstance:(id)arg1;
 - (_Bool)isVoiceControlRunningWithServerInstance:(id)arg1;
 - (_Bool)handleToggleIncomingCallWithServerInstance:(id)arg1;
+- (void)serverInstance:(id)arg1 hideRemoteViewType:(long long)arg2 withData:(id)arg3;
+- (void)serverInstance:(id)arg1 showRemoteViewType:(long long)arg2 withData:(id)arg3;
 - (void)hideAlertWithServerInstance:(id)arg1;
 - (void)serverInstance:(id)arg1 showAlertType:(long long)arg2 withHandler:(CDUnknownBlockType)arg3 withData:(id)arg4;
 - (void)dealloc;

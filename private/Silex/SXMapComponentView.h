@@ -72,11 +72,11 @@
 - (void)createSnapShot;
 - (_Bool)shouldCreateSnapShot;
 - (void)discardContents;
-- (void)presentComponent;
+- (void)presentComponentWithChanges:(CDStruct_1cc9d0d0)arg1;
 - (void)renderContents;
 - (void)memoryWarning:(id)arg1;
 - (void)dealloc;
-- (id)initWithComponent:(id)arg1 configuration:(id)arg2 context:(id)arg3 analyticsReporting:(id)arg4 appStateMonitor:(id)arg5;
+- (id)initWithDocumentController:(id)arg1 viewport:(id)arg2 presentationDelegate:(id)arg3 analyticsReporting:(id)arg4 componentStyleRendererFactory:(id)arg5 appStateMonitor:(id)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -13,7 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface LPiTunesMediaMovieUnresolvedMetadata : NSObject <LPiTunesMediaUnresolvedMetadata>
 {
-    _Bool _needsBrandingAsset;
+    _Bool _needsBrandingText;
     NSString *_storeFrontIdentifier;
     NSString *_storeIdentifier;
     NSString *_name;

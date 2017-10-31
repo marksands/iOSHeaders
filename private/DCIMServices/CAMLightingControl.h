@@ -77,6 +77,7 @@
 @property(nonatomic) long long selectedLightingType; // @synthesize selectedLightingType=_selectedLightingType;
 @property(nonatomic) __weak id <CAMLightingControlDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)updateToContentSize:(id)arg1;
 - (void)_performFeedback;
 - (void)_prepareFeedback;
 - (void)_createNameBadgeIfNeeded;

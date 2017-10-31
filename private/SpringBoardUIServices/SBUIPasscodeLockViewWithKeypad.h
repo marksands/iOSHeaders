@@ -40,7 +40,6 @@
 - (void)_updateFonts;
 - (_Bool)_usesLightStyle;
 - (id)_numericEntryFieldIfExists;
-- (double)_numberPadOffsetFromTopOfScreen;
 - (void)_noteKeyUp:(id)arg1;
 - (void)_noteBackspaceHit;
 - (void)_noteStringEntered:(id)arg1 eligibleForPlayingSounds:(_Bool)arg2;

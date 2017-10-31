@@ -16,6 +16,7 @@
 + (id)new;
 @property(copy, nonatomic) NSArray *techniques; // @synthesize techniques=_techniques;
 - (void).cxx_destruct;
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (void)configureRecordingTechnique;

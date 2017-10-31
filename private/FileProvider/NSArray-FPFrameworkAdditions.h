@@ -10,6 +10,7 @@
 + (id)fp_sortDescriptorByModifiedDateDescending;
 + (id)fp_sortDescriptorByDisplayName;
 + (id)fp_sortDescriptorByHierarchyPath;
+- (id)fp_pickItemsFromArray:(id)arg1 correspondingToIndexesOfItemsInArray:(id)arg2;
 - (id)fp_map:(CDUnknownBlockType)arg1;
 @end
 

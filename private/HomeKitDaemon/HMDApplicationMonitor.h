@@ -6,28 +6,29 @@
 
 #import "HMFObject.h"
 
+#import "HMFLogging.h"
 #import "HMFTimerDelegate.h"
 
 @class BKSApplicationStateMonitor, HMDApplicationRegistry, HMFTimer, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString;
 
-@interface HMDApplicationMonitor : HMFObject <HMFTimerDelegate>
+@interface HMDApplicationMonitor : HMFObject <HMFTimerDelegate, HMFLogging>
 {
     id <HMDApplicationMonitorDelegate> _delegate;
-    NSObject<OS_dispatch_queue> *_workQueue;
+    NSObject<OS_dispatch_queue> *_xpcQueue;
     NSMutableSet *_processes;
-    BKSApplicationStateMonitor *_monitor;
+    BKSApplicationStateMonitor *_bksMonitor;
     HMDApplicationRegistry *_appRegistry;
     HMFTimer *_spiClientTerminationDelayTimer;
     NSMutableSet *_pendingTerminatedApplications;
 }
 
-+ (id)applicationStateDescription:(unsigned long long)arg1;
++ (id)logCategory;
 @property(readonly, nonatomic) NSMutableSet *pendingTerminatedApplications; // @synthesize pendingTerminatedApplications=_pendingTerminatedApplications;
 @property(retain, nonatomic) HMFTimer *spiClientTerminationDelayTimer; // @synthesize spiClientTerminationDelayTimer=_spiClientTerminationDelayTimer;
 @property(nonatomic) __weak HMDApplicationRegistry *appRegistry; // @synthesize appRegistry=_appRegistry;
-@property(readonly, nonatomic) BKSApplicationStateMonitor *monitor; // @synthesize monitor=_monitor;
+@property(readonly, nonatomic) BKSApplicationStateMonitor *bksMonitor; // @synthesize bksMonitor=_bksMonitor;
 @property(readonly, nonatomic) NSMutableSet *processes; // @synthesize processes=_processes;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *xpcQueue; // @synthesize xpcQueue=_xpcQueue;
 @property(nonatomic) __weak id <HMDApplicationMonitorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)_delegateConformsAndRespondsToSelector:(SEL)arg1;
@@ -38,6 +39,7 @@
 - (id)backgroundToForegroundApps;
 @property(readonly, nonatomic) NSSet *foregroundApps;
 - (id)foregroundAppIdentifiers;
+- (id)_activeRequests;
 - (id)activeRequests;
 - (id)applicationInfoForPID:(int)arg1;
 - (id)applicationInfoForApplication:(id)arg1;
@@ -46,6 +48,7 @@
 - (void)_callAppStateChangeDelegate:(id)arg1;
 - (void)_updateProcessInfo:(id)arg1 info:(id)arg2;
 - (void)_handleAppStateChangedInfo:(id)arg1;
+- (void)handleAppStateChangedInfo:(id)arg1;
 - (void)_postAppTerminatedNotification:(id)arg1;
 - (_Bool)infoIsForViewService:(id)arg1;
 - (unsigned long long)translateApplicationStateForInfo:(id)arg1 processInfo:(id)arg2;
@@ -53,7 +56,7 @@
 - (void)removeProcess:(id)arg1;
 - (void)addProcess:(id)arg1;
 - (void)dealloc;
-- (id)init;
+- (id)initWithXpcQueue:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

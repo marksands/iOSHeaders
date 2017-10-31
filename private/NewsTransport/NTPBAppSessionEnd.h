@@ -30,6 +30,7 @@
     int _topicSubscriptionCount;
     _Bool _breakingNewsAvailableDuringSession;
     _Bool _breakingNewsDismissedDuringSession;
+    _Bool _syncedOtherUserIdDuringSession;
     struct {
         unsigned int appSessionDuration:1;
         unsigned int appsAutoSubscribeFeedCount:1;
@@ -43,6 +44,7 @@
         unsigned int topicSubscriptionCount:1;
         unsigned int breakingNewsAvailableDuringSession:1;
         unsigned int breakingNewsDismissedDuringSession:1;
+        unsigned int syncedOtherUserIdDuringSession:1;
     } _has;
 }
 
@@ -52,6 +54,7 @@
 + (Class)notificationChannelIdsType;
 + (Class)paidSubscriptionChannelIdsType;
 + (Class)lastVisibleViewsType;
+@property(nonatomic) _Bool syncedOtherUserIdDuringSession; // @synthesize syncedOtherUserIdDuringSession=_syncedOtherUserIdDuringSession;
 @property(nonatomic) int internalAutoSubscribeFeedCount; // @synthesize internalAutoSubscribeFeedCount=_internalAutoSubscribeFeedCount;
 @property(nonatomic) int appsAutoSubscribeFeedCount; // @synthesize appsAutoSubscribeFeedCount=_appsAutoSubscribeFeedCount;
 @property(nonatomic) int safariAutoSubscribeFeedCount; // @synthesize safariAutoSubscribeFeedCount=_safariAutoSubscribeFeedCount;
@@ -78,6 +81,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSyncedOtherUserIdDuringSession;
 @property(nonatomic) _Bool hasInternalAutoSubscribeFeedCount;
 @property(nonatomic) _Bool hasAppsAutoSubscribeFeedCount;
 @property(nonatomic) _Bool hasSafariAutoSubscribeFeedCount;

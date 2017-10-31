@@ -101,6 +101,13 @@
 - (long long)_removeOrphanedLocationSeriesWithError:(id *)arg1;
 - (id)butlerProtectedMigrationSteps;
 - (id)butlerUnprotectedMigrationSteps;
+- (long long)_cinar_addObjectAuthorizationAndActivityCacheIndicesWithError:(id *)arg1;
+- (id)cinarProtectedMigrationSteps;
+- (long long)_cinar_convertLocalDevicePlaceholderSourcesWithError:(id *)arg1;
+- (long long)_cinar_addSourceAndDeviceIndicesWithError:(id *)arg1;
+- (long long)_cinar_removeDetailsFromDeletedSourcesWithError:(id *)arg1;
+- (long long)_cinar_addSyncPrimaryColumnToSourcesWithError:(id *)arg1;
+- (id)cinarUnprotectedMigrationSteps;
 - (long long)_setLastOkemoZursObjectAnchorWithError:(id *)arg1;
 - (long long)_addDeviceEnabledColumnToKnownDevicesWithError:(id *)arg1;
 - (long long)_clearSamplesWithoutSourcesWithError:(id *)arg1;
@@ -170,7 +177,6 @@
 - (long long)_tigris_addGapColumnToCloudSyncStores:(id *)arg1;
 - (long long)_tigris_addPreferredSourceOptionToConnectedGymSources:(out id *)arg1;
 - (long long)_tigris_addContainerColumnToCloudSyncStores:(id *)arg1;
-- (long long)_tigris_createLocalSourceCopiesWithError:(id *)arg1;
 - (long long)_tigris_addLastCheckAndOwnerIDColumnsWithError:(id *)arg1;
 - (long long)_tigris_addEmptyZonesColumnWithError:(id *)arg1;
 - (long long)_tigris_addLastSyncColumnWithError:(id *)arg1;

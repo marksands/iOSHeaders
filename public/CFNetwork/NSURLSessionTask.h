@@ -26,6 +26,7 @@
 @property _Bool _extractorPreparedForExtraction; // @synthesize _extractorPreparedForExtraction=__extractorPreparedForExtraction;
 @property _Bool _extractorFinishedDecoding; // @synthesize _extractorFinishedDecoding=__extractorFinishedDecoding;
 @property float priority; // @synthesize priority=_priority;
+- (void)set_TLSNegotiatedCipherSuite:(unsigned short)arg1;
 @property(readonly, nonatomic) _Bool _isAVAssetTask; // @dynamic _isAVAssetTask;
 - (void)_consumePendingBytesReceivedEncoded;
 - (void)_appendCountOfPendingBytesReceivedEncoded:(long long)arg1;
@@ -64,6 +65,7 @@
 // Remaining properties
 @property(copy) NSDictionary *_DuetActivityProperties; // @dynamic _DuetActivityProperties;
 @property(copy) NSData *_TCPConnectionMetadata; // @dynamic _TCPConnectionMetadata;
+@property(readonly) unsigned short _TLSNegotiatedCipherSuite; // @dynamic _TLSNegotiatedCipherSuite;
 @property unsigned long long _allowedProtocolTypes; // @dynamic _allowedProtocolTypes;
 @property _Bool _allowsCellular; // @dynamic _allowsCellular;
 @property(nonatomic) _Bool _allowsQUIC; // @dynamic _allowsQUIC;
@@ -88,8 +90,10 @@
 @property unsigned int _darkWakePowerAssertion; // @dynamic _darkWakePowerAssertion;
 @property(retain, nonatomic) NSDictionary *_dependencyInfo; // @dynamic _dependencyInfo;
 @property _Bool _disallowCellular; // @dynamic _disallowCellular;
+@property(nonatomic) _Bool _doesSZExtractorConsumeExtractedData; // @dynamic _doesSZExtractorConsumeExtractedData;
 @property long long _expectedWorkload; // @dynamic _expectedWorkload;
-@property(retain, nonatomic) id <SZExtractor> _extractor; // @dynamic _extractor;
+@property(retain, nonatomic, setter=set_extractor:) id <SZExtractor> _extractor; // @dynamic _extractor;
+@property(nonatomic) _Bool _hasSZExtractor; // @dynamic _hasSZExtractor;
 @property(retain, nonatomic) NSURLSessionTaskMetrics *_incompleteTaskMetrics; // @dynamic _incompleteTaskMetrics;
 @property(copy) NSURL *_ledBellyFallbackURL; // @dynamic _ledBellyFallbackURL;
 @property(copy) NSString *_ledBellyServiceIdentifier; // @dynamic _ledBellyServiceIdentifier;

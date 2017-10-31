@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSArray;
-
 @interface TVShelfLayoutSection : NSObject
 {
-    NSArray *_itemFrames;
+    long long _numberOfItems;
+    struct CGRect *_itemFrames;
     double _sectionHeaderHorizontalOffset;
     double _sectionHeaderVerticalBump;
     struct CGRect _itemsBoundingFrame;
@@ -23,8 +22,12 @@
 @property(nonatomic) double sectionHeaderHorizontalOffset; // @synthesize sectionHeaderHorizontalOffset=_sectionHeaderHorizontalOffset;
 @property(nonatomic) struct CGRect sectionHeaderFrame; // @synthesize sectionHeaderFrame=_sectionHeaderFrame;
 @property(nonatomic) struct CGRect itemsBoundingFrame; // @synthesize itemsBoundingFrame=_itemsBoundingFrame;
-@property(retain, nonatomic) NSArray *itemFrames; // @synthesize itemFrames=_itemFrames;
-- (void).cxx_destruct;
+@property(nonatomic) long long numberOfItems; // @synthesize numberOfItems=_numberOfItems;
+- (struct CGRect)lastItemFrame;
+- (struct CGRect)firstItemFrame;
+- (void)setItemFrame:(struct CGRect)arg1 atIndex:(long long)arg2;
+- (struct CGRect)itemFrameAtIndex:(long long)arg1;
+- (void)dealloc;
 
 @end
 

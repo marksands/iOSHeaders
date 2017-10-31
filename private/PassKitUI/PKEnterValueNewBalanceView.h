@@ -41,7 +41,7 @@
 - (void)_addSubviews;
 - (void)_createAmountFormatter;
 - (void)_updateBalanceText;
-- (id)_formattedStringForAmount:(id)arg1;
+- (id)_minimalFormattedStringForAmount:(id)arg1;
 - (void)_updateAdditionalAmount:(id)arg1 subtractAdditionalAmountFromCurrentAmount:(_Bool)arg2;
 - (void)subtractAmountFromBalance:(id)arg1;
 - (void)addAmountToBalance:(id)arg1;

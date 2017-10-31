@@ -76,6 +76,7 @@
 @property(copy, nonatomic) NSString *advertisingSection; // @synthesize advertisingSection=_advertisingSection;
 @property(copy, nonatomic) NSURL *serverURL; // @synthesize serverURL=_serverURL;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (void)creativeControllerTapGestureTimerDidExpireBeforePrimaryActionWasInvoked;
 - (void)creativeControllerViewDidRequestOpenURL:(id)arg1 withTapLocation:(struct CGPoint)arg2;
 - (void)creativeControllerViewDidRequestExpandURL:(id)arg1 withMaximumSize:(struct CGSize)arg2 withTapLocation:(struct CGPoint)arg3;
 - (void)creativeControllerViewDidRequestCreateCalendarEvent:(id)arg1 withTapLocation:(struct CGPoint)arg2;

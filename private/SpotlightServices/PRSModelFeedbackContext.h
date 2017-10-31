@@ -10,7 +10,7 @@
 
 @interface PRSModelFeedbackContext : NSObject
 {
-    double *_scores;
+    float *_scores;
     NSString *_l2Version;
     NSString *_l2ShadowVersion;
     NSString *_l3Version;
@@ -19,10 +19,10 @@
 @property(retain, nonatomic) NSString *l3Version; // @synthesize l3Version=_l3Version;
 @property(retain, nonatomic) NSString *l2ShadowVersion; // @synthesize l2ShadowVersion=_l2ShadowVersion;
 @property(retain, nonatomic) NSString *l2Version; // @synthesize l2Version=_l2Version;
-@property(nonatomic) double *scores; // @synthesize scores=_scores;
+@property(nonatomic) float *scores; // @synthesize scores=_scores;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (id)initWithScores:(double *)arg1 models:(id)arg2 shadowModels:(id)arg3;
+- (id)initWithScores:(float *)arg1 models:(id)arg2 shadowModels:(id)arg3;
 
 @end
 

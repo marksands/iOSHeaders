@@ -15,6 +15,7 @@
 @interface PUZoomableGridViewController : PUPhotosGridViewController <PXCPLServiceUIDelegate, PUCloudQuotaControllerDelegate, PUMagnfiedViewControllerDelegate>
 {
     _Bool _isDisplayingGlobalFooterView;
+    _Bool _isDisplayingEmptyPlaceholderView;
     PXCPLServiceUI *_cplServiceUI;
     PUCloudQuotaController *_cloudQuotaController;
     _Bool _globalFooterDidAutoScroll;
@@ -87,7 +88,7 @@
 - (void)_globalFooterHasImportantInformationDidChange;
 - (_Bool)_globalFooterHasImportantInformation;
 - (void)_conditionallyRevealPhotosGlobalFooterView;
-- (void)_conditionallyRevealPhotosGlobalFooterViewWithContentOffset:(struct CGPoint)arg1;
+- (void)_conditionallyRevealPhotosGlobalFooterViewWithLastUserScrollTime:(double)arg1;
 - (_Bool)_shouldRevealPhotosGlobalFooterView;
 - (void)_configureGlobalFooterImportantInformationUpdatesTimer;
 - (_Bool)_shouldShowCPLInformationInGlobalFooter;
@@ -101,14 +102,18 @@
 - (id)presentingViewControllerForCloudQuotaController:(id)arg1;
 - (void)cloudQuotaController:(id)arg1 presentInformationBanner:(id)arg2;
 - (_Bool)shouldPreventRevealInMomentAction;
-- (void)getEmptyPlaceholderViewTitle:(id *)arg1 message:(id *)arg2;
+- (void)getEmptyPlaceholderViewTitle:(id *)arg1 message:(id *)arg2 buttonTitle:(id *)arg3 buttonAction:(CDUnknownBlockType *)arg4;
+- (void)didEndDisplayingEmptyPlaceholderView;
+- (void)willDisplayEmptyPlaceholderView;
+- (_Bool)wantsPlaceholderView;
+- (void)_needsCPLInformationDidChange;
 - (double)cellAspectRatioHint;
 - (void)preheatAssets;
 - (unsigned long long)dateRangeFormatterPreset;
 - (long long)imageDeliveryMode;
 - (struct CGSize)contentSizeForPreheating;
 - (struct CGPoint)contentOffsetForPreheating;
-- (void)configureSupplementaryView:(id)arg1 ofKind:(id)arg2 forIndexPath:(id)arg3 animated:(_Bool)arg4;
+- (void)configureSupplementaryView:(id)arg1 ofKind:(id)arg2 forIndexPath:(id)arg3;
 - (void)configureGridCell:(id)arg1 forItemAtIndexPath:(id)arg2;
 - (_Bool)canBeginStackCollapseTransition;
 - (_Bool)canNavigateToPhotoInteractively:(_Bool)arg1;

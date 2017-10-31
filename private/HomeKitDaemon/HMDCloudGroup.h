@@ -37,6 +37,9 @@
 - (id)cloudRecordWithName:(id)arg1;
 @property(readonly, nonatomic) HMDCloudRecord *rootRecord;
 - (void)rootRecordCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)cloudRecordsForParentID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)cloudRecordWithObjectID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)cloudRecordWithObjectIDs:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)cloudRecordWithName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)cloudRecordWithNames:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)isRootRecord:(id)arg1;

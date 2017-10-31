@@ -108,6 +108,7 @@ struct NeuronInfo {
     int type;
     float a;
     float b;
+    float c;
     NSData *aData;
 };
 

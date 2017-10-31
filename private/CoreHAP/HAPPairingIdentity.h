@@ -4,41 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "HMFObject.h"
+#import "HMFPairingIdentity.h"
 
-#import "NSCopying.h"
-#import "NSSecureCoding.h"
-
-@class HAPPairingKey, NSString;
-
-@interface HAPPairingIdentity : HMFObject <NSSecureCoding, NSCopying>
+@interface HAPPairingIdentity : HMFPairingIdentity
 {
-    NSString *_identifier;
-    HAPPairingKey *_publicKey;
-    HAPPairingKey *_privateKey;
     unsigned long long _permissions;
 }
 
-+ (id)pairingIdentityWithDictionary:(id)arg1;
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) unsigned long long permissions; // @synthesize permissions=_permissions;
-@property(readonly, nonatomic) HAPPairingKey *privateKey; // @synthesize privateKey=_privateKey;
-@property(readonly, nonatomic) HAPPairingKey *publicKey; // @synthesize publicKey=_publicKey;
-@property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-- (void).cxx_destruct;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)dictionaryEncoding;
-- (void)updateWithDictionary:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (_Bool)isEqual:(id)arg1;
-- (unsigned long long)hash;
-- (id)description;
-- (id)debugDescription;
-- (id)descriptionWithPointer:(_Bool)arg1;
-- (id)shortDescription;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithIdentifier:(id)arg1 publicKey:(id)arg2 privateKey:(id)arg3 permissions:(unsigned long long)arg4;
-- (id)init;
+- (id)initWithIdentifier:(id)arg1 publicKey:(id)arg2 privateKey:(id)arg3;
 
 @end
 

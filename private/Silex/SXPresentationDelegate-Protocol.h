@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class SXComponentAnimationController, SXComponentBehaviorController, SXComponentController, SXComponentView, SXFullScreenCanvasController, SXFullScreenCanvasViewController, SXFullscreenVideoPlaybackManager, SXMediaPlaybackController, SXPresentationAttributes, SXTangierController, SXViewport, UIView, UIViewController;
+@class SXComponentAnimationController, SXComponentBehaviorController, SXComponentController, SXComponentView, SXFullscreenCanvasController, SXFullscreenCanvasViewController, SXFullscreenVideoPlaybackManager, SXMediaPlaybackController, SXPresentationAttributes, SXTangierController, SXViewport, UIView, UIViewController;
 
 @protocol SXPresentationDelegate <NSObject>
 @property(readonly, nonatomic) id <SXTextSelectionManager> textSelectionManager;
@@ -27,9 +27,9 @@
 - (_Bool)isScrolling;
 - (UIViewController *)presentingContentViewController;
 - (void)dismissFullscreenCanvasForComponent:(SXComponentView *)arg1;
-- (SXFullScreenCanvasViewController *)requestFullScreenCanvasViewControllerForComponent:(SXComponentView *)arg1 withCompletionBlock:(void (^)(void))arg2;
-- (SXFullScreenCanvasViewController *)requestFullScreenCanvasViewControllerForComponent:(SXComponentView *)arg1;
-- (UIView *)requestFullScreenCanvasForComponent:(SXComponentView *)arg1 canvasController:(SXFullScreenCanvasController *)arg2;
+- (SXFullscreenCanvasViewController *)requestFullScreenCanvasViewControllerForComponent:(SXComponentView *)arg1 withCompletionBlock:(void (^)(void))arg2;
+- (SXFullscreenCanvasViewController *)requestFullScreenCanvasViewControllerForComponent:(SXComponentView *)arg1;
+- (UIView *)requestFullScreenCanvasForComponent:(SXComponentView *)arg1 canvasController:(SXFullscreenCanvasController *)arg2;
 - (void)removeInteractivityFocusForComponent:(SXComponentView *)arg1;
 - (_Bool)addInteractivityFocusForComponent:(SXComponentView *)arg1;
 - (_Bool)allowInteractivityFocusForComponent:(SXComponentView *)arg1;

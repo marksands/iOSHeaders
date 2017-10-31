@@ -28,9 +28,9 @@
 - (id)writeValue:(id)arg1;
 - (id)toggleValue;
 - (id)togglePrimaryAndIncrementalState;
-- (id)copyWithCharacteristicTypes:(id)arg1 valueSource:(id)arg2;
-- (_Bool)canCopyWithCharacteristicTypeSubset:(id)arg1;
-- (id)initWithValueSource:(id)arg1 characteristicTypes:(id)arg2 displayResults:(id)arg3;
+- (id)copyWithCharacteristicOptions:(id)arg1 valueSource:(id)arg2;
+- (_Bool)canCopyWithCharacteristicOptions:(id)arg1;
+- (id)initWithValueSource:(id)arg1 characteristicOptions:(id)arg2 displayResults:(id)arg3;
 - (id)initWithValueSource:(id)arg1 incrementalAndPrimaryCharacteristicType:(id)arg2 displayResults:(id)arg3;
 - (id)initWithValueSource:(id)arg1 primaryStateControlItem:(id)arg2 incrementalCharacteristicType:(id)arg3 displayResults:(id)arg4;
 

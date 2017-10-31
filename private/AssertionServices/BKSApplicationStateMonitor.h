@@ -42,6 +42,8 @@
 - (_Bool)isApplicationBeingDebugged:(id)arg1;
 - (unsigned int)mostElevatedApplicationStateForPID:(int)arg1;
 - (unsigned int)applicationStateForApplication:(id)arg1;
+- (id)applicationInfoForPID:(int)arg1;
+- (id)applicationInfoForApplication:(id)arg1;
 - (void)applicationInfoForPID:(int)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)applicationInfoForApplication:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateInterestedAssertionReasons:(id)arg1;

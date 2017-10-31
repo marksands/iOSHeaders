@@ -11,7 +11,9 @@
 }
 
 + (id)currentEnvironment;
-@property(nonatomic) _Bool followUpExtensionSupportEnabled;
+- (void)setFollowUpExtensionSupportEnabled:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool followUpZeroActionsForTheWorld;
+@property(readonly, nonatomic) _Bool followUpExtensionSupportEnabled;
 - (_Bool)shouldHideAllFollowUps;
 - (_Bool)isUnlocked;
 - (_Bool)isInternal;

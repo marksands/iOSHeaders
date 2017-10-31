@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface VNFaceprintGenerator : VNDetector
 {
-    struct shared_ptr<vision::mod::ImageDescriptorProcessorAbstract> m_FaceDescriptorImpl;
+    shared_ptr_b26ea6de m_FaceDescriptorImpl;
     struct shared_ptr<vision::mod::FaceFrontalizer> m_FaceFrontalizerImpl;
     struct shared_ptr<vision::mod::ImageDescriptorAugmenterFlip> m_DescriptorAugmenter;
     struct shared_ptr<unsigned char> m_FaceFrontalizerWorkingBuffer;

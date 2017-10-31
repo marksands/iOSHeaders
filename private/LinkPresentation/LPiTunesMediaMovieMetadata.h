@@ -21,9 +21,11 @@
     LPImage *_artwork;
     LPArtworkMetadata *_artworkMetadata;
     LPImage *_branding;
+    NSString *_brandingText;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSString *brandingText; // @synthesize brandingText=_brandingText;
 @property(retain, nonatomic) LPImage *branding; // @synthesize branding=_branding;
 @property(copy, nonatomic) LPArtworkMetadata *artworkMetadata; // @synthesize artworkMetadata=_artworkMetadata;
 @property(retain, nonatomic) LPImage *artwork; // @synthesize artwork=_artwork;

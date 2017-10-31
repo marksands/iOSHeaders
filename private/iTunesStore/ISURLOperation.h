@@ -30,13 +30,11 @@
     _Bool _loadsHTTPFailures;
     _Bool _uploadProgressRequested;
     NSArray *_passThroughErrors;
-    NSNumber *_convertAccountDSID;
 }
 
 + (struct __CFURLStorageSession *)_sharedCacheStorageSession;
 + (struct _CFURLCache *)sharedCFURLCache;
 + (id)copyUserAgent;
-@property(copy, nonatomic) NSNumber *convertAccountDSID; // @synthesize convertAccountDSID=_convertAccountDSID;
 @property(retain, nonatomic) NSArray *passThroughErrors; // @synthesize passThroughErrors=_passThroughErrors;
 @property(nonatomic, getter=isUploadProgressRequested) _Bool uploadProgressRequested; // @synthesize uploadProgressRequested=_uploadProgressRequested;
 @property(getter=_usesPrivateCookieStore, setter=_setUsesPrivateCookieStore:) _Bool _usesPrivateCookieStore; // @synthesize _usesPrivateCookieStore;
@@ -72,7 +70,6 @@
 - (id)_decodedDataForData:(id)arg1;
 - (id)_copyQueryStringDictionaryForRedirect:(id)arg1;
 - (id)_copyConnectionPropertiesWithDataConnectionServiceType:(struct __CFString *)arg1;
-- (id)_copyAcceptLanguageString;
 - (id)_activeURL;
 - (id)_handleRedirectRequest:(id)arg1 response:(id)arg2;
 - (void)_handleReceivedResponse:(id)arg1;
@@ -106,6 +103,7 @@
 @property(readonly, nonatomic) _Bool shouldSetCookies;
 @property(readonly, nonatomic) _Bool shouldRequireCellular;
 @property(readonly, nonatomic) _Bool shouldDisableCellular;
+@property(readonly, nonatomic) NSData *rawResponseData;
 @property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;
 @property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentage;
 @property(readonly, nonatomic) NSNumber *metricsLoadURLSessionDuration;

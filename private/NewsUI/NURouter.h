@@ -12,10 +12,10 @@
 
 @interface NURouter : NSObject <NURouter>
 {
-    id <NUURLHandler> _urlHandler;
+    id <NUURLHandling> _urlHandler;
 }
 
-@property(readonly, nonatomic) id <NUURLHandler> urlHandler; // @synthesize urlHandler=_urlHandler;
+@property(readonly, nonatomic) id <NUURLHandling> urlHandler; // @synthesize urlHandler=_urlHandler;
 - (void).cxx_destruct;
 - (void)routeToNewsAppForYouFeed;
 - (id)initWithURLHandler:(id)arg1;

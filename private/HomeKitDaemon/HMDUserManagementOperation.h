@@ -60,8 +60,8 @@
 @property(readonly, nonatomic) HMDAccessoryInvitation *accessoryInvitation;
 - (long long)_accessoryInvitationState;
 - (_Bool)mergeWithOperation:(id)arg1;
-- (void)_removePairingFromAccessory:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_addPairingToAccessory:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_removePairingFromHAPAccessory:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_addPairingToHAPAccessory:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)executeWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)cancel;
 - (void)addDependency:(id)arg1;

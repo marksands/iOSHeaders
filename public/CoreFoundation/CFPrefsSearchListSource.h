@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
     CFPrefsCloudSource *_cloudSetTarget;
     struct _opaque_pthread_mutex_t *_searchListLock;
     _Bool initialized;
-    // Error parsing type: AB, name: completedInitialLoad
+    // Error parsing type: AB, name: _isRebuildingCache
 }
 
 - (void)dealloc;
@@ -35,7 +35,9 @@ __attribute__((visibility("hidden")))
 - (void)freeze;
 - (struct __CFDictionary *)alreadylocked_copyManagedDictionary;
 - (void *)alreadylocked_copyManagedValueForKey:(struct __CFString *)arg1;
-- (void)deferredNotifyOfChangesFromDictionary:(struct __CFDictionary *)arg1 toDictionary:(struct __CFDictionary *)arg2;
+- (void)_deferredNotify:(id)arg1 ofChangesFromDictionary:(struct __CFDictionary *)arg2 toDictionary:(struct __CFDictionary *)arg3;
+- (void)deferredNotifyCausedByLoadingOfChangesFromDictionary:(struct __CFDictionary *)arg1 toDictionary:(struct __CFDictionary *)arg2;
+- (void)deferredNotifyCausedByLocalWriteOfChangesFromDictionary:(struct __CFDictionary *)arg1 toDictionary:(struct __CFDictionary *)arg2;
 - (struct __CFDictionary *)alreadylocked_copyDictionary;
 - (long long)generationCount;
 - (void)handleRemoteChangeNotificationForDomainIdentifier:(struct __CFString *)arg1;

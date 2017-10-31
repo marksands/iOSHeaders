@@ -11,8 +11,10 @@
 @interface HMDRemoteLoginInitiatorSession : HMFObject
 {
     NSString *_sessionID;
+    id <HomeKitEventRemoteLoginMetricProtocol> _metric;
 }
 
+@property(retain, nonatomic) id <HomeKitEventRemoteLoginMetricProtocol> metric; // @synthesize metric=_metric;
 @property(readonly, nonatomic) NSString *sessionID; // @synthesize sessionID=_sessionID;
 - (void).cxx_destruct;
 - (id)description;

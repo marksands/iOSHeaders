@@ -7,10 +7,13 @@
 #import "NSCopying.h"
 #import "NSObject.h"
 #import "NSSecureCoding.h"
+#import "NTTodayItem.h"
 
-@class NSData, NSDate, NSObject<NTHeadlineAdElement>, NSObject<NTHeadlineAnalyticsElementProviding>, NSObject<NTHeadlinePersonalizationMetadata>, NSString, NSURL, SFSearchResult;
+@class NSDate, NSObject<NTHeadlineAdElement>, NSObject<NTHeadlineAnalyticsElementProviding>, NSObject<NTHeadlineBackingElement>, NSObject<NTHeadlinePersonalizationMetadata>, NSString, NSURL, SFSearchResult;
 
-@protocol NTHeadlineProviding <NSObject, NSCopying, NSSecureCoding>
+@protocol NTHeadlineProviding <NSObject, NSCopying, NSSecureCoding, NTTodayItem>
+@property(readonly, copy, nonatomic) NSURL *flintDocumentURL;
+@property(readonly, copy, nonatomic) NSObject<NTHeadlineBackingElement> *backingElement;
 @property(readonly, copy, nonatomic) NSObject<NTHeadlinePersonalizationMetadata> *personalizationMetadata;
 @property(readonly, copy, nonatomic) NSObject<NTHeadlineAdElement> *adElement;
 @property(readonly, copy, nonatomic) NSObject<NTHeadlineAnalyticsElementProviding> *analyticsElement;
@@ -25,17 +28,14 @@
 @property(readonly, copy, nonatomic) NSURL *webURL;
 @property(readonly, nonatomic) struct CGRect thumbnailFocalFrame;
 @property(readonly, nonatomic) unsigned long long thumbnailSizePreset;
-@property(readonly, copy, nonatomic) NSData *thumbnailData;
-@property(readonly, copy, nonatomic) NSString *thumbnailAssetID;
+@property(readonly, copy, nonatomic) NSURL *thumbnailRemoteURL;
 @property(readonly, nonatomic) double sourceNameImageScale;
-@property(readonly, copy, nonatomic) NSData *sourceNameImageData;
-@property(readonly, copy, nonatomic) NSString *sourceNameImageAssetID;
+@property(readonly, copy, nonatomic) NSURL *sourceNameImageRemoteURL;
 @property(readonly, copy, nonatomic) NSString *sourceIdentifier;
 @property(readonly, copy, nonatomic) NSString *sourceName;
 @property(readonly, copy, nonatomic) NSDate *ageDisplayDate;
 @property(readonly, copy, nonatomic) NSString *shortExcerpt;
+@property(readonly, copy, nonatomic) NSString *titleCompact;
 @property(readonly, copy, nonatomic) NSString *title;
-- (void)loadThumbnailDataWithFileURL:(NSURL *)arg1;
-- (void)loadSourceNameImageDataWithFileURL:(NSURL *)arg1;
 @end
 

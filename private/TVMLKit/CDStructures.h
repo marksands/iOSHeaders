@@ -82,3 +82,8 @@ typedef struct {
     double bottom;
 } CDStruct_13b0aa87;
 
+// Ambiguous groups
+typedef struct {
+    unsigned int layoutBelowDisabled:1;
+} CDStruct_ce7ae26c;
+

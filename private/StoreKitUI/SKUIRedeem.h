@@ -18,6 +18,7 @@
     NSString *_inAppPurchase;
     NSString *_credit;
     NSString *_balance;
+    NSString *_creditDisplay;
     NSDictionary *_thankYouDictionary;
     NSURL *_redirectURL;
     NSURL *_customizedThankyouURL;
@@ -40,6 +41,7 @@
 @property(retain, nonatomic) NSURL *customizedThankyouURL; // @synthesize customizedThankyouURL=_customizedThankyouURL;
 @property(retain, nonatomic) NSURL *redirectURL; // @synthesize redirectURL=_redirectURL;
 @property(retain, nonatomic) NSDictionary *thankYouDictionary; // @synthesize thankYouDictionary=_thankYouDictionary;
+@property(copy, nonatomic) NSString *creditDisplay; // @synthesize creditDisplay=_creditDisplay;
 @property(copy, nonatomic) NSString *balance; // @synthesize balance=_balance;
 @property(copy, nonatomic) NSString *credit; // @synthesize credit=_credit;
 @property(retain, nonatomic) NSString *inAppPurchase; // @synthesize inAppPurchase=_inAppPurchase;

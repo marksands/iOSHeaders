@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class GEOUserSessionEntity, NSArray, NSMutableArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSSet, NSString, PARBag, PRSRankingServerKnobs, SSPlistDataReader;
+@class GEOUserSessionEntity, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSSet, NSString, PARBag, PRSRankingServerKnobs, SSPlistDataReader;
 
 @interface PRSBagHandler : NSObject
 {
@@ -21,6 +21,7 @@
     _Bool _collectAnonymousData;
     _Bool _collectScores;
     _Bool _use2LayerRanking;
+    _Bool _resourceMetadataNeedsWrite;
     id <PRSSessionController> _client;
     long long _status;
     double _searchRenderTimeout;
@@ -37,10 +38,17 @@
     NSString *_lookupFirstUseDescription2;
     NSString *_lookupFirstUseLearnMore;
     GEOUserSessionEntity *_geoUserSessionEntity;
+    NSMutableDictionary *_resourceMetadata;
+    NSString *_resourceMetadataPath;
+    NSObject<OS_dispatch_queue> *_resourceFetchQueue;
 }
 
 + (id)sharedHandler;
 + (void)initialize;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *resourceFetchQueue; // @synthesize resourceFetchQueue=_resourceFetchQueue;
+@property(retain, nonatomic) NSString *resourceMetadataPath; // @synthesize resourceMetadataPath=_resourceMetadataPath;
+@property(nonatomic) _Bool resourceMetadataNeedsWrite; // @synthesize resourceMetadataNeedsWrite=_resourceMetadataNeedsWrite;
+@property(retain, nonatomic) NSMutableDictionary *resourceMetadata; // @synthesize resourceMetadata=_resourceMetadata;
 @property(readonly) GEOUserSessionEntity *geoUserSessionEntity; // @synthesize geoUserSessionEntity=_geoUserSessionEntity;
 @property(readonly, nonatomic) NSString *lookupFirstUseLearnMore; // @synthesize lookupFirstUseLearnMore=_lookupFirstUseLearnMore;
 @property(readonly, nonatomic) NSString *lookupFirstUseDescription2; // @synthesize lookupFirstUseDescription2=_lookupFirstUseDescription2;
@@ -68,6 +76,7 @@
 - (void)triggerTaskWhenReady:(id)arg1;
 - (void)removeTask:(id)arg1;
 - (void)updateFromSession:(id)arg1 bag:(id)arg2 forClient:(id)arg3 error:(id)arg4;
+- (void)fetchModifiedResourceFromSession:(id)arg1 resource:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updateWithBagDictionary:(id)arg1 error:(id)arg2;
 - (_Bool)isLocaleSupported:(id)arg1;
 - (id)supportedServices;

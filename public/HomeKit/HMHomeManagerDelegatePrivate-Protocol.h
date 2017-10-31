@@ -17,6 +17,7 @@
 - (void)homeManager:(HMHomeManager *)arg1 didUpdateThisDeviceIsResidentCapable:(_Bool)arg2;
 - (void)homeManager:(HMHomeManager *)arg1 didUpdateAccessAllowedWhenLocked:(_Bool)arg2;
 - (void)homeManager:(HMHomeManager *)arg1 didUpdateResidentEnabledForThisDevice:(_Bool)arg2;
+- (void)homeManager:(HMHomeManager *)arg1 didUpdateStatus:(unsigned long long)arg2;
 - (void)homeManagerDidUpdateDataSyncState:(HMHomeManager *)arg1;
 - (void)homeManagerDidUpdateDataSyncInProgress:(HMHomeManager *)arg1;
 - (void)homeManagerDidUpdateCurrentHome:(HMHomeManager *)arg1;

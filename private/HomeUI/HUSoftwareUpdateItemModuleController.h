@@ -19,7 +19,7 @@
 - (void).cxx_destruct;
 - (id)softwareUpdateUIManager:(id)arg1 dismissViewController:(id)arg2;
 - (id)softwareUpdateUIManager:(id)arg1 presentViewController:(id)arg2;
-- (void)_startUpdateOnAccessory:(id)arg1;
+- (void)_startUpdateOnAccessories:(id)arg1;
 - (unsigned long long)didSelectItem:(id)arg1;
 - (_Bool)canSelectItem:(id)arg1;
 - (void)updateCell:(id)arg1 forItem:(id)arg2 animated:(_Bool)arg3;

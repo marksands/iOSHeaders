@@ -74,7 +74,6 @@
 @property(readonly) NSString *userFullName;
 @property(readonly) NSString *localUserUUID;
 @property(readonly) NSString *userChosenName;
-@property _Bool hasBeenUnlockedSinceLastCheckIn;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

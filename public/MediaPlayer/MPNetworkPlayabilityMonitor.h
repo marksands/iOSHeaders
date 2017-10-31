@@ -27,7 +27,6 @@
 @property(readonly, nonatomic) long long effectiveNetworkTypeForPlayback;
 - (void)adjustEffectiveNetworkTypeUsingPreviouslyPlayedItem:(id)arg1;
 - (void)environmentMonitorDidChangeNetworkType:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

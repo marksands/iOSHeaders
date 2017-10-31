@@ -26,6 +26,7 @@
 @property(nonatomic) __weak PSListController *listController; // @synthesize listController=_listController;
 @property(retain, nonatomic) RemoteUIController *remoteUIController; // @synthesize remoteUIController=_remoteUIController;
 - (void).cxx_destruct;
+- (void)remoteUIController:(id)arg1 didReceiveHTTPResponse:(id)arg2;
 - (void)remoteUIController:(id)arg1 willPresentModalNavigationController:(id)arg2;
 - (void)disagreeOrCancelPressed;
 - (void)agreePressed;

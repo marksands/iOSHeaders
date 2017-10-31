@@ -77,6 +77,7 @@
 - (unsigned long long)_nextAnchor;
 @property(readonly, nonatomic) unsigned long long currentRelationshipEventAnchor;
 - (void)traverseRelationshipHistoryStartingAtEventWithAnchor:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
+- (id)relationshipWithConsolidatedEvents;
 - (id)relationshipSnapshotForDate:(id)arg1;
 @property(readonly, nonatomic) NSDate *timestampForMostRecentRelationshipEvent;
 - (void)insertEvents:(id)arg1;

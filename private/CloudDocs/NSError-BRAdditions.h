@@ -45,6 +45,7 @@
 + (id)br_errorWithPOSIXCode:(int)arg1;
 + (id)br_errorWithDomain:(id)arg1 code:(long long)arg2 userInfo:(id)arg3 description:(id)arg4;
 + (id)br_errorWithDomain:(id)arg1 code:(long long)arg2 description:(id)arg3;
+- (id)br_underlyingPOSIXError;
 - (_Bool)br_isCloudDocsErrorCode:(long long)arg1;
 - (_Bool)br_isCocoaErrorCode:(long long)arg1;
 - (_Bool)br_isPOSIXErrorCode:(long long)arg1;

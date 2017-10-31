@@ -22,9 +22,8 @@
 + (id)_attachmentDownloadErrorLocalizedString;
 + (id)_cannotOpenAttachmentLocalizedString;
 + (id)_okLocalizedString;
-+ (id)cellControllersForAttachments:(id)arg1 givenExistingControllers:(id)arg2;
++ (id)cellControllersForAttachments:(id)arg1 givenExistingControllers:(id)arg2 sourceIsManaged:(_Bool)arg3;
 + (_Bool)_attachmentIsViewable:(id)arg1;
-@property(nonatomic) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 @property(nonatomic) __weak id <EKEventAttachmentCellControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) EKAttachment *attachment; // @synthesize attachment=_attachment;
 @property(readonly) EKEventAttachmentCell *cell; // @synthesize cell=_cell;
@@ -38,7 +37,7 @@
 - (id)_downloadProgressStringWithDownloadedBytes:(id)arg1 outOfTotalBytes:(id)arg2;
 - (void)tearDown;
 - (void)_clearDownloadID;
-- (id)initWithAttachment:(id)arg1;
+- (id)initWithAttachment:(id)arg1 sourceIsManaged:(_Bool)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class GEOPDAutocompleteEntryAddress, GEOPDAutocompleteEntryBrandProfile, GEOPDAutocompleteEntryBusiness, GEOPDAutocompleteEntryCategory, GEOPDAutocompleteEntryHighlightLine, GEOPDAutocompleteEntryQuery, PBUnknownFields;
+@class GEOPDAutocompleteEntryAddress, GEOPDAutocompleteEntryBrandProfile, GEOPDAutocompleteEntryBusiness, GEOPDAutocompleteEntryCategory, GEOPDAutocompleteEntryClientResolved, GEOPDAutocompleteEntryHighlightLine, GEOPDAutocompleteEntryQuery, PBUnknownFields;
 
 @interface GEOPDAutocompleteEntry : PBCodable <NSCopying>
 {
@@ -17,6 +17,7 @@
     GEOPDAutocompleteEntryBrandProfile *_brandProfile;
     GEOPDAutocompleteEntryBusiness *_business;
     GEOPDAutocompleteEntryCategory *_category;
+    GEOPDAutocompleteEntryClientResolved *_clientResolved;
     GEOPDAutocompleteEntryHighlightLine *_highlightExtra;
     GEOPDAutocompleteEntryHighlightLine *_highlightMain;
     GEOPDAutocompleteEntryQuery *_query;
@@ -26,6 +27,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) GEOPDAutocompleteEntryClientResolved *clientResolved; // @synthesize clientResolved=_clientResolved;
 @property(retain, nonatomic) GEOPDAutocompleteEntryBrandProfile *brandProfile; // @synthesize brandProfile=_brandProfile;
 @property(retain, nonatomic) GEOPDAutocompleteEntryCategory *category; // @synthesize category=_category;
 @property(retain, nonatomic) GEOPDAutocompleteEntryAddress *address; // @synthesize address=_address;
@@ -44,6 +46,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasClientResolved;
 @property(readonly, nonatomic) _Bool hasBrandProfile;
 @property(readonly, nonatomic) _Bool hasCategory;
 @property(readonly, nonatomic) _Bool hasAddress;

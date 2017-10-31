@@ -30,6 +30,7 @@
 - (void)URLSession:(id)arg1 downloadTask:(id)arg2 didFinishDownloadingToURL:(id)arg3;
 - (void)invalidate;
 - (void)_complete:(id)arg1;
+- (void)_startDownload;
 - (void)_activate;
 - (void)activate;
 - (id)init;

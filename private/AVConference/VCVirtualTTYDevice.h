@@ -10,11 +10,12 @@
 #import "VCAudioIOSink.h"
 #import "VCAudioIOSource.h"
 #import "VCMediaStreamProtocol.h"
+#import "VCTextSender.h"
 
 @class NSObject<OS_dispatch_queue>, NSObject<VCMediaStreamDelegate>, NSString, VCAudioIO, VCAudioPayload;
 
 __attribute__((visibility("hidden")))
-@interface VCVirtualTTYDevice : NSObject <VCMediaStreamProtocol, VCAudioIOSink, VCAudioIOSource, VCAudioIODelegate>
+@interface VCVirtualTTYDevice : NSObject <VCMediaStreamProtocol, VCTextSender, VCAudioIOSink, VCAudioIOSource, VCAudioIODelegate>
 {
     int _clientPid;
     struct AudioStreamBasicDescription vpioFormat;
@@ -30,6 +31,7 @@ __attribute__((visibility("hidden")))
     struct SoundDec_t *_decoder;
     struct opaqueCMSimpleQueue *_charQueue;
     struct tagVCMemoryPool *_characterPool;
+    id _textStream;
 }
 
 @property(nonatomic) NSObject<VCMediaStreamDelegate> *delegate; // @synthesize delegate;
@@ -46,7 +48,7 @@ __attribute__((visibility("hidden")))
 - (void)setPause:(_Bool)arg1;
 - (void)stopAudioWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)stop;
-- (void)sendCharater:(unsigned short)arg1;
+- (void)sendCharacter:(unsigned short)arg1;
 - (void)startVirtualTTYWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)start;
 - (void)dealloc;

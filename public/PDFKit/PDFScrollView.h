@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-- (void)_centerAlign;
+- (void)centerAlign;
 - (void)scrollViewDidZoom:(id)arg1;
 - (void)scrollViewDidEndZooming:(id)arg1 withView:(id)arg2 atScale:(double)arg3;
 - (void)scrollViewWillBeginZooming:(id)arg1 withView:(id)arg2;

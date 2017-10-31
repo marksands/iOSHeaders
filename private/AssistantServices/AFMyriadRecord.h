@@ -31,10 +31,12 @@
 - (void).cxx_destruct;
 - (id)description;
 - (id)asAdvertisementData;
+- (_Bool)isSane;
 - (_Bool)isAnEmergencyHandled;
 - (_Bool)isAnEmergency;
 - (_Bool)isAContinuation;
 - (_Bool)isATrump;
+- (void)generateRandomConfidence;
 - (void)generateTiebreaker;
 - (id)initWithDeviceID:(id)arg1 data:(id)arg2;
 - (void)adjustByMultiplier:(float)arg1 adding:(int)arg2;

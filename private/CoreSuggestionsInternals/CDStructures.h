@@ -75,6 +75,14 @@ struct SGMContactDetailExtractionOutcome_ {
     unsigned long long _field1;
 };
 
+struct SGMContactDetailFoundIn_ {
+    unsigned long long _field1;
+};
+
+struct SGMContactDetailOwner_ {
+    unsigned long long _field1;
+};
+
 struct SGMContactDetailType_ {
     unsigned long long _field1;
 };

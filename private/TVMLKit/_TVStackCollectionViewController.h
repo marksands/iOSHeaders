@@ -17,6 +17,7 @@
     _TVNeedsMoreContentEvaluator *_needsMoreContentEvaluator;
     UIViewController *_backdropTintViewController;
     UIView *_backdropTintView;
+    _Bool _configureForListTemplate;
     IKViewElement *_viewElement;
 }
 
@@ -32,6 +33,7 @@
 - (void)_adjustedContentOffsetForRowIndex:(long long)arg1 targetContentOffset:(struct CGPoint *)arg2;
 - (id)_viewControllerWithElement:(id)arg1 existingController:(id)arg2;
 - (_Bool)_updateWithCollectionListElement:(id)arg1 autoHighlightIndexPath:(id *)arg2;
+- (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
@@ -47,7 +49,7 @@
 - (void)viewDidLayoutSubviews;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (void)loadView;
-- (void)updateWithContainerViewElement:(id)arg1;
+- (void)updateWithViewElement:(id)arg1;
 
 // Remaining properties
 @property(retain, nonatomic) _TVStackCollectionView *collectionView; // @dynamic collectionView;

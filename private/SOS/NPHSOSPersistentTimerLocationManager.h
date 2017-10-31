@@ -15,6 +15,7 @@
     CLLocationManager *_locationManager;
     NSObject<OS_dispatch_queue> *_locationUpdateStartQueue;
     PCPersistentTimer *_locationUpdateTimer;
+    PCPersistentTimer *_requestLocationsTimer;
     CLLocation *_lastLocation;
     double _ti;
     PCPersistentTimer *_initalRequestTimer;
@@ -39,6 +40,8 @@
 - (void)fireAndStartTimertWithTimeInterval:(double)arg1;
 - (void)_startTimer;
 - (void)stopRequestingLocationUpdates;
+- (void)invalidateRequestLocationsTimer;
+- (void)_requestLocationsTimeout:(id)arg1;
 - (void)requestLocation;
 - (void)warmUpLocationRequest;
 - (void)dealloc;

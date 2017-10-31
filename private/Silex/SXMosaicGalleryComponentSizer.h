@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <Silex/SXGalleryComponentSizer.h>
+#import <Silex/SXComponentSizer.h>
 
 #import "SXMosaicGalleryLayouterDataSource.h"
 
 @class NSString, SXMosaicGalleryLayouter;
 
-@interface SXMosaicGalleryComponentSizer : SXGalleryComponentSizer <SXMosaicGalleryLayouterDataSource>
+@interface SXMosaicGalleryComponentSizer : SXComponentSizer <SXMosaicGalleryLayouterDataSource>
 {
     SXMosaicGalleryLayouter *_layouter;
 }

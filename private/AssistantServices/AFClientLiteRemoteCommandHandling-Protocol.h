@@ -7,6 +7,6 @@
 @class SABaseCommand;
 
 @protocol AFClientLiteRemoteCommandHandling
-- (oneway void)handleRemoteCommand:(SABaseCommand *)arg1 isOneWay:(_Bool)arg2 completion:(void (^)(_Bool, NSError *))arg3;
+- (oneway void)handleRemoteCommand:(SABaseCommand *)arg1 afterCurrentRequest:(_Bool)arg2 isOneWay:(_Bool)arg3 completion:(void (^)(_Bool, NSError *))arg4;
 @end
 

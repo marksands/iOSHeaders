@@ -11,6 +11,7 @@
 @protocol AFUISiriViewDataSource <NSObject>
 
 @optional
+- (long long)userAccountCountForSiriView:(AFUISiriView *)arg1;
 - (AFAccount *)activeAccountForSiriView:(AFUISiriView *)arg1;
 - (NSString *)assistantVersionForSiriView:(AFUISiriView *)arg1;
 @end

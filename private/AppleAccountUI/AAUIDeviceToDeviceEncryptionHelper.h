@@ -24,6 +24,7 @@
 - (void)_validatePasscodeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_validateCDPStateForAuthResults:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (_Bool)_isHSA2AvailableForAuthenticationContext:(id)arg1;
+- (void)_presentCDPUpgradeSpinnerViewControllerForAuthContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_authenticateContext:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_askPermissionToContinueFlowForEligibleAccountForContext:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)performDeviceToDeviceEncryptionStateRepairForContext:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

@@ -6,79 +6,69 @@
 
 #import "UIView.h"
 
-@class MPArtworkCatalog, MPButton, MPUMarqueeView, NSString, UIButton, UIImageView, UILabel;
+@class MPButton, MPCPlayerPath, MPUMarqueeView, NSString, UIButton, UIImageView, UILabel;
 
 @interface MediaControlsHeaderView : UIView
 {
     _Bool _transitioning;
-    _Bool _showingRoutingPicker;
-    _Bool _onlyShowsRoutingPicker;
-    _Bool _headerViewOnScreen;
+    _Bool _marqueeEnabled;
     _Bool _shouldUseOverrideSize;
-    _Bool _shouldUsePlaceholderArtwork;
-    _Bool _shouldEnableMarquee;
+    MPCPlayerPath *_playerPath;
+    UIImageView *_artworkView;
+    UIImageView *_placeholderArtworkView;
     long long _style;
-    NSString *_titleString;
+    NSString *_routeName;
     NSString *_primaryString;
     NSString *_secondaryString;
-    MPArtworkCatalog *_artworkCatalog;
     MPButton *_routingButton;
     MPButton *_doneButton;
     MPButton *_playPauseButton;
     UIButton *_launchNowPlayingAppButton;
-    NSString *_mediaSourceBundleID;
-    UIImageView *_artworkView;
-    UIImageView *_placeholderArtworkView;
+    long long _buttonType;
     UIView *_artworkBackgroundView;
     UIView *_shadow;
     MPUMarqueeView *_titleMarqueeView;
-    UILabel *_titleLabel;
+    UILabel *_routeLabel;
     MPUMarqueeView *_primaryMarqueeView;
     UILabel *_primaryLabel;
     MPUMarqueeView *_secondaryMarqueeView;
     UILabel *_secondaryLabel;
     UIView *_buttonBackground;
     struct CGSize _overrideSize;
-    struct CGSize _artworkSize;
 }
 
-@property(nonatomic) _Bool shouldEnableMarquee; // @synthesize shouldEnableMarquee=_shouldEnableMarquee;
-@property(nonatomic) _Bool shouldUsePlaceholderArtwork; // @synthesize shouldUsePlaceholderArtwork=_shouldUsePlaceholderArtwork;
-@property(nonatomic) _Bool shouldUseOverrideSize; // @synthesize shouldUseOverrideSize=_shouldUseOverrideSize;
 @property(retain, nonatomic) UIView *buttonBackground; // @synthesize buttonBackground=_buttonBackground;
+@property(nonatomic) _Bool shouldUseOverrideSize; // @synthesize shouldUseOverrideSize=_shouldUseOverrideSize;
 @property(retain, nonatomic) UILabel *secondaryLabel; // @synthesize secondaryLabel=_secondaryLabel;
 @property(retain, nonatomic) MPUMarqueeView *secondaryMarqueeView; // @synthesize secondaryMarqueeView=_secondaryMarqueeView;
 @property(retain, nonatomic) UILabel *primaryLabel; // @synthesize primaryLabel=_primaryLabel;
 @property(retain, nonatomic) MPUMarqueeView *primaryMarqueeView; // @synthesize primaryMarqueeView=_primaryMarqueeView;
-@property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(retain, nonatomic) UILabel *routeLabel; // @synthesize routeLabel=_routeLabel;
 @property(retain, nonatomic) MPUMarqueeView *titleMarqueeView; // @synthesize titleMarqueeView=_titleMarqueeView;
 @property(retain, nonatomic) UIView *shadow; // @synthesize shadow=_shadow;
 @property(retain, nonatomic) UIView *artworkBackgroundView; // @synthesize artworkBackgroundView=_artworkBackgroundView;
-@property(nonatomic) struct CGSize artworkSize; // @synthesize artworkSize=_artworkSize;
-@property(retain, nonatomic) UIImageView *placeholderArtworkView; // @synthesize placeholderArtworkView=_placeholderArtworkView;
-@property(retain, nonatomic) UIImageView *artworkView; // @synthesize artworkView=_artworkView;
 @property(nonatomic) struct CGSize overrideSize; // @synthesize overrideSize=_overrideSize;
-@property(nonatomic, getter=isHeaderViewOnScreen) _Bool headerViewOnScreen; // @synthesize headerViewOnScreen=_headerViewOnScreen;
-@property(retain, nonatomic) NSString *mediaSourceBundleID; // @synthesize mediaSourceBundleID=_mediaSourceBundleID;
+@property(nonatomic) long long buttonType; // @synthesize buttonType=_buttonType;
+@property(nonatomic) _Bool marqueeEnabled; // @synthesize marqueeEnabled=_marqueeEnabled;
 @property(retain, nonatomic) UIButton *launchNowPlayingAppButton; // @synthesize launchNowPlayingAppButton=_launchNowPlayingAppButton;
 @property(retain, nonatomic) MPButton *playPauseButton; // @synthesize playPauseButton=_playPauseButton;
 @property(retain, nonatomic) MPButton *doneButton; // @synthesize doneButton=_doneButton;
 @property(retain, nonatomic) MPButton *routingButton; // @synthesize routingButton=_routingButton;
-@property(retain, nonatomic) MPArtworkCatalog *artworkCatalog; // @synthesize artworkCatalog=_artworkCatalog;
-@property(retain, nonatomic) NSString *secondaryString; // @synthesize secondaryString=_secondaryString;
-@property(retain, nonatomic) NSString *primaryString; // @synthesize primaryString=_primaryString;
-@property(retain, nonatomic) NSString *titleString; // @synthesize titleString=_titleString;
+@property(copy, nonatomic) NSString *secondaryString; // @synthesize secondaryString=_secondaryString;
+@property(copy, nonatomic) NSString *primaryString; // @synthesize primaryString=_primaryString;
+@property(copy, nonatomic) NSString *routeName; // @synthesize routeName=_routeName;
 @property(nonatomic) long long style; // @synthesize style=_style;
-@property(nonatomic) _Bool onlyShowsRoutingPicker; // @synthesize onlyShowsRoutingPicker=_onlyShowsRoutingPicker;
-@property(nonatomic, getter=isShowingRoutingPicker) _Bool showingRoutingPicker; // @synthesize showingRoutingPicker=_showingRoutingPicker;
 @property(nonatomic, getter=isTransitioning) _Bool transitioning; // @synthesize transitioning=_transitioning;
+@property(retain, nonatomic) UIImageView *placeholderArtworkView; // @synthesize placeholderArtworkView=_placeholderArtworkView;
+@property(retain, nonatomic) UIImageView *artworkView; // @synthesize artworkView=_artworkView;
+@property(copy, nonatomic) MPCPlayerPath *playerPath; // @synthesize playerPath=_playerPath;
 - (void).cxx_destruct;
 - (void)_handleContentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_updateRTL;
-- (void)updatePlaceholderArtwork;
 - (void)clearOverrideSize;
 - (void)didMoveToWindow;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)updateArtworkStyle;
 - (void)_updateStyle;
 - (struct CGSize)layoutTextInAvailableBounds:(struct CGRect)arg1 setFrames:(_Bool)arg2;
 - (void)layoutSubviews;

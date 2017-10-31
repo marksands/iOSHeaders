@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_updateConstraintConstants:(_Bool)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (_Bool)automaticallyUpdateScrollViewIndicatorInset;
 - (_Bool)automaticallyUpdateScrollViewContentInset;
 - (_Bool)automaticallyUpdateScrollViewContentOffset;
 - (id)scrollView;

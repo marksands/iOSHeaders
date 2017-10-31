@@ -33,7 +33,7 @@
 - (void)addNewRemotePlan:(_Bool)arg1 userConsent:(long long)arg2 completion:(void (^)(NSError *))arg3;
 - (void)finishRemoteProvisioningWithCompletion:(void (^)(_Bool))arg1;
 - (void)startRemoteProvisioningWithCompletion:(void (^)(_Bool))arg1;
-- (void)shouldShowAddNewRemotePlanWithFlowType:(void (^)(_Bool, unsigned long long, NSError *))arg1;
+- (void)shouldShowAddNewRemotePlanWithFlowTypeAndTrialPlanType:(void (^)(_Bool, unsigned long long, NSString *, NSError *))arg1;
 - (void)isRemotePlanCapable:(void (^)(_Bool))arg1;
 - (void)launchDataActivationNextWithUrl:(NSString *)arg1;
 - (void)updatePlansDatabase;

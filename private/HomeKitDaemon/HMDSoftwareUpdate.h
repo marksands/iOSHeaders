@@ -7,28 +7,31 @@
 #import "HMFObject.h"
 
 #import "HMDBackingStoreObjectProtocol.h"
+#import "HMFLogging.h"
 #import "HMFMessageReceiver.h"
 #import "HMFObject.h"
 #import "NSSecureCoding.h"
 
-@class HMDAccessory, HMDSoftwareUpdateModel, HMFMessageDispatcher, HMFSoftwareVersion, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDAccessory, HMDSoftwareUpdateModel, HMFMessageDispatcher, HMFSoftwareVersion, HMSoftwareUpdateDocumentationMetadata, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
-@interface HMDSoftwareUpdate : HMFObject <HMFObject, HMDBackingStoreObjectProtocol, HMFMessageReceiver, NSSecureCoding>
+@interface HMDSoftwareUpdate : HMFObject <HMFLogging, HMFObject, HMDBackingStoreObjectProtocol, HMFMessageReceiver, NSSecureCoding>
 {
     long long _state;
+    HMSoftwareUpdateDocumentationMetadata *_documentationMetadata;
     NSUUID *_identifier;
     HMFSoftwareVersion *_version;
     unsigned long long _downloadSize;
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
-    HMDAccessory *_accessory;
     HMFMessageDispatcher *_messageDispatcher;
+    HMDAccessory *_accessory;
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)logCategory;
 + (id)modelNamespace;
-@property(retain, nonatomic) HMFMessageDispatcher *messageDispatcher; // @synthesize messageDispatcher=_messageDispatcher;
 @property __weak HMDAccessory *accessory; // @synthesize accessory=_accessory;
+@property(retain, nonatomic) HMFMessageDispatcher *messageDispatcher; // @synthesize messageDispatcher=_messageDispatcher;
 @property(readonly) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(readonly) unsigned long long downloadSize; // @synthesize downloadSize=_downloadSize;
@@ -40,19 +43,25 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 - (id)messageDestination;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
+- (id)logIdentifier;
 - (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (id)transactionWithObjectChangeType:(unsigned long long)arg1;
 @property(readonly, copy) HMDSoftwareUpdateModel *model;
+- (void)_handleDocumentationStateNotification:(id)arg1;
+- (void)_handleDocumentationRequest:(id)arg1;
+- (void)_handleUpdateDocumentationMetadata:(id)arg1;
+- (void)setDocumentationMetadata:(id)arg1;
+@property(readonly) HMSoftwareUpdateDocumentationMetadata *documentationMetadata; // @synthesize documentationMetadata=_documentationMetadata;
 - (void)_handleUpdateState:(id)arg1;
 - (void)setState:(long long)arg1;
 @property(readonly) long long state; // @synthesize state=_state;
-- (id)stateUpdateNotificationWithMessage:(id)arg1;
 - (void)registerForMessages;
 - (void)configureWithAccessory:(id)arg1 messageDispatcher:(id)arg2;
 @property(readonly, copy) NSString *propertyDescription;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
+- (void)dealloc;
 - (id)__init;
 - (id)initWithModel:(id)arg1;
 

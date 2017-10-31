@@ -6,11 +6,10 @@
 
 #import "UIImageView.h"
 
-@class UIColor, UIImage;
+@class UIColor;
 
 @interface StocksListBoxView : UIImageView
 {
-    UIImage *_backgroundMask;
     UIColor *_imageMaskColor;
 }
 

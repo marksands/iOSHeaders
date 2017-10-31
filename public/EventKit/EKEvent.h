@@ -79,6 +79,7 @@
 - (id)_dateForNextOccurrence;
 - (void)rollback;
 - (_Bool)revert;
+- (_Bool)_reset;
 - (void)reset;
 - (void)_addNewAttendeesToRecentsIfNeeded;
 - (void)_addOrganizerToRecentsIfNeeded;
@@ -144,6 +145,8 @@
 - (id)_updatePredictedLocationCacheIfNeededHoldingLock;
 - (_Bool)_needsPredictedLocationCacheUpdateHoldingLock;
 @property(copy, nonatomic) EKStructuredLocation *structuredLocation; // @dynamic structuredLocation;
+- (void)setURL:(id)arg1;
+- (void)setNotes:(id)arg1;
 @property(readonly, nonatomic) _Bool allowsProposedTimeModifications;
 - (_Bool)serverSupportedProposeNewTime;
 - (_Bool)canForward;
@@ -236,7 +239,17 @@
 - (id)initWithPersistentObject:(id)arg1;
 - (id)initWithEventStore:(id)arg1;
 - (id)init;
-- (id)detectedConferenceURL;
+- (_Bool)_canWriteConferenceURL;
+- (void)_updateConferenceURL;
+- (_Bool)_hasChangesForConferenceURLDetection;
+- (void)updateConferenceURLIfNeeded;
+- (id)_prioritizedConferencesSources;
+- (id)_detectConferenceURL;
+- (id)conferenceURLDetected;
+- (void)clearDetectedConferenceURL;
+- (id)conferenceURLForDisplay;
+- (void)setURLCommon:(id)arg1;
+- (void)setNotesCommon:(id)arg1;
 @property(readonly, nonatomic) NSArray *locationsWithoutPrediction;
 @property(retain, nonatomic) NSArray *locations;
 - (_Bool)_couldBeJunkCommon;

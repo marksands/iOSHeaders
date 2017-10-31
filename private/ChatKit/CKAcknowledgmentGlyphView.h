@@ -23,7 +23,7 @@
 @property(readonly, nonatomic) struct CGPoint glyphOffset; // @synthesize glyphOffset=_glyphOffset;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) long long acknowledgmentType; // @dynamic acknowledgmentType;
-- (void)animateWithDelay:(double)arg1 completionDelay:(double)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)animateWithBeginTime:(double)arg1 completionDelay:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)initWithFrame:(struct CGRect)arg1 color:(BOOL)arg2;
 
 @end

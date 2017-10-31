@@ -10,7 +10,7 @@
 #import "_UINavigationBarTitleViewDataSource.h"
 #import "_UINavigationBarTransitionContextParticipant.h"
 
-@class NSArray, NSDictionary, NSString, UIBarButtonItem, UIColor, UIImage, UIView, _UINavigationBarContentViewLayout, _UINavigationBarTransitionContext;
+@class NSArray, NSDictionary, NSMutableArray, NSString, UIBarButtonItem, UIColor, UIImage, UIView, _UINavigationBarContentViewLayout, _UINavigationBarTransitionContext;
 
 __attribute__((visibility("hidden")))
 @interface _UINavigationBarContentView : _UIBarContentView <_UIBarButtonItemViewOwner, _UINavigationBarTitleViewDataSource, _UINavigationBarTransitionContextParticipant>
@@ -24,6 +24,11 @@ __attribute__((visibility("hidden")))
     double _backButtonMargin;
     double _backButtonMaximumWidth;
     _Bool _hitTestingExtensionsAreValid;
+    _Bool _isHidingBackButton;
+    _Bool _isShowingBackButton;
+    _Bool _isHidingLeadingBar;
+    NSMutableArray *_currentAnimations;
+    NSMutableArray *_currentCompletions;
     _Bool _backButtonHidden;
     _Bool _leadingItemsSupplementBackItem;
     long long _barMetrics;
@@ -86,6 +91,9 @@ __attribute__((visibility("hidden")))
 - (void)recordFromStateForTransition:(id)arg1;
 - (void)updateContent;
 - (void)updateContentAnimated:(_Bool)arg1;
+- (void)_clearAllAnimations;
+- (void)_runAllScheduledAnimations;
+- (void)_addCoordinatedAnimation:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) UIView *accessibilityBackButtonView;
 @property(readonly, nonatomic) UIView *accessibilityTitleView;
 - (void)_updateLayoutMarginsForLayout:(id)arg1;
@@ -97,7 +105,8 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)intrinsicContentSize;
 - (double)_intrinsicHeight;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)_setupTitleView;
+- (void)_setupTitleViewAnimated:(_Bool)arg1;
+- (_Bool)__setupTitleViewCanSkipUpdates;
 - (void)_applyTitleAttributesToLabel:(id)arg1 withString:(id)arg2;
 - (id)defaultFontDescriptor;
 - (id)_defaultInlineTitleAttributes;

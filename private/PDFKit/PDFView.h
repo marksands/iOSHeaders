@@ -49,7 +49,6 @@
 - (double)defaultGutterWidth;
 - (double)gutterWidth;
 - (void)setGutterWidth:(double)arg1;
-- (_Bool)isOverWidgetAnnotation:(struct CGPoint)arg1;
 - (_Bool)isOverLinkAnnotation:(struct CGPoint)arg1;
 - (_Bool)PDFKitHandleBackTabInTextWidget:(id)arg1;
 - (_Bool)PDFKitHandleTabInTextWidget:(id)arg1;
@@ -63,6 +62,7 @@
 - (void)setNeedsDisplay;
 - (void)_forceTileRefresh;
 - (void)setEnableTileUpdates:(_Bool)arg1;
+- (void)removeActiveAnnotation;
 - (void)enableTextSelectionHandles;
 - (void)clearTextSelectionHandles;
 - (void)setLollipopMagnifierPage:(id)arg1 forPagePoint:(struct CGPoint)arg2;
@@ -131,6 +131,8 @@
 - (unsigned long long)lastPageIndex;
 - (_Bool)doPeriodicFlush;
 - (void)setDoPeriodicFlush:(_Bool)arg1;
+- (void)endPDFViewRotation;
+- (void)beginPDFViewRotation;
 - (double)_unboundAutoScaleFactorForPageWithSize:(struct CGSize)arg1;
 - (double)_unboundAutoScaleFactorForPage:(id)arg1;
 - (double)autoScaleFactorForPageWithSize:(struct CGSize)arg1;
@@ -145,6 +147,8 @@
 - (void)dragInteraction:(id)arg1 willAnimateLiftWithAnimator:(id)arg2 session:(id)arg3;
 - (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
 - (id)_dragItemsAtLocationInView:(struct CGPoint)arg1;
+- (_Bool)_isOverWidgetAnnotation:(struct CGPoint)arg1;
+- (_Bool)_shouldHandleAnnotationAtLocation:(struct CGPoint)arg1;
 - (_Bool)_hasDraggableSelectionAtLocation:(struct CGPoint)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (_Bool)shouldAcceptTouch:(id)arg1 ofGestureRecognizer:(id)arg2;

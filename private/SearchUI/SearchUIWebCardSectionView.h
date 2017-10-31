@@ -20,7 +20,7 @@
 - (id)replaceCSSColorHexCode:(id)arg1 withColor:(id)arg2 inString:(id)arg3;
 - (struct CGSize)containerView:(id)arg1 systemLayoutSizeFittingSize:(struct CGSize)arg2 forArrangedSubview:(id)arg3;
 - (id)setupContentView;
-- (id)initWithCardSection:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
+- (id)initWithRowModel:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 
 // Remaining properties
 @property(retain) NUIContainerBoxView *contentView; // @dynamic contentView;

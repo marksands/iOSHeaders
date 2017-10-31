@@ -8,7 +8,7 @@
 
 #import "WLKUIOnboardingInterface.h"
 
-@class NSArray, NSNumber, WLKUIOnboardingController;
+@class NSArray, NSNumber, NSObject<OS_dispatch_queue>, WLKUIOnboardingController;
 
 @interface WLKUIOnboardingInterface : IKJSObject <WLKUIOnboardingInterface>
 {
@@ -16,19 +16,20 @@
     _Bool _hasSynced;
     NSNumber *_lastReportedOptedInValue;
     _Bool _isShowing;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 - (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)setOptedIn:(_Bool)arg1:(id)arg2;
-- (void)migrateTvos:(id)arg1;
 - (void)dismiss;
 - (void)showForBids:(id)arg1:(id)arg2:(id)arg3;
 - (void)show:(id)arg1;
 @property(readonly, nonatomic) _Bool isShowing;
-@property(readonly, nonatomic, getter=isTvosMigrated) _Bool tvosMigrated;
+- (void)fetchEligibleBids:(id)arg1;
 @property(readonly, nonatomic) NSArray *eligibleBids;
 @property(readonly, nonatomic, getter=isOptedInCached) NSNumber *optedInCached;
+- (void)setOptedIn:(_Bool)arg1:(id)arg2;
+- (void)fetchOptedIn:(id)arg1;
 @property(readonly, nonatomic, getter=isOptedIn) _Bool optedIn;
 - (void)dealloc;
 - (id)initWithAppContext:(id)arg1;

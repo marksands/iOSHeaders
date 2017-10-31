@@ -20,7 +20,8 @@
 + (void)initialize;
 @property __weak AVOutputDevice *parentOutputDevice; // @synthesize parentOutputDevice=_parentDevice;
 - (void).cxx_destruct;
-- (void)setAdministrativeConfiguration:(id)arg1 administrationPassword:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)configureUsingBlock:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) NSString *logicalDeviceID;
 @property(readonly, nonatomic) _Bool groupContainsGroupLeader;
 @property(readonly, nonatomic) _Bool isGroupLeader;
 @property(readonly, nonatomic) _Bool canBeGroupLeader;
@@ -43,7 +44,10 @@
 @property(readonly, nonatomic) NSNumber *caseBatteryLevel;
 @property(readonly, nonatomic) NSNumber *batteryLevel;
 @property(readonly, copy, nonatomic) NSData *identifyingMACAddress;
+@property(readonly, nonatomic) NSString *firmwareVersion;
+@property(readonly, nonatomic) NSString *serialNumber;
 @property(readonly, copy, nonatomic) NSString *modelID;
+@property(readonly, nonatomic) NSString *manufacturer;
 @property(readonly, nonatomic) long long deviceSubType;
 @property(readonly, nonatomic) long long deviceType;
 @property(readonly, copy, nonatomic) NSString *ID;

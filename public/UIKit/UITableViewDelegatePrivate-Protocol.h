@@ -22,6 +22,8 @@
 @optional
 - (void)tableView:(UITableView *)arg1 didEndSwipingRowAtIndexPath:(NSIndexPath *)arg2;
 - (void)tableView:(UITableView *)arg1 willBeginSwipingRowAtIndexPath:(NSIndexPath *)arg2;
+- (_Bool)tableView:(UITableView *)arg1 shouldHaveFullLengthBottomSeparatorForSection:(long long)arg2;
+- (_Bool)tableView:(UITableView *)arg1 shouldHaveFullLengthTopSeparatorForSection:(long long)arg2;
 - (_Bool)tableView:(UITableView *)arg1 shouldDrawBottomSeparatorForSection:(long long)arg2;
 - (_Bool)tableView:(UITableView *)arg1 shouldDrawTopSeparatorForSection:(long long)arg2;
 - (void)tableView:(UITableView *)arg1 swipeAccessoryButtonPushedForRowAtIndexPath:(NSIndexPath *)arg2;

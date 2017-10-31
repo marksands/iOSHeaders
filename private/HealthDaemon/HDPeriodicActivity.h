@@ -38,6 +38,7 @@
 - (id)_queue_criteriaForInterval:(double)arg1;
 - (void)_queue_setLastSuccessfulRunDate:(id)arg1;
 - (void)_queue_incrementErrorCount;
+- (long long)_queue_errorCount;
 - (double)_queue_currentInterval;
 - (void)_queue_unitTest_activityFiredButRunDeclined;
 - (void)_queue_activityFinishedWithResult:(long long)arg1 minimumRetryInterval:(double)arg2 error:(id)arg3;
@@ -54,6 +55,7 @@
 - (_Bool)isWaitingToRun;
 - (void)synthesizeActivityFire;
 - (void)reset;
+@property(readonly, nonatomic) long long errorCount;
 - (void)didPerformActivityWithResult:(long long)arg1 minimumRetryInterval:(double)arg2 error:(id)arg3;
 - (id)lastSuccessfulRunDate;
 - (void)dealloc;

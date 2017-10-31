@@ -13,7 +13,6 @@
 }
 
 + (id)typeString;
-- (Class)componentViewClass;
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *accessibilityCaption; // @dynamic accessibilityCaption;

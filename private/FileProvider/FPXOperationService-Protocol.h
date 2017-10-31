@@ -14,7 +14,7 @@
 - (void)trashItemsWithIdentifiers:(NSArray *)arg1 completionHandler:(void (^)(NSArray *, NSError *))arg2;
 - (void)startOperation:(id <FPOperationClient>)arg1 toFetchItemID:(FPItemID *)arg2 reply:(void (^)(FPItem *, NSError *))arg3;
 - (void)startOperation:(id <FPOperationClient>)arg1 toFetchDefaultContainerForBundleIdentifier:(NSString *)arg2 englishName:(NSString *)arg3 inDomainIdentifier:(NSString *)arg4 reply:(void (^)(FPItem *, NSError *))arg5;
-- (void)startOperation:(id <FPOperationClient>)arg1 toFetchParentForItem:(FPItemID *)arg2 reply:(void (^)(FPItem *, NSError *))arg3;
+- (void)startOperation:(id <FPOperationClient>)arg1 toFetchParentForItem:(FPItemID *)arg2 recursively:(_Bool)arg3 reply:(void (^)(NSArray *, NSError *))arg4;
 - (void)startOperation:(id <FPOperationClient>)arg1 toCreateFolderWithName:(NSString *)arg2 underParent:(FPItemID *)arg3 bounceOnCollision:(_Bool)arg4 reply:(void (^)(FPItem *, NSError *))arg5;
 - (void)startOperation:(id <FPOperationClient>)arg1 toDeleteItems:(NSArray *)arg2 reply:(void (^)(NSError *))arg3;
 - (void)startOperation:(id <FPOperationClient>)arg1 toRenameItem:(FPItemID *)arg2 toNewName:(NSString *)arg3 reply:(void (^)(FPItem *, NSError *))arg4;

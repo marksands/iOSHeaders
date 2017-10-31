@@ -8,7 +8,7 @@
 
 #import "GEOCompletionItemPrivate.h"
 
-@class GEOMapItemIdentifier, GEOMapServiceTraits, GEOPDAutocompleteEntry, GEOSearchCategory, NSArray, NSData, NSString;
+@class GEOMapItemIdentifier, GEOMapServiceTraits, GEOPDAutocompleteEntry, GEOResolvedItem, GEOSearchCategory, NSArray, NSData, NSString;
 
 __attribute__((visibility("hidden")))
 @interface _GEOPlaceSearchCompletionItem : NSObject <GEOCompletionItemPrivate>
@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSData *entryMetadata;
 - (void)sendFeedback;
 - (_Bool)getCoordinate:(CDStruct_c3b9c2ee *)arg1;
+@property(readonly, nonatomic) GEOResolvedItem *clientResolved;
 @property(readonly, nonatomic) GEOSearchCategory *searchCategory;
 @property(readonly, nonatomic) id <GEOMapItem> geoMapItem;
 - (id)calloutTitle;

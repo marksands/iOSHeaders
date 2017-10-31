@@ -105,13 +105,13 @@
 @property(nonatomic) __weak id <UIToolbarDelegate> delegate;
 - (long long)_barPosition;
 - (void)_setBarPosition:(long long)arg1;
-- (void)_performBlockAllowingConstraintManipulation:(CDUnknownBlockType)arg1;
 - (id)__appearanceStorage;
 - (_Bool)_linkedBeforeWhitetailAndInitializedFromCoder;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_populateArchivedSubviews:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (_Bool)_hostsLayoutEngineAllowsTAMIC_NO;
 - (void)_doCommonToolbarInit;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (_Bool)isElementAccessibilityExposedToInterfaceBuilder;

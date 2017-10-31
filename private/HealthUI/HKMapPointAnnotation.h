@@ -6,12 +6,15 @@
 
 #import "MKPointAnnotation.h"
 
+@class UIColor;
+
 @interface HKMapPointAnnotation : MKPointAnnotation
 {
-    _Bool _isStartPoint;
+    UIColor *_markerTintColor;
 }
 
-@property(nonatomic) _Bool isStartPoint; // @synthesize isStartPoint=_isStartPoint;
+@property(retain, nonatomic) UIColor *markerTintColor; // @synthesize markerTintColor=_markerTintColor;
+- (void).cxx_destruct;
 
 @end
 

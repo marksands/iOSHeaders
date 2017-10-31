@@ -8,10 +8,11 @@
 
 #import "NSXPCListenerDelegate.h"
 
-@class NSObject<OS_dispatch_queue>, NSString, NSXPCListener, NSXPCListenerEndpoint;
+@class CUHomeKitManager, NSObject<OS_dispatch_queue>, NSString, NSXPCListener, NSXPCListenerEndpoint;
 
 @interface CUPairingDaemon : NSObject <NSXPCListenerDelegate>
 {
+    CUHomeKitManager *_homeKitManager;
     unsigned long long _stateHandle;
     struct NSMutableSet *_xpcConnections;
     NSXPCListener *_xpcListener;
@@ -30,6 +31,7 @@
 - (int)savePairedPeer:(id)arg1 options:(unsigned long long)arg2 removeAdminAllowed:(_Bool)arg3;
 - (int)savePairedPeer:(id)arg1 options:(unsigned long long)arg2;
 - (id)_findPairedPeer:(id)arg1 options:(unsigned long long)arg2 error:(int *)arg3;
+- (id)_findHomeKitExPairedPeer:(id)arg1 options:(unsigned long long)arg2 error:(int *)arg3;
 - (id)_findHomeKitPairedPeer:(id)arg1 options:(unsigned long long)arg2 error:(int *)arg3;
 - (id)findPairedPeer:(id)arg1 options:(unsigned long long)arg2 error:(int *)arg3;
 - (id)_copyPairedPeersWithOptions:(unsigned long long)arg1 error:(int *)arg2;
@@ -39,6 +41,7 @@
 - (int)deleteIdentityWithOptions:(unsigned long long)arg1;
 - (id)_copyIdentityWithOptions:(unsigned long long)arg1 error:(int *)arg2;
 - (id)_copyOrCreateWithOptions:(unsigned long long)arg1 error:(int *)arg2;
+- (id)_copyHomeKitExWithOptions:(unsigned long long)arg1 error:(int *)arg2;
 - (id)_copyHomeKitWithOptions:(unsigned long long)arg1 error:(int *)arg2;
 - (id)copyIdentityWithOptions:(unsigned long long)arg1 error:(int *)arg2;
 @property(readonly, nonatomic) NSXPCListenerEndpoint *testListenerEndpoint;

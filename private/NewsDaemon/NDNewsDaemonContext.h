@@ -23,8 +23,8 @@
 - (void)markAnalyticsElement:(id)arg1 asReadAtDate:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)markAnalyticsElements:(id)arg1 asSeenAtDate:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 @property(copy, nonatomic) CDUnknownBlockType updateResultsHandler; // @synthesize updateResultsHandler=_updateResultsHandler;
-- (void)fetchLatestHeadlinesWithParameters:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)serviceHasNewHeadlineResults;
+- (void)fetchLatestResultsWithParameters:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)serviceHasNewTodayResults;
 - (id)init;
 
 // Remaining properties

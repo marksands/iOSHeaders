@@ -10,6 +10,7 @@
 
 @interface CAMInstructionLabel : UIView
 {
+    _Bool _useModeDialFontSize;
     NSString *_text;
     id <CAMInstructionLabelDelegate> _delegate;
     long long _style;
@@ -17,6 +18,7 @@
 }
 
 @property(readonly, nonatomic) UILabel *_label; // @synthesize _label=__label;
+@property(nonatomic) _Bool useModeDialFontSize; // @synthesize useModeDialFontSize=_useModeDialFontSize;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) __weak id <CAMInstructionLabelDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;

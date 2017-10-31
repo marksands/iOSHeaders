@@ -28,9 +28,7 @@
 - (void).cxx_destruct;
 - (_Bool)isCollapsible;
 - (_Bool)hasAffiliationWithClassification:(id)arg1 forDirection:(long long)arg2;
-- (Class)componentSizerClass;
 - (Class)componentModelClass;
-- (Class)componentViewClass;
 @property(readonly, nonatomic) unsigned long long contentRelevance;
 @property(readonly, nonatomic) NSArray *defaultComponentStyleIdentifiers;
 @property(readonly, nonatomic) NSArray *defaultTextStyleIdentifiers;

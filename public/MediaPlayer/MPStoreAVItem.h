@@ -43,8 +43,6 @@
     NSString *_requestingBundleVersion;
     long long _equivalencySourceAdamID;
     unsigned long long _rentalID;
-    NSNumber *_privateListeningEnabled;
-    NSNumber *_siriInitiated;
 }
 
 + (unsigned long long)_currentPreferredAssetQualityForPlaybackItemMetadata:(id)arg1;
@@ -55,8 +53,6 @@
 + (_Bool)isPlaybackItemMetadataValidForAssetCreation:(id)arg1;
 + (_Bool)isPlaybackItemMetadataStreamingForAssetCreation:(id)arg1 returningProtectionType:(unsigned long long *)arg2;
 @property(nonatomic, getter=isIgnoringHLSOfflinePlaybackKeys) _Bool ignoreHLSOfflinePlaybackKeys; // @synthesize ignoreHLSOfflinePlaybackKeys=_ignoreHLSOfflinePlaybackKeys;
-@property(copy, nonatomic, getter=isSiriInitiated) NSNumber *siriInitiated; // @synthesize siriInitiated=_siriInitiated;
-@property(copy, nonatomic, getter=isPrivateListeningEnabled) NSNumber *privateListeningEnabled; // @synthesize privateListeningEnabled=_privateListeningEnabled;
 @property(readonly, nonatomic) unsigned long long rentalID; // @synthesize rentalID=_rentalID;
 @property(readonly, nonatomic, getter=isRentalCheckoutRequired) _Bool rentalCheckoutRequired; // @synthesize rentalCheckoutRequired=_rentalCheckoutRequired;
 @property(nonatomic) long long equivalencySourceAdamID; // @synthesize equivalencySourceAdamID=_equivalencySourceAdamID;

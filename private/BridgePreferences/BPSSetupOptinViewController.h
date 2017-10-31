@@ -65,6 +65,7 @@
 - (id)learnMoreButtonTitle;
 - (id)alternateButtonTitle;
 - (id)suggestedButtonTitle;
+- (_Bool)wantsLightenBlendedScreen;
 - (id)init;
 
 // Remaining properties

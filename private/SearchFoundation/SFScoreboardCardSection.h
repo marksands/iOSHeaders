@@ -29,9 +29,11 @@
     SFSportsTeam *_team1;
     SFSportsTeam *_team2;
     NSString *_accessibilityDescription;
+    NSString *_eventStatus;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *eventStatus; // @synthesize eventStatus=_eventStatus;
 @property(copy, nonatomic) NSString *accessibilityDescription; // @synthesize accessibilityDescription=_accessibilityDescription;
 @property(retain, nonatomic) SFSportsTeam *team2; // @synthesize team2=_team2;
 @property(retain, nonatomic) SFSportsTeam *team1; // @synthesize team1=_team1;

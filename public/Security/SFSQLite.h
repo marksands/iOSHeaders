@@ -67,11 +67,10 @@
 - (id)allTableNames;
 - (void)removeAllStatements;
 - (id)statementForSQL:(id)arg1;
-- (void)executeSQL:(id)arg1 arguments:(struct __va_list_tag [1])arg2;
-- (void)executeSQL:(id)arg1;
+- (_Bool)executeSQL:(id)arg1 arguments:(struct __va_list_tag [1])arg2;
+- (_Bool)executeSQL:(id)arg1;
 - (int)changes;
 - (long long)lastInsertRowID;
-- (void)raise:(id)arg1;
 - (void)vacuum;
 - (void)analyze;
 - (void)rollback;

@@ -36,6 +36,7 @@
 @property(retain, nonatomic) NSArray *modules; // @synthesize modules=_modules;
 @property(retain, nonatomic) CDBDataProtectionObserver *dataProtectionObserver; // @synthesize dataProtectionObserver=_dataProtectionObserver;
 - (void).cxx_destruct;
+- (void)_enableICloudBackups;
 - (void)_dumpState;
 - (void)_exitWithStatus:(int)arg1;
 - (void)_deactivateAndExitWithStatus:(int)arg1;

@@ -8,18 +8,19 @@
 
 #import "ADBannerViewInternalDelegate.h"
 
-@class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSString, SXContext, SXDocument;
+@class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSString, SXDocument, SXViewport;
 
 @interface SXAdController : NSObject <ADBannerViewInternalDelegate>
 {
     _Bool _didLoadFirstBannerView;
     id <SXAdControllerDelegate> _delegate;
-    id <SXAdControllerDataSource> _dataSource;
+    id <SXAdControllerPresentationDelegate> _presentationDelegate;
+    id <SXAdProvider> _adProvider;
+    SXDocument *_document;
+    SXViewport *_viewport;
     NSMutableArray *_componentViewsDisplayingAds;
     NSObject<OS_dispatch_semaphore> *_bannerViewsSemaphore;
     NSMutableDictionary *_bannerViews;
-    SXContext *_context;
-    SXDocument *_document;
 }
 
 + (_Bool)interactivityDebuggingEnabled;
@@ -28,16 +29,16 @@
 + (void)setDebugModeEnabled:(_Bool)arg1;
 + (id)debugAdvertismentSettings;
 + (void)setDebugAdvertisingSettings:(id)arg1;
-@property(readonly, nonatomic) SXDocument *document; // @synthesize document=_document;
-@property(readonly, nonatomic) __weak SXContext *context; // @synthesize context=_context;
 @property(nonatomic) _Bool didLoadFirstBannerView; // @synthesize didLoadFirstBannerView=_didLoadFirstBannerView;
 @property(retain, nonatomic) NSMutableDictionary *bannerViews; // @synthesize bannerViews=_bannerViews;
 @property(readonly, nonatomic) NSObject<OS_dispatch_semaphore> *bannerViewsSemaphore; // @synthesize bannerViewsSemaphore=_bannerViewsSemaphore;
 @property(readonly, nonatomic) NSMutableArray *componentViewsDisplayingAds; // @synthesize componentViewsDisplayingAds=_componentViewsDisplayingAds;
-@property(nonatomic) __weak id <SXAdControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
+@property(readonly, nonatomic) SXViewport *viewport; // @synthesize viewport=_viewport;
+@property(readonly, nonatomic) SXDocument *document; // @synthesize document=_document;
+@property(readonly, nonatomic) id <SXAdProvider> adProvider; // @synthesize adProvider=_adProvider;
+@property(nonatomic) __weak id <SXAdControllerPresentationDelegate> presentationDelegate; // @synthesize presentationDelegate=_presentationDelegate;
 @property(nonatomic) __weak id <SXAdControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)viewControllerForStoryboardPresentationFromBannerView:(id)arg1;
 - (_Bool)isRect:(struct CGRect)arg1 withinScreenFullOfRect:(struct CGRect)arg2 viewport:(struct CGSize)arg3;
 - (_Bool)isDisplayingAdsWithinScreenfullOfComponentView:(id)arg1;
 - (_Bool)component:(id)arg1 isLastComponentInComponents:(id)arg2;
@@ -55,7 +56,7 @@
 - (_Bool)componentViewWithinScreenHeightOfViewport:(id)arg1;
 - (_Bool)shouldRequestBannerViewForComponentView:(id)arg1;
 - (void)transitionToSizeWithVisibleBounds:(struct CGRect)arg1;
-- (id)initWithContext:(id)arg1;
+- (id)initWithAdProvider:(id)arg1 document:(id)arg2 viewport:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

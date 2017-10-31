@@ -34,7 +34,6 @@
 - (id)titleLabelString;
 - (id)textAreaLabelStrings;
 - (id)viewForFirstBaselineLayout;
-- (struct UIEdgeInsets)containerStackView:(id)arg1 minimumSpacingAdjecentToArrangedSubview:(id)arg2;
 - (void)disableObserversOnLabels:(_Bool)arg1;
 - (_Bool)noFootNote;
 - (_Bool)noRichTextFields;

@@ -18,13 +18,11 @@
     UIImage *_arouetReplyImage;
     UIImage *_surfReplyImage;
     double _waveformMaxWidth;
-    UIImage *_whiteQuestionMarkDotAckImage;
 }
 
 + (id)fontWithStyle:(id)arg1 adjustedForMaxSizeCategory:(id)arg2;
 + (id)orderedContentSizeCategories;
 + (id)sharedBehaviors;
-@property(readonly, nonatomic) UIImage *whiteQuestionMarkDotAckImage; // @synthesize whiteQuestionMarkDotAckImage=_whiteQuestionMarkDotAckImage;
 @property(readonly, nonatomic) double waveformMaxWidth; // @synthesize waveformMaxWidth=_waveformMaxWidth;
 @property(readonly, nonatomic) UIImage *surfReplyImage; // @synthesize surfReplyImage=_surfReplyImage;
 @property(readonly, nonatomic) UIImage *arouetReplyImage; // @synthesize arouetReplyImage=_arouetReplyImage;
@@ -105,8 +103,8 @@
 @property(readonly, nonatomic) UIImage *whiteH2AckImage;
 @property(readonly, nonatomic) UIImage *whiteH1AckImage;
 @property(readonly, nonatomic) UIImage *whiteHaAckImage;
-- (id)whiteQuestionDotAckImage;
-@property(readonly, nonatomic) UIImage *whiteQuestionMarkAckImage;
+@property(readonly, nonatomic) UIImage *whiteQuestionMarkDotAckImage;
+@property(readonly, nonatomic) UIImage *whiteQuestionMarkGlyphAckImage;
 @property(readonly, nonatomic) UIImage *whiteExclamationLeftAckImage;
 @property(readonly, nonatomic) UIImage *whiteExclamationRightAckImage;
 @property(readonly, nonatomic) UIImage *whiteThumbsDownAckImage;
@@ -118,7 +116,7 @@
 @property(readonly, nonatomic) UIImage *grayH1AckImage;
 @property(readonly, nonatomic) UIImage *grayHaAckImage;
 @property(readonly, nonatomic) UIImage *grayQuestionMarkDotAckImage;
-@property(readonly, nonatomic) UIImage *grayQuestionMarkAckImage;
+@property(readonly, nonatomic) UIImage *grayQuestionMarkGlyphAckImage;
 @property(readonly, nonatomic) UIImage *grayExclamationRightAckImage;
 @property(readonly, nonatomic) UIImage *grayExclamationLeftAckImage;
 @property(readonly, nonatomic) UIImage *grayThumbsDownAckImage;

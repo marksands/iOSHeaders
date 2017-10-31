@@ -24,7 +24,7 @@
 - (void)__hostDidUpdateAppearanceWithSerializedRepresentations:(NSArray *)arg1 originalSource:(id)arg2 legacyAppearance:(_Bool)arg3;
 - (void)__scrollToTopFromTouchAtViewLocation:(struct CGPoint)arg1 resultHandler:(void (^)(_Bool, NSError *))arg2;
 - (void)__setHostViewUnderlapsStatusBar:(_Bool)arg1;
-- (void)__hostDidSetPresentationControllerClassName:(NSString *)arg1;
+- (void)__hostDidSetPresentationControllerClassName:(NSString *)arg1 canShowTextServices:(_Bool)arg2;
 - (void)__hostDidSetContentOverlayInsets:(struct UIEdgeInsets)arg1 andLeftMargin:(double)arg2 rightMargin:(double)arg3;
 - (void)__hostDisablesAutomaticKeyboardBehavior:(_Bool)arg1;
 - (void)__hostDidPromoteFirstResponder;
@@ -50,7 +50,7 @@
 - (void)__hostViewDidAppear:(_Bool)arg1;
 - (void)__hostViewWillAppear:(_Bool)arg1 inInterfaceOrientation:(long long)arg2 traitCollection:(UITraitCollection *)arg3 statusBarHeight:(double)arg4 underlapsStatusBar:(_Bool)arg5 completionHandler:(void (^)(struct CGSize))arg6;
 - (void)__hostReadyToReceiveMessagesFromServiceViewController;
-- (void)__createViewController:(NSString *)arg1 withContextToken:(NSUUID *)arg2 fbsDisplays:(NSArray *)arg3 appearanceSerializedRepresentations:(NSArray *)arg4 legacyAppearance:(_Bool)arg5 traitCollection:(UITraitCollection *)arg6 initialInterfaceOrientation:(long long)arg7 hostAccessibilityServerPort:(BSMachPortSendRight *)arg8 canShowTextServices:(_Bool)arg9 replyHandler:(void (^)(_UIHostedWindowHostingHandle *, NSArray *, long long, int, BSMachPortSendRight *, NSError *))arg10;
-- (void)__createViewController:(NSString *)arg1 withAppearanceSerializedRepresentations:(NSArray *)arg2 legacyAppearance:(_Bool)arg3 hostAccessibilityServerPort:(BSMachPortSendRight *)arg4 canShowTextServices:(_Bool)arg5 replyHandler:(void (^)(_UIHostedWindowHostingHandle *, NSArray *, long long, int, BSMachPortSendRight *, NSError *))arg6;
+- (void)__createViewController:(NSString *)arg1 withContextToken:(NSUUID *)arg2 fbsDisplays:(NSArray *)arg3 appearanceSerializedRepresentations:(NSArray *)arg4 legacyAppearance:(_Bool)arg5 traitCollection:(UITraitCollection *)arg6 initialInterfaceOrientation:(long long)arg7 hostAccessibilityServerPort:(BSMachPortSendRight *)arg8 replyHandler:(void (^)(_UIHostedWindowHostingHandle *, NSArray *, long long, int, BSMachPortSendRight *, NSError *))arg9;
+- (void)__createViewController:(NSString *)arg1 withAppearanceSerializedRepresentations:(NSArray *)arg2 legacyAppearance:(_Bool)arg3 hostAccessibilityServerPort:(BSMachPortSendRight *)arg4 replyHandler:(void (^)(_UIHostedWindowHostingHandle *, NSArray *, long long, int, BSMachPortSendRight *, NSError *))arg5;
 @end
 

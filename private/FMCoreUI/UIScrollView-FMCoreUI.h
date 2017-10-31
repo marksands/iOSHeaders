@@ -10,6 +10,7 @@
 - (void)scrollSubviewToVisible:(id)arg1 animated:(_Bool)arg2;
 - (void)centerContentWithOffset:(struct CGPoint)arg1 animated:(_Bool)arg2;
 - (void)centerContent;
+- (void)centerContentIfNecessary;
 @property(readonly, nonatomic, getter=isContentLargerThanBounds) _Bool contentLargerThanBounds;
 @end
 

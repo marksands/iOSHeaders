@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _cacheHitCount;
 }
 
++ (id)pathForContext:(id)arg1;
 @property unsigned long long cacheHitCount; // @synthesize cacheHitCount=_cacheHitCount;
 @property unsigned long long cacheRequestCount; // @synthesize cacheRequestCount=_cacheRequestCount;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *recordQueue; // @synthesize recordQueue=_recordQueue;
@@ -37,6 +38,8 @@ __attribute__((visibility("hidden")))
 - (id)infoToUpgradeFromVersion:(unsigned long long)arg1;
 - (id)createInitialTablesSQL;
 - (id)path;
+- (void)dealloc;
+- (id)_initWithClientContext:(id)arg1;
 
 @end
 

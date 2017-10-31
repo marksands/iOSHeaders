@@ -6,24 +6,20 @@
 
 #import "NSObject.h"
 
-@class ICMusicSubscriptionStatus, NSObject<OS_dispatch_queue>, NSOperationQueue;
+@class NSObject<OS_dispatch_queue>, NSOperationQueue;
 
 @interface ICMusicSubscriptionStatusController : NSObject
 {
-    ICMusicSubscriptionStatus *_cachedActiveUserSubscriptionStatus;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     NSOperationQueue *_operationQueue;
 }
 
 + (id)sharedStatusController;
 - (void).cxx_destruct;
-- (void)_handleSubscriptionStatusChangedDistributedNotification:(id)arg1;
-- (void)_loadCachedStatus;
-- (void)_getSubscriptionStatusForUserIdentity:(id)arg1 bypassingCache:(_Bool)arg2 reauthenticateOnInvalidTokenResponse:(_Bool)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
+- (void)_subscriptionStatusCacheDidChangeNotification:(id)arg1;
 - (void)enablePeriodicSubscriptionRefresh;
-- (void)clearCachedSubscriptionStatusForUserIdentiy:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)clearCachedSubscriptionStatusWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)invalidateCachedSubscriptionStatus;
+- (void)invalidateCachedSubscriptionStatusForUserIdentity:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)invalidateCachedSubscriptionStatusWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)refreshSubscriptionUsingRequestContext:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)refreshSubscriptionForUserIdentity:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)refreshSubscriptionWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -31,6 +27,7 @@
 - (void)disableSubscriptionWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)enableSubscriptionForUserIdentity:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)enableSubscriptionWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)performSubscriptionStatusRequest:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)getSubscriptionStatusForUserIdentity:(id)arg1 bypassingCache:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)getSubscriptionStatusForUserIdentity:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)getSubscriptionStatusWithCompletionHandler:(CDUnknownBlockType)arg1;

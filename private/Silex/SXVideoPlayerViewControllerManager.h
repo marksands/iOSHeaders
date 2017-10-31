@@ -14,6 +14,7 @@
 {
     _Bool _presentedAndAppeared;
     NSURL *_autoplayURL;
+    NSMutableDictionary *_videoAnalyticsRouters;
     NSMutableDictionary *_videoPlayerViewControllers;
     NSMutableDictionary *_loseOwnershipBlocks;
     NSMutableDictionary *_pendingVideoPlayerViewControllers;
@@ -26,11 +27,12 @@
 @property(readonly, nonatomic) NSMutableDictionary *pendingVideoPlayerViewControllers; // @synthesize pendingVideoPlayerViewControllers=_pendingVideoPlayerViewControllers;
 @property(readonly, nonatomic) NSMutableDictionary *loseOwnershipBlocks; // @synthesize loseOwnershipBlocks=_loseOwnershipBlocks;
 @property(readonly, nonatomic) NSMutableDictionary *videoPlayerViewControllers; // @synthesize videoPlayerViewControllers=_videoPlayerViewControllers;
+@property(readonly, nonatomic) NSMutableDictionary *videoAnalyticsRouters; // @synthesize videoAnalyticsRouters=_videoAnalyticsRouters;
 @property(copy, nonatomic) NSURL *autoplayURL; // @synthesize autoplayURL=_autoplayURL;
 @property(nonatomic) _Bool presentedAndAppeared; // @synthesize presentedAndAppeared=_presentedAndAppeared;
 - (void).cxx_destruct;
-- (void)autoplayVideoWithURL:(id)arg1;
-- (void)registerExistingVideoPlayerViewController:(id)arg1 URL:(id)arg2 loseOwnershipBlock:(CDUnknownBlockType)arg3;
+- (void)configureAutoplayForVideoWithURL:(id)arg1 analyticsRouter:(id)arg2;
+- (void)registerExistingVideoPlayerViewController:(id)arg1 URL:(id)arg2 analyticsRouter:(id)arg3 loseOwnershipBlock:(CDUnknownBlockType)arg4;
 - (id)videoPlayerViewControllerForURL:(id)arg1 receiveOwnershipBlock:(CDUnknownBlockType)arg2;
 - (id)init;
 

@@ -46,6 +46,7 @@
 + (id)deviceBatterySaverStream;
 + (id)deviceBatteryPercentageStream;
 + (id)deviceIsPluggedInStream;
++ (id)keybagIsLockedStream;
 + (id)deviceIsLockedStream;
 + (id)appViewedInDockStream;
 + (id)glanceLaunchStream;

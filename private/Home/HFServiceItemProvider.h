@@ -12,6 +12,7 @@
 {
     HMHome *_home;
     CDUnknownBlockType _filter;
+    CDUnknownBlockType _sourceServiceGenerator;
     NSMutableSet *_serviceItems;
     NSArray *_serviceTypes;
     id <HFCharacteristicValueSource> _overrideValueSource;
@@ -21,6 +22,7 @@
 @property(retain, nonatomic) id <HFCharacteristicValueSource> overrideValueSource; // @synthesize overrideValueSource=_overrideValueSource;
 @property(retain, nonatomic) NSArray *serviceTypes; // @synthesize serviceTypes=_serviceTypes;
 @property(retain, nonatomic) NSMutableSet *serviceItems; // @synthesize serviceItems=_serviceItems;
+@property(copy, nonatomic) CDUnknownBlockType sourceServiceGenerator; // @synthesize sourceServiceGenerator=_sourceServiceGenerator;
 @property(copy, nonatomic) CDUnknownBlockType filter; // @synthesize filter=_filter;
 @property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 - (void).cxx_destruct;

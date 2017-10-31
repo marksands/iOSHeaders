@@ -10,6 +10,7 @@
 @property(readonly, nonatomic) UIView *dragPreviewView;
 @property(readonly, nonatomic) NSString *dragIdentifier;
 @property(readonly, nonatomic) id <UIItemProviderWriting> dragObject;
+- (NSString *)stringForAXDragAction;
 - (void)didEndDragging;
 - (void)didStartDragging;
 @end

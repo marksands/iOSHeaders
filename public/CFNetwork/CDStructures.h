@@ -508,6 +508,12 @@ struct _opaque_pthread_mutex_t {
     char __opaque[56];
 };
 
+struct _opaque_pthread_t {
+    long long _field1;
+    struct __darwin_pthread_handler_rec *_field2;
+    char _field3[8176];
+};
+
 struct internal_state;
 
 struct mutex {

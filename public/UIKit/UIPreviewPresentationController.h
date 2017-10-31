@@ -59,6 +59,7 @@
 - (void)_presentationTransitionWillBeginForContainerEffectView:(id)arg1;
 - (void)_prepareKeyboardForPresentationTransition;
 - (void)_prepareStatusBarForPresentationTransition;
+- (_Bool)_shouldBlurStatusBar;
 - (void)_prepareContainerViewForPresentationTransition;
 - (id)_fullscreenPresentationSuperview;
 - (struct CGRect)_frameForTransitionViewInPresentationSuperview:(id)arg1;

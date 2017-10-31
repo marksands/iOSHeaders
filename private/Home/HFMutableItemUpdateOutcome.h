@@ -15,10 +15,14 @@
 
 @property(retain, nonatomic) NSMutableDictionary *mutableResults; // @synthesize mutableResults=_mutableResults;
 - (void).cxx_destruct;
+- (void)removeObjectForKey:(id)arg1;
+- (void)removeObjectsForKeys:(id)arg1;
 - (void)addResultsFromDictionary:(id)arg1;
 - (void)addResultsFromOutcome:(id)arg1;
+- (id)allKeys;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(retain, nonatomic) NSDictionary *results;
+- (void)safeSetObject:(id)arg1 forKey:(id)arg2;
 - (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
 - (id)initWithResults:(id)arg1 type:(unsigned long long)arg2;
 

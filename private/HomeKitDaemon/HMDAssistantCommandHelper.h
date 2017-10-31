@@ -48,7 +48,9 @@
 - (void)_reportResponses;
 - (void)timerDidFire:(id)arg1;
 - (void)_resetActionTimer;
-- (void)_startActionTimer;
+- (void)_startActionTimerWithTimeInterval:(double)arg1;
+- (void)_startReadWriteActionTimer;
+- (void)_startActionSetTimer;
 - (void)_register;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;

@@ -165,6 +165,8 @@
 - (void)hideNotificationsFromIncomingSectionListForSectionIdentifier:(id)arg1 subSectionIdentifer:(id)arg2;
 - (void)showRequestsForNotificationSectionIdentifier:(id)arg1 subSectionIdentifier:(id)arg2;
 - (void)hideRequestsForNotificationSectionIdentifier:(id)arg1 subSectionIdentifier:(id)arg2;
+- (void)showRequestsForNotificationSectionSettings:(id)arg1;
+- (void)hideRequestsForNotificationSectionSettings:(id)arg1;
 - (id)indexPathForNotificationRequest:(id)arg1;
 - (id)notificationRequestAtIndexPath:(id)arg1;
 - (void)removeNotificationRequest:(id)arg1 forCoalescedNotification:(id)arg2;
@@ -185,6 +187,7 @@
 - (void)forceNotificationHistoryRevealed:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_setShowingNotificationsHistory:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)init;
 - (void)_setShowingNotificationsHistory:(_Bool)arg1;

@@ -13,7 +13,7 @@
     AVCaptureOutput *dataOutputs[4];
     AVCaptureSynchronizedData *synchronizedData[4];
     BOOL count;
-    long long changeSeed;
+    unsigned long long changeSeed;
     CDStruct_1b6d18a9 creationTime;
     NSArray *possibleDataOutputs;
 }

@@ -31,7 +31,6 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-- (void)buttonWillMoveToWindow:(id)arg1;
 - (void)buttonLayoutSubviews:(id)arg1 baseImplementation:(CDUnknownBlockType)arg2;
 - (void)configureButton:(id)arg1 fromBarButtonItem:(id)arg2;
 - (void)_setupAlternateTitlesFromBarButtonItem:(id)arg1;

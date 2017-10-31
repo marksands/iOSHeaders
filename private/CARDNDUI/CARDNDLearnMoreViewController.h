@@ -6,15 +6,18 @@
 
 #import "UIViewController.h"
 
-@class UITextView;
+@class NSLayoutConstraint, UITextView;
 
 @interface CARDNDLearnMoreViewController : UIViewController
 {
     UITextView *_textView;
+    NSLayoutConstraint *_bottomMarginConstraint;
 }
 
+@property(retain, nonatomic) NSLayoutConstraint *bottomMarginConstraint; // @synthesize bottomMarginConstraint=_bottomMarginConstraint;
 @property(retain, nonatomic) UITextView *textView; // @synthesize textView=_textView;
 - (void).cxx_destruct;
+- (void)viewSafeAreaInsetsDidChange;
 - (void)viewDidLoad;
 
 @end

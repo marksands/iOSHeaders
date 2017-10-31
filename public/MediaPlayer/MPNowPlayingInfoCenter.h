@@ -6,74 +6,83 @@
 
 #import "NSObject.h"
 
-@class MPArtworkResizeUtility, MPNowPlayingInfoCenterArtworkContext, NSDate, NSDictionary, NSMutableDictionary, NSMutableOrderedSet, NSObject<OS_dispatch_queue>, NSSet, NSString;
+@class MPArtworkResizeUtility, MPNowPlayingContentItem, MPNowPlayingInfoCenterArtworkContext, MSVLRUDictionary, MSVTimer, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MPNowPlayingInfoCenter : NSObject
 {
     NSDictionary *_nowPlayingInfo;
     NSDictionary *_queuedNowPlayingInfo;
     NSDictionary *_convertedNowPlayingInfo;
-    _Bool _coalescingUpdates;
-    _Bool _needsInvalidation;
-    NSMutableOrderedSet *_contentItemIdentifiersSentToMediaRemote;
-    NSMutableOrderedSet *_contentItemIdentifiersNotSentToMediaRemote;
+    NSDate *_pushDate;
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    NSObject<OS_dispatch_queue> *_calloutQueue;
+    MPNowPlayingInfoCenterArtworkContext *_publishedContext;
     NSMutableDictionary *_mutatedContentItems;
     NSMutableDictionary *_mutatedPlaybackQueueRequests;
-    MPArtworkResizeUtility *_artworkResizeUtility;
+    struct _MSVSignedRange _loadedContentItemsRange;
+    struct _MSVSignedRange _requestedContentItemsRange;
+    NSMutableArray *_contentItemIdentifiers;
+    MSVLRUDictionary *_contentItems;
+    MPNowPlayingContentItem *_nowPlayingContentItem;
     unsigned long long _playbackState;
-    NSDate *_pushDate;
-    NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_utilityQueue;
+    MPArtworkResizeUtility *_artworkResizeUtility;
+    MSVTimer *_contentItemInvalidationTimer;
     id <MPNowPlayingPlaybackQueueDataSource> _playbackQueueDataSource;
-    id <MPNowPlayingPlaybackQueueDelegate> _playbackQueueDelegate;
     id <MPNowPlayingInfoLyricsDelegate> _lyricsDelegate;
-    void *_createPlaybackQueueToken;
-    void *_createItemForIdentifierToken;
-    void *_createItemForOffsetToken;
-    void *_createChildItemToken;
-    void *_metadataToken;
-    void *_infoToken;
-    void *_languageOptionsToken;
-    void *_lyricsToken;
-    void *_artworkToken;
+    struct {
+        void *createPlaybackQueue;
+        void *createChildItem;
+        void *metadata;
+        void *artwork;
+        void *info;
+        void *languageOptions;
+        void *lyrics;
+    } _callbacks;
     void *_playerPath;
-    MPNowPlayingInfoCenterArtworkContext *_publishedContext;
+    id <MPNowPlayingPlaybackQueueDelegate> _playbackQueueDelegate;
     NSString *_playerID;
-    NSDictionary *__mediaRemoteNowPlayingInfo;
+    NSObject<OS_dispatch_queue> *_dataSourceQueue;
 }
 
++ (id)serviceQueue;
 + (id)infoCenterForPlayerID:(id)arg1;
 + (id)defaultCenter;
-@property(readonly, nonatomic) NSDictionary *_mediaRemoteNowPlayingInfo; // @synthesize _mediaRemoteNowPlayingInfo=__mediaRemoteNowPlayingInfo;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *dataSourceQueue; // @synthesize dataSourceQueue=_dataSourceQueue;
 @property(readonly, nonatomic) NSString *playerID; // @synthesize playerID=_playerID;
+@property(nonatomic) __weak id <MPNowPlayingPlaybackQueueDelegate> playbackQueueDelegate; // @synthesize playbackQueueDelegate=_playbackQueueDelegate;
+@property(readonly, nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
 - (void).cxx_destruct;
-- (void)_registerLyricsDelegateCallbacks:(id)arg1;
-- (void)_registerPlaybackQueueDataSourceCallbacks:(id)arg1;
-- (void)_removeToken:(void **)arg1;
-- (void)_pushContentItemsUpdate;
-- (void)_getArtworkForRequest:(void *)arg1 item:(id)arg2 returnItem:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_getLyricsForRequest:(void *)arg1 item:(id)arg2 returnItem:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_onQueue_pushContentItemsUpdate;
 - (void)_getInfoForRequest:(void *)arg1 item:(id)arg2 returnItem:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_getLanguageOptionsForRequest:(void *)arg1 item:(id)arg2 returnItem:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_clearPlaybackQueueDataSourceCallbacks;
-- (id)_queryChildItemFromDataSource:(id)arg1 atIndexPath:(id)arg2 fromRoot:(id)arg3;
 - (void)_contentItemChangedNotification:(id)arg1;
-@property(readonly, copy, nonatomic) NSSet *unpublishedChangedContentItemIDs;
-- (void)beginObservingChangesForContentItemIDs:(id)arg1;
-- (void)endPlaybackQueueContentItemUpdates;
-- (void)beginPlaybackQueueContentItemUpdates;
+- (void)_onQueue_registerPlaybackQueueDataSourceCallbacks:(id)arg1;
+- (void)_onQueue_registerLyricsDelegateCallbacks:(id)arg1;
+- (void)_onQueue_clearPlaybackQueueDataSourceCallbacks;
+- (void)_onDataSourceQueue_getContentItemIDsInRange:(struct _MSVSignedRange)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)_onDataSourceQueue_artworkCatalogForContentItem:(id)arg1;
 - (void)_invalidatePlaybackQueueImmediately;
+- (void)_getMetadataForContentItem:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void *)_createPlaybackQueueForRequest:(void *)arg1;
+- (id)_contentItemForIdentifier:(id)arg1 alreadyOnDataSourceQueue:(_Bool)arg2;
+- (id)_contentItemForIdentifier:(id)arg1;
+- (id)_contentItemIDsInRange:(CDStruct_912cb5d2)arg1 itemsRange:(CDStruct_912cb5d2 *)arg2;
+- (id)_childContentItemForContentItem:(id)arg1 indexPath:(id)arg2;
+- (void)_becomeActiveWithCompletion:(CDUnknownBlockType)arg1;
+- (id)_artworkCatalogForContentItem:(id)arg1;
+@property(readonly, nonatomic) _Bool supportsArtworkCatalogLoading;
+@property(retain, nonatomic) MPNowPlayingContentItem *nowPlayingContentItem;
 - (void)invalidatePlaybackQueue;
-@property unsigned long long playbackState;
-@property(copy) NSDictionary *nowPlayingInfo;
-- (void)_pushNowPlayingInfoAndRetry:(_Bool)arg1;
 @property(nonatomic) __weak id <MPNowPlayingInfoLyricsDelegate> lyricsDelegate;
-@property(nonatomic) __weak id <MPNowPlayingPlaybackQueueDelegate> playbackQueueDelegate;
 @property(nonatomic) __weak id <MPNowPlayingPlaybackQueueDataSource> playbackQueueDataSource;
 - (void)becomeActive;
+@property(nonatomic) unsigned long long playbackState;
 - (void)dealloc;
 - (id)init;
 - (id)initWithPlayerID:(id)arg1;
+- (void)_onQueue_pushNowPlayingInfoAndRetry:(_Bool)arg1;
+@property(copy, nonatomic) NSDictionary *nowPlayingInfo; // @dynamic nowPlayingInfo;
+- (void)_initializeNowPlayingInfo;
 
 @end
 

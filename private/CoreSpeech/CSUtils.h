@@ -15,6 +15,8 @@
 + (id)getFixedPrioritySerialQueueWithLabel:(id)arg1 fixedPriority:(int)arg2;
 + (id)rootQueueWithFixedPriority:(int)arg1;
 + (_Bool)hasRemoteCoreSpeech;
++ (_Bool)supportAlwaysListening;
++ (_Bool)supportHybridEndpointer;
 + (_Bool)supportCSTwoShotDecision;
 + (_Bool)supportSelfTriggerSuppression;
 + (_Bool)supportOpportunisticZLL;
@@ -41,12 +43,18 @@
 + (struct AudioStreamBasicDescription)lpcmInt16ASBD;
 + (_Bool)readAudioChunksFrom:(id)arg1 block:(CDUnknownBlockType)arg2;
 + (void)iterateBitset:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
++ (unsigned int)getNumElementInBitset:(unsigned long long)arg1;
 + (unsigned long long)sampleCountFromHostTime:(unsigned long long)arg1 anchorHostTime:(unsigned long long)arg2 anchorSampleCount:(unsigned long long)arg3;
 + (unsigned long long)hostTimeFromSampleCount:(unsigned long long)arg1 anchorHostTime:(unsigned long long)arg2 anchorSampleCount:(unsigned long long)arg3;
 + (double)getHostClockFrequency;
++ (double)hostTimeToTimeInterval:(unsigned long long)arg1;
++ (float)hostTimeToSeconds:(unsigned long long)arg1;
 + (unsigned long long)secondsToHostTime:(float)arg1;
 + (_Bool)isRecordContextVoiceTrigger:(id)arg1;
 + (id)assetHashInResourcePath:(id)arg1;
+- (id)_contentsOfDirectoryAtURL:(id)arg1 matchingPattern:(id)arg2 includingPropertiesForKeys:(id)arg3 error:(id *)arg4;
+- (void)_URLsInDirectory:(id)arg1 matchingPattern:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)removeLogFilesInDirectory:(id)arg1 matchingPattern:(id)arg2 beforeDays:(float)arg3;
 
 @end
 

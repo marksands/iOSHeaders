@@ -24,6 +24,7 @@
     _Bool _publisherPaidWebAccessOptIn;
     _Bool _hideAccessoryText;
     _Bool _isHidden;
+    _Bool _isRealTimeTrackingEnabed;
     NSString *_identifier;
     NSString *_versionKey;
     NSString *_name;
@@ -43,8 +44,6 @@
     NSArray *_pinnedArticleIDs;
     long long _score;
     long long _minimumNewsVersion;
-    unsigned long long _forYouMaximumArticleCount;
-    double _forYouCutoffTime;
     FCAssetHandle *_nameImageAssetHandle;
     FCAssetHandle *_nameImageCompactAssetHandle;
     double _bannerImageScale;
@@ -102,6 +101,7 @@
 @property(copy, nonatomic) NTPBFeedConfiguration *feedConfiguration; // @synthesize feedConfiguration=_feedConfiguration;
 @property(retain, nonatomic) FCInterestToken *tagInterestToken; // @synthesize tagInterestToken=_tagInterestToken;
 @property(copy, nonatomic) NSString *pptFeedIDOverride; // @synthesize pptFeedIDOverride=_pptFeedIDOverride;
+@property(readonly, nonatomic) _Bool isRealTimeTrackingEnabed; // @synthesize isRealTimeTrackingEnabed=_isRealTimeTrackingEnabed;
 @property(readonly, nonatomic) _Bool isHidden; // @synthesize isHidden=_isHidden;
 @property(readonly, nonatomic) unsigned long long groupingEligibility; // @synthesize groupingEligibility=_groupingEligibility;
 @property(readonly, nonatomic) _Bool hideAccessoryText; // @synthesize hideAccessoryText=_hideAccessoryText;
@@ -137,8 +137,6 @@
 @property(readonly, nonatomic) struct UIEdgeInsets nameImageInsets; // @synthesize nameImageInsets=_nameImageInsets;
 @property(nonatomic) struct CGSize nameImageSize; // @synthesize nameImageSize=_nameImageSize;
 @property(retain, nonatomic) FCAssetHandle *nameImageAssetHandle; // @synthesize nameImageAssetHandle=_nameImageAssetHandle;
-@property(readonly, nonatomic) double forYouCutoffTime; // @synthesize forYouCutoffTime=_forYouCutoffTime;
-@property(readonly, nonatomic) unsigned long long forYouMaximumArticleCount; // @synthesize forYouMaximumArticleCount=_forYouMaximumArticleCount;
 @property(readonly, nonatomic) _Bool isNotificationEnabled; // @synthesize isNotificationEnabled=_isNotificationEnabled;
 @property(readonly, nonatomic) long long minimumNewsVersion; // @synthesize minimumNewsVersion=_minimumNewsVersion;
 @property(readonly, nonatomic) long long score; // @synthesize score=_score;
@@ -165,6 +163,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool isWhitelisted;
 @property(readonly, nonatomic) _Bool supportsNotifications;
+@property(readonly, nonatomic) NSData *backingTagRecordData;
 - (void)ppt_overrideFeedID:(id)arg1;
 @property(readonly, nonatomic) FCColor *groupTitleColor;
 @property(readonly, nonatomic) FCColor *foregroundColor;

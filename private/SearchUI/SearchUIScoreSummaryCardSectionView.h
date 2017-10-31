@@ -23,7 +23,7 @@
 - (void).cxx_destruct;
 - (void)updateChevronVisible:(_Bool)arg1 leaveSpaceForChevron:(_Bool)arg2;
 - (struct CGSize)containerView:(id)arg1 systemLayoutSizeFittingSize:(struct CGSize)arg2 forArrangedSubview:(id)arg3;
-- (void)updateWithCardSection:(id)arg1;
+- (void)updateWithRowModel:(id)arg1;
 - (id)setupContentView;
 
 // Remaining properties

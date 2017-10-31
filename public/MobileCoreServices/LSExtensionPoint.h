@@ -20,6 +20,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)identifierForCurrentProcess;
 + (id)extensionPointForIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *sdkEntry; // @synthesize sdkEntry=_sdkEntry;
 @property(readonly, nonatomic) NSString *version; // @synthesize version=_version;

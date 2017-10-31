@@ -13,11 +13,12 @@
 #import "HDHealthDaemonReadyObserver.h"
 #import "HDWorkoutEventCollectorDelegate.h"
 
-@class BBQuietModeOverrideAssertion, CLLocationManager, CMWorkoutManager, CSLSSession, HDAlertSuppressor, HDPowerSavingModeManager, HDProfile, HDWatchAppStateMonitor, HDWorkoutLocationSmoother, NSHashTable, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, _HDWorkoutData;
+@class BBQuietModeOverrideAssertion, CLLocationManager, CMWorkoutManager, CSLSSession, HDAlertSuppressor, HDPowerSavingModeManager, HDProfile, HDSessionAssertion, HDWatchAppStateMonitor, HDWorkoutLocationSmoother, NSHashTable, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, _HDWorkoutData;
 
 @interface HDWorkoutManager : NSObject <HDActiveWorkoutServerDelegate, HDDatabaseProtectedDataObserver, HDDiagnosticObject, HDForegroundClientProcessObserver, HDHealthDaemonReadyObserver, HDWorkoutEventCollectorDelegate>
 {
     _HDWorkoutData *_currentWorkout;
+    HDSessionAssertion *_currentWorkoutAssertion;
     _HDWorkoutData *_nextWorkout;
     NSMutableDictionary *_activeWorkoutServers;
     HDAlertSuppressor *_alertSuppressor;
@@ -64,6 +65,7 @@
 - (void)_postWorkoutUpdatedNotification;
 - (id)_workoutSessionNotCurrentError:(id)arg1;
 - (id)_queue_eventCollectors;
+- (void)_queue_setBackgroundExecutionForWorkoutType:(long long)arg1 event:(id)arg2;
 - (void)_queue_stopBackgroundExecution;
 - (void)_queue_startBackgroundExecutionForWorkout:(id)arg1;
 - (void)_queue_didUpdateCurrentWorkoutSession;

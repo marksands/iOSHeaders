@@ -36,13 +36,16 @@ __attribute__((visibility("hidden")))
 - (void)searchableIndex:(id)arg1 reindexSearchableItemsWithIdentifiers:(id)arg2 acknowledgementHandler:(CDUnknownBlockType)arg3;
 - (void)searchableIndex:(id)arg1 reindexAllSearchableItemsWithAcknowledgementHandler:(CDUnknownBlockType)arg2;
 - (void)dumpStateTo:(id)arg1;
+- (void)dropIndexAndInvalidateWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dropIndexWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)deleteSearchableItemsWithDomainIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)invalidate;
+- (void)_invalidate;
 - (void)indexOneBatchWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_indexOneBatchWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_learnNewIndexState:(id)arg1;
 @property(readonly, copy) NSString *description;
+- (void)dealloc;
 - (id)initWithIndexName:(id)arg1 context:(id)arg2;
 
 // Remaining properties

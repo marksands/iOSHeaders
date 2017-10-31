@@ -11,6 +11,7 @@
 @interface FCMyArticlesOperation : FCOperation
 {
     _Bool _streamFeedItems;
+    id <FCAppConfiguration> _appConfiguration;
     FCCloudContext *_context;
     FCDateRange *_dateRange;
     CDUnknownBlockType _feedItemsChangedHandler;
@@ -34,6 +35,7 @@
 @property(nonatomic) _Bool streamFeedItems; // @synthesize streamFeedItems=_streamFeedItems;
 @property(copy, nonatomic) FCDateRange *dateRange; // @synthesize dateRange=_dateRange;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
+@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;
 - (void)_appendFeedItems:(id)arg1;
 - (void)_fetchTagsForQueryingWithCompletionHandler:(CDUnknownBlockType)arg1;

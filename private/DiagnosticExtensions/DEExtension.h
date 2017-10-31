@@ -14,16 +14,16 @@
     _Bool _allowUserAttachmentSelection;
     NSString *_attachmentsName;
     NSString *_identifier;
-    NSString *_loggingConsent;
     DEExtensionHostContext *_context;
+    NSString *_loggingConsent;
     NSExtension *_extension;
 }
 
 @property(retain, nonatomic) NSExtension *extension; // @synthesize extension=_extension;
-@property(retain, nonatomic) DEExtensionHostContext *context; // @synthesize context=_context;
 @property(nonatomic) _Bool allowUserAttachmentSelection; // @synthesize allowUserAttachmentSelection=_allowUserAttachmentSelection;
 @property(retain, nonatomic) NSString *loggingConsent; // @synthesize loggingConsent=_loggingConsent;
 @property(nonatomic) _Bool isLoggingEnabled; // @synthesize isLoggingEnabled=_isLoggingEnabled;
+@property(retain, nonatomic) DEExtensionHostContext *context; // @synthesize context=_context;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) NSString *attachmentsName; // @synthesize attachmentsName=_attachmentsName;
 - (void).cxx_destruct;

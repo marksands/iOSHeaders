@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSBundle, NSRecursiveLock;
+@class NSBundle, NSRecursiveLock, NSString;
 
 @interface SCROBrailleTranslationManager : NSObject
 {
@@ -21,6 +21,7 @@
     _Bool _auxTableSupportsEightDotBraille;
     id <SCROBrailleTranslatorProtocol> _nemethTranslator;
     _Bool _alwaysUsesNemethCodeForTechnicalText;
+    NSString *_primaryTranslationTableIdentifier;
 }
 
 + (id)sharedManager;
@@ -32,6 +33,7 @@
 - (void).cxx_destruct;
 - (_Bool)primaryTableSupportsRoundTripping;
 - (_Bool)primaryAndAuxiliaryTranslatorsAreIdentical;
+- (unsigned long long)numberOfTranslatorsLoaded;
 - (id)textForPrintBraille:(id)arg1 primaryTable:(_Bool)arg2 contracted:(_Bool)arg3 eightDot:(_Bool)arg4 locations:(id *)arg5;
 - (id)textForPrintBraille:(id)arg1 contracted:(_Bool)arg2 eightDot:(_Bool)arg3 locations:(id *)arg4;
 - (id)_printBrailleForText:(id)arg1 primaryTable:(_Bool)arg2 contracted:(_Bool)arg3 eightDot:(_Bool)arg4 locations:(id *)arg5 isTechnical:(_Bool)arg6 textPositionsRange:(struct _NSRange)arg7;
@@ -43,6 +45,7 @@
 - (void)setAuxiliaryTranslationTableWithTableIdentifier:(id)arg1;
 - (id)_loadTableIdentifier:(id)arg1 bundle:(id *)arg2 existingBundle:(id)arg3 existingTranslator:(id)arg4;
 - (id)primaryTableIdentifier;
+- (void)_loadPrimaryTableIfNecessary;
 - (void)setPrimaryTranslationTableWithTableIdentifier:(id)arg1;
 - (void)unlockAuxiliaryTable;
 - (void)lockAuxiliaryTable;

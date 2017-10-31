@@ -21,6 +21,7 @@
 + (id)_extensionAuxiliaryVendorProtocol;
 @property(readonly) PUEditingInitialPayload *_initialPayload; // @synthesize _initialPayload=__initialPayload;
 - (void).cxx_destruct;
+- (void)querySDKVersionWithResponseHandler:(CDUnknownBlockType)arg1;
 - (void)cancelContentEditing;
 - (void)finishContentEditing;
 - (void)beginContentEditingWithCompletionHandler:(CDUnknownBlockType)arg1;

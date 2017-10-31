@@ -20,6 +20,7 @@
 + (id)_moduleAlphaCAAnimationParametersForTransitionState:(id)arg1;
 + (id)_moduleScaleCAAnimationParametersForTransitionState:(id)arg1;
 + (id)_moduleC2AnimationParametersForTransitionState:(id)arg1 layoutRect:(struct CCUILayoutRect)arg2;
++ (id)_reducedMotionStatusBarStateCAAnimationParameters;
 + (id)_expandedTrailingStatusBarAlphaCAAnimationParametersForTransitionState:(id)arg1;
 + (id)_expandedLeadingStatusBarAlphaCAAnimationParametersForTransitionState:(id)arg1;
 + (id)_compactTrailingStatusBarAlphaCAAnimationParametersForTransitionState:(id)arg1;
@@ -37,6 +38,7 @@
 - (void)_addModuleScaleAnimationsToBatch:(id)arg1 transitionState:(id)arg2;
 - (struct CGAffineTransform)_moduleViewTransformForTransitionState:(id)arg1 layoutRect:(struct CCUILayoutRect)arg2;
 - (void)_addModuleTransformAnimationsToBatch:(id)arg1 transitionState:(id)arg2;
+- (void)_addReducedMotionStatusBarStateAnimationToBatch:(id)arg1 transitionState:(id)arg2;
 - (void)_addStatusBarAlphaAnimationToBatch:(id)arg1 transitionState:(id)arg2;
 - (void)_addStatusBarStateAnimationToBatch:(id)arg1 transitionState:(id)arg2;
 - (struct CGAffineTransform)_headerViewTransformForTransitionState:(id)arg1;

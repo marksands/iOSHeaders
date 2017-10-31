@@ -6,27 +6,24 @@
 
 #import <Silex/SXFillView.h>
 
-@class NSArray, SXClippingLayer, SXGradientFill;
+@class SXClippingView, SXGradientView, SXLinearGradientFill;
 
 @interface SXGradientFillView : SXFillView
 {
-    NSArray *_locations;
-    NSArray *_colors;
-    SXGradientFill *_gradientFill;
-    SXClippingLayer *_clippingLayer;
+    SXLinearGradientFill *_gradientFill;
+    SXClippingView *_clippingView;
+    SXGradientView *_gradientView;
 }
 
-@property(retain, nonatomic) SXClippingLayer *clippingLayer; // @synthesize clippingLayer=_clippingLayer;
-@property(readonly, nonatomic) SXGradientFill *gradientFill; // @synthesize gradientFill=_gradientFill;
+@property(readonly, nonatomic) SXGradientView *gradientView; // @synthesize gradientView=_gradientView;
+@property(readonly, nonatomic) SXClippingView *clippingView; // @synthesize clippingView=_clippingView;
+@property(readonly, nonatomic) SXLinearGradientFill *gradientFill; // @synthesize gradientFill=_gradientFill;
 - (void).cxx_destruct;
 - (void)setContentFrame:(struct CGRect)arg1;
 - (struct CGRect)contentFrame;
-@property(readonly, nonatomic) NSArray *locations; // @synthesize locations=_locations;
-@property(readonly, nonatomic) NSArray *colors; // @synthesize colors=_colors;
-- (void)setupGradientLayer;
 - (struct CGRect)fillFrameWithBoundingSize:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (id)initWithGradientFill:(id)arg1;
+- (id)initWithGradientFill:(id)arg1 gradientFactory:(id)arg2;
 
 @end
 

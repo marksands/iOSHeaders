@@ -146,6 +146,7 @@
 @property(nonatomic) __weak id <QLPreviewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (_Bool)prefersHomeIndicatorAutoHidden;
+- (unsigned long long)itemStore:(id)arg1 editedFileBehaviorForItem:(id)arg2;
 - (_Bool)itemStore:(id)arg1 canEditItem:(id)arg2;
 - (_Bool)itemStore:(id)arg1 canShareItem:(id)arg2;
 - (long long)_preferredWhitePointAdaptivityStyle;

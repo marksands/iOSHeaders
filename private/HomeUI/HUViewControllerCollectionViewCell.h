@@ -12,18 +12,20 @@
 
 @interface HUViewControllerCollectionViewCell : UICollectionViewCell <HUViewControllerCell>
 {
+    _Bool _allowSelfSizing;
     UIViewController *_viewController;
     UIViewController *_parentViewController;
 }
 
 @property(nonatomic) __weak UIViewController *parentViewController; // @synthesize parentViewController=_parentViewController;
+@property(nonatomic) _Bool allowSelfSizing; // @synthesize allowSelfSizing=_allowSelfSizing;
 @property(retain, nonatomic) UIViewController *viewController; // @synthesize viewController=_viewController;
 - (void).cxx_destruct;
 - (void)_removeFromParentViewControllerAndClearProperty:(_Bool)arg1;
 - (void)removeFromParentViewController;
 - (void)addToParentViewController:(id)arg1;
 - (id)preferredLayoutAttributesFittingAttributes:(id)arg1;
-- (void)layoutSubviews;
+- (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
 - (void)prepareForReuse;
 
 // Remaining properties

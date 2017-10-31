@@ -10,7 +10,7 @@
 #import "HDDatabaseProtectedDataObserver.h"
 #import "HKQueryServerInterface.h"
 
-@class HDProfile, HDXPCClient, HKObjectType, HKQuantityType, HKQueryServerConfiguration, HKSampleType, NSDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID, _HKFilter;
+@class HDProfile, HDXPCClient, HKObjectType, HKQuantityType, HKQueryServerConfiguration, HKSampleType, NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID, _HKFilter;
 
 @interface HDQueryServer : NSObject <HDDatabaseProtectedDataObserver, HKQueryServerInterface, HDDataObserver>
 {
@@ -19,6 +19,7 @@
     NSDictionary *_baseDataEntityEncodingOptions;
     HKQueryServerConfiguration *_configuration;
     CDUnknownBlockType _queryDidFinishHandler;
+    NSArray *_dataObservationAssertions;
     int _shouldFinish;
     int _shouldPause;
     NSObject<OS_dispatch_queue> *_unitTestQueryQueue;

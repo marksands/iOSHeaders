@@ -66,6 +66,7 @@
 - (void)registerUserDefaultsInstance:(id)arg1 configurationURL:(struct __CFURL *)arg2;
 - (void)unregisterUserDefaultsInstance:(id)arg1;
 - (id)init;
+- (void)cancelObservationConnection;
 - (id)copyObservationConnection;
 - (_Bool)canLookUpAgents;
 - (unsigned int)euid;

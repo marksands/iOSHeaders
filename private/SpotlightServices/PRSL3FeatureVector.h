@@ -14,9 +14,9 @@
 
 @interface PRSL3FeatureVector : NSObject <NSSecureCoding, NSCopying, PRSFeatureVector>
 {
-    double floating_point_features[7];
-    double *expanded_floating_point_features;
-    double *server_features;
+    float floating_point_features[7];
+    float *expanded_floating_point_features;
+    float *server_features;
     NSString *bundle_id;
 }
 
@@ -36,12 +36,12 @@
 - (id)getExpandedFeatureVectorAsArray;
 - (void)dealloc;
 - (void)cleanup;
-- (void)setExpandedSet:(double *)arg1;
+- (void)setExpandedSet:(float *)arg1;
 - (id)getFeaturesAsDictionary;
 - (void)resetFeatureValues;
-- (double)getServerFeatureAtIndex:(unsigned long long)arg1;
-- (double)getValueAtIndex:(unsigned long long)arg1;
-- (double)getValueForFeature:(id)arg1;
+- (float)getServerFeatureAtIndex:(unsigned long long)arg1;
+- (float)getValueAtIndex:(unsigned long long)arg1;
+- (float)getValueForFeature:(id)arg1;
 - (void)setServerFeatures:(id)arg1;
 - (void)setValue:(id)arg1 forFeatureEnum:(unsigned long long)arg2;
 - (void)setValue:(id)arg1 forFeature:(id)arg2;

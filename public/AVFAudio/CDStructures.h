@@ -282,15 +282,14 @@ struct AudioRecorderImpl {
     _Bool _field24;
     _Bool _field25;
     _Bool _field26;
-    _Bool _field27;
-    struct AudioQueueLevelMeterState *_field28;
-    struct AudioQueueBuffer *_field29[4];
-    struct AudioQueueBuffer *_field30;
-    _Bool _field31;
-    unsigned long long _field32;
-    _Bool _field33;
-    int _field34;
-    id _field35;
+    struct AudioQueueLevelMeterState *_field27;
+    struct AudioQueueBuffer *_field28[4];
+    struct AudioQueueBuffer *_field29;
+    _Bool _field30;
+    unsigned long long _field31;
+    _Bool _field32;
+    int _field33;
+    id _field34;
 };
 
 struct AudioStreamBasicDescription {
@@ -319,6 +318,16 @@ struct AudioTimeStamp {
     struct SMPTETime mSMPTETime;
     unsigned int mFlags;
     unsigned int mReserved;
+};
+
+struct CAMutex {
+    CDUnknownFunctionPointerType *_field1;
+    char *_field2;
+    struct _opaque_pthread_t *_field3;
+    struct _opaque_pthread_mutex_t {
+        long long _field1;
+        char _field2[56];
+    } _field4;
 };
 
 struct CAStreamBasicDescription {
@@ -439,23 +448,25 @@ struct ControllerImpl {
     _Bool _field96;
     _Bool _field97;
     struct CAStreamBasicDescription _field98;
-    int _field99;
-    _Bool _field100;
-    unsigned int _field101;
-    long long _field102;
-    id _field103;
-    struct MyMutex *_field104[4];
-    int _field105;
+    unsigned int _field99;
+    int _field100;
+    _Bool _field101;
+    unsigned int _field102;
+    long long _field103;
+    id _field104;
+    struct MyMutex *_field105[4];
     int _field106;
     int _field107;
-    unsigned long long _field108;
-    _Bool _field109;
-    int _field110;
+    int _field108;
+    unsigned long long _field109;
+    _Bool _field110;
     int _field111;
-    struct ZeroRunLog _field112[75];
-    _Bool _field113;
+    int _field112;
+    struct ZeroRunLog _field113[75];
     _Bool _field114;
-    id _field115;
+    _Bool _field115;
+    id _field116;
+    id _field117;
 };
 
 struct DataSourceDescriptionImpl {

@@ -28,7 +28,7 @@
 - (void)_setEstimatedExitTime:(id)arg1;
 - (id)_currentTime;
 - (void)_overrideCurrentTime:(id)arg1;
-- (void)updateExitTimeEstimationForLocation:(id)arg1;
+- (void)updateExitTimeEstimationForLocation:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)init;
 
 // Remaining properties

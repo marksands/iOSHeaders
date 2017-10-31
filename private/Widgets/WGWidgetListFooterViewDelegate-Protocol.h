@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-@class UIView, WGWidgetListFooterView;
+@class WGWidgetListFooterView;
 
 @protocol WGWidgetListFooterViewDelegate <NSObject>
 
 @optional
 - (void)widgetListFooterViewAvailableNewWidgetsUpdated:(WGWidgetListFooterView *)arg1;
-- (UIView *)widgetListFooterView:(WGWidgetListFooterView *)arg1 customBackgroundViewForItem:(id)arg2;
 @end
 

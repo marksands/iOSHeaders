@@ -14,10 +14,12 @@
 @interface IXPromisedTransferToPathSeed : IXOwnedDataPromiseSeed <NSSecureCoding, NSCopying>
 {
     _Bool _shouldCopy;
+    _Bool _tryDeltaCopy;
     NSURL *_transferPath;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool tryDeltaCopy; // @synthesize tryDeltaCopy=_tryDeltaCopy;
 @property(nonatomic) _Bool shouldCopy; // @synthesize shouldCopy=_shouldCopy;
 @property(retain, nonatomic) NSURL *transferPath; // @synthesize transferPath=_transferPath;
 - (void).cxx_destruct;

@@ -8,17 +8,22 @@
 
 #import "NSSecureCoding.h"
 
+@class NSError;
+
 @interface CKAccountInfo : NSObject <NSSecureCoding>
 {
     _Bool _supportsDeviceToDeviceEncryption;
     long long _accountStatus;
     long long _accountPartition;
+    NSError *_manateeError;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSError *manateeError; // @synthesize manateeError=_manateeError;
 @property(nonatomic) long long accountPartition; // @synthesize accountPartition=_accountPartition;
 @property(nonatomic) _Bool supportsDeviceToDeviceEncryption; // @synthesize supportsDeviceToDeviceEncryption=_supportsDeviceToDeviceEncryption;
 @property(nonatomic) long long accountStatus; // @synthesize accountStatus=_accountStatus;
+- (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)CKPropertiesDescription;
@@ -26,6 +31,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
+@property(retain, nonatomic) NSError *manateeAvailabilityError;
 
 @end
 

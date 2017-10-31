@@ -8,7 +8,7 @@
 
 #import "HUUserItemManager.h"
 
-@class HFItem, HFUserItem, HMHome, HMUser, NSString;
+@class HFItem, HFUserItem, HMHome, HMUser, HUPersonalRequestsDevicesItemModule, NSString;
 
 @interface HUEditUserItemManager : HFItemManager <HUUserItemManager>
 {
@@ -18,12 +18,14 @@
     HFItem *_allowEditingItem;
     HFItem *_allowEditingFooterItem;
     HFItem *_pendingAccessoriesItem;
+    HUPersonalRequestsDevicesItemModule *_personalRequestsDevicesModule;
     HMHome *_homeForUser;
     HFItem *_removeItem;
 }
 
 @property(retain, nonatomic) HFItem *removeItem; // @synthesize removeItem=_removeItem;
 @property(retain, nonatomic) HMHome *homeForUser; // @synthesize homeForUser=_homeForUser;
+@property(readonly, nonatomic) HUPersonalRequestsDevicesItemModule *personalRequestsDevicesModule; // @synthesize personalRequestsDevicesModule=_personalRequestsDevicesModule;
 @property(retain, nonatomic) HFItem *pendingAccessoriesItem; // @synthesize pendingAccessoriesItem=_pendingAccessoriesItem;
 @property(retain, nonatomic) HFItem *allowEditingFooterItem; // @synthesize allowEditingFooterItem=_allowEditingFooterItem;
 @property(retain, nonatomic) HFItem *allowEditingItem; // @synthesize allowEditingItem=_allowEditingItem;
@@ -31,8 +33,11 @@
 @property(retain, nonatomic) HFItem *allowRemoteAccessItem; // @synthesize allowRemoteAccessItem=_allowRemoteAccessItem;
 @property(retain, nonatomic) HFItem *localAccessItem; // @synthesize localAccessItem=_localAccessItem;
 - (void).cxx_destruct;
+- (id)_isPersonalRequestsEnabledForUser;
 - (_Bool)_hasPendingAccessories;
+- (_Bool)_hasHomePod;
 - (_Bool)_hasResidentDevice;
+- (_Bool)_isCurrentUser;
 - (_Bool)_isUserOwner:(id)arg1;
 - (_Bool)_isEditingAllowedForUser:(id)arg1;
 - (_Bool)_isRemoteAccessAllowedForUser:(id)arg1;

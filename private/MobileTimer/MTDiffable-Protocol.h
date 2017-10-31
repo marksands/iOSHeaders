@@ -12,6 +12,7 @@
 - (NSString *)keyForIdentifier;
 
 @optional
+- (NSSet *)keysAffectingNotification;
 - (NSSet *)keysAffectingScheduling;
 - (NSSet *)keysAffectingSnooze;
 @end

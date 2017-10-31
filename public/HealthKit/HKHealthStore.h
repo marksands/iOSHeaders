@@ -32,6 +32,7 @@
     NSHashTable *_fitnessMachineConnectionInitiators;
     NSMutableDictionary *_workoutSessionsByUUID;
     NSMutableSet *_deepBreathingSessions;
+    NSMutableDictionary *_waitForSyncStartHandlersByUUID;
     unsigned int _applicationSDKVersion;
     NSObject<OS_dispatch_queue> *_clientQueue;
 }
@@ -63,6 +64,7 @@
 - (void)performMigrationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)obliterateHealthDataWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)getHealthDirectorySizeInBytesWithCompletion:(CDUnknownBlockType)arg1;
+- (void)clientRemote_waitOnHealthCloudSyncWithProgressDidStartWithUUID:(id)arg1;
 - (void)clientRemote_deliverWorkoutEvent:(id)arg1 forSessionUUID:(id)arg2;
 - (void)clientRemote_deliverWorkoutSessionError:(id)arg1 forSessionUUID:(id)arg2;
 - (void)clientRemote_deliverWorkoutSessionChangedToState:(long long)arg1 fromState:(long long)arg2 date:(id)arg3 forSessionUUID:(id)arg4;
@@ -72,6 +74,8 @@
 - (void)removeDefaultForKey:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)getDefaultValueForKey:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)setDefaultValue:(id)arg1 forKey:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_removeWaitForSyncStartHandlerWithUUID:(id)arg1;
+- (void)_addWaitForSyncStartHandlerWithUUID:(id)arg1 waitForSyncSyncStartHandler:(CDUnknownBlockType)arg2;
 - (CDUnknownBlockType)_objectHandlerOnClientQueue:(CDUnknownBlockType)arg1;
 - (CDUnknownBlockType)_selectCompletionOnClientQueue:(CDUnknownBlockType)arg1;
 - (CDUnknownBlockType)_objectCompletionOnClientQueue:(CDUnknownBlockType)arg1;
@@ -105,15 +109,15 @@
 - (void)_resourceQueue_addFitnessMachineConnection:(id)arg1;
 - (id)_createFitnessMachineConnection;
 - (void)_removeWorkoutSession:(id)arg1;
-- (void)_addWorkoutSession:(id)arg1;
+- (_Bool)_addWorkoutSession:(id)arg1;
 - (void)startWatchAppWithWorkoutConfiguration:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_resumeWorkoutSession:(id)arg1;
+- (void)_resumeWorkoutSession:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)resumeWorkoutSession:(id)arg1;
-- (void)_pauseWorkoutSession:(id)arg1;
+- (void)_pauseWorkoutSession:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)pauseWorkoutSession:(id)arg1;
-- (void)_endWorkoutSession:(id)arg1;
+- (void)_endWorkoutSession:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)endWorkoutSession:(id)arg1;
-- (void)_startWorkoutSession:(id)arg1;
+- (void)_startWorkoutSession:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)startWorkoutSession:(id)arg1;
 - (void)_replaceWorkout:(id)arg1 withWorkout:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)addSamples:(id)arg1 toWorkout:(id)arg2 completion:(CDUnknownBlockType)arg3;

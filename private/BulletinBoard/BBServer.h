@@ -121,7 +121,7 @@
 - (void)syncService:(id)arg1 receivedDismissalDictionaries:(id)arg2 dismissalIDs:(id)arg3 inSection:(id)arg4 forFeeds:(unsigned long long)arg5;
 - (void)noteOccurrenceOfEvent:(unsigned long long)arg1;
 - (void)noteChangeOfState:(unsigned long long)arg1 newValue:(_Bool)arg2;
-- (void)_didEffectiveSettingsChange:(id)arg1;
+- (void)_queue_managedUserNotificationsSetttingsDidChange;
 - (void)_unobserveManagedProfileChanges;
 - (void)_observeManagedProfileChanges;
 - (unsigned long long)_activeQuietModeAssertionCount;

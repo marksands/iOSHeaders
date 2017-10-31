@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     NSString *_previewTitle;
     NSString *_contentType;
     NSURL *_editedFileURL;
+    unsigned long long _editedFileBehavior;
     NSString *_password;
     unsigned long long _previewItemType;
     UIColor *_backgroundColor;
@@ -33,6 +34,7 @@ __attribute__((visibility("hidden")))
 @property(retain) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property unsigned long long previewItemType; // @synthesize previewItemType=_previewItemType;
 @property(retain) NSString *password; // @synthesize password=_password;
+@property unsigned long long editedFileBehavior; // @synthesize editedFileBehavior=_editedFileBehavior;
 @property _Bool canBeEdited; // @synthesize canBeEdited=_canBeEdited;
 @property(retain) NSURL *editedFileURL; // @synthesize editedFileURL=_editedFileURL;
 @property(retain) NSString *contentType; // @synthesize contentType=_contentType;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVCAudioStreamConfig, AVCNetworkAddress, AVCVideoStreamConfig, NSData, NSString;
+@class AVCAudioStreamConfig, AVCNetworkAddress, AVCTextStreamConfig, AVCVideoStreamConfig, NSData, NSString;
 
 @interface AVCMediaStreamConfig : NSObject
 {
@@ -33,6 +33,7 @@
     long long _SRTCPCipherSuite;
     AVCAudioStreamConfig *_audio;
     AVCVideoStreamConfig *_video;
+    AVCTextStreamConfig *_text;
 }
 
 + (id)dictionaryForCommonStreamConfig:(id)arg1;
@@ -40,6 +41,7 @@
 + (long long)cipherSuiteWithClientCipherSuite:(long long)arg1;
 + (long long)clientStreamDirectionWithDirection:(long long)arg1;
 + (long long)streamDirectionWithClientDirection:(long long)arg1;
+@property(retain, nonatomic) AVCTextStreamConfig *text; // @synthesize text=_text;
 @property(retain, nonatomic) AVCVideoStreamConfig *video; // @synthesize video=_video;
 @property(retain, nonatomic) AVCAudioStreamConfig *audio; // @synthesize audio=_audio;
 @property(nonatomic) long long SRTCPCipherSuite; // @synthesize SRTCPCipherSuite=_SRTCPCipherSuite;
@@ -67,6 +69,7 @@
 - (id)dictionary;
 - (void)setUpWithDictionary:(id)arg1;
 - (id)description;
+- (_Bool)isValidTextConfig;
 - (_Bool)isValidVideoConfig;
 - (_Bool)isValidAudioConfig;
 - (void)dealloc;

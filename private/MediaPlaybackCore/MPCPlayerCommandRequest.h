@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MPCMediaRemoteController, NSDictionary;
+@class MPCMediaRemoteController, NSDictionary, NSString;
 
 @interface MPCPlayerCommandRequest : NSObject
 {
@@ -14,14 +14,16 @@
     NSDictionary *_options;
     NSDictionary *_userInitiatedOptions;
     MPCMediaRemoteController *_controller;
+    NSString *_requestLabel;
 }
 
+@property(copy, nonatomic) NSString *requestLabel; // @synthesize requestLabel=_requestLabel;
 @property(readonly, nonatomic) MPCMediaRemoteController *controller; // @synthesize controller=_controller;
 @property(copy, nonatomic) NSDictionary *userInitiatedOptions; // @synthesize userInitiatedOptions=_userInitiatedOptions;
 @property(readonly, copy, nonatomic) NSDictionary *options; // @synthesize options=_options;
 @property(readonly, nonatomic) unsigned int command; // @synthesize command=_command;
 - (void).cxx_destruct;
-- (id)initWithMediaRemoteCommand:(unsigned int)arg1 options:(id)arg2 controller:(id)arg3;
+- (id)initWithMediaRemoteCommand:(unsigned int)arg1 options:(id)arg2 response:(id)arg3;
 
 @end
 

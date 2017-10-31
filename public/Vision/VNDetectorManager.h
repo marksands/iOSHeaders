@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, VNFaceBBoxAligner, VNFaceDetector, VNFaceExpressionDetector, VNFaceLandmarkDetector, VNFaceprintGenerator, VNHumanDetector, VNImageprintGenerator, VNJunkIdentifier, VNSceneClassifier;
+@class NSObject<OS_dispatch_queue>, VNFaceBBoxAligner, VNFaceDetector, VNFaceExpressionDetector, VNFaceLandmarkDetector, VNFaceprintGenerator, VNHumanDetector, VNImageprintGenerator, VNJunkIdentifier, VNSceneClassifier, VNSmartCamClassifier;
 
 __attribute__((visibility("hidden")))
 @interface VNDetectorManager : NSObject
@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     VNHumanDetector *_humanDetector;
     VNJunkIdentifier *_junkIdentifier;
     VNSceneClassifier *_sceneClassifier;
+    VNSmartCamClassifier *_smartCamClassifier;
     VNImageprintGenerator *_imageprintGenerator;
     NSObject<OS_dispatch_queue> *_faceDetectorAccurateSerialQueue;
     NSObject<OS_dispatch_queue> *_faceDetectorBalancedSerialQueue;
@@ -32,6 +33,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_humanDetectorSerialQueue;
     NSObject<OS_dispatch_queue> *_junkIdentifierSerialQueue;
     NSObject<OS_dispatch_queue> *_sceneClassifierSerialQueue;
+    NSObject<OS_dispatch_queue> *_smartCamClassifierSerialQueue;
     NSObject<OS_dispatch_queue> *_imageprintGeneratorSerialQueue;
 }
 
@@ -39,6 +41,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)forcedCleanupWithOptions:(id)arg1;
 - (void)forcedCleanupJunkPipelineWithLevel:(id)arg1;
+- (void)forcedCleanupSmartCamPipelineWithLevel:(id)arg1;
 - (void)forcedCleanupScenePipelineWithLevel:(id)arg1;
 - (void)forcedCleanupFacePipelineWithLevel:(id)arg1;
 - (void)forcedCleanup;
@@ -46,6 +49,7 @@ __attribute__((visibility("hidden")))
 - (id)detectorOfType:(id)arg1 options:(id)arg2 error:(id *)arg3;
 - (id)init;
 - (id)getSerialDispatchQueueImageprintGenerator;
+- (id)getSerialDispatchQueueSmartCamDetector;
 - (id)getSerialDispatchQueueSceneDetector;
 - (id)getSerialDispatchQueueJunkDetector;
 - (id)getSerialDispatchQueueHumanDetector;

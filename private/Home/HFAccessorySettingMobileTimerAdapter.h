@@ -6,39 +6,42 @@
 
 #import <Home/HFAccessorySettingAdapter.h>
 
-@class MTAlarmManager;
+@class NAFuture, NSHashTable;
 
 @interface HFAccessorySettingMobileTimerAdapter : HFAccessorySettingAdapter
 {
-    id <HFAccessorySettingMobileTimerAdapterDelegate> _delegate;
-    unsigned long long _mode;
-    MTAlarmManager *_alarmManagerForSynchronization;
+    NAFuture *_alarmManagerForSynchronizationFuture;
+    NSHashTable *_observers;
+    NAFuture *_setupAccessoryAdapterModeFuture;
 }
 
-@property(retain, nonatomic) MTAlarmManager *alarmManagerForSynchronization; // @synthesize alarmManagerForSynchronization=_alarmManagerForSynchronization;
-@property(readonly, nonatomic) unsigned long long mode; // @synthesize mode=_mode;
-@property(nonatomic) __weak id <HFAccessorySettingMobileTimerAdapterDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) NAFuture *setupAccessoryAdapterModeFuture; // @synthesize setupAccessoryAdapterModeFuture=_setupAccessoryAdapterModeFuture;
+@property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
+@property(retain, nonatomic) NAFuture *alarmManagerForSynchronizationFuture; // @synthesize alarmManagerForSynchronizationFuture=_alarmManagerForSynchronizationFuture;
 - (void).cxx_destruct;
+- (id)_beginMonitoringSettingsKeyPath:(id)arg1;
+- (void)_notifyObserversOfUpdates;
 - (void)_respondToAlarmManagerUpdate;
 - (void)_alarmWasUpdated:(id)arg1;
 - (void)_alarmWasDeleted:(id)arg1;
 - (void)_alarmWasAdded:(id)arg1;
 - (void)_alarmDidFire:(id)arg1;
-- (void)_setupAccessoryAdapterMode;
 - (id)_homeKitAlarms;
 - (id)_synchronizeMobileTimerToHomeKit;
 - (id)_synchronizeHomeKitToMobileTimer;
 - (id)_submitAlarmsToHomeKit:(id)arg1;
-- (id)alarmDataContentSetting;
-- (id)loggedInAppleMusicAccountDSID;
-- (id)addAlarm:(id)arg1;
-- (id)removeAlarm:(id)arg1;
-- (id)updateAlarm:(id)arg1;
+- (id)alarmDataContentSettingFuture;
+- (void)addAlarm:(id)arg1;
+- (void)removeAlarm:(id)arg1;
+- (void)updateAlarm:(id)arg1;
 - (id)alarmManagerAlarms;
 - (id)allAlarms;
 - (void)accessorySettingWasUpdated:(id)arg1 value:(id)arg2;
-- (id)initWithAccessoryProfile:(id)arg1;
-- (id)initWithAccessoryProfile:(id)arg1 mode:(unsigned long long)arg2;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1;
+- (id)initWithMediaProfileContainer:(id)arg1 keyPaths:(id)arg2 updateHandler:(CDUnknownBlockType)arg3;
+- (id)initWithMediaProfileContainer:(id)arg1 keyPaths:(id)arg2 mode:(unsigned long long)arg3 updateHandler:(CDUnknownBlockType)arg4;
+- (id)initWithMediaProfileContainer:(id)arg1 mode:(unsigned long long)arg2;
 
 @end
 

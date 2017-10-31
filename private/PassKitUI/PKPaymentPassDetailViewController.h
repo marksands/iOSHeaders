@@ -223,6 +223,7 @@
 - (unsigned long long)_employeeInfoSectionGenerateCellWithOutput:(id *)arg1 forRowIndex:(long long)arg2 tableView:(id)arg3;
 - (unsigned long long)_cardInfoSectionGenerateCellWithOutput:(id *)arg1 forRowIndex:(long long)arg2 tableView:(id)arg3;
 - (void)_didSelectPassOperationsSectionAtIndexPath:(id)arg1;
+- (void)presentTermsAndConditions;
 - (void)_didSelectPrivacySectionAtRow:(long long)arg1;
 - (unsigned long long)_privacyTermsSectionGenerateCellWithOutput:(id *)arg1 forRowIndex:(long long)arg2 tableView:(id)arg3;
 - (void)_didSelectBillingAddress;
@@ -274,7 +275,7 @@
 - (void)_updateFelicaProperties;
 - (void)_updateAccessExpressPassInformation;
 - (void)_updatePassProperties;
-- (void)_reloadTransactionSections;
+- (void)_reloadTransactionSectionsAnimated:(_Bool)arg1;
 - (void)_reloadView;
 - (void)_reloadPassAndView;
 - (void)presentTransactionDetailsForTransaction:(id)arg1 animated:(_Bool)arg2;
@@ -282,6 +283,7 @@
 - (void)viewDidLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (_Bool)pkui_prefersNavigationBarShadowHidden;

@@ -55,7 +55,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic, setter=_setSelectedDisplayTitle:) NSString *selectedDisplayTitle; // @synthesize selectedDisplayTitle=_selectedDisplayTitle;
 @property(copy, nonatomic) NSString *searchText; // @synthesize searchText=_searchText;
 - (void).cxx_destruct;
-- (struct CGRect)_searchBar:(id)arg1 proposedSearchFieldFrame:(struct CGRect)arg2;
 - (void)ppt_prepareForScrollingTestWithSearchText:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)px_canPerformCrossfadeTransitionWithMasterViewController:(id)arg1;
 - (void)viewWillLayoutSubviews;

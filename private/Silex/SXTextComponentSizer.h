@@ -27,14 +27,13 @@
 - (id)textResizerForTextSource:(id)arg1;
 - (id)documentControllerForTextSource:(id)arg1;
 - (id)existingExclusionPathForComponentWithIdentifier:(id)arg1;
-- (id)documentController;
 @property(readonly, nonatomic) unsigned long long stringLength;
 - (double)verticalPositionForRange:(struct _NSRange)arg1;
 - (id)snapLines;
 - (double)calculateHeightForWidth:(double)arg1 inColumnLayout:(id)arg2;
 - (void)removeAllExclusionPaths;
 - (void)addExclusionPath:(id)arg1;
-- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 componentStyle:(id)arg3 context:(id)arg4 layoutAttributes:(id)arg5;
+- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 componentStyle:(id)arg3 documentController:(id)arg4 layoutAttributes:(id)arg5 textComponentLayoutHosting:(id)arg6 actionProvider:(id)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

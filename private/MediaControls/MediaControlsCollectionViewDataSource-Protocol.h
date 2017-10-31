@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-@class MPCPlayerPath, MediaControlsCollectionViewController, UIViewController, UIViewController<MediaControlsCollectionItemViewController>;
+@class MediaControlsCollectionViewController, UIViewController<MediaControlsCollectionItemViewController>;
 
 @protocol MediaControlsCollectionViewDataSource <NSObject>
-- (UIViewController *)routesViewControllerForPicker:(MediaControlsCollectionViewController *)arg1;
-- (UIViewController<MediaControlsCollectionItemViewController> *)createViewControllerForCollectionViewController:(MediaControlsCollectionViewController *)arg1;
-- (MPCPlayerPath *)picker:(MediaControlsCollectionViewController *)arg1 playerPathForIndex:(long long)arg2;
-- (long long)numberOfDestinationsInPicker:(MediaControlsCollectionViewController *)arg1;
+- (long long)defaultSelectedItemIndexForCollectionViewController:(MediaControlsCollectionViewController *)arg1;
+- (UIViewController<MediaControlsCollectionItemViewController> *)mediaControlsCollectionViewController:(MediaControlsCollectionViewController *)arg1 viewControllerForItemAtIndex:(long long)arg2;
+- (long long)numberOfItemsInCollectionViewController:(MediaControlsCollectionViewController *)arg1;
 @end
 

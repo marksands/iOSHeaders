@@ -22,6 +22,7 @@
 + (id)changesetArchiveContentDataForCKRecord:(id)arg1 error:(id *)arg2;
 + (id)assetKeys;
 + (id)nonAssetKeys;
++ (long long)bytesPerChangeRecordAssetThresholdHardLimit;
 + (long long)bytesPerChangeRecordAssetThreshold;
 + (_Bool)hasFutureSchema:(id)arg1;
 + (_Bool)isChangeRecord:(id)arg1 inSequence:(id)arg2;

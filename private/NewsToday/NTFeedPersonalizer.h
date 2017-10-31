@@ -39,6 +39,7 @@
 - (id)rankTagIDsDescending:(id)arg1;
 - (id)limitArticlesByFlowRate:(id)arg1 timeInterval:(double)arg2 publisherCount:(unsigned long long)arg3;
 - (id)diversifyArticles:(id)arg1 limit:(unsigned long long)arg2;
+- (id)diversifyArticles:(id)arg1 limit:(unsigned long long)arg2 preselectedArticles:(id)arg3;
 - (id)sortArticles:(id)arg1;
 - (id)sortArticles:(id)arg1 options:(long long)arg2;
 - (void)prepareAutoFavoritesWithCompletionHandler:(CDUnknownBlockType)arg1;

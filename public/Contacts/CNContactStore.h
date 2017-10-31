@@ -37,6 +37,7 @@
 - (id)descriptorForRequiredKeysForMatchingDictionary;
 - (id)userActivityUserInfoForContact:(id)arg1;
 - (id)contactWithUserActivityUserInfo:(id)arg1 keysToFetch:(id)arg2;
+- (id)mainContactStore;
 - (id)usedLabelsForPropertyWithKey:(id)arg1 error:(id *)arg2;
 - (id)policyForContainerWithIdentifier:(id)arg1 error:(id *)arg2;
 - (id)unifiedContactCountWithError:(id *)arg1;
@@ -76,6 +77,7 @@
 - (id)initWithEnvironment:(id)arg1;
 - (id)init;
 - (id)synchronousRemoteObjectProxyForContactsXPCService;
+- (id)verifyIndexWithError:(id *)arg1;
 - (void)reindexSearchableItemsWithIdentifiers:(id)arg1;
 @property(readonly, nonatomic) CNiOSAddressBook *addressBook;
 @property(readonly, nonatomic) CNiOSAddressBookDataMapper *iOSMapper;

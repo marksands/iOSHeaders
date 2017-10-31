@@ -9,6 +9,7 @@
 @class NSDictionary, NSURL;
 
 @protocol ADCreativeControllerDelegate <NSObject>
+- (void)creativeControllerTapGestureTimerDidExpireBeforePrimaryActionWasInvoked;
 - (void)creativeControllerViewDidRequestOpenURL:(NSURL *)arg1 withTapLocation:(struct CGPoint)arg2;
 - (void)creativeControllerViewDidRequestExpandURL:(NSURL *)arg1 withMaximumSize:(struct CGSize)arg2 withTapLocation:(struct CGPoint)arg3;
 - (void)creativeControllerViewDidRequestCreateCalendarEvent:(NSDictionary *)arg1 withTapLocation:(struct CGPoint)arg2;

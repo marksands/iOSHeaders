@@ -12,6 +12,7 @@
 - (oneway void)_remote_IXSPromisedOutOfBandStreamingZipTransfer:(NSUUID *)arg1 setArchiveBytesConsumed:(unsigned long long)arg2;
 - (oneway void)_remote_IXSPromisedStreamingZipTransfer:(NSUUID *)arg1 consumeExtractedBytesAtPath:(NSURL *)arg2 completion:(void (^)(NSError *))arg3;
 - (oneway void)_remote_IXSPromisedStreamingZipTransfer:(NSUUID *)arg1 setArchiveBytesConsumed:(unsigned long long)arg2;
+- (oneway void)_remote_IXSPromisedTransferToPath:(NSUUID *)arg1 setTryDeltaCopy:(_Bool)arg2;
 - (oneway void)_remote_IXSPromisedTransferToPath:(NSUUID *)arg1 setShouldCopy:(_Bool)arg2;
 - (oneway void)_remote_IXSPromisedTransferToPath:(NSUUID *)arg1 setTransferPath:(NSURL *)arg2;
 - (oneway void)_remote_IXSPlaceholder:(NSUUID *)arg1 setConfigurationCompleteWithCompletion:(void (^)(NSError *))arg2;
@@ -36,6 +37,7 @@
 - (oneway void)_remote_IXSPlaceholder:(NSUUID *)arg1 setMetadataPromiseUUID:(NSUUID *)arg2 completion:(void (^)(NSError *))arg3;
 - (oneway void)_remote_IXSOwnedDataPromise:(NSUUID *)arg1 getStagedPath:(void (^)(NSURL *, NSError *))arg2;
 - (oneway void)_remote_IXSOwnedDataPromise:(NSUUID *)arg1 setStagedPath:(NSURL *)arg2;
+- (oneway void)_remote_IXSDataPromise:(NSUUID *)arg1 preflightWithCompletion:(void (^)(NSError *))arg2;
 - (oneway void)_remote_IXSDataPromise:(NSUUID *)arg1 getErrorInfo:(void (^)(unsigned long long, NSError *))arg2;
 - (oneway void)_remote_IXSDataPromise:(NSUUID *)arg1 resetWithCompletion:(void (^)(NSError *))arg2;
 - (oneway void)_remote_IXSDataPromise:(NSUUID *)arg1 cancelForReason:(NSError *)arg2 client:(unsigned long long)arg3 completion:(void (^)(NSError *))arg4;
@@ -86,6 +88,7 @@
 - (void)_remote_cancelCoordinatorForAppWithBundleID:(NSString *)arg1 reason:(NSError *)arg2 client:(unsigned long long)arg3 completion:(void (^)(NSError *))arg4;
 - (void)_remote_setRemovability:(unsigned long long)arg1 forAppWithBundleID:(NSString *)arg2 completion:(void (^)(NSError *))arg3;
 - (void)_remote_removabilityForAppWithBundleID:(NSString *)arg1 completion:(void (^)(unsigned long long, NSError *))arg2;
+- (void)_remote_setTestModeForBundleWithPrefix:(NSString *)arg1 testMode:(unsigned long long)arg2 completion:(void (^)(NSError *))arg3;
 - (void)_remote_setTestingEnabled:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
 - (void)_remote_pingDaemonWithCompletion:(void (^)(NSError *))arg1;
 - (void)_remote_killDaemonForTestingWithCompletion:(void (^)(NSError *))arg1;

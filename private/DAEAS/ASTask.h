@@ -92,7 +92,7 @@
 - (void)_handleCompletionError:(id)arg1;
 - (void)_handleCompletion;
 - (void)_handleAuthenticationChallenge:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_handleAuthenticationChallenge:(id)arg1;
+- (_Bool)_canAuthenticateAgainstProtectionSpace:(id)arg1;
 - (void)_URLSessionDataTaskDidReceiveData:(id)arg1;
 - (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;
 - (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveResponse:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;

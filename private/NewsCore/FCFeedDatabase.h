@@ -30,7 +30,7 @@
 }
 
 + (unsigned short)currentFeedDatabaseVersion;
-+ (id)temporaryFeedDatabase;
++ (id)temporaryFeedDatabaseWithEndpoint:(long long)arg1;
 + (void)initialize;
 @property(retain, nonatomic) id <FCOperationThrottler> saveThrottler; // @synthesize saveThrottler=_saveThrottler;
 @property(retain, nonatomic) NSMutableSet *modifiedFeedIDs; // @synthesize modifiedFeedIDs=_modifiedFeedIDs;

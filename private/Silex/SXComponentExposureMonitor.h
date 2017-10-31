@@ -24,7 +24,7 @@
 - (void)viewport:(id)arg1 documentSizeDidChangeFromSize:(struct CGSize)arg2;
 - (void)viewport:(id)arg1 appearStateChangedFromState:(unsigned long long)arg2;
 - (void)viewport:(id)arg1 dynamicBoundsDidChangeFromBounds:(struct CGRect)arg2;
-- (void)onExposureOf:(id)arg1 execute:(CDUnknownBlockType)arg2;
+- (void)onExposureOf:(id)arg1 exposureStateChangeBlock:(CDUnknownBlockType)arg2;
 - (id)initWithViewport:(id)arg1;
 
 // Remaining properties

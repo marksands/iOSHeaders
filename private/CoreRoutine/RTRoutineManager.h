@@ -140,6 +140,8 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithRestorationIdentifier:(id)arg1;
+- (void)performBluePOIQueryLookingBack:(double)arg1 lookingAhead:(double)arg2 handler:(CDUnknownBlockType)arg3;
+- (void)fetchCurrentPredictedLocationsOfInterestLookingBack:(double)arg1 lookingAhead:(double)arg2 handler:(CDUnknownBlockType)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

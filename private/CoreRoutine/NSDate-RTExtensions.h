@@ -7,6 +7,7 @@
 #import "NSDate.h"
 
 @interface NSDate (RTExtensions)
++ (id)dateWithHour:(long long)arg1 minute:(long long)arg2 second:(long long)arg3;
 + (id)dateWithResolution:(unsigned long long)arg1 calendar:(id)arg2;
 + (id)dateWithResolution:(unsigned long long)arg1;
 + (id)dateFormatter;
@@ -20,6 +21,7 @@
 - (id)stringFromDate;
 - (id)weekdayStringFromDate;
 - (long long)weekday;
+- (unsigned long long)minute;
 - (unsigned long long)hour;
 - (id)endOfDay;
 - (id)startOfDay;

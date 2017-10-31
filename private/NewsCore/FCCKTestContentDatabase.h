@@ -6,12 +6,13 @@
 
 #import <NewsCore/FCCKContentDatabase.h>
 
-@class FCCKTestFeedQueryEndpoint, FCCKTestMultiFetchQueryEndpoint, FCCKTestOrderFeedQueryEndpoint, NSMutableArray;
+@class FCCKTestFeedQueryEndpoint, FCCKTestMultiFetchQueryEndpoint, FCCKTestOrderFeedQueryEndpoint, NSMutableArray, NSMutableSet;
 
 @interface FCCKTestContentDatabase : FCCKContentDatabase
 {
     _Bool _simulateNetworkError;
     NSMutableArray *_records;
+    NSMutableSet *_droppedFeeds;
     FCCKTestFeedQueryEndpoint *_feedQueryEndpoint;
     FCCKTestOrderFeedQueryEndpoint *_orderFeedQueryEndpoint;
     FCCKTestMultiFetchQueryEndpoint *_multiFetchQueryEndpoint;
@@ -21,11 +22,13 @@
 @property(retain, nonatomic) FCCKTestMultiFetchQueryEndpoint *multiFetchQueryEndpoint; // @synthesize multiFetchQueryEndpoint=_multiFetchQueryEndpoint;
 @property(retain, nonatomic) FCCKTestOrderFeedQueryEndpoint *orderFeedQueryEndpoint; // @synthesize orderFeedQueryEndpoint=_orderFeedQueryEndpoint;
 @property(retain, nonatomic) FCCKTestFeedQueryEndpoint *feedQueryEndpoint; // @synthesize feedQueryEndpoint=_feedQueryEndpoint;
+@property(retain, nonatomic) NSMutableSet *droppedFeeds; // @synthesize droppedFeeds=_droppedFeeds;
 @property(retain, nonatomic) NSMutableArray *records; // @synthesize records=_records;
 @property(nonatomic) _Bool simulateNetworkError; // @synthesize simulateNetworkError=_simulateNetworkError;
 - (void).cxx_destruct;
 - (unsigned long long)orderForArticleID:(id)arg1 feedID:(id)arg2;
 - (id)addArticlesToTopOfFeed:(id)arg1 count:(unsigned long long)arg2;
+- (void)simulateDroppedFeedForFeedID:(id)arg1;
 - (void)deleteFeedID:(id)arg1;
 - (void)populateWithBasicTestFeeds;
 - (void)updateArticleID:(id)arg1 inFeedID:(id)arg2 withProperties:(id)arg3;

@@ -115,6 +115,7 @@
 @property(readonly, nonatomic) __weak HMDResidentDevice *primaryResidentDevice;
 - (void)_teardownSessionWithPrimaryResidentDevice;
 - (void)_setupSessionWithPrimaryResidentDevice;
+- (void)_run;
 - (void)run;
 - (void)_registerForMessages;
 - (void)configureWithHome:(id)arg1;

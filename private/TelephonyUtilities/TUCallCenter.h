@@ -8,7 +8,7 @@
 
 #import "TUCallContainer.h"
 
-@class CNContactStore, NSArray, NSObject<OS_dispatch_queue>, NSString, TUAudioDeviceController, TUCall, TUCallProviderManager, TUCallServicesInterface, TUConversationManager, TUVideoDeviceController;
+@class CNContactStore, NSArray, NSObject<OS_dispatch_queue>, NSString, TUAudioDeviceController, TUCall, TUCallProviderManager, TUCallServicesInterface, TUConversationManager, TURouteController, TUVideoDeviceController;
 
 @interface TUCallCenter : NSObject <TUCallContainer>
 {
@@ -16,6 +16,7 @@
     TUCallServicesInterface *_callServicesInterface;
     TUAudioDeviceController *_audioDeviceController;
     TUVideoDeviceController *_videoDeviceController;
+    TURouteController *_routeController;
     CNContactStore *_contactStore;
     TUCallProviderManager *_providerManager;
     TUConversationManager *_conversationManager;
@@ -37,6 +38,7 @@
 @property(retain, nonatomic) TUConversationManager *conversationManager; // @synthesize conversationManager=_conversationManager;
 @property(retain, nonatomic) TUCallProviderManager *providerManager; // @synthesize providerManager=_providerManager;
 @property(retain, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
+@property(retain, nonatomic) TURouteController *routeController; // @synthesize routeController=_routeController;
 @property(retain, nonatomic) TUVideoDeviceController *videoDeviceController; // @synthesize videoDeviceController=_videoDeviceController;
 @property(retain, nonatomic) TUAudioDeviceController *audioDeviceController; // @synthesize audioDeviceController=_audioDeviceController;
 @property(retain, nonatomic) TUCallServicesInterface *callServicesInterface; // @synthesize callServicesInterface=_callServicesInterface;
@@ -60,7 +62,7 @@
 - (void)enteredForegroundForCall:(id)arg1;
 - (void)joinConversationWithRequest:(id)arg1;
 - (void)pullHostedCallsFromPairedHostDevice;
-- (void)pushHostedCallsToPairedClientDevice;
+- (void)pushHostedCallsToDestination:(id)arg1;
 - (void)pullRelayingCallsFromClient;
 - (void)pushRelayingCallsToHostWithSourceIdentifier:(id)arg1;
 - (void)pushRelayingCallsToHost;

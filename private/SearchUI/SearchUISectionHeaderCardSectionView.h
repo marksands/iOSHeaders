@@ -13,7 +13,7 @@
 }
 
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
-- (void)updateWithCardSection:(id)arg1;
+- (void)updateWithRowModel:(id)arg1;
 - (id)setupContentView;
 
 // Remaining properties

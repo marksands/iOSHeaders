@@ -23,12 +23,14 @@ __attribute__((visibility("hidden")))
     double _inputViewLeftMostPadding;
     double _inputViewRightMostPadding;
     double _rightBiasPercentage;
+    double _scrollSnapOffset;
     double _alertTextWidth;
     struct CGSize _fakeEmojiKeySize;
 }
 
 + (id)emojiGraphicsTraitsWithScreenTraits:(id)arg1;
 @property(readonly, nonatomic) double alertTextWidth; // @synthesize alertTextWidth=_alertTextWidth;
+@property(readonly, nonatomic) double scrollSnapOffset; // @synthesize scrollSnapOffset=_scrollSnapOffset;
 @property(readonly, nonatomic) double rightBiasPercentage; // @synthesize rightBiasPercentage=_rightBiasPercentage;
 @property(readonly, nonatomic) double inputViewRightMostPadding; // @synthesize inputViewRightMostPadding=_inputViewRightMostPadding;
 @property(readonly, nonatomic) double inputViewLeftMostPadding; // @synthesize inputViewLeftMostPadding=_inputViewLeftMostPadding;

@@ -10,18 +10,26 @@
 
 @interface CAMBadgeTextView : CAMBadgeView
 {
-    NSString *__text;
+    NSString *_contentSizeCategory;
     NSDictionary *__textAttributes;
+    NSString *__text;
     struct UIEdgeInsets __textInsets;
 }
 
++ (double)_heightForContentSize:(id)arg1 textInsets:(struct UIEdgeInsets)arg2;
++ (double)_textHeightForContentSize:(id)arg1;
++ (id)_fontForContentSize:(id)arg1;
++ (id)_textAttributesForContentSize:(id)arg1;
++ (struct UIEdgeInsets)_defaultTextInsets;
 @property(nonatomic, setter=_setTextInsets:) struct UIEdgeInsets _textInsets; // @synthesize _textInsets=__textInsets;
-@property(copy, nonatomic, setter=_setTextAttributes:) NSDictionary *_textAttributes; // @synthesize _textAttributes=__textAttributes;
 @property(copy, nonatomic, setter=_setText:) NSString *_text; // @synthesize _text=__text;
+@property(retain, nonatomic, setter=_setTextAttributes:) NSDictionary *_textAttributes; // @synthesize _textAttributes=__textAttributes;
+@property(copy, nonatomic) NSString *contentSizeCategory; // @synthesize contentSizeCategory=_contentSizeCategory;
 - (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;
 - (struct CGSize)_textSize;
 - (id)_maskImage;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

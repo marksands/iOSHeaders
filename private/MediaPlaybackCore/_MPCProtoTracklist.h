@@ -14,7 +14,11 @@
 {
     NSMutableArray *_accountInfos;
     NSMutableArray *_containers;
+    int _shuffleMode;
     _MPCProtoTracklistIndexPath *_startingItemIndexPath;
+    struct {
+        unsigned int shuffleMode:1;
+    } _has;
 }
 
 + (Class)containerType;
@@ -31,6 +35,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasShuffleMode;
+@property(nonatomic) int shuffleMode; // @synthesize shuffleMode=_shuffleMode;
 @property(readonly, nonatomic) _Bool hasStartingItemIndexPath;
 - (id)containerAtIndex:(unsigned long long)arg1;
 - (unsigned long long)containersCount;

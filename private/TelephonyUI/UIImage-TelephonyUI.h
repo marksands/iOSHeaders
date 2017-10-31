@@ -7,8 +7,8 @@
 #import "UIImage.h"
 
 @interface UIImage (TelephonyUI)
-+ (id)telephonyUI_AudioControlsGlyphForDeviceModelType:(long long)arg1;
-+ (id)telephonyUI_AudioRouteGlyphForDeviceModelType:(long long)arg1;
++ (id)telephonyUI_AudioControlsGlyphForDeviceType:(long long)arg1;
++ (id)telephonyUI_AudioRouteGlyphForDeviceType:(long long)arg1;
 + (id)telephonyUI_speakerAudioRouteGlyphImage;
 + (id)telephonyUI_BluetoothAudioControlGlyphImage;
 + (id)telephonyUI_BluetoothAudioRouteGlyphImage;

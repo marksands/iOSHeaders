@@ -14,6 +14,8 @@
 + (id)textColorForColor:(long long)arg1 style:(unsigned long long)arg2;
 + (id)textColorForStyle:(unsigned long long)arg1;
 + (id)fontWithTextStyle:(id)arg1 isShort:(_Bool)arg2 isBold:(_Bool)arg3;
++ (id)thinFontOfSize:(double)arg1 grade:(unsigned long long)arg2;
++ (id)boldCaptionFont;
 + (id)captionFont;
 + (id)shortSubheadFont;
 + (id)subheadBoldFont;

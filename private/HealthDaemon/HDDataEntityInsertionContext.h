@@ -6,13 +6,12 @@
 
 #import "NSObject.h"
 
-@class HDDataOriginProvenance, HDProfile, NSNumber;
+@class HDDataOriginProvenance, HDProfile;
 
 @interface HDDataEntityInsertionContext : NSObject
 {
     HDProfile *_profile;
     double _defaultCreationDate;
-    NSNumber *_localSourceID;
     _Bool _skipInsertionFilter;
     HDDataOriginProvenance *_provenance;
     double _creationDate;
@@ -23,7 +22,6 @@
 @property(readonly, nonatomic) HDDataOriginProvenance *provenance; // @synthesize provenance=_provenance;
 - (void).cxx_destruct;
 - (void)prepareObjectForInsertion:(id)arg1;
-@property(readonly, copy, nonatomic) NSNumber *localSourceID;
 - (id)initWithProvenance:(id)arg1 creationDate:(double)arg2 skipInsertionFilter:(_Bool)arg3 profile:(id)arg4;
 
 @end

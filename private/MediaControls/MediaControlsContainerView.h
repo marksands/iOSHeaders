@@ -11,7 +11,6 @@
 @interface MediaControlsContainerView : UIView
 {
     _Bool _empty;
-    long long _mediaControlsPlayerState;
     long long _style;
     MediaControlsTransportStackView *_mediaControlsTransportStackView;
     MediaControlsTimeControl *_mediaControlsTimeControl;
@@ -23,7 +22,6 @@
 @property(retain, nonatomic) MediaControlsTransportStackView *mediaControlsTransportStackView; // @synthesize mediaControlsTransportStackView=_mediaControlsTransportStackView;
 @property(nonatomic, getter=isEmpty) _Bool empty; // @synthesize empty=_empty;
 @property(nonatomic) long long style; // @synthesize style=_style;
-@property(nonatomic) long long mediaControlsPlayerState; // @synthesize mediaControlsPlayerState=_mediaControlsPlayerState;
 - (void).cxx_destruct;
 @property(retain, nonatomic) MPCPlayerResponse *response;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

@@ -114,7 +114,7 @@
 @property(copy) NSString *_sourceApplicationBundleIdentifier; // @dynamic _sourceApplicationBundleIdentifier;
 @property(copy) NSString *_sourceApplicationSecondaryIdentifier; // @dynamic _sourceApplicationSecondaryIdentifier;
 @property _Bool _supportsAVAssetDownloads; // @dynamic _supportsAVAssetDownloads;
-@property(copy) NSArray *_suppressedHTTPHeaders; // @dynamic _suppressedHTTPHeaders;
+@property(copy) NSSet *_suppressedAutoAddedHTTPHeaders; // @dynamic _suppressedAutoAddedHTTPHeaders;
 @property(copy) NSString *_tcpConnectionPoolName; // @dynamic _tcpConnectionPoolName;
 @property long long _timingDataOptions; // @dynamic _timingDataOptions;
 @property(copy) NSString *_tlsTrustPinningPolicyName; // @dynamic _tlsTrustPinningPolicyName;

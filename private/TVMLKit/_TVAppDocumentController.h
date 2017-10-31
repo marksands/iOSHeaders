@@ -65,6 +65,7 @@
 - (id)_alertControllerWithError:(id)arg1;
 - (void)_updateIdleModeStatus;
 - (void)_markAndNotifyStylesDirty;
+- (void)_darkerSystemColorStatusChanged:(id)arg1;
 - (void)scrollToTop;
 - (id)impressionableViewElementsForDocument:(id)arg1;
 - (_Bool)document:(id)arg1 evaluateStyleMediaQuery:(id)arg2;

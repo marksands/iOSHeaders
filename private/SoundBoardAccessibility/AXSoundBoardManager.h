@@ -12,9 +12,8 @@
 
 + (void)startAccessibility;
 - (void)_touchAccommodationsSettingsChanged;
-- (void)_voiceOverEnabled:(id)arg1;
+- (void)_voiceOverEnabledChanged:(id)arg1;
 - (void)_loadAccessibility;
-- (void)dealloc;
 - (id)init;
 
 @end

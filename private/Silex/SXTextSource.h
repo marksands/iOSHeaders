@@ -12,6 +12,7 @@
 {
     id <SXTextSourceDataSource> _dataSource;
     NSString *_string;
+    id <SXActionProvider> _actionProvider;
     NSMutableIndexSet *_deletedRangeOffsets;
     NSMutableIndexSet *_insertedRangeOffsets;
     NSMutableIndexSet *_rangesExcludedOfParagraphSpacing;
@@ -24,6 +25,7 @@
 @property(retain, nonatomic) NSMutableIndexSet *rangesExcludedOfParagraphSpacing; // @synthesize rangesExcludedOfParagraphSpacing=_rangesExcludedOfParagraphSpacing;
 @property(retain, nonatomic) NSMutableIndexSet *insertedRangeOffsets; // @synthesize insertedRangeOffsets=_insertedRangeOffsets;
 @property(retain, nonatomic) NSMutableIndexSet *deletedRangeOffsets; // @synthesize deletedRangeOffsets=_deletedRangeOffsets;
+@property(readonly, nonatomic) id <SXActionProvider> actionProvider; // @synthesize actionProvider=_actionProvider;
 @property(readonly, nonatomic) NSString *string; // @synthesize string=_string;
 @property(readonly, nonatomic) __weak id <SXTextSourceDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
@@ -42,7 +44,7 @@
 - (void)applyStylingOnTextTangierStorage:(id)arg1;
 - (struct _NSRange)rangeForRange:(struct _NSRange)arg1;
 - (id)cleanString:(id)arg1;
-- (id)initWithString:(id)arg1 dataSource:(id)arg2;
+- (id)initWithString:(id)arg1 actionProvider:(id)arg2 dataSource:(id)arg3;
 
 @end
 

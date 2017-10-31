@@ -62,7 +62,7 @@
 - (_Bool)fullDebuggingEnabled;
 - (_Bool)minimalDebuggingEnabled;
 - (_Bool)loggingEnabled;
-- (void)dealloc;
+- (void)performTearDown;
 - (id)initWithRoute:(id)arg1 loggingEnabled:(_Bool)arg2 minimalDebugging:(_Bool)arg3 fullDebugging:(_Bool)arg4 batteryHandler:(CDUnknownBlockType)arg5;
 
 @end

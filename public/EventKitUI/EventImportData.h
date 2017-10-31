@@ -10,6 +10,7 @@
 
 @interface EventImportData : NSObject
 {
+    _Bool _prefersManagedCalendar;
     int _requestedAction;
     NSString *_title;
     NSDate *_startDate;
@@ -27,8 +28,10 @@
 + (id)_extractEventDataFromSpotlightIdentifier:(id)arg1;
 + (id)eventImportDataFromData:(id)arg1 forType:(id)arg2;
 + (_Bool)itemContainsCalendarICSData:(id)arg1;
++ (_Bool)isSessionManaged:(id)arg1;
 + (void)extractEventImportDataFromDropSession:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 + (id)acceptedTypeIdentifiers;
+@property(nonatomic) _Bool prefersManagedCalendar; // @synthesize prefersManagedCalendar=_prefersManagedCalendar;
 @property(nonatomic) int requestedAction; // @synthesize requestedAction=_requestedAction;
 @property(retain, nonatomic) NSString *uniqueId; // @synthesize uniqueId=_uniqueId;
 @property(retain, nonatomic) NSData *icsData; // @synthesize icsData=_icsData;

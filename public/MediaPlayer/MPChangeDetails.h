@@ -36,6 +36,7 @@
 - (void)enumerateSectionMovesWithBlock:(CDUnknownBlockType)arg1;
 - (void)removeSectionMoveFromIndex:(long long)arg1;
 - (void)appendSectionMoveFromIndex:(long long)arg1 toIndex:(long long)arg2 updated:(_Bool)arg3;
+- (id)debugDescription;
 @property(readonly, nonatomic) _Bool hasChanges;
 - (id)description;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;

@@ -33,6 +33,7 @@
 @property(nonatomic) long long primaryAttachmentType; // @dynamic primaryAttachmentType;
 - (void)setContextValue:(id)arg1 forKey:(id)arg2;
 - (void)generateNewBulletinID;
+- (_Bool)hasAdditionalAttachmentsModificationsRelativeTo:(id)arg1;
 - (_Bool)hasContentModificationsRelativeTo:(id)arg1;
 
 // Remaining properties

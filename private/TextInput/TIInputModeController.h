@@ -28,6 +28,7 @@
 @property(copy, nonatomic) NSString *currentLocale; // @synthesize currentLocale;
 - (id)keyboardLanguageForDictationLanguage:(id)arg1;
 - (id)defaultDictationLanguagesForKeyboardLanguage:(id)arg1;
+- (id)suggestedDictationLanguagesForDeviceLanguage;
 - (id)suggestedDictationLanguageForDeviceLanguage;
 - (_Bool)identifierIsValidSystemInputMode:(id)arg1;
 @property(readonly) NSArray *enabledInputModeIdentifiers;

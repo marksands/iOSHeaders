@@ -9,7 +9,7 @@
 #import "AFAnalyticsService.h"
 #import "AFAnalyticsServiceDelegate.h"
 
-@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSXPCConnection;
+@class NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSXPCConnection;
 
 @interface AFAnalyticsConnection : NSObject <AFAnalyticsServiceDelegate, AFAnalyticsService>
 {
@@ -17,6 +17,7 @@
     NSXPCConnection *_connection;
     NSObject<OS_dispatch_source> *_idleTimer;
     unsigned long long _numberOfEventsBeingSent;
+    NSObject<OS_dispatch_group> *_group;
     _Bool _needsCleanUpConnection;
 }
 
@@ -36,6 +37,8 @@
 - (void)_handleFailureCallbackForEvents:(id)arg1 error:(id)arg2 numberOfRetries:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_sendEvents:(id)arg1 numberOfRetries:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (oneway void)flushStagedEventsWithReply:(CDUnknownBlockType)arg1;
+- (oneway void)endEventsGrouping;
+- (oneway void)beginEventsGrouping;
 - (oneway void)stageEvents:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (oneway void)stageEvents:(id)arg1;
 - (oneway void)stageEvent:(id)arg1;

@@ -26,6 +26,7 @@
 @property _Bool isEmphasized; // @synthesize isEmphasized=_isEmphasized;
 @property _Bool isBold; // @synthesize isBold=_isBold;
 - (void).cxx_destruct;
+- (_Bool)hasContent;
 - (id)description;
 - (id)observableProperties;
 

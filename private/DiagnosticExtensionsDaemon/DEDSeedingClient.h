@@ -32,6 +32,7 @@
 - (id)contentTypeForParameterEncoding:(unsigned long long)arg1;
 - (id)bodyDataForParameters:(id)arg1 encoding:(unsigned long long)arg2 error:(id *)arg3;
 - (id)promiseConfiguration;
+- (id)HTTPErrorWithResponse:(id)arg1 withData:(id)arg2;
 - (id)filerURL;
 - (id)newFilerTokenURL;
 - (id)filePromiseURLForPromise:(id)arg1;

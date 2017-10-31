@@ -9,31 +9,52 @@
 #import "CSKeywordAnalyzerNDAPIScoreDelegate.h"
 #import "CSSpeechManagerDelegate.h"
 
-@class CSAsset, CSSpeechManager, CSVoiceTriggerEnabledPolicyNonAOP, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+@class CSAsset, CSPolicy, CSSpeechManager, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CSVoiceTriggerFirstPass : NSObject <CSKeywordAnalyzerNDAPIScoreDelegate, CSSpeechManagerDelegate>
 {
     _Bool _voiceTriggerEnabled;
     _Bool _hasTriggerPending;
     float _firstPassThreshold;
+    float _bestScore;
+    float _masterChannelScoreBoost;
     id <CSVoiceTriggerFirstPassDelegate> _delegate;
     CSSpeechManager *_speechManager;
-    CSVoiceTriggerEnabledPolicyNonAOP *_voiceTriggerStartPolicy;
+    CSPolicy *_voiceTriggerStartPolicy;
     NSObject<OS_dispatch_queue> *_queue;
     CSAsset *_currentAsset;
     NSMutableArray *_keywordAnalyzersNDAPI;
+    unsigned long long _bestChannel;
+    NSDictionary *_onsetResult;
+    unsigned long long _onsetChannel;
+    unsigned long long _channelSelectionDelay;
+    unsigned long long _delayInSamplesRequiredForChannelSelection;
+    NSDictionary *_channelSelectionScores;
+    unsigned long long _processingChunkSamples;
+    unsigned long long _processingChannelsBitset;
 }
 
+@property(nonatomic) unsigned long long processingChannelsBitset; // @synthesize processingChannelsBitset=_processingChannelsBitset;
+@property(nonatomic) unsigned long long processingChunkSamples; // @synthesize processingChunkSamples=_processingChunkSamples;
+@property(retain, nonatomic) NSDictionary *channelSelectionScores; // @synthesize channelSelectionScores=_channelSelectionScores;
+@property(nonatomic) float masterChannelScoreBoost; // @synthesize masterChannelScoreBoost=_masterChannelScoreBoost;
+@property(nonatomic) unsigned long long delayInSamplesRequiredForChannelSelection; // @synthesize delayInSamplesRequiredForChannelSelection=_delayInSamplesRequiredForChannelSelection;
+@property(nonatomic) unsigned long long channelSelectionDelay; // @synthesize channelSelectionDelay=_channelSelectionDelay;
+@property(nonatomic) unsigned long long onsetChannel; // @synthesize onsetChannel=_onsetChannel;
+@property(retain, nonatomic) NSDictionary *onsetResult; // @synthesize onsetResult=_onsetResult;
+@property(nonatomic) unsigned long long bestChannel; // @synthesize bestChannel=_bestChannel;
+@property(nonatomic) float bestScore; // @synthesize bestScore=_bestScore;
 @property(nonatomic) float firstPassThreshold; // @synthesize firstPassThreshold=_firstPassThreshold;
 @property(nonatomic) _Bool hasTriggerPending; // @synthesize hasTriggerPending=_hasTriggerPending;
 @property(retain, nonatomic) NSMutableArray *keywordAnalyzersNDAPI; // @synthesize keywordAnalyzersNDAPI=_keywordAnalyzersNDAPI;
 @property(retain, nonatomic) CSAsset *currentAsset; // @synthesize currentAsset=_currentAsset;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic) _Bool voiceTriggerEnabled; // @synthesize voiceTriggerEnabled=_voiceTriggerEnabled;
-@property(retain, nonatomic) CSVoiceTriggerEnabledPolicyNonAOP *voiceTriggerStartPolicy; // @synthesize voiceTriggerStartPolicy=_voiceTriggerStartPolicy;
+@property(retain, nonatomic) CSPolicy *voiceTriggerStartPolicy; // @synthesize voiceTriggerStartPolicy=_voiceTriggerStartPolicy;
 @property(nonatomic) __weak CSSpeechManager *speechManager; // @synthesize speechManager=_speechManager;
 @property(nonatomic) __weak id <CSVoiceTriggerFirstPassDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_reportVoiceTriggerFirstPassFire;
 - (void)_keywordAnalyzerNDAPI:(id)arg1 hasResultAvailable:(id)arg2 forChannel:(unsigned long long)arg3;
 - (void)keywordAnalyzerNDAPI:(id)arg1 hasResultAvailable:(id)arg2 forChannel:(unsigned long long)arg3;
 - (void)speechManagerDidStopForwarding:(id)arg1 forReason:(long long)arg2;
@@ -47,6 +68,7 @@
 - (void)setAsset:(id)arg1;
 - (void)_reset;
 - (void)reset;
+- (void)start;
 - (id)initWithManager:(id)arg1 asset:(id)arg2;
 
 // Remaining properties

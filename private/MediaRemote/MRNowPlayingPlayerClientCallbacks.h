@@ -27,10 +27,8 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _videoThumbnailsCallback;
     CDUnknownBlockType _audioAmplitudeSamplesCallback;
     NSMutableDictionary *_commandHandlerBlocks;
-    void *_context;
 }
 
-@property(readonly, nonatomic) void *context; // @synthesize context=_context;
 @property(readonly, nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
 @property(readonly, copy, nonatomic) NSArray *commandHandlerBlocks;
 - (void)removeCommandHandlerBlockForKey:(id)arg1;
@@ -48,12 +46,12 @@ __attribute__((visibility("hidden")))
 - (void *)addLanguageOptionsCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
 @property(readonly, nonatomic) NSArray *metadataCallbacks;
 - (void *)addMetadataCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
+- (id)fallbackArtworkAssetCallbacks;
+- (id)fallbackAssetCallbacks;
 @property(readonly, nonatomic) CDUnknownBlockType createChildItemCallback;
 - (void *)addCreateChildItemCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
 @property(readonly, nonatomic) CDUnknownBlockType createItemForOffsetCallback;
 - (void *)addCreateItemForOffsetCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) CDUnknownBlockType createItemForIdentifierCallback;
-- (void *)addCreateItemForIdentifierCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
 @property(readonly, nonatomic) CDUnknownBlockType createPlaybackQueueForRequestCallback;
 - (void *)addCreatePlaybackQueueForRequestCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
 - (id)_callbacksFromList:(id)arg1;

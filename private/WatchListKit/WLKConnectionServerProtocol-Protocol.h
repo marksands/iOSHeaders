@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSNumber, NSString;
+@class NSDictionary, NSNumber, NSString, NSURLRequest;
 
 @protocol WLKConnectionServerProtocol <NSObject>
+- (void)networkRequest:(NSURLRequest *)arg1 replyHandler:(void (^)(NSHTTPURLResponse *, NSData *, NSError *))arg2;
+- (void)prewarm;
 - (void)ping;
 - (void)fetchSettings:(void (^)(NSDictionary *))arg1;
 - (void)postSettings:(NSDictionary *)arg1 replyHandler:(void (^)(_Bool))arg2;

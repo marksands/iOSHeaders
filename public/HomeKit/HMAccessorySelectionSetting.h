@@ -14,7 +14,7 @@
 {
 }
 
-- (void)_setting:(id)arg1 didAddConstriant:(id)arg2;
+- (void)_setting:(id)arg1 didAddConstraint:(id)arg2;
 - (void)removeItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)addItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, copy) NSArray *items;

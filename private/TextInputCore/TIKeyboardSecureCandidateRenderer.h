@@ -37,6 +37,7 @@
 - (id)localizedStringForKey:(id)arg1;
 - (void)dealloc;
 - (id)initWithLocaleIdentifier:(id)arg1;
+- (id)initForLocalizedStrings;
 - (id)init;
 
 @end

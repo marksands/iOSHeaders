@@ -32,6 +32,7 @@
     NSString *_partialClientIp;
 }
 
++ (id)_networkTimingStructFromDictionary:(id)arg1;
 @property(copy, nonatomic) NSString *partialClientIp; // @synthesize partialClientIp=_partialClientIp;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(copy, nonatomic) NSString *fbq; // @synthesize fbq=_fbq;

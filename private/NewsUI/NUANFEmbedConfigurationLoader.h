@@ -6,10 +6,13 @@
 
 #import "NSObject.h"
 
-@class FCAppConfigurationManager, FCAsyncOnceOperation, FCFlintResourceManager, SXJSONDictionary;
+#import "NUEmbedConfigurationLoader.h"
 
-@interface NUANFEmbedConfigurationLoader : NSObject
+@class FCAppConfigurationManager, FCAsyncOnceOperation, FCFlintResourceManager, NSString, SXJSONDictionary;
+
+@interface NUANFEmbedConfigurationLoader : NSObject <NUEmbedConfigurationLoader>
 {
+    SXJSONDictionary *_embedConfiguration;
     FCAppConfigurationManager *_appConfigurationManager;
     FCFlintResourceManager *_flintResourceManager;
     FCAsyncOnceOperation *_asyncOnceOperation;
@@ -20,9 +23,15 @@
 @property(retain, nonatomic) FCAppConfigurationManager *appConfigurationManager; // @synthesize appConfigurationManager=_appConfigurationManager;
 - (void).cxx_destruct;
 - (id)asyncLoadEmbedConfigurationOnceWithCompletion:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) SXJSONDictionary *embedConfiguration;
+@property(readonly, nonatomic) SXJSONDictionary *embedConfiguration; // @synthesize embedConfiguration=_embedConfiguration;
 - (id)loadEmbededConfigurationWithCompletion:(CDUnknownBlockType)arg1;
 - (id)initWithAppConfigManager:(id)arg1 flintResourceManager:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

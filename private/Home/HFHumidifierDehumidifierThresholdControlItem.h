@@ -10,9 +10,9 @@
 {
 }
 
++ (id)readOnlyCharacteristicTypes;
 - (id)targetCharacteristicTypeWithCharacteristicValuesKeyedByType:(id)arg1;
 - (unsigned long long)rangeModeWithCharacteristicValuesKeyedByType:(id)arg1;
-- (id)readOnlyCharacteristicTypes;
 - (id)initWithValueSource:(id)arg1 displayResults:(id)arg2;
 
 @end

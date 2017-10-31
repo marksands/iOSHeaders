@@ -7,6 +7,7 @@
 @class QLItem, QLPreviewItemStore;
 
 @protocol QLPreviewItemStoreDelegate
+- (unsigned long long)itemStore:(QLPreviewItemStore *)arg1 editedFileBehaviorForItem:(QLItem *)arg2;
 - (_Bool)itemStore:(QLPreviewItemStore *)arg1 canEditItem:(QLItem *)arg2;
 - (_Bool)itemStore:(QLPreviewItemStore *)arg1 canShareItem:(QLItem *)arg2;
 @end

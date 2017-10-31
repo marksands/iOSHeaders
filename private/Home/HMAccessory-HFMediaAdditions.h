@@ -6,12 +6,18 @@
 
 #import "HMAccessory.h"
 
+@class NSString;
+
 @interface HMAccessory (HFMediaAdditions)
-- (id)hf_appleMusicLogout;
-- (id)hf_appleMusicCompleteLoginWithAuthenticationResults:(id)arg1;
-- (id)hf_appleMusicLoginWithAccount:(id)arg1;
-- (id)hf_appleMusicCurrentLoggedInAccountDSID;
-- (id)hf_appleMusicCurrentLoggedInAccount;
+- (id)hf_fixSymptom;
+- (_Bool)hf_shouldAutoFixSymptom:(id)arg1;
+- (_Bool)hf_shouldDisplayManualFixOption;
+- (_Bool)hf_shouldShowSoftwareUpdateInfo;
+@property(readonly, nonatomic) NSString *hf_editingNameForMediaAccessories;
+@property(readonly, nonatomic) _Bool hf_isDumbSpeaker;
+@property(readonly, nonatomic) _Bool hf_isAirPortExtremeSpeaker;
+@property(readonly, nonatomic) _Bool hf_isAppleTV;
+@property(readonly, nonatomic) _Bool hf_isHomePod;
 @property(readonly, nonatomic) _Bool hf_isMediaAccessory;
 @end
 

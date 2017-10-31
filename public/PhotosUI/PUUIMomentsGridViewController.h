@@ -47,7 +47,7 @@ __attribute__((visibility("hidden")))
 - (void)getTitle:(out id *)arg1 prompt:(out id *)arg2 shouldHideBackButton:(out _Bool *)arg3 leftBarButtonItems:(out id *)arg4 rightBarButtonItems:(out id *)arg5;
 - (void)_handleImagePickerMultipleSelectionDone:(id)arg1;
 - (void)_handleImagePickerCancel:(id)arg1;
-- (void)configureSupplementaryView:(id)arg1 ofKind:(id)arg2 forIndexPath:(id)arg3 animated:(_Bool)arg4;
+- (void)configureSupplementaryView:(id)arg1 ofKind:(id)arg2 forIndexPath:(id)arg3;
 - (id)newGridLayout;
 @property(readonly) PUUIImagePickerControllerHelper *_imagePickerControllerHelper;
 - (void)_setTitle;

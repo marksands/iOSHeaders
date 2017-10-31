@@ -8,6 +8,8 @@
 
 @interface NSString (FPAdditions)
 + (id)_fpd_pathWithFileSystemRepresentation:(const char *)arg1;
+- (id)fp_filenameFromDisplayNameWithExtension:(id)arg1;
+- (id)fp_displayNameFromFilenameOfFolder:(_Bool)arg1;
 - (id)fp_libnotifyPerUserNotificationName;
 - (id)fp_realpath;
 @end

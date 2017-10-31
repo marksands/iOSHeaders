@@ -37,8 +37,8 @@
 - (void)registerSubscription:(id)arg1;
 - (void)fetchActiveSubscriptionsWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)remoteNotifier:(id)arg1 didReceiveRemoteNotificationWithUserInfo:(id)arg2;
-@property(retain, nonatomic) VSSubscriptionFetchOptionsValidator *fetchOptionsValidator; // @synthesize fetchOptionsValidator=_fetchOptionsValidator;
-@property(retain, nonatomic) VSSubscriptionPredicateFactory *predicateFactory; // @synthesize predicateFactory=_predicateFactory;
+@property(retain) VSSubscriptionFetchOptionsValidator *fetchOptionsValidator; // @synthesize fetchOptionsValidator=_fetchOptionsValidator;
+@property(retain) VSSubscriptionPredicateFactory *predicateFactory; // @synthesize predicateFactory=_predicateFactory;
 - (void)_resetExpirationOperation;
 - (void)_refreshCachedSubscriptions;
 - (void)_sendLocalNotificationWithUserInfo:(id)arg1;

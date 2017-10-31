@@ -6,29 +6,9 @@
 
 #import "NSObject.h"
 
-@class SXAddition, UIView;
-
 @interface SXAction : NSObject
 {
-    _Bool _touchAndHold;
-    UIView *_sourceView;
-    SXAddition *_addition;
-    struct CGPoint _touchPoint;
-    struct CGRect _sourceRect;
 }
-
-@property(readonly, nonatomic) __weak SXAddition *addition; // @synthesize addition=_addition;
-@property(nonatomic) __weak UIView *sourceView; // @synthesize sourceView=_sourceView;
-@property(nonatomic) struct CGRect sourceRect; // @synthesize sourceRect=_sourceRect;
-@property(nonatomic) _Bool touchAndHold; // @synthesize touchAndHold=_touchAndHold;
-@property(nonatomic) struct CGPoint touchPoint; // @synthesize touchPoint=_touchPoint;
-- (void).cxx_destruct;
-- (void)triggerOnView:(id)arg1 touchPoint:(struct CGPoint)arg2 rect:(struct CGRect)arg3 touchAndHold:(_Bool)arg4;
-- (void)triggerOnView:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (Class)handlerClass;
-- (id)initWithAddition:(id)arg1;
-- (id)init;
 
 @end
 

@@ -16,17 +16,20 @@
     double _focusedSizeIncrease;
     UIColor *_bgColor;
     struct CGSize _scaleToSize;
+    struct UIEdgeInsets _padding;
     struct TVCornerRadii _cornerRadii;
 }
 
 @property(copy, nonatomic) UIColor *bgColor; // @synthesize bgColor=_bgColor;
 @property(nonatomic) _Bool cornerContinuous; // @synthesize cornerContinuous=_cornerContinuous;
 @property(nonatomic) struct TVCornerRadii cornerRadii; // @synthesize cornerRadii=_cornerRadii;
+@property(nonatomic) struct UIEdgeInsets padding; // @synthesize padding=_padding;
 @property(nonatomic) double focusedSizeIncrease; // @synthesize focusedSizeIncrease=_focusedSizeIncrease;
 @property(nonatomic) long long scaleMode; // @synthesize scaleMode=_scaleMode;
 @property(nonatomic) struct CGSize scaleToSize; // @synthesize scaleToSize=_scaleToSize;
 - (void).cxx_destruct;
 - (void)_applyCornerMaskForRect:(struct CGRect)arg1 toContext:(struct CGContext *)arg2;
+- (struct UIEdgeInsets)_paddingAdjustedForUpscaling;
 - (struct CGSize)_scaleToSizeAdjustedForUpscaling;
 - (id)_imageFixedForRotation:(id)arg1;
 - (void)_setDecoratedImageIsEquivalentToOriginal:(_Bool)arg1;

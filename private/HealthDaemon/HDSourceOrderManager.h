@@ -25,13 +25,13 @@
 - (id)_sourceCacheItemForObjectType:(id)arg1 error:(id *)arg2;
 - (_Bool)_updateOrderedSources:(id)arg1 objectType:(id)arg2 userOrdered:(_Bool)arg3 error:(id *)arg4;
 - (id)_orderedSourceIDsForOrderedSources:(id)arg1 sourcesByID:(id)arg2 objectType:(id)arg3 transactionCache:(id)arg4 database:(id)arg5 error:(id *)arg6;
-- (_Bool)_insertCodableObjectTypeSourceOrder:(id)arg1 transactionCache:(id)arg2 syncStore:(id)arg3 database:(id)arg4 error:(id *)arg5;
+- (_Bool)_insertCodableObjectTypeSourceOrder:(id)arg1 transactionCache:(id)arg2 database:(id)arg3 error:(id *)arg4;
 - (id)_sourcesForCodableSourceOrder:(id)arg1 database:(id)arg2 error:(id *)arg3;
 - (id)_mergedOrderedSourcesForExistingOrder:(id)arg1 codableSourceOrder:(id)arg2 incomingSources:(id)arg3;
 - (_Bool)updateOrderedSources:(id)arg1 forObjectType:(id)arg2 error:(id *)arg3;
 - (id)orderedSourceIDsForObjectType:(id)arg1 bundleIdentifierMapping:(id)arg2 userOrdered:(_Bool *)arg3 error:(id *)arg4;
 - (id)orderedSourcesForObjectType:(id)arg1 error:(id *)arg2;
-- (_Bool)createSourceOrdersWithCodables:(id)arg1 syncStore:(id)arg2 error:(id *)arg3;
+- (_Bool)createSourceOrdersWithCodables:(id)arg1 error:(id *)arg2;
 - (void)resetCacheInDatabase:(id)arg1;
 - (_Bool)resetCacheWithError:(id *)arg1;
 - (id)initWithProfile:(id)arg1;

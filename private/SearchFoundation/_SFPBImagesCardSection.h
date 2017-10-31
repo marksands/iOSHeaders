@@ -13,10 +13,11 @@
 
 @interface _SFPBImagesCardSection : PBCodable <_SFPBImagesCardSection, NSSecureCoding>
 {
-    CDStruct_5ff9a38c _has;
+    CDStruct_9c7542df _has;
     _Bool _canBeHidden;
     _Bool _hasTopPadding;
     _Bool _hasBottomPadding;
+    _Bool _borderless;
     int _separatorStyle;
     NSArray *_punchoutOptions;
     NSString *_punchoutPickerTitle;
@@ -26,6 +27,7 @@
     NSArray *_images;
 }
 
+@property(nonatomic) _Bool borderless; // @synthesize borderless=_borderless;
 @property(copy, nonatomic) NSArray *images; // @synthesize images=_images;
 @property(retain, nonatomic) _SFPBColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) int separatorStyle; // @synthesize separatorStyle=_separatorStyle;
@@ -45,6 +47,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasBorderless;
 - (id)imagesAtIndex:(unsigned long long)arg1;
 - (unsigned long long)imagesCount;
 - (void)addImages:(id)arg1;

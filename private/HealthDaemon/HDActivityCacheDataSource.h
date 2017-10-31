@@ -56,10 +56,10 @@
 - (void).cxx_destruct;
 - (void)_samplesAddedToWorkoutNotification:(id)arg1;
 - (id)activityCacheStatisticsBuilder:(id)arg1 sourceOrderForObjectType:(id)arg2;
-- (_Bool)_primeQuantitySamplesWithError:(id *)arg1;
+- (_Bool)_primeQuantitySamplesWithError:(id *)arg1 count:(long long *)arg2;
 - (id)_quantitySamplesQueryStringWithQuantityTypes:(id)arg1;
 - (id)_parameterStringWithCount:(long long)arg1;
-- (_Bool)_primeNonQuantitySamplesWithError:(id *)arg1;
+- (_Bool)_primeNonQuantitySamplesWithError:(id *)arg1 count:(long long *)arg2;
 - (id)_nonQuantitySamplesQueryStringWithSampleTypes:(id)arg1;
 - (_Bool)_quantitySampleIsValidWithTypeCode:(long long)arg1 workoutSourceIdentifier:(long long)arg2 isWatchSource:(_Bool)arg3;
 - (_Bool)_typeIsValidFromCompanionWithoutWorkout:(long long)arg1;

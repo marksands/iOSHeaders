@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 - (id)shortDescription;
 - (_Bool)shouldResetFromThisStepWithIncomingChange:(id)arg1;
 - (void)reset;
-- (_Bool)extractToBatch:(id)arg1 maximumCount:(unsigned long long)arg2 error:(id *)arg3;
+- (_Bool)extractToBatch:(id)arg1 maximumCount:(unsigned long long)arg2 maximumResourceSize:(unsigned long long)arg3 error:(id *)arg4;
 - (id)initWithStorage:(id)arg1 description:(id)arg2 class:(Class)arg3 maximumCount:(unsigned long long)arg4 query:(CDUnknownFunctionPointerType)arg5;
 
 @end

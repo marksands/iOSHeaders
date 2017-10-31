@@ -6,33 +6,41 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDate, NSString;
+@class NSData, NSDate, NSString, PCSMTT;
 
 @interface PCSCKKSItemModifyContext : NSObject
 {
     struct __CFDictionary *_rollAttributes;
+    _Bool _sync;
+    _Bool _roll;
     struct _PCSIdentitySetData *_set;
     struct __PCSLogContext *_log;
     NSString *_dsid;
     NSString *_service;
-    NSData *_existingItemReference;
-    NSData *_existingItemSHA1;
     struct _PCSIdentityData *_currentIdentity;
     NSData *_currentItemReference;
+    NSData *_existingItemReference;
+    NSData *_existingItemSHA1;
     struct _PCSIdentityData *_rollIdentity;
     NSData *_rollItemReference;
     NSData *_rollItemSHA1;
     NSDate *_server_NextRollDate;
+    struct _PCSIdentityData *_relocateIdentity;
+    PCSMTT *_mtt;
 }
 
+@property(readonly) PCSMTT *mtt; // @synthesize mtt=_mtt;
+@property _Bool roll; // @synthesize roll=_roll;
+@property _Bool sync; // @synthesize sync=_sync;
+@property struct _PCSIdentityData *relocateIdentity; // @synthesize relocateIdentity=_relocateIdentity;
 @property(retain) NSDate *server_NextRollDate; // @synthesize server_NextRollDate=_server_NextRollDate;
 @property(retain) NSData *rollItemSHA1; // @synthesize rollItemSHA1=_rollItemSHA1;
 @property(retain) NSData *rollItemReference; // @synthesize rollItemReference=_rollItemReference;
 @property struct _PCSIdentityData *rollIdentity; // @synthesize rollIdentity=_rollIdentity;
-@property(retain) NSData *currentItemReference; // @synthesize currentItemReference=_currentItemReference;
-@property struct _PCSIdentityData *currentIdentity; // @synthesize currentIdentity=_currentIdentity;
 @property(retain) NSData *existingItemSHA1; // @synthesize existingItemSHA1=_existingItemSHA1;
 @property(retain) NSData *existingItemReference; // @synthesize existingItemReference=_existingItemReference;
+@property(retain) NSData *currentItemReference; // @synthesize currentItemReference=_currentItemReference;
+@property struct _PCSIdentityData *currentIdentity; // @synthesize currentIdentity=_currentIdentity;
 @property(retain) NSString *service; // @synthesize service=_service;
 @property(retain) NSString *dsid; // @synthesize dsid=_dsid;
 @property struct __PCSLogContext *log; // @synthesize log=_log;
@@ -40,6 +48,7 @@
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)resetIdentities;
+- (id)init;
 
 @end
 

@@ -15,6 +15,7 @@
     _Bool _isSingleDevice;
 }
 
++ (_Bool)isSyncAvailableAndEnabledWithVerboseLogging:(_Bool)arg1;
 + (_Bool)isSyncAvailableAndEnabled;
 + (void)setUnitTesting:(_Bool)arg1;
 + (_Bool)isUnitTesting;

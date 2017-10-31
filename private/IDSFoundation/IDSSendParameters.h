@@ -18,6 +18,7 @@
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSDate *expirationDate;
+@property(nonatomic) _Bool liveMessageDelivery;
 @property(nonatomic) _Bool disallowRefresh;
 @property(nonatomic) _Bool alwaysSkipSelf;
 @property(nonatomic) _Bool allowCloudDelivery;
@@ -36,6 +37,7 @@
 @property(nonatomic) _Bool fakeMessage;
 @property(nonatomic) _Bool bypassDuet;
 @property(nonatomic) double timeout;
+@property(nonatomic) _Bool requireLocalWiFi;
 @property(nonatomic) _Bool requireBluetooth;
 @property(nonatomic) _Bool localDelivery;
 @property(nonatomic) long long priority;

@@ -6,10 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSData, NSDictionary, _CPCardSectionForFeedback;
+@class NSArray, NSData, NSDictionary, NSString, _CPCardSectionForFeedback;
 
 @protocol _CPCardForFeedback <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasFbr;
+@property(copy, nonatomic) NSString *fbr;
 @property(copy, nonatomic) NSArray *cardSections;
 - (id)initWithDictionary:(NSDictionary *)arg1;
 - (id)initWithJSON:(NSData *)arg1;

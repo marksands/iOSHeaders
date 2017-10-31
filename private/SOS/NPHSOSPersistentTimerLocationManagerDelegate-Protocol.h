@@ -9,6 +9,7 @@
 @class CLLocation, NPHSOSPersistentTimerLocationManager;
 
 @protocol NPHSOSPersistentTimerLocationManagerDelegate <NSObject>
+- (_Bool)locationIsValidToSend:(CLLocation *)arg1;
 - (void)sosPersistentTimerLocationMangerTimerFired:(NPHSOSPersistentTimerLocationManager *)arg1 location:(CLLocation *)arg2;
 @end
 

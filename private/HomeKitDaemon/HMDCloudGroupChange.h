@@ -39,6 +39,7 @@
 - (_Bool)isRootRecordName:(id)arg1;
 - (void)flushAllChangesToCache;
 - (void)setDeleteAsProcessedWithRecordID:(id)arg1;
+- (void)resetRecordWithRecordID:(id)arg1;
 - (void)setSaveAsProcessedWithRecord:(id)arg1;
 - (void)addRootRecordChange;
 - (id)rootRecordModelObject;
@@ -51,6 +52,7 @@
 - (void)loadCloudRecordsFromCache:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) _Bool hasValidChanges;
 - (id)cloudRecordWithObjectID:(id)arg1;
+- (void)cachedCloudRecordWithObjectID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)cachedCloudRecordWithObjectID:(id)arg1;
 - (id)cloudRecordWithName:(id)arg1;
 - (void)removeChangeWithObjectID:(id)arg1;

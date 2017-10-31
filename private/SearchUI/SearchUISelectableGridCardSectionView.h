@@ -16,9 +16,8 @@
 
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
 - (void)selectableGridView:(id)arg1 didChangeSelectedIndex:(long long)arg2;
-- (void)containerView:(id)arg1 willMeasureArrangedSubviewsFittingSize:(struct CGSize)arg2 forReason:(long long)arg3;
 - (id)convertSFTitleSubtitleData:(id)arg1;
-- (void)updateWithCardSection:(id)arg1;
+- (void)updateWithRowModel:(id)arg1;
 - (id)setupContentView;
 
 // Remaining properties

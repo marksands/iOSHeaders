@@ -112,6 +112,7 @@
 - (void)_didDetectAudioRoutePickerTap;
 - (void)_setAudioRoutePickerBluetoothOn:(_Bool)arg1;
 - (void)_setShowAudioRoutePicker:(_Bool)arg1;
+- (long long)userAccountCountForSiriView:(id)arg1;
 - (id)activeAccountForSiriView:(id)arg1;
 - (id)assistantVersionForSiriView:(id)arg1;
 - (void)siriView:(id)arg1 didReceiveSiriActivationMessageWithSource:(long long)arg2;
@@ -223,6 +224,7 @@
 - (void)siriRemoteViewController:(id)arg1 siriIdleAndQuietStatusDidChange:(_Bool)arg2;
 - (void)notifyOnNextUserInteractionForSiriRemoteViewController:(id)arg1;
 - (void)siriRemoteViewController:(id)arg1 launchApplicationWithBundleIdentifier:(id)arg2 withURL:(id)arg3 launchOptions:(long long)arg4 replyHandler:(CDUnknownBlockType)arg5;
+- (void)siriRemoteViewController:(id)arg1 didRequestCurrentTextInputWithReplyHandler:(CDUnknownBlockType)arg2;
 - (void)userRelevantEventDidOccurInSiriRemoteViewController:(id)arg1;
 - (void)siriRemoteViewController:(id)arg1 startRequestWithOptions:(id)arg2;
 - (void)startGuidedAccessForRemoteViewController:(id)arg1;

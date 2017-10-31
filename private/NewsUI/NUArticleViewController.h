@@ -10,18 +10,15 @@
 #import "NUEndOfArticleDataProviderDelegate.h"
 #import "NULoadable.h"
 #import "SXAnalyticsReporting.h"
-#import "SXLinkActionHandlerDelegate.h"
 #import "SXScrollViewControllerDelegate.h"
 
 @class FCObservable, NSString, NUArticleAdManager, NUEventManager, NUMultiDelegate, SXScrollViewController, SXVideoPlayerViewControllerManager;
 
-@interface NUArticleViewController : UIViewController <SXScrollViewControllerDelegate, SXLinkActionHandlerDelegate, SXAnalyticsReporting, NUEndOfArticleDataProviderDelegate, NUDynamicTypeObserving, NULoadable>
+@interface NUArticleViewController : UIViewController <SXScrollViewControllerDelegate, SXAnalyticsReporting, NUEndOfArticleDataProviderDelegate, NUDynamicTypeObserving, NULoadable>
 {
     _Bool _articleIsPresentingFullscreen;
     id <NULoadingDelegate> _loadingDelegate;
-    id <NULinkPreviewing> _linkPreviewing;
     id <SXAnalyticsReporting> _analyticsReporting;
-    id <NUURLHandler> _URLHandler;
     FCObservable *_articleViewStyler;
     NUMultiDelegate *_multiScrollViewDelegate;
     NSString *_anchorFragment;
@@ -49,9 +46,7 @@
 @property(copy, nonatomic) NSString *anchorFragment; // @synthesize anchorFragment=_anchorFragment;
 @property(readonly, nonatomic) NUMultiDelegate *multiScrollViewDelegate; // @synthesize multiScrollViewDelegate=_multiScrollViewDelegate;
 @property(readonly, nonatomic) FCObservable *articleViewStyler; // @synthesize articleViewStyler=_articleViewStyler;
-@property(nonatomic) __weak id <NUURLHandler> URLHandler; // @synthesize URLHandler=_URLHandler;
 @property(nonatomic) __weak id <SXAnalyticsReporting> analyticsReporting; // @synthesize analyticsReporting=_analyticsReporting;
-@property(nonatomic) __weak id <NULinkPreviewing> linkPreviewing; // @synthesize linkPreviewing=_linkPreviewing;
 @property(nonatomic) __weak id <NULoadingDelegate> loadingDelegate; // @synthesize loadingDelegate=_loadingDelegate;
 - (void).cxx_destruct;
 - (id)currentEndOfArticleSettings;
@@ -65,12 +60,6 @@
 - (void)endOfArticleDataProviderDidLoadContent:(id)arg1;
 - (void)dynamicTypeDidChange:(id)arg1;
 - (void)reportEvent:(id)arg1;
-- (void)scrollViewController:(id)arg1 commitPreviewController:(id)arg2 forAction:(id)arg3;
-- (id)scrollViewController:(id)arg1 previewViewControllerForAction:(id)arg2;
-- (void)linkActionHandlerWantsToOpenInAppURL:(id)arg1;
-- (_Bool)linkActionHandler:(id)arg1 allowOpeningOfURLInSafari:(id)arg2;
-- (id)linkActionHandler:(id)arg1 presentableURLForURL:(id)arg2;
-- (void)scrollViewController:(id)arg1 triggerAction:(id)arg2;
 - (void)scrollViewController:(id)arg1 enableNavigation:(_Bool)arg2;
 - (double)toolBarHeightForScrollViewController:(id)arg1;
 - (double)navigationBarHeightForScrollViewController:(id)arg1;
@@ -85,7 +74,7 @@
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (id)initWithArticleDataProvider:(id)arg1 endOfArticleDataProvider:(id)arg2 articleAdManager:(id)arg3 dynamicTypeProviding:(id)arg4 linkPreviewing:(id)arg5 appStateMonitor:(id)arg6 keyCommandHandler:(id)arg7;
+- (id)initWithArticleDataProvider:(id)arg1 endOfArticleDataProvider:(id)arg2 scrollViewController:(id)arg3 articleAdManager:(id)arg4 dynamicTypeProviding:(id)arg5 appStateMonitor:(id)arg6 keyCommandHandler:(id)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

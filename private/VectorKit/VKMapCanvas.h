@@ -73,7 +73,7 @@ __attribute__((visibility("hidden")))
 - (void)mapModelDidReloadStylesheet:(id)arg1;
 - (void)mapModel:(id)arg1 didUpdateContainsOverlay:(_Bool)arg2;
 - (void)mapModelLabelsDidLayout:(id)arg1;
-- (void)mapModel:(id)arg1 selectedLabelMarkerDidChangeState:(const shared_ptr_2d33c5e4 *)arg2;
+- (void)mapModel:(id)arg1 labelMarkerDidChangeState:(const shared_ptr_2d33c5e4 *)arg2;
 - (void)mapModel:(id)arg1 selectedLabelMarkerWillDisappear:(const shared_ptr_2d33c5e4 *)arg2;
 - (void)mapModelDidFailLoadingTiles:(id)arg1 withError:(id)arg2;
 - (void)mapModelDidFinishLoadingTiles:(id)arg1;

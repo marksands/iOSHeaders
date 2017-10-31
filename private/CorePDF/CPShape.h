@@ -10,6 +10,7 @@
 
 @interface CPShape : CPGraphicObject <CPDisposable>
 {
+    long long mcid;
     unsigned int pdfObjectID;
     struct CGPath *path;
     _Bool isUprightRectangle;
@@ -68,6 +69,7 @@
 - (struct CGPath *)path;
 - (void)setPdfObjectID:(unsigned int)arg1;
 - (unsigned int)pdfObjectID;
+- (long long)mcid;
 - (void)recomputeBounds;
 - (struct CGRect)bounds;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -6,22 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSHashTable, NSObject<OS_dispatch_queue>, NSString;
+@class NSHashTable, NSMapTable, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MPAssistantAnalyticsReportingController : NSObject
 {
     NSObject<OS_dispatch_queue> *_eventQueue;
+    NSString *_lastSiriReferenceIdentifierForPlaybackStart;
     NSString *_lastSiriReferenceIdentifierWithLikelyToKeepUp;
     NSHashTable *_players;
+    NSMapTable *_playerToObservedTimebase;
 }
 
 + (id)sharedController;
 - (void).cxx_destruct;
+- (void)_timebaseEffectiveRateChangedNotification;
+- (void)_attemptPlaybackStartReportingEventWithPlayer:(id)arg1;
 - (void)_attemptLikelyToKeepUpReportingEventWithPlayer:(id)arg1;
+- (void)_itemTimebaseDidChangeNotification:(id)arg1;
 - (void)_itemDidChangeNotification:(id)arg1;
 - (void)_bufferingStateDidChangeNotification:(id)arg1;
-- (void)logAssistantEvent:(id)arg1 withTimestamp:(id)arg2;
-- (void)logAssistantEvent:(id)arg1;
+- (void)logAssistantEvent:(id)arg1 withTimestamp:(unsigned long long)arg2;
 - (void)unregisterPlayer:(id)arg1;
 - (void)registerPlayer:(id)arg1;
 - (id)_init;

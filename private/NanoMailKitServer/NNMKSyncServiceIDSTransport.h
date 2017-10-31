@@ -16,8 +16,10 @@
     IDSService *_idsService;
     unsigned long long _connectivityState;
     id <NNMKSyncServiceTransportDelegate> _delegate;
+    NSString *_serviceName;
 }
 
+@property(retain, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
 @property(nonatomic) __weak id <NNMKSyncServiceTransportDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned long long connectivityState; // @synthesize connectivityState=_connectivityState;
 @property(retain, nonatomic) IDSService *idsService; // @synthesize idsService=_idsService;

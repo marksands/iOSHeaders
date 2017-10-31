@@ -41,6 +41,7 @@ __attribute__((visibility("hidden")))
     _Bool _cancelActionIsDiscrete;
     _Bool _shouldHaveBackdropView;
     _Bool _alignsToKeyboard;
+    long long _layoutRequiresPositionUpdateCount;
     NSArray *_dimmingViewConstraints;
     NSArray *_dimmingViewForegroundViewTopConstraints;
     NSArray *_dimmingViewForegroundViewBottomConstraints;
@@ -156,6 +157,8 @@ __attribute__((visibility("hidden")))
 - (void)_ensureActionViewRepresentationsHaveMetrics;
 - (void)_recomputeActionMetrics;
 - (void)_sizeOfTextFieldViewControllerChanged;
+- (void)_applyISEngineLayoutValuesToBoundsOnly:(_Bool)arg1;
+- (void)_layoutAndPositionInParentIfNeeded;
 - (void)_sizeOfContentViewControllerChanged;
 - (void)_removeContentViewControllerViewFromHierarchy;
 - (void)_addContentViewControllerToViewHierarchy;

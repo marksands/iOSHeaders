@@ -4,10 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+#import "_UIDragDropSessionPrivate.h"
+
 @class _UIDraggingSession;
 
-@protocol _UIDragDropSessionInternal
-@property(readonly, nonatomic) long long _dataOwner;
+@protocol _UIDragDropSessionInternal <_UIDragDropSessionPrivate>
 @property(readonly, nonatomic, getter=_allowsItemsToUpdate) _Bool _allowsItemsToUpdate;
 - (_UIDraggingSession *)_draggingSession;
 @end

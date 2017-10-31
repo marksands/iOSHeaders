@@ -15,6 +15,7 @@
 }
 
 + (id)_statusItemClasses;
++ (_Bool)hasStatusItemForServiceType:(id)arg1;
 @property(readonly, nonatomic) HMRoom *room; // @synthesize room=_room;
 @property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 - (void).cxx_destruct;

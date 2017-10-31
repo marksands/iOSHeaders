@@ -57,6 +57,11 @@ struct LocalizedSearchQuery;
 
 struct LocalizedSearchScope;
 
+struct MPAddKeepLocalControlStatus {
+    long long statusType;
+    double downloadProgress;
+};
+
 struct MPLibraryActiveKeepLocalStatus {
     long long statusType;
     double downloadProgress;
@@ -96,6 +101,11 @@ struct UIEdgeInsets {
     double left;
     double bottom;
     double right;
+};
+
+struct _MSVSignedRange {
+    long long location;
+    long long length;
 };
 
 struct _NSRange {
@@ -432,6 +442,11 @@ typedef struct {
     long long skipFrequency;
     double skipInterval;
 } CDStruct_dcf4dde6;
+
+typedef struct {
+    long long _field1;
+    long long _field2;
+} CDStruct_912cb5d2;
 
 typedef struct {
     unsigned int identifiers:1;

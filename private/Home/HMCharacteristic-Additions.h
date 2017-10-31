@@ -7,6 +7,7 @@
 #import "HMCharacteristic.h"
 
 @interface HMCharacteristic (Additions)
++ (_Bool)hf_shouldCaptureCharacteristicTypeInActionSets:(id)arg1;
 + (CDUnknownBlockType)hf_characteristicSortComparator;
 + (long long)hf_sortPriorityForCharacteristicType:(id)arg1;
 + (id)hf_currentStateCharacteristicTypeForTargetStateCharacteristicType:(id)arg1;
@@ -23,6 +24,7 @@
 - (id)hf_eventTriggers;
 - (id)hf_home;
 - (id)hf_programmableSwitchValidValueSet;
+- (_Bool)hf_shouldCaptureInActionSets;
 - (long long)hf_sortPriority;
 - (id)hf_associatedCharacteristicType;
 - (id)hf_defaultValue;

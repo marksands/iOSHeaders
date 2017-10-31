@@ -14,6 +14,8 @@
 + (id)siriui_lightInsertionPointColor;
 + (id)siriui_platterInsertionPointColor;
 + (id)siriui_insertionPointColor;
++ (id)siriui_tapToEditMaskingColor;
++ (id)siriui_tapToEditColor;
 + (id)siriui_platterTextHighlightColor;
 + (id)siriui_lightTextHighlightColor;
 + (id)siriui_textHighlightColor;

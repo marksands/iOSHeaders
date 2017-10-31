@@ -16,7 +16,7 @@
 + (id)_videoOutputSettingsWithVideoSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
 + (id)videoOutputSettingsWithTrustedVideoSettingsDictionary:(id)arg1;
 + (id)videoOutputSettingsWithVideoSettingsDictionary:(id)arg1;
-+ (id)_outputSettingsWithOutputSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
++ (id)_outputSettingsWithOutputSettingsDictionary:(id)arg1 mediaType:(id)arg2 exceptionReason:(id *)arg3;
 + (id)registeredOutputSettingsClasses;
 + (id)_validValuesForScalingMode;
 - (_Bool)validateUsingOutputSettingsValidator:(id)arg1 reason:(id *)arg2;

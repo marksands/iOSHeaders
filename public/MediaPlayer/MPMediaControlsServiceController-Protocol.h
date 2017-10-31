@@ -10,5 +10,8 @@
 
 @protocol MPMediaControlsServiceController <NSObject>
 @property(retain, nonatomic) MPMediaControlsConfiguration *configuration;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1;
+- (void)stopPrewarming;
+- (void)startPrewarming;
 @end
 

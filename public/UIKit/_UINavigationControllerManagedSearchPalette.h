@@ -20,13 +20,16 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) CDUnknownBlockType resetAfterSearchFieldFade; // @synthesize resetAfterSearchFieldFade=_resetAfterSearchFieldFade;
 @property(nonatomic) _Bool ignoreGeometryChanges; // @synthesize ignoreGeometryChanges=_ignoreGeometryChanges;
 - (void).cxx_destruct;
+- (void)_propagateBackgroundToContents;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
+- (_Bool)_shouldHideWhenScrolling;
 @property(nonatomic, setter=_setShadowAlpha:) double _shadowAlpha;
 - (void)setCenter:(struct CGPoint)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_popDisableLayoutFlushingForTransition;
 - (void)_pushDisableLayoutFlushingForTransition;
+- (_Bool)_shouldUpdateBackground;
 - (void)_updateLayoutForCurrentConfiguration;
 @property(readonly, nonatomic) UIView *viewForAsymmetricFade;
 - (_Bool)_supportsSpecialSearchBarTransitions;

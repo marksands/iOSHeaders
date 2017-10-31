@@ -12,16 +12,22 @@
 {
     double _backgroundFetchMinimumInterval;
     long long _feedPrefetchFavoritesLimit;
+    long long _prefetchedForYouExpiration;
     _Bool _backgroundFetchEnabled;
+    _Bool _backgroundFetchEnabled2;
     _Bool _feedPrefetchForYou;
     struct {
         unsigned int backgroundFetchMinimumInterval:1;
         unsigned int feedPrefetchFavoritesLimit:1;
+        unsigned int prefetchedForYouExpiration:1;
         unsigned int backgroundFetchEnabled:1;
+        unsigned int backgroundFetchEnabled2:1;
         unsigned int feedPrefetchForYou:1;
     } _has;
 }
 
+@property(nonatomic) long long prefetchedForYouExpiration; // @synthesize prefetchedForYouExpiration=_prefetchedForYouExpiration;
+@property(nonatomic) _Bool backgroundFetchEnabled2; // @synthesize backgroundFetchEnabled2=_backgroundFetchEnabled2;
 @property(nonatomic) long long feedPrefetchFavoritesLimit; // @synthesize feedPrefetchFavoritesLimit=_feedPrefetchFavoritesLimit;
 @property(nonatomic) _Bool feedPrefetchForYou; // @synthesize feedPrefetchForYou=_feedPrefetchForYou;
 @property(nonatomic) double backgroundFetchMinimumInterval; // @synthesize backgroundFetchMinimumInterval=_backgroundFetchMinimumInterval;
@@ -34,6 +40,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasPrefetchedForYouExpiration;
+@property(nonatomic) _Bool hasBackgroundFetchEnabled2;
 @property(nonatomic) _Bool hasFeedPrefetchFavoritesLimit;
 @property(nonatomic) _Bool hasFeedPrefetchForYou;
 @property(nonatomic) _Bool hasBackgroundFetchMinimumInterval;

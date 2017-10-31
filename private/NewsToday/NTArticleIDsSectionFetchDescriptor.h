@@ -8,19 +8,19 @@
 
 #import "NTSectionFetchDescriptor.h"
 
-@class NSString, NTCatchUpOperationArticleIDsRequest;
+@class NSString;
 
 @interface NTArticleIDsSectionFetchDescriptor : NSObject <NTSectionFetchDescriptor>
 {
-    NTCatchUpOperationArticleIDsRequest *_articleIDsRequest;
+    id <NTSectionFetchDescriptor> _privateFetchDescriptor;
 }
 
-@property(copy, nonatomic) NTCatchUpOperationArticleIDsRequest *articleIDsRequest; // @synthesize articleIDsRequest=_articleIDsRequest;
+@property(copy, nonatomic) id <NTSectionFetchDescriptor> privateFetchDescriptor; // @synthesize privateFetchDescriptor=_privateFetchDescriptor;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)incrementalLimitTransformationWithFeedPersonalizer:(id)arg1 limit:(unsigned long long)arg2 priorFeedItems:(id)arg3;
 - (id)incrementalSortTransformationWithFeedPersonalizer:(id)arg1;
-- (id)extractResultsFromCatchUpOperation:(id)arg1;
+- (id)assembleResultsWithCatchUpOperation:(id)arg1;
 - (void)configureCatchUpOperationWithFetchRequest:(id)arg1;
 - (id)initWithArticleIDsConfiguration:(id)arg1;
 - (id)init;

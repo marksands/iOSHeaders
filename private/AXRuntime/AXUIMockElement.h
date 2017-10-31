@@ -80,6 +80,8 @@
 - (id)_valueForAttribute:(long long)arg1;
 - (id)description;
 - (id)performBlockWhileLoggingPerformedActions:(CDUnknownBlockType)arg1;
+- (id)endLoggingActions;
+- (void)startLoggingActions;
 - (id)visibleElements;
 - (struct __AXUIElement *)axElement;
 - (_Bool)isMockElement;

@@ -21,10 +21,10 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *siriResponseQueue; // @synthesize siriResponseQueue=_siriResponseQueue;
 @property(retain, nonatomic) NSMutableDictionary *handlers; // @synthesize handlers=_handlers;
 - (void).cxx_destruct;
-- (_Bool)doIntent:(id)arg1;
+- (_Bool)_invokeHandlerForIntent:(id)arg1;
 - (void)forIntent:(id)arg1 registerHandler:(CDUnknownBlockType)arg2;
 - (void)forIntentParam:(id)arg1 predict:(id)arg2;
-- (void)handleIntent:(id)arg1 withTask:(id)arg2 andApplication:(id)arg3;
+- (void)_handleIntent:(id)arg1 withTask:(id)arg2 andApplication:(id)arg3;
 - (void)handleSiriTask:(id)arg1 withApplication:(id)arg2;
 - (void)finishedLaunching:(_Bool)arg1;
 - (id)init;

@@ -16,12 +16,12 @@
 }
 
 - (void).cxx_destruct;
+@property(readonly, copy) NSString *debugDescription;
 - (id)regionForGeometry:(id)arg1;
 - (id)initWithViewport:(id)arg1;
 - (id)init;
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;

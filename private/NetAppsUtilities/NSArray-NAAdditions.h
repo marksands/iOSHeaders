@@ -9,6 +9,7 @@
 @interface NSArray (NAAdditions)
 + (id)na_arrayWithSafeObject:(id)arg1;
 + (id)na_arrayByRepeatingWithCount:(unsigned long long)arg1 generatorBlock:(CDUnknownBlockType)arg2;
+- (id)na_dictionaryByBucketingObjectsUsingKeyGenerator:(CDUnknownBlockType)arg1;
 - (id)na_dictionaryWithKeyGenerator:(CDUnknownBlockType)arg1;
 - (id)na_arrayByFlattening;
 - (void)na_each:(CDUnknownBlockType)arg1;

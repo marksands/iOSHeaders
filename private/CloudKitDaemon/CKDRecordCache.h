@@ -28,6 +28,8 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CKSQLite *db; // @synthesize db=_db;
 - (void).cxx_destruct;
 - (void)scheduleRecordExpirationWithExpiryDate:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (unsigned long long)sqlBatchCount;
+- (unsigned long long)recordCacheSizeLimit;
 - (void)_attemptRecordExpiryIfNeeded;
 - (unsigned long long)_lockedSizeOfAllRecordsInDb;
 - (void)clearAssetAuthTokensForRecordWithID:(id)arg1;

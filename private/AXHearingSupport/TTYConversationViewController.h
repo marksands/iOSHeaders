@@ -53,7 +53,6 @@
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)updateViewForKeyboard:(id)arg1;
 - (void)shareCallInfo:(id)arg1;
-- (void)endCall:(id)arg1;
 - (void)setupTableView;
 - (void)updateTableViewSizeAnimated:(_Bool)arg1;
 - (void)updateVoiceOverAnnouncement:(unsigned short)arg1;
@@ -68,11 +67,14 @@
 - (void)processUtteranceQueue;
 - (id)addUtterance:(id)arg1;
 - (id)callContainingUtterance;
+- (void)toggleMute:(id)arg1;
+- (void)updateMuteButton;
 - (void)callDidConnect:(id)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
+- (id)inputTextView;
 - (id)init;
 
 // Remaining properties

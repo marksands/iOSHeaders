@@ -121,6 +121,7 @@
 - (void)_applicationDidEnterBackground;
 - (void)_initializeAppStorePurchaseDiscoveredList;
 - (void)dealloc;
+- (id)initWithCloudContext:(id)arg1 keyValueStoreOption:(unsigned long long)arg2;
 - (id)initWithCloudContext:(id)arg1;
 - (id)init;
 

@@ -24,6 +24,7 @@
 - (_Bool)canShowToolBar;
 - (_Bool)canPinchToDismiss;
 - (_Bool)canSwipeToDismiss;
+- (_Bool)canToggleFullScreen;
 - (_Bool)canEnterFullScreen;
 - (id <QLPrintingProtocol>)printer;
 @end

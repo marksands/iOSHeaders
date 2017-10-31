@@ -6,13 +6,11 @@
 
 #import "NSObject.h"
 
-@class SXAction, SXScrollViewController, UIViewController;
+@class SXAction, SXScrollViewController;
 
 @protocol SXScrollViewControllerDelegate <NSObject>
 
 @optional
-- (void)scrollViewController:(SXScrollViewController *)arg1 commitPreviewController:(UIViewController *)arg2 forAction:(SXAction *)arg3;
-- (UIViewController *)scrollViewController:(SXScrollViewController *)arg1 previewViewControllerForAction:(SXAction *)arg2;
 - (void)scrollViewController:(SXScrollViewController *)arg1 enableNavigation:(_Bool)arg2;
 - (void)scrollViewControllerDidStopScrolling:(SXScrollViewController *)arg1;
 - (void)scrollViewControllerDidScroll:(SXScrollViewController *)arg1;

@@ -54,7 +54,11 @@
 - (_Bool)deleteStorageFor:(id)arg1;
 - (_Bool)_deleteDatabaseFiles:(id)arg1;
 - (_Bool)confirmDatabaseConnectionFor:(id)arg1;
+- (_Bool)isManagedObjectContextFor:(id)arg1 equalToManagedObjectContext:(id)arg2;
 - (id)managedObjectContextFor:(id)arg1;
+- (void)removeManagedObjectContextForKey:(id)arg1;
+- (id)managedObjectContextForKey:(id)arg1;
+- (void)setManagedObjectContext:(id)arg1 forKey:(id)arg2;
 - (void)handleDatabaseErrors:(id)arg1 forProtectionClass:(id)arg2;
 - (id)persistentStoreCoordinatorFor:(id)arg1;
 - (_Bool)_addStoresToCoordinator:(id)arg1 protectionClass:(id)arg2 error:(id *)arg3;

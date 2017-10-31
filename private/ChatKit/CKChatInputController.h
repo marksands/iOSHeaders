@@ -174,8 +174,9 @@
 - (void)requestPhotoBrowserToPrepareForDraft;
 - (void)requestPhotoBrowserToAppendFinalImagesToComposition;
 - (void)notifyBrowserViewControllerOfMatchingNewMessages:(id)arg1;
-- (void)presentAppStoreForURL:(id)arg1;
 - (void)presentAppManager;
+- (void)presentAppStoreForURL:(id)arg1 fromSourceApplication:(id)arg2;
+- (void)presentAppStoreForURL:(id)arg1;
 - (void)presentAppStoreForAdamID:(id)arg1;
 - (void)presentViewControllerWithPluginChatItem:(id)arg1 expanded:(_Bool)arg2;
 - (id)_adamIDFromPluginPayloadData:(id)arg1;

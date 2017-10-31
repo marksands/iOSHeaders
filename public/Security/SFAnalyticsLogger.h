@@ -27,6 +27,7 @@
     unsigned int _ignoreServersMessagesTellingUsToGoAway:1;
 }
 
++ (void)addOSVersion:(id)arg1;
 + (long long)fuzzyDaysSinceDate:(id)arg1;
 + (id)databasePath;
 + (id)logger;
@@ -38,7 +39,7 @@
 @property(readonly) _Bool allowsInsecureSplunkCert;
 @property _Bool ignoreServerDisablingMessages;
 - (void)URLSession:(id)arg1 didReceiveChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (id)getLoggingJSONWithError:(id *)arg1;
+- (id)getLoggingJSON:(_Bool)arg1 error:(id *)arg2;
 - (id)getSysdiagnoseDumpWithError:(id *)arg1;
 - (id)sysdiagnoseStringForEventRecord:(id)arg1;
 - (id)stringForEventClass:(long long)arg1;

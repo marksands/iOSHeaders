@@ -6,17 +6,21 @@
 
 #import "NSObject.h"
 
-#import "TUCallServicesClient.h"
-#import "TUCallServicesProtocol.h"
+#import "TUAudioDeviceControllerActions.h"
+#import "TUCallServicesClientCapabilitiesActions.h"
+#import "TUCallServicesProxyCallActions.h"
+#import "TUCallServicesXPCClient.h"
+#import "TURouteControllerActions.h"
 
-@class NSArray, NSMapTable, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, NSXPCConnection, TUCallCenter, TUCallNotificationManager, TUCallServicesClientCapabilities;
+@class NSArray, NSDictionary, NSMapTable, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, NSXPCConnection, TUCallCenter, TUCallNotificationManager, TUCallServicesClientCapabilities;
 
-@interface TUCallServicesInterface : NSObject <TUCallServicesClient, TUCallServicesProtocol>
+@interface TUCallServicesInterface : NSObject <TUCallServicesXPCClient, TUCallServicesProxyCallActions, TUCallServicesClientCapabilitiesActions, TUAudioDeviceControllerActions, TURouteControllerActions>
 {
     _Bool _hasRequestedInitialState;
     _Bool _hasDaemonDelegateLaunched;
     int _connectionRequestNotificationToken;
-    id <TUCallServicesDaemonDelegate> _daemonDelegate;
+    id <TURouteControllerClient> _routeControllerClient;
+    id <TUCallServicesXPCServer> _daemonDelegate;
     TUCallServicesClientCapabilities *_callServicesClientCapabilities;
     TUCallCenter *_callCenter;
     NSObject<OS_dispatch_queue> *_queue;
@@ -40,14 +44,19 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic) __weak TUCallCenter *callCenter; // @synthesize callCenter=_callCenter;
 @property(retain, nonatomic) TUCallServicesClientCapabilities *callServicesClientCapabilities; // @synthesize callServicesClientCapabilities=_callServicesClientCapabilities;
-@property(nonatomic) __weak id <TUCallServicesDaemonDelegate> daemonDelegate; // @synthesize daemonDelegate=_daemonDelegate;
+@property(nonatomic) __weak id <TUCallServicesXPCServer> daemonDelegate; // @synthesize daemonDelegate=_daemonDelegate;
+@property(retain, nonatomic) id <TURouteControllerClient> routeControllerClient; // @synthesize routeControllerClient=_routeControllerClient;
 - (void).cxx_destruct;
 - (oneway void)handleNotificationName:(id)arg1 forCallWithUniqueProxyIdentifier:(id)arg2 userInfo:(id)arg3;
 - (oneway void)resetCallProvisionalStates;
 - (oneway void)_handleCurrentCallsChanged:(id)arg1 callsDisconnected:(id)arg2;
 - (oneway void)handleCurrentCallsChanged:(id)arg1 callDisconnected:(id)arg2;
 - (oneway void)handleFrequencyChangedTo:(id)arg1 inDirection:(int)arg2 forCallsWithUniqueProxyIdentifiers:(id)arg3;
+- (oneway void)handleRoutesByUniqueIdentifierUpdated:(id)arg1;
 - (oneway void)setClientCapabilities:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *routesByUniqueIdentifier;
+- (oneway void)pickRouteWithUniqueIdentifier:(id)arg1;
+- (oneway void)routesByUniqueIdentifier:(CDUnknownBlockType)arg1;
 - (oneway void)setCurrentAudioOutputDeviceToDeviceWithUID:(id)arg1;
 - (oneway void)setCurrentAudioInputDeviceToDeviceWithUID:(id)arg1;
 - (oneway void)setDownlinkMuted:(_Bool)arg1 forCallWithUniqueProxyIdentifier:(id)arg2;
@@ -61,7 +70,7 @@
 - (oneway void)updateCallWithProxy:(id)arg1;
 - (oneway void)sendHardPauseDigitsForCallWithUniqueProxyIdentifier:(id)arg1;
 - (oneway void)pullHostedCallsFromPairedHostDevice;
-- (oneway void)pushHostedCallsToPairedClientDevice;
+- (oneway void)pushHostedCallsToDestination:(id)arg1;
 - (oneway void)pullCallFromClientUsingHandoffActivityUserInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (oneway void)pushRelayingCallsToHostWithSourceIdentifier:(id)arg1;
 - (oneway void)pullRelayingCallsFromClient;
@@ -79,7 +88,8 @@
 - (oneway void)joinConversationWithRequest:(id)arg1;
 - (id)dialWithRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) id <TUCallContainerPrivate> callContainer;
-- (void)cleanUpAllCallsForUnexpectedServerDisconnect;
+- (void)handleServerDisconnect;
+- (void)handleServerReconnect;
 - (void)waitForInitialStateIfNecessary;
 - (void)requestCurrentStateWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)tearDownXPCConnection;

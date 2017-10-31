@@ -6,17 +6,20 @@
 
 #import "NSOperation.h"
 
-@class HMDBackingStore;
+@class HMDBackingStore, NSUUID;
 
 @interface HMDBackingStoreOperation : NSOperation
 {
     CDUnknownBlockType _resultBlock;
+    NSUUID *_operationUUID;
     HMDBackingStore *_store;
 }
 
 @property(retain, nonatomic) HMDBackingStore *store; // @synthesize store=_store;
+@property(readonly, nonatomic) NSUUID *operationUUID; // @synthesize operationUUID=_operationUUID;
 @property(copy, nonatomic) CDUnknownBlockType resultBlock; // @synthesize resultBlock=_resultBlock;
 - (void).cxx_destruct;
+- (id)description;
 - (void)main;
 - (id)mainReturningError;
 - (id)init;

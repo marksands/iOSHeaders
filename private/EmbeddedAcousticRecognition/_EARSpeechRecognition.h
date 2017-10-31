@@ -10,7 +10,6 @@
 
 @class NSArray;
 
-__attribute__((visibility("hidden")))
 @interface _EARSpeechRecognition : NSObject <NSCopying>
 {
     NSArray *_tokenSausage;

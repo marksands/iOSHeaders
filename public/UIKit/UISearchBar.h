@@ -180,6 +180,7 @@
 - (_Bool)_shouldDisplayShadow;
 - (void)_setShadowVisibleIfNecessary:(_Bool)arg1;
 - (id)_navigationBarForShadow;
+- (void)layoutSubviewsInBounds:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (void)_getScopeBarHeight:(double *)arg1 containerHeight:(double *)arg2;
 - (double)_scopeBarHeight;
@@ -198,6 +199,7 @@
 - (_Bool)_contentHuggingDefault_isUsuallyFixedHeight;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (double)_defaultWidth;
+- (double)_defaultHeightForOrientation:(long long)arg1;
 - (double)_defaultHeight;
 - (double)_barHeightForBarMetrics:(long long)arg1;
 - (double)_barHeightForBarMetrics:(long long)arg1 barPosition:(long long)arg2;
@@ -205,6 +207,7 @@
 - (void)_transitionCompleted:(long long)arg1 willBeDisplayed:(_Bool)arg2;
 - (void)_performTransition:(long long)arg1 willBeDisplayed:(_Bool)arg2;
 - (void)_transitionWillBegin:(long long)arg1 willBeDisplayed:(_Bool)arg2;
+- (_Bool)_wantsTwoPartTransition;
 - (void)_contentDidChange;
 - (long long)_preferredContentSizeForSize:(long long)arg1;
 @property(readonly, nonatomic) _Bool _hideNavigationBarTrailingBarButtons;
@@ -215,6 +218,7 @@
 @property(readonly, nonatomic) double _navigationBarContentHeight;
 @property(readonly, nonatomic) _Bool _underlayNavigationBarContent;
 - (void)_setDataSource:(id)arg1 navigationItem:(id)arg2 titleLocation:(long long)arg3;
+@property(readonly, nonatomic) int preferredAlignment;
 @property(nonatomic) long long keyboardAppearance; // @dynamic keyboardAppearance;
 - (_Bool)respondsToSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;

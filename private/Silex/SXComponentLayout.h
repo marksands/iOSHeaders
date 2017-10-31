@@ -25,6 +25,7 @@
 @property(readonly, nonatomic) id <SXEdgeSpacing> margin; // @dynamic margin;
 @property(readonly, nonatomic) struct _SXConvertibleValue maximumContentWidth; // @dynamic maximumContentWidth;
 @property(readonly, nonatomic) struct _SXConvertibleValue minimumHeight; // @dynamic minimumHeight;
+@property(readonly, nonatomic) struct _SXConvertibleValue suggestedHeight; // @dynamic suggestedHeight;
 
 @end
 

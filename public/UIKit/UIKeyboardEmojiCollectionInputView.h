@@ -37,6 +37,8 @@ __attribute__((visibility("hidden")))
 - (long long)indexForPrettyCategoryDisplay:(id)arg1;
 - (double)snappedXOffsetForOffset:(double)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
+- (id)firstFullyVisibleHeader;
+- (id)itemInRect:(struct CGRect)arg1;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;

@@ -56,6 +56,7 @@ __attribute__((visibility("hidden")))
     _Bool _allowsHitTesting;
     _Bool _belongsToTrackingAnimator;
     _Bool _disallowInheritance;
+    long long _finishedPosition;
     UIViewAnimationState *_retainedSelf;
     NSMutableArray *_viewsPendingConstraintBasedAnimation;
     UIViewPropertyAnimator *_propertyAnimator;
@@ -82,6 +83,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_allowsHitTesting;
 - (_Bool)_allowsUserInteractionToCutOffEndOfAnimation;
 @property(readonly, nonatomic) _Bool _allowsUserInteraction;
+- (void)_setFinishedPosition:(long long)arg1;
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)_animationDidStopWithNilAnimationFinished:(_Bool)arg1;
 - (void)sendDelegateDidStopManually:(_Bool)arg1;
@@ -91,6 +93,7 @@ __attribute__((visibility("hidden")))
 - (void)setAnimationAttributes:(id)arg1 correctZeroDuration:(_Bool)arg2 skipDelegateAssignment:(_Bool)arg3;
 - (void)_removeLastCompletion;
 - (_Bool)_addCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)_addCompletionWithPosition:(CDUnknownBlockType)arg1;
 - (void)_runAlongsideAnimations;
 - (void)_setAlongsideAnimations:(CDUnknownBlockType)arg1;
 - (void)setAnimationAttributes:(id)arg1;

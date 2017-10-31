@@ -33,13 +33,13 @@
 @property(nonatomic) _Bool disablePolicy; // @synthesize disablePolicy=_disablePolicy;
 - (void).cxx_destruct;
 - (double)testL2WithData:(id)arg1 experimental:(_Bool)arg2;
-- (double *)computeL3ScoresForFeatures:(id)arg1 didGetServerFeatures:(_Bool)arg2;
-- (void)computeQualityScores:(double *)arg1 forScores:(double *)arg2 forFeatureCount:(unsigned long long)arg3 withContext:(id)arg4;
-- (double *)computeScoresForFeatures:(id)arg1 withBundleFeatures:(id)arg2 serverBundleFeatures:(id)arg3 usingModelContext:(id)arg4 qos:(unsigned int)arg5;
-- (double *)computeL2ScoresForVectors:(id)arg1 secondVector:(id)arg2 withQualityScores:(double *)arg3 withServerFeatures:(id)arg4 withBundleFeatures:(id)arg5 experimentalWeight1:(double)arg6 experimentalWeight2:(double)arg7 forShadow:(_Bool)arg8;
+- (float *)computeL3ScoresForFeatures:(id)arg1 didGetServerFeatures:(_Bool)arg2;
+- (void)computeQualityScores:(float *)arg1 forScores:(float *)arg2 forFeatureCount:(unsigned long long)arg3 withContext:(id)arg4;
+- (float *)computeScoresForFeatures:(id)arg1 withBundleFeatures:(id)arg2 serverBundleFeatures:(id)arg3 usingModelContext:(id)arg4 qos:(unsigned int)arg5;
+- (float *)computeL2ScoresForVectors:(id)arg1 secondVector:(id)arg2 withQualityScores:(float *)arg3 withServerFeatures:(id)arg4 withBundleFeatures:(id)arg5 experimentalWeight1:(double)arg6 experimentalWeight2:(double)arg7 forShadow:(_Bool)arg8;
 - (id)computeFeedbackScoresForVectors:(id)arg1 withBundleFeatures:(id)arg2;
 - (void)updateModelsAccordingToHierarchy;
-- (void)updateModelsAccordingToHierarchy:(id)arg1 updateEnabled:(_Bool)arg2;
+- (void)updateModelsAccordingToHierarchy:(id)arg1 updateEnabled:(_Bool)arg2 disablePendingUpdates:(_Bool)arg3;
 - (id)loadIfNecessaryModelOfResourceType:(unsigned long long)arg1 nowTime:(double)arg2 intoModelDict:(id)arg3 currentVersion:(id)arg4;
 - (void)loadCannedModels;
 - (void)loadCannedModelWithType:(unsigned long long)arg1 error:(id *)arg2;

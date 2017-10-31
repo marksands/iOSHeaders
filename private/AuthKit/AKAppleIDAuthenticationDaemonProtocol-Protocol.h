@@ -10,7 +10,7 @@
 
 @protocol AKAppleIDAuthenticationDaemonProtocol <NSObject>
 - (void)fetchURLBagWithCompletion:(void (^)(NSDictionary *, NSError *))arg1;
-- (void)emailsForAltDSID:(NSString *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
+- (void)accountNamesForAltDSID:(NSString *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)activeLoginCode:(void (^)(NSString *, NSError *))arg1;
 - (void)isDevicePasscodeProtected:(void (^)(_Bool, NSError *))arg1;
 - (void)teardownFollowUpWithContext:(AKFollowUpTearDownContext *)arg1 completion:(void (^)(_Bool, NSError *))arg2;

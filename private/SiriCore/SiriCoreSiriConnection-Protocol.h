@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSError, NSString, NSURL;
+@class NSArray, NSError, NSString, NSURL;
 
 @protocol SiriCoreSiriConnection <NSObject>
 @property(nonatomic) _Bool imposePolicyBan;
@@ -29,12 +29,13 @@
 @property(nonatomic) _Bool prefersWWAN;
 @property(copy, nonatomic) NSURL *url;
 @property(nonatomic) __weak id <SiriCoreSiriConnectionDelegate> delegate;
-- (void)getConnectionMetrics:(void (^)(SiriCoreConnectionMetrics *))arg1;
+- (void)getConnectionMetricsSynchronously:(_Bool)arg1 completion:(void (^)(SiriCoreConnectionMetrics *))arg2;
 - (void)getAnalysisInfo:(void (^)(SiriCoreAceConnectionAnalysisInfo *))arg1;
 - (void)probeConnection;
 - (void)barrier:(void (^)(_Bool))arg1;
-- (void)cancelSynchronously:(_Bool)arg1 completion:(void (^)(void))arg2;
+- (void)cancelSynchronously:(_Bool)arg1 onQueue:(_Bool)arg2 completion:(void (^)(void))arg3;
 - (void)setSendPings:(_Bool)arg1;
+- (void)sendCommands:(NSArray *)arg1 errorHandler:(void (^)(id <SiriCoreSessionObject>, NSError *))arg2;
 - (void)sendCommand:(id <SiriCoreSessionObject>)arg1 errorHandler:(void (^)(NSError *))arg2;
 - (void)start;
 @end

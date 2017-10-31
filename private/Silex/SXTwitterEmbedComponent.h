@@ -12,6 +12,7 @@
 
 - (id)classification;
 - (id)embedType;
+- (id)type;
 
 @end
 

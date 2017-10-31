@@ -19,7 +19,7 @@
     _Bool _supportsStandaloneMode;
     _Bool _supportsCloudDataSync;
     _Bool _supportsWholeHouseAudio;
-    _Bool _supportsSharedEventTriggerActivation;
+    _Bool _supportsAssistantAccessControl;
     _Bool _residentCapable;
     _Bool _remoteGatewayCapable;
 }
@@ -27,8 +27,12 @@
 + (_Bool)supportsSecureCoding;
 + (id)shortDescription;
 + (id)deviceCapabilities;
++ (_Bool)isAppleMediaAccessory;
++ (_Bool)supportsHomeApp;
++ (_Bool)supportsLocalization;
 @property(readonly, nonatomic, getter=isRemoteGatewayCapable) _Bool remoteGatewayCapable; // @synthesize remoteGatewayCapable=_remoteGatewayCapable;
 @property(readonly, nonatomic, getter=isResidentCapable) _Bool residentCapable; // @synthesize residentCapable=_residentCapable;
+@property(readonly, nonatomic) _Bool supportsAssistantAccessControl; // @synthesize supportsAssistantAccessControl=_supportsAssistantAccessControl;
 @property(readonly, nonatomic) _Bool supportsWholeHouseAudio; // @synthesize supportsWholeHouseAudio=_supportsWholeHouseAudio;
 @property(readonly, nonatomic) _Bool supportsCloudDataSync; // @synthesize supportsCloudDataSync=_supportsCloudDataSync;
 @property(readonly, nonatomic) _Bool supportsStandaloneMode; // @synthesize supportsStandaloneMode=_supportsStandaloneMode;

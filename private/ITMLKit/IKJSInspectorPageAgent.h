@@ -13,14 +13,13 @@
 
 @interface IKJSInspectorPageAgent : NSObject <IKNetworkRequestLoader, RWIProtocolPageDomainHandler>
 {
-    IKJSInspectorController *_controller;
     RWIProtocolPageFrameResourceTree *_resourceTree;
+    IKJSInspectorController *_controller;
     NSString *_currentFrameIdentifier;
 }
 
 + (id)_pageFromDOMDocument:(id)arg1;
 @property(retain, nonatomic) NSString *currentFrameIdentifier; // @synthesize currentFrameIdentifier=_currentFrameIdentifier;
-@property(readonly, nonatomic) RWIProtocolPageFrameResourceTree *resourceTree; // @synthesize resourceTree=_resourceTree;
 @property(readonly, nonatomic) __weak IKJSInspectorController *controller; // @synthesize controller=_controller;
 - (void).cxx_destruct;
 - (void)archiveWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2;
@@ -44,6 +43,7 @@
 - (void)disableWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2;
 - (void)enableWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2;
 - (void)documentDidChange;
+@property(readonly, nonatomic) RWIProtocolPageFrameResourceTree *resourceTree; // @synthesize resourceTree=_resourceTree;
 - (id)initWithInspectorController:(id)arg1;
 
 // Remaining properties

@@ -46,6 +46,7 @@
 - (id)initWithShape:(id)arg1 dataType:(long long)arg2 error:(id *)arg3;
 - (double *)doublePointer;
 - (_Bool)isEqualToMultiArray:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (_Bool)isContiguousInOrder:(long long)arg1;
 @property(readonly, nonatomic, getter=isContiguous) _Bool contiguous;
 @property(readonly, nonatomic, getter=isManagingData) _Bool managingData;

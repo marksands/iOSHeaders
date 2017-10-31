@@ -17,6 +17,7 @@
     id parentViewController;
 }
 
++ (_Bool)_copyErrorForAuthenticateResponse:(id)arg1 error:(id *)arg2;
 @property(retain) id parentViewController; // @synthesize parentViewController;
 - (void)_handleAuthenticateResponse:(id)arg1;
 - (id)uniqueKey;

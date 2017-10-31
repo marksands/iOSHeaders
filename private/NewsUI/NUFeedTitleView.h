@@ -28,6 +28,7 @@
 - (void)applyTitleViewUpdate:(id)arg1 animation:(unsigned long long)arg2;
 - (_Bool)useCompactTitleViewUpdates;
 - (void)titleViewDidTapOnTitleView:(id)arg1;
+- (void)relayoutWithAnimation:(_Bool)arg1;
 @property(retain, nonatomic) id <NUTitleViewStyler> styler;
 - (void)popApplyFeedTitleViewUpdateWithAnimation:(unsigned long long)arg1 force:(_Bool)arg2;
 - (void)popApplyFeedTitleViewUpdateWithAnimation:(unsigned long long)arg1;

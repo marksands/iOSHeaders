@@ -14,7 +14,6 @@
     id <MPCReportingIdentityPropertiesLoading> _identityPropertiesLoader;
     long long _equivalencySourceAdamID;
     double _eventDuration;
-    NSString *_householdID;
     unsigned long long _overrideItemType;
     NSString *_lyricsID;
     MPModelGenericObject *_itemGenericObject;
@@ -42,7 +41,6 @@
 @property(retain, nonatomic) MPModelGenericObject *itemGenericObject; // @synthesize itemGenericObject=_itemGenericObject;
 @property(copy, nonatomic) NSString *lyricsID; // @synthesize lyricsID=_lyricsID;
 @property(nonatomic) unsigned long long overrideItemType; // @synthesize overrideItemType=_overrideItemType;
-@property(copy, nonatomic) NSString *householdID; // @synthesize householdID=_householdID;
 @property(nonatomic) double eventDuration; // @synthesize eventDuration=_eventDuration;
 @property(nonatomic) long long equivalencySourceAdamID; // @synthesize equivalencySourceAdamID=_equivalencySourceAdamID;
 @property(retain, nonatomic) id <MPCReportingIdentityPropertiesLoading> identityPropertiesLoader; // @synthesize identityPropertiesLoader=_identityPropertiesLoader;

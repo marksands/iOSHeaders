@@ -34,7 +34,7 @@
 - (void).cxx_destruct;
 - (void)_renderRingImage;
 - (void)_animateCurrentActivitySummary;
-- (void)_updateForCurrentSizeCategory;
+- (void)_updateForCurrentSizeCategoryAndSystemLanguage;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)_constrainLabels;
 - (void)_updateStandTitleLabelWithSummary:(id)arg1;

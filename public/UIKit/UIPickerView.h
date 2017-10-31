@@ -47,6 +47,7 @@
         unsigned int usesCheckedSelection:1;
         unsigned int skipsBackground:1;
         unsigned int isInLayoutSubviews:1;
+        unsigned int usesDynamicRowHeight:1;
     } _pickerViewFlags;
     _Bool _usesModernStyle;
     UIColor *_textColor;
@@ -71,6 +72,7 @@
 @property(nonatomic) __weak id <UIPickerViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <UIPickerViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (_Bool)_canHostViewControllerContentScrollView;
 - (id)_scalarStatisticsForUserValueChangedEvent;
 - (void)_willPlayClickSound;
 - (struct CATransform3D)_perspectiveTransform;
@@ -161,6 +163,8 @@
 - (void)setSoundsEnabled:(_Bool)arg1;
 - (id)_orientationImageSuffix;
 - (double)_tableRowHeight;
+- (double)_rowHeightForDefaultFont;
+@property(getter=_usesDynamicRowHeight, setter=_setUsesDynamicRowHeight:) _Bool usesDynamicRowHeight;
 - (_Bool)_isLandscapeOrientation;
 - (struct CGSize)defaultSize;
 - (void)setBackgroundColor:(id)arg1;

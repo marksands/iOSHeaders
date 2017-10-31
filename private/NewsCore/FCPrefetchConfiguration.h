@@ -15,8 +15,10 @@
     _Bool _shouldPrefetchForYouFeed;
     double _minimumBackgroundFetchInterval;
     unsigned long long _maximumFavoritesFeedsToPrefetch;
+    double _prefetchedForYouExpiration;
 }
 
+@property(readonly, nonatomic) double prefetchedForYouExpiration; // @synthesize prefetchedForYouExpiration=_prefetchedForYouExpiration;
 @property(readonly, nonatomic) unsigned long long maximumFavoritesFeedsToPrefetch; // @synthesize maximumFavoritesFeedsToPrefetch=_maximumFavoritesFeedsToPrefetch;
 @property(readonly, nonatomic) _Bool shouldPrefetchForYouFeed; // @synthesize shouldPrefetchForYouFeed=_shouldPrefetchForYouFeed;
 @property(readonly, nonatomic) double minimumBackgroundFetchInterval; // @synthesize minimumBackgroundFetchInterval=_minimumBackgroundFetchInterval;

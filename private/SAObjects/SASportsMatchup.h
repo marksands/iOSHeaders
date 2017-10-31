@@ -6,7 +6,7 @@
 
 #import <SAObjects/SADomainObject.h>
 
-@class NSArray, NSDate, NSNumber, NSString, SALCMLiveTuneInButton, SASportsEntity, SAUIAppPunchOut;
+@class NSArray, NSDate, NSNumber, NSString, SALCMLiveTuneInButton, SALCMToggleButton, SASportsEntity, SAUIAppPunchOut;
 
 @interface SASportsMatchup : SADomainObject
 {
@@ -17,12 +17,15 @@
 @property(copy, nonatomic) NSString *winningEntity;
 @property(copy, nonatomic) NSArray *tvChannels;
 @property(copy, nonatomic) NSString *tournamentSeriesDescription;
+@property(retain, nonatomic) SALCMToggleButton *toggleButton;
 @property(copy, nonatomic) NSString *title;
 @property(copy, nonatomic) NSNumber *timeTBD;
 @property(copy, nonatomic) NSString *timeRemaining;
 @property(copy, nonatomic) NSString *status;
+@property(copy, nonatomic) NSNumber *statsId;
 @property(copy, nonatomic) NSDate *startTime;
 @property(retain, nonatomic) SAUIAppPunchOut *punchout;
+@property(copy, nonatomic) NSNumber *playoff;
 @property(copy, nonatomic) NSArray *playSummaries;
 @property(copy, nonatomic) NSString *periodDescription;
 @property(copy, nonatomic) NSString *overUnder;
@@ -37,6 +40,8 @@
 @property(copy, nonatomic) NSString *homeScore;
 @property(copy, nonatomic) NSArray *homeLineScores;
 @property(retain, nonatomic) SASportsEntity *homeEntity;
+@property(retain, nonatomic) id <SAServerBoundCommand> getModalDetailSnippetCommand;
+@property(retain, nonatomic) id <SAServerBoundCommand> getAppsCommand;
 @property(copy, nonatomic) NSString *gameType;
 @property(copy, nonatomic) NSString *gameSummary;
 @property(copy, nonatomic) NSString *favoredEntity;

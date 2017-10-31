@@ -57,13 +57,13 @@
 + (id)dataForImage:(id)arg1 withFormat:(long long)arg2;
 + (id)normalizeSnapshotName:(id)arg1;
 @property(nonatomic) struct CGAffineTransform imageTransform; // @synthesize imageTransform=_imageTransform;
-@property(copy, nonatomic) NSDictionary *extendedData; // @synthesize extendedData=_extendedData;
 @property(nonatomic) long long imageOrientation; // @synthesize imageOrientation=_imageOrientation;
 @property(nonatomic, getter=isImageOpaque) _Bool imageOpaque; // @synthesize imageOpaque=_imageOpaque;
 @property(nonatomic) double imageScale; // @synthesize imageScale=_imageScale;
 @property(readonly, nonatomic) NSString *logIdentifier; // @synthesize logIdentifier=_logIdentifier;
 @property(copy) XBSnapshotContainerIdentity *containerIdentity; // @synthesize containerIdentity=_containerIdentity;
 @property(readonly, nonatomic, getter=_store) id <XBSnapshotManifestStore> store; // @synthesize store=_store;
+@property(copy) NSDictionary *extendedData; // @synthesize extendedData=_extendedData;
 @property(readonly, nonatomic) XBApplicationSnapshotGenerationContext *generationContext; // @synthesize generationContext=_generationContext;
 @property(nonatomic) long long backgroundStyle; // @synthesize backgroundStyle=_backgroundStyle;
 @property(nonatomic) long long compatibilityMode; // @synthesize compatibilityMode=_compatibilityMode;

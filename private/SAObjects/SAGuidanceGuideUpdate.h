@@ -14,8 +14,8 @@
 
 + (id)guideUpdateWithDictionary:(id)arg1 context:(id)arg2;
 + (id)guideUpdate;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
-@property(copy, nonatomic) NSNumber *suggestedUtterancesTag;
 @property(retain, nonatomic) SAGuidanceSuggestedUtterances *suggestedUtterances;
 @property(copy, nonatomic) NSString *languageCode;
 @property(copy, nonatomic) NSNumber *guideTag;

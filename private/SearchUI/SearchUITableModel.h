@@ -17,6 +17,7 @@
 + (id)rowModelsForResult:(id)arg1;
 + (id)resultsForMultiResultRowInSection:(id)arg1 startingAtIndex:(unsigned long long)arg2;
 + (id)gridLayoutsForCardSections:(id)arg1;
++ (id)asyncRowManagersForCardSections:(id)arg1;
 + (id)rowModelsForCardSections:(id)arg1 result:(id)arg2;
 + (id)tableModelWithResult:(id)arg1;
 + (id)tableModelWithCardSections:(id)arg1;

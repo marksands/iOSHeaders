@@ -39,6 +39,7 @@
 - (void)_reallySendExchangeData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)__handleReceivedExchangeData:(id)arg1;
 - (void)sendExchangeData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_handleDisconnection:(id)arg1;
 - (void)__handleClose:(id)arg1;
 - (void)_closeWithError:(id)arg1;
 - (void)close;

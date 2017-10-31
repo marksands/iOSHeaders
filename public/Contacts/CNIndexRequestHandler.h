@@ -36,6 +36,8 @@
 - (_Bool)beginIndexBatch;
 - (_Bool)fetchLastClientState;
 - (id)_futureForFetchLastClientState;
+- (id)verifyIndexLoggingSummary:(_Bool)arg1 error:(id *)arg2;
+- (id)fetchSearchableItemsIndexedByContactIdentifierWithError:(id *)arg1;
 - (id)searchableItemsForContactIdentifiers:(id)arg1;
 - (void)consumeChangeHistory:(id)arg1;
 - (_Bool)batchIndexUpdatingItems:(id)arg1 deletingItemsWithIdentifiers:(id)arg2;
@@ -45,6 +47,7 @@
 - (_Bool)fullSyncContacts;
 - (_Bool)prepareForFullSync:(id)arg1;
 - (void)fetchAndCheckLastClientState;
+- (id)fetchChangeHistoryWithError:(id *)arg1;
 - (id)fetchChangeHistory;
 - (void)registerForChangeHistory;
 - (void)_performIndexingWithForcedReindexing:(_Bool)arg1;

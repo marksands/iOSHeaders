@@ -52,7 +52,6 @@
     double _linkConnectTime;
     double _firstClientPacketTime;
     struct IDSNAT64PrefixCache_ *_nat64PrefixCache;
-    NSMutableArray *_nat64Blocks;
     NSMutableDictionary *_tokenToCandidatePairs;
     NSMutableDictionary *_linkIDToCandidatePairs;
     NSMutableDictionary *_channelToCandidatePairs;
@@ -103,6 +102,7 @@
     unsigned long long _headerOverhead;
     unsigned long long _state;
     unsigned char _clientUUID[16];
+    NSString *_idsSessionID;
     unsigned long long _totalBytesSent;
     unsigned long long _totalPacketsSent;
     unsigned long long _totalBytesReceived;
@@ -256,7 +256,7 @@
 - (void)startWithOptions:(id)arg1;
 - (void)_parseClientUUID:(id)arg1;
 - (id)_addSocketAndInterfaceAddress:(unsigned long long)arg1 wantsWiFi:(_Bool)arg2 wantsCellular:(_Bool)arg3;
-- (void)_getNAT64PrefixForInterface:(int)arg1 interfaceName:(id)arg2;
+- (void)_getNAT64PrefixForInterface:(int)arg1 interfaceName:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (id)_delayProcessingCellularInterfaces:(id)arg1;
 - (id)_createInterfaceAddressArray:(unsigned long long)arg1 wantsWiFi:(_Bool)arg2 wantsCellular:(_Bool)arg3;
 - (void)_callDisconnectCompletionHandler:(id)arg1;

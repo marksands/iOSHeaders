@@ -24,6 +24,7 @@
 
 + (id)feedContextForHiddenFeed;
 + (id)feedContextForCoverArticlesFeed;
++ (id)feedContextForBreakingNewsChannelID:(id)arg1;
 + (id)feedContextForEditorialChannel:(id)arg1 editorialGemsSectionID:(id)arg2;
 + (id)feedContextForEditorialChannel:(id)arg1 sectionID:(id)arg2;
 + (id)feedContextForTopStoriesChannel:(id)arg1 sectionID:(id)arg2;

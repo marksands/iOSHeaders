@@ -20,7 +20,6 @@
     long long _defaultAlarmOffset;
 }
 
-+ (id)_dateFromBirthdayComponents:(id)arg1;
 - (void).cxx_destruct;
 - (void)main;
 - (int)_pruneEventsFromCalendar:(void *)arg1 matchingFacebookStatus:(_Bool)arg2 andStoreInRecord:(id)arg3;

@@ -8,7 +8,7 @@
 
 #import "CityUpdateObserver.h"
 
-@class City, NSString;
+@class City, NSLocale, NSString;
 
 @interface WeatherView : UIView <CityUpdateObserver>
 {
@@ -16,6 +16,7 @@
     _Bool _showingDay;
     _Bool _showWind;
     UIView *_windView;
+    NSLocale *_lastLocale;
 }
 
 @property(retain, nonatomic, setter=showCity:) City *city; // @synthesize city=_city;

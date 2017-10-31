@@ -127,9 +127,9 @@
 - (void)_setStatusState:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (unsigned long long)_statusStateForLockoutState:(unsigned long long)arg1;
 - (void)updateStatusTextAnimated:(_Bool)arg1;
-- (void)updateStatusText:(id)arg1 subtitle:(id)arg2 animated:(_Bool)arg3;
 - (void)_setSuppressTitleText:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setNeedsStatusTextUpdate;
+- (double)_numberPadOffsetFromTopOfScreen:(id)arg1;
 - (void)_updateStatusStateForLockoutIfNecessaryAnimatedly:(_Bool)arg1;
 - (void)_sendDelegateKeypadKeyUp;
 - (void)_sendDelegateKeypadKeyDown;
@@ -137,6 +137,7 @@
 - (void)_setLegibilitySettings:(id)arg1;
 - (_Bool)_isBoundsPortraitOriented;
 - (long long)_orientation;
+- (void)updateStatusText:(id)arg1 subtitle:(id)arg2 animated:(_Bool)arg3;
 - (void)didMoveToWindow;
 - (void)willMoveToWindow:(id)arg1;
 - (_Bool)_canRecognizeBiometricAuthentication;

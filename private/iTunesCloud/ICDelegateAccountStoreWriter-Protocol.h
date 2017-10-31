@@ -17,6 +17,5 @@
 - (void)addDelegationUUIDs:(NSArray *)arg1 forUserIdentity:(ICUserIdentity *)arg2 completionHandler:(void (^)(_Bool, NSError *))arg3;
 - (void)setIdentityProperties:(ICUserIdentityProperties *)arg1 forUserIdentity:(ICUserIdentity *)arg2 completionHandler:(void (^)(_Bool, NSError *))arg3;
 - (void)removeIdentityPropertiesForUserIdentity:(ICUserIdentity *)arg1 completionHandler:(void (^)(_Bool, NSError *))arg2;
-- (void)invalidate;
 @end
 

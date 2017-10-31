@@ -44,6 +44,7 @@
 - (void)_loadBestRepresentationIfNeeded;
 @property(readonly, nonatomic) NSCache *cache;
 - (void)setCacheIdentifier:(id)arg1 forRequestingContext:(id)arg2;
+- (void)requestExportableArtworkPropertiesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)requestExportableArtworkURLWithCompletion:(CDUnknownBlockType)arg1;
 - (void)requestRadiosityImageWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)requestFocusRegionsWithCompletionHandler:(CDUnknownBlockType)arg1;

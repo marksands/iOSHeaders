@@ -21,6 +21,7 @@
     _Bool _showsEmergencyCallButton;
     _Bool _showsCancelButton;
     id <SBUIPasscodeLockNumberPadDelegate> _delegate;
+    double _ancillaryButtonOffset;
     UIControl<SBUIPasscodeNumberPadButton> *_downButton;
     SBUIButton *_emergencyCallButton;
     SBUIButton *_backspaceButton;
@@ -34,6 +35,7 @@
 @property(readonly, nonatomic) SBUIButton *backspaceButton; // @synthesize backspaceButton=_backspaceButton;
 @property(readonly, nonatomic) SBUIButton *emergencyCallButton; // @synthesize emergencyCallButton=_emergencyCallButton;
 @property(retain, nonatomic) UIControl<SBUIPasscodeNumberPadButton> *downButton; // @synthesize downButton=_downButton;
+@property(nonatomic) double ancillaryButtonOffset; // @synthesize ancillaryButtonOffset=_ancillaryButtonOffset;
 @property(nonatomic) _Bool showsCancelButton; // @synthesize showsCancelButton=_showsCancelButton;
 @property(nonatomic) _Bool showsEmergencyCallButton; // @synthesize showsEmergencyCallButton=_showsEmergencyCallButton;
 @property(nonatomic) _Bool showsBackspaceButton; // @synthesize showsBackspaceButton=_showsBackspaceButton;

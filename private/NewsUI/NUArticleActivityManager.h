@@ -16,10 +16,10 @@
     FCReadingHistory *_readingHistory;
     FCReadingList *_readingList;
     FCSubscriptionList *_subscriptionList;
-    id <NUURLHandler> _URLHandler;
+    id <NUURLHandling> _URLHandler;
 }
 
-@property(readonly, nonatomic) id <NUURLHandler> URLHandler; // @synthesize URLHandler=_URLHandler;
+@property(readonly, nonatomic) id <NUURLHandling> URLHandler; // @synthesize URLHandler=_URLHandler;
 @property(readonly, nonatomic) FCSubscriptionList *subscriptionList; // @synthesize subscriptionList=_subscriptionList;
 @property(readonly, nonatomic) FCReadingList *readingList; // @synthesize readingList=_readingList;
 @property(readonly, nonatomic) FCReadingHistory *readingHistory; // @synthesize readingHistory=_readingHistory;

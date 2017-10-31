@@ -6,20 +6,21 @@
 
 #import "NSObject.h"
 
-@class MPAVRoute, MPAVRoutingDataSource, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+@class MPAVRoute, MPAVRoutingDataSource, NSArray, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString;
 
 @interface MPAVRoutingController : NSObject
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSArray *_cachedRoutes;
-    MPAVRoute *_cachedPickedRoute;
+    NSArray *_cachedPickedRoutes;
+    NSMutableSet *_pendingPickedRoutes;
     MPAVRoute *_legacyCachedRoute;
     NSMutableArray *_asyncFetchingCompletionHandlers;
     _Bool _asyncFetchingRoutes;
     long long _externalScreenType;
     _Bool _hasExternalScreenType;
     _Bool _scheduledSendDelegateRoutesChanged;
-    unsigned long long _volumeControlStateForPickedRoute;
+    long long _volumeControlStateForPickedRoute;
     int _deviceAvailabilityNotifyToken;
     _Bool _deviceAvailabilityOverrideState;
     id <MPAVRoutingControllerDelegate> _delegate;
@@ -28,13 +29,18 @@
     long long _discoveryMode;
     NSString *_category;
     long long _routeTypes;
-    MPAVRoute *_pendingPickedRoute;
 }
 
++ (void)setActiveRoute:(id)arg1 completion:(CDUnknownBlockType)arg2;
++ (void)_getActiveRouteWithTimeout:(double)arg1 discoveredRoutes:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (void)getActiveRouteWithTimeout:(double)arg1 completion:(CDUnknownBlockType)arg2;
++ (void)getActiveRouteWithCompletion:(CDUnknownBlockType)arg1;
++ (id)systemRouteWithContextUID:(id)arg1;
++ (id)systemRoute;
 + (id)_currentDeviceRoutingIconImageName;
 + (id)_currentDeviceRoutingIconImage;
 + (id)_iconImageForRoute:(id)arg1;
-@property(readonly, nonatomic) MPAVRoute *pendingPickedRoute; // @synthesize pendingPickedRoute=_pendingPickedRoute;
+@property(readonly, nonatomic) NSSet *pendingPickedRoutes; // @synthesize pendingPickedRoutes=_pendingPickedRoutes;
 @property(nonatomic) long long routeTypes; // @synthesize routeTypes=_routeTypes;
 @property(copy, nonatomic) NSString *category; // @synthesize category=_category;
 @property(nonatomic) long long discoveryMode; // @synthesize discoveryMode=_discoveryMode;
@@ -42,17 +48,22 @@
 @property(readonly, nonatomic) MPAVRoutingDataSource *dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <MPAVRoutingControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)getActiveRouteWithTimeout:(double)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)_deviceAvailabilityOverrideState;
-- (void)_setVolumeControlStateForPickedRoute:(unsigned long long)arg1;
-- (unsigned long long)_volumeControlStateForPickedRoute;
+- (void)_setVolumeControlStateForPickedRoute:(long long)arg1;
+- (long long)_volumeControlStateForPickedRoute;
 - (long long)_externalScreenType:(_Bool *)arg1;
 - (void)_scheduleSendDelegateRoutesChanged;
 - (void)_updateCachedRoutes;
 - (void)_onQueueSetExternalScreenType:(long long)arg1;
 - (void)_setExternalScreenType:(long long)arg1;
+- (id)_pickedRoutesInArray:(id)arg1;
 - (id)_pickedRouteInArray:(id)arg1;
 - (void)_unregisterNotifications;
 - (void)_registerNotifications;
+- (void)_refreshPendingRoutes;
+- (void)_removePendingRoute:(id)arg1;
+- (void)_addPendingRoute:(id)arg1;
 - (void)logCurrentRoutes;
 - (void)_onQueueClearCachedRoutes;
 - (void)clearCachedRoutes;
@@ -74,11 +85,20 @@
 - (_Bool)pickSpeakerRoute;
 - (_Bool)pickHandsetRoute;
 - (_Bool)pickBestDeviceRoute;
+- (_Bool)removePickedRoute:(id)arg1;
+- (_Bool)addPickedRoute:(id)arg1;
+@property(readonly, nonatomic) _Bool supportsMultipleSelection;
+- (_Bool)pickRoute:(id)arg1 withPassword:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)pickRoute:(id)arg1 withPassword:(id)arg2;
 - (_Bool)pickRoute:(id)arg1;
 - (id)videoRouteForRoute:(id)arg1;
 - (void)fetchAvailableRoutesWithCompletionHandler:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) MPAVRoute *pendingPickedRoute;
 @property(readonly, nonatomic) _Bool volumeControlIsAvailable;
+@property(readonly, nonatomic) _Bool hasPendingPickedRoutes;
+- (_Bool)routeIsPendingPick:(id)arg1;
+- (_Bool)routeIsLeaderOfEndpoint:(id)arg1;
+@property(readonly, nonatomic) NSArray *pickedRoutes;
 @property(readonly, nonatomic) MPAVRoute *pickedRoute;
 @property(readonly, nonatomic) long long externalScreenType;
 @property(readonly, copy, nonatomic) NSArray *availableRoutes;

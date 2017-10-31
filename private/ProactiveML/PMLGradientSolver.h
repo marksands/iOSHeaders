@@ -11,6 +11,8 @@
 @interface PMLGradientSolver : NSObject
 {
     float _learningRate;
+    float _stoppingThreshold;
+    unsigned long long _minIterations;
     CDUnknownBlockType _gradientCalculator;
     CDUnknownBlockType _predictionCalculator;
     CDUnknownBlockType _batchPredictionCalculator;
@@ -33,8 +35,7 @@
 - (id)computeAvgGradientWithIterations:(unsigned long long)arg1;
 - (void)solve;
 - (id)init;
-- (id)initWithLearningRate:(float)arg1 weights:(id)arg2 intercept:(_Bool)arg3 gradientCalculator:(CDUnknownBlockType)arg4 predictionCalculator:(CDUnknownBlockType)arg5 batchPredictionCalculator:(CDUnknownBlockType)arg6;
-- (id)initWithLearningRate:(float)arg1 weights:(id)arg2 gradientCalculator:(CDUnknownBlockType)arg3 predictionCalculator:(CDUnknownBlockType)arg4 batchPredictionCalculator:(CDUnknownBlockType)arg5;
+- (id)initWithLearningRate:(float)arg1 minIterations:(unsigned long long)arg2 stoppingThreshold:(float)arg3 weights:(id)arg4 intercept:(_Bool)arg5 gradientCalculator:(CDUnknownBlockType)arg6 predictionCalculator:(CDUnknownBlockType)arg7 batchPredictionCalculator:(CDUnknownBlockType)arg8;
 
 @end
 

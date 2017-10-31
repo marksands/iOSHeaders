@@ -10,6 +10,7 @@
 
 @interface MPChangePlaybackRateCommand : MPRemoteCommand
 {
+    float _preferredRate;
     NSArray *_supportedPlaybackRates;
 }
 
@@ -17,6 +18,8 @@
 - (void).cxx_destruct;
 - (id)newCommandEventWithPlaybackRate:(float)arg1;
 - (id)_mediaRemoteCommandInfoOptions;
+- (void)setPreferredRate:(float)arg1;
+- (float)preferredRate;
 
 @end
 

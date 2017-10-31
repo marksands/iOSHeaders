@@ -6,13 +6,12 @@
 
 #import <AppStoreDaemon/ASDBaseClient.h>
 
-#import "ASDApplicationProgressDelegate.h"
 #import "ASDJobManagerClient.h"
 #import "NSXPCListenerDelegate.h"
 
 @class ASDJobManagerOptions, NSArray, NSHashTable, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
 
-@interface ASDJobManager : ASDBaseClient <NSXPCListenerDelegate, ASDApplicationProgressDelegate, ASDJobManagerClient>
+@interface ASDJobManager : ASDBaseClient <ASDJobManagerClient, NSXPCListenerDelegate>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSXPCConnection *_connection;
@@ -22,13 +21,13 @@
     NSHashTable *_observers;
     ASDJobManagerOptions *_options;
     NSMutableSet *_removedJobs;
+    _Bool _useLaunchServicesProgress;
     NSObject<OS_dispatch_queue> *_xpcQueue;
 }
 
 - (void).cxx_destruct;
 - (void)_willFinishJobs:(id)arg1;
 - (void)_updateActiveIDs:(id)arg1;
-- (_Bool)_trackProgressForBundleID:(id)arg1;
 - (_Bool)_shouldAutomaticallyReconnect;
 - (void)_setupConnection;
 - (void)_sendStatesUpdated:(id)arg1;
@@ -50,7 +49,6 @@
 - (void)didCompleteJobs:(id)arg1 finalPhases:(id)arg2;
 - (void)didCompleteJobs:(id)arg1;
 - (void)didChangeJobs:(id)arg1;
-- (void)didUpdateApplicationProgress:(id)arg1;
 - (void)resumeJobsWithIDs:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)removeObserver:(id)arg1;
 - (void)pauseJobsWithIDs:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;

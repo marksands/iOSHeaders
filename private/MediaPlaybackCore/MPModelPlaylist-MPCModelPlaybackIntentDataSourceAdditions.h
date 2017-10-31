@@ -7,6 +7,7 @@
 #import "MPModelPlaylist.h"
 
 @interface MPModelPlaylist (MPCModelPlaybackIntentDataSourceAdditions)
++ (id)mpc_remotePlaybackQueueRequiredProperties;
 - (id)mpc_protoContainerRepresentation;
 @end
 

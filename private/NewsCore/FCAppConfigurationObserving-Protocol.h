@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class FCAppConfigurationManager;
+@class FCAppConfigurationManager, NSArray;
 
 @protocol FCAppConfigurationObserving <NSObject>
 
 @optional
 - (void)appConfigurationManagerUserDidJoinOrLeaveExperiment:(FCAppConfigurationManager *)arg1;
-- (void)appConfigurationTrendingTopicsDidChange:(FCAppConfigurationManager *)arg1;
-- (void)appConfigurationDidChange:(FCAppConfigurationManager *)arg1;
+- (void)appConfigurationManager:(FCAppConfigurationManager *)arg1 trendingTopicsDidChange:(NSArray *)arg2;
+- (void)appConfigurationManager:(FCAppConfigurationManager *)arg1 appConfigurationDidChange:(id <FCAppConfiguration>)arg2;
 @end
 

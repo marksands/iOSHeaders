@@ -9,7 +9,7 @@
 #import "PXPhotosDataSourceChangeObserver.h"
 #import "PXUIWidget.h"
 
-@class NSMutableArray, NSMutableDictionary, NSObject<PXAnonymousView>, NSString, PHAsset, PXOneUpPresentation, PXPhotosDetailsContext, PXPlacesMapFetchResultViewController, PXPlacesMapViewPort, PXPlacesSnapshotFactory, PXSectionedSelectionManager, PXTilingController, PXUIImageView, PXWidgetSpec, UIButton, UIFont, UIView;
+@class NSMutableArray, NSMutableDictionary, NSObject<PXAnonymousView>, NSString, PHAsset, PXImageUIView, PXOneUpPresentation, PXPhotosDetailsContext, PXPlacesMapFetchResultViewController, PXPlacesMapViewPort, PXPlacesSnapshotFactory, PXSectionedSelectionManager, PXTilingController, PXWidgetSpec, UIButton, UIFont, UIView;
 
 @interface PXUIMapWidget : NSObject <PXPhotosDataSourceChangeObserver, PXUIWidget>
 {
@@ -28,7 +28,7 @@
     PXWidgetSpec *_spec;
     UIView *__containerView;
     UIView *__contentView;
-    PXUIImageView *__imageView;
+    PXImageUIView *__imageView;
     PXPlacesMapFetchResultViewController *__mapViewController;
     NSString *__cachedLocalizedTitle;
     NSString *__cachedDisclosureTitle;
@@ -52,7 +52,7 @@
 @property(retain, nonatomic) NSString *_cachedDisclosureTitle; // @synthesize _cachedDisclosureTitle=__cachedDisclosureTitle;
 @property(retain, nonatomic) NSString *_cachedLocalizedTitle; // @synthesize _cachedLocalizedTitle=__cachedLocalizedTitle;
 @property(readonly, nonatomic) PXPlacesMapFetchResultViewController *_mapViewController; // @synthesize _mapViewController=__mapViewController;
-@property(readonly, nonatomic) PXUIImageView *_imageView; // @synthesize _imageView=__imageView;
+@property(readonly, nonatomic) PXImageUIView *_imageView; // @synthesize _imageView=__imageView;
 @property(readonly, nonatomic) UIView *_contentView; // @synthesize _contentView=__contentView;
 @property(readonly, nonatomic) UIView *_containerView; // @synthesize _containerView=__containerView;
 @property(nonatomic) _Bool showAddressLink; // @synthesize showAddressLink=_showAddressLink;

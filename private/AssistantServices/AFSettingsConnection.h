@@ -17,6 +17,7 @@
     id <AFSettingsDelegate> _delegate;
 }
 
++ (void)initialize;
 - (void).cxx_destruct;
 - (void)fetchExperimentContextWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchExperimentConfigurationsWithCompletion:(CDUnknownBlockType)arg1;

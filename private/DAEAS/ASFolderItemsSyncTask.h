@@ -16,6 +16,7 @@
     _Bool _isInitialBootstrapSync;
     _Bool _willUpdate;
     _Bool _moreAvailable;
+    _Bool _clientWinsOnSyncConflict;
     _Bool _isResyncAfterConnectionFailed;
     _Bool _moreLocalChangesAvailable;
     _Bool _deletesAsMoves;
@@ -51,6 +52,7 @@
 @property(retain, nonatomic) ASMailMessage *streamingMailMessage; // @synthesize streamingMailMessage=_streamingMailMessage;
 @property(nonatomic) int filterDays; // @synthesize filterDays=_filterDays;
 @property(nonatomic, setter=setMIMESupport:) int mimeSupport; // @synthesize mimeSupport=_mimeSupport;
+@property(nonatomic) _Bool clientWinsOnSyncConflict; // @synthesize clientWinsOnSyncConflict=_clientWinsOnSyncConflict;
 @property(nonatomic) int bodyTruncationBytes; // @synthesize bodyTruncationBytes=_bodyTruncationBytes;
 @property(nonatomic) _Bool moreAvailable; // @synthesize moreAvailable=_moreAvailable;
 @property(nonatomic) _Bool willUpdate; // @synthesize willUpdate=_willUpdate;

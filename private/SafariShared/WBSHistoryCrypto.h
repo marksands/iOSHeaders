@@ -10,15 +10,15 @@
 
 @interface WBSHistoryCrypto : NSObject
 {
-    NSData *_cryptographicKey;
+    NSData *_cachedCryptographicKey;
     NSData *_salt;
 }
 
-+ (void)upgradeKeychainIfNeeded;
 @property(readonly, nonatomic) NSData *salt; // @synthesize salt=_salt;
 - (void).cxx_destruct;
 - (id)decryptDictionary:(id)arg1;
 - (id)encryptDictionary:(id)arg1;
+@property(readonly, nonatomic) NSData *cryptographicKey;
 - (id)_createOrLoadCryptographicKey;
 - (id)_createCryptographicKey;
 - (id)initWithCryptographicKey:(id)arg1 salt:(id)arg2;

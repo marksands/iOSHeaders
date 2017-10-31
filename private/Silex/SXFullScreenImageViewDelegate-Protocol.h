@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class SXFullScreenImageView;
+@class SXFullscreenImageView;
 
-@protocol SXFullScreenImageViewDelegate <NSObject>
+@protocol SXFullscreenImageViewDelegate <NSObject>
 
 @optional
-- (void)fullScreenImageViewDidStopZooming:(SXFullScreenImageView *)arg1;
-- (void)fullScreenImageViewDidStartZooming:(SXFullScreenImageView *)arg1;
+- (void)fullScreenImageViewDidStopZooming:(SXFullscreenImageView *)arg1;
+- (void)fullScreenImageViewDidStartZooming:(SXFullscreenImageView *)arg1;
 @end
 

@@ -9,17 +9,20 @@
 #import "_UINavigationBarTitleViewDataSource.h"
 #import "_UINavigationBarTransitionContextParticipant.h"
 
-@class NSDictionary, NSString, UIFontMetrics, _UINavigationBarLargeTitleViewLayout, _UINavigationBarTransitionContext, _UINavigationControllerRefreshControlHost;
+@class NSArray, NSDictionary, NSString, UIFontMetrics, _UINavigationBarLargeTitleViewLayout, _UINavigationBarTransitionContext, _UINavigationControllerRefreshControlHost;
 
 __attribute__((visibility("hidden")))
 @interface _UINavigationBarLargeTitleView : UIView <_UINavigationBarTitleViewDataSource, _UINavigationBarTransitionContextParticipant>
 {
     _UINavigationBarLargeTitleViewLayout *_layout;
     _UINavigationBarTransitionContext *_transitionContext;
+    NSArray *_titleCandidates;
+    NSString *__effectiveTitle;
     _Bool _supportsTwoLines;
     _Bool _alignAccessoryViewToTitleBaseline;
     long long _titleType;
     NSString *_title;
+    NSArray *_alternateTitles;
     NSDictionary *_titleAttributes;
     double _restingHeightOfTitleView;
     UIView *_accessoryView;
@@ -36,6 +39,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double restingHeightOfTitleView; // @synthesize restingHeightOfTitleView=_restingHeightOfTitleView;
 @property(nonatomic) _Bool supportsTwoLines; // @synthesize supportsTwoLines=_supportsTwoLines;
 @property(copy, nonatomic) NSDictionary *titleAttributes; // @synthesize titleAttributes=_titleAttributes;
+@property(retain, nonatomic) NSArray *alternateTitles; // @synthesize alternateTitles=_alternateTitles;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) long long titleType; // @synthesize titleType=_titleType;
 - (void).cxx_destruct;
@@ -50,6 +54,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double restingHeightOfRefreshControl; // @dynamic restingHeightOfRefreshControl;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)updateContent;
+- (void)_updateContentAndInvalidate:(_Bool)arg1;
+- (id)_effectiveTitle;
+- (id)_titleForCurrentWidth;
 - (void)_updateFontMetrics;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

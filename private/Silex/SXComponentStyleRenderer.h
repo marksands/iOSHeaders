@@ -6,14 +6,18 @@
 
 #import "NSObject.h"
 
+#import "SXComponentStyleRenderer.h"
 #import "SXViewportChangeListener.h"
 
-@class NSString, SXComponentStyle, SXComponentView, SXGradientFillView, SXImageFillView, SXVideoFillView, UIView;
+@class NSString, SXComponentStyle, SXComponentView, SXDocumentController, SXGradientFillView, SXImageFillView, SXVideoFillView, UIView;
 
-@interface SXComponentStyleRenderer : NSObject <SXViewportChangeListener>
+@interface SXComponentStyleRenderer : NSObject <SXViewportChangeListener, SXComponentStyleRenderer>
 {
     _Bool _didRegisterForDynamicBounds;
     SXComponentStyle *_componentStyle;
+    SXDocumentController *_documentController;
+    id <SXImageViewFactory> _imageViewFactory;
+    id <SXGradientFactory> _gradientFactory;
     SXComponentView *_componentView;
     SXGradientFillView *_gradientFillView;
     SXImageFillView *_imageFillView;
@@ -29,7 +33,10 @@
 @property(retain, nonatomic) SXImageFillView *imageFillView; // @synthesize imageFillView=_imageFillView;
 @property(retain, nonatomic) SXGradientFillView *gradientFillView; // @synthesize gradientFillView=_gradientFillView;
 @property(readonly, nonatomic) __weak SXComponentView *componentView; // @synthesize componentView=_componentView;
-@property(readonly, nonatomic) __weak SXComponentStyle *componentStyle; // @synthesize componentStyle=_componentStyle;
+@property(readonly, nonatomic) id <SXGradientFactory> gradientFactory; // @synthesize gradientFactory=_gradientFactory;
+@property(readonly, nonatomic) id <SXImageViewFactory> imageViewFactory; // @synthesize imageViewFactory=_imageViewFactory;
+@property(readonly, nonatomic) SXDocumentController *documentController; // @synthesize documentController=_documentController;
+@property(readonly, nonatomic) SXComponentStyle *componentStyle; // @synthesize componentStyle=_componentStyle;
 - (void).cxx_destruct;
 - (void)viewport:(id)arg1 dynamicBoundsDidChangeFromBounds:(struct CGRect)arg2;
 - (void)viewport:(id)arg1 appearStateChangedFromState:(unsigned long long)arg2;
@@ -41,8 +48,8 @@
 - (void)applyFill:(id)arg1;
 - (void)applyComponentStyle;
 - (void)componentVisiblityStateDidChange:(long long)arg1;
-- (void)prepare;
-- (id)initWithComponentView:(id)arg1 componentStyle:(id)arg2;
+- (void)prepareForComponentView:(id)arg1;
+- (id)initWithComponentStyle:(id)arg1 documentController:(id)arg2 imageViewFactory:(id)arg3 gradientViewFactory:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

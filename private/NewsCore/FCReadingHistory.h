@@ -15,6 +15,7 @@
     FCMTWriterMutexLock *_itemsLock;
 }
 
++ (void)configureKeyValueStoreForJSONHandling:(id)arg1;
 + (id)commandsToMergeLocalDataToCloud:(id)arg1;
 + (long long)commandQueueUrgency;
 + (id)commandStoreFileName;

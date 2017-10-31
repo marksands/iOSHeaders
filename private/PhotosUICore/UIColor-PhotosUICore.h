@@ -7,6 +7,7 @@
 #import "UIColor.h"
 
 @interface UIColor (PhotosUICore)
++ (id)px_systemMidGray;
 + (id)alternateSelectedControlColor;
 @property(readonly, nonatomic, getter=px_isTransparent) _Bool px_transparent;
 @end

@@ -33,6 +33,7 @@
 - (struct CGRect)screenCollisionBounds;
 - (struct CGPoint)screenPointToScrollRelativeToWithCanvasSize:(struct CGSize)arg1 canvasScale:(double)arg2;
 - (struct CGPoint)calloutAnchorPointWithCanvasSize:(struct CGSize)arg1 canvasScale:(double)arg2 snapToPixels:(_Bool)arg3;
+- (void)setIsPickedIconDrawnExternally:(_Bool)arg1;
 - (void)setLabelPressed:(_Bool)arg1;
 @property(readonly, nonatomic) NSArray *shields;
 @property(readonly, nonatomic) NSArray *imageKeys;
@@ -69,6 +70,7 @@
 - (_Bool)isAlongSelectedTransitLine;
 - (_Bool)isOnRoute;
 @property(nonatomic) _Bool isDragged;
+- (_Bool)isSelected;
 - (_Bool)isSelectable;
 - (struct CGRect)calloutAnchorRect;
 - (id)mapRegion;

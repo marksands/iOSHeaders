@@ -13,6 +13,7 @@
 
 @interface MNCommuteDestinationSuggestion : NSObject <NSCopying, NSSecureCoding>
 {
+    _Bool _allDay;
     NSData *_rawSuggestion;
     NSString *_uniqueIdentifier;
     unsigned long long _type;
@@ -30,6 +31,7 @@
 + (id)fakeDestinationSuggestion:(id)arg1;
 + (id)_fakeBitsAndPiecesForSuggestion:(id)arg1;
 + (void)_setupFakes;
+@property(nonatomic, getter=isAllDay) _Bool allDay; // @synthesize allDay=_allDay;
 @property(copy, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
 @property(copy, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(copy, nonatomic) NSDate *expires; // @synthesize expires=_expires;

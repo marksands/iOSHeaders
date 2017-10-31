@@ -8,7 +8,7 @@
 
 #import "NSFilePresenter.h"
 
-@class NSOperationQueue, NSSet, NSString, NSURL;
+@class FCAsyncSerialQueue, NSOperationQueue, NSSet, NSString, NSURL;
 
 @interface FCFileCoordinatedDictionary : NSObject <NSFilePresenter>
 {
@@ -16,10 +16,12 @@
     NSOperationQueue *_presentedItemOperationQueue;
     NSURL *_fileURL;
     NSOperationQueue *_accessQueue;
+    FCAsyncSerialQueue *_accessSynchronizationQueue;
 }
 
-@property(retain, nonatomic) NSOperationQueue *accessQueue; // @synthesize accessQueue=_accessQueue;
-@property(copy, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
+@property(readonly, nonatomic) FCAsyncSerialQueue *accessSynchronizationQueue; // @synthesize accessSynchronizationQueue=_accessSynchronizationQueue;
+@property(readonly, nonatomic) NSOperationQueue *accessQueue; // @synthesize accessQueue=_accessQueue;
+@property(readonly, copy, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(readonly, retain) NSOperationQueue *presentedItemOperationQueue; // @synthesize presentedItemOperationQueue=_presentedItemOperationQueue;
 @property(readonly, copy) NSURL *presentedItemURL; // @synthesize presentedItemURL=_presentedItemURL;
 - (void).cxx_destruct;
@@ -28,7 +30,6 @@
 - (void)replaceWithEntriesFromDictionary:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)writeWithAccessor:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)readWithAccessor:(CDUnknownBlockType)arg1;
-@property long long maxConcurrentOperationCount;
 - (id)initWithFileURL:(id)arg1;
 - (id)init;
 

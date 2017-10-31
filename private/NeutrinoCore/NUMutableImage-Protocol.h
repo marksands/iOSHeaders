@@ -6,10 +6,8 @@
 
 #import "NUImage.h"
 
-@class NURegion;
-
 @protocol NUMutableImage <NUImage>
-- (_Bool)copyBufferStorage:(id <NUImageStorage>)arg1 region:(NURegion *)arg2 atPoint:(CDStruct_912cb5d2)arg3;
-- (_Bool)copySurfaceStorage:(id <NUSurfaceStorage>)arg1 device:(id <NUDevice>)arg2 region:(NURegion *)arg3 atPoint:(CDStruct_912cb5d2)arg4;
+- (_Bool)copyBufferStorage:(id <NUImageStorage>)arg1 fromRect:(CDStruct_996ac03c)arg2 toPoint:(CDStruct_912cb5d2)arg3;
+- (_Bool)copySurfaceStorage:(id <NUSurfaceStorage>)arg1 fromRect:(CDStruct_996ac03c)arg2 toPoint:(CDStruct_912cb5d2)arg3 device:(id <NUDevice>)arg4;
 @end
 

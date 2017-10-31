@@ -12,13 +12,16 @@ __attribute__((visibility("hidden")))
     _Bool _didMoveBeyondThreshold;
     _Bool _hideSwitcher;
     double _touchDown;
+    double _lastSeenKeyboardTouchDown;
     struct CGPoint _firstReferencePoint;
 }
 
+@property(nonatomic) double lastSeenKeyboardTouchDown; // @synthesize lastSeenKeyboardTouchDown=_lastSeenKeyboardTouchDown;
 @property(nonatomic) double touchDown; // @synthesize touchDown=_touchDown;
 @property(nonatomic) struct CGPoint firstReferencePoint; // @synthesize firstReferencePoint=_firstReferencePoint;
 @property(nonatomic) _Bool hideSwitcher; // @synthesize hideSwitcher=_hideSwitcher;
 @property(nonatomic) _Bool didMoveBeyondThreshold; // @synthesize didMoveBeyondThreshold=_didMoveBeyondThreshold;
+- (_Bool)gestureConflictsWithTypingWindow;
 
 @end
 

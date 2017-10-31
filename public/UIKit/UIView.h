@@ -272,6 +272,7 @@
 + (void)_updateModelValuesForAnimationWithUUID:(id)arg1 useInitialValues:(_Bool)arg2 animatable:(_Bool)arg3 stateBlock:(CDUnknownBlockType)arg4 animationBlock:(CDUnknownBlockType)arg5;
 + (void)_stopAnimationWithUUID:(id)arg1;
 + (void)_completeAnimationWithUUID:(id)arg1 duration:(double)arg2 curve:(long long)arg3 reverse:(_Bool)arg4;
++ (_Bool)_addCompletionWithPosition:(CDUnknownBlockType)arg1;
 + (_Bool)_addCompletion:(CDUnknownBlockType)arg1;
 + (void)_disableAnimationTracking:(id)arg1;
 + (void)_disableAnimationTracking:(id)arg1 clearTrackedAnimations:(_Bool)arg2;
@@ -632,7 +633,8 @@
 - (_Bool)layoutMarginsFollowReadableWidth;
 @property(nonatomic, setter=_setDontUpdateInferredLayoutMargins:) _Bool _dontUpdateInferredLayoutMargins;
 @property(nonatomic, setter=_setViewDelegateContentOverlayInsetsAreClean:) _Bool _viewDelegateContentOverlayInsetsAreClean;
-@property(nonatomic, getter=_safeAreaInsetsFrozen, setter=_setSafeAreaInsetsFrozen:) _Bool safeAreaInsetsFrozen;
+- (_Bool)_safeAreaInsetsFrozen;
+- (void)_setSafeAreaInsetsFrozen:(_Bool)arg1;
 - (void)safeAreaInsetsDidChange;
 - (_Bool)_isLayoutSubviewsImminent;
 - (void)_safeAreaInsetsDidChangeFromOldInsets:(struct UIEdgeInsets)arg1;
@@ -690,6 +692,7 @@
 - (float)charge;
 - (void)setCharge:(float)arg1;
 @property(nonatomic, getter=isUserInteractionEnabled) _Bool userInteractionEnabled;
+- (id)_screen;
 - (id)_window;
 - (void)dealloc;
 - (void)_layoutConstraintCleanup;
@@ -850,6 +853,7 @@
 - (void)willMoveToSuperview:(id)arg1;
 - (void)willRemoveSubview:(id)arg1;
 - (void)didAddSubview:(id)arg1;
+- (void)_ensureViewsAreInstalledInRelativeOrder:(id *)arg1 viewCount:(long long)arg2 insertionStartIndex:(long long)arg3;
 - (void)sendSubviewToBack:(id)arg1;
 - (void)bringSubviewToFront:(id)arg1;
 - (void)insertSubview:(id)arg1 aboveSubview:(id)arg2;
@@ -970,6 +974,7 @@
 - (id)_gestureRecognizers;
 - (void)_unsubscribeToScrollNotificationsIfNecessary:(id)arg1;
 - (void)_subscribeToScrollNotificationsIfNecessary:(id)arg1;
+- (_Bool)_canHostViewControllerContentScrollView;
 - (id)_containingScrollView;
 - (id)_viewIndexPath;
 - (_Bool)_isAncestorOfFirstResponder;
@@ -1167,7 +1172,6 @@
 @property(retain, nonatomic, getter=_dynamicDropInteraction, setter=_setDynamicDropInteraction:) UIDropInteraction *dynamicDropInteraction;
 - (void)_constrainViewToSuperview;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2;
-- (id)_screen;
 - (id)superview;
 - (id)_layer;
 @property(readonly, nonatomic) CALayer *layer; // @dynamic layer;

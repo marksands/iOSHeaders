@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     const char *_pathToTemporaryFileToWriteTo;
     NSObject<OS_dispatch_group> *_inProgressWriteGroup;
     struct __CFSet *_observingConnections;
+    struct os_unfair_lock_s _observingConnectionsLock;
     struct os_unfair_lock_s _lock;
     unsigned int _lastEuid;
     unsigned int _lastEgid;
@@ -58,6 +59,7 @@ __attribute__((visibility("hidden")))
 - (int)validateSandboxForRead:(id)arg1 containerPath:(const char *)arg2;
 - (_Bool)validateSandboxForWrite:(id)arg1 containerPath:(const char *)arg2;
 - (_Bool)validateAccessToken:(int)arg1 accessType:(int)arg2;
+- (void)observingConnectionsLockedSync:(CDUnknownBlockType)arg1;
 - (void)lockedSync:(CDUnknownBlockType)arg1;
 - (void)lockedAsync:(CDUnknownBlockType)arg1;
 - (void)clearCache;

@@ -18,12 +18,15 @@
     NSString *_text;
     NSURL *_imageURL;
     UIFont *_font;
+    long long _scaleMode;
+    UIColor *_backgroundColor;
     double _upscaleAdjustment;
     double _cornerRadius;
     UIColor *_fillColor;
     double _borderWidth;
     UIColor *_borderColor;
     struct CGSize _size;
+    struct UIEdgeInsets _padding;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -33,6 +36,9 @@
 @property(retain, nonatomic) UIColor *fillColor; // @synthesize fillColor=_fillColor;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(nonatomic) double upscaleAdjustment; // @synthesize upscaleAdjustment=_upscaleAdjustment;
+@property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(nonatomic) long long scaleMode; // @synthesize scaleMode=_scaleMode;
+@property(nonatomic) struct UIEdgeInsets padding; // @synthesize padding=_padding;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(readonly, copy, nonatomic) UIFont *font; // @synthesize font=_font;
 @property(readonly, copy, nonatomic) NSURL *imageURL; // @synthesize imageURL=_imageURL;

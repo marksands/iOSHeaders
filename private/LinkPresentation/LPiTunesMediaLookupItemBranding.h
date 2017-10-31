@@ -13,7 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface LPiTunesMediaLookupItemBranding : NSObject <LPiTunesMediaAssetCustomResolver>
 {
-    LPOneShotFetcher *_iconFetcher;
+    LPOneShotFetcher *_EVODMetadataFetcher;
     NSURL *_URL;
     _Bool _cancelled;
     LPiTunesMediaAsset *_originatingAsset;

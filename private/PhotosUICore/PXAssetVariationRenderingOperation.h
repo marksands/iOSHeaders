@@ -49,6 +49,7 @@
 @property(readonly, nonatomic) NSURL *inputImageURL; // @synthesize inputImageURL=_inputImageURL;
 @property(readonly, nonatomic) long long variationType; // @synthesize variationType=_variationType;
 - (void).cxx_destruct;
+- (void)_incrementProgressWithStartDate:(id)arg1;
 - (void)main;
 - (void)cancel;
 - (void)_timeout;

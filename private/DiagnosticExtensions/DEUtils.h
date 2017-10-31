@@ -26,6 +26,7 @@
 + (id)urlByRemovingComponentsBefore:(id)arg1 source:(id)arg2 keepComponent:(_Bool)arg3;
 + (_Bool)copyAllFilesFromDir:(id)arg1 toDir:(id)arg2;
 + (id)copyAndReturn:(id)arg1 toDir:(id)arg2;
++ (id)copyAndReturn:(id)arg1 toDir:(id)arg2 withNewFileName:(id)arg3;
 + (_Bool)copyFile:(id)arg1 toDir:(id)arg2;
 + (id)copyItem:(id)arg1 toDestinationDir:(id)arg2 zipped:(_Bool)arg3;
 + (_Bool)copyAllFilesFromDir:(id)arg1 toDir:(id)arg2 keepSourceDir:(_Bool)arg3;

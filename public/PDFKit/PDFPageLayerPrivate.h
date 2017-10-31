@@ -25,12 +25,13 @@ __attribute__((visibility("hidden")))
     unsigned long long visibilityDelegateIndex;
     _Bool tileLayerHidden;
     NSMutableArray *tiles;
-    NSMutableDictionary *pageLayerEffects;
     _Bool allowUpdate;
     PDFTimer *forcedUpdateTimer;
     _Bool isForcingUpdate;
     // Error parsing type: AB, name: isTiling
     // Error parsing type: AB, name: requestedTiling
+    CALayer *effectsLayer;
+    NSMutableDictionary *pageLayerEffects;
 }
 
 - (void).cxx_destruct;

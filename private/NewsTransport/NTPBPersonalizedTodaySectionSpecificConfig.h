@@ -15,9 +15,7 @@
     unsigned long long _maxArticlesShown;
     NSMutableArray *_mandatoryArticles;
     NSMutableArray *_personalizedArticles;
-    struct {
-        unsigned int maxArticlesShown:1;
-    } _has;
+    CDStruct_df5cdcef _has;
 }
 
 + (Class)personalizedArticlesType;

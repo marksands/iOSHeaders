@@ -13,12 +13,15 @@
 __attribute__((visibility("hidden")))
 @interface SKRemoteReviewViewController : _UIRemoteViewController <SKUIClientReviewViewController>
 {
+    id <SKRemoteReviewViewControllerDelegate> _delegate;
     SKStoreReviewViewController *_reviewViewController;
 }
 
 + (id)serviceViewControllerInterface;
 + (id)exportedInterface;
 @property(nonatomic) SKStoreReviewViewController *reviewViewController; // @synthesize reviewViewController=_reviewViewController;
+@property(nonatomic) id <SKRemoteReviewViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)didFinishWithResult:(id)arg1 error:(id)arg2;
 
 // Remaining properties

@@ -8,16 +8,18 @@
 
 #import "NSCopying.h"
 
-@class NSData, NSMutableArray;
+@class NSData, NSMutableArray, NSString;
 
 @interface ICPBDGSStartDelegationResponse : PBCodable <NSCopying>
 {
     NSData *_playerAnisetteMID;
     NSData *_playerDeviceGUID;
     NSMutableArray *_playerInfoContextTokens;
+    NSString *_playerUserAgent;
 }
 
 + (Class)playerInfoContextTokenType;
+@property(retain, nonatomic) NSString *playerUserAgent; // @synthesize playerUserAgent=_playerUserAgent;
 @property(retain, nonatomic) NSMutableArray *playerInfoContextTokens; // @synthesize playerInfoContextTokens=_playerInfoContextTokens;
 @property(retain, nonatomic) NSData *playerDeviceGUID; // @synthesize playerDeviceGUID=_playerDeviceGUID;
 @property(retain, nonatomic) NSData *playerAnisetteMID; // @synthesize playerAnisetteMID=_playerAnisetteMID;
@@ -30,6 +32,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasPlayerUserAgent;
 - (id)playerInfoContextTokenAtIndex:(unsigned long long)arg1;
 - (unsigned long long)playerInfoContextTokensCount;
 - (void)addPlayerInfoContextToken:(id)arg1;

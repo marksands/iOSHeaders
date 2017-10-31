@@ -16,10 +16,13 @@
     long long _curatorKind;
     NSString *_handle;
     CDUnknownBlockType _editorialArtworkCatalogBlock;
+    CDUnknownBlockType _brandLogoArtworkCatalogBlock;
 }
 
 + (id)__MPModelPropertyCuratorHandle__PROPERTY;
 + (id)__handle__KEY;
++ (id)__MPModelPropertyCuratorBrandLogoArtwork__PROPERTY;
++ (id)__brandLogoArtworkCatalogBlock__KEY;
 + (id)__MPModelPropertyCuratorEditorialArtwork__PROPERTY;
 + (id)__editorialArtworkCatalogBlock__KEY;
 + (id)__MPModelPropertyCuratorKind__PROPERTY;
@@ -30,6 +33,7 @@
 + (id)__editorNotes__KEY;
 + (id)__MPModelPropertyCuratorShortName__PROPERTY;
 + (id)__shortName__KEY;
+@property(copy, nonatomic) CDUnknownBlockType brandLogoArtworkCatalogBlock; // @synthesize brandLogoArtworkCatalogBlock=_brandLogoArtworkCatalogBlock;
 @property(copy, nonatomic) CDUnknownBlockType editorialArtworkCatalogBlock; // @synthesize editorialArtworkCatalogBlock=_editorialArtworkCatalogBlock;
 @property(copy, nonatomic) NSString *handle; // @synthesize handle=_handle;
 @property(nonatomic) long long curatorKind; // @synthesize curatorKind=_curatorKind;
@@ -37,6 +41,7 @@
 @property(copy, nonatomic) NSString *editorNotes; // @synthesize editorNotes=_editorNotes;
 @property(copy, nonatomic) NSString *shortName; // @synthesize shortName=_shortName;
 - (void).cxx_destruct;
+- (id)brandLogoArtworkCatalog;
 - (id)editorialArtworkCatalog;
 
 @end

@@ -104,6 +104,7 @@
 - (long long)_insertionAnimation;
 - (long long)_pinAnimationType;
 - (void)_setVirgin:(_Bool)arg1;
+- (_Bool)shouldHidePriorViews;
 - (_Bool)logContentsIfApplicable;
 @property(readonly, nonatomic, getter=isIndicatingActivity) _Bool indicatingActivity;
 - (_Bool)usePlatterStyle;

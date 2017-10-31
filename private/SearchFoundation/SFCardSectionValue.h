@@ -10,7 +10,7 @@
 #import "NSSecureCoding.h"
 #import "SFCardSectionValue.h"
 
-@class NSData, NSDictionary, NSString, SFActivityIndicatorCardSection, SFAppLinkCardSection, SFAudioPlaybackCardSection, SFDescriptionCardSection, SFDetailedRowCardSection, SFFlightCardSection, SFImagesCardSection, SFKeyValueDataCardSection, SFMapCardSection, SFMediaInfoCardSection, SFMediaPlayerCardSection, SFMessageCardSection, SFMetaInfoCardSection, SFNowPlayingCardSection, SFRichTitleCardSection, SFRowCardSection, SFScoreboardCardSection, SFSectionHeaderCardSection, SFSelectableGridCardSection, SFSocialMediaPostCardSection, SFStockChartCardSection, SFSuggestionCardSection, SFTableHeaderRowCardSection, SFTableRowCardSection, SFTextColumnsCardSection, SFTitleCardSection, SFTrackListCardSection, SFWebCardSection;
+@class NSData, NSDictionary, NSString, SFActivityIndicatorCardSection, SFAppLinkCardSection, SFAudioPlaybackCardSection, SFDescriptionCardSection, SFDetailedRowCardSection, SFFlightCardSection, SFImagesCardSection, SFKeyValueDataCardSection, SFMapCardSection, SFMediaInfoCardSection, SFMediaPlayerCardSection, SFMessageCardSection, SFMetaInfoCardSection, SFNowPlayingCardSection, SFRichTitleCardSection, SFRowCardSection, SFScoreboardCardSection, SFSectionHeaderCardSection, SFSelectableGridCardSection, SFSocialMediaPostCardSection, SFStockChartCardSection, SFSuggestionCardSection, SFTableHeaderRowCardSection, SFTableRowCardSection, SFTextColumnsCardSection, SFTitleCardSection, SFTrackListCardSection, SFWatchListCardSection, SFWebCardSection;
 
 @interface SFCardSectionValue : NSObject <SFCardSectionValue, NSSecureCoding, NSCopying>
 {
@@ -42,9 +42,11 @@
     SFSelectableGridCardSection *_selectableGridCardSection;
     SFSectionHeaderCardSection *_sectionHeaderCardSection;
     SFMetaInfoCardSection *_metaInfoCardSection;
+    SFWatchListCardSection *_watchListCardSection;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) SFWatchListCardSection *watchListCardSection; // @synthesize watchListCardSection=_watchListCardSection;
 @property(retain, nonatomic) SFMetaInfoCardSection *metaInfoCardSection; // @synthesize metaInfoCardSection=_metaInfoCardSection;
 @property(retain, nonatomic) SFSectionHeaderCardSection *sectionHeaderCardSection; // @synthesize sectionHeaderCardSection=_sectionHeaderCardSection;
 @property(retain, nonatomic) SFSelectableGridCardSection *selectableGridCardSection; // @synthesize selectableGridCardSection=_selectableGridCardSection;

@@ -20,6 +20,7 @@
 - (void)authorizationWillStart;
 
 @optional
+- (void)didEncounterAuthorizationEvent:(unsigned long long)arg1;
 - (void)authorizationDidPresent;
 @end
 

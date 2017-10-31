@@ -19,6 +19,7 @@
 @property(nonatomic) __weak id <CXProviderHostProtocol> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (oneway void)actionCompleted:(id)arg1;
+- (oneway void)requestTransaction:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (oneway void)reportCallWithUUID:(id)arg1 crossDeviceIdentifier:(id)arg2 changedBytesOfDataUsed:(long long)arg3;
 - (oneway void)reportCallWithUUID:(id)arg1 changedFrequencyData:(id)arg2 forDirection:(long long)arg3;
 - (oneway void)reportAudioFinishedForCallWithUUID:(id)arg1;

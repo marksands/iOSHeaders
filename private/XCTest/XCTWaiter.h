@@ -23,6 +23,8 @@
 + (void)setStallHandler:(CDUnknownBlockType)arg1;
 + (void)handleStalledWaiter:(id)arg1;
 + (CDUnknownBlockType)installWatchdogForWaiter:(id)arg1 timeout:(double)arg2;
++ (double)watchdogTimeoutSlop;
++ (void)setWatchdogTimeoutSlop:(double)arg1;
 @property(readonly) _XCTWaiterImpl *internalImplementation; // @synthesize internalImplementation=_internalImplementation;
 - (long long)result;
 @property(readonly) double timeout;

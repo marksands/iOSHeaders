@@ -6,9 +6,10 @@
 
 #import "HMFMessage.h"
 
-@class NSString;
+@class HMDConnectionProxy, NSString;
 
 @interface HMFMessage (IPCUtils)
++ (id)nonSPIEntitledMessageWithName:(id)arg1 messagePayload:(id)arg2;
 + (id)entitledMessageWithName:(id)arg1 identifier:(id)arg2 messagePayload:(id)arg3;
 + (id)entitledMessageWithName:(id)arg1 messagePayload:(id)arg2;
 @property(readonly, copy, nonatomic) NSString *effectiveLocationBundleIdentifier;
@@ -23,7 +24,9 @@
 @property(readonly, nonatomic, getter=isAuthorizedForHomeDataAccess) _Bool authorizedForHomeDataAccess;
 @property(readonly, nonatomic, getter=isEntitledForSPIAccess) _Bool entitledForSPIAccess;
 @property(readonly, nonatomic, getter=isEntitledForAPIAccess) _Bool entitledForAPIAccess;
-- (id)proxyConnection;
+@property(readonly) HMDConnectionProxy *proxyConnection;
+@property(readonly, nonatomic) _Bool requiresNoSPIEntitlement;
 @property(readonly, nonatomic) _Bool requiresSPIEntitlement;
+@property(readonly) NSString *clientName;
 @end
 

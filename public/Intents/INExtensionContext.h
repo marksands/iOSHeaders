@@ -6,12 +6,11 @@
 
 #import "NSExtensionContext.h"
 
-#import "INCacheableObjectManagerDelegate.h"
 #import "INExtensionContextVending.h"
 
 @class NSObject<OS_dispatch_queue>, NSString;
 
-@interface INExtensionContext : NSExtensionContext <INCacheableObjectManagerDelegate, INExtensionContextVending>
+@interface INExtensionContext : NSExtensionContext <INExtensionContextVending>
 {
     NSObject<OS_dispatch_queue> *_queue;
     id <INIntentHandlerProvidingPrivate> _extensionHandler;
@@ -23,8 +22,6 @@
 + (void)initialize;
 @property(retain) id activeHandlerForIntent; // @synthesize activeHandlerForIntent=_activeHandlerForIntent;
 - (void).cxx_destruct;
-- (void)handleCacheableObject:(id)arg1 fromCacheableObjectManager:(id)arg2;
-- (id)_remoteObjectProxy;
 - (oneway void)cancelTransactionDueToTimeout;
 - (oneway void)completeTransaction;
 - (oneway void)handleIntent:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -45,11 +42,14 @@
 - (oneway void)getApplicationContextWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_deliverIntent:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)_processIntentResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (CDUnknownBlockType)_processResolutionDataProviderForIntent:(id)arg1 intentSlotDescription:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)_updateIntent:(id)arg1 intentSlotDescription:(id)arg2 resolutionResultDataProvider:(id)arg3;
+- (CDUnknownBlockType)_processResolutionDataProviderForIntent:(id)arg1 intentSlotDescription:(id)arg2 updateIntent:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (CDUnknownBlockType)_processIntentResponseCompletionHandlerWithCompletion:(CDUnknownBlockType)arg1;
 - (oneway void)handleIntent:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (oneway void)confirmIntent:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (oneway void)_resolveIntentSlot:(id)arg1 forIntent:(id)arg2 updateIntent:(_Bool)arg3 withCompletion:(CDUnknownBlockType)arg4;
 - (oneway void)resolveIntentSlot:(id)arg1 forIntent:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (oneway void)resolveIntentSlots:(id)arg1 forIntent:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) id <INIntentHandlerProvidingPrivate> _extensionHandler; // @synthesize _extensionHandler;
 - (id)initWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 contextUUID:(id)arg3;
 

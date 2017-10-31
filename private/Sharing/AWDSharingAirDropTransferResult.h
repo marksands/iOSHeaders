@@ -18,17 +18,20 @@
     int _errorCode;
     NSString *_errorDomain;
     NSString *_model;
+    _Bool _legacy;
     _Bool _sender;
     _Bool _success;
     struct {
         unsigned int bytesPerSec:1;
         unsigned int timestamp:1;
         unsigned int errorCode:1;
+        unsigned int legacy:1;
         unsigned int sender:1;
         unsigned int success:1;
     } _has;
 }
 
+@property(nonatomic) _Bool legacy; // @synthesize legacy=_legacy;
 @property(retain, nonatomic) NSString *errorDomain; // @synthesize errorDomain=_errorDomain;
 @property(nonatomic) int errorCode; // @synthesize errorCode=_errorCode;
 @property(retain, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
@@ -47,6 +50,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasLegacy;
 @property(readonly, nonatomic) _Bool hasErrorDomain;
 @property(nonatomic) _Bool hasErrorCode;
 @property(readonly, nonatomic) _Bool hasBundleID;

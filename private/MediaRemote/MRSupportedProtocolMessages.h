@@ -6,13 +6,18 @@
 
 #import "NSObject.h"
 
-@interface MRSupportedProtocolMessages : NSObject
+#import "NSSecureCoding.h"
+
+@interface MRSupportedProtocolMessages : NSObject <NSSecureCoding>
 {
     unsigned long long _lastSupportedMessageType;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) unsigned long long lastSupportedMessageType; // @synthesize lastSupportedMessageType=_lastSupportedMessageType;
+- (void)encodeWithCoder:(id)arg1;
 - (_Bool)isSupported:(unsigned long long)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithLastSupportedMessageType:(unsigned long long)arg1;
 
 @end

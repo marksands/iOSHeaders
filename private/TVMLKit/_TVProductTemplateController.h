@@ -13,7 +13,7 @@
 #import "UICollectionViewDelegateFlowLayout.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 
-@class CALayer, IKAudioElement, IKImageElement, IKViewElement, NSArray, NSIndexPath, NSString, UICollectionView, UIImage, UIImageView, UIView, UIViewController;
+@class CALayer, IKAudioElement, IKImageElement, IKViewElement, NSArray, NSIndexPath, NSString, UICollectionView, UIImage, UIImageView, UIView, UIViewController, _TVProductCollectionViewCell;
 
 __attribute__((visibility("hidden")))
 @interface _TVProductTemplateController : _TVBgImageLoadingViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, TVAppTemplateImpressionable, CAAnimationDelegate, UIPopoverPresentationControllerDelegate>
@@ -52,6 +52,8 @@ __attribute__((visibility("hidden")))
     _Bool _lightStatusBar;
     IKImageElement *_topHeroImageElement;
     double _largeTitleHeight;
+    _Bool _sportsProductTemplate;
+    _TVProductCollectionViewCell *_bannerCell;
 }
 
 - (void).cxx_destruct;
@@ -59,6 +61,9 @@ __attribute__((visibility("hidden")))
 - (void)_updateBackgroundTintViewEffects;
 - (void)_updateBackgroundTintView;
 - (void)_configureBackgroundTintView;
+- (_Bool)_sportsLandscapePhoneIsOverlaySection:(id)arg1;
+- (_Bool)_sportsLandscapePhone;
+- (_Bool)_shouldShowTopHeroImage;
 - (_Bool)_shouldUsePartialScrollingTemplate;
 - (struct UIEdgeInsets)_cellMarginForIndex:(long long)arg1 partialMargins:(struct UIEdgeInsets *)arg2;
 - (id)_spacingMetricsForViewControllers:(id)arg1 contentSize:(struct CGSize *)arg2;
@@ -84,6 +89,7 @@ __attribute__((visibility("hidden")))
 - (long long)preferredStatusBarStyle;
 - (long long)preferredStatusBarUpdateAnimation;
 - (void)_updateTopHeroImageVisibility:(id)arg1;
+- (void)_updateTopHeroImageOverlay;
 - (double)_largeTitleHeight;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;

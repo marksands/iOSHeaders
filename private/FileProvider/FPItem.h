@@ -66,6 +66,7 @@
 
 + (id)allUbiquitousResourceKeys;
 + (_Bool)supportsSecureCoding;
++ (id)fp_queryFetchAttributes;
 + (id)placeholderWithName:(id)arg1 isFolder:(_Bool)arg2 contentAccessDate:(id)arg3 underParent:(id)arg4 inProvider:(id)arg5;
 + (id)placeholderWithCopyOfExistingItem:(id)arg1 lastUsageUpdatePolicy:(unsigned long long)arg2 underParent:(id)arg3 inProvider:(id)arg4;
 + (id)generatePlaceholderIdentifierWithOriginalID:(id)arg1;

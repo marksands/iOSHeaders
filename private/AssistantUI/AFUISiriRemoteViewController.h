@@ -89,6 +89,7 @@
 - (void)siriIdleAndQuietStatusDidChange:(_Bool)arg1;
 - (void)notifyOnNextUserInteraction;
 - (void)serviceLaunchApplicationWithBundleIdentifier:(id)arg1 withURL:(id)arg2 launchOptions:(long long)arg3 replyHandler:(CDUnknownBlockType)arg4;
+- (void)serviceDidRequestCurrentTextInput:(CDUnknownBlockType)arg1;
 - (void)serviceUserRelevantEventDidOccur;
 - (void)serviceStartRequestWithOptions:(id)arg1;
 - (void)serviceDidReadBulletinWithIdentifier:(id)arg1;

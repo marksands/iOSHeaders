@@ -25,6 +25,7 @@
 + (id)analysisCountsForWorkerType:(short)arg1;
 + (void)requestAnalysisCountsWithCompletion:(CDUnknownBlockType)arg1;
 + (void)requestTotalProgressCountsForWorkerType:(short)arg1 states:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (_Bool)isUnitTestWorker:(short)arg1;
 + (id)workerTypesPersistingAnalysisState;
 + (id)keyPathDictionaryWithWorkerType:(short)arg1 workerFlags:(int)arg2 analysisState:(int)arg3 lastIgnoredDate:(id)arg4 ignoreUntilDate:(id)arg5;
 + (_Bool)applyAnalysisStateChanges:(id)arg1 assetUUID:(id)arg2 allowUnsafeSetProcessed:(_Bool)arg3 error:(id *)arg4;

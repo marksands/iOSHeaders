@@ -7,7 +7,6 @@
 #import "UIFont.h"
 
 @interface UIFont (HKAdditions)
-+ (id)hk_largeNavigationControllerFont;
 + (id)hk_chartAxisLabelFont;
 + (id)hk_roundedSystemFontWithSize:(double)arg1 weight:(double)arg2;
 + (id)hk_unitLabelFontScaledBy:(double)arg1;

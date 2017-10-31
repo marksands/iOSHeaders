@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDecimalNumber, NSDictionary, NSString, NSURL, PKCurrencyAmount;
+@class NSArray, NSDate, NSDecimalNumber, NSDictionary, NSString, NSURL, PKCurrencyAmount;
 
 @interface PKPeerPaymentAccount : NSObject <NSSecureCoding>
 {
@@ -20,6 +20,7 @@
     NSString *_countryCode;
     PKCurrencyAmount *_currentBalance;
     NSDecimalNumber *_maximumBalance;
+    NSDate *_lastUpdated;
     NSString *_termsIdentifier;
     NSURL *_termsURL;
     NSURL *_associatedPassURL;
@@ -37,6 +38,7 @@
 @property(copy, nonatomic) NSURL *associatedPassURL; // @synthesize associatedPassURL=_associatedPassURL;
 @property(copy, nonatomic) NSURL *termsURL; // @synthesize termsURL=_termsURL;
 @property(copy, nonatomic) NSString *termsIdentifier; // @synthesize termsIdentifier=_termsIdentifier;
+@property(retain, nonatomic) NSDate *lastUpdated; // @synthesize lastUpdated=_lastUpdated;
 @property(nonatomic, getter=isAccountStateDirty) _Bool accountStateDirty; // @synthesize accountStateDirty=_accountStateDirty;
 @property(copy, nonatomic) NSDecimalNumber *maximumBalance; // @synthesize maximumBalance=_maximumBalance;
 @property(copy, nonatomic) PKCurrencyAmount *currentBalance; // @synthesize currentBalance=_currentBalance;
@@ -49,9 +51,10 @@
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)isAccountOutOfDate;
 - (id)associatedPassUniqueID;
 @property(readonly, copy, nonatomic) NSArray *defaultSuggestions;
-- (id)initWithDictionary:(id)arg1;
+- (id)initWithDictionary:(id)arg1 lastUpdated:(id)arg2;
 - (id)_featureWithIdentifier:(id)arg1;
 - (id)requestFromUserFeatureDescriptor;
 - (_Bool)supportsRequestFromUser;
@@ -63,6 +66,7 @@
 - (_Bool)supportsLoadFromCard;
 @property(readonly, nonatomic) NSDictionary *maximumTransferAmounts;
 @property(readonly, nonatomic) NSDictionary *minimumTransferAmounts;
+- (id)initWithDictionary:(id)arg1;
 
 @end
 

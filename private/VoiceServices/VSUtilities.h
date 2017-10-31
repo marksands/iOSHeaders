@@ -10,6 +10,7 @@
 {
 }
 
++ (_Bool)isAudioAccessory;
 + (id)hardwarePlatform;
 + (id)legacyPlatforms;
 

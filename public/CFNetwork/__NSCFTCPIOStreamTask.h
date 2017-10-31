@@ -6,7 +6,7 @@
 
 #import <CFNetwork/__NSCFURLSessionTask.h>
 
-@class CFNetworkTimer, NSData, NSError, NSMutableArray, __NSCFURLLocalStreamTaskWorkRead, __NSCFURLLocalStreamTaskWorkWrite;
+@class CFNetworkTimer, NSData, NSMutableArray, __NSCFURLLocalStreamTaskWorkRead, __NSCFURLLocalStreamTaskWorkWrite;
 
 __attribute__((visibility("hidden")))
 @interface __NSCFTCPIOStreamTask : __NSCFURLSessionTask
@@ -16,7 +16,6 @@ __attribute__((visibility("hidden")))
     shared_ptr_54ecd472 _ios;
     unsigned char _captureStreamsUponCompletion;
     unsigned char _secure;
-    NSError *_cancelError;
     NSData *__initialDataPayload;
     struct shared_ptr<HTTPProtocol> _httpProtocol;
     NSMutableArray *_pendingWork;

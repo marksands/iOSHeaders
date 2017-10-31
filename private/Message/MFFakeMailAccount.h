@@ -13,9 +13,11 @@
     NSURL *_URL;
     MFIMAPConnection *_cachedConnection;
     NSRecursiveLock *_flagChangesLock;
+    _Bool _managed;
     DeliveryAccount *_deliveryAccount;
 }
 
+@property(nonatomic, getter=isManaged) _Bool managed; // @synthesize managed=_managed;
 @property(retain, nonatomic) DeliveryAccount *deliveryAccount; // @synthesize deliveryAccount=_deliveryAccount;
 - (void).cxx_destruct;
 - (_Bool)_shouldConfigureMailboxCache;

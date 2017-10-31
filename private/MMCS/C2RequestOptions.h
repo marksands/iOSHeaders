@@ -6,15 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSString;
+#import "NSCopying.h"
 
-@interface C2RequestOptions : NSObject
+@class NSDictionary, NSString, NSURL;
+
+@interface C2RequestOptions : NSObject <NSCopying>
 {
     unsigned char _outOfProcess;
     unsigned char _outOfProcessDiscretionary;
     unsigned char __allowsExpensiveAccess;
     unsigned char __allowsPowerNapScheduling;
     unsigned char _tlsPinning;
+    unsigned char _metricRequest;
     long long _qualityOfService;
     NSString *_outOfProcessPoolName;
     double __timeoutIntervalForRequest;
@@ -24,10 +27,18 @@
     NSString *__appleIDContextSessionIdentifier;
     NSString *_identifier;
     NSDictionary *_resolvedEndpointsWithHostname;
+    NSURL *_c2MetricsEndpoint;
+    unsigned long long _c2MetricsReportFrequency;
+    unsigned long long _c2MetricsReportFrequencyBase;
 }
 
++ (unsigned char)triesteMetricsEnabled;
 + (double)defaultEmptySessionExpiryInSeconds;
 + (id)stringForQualityOfService:(long long)arg1;
+@property(nonatomic) unsigned char metricRequest; // @synthesize metricRequest=_metricRequest;
+@property(nonatomic) unsigned long long c2MetricsReportFrequencyBase; // @synthesize c2MetricsReportFrequencyBase=_c2MetricsReportFrequencyBase;
+@property(nonatomic) unsigned long long c2MetricsReportFrequency; // @synthesize c2MetricsReportFrequency=_c2MetricsReportFrequency;
+@property(copy, nonatomic) NSURL *c2MetricsEndpoint; // @synthesize c2MetricsEndpoint=_c2MetricsEndpoint;
 @property(retain, nonatomic) NSDictionary *resolvedEndpointsWithHostname; // @synthesize resolvedEndpointsWithHostname=_resolvedEndpointsWithHostname;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) unsigned char tlsPinning; // @synthesize tlsPinning=_tlsPinning;
@@ -49,7 +60,7 @@
 - (id)sessionConfiguration;
 - (id)defaultSessionConfiguration;
 - (id)sessionConfigurationName;
-- (id)copy;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 
 @end

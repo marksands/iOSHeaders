@@ -14,7 +14,6 @@
     NSString *_assetSourceStorefrontID;
     NSData *_certificateData;
     NSString *_cloudUniversalLibraryID;
-    NSString *_householdID;
     long long _requestType;
     unsigned long long _storeCloudID;
     long long _storePurchasedAdamID;
@@ -26,7 +25,6 @@
 @property(nonatomic) long long storePurchasedAdamID; // @synthesize storePurchasedAdamID=_storePurchasedAdamID;
 @property(nonatomic) unsigned long long storeCloudID; // @synthesize storeCloudID=_storeCloudID;
 @property(nonatomic) long long requestType; // @synthesize requestType=_requestType;
-@property(copy, nonatomic) NSString *householdID; // @synthesize householdID=_householdID;
 @property(nonatomic, getter=isDelegatedPlayback) _Bool delegatedPlayback; // @synthesize delegatedPlayback=_delegatedPlayback;
 @property(copy, nonatomic) NSString *cloudUniversalLibraryID; // @synthesize cloudUniversalLibraryID=_cloudUniversalLibraryID;
 @property(copy, nonatomic) NSData *certificateData; // @synthesize certificateData=_certificateData;

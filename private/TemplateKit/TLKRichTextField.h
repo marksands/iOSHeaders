@@ -9,7 +9,7 @@
 #import "NUIContainerStackViewDelegate.h"
 #import "TLKObservable.h"
 
-@class NSString, TLKEmojiableVibrantLabel, TLKIconsView, TLKObserver, TLKRichText, TLKRoundedCornerLabels, TLKStarsView;
+@class NSString, TLKEmojiableVibrantLabel, TLKIconsView, TLKObserver, TLKRichText, TLKRoundedCornerLabels, TLKStarsView, UIFont;
 
 @interface TLKRichTextField : TLKStackView <TLKObservable, NUIContainerStackViewDelegate>
 {
@@ -21,7 +21,6 @@
     TLKIconsView *_iconView;
 }
 
-+ (id)font;
 @property(retain) TLKIconsView *iconView; // @synthesize iconView=_iconView;
 @property(retain) TLKStarsView *starRatingView; // @synthesize starRatingView=_starRatingView;
 @property(retain) TLKRoundedCornerLabels *roundedCornerLabels; // @synthesize roundedCornerLabels=_roundedCornerLabels;
@@ -37,7 +36,7 @@
 - (void)updateIcons:(id)arg1;
 - (void)updateStarRating:(id)arg1;
 - (void)makeTertiary;
-- (void)setFont:(id)arg1;
+@property(retain) UIFont *font;
 - (void)disableUnbatchedUpdates;
 - (void)disableObserver:(_Bool)arg1;
 - (void)updateWithRichText:(id)arg1;

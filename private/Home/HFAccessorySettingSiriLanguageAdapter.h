@@ -8,34 +8,35 @@
 
 #import "HFAccessorySettingAdapterDisplayArbitrating.h"
 
-@class HFSiriLanguageOption, HMAccessorySelectionSetting, NSHashTable, NSSet, NSString;
+@class HFSiriLanguageOption, NAFuture, NSHashTable, NSSet, NSString;
 
 @interface HFAccessorySettingSiriLanguageAdapter : HFAccessorySettingAdapter <HFAccessorySettingAdapterDisplayArbitrating>
 {
     NSSet *_availableLanguageOptions;
     HFSiriLanguageOption *_selectedLanguageOption;
-    unsigned long long _mode;
     NSHashTable *_observers;
 }
 
 @property(readonly, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
-@property(readonly, nonatomic) unsigned long long mode; // @synthesize mode=_mode;
 @property(retain, nonatomic) HFSiriLanguageOption *selectedLanguageOption; // @synthesize selectedLanguageOption=_selectedLanguageOption;
 @property(copy, nonatomic) NSSet *availableLanguageOptions; // @synthesize availableLanguageOptions=_availableLanguageOptions;
 - (void).cxx_destruct;
 - (_Bool)shouldShowSettingsEntity:(id)arg1;
-- (void)_reloadLanguagesFromHomeKitNotifyingObservers:(_Bool)arg1;
-@property(readonly, nonatomic) HMAccessorySelectionSetting *languageSetting;
+- (id)_beginMonitoringSettingsKeyPath:(id)arg1;
+- (id)_reloadLanguagesFromHomeKitNotifyingObservers:(_Bool)arg1;
+@property(readonly, nonatomic) NAFuture *languageSettingFuture;
 - (id)preferredOutputVoiceAccentOptionsForSelectedOption:(id)arg1;
 - (id)preferredOutputVoiceGenderOptionsForSelectedOption:(id)arg1;
 - (id)preferredRecognitionLanguageOptions;
+- (void)_dumpAvailableLanguageOptionsWithReason:(id)arg1;
 - (id)updateSelectedLanguageOption:(id)arg1;
 - (id)updateAvailableLanguageOptions:(id)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (void)accessorySettingWasUpdated:(id)arg1 value:(id)arg2;
-- (id)initWithAccessoryProfile:(id)arg1 mode:(unsigned long long)arg2;
-- (id)initWithAccessoryProfile:(id)arg1 keyPaths:(id)arg2 updateHandler:(CDUnknownBlockType)arg3;
+- (id)initWithMediaProfileContainer:(id)arg1 keyPaths:(id)arg2 updateHandler:(CDUnknownBlockType)arg3;
+- (id)initWithMediaProfileContainer:(id)arg1 keyPaths:(id)arg2 mode:(unsigned long long)arg3 updateHandler:(CDUnknownBlockType)arg4;
+- (id)initWithMediaProfileContainer:(id)arg1 mode:(unsigned long long)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

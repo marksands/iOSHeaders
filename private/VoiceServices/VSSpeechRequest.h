@@ -37,9 +37,11 @@
     unsigned long long _requestCreatedTimestamp;
     CDUnknownBlockType _stopHandler;
     CDUnknownBlockType _pauseHandler;
+    long long _pointer;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) long long pointer; // @synthesize pointer=_pointer;
 @property(copy, nonatomic) CDUnknownBlockType pauseHandler; // @synthesize pauseHandler=_pauseHandler;
 @property(copy, nonatomic) CDUnknownBlockType stopHandler; // @synthesize stopHandler=_stopHandler;
 @property(nonatomic) unsigned long long requestCreatedTimestamp; // @synthesize requestCreatedTimestamp=_requestCreatedTimestamp;

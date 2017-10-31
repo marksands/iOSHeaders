@@ -9,12 +9,13 @@
 #import "FCCKZonePruningAssistant.h"
 #import "FCCKZoneRestorationSource.h"
 #import "FCCommandQueueDelegate.h"
+#import "FCJSONEncodableObjectProviding.h"
 #import "FCPrivateRecordSyncManagerDelegate.h"
 #import "FCPrivateZoneSyncManagerDelegate.h"
 
 @class FCAsyncSerialQueue, FCCloudContext, FCCommandQueue, FCKeyValueStore, FCPushNotificationCenter, NSArray, NSHashTable, NSString;
 
-@interface FCPrivateDataController : NSObject <FCPrivateZoneSyncManagerDelegate, FCPrivateRecordSyncManagerDelegate, FCCommandQueueDelegate, FCCKZoneRestorationSource, FCCKZonePruningAssistant>
+@interface FCPrivateDataController : NSObject <FCJSONEncodableObjectProviding, FCPrivateZoneSyncManagerDelegate, FCPrivateRecordSyncManagerDelegate, FCCommandQueueDelegate, FCCKZoneRestorationSource, FCCKZonePruningAssistant>
 {
     _Bool _waitingForFirstSync;
     _Bool _preparedForUse;
@@ -46,6 +47,7 @@
 + (_Bool)requiresHighPriorityFirstSync;
 + (_Bool)requiresBatchedSync;
 + (_Bool)requiresPushNotificationSupport;
++ (void)configureKeyValueStoreForJSONHandling:(id)arg1;
 @property(readonly, nonatomic) FCKeyValueStore *localStore; // @synthesize localStore=_localStore;
 @property(readonly, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(readonly, nonatomic) FCCloudContext *context; // @synthesize context=_context;
@@ -98,6 +100,7 @@
 - (void)createLocalStore;
 - (void)disableSyncing;
 - (void)enableSyncing;
+- (id)jsonEncodableObject;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

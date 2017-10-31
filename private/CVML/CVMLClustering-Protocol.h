@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class CVMLSimilarityMatrix, NSArray, NSData, NSDictionary, NSNumber, NSSet;
+@class CVMLSimilarityMatrix, NSArray, NSData, NSDictionary, NSNumber, NSSet, NSString;
 
 @protocol CVMLClustering
++ (NSArray *)clustererModelFileNamesFromState:(NSData *)arg1 storedInPath:(NSString *)arg2 error:(id *)arg3;
 - (NSArray *)suggestionsForClusterIdsWithFlags:(NSDictionary *)arg1 affinityThreshold:(float)arg2 error:(id *)arg3;
 - (NSArray *)suggestionsForClusterIds:(NSArray *)arg1 affinityThreshold:(float)arg2 error:(id *)arg3;
 - (NSArray *)getClustersWithOptions:(NSDictionary *)arg1 error:(id *)arg2;

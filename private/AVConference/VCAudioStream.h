@@ -37,7 +37,7 @@ __attribute__((visibility("hidden")))
     WRMClient *wrmClient;
     VCAudioPayload *currentAudioPayload;
     VCAudioPayload *currentDTXPayload;
-    // Error parsing type: ^{tagVCAudioReceiver={tagVCAudioReceiverConfig=^{tagHANDLE}^v^vIii^{opaqueRTCReporting}}^v^v^{opaqueVCJitterBuffer}B^{AudioStreamBasicDescription}id{tagVCRealTimeThread=II{_opaque_pthread_mutex_t=q[56c]}{_opaque_pthread_mutex_t=q[56c]}{_opaque_pthread_cond_t=q[40c]}^?^v^{OpaqueFigThread}i[60c]II}{tagVCAudioReceiverReportingTask=^{opaqueRTCReporting}^{tagHANDLE}}B{_opaque_pthread_mutex_t=q[56c]}{_opaque_pthread_mutex_t=q[56c]}{tagVCAudioDecoderList=^{tagDecoderSettings}I}I{tagVCAudioReceiverStatistics=AI}^{tagWRMMetricsInfo}^?{tagVCAudioReceiverCallbackContext=^v^?^?}I[2{_RTCPPacketList=(tagNTP=Q{?=II})C[10^{tagRTCPPACKET}][1472C]I[1472C]}]d[300{tagPacketHistoryInfo=ISIBB}]SS}, name: _audioReceiver
+    // Error parsing type: ^{tagVCAudioReceiver={tagVCAudioReceiverConfig=^{tagHANDLE}^v^vIiiB^{opaqueRTCReporting}}^v^v^{opaqueVCJitterBuffer}B^{AudioStreamBasicDescription}id{tagVCRealTimeThread=II{_opaque_pthread_mutex_t=q[56c]}{_opaque_pthread_mutex_t=q[56c]}{_opaque_pthread_cond_t=q[40c]}^?^v^{OpaqueFigThread}i[60c]II}{tagVCAudioReceiverReportingTask=^{opaqueRTCReporting}^{tagHANDLE}}B{_opaque_pthread_mutex_t=q[56c]}{_opaque_pthread_mutex_t=q[56c]}{tagVCAudioDecoderList=^{tagDecoderSettings}I}I{tagVCAudioReceiverStatistics=AI}^{tagWRMMetricsInfo}^?{tagVCAudioReceiverCallbackContext=^v^?^?}I[2{_RTCPPacketList=(tagNTP=Q{?=II})C[10^{tagRTCPPACKET}][1472C]I[1472C]}]d[300{tagPacketHistoryInfo=ISIBB}]SS}, name: _audioReceiver
     VCAudioTransmitter *_audioTransmitter;
     AVCStatisticsCollector *_statisticsCollector;
     struct opaqueRTCReporting *reportingAgent;
@@ -85,10 +85,10 @@ __attribute__((visibility("hidden")))
 - (void)reportingAudioStreamEvent:(unsigned short)arg1;
 - (void)onRtcpEnabledChanged;
 - (void)onRtcpSendIntervalChanged;
-- (void)onResume;
-- (void)onPause;
-- (void)onStop;
-- (void)onStart;
+- (void)onResumeWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)onPauseWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)onStopWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)onStartWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)getReportingServiceID;
 - (id)getReportingClientName;
 - (int)getReportingClientType;

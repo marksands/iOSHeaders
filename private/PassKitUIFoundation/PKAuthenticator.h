@@ -12,8 +12,7 @@
 {
     unsigned long long _authenticationIdentifier;
     NSObject<OS_dispatch_queue> *_contextMutationQueue;
-    _Bool _acquiringHintSupressionAssertion;
-    id <BSInvalidatable> _hintSupressionAssertion;
+    _Bool _invalidated;
     id <PKAuthenticatorDelegate> _delegate;
     double _fingerPresentTimeout;
 }
@@ -41,6 +40,7 @@
 @property(readonly, nonatomic) _Bool userIntentAvailable;
 - (void)setFingerPresentTimeout:(double)arg1 preventRestart:(_Bool)arg2;
 @property(readonly, nonatomic) unsigned long long authenticationIdentifier;
+- (void)invalidate;
 - (void)accessExternalizedContextWithCompletion:(CDUnknownBlockType)arg1;
 - (void)restartEvaluation;
 - (void)cancelEvaluationWithOptions:(unsigned long long)arg1;

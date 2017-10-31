@@ -27,7 +27,7 @@
     NSString *_connectionId;
     _Bool _isCanceledInternal;
     NSMutableSet *_pendingBackgroundConnections;
-    NSMutableSet *_deadBackgroundConnections;
+    NSMutableSet *_comatoseBackgroundConnections;
     NSMutableSet *_scheduledRoutes;
     SiriCoreSiriBackgroundConnection *_activeBackgroundConnection;
     NSObject<OS_dispatch_group> *_activeConnectionGroup;
@@ -81,13 +81,15 @@
 - (id)_activeOrAnyPendingConnection;
 - (void)_waitForActiveConnection:(CDUnknownBlockType)arg1;
 - (void)_accessPotentiallyActiveConnections:(CDUnknownBlockType)arg1;
-- (void)getConnectionMetrics:(CDUnknownBlockType)arg1;
+- (void)getConnectionMetricsSynchronously:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)getAnalysisInfo:(CDUnknownBlockType)arg1;
 - (id)analysisInfo;
-- (void)cancelSynchronously:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)cancelSynchronously:(_Bool)arg1 onQueue:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_cancelSynchronously:(CDUnknownBlockType)arg1;
 - (void)probeConnection;
 - (void)barrier:(CDUnknownBlockType)arg1;
 - (void)setSendPings:(_Bool)arg1;
+- (void)sendCommands:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (void)sendCommand:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (void)start;
 - (void)_scheduleBackgroundConnectionWithRoute:(id)arg1 delay:(double)arg2;

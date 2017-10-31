@@ -9,10 +9,11 @@
 #import "FCCacheCoordinatorDelegate.h"
 #import "FCCacheFlushing.h"
 #import "FCFetchCoordinatorDelegate.h"
+#import "FCJSONEncodableObjectProviding.h"
 
 @class FCCKContentDatabase, FCCacheCoordinator, FCFetchCoordinator, FCKeyValueStore, FCThreadSafeMutableDictionary, NSArray, NSObject<OS_dispatch_queue>, NSString;
 
-@interface FCRecordSource : NSObject <FCCacheCoordinatorDelegate, FCFetchCoordinatorDelegate, FCCacheFlushing>
+@interface FCRecordSource : NSObject <FCCacheCoordinatorDelegate, FCFetchCoordinatorDelegate, FCCacheFlushing, FCJSONEncodableObjectProviding>
 {
     NSObject<OS_dispatch_queue> *_initQueue;
     FCCKContentDatabase *_contentDatabase;
@@ -46,6 +47,7 @@
 @property(readonly, nonatomic) FCCKContentDatabase *contentDatabase; // @synthesize contentDatabase=_contentDatabase;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *initQueue; // @synthesize initQueue=_initQueue;
 - (void).cxx_destruct;
+- (id)jsonEncodableObject;
 - (void)t_stopOverridingExperimentalizableFieldsPostfixAndTreatmentID;
 - (void)t_startOverridingExperimentalizableFieldsPostfix:(id)arg1 treatmentID:(id)arg2;
 - (id)_fetchErrorForKey:(id)arg1;

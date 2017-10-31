@@ -13,14 +13,16 @@
     unsigned long long _voiceTriggerStartHostTime;
     unsigned long long _callToStartRecordHostTime;
     NSMutableDictionary *_publicMetrics;
-    NSMutableDictionary *_privateMetrics;
 }
 
 + (id)sharedManager;
-@property(retain) NSMutableDictionary *privateMetrics; // @synthesize privateMetrics=_privateMetrics;
++ (void)destroySharedManager;
++ (void)createSharedManager;
++ (struct CAMutex *)getLock;
 @property(retain) NSMutableDictionary *publicMetrics; // @synthesize publicMetrics=_publicMetrics;
 @property(nonatomic) unsigned long long callToStartRecordHostTime; // @synthesize callToStartRecordHostTime=_callToStartRecordHostTime;
 @property(nonatomic) unsigned long long voiceTriggerStartHostTime; // @synthesize voiceTriggerStartHostTime=_voiceTriggerStartHostTime;
+- (void).cxx_destruct;
 - (void)logRecordRoute:(id)arg1 andPlaybackRoute:(id)arg2;
 - (void)logRecordAudioFormat:(struct CAStreamBasicDescription)arg1;
 - (int)resetAudioIssueDetector;

@@ -43,7 +43,6 @@
 @property(readonly) VideosExtrasMainTemplateViewController *mainTemplateViewController;
 - (void)finalizeMainTemplateOffset:(_Bool)arg1;
 - (void)applyMainTemplateOffset:(struct CGPoint)arg1 animated:(_Bool)arg2;
-- (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1;
 - (id)childViewControllerForHomeIndicatorAutoHidden;
 - (void)viewDidLoad;
 - (id)initWithContext:(id)arg1;

@@ -6,11 +6,10 @@
 
 #import "HMAccessorySettings.h"
 
-@class HFAccessorySettingsValueManager, NATreeNode;
+@class NATreeNode;
 
 @interface HMAccessorySettings (HFAdditions)
 + (id)hf_MediaAccessoryCodex;
-@property(readonly, nonatomic) HFAccessorySettingsValueManager *hf_valueManager;
 - (id)hf_accessorySettingItemAtKeyPath:(id)arg1;
 - (id)hf_accessorySettingAtKeyPath:(id)arg1;
 - (id)hf_accessorySettingGroupAtKeyPath:(id)arg1;

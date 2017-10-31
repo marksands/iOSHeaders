@@ -14,8 +14,10 @@
 {
     double _artworkHeight;
     double _artworkWidth;
+    int _cachingPolicy;
     NSMutableArray *_contentItemIdentifiers;
     _MRPlaybackQueueContextProtobuf *_context;
+    NSString *_label;
     int _length;
     int _location;
     _MRNowPlayingPlayerPathProtobuf *_playerPath;
@@ -25,10 +27,12 @@
     _Bool _includeLyrics;
     _Bool _includeMetadata;
     _Bool _includeSections;
+    _Bool _isLegacyNowPlayingInfoRequest;
     _Bool _returnContentItemAssetsInUserCompletion;
     struct {
         unsigned int artworkHeight:1;
         unsigned int artworkWidth:1;
+        unsigned int cachingPolicy:1;
         unsigned int length:1;
         unsigned int location:1;
         unsigned int includeInfo:1;
@@ -36,12 +40,16 @@
         unsigned int includeLyrics:1;
         unsigned int includeMetadata:1;
         unsigned int includeSections:1;
+        unsigned int isLegacyNowPlayingInfoRequest:1;
         unsigned int returnContentItemAssetsInUserCompletion:1;
     } _has;
 }
 
 + (Class)contentItemIdentifiersType;
 + (void)initialize;
+@property(nonatomic) _Bool isLegacyNowPlayingInfoRequest; // @synthesize isLegacyNowPlayingInfoRequest=_isLegacyNowPlayingInfoRequest;
+@property(retain, nonatomic) NSString *label; // @synthesize label=_label;
+@property(nonatomic) int cachingPolicy; // @synthesize cachingPolicy=_cachingPolicy;
 @property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath; // @synthesize playerPath=_playerPath;
 @property(nonatomic) _Bool returnContentItemAssetsInUserCompletion; // @synthesize returnContentItemAssetsInUserCompletion=_returnContentItemAssetsInUserCompletion;
 @property(retain, nonatomic) NSMutableArray *contentItemIdentifiers; // @synthesize contentItemIdentifiers=_contentItemIdentifiers;
@@ -65,6 +73,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIsLegacyNowPlayingInfoRequest;
+@property(readonly, nonatomic) _Bool hasLabel;
+@property(nonatomic) _Bool hasCachingPolicy;
 @property(readonly, nonatomic) _Bool hasPlayerPath;
 @property(nonatomic) _Bool hasReturnContentItemAssetsInUserCompletion;
 - (id)contentItemIdentifiersAtIndex:(unsigned long long)arg1;

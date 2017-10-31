@@ -18,12 +18,11 @@ struct ArenaStringPtr {
 
 struct FeatureDescription {
     CDUnknownFunctionPointerType *_field1;
-    struct ArenaStringPtr _field2;
-    struct Arena *_field3;
+    struct InternalMetadataWithArenaLite _field2;
+    struct ArenaStringPtr _field3;
     struct ArenaStringPtr _field4;
-    struct ArenaStringPtr _field5;
-    struct FeatureType *_field6;
-    int _field7;
+    struct FeatureType *_field5;
+    int _field6;
 };
 
 struct FeatureType;
@@ -31,6 +30,10 @@ struct FeatureType;
 struct IArchive {
     struct shared_ptr<Archiver::_IArchiveImpl> _field1;
     struct map<std::__1::basic_string<char>, IArchive, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, IArchive>>> _field2;
+};
+
+struct InternalMetadataWithArenaLite {
+    void *_field1;
 };
 
 struct MMappedFile;

@@ -4,30 +4,37 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <HomeKit/HMDevice.h>
+#import "NSObject.h"
 
 #import "HMObjectMerge.h"
 #import "NSSecureCoding.h"
 
-@class HMDelegateCaller, HMFMessageDispatcher, HMHome, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDelegateCaller, HMDevice, HMFMessageDispatcher, HMHome, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
-@interface HMResidentDevice : HMDevice <HMObjectMerge, NSSecureCoding>
+@interface HMResidentDevice : NSObject <HMObjectMerge, NSSecureCoding>
 {
     _Bool _enabled;
+    NSUUID *_uniqueIdentifier;
     unsigned long long _status;
     HMHome *_home;
     NSUUID *_accountIdentifier;
     unsigned long long _capabilities;
     id <HMResidentDeviceDelegate> _delegate;
+    HMDevice *_device;
     NSObject<OS_dispatch_queue> *_clientQueue;
     HMFMessageDispatcher *_messageDispatcher;
+    NSObject<OS_dispatch_queue> *_propertyQueue;
     HMDelegateCaller *_delegateCaller;
+    NSUUID *_uuid;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, copy, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) HMDelegateCaller *delegateCaller; // @synthesize delegateCaller=_delegateCaller;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(retain, nonatomic) HMFMessageDispatcher *messageDispatcher; // @synthesize messageDispatcher=_messageDispatcher;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
+@property(readonly) HMDevice *device; // @synthesize device=_device;
 @property __weak id <HMResidentDeviceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
@@ -39,14 +46,17 @@
 @property __weak HMHome *home; // @synthesize home=_home;
 @property unsigned long long status; // @synthesize status=_status;
 @property(getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
+@property(readonly, getter=isCurrentDevice) _Bool currentDevice;
+@property(readonly, copy) NSString *name;
+@property(readonly, copy) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 - (void)_configure:(id)arg1 messageDispatcher:(id)arg2 clientQueue:(id)arg3 delegateCaller:(id)arg4;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
-@property(readonly, nonatomic) NSUUID *uniqueIdentifier;
 
 @end
 

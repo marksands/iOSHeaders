@@ -65,8 +65,10 @@
     _SFPBImage *_imageOverlay;
     _SFPBActionItem *_playAction;
     NSArray *_offers;
+    NSString *_footnote;
 }
 
+@property(copy, nonatomic) NSString *footnote; // @synthesize footnote=_footnote;
 @property(copy, nonatomic) NSArray *offers; // @synthesize offers=_offers;
 @property(nonatomic) int playActionAlign; // @synthesize playActionAlign=_playActionAlign;
 @property(retain, nonatomic) _SFPBActionItem *playAction; // @synthesize playAction=_playAction;
@@ -111,6 +113,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasFootnote;
 - (id)offersAtIndex:(unsigned long long)arg1;
 - (unsigned long long)offersCount;
 - (void)addOffers:(id)arg1;

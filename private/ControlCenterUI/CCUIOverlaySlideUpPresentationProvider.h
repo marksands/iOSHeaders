@@ -26,7 +26,6 @@
 - (struct CGAffineTransform)_moduleViewScaleTransformForTransitionState:(id)arg1;
 - (struct CGAffineTransform)_moduleViewTransformForTransitionState:(id)arg1 layoutRect:(struct CCUILayoutRect)arg2;
 - (void)_addModuleTransformAnimationsToBatch:(id)arg1 transitionState:(id)arg2;
-- (void)_addChevronStateAnimationToBatch:(id)arg1 transitionState:(id)arg2;
 - (void)_addHeaderContentAlphaAnimationToBatch:(id)arg1 transitionState:(id)arg2;
 - (struct CGAffineTransform)_headerViewTransformForTransitionState:(id)arg1;
 - (void)_addHeaderContentTransformAnimationToBatch:(id)arg1 transitionState:(id)arg2;

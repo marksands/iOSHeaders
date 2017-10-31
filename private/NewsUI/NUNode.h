@@ -8,17 +8,17 @@
 
 #import "NUNode.h"
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSObject<NUNode>, NSString;
 
 @interface NUNode : NSObject <NUNode>
 {
     NSMutableArray *_subnodes;
-    id <NUNode> _supernode;
+    NSObject<NUNode> *_supernode;
     struct CGRect _frame;
     struct CGRect _bounds;
 }
 
-@property(nonatomic) __weak id <NUNode> supernode; // @synthesize supernode=_supernode;
+@property(nonatomic) __weak NSObject<NUNode> *supernode; // @synthesize supernode=_supernode;
 @property(retain, nonatomic) NSMutableArray *subnodes; // @synthesize subnodes=_subnodes;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(nonatomic) struct CGRect frame; // @synthesize frame=_frame;

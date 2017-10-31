@@ -26,9 +26,11 @@
     int _feedType;
     NSData *_feedViewExposureId;
     NSMutableArray *_fractionalCohortMemberships;
+    NSString *_galleryId;
     int _galleryImageCount;
     NSMutableArray *_galleryImageIds;
     int _galleryType;
+    NSData *_galleryViewingSessionId;
     NSString *_mediaId;
     int _mediaType;
     NSString *_metadata;
@@ -70,6 +72,8 @@
 + (Class)fractionalCohortMembershipType;
 + (Class)galleryImageIdsType;
 + (Class)namedEntitiesType;
+@property(retain, nonatomic) NSData *galleryViewingSessionId; // @synthesize galleryViewingSessionId=_galleryViewingSessionId;
+@property(retain, nonatomic) NSString *galleryId; // @synthesize galleryId=_galleryId;
 @property(nonatomic) long long previousArticlePublisherArticleVersion; // @synthesize previousArticlePublisherArticleVersion=_previousArticlePublisherArticleVersion;
 @property(nonatomic) long long backendArticleVersionInt64; // @synthesize backendArticleVersionInt64=_backendArticleVersionInt64;
 @property(nonatomic) long long publisherArticleVersionInt64; // @synthesize publisherArticleVersionInt64=_publisherArticleVersionInt64;
@@ -109,6 +113,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasGalleryViewingSessionId;
+@property(readonly, nonatomic) _Bool hasGalleryId;
 @property(nonatomic) _Bool hasPreviousArticlePublisherArticleVersion;
 @property(nonatomic) _Bool hasBackendArticleVersionInt64;
 @property(nonatomic) _Bool hasPublisherArticleVersionInt64;

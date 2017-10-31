@@ -6,25 +6,19 @@
 
 #import "NSObject.h"
 
-@class MAAsset, NSObject<OS_dispatch_queue>;
-
 @interface DCAssetFetcher : NSObject
 {
-    NSObject<OS_dispatch_queue> *_assetSerializationQueue;
-    MAAsset *_cachedAsset;
 }
 
 + (id)sharedFetcher;
-- (void).cxx_destruct;
 - (id)_validateAsset:(id)arg1 error:(id *)arg2;
 - (void)_handleSuccessForQuery:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handleMissingMetadataWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_assetQuery;
 - (void)_queryMetadataWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_fetchAssetWithContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)fetchPublicKeyMetadataIgnoringCachesWithCompletion:(CDUnknownBlockType)arg1;
+- (void)initiateMetadataFetchIgnoringCachesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchPublicKeyAssetWithCompletion:(CDUnknownBlockType)arg1;
-- (id)init;
 
 @end
 

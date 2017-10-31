@@ -27,6 +27,7 @@
     NSArray *_fileTypes;
     NSString *_providerIdentifier;
     _Bool _isRecursiveFolderEnumeration;
+    _Bool _started;
     _Bool _shouldResort;
     _Bool _regathering;
     _Bool _enumeratingExtensionResults;

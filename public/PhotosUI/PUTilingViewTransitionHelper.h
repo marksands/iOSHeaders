@@ -59,6 +59,7 @@ __attribute__((visibility("hidden")))
 - (void)_transferView:(id)arg1 toSuperview:(id)arg2;
 - (long long)_barStyleForEndPoint:(id)arg1;
 - (_Bool)_endPointUsesTransientTilingView:(id)arg1;
+- (_Bool)_validateTransitionFromEndPoint:(id)arg1 toEndPoint:(id)arg2;
 - (void)animateTransitionWithOperation:(long long)arg1 startedInteractively:(_Bool)arg2;
 - (void)_getTransitionProgress:(double *)arg1 backgroundProgress:(double *)arg2 chromeProgress:(double *)arg3;
 - (void)resumeTransition:(_Bool)arg1;

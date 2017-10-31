@@ -14,7 +14,6 @@ __attribute__((visibility("hidden")))
     NSMutableArray *m_inputModes;
     NSArray *m_inputSwitcherItems;
     _Bool m_isForDictation;
-    _Bool m_didTypeWithinDisplayTimer;
     UIInputSwitcherGestureState *m_gestureState;
     _Bool _messagesWriteboardFromSwitcher;
     _Bool _fileReportFromSwitcher;
@@ -27,8 +26,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool fileReportFromSwitcher; // @synthesize fileReportFromSwitcher=_fileReportFromSwitcher;
 @property(nonatomic) _Bool messagesWriteboardFromSwitcher; // @synthesize messagesWriteboardFromSwitcher=_messagesWriteboardFromSwitcher;
 @property(readonly, nonatomic) NSArray *inputModes; // @synthesize inputModes=m_inputModes;
-- (void)buttonPressed:(id)arg1 withEvent:(id)arg2 location:(struct CGPoint)arg3 isForDictation:(_Bool)arg4 tapAction:(CDUnknownBlockType)arg5;
-- (_Bool)didHitDockItemWithinTypingWindow;
+- (id)buttonPressed:(id)arg1 withEvent:(id)arg2 location:(struct CGPoint)arg3 isForDictation:(_Bool)arg4 tapAction:(CDUnknownBlockType)arg5;
 - (_Bool)_isHandBiasSwitchVisible;
 - (void)switchAction;
 - (void)customizeCell:(id)arg1 forItemAtIndex:(unsigned long long)arg2;

@@ -13,12 +13,12 @@
 - (NSMutableDictionary *)getExpandedFeaturesAsDictionary;
 - (NSMutableDictionary *)getFeaturesAsDictionary;
 - (NSArray *)getExpandedFeatureVectorAsArray;
-- (void)setExpandedSet:(double *)arg1;
+- (void)setExpandedSet:(float *)arg1;
 - (void)cleanup;
 - (void)resetFeatureValues;
-- (double)getServerFeatureAtIndex:(unsigned long long)arg1;
-- (double)getValueForFeature:(NSString *)arg1;
-- (double)getValueAtIndex:(unsigned long long)arg1;
+- (float)getServerFeatureAtIndex:(unsigned long long)arg1;
+- (float)getValueForFeature:(NSString *)arg1;
+- (float)getValueAtIndex:(unsigned long long)arg1;
 - (void)setValue:(NSNumber *)arg1 forFeatureEnum:(unsigned long long)arg2;
 - (void)setValue:(NSNumber *)arg1 forFeature:(NSString *)arg2;
 @end

@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSString;
 
-@interface HLPHelpTopicHistoryItem : NSObject <NSCopying, NSCoding>
+@interface HLPHelpTopicHistoryItem : NSObject <NSCopying, NSSecureCoding>
 {
     NSString *_identifier;
     NSString *_anchor;
@@ -19,6 +19,7 @@
     struct CGSize _contentSize;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSString *anchor; // @synthesize anchor=_anchor;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) struct CGSize contentSize; // @synthesize contentSize=_contentSize;

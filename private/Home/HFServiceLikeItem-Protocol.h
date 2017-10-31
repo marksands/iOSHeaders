@@ -4,12 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "HFControlItemVendor.h"
 #import "HFHomeKitItemProtocol.h"
 #import "HFServiceVendor.h"
 #import "NSCopying.h"
 
-@protocol HFServiceLikeItem <HFControlItemVendor, HFHomeKitItemProtocol, HFServiceVendor, NSCopying>
+@protocol HFServiceLikeItem <HFHomeKitItemProtocol, HFServiceVendor, NSCopying>
 @property(readonly, nonatomic) id <HFCharacteristicValueSource> valueSource;
 - (id)copyWithValueSource:(id <HFCharacteristicValueSource>)arg1;
 @end

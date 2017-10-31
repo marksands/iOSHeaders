@@ -8,7 +8,7 @@
 
 #import "FCOperationPrioritizing.h"
 
-@class FCMutexLock, NSMutableArray, NSObject<OS_dispatch_group>, NSString;
+@class NFMutexLock, NSMutableArray, NSObject<OS_dispatch_group>, NSString;
 
 @interface FCOperation : NSOperation <FCOperationPrioritizing>
 {
@@ -16,6 +16,7 @@
     _Bool _finished;
     _Bool _childOperationsCancelled;
     _Bool _childOperationsFinished;
+    _Bool _started;
     long long _relativePriority;
     unsigned long long _retryCount;
     double _timeoutDuration;
@@ -24,12 +25,13 @@
     double _operationEndTime;
     CDUnknownBlockType _timedOutTest;
     NSMutableArray *_childOperations;
-    FCMutexLock *_childOperationsLock;
+    NFMutexLock *_childOperationsLock;
     NSObject<OS_dispatch_group> *_finishedGroup;
 }
 
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *finishedGroup; // @synthesize finishedGroup=_finishedGroup;
-@property(retain, nonatomic) FCMutexLock *childOperationsLock; // @synthesize childOperationsLock=_childOperationsLock;
+@property(nonatomic) _Bool started; // @synthesize started=_started;
+@property(retain, nonatomic) NFMutexLock *childOperationsLock; // @synthesize childOperationsLock=_childOperationsLock;
 @property(nonatomic) _Bool childOperationsFinished; // @synthesize childOperationsFinished=_childOperationsFinished;
 @property(nonatomic) _Bool childOperationsCancelled; // @synthesize childOperationsCancelled=_childOperationsCancelled;
 @property(retain, nonatomic) NSMutableArray *childOperations; // @synthesize childOperations=_childOperations;

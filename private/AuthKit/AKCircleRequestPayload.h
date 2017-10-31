@@ -37,7 +37,6 @@
 - (id)initWithCoder:(id)arg1;
 - (id)description;
 - (id)replyPayload;
-@property(readonly, nonatomic) NSString *serverMachineId;
 - (_Bool)isAcceptingPayload;
 - (_Bool)isRequestingPayload;
 

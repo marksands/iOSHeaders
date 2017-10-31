@@ -168,6 +168,7 @@
 - (_Bool)hasAlias:(id)arg1;
 - (void)_invalidateCachedAliases;
 @property(readonly, nonatomic) NSArray *aliases;
+@property(readonly, nonatomic, getter=isMakoAccount) _Bool makoAccount;
 - (id)_statuses;
 - (id)_aliasInfoForAlias:(id)arg1;
 - (_Bool)_aliasIsVisible:(id)arg1;

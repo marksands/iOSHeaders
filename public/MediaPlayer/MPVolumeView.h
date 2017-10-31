@@ -45,11 +45,13 @@
 - (void)_setShowsVolumeSlider:(_Bool)arg1;
 - (void)_setShowsRouteButton:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_getDefaultVolumeSliderFrame:(struct CGRect *)arg1 routeButtonFrame:(struct CGRect *)arg2 forBounds:(struct CGRect)arg3;
+- (void)_stopPrewarmingAudioRoutePicker;
+- (void)_startPrewarmingAudioRoutePicker;
 - (void)_displayAudioRoutePicker;
+- (void)_loadAudioRoutePickerIfNeeded;
 - (id)_defaultRouteButtonImageAsSelected:(_Bool)arg1;
 - (void)_createSubviews;
 - (id)_routeButton;
-- (void)_setVolumeAudioCategory:(id)arg1;
 - (_Bool)isShowingActiveOverlays;
 - (void)dismissActiveOverlaysAnimated:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool isShowingRouteButton;

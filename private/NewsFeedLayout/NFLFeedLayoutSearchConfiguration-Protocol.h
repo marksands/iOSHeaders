@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSCopying.h"
+#import "NFCopying.h"
 #import "NSObject.h"
 
 @class NFLRankedLayoutRequest, NSArray, NSString;
 
-@protocol NFLFeedLayoutSearchConfiguration <NSObject, NSCopying>
+@protocol NFLFeedLayoutSearchConfiguration <NSObject, NFCopying>
 @property(readonly, nonatomic) NSArray *allRowTypes;
 @property(readonly, nonatomic) unsigned long long preferredTileInfoBatchSize;
 @property(nonatomic, getter=isShowingAccessoryText) _Bool showAccessoryText;

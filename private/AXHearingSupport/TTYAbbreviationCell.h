@@ -6,10 +6,12 @@
 
 #import "UICollectionViewCell.h"
 
-@class UILabel;
+@class UILabel, UIVisualEffectView;
 
 @interface TTYAbbreviationCell : UICollectionViewCell
 {
+    UIVisualEffectView *_abbreviationContainer;
+    UIVisualEffectView *_hintContainer;
     UILabel *_abbreviation;
     UILabel *_hint;
 }

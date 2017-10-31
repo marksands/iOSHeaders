@@ -97,6 +97,7 @@ __attribute__((visibility("hidden")))
 - (void)_handlePan:(id)arg1;
 - (void)_handleLongPressWithGestureLocationInBounds:(struct CGPoint)arg1 gestureState:(long long)arg2;
 - (void)_handleLongPress:(id)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRequireFailureOfGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (_Bool)displayedOn;
 - (void)interactiveChangeToDisplayedOn:(_Bool)arg1;

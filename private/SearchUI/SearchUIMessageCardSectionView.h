@@ -13,7 +13,7 @@
 }
 
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
-- (void)updateWithCardSection:(id)arg1;
+- (void)updateWithRowModel:(id)arg1;
 - (unsigned long long *)messageStatusForSearchUIMessageStatus:(int)arg1;
 - (unsigned long long *)messageServiceTypeForSearchUIMessageServiceType:(int)arg1;
 - (id)setupContentView;

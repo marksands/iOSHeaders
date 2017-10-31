@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class INIntent, NSString;
+@class INIntent, NSArray, NSString;
 
 @protocol INExtensionContextVending <NSObject>
 - (oneway void)cancelTransactionDueToTimeoutWithIntentIdentifier:(NSString *)arg1 completion:(void (^)(void))arg2;
@@ -14,6 +14,7 @@
 - (oneway void)beginTransactionWithIntentIdentifier:(NSString *)arg1 completion:(void (^)(void))arg2;
 - (oneway void)handleIntent:(INIntent *)arg1 withCompletion:(void (^)(INIntentResponse *, NSData *, NSSet *, NSError *))arg2;
 - (oneway void)confirmIntent:(INIntent *)arg1 withCompletion:(void (^)(INIntentResponse *, NSData *, NSSet *, NSError *))arg2;
+- (oneway void)resolveIntentSlots:(NSArray *)arg1 forIntent:(INIntent *)arg2 completionBlock:(void (^)(_Bool, INIntent *, NSDictionary *))arg3;
 - (oneway void)resolveIntentSlot:(NSString *)arg1 forIntent:(INIntent *)arg2 completionBlock:(void (^)(NSData *))arg3;
 
 @optional

@@ -239,6 +239,7 @@ struct Data {
     unsigned int :4;
     unsigned int :4;
     unsigned int :4;
+    unsigned int :4;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -295,7 +296,6 @@ struct Display {
     unsigned int _field20;
     struct DisplayShmemInfo _field21;
     unsigned int _field22;
-    struct EDIDAttributes _field23;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -339,13 +339,6 @@ struct DisplayShmemInfo {
 };
 
 struct DisplayTimings;
-
-struct EDIDAttributes {
-    int dolbyVision;
-    int pqEOTF;
-    int bt2020YCC;
-    int hdrStaticMetadataType1;
-};
 
 struct Ext;
 

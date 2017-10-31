@@ -72,6 +72,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithBootURL:(id)arg1;
 - (id)init;
+- (oneway void)release;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -21,7 +21,6 @@
 @property(nonatomic) long long desiredArticlesCount; // @synthesize desiredArticlesCount=_desiredArticlesCount;
 @property(nonatomic) unsigned long long minPrecedingTopicGroups; // @synthesize minPrecedingTopicGroups=_minPrecedingTopicGroups;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) _Bool requiresForYouCatchUpOperation;
 @property(readonly, nonatomic) _Bool emitsSingletonGroups;
 - (id)backingChannelTagIDWithAppConfig:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *groupEmitterIdentifier;
@@ -36,6 +35,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) _Bool isRequiredByFollowingEmitters;
+@property(readonly, nonatomic) long long requiredForYouContentTypes;
 @property(readonly) Class superclass;
 
 @end

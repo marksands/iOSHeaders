@@ -164,7 +164,7 @@ __attribute__((visibility("hidden")))
 - (void)setRouteContext:(id)arg1;
 - (void)setNavCameraIsDetached:(_Bool)arg1;
 - (void)didLayoutLabels;
-- (void)selectedLabelMarkerDidChangeState:(const shared_ptr_2d33c5e4 *)arg1;
+- (void)labelMarkerDidChangeState:(const shared_ptr_2d33c5e4 *)arg1;
 - (void)selectedLabelMarkerWillDisappear:(const shared_ptr_2d33c5e4 *)arg1;
 - (id)labelMapTileForTile:(id)arg1 layer:(unsigned char)arg2;
 - (void)_updateOverlayTileSource;

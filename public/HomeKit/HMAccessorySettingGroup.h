@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "HMFLogging.h"
 #import "_HMAccesorySettingGroupDelegate.h"
 
 @class NSArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, _HMAccessorySettingGroup;
 
-@interface HMAccessorySettingGroup : NSObject <_HMAccesorySettingGroupDelegate>
+@interface HMAccessorySettingGroup : NSObject <_HMAccesorySettingGroupDelegate, HMFLogging>
 {
     NSMutableSet *_settings;
     NSMutableSet *_groups;
@@ -19,29 +20,35 @@
     HMAccessorySettingGroup *_group;
 }
 
++ (id)logCategory;
 @property __weak HMAccessorySettingGroup *group; // @synthesize group=_group;
 @property(readonly) _HMAccessorySettingGroup *internal; // @synthesize internal=_internal;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 - (void).cxx_destruct;
+- (id)logIdentifier;
 - (void)_settingGroup:(id)arg1 didRemoveSettingGroup:(id)arg2;
 - (void)_settingGroup:(id)arg1 didAddSettingGroup:(id)arg2;
 - (void)_settingGroup:(id)arg1 didRemoveSetting:(id)arg2;
 - (void)_settingGroup:(id)arg1 didAddSetting:(id)arg2;
 - (void)removeGroup:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)addGroup:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_notifyClientOfRemovedGroup:(id)arg1;
 - (void)removeGroup:(id)arg1;
+- (void)_notifyClientOfAddedGroup:(id)arg1;
 - (void)addGroup:(id)arg1;
 @property(readonly, copy) NSArray *groups;
 - (void)removeSetting:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)addSetting:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_notifyClientOfRemovedSetting:(id)arg1;
 - (void)removeSetting:(id)arg1;
+- (void)_notifyClientOfAddedSetting:(id)arg1;
 - (void)addSetting:(id)arg1;
 @property(readonly, copy) NSArray *settings;
 @property(readonly, copy) NSString *keyPath;
+@property(readonly, copy) NSString *description;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 @property(readonly, copy) NSString *localizedTitle;
-@property(readonly, copy) NSString *description;
 - (id)initWithInternal:(id)arg1;
 - (id)initWithKeyPath:(id)arg1;
 - (id)init;

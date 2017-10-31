@@ -15,7 +15,6 @@
 {
     NURenderView *_renderView;
     NUScrollView *_scrollView;
-    NUComposition *_composition;
     NUMediaViewRenderer *_renderer;
     struct UIEdgeInsets _edgeInsets;
     NUAVPlayerController *_nuAVPlayerController;
@@ -51,7 +50,6 @@
 @property(nonatomic) struct CGRect cropRect; // @synthesize cropRect=_cropRect;
 @property(nonatomic) struct CGSize _masterSizeWithoutGeometry; // @synthesize _masterSizeWithoutGeometry=__masterSizeWithoutGeometry;
 @property(nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
-@property(retain, nonatomic) NUComposition *composition; // @synthesize composition=_composition;
 @property(nonatomic) __weak id <NUMediaViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)playerControllerIsReadyForPlayback:(id)arg1;
@@ -80,11 +78,12 @@
 - (id)_videoPlayerViewWithoutControls;
 - (id)_videoPlayerView;
 - (void)_transitionToInsets:(struct UIEdgeInsets)arg1;
-- (id)_renderClient;
 - (void)waitForRender;
 - (void)_updateRenderContent;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
+- (void)scrollViewDidScroll:(id)arg1;
+- (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidEndZooming:(id)arg1 withView:(id)arg2 atScale:(double)arg3;
 - (void)scrollViewWillBeginZooming:(id)arg1 withView:(id)arg2;
 - (void)scrollViewDidZoom:(id)arg1;
@@ -106,6 +105,7 @@
 @property(nonatomic) double zoomScale;
 - (void)setZoomScaleToFit;
 - (void)didMoveToWindow;
+@property(copy, nonatomic) NUComposition *composition;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class GEOSearchCategory, MKMapItem, NSArray, NSString;
+@class GEOResolvedItem, GEOSearchCategory, MKMapItem, NSArray, NSString;
 
 @interface MKLocalSearchCompletion : NSObject
 {
@@ -15,6 +15,7 @@
     NSString *_localizedSectionHeader;
     MKMapItem *_mapItem;
     _Bool _alreadySentFeedback;
+    _Bool _shouldDisplayNoResults;
 }
 
 @property(readonly, nonatomic, getter=_alreadySentFeedback) _Bool alreadySentFeedback; // @synthesize alreadySentFeedback=_alreadySentFeedback;
@@ -30,6 +31,7 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
+@property(readonly, nonatomic) GEOResolvedItem *clientResolved;
 @property(readonly, nonatomic) GEOSearchCategory *category;
 @property(readonly, nonatomic) MKMapItem *mapItem;
 - (id)calloutTitle;

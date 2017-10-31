@@ -21,12 +21,14 @@
     HFItemManager *_itemManager;
     HUCameraView *_cameraView;
     unsigned long long _visibilityState;
+    struct UIOffset _defaultCameraBadgeOffset;
 }
 
 @property(nonatomic, getter=isStreaming) _Bool streaming; // @synthesize streaming=_streaming;
 @property(nonatomic) unsigned long long visibilityState; // @synthesize visibilityState=_visibilityState;
 @property(retain, nonatomic) HUCameraView *cameraView; // @synthesize cameraView=_cameraView;
 @property(retain, nonatomic) HFItemManager *itemManager; // @synthesize itemManager=_itemManager;
+@property(nonatomic) struct UIOffset defaultCameraBadgeOffset; // @synthesize defaultCameraBadgeOffset=_defaultCameraBadgeOffset;
 @property(retain, nonatomic) HFCameraAudioManager *cameraAudioManager; // @synthesize cameraAudioManager=_cameraAudioManager;
 @property(nonatomic) unsigned long long displayMode; // @synthesize displayMode=_displayMode;
 @property(nonatomic, getter=isDisplayInterrupted) _Bool displayInterrupted; // @synthesize displayInterrupted=_displayInterrupted;
@@ -49,6 +51,7 @@
 - (void)didAnimatePictureInPictureStart;
 - (void)willAnimatePictureInPictureStart;
 - (void)itemManager:(id)arg1 didUpdateResultsForSourceItem:(id)arg2;
+@property(nonatomic) struct UIOffset cameraBadgeOffset;
 @property(readonly, nonatomic) UIView *cameraOverlaySnapshot;
 @property(readonly, nonatomic) UIView *cameraViewSnapshot;
 @property(readonly, nonatomic) struct CGRect cameraViewFrame;

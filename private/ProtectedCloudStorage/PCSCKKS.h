@@ -21,8 +21,9 @@
 - (void).cxx_destruct;
 - (id)stripOperationErrorIfPCSError:(id)arg1;
 - (void)createNewIdentity:(id)arg1 roll:(_Bool)arg2 complete:(CDUnknownBlockType)arg3;
-- (void)syncWithServer:(id)arg1 complete:(CDUnknownBlockType)arg2;
-- (id)createIdentityOperation:(id)arg1 roll:(_Bool)arg2;
+- (_Bool)shouldRetryWithSync:(id)arg1;
+- (void)submitRequest:(id)arg1 complete:(CDUnknownBlockType)arg2;
+- (id)createIdentityOperation:(id)arg1;
 - (id)ensurePCSFieldsOperation:(id)arg1;
 - (id)fetchCurrentOperation:(id)arg1;
 - (id)syncViewOperation:(id)arg1;

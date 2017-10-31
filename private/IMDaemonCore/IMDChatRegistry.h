@@ -68,6 +68,7 @@
 - (void)_forceReloadChats:(_Bool)arg1;
 - (id)_chatInfoForSaving;
 - (id)_chatInfoInRange:(struct _NSRange)arg1;
+- (id)_chatInfoForNumberOfChats:(long long)arg1;
 - (id)_allChatInfo;
 - (id)_chatInfoForConnection;
 - (void)removeMessage:(id)arg1 fromChat:(id)arg2;

@@ -21,6 +21,9 @@
     _Bool _octetAligned;
     _Bool _dtxEnabled;
     _Bool _latencySensitiveMode;
+    unsigned long long _numRedundantPayloads;
+    unsigned long long _txRedPayloadType;
+    unsigned long long _rxRedPayloadType;
 }
 
 + (long long)clientCodecRateModeForCodecRateMode:(int)arg1;
@@ -31,6 +34,9 @@
 + (long long)streamModeWithClientStreamMode:(long long)arg1;
 + (long long)clientCodecTypeWithCodecType:(long long)arg1;
 + (long long)codecTypeWithClientCodecType:(long long)arg1;
+@property(nonatomic) unsigned long long rxRedPayloadType; // @synthesize rxRedPayloadType=_rxRedPayloadType;
+@property(nonatomic) unsigned long long txRedPayloadType; // @synthesize txRedPayloadType=_txRedPayloadType;
+@property(nonatomic) unsigned long long numRedundantPayloads; // @synthesize numRedundantPayloads=_numRedundantPayloads;
 @property(nonatomic, getter=isLatencySensitiveMode) _Bool latencySensitiveMode; // @synthesize latencySensitiveMode=_latencySensitiveMode;
 @property(nonatomic) long long preferredCodecRateMode; // @synthesize preferredCodecRateMode=_preferredCodecRateMode;
 @property(nonatomic) unsigned int codecRateModeMask; // @synthesize codecRateModeMask=_codecRateModeMask;
@@ -46,6 +52,7 @@
 @property(nonatomic) long long audioStreamMode; // @synthesize audioStreamMode=_audioStreamMode;
 - (id)dictionary;
 - (void)setUpWithDictionary:(id)arg1;
+- (_Bool)isRedValid;
 - (_Bool)isCNValid;
 - (_Bool)isDTMFValid;
 - (_Bool)isValid;

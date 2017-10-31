@@ -38,7 +38,7 @@
 - (id)hideHomeAffordanceAnimationSettingsForLongLookPresentationController:(id)arg1;
 - (struct CGRect)longLookPresentationController:(id)arg1 frameForTransitionViewInPresentationSuperview:(id)arg2;
 - (struct CGRect)_frameForTransitionViewInScrollView;
-- (_Bool)wantsUseableContainerHeightForTransitionWithDelegate:(id)arg1;
+- (_Bool)wantsUseableContainerBoundsForTransitionWithDelegate:(id)arg1;
 - (void)notificationViewControllerDidDismiss:(id)arg1;
 - (void)notificationViewControllerWillDismiss:(id)arg1;
 - (void)notificationViewControllerDidPresent:(id)arg1;

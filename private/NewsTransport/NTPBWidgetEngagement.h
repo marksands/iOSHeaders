@@ -14,21 +14,26 @@
 {
     NSString *_articleId;
     NSData *_articleViewingSessionId;
+    NSString *_engagementTargetUrl;
     NSMutableArray *_otherVisibleSections;
     NSString *_sourceChannelId;
+    NSString *_webEmbedId;
     int _widgetArticleCount;
     int _widgetArticleCountInSection;
     int _widgetArticleRank;
     int _widgetArticleRankInSection;
+    int _widgetContentType;
     int _widgetEngagementType;
     int _widgetSectionDisplayRank;
     NSString *_widgetSectionId;
     NSString *_widgetUserId;
     int _widgetVideoPresentationReason;
-    CDStruct_80f27018 _has;
+    CDStruct_de6d94e7 _has;
 }
 
 + (Class)otherVisibleSectionsType;
+@property(retain, nonatomic) NSString *engagementTargetUrl; // @synthesize engagementTargetUrl=_engagementTargetUrl;
+@property(retain, nonatomic) NSString *webEmbedId; // @synthesize webEmbedId=_webEmbedId;
 @property(retain, nonatomic) NSString *widgetUserId; // @synthesize widgetUserId=_widgetUserId;
 @property(nonatomic) int widgetArticleCountInSection; // @synthesize widgetArticleCountInSection=_widgetArticleCountInSection;
 @property(retain, nonatomic) NSData *articleViewingSessionId; // @synthesize articleViewingSessionId=_articleViewingSessionId;
@@ -49,6 +54,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasEngagementTargetUrl;
+@property(readonly, nonatomic) _Bool hasWebEmbedId;
+- (int)StringAsWidgetContentType:(id)arg1;
+- (id)widgetContentTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasWidgetContentType;
+@property(nonatomic) int widgetContentType; // @synthesize widgetContentType=_widgetContentType;
 @property(readonly, nonatomic) _Bool hasWidgetUserId;
 @property(nonatomic) _Bool hasWidgetArticleCountInSection;
 - (int)StringAsWidgetVideoPresentationReason:(id)arg1;

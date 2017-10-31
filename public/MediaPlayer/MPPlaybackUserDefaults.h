@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSNumber, NSObject<OS_dispatch_queue>;
+@class NSMutableDictionary, NSNumber, NSObject<OS_dispatch_queue>;
 
 @interface MPPlaybackUserDefaults : NSObject
 {
@@ -17,6 +17,7 @@
     long long _musicRepeatType;
     long long _musicShuffleType;
     _Bool _soundCheckEnabled;
+    NSMutableDictionary *_lastSiriPlaybackContextIDs;
     struct vector<int, std::__1::allocator<int>> _notifyTokens;
     NSObject<OS_dispatch_queue> *_userDefaultsMutationQueue;
 }
@@ -31,6 +32,8 @@
 - (long long)_calculateCurrentMusicRepeatType;
 - (int)_calculateCurrentMusicEQPreset;
 - (void)_addNotificationObserver:(CDUnknownBlockType)arg1 forUserDefaultKey:(struct __CFString *)arg2;
+- (void)setLastSiriPlaybackContextID:(id)arg1 forPlayerID:(id)arg2;
+- (id)lastSiriPlaybackContextIDForPlayerID:(id)arg1;
 @property(readonly, nonatomic) _Bool shouldUseNewQueueManagement;
 @property(copy, nonatomic, getter=isPrivateListeningEnabled) NSNumber *privateListeningEnabled;
 @property(readonly, nonatomic) unsigned long long preferredVideosAssetQualityOnWifi;

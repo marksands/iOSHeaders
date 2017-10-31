@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     int _largeTitleTransitionType;
     _Bool _isRTL;
     _Bool _allowLargeTitles;
+    _Bool _twoPart;
     _Bool _beginWithLargeTitle;
     _Bool _endWithLargeTitle;
     NSMutableSet *_clippingViews;
@@ -38,6 +39,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) _UIBarBackground *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) _UINavigationBarContentView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) _UINavigationBarModernPromptView *promptView; // @synthesize promptView=_promptView;
+@property(nonatomic) _Bool twoPart; // @synthesize twoPart=_twoPart;
 @property(nonatomic) _Bool allowLargeTitles; // @synthesize allowLargeTitles=_allowLargeTitles;
 @property(nonatomic) _Bool isRTL; // @synthesize isRTL=_isRTL;
 @property(retain, nonatomic) _UINavigationBarItemStack *stack; // @synthesize stack=_stack;

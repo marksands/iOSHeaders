@@ -8,11 +8,13 @@
 
 #import "HMDBackingStoreObjectProtocol.h"
 #import "HMFDumpState.h"
+#import "HMFLogging.h"
+#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
-@class HAPPairingIdentity, HMDAccount, HMDHome, HMUserPresenceAuthorization, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HAPPairingIdentity, HMDAccount, HMDAssistantAccessControl, HMDHome, HMUserPresenceAuthorization, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
-@interface HMDUser : HMFObject <HMFDumpState, HMDBackingStoreObjectProtocol, NSSecureCoding>
+@interface HMDUser : HMFObject <HMFLogging, HMFMessageReceiver, HMFDumpState, HMDBackingStoreObjectProtocol, NSSecureCoding>
 {
     NSMutableArray *_relayAccessTokens;
     _Bool _remoteAccessAllowed;
@@ -24,22 +26,30 @@
     NSString *_relayIdentifier;
     HAPPairingIdentity *_pairingIdentity;
     NSString *_displayName;
+    HMDAssistantAccessControl *_assistantAccessControl;
     NSUUID *_uuid;
+    NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
 }
 
 + (id)userWithDictionary:(id)arg1 forHomeIdentifier:(id)arg2;
 + (_Bool)supportsSecureCoding;
++ (id)logCategory;
 + (id)UUIDWithUserID:(id)arg1 forHomeIdentifier:(id)arg2 uuid:(id)arg3 pairingIdentity:(id)arg4;
 + (id)destinationWithUserID:(id)arg1;
-+ (id)userWithName:(id)arg1 userID:(id)arg2 forHomeIdentifier:(id)arg3 publicKey:(id)arg4 homeManager:(id)arg5;
-+ (id)currentUserWithPrivilege:(unsigned long long)arg1 forHomeIdentifier:(id)arg2;
++ (id)userWithName:(id)arg1 userID:(id)arg2 uuid:(id)arg3 forHomeIdentifier:(id)arg4 publicKey:(id)arg5 homeManager:(id)arg6;
++ (id)currentUserWithPrivilege:(unsigned long long)arg1 forHomeIdentifier:(id)arg2 uuid:(id)arg3;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(copy, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
 - (id)dictionaryEncoding;
 - (id)modelObjectWithChangeType:(unsigned long long)arg1 version:(long long)arg2;
 - (id)modelObjectWithChangeType:(unsigned long long)arg1;
+- (id)backingStoreObjects:(long long)arg1;
+- (void)migrateCloudZone:(id)arg1 migrationQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_fixupRelayAccessTokens;
+- (void)_cleanChangesIfNoAddChangeObjectID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)_transactionUserUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
@@ -48,6 +58,10 @@
 - (void)encodeWithCoder:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *encodingRemoteDisplayName;
 - (id)initWithCoder:(id)arg1;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+- (id)messageDestination;
+@property(readonly, nonatomic) NSUUID *messageTargetUUID;
+- (id)logIdentifier;
 - (id)residentCopy;
 - (id)userCopy;
 - (void)removeRelayAccessTokenForAccessory:(id)arg1;
@@ -58,7 +72,8 @@
 - (_Bool)containsRelayAccessToken:(id)arg1;
 - (id)relayAccessTokens;
 @property(copy, nonatomic) NSString *relayIdentifier; // @synthesize relayIdentifier=_relayIdentifier;
-- (void)configureWithHome:(id)arg1;
+- (void)_handleAssistantAccessControlUpdate:(id)arg1;
+@property(retain) HMDAssistantAccessControl *assistantAccessControl; // @synthesize assistantAccessControl=_assistantAccessControl;
 - (_Bool)updateAdministrator:(_Bool)arg1;
 @property(readonly, getter=isValid) _Bool valid;
 @property(readonly, nonatomic) _Bool isOwner;
@@ -78,14 +93,17 @@
 @property(copy, nonatomic) NSString *userID; // @synthesize userID=_userID;
 @property(nonatomic) __weak HMDHome *home; // @synthesize home=_home;
 @property(nonatomic) unsigned long long privilege; // @synthesize privilege=_privilege;
-@property(readonly) unsigned long long hash;
+- (void)registerForMessages;
+- (id)messageDispatcher;
+- (void)configureWithHome:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
+@property(readonly) unsigned long long hash;
 - (unsigned long long)_compatiblePrivilege;
 - (id)dumpState;
 @property(readonly, copy) NSString *description;
 @property(readonly, copy) NSString *debugDescription;
 - (id)initWithUserID:(id)arg1 displayName:(id)arg2 forHomeIdentifier:(id)arg3 uuid:(id)arg4 pairingIdentity:(id)arg5 privilege:(unsigned long long)arg6;
-- (id)initWithUserID:(id)arg1 forHomeIdentifier:(id)arg2 pairingIdentity:(id)arg3 privilege:(unsigned long long)arg4;
+- (id)initWithUserID:(id)arg1 forHomeIdentifier:(id)arg2 uuid:(id)arg3 pairingIdentity:(id)arg4 privilege:(unsigned long long)arg5;
 - (id)initWithModelObject:(id)arg1;
 
 // Remaining properties

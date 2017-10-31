@@ -9,7 +9,7 @@
 #import "ICQUpgradeFlowManagerDelegate.h"
 #import "UITextViewDelegate.h"
 
-@class ICQOffer, ICQUpgradeFlowManager, NSArray, NSString, UIColor, UIFont, _ICQTextView;
+@class ICQOffer, ICQUpgradeFlowManager, ICQUpgradeFlowOptions, NSArray, NSString, UIColor, UIFont, _ICQTextView;
 
 @interface ICQBannerView : UIView <UITextViewDelegate, ICQUpgradeFlowManagerDelegate>
 {
@@ -21,6 +21,7 @@
     double _textLineSpacing;
     UIFont *_linkTextFont;
     UIColor *_linkTextColor;
+    ICQUpgradeFlowOptions *_flowOptions;
     _ICQTextView *_textView;
     NSArray *_activeConstraints;
     ICQUpgradeFlowManager *_upgradeFlowManager;
@@ -31,6 +32,7 @@
 @property(retain, nonatomic) ICQUpgradeFlowManager *upgradeFlowManager; // @synthesize upgradeFlowManager=_upgradeFlowManager;
 @property(retain, nonatomic) NSArray *activeConstraints; // @synthesize activeConstraints=_activeConstraints;
 @property(readonly, nonatomic) _ICQTextView *textView; // @synthesize textView=_textView;
+@property(copy, nonatomic) ICQUpgradeFlowOptions *flowOptions; // @synthesize flowOptions=_flowOptions;
 @property(copy, nonatomic) UIColor *linkTextColor; // @synthesize linkTextColor=_linkTextColor;
 @property(copy, nonatomic) UIFont *linkTextFont; // @synthesize linkTextFont=_linkTextFont;
 @property(nonatomic) double textLineSpacing; // @synthesize textLineSpacing=_textLineSpacing;

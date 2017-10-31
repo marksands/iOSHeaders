@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_userInfo;
     _NSProgressFraction *_selfFraction;
     _NSProgressFraction *_childFraction;
+    double _remoteFractionCompleted;
     NSString *_localizedDescription;
     NSString *_localizedAdditionalDescription;
     _Bool _isCancellable;
@@ -31,7 +32,6 @@ __attribute__((visibility("hidden")))
 + (id)decodableClasses;
 + (_Bool)supportsSecureCoding;
 + (id)_importantKeys;
-+ (id)_derivedKeys;
 - (id)overallFraction;
 - (void)setTotalUnitCount:(long long)arg1;
 - (long long)totalUnitCount;

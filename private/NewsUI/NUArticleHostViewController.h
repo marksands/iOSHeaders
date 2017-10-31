@@ -7,11 +7,11 @@
 #import "UIViewController.h"
 
 #import "NULoadingDelegate.h"
-#import "NUPagable.h"
+#import "NUPageable.h"
 
 @class FCArticle, NSString, NUMultiDelegate, UIView<NULoadingViewProviding>;
 
-@interface NUArticleHostViewController : UIViewController <NULoadingDelegate, NUPagable>
+@interface NUArticleHostViewController : UIViewController <NULoadingDelegate, NUPageable>
 {
     NSString *_pageIdentifier;
     id <NULoadingDelegate> _loadingDelegate;

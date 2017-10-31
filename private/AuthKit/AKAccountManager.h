@@ -17,6 +17,7 @@
     NSObject<OS_dispatch_queue> *_accountQueue;
 }
 
++ (id)stringRepresentationForService:(long long)arg1;
 + (_Bool)isAccountsFrameworkAvailable;
 + (id)sharedInstance;
 @property(retain, nonatomic) ACAccountStore *store; // @synthesize store=_accountStore;
@@ -32,7 +33,6 @@
 - (_Bool)hasPrimaryiCloudAccountForAltDSID:(id)arg1;
 - (_Bool)hasPrimaryiCloudAccountForAppleID:(id)arg1;
 - (void)removeUnusedAuthKitAccounts;
-- (id)stringRepresentationForService:(long long)arg1;
 - (id)activeServiceNamesForAccount:(id)arg1;
 - (id)servicesUsingAccount:(id)arg1;
 - (void)setAccount:(id)arg1 inUse:(_Bool)arg2 byService:(long long)arg3;
@@ -61,6 +61,9 @@
 - (id)hearbeatTokenForAccount:(id)arg1;
 - (void)setSecurityLevel:(unsigned long long)arg1 forAccount:(id)arg2;
 - (unsigned long long)securityLevelForAccount:(id)arg1;
+- (_Bool)saveAccount:(id)arg1 error:(id *)arg2;
+- (_Bool)_setUsername:(id)arg1 forAccount:(id)arg2;
+- (void)updateUsername:(id)arg1 forAccountsWithAltDSID:(id)arg2;
 - (void)setAliases:(id)arg1 forAccount:(id)arg2;
 - (id)aliasesForAccount:(id)arg1;
 - (void)setDSID:(id)arg1 forAccount:(id)arg2;

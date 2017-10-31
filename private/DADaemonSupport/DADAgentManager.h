@@ -65,7 +65,7 @@
 - (void)_calDaysToSyncDidChange;
 - (void)_resetMonitoringRequestsAndLoadAgents;
 - (_Bool)_systemMayNowBeReady;
-- (void)clearOrphanedStores;
+- (void)_clearOrphanedStores;
 - (_Bool)_clearOrphanedSubscribedCalendars:(void *)arg1 eventAccountIds:(id)arg2 toDoAccountIds:(id)arg3;
 - (_Bool)clearPersistMonitoringAccountID:(id)arg1 clientID:(id)arg2;
 - (_Bool)removePersistMonitoringAccountID:(id)arg1 folderIDs:(id)arg2 clientID:(id)arg3;

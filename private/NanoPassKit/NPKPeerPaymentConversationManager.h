@@ -6,12 +6,10 @@
 
 #import "NSObject.h"
 
-@class MSConversation, NPKPeerPaymentConversationContext, NSObject<OS_dispatch_queue>, NSString, PKPeerPaymentRecipient;
+@class MSConversation, NPKPeerPaymentConversationContext, NSString, PKPeerPaymentRecipient;
 
 @interface NPKPeerPaymentConversationManager : NSObject
 {
-    NSObject<OS_dispatch_queue> *_lookupQueue;
-    NSObject<OS_dispatch_queue> *_activeConversationQueue;
     MSConversation *_activeConversation;
     PKPeerPaymentRecipient *_recipient;
     NPKPeerPaymentConversationContext *_conversationContext;
@@ -22,6 +20,7 @@
 @property(retain) NSString *currentRecipientAddressLookup; // @synthesize currentRecipientAddressLookup=_currentRecipientAddressLookup;
 @property(retain, nonatomic) NPKPeerPaymentConversationContext *conversationContext; // @synthesize conversationContext=_conversationContext;
 @property(retain) PKPeerPaymentRecipient *recipient; // @synthesize recipient=_recipient;
+@property(retain, nonatomic) MSConversation *activeConversation; // @synthesize activeConversation=_activeConversation;
 - (void).cxx_destruct;
 - (id)_peerPaymentController;
 - (id)_sharedPeerPaymentWebService;
@@ -39,7 +38,6 @@
 @property(readonly, copy, nonatomic) NSString *recipientDisplayName;
 @property(readonly, nonatomic) NSString *recipientPhoneOrEmail;
 @property(readonly, nonatomic) NSString *senderPhoneOrEmail;
-@property(retain) MSConversation *activeConversation; // @synthesize activeConversation=_activeConversation;
 - (id)init;
 
 @end

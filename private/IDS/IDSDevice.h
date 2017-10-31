@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSData, NSDate, NSString, NSUUID, _IDSDevice;
+@class IDSDestination, NSArray, NSData, NSDate, NSString, NSUUID, _IDSDevice;
 
 @interface IDSDevice : NSObject
 {
@@ -43,6 +43,7 @@
 @property(readonly, nonatomic) _Bool supportsiCloudPairing;
 @property(retain, nonatomic, setter=setNSUUID:) NSUUID *nsuuid;
 @property(readonly, nonatomic) NSArray *linkedUserURIs;
+@property(readonly, nonatomic) IDSDestination *destination;
 @property(readonly, nonatomic) _Bool isHSATrusted;
 @property(readonly, nonatomic) _Bool isActive;
 @property(readonly, nonatomic) _Bool isLocallyPaired;

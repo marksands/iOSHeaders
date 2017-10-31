@@ -8,20 +8,17 @@
 
 #import "NTKEnumeratableFaceCollection.h"
 
-@class NSString, NTKCompanionApp;
+@class NSString;
 
 @interface NTKCGalleryCollection : NSObject <NTKEnumeratableFaceCollection>
 {
     NSString *_title;
     CDUnknownBlockType _calloutName;
     NSString *_descriptionText;
-    NTKCompanionApp *_app;
     id <NTKCGalleryCollectionDelegate> _delegate;
 }
 
 + (id)_galleryCollectionWithCollectionIdentifier:(id)arg1 title:(id)arg2 calloutName:(CDUnknownBlockType)arg3;
-+ (id)sampleFacesWithApp:(id)arg1 notIncludingFaceStyle:(long long)arg2;
-+ (id)sampleFacesWithApp:(id)arg1;
 + (id)_photoFaces;
 + (id)_kaleidoscopeFaces;
 + (id)_upNextFaces;
@@ -41,11 +38,9 @@
 + (id)_zeusFaces;
 + (id)_victoryDigitalFaces;
 + (id)_victoryAnalogFaces;
-+ (id)_complicationFaces;
 + (id)_newFaces;
 + (id)galleryCollections;
 @property(nonatomic) __weak id <NTKCGalleryCollectionDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) NTKCompanionApp *app; // @synthesize app=_app;
 @property(copy, nonatomic) NSString *descriptionText; // @synthesize descriptionText=_descriptionText;
 @property(copy, nonatomic) CDUnknownBlockType calloutName; // @synthesize calloutName=_calloutName;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;

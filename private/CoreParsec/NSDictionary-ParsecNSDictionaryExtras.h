@@ -7,6 +7,7 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (ParsecNSDictionaryExtras)
+- (id)parsec_dictionaryByMappingKeysUsingBlock:(CDUnknownBlockType)arg1;
 - (id)parsec_UUIDForKey:(id)arg1;
 - (id)parsec_URLForKey:(id)arg1;
 - (id)parsec_dictionaryForKey:(id)arg1;

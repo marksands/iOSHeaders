@@ -16,6 +16,7 @@
     unsigned char _rssiCount;
     unsigned char _rssiIndex;
     _Bool _paired;
+    unsigned int _connectedServices;
     NSData *_advertisementData;
     NSDictionary *_advertisementFields;
     NSData *_bluetoothAddress;
@@ -39,6 +40,7 @@
 @property(nonatomic) _Bool paired; // @synthesize paired=_paired;
 @property(nonatomic) double pairCheckTime; // @synthesize pairCheckTime=_pairCheckTime;
 @property(nonatomic) double lastSeen; // @synthesize lastSeen=_lastSeen;
+@property(nonatomic) unsigned int connectedServices; // @synthesize connectedServices=_connectedServices;
 @property(nonatomic) long long smoothedRSSI; // @synthesize smoothedRSSI=_smoothedRSSI;
 @property(nonatomic) long long rssiFloor; // @synthesize rssiFloor=_rssiFloor;
 @property(nonatomic) long long rssiCeiling; // @synthesize rssiCeiling=_rssiCeiling;

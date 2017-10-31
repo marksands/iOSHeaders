@@ -49,6 +49,8 @@
 - (void)eventDetailPredictedLocationCellAcceptedPrediction:(id)arg1 disambiguatedLocation:(id)arg2;
 - (void)_promptForSpanWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)layoutForWidth:(double)arg1 position:(int)arg2;
+- (double)_layoutForWidth:(double)arg1;
+- (void)layoutSubviews;
 - (double)titleHeight;
 - (id)_predictedLocationView;
 - (id)_editButton;

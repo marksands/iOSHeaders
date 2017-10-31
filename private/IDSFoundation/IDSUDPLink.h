@@ -61,6 +61,7 @@
 @property(retain) NSString *cbuuid; // @synthesize cbuuid=_cbuuid;
 @property(readonly) unsigned long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
+- (_Bool)setTrafficClass:(int)arg1;
 - (id)generateLinkReport:(double)arg1 isCurrentLink:(_Bool)arg2;
 - (unsigned long long)sendPacketBuffer:(CDStruct_3b17df7f *)arg1 sourceInterface:(id)arg2 destination:(id)arg3 toDeviceID:(id)arg4;
 - (unsigned long long)sendPacketBuffer:(CDStruct_3b17df7f *)arg1 destination:(id)arg2 toDeviceID:(id)arg3;

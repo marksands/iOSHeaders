@@ -518,33 +518,34 @@ struct GraphicsContext3D {
     struct RetainPtr<WebGLLayer> _field4;
     id _field5;
     struct HashMap<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<WebCore::GraphicsContext3D::ShaderSourceEntry>> _field6;
-    struct HashMap<unsigned int, WebCore::GraphicsContext3D::ActiveShaderSymbolCounts, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<WebCore::GraphicsContext3D::ActiveShaderSymbolCounts>> _field7;
-    struct HashMap<WTF::String, WTF::String, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::String>> _field8;
-    struct unique_ptr<WTF::HashMap<WTF::CString, unsigned long long, WTF::CStringHash, WTF::HashTraits<WTF::CString>, WTF::HashTraits<unsigned long long>>, std::__1::default_delete<WTF::HashMap<WTF::CString, unsigned long long, WTF::CStringHash, WTF::HashTraits<WTF::CString>, WTF::HashTraits<unsigned long long>>>> _field9;
-    struct unique_ptr<WebCore::Extensions3DOpenGL, std::__1::default_delete<WebCore::Extensions3DOpenGL>> _field10;
-    struct GraphicsContext3DAttributes _field11;
-    int _field12;
+    struct HashMap<unsigned int, std::__1::pair<unsigned int, unsigned int>, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<std::__1::pair<unsigned int, unsigned int>>> _field7;
+    struct HashMap<unsigned int, WebCore::GraphicsContext3D::ActiveShaderSymbolCounts, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<WebCore::GraphicsContext3D::ActiveShaderSymbolCounts>> _field8;
+    struct HashMap<WTF::String, WTF::String, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::String>> _field9;
+    struct unique_ptr<WTF::HashMap<WTF::CString, unsigned long long, WTF::CStringHash, WTF::HashTraits<WTF::CString>, WTF::HashTraits<unsigned long long>>, std::__1::default_delete<WTF::HashMap<WTF::CString, unsigned long long, WTF::CStringHash, WTF::HashTraits<WTF::CString>, WTF::HashTraits<unsigned long long>>>> _field10;
+    struct unique_ptr<WebCore::Extensions3DOpenGL, std::__1::default_delete<WebCore::Extensions3DOpenGL>> _field11;
+    struct GraphicsContext3DAttributes _field12;
     int _field13;
-    struct Vector<WTF::Vector<float, 0, WTF::CrashOnOverflow, 16>, 0, WTF::CrashOnOverflow, 16> _field14;
-    struct ANGLEWebKitBridge _field15;
-    unsigned int _field16;
+    int _field14;
+    struct Vector<WTF::Vector<float, 0, WTF::CrashOnOverflow, 16>, 0, WTF::CrashOnOverflow, 16> _field15;
+    struct ANGLEWebKitBridge _field16;
     unsigned int _field17;
     unsigned int _field18;
     unsigned int _field19;
     unsigned int _field20;
-    _Bool _field21;
-    unsigned int _field22;
-    struct GraphicsContext3DState _field23;
-    unsigned int _field24;
+    unsigned int _field21;
+    _Bool _field22;
+    unsigned int _field23;
+    struct GraphicsContext3DState _field24;
     unsigned int _field25;
     unsigned int _field26;
-    struct ListHashSet<unsigned int, WTF::IntHash<unsigned int>> _field27;
-    struct unique_ptr<WebCore::GraphicsContext3DPrivate, std::__1::default_delete<WebCore::GraphicsContext3DPrivate>> _field28;
-    struct WebGLRenderingContextBase *_field29;
-    _Bool _field30;
+    unsigned int _field27;
+    struct ListHashSet<unsigned int, WTF::IntHash<unsigned int>> _field28;
+    struct unique_ptr<WebCore::GraphicsContext3DPrivate, std::__1::default_delete<WebCore::GraphicsContext3DPrivate>> _field29;
+    struct WebGLRenderingContextBase *_field30;
     _Bool _field31;
-    unsigned int _field32;
-    _Bool _field33;
+    _Bool _field32;
+    unsigned int _field33;
+    _Bool _field34;
 };
 
 struct GraphicsContext3DAttributes {
@@ -569,7 +570,8 @@ struct GraphicsContext3DPrivate;
 struct GraphicsContext3DState {
     unsigned int _field1;
     unsigned int _field2;
-    unsigned int _field3;
+    struct HashMap<unsigned int, std::__1::pair<unsigned int, unsigned int>, WTF::IntHash<unsigned int>, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>, WTF::PairHashTraits<WTF::UnsignedWithZeroKeyHashTraits<unsigned int>, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>>> _field3;
+    struct HashCountedSet<unsigned int, WTF::IntHash<unsigned int>, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>> _field4;
 };
 
 struct HTMLImageLoader;
@@ -617,118 +619,119 @@ struct HTMLVideoElement {
     struct GenericTaskQueue<WebCore::Timer> _field38;
     struct GenericTaskQueue<WebCore::Timer> _field39;
     struct GenericTaskQueue<WebCore::Timer> _field40;
-    struct RefPtr<WebCore::TimeRanges> _field41;
-    struct GenericEventQueue _field42;
-    struct Vector<WebCore::DOMPromiseDeferred<void>, 0, WTF::CrashOnOverflow, 16> _field43;
-    double _field44;
+    struct GenericTaskQueue<WebCore::Timer> _field41;
+    struct RefPtr<WebCore::TimeRanges> _field42;
+    struct GenericEventQueue _field43;
+    struct Vector<WebCore::DOMPromiseDeferred<void>, 0, WTF::CrashOnOverflow, 16> _field44;
     double _field45;
     double _field46;
-    _Bool _field47;
-    int _field48;
+    double _field47;
+    _Bool _field48;
     int _field49;
     int _field50;
-    struct URL _field51;
-    struct RefPtr<WebCore::MediaError> _field52;
-    struct unique_ptr<WebCore::HTMLMediaElement::PendingSeek, std::__1::default_delete<WebCore::HTMLMediaElement::PendingSeek>> _field53;
-    int _field54;
-    double _field55;
-    _Bool _field56;
-    struct MediaTime _field57;
-    double _field58;
+    int _field51;
+    struct URL _field52;
+    struct RefPtr<WebCore::MediaError> _field53;
+    struct unique_ptr<WebCore::HTMLMediaElement::PendingSeek, std::__1::default_delete<WebCore::HTMLMediaElement::PendingSeek>> _field54;
+    int _field55;
+    double _field56;
+    _Bool _field57;
+    struct MediaTime _field58;
     double _field59;
-    struct MonotonicTime _field60;
-    struct MediaTime _field61;
-    int _field62;
-    struct RefPtr<WebCore::HTMLSourceElement> _field63;
+    double _field60;
+    struct MonotonicTime _field61;
+    struct MediaTime _field62;
+    int _field63;
     struct RefPtr<WebCore::HTMLSourceElement> _field64;
-    unsigned int _field65;
-    _Bool _field66;
-    Function_dbb44c37 _field67;
-    _Bool _field68;
-    struct RetainPtr<CALayer> _field69;
-    struct FloatRect _field70;
-    int _field71;
-    struct RefPtr<WebCore::MediaPlayer> _field72;
-    int _field73;
+    struct RefPtr<WebCore::HTMLSourceElement> _field65;
+    unsigned int _field66;
+    _Bool _field67;
+    Function_dbb44c37 _field68;
+    _Bool _field69;
+    struct RetainPtr<CALayer> _field70;
+    struct FloatRect _field71;
+    int _field72;
+    struct RefPtr<WebCore::MediaPlayer> _field73;
     int _field74;
     int _field75;
-    struct MediaTime _field76;
-    double _field77;
+    int _field76;
+    struct MediaTime _field77;
     double _field78;
-    struct MediaTime _field79;
+    double _field79;
     struct MediaTime _field80;
-    unsigned int _field81;
-    int _field82;
+    struct MediaTime _field81;
+    unsigned int _field82;
     int _field83;
     int _field84;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
     int _field85;
-    struct optional<WTF::MediaTime> _field86;
-    struct String _field87;
-    struct MediaTime _field88;
-    int _field89;
-    struct RefPtr<WebCore::AudioTrackList> _field90;
-    struct RefPtr<WebCore::TextTrackList> _field91;
-    struct RefPtr<WebCore::VideoTrackList> _field92;
-    struct Vector<WTF::RefPtr<WebCore::TextTrack>, 0, WTF::CrashOnOverflow, 16> _field93;
-    struct PODIntervalTree<WTF::MediaTime, WebCore::TextTrackCue *> _field94;
-    struct Vector<WebCore::PODInterval<WTF::MediaTime, WebCore::TextTrackCue *>, 0, WTF::CrashOnOverflow, 16> _field95;
-    int _field96;
-    _Bool _field97;
-    struct MediaElementAudioSourceNode *_field98;
-    struct String _field99;
-    struct RefPtr<WebCore::MediaController> _field100;
-    struct unique_ptr<WebCore::SleepDisabler, std::__1::default_delete<WebCore::SleepDisabler>> _field101;
-    struct WeakPtr<const WebCore::MediaResourceLoader> _field102;
-    struct RefPtr<WebCore::Blob> _field103;
-    struct optional<WTF::Variant<WTF::RefPtr<WebCore::MediaStream>, WTF::RefPtr<WebCore::Blob>>> _field104;
-    struct RefPtr<WebCore::WebKitMediaKeys> _field105;
-    struct unique_ptr<WebCore::MediaElementSession, std::__1::default_delete<WebCore::MediaElementSession>> _field106;
-    unsigned long long _field107;
-    struct RefPtr<WebCore::MediaControlsHost> _field108;
-    struct RefPtr<WebCore::DOMWrapperWorld> _field109;
-    struct RefPtr<WebCore::MediaStream> _field110;
-    _Bool _field111;
-    unsigned int _field112;
-    _Bool _field113;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    int _field86;
+    struct optional<WTF::MediaTime> _field87;
+    struct String _field88;
+    struct MediaTime _field89;
+    int _field90;
+    struct RefPtr<WebCore::AudioTrackList> _field91;
+    struct RefPtr<WebCore::TextTrackList> _field92;
+    struct RefPtr<WebCore::VideoTrackList> _field93;
+    struct Vector<WTF::RefPtr<WebCore::TextTrack>, 0, WTF::CrashOnOverflow, 16> _field94;
+    struct PODIntervalTree<WTF::MediaTime, WebCore::TextTrackCue *> _field95;
+    struct Vector<WebCore::PODInterval<WTF::MediaTime, WebCore::TextTrackCue *>, 0, WTF::CrashOnOverflow, 16> _field96;
+    int _field97;
+    _Bool _field98;
+    struct MediaElementAudioSourceNode *_field99;
+    struct String _field100;
+    struct RefPtr<WebCore::MediaController> _field101;
+    struct unique_ptr<WebCore::SleepDisabler, std::__1::default_delete<WebCore::SleepDisabler>> _field102;
+    struct WeakPtr<const WebCore::MediaResourceLoader> _field103;
+    struct RefPtr<WebCore::Blob> _field104;
+    struct optional<WTF::Variant<WTF::RefPtr<WebCore::MediaStream>, WTF::RefPtr<WebCore::Blob>>> _field105;
+    struct RefPtr<WebCore::WebKitMediaKeys> _field106;
+    struct unique_ptr<WebCore::MediaElementSession, std::__1::default_delete<WebCore::MediaElementSession>> _field107;
+    unsigned long long _field108;
+    struct RefPtr<WebCore::MediaControlsHost> _field109;
+    struct RefPtr<WebCore::DOMWrapperWorld> _field110;
+    struct RefPtr<WebCore::MediaStream> _field111;
+    _Bool _field112;
+    unsigned int _field113;
     _Bool _field114;
     _Bool _field115;
-    struct unique_ptr<WebCore::HTMLImageLoader, std::__1::default_delete<WebCore::HTMLImageLoader>> _field116;
-    struct AtomicString _field117;
-    unsigned int _field118;
+    _Bool _field116;
+    struct unique_ptr<WebCore::HTMLImageLoader, std::__1::default_delete<WebCore::HTMLImageLoader>> _field117;
+    struct AtomicString _field118;
     unsigned int _field119;
+    unsigned int _field120;
 };
 
 struct HTTPHeaderMap {
@@ -738,6 +741,10 @@ struct HTTPHeaderMap {
 
 struct HashCountedSet<JSC::JSObject *, WTF::PtrHash<JSC::JSObject *>, WTF::HashTraits<JSC::JSObject *>> {
     struct HashMap<JSC::JSObject *, unsigned int, WTF::PtrHash<JSC::JSObject *>, WTF::HashTraits<JSC::JSObject *>, WTF::HashTraits<unsigned int>> _field1;
+};
+
+struct HashCountedSet<unsigned int, WTF::IntHash<unsigned int>, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>> {
+    struct HashMap<unsigned int, unsigned int, WTF::IntHash<unsigned int>, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>, WTF::HashTraits<unsigned int>> _field1;
 };
 
 struct HashMap<JSC::Bindings::RuntimeObject *, JSC::Weak<JSC::Bindings::RuntimeObject>, WTF::PtrHash<JSC::Bindings::RuntimeObject *>, WTF::HashTraits<JSC::Bindings::RuntimeObject *>, WTF::HashTraits<JSC::Weak<JSC::Bindings::RuntimeObject>>> {
@@ -800,6 +807,18 @@ struct HashMap<unsigned int, WebCore::GraphicsContext3D::ActiveShaderSymbolCount
 
 struct HashMap<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<WebCore::GraphicsContext3D::ShaderSourceEntry>> {
     struct HashTable<unsigned int, WTF::KeyValuePair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry>>, WTF::IntHash<unsigned int>, WTF::HashMap<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<WebCore::GraphicsContext3D::ShaderSourceEntry>>::KeyValuePairTraits, WTF::HashTraits<unsigned int>> _field1;
+};
+
+struct HashMap<unsigned int, std::__1::pair<unsigned int, unsigned int>, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<std::__1::pair<unsigned int, unsigned int>>> {
+    struct HashTable<unsigned int, WTF::KeyValuePair<unsigned int, std::__1::pair<unsigned int, unsigned int>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<unsigned int, std::__1::pair<unsigned int, unsigned int>>>, WTF::IntHash<unsigned int>, WTF::HashMap<unsigned int, std::__1::pair<unsigned int, unsigned int>, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<std::__1::pair<unsigned int, unsigned int>>>::KeyValuePairTraits, WTF::HashTraits<unsigned int>> _field1;
+};
+
+struct HashMap<unsigned int, std::__1::pair<unsigned int, unsigned int>, WTF::IntHash<unsigned int>, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>, WTF::PairHashTraits<WTF::UnsignedWithZeroKeyHashTraits<unsigned int>, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>>> {
+    struct HashTable<unsigned int, WTF::KeyValuePair<unsigned int, std::__1::pair<unsigned int, unsigned int>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<unsigned int, std::__1::pair<unsigned int, unsigned int>>>, WTF::IntHash<unsigned int>, WTF::HashMap<unsigned int, std::__1::pair<unsigned int, unsigned int>, WTF::IntHash<unsigned int>, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>, WTF::PairHashTraits<WTF::UnsignedWithZeroKeyHashTraits<unsigned int>, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>>>::KeyValuePairTraits, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>> _field1;
+};
+
+struct HashMap<unsigned int, unsigned int, WTF::IntHash<unsigned int>, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>, WTF::HashTraits<unsigned int>> {
+    struct HashTable<unsigned int, WTF::KeyValuePair<unsigned int, unsigned int>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<unsigned int, unsigned int>>, WTF::IntHash<unsigned int>, WTF::HashMap<unsigned int, unsigned int, WTF::IntHash<unsigned int>, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>, WTF::HashTraits<unsigned int>>::KeyValuePairTraits, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>> _field1;
 };
 
 struct HashSet<JSC::Bindings::RootObject::InvalidationCallback *, WTF::PtrHash<JSC::Bindings::RootObject::InvalidationCallback *>, WTF::HashTraits<JSC::Bindings::RootObject::InvalidationCallback *>> {
@@ -1018,6 +1037,30 @@ struct HashTable<unsigned int, WTF::KeyValuePair<unsigned int, WebCore::Graphics
     unsigned int _field5;
 };
 
+struct HashTable<unsigned int, WTF::KeyValuePair<unsigned int, std::__1::pair<unsigned int, unsigned int>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<unsigned int, std::__1::pair<unsigned int, unsigned int>>>, WTF::IntHash<unsigned int>, WTF::HashMap<unsigned int, std::__1::pair<unsigned int, unsigned int>, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<std::__1::pair<unsigned int, unsigned int>>>::KeyValuePairTraits, WTF::HashTraits<unsigned int>> {
+    struct KeyValuePair<unsigned int, std::__1::pair<unsigned int, unsigned int>> *_field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+};
+
+struct HashTable<unsigned int, WTF::KeyValuePair<unsigned int, std::__1::pair<unsigned int, unsigned int>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<unsigned int, std::__1::pair<unsigned int, unsigned int>>>, WTF::IntHash<unsigned int>, WTF::HashMap<unsigned int, std::__1::pair<unsigned int, unsigned int>, WTF::IntHash<unsigned int>, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>, WTF::PairHashTraits<WTF::UnsignedWithZeroKeyHashTraits<unsigned int>, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>>>::KeyValuePairTraits, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>> {
+    struct KeyValuePair<unsigned int, std::__1::pair<unsigned int, unsigned int>> *_field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+};
+
+struct HashTable<unsigned int, WTF::KeyValuePair<unsigned int, unsigned int>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<unsigned int, unsigned int>>, WTF::IntHash<unsigned int>, WTF::HashMap<unsigned int, unsigned int, WTF::IntHash<unsigned int>, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>, WTF::HashTraits<unsigned int>>::KeyValuePairTraits, WTF::UnsignedWithZeroKeyHashTraits<unsigned int>> {
+    struct KeyValuePair<unsigned int, unsigned int> *_field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+};
+
 struct HashTable<unsigned int, unsigned int, WTF::IdentityExtractor, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<unsigned int>> {
     unsigned int *_field1;
     unsigned int _field2;
@@ -1085,6 +1128,10 @@ struct KeyValuePair<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>>;
 struct KeyValuePair<unsigned int, WebCore::GraphicsContext3D::ActiveShaderSymbolCounts>;
 
 struct KeyValuePair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry>;
+
+struct KeyValuePair<unsigned int, std::__1::pair<unsigned int, unsigned int>>;
+
+struct KeyValuePair<unsigned int, unsigned int>;
 
 struct LegacyTileCache;
 

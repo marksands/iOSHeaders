@@ -20,10 +20,8 @@
 + (int)separatorStyleForCardSection:(id)arg1;
 - (struct UIEdgeInsets)verticalBaselineInsetsForHeader:(_Bool)arg1 isCompactTable:(_Bool)arg2;
 - (struct UIEdgeInsets)verticalBaselineInsetsForRowsWithCompactTable:(_Bool)arg1;
-- (void)containerView:(id)arg1 willMeasureArrangedSubviewsFittingSize:(struct CGSize)arg2 forReason:(long long)arg3;
-- (void)updateWithCardSection:(id)arg1 manager:(id)arg2;
+- (void)updateWithRowModel:(id)arg1;
 - (id)setupContentView;
-- (id)initWithCardSection:(id)arg1 gridData:(id)arg2 style:(unsigned long long)arg3 feedbackDelegate:(id)arg4;
 
 // Remaining properties
 @property(retain) TLKGridRowView *contentView; // @dynamic contentView;

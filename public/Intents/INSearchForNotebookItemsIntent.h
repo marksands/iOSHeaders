@@ -22,6 +22,8 @@
 - (id)domain;
 - (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1 containingAppBundleId:(id)arg2;
 - (id)_dictionaryRepresentation;
+- (void)setNotebookItemIdentifier:(id)arg1;
+@property(readonly, copy, nonatomic) NSString *notebookItemIdentifier;
 - (void)setDateSearchType:(long long)arg1;
 @property(readonly, nonatomic) long long dateSearchType;
 - (void)setDateTime:(id)arg1;
@@ -38,9 +40,10 @@
 @property(readonly, copy, nonatomic) NSString *content;
 - (void)setTitle:(id)arg1;
 @property(readonly, copy, nonatomic) INSpeakableString *title;
-- (id)initWithTitle:(id)arg1 content:(id)arg2 itemType:(long long)arg3 status:(long long)arg4 location:(id)arg5 locationSearchType:(long long)arg6 dateTime:(id)arg7 dateSearchType:(long long)arg8;
+- (id)initWithTitle:(id)arg1 content:(id)arg2 itemType:(long long)arg3 status:(long long)arg4 location:(id)arg5 locationSearchType:(long long)arg6 dateTime:(id)arg7 dateSearchType:(long long)arg8 notebookItemIdentifier:(id)arg9;
 - (id)_metadata;
 - (id)_typedBackingStore;
+- (id)initWithTitle:(id)arg1 content:(id)arg2 itemType:(long long)arg3 status:(long long)arg4 location:(id)arg5 locationSearchType:(long long)arg6 dateTime:(id)arg7 dateSearchType:(long long)arg8;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

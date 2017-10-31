@@ -20,6 +20,7 @@
 - (void)didUpdateRequiredHeightForCell:(id)arg1;
 - (void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3;
+- (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(id)arg1;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (id)initWithCollectionViewLayout:(id)arg1;
 

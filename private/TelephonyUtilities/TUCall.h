@@ -16,7 +16,6 @@
     _Bool _shouldSuppressRingtone;
     _Bool _wantsHoldMusic;
     _Bool _wasDialAssisted;
-    _Bool _hasBegunAudioInterruption;
     _Bool _hasUpdatedAudio;
     _Bool _expectedEndpointOnPairedClientDevice;
     _Bool _ringtoneSuppressedRemotely;
@@ -40,7 +39,6 @@
     TUVideoCallAttributes *_videoCallAttributes;
     long long _provisionalHoldStatus;
     NSString *_isoCountryCode;
-    NSString *_prematurelySelectedAudioRouteUID;
     long long _soundRegion;
     NSDictionary *_providerContext;
     double _hostCreationTime;
@@ -67,8 +65,6 @@
 @property(nonatomic, getter=isExpectedEndpointOnPairedClientDevice) _Bool expectedEndpointOnPairedClientDevice; // @synthesize expectedEndpointOnPairedClientDevice=_expectedEndpointOnPairedClientDevice;
 @property(nonatomic) long long soundRegion; // @synthesize soundRegion=_soundRegion;
 @property(nonatomic) _Bool hasUpdatedAudio; // @synthesize hasUpdatedAudio=_hasUpdatedAudio;
-@property(retain, nonatomic) NSString *prematurelySelectedAudioRouteUID; // @synthesize prematurelySelectedAudioRouteUID=_prematurelySelectedAudioRouteUID;
-@property(nonatomic) _Bool hasBegunAudioInterruption; // @synthesize hasBegunAudioInterruption=_hasBegunAudioInterruption;
 @property(nonatomic) int transitionStatus; // @synthesize transitionStatus=_transitionStatus;
 @property(copy, nonatomic) NSString *isoCountryCode; // @synthesize isoCountryCode=_isoCountryCode;
 @property(nonatomic) long long provisionalHoldStatus; // @synthesize provisionalHoldStatus=_provisionalHoldStatus;
@@ -165,6 +161,7 @@
 @property(readonly, nonatomic) int ttyType;
 @property(readonly, nonatomic) long long faceTimeTransportType;
 @property(readonly, nonatomic, getter=isTTY) _Bool tty;
+@property(readonly, nonatomic, getter=isRTT) _Bool rtt;
 @property(readonly, nonatomic, getter=isVoIPCall) _Bool voipCall;
 @property(readonly, nonatomic, getter=isWiFiCall) _Bool wiFiCall;
 @property(readonly, nonatomic) _Bool needsManualInCallSounds;

@@ -40,6 +40,7 @@
     int _targetDatabase;
     NSString *_userIDContainerID;
     NSString *_userToken;
+    _Bool _deviceSoftwareIsAppleInternal;
     struct {
         unsigned int applicationConfigVersion:1;
         unsigned int deviceFlowControlBudget:1;
@@ -51,10 +52,12 @@
         unsigned int deviceFlowControlRegeneration:1;
         unsigned int isolationLevel:1;
         unsigned int targetDatabase:1;
+        unsigned int deviceSoftwareIsAppleInternal:1;
     } _has;
 }
 
 + (Class)serviceIdentityKeyIDsType;
+@property(nonatomic) _Bool deviceSoftwareIsAppleInternal; // @synthesize deviceSoftwareIsAppleInternal=_deviceSoftwareIsAppleInternal;
 @property(retain, nonatomic) NSMutableArray *serviceIdentityKeyIDs; // @synthesize serviceIdentityKeyIDs=_serviceIdentityKeyIDs;
 @property(nonatomic) unsigned long long operationGroupQuantity; // @synthesize operationGroupQuantity=_operationGroupQuantity;
 @property(retain, nonatomic) NSString *operationGroupName; // @synthesize operationGroupName=_operationGroupName;
@@ -90,6 +93,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasDeviceSoftwareIsAppleInternal;
 - (id)serviceIdentityKeyIDsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)serviceIdentityKeyIDsCount;
 - (void)addServiceIdentityKeyIDs:(id)arg1;

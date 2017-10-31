@@ -6,20 +6,22 @@
 
 #import "UIViewController.h"
 
-@interface SXFullScreenCanvasViewController : UIViewController
+@class SXKeyValueObserver;
+
+@interface SXFullscreenCanvasViewController : UIViewController
 {
-    _Bool _isObservingNavigationBar;
     _Bool _visible;
+    SXKeyValueObserver *_navigationBarObserver;
 }
 
 @property(nonatomic) _Bool visible; // @synthesize visible=_visible;
-@property(nonatomic) _Bool isObservingNavigationBar; // @synthesize isObservingNavigationBar=_isObservingNavigationBar;
+@property(retain, nonatomic) SXKeyValueObserver *navigationBarObserver; // @synthesize navigationBarObserver=_navigationBarObserver;
+- (void).cxx_destruct;
 - (long long)preferredStatusBarStyle;
 - (long long)preferredStatusBarUpdateAnimation;
 - (_Bool)prefersStatusBarHidden;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 
 @end
 

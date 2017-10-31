@@ -14,8 +14,10 @@
 @interface _CPCardForFeedback : PBCodable <_CPCardForFeedback, NSSecureCoding>
 {
     NSArray *_cardSections;
+    NSString *_fbr;
 }
 
+@property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
 @property(copy, nonatomic) NSArray *cardSections; // @synthesize cardSections=_cardSections;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
@@ -26,6 +28,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasFbr;
 - (id)cardSectionsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)cardSectionsCount;
 - (void)addCardSections:(id)arg1;

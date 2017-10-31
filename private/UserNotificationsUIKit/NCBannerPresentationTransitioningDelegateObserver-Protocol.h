@@ -13,6 +13,6 @@
 @optional
 - (void)transitioningDelegate:(id <UIViewControllerTransitioningDelegate>)arg1 didFinishDismissalOfViewController:(UIViewController *)arg2 completed:(_Bool)arg3;
 - (void)transitioningDelegate:(id <UIViewControllerTransitioningDelegate>)arg1 didFinishPresentationOfViewController:(UIViewController *)arg2 completed:(_Bool)arg3;
-- (_Bool)wantsUseableContainerHeightForTransitionWithDelegate:(id <UIViewControllerTransitioningDelegate>)arg1;
+- (_Bool)wantsUseableContainerBoundsForTransitionWithDelegate:(id <UIViewControllerTransitioningDelegate>)arg1;
 @end
 

@@ -34,6 +34,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)_updateLoggedInAccount:(id)arg1;
+- (void)_sendAccountUpdateNotification:(id)arg1;
 - (void)_handleRemoteLoginAccount:(id)arg1 message:(id)arg2;
 - (void)registerForMessages;
 - (void)configureWithWorkQueue:(id)arg1 messageDispatcher:(id)arg2;

@@ -6,23 +6,43 @@
 
 #import <HomeKitDaemon/HMDUnassociatedMediaAccessory.h>
 
-@class HMDDevice;
+#import "HMFLogging.h"
 
-@interface HMDUnassociatedAppleMediaAccessory : HMDUnassociatedMediaAccessory
+@class HMDDevice, HMFSoftwareVersion, NSString;
+
+@interface HMDUnassociatedAppleMediaAccessory : HMDUnassociatedMediaAccessory <HMFLogging>
 {
+    _Bool _currentAccessory;
+    NSString *_model;
+    NSString *_serialNumber;
+    HMFSoftwareVersion *_softwareVersion;
     HMDDevice *_device;
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)logCategory;
++ (id)namespace;
 + (Class)modelClass;
+@property(nonatomic, getter=isCurrentAccessory) _Bool currentAccessory; // @synthesize currentAccessory=_currentAccessory;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)logIdentifier;
 - (id)dumpDescription;
 - (id)addTransactionForHome:(id)arg1 configurationAppIdentifier:(id)arg2;
 @property(retain) HMDDevice *device; // @synthesize device=_device;
+@property(retain) HMFSoftwareVersion *softwareVersion; // @synthesize softwareVersion=_softwareVersion;
+@property(retain) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
+@property(retain) NSString *model; // @synthesize model=_model;
 - (id)descriptionWithPointer:(_Bool)arg1 additionalDescription:(id)arg2;
+- (id)initWithIdentifier:(id)arg1 name:(id)arg2 category:(id)arg3 messageDispatcher:(id)arg4;
 - (id)initWithIdentifier:(id)arg1 device:(id)arg2 messageDispatcher:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

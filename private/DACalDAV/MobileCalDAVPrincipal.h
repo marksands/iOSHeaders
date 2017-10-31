@@ -10,7 +10,7 @@
 #import "CoreDAVAccountInfoProvider.h"
 #import "CoreDAVOAuthInfoProvider.h"
 
-@class CalDAVRefreshContext, MobileCalDAVAccount, NSDateComponents, NSDictionary, NSMutableDictionary, NSMutableSet, NSNumber, NSSet, NSString, NSURL;
+@class AKAppleIDSession, CalDAVRefreshContext, MobileCalDAVAccount, NSDateComponents, NSDictionary, NSMutableDictionary, NSMutableSet, NSNumber, NSSet, NSString, NSURL;
 
 @interface MobileCalDAVPrincipal : NSObject <CoreDAVAccountInfoProvider, CoreDAVOAuthInfoProvider, CalDAVPrincipal>
 {
@@ -55,9 +55,11 @@
     NSMutableSet *_modifiedCalendars;
     CalDAVRefreshContext *_refreshContext;
     NSURL *_legacy_principalURL;
+    AKAppleIDSession *_appleIDSession;
 }
 
 + (_Bool)compareAddressURL:(id)arg1 localString:(id)arg2;
+@property(retain, nonatomic) AKAppleIDSession *appleIDSession; // @synthesize appleIDSession=_appleIDSession;
 @property(retain, nonatomic) NSURL *legacy_principalURL; // @synthesize legacy_principalURL=_legacy_principalURL;
 @property(retain, nonatomic) CalDAVRefreshContext *refreshContext; // @synthesize refreshContext=_refreshContext;
 @property(nonatomic) int calendarChangeIndex; // @synthesize calendarChangeIndex=_calendarChangeIndex;
@@ -107,6 +109,7 @@
 - (void)webLoginRequestedAtURL:(id)arg1 reasonString:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)clientTokenRequestedByServer;
 - (id)clientToken;
+- (id)getAppleIDSession;
 - (void)promptUserForNewCoreDAVPasswordWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)oauthInfoProvider;
 - (unsigned long long)oauthVariant;

@@ -11,7 +11,7 @@
 @interface FPCreateFolderOperation : FPActionOperation
 {
     FPItem *_parentItem;
-    NSString *_folderName;
+    NSString *_folderFilename;
     FPItemID *_placeholderID;
     CDUnknownBlockType _createFolderCompletionBlock;
 }

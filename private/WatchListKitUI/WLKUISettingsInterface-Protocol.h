@@ -12,6 +12,7 @@
 - (NSArray *)deniedBrands;
 - (NSArray *)consentedBrands;
 - (NSDictionary *)settings;
+- (_Bool)sportsScoreSpoilersAllowed;
 - (_Bool)privateModeEnabled;
 @end
 

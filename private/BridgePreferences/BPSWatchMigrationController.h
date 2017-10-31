@@ -28,6 +28,7 @@
 - (void)loadView;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (_Bool)shouldBeDisplayedGivenMigrationData:(id)arg1;
+- (id)initWithSnapshot:(id)arg1;
 
 @end
 

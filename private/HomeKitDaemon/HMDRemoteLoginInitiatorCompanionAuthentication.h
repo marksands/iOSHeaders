@@ -18,6 +18,7 @@
 - (void).cxx_destruct;
 - (void)_authenticate;
 - (void)authenticate;
+- (int)loginType;
 - (id)description;
 - (void)dealloc;
 - (id)initWithSessionID:(id)arg1 remoteDevice:(id)arg2 workQueue:(id)arg3 remoteMessageSender:(id)arg4 delegate:(id)arg5 account:(id)arg6;

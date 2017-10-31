@@ -27,6 +27,7 @@
     MPCModelRadioPlaybackQueue *_playbackQueue;
     MPCPlaybackRequestEnvironment *_playbackRequestEnvironment;
     long long _queueGeneration;
+    NSString *_siriAssetInfo;
     ICStoreRequestContext *_storeRequestContext;
 }
 

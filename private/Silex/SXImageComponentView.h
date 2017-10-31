@@ -14,6 +14,7 @@
 
 @interface SXImageComponentView : SXMediaComponentView <UIGestureRecognizerDelegate, SXImageViewDelegate, SXDragManagerDataSource>
 {
+    id <SXImageViewFactory> _imageViewFactory;
     SXImageView *_imageView;
     SXAnimatedImageController *_animatedImageController;
     SXDragManager *_dragManager;
@@ -22,6 +23,7 @@
 @property(retain, nonatomic) SXDragManager *dragManager; // @synthesize dragManager=_dragManager;
 @property(retain, nonatomic) SXAnimatedImageController *animatedImageController; // @synthesize animatedImageController=_animatedImageController;
 @property(readonly, nonatomic) SXImageView *imageView; // @synthesize imageView=_imageView;
+@property(readonly, nonatomic) id <SXImageViewFactory> imageViewFactory; // @synthesize imageViewFactory=_imageViewFactory;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (unsigned long long)analyticsMediaType;
@@ -39,11 +41,11 @@
 - (void)visibilityStateDidChangeFromState:(long long)arg1;
 - (void)discardContents;
 - (void)renderContents;
-- (void)presentComponent;
+- (void)presentComponentWithChanges:(CDStruct_1cc9d0d0)arg1;
 - (struct CGRect)imageFrame;
 - (void)layoutImageView;
-- (void)createImageView;
-- (id)initWithComponent:(id)arg1 configuration:(id)arg2 context:(id)arg3 analyticsReporting:(id)arg4 appStateMonitor:(id)arg5;
+- (void)loadComponent:(id)arg1;
+- (id)initWithDocumentController:(id)arg1 viewport:(id)arg2 presentationDelegate:(id)arg3 analyticsReporting:(id)arg4 componentStyleRendererFactory:(id)arg5 appStateMonitor:(id)arg6 imageViewFactory:(id)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

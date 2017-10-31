@@ -8,7 +8,7 @@
 
 #import "FCOperationThrottlerDelegate.h"
 
-@class FCCacheCoordinatorFlushPolicy, FCMutexLock, FCThreadSafeMutableDictionary, NSCountedSet, NSMutableSet, NSString;
+@class FCCacheCoordinatorFlushPolicy, FCThreadSafeMutableDictionary, NFMutexLock, NSCountedSet, NSMutableSet, NSString;
 
 @interface FCCacheCoordinator : NSObject <FCOperationThrottlerDelegate>
 {
@@ -17,7 +17,7 @@
     NSMutableSet *_storedKeys;
     NSCountedSet *_interestedKeys;
     FCThreadSafeMutableDictionary *_cacheHintsByKey;
-    FCMutexLock *_interestLock;
+    NFMutexLock *_interestLock;
     id <FCCacheCoordinatorLocking> _underlyingLock;
     id <FCOperationThrottler> _flushThrottler;
     FCCacheCoordinatorFlushPolicy *_flushPolicy;
@@ -27,7 +27,7 @@
 @property(retain, nonatomic) FCCacheCoordinatorFlushPolicy *flushPolicy; // @synthesize flushPolicy=_flushPolicy;
 @property(retain, nonatomic) id <FCOperationThrottler> flushThrottler; // @synthesize flushThrottler=_flushThrottler;
 @property(retain, nonatomic) id <FCCacheCoordinatorLocking> underlyingLock; // @synthesize underlyingLock=_underlyingLock;
-@property(retain, nonatomic) FCMutexLock *interestLock; // @synthesize interestLock=_interestLock;
+@property(retain, nonatomic) NFMutexLock *interestLock; // @synthesize interestLock=_interestLock;
 @property(retain, nonatomic) FCThreadSafeMutableDictionary *cacheHintsByKey; // @synthesize cacheHintsByKey=_cacheHintsByKey;
 @property(retain, nonatomic) NSCountedSet *interestedKeys; // @synthesize interestedKeys=_interestedKeys;
 @property(retain, nonatomic) NSMutableSet *storedKeys; // @synthesize storedKeys=_storedKeys;

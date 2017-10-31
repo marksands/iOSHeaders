@@ -17,8 +17,10 @@
     id <SXVideoMetadataProviding> _metadata;
     SXTimeline *_timeline;
     double _pausedAtTime;
+    NSString *_mediaIdentifier;
 }
 
+@property(readonly, nonatomic) NSString *mediaIdentifier; // @synthesize mediaIdentifier=_mediaIdentifier;
 @property(nonatomic) double pausedAtTime; // @synthesize pausedAtTime=_pausedAtTime;
 @property(readonly, nonatomic) SXTimeline *timeline; // @synthesize timeline=_timeline;
 @property(nonatomic) __weak id <SXVideoMetadataProviding> metadata; // @synthesize metadata=_metadata;

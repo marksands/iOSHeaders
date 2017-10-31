@@ -49,6 +49,7 @@
     unsigned long long _previewItemType;
     unsigned long long _thumbnailItemType;
     long long _processIdentifier;
+    unsigned long long _editedFileBehavior;
 }
 
 + (id)_newEditedFileURLForItem:(id)arg1;
@@ -64,6 +65,7 @@
 @property(nonatomic) _Bool hasDeterminedShouldUseExtensionThumbnail; // @synthesize hasDeterminedShouldUseExtensionThumbnail=_hasDeterminedShouldUseExtensionThumbnail;
 @property(nonatomic) _Bool shouldUseExtensionPreview; // @synthesize shouldUseExtensionPreview=_shouldUseExtensionPreview;
 @property(nonatomic) _Bool hasDeterminedShouldUseExtensionPreview; // @synthesize hasDeterminedShouldUseExtensionPreview=_hasDeterminedShouldUseExtensionPreview;
+@property(nonatomic) unsigned long long editedFileBehavior; // @synthesize editedFileBehavior=_editedFileBehavior;
 @property(nonatomic) _Bool canBeShared; // @synthesize canBeShared=_canBeShared;
 @property(nonatomic) _Bool canBeEdited; // @synthesize canBeEdited=_canBeEdited;
 @property(nonatomic) _Bool isPromisedItem; // @synthesize isPromisedItem=_isPromisedItem;

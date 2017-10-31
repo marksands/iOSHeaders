@@ -9,7 +9,7 @@
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegateFlowLayout.h"
 
-@class NSLayoutConstraint, NSString, NTKCGalleryCollection, UIButton, UICollectionView, UICollectionViewFlowLayout, UILabel, UIStackView, _NTKCAddNewFace;
+@class NSLayoutConstraint, NSString, NTKCGalleryCollection, UICollectionView, UICollectionViewFlowLayout, UILabel, UIStackView, _NTKCAddNewFace;
 
 @interface NTKCGalleryCell : UITableViewCell <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 {
@@ -19,7 +19,6 @@
     id <NTKCGalleryCellDelegate> _delegate;
     long long _selectedIndex;
     UILabel *_title;
-    UIButton *_seeAll;
     UICollectionView *_collectionView;
     UICollectionViewFlowLayout *_layout;
     NSLayoutConstraint *_titleBaselineConstraint;
@@ -48,7 +47,6 @@
 @property(nonatomic) struct CGSize itemSize; // @synthesize itemSize=_itemSize;
 @property(retain, nonatomic) UICollectionViewFlowLayout *layout; // @synthesize layout=_layout;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
-@property(retain, nonatomic) UIButton *seeAll; // @synthesize seeAll=_seeAll;
 @property(retain, nonatomic) UILabel *title; // @synthesize title=_title;
 @property(nonatomic) long long selectedIndex; // @synthesize selectedIndex=_selectedIndex;
 @property(nonatomic) __weak id <NTKCGalleryCellDelegate> delegate; // @synthesize delegate=_delegate;
@@ -66,7 +64,6 @@
 - (id)previewViewAndRect:(struct CGRect *)arg1 forFace:(id)arg2;
 - (id)faceForLocation:(struct CGPoint)arg1;
 - (void)updateFaceAtIndex:(unsigned long long)arg1;
-- (void)_seeAllTapped;
 - (struct CGPoint)_contentInsetPoint;
 @property(nonatomic) struct CGPoint contentOffset;
 - (void)showFooterTextIfNeeded;

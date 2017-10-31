@@ -10,7 +10,7 @@
 #import "HMFDumpState.h"
 #import "NSSecureCoding.h"
 
-@class HMDCharacteristicMetadata, HMDHAPAccessory, HMDService, NSData, NSDate, NSDictionary, NSMutableSet, NSNumber, NSString, NSUUID;
+@class HMDCharacteristicMetadata, HMDHAPAccessory, HMDService, NSData, NSDate, NSDictionary, NSMutableSet, NSNumber, NSSet, NSString, NSUUID;
 
 @interface HMDCharacteristic : HMFObject <HMDBulletinIdentifiers, NSSecureCoding, HMFDumpState>
 {
@@ -20,7 +20,7 @@
     HMDService *_service;
     NSNumber *_stateNumber;
     NSData *_authorizationData;
-    NSMutableSet *_hapCharacteristicTuples;
+    NSSet *_hapCharacteristicTuples;
     NSString *_characteristicType;
     id _lastKnownValue;
     NSDate *_lastKnownValueUpdateTime;
@@ -32,6 +32,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)value:(id)arg1 differentThan:(id)arg2;
 @property(nonatomic) _Bool notificationRegisteredWithRemoteGateway; // @synthesize notificationRegisteredWithRemoteGateway=_notificationRegisteredWithRemoteGateway;
 @property(retain, nonatomic) NSDate *notificationEnabledTime; // @synthesize notificationEnabledTime=_notificationEnabledTime;
 @property(retain, nonatomic) NSMutableSet *notificationRegistrations; // @synthesize notificationRegistrations=_notificationRegistrations;
@@ -41,7 +42,7 @@
 @property(retain, nonatomic) NSDate *lastKnownValueUpdateTime; // @synthesize lastKnownValueUpdateTime=_lastKnownValueUpdateTime;
 @property(retain, nonatomic) id lastKnownValue; // @synthesize lastKnownValue=_lastKnownValue;
 @property(retain, nonatomic) NSString *characteristicType; // @synthesize characteristicType=_characteristicType;
-@property(retain, nonatomic) NSMutableSet *hapCharacteristicTuples; // @synthesize hapCharacteristicTuples=_hapCharacteristicTuples;
+@property(retain, nonatomic) NSSet *hapCharacteristicTuples; // @synthesize hapCharacteristicTuples=_hapCharacteristicTuples;
 @property(nonatomic) _Bool broadcastNotificationEnabled; // @synthesize broadcastNotificationEnabled=_broadcastNotificationEnabled;
 @property(copy, nonatomic) NSData *authorizationData; // @synthesize authorizationData=_authorizationData;
 @property(copy, nonatomic, setter=setStateNumber:) NSNumber *stateNumber; // @synthesize stateNumber=_stateNumber;
@@ -66,16 +67,13 @@
 - (id)validateValueForWrite:(id)arg1 outValue:(id *)arg2;
 @property(readonly, nonatomic) HMDCharacteristicMetadata *metadata;
 - (_Bool)isValueUpdatedFromHAPCharacteristic:(id)arg1;
-- (_Bool)value:(id)arg1 differentThan:(id)arg2;
 - (void)updateLastKnownValue;
 - (void)updateValue:(id)arg1 updatedTime:(id)arg2 stateNumber:(id)arg3;
 @property(readonly, copy, nonatomic) id value;
 @property(readonly, nonatomic) long long properties;
 - (id)characteristicForHAPAccessory:(id)arg1;
-- (id)characteristicForServerIdentifier:(id)arg1 linkType:(long long)arg2;
 @property(readonly, copy, nonatomic) NSNumber *instanceID;
 @property(readonly, copy, nonatomic) NSString *type;
-- (void)unconfigureAll;
 - (void)unconfigureForServerIdentifier:(id)arg1 linkType:(long long)arg2;
 - (void)unconfigure;
 - (id)initWithCharacteristic:(id)arg1 service:(id)arg2 accessory:(id)arg3;

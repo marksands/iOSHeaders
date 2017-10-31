@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)newFromSqliteStatement:(struct sqlite3_stmt *)arg1 atIndex:(int)arg2;
 + (id)newFromSqliteValue:(struct sqlite3_value *)arg1;
 @property(retain, nonatomic) NSString *pcsKeyID; // @synthesize pcsKeyID=_pcsKeyID;
 @property(copy, nonatomic) NSData *pcsData; // @synthesize pcsData=_pcsData;

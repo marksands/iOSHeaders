@@ -23,7 +23,7 @@
 - (void)browser:(DOCBrowserViewController *)arg1 didCommitPreviewOfDocument:(DOCItem *)arg2;
 - (void)browser:(DOCBrowserViewController *)arg1 didPickItem:(DOCItem *)arg2;
 - (void)browser:(DOCBrowserViewController *)arg1 wantsToShowInfoForItem:(DOCItem *)arg2;
-- (void)browserWantsToCreateNewFolder:(DOCBrowserViewController *)arg1;
+- (void)browserWantsToCreateNewFolder:(DOCBrowserViewController *)arg1 maxThumbnailSize:(struct CGSize)arg2;
 - (void)browserWantsToCreateNewFile:(DOCBrowserViewController *)arg1;
 @end
 

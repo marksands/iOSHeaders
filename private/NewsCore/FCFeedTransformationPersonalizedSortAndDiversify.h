@@ -8,17 +8,20 @@
 
 #import "FCFeedTransforming.h"
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface FCFeedTransformationPersonalizedSortAndDiversify : NSObject <FCFeedTransforming>
 {
     unsigned long long _limit;
     id <FCFeedPersonalizing> _feedPersonalizer;
     long long _sortOptions;
+    NSArray *_preselectedItems;
 }
 
 + (id)transformationWithPersonalizer:(id)arg1 limit:(unsigned long long)arg2;
++ (id)transformationWithPersonalizer:(id)arg1 sortOptions:(long long)arg2 limit:(unsigned long long)arg3 preselectedItems:(id)arg4;
 + (id)transformationWithPersonalizer:(id)arg1 sortOptions:(long long)arg2 limit:(unsigned long long)arg3;
+@property(retain, nonatomic) NSArray *preselectedItems; // @synthesize preselectedItems=_preselectedItems;
 @property(nonatomic) long long sortOptions; // @synthesize sortOptions=_sortOptions;
 @property(retain, nonatomic) id <FCFeedPersonalizing> feedPersonalizer; // @synthesize feedPersonalizer=_feedPersonalizer;
 @property(nonatomic) unsigned long long limit; // @synthesize limit=_limit;

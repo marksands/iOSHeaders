@@ -32,6 +32,7 @@
 - (void)userEventOccurred;
 - (void)isMagnifierVisibleWithCompletion:(CDUnknownBlockType)arg1;
 - (void)launchMagnifierApp;
+- (void)reactivateInCallService;
 - (_Bool)loadGAXBundleForUnmanagedASAM;
 - (void)relinquishAssertionWithType:(id)arg1 identifier:(id)arg2;
 - (void)acquireAssertionWithType:(id)arg1 identifier:(id)arg2;
@@ -128,6 +129,9 @@
 - (void)registerSpringBoardActionHandler:(CDUnknownBlockType)arg1 withIdentifierCallback:(CDUnknownBlockType)arg2;
 - (void)removeActionHandler:(id)arg1;
 - (void)setShowSpeechPlaybackControls:(_Bool)arg1;
+- (void)_sendRemoteViewIPCMessage:(long long)arg1 withRemoteViewType:(long long)arg2 withData:(id)arg3;
+- (void)hideRemoteView:(long long)arg1 withData:(id)arg2;
+- (void)showRemoteView:(long long)arg1 withData:(id)arg2;
 - (void)showAlert:(long long)arg1 withHandler:(CDUnknownBlockType)arg2 withData:(id)arg3;
 - (void)showAlert:(long long)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)hideAlert;

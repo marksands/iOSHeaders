@@ -63,7 +63,7 @@
 - (id)_occlusionStackForDisplayIdentity:(id)arg1 creatingIfNecessary:(_Bool)arg2;
 - (void)_destroyScene:(id)arg1 withTransitionContext:(id)arg2;
 - (void)_updateScene:(id)arg1 withSettings:(id)arg2 transitionContext:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_applyMutableSettings:(id)arg1 toScene:(id)arg2 asUpdate:(_Bool)arg3 withTransitionContext:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)_applyMutableSettings:(id)arg1 toScene:(id)arg2 withTransitionContext:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)_createSceneWithDefinition:(id)arg1 initialParameters:(id)arg2 clientProvider:(id)arg3 transitionContext:(id)arg4;
 - (void)_sendOutstandingOcclusionChangesForStack:(id)arg1 withTransitionContext:(id)arg2;
 - (void)_endSynchronizationBlock;

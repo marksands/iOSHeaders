@@ -58,6 +58,7 @@
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (void)_updateTitle;
+- (void)performBatchCollectionViewUpdatesForUpdateRequest:(id)arg1 reloadOnly:(_Bool)arg2;
 - (struct CGSize)preferredContentSizeForCollectionViewContentSize:(struct CGSize)arg1;
 - (_Bool)isLayoutDependentOnItemState;
 - (id)childViewControllersToPreload;

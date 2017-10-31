@@ -6,42 +6,32 @@
 
 #import "NSObject.h"
 
-#import "SXDynamicAdController.h"
+@class NSIndexSet;
 
-@class NSHashTable, NSIndexSet, NSString, SXContext;
-
-@interface SXDynamicAdController : NSObject <SXDynamicAdController>
+@interface SXDynamicAdController : NSObject
 {
-    SXContext *_context;
+    _Bool _didPlaceAds;
+    id <SXAdvertisingSettingsProvider> _advertisingSettingsProvider;
+    id <SXDynamicComponentPlacementConditionEngine> _conditionEngine;
     NSIndexSet *_excludedPlacementAreas;
-    id <SXAdvertisingSettings> _advertismentSettings;
-    NSHashTable *_processedLayoutDataProviders;
 }
 
-@property(readonly, nonatomic) NSHashTable *processedLayoutDataProviders; // @synthesize processedLayoutDataProviders=_processedLayoutDataProviders;
-@property(readonly, nonatomic) id <SXAdvertisingSettings> advertismentSettings; // @synthesize advertismentSettings=_advertismentSettings;
+@property(nonatomic) _Bool didPlaceAds; // @synthesize didPlaceAds=_didPlaceAds;
 @property(retain, nonatomic) NSIndexSet *excludedPlacementAreas; // @synthesize excludedPlacementAreas=_excludedPlacementAreas;
-@property(retain, nonatomic) SXContext *context; // @synthesize context=_context;
+@property(readonly, nonatomic) id <SXDynamicComponentPlacementConditionEngine> conditionEngine; // @synthesize conditionEngine=_conditionEngine;
+@property(readonly, nonatomic) id <SXAdvertisingSettingsProvider> advertisingSettingsProvider; // @synthesize advertisingSettingsProvider=_advertisingSettingsProvider;
 - (void).cxx_destruct;
+- (void)considerComponentsInBlueprint:(id)arg1;
 - (id)findComponentsAboveYPosition:(double)arg1 inLayoutBlueprint:(id)arg2;
 - (_Bool)placementPossibleForPosition:(double)arg1 excludingColumnRange:(struct _NSRange)arg2 inLayoutBlueprint:(id)arg3;
-- (_Bool)isImageClassification:(id)arg1;
-- (_Bool)allowPlacementBetweenComponent:(id)arg1 andSucceedingComponent:(id)arg2;
-- (id)findComponentForStartPosition:(double)arg1 actualPosition:(double *)arg2 currentPath:(id)arg3 inLayoutBlueprint:(id)arg4;
+- (id)findComponentForStartPosition:(double)arg1 actualPosition:(double *)arg2 currentPath:(id)arg3 inLayoutBlueprint:(id)arg4 dataProvider:(id)arg5;
 - (double)determineStartingPositionFromInitialPosition:(double)arg1 forBlueprint:(id)arg2;
 - (_Bool)isPosition:(double)arg1 inLayoutBlueprint:(id)arg2;
 - (_Bool)isValidStartPosition:(double)arg1 forBlueprint:(id)arg2;
-- (id)excludedAreasInLayoutBlueprint:(id)arg1;
-- (id)adPlacementsForLayoutBlueprint:(id)arg1;
-- (void)placeAdsForBlueprint:(id)arg1 layoutDataProvider:(id)arg2;
-- (_Bool)canPlaceAdsForBlueprint:(id)arg1 layoutDataProvider:(id)arg2;
-- (id)initWithContext:(id)arg1 andAdvertismentSettings:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (id)excludedAreasInLayoutBlueprint:(id)arg1 dataProvider:(id)arg2;
+- (id)adPlacementsForLayoutBlueprint:(id)arg1 dataProvider:(id)arg2;
+- (void)placeAdsForBlueprint:(id)arg1 andLayoutDataProvider:(id)arg2;
+- (id)initWithAdvertisingSettingsProvider:(id)arg1 dynamicComponentPlacementEngine:(id)arg2;
 
 @end
 

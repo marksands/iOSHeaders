@@ -16,7 +16,6 @@
     _Bool _hasCarScreen;
     _Bool _didFinishInitialLoad;
     _Bool _visible;
-    _Bool _deferReload;
     UITabBarController *_tabBarController;
     UITabBarController *_hostTabBarController;
     AVExternalDevice *_externalDevice;
@@ -26,7 +25,6 @@
     MCDPCContainer *_container;
 }
 
-@property(nonatomic) _Bool deferReload; // @synthesize deferReload=_deferReload;
 @property(nonatomic) _Bool visible; // @synthesize visible=_visible;
 @property(nonatomic) _Bool didFinishInitialLoad; // @synthesize didFinishInitialLoad=_didFinishInitialLoad;
 @property(retain, nonatomic) MCDPCContainer *container; // @synthesize container=_container;

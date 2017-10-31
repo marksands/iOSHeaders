@@ -28,5 +28,6 @@
 @property(readonly, nonatomic) _Bool vibrationPickerHeaderTextShouldBeUppercase;
 @property(readonly, nonatomic) long long vibrationPickerCustomTableSeparatorBackdropOverlayBlendMode;
 @property(readonly, nonatomic) UIColor *vibrationPickerCustomTableSeparatorColor;
+@property(readonly, nonatomic) UIColor *vibrationPickerCustomBackgroundColor;
 @end
 

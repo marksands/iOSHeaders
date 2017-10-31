@@ -24,8 +24,10 @@
     unsigned long long _analyzedSampleCount;
     unsigned long long _triggerEndSampleCount;
     unsigned long long _twoShotDecisionWaitSamples;
+    unsigned long long _activeChannel;
 }
 
+@property(nonatomic) unsigned long long activeChannel; // @synthesize activeChannel=_activeChannel;
 @property(nonatomic) float twoShotThreshold; // @synthesize twoShotThreshold=_twoShotThreshold;
 @property(nonatomic) unsigned long long twoShotDecisionWaitSamples; // @synthesize twoShotDecisionWaitSamples=_twoShotDecisionWaitSamples;
 @property(nonatomic) unsigned long long triggerEndSampleCount; // @synthesize triggerEndSampleCount=_triggerEndSampleCount;
@@ -50,6 +52,7 @@
 - (void)setAsset:(id)arg1;
 - (void)_reset;
 - (void)reset;
+- (void)start;
 - (id)initWithManager:(id)arg1 asset:(id)arg2;
 
 // Remaining properties

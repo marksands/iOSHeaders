@@ -99,6 +99,7 @@
 - (void)updateDisplayedTabsAnimated:(_Bool)arg1;
 - (_Bool)_isNavigationControllerBadged:(id)arg1;
 - (id)_navigationControllerForContentMode:(int)arg1;
+- (void)_setTabBarItemForController:(id)arg1 contentMode:(int)arg2;
 - (id)newRootViewControllerForContentMode:(int)arg1;
 - (id)_newNavigationControllerWithRootController:(id)arg1;
 - (id)_existingNavigationControllerForContentMode:(int)arg1;

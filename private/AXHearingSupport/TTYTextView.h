@@ -33,6 +33,7 @@
 @property(retain, nonatomic) UICollectionView *predictionsCollectionView; // @synthesize predictionsCollectionView=_predictionsCollectionView;
 @property(nonatomic) _Bool showTTYPredictions; // @synthesize showTTYPredictions=_showTTYPredictions;
 - (void).cxx_destruct;
+- (_Bool)_accessibilityIsRealtimeElement;
 - (id)accessibilityIdentifier;
 - (int)_predictionsPerPage;
 - (float)_predictionsCellHeight;
@@ -47,7 +48,6 @@
 - (void)overrideTTYPredictionsHidden:(_Bool)arg1;
 - (_Bool)disableInputBars;
 - (id)inputAccessoryView;
-- (long long)keyboardType;
 - (long long)keyboardAppearance;
 - (id)keyCommands;
 - (void)_keyboardDidHide:(id)arg1;

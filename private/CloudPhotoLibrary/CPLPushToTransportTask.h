@@ -42,6 +42,7 @@
     _Bool _shouldResetExceedingQuotaOnSuccess;
     _Bool _isUsingOverQuotaStrategy;
     _Bool _resetStrategy;
+    double _latestApproximativeUploadRate;
 }
 
 - (void).cxx_destruct;

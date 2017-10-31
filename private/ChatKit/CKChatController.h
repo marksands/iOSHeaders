@@ -356,6 +356,7 @@
 - (void)_didSendCompositionInConversation:(id)arg1;
 - (void)_willSendComposition:(id)arg1 inConversation:(id)arg2;
 - (void)_updateForNewPreferredService;
+- (void)presentAppStoreForURL:(id)arg1 fromSourceApplication:(id)arg2;
 - (void)_presentBrowserOrAppStoreForAdamID:(id)arg1;
 - (struct UIEdgeInsets)_avoidanceInsets;
 - (void)setupScrollingForKeyboardInteraction;

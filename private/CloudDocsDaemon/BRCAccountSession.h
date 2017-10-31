@@ -281,7 +281,6 @@
 - (id)newSharedClientZoneFromPQLResultSet:(id)arg1 error:(id *)arg2;
 - (_Bool)_deleteClientZone:(id)arg1;
 - (_Bool)_createClientZone:(id)arg1;
-- (id)_old_privateAppLibraryByZoneName:(id)arg1 db:(id)arg2;
 - (struct PQLResultSet *)_appLibrariesEnumerator:(id)arg1;
 - (_Bool)_createSharedAppLibrary:(id)arg1;
 - (_Bool)_createPrivateAppLibrary:(id)arg1;
@@ -321,6 +320,7 @@
 - (void)_resolvePathInMobileDocsRoot:(id)arg1 appLibrary:(id *)arg2;
 - (id)resolvedOpenRelpathForPath:(id)arg1 mustExist:(_Bool)arg2 allowResolveInPkg:(_Bool)arg3 errcode:(int *)arg4;
 - (id)resolvedOpenRelpathForPath:(id)arg1 mustExist:(_Bool)arg2 errcode:(int *)arg3;
+- (id)_old_privateAppLibraryByZoneName:(id)arg1 db:(id)arg2;
 - (id)singleAppLibraryMatchingSearchString:(id)arg1 error:(id *)arg2;
 - (id)appLibrariesMatchingSearchString:(id)arg1 error:(id *)arg2;
 - (id)_appLibrariesMatchingSearchString:(id)arg1;

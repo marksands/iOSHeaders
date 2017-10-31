@@ -79,6 +79,7 @@
 - (void)dealloc;
 - (id)initWithStream:(id)arg1;
 - (id)initForReadingWithData:(id)arg1;
+- (id)_initForReadingFromData:(id)arg1 error:(id *)arg2 throwLegacyExceptions:(_Bool)arg3;
 - (id)_initWithStream:(struct __CFReadStream *)arg1 data:(id)arg2 topDict:(struct __CFDictionary *)arg3;
 - (id)init;
 - (id)_blobForCurrentObject;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString;
+@class NSArray, NSString, UISearchController;
 
 @protocol VSIdentityProviderPickerViewController <NSObject>
 @property(copy, nonatomic) NSString *resourceTitle;
@@ -16,5 +16,8 @@
 @property(nonatomic, getter=isCancellationAllowed) _Bool cancellationAllowed;
 @property(nonatomic) __weak id <VSIdentityProviderPickerViewControllerDelegate> delegate;
 - (void)deselectSelectedProviderAnimated:(_Bool)arg1;
+
+@optional
+@property(readonly, nonatomic) UISearchController *searchController;
 @end
 

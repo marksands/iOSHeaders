@@ -7,7 +7,7 @@
 #import "NSObject.h"
 
 @protocol BYDaemonGeneralProtocol <NSObject>
-- (void)observeFinishSetupTriggers;
+- (void)observeFinishSetupTriggers:(void (^)(void))arg1;
 - (void)backupMetadata:(void (^)(NSData *))arg1;
 - (void)setupAssistantNeedsToRun:(void (^)(_Bool))arg1;
 @end

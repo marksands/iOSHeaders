@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSNumber;
+@class NSNumber, NSString;
 
 __attribute__((visibility("hidden")))
 @interface APReceiverMediaRemoteCommunicationChannelInternal : NSObject
 {
     unsigned char invalidated;
     NSNumber *objectID;
+    NSString *uuid;
 }
 
 @end

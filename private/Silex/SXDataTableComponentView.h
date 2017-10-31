@@ -16,6 +16,9 @@
 
 @interface SXDataTableComponentView : SXComponentView <SXDataTableComponentControllerDataSource, SXDataTableViewDataSource, SXTangierControllerDelegate, SXViewportChangeListener, UIGestureRecognizerDelegate>
 {
+    id <SXImageViewFactory> _imageViewFactory;
+    id <SXComponentActionHandler> _componentActionHandler;
+    id <SXTextComponentLayoutHosting> _textComponentLayoutHosting;
     SXDataTableView *_tableView;
     SXDataTableComponentController *_dataTableComponentController;
     SXDataTableBlueprint *_blueprint;
@@ -36,6 +39,9 @@
 @property(retain, nonatomic) SXDataTableBlueprint *blueprint; // @synthesize blueprint=_blueprint;
 @property(retain, nonatomic) SXDataTableComponentController *dataTableComponentController; // @synthesize dataTableComponentController=_dataTableComponentController;
 @property(retain, nonatomic) SXDataTableView *tableView; // @synthesize tableView=_tableView;
+@property(readonly, nonatomic) __weak id <SXTextComponentLayoutHosting> textComponentLayoutHosting; // @synthesize textComponentLayoutHosting=_textComponentLayoutHosting;
+@property(readonly, nonatomic) id <SXComponentActionHandler> componentActionHandler; // @synthesize componentActionHandler=_componentActionHandler;
+@property(readonly, nonatomic) id <SXImageViewFactory> imageViewFactory; // @synthesize imageViewFactory=_imageViewFactory;
 - (void).cxx_destruct;
 - (id)descriptorForIndexPath:(CDStruct_2fea82da)arg1;
 - (id)contentViewForBehavior:(id)arg1;
@@ -54,7 +60,9 @@
 - (double)widthForDataTableComponentController:(id)arg1;
 - (id)dataTableView:(id)arg1 viewForCellAtIndexPath:(CDStruct_2fea82da)arg2 constraintToSize:(struct CGSize)arg3;
 - (void)receivedInfo:(id)arg1 fromLayoutingPhaseWithIdentifier:(id)arg2;
-- (void)presentComponent;
+- (void)dealloc;
+- (void)presentComponentWithChanges:(CDStruct_1cc9d0d0)arg1;
+- (id)initWithDocumentController:(id)arg1 viewport:(id)arg2 presentationDelegate:(id)arg3 analyticsReporting:(id)arg4 componentStyleRendererFactory:(id)arg5 imageViewFactory:(id)arg6 componentActionHandler:(id)arg7 textComponentLayoutHosting:(id)arg8;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

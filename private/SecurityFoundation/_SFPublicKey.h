@@ -14,6 +14,7 @@
 + (id)_secKeyCreationAttributesForSpecifier:(id)arg1;
 + (Class)_attributesClass;
 - (void).cxx_destruct;
+- (id)keyData;
 @property(readonly, nonatomic, getter=_secKey) struct __SecKey *secKey;
 - (id)initWithSecKey:(struct __SecKey *)arg1;
 - (id)initWithData:(id)arg1 specifier:(id)arg2 error:(id *)arg3;

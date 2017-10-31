@@ -15,10 +15,12 @@
 
 + (id)sharedLocalDevice;
 + (void)initialize;
++ (id)outputDeviceWithFigEndpoint:(struct OpaqueFigEndpoint *)arg1 routingContextFactory:(id)arg2;
 + (id)outputDeviceWithFigEndpoint:(struct OpaqueFigEndpoint *)arg1;
 - (double)frecencyScore;
 - (void)updateFrecencyScore;
-- (void)setAdministrativeConfiguration:(id)arg1 administrationPassword:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)configureUsingBlock:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)logicalDeviceID;
 - (_Bool)groupContainsGroupLeader;
 - (_Bool)isGroupLeader;
 - (_Bool)canBeGroupLeader;
@@ -39,7 +41,10 @@
 - (float)batteryLevel;
 - (_Bool)hasBatteryLevel;
 @property(readonly, nonatomic) NSData *identifyingMACAddress;
+@property(readonly, nonatomic) NSString *firmwareVersion;
+@property(readonly, nonatomic) NSString *serialNumber;
 @property(readonly, nonatomic) NSString *modelID;
+@property(readonly, nonatomic) NSString *manufacturer;
 @property(readonly, nonatomic) long long deviceSubType;
 @property(readonly, nonatomic) long long deviceType;
 - (id)ID;

@@ -57,7 +57,7 @@
 - (_Bool)stop;
 - (_Bool)start;
 - (void)dealloc;
-- (id)initWithQueue:(id)arg1 receiveDispatcher:(id)arg2 messageFilterChain:(id)arg3 registerAsMachService:(_Bool)arg4;
+- (id)initWithReceiveDispatcher:(id)arg1 messageFilterChain:(id)arg2 registerAsMachService:(_Bool)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

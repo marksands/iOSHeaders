@@ -7,6 +7,7 @@
 #import "NSKeyedUnarchiver.h"
 
 @interface NSKeyedUnarchiver (NNMKUnarchivingUtils)
++ (id)nnmk_whitelistedClasses;
 + (id)unarchiveObjectOfClasses:(id)arg1 withData:(id)arg2;
 + (id)unarchiveObjectOfClass:(Class)arg1 withData:(id)arg2;
 @end

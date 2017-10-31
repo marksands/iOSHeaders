@@ -288,7 +288,9 @@
 - (void)_cellDidBecomeUnfocused:(id)arg1;
 - (void)_cellDidBecomeFocused:(id)arg1;
 - (void)_getOriginalReorderingIndexPaths:(id *)arg1 targetIndexPaths:(id *)arg2;
-- (void)_completeInteractiveMovementWithDisposition:(long long)arg1;
+- (void)_completeInteractiveMovementWithDisposition:(long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_cancelInteractiveMovementWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_endInteractiveMovementWithCompletion:(CDUnknownBlockType)arg1;
 - (void)cancelInteractiveMovement;
 - (void)endInteractiveMovement;
 - (void)_cancelReordering;
@@ -502,8 +504,8 @@
 - (id)_createPreparedSupplementaryViewForElementOfKind:(id)arg1 atIndexPath:(id)arg2 withLayoutAttributes:(id)arg3 applyAttributes:(_Bool)arg4;
 - (id)_createPreparedCellForItemAtIndexPath:(id)arg1 withLayoutAttributes:(id)arg2 applyAttributes:(_Bool)arg3 isFocused:(_Bool)arg4 notify:(_Bool)arg5;
 - (id)_createPreparedCellForItemAtIndexPath:(id)arg1 withLayoutAttributes:(id)arg2 applyAttributes:(_Bool)arg3;
-- (void)_notifyDidEndDisplayingCell:(id)arg1 forIndexPath:(id)arg2;
-- (void)_notifyWillDisplayCell:(id)arg1 forIndexPath:(id)arg2;
+- (void)_notifyDidEndDisplayingCellIfNeeded:(id)arg1 forIndexPath:(id)arg2;
+- (void)_notifyWillDisplayCellIfNeeded:(id)arg1 forIndexPath:(id)arg2;
 - (_Bool)_shouldPrefetchCells;
 - (_Bool)_shouldPrefetchCellsWhenPerformingReloadData;
 - (void)_setShouldPrefetchCellsWhenPerformingReloadData:(_Bool)arg1;

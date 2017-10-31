@@ -74,7 +74,7 @@
 - (void)didInitialSyncDownForClientZone:(id)arg1;
 - (void)willInitialSyncDownForClientZone:(id)arg1;
 - (void)resume;
-- (void)schedulePeriodicSyncIfNecessary;
+- (void)schedulePeriodicSyncIfNecessaryInGroup:(id)arg1;
 - (void)setup;
 - (void)close;
 - (void)closeContainers;

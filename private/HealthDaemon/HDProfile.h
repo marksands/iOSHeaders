@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class HDAWDSubmissionManager, HDAppSubscriptionManager, HDAuthorizationManager, HDCloudSyncManager, HDCurrentActivitySummaryHelper, HDDaemon, HDDaemonSyncEngine, HDDataCollectionManager, HDDataManager, HDDataProvenanceManager, HDDatabase, HDDatabasePruningManager, HDDeviceManager, HDFitnessMachineManager, HDHealthServiceManager, HDMedicalIDDataManager, HDMetadataManager, HDMigrationManager, HDNanoSyncManager, HDNotificationManager, HDServiceConnectionManager, HDSourceManager, HDSourceOrderManager, HDUnitPreferencesManager, HDUserCharacteristicsManager, HDWorkoutManager, NSString, NSURL;
+@class HDAWDSubmissionManager, HDAppSubscriptionManager, HDAuthorizationManager, HDCloudSyncManager, HDCurrentActivitySummaryHelper, HDDaemon, HDDaemonSyncEngine, HDDataCollectionManager, HDDataManager, HDDataProvenanceManager, HDDatabase, HDDatabasePruningManager, HDDeviceManager, HDFitnessMachineManager, HDHealthServiceManager, HDMedicalIDDataManager, HDMetadataManager, HDMigrationManager, HDNanoSyncManager, HDNotificationManager, HDServiceConnectionManager, HDSessionAssertionManager, HDSourceManager, HDSourceOrderManager, HDUnitPreferencesManager, HDUserCharacteristicsManager, HDWorkoutManager, NSString, NSURL;
 
 @interface HDProfile : NSObject
 {
@@ -19,6 +19,7 @@
     HDDaemon *_daemon;
     HDDataManager *_dataManager;
     HDDataProvenanceManager *_dataProvenanceManager;
+    HDSessionAssertionManager *_sessionAssertionManager;
     HDSourceOrderManager *_sourceOrderManager;
     HDUserCharacteristicsManager *_userCharacteristicsManager;
     long long _profileType;
@@ -42,6 +43,7 @@
 @property(readonly, nonatomic) HDUserCharacteristicsManager *userCharacteristicsManager; // @synthesize userCharacteristicsManager=_userCharacteristicsManager;
 @property(readonly, nonatomic) HDSourceOrderManager *sourceOrderManager; // @synthesize sourceOrderManager=_sourceOrderManager;
 @property(readonly, nonatomic) HDSourceManager *sourceManager; // @synthesize sourceManager=_sourceManager;
+@property(readonly, nonatomic) HDSessionAssertionManager *sessionAssertionManager; // @synthesize sessionAssertionManager=_sessionAssertionManager;
 @property(readonly, nonatomic) HDDeviceManager *deviceManager; // @synthesize deviceManager=_deviceManager;
 @property(readonly, nonatomic) HDDataProvenanceManager *dataProvenanceManager; // @synthesize dataProvenanceManager=_dataProvenanceManager;
 @property(readonly, nonatomic) HDDataManager *dataManager; // @synthesize dataManager=_dataManager;

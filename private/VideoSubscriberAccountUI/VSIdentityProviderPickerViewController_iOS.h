@@ -62,7 +62,7 @@ __attribute__((visibility("hidden")))
 - (void)_didPickAdditionalIdentityProviders;
 - (void)_didPickIdentityProvider:(id)arg1;
 - (id)titleForTableFooterView;
-- (id)titleForTableHeaderView;
+- (id)_titleForTableHeaderView;
 - (void)_updateTableHeaderTitle;
 - (id)initWithStyle:(long long)arg1;
 

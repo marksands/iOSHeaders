@@ -37,6 +37,7 @@
 - (void).cxx_destruct;
 - (unsigned int)currentQOS;
 - (void)markThumbnailAsRecentlyUsed:(id)arg1;
+- (id)_thumbnailFallbackForItem:(id)arg1 size:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 style:(unsigned long long)arg5 folded:(_Bool)arg6 qos:(unsigned int)arg7 currentThumbnail:(id)arg8;
 - (id)_iconForContentType:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4 folded:(_Bool)arg5 qos:(unsigned int)arg6;
 - (id)_thumbnailForItem:(id)arg1 size:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 style:(unsigned long long)arg5 folded:(_Bool)arg6 qos:(unsigned int)arg7;
 - (void)resetThumnailFetchingPriorityValue;

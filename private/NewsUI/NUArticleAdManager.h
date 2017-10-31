@@ -7,21 +7,24 @@
 #import "NSObject.h"
 
 #import "NUAdContextProvider.h"
-#import "SXAdControllerDataSource.h"
 #import "SXAdControllerDelegate.h"
+#import "SXAdControllerFactory.h"
+#import "SXAdProvider.h"
 
 @class FCArticle, NSString;
 
-@interface NUArticleAdManager : NSObject <NUAdContextProvider, SXAdControllerDelegate, SXAdControllerDataSource>
+@interface NUArticleAdManager : NSObject <NUAdContextProvider, SXAdControllerDelegate, SXAdProvider, SXAdControllerFactory>
 {
     FCArticle *_article;
     id <NUAdProvider> _adProvider;
+    id <NUAdMetadataFactory> _adMetadataFactory;
     id <NUAdSettings> _settings;
     id <NUDevice> _device;
 }
 
 @property(readonly, nonatomic) id <NUDevice> device; // @synthesize device=_device;
 @property(readonly, nonatomic) id <NUAdSettings> settings; // @synthesize settings=_settings;
+@property(readonly, nonatomic) id <NUAdMetadataFactory> adMetadataFactory; // @synthesize adMetadataFactory=_adMetadataFactory;
 @property(readonly, nonatomic) id <NUAdProvider> adProvider; // @synthesize adProvider=_adProvider;
 @property(readonly, nonatomic) FCArticle *article; // @synthesize article=_article;
 - (void).cxx_destruct;
@@ -30,8 +33,9 @@
 - (void)adController:(id)arg1 componentWithIdentifier:(id)arg2 didUnloadBannerView:(id)arg3 withError:(id)arg4;
 - (void)adController:(id)arg1 componentWithIdentifier:(id)arg2 failedToLoadBannerView:(id)arg3 error:(id)arg4;
 - (void)adController:(id)arg1 componentWithIdentifier:(id)arg2 didLoadBannerView:(id)arg3;
-- (CDUnknownBlockType)adController:(id)arg1 requiresAdForRequest:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (id)initWithArticle:(id)arg1 adProvider:(id)arg2 settings:(id)arg3 device:(id)arg4;
+- (CDUnknownBlockType)adForRequest:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (id)adControllerForDocument:(id)arg1 viewport:(id)arg2;
+- (id)initWithArticle:(id)arg1 adProvider:(id)arg2 adMetadataFactory:(id)arg3 settings:(id)arg4 device:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

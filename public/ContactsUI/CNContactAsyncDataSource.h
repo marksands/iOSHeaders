@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (void)invalidateResults;
 - (void)reloadWithRequest:(id)arg1;
 - (void)reload;
+- (void)setNetworkActivityIndicatorVisible:(_Bool)arg1;
 @property(readonly, nonatomic) CNContactFilter *effectiveFilter;
 - (id)indexPathForContact:(id)arg1;
 - (id)completeContactFromContact:(id)arg1 fromMainStoreOnly:(_Bool)arg2 keysToFetch:(id)arg3;

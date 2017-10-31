@@ -10,7 +10,7 @@
 #import "SUScriptModalDialogDelegate.h"
 #import "SUScriptXMLHTTPRequestDelegate.h"
 
-@class NSArray, NSMutableDictionary, NSMutableSet, NSNumber, NSString, SFSafariViewController, SSAuthenticationContext, SUClientInterface, SUScriptAccount, SUScriptAccountManager, SUScriptAppleAccountStore, SUScriptApplication, SUScriptCarrierBundlingController, SUScriptDevice, SUScriptDictionary, SUScriptFairPlayContext, SUScriptKeyValueStore, SUScriptMediaLibrary, SUScriptMetricsController, SUScriptNavigationBar, SUScriptNotificationObserver, SUScriptOperationDelegate, SUScriptPassbookLibrary, SUScriptPreviewOverlay, SUScriptProtocol, SUScriptPurchaseManager, SUScriptSectionsController, SUScriptStoreBagLoader, SUScriptSubscriptionStatusCoordinator, SUScriptTelephony, SUScriptViewController, SUScriptWindow, SUScriptWindowContext, WebFrame;
+@class NSArray, NSMutableDictionary, NSMutableSet, NSNumber, NSObject<OS_dispatch_queue>, NSString, SFSafariViewController, SSAuthenticationContext, SUClientInterface, SUScriptAccount, SUScriptAccountManager, SUScriptAppleAccountStore, SUScriptApplication, SUScriptCarrierBundlingController, SUScriptDevice, SUScriptDictionary, SUScriptFairPlayContext, SUScriptKeyValueStore, SUScriptMediaLibrary, SUScriptMetricsController, SUScriptNavigationBar, SUScriptNotificationObserver, SUScriptOperationDelegate, SUScriptPassbookLibrary, SUScriptPreviewOverlay, SUScriptProtocol, SUScriptPurchaseManager, SUScriptSectionsController, SUScriptStoreBagLoader, SUScriptSubscriptionStatusCoordinator, SUScriptTelephony, SUScriptViewController, SUScriptWindow, SUScriptWindowContext, WebFrame;
 
 @interface SUScriptInterface : SUScriptObject <SUScriptModalDialogDelegate, SUScriptXMLHTTPRequestDelegate, SFSafariViewControllerDelegate>
 {
@@ -34,7 +34,10 @@
     SUScriptWindowContext *_scriptWindowContext;
     SUScriptSubscriptionStatusCoordinator *_subscriptionStatusCoordinator;
     id _threadSafeDelegate;
+    NSObject<OS_dispatch_queue> *_hsaTokenQueue;
+    struct __CFString *_hsaCurrentIdentifier;
     NSString *_safariViewControllerIdentifier;
+    NSNumber *_safariDismissButtonStyle;
     SFSafariViewController *_safariViewController;
 }
 
@@ -43,6 +46,7 @@
 + (id)webScriptNameForKeyName:(id)arg1;
 + (long long)purchaseAnimationStyleFromString:(id)arg1;
 @property(retain, nonatomic) SFSafariViewController *safariViewController; // @synthesize safariViewController=_safariViewController;
+@property(copy) NSNumber *safariDismissButtonStyle; // @synthesize safariDismissButtonStyle=_safariDismissButtonStyle;
 @property(retain, nonatomic) NSString *safariViewControllerIdentifier; // @synthesize safariViewControllerIdentifier=_safariViewControllerIdentifier;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
@@ -84,6 +88,7 @@
 @property(readonly) NSString *storeFrontIdentifier;
 - (void)setStoreFrontIdentifier:(id)arg1;
 - (void)setNavigationBar:(id)arg1;
+- (void)setSafariViewControllerDismissButtonStyle:(id)arg1;
 - (void)setReferringUserAgent:(id)arg1;
 - (void)setReferrerURL:(id)arg1;
 - (void)setOrientation:(id)arg1;
@@ -94,6 +99,7 @@
 @property(copy) NSString *cookie;
 @property(readonly) id screenReaderRunning;
 @property(readonly) SUScriptPreviewOverlay *previewOverlay;
+- (id)safariViewControllerDismissButtonStyle;
 - (id)requestInfo;
 @property(readonly) NSString *referringUserAgent;
 @property(readonly) NSString *referrerURL;
@@ -102,6 +108,7 @@
 - (id)makeXMLHTTPRequest;
 @property(readonly) id loggingEnabled;
 @property(readonly) id globalRootObject;
+@property(readonly) NSString *deviceSerialNumber;
 @property(readonly) NSString *cookieForDefaultURL;
 @property(readonly) NSString *cookieDefaultURL;
 @property(readonly) NSString *clientIdentifier;
@@ -114,6 +121,8 @@
 - (void)accessibilityPostScreenChange;
 - (void)accessibilityPostLayoutChange;
 - (void)_accessibilityPostLayoutChange;
+- (void)stopListeningForAuthenticationToken;
+- (void)startListeningForAuthenticationTokenWithCallback:(id)arg1;
 - (void)signOutPrimaryAccount;
 - (void)setLibraryIdentifierWithType:(id)arg1 value:(id)arg2;
 - (void)sendPostOfType:(id)arg1 withOptions:(id)arg2;

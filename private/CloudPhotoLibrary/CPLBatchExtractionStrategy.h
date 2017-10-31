@@ -32,7 +32,7 @@
 @property(readonly, copy, nonatomic) NSString *currentStepDescription;
 - (void)resetConditionallyFromNewIncomingChange:(id)arg1;
 - (void)reset;
-- (_Bool)extractBatch:(out id *)arg1 error:(id *)arg2;
+- (_Bool)extractBatch:(out id *)arg1 maximumResourceSize:(unsigned long long)arg2 error:(id *)arg3;
 - (void)_computeNextStep;
 - (id)initWithName:(id)arg1 storage:(id)arg2 steps:(id)arg3;
 

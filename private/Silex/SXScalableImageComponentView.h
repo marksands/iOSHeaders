@@ -7,21 +7,23 @@
 #import <Silex/SXMediaComponentView.h>
 
 #import "SXDragManagerDataSource.h"
-#import "SXFullScreenCanvasShowable.h"
+#import "SXFullscreenCanvasShowable.h"
 #import "SXImageViewDelegate.h"
 #import "SXTextSourceDataSource.h"
 
-@class NSString, SXDragManager, SXFullScreenCanvasController, SXImageResource, SXImageView, SXMediaViewEvent, UIView;
+@class NSString, SXDragManager, SXFullscreenCanvasController, SXImageResource, SXImageView, SXMediaViewEvent, UIView;
 
-@interface SXScalableImageComponentView : SXMediaComponentView <SXFullScreenCanvasShowable, SXImageViewDelegate, SXTextSourceDataSource, SXDragManagerDataSource>
+@interface SXScalableImageComponentView : SXMediaComponentView <SXFullscreenCanvasShowable, SXImageViewDelegate, SXTextSourceDataSource, SXDragManagerDataSource>
 {
     _Bool _presentingOnFullScreenCanvas;
     double _lastKnownPinchVelocity;
     double _lastKnownRotationVelocity;
     SXImageView *_imageView;
+    id <SXImageViewFactory> _imageViewFactory;
+    id <SXFullscreenCanvasControllerFactory> _canvasControllerFactory;
     SXDragManager *_dragManager;
     SXImageResource *_imageResource;
-    SXFullScreenCanvasController *_fullScreenCanvasController;
+    SXFullscreenCanvasController *_fullScreenCanvasController;
     SXMediaViewEvent *_activeViewEvent;
     UIView *_gestureView;
     struct CGRect _previousContentFrame;
@@ -30,9 +32,11 @@
 @property(nonatomic) __weak UIView *gestureView; // @synthesize gestureView=_gestureView;
 @property(nonatomic) struct CGRect previousContentFrame; // @synthesize previousContentFrame=_previousContentFrame;
 @property(retain, nonatomic) SXMediaViewEvent *activeViewEvent; // @synthesize activeViewEvent=_activeViewEvent;
-@property(retain, nonatomic) SXFullScreenCanvasController *fullScreenCanvasController; // @synthesize fullScreenCanvasController=_fullScreenCanvasController;
+@property(retain, nonatomic) SXFullscreenCanvasController *fullScreenCanvasController; // @synthesize fullScreenCanvasController=_fullScreenCanvasController;
 @property(retain, nonatomic) SXImageResource *imageResource; // @synthesize imageResource=_imageResource;
 @property(retain, nonatomic) SXDragManager *dragManager; // @synthesize dragManager=_dragManager;
+@property(readonly, nonatomic) id <SXFullscreenCanvasControllerFactory> canvasControllerFactory; // @synthesize canvasControllerFactory=_canvasControllerFactory;
+@property(readonly, nonatomic) id <SXImageViewFactory> imageViewFactory; // @synthesize imageViewFactory=_imageViewFactory;
 @property(readonly, nonatomic) SXImageView *imageView; // @synthesize imageView=_imageView;
 @property(nonatomic) double lastKnownRotationVelocity; // @synthesize lastKnownRotationVelocity=_lastKnownRotationVelocity;
 @property(nonatomic) double lastKnownPinchVelocity; // @synthesize lastKnownPinchVelocity=_lastKnownPinchVelocity;
@@ -80,8 +84,9 @@
 - (void)forceFullScreen;
 - (void)discardContents;
 - (void)renderContents;
-- (void)presentComponent;
-- (id)initWithComponent:(id)arg1 configuration:(id)arg2 context:(id)arg3 analyticsReporting:(id)arg4 appStateMonitor:(id)arg5;
+- (void)presentComponentWithChanges:(CDStruct_1cc9d0d0)arg1;
+- (void)loadComponent:(id)arg1;
+- (id)initWithDocumentController:(id)arg1 viewport:(id)arg2 presentationDelegate:(id)arg3 analyticsReporting:(id)arg4 componentStyleRendererFactory:(id)arg5 appStateMonitor:(id)arg6 imageViewFactory:(id)arg7 canvasControllerFactory:(id)arg8;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -52,10 +52,3 @@ struct _opaque_pthread_t {
     char _field3[8176];
 };
 
-#pragma mark Typedef'd Structures
-
-typedef struct {
-    struct CGRect _field1;
-    struct CGAffineTransform _field2;
-} CDStruct_b93daf5b;
-

@@ -16,6 +16,7 @@
     long long _state;
 }
 
++ (void)startCatalogDownload:(id)arg1 options:(id)arg2 then:(CDUnknownBlockType)arg3;
 + (void)startCatalogDownload:(id)arg1 then:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) long long state; // @synthesize state=_state;
 @property(readonly, nonatomic) NSString *assetId; // @synthesize assetId=_assetId;
@@ -24,7 +25,9 @@
 - (_Bool)refreshState;
 - (void)cancelDownload:(CDUnknownBlockType)arg1;
 - (void)purge:(CDUnknownBlockType)arg1;
-- (void)commonAssetDownload:(id)arg1 then:(CDUnknownBlockType)arg2;
+- (void)commonAssetDownload:(id)arg1 options:(id)arg2 then:(CDUnknownBlockType)arg3;
+- (long long)calculateTimeout;
+- (void)startDownload:(id)arg1 then:(CDUnknownBlockType)arg2;
 - (void)startDownload:(CDUnknownBlockType)arg1;
 - (id)createExtractor;
 - (id)hashToString:(id)arg1;

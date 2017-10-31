@@ -30,7 +30,9 @@
 - (void)observer:(id)arg1 updateSectionInfo:(id)arg2;
 - (void)applicationsDidUninstall:(id)arg1;
 - (void)applicationsDidInstall:(id)arg1;
+- (void)_queue_applicationDidUninstall:(id)arg1;
 - (void)_queue_applicationsDidUninstall:(id)arg1;
+- (void)_queue_applicationDidInstall:(id)arg1;
 - (void)_queue_applicationsDidInstall:(id)arg1;
 - (void)_queue_createNewDefaultDataProviders;
 - (void)_queue_removeDataProviderWithBundleIdentifier:(id)arg1;

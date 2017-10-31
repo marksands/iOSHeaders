@@ -24,6 +24,11 @@
 @property(nonatomic, getter=isEditingUtterance) _Bool editingUtterance; // @synthesize editingUtterance=_editingUtterance;
 @property(retain, nonatomic) TTYUtterance *utterance; // @synthesize utterance=_utterance;
 - (void).cxx_destruct;
+- (_Bool)_accessibilityRealtimeCompleted;
+- (_Bool)_accessibilityRealtimeHasUnread;
+- (void)_accessibilityHandleATFocused:(_Bool)arg1 assistiveTech:(id)arg2;
+- (void)_accessibilitySetIsUnread:(_Bool)arg1;
+- (_Bool)_accessibilityIsUnread;
 - (id)accessibilityLabel;
 - (_Bool)isAccessibilityElement;
 - (void)textViewDidChange:(id)arg1;

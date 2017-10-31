@@ -94,7 +94,7 @@ __attribute__((visibility("hidden")))
 - (id)childViewControllerForStatusBarHidden;
 - (id)childViewControllerForStatusBarStyle;
 - (id)_presentationControllerClassName;
-- (void)__hostDidSetPresentationControllerClassName:(id)arg1;
+- (void)__hostDidSetPresentationControllerClassName:(id)arg1 canShowTextServices:(_Bool)arg2;
 - (void)_marginInfoForChild:(id)arg1 leftMargin:(double *)arg2 rightMargin:(double *)arg3;
 - (struct UIEdgeInsets)_edgeInsetsForChildViewController:(id)arg1 insetsAreAbsolute:(_Bool *)arg2;
 - (struct UIEdgeInsets)_viewSafeAreaInsetsFromScene;
@@ -106,8 +106,8 @@ __attribute__((visibility("hidden")))
 - (void)__setContentSize:(struct CGSize)arg1;
 - (void)__setContentSize:(struct CGSize)arg1 withFence:(id)arg2;
 - (void)__exchangeAccessibilityPortInformation:(id)arg1 replyHandler:(CDUnknownBlockType)arg2;
-- (void)__createViewController:(id)arg1 withContextToken:(id)arg2 fbsDisplays:(id)arg3 appearanceSerializedRepresentations:(id)arg4 legacyAppearance:(_Bool)arg5 traitCollection:(id)arg6 initialInterfaceOrientation:(long long)arg7 hostAccessibilityServerPort:(id)arg8 canShowTextServices:(_Bool)arg9 replyHandler:(CDUnknownBlockType)arg10;
-- (void)__createViewController:(id)arg1 withAppearanceSerializedRepresentations:(id)arg2 legacyAppearance:(_Bool)arg3 hostAccessibilityServerPort:(id)arg4 canShowTextServices:(_Bool)arg5 replyHandler:(CDUnknownBlockType)arg6;
+- (void)__createViewController:(id)arg1 withContextToken:(id)arg2 fbsDisplays:(id)arg3 appearanceSerializedRepresentations:(id)arg4 legacyAppearance:(_Bool)arg5 traitCollection:(id)arg6 initialInterfaceOrientation:(long long)arg7 hostAccessibilityServerPort:(id)arg8 replyHandler:(CDUnknownBlockType)arg9;
+- (void)__createViewController:(id)arg1 withAppearanceSerializedRepresentations:(id)arg2 legacyAppearance:(_Bool)arg3 hostAccessibilityServerPort:(id)arg4 replyHandler:(CDUnknownBlockType)arg5;
 - (id)_supportedInterfaceOrientationsForViewController:(id)arg1;
 - (void)__hostDidRotateFromInterfaceOrientation:(long long)arg1 skipSelf:(_Bool)arg2;
 - (void)__hostWillAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2 skipSelf:(_Bool)arg3;

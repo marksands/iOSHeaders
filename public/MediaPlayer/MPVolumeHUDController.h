@@ -6,23 +6,24 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableSet;
+@class NSMutableSet;
 
 @interface MPVolumeHUDController : NSObject
 {
-    NSMutableArray *_contexts;
+    NSMutableSet *_displays;
     NSMutableSet *_categories;
+    _Bool _needsUpdate;
 }
 
 + (id)sharedInstance;
 - (void).cxx_destruct;
 - (void)_updateVisibility;
-- (void)setNeedsUpdate;
 - (void)unregisterView:(id)arg1 inContext:(id)arg2;
 - (void)registerView:(id)arg1 inContext:(id)arg2;
-- (void)popContext;
-- (id)pushContext;
 @property(readonly, nonatomic) id mainContext;
+- (void)setNeedsUpdate;
+- (void)removeVolumeDisplay:(id)arg1;
+- (void)addVolumeDisplay:(id)arg1;
 - (id)init;
 
 @end

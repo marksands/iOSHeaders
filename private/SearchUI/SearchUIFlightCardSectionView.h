@@ -23,7 +23,7 @@
 - (_Bool)spansFullWidth;
 - (void)updateChevronVisible:(_Bool)arg1 leaveSpaceForChevron:(_Bool)arg2;
 - (id)setupContentView;
-- (id)initWithCardSection:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
+- (id)initWithRowModel:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 
 // Remaining properties
 @property(retain) NUIContainerBoxView *contentView; // @dynamic contentView;

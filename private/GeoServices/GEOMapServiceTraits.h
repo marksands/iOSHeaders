@@ -20,6 +20,7 @@
     double _carHeadunitPixelHeight;
     double _carHeadunitPixelWidth;
     double _mapZoomLevel;
+    double _sessionRelativeTimestamp;
     int _action;
     NSString *_analyticsAppIdentifier;
     NSString *_appIdentifier;
@@ -68,6 +69,7 @@
         unsigned int carHeadunitPixelHeight:1;
         unsigned int carHeadunitPixelWidth:1;
         unsigned int mapZoomLevel:1;
+        unsigned int sessionRelativeTimestamp:1;
         unsigned int action:1;
         unsigned int carHeadunitConnectionType:1;
         unsigned int carHeadunitInteractionModel:1;
@@ -97,6 +99,7 @@
 + (Class)reviewUserPhotoSizesType;
 + (Class)photoSizesType;
 + (Class)deviceDisplayLanguageType;
+@property(nonatomic) double sessionRelativeTimestamp; // @synthesize sessionRelativeTimestamp=_sessionRelativeTimestamp;
 @property(retain, nonatomic) NSString *analyticsAppIdentifier; // @synthesize analyticsAppIdentifier=_analyticsAppIdentifier;
 @property(nonatomic) unsigned int httpRequestPriority; // @synthesize httpRequestPriority=_httpRequestPriority;
 @property(nonatomic) _Bool useBackgroundUrl; // @synthesize useBackgroundUrl=_useBackgroundUrl;
@@ -147,6 +150,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSessionRelativeTimestamp;
 @property(readonly, nonatomic) _Bool hasAnalyticsAppIdentifier;
 @property(nonatomic) _Bool hasHttpRequestPriority;
 @property(nonatomic) _Bool hasUseBackgroundUrl;

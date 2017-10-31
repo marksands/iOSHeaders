@@ -10,9 +10,8 @@
 
 @interface MediaControlsParentContainerView : UIView
 {
-    _Bool _showingRoutingPicker;
-    _Bool _empty;
     long long _style;
+    long long _selectedMode;
     MediaControlsContainerView *_mediaControlsContainerView;
     UIView *_routingView;
     UIView *_mediaControlsRoutingPickerView;
@@ -22,12 +21,14 @@
 @property(nonatomic) long long routingViewControllerAnimationCount; // @synthesize routingViewControllerAnimationCount=_routingViewControllerAnimationCount;
 @property(retain, nonatomic) UIView *mediaControlsRoutingPickerView; // @synthesize mediaControlsRoutingPickerView=_mediaControlsRoutingPickerView;
 @property(retain, nonatomic) UIView *routingView; // @synthesize routingView=_routingView;
-@property(nonatomic, getter=isEmpty) _Bool empty; // @synthesize empty=_empty;
 @property(retain, nonatomic) MediaControlsContainerView *mediaControlsContainerView; // @synthesize mediaControlsContainerView=_mediaControlsContainerView;
-@property(nonatomic, getter=isShowingRoutingPicker) _Bool showingRoutingPicker; // @synthesize showingRoutingPicker=_showingRoutingPicker;
+@property(nonatomic) long long selectedMode; // @synthesize selectedMode=_selectedMode;
 @property(nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
+- (void)_setInitialFrameForRoutingView:(id)arg1;
+- (void)_toggleRoutingPickerAnimated:(_Bool)arg1;
 - (void)_updateRoutingPickerVisibility;
+- (void)setSelectedMode:(long long)arg1 animated:(_Bool)arg2;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

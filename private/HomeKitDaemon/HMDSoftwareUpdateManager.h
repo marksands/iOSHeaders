@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (void)startUpdate:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchAvailableUpdateWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)updateAvailableUpdate:(id)arg1;
 - (void)_handleUpdateAvailableUpdate:(id)arg1;
 - (void)_handleStop:(id)arg1;
 - (void)_handleStart:(id)arg1;

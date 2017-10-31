@@ -16,6 +16,7 @@
 + (id)sharedManager;
 @property(retain, nonatomic) NSMutableDictionary *overrides; // @synthesize overrides=_overrides;
 - (void).cxx_destruct;
+- (id)supportsPSTTYCapability;
 - (id)applicationDisplayIdentifiers;
 - (id)supportsPSShowStorageCapability;
 - (id)supportsInEDUModeCapability;

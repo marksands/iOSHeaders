@@ -20,6 +20,7 @@
     PSUIAppInstallController *_carrierAppInstallController;
     NSNumber *_hasUserConsent;
     CTCarrierSpaceUserConsentFlowInfo *_userConsentFlowInfo;
+    NSNumber *_userConsentResponse;
     struct __CTServerConnection *_serverConnection;
     CTCarrierSpaceClient *_carrierSpaceClient;
 }
@@ -50,6 +51,7 @@
 - (void)refresh;
 - (void)refreshAndReload;
 - (void)reset;
+- (void)userConsentAcknowledged:(_Bool)arg1;
 - (void)setUserConsent:(_Bool)arg1;
 - (id)userConsentFlowInfo;
 - (_Bool)hasUserConsent;

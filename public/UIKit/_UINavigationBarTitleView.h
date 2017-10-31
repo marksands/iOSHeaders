@@ -44,6 +44,7 @@
 - (void)_transitionWillBegin:(long long)arg1 willBeDisplayed:(_Bool)arg2;
 - (void)contentDidChange;
 - (void)_contentDidChange;
+- (_Bool)_wantsTwoPartTransition;
 - (void)preferredContentSizeDidChange;
 - (long long)preferredContentSizeForSize:(long long)arg1;
 - (long long)_preferredContentSizeForSize:(long long)arg1;
@@ -55,6 +56,7 @@
 @property(readonly, nonatomic) double _navigationBarBackButtonMaximumWidth;
 @property(readonly, nonatomic) double _navigationBarContentHeight;
 @property(readonly, nonatomic) _Bool _underlayNavigationBarContent;
+@property(readonly, nonatomic) int preferredAlignment;
 - (void)_setDataSource:(id)arg1 navigationItem:(id)arg2 titleLocation:(long long)arg3;
 - (void)setTranslatesAutoresizingMaskIntoConstraints:(_Bool)arg1;
 - (id)initWithCoder:(id)arg1;

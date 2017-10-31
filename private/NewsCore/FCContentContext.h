@@ -39,7 +39,7 @@
 @property(readonly, nonatomic) id <FCPPTContext> pptContext; // @synthesize pptContext=_pptContext;
 @property(readonly, nonatomic) FCNetworkBehaviorMonitor *networkBehaviorMonitor; // @synthesize networkBehaviorMonitor=_networkBehaviorMonitor;
 - (void).cxx_destruct;
-- (void)appConfigurationDidChange:(id)arg1;
+- (void)appConfigurationManager:(id)arg1 appConfigurationDidChange:(id)arg2;
 - (void)enableFlushingWithFlushingThreshold:(unsigned long long)arg1;
 - (void)ppt_overrideFeedEndpoint:(long long)arg1;
 @property(readonly, copy, nonatomic) NSString *contentEnvironmentToken;

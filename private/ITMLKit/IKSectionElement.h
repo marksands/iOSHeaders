@@ -6,7 +6,7 @@
 
 #import <ITMLKit/IKDataSourceElement.h>
 
-@class IKHeaderElement, NSArray;
+@class IKHeaderElement, IKViewElement, NSArray;
 
 @interface IKSectionElement : IKDataSourceElement
 {
@@ -16,6 +16,7 @@
 - (void).cxx_destruct;
 - (id)unboundItemElements;
 - (void)appDocumentDidMarkStylesDirty;
+@property(readonly, retain, nonatomic) IKViewElement *footer;
 @property(readonly, retain, nonatomic) NSArray *items;
 @property(readonly, retain, nonatomic) IKHeaderElement *header;
 - (id)applyUpdatesWithElement:(id)arg1;

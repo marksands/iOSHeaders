@@ -6,12 +6,13 @@
 
 #import "CATextLayer.h"
 
-@class AVPlayer, NSMutableDictionary, NSObject<OS_dispatch_source>;
+@class AVPlayer, AVPlayerLayer, NSMutableDictionary, NSObject<OS_dispatch_source>;
 
 @interface AVNetworkPlaybackPerfHUDLayer : CATextLayer
 {
     NSObject<OS_dispatch_source> *_hudTimer;
     AVPlayer *_player;
+    AVPlayerLayer *_playerLayer;
     _Bool _showHud;
     int _colorId;
     double _opacity;
@@ -29,6 +30,9 @@
 
 + (id)convertBitrate:(double)arg1;
 + (_Bool)runningAnInternalBuild;
+@property __weak AVPlayerLayer *playerLayer; // @synthesize playerLayer=_playerLayer;
+@property __weak AVPlayer *player; // @synthesize player=_player;
+- (void).cxx_destruct;
 - (void)_hudUpdate;
 - (_Bool)valueLoadedForKey:(id)arg1 onObject:(id)arg2;
 - (id)getTrackFormatDesc:(id)arg1;
@@ -36,7 +40,6 @@
 - (void)currentItemTracksChanged;
 - (void)currentItemChanged;
 - (float)getScaleFactorForDisplaySize:(struct CGSize)arg1;
-- (void)setPlayer:(id)arg1;
 - (void)dealloc;
 - (void)startDispatchTimer;
 - (void)readHudSettingsAndCallCompletionHandler:(CDUnknownBlockType)arg1;

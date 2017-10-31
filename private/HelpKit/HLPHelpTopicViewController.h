@@ -82,7 +82,6 @@
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
-- (void)contentSizeCategoryDidChange:(id)arg1;
 - (void)viewDidLoad;
 - (id)init;
 - (void)dealloc;

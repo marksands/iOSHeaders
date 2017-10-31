@@ -13,15 +13,18 @@
 @interface UWLMessageWireEnvelope : PBCodable <NSCopying>
 {
     UWLMessageHeaders *_headers;
+    NSMutableArray *_liveActivityEvents;
     NSMutableArray *_optInEvents;
     NSMutableArray *_optOutEvents;
     NSMutableArray *_playEvents;
     int _version;
 }
 
++ (Class)liveActivityEventsType;
 + (Class)optOutEventsType;
 + (Class)optInEventsType;
 + (Class)playEventsType;
+@property(retain, nonatomic) NSMutableArray *liveActivityEvents; // @synthesize liveActivityEvents=_liveActivityEvents;
 @property(retain, nonatomic) NSMutableArray *optOutEvents; // @synthesize optOutEvents=_optOutEvents;
 @property(retain, nonatomic) NSMutableArray *optInEvents; // @synthesize optInEvents=_optInEvents;
 @property(retain, nonatomic) NSMutableArray *playEvents; // @synthesize playEvents=_playEvents;
@@ -37,6 +40,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)liveActivityEventsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)liveActivityEventsCount;
+- (void)addLiveActivityEvents:(id)arg1;
+- (void)clearLiveActivityEvents;
 - (id)optOutEventsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)optOutEventsCount;
 - (void)addOptOutEvents:(id)arg1;

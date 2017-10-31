@@ -98,6 +98,7 @@
 - (void)_setTextViewIsCollapsed:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)_isTextViewCollapsed;
 - (void)_updateInactiveTextView;
+- (void)_ensureInactiveTextView;
 - (id)_accessibilityToString;
 - (_Bool)_textViewContainsAtomizedRecipients;
 - (void)_resetSelectionState;

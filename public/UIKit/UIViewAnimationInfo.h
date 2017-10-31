@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, UIView;
 
 __attribute__((visibility("hidden")))
 @interface UIViewAnimationInfo : NSObject
 {
+    UIView *_owningView;
     NSMutableDictionary *_animatablePropertyStates;
     NSMutableDictionary *_presentationModifiers;
     NSMutableDictionary *_modifierGroupRequestHandlers;
@@ -23,6 +24,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableDictionary *modifierGroupRequestHandlers; // @synthesize modifierGroupRequestHandlers=_modifierGroupRequestHandlers;
 @property(retain, nonatomic) NSMutableDictionary *presentationModifiers; // @synthesize presentationModifiers=_presentationModifiers;
 @property(retain, nonatomic) NSMutableDictionary *animatablePropertyStates; // @synthesize animatablePropertyStates=_animatablePropertyStates;
+@property __weak UIView *owningView; // @synthesize owningView=_owningView;
 - (void).cxx_destruct;
 - (void)performWithLock:(CDUnknownBlockType)arg1;
 - (void)setModifierGroupRequestHandler:(id)arg1 forKey:(id)arg2;
@@ -33,7 +35,7 @@ __attribute__((visibility("hidden")))
 - (id)existingAnimatablePropertyStateForKey:(id)arg1;
 - (id)animatablePropertyStateForKey:(id)arg1;
 - (id)animatablePropertyStateKeys;
-- (id)init;
+- (id)initWithView:(id)arg1;
 
 @end
 

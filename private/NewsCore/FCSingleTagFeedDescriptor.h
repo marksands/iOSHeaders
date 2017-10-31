@@ -20,7 +20,7 @@
 - (void).cxx_destruct;
 - (long long)feedFilterOptions;
 - (long long)feedSortMethod;
-- (id)feedGroupEmitters;
+- (id)feedGroupEmittersWithAppConfiguration:(id)arg1;
 - (id)iAdSectionID;
 - (id)iAdFeedID;
 - (id)iAdPrimaryAudience;

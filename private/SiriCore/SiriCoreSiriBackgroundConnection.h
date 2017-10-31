@@ -19,6 +19,7 @@
     NSObject<OS_dispatch_data> *_bufferedInputData;
     NSObject<OS_dispatch_data> *_bufferedProviderHeaderOutputData;
     NSObject<OS_dispatch_data> *_bufferedGeneralOutputData;
+    NSObject<OS_dispatch_data> *_bufferedUncompressedData;
     SiriCoreDataDecompressor *_inputDecompressor;
     SiriCoreDataCompressor *_outputCompressor;
     struct __CFHTTPMessage *_httpResponseHeader;
@@ -41,6 +42,7 @@
     NSMutableDictionary *_outstandingBarriers;
     long long _connectionMethod;
     NSObject<OS_dispatch_data> *_safetyNetBuffer;
+    NSObject<OS_dispatch_queue> *_metricsQueue;
     double _firstStartTime;
     double _currentStartTime;
     double _currentOpenTime;
@@ -66,8 +68,6 @@
 @property(copy, nonatomic) NSString *peerType; // @synthesize peerType=_peerType;
 @property(nonatomic) __weak id <SiriCoreSiriBackgroundConnectionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_flushOutgoingCommandsAndDispatchSendCompletionWithResult:(long long)arg1 error:(id)arg2;
-- (void)_addOutgoingCommandForSendCompletion:(id)arg1;
 - (void)getConnectionMetrics:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (id)_connectionMethodDescription;
 - (id)getConnectionMethodUsed;
@@ -85,12 +85,12 @@
 - (void)_setupReadHandlerOnProvider;
 - (_Bool)_sendAcePongWithId:(unsigned int)arg1 error:(id *)arg2;
 - (_Bool)_sendAcePingWithId:(unsigned int)arg1 error:(id *)arg2;
-- (void)sendCommand:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;
+- (void)sendCommands:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;
+- (void)sendCommand:(id)arg1 moreComing:(_Bool)arg2 errorHandler:(CDUnknownBlockType)arg3;
 - (void)_prepareProviderHeader;
 - (void)_sendGeneralData:(id)arg1;
 - (void)_bufferGeneralData:(id)arg1;
 - (void)_tryToWriteBufferedOutputData;
-- (id)_userAgent;
 - (id)_headerDataForURL:(id)arg1 aceHost:(id)arg2 languageCode:(id)arg3 syncAssistantId:(id)arg4;
 - (void)_networkProviderDidOpen;
 - (void)_connectionHasBytesAvailable:(id)arg1;

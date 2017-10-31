@@ -12,6 +12,7 @@
 
 @interface SXDataTableComponentSizer : SXComponentSizer <SXDataTableComponentControllerDataSource>
 {
+    id <SXTextComponentLayoutHosting> _textComponentLayoutHosting;
     SXDataTableLayouter *_layouter;
     SXDataTableComponentController *_dataTableComponentController;
     double _currentWidth;
@@ -20,6 +21,7 @@
 @property(nonatomic) double currentWidth; // @synthesize currentWidth=_currentWidth;
 @property(retain, nonatomic) SXDataTableComponentController *dataTableComponentController; // @synthesize dataTableComponentController=_dataTableComponentController;
 @property(retain, nonatomic) SXDataTableLayouter *layouter; // @synthesize layouter=_layouter;
+@property(readonly, nonatomic) id <SXTextComponentLayoutHosting> textComponentLayoutHosting; // @synthesize textComponentLayoutHosting=_textComponentLayoutHosting;
 - (void).cxx_destruct;
 - (id)tableStyleForComponent:(id)arg1 documentController:(id)arg2;
 - (id)textComponentLayoutHostingForDataTableComponentController:(id)arg1;
@@ -29,7 +31,7 @@
 - (id)componentForDataTableComponentController:(id)arg1;
 - (double)widthForDataTableComponentController:(id)arg1;
 - (double)calculateHeightForWidth:(double)arg1 inColumnLayout:(id)arg2;
-- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 componentStyle:(id)arg3 context:(id)arg4 layoutAttributes:(id)arg5;
+- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 componentStyle:(id)arg3 documentController:(id)arg4 layoutAttributes:(id)arg5 textComponentLayoutHosting:(id)arg6 textSourceFactory:(id)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

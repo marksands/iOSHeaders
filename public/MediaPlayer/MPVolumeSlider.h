@@ -6,12 +6,12 @@
 
 #import "UISlider.h"
 
-#import "MPAVRoutingControllerDelegate.h"
 #import "MPVolumeControllerDelegate.h"
+#import "MPVolumeDisplaying.h"
 
-@class MPAVController, MPAVRoutingController, MPVolumeController, NSString, NSTimer, UIImage, UIImageView, UILabel, UILayoutGuide, UIView;
+@class MPAVController, MPAVRoute, MPVolumeController, NSString, NSTimer, UIImage, UIImageView, UILabel, UILayoutGuide, UIView;
 
-@interface MPVolumeSlider : UISlider <MPAVRoutingControllerDelegate, MPVolumeControllerDelegate>
+@interface MPVolumeSlider : UISlider <MPVolumeControllerDelegate, MPVolumeDisplaying>
 {
     MPVolumeController *_volumeController;
     NSTimer *_commitTimer;
@@ -26,13 +26,11 @@
     _Bool _volumeWarningBlinking;
     UIImage *_volumeWarningTrackImage;
     _Bool _userWasBlocked;
-    MPAVRoutingController *_routingController;
     UILayoutGuide *_trackLayoutGuide;
     struct UIEdgeInsets _hitRectInsets;
 }
 
 @property(readonly, nonatomic) UILayoutGuide *trackLayoutGuide; // @synthesize trackLayoutGuide=_trackLayoutGuide;
-@property(readonly, nonatomic) UIView *volumeWarningView; // @synthesize volumeWarningView=_volumeWarningView;
 @property(nonatomic) struct UIEdgeInsets hitRectInsets; // @synthesize hitRectInsets=_hitRectInsets;
 @property(retain, nonatomic) UIImage *volumeWarningTrackImage; // @synthesize volumeWarningTrackImage=_volumeWarningTrackImage;
 @property(readonly, nonatomic) long long style; // @synthesize style=_style;
@@ -41,7 +39,6 @@
 - (void)_endBlinkingWarningView;
 - (void)_blinkWarningView;
 - (void)_beginBlinkingWarningView;
-- (void)_routeNameLabelAnimationDidEnd;
 - (void)_layoutVolumeWarningView;
 - (void)_layoutForAvailableRoutes;
 - (void)_resetThumbImageForState:(unsigned long long)arg1;
@@ -49,20 +46,21 @@
 - (id)_minTrackImageForStyle:(long long)arg1;
 - (id)_thumbImageForStyle:(long long)arg1;
 - (void)_commitVolumeChange;
-- (void)_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
-- (void)_availableRoutesDidChangeNotification:(id)arg1;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 @property(readonly, nonatomic) __weak UIView *thumbView;
 @property(nonatomic, setter=_setIsOffScreen:) _Bool _isOffScreen;
-@property(readonly, nonatomic) MPAVRoutingController *routingController;
 - (void)volumeController:(id)arg1 EUVolumeLimitEnforcedDidChange:(_Bool)arg2;
 - (void)volumeController:(id)arg1 EUVolumeLimitDidChange:(float)arg2;
 - (void)volumeController:(id)arg1 volumeValueDidChange:(float)arg2;
-- (void)routingController:(id)arg1 pickedRouteDidChange:(id)arg2;
-- (void)routingControllerAvailableRoutesDidChange:(id)arg1;
-@property(copy, nonatomic) NSString *volumeAudioCategory;
+- (void)volumeController:(id)arg1 volumeControlLabelDidChange:(id)arg2;
+- (void)volumeController:(id)arg1 volumeControlAvailableDidChange:(_Bool)arg2;
+@property(readonly, nonatomic) NSString *volumeAudioCategory;
+@property(readonly, nonatomic, getter=isOnScreen) _Bool onScreen;
+- (void)setVolumeDataSource:(id)arg1;
+@property(retain, nonatomic) MPAVRoute *route;
 @property(retain, nonatomic) MPAVController *player;
+@property(readonly, copy, nonatomic) NSString *volumeControlLabel;
 - (void)setUserInteractionEnabled:(_Bool)arg1;
 - (void)setHidden:(_Bool)arg1;
 - (void)setAlpha:(double)arg1;

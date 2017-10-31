@@ -12,7 +12,7 @@
 @property(copy, nonatomic) CDUnknownBlockType contentsDidChangeHandler;
 @property(copy, nonatomic) CDUnknownBlockType availabilityDidChangeHandler;
 - (_Bool)shouldRetryAfterError:(NSError *)arg1 isCancelation:(_Bool *)arg2 afterDelay:(out id *)arg3 withResolvingTask:(out id *)arg4;
-- (void)checkForAvailabilityWithCallbackQueue:(NSObject<OS_dispatch_queue> *)arg1 schedulePreAvailabilityOperationHandler:(void (^)(NSOperation *))arg2 completion:(void (^)(id <NSObject><NSCopying><NSCoding>, NSError *))arg3;
+- (void)checkForAvailabilityWithCallbackQueue:(NSObject<OS_dispatch_queue> *)arg1 schedulePreAvailabilityOperationHandler:(void (^)(NSOperation *))arg2 completion:(void (^)(NSString *, NSError *))arg3;
 - (NSOperation<MSPCloudRequest> *)newSubscriptionRegistrationRequestWithGroup:(id <MSPCloudRequestGroup>)arg1 successHandler:(void (^)(NSError *))arg2;
 - (NSOperation<MSPCloudRequest> *)newModifyClientRegistrationRecordRequestWithGroup:(id <MSPCloudRequestGroup>)arg1 editedRecord:(id <MSPCloudRecord>)arg2;
 - (NSOperation<MSPCloudRequest> *)newFetchRequestForCurrentClientRegistrationRecordWithGroup:(id <MSPCloudRequestGroup>)arg1 successHandler:(void (^)(id <MSPCloudRecord>))arg2;

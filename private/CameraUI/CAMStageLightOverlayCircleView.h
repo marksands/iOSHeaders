@@ -11,10 +11,6 @@
 @interface CAMStageLightOverlayCircleView : UIView
 {
     _Bool _active;
-    double _unhighlightedStrokeWidth;
-    double _highlightedStrokeWidth;
-    double _unhighlightedStrokeInset;
-    double _highlightedStrokeInset;
     UIImage *_image;
     UIImage *_highlightedImage;
 }
@@ -22,14 +18,10 @@
 @property(retain, nonatomic) UIImage *highlightedImage; // @synthesize highlightedImage=_highlightedImage;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
-@property(readonly, nonatomic) double highlightedStrokeInset; // @synthesize highlightedStrokeInset=_highlightedStrokeInset;
-@property(readonly, nonatomic) double unhighlightedStrokeInset; // @synthesize unhighlightedStrokeInset=_unhighlightedStrokeInset;
-@property(readonly, nonatomic) double highlightedStrokeWidth; // @synthesize highlightedStrokeWidth=_highlightedStrokeWidth;
-@property(readonly, nonatomic) double unhighlightedStrokeWidth; // @synthesize unhighlightedStrokeWidth=_unhighlightedStrokeWidth;
 - (void).cxx_destruct;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2;
-- (void)_drawCircleWithColor:(id)arg1 strokeWidth:(double)arg2 strokeInset:(double)arg3;
-- (id)_circleImageWithColor:(id)arg1 strokeWidth:(double)arg2 strokeInset:(double)arg3;
+- (void)_drawCircleWithColor:(id)arg1;
+- (id)_circleImageWithColor:(id)arg1;
 - (void)_updateContentsAnimated:(_Bool)arg1;
 - (void)_updateImagesIfNeeded;
 - (void)layoutSubviews;

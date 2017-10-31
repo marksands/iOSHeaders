@@ -61,6 +61,7 @@
 - (void)authorizationDidFinishWithError:(id)arg1;
 - (void)authorizationDidRequestMerchantSession;
 - (void)authorizationWillStart;
+- (void)authorizationViewController:(id)arg1 didEncounterAuthorizationEvent:(unsigned long long)arg2;
 - (void)authorizationViewControllerDidChangeUserIntentRequirement:(id)arg1;
 - (void)compactNavigationContainerControllerReceivedExternalTap:(id)arg1;
 - (void)consumeDoublePressUpForButtonKind:(long long)arg1;

@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
     UIKBKeyView *m_collapsedView;
     int _notifyBatterySaverToken;
     unsigned long long m_numberOfVisibleCells;
+    _Bool m_isSafariAutofill;
     LAContext *m_myContext;
     int _state;
     UITouch *_activeTouch;
@@ -107,7 +108,6 @@ __attribute__((visibility("hidden")))
 - (void)delayActivateCellForPrediction:(id)arg1;
 - (void)commitPrediction:(id)arg1;
 - (void)_commitPrediction:(id)arg1;
-- (_Bool)shouldAuthCommitPrediction;
 - (void)acceptPredictiveInput:(id)arg1;
 - (id)autocorrection;
 - (unsigned long long)indexForPoint:(struct CGPoint)arg1;

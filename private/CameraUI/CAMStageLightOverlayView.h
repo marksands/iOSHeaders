@@ -6,30 +6,28 @@
 
 #import "UIView.h"
 
-@class CAGradientLayer, CAMStageLightOverlayCircleView, UIImageView;
+@class CAGradientLayer, CAMStageLightAnimator, CAMStageLightOverlayCircleView, UIImageView;
 
 @interface CAMStageLightOverlayView : UIView
 {
     _Bool _active;
     _Bool _visible;
-    _Bool __displayedActive;
     long long _orientation;
     double _bottomContentInset;
-    UIView *__backgroundContainerView;
     UIView *__tintView;
     UIImageView *__vignetteView;
     CAMStageLightOverlayCircleView *__circleView;
     unsigned long long __activeTimerID;
     CAGradientLayer *__gradientLayer;
+    CAMStageLightAnimator *__animator;
 }
 
+@property(retain, nonatomic, setter=_setAnimator:) CAMStageLightAnimator *_animator; // @synthesize _animator=__animator;
 @property(readonly, nonatomic) CAGradientLayer *_gradientLayer; // @synthesize _gradientLayer=__gradientLayer;
 @property(nonatomic, setter=_setActiveTimerID:) unsigned long long _activeTimerID; // @synthesize _activeTimerID=__activeTimerID;
-@property(nonatomic, getter=_isDisplayedActive, setter=_setDisplayedActive:) _Bool _displayedActive; // @synthesize _displayedActive=__displayedActive;
 @property(readonly, nonatomic) CAMStageLightOverlayCircleView *_circleView; // @synthesize _circleView=__circleView;
 @property(readonly, nonatomic) UIImageView *_vignetteView; // @synthesize _vignetteView=__vignetteView;
 @property(readonly, nonatomic) UIView *_tintView; // @synthesize _tintView=__tintView;
-@property(readonly, nonatomic) UIView *_backgroundContainerView; // @synthesize _backgroundContainerView=__backgroundContainerView;
 @property(nonatomic) double bottomContentInset; // @synthesize bottomContentInset=_bottomContentInset;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(nonatomic, getter=isVisible) _Bool visible; // @synthesize visible=_visible;
@@ -38,15 +36,9 @@
 - (void)layoutSubviews;
 - (struct CGRect)_circleFrameForOrientation:(long long)arg1;
 - (double)_circleDiameterForOrientation:(long long)arg1;
-- (void)_updateCircleViewAnimated:(_Bool)arg1;
-- (void)_updateGradientAnimated:(_Bool)arg1;
-- (double)_durationForCutoutAnimation;
-- (id)_timingFunctionForCutoutAnimation;
-- (void)_updateViewsAnimated:(_Bool)arg1;
+- (void)_updateAnimatorState;
+- (void)_updateShadowViewsAnimated:(_Bool)arg1;
 - (void)setOrientation:(long long)arg1 animated:(_Bool)arg2;
-- (void)_setDisplayedActive:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)_startTimerForActive:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)_cancelActiveTimer;
 - (void)setActive:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;

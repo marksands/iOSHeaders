@@ -10,7 +10,6 @@
 
 @class _EARSpeechRecognition;
 
-__attribute__((visibility("hidden")))
 @interface _EARSpeechRecognitionResultPackage : NSObject <NSCopying>
 {
     _Bool _recognitionIsFormatted;

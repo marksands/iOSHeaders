@@ -22,7 +22,7 @@
 - (id)toggleSelection;
 - (id)homeKitObject;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithAccessoryProfile:(id)arg1 setting:(id)arg2 optionItem:(id)arg3;
+- (id)initWithMediaProfileContainer:(id)arg1 setting:(id)arg2 optionItem:(id)arg3;
 
 @end
 

@@ -12,7 +12,6 @@
 
 @interface ABSPerson : NSObject <ABSRecord>
 {
-    unsigned int _type;
     ABSAddressBook *_addressBook;
     ABSSource *_source;
     CNMutableContact *_cnImpl;
@@ -37,7 +36,6 @@
 @property(retain, nonatomic) CNMutableContact *cnImpl; // @synthesize cnImpl=_cnImpl;
 @property(nonatomic) __weak ABSSource *source; // @synthesize source=_source;
 @property(nonatomic) __weak ABSAddressBook *addressBook; // @synthesize addressBook=_addressBook;
-@property(readonly, nonatomic) unsigned int type; // @synthesize type=_type;
 - (void).cxx_destruct;
 - (void)replaceRecordStorageWithCNObject:(id)arg1;
 - (long long)comparePersonByName:(id)arg1 sortOrdering:(unsigned int)arg2;
@@ -53,7 +51,7 @@
 - (_Bool)setValue:(void *)arg1 forProperty:(int)arg2 withError:(struct __CFError **)arg3;
 - (const void *)copyValueForProperty:(int)arg1;
 @property(readonly, nonatomic) NSString *compositeName;
-- (unsigned int)getType;
+@property(readonly, nonatomic) unsigned int type;
 @property(readonly, nonatomic) NSString *CNIdentifierString;
 @property(readonly, nonatomic) int id;
 - (_Bool)completeCNImplIfNeededWithKeysToFetch:(id)arg1;

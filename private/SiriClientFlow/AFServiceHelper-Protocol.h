@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSBundle, NSString, NSURL, SABaseCommand;
+@class AFPeerInfo, NSBundle, NSString, NSURL, SABaseCommand;
 
 @protocol AFServiceHelper <NSObject>
+- (AFPeerInfo *)peerInfoForCurrentCommand;
 - (_Bool)isTimeoutSuspended;
 - (void)handleCommand:(SABaseCommand *)arg1 completion:(void (^)(SABaseCommand *, NSError *))arg2;
 - (_Bool)isDeviceLockedWithPasscode;

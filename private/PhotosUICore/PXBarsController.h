@@ -14,11 +14,13 @@
     struct {
         _Bool needsUpdateBars;
     } _needsUpdateFlags;
+    _Bool _wantsAnimatedBarsUpdate;
     PXBarSpec *_barSpec;
     UIViewController *_viewController;
     id <PXBarsControllerDelegate> _delegate;
 }
 
+@property(nonatomic) _Bool wantsAnimatedBarsUpdate; // @synthesize wantsAnimatedBarsUpdate=_wantsAnimatedBarsUpdate;
 @property(nonatomic) __weak id <PXBarsControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak UIViewController *viewController; // @synthesize viewController=_viewController;
 @property(retain, nonatomic) PXBarSpec *barSpec; // @synthesize barSpec=_barSpec;

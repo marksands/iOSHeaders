@@ -17,6 +17,7 @@
 @property(copy, nonatomic) NSString *title;
 @property(copy, nonatomic) NSString *sortTitle;
 @property(copy, nonatomic) NSString *releaseDate;
+@property(copy, nonatomic) NSString *rawPlaybackInfo;
 @property(copy, nonatomic) NSString *mediaType;
 - (id)encodedClassName;
 - (id)groupIdentifier;

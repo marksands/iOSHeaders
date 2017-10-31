@@ -32,6 +32,7 @@
 - (void)setupDevice:(id)arg1 home:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)retriggerProximitySetup:(CDUnknownBlockType)arg1;
 - (void)retriggerProximityPairing:(CDUnknownBlockType)arg1;
+- (void)repairDevice:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)reenableProxCardType:(unsigned char)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)preventExitForLocaleReason:(id)arg1;
 - (void)openSetupURL:(id)arg1 completion:(CDUnknownBlockType)arg2;

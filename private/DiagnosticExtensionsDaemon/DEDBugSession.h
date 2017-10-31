@@ -110,6 +110,7 @@
 - (void)attachCompletionHandlerForOngoingOperation:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (id)configuration;
 - (id)shortDescription;
+- (id)prettyDescription;
 - (id)description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

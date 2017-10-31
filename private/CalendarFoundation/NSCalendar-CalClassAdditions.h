@@ -7,6 +7,7 @@
 #import "NSCalendar.h"
 
 @interface NSCalendar (CalClassAdditions)
++ (id)CalDateFromBirthdayComponents:(id)arg1;
 + (id)overlayCalendarForCalendarIdentifier:(id)arg1 timezone:(id)arg2;
 + (id)CalCalendarWithUnsanitizedCalendarIdentifier:(id)arg1;
 + (id)sharedAutoupdatingCurrentCalendar;

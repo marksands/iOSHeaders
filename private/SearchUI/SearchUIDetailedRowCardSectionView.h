@@ -32,11 +32,10 @@
 @property(retain) SearchUIThumbnailView *thumbnailView; // @synthesize thumbnailView=_thumbnailView;
 - (void).cxx_destruct;
 - (void)buttonPressed;
-- (struct CGRect)containerView:(id)arg1 layoutFrameForArrangedSubview:(id)arg2 withProposedFrame:(struct CGRect)arg3;
 - (long long)containerStackView:(id)arg1 alignmentForArrangedSubview:(id)arg2;
 - (_Bool)arrangedViewMustCenter:(id)arg1;
 - (void)updateChevronVisible:(_Bool)arg1 leaveSpaceForChevron:(_Bool)arg2;
-- (void)updateWithCardSection:(id)arg1;
+- (void)updateWithRowModel:(id)arg1;
 - (id)setupContentView;
 
 // Remaining properties

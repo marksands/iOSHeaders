@@ -52,6 +52,7 @@
 - (id)initWithDevice:(id)arg1 convolutionDescriptor:(id)arg2 kernelWeights:(const float *)arg3 biasTerms:(const float *)arg4 flags:(unsigned long long)arg5 fullyConnected:(_Bool)arg6;
 -     // Error parsing type: B84@0:8@16@24r^v32I40r^44r^f52i60r^f64Q72B80, name: initialize:convolutionDescriptor:kernelWeights:dataType:range:lookUpTable:qType:biasTerms:flags:fullyConnected:
 - (id)initWithDevice:(id)arg1;
+@property(readonly, nonatomic) float neuronParameterC;
 @property(readonly, nonatomic) float neuronParameterB;
 @property(readonly, nonatomic) float neuronParameterA;
 @property(readonly, nonatomic) int neuronType;

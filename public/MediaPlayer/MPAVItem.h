@@ -7,11 +7,10 @@
 #import "NSObject.h"
 
 #import "MPAVMetadataItem.h"
-#import "MPNowPlayingContentItemLyricsDataSource.h"
 
 @class AVAsset, AVPlayerItem, AVPlayerItemAccessLog, MPAVController, MPAlternateTracks, MPMediaItem, MPModelGenericObject, MPModelPlayEvent, MPNowPlayingContentItem, MPQueueFeeder, MPStoreDownload, NSArray, NSDictionary, NSError, NSNumber, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
-@interface MPAVItem : NSObject <MPAVMetadataItem, MPNowPlayingContentItemLyricsDataSource>
+@interface MPAVItem : NSObject <MPAVMetadataItem>
 {
     AVAsset *_asset;
     NSObject<OS_dispatch_queue> *_assetQueue;
@@ -50,6 +49,7 @@
     long long _likedState;
     _Bool _limitReadAhead;
     CDStruct_1b6d18a9 _playerItemDuration;
+    long long _exportableArtworkRevision;
     _Bool _assetLoaded;
     _Bool _didAttemptToLoadAsset;
     _Bool _canReusePlayerItem;
@@ -62,6 +62,7 @@
     _Bool _requiresLoadedAssetForAirPlayProperties;
     _Bool _hasFinishedDownloading;
     _Bool _hasPerformedErrorResolution;
+    _Bool _activeItem;
     float _currentPlaybackRate;
     float _loudnessInfoVolumeNormalization;
     NSError *_itemError;
@@ -78,16 +79,19 @@
     MPMediaItem *_mediaItem;
     MPModelGenericObject *_modelGenericObject;
     NSString *_aggregateDictionaryItemIdentifier;
+    NSString *_playerIdentifier;
     NSString *_contentItemID;
-    NSNumber *_queuedTimestamp;
 }
 
 + (void)applyVolumeNormalizationForQueuedItems:(id)arg1;
 + (id)URLFromPath:(id)arg1;
++ (_Bool)isPlaceholder;
 + (void)setDefaultScaleMode:(long long)arg1;
 + (long long)defaultScaleMode;
-@property(copy, nonatomic) NSNumber *queuedTimestamp; // @synthesize queuedTimestamp=_queuedTimestamp;
 @property(copy, nonatomic) NSString *contentItemID; // @synthesize contentItemID=_contentItemID;
+@property(nonatomic, getter=isActiveItem) _Bool activeItem; // @synthesize activeItem=_activeItem;
+@property(copy, nonatomic) NSString *playerIdentifier; // @synthesize playerIdentifier=_playerIdentifier;
+@property(nonatomic) __weak MPAVController *player; // @synthesize player=_player;
 @property(nonatomic) _Bool hasPerformedErrorResolution; // @synthesize hasPerformedErrorResolution=_hasPerformedErrorResolution;
 @property(readonly, nonatomic) _Bool hasFinishedDownloading; // @synthesize hasFinishedDownloading=_hasFinishedDownloading;
 @property(readonly, copy, nonatomic) NSString *aggregateDictionaryItemIdentifier; // @synthesize aggregateDictionaryItemIdentifier=_aggregateDictionaryItemIdentifier;
@@ -117,7 +121,6 @@
 @property(readonly, nonatomic, getter=isAssetLoaded) _Bool assetLoaded; // @synthesize assetLoaded=_assetLoaded;
 @property(retain, nonatomic) NSArray *urlTimeMarkers; // @synthesize urlTimeMarkers=_urlTimeMarkers;
 @property(nonatomic) float soundCheckVolumeNormalization; // @synthesize soundCheckVolumeNormalization=_soundCheckVolumeNormalization;
-@property(nonatomic) __weak MPAVController *player; // @synthesize player=_player;
 @property _Bool isAssetLoaded; // @synthesize isAssetLoaded=_isAssetLoaded;
 @property(nonatomic) float defaultPlaybackRate; // @synthesize defaultPlaybackRate=_defaultPlaybackRate;
 @property(nonatomic, getter=_currentPlaybackRate, setter=_setCurrentPlaybackRate:) float _currentPlaybackRate; // @synthesize _currentPlaybackRate;
@@ -125,8 +128,6 @@
 @property(retain, nonatomic) NSArray *artworkTimeMarkers; // @synthesize artworkTimeMarkers=_artworkTimeMarkers;
 @property(readonly, nonatomic) MPAlternateTracks *alternateTracks; // @synthesize alternateTracks=_alternateTracks;
 - (void).cxx_destruct;
-- (void)nowPlayingInfoCenter:(id)arg1 lyricsForContentItem:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)recordQueuedTimestamp;
 - (void)_willResignActivePlayerItem;
 - (void)_willBecomeActivePlayerItem;
 - (void)_updateHasFinishedDownloading;
@@ -155,6 +156,8 @@
 @property(readonly, copy, nonatomic) NSDictionary *playbackInfo;
 - (void)_clearAsset;
 - (CDUnknownBlockType)blockForDirectAVControllerNotificationReferencingItem:(id)arg1;
+- (void)_performContentItemUpdate:(CDUnknownBlockType)arg1;
+- (_Bool)_shouldPublishArtworkURL;
 - (void)_updateSoundCheckVolumeNormalizationForPlayerItem;
 - (void)_loadAssetProperties;
 - (double)_playableDurationForLoadedTimeRanges:(id)arg1;
@@ -171,6 +174,7 @@
 - (void)_internalLikedStateDidChangeNotification:(id)arg1;
 @property(readonly, nonatomic) double timeOfSeekableEnd;
 @property(readonly, nonatomic) double timeOfSeekableStart;
+@property(readonly, nonatomic) struct OpaqueCMTimebase *timebase;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 _playerItemDurationIfAvailable;
 @property(readonly, nonatomic) double playableDurationIfAvailable;
 @property(readonly, nonatomic) double playableDuration;

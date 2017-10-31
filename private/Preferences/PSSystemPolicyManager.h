@@ -20,7 +20,9 @@
 + (_Bool)_privacySettingsNeededForProxy:(id)arg1;
 + (_Bool)_systemSettingsNeededForProxy:(id)arg1;
 + (_Bool)_shouldIncludeProxy:(id)arg1;
++ (id)_thirdPartyApplicationProxyForBundleID:(id)arg1;
 + (id)thirdPartyApplicationProxyForBundleID:(id)arg1;
++ (id)_thirdPartyApplicationProxies;
 + (id)thirdPartyApplicationProxies;
 + (id)thirdPartyApplicationForBundleID:(id)arg1;
 + (id)thirdPartyApplications;

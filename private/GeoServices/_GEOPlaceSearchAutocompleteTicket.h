@@ -17,6 +17,9 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (_Bool)shouldDisplayNoResults;
+- (_Bool)hasShouldDisplayNoResults;
+- (double)retainSearchTime;
 - (_Bool)isRapEnabled;
 - (void)applyToSuggestionEntry:(id)arg1 withAutocompleteSearchResultIdentifier:(id)arg2;
 - (void)applyToSuggestionList:(id)arg1;

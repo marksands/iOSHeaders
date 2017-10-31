@@ -8,7 +8,7 @@
 
 #import "FCOperationThrottlerDelegate.h"
 
-@class FCBoostableOperationThrottler, FCMutexLock, NSCountedSet, NSHashTable, NSMapTable, NSString;
+@class FCBoostableOperationThrottler, NFMutexLock, NSCountedSet, NSHashTable, NSMapTable, NSString;
 
 @interface FCFetchCoordinator : NSObject <FCOperationThrottlerDelegate>
 {
@@ -17,12 +17,12 @@
     NSHashTable *_fetchGroups;
     NSCountedSet *_allKeys;
     NSMapTable *_fetchOperationsByGroup;
-    FCMutexLock *_accessLock;
+    NFMutexLock *_accessLock;
     FCBoostableOperationThrottler *_fetchThrottler;
 }
 
 @property(retain, nonatomic) FCBoostableOperationThrottler *fetchThrottler; // @synthesize fetchThrottler=_fetchThrottler;
-@property(retain, nonatomic) FCMutexLock *accessLock; // @synthesize accessLock=_accessLock;
+@property(retain, nonatomic) NFMutexLock *accessLock; // @synthesize accessLock=_accessLock;
 @property(retain, nonatomic) NSMapTable *fetchOperationsByGroup; // @synthesize fetchOperationsByGroup=_fetchOperationsByGroup;
 @property(retain, nonatomic) NSCountedSet *allKeys; // @synthesize allKeys=_allKeys;
 @property(retain, nonatomic) NSHashTable *fetchGroups; // @synthesize fetchGroups=_fetchGroups;

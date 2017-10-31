@@ -18,6 +18,8 @@
     NSObject<OS_dispatch_queue> *_queue;
 }
 
++ (id)assetManagerEnabledPolicy;
++ (id)voiceTriggerEnabledPolicy;
 - (void).cxx_destruct;
 - (void)CSEventMonitorDidReceiveEvent:(id)arg1;
 - (void)notifyCallback:(_Bool)arg1;

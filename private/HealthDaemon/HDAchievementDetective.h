@@ -105,7 +105,6 @@
 - (void)_clearInjectedUnitTestingDependencies;
 - (void)_injectWorkouts:(id)arg1;
 - (void)_injectActivitySummaries:(id)arg1;
-- (void)_injectDatabaseCommitHandler:(CDUnknownBlockType)arg1;
 - (void)currentActivitySummaryHelper:(id)arg1 didUpdateYesterdayActivitySummary:(id)arg2 changedFields:(unsigned long long)arg3;
 - (void)currentActivitySummaryHelper:(id)arg1 didUpdateTodayActivitySummary:(id)arg2 changedFields:(unsigned long long)arg3;
 - (id)_summariesByAddingEmptySummariesIntoGaps:(id)arg1;
@@ -152,9 +151,9 @@
 - (void)_companion_runForWorkouts:(id)arg1 engine:(id)arg2 environment:(id)arg3;
 - (void)_gizmo_runForWorkoutsWithEngine:(id)arg1 environment:(id)arg2;
 - (void)_detectAchievementsWithEngine:(id)arg1 triggers:(unsigned long long)arg2 environment:(id)arg3;
-- (id)_runAchievementEngine:(id)arg1 withPredicateEnvironment:(id)arg2 dataStore:(id)arg3 todayActivitySummary:(id)arg4 yesterdayActivitySummary:(id)arg5 currentDate:(id)arg6 addedWorkouts:(id)arg7;
-- (id)_runQueue_detectAchievementsForActivitySummaries:(id)arg1 workouts:(id)arg2;
-- (id)_runQueue_detectAchievementsForTodayOnlyWithActivitySummaries:(id)arg1 workouts:(id)arg2;
+- (void)_runAchievementEngine:(id)arg1 withPredicateEnvironment:(id)arg2 dataStore:(id)arg3 todayActivitySummary:(id)arg4 yesterdayActivitySummary:(id)arg5 currentDate:(id)arg6 addedWorkouts:(id)arg7;
+- (_Bool)_runQueue_detectAchievementsForActivitySummaries:(id)arg1 workouts:(id)arg2 finalIndex:(long long)arg3;
+- (_Bool)_runQueue_detectAchievementsForTodayOnlyWithActivitySummaries:(id)arg1 workouts:(id)arg2 finalIndex:(long long)arg3;
 - (void)_runQueue_performRunWithInitialIndex:(long long)arg1 finalIndex:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)runAchievementDetectionFromActivitySummaryIndex:(long long)arg1 toActivitySummaryIndex:(long long)arg2;
 - (_Bool)runAchievementDetectionFromActivitySummaryIndex:(long long)arg1 toActivitySummaryIndex:(long long)arg2 didDetectNewWorkouts:(_Bool)arg3;

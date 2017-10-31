@@ -68,6 +68,7 @@
 - (void)setAnnotation:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
+- (void)layoutSublayersOfLayer:(id)arg1;
 - (id)_effectiveGlyphText;
 - (id)_effectiveGlyphImageForState:(long long)arg1 isSystemProvided:(_Bool *)arg2;
 - (id)_effectiveGlyphTintColorForState:(long long)arg1;

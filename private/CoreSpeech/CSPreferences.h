@@ -11,6 +11,11 @@
 }
 
 + (id)sharedPreferences;
+- (_Bool)myriadFileLoggingEnabled;
+- (id)interstitialAbsoluteDirForLevel:(long long)arg1;
+- (id)interstitialRelativeDirForLevel:(long long)arg1;
+- (double)remoteVoiceTriggerEndpointTimeoutWithDefault:(double)arg1;
+- (double)remoteVoiceTriggerDelayTime;
 - (id)_deviceCategoryMap;
 - (_Bool)isCurrentDeviceCompatibleWithVoiceProfileAt:(id)arg1;
 - (_Bool)_markSATEnrollmentWithMarker:(id)arg1 forLanguage:(id)arg2;

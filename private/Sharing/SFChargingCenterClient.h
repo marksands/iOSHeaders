@@ -6,27 +6,31 @@
 
 #import "NSObject.h"
 
-@class CUPowerSource, CUPowerSourceMonitor, NSMutableDictionary, NSObject<OS_dispatch_queue>, SBUISound;
+@class CUPowerSource, CUPowerSourceMonitor, NSMutableDictionary, NSObject<OS_dispatch_queue>, SBUISound, SFChargingUICoordinator;
 
 @interface SFChargingCenterClient : NSObject
 {
     _Bool _activateCalled;
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
+    unsigned long long _desiredDuplicatePowerSourceCount;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     CDUnknownBlockType _visualInformationRequestHandler;
     CDUnknownBlockType _requestHandler;
     SBUISound *_chimeSound;
     CUPowerSourceMonitor *_monitor;
-    NSMutableDictionary *_powerSourcesInUI;
+    NSMutableDictionary *_chargingPowerSources;
+    NSMutableDictionary *_groupedPowerSources;
     CUPowerSource *_mePowerSource;
+    SFChargingUICoordinator *_uiCoordinator;
 }
 
-+ (id)keyPathsForValuesAffectingNumberOfDevicesCharging;
 + (id)keyPathsForValuesAffectingChargeLevel;
 + (id)keyPathsForValuesAffectingCharging;
+@property(retain, nonatomic) SFChargingUICoordinator *uiCoordinator; // @synthesize uiCoordinator=_uiCoordinator;
 @property(retain, nonatomic) CUPowerSource *mePowerSource; // @synthesize mePowerSource=_mePowerSource;
-@property(retain, nonatomic) NSMutableDictionary *powerSourcesInUI; // @synthesize powerSourcesInUI=_powerSourcesInUI;
+@property(retain, nonatomic) NSMutableDictionary *groupedPowerSources; // @synthesize groupedPowerSources=_groupedPowerSources;
+@property(retain, nonatomic) NSMutableDictionary *chargingPowerSources; // @synthesize chargingPowerSources=_chargingPowerSources;
 @property(retain, nonatomic) CUPowerSourceMonitor *monitor; // @synthesize monitor=_monitor;
 @property(retain, nonatomic) SBUISound *chimeSound; // @synthesize chimeSound=_chimeSound;
 @property(copy, nonatomic) CDUnknownBlockType requestHandler; // @synthesize requestHandler=_requestHandler;
@@ -38,11 +42,14 @@
 - (void)updateConfigurationContext:(id)arg1 withKeyPowerSource:(id)arg2;
 - (void)updateConfigurationContextWithAnyPowerSourceAsKey:(id)arg1;
 - (void)updateConfigurationContextWithPowerSourcesData:(id)arg1;
+- (void)updateGroupedPowerSources;
+- (_Bool)powerSourceHasAppleChargingCenterCharging:(id)arg1;
+- (_Bool)powerSourceHasChargingCenterCharging:(id)arg1;
 - (void)playChime;
 - (void)contextsForRemoteAlertActivationWithReason:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)sendPresentationRequestForPowerSource:(id)arg1 added:(_Bool)arg2 removed:(_Bool)arg3;
 - (void)presentationRequestContextsForReason:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
-- (void)removeNoLongerChargingPowerSource:(id)arg1 withChargingDate:(id)arg2;
+- (void)removeNoLongerChargingPowerSource:(id)arg1 forKeys:(id)arg2;
 - (void)addNewChargingPowerSource:(id)arg1;
 - (void)evaluatePowerSource:(id)arg1 found:(_Bool)arg2 lost:(_Bool)arg3;
 @property(readonly, nonatomic) long long numberOfDevicesCharging;
@@ -54,6 +61,7 @@
 - (void)activate;
 - (void)dealloc;
 - (void)setUpMonitor;
+- (void)checkDefaults;
 - (id)init;
 
 @end

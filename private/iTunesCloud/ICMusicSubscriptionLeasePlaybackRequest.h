@@ -15,7 +15,6 @@
     _Bool _shouldPreventLeaseAcquisition;
     _Bool _shouldRequireLeaseAcquisition;
     NSString *_assetSourceStorefrontID;
-    NSString *_householdID;
     ICStoreRequestContext *_requestContext;
     unsigned long long _storeCloudID;
     long long _storePurchasedAdamID;
@@ -30,7 +29,6 @@
 @property(nonatomic) long long storePurchasedAdamID; // @synthesize storePurchasedAdamID=_storePurchasedAdamID;
 @property(nonatomic) unsigned long long storeCloudID; // @synthesize storeCloudID=_storeCloudID;
 @property(readonly, copy, nonatomic) ICStoreRequestContext *requestContext; // @synthesize requestContext=_requestContext;
-@property(copy, nonatomic) NSString *householdID; // @synthesize householdID=_householdID;
 @property(copy, nonatomic) NSString *assetSourceStorefrontID; // @synthesize assetSourceStorefrontID=_assetSourceStorefrontID;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -11,7 +11,7 @@
 #import "PUVideoPlayerViewDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class ISAnimatedImageView, NSString, NSURL, PHAsset, PHLivePhotoView, PUBrowsingIrisPlayer, PUPhotoPickerAppearance, PUVideoPlayerView;
+@class ISAnimatedImageView, NSString, NSURL, PHAsset, PHLivePhotoView, PUBrowsingIrisPlayer, PUVideoPlayerView;
 
 __attribute__((visibility("hidden")))
 @interface PUUIImageViewController : PLUIImageViewController <UIGestureRecognizerDelegate, PUVideoPlayerViewDelegate, PUPhotoPickerServicesConsumer, PUPhotoPickerSelectionHandler>
@@ -31,10 +31,8 @@ __attribute__((visibility("hidden")))
     ISAnimatedImageView *__animatedImageView;
     NSURL *__videoAssetURL;
     NSURL *__assetURL;
-    PUPhotoPickerAppearance *_previousPhotoPickerAppearance;
 }
 
-@property(retain, nonatomic) PUPhotoPickerAppearance *previousPhotoPickerAppearance; // @synthesize previousPhotoPickerAppearance=_previousPhotoPickerAppearance;
 @property(setter=_setAnimatedImageRequestID:) int _animatedImageRequestID; // @synthesize _animatedImageRequestID=__animatedImageRequestID;
 @property(setter=_setImageManagerVideoRequestID:) int _imageManagerVideoRequestID; // @synthesize _imageManagerVideoRequestID=__imageManagerVideoRequestID;
 @property(retain, nonatomic, setter=_setAssetURL:) NSURL *_assetURL; // @synthesize _assetURL=__assetURL;
@@ -48,6 +46,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_isPhotosPickerExtensionAvailable;
 - (void)performPhotoPickerSelection;
 - (void)setPhotoPickerMediaTypes:(id)arg1;
+- (void)didUpdateNavigationBarAppearance;
 - (_Bool)isDisplayedInPhotoPicker;
 - (_Bool)uiipc_useTelephonyUI;
 - (_Bool)wantsLegacyImageUI;
@@ -88,7 +87,6 @@ __attribute__((visibility("hidden")))
 - (void)viewDidLayoutSubviews;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
-- (void)viewWillAppear:(_Bool)arg1;
 - (void)setIrisPlayer:(id)arg1;
 - (void)setupNavigationItem;
 - (void)loadView;

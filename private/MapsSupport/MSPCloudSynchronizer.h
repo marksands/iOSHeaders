@@ -15,6 +15,7 @@
     id <MSPCloudAccess> _access;
     _Bool _started;
     MSPMapsPaths *_paths;
+    NSTimer *_batchingTimer;
     // Error parsing type: {atomic_flag="_Value"AB}, name: _didScheduleInitialMerge
     NSOperationQueue *_taskAttemptsQueue;
     _Bool _needsMerge;

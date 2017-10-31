@@ -29,10 +29,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithValueSource:(id)arg1;
 @property(readonly, nonatomic) id <HFCharacteristicValueSource> valueSource;
-- (id)controlPanelItems;
-- (id)allControlItems;
-- (id)incrementalStateControlItem;
-- (id)primaryStateControlItem;
 - (id)accessories;
 - (id)services;
 @property(readonly, nonatomic) id <HFHomeKitObject> homeKitObject;

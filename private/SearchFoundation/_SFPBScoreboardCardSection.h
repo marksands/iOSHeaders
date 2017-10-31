@@ -28,8 +28,10 @@
     _SFPBSportsTeam *_team1;
     _SFPBSportsTeam *_team2;
     NSString *_accessibilityDescription;
+    NSString *_eventStatus;
 }
 
+@property(copy, nonatomic) NSString *eventStatus; // @synthesize eventStatus=_eventStatus;
 @property(copy, nonatomic) NSString *accessibilityDescription; // @synthesize accessibilityDescription=_accessibilityDescription;
 @property(retain, nonatomic) _SFPBSportsTeam *team2; // @synthesize team2=_team2;
 @property(retain, nonatomic) _SFPBSportsTeam *team1; // @synthesize team1=_team1;
@@ -53,6 +55,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasEventStatus;
 @property(readonly, nonatomic) _Bool hasAccessibilityDescription;
 @property(readonly, nonatomic) _Bool hasTeam2;
 @property(readonly, nonatomic) _Bool hasTeam1;

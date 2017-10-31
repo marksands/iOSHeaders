@@ -10,7 +10,7 @@
 #import "BLTSectionConfigurationDelegate.h"
 #import "BLTSectionInfoListDelegate.h"
 
-@class BBObserver, BLTSectionInfoList, BLTSectionInfoListBridgeProvider, BLTSectionInfoSyncCoordinator, BLTSettingSyncSendQueue, NSObject<OS_dispatch_queue>, NSString;
+@class BBObserver, BLTSectionInfoList, BLTSectionInfoListBridgeProvider, BLTSectionInfoSyncCoordinator, BLTSettingSyncSendQueue, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface BLTSettingSync : BLTSettingSyncInternal <BBObserverDelegate, BLTSectionInfoListDelegate, BLTSectionConfigurationDelegate>
 {
@@ -21,11 +21,17 @@
     NSObject<OS_dispatch_queue> *_sectionInfoSyncCoordinatorQueue;
     _Bool _initialSyncPerformed;
     BLTSectionInfoListBridgeProvider *_bridgeProvider;
+    NSMutableDictionary *_reloadBBCompletions;
+    unsigned long long _stateHandler;
     BBObserver *_observer;
 }
 
 @property(retain, nonatomic) BBObserver *observer; // @synthesize observer=_observer;
 - (void).cxx_destruct;
+- (id)_stateDescription;
+- (void)_callAndRemoveReloadBBCompletion:(CDUnknownBlockType)arg1 sectionID:(id)arg2;
+- (void)_addReloadBBCompletion:(CDUnknownBlockType)arg1 sectionID:(id)arg2;
+- (void)_callReloadBBCompletionsForSectionID:(id)arg1;
 - (void)sectionConfiguration:(id)arg1 addedSectionIDs:(id)arg2 removedSectionIDs:(id)arg3;
 - (void)sectionInfoList:(id)arg1 receivedRemoveSectionWithSectionID:(id)arg2;
 - (void)sectionInfoList:(id)arg1 receivedUpdatedSectionInfoForSectionID:(id)arg2;

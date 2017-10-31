@@ -17,14 +17,16 @@
     SXDataTableDictionary *_textLayouters;
     id <SXDataTableComponentControllerDataSource> _dataSource;
     id <SXDataTableStyleFactory> _styleFactory;
+    id <SXDataTableTextSourceFactory> _textSourceFactory;
     NSArray *_records;
     SXDataRecordValueTransformerFactory *_recordValueTransformerFactory;
 }
 
 @property(retain, nonatomic) SXDataRecordValueTransformerFactory *recordValueTransformerFactory; // @synthesize recordValueTransformerFactory=_recordValueTransformerFactory;
 @property(retain, nonatomic) NSArray *records; // @synthesize records=_records;
+@property(readonly, nonatomic) id <SXDataTableTextSourceFactory> textSourceFactory; // @synthesize textSourceFactory=_textSourceFactory;
 @property(readonly, nonatomic) id <SXDataTableStyleFactory> styleFactory; // @synthesize styleFactory=_styleFactory;
-@property(readonly, nonatomic) id <SXDataTableComponentControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
+@property(readonly, nonatomic) __weak id <SXDataTableComponentControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(readonly, nonatomic) SXDataTableDictionary *textLayouters; // @synthesize textLayouters=_textLayouters;
 @property(readonly, nonatomic) SXDataTableDictionary *cellObjects; // @synthesize cellObjects=_cellObjects;
 - (void).cxx_destruct;
@@ -71,7 +73,7 @@
 - (_Bool)indexPathIsHeader:(CDStruct_2fea82da)arg1;
 - (void)prepareForLayout;
 - (void)loadRecords;
-- (id)initWithStyleFactory:(id)arg1 dataSource:(id)arg2;
+- (id)initWithStyleFactory:(id)arg1 textSourceFactory:(id)arg2 dataSource:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

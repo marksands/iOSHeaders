@@ -6,14 +6,12 @@
 
 #import "NSObject.h"
 
-@class CSSpeakerModel, NSString;
+@class CSSpeakerModel;
 
 @interface CSSpeakerDetectorNDAPI : NSObject
 {
     float _threshold;
-    NSString *_languageCode;
     CSSpeakerModel *_spkModel;
-    float _retrainTriggerThreshold;
     id <CSSpeakerDetectorNDAPIDelegate> _delegate;
 }
 
@@ -27,7 +25,7 @@
 - (_Bool)_initializeNDAPI:(id)arg1 resourcePath:(id)arg2;
 - (void)dealloc;
 - (void)reset;
-- (id)initWithAsset:(id)arg1 languageCode:(id)arg2 speakerModel:(id)arg3;
+- (id)initWithAsset:(id)arg1 speakerModel:(id)arg2;
 
 @end
 

@@ -26,6 +26,7 @@
     struct UIEdgeInsets _scrollIndicatorInset;
     struct UIEdgeInsets _verticalScrollIndicatorInsets;
     struct UIEdgeInsets _horizontalScrollIndicatorInsets;
+    unsigned long long _edgesAllowingScrollAccessoriesExtendedToBoundingPath;
     double _startOffsetX;
     double _startOffsetY;
     double _lastUpdateOffsetX;
@@ -394,6 +395,7 @@
 - (void)_handleAutoScroll:(id)arg1;
 - (void)_stopAutoScrollAssistant;
 - (_Bool)_shouldAutoScroll;
+- (void)_handlePanFailure;
 - (void)handlePan:(id)arg1;
 - (void)handlePinch:(id)arg1;
 - (void)_handleSwipe:(id)arg1;
@@ -627,6 +629,8 @@
 - (struct UIEdgeInsets)_baseInsetsForAccessoryOnEdge:(long long)arg1 hasCustomClientInsets:(_Bool)arg2 accessorySize:(double)arg3 additionalInsetFromEdge:(double)arg4;
 - (struct UIEdgeInsets)_baseInsetsForBottomEdgeAccessoryWithBoundingPathEdgesToUse:(unsigned long long)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2 bounds:(struct CGRect)arg3 scale:(double)arg4 accessoryHeight:(double)arg5 additionalInsetFromEdge:(double)arg6;
 - (struct UIEdgeInsets)_baseInsetsForTrailingEdgeAccessoryWithBoundingPathEdgesToUse:(unsigned long long)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2 bounds:(struct CGRect)arg3 scale:(double)arg4 accessoryWidth:(double)arg5 additionalInsetFromEdge:(double)arg6;
+- (void)_setEdgesAllowingScrollAccessoriesExtendedToBoundingPath:(unsigned long long)arg1;
+- (unsigned long long)_edgesAllowingScrollAccessoriesExtendedToBoundingPath;
 - (unsigned long long)_edgesApplyingSafeAreaInsetsToScrollAccessoryInsets;
 - (unsigned long long)_edgesApplyingBaseInsetsToScrollIndicatorInsets;
 - (long long)_indicatorInsetAdjustmentBehavior;

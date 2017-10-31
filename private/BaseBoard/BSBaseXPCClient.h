@@ -20,9 +20,8 @@
     _Bool _suspended;
 }
 
-- (void)queue_invalidate;
+- (void)queue_invalidateAndFlush:(_Bool)arg1;
 - (void)queue_reconnectToResumedServerIfNecessary;
-- (void)queue_reregister;
 - (_Bool)queue_isSuspended;
 - (id)queue_connection;
 - (void)queue_registerWithServerIfNecessary;

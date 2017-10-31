@@ -19,6 +19,7 @@
 - (void)modelChangedForCall:(id)arg1;
 - (void)prefersExclusiveAccessToCellularNetworkChangedForCall:(id)arg1;
 - (void)mediaPropertiesChangedForCall:(id)arg1 remoteAspectRatioDidChange:(_Bool)arg2 remoteCameraOrientationDidChange:(_Bool)arg3;
+- (void)providerContextChangedForCall:(id)arg1;
 - (void)remoteScreenAspectRatioChangedForCall:(id)arg1;
 - (void)remoteScreenOrientationChangedForCall:(id)arg1;
 - (void)remoteCameraOrientationChangedForCall:(id)arg1;
@@ -28,7 +29,6 @@
 - (void)supportsTTYWithVoiceChangedForCall:(id)arg1;
 - (void)remoteUplinkMutedChangedForCall:(id)arg1;
 - (void)ttyTypeChangedForCall:(id)arg1;
-- (void)hasUpdatedAudioChangedForCall:(id)arg1;
 - (void)audioPropertiesChangedForCall:(id)arg1;
 - (void)videoPausedChangedForCall:(id)arg1;
 - (void)videoDegradedChangedForCall:(id)arg1;

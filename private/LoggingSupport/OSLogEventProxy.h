@@ -136,7 +136,7 @@
 - (id)description;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (_Bool)respondsToSelector:(SEL)arg1;
-- (_Bool)_setLogEvent:(CDStruct_c6d697a1 *)arg1;
+- (_Bool)_setLogEvent:(CDStruct_c6d697a1 *)arg1 rangeUUIDIndex:(unsigned long long)arg2 machTimebase:(struct mach_timebase_info *)arg3;
 - (void)_setBuffer:(const void *)arg1 size:(unsigned long long)arg2 privateBuffer:(const void *)arg3 privateSize:(unsigned long long)arg4;
 - (void)_setDoNotTrackActivites:(_Bool)arg1;
 - (void)_setFallbackTimezone;

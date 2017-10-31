@@ -35,6 +35,7 @@
     NSNumber *_includeOnlyPersonsWithVisibleKeyFacesNumber;
     NSNumber *_includeOnlyFacesNeedingFaceCropNumber;
     NSNumber *_includeOnlyFacesWithFaceprintsNumber;
+    NSNumber *_includeOnlyFacesInFaceGroupsNumber;
     NSNumber *_isExclusivePredicateNumber;
     NSMutableSet *_propertySets;
     NSNumber *_shouldPrefetchCountNumber;
@@ -61,6 +62,7 @@
 - (id)description;
 @property(nonatomic) _Bool isExclusivePredicate;
 @property(nonatomic) _Bool shouldPrefetchCount;
+@property(nonatomic) _Bool includeOnlyFacesInFaceGroups;
 @property(nonatomic) _Bool includeOnlyFacesWithFaceprints;
 @property(nonatomic) _Bool includeOnlyFacesNeedingFaceCrop;
 @property(nonatomic) _Bool includeOnlyPersonsWithVisibleKeyFaces;

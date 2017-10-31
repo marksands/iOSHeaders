@@ -30,9 +30,6 @@
 - (id)encodedClassName;
 - (void)siriCore_setSessionRequestId:(id)arg1;
 - (id)siriCore_requestId;
-- (void)siriCore_dispatchSendCompletionsWithResult:(long long)arg1 error:(id)arg2;
-- (void)siriCore_addSendCompletion:(CDUnknownBlockType)arg1;
-- (_Bool)siriCore_supportsSendCompletions;
 @property(readonly, copy) NSString *description;
 - (id)siriCore_serializedAceDataError:(id *)arg1;
 - (void)siriCore_logDiagnostics;

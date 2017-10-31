@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSString, _SFKeySpecifier;
+@class NSData, NSString, _SFKeySpecifier;
 
 @interface _SFKey : NSObject
 {
     id _keyInternal;
+    NSData *_keyData;
 }
 
 + (id)_specifierForSecKey:(struct __SecKey *)arg1;
 + (Class)_attributesClass;
+@property(readonly, nonatomic) NSData *keyData; // @synthesize keyData=_keyData;
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSString *keyDomain;
 @property(readonly, copy, nonatomic) _SFKeySpecifier *keySpecifier;

@@ -14,6 +14,8 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)identityWithData:(id)arg1 error:(id *)arg2;
++ (id)identityWithError:(id *)arg1;
+- (_Bool)purgeFromKeychain:(id *)arg1;
 - (id)dataRepresentationWithError:(id *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

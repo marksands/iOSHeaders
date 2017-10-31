@@ -6,7 +6,7 @@
 
 #import <SecurityFoundation/_SFPublicKey.h>
 
-@class NSData, _SFECKeySpecifier;
+@class _SFECKeySpecifier;
 
 @interface _SFECPublicKey : _SFPublicKey
 {
@@ -16,7 +16,6 @@
 + (id)_secKeyCreationAttributesForSpecifier:(id)arg1;
 + (id)_specifierForSecKey:(struct __SecKey *)arg1;
 - (void).cxx_destruct;
-@property(readonly) NSData *x963Data;
 - (id)performWithCCKey:(CDUnknownBlockType)arg1;
 
 // Remaining properties

@@ -21,7 +21,7 @@
 @property(nonatomic) unsigned long long limit; // @synthesize limit=_limit;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) _Bool requiresForYouCatchUpOperation;
+@property(readonly, nonatomic) long long requiredForYouContentTypes;
 @property(readonly, nonatomic) _Bool emitsSingletonGroups;
 @property(readonly, copy, nonatomic) NSString *groupEmitterIdentifier;
 - (_Bool)canEmitGroupsWithType:(long long)arg1;

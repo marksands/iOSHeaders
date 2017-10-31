@@ -21,12 +21,13 @@
     _Bool _autoPlayEnabled;
     _Bool _shouldResume;
     _Bool _shouldResumeAfterLoad;
-    id <SXImageViewDelegate> _delegate;
     SXImageResource *_imageResource;
-    id <SXResourceDataSource> _resourceDataSource;
+    id <SXImageViewDelegate> _delegate;
     SXAnimatedImage *_animatedImage;
     unsigned long long _frameIndex;
     CDUnknownBlockType _frameChangeBlock;
+    id <SXResourceDataSource> _resourceDataSource;
+    id <SXReachabilityProvider> _reachabilityProvider;
     CDUnknownBlockType _preferredQualityImageRequestCancelHandler;
     CDUnknownBlockType _highQualityImageRequestCancelHandler;
     UIImage *_preferredQualityImage;
@@ -60,19 +61,22 @@
 @property(nonatomic) struct CGSize preferredQualityLoadingImageSize; // @synthesize preferredQualityLoadingImageSize=_preferredQualityLoadingImageSize;
 @property(copy, nonatomic) CDUnknownBlockType highQualityImageRequestCancelHandler; // @synthesize highQualityImageRequestCancelHandler=_highQualityImageRequestCancelHandler;
 @property(copy, nonatomic) CDUnknownBlockType preferredQualityImageRequestCancelHandler; // @synthesize preferredQualityImageRequestCancelHandler=_preferredQualityImageRequestCancelHandler;
+@property(readonly, nonatomic) id <SXReachabilityProvider> reachabilityProvider; // @synthesize reachabilityProvider=_reachabilityProvider;
+@property(readonly, nonatomic) __weak id <SXResourceDataSource> resourceDataSource; // @synthesize resourceDataSource=_resourceDataSource;
 @property(nonatomic) _Bool autoPlayEnabled; // @synthesize autoPlayEnabled=_autoPlayEnabled;
 @property(copy, nonatomic) CDUnknownBlockType frameChangeBlock; // @synthesize frameChangeBlock=_frameChangeBlock;
 @property(nonatomic) unsigned long long frameIndex; // @synthesize frameIndex=_frameIndex;
 @property(readonly, nonatomic) SXAnimatedImage *animatedImage; // @synthesize animatedImage=_animatedImage;
 @property(nonatomic) _Bool isScrubbing; // @synthesize isScrubbing=_isScrubbing;
-@property(readonly, nonatomic) __weak id <SXResourceDataSource> resourceDataSource; // @synthesize resourceDataSource=_resourceDataSource;
-@property(readonly, nonatomic) SXImageResource *imageResource; // @synthesize imageResource=_imageResource;
 @property(nonatomic) __weak id <SXImageViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) struct CGSize preferredImageSize; // @synthesize preferredImageSize=_preferredImageSize;
 @property(nonatomic) _Bool scrubbingEnabled; // @synthesize scrubbingEnabled=_scrubbingEnabled;
 @property(nonatomic) _Bool shouldShowLoadingIndicator; // @synthesize shouldShowLoadingIndicator=_shouldShowLoadingIndicator;
+@property(readonly, nonatomic) SXImageResource *imageResource; // @synthesize imageResource=_imageResource;
 - (void).cxx_destruct;
 - (_Bool)accessibilityIgnoresInvertColors;
+- (_Bool)isAccessibilityElement;
+- (id)stringForAXDragAction;
 - (void)didEndDragging;
 - (void)didStartDragging;
 @property(readonly, nonatomic) NSString *dragIdentifier;
@@ -113,7 +117,7 @@
 - (void)layoutActivityIndicator;
 @property(nonatomic) long long loadingIndicatorStyle;
 - (void)dealloc;
-- (id)initWithImageResource:(id)arg1 resourceDataSource:(id)arg2;
+- (id)initWithImageResource:(id)arg1 resourceDataSource:(id)arg2 reachabilityProvider:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

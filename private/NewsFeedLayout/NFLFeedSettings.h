@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class FCHeadlineTemplate, NFLCellGeneratorManager, NFLFontCache, NSObject<NFLFeedLayoutSearchConfiguration>, NSString, UIColor;
+@class FCHeadlineTemplate, NFLCellGeneratorManager, NFLFontCache, NSString, UIColor, UITraitCollection;
 
 @interface NFLFeedSettings : NSObject <NSCopying>
 {
@@ -31,18 +31,20 @@
     double _articleSelectionInset;
     double _scaleValue;
     NFLCellGeneratorManager *_cellGeneratorManager;
-    NSObject<NFLFeedLayoutSearchConfiguration> *_defaultFeedLayoutSearchConfiguration;
+    id <NFLFeedLayoutSearchConfiguration> _defaultFeedLayoutSearchConfiguration;
     NFLFontCache *_fontCache;
     id <FCFeedTheming> _feedTheme;
+    UITraitCollection *_traitCollection;
     struct CGSize _viewportSize;
 }
 
+@property(retain, nonatomic) UITraitCollection *traitCollection; // @synthesize traitCollection=_traitCollection;
 @property(retain, nonatomic) id <FCFeedTheming> feedTheme; // @synthesize feedTheme=_feedTheme;
 @property(readonly, nonatomic) _Bool showingPrefetchedPurchase; // @synthesize showingPrefetchedPurchase=_showingPrefetchedPurchase;
 @property(readonly, nonatomic) _Bool authenticationSetup; // @synthesize authenticationSetup=_authenticationSetup;
 @property(nonatomic) _Bool allowsExcerptsInAllCells; // @synthesize allowsExcerptsInAllCells=_allowsExcerptsInAllCells;
 @property(readonly, nonatomic) NFLFontCache *fontCache; // @synthesize fontCache=_fontCache;
-@property(copy, nonatomic) NSObject<NFLFeedLayoutSearchConfiguration> *defaultFeedLayoutSearchConfiguration; // @synthesize defaultFeedLayoutSearchConfiguration=_defaultFeedLayoutSearchConfiguration;
+@property(copy, nonatomic) id <NFLFeedLayoutSearchConfiguration> defaultFeedLayoutSearchConfiguration; // @synthesize defaultFeedLayoutSearchConfiguration=_defaultFeedLayoutSearchConfiguration;
 @property(readonly, nonatomic) NFLCellGeneratorManager *cellGeneratorManager; // @synthesize cellGeneratorManager=_cellGeneratorManager;
 @property(readonly, nonatomic) double scaleValue; // @synthesize scaleValue=_scaleValue;
 @property(readonly, nonatomic) double articleSelectionInset; // @synthesize articleSelectionInset=_articleSelectionInset;
@@ -62,9 +64,11 @@
 @property(retain, nonatomic) FCHeadlineTemplate *defaultHeadlineTemplate; // @synthesize defaultHeadlineTemplate=_defaultHeadlineTemplate;
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) UIColor *feedBackgroundColor;
+- (_Bool)preservesTraitCollection:(id)arg1;
 - (_Bool)preservesLayoutMargins:(struct UIEdgeInsets)arg1;
 - (double)cellHeightForRowSpan:(long long)arg1;
 - (double)cellWidthForColumnSpan:(long long)arg1;
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithViewportSize:(struct CGSize)arg1 viewportInsets:(struct UIEdgeInsets)arg2 preferredContentSizeCategory:(id)arg3 showAccessoryText:(_Bool)arg4;
 - (id)initWithViewportSize:(struct CGSize)arg1 viewportInsets:(struct UIEdgeInsets)arg2 preferredContentSizeCategory:(id)arg3 showAccessoryText:(_Bool)arg4 layoutType:(long long)arg5 layoutOptions:(unsigned long long)arg6;

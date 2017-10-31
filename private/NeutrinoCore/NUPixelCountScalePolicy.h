@@ -15,12 +15,12 @@
     long long _totalPixelCount;
 }
 
+@property(readonly, copy) NSString *debugDescription;
 - (CDStruct_912cb5d2)scaleForImageSize:(CDStruct_912cb5d2)arg1;
 - (id)initWithTargetPixelCount:(long long)arg1;
 - (id)init;
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;

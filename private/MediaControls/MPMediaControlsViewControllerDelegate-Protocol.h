@@ -6,9 +6,12 @@
 
 #import "NSObject.h"
 
-@class MPMediaControlsViewController;
+@class MPAVRoute, MPMediaControlsViewController;
 
 @protocol MPMediaControlsViewControllerDelegate <NSObject>
+
+@optional
+- (void)mediaControlsViewController:(MPMediaControlsViewController *)arg1 didSelectRoute:(MPAVRoute *)arg2;
 - (void)mediaControlsViewControllerDidReceiveInteraction:(MPMediaControlsViewController *)arg1;
 @end
 

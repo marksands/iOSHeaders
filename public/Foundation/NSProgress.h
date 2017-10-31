@@ -52,7 +52,9 @@
 + (id)progressWithTotalUnitCount:(long long)arg1;
 + (id)currentProgress;
 - (void).cxx_destruct;
-- (void)_setRemoteValue:(id)arg1 forKey:(id)arg2 inUserInfo:(_Bool)arg3;
+- (double)_remoteFractionCompleted;
+- (void)_setRemoteValues:(id)arg1 forKeys:(id)arg2;
+- (void)_setRemoteUserInfoValue:(id)arg1 forKey:(id)arg2;
 - (id)_initWithValues:(id)arg1;
 - (void)handleAcknowledgementByAppWithBundleIdentifier:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (oneway void)prioritize;
@@ -113,8 +115,8 @@
 @property long long totalUnitCount;
 - (void)_updateFractionCompleted:(id)arg1;
 - (id)_setValueForKeys:(CDUnknownBlockType)arg1 settingBlock:(CDUnknownBlockType)arg2;
-- (void)_notifyRemoteObserversOfValueForKey:(id)arg1 inUserInfo:(_Bool)arg2;
-- (void)__notifyRemoteObserversOfValueForKey:(id)arg1 inUserInfo:(_Bool)arg2;
+- (void)_notifyRemoteObserversOfValueForKeys:(id)arg1;
+- (void)_notifyRemoteObserversOfUserInfoValueForKey:(id)arg1;
 - (void)set_adoptChildUserInfo:(_Bool)arg1;
 - (_Bool)_adoptChildUserInfo;
 - (void)becomeCurrentWithPendingUnitCount:(long long)arg1 inBlock:(CDUnknownBlockType)arg2;

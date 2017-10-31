@@ -53,11 +53,13 @@
 @property(readonly, nonatomic, getter=isLegacyTransaction) _Bool legacyTransaction;
 - (void)updateCloudCache;
 - (void)setDeleteAsProcessedWithRecordID:(id)arg1;
+- (void)resetRecordWithRecordID:(id)arg1;
 - (void)setSaveAsProcessedWithRecord:(id)arg1;
 - (void)fetchBatchToUpload:(CDUnknownBlockType)arg1;
 - (_Bool)moreChangesToProcess;
 - (void)setAllChangedAsProcessed;
 - (void)loadCloudRecordsAndDetermineDeletesFromCache:(CDUnknownBlockType)arg1;
+- (void)cachedCloudRecordWithObjectID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)cachedCloudRecordWithObjectID:(id)arg1;
 - (_Bool)doesRecordExistInCacheWithObjectID:(id)arg1;
 - (_Bool)doesRecordExistWithObjectID:(id)arg1;

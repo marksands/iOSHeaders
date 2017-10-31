@@ -37,6 +37,7 @@
     _Bool __alignLargeTitleAccessoryViewToBaseline;
     _Bool __supportsTwoLineLargeTitles;
     _Bool __backgroundHidden;
+    _Bool _useRelativeLargeTitleInsets;
     double _fontScaleAdjustment;
     NSString *_pendingTitle;
     NSArray *_leftItemSpaceList;
@@ -52,9 +53,14 @@
     UIView *__largeTitleAccessoryView;
     NSString *__weeTitle;
     UIView *__canvasView;
+    NSArray *__alternateLargeTitles;
+    struct NSDirectionalEdgeInsets _largeTitleInsets;
 }
 
 + (id)defaultFont;
+@property(retain, nonatomic) NSArray *_alternateLargeTitles; // @synthesize _alternateLargeTitles=__alternateLargeTitles;
+@property(nonatomic) _Bool useRelativeLargeTitleInsets; // @synthesize useRelativeLargeTitleInsets=_useRelativeLargeTitleInsets;
+@property(nonatomic) struct NSDirectionalEdgeInsets largeTitleInsets; // @synthesize largeTitleInsets=_largeTitleInsets;
 @property(retain, nonatomic, setter=_setCanvasView:) UIView *_canvasView; // @synthesize _canvasView=__canvasView;
 @property(nonatomic) __weak UINavigationBar *navigationBar; // @synthesize navigationBar=_navigationBar;
 @property(nonatomic, setter=_setBackgroundHidden:) _Bool _backgroundHidden; // @synthesize _backgroundHidden=__backgroundHidden;

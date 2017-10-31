@@ -6,14 +6,14 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class FCCachePolicy, FCForYouConfig, NSArray, NSDictionary, NSString;
+@class FCCachePolicy, FCForYouConfig, NSArray, NSDictionary;
 
 @interface FCForYouConfigHeadlinesOperation : FCOperation
 {
     _Bool _shouldFetchEditorialSectionTags;
+    id <FCAppConfiguration> _appConfiguration;
     id <FCContentContext> _context;
     id <FCFeedPersonalizing> _personalizer;
-    NSString *_forYouConfigID;
     long long _fields;
     NSArray *_additionalArticleListIDs;
     NSArray *_additionalTagIDs;
@@ -39,9 +39,9 @@
 @property(copy, nonatomic) NSArray *additionalTagIDs; // @synthesize additionalTagIDs=_additionalTagIDs;
 @property(copy, nonatomic) NSArray *additionalArticleListIDs; // @synthesize additionalArticleListIDs=_additionalArticleListIDs;
 @property(nonatomic) long long fields; // @synthesize fields=_fields;
-@property(copy, nonatomic) NSString *forYouConfigID; // @synthesize forYouConfigID=_forYouConfigID;
 @property(retain, nonatomic) id <FCFeedPersonalizing> personalizer; // @synthesize personalizer=_personalizer;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
+@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;
 - (long long)_requestTypeOverride;
 - (void)operationWillFinishWithError:(id)arg1;

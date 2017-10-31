@@ -25,8 +25,6 @@ struct CGSize {
     double height;
 };
 
-struct CoalescedAsynchronousWriter;
-
 struct FrameMetadata {
     CDUnknownFunctionPointerType *_field1;
     struct Vector<OpaqueJSValue *, 0, WTF::CrashOnOverflow, 16> _field2;
@@ -162,12 +160,6 @@ struct time_point<std::__1::chrono::steady_clock, std::__1::chrono::duration<lon
     struct duration<long long, std::__1::ratio<1, 1000000000>> __d_;
 };
 
-struct unique_ptr<SafariShared::CoalescedAsynchronousWriter, std::__1::default_delete<SafariShared::CoalescedAsynchronousWriter>> {
-    struct __compressed_pair<SafariShared::CoalescedAsynchronousWriter *, std::__1::default_delete<SafariShared::CoalescedAsynchronousWriter>> {
-        struct CoalescedAsynchronousWriter *__first_;
-    } __ptr_;
-};
-
 struct unique_ptr<SafariShared::SuddenTerminationDisabler, std::__1::default_delete<SafariShared::SuddenTerminationDisabler>> {
     struct __compressed_pair<SafariShared::SuddenTerminationDisabler *, std::__1::default_delete<SafariShared::SuddenTerminationDisabler>> {
         struct SuddenTerminationDisabler *__first_;
@@ -290,6 +282,11 @@ struct vector<WTF::RefPtr<SafariShared::HistoryURLCompletionItem>, std::__1::all
 
 typedef struct {
     unsigned long long _field1;
+    unsigned long long _field2;
+} CDStruct_4bcfbbae;
+
+typedef struct {
+    unsigned long long _field1;
     id *_field2;
     unsigned long long *_field3;
     unsigned long long _field4[5];
@@ -299,6 +296,12 @@ typedef struct {
     int webProcessID;
     unsigned long long tabID;
 } CDStruct_497cfc99;
+
+typedef struct {
+    long long majorVersion;
+    long long minorVersion;
+    long long patchVersion;
+} CDStruct_f6aba300;
 
 typedef struct {
     struct {

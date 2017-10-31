@@ -37,7 +37,7 @@
 @property(retain, nonatomic) UIImage *albumArtwork; // @synthesize albumArtwork=_albumArtwork;
 @property(retain, nonatomic) AVExternalDevice *externalDevice; // @synthesize externalDevice=_externalDevice;
 @property(nonatomic) __weak id <MCDPlayableContentQueueManagerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) UIAlertController *alertController; // @synthesize alertController=_alertController;
+@property(nonatomic) __weak UIAlertController *alertController; // @synthesize alertController=_alertController;
 @property(nonatomic, getter=isSeeking) _Bool seeking; // @synthesize seeking=_seeking;
 @property(retain, nonatomic) MPRequestResponseController *requestController; // @synthesize requestController=_requestController;
 @property(nonatomic) _Bool limitedUI; // @synthesize limitedUI=_limitedUI;
@@ -85,6 +85,7 @@
 - (id)_itemAtIndexPath:(id)arg1;
 - (id)_adjustedIndexPathForPlaybackQueue:(id)arg1;
 - (long long)_numberOfItemsInPlaybackQueue;
+- (void)modelResponseDidInvalidate:(id)arg1;
 - (void)_limitedUIChanged:(id)arg1;
 - (id)_setupRequest;
 - (void)_performRequest;

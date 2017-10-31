@@ -21,6 +21,7 @@
 @property(readonly, nonatomic) NSString *contentSizeCategory; // @synthesize contentSizeCategory=_contentSizeCategory;
 @property(readonly, nonatomic) SXColumnLayout *columnLayout; // @synthesize columnLayout=_columnLayout;
 - (void).cxx_destruct;
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithColumnLayout:(id)arg1 contentSizeCategory:(id)arg2;
 

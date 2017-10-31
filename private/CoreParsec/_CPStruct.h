@@ -14,10 +14,12 @@
 
 @interface _CPStruct : PBCodable <_CPFeedbackJSONObject, _CPStruct, NSSecureCoding>
 {
-    NSDictionary *_fields;
+    NSDictionary *_stringKeyFields;
+    NSDictionary *_intKeyFields;
 }
 
-@property(copy, nonatomic) NSDictionary *fields; // @synthesize fields=_fields;
+@property(copy, nonatomic) NSDictionary *intKeyFields; // @synthesize intKeyFields=_intKeyFields;
+@property(copy, nonatomic) NSDictionary *stringKeyFields; // @synthesize stringKeyFields=_stringKeyFields;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;
@@ -27,8 +29,10 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (void)setFields:(id)arg1 forKey:(id)arg2;
-- (_Bool)getFields:(id *)arg1 forKey:(id)arg2;
+- (void)setIntKeyFields:(id)arg1 forKey:(int)arg2;
+- (_Bool)getIntKeyFields:(id *)arg1 forKey:(int)arg2;
+- (void)setStringKeyFields:(id)arg1 forKey:(id)arg2;
+- (_Bool)getStringKeyFields:(id *)arg1 forKey:(id)arg2;
 - (_Bool)requiresQueryId;
 @property(readonly, nonatomic) id feedbackJSON;
 - (id)initWithFacade:(id)arg1;

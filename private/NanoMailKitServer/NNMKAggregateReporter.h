@@ -26,6 +26,8 @@
 + (void)reportMessageRepliedFromApp:(_Bool)arg1;
 + (void)reportNewMessageComposedFromApp:(_Bool)arg1 mailto:(_Bool)arg2;
 + (void)reportComposedMessageSizeInBytes:(unsigned long long)arg1;
++ (void)reportFetchForBatchedResponse:(_Bool)arg1;
++ (void)reportFetchForBatchResponseLatency:(double)arg1;
 + (void)reportFetchOlderMessages;
 + (void)reportMailAttachmentHandoffContinuedByNotification:(_Bool)arg1;
 + (void)reportMailAttachmentHandoffAdvertisedByNotification:(_Bool)arg1;
@@ -37,6 +39,13 @@
 + (void)reportMoreMessagesReceivedConversationSpecific:(_Bool)arg1 fullSyncVersion:(unsigned long long)arg2 dateSynced:(id)arg3;
 + (void)reportMailboxSelectionChanged:(id)arg1 fromWatch:(_Bool)arg2;
 + (void)reportContentDisplayedForMessageWithId:(id)arg1 hasMainAlternative:(_Bool)arg2 hasTextAlternative:(_Bool)arg3;
++ (void)reportMessageUpdateCountFetchedOverCloudMessaging:(unsigned long long)arg1;
++ (void)reportMessageDeletionCountFetchedOverCloudMessaging:(unsigned long long)arg1;
++ (void)reportNewMessageCountFetchedOverCloudMessaging:(unsigned long long)arg1;
++ (void)reportNotificationReceivedOverCloudMessaging;
++ (void)reportAppBackgroundRefreshed;
++ (void)reportAppResumed;
++ (void)reportAppLaunched;
 + (void)reportImageAttachmentReceivedForMessageWithId:(id)arg1 contentId:(id)arg2 sizeInBytes:(unsigned long long)arg3 fullSyncVersion:(unsigned long long)arg4 dateSynced:(id)arg5;
 + (void)reportContentReceivedForMessageWithId:(id)arg1 sizeInBytes:(unsigned long long)arg2 fullSyncVersion:(unsigned long long)arg3 dateSynced:(id)arg4;
 + (void)reportMessageDeletionReceivedForMessageWithId:(id)arg1 fullSyncVersion:(unsigned long long)arg2 dateSynced:(id)arg3;

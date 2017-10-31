@@ -6,12 +6,13 @@
 
 #import "FCOperation.h"
 
-@class FCCachePolicy, NSArray, NSDate, NSDictionary, NSMutableArray, NTCatchUpOperationForYouRequest, NTCatchUpOperationResults;
+@class FCCachePolicy, NSDate, NSDictionary, NSMutableArray, NTCatchUpOperationForYouFetchInfo, NTCatchUpOperationForYouRequest, NTCatchUpOperationResults;
 
 @interface NTCatchUpOperation : FCOperation
 {
     _Bool _forYouEnabled;
     _Bool _trendingByParsecEnabled;
+    id <FCAppConfiguration> _appConfiguration;
     id <FCContentContext> _contentContext;
     id <FCFeedPersonalizing> _feedPersonalizer;
     FCCachePolicy *_cachePolicyForArticleLists;
@@ -22,9 +23,9 @@
     NSDictionary *_resultsByArticleListID;
     NSDictionary *_resultsByArticleIDsRequestID;
     NTCatchUpOperationResults *_forYouResults;
+    NTCatchUpOperationForYouFetchInfo *_forYouFetchInfo;
     NTCatchUpOperationResults *_trendingByParsecResults;
     CDUnknownBlockType _catchUpCompletionHandler;
-    NSArray *_networkEvents;
     NSDate *_fetchDate;
     NSMutableArray *_articleListRequests;
     NSMutableArray *_articleIDsRequests;
@@ -33,9 +34,9 @@
 @property(retain, nonatomic) NSMutableArray *articleIDsRequests; // @synthesize articleIDsRequests=_articleIDsRequests;
 @property(retain, nonatomic) NSMutableArray *articleListRequests; // @synthesize articleListRequests=_articleListRequests;
 @property(copy, nonatomic) NSDate *fetchDate; // @synthesize fetchDate=_fetchDate;
-@property(copy, nonatomic) NSArray *networkEvents; // @synthesize networkEvents=_networkEvents;
 @property(copy, nonatomic) CDUnknownBlockType catchUpCompletionHandler; // @synthesize catchUpCompletionHandler=_catchUpCompletionHandler;
 @property(copy, nonatomic) NTCatchUpOperationResults *trendingByParsecResults; // @synthesize trendingByParsecResults=_trendingByParsecResults;
+@property(copy, nonatomic) NTCatchUpOperationForYouFetchInfo *forYouFetchInfo; // @synthesize forYouFetchInfo=_forYouFetchInfo;
 @property(copy, nonatomic) NTCatchUpOperationResults *forYouResults; // @synthesize forYouResults=_forYouResults;
 @property(copy, nonatomic) NSDictionary *resultsByArticleIDsRequestID; // @synthesize resultsByArticleIDsRequestID=_resultsByArticleIDsRequestID;
 @property(copy, nonatomic) NSDictionary *resultsByArticleListID; // @synthesize resultsByArticleListID=_resultsByArticleListID;
@@ -48,6 +49,7 @@
 @property(retain, nonatomic) FCCachePolicy *cachePolicyForArticleLists; // @synthesize cachePolicyForArticleLists=_cachePolicyForArticleLists;
 @property(retain, nonatomic) id <FCFeedPersonalizing> feedPersonalizer; // @synthesize feedPersonalizer=_feedPersonalizer;
 @property(retain, nonatomic) id <FCContentContext> contentContext; // @synthesize contentContext=_contentContext;
+@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;
 - (void)_fetchTrendingByParsecResultsIfNeededWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_fetchArticleListAndArticleIDsResultsIfNeededWithCompletion:(CDUnknownBlockType)arg1;

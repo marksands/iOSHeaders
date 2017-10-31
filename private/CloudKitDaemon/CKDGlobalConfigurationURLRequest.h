@@ -20,8 +20,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)hasRequestBody;
 - (id)httpMethod;
 - (id)url;
-- (id)sourceApplicationSecondaryIdentifier;
-- (id)sourceApplicationBundleIdentifier;
 - (long long)partitionType;
 - (long long)serverType;
 - (id)additionalHeaderValues;

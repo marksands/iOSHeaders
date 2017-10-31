@@ -11,18 +11,16 @@
 @interface HMDMediaAccessoryAdvertisement : HMDAccessoryAdvertisement
 {
     _Bool _associated;
-    unsigned int _deviceType;
     HMDMediaOutputDevice *_outputDevice;
     NSString *_sessionIdentifier;
 }
 
 @property(nonatomic) _Bool associated; // @synthesize associated=_associated;
 @property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
-@property(readonly, nonatomic) unsigned int deviceType; // @synthesize deviceType=_deviceType;
-@property(readonly, nonatomic) HMDMediaOutputDevice *outputDevice; // @synthesize outputDevice=_outputDevice;
+@property(retain, nonatomic) HMDMediaOutputDevice *outputDevice; // @synthesize outputDevice=_outputDevice;
 - (void).cxx_destruct;
 - (id)description;
-- (id)initWithIdentifier:(id)arg1 sessionIdentifier:(id)arg2 name:(id)arg3 category:(id)arg4 deviceType:(unsigned int)arg5;
+- (id)initWithIdentifier:(id)arg1 sessionIdentifier:(id)arg2 name:(id)arg3 category:(id)arg4;
 - (id)initWithOutputDevice:(id)arg1 sessionIdentifier:(id)arg2;
 
 @end

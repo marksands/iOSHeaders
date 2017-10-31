@@ -18,6 +18,7 @@
 @property(readonly) NSUUID *multipleInstanceUUID;
 @property(readonly) id <PKPlugIn> supersededBy;
 @property long long userElection;
+@property(readonly) NSDictionary *localizedFileProviderActionNames;
 @property(readonly) NSString *localizedContainingName;
 @property(readonly) NSString *localizedShortName;
 @property(readonly) NSString *localizedName;

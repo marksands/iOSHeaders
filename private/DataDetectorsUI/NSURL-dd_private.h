@@ -11,6 +11,6 @@
 - (id)dd_phoneNumberFromTelSchemeAndExtractBody:(id *)arg1;
 - (id)dd_phoneNumberFromTelScheme;
 - (_Bool)dd_isAnySimpleTelephonyScheme;
-- (_Bool)dd_isMaps;
+- (_Bool)dd_isMaps:(_Bool)arg1;
 @end
 

@@ -22,7 +22,6 @@
     _Bool _processedForStations;
     _Bool _hasAssociatedPaymentApplication;
     _Bool _hasNotificationServiceData;
-    _Bool _isFromCloudStore;
     NSString *_identifier;
     NSString *_serviceIdentifier;
     NSString *_paymentHash;
@@ -69,6 +68,7 @@
     long long _transactionType;
     long long _technologyType;
     unsigned long long _transactionSource;
+    unsigned long long _updateReasons;
 }
 
 + (id)cloudStoreTransactionDeviceDataRecordTypeRecordNamePrefix;
@@ -76,7 +76,7 @@
 + (id)paymentTransactionWithSource:(unsigned long long)arg1 dictionary:(id)arg2 hasNotificationServiceData:(_Bool)arg3;
 + (id)paymentTransactionWithSource:(unsigned long long)arg1;
 + (id)paymentTransactionFromSource:(unsigned long long)arg1;
-@property(nonatomic) _Bool isFromCloudStore; // @synthesize isFromCloudStore=_isFromCloudStore;
+@property(readonly, nonatomic) unsigned long long updateReasons; // @synthesize updateReasons=_updateReasons;
 @property(nonatomic) unsigned long long transactionSource; // @synthesize transactionSource=_transactionSource;
 @property(nonatomic) long long technologyType; // @synthesize technologyType=_technologyType;
 @property(nonatomic) long long transactionType; // @synthesize transactionType=_transactionType;
@@ -143,6 +143,7 @@
 - (id)_transactionTypeString;
 - (id)_transactionSourceString;
 - (id)description;
+- (void)addUpdateReasons:(unsigned long long)arg1;
 @property(readonly, nonatomic) _Bool hasBackingData;
 @property(readonly, nonatomic) _Bool hasTransactionSource;
 @property(nonatomic) long long peerPaymentStatus;

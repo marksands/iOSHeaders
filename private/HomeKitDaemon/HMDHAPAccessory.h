@@ -88,6 +88,7 @@
 - (id)getTransportInformationArray;
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)readInitialRequiredCharacteristicsForBTLEAccessory:(CDUnknownBlockType)arg1;
+- (id)getOrCreateServiceUpdateTransactionForKey:(id)arg1 fromDictionary:(id)arg2;
 - (void)requestResource:(id)arg1 queue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)dumpSimpleState;
 - (id)dumpState;
@@ -116,8 +117,6 @@
 - (long long)reachableTransports;
 - (void)setReachability:(_Bool)arg1 serverIdentifier:(id)arg2 linkType:(long long)arg3;
 - (void)_updateReachability;
-- (void)updateReachability;
-- (void)setRemotelyReachable:(_Bool)arg1;
 - (id)findCharacteristicType:(id)arg1 forServiceType:(id)arg2;
 - (id)findCharacteristic:(id)arg1;
 - (id)findCharacteristic:(id)arg1 forService:(id)arg2;
@@ -135,8 +134,8 @@
 - (void)_enableNotification:(_Bool)arg1 forCharacteristics:(id)arg2 message:(id)arg3 clientIdentifier:(id)arg4;
 - (void)enableNotification:(_Bool)arg1 forCharacteristics:(id)arg2 message:(id)arg3 clientIdentifier:(id)arg4;
 - (void)enableNotification:(_Bool)arg1 forCharacteristicIDs:(id)arg2 message:(id)arg3 clientIdentifier:(id)arg4;
-- (void)_enableNotification:(_Bool)arg1 matchingHAPAccessory:(id)arg2 unconditionallyDeregister:(_Bool)arg3 ignoreDeviceUnlockRequirement:(_Bool)arg4 clientIdentifier:(id)arg5 forCharacteristics:(id)arg6;
-- (void)enableNotification:(_Bool)arg1 unconditionallyDeregister:(_Bool)arg2 ignoreDeviceUnlockRequirement:(_Bool)arg3 clientIdentifier:(id)arg4 forCharacteristics:(id)arg5;
+- (void)_enableNotification:(_Bool)arg1 matchingHAPAccessory:(id)arg2 ignoreDeviceUnlockRequirement:(_Bool)arg3 clientIdentifier:(id)arg4 forCharacteristics:(id)arg5;
+- (void)enableNotification:(_Bool)arg1 ignoreDeviceUnlockRequirement:(_Bool)arg2 clientIdentifier:(id)arg3 forCharacteristics:(id)arg4;
 - (void)_disableNotificationsForBundleID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)disableNotificationsForBundleID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_notifyNotificationChangesForCharacteristics:(id)arg1 errors:(id)arg2 enableNotification:(_Bool)arg3 message:(id)arg4;
@@ -171,6 +170,7 @@
 - (void)readCharacteristicValues:(id)arg1 source:(unsigned long long)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_writeCharacteristicValues:(id)arg1 localOperationRequired:(_Bool)arg2 source:(unsigned long long)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5 errorBlock:(CDUnknownBlockType)arg6;
 - (void)writeCharacteristicValues:(id)arg1 source:(unsigned long long)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (_Bool)supportsUserManagement;
 - (void)_performOperation:(long long)arg1 linkType:(long long)arg2 operationBlock:(CDUnknownBlockType)arg3 errorBlock:(CDUnknownBlockType)arg4;
 - (void)performOperation:(long long)arg1 linkType:(long long)arg2 operationBlock:(CDUnknownBlockType)arg3 errorBlock:(CDUnknownBlockType)arg4;
 - (_Bool)matchesHAPAccessoryWithServerIdentifier:(id)arg1 linkType:(long long *)arg2;
@@ -193,6 +193,7 @@
 - (id)preferredHAPAccessoryForOperation:(long long)arg1 linkType:(long long *)arg2;
 - (long long)linkSpeed;
 - (_Bool)hasBTLELink;
+- (_Bool)hasIPLink;
 - (void)_addHAPAccessory:(id)arg1;
 - (void)_removeHAPAccessoryWithServerIdentifier:(id)arg1 linkType:(long long)arg2 completion:(CDUnknownBlockType)arg3 completionQueue:(id)arg4;
 - (void)removeHAPAccessoryWithServerIdentifier:(id)arg1 linkType:(long long)arg2 completion:(CDUnknownBlockType)arg3 completionQueue:(id)arg4;
@@ -220,7 +221,7 @@
 - (void)_handleAddServiceTransaction:(id)arg1 message:(id)arg2;
 - (id)serviceWithUUID:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *services;
-- (void)_handleListPairings:(id)arg1;
+- (void)pairingsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)isSecuritySessionOpen;
 - (void)verifyPairingWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)isPrimary;
@@ -247,7 +248,7 @@
 - (id)updateAccessoryFlagsAndNotifyClients:(id)arg1;
 - (id)namesOfServicesShowingTilesInHomeApp;
 - (_Bool)updateAccessoryInformation:(id)arg1;
-- (_Bool)isReadingRequiredAccessoryInformationCharacteristic:(id)arg1 providedName:(id)arg2 forceReadFWVersion:(_Bool)arg3;
+- (_Bool)isReadingRequiredForBTLEAccessoryCharacteristic:(id)arg1 forceReadFWVersion:(_Bool)arg2;
 - (void)_handleCharacteristicsChangedNotification:(id)arg1;
 - (void)_setSystemTimeNeedsUpdate:(_Bool)arg1;
 - (void)_setTimeInformationServiceExists:(_Bool)arg1;
@@ -267,7 +268,6 @@
 - (id)_currentTimeCharacteristic;
 @property(readonly, nonatomic) __weak HMDCharacteristic *currentTimeCharacteristic; // @synthesize currentTimeCharacteristic=_currentTimeCharacteristic;
 @property(copy, nonatomic) NSData *setupHash; // @synthesize setupHash=_setupHash;
-- (void)_handleGetAccessoryAdvertisingParams:(id)arg1;
 - (void)setBroadcastKey:(id)arg1 keyUpdatedStateNumber:(id)arg2 keyUpdatedTime:(id)arg3;
 - (void)_updateBroadcastKey:(id)arg1 keyUpdatedStateNumber:(id)arg2 keyUpdatedTime:(double)arg3;
 @property(copy, nonatomic) NSNumber *accessoryFlags; // @synthesize accessoryFlags=_accessoryFlags;

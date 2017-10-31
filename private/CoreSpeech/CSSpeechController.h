@@ -9,7 +9,7 @@
 #import "CSAudioConverterDelegate.h"
 #import "CSSpeechManagerDelegate.h"
 
-@class CSAudioConverter, CSAudioFileWriter, CSAudioSampleRateConverter, CSEndpointerProxy, CSSpeechManager, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class CSAudioConverter, CSAudioFileWriter, CSAudioSampleRateConverter, CSAudioZeroCounter, CSEndpointerProxy, CSSpeechManager, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CSSpeechController : NSObject <CSSpeechManagerDelegate, CSAudioConverterDelegate>
 {
@@ -20,6 +20,7 @@
     CSAudioSampleRateConverter *_downsampler;
     NSDictionary *_requestedRecordSettings;
     NSDictionary *_lastVoiceTriggerInfo;
+    CSAudioZeroCounter *_continuousZeroCounter;
     _Bool _isOpus;
     _Bool _isActivated;
     _Bool _isNarrowBand;
@@ -44,6 +45,7 @@
 @property(retain, nonatomic) CSEndpointerProxy *endpointerProxy; // @synthesize endpointerProxy=_endpointerProxy;
 @property(nonatomic) __weak id <CSSpeechControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (float)getSmartSiriVolume;
 - (void)shouldAcceptEagerResultForDuration:(double)arg1 resultsCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)updateEndpointerDelayedTrigger:(_Bool)arg1;
 - (void)updateEndpointerThreshold:(float)arg1;
@@ -51,6 +53,8 @@
 - (double)lastEndOfVoiceActivityTime;
 - (id)_getRecordSettings;
 - (id)_contextToString:(id)arg1;
+- (void)_deviceAudioLogging;
+- (id)_getSpeechIdentifier;
 - (void)processServerEndpointFeatures:(id)arg1;
 - (void)resetEndpointer;
 - (long long)_currentAudioRecorderSampleRate;
@@ -78,6 +82,7 @@
 - (void)speechManagerEndRecordInterruption:(id)arg1;
 - (void)speechManagerBeginRecordInterruption:(id)arg1 withContext:(id)arg2;
 - (void)speechManagerBeginRecordInterruption:(id)arg1;
+- (void)speechManagerDetectedSystemVolumeChange:(id)arg1 withVolume:(float)arg2;
 - (void)speechManagerRecordHardwareConfigurationDidChange:(id)arg1 toConfiguration:(long long)arg2;
 - (id)speechManagerRecordingContext;
 - (void)speechManagerDidStopForwarding:(id)arg1 forReason:(long long)arg2;
@@ -105,6 +110,7 @@
 - (void)preheat;
 - (_Bool)setCurrentContext:(id)arg1 error:(id *)arg2;
 - (_Bool)prepareRecordWithSettings:(id)arg1 error:(id *)arg2;
+- (void)startController;
 - (_Bool)initializeRecordSessionWithContext:(id)arg1;
 - (id)initWithManager:(id)arg1;
 

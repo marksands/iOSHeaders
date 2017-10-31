@@ -18,12 +18,14 @@
     unsigned long long _itemType;
     unsigned long long _designType;
     id <HUCCGridViewControllerDelegate> _delegate;
+    id <HUOpenURLHandling> _URLHandler;
     NSMapTable *_overrideCellLayoutOptionsByItem;
 }
 
 @property(nonatomic) _Bool needsLayoutOptionsUpdate; // @synthesize needsLayoutOptionsUpdate=_needsLayoutOptionsUpdate;
 @property(nonatomic, getter=isViewVisible) _Bool viewVisible; // @synthesize viewVisible=_viewVisible;
 @property(retain, nonatomic) NSMapTable *overrideCellLayoutOptionsByItem; // @synthesize overrideCellLayoutOptionsByItem=_overrideCellLayoutOptionsByItem;
+@property(retain, nonatomic) id <HUOpenURLHandling> URLHandler; // @synthesize URLHandler=_URLHandler;
 @property(nonatomic) __weak id <HUCCGridViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) unsigned long long designType; // @synthesize designType=_designType;
 @property(readonly, nonatomic) unsigned long long itemType; // @synthesize itemType=_itemType;
@@ -32,6 +34,9 @@
 @property(readonly, copy) NSString *description;
 - (void)layoutOptionsEditorDidFinish:(id)arg1;
 - (void)layoutOptionsEditor:(id)arg1 didUpdateLayoutOptions:(id)arg2;
+- (id)detailsViewControllerForPresentationCoordinator:(id)arg1 item:(id)arg2;
+- (id)detailViewURLHandlerForPresentationCoordinator:(id)arg1;
+- (_Bool)hasDetailsActionForPresentationCoordinator:(id)arg1 item:(id)arg2;
 - (void)presentationCoordinator:(id)arg1 pressedStateDidChange:(_Bool)arg2 forItem:(id)arg3;
 - (_Bool)presentationCoordinator:(id)arg1 shouldBeginPresentationWithContext:(id)arg2;
 - (long long)preferredModalPresentationStyleForPresentationCoordinator:(id)arg1;

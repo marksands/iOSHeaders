@@ -24,7 +24,6 @@
 - (id)_getNameForBundleIdentifier:(id)arg1 isCurrentDevice:(_Bool)arg2;
 - (unsigned long long)_sourceOptionsForApplicationEntitlements:(id)arg1;
 - (id)_createSourceEntityForBundleIdentifier:(id)arg1 name:(id)arg2 options:(unsigned long long)arg3 isCurrentDevice:(_Bool)arg4 productType:(id)arg5 error:(id *)arg6;
-- (id)_createSourceEntityForClientWithBundleIdentifier:(id)arg1 name:(id)arg2 entitlements:(id)arg3 error:(id *)arg4;
 - (id)_createSourceEntityForSpartanDeviceWithError:(id *)arg1;
 - (id)_createSourceEntityForLocalDeviceWithError:(id *)arg1;
 - (id)_fetchClientSourceForPersistentID:(id)arg1 error:(id *)arg2;
@@ -32,6 +31,7 @@
 - (void)_deleteSourceIfNoSampleFoundWithBundleIdentifier:(id)arg1;
 - (_Bool)deleteSourceWithBundleIdentifier:(id)arg1 error:(id *)arg2;
 - (_Bool)createSourcesWithCodables:(id)arg1 provenance:(long long)arg2 error:(id *)arg3;
+- (id)_clientSourcesWithPredicate:(id)arg1 error:(id *)arg2;
 - (id)allWatchSourcesWithError:(id *)arg1;
 - (id)allSourcesWithError:(id *)arg1;
 - (id)clientSourceForUUID:(id)arg1 error:(id *)arg2;
@@ -44,14 +44,16 @@
 - (id)_sourceForBundleIdentifier:(id)arg1 createSourceBlock:(CDUnknownBlockType)arg2 modifySourceBlock:(CDUnknownBlockType)arg3 error:(id *)arg4;
 - (id)sourceForCodableSource:(id)arg1 provenance:(long long)arg2 createIfNecessary:(_Bool)arg3 isDeleted:(_Bool *)arg4 error:(id *)arg5;
 - (id)sourceForAppleDeviceWithUUID:(id)arg1 identifier:(id)arg2 name:(id)arg3 productType:(id)arg4 createIfNecessary:(_Bool)arg5 error:(id *)arg6;
-- (id)sourceEntityForSource:(id)arg1 createOrUpdateIfNecessary:(_Bool)arg2 error:(id *)arg3;
+- (id)sourceEntityForClientSource:(id)arg1 createOrUpdateIfNecessary:(_Bool)arg2 error:(id *)arg3;
 - (id)sourceForApplicationIdentifier:(id)arg1 createOrUpdateIfNecessary:(_Bool)arg2 entitlements:(id)arg3 name:(id)arg4 error:(id *)arg5;
 - (id)createOrUpdateSourceForClient:(id)arg1 error:(id *)arg2;
 - (id)sourceForClient:(id)arg1 error:(id *)arg2;
 - (id)healthAppSourceWithError:(id *)arg1;
 - (id)localDeviceSourceWithError:(id *)arg1;
 - (id)_predicateForSourceBundleIdentifier:(id)arg1 localOnly:(_Bool)arg2;
-- (id)localSourceForSourceID:(id)arg1 error:(id *)arg2;
+- (id)localSourceForSourceID:(id)arg1 copyIfNecessary:(_Bool)arg2 error:(id *)arg3;
+- (id)_createCopyOfFirstSourceWithPredicate:(id)arg1 database:(id)arg2 error:(id *)arg3;
+- (id)localSourceForBundleIdentifier:(id)arg1 copyIfNecessary:(_Bool)arg2 error:(id *)arg3;
 - (id)localSourceForBundleIdentifier:(id)arg1 error:(id *)arg2;
 - (id)allSourcesForBundleIdentifier:(id)arg1 error:(id *)arg2;
 - (_Bool)setLocalDeviceSourceUUID:(id)arg1 bundleIdentifier:(id)arg2 error:(id *)arg3;

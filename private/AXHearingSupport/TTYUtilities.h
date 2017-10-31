@@ -22,6 +22,8 @@
 + (id)relayPhoneNumber;
 + (_Bool)relayIsSupported;
 + (_Bool)softwareTTYIsSupported;
++ (_Bool)shouldUseRTT;
++ (_Bool)isRTTSupported;
 + (_Bool)hardwareTTYIsSupported;
 + (void)contactIsTTYContact:(id)arg1 resultBlock:(CDUnknownBlockType)arg2;
 + (_Bool)contactIsTTYContact:(id)arg1;

@@ -13,7 +13,7 @@
 + (_Bool)outputContextExistsWithRemoteOutputDevice;
 + (void)resetOutputDeviceForAllOutputContexts;
 + (id)outputContextImplForID:(NSString *)arg1;
-+ (id)outputContextForControllingOutputDeviceGroupWithID:(NSString *)arg1;
++ (id)outputContextImplForControllingOutputDeviceGroupWithID:(NSString *)arg1 options:(NSDictionary *)arg2;
 + (id)iTunesAudioContext;
 + (id)sharedSystemScreenContext;
 + (id)sharedSystemAudioContext;
@@ -30,11 +30,14 @@
 @property(readonly, nonatomic) NSString *outputContextType;
 @property(readonly, nonatomic) NSString *ID;
 @property __weak AVOutputContext *parentOutputContext;
+- (AVOutputContextCommunicationChannel *)openCommunicationChannelWithOptions:(NSDictionary *)arg1 error:(id *)arg2;
+- (void)muteAllOutputDevicesWithCompletionHandler:(void (^)(NSError *))arg1;
+- (void)pausePlaybackOnAllOutputDevicesWithCompletionHandler:(void (^)(NSError *))arg1;
 - (void)setVolume:(float)arg1;
 - (void)removeOutputDevice:(AVOutputDevice *)arg1;
-- (void)addOutputDevice:(AVOutputDevice *)arg1;
+- (void)addOutputDevice:(AVOutputDevice *)arg1 options:(NSDictionary *)arg2 completionHandler:(void (^)(AVOutputContextDestinationChange *))arg3;
 - (void)setOutputDevices:(NSArray *)arg1;
 - (void)outputContextDidChangeApplicationProcessID:(AVOutputContext *)arg1;
-- (_Bool)setOutputDevice:(AVOutputDevice *)arg1 options:(NSDictionary *)arg2;
+- (void)setOutputDevice:(AVOutputDevice *)arg1 options:(NSDictionary *)arg2 completionHandler:(void (^)(AVOutputContextDestinationChange *))arg3;
 @end
 

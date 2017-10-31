@@ -141,13 +141,13 @@ struct Token {
 struct TokenProns {
     basic_string_805fe43b _field1;
     struct vector<quasar::PronChoice, std::__1::allocator<quasar::PronChoice>> _field2;
+    struct vector<quasar::PronChoice, std::__1::allocator<quasar::PronChoice>> _field3;
 };
 
 struct TranslationModelInfo {
     basic_string_805fe43b version;
     struct set<std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::basic_string<char>>> tasks;
-    basic_string_805fe43b sourceLanguage;
-    basic_string_805fe43b targetLanguage;
+    struct vector<std::__1::pair<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<std::__1::basic_string<char>, std::__1::basic_string<char>>>> languagePairs;
 };
 
 struct URegularExpressionWrapper;
@@ -379,6 +379,8 @@ struct pair<id<_EARLanguageModelDataSource>, float>;
 
 struct pair<std::__1::basic_string<char>, quasar::PTree>;
 
+struct pair<std::__1::basic_string<char>, std::__1::basic_string<char>>;
+
 struct set<int, std::__1::less<int>, std::__1::allocator<int>> {
     struct __tree<int, std::__1::less<int>, std::__1::allocator<int>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
@@ -602,6 +604,14 @@ struct vector<std::__1::pair<std::__1::basic_string<char>, quasar::PTree>, std::
     struct pair<std::__1::basic_string<char>, quasar::PTree> *__end_;
     struct __compressed_pair<std::__1::pair<std::__1::basic_string<char>, quasar::PTree>*, std::__1::allocator<std::__1::pair<std::__1::basic_string<char>, quasar::PTree>>> {
         struct pair<std::__1::basic_string<char>, quasar::PTree> *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::pair<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
+    struct pair<std::__1::basic_string<char>, std::__1::basic_string<char>> *__begin_;
+    struct pair<std::__1::basic_string<char>, std::__1::basic_string<char>> *__end_;
+    struct __compressed_pair<std::__1::pair<std::__1::basic_string<char>, std::__1::basic_string<char>>*, std::__1::allocator<std::__1::pair<std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
+        struct pair<std::__1::basic_string<char>, std::__1::basic_string<char>> *__first_;
     } __end_cap_;
 };
 

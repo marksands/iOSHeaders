@@ -11,6 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface VKVenueBuildingFeatureMarker : VKFeatureMarker
 {
+    _Bool _localize;
 }
 
 - (CDStruct_c3b9c2ee)nearestFramingPositionToLocation:(CDStruct_c3b9c2ee)arg1;
@@ -20,7 +21,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long businessId;
 @property(readonly, nonatomic) unsigned long long buildingId;
 - (const shared_ptr_ec62a932 *)venueBuildingFeatureMarker;
-- (id)initWithVenueBuilding:(const struct VenueBuilding *)arg1;
+- (id)initWithVenueBuilding:(const struct VenueBuilding *)arg1 localize:(_Bool)arg2;
 
 @end
 

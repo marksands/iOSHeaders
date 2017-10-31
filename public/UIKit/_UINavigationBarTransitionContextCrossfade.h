@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (void)_animateLargeTitleView;
 - (void)_animateContentView;
 - (void)_animateCanvasViews;
+- (void)_animateAsTwoPartsIfNecessaryPartOne:(CDUnknownBlockType)arg1 partTwo:(CDUnknownBlockType)arg2;
 - (double)contentViewMaxY;
 - (void)prepare;
 - (void)_prepareLargeTitleView;

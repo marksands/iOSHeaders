@@ -9,6 +9,7 @@
 @class CNChangeHistoryAnchor, CNChangeHistoryFetchRequest, CNContact, CNContactFetchRequest, CNContainer, CNSaveRequest, NSArray, NSData, NSDictionary, NSPredicate, NSString;
 
 @protocol CNXPCDataMapperService <NSObject>
+- (void)verifyIndexWithReply:(void (^)(NSString *, NSError *))arg1;
 - (void)reindexSearchableItemsWithIdentifiers:(NSArray *)arg1 withReply:(void (^)(void))arg2;
 - (void)writeFavoritesPropertyListData:(NSData *)arg1 toPath:(NSString *)arg2 withReply:(void (^)(_Bool, NSError *))arg3;
 - (void)favoritesEntryDictionariesAtPath:(NSString *)arg1 withReply:(void (^)(NSArray *, NSError *))arg2;

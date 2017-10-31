@@ -17,7 +17,7 @@
 - (void).cxx_destruct;
 - (id)description;
 -     // Error parsing type: @80@0:8{?=[4]}16, name: pointCloudByApplyingTransform:
-- (id)_hitTestFromOrigin:withDirection: /* Error: Ran out of types for this method. */;
+- (id)_hitTestPointFromOrigin:(float)arg1 withDirection:maximumAngle: /* Error: Ran out of types for this method. */;
 @property(readonly, nonatomic) const unsigned long long *identifiers;
 // Error parsing type for property points:
 // Property attributes: Tr^,R,N

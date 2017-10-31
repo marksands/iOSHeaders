@@ -58,10 +58,10 @@ __attribute__((visibility("hidden")))
 - (void)applyMediaStreamClientDictionary:(id)arg1;
 - (void)setupMediaStreamConfig;
 @property(readonly, nonatomic) long long primaryTxCodecType;
-- (void)addTxCodecType:(long long)arg1 networkPayload:(unsigned int)arg2;
-- (void)addTxCodecType:(long long)arg1;
-- (void)addRxCodecType:(long long)arg1 networkPayload:(unsigned int)arg2;
-- (void)addRxCodecType:(long long)arg1;
+- (void)addTxPayloadType:(int)arg1 networkPayload:(unsigned int)arg2;
+- (void)addTxPayloadType:(int)arg1;
+- (void)addRxPayloadType:(int)arg1 networkPayload:(unsigned int)arg2;
+- (void)addRxPayloadType:(int)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithClientDictionary:(id)arg1;

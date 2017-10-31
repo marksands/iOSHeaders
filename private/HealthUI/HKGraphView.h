@@ -131,10 +131,10 @@
 - (void)_selectionRecognizerDidFinish:(id)arg1;
 - (void)finishSelection;
 - (void)_deselectAllSeriesWithAlpha:(double)arg1 offScreenIndicatorAlpha:(double)arg2 seriesGroup:(id)arg3;
-- (id)_pointSelectionContextWithTouchPoints:(id)arg1 seriesGroupRow:(long long)arg2 updateViewStates:(_Bool)arg3;
+- (id)_pointSelectionContextWithTouchPoints:(id)arg1 updateViewStates:(_Bool)arg2;
 - (void)_selectionRecognizerDidMoveWithTouchPoints:(id)arg1;
 - (void)_selectionRecognizerDidMove:(id)arg1;
-- (CDStruct_767cbfa4)_closestDataPointPathToPoint:(struct CGPoint)arg1 seriesGroupRow:(long long)arg2 minimumXDistance:(double)arg3;
+- (CDStruct_767cbfa4)_closestDataPointPathToPoint:(struct CGPoint)arg1 seriesGroupRow:(long long)arg2 minimumXDistance:(double)arg3 xDistanceOut:(double *)arg4;
 - (void)_updateSelectionContextStateWithTouchPoint:(struct CGPoint)arg1 seriesGroup:(id)arg2;
 - (id)_valueForXAxisLocation:(double)arg1;
 - (struct CGAffineTransform)_xAxisCoordinateTransform;

@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class NSArray, NSString, UIImage, UIImageView, UILabel, UILongPressGestureRecognizer, UITapGestureRecognizer;
+@class NSArray, NSString, UIFont, UIImage, UIImageView, UILabel, UILongPressGestureRecognizer, UITapGestureRecognizer;
 
 @interface CNActionView : UIView <UIGestureRecognizerDelegate>
 {
@@ -27,12 +27,16 @@
     UILongPressGestureRecognizer *_longPressGestureRecognizer;
     UILongPressGestureRecognizer *_highlightGestureRecognizer;
     id <CNActionViewTemplateImage> _templateImage;
+    UIFont *_titleFont;
 }
 
 + (void)fadeInView:(id)arg1;
++ (id)defaultTitleFontOfSize:(double)arg1;
++ (id)defaultTitleFont;
 + (id)contentColorForDisabledVibrantDarkState;
 + (id)contentColorForDisabledBoldState;
 + (id)borderColorForDisabledBoldState;
+@property(retain, nonatomic) UIFont *titleFont; // @synthesize titleFont=_titleFont;
 @property(retain, nonatomic) id <CNActionViewTemplateImage> templateImage; // @synthesize templateImage=_templateImage;
 @property(retain, nonatomic) UILongPressGestureRecognizer *highlightGestureRecognizer; // @synthesize highlightGestureRecognizer=_highlightGestureRecognizer;
 @property(retain, nonatomic) UILongPressGestureRecognizer *longPressGestureRecognizer; // @synthesize longPressGestureRecognizer=_longPressGestureRecognizer;

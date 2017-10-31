@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSNumber;
+@class HFNumberRange, NSNumber;
 
 @interface HFRangeControlItemValue : NSObject
 {
@@ -26,6 +26,7 @@
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+@property(readonly, nonatomic) HFNumberRange *numberRange;
 
 @end
 

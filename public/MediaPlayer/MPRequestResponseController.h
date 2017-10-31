@@ -11,6 +11,7 @@
 @interface MPRequestResponseController : NSObject
 {
     long long _numberOfObservers;
+    long long _requestRevision;
     _Bool _shouldAutomaticallyLoad;
     _Bool _needsReload;
     id <MPRequestCancellationToken> _cancelToken;
@@ -31,6 +32,7 @@
 - (void)_onQueue_scheduleRetryAfterInterval:(double)arg1;
 - (void)_responseDidInvalidate:(id)arg1;
 - (void)reloadIfNeeded;
+- (void)setNeedsReloadForSignificantRequestChange;
 - (void)setNeedsReload;
 - (void)endAutomaticResponseLoading;
 - (void)beginAutomaticResponseLoading;

@@ -21,6 +21,8 @@
 - (void)_ensureResponseInfoSentToCustomURLHandler;
 - (void)_sendResponseInfoToCustomURLHandler;
 - (void)respondByRequestingPersistableContentKeyRequest;
+- (_Bool)respondByRequestingPersistableContentKeyRequestAndReturnError:(id *)arg1;
+- (_Bool)_canRespondByRequestingPersistableContentKeyRequest;
 - (void)renewExpiringContentKeyResponseData;
 - (void)processContentKeyResponseError:(id)arg1;
 - (void)processContentKeyResponse:(id)arg1;

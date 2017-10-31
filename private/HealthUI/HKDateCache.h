@@ -36,6 +36,8 @@
 - (void)_flushCacheAndNotifyObservers:(id)arg1;
 - (void)flushCache;
 - (_Bool)isDayOfWeekNumberOnWeekend:(id)arg1;
+- (_Bool)isDateWithinLastRollingYear:(id)arg1;
+- (_Bool)isDateWithinLastRollingMonth:(id)arg1;
 - (_Bool)isDateInThisCalendarYear:(id)arg1;
 - (_Bool)isDateInThisCalendarMonth:(id)arg1;
 - (_Bool)isDateInTomorrow:(id)arg1;

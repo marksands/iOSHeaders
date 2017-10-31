@@ -20,6 +20,7 @@
         unsigned int _respondsToCanBecomeFocused:1;
     } _delegateFlags;
     struct UIEdgeInsets _gradientBoundsInsets;
+    CDStruct_ce7ae26c _flags;
     NSIndexPath *_indexPathForLastFocusedItem;
 }
 
@@ -29,6 +30,8 @@
 - (struct UIEdgeInsets)_gradientBoundsInsets;
 - (void)_setGradientBoundsInsets:(struct UIEdgeInsets)arg1;
 - (struct CGRect)_visibleBounds;
+- (void)_performWithoutLayoutBelow:(CDUnknownBlockType)arg1;
+- (void)layoutBelowIfNeeded;
 - (void)setContentInset:(struct UIEdgeInsets)arg1;
 - (void)setBottomPaddingForVisibleBounds:(double)arg1;
 - (void)_performBlockWithLongPressedCellIndexPath:(CDUnknownBlockType)arg1;

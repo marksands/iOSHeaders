@@ -8,7 +8,7 @@
 
 #import "FMFXPCInternalClientProtocol.h"
 
-@class NSMutableDictionary, NSMutableSet, NSOperationQueue, NSSet, NSString, NSXPCConnection;
+@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSOperationQueue, NSSet, NSString, NSXPCConnection;
 
 @interface FMFSession : NSObject <FMFXPCInternalClientProtocol>
 {
@@ -22,6 +22,7 @@
     NSMutableDictionary *_cachedLocationForHandleByHandle;
     NSMutableDictionary *_cachedOfferExpirationForHandleByHandle;
     NSMutableDictionary *_cachedCanShareLocationWithHandleByHandle;
+    NSObject<OS_dispatch_queue> *_connectionQueue;
 }
 
 + (_Bool)isProvisionedForLocationSharing;
@@ -29,6 +30,7 @@
 + (_Bool)FMFAllowed;
 + (id)sharedInstance;
 @property(nonatomic) _Bool isModelInitialized; // @synthesize isModelInitialized=_isModelInitialized;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *connectionQueue; // @synthesize connectionQueue=_connectionQueue;
 @property(retain, nonatomic) NSMutableDictionary *cachedCanShareLocationWithHandleByHandle; // @synthesize cachedCanShareLocationWithHandleByHandle=_cachedCanShareLocationWithHandleByHandle;
 @property(retain, nonatomic) NSMutableDictionary *cachedOfferExpirationForHandleByHandle; // @synthesize cachedOfferExpirationForHandleByHandle=_cachedOfferExpirationForHandleByHandle;
 @property(retain, nonatomic) NSMutableDictionary *cachedLocationForHandleByHandle; // @synthesize cachedLocationForHandleByHandle=_cachedLocationForHandleByHandle;
@@ -66,12 +68,12 @@
 - (oneway void)didAddFollowerHandle:(id)arg1;
 - (oneway void)failedToGetLocationForHandle:(id)arg1 error:(id)arg2;
 - (oneway void)setLocations:(id)arg1;
-- (void)sessionWasCreatedRefresh;
 - (void)forceRefresh;
 - (_Bool)hasModelInitialized;
 - (void)invalidate;
 - (void)dispatchOnDelegateQueue:(CDUnknownBlockType)arg1;
 - (id)serverProxy;
+- (id)__connection;
 - (void)invalidateWithError:(id)arg1;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
@@ -79,6 +81,7 @@
 - (id)initWithDelegate:(id)arg1 delegateQueue:(id)arg2;
 - (id)init;
 - (void)_registerForFMFDLaunchedNotification;
+- (void)_daemonDidLaunch;
 - (id)internalConnection;
 - (void)getDataForPerformanceRequest:(CDUnknownBlockType)arg1;
 - (void)sessionHandleReport:(CDUnknownBlockType)arg1;

@@ -7,6 +7,7 @@
 #import "NSError.h"
 
 @interface NSError (XCUITestingErrors)
++ (id)_xcui_errorWithDomain:(id)arg1 code:(long long)arg2 description:(id)arg3;
 + (id)_xcui_error:(long long)arg1 description:(id)arg2 userInfo:(id)arg3;
 + (id)_xcui_error:(long long)arg1 description:(id)arg2;
 - (_Bool)xcui_isUITestingError:(long long)arg1;

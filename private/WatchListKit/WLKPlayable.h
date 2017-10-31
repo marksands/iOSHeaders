@@ -21,6 +21,7 @@
     WLKChannelDetails *_channelDetails;
     NSString *_contentID;
     long long _contentSourceType;
+    long long _airingType;
     WLKBasicContentMetadata *_content;
     NSArray *_adLocales;
     NSArray *_audioTrackLocales;
@@ -33,8 +34,8 @@
     NSString *_externalServiceID;
     NSArray *_subtitledLocales;
     NSString *_videoQuality;
-    NSDate *_endTime;
-    NSDate *_startTime;
+    NSDate *_endAirTime;
+    NSDate *_startAirTime;
     WLKPlayEvent *_playEvent;
     NSDictionary *_itsData;
     SSLookupItem *_lookupItem;
@@ -48,8 +49,8 @@
 @property(readonly, copy, nonatomic) SSLookupItem *lookupItem; // @synthesize lookupItem=_lookupItem;
 @property(readonly, copy, nonatomic) NSDictionary *itsData; // @synthesize itsData=_itsData;
 @property(readonly, nonatomic) WLKPlayEvent *playEvent; // @synthesize playEvent=_playEvent;
-@property(readonly, copy, nonatomic) NSDate *startTime; // @synthesize startTime=_startTime;
-@property(readonly, copy, nonatomic) NSDate *endTime; // @synthesize endTime=_endTime;
+@property(readonly, copy, nonatomic) NSDate *startAirTime; // @synthesize startAirTime=_startAirTime;
+@property(readonly, copy, nonatomic) NSDate *endAirTime; // @synthesize endAirTime=_endAirTime;
 @property(readonly, copy, nonatomic) NSString *videoQuality; // @synthesize videoQuality=_videoQuality;
 @property(readonly, copy, nonatomic) NSArray *subtitledLocales; // @synthesize subtitledLocales=_subtitledLocales;
 @property(readonly, nonatomic, getter=isSubtitled) _Bool subtitled; // @synthesize subtitled=_subtitled;
@@ -63,6 +64,7 @@
 @property(readonly, copy, nonatomic) NSArray *audioTrackLocales; // @synthesize audioTrackLocales=_audioTrackLocales;
 @property(readonly, copy, nonatomic) NSArray *adLocales; // @synthesize adLocales=_adLocales;
 @property(readonly, nonatomic) WLKBasicContentMetadata *content; // @synthesize content=_content;
+@property(readonly, nonatomic) long long airingType; // @synthesize airingType=_airingType;
 @property(readonly, nonatomic, getter=isiTunes) _Bool itunes; // @synthesize itunes=_itunes;
 @property(readonly, nonatomic, getter=isAppInstalled) _Bool appInstalled; // @synthesize appInstalled=_appInstalled;
 @property(readonly, nonatomic, getter=isEntitled) _Bool entitled; // @synthesize entitled=_entitled;

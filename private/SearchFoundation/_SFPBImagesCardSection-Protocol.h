@@ -10,6 +10,8 @@
 
 @protocol _SFPBImagesCardSection <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasBorderless;
+@property(nonatomic) _Bool borderless;
 @property(copy, nonatomic) NSArray *images;
 @property(readonly, nonatomic) _Bool hasBackgroundColor;
 @property(retain, nonatomic) _SFPBColor *backgroundColor;

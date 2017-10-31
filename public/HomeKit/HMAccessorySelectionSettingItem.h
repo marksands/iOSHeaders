@@ -27,7 +27,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, copy) NSString *localizedTitle;
-- (id)keyPath;
+@property(readonly, copy) NSString *keyPath;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

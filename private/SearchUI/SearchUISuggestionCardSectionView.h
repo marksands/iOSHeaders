@@ -21,7 +21,7 @@
 @property(retain) TLKEmojiableVibrantLabel *suggestionLabel; // @synthesize suggestionLabel=_suggestionLabel;
 @property(retain) SearchUIImageView *iconView; // @synthesize iconView=_iconView;
 - (void).cxx_destruct;
-- (void)updateWithCardSection:(id)arg1;
+- (void)updateWithRowModel:(id)arg1;
 - (id)setupContentView;
 
 // Remaining properties

@@ -15,7 +15,6 @@
 + (id)typeString;
 @property(readonly, nonatomic) NSAttributedString *captionWithLocalizedRoleForSpeaking;
 @property(readonly, nonatomic) _Bool shouldBeExposedToAssistiveTechnology;
-- (Class)componentViewClass;
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *caption; // @dynamic caption;

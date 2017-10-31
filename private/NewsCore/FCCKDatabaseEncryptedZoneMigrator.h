@@ -8,19 +8,19 @@
 
 #import "FCCKDatabaseMigrator.h"
 
-@class FCCKDatabaseEncryptionMiddleware, FCCKPrivateDatabaseSchema, NSSet, NSString;
+@class FCCKPrivateDatabaseSchema, NSSet, NSString;
 
 @interface FCCKDatabaseEncryptedZoneMigrator : NSObject <FCCKDatabaseMigrator>
 {
     FCCKPrivateDatabaseSchema *_sourceSchema;
-    FCCKDatabaseEncryptionMiddleware *_recordEncryptionMiddleware;
+    id <FCCKDatabaseRecordMiddleware> _recordEncryptionMiddleware;
     CDUnknownBlockType _deprecatedBlock;
     NSSet *_sourceZoneNames;
 }
 
 @property(retain, nonatomic) NSSet *sourceZoneNames; // @synthesize sourceZoneNames=_sourceZoneNames;
 @property(copy, nonatomic) CDUnknownBlockType deprecatedBlock; // @synthesize deprecatedBlock=_deprecatedBlock;
-@property(retain, nonatomic) FCCKDatabaseEncryptionMiddleware *recordEncryptionMiddleware; // @synthesize recordEncryptionMiddleware=_recordEncryptionMiddleware;
+@property(retain, nonatomic) id <FCCKDatabaseRecordMiddleware> recordEncryptionMiddleware; // @synthesize recordEncryptionMiddleware=_recordEncryptionMiddleware;
 @property(retain, nonatomic) FCCKPrivateDatabaseSchema *sourceSchema; // @synthesize sourceSchema=_sourceSchema;
 - (void).cxx_destruct;
 - (_Bool)_isEnabledForDatabase:(id)arg1;

@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSCopying.h"
+#import "NFCopying.h"
 #import "NSObject.h"
 
-@class FCAssetHandle, FCPurchaseOfferableConfiguration, NSArray, NSDate, NSString, NSURL, NTPBPublisherPaidDescriptionStrings;
+@class FCAssetHandle, FCPurchaseOfferableConfiguration, NSArray, NSData, NSDate, NSString, NSURL, NTPBPublisherPaidDescriptionStrings;
 
-@protocol FCTagProviding <NSObject, NSCopying>
+@protocol FCTagProviding <NSObject, NFCopying>
+@property(readonly, nonatomic) _Bool isRealTimeTrackingEnabed;
 @property(readonly, nonatomic) _Bool isHidden;
 @property(readonly, nonatomic) unsigned long long groupingEligibility;
 @property(readonly, nonatomic) NTPBPublisherPaidDescriptionStrings *publisherPaidDescriptionStrings;
@@ -24,8 +25,6 @@
 @property(readonly, copy, nonatomic) NSString *publisherPaidWebAccessURL;
 @property(readonly, copy, nonatomic) NSString *publisherPaidVerificationURL;
 @property(readonly, copy, nonatomic) NSString *publisherPaidAuthorizationURL;
-@property(readonly, nonatomic) double forYouCutoffTime;
-@property(readonly, nonatomic) unsigned long long forYouMaximumArticleCount;
 @property(readonly, nonatomic) _Bool isNotificationEnabled;
 @property(readonly, nonatomic) long long minimumNewsVersion;
 @property(readonly, nonatomic) long long score;
@@ -68,5 +67,8 @@
 - (_Bool)isPurchaseSetup;
 - (_Bool)isEqualToTag:(id <FCTagProviding>)arg1;
 - (_Bool)isNoLongerAvailable;
+
+@optional
+@property(readonly, nonatomic) NSData *backingTagRecordData;
 @end
 

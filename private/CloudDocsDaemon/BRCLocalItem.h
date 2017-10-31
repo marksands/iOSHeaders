@@ -104,7 +104,7 @@
 - (void)handleUnknownItemError;
 - (void)markItemForgottenByServer;
 - (void)resetAfterSyncJobsDeletion;
-- (void)markLatestRequestAcknowledgedInZone:(id)arg1;
+- (_Bool)markLatestRequestAcknowledgedInZone:(id)arg1;
 - (void)markLatestSyncRequestRejectedInZone:(id)arg1;
 - (void)markLatestSyncRequestFailedInZone:(id)arg1;
 - (void)prepareForSyncUpInZone:(id)arg1;
@@ -129,6 +129,7 @@
 - (_Bool)_isIndexable;
 - (_Bool)saveToDBForServerEdit:(_Bool)arg1 keepAliases:(_Bool)arg2;
 - (_Bool)saveToDB;
+- (void)_cheapCheckSavingItem;
 @property(readonly, nonatomic) unsigned int uploadStatus;
 @property(readonly, nonatomic) _Bool fromReadOnlyDB;
 @property(readonly, nonatomic) NSError *syncUpError;

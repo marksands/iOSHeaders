@@ -18,7 +18,7 @@
     NSObject<OS_dispatch_queue> *_restrictionLoadQueue;
     _Bool _hasSuccessfullyLoadedURLBag;
     _Bool _isRadioAvailable;
-    _Bool _isRadioAvailableFromBag;
+    NSNumber *_isRadioAvailableFromBag;
     _Bool _isRadioRestricted;
     NSNumber *_lastActiveAccountUniqueIdentifier;
 }

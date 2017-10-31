@@ -33,6 +33,7 @@
 @property(readonly) ISDialog *dialog; // @synthesize dialog=_dialog;
 @property(retain) SSBiometricAuthenticationContext *biometricAuthenticationContext; // @synthesize biometricAuthenticationContext=_context;
 - (void).cxx_destruct;
+- (_Bool)_shouldFallbackToAuthKitForError:(id)arg1;
 - (_Bool)_runSignatureOperationReturningError:(id *)arg1;
 - (_Bool)_runAuthkitOperationWithError:(id)arg1 returningError:(id *)arg2;
 - (void)_performMetricsWithBiometricMatch:(unsigned long long)arg1 didBiometricsFail:(_Bool)arg2;

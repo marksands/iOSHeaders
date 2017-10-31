@@ -18,7 +18,7 @@
     FCPurchaseController *_purchaseController;
 }
 
-+ (id)transformationWithContext:(id)arg1;
++ (id)transformationWithAppConfiguration:(id)arg1 context:(id)arg2;
 @property(retain, nonatomic) FCPurchaseController *purchaseController; // @synthesize purchaseController=_purchaseController;
 @property(nonatomic) unsigned long long maxiumInaccessibleHeadlineCount; // @synthesize maxiumInaccessibleHeadlineCount=_maxiumInaccessibleHeadlineCount;
 @property(nonatomic) double paidHeadlineRatio; // @synthesize paidHeadlineRatio=_paidHeadlineRatio;

@@ -13,14 +13,20 @@
 @interface GEOPDAutocompleteResult : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    unsigned int _retainSearchTime;
     NSMutableArray *_sections;
     _Bool _enableRap;
+    _Bool _shouldDisplayNoResults;
     struct {
+        unsigned int retainSearchTime:1;
         unsigned int enableRap:1;
+        unsigned int shouldDisplayNoResults:1;
     } _has;
 }
 
 + (Class)sectionsType;
+@property(nonatomic) unsigned int retainSearchTime; // @synthesize retainSearchTime=_retainSearchTime;
+@property(nonatomic) _Bool shouldDisplayNoResults; // @synthesize shouldDisplayNoResults=_shouldDisplayNoResults;
 @property(nonatomic) _Bool enableRap; // @synthesize enableRap=_enableRap;
 @property(retain, nonatomic) NSMutableArray *sections; // @synthesize sections=_sections;
 - (void).cxx_destruct;
@@ -34,6 +40,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasRetainSearchTime;
+@property(nonatomic) _Bool hasShouldDisplayNoResults;
 @property(nonatomic) _Bool hasEnableRap;
 - (id)sectionsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)sectionsCount;

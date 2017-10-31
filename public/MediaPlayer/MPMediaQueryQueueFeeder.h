@@ -47,7 +47,6 @@
 - (unsigned long long)_indexForPersistentID:(unsigned long long)arg1;
 - (void)_handleMediaLibraryDidChange;
 - (id)_currentEmptyQueueError;
-- (void)_configureStoreAVItem:(id)arg1;
 - (void)_libraryDidChangeNotification:(id)arg1;
 - (void)_allowsHighQualityMusicStreamingOnCellularDidChangeNotification:(id)arg1;
 - (unsigned long long)unshuffledIndexOfAVItem:(id)arg1;

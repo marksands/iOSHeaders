@@ -14,6 +14,7 @@
 + (id)hk_gregorianCalendar;
 - (id)hk_dateWithDurationSinceReferenceDate:(double)arg1 calendarUnit:(unsigned long long)arg2;
 - (double)hk_durationSinceReferenceDateForDate:(id)arg1 calendarUnit:(unsigned long long)arg2;
+- (_Bool)hk_isDate:(id)arg1 withinNumberOfCalendarDays:(unsigned long long)arg2 ofDate:(id)arg3;
 - (id)hk_startOfUnitForDate:(id)arg1 calendarUnit:(unsigned long long)arg2;
 - (double)_hk_cachedLengthOfUnitForUnitStartDate:(id)arg1 calendarUnit:(unsigned long long)arg2;
 - (long long)_hk_cachedValueSinceTimeZoneDependentReferenceDateForUnitStartDate:(id)arg1 calendarUnit:(unsigned long long)arg2;
@@ -32,6 +33,7 @@
 - (id)hk_weekendDays;
 - (id)hk_firstDateWithHour:(long long)arg1 minute:(long long)arg2 afterDate:(id)arg3;
 - (id)hk_dateBySubtractingDays:(unsigned long long)arg1 fromDate:(id)arg2;
+- (id)hk_dateByAddingDays:(unsigned long long)arg1 toDate:(id)arg2;
 - (id)hk_nearestStartOfMonthForDate:(id)arg1;
 - (id)hk_nearestStartOfWeekWithFirstWeekDay:(long long)arg1 date:(id)arg2;
 - (id)hk_nearestStartOfDayForDate:(id)arg1;

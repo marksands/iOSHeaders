@@ -35,6 +35,9 @@
 - (id)_controlItemForControlView:(id)arg1;
 - (id)_controlPanelItemForControlView:(id)arg1;
 - (void)_updateStateForControlView:(id)arg1 controlPanelItem:(id)arg2;
+- (id)sectionFooterForItem:(id)arg1 forSourceItem:(id)arg2;
+- (id)sectionTitleForItem:(id)arg1 forSourceItem:(id)arg2;
+- (_Bool)shouldShowSectionFooterForItem:(id)arg1;
 - (_Bool)shouldShowSectionTitleForItem:(id)arg1;
 - (void)updateCell:(id)arg1 forItem:(id)arg2 animated:(_Bool)arg3;
 - (void)setupCell:(id)arg1 forItem:(id)arg2;

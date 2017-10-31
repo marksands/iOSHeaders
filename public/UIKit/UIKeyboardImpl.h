@@ -559,7 +559,7 @@
 - (void)_touchIDDismissed;
 - (void)_touchIDPresented;
 - (void)replaceAllTextInResponder:(id)arg1 withText:(id)arg2;
-- (void)updateKeyboardOutput:(id)arg1 withInputForSmartPunctuation:(id)arg2;
+- (void)updateKeyboardOutput:(id)arg1 withInputForSmartPunctuation:(id)arg2 keyboardConfiguration:(id)arg3;
 - (void)handleKeyboardInput:(id)arg1 executionContext:(id)arg2;
 - (void)setLabel:(id)arg1 forKey:(id)arg2;
 - (void)syncKeyboardToConfiguration:(id)arg1;
@@ -751,6 +751,7 @@
 - (void)clearAutofillGroup;
 - (_Bool)needAutofillCandidate:(id)arg1;
 - (_Bool)delegateAlreadyInAutofillGroup;
+- (id)_autofillContextForInputDelegate:(id)arg1;
 - (long long)doTraits:(id)arg1 matchTextContentType:(id)arg2;
 - (void)setPendingAutofillIndex:(long long)arg1;
 - (void)refreshAutofillStateIfNecessary;
@@ -798,10 +799,12 @@
 - (void)_setInputManager:(id)arg1;
 - (void)createTypoTrackerReport;
 - (void)composeTypologyRadar;
+- (double)lastTouchDownTimestamp;
 - (_Bool)_activeCandidateViewNeedsBackdrop;
 - (void)lookUpResponderChainForCustomInputView;
 - (void)moveCursorRightShifted:(_Bool)arg1;
 - (void)moveCursorLeftShifted:(_Bool)arg1;
+- (id)_autofillContext;
 - (id)internationalKeyDisplayStringOnEmojiKeyboard;
 - (_Bool)globeKeyDisplaysAsEmojiKey;
 - (void)acceptAutocorrectionAndEndComposition;

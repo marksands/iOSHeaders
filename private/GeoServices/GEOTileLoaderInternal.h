@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     struct unique_ptr<geo::DispatchTimer, std::__1::default_delete<geo::DispatchTimer>> _timer;
     NSObject<OS_dispatch_queue> *_loadQ;
     NSMutableSet *_openers;
+    NSObject<OS_dispatch_queue> *_openersIsolation;
     CDStruct_34734122 _sortPoint;
     GEOTileServerProxy *_proxy;
     // Error parsing type: Ai, name: _memoryHits
@@ -30,6 +31,7 @@ __attribute__((visibility("hidden")))
     struct list<_CacheRequester<void (^)(unsigned long long)>, std::__1::allocator<_CacheRequester<void (^)(unsigned long long)>>> _shrinkCacheRequesters;
     struct list<_CacheRequester<void (^)(unsigned long long)>, std::__1::allocator<_CacheRequester<void (^)(unsigned long long)>>> _freeableSizeRequesters;
     NSMutableArray *_tileDecoders;
+    NSObject<OS_dispatch_queue> *_tileDecodersIsolation;
     _Bool _networkActive;
     id <GEOTileLoaderInternalDelegate> _internalDelegate;
     NSObject<OS_dispatch_queue> *_internalDelegateQ;
@@ -60,6 +62,7 @@ __attribute__((visibility("hidden")))
 - (void)_loadedTile:(id)arg1 forKey:(const struct _GEOTileKey *)arg2 fromOfflinePack:(id)arg3;
 - (void)_loadedTileForLocalKey:(struct _GEOTileKey)arg1 preliminary:(_Bool)arg2 quickly:(_Bool)arg3 tileDecoder:(id)arg4 data:(id)arg5 disburseTile:(CDUnknownBlockType)arg6;
 - (void)_loadedTile:(id)arg1 forKey:(const struct _GEOTileKey *)arg2 info:(id)arg3;
+- (id)_tileDecoderForTileKey:(const struct _GEOTileKey *)arg1 quickly:(_Bool *)arg2;
 - (void)reportCorruptTile:(const struct _GEOTileKey *)arg1;
 - (void)expireTilesWithPredicate:(CDUnknownBlockType)arg1;
 - (void)registerTileLoader:(Class)arg1;

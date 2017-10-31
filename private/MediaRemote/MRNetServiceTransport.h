@@ -12,14 +12,17 @@ __attribute__((visibility("hidden")))
 @interface MRNetServiceTransport : MRExternalDeviceTransport
 {
     void *_deviceInfo;
+    _Bool _requiresCustomPairing;
     NSNetService *_netService;
 }
 
 + (void *)createDeviceInfoFromTXTRecord:(id)arg1;
 + (void *)createDeviceInfoFromNetService:(id)arg1;
 @property(retain, nonatomic) NSNetService *netService; // @synthesize netService=_netService;
-- (_Bool)requiresCustomPairing;
+@property(nonatomic) _Bool requiresCustomPairing;
 - (_Bool)getInputStream:(id *)arg1 outputStream:(id *)arg2;
+- (void)setShouldUseSystemAuthenticationPrompt:(_Bool)arg1;
+- (_Bool)shouldUseSystemAuthenticationPrompt;
 - (long long)port;
 - (id)hostname;
 - (id)name;

@@ -11,7 +11,7 @@
 #import "PBBridgeCompanionProtocol.h"
 #import "RUILoaderDelegate.h"
 
-@class NSMutableData, NSMutableDictionary, NSMutableURLRequest, NSString, NSTimer, NSURLConnection, RUILoader, RUIStyle;
+@class NSDictionary, NSMutableData, NSMutableDictionary, NSMutableURLRequest, NSString, NSTimer, NSURLConnection, RUILoader, RUIStyle;
 
 @interface PBBridgeCompanionController : PBBridgeIDSServiceDelegate <IDSServiceDelegate, NSURLConnectionDelegate, RUILoaderDelegate, PBBridgeCompanionProtocol>
 {
@@ -35,6 +35,7 @@
     NSMutableData *_activationData;
     RUILoader *_ruiLoader;
     NSString *_contentType;
+    NSDictionary *_allHeaders;
     NSTimer *_activationTimeout;
     NSString *_internalLastSendMessageID;
     NSString *_remoteActivationUserAgent;
@@ -66,6 +67,7 @@
 @property(nonatomic) _Bool awaitingCustomResponse; // @synthesize awaitingCustomResponse=_awaitingCustomResponse;
 @property(nonatomic) _Bool connectionFailed; // @synthesize connectionFailed=_connectionFailed;
 @property(nonatomic) _Bool nonSilentActivation; // @synthesize nonSilentActivation=_nonSilentActivation;
+@property(retain, nonatomic) NSDictionary *allHeaders; // @synthesize allHeaders=_allHeaders;
 @property(copy, nonatomic) NSString *contentType; // @synthesize contentType=_contentType;
 @property(retain, nonatomic) RUILoader *ruiLoader; // @synthesize ruiLoader=_ruiLoader;
 @property(retain, nonatomic) NSMutableData *activationData; // @synthesize activationData=_activationData;

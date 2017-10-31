@@ -42,7 +42,7 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 - (id)messageDestination;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
-- (void)getReachableIPAccessory:(unsigned long long *)arg1 btleAccessory:(unsigned long long *)arg2;
+- (void)getReachableIPAccessory:(unsigned long long *)arg1 btleAccessory:(unsigned long long *)arg2 mediaAccessory:(unsigned long long *)arg3;
 - (void)didDetermineState:(long long)arg1 forRegion:(id)arg2;
 - (void)didDetermineLocation:(id)arg1;
 - (_Bool)isDate:(id)arg1 laterThanDate:(id)arg2;

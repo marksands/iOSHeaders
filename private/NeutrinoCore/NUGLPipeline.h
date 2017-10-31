@@ -33,7 +33,7 @@
 - (void)_beginDrawing:(id)arg1;
 - (_Bool)_validate:(id)arg1;
 - (void)_drawVertexArray:(id)arg1 block:(CDUnknownBlockType)arg2;
-- (void)drawVertexArray:(id)arg1 range:(struct _NSRange)arg2;
+- (void)drawVertexArray:(id)arg1 range:(struct _NSRange)arg2 mode:(long long)arg3;
 - (void)setSampler:(id)arg1 forUniform:(id)arg2;
 - (id)samplerForUniform:(id)arg1;
 - (void)setValue:(id)arg1 forUniform:(id)arg2;

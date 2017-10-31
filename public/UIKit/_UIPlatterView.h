@@ -73,6 +73,7 @@
 - (void)updateTransform;
 - (void)didMoveToSuperview;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)didMoveToWindow;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)takeCounterTransformsToAddToContainer:(id)arg1;
 - (struct CATransform3D)targetTransform;

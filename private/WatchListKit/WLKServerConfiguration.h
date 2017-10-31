@@ -60,6 +60,7 @@
 @property(readonly, copy, nonatomic) NSArray *orderedChannels;
 @property(readonly, copy, nonatomic) NSDictionary *channels;
 - (id)endpointForKey:(id)arg1;
+- (_Bool)isTVEnabled;
 @property(readonly, nonatomic) NSDictionary *dictionary;
 - (id)_operationQueue;
 - (void)dealloc;

@@ -7,6 +7,8 @@
 #import "NSNumber.h"
 
 @interface NSNumber (HFAdditions)
+- (id)hf_smallerNumber:(id)arg1;
+- (id)hf_largerNumber:(id)arg1;
 - (long long)hf_compareAbsoluteValue:(id)arg1;
 @property(readonly, copy, nonatomic) NSNumber *hf_absoluteValue;
 @end

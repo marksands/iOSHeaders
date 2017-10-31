@@ -24,8 +24,12 @@
     MCDPlayableContentPlaybackManager *_queueManager;
     MCDNowPlayingViewController *_nowPlayingViewController;
     UIBarButtonItem *_backButton;
+    long long _globalIndex;
+    long long _totalItemCount;
 }
 
+@property(nonatomic) long long totalItemCount; // @synthesize totalItemCount=_totalItemCount;
+@property(nonatomic) long long globalIndex; // @synthesize globalIndex=_globalIndex;
 @property(retain, nonatomic) UIBarButtonItem *backButton; // @synthesize backButton=_backButton;
 @property(retain, nonatomic) MCDNowPlayingViewController *nowPlayingViewController; // @synthesize nowPlayingViewController=_nowPlayingViewController;
 @property(retain, nonatomic) MCDPlayableContentPlaybackManager *queueManager; // @synthesize queueManager=_queueManager;
@@ -41,6 +45,7 @@
 - (void)contentManager:(id)arg1 presentViewController:(id)arg2;
 - (void)contentManagerReloadData:(id)arg1;
 - (id)preferredFocusEnvironments;
+- (void)_localeDidChange:(id)arg1;
 - (void)_adjustRightTitleLabelToFit;
 - (void)setRightTitle:(id)arg1;
 - (void)_updateBackButton;

@@ -14,6 +14,7 @@
 {
     struct GEOSessionID _sessionID;
     struct GEOTimepoint _clientTimepoint;
+    double _sessionRelativeTimestamp;
     GEOPDABClientDatasetMetadata *_abClientMetadata;
     GEOAdditionalEnabledMarkets *_additionalEnabledMarkets;
     GEOClientCapabilities *_clientCapabilities;
@@ -38,6 +39,7 @@
     struct {
         unsigned int sessionID:1;
         unsigned int clientTimepoint:1;
+        unsigned int sessionRelativeTimestamp:1;
         unsigned int maxAlternateRouteCount:1;
         unsigned int previouslyRejectedRerouteSavings:1;
         unsigned int rerouteStatus:1;
@@ -60,6 +62,7 @@
 @property(nonatomic) unsigned int previouslyRejectedRerouteSavings; // @synthesize previouslyRejectedRerouteSavings=_previouslyRejectedRerouteSavings;
 @property(retain, nonatomic) NSMutableArray *destinationWaypointTypeds; // @synthesize destinationWaypointTypeds=_destinationWaypointTypeds;
 @property(retain, nonatomic) GEOAdditionalEnabledMarkets *additionalEnabledMarkets; // @synthesize additionalEnabledMarkets=_additionalEnabledMarkets;
+@property(nonatomic) double sessionRelativeTimestamp; // @synthesize sessionRelativeTimestamp=_sessionRelativeTimestamp;
 @property(nonatomic) struct GEOSessionID sessionID; // @synthesize sessionID=_sessionID;
 @property(retain, nonatomic) NSData *directionsResponseID; // @synthesize directionsResponseID=_directionsResponseID;
 @property(retain, nonatomic) GEOClientCapabilities *clientCapabilities; // @synthesize clientCapabilities=_clientCapabilities;
@@ -99,6 +102,7 @@
 - (void)addDestinationWaypointTyped:(id)arg1;
 - (void)clearDestinationWaypointTypeds;
 @property(readonly, nonatomic) _Bool hasAdditionalEnabledMarkets;
+@property(nonatomic) _Bool hasSessionRelativeTimestamp;
 @property(nonatomic) _Bool hasSessionID;
 @property(readonly, nonatomic) _Bool hasDirectionsResponseID;
 @property(readonly, nonatomic) _Bool hasClientCapabilities;

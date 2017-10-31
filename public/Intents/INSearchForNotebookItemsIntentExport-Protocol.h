@@ -10,6 +10,7 @@
 @class CLPlacemark, INDateComponentsRange, INSpeakableString, NSString;
 
 @protocol INSearchForNotebookItemsIntentExport <NSObject, JSExport>
+@property(copy, nonatomic) NSString *notebookItemIdentifier;
 @property(nonatomic) long long dateSearchType;
 @property(copy, nonatomic) INDateComponentsRange *dateTime;
 @property(nonatomic) long long locationSearchType;

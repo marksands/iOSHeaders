@@ -57,6 +57,7 @@
 - (void)manageAccountForRemotePlan:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)finishRemoteProvisioningWithCompletion:(CDUnknownBlockType)arg1;
 - (void)startRemoteProvisioningWithCompletion:(CDUnknownBlockType)arg1;
+- (void)shouldShowAddNewRemotePlanWithFlowTypeAndTrialPlanType:(CDUnknownBlockType)arg1;
 - (void)shouldShowAddNewRemotePlanWithFlowType:(CDUnknownBlockType)arg1;
 - (void)shouldShowAddNewRemotePlan:(CDUnknownBlockType)arg1;
 - (void)isRemotePlanCapable:(CDUnknownBlockType)arg1;

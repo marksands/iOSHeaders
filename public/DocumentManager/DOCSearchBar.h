@@ -12,6 +12,7 @@
 }
 
 @property(nonatomic) struct CGSize customSize; // @synthesize customSize=_customSize;
+- (long long)_barMetricsForOrientation:(long long)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 
 @end

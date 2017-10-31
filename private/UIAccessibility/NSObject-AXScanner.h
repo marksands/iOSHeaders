@@ -13,6 +13,7 @@
 - (void)_accessibilitySetIsScannerGroup:(_Bool)arg1;
 - (unsigned long long)_accessibilityScannerGroupTraits;
 - (_Bool)_accessibilityIsScannerGroup;
+- (id)_accessibilityGroupIdentifier;
 - (unsigned long long)_accessibilityScanningBehaviorTraits;
 - (_Bool)_accessibilityShouldBeScannedIfAncestorCanScroll;
 - (long long)_accessibilityCollectionViewItemsPerRow;

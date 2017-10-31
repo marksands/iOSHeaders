@@ -13,6 +13,7 @@
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSObject<OS_dispatch_queue> *_readWriteQueue;
     _Bool _privateModeEnabled;
+    _Bool _sportsScoreSpoilersAllowed;
     NSString *_pushToken;
     NSString *_accountID;
     NSNumber *_optedInVal;
@@ -53,6 +54,7 @@
 - (id)_dictionaryOnDisk;
 - (void)_writeToDisk;
 - (void)_readFromDisk;
+- (id)_dictionaryRepresentationDataOnly;
 - (id)_dictionaryRepresentation;
 - (void)refresh;
 - (id)description;
@@ -62,6 +64,7 @@
 @property(nonatomic) _Bool migratedtvOS;
 @property(nonatomic) _Bool migratediOS;
 @property(nonatomic) _Bool optedIn;
+@property(nonatomic) _Bool sportsScoreSpoilersAllowed;
 @property(nonatomic) _Bool privateModeEnabled;
 - (void)setName:(id)arg1 forChannelID:(id)arg2 externalID:(id)arg3;
 - (void)setStatus:(unsigned long long)arg1 forChannelID:(id)arg2 externalID:(id)arg3;

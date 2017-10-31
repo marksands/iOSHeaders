@@ -9,7 +9,7 @@
 #import "DEDPairingProtocol.h"
 #import "DEDXPCProtocol.h"
 
-@class DEDBugSession, DEDIDSConnection, DEDSharingConnection, DEDXPCConnector, DEDXPCInbound, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_os_log>, NSString, NSXPCConnection;
+@class DEDIDSConnection, DEDSharingConnection, DEDXPCConnector, DEDXPCInbound, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_os_log>, NSString, NSXPCConnection;
 
 @interface DEDController : NSObject <DEDXPCProtocol, DEDPairingProtocol>
 {
@@ -36,10 +36,10 @@
     NSObject<OS_dispatch_queue> *_replyQueue;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_os_log> *_log;
-    DEDBugSession *_lastCancelledSession;
+    CDUnknownBlockType _didCancelCompletion;
 }
 
-@property(retain) DEDBugSession *lastCancelledSession; // @synthesize lastCancelledSession=_lastCancelledSession;
+@property(copy) CDUnknownBlockType didCancelCompletion; // @synthesize didCancelCompletion=_didCancelCompletion;
 @property(retain) NSObject<OS_os_log> *log; // @synthesize log=_log;
 @property(retain) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(retain) NSObject<OS_dispatch_queue> *replyQueue; // @synthesize replyQueue=_replyQueue;
@@ -82,6 +82,7 @@
 - (void)ping;
 - (void)_didAbortSessionWithID:(id)arg1;
 - (void)abortSession:(id)arg1;
+- (void)abortSession:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)reset;
 - (void)startBugSessionWithIdentifier:(id)arg1 configuration:(id)arg2 target:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)successPINForDevice:(id)arg1;

@@ -16,7 +16,7 @@
 }
 
 @property(nonatomic) unsigned long long minPrecedingTopicGroups; // @synthesize minPrecedingTopicGroups=_minPrecedingTopicGroups;
-@property(readonly, nonatomic) _Bool requiresForYouCatchUpOperation;
+@property(readonly, nonatomic) long long requiredForYouContentTypes;
 @property(readonly, nonatomic) _Bool emitsSingletonGroups;
 - (id)backingChannelTagIDWithAppConfig:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *groupEmitterIdentifier;

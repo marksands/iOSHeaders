@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
     long long _collectionGradientMask;
 }
 
++ (void)gradientConfigForCollection:(id)arg1 gradientMask:(long long)arg2 gradientLengths:(struct UIEdgeInsets *)arg3 gradientInset:(struct UIEdgeInsets *)arg4 gradientBoundsInset:(struct UIEdgeInsets *)arg5;
 @property(nonatomic, getter=isHeaderFocused) _Bool headerFocused; // @synthesize headerFocused=_headerFocused;
 @property(nonatomic) long long collectionGradientMask; // @synthesize collectionGradientMask=_collectionGradientMask;
 @property(nonatomic, getter=isHeaderHidden) _Bool headerHidden; // @synthesize headerHidden=_headerHidden;

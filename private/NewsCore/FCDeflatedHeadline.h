@@ -8,7 +8,7 @@
 
 #import "FCHeadlineProviding.h"
 
-@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCFeedPersonalizedArticleScoreProfile, FCHeadlineThumbnail, FCSharedStringIndex, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSObject<FCChannelProviding>, NSString, NSURL, NTPBFeedViewportHeadline;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCFeedPersonalizedArticleScoreProfile, FCHeadlineThumbnail, FCSharedStringIndex, FCTopStoriesStyleConfiguration, NSArray, NSData, NSDate, NSSet, NSString, NSURL, NTPBFeedViewportHeadline;
 
 @interface FCDeflatedHeadline : NSObject <FCHeadlineProviding>
 {
@@ -41,6 +41,7 @@
 @property(readonly, nonatomic) double globalUserFeedback;
 @property(readonly, copy, nonatomic) NSString *publisherID;
 @property(readonly, copy, nonatomic) NSString *sourceFeedID;
+@property(readonly, nonatomic) _Bool showMinimalChrome;
 @property(readonly, nonatomic) _Bool needsRapidUpdates;
 @property(readonly, nonatomic) FCCoverArt *coverArt;
 @property(readonly, nonatomic, getter=isPaid) _Bool paid;
@@ -84,10 +85,11 @@
 @property(readonly, nonatomic) _Bool hasThumbnail;
 @property(readonly, nonatomic) struct CGRect thumbnailFocalFrame;
 @property(readonly, copy, nonatomic) NSString *sourceName;
-@property(readonly, copy, nonatomic) NSObject<FCChannelProviding> *sourceChannel;
+@property(readonly, copy, nonatomic) id <FCChannelProviding> sourceChannel;
 @property(readonly, nonatomic) long long backendArticleVersion;
 @property(readonly, nonatomic) long long publisherArticleVersion;
 @property(readonly, copy, nonatomic) NSDate *publishDate;
+@property(readonly, copy, nonatomic) NSString *titleCompact;
 @property(readonly, copy, nonatomic) NSString *title;
 @property(readonly, copy, nonatomic) NSString *primaryAudience;
 @property(readonly, nonatomic) unsigned long long contentType;
@@ -101,6 +103,7 @@
 @property(readonly, nonatomic) FCFeedPersonalizedArticleScoreProfile *scoreProfile;
 @property(readonly, nonatomic) unsigned long long topStoryType;
 @property(readonly, nonatomic) _Bool isTopStory;
+@property(readonly, copy, nonatomic) NSSet *surfacedByTagIDs;
 @property(readonly, copy, nonatomic) NSString *surfacedByBinID;
 @property(readonly, copy, nonatomic) NSString *surfacedByTopicID;
 @property(readonly, copy, nonatomic) NSString *surfacedByChannelID;
@@ -115,6 +118,7 @@
 - (id)initWithPBHeadline:(id)arg1 sharedStrings:(id)arg2;
 
 // Remaining properties
+@property(readonly, nonatomic) NSData *backingArticleRecordData;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;

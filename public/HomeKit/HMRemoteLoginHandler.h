@@ -51,6 +51,7 @@
 - (void)_callAccountUpdateDelegate:(id)arg1;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 - (void)_handleRemoteLoginAccountUpdated:(id)arg1;
+@property(readonly, getter=isControllable) _Bool controllable;
 @property(readonly, nonatomic, getter=isSessionInProgress) _Bool sessionInProgress;
 @property(retain, nonatomic) NSString *currentSessionID; // @synthesize currentSessionID=_currentSessionID;
 - (void)setLoggedInAccount:(id)arg1;

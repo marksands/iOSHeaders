@@ -18,14 +18,17 @@
     NSString *_coverArticlesArticleListID;
     NSMutableArray *_editorialArticleListIDs;
     NSMutableArray *_editorialSectionTagIDs;
+    NSMutableArray *_specialEventArticleIDs;
     NSMutableArray *_topStoriesCombinedArticleIDs;
     NSString *_trendingArticleListID;
 }
 
++ (Class)specialEventArticleIDsType;
 + (Class)topStoriesCombinedArticleIDsType;
 + (Class)breakingNewsArticleIDsType;
 + (Class)editorialSectionTagIDsType;
 + (Class)editorialArticleListIDsType;
+@property(retain, nonatomic) NSMutableArray *specialEventArticleIDs; // @synthesize specialEventArticleIDs=_specialEventArticleIDs;
 @property(retain, nonatomic) NSMutableArray *topStoriesCombinedArticleIDs; // @synthesize topStoriesCombinedArticleIDs=_topStoriesCombinedArticleIDs;
 @property(retain, nonatomic) NSMutableArray *breakingNewsArticleIDs; // @synthesize breakingNewsArticleIDs=_breakingNewsArticleIDs;
 @property(retain, nonatomic) NSMutableArray *editorialSectionTagIDs; // @synthesize editorialSectionTagIDs=_editorialSectionTagIDs;
@@ -42,6 +45,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)specialEventArticleIDsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)specialEventArticleIDsCount;
+- (void)addSpecialEventArticleIDs:(id)arg1;
+- (void)clearSpecialEventArticleIDs;
 - (id)topStoriesCombinedArticleIDsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)topStoriesCombinedArticleIDsCount;
 - (void)addTopStoriesCombinedArticleIDs:(id)arg1;

@@ -9,12 +9,13 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSDictionary, NSURL;
+@class NSData, NSDictionary, NSURL;
 
 @interface AFAudioPlaybackRequest : NSObject <NSCopying, NSSecureCoding>
 {
     float _volume;
     NSURL *_itemURL;
+    NSData *_itemData;
     long long _numberOfLoops;
     double _fadeInDuration;
     double _fadeOutDuration;
@@ -27,6 +28,7 @@
 @property(readonly, nonatomic) double fadeInDuration; // @synthesize fadeInDuration=_fadeInDuration;
 @property(readonly, nonatomic) float volume; // @synthesize volume=_volume;
 @property(readonly, nonatomic) long long numberOfLoops; // @synthesize numberOfLoops=_numberOfLoops;
+@property(readonly, copy, nonatomic) NSData *itemData; // @synthesize itemData=_itemData;
 @property(readonly, copy, nonatomic) NSURL *itemURL; // @synthesize itemURL=_itemURL;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
@@ -36,7 +38,7 @@
 - (unsigned long long)hash;
 - (id)_descriptionWithIndent:(unsigned long long)arg1;
 - (id)description;
-- (id)initWithItemURL:(id)arg1 numberOfLoops:(long long)arg2 volume:(float)arg3 fadeInDuration:(double)arg4 fadeOutDuration:(double)arg5 userInfo:(id)arg6;
+- (id)initWithItemURL:(id)arg1 itemData:(id)arg2 numberOfLoops:(long long)arg3 volume:(float)arg4 fadeInDuration:(double)arg5 fadeOutDuration:(double)arg6 userInfo:(id)arg7;
 - (id)builder;
 
 @end

@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-@class CKQueryOperation, NSArray;
+@class CKQueryOperation, NSArray, NSSet;
 
 @protocol FCCKTestQueryEndpoint <NSObject>
-- (void)handleQueryOperation:(CKQueryOperation *)arg1 withRecords:(NSArray *)arg2;
+- (void)handleQueryOperation:(CKQueryOperation *)arg1 withRecords:(NSArray *)arg2 droppedFeeds:(NSSet *)arg3;
 @end
 

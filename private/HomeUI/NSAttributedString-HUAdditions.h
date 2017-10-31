@@ -7,6 +7,7 @@
 #import "NSAttributedString.h"
 
 @interface NSAttributedString (HUAdditions)
++ (id)hu_attributedLinkStringForString:(id)arg1 linkString:(id)arg2 linkURL:(id)arg3 attributes:(id)arg4;
 + (id)hu_attributedLinkStringForString:(id)arg1 linkString:(id)arg2 linkURL:(id)arg3;
 - (id)hu_scaledAttributedStringWithBoundingSize:(struct CGSize)arg1 minimumScaleFactor:(double)arg2 maximumNumberOfLines:(unsigned long long)arg3;
 - (id)hu_attributedStringScaledByFactor:(double)arg1;

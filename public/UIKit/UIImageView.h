@@ -84,6 +84,7 @@
 @property(readonly, nonatomic, getter=isAnimating) _Bool animating;
 - (void)stopAnimating;
 - (id)_currentAnimationKeyframeImage;
+- (void)_cleanUpForStopAnimating;
 - (void)startAnimating;
 @property(copy, nonatomic) NSArray *highlightedAnimationImages;
 @property(copy, nonatomic) NSArray *animationImages;

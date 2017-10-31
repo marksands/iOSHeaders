@@ -6,15 +6,15 @@
 
 #import "NSObject.h"
 
-#import "NUURLHandler.h"
+#import "NUURLHandling.h"
 
 @class NSString;
 
-@interface NUApplicationURLHandler : NSObject <NUURLHandler>
+@interface NUApplicationURLHandler : NSObject <NUURLHandling>
 {
 }
 
-- (void)openURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)openURL:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

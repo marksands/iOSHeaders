@@ -6,20 +6,21 @@
 
 #import "NSObject.h"
 
-@class HMAccessoryProfile<HFAccessorySettings>, NSMutableDictionary;
+@class NSMutableDictionary;
 
 @interface HFAccessorySettingAdapterManager : NSObject
 {
-    HMAccessoryProfile<HFAccessorySettings> *_accessoryProfile;
+    id <HFMediaProfileContainer> _mediaProfileContainer;
     NSMutableDictionary *_adaptersByID;
 }
 
 @property(readonly, nonatomic) NSMutableDictionary *adaptersByID; // @synthesize adaptersByID=_adaptersByID;
-@property(readonly, nonatomic) __weak HMAccessoryProfile<HFAccessorySettings> *accessoryProfile; // @synthesize accessoryProfile=_accessoryProfile;
+@property(readonly, nonatomic) __weak id <HFMediaProfileContainer> mediaProfileContainer; // @synthesize mediaProfileContainer=_mediaProfileContainer;
 - (void).cxx_destruct;
 - (id)_createAdapterForIdentifier:(id)arg1;
 - (id)adapterForIdentifier:(id)arg1;
-- (id)initWithAccessoryProfile:(id)arg1;
+- (id)init;
+- (id)initWithMediaProfileContainer:(id)arg1;
 
 @end
 

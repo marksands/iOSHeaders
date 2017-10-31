@@ -13,9 +13,7 @@
 + (id)roleString;
 + (int)role;
 + (id)typeString;
-- (Class)componentSizerClass;
 - (Class)componentModelClass;
-- (Class)componentViewClass;
 
 @end
 

@@ -6,20 +6,21 @@
 
 #import "UIView.h"
 
-@class UIImageView, UILabel;
+@class CAShapeLayer, UIImageView, UILabel;
 
 @interface PLContactPhotoOverlay : UIView
 {
     UILabel *_titleLabel;
     UIImageView *__avatarPreview;
+    CAShapeLayer *_circularLayer;
 }
 
+@property(retain, nonatomic) CAShapeLayer *circularLayer; // @synthesize circularLayer=_circularLayer;
 @property(readonly, nonatomic) UIImageView *_avatarPreview; // @synthesize _avatarPreview=__avatarPreview;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void)endAvatarTracking;
 - (void)beginAvatarTrackingFromImageView:(id)arg1;
 - (struct CGRect)inscribingBounds;
-- (void)drawRect:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;

@@ -7,6 +7,5 @@
 #import "ICQDelegate.h"
 
 @protocol ICQPageDelegate <ICQDelegate>
-- (double)senderGetTopMargin:(id)arg1;
 @end
 

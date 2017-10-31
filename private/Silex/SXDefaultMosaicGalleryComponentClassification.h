@@ -14,9 +14,7 @@
 + (int)role;
 + (id)typeString;
 - (_Bool)hasAffiliationWithClassification:(id)arg1 forDirection:(long long)arg2;
-- (Class)componentSizerClass;
 - (Class)componentModelClass;
-- (Class)componentViewClass;
 - (id)layoutRules;
 - (id)accessibilityContextualLabel;
 

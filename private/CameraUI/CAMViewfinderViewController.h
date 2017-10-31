@@ -544,6 +544,7 @@
 - (void)_endDisablingInterfaceAutorotation;
 - (void)_beginDisablingInterfaceAutorotation;
 - (void)_updateUIForCaptureOrientationAnimated:(_Bool)arg1;
+- (void)_updateHomeIndicatorBehaviorsForCaptureOrientation;
 - (void)_captureOrientationChanged:(id)arg1;
 @property(nonatomic) long long autorotationStyle;
 - (void)_applyTransformsForAutorotationStyle:(long long)arg1;

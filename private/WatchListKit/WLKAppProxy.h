@@ -17,7 +17,6 @@
     _Bool _isSystemApp;
     _Bool _supportsTVApp;
     NSString *_bundleIdentifier;
-    NSString *_localizedName;
     NSString *_version;
     NSString *_subscriptionInfo;
     NSNumber *_itemID;
@@ -31,7 +30,6 @@
 @property(readonly, nonatomic) _Bool isBetaApp; // @synthesize isBetaApp=_isBetaApp;
 @property(readonly, nonatomic) _Bool isEntitled; // @synthesize isEntitled=_isEntitled;
 @property(readonly, copy, nonatomic) NSString *version; // @synthesize version=_version;
-@property(readonly, copy, nonatomic) NSString *localizedName; // @synthesize localizedName=_localizedName;
 @property(readonly, copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

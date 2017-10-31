@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSString, UIImage, UIVisualEffect, _UIVisualEffectBackdropView, _UIVisualEffectHost, _UIVisualEffectViewBackdropCaptureGroup;
+@class NSArray, NSString, UIImage, UIVisualEffect, _UIVisualEffectBackdropView, _UIVisualEffectHost, _UIVisualEffectViewBackdropCaptureGroup, _UIVisualEffectViewCapturedState;
 
 @interface UIVisualEffectView : UIView <NSSecureCoding>
 {
@@ -30,6 +30,7 @@
     _Bool _useLiveMasking;
     double _cornerRadius;
     UIVisualEffect *_effect;
+    _UIVisualEffectViewCapturedState *__capturedStateDuringAnimation;
     NSArray *_backgroundEffects;
     NSArray *_contentEffects;
 }
@@ -38,6 +39,7 @@
 @property(nonatomic, getter=_useLiveMasking, setter=_setUseLiveMasking:) _Bool useLiveMasking; // @synthesize useLiveMasking=_useLiveMasking;
 @property(copy, nonatomic) NSArray *contentEffects; // @synthesize contentEffects=_contentEffects;
 @property(copy, nonatomic) NSArray *backgroundEffects; // @synthesize backgroundEffects=_backgroundEffects;
+@property(retain, nonatomic, getter=_capturedStateDuringAnimation, setter=_setCapturedStateDuringAnimation:) _UIVisualEffectViewCapturedState *_capturedStateDuringAnimation; // @synthesize _capturedStateDuringAnimation=__capturedStateDuringAnimation;
 @property(nonatomic, setter=_setUseKeyframeWorkaround:) _Bool _useKeyframeWorkaround; // @synthesize _useKeyframeWorkaround=__useKeyframeWorkaround;
 @property(copy, nonatomic) UIVisualEffect *effect; // @synthesize effect=_effect;
 @property(nonatomic, setter=_setCornerRadius:) double _cornerRadius; // @synthesize _cornerRadius;
@@ -94,7 +96,10 @@
 - (void)_ensureContentHostWithView:(id)arg1;
 - (void)_ensureBackgroundHost;
 - (void)_commonInit;
+- (void)_unregisterNotifications;
+- (void)_registerNotifications;
 - (void)_updateEffectForAccessibilityChanges:(id)arg1;
+- (id)_captureStateForCurrentAnimationBlockCreatingIfNecessary:(_Bool)arg1 clearingCache:(_Bool)arg2;
 
 @end
 

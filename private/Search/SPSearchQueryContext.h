@@ -24,6 +24,7 @@
     NSArray *_searchDomains;
     NSArray *_disabledDomains;
     NSArray *_disabledBundles;
+    NSArray *_disabledApps;
     unsigned long long _whyQuery;
     unsigned long long _whyClear;
     unsigned long long _queryIdent;
@@ -39,6 +40,7 @@
 @property(nonatomic) unsigned long long whyClear; // @synthesize whyClear=_whyClear;
 @property(nonatomic) unsigned long long whyQuery; // @synthesize whyQuery=_whyQuery;
 @property(nonatomic) _Bool forceQueryEvenIfSame; // @synthesize forceQueryEvenIfSame=_forceQueryEvenIfSame;
+@property(retain, nonatomic) NSArray *disabledApps; // @synthesize disabledApps=_disabledApps;
 @property(retain, nonatomic) NSArray *disabledBundles; // @synthesize disabledBundles=_disabledBundles;
 @property(retain, nonatomic) NSArray *disabledDomains; // @synthesize disabledDomains=_disabledDomains;
 @property(retain, nonatomic) NSArray *searchDomains; // @synthesize searchDomains=_searchDomains;

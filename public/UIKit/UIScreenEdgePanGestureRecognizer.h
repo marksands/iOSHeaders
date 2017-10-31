@@ -34,6 +34,7 @@
 - (_Bool)_shouldTryToBeginWithEvent:(id)arg1;
 - (void)reset;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (id)recognizerTouchesToIgnoreForEvent:(id)arg1;
 - (void)incorporateTouches:(id)arg1 withEvent:(id)arg2;
 - (_Bool)_shouldUseGrapeFlags;
 - (long long)_touchInterfaceOrientation;

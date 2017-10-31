@@ -13,6 +13,7 @@
 
 @interface VSIdentityProvider : NSObject <NSCopying, NSSecureCoding>
 {
+    NSString *_displayName;
     _Bool _prohibitedByStore;
     _Bool _developer;
     VSOptional *_uniqueID;
@@ -27,7 +28,6 @@
     NSArray *_appAdamIDs;
 }
 
-+ (id)keyPathsForValuesAffectingDisplayName;
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *appAdamIDs; // @synthesize appAdamIDs=_appAdamIDs;
 @property(copy, nonatomic) NSURL *appStoreRoomURL; // @synthesize appStoreRoomURL=_appStoreRoomURL;

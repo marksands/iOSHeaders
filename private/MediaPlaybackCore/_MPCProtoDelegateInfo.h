@@ -20,14 +20,17 @@
     int _systemReleaseType;
     NSString *_timeZoneName;
     NSString *_uuid;
+    _Bool _privateListeningEnabled;
     struct {
         unsigned int accountID:1;
         unsigned int delegateInfoID:1;
         unsigned int systemReleaseType:1;
+        unsigned int privateListeningEnabled:1;
     } _has;
 }
 
 + (id)currentDeviceDelegateInfo;
+@property(nonatomic) _Bool privateListeningEnabled; // @synthesize privateListeningEnabled=_privateListeningEnabled;
 @property(retain, nonatomic) NSString *timeZoneName; // @synthesize timeZoneName=_timeZoneName;
 @property(retain, nonatomic) NSString *requestUserAgent; // @synthesize requestUserAgent=_requestUserAgent;
 @property(retain, nonatomic) NSString *deviceName; // @synthesize deviceName=_deviceName;
@@ -44,6 +47,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasPrivateListeningEnabled;
 @property(readonly, nonatomic) _Bool hasTimeZoneName;
 @property(readonly, nonatomic) _Bool hasRequestUserAgent;
 @property(nonatomic) _Bool hasSystemReleaseType;

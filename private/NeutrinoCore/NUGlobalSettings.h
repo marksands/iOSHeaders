@@ -14,6 +14,8 @@
     NSMutableDictionary *_settings;
 }
 
++ (void)setImageLayerDebug:(_Bool)arg1;
++ (_Bool)imageLayerDebug;
 + (void)setPlatformHasWideColor:(_Bool)arg1;
 + (_Bool)platformHasWideColor;
 + (void)setRenderVideoLive:(_Bool)arg1;
@@ -50,6 +52,8 @@
 + (_Bool)surfaceStorageFactoryUsePool;
 + (void)setStoragePoolMigrationDelay:(double)arg1;
 + (double)storagePoolMigrationDelay;
++ (void)setStoragePoolPurgeableLimit:(long long)arg1;
++ (long long)storagePoolPurgeableLimit;
 + (void)setStoragePoolNonPurgeableLimit:(long long)arg1;
 + (long long)storagePoolNonPurgeableLimit;
 + (void)setDeviceDefaultSampleMode:(long long)arg1;

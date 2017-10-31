@@ -18,11 +18,13 @@
     _Bool _isAutoMeCapable;
     NSString *_deviceId;
     NSString *_deviceName;
+    NSString *_idsDeviceId;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)deviceWithId:(id)arg1 name:(id)arg2 isActive:(_Bool)arg3 isThisDevice:(_Bool)arg4 isAutoMeCapable:(_Bool)arg5;
++ (id)deviceWithId:(id)arg1 name:(id)arg2 idsDeviceId:(id)arg3 isActive:(_Bool)arg4 isThisDevice:(_Bool)arg5 isAutoMeCapable:(_Bool)arg6;
 @property(nonatomic) _Bool isAutoMeCapable; // @synthesize isAutoMeCapable=_isAutoMeCapable;
+@property(copy, nonatomic) NSString *idsDeviceId; // @synthesize idsDeviceId=_idsDeviceId;
 @property(nonatomic) _Bool isThisDevice; // @synthesize isThisDevice=_isThisDevice;
 @property(nonatomic) _Bool isActiveDevice; // @synthesize isActiveDevice=_isActiveDevice;
 @property(copy, nonatomic) NSString *deviceName; // @synthesize deviceName=_deviceName;

@@ -9,6 +9,7 @@
 @interface CKNavigationBarCanvasView : UIView
 {
     _Bool _enforceLeftItemViewsAlignmentToCenter;
+    _Bool _keepTitleViewCentered;
     UIView *_titleView;
     UIView *_leftItemView;
     UIView *_rightItemView;
@@ -19,6 +20,7 @@
 + (double)preferredLandscapeHeightForCompactWidth;
 + (double)minHeight;
 + (double)maxHeight;
+@property(nonatomic) _Bool keepTitleViewCentered; // @synthesize keepTitleViewCentered=_keepTitleViewCentered;
 @property(nonatomic) _Bool enforceLeftItemViewsAlignmentToCenter; // @synthesize enforceLeftItemViewsAlignmentToCenter=_enforceLeftItemViewsAlignmentToCenter;
 @property(nonatomic) double preferredHeight; // @synthesize preferredHeight=_preferredHeight;
 @property(retain, nonatomic) UIView *rightItemView; // @synthesize rightItemView=_rightItemView;

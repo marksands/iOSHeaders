@@ -16,13 +16,13 @@
     NSDateComponents *_releaseDateComponents;
     double _duration;
     NSString *_descriptionText;
-    NSString *_commentText;
     NSDate *_datePlayed;
-    NSURL *_feedURL;
+    NSURL *_shareURL;
     MPModelPodcastAuthor *_author;
     MPModelFileAsset *_localFileAsset;
     MPModelPodcast *_podcast;
     MPModelPlaybackPosition *_playbackPosition;
+    NSString *_commentText;
     CDUnknownBlockType _artworkCatalogBlock;
 }
 
@@ -36,12 +36,10 @@
 + (id)__podcast__KEY;
 + (id)__MPModelRelationshipPodcastEpisodeLocalFileAsset__PROPERTY;
 + (id)__localFileAsset__KEY;
-+ (id)__MPModelPropertyPodcastEpisodeFeedURL__PROPERTY;
-+ (id)__feedURL__KEY;
++ (id)__MPModelPropertyPodcastEpisodeShareURL__PROPERTY;
++ (id)__shareURL__KEY;
 + (id)__MPModelPropertyPodcastEpisodeDatePlayed__PROPERTY;
 + (id)__datePlayed__KEY;
-+ (id)__MPModelPropertyPodcastEpisodeCommentText__PROPERTY;
-+ (id)__commentText__KEY;
 + (id)__MPModelPropertyPodcastEpisodeDescriptionText__PROPERTY;
 + (id)__descriptionText__KEY;
 + (id)__MPModelPropertyPodcastEpisodeExplicit__PROPERTY;
@@ -57,13 +55,13 @@
 + (id)kindWithVariants:(unsigned long long)arg1 options:(unsigned long long)arg2;
 + (id)kindWithVariants:(unsigned long long)arg1;
 @property(copy, nonatomic) CDUnknownBlockType artworkCatalogBlock; // @synthesize artworkCatalogBlock=_artworkCatalogBlock;
+@property(copy, nonatomic) NSString *commentText; // @synthesize commentText=_commentText;
 @property(retain, nonatomic) MPModelPlaybackPosition *playbackPosition; // @synthesize playbackPosition=_playbackPosition;
 @property(retain, nonatomic) MPModelPodcast *podcast; // @synthesize podcast=_podcast;
 @property(retain, nonatomic) MPModelFileAsset *localFileAsset; // @synthesize localFileAsset=_localFileAsset;
 @property(retain, nonatomic) MPModelPodcastAuthor *author; // @synthesize author=_author;
-@property(copy, nonatomic) NSURL *feedURL; // @synthesize feedURL=_feedURL;
+@property(copy, nonatomic) NSURL *shareURL; // @synthesize shareURL=_shareURL;
 @property(copy, nonatomic) NSDate *datePlayed; // @synthesize datePlayed=_datePlayed;
-@property(copy, nonatomic) NSString *commentText; // @synthesize commentText=_commentText;
 @property(copy, nonatomic) NSString *descriptionText; // @synthesize descriptionText=_descriptionText;
 @property(nonatomic, getter=isExplicitEpisode) _Bool explicitEpisode; // @synthesize explicitEpisode=_explicitEpisode;
 @property(nonatomic) float userRating; // @synthesize userRating=_userRating;

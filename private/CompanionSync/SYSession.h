@@ -86,6 +86,8 @@
 - (void)cancelWithError:(id)arg1;
 - (void)cancel;
 - (void)start:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) unsigned long long sentChangeCount;
+@property(readonly, nonatomic) unsigned long long sentChangeByteCount;
 @property(readonly, nonatomic) NSDictionary *wrappedUserContext;
 @property(readonly, nonatomic) double remainingSessionTime;
 @property(readonly) _Bool wasCancelled;

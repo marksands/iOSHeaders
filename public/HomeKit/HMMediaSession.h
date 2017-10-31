@@ -17,6 +17,7 @@
     NSUUID *_uuid;
     long long _playbackState;
     HMAudioControl *_audioControl;
+    NSString *_routeUID;
     id <HMMediaSessionDelegate> _delegate;
     _HMMediaSession *_mediaSession;
     HMMediaProfile *_mediaProfile;
@@ -33,17 +34,20 @@
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
+- (void)mediaSession:(id)arg1 didUpdateRouteUID:(id)arg2;
 - (void)mediaSession:(id)arg1 didUpdatePlaybackState:(long long)arg2;
+- (void)refreshPlaybackStateWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)pauseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)resumeWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)playbackStateDescription;
+@property(readonly, nonatomic) NSString *routeUID; // @synthesize routeUID=_routeUID;
 @property(readonly) long long playbackState; // @synthesize playbackState=_playbackState;
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (id)messageTargetUUID;
 - (void)updatePlaybackState:(id)arg1;
 - (void)configure:(id)arg1 messageTargetUUID:(id)arg2;
-- (id)initWithUUID:(id)arg1 playbackState:(long long)arg2;
+- (id)initWithUUID:(id)arg1 routeUID:(id)arg2 playbackState:(long long)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

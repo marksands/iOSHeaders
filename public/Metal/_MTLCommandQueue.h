@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
     _Bool _executionEnabled;
     _Bool _skipRender;
     _Bool _openGLQueue;
+    NSObject<OS_dispatch_semaphore> *_presentScheduledSemaphore;
 }
 
 @property(readonly) _Bool isOpenGLQueue; // @synthesize isOpenGLQueue=_openGLQueue;

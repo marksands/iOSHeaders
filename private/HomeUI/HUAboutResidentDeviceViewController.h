@@ -19,7 +19,8 @@
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
     UIImageView *_atvImageView;
-    UILabel *_atvTextLabel;
+    UIImageView *_homePodImageView;
+    UILabel *_homeHubTextLabel;
     UIImageView *_iPadImageView;
     UILabel *_iPadTextLabel;
 }
@@ -31,7 +32,8 @@
 + (double)subtitleBaselineToATVImageConstant;
 @property(retain, nonatomic) UILabel *iPadTextLabel; // @synthesize iPadTextLabel=_iPadTextLabel;
 @property(retain, nonatomic) UIImageView *iPadImageView; // @synthesize iPadImageView=_iPadImageView;
-@property(retain, nonatomic) UILabel *atvTextLabel; // @synthesize atvTextLabel=_atvTextLabel;
+@property(retain, nonatomic) UILabel *homeHubTextLabel; // @synthesize homeHubTextLabel=_homeHubTextLabel;
+@property(retain, nonatomic) UIImageView *homePodImageView; // @synthesize homePodImageView=_homePodImageView;
 @property(retain, nonatomic) UIImageView *atvImageView; // @synthesize atvImageView=_atvImageView;
 @property(retain, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;

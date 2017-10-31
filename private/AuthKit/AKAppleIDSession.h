@@ -18,9 +18,11 @@
     AKAnisetteData *_proxiedAnisetteData;
     NSLock *_anisetteControllerLock;
     AKDevice *_pairedDevice;
+    id <AKAnisetteServiceProtocol> _anisetteDataProvider;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) id <AKAnisetteServiceProtocol> anisetteDataProvider; // @synthesize anisetteDataProvider=_anisetteDataProvider;
 @property(retain, nonatomic) AKDevice *pairedDevice; // @synthesize pairedDevice=_pairedDevice;
 - (void).cxx_destruct;
 - (id)_pairedDeviceAnisetteController;

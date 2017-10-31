@@ -28,6 +28,7 @@
 - (void)finishBroadcastWithError:(id)arg1;
 - (void)updateBroadcastURL:(id)arg1;
 - (void)updateServiceInfo:(id)arg1;
+- (void)broadcastAnnotatedWithApplicationInfo:(id)arg1;
 - (void)processSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 withType:(long long)arg2;
 - (void)broadcastPaused;
 - (void)broadcastResumed;
@@ -35,6 +36,7 @@
 - (void)broadcastStartedWithSetupInfo:(id)arg1;
 - (id)videoQueue;
 - (id)audioQueue;
+- (id)group;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

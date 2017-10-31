@@ -20,21 +20,21 @@
 
 @interface UIFieldEditor : UIScrollView <UITextInputControllerDelegate, NSLayoutManagerDelegate, NSUITextViewCommonMethods, UIKeyInputPrivate, _UITextFieldContentViewContext, UIAutoscrollContainer, UITextInput, UITextAutoscrolling, UIKeyboardInput>
 {
-    UITextInputController *_inputController;
     UITextField *_textField;
     _Bool _active;
     UIAutoscroll *_autoscroll;
-    NSTextContainer *_textContainer;
-    _UIFieldEditorLayoutManager *_layoutManager;
-    _UICascadingTextStorage *_textStorage;
     NSAttributedString *_originalAttributedString;
-    NSDictionary *_originalDefaultAttributes;
+    UITextInputController *__textInputController;
+    NSTextContainer *__textContainer;
+    _UIFieldEditorLayoutManager *__layoutManager;
+    _UICascadingTextStorage *__textStorage;
     struct {
         unsigned int delegateRespondsToFieldEditorDidChange:1;
         unsigned int delegateRespondsToShouldInsertText:1;
         unsigned int delegateRespondsToShouldReplaceWithText:1;
         unsigned int suppressScrollToSelection:1;
         unsigned int clearOnNextEdit:1;
+        unsigned int needsInvalidationAfterObscuredRangeChange:1;
     } _feFlags;
     struct UIEdgeInsets _padding;
     struct UIEdgeInsets _contentViewFontInsets;
@@ -127,7 +127,8 @@
 - (id)textInRange:(id)arg1;
 - (void)_performPasteOfAttributedString:(id)arg1 toRange:(id)arg2 animator:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)deleteBackward;
-- (void)_invalidateAfterObscuredRangeChange;
+- (void)_invalidateAfterObscuredRangeChangeIfNeeded;
+- (void)_setNeedsInvalidateAfterObscuredRangeChange;
 - (void)_unobscureAllText;
 - (void)_obscureAllText;
 - (void)_cancelObscureAllTextTimer;
@@ -136,12 +137,9 @@
 @property(readonly, nonatomic) _Bool hasText;
 - (_Bool)_clearOnEditIfNeeded;
 - (double)_passcodeStyleAlpha;
-- (id)_textContainer;
-@property(readonly, nonatomic) NSLayoutManager *layoutManager;
-- (id)_layoutManager;
-@property(nonatomic) long long nonEditingLinebreakMode;
 @property(readonly, nonatomic) NSTextStorage *textStorage;
-- (id)_textStorage;
+@property(readonly, nonatomic) NSLayoutManager *layoutManager;
+@property(nonatomic) long long nonEditingLinebreakMode;
 - (id)undoManager;
 - (int)atomStyle;
 - (_Bool)drawsAsAtom;
@@ -209,11 +207,16 @@
 - (_Bool)keyboardInput:(id)arg1 shouldInsertText:(id)arg2 isMarkedText:(_Bool)arg3;
 - (void)layoutSubviews;
 - (struct UIEdgeInsets)_contentInsetsFromFonts;
+- (void)_applyCorrectTextContainerSize:(id)arg1;
 - (void)_applyCorrectTextContainerSize;
 - (void)_textStorageDidProcessEditing:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
+- (id)_textInputController;
+- (id)_textStorage;
+- (id)_textContainer;
+- (id)_layoutManager;
 - (void)dealloc;
-- (id)initWithTextField:(id)arg1 textStorage:(id)arg2;
+- (id)initWithTextField:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_deleteBackwardAndNotify:(_Bool)arg1;
 

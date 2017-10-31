@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSNumber, NSString, NSUserDefaults;
+@class NSDate, NSDictionary, NSNumber, NSString, NSUserDefaults;
 
 @interface ICDefaults : NSObject
 {
@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 - (void)_setOrRemoveObject:(id)arg1 forKey:(id)arg2;
 - (_Bool)_shouldSpoofIPhoneRequestProperties;
+- (void)synchronize;
 @property(readonly, nonatomic) _Bool shouldForceiPhoneBehaviors;
 @property(readonly, copy, nonatomic) NSString *productPlatformOverride;
 @property(readonly, copy, nonatomic) NSString *productVersionOverride;
@@ -25,9 +26,10 @@
 @property(readonly, copy, nonatomic) NSString *deviceModelOverride;
 @property(readonly, copy, nonatomic) NSNumber *deviceClassOverride;
 @property(nonatomic) _Bool ignoreExtendedCertificateValidation;
+@property(copy, nonatomic) NSDate *authServiceClientTokenExpiration;
+@property(copy, nonatomic) NSString *authServiceClientToken;
 @property(copy, nonatomic) NSDictionary *mediaLibraryAccessApplicationIdentifiersWithTCCAcceptanceDates;
 @property(copy, nonatomic) NSDictionary *pushNotificationState;
-@property(nonatomic, getter=isCachedSubscriptionStatusValid) _Bool cachedSubscriptionStatusValid;
 @property(copy, nonatomic) NSDictionary *cachedSubscriptionStatus;
 @property(copy, nonatomic) NSString *defaultStoreFront;
 @property(copy, nonatomic) NSString *cloudMediaLibraryUID;

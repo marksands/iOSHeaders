@@ -20,5 +20,9 @@
 - (void)playbackPaused;
 - (void)playbackStarted;
 - (void)playbackInitiated;
+- (void)didDisappear;
+- (void)willDisappear;
+- (void)didAppear;
+- (void)willAppear;
 @end
 

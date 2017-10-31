@@ -16,14 +16,18 @@ __attribute__((visibility("hidden")))
 @interface PUPhotoPickerHostViewController : _UIRemoteViewController <PUPhotoPickerHostExtensionProvider, PUPhotoPickerActionHandler, PUPhotoPickerTestSupportHandler>
 {
     _Bool __invalidated;
+    _Bool _didUpdateAppearance;
     NSExtensionContext *_hostExtensionContext;
     long long _actionType;
     NSString *_actionTypeDescription;
     long long _secondaryActionType;
     id <PUPhotoPickerHostViewControllerDelegate> _delegate;
     PUPhotoPickerAppearance *_photoPickerAppearance;
+    PUPhotoPickerAppearance *_previousPhotoPickerAppearance;
 }
 
+@property(retain, nonatomic) PUPhotoPickerAppearance *previousPhotoPickerAppearance; // @synthesize previousPhotoPickerAppearance=_previousPhotoPickerAppearance;
+@property(nonatomic) _Bool didUpdateAppearance; // @synthesize didUpdateAppearance=_didUpdateAppearance;
 @property(nonatomic, getter=_isInvalidated) _Bool _invalidated; // @synthesize _invalidated=__invalidated;
 @property(retain, nonatomic) PUPhotoPickerAppearance *photoPickerAppearance; // @synthesize photoPickerAppearance=_photoPickerAppearance;
 @property(nonatomic) __weak id <PUPhotoPickerHostViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -50,6 +54,7 @@ __attribute__((visibility("hidden")))
 - (void)invalidate;
 - (void)_invalidateIfNeeded;
 - (void)didMoveToParentViewController:(id)arg1;
+- (void)willMoveToParentViewController:(id)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 

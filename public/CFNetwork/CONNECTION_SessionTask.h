@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     _Bool __shouldSkipPreferredClientCertificateLookup;
     struct __CFDictionary *__atsContext;
     NSMutableArray *_transactionMetrics;
+    struct os_unfair_lock_s _unfair_lock;
 }
 
 - (id)_incompleteTaskMetrics;
@@ -35,12 +36,14 @@ __attribute__((visibility("hidden")))
 - (void)_appendCountOfPendingBytesReceivedEncoded:(long long)arg1;
 - (_Bool)_allowsQUIC;
 - (void)set_allowsQUIC:(_Bool)arg1;
+- (void)set_TLSNegotiatedCipherSuite:(unsigned short)arg1;
 - (void)set_TCPConnectionMetadata:(id)arg1;
 - (id)_transactionMetrics;
 - (void)_prepareNewTimingDataContainer;
 - (id)_storagePartitionIdentifier;
 - (void)set_trailers:(id)arg1;
 - (id)_trailers;
+- (unsigned short)_TLSNegotiatedCipherSuite;
 - (const struct __CFData **)_TCPConnectionMetadata;
 - (const struct __CFDictionary **)_DuetActivityProperties;
 - (struct __CFDictionary *)_dependencyInfo;

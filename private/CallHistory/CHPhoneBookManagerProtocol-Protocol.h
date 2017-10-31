@@ -13,6 +13,7 @@
 - (_Bool)isABContactASuggestion;
 - (NSString *)getLocalizedCallerIdLabelForContact:(CNContact *)arg1 forCallerId:(NSString *)arg2 withCallerIdIsEmail:(_Bool)arg3;
 - (NSString *)getPersonsNameForContact:(CNContact *)arg1;
-- (NSDictionary *)getRecordId:(NSString *)arg1 isEmail:(_Bool)arg2;
+- (CNContact *)fetchFullCNContactForContactIdentifier:(NSString *)arg1 isEmail:(_Bool)arg2;
+- (NSDictionary *)getRecordId:(NSString *)arg1 countryCode:(NSString *)arg2 isEmail:(_Bool)arg3;
 @end
 

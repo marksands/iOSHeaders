@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class MRExternalDevice, MRExternalDeviceController;
+@class MRExternalDeviceController, MRTransportExternalDevice;
 
 @protocol MRExternalDeviceControllerDelegate <NSObject>
 
 @optional
-- (void)externalDeviceController:(MRExternalDeviceController *)arg1 didRemoveDevice:(MRExternalDevice *)arg2;
-- (void)externalDeviceController:(MRExternalDeviceController *)arg1 didDiscoverDevice:(MRExternalDevice *)arg2;
+- (void)externalDeviceController:(MRExternalDeviceController *)arg1 didRemoveDevice:(MRTransportExternalDevice *)arg2;
+- (void)externalDeviceController:(MRExternalDeviceController *)arg1 didDiscoverDevice:(MRTransportExternalDevice *)arg2;
 @end
 

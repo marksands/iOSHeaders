@@ -27,6 +27,7 @@
 - (void).cxx_destruct;
 - (void)notifyDelegateOfCancellation;
 - (void)_dismissWithBlock:(CDUnknownBlockType)arg1;
+- (void)setURLs:(id)arg1;
 - (void)filesExportedAtURLs:(id)arg1;
 - (void)cancelPresentation;
 - (void)dismissViewController;

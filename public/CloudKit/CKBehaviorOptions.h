@@ -28,6 +28,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *cachedPrefsQueue; // @synthesize cachedPrefsQueue=_cachedPrefsQueue;
 @property(retain, nonatomic) NSMutableDictionary *cachedPrefs; // @synthesize cachedPrefs=_cachedPrefs;
 - (void).cxx_destruct;
+- (double)minTTRPromptInterval;
 - (_Bool)sendKeyIDsOnAllRequests;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (double)shareAcceptorRetrievingDialogMinPeriod;
@@ -102,6 +103,8 @@
 - (id)primaryAccountPasswordOverride;
 - (void)setPrimaryAccountEmailOverride:(id)arg1;
 - (id)primaryAccountEmailOverride;
+- (void)setCustomMetricsServiceBaseURL:(id)arg1;
+- (id)customMetricsServiceBaseURL;
 - (void)setCustomCodeServiceBaseURL:(id)arg1;
 - (id)customCodeServiceBaseURL;
 - (void)setCustomDeviceServiceBaseURL:(id)arg1;

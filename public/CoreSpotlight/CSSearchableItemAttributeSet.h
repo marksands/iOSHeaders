@@ -435,7 +435,6 @@
 - (void)setThumbnailURL:(id)arg1;
 - (id)contentURL;
 - (void)setContentURL:(id)arg1;
-- (void)_updateDocumentInfoForContentURL:(id)arg1;
 - (id)weakRelatedUniqueIdentifier;
 - (void)setWeakRelatedUniqueIdentifier:(id)arg1;
 - (id)relatedUniqueIdentifier;

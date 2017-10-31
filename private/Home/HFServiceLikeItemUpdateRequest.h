@@ -22,11 +22,11 @@
 @property(retain, nonatomic) HMAccessory *accessory; // @synthesize accessory=_accessory;
 - (void).cxx_destruct;
 - (id)_standardResultsForReadResponse:(id)arg1 displayMetadata:(id)arg2 batteryLevelResults:(id)arg3 updateOptions:(id)arg4;
-- (id)_displayMetadataForReadRespnose:(id)arg1;
+- (id)_displayMetadataForReadResponse:(id)arg1;
 - (id)updateWithOptions:(id)arg1;
 - (id)init;
 - (id)initWithAccessory:(id)arg1 valueSource:(id)arg2 characteristics:(id)arg3;
-- (id)initWithService:(id)arg1 valueSource:(id)arg2 characteristicTypes:(id)arg3;
+- (id)initWithService:(id)arg1 valueSource:(id)arg2 characteristics:(id)arg3;
 
 @end
 

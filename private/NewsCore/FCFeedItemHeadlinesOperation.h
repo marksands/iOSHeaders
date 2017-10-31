@@ -10,11 +10,14 @@
 
 @interface FCFeedItemHeadlinesOperation : FCOperation
 {
+    _Bool _shouldFilterHeadlinesWithoutSourceChannels;
+    id <FCAppConfiguration> _appConfiguration;
     id <FCContentContext> _context;
     id <FCFeedPersonalizing> _personalizer;
     NSArray *_feedItems;
     CDUnknownBlockType _rapidUpdateRefreshTest;
     NSDictionary *_feedContextByFeedID;
+    NSDictionary *_feedIDsByArticleID;
     CDUnknownBlockType _headlinesCompletionHandler;
     CDUnknownBlockType _headlinesMapCompletionHandler;
     NSArray *_resultHeadlines;
@@ -25,11 +28,14 @@
 @property(retain, nonatomic) NSArray *resultHeadlines; // @synthesize resultHeadlines=_resultHeadlines;
 @property(copy, nonatomic) CDUnknownBlockType headlinesMapCompletionHandler; // @synthesize headlinesMapCompletionHandler=_headlinesMapCompletionHandler;
 @property(copy, nonatomic) CDUnknownBlockType headlinesCompletionHandler; // @synthesize headlinesCompletionHandler=_headlinesCompletionHandler;
+@property(copy, nonatomic) NSDictionary *feedIDsByArticleID; // @synthesize feedIDsByArticleID=_feedIDsByArticleID;
 @property(copy, nonatomic) NSDictionary *feedContextByFeedID; // @synthesize feedContextByFeedID=_feedContextByFeedID;
 @property(copy, nonatomic) CDUnknownBlockType rapidUpdateRefreshTest; // @synthesize rapidUpdateRefreshTest=_rapidUpdateRefreshTest;
+@property(nonatomic) _Bool shouldFilterHeadlinesWithoutSourceChannels; // @synthesize shouldFilterHeadlinesWithoutSourceChannels=_shouldFilterHeadlinesWithoutSourceChannels;
 @property(copy, nonatomic) NSArray *feedItems; // @synthesize feedItems=_feedItems;
 @property(retain, nonatomic) id <FCFeedPersonalizing> personalizer; // @synthesize personalizer=_personalizer;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
+@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;
 - (void)_fetchUnadornedHeadlinesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)operationWillFinishWithError:(id)arg1;

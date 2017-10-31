@@ -13,33 +13,27 @@
     NSMutableDictionary *_cache;
     NSMutableDictionary *_offsets;
     NSMutableSet *_requests;
-    void *_context;
     void *_playerPath;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
 - (id)description;
-- (void)_invalidate;
+- (void)_onQueue_invalidate;
 - (_Bool)augmentCommandOptions:(id)arg1 forCommand:(unsigned int)arg2;
-- (void)invalidateWithContext:(void *)arg1;
 - (void)invalidate;
 - (id)subscribedContentItemsIdentifiers:(id)arg1 forRequest:(void *)arg2;
 - (id)subscribedContentItems:(id)arg1 forRequest:(void *)arg2;
 - (id)subscribedContentItemRequests:(id)arg1;
 - (id)subscribedContentItems:(id)arg1;
-- (void)addPlaybackQueue:(void *)arg1 forRequest:(void *)arg2;
+- (void)subscribeToPlaybackQueue:(void *)arg1 forRequest:(void *)arg2;
 - (void *)requestForContentItem:(void *)arg1;
-- (id)offsetForQueueIdentifier:(void *)arg1;
-- (long long)offsetForContentItem:(void *)arg1;
-- (id)offsetsForContentItem:(void *)arg1;
+- (id)offsetForIdentifier:(id)arg1;
 - (void *)contentItemForOffset:(long long)arg1;
 - (void *)nowPlayingItem;
 - (void *)requestForIdentifer:(id)arg1;
 - (_Bool)hasRequest:(id)arg1;
 - (void)removeRequest:(id)arg1;
 - (void)addRequest:(void *)arg1;
-@property(nonatomic) void *context;
-- (void)_OnQueue_setContext:(void *)arg1;
 @property(readonly, nonatomic) NSDictionary *lookup;
 @property(readonly, nonatomic) void *playerPath;
 - (id)_onQueue_writeData;

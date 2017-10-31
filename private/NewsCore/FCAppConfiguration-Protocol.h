@@ -4,10 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+#import "NFCopying.h"
+
 @class FCCoverArticlesConfiguration, FCForYouGroupsConfiguration, FCIAdConfiguration, FCNotificationsConfiguration, FCPersonalizationTreatment, FCPrefetchConfiguration, FCTopStoriesConfiguration, NSArray, NSDictionary, NSNumber, NSString, NTPBTodayConfig;
 
-@protocol FCAppConfiguration
-@property(readonly, nonatomic, getter=isArticleSearchEnabled) _Bool articleSearchEnabled;
+@protocol FCAppConfiguration <NFCopying>
+@property(readonly, nonatomic) _Bool diversifyOptionalTopStories;
+@property(readonly, nonatomic) unsigned long long trendingStyle;
+@property(readonly, nonatomic) long long minimumDurationBetweenTrendingGroupsWeekend;
+@property(readonly, nonatomic) long long minimumDurationBetweenTrendingGroupsWeekday;
+@property(readonly, nonatomic) long long minimumDurationBetweenForYouGroupsWeekend;
+@property(readonly, nonatomic) long long minimumDurationBetweenForYouGroupsWeekday;
+@property(readonly, nonatomic) double minimumTrendingUnseenRatio;
 @property(readonly, copy, nonatomic) NSArray *topStoriesPublishDates;
 @property(readonly, nonatomic) _Bool terminateAppOnBackgroundAfterJoiningOrLeavingExperiment;
 @property(readonly, nonatomic) long long autoRefreshMinimumInterval;
@@ -24,7 +32,6 @@
 @property(readonly, nonatomic, getter=isPrivateDataEncryptionMigrationDesired) _Bool privateDataEncryptionMigrationDesired;
 @property(readonly, nonatomic, getter=isPrivateDataEncryptionAllowed) _Bool privateDataEncryptionAllowed;
 @property(readonly, nonatomic) NSString *personalizationFavorabilityResourceId;
-@property(readonly, nonatomic) NSString *personalizationPortraitConfigResourceId;
 @property(readonly, nonatomic) NSString *personalizationWhitelistResourceId;
 @property(readonly, nonatomic) NSString *personalizationUrlMappingResourceId;
 @property(readonly, nonatomic) NSString *personalizationBundleIdMappingResourceId;
@@ -66,7 +73,6 @@
 @property(readonly, nonatomic) long long subscriptionsPlacardPublisherFrequencyInSeconds;
 @property(readonly, nonatomic) long long subscriptionsGlobalMeteredCount;
 @property(readonly, nonatomic) long long articleRapidUpdatesTimeout;
-@property(readonly, nonatomic) NSArray *trendingTopics;
 @property(readonly, nonatomic) long long trendingTopicsRefreshRate;
 @property(readonly, nonatomic) long long appConfigRefreshRate;
 @property(readonly, nonatomic) NSString *breakingNewsChannelID;
@@ -84,9 +90,6 @@
 @property(readonly, nonatomic) NSDictionary *endpointConfigsByEnvironment;
 @property(readonly, nonatomic) double prerollLoadingTimeout;
 @property(readonly, nonatomic) double interstitialAdLoadDelay;
-@property(readonly, nonatomic) long long numberOfScreenfulsScrolledToBypassWidgetTimeLimit;
-@property(readonly, nonatomic) long long timeBetweenSameWidgetReinsertion;
-@property(readonly, nonatomic) long long timeBetweenWidgetInsertions;
 @property(readonly, nonatomic) long long autoScrollToTopFeedTimeout;
 @property(readonly, nonatomic) NSArray *recommendedCategories;
 @property(readonly, nonatomic) NSArray *topLevelRecommendedChannelTagIDs;
@@ -96,9 +99,7 @@
 @property(readonly, nonatomic) NSArray *onboardingFeedIDs;
 @property(readonly, nonatomic) NSArray *hiddenFeedIDs;
 @property(readonly, nonatomic) NSNumber *currentTreatment;
-@property(readonly, nonatomic) NSNumber *currentModdedBucketID;
 @property(readonly, nonatomic) NSString *experimentalizableFieldPostfix;
-@property(readonly, nonatomic) NSArray *availableExperiments;
 - (FCPersonalizationTreatment *)personalizationTreatmentForFeldsparID:(NSString *)arg1;
 - (NTPBTodayConfig *)todayConfigWithQueueConfigs:(NSArray *)arg1 maxSlotCount:(unsigned long long)arg2;
 - (NSDictionary *)analyticsEnvelopeContentTypeConfigsForEnvironment:(unsigned long long)arg1;

@@ -20,6 +20,7 @@
     _Bool _hasReceivedUserInteractionEvent;
     _Bool _isRemoteServerLikelyReachable;
     _Bool _isServerReachable;
+    NSString *_lastKnownHouseholdID;
     int _leaseDidEndNotificationToken;
     NSOperationQueue *_leaseSessionPreparationOperationQueue;
 }
@@ -29,6 +30,8 @@
 - (void)_handlePlaybackLeaseDidEndPushNotification;
 - (void)receivedUserInteractionEvent;
 - (void)getLeaseSessionWithRequestContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)getLastKnownHouseholdIDWithCompletion:(CDUnknownBlockType)arg1;
+- (void)musicLeaseSession:(id)arg1 requestsFairPlayKeyStatusUpdateWithCompletion:(CDUnknownBlockType)arg2;
 - (void)musicLeaseSession:(id)arg1 didFinishPlaybackRequest:(id)arg2 withPlaybackResponse:(id)arg3 responseError:(id)arg4 updatedFairPlayKeyStatusList:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (void)environmentMonitorDidChangeNetworkReachability:(id)arg1;
 - (void)dealloc;

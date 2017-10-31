@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (void)setContentScaleFactor:(double)arg1;
 - (_Bool)_shouldInheritScreenScaleAsContentScaleFactor;
 
 @end

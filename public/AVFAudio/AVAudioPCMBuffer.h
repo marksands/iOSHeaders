@@ -16,6 +16,9 @@
 - (id)calculatePower:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSArray *peakPowerPerChannel;
 @property(readonly, nonatomic) NSArray *averagePowerPerChannel;
+- (id)splitIntoSingleChannelBuffers;
+- (_Bool)appendDataFromBuffer:(id)arg1 channel:(long long)arg2;
+- (_Bool)appendDataFromBuffer:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) short **int16ChannelData;

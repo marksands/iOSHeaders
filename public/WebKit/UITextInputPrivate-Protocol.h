@@ -8,7 +8,7 @@
 #import "UITextInputTokenizer.h"
 #import "UITextInputTraits_Private.h"
 
-@class NSArray, NSAttributedString, NSString, UIColor, UIDictationSerializableResults, UIFont, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UITextSuggestion, UIView, WebEvent;
+@class NSArray, NSAttributedString, NSDictionary, NSString, UIColor, UIDictationSerializableResults, UIFont, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UITextSuggestion, UIView, WebEvent;
 
 @protocol UITextInputPrivate <UITextInput, UITextInputTokenizer, UITextInputTraits_Private>
 @property(readonly, nonatomic) UITextInteractionAssistant *interactionAssistant;
@@ -32,6 +32,7 @@
 - (void)replaceRangeWithTextWithoutClosingTyping:(UITextRange *)arg1 replacementText:(NSString *)arg2;
 - (_Bool)_shouldRepeatInsertText:(NSString *)arg1;
 - (double)_delayUntilRepeatInsertText:(NSString *)arg1;
+- (NSDictionary *)_autofillContext;
 - (_Bool)isAutoFillMode;
 - (void)acceptedAutoFillWord:(NSString *)arg1;
 - (void)insertTextSuggestion:(UITextSuggestion *)arg1;

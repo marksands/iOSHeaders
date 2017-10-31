@@ -71,7 +71,7 @@ __attribute__((visibility("hidden")))
 - (void)modelDidChange:(id)arg1;
 - (_Bool)supportsIncrementalChangeNotifications;
 - (void)_updateBackdropGroupNameForHeaderView:(id)arg1;
-- (_Bool)configureSupplementaryView:(id)arg1 ofKind:(id)arg2 forIndexPath:(id)arg3 animated:(_Bool)arg4;
+- (_Bool)configureSupplementaryView:(id)arg1 ofKind:(id)arg2 forIndexPath:(id)arg3;
 @property(readonly, nonatomic) double itemContentScale;
 - (_Bool)configureGridCell:(id)arg1 forIndexPath:(id)arg2;
 - (void)registerReusableViewClassesForCollectionView:(id)arg1;

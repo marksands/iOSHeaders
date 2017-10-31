@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSTimer;
+@class NSInvocation, NSTimer;
 
 __attribute__((visibility("hidden")))
 @interface PDFTimerPrivate : NSObject
 {
     NSObject *target;
-    SEL selector;
+    NSInvocation *methodInvocation;
     NSTimer *timer;
     double timeInterval;
     _Bool isRequested;

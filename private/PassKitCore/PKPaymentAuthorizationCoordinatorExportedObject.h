@@ -33,6 +33,7 @@
 - (void)authorizationDidFinishWithError:(id)arg1;
 - (void)authorizationDidRequestMerchantSession;
 - (void)authorizationWillStart;
+- (void)didEncounterAuthorizationEvent:(unsigned long long)arg1;
 - (void)authorizationDidPresent;
 - (void)dealloc;
 - (id)initWithController:(id)arg1;

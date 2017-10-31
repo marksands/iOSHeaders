@@ -15,8 +15,7 @@
 {
 }
 
-+ (_Bool)_isValidCertificateTrust:(struct __SecTrust *)arg1 forPinningPolicy:(struct __SecPolicy *)arg2;
-+ (_Bool)isValidCertificateTrust:(struct __SecTrust *)arg1 forSetupServiceHost:(id)arg2;
++ (_Bool)isValidCertificateTrust:(struct __SecTrust *)arg1;
 + (_Bool)isSetupServiceHost:(id)arg1;
 + (id)sharedPinner;
 - (void)URLSession:(id)arg1 didReceiveChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

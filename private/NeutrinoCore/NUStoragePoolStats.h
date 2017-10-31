@@ -20,6 +20,7 @@
     long long _volatileCount;
     long long _volatileBytes;
     long long _peakVolatileBytes;
+    long long _discardedCount;
     long long _migrationCount;
     long long _migrationBytes;
     long long _purgedCount;
@@ -36,6 +37,7 @@
 @property(nonatomic) long long purgedCount; // @synthesize purgedCount=_purgedCount;
 @property(nonatomic) long long migrationBytes; // @synthesize migrationBytes=_migrationBytes;
 @property(nonatomic) long long migrationCount; // @synthesize migrationCount=_migrationCount;
+@property(nonatomic) long long discardedCount; // @synthesize discardedCount=_discardedCount;
 @property(readonly, nonatomic) long long peakVolatileBytes; // @synthesize peakVolatileBytes=_peakVolatileBytes;
 @property(nonatomic) long long volatileBytes; // @synthesize volatileBytes=_volatileBytes;
 @property(nonatomic) long long volatileCount; // @synthesize volatileCount=_volatileCount;

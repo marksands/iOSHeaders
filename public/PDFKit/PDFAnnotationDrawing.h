@@ -20,8 +20,8 @@ __attribute__((visibility("hidden")))
 + (id)stringByTrimmingTrailingCharactersInSet:(id)arg1 forString:(id)arg2;
 + (void)drawWithBox:(long long)arg1 inContext:(struct CGContext *)arg2 withTextWidgetAnnotation:(id)arg3;
 + (void)drawDisclosureBox:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
-+ (void)drawComboBox:(struct CGRect)arg1 inContext:(struct CGContext *)arg2 withAnnotation:(id)arg3 withStringValue:(id)arg4 withFont:(id)arg5 withFontColor:(id)arg6 withRotation:(long long)arg7;
-+ (void)drawListBox:(struct CGRect)arg1 inContext:(struct CGContext *)arg2 withAnnotation:(id)arg3 withOptions:(id)arg4 withStringValue:(id)arg5 withFont:(id)arg6 withFontColor:(id)arg7 withRotation:(long long)arg8;
++ (void)drawComboBox:(struct CGRect)arg1 inContext:(struct CGContext *)arg2 withAnnotation:(id)arg3 withStringValue:(id)arg4 withFont:(id)arg5 withFontColor:(id)arg6;
++ (void)drawListBox:(struct CGRect)arg1 inContext:(struct CGContext *)arg2 withAnnotation:(id)arg3 withOptions:(id)arg4 withStringValue:(id)arg5 withFont:(id)arg6 withFontColor:(id)arg7;
 + (void)drawWithBox:(long long)arg1 inContext:(struct CGContext *)arg2 withChoiceWidgetAnnotation:(id)arg3;
 + (void)drawCheckBox:(id)arg1 inContext:(struct CGContext *)arg2 withState:(long long)arg3 withBackgroundColor:(id)arg4 withBorderColor:(id)arg5 withFontColor:(id)arg6 isHighlighted:(_Bool)arg7;
 + (void)drawRadioButton:(id)arg1 inContext:(struct CGContext *)arg2 withState:(long long)arg3 withBackgroundColor:(id)arg4 withBorderColor:(id)arg5 withFontColor:(id)arg6 isHighlighted:(_Bool)arg7;

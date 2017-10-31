@@ -11,7 +11,6 @@
 @interface ICMusicSubscriptionAccountlessPlaybackRequest : NSObject
 {
     NSString *_assetSourceStorefrontID;
-    NSString *_householdID;
     ICStoreRequestContext *_requestContext;
     long long _qualityOfService;
     long long _storeSubscriptionAdamID;
@@ -20,7 +19,6 @@
 @property(readonly, nonatomic) long long storeSubscriptionAdamID; // @synthesize storeSubscriptionAdamID=_storeSubscriptionAdamID;
 @property(nonatomic) long long qualityOfService; // @synthesize qualityOfService=_qualityOfService;
 @property(readonly, copy, nonatomic) ICStoreRequestContext *requestContext; // @synthesize requestContext=_requestContext;
-@property(copy, nonatomic) NSString *householdID; // @synthesize householdID=_householdID;
 @property(copy, nonatomic) NSString *assetSourceStorefrontID; // @synthesize assetSourceStorefrontID=_assetSourceStorefrontID;
 - (void).cxx_destruct;
 - (id)performWithResponseHandler:(CDUnknownBlockType)arg1;

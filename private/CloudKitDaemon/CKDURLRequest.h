@@ -11,7 +11,7 @@
 #import "CKDProtobufMessageSigningDelegate.h"
 #import "CKDZoneGatekeeperWaiter.h"
 
-@class C2RequestOptions, CKDClientContext, CKDOperation, CKDOperationMetrics, CKDProtobufStreamWriter, CKDProtocolTranslator, CKDResponseBodyParser, CKDTrafficLogger, CKTimeLogger, NSArray, NSData, NSDate, NSDictionary, NSError, NSHTTPURLResponse, NSInputStream, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNumber, NSObject<OS_dispatch_queue>, NSObject<OS_os_activity>, NSObject<OS_voucher>, NSString, NSURL, NSURLRequest, NSURLSession, NSURLSessionDataTask;
+@class C2RequestOptions, CKDClientContext, CKDOperation, CKDOperationMetrics, CKDProtobufStreamWriter, CKDProtocolTranslator, CKDResponseBodyParser, CKDTapToRadarRequest, CKDTrafficLogger, CKTimeLogger, NSArray, NSData, NSDate, NSDictionary, NSError, NSHTTPURLResponse, NSInputStream, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNumber, NSObject<OS_dispatch_queue>, NSObject<OS_os_activity>, NSObject<OS_voucher>, NSString, NSURL, NSURLRequest, NSURLSession, NSURLSessionDataTask;
 
 __attribute__((visibility("hidden")))
 @interface CKDURLRequest : NSObject <C2RequestDelegate, CKDZoneGatekeeperWaiter, CKDProtobufMessageSigningDelegate, CKDFlowControllable>
@@ -72,6 +72,7 @@ __attribute__((visibility("hidden")))
     NSString *_cloudKitAuthToken;
     NSString *_iCloudAuthToken;
     NSString *_serverProvidedAutoBugCaptureReason;
+    CKDTapToRadarRequest *_serverProvidedTapToRadarRequest;
     NSMutableDictionary *_countsByRequestOperationType;
     NSMutableDictionary *_overriddenHeaders;
     NSMutableArray *_redirectHistory;
@@ -80,6 +81,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *redirectHistory; // @synthesize redirectHistory=_redirectHistory;
 @property(retain, nonatomic) NSMutableDictionary *overriddenHeaders; // @synthesize overriddenHeaders=_overriddenHeaders;
 @property(retain, nonatomic) NSMutableDictionary *countsByRequestOperationType; // @synthesize countsByRequestOperationType=_countsByRequestOperationType;
+@property(retain, nonatomic) CKDTapToRadarRequest *serverProvidedTapToRadarRequest; // @synthesize serverProvidedTapToRadarRequest=_serverProvidedTapToRadarRequest;
 @property(copy, nonatomic) NSString *serverProvidedAutoBugCaptureReason; // @synthesize serverProvidedAutoBugCaptureReason=_serverProvidedAutoBugCaptureReason;
 @property(nonatomic) _Bool didReceiveResponseBodyData; // @synthesize didReceiveResponseBodyData=_didReceiveResponseBodyData;
 @property(retain, nonatomic) NSString *iCloudAuthToken; // @synthesize iCloudAuthToken=_iCloudAuthToken;

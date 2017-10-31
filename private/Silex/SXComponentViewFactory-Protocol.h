@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "SXComponentTypeDescribing.h"
 
 @class SXComponent, SXComponentView;
 
-@protocol SXComponentViewFactory <NSObject>
+@protocol SXComponentViewFactory <SXComponentTypeDescribing>
 - (SXComponentView *)componentViewForComponent:(SXComponent *)arg1;
 @end
 

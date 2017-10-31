@@ -6,19 +6,17 @@
 
 #import <Silex/SXFillView.h>
 
-@class SXAnimatedImage, SXClippingView, SXContext, SXImageFill, SXImageResource, SXImageView, UIImage;
+@class SXAnimatedImage, SXClippingView, SXImageFill, SXImageResource, SXImageView, UIImage;
 
 @interface SXImageFillView : SXFillView
 {
     SXClippingView *_clippingView;
     SXImageFill *_imageFill;
     SXImageResource *_imageResource;
-    SXContext *_context;
     SXImageView *_imageView;
 }
 
 @property(readonly, nonatomic) SXImageView *imageView; // @synthesize imageView=_imageView;
-@property(readonly, nonatomic) SXContext *context; // @synthesize context=_context;
 @property(readonly, nonatomic) SXImageResource *imageResource; // @synthesize imageResource=_imageResource;
 @property(readonly, nonatomic) SXImageFill *imageFill; // @synthesize imageFill=_imageFill;
 @property(retain, nonatomic) SXClippingView *clippingView; // @synthesize clippingView=_clippingView;
@@ -33,7 +31,7 @@
 - (struct CGRect)fillFrameWithBoundingSize:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithImageFill:(id)arg1 imageResource:(id)arg2 context:(id)arg3;
+- (id)initWithImageFill:(id)arg1 imageResource:(id)arg2 imageViewFactory:(id)arg3;
 
 @end
 

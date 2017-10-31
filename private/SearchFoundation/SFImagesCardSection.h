@@ -14,10 +14,11 @@
 
 @interface SFImagesCardSection : SFCardSection <SFImagesCardSection, NSSecureCoding, NSCopying>
 {
-    CDStruct_5ff9a38c _has;
+    CDStruct_9c7542df _has;
     _Bool _canBeHidden;
     _Bool _hasTopPadding;
     _Bool _hasBottomPadding;
+    _Bool _borderless;
     int _separatorStyle;
     NSArray *_punchoutOptions;
     NSString *_punchoutPickerTitle;
@@ -28,6 +29,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool borderless; // @synthesize borderless=_borderless;
 @property(copy, nonatomic) NSArray *images; // @synthesize images=_images;
 @property(retain, nonatomic) SFColor *backgroundColor;
 @property(nonatomic) int separatorStyle;
@@ -44,6 +46,7 @@
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)hasBorderless;
 - (_Bool)hasSeparatorStyle;
 - (_Bool)hasHasBottomPadding;
 - (_Bool)hasHasTopPadding;

@@ -6,36 +6,39 @@
 
 #import <MediaPlayer/MPContentItem.h>
 
+#import "NSCopying.h"
+
 @class MPMediaItemArtwork, MPNowPlayingInfoLyricsItem, NSArray, NSDate, NSDictionary, NSString;
 
-@interface MPNowPlayingContentItem : MPContentItem
+@interface MPNowPlayingContentItem : MPContentItem <NSCopying>
 {
     NSDictionary *_nowPlayingInfo;
-    void *_mediaRemoteDeltaRequest;
-    id <MPNowPlayingContentItemLanguageOptionDataSource> _languageOptionDataSource;
     id <MPNowPlayingContentItemLyricsDataSource> _lyricsDataSource;
     id <MPNowPlayingContentItemDescriptionDataSource> _descriptionDataSource;
     id <MPNowPlayingContentItemArtworkDataSource> _artworkDataSource;
 }
 
 + (_Bool)shouldPushArtworkData;
-@property(nonatomic) __weak id <MPNowPlayingContentItemArtworkDataSource> artworkDataSource; // @synthesize artworkDataSource=_artworkDataSource;
+@property(retain, nonatomic) id <MPNowPlayingContentItemArtworkDataSource> artworkDataSource; // @synthesize artworkDataSource=_artworkDataSource;
 @property(nonatomic) __weak id <MPNowPlayingContentItemDescriptionDataSource> descriptionDataSource; // @synthesize descriptionDataSource=_descriptionDataSource;
 @property(nonatomic) __weak id <MPNowPlayingContentItemLyricsDataSource> lyricsDataSource; // @synthesize lyricsDataSource=_lyricsDataSource;
-@property(nonatomic) __weak id <MPNowPlayingContentItemLanguageOptionDataSource> languageOptionDataSource; // @synthesize languageOptionDataSource=_languageOptionDataSource;
-@property(nonatomic) void *_mediaRemoteDeltaRequest; // @synthesize _mediaRemoteDeltaRequest;
 - (void).cxx_destruct;
 @property(nonatomic, getter=isExplicitItem) _Bool explicitItem;
+- (void)_mergeContentItem:(id)arg1;
 - (void)invalidateArtwork;
 @property(retain, nonatomic) MPMediaItemArtwork *artwork; // @dynamic artwork;
+@property(nonatomic) _Bool hasArtwork;
 - (void)invalidateLyrics;
 @property(copy, nonatomic) MPNowPlayingInfoLyricsItem *lyrics;
+@property(nonatomic) _Bool hasLyrics;
 - (void)invalidateDescription;
+@property(nonatomic) _Bool hasDescription;
 @property(copy, nonatomic) NSArray *sections;
 - (void)invalidateLanguageOptions;
 @property(copy, nonatomic) NSArray *currentLanguageOptions;
 @property(copy, nonatomic) NSArray *availableLanguageOptions;
-- (void)setElapsedTime:(double)arg1 playbackRate:(double)arg2;
+@property(nonatomic) _Bool hasLanguageOptions;
+- (void)setElapsedTime:(double)arg1 playbackRate:(float)arg2;
 @property(copy, nonatomic) NSDictionary *nowPlayingInfo;
 @property(readonly, nonatomic) NSDictionary *auxiliaryNowPlayingInfo;
 @property(nonatomic) unsigned long long mediaType;
@@ -50,7 +53,7 @@
 @property(nonatomic) long long storeID;
 @property(nonatomic) long long storeArtistID;
 @property(nonatomic) long long storeAlbumID;
-@property(nonatomic) unsigned long long numberOfChildren;
+@property(nonatomic) long long numberOfChildren;
 @property(nonatomic, getter=isSteerable) _Bool steerable;
 @property(nonatomic, getter=isSharableItem) _Bool sharableItem;
 @property(nonatomic, getter=isAlwaysLiveItem) _Bool alwaysLiveItem;
@@ -69,10 +72,11 @@
 @property(nonatomic) double startTime;
 @property(nonatomic) double duration;
 @property(copy, nonatomic) NSString *artworkIdentifier;
+@property(copy, nonatomic) NSArray *artworkURLTemplates;
+@property(copy, nonatomic) NSString *artworkURL;
 @property(copy, nonatomic) NSString *trackArtistName;
 @property(copy, nonatomic) NSString *seriesName;
 @property(copy, nonatomic) NSString *radioStationName;
-@property(copy, nonatomic) NSString *queueIdentifier;
 @property(copy, nonatomic) NSString *profileIdentifier;
 @property(copy, nonatomic) NSString *localizedContentRating;
 @property(copy, nonatomic) NSString *info;
@@ -83,9 +87,7 @@
 @property(copy, nonatomic) NSDictionary *userInfo;
 @property(copy, nonatomic) NSDictionary *deviceSpecificUserInfo;
 @property(copy, nonatomic) NSDate *releaseDate;
-- (id)_changeDictionary;
-- (void)dealloc;
-- (id)initWithIdentifier:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

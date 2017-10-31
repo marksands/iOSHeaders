@@ -18,8 +18,10 @@
     NSNumber *_distance;
     NSDictionary *_distances;
     NSDictionary *_distancesById;
+    NSArray *_clusterCacheFileNames;
 }
 
+@property(retain) NSArray *clusterCacheFileNames; // @synthesize clusterCacheFileNames=_clusterCacheFileNames;
 @property(retain) NSDictionary *distancesById; // @synthesize distancesById=_distancesById;
 @property(retain) NSDictionary *distances; // @synthesize distances=_distances;
 @property(retain) NSNumber *distance; // @synthesize distance=_distance;

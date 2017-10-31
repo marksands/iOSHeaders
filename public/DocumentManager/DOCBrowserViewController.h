@@ -73,7 +73,7 @@
 - (void)didCommitPreviewOfDocument:(id)arg1;
 - (void)didPickItem:(id)arg1;
 - (void)showInfoForItem:(id)arg1;
-- (void)createNewFolder;
+- (void)createNewFolderWithMaxThumbnailSize:(struct CGSize)arg1;
 - (void)createNewFile;
 - (void)_updateHostProvidedActions;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;

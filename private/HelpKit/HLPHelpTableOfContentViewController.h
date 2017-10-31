@@ -14,7 +14,6 @@
 
 @interface HLPHelpTableOfContentViewController : UITableViewController <UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate>
 {
-    _Bool _searching;
     UILabel *_copyrightFooterLabel;
     UIButton *_footerViewOverlayButton;
     NSMutableArray *_openSections;
@@ -42,7 +41,6 @@
 @property(nonatomic) __weak id <HLPHelpTableOfContentViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)updateSearchResultsForSearchController:(id)arg1;
-- (void)searchBarSearchButtonClicked:(id)arg1;
 - (void)willDismissSearchController:(id)arg1;
 - (void)willPresentSearchController:(id)arg1;
 - (void)closeSectionItem:(id)arg1;

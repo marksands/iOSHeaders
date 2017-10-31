@@ -44,6 +44,7 @@
 @property struct CGSize shadowOffset;
 @property struct CGColor *shadowColor;
 @property float shadowOpacity;
+@property(copy) NSString *contentsSwizzle;
 @property struct CGColor *contentsMultiplyColor;
 @property double cornerRadius;
 @property double borderWidth;
@@ -128,6 +129,8 @@
 @property(copy) NSString *contentsScaling;
 @property(copy) NSString *contentsGravity;
 @property(copy) NSString *contentsFormat;
+- (void)setDisableUpdateMask:(unsigned int)arg1;
+- (unsigned int)disableUpdateMask;
 @property unsigned int edgeAntialiasingMask;
 @property(retain) id contents;
 - (_Bool)containsPoint:(struct CGPoint)arg1;

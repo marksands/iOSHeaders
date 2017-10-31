@@ -7,6 +7,7 @@
 #import "NSObject.h"
 
 @interface NSObject (Intents)
+- (SEL)_intents_setterForPropertyWithName:(id)arg1;
 - (id)descriptionAtIndent:(unsigned long long)arg1;
 @end
 

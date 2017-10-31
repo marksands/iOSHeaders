@@ -100,7 +100,6 @@
 - (id)_modelPlaybackPosition;
 - (id)_isPrivateListeningEnabled;
 - (void)_invalidateContentItem;
-- (id)_householdID;
 - (void)_updateHasBeenPlayedWithElapsedTime:(double)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handlePlaybackFinishedTime:(double)arg1 didFinishByHittingEnd:(_Bool)arg2;
 - (void)_getUnverifiedSubscriptionLeaseSessionWithCompletion:(CDUnknownBlockType)arg1;
@@ -109,6 +108,7 @@
 - (void)_applyPreferredPeakBitRateToPlayerItem:(id)arg1 withItemType:(long long)arg2;
 - (void)_applyLoudnessInfo;
 - (_Bool)_allowsStreamingPlayback;
+- (_Bool)_allowsAssetCaching;
 - (void)_timedMetadataResponseDidInvalidateNotification:(id)arg1;
 - (void)_suzeLeaseSessionRenewDidFailNotification:(id)arg1;
 - (void)_subscriptionLeaseStatusDidChangeNotification:(id)arg1;
@@ -132,7 +132,6 @@
 - (id)mpcReporting_jingleTimedMetadata;
 - (id)mpcReporting_identityPropertiesLoader;
 - (unsigned long long)mpcReporting_itemType;
-- (id)mpcReporting_householdID;
 - (long long)mpcReporting_equivalencySourceAdamID;
 - (CDUnknownBlockType)artworkCatalogBlock;
 - (void)_willResignActivePlayerItem;
@@ -146,6 +145,7 @@
 - (void)setPlaybackCheckpointCurrentTime:(double)arg1;
 - (void)resolvePlaybackError:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (_Bool)requiresLoadedAssetForAirPlayProperties;
+- (id)bookmarkTime;
 - (_Bool)allowsExternalPlayback;
 - (_Bool)allowsAirPlayFromCloud;
 - (float)userRating;

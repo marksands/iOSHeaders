@@ -6,15 +6,15 @@
 
 #import "NSObject.h"
 
-@class FCMutexLock;
+@class NFMutexLock;
 
 @interface FCOnceOperation : NSObject
 {
     _Bool _finished;
-    FCMutexLock *_lock;
+    NFMutexLock *_lock;
 }
 
-@property(retain, nonatomic) FCMutexLock *lock; // @synthesize lock=_lock;
+@property(retain, nonatomic) NFMutexLock *lock; // @synthesize lock=_lock;
 @property(nonatomic) _Bool finished; // @synthesize finished=_finished;
 - (void).cxx_destruct;
 - (void)executeOnce:(CDUnknownBlockType)arg1;

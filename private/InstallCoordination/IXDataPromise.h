@@ -33,6 +33,7 @@
 - (_Bool)cancelForReason:(id)arg1 error:(id *)arg2;
 - (void)cancelForReason:(id)arg1 client:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)cancelForReason:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)initWithName:(id)arg1 client:(unsigned long long)arg2 diskSpaceNeeded:(unsigned long long)arg3;

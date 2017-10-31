@@ -13,6 +13,7 @@
     int _cellToOutputNeuronType;
     float _cellToOutputNeuronParamA;
     float _cellToOutputNeuronParamB;
+    float _cellToOutputNeuronParamC;
     float _cellClipThreshold;
     id <MPSCNNConvolutionDataSource> _inputGateInputWeights;
     id <MPSCNNConvolutionDataSource> _inputGateRecurrentWeights;
@@ -31,6 +32,7 @@
 + (id)createLSTMDescriptorWithInputFeatureChannels:(unsigned long long)arg1 outputFeatureChannels:(unsigned long long)arg2;
 @property(nonatomic) _Bool coupleForgetGateToInputGate; // @synthesize coupleForgetGateToInputGate=_coupleForgetGateToInputGate;
 @property(nonatomic) float cellClipThreshold; // @synthesize cellClipThreshold=_cellClipThreshold;
+@property(nonatomic) float cellToOutputNeuronParamC; // @synthesize cellToOutputNeuronParamC=_cellToOutputNeuronParamC;
 @property(nonatomic) float cellToOutputNeuronParamB; // @synthesize cellToOutputNeuronParamB=_cellToOutputNeuronParamB;
 @property(nonatomic) float cellToOutputNeuronParamA; // @synthesize cellToOutputNeuronParamA=_cellToOutputNeuronParamA;
 @property(nonatomic) int cellToOutputNeuronType; // @synthesize cellToOutputNeuronType=_cellToOutputNeuronType;

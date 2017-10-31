@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) id <SXFontAttributes> fontAttributes; // @synthesize fontAttributes=_fontAttributes;
 @property(readonly, nonatomic) NSString *fontName; // @synthesize fontName=_fontName;
 - (void).cxx_destruct;
+@property(readonly, copy) NSString *description;
 - (long long)fontStyleForValue:(id)arg1;
 - (long long)fontWeightForValue:(id)arg1;
 - (long long)fontWidthForValue:(id)arg1;
@@ -27,7 +28,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

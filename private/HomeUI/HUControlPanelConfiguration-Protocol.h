@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class HFControlItem, HFControlPanelItem, HFValueTransformer, HUControlPanelCell;
+@class HFControlItem, HFControlPanelItem, HFServiceItem, HFValueTransformer, HUControlPanelCell, NSString;
 
 @protocol HUControlPanelConfiguration <NSObject>
 @property(readonly, nonatomic) Class cellClass;
@@ -14,6 +14,9 @@
 - (void)setupControlsForCell:(HUControlPanelCell *)arg1 item:(HFControlPanelItem *)arg2;
 
 @optional
+- (NSString *)sectionFooterForItem:(HFControlPanelItem *)arg1 forSourceItem:(HFServiceItem *)arg2;
+- (NSString *)sectionTitleForItem:(HFControlPanelItem *)arg1 forSourceItem:(HFServiceItem *)arg2;
+- (_Bool)shouldShowSectionFooterForItem:(HFControlPanelItem *)arg1;
 - (_Bool)shouldShowSectionTitleForItem:(HFControlPanelItem *)arg1;
 - (HFValueTransformer *)valueTransformerForControlItem:(HFControlItem *)arg1;
 @end

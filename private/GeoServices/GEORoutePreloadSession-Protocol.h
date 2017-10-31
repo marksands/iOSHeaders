@@ -18,6 +18,7 @@
 - (void)getPreloadSetCoordinates:(CDStruct_c3b9c2ee *)arg1 maxLength:(unsigned long long)arg2 actualLength:(unsigned long long *)arg3;
 - (int)preloadStateForTile:(const struct _GEOTileKey *)arg1;
 - (void)addTileSetStyle:(int)arg1 betweenZoom:(unsigned int)arg2 andZoom:(unsigned int)arg3;
+- (void)tearDown;
 - (void)start;
 - (void)stop;
 - (void)stopLoading;

@@ -11,6 +11,9 @@
 @protocol SFFlightLeg <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+@property(copy, nonatomic) NSDate *arrivalRunwayTime;
+@property(copy, nonatomic) NSDate *departureRunwayTime;
+@property(copy, nonatomic) NSDate *departureGateClosedTime;
 @property(copy, nonatomic) NSString *baggageClaim;
 @property(copy, nonatomic) NSString *title;
 @property(retain, nonatomic) SFAirport *divertedAirport;

@@ -88,6 +88,7 @@
 @property(readonly, nonatomic) MKMapItemMetadata *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) _Bool isCurrentLocation; // @synthesize isCurrentLocation=_isCurrentLocation;
 - (void).cxx_destruct;
+@property(readonly, nonatomic, getter=_hasCorrectedHomeWorkAddress) _Bool hasCorrectedHomeWorkAddress;
 @property(readonly, nonatomic, getter=_hasCorrectedHomeWorkCoordinate) _Bool hasCorrectedHomeWorkCoordinate;
 @property(readonly, nonatomic, getter=_externalTransitStationCode) NSData *externalTransitStationCode;
 @property(readonly, nonatomic, getter=_detourInfo) GEOMapItemDetourInfo *detourInfo;

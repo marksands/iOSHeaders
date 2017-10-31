@@ -26,11 +26,12 @@
     NSString *_albumArtistName;
     NSString *_albumName;
     NSData *_appMetricsData;
-    int _artworkDataHeight;
-    int _artworkDataWidth;
+    int _artworkDataHeightDeprecated;
+    int _artworkDataWidthDeprecated;
     NSString *_artworkIdentifier;
     NSString *_artworkMIMEType;
     NSString *_artworkURL;
+    NSData *_artworkURLTemplatesData;
     NSString *_assetURLString;
     int _chapterCount;
     NSString *_collectionIdentifier;
@@ -80,6 +81,7 @@
     _Bool _isExplicitItem;
     _Bool _isInWishList;
     _Bool _isLiked;
+    _Bool _isLoading;
     _Bool _isPlayable;
     _Bool _isSharable;
     _Bool _isSteerable;
@@ -98,8 +100,8 @@
         unsigned int radioStationIdentifier:1;
         unsigned int releaseDate:1;
         unsigned int startTime:1;
-        unsigned int artworkDataHeight:1;
-        unsigned int artworkDataWidth:1;
+        unsigned int artworkDataHeightDeprecated:1;
+        unsigned int artworkDataWidthDeprecated:1;
         unsigned int chapterCount:1;
         unsigned int defaultPlaybackRate:1;
         unsigned int discNumber:1;
@@ -127,6 +129,7 @@
         unsigned int isExplicitItem:1;
         unsigned int isInWishList:1;
         unsigned int isLiked:1;
+        unsigned int isLoading:1;
         unsigned int isPlayable:1;
         unsigned int isSharable:1;
         unsigned int isSteerable:1;
@@ -137,10 +140,12 @@
 }
 
 + (void)initialize;
+@property(retain, nonatomic) NSData *artworkURLTemplatesData; // @synthesize artworkURLTemplatesData=_artworkURLTemplatesData;
+@property(nonatomic) _Bool isLoading; // @synthesize isLoading=_isLoading;
 @property(retain, nonatomic) NSString *artworkIdentifier; // @synthesize artworkIdentifier=_artworkIdentifier;
 @property(retain, nonatomic) NSData *currentPlaybackDateData; // @synthesize currentPlaybackDateData=_currentPlaybackDateData;
-@property(nonatomic) int artworkDataHeight; // @synthesize artworkDataHeight=_artworkDataHeight;
-@property(nonatomic) int artworkDataWidth; // @synthesize artworkDataWidth=_artworkDataWidth;
+@property(nonatomic) int artworkDataHeightDeprecated; // @synthesize artworkDataHeightDeprecated=_artworkDataHeightDeprecated;
+@property(nonatomic) int artworkDataWidthDeprecated; // @synthesize artworkDataWidthDeprecated=_artworkDataWidthDeprecated;
 @property(retain, nonatomic) NSString *serviceIdentifier; // @synthesize serviceIdentifier=_serviceIdentifier;
 @property(nonatomic) double inferredTimestamp; // @synthesize inferredTimestamp=_inferredTimestamp;
 @property(nonatomic) double elapsedTimeTimestamp; // @synthesize elapsedTimeTimestamp=_elapsedTimeTimestamp;
@@ -220,10 +225,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasArtworkURLTemplatesData;
+@property(nonatomic) _Bool hasIsLoading;
 @property(readonly, nonatomic) _Bool hasArtworkIdentifier;
 @property(readonly, nonatomic) _Bool hasCurrentPlaybackDateData;
-@property(nonatomic) _Bool hasArtworkDataHeight;
-@property(nonatomic) _Bool hasArtworkDataWidth;
+@property(nonatomic) _Bool hasArtworkDataHeightDeprecated;
+@property(nonatomic) _Bool hasArtworkDataWidthDeprecated;
 @property(readonly, nonatomic) _Bool hasServiceIdentifier;
 @property(nonatomic) _Bool hasInferredTimestamp;
 @property(nonatomic) _Bool hasElapsedTimeTimestamp;

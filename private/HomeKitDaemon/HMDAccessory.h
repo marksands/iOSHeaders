@@ -26,7 +26,6 @@
     _Bool _unblockPending;
     NSString *_identifier;
     HMDRoom *_room;
-    NSString *_name;
     NSString *_model;
     NSString *_manufacturer;
     HMDAccessoryVersion *_firmwareVersion;
@@ -37,6 +36,7 @@
     HMDHome *_home;
     NSString *_providedName;
     NSString *_configurationAppIdentifier;
+    NSString *_configuredName;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     HMFMessageDispatcher *_msgDispatcher;
@@ -57,6 +57,7 @@
 @property(nonatomic, getter=isRemoteAccessEnabled) _Bool remoteAccessEnabled; // @synthesize remoteAccessEnabled=_remoteAccessEnabled;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(retain, nonatomic) NSString *configuredName; // @synthesize configuredName=_configuredName;
 @property(nonatomic, getter=isPrimary) _Bool primary; // @synthesize primary=_primary;
 @property(copy, nonatomic) NSString *configurationAppIdentifier; // @synthesize configurationAppIdentifier=_configurationAppIdentifier;
 @property(nonatomic, getter=isBlocked) _Bool blocked; // @synthesize blocked=_blocked;
@@ -64,7 +65,6 @@
 @property(nonatomic) __weak HMDHome *home; // @synthesize home=_home;
 @property(retain, nonatomic) HMAccessoryCategory *category; // @synthesize category=_category;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
-@property(nonatomic, getter=isRemotelyReachable) _Bool remotelyReachable; // @synthesize remotelyReachable=_remotelyReachable;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -76,6 +76,9 @@
 - (id)dumpState;
 - (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
+@property(readonly) _Bool supportsUserManagement;
+- (void)pairingsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_handleListPairings:(id)arg1;
 - (_Bool)shouldEnableDaemonRelaunch;
 - (void)_sendBlockedNotification:(_Bool)arg1 withError:(id)arg2 withIdentifier:(id)arg3 withCompletion:(CDUnknownBlockType)arg4;
 - (void)logDuetRoomEvent;
@@ -97,11 +100,14 @@
 - (void)_notifyConnectivityChangedWithReachabilityState:(_Bool)arg1 remoteAccessChanged:(_Bool)arg2;
 @property(readonly, nonatomic) long long reachableTransports;
 - (void)handleRemoteReachabilityChange:(_Bool)arg1;
-- (_Bool)isRemoteReachable;
+- (_Bool)isReachableForXPCClients;
+@property(nonatomic, getter=isRemotelyReachable) _Bool remotelyReachable; // @synthesize remotelyReachable=_remotelyReachable;
 - (void)handleReachabilityChange:(_Bool)arg1;
 @property(nonatomic, getter=isReachable) _Bool reachable; // @synthesize reachable=_reachable;
+@property(readonly) _Bool requiresHomeAppForManagement;
 - (void)removeAdvertisement:(id)arg1;
 - (void)addAdvertisement:(id)arg1;
+- (void)notifyAccessoryNameChanged:(_Bool)arg1;
 - (void)updateMediaSession:(id)arg1;
 - (void)updateManufacturer:(id)arg1 model:(id)arg2 firmwareVersion:(id)arg3 serialNumber:(id)arg4;
 @property(readonly, copy, nonatomic) HMDVendorModelEntry *vendorInfo;
@@ -113,13 +119,12 @@
 @property(readonly, copy, nonatomic) NSString *manufacturer; // @synthesize manufacturer=_manufacturer;
 - (void)setModel:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *model; // @synthesize model=_model;
-- (id)_updateAccessoryName:(id)arg1;
 - (void)_handleRename:(id)arg1;
-- (id)_updateProvidedName:(id)arg1;
-- (void)updateName:(id)arg1;
+- (void)updateProvidedName:(id)arg1;
 - (id)getConfiguredName;
 - (void)handleUpdatedName:(id)arg1;
-@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, copy, nonatomic) NSString *name;
+- (void)_handleGetAccessoryAdvertisingParams:(id)arg1;
 - (id)_updateCategory:(id)arg1 notifyClients:(_Bool)arg2;
 - (void)updateCategory:(id)arg1;
 - (id)_updateRoom:(id)arg1 message:(id *)arg2;

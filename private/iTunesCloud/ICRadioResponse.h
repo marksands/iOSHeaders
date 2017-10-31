@@ -6,22 +6,21 @@
 
 #import "NSObject.h"
 
-@class ICStoreDialogResponse, ICURLResponse, NSDate, NSDictionary, NSError;
+@class ICStoreDialogResponse, NSDate, NSDictionary, NSError;
 
 @interface ICRadioResponse : NSObject
 {
     NSDate *_expirationDate;
     NSDictionary *_responseDictionary;
-    ICURLResponse *_urlResponse;
 }
 
-@property(readonly, nonatomic) ICURLResponse *urlResponse; // @synthesize urlResponse=_urlResponse;
 @property(readonly, copy, nonatomic) NSDictionary *responseDictionary; // @synthesize responseDictionary=_responseDictionary;
 @property(readonly, copy, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSError *serverError;
 @property(readonly, copy, nonatomic) ICStoreDialogResponse *dialog;
 @property(readonly, copy, nonatomic) NSDictionary *contentDictionary;
+- (id)initWithResponseDictionary:(id)arg1 expirationDate:(id)arg2;
 - (id)initWithURLResponse:(id)arg1;
 
 @end

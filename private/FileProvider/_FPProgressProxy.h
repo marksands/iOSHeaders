@@ -6,13 +6,15 @@
 
 #import "NSProgress.h"
 
-@class NSObject<OS_dispatch_queue>;
+@class NSObject<OS_dispatch_queue>, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface _FPProgressProxy : NSProgress
 {
     id _subscriber;
     NSObject<OS_dispatch_queue> *_queue;
+    NSURL *_fileURL;
+    _Bool _shouldStopAccessingURL;
 }
 
 - (void).cxx_destruct;

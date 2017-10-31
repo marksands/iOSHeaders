@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDictionary, NSObject<OS_dispatch_queue>, NSString, _EARFormatter, _EARSpeechModelInfo, _EARSpeechRecognitionAudioBuffer;
+@class NSArray, NSData, NSDictionary, NSObject<OS_dispatch_queue>, NSString, _EARFormatter, _EARSpeechModelInfo, _EARSpeechRecognitionAudioBuffer;
 
 @interface _EARSpeechRecognizer : NSObject
 {
@@ -25,12 +25,16 @@
     double _maximumRecognitionDuration;
     NSDictionary *_recognitionReplacements;
     NSDictionary *_recognitionConfidenceSubtraction;
+    NSArray *_leftContext;
+    NSString *_inputOrigin;
 }
 
 + (id)rawTokenResultsFromRecognitionResults:(id)arg1;
 + (id)maximumSupportedConfigurationVersion;
 + (id)minimumSupportedConfigurationVersion;
 + (void)initialize;
+@property(copy, nonatomic) NSString *inputOrigin; // @synthesize inputOrigin=_inputOrigin;
+@property(copy, nonatomic) NSArray *leftContext; // @synthesize leftContext=_leftContext;
 @property(copy, nonatomic) NSDictionary *recognitionConfidenceSubtraction; // @synthesize recognitionConfidenceSubtraction=_recognitionConfidenceSubtraction;
 @property(copy, nonatomic) NSDictionary *recognitionReplacements; // @synthesize recognitionReplacements=_recognitionReplacements;
 @property(nonatomic) double maximumRecognitionDuration; // @synthesize maximumRecognitionDuration=_maximumRecognitionDuration;

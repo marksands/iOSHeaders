@@ -4,13 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <PassKitUI/PKBlurredNavigationController.h>
+#import <PassKitUI/PKCompactNavigationContainedNavigationController.h>
 
-#import "UINavigationControllerDelegate.h"
+@class PKPaymentAuthorizationLayout, PKPaymentAuthorizationServiceViewController;
 
-@class NSString, PKPaymentAuthorizationLayout, PKPaymentAuthorizationServiceViewController;
-
-@interface PKPaymentAuthorizationServiceNavigationController : PKBlurredNavigationController <UINavigationControllerDelegate>
+@interface PKPaymentAuthorizationServiceNavigationController : PKCompactNavigationContainedNavigationController
 {
     PKPaymentAuthorizationLayout *_layout;
     PKPaymentAuthorizationServiceViewController *_authorizationViewController;
@@ -21,13 +19,8 @@
 @property(readonly, nonatomic) PKPaymentAuthorizationServiceViewController *authorizationViewController; // @synthesize authorizationViewController=_authorizationViewController;
 - (void).cxx_destruct;
 - (void)traitCollectionDidChange:(id)arg1;
+- (id)init;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

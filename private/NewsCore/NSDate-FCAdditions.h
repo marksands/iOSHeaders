@@ -15,6 +15,7 @@
 + (id)fc_dateFromStringWithISO8601Format:(id)arg1;
 + (id)fc_dateFromString:(id)arg1 possibleFormats:(id)arg2;
 - (id)fc_stringWithYearAndMonthFormat;
+- (id)fc_stringWithISO8601Format;
 - (_Bool)fc_isSameDayAs:(id)arg1;
 @property(readonly, nonatomic) _Bool fc_isWeekend;
 - (_Bool)isToday;

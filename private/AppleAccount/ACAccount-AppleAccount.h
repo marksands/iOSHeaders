@@ -28,6 +28,7 @@
 @property(readonly, nonatomic) NSDictionary *aa_serviceUnavailableInfo;
 @property(readonly, nonatomic) _Bool aa_serviceUnavailable;
 - (void)aa_updateWithProvisioningResponse:(id)arg1;
+@property(readonly, nonatomic) _Bool aa_hasOptionalTerms;
 @property(readonly, nonatomic) _Bool aa_isSandboxAccount;
 @property(readonly, nonatomic) _Bool aa_isManagedAppleID;
 @property(readonly, nonatomic) NSDictionary *aa_accountFirstDisplayAlert;

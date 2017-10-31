@@ -33,12 +33,16 @@
 @property(readonly, nonatomic) id <ADSPrivacyViewController_RPC><NSObject> servicePrivacyViewController;
 - (void)_forwardErrorToDelegate:(id)arg1;
 - (void)_dismissAndReset;
+- (void)_appDidChangeStatusBarFrameNotification;
 - (void)_clientApplicationDidEnterBackground;
 - (void)_connectionWithAdSheetWasLost;
 - (void)_resetRemoteViewController;
 - (void)_dismissPrivacyViewController;
 - (void)_requestPrivacyRemoteViewController;
+- (void)adjustRemoteViews;
 - (void)_addRemoteView;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)internalDelegate;

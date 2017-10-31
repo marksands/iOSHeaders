@@ -11,7 +11,6 @@
 @interface MediaControlsTransportStackView : UIView
 {
     _Bool _empty;
-    long long _mediaControlsPlayerState;
     long long _style;
     MPCPlayerResponse *_response;
     MediaControlsTransportButton *_leftButton;
@@ -31,7 +30,6 @@
 @property(nonatomic, getter=isEmpty) _Bool empty; // @synthesize empty=_empty;
 @property(retain, nonatomic) MPCPlayerResponse *response; // @synthesize response=_response;
 @property(nonatomic) long long style; // @synthesize style=_style;
-@property(nonatomic) long long mediaControlsPlayerState; // @synthesize mediaControlsPlayerState=_mediaControlsPlayerState;
 - (void).cxx_destruct;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_updateButtonBlendMode:(id)arg1;

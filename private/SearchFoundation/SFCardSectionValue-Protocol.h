@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDictionary, SFActivityIndicatorCardSection, SFAppLinkCardSection, SFAudioPlaybackCardSection, SFDescriptionCardSection, SFDetailedRowCardSection, SFFlightCardSection, SFImagesCardSection, SFKeyValueDataCardSection, SFMapCardSection, SFMediaInfoCardSection, SFMediaPlayerCardSection, SFMessageCardSection, SFMetaInfoCardSection, SFNowPlayingCardSection, SFRichTitleCardSection, SFRowCardSection, SFScoreboardCardSection, SFSectionHeaderCardSection, SFSelectableGridCardSection, SFSocialMediaPostCardSection, SFStockChartCardSection, SFSuggestionCardSection, SFTableHeaderRowCardSection, SFTableRowCardSection, SFTextColumnsCardSection, SFTitleCardSection, SFTrackListCardSection, SFWebCardSection;
+@class NSData, NSDictionary, SFActivityIndicatorCardSection, SFAppLinkCardSection, SFAudioPlaybackCardSection, SFDescriptionCardSection, SFDetailedRowCardSection, SFFlightCardSection, SFImagesCardSection, SFKeyValueDataCardSection, SFMapCardSection, SFMediaInfoCardSection, SFMediaPlayerCardSection, SFMessageCardSection, SFMetaInfoCardSection, SFNowPlayingCardSection, SFRichTitleCardSection, SFRowCardSection, SFScoreboardCardSection, SFSectionHeaderCardSection, SFSelectableGridCardSection, SFSocialMediaPostCardSection, SFStockChartCardSection, SFSuggestionCardSection, SFTableHeaderRowCardSection, SFTableRowCardSection, SFTextColumnsCardSection, SFTitleCardSection, SFTrackListCardSection, SFWatchListCardSection, SFWebCardSection;
 
 @protocol SFCardSectionValue <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+@property(retain, nonatomic) SFWatchListCardSection *watchListCardSection;
 @property(retain, nonatomic) SFMetaInfoCardSection *metaInfoCardSection;
 @property(retain, nonatomic) SFSectionHeaderCardSection *sectionHeaderCardSection;
 @property(retain, nonatomic) SFSelectableGridCardSection *selectableGridCardSection;

@@ -20,8 +20,7 @@
 @property(retain) NSMutableArray *valueLabels; // @synthesize valueLabels=_valueLabels;
 @property(retain) NSMutableArray *keyLabels; // @synthesize keyLabels=_keyLabels;
 - (void).cxx_destruct;
-- (id)generateLabelForGridWithBold:(_Bool)arg1;
-- (void)updateWithTuples:(id)arg1 valueColumnIsTrailing:(_Bool)arg2;
+- (void)updateWithTuples:(id)arg1 valueColumnIsTrailing:(_Bool)arg2 truncateKey:(_Bool)arg3;
 - (id)init;
 
 @end

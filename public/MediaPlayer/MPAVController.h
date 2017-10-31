@@ -104,6 +104,8 @@
     NSNotification *_delayedPlaybackStateNotification;
     NSObject<OS_dispatch_source> *_stallTimerSource;
     _Bool _isConnectingPlayer;
+    _Bool _hasProvidedAudibleLikelyToKeepUp;
+    _Bool _hasProvidedAudiblePlay;
     MPAVControllerToAggregateDCommunicator *_aggregateDCommunicator;
     double _itemInitialBookmarkTime;
     float _rateBeforeResignActive;
@@ -123,10 +125,12 @@
     _Bool _limitsBandwidthForCellularAccess;
     _Bool _wantsPictureInPicture;
     float _rawRate;
+    NSString *_identifier;
     AVPictureInPictureController *_pictureInPictureController;
 }
 
 + (_Bool)automaticallyNotifiesObserversOfPlaylistManager;
++ (_Bool)prefersApplicationAudioSession;
 + (Class)playlistManagerClass;
 + (id)_playerKeysToObserve;
 + (id)_itemKeysToObserve;
@@ -142,6 +146,7 @@
 @property(readonly, nonatomic) float rawRate; // @synthesize rawRate=_rawRate;
 @property(nonatomic) _Bool usesAudioOnlyModeForExternalPlayback; // @synthesize usesAudioOnlyModeForExternalPlayback=_usesAudioOnlyModeForExternalPlayback;
 @property(retain, nonatomic, getter=_playlistManager) id <MPAVQueueController> playlistManager; // @synthesize playlistManager=_playlistManager;
+@property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) _Bool shouldEnforceHDCP; // @synthesize shouldEnforceHDCP=_shouldEnforceHDCP;
 @property(nonatomic) long long state; // @synthesize state=_state;
 @property(nonatomic) long long playbackMode; // @synthesize playbackMode=_playbackMode;
@@ -206,6 +211,7 @@
 - (void)_unregisterForPlaylistManager:(id)arg1;
 - (void)_unregisterForPlayer:(id)arg1;
 - (void)_registerForPlaylistManager:(id)arg1;
+- (_Bool)_shouldProvideAudiblePlaybackPerformance;
 - (double)_currentTimeWithPreloadedPlayerTime:(_Bool)arg1 value:(CDStruct_1b6d18a9)arg2;
 - (void)_configureAVPlaylistManager;
 - (void)_clearVideoLayer:(_Bool)arg1;
@@ -221,6 +227,7 @@
 - (void)_delayedPlaybackIndexChange;
 - (void)notifyAVPlayerItemDidChange:(id)arg1;
 - (void)notifyAVPlayerItemWillChange:(id)arg1;
+- (void)_audioSessionMediaServicesWereResetNotification:(id)arg1;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 - (void)_applicationDidRemoveDeactivationReason:(id)arg1;
@@ -244,6 +251,7 @@
 - (void)_serverConnectionDidDie:(id)arg1;
 - (void)_disconnectAVPlayerWithReason:(long long)arg1;
 - (void)_connectAVPlayer;
+- (void)_configureAudioSession;
 - (void)_rateDidChange:(id)arg1;
 - (void)_updateCurrentItemBookkeepingForTimerCallback;
 - (void)_updateCurrentItemBookkeepingMarkedAsCheckpoint:(_Bool)arg1;

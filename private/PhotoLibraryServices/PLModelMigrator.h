@@ -288,6 +288,7 @@
 + (_Bool)migrateToRequiredAnalysisState:(id)arg1;
 + (_Bool)fixupStatesWithUnreachableAssetUUIDsInStore:(id)arg1;
 + (_Bool)fixupUnknownAnalysisStatesInStore:(id)arg1;
++ (_Bool)deleteAnalysisStatesInStore:(id)arg1 forWorkerType:(short)arg2;
 + (_Bool)deleteAllAssetAnalysisStatesInStore:(id)arg1;
 + (_Bool)_markAllProcessedAnalysisStatesDirtyForWorkerType:(short)arg1 withStartingWorkerFlags:(int)arg2 inStore:(id)arg3;
 + (_Bool)_executeBatchUpdateWithEntityName:(id)arg1 predicate:(id)arg2 propertiesToUpdate:(id)arg3 managedObjectContext:(id)arg4;

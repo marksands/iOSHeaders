@@ -7,6 +7,7 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (SFExtras)
+- (id)sf_asWatchListCardSection:(id)arg1;
 - (id)sf_asSuggestionCardSection:(id)arg1;
 - (id)sf_asFlightCardSection:(id)arg1;
 - (id)sf_asWebCardSection:(id)arg1;
@@ -27,6 +28,7 @@
 - (id)sf_asMediaOffer:(id)arg1;
 - (id)sf_asTrack:(id)arg1;
 - (id)sf_asAppLink:(id)arg1;
+- (id)sf_asWatchListItem:(id)arg1;
 - (id)sf_asMediaDetail:(id)arg1;
 - (id)sf_asMediaItem:(id)arg1;
 - (id)sf_asDescriptionCardSection:(id)arg1;

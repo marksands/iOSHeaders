@@ -59,7 +59,7 @@
 - (id)_intentSlotValueForObject:(id)arg1 slotDescription:(id)arg2;
 - (id)_buildIntentSlotResolutionResultWithIntentSlotDescription:(id)arg1;
 - (id)_dataForIntentSlotDescription:(id)arg1;
-- (id)resolutionResultDataForIntent:(id)arg1 intentSlotDescription:(id)arg2;
+- (id)resolutionResultDataForIntent:(id)arg1 intentSlotDescription:(id)arg2 error:(id *)arg3;
 - (id)_initWithResultCode:(long long)arg1;
 
 // Remaining properties

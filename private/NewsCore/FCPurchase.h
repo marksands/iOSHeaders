@@ -17,7 +17,6 @@
     NSString *_purchaseID;
     NSString *_subscriptionPriceFormatted;
     NSString *_subscriptionPeriodInISO_8601;
-    NSString *_trialPeriodInISO_8601;
     NSString *_offerName;
     NSNumber *_storeExternalVersion;
     NSString *_bundleID;
@@ -37,7 +36,6 @@
 @property(copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(copy, nonatomic) NSNumber *storeExternalVersion; // @synthesize storeExternalVersion=_storeExternalVersion;
 @property(copy, nonatomic) NSString *offerName; // @synthesize offerName=_offerName;
-@property(copy, nonatomic) NSString *trialPeriodInISO_8601; // @synthesize trialPeriodInISO_8601=_trialPeriodInISO_8601;
 @property(copy, nonatomic) NSString *subscriptionPeriodInISO_8601; // @synthesize subscriptionPeriodInISO_8601=_subscriptionPeriodInISO_8601;
 @property(copy, nonatomic) NSString *subscriptionPriceFormatted; // @synthesize subscriptionPriceFormatted=_subscriptionPriceFormatted;
 @property(copy, nonatomic) NSString *purchaseID; // @synthesize purchaseID=_purchaseID;
@@ -51,6 +49,7 @@
 - (void)productLookupWithcompletion:(CDUnknownBlockType)arg1;
 - (void)appLookupForBundleIDWithAppAdamID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)appLookupWithAppAdamID:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)checkIfOfferUsedAlreadyWithPurchaseID:(id)arg1 introductoryOffer:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)purchaseLookUp:(CDUnknownBlockType)arg1;
 - (id)initWithPurchaseID:(id)arg1 cloudContext:(id)arg2 purchaseRestore:(_Bool)arg3;
 

@@ -49,6 +49,7 @@
 @property(retain, nonatomic) NSString *host; // @synthesize host=_host;
 @property(retain, nonatomic) NSString *scheme; // @synthesize scheme=_scheme;
 - (void).cxx_destruct;
+- (id)getAppleIDSession;
 - (_Bool)shouldUseOpportunisticSockets;
 - (struct __CFURLStorageSession *)copyStorageSession;
 - (_Bool)shouldSendClientInfoHeaderForURL:(id)arg1;

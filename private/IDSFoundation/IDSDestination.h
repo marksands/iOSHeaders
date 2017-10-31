@@ -16,6 +16,8 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)destinationWithDeviceURI:(id)arg1;
++ (id)destinationWithRapportPublicIdentifierURI:(id)arg1;
 + (id)sentinelSelfAliasDestination;
 + (id)defaultPairedDeviceDestination;
 + (id)destinationWithGroup:(id)arg1;
@@ -29,6 +31,9 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+@property(readonly, nonatomic, getter=isEmpty) _Bool empty;
+@property(readonly, nonatomic, getter=isDevice) _Bool device;
+@property(readonly, nonatomic, getter=isGuest) _Bool guest;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)groupID;
 - (id)destinationURIs;

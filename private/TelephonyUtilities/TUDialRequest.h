@@ -11,7 +11,7 @@
 #import "TUCallRequest.h"
 #import "TUVideoRequest.h"
 
-@class CNContactStore, NSArray, NSString, NSURL, NSUserActivity, TUCallProvider, TUCallProviderManager, TUHandle;
+@class CNContactStore, IDSDestination, NSArray, NSString, NSURL, NSUserActivity, TUCallProvider, TUCallProviderManager, TUHandle;
 
 @interface TUDialRequest : NSObject <TUCallRequest, TUVideoRequest, NSSecureCoding, NSCopying>
 {
@@ -35,6 +35,7 @@
     TUCallProviderManager *_providerManager;
     CDUnknownBlockType _isEmergencyNumberBlock;
     CDUnknownBlockType _isEmergencyNumberOrIsWhitelistedBlock;
+    NSString *_endpointIDSDestinationURI;
     long long _originatingUIType;
     struct CGSize _localPortraitAspectRatio;
     struct CGSize _localLandscapeAspectRatio;
@@ -60,6 +61,7 @@
 @property(nonatomic, getter=isRedial) _Bool redial; // @synthesize redial=_redial;
 @property(nonatomic, getter=isSOS, setter=setSOS:) _Bool sos; // @synthesize sos=_sos;
 @property(nonatomic) long long originatingUIType; // @synthesize originatingUIType=_originatingUIType;
+@property(copy, nonatomic) NSString *endpointIDSDestinationURI; // @synthesize endpointIDSDestinationURI=_endpointIDSDestinationURI;
 @property(nonatomic) _Bool endpointOnCurrentDevice; // @synthesize endpointOnCurrentDevice=_endpointOnCurrentDevice;
 @property(nonatomic) _Bool hostOnCurrentDevice; // @synthesize hostOnCurrentDevice=_hostOnCurrentDevice;
 @property(copy, nonatomic) CDUnknownBlockType isEmergencyNumberOrIsWhitelistedBlock; // @synthesize isEmergencyNumberOrIsWhitelistedBlock=_isEmergencyNumberOrIsWhitelistedBlock;
@@ -101,6 +103,7 @@
 @property(readonly, copy, nonatomic) NSArray *validityErrors;
 @property(readonly, nonatomic, getter=isValid) _Bool valid;
 @property(readonly, nonatomic) NSUserActivity *userActivity;
+- (id)endpointIDSDestinationURIQueryItem;
 - (id)sosURLQueryItem;
 - (id)noPromptURLQueryItem;
 - (id)originatingUIURLQueryItem;
@@ -125,6 +128,7 @@
 - (id)callProviderFromURLComponents:(id)arg1 video:(_Bool *)arg2;
 - (_Bool)boolValueForQueryItemWithName:(id)arg1 inURLComponents:(id)arg2;
 @property(nonatomic) int callIdentifier;
+@property(readonly, nonatomic) IDSDestination *endpointIDSDestination;
 @property(copy, nonatomic) NSString *destinationID;
 @property(readonly, nonatomic) CNContactStore *contactStore;
 @property(readonly, nonatomic) _Bool useTTY;

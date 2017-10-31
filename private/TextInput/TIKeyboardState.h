@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSString, NSUUID, TIDocumentState, TIInputContextHistory, TIKeyboardCandidate, TIKeyboardLayout, TIKeyboardLayoutState, TIKeyboardSecureCandidateRenderTraits, TITextInputTraits;
+@class NSArray, NSDictionary, NSString, NSUUID, TIDocumentState, TIInputContextHistory, TIKeyboardCandidate, TIKeyboardLayout, TIKeyboardLayoutState, TIKeyboardSecureCandidateRenderTraits, TITextInputTraits;
 
 @interface TIKeyboardState : NSObject <NSCopying, NSSecureCoding>
 {
@@ -56,11 +56,13 @@
     TIKeyboardCandidate *_currentCandidate;
     TITextInputTraits *_textInputTraits;
     NSString *_responseContext;
+    NSDictionary *_autofillContext;
     NSArray *_supportedPayloadIds;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *supportedPayloadIds; // @synthesize supportedPayloadIds=_supportedPayloadIds;
+@property(retain, nonatomic) NSDictionary *autofillContext; // @synthesize autofillContext=_autofillContext;
 @property(copy, nonatomic) NSString *responseContext; // @synthesize responseContext=_responseContext;
 @property(retain, nonatomic) TITextInputTraits *textInputTraits; // @synthesize textInputTraits=_textInputTraits;
 @property(retain, nonatomic) TIKeyboardCandidate *currentCandidate; // @synthesize currentCandidate=_currentCandidate;

@@ -24,6 +24,7 @@
 - (void)_remote_reportPrivacyAdTransparencyDidRenderTransparencyForAdSpaceWithIdentifier:(NSString *)arg1;
 - (void)_remote_reportPrivacyAdTransparencyDidDisappearForAdSpaceWithIdentifier:(NSString *)arg1;
 - (void)_remote_reportPrivacyAdTransparencyDidAppearForAdSpaceWithIdentifier:(NSString *)arg1;
+- (void)_remote_creativeControllerTapGestureTimerDidExpireBeforePrimaryActionWasInvokedForAdSpaceWithIdentifier:(NSString *)arg1;
 - (void)_remote_reportContentImpressionForAdSpaceWithIdenfier:(NSString *)arg1;
 - (void)_remote_actionCompletedWithSystemEvent:(int)arg1 forAdSpaceWithIdentifier:(NSString *)arg2 completionHandler:(void (^)(void))arg3;
 - (void)_remote_reportSystemEvent:(int)arg1 forAdSpaceWithIdentifier:(NSString *)arg2;

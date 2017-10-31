@@ -15,6 +15,7 @@
 + (id)playPodcastsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)playPodcasts;
 - (_Bool)requiresResponse;
+@property(nonatomic) _Bool startPlaying;
 @property(copy, nonatomic) NSArray *hashedRouteUIDs;
 @property(copy, nonatomic) NSString *episodePlaybackOrder;
 - (id)encodedClassName;

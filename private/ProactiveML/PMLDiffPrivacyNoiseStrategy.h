@@ -20,11 +20,13 @@
     Class _samplerClass;
 }
 
++ (id)gaussianNoiseWithScaleFactor:(float)arg1 minimumMagnitude:(float)arg2 seed:(int)arg3;
 @property(retain) Class samplerClass; // @synthesize samplerClass=_samplerClass;
 @property float minimumMagnitude; // @synthesize minimumMagnitude=_minimumMagnitude;
 @property float scaleFactor; // @synthesize scaleFactor=_scaleFactor;
 @property int maxIterations; // @synthesize maxIterations=_maxIterations;
 - (void).cxx_destruct;
+@property(readonly, copy) NSString *description;
 - (id)initWithPlist:(id)arg1 chunks:(id)arg2 context:(id)arg3;
 - (id)toPlistWithChunks:(id)arg1;
 - (void)addNoiseToSparseMatrix:(id)arg1;
@@ -40,7 +42,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

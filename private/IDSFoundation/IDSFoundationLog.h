@@ -10,6 +10,8 @@
 {
 }
 
++ (id)utilities;
++ (id)bonjourDeliveryController;
 + (id)deliveryController;
 + (id)BTLink;
 + (id)encryptionController;

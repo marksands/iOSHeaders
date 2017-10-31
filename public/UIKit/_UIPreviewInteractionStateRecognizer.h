@@ -13,7 +13,6 @@ __attribute__((visibility("hidden")))
     double _smoothedForce;
     double _maximumForce;
     double _previousEffectiveTouchForce;
-    double _timeMark;
     double _currentTime;
     double _previousTime;
     double _popOffsetInitial;
@@ -21,6 +20,8 @@ __attribute__((visibility("hidden")))
     double _popOffsetDecayAlpha;
     double _lowpassForceAlpha;
     double _popDecayingOffset;
+    double _peekDecayingOffset;
+    double _peekDecayAlpha;
     double _popReductionForce;
     double _progressToStrongThreshold;
     _Bool _allowsPopOffsetDecay;
@@ -29,10 +30,9 @@ __attribute__((visibility("hidden")))
     double _highPopThreshold;
     double _previousPopThreshold;
     double _saturationForce;
+    double _revealThresholdInitial;
     double _revealThreshold;
     double _standardThreshold;
-    double _strongThreshold;
-    double _hintAndPeekInterval;
     double _hintReductionForce;
     double _actualHintForce;
     double _actualPeekForce;
@@ -40,6 +40,7 @@ __attribute__((visibility("hidden")))
     double _actualHintTime;
     double _actualPeekTime;
     double _actualPopTime;
+    _Bool _shouldPopLater;
     _Bool _shouldDelayReveal;
     long long _currentState;
     double _minimumPreviewDuration;

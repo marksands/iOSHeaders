@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
     float _placedZoomLevel;
 }
 
-+ (shared_ptr_c5d816ee)styleQueryForNavContext:(const struct NavContext *)arg1 selected:(_Bool)arg2 etaComparison:(unsigned char)arg3;
++ (shared_ptr_c5d816ee)styleQueryForNavContext:(const struct NavContext *)arg1 selected:(_Bool)arg2 etaComparison:(unsigned char)arg3 transportType:(unsigned char)arg4;
 + (id)artworkForEtaDescription:(id)arg1 navContext:(const struct NavContext *)arg2 styleQuery:(shared_ptr_c5d816ee)arg3 orientation:(unsigned char)arg4 artworkCache:(struct VKLabelNavArtworkCache *)arg5 selected:(_Bool)arg6;
 @property(nonatomic) float placedZoomLevel; // @synthesize placedZoomLevel=_placedZoomLevel;
 @property(nonatomic) _Bool isRepositioning; // @synthesize isRepositioning=_isRepositioning;

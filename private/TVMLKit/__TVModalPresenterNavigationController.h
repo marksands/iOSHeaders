@@ -34,6 +34,7 @@
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)popViewControllerAnimated:(_Bool)arg1;
 - (void)pushViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)popViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;

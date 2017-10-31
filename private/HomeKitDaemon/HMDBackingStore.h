@@ -36,10 +36,6 @@
 @property(readonly, nonatomic) CKRecordID *root; // @synthesize root=_root;
 - (void).cxx_destruct;
 - (id)__fetchWithGroup:(id)arg1 uuids:(id)arg2 error:(id *)arg3;
-- (void)markAsMigrated:(CDUnknownBlockType)arg1;
-- (void)fetchAllObjects:(CDUnknownBlockType)arg1;
-- (void)fetchMigratedObjects:(CDUnknownBlockType)arg1;
-- (void)_fetchObjects:(_Bool)arg1 migration:(_Bool)arg2 result:(CDUnknownBlockType)arg3;
 - (void)submitBlock:(CDUnknownBlockType)arg1;
 - (void)saveToPersistentStoreWithReason:(id)arg1 incrementGeneration:(_Bool)arg2;
 - (id)dumpState;

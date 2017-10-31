@@ -38,13 +38,13 @@ __attribute__((visibility("hidden")))
 + (_Bool)isSameSRTPKey:(id)arg1 newKey:(id)arg2;
 @property(readonly, nonatomic) unsigned int localSSRC; // @synthesize localSSRC=_localSSRC;
 @property(retain, nonatomic) VCMediaStreamConfig *streamConfig; // @synthesize streamConfig=_streamConfig;
-@property(nonatomic) int state; // @synthesize state=_state;
+@property(readonly, nonatomic) int state; // @synthesize state=_state;
 - (void)onRtcpEnabledChanged;
 - (void)onRtcpSendIntervalChanged;
-- (void)onResume;
-- (void)onPause;
-- (void)onStop;
-- (void)onStart;
+- (void)onResumeWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)onPauseWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)onStopWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)onStartWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)onConfigureStreamWithConfiguration:(id)arg1 error:(id *)arg2;
 - (id)supportedPayloads;
 - (void)onCallIDChanged;

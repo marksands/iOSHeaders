@@ -6,20 +6,17 @@
 
 #import "UIView.h"
 
-@class CAGradientLayer, NSArray;
+@class SXGradient;
 
 @interface SXGradientView : UIView
 {
+    SXGradient *_gradient;
 }
 
 + (Class)layerClass;
-@property(nonatomic) struct CGPoint endPoint;
-@property(nonatomic) struct CGPoint startPoint;
-@property(copy, nonatomic) NSArray *colors;
-- (id)initWithFrame:(struct CGRect)arg1;
-
-// Remaining properties
-@property(readonly, nonatomic) CAGradientLayer *layer; // @dynamic layer;
+@property(readonly, nonatomic) SXGradient *gradient; // @synthesize gradient=_gradient;
+- (void).cxx_destruct;
+- (id)initWithGradient:(id)arg1;
 
 @end
 

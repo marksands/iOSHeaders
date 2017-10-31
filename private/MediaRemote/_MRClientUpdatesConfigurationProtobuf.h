@@ -8,8 +8,11 @@
 
 #import "NSCopying.h"
 
+@class NSMutableArray;
+
 @interface _MRClientUpdatesConfigurationProtobuf : PBCodable <NSCopying>
 {
+    NSMutableArray *_requiredApplications;
     _Bool _artworkUpdates;
     _Bool _keyboardUpdates;
     _Bool _nowPlayingUpdates;
@@ -22,6 +25,8 @@
     } _has;
 }
 
++ (Class)requiredApplicationsType;
+@property(retain, nonatomic) NSMutableArray *requiredApplications; // @synthesize requiredApplications=_requiredApplications;
 @property(nonatomic) _Bool keyboardUpdates; // @synthesize keyboardUpdates=_keyboardUpdates;
 @property(nonatomic) _Bool volumeUpdates; // @synthesize volumeUpdates=_volumeUpdates;
 @property(nonatomic) _Bool artworkUpdates; // @synthesize artworkUpdates=_artworkUpdates;
@@ -35,10 +40,15 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)requiredApplicationsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)requiredApplicationsCount;
+- (void)addRequiredApplications:(id)arg1;
+- (void)clearRequiredApplications;
 @property(nonatomic) _Bool hasKeyboardUpdates;
 @property(nonatomic) _Bool hasVolumeUpdates;
 @property(nonatomic) _Bool hasArtworkUpdates;
 @property(nonatomic) _Bool hasNowPlayingUpdates;
+- (void)dealloc;
 
 @end
 

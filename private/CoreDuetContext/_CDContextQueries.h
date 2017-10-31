@@ -40,6 +40,7 @@
 + (id)keyPathForCarConnectedStatus;
 + (id)keyPathForNavigationStatus;
 + (id)keyPathForMediaPlayingStatus;
++ (id)keyPathForKeybagLockStatus;
 + (id)keyPathForDeviceLockStatus;
 + (id)keyPathForFirstWakeupStatus;
 + (id)keyPathForNextUserVisibleWakeDate;

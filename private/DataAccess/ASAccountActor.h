@@ -36,6 +36,8 @@
 - (int)performFetchMessageSearchResultRequests:(id)arg1 consumer:(id)arg2;
 - (int)performFetchAttachmentRequest:(id)arg1 consumer:(id)arg2;
 - (int)performMoveRequests:(id)arg1 consumer:(id)arg2;
+- (int)performMailboxRequests:(id)arg1 mailbox:(id)arg2 previousTag:(id)arg3 clientWinsOnSyncConflict:(_Bool)arg4 isUserRequested:(_Bool)arg5 consumer:(id)arg6;
+- (int)performMailboxRequest:(id)arg1 mailbox:(id)arg2 previousTag:(id)arg3 clientWinsOnSyncConflict:(_Bool)arg4 isUserRequested:(_Bool)arg5 consumer:(id)arg6;
 - (int)performMailboxRequests:(id)arg1 mailbox:(id)arg2 previousTag:(id)arg3 isUserRequested:(_Bool)arg4 consumer:(id)arg5;
 - (int)performMailboxRequest:(id)arg1 mailbox:(id)arg2 previousTag:(id)arg3 isUserRequested:(_Bool)arg4 consumer:(id)arg5;
 - (int)sendSmartMessageWithRFC822Data:(id)arg1 messageID:(id)arg2 outgoingMessageType:(int)arg3 originalMessageFolderID:(id)arg4 originalMessageItemID:(id)arg5 originalMessageLongID:(id)arg6 originalAccountID:(id)arg7 replaceOriginalMime:(_Bool)arg8 isUserRequested:(_Bool)arg9 consumer:(id)arg10 context:(id)arg11;

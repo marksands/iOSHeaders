@@ -7,6 +7,7 @@
 #import "NSBundle.h"
 
 @interface NSBundle (RPExtensions)
++ (id)bundleWithPID:(int)arg1;
 + (id)baseIdentifier:(id)arg1;
 + (id)localizedBundle;
 + (id)fallbackBundle;

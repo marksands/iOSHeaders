@@ -23,12 +23,14 @@
     NSNumber *_currentAverageRTT;
     NSNumber *_isDeviceBlackedOut;
     NSNumber *_localMessageState;
+    NSString *_wpConnectionErrorDomain;
     NSNumber *_wpConnectionErrorCode;
     NSDictionary *_wpConnectionErrorUserInfo;
 }
 
 @property(copy, nonatomic) NSDictionary *wpConnectionErrorUserInfo; // @synthesize wpConnectionErrorUserInfo=_wpConnectionErrorUserInfo;
 @property(copy, nonatomic) NSNumber *wpConnectionErrorCode; // @synthesize wpConnectionErrorCode=_wpConnectionErrorCode;
+@property(copy, nonatomic) NSString *wpConnectionErrorDomain; // @synthesize wpConnectionErrorDomain=_wpConnectionErrorDomain;
 @property(copy, nonatomic) NSNumber *localMessageState; // @synthesize localMessageState=_localMessageState;
 @property(copy, nonatomic) NSNumber *isDeviceBlackedOut; // @synthesize isDeviceBlackedOut=_isDeviceBlackedOut;
 @property(copy, nonatomic) NSNumber *currentAverageRTT; // @synthesize currentAverageRTT=_currentAverageRTT;

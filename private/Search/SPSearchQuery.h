@@ -39,6 +39,7 @@
     NSDictionary *_dictationResponse;
     long long _maxCount;
     NSArray *_disabledBundles;
+    NSArray *_disabledApps;
     unsigned long long _whyQuery;
     unsigned long long _queryIdent;
     long long _contentFilters;
@@ -54,6 +55,7 @@
 @property(nonatomic) unsigned long long whyQuery; // @synthesize whyQuery=_whyQuery;
 @property(nonatomic) _Bool infinitePatience; // @synthesize infinitePatience=_infinitePatience;
 @property(nonatomic) _Bool noTokenize; // @synthesize noTokenize=_noTokenize;
+@property(retain, nonatomic) NSArray *disabledApps; // @synthesize disabledApps=_disabledApps;
 @property(retain, nonatomic) NSArray *disabledBundles; // @synthesize disabledBundles=_disabledBundles;
 @property(nonatomic) _Bool internal; // @synthesize internal=_internal;
 @property(nonatomic) long long maxCount; // @synthesize maxCount=_maxCount;
@@ -76,10 +78,6 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithQuery:(id)arg1 domains:(id)arg2;
-- (id)initWithSearchString:(id)arg1;
-- (id)initWithSearchString:(id)arg1 keyboardLanguage:(id)arg2 forSearchDomains:(id)arg3 disabledBundles:(id)arg4;
-- (id)initWithSearchString:(id)arg1 keyboardLanguage:(id)arg2 forSearchDomains:(id)arg3 disabledDomains:(id)arg4 disabledBundles:(id)arg5;
-- (id)initWithSearchString:(id)arg1 keyboardLanguage:(id)arg2 keyboardPrimaryLanguage:(id)arg3 forSearchDomains:(id)arg4 disabledDomains:(id)arg5 disabledBundles:(id)arg6 searchEntities:(id)arg7;
 - (id)initWithSearchQueryContext:(id)arg1;
 - (void)execute:(CDUnknownBlockType)arg1;
 - (void)cancel;

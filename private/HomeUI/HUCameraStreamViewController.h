@@ -12,12 +12,14 @@
 #import "HUPresentationDelegateHost.h"
 #import "PGPictureInPictureProxyDelegate.h"
 
-@class HFCameraAudioManager, HFCameraItem, HFItem, HFItemManager, HUCameraMicrophoneButton, HUCameraStreamContentViewController, MPVolumeSlider, NSArray, NSString, PGPictureInPictureProxy, UIBarButtonItem;
+@class HFCameraAudioManager, HFCameraItem, HFItem, HFItemManager, HUCameraMicrophoneButton, HUCameraStreamContentViewController, MPVolumeSlider, NSLayoutConstraint, NSString, PGPictureInPictureProxy, UIBarButtonItem;
 
 @interface HUCameraStreamViewController : UIViewController <HFItemManagerDelegate, HUPresentationDelegate, PGPictureInPictureProxyDelegate, HUItemPresentationContainer, HUPresentationDelegateHost>
 {
     _Bool _navigationControllerSetup;
     _Bool _barsHidden;
+    _Bool _didSetupMicrophoneButtonConstraints;
+    _Bool _didSetupVolumeSliderConstraints;
     id <HUPresentationDelegate> _presentationDelegate;
     id <HUCameraStreamViewControllerDelegate> _delegate;
     HUCameraStreamContentViewController *_cameraStreamContentViewController;
@@ -25,32 +27,39 @@
     PGPictureInPictureProxy *_pipProxy;
     UIViewController *_lastPresentingViewController;
     HFCameraAudioManager *_cameraAudioManager;
+    NSLayoutConstraint *_volumeSliderWidthConstraint;
+    NSLayoutConstraint *_volumeSliderCenterXConstraint;
+    NSLayoutConstraint *_volumeSliderLeadingConstraint;
     MPVolumeSlider *_volumeSlider;
-    NSArray *_volumeSliderConstraints;
-    NSArray *_microphoneButtonConstraints;
     UIBarButtonItem *_volumeBarButtonItem;
     HUCameraMicrophoneButton *_microphoneButton;
     UIBarButtonItem *_microphoneBarButtonItem;
+    struct UIOffset _defaultCameraBadgeOffset;
 }
 
+@property(nonatomic) _Bool didSetupVolumeSliderConstraints; // @synthesize didSetupVolumeSliderConstraints=_didSetupVolumeSliderConstraints;
+@property(nonatomic) _Bool didSetupMicrophoneButtonConstraints; // @synthesize didSetupMicrophoneButtonConstraints=_didSetupMicrophoneButtonConstraints;
 @property(nonatomic, getter=areBarsHidden) _Bool barsHidden; // @synthesize barsHidden=_barsHidden;
 @property(retain, nonatomic) UIBarButtonItem *microphoneBarButtonItem; // @synthesize microphoneBarButtonItem=_microphoneBarButtonItem;
 @property(retain, nonatomic) HUCameraMicrophoneButton *microphoneButton; // @synthesize microphoneButton=_microphoneButton;
 @property(retain, nonatomic) UIBarButtonItem *volumeBarButtonItem; // @synthesize volumeBarButtonItem=_volumeBarButtonItem;
-@property(retain, nonatomic) NSArray *microphoneButtonConstraints; // @synthesize microphoneButtonConstraints=_microphoneButtonConstraints;
-@property(retain, nonatomic) NSArray *volumeSliderConstraints; // @synthesize volumeSliderConstraints=_volumeSliderConstraints;
 @property(retain, nonatomic) MPVolumeSlider *volumeSlider; // @synthesize volumeSlider=_volumeSlider;
+@property(retain, nonatomic) NSLayoutConstraint *volumeSliderLeadingConstraint; // @synthesize volumeSliderLeadingConstraint=_volumeSliderLeadingConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *volumeSliderCenterXConstraint; // @synthesize volumeSliderCenterXConstraint=_volumeSliderCenterXConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *volumeSliderWidthConstraint; // @synthesize volumeSliderWidthConstraint=_volumeSliderWidthConstraint;
 @property(retain, nonatomic) HFCameraAudioManager *cameraAudioManager; // @synthesize cameraAudioManager=_cameraAudioManager;
 @property(nonatomic) __weak UIViewController *lastPresentingViewController; // @synthesize lastPresentingViewController=_lastPresentingViewController;
 @property(nonatomic, getter=isNavigationControllerSetup) _Bool navigationControllerSetup; // @synthesize navigationControllerSetup=_navigationControllerSetup;
 @property(retain, nonatomic) PGPictureInPictureProxy *pipProxy; // @synthesize pipProxy=_pipProxy;
 @property(readonly, nonatomic) HFItemManager *itemManager; // @synthesize itemManager=_itemManager;
+@property(readonly, nonatomic) struct UIOffset defaultCameraBadgeOffset; // @synthesize defaultCameraBadgeOffset=_defaultCameraBadgeOffset;
 @property(readonly, nonatomic) HUCameraStreamContentViewController *cameraStreamContentViewController; // @synthesize cameraStreamContentViewController=_cameraStreamContentViewController;
 @property(nonatomic) __weak id <HUCameraStreamViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <HUPresentationDelegate> presentationDelegate; // @synthesize presentationDelegate=_presentationDelegate;
 - (void).cxx_destruct;
 - (void)_handleBarHideTapGesture:(id)arg1;
 - (id)_barBackgroundView;
+- (void)_setupVolumeSliderConstraintsIfNeeded;
 - (void)_setupNavigationController;
 - (unsigned long long)_streamState;
 - (id)_cameraProfile;
@@ -77,6 +86,10 @@
 - (long long)preferredStatusBarUpdateAnimation;
 - (_Bool)prefersStatusBarHidden;
 - (_Bool)prefersHomeIndicatorAutoHidden;
+- (void)_updateCameraBadgeOffset;
+- (void)_adjustVolumeSliderToAccomodateHomeAffordance;
+- (void)_setupMicrophoneConstraintsIfNeeded;
+- (void)_updateVolumeSliderConstraintsIfNeeded;
 - (void)viewWillLayoutSubviews;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

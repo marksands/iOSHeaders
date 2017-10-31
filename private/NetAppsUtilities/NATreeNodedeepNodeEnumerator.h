@@ -10,7 +10,7 @@
 
 @class NATreeNode, NSArray, NSMutableArray;
 
-@interface NATreeNodedeepNodeEnumerator : NSEnumerator <NSCopying>
+@interface NATreeNodeDeepNodeEnumerator : NSEnumerator <NSCopying>
 {
     NSMutableArray *_enumeratorStack;
     NATreeNode *_node;

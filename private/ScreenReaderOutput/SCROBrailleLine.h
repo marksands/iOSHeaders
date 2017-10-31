@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSData, NSDictionary, NSMutableAttributedString, SCROBrailleChunk, SCROBrailleLineVirtualStatus;
+@class NSArray, NSData, NSDictionary, NSMutableArray, NSMutableAttributedString, SCROBrailleChunk, SCROBrailleLineVirtualStatus;
 
 @interface SCROBrailleLine : NSObject
 {
@@ -51,11 +51,11 @@
     SCROBrailleChunk *_chunkPendingTranslation;
     NSArray *_chunkArray;
     NSDictionary *_chunkDictionary;
-    NSDictionary *_pendingBrailleStringDictionary;
+    NSMutableArray *_pendingBrailleStringDictionaries;
 }
 
 + (void)initialize;
-@property(retain, nonatomic) NSDictionary *pendingBrailleStringDictionary; // @synthesize pendingBrailleStringDictionary=_pendingBrailleStringDictionary;
+@property(retain, nonatomic) NSMutableArray *pendingBrailleStringDictionaries; // @synthesize pendingBrailleStringDictionaries=_pendingBrailleStringDictionaries;
 @property(retain, nonatomic) NSDictionary *chunkDictionary; // @synthesize chunkDictionary=_chunkDictionary;
 @property(retain, nonatomic) NSArray *chunkArray; // @synthesize chunkArray=_chunkArray;
 @property(nonatomic) __weak SCROBrailleChunk *chunkPendingTranslation; // @synthesize chunkPendingTranslation=_chunkPendingTranslation;

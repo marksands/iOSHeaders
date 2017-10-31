@@ -15,6 +15,10 @@
     _Bool _serviceIsAlive;
 }
 
++ (id)clockNameForClockIdentifier:(unsigned long long)arg1;
++ (id)diagnosticInfoForClockIdentifier:(unsigned long long)arg1;
++ (id)diagnosticInfoForService:(unsigned int)arg1;
++ (unsigned int)serviceForClockIdentifier:(unsigned long long)arg1;
 + (id)diagnosticDescriptionForService:(unsigned int)arg1 withIndent:(id)arg2;
 + (id)iokitMatchingDictionaryForClockIdentifier:(unsigned long long)arg1;
 + (id)availableKernelClockIdentifiers;

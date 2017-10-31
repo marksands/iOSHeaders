@@ -18,6 +18,7 @@
 }
 
 + (_Bool)isLogEnabled;
++ (id)clustererModelFileNamesFromState:(id)arg1 storedInPath:(id)arg2 error:(id *)arg3;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)getDistances:(id)arg1 to:(id)arg2;

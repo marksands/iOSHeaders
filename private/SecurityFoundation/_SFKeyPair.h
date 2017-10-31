@@ -16,6 +16,7 @@
 + (id)_secKeyCreationAttributesForSpecifier:(id)arg1;
 + (Class)_attributesClass;
 - (void).cxx_destruct;
+- (id)keyData;
 @property(readonly, nonatomic, getter=_secKey) struct __SecKey *secKey;
 @property(readonly, copy, nonatomic) NSString *privateKeyDomain;
 @property(readonly, nonatomic) _SFPublicKey *publicKey;

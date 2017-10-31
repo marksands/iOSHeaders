@@ -25,6 +25,7 @@
 @property(nonatomic, getter=isDelegated) _Bool delegated; // @dynamic delegated;
 @property(copy, nonatomic) NSString *carrierBundleDeviceIdentifier; // @dynamic carrierBundleDeviceIdentifier;
 @property(copy, nonatomic) NSString *alternateDSID; // @dynamic alternateDSID;
+- (void)replaceValuesWithValuesFromProperties:(id)arg1;
 
 @end
 

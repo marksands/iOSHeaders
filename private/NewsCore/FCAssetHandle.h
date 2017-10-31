@@ -6,19 +6,19 @@
 
 #import "NSObject.h"
 
-@class FCInterestToken, FCMutexLock, NSDate, NSError, NSHashTable, NSObject<OS_dispatch_group>, NSString, NSURL;
+@class FCInterestToken, FCOperation, NFMutexLock, NSDate, NSError, NSHashTable, NSObject<OS_dispatch_group>, NSString, NSURL;
 
 @interface FCAssetHandle : NSObject
 {
     NSString *_filePath;
     NSError *_downloadError;
-    id <FCOperationCanceling><FCOperationPrioritizing> _fetchOperation;
+    NSURL *_remoteURL;
+    FCOperation *_fetchOperation;
     NSHashTable *_downloadRequests;
     NSObject<OS_dispatch_group> *_fetchGroup;
     unsigned long long _countOfPenalizedDownloadAttempts;
     NSDate *_dateOfLastDownloadAttempt;
-    FCMutexLock *_stateMutex;
-    NSURL *_remoteURL;
+    NFMutexLock *_stateMutex;
     id <FCAssetHandleDelegate> _delegate;
     FCInterestToken *_holdToken;
     NSString *_assetKey;
@@ -29,13 +29,13 @@
 @property(copy, nonatomic) NSString *assetKey; // @synthesize assetKey=_assetKey;
 @property(retain, nonatomic) FCInterestToken *holdToken; // @synthesize holdToken=_holdToken;
 @property(nonatomic) __weak id <FCAssetHandleDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) NSURL *remoteURL; // @synthesize remoteURL=_remoteURL;
-@property(retain, nonatomic) FCMutexLock *stateMutex; // @synthesize stateMutex=_stateMutex;
+@property(retain, nonatomic) NFMutexLock *stateMutex; // @synthesize stateMutex=_stateMutex;
 @property(retain) NSDate *dateOfLastDownloadAttempt; // @synthesize dateOfLastDownloadAttempt=_dateOfLastDownloadAttempt;
 @property unsigned long long countOfPenalizedDownloadAttempts; // @synthesize countOfPenalizedDownloadAttempts=_countOfPenalizedDownloadAttempts;
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *fetchGroup; // @synthesize fetchGroup=_fetchGroup;
 @property(retain, nonatomic) NSHashTable *downloadRequests; // @synthesize downloadRequests=_downloadRequests;
-@property(retain, nonatomic) id <FCOperationCanceling><FCOperationPrioritizing> fetchOperation; // @synthesize fetchOperation=_fetchOperation;
+@property(retain, nonatomic) FCOperation *fetchOperation; // @synthesize fetchOperation=_fetchOperation;
+@property(retain, nonatomic) NSURL *remoteURL; // @synthesize remoteURL=_remoteURL;
 @property(retain) NSError *downloadError; // @synthesize downloadError=_downloadError;
 @property(copy) NSString *filePath; // @synthesize filePath=_filePath;
 - (void).cxx_destruct;

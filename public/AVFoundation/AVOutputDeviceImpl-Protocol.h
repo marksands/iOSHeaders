@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class AVOutputDevice, NSArray, NSData, NSDictionary, NSNumber, NSString;
+@class AVOutputDevice, NSArray, NSData, NSNumber, NSString;
 
 @protocol AVOutputDeviceImpl <NSObject>
+@property(readonly, nonatomic) NSString *logicalDeviceID;
 @property(readonly, nonatomic) _Bool groupContainsGroupLeader;
 @property(readonly, nonatomic) _Bool isGroupLeader;
 @property(readonly, nonatomic) _Bool canBeGroupLeader;
@@ -26,13 +27,16 @@
 @property(readonly, nonatomic) NSNumber *caseBatteryLevel;
 @property(readonly, nonatomic) NSNumber *batteryLevel;
 @property(readonly, copy, nonatomic) NSData *identifyingMACAddress;
+@property(readonly, nonatomic) NSString *firmwareVersion;
+@property(readonly, nonatomic) NSString *serialNumber;
 @property(readonly, copy, nonatomic) NSString *modelID;
+@property(readonly, nonatomic) NSString *manufacturer;
 @property(readonly, nonatomic) long long deviceSubType;
 @property(readonly, nonatomic) long long deviceType;
 @property(readonly, copy, nonatomic) NSString *ID;
 @property(readonly, copy, nonatomic) NSString *name;
 @property __weak AVOutputDevice *parentOutputDevice;
-- (void)setAdministrativeConfiguration:(NSDictionary *)arg1 administrationPassword:(NSString *)arg2 completionHandler:(void (^)(_Bool, NSError *, NSDictionary *))arg3;
+- (void)configureUsingBlock:(void (^)(id <AVOutputDeviceConfigurationModification>))arg1 completionHandler:(void (^)(id <AVOutputDeviceConfigurationRetrieval>, NSError *))arg2;
 - (void)setVolume:(float)arg1;
 - (void)setSecondDisplayEnabled:(_Bool)arg1;
 @end

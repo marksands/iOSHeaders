@@ -25,6 +25,7 @@
 }
 
 + (id)sharedInstance;
++ (_Bool)adShouldCreateADSession;
 @property(nonatomic) _Bool applicationCanRecieveAds; // @synthesize applicationCanRecieveAds=_applicationCanRecieveAds;
 @property(nonatomic) NSObject<OS_dispatch_queue> *adSpaceQueue; // @synthesize adSpaceQueue=_adSpaceQueue;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;

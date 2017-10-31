@@ -41,7 +41,7 @@
 @property(nonatomic) __weak id <NUArticleContainerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)childViewControllerForStatusBarHidden;
-- (id)viewControllerPagableForViewController:(id)arg1;
+- (id)viewControllerPageableForViewController:(id)arg1;
 - (void)styleNavigationForPage:(id)arg1;
 - (void)loadingDidFinishWithError:(id)arg1;
 - (void)loadingWillStart;

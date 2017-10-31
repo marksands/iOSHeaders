@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSValue;
+@class NSString, NSValue;
 
 @protocol ADWebProcessProxy <NSObject>
+- (void)actionDidFailWithErrorDescription:(NSString *)arg1;
 - (void)setExpandedSize:(NSValue *)arg1;
 - (void)creativeVisibilityDidChange:(_Bool)arg1;
 - (void)creativeStateDidChange:(long long)arg1;

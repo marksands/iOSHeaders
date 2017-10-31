@@ -15,6 +15,7 @@
 @property(readonly, nonatomic) __weak id <HMDRemoteLoginInitiatorAuthenticationDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_handleAuthenticationResponse:(id)arg1 error:(id)arg2;
+- (int)loginType;
 - (void)authenticate;
 - (id)initWithSessionID:(id)arg1 remoteDevice:(id)arg2 workQueue:(id)arg3 remoteMessageSender:(id)arg4 delegate:(id)arg5;
 

@@ -12,6 +12,8 @@
 
 + (void)_updateWidgetRowHeightForContentSizeCategory;
 + (double)widgetRowHeight;
++ (double)defaultWidgetRowHeight;
++ (double)scaledValueForValue:(double)arg1;
 
 @end
 

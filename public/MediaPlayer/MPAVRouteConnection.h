@@ -29,8 +29,9 @@
 - (void)becomeActiveOriginWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)sendMediaRemoteCommand:(unsigned int)arg1 withOptions:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)sendCustomData:(id)arg1;
+- (void)reset;
 @property(readonly, nonatomic, getter=isInvalidated) _Bool invalidated;
-- (void)invalidate;
+- (void)connectWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)connectWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic, getter=isConnected) _Bool connected;
 - (void)dealloc;

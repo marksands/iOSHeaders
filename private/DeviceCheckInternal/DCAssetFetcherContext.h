@@ -9,12 +9,10 @@
 @interface DCAssetFetcherContext : NSObject
 {
     _Bool _allowCatalogRefresh;
-    _Bool _ignoreCachedAsset;
     _Bool _ignoreCachedMetadata;
 }
 
 @property(nonatomic) _Bool ignoreCachedMetadata; // @synthesize ignoreCachedMetadata=_ignoreCachedMetadata;
-@property(nonatomic) _Bool ignoreCachedAsset; // @synthesize ignoreCachedAsset=_ignoreCachedAsset;
 @property(nonatomic) _Bool allowCatalogRefresh; // @synthesize allowCatalogRefresh=_allowCatalogRefresh;
 - (id)description;
 

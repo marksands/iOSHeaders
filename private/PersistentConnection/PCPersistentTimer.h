@@ -26,6 +26,7 @@
     PCSimpleTimer *_simpleTimer;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_os_log> *_logObject;
+    double _earlyFireConstantInterval;
 }
 
 + (void)_updateTime:(double)arg1 forGuidancePriority:(unsigned long long)arg2;
@@ -34,6 +35,7 @@
 + (id)lastSystemWakeDate;
 + (id)_backgroundUpdateQueue;
 @property(nonatomic) _Bool disableSystemWaking; // @synthesize disableSystemWaking=_disableSystemWaking;
+@property(nonatomic) double earlyFireConstantInterval; // @synthesize earlyFireConstantInterval=_earlyFireConstantInterval;
 @property(nonatomic) double minimumEarlyFireProportion; // @synthesize minimumEarlyFireProportion=_minimumEarlyFireProportion;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *debugDescription;

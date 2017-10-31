@@ -21,12 +21,14 @@
     AXElementGroup *_parentGroup;
     AXElement *_elementCommunity;
     NSString *_label;
+    NSString *_identifier;
 }
 
 + (id)groupWithGenerator:(id)arg1;
 + (id)groupWithElements:(id)arg1 label:(id)arg2;
 + (id)groupWithElements:(id)arg1;
-@property(readonly, nonatomic) NSString *label; // @synthesize label=_label;
+@property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(retain, nonatomic) AXElement *elementCommunity; // @synthesize elementCommunity=_elementCommunity;
 @property(nonatomic) AXElementGroup *parentGroup; // @synthesize parentGroup=_parentGroup;
 @property(retain, nonatomic) NSHashTable *groupObservers; // @synthesize groupObservers=_groupObservers;
@@ -87,6 +89,7 @@
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)objectAtIndex:(unsigned long long)arg1;
 - (unsigned long long)count;
+- (_Bool)isEqual:(id)arg1;
 - (void)_transferStateToGroup:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)groupByReplacingGroupable:(id)arg1 withGroupable:(id)arg2;

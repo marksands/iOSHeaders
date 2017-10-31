@@ -20,6 +20,7 @@
     double _compactHorizontalTableStackSpacing;
     double _regularHorizontalTableStackSpacing;
     double _fullHorizontalTableStackSpacing;
+    UIColor *_largeTitleColor;
     unsigned long long _browserUserInterfaceStyle;
     double _createButtonAspectRatio;
     NSString *_collectionCreateButtonTitle;
@@ -36,6 +37,7 @@
 @property(nonatomic) unsigned long long browserUserInterfaceStyle; // @synthesize browserUserInterfaceStyle=_browserUserInterfaceStyle;
 @property _Bool forceClearBackground; // @synthesize forceClearBackground=_forceClearBackground;
 @property _Bool showsCreateButton; // @synthesize showsCreateButton=_showsCreateButton;
+@property(retain, nonatomic) UIColor *largeTitleColor; // @synthesize largeTitleColor=_largeTitleColor;
 @property double fullHorizontalTableStackSpacing; // @synthesize fullHorizontalTableStackSpacing=_fullHorizontalTableStackSpacing;
 @property double regularHorizontalTableStackSpacing; // @synthesize regularHorizontalTableStackSpacing=_regularHorizontalTableStackSpacing;
 @property double compactHorizontalTableStackSpacing; // @synthesize compactHorizontalTableStackSpacing=_compactHorizontalTableStackSpacing;
@@ -54,6 +56,7 @@
 @property(readonly) long long preferredStatusBarStyle;
 @property(readonly) UIColor *progressViewInactiveStrokeColor;
 @property(readonly) UIColor *searchBarTextColor;
+@property(readonly) _Bool searchBarWantsDarkBackdropStyleOnly;
 @property(readonly) UIColor *separatorColor;
 @property(readonly) UIColor *dimmingViewColor;
 @property(readonly) UIColor *secondaryTextColor;

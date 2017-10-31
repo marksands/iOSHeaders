@@ -13,6 +13,7 @@
     _Bool _includeDegreeSymbol;
     int _inputUnit;
     int _outputUnit;
+    int _symbolType;
     struct UAMeasureFormat *_measureFormatter;
     NSLocale *_locale;
     NSString *_fallbackTemperatureString;
@@ -22,6 +23,7 @@
 
 + (id)temperatureFormatterWithInputUnit:(int)arg1 outputUnit:(int)arg2;
 @property(nonatomic) _Bool includeDegreeSymbol; // @synthesize includeDegreeSymbol=_includeDegreeSymbol;
+@property(nonatomic) int symbolType; // @synthesize symbolType=_symbolType;
 @property(nonatomic) unsigned long long maximumFractionDigits; // @synthesize maximumFractionDigits=_maximumFractionDigits;
 @property(nonatomic) unsigned long long roundingMode; // @synthesize roundingMode=_roundingMode;
 @property(nonatomic) int outputUnit; // @synthesize outputUnit=_outputUnit;

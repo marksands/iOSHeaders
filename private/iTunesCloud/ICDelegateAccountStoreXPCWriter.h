@@ -6,18 +6,29 @@
 
 #import "NSObject.h"
 
+#import "ICDelegateAccountStoreServiceClient.h"
 #import "ICDelegateAccountStoreWriter.h"
 
-@class NSString, NSXPCConnection;
+@class ICDelegateAccountStoreOptions, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
 
-@interface ICDelegateAccountStoreXPCWriter : NSObject <ICDelegateAccountStoreWriter>
+@interface ICDelegateAccountStoreXPCWriter : NSObject <ICDelegateAccountStoreServiceClient, ICDelegateAccountStoreWriter>
 {
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    ICDelegateAccountStoreOptions *_accountStoreOptions;
+    NSObject<OS_dispatch_queue> *_callbackQueue;
     NSXPCConnection *_connection;
-    _Bool _isValid;
+    CDUnknownBlockType _externalChangeHandler;
+    _Bool _hasReceivedConnectionInvalidation;
 }
 
 - (void).cxx_destruct;
+- (void)_getXPCConnectionWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_onceWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)recreateWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)openWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)invalidate;
+@property(copy, nonatomic) CDUnknownBlockType externalChangeHandler; // @synthesize externalChangeHandler=_externalChangeHandler;
+- (void)delegateAccountStoreDidChange;
 - (void)setToken:(id)arg1 forUserIdentity:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setIdentityProperties:(id)arg1 forUserIdentity:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)removeTokensExpiringBeforeDate:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -25,9 +36,9 @@
 - (void)removeIdentityPropertiesForUserIdentity:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removeDelegationUUIDs:(id)arg1 forUserIdentity:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)removeAllTokensWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)invalidate;
 - (void)addDelegationUUIDs:(id)arg1 forUserIdentity:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (id)initWithSingleWriterConnection:(id)arg1;
+- (void)dealloc;
+- (id)initWithAccountStoreOptions:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

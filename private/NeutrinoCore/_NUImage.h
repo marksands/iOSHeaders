@@ -33,8 +33,8 @@
 @property(readonly) NUImageLayout *layout; // @synthesize layout=_layout;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (_Bool)copyBufferStorage:(id)arg1 region:(id)arg2 atPoint:(CDStruct_912cb5d2)arg3;
-- (_Bool)copySurfaceStorage:(id)arg1 device:(id)arg2 region:(id)arg3 atPoint:(CDStruct_912cb5d2)arg4;
+- (_Bool)copyBufferStorage:(id)arg1 fromRect:(CDStruct_996ac03c)arg2 toPoint:(CDStruct_912cb5d2)arg3;
+- (_Bool)copySurfaceStorage:(id)arg1 fromRect:(CDStruct_996ac03c)arg2 toPoint:(CDStruct_912cb5d2)arg3 device:(id)arg4;
 - (id)mutablePurgeableImageCopy;
 - (id)purgeableImageCopy;
 - (id)mutableImageCopy;

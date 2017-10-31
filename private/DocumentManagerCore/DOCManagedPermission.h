@@ -6,26 +6,31 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSCache, NSString;
 
 @interface DOCManagedPermission : NSObject
 {
     NSString *_hostIdentifier;
+    NSCache *_cache;
 }
 
 + (id)defaultPermission;
+@property(retain, nonatomic) NSCache *cache; // @synthesize cache=_cache;
 @property(retain, nonatomic) NSString *hostIdentifier; // @synthesize hostIdentifier=_hostIdentifier;
 - (void).cxx_destruct;
+- (_Bool)canCopyItems:(id)arg1;
 @property(readonly, nonatomic) _Bool hasRestrictions;
 - (id)queueFileDataForAcceptance:(id)arg1 originalFileName:(id)arg2 forBundleID:(id)arg3 outError:(id *)arg4;
 - (unsigned long long)dataOwnerStateForBundleIdentifier:(id)arg1;
 - (unsigned long long)dataOwnerStateForItem:(id)arg1;
+- (id)defaultFileProviderForAppBundle:(id)arg1;
 - (_Bool)canHostAppPerformAction:(unsigned long long)arg1 targetBundleIdentifier:(id)arg2;
 - (_Bool)canHostAppPerformAction:(unsigned long long)arg1 targetSearchableItem:(id)arg2;
 - (_Bool)canHostAppPerformAction:(unsigned long long)arg1 targetItem:(id)arg2;
 - (id)filterItems:(id)arg1 byCanPerformAction:(unsigned long long)arg2 targetItem:(id)arg3;
 - (id)filterProviders:(id)arg1 byCanPerformAction:(unsigned long long)arg2 targetBundleIdentifier:(id)arg3 targetBundleIsManaged:(_Bool)arg4;
 - (id)filterBundleIdentifiers:(id)arg1 byCanPerformAction:(unsigned long long)arg2 targetBundleIdentifier:(id)arg3 targetBundleIsManaged:(_Bool)arg4;
+- (id)init;
 
 @end
 

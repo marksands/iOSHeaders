@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class GEOApplicationAuditToken, GEODirectionIntent, GEOMapRegion, GEOMapServiceTraits, GEORPCorrectedSearch, GEORPPlaceInfo, GEORelatedSearchSuggestion, NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class GEOApplicationAuditToken, GEODirectionIntent, GEOMapRegion, GEOMapServiceTraits, GEORPCorrectedSearch, GEORPPlaceInfo, GEORelatedSearchSuggestion, GEOResolvedItem, NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @protocol GEOMapServiceTicket <NSObject>
 @property(readonly, nonatomic, getter=isCancelled) _Bool cancelled;
@@ -14,6 +14,7 @@
 @property(readonly, nonatomic) _Bool showDymSuggestionCloseButton;
 @property(readonly, nonatomic) unsigned int dymSuggestionVisibleTime;
 @property(readonly, nonatomic) GEODirectionIntent *directionIntent;
+@property(readonly, nonatomic) GEOResolvedItem *clientResolvedResult;
 @property(readonly, nonatomic) _Bool shouldEnableRedoSearch;
 @property(readonly, nonatomic) NSArray *displayHeaderSubstitutes;
 @property(readonly, nonatomic) NSString *resultDisplayHeader;

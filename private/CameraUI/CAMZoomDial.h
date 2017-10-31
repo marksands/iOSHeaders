@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class CAMZoomDialDotsView, NSArray, UIImageView;
+@class CAMZoomDialDotsView, NSArray, NSString, UIImageView;
 
 @interface CAMZoomDial : UIView
 {
@@ -21,6 +21,7 @@
     double _zoomFactor;
     double _contractionDistance;
     long long _orientation;
+    NSString *_contentSizeCategory;
     UIImageView *__backgroundView;
     UIView *__dotAndLabelContainerView;
     NSArray *__labels;
@@ -37,6 +38,7 @@
 @property(retain, nonatomic, setter=_setLabels:) NSArray *_labels; // @synthesize _labels=__labels;
 @property(readonly, nonatomic) UIView *_dotAndLabelContainerView; // @synthesize _dotAndLabelContainerView=__dotAndLabelContainerView;
 @property(readonly, nonatomic) UIImageView *_backgroundView; // @synthesize _backgroundView=__backgroundView;
+@property(copy, nonatomic) NSString *contentSizeCategory; // @synthesize contentSizeCategory=_contentSizeCategory;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(nonatomic, getter=isExpanded) _Bool expanded; // @synthesize expanded=_expanded;
 @property(nonatomic) double contractionDistance; // @synthesize contractionDistance=_contractionDistance;

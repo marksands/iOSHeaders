@@ -7,6 +7,7 @@
 #import "UIView.h"
 
 @interface UIView (TVMLKitAdditions)
++ (void)tv_performByPreventingAdditiveAnimations:(CDUnknownBlockType)arg1;
 - (id)tv_AccessibilityText;
 - (void)tv_setAccessibilityText:(id)arg1;
 - (void)tv_setSiriData:(id)arg1;

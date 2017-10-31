@@ -25,7 +25,7 @@
 - (id)characteristicValuesForValue:(id)arg1;
 - (id)valueForCharacteristicValues:(id)arg1;
 - (id)updateWithOptions:(id)arg1;
-- (id)copyWithCharacteristicTypes:(id)arg1 valueSource:(id)arg2;
+- (id)copyWithCharacteristicOptions:(id)arg1 valueSource:(id)arg2;
 - (id)initWithValueSource:(id)arg1 characteristicType:(id)arg2 possibleValueSet:(id)arg3 displayResults:(id)arg4;
 - (id)initWithValueSource:(id)arg1 targetModeCharacteristicType:(id)arg2 targetModeValueSet:(id)arg3 primaryPowerStateControlItem:(id)arg4 displayResults:(id)arg5;
 

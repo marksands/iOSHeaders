@@ -25,16 +25,19 @@
     NSArray *_completedURLs;
     unsigned long long _userResponse;
     unsigned long long _transferState;
+    unsigned long long _failureReason;
     NSURL *_customDestinationURL;
     id _progressToken;
 }
 
 + (id)keyPathsForValuesAffectingNeedsAction;
++ (_Bool)automaticallyNotifiesObserversOfFailureReason;
 + (_Bool)automaticallyNotifiesObserversOfTransferState;
 + (_Bool)automaticallyNotifiesObserversOfUserResponse;
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) id progressToken; // @synthesize progressToken=_progressToken;
 @property(copy, nonatomic) NSURL *customDestinationURL; // @synthesize customDestinationURL=_customDestinationURL;
+@property(nonatomic) unsigned long long failureReason; // @synthesize failureReason=_failureReason;
 @property(nonatomic) unsigned long long transferState; // @synthesize transferState=_transferState;
 @property(nonatomic) unsigned long long userResponse; // @synthesize userResponse=_userResponse;
 @property(copy, nonatomic) NSArray *completedURLs; // @synthesize completedURLs=_completedURLs;

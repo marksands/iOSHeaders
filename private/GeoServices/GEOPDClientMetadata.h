@@ -13,6 +13,7 @@
 @interface GEOPDClientMetadata : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    CDStruct_95bda58d _knownClientResolvedTypeDeprecateds;
     CDStruct_95bda58d _knownClientResolvedTypes;
     GEOABSecondPartyPlaceRequestClientMetaData *_abClientMetadata;
     GEOAdditionalEnabledMarkets *_additionalEnabledMarkets;
@@ -62,8 +63,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasEnablePreflightVenues;
-@property(nonatomic) _Bool enablePreflightVenues; // @synthesize enablePreflightVenues=_enablePreflightVenues;
 - (int)StringAsKnownClientResolvedTypes:(id)arg1;
 - (id)knownClientResolvedTypesAsString:(int)arg1;
 - (void)setKnownClientResolvedTypes:(int *)arg1 count:(unsigned long long)arg2;
@@ -72,6 +71,16 @@
 - (void)clearKnownClientResolvedTypes;
 @property(readonly, nonatomic) int *knownClientResolvedTypes;
 @property(readonly, nonatomic) unsigned long long knownClientResolvedTypesCount;
+@property(nonatomic) _Bool hasEnablePreflightVenues;
+@property(nonatomic) _Bool enablePreflightVenues; // @synthesize enablePreflightVenues=_enablePreflightVenues;
+- (int)StringAsKnownClientResolvedTypeDeprecateds:(id)arg1;
+- (id)knownClientResolvedTypeDeprecatedsAsString:(int)arg1;
+- (void)setKnownClientResolvedTypeDeprecateds:(int *)arg1 count:(unsigned long long)arg2;
+- (int)knownClientResolvedTypeDeprecatedAtIndex:(unsigned long long)arg1;
+- (void)addKnownClientResolvedTypeDeprecated:(int)arg1;
+- (void)clearKnownClientResolvedTypeDeprecateds;
+@property(readonly, nonatomic) int *knownClientResolvedTypeDeprecateds;
+@property(readonly, nonatomic) unsigned long long knownClientResolvedTypeDeprecatedsCount;
 @property(readonly, nonatomic) _Bool hasDebugApiKey;
 - (int)StringAsRequiredVersion:(id)arg1;
 - (id)requiredVersionAsString:(int)arg1;

@@ -13,6 +13,8 @@
 
 + (id)relayPhoneNumber;
 + (_Bool)relayIsSupported;
++ (_Bool)shouldUseRTT;
++ (_Bool)isRTTSupported;
 + (id)sharedUtilityProvider;
 @property(nonatomic) _Bool headphoneJackSupportsTTY; // @synthesize headphoneJackSupportsTTY=_headphoneJackSupportsTTY;
 - (_Bool)relayIsSupported;

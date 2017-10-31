@@ -32,6 +32,7 @@
 - (void)addFieldValue:(id)arg1;
 - (void)addFieldWithFormat:(id)arg1;
 - (void)addField:(id)arg1 format:(id)arg2;
+- (void)addField:(id)arg1 target:(id)arg2;
 - (void)addField:(id)arg1 object:(id)arg2;
 - (void)addField:(id)arg1 value:(id)arg2;
 - (id)p_header;

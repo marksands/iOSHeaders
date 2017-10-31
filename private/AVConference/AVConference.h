@@ -140,6 +140,7 @@
 @property(nonatomic) _Bool requiresWifi;
 - (double)networkQualityForCallID:(long long)arg1;
 - (void)setSessionID:(id)arg1 callID:(long long)arg2;
+- (void)setPeerReportingIdentifier:(id)arg1 sessionIdentifier:(id)arg2 forCallID:(long long)arg3;
 - (void)setPeerCN:(id)arg1 callID:(long long)arg2;
 - (id)callMetadataForCallID:(long long)arg1;
 - (void)inviteDictionaryForCallID:(long long)arg1 remoteInviteDictionary:(id)arg2 nonCellularCandidateTimeout:(double)arg3 block:(CDUnknownBlockType)arg4 queue:(id)arg5;

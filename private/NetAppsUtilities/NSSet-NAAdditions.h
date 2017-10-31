@@ -8,6 +8,8 @@
 
 @interface NSSet (NAAdditions)
 + (id)na_setWithSafeObject:(id)arg1;
+- (id)na_dictionaryByBucketingObjectsUsingKeyGenerator:(CDUnknownBlockType)arg1;
+- (id)na_dictionaryWithKeyGenerator:(CDUnknownBlockType)arg1;
 - (id)na_setByDiffingWithSet:(id)arg1;
 - (id)na_setByRemovingObjectsFromSet:(id)arg1;
 - (id)na_setByIntersectingWithSet:(id)arg1;

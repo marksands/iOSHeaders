@@ -16,6 +16,7 @@
     unsigned int _interestNotification;
 }
 
++ (id)diagnosticInfoForService:(unsigned int)arg1;
 + (id)diagnosticDescriptionForService:(unsigned int)arg1 withIndent:(id)arg2;
 + (id)gPTPPortWithService:(unsigned int)arg1;
 - (void)dealloc;

@@ -32,6 +32,7 @@
 @property(retain, nonatomic) PARSearchClient *client; // @synthesize client=_client;
 @property(retain) PARBag *bag; // @synthesize bag=_bag;
 - (void).cxx_destruct;
+- (void)sendCBAEngagementFeedback:(id)arg1 query:(unsigned long long)arg2;
 - (void)reportFeedback:(id)arg1 queryId:(unsigned long long)arg2;
 - (void)reportEvent:(id)arg1;
 - (void)didGradeLookupHintRelevancy:(id)arg1;

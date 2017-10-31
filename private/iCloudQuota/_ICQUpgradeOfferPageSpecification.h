@@ -14,23 +14,29 @@
     NSString *_iconBundleIdentifier;
     NSString *_title;
     NSString *_message;
+    NSArray *_messageLinks;
     NSString *_altMessage;
-    NSArray *_services;
+    NSArray *_altMessageLinks;
     ICQLink *_purchaseLink;
+    ICQLink *_purchase2Link;
     ICQLink *_bottomLink;
-    NSString *_finePrintFormat;
-    NSArray *_finePrintLinks;
+    NSString *_fineprintFormat;
+    NSArray *_fineprintLinks;
+    NSString *_purchase2LinkVisibleKey;
     NSString *_bottomLinkVisibleKey;
 }
 
 + (id)upgradeOfferPageSpecificationSampleForLevel:(long long)arg1;
 @property(retain, nonatomic) NSString *bottomLinkVisibleKey; // @synthesize bottomLinkVisibleKey=_bottomLinkVisibleKey;
-@property(retain, nonatomic) NSArray *finePrintLinks; // @synthesize finePrintLinks=_finePrintLinks;
-@property(retain, nonatomic) NSString *finePrintFormat; // @synthesize finePrintFormat=_finePrintFormat;
+@property(retain, nonatomic) NSString *purchase2LinkVisibleKey; // @synthesize purchase2LinkVisibleKey=_purchase2LinkVisibleKey;
+@property(retain, nonatomic) NSArray *fineprintLinks; // @synthesize fineprintLinks=_fineprintLinks;
+@property(retain, nonatomic) NSString *fineprintFormat; // @synthesize fineprintFormat=_fineprintFormat;
 @property(retain, nonatomic) ICQLink *bottomLink; // @synthesize bottomLink=_bottomLink;
+@property(retain, nonatomic) ICQLink *purchase2Link; // @synthesize purchase2Link=_purchase2Link;
 @property(retain, nonatomic) ICQLink *purchaseLink; // @synthesize purchaseLink=_purchaseLink;
-@property(retain, nonatomic) NSArray *services; // @synthesize services=_services;
+@property(retain, nonatomic) NSArray *altMessageLinks; // @synthesize altMessageLinks=_altMessageLinks;
 @property(retain, nonatomic) NSString *altMessage; // @synthesize altMessage=_altMessage;
+@property(retain, nonatomic) NSArray *messageLinks; // @synthesize messageLinks=_messageLinks;
 @property(retain, nonatomic) NSString *message; // @synthesize message=_message;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) NSString *iconBundleIdentifier; // @synthesize iconBundleIdentifier=_iconBundleIdentifier;

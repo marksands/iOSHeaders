@@ -14,6 +14,7 @@
 {
     struct GEOSessionID _sessionID;
     struct GEOTimepoint _timepoint;
+    double _sessionRelativeTimestamp;
     GEOPDABClientDatasetMetadata *_abClientMetadata;
     GEOAdditionalEnabledMarkets *_additionalEnabledMarkets;
     GEOAutomobileOptions *_automobileOptions;
@@ -47,6 +48,7 @@
     struct {
         unsigned int sessionID:1;
         unsigned int timepoint:1;
+        unsigned int sessionRelativeTimestamp:1;
         unsigned int transportType:1;
         unsigned int walkingLimitMeters:1;
         unsigned int allowPartialResults:1;
@@ -83,6 +85,7 @@
 @property(retain, nonatomic) NSMutableArray *destinationWaypointTypeds; // @synthesize destinationWaypointTypeds=_destinationWaypointTypeds;
 @property(retain, nonatomic) GEOWaypointTyped *originWaypointTyped; // @synthesize originWaypointTyped=_originWaypointTyped;
 @property(retain, nonatomic) GEOAdditionalEnabledMarkets *additionalEnabledMarkets; // @synthesize additionalEnabledMarkets=_additionalEnabledMarkets;
+@property(nonatomic) double sessionRelativeTimestamp; // @synthesize sessionRelativeTimestamp=_sessionRelativeTimestamp;
 @property(nonatomic) struct GEOSessionID sessionID; // @synthesize sessionID=_sessionID;
 @property(nonatomic) _Bool includeDistance; // @synthesize includeDistance=_includeDistance;
 @property(nonatomic) _Bool allowPartialResults; // @synthesize allowPartialResults=_allowPartialResults;
@@ -134,6 +137,7 @@
 @property(readonly, nonatomic) _Bool hasAdditionalEnabledMarkets;
 @property(nonatomic) _Bool hasWalkingLimitMeters;
 @property(nonatomic) unsigned int walkingLimitMeters; // @synthesize walkingLimitMeters=_walkingLimitMeters;
+@property(nonatomic) _Bool hasSessionRelativeTimestamp;
 @property(nonatomic) _Bool hasSessionID;
 @property(nonatomic) _Bool hasIncludeDistance;
 @property(nonatomic) _Bool hasAllowPartialResults;

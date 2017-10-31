@@ -23,6 +23,10 @@
 @property(readonly, nonatomic) long long weight; // @synthesize weight=_weight;
 @property(readonly, nonatomic) NSString *familyName; // @synthesize familyName=_familyName;
 - (void).cxx_destruct;
+- (id)stringForWidth:(long long)arg1;
+- (id)stringForWeight:(long long)arg1;
+- (id)stringForStyle:(long long)arg1;
+@property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
@@ -30,7 +34,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) Class superclass;
 
 @end

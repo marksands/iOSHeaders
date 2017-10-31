@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class SXFullScreenCaptionView, UITapGestureRecognizer;
+@class SXFullscreenCaptionView, UITapGestureRecognizer;
 
-@protocol SXFullScreenCaptionViewDelegate <NSObject>
+@protocol SXFullscreenCaptionViewDelegate <NSObject>
 
 @optional
-- (_Bool)captionView:(SXFullScreenCaptionView *)arg1 tapGestureRecognizerShouldBegin:(UITapGestureRecognizer *)arg2;
+- (_Bool)captionView:(SXFullscreenCaptionView *)arg1 tapGestureRecognizerShouldBegin:(UITapGestureRecognizer *)arg2;
 @end
 

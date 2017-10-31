@@ -8,7 +8,6 @@
 
 @class NSDate, NSMutableArray, NSUUID, _OSLogCollectionReference, _OSLogEventStoreMetadata, _OSLogEventStoreTimeRef;
 
-__attribute__((visibility("hidden")))
 @interface OSLogEventSource : NSObject
 {
     NSMutableArray *_fileRefs;

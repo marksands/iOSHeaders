@@ -18,7 +18,7 @@
 @property(readonly, copy, nonatomic) NSArray *tracks;
 @property(readonly, nonatomic) long long tracklistActionType;
 @property(readonly, nonatomic) ICRadioStationMetadata *stationMetadata;
-- (id)initWithURLResponse:(id)arg1;
+- (id)initWithResponseDictionary:(id)arg1 expirationDate:(id)arg2;
 
 @end
 

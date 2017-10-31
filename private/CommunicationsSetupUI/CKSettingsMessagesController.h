@@ -73,6 +73,11 @@
 - (_Bool)shouldShowContactPhotoSettings;
 - (id)audioMessageSettingsSpecifierIdentifiers;
 - (_Bool)shouldShowAudioMessageSettings;
+- (void)setSiriToneNotificationEnabled:(id)arg1 specifier:(id)arg2;
+- (id)isSiriToneNotificationEnabled:(id)arg1;
+- (id)siriSettingsIdentifiers;
+- (_Bool)isPersonalCompanionEnabled;
+- (_Bool)shouldShowSiriSettings;
 - (void)setConversationListFilteringEnabled:(id)arg1 specifier:(id)arg2;
 - (id)isConversationListFilteringEnabled:(id)arg1;
 - (id)spamFilteringSpecifierIdentifiers;

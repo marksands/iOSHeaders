@@ -30,6 +30,7 @@
 + (id)speechProfileDataLastModifiedDataForLanguage:(id)arg1;
 @property(readonly, nonatomic) __weak id <SiriCoreLocalSpeechRecognizerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)fetchUserDataForLanguage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_readProfileAndUserDataWithLanguage:(id)arg1 allowOverride:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (oneway void)speechServiceDidFinishRecognitionWithStatistics:(id)arg1 error:(id)arg2;
 - (void)_writeDESRecord;

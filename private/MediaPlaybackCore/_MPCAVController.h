@@ -15,6 +15,7 @@
     MPAVItem *_firstPlaybackErrorItem;
 }
 
++ (_Bool)prefersApplicationAudioSession;
 + (Class)playlistManagerClass;
 @property(retain, nonatomic) MPAVItem *firstPlaybackErrorItem; // @synthesize firstPlaybackErrorItem=_firstPlaybackErrorItem;
 @property(nonatomic) _Bool allowsNewPlaybackErrorItem; // @synthesize allowsNewPlaybackErrorItem=_allowsNewPlaybackErrorItem;
@@ -27,6 +28,8 @@
 - (id)_expectedAssetTypesForPlaybackMode:(long long)arg1;
 - (void)_contentsChanged;
 - (void)_connectAVPlayer;
+- (void)_configureAudioSession;
+- (void)_networkPolicyItemCellularRestrictedNotification:(id)arg1;
 - (void)_playbackErrorNotification:(id)arg1;
 - (void)addPlaybackContext:(id)arg1 toQueueWithInsertionType:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) long long upNextItemCount;

@@ -15,12 +15,14 @@
     double _overallContrast;
     SBFColorBoxes *_colorBoxes;
     NSString *_cacheGroup;
+    UIImage *_sampleImage;
 }
 
 + (_Bool)_allowsRasterization;
 + (_Bool)_allowsParallax;
 + (_Bool)_canDownscaleSampleImage;
 + (_Bool)_canCacheImages;
+@property(retain, nonatomic, getter=_sampleImage, setter=_setSampleImage:) UIImage *sampleImage; // @synthesize sampleImage=_sampleImage;
 @property(retain, nonatomic, getter=_displayedImage, setter=_setDisplayedImage:) UIImage *displayedImage; // @synthesize displayedImage=_displayedImage;
 - (void).cxx_destruct;
 @property(retain, nonatomic) SBFColorBoxes *colorBoxes;
@@ -29,7 +31,7 @@
 - (void)_resetColorBoxes;
 - (struct CGSize)_imageSize;
 - (float)_zoomScale;
-- (void)_setImage:(id)arg1;
+- (void)_displayImage:(id)arg1;
 - (void)_setUpStaticImageContentView:(id)arg1;
 - (void)_setupContentView;
 - (void)setContentView:(id)arg1;
@@ -50,7 +52,6 @@
 - (void)_setupWallpaperImage:(id)arg1 options:(unsigned long long)arg2;
 - (id)_imageByDarkeningHighlightsInImage:(id)arg1;
 - (id)_repeatingGradientImageWithSize:(struct CGSize)arg1 scale:(double)arg2;
-- (void)_setSampleImage:(id)arg1;
 - (long long)wallpaperType;
 - (id)initWithFrame:(struct CGRect)arg1 variant:(long long)arg2 wallpaperSettingsProvider:(id)arg3;
 - (id)initWithFrame:(struct CGRect)arg1 wallpaperImage:(id)arg2 variant:(long long)arg3 wallpaperSettingsProvider:(id)arg4;

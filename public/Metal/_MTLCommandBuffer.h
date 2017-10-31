@@ -52,6 +52,7 @@
     unsigned long long _labelTraceID;
     _Bool _StatEnabled;
     CDUnknownBlockType _perfSampleHandlerBlock;
+    _Bool _hasPresent;
 }
 
 + (void)initialize;

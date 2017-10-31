@@ -46,6 +46,7 @@
 - (unsigned long long)formatStringsCount;
 - (void)addFormatString:(id)arg1;
 - (void)clearFormatStrings;
+- (id)initWithString:(id)arg1;
 @property(readonly, nonatomic) NSArray *formatTokens;
 
 // Remaining properties

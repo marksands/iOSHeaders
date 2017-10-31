@@ -16,6 +16,7 @@
 @property(copy, nonatomic) NSAttributedString *cachedAttributedString; // @synthesize cachedAttributedString=_cachedAttributedString;
 - (void).cxx_destruct;
 - (void)_stylesMarkedDirtyNotification:(id)arg1;
+- (void)dealloc;
 
 @end
 

@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "HMFLogging.h"
+#import "HMObjectMerge.h"
 
-@class HMAccessory, HMAccessorySettingGroup, NSObject<OS_dispatch_queue>, NSString;
+@class HMAccessory, HMAccessorySettingGroup, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
-@interface HMAccessorySettings : NSObject <HMFLogging>
+@interface HMAccessorySettings : NSObject <HMFLogging, HMObjectMerge>
 {
     HMAccessory *_accessory;
     id <HMAccessorySettingsDelegate> _delegate;
@@ -24,10 +25,15 @@
 @property(readonly) HMAccessorySettingGroup *rootGroup; // @synthesize rootGroup=_rootGroup;
 @property __weak id <HMAccessorySettingsDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
+@property(readonly, nonatomic) NSUUID *uniqueIdentifier;
 - (void)__notifyDelegateSettingsDidUpdate;
 - (void)__notifyDelegateSettingsWillUpdateWithCompletionHanlder:(CDUnknownBlockType)arg1;
 - (void)_updateSettingsWithBlock:(CDUnknownBlockType)arg1;
+@property(readonly, getter=isControllable) _Bool controllable;
+@property(readonly) __weak id <HMAccessorySettingsContainer> settingsContainer;
 @property __weak HMAccessory *accessory; // @synthesize accessory=_accessory;
+- (void)_configureWithContext:(id)arg1;
 - (id)initWithAccessory:(id)arg1 rootGroup:(id)arg2;
 
 // Remaining properties

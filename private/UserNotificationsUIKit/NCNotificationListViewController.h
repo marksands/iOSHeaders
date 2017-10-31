@@ -130,6 +130,8 @@
 - (_Bool)isContentExtensionVisible:(id)arg1;
 - (_Bool)hasVisibleContent;
 - (_Bool)hasContent;
+- (void)showRequestsForNotificationSectionSettings:(id)arg1;
+- (void)hideRequestsForNotificationSectionSettings:(id)arg1;
 - (void)showRequestsForNotificationSectionIdentifier:(id)arg1 subSectionIdentifier:(id)arg2;
 - (void)hideRequestsForNotificationSectionIdentifier:(id)arg1 subSectionIdentifier:(id)arg2;
 - (void)reloadNotificationRequests:(id)arg1 clearCachedSizes:(_Bool)arg2;

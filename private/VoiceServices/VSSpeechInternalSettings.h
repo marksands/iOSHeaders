@@ -20,6 +20,7 @@
 @property(nonatomic) _Bool isInternalBuild; // @synthesize isInternalBuild=_isInternalBuild;
 @property(readonly, nonatomic) _Bool internalBuild; // @synthesize internalBuild=_internalBuild;
 - (void).cxx_destruct;
+@property(nonatomic) _Bool enableHomePodSimulation;
 @property(nonatomic) _Bool enableLocalVoices;
 @property(nonatomic) _Bool disableAssetCleaning;
 @property(nonatomic) _Bool disableCache;

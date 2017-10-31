@@ -19,6 +19,7 @@
     _Bool _supportsLikedState;
 }
 
++ (_Bool)isPlaceholder;
 @property(nonatomic) _Bool supportsLikedState; // @synthesize supportsLikedState=_supportsLikedState;
 @property(retain, nonatomic) NSString *mainTitle; // @synthesize mainTitle=_mainTitle;
 @property(nonatomic, getter=isLikedStateEnabled) _Bool likedStateEnabled; // @synthesize likedStateEnabled=_likeStateEnabled;

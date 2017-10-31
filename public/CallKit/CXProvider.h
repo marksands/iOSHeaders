@@ -42,6 +42,7 @@
 - (void)registerCurrentConfiguration;
 - (void)performDelegateCallback:(CDUnknownBlockType)arg1;
 - (void)invalidate;
+- (void)requestTransaction:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)reportOutgoingCallWithUUID:(id)arg1 connectedAtDate:(id)arg2;
 - (void)reportOutgoingCallWithUUID:(id)arg1 startedConnectingAtDate:(id)arg2;
 - (void)reportCallWithUUID:(id)arg1 crossDeviceIdentifier:(id)arg2 changedBytesOfDataUsed:(long long)arg3;

@@ -9,7 +9,7 @@
 #import "FAConfirmIdentityViewControllerDelegate.h"
 #import "RemoteUIControllerDelegate.h"
 
-@class AAFamilyInvite, AAGrandSlamSigner, ACAccount, ACAccountStore, NSMutableURLRequest, NSOperationQueue, NSString, RemoteUIController;
+@class AAFamilyInvite, AAGrandSlamSigner, AAUIRemoteUIController, ACAccount, ACAccountStore, NSMutableURLRequest, NSOperationQueue, NSString;
 
 @interface FAFamilyInvitationAcceptanceViewController : AAUIBleachedNavigationController <FAConfirmIdentityViewControllerDelegate, RemoteUIControllerDelegate>
 {
@@ -17,7 +17,7 @@
     ACAccountStore *_accountStore;
     AAGrandSlamSigner *_grandSlamSigner;
     AAFamilyInvite *_invite;
-    RemoteUIController *_remoteUIController;
+    AAUIRemoteUIController *_remoteUIController;
     NSOperationQueue *_inviteOperationQueue;
     NSMutableURLRequest *_startRemoteUIRequest;
     NSMutableURLRequest *_currentRemoteUIRequest;

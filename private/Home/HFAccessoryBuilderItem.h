@@ -23,10 +23,6 @@
 @property(readonly, nonatomic) id <HFCharacteristicValueSource> valueSource;
 - (id)accessories;
 - (id)services;
-- (id)controlPanelItems;
-- (id)allControlItems;
-- (id)incrementalStateControlItem;
-- (id)primaryStateControlItem;
 @property(readonly, nonatomic) id <HFHomeKitObject> homeKitObject;
 - (id)_subclass_updateWithOptions:(id)arg1;
 - (id)copyWithValueSource:(id)arg1;

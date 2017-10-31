@@ -19,10 +19,12 @@
     unsigned long long _pairingStatus;
     NSString *_bluetoothAddress;
     NSString *_carplayWiFiUUID;
+    NSString *_internalNotes;
 }
 
 + (id)vehicleForVehicleAccessory:(id)arg1;
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSString *internalNotes; // @synthesize internalNotes=_internalNotes;
 @property(retain, nonatomic) NSString *carplayWiFiUUID; // @synthesize carplayWiFiUUID=_carplayWiFiUUID;
 @property(retain, nonatomic) NSString *bluetoothAddress; // @synthesize bluetoothAddress=_bluetoothAddress;
 @property(nonatomic) unsigned long long pairingStatus; // @synthesize pairingStatus=_pairingStatus;

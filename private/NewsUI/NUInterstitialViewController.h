@@ -6,11 +6,11 @@
 
 #import "UIViewController.h"
 
-#import "NUPagable.h"
+#import "NUPageable.h"
 
 @class ADInterstitialAd, NSString, UIView;
 
-@interface NUInterstitialViewController : UIViewController <NUPagable>
+@interface NUInterstitialViewController : UIViewController <NUPageable>
 {
     _Bool _hasPresentedInterstitial;
     NSString *_pageIdentifier;

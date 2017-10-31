@@ -6,17 +6,19 @@
 
 #import <Silex/SXGalleryComponentView.h>
 
-#import "SXFullScreenCanvasShowable.h"
+#import "SXFullscreenCanvasShowable.h"
 #import "SXImageViewDelegate.h"
 #import "SXItemizedScrollViewDataSource.h"
 #import "SXItemizedScrollViewDelegate.h"
 #import "SXTextSourceDataSource.h"
 
-@class NSArray, NSMutableArray, NSMutableSet, NSString, SXFullScreenCanvasController, SXImageView, SXItemizedScrollView, SXMediaViewEvent, UIView;
+@class NSArray, NSMutableArray, NSMutableSet, NSString, SXFullscreenCanvasController, SXImageView, SXItemizedScrollView, SXMediaViewEvent, UIView;
 
-@interface SXStripGalleryComponentView : SXGalleryComponentView <SXFullScreenCanvasShowable, SXItemizedScrollViewDataSource, SXItemizedScrollViewDelegate, SXImageViewDelegate, SXTextSourceDataSource>
+@interface SXStripGalleryComponentView : SXGalleryComponentView <SXFullscreenCanvasShowable, SXItemizedScrollViewDataSource, SXItemizedScrollViewDelegate, SXImageViewDelegate, SXTextSourceDataSource>
 {
     _Bool _loadedAtleastOneImage;
+    id <SXImageViewFactory> _imageViewFactory;
+    id <SXFullscreenCanvasControllerFactory> _canvasControllerFactory;
     double _xOffset;
     double _rightContentInset;
     NSArray *_imageResources;
@@ -24,7 +26,7 @@
     SXItemizedScrollView *_itemizedScrollView;
     long long _visibleImageViewIndex;
     UIView *_fullscreenGestureView;
-    SXFullScreenCanvasController *_fullScreenCanvasController;
+    SXFullscreenCanvasController *_fullScreenCanvasController;
     SXMediaViewEvent *_mediaViewEvent;
     double _contentOffset;
     double _contentWidth;
@@ -40,7 +42,7 @@
 @property(readonly, nonatomic) double contentOffset; // @synthesize contentOffset=_contentOffset;
 @property(nonatomic) _Bool loadedAtleastOneImage; // @synthesize loadedAtleastOneImage=_loadedAtleastOneImage;
 @property(retain, nonatomic) SXMediaViewEvent *mediaViewEvent; // @synthesize mediaViewEvent=_mediaViewEvent;
-@property(retain, nonatomic) SXFullScreenCanvasController *fullScreenCanvasController; // @synthesize fullScreenCanvasController=_fullScreenCanvasController;
+@property(retain, nonatomic) SXFullscreenCanvasController *fullScreenCanvasController; // @synthesize fullScreenCanvasController=_fullScreenCanvasController;
 @property(nonatomic) __weak UIView *fullscreenGestureView; // @synthesize fullscreenGestureView=_fullscreenGestureView;
 @property(nonatomic) long long visibleImageViewIndex; // @synthesize visibleImageViewIndex=_visibleImageViewIndex;
 @property(retain, nonatomic) SXItemizedScrollView *itemizedScrollView; // @synthesize itemizedScrollView=_itemizedScrollView;
@@ -48,6 +50,8 @@
 @property(retain, nonatomic) NSArray *imageResources; // @synthesize imageResources=_imageResources;
 @property(readonly, nonatomic) double rightContentInset; // @synthesize rightContentInset=_rightContentInset;
 @property(readonly, nonatomic) double xOffset; // @synthesize xOffset=_xOffset;
+@property(readonly, nonatomic) id <SXFullscreenCanvasControllerFactory> canvasControllerFactory; // @synthesize canvasControllerFactory=_canvasControllerFactory;
+@property(readonly, nonatomic) id <SXImageViewFactory> imageViewFactory; // @synthesize imageViewFactory=_imageViewFactory;
 - (void).cxx_destruct;
 - (_Bool)allowHierarchyRemoval;
 - (void)preloadAdjacentViewsForIndex:(unsigned long long)arg1;
@@ -108,9 +112,10 @@
 - (struct CGRect)itemizedScrollView:(id)arg1 frameForViewAtIndex:(unsigned long long)arg2;
 - (unsigned long long)numberOfViewsInItemizedScrollView:(id)arg1;
 - (id)createViewForViewIndex:(unsigned long long)arg1;
-- (void)presentComponent;
+- (void)presentComponentWithChanges:(CDStruct_1cc9d0d0)arg1;
 - (void)receivedInfo:(id)arg1 fromLayoutingPhaseWithIdentifier:(id)arg2;
-- (id)initWithComponent:(id)arg1 configuration:(id)arg2 context:(id)arg3 analyticsReporting:(id)arg4 appStateMonitor:(id)arg5;
+- (void)loadComponent:(id)arg1;
+- (id)initWithDocumentController:(id)arg1 viewport:(id)arg2 presentationDelegate:(id)arg3 analyticsReporting:(id)arg4 componentStyleRendererFactory:(id)arg5 appStateMonitor:(id)arg6 imageViewFactory:(id)arg7 canvasControllerFactory:(id)arg8;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -11,6 +11,7 @@
 @protocol SFScoreboardCardSection <SFTitleCardSection>
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+@property(copy, nonatomic) NSString *eventStatus;
 @property(copy, nonatomic) NSString *accessibilityDescription;
 @property(retain, nonatomic) SFSportsTeam *team2;
 @property(retain, nonatomic) SFSportsTeam *team1;

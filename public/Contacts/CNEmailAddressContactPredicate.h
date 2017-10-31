@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithCoder:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
+- (id)shortDebugDescription;
 @property(readonly, copy) NSString *description;
 - (id)initWithEmailAddress:(id)arg1 returnMultipleResults:(_Bool)arg2;
 - (id)sgContactMatchesWithSortOrder:(long long)arg1 mutableObjects:(_Bool)arg2 service:(id)arg3 error:(id *)arg4;

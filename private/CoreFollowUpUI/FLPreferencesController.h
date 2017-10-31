@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class FLPreferencesFollowUpItemListViewController, NSSet, PSListController;
+#import "FLSpecifierTapHandlerDelegate.h"
 
-@interface FLPreferencesController : NSObject
+@class FLPreferencesFollowUpItemListViewController, NSSet, NSString, PSListController;
+
+@interface FLPreferencesController : NSObject <FLSpecifierTapHandlerDelegate>
 {
     id <FLViewModel> _topViewModel;
     FLPreferencesFollowUpItemListViewController *_controller;
@@ -23,6 +25,9 @@
 - (void).cxx_destruct;
 - (void)stopSpinnerForSpecifier:(id)arg1;
 - (void)startSpinnerForSpecifier:(id)arg1;
+- (void)preflightNetworkConnectivityForHandler:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)startPresentingForHandler:(id)arg1 withRemoteController:(id)arg2;
+- (void)_zeroActionFailure:(id)arg1;
 - (void)_presentSpecifier:(id)arg1;
 - (void)_handleEmptyRefreshResult:(id)arg1;
 - (void)_refreshItemsAndPresentDetailForSpecifier:(id)arg1;
@@ -36,6 +41,12 @@
 - (id)topLevelSpecifiers;
 - (id)initWithViewModel:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

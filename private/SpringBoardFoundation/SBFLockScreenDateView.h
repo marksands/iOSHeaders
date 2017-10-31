@@ -7,10 +7,11 @@
 #import "UIView.h"
 
 #import "SBFScreenFadeReplicatable.h"
+#import "SFChargingVisualInformationProvider.h"
 
 @class NSDate, NSHashTable, NSString, SBFLockScreenDateSubtitleDateView, SBFLockScreenDateSubtitleView, SBUILegibilityLabel, UIColor, _UILegibilitySettings;
 
-@interface SBFLockScreenDateView : UIView <SBFScreenFadeReplicatable>
+@interface SBFLockScreenDateView : UIView <SBFScreenFadeReplicatable, SFChargingVisualInformationProvider>
 {
     SBUILegibilityLabel *_timeLabel;
     double _timeAlpha;
@@ -52,6 +53,8 @@
 - (void)_updateLabelAlpha;
 - (void)_setSubtitleAlpha:(double)arg1;
 - (void)_updateLabels;
+@property(readonly, nonatomic) struct CGRect chargingVisualInformationTimeSubtitleFrame;
+@property(readonly, nonatomic) struct CGRect chargingVisualInformationTimeFrame;
 - (void)_enumerateReplicateViews:(CDUnknownBlockType)arg1;
 - (id)replicate;
 - (id)_timeLabel;

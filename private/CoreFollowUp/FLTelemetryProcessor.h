@@ -14,6 +14,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)processCurrentItems:(id)arg1;
 - (void)processItemAddition:(id)arg1;
 - (void)processItemRemoval:(id)arg1;
 - (id)initWithController:(id)arg1;

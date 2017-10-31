@@ -24,11 +24,13 @@ __attribute__((visibility("hidden")))
     _UINavigationControllerRefreshControlHost *_refreshControlHost;
     double _restingHeightOfRefreshControl;
     UIView *_refreshHostContainerView;
+    struct NSDirectionalEdgeInsets _layoutMargins;
 }
 
 @property(retain, nonatomic) UIView *refreshHostContainerView; // @synthesize refreshHostContainerView=_refreshHostContainerView;
 @property(nonatomic) double restingHeightOfRefreshControl; // @synthesize restingHeightOfRefreshControl=_restingHeightOfRefreshControl;
 @property(readonly, nonatomic) _UINavigationControllerRefreshControlHost *refreshControlHost; // @synthesize refreshControlHost=_refreshControlHost;
+@property(nonatomic) struct NSDirectionalEdgeInsets layoutMargins; // @synthesize layoutMargins=_layoutMargins;
 @property(nonatomic) unsigned long long accessoryViewHorizontalAlignment; // @synthesize accessoryViewHorizontalAlignment=_accessoryViewHorizontalAlignment;
 @property(nonatomic) _Bool alignAccessoryViewToTitleBaseline; // @synthesize alignAccessoryViewToTitleBaseline=_alignAccessoryViewToTitleBaseline;
 @property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
@@ -49,7 +51,7 @@ __attribute__((visibility("hidden")))
 - (double)_unobstructedHeightOfRefreshControlWithFrame:(struct CGRect)arg1;
 - (void)layoutViewsWithOffset:(struct UIOffset)arg1 useRestingTitleHeight:(_Bool)arg2;
 - (void)layoutViews;
-- (void)_enforceRefreshHostContainerViewOrdering;
+- (void)_enforceLayoutOrdering;
 - (void)configureRefreshControlUsingHost:(id)arg1;
 - (void)updateRestingTitleHeight;
 - (struct CGRect)_contentLayoutBounds;

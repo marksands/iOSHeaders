@@ -13,6 +13,9 @@ __attribute__((visibility("hidden")))
 {
     NSLayoutConstraint *_leadingMarginConstraint;
     NSLayoutConstraint *_trailingMarginConstraint;
+    NSLayoutConstraint *_backButtonToLeadingBarSpacer;
+    NSLayoutConstraint *_leadingBarToTitleSpacer;
+    NSLayoutConstraint *_titleToTrailingBarSpacer;
     NSArray *_alignmentConstraints;
     NSArray *_heightConstraints;
     NSArray *_backButtonConstraints;
@@ -24,6 +27,8 @@ __attribute__((visibility("hidden")))
     UIBarButtonItemGroup *_trailingBarGroup;
     UIView *_leadingBarSnapshot;
     UIView *_trailingBarSnapshot;
+    UIView *_titleViewSnapshot;
+    UIView *_backButtonSnapshot;
     _Bool _hasFakedBackButton;
     _Bool _active;
     _Bool _keepsSnapshotsInHierarchy;
@@ -50,6 +55,8 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) _Bool keepsSnapshotsInHierarchy; // @synthesize keepsSnapshotsInHierarchy=_keepsSnapshotsInHierarchy;
+@property(readonly, nonatomic) UIView *backButtonSnapshot; // @synthesize backButtonSnapshot=_backButtonSnapshot;
+@property(readonly, nonatomic) UIView *titleViewSnapshot; // @synthesize titleViewSnapshot=_titleViewSnapshot;
 @property(readonly, nonatomic) UIView *trailingBarSnapshot; // @synthesize trailingBarSnapshot=_trailingBarSnapshot;
 @property(readonly, nonatomic) UIView *leadingBarSnapshot; // @synthesize leadingBarSnapshot=_leadingBarSnapshot;
 @property(nonatomic) _Bool active; // @synthesize active=_active;
@@ -76,8 +83,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _UINavigationBarContentView *contentView; // @synthesize contentView=_contentView;
 - (void).cxx_destruct;
 - (void)invalidate;
+- (void)replaceBackButtonWithSnapshot;
+- (void)replaceTitleViewWithSnapshot;
 - (void)replaceTrailingBarWithSnapshot;
 - (void)replaceLeadingBarWithSnapshot;
+- (void)updateSpacingConstraints;
 @property(retain, nonatomic) NSArray *trailingBarItems;
 @property(retain, nonatomic) NSArray *leadingBarItems;
 - (void)updateTitleHeight;

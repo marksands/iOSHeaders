@@ -11,6 +11,7 @@
 @interface MPCReportingIdentityProperties : NSObject
 {
     _Bool _hasSubscriptionPlaybackCapability;
+    NSString *_householdID;
     unsigned long long _storeAccountID;
     NSString *_storeFrontID;
     SSVPlayActivityEnqueuerProperties *_enqueuerProperties;
@@ -20,6 +21,7 @@
 @property(nonatomic) _Bool hasSubscriptionPlaybackCapability; // @synthesize hasSubscriptionPlaybackCapability=_hasSubscriptionPlaybackCapability;
 @property(copy, nonatomic) NSString *storeFrontID; // @synthesize storeFrontID=_storeFrontID;
 @property(nonatomic) unsigned long long storeAccountID; // @synthesize storeAccountID=_storeAccountID;
+@property(copy, nonatomic) NSString *householdID; // @synthesize householdID=_householdID;
 - (void).cxx_destruct;
 
 @end

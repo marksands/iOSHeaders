@@ -116,6 +116,7 @@
 - (id)upcomingTriggersAfterDate:(id)arg1;
 - (_Bool)shouldBeScheduled;
 - (id)identifier;
+- (id)keysAffectingNotification;
 - (id)keysAffectingScheduling;
 - (id)keysAffectingSnooze;
 - (id)keyForIdentifier;

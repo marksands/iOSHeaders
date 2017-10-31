@@ -34,6 +34,8 @@
     _Bool _disableAppDemotion;
     _Bool _disableIntallTonight;
     _Bool _rampEnabled;
+    _Bool _criticalOutOfBoxOnly;
+    NSString *_setupCritical;
     NSDictionary *_systemPartitionPadding;
     NSData *_sepDigest;
     NSData *_rsepDigest;
@@ -41,6 +43,7 @@
     unsigned long long _mdmDelayInterval;
     _Bool _downloadableOverCellular;
     _Bool _streamingZipCapable;
+    NSString *_criticalDownloadPolicy;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -49,6 +52,9 @@
 @property(retain, nonatomic, setter=setRSEPDigest:) NSData *rsepDigest; // @synthesize rsepDigest=_rsepDigest;
 @property(retain, nonatomic, setter=setSEPDigest:) NSData *sepDigest; // @synthesize sepDigest=_sepDigest;
 @property(retain, nonatomic) NSDictionary *systemPartitionPadding; // @synthesize systemPartitionPadding=_systemPartitionPadding;
+@property(retain, nonatomic) NSString *criticalDownloadPolicy; // @synthesize criticalDownloadPolicy=_criticalDownloadPolicy;
+@property(nonatomic) _Bool criticalOutOfBoxOnly; // @synthesize criticalOutOfBoxOnly=_criticalOutOfBoxOnly;
+@property(retain, nonatomic) NSString *setupCritical; // @synthesize setupCritical=_setupCritical;
 @property(nonatomic) _Bool rampEnabled; // @synthesize rampEnabled=_rampEnabled;
 @property(nonatomic, getter=installTonightDisabled, setter=_setDisableInstallTonight:) _Bool disableInstallTonight; // @synthesize disableInstallTonight=_disableIntallTonight;
 @property(nonatomic, getter=appDemotionDisabled, setter=_setDisableAppDemotion:) _Bool disableAppDemotion; // @synthesize disableAppDemotion=_disableAppDemotion;
@@ -71,6 +77,7 @@
 @property(retain, nonatomic) NSString *productSystemName; // @synthesize productSystemName=_productSystemName;
 @property(retain, nonatomic) NSString *publisher; // @synthesize publisher=_publisher;
 - (id)description;
+- (_Bool)isEmergencyOrCritical;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)_buildCompareKey;

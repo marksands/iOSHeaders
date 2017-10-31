@@ -42,7 +42,7 @@
 - (void).cxx_destruct;
 @property(nonatomic) _Bool callAudioRoutingAutoAnswerEnabled;
 @property(nonatomic) double callAudioRoutingAutoAnswerDelay;
-@property(nonatomic) _Bool didResetD22Reachability;
+@property(nonatomic) _Bool didResetD22Preferences;
 @property(nonatomic) long long guidedAccessUsageCount;
 @property(nonatomic) long long voiceOverBSIUsageCount;
 @property(nonatomic) long long brokenHomeButtonCount;
@@ -179,6 +179,7 @@
 @property(nonatomic) long long voiceOverTouchBrailleDisplayInputMode;
 @property(retain, nonatomic) NSArray *customPronunciationSubstitutions;
 @property(nonatomic) struct CGPoint quickSpeakNubbitNormalizedPosition;
+@property(copy, nonatomic) NSSet *downloadedSiriVoices;
 - (void)_removeSpeakingRatePreferenceForLanguage:(id)arg1;
 - (float)quickSpeakSpeakingRateForLanguage:(id)arg1;
 - (void)setQuickSpeakSpeakingRate:(float)arg1 forLanguage:(id)arg2;

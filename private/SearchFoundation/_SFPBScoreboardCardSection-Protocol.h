@@ -10,6 +10,8 @@
 
 @protocol _SFPBScoreboardCardSection <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasEventStatus;
+@property(copy, nonatomic) NSString *eventStatus;
 @property(readonly, nonatomic) _Bool hasAccessibilityDescription;
 @property(copy, nonatomic) NSString *accessibilityDescription;
 @property(readonly, nonatomic) _Bool hasTeam2;

@@ -60,7 +60,7 @@
 @property(readonly, copy) NSString *description;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithResourceLoader:(id)arg1 URL:(id)arg2 httpRequestHeaders:(id)arg3 requestOffset:(id)arg4 requestLength:(id)arg5 figCryptor:(struct OpaqueFigCPECryptor *)arg6 figPlaybackItem:(struct OpaqueFigPlaybackItem *)arg7 figAssetImageGenerator:(struct OpaqueFigAssetImageGenerator *)arg8;
+- (id)initWithResourceLoader:(id)arg1 URL:(id)arg2 httpRequestHeaders:(id)arg3 requestOffset:(id)arg4 requestLength:(id)arg5 allowedContentTypes:(id)arg6 figCryptor:(struct OpaqueFigCPECryptor *)arg7 figPlaybackItem:(struct OpaqueFigPlaybackItem *)arg8 figAssetImageGenerator:(struct OpaqueFigAssetImageGenerator *)arg9;
 - (id)initWithResourceLoader:(id)arg1 requestDictionary:(id)arg2;
 - (id)initWithResourceLoader:(id)arg1 requestInfo:(struct __CFDictionary *)arg2 requestID:(unsigned long long)arg3;
 - (id)init;

@@ -17,13 +17,12 @@ __attribute__((visibility("hidden")))
     _Bool isSupportingiOSGPUFamilyV2;
     NSObject<OS_dispatch_queue> *dictionary_write_queue;
     NSMutableDictionary *auxLibraries;
+    NSMutableDictionary *m_kernelCache_rw;
     NSString *_kernelPrefix;
-    NSMutableDictionary *_m_kernelCache_rw;
     NSDictionary *_m_kernelCache;
 }
 
 @property(retain) NSDictionary *m_kernelCache; // @synthesize m_kernelCache=_m_kernelCache;
-@property(retain, nonatomic) NSMutableDictionary *m_kernelCache_rw; // @synthesize m_kernelCache_rw=_m_kernelCache_rw;
 @property(retain, nonatomic) NSString *kernelPrefix; // @synthesize kernelPrefix=_kernelPrefix;
 - (void).cxx_destruct;
 - (_Bool)shouldUseTexArray;

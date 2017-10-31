@@ -130,7 +130,9 @@
 - (void)_markCredentialDirty;
 - (void)_markDataclassPropertyDirty:(id)arg1;
 - (void)_markAccountPropertyDirty:(id)arg1;
+- (void)_unsafe_markPropertyDirty:(id)arg1;
 - (void)_markPropertyDirty:(id)arg1;
+- (void)setDirty:(_Bool)arg1 forProperty:(id)arg2;
 - (_Bool)_useParentForCredentials;
 - (void)markAllPropertiesDirty;
 - (void)_clearCachedCredentials;

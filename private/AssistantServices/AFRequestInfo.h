@@ -12,11 +12,15 @@
 
 @interface AFRequestInfo : NSObject <NSSecureCoding>
 {
+    _Bool _handoffRequiresUserInteraction;
+    _Bool _suppressAlert;
     NSNumber *_notifyState;
     NSString *_text;
     NSString *_directAction;
+    NSString *_handoffOriginDeviceName;
     NSData *_handoffRequestData;
     NSString *_handoffURLString;
+    NSString *_handoffNotification;
     NSString *_correctedSpeech;
     NSDictionary *_correctedSpeechContext;
     SAStartRequest *_startRequest;
@@ -44,12 +48,16 @@
 @property(copy, nonatomic) NSNumber *combinedScore; // @synthesize combinedScore=_combinedScore;
 @property(copy, nonatomic) NSNumber *combinedRank; // @synthesize combinedRank=_combinedRank;
 @property(nonatomic) long long activationEvent; // @synthesize activationEvent=_activationEvent;
+@property(nonatomic) _Bool suppressAlert; // @synthesize suppressAlert=_suppressAlert;
 @property(copy, nonatomic) SAStartLocalRequest *startLocalRequest; // @synthesize startLocalRequest=_startLocalRequest;
 @property(copy, nonatomic) SAStartRequest *startRequest; // @synthesize startRequest=_startRequest;
 @property(copy, nonatomic) NSDictionary *correctedSpeechContext; // @synthesize correctedSpeechContext=_correctedSpeechContext;
 @property(copy, nonatomic) NSString *correctedSpeech; // @synthesize correctedSpeech=_correctedSpeech;
+@property(copy, nonatomic) NSString *handoffNotification; // @synthesize handoffNotification=_handoffNotification;
+@property(nonatomic) _Bool handoffRequiresUserInteraction; // @synthesize handoffRequiresUserInteraction=_handoffRequiresUserInteraction;
 @property(copy, nonatomic) NSString *handoffURLString; // @synthesize handoffURLString=_handoffURLString;
 @property(copy, nonatomic) NSData *handoffRequestData; // @synthesize handoffRequestData=_handoffRequestData;
+@property(copy, nonatomic) NSString *handoffOriginDeviceName; // @synthesize handoffOriginDeviceName=_handoffOriginDeviceName;
 @property(copy, nonatomic) NSString *directAction; // @synthesize directAction=_directAction;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 @property(copy, nonatomic) NSNumber *notifyState; // @synthesize notifyState=_notifyState;
@@ -57,6 +65,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
+- (_Bool)requiresUserInteraction;
 
 @end
 

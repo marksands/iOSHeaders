@@ -9,8 +9,8 @@
 __attribute__((visibility("hidden")))
 @interface VNJunkIdentifier : VNDetector
 {
-    struct shared_ptr<vision::mod::ImageDescriptorProcessorAbstract> mJunkDescriptorImpl;
-    struct shared_ptr<vision::mod::ImageClassifierAbstract> mJunkClassifierImpl;
+    shared_ptr_b26ea6de mJunkDescriptorImpl;
+    shared_ptr_047f28ed mJunkClassifierImpl;
 }
 
 + (_Bool)shouldDumpDebugIntermediates;

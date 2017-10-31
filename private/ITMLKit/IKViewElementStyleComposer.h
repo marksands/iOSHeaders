@@ -21,9 +21,9 @@
 }
 
 + (id)styleComposerWithDefaultStyleComposer:(id)arg1 parentStyleComposer:(id)arg2 styleList:(id)arg3 elementStyleOverrides:(id)arg4;
-@property(nonatomic, getter=isCompositionDone) _Bool compositionDone; // @synthesize compositionDone=_compositionDone;
 @property(retain, nonatomic) IKViewElementStyle *composedStyle; // @synthesize composedStyle=_composedStyle;
 @property(retain, nonatomic) IKViewElementStyle *composedSansDefaultStyle; // @synthesize composedSansDefaultStyle=_composedSansDefaultStyle;
+@property(readonly, nonatomic, getter=isCompositionDone) _Bool compositionDone; // @synthesize compositionDone=_compositionDone;
 @property(readonly, retain, nonatomic) IKViewElementStyle *elementStyleOverrides; // @synthesize elementStyleOverrides=_elementStyleOverrides;
 @property(readonly, retain, nonatomic) IKStyleList *styleList; // @synthesize styleList=_styleList;
 @property(readonly, retain, nonatomic) IKViewElementStyleComposer *parentStyleComposer; // @synthesize parentStyleComposer=_parentStyleComposer;

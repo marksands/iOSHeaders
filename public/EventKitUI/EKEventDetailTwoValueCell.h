@@ -20,6 +20,8 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)layoutForWidth:(double)arg1 position:(int)arg2;
+- (double)_layoutForWidth:(double)arg1;
+- (void)layoutSubviews;
 - (int)twoValueCellStyle;
 - (id)value2View;
 - (id)valueView;

@@ -26,7 +26,7 @@
 - (id)_fiui_averagePaceQty;
 - (_Bool)fiui_hasAveragePace;
 - (double)fiui_averagePower;
-- (long long)fiui_averageCadence;
+- (double)fiui_averageCadence;
 - (double)fiui_totalStepCount;
 - (id)fiui_elevation;
 - (_Bool)fiui_hasElevation;

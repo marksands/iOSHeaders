@@ -198,6 +198,7 @@
 - (void)deleteObjects:(id)arg1;
 - (id)newObjectForEntity:(id)arg1;
 - (unsigned long long)countForEntity:(id)arg1 withPredicate:(id)arg2;
+- (id)objectsForEntity:(id)arg1 withPredicate:(id)arg2 sortDescriptors:(id)arg3 withContext:(id)arg4 error:(id *)arg5;
 - (id)objectsForEntity:(id)arg1 withPredicate:(id)arg2 sortDescriptors:(id)arg3 error:(id *)arg4;
 - (id)objectsForEntity:(id)arg1 withPredicate:(id)arg2 sortDescriptors:(id)arg3;
 - (id)allObjectsForEntity:(id)arg1 withSortDescriptors:(id)arg2 error:(id *)arg3;

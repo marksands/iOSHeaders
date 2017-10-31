@@ -123,8 +123,12 @@
 - (id)_viewControllersInTabBar;
 - (id)allViewControllers;
 - (void)showBarWithTransition:(int)arg1;
+- (void)showBarWithTransition:(int)arg1 duration:(double)arg2;
+- (void)_showBarWithTransition:(int)arg1 isExplicit:(_Bool)arg2 duration:(double)arg3;
 - (void)_showBarWithTransition:(int)arg1 isExplicit:(_Bool)arg2;
+- (void)hideBarWithTransition:(int)arg1 duration:(double)arg2;
 - (void)hideBarWithTransition:(int)arg1;
+- (void)_hideBarWithTransition:(int)arg1 isExplicit:(_Bool)arg2 duration:(double)arg3;
 - (void)_hideBarWithTransition:(int)arg1 isExplicit:(_Bool)arg2;
 - (void)animationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (_Bool)_isBarHidden;

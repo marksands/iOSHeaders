@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSDictionary;
 
-@interface MKServerFormattedStringParameters : NSObject <NSCopying, NSCoding>
+@interface MKServerFormattedStringParameters : NSObject <NSCopying, NSSecureCoding>
 {
     long long _instructionsDistanceDetailLevel;
     NSDictionary *_variableOverides;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) NSDictionary *variableOverides; // @synthesize variableOverides=_variableOverides;
 @property(readonly, nonatomic) long long instructionsDistanceDetailLevel; // @synthesize instructionsDistanceDetailLevel=_instructionsDistanceDetailLevel;
 - (void).cxx_destruct;

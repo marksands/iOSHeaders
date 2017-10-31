@@ -78,7 +78,7 @@ __attribute__((visibility("hidden")))
 - (void)updateAdaptiveLearningStats:(unsigned int)arg1 payload:(id)arg2;
 - (void)updateVideoSwitchTimes;
 - (void)updateConnectionTimes:(id)arg1;
-- (void)updateRelayInfo:(id)arg1;
+- (void)updateRelayInfo:(id)arg1 isRelay:(_Bool)arg2;
 - (void)updateNoRemoteState:(_Bool)arg1;
 - (void)updateRedState:(id)arg1;
 - (void)updateErrorCode:(id)arg1;

@@ -58,6 +58,8 @@
 @property(readonly, nonatomic) NSArray *entries;
 - (void)loadEntriesIfNecessaryAndRecache:(_Bool)arg1;
 - (id)_entryDictionaries;
+- (_Bool)shouldNotReportFavoritesError:(id)arg1;
+- (void)reportFavoritesIssue:(id)arg1;
 - (id)synchronousRemoteObjectProxyForContactsXPCService;
 - (void)clearState;
 - (void)dealloc;

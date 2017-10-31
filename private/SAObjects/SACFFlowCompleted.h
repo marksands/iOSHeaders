@@ -6,7 +6,7 @@
 
 #import <SAObjects/SACFAbstractClientCommandCompleted.h>
 
-@class SACFProvideContext;
+@class NSString, SACFProvideContext;
 
 @interface SACFFlowCompleted : SACFAbstractClientCommandCompleted
 {
@@ -16,6 +16,7 @@
 + (id)flowCompleted;
 - (_Bool)requiresResponse;
 @property(retain, nonatomic) SACFProvideContext *updateContext;
+@property(copy, nonatomic) NSString *domain;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

@@ -46,6 +46,7 @@
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (id)updateEventTriggerMessage:(int)arg1 message:(id)arg2 relay:(_Bool)arg3;
 - (void)timerFired:(id)arg1;
 - (id)emptyModelObject;
 - (id)backingStoreObjects:(long long)arg1;
@@ -66,13 +67,16 @@
 - (void)userDidConfirmExecute:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_executeActionSets:(id)arg1 captureCurrentState:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_executeActionSetsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_activateTriggerRequest:(id)arg1;
 - (void)_handleActivateTriggerRequest:(id)arg1;
 - (void)_actionSetsUpdated:(id)arg1 message:(id)arg2;
+- (void)_updateActionSetRequest:(id)arg1 postUpdate:(_Bool)arg2;
 - (void)_handleUpdateActionSetRequest:(id)arg1 postUpdate:(_Bool)arg2;
 - (void)_handleRemoveTriggerOwnedActionSetRequest:(id)arg1 postUpdate:(_Bool)arg2;
 - (void)_handleRemoveActionSetRequest:(id)arg1 postUpdate:(_Bool)arg2;
 - (void)_handleAddTriggerOwnedActionSetRequest:(id)arg1;
 - (void)_handleAddActionSetRequest:(id)arg1;
+- (void)_renameRequest:(id)arg1;
 - (void)_handleRenameRequest:(id)arg1;
 - (void)_activate:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)markChangedForMessage:(id)arg1 triggerModel:(id)arg2;

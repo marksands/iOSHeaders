@@ -21,12 +21,14 @@
     _Bool _needsAuthentication;
     _Bool _needsURLBag;
     SSVFairPlaySAPSession *_sapSession;
+    _Bool _shouldAppendAuthKitHeaders;
     _Bool _shouldAppendStorefrontToURL;
     _Bool _shouldSendXTokenHeader;
     _Bool _urlKnownToBeTrusted;
     _Bool _useUserSpecificURLBag;
     _Bool _needsTermsAndConditionsAcceptance;
     _Bool _shouldSuppressUserInfo;
+    _Bool _shouldSendAKClientInfoHeaders;
     _Bool _shouldSendDSIDHeader;
     SSBiometricAuthenticationContext *_biometricAuthenticationContext;
     id <ISBiometricSessionDelegate> _biometricSessionDelegate;
@@ -41,12 +43,12 @@
 + (id)_restrictionsHeaderValue;
 + (void)_appendStorefront:(id)arg1 toRequestURL:(id)arg2;
 + (void)_addPrimaryiCloudDSIDToRequest:(id)arg1;
-+ (void)_addiTunesStoreHeadersToRequest:(id)arg1 withURLBag:(id)arg2 account:(id)arg3 appendStorefrontToURL:(_Bool)arg4 clientBundleIdentifier:(id)arg5;
-+ (void)_addiTunesStoreHeadersToRequest:(id)arg1 withAccount:(id)arg2 appendStorefrontToURL:(_Bool)arg3 clientBundleIdentifier:(id)arg4 extraHeaders:(id)arg5 storefrontSuffix:(id)arg6;
++ (void)_addiTunesStoreHeadersToRequest:(id)arg1 withURLBag:(id)arg2 account:(id)arg3 appendAuthKitHeaders:(_Bool)arg4 appendStorefrontToURL:(_Bool)arg5 clientBundleIdentifier:(id)arg6;
++ (void)_addiTunesStoreHeadersToRequest:(id)arg1 withAccount:(id)arg2 appendAuthKitHeaders:(_Bool)arg3 appendStorefrontToURL:(_Bool)arg4 clientBundleIdentifier:(id)arg5 extraHeaders:(id)arg6 storefrontSuffix:(id)arg7;
 + (void)_addAccountDSID:(id)arg1 toRequest:(id)arg2;
-+ (void)_addiTunesStoreHeadersToRequest:(id)arg1 withURLBag:(id)arg2 accountIdentifier:(id)arg3 appendStorefrontToURL:(_Bool)arg4 clientBundleIdentifier:(id)arg5;
-+ (void)_addiTunesStoreHeadersToRequest:(id)arg1 withSSBag:(id)arg2 account:(id)arg3 appendStorefrontToURL:(_Bool)arg4 clientBundleIdentifier:(id)arg5;
-+ (void)_addiTunesStoreHeadersToRequest:(id)arg1 withSSBag:(id)arg2 accountIdentifier:(id)arg3 appendStorefrontToURL:(_Bool)arg4 clientBundleIdentifier:(id)arg5;
++ (void)_addiTunesStoreHeadersToRequest:(id)arg1 withURLBag:(id)arg2 accountIdentifier:(id)arg3 appendAuthKitHeaders:(_Bool)arg4 appendStorefrontToURL:(_Bool)arg5 clientBundleIdentifier:(id)arg6;
++ (void)_addiTunesStoreHeadersToRequest:(id)arg1 withSSBag:(id)arg2 account:(id)arg3 appendAuthKitHeaders:(_Bool)arg4 appendStorefrontToURL:(_Bool)arg5 clientBundleIdentifier:(id)arg6;
++ (void)_addiTunesStoreHeadersToRequest:(id)arg1 withSSBag:(id)arg2 accountIdentifier:(id)arg3 appendAuthKitHeaders:(_Bool)arg4 appendStorefrontToURL:(_Bool)arg5 clientBundleIdentifier:(id)arg6;
 + (id)_ssBag_copyExtraHeadersForURL:(id)arg1 bag:(id)arg2;
 + (id)_ssBag_copyHeaderPatternsFromBag:(id)arg1;
 + (id)propertyListOperationWithURLBagKey:(id)arg1;
@@ -56,6 +58,7 @@
 + (void)addITunesStoreHeadersToRequest:(id)arg1 withAccountIdentifier:(id)arg2;
 @property(retain, nonatomic) SSBag *bag; // @synthesize bag=_bag;
 @property _Bool shouldSendDSIDHeader; // @synthesize shouldSendDSIDHeader=_shouldSendDSIDHeader;
+@property _Bool shouldSendAKClientInfoHeaders; // @synthesize shouldSendAKClientInfoHeaders=_shouldSendAKClientInfoHeaders;
 @property _Bool shouldSuppressUserInfo; // @synthesize shouldSuppressUserInfo=_shouldSuppressUserInfo;
 @property long long machineDataStyle; // @synthesize machineDataStyle=_machineDataStyle;
 @property __weak id <ISBiometricSessionDelegate> biometricSessionDelegate; // @synthesize biometricSessionDelegate=_biometricSessionDelegate;
@@ -63,6 +66,7 @@
 @property _Bool urlKnownToBeTrusted; // @synthesize urlKnownToBeTrusted=_urlKnownToBeTrusted;
 @property(nonatomic, getter=isURLBagRequest) _Bool URLBagRequest; // @synthesize URLBagRequest=_isURLBagRequest;
 @property(nonatomic) _Bool shouldAppendStorefrontToURL; // @synthesize shouldAppendStorefrontToURL=_shouldAppendStorefrontToURL;
+@property(nonatomic) _Bool shouldAppendAuthKitHeaders; // @synthesize shouldAppendAuthKitHeaders=_shouldAppendAuthKitHeaders;
 @property _Bool needsURLBag; // @synthesize needsURLBag=_needsURLBag;
 @property _Bool needsTermsAndConditionsAcceptance; // @synthesize needsTermsAndConditionsAcceptance=_needsTermsAndConditionsAcceptance;
 @property _Bool needsAuthentication; // @synthesize needsAuthentication=_needsAuthentication;

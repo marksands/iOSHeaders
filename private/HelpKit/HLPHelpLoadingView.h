@@ -23,7 +23,6 @@
 @property(nonatomic) __weak id <HLPHelpLoadingViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)showHelpBookInfo;
-- (void)updateFonts;
 - (void)showErrorWithTitle:(id)arg1 message:(id)arg2;
 - (void)showDefaultErrorMessage;
 - (void)showNoConnectionErrorMessage;

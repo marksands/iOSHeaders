@@ -7,6 +7,7 @@
 #import "NSArray.h"
 
 @interface NSArray (NNMKAdditions)
+- (id)nnmk_description;
 - (id)nnmk_filter:(CDUnknownBlockType)arg1;
 - (id)nnmk_map:(CDUnknownBlockType)arg1;
 @end

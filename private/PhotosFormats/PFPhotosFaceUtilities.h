@@ -16,6 +16,7 @@
 + (id)selectRepresentativeFromFaces:(id)arg1 qualityMeasureByLocalIdentifier:(id)arg2 representativenessByCSN:(id)arg3;
 + (long long)qualityMeasureForFace:(id)arg1 countOfFacesOnAsset:(unsigned long long)arg2;
 + (id)bestMergeCandidateFaceFor:(id)arg1 from:(id)arg2 ignoreSourceAssetDimensions:(_Bool)arg3;
++ (id)sortedViableMergeCandidateFacesFor:(id)arg1 from:(id)arg2 ignoreSourceAssetDimensions:(_Bool)arg3 matchScores:(id *)arg4;
 
 @end
 

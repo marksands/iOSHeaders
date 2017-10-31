@@ -17,6 +17,7 @@
 @property(readonly, nonatomic) MPPropertySet *requestedPropertySet; // @synthesize requestedPropertySet=_requestedPropertySet;
 - (void).cxx_destruct;
 - (id)modelObjectWithStorePlatformDictionary:(id)arg1;
+- (id)modelObjectWithStoreItemMetadata:(id)arg1 sourceModelObject:(id)arg2;
 - (id)modelObjectWithStoreItemMetadata:(id)arg1;
 - (id)initWithRequestedPropertySet:(id)arg1;
 

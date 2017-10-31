@@ -17,6 +17,7 @@
 
 + (id)_internalErrorForHTTPResponseCode:(long long)arg1;
 - (void).cxx_destruct;
+- (id)_newOperationForRemovingFollower:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_queue_transientStatesDidChange;
 - (void)_transientStatesDidChange;
 - (void)_notifyTransientStatesDidChangeWithSnapshot:(id)arg1;
@@ -30,6 +31,7 @@
 - (void)acceptFollowRequestFromPerson:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)acceptAllFollowRequestsWithCompletion:(CDUnknownBlockType)arg1;
 - (long long)transientFollowStateForPerson:(id)arg1;
+- (void)removeFollower:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)unblockPerson:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)blockPerson:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)cancelFollowRequestOnPerson:(id)arg1 completion:(CDUnknownBlockType)arg2;

@@ -14,8 +14,11 @@
     NSLock *_connectionLock;
     NSXPCListenerEndpoint *_daemonXPCEndpoint;
     AKDevice *_targetDevice;
+    id <AKAnisetteServiceProtocol> _anisetteDataProvider;
 }
 
+@property(retain, nonatomic) id <AKAnisetteServiceProtocol> anisetteDataProvider; // @synthesize anisetteDataProvider=_anisetteDataProvider;
+@property(retain, nonatomic) AKDevice *targetDevice; // @synthesize targetDevice=_targetDevice;
 - (void).cxx_destruct;
 - (id)_anisetteServiceConnection;
 - (void)legacyAnisetteDataForDSID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
@@ -29,8 +32,7 @@
 - (void)syncWithSIMData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)provisionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dealloc;
-- (id)_initForDevice:(id)arg1 daemonXPCEndpoint:(id)arg2;
-- (id)initForDevice:(id)arg1;
+- (id)initForDevice:(id)arg1 provider:(id)arg2;
 - (id)initWithDaemonXPCEndpoint:(id)arg1;
 - (id)init;
 

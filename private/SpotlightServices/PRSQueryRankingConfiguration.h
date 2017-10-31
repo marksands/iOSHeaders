@@ -17,9 +17,17 @@
     unsigned long long _dominantRankingQueryCount;
     unsigned long long _dominatedRankingQueryCount;
     unsigned long long _rankingBitCount;
+    // Error parsing type: T, name: _fuzzyMatchMask
+    // Error parsing type: T, name: _fuzzyMatchCheck
 }
 
 + (void)updateMailVIP:(id)arg1 phoneFavorites:(id)arg2 meEmailAddresses:(id)arg3;
+// Error parsing type for property fuzzyMatchCheck:
+// Property attributes: TT,V_fuzzyMatchCheck
+
+// Error parsing type for property fuzzyMatchMask:
+// Property attributes: TT,V_fuzzyMatchMask
+
 @property _Bool allowAnonymousDataCollection; // @synthesize allowAnonymousDataCollection=_allowAnonymousDataCollection;
 @property unsigned long long rankingBitCount; // @synthesize rankingBitCount=_rankingBitCount;
 @property unsigned long long dominatedRankingQueryCount; // @synthesize dominatedRankingQueryCount=_dominatedRankingQueryCount;

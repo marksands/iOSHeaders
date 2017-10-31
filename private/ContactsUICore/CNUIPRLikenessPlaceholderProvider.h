@@ -15,6 +15,7 @@
     CNCache *_cache;
 }
 
++ (id)companyImageNameForDiameter:(double)arg1;
 + (id)imageNameForDiameter:(double)arg1;
 @property(readonly, nonatomic) CNCache *cache; // @synthesize cache=_cache;
 - (void).cxx_destruct;

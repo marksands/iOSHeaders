@@ -14,6 +14,7 @@
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic, getter=hasOptionalTerms) _Bool optionalTerms;
 @property(readonly, nonatomic, getter=isCloudDocsMigrated) _Bool cloudDocsMigrated;
 @property(readonly, nonatomic, getter=isSandboxAccount) _Bool sandboxAccount;
 @property(readonly, nonatomic, getter=isNotesMigrated) _Bool notesMigrated;

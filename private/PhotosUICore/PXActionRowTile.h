@@ -36,6 +36,7 @@
 - (void)handleButtonTap:(id)arg1 forEvent:(id)arg2;
 - (void)prepareForReuse;
 - (void)becomeReusable;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) UIView *view;
 - (void)tintColorDidChange;
 - (void)_updateButtonTitle;

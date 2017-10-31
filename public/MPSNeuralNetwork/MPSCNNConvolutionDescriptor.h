@@ -29,6 +29,7 @@
     int _neuronType;
     float _neuronA;
     float _neuronB;
+    float _neuronC;
     _Bool _depthWiseConvolution;
     NSData *_perChannelNeuronA;
     MPSCNNNeuron *_neuron_deprecated;
@@ -61,10 +62,13 @@
 - (id)initWithKernelWidth:(unsigned long long)arg1 kernelHeight:(unsigned long long)arg2 inputFeatureChannels:(unsigned long long)arg3 outputFeatureChannels:(unsigned long long)arg4;
 - (id)init;
 - (id)initWithKernelWidth:(unsigned long long)arg1 kernelHeight:(unsigned long long)arg2 inputFeatureChannels:(unsigned long long)arg3 outputFeatureChannels:(unsigned long long)arg4 neuronFilter:(id)arg5;
+- (void)setNeuronType:(int)arg1 parameterA:(float)arg2 parameterB:(float)arg3 parameterC:(float)arg4;
 - (void)setNeuronType:(int)arg1 parameterA:(float)arg2 parameterB:(float)arg3;
+- (float)neuronParameterC;
 - (float)neuronParameterB;
 - (float)neuronParameterA;
 - (int)neuronType;
+- (void)setNeuronParameterC:(float)arg1;
 - (void)setNeuronParameterB:(float)arg1;
 - (void)setNeuronParameterA:(float)arg1;
 - (void)setNeuronType:(int)arg1;

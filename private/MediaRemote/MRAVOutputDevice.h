@@ -6,46 +6,62 @@
 
 #import "NSObject.h"
 
-@class AVOutputDevice, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class NSData, NSDictionary, NSString, _MRAVOutputDeviceDescriptorProtobuf;
 
-__attribute__((visibility("hidden")))
 @interface MRAVOutputDevice : NSObject
 {
-    NSObject<OS_dispatch_queue> *_accessSerialQueue;
+    _Bool _canAccessRemoteAssets;
+    _Bool _remoteControllable;
+    _Bool _groupLeader;
+    _Bool _groupable;
+    _Bool _pickedOnPairedDevice;
+    _Bool _hasBatteryLevel;
+    _Bool _localDevice;
+    _Bool _supportsExternalScreen;
+    _Bool _requiresAuthorization;
+    _Bool _volumeControlAvailable;
+    unsigned int _deviceType;
+    unsigned int _deviceSubtype;
+    float _batteryLevel;
+    float _volume;
     NSString *_name;
     NSString *_uid;
     NSString *_modelID;
     NSString *_groupID;
-    NSString *_MACAddress;
+    NSString *_logicalDeviceID;
+    NSData *_MACAddress;
     NSDictionary *_modelSpecificInfo;
-    _Bool _forceRemoteControllability;
-    AVOutputDevice *_avOutputDevice;
+    NSString *_playingPairedDeviceName;
+    void *_endpoint;
 }
 
-@property(nonatomic) _Bool forceRemoteControllability; // @synthesize forceRemoteControllability=_forceRemoteControllability;
-@property(retain, nonatomic, setter=setAVOutputDevice:) AVOutputDevice *avOutputDevice; // @synthesize avOutputDevice=_avOutputDevice;
-- (void)_onqueue_clearCachedAVOutputDeviceProperties;
-@property(readonly, nonatomic) _Bool requiresAuthorization;
-@property(readonly, nonatomic) _Bool supportsExternalScreen;
-@property(readonly, nonatomic, getter=isLocalDevice) _Bool localDevice;
-@property(readonly, nonatomic) _Bool hasBatteryLevel;
-@property(readonly, nonatomic) float batteryLevel;
-@property(readonly, nonatomic) NSDictionary *modelSpecificInfo;
-@property(readonly, nonatomic) unsigned int deviceSubtype;
-@property(readonly, nonatomic) unsigned int deviceType;
-@property(readonly, nonatomic, getter=isGroupable) _Bool groupable;
-@property(readonly, nonatomic, getter=isGroupLeader) _Bool groupLeader;
-@property(readonly, nonatomic, getter=isRemoteControllable) _Bool remoteControllable;
-@property(readonly, nonatomic) _Bool canAccessRemoteAssets;
-@property(readonly, nonatomic) NSString *MACAddress;
-@property(readonly, nonatomic) NSString *groupID;
-@property(readonly, nonatomic) NSString *modelID;
-@property(readonly, nonatomic) NSString *uid;
-@property(readonly, nonatomic) NSString *name;
++ (id)localDeviceUID;
+@property(nonatomic) void *endpoint; // @synthesize endpoint=_endpoint;
+@property(nonatomic) float volume; // @synthesize volume=_volume;
+@property(readonly, nonatomic, getter=isVolumeControlAvailable) _Bool volumeControlAvailable; // @synthesize volumeControlAvailable=_volumeControlAvailable;
+@property(readonly, nonatomic) _Bool requiresAuthorization; // @synthesize requiresAuthorization=_requiresAuthorization;
+@property(readonly, nonatomic) _Bool supportsExternalScreen; // @synthesize supportsExternalScreen=_supportsExternalScreen;
+@property(readonly, nonatomic, getter=isLocalDevice) _Bool localDevice; // @synthesize localDevice=_localDevice;
+@property(readonly, nonatomic) _Bool hasBatteryLevel; // @synthesize hasBatteryLevel=_hasBatteryLevel;
+@property(readonly, nonatomic) float batteryLevel; // @synthesize batteryLevel=_batteryLevel;
+@property(readonly, nonatomic) unsigned int deviceSubtype; // @synthesize deviceSubtype=_deviceSubtype;
+@property(readonly, nonatomic) unsigned int deviceType; // @synthesize deviceType=_deviceType;
+@property(readonly, nonatomic, getter=isPickedOnPairedDevice) _Bool pickedOnPairedDevice; // @synthesize pickedOnPairedDevice=_pickedOnPairedDevice;
+@property(readonly, nonatomic, getter=isGroupable) _Bool groupable; // @synthesize groupable=_groupable;
+@property(readonly, nonatomic, getter=isGroupLeader) _Bool groupLeader; // @synthesize groupLeader=_groupLeader;
+@property(readonly, nonatomic, getter=isRemoteControllable) _Bool remoteControllable; // @synthesize remoteControllable=_remoteControllable;
+@property(readonly, nonatomic) _Bool canAccessRemoteAssets; // @synthesize canAccessRemoteAssets=_canAccessRemoteAssets;
+@property(readonly, nonatomic) NSString *playingPairedDeviceName; // @synthesize playingPairedDeviceName=_playingPairedDeviceName;
+@property(readonly, nonatomic) NSDictionary *modelSpecificInfo; // @synthesize modelSpecificInfo=_modelSpecificInfo;
+@property(readonly, nonatomic) NSData *MACAddress; // @synthesize MACAddress=_MACAddress;
+@property(readonly, nonatomic) NSString *logicalDeviceID; // @synthesize logicalDeviceID=_logicalDeviceID;
+@property(readonly, nonatomic) NSString *groupID; // @synthesize groupID=_groupID;
+@property(readonly, nonatomic) NSString *modelID; // @synthesize modelID=_modelID;
+@property(readonly, nonatomic) NSString *uid; // @synthesize uid=_uid;
+@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, nonatomic) _MRAVOutputDeviceDescriptorProtobuf *descriptor;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
-- (void)dealloc;
-- (id)initWithAVOutputDevice:(id)arg1;
 
 @end
 

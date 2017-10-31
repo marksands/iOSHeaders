@@ -40,6 +40,8 @@
 @property(retain, nonatomic) NSString *syncId;
 - (void)setHost:(id)arg1;
 - (void)upgradeAccountSpecificPropertiesOnAccount:(id)arg1 inStore:(id)arg2 parentAccount:(id)arg3;
+- (_Bool)upgradeAccount;
+@property(nonatomic) _Bool subscribedURLSanitized;
 - (void)clearTmpICSData;
 - (void)saveTmpICSData;
 - (id)_tmpICSCalendarPath;

@@ -25,6 +25,7 @@
 - (id)retrieveOOBDataForPeer:(id)arg1;
 - (void)respondToPairingRequest:(id)arg1 type:(long long)arg2 accept:(_Bool)arg3 data:(id)arg4;
 - (void)unpairPeer:(id)arg1;
+- (void)pairPeer:(id)arg1 options:(id)arg2;
 - (void)pairPeer:(id)arg1 useMITM:(_Bool)arg2;
 - (void)pairPeer:(id)arg1;
 - (id)retrievePairedPeers;

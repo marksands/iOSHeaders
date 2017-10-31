@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 - (void)pu_performBarsVisibilityUpdatesWithAnimationSettings:(struct PUBarAnimationSettings)arg1;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)updateNavigationBarAnimated:(_Bool)arg1;
-- (void)getEmptyPlaceholderViewTitle:(id *)arg1 message:(id *)arg2;
+- (void)getEmptyPlaceholderViewTitle:(id *)arg1 message:(id *)arg2 buttonTitle:(id *)arg3 buttonAction:(CDUnknownBlockType *)arg4;
 - (id)oneUpPresentationHelperViewController:(id)arg1;
 - (void)viewDidLoad;
 - (void)loadView;

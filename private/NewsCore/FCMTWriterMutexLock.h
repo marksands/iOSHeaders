@@ -6,16 +6,16 @@
 
 #import "NSObject.h"
 
-#import "FCLocking.h"
+#import "NFLocking.h"
 
-@class FCMutexLock;
+@class NFMutexLock;
 
-@interface FCMTWriterMutexLock : NSObject <FCLocking>
+@interface FCMTWriterMutexLock : NSObject <NFLocking>
 {
-    FCMutexLock *_mutex;
+    NFMutexLock *_mutex;
 }
 
-@property(retain, nonatomic) FCMutexLock *mutex; // @synthesize mutex=_mutex;
+@property(retain, nonatomic) NFMutexLock *mutex; // @synthesize mutex=_mutex;
 - (void).cxx_destruct;
 - (void)unlock;
 - (void)lock;

@@ -37,6 +37,7 @@
 - (void)setAsset:(id)arg1;
 - (void)_reset;
 - (void)reset;
+- (void)start;
 - (id)initWithManager:(id)arg1 asset:(id)arg2;
 
 // Remaining properties

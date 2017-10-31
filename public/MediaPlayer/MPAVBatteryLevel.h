@@ -22,6 +22,7 @@
 @property(readonly, nonatomic) NSNumber *leftPercentage; // @synthesize leftPercentage=_leftPercentage;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
+- (id)description;
 - (id)initWithOutputDevice:(void *)arg1;
 - (id)initWithRouteDescription:(id)arg1;
 

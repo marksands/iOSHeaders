@@ -19,7 +19,6 @@
 @property(readonly, nonatomic) HKDisplayTypeController *displayTypeController; // @synthesize displayTypeController=_displayTypeController;
 @property(readonly, nonatomic) NSObject<HKDataMetadataObject> *object; // @synthesize object=_object;
 - (void).cxx_destruct;
-- (void)_addPrivateMetadataIfAppropriateKey:(id)arg1 value:(id)arg2;
 - (void)_loadMetadataValues;
 - (id)initWithWorkoutEvent:(id)arg1;
 - (id)initWithSample:(id)arg1 displayTypeController:(id)arg2 unitController:(id)arg3;

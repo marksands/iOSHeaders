@@ -35,6 +35,7 @@
 - (id)_statusLabelViewContainerView;
 - (long long)_interfaceOrientation;
 - (void)moduleInstancesChangedForModuleInstanceManager:(id)arg1;
+- (void)dismissControlCenterForContentModuleContext:(id)arg1;
 - (void)dismissExpandedViewForContentModuleContext:(id)arg1;
 - (void)requestExpandModuleForContentModuleContext:(id)arg1;
 - (void)contentModuleContext:(id)arg1 enqueueStatusUpdate:(id)arg2;

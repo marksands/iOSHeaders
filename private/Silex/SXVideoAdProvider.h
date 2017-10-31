@@ -6,26 +6,39 @@
 
 #import "NSObject.h"
 
+#import "ADBannerViewInternalDelegate.h"
 #import "SXVideoAdProviding.h"
 
-@class NSString, SXAdController, SXPrerollAdResponse;
+@class NSString, SXPrerollAdResponse, SXTimeline, SXVideoAdStateManager;
 
-@interface SXVideoAdProvider : NSObject <SXVideoAdProviding>
+@interface SXVideoAdProvider : NSObject <ADBannerViewInternalDelegate, SXVideoAdProviding>
 {
     id <SXVideoAdProviderDataSource> _dataSource;
-    SXAdController *_adController;
+    id <SXAnalyticsReporting> _analyticsReporter;
     SXPrerollAdResponse *_response;
+    id <SXVideoMetadataProviding> _metadata;
+    SXTimeline *_timeline;
+    id <SXVideoAdViewControllerProviding> _fullscreenViewControllerProvider;
+    SXVideoAdStateManager *_stateManager;
 }
 
+@property(readonly, nonatomic) SXVideoAdStateManager *stateManager; // @synthesize stateManager=_stateManager;
+@property(readonly, nonatomic) id <SXVideoAdViewControllerProviding> fullscreenViewControllerProvider; // @synthesize fullscreenViewControllerProvider=_fullscreenViewControllerProvider;
+@property(readonly, nonatomic) SXTimeline *timeline; // @synthesize timeline=_timeline;
+@property(nonatomic) __weak id <SXVideoMetadataProviding> metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) SXPrerollAdResponse *response; // @synthesize response=_response;
-@property(retain, nonatomic) SXAdController *adController; // @synthesize adController=_adController;
+@property(retain, nonatomic) id <SXAnalyticsReporting> analyticsReporter; // @synthesize analyticsReporter=_analyticsReporter;
 @property(nonatomic) __weak id <SXVideoAdProviderDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (id)viewControllerForStoryboardPresentationFromBannerView:(id)arg1;
+- (void)reportEngagementEventWithType:(unsigned long long)arg1;
+- (void)configureTimelineForImpressionReporting;
 - (void)presentPrivacyStatement;
 - (void)presentAction;
 @property(readonly, nonatomic) _Bool hasAction;
 @property(readonly, nonatomic) unsigned long long skipThreshold;
 - (void)skipped;
+- (void)timeElapsed:(double)arg1 duration:(double)arg2;
 - (void)playbackFailedWithError:(id)arg1;
 - (void)playbackFinished;
 - (void)playbackResumed;
@@ -33,7 +46,7 @@
 - (void)playbackStarted;
 - (void)playbackInitiated;
 - (CDUnknownBlockType)loadWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (id)initWithDataSource:(id)arg1;
+- (id)initWithDataSource:(id)arg1 viewControllerProvider:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)disableProfilingForQueriesInBlock:(CDUnknownBlockType)arg1;
 - (_Bool)executeWithErrorHandler:(CDUnknownBlockType)arg1 sql:(id)arg2;
 - (_Bool)executeWithSlowStatementRadar:(id)arg1 sql:(id)arg2;
+- (_Bool)executeWithExpectedIndex:(id)arg1 sql:(id)arg2;
 - (id)fetchWithSlowStatementRadar:(id)arg1 objectOfClass:(Class)arg2 sql:(id)arg3;
 - (id)fetchWithSlowStatementRadar:(id)arg1 sql:(id)arg2;
 - (void)setProfilingHook:(CDUnknownBlockType)arg1;

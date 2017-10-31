@@ -10,7 +10,7 @@
 #import "UIPickerViewDataSource.h"
 #import "UIPickerViewDelegate.h"
 
-@class NSFormatter, NSNumber, NSString, UIPickerView;
+@class NSArray, NSFormatter, NSNumber, NSSet, NSString, UIPickerView;
 
 @interface HUWheelControlView : UIView <UIPickerViewDataSource, UIPickerViewDelegate, HUControlView>
 {
@@ -22,11 +22,15 @@
     NSNumber *_stepValue;
     id <HUWheelControlViewDelegate> _wheelDelegate;
     NSFormatter *_valueFormatter;
+    NSSet *_customValues;
     UIPickerView *_pickerView;
+    NSArray *_wheelValues;
 }
 
 + (Class)valueClass;
+@property(retain, nonatomic) NSArray *wheelValues; // @synthesize wheelValues=_wheelValues;
 @property(retain, nonatomic) UIPickerView *pickerView; // @synthesize pickerView=_pickerView;
+@property(retain, nonatomic) NSSet *customValues; // @synthesize customValues=_customValues;
 @property(retain, nonatomic) NSFormatter *valueFormatter; // @synthesize valueFormatter=_valueFormatter;
 @property(nonatomic) __weak id <HUWheelControlViewDelegate> wheelDelegate; // @synthesize wheelDelegate=_wheelDelegate;
 @property(copy, nonatomic) NSNumber *stepValue; // @synthesize stepValue=_stepValue;
@@ -42,8 +46,7 @@
 - (id)_defaultValueFormatter;
 - (id)_formatValue:(id)arg1;
 - (void)_setupConstraints;
-- (long long)_wheelRowForValue:(id)arg1;
-- (id)_wheelValueForRow:(long long)arg1;
+- (void)_generateWheelValues;
 @property(nonatomic, getter=isDisabled) _Bool disabled;
 @property(retain, nonatomic) id value;
 - (void)pickerView:(id)arg1 didSelectRow:(long long)arg2 inComponent:(long long)arg3;

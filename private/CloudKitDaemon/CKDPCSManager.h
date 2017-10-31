@@ -120,6 +120,7 @@ __attribute__((visibility("hidden")))
 - (struct _OpaquePCSShareProtection *)createRecordPCSWithEncryptedZonePCS:(struct __CFData *)arg1 sharePCS:(struct _OpaquePCSShareProtection *)arg2 createLite:(_Bool)arg3 error:(id *)arg4;
 - (struct _OpaquePCSShareProtection *)createRecordPCSWithZonePCS:(struct _OpaquePCSShareProtection *)arg1 sharePCS:(struct _OpaquePCSShareProtection *)arg2 createLite:(_Bool)arg3 error:(id *)arg4;
 - (id)updateIdentityAndRollKeyForZonePCS:(struct _OpaquePCSShareProtection *)arg1 usingServiceIdentityWithType:(unsigned long long)arg2;
+- (id)updateZoneIdentityForPCS:(struct _OpaquePCSShareProtection *)arg1 usingZonePCS:(struct _OpaquePCSShareProtection *)arg2;
 - (id)rollMasterKeyForRecordPCS:(struct _OpaquePCSShareProtection *)arg1;
 - (id)updateServiceIdentityOnZonePCS:(struct _OpaquePCSShareProtection *)arg1;
 - (_Bool)zonePCSNeedsUpdate:(struct _OpaquePCSShareProtection *)arg1;

@@ -14,6 +14,7 @@
 {
     struct GEOSessionID _sessionID;
     double _requestTime;
+    double _sessionRelativeTimestamp;
     GEOPDABClientDatasetMetadata *_abClientMetadata;
     GEOAdditionalEnabledMarkets *_additionalEnabledMarkets;
     GEOClientCapabilities *_clientCapabilities;
@@ -48,6 +49,7 @@
     struct {
         unsigned int sessionID:1;
         unsigned int requestTime:1;
+        unsigned int sessionRelativeTimestamp:1;
         unsigned int departureTime:1;
         unsigned int mainTransportTypeMaxRouteCount:1;
         unsigned int nonRecommendedRoutesOption:1;
@@ -79,6 +81,7 @@
 @property(retain, nonatomic) NSMutableArray *waypointTypeds; // @synthesize waypointTypeds=_waypointTypeds;
 @property(retain, nonatomic) GEOAdditionalEnabledMarkets *additionalEnabledMarkets; // @synthesize additionalEnabledMarkets=_additionalEnabledMarkets;
 @property(retain, nonatomic) GEODirectionsRequestFeedback *feedback; // @synthesize feedback=_feedback;
+@property(nonatomic) double sessionRelativeTimestamp; // @synthesize sessionRelativeTimestamp=_sessionRelativeTimestamp;
 @property(nonatomic) struct GEOSessionID sessionID; // @synthesize sessionID=_sessionID;
 @property(nonatomic) int departureTime; // @synthesize departureTime=_departureTime;
 @property(retain, nonatomic) NSData *originalDirectionsResponseID; // @synthesize originalDirectionsResponseID=_originalDirectionsResponseID;
@@ -131,6 +134,7 @@
 - (void)clearWaypointTypeds;
 @property(readonly, nonatomic) _Bool hasAdditionalEnabledMarkets;
 @property(readonly, nonatomic) _Bool hasFeedback;
+@property(nonatomic) _Bool hasSessionRelativeTimestamp;
 @property(nonatomic) _Bool hasSessionID;
 @property(nonatomic) _Bool hasGetRouteForZilchPoints;
 @property(nonatomic) _Bool getRouteForZilchPoints; // @synthesize getRouteForZilchPoints=_getRouteForZilchPoints;

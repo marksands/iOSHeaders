@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) VKTrafficTileSource *trafficTileSource; // @synthesize trafficTileSource=_trafficTileSource;
 - (void)releaseTraffic;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
+- (void)_trafficFailed:(const struct VKTileKey *)arg1;
 - (void)_fetchedTile:(id)arg1;
 - (void)clearCaches;
 - (void)expireAllTraffic;

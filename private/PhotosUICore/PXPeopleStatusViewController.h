@@ -17,9 +17,8 @@
 @property(retain, nonatomic) PXPeopleStatusView *statusView; // @synthesize statusView=_statusView;
 @property(nonatomic) __weak id <PXPeopleStatusViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)_continuePressed:(id)arg1;
-- (void)willMoveToParentViewController:(id)arg1;
+- (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLoad;
 
 @end

@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
             unsigned int startDownload:1;
             unsigned int wantsThumbnail:1;
             unsigned int userInitiated:1;
+            unsigned int wantsContentForThumbnail:1;
         } ;
     } _flags;
     NSError *_downloadError;
@@ -41,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithDesiredVersion:(id)arg1;
 - (void)markLiveAsFault;
 @property(nonatomic) unsigned int options;
+@property(readonly, nonatomic) _Bool wantsContentForThumbnail;
 @property(readonly, nonatomic) _Bool userInitiated;
 @property(readonly, nonatomic) _Bool wantsThumbnail;
 @property(readonly, nonatomic) _Bool wantsContent;

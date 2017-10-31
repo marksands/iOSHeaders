@@ -11,6 +11,6 @@
 @protocol AVPlayerItemDelegate <NSObject>
 
 @optional
-- (_Bool)playerItem:(AVPlayerItem *)arg1 shouldSeekToTime:(CDStruct_198678f7 *)arg2 toleranceBefore:(CDStruct_198678f7 *)arg3 toleranceAfter:(CDStruct_198678f7 *)arg4;
+- (_Bool)playerItem:(AVPlayerItem *)arg1 shouldSeekToTime:(CDStruct_1b6d18a9 *)arg2 toleranceBefore:(CDStruct_1b6d18a9 *)arg3 toleranceAfter:(CDStruct_1b6d18a9 *)arg4;
 @end
 

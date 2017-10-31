@@ -252,6 +252,8 @@
 - (id)oldestMessageInMailbox:(id)arg1;
 - (void)setMostRecentStatusCount:(unsigned long long)arg1 forMailbox:(id)arg2;
 - (unsigned long long)mostRecentStatusCountForMailbox:(id)arg1;
+- (void)_setOrAdjust:(_Bool)arg1 lastSyncAndMostRecentStatusCountWithValue:(long long)arg2 forMailbox:(id)arg3;
+- (void)adjustLastSyncStatusCountBy:(long long)arg1 forMailbox:(id)arg2;
 - (void)setLastSyncAndMostRecentStatusCount:(unsigned long long)arg1 forMailbox:(id)arg2;
 - (long long)statusCountDeltaForMailbox:(id)arg1;
 - (void)setServerUnreadOnlyOnServerCount:(unsigned long long)arg1 forMailbox:(id)arg2;

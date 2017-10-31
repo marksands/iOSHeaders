@@ -45,6 +45,7 @@
 + (id)_recordType;
 @property _Bool pendingENGroupParticipantUpdate; // @synthesize pendingENGroupParticipantUpdate=_pendingENGroupParticipantUpdate;
 @property _Bool createEngramGroupOnMessageSend; // @synthesize createEngramGroupOnMessageSend=_createEngramGroupOnMessageSend;
+- (void)tearDownToneNotificationSessionIfNeeded;
 - (_Bool)isBusinessChat;
 - (id)cloudKitDebugDescription;
 - (id)_ckUniqueID;

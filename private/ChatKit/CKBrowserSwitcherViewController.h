@@ -15,11 +15,10 @@
 #import "UIScrollViewDelegate.h"
 #import "_UIBackdropViewGraphicsQualityChangeDelegate.h"
 
-@class CKAppGrabberView, CKBrowserSwitcherFooterView, CKBrowserSwitcherFooterViewDataSource, CKBrowserSwitcherScrollPreventer, CKBrowserTransitionCoordinator, CKImmediatePanGestureRecognizer, IMBalloonPlugin, IMScheduledUpdater, NSArray, NSDate, NSMutableDictionary, NSString, UICollectionView, UICollectionViewFlowLayout, UILongPressGestureRecognizer, UIView, UIViewController<CKBrowserViewControllerProtocol>, UIViewPropertyAnimator, _UIBackdropView;
+@class CKAppGrabberView, CKBrowserSwitcherFooterView, CKBrowserSwitcherFooterViewDataSource, CKBrowserSwitcherScrollPreventer, CKBrowserTransitionCoordinator, CKImmediatePanGestureRecognizer, IMBalloonPlugin, IMScheduledUpdater, NSArray, NSDate, NSMutableDictionary, NSString, UICollectionView, UICollectionViewFlowLayout, UILongPressGestureRecognizer, UIView, UIViewController<CKBrowserViewControllerProtocol>, UIViewPropertyAnimator;
 
 @interface CKBrowserSwitcherViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, CKBrowserSwitcherScrollPreventerDelegate, CKBrowserTransitionCoordinatorDelegate, CKBrowserSwitcherFooterViewDelegate, _UIBackdropViewGraphicsQualityChangeDelegate>
 {
-    _UIBackdropView *_extraTopSpacingBackdropView;
     CKImmediatePanGestureRecognizer *_expandGestureTracker;
     UIViewPropertyAnimator *_expandPropertyAnimator;
     _Bool _isDoingExpandInteraction;
@@ -172,7 +171,6 @@
 - (double)_rubberBandOffsetWithoutDecorationForOffset:(double)arg1 maxOffset:(double)arg2 minOffset:(double)arg3 range:(double)arg4 outside:(_Bool *)arg5;
 - (double)restingCollectionViewOriginY;
 - (double)restingGrabberOriginY;
-- (void)viewSafeAreaInsetsDidChange;
 - (struct CGRect)restingGrabberFrame;
 - (void)dismissBrowserFullscreenAnimated:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (struct CGRect)cachedCompactFrameInWindowCoordsForBrowserTransitionCoordinator:(id)arg1;

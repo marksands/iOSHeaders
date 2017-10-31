@@ -8,28 +8,27 @@
 
 #import "NSCopying.h"
 
-@class NSArray, NSDictionary, SFRankingFeedback;
+@class NSArray, SFRankingFeedback;
 
 @interface NTCatchUpOperationResults : NSObject <NSCopying>
 {
-    NSArray *_headlines;
-    NSDictionary *_headlineCacheExpirationDatesByArticleID;
-    NSDictionary *_searchResultsByArticleID;
+    NSArray *_items;
     SFRankingFeedback *_rankingFeedback;
+    NSObject *_supplementalInterestToken;
 }
 
-@property(copy, nonatomic) SFRankingFeedback *rankingFeedback; // @synthesize rankingFeedback=_rankingFeedback;
-@property(copy, nonatomic) NSDictionary *searchResultsByArticleID; // @synthesize searchResultsByArticleID=_searchResultsByArticleID;
-@property(copy, nonatomic) NSDictionary *headlineCacheExpirationDatesByArticleID; // @synthesize headlineCacheExpirationDatesByArticleID=_headlineCacheExpirationDatesByArticleID;
-@property(copy, nonatomic) NSArray *headlines; // @synthesize headlines=_headlines;
+@property(readonly, nonatomic) NSObject *supplementalInterestToken; // @synthesize supplementalInterestToken=_supplementalInterestToken;
+@property(readonly, copy, nonatomic) SFRankingFeedback *rankingFeedback; // @synthesize rankingFeedback=_rankingFeedback;
+@property(readonly, copy, nonatomic) NSArray *items; // @synthesize items=_items;
 - (void).cxx_destruct;
 - (id)resultsByCombiningWithResults:(id)arg1;
-- (id)copyWithHeadlines:(id)arg1;
+- (id)copyWithItems:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithHeadlines:(id)arg1 headlineCacheExpirationDatesByArticleID:(id)arg2 searchResultsByArticleID:(id)arg3 rankingFeedback:(id)arg4;
-- (id)initWithHeadlines:(id)arg1 searchResultsByArticleID:(id)arg2 rankingFeedback:(id)arg3;
+- (id)initWithItems:(id)arg1 rankingFeedback:(id)arg2 supplementalInterestToken:(id)arg3;
+- (id)initWithFeedItems:(id)arg1 supplementalInterestToken:(id)arg2;
+- (id)initWithHeadlines:(id)arg1 rankingFeedback:(id)arg2;
 - (id)init;
 
 @end

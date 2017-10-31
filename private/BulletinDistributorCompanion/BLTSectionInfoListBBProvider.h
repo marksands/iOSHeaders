@@ -27,6 +27,7 @@
 - (void)applicationsDidInstall:(id)arg1;
 - (void)sectionInfoObserver:(id)arg1 removedSectionWithSectionID:(id)arg2;
 - (void)sectionInfoObserver:(id)arg1 updatedSectionInfo:(id)arg2 withUniversalSectionID:(id)arg3 displayName:(id)arg4;
+- (void)reloadSection:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)reloadWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithSettingsGateway:(id)arg1;

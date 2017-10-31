@@ -27,6 +27,7 @@
 - (_Bool)shouldDelayInvocation:(id)arg1;
 - (id)_forwardMessage:(id)arg1 userInfo:(id)arg2 auditToken:(CDStruct_6ad76789 *)arg3;
 - (void)_registerNotificationsForSelectors;
+- (void)dealloc;
 - (id)init;
 
 @end

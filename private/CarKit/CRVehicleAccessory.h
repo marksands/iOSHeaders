@@ -35,6 +35,8 @@
 - (void)requestWiFiCredentials;
 - (void)beginWiredBluetoothPairing:(CDUnknownBlockType)arg1;
 - (_Bool)_updateName;
+- (id)analyticsDescription;
+- (id)radarDescription;
 - (id)description;
 - (id)displayName;
 - (_Bool)isBluetoothConnected;

@@ -74,6 +74,7 @@
 - (id)_handleUserEventOccurred:(id)arg1;
 - (id)_handleIsMagnifierVisible:(id)arg1;
 - (id)_handleLaunchMagnifierApp:(id)arg1;
+- (id)_handleReactivateInCallService:(id)arg1;
 - (id)_handleLoadGAXBundleForUnmanagedASAM:(id)arg1;
 - (id)_handleRevealSpotlight:(id)arg1;
 - (id)_handleCancelReachabilityTimer:(id)arg1;
@@ -116,6 +117,8 @@
 - (id)_hasActiveCall:(id)arg1;
 - (id)_isMakingEmergencyCall:(id)arg1;
 - (id)_screenLocked:(id)arg1;
+- (id)_hideRemoteView:(id)arg1;
+- (id)_showRemoteView:(id)arg1;
 - (id)_hideAlert:(id)arg1;
 - (id)_showAlert:(id)arg1;
 - (id)_getPid:(id)arg1;

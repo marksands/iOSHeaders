@@ -54,6 +54,8 @@
 - (id)initWithAddressBook:(void *)arg1;
 - (void)_loadList;
 - (void)_loadListWithAddressBook:(void *)arg1;
+- (_Bool)shouldNotReportFavoritesError:(id)arg1;
+- (void)reportFavoritesIssue:(id)arg1;
 
 @end
 

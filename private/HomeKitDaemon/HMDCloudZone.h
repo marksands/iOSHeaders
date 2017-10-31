@@ -47,10 +47,17 @@
 - (_Bool)isRootRecord:(id)arg1;
 @property(readonly, nonatomic) CKRecordID *privateZoneRootRecordID;
 - (void)addCloudRecord:(id)arg1 ownerID:(id)arg2;
+- (void)markMigratedObjectsAsMigrated;
+- (void)fetchMigratedObjects:(CDUnknownBlockType)arg1;
+- (void)cloudRecordsForParentID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)cloudRecordWithObjectID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)cloudRecordWithObjectIDs:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)cloudRecordWithObjectID:(id)arg1;
 - (id)__cloudRecordWithObjectID:(id)arg1;
 - (id)createCloudRecordWithFetchResult:(id)arg1;
 - (id)createCloudRecordWithObjectID:(id)arg1 recordName:(id)arg2;
+- (void)cloudRecordWithName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)cloudRecordWithNames:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)cloudRecordWithName:(id)arg1;
 @property(readonly, nonatomic, getter=doesProcessChangeEvenIfDecryptionFails) _Bool processChangeEvenIfDecryptionFails;
 - (id)description;

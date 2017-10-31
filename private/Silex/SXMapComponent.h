@@ -15,7 +15,6 @@
 + (CDUnknownBlockType)valueClassBlockForPropertyWithName:(id)arg1;
 + (id)typeString;
 - (unsigned long long)defaultMapTypeWithValue:(id)arg1 withType:(int)arg2;
-- (Class)componentViewClass;
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *accessibilityCaption; // @dynamic accessibilityCaption;

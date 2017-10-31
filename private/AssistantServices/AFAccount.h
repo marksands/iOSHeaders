@@ -6,16 +6,24 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
+#import "NSSecureCoding.h"
+
 @class NSDate, NSDictionary, NSString;
 
-@interface AFAccount : NSObject
+@interface AFAccount : NSObject <NSCopying, NSSecureCoding>
 {
+    _Bool _peerSiriEnabled;
     _Bool _isActive;
     NSString *_identifier;
     NSString *_label;
     NSString *_assistantIdentifier;
     NSString *_speechIdentifier;
     NSString *_hostname;
+    NSString *_peerAssistantIdentifier;
+    NSString *_peerSpeechIdentifier;
+    NSString *_peerUserAgentString;
+    NSString *_peerLanguageCode;
     NSString *_predefinedServer;
     NSString *_aceHost;
     NSDictionary *_connectionPolicy;
@@ -26,7 +34,8 @@
     NSString *_localeIdentifier;
 }
 
-@property(readonly, nonatomic) _Bool isActive; // @synthesize isActive=_isActive;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool isActive; // @synthesize isActive=_isActive;
 @property(copy, nonatomic) NSString *localeIdentifier; // @synthesize localeIdentifier=_localeIdentifier;
 @property(copy, nonatomic) NSDictionary *lastSyncDates; // @synthesize lastSyncDates=_lastSyncDates;
 @property(copy, nonatomic) NSString *group; // @synthesize group=_group;
@@ -35,12 +44,21 @@
 @property(copy, nonatomic) NSDictionary *connectionPolicy; // @synthesize connectionPolicy=_connectionPolicy;
 @property(copy, nonatomic) NSString *aceHost; // @synthesize aceHost=_aceHost;
 @property(copy, nonatomic) NSString *predefinedServer; // @synthesize predefinedServer=_predefinedServer;
+@property(nonatomic) _Bool peerSiriEnabled; // @synthesize peerSiriEnabled=_peerSiriEnabled;
+@property(copy, nonatomic) NSString *peerLanguageCode; // @synthesize peerLanguageCode=_peerLanguageCode;
+@property(copy, nonatomic) NSString *peerUserAgentString; // @synthesize peerUserAgentString=_peerUserAgentString;
+@property(copy, nonatomic) NSString *peerSpeechIdentifier; // @synthesize peerSpeechIdentifier=_peerSpeechIdentifier;
+@property(copy, nonatomic) NSString *peerAssistantIdentifier; // @synthesize peerAssistantIdentifier=_peerAssistantIdentifier;
 @property(copy, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
 @property(copy, nonatomic) NSString *speechIdentifier; // @synthesize speechIdentifier=_speechIdentifier;
 @property(copy, nonatomic) NSString *assistantIdentifier; // @synthesize assistantIdentifier=_assistantIdentifier;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)messageDictionary;
 - (id)initWithMessageDictionary:(id)arg1;
 - (id)description;

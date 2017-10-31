@@ -8,17 +8,17 @@
 
 #import "NFLFeedComponentLayout.h"
 
-@class NFLFeedCollectionViewLayoutAttributes, NFLRankedLayout, NSArray, NSObject<NFLFeedTileInfo>, NSString;
+@class NFLFeedCollectionViewLayoutAttributes, NFLRankedLayout, NSArray, NSString;
 
 @interface NFLSingleComponentLayout : NSObject <NFLFeedComponentLayout>
 {
-    NSObject<NFLFeedTileInfo> *_tileInfo;
+    id <NFLFeedTileInfo> _tileInfo;
     NFLRankedLayout *_rankedLayout;
 }
 
 + (id)singleComponentLayoutWithRankedLayout:(id)arg1 tileInfo:(id)arg2;
 @property(retain, nonatomic) NFLRankedLayout *rankedLayout; // @synthesize rankedLayout=_rankedLayout;
-@property(copy, nonatomic) NSObject<NFLFeedTileInfo> *tileInfo; // @synthesize tileInfo=_tileInfo;
+@property(copy, nonatomic) id <NFLFeedTileInfo> tileInfo; // @synthesize tileInfo=_tileInfo;
 - (void).cxx_destruct;
 - (id)layoutInfosAtRowOrigin:(long long)arg1 columnOrigin:(long long)arg2 subBatchRowOffset:(long long)arg3 feedSettings:(id)arg4;
 - (unsigned long long)tileInfosUsedCount;

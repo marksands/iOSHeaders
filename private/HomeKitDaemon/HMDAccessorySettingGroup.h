@@ -22,16 +22,16 @@
     NSString *_name;
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
-    HMDAccessory *_accessory;
     HMFMessageDispatcher *_messageDispatcher;
+    HMDAccessory *_accessory;
 }
 
 + (id)supportedGroupsClasses;
 + (id)supportedSettingsClasses;
 + (_Bool)supportsSecureCoding;
 + (id)logCategory;
+@property(nonatomic) __weak HMDAccessory *accessory; // @synthesize accessory=_accessory;
 @property(retain, nonatomic) HMFMessageDispatcher *messageDispatcher; // @synthesize messageDispatcher=_messageDispatcher;
-@property(retain, nonatomic) HMDAccessory *accessory; // @synthesize accessory=_accessory;
 @property(readonly) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(readonly, copy) NSString *name; // @synthesize name=_name;
@@ -49,6 +49,7 @@
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (id)transactionWithObjectChangeType:(unsigned long long)arg1;
 @property(readonly) HMDAccessorySettingGroupModel *model;
+- (id)backingStoreModels;
 - (id)mergeWithGroupMetadata:(id)arg1;
 - (void)_relayRequestMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)handleRemovedGroupModel:(id)arg1 message:(id)arg2;
@@ -67,6 +68,7 @@
 - (void)addSetting:(id)arg1;
 - (id)settingWithIdentifier:(id)arg1;
 @property(readonly, copy) NSArray *settings;
+@property(readonly) NSString *keyPath;
 - (_Bool)_shouldAcceptMessage:(id)arg1;
 - (void)registerForMessages;
 - (void)configureWithAccessory:(id)arg1 messageDispatcher:(id)arg2;

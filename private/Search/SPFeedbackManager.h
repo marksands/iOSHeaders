@@ -16,6 +16,7 @@
 
 + (id)sharedManager;
 - (void)sendFeedbackMessage:(SEL)arg1 withFeedback:(id)arg2;
+- (void)reportFeedback:(id)arg1 queryId:(long long)arg2;
 - (void)cardViewDidAppear:(id)arg1;
 - (void)didGradeResultRelevancy:(id)arg1;
 - (void)sectionHeaderDidBecomeVisible:(id)arg1;

@@ -19,6 +19,7 @@
 - (void)mapLayer:(VKMapView *)arg1 didUpdateVerticalYawTo:(double)arg2;
 - (void)mapLayer:(VKMapView *)arg1 willTransitionFrom:(long long)arg2 to:(long long)arg3 duration:(double)arg4;
 - (void)mapLayerLabelsDidLayout:(VKMapView *)arg1;
+- (void)mapLayer:(VKMapView *)arg1 labelMarkerDidChangeState:(VKLabelMarker *)arg2;
 - (void)mapLayer:(VKMapView *)arg1 selectedLabelMarkerDidChangeState:(VKLabelMarker *)arg2;
 - (void)mapLayer:(VKMapView *)arg1 selectedLabelMarkerWillDisappear:(VKLabelMarker *)arg2;
 - (void)mapLayer:(VKMapView *)arg1 didFinishChangingMapDisplayStyle:(CDStruct_80aa614a)arg2;

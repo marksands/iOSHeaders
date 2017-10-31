@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 {
     _UIKeyboardTextSelectionGestureController *_owner;
     NSMapTable *_weakMap;
+    id _deallocToken;
 }
 
 + (void)attachToExistingRecogniser:(id)arg1 owner:(id)arg2 forType:(long long)arg3;
@@ -70,6 +71,7 @@ __attribute__((visibility("hidden")))
 - (void)_configureOneFingerForcePressRecognizer:(id)arg1;
 - (id)initWithView:(id)arg1 owner:(id)arg2 forTypes:(long long)arg3;
 - (id)gestures;
+- (void)registerOwner:(id)arg1;
 - (void)dealloc;
 - (void)detach;
 - (void)_clearHiding;

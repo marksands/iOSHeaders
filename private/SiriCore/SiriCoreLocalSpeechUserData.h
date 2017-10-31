@@ -46,6 +46,7 @@
 @property(readonly, copy, nonatomic) NSArray *contactsWords; // @synthesize contactsWords=_contactsWords;
 @property(readonly, copy, nonatomic) NSString *language; // @synthesize language=_language;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)debugDescription;

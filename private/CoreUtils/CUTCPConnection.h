@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CUBonjourDevice, CUReadRequest, CUWriteRequest, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
+@class CUBonjourDevice, CUNetLinkEndpoint, CUNetLinkManager, CUReadRequest, CUWriteRequest, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
 
 @interface CUTCPConnection : NSObject
 {
@@ -22,6 +22,7 @@
     CDUnknownBlockType _activateCompletion;
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
+    CUNetLinkEndpoint *_netLinkEndpoint;
     struct LogCategory *_ucat;
     unsigned long long _ifExtendedFlags;
     unsigned int _ifFlags;
@@ -34,6 +35,7 @@
     CDUnion_fab80606 _selfAddr;
     int _defaultPort;
     unsigned int _flags;
+    int _keepAliveSeconds;
     int _socketFD;
     double _connectTimeoutSecs;
     double _dataTimeoutSecs;
@@ -43,12 +45,15 @@
     CDUnknownBlockType _errorHandler;
     CDUnknownBlockType _invalidationHandler;
     NSString *_label;
+    CUNetLinkManager *_netLinkManager;
     CDUnknownBlockType _serverInvalidationHandler;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType serverInvalidationHandler; // @synthesize serverInvalidationHandler=_serverInvalidationHandler;
 @property(nonatomic) int socketFD; // @synthesize socketFD=_socketFD;
+@property(retain, nonatomic) CUNetLinkManager *netLinkManager; // @synthesize netLinkManager=_netLinkManager;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
+@property(nonatomic) int keepAliveSeconds; // @synthesize keepAliveSeconds=_keepAliveSeconds;
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
 @property(nonatomic) unsigned int flags; // @synthesize flags=_flags;
 @property(copy, nonatomic) CDUnknownBlockType errorHandler; // @synthesize errorHandler=_errorHandler;
@@ -71,6 +76,7 @@
 - (void)_prepareReadRequest:(id)arg1;
 - (void)_processReads:(_Bool)arg1;
 - (void)readWithRequest:(id)arg1;
+- (void)_netLinkStateChanged;
 - (_Bool)_setupIOAndReturnError:(id *)arg1;
 - (_Bool)_startConnectingToDestination:(id)arg1 error:(id *)arg2;
 - (void)_invalidated;

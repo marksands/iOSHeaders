@@ -28,6 +28,8 @@
 - (void)setWallpaperTunnelActive:(_Bool)arg1;
 - (void)setAllowsMenuButtonDismissal:(_Bool)arg1;
 - (void)setDesiredHardwareButtonEvents:(unsigned long long)arg1;
+- (void)invalidate;
+- (void)deactivate;
 - (void)dismiss;
 - (void)setAllowsAlertItems:(_Bool)arg1;
 - (void)setAllowsBanners:(_Bool)arg1;

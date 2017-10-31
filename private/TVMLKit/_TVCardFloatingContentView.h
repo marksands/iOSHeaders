@@ -11,7 +11,6 @@
 
 @class NSString, UIImage, UIImageView, UIView;
 
-__attribute__((visibility("hidden")))
 @interface _TVCardFloatingContentView : _UIFloatingContentView <_UIFloatingContentViewDelegate, TVAuxiliaryViewSelecting>
 {
     UIView *_unfocusedShadowView;

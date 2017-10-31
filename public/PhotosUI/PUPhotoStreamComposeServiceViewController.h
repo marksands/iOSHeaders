@@ -27,7 +27,6 @@ __attribute__((visibility("hidden")))
     NSArray *_recipients;
     _Bool _shouldShowPost;
     NSString *_itemCountString;
-    _Bool _hasPushedTitleController;
     _Bool _shouldAllowAlbumPicking;
     _Bool _addToExistingWorkflow;
     id <PUPhotoStreamComposeServiceDelegate> _delegate;
@@ -63,7 +62,6 @@ __attribute__((visibility("hidden")))
 - (void)setSourcesToShare:(id)arg1;
 - (id)_imageFromStreamShareSource:(id)arg1;
 - (void)setAssetsToShare:(id)arg1;
-- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

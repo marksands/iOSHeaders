@@ -6,28 +6,30 @@
 
 #import "NSObject.h"
 
+#import "HFExecutionEnvironmentObserver.h"
 #import "HFSoftwareUpdateObserver.h"
 
-@class NSMutableArray, NSMutableSet, NSString;
+@class NSMapTable, NSString;
 
-@interface HUSoftwareUpdateUIManager : NSObject <HFSoftwareUpdateObserver>
+@interface HUSoftwareUpdateUIManager : NSObject <HFSoftwareUpdateObserver, HFExecutionEnvironmentObserver>
 {
-    NSMutableSet *_agreedLicenseURLs;
-    NSMutableArray *_requestedSoftwareUpdates;
+    NSMapTable *_homeBackgroundCheckMapTable;
 }
 
 + (id)sharedManager;
-@property(retain, nonatomic) NSMutableArray *requestedSoftwareUpdates; // @synthesize requestedSoftwareUpdates=_requestedSoftwareUpdates;
-@property(retain, nonatomic) NSMutableSet *agreedLicenseURLs; // @synthesize agreedLicenseURLs=_agreedLicenseURLs;
+@property(readonly, nonatomic) NSMapTable *homeBackgroundCheckMapTable; // @synthesize homeBackgroundCheckMapTable=_homeBackgroundCheckMapTable;
 - (void).cxx_destruct;
-- (void)softwareUpdate:(id)arg1 didUpdateState:(long long)arg2;
-- (void)_markUpdate:(id)arg1 asRequested:(_Bool)arg2;
-- (_Bool)hasRequestedUpdate:(id)arg1;
-- (id)_presentLicensesIfNeededForSoftwareUpdates:(id)arg1 presentationDelegate:(id)arg2;
+- (void)executionEnvironmentDidEnterBackground:(id)arg1;
+- (id)_markTermsAndConditionsAsReadForLicenseAgreementVersion:(id)arg1 inHome:(id)arg2;
+- (_Bool)_shouldPresentTermsAndConditionsForSoftwareLicenseAgreementVersion:(id)arg1 home:(id)arg2;
+- (id)_presentLicensesIfNeededForSoftwareUpdate:(id)arg1 home:(id)arg2 presentationDelegate:(id)arg3;
 - (id)startUpdateForAccessory:(id)arg1 update:(id)arg2 presentationDelegate:(id)arg3;
+- (id)startUpdatesForAccessories:(id)arg1 presentationDelegate:(id)arg2;
 - (id)startUpdatesForAllAccessoriesInHome:(id)arg1 presentationDelegate:(id)arg2;
 - (long long)numberOfAccessoriesWithAvailableUpdatesInHome:(id)arg1;
+- (long long)numberOfAccessoriesWithAvailableUpdates:(id)arg1;
 - (id)fetchAvailableUpdatesForAccessory:(id)arg1;
+- (id)startSilentBackgroundCheckForHome:(id)arg1;
 - (id)fetchAvailableUpdatesForHome:(id)arg1;
 - (id)init;
 

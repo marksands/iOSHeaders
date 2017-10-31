@@ -31,6 +31,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)dictionaryEncoding;
 - (void)updateWithDictionary:(id)arg1 home:(id)arg2;
+- (void)fixupUserIdentifier;
 - (void)configureWithHome:(id)arg1;
 @property(readonly, nonatomic) NSUUID *accessoryIdentifier; // @synthesize accessoryIdentifier=_accessoryIdentifier;
 - (_Bool)isEqual:(id)arg1;

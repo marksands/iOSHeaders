@@ -6,11 +6,11 @@
 
 #import "HFHomeKitItemProtocol.h"
 
-@class HFAccessorySettingsEntity, HMAccessoryProfile<HFAccessorySettings>, NSString;
+@class HFAccessorySettingsEntity, NSString;
 
 @protocol HFAccessorySettingItemProtocol <HFHomeKitItemProtocol>
 @property(readonly, nonatomic) NSString *settingKeyPath;
 @property(readonly, nonatomic) HFAccessorySettingsEntity *entity;
-@property(readonly, nonatomic) HMAccessoryProfile<HFAccessorySettings> *accessoryProfile;
+@property(readonly, nonatomic) id <HFMediaProfileContainer> mediaProfileContainer;
 @end
 

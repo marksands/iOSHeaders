@@ -33,6 +33,8 @@
 - (id)resolveProtocol:(id)arg1;
 - (id)resolveClass:(Class)arg1 name:(id)arg2;
 - (id)resolveClass:(Class)arg1;
+- (void)linkResolverWithLinkBlock:(CDUnknownBlockType)arg1;
+- (id)currentObjectGraphResolver:(unsigned long long)arg1;
 - (id)createProxyResolverForDefinition:(id)arg1;
 - (id)initWithPublicContainer:(id)arg1 privateContainer:(id)arg2 inPool:(id)arg3;
 

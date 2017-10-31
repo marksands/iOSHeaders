@@ -6,7 +6,10 @@
 
 #import "NSObject.h"
 
+@class MPAVRoute;
+
 @protocol MPMediaControlsClientController <NSObject>
+- (void)didSelectRoute:(MPAVRoute *)arg1;
 - (void)didReceiveInteraction;
 - (void)dismiss;
 @end

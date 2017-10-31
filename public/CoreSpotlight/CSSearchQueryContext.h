@@ -34,12 +34,20 @@
     long long _queryID;
     NSString *_completionString;
     NSArray *_completionAttributes;
+    // Error parsing type: T, name: _fuzzyMask
+    // Error parsing type: T, name: _fuzzyMatch
 }
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) unsigned char flags; // @synthesize flags=_flags;
 @property(retain, nonatomic) NSArray *completionAttributes; // @synthesize completionAttributes=_completionAttributes;
 @property(retain, nonatomic) NSString *completionString; // @synthesize completionString=_completionString;
+// Error parsing type for property fuzzyMatch:
+// Property attributes: TT,N,V_fuzzyMatch
+
+// Error parsing type for property fuzzyMask:
+// Property attributes: TT,N,V_fuzzyMask
+
 @property(nonatomic) long long queryID; // @synthesize queryID=_queryID;
 @property(nonatomic) long long completionResultCount; // @synthesize completionResultCount=_completionResultCount;
 @property(nonatomic) long long maxCount; // @synthesize maxCount=_maxCount;

@@ -23,6 +23,7 @@
 + (void)setNativeRotationDrawingEnabledForThisThread:(_Bool)arg1;
 + (id)fontWithPDFFont:(struct CGPDFFont *)arg1 size:(float)arg2;
 - (void).cxx_destruct;
+- (id)debugQuickLookObject;
 - (id)description;
 - (unsigned long long)_documentIndex;
 - (void)scanData:(id)arg1;

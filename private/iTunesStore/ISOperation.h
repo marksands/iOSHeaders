@@ -68,6 +68,7 @@
 - (_Bool)loadURLBagWithContext:(id)arg1 returningError:(id *)arg2;
 - (id)loadedURLBagWithContext:(id)arg1 returningError:(id *)arg2;
 - (_Bool)loadSoftwareMapReturningError:(id *)arg1;
+- (_Bool)copyAccountID:(id *)arg1 byHandlingAuthenticateResponse:(id)arg2 returningError:(id *)arg3;
 - (_Bool)copyAccountID:(id *)arg1 byAuthenticatingWithContext:(id)arg2 returningError:(id *)arg3;
 - (id)authenticatedAccountDSID;
 

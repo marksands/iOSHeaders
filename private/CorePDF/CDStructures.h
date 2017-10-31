@@ -33,7 +33,11 @@ struct CGPDFDictionary;
 
 struct CGPDFObject;
 
+struct CGPDFPage;
+
 struct CGPDFStream;
+
+struct CGPDFTaggedContext;
 
 struct CGPath;
 
@@ -84,6 +88,7 @@ struct CPPDFChar {
     struct CPPDFStyle *_field6;
     double _field7;
     int _field8;
+    long long _field9;
 };
 
 struct CPPDFClipBuffer {
@@ -115,12 +120,14 @@ struct CPPDFContext {
     unsigned int _field17;
     unsigned int _field18;
     int _field19;
-    struct CPMultiUnicodes *_field20;
-    long long _field21;
+    struct CGPDFPage *_field20;
+    struct CPMultiUnicodes *_field21;
     long long _field22;
-    unsigned int *_field23;
-    struct CGPath **_field24;
-    _Bool _field25;
+    long long _field23;
+    unsigned int *_field24;
+    struct CGPath **_field25;
+    _Bool _field26;
+    struct CGPDFTaggedContext *_field27;
 };
 
 struct CPPDFGraphicState;
@@ -135,6 +142,7 @@ struct CPPDFImage {
     struct CGPDFDictionary *_field7;
     double _field8;
     struct CGColor *_field9;
+    long long _field10;
 };
 
 struct CPPDFObject {
@@ -152,6 +160,7 @@ struct CPPDFShape {
     _Bool _field6;
     struct CGAffineTransform _field7;
     struct CGAffineTransform _field8;
+    long long _field9;
 };
 
 struct CPPDFStyle {

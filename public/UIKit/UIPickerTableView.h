@@ -33,8 +33,10 @@ __attribute__((visibility("hidden")))
         unsigned int updatingContentInset:1;
     } _pickerTableFlags;
     _Bool _playsFeedback;
+    _Bool _generatorActivated;
 }
 
+@property(nonatomic) _Bool generatorActivated; // @synthesize generatorActivated=_generatorActivated;
 @property(getter=_playsFeedback, setter=_setPlaysFeedback:) _Bool playsFeedback; // @synthesize playsFeedback=_playsFeedback;
 @property(nonatomic) long long lastSelectedRow; // @synthesize lastSelectedRow=_lastSelectedRow;
 @property(nonatomic) struct CGRect selectionBarRect; // @synthesize selectionBarRect=_selectionBarRect;
@@ -50,6 +52,7 @@ __attribute__((visibility("hidden")))
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)_scrollViewDidInterruptDecelerating:(id)arg1;
+- (void)_deactivateFeedbackGeneratorIfNeeded;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)_scrollingFinished;
 - (struct CGPoint)contentOffsetForRowAtIndexPath:(id)arg1;

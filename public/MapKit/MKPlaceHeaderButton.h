@@ -16,19 +16,21 @@ __attribute__((visibility("hidden")))
     unsigned long long _buttonType;
     _Bool _primary;
     NSLayoutConstraint *_heightConstraint;
+    _Bool _highlighted;
     _MKPlaceActionButtonController *_buttonController;
 }
 
 @property(nonatomic) __weak _MKPlaceActionButtonController *buttonController; // @synthesize buttonController=_buttonController;
+- (_Bool)isHighlighted;
 - (void).cxx_destruct;
 - (void)placeActionbuttonControllerTextDidChanged:(id)arg1;
 - (void)setAttributesWithTitle:(id)arg1 subTitle:(id)arg2;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)_updateStyleNonPrimaryButton;
 - (void)_updateStylePrimaryButton;
 - (void)setPrimaryButtonTitle:(id)arg1;
 - (id)_primaryButtonColor;
 - (id)_primaryButtonTextColor;
-- (void)_buttonStateChangedInSiri:(id)arg1;
 - (void)buttonSelected:(id)arg1;
 - (void)applyButtonDefaultConfiguration;
 - (void)infoCardThemeChanged:(id)arg1;

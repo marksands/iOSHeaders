@@ -54,8 +54,6 @@
 - (void)stopQuery:(id)arg1;
 - (void)executeQuery:(id)arg1;
 - (void)achievementsDidChangeInModel:(id)arg1;
-- (void)_sendMessageToObservers:(SEL)arg1 withObject:(id)arg2 withObject:(id)arg3;
-- (void)_sendMessageToObservers:(SEL)arg1 withObject:(id)arg2;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 @property(readonly, nonatomic) FIUIAchievementsModel *achievementsModel;

@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
     NSString *_ledBellyServiceIdentifier;
     NSURL *_ledBellyFallbackURL;
     NSData *__TCPConnectionMetadata;
+    unsigned short _TLSNegotiatedCipherSuite;
     float _priorityHint;
     long long _priorityValue;
     double _loadingPriorityValue;
@@ -93,6 +94,8 @@ __attribute__((visibility("hidden")))
     _Bool _allowsQUIC;
     id <SZExtractor> _extractor;
     _Bool _extractorFinishedDecoding;
+    _Bool _hasSZExtractor;
+    _Bool _doesSZExtractorConsumeExtractedData;
     id <NSURLSessionAppleIDContext> _appleIDContext;
     _Bool _authenticatorConfiguredViaTaskProperty;
     NSProgress *_progress;
@@ -119,16 +122,20 @@ __attribute__((visibility("hidden")))
 - (void)set_authenticatorConfiguredViaTaskProperty:(_Bool)arg1;
 - (_Bool)_authenticatorConfiguredViaTaskProperty;
 - (id)_appleIDContext;
+- (void)set_doesSZExtractorConsumeExtractedData:(_Bool)arg1;
+- (_Bool)_doesSZExtractorConsumeExtractedData;
+- (void)set_hasSZExtractor:(_Bool)arg1;
+- (_Bool)_hasSZExtractor;
 - (void)set_extractorPreparedForExtraction:(_Bool)arg1;
 - (_Bool)_extractorPreparedForExtraction;
 - (void)set_extractorFinishedDecoding:(_Bool)arg1;
 - (_Bool)_extractorFinishedDecoding;
-- (void)set_extractor:(id)arg1;
 - (id)_extractor;
 - (void)set_allowsQUIC:(_Bool)arg1;
 - (_Bool)_allowsQUIC;
 - (void)set_trailers:(id)arg1;
 - (id)_trailers;
+- (unsigned short)_TLSNegotiatedCipherSuite;
 - (void)set_TCPConnectionMetadata:(id)arg1;
 - (id)_TCPConnectionMetadata;
 - (void)set_DuetActivityProperties:(id)arg1;
@@ -269,8 +276,7 @@ __attribute__((visibility("hidden")))
 - (struct __CFSet *)_getAuthenticatorStatusCodes;
 - (void)initializeHTTPAuthenticatorWithAppleIDContext:(id)arg1 statusCodes:(id)arg2;
 - (void)_setAppleIDContext:(id)arg1;
-- (id)getExtractor;
-- (_Bool)hasExtractor;
+- (void)set_extractor:(id)arg1;
 - (struct __CFDictionary *)_copyATSState;
 - (id)currentRequest_mainDocumentURL;
 - (id)currentRequest_URL;
@@ -302,6 +308,7 @@ __attribute__((visibility("hidden")))
 - (void)set_disallowCellular:(_Bool)arg1;
 - (id)_boundInterfaceIdentifier;
 - (void)set_boundInterfaceIdentifier:(id)arg1;
+- (void)set_TLSNegotiatedCipherSuite:(unsigned short)arg1;
 - (id)_ledBellyServiceIdentifier;
 - (void)set_ledBellyServiceIdentifier:(id)arg1;
 - (double)_timeWindowDuration;

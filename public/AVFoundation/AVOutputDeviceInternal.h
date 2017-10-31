@@ -15,7 +15,10 @@
     NSString *ID;
     long long deviceType;
     long long deviceSubType;
+    NSString *manufacturer;
     NSString *modelID;
+    NSString *serialNumber;
+    NSString *firmwareVersion;
     NSData *MACAddress;
     unsigned long long deviceFeatures;
 }

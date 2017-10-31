@@ -8,13 +8,13 @@
 
 #import "NSSecureCoding.h"
 
-@class CKServerChangeToken, NSMutableDictionary, NSString;
+@class CKServerChangeToken, NSMutableDictionary, NSString, NSUUID;
 
 __attribute__((visibility("hidden")))
 @interface MSPCloudZoneCache : NSObject <NSSecureCoding>
 {
     NSString *_zoneName;
-    id <NSObject><NSCopying><NSCoding> _accountIdentity;
+    NSUUID *_accountIdentity;
     CKServerChangeToken *_token;
     NSMutableDictionary *_records;
     NSMutableDictionary *_deletedRecordIdentifiersByRecordType;
@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSMutableDictionary *deletedRecordIdentifiersByRecordType; // @synthesize deletedRecordIdentifiersByRecordType=_deletedRecordIdentifiersByRecordType;
 @property(readonly, nonatomic) NSMutableDictionary *records; // @synthesize records=_records;
 @property(copy, nonatomic) CKServerChangeToken *token; // @synthesize token=_token;
-@property(readonly, nonatomic) id <NSObject><NSCopying><NSCoding> accountIdentity; // @synthesize accountIdentity=_accountIdentity;
+@property(readonly, nonatomic) NSUUID *accountIdentity; // @synthesize accountIdentity=_accountIdentity;
 @property(readonly, nonatomic) NSString *zoneName; // @synthesize zoneName=_zoneName;
 - (void).cxx_destruct;
 - (id)fetchedDeletedRecordIDsByRecordType;

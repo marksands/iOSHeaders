@@ -14,6 +14,8 @@
 + (_Bool)canHandleDecodingOnRenderThread;
 + (_Bool)isFlowcaseAtTopOfStackFromElement:(id)arg1;
 + (void)disassociateIKViewElementsRecursivelyFromView:(id)arg1;
++ (id)_placeholderImageForViewElement:(id)arg1 withCornerRadii:(struct TVCornerRadii)arg2 andScaledSize:(struct CGSize)arg3;
++ (id)_placeholderImageForViewElement:(id)arg1;
 + (id)_defaultPlaceholderImageForUserInterfaceStyle:(long long)arg1 withCornerRadii:(struct TVCornerRadii)arg2 andSize:(struct CGSize)arg3;
 + (id)_defaultPlaceholderImageForUserInterfaceStyle:(long long)arg1;
 + (id)_placeholderImageForValue:(id)arg1 userInterfaceStyle:(long long)arg2 withCornerRadii:(struct TVCornerRadii)arg3 andScaledSize:(struct CGSize)arg4;
@@ -25,6 +27,7 @@
 + (long long)overrideInterfaceStyleForTemplateElement:(id)arg1;
 + (long long)interfaceStyleForTemplateElement:(id)arg1;
 + (long long)semanticContentAttributeForTemplateElement:(id)arg1;
++ (struct CGPath *)_shadowPathForViewElement:(id)arg1 withCornerRadii:(struct TVCornerRadii)arg2 andScaledSize:(struct CGSize)arg3;
 + (struct CGPath *)shadowPathForViewElement:(id)arg1 withCornerRadii:(struct TVCornerRadii)arg2 andScaledSize:(struct CGSize)arg3;
 + (id)placeholderImageForViewElement:(id)arg1 withCornerRadii:(struct TVCornerRadii)arg2 andScaledSize:(struct CGSize)arg3;
 + (id)placeholderImageForViewElement:(id)arg1;
@@ -34,6 +37,7 @@
 + (struct CGRect)centerRect:(struct CGRect)arg1 inRect:(struct CGRect)arg2;
 + (double)focusedSizeIncreaseForSize:(struct CGSize)arg1 upscaleFactor:(double)arg2 useInSearchPartial:(_Bool)arg3;
 + (double)focusedSizeIncreaseForSize:(struct CGSize)arg1 upscaleFactor:(double)arg2;
++ (_Bool)_cornerRadiiFromElement:(id)arg1 cornerRadii:(struct TVCornerRadii *)arg2 circle:(_Bool *)arg3;
 + (_Bool)cornerRadiiFromElement:(id)arg1 cornerRadii:(struct TVCornerRadii *)arg2 circle:(_Bool *)arg3;
 + (_Bool)_cornerRadiiFromImgTreatmentValue:(id)arg1 width:(double)arg2 cornerRadii:(struct TVCornerRadii *)arg3 circle:(_Bool *)arg4;
 + (id)randomColor;

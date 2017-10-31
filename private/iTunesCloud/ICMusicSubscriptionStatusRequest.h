@@ -4,19 +4,28 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <iTunesCloud/ICRequestOperation.h>
+#import "NSObject.h"
 
-@class ICMusicSubscriptionStatus, ICStoreRequestContext;
+#import "NSCopying.h"
 
-@interface ICMusicSubscriptionStatusRequest : ICRequestOperation
+@class ICStoreRequestContext;
+
+@interface ICMusicSubscriptionStatusRequest : NSObject <NSCopying>
 {
+    _Bool _allowsFallbackToExpiredStatus;
+    _Bool _allowsFallbackToStatusNeedingReload;
+    _Bool _shouldIgnoreCache;
+    long long _maximumRetryCount;
     ICStoreRequestContext *_storeRequestContext;
-    ICMusicSubscriptionStatus *_statusResponse;
 }
 
+@property(copy, nonatomic) ICStoreRequestContext *storeRequestContext; // @synthesize storeRequestContext=_storeRequestContext;
+@property(nonatomic) _Bool shouldIgnoreCache; // @synthesize shouldIgnoreCache=_shouldIgnoreCache;
+@property(nonatomic) long long maximumRetryCount; // @synthesize maximumRetryCount=_maximumRetryCount;
+@property(nonatomic) _Bool allowsFallbackToStatusNeedingReload; // @synthesize allowsFallbackToStatusNeedingReload=_allowsFallbackToStatusNeedingReload;
+@property(nonatomic) _Bool allowsFallbackToExpiredStatus; // @synthesize allowsFallbackToExpiredStatus=_allowsFallbackToExpiredStatus;
 - (void).cxx_destruct;
-- (void)execute;
-- (void)performRequestWithResponseHandler:(CDUnknownBlockType)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithStoreRequestContext:(id)arg1;
 
 @end

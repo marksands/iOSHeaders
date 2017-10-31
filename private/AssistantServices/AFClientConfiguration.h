@@ -13,6 +13,8 @@
 
 @interface AFClientConfiguration : NSObject <NSCopying, NSSecureCoding>
 {
+    _Bool _isDeviceInSetupFlow;
+    _Bool _isDeviceInCarDNDMode;
     AFAudioPlaybackRequest *_tapToSiriAudioPlaybackRequest;
     AFAudioPlaybackRequest *_twoShotAudioPlaybackRequest;
 }
@@ -20,6 +22,8 @@
 + (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) AFAudioPlaybackRequest *twoShotAudioPlaybackRequest; // @synthesize twoShotAudioPlaybackRequest=_twoShotAudioPlaybackRequest;
 @property(readonly, copy, nonatomic) AFAudioPlaybackRequest *tapToSiriAudioPlaybackRequest; // @synthesize tapToSiriAudioPlaybackRequest=_tapToSiriAudioPlaybackRequest;
+@property(readonly, nonatomic) _Bool isDeviceInCarDNDMode; // @synthesize isDeviceInCarDNDMode=_isDeviceInCarDNDMode;
+@property(readonly, nonatomic) _Bool isDeviceInSetupFlow; // @synthesize isDeviceInSetupFlow=_isDeviceInSetupFlow;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -28,7 +32,7 @@
 - (unsigned long long)hash;
 - (id)_descriptionWithIndent:(unsigned long long)arg1;
 - (id)description;
-- (id)initWithTapToSiriAudioPlaybackRequest:(id)arg1 twoShotAudioPlaybackRequest:(id)arg2;
+- (id)initWithIsDeviceInSetupFlow:(_Bool)arg1 isDeviceInCarDNDMode:(_Bool)arg2 tapToSiriAudioPlaybackRequest:(id)arg3 twoShotAudioPlaybackRequest:(id)arg4;
 - (id)builder;
 
 @end

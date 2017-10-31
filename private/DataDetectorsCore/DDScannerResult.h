@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSSecureCoding.h"
 
 @class NSArray;
 
-@interface DDScannerResult : NSObject <NSCoding, NSSecureCoding>
+@interface DDScannerResult : NSObject <NSSecureCoding>
 {
     // Error parsing type: ^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}, name: _coreResult
     NSArray *_subResultsCache;

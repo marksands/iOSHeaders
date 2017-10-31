@@ -14,7 +14,6 @@
 
 + (id)typeString;
 - (id)URLWithValue:(id)arg1 withType:(int)arg2;
-- (Class)componentViewClass;
 
 // Remaining properties
 @property(readonly, nonatomic) NSURL *URL; // @dynamic URL;

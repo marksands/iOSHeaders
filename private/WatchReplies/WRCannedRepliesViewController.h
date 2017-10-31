@@ -32,6 +32,7 @@
 - (void)setIncludeSmartReplies:(id)arg1 specifier:(id)arg2;
 - (id)customReply:(id)arg1;
 - (void)setCustomReply:(id)arg1 specifier:(id)arg2;
+- (void)_returnKeyPressed:(id)arg1;
 - (id)newCannedReplySpecifier;
 - (void)returnPressedAtEnd;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;

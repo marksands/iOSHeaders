@@ -59,6 +59,7 @@
 @property(readonly, nonatomic) double locationUpdatesDesiredAccuracyWhileStationaryForWalking;
 @property(readonly, nonatomic) double locationUpdatesDesiredAccuracyWhileStationaryForDriving;
 @property(readonly, nonatomic) double minimumDistanceToGetLocationUpdatesInMeters;
+@property(readonly, nonatomic) double maxDistanceFromOriginToSuppressReroute;
 @property(readonly, nonatomic) _Bool shouldPreloadSubscriptions;
 @property(readonly, nonatomic) double automaticTrafficIncidentRerouteDelay;
 @property(readonly, nonatomic) _Bool shouldAutomaticallyRerouteTrafficIncidents;

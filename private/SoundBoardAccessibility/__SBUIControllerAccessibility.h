@@ -8,7 +8,6 @@
 
 @interface __SBUIControllerAccessibility : NSObject
 {
-    struct SBUIState __SBUIState__;
 }
 
 @end

@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSDate, NSString;
 
-@interface HLPURLDataCache : NSObject <NSCopying, NSCoding>
+@interface HLPURLDataCache : NSObject <NSCopying, NSSecureCoding>
 {
     unsigned long long _cacheType;
     long long _maxAge;
@@ -22,6 +22,7 @@
     NSString *_locale;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSString *locale; // @synthesize locale=_locale;
 @property(retain, nonatomic) NSString *lastModified; // @synthesize lastModified=_lastModified;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;

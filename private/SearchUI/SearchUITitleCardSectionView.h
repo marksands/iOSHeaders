@@ -18,7 +18,7 @@
 @property(retain) NUIContainerBoxView *containerView; // @synthesize containerView=_containerView;
 @property(retain) UILabel *label; // @synthesize label=_label;
 - (void).cxx_destruct;
-- (void)updateWithCardSection:(id)arg1;
+- (void)updateWithRowModel:(id)arg1;
 - (id)setupContentView;
 
 @end

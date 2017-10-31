@@ -19,7 +19,7 @@
 + (void)setPDFDocumentAppendModeActiveForThisThread:(_Bool)arg1;
 - (void).cxx_destruct;
 - (void)setPageChangeDelegate:(id)arg1;
-- (int)documentId;
+- (void)setDocumentHasBurnInAnnotations:(_Bool)arg1;
 - (Class)annotationSubclassForType:(id)arg1;
 - (id)findPageWithCGPDFDictionaryPageRef:(struct CGPDFDictionary *)arg1;
 - (struct __CFDictionary *)gcCreateInfoDictionary;
@@ -48,6 +48,8 @@
 - (_Bool)validateUndo:(id)arg1;
 - (void)undo:(id)arg1;
 - (id)akController;
+- (id)_namedDestination:(id)arg1 forNameDictionary:(struct CGPDFDictionary *)arg2;
+- (id)namedDestination:(id)arg1;
 - (void)enableLimitedSearch;
 - (_Bool)bookmarksChanged;
 - (void)updateBookmarksInPDFDocument;
@@ -109,7 +111,6 @@
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setDocument:(struct CGPDFDocument *)arg1;
-- (id)initWithCGPDFDocument:(struct CGPDFDocument *)arg1;
 - (id)initWithData:(id)arg1;
 - (id)initWithURL:(id)arg1;
 - (id)init;
@@ -123,8 +124,6 @@
 - (_Bool)writeToConsumer:(struct CGDataConsumer *)arg1 withOptions:(id)arg2;
 - (id)_convertWriteOptions:(id)arg1;
 - (_Bool)canSaveWithAppendModeUsingOptions:(id)arg1;
-- (_Bool)isAccessibilityUsingTaggedPDF;
-- (void)setAccessibilityUsingTaggedPDF:(_Bool)arg1;
 - (void)setRenderingProperties:(id)arg1;
 - (id)renderingProperties;
 - (void)endSaveVisualizer;

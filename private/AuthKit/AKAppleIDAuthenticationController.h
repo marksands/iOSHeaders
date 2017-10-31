@@ -24,7 +24,7 @@
 - (id)_authenticationServiceConnection;
 - (id)urlBagWithError:(id *)arg1;
 - (void)fetchURLBagWithCompletion:(CDUnknownBlockType)arg1;
-- (id)emailsForAltDSID:(id)arg1;
+- (id)accountNamesForAltDSID:(id)arg1;
 - (void)validateVettingToken:(id)arg1 forAltDSID:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)persistMasterKeyVerifier:(id)arg1 context:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)verifyMasterKey:(id)arg1 context:(id)arg2 completion:(CDUnknownBlockType)arg3;

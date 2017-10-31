@@ -7,11 +7,10 @@
 #import "NSObject.h"
 
 #import "NUArticleDataProvider.h"
-#import "SXEmbedDataSource.h"
 
-@class FCArticle, NSString, NUANFAssetLoader, NUANFContextLoader, NUANFEmbedConfigurationLoader, NUANFFontLoader, SXHost;
+@class FCArticle, NSString, NUANFAssetLoader, NUANFContextLoader, NUANFFontLoader, SXHost;
 
-@interface NUANFArticleDataProvider : NSObject <SXEmbedDataSource, NUArticleDataProvider>
+@interface NUANFArticleDataProvider : NSObject <NUArticleDataProvider>
 {
     NSString *_articleID;
     id <FCContentContext> _contentContext;
@@ -21,10 +20,10 @@
     NUANFFontLoader *_fontLoader;
     NUANFContextLoader *_contextLoader;
     NUANFAssetLoader *_assetLoader;
-    NUANFEmbedConfigurationLoader *_embedConfigurationLoader;
+    id <NUEmbedDataManager> _embedDataManger;
 }
 
-@property(retain, nonatomic) NUANFEmbedConfigurationLoader *embedConfigurationLoader; // @synthesize embedConfigurationLoader=_embedConfigurationLoader;
+@property(retain, nonatomic) id <NUEmbedDataManager> embedDataManger; // @synthesize embedDataManger=_embedDataManger;
 @property(retain, nonatomic) NUANFAssetLoader *assetLoader; // @synthesize assetLoader=_assetLoader;
 @property(retain, nonatomic) NUANFContextLoader *contextLoader; // @synthesize contextLoader=_contextLoader;
 @property(retain, nonatomic) NUANFFontLoader *fontLoader; // @synthesize fontLoader=_fontLoader;
@@ -34,11 +33,10 @@
 @property(readonly, nonatomic) id <FCContentContext> contentContext; // @synthesize contentContext=_contentContext;
 @property(copy, nonatomic) NSString *articleID; // @synthesize articleID=_articleID;
 - (void).cxx_destruct;
-- (id)embedForType:(id)arg1;
 - (void)loadArticleWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)loadContextWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
-- (id)initWithArticle:(id)arg1 contentContext:(id)arg2 fontRegistration:(id)arg3 host:(id)arg4;
+- (id)initWithArticle:(id)arg1 contentContext:(id)arg2 fontRegistration:(id)arg3 host:(id)arg4 embedDataManager:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

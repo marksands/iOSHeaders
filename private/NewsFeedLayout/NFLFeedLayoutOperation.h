@@ -6,14 +6,14 @@
 
 #import "FCOperation.h"
 
-@class NFLBatchContext, NFLFeedSettings, NSArray, NSObject<NFLFeedLayoutSearchConfiguration>;
+@class NFLBatchContext, NFLFeedSettings, NSArray;
 
 @interface NFLFeedLayoutOperation : FCOperation
 {
     CDUnknownBlockType _layoutCompletion;
     NSArray *_tileInfos;
     NFLFeedSettings *_feedSettings;
-    NSObject<NFLFeedLayoutSearchConfiguration> *_feedLayoutSearchConfiguration;
+    id <NFLFeedLayoutSearchConfiguration> _feedLayoutSearchConfiguration;
     id <NFLFontManager> _fontManager;
     double _tileProminenceScoreBalanceValue;
     NFLBatchContext *_previousBatchContext;
@@ -26,7 +26,7 @@
 @property(copy, nonatomic) NFLBatchContext *previousBatchContext; // @synthesize previousBatchContext=_previousBatchContext;
 @property(nonatomic) double tileProminenceScoreBalanceValue; // @synthesize tileProminenceScoreBalanceValue=_tileProminenceScoreBalanceValue;
 @property(retain, nonatomic) id <NFLFontManager> fontManager; // @synthesize fontManager=_fontManager;
-@property(copy, nonatomic) NSObject<NFLFeedLayoutSearchConfiguration> *feedLayoutSearchConfiguration; // @synthesize feedLayoutSearchConfiguration=_feedLayoutSearchConfiguration;
+@property(copy, nonatomic) id <NFLFeedLayoutSearchConfiguration> feedLayoutSearchConfiguration; // @synthesize feedLayoutSearchConfiguration=_feedLayoutSearchConfiguration;
 @property(copy, nonatomic) NFLFeedSettings *feedSettings; // @synthesize feedSettings=_feedSettings;
 @property(copy, nonatomic) NSArray *tileInfos; // @synthesize tileInfos=_tileInfos;
 @property(copy) CDUnknownBlockType layoutCompletion; // @synthesize layoutCompletion=_layoutCompletion;

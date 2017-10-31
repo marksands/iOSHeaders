@@ -29,6 +29,7 @@
     NSURL *_suggestionLoggingDirectory;
     _Bool _suggestionLoggingSessionOpen;
     _Bool _suggestionsLoggingEnabled;
+    _Bool _clustererNeedsSyncing;
     _Bool _personBuilderMergeCandidatesEnabled;
     unsigned long long _lastMinimumFaceGroupSizeForCreatingMergeCandidates;
 }
@@ -125,7 +126,7 @@
 - (id)_pvImageForAssetResource:(id)arg1 assetWidth:(unsigned long long)arg2 assetHeight:(unsigned long long)arg3 error:(id *)arg4;
 - (void)interruptPhotoVision;
 - (void)terminatePhotoVision;
-- (id)_photoVisionAllowingCreation:(_Bool)arg1 error:(id *)arg2;
+- (id)_photoVisionAllowingCreation:(_Bool)arg1 syncClusterCache:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)_synchronouslyGenerateFaceTilesForFaces:(id)arg1 fromAsset:(id)arg2 assetImage:(id)arg3 error:(id *)arg4;
 - (id)_suggestionsForPersonLocalIdentifier:(id)arg1 clusterSequenceNumbers:(id)arg2 excludePersonLocalIdentifiers:(id)arg3 operation:(id)arg4 context:(id)arg5 error:(id *)arg6;
 - (void)_logAnalysisStatistics;

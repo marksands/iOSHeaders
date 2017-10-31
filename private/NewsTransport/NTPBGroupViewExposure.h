@@ -24,6 +24,7 @@
     int _topStoryMandatoryArticleCount;
     int _topStoryOptionalArticleCount;
     _Bool _isSubscribedToGroupFeed;
+    _Bool _reachedEndOfGroup;
     struct {
         unsigned int feedAutoSubscribeType:1;
         unsigned int groupArticleCountInForYou:1;
@@ -34,10 +35,12 @@
         unsigned int topStoryMandatoryArticleCount:1;
         unsigned int topStoryOptionalArticleCount:1;
         unsigned int isSubscribedToGroupFeed:1;
+        unsigned int reachedEndOfGroup:1;
     } _has;
 }
 
 + (Class)groupedArticleIdsType;
+@property(nonatomic) _Bool reachedEndOfGroup; // @synthesize reachedEndOfGroup=_reachedEndOfGroup;
 @property(nonatomic) int topStoryOptionalArticleCount; // @synthesize topStoryOptionalArticleCount=_topStoryOptionalArticleCount;
 @property(nonatomic) int topStoryMandatoryArticleCount; // @synthesize topStoryMandatoryArticleCount=_topStoryMandatoryArticleCount;
 @property(retain, nonatomic) NSData *feedViewExposureId; // @synthesize feedViewExposureId=_feedViewExposureId;
@@ -55,6 +58,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasReachedEndOfGroup;
 - (int)StringAsFeedAutoSubscribeType:(id)arg1;
 - (id)feedAutoSubscribeTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasFeedAutoSubscribeType;

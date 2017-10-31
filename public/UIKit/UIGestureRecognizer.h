@@ -56,6 +56,7 @@
         unsigned int forceRequirementSatisfied:1;
         unsigned int wantsDragEvents:1;
         unsigned int isDynamicGesture:1;
+        unsigned int canExcludeWithActiveRequirements:1;
     } _gestureFlags;
     NSMutableArray *_targets;
     NSMutableArray *_delayedTouches;
@@ -131,6 +132,8 @@
 - (_Bool)_forceRequirementSatisfied;
 - (_Bool)_shouldDelayUntilForceLevelRequirementIsMet;
 - (_Bool)_inForceCapableEnvironment;
+- (_Bool)_canExcludeWithActiveRequirements;
+- (void)_setCanExcludeWithActiveRequirements:(_Bool)arg1;
 - (void)_willBeginAfterSatisfyingFailureRequirements;
 - (_Bool)_acceptsFailureRequirements;
 - (void)_setAcceptsFailureRequiments:(_Bool)arg1;
@@ -142,6 +145,7 @@
 - (void)_addFailureDependent:(id)arg1;
 - (_Bool)_canExcludeOtherExcludables;
 - (void)_exclude;
+- (_Bool)_hasUnmetRequirementsPreventingExclusion;
 - (void)_cancelRecognition;
 - (_Bool)_isDirty;
 - (void)_setDirty;

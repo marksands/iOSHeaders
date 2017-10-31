@@ -15,11 +15,13 @@
     short _signalEstimate;
 }
 
++ (id)lastHash;
 @property(nonatomic) short signalEstimate; // @synthesize signalEstimate=_signalEstimate;
 - (void)voiceTriggerDidDetectSpeakerReject:(id)arg1;
 - (void)voiceTriggerDidDetectNearMiss:(id)arg1;
 - (void)voiceTriggerDidDetectKeyword:(id)arg1;
-- (id)_generateMyriadInfo:(unsigned long long)arg1 score:(float)arg2;
+- (id)_audioLogDirectory;
+- (id)_generateMyriadInfo:(unsigned long long)arg1 score:(float)arg2 channel:(unsigned long long)arg3 absoluteTime:(unsigned long long)arg4;
 - (unsigned short)pHash:(float *)arg1 length:(int)arg2;
 - (id)initWithAudioBuffer:(id)arg1;
 

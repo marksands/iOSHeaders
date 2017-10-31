@@ -23,10 +23,12 @@
 + (struct CGRect)visibleFrameForSmallSpotlightIcons;
 + (struct CGRect)visibleFrameForHomeScreenIcons;
 + (struct CGSize)homeScreenIconSize;
++ (struct CGSize)tinyIconSize;
 @property(retain, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(nonatomic) unsigned long long variant; // @synthesize variant=_variant;
 - (void).cxx_destruct;
 - (id)generateImageWithFormat:(int)arg1;
+@property(readonly) _Bool isValid;
 - (id)loadImage;
 - (void)setSize;
 - (id)initWithBundleID:(id)arg1 variant:(unsigned long long)arg2;

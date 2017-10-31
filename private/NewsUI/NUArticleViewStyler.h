@@ -26,9 +26,9 @@
 @property(readonly, nonatomic) long long statusBarStyle; // @synthesize statusBarStyle=_statusBarStyle;
 - (void).cxx_destruct;
 - (long long)statusBarStyleForBackgroundColor:(id)arg1;
-- (void)unstyleToolbar:(id)arg1;
+- (void)unstyleToolbar:(id)arg1 overrideRestoreColor:(id)arg2;
 - (void)styleToolbar:(id)arg1;
-- (void)unstyleTabBar:(id)arg1;
+- (void)unstyleTabBar:(id)arg1 overrideRestoreColor:(id)arg2;
 - (void)styleTabBar:(id)arg1;
 - (id)initWithBackgroundColor:(id)arg1 topBackgroundColor:(id)arg2;
 

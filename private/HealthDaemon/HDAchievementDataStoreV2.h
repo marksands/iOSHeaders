@@ -52,7 +52,7 @@
 - (id)_valueForKey:(id)arg1;
 - (void)_setValue:(id)arg1 forKey:(id)arg2;
 - (id)_localValueForKey:(id)arg1;
-- (void)_setLocalValue:(id)arg1 forKey:(id)arg2;
+- (_Bool)_setLocalValue:(id)arg1 forKey:(id)arg2;
 - (id)dateForKey:(id)arg1;
 - (void)setDate:(id)arg1 forKey:(id)arg2;
 - (double)doubleForKey:(id)arg1;

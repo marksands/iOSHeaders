@@ -24,7 +24,7 @@
 - (void).cxx_destruct;
 - (void)_updateAvailability;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-@property(readonly, nonatomic) Class headlineResultsFetchDescriptorClass;
+@property(readonly, nonatomic) Class todayResultsFetchDescriptorClass;
 - (void)dealloc;
 @property(copy, nonatomic) CDUnknownBlockType availabilityChangedNotificationBlock; // @synthesize availabilityChangedNotificationBlock=_availabilityChangedNotificationBlock;
 - (id)initWithProcessVariant:(unsigned long long)arg1 queue:(id)arg2;

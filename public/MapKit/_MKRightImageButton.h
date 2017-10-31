@@ -15,10 +15,12 @@ __attribute__((visibility("hidden")))
     _Bool _titleConstraintsAdded;
     NSArray *_titleOnlyConstraints;
     NSArray *_titleAndImageConstraints;
+    _Bool _highlighted;
     _MKUILabel *_titleLabel;
     UIImageView *_imageView;
 }
 
+- (_Bool)isHighlighted;
 @property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(readonly, nonatomic) _MKUILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void).cxx_destruct;
@@ -27,6 +29,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIImage *image;
 @property(retain, nonatomic) NSString *title;
 - (void)updateConstraints;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)setTarget:(id)arg1 action:(SEL)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 

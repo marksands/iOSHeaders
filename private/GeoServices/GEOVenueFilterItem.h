@@ -12,8 +12,10 @@
 {
     id <GEOVenueIdentifier> _filterID;
     id <GEOVenueLabel> _label;
+    _Bool _describesParentVenue;
 }
 
+@property(readonly, nonatomic) _Bool describesParentVenue; // @synthesize describesParentVenue=_describesParentVenue;
 @property(readonly, nonatomic) id <GEOVenueLabel> label; // @synthesize label=_label;
 @property(readonly, nonatomic) id <GEOVenueIdentifier> filterID; // @synthesize filterID=_filterID;
 - (void).cxx_destruct;

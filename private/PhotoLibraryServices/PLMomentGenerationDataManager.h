@@ -74,9 +74,6 @@
 - (id)generationOptions;
 - (unsigned long long)hardGenerationBatchSizeLimit;
 - (void)pendingChangesUpdated:(unsigned long long)arg1;
-- (void)insertMomentIntoAllMoments:(id)arg1 atIndex:(unsigned long long)arg2;
-- (void)removeMomentFromAllMoments:(id)arg1;
-- (id)allMomentsInLibrary;
 - (void)resetOnFailure;
 - (_Bool)save:(id *)arg1;
 - (Class)momentAssetDataClass;

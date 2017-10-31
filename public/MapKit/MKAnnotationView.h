@@ -34,6 +34,7 @@
     id <MKAnnotation> _annotation;
     float _displayPriority;
     struct CGRect _collisionFrame;
+    NSString *_clusteringIdentifier;
     UICalloutView *_calloutView;
     UIView *_leftCalloutAccessoryView;
     UIView *_rightCalloutAccessoryView;
@@ -64,25 +65,23 @@
         unsigned int tracking:1;
         unsigned int pendingOffsetAnimation:1;
         unsigned int pendingHideAnimation:1;
-        unsigned int pendingPrepareForDisplay:1;
     } _flags;
     _MKAnnotationViewCustomFeatureAnnotation *_customFeatureAnnotation;
     _Bool _animatingToCoordinate;
     _Bool _tracking;
     double _direction;
-    NSString *_clusteringIdentifier;
     struct CGPoint _leftCalloutOffset;
     struct CGPoint _rightCalloutOffset;
 }
 
 + (_Bool)_followsTerrain;
++ (_Bool)_isInitiallyHiddenWhenAdded;
 + (id)_disclosureCalloutButton;
 + (float)_defaultDisplayPriority;
 + (unsigned long long)_selectedZIndex;
 + (unsigned long long)_zIndex;
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)currentLocationTitle;
-+ (Class)layerClass;
 @property(nonatomic) long long collisionMode; // @synthesize collisionMode=_collisionMode;
 @property(readonly, nonatomic) __weak MKAnnotationView *clusterAnnotationView; // @synthesize clusterAnnotationView=_clusterAnnotationView;
 @property(copy, nonatomic) NSString *clusteringIdentifier; // @synthesize clusteringIdentifier=_clusteringIdentifier;

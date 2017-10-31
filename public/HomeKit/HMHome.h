@@ -60,6 +60,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)isValidMediaPassword:(id)arg1 error:(id *)arg2;
++ (id)generateMediaPasswordWithError:(id *)arg1;
 @property(readonly, copy, nonatomic) NSArray *triggerOwnedActionSets; // @synthesize triggerOwnedActionSets=_triggerOwnedActionSets;
 @property(retain, nonatomic) HMRoom *homeAsRoom; // @synthesize homeAsRoom=_homeAsRoom;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
@@ -104,8 +105,8 @@
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)reEvaluateHomeHubState;
 - (void)_removeIncompatibleTrigger:(id)arg1;
+- (void)_notifyDelegateOfHomeHubStateUpdate;
 - (void)_notifyDelegateOfTriggerUpdated:(id)arg1;
 - (void)_notifyDelegateOfTriggerRemoved:(id)arg1;
 - (void)_notifyDelegateOfTriggerAdded:(id)arg1;
@@ -123,11 +124,13 @@
 - (void)_notifyDelegateOfAppDataUpdateForRoom:(id)arg1;
 - (void)notifyDelegateOfAppDataUpdateForRoom:(id)arg1;
 - (id)_getContainerForAppData:(id)arg1;
+- (void)_handleHomeHubStateUpdatedNotification:(id)arg1;
 - (void)_handleRequestAccessorySetupCodeRequestKey:(id)arg1;
 - (void)_launchSetupViewController:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)handleUIApplicationWillResignActiveNotification:(id)arg1;
 - (void)handleDaemonInterruptedNotification:(id)arg1;
-- (void)_handleCacheMissUpdatesNotification:(id)arg1;
+- (void)_handleRuntimeStateUpdate:(id)arg1;
+- (void)handleRuntimeStateUpdate:(id)arg1;
 - (void)_handleAccessoryInfoUpdatedNotification:(id)arg1;
 - (void)_handleNotificationsEnabled:(id)arg1;
 - (void)_handleUpdatedResidentDevice:(id)arg1;
@@ -224,6 +227,7 @@
 - (id)initWithName:(id)arg1 uuid:(id)arg2 homeAsRoomUUID:(id)arg3 homeAsRoomName:(id)arg4 actionSets:(id)arg5;
 - (id)initWithName:(id)arg1 uuid:(id)arg2;
 - (id)init;
+- (id)mediaSystems;
 - (void)setApplicationData:(id)arg1;
 @property(readonly, nonatomic) HMApplicationData *applicationData; // @synthesize applicationData=_applicationData;
 @property(retain, nonatomic) HMUser *currentUser; // @synthesize currentUser=_currentUser;
@@ -279,6 +283,7 @@
 - (void)addServiceGroupWithName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, copy, nonatomic) NSArray *serviceGroups;
 - (_Bool)areNotificationsEnabled;
+- (id)owner;
 - (id)administrator;
 - (id)location;
 - (id)residentDevices;
@@ -312,6 +317,8 @@
 - (void)addActionSetWithName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)builtinActionSetOfType:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *actionSets;
+- (void)_removeMediaSystem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)removeMediaSystem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_userDidConfirmExecution:(_Bool)arg1 ofTriggerWithIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)userDidConfirmExecution:(_Bool)arg1 ofTriggerWithIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)userDidConfirmExecution:(_Bool)arg1 ofTrigger:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

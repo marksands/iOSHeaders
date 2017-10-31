@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+#import "FCJSONEncodableObjectProviding.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class NSDictionary, NTPBURLMapping;
 
-@interface FCPersonalizationURLMapping : NSObject <NSSecureCoding, NSCopying>
+@interface FCPersonalizationURLMapping : NSObject <NSSecureCoding, NSCopying, FCJSONEncodableObjectProviding>
 {
     NTPBURLMapping *_pbURLMapping;
     NSDictionary *_urlMappingByDomain;
@@ -21,6 +22,7 @@
 + (id)domainForURL:(id)arg1;
 @property(retain, nonatomic) NSDictionary *urlMappingByDomain; // @synthesize urlMappingByDomain=_urlMappingByDomain;
 - (void).cxx_destruct;
+- (id)jsonEncodableObject;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

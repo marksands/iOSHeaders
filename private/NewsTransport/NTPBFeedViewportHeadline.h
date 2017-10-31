@@ -12,6 +12,7 @@
 
 @interface NTPBFeedViewportHeadline : PBCodable <NSCopying>
 {
+    CDStruct_95bda58d _surfacedByTagIDsRefs;
     double _tileProminenceScore;
     NSString *_articleID;
     NSString *_clusterID;
@@ -56,6 +57,12 @@
 @property(nonatomic) _Bool hasStoryType;
 @property(nonatomic) int storyType; // @synthesize storyType=_storyType;
 @property(readonly, nonatomic) _Bool hasClusterID;
+- (void)setSurfacedByTagIDsRefs:(int *)arg1 count:(unsigned long long)arg2;
+- (int)surfacedByTagIDsRefsAtIndex:(unsigned long long)arg1;
+- (void)addSurfacedByTagIDsRefs:(int)arg1;
+- (void)clearSurfacedByTagIDsRefs;
+@property(readonly, nonatomic) int *surfacedByTagIDsRefs;
+@property(readonly, nonatomic) unsigned long long surfacedByTagIDsRefsCount;
 @property(nonatomic) _Bool hasUsesImageOnTopLayout;
 @property(nonatomic) _Bool hasTileProminenceScore;
 @property(nonatomic) _Bool hasTopStoryType;

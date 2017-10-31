@@ -21,9 +21,10 @@
 @property(copy, nonatomic) NSNumber *minValue; // @synthesize minValue=_minValue;
 @property(copy, nonatomic) NSNumber *midValue; // @synthesize midValue=_midValue;
 @property(copy, nonatomic) NSNumber *maxValue; // @synthesize maxValue=_maxValue;
-@property(nonatomic) unsigned long long type; // @synthesize type=_type;
+@property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
 - (id)description;
+- (id)initWithType:(unsigned long long)arg1;
 
 @end
 

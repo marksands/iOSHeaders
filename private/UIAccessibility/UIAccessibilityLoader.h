@@ -17,7 +17,6 @@
 + (void)_accessibilityLoadExtendedBundles;
 + (void)_accessibilityStartMiniServer;
 + (void)_accessibilityStartServer;
-+ (void)_applicationAccessibilityListener:(id)arg1;
 + (void)_accessibilityInitializeRuntimeOverrides;
 + (void)_stringLocalizationStarted:(id)arg1;
 + (void)_accessibilityInitializeSubclassRuntimeOverrides;

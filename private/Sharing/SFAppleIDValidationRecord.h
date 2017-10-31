@@ -15,15 +15,11 @@
     NSData *_data;
     NSString *_identifier;
     NSDate *_nextCheckDate;
-    NSDate *_startDate;
-    double _suggestedValidInterval;
     NSNumber *_version;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSNumber *version; // @synthesize version=_version;
-@property(nonatomic) double suggestedValidInterval; // @synthesize suggestedValidInterval=_suggestedValidInterval;
-@property(retain, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(retain, nonatomic) NSDate *nextCheckDate; // @synthesize nextCheckDate=_nextCheckDate;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;

@@ -13,23 +13,22 @@
     id <SXLayoutControllerDelegate> _delegate;
     NSString *_targetComponentIdentifier;
     SXLayoutBlueprint *_lastLayoutBlueprint;
+    id <SXLayoutOperationFactory> _layoutOperationFactory;
     NSOperationQueue *_layoutOperationQueue;
     SXLayoutOperation *_currentLayoutOperation;
-    id <SXDynamicAdController> _dynamicAdController;
 }
 
-@property(readonly, nonatomic) id <SXDynamicAdController> dynamicAdController; // @synthesize dynamicAdController=_dynamicAdController;
 @property(retain, nonatomic) SXLayoutOperation *currentLayoutOperation; // @synthesize currentLayoutOperation=_currentLayoutOperation;
 @property(readonly, nonatomic) NSOperationQueue *layoutOperationQueue; // @synthesize layoutOperationQueue=_layoutOperationQueue;
+@property(readonly, nonatomic) id <SXLayoutOperationFactory> layoutOperationFactory; // @synthesize layoutOperationFactory=_layoutOperationFactory;
 @property(readonly, nonatomic) SXLayoutBlueprint *lastLayoutBlueprint; // @synthesize lastLayoutBlueprint=_lastLayoutBlueprint;
 @property(retain, nonatomic) NSString *targetComponentIdentifier; // @synthesize targetComponentIdentifier=_targetComponentIdentifier;
 @property(nonatomic) __weak id <SXLayoutControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)setupDynamicAdControllerWithContext:(id)arg1;
 - (void)finalizeLayoutForLayoutOperation:(id)arg1;
 - (void)layoutForAttributes:(id)arg1 existingLayoutBlueprint:(id)arg2 dataProvider:(id)arg3;
 - (void)layoutForAttributes:(id)arg1 dataProvider:(id)arg2;
-- (id)initWithDelegate:(id)arg1;
+- (id)initWithLayoutOperationFactory:(id)arg1;
 
 @end
 

@@ -13,7 +13,7 @@
 
 @interface MSPCloudKitAccountAccess : NSObject <MSPJournaling, MSPCloudAccess>
 {
-    id <NSObject><NSCopying><NSCoding> _latestAccountIdentity;
+    NSString *_latestAccountIdentity;
     CKContainer *_container;
     CKContainer *_containerForClientRegistrationRecords;
     CKDatabase *_database;

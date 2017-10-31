@@ -44,6 +44,7 @@
 - (void).cxx_destruct;
 - (void)_updateDigitizerLocationWithEvent:(id)arg1;
 - (struct CGPoint)_digitizerLocation;
+- (void)_ignoreTouches:(id)arg1 forEvent:(id)arg2;
 - (id)_activeTouches;
 - (struct CGPoint)locationOfTouch:(unsigned long long)arg1 inView:(id)arg2;
 - (unsigned long long)numberOfTouches;

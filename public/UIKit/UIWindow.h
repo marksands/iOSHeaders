@@ -235,6 +235,7 @@
 - (id)_touchData;
 - (struct CGPoint)_transformDisplayToWindowCoordinates:(struct CGPoint)arg1;
 - (_Bool)_canAffectDisplayAdaptation;
+- (_Bool)_isMainSceneSized;
 - (_Bool)_shouldControlAutorotation;
 - (_Bool)_canAffectStatusBarAppearance;
 - (void)_didSnapshot;

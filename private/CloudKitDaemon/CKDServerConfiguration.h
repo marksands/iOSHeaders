@@ -24,6 +24,8 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)dictionaryPropertyEncoding;
 - (id)initWithPropertyDictionary:(id)arg1;
+- (unsigned long long)c2MetricsReportFrequencyBase:(id)arg1;
+- (unsigned long long)c2MetricsReportFrequency:(id)arg1;
 - (double)publicIdentitiesExpirationTimeoutForContainer:(id)arg1;
 - (unsigned long long)maxBatchSizeForContainer:(id)arg1;
 - (id)flowControlMaximumThrottleTime:(id)arg1;

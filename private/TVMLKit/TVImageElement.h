@@ -13,6 +13,7 @@
 }
 
 @property(readonly, nonatomic) long long imageType;
+- (struct CGSize)imageScaleToSize;
 @property(readonly, nonatomic) NSDictionary *srcset;
 @property(readonly, nonatomic) NSURL *URL;
 

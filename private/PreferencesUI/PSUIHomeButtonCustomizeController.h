@@ -27,8 +27,7 @@
 @property(nonatomic) _Bool usesDoneButton; // @synthesize usesDoneButton=_usesDoneButton;
 @property(nonatomic) __weak id <PSUIHomeButtonCustomizeControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)consumeTriplePressUpForButtonKind:(long long)arg1;
-- (void)consumeDoublePressDownForButtonKind:(long long)arg1;
+- (void)consumeAnyPressEventForButtonKind:(long long)arg1;
 - (void)segmentedControl:(id)arg1 didSelectSegmentAtIndex:(unsigned long long)arg2;
 - (void)_makeConstraints;
 - (void)barButtonTapped;

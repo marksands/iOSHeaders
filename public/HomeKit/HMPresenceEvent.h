@@ -37,7 +37,9 @@
 - (id)_serializeForAdd;
 - (void)_handleEventUpdatedNotification:(id)arg1;
 - (id)users;
+- (void)setPresenceUserType:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long presenceUserType; // @synthesize presenceUserType=_presenceUserType;
+- (void)setPresenceEventType:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long presenceEventType; // @synthesize presenceEventType=_presenceEventType;
 @property(retain, nonatomic) HMPresenceEventActivation *activation; // @synthesize activation=_activation;
 @property(readonly, nonatomic) unsigned long long activationGranularity;

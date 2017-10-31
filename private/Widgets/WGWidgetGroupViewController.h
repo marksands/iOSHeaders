@@ -30,8 +30,8 @@
 @property(nonatomic) __weak id <WGWidgetGroupViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)isWidgetExtensionVisible:(id)arg1;
-- (struct UIEdgeInsets)contentOccludingInsetForWidgetListViewController:(id)arg1;
-- (id)widgetListViewController:(id)arg1 newCustomBackgroundViewForItemInList:(id)arg2;
+- (struct UIEdgeInsets)widgetListViewController:(id)arg1 contentOccludingInsetsForInterfaceOrientation:(long long)arg2;
+- (struct CGSize)widgetListViewController:(id)arg1 sizeForInterfaceOrientation:(long long)arg2;
 - (void)widgetDiscoveryController:(id)arg1 widgetWithIdentifier:(id)arg2 shouldBecomeHiddenInGroup:(id)arg3;
 - (void)widgetDiscoveryController:(id)arg1 widgetWithIdentifier:(id)arg2 shouldBecomeVisibleInGroup:(id)arg3;
 - (void)scrollViewDidScrollToTop:(id)arg1;

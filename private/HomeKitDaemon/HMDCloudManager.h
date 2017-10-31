@@ -89,7 +89,7 @@
 - (void)initializeServerTokenStatusOnCloudFilter;
 - (_Bool)_validFetchRetryCKErrorCode:(long long)arg1;
 - (void)_forceCleanCloud:(_Bool)arg1 fetchTransaction:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)_updateCloudDataSyncFilterState:(_Bool)arg1;
+- (void)updateCloudDataSyncFilterState:(_Bool)arg1;
 - (void)_accountIsActive;
 - (void)_createZoneAndFetchChanges:(CDUnknownBlockType)arg1;
 - (void)_verifyZonesExist:(id)arg1 zoneIndex:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;

@@ -19,6 +19,7 @@
     long long _pendingBlockingEntryChangeType;
     CXCallDirectoryMutableLabeledPhoneNumberEntryData *_pendingIdentificationEntryDataForAddition;
     CXCallDirectoryMutablePhoneNumberEntryData *_pendingIdentificationEntryDataForRemoval;
+    long long _pendingIdentificationEntryChangeType;
     CDUnknownBlockType _remoteObjectProxyGenerator;
 }
 
@@ -26,6 +27,7 @@
 + (id)_extensionAuxiliaryVendorProtocol;
 @property(copy, nonatomic) CDUnknownBlockType remoteObjectProxyGenerator; // @synthesize remoteObjectProxyGenerator=_remoteObjectProxyGenerator;
 @property(nonatomic) _Bool hasQueriedIsIncremental; // @synthesize hasQueriedIsIncremental=_hasQueriedIsIncremental;
+@property(nonatomic) long long pendingIdentificationEntryChangeType; // @synthesize pendingIdentificationEntryChangeType=_pendingIdentificationEntryChangeType;
 @property(retain, nonatomic) CXCallDirectoryMutablePhoneNumberEntryData *pendingIdentificationEntryDataForRemoval; // @synthesize pendingIdentificationEntryDataForRemoval=_pendingIdentificationEntryDataForRemoval;
 @property(retain, nonatomic) CXCallDirectoryMutableLabeledPhoneNumberEntryData *pendingIdentificationEntryDataForAddition; // @synthesize pendingIdentificationEntryDataForAddition=_pendingIdentificationEntryDataForAddition;
 @property(nonatomic) long long pendingBlockingEntryChangeType; // @synthesize pendingBlockingEntryChangeType=_pendingBlockingEntryChangeType;
@@ -42,8 +44,7 @@
 - (void)_performBlockIfIncremental:(CDUnknownBlockType)arg1 usingSelectorForExceptionMessage:(SEL)arg2;
 - (void)addBlockingEntryWithNextSequentialPhoneNumber:(long long)arg1;
 @property(readonly, nonatomic, getter=isIncremental) _Bool incremental; // @synthesize incremental=_incremental;
-- (void)_flushPendingIdentificationEntryDataForRemoval;
-- (void)_flushPendingIdentificationEntryDataForAddition;
+- (void)_flushPendingIdentificationEntryData;
 - (void)_flushPendingBlockingEntryData;
 - (void)appendIdentificationEntryForRemovalWithPhoneNumber:(long long)arg1;
 - (void)appendIdentificationEntryForAdditionWithPhoneNumber:(long long)arg1 label:(id)arg2;

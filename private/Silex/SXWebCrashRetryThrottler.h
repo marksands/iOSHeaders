@@ -6,13 +6,25 @@
 
 #import "NSObject.h"
 
-@interface SXWebCrashRetryThrottler : NSObject
+#import "SXWebContentProcessTerminationPolicyDecider.h"
+
+@class NSString;
+
+@interface SXWebCrashRetryThrottler : NSObject <SXWebContentProcessTerminationPolicyDecider>
 {
     _Bool _crashed;
+    unsigned long long retryPolicy;
 }
 
 @property(nonatomic) _Bool crashed; // @synthesize crashed=_crashed;
+@property(readonly, nonatomic) unsigned long long retryPolicy; // @synthesize retryPolicy;
 - (_Bool)shouldReloadAfterWebProcessCrash;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -23,6 +23,7 @@
 }
 
 + (id)_labelFont;
++ (void)allSectionHeadersHidden;
 + (struct CGSize)_labelSizeWithWidth:(double)arg1 title:(id)arg2;
 + (double)headerHeightWithWidth:(double)arg1 title:(id)arg2;
 @property(copy, nonatomic) NSString *sectionIdentifier; // @synthesize sectionIdentifier=_sectionIdentifier;

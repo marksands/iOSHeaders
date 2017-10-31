@@ -11,6 +11,9 @@
 @protocol GEOMapServiceCompletionTicket <NSObject>
 @property(readonly, nonatomic) NSDictionary *responseUserInfo;
 @property(readonly, nonatomic) GEOMapServiceTraits *traits;
+- (_Bool)shouldDisplayNoResults;
+- (_Bool)hasShouldDisplayNoResults;
+- (double)retainSearchTime;
 - (_Bool)isRapEnabled;
 - (void)applyToSuggestionEntry:(GEORPSuggestionEntry *)arg1 withAutocompleteSearchResultIdentifier:(GEOMapItemIdentifier *)arg2;
 - (void)applyToSuggestionList:(GEORPSuggestionList *)arg1;

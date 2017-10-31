@@ -22,6 +22,7 @@
 @property(nonatomic) _Bool augmentMainStoreResults; // @synthesize augmentMainStoreResults=_augmentMainStoreResults;
 @property(retain, nonatomic) NSArray *mainStoreContactIdentifiers; // @synthesize mainStoreContactIdentifiers=_mainStoreContactIdentifiers;
 - (void).cxx_destruct;
+- (id)shortDebugDescription;
 - (void)mainStoreDidFetchContacts:(id)arg1 unifiedFetch:(_Bool)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)cn_predicate;

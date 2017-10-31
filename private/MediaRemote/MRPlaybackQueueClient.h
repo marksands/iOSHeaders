@@ -15,6 +15,10 @@
 }
 
 - (id)description;
+- (void)removeClientIfPredicate:(CDUnknownBlockType)arg1;
+- (void)_handleOriginRemovedNotification:(id)arg1;
+- (void)_handleApplicationRemovedNotification:(id)arg1;
+- (void)_handlePlayerPathRemovedNotification:(id)arg1;
 - (id)playbackQueueClientForPlayerPath:(void *)arg1;
 @property(readonly, nonatomic) NSArray *playbackQueueClients;
 - (void)dealloc;

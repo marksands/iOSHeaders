@@ -9,7 +9,7 @@
 #import "AVAsynchronousKeyValueLoading.h"
 #import "NSCopying.h"
 
-@class AVAssetInternal, NSArray;
+@class AVAssetInternal, AVDisplayCriteria, NSArray;
 
 @interface AVAsset : NSObject <NSCopying, AVAsynchronousKeyValueLoading>
 {
@@ -70,6 +70,7 @@
 - (_Bool)providesPreciseDurationAndTiming;
 - (int)naturalTimeScale;
 @property(readonly, nonatomic) struct CGSize naturalSize;
+@property(readonly, nonatomic) AVDisplayCriteria *preferredDisplayCriteria;
 - (id)availableVideoDynamicRanges;
 - (struct CGSize)maximumVideoResolution;
 @property(readonly, nonatomic) struct CGAffineTransform preferredTransform;

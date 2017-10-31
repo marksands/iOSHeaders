@@ -61,6 +61,8 @@ __attribute__((visibility("hidden")))
 - (void)teardown;
 - (void)prepare;
 - (id)initWithNavigationBar:(id)arg1;
+- (double)_shim_backgroundAlpha;
+- (_Bool)_shim_34415965;
 - (void)_shim_30244716;
 - (void)_shim_updateBackgroundViewIgnoringFlag;
 - (_Bool)_shim_throwConstraintExceptions;

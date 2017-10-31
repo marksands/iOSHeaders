@@ -14,7 +14,7 @@
 #import "_UIScrollViewLayoutObserver.h"
 #import "_UIScrollViewScrollObserver.h"
 
-@class NSArray, NSString, PKCanvasView, PKDrawing, PKInk, PKInlineInkPicker, PKLinedPaper, PKSelectionController, UIButton, UIDropInteraction, UIScrollView, UITouch, _UITextAttachmentDrawingView;
+@class NSArray, NSString, PKCanvasView, PKDrawing, PKInk, PKInlineInkPicker, PKLinedPaper, PKSelectionController, UIButton, UIDropInteraction, UIScrollView, UITapGestureRecognizer, UITouch, _UITextAttachmentDrawingView;
 
 @interface PKTiledView : UIView <UIScrollViewDelegate, PKCanvasViewDelegate, _UIScrollViewScrollObserver, _UIScrollViewLayoutObserver, PKSelectionDelegate, UIDropInteractionDelegate_Private, UIGestureRecognizerDelegate>
 {
@@ -26,6 +26,7 @@
     PKLinedPaper *_linedPaper;
     UIScrollView *_scrollView;
     PKCanvasView *_canvasView;
+    UITapGestureRecognizer *_clearSelectionGestureRecognizer;
     double _tileWidth;
     double _tileHeight;
     long long _tileLevel;
@@ -62,6 +63,7 @@
 @property(nonatomic) long long tileLevel; // @synthesize tileLevel=_tileLevel;
 @property(nonatomic) double tileHeight; // @synthesize tileHeight=_tileHeight;
 @property(nonatomic) double tileWidth; // @synthesize tileWidth=_tileWidth;
+@property(readonly, nonatomic) UITapGestureRecognizer *clearSelectionGestureRecognizer; // @synthesize clearSelectionGestureRecognizer=_clearSelectionGestureRecognizer;
 @property(nonatomic, getter=isFingerDrawingEnabled) _Bool fingerDrawingEnabled; // @synthesize fingerDrawingEnabled=_fingerDrawingEnabled;
 @property(retain, nonatomic) PKCanvasView *canvasView; // @synthesize canvasView=_canvasView;
 @property(nonatomic) __weak UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
@@ -75,6 +77,8 @@
 - (void)dropInteraction:(id)arg1 performDrop:(id)arg2;
 - (id)dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
 - (_Bool)dropInteraction:(id)arg1 canHandleSession:(id)arg2;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (void)_addGestureToClearSelection;
 - (void)_clearSelectionIfNecessary;
 - (void)resetSelectedStrokeStateForRenderer;
 - (void)toggleSelectedStrokes:(id)arg1 hide:(_Bool)arg2 inDrawing:(id)arg3;

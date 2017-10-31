@@ -29,6 +29,7 @@
 - (void)_cacheRepresentation:(id)arg1 forCatalog:(id)arg2;
 - (void)loadArtworkEffectResultForEffectType:(long long)arg1 catalog:(id)arg2 options:(id)arg3 systemEffectHandler:(CDUnknownBlockType)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)existingArtworkEffectResultForEffectType:(long long)arg1 catalog:(id)arg2 options:(id)arg3;
+- (void)getExportableArtworkPropertiesForCatalog:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)hasExistingRepresentationOnDiskForArtworkCatalog:(id)arg1;
 - (id)visualIdenticalityIdentifierForCatalog:(id)arg1;
 - (void)cancelLoadingRepresentationForArtworkCatalog:(id)arg1;

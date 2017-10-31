@@ -6,18 +6,20 @@
 
 #import <Silex/SXGalleryComponentView.h>
 
-#import "SXFullScreenCanvasShowable.h"
+#import "SXFullscreenCanvasShowable.h"
 #import "SXImageViewDelegate.h"
 #import "SXMosaicGalleryLayouterDataSource.h"
 #import "SXTextSourceDataSource.h"
 #import "SXViewportChangeListener.h"
 
-@class NSMutableArray, NSMutableSet, NSString, SXFullScreenCanvasController, SXMediaViewEvent, SXMosaicGalleryLayouter, UIView;
+@class NSMutableArray, NSMutableSet, NSString, SXFullscreenCanvasController, SXMediaViewEvent, SXMosaicGalleryLayouter, UIView;
 
-@interface SXMosaicGalleryComponentView : SXGalleryComponentView <SXMosaicGalleryLayouterDataSource, SXFullScreenCanvasShowable, SXImageViewDelegate, SXTextSourceDataSource, SXViewportChangeListener>
+@interface SXMosaicGalleryComponentView : SXGalleryComponentView <SXMosaicGalleryLayouterDataSource, SXFullscreenCanvasShowable, SXImageViewDelegate, SXTextSourceDataSource, SXViewportChangeListener>
 {
     _Bool _loadedAtleastOneImage;
-    SXFullScreenCanvasController *_fullScreenCanvasController;
+    id <SXGalleryItemImageViewFactory> _imageViewFactory;
+    id <SXFullscreenCanvasControllerFactory> _canvasControllerFactory;
+    SXFullscreenCanvasController *_fullScreenCanvasController;
     UIView *_galleryView;
     NSMutableArray *_imageViews;
     NSMutableArray *_visibleImageViews;
@@ -33,7 +35,9 @@
 @property(readonly, nonatomic) NSMutableArray *visibleImageViews; // @synthesize visibleImageViews=_visibleImageViews;
 @property(readonly, nonatomic) NSMutableArray *imageViews; // @synthesize imageViews=_imageViews;
 @property(retain, nonatomic) UIView *galleryView; // @synthesize galleryView=_galleryView;
-@property(readonly, nonatomic) SXFullScreenCanvasController *fullScreenCanvasController; // @synthesize fullScreenCanvasController=_fullScreenCanvasController;
+@property(readonly, nonatomic) SXFullscreenCanvasController *fullScreenCanvasController; // @synthesize fullScreenCanvasController=_fullScreenCanvasController;
+@property(readonly, nonatomic) id <SXFullscreenCanvasControllerFactory> canvasControllerFactory; // @synthesize canvasControllerFactory=_canvasControllerFactory;
+@property(readonly, nonatomic) id <SXGalleryItemImageViewFactory> imageViewFactory; // @synthesize imageViewFactory=_imageViewFactory;
 - (void).cxx_destruct;
 - (_Bool)allowHierarchyRemoval;
 - (void)willSubmitMediaExposureEvent:(id)arg1;
@@ -83,8 +87,9 @@
 - (void)visibleBoundsChanged;
 - (void)discardContents;
 - (void)renderContents;
-- (void)presentComponent;
-- (id)initWithComponent:(id)arg1 configuration:(id)arg2 context:(id)arg3 analyticsReporting:(id)arg4 appStateMonitor:(id)arg5;
+- (void)presentComponentWithChanges:(CDStruct_1cc9d0d0)arg1;
+- (void)loadComponent:(id)arg1;
+- (id)initWithDocumentController:(id)arg1 viewport:(id)arg2 presentationDelegate:(id)arg3 analyticsReporting:(id)arg4 componentStyleRendererFactory:(id)arg5 appStateMonitor:(id)arg6 imageViewFactory:(id)arg7 canvasControllerFactory:(id)arg8;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

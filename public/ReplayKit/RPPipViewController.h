@@ -15,8 +15,14 @@
     AVCaptureDevice *_videoDevice;
     AVCaptureDeviceInput *_videoInput;
     long long _initialOrientation;
+    long long _previousOrientation;
+    double _previousOrientationWidth;
+    double _previousOrientationHeight;
 }
 
+@property(nonatomic) double previousOrientationHeight; // @synthesize previousOrientationHeight=_previousOrientationHeight;
+@property(nonatomic) double previousOrientationWidth; // @synthesize previousOrientationWidth=_previousOrientationWidth;
+@property(nonatomic) long long previousOrientation; // @synthesize previousOrientation=_previousOrientation;
 @property(nonatomic) long long initialOrientation; // @synthesize initialOrientation=_initialOrientation;
 @property(retain, nonatomic) AVCaptureDeviceInput *videoInput; // @synthesize videoInput=_videoInput;
 @property(retain, nonatomic) AVCaptureDevice *videoDevice; // @synthesize videoDevice=_videoDevice;

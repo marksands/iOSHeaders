@@ -10,6 +10,7 @@
 {
 }
 
++ (id)contactStoreWithDonatedAndSuggestedContacts;
 + (id)contactStore;
 + (void)useMockContactStore:(id)arg1;
 

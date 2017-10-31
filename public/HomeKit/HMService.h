@@ -20,7 +20,11 @@
     HMAccessory *_accessory;
     NSString *_serviceType;
     NSString *_name;
+    NSString *_configuredName;
+    NSString *_defaultName;
     NSString *_associatedServiceType;
+    NSString *_serviceSubtype;
+    long long _configurationState;
     HMApplicationData *_applicationData;
     HMBulletinBoardNotification *_bulletinBoardNotificationInternal;
     NSURL *_homeObjectURLInternal;
@@ -38,6 +42,8 @@
 + (id)__localizedDescriptionForServiceType:(id)arg1;
 + (id)localizedDescriptionForServiceType:(id)arg1;
 + (id)_serviceTypeAsString:(id)arg1;
++ (id)_mapToIsConfiguredValueFromServiceConfigurationState:(long long)arg1;
++ (long long)_mapToServiceConfigurationStateFromIsConfiguredValue:(id)arg1;
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) HMDelegateCaller *delegateCaller; // @synthesize delegateCaller=_delegateCaller;
@@ -57,7 +63,11 @@
 - (void)_addCharacteristic:(id)arg1;
 - (void)_removeCharacteristic:(id)arg1;
 - (_Bool)_hasCharacteristic:(id)arg1;
+- (void)_handleUpdateConfigurationState:(long long)arg1;
+- (void)_handleUpdateServiceSubtype:(id)arg1;
 - (void)_handleUpdateAssociatedServiceType:(id)arg1;
+- (void)_handleUpdateDefaultName:(id)arg1;
+- (void)_handleUpdateConfiguredName:(id)arg1;
 - (void)_handleUpdateName:(id)arg1;
 - (void)_handleMarkServiceInteractive:(id)arg1;
 - (void)_configure:(id)arg1 clientQueue:(id)arg2 delegateCaller:(id)arg3 msgDispatcher:(id)arg4;
@@ -66,6 +76,8 @@
 - (id)_findCharacteristic:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)_updateConfigurationState:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)updateConfigurationState:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_updateAssociatedServiceType:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateAssociatedServiceType:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_updateName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -82,7 +94,11 @@
 @property(readonly, nonatomic) HMApplicationData *applicationData; // @synthesize applicationData=_applicationData;
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(readonly, copy, nonatomic) NSArray *characteristics;
+@property(nonatomic) long long configurationState; // @synthesize configurationState=_configurationState;
+@property(copy, nonatomic) NSString *serviceSubtype; // @synthesize serviceSubtype=_serviceSubtype;
 @property(copy, nonatomic) NSString *associatedServiceType; // @synthesize associatedServiceType=_associatedServiceType;
+@property(retain, nonatomic) NSString *defaultName; // @synthesize defaultName=_defaultName;
+@property(retain, nonatomic) NSString *configuredName; // @synthesize configuredName=_configuredName;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *serviceType; // @synthesize serviceType=_serviceType;
 @property(nonatomic) __weak HMAccessory *accessory; // @synthesize accessory=_accessory;

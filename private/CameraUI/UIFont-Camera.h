@@ -11,6 +11,7 @@
 + (id)cui_cameraPadModeDialFontForContentSize:(id)arg1;
 + (id)cui_cameraModeDialApproximateFontForContentSize:(id)arg1;
 + (id)cui_cameraModeDialFontForContentSize:(id)arg1;
++ (double)cui_cameraModeDialFontSizeForContentSize:(id)arg1;
 + (id)cui_cameraTimerFontForContentSize:(id)arg1 layoutStyle:(long long)arg2;
 + (id)cui_cameraFontForContentSize:(id)arg1;
 + (double)cui_interpolatedAdditionalFontSizeForMainScreen;

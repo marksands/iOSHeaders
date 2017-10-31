@@ -20,8 +20,8 @@
 @property(copy, nonatomic) NSOrderedSet *availabilityEntriesInPreferredOrder; // @synthesize availabilityEntriesInPreferredOrder=_availabilityEntriesInPreferredOrder;
 @property(nonatomic) Class preferredSourceFetchDescriptorClass; // @synthesize preferredSourceFetchDescriptorClass=_preferredSourceFetchDescriptorClass;
 - (void).cxx_destruct;
-- (void)_setPreferredAvailableHeadlineResultsSource:(Class)arg1;
-- (void)_recomputePreferredAvailableHeadlineResultsSource;
+- (void)_setPreferredAvailableTodayResultsSource:(Class)arg1;
+- (void)_recomputePreferredAvailableTodayResultsSource;
 @property(copy, nonatomic) CDUnknownBlockType preferredSourceChangedNotificationBlock; // @synthesize preferredSourceChangedNotificationBlock=_preferredSourceChangedNotificationBlock;
 - (id)initWithAvailabilityEntriesInPreferredOrder:(id)arg1 queue:(id)arg2;
 - (id)init;

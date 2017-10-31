@@ -7,12 +7,13 @@
 #import "NSObject.h"
 
 #import "FCAppConfigurationObserving.h"
+#import "FCJSONEncodableObjectProviding.h"
 #import "FCOperationThrottlerDelegate.h"
 #import "FCTagsFetchOperationDelegate.h"
 
 @class FCAppConfigurationManager, FCAssetManager, FCCKContentDatabase, FCOperationThrottler, FCTagRecordSource, NSCache, NSMutableDictionary, NSString;
 
-@interface FCTagController : NSObject <FCTagsFetchOperationDelegate, FCAppConfigurationObserving, FCOperationThrottlerDelegate>
+@interface FCTagController : NSObject <FCTagsFetchOperationDelegate, FCAppConfigurationObserving, FCOperationThrottlerDelegate, FCJSONEncodableObjectProviding>
 {
     FCCKContentDatabase *_contentDatabase;
     FCAssetManager *_assetManager;
@@ -33,8 +34,9 @@
 @property(retain, nonatomic) FCAssetManager *assetManager; // @synthesize assetManager=_assetManager;
 @property(retain, nonatomic) FCCKContentDatabase *contentDatabase; // @synthesize contentDatabase=_contentDatabase;
 - (void).cxx_destruct;
+- (id)jsonEncodableObject;
 - (void)operationThrottler:(id)arg1 performAsyncOperationWithCompletion:(CDUnknownBlockType)arg2;
-- (void)appConfigurationDidChange:(id)arg1;
+- (void)appConfigurationManager:(id)arg1 appConfigurationDidChange:(id)arg2;
 - (void)tagsFetchOperation:(id)arg1 didFetchTags:(id)arg2;
 @property(nonatomic) _Bool shouldPrefetchGlobalTags;
 - (void)saveTagsToCache:(id)arg1;

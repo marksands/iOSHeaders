@@ -99,6 +99,12 @@ typedef struct {
 } CDStruct_e6a35582;
 
 typedef struct {
+    struct CGSize preferredContentSize;
+    double minimumNavigationHeight;
+    _Bool isRoot;
+} CDStruct_47050b7f;
+
+typedef struct {
     struct CGSize _field1;
     struct CGSize _field2;
     double _field3;

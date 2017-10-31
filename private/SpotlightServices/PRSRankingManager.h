@@ -17,8 +17,6 @@
     NSMutableDictionary *_combinedBottomScoreOrder;
 }
 
-+ (id)getAppWhiteListReader;
-+ (void)loadAppWhiteList;
 + (void)fetchDuetValues;
 + (id)quickGlanceBundleIds;
 + (void)addToGlanceCategories:(id)arg1;

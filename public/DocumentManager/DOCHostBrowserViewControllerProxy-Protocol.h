@@ -23,7 +23,7 @@
 - (void)didCommitPreviewOfDocument:(DOCItem *)arg1;
 - (void)didPickItem:(DOCItem *)arg1;
 - (void)showInfoForItem:(DOCItem *)arg1;
-- (void)createNewFolder;
+- (void)createNewFolderWithMaxThumbnailSize:(struct CGSize)arg1;
 - (void)createNewFile;
 @end
 

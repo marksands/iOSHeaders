@@ -21,7 +21,7 @@
 - (void).cxx_destruct;
 - (id)invalidationReasons;
 - (id)items;
-- (_Bool)_supportsCreatingAccessoryItemForAccessory:(id)arg1;
+- (_Bool)_isAccessorySupported:(id)arg1;
 - (id)reloadItems;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;

@@ -30,6 +30,7 @@
 - (void).cxx_destruct;
 - (id)_descriptionForStatus:(unsigned long long)arg1;
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier;
+- (id)identify;
 @property(readonly, nonatomic) NSUUID *accessoryUUID; // @synthesize accessoryUUID=_accessoryUUID;
 @property(readonly, copy) NSString *description;
 - (void)updateStatus:(unsigned long long)arg1 error:(id)arg2;

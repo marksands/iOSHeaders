@@ -8,13 +8,11 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDate, NSDateInterval, NSMutableArray, NSUUID;
+@class NSArray, NSDateInterval, NSMutableArray, NSUUID;
 
 @interface HKHeartRateSummaryStatistics : NSObject <NSSecureCoding>
 {
     NSMutableArray *_sortedBuckets;
-    NSDate *_earliestReadingDate;
-    NSDate *_latestReadingDate;
     NSDateInterval *_dateInterval;
     long long _numberOfBuckets;
     long long _numberOfReadings;
@@ -37,8 +35,7 @@
 - (id)_bucketAtIndex:(long long)arg1 createdIfNeeded:(_Bool)arg2;
 - (void)enumerateBucketsWithBlock:(CDUnknownBlockType)arg1;
 - (id)bucketAtIndex:(long long)arg1;
-- (void)addHeartRateInBeatsPerMinute:(double)arg1 forDate:(id)arg2;
-@property(readonly, nonatomic) NSDateInterval *readingsDateInterval;
+- (void)addHeartRateInBeatsPerMinute:(double)arg1 forTime:(double)arg2;
 - (id)initWithDateInterval:(id)arg1 numberOfBuckets:(long long)arg2 sessionUUID:(id)arg3;
 - (id)_bucketsDescription;
 - (id)_dictionaryRepresentation;

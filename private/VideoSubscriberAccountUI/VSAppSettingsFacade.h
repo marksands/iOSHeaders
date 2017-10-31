@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSOperationQueue, VSIdentityProvider, VSOptional, VSPersistentStorage, VSRestrictionsCenter;
+@class NSArray, NSOperation, NSOperationQueue, VSIdentityProvider, VSOptional, VSPersistentStorage, VSRestrictionsCenter;
 
 @interface VSAppSettingsFacade : NSObject
 {
@@ -16,6 +16,7 @@
     NSArray *_decidedApps;
     NSArray *_voucherApps;
     NSOperationQueue *_privateQueue;
+    NSOperation *_currentPresentationOperation;
     VSPersistentStorage *_storage;
     VSRestrictionsCenter *_restrictionsCenter;
     VSOptional *_identityProviderID;
@@ -32,6 +33,7 @@
 @property(copy, nonatomic) VSOptional *identityProviderID; // @synthesize identityProviderID=_identityProviderID;
 @property(retain, nonatomic) VSRestrictionsCenter *restrictionsCenter; // @synthesize restrictionsCenter=_restrictionsCenter;
 @property(retain, nonatomic) VSPersistentStorage *storage; // @synthesize storage=_storage;
+@property(retain, nonatomic) NSOperation *currentPresentationOperation; // @synthesize currentPresentationOperation=_currentPresentationOperation;
 @property(retain, nonatomic) NSOperationQueue *privateQueue; // @synthesize privateQueue=_privateQueue;
 @property(copy, nonatomic) NSArray *voucherApps; // @synthesize voucherApps=_voucherApps;
 @property(copy, nonatomic) NSArray *decidedApps; // @synthesize decidedApps=_decidedApps;
@@ -39,11 +41,13 @@
 - (void).cxx_destruct;
 - (void)_setNeedsUpdateApps;
 - (void)_updateApps;
-- (void)_promoteFeaturedAdamIDs:(id)arg1 inApps:(id)arg2;
 - (id)_fetchOperationForAdamIDs:(id)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)initWithStorage:(id)arg1 restrictionsCenter:(id)arg2;
+- (id)autorelease;
+- (oneway void)release;
+- (id)retain;
 
 @end
 

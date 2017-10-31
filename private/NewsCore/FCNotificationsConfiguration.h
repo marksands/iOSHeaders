@@ -21,7 +21,6 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithPresubscribedChannels:(id)arg1 recommendedPBNotificationChannels:(id)arg2;
-- (id)initWithDefaults;
 
 @end
 

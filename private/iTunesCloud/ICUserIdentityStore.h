@@ -21,7 +21,6 @@
     NSObject<OS_dispatch_queue> *_callbackQueue;
     ICUserIdentityStoreCoding *_codingHelper;
     ICDelegateAccountStore *_delegateAccountStore;
-    // Error parsing type: AB, name: _delegateAccountStoreDidOpenOnce
     NSError *_delegateAccountStoreError;
     ICDelegateAccountStoreOptions *_delegateAccountStoreOptions;
 }
@@ -33,17 +32,20 @@
 + (id)defaultIdentityStore;
 @property(readonly, nonatomic) id <ICUserIdentityStoreBackend> _unsafeBackend; // @synthesize _unsafeBackend=_backend;
 - (void).cxx_destruct;
+- (void)_unregisterForDelegateAccountStoreNotifications:(id)arg1;
 - (void)_saveIdentityProperties:(id)arg1 forUserIdentity:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)_openDelegateAccountStoreOnceIfNecessaryForUserIdentity:(id)arg1;
-- (void)_openDelegateAccountStoreOnce;
+- (void)_registerForDelegateAccountStoreNotifications:(id)arg1;
+- (void)_openDelegateAccountStoreIfNeededIfNecessaryForUserIdentity:(id)arg1;
+- (void)_openDelegateAccountStoreIfNeeded;
 - (void)_importValuesFromCodingHelper:(id)arg1;
 - (id)_existingIdentityPropertiesForUserIdentity:(id)arg1;
 - (id)_dsidForUserIdentity:(id)arg1;
 - (id)_dsidForTimestamp:(unsigned long long)arg1 history:(id)arg2;
-- (void)_dispatchDidChange:(_Bool)arg1 result:(_Bool)arg2 error:(id)arg3 handler:(CDUnknownBlockType)arg4;
+- (void)_dispatchDidChange:(_Bool)arg1 didDelegateAccountStoreChange:(_Bool)arg2 result:(_Bool)arg3 error:(id)arg4 handler:(CDUnknownBlockType)arg5;
 - (_Bool)_allowsDelegationForUserIdentity:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)_delegateAccountStoreDidChangeNotification:(id)arg1;
 - (void)_updateDelegateAccountStoreUsingBlock:(CDUnknownBlockType)arg1;
 - (void)_unsafe_deleteDelegateAccountStore;
 - (void)_resetDelegateAccountStoreWithCompletionHandler:(CDUnknownBlockType)arg1;

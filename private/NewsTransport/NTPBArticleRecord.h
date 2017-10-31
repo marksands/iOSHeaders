@@ -34,7 +34,6 @@
     int _contentType;
     NSString *_contentURL;
     NSString *_coverArt;
-    NSString *_displayTopicTagID;
     NSString *_excerptURL;
     NSString *_flintDocumentURL;
     NSMutableArray *_flintFontResourceIDs;
@@ -64,6 +63,7 @@
     NSString *_thumbnailWidgetTaggedURL;
     NSString *_thumbnailWidgetURL;
     NSString *_title;
+    NSString *_titleCompact;
     NSMutableArray *_topics;
     NSString *_videoURL;
     _Bool _isDraft;
@@ -103,6 +103,7 @@
 + (Class)iAdKeywordsType;
 + (Class)iAdCategoriesType;
 + (Class)flintFontResourceIDsType;
+@property(retain, nonatomic) NSString *titleCompact; // @synthesize titleCompact=_titleCompact;
 @property(retain, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *globalCohort; // @synthesize globalCohort=_globalCohort;
 @property(retain, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *sourceChannelCohort; // @synthesize sourceChannelCohort=_sourceChannelCohort;
 @property(retain, nonatomic) NSMutableArray *topics; // @synthesize topics=_topics;
@@ -138,7 +139,6 @@
 @property(retain, nonatomic) NSMutableArray *iAdCategories; // @synthesize iAdCategories=_iAdCategories;
 @property(nonatomic) _Bool isSponsored; // @synthesize isSponsored=_isSponsored;
 @property(nonatomic) _Bool isFeatureCandidate; // @synthesize isFeatureCandidate=_isFeatureCandidate;
-@property(retain, nonatomic) NSString *displayTopicTagID; // @synthesize displayTopicTagID=_displayTopicTagID;
 @property(nonatomic) double videoDuration; // @synthesize videoDuration=_videoDuration;
 @property(retain, nonatomic) NSString *videoURL; // @synthesize videoURL=_videoURL;
 @property(retain, nonatomic) NSMutableArray *flintFontResourceIDs; // @synthesize flintFontResourceIDs=_flintFontResourceIDs;
@@ -167,6 +167,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasTitleCompact;
 @property(readonly, nonatomic) _Bool hasGlobalCohort;
 @property(readonly, nonatomic) _Bool hasSourceChannelCohort;
 - (id)topicsAtIndex:(unsigned long long)arg1;
@@ -228,7 +229,6 @@
 - (void)clearIAdCategories;
 @property(nonatomic) _Bool hasIsSponsored;
 @property(nonatomic) _Bool hasIsFeatureCandidate;
-@property(readonly, nonatomic) _Bool hasDisplayTopicTagID;
 @property(nonatomic) _Bool hasVideoDuration;
 @property(readonly, nonatomic) _Bool hasVideoURL;
 - (id)flintFontResourceIDsAtIndex:(unsigned long long)arg1;

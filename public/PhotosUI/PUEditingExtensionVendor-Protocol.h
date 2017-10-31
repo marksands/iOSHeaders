@@ -7,6 +7,7 @@
 @class PHAdjustmentData;
 
 @protocol PUEditingExtensionVendor
+- (void)querySDKVersionWithResponseHandler:(void (^)(unsigned int))arg1;
 - (void)cancelContentEditing;
 - (void)finishContentEditing;
 - (void)beginContentEditingWithCompletionHandler:(void (^)(NSError *))arg1;

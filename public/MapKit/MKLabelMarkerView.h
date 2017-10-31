@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_configureBalloonForDataIconImageKeys:(id)arg1 scale:(double)arg2;
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)_addAnchorDotViewIfNeeded;
 - (void)_didHideBalloonCalloutView:(id)arg1;
 - (void)_addBalloonCalloutView:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

@@ -8,21 +8,20 @@
 
 #import "SXTextViewDelegate.h"
 
-@class NSString, SXTextView;
+@class NSString, SXTangierController, SXTextView;
 
 @interface SXTextComponentView : SXComponentView <SXTextViewDelegate>
 {
-    SXTextComponentView *_previousTextComponentView;
-    SXTextComponentView *_nextTextComponentView;
+    SXTangierController *_tangierController;
     SXTextView *_textView;
     struct CGSize _calculatedSize;
 }
 
 @property(nonatomic) struct CGSize calculatedSize; // @synthesize calculatedSize=_calculatedSize;
 @property(retain, nonatomic) SXTextView *textView; // @synthesize textView=_textView;
-@property(nonatomic) __weak SXTextComponentView *nextTextComponentView; // @synthesize nextTextComponentView=_nextTextComponentView;
-@property(nonatomic) __weak SXTextComponentView *previousTextComponentView; // @synthesize previousTextComponentView=_previousTextComponentView;
+@property(readonly, nonatomic) __weak SXTangierController *tangierController; // @synthesize tangierController=_tangierController;
 - (void).cxx_destruct;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)provideInfosLayoutTo:(id)arg1;
 - (id)accessibilityContextualLabelForTextView:(id)arg1;
 - (id)accessibilityCustomRotorMembershipForTextView:(id)arg1;
@@ -31,18 +30,16 @@
 - (void)didApplyBehavior:(id)arg1;
 - (void)animationDidFinish:(id)arg1;
 - (void)animationDidStart:(id)arg1;
-- (_Bool)gestureShouldBegin:(id)arg1;
 - (id)textSource;
-- (struct CGRect)frameForTextRange:(struct _NSRange)arg1;
 - (struct CGRect)absoluteTextViewFrame;
-- (void)applyAddition:(id)arg1;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)receivedInfo:(id)arg1 fromLayoutingPhaseWithIdentifier:(id)arg2;
 - (void)setupTextView;
 - (void)setPresentationFrame:(struct CGRect)arg1;
 - (void)setAbsoluteFrame:(struct CGRect)arg1;
 - (void)didMoveToWindow;
-- (void)presentComponent;
+- (void)presentComponentWithChanges:(CDStruct_1cc9d0d0)arg1;
+- (id)initWithDocumentController:(id)arg1 viewport:(id)arg2 presentationDelegate:(id)arg3 analyticsReporting:(id)arg4 componentStyleRendererFactory:(id)arg5 tangierController:(id)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

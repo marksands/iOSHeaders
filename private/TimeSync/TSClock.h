@@ -15,6 +15,8 @@
     unsigned long long _clockIdentifier;
 }
 
++ (id)clockNameForClockIdentifier:(unsigned long long)arg1;
++ (id)diagnosticInfoForClockIdentifier:(unsigned long long)arg1;
 + (unsigned long long)_mach_absolute_time;
 @property(nonatomic) unsigned long long clockIdentifier; // @synthesize clockIdentifier=_clockIdentifier;
 - (void)dealloc;

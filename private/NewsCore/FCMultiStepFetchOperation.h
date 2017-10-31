@@ -6,16 +6,16 @@
 
 #import <NewsCore/FCFetchOperation.h>
 
-@class FCMutexLock, NSMutableArray;
+@class NFMutexLock, NSMutableArray;
 
 @interface FCMultiStepFetchOperation : FCFetchOperation
 {
     NSMutableArray *_steps;
     NSMutableArray *_stepResults;
-    FCMutexLock *_accessLock;
+    NFMutexLock *_accessLock;
 }
 
-@property(retain, nonatomic) FCMutexLock *accessLock; // @synthesize accessLock=_accessLock;
+@property(retain, nonatomic) NFMutexLock *accessLock; // @synthesize accessLock=_accessLock;
 @property(retain, nonatomic) NSMutableArray *stepResults; // @synthesize stepResults=_stepResults;
 @property(retain, nonatomic) NSMutableArray *steps; // @synthesize steps=_steps;
 - (void).cxx_destruct;

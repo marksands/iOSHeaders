@@ -23,6 +23,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)_sourceWithBundleIdentifier:(id)arg1 name:(id)arg2 productType:(id)arg3 options:(unsigned long long)arg4;
++ (_Bool)_isPlaceholderBundleIdentifier:(id)arg1;
 + (id)_generateIdentifierForAppleDeviceWithUUID:(id)arg1;
 + (id)_generateIdentifierForAppleDevice;
 + (id)_sourceNameWithRepresentsCurrentDevice:(_Bool)arg1 defaultSource:(_Bool)arg2;

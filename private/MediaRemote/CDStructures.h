@@ -100,6 +100,10 @@ typedef struct {
     unsigned int state:1;
 } CDStruct_5accba53;
 
+typedef struct {
+    unsigned int volume:1;
+} CDStruct_731552e5;
+
 #pragma mark Named Unions
 
 union _MRColor {

@@ -26,10 +26,6 @@
 - (id)serviceLikeBuilderInHome:(id)arg1;
 - (id)accessories;
 - (id)services;
-- (id)controlPanelItems;
-- (id)allControlItems;
-- (id)incrementalStateControlItem;
-- (id)primaryStateControlItem;
 - (id)copyWithValueSource:(id)arg1;
 @property(readonly, nonatomic) id <HFHomeKitObject> homeKitObject;
 - (id)_subclass_updateWithOptions:(id)arg1;

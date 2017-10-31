@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class IDSValidationSession, NSArray, NSData, NSDate, NSDictionary, NSMutableArray, NSNumber, NSString, NSURL;
+@class NSArray, NSData, NSDate, NSDictionary, NSMutableArray, NSNumber, NSString, NSURL;
 
 @interface IDSBaseMessage : NSObject <NSCopying>
 {
@@ -45,7 +45,7 @@
     long long _importanceLevel;
     long long _deliveryMechanism;
     NSString *_underlyingService;
-    IDSValidationSession *_validationSession;
+    id <IDSBaseMessageSigningSession> _signingSession;
     NSURL *_URLOverride;
     unsigned long long _sentByteCount;
     unsigned long long _receivedByteCount;
@@ -56,7 +56,7 @@
 @property(nonatomic) unsigned long long receivedByteCount; // @synthesize receivedByteCount=_receivedByteCount;
 @property(nonatomic) unsigned long long sentByteCount; // @synthesize sentByteCount=_sentByteCount;
 @property(copy) NSURL *URLOverride; // @synthesize URLOverride=_URLOverride;
-@property(retain, nonatomic) IDSValidationSession *validationSession; // @synthesize validationSession=_validationSession;
+@property(retain, nonatomic) id <IDSBaseMessageSigningSession> signingSession; // @synthesize signingSession=_signingSession;
 @property(copy) NSString *underlyingService; // @synthesize underlyingService=_underlyingService;
 @property long long deliveryMechanism; // @synthesize deliveryMechanism=_deliveryMechanism;
 @property long long importanceLevel; // @synthesize importanceLevel=_importanceLevel;

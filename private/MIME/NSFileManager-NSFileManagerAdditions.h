@@ -7,6 +7,7 @@
 #import "NSFileManager.h"
 
 @interface NSFileManager (NSFileManagerAdditions)
++ (id)mf_defaultVolumeMountPoint;
 - (id)mf_valueForExtendedAttribute:(id)arg1 ofItemAtPath:(id)arg2 error:(id *)arg3;
 - (_Bool)mf_setValue:(id)arg1 forExtendedAttribute:(id)arg2 ofItemAtPath:(id)arg3 error:(id *)arg4;
 - (_Bool)mf_protectFileAtPath:(id)arg1 withClass:(int)arg2 error:(id *)arg3;

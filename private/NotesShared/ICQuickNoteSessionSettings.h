@@ -10,8 +10,10 @@
 {
 }
 
-+ (void)disableNotesOnLockScreenIfNecessary;
++ (long long)showOnLockScreenSettingValue;
 + (_Bool)hasAccountSupportingLockScreen;
++ (void)updateNotesOnLockScreenWhenAccountSupportingLockScreenAdded;
++ (void)disableNotesOnLockScreenIfNecessary;
 + (void)setSessionDuration:(long long)arg1;
 + (long long)sessionDuration;
 + (void)setShowOnLockScreen:(long long)arg1;

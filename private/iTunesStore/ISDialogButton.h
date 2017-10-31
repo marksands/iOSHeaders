@@ -19,9 +19,11 @@
     NSString *_subtarget;
     NSDictionary *_dictionary;
     _Bool _tidContinue;
+    long long _tag;
 }
 
 + (id)buttonWithTitle:(id)arg1;
+@property long long tag; // @synthesize tag=_tag;
 @property long long urlType; // @synthesize urlType=_urlType;
 @property(retain) NSString *title; // @synthesize title=_title;
 @property(copy) NSString *subtarget; // @synthesize subtarget=_subtarget;

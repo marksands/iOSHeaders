@@ -8,22 +8,26 @@
 
 #import "SXMediaPlaybackDelegate.h"
 
-@class AVPlayerViewController, NSString, SXAVPlayer, SXAudioComponentOverlayView;
+@class AVPlayerViewController, NSString, SXAVPlayer, SXAudioComponentOverlayView, SXHost;
 
 @interface SXAudioComponentView : SXMediaComponentView <SXMediaPlaybackDelegate>
 {
     _Bool _audioHasPlayed;
     _Bool _startPlaybackWhenReady;
+    id <SXResourceDataSource> _resourceDataSource;
+    SXHost *_host;
+    SXAudioComponentOverlayView *_overlayView;
     AVPlayerViewController *_playerViewController;
     SXAVPlayer *_player;
-    SXAudioComponentOverlayView *_overlayView;
 }
 
 @property(nonatomic) _Bool startPlaybackWhenReady; // @synthesize startPlaybackWhenReady=_startPlaybackWhenReady;
 @property(nonatomic) _Bool audioHasPlayed; // @synthesize audioHasPlayed=_audioHasPlayed;
-@property(retain, nonatomic) SXAudioComponentOverlayView *overlayView; // @synthesize overlayView=_overlayView;
 @property(retain, nonatomic) SXAVPlayer *player; // @synthesize player=_player;
 @property(retain, nonatomic) AVPlayerViewController *playerViewController; // @synthesize playerViewController=_playerViewController;
+@property(readonly, nonatomic) SXAudioComponentOverlayView *overlayView; // @synthesize overlayView=_overlayView;
+@property(readonly, nonatomic) SXHost *host; // @synthesize host=_host;
+@property(readonly, nonatomic) id <SXResourceDataSource> resourceDataSource; // @synthesize resourceDataSource=_resourceDataSource;
 - (void).cxx_destruct;
 - (_Bool)allowHierarchyRemoval;
 - (void)submitMediaEngageCompleteEvent;
@@ -43,8 +47,9 @@
 - (void)loadImage;
 - (void)setupPlayerViewControllerWithPlayer:(id)arg1;
 - (void)playButtonTapped:(id)arg1;
-- (void)presentComponent;
-- (id)initWithComponent:(id)arg1 configuration:(id)arg2 context:(id)arg3 analyticsReporting:(id)arg4 appStateMonitor:(id)arg5;
+- (void)presentComponentWithChanges:(CDStruct_1cc9d0d0)arg1;
+- (void)loadComponent:(id)arg1;
+- (id)initWithDocumentController:(id)arg1 viewport:(id)arg2 presentationDelegate:(id)arg3 analyticsReporting:(id)arg4 componentStyleRendererFactory:(id)arg5 appStateMonitor:(id)arg6 resourceDataSource:(id)arg7 host:(id)arg8;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -12,7 +12,7 @@
 #import "RemoteUIControllerDelegate.h"
 #import "UINavigationControllerDelegate.h"
 
-@class AAFamilyDetailsResponse, AAFamilyMember, AAGrandSlamSigner, AAUIProfilePictureStore, AAUIServerUIHookHandler, ACAccount, ACAccountStore, CNMonogrammer, FAChildAccountCreationController, FACircleRemoteUIDelegate, FAFamilyCreditCard, FAFamilyNotificationObserver, FARequestConfigurator, FASharedSubscriptionSpecifierProvider, NSArray, NSMutableDictionary, NSMutableURLRequest, NSObject, NSOperationQueue, NSString, NSURL, PSSpecifier, RemoteUIController, SSAccount, UINavigationController, UITableViewCell;
+@class AAFamilyDetailsResponse, AAFamilyMember, AAGrandSlamSigner, AAUIProfilePictureStore, AAUIRemoteUIController, AAUIServerUIHookHandler, ACAccount, ACAccountStore, CNMonogrammer, FAChildAccountCreationController, FACircleRemoteUIDelegate, FAFamilyCreditCard, FAFamilyNotificationObserver, FARequestConfigurator, FASharedSubscriptionSpecifierProvider, NSArray, NSMutableDictionary, NSMutableURLRequest, NSObject, NSOperationQueue, NSString, NSURL, PSSpecifier, SSAccount, UINavigationController, UITableViewCell;
 
 @interface FAFamilySettingsViewController : ACUIViewController <FAAddFamilyMemberDelegate, FAChildAccountCreationDelegate, UINavigationControllerDelegate, RemoteUIControllerDelegate, FASharedSubscriptionSpecifierProviderDelegeate>
 {
@@ -28,9 +28,9 @@
     PSSpecifier *_addFamilyMemberCell;
     AAUIProfilePictureStore *_profilePictureStore;
     CNMonogrammer *_monogrammer;
-    RemoteUIController *_iCloudRemoteUIController;
-    RemoteUIController *_appleIDRemoteUIController;
-    RemoteUIController *_familyV2RemoteUIController;
+    AAUIRemoteUIController *_iCloudRemoteUIController;
+    AAUIRemoteUIController *_appleIDRemoteUIController;
+    AAUIRemoteUIController *_familyV2RemoteUIController;
     FACircleRemoteUIDelegate *_familyRemoteUIDelegate;
     UITableViewCell *_activeCell;
     NSURL *_activeURL;

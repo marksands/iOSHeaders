@@ -8,14 +8,10 @@
 
 #import "AVPlayerItemDelegate.h"
 
-@class NSString;
+@class NSString, SXKeyValueObserver;
 
 @interface SXAVPlayer : AVPlayer <AVPlayerItemDelegate>
 {
-    _Bool _isObservingTimeControlStatus;
-    _Bool _isObservingStatus;
-    _Bool _isObservingLoadedTimeRanges;
-    _Bool _isObservingDuration;
     int _audioMode;
     int _playbackPosition;
     int _playbackStatus;
@@ -25,18 +21,20 @@
     double _elapsedTime;
     double _duration;
     double _frameRate;
-    double _totalTimePlayed;
     id _timeObserver;
-    double _playbackStartTime;
+    SXKeyValueObserver *_timeControlStatusObserver;
+    SXKeyValueObserver *_statusObserver;
+    SXKeyValueObserver *_durationObserver;
+    SXKeyValueObserver *_loadedTimeRangesObserver;
+    CDStruct_1b6d18a9 _cumulativeTimePlayed;
 }
 
-@property(nonatomic) _Bool isObservingDuration; // @synthesize isObservingDuration=_isObservingDuration;
-@property(nonatomic) _Bool isObservingLoadedTimeRanges; // @synthesize isObservingLoadedTimeRanges=_isObservingLoadedTimeRanges;
-@property(nonatomic) _Bool isObservingStatus; // @synthesize isObservingStatus=_isObservingStatus;
-@property(nonatomic) _Bool isObservingTimeControlStatus; // @synthesize isObservingTimeControlStatus=_isObservingTimeControlStatus;
-@property(nonatomic) double playbackStartTime; // @synthesize playbackStartTime=_playbackStartTime;
+@property(retain, nonatomic) SXKeyValueObserver *loadedTimeRangesObserver; // @synthesize loadedTimeRangesObserver=_loadedTimeRangesObserver;
+@property(retain, nonatomic) SXKeyValueObserver *durationObserver; // @synthesize durationObserver=_durationObserver;
+@property(retain, nonatomic) SXKeyValueObserver *statusObserver; // @synthesize statusObserver=_statusObserver;
+@property(retain, nonatomic) SXKeyValueObserver *timeControlStatusObserver; // @synthesize timeControlStatusObserver=_timeControlStatusObserver;
+@property(nonatomic) CDStruct_1b6d18a9 cumulativeTimePlayed; // @synthesize cumulativeTimePlayed=_cumulativeTimePlayed;
 @property(retain, nonatomic) id timeObserver; // @synthesize timeObserver=_timeObserver;
-@property(nonatomic) double totalTimePlayed; // @synthesize totalTimePlayed=_totalTimePlayed;
 @property(nonatomic) double frameRate; // @synthesize frameRate=_frameRate;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(nonatomic) double elapsedTime; // @synthesize elapsedTime=_elapsedTime;
@@ -53,12 +51,11 @@
 - (void)statusChanged;
 - (void)setElapsedTime:(double)arg1 duration:(double)arg2;
 - (void)playedToEnd:(id)arg1;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)removeObservers;
 - (void)addObservers;
 - (void)stopTimeObserver;
 - (void)startTimeObserver;
 - (void)loadFrameRate;
+@property(readonly, nonatomic) double totalTimePlayed;
 - (void)seekToStartWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 audioMode:(int)arg2;

@@ -15,10 +15,11 @@
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
     MAAsset *_deviceAssetManagement;
-    NSDictionary *_productTypesMappingTable;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
+    NSDictionary *_productTypesMappingTable;
 }
 
+@property(readonly, nonatomic) NSDictionary *productTypesMappingTable; // @synthesize productTypesMappingTable=_productTypesMappingTable;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
 - (id)additionalMappedProducts;

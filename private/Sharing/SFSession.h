@@ -87,6 +87,7 @@
     CDUnknownBlockType _promptForPINHandler;
     CDUnknownBlockType _receivedObjectHandler;
     CDUnknownBlockType _receivedRequestHandler;
+    CDUnknownBlockType _sessionStartedHandler;
     CDUnknownBlockType _timeoutHandler;
     CDUnknownBlockType _eventMessageHandler;
     CDUnknownBlockType _requestMessageHandler;
@@ -114,6 +115,7 @@
 @property(copy, nonatomic) CDUnknownBlockType requestMessageHandler; // @synthesize requestMessageHandler=_requestMessageHandler;
 @property(copy, nonatomic) CDUnknownBlockType eventMessageHandler; // @synthesize eventMessageHandler=_eventMessageHandler;
 @property(copy, nonatomic) CDUnknownBlockType timeoutHandler; // @synthesize timeoutHandler=_timeoutHandler;
+@property(copy, nonatomic) CDUnknownBlockType sessionStartedHandler; // @synthesize sessionStartedHandler=_sessionStartedHandler;
 @property(copy, nonatomic) CDUnknownBlockType receivedRequestHandler; // @synthesize receivedRequestHandler=_receivedRequestHandler;
 @property(copy, nonatomic) CDUnknownBlockType receivedObjectHandler; // @synthesize receivedObjectHandler=_receivedObjectHandler;
 @property(copy, nonatomic) CDUnknownBlockType promptForPINHandler; // @synthesize promptForPINHandler=_promptForPINHandler;

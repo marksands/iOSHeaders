@@ -14,7 +14,6 @@
 {
     void *_client;
     NSObject<OS_dispatch_queue> *_serialQueue;
-    int _notifyRestoreClientStateForLaunch;
     void *_activePlayerPath;
     NSMutableArray *_playerClients;
 }

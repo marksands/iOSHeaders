@@ -73,6 +73,7 @@
 - (struct CGRect)_chartRect;
 - (double)_yAxisLabelPadding;
 - (double)_xAxisLabelPaddingForBackground:(_Bool)arg1;
+- (void)_orderSubviews;
 - (void)_layoutChartSeries;
 - (void)_layoutXAxisLabels;
 - (void)_layoutYAxisLabels;

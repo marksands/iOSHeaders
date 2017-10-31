@@ -33,6 +33,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)_accessibility_controlToActivateForHUDGestureLiftAtPoint:(struct CGPoint)arg1;
 - (id)_accessibility_HUDItemForPoint:(struct CGPoint)arg1;
+- (double)_shim_backgroundAlpha;
 - (void)_shim_setBackdropGroupName:(id)arg1;
 - (id)_shim_backdropGroupName;
 - (void)_shim_setDisableBlurTinting:(_Bool)arg1;
@@ -59,6 +60,7 @@ __attribute__((visibility("hidden")))
 - (id)refreshControlHost;
 - (void)setRefreshControlHost:(id)arg1;
 - (void)setupTopNavigationItem;
+- (void)_setupTopNavigationItemAnimated:(_Bool)arg1;
 - (void)_updateTitleViewForOpacityChange;
 - (void)updateTopNavigationItemTitleView;
 - (void)updateTopNavigationItemAnimated:(_Bool)arg1;

@@ -24,6 +24,7 @@
 - (unsigned long long)fp_fileSize;
 - (long long)fp_relationshipToItemAtURL:(id)arg1;
 - (id)fp_relativePathOf:(id)arg1;
+- (id)fp_scopeDescription;
 - (id)fp_shortDescription;
 - (id)fp_issueSandboxExtensionOfClass:(const char *)arg1 error:(id *)arg2;
 @end

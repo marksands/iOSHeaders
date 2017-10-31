@@ -25,9 +25,9 @@
 - (void)clearCurrentInteraction;
 - (void)showContentForLocation:(DOCConcreteLocation *)arg1 completionBlock:(void (^)(DOCConcreteLocation *))arg2;
 - (void)showPickerForLocation:(DOCConcreteLocation *)arg1 completionBlock:(void (^)(void))arg2;
-- (void)createFolderNamed:(NSString *)arg1;
 - (void)importDocumentWithURL:(NSURL *)arg1 intoLocation:(DOCConcreteLocation *)arg2 completion:(void (^)(DOCItem *, NSError *))arg3;
 - (void)importDocumentWithURLWrapper:(FPSandboxingURLWrapper *)arg1 intoLocation:(DOCConcreteLocation *)arg2 completion:(void (^)(DOCItem *, NSError *))arg3;
 - (void)getSaveLocationForCurrentBrowserOrDefaultSaveLocationWithCompletionBlock:(void (^)(DOCConcreteLocation *))arg1;
+- (FPItem *)getCurrentCollectionItem;
 @end
 

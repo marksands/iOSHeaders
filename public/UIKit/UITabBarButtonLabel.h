@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     _UITabBarItemAppearanceStorage *_appearanceStorage;
     _Bool _isSelected;
     _Bool _isHighlighted;
+    _Bool _hasSeenIdiom;
     Class _appearanceGuideClass;
     UIColor *_unselectedTintColor;
     UITabBarButton *_tabBarButton;
@@ -25,7 +26,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic, getter=_unselectedTintColor, setter=_setUnselectedTintColor:) UIColor *unselectedTintColor; // @synthesize unselectedTintColor=_unselectedTintColor;
 @property(retain, nonatomic, setter=_setAppearanceGuideClass:) Class _appearanceGuideClass; // @synthesize _appearanceGuideClass;
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)_didChangeFromIdiom:(long long)arg1 onScreen:(id)arg2 traverseHierarchy:(_Bool)arg3;
+- (long long)_idiomForFontGivenIdiom:(long long)arg1;
 - (id)_fontForIdiom:(long long)arg1;
 - (void)_applyTabBarButtonAppearanceStorage:(id)arg1 withTaggedSelectors:(id)arg2;
 - (id)_titleTextAttributesForState:(unsigned long long)arg1;

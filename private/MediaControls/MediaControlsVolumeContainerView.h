@@ -23,7 +23,10 @@
 @property(nonatomic, getter=isTransitioning) _Bool transitioning; // @synthesize transitioning=_transitioning;
 @property(retain, nonatomic) MPVolumeSlider *volumeSlider; // @synthesize volumeSlider=_volumeSlider;
 - (void).cxx_destruct;
+- (void)_updateVolumeStyle;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (void)didMoveToWindow;
+- (void)didMoveToSuperview;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

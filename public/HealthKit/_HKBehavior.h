@@ -107,6 +107,7 @@
 @property(readonly, copy, nonatomic) NSString *currentOSVersion;
 @property(readonly, copy, nonatomic) NSString *currentOSBuild;
 @property(readonly, copy, nonatomic) NSString *currentDeviceClass;
+@property(readonly, nonatomic) _Bool isCurrentDeviceN2XA;
 @property(readonly, copy, nonatomic) NSString *currentDeviceProductType;
 @property(readonly, copy, nonatomic) NSString *currentInternalDeviceModel;
 @property(readonly, copy, nonatomic) NSString *currentDeviceManufacturer;

@@ -29,6 +29,7 @@
     _Bool _isHandlingTextCheckingResults;
     _Bool _isTypingOrMarkingText;
     _Bool _isSelectingText;
+    _Bool _hasEditedCharactersAfterTextSelection;
     _Bool _isDragging;
     _Bool _isResettingBaseWritingDirection;
     _Bool _isReadingSelectionFromPasteboard;
@@ -77,6 +78,7 @@
 @property(nonatomic) _Bool isReadingSelectionFromPasteboard; // @synthesize isReadingSelectionFromPasteboard=_isReadingSelectionFromPasteboard;
 @property(nonatomic) _Bool isResettingBaseWritingDirection; // @synthesize isResettingBaseWritingDirection=_isResettingBaseWritingDirection;
 @property(nonatomic) _Bool isDragging; // @synthesize isDragging=_isDragging;
+@property(nonatomic) _Bool hasEditedCharactersAfterTextSelection; // @synthesize hasEditedCharactersAfterTextSelection=_hasEditedCharactersAfterTextSelection;
 @property(nonatomic) _Bool isSelectingText; // @synthesize isSelectingText=_isSelectingText;
 @property(nonatomic) _Bool isTypingOrMarkingText; // @synthesize isTypingOrMarkingText=_isTypingOrMarkingText;
 @property(nonatomic) _Bool isHandlingTextCheckingResults; // @synthesize isHandlingTextCheckingResults=_isHandlingTextCheckingResults;
@@ -120,6 +122,7 @@
 - (void)addAttribute:(id)arg1 value:(id)arg2 range:(struct _NSRange)arg3;
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withString:(id)arg2;
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withAttributedString:(id)arg2;
+- (id)correctParagraphStyleReuseForRange:(struct _NSRange)arg1 withNewAttributedString:(id)arg2;
 - (void)convertNSTablesToTabs:(id)arg1;
 - (_Bool)shouldBreakUndoCoalescingWithReplacementRange:(struct _NSRange)arg1 replacementLength:(unsigned long long)arg2;
 - (_Bool)isDeletingContentAttachmentWithReplacementRange:(struct _NSRange)arg1 replacementLength:(unsigned long long)arg2;

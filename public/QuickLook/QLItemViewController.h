@@ -66,6 +66,7 @@
 - (void)buttonPressedWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)fullscreenBackgroundColor;
 - (long long)preferredWhitePointAdaptivityStyle;
+- (_Bool)automaticallyUpdateScrollViewIndicatorInset;
 - (_Bool)automaticallyUpdateScrollViewContentInset;
 - (_Bool)automaticallyUpdateScrollViewContentOffset;
 - (_Bool)shouldRecognizeGestureRecognizer:(id)arg1;
@@ -78,6 +79,7 @@
 - (id)excludedToolbarButtonIdentifiersForTraitCollection:(id)arg1;
 - (id)toolbarButtonsForTraitCollection:(id)arg1;
 - (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (_Bool)canToggleFullScreen;
 - (_Bool)canEnterFullScreen;
 - (void)prepareForActionSheetPresentation;
 - (void)previewBecameFullScreen:(_Bool)arg1 animated:(_Bool)arg2;

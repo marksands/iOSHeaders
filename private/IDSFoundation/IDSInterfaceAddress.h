@@ -16,6 +16,8 @@
     IDSSockAddrWrapper *_destination;
     NSString *_name;
     unsigned int _index;
+    NSString *_delegatedName;
+    unsigned int _delegatedIndex;
     NSData *_bssid;
     _Bool _AWDL;
     _Bool _Cellular;
@@ -29,6 +31,8 @@
 @property(readonly) NSData *bssid; // @synthesize bssid=_bssid;
 @property(readonly, getter=isCellular) _Bool Cellular; // @synthesize Cellular=_Cellular;
 @property(readonly, getter=isAWDL) _Bool AWDL; // @synthesize AWDL=_AWDL;
+@property(readonly) unsigned int delegatedIndex; // @synthesize delegatedIndex=_delegatedIndex;
+@property(readonly) NSString *delegatedName; // @synthesize delegatedName=_delegatedName;
 @property(readonly) unsigned int index; // @synthesize index=_index;
 @property(readonly) NSString *name; // @synthesize name=_name;
 @property(readonly) IDSSockAddrWrapper *destination; // @synthesize destination=_destination;

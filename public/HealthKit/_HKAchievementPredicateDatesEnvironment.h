@@ -16,6 +16,7 @@
     NSDate *_endOfToday;
     NSDate *_startOfYesterday;
     long long _firstDayOfFitnessWeek;
+    long long _lastDayOfFitnessWeek;
     NSDate *_firstWristOnDateToday;
     double _currentTimeZoneOffset;
     long long _dayOfWeekToday;

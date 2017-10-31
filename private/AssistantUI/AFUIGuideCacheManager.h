@@ -24,7 +24,7 @@
 - (_Bool)_shouldCheckForUpdateAtDate:(id)arg1 lastAppUpdateTime:(id)arg2;
 - (void)checkGuideUpdate;
 - (void)_checkGuideUpdateUsingAFClientLiteWithTag:(id)arg1;
-- (void)clearCachedGuide;
+- (void)_clearCachedGuide;
 - (void)updateCacheWithGuideUpdate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateLastCheckedDate;
 - (_Bool)shouldCheckForUpdateWithLastAppUpdateTime:(id)arg1;

@@ -12,6 +12,7 @@
 {
     NSDictionary *_serverDict;
     _Bool _forAccountGroup;
+    _Bool _zeroAction;
     NSString *_title;
     NSString *_message;
     NSString *_altMessage;
@@ -25,6 +26,7 @@
 }
 
 + (void)clearFollowupWithController:(id)arg1 completion:(CDUnknownBlockType)arg2;
+@property(nonatomic, getter=isZeroAction) _Bool zeroAction; // @synthesize zeroAction=_zeroAction;
 @property(nonatomic, getter=isForAccountGroup) _Bool forAccountGroup; // @synthesize forAccountGroup=_forAccountGroup;
 @property(retain, nonatomic) ICQLink *noteClearLink; // @synthesize noteClearLink=_noteClearLink;
 @property(retain, nonatomic) ICQLink *noteDismissLink; // @synthesize noteDismissLink=_noteDismissLink;

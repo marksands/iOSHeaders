@@ -8,11 +8,10 @@
 
 #import "NSCopying.h"
 
-@class MPAVRoute, NSArray, NSString;
+@class MPAVRoute, NSString;
 
 @interface MPCPlayerPath : NSObject <NSCopying>
 {
-    NSArray *_defaultConstraints;
     NSString *_bundleID;
     NSString *_playerID;
     void *_mediaRemotePlayerPath;
@@ -28,6 +27,8 @@
 @property(readonly, copy, nonatomic) NSString *playerID; // @synthesize playerID=_playerID;
 @property(readonly, copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 - (void).cxx_destruct;
+- (void *)_createMediaRemoteOriginForInvalidationObservation;
+- (void *)_createMediaRemotePlayerPathWithOrigin:(void *)arg1;
 - (void)resolveWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic, getter=isInProcess) _Bool inProcess;
 - (id)description;
