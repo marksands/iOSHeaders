@@ -8,13 +8,15 @@
 
 #import "NSSecureCoding.h"
 
-@class MRAVDistantOutputDevice, MRDistantExternalDevice, NSArray, NSString, NSXPCListenerEndpoint;
+@class MRAVDistantOutputDevice, MRDistantExternalDevice, NSArray, NSObject<OS_dispatch_queue>, NSString, NSXPCListenerEndpoint;
 
 @interface MRAVDistantEndpoint : MRAVEndpoint <NSSecureCoding>
 {
+    NSObject<OS_dispatch_queue> *_accessSerialQueue;
     MRDistantExternalDevice *_distantExternalDevice;
     NSString *_localizedName;
     NSString *_uniqueIdentifier;
+    NSString *_instanceIdentifier;
     _Bool _isLocalEndpoint;
     NSXPCListenerEndpoint *_externalDeviceListenerEndpoint;
     NSArray *_distantOutputDevices;
@@ -26,6 +28,7 @@
 @property(copy, nonatomic) NSArray *distantOutputDevices; // @synthesize distantOutputDevices=_distantOutputDevices;
 @property(retain, nonatomic) NSXPCListenerEndpoint *externalDeviceListenerEndpoint; // @synthesize externalDeviceListenerEndpoint=_externalDeviceListenerEndpoint;
 - (_Bool)isLocalEndpoint;
+- (id)instanceIdentifier;
 - (id)uniqueIdentifier;
 @property(copy, nonatomic) NSString *localizedName;
 - (id)designatedGroupLeader;

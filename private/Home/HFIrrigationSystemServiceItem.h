@@ -12,7 +12,6 @@
 
 - (id)currentStateActionBuildersForHome:(id)arg1;
 - (_Bool)containsActionableCharacteristics;
-- (id)_descriptionResultsForActiveState:(_Bool)arg1 inUse:(long long)arg2 programMode:(long long)arg3;
 - (id)_subclass_updateWithOptions:(id)arg1;
 - (id)createControlItems;
 - (id)servicesToReadForCharacteristicType:(id)arg1;

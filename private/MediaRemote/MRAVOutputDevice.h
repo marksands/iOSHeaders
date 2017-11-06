@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDictionary, NSString, _MRAVOutputDeviceDescriptorProtobuf;
+@class MRAVOutputDeviceSourceInfo, NSData, NSDictionary, NSString, _MRAVOutputDeviceDescriptorProtobuf;
 
 @interface MRAVOutputDevice : NSObject
 {
@@ -32,12 +32,14 @@
     NSData *_MACAddress;
     NSDictionary *_modelSpecificInfo;
     NSString *_playingPairedDeviceName;
+    MRAVOutputDeviceSourceInfo *_sourceInfo;
     void *_endpoint;
 }
 
 + (id)localDeviceUID;
 @property(nonatomic) void *endpoint; // @synthesize endpoint=_endpoint;
 @property(nonatomic) float volume; // @synthesize volume=_volume;
+@property(readonly, nonatomic) MRAVOutputDeviceSourceInfo *sourceInfo; // @synthesize sourceInfo=_sourceInfo;
 @property(readonly, nonatomic, getter=isVolumeControlAvailable) _Bool volumeControlAvailable; // @synthesize volumeControlAvailable=_volumeControlAvailable;
 @property(readonly, nonatomic) _Bool requiresAuthorization; // @synthesize requiresAuthorization=_requiresAuthorization;
 @property(readonly, nonatomic) _Bool supportsExternalScreen; // @synthesize supportsExternalScreen=_supportsExternalScreen;

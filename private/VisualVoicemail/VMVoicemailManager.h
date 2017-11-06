@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSOrderedSet, VMClientWrapper, VMVoicemailCapabilities;
+@class NSArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSOrderedSet, NSProgress, VMClientWrapper, VMVoicemailCapabilities;
 
 @interface VMVoicemailManager : NSObject
 {
@@ -14,10 +14,12 @@
     _Bool _online;
     _Bool _subscribed;
     _Bool _syncInProgress;
+    _Bool _transcribing;
     _Bool _transcriptionEnabled;
     int _token;
     NSObject<OS_dispatch_queue> *_completionQueue;
     unsigned long long _storageUsage;
+    NSProgress *_transcriptionProgress;
     NSOrderedSet *_voicemails;
     VMClientWrapper *_client;
     VMVoicemailCapabilities *_capabilities;
@@ -31,12 +33,14 @@
 @property(retain, nonatomic) VMVoicemailCapabilities *capabilities; // @synthesize capabilities=_capabilities;
 @property(retain, nonatomic) VMClientWrapper *client; // @synthesize client=_client;
 @property(copy, nonatomic) NSOrderedSet *voicemails; // @synthesize voicemails=_voicemails;
+@property(readonly, nonatomic) NSProgress *transcriptionProgress; // @synthesize transcriptionProgress=_transcriptionProgress;
 @property(nonatomic) unsigned long long storageUsage; // @synthesize storageUsage=_storageUsage;
 @property(readonly, nonatomic, getter=isTranscriptionEnabled) _Bool transcriptionEnabled; // @synthesize transcriptionEnabled=_transcriptionEnabled;
 - (void).cxx_destruct;
 @property(nonatomic, getter=isSyncInProgress) _Bool syncInProgress; // @synthesize syncInProgress=_syncInProgress;
 @property(nonatomic, getter=isMessageWaiting) _Bool messageWaiting; // @synthesize messageWaiting=_messageWaiting;
 @property(nonatomic, getter=isSubscribed) _Bool subscribed; // @synthesize subscribed=_subscribed;
+@property(nonatomic, getter=isTranscribing) _Bool transcribing; // @synthesize transcribing=_transcribing;
 @property(nonatomic, getter=isOnline) _Bool online; // @synthesize online=_online;
 - (void)voicemailsUpdated:(id)arg1;
 @property(readonly, nonatomic) unsigned long long maximumPasswordLength;

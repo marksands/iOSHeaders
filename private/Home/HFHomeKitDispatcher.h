@@ -105,6 +105,7 @@
 - (void)coordinator:(id)arg1 homeSensingStatusDidChange:(_Bool)arg2;
 - (void)coordinator:(id)arg1 locationSensingAvailabilityDidChange:(_Bool)arg2;
 - (void)user:(id)arg1 didUpdateAssistantAccessControl:(id)arg2 forHome:(id)arg3;
+- (void)softwareUpdate:(id)arg1 didUpdateDocumentationAvailable:(_Bool)arg2;
 - (void)softwareUpdate:(id)arg1 didUpdateDocumentation:(id)arg2;
 - (void)softwareUpdate:(id)arg1 didUpdateState:(long long)arg2;
 - (void)softwareUpdateController:(id)arg1 didUpdateAvailableUpdate:(id)arg2;

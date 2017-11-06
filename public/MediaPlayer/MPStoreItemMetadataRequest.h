@@ -16,6 +16,7 @@
     NSArray *_itemIdentifiers;
     NSNumber *_timeoutInterval;
     NSString *_platform;
+    double _retryDelay;
     NSString *_clientIdentifier;
     long long _personalizationStyle;
     ICClientInfo *_clientInfo;
@@ -32,6 +33,7 @@
 @property(nonatomic) long long personalizationStyle; // @synthesize personalizationStyle=_personalizationStyle;
 @property(copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 @property(nonatomic) _Bool shouldIgnoreCache; // @synthesize shouldIgnoreCache=_shouldIgnoreCache;
+@property(nonatomic) double retryDelay; // @synthesize retryDelay=_retryDelay;
 @property(copy, nonatomic) NSString *platform; // @synthesize platform=_platform;
 @property(copy, nonatomic) NSNumber *timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
 @property(copy, nonatomic) NSArray *itemIdentifiers; // @synthesize itemIdentifiers=_itemIdentifiers;
@@ -42,6 +44,7 @@
 @property(copy, nonatomic) NSString *requestingBundleVersion;
 @property(copy, nonatomic) NSString *requestingBundleIdentifier;
 @property(readonly, nonatomic, getter=isPersonalized) _Bool personalized;
+- (id)init;
 
 @end
 

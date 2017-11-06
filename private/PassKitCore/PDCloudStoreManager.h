@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CKContainer, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, PKPaymentTransactionProcessor, PKPeerPaymentAccount;
+@class CKContainer, NSError, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, PKPaymentTransactionProcessor, PKPeerPaymentAccount;
 
 @interface PDCloudStoreManager : NSObject
 {
@@ -18,6 +18,7 @@
     NSMutableDictionary *_completedFetchTimestampByZoneID;
     PKPaymentTransactionProcessor *_transactionProcessor;
     NSMutableSet *_initalizationCompletionHandlers;
+    NSError *_operationError;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_source> *_retryTimer;
     NSObject<OS_dispatch_group> *_batchUpdateGroup;
@@ -37,9 +38,10 @@
 @property(readonly, nonatomic) id <PDCloudStoreDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (void)_addOperation:(id)arg1;
+- (id)_errorWithCode:(long long)arg1 description:(id)arg2;
 - (id)_cannotPerformActionErrorWithFailureReason:(id)arg1;
 - (void)_keychainSyncFinishedFired;
-- (void)_callInitalizationCompletionHandlersWithSuccess:(_Bool)arg1;
+- (void)_callInitalizationCompletionHandlersWithSuccess:(_Bool)arg1 error:(id)arg2;
 - (void)_stopFetchRetryTimer;
 - (void)_startFetchRetryTimerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_resetZonesByName;
@@ -88,7 +90,7 @@
 - (id)lastFetchDateForZoneWithName:(id)arg1;
 - (void)invalidateCloudStore;
 - (id)cloudStoreSpecificKeysForItem:(id)arg1;
-- (void)initialCloudDatabaseSetupWithCompletion:(CDUnknownBlockType)arg1;
+- (void)initialCloudDatabaseSetupWithHandler:(CDUnknownBlockType)arg1;
 - (void)fetchAndStoreRecordsForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_fetchAndStoreChangesWithForceFetch:(_Bool)arg1 updateReasons:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)fetchAndStoreChangesWithForceFetch:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
@@ -97,13 +99,17 @@
 - (void)fetchAndStoreChangesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)removeItemsWithRecordNames:(id)arg1 itemClass:(Class)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updateCloudStoreWithLocalItems:(id)arg1 recordSpecificKeys:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)resetApplePayManateeViewWithCompletion:(CDUnknownBlockType)arg1;
+- (void)checkTLKsMissingWithCompletion:(CDUnknownBlockType)arg1;
 - (void)cloudStoreStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)canSyncTransactionFromCloudKitForPassUniqueIdentifier:(id)arg1;
 - (_Bool)canSyncTransactionToCloudKitWithBackingData:(_Bool)arg1 passUniqueIdentifier:(id)arg2 serviceIdentifier:(id)arg3;
-- (void)resetContainerWithCompletion:(CDUnknownBlockType)arg1;
+- (void)resetContainerWithHandler:(CDUnknownBlockType)arg1;
 - (void)simulateCloudStorePushWithCompletion:(CDUnknownBlockType)arg1;
 - (void)allItemsOfClassType:(Class)arg1 storeLocally:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)initWithDataSource:(id)arg1 transactionProcessor:(id)arg2;
+- (void)resetContainerWithCompletion:(CDUnknownBlockType)arg1;
+- (void)initialCloudDatabaseSetupWithCompletion:(CDUnknownBlockType)arg1;
 
 @end
 

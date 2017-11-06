@@ -347,6 +347,7 @@
 - (id)_accessibilityRetrieveImagePathLabel:(id)arg1;
 - (id)_accessibilityStatusBar;
 - (unsigned int)_accessibilityDisplayId;
+- (id)_accessibilityApplicationWindowContextIDs;
 - (unsigned int)_accessibilityContextId;
 - (id)_accessibilityParentView;
 - (id)_accessibilityWindow;

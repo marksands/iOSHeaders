@@ -15,6 +15,7 @@
 __attribute__((visibility("hidden")))
 @interface _TVListViewController : _TVMLCollectionViewController <_TVListViewCellDelegate, TVAppTemplateImpressionable, UICollectionViewDelegateFlowLayout>
 {
+    _Bool _configureForStackTemplate;
     _Bool _relatedContentElementValid;
     IKViewElement *_relatedContentElement;
     IKViewElement *_previewElement;

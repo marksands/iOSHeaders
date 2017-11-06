@@ -39,6 +39,7 @@
 - (void).cxx_destruct;
 - (void)beginUserInteractionWithFirstTouchGestureRecognizer:(id)arg1;
 @property(retain, nonatomic) id value;
+- (id)intrinsicSizeDescriptorForControlSize:(unsigned long long)arg1;
 - (void)_updateUserInteractionActive:(_Bool)arg1 forFirstTouch:(_Bool)arg2;
 - (_Bool)_shouldRequireMinimumDragDistanceForGestureRecognizer:(id)arg1;
 - (void)_updateSegmentHighlightedState;

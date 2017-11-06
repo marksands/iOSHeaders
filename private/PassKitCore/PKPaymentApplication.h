@@ -66,6 +66,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool supportsExpressSuica;
 - (_Bool)supportsExpressMode:(id)arg1;
+- (_Bool)supportsWebPaymentMode:(long long)arg1 withExclusionList:(id)arg2 clientOSVersion:(id)arg3;
 - (_Bool)supportsWebPaymentMode:(long long)arg1 withExclusionList:(id)arg2;
 @property(readonly, nonatomic) NSString *stateAsString;
 - (id)description;

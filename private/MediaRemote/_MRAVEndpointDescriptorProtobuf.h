@@ -13,6 +13,7 @@
 @interface _MRAVEndpointDescriptorProtobuf : PBCodable <NSCopying>
 {
     _MRAVOutputDeviceDescriptorProtobuf *_designatedGroupLeader;
+    NSString *_instanceIdentifier;
     NSString *_name;
     NSMutableArray *_outputDevices;
     NSString *_uniqueIdentifier;
@@ -23,6 +24,7 @@
 }
 
 + (Class)outputDevicesType;
+@property(retain, nonatomic) NSString *instanceIdentifier; // @synthesize instanceIdentifier=_instanceIdentifier;
 @property(nonatomic) _Bool isLocalEndpoint; // @synthesize isLocalEndpoint=_isLocalEndpoint;
 @property(retain, nonatomic) _MRAVOutputDeviceDescriptorProtobuf *designatedGroupLeader; // @synthesize designatedGroupLeader=_designatedGroupLeader;
 @property(retain, nonatomic) NSMutableArray *outputDevices; // @synthesize outputDevices=_outputDevices;
@@ -37,6 +39,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasInstanceIdentifier;
 @property(nonatomic) _Bool hasIsLocalEndpoint;
 @property(readonly, nonatomic) _Bool hasDesignatedGroupLeader;
 - (id)outputDevicesAtIndex:(unsigned long long)arg1;

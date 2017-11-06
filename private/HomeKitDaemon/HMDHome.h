@@ -234,6 +234,9 @@
 - (void)_deregisterStateHandler;
 - (void)_registerStateHandler;
 - (void)migrateCloudZone:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_migrateHomeMediaSettingsCloudZone:(id)arg1 migrationQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_migrateHomeSettingsCloudZone:(id)arg1 migrationQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)cleanChangesIfNoAddChangeObjectID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)homeConfigurationModelObjectWithChangeType:(unsigned long long)arg1;
 - (id)homeConfigurationUUID;
 - (id)emptyModelObjectWithChangeType:(unsigned long long)arg1;
@@ -640,7 +643,8 @@
 - (void)auditUsersForNotifications:(id)arg1;
 - (id)_populatePropertiesThatNeedNotificationsFromDictionary:(id)arg1;
 - (id)_populateCharacteristicsThatNeedNotificationsFromDictionary:(id)arg1 error:(id *)arg2;
-- (void)_modifyCharacteristicNotifications:(id)arg1 mediaNotifications:(id)arg2 enableNotification:(_Bool)arg3 withResidentDevice:(id)arg4;
+- (void)_modifyCharacteristicNotifications:(id)arg1 mediaNotifications:(id)arg2 enableNotification:(_Bool)arg3 withDevice:(id)arg4;
+- (void)modifyCharacteristicNotifications:(id)arg1 mediaNotifications:(id)arg2 enableNotification:(_Bool)arg3 withDevice:(id)arg4;
 - (void)_resubscribeForNotificationsOnResident:(id)arg1;
 - (void)resubscribeForNotificationsOnResident:(id)arg1;
 - (void)_disableNotificationsForDevices:(id)arg1;
@@ -650,6 +654,8 @@
 - (void)_modifyCharacteristicNotificationsOnRemoteGateways:(id)arg1 mediaNotifications:(id)arg2 enableNotification:(_Bool)arg3;
 - (void)_modifyCharacteristicNotificationsOnResident:(id)arg1 mediaNotifications:(id)arg2 enableNotification:(_Bool)arg3;
 - (void)_subscribeForHomeNotificationsOnDirectTransports:(_Bool)arg1;
+- (void)_enableMediaNotifications:(_Bool)arg1 forMediaAccessory:(id)arg2;
+- (void)enableHomeNotificationsForMediaAccessory:(id)arg1;
 - (void)_subscribeForNotificationFromRemoteGateway:(_Bool)arg1;
 - (void)_subscribeForHomeNotificationsFromRemoteGateway:(_Bool)arg1;
 - (void)subscribeForNotificationsFromRemoteGateway;

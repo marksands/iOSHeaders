@@ -9,6 +9,7 @@
 @class UIGestureRecognizer;
 
 @protocol HUQuickControlInteractiveContentContaining <NSObject>
+@property(retain, nonatomic) id <HULayoutAnchorProviding> preferredFrameLayoutGuide;
 @property(nonatomic, getter=isUserInteractionEnabled) _Bool userInteractionEnabled;
 @property(nonatomic) __weak id <HUQuickControlContentHosting> quickControlHost;
 - (void)beginUserInteractionWithFirstTouchGestureRecognizer:(UIGestureRecognizer *)arg1;

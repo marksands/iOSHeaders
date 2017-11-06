@@ -11,8 +11,8 @@
 }
 
 - (unsigned long long)type;
-@property(readonly, nonatomic) _Bool volumeControlAvailable;
-- (id)initWithAvailableFlag:(_Bool)arg1;
+@property(readonly, nonatomic) int capabilities;
+- (id)initWithCapabilities:(int)arg1;
 
 @end
 

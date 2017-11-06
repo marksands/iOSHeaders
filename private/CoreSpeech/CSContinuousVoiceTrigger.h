@@ -15,6 +15,7 @@
 {
     float _keywordThreshold;
     float _twoShotThreshold;
+    float _lastScore;
     id <CSVoiceTriggerDelegate> _delegate;
     CSSpeechManager *_speechManager;
     NSObject<OS_dispatch_queue> *_queue;
@@ -27,6 +28,7 @@
     unsigned long long _activeChannel;
 }
 
+@property(nonatomic) float lastScore; // @synthesize lastScore=_lastScore;
 @property(nonatomic) unsigned long long activeChannel; // @synthesize activeChannel=_activeChannel;
 @property(nonatomic) float twoShotThreshold; // @synthesize twoShotThreshold=_twoShotThreshold;
 @property(nonatomic) unsigned long long twoShotDecisionWaitSamples; // @synthesize twoShotDecisionWaitSamples=_twoShotDecisionWaitSamples;

@@ -14,6 +14,7 @@
 }
 
 - (void).cxx_destruct;
+- (double)bottomPadding;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)_updateForCurrentSizeCategory;
 - (id)initWithTopInset:(double)arg1 parentViewController:(id)arg2;

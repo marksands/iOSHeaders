@@ -8,7 +8,7 @@
 
 #import "WLKUIScorecardViewDelegate.h"
 
-@class NSArray, NSString, TVViewElement, UIImage, WLKUIScorecardView, _TVImageView, _WLKUITextBadge;
+@class NSArray, NSString, TVImageElement, TVViewElement, UIImage, WLKUIScorecardView, _TVImageView, _WLKUITextBadge;
 
 @interface WLKUISportsOverlayView : UIView <WLKUIScorecardViewDelegate>
 {
@@ -21,11 +21,11 @@
     TVViewElement *_textBadgeElement;
     _WLKUITextBadge *_textBadge;
     _TVImageView *_logo;
-    _TVImageView *_overlayImageView;
+    TVImageElement *_logoElement;
 }
 
 + (id)sportsOverlayViewFromElement:(id)arg1 existingView:(id)arg2;
-@property(retain, nonatomic) _TVImageView *overlayImageView; // @synthesize overlayImageView=_overlayImageView;
+@property(retain, nonatomic) TVImageElement *logoElement; // @synthesize logoElement=_logoElement;
 @property(retain, nonatomic) _TVImageView *logo; // @synthesize logo=_logo;
 @property(retain, nonatomic) _WLKUITextBadge *textBadge; // @synthesize textBadge=_textBadge;
 @property(retain, nonatomic) TVViewElement *textBadgeElement; // @synthesize textBadgeElement=_textBadgeElement;
@@ -48,7 +48,7 @@
 - (long long)styleForScorecardView:(id)arg1;
 - (void)_resetTextBadge;
 - (id)_materialImageForImage:(id)arg1 forFrame:(struct CGRect)arg2;
-- (void)backgroundImageWillChange;
+- (void)reset;
 - (void)layoutWithElement:(id)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

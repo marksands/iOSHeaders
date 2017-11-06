@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString, VMVoicemailGreeting;
+@class NSArray, NSProgress, NSString, VMVoicemailGreeting;
 
 @protocol VMServerXPCProtocol <NSObject>
 - (void)reportTranscriptionRatedAccurate:(_Bool)arg1 forIdentifier:(long long)arg2;
@@ -24,6 +24,7 @@
 - (void)retrieveVoicemailGreeting:(void (^)(VMVoicemailGreeting *, NSError *))arg1;
 - (void)allVoicemails:(void (^)(NSOrderedSet *))arg1;
 - (void)synchronize;
-- (void)requestInitialState:(void (^)(VMVoicemailCapabilities *, NSOrderedSet *, _Bool, _Bool, _Bool))arg1;
+- (NSProgress *)requestTranscriptionProgress:(void (^)(_Bool))arg1;
+- (void)requestInitialState:(void (^)(VMVoicemailCapabilities *, NSOrderedSet *, _Bool, _Bool, _Bool, _Bool))arg1;
 @end
 

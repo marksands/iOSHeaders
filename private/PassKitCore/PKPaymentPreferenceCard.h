@@ -8,12 +8,10 @@
 
 @interface PKPaymentPreferenceCard : PKPaymentPreference
 {
-    _Bool _showsAvailabiltyWhenReadOnly;
     _Bool _supportsNullSelection;
 }
 
 @property(nonatomic) _Bool supportsNullSelection; // @synthesize supportsNullSelection=_supportsNullSelection;
-@property(nonatomic) _Bool showsAvailabiltyWhenReadOnly; // @synthesize showsAvailabiltyWhenReadOnly=_showsAvailabiltyWhenReadOnly;
 - (id)errorsForPreference:(id)arg1;
 - (void)setErrors:(id)arg1 forPreference:(id)arg2;
 - (_Bool)supportsDeletion;

@@ -20,6 +20,7 @@
     long long _iTunesStoreIdentifier;
     long long _iTunesStoreSubscriptionIdentifier;
     double _inferredTimestamp;
+    long long _legacyUniqueIdentifier;
     long long _radioStationIdentifier;
     double _releaseDate;
     double _startTime;
@@ -97,6 +98,7 @@
         unsigned int iTunesStoreIdentifier:1;
         unsigned int iTunesStoreSubscriptionIdentifier:1;
         unsigned int inferredTimestamp:1;
+        unsigned int legacyUniqueIdentifier:1;
         unsigned int radioStationIdentifier:1;
         unsigned int releaseDate:1;
         unsigned int startTime:1;
@@ -140,6 +142,7 @@
 }
 
 + (void)initialize;
+@property(nonatomic) long long legacyUniqueIdentifier; // @synthesize legacyUniqueIdentifier=_legacyUniqueIdentifier;
 @property(retain, nonatomic) NSData *artworkURLTemplatesData; // @synthesize artworkURLTemplatesData=_artworkURLTemplatesData;
 @property(nonatomic) _Bool isLoading; // @synthesize isLoading=_isLoading;
 @property(retain, nonatomic) NSString *artworkIdentifier; // @synthesize artworkIdentifier=_artworkIdentifier;
@@ -225,6 +228,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasLegacyUniqueIdentifier;
 @property(readonly, nonatomic) _Bool hasArtworkURLTemplatesData;
 @property(nonatomic) _Bool hasIsLoading;
 @property(readonly, nonatomic) _Bool hasArtworkIdentifier;

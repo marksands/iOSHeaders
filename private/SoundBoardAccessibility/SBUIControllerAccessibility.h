@@ -22,7 +22,7 @@
 - (_Bool)SBUIStateStructValidated;
 - (_Bool)hidInterfaceButton:(unsigned long long)arg1 changedDownState:(_Bool)arg2 heldState:(_Bool)arg3 timestamp:(unsigned long long)arg4;
 - (void)_accessibilityHidInterfaceButton:(unsigned long long)arg1 changedAtTimestamp:(unsigned long long)arg2;
-- (void)hidInterfaceButton:(unsigned long long)arg1 cancelledEventAtTime:(unsigned long long)arg2;
+- (void)hidInterfaceCancelledEventAtTime:(unsigned long long)arg1;
 - (void)hidInterfaceButton:(unsigned long long)arg1 endedHoldAtTime:(unsigned long long)arg2;
 - (void)hidInterfaceButton:(unsigned long long)arg1 beganHoldAtTime:(unsigned long long)arg2;
 - (void)hidInterfaceButton:(unsigned long long)arg1 registeredTapAtTime:(unsigned long long)arg2;

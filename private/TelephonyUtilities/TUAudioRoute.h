@@ -22,6 +22,7 @@
 @property(readonly, nonatomic, getter=isHeadphoneJackConnected) _Bool headphoneJackConnected;
 @property(readonly, copy, nonatomic) NSString *bluetoothProductIdentifier;
 - (long long)deviceType;
+- (_Bool)supportsPreferredAndActive;
 - (_Bool)isPreferredAndActive;
 - (_Bool)isPreferred;
 - (long long)bluetoothEndpointType;

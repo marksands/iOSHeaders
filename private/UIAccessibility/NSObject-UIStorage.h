@@ -27,7 +27,7 @@
 - (id)_accessibilityNativeFocusableElements:(id)arg1;
 - (id)_accessibilityExplorerElements;
 - (_Bool)_accessibilityIsContainedByVideoElement;
-- (_Bool)_accessibilityIsContainedByPreferredNativeFocusElement;
+- (_Bool)_accessibilityIsContainedByNativeFocusElement;
 - (id)_accessibilityNativeFocusElement;
 - (id)_accessibilityRetrieveHeaderElements;
 - (id)_accessibilityNativeFocusAncestor;

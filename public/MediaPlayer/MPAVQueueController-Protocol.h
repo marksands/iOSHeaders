@@ -31,6 +31,7 @@
 - (void)handlePlaybackFailureForItem:(MPAVItem *)arg1;
 - (void)disconnectPlayer;
 - (void)connectPlayer;
+- (void)updateLocationDependentPropertiesForItem:(MPAVItem *)arg1;
 - (_Bool)isPlaceholderItemForContentItemID:(NSString *)arg1;
 - (MPAVItem *)itemForContentItemID:(NSString *)arg1;
 - (void)finalizeStateRestorationWithCompletionHandler:(void (^)(NSError *))arg1;

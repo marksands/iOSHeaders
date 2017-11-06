@@ -9,8 +9,10 @@
 __attribute__((visibility("hidden")))
 @interface _TVListView : _TVCollectionView
 {
+    _Bool _configureForStackTemplate;
 }
 
+@property(nonatomic) _Bool configureForStackTemplate; // @synthesize configureForStackTemplate=_configureForStackTemplate;
 - (struct CGSize)tv_sizeThatFits:(struct CGSize)arg1 withContentInset:(struct UIEdgeInsets)arg2;
 
 @end

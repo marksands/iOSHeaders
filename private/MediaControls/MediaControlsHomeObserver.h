@@ -17,7 +17,6 @@
     NSMutableSet *_knownUIDs;
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSObject<OS_dispatch_queue> *_notifyQueue;
-    _Bool _isObserving;
     id <MediaControlsHomeObserverDelegate> _delegate;
 }
 

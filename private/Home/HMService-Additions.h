@@ -7,25 +7,22 @@
 #import "HMService.h"
 
 @interface HMService (Additions)
-+ (id)hf_programmableSwitchServiceTypes;
++ (id)hf_defaultServiceSubtypeForServiceType:(id)arg1;
 + (id)hf_roomsForServices:(id)arg1;
 + (id)hf_standardServices;
 - (_Bool)hf_canGroupWithService:(id)arg1;
+- (id)hf_effectiveServiceSubtype;
 - (id)hf_parentService;
 - (_Bool)_hf_isDirectlyOrIndirectlyLinkedToService:(id)arg1;
 - (id)hf_childServices;
 - (id)hf_childServicesOfType:(id)arg1;
-- (id)_hf_firstLinkedServiceOfType:(id)arg1;
-- (id)hf_labelNamespaceCharacteristic;
-- (id)hf_labelIndexCharacteristic;
-- (unsigned long long)hf_fallbackProgrammableSwitchIndex;
-- (_Bool)hf_isProgrammableSwitch;
 - (_Bool)hf_isVisible;
 - (_Bool)hf_isLegacyService;
 - (_Bool)hf_supportsGroups;
 - (id)hf_updateIconDescriptor:(id)arg1;
 - (id)hf_iconDescriptor;
 - (id)hf_effectiveServiceType;
+- (id)hf_serviceDescriptor;
 - (id)hf_characteristicOfType:(id)arg1;
 @end
 

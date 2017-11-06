@@ -34,7 +34,10 @@
 @property(copy, nonatomic) NSString *location;
 @property(retain, nonatomic) SALCMLiveTuneInButton *liveTuneInButton;
 @property(copy, nonatomic) NSString *line;
+@property(nonatomic) _Bool isWatchlistable;
+@property(nonatomic) _Bool isOnNow;
 @property(copy, nonatomic) NSNumber *isExplicitlyEndOfPeriod;
+@property(nonatomic) _Bool isAvailable;
 @property(copy, nonatomic) NSString *homeTeamRecordSummary;
 @property(copy, nonatomic) NSNumber *homeShootoutPoints;
 @property(copy, nonatomic) NSString *homeScore;

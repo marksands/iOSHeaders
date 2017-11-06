@@ -28,6 +28,7 @@
     _Bool _bluetoothLE;
     _Bool _preferred;
     _Bool _preferredAndActive;
+    _Bool _supportsPreferredAndActive;
     _Bool _supportsRelay;
     NSString *_uniqueIdentifier;
     NSString *_name;
@@ -39,6 +40,7 @@
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool supportsRelay; // @synthesize supportsRelay=_supportsRelay;
 @property(copy, nonatomic) NSArray *identifiersOfOtherConnectedDevices; // @synthesize identifiersOfOtherConnectedDevices=_identifiersOfOtherConnectedDevices;
+@property(nonatomic) _Bool supportsPreferredAndActive; // @synthesize supportsPreferredAndActive=_supportsPreferredAndActive;
 @property(nonatomic, getter=isPreferredAndActive) _Bool preferredAndActive; // @synthesize preferredAndActive=_preferredAndActive;
 @property(nonatomic, getter=isPreferred) _Bool preferred; // @synthesize preferred=_preferred;
 @property(nonatomic) long long bluetoothEndpointType; // @synthesize bluetoothEndpointType=_bluetoothEndpointType;

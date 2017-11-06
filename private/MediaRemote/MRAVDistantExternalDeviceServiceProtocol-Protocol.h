@@ -13,14 +13,13 @@
 - (void)sendCustomData:(NSData *)arg1 withName:(NSString *)arg2;
 - (void)modifyOutputContextOfType:(unsigned int)arg1 addingDeviceUIDs:(NSArray *)arg2 removingDeviceUIDs:(NSArray *)arg3 settingDeviceUIDs:(NSArray *)arg4 completion:(void (^)(NSError *))arg5;
 - (void)setOutputDeviceVolume:(float)arg1 forOutputDevice:(MRAVDistantOutputDevice *)arg2 withCompletion:(void (^)(NSError *))arg3;
-- (void)getOutputDeviceVolume:(MRAVDistantOutputDevice *)arg1 withCompletion:(void (^)(float, NSError *))arg2;
+- (void)outputDeviceVolume:(MRAVDistantOutputDevice *)arg1 withCompletion:(void (^)(float, NSError *))arg2;
 - (void)unpair;
 - (void)disconnect:(NSError *)arg1;
 - (void)connectWithOptions:(unsigned int)arg1;
 - (void)getConnectionStateWithCompletion:(void (^)(unsigned int, NSError *))arg1;
 - (void)getCustomOriginDataWithCompletion:(void (^)(NSData *, NSError *))arg1;
 - (void)getExternalDeviceMetadataWithCompletion:(void (^)(MRAVDistantExternalDeviceMetadata *, NSError *))arg1;
-- (void)setRequiredApplications:(NSArray *)arg1;
 - (void)setNotifications:(unsigned long long)arg1;
 - (void)setRegisteredCallbacks:(unsigned long long)arg1;
 @end

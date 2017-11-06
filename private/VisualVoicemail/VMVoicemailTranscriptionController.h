@@ -6,26 +6,45 @@
 
 #import "NSObject.h"
 
-@class NSOperationQueue, SFSpeechRecognizer, VMVoicemailTranscriptionSanitizeDatabaseOperation;
+@class NSLocale, NSObject<OS_dispatch_queue>, NSOperationQueue, NSProgress, VMTranscriptionAssetModelOperation, VMTranscriptionSanitizeDatabaseOperation;
 
 @interface VMVoicemailTranscriptionController : NSObject
 {
-    SFSpeechRecognizer *_recognizer;
-    NSOperationQueue *_transcriptionQueue;
-    VMVoicemailTranscriptionSanitizeDatabaseOperation *_sanitizeOperation;
+    VMTranscriptionAssetModelOperation *_assetModelOperation;
+    VMTranscriptionSanitizeDatabaseOperation *_databaseOperation;
+    NSLocale *_locale;
+    id <VMNetworkObserver> _networkObserver;
+    id <VMSpeechRecognizer> _speechRecognizer;
+    NSOperationQueue *_transcriptionOperationQueue;
+    NSProgress *_transcriptionProgress;
+    NSObject<OS_dispatch_queue> *_serialDispatchQueue;
 }
 
-@property(retain, nonatomic) VMVoicemailTranscriptionSanitizeDatabaseOperation *sanitizeOperation; // @synthesize sanitizeOperation=_sanitizeOperation;
-@property(readonly, nonatomic) NSOperationQueue *transcriptionQueue; // @synthesize transcriptionQueue=_transcriptionQueue;
-@property(readonly, nonatomic) SFSpeechRecognizer *recognizer; // @synthesize recognizer=_recognizer;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *serialDispatchQueue; // @synthesize serialDispatchQueue=_serialDispatchQueue;
+@property(nonatomic) __weak VMTranscriptionAssetModelOperation *assetModelOperation; // @synthesize assetModelOperation=_assetModelOperation;
 - (void).cxx_destruct;
-- (void)_setupRecognizer;
-- (void)enqueueTranscriptionOperationWithURL:(id)arg1 andHandler:(CDUnknownBlockType)arg2 priority:(long long)arg3 timeout:(double)arg4;
-- (void)retrieveDictationResultForFileAtURL:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2 priority:(long long)arg3 timeout:(double)arg4;
-- (void)reportDictationProblemForFileAtURL:(id)arg1;
+- (void)performSynchronousBlock:(CDUnknownBlockType)arg1;
+- (void)requestAssetModelOperationWithCompletion:(CDUnknownBlockType)arg1;
+- (id)assetModelOperationWithCompletion:(CDUnknownBlockType)arg1;
+- (void)handleCPNetworkObserverNetworkReachableNotification:(id)arg1;
+- (void)removeNetworkReachableObserver;
+@property(readonly, nonatomic) NSProgress *transcriptionProgress; // @synthesize transcriptionProgress=_transcriptionProgress;
+@property(readonly, nonatomic) NSOperationQueue *transcriptionOperationQueue; // @synthesize transcriptionOperationQueue=_transcriptionOperationQueue;
+@property(readonly, nonatomic) id <VMSpeechRecognizer> speechRecognizer; // @synthesize speechRecognizer=_speechRecognizer;
+@property(retain, nonatomic) id <VMNetworkObserver> networkObserver; // @synthesize networkObserver=_networkObserver;
+@property(readonly, nonatomic) NSLocale *locale; // @synthesize locale=_locale;
+@property(readonly, nonatomic) VMTranscriptionSanitizeDatabaseOperation *databaseOperation; // @synthesize databaseOperation=_databaseOperation;
+- (void)requestDatabaseSanitization;
+- (void)requestAssetModelInstallation;
 - (void)cancelQueuedTranscriptions;
-- (void)startDatabaseSanitizationTask;
+@property(readonly, nonatomic, getter=isTranscribing) _Bool transcribing;
+- (_Bool)isDictationModelInstalled;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)retrieveDictationResultForFileAtURL:(id)arg1 queuePriority:(long long)arg2 duration:(double)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)reportDictationProblemForFileAtURL:(id)arg1;
 - (void)dealloc;
+- (id)initWithSpeechRecognizer:(id)arg1;
+- (id)initWithLocale:(id)arg1;
 - (id)init;
 
 @end

@@ -15,8 +15,8 @@
 - (void).cxx_destruct;
 - (void)stopSpinnerForSpecifier:(id)arg1;
 - (void)startSpinnerForSpecifier:(id)arg1;
-- (void)_handleActionForItem:(id)arg1 fromSpecifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
-- (void)actionTapped:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)_handleActionForItem:(id)arg1 fromSpecifier:(id)arg2 eventSource:(unsigned long long)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
+- (void)actionTapped:(id)arg1 eventSource:(unsigned long long)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 
 @end
 

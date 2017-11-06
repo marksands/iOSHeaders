@@ -6,17 +6,24 @@
 
 #import "UIView.h"
 
+@class NAUILayoutConstraintSet;
+
 @interface _HUQuickControlSingleControlHostView : UIView
 {
+    id <HULayoutAnchorProviding> _preferredFrameLayoutGuide;
     UIView *_contentView;
+    NAUILayoutConstraintSet *_constraintSet;
 }
 
++ (_Bool)requiresConstraintBasedLayout;
+@property(readonly, nonatomic) NAUILayoutConstraintSet *constraintSet; // @synthesize constraintSet=_constraintSet;
 @property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 - (void).cxx_destruct;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (struct CGSize)intrinsicContentSize;
-- (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
-- (void)layoutSubviews;
+- (void)_setupConstraintSet;
+- (void)updateConstraints;
+- (void)didMoveToWindow;
+- (_Bool)hasSingleControlView;
+@property(retain, nonatomic) id <HULayoutAnchorProviding> preferredFrameLayoutGuide; // @synthesize preferredFrameLayoutGuide=_preferredFrameLayoutGuide;
 - (id)initWithContentView:(id)arg1;
 
 @end

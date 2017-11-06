@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     struct NSMutableSet *_monitors;
     CXCallObserver *_callObserver;
     int _activeCallCount;
+    int _fmfDevicesChangedToken;
     int _meDeviceChangedToken;
     NSString *_meDeviceIDSDeviceID;
     NSString *_meDeviceName;

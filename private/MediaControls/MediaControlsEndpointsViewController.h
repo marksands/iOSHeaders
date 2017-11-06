@@ -13,18 +13,18 @@
 #import "MediaControlsEndpointsManagerDelegate.h"
 #import "MediaControlsPanelViewControllerDelegate.h"
 
-@class MPAVEndpointRoute, MPAVOutputDeviceRoutingDataSource, MPAVRoutingViewController, MPMediaControlsConfiguration, MediaControlsEndpointsManager, NSArray, NSObject<OS_dispatch_group>, NSString;
+@class MPAVEndpointRoute, MPAVOutputDeviceRoutingDataSource, MPAVRoutingViewController, MPMediaControlsConfiguration, MediaControlsEndpointsManager, NSObject<OS_dispatch_group>, NSString;
 
 @interface MediaControlsEndpointsViewController : MediaControlsCollectionViewController <MPAVRoutingViewControllerDelegate, MediaControlsPanelViewControllerDelegate, MediaControlsCollectionViewDataSource, MediaControlsCollectionViewDelegate, MediaControlsEndpointsManagerDelegate, CCUIContentModuleContentViewController>
 {
     MPAVOutputDeviceRoutingDataSource *_outputDeviceRoutingDataSource;
-    NSArray *_routes;
     long long _lastSelectedModeForActivePanelViewController;
     NSObject<OS_dispatch_group> *_routeSelectionNotificationGroup;
     _Bool _didRetrieveActiveRouteOnce;
     _Bool _hasSentSelectedIndex;
     _Bool _prewarming;
     _Bool _shouldTransitionToVisibleWhenReady;
+    long long _pendingSelectCount;
     _Bool _dismissing;
     _Bool _onScreen;
     MPMediaControlsConfiguration *_configuration;
@@ -57,7 +57,7 @@
 - (void)_assignRouteViewControllerToSelectedPanelViewController;
 - (void)_updateDiscoveryMode;
 - (_Bool)_isSelectedRouteInRoutes;
-- (void)endpointsManager:(id)arg1 didUpdateRoutes:(id)arg2;
+- (void)endpointsManager:(id)arg1 willUpdateRoutes:(id)arg2 defersRoutesReplacement:(CDUnknownBlockType)arg3;
 - (void)endpointsManager:(id)arg1 activeSystemRouteDidChange:(id)arg2;
 - (void)mediaControlsCollectionViewController:(id)arg1 didSelectItemAtIndex:(long long)arg2;
 - (void)mediaControlsCollectionViewController:(id)arg1 willSelectItemAtIndex:(long long)arg2;

@@ -13,12 +13,10 @@
     NSObject<OS_dispatch_queue> *_uplinkMutedQueue;
     NSObject<OS_dispatch_queue> *_downlinkMutedQueue;
     NSObject<OS_dispatch_queue> *_ttyQueue;
-    NSObject<OS_dispatch_queue> *_phoneCallVolumeQueue;
     NSObject<OS_dispatch_queue> *_pickableRoutesQueue;
     NSNumber *_isUplinkMutedCached;
     NSNumber *_isDownlinkMutedCached;
     NSNumber *_isTTYCached;
-    NSNumber *_phoneCallVolumeCached;
     NSArray *_pickableRoutesForTTY;
     NSArray *_pickableRoutesForPhoneCall;
     NSArray *_pickableRoutesForPlayAndRecordVideo;
@@ -29,7 +27,6 @@
     _Bool _isRequestingUplinkMuted;
     _Bool _isRequestingDownlinkMuted;
     _Bool _isRequestingTTY;
-    _Bool _isRequestingPhoneCallVolume;
     _Bool _isRequestingPickableRoutesForTTY;
     _Bool _isRequestingPickableRoutesForPhoneCall;
     _Bool _isRequestingPickableRoutesForPlayAndRecordVideo;
@@ -39,7 +36,6 @@
     unsigned long long _lastUplinkMutedRequestScheduleTime;
     unsigned long long _lastDownlinkMutedRequestScheduleTime;
     unsigned long long _lastTTYRequestScheduleTime;
-    unsigned long long _lastPhoneCallVolumeRequestScheduleTime;
     unsigned long long _lastTTYPickableRoutesScheduleTime;
     unsigned long long _lastPhoneCallCategoryRoutesScheduleTime;
     unsigned long long _lastPlayAndRecordVideoRoutesScheduleTime;
@@ -73,7 +69,7 @@
 @property(nonatomic, getter=isDownlinkMuted) _Bool downlinkMuted;
 @property(nonatomic, getter=isUplinkMuted) _Bool uplinkMuted;
 @property(readonly, nonatomic, getter=isTTY) _Bool tty;
-@property(nonatomic) float phoneCallVolume;
+@property(nonatomic) float activeCategoryVolume;
 - (void)_mediaServicesWereReset:(id)arg1;
 - (void)_handlePickableRoutesDidChangeNotification:(id)arg1;
 - (void)_handleVolumeDidChangeNotification:(id)arg1;

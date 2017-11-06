@@ -6,49 +6,47 @@
 
 #import "UICollectionViewLayout.h"
 
-@class HUQuickControlCollectionViewGridLayoutInfo, HUQuickControlCollectionViewLayoutGridSectionSettings, HUQuickControlCollectionViewLayoutSupplementarySectionSettings, HUQuickControlCollectionViewSupplementaryLayoutInfo, NSMutableDictionary;
+@class HUQuickControlCollectionViewLayoutInfo, NSDictionary, NSMutableDictionary;
 
 @interface HUQuickControlCollectionViewLayout : UICollectionViewLayout
 {
-    _Bool _enableSelfSizing;
-    double _minimumSectionSpacing;
     unsigned long long _gridSectionIndex;
     unsigned long long _supplementarySectionIndex;
-    HUQuickControlCollectionViewLayoutGridSectionSettings *_gridSectionSettings;
-    HUQuickControlCollectionViewLayoutSupplementarySectionSettings *_supplementarySectionSettings;
-    NSMutableDictionary *_gridLayoutItemsByIndexPath;
+    NSDictionary *_sizeSpecificSettings;
     NSMutableDictionary *_cachedLayoutAttributesByIndexPath;
-    HUQuickControlCollectionViewGridLayoutInfo *_gridLayoutInfo;
-    HUQuickControlCollectionViewSupplementaryLayoutInfo *_supplementaryLayoutInfo;
+    HUQuickControlCollectionViewLayoutInfo *_layoutInfo;
     struct UIEdgeInsets _contentInset;
+    struct UIEdgeInsets _preferredLayoutAreaInset;
 }
 
-+ (CDStruct_217e81bd)_gridConfigurationForNumberOfItems:(unsigned long long)arg1;
-+ (unsigned long long)gridItemSizeForNumberOfItems:(unsigned long long)arg1;
-@property(retain, nonatomic) HUQuickControlCollectionViewSupplementaryLayoutInfo *supplementaryLayoutInfo; // @synthesize supplementaryLayoutInfo=_supplementaryLayoutInfo;
-@property(retain, nonatomic) HUQuickControlCollectionViewGridLayoutInfo *gridLayoutInfo; // @synthesize gridLayoutInfo=_gridLayoutInfo;
++ (CDStruct_217e81bd)_gridConfigurationForNumberOfItems:(unsigned long long)arg1 maximumNumberOfRows:(unsigned long long)arg2;
++ (unsigned long long)_itemSizeForNumberOfItems:(unsigned long long)arg1;
++ (Class)layoutAttributesClass;
+@property(retain, nonatomic) HUQuickControlCollectionViewLayoutInfo *layoutInfo; // @synthesize layoutInfo=_layoutInfo;
 @property(readonly, nonatomic) NSMutableDictionary *cachedLayoutAttributesByIndexPath; // @synthesize cachedLayoutAttributesByIndexPath=_cachedLayoutAttributesByIndexPath;
-@property(readonly, nonatomic) NSMutableDictionary *gridLayoutItemsByIndexPath; // @synthesize gridLayoutItemsByIndexPath=_gridLayoutItemsByIndexPath;
-@property(nonatomic) _Bool enableSelfSizing; // @synthesize enableSelfSizing=_enableSelfSizing;
-@property(copy, nonatomic) HUQuickControlCollectionViewLayoutSupplementarySectionSettings *supplementarySectionSettings; // @synthesize supplementarySectionSettings=_supplementarySectionSettings;
-@property(copy, nonatomic) HUQuickControlCollectionViewLayoutGridSectionSettings *gridSectionSettings; // @synthesize gridSectionSettings=_gridSectionSettings;
+@property(readonly, nonatomic) NSDictionary *sizeSpecificSettings; // @synthesize sizeSpecificSettings=_sizeSpecificSettings;
 @property(nonatomic) unsigned long long supplementarySectionIndex; // @synthesize supplementarySectionIndex=_supplementarySectionIndex;
 @property(nonatomic) unsigned long long gridSectionIndex; // @synthesize gridSectionIndex=_gridSectionIndex;
-@property(nonatomic) double minimumSectionSpacing; // @synthesize minimumSectionSpacing=_minimumSectionSpacing;
+@property(nonatomic) struct UIEdgeInsets preferredLayoutAreaInset; // @synthesize preferredLayoutAreaInset=_preferredLayoutAreaInset;
 @property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 - (void).cxx_destruct;
 - (void)_computeGridLayoutAttributesForLayoutInfo:(id)arg1;
 - (void)_computeSupplementaryLayoutAttributesForLayoutInfo:(id)arg1;
 - (void)_computeLayoutInfo;
+- (id)_computeSizingLayoutInfoForMaximumNumnberOfRows:(unsigned long long)arg1 minimumItemScaleFactor:(double)arg2;
 - (_Bool)_showSupplementarySection;
-- (id)invalidationContextForPreferredLayoutAttributes:(id)arg1 withOriginalAttributes:(id)arg2;
-- (_Bool)shouldInvalidateLayoutForPreferredLayoutAttributes:(id)arg1 withOriginalAttributes:(id)arg2;
+- (id)_intrinsicSizeDescriptorForItemAtIndexPath:(id)arg1 itemSize:(unsigned long long)arg2;
+- (id)delegate;
 - (_Bool)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
 - (void)prepareLayout;
 - (void)invalidateLayoutWithContext:(id)arg1;
 - (struct CGSize)collectionViewContentSize;
+- (void)setSupplementarySectionSettings:(id)arg1 forItemSize:(unsigned long long)arg2;
+- (void)setGridSectionSettings:(id)arg1 forItemSize:(unsigned long long)arg2;
+- (id)supplementarySectionSettingsForItemSize:(unsigned long long)arg1;
+- (id)gridSectionSettingsForItemSize:(unsigned long long)arg1;
 - (id)init;
 
 @end

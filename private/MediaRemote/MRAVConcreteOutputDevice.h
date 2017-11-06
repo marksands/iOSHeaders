@@ -6,11 +6,13 @@
 
 #import <MediaRemote/MRAVOutputDevice.h>
 
-@class AVOutputDevice, NSData, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class AVOutputDevice, MRAVOutputDeviceSourceInfo, NSData, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MRAVConcreteOutputDevice : MRAVOutputDevice
 {
     NSObject<OS_dispatch_queue> *_accessSerialQueue;
+    AVOutputDevice *_avOutputDevice;
+    MRAVOutputDeviceSourceInfo *_sourceInfo;
     NSString *_name;
     NSString *_uid;
     NSString *_modelID;
@@ -19,17 +21,14 @@
     NSData *_MACAddress;
     NSDictionary *_modelSpecificInfo;
     NSString *_playingPairedDeviceName;
-    AVOutputDevice *_avOutputDevice;
 }
 
-@property(retain, nonatomic, setter=setAVOutputDevice:) AVOutputDevice *avOutputDevice; // @synthesize avOutputDevice=_avOutputDevice;
 - (void)_onqueue_clearCachedAVOutputDeviceProperties;
 - (void)setVolume:(float)arg1;
 - (float)volume;
 - (_Bool)isVolumeControlAvailable;
 - (_Bool)requiresAuthorization;
 - (_Bool)supportsExternalScreen;
-- (_Bool)_onqueue_isLocalDevice;
 - (_Bool)isLocalDevice;
 - (_Bool)hasBatteryLevel;
 - (float)batteryLevel;
@@ -48,8 +47,10 @@
 - (id)logicalDeviceID;
 - (id)uid;
 - (id)name;
+@property(retain, nonatomic) MRAVOutputDeviceSourceInfo *sourceInfo;
+@property(retain, nonatomic, setter=setAVOutputDevice:) AVOutputDevice *avOutputDevice;
 - (void)dealloc;
-- (id)initWithAVOutputDevice:(id)arg1;
+- (id)initWithAVOutputDevice:(id)arg1 sourceInfo:(id)arg2;
 
 @end
 

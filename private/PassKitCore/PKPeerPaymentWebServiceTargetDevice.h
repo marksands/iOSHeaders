@@ -17,7 +17,10 @@
 
 + (id)localTargetDevice;
 - (void).cxx_destruct;
+- (void)resetApplePayManateeViewWithCompletion:(CDUnknownBlockType)arg1;
+- (void)checkTLKsMissingWithCompletion:(CDUnknownBlockType)arg1;
 - (void)cloudStoreStatusWithCompletion:(CDUnknownBlockType)arg1;
+- (void)initalizeCloudStoreIfNecessaryWithHandler:(CDUnknownBlockType)arg1;
 - (void)initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)provisionPeerPaymentPassWithProvisioningController:(id)arg1 credential:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setUserHasDisabledPeerPayment:(_Bool)arg1;
@@ -26,6 +29,7 @@
 - (void)updateAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (id)account;
 - (void)downloadPassIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
+- (void)peerPaymentReRegisterWithURL:(id)arg1 pushToken:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)init;
 
 // Remaining properties

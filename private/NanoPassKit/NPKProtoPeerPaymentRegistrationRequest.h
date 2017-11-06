@@ -13,8 +13,13 @@
 @interface NPKProtoPeerPaymentRegistrationRequest : PBRequest <NSCopying>
 {
     NSString *_serviceURL;
+    _Bool _forceReRegistration;
+    struct {
+        unsigned int forceReRegistration:1;
+    } _has;
 }
 
+@property(nonatomic) _Bool forceReRegistration; // @synthesize forceReRegistration=_forceReRegistration;
 @property(retain, nonatomic) NSString *serviceURL; // @synthesize serviceURL=_serviceURL;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
@@ -26,6 +31,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasForceReRegistration;
 @property(readonly, nonatomic) _Bool hasServiceURL;
 
 @end

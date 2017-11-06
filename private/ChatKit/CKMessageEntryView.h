@@ -158,6 +158,7 @@
 - (void)_swipeDownGestureRecognized:(id)arg1;
 - (void)sendButtonLongPressGesture:(id)arg1;
 - (void)loadRecordedAudioViewsIfNeeded;
+- (_Bool)_isRunningInMVS;
 - (_Bool)pluginButtonsEnabled;
 - (_Bool)sendButtonEnabled;
 - (void)_initializeInputContextHistory;
@@ -229,6 +230,7 @@
 - (struct CGRect)browserButtonFrame;
 - (id)snapshotForCompactBrowserAnimation;
 - (id)pasteBoardTextFromComposition:(id)arg1;
+- (void)minifyAppStrip;
 - (void)setEntryFieldCollapsed:(_Bool)arg1 animated:(_Bool)arg2;
 @property(readonly, nonatomic) _Bool shouldEntryViewBeExpandedLayout;
 - (_Bool)layoutIsCurrentlyCompact;

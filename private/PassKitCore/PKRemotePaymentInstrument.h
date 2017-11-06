@@ -25,6 +25,7 @@
     PKPaymentApplication *_primaryPaymentApplication;
     NSDate *_ingestedDate;
     PKCurrencyAmount *_peerPaymentAccountBalance;
+    unsigned long long _peerPaymentAccountState;
     NSArray *_associatedWebDomains;
 }
 
@@ -33,6 +34,7 @@
 + (id)remotePaymentInstrumentWithProtobuf:(id)arg1;
 + (id)thumbnailCachePathForManifestHash:(id)arg1 size:(struct CGSize)arg2;
 @property(retain, nonatomic) NSArray *associatedWebDomains; // @synthesize associatedWebDomains=_associatedWebDomains;
+@property(nonatomic) unsigned long long peerPaymentAccountState; // @synthesize peerPaymentAccountState=_peerPaymentAccountState;
 @property(nonatomic) _Bool hasAssociatedPeerPaymentAccount; // @synthesize hasAssociatedPeerPaymentAccount=_hasAssociatedPeerPaymentAccount;
 @property(retain, nonatomic) PKCurrencyAmount *peerPaymentAccountBalance; // @synthesize peerPaymentAccountBalance=_peerPaymentAccountBalance;
 @property(nonatomic) _Bool supportsAutomaticSelection; // @synthesize supportsAutomaticSelection=_supportsAutomaticSelection;

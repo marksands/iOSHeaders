@@ -7,15 +7,16 @@
 #import "MPModelRequest.h"
 
 #import "MPCModelPlaybackRequestEnvironmentConsuming.h"
+#import "MPCModelPlaybackRequesting.h"
 #import "MPCModelRequestRTCReporting.h"
 #import "MPCModelStorePreviousRequestStoring.h"
 #import "MPModelRequestDetailedKeepLocalStatusRequesting.h"
 
 @class MPCPlaybackRequestEnvironment, MPModelResponse, MPSectionedCollection, NSArray, NSString;
 
-@interface MPCModelStorePlaybackItemsRequest : MPModelRequest <MPCModelPlaybackRequestEnvironmentConsuming, MPModelRequestDetailedKeepLocalStatusRequesting, MPCModelRequestRTCReporting, MPCModelStorePreviousRequestStoring>
+@interface MPCModelStorePlaybackItemsRequest : MPModelRequest <MPCModelPlaybackRequesting, MPCModelPlaybackRequestEnvironmentConsuming, MPModelRequestDetailedKeepLocalStatusRequesting, MPCModelRequestRTCReporting, MPCModelStorePreviousRequestStoring>
 {
-    _Bool _allowsMultipleResponseHandlerCalls;
+    _Bool _shouldBatchResultsWithPlaceholderObjects;
     _Bool _wantsDetailedKeepLocalRequestableResponse;
     _Bool _allowLocalEquivalencies;
     MPCPlaybackRequestEnvironment *_playbackRequestEnvironment;
@@ -23,15 +24,17 @@
     NSString *_clientIdentifier;
     MPSectionedCollection *_sectionedModelObjects;
     NSArray *_storeIDs;
+    NSArray *_playbackPrioritizedIndexPaths;
 }
 
 + (void)MPC_consumeSiriAssetInfo:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+@property(copy, nonatomic) NSArray *playbackPrioritizedIndexPaths; // @synthesize playbackPrioritizedIndexPaths=_playbackPrioritizedIndexPaths;
 @property(copy, nonatomic) NSArray *storeIDs; // @synthesize storeIDs=_storeIDs;
 @property(copy, nonatomic) MPSectionedCollection *sectionedModelObjects; // @synthesize sectionedModelObjects=_sectionedModelObjects;
 @property(copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 @property(nonatomic) _Bool allowLocalEquivalencies; // @synthesize allowLocalEquivalencies=_allowLocalEquivalencies;
 @property(nonatomic) _Bool wantsDetailedKeepLocalRequestableResponse; // @synthesize wantsDetailedKeepLocalRequestableResponse=_wantsDetailedKeepLocalRequestableResponse;
-@property(nonatomic) _Bool allowsMultipleResponseHandlerCalls; // @synthesize allowsMultipleResponseHandlerCalls=_allowsMultipleResponseHandlerCalls;
+@property(nonatomic) _Bool shouldBatchResultsWithPlaceholderObjects; // @synthesize shouldBatchResultsWithPlaceholderObjects=_shouldBatchResultsWithPlaceholderObjects;
 @property(retain, nonatomic) MPModelResponse *previousResponse; // @synthesize previousResponse=_previousResponse;
 @property(copy, nonatomic) MPCPlaybackRequestEnvironment *playbackRequestEnvironment; // @synthesize playbackRequestEnvironment=_playbackRequestEnvironment;
 - (void).cxx_destruct;
@@ -40,6 +43,8 @@
 - (id)initWithCoder:(id)arg1;
 - (id)newOperationWithResponseHandler:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSString *rtcReportingPlayQueueSourceIdentifier;
+- (void)setAllowsPlaybackResponseBatching:(_Bool)arg1;
+@property(readonly, nonatomic) MPSectionedCollection *playbackSourceModelObjects;
 - (id)init;
 
 // Remaining properties

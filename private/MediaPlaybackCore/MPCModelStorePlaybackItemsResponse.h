@@ -15,19 +15,18 @@
 {
     NSObject<OS_dispatch_source> *_invalidationTimer;
     _Bool _finalResponse;
+    _Bool _invalidForPersonalization;
     MPStoreLibraryPersonalizationResponse *_personalizationResponse;
-    MPCModelStorePlaybackItemsResponse *_updatedResponse;
     NSDictionary *_localStoreAdamIDToEquivalencySourceStoreAdamIDMap;
     NSDate *_invalidationDate;
 }
 
 @property(copy, nonatomic) NSDate *invalidationDate; // @synthesize invalidationDate=_invalidationDate;
 @property(copy, nonatomic) NSDictionary *localStoreAdamIDToEquivalencySourceStoreAdamIDMap; // @synthesize localStoreAdamIDToEquivalencySourceStoreAdamIDMap=_localStoreAdamIDToEquivalencySourceStoreAdamIDMap;
+@property(readonly, nonatomic, getter=isInvalidForPersonalization) _Bool invalidForPersonalization; // @synthesize invalidForPersonalization=_invalidForPersonalization;
 @property(nonatomic, getter=isFinalResponse) _Bool finalResponse; // @synthesize finalResponse=_finalResponse;
-@property(readonly, nonatomic, getter=_updatedResponse) MPCModelStorePlaybackItemsResponse *_updatedResponse; // @synthesize _updatedResponse;
 @property(readonly, nonatomic) MPStoreLibraryPersonalizationResponse *_personalizationResponse; // @synthesize _personalizationResponse;
 - (void).cxx_destruct;
-- (void)_invalidateWithUpdatedResponse:(id)arg1;
 - (void)_personalizationResponseDidInvalidateNotification:(id)arg1;
 - (void)_allowsExplicitContentDidChangeNotification:(id)arg1;
 - (id)equivalencySourceStoreAdamIDForLocalStoreAdamID:(long long)arg1;

@@ -6,37 +6,43 @@
 
 #import <Home/HFAccessorySettingAdapter.h>
 
-@class NAFuture, NSHashTable;
+@class NAFuture, NSHashTable, NSMutableSet, NSSet;
 
 @interface HFAccessorySettingMobileTimerAdapter : HFAccessorySettingAdapter
 {
     NAFuture *_alarmManagerForSynchronizationFuture;
     NSHashTable *_observers;
     NAFuture *_setupAccessoryAdapterModeFuture;
+    NSMutableSet *_internalAlarmsBeingAdded;
+    NSMutableSet *_internalAlarmsBeingRemoved;
+    NSMutableSet *_internalAlarmsBeingUpdated;
 }
 
+@property(readonly, copy, nonatomic) NSMutableSet *internalAlarmsBeingUpdated; // @synthesize internalAlarmsBeingUpdated=_internalAlarmsBeingUpdated;
+@property(readonly, copy, nonatomic) NSMutableSet *internalAlarmsBeingRemoved; // @synthesize internalAlarmsBeingRemoved=_internalAlarmsBeingRemoved;
+@property(readonly, copy, nonatomic) NSMutableSet *internalAlarmsBeingAdded; // @synthesize internalAlarmsBeingAdded=_internalAlarmsBeingAdded;
 @property(readonly, nonatomic) NAFuture *setupAccessoryAdapterModeFuture; // @synthesize setupAccessoryAdapterModeFuture=_setupAccessoryAdapterModeFuture;
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) NAFuture *alarmManagerForSynchronizationFuture; // @synthesize alarmManagerForSynchronizationFuture=_alarmManagerForSynchronizationFuture;
 - (void).cxx_destruct;
+- (void)_setupDebugHandler;
 - (id)_beginMonitoringSettingsKeyPath:(id)arg1;
 - (void)_notifyObserversOfUpdates;
 - (void)_respondToAlarmManagerUpdate;
 - (void)_alarmWasUpdated:(id)arg1;
 - (void)_alarmWasDeleted:(id)arg1;
 - (void)_alarmWasAdded:(id)arg1;
-- (void)_alarmDidFire:(id)arg1;
-- (id)_homeKitAlarms;
-- (id)_synchronizeMobileTimerToHomeKit;
+- (id)_synchronizeMobileTimerToHomeKitWithChangeType:(unsigned long long)arg1;
 - (id)_synchronizeHomeKitToMobileTimer;
-- (id)_submitAlarmsToHomeKit:(id)arg1;
-- (id)alarmDataContentSettingFuture;
-- (void)addAlarm:(id)arg1;
-- (void)removeAlarm:(id)arg1;
-- (void)updateAlarm:(id)arg1;
+- (id)alarmCollectionSettingFuture;
+- (id)addAlarm:(id)arg1;
+- (id)removeAlarm:(id)arg1;
+- (id)updateAlarm:(id)arg1;
 - (id)alarmManagerAlarms;
+- (id)alarmSettingsCurrentItemsFuture;
 - (id)allAlarms;
 - (void)accessorySettingWasUpdated:(id)arg1 value:(id)arg2;
+@property(readonly, copy, nonatomic) NSSet *alarmsWithPendingEdits;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (id)initWithMediaProfileContainer:(id)arg1 keyPaths:(id)arg2 updateHandler:(CDUnknownBlockType)arg3;

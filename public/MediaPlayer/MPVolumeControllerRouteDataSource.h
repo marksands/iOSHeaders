@@ -37,6 +37,7 @@
 @property(nonatomic) __weak id <MPVolumeControllerDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_routeConnectionVolumeDidChangeNotification:(id)arg1;
+- (void)_pickedRouteVolumeControlAvailabilityChanged:(id)arg1;
 - (void)reloadWarning;
 - (void)reload;
 - (void)_setPendingVolumeIfNeeded;

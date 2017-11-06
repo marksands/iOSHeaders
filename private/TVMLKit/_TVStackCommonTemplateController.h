@@ -68,7 +68,6 @@
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)_updateOverlayBlurView;
 - (_Bool)_shouldOverlayBlur;
-- (void)viewDidLayoutSubviews;
 - (id)_overlayView;
 - (id)_viewControllerWithElement:(id)arg1 existingController:(id)arg2;
 - (_Bool)_updateSupplementaryViewControllersWithElements:(id)arg1 updateStyles:(_Bool)arg2;

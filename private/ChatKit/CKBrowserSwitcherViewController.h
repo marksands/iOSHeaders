@@ -134,6 +134,7 @@
 - (void)_updateCurrentBrowserSnapshotIfPossible;
 - (void)_handleVisibleSwitcherPluginsChanged:(id)arg1;
 - (void)saveSnapshotForCurrentBrowserViewControllerIfPossible;
+- (_Bool)_hasLandscapeGutters;
 - (void)animateOutCompactWithCompletion:(CDUnknownBlockType)arg1;
 - (void)animateInCompactWithCompletion:(CDUnknownBlockType)arg1;
 - (void)showBrowserFullscreenForPlugin:(id)arg1 datasource:(id)arg2;

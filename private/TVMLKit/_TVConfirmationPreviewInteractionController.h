@@ -10,7 +10,7 @@
 #import "UIViewControllerAnimatedTransitioning.h"
 #import "UIViewControllerTransitioningDelegate.h"
 
-@class IKCollectionElement, NSString, UICollectionView, UIPreviewInteraction, UIViewController, UIViewPropertyAnimator, _TVAppDocumentController, _TVConfirmationDialogPresentationController, _TVConfirmationDocumentWrapperViewController;
+@class IKCollectionElement, NSString, UICollectionView, UICollectionViewCell, UIPreviewInteraction, UIViewController, UIViewPropertyAnimator, _TVAppDocumentController, _TVConfirmationDialogPresentationController, _TVConfirmationDocumentWrapperViewController;
 
 @interface _TVConfirmationPreviewInteractionController : NSObject <UIPreviewInteractionDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
 {
@@ -21,7 +21,7 @@
     _TVConfirmationDialogPresentationController *_dialogPresentationController;
     UIViewPropertyAnimator *_previewPropertyAnimator;
     UIViewPropertyAnimator *_commitPropertyAnimator;
-    UICollectionView *_stashedCell;
+    UICollectionViewCell *_stashedCell;
     IKCollectionElement *_collectionElement;
     id <_TVConfirmationPreviewInteractionControllerDelegate> _delegate;
     UICollectionView *_collectionView;

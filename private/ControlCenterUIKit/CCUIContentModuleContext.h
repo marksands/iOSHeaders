@@ -14,6 +14,9 @@
     id <CCUIContentModuleContextDelegate> _delegate;
 }
 
++ (void)performWithoutAnimationWhileHidden:(CDUnknownBlockType)arg1;
++ (void)setAnimationsPermitted:(_Bool)arg1;
++ (_Bool)areAnimationsPermitted;
 + (void)initialize;
 + (id)_sharedOpenApplicationOptions;
 + (id)_sharedOpenAppService;

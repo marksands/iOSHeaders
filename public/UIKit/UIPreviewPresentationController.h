@@ -24,10 +24,12 @@
     UIWindow *_presentationWindow;
     CDUnknownBlockType _containerSuperviewFactoryBlock;
     CDUnknownBlockType _containerViewConfigurationBlock;
+    CDUnknownBlockType _dismissalTransitionDidEndBlock;
 }
 
 + (_Bool)_shouldApplyVisualEffectsToPresentingView;
 + (id)_backgroundEffectForTraitCollection:(id)arg1 interactive:(_Bool)arg2;
+@property(copy, nonatomic) CDUnknownBlockType dismissalTransitionDidEndBlock; // @synthesize dismissalTransitionDidEndBlock=_dismissalTransitionDidEndBlock;
 @property(copy, nonatomic) CDUnknownBlockType containerViewConfigurationBlock; // @synthesize containerViewConfigurationBlock=_containerViewConfigurationBlock;
 @property(copy, nonatomic) CDUnknownBlockType containerSuperviewFactoryBlock; // @synthesize containerSuperviewFactoryBlock=_containerSuperviewFactoryBlock;
 @property(nonatomic) __weak UIWindow *presentationWindow; // @synthesize presentationWindow=_presentationWindow;

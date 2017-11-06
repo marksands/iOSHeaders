@@ -6,26 +6,30 @@
 
 #import "NSObject.h"
 
-@class HMAccessorySettings, HMHome, NSMutableArray, NSSet;
+@class HMAccessorySettings, HMHome, NSMutableDictionary, NSSet;
 
 @interface HFMediaProfileContainerSettingsValueManager : NSObject
 {
     id <HFMediaProfileContainer> _mediaProfileContainer;
     HMAccessorySettings *_settings;
     HMHome *_home;
-    NSMutableArray *_transactionStack;
+    NSMutableDictionary *_transactionStacks;
 }
 
-@property(retain, nonatomic) NSMutableArray *transactionStack; // @synthesize transactionStack=_transactionStack;
+@property(retain, nonatomic) NSMutableDictionary *transactionStacks; // @synthesize transactionStacks=_transactionStacks;
 @property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(retain, nonatomic) HMAccessorySettings *settings; // @synthesize settings=_settings;
 @property(readonly, nonatomic) __weak id <HFMediaProfileContainer> mediaProfileContainer; // @synthesize mediaProfileContainer=_mediaProfileContainer;
 - (void).cxx_destruct;
+- (void)_clearTransaction:(id)arg1;
 - (void)_dispatchDidWriteValueForSettings:(id)arg1 failedSettings:(id)arg2;
 - (void)_dispatchWillWriteValueForSettings:(id)arg1;
 @property(readonly, nonatomic) NSSet *pendingWrites;
 - (id)valueForSettingAtKeyPath:(id)arg1;
+- (id)_valueForSetting:(id)arg1 logRead:(_Bool)arg2;
 - (id)valueForSetting:(id)arg1;
+- (void)_executeNextPendingWriteForSetting:(id)arg1;
+- (id)changeValueForSetting:(id)arg1 toValue:(id)arg2 changeType:(unsigned long long)arg3;
 - (id)changeValueForSetting:(id)arg1 toValue:(id)arg2;
 - (id)initWithSettings:(id)arg1 mediaProfileContainer:(id)arg2;
 

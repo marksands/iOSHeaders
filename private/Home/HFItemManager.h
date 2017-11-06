@@ -164,6 +164,7 @@
 - (id)displayedSectionIdentifierForSectionIndex:(unsigned long long)arg1;
 - (unsigned long long)sectionIndexForDisplayedSectionIdentifier:(id)arg1;
 - (id)displayedItemsInSection:(unsigned long long)arg1;
+- (id)attributedFooterTitleForSection:(unsigned long long)arg1;
 - (id)footerTitleForSection:(unsigned long long)arg1;
 - (id)titleForSection:(unsigned long long)arg1;
 - (unsigned long long)numberOfSections;
@@ -203,6 +204,7 @@
 - (void)accessorySettings:(id)arg1 didWriteValueForSettings:(id)arg2 failedSettings:(id)arg3;
 - (void)accessorySettings:(id)arg1 willWriteValueForSettings:(id)arg2;
 - (void)user:(id)arg1 didUpdateAssistantAccessControl:(id)arg2 forHome:(id)arg3;
+- (void)softwareUpdate:(id)arg1 didUpdateDocumentationAvailable:(_Bool)arg2;
 - (void)softwareUpdate:(id)arg1 didUpdateDocumentation:(id)arg2;
 - (void)softwareUpdate:(id)arg1 didUpdateState:(long long)arg2;
 - (void)softwareUpdateController:(id)arg1 didUpdateAvailableUpdate:(id)arg2;

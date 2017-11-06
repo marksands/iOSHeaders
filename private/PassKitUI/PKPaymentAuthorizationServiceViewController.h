@@ -15,7 +15,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSLayoutConstraint, NSString, PKAuthenticator, PKPaymentAuthorizationFooterView, PKPaymentAuthorizationLayout, PKPaymentAuthorizationPasswordButtonView, PKPaymentAuthorizationStateMachine, PKPaymentAuthorizationSummaryItemsView, PKPaymentAuthorizationTotalView, PKPaymentPreferencesViewController, PKPhysicalButtonView, UIBarButtonItem, UITableView, UIView;
+@class NSLayoutConstraint, NSString, PKAuthenticator, PKPaymentAuthorizationFooterView, PKPaymentAuthorizationLayout, PKPaymentAuthorizationPasswordButtonView, PKPaymentAuthorizationStateMachine, PKPaymentAuthorizationSummaryItemsView, PKPaymentAuthorizationTotalView, PKPaymentPreferencesViewController, PKPeerPaymentAccount, PKPhysicalButtonView, UIBarButtonItem, UITableView, UIView;
 
 @interface PKPaymentAuthorizationServiceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, PKPaymentAuthorizationFooterViewDelegate, PKAuthenticatorDelegate, PKPaymentAuthorizationStateMachineDelegate, AKAppleIDAuthenticationInAppContextDelegate, PKPaymentAuthorizationServiceProtocol>
 {
@@ -51,6 +51,7 @@
     long long _preferencesStyle;
     struct __IOHIDEventSystemClient *_hidSystemClient;
     unsigned long long _biometryAttempts;
+    PKPeerPaymentAccount *_peerPaymentAccount;
     _Bool _userIntentRequired;
     _Bool _shouldIgnorePhysicalButton;
     _Bool _cancelButtonDisabled;
@@ -86,6 +87,7 @@
 - (void)_updatePreferredContentSize;
 - (void)_updatePreferencesWithErrors:(id)arg1;
 - (void)_updateShippingMethods;
+- (id)_availabilityStringForPass:(id)arg1;
 - (void)_setupPaymentPassAndBillingAddress;
 - (void)_setupShippingContact;
 - (void)_setupShippingAddress;

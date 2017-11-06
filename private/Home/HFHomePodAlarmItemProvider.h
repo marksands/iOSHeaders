@@ -6,11 +6,9 @@
 
 #import <Home/HFItemProvider.h>
 
-#import "HFAccessorySettingMobileTimerAdapterObserver.h"
+@class HFAccessorySettingMobileTimerAdapter, NSMutableDictionary, NSMutableSet;
 
-@class HFAccessorySettingMobileTimerAdapter, NSMutableDictionary, NSMutableSet, NSString;
-
-@interface HFHomePodAlarmItemProvider : HFItemProvider <HFAccessorySettingMobileTimerAdapterObserver>
+@interface HFHomePodAlarmItemProvider : HFItemProvider
 {
     HFAccessorySettingMobileTimerAdapter *_mobileTimerAdapter;
     id <HFHomePodAlarmItemProviderDelegate> _delegate;
@@ -28,12 +26,6 @@
 - (id)reloadItems;
 - (id)items;
 - (id)initWithMediaProfileContainer:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

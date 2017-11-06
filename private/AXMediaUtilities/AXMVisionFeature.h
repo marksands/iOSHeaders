@@ -63,7 +63,7 @@
 + (id)unitTestingHorizonFeature;
 + (id)unitTestingFaceFeature;
 + (id)unitTestingFeature;
-+ (id)unitTestingFeatureWithType:(unsigned long long)arg1 canvasSize:(struct CGSize)arg2 frame:(struct CGRect)arg3 value:(id)arg4 barcodeType:(id)arg5 ocrFeatureType:(long long)arg6;
++ (id)unitTestingFeatureWithType:(unsigned long long)arg1 canvasSize:(struct CGSize)arg2 frame:(struct CGRect)arg3 value:(id)arg4 barcodeType:(id)arg5 ocrFeatureType:(long long)arg6 subFeatures:(id)arg7;
 - (void).cxx_destruct;
 - (double)confidenceForExpression:(long long)arg1;
 @property(readonly, nonatomic) long long likelyExpression;

@@ -124,6 +124,7 @@
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (long long)preferredStatusBarStyle;
 - (void)composeButtonClicked:(id)arg1;
+- (void)_endHoldingUpdatesForBatchEditing:(_Bool)arg1;
 - (void)_updateToolbarItems;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (id)inputAccessoryView;

@@ -6,19 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDecimalNumber, NSLocale, NSString;
+@class NSArray, NSDecimalNumber, NSLocale, NSString, SKProductDiscount, SKProductSubscriptionPeriod;
 
 @interface SKProductInternal : NSObject
 {
     NSString *_contentVersion;
     _Bool _downloadable;
     NSArray *_downloadContentLengths;
+    SKProductDiscount *_introductoryPrice;
     NSString *_localeIdentifier;
     NSString *_localizedDescription;
     NSString *_localizedTitle;
     NSDecimalNumber *_price;
     NSLocale *_priceLocale;
     NSString *_productIdentifier;
+    SKProductSubscriptionPeriod *_subscriptionPeriod;
 }
 
 - (void)dealloc;

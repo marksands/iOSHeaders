@@ -233,6 +233,7 @@
 - (void)setUsesEmbeddedAppearance:(_Bool)arg1;
 - (_Bool)_wouldCombineLandscapeBarsForSize:(struct CGSize)arg1;
 - (_Bool)_shouldCombineLandscapeBarsForOrientation:(long long)arg1;
+- (_Bool)_useRelaxedScopeLayout;
 - (_Bool)_shouldCombineLandscapeBars;
 - (_Bool)combinesLandscapeBars;
 - (void)setCombinesLandscapeBars:(_Bool)arg1;

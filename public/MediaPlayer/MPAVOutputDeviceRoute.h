@@ -14,6 +14,7 @@
     NSArray *_outputDevices;
 }
 
++ (long long)pickableRouteTypeForOutputDevice:(void *)arg1;
 + (id)localOutputDeviceLocalizedName;
 + (void *)logicalLeaderFromOutputDevices:(id)arg1;
 @property(readonly, nonatomic) void *logicalLeaderOutputDevice; // @synthesize logicalLeaderOutputDevice=_logicalLeaderOutputDevice;

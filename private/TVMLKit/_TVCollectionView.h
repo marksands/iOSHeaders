@@ -44,6 +44,7 @@
 - (_Bool)canBecomeFocused;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRequireFailureOfGestureRecognizer:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1 collectionViewLayout:(id)arg2;
 

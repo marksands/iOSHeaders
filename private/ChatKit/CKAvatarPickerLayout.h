@@ -17,6 +17,8 @@
     NSArray *_attrCollection;
     NSArray *_supplementaryAttrCollection;
     NSArray *_cutoutAttrCollection;
+    UICollectionViewLayoutAttributes *_leftShadowDecorationAttr;
+    UICollectionViewLayoutAttributes *_rightShadowDecorationAttr;
     NSArray *_fromAttrCollection;
     NSArray *_fromSupplementaryAttrCollection;
     NSArray *_fromCutoutAttrCollection;
@@ -28,6 +30,8 @@
 @property(copy, nonatomic) NSArray *fromCutoutAttrCollection; // @synthesize fromCutoutAttrCollection=_fromCutoutAttrCollection;
 @property(retain, nonatomic) NSArray *fromSupplementaryAttrCollection; // @synthesize fromSupplementaryAttrCollection=_fromSupplementaryAttrCollection;
 @property(retain, nonatomic) NSArray *fromAttrCollection; // @synthesize fromAttrCollection=_fromAttrCollection;
+@property(retain, nonatomic) UICollectionViewLayoutAttributes *rightShadowDecorationAttr; // @synthesize rightShadowDecorationAttr=_rightShadowDecorationAttr;
+@property(retain, nonatomic) UICollectionViewLayoutAttributes *leftShadowDecorationAttr; // @synthesize leftShadowDecorationAttr=_leftShadowDecorationAttr;
 @property(copy, nonatomic) NSArray *cutoutAttrCollection; // @synthesize cutoutAttrCollection=_cutoutAttrCollection;
 @property(copy, nonatomic) NSArray *supplementaryAttrCollection; // @synthesize supplementaryAttrCollection=_supplementaryAttrCollection;
 @property(copy, nonatomic) NSArray *attrCollection; // @synthesize attrCollection=_attrCollection;
@@ -37,10 +41,13 @@
 - (void).cxx_destruct;
 - (_Bool)_shouldShowContactNames;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
+- (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)finalLayoutAttributesForDisappearingSupplementaryElementOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)initialLayoutAttributesForAppearingSupplementaryElementOfKind:(id)arg1 atIndexPath:(id)arg2;
+- (id)finalLayoutAttributesForDisappearingDecorationElementOfKind:(id)arg1 atIndexPath:(id)arg2;
+- (id)initialLayoutAttributesForAppearingDecorationElementOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)finalLayoutAttributesForDisappearingItemAtIndexPath:(id)arg1;
 - (id)initialLayoutAttributesForAppearingItemAtIndexPath:(id)arg1;
 - (void)prepareLayout;
@@ -55,6 +62,7 @@
 - (double)_avatarBoundWidthLayoutMode:(unsigned long long)arg1;
 - (double)_avatarBoundWidth;
 - (unsigned long long)_itemCount;
+- (_Bool)_canShowShadowClipping;
 - (id)nameLayoutAttributesCollectionAtPoint:(struct CGPoint)arg1;
 @property(readonly, nonatomic) _Bool shouldFillOutFromCenter;
 - (void)cleanupAnimationCache;

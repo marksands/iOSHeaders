@@ -29,6 +29,7 @@
 @property(readonly, copy) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (id)modelWithParentIdentifier:(id)arg1;
+- (id)modelsWithParentIdentifier:(id)arg1;
 @property(readonly, copy) NSString *propertyDescription;
 - (id)initWithName:(id)arg1 type:(long long)arg2 properties:(unsigned long long)arg3 constraints:(id)arg4 value:(id)arg5;
 

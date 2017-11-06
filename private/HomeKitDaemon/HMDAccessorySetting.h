@@ -53,6 +53,7 @@
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (id)transactionWithObjectChangeType:(unsigned long long)arg1;
 @property(readonly) HMDAccessorySettingModel *model;
+@property(readonly, copy) NSArray *models;
 - (void)_relayRequestMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(nonatomic) unsigned long long configurationVersion; // @synthesize configurationVersion=_configurationVersion;
 - (id)valueUpdateNotificationWithMessage:(id)arg1;
@@ -66,6 +67,7 @@
 - (void)_handleAddConstraint:(id)arg1;
 - (void)addConstraint:(id)arg1;
 - (void)setConstraints:(id)arg1;
+- (id)constraintWithIdentifier:(id)arg1;
 @property(readonly, copy) NSArray *constraints;
 - (_Bool)isValid:(id *)arg1;
 @property(readonly) NSString *keyPath;

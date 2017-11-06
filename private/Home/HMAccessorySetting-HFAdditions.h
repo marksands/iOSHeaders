@@ -6,7 +6,11 @@
 
 #import "HMAccessorySetting.h"
 
+@class NSString;
+
 @interface HMAccessorySetting (HFAdditions)
++ (id)hf_debugDescriptionForValue:(id)arg1 keyPath:(id)arg2;
+@property(readonly, copy, nonatomic) NSString *hf_debugValueDescription;
 @property(readonly, nonatomic) _Bool hf_isBooleanSetting;
 @end
 

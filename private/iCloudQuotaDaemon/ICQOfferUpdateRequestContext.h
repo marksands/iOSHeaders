@@ -10,12 +10,14 @@
 
 @interface ICQOfferUpdateRequestContext : NSObject
 {
+    _Bool _zeroAction;
     ACAccount *_account;
     ACAccountStore *_accountStore;
     NSString *_buttonId;
     NSString *_offerId;
 }
 
+@property(nonatomic, getter=isZeroAction) _Bool zeroAction; // @synthesize zeroAction=_zeroAction;
 @property(retain, nonatomic) NSString *offerId; // @synthesize offerId=_offerId;
 @property(copy, nonatomic) NSString *buttonId; // @synthesize buttonId=_buttonId;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;

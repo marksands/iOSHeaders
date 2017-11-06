@@ -15,10 +15,12 @@
 {
     double _rowSpacing;
     double _interitemSpacing;
+    unsigned long long _preferredLayoutStyle;
     struct CGSize _preferredItemSize;
 }
 
 + (id)na_identity;
+@property(nonatomic) unsigned long long preferredLayoutStyle; // @synthesize preferredLayoutStyle=_preferredLayoutStyle;
 @property(nonatomic) double interitemSpacing; // @synthesize interitemSpacing=_interitemSpacing;
 @property(nonatomic) double rowSpacing; // @synthesize rowSpacing=_rowSpacing;
 @property(nonatomic) struct CGSize preferredItemSize; // @synthesize preferredItemSize=_preferredItemSize;

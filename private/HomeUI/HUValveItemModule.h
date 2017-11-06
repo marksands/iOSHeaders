@@ -24,6 +24,7 @@
 @property(readonly, nonatomic) unsigned long long editingMode; // @synthesize editingMode=_editingMode;
 - (void).cxx_destruct;
 - (id)_createItemProviders;
+- (id)toggleConfigurationStateForItem:(id)arg1;
 - (id)buildSectionsWithDisplayedItems:(id)arg1;
 - (id)itemProviders;
 - (id)initWithItemUpdater:(id)arg1 home:(id)arg2 sourceItem:(id)arg3 mode:(unsigned long long)arg4;

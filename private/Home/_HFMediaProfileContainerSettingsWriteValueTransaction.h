@@ -6,22 +6,35 @@
 
 #import "NSObject.h"
 
-@class HMAccessorySetting, NAFuture, NSNumber;
+@class HMAccessorySetting, NAFuture, NSDate, NSError, NSNumber;
 
 @interface _HFMediaProfileContainerSettingsWriteValueTransaction : NSObject
 {
-    NAFuture *_writeFuture;
+    _Bool _started;
+    NAFuture *_settingWriteFuture;
+    NSError *_error;
+    NSDate *_transactionStartDate;
     id _value;
+    id _previousValue;
+    unsigned long long _changeType;
     HMAccessorySetting *_setting;
     NSNumber *_transactionNumber;
 }
 
-@property(retain, nonatomic) NSNumber *transactionNumber; // @synthesize transactionNumber=_transactionNumber;
-@property(retain, nonatomic) HMAccessorySetting *setting; // @synthesize setting=_setting;
-@property(copy, nonatomic) id value; // @synthesize value=_value;
-@property(retain, nonatomic) NAFuture *writeFuture; // @synthesize writeFuture=_writeFuture;
+@property(readonly, nonatomic) NSNumber *transactionNumber; // @synthesize transactionNumber=_transactionNumber;
+@property(readonly, nonatomic) HMAccessorySetting *setting; // @synthesize setting=_setting;
+@property(readonly, nonatomic) unsigned long long changeType; // @synthesize changeType=_changeType;
+@property(readonly, copy, nonatomic) id previousValue; // @synthesize previousValue=_previousValue;
+@property(readonly, copy, nonatomic) id value; // @synthesize value=_value;
+@property(readonly, nonatomic) NSDate *transactionStartDate; // @synthesize transactionStartDate=_transactionStartDate;
+@property(nonatomic, getter=hasStarted) _Bool started; // @synthesize started=_started;
+@property(retain, nonatomic) NSError *error; // @synthesize error=_error;
+@property(retain, nonatomic) NAFuture *settingWriteFuture; // @synthesize settingWriteFuture=_settingWriteFuture;
 - (void).cxx_destruct;
+- (id)description;
+- (id)descriptionBuilder;
 - (id)init;
+- (id)initWithSetting:(id)arg1 previousValue:(id)arg2 value:(id)arg3 changeType:(unsigned long long)arg4;
 
 @end
 

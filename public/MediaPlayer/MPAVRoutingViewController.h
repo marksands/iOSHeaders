@@ -11,13 +11,16 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MPAVEndpointRoute, MPAVRoutingController, MPAVRoutingEmptyStateView, MPAVRoutingTableHeaderView, MPWeakTimer, NSArray, NSNumber, NSString, UIColor, UITableView;
+@class MPAVEndpointRoute, MPAVRoutingController, MPAVRoutingEmptyStateView, MPAVRoutingTableHeaderView, MPAVRoutingViewControllerUpdate, MPWeakTimer, NSArray, NSNumber, NSString, UIColor, UITableView, UIView;
 
 @interface MPAVRoutingViewController : UIViewController <MPAVRoutingControllerDelegate, MPAVRoutingTableViewCellDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     UITableView *_tableView;
+    UIView *_tableBackgroundView;
     MPAVRoutingTableHeaderView *_tableHeaderView;
     MPAVRoutingEmptyStateView *_emptyStateView;
+    MPAVRoutingViewControllerUpdate *_pendingUpdate;
+    _Bool _isAnimatingUpdate;
     NSArray *_cachedRoutes;
     NSArray *_cachedPickedRoutes;
     NSArray *_cachedPendingPickedRoutes;
@@ -62,6 +65,7 @@
 - (unsigned long long)_tableViewNumberOfRows;
 - (_Bool)_pickOrGroupRoute:(id)arg1;
 - (void)_pickRoute:(id)arg1;
+- (void)_applyUpdate:(id)arg1;
 - (void)_updateDisplayedRoutes;
 - (void)_reloadEmptyStateVisibility;
 - (id)_displayableRoutesInRoutes:(id)arg1;

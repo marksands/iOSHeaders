@@ -33,11 +33,9 @@
 - (void)_setupView;
 - (id)_createRootViewController;
 - (id)_createSectionedRootViewController;
-- (void)traitCollectionDidChange:(id)arg1;
 - (void)_nowPlayingIdentifiersChanged:(id)arg1;
-- (void)_checkAndSetupView;
 - (void)viewWillDisappear:(_Bool)arg1;
-- (void)viewDidLoad;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)initWithBundleID:(id)arg1;
 - (id)initWithBundleID:(id)arg1 stack:(id)arg2;
 

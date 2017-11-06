@@ -24,7 +24,7 @@
     UIAlertController *_alertController;
 }
 
-@property(nonatomic) __weak UIAlertController *alertController; // @synthesize alertController=_alertController;
+@property(retain, nonatomic) UIAlertController *alertController; // @synthesize alertController=_alertController;
 @property(nonatomic) _Bool pushToNowPlaying; // @synthesize pushToNowPlaying=_pushToNowPlaying;
 @property(retain, nonatomic) MPWeakTimer *loadingTimer; // @synthesize loadingTimer=_loadingTimer;
 @property(readonly, copy, nonatomic) CDUnknownBlockType cancelledBlock; // @synthesize cancelledBlock=_cancelledBlock;

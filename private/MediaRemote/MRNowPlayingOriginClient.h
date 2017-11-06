@@ -23,9 +23,7 @@
     unsigned int _visibility;
     union _MRColor _tintColor;
     unsigned int _inputMode;
-    _Bool _queueContentNotifications;
-    struct NSMutableDictionary *_pendingNotifications;
-    NSObject<OS_dispatch_queue> *_pendingNotificationQueue;
+    int _volumeCapabilities;
     CDUnknownBlockType _playbackQueueCallback;
     CDUnknownBlockType _playbackQueueTransactionCallback;
     CDUnknownBlockType _capabilitiesCallback;
@@ -44,9 +42,6 @@
 - (void)_unregisterMediaServerNotifications;
 - (void)_registerMediaServerNotifications;
 - (void)_avSessionMediaServicesResetNotification:(id)arg1;
-- (void)dispatchQueuedContentChanges;
-- (void)startQueuingContentChanges;
-- (void)notifyChangeOfContentItem:(void *)arg1 withRequest:(void *)arg2;
 - (void)removeClient:(void *)arg1;
 - (id)nowPlayingClientForPlayerPath:(void *)arg1;
 @property(nonatomic) void *activeNowPlayingClient;
@@ -64,6 +59,7 @@
 @property(copy, nonatomic) CDUnknownBlockType playbackQueueTransactionCallback;
 @property(copy, nonatomic) CDUnknownBlockType playbackQueueCallback;
 @property(readonly, nonatomic) NSArray *nowPlayingClients;
+@property(nonatomic) int volumeCapabilities;
 - (void)dealloc;
 - (id)initWithOrigin:(void *)arg1;
 

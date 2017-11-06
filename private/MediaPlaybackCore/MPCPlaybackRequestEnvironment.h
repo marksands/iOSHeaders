@@ -10,7 +10,7 @@
 #import "NSMutableCopying.h"
 #import "NSSecureCoding.h"
 
-@class MPCPlaybackDelegationProperties, MPCPrivateListeningStateSource, NSString;
+@class ICUserIdentity, MPCPlaybackDelegationProperties, MPCPrivateListeningStateSource, NSString;
 
 @interface MPCPlaybackRequestEnvironment : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
 {
@@ -20,6 +20,7 @@
     NSString *_requestingBundleIdentifier;
     NSString *_requestingBundleVersion;
     MPCPrivateListeningStateSource *_privateListeningStateSource;
+    ICUserIdentity *_userIdentity;
 }
 
 + (_Bool)supportsSecureCoding;

@@ -178,6 +178,7 @@
 - (_Bool)isSupportedTranscriptionLanguageCode:(id)arg1;
 - (void)reportTranscriptionRatedAccurate:(_Bool)arg1 forRecord:(const void *)arg2;
 - (void)reportTranscriptionProblemForRecord:(const void *)arg1;
+- (unsigned long long)failureReasonForError:(id)arg1;
 - (void)processTranscriptForRecord:(const void *)arg1 priority:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic, getter=isTranscriptionAvailable) _Bool transcriptionAvailable;
 - (void)unloadTranscriptionService;

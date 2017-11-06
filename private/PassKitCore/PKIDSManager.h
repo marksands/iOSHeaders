@@ -44,8 +44,8 @@
 - (void)service:(id)arg1 account:(id)arg2 identifier:(id)arg3 hasBeenDeliveredWithContext:(id)arg4;
 - (void)service:(id)arg1 devicesChanged:(id)arg2;
 - (void)service:(id)arg1 activeAccountsChanged:(id)arg2;
-- (id)_fetchPaymentInstruments;
-- (id)_preparePaymentDeviceResponse;
+- (id)_fetchPaymentInstrumentsForRequestingDevice:(id)arg1;
+- (id)_preparePaymentDeviceResponseForRequestingDevice:(id)arg1;
 - (void)_registerListeners;
 - (void)_postCTLMThrottleUncapNotification;
 - (void)_unregisterCTLMThrottleUncapNotification;

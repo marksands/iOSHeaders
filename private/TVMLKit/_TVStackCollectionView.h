@@ -6,9 +6,11 @@
 
 #import "UICollectionView.h"
 
-@class NSIndexPath;
+#import "UIGestureRecognizerDelegate.h"
 
-@interface _TVStackCollectionView : UICollectionView
+@class NSIndexPath, NSString;
+
+@interface _TVStackCollectionView : UICollectionView <UIGestureRecognizerDelegate>
 {
     double _bottomPadding;
     struct UIEdgeInsets _gradientBoundsInsets;
@@ -28,6 +30,15 @@
 - (void)_getGradientMaskBounds:(out struct CGRect *)arg1 startInsets:(out struct UIEdgeInsets *)arg2 endInsets:(out struct UIEdgeInsets *)arg3 intensities:(out struct UIEdgeInsets *)arg4;
 @property(nonatomic, getter=_gradientBoundsInsets, setter=_setGradientBoundsInsets:) struct UIEdgeInsets _gradientBoundsInsets;
 - (void)setBottomPaddingForVisibleBounds:(double)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRequireFailureOfGestureRecognizer:(id)arg2;
+- (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

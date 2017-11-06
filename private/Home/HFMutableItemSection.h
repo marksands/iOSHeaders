@@ -6,7 +6,7 @@
 
 #import <Home/HFItemSection.h>
 
-@class NSArray, NSDictionary, NSString;
+@class NSArray, NSAttributedString, NSDictionary, NSString;
 
 @interface HFMutableItemSection : HFItemSection
 {
@@ -15,6 +15,7 @@
 - (void)setItems:(id)arg1 filteringToDisplayedItems:(id)arg2;
 
 // Remaining properties
+@property(copy, nonatomic) NSAttributedString *attributedFooterTitle; // @dynamic attributedFooterTitle;
 @property(copy, nonatomic) NSString *footerTitle; // @dynamic footerTitle;
 @property(copy, nonatomic) NSString *headerTitle; // @dynamic headerTitle;
 @property(copy, nonatomic) NSArray *items; // @dynamic items;

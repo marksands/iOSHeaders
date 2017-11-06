@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>;
+@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>;
 
 @interface MRPlaybackQueuePlayerClient : NSObject
 {
@@ -19,7 +19,7 @@
 
 - (id)description;
 - (void)_onQueue_invalidate;
-- (_Bool)augmentCommandOptions:(id)arg1 forCommand:(unsigned int)arg2;
+- (_Bool)verifyCommandOptions:(id)arg1 forCommand:(unsigned int)arg2;
 - (void)invalidate;
 - (id)subscribedContentItemsIdentifiers:(id)arg1 forRequest:(void *)arg2;
 - (id)subscribedContentItems:(id)arg1 forRequest:(void *)arg2;
@@ -34,7 +34,6 @@
 - (_Bool)hasRequest:(id)arg1;
 - (void)removeRequest:(id)arg1;
 - (void)addRequest:(void *)arg1;
-@property(readonly, nonatomic) NSDictionary *lookup;
 @property(readonly, nonatomic) void *playerPath;
 - (id)_onQueue_writeData;
 - (void)readData:(id)arg1;

@@ -22,7 +22,10 @@
 @property(retain, nonatomic) PDRemoteInterfacePresenter *remoteInterfacePresenter; // @synthesize remoteInterfacePresenter=_remoteInterfacePresenter;
 @property(retain, nonatomic) PDPeerPaymentWebServiceCoordinator *peerPaymentWebServiceCoordinator; // @synthesize peerPaymentWebServiceCoordinator=_peerPaymentWebServiceCoordinator;
 - (void).cxx_destruct;
+- (void)resetApplePayManateeViewWithCompletion:(CDUnknownBlockType)arg1;
+- (void)checkTLKsMissingWithCompletion:(CDUnknownBlockType)arg1;
 - (void)cloudStoreStatusWithCompletion:(CDUnknownBlockType)arg1;
+- (void)initalizeCloudStoreIfNecessaryWithHandler:(CDUnknownBlockType)arg1;
 - (void)initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)unregisterDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)registerDeviceWithCompletion:(CDUnknownBlockType)arg1;

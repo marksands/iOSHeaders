@@ -16,13 +16,13 @@
 + (id)controlItemPredicate;
 @property(readonly, nonatomic) HUQuickControlCollectionViewController *collectionViewController; // @synthesize collectionViewController=_collectionViewController;
 - (void).cxx_destruct;
+- (void)_subclass_configureQuickControlViewController:(id)arg1;
 - (id)childQuickControlContentViewControllers;
-- (_Bool)prefersFullSizeContent;
 @property(readonly, nonatomic) HFChildServiceControlItem *controlItem;
 - (void)viewDidLoad;
 - (id)hu_preloadContent;
-- (id)initWithChildServiceControlItem:(id)arg1 home:(id)arg2;
-- (id)initWithControlItems:(id)arg1 home:(id)arg2;
+- (id)initWithChildServiceControlItem:(id)arg1 home:(id)arg2 itemUpdater:(id)arg3;
+- (id)initWithControlItems:(id)arg1 home:(id)arg2 itemUpdater:(id)arg3;
 
 @end
 

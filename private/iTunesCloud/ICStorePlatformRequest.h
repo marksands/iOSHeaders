@@ -25,6 +25,7 @@
     long long _personalizationStyle;
     NSString *_platformIdentifier;
     NSString *_protocolVersion;
+    double _retryDelay;
     double _timeoutInterval;
     long long _qualityOfService;
     ICStoreRequestContext *_requestContext;
@@ -35,6 +36,7 @@
 @property(nonatomic) _Bool shouldIgnoreCache; // @synthesize shouldIgnoreCache=_shouldIgnoreCache;
 @property(nonatomic) double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
 @property(nonatomic) _Bool returnsLocalEquivalencies; // @synthesize returnsLocalEquivalencies=_returnsLocalEquivalencies;
+@property(nonatomic) double retryDelay; // @synthesize retryDelay=_retryDelay;
 @property(copy, nonatomic) NSString *protocolVersion; // @synthesize protocolVersion=_protocolVersion;
 @property(copy, nonatomic) NSString *platformIdentifier; // @synthesize platformIdentifier=_platformIdentifier;
 @property(nonatomic) long long personalizationStyle; // @synthesize personalizationStyle=_personalizationStyle;
@@ -51,7 +53,7 @@
 @property(readonly, copy, nonatomic) NSArray *queryItems;
 @property(readonly, copy, nonatomic) NSDictionary *HTTPHeaders;
 - (id)copyWithItemIdentifiersInRange:(struct _NSRange)arg1;
-- (void)performWithResponseHandler:(CDUnknownBlockType)arg1;
+- (id)performWithResponseHandler:(CDUnknownBlockType)arg1;
 - (id)init;
 
 @end

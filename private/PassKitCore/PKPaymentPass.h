@@ -83,6 +83,7 @@
 @property(readonly, copy, nonatomic) PKFelicaPassProperties *felicaProperties;
 - (id)notificationCenterTitle;
 - (id)_localizedSuspendedReasonForAID:(id)arg1;
+- (_Bool)supportsWebPaymentMode:(long long)arg1 withExclusionList:(id)arg2 clientOSVersion:(id)arg3;
 - (_Bool)supportsWebPaymentMode:(long long)arg1 withExclusionList:(id)arg2;
 - (void)sanitizePaymentApplications;
 - (void)updateDevicePaymentApplicationsWithSecureElementIdentifiers:(id)arg1;

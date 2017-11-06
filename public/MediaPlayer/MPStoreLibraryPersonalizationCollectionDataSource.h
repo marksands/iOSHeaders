@@ -44,6 +44,8 @@
 - (shared_ptr_1c86f238)_entityCacheForEntityClass:(struct EntityClass *)arg1 propertiesToFetch:(vector_90d4f7ff)arg2;
 - (id)_libraryObjectWithRelativeModelClass:(Class)arg1 identifierSet:(id)arg2 propertySet:(id)arg3;
 - (id)indexPathForItemWithIdentifiersIntersectingSet:(id)arg1;
+- (id)identifiersForSectionAtIndex:(long long)arg1;
+- (id)identifiersForItemAtIndexPath:(id)arg1;
 - (id)itemAtIndexPath:(id)arg1;
 - (unsigned long long)numberOfItemsInSection:(unsigned long long)arg1;
 - (id)sectionAtIndex:(unsigned long long)arg1;

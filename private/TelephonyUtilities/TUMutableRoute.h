@@ -29,6 +29,7 @@
 @property(nonatomic, getter=isPreferredAndActive) _Bool preferredAndActive; // @dynamic preferredAndActive;
 @property(nonatomic, getter=isReceiver) _Bool receiver; // @dynamic receiver;
 @property(nonatomic, getter=isSpeaker) _Bool speaker; // @dynamic speaker;
+@property(nonatomic) _Bool supportsPreferredAndActive; // @dynamic supportsPreferredAndActive;
 @property(nonatomic) _Bool supportsRelay; // @dynamic supportsRelay;
 @property(nonatomic, getter=isWiredHeadphones) _Bool wiredHeadphones; // @dynamic wiredHeadphones;
 @property(nonatomic, getter=isWiredHeadset) _Bool wiredHeadset; // @dynamic wiredHeadset;

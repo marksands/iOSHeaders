@@ -15,6 +15,7 @@
     double _playbackPosition;
     long long _radioStationID;
     unsigned long long _trackID;
+    NSString *_commandID;
     NSString *_contentItemID;
     NSString *_contextID;
     NSString *_destinationAppDisplayID;
@@ -32,6 +33,7 @@
     int _repeatMode;
     int _replaceIntent;
     unsigned int _sendOptions;
+    NSString *_senderID;
     int _shuffleMode;
     float _skipInterval;
     NSString *_sourceID;
@@ -64,6 +66,8 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *senderID; // @synthesize senderID=_senderID;
+@property(retain, nonatomic) NSString *commandID; // @synthesize commandID=_commandID;
 @property(retain, nonatomic) NSString *nowPlayingContentItemID; // @synthesize nowPlayingContentItemID=_nowPlayingContentItemID;
 @property(retain, nonatomic) NSString *insertAfterContentItemID; // @synthesize insertAfterContentItemID=_insertAfterContentItemID;
 @property(retain, nonatomic) NSData *playbackQueueContext; // @synthesize playbackQueueContext=_playbackQueueContext;
@@ -100,6 +104,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasSenderID;
+@property(readonly, nonatomic) _Bool hasCommandID;
 - (int)StringAsReplaceIntent:(id)arg1;
 - (id)replaceIntentAsString:(int)arg1;
 @property(nonatomic) _Bool hasReplaceIntent;

@@ -50,6 +50,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 @property(readonly, nonatomic) NSString *authPromptReason;
+@property(readonly, nonatomic) _Bool shouldSkipZonePCSUpdate;
 @property(readonly, nonatomic) NSDictionary *additionalRequestHTTPHeaders;
 @property(readonly, nonatomic) double timeoutIntervalForResource;
 @property(readonly, nonatomic) double timeoutIntervalForRequest;

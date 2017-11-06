@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)removeOutputDevices:(id)arg1 withReplyQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)addOutputDevices:(id)arg1 withReplyQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)isLocalEndpoint;
+- (id)instanceIdentifier;
 - (id)uniqueIdentifier;
 @property(copy, nonatomic) NSArray *outputDevices;
 - (void)dealloc;

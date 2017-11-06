@@ -467,6 +467,8 @@ struct ControllerImpl {
     _Bool _field115;
     id _field116;
     id _field117;
+    struct AudioBufferList *_field118;
+    void *_field119;
 };
 
 struct DataSourceDescriptionImpl {

@@ -26,6 +26,7 @@
 @property(readonly, copy, nonatomic) NSString *deviceModelOverride;
 @property(readonly, copy, nonatomic) NSNumber *deviceClassOverride;
 @property(nonatomic) _Bool ignoreExtendedCertificateValidation;
+@property(copy, nonatomic) NSNumber *authServiceClientTokenDSID;
 @property(copy, nonatomic) NSDate *authServiceClientTokenExpiration;
 @property(copy, nonatomic) NSString *authServiceClientToken;
 @property(copy, nonatomic) NSDictionary *mediaLibraryAccessApplicationIdentifiersWithTCCAcceptanceDates;

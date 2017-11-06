@@ -8,15 +8,17 @@
 
 #import "NSSecureCoding.h"
 
-@class NSDictionary, _MRAVOutputDeviceDescriptorProtobuf;
+@class MRAVOutputDeviceSourceInfo, NSDictionary, _MRAVOutputDeviceDescriptorProtobuf;
 
 @interface MRAVDistantOutputDevice : MRAVOutputDevice <NSSecureCoding>
 {
     _MRAVOutputDeviceDescriptorProtobuf *_protobuf;
+    MRAVOutputDeviceSourceInfo *_sourceInfo;
     NSDictionary *_modelSpecificInfo;
 }
 
 + (_Bool)supportsSecureCoding;
+- (id)sourceInfo;
 - (_Bool)requiresAuthorization;
 - (_Bool)supportsExternalScreen;
 - (_Bool)isLocalDevice;

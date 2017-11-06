@@ -10,21 +10,24 @@
 
 @interface HUQuickControlCollectionViewCellContainerViewController : UIViewController
 {
-    HUQuickControlViewController *_contentViewController;
     unsigned long long _titlePosition;
+    HUQuickControlViewController *_contentViewController;
+    struct UIEdgeInsets _preferredContentLayoutFrameInset;
 }
 
-+ (struct CGSize)preferredSizeForContentSize:(struct CGSize)arg1;
-@property(readonly, nonatomic) unsigned long long titlePosition; // @synthesize titlePosition=_titlePosition;
++ (id)intrinsicSizeDescriptorControlSizeDescriptor:(id)arg1 titlePosition:(unsigned long long)arg2;
 @property(readonly, nonatomic) HUQuickControlViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
+@property(nonatomic) struct UIEdgeInsets preferredContentLayoutFrameInset; // @synthesize preferredContentLayoutFrameInset=_preferredContentLayoutFrameInset;
+@property(nonatomic) unsigned long long titlePosition; // @synthesize titlePosition=_titlePosition;
 - (void).cxx_destruct;
+- (id)intrinsicSizeDescriptorForControlSize:(unsigned long long)arg1;
 - (void)setTitle:(id)arg1;
 - (void)loadView;
 - (id)initWithContentViewController:(id)arg1;
-- (id)initWithContentViewController:(id)arg1 titlePosition:(unsigned long long)arg2;
 
 // Remaining properties
 @property(retain, nonatomic) HUQuickControlCollectionViewCellContainerView *view; // @dynamic view;
+@property(readonly, nonatomic) HUQuickControlCollectionViewCellContainerView *viewIfLoaded; // @dynamic viewIfLoaded;
 
 @end
 

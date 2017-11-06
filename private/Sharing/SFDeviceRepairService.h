@@ -12,6 +12,8 @@
 {
     _Bool _activateCalled;
     _Bool _invalidateCalled;
+    _Bool _invalidateDone;
+    unsigned int _invalidateFlags;
     SFService *_sfService;
     SFSession *_sfSession;
     ACAccountStore *_accountStore;
@@ -45,10 +47,9 @@
 - (void)_handleSessionStarted:(id)arg1;
 - (void)_sfServiceStart;
 - (void)_invalidate;
+- (void)invalidateWithFlags:(unsigned int)arg1;
 - (void)invalidate;
 - (void)activate;
-- (void)_cleanup;
-- (void)dealloc;
 - (id)init;
 
 @end

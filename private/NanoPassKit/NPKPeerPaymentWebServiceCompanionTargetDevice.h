@@ -20,7 +20,11 @@
 @property(retain, nonatomic) NPSManager *preferencesSyncManager; // @synthesize preferencesSyncManager=_preferencesSyncManager;
 @property(retain, nonatomic) NPSDomainAccessor *globalDomainAccessor; // @synthesize globalDomainAccessor=_globalDomainAccessor;
 - (void).cxx_destruct;
+- (void)peerPaymentReRegisterWithURL:(id)arg1 pushToken:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)cloudStoreStatusWithCompletion:(CDUnknownBlockType)arg1;
+- (void)resetApplePayManateeViewWithCompletion:(CDUnknownBlockType)arg1;
+- (void)checkTLKsMissingWithCompletion:(CDUnknownBlockType)arg1;
+- (void)initalizeCloudStoreIfNecessaryWithHandler:(CDUnknownBlockType)arg1;
 - (void)initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)provisionPeerPaymentPassWithProvisioningController:(id)arg1 credential:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setUserHasDisabledPeerPayment:(_Bool)arg1;

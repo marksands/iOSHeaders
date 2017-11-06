@@ -15,6 +15,7 @@
     _Bool _roll;
     struct _PCSIdentitySetData *_set;
     struct __PCSLogContext *_log;
+    long long _timeoutValue;
     NSString *_dsid;
     NSString *_service;
     struct _PCSIdentityData *_currentIdentity;
@@ -43,6 +44,7 @@
 @property struct _PCSIdentityData *currentIdentity; // @synthesize currentIdentity=_currentIdentity;
 @property(retain) NSString *service; // @synthesize service=_service;
 @property(retain) NSString *dsid; // @synthesize dsid=_dsid;
+@property long long timeoutValue; // @synthesize timeoutValue=_timeoutValue;
 @property struct __PCSLogContext *log; // @synthesize log=_log;
 @property struct _PCSIdentitySetData *set; // @synthesize set=_set;
 - (void).cxx_destruct;

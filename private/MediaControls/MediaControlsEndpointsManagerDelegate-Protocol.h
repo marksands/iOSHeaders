@@ -9,7 +9,7 @@
 @class MPAVEndpointRoute, MediaControlsEndpointsManager, NSArray;
 
 @protocol MediaControlsEndpointsManagerDelegate <NSObject>
+- (void)endpointsManager:(MediaControlsEndpointsManager *)arg1 willUpdateRoutes:(NSArray *)arg2 defersRoutesReplacement:(MPChangeDetails * (^)(void))arg3;
 - (void)endpointsManager:(MediaControlsEndpointsManager *)arg1 activeSystemRouteDidChange:(MPAVEndpointRoute *)arg2;
-- (void)endpointsManager:(MediaControlsEndpointsManager *)arg1 didUpdateRoutes:(NSArray *)arg2;
 @end
 

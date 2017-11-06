@@ -8,7 +8,7 @@
 
 #import "HUQuickControlInteractionCoordinatorDelegate.h"
 
-@class HFControlItem, HUQuickControlInteractionCoordinator, HUQuickControlViewProfile, NAValueThrottler, NSString;
+@class HFControlItem, HUQuickControlInteractionCoordinator, HUQuickControlViewProfile, NAValueThrottler, NSString, _HUQuickControlSingleControlHostView;
 
 @interface HUQuickControlSingleControlViewController : HUQuickControlViewController <HUQuickControlInteractionCoordinatorDelegate>
 {
@@ -42,7 +42,7 @@
 - (_Bool)hasModelValueChangedForInteractionCoordinator:(id)arg1;
 - (void)interactionCoordinator:(id)arg1 interactionStateDidChange:(_Bool)arg2;
 - (void)interactionCoordinator:(id)arg1 viewValueDidChange:(id)arg2;
-- (void)itemManager:(id)arg1 didUpdateResultsForItem:(id)arg2 atIndexPath:(id)arg3;
+- (void)quickControlItemUpdater:(id)arg1 didUpdateResultsForControlItems:(id)arg2;
 - (void)modelValueDidChange;
 - (id)overrideSecondaryStatusText;
 - (id)overrideStatusText;
@@ -64,18 +64,21 @@
 - (void)setControlSize:(unsigned long long)arg1;
 - (void)beginUserInteractionWithFirstTouchGestureRecognizer:(id)arg1;
 - (id)overrideValueForCharacteristic:(id)arg1;
+- (id)intrinsicSizeDescriptorForControlSize:(unsigned long long)arg1;
+- (void)setPreferredFrameLayoutGuide:(id)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
-- (void)viewDidLoad;
+- (void)loadView;
 @property(readonly, nonatomic) HFControlItem *controlItem;
-- (id)initWithControlItem:(id)arg1 home:(id)arg2;
-- (id)initWithControlItems:(id)arg1 home:(id)arg2;
+- (id)initWithControlItem:(id)arg1 home:(id)arg2 itemUpdater:(id)arg3;
+- (id)initWithControlItems:(id)arg1 home:(id)arg2 itemUpdater:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
+@property(retain, nonatomic) _HUQuickControlSingleControlHostView *view; // @dynamic view;
 
 @end
 

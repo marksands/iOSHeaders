@@ -15,7 +15,6 @@
     UIImageView *_cardArtView;
     UIStackView *_stackView;
     _Bool _showBillingAddress;
-    _Bool _showAvailability;
     _Bool _dimCardArt;
     PKPaymentPass *_pass;
     PKPassSnapshotter *_passSnapshotter;
@@ -24,14 +23,13 @@
     UIColor *_disabledMainLabelColor;
     UIColor *_disabledSubTextLabelColor;
     UILabel *_censoredPANLabel;
-    NSString *_availabilityStringPrefix;
+    NSString *_availabilityString;
 }
 
 + (double)textOffset;
 @property(nonatomic) _Bool dimCardArt; // @synthesize dimCardArt=_dimCardArt;
-@property(nonatomic) _Bool showAvailability; // @synthesize showAvailability=_showAvailability;
 @property(nonatomic) _Bool showBillingAddress; // @synthesize showBillingAddress=_showBillingAddress;
-@property(copy, nonatomic) NSString *availabilityStringPrefix; // @synthesize availabilityStringPrefix=_availabilityStringPrefix;
+@property(copy, nonatomic) NSString *availabilityString; // @synthesize availabilityString=_availabilityString;
 @property(readonly, nonatomic) UILabel *censoredPANLabel; // @synthesize censoredPANLabel=_censoredPANLabel;
 @property(retain, nonatomic) UIColor *disabledSubTextLabelColor; // @synthesize disabledSubTextLabelColor=_disabledSubTextLabelColor;
 @property(retain, nonatomic) UIColor *disabledMainLabelColor; // @synthesize disabledMainLabelColor=_disabledMainLabelColor;
@@ -43,7 +41,6 @@
 - (void)_setupConstraints;
 - (void)_updateLabelTextColors;
 - (void)_updateCellContent;
-- (id)_passAvailabilityString;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setEnabled:(_Bool)arg1;
 - (void)setHasError:(_Bool)arg1;

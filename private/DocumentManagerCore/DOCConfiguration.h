@@ -91,7 +91,7 @@
 @property _Bool suppressBlackCallout; // @synthesize suppressBlackCallout=_suppressBlackCallout;
 @property _Bool pickingItemsShouldBumpLastOpenDate; // @synthesize pickingItemsShouldBumpLastOpenDate=_pickingItemsShouldBumpLastOpenDate;
 @property _Bool neverCreateBookmarkForOpenInPlace; // @synthesize neverCreateBookmarkForOpenInPlace=_neverCreateBookmarkForOpenInPlace;
-@property _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
+@property(nonatomic) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 @property _Bool forPickingDocuments; // @synthesize forPickingDocuments=_forPickingDocuments;
 @property(copy, nonatomic) NSString *hostBundleTitle; // @synthesize hostBundleTitle=_hostBundleTitle;
 @property(copy, nonatomic) NSString *hostIdentifier; // @synthesize hostIdentifier=_hostIdentifier;

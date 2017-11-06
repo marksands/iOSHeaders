@@ -33,11 +33,11 @@
 - (void)_postFollowupForDaemonOffer:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_reconsiderOffersForAccount:(id)arg1 isForBuddy:(_Bool)arg2 choiceHandler:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)_placeholderOfferForAccount:(id)arg1 isForBuddy:(_Bool)arg2 error:(id)arg3;
-- (void)_teardownCachedOffers;
+- (void)_teardownCachedOffersAndNotify:(_Bool)arg1;
 - (void)_teardownCachedBuddyOffer;
-- (void)_teardownCachedOffer;
-- (void)_updateOffer:(id)arg1 buttonId:(id)arg2 account:(id)arg3 accountStore:(id)arg4 completion:(CDUnknownBlockType)arg5;
-- (void)updateOfferForAccount:(id)arg1 offerId:(id)arg2 buttonId:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_teardownCachedOfferAndNotify:(_Bool)arg1;
+- (void)_updateOffer:(id)arg1 buttonId:(id)arg2 info:(id)arg3 account:(id)arg4 accountStore:(id)arg5 completion:(CDUnknownBlockType)arg6;
+- (void)updateOfferForAccount:(id)arg1 offerId:(id)arg2 buttonId:(id)arg3 info:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (id)_sanitizedNotificationDictionary:(id)arg1 account:(id)arg2;
 - (void)_postDaemonOfferChangedDueToPushDarwinNotification;
 - (void)_showDaemonAlertForOffer:(id)arg1 notificationDictionary:(id)arg2 store:(id)arg3 account:(id)arg4 completion:(CDUnknownBlockType)arg5;

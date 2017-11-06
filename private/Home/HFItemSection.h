@@ -11,13 +11,14 @@
 #import "NSCopying.h"
 #import "NSMutableCopying.h"
 
-@class NSArray, NSDictionary, NSString;
+@class NSArray, NSAttributedString, NSDictionary, NSString;
 
 @interface HFItemSection : NSObject <HFDiffableItemGroup, NSCopying, NSMutableCopying, NAIdentifiable>
 {
     NSString *_identifier;
     NSString *_headerTitle;
     NSString *_footerTitle;
+    NSAttributedString *_attributedFooterTitle;
     NSDictionary *_userInfo;
     NSArray *_items;
 }
@@ -27,6 +28,7 @@
 + (CDUnknownBlockType)defaultItemComparator;
 @property(copy, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
+@property(copy, nonatomic) NSAttributedString *attributedFooterTitle; // @synthesize attributedFooterTitle=_attributedFooterTitle;
 @property(copy, nonatomic) NSString *footerTitle; // @synthesize footerTitle=_footerTitle;
 @property(copy, nonatomic) NSString *headerTitle; // @synthesize headerTitle=_headerTitle;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;

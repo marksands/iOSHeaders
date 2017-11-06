@@ -10,7 +10,7 @@
 {
 }
 
-- (id)grabScreenWithRect:(struct CGRect)arg1 orientation:(long long)arg2 renderToPixelBufferNow:(_Bool)arg3 error:(id *)arg4;
+- (id)grabScreenWithRect:(struct CGRect)arg1 orientation:(long long)arg2 ignoredLayerContextIDs:(id)arg3 renderToPixelBufferNow:(_Bool)arg4 error:(id *)arg5;
 - (id)init;
 
 @end

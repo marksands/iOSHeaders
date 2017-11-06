@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSArray, NSData, NSDictionary, NSString, NSURL, NSUUID, NSXPCListenerEndpoint, SFBLEDevice, SFCoordinatedAlertRequest, SFDevice, SFDeviceDiscovery, SFEventMessage, SFRemoteInteractionSession, SFRequestMessage, SFResponseMessage, SFService, SFSession, SFUserNotification;
+@class NSData, NSDictionary, NSString, NSURL, NSUUID, NSXPCListenerEndpoint, SFBLEDevice, SFCoordinatedAlertRequest, SFDevice, SFDeviceDiscovery, SFEventMessage, SFRemoteInteractionSession, SFRequestMessage, SFResponseMessage, SFService, SFSession, SFUserNotification;
 
 @protocol SDXPCInterface
 - (void)userNotificationPresent:(SFUserNotification *)arg1;
@@ -67,7 +67,7 @@
 - (void)contactIDForEmailHash:(NSString *)arg1 phoneHash:(NSString *)arg2 completion:(void (^)(NSString *, NSError *))arg3;
 - (void)statusInfoWithCompletion:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)requestWithInfo:(NSDictionary *)arg1 completion:(void (^)(NSString *, NSError *))arg2;
-- (void)personInfoWithEmails:(NSArray *)arg1 phones:(NSArray *)arg2 completion:(void (^)(NSArray *, NSError *))arg3;
+- (void)personInfoWithEmailOrPhone:(NSString *)arg1 completion:(void (^)(SFAppleIDPersonInfo *, NSError *))arg2;
 - (void)myAccountWithCompletion:(void (^)(SFAppleIDAccount *, NSError *))arg1;
 - (void)appleIDListWithCompletion:(void (^)(NSArray *, NSError *))arg1;
 - (void)addAppleID:(NSString *)arg1 withCompletion:(void (^)(NSError *))arg2;

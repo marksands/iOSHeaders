@@ -12,6 +12,7 @@
 
 @interface HUQuickControlContentCharacteristicWritingUpdateAdapter : NSObject <HUQuickControlContentCharacteristicWritingDelegate>
 {
+    _Bool _shouldIssueItemUpdatesOnCharacteristicOverrideValueChanges;
     id <HUQuickControlContentCharacteristicWritingDelegate> _forwardingCharacteristicWritingDelegate;
     HFItemManager *_itemManager;
     _HUQuickControlContentCharacteristicWriteQueuedUpdate *_queuedUpdate;
@@ -19,6 +20,7 @@
 
 @property(retain, nonatomic) _HUQuickControlContentCharacteristicWriteQueuedUpdate *queuedUpdate; // @synthesize queuedUpdate=_queuedUpdate;
 @property(readonly, nonatomic) HFItemManager *itemManager; // @synthesize itemManager=_itemManager;
+@property(nonatomic) _Bool shouldIssueItemUpdatesOnCharacteristicOverrideValueChanges; // @synthesize shouldIssueItemUpdatesOnCharacteristicOverrideValueChanges=_shouldIssueItemUpdatesOnCharacteristicOverrideValueChanges;
 @property(nonatomic) __weak id <HUQuickControlContentCharacteristicWritingDelegate> forwardingCharacteristicWritingDelegate; // @synthesize forwardingCharacteristicWritingDelegate=_forwardingCharacteristicWritingDelegate;
 - (void).cxx_destruct;
 - (id)_characteristicUpdateSuppressionReasonForContent:(id)arg1;

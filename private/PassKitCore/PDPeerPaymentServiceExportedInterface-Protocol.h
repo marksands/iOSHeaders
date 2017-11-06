@@ -9,8 +9,10 @@
 @class NSData, NSDecimalNumber, NSNumber, NSString, NSURL, PKCurrencyAmount, PKPaymentPass, PKPeerPaymentAccount, PKPeerPaymentWebServiceContext;
 
 @protocol PDPeerPaymentServiceExportedInterface <PDXPCServiceExportedInterface>
+- (void)resetApplePayManateeViewWithCompletion:(void (^)(_Bool, NSError *))arg1;
+- (void)checkTLKsMissingWithCompletion:(void (^)(_Bool, NSError *))arg1;
+- (void)initalizeCloudStoreIfNecessaryWithHandler:(void (^)(_Bool, NSError *))arg1;
 - (void)cloudStoreStatusWithCompletion:(void (^)(CKAccountInfo *, _Bool, NSError *))arg1;
-- (void)initalizeCloudStoreIfNecessaryWithCompletion:(void (^)(_Bool))arg1;
 - (void)updateMockAccountBalanceByAddingAmount:(NSDecimalNumber *)arg1 completion:(void (^)(PKPeerPaymentAccount *))arg2;
 - (void)downloadPassIfNecessaryWithCompletion:(void (^)(_Bool))arg1;
 - (void)lastUsedAlternateFundingSourcePassUniqueIdentifier:(void (^)(NSString *))arg1;
@@ -29,5 +31,8 @@
 - (void)accountWithCompletion:(void (^)(PKPeerPaymentAccount *))arg1;
 - (void)setSharedPeerPaymentWebServiceContext:(PKPeerPaymentWebServiceContext *)arg1 handler:(void (^)(void))arg2;
 - (void)sharedPeerPaymentWebServiceContextWithHandler:(void (^)(PKPeerPaymentWebServiceContext *))arg1;
+
+@optional
+- (void)initalizeCloudStoreIfNecessaryWithCompletion:(void (^)(_Bool))arg1;
 @end
 

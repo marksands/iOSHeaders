@@ -20,7 +20,9 @@ __attribute__((visibility("hidden")))
 + (void *)createDeviceInfoFromNetService:(id)arg1;
 @property(retain, nonatomic) NSNetService *netService; // @synthesize netService=_netService;
 @property(nonatomic) _Bool requiresCustomPairing;
+- (void)reset;
 - (_Bool)getInputStream:(id *)arg1 outputStream:(id *)arg2;
+- (id)error;
 - (void)setShouldUseSystemAuthenticationPrompt:(_Bool)arg1;
 - (_Bool)shouldUseSystemAuthenticationPrompt;
 - (long long)port;

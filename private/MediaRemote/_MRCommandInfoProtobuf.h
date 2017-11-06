@@ -33,6 +33,7 @@
     int _skipFrequency;
     int _skipInterval;
     NSMutableArray *_supportedCustomQueueIdentifiers;
+    int _upNextItemCount;
     _Bool _active;
     _Bool _enabled;
     _Bool _supportsSharedQueue;
@@ -47,6 +48,7 @@
         unsigned int shuffleMode:1;
         unsigned int skipFrequency:1;
         unsigned int skipInterval:1;
+        unsigned int upNextItemCount:1;
         unsigned int active:1;
         unsigned int enabled:1;
         unsigned int supportsSharedQueue:1;
@@ -54,6 +56,7 @@
 }
 
 + (Class)supportedCustomQueueIdentifierType;
+@property(nonatomic) int upNextItemCount; // @synthesize upNextItemCount=_upNextItemCount;
 @property(nonatomic) _Bool supportsSharedQueue; // @synthesize supportsSharedQueue=_supportsSharedQueue;
 @property(retain, nonatomic) NSMutableArray *supportedCustomQueueIdentifiers; // @synthesize supportedCustomQueueIdentifiers=_supportedCustomQueueIdentifiers;
 @property(nonatomic) int canScrub; // @synthesize canScrub=_canScrub;
@@ -76,6 +79,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasUpNextItemCount;
 @property(nonatomic) _Bool hasSupportsSharedQueue;
 - (void)setSupportedInsertionPositions:(int *)arg1 count:(unsigned long long)arg2;
 - (int)supportedInsertionPositionsAtIndex:(unsigned long long)arg1;

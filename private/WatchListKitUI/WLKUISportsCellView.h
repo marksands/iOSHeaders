@@ -13,6 +13,7 @@
     _Bool _shouldLayoutImageFirst;
     NSArray *_textRenderers;
     _TVImageView *_imageView;
+    TVImageElement *_imageElement;
     _TVImageView *_appImageView;
     TVImageElement *_appImageElement;
     WLKUISportsOverlayView *_overlayView;
@@ -22,6 +23,7 @@
 @property(retain, nonatomic) WLKUISportsOverlayView *overlayView; // @synthesize overlayView=_overlayView;
 @property(retain, nonatomic) TVImageElement *appImageElement; // @synthesize appImageElement=_appImageElement;
 @property(retain, nonatomic) _TVImageView *appImageView; // @synthesize appImageView=_appImageView;
+@property(retain, nonatomic) TVImageElement *imageElement; // @synthesize imageElement=_imageElement;
 @property(retain, nonatomic) _TVImageView *imageView; // @synthesize imageView=_imageView;
 @property(copy, nonatomic) NSArray *textRenderers; // @synthesize textRenderers=_textRenderers;
 @property(nonatomic) _Bool shouldLayoutImageFirst; // @synthesize shouldLayoutImageFirst=_shouldLayoutImageFirst;
@@ -34,6 +36,7 @@
 - (void)drawRect:(struct CGRect)arg1;
 - (void)layoutWithElement:(id)arg1;
 - (void)layoutSubviews;
+- (void)prepareForCellReuse;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

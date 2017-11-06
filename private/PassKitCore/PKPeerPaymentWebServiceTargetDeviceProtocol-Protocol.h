@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSString, PKPaymentProvisioningController, PKPeerPaymentAccount, PKPeerPaymentCredential;
+@class NSString, NSURL, PKPaymentProvisioningController, PKPeerPaymentAccount, PKPeerPaymentCredential;
 
 @protocol PKPeerPaymentWebServiceTargetDeviceProtocol <NSObject>
 - (void)cloudStoreStatusWithCompletion:(void (^)(CKAccountInfo *, _Bool, NSError *))arg1;
-- (void)initalizeCloudStoreIfNecessaryWithCompletion:(void (^)(_Bool))arg1;
 - (void)provisionPeerPaymentPassWithProvisioningController:(PKPaymentProvisioningController *)arg1 credential:(PKPeerPaymentCredential *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)setUserHasDisabledPeerPayment:(_Bool)arg1;
 - (_Bool)userHasDisabledPeerPayment;
@@ -18,5 +17,12 @@
 - (void)updateAccountWithCompletion:(void (^)(PKPeerPaymentAccount *))arg1;
 - (PKPeerPaymentAccount *)account;
 - (void)downloadPassIfNecessaryWithCompletion:(void (^)(_Bool))arg1;
+
+@optional
+- (void)initalizeCloudStoreIfNecessaryWithCompletion:(void (^)(_Bool))arg1;
+- (void)peerPaymentReRegisterWithURL:(NSURL *)arg1 pushToken:(NSString *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
+- (void)resetApplePayManateeViewWithCompletion:(void (^)(_Bool, NSError *))arg1;
+- (void)checkTLKsMissingWithCompletion:(void (^)(_Bool, NSError *))arg1;
+- (void)initalizeCloudStoreIfNecessaryWithHandler:(void (^)(_Bool, NSError *))arg1;
 @end
 

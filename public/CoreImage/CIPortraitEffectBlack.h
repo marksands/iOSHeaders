@@ -84,11 +84,14 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)_maxNumVerticesForImage:(id)arg1 sigmaLuma:(id)arg2 sigmaSpace:(id)arg3;
 - (id)_offsetImage:(id)arg1 inputDisparity:(id)arg2 thresholdImage:(id)arg3;
 - (id)_getFocusRect:(id)arg1;
+- (id)blendDepth;
 - (id)invertRed;
 - (id)adaptiveNormalizationAbsolute;
 - (id)adaptiveNormalizationGPU;
 - (id)adaptiveNormalization2;
 - (id)_applyVignette;
+- (id)_faceAndBodyFill_orient6;
+- (id)_faceAndBodyFill_orient1;
 - (id)_faceProtect;
 - (id)_faceVignette;
 - (id)_CIRefineBlackDepth;

@@ -16,6 +16,9 @@
 
 + (id)homeKitObjectURLForDestination:(unsigned long long)arg1 secondaryDestination:(unsigned long long)arg2 UUID:(id)arg3;
 + (id)_URLComponentsForDestination:(unsigned long long)arg1;
++ (id)locationPrivacyURL;
++ (id)musicPrivacyURL;
++ (id)siriPrivacyURL;
 + (id)aboutResidentDeviceURL;
 @property(readonly, nonatomic) HFHomeKitDispatcher *homeKitDispatcher; // @synthesize homeKitDispatcher=_homeKitDispatcher;
 @property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;

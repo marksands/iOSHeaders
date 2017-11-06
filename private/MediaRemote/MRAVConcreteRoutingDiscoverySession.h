@@ -17,6 +17,7 @@
     AVOutputDeviceDiscoverySession *_avDiscoverySession;
     unsigned int _endpointFeatures;
     unsigned int _discoveryMode;
+    unsigned int _targetAudioSessionID;
     MRExternalDeviceController *_genericExternalDeviceController;
     struct NSMutableDictionary *_availableGenericExternalDevices;
     _Bool _createEndpointsOnlyIfGenericEquivalentAvailable;

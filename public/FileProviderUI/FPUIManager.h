@@ -10,6 +10,7 @@
 {
 }
 
++ (id)extensionForProvider:(id)arg1;
 + (id)uiExtensionPluginForProvider:(id)arg1;
 + (_Bool)isAction:(id)arg1 eligibleForItems:(id)arg2;
 + (id)uiActionsForProvider:(id)arg1;

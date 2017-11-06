@@ -8,7 +8,7 @@
 
 #import "TIProactiveQuickTypeManaging.h"
 
-@class NSDate, NSString, TIProactiveTrigger;
+@class NSDate, NSDictionary, NSString, TIProactiveTrigger;
 
 @interface TIProactiveQuickTypeManager : NSObject <TIProactiveQuickTypeManaging>
 {
@@ -17,6 +17,8 @@
     NSDate *_lastSuggestionTime;
     NSString *_maxLengthProactiveCandidate;
     unsigned long long _textBeforeLength;
+    NSString *_recipientEmailOrPhone;
+    NSDictionary *_recipientInfo;
 }
 
 + (id)buildSecureCandidateFrom:(id)arg1 withSecureCandidateRenderer:(id)arg2 input:(id)arg3;
@@ -25,6 +27,8 @@
 + (id)sharedTIProactiveQuickTypeManager;
 + (id)buildSecureCandidateForTestFrom:(id)arg1 withSecureCandidateRenderer:(id)arg2 input:(id)arg3;
 + (void)setSharedTIProactiveQuickTypeManager:(id)arg1;
+- (void)setCachedRecipientInfo:(id)arg1 forEmailOrPhone:(id)arg2;
+- (id)getCachedRecipientInfoForEmailOrPhone:(id)arg1;
 - (_Bool)isAutoCompleteEnabled;
 - (_Bool)isAutoPopupEnabled;
 - (_Bool)isEnabled;

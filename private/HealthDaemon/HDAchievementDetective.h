@@ -101,6 +101,10 @@
 - (id)evaluateAchievementExpression:(id)arg1;
 - (_Bool)updateEnvironmentForProgress;
 - (void)currentDynamicAchievementsWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_setObservedYesterdaySummary:(id)arg1;
+- (void)_setObservedTodaySummary:(id)arg1;
+- (id)_yesterdayActivitySummary;
+- (id)_todayActivitySummary;
 - (void)_injectNow:(id)arg1;
 - (void)_clearInjectedUnitTestingDependencies;
 - (void)_injectWorkouts:(id)arg1;

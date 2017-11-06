@@ -10,12 +10,14 @@
 
 @interface DOCManagedPermission : NSObject
 {
+    _Bool _isHostManaged;
     NSString *_hostIdentifier;
     NSCache *_cache;
 }
 
 + (id)defaultPermission;
 @property(retain, nonatomic) NSCache *cache; // @synthesize cache=_cache;
+@property(nonatomic) _Bool isHostManaged; // @synthesize isHostManaged=_isHostManaged;
 @property(retain, nonatomic) NSString *hostIdentifier; // @synthesize hostIdentifier=_hostIdentifier;
 - (void).cxx_destruct;
 - (_Bool)canCopyItems:(id)arg1;

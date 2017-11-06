@@ -21,6 +21,7 @@
 - (void)sendUserEditedCatalog:(PKCatalog *)arg1;
 - (void)issueWalletUserNotificationWithTitle:(NSString *)arg1 message:(NSString *)arg2 forPassUniqueIdentifier:(NSString *)arg3 customActionRoute:(NSString *)arg4;
 - (void)shuffleGroups:(int)arg1;
+- (void)forceImmediateRevocationCheck;
 - (void)introduceDatabaseIntegrityProblem;
 - (void)nukeDatabaseAndExit;
 - (void)removeAllScheduledActivities;

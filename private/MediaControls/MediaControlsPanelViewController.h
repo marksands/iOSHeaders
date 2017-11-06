@@ -16,6 +16,7 @@
 
 @interface MediaControlsPanelViewController : UIViewController <MediaControlsEndpointControllerDelegate, MediaControlsRatingActionSheet, MPAVRoutingViewControllerThemeDelegate, MPMediaControlsViewControllerDelegate, MediaControlsCollectionItemViewController>
 {
+    struct CGSize _lastKnownSize;
     _Bool _selected;
     _Bool _transitioning;
     _Bool _coverSheetRoutingViewControllerShouldBePresented;
@@ -86,6 +87,7 @@
 - (void)_updateRouteNameLabel;
 - (void)_updateControlCenterMetadata:(id)arg1;
 - (void)_updateHeaderUI;
+- (void)_updateShouldForceVolumeControlDisabled;
 - (void)endpointControllerDidUpdateRoutingAvailability:(id)arg1;
 - (void)endpointControllerDidChangeState:(id)arg1;
 - (void)endpointController:(id)arg1 didLoadNewResponse:(id)arg2;

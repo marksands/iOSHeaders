@@ -22,6 +22,7 @@
 @property(copy, nonatomic) MTAlarm *alarm; // @synthesize alarm=_alarm;
 @property(readonly, nonatomic) id <HFMediaProfileContainer> mediaProfileContainer; // @synthesize mediaProfileContainer=_mediaProfileContainer;
 - (void).cxx_destruct;
+- (unsigned long long)_effectiveLoadingStateForSuggestedLoadingState:(unsigned long long)arg1;
 - (id)_subclass_updateWithOptions:(id)arg1;
 - (long long)compare:(id)arg1;
 - (id)initWithMediaProfileContainer:(id)arg1 alarm:(id)arg2;

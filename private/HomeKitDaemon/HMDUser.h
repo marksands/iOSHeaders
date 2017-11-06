@@ -49,7 +49,6 @@
 - (id)backingStoreObjects:(long long)arg1;
 - (void)migrateCloudZone:(id)arg1 migrationQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_fixupRelayAccessTokens;
-- (void)_cleanChangesIfNoAddChangeObjectID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)_transactionUserUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;

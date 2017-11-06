@@ -26,6 +26,7 @@
 - (void)_scanActionSets;
 - (void)_scanZones;
 - (void)_scanRooms;
+- (void)_scanSetting:(id)arg1;
 - (void)_scanSettingGroup:(id)arg1;
 - (void)_scanAccessoriesAndServices;
 - (void)scanObjects;

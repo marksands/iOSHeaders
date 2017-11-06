@@ -49,7 +49,7 @@
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (id)transactionWithObjectChangeType:(unsigned long long)arg1;
 @property(readonly) HMDAccessorySettingGroupModel *model;
-- (id)backingStoreModels;
+@property(readonly, copy) NSArray *models;
 - (id)mergeWithGroupMetadata:(id)arg1;
 - (void)_relayRequestMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)handleRemovedGroupModel:(id)arg1 message:(id)arg2;

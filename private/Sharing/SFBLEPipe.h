@@ -6,9 +6,12 @@
 
 #import "NSObject.h"
 
+#import "CBCentralManagerDelegate.h"
+#import "CBScalablePipeManagerDelegate.h"
+
 @class CBCentralManager, CBScalablePipe, CBScalablePipeManager, NSData, NSMutableData, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, SFBLEData;
 
-@interface SFBLEPipe : NSObject
+@interface SFBLEPipe : NSObject <CBCentralManagerDelegate, CBScalablePipeManagerDelegate>
 {
     _Bool _activateCalled;
     CBCentralManager *_btCentral;
@@ -55,12 +58,21 @@
 @property(copy, nonatomic) CDUnknownBlockType connectionStateChangedHandler; // @synthesize connectionStateChangedHandler=_connectionStateChangedHandler;
 @property(copy, nonatomic) CDUnknownBlockType bluetoothStateChangedHandler; // @synthesize bluetoothStateChangedHandler=_bluetoothStateChangedHandler;
 - (void).cxx_destruct;
+- (void)scalablePipeManager:(id)arg1 pipeDidDisconnect:(id)arg2 error:(id)arg3;
+- (void)scalablePipeManager:(id)arg1 pipeDidConnect:(id)arg2;
+- (void)scalablePipeManager:(id)arg1 didUnregisterEndpoint:(id)arg2;
+- (void)scalablePipeManager:(id)arg1 didRegisterEndpoint:(id)arg2 error:(id)arg3;
+- (void)scalablePipeManagerDidUpdateState:(id)arg1;
 - (void)centralManager:(id)arg1 didDisconnectPeripheral:(id)arg2 error:(id)arg3;
 - (void)centralManager:(id)arg1 didFailToConnectPeripheral:(id)arg2 error:(id)arg3;
 - (void)centralManager:(id)arg1 didConnectPeripheral:(id)arg2;
 - (void)centralManagerDidUpdateState:(id)arg1;
 - (id)_defaultPairedDeviceBluetoothIdentifier;
 - (void)_frameHandler:(unsigned char)arg1 data:(id)arg2;
+- (void)_writeHandler;
+- (void)_readHandler;
+- (void)_tearDownPipe;
+- (void)_setupPipe:(id)arg1;
 - (void)_setupIfNeeded;
 - (void)_sendFrameType:(unsigned char)arg1 payload:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)sendFrameType:(unsigned char)arg1 payload:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -71,9 +83,14 @@
 - (void)_activate;
 - (void)activate;
 @property(readonly, nonatomic) long long connectionState;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

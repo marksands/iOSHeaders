@@ -31,6 +31,8 @@
     _Bool _enableFigPhotoTiledLayer;
     _Bool _useURLForLargePhotosWithFigPhotoTiledLayer;
     _Bool _forceURLWithFigPhotoTiledLayer;
+    _Bool _enableFigPhotoBackgroundSizeBasedDisplay;
+    _Bool _simulateWorstCaseFigPhotoBackgroundSize;
     _Bool _allowPlayButtonInBars;
     _Bool _playVideoInScrubber;
     _Bool _lockScrollDuringLivePhotoPlayback;
@@ -131,6 +133,8 @@
 @property(nonatomic) double videoPauseThreshold; // @synthesize videoPauseThreshold=_videoPauseThreshold;
 @property(nonatomic) _Bool playVideoInScrubber; // @synthesize playVideoInScrubber=_playVideoInScrubber;
 @property(nonatomic) _Bool allowPlayButtonInBars; // @synthesize allowPlayButtonInBars=_allowPlayButtonInBars;
+@property(nonatomic) _Bool simulateWorstCaseFigPhotoBackgroundSize; // @synthesize simulateWorstCaseFigPhotoBackgroundSize=_simulateWorstCaseFigPhotoBackgroundSize;
+@property(nonatomic) _Bool enableFigPhotoBackgroundSizeBasedDisplay; // @synthesize enableFigPhotoBackgroundSizeBasedDisplay=_enableFigPhotoBackgroundSizeBasedDisplay;
 @property(nonatomic) _Bool forceURLWithFigPhotoTiledLayer; // @synthesize forceURLWithFigPhotoTiledLayer=_forceURLWithFigPhotoTiledLayer;
 @property(nonatomic) _Bool useURLForLargePhotosWithFigPhotoTiledLayer; // @synthesize useURLForLargePhotosWithFigPhotoTiledLayer=_useURLForLargePhotosWithFigPhotoTiledLayer;
 @property(nonatomic) _Bool enableFigPhotoTiledLayer; // @synthesize enableFigPhotoTiledLayer=_enableFigPhotoTiledLayer;

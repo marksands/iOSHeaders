@@ -30,6 +30,7 @@
 @property(nonatomic) __weak id <HUQuickControlViewInteractionDelegate> interactionDelegate; // @synthesize interactionDelegate=_interactionDelegate;
 - (void).cxx_destruct;
 - (void)beginUserInteractionWithFirstTouchGestureRecognizer:(id)arg1;
+- (id)intrinsicSizeDescriptorForControlSize:(unsigned long long)arg1;
 @property(readonly, nonatomic) _Bool isPlaying;
 - (void)_relabelButton;
 - (void)_configureConstraints;

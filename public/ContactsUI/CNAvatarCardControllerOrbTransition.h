@@ -39,7 +39,6 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)_sourceRectInContainerView:(id)arg1;
 - (void)transitionDidEnd:(_Bool)arg1;
 - (void)performTransitionFromView:(id)arg1 toView:(id)arg2 containerView:(id)arg3;
-- (void)performWithCustomAnimator:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setupTransitionFromView:(id)arg1 toView:(id)arg2 withContainerView:(id)arg3;
 - (void)prepareTransitionFromView:(id)arg1 toView:(id)arg2 containerView:(id)arg3;
 - (id)initWithCardViewController:(id)arg1 headerView:(id)arg2 sourceView:(id)arg3 highlightedView:(id)arg4 sourceRect:(struct CGRect)arg5 isDismissing:(_Bool)arg6;

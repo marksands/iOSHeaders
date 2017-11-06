@@ -8,11 +8,13 @@
 
 #import "NSURLSessionTaskDelegate.h"
 
-@class NSString, NSURL, PKPeerPaymentService, PKPeerPaymentWebServiceContext, PKSecureElement;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSURL, PKPeerPaymentService, PKPeerPaymentWebServiceContext, PKSecureElement;
 
 @interface PKPeerPaymentWebService : PKWebService <NSURLSessionTaskDelegate>
 {
     PKSecureElement *_secureElement;
+    NSMutableDictionary *_prewarmedDeviceScorers;
+    NSObject<OS_dispatch_queue> *_prewarmedDeviceScorersQueue;
     _Bool _sharedService;
     PKPeerPaymentWebServiceContext *_context;
     id <PKPeerPaymentWebServiceArchiver> _archiver;
@@ -33,6 +35,9 @@
 - (void)_handleRetryAfterRegisterWithRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_deviceScoreForEndpoint:(id)arg1 recipientAddress:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)_deviceScoreForEndpoint:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (id)_createDeviceScorerForEndpoint:(id)arg1 recipientAddress:(id)arg2;
+- (void)prewarmDeviceScoreForEndpoint:(id)arg1 recipientAddress:(id)arg2;
+- (void)prewarmDeviceScoreForEndpoint:(id)arg1;
 - (id)_deviceMetadata;
 - (void)_deviceRegistrationDataWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_deviceIdentifier;

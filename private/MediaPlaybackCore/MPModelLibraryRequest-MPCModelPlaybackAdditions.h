@@ -9,16 +9,18 @@
 #import "MPCModelPlaybackRequesting.h"
 #import "MPCModelRequestRTCReporting.h"
 
-@class NSString;
+@class MPSectionedCollection, NSString;
 
 @interface MPModelLibraryRequest (MPCModelPlaybackAdditions) <MPCModelPlaybackRequesting, MPCModelRequestRTCReporting>
 @property(readonly, copy, nonatomic) NSString *rtcReportingPlayQueueSourceIdentifier;
-@property(nonatomic) _Bool shouldExcludeNonShuffleItems;
+- (_Bool)shouldExcludeNonShuffleItems;
+- (void)setShouldExcludeNonShuffleItems:(_Bool)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) MPSectionedCollection *playbackSourceModelObjects;
 @property(readonly) Class superclass;
 @end
 

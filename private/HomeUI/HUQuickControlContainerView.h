@@ -12,7 +12,7 @@
 {
     _Bool _shouldShowDetailsButton;
     _Bool _shouldShowControls;
-    _Bool _controlViewPrefersFullSizeContent;
+    _Bool _controlViewSupportsTransformTransition;
     _Bool _showAlternateControlButton;
     double _controlTransitionProgress;
     double _blurTransitionProgress;
@@ -20,6 +20,7 @@
     double _initialSourceViewScale;
     unsigned long long _edgesForExtendedLayout;
     UIView *_activeControlView;
+    UILayoutGuide *_controlViewPreferredFrameLayoutGuide;
     NSString *_alternateControlButtonTitle;
     HUQuickControlSummaryView *_summaryView;
     id <HUQuickControlContainerViewDelegate> _delegate;
@@ -34,14 +35,14 @@
     HUQuickControlButtonRowView *_buttonRowView;
     HUPillButton *_detailsButton;
     HUPillButton *_alternateControlButton;
-    UILayoutGuide *_controlToButtonSpacingLayoutGuide;
+    UILayoutGuide *_contentToAuxiliarySpacingLayoutGuide;
     UILayoutGuide *_topToSummarySpacingLayoutGuide;
     struct CGRect _sourceRect;
 }
 
 + (_Bool)requiresConstraintBasedLayout;
 @property(retain, nonatomic) UILayoutGuide *topToSummarySpacingLayoutGuide; // @synthesize topToSummarySpacingLayoutGuide=_topToSummarySpacingLayoutGuide;
-@property(retain, nonatomic) UILayoutGuide *controlToButtonSpacingLayoutGuide; // @synthesize controlToButtonSpacingLayoutGuide=_controlToButtonSpacingLayoutGuide;
+@property(retain, nonatomic) UILayoutGuide *contentToAuxiliarySpacingLayoutGuide; // @synthesize contentToAuxiliarySpacingLayoutGuide=_contentToAuxiliarySpacingLayoutGuide;
 @property(retain, nonatomic) HUPillButton *alternateControlButton; // @synthesize alternateControlButton=_alternateControlButton;
 @property(retain, nonatomic) HUPillButton *detailsButton; // @synthesize detailsButton=_detailsButton;
 @property(retain, nonatomic) HUQuickControlButtonRowView *buttonRowView; // @synthesize buttonRowView=_buttonRowView;
@@ -58,7 +59,8 @@
 @property(retain, nonatomic) HUQuickControlSummaryView *summaryView; // @synthesize summaryView=_summaryView;
 @property(readonly, nonatomic) struct CGRect sourceRect; // @synthesize sourceRect=_sourceRect;
 @property(copy, nonatomic) NSString *alternateControlButtonTitle; // @synthesize alternateControlButtonTitle=_alternateControlButtonTitle;
-@property(nonatomic) _Bool controlViewPrefersFullSizeContent; // @synthesize controlViewPrefersFullSizeContent=_controlViewPrefersFullSizeContent;
+@property(nonatomic) _Bool controlViewSupportsTransformTransition; // @synthesize controlViewSupportsTransformTransition=_controlViewSupportsTransformTransition;
+@property(retain, nonatomic) UILayoutGuide *controlViewPreferredFrameLayoutGuide; // @synthesize controlViewPreferredFrameLayoutGuide=_controlViewPreferredFrameLayoutGuide;
 @property(retain, nonatomic) UIView *activeControlView; // @synthesize activeControlView=_activeControlView;
 @property(nonatomic) unsigned long long edgesForExtendedLayout; // @synthesize edgesForExtendedLayout=_edgesForExtendedLayout;
 @property(nonatomic) _Bool shouldShowControls; // @synthesize shouldShowControls=_shouldShowControls;

@@ -30,12 +30,15 @@
     id <CKBrowserSwitcherFooterViewDelegate> _delegate;
     id <CKBrowserSwitcherFooterViewDataSource> _dataSource;
     UIView *_grayLine;
+    UIView *_bottomGrayLine;
 }
 
+@property(retain, nonatomic) UIView *bottomGrayLine; // @synthesize bottomGrayLine=_bottomGrayLine;
 @property(retain, nonatomic) UIView *grayLine; // @synthesize grayLine=_grayLine;
 @property(nonatomic) _Bool minifiesOnSelection; // @synthesize minifiesOnSelection=_minifiesOnSelection;
 @property(retain, nonatomic) CKAppStripLayout *appStripLayout; // @synthesize appStripLayout=_appStripLayout;
 @property(nonatomic) _Bool scrollsLastUsedAppIconIntoView; // @synthesize scrollsLastUsedAppIconIntoView=_scrollsLastUsedAppIconIntoView;
+@property(nonatomic) _Bool isMagnified; // @synthesize isMagnified=_isMagnified;
 @property(nonatomic) __weak id <CKBrowserSwitcherFooterViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <CKBrowserSwitcherFooterViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
@@ -58,13 +61,12 @@
 - (void)adjustMagnificationAtPoint:(struct CGPoint)arg1 minifyImmediately:(_Bool)arg2;
 - (struct CGPoint)targetContentOffsetForFocusPoint:(struct CGPoint)arg1 initialLayoutMode:(unsigned long long)arg2 finalLayoutMode:(unsigned long long)arg3;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
-- (void)_cleanupMagnificationMinifiyImmediately:(_Bool)arg1;
+- (void)minifyImmediately:(_Bool)arg1;
 - (void)touchTrackerTrackedTouches:(id)arg1;
 - (void)appsLongPressed:(id)arg1;
 - (void)resetScrollPosition;
 - (void)selectPluginAtIndexPath:(id)arg1;
 - (void)setInitiallySelectedPluginIfNeeded;
-@property(readonly, nonatomic) _Bool isMagnified;
 - (void)layoutSubviews;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)willMoveToWindow:(id)arg1;

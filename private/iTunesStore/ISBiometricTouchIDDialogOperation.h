@@ -39,7 +39,6 @@
 - (void)_performMetricsWithBiometricMatch:(unsigned long long)arg1 didBiometricsFail:(_Bool)arg2;
 - (void)_loadURLBag;
 - (void)_findSelectedButtonForButtons:(id)arg1;
-- (id)_dialogIDForMetrics;
 - (id)_clientIDForUserID:(id)arg1;
 - (id)_clientIDForMetrics;
 - (void)run;

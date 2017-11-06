@@ -34,6 +34,9 @@
     int _appleMusicEligibleState;
     _Bool _appleMusicForce;
     int _preflightAppleMusicState;
+    int _preflightMiscState;
+    _Bool _locationEnabled;
+    _Bool _siriEnabled;
     _Bool _prefStereoPairEnabled;
     HMAccessory *_stereoCounterpartAccessory;
     int _stereoPairUserInputState;
@@ -113,9 +116,11 @@
     CDUnknownBlockType _promptForHomeHandler;
     CDUnknownBlockType _promptForHomeiCloudHandler;
     CDUnknownBlockType _promptForiTunesSignInHandler;
+    CDUnknownBlockType _promptForLocationEnableHandler;
     CDUnknownBlockType _promptForPersonalRequestsHandler;
     CDUnknownBlockType _promptForPINHandler;
     CDUnknownBlockType _promptForRoomHandler;
+    CDUnknownBlockType _promptForSiriEnableHandler;
     CDUnknownBlockType _promptForTermsHandler;
     CDUnknownBlockType _promptToInstallHomeAppHandler;
     CDUnknownBlockType _promptToShareSettingsHandler;
@@ -128,9 +133,11 @@
 @property(copy, nonatomic) CDUnknownBlockType promptToShareSettingsHandler; // @synthesize promptToShareSettingsHandler=_promptToShareSettingsHandler;
 @property(copy, nonatomic) CDUnknownBlockType promptToInstallHomeAppHandler; // @synthesize promptToInstallHomeAppHandler=_promptToInstallHomeAppHandler;
 @property(copy, nonatomic) CDUnknownBlockType promptForTermsHandler; // @synthesize promptForTermsHandler=_promptForTermsHandler;
+@property(copy, nonatomic) CDUnknownBlockType promptForSiriEnableHandler; // @synthesize promptForSiriEnableHandler=_promptForSiriEnableHandler;
 @property(copy, nonatomic) CDUnknownBlockType promptForRoomHandler; // @synthesize promptForRoomHandler=_promptForRoomHandler;
 @property(copy, nonatomic) CDUnknownBlockType promptForPINHandler; // @synthesize promptForPINHandler=_promptForPINHandler;
 @property(copy, nonatomic) CDUnknownBlockType promptForPersonalRequestsHandler; // @synthesize promptForPersonalRequestsHandler=_promptForPersonalRequestsHandler;
+@property(copy, nonatomic) CDUnknownBlockType promptForLocationEnableHandler; // @synthesize promptForLocationEnableHandler=_promptForLocationEnableHandler;
 @property(copy, nonatomic) CDUnknownBlockType promptForiTunesSignInHandler; // @synthesize promptForiTunesSignInHandler=_promptForiTunesSignInHandler;
 @property(copy, nonatomic) CDUnknownBlockType promptForHomeiCloudHandler; // @synthesize promptForHomeiCloudHandler=_promptForHomeiCloudHandler;
 @property(copy, nonatomic) CDUnknownBlockType promptForHomeHandler; // @synthesize promptForHomeHandler=_promptForHomeHandler;
@@ -182,6 +189,7 @@
 - (int)_runPreAuth;
 - (int)_runStereoPairUserInput;
 - (int)_runHomeKitUserInput;
+- (int)_runPreflightMisc;
 - (int)_runPreflightiTunes;
 - (int)_runPreflightiCloud;
 - (int)_runPreflightWiFi;
@@ -195,6 +203,7 @@
 - (void)skipiTunesSignIn;
 - (void)skipAudioPasscode;
 - (void)siriLanguagePicked:(long long)arg1;
+- (void)siriEnable;
 - (void)shareSettingsAgreed;
 @property(readonly, nonatomic) HMHome *selectedHome;
 - (void)_preflightAppleMusic;
@@ -202,6 +211,7 @@
 - (void)playAudioPasscodeAgain;
 - (void)personalRequestsEnabled:(_Bool)arg1;
 - (void)pairSetupTryPIN:(id)arg1;
+- (void)locationEnable;
 - (void)homeKitSelectRoom:(id)arg1;
 - (void)homeKitReselectHome;
 - (void)homeKitSelectHome:(id)arg1;

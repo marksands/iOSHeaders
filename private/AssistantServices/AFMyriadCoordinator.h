@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AFMyriadEmergencyCallPunchout, AFMyriadRecord, AFPowerAssertionManager, NSDate, NSDateFormatter, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSString, NSUUID, _DKKnowledgeStore;
+@class AFMyriadEmergencyCallPunchout, AFMyriadRecord, AFPowerAssertionManager, NSDate, NSDateFormatter, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSString, NSUUID, _DKKnowledgeStore;
 
 @interface AFMyriadCoordinator : NSObject
 {
@@ -15,8 +15,8 @@
     unsigned long long _previousState;
     NSMutableDictionary *_replies;
     NSMutableDictionary *_replyCounts;
-    NSMutableSet *_previousTrumps;
-    NSMutableSet *_incomingTrumps;
+    NSMutableDictionary *_previousTrumps;
+    NSMutableDictionary *_incomingTrumps;
     id _delegate;
     NSString *_deviceClassName;
     unsigned char _deviceClass;
@@ -72,6 +72,7 @@
 - (id)activityEventStream;
 - (void)_waitWiProxAndExecute:(CDUnknownBlockType)arg1;
 - (void)_waitWiProx:(long long)arg1 andExecute:(CDUnknownBlockType)arg2;
+- (void)_ageWedgeFilter;
 - (_Bool)_testAndUpdateWedgeFilter:(id)arg1;
 - (_Bool)_inTaskTriggerWasTooSoon;
 - (id)_sortedReplies;

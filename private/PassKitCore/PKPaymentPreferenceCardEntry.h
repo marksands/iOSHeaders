@@ -15,10 +15,12 @@
     PKPaymentPass *_pass;
     PKPaymentApplication *_paymentApplication;
     NSString *_displayName;
+    NSString *_availabilityString;
 }
 
 @property(nonatomic) _Bool isSelectable; // @synthesize isSelectable=_isSelectable;
 @property(nonatomic) _Bool shouldShowCardUI; // @synthesize shouldShowCardUI=_shouldShowCardUI;
+@property(copy, nonatomic) NSString *availabilityString; // @synthesize availabilityString=_availabilityString;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) PKPaymentApplication *paymentApplication; // @synthesize paymentApplication=_paymentApplication;
 @property(retain, nonatomic) PKPaymentPass *pass; // @synthesize pass=_pass;

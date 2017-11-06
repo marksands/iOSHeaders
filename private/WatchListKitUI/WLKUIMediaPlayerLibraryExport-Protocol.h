@@ -9,6 +9,7 @@
 @class JSValue, NSArray, NSDictionary, NSNumber, NSString;
 
 @protocol WLKUIMediaPlayerLibraryExport <JSExport>
+- (_Bool)isHDRCapable;
 - (void)fetchMediaEntitiesWithOptions:(NSDictionary *)arg1:(JSValue *)arg2;
 - (long long)queryHasItemCount:(NSString *)arg1;
 - (void)setFilterAsync:(NSDictionary *)arg1:(JSValue *)arg2;

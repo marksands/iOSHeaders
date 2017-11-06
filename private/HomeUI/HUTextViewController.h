@@ -35,6 +35,7 @@
 - (void).cxx_destruct;
 - (void)_fulfillProgressIndicatorState:(_Bool)arg1;
 - (void)_shareLog:(id)arg1;
+- (id)_textContentWithDefaultAttributes;
 - (void)loadTextFromFuture:(id)arg1 textTitle:(id)arg2;
 - (void)setShowProgressIndicatorView:(_Bool)arg1 animated:(_Bool)arg2;
 - (id)hu_preloadContent;

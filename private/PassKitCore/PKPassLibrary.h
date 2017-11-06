@@ -59,6 +59,7 @@
 - (void)removePassesOfType:(unsigned long long)arg1;
 - (void)removePassesWithUniqueIDs:(id)arg1 diagnosticReason:(id)arg2;
 - (void)removePassWithUniqueID:(id)arg1 diagnosticReason:(id)arg2;
+- (void)forceImmediateRevocationCheck;
 - (void)introduceDatabaseIntegrityProblem;
 - (void)removeAllScheduledActivities;
 - (void)nukeDatabaseAndExit;

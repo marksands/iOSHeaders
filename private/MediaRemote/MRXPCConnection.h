@@ -25,7 +25,7 @@
 - (void)addCustomXPCHandler:(CDUnknownBlockType)arg1 forKey:(id)arg2;
 @property(readonly, nonatomic) int pid;
 - (void)dealloc;
-- (id)initWithConnection:(id)arg1;
+- (id)initWithConnection:(id)arg1 queue:(id)arg2;
 
 @end
 

@@ -136,6 +136,7 @@
 - (void)regeneratePluginIndexPaths;
 - (id)orderedPlugins:(_Bool)arg1;
 - (id)allPotentiallyVisiblePlugins;
+@property(readonly, nonatomic) NSArray *potentiallyVisibleNonFavoritePlugins;
 @property(readonly, nonatomic) NSArray *potentiallyVisiblePlugins;
 @property(readonly, nonatomic) NSArray *visibleRecentAppStripPlugins;
 @property(readonly, nonatomic) NSArray *recentAppStripPlugins;

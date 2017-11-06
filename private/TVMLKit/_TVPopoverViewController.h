@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIViewController.h"
+#import <TVMLKit/_TVBgImageLoadingViewController.h>
 
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
 @class NSArray, NSString, UIBarButtonItem, UITableView, _TVPopoverDescriptor;
 
-@interface _TVPopoverViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface _TVPopoverViewController : _TVBgImageLoadingViewController <UITableViewDelegate, UITableViewDataSource>
 {
     _Bool _ignoreDismissalOnExpansionOrContraction;
     _TVPopoverDescriptor *_popoverDescriptor;

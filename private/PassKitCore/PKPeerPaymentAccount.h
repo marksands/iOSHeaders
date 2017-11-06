@@ -21,6 +21,7 @@
     PKCurrencyAmount *_currentBalance;
     NSDecimalNumber *_maximumBalance;
     NSDate *_lastUpdated;
+    double _proactiveFetchPeriod;
     NSString *_termsIdentifier;
     NSURL *_termsURL;
     NSURL *_associatedPassURL;
@@ -38,6 +39,7 @@
 @property(copy, nonatomic) NSURL *associatedPassURL; // @synthesize associatedPassURL=_associatedPassURL;
 @property(copy, nonatomic) NSURL *termsURL; // @synthesize termsURL=_termsURL;
 @property(copy, nonatomic) NSString *termsIdentifier; // @synthesize termsIdentifier=_termsIdentifier;
+@property(nonatomic) double proactiveFetchPeriod; // @synthesize proactiveFetchPeriod=_proactiveFetchPeriod;
 @property(retain, nonatomic) NSDate *lastUpdated; // @synthesize lastUpdated=_lastUpdated;
 @property(nonatomic, getter=isAccountStateDirty) _Bool accountStateDirty; // @synthesize accountStateDirty=_accountStateDirty;
 @property(copy, nonatomic) NSDecimalNumber *maximumBalance; // @synthesize maximumBalance=_maximumBalance;

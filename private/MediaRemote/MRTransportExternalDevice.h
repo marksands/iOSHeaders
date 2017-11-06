@@ -8,7 +8,7 @@
 
 #import "MRProtocolClientConnectionDelegate.h"
 
-@class CURunLoopThread, MRExternalClientConnection, MRExternalDeviceTransport, MRSupportedProtocolMessages, NSArray, NSObject<OS_dispatch_queue>, NSString;
+@class CURunLoopThread, MRExternalClientConnection, MRExternalDeviceTransport, MRSupportedProtocolMessages, NSObject<OS_dispatch_queue>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface MRTransportExternalDevice : MRExternalDevice <MRProtocolClientConnectionDelegate>
@@ -22,7 +22,6 @@ __attribute__((visibility("hidden")))
     _Bool _wantsNowPlayingArtworkNotifications;
     _Bool _wantsVolumeNotifications;
     _Bool _usingSystemPairing;
-    NSArray *_requiredApplications;
     unsigned int _connectionState;
     void *_customOrigin;
     unsigned int _cachedServerDisconnectError;
@@ -100,8 +99,8 @@ __attribute__((visibility("hidden")))
 - (void)_callClientPairingCallback:(CDUnknownBlockType)arg1;
 - (void)_callClientConnectionStateCallback:(unsigned int)arg1 error:(id)arg2;
 - (void)_registerOriginCallbacks;
-- (void)_cleanUp;
-- (void)_tearDownCustomOrigin;
+- (void)_cleanUpWithReason:(id)arg1;
+- (void)_tearDownCustomOriginWithReason:(id)arg1;
 - (id)_openSecuritySession;
 - (id)_loadDeviceInfo;
 - (id)_setupCustomOrigin;
@@ -112,9 +111,9 @@ __attribute__((visibility("hidden")))
 - (void)clientConnection:(id)arg1 didReceiveMessage:(id)arg2;
 - (void)modifyOutputContextOfType:(unsigned int)arg1 addingDeviceUIDs:(id)arg2 removingDeviceUIDs:(id)arg3 settingDeviceUIDs:(id)arg4 withReplyQueue:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)setOutputDeviceVolume:(float)arg1 outputDevice:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)getOutputDeviceVolume:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)outputDeviceVolume:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setVolume:(float)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)getVolumeWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)volumeWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)sendClientUpdatesConfigMessageWithCompletion:(CDUnknownBlockType)arg1;
 - (void)sendClientUpdatesConfigMessage;
 - (id)currentClientUpdatesConfigMessage;
@@ -135,8 +134,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) void *customOrigin;
 - (void)setDeviceInfo:(void *)arg1;
 - (void)setName:(id)arg1;
-- (id)requiredApplications;
-- (void)setRequiredApplications:(id)arg1;
 - (void)setWantsVolumeNotifications:(_Bool)arg1;
 - (_Bool)wantsVolumeNotifications;
 - (void)setWantsNowPlayingArtworkNotifications:(_Bool)arg1;

@@ -31,6 +31,7 @@
 - (id)hf_reorderableActionSetsList;
 - (id)hf_reorderableServicesList;
 - (id)hf_reorderableRoomsList;
+- (id)hf_personalRequestAccessories;
 - (id)hf_mediaAccessories;
 - (id)hf_updateAutomaticSoftwareUpdateEnabled:(_Bool)arg1;
 - (id)hf_allMediaProfiles;

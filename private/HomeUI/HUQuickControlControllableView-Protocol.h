@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class HUQuickControlViewProfile;
+@class HUIntrinsicSizeDescriptor, HUQuickControlViewProfile;
 
 @protocol HUQuickControlControllableView <NSObject>
 @property(copy, nonatomic) HUQuickControlViewProfile *profile;
 @property(retain, nonatomic) id value;
+- (HUIntrinsicSizeDescriptor *)intrinsicSizeDescriptorForControlSize:(unsigned long long)arg1;
 - (id)initWithProfile:(HUQuickControlViewProfile *)arg1;
 
 @optional

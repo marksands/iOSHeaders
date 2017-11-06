@@ -36,8 +36,8 @@
 @property(readonly, nonatomic) MRNowPlayingPlayerClientCallbacks *clientCallbacks; // @synthesize clientCallbacks=_clientCallbacks;
 @property(readonly, nonatomic) MRPlaybackQueuePlayerClient *playbackQueueClient; // @synthesize playbackQueueClient=_playbackQueueClient;
 @property(readonly, nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
-- (void)registerCallbacks;
 - (id)description;
+- (void)_registerCallbacks;
 - (void)contentItemsUpdatedNotification:(id)arg1;
 - (void)updatePlaybackQueueWithCachedUpdates:(void *)arg1 forPendingRequest:(void *)arg2;
 - (void)clearCachedContentItemArtworkForItems:(struct __CFArray *)arg1;

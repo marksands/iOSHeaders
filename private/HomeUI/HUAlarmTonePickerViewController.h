@@ -50,7 +50,7 @@
 - (id)tableView:(id)arg1 titleForFooterInSection:(long long)arg2;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
-- (void)addMediaItems:(id)arg1;
+- (void)addMediaItemsWithIdentifiers:(id)arg1;
 @property(readonly, nonatomic) NSString *defaultToneIdentifier;
 - (void)dealloc;
 - (void)viewDidLoad;

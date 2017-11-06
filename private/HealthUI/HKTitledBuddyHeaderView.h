@@ -33,6 +33,7 @@
 - (id)bodyTextView;
 @property(retain, nonatomic) NSString *bodyText;
 @property(retain, nonatomic) NSString *titleText;
+- (double)bottomPadding;
 - (void)_updateForCurrentSizeCategory;
 - (id)initWithTopInset:(double)arg1 linkButtonTitle:(id)arg2;
 

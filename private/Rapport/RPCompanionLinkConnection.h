@@ -26,6 +26,7 @@
     struct NSMutableDictionary *_requests;
     struct NSMutableArray *_sendArray;
     unsigned int _xidLast;
+    _Bool _invalidationHandled;
     _Bool _present;
     unsigned int _flags;
     unsigned int _state;
@@ -56,6 +57,7 @@
 @property(retain, nonatomic) CUNetLinkManager *netLinkManager; // @synthesize netLinkManager=_netLinkManager;
 @property(retain, nonatomic) RPCompanionLinkDevice *localDeviceInfo; // @synthesize localDeviceInfo=_localDeviceInfo;
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
+@property(nonatomic) _Bool invalidationHandled; // @synthesize invalidationHandled=_invalidationHandled;
 @property(nonatomic) unsigned int flags; // @synthesize flags=_flags;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(retain, nonatomic) RPCompanionLinkClient *client; // @synthesize client=_client;

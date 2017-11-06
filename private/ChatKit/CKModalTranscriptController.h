@@ -33,6 +33,8 @@
 - (void)disableCameraAttachments;
 - (void)setCanEditRecipients:(_Bool)arg1;
 - (void)setPendingAddresses:(id)arg1;
+- (_Bool)_deviceIsLocked;
+- (void)_setConversationDeferredSetup;
 - (void)sendComposition:(id)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;

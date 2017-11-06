@@ -15,9 +15,11 @@
     NSMutableIndexSet *_insertedIndexes;
     NSMutableIndexSet *_deletedIndexes;
     NSMutableIndexSet *_updatedIndexes;
+    _Bool _hasPendingChanges;
     long long _numberOfItems;
 }
 
+@property(nonatomic) _Bool hasPendingChanges; // @synthesize hasPendingChanges=_hasPendingChanges;
 @property(nonatomic) long long numberOfItems; // @synthesize numberOfItems=_numberOfItems;
 - (void).cxx_destruct;
 - (_Bool)validateCountForNumberOfItems:(long long)arg1;

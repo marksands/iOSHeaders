@@ -14,14 +14,18 @@
     UIView *_headerView;
     UIView *_grayLine;
     CKAppChevronView *_chevronView;
+    _Bool _roundsTopCorners;
+    struct UIEdgeInsets _parentSafeAreaInsets;
 }
 
++ (double)compactRoundedCornerRadius;
 + (double)roundedCornerRadius;
+@property(nonatomic) struct UIEdgeInsets parentSafeAreaInsets; // @synthesize parentSafeAreaInsets=_parentSafeAreaInsets;
+@property(nonatomic) _Bool roundsTopCorners; // @synthesize roundsTopCorners=_roundsTopCorners;
 - (void).cxx_destruct;
 - (void)setState:(long long)arg1 animated:(_Bool)arg2;
 @property(nonatomic) long long state;
 - (void)updateHeaderFrame:(_Bool)arg1;
-- (void)setRoundsTopConers:(_Bool)arg1;
 - (void)fadeOutAppTitle;
 - (void)updateAppTitle:(id)arg1;
 - (double)chevronMaxYInView:(id)arg1;

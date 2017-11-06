@@ -20,6 +20,7 @@
     _Bool _hasPendingNearMiss;
     _Bool _isRunningRecognizer;
     _Bool _recognizerResultPending;
+    _Bool _hasTriggerCandidate;
     float _keywordThreshold;
     float _keywordLoggingThreshold;
     float _lastScore;
@@ -55,6 +56,7 @@
     unsigned long long _firstPassOnsetChannel;
 }
 
+@property(nonatomic) _Bool hasTriggerCandidate; // @synthesize hasTriggerCandidate=_hasTriggerCandidate;
 @property(nonatomic) unsigned long long firstPassOnsetChannel; // @synthesize firstPassOnsetChannel=_firstPassOnsetChannel;
 @property(nonatomic) float firstPassOnsetScore; // @synthesize firstPassOnsetScore=_firstPassOnsetScore;
 @property(nonatomic) float firstPassMasterChannelScoreBoost; // @synthesize firstPassMasterChannelScoreBoost=_firstPassMasterChannelScoreBoost;

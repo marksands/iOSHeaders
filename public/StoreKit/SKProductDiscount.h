@@ -10,11 +10,12 @@
 
 @interface SKProductDiscount : NSObject
 {
-    NSDecimalNumber *_price;
-    NSLocale *_priceLocale;
-    SKProductSubscriptionPeriod *_subscriptionPeriod;
     unsigned long long _numberOfPeriods;
     unsigned long long _paymentMode;
+    NSDecimalNumber *_price;
+    NSLocale *_locale;
+    SKProductSubscriptionPeriod *_subscriptionPeriod;
+    NSLocale *_priceLocale;
 }
 
 @property(readonly, nonatomic) unsigned long long paymentMode; // @synthesize paymentMode=_paymentMode;
@@ -22,6 +23,14 @@
 @property(readonly, nonatomic) SKProductSubscriptionPeriod *subscriptionPeriod; // @synthesize subscriptionPeriod=_subscriptionPeriod;
 @property(readonly, nonatomic) NSLocale *priceLocale; // @synthesize priceLocale=_priceLocale;
 @property(readonly, nonatomic) NSDecimalNumber *price; // @synthesize price=_price;
+- (void).cxx_destruct;
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (void)_setSubscriptionPeriod:(id)arg1;
+- (void)_setPriceLocale:(id)arg1;
+- (void)_setPrice:(id)arg1;
+- (void)_setPaymentMode:(unsigned long long)arg1;
+- (void)_setNumberOfPeriods:(unsigned long long)arg1;
 
 @end
 

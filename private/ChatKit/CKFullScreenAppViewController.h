@@ -59,6 +59,8 @@
 - (_Bool)_currentPluginIsAppStore;
 - (void)collapse;
 - (void)_dismiss:(id)arg1;
+- (_Bool)_shouldShowDimmingView;
+- (void)_updateDimmingViewAlpha;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (_Bool)canBecomeFirstResponder;
 - (id)inputAccessoryView;

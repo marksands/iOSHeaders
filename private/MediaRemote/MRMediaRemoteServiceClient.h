@@ -30,8 +30,11 @@ __attribute__((visibility("hidden")))
 - (void)notificationFired:(id)arg1 playerPathNotifcation:(id)arg2 originNotification:(id)arg3 nowPlayingNotification:(id)arg4;
 - (_Bool)_shouldPostNotifications;
 - (void)registerCallbacks;
-- (void)_callInvalidationHandler:(id)arg1 resolvedPlayerPath:(void *)arg2;
+- (void)_callInvalidationHandler:(id)arg1;
 - (void)_processPlayerPathInvalidationHandlersWithBlock:(CDUnknownBlockType)arg1;
+- (void)_onQueue_processPlayerPathInvalidationHandlersWithBlock:(CDUnknownBlockType)arg1;
+- (void)processPlayerPathInvalidationHandlersWithBlock:(CDUnknownBlockType)arg1;
+- (void)processPlayerPathInvalidationHandlersWithInvalidOrigin:(void *)arg1;
 - (void)removeInvalidationHandler:(void *)arg1;
 - (void *)addPlayerPathInvalidationHandler:(id)arg1;
 - (void)fetchPickableRoutesWithCategory:(id)arg1 completion:(CDUnknownBlockType)arg2;

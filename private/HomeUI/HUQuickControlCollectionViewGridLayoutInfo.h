@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class HUQuickControlCollectionViewLayoutGridSectionSettings, NSArray;
 
 @interface HUQuickControlCollectionViewGridLayoutInfo : NSObject
 {
+    HUQuickControlCollectionViewLayoutGridSectionSettings *_settings;
     double _maximumRowHeight;
     unsigned long long _sectionIndex;
     NSArray *_rowLayouts;
@@ -21,6 +22,7 @@
 @property(nonatomic) unsigned long long sectionIndex; // @synthesize sectionIndex=_sectionIndex;
 @property(nonatomic) struct CGRect contentFrame; // @synthesize contentFrame=_contentFrame;
 @property(nonatomic) double maximumRowHeight; // @synthesize maximumRowHeight=_maximumRowHeight;
+@property(retain, nonatomic) HUQuickControlCollectionViewLayoutGridSectionSettings *settings; // @synthesize settings=_settings;
 @property(nonatomic) CDStruct_217e81bd configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (unsigned long long)numberOfColumnsInRow:(unsigned long long)arg1;

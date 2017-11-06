@@ -8,17 +8,20 @@
 
 #import "UITextViewDelegate.h"
 
-@class NSString, UIColor, UILabel, UITextView;
+@class NSArray, NSString, UIColor, UILabel, UITextView;
 
 @interface HUItemTableSectionHeaderFooterView : UITableViewHeaderFooterView <UITextViewDelegate>
 {
+    id <HFStringGenerator> _message;
     unsigned long long _type;
     id <HUTextInteractionHandling> _textInteractionHandler;
     UITextView *_messageTextView;
+    NSArray *_constraints;
 }
 
-+ (id)defaultAttributesFotType:(unsigned long long)arg1;
++ (id)defaultAttributesForType:(unsigned long long)arg1;
 + (_Bool)requiresConstraintBasedLayout;
+@property(retain, nonatomic) NSArray *constraints; // @synthesize constraints=_constraints;
 @property(retain, nonatomic) UITextView *messageTextView; // @synthesize messageTextView=_messageTextView;
 @property(nonatomic) __weak id <HUTextInteractionHandling> textInteractionHandler; // @synthesize textInteractionHandler=_textInteractionHandler;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
@@ -28,12 +31,11 @@
 @property(retain, nonatomic) UIColor *textColor;
 @property(nonatomic) long long textAlignment;
 @property(nonatomic) struct UIEdgeInsets textViewEdgeInsets;
-@property(copy, nonatomic) id <HFStringGenerator> message;
+@property(copy, nonatomic) id <HFStringGenerator> message; // @synthesize message=_message;
 @property(readonly, nonatomic) UILabel *detailTextLabel; // @dynamic detailTextLabel;
 @property(readonly, nonatomic) UILabel *textLabel; // @dynamic textLabel;
-- (struct CGSize)intrinsicContentSize;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)prepareForReuse;
+- (id)initWithReuseIdentifier:(id)arg1 type:(unsigned long long)arg2;
 - (id)initWithReuseIdentifier:(id)arg1;
 
 // Remaining properties

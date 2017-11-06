@@ -47,6 +47,7 @@
 - (void)_createSubviews;
 - (double)_topPaddingForCurrencySymbol;
 - (void)_updateContent;
+- (id)_formatAmount:(id)arg1 alwaysShowDecimalSeparator:(_Bool)arg2 minimumFractionDigits:(unsigned long long)arg3 useGroupingSeparator:(_Bool)arg4;
 - (void)_createAmountFormatter;
 - (unsigned long long)_numberOfDecimalPlacesInString:(id)arg1 decimalSeperator:(id)arg2;
 - (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;

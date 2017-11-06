@@ -6,25 +6,31 @@
 
 #import "UIView.h"
 
-@class NAUILayoutConstraintSet, NSString, UILabel;
+@class NAUILayoutConstraintSet, NSString, UILabel, UILayoutGuide;
 
 @interface HUQuickControlCollectionViewCellContainerView : UIView
 {
     UIView *_contentView;
     unsigned long long _titlePosition;
+    UILayoutGuide *_preferredContentFrameLayoutGuide;
     UILabel *_titleLabel;
     NAUILayoutConstraintSet *_constraintSet;
+    NAUILayoutConstraintSet *_preferredContentFrameConstraintSet;
+    struct UIEdgeInsets _preferredContentLayoutFrameInset;
 }
 
-+ (struct CGSize)preferredSizeForContentSize:(struct CGSize)arg1;
++ (double)preferredChromeHeightForTitlePosition:(unsigned long long)arg1;
 + (id)_titleFont;
 + (_Bool)requiresConstraintBasedLayout;
+@property(readonly, nonatomic) NAUILayoutConstraintSet *preferredContentFrameConstraintSet; // @synthesize preferredContentFrameConstraintSet=_preferredContentFrameConstraintSet;
 @property(readonly, nonatomic) NAUILayoutConstraintSet *constraintSet; // @synthesize constraintSet=_constraintSet;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
-@property(readonly, nonatomic) unsigned long long titlePosition; // @synthesize titlePosition=_titlePosition;
+@property(readonly, nonatomic) UILayoutGuide *preferredContentFrameLayoutGuide; // @synthesize preferredContentFrameLayoutGuide=_preferredContentFrameLayoutGuide;
+@property(nonatomic) struct UIEdgeInsets preferredContentLayoutFrameInset; // @synthesize preferredContentLayoutFrameInset=_preferredContentLayoutFrameInset;
+@property(nonatomic) unsigned long long titlePosition; // @synthesize titlePosition=_titlePosition;
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 - (void).cxx_destruct;
-- (void)_configureConstraintSet;
+- (void)_configureConstraintSets;
 - (void)updateConstraints;
 @property(copy, nonatomic) NSString *title;
 - (id)initWithFrame:(struct CGRect)arg1;

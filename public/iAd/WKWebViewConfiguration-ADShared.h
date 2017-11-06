@@ -7,6 +7,7 @@
 #import "WKWebViewConfiguration.h"
 
 @interface WKWebViewConfiguration (ADShared)
++ (_Bool)excludeCustomJavaScript;
 + (id)sharedAdvertisingConfiguration:(_Bool)arg1;
 @end
 

@@ -9,6 +9,7 @@
 @class NSOrderedSet, VMVoicemailCapabilities;
 
 @protocol VMClientXPCProtocol <NSObject>
+- (void)setTranscribing:(_Bool)arg1;
 - (void)setStorageUsage:(unsigned long long)arg1;
 - (void)setSyncInProgress:(_Bool)arg1;
 - (void)setCapabilities:(VMVoicemailCapabilities *)arg1;

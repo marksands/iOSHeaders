@@ -69,8 +69,8 @@ __attribute__((visibility("hidden")))
 - (id)etagFromPCSData:(id)arg1;
 - (struct _OpaquePCSShareProtection *)_copyShareProtectionFromExportedData:(id)arg1 identities:(struct _PCSIdentitySetData *)arg2 error:(struct __CFError **)arg3;
 - (void)_onSynchronizeQueue:(CDUnknownBlockType)arg1;
-- (void)synchronizeUserKeyRegistryForServiceType:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_lockedSynchronizeUserKeyRegistryForServiceType:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)synchronizeUserKeyRegistryForServiceType:(unsigned long long)arg1 shouldThrottle:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_lockedSynchronizeUserKeyRegistryForServiceType:(unsigned long long)arg1 shouldThrottle:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)keyRegistrySyncQueue;
 - (void)boundaryKeyDataWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_lockedBoundaryKeyDataWithCompletionHandler:(CDUnknownBlockType)arg1;

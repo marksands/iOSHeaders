@@ -24,8 +24,8 @@
     PDAssertionManager *_assertionManager;
     id <PDPeerPaymentWebServiceCoordinatorDataSource> _dataSource;
     id <PDWebServiceCoordinatorPassStore> _passStore;
-    NSMutableArray *_accountCompletionHandlers;
-    NSMutableArray *_queuedAccountCompletionHandlers;
+    NSMutableArray *_pendingAccountFetches;
+    NSMutableArray *_queuedPendingAccountFetches;
     _Bool _isFetchingAccount;
     PDCloudStoreNotificationCoordinator *_cloudStoreNotificationCoordinator;
     PKPaymentWebService *_paymentWebService;
@@ -52,7 +52,9 @@
 - (void)performScheduledActivityWithIdentifier:(id)arg1 activityCriteria:(id)arg2 activityContext:(id)arg3;
 - (void)_performPeerPaymentPassDownloadActivity;
 - (void)_schedulePeerPaymentCoordinatorActivities;
-- (void)initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
+- (void)resetApplePayManateeViewWithCompletion:(CDUnknownBlockType)arg1;
+- (void)checkTLKsMissingWithCompletion:(CDUnknownBlockType)arg1;
+- (void)initalizeCloudStoreIfNecessaryWithHandler:(CDUnknownBlockType)arg1;
 - (void)cloudStoreStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)submitDeviceScoreIdentifiersForTransaction:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateMockAccountBalanceByAddingAmount:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -76,6 +78,7 @@
 @property(readonly, nonatomic) PKPeerPaymentWebService *sharedPeerPaymentWebService;
 - (void)dealloc;
 - (id)initWithPushNotificationManager:(id)arg1 paymentWebService:(id)arg2 assertionManager:(id)arg3 dataSource:(id)arg4 passStore:(id)arg5;
+- (void)initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (id)sharedWebService;
 - (id)initWithPushNotificationManager:(id)arg1 paymentWebService:(id)arg2 assertionManager:(id)arg3 dataSource:(id)arg4;
 

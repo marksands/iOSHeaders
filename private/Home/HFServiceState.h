@@ -12,9 +12,8 @@
 {
 }
 
-+ (id)stateForServiceType:(id)arg1 withBatchReadResponse:(id)arg2;
-+ (Class)stateClassForServiceType:(id)arg1 subtype:(id)arg2;
-+ (Class)stateClassForServiceType:(id)arg1;
++ (id)stateForServiceDescriptor:(id)arg1 withBatchReadResponse:(id)arg2;
++ (Class)stateClassForServiceDescriptor:(id)arg1;
 + (id)optionalCharacteristicTypes;
 + (id)requiredCharacteristicTypes;
 + (id)stateClassIdentifier;

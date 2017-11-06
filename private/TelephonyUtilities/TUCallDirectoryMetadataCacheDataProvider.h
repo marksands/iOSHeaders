@@ -12,8 +12,12 @@
 {
     int _identificationEntriesChangedNotifyToken;
     CXCallDirectoryManager *_callDirectoryManager;
+    CDUnknownBlockType _countryDialingCode;
+    CDUnknownBlockType _firstIdentificationEntriesForEnabledExtensions;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType firstIdentificationEntriesForEnabledExtensions; // @synthesize firstIdentificationEntriesForEnabledExtensions=_firstIdentificationEntriesForEnabledExtensions;
+@property(copy, nonatomic) CDUnknownBlockType countryDialingCode; // @synthesize countryDialingCode=_countryDialingCode;
 @property(readonly, nonatomic) int identificationEntriesChangedNotifyToken; // @synthesize identificationEntriesChangedNotifyToken=_identificationEntriesChangedNotifyToken;
 @property(readonly, nonatomic) CXCallDirectoryManager *callDirectoryManager; // @synthesize callDirectoryManager=_callDirectoryManager;
 - (void).cxx_destruct;

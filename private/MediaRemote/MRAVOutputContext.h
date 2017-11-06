@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class AVOutputContext, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+@class AVOutputContext, MRAVOutputDeviceSourceInfo, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MRAVOutputContext : NSObject
 {
     NSArray *_outputDevices;
+    MRAVOutputDeviceSourceInfo *_outputDeviceSourceInfo;
     NSMutableArray *_pendingModifications;
     NSObject<OS_dispatch_queue> *_serialQueue;
     unsigned int _type;

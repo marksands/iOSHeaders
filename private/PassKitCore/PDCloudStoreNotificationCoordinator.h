@@ -44,16 +44,18 @@
 - (_Bool)canSyncTransactionFromCloudKitForPassUniqueIdentifier:(id)arg1;
 - (_Bool)canSyncTransactionToCloudKitWithBackingData:(_Bool)arg1 passUniqueIdentifier:(id)arg2 serviceIdentifier:(id)arg3;
 - (void)simulateCloudStorePushWithCompletion:(CDUnknownBlockType)arg1;
-- (void)resetContainerWithCompletion:(CDUnknownBlockType)arg1;
+- (void)resetContainerWithHandler:(CDUnknownBlockType)arg1;
 - (void)allItemsOfClassType:(Class)arg1 storeLocally:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)invalidateCloudStore;
-- (void)initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
+- (void)initalizeCloudStoreIfNecessaryWithHandler:(CDUnknownBlockType)arg1;
 - (id)cloudStoreSpecificKeysForItem:(id)arg1;
 - (void)requestUpdatesForPassUniqueIdenitifer:(id)arg1;
 - (void)fetchAndStoreRecordsForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAndStoreChangesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)removeItemsWithRecordNames:(id)arg1 itemClass:(Class)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updateCloudStoreWithLocalItems:(id)arg1 recordSpecificKeys:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)resetApplePayManateeViewWithCompletion:(CDUnknownBlockType)arg1;
+- (void)checkTLKsMissingWithCompletion:(CDUnknownBlockType)arg1;
 - (void)cloudStoreStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)unregisterObserver:(id)arg1;
 - (void)registerObserver:(id)arg1;
@@ -64,6 +66,8 @@
 - (void)_cloudStoreInitializationWithCompletion:(CDUnknownBlockType)arg1;
 - (id)initWithPushNotificationManager:(id)arg1 dataSource:(id)arg2 transactionProcessor:(id)arg3 initalizeCloudStoreManager:(_Bool)arg4;
 - (id)initWithPushNotificationManager:(id)arg1 dataSource:(id)arg2 transactionProcessor:(id)arg3;
+- (void)resetContainerWithCompletion:(CDUnknownBlockType)arg1;
+- (void)initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (id)initWithPushNotificationManager:(id)arg1 dataSource:(id)arg2;
 
 // Remaining properties

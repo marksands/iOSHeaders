@@ -8,7 +8,7 @@
 
 #import "MRAVDistantExternalDeviceClientProtocol.h"
 
-@class MRAVDistantExternalDeviceMetadata, NSArray, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
+@class MRAVDistantExternalDeviceMetadata, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
 
 @interface MRDistantExternalDevice : MRExternalDevice <MRAVDistantExternalDeviceClientProtocol>
 {
@@ -17,7 +17,6 @@
     MRAVDistantExternalDeviceMetadata *_externalDeviceMetadata;
     unsigned long long _callbacks;
     unsigned long long _deviceNotifications;
-    NSArray *_requiredApplications;
     unsigned int _connectionState;
     void *_customOrigin;
     CDUnknownBlockType _connectionStateCallback;
@@ -40,10 +39,10 @@
 @property(copy, nonatomic) CDUnknownBlockType nameCallback; // @synthesize nameCallback=_nameCallback;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *connectionStateCallbackQueue; // @synthesize connectionStateCallbackQueue=_connectionStateCallbackQueue;
 @property(copy, nonatomic) CDUnknownBlockType connectionStateCallback; // @synthesize connectionStateCallback=_connectionStateCallback;
-- (void)_updatedHostedRequiredApplications:(id)arg1;
 - (void)_updateHostedDeviceDesiredNotifications;
 - (void)_updateHostedDeviceDesiredCallbacks;
 - (void)_synchronousLoadExternalDeviceMetadataIfNecessary;
+- (id)_remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)_hostedExternalDeviceConnection;
 - (void)hostedExternalDeviceVolumeDidChange:(float)arg1 forEndpointWithIdentifier:(id)arg2 forOutputDeviceWithIdentifier:(id)arg3;
 - (void)hostedExternalDeviceDidReceiveCustomData:(id)arg1 withName:(id)arg2;
@@ -53,9 +52,9 @@
 - (void)sendCustomData:(id)arg1 withName:(id)arg2;
 - (void)modifyOutputContextOfType:(unsigned int)arg1 addingDeviceUIDs:(id)arg2 removingDeviceUIDs:(id)arg3 settingDeviceUIDs:(id)arg4 withReplyQueue:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)setOutputDeviceVolume:(float)arg1 outputDevice:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)getOutputDeviceVolume:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)outputDeviceVolume:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setVolume:(float)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)getVolumeWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)volumeWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setVolumeCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setCustomDataCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setPairingAllowedCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
@@ -71,8 +70,6 @@
 - (_Bool)isUsingSystemPairing;
 - (_Bool)isPaired;
 - (unsigned int)connectionState;
-- (id)requiredApplications;
-- (void)setRequiredApplications:(id)arg1;
 - (void)setWantsVolumeNotifications:(_Bool)arg1;
 - (_Bool)wantsVolumeNotifications;
 - (void)setWantsNowPlayingNotifications:(_Bool)arg1;

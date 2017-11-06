@@ -11,28 +11,28 @@
 @interface SKProduct : NSObject
 {
     id _internal;
-    SKProductSubscriptionPeriod *_subscriptionPeriod;
-    SKProductDiscount *_introductoryPrice;
 }
 
-@property(readonly, nonatomic) SKProductDiscount *introductoryPrice; // @synthesize introductoryPrice=_introductoryPrice;
-@property(readonly, nonatomic) SKProductSubscriptionPeriod *subscriptionPeriod; // @synthesize subscriptionPeriod=_subscriptionPeriod;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
+- (void)_setSubscriptionPeriod:(id)arg1;
 - (void)_setProductIdentifier:(id)arg1;
 - (void)_setPriceLocale:(id)arg1;
 - (void)_setPrice:(id)arg1;
 - (void)_setLocalizedTitle:(id)arg1;
 - (void)_setLocalizedDescription:(id)arg1;
 @property(copy, nonatomic, getter=_localeIdentifier, setter=_setLocaleIdentifier:) NSString *_localeIdentifier;
+- (void)_setIntroductoryPrice:(id)arg1;
 - (void)_setDownloadable:(_Bool)arg1;
 - (void)_setDownloadContentLengths:(id)arg1;
 - (void)_setContentVersion:(id)arg1;
+@property(readonly, nonatomic) SKProductSubscriptionPeriod *subscriptionPeriod;
 @property(readonly, nonatomic) NSString *productIdentifier;
 @property(readonly, nonatomic) NSLocale *priceLocale;
 @property(readonly, nonatomic) NSDecimalNumber *price;
 @property(readonly, nonatomic) NSString *localizedTitle;
 @property(readonly, nonatomic) NSString *localizedDescription;
+@property(readonly, nonatomic) SKProductDiscount *introductoryPrice;
 @property(readonly, nonatomic, getter=isDownloadable) _Bool downloadable;
 @property(readonly, nonatomic) NSString *downloadContentVersion;
 @property(readonly, nonatomic) NSArray *downloadContentLengths;

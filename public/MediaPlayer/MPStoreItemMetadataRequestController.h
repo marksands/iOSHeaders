@@ -19,7 +19,7 @@
 + (id)sharedStoreItemMetadataRequestController;
 - (void).cxx_destruct;
 - (void)_removeExpiredItemsPeriodically;
-- (void)getStoreItemMetadataForRequest:(id)arg1 responseHandler:(CDUnknownBlockType)arg2;
+- (id)getStoreItemMetadataForRequest:(id)arg1 responseHandler:(CDUnknownBlockType)arg2;
 - (void)requestStoreItemMetadataForReason:(unsigned long long)arg1 withItemIdentifiers:(id)arg2 responseHandler:(CDUnknownBlockType)arg3;
 - (void)addStoreItemMetadata:(id)arg1;
 - (id)init;

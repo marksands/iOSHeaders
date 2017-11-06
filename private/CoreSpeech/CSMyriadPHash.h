@@ -12,10 +12,12 @@
 
 @interface CSMyriadPHash : NSObject <CSVoiceTriggerDelegate>
 {
+    unsigned char _signalFractional;
     short _signalEstimate;
 }
 
 + (id)lastHash;
+@property(nonatomic) unsigned char signalFractional; // @synthesize signalFractional=_signalFractional;
 @property(nonatomic) short signalEstimate; // @synthesize signalEstimate=_signalEstimate;
 - (void)voiceTriggerDidDetectSpeakerReject:(id)arg1;
 - (void)voiceTriggerDidDetectNearMiss:(id)arg1;

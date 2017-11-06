@@ -13,9 +13,11 @@
     NSObject<OS_dispatch_queue> *_serialQueue;
     struct NSMutableDictionary *_endpointsChangedCallbacks;
     struct NSMutableDictionary *_outputDevicesChangedCallbacks;
+    _Bool _alwaysAllowUpdates;
 }
 
 + (id)discoverySessionWithEndpointFeatures:(unsigned int)arg1;
+@property(nonatomic) _Bool alwaysAllowUpdates; // @synthesize alwaysAllowUpdates=_alwaysAllowUpdates;
 - (void)removeOutputDevicesChangedCallback:(id)arg1;
 - (void)removeEndpointsChangedCallback:(id)arg1;
 - (id)addOutputDevicesChangedCallback:(CDUnknownBlockType)arg1;

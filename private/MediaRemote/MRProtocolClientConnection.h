@@ -30,6 +30,7 @@
 @property(readonly, nonatomic) NSOutputStream *outputStream; // @synthesize outputStream=_outputStream;
 @property(readonly, nonatomic) NSInputStream *inputStream; // @synthesize inputStream=_inputStream;
 - (void)_closeStream:(id)arg1;
+- (void)closeAllStreams;
 - (void)_openStream:(id)arg1;
 - (void)_notifyDelegateClientDidRecieveMessage:(id)arg1;
 - (void)_notifyDelegateClientDidDisconnect;

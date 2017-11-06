@@ -135,6 +135,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSNumber *operationGroupQuantityNumber;
 @property(readonly, nonatomic) NSString *operationGroupName;
 @property(readonly, nonatomic) NSString *operationGroupID;
+@property(readonly, nonatomic) _Bool shouldSkipZonePCSUpdate;
 - (id)additionalRequestHTTPHeaders;
 @property(readonly, nonatomic) double timeoutIntervalForResource;
 @property(readonly, nonatomic) double timeoutIntervalForRequest;

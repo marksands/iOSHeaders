@@ -26,6 +26,7 @@
 @property(copy, nonatomic) HUQuickControlViewProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (void)beginUserInteractionWithFirstTouchGestureRecognizer:(id)arg1;
+- (id)intrinsicSizeDescriptorForControlSize:(unsigned long long)arg1;
 - (id)initWithProfile:(id)arg1;
 
 // Remaining properties

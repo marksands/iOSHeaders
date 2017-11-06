@@ -6,7 +6,7 @@
 
 #import <MediaRemote/MRExternalDeviceTransport.h>
 
-@class AVOutputContext, MRAVInputStream, MRAVOutputStream, NSArray, NSObject<OS_dispatch_queue>;
+@class AVOutputContext, MRAVInputStream, MRAVOutputStream, NSArray, NSError, NSObject<OS_dispatch_queue>;
 
 __attribute__((visibility("hidden")))
 @interface MRAVOutputContextTransport : MRExternalDeviceTransport
@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_serialQueue;
     AVOutputContext *_outputContext;
     void *_deviceInfo;
+    NSError *_error;
     MRAVInputStream *_inputStream;
     MRAVOutputStream *_outputStream;
     _Bool _useSystemAuthenticationPrompt;
@@ -23,12 +24,16 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) NSArray *outputDevices; // @synthesize outputDevices=_outputDevices;
 - (id)_onQueue_createRemoteControlContextWithID:(id)arg1;
+- (void)_destroyRemoteControlContext:(id *)arg1;
 - (void)_unregisterNotificationsForOutputContext:(id)arg1;
 - (void)_registerNotificationsForOutputContext:(id)arg1;
+- (void)_onQueue_resetStreams;
 - (void)_onQueue_initializeOutputContext;
 - (void)_outputContextDevicesDidChangeNotification:(id)arg1;
 - (_Bool)requiresCustomPairing;
+- (void)reset;
 - (_Bool)getInputStream:(id *)arg1 outputStream:(id *)arg2;
+- (id)error;
 - (void)setShouldUseSystemAuthenticationPrompt:(_Bool)arg1;
 - (_Bool)shouldUseSystemAuthenticationPrompt;
 - (long long)port;

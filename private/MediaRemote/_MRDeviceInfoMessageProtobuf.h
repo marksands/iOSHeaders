@@ -23,7 +23,6 @@
     unsigned int _sharedQueueVersion;
     NSString *_systemBuildVersion;
     NSString *_systemMediaApplication;
-    NSString *_systemPodcastApplication;
     NSString *_uniqueIdentifier;
     _Bool _allowsPairing;
     _Bool _connected;
@@ -45,7 +44,6 @@
 }
 
 @property(retain, nonatomic) NSString *localReceiverPairingIdentity; // @synthesize localReceiverPairingIdentity=_localReceiverPairingIdentity;
-@property(retain, nonatomic) NSString *systemPodcastApplication; // @synthesize systemPodcastApplication=_systemPodcastApplication;
 @property(nonatomic) unsigned int sharedQueueVersion; // @synthesize sharedQueueVersion=_sharedQueueVersion;
 @property(retain, nonatomic) NSData *bluetoothAddress; // @synthesize bluetoothAddress=_bluetoothAddress;
 @property(nonatomic) _Bool supportsExtendedMotion; // @synthesize supportsExtendedMotion=_supportsExtendedMotion;
@@ -73,7 +71,6 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(readonly, nonatomic) _Bool hasLocalReceiverPairingIdentity;
-@property(readonly, nonatomic) _Bool hasSystemPodcastApplication;
 @property(nonatomic) _Bool hasSharedQueueVersion;
 @property(readonly, nonatomic) _Bool hasBluetoothAddress;
 @property(nonatomic) _Bool hasSupportsExtendedMotion;

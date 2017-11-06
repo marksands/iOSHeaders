@@ -19,6 +19,10 @@
     double _fontSizeiPad;
     double _fontTracking;
     double _fontTrackingiPad;
+    double _titleOffsetHeight;
+    double _titleOffsetHeightiPad;
+    double _titleOffsetY;
+    double _titleOffsetYiPad;
     NSString *_micaAnimationFileUrlString;
     NSString *_micaAnimationFileUrlStringiPad;
     NSString *_actionTitle;
@@ -40,6 +44,10 @@
 @property(readonly, nonatomic) _Bool micaEnabled; // @synthesize micaEnabled=_micaEnabled;
 @property(readonly, copy, nonatomic) NSString *micaAnimationFileUrlStringiPad; // @synthesize micaAnimationFileUrlStringiPad=_micaAnimationFileUrlStringiPad;
 @property(copy, nonatomic) NSString *micaAnimationFileUrlString; // @synthesize micaAnimationFileUrlString=_micaAnimationFileUrlString;
+@property(readonly, nonatomic) double titleOffsetYiPad; // @synthesize titleOffsetYiPad=_titleOffsetYiPad;
+@property(readonly, nonatomic) double titleOffsetY; // @synthesize titleOffsetY=_titleOffsetY;
+@property(readonly, nonatomic) double titleOffsetHeightiPad; // @synthesize titleOffsetHeightiPad=_titleOffsetHeightiPad;
+@property(readonly, nonatomic) double titleOffsetHeight; // @synthesize titleOffsetHeight=_titleOffsetHeight;
 @property(readonly, nonatomic) double fontTrackingiPad; // @synthesize fontTrackingiPad=_fontTrackingiPad;
 @property(nonatomic) double fontTracking; // @synthesize fontTracking=_fontTracking;
 @property(readonly, nonatomic) double fontSizeiPad; // @synthesize fontSizeiPad=_fontSizeiPad;

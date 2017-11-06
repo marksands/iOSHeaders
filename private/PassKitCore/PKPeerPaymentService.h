@@ -22,8 +22,10 @@
 - (id)_remoteObjectProxyWithFailureHandler:(CDUnknownBlockType)arg1;
 - (void)_accountChanged:(id)arg1;
 - (void)_sharedPeerPaymentWebServiceContextWithCompletion:(CDUnknownBlockType)arg1;
+- (void)resetApplePayManateeViewWithCompletion:(CDUnknownBlockType)arg1;
+- (void)checkTLKsMissingWithCompletion:(CDUnknownBlockType)arg1;
 - (void)cloudStoreStatusWithCompletion:(CDUnknownBlockType)arg1;
-- (void)initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
+- (void)initalizeCloudStoreIfNecessaryWithHandler:(CDUnknownBlockType)arg1;
 - (void)unregisterDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)registerDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)downloadPassIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
@@ -48,6 +50,7 @@
 @property(retain, nonatomic) PKPeerPaymentWebServiceContext *sharedPeerPaymentWebServiceContext;
 - (void)dealloc;
 - (id)init;
+- (void)initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 
 @end
 

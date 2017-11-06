@@ -11,9 +11,12 @@
 @protocol PDCloudStoreServiceExportedInterface <PDXPCServiceExportedInterface>
 - (void)fetchAndStoreRecordsForPaymentPassWithUniqueIdentifier:(NSString *)arg1 completion:(void (^)(PKCloudRecordArray *, NSError *))arg2;
 - (void)simulateCloudStorePushWithCompletion:(void (^)(PKCloudRecordArray *, NSArray *, NSError *))arg1;
-- (void)resetContainerWithCompletion:(void (^)(_Bool))arg1;
+- (void)resetContainerWithHandler:(void (^)(_Bool, NSError *))arg1;
 - (void)allTransactionsAndStoreLocally:(_Bool)arg1 completion:(void (^)(PKCloudRecordArray *, NSError *))arg2;
 - (void)removeTransactionsWithRecordNames:(NSArray *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)updateCloudStoreWithLocalItems:(NSArray *)arg1 recordSpecificKeys:(NSArray *)arg2 completion:(void (^)(NSArray *, NSError *))arg3;
+
+@optional
+- (void)resetContainerWithCompletion:(void (^)(_Bool))arg1;
 @end
 

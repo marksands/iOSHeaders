@@ -97,8 +97,11 @@
 - (void)audioRecorderBufferAvailable:(id)arg1 buffer:(id)arg2;
 - (void)audioRecorderBufferAvailable:(id)arg1 buffer:(id)arg2 atTime:(unsigned long long)arg3;
 - (id)_getClientRecordContext;
-- (void)_systemVolumeDidChange:(id)arg1;
-- (float)_volumeFromAVSystemController;
+- (void)_startObservingSystemControllerLifecycle;
+- (void)startObservingSystemVolumes;
+- (void)systemControllerDied:(id)arg1;
+- (void)systemVolumeDidChange:(id)arg1;
+- (void)fetchVolumeFromAVSystemController;
 - (void)_startForwardingToSmartSiriVolume;
 - (void)_stopForwardingToKeywordDetector;
 - (void)_startForwardingToKeywordDetector;
@@ -149,7 +152,7 @@
 - (long long)getCurrentState;
 - (void)_setupStateMachine;
 - (void)registerSpeechController:(id)arg1;
-- (void)_setupSmartSiriVolume;
+- (void)setupSmartSiriVolume;
 - (void)_setupCircularBuffer;
 - (void)_startVoiceTrigger;
 - (void)_setupVoiceTrigger;

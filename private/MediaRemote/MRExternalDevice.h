@@ -6,18 +6,16 @@
 
 #import "NSObject.h"
 
-@class MRSupportedProtocolMessages, NSArray, NSString;
+@class MRSupportedProtocolMessages, NSString;
 
 __attribute__((visibility("hidden")))
 @interface MRExternalDevice : NSObject
 {
     unsigned int _connectionState;
     void *_deviceInfo;
-    NSArray *_requiredApplications;
 }
 
 @property(readonly, nonatomic) unsigned int connectionState; // @synthesize connectionState=_connectionState;
-@property(nonatomic) NSArray *requiredApplications; // @synthesize requiredApplications=_requiredApplications;
 @property(readonly, nonatomic) void *deviceInfo; // @synthesize deviceInfo=_deviceInfo;
 - (void)sendClientUpdatesConfigMessage;
 - (id)currentClientUpdatesConfigMessage;
@@ -26,9 +24,9 @@ __attribute__((visibility("hidden")))
 - (void)sendCustomData:(id)arg1 withName:(id)arg2;
 - (void)modifyOutputContextOfType:(unsigned int)arg1 addingDeviceUIDs:(id)arg2 removingDeviceUIDs:(id)arg3 settingDeviceUIDs:(id)arg4 withReplyQueue:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)setOutputDeviceVolume:(float)arg1 outputDevice:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)getOutputDeviceVolume:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)outputDeviceVolume:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setVolume:(float)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)getVolumeWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)volumeWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setVolumeCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setCustomDataCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setPairingAllowedCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;

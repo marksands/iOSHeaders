@@ -13,7 +13,6 @@
 
 @interface MPVolumeSlider : UISlider <MPVolumeControllerDelegate, MPVolumeDisplaying>
 {
-    MPVolumeController *_volumeController;
     NSTimer *_commitTimer;
     UILabel *_routeNameLabel;
     long long _style;
@@ -26,10 +25,15 @@
     _Bool _volumeWarningBlinking;
     UIImage *_volumeWarningTrackImage;
     _Bool _userWasBlocked;
+    double _originalMinTrackViewAlphaOverride;
+    double _originalMinValueViewAlphaOverride;
+    double _originalMaxValueViewAlphaOverride;
     UILayoutGuide *_trackLayoutGuide;
+    MPVolumeController *_volumeController;
     struct UIEdgeInsets _hitRectInsets;
 }
 
+@property(readonly, nonatomic) MPVolumeController *volumeController; // @synthesize volumeController=_volumeController;
 @property(readonly, nonatomic) UILayoutGuide *trackLayoutGuide; // @synthesize trackLayoutGuide=_trackLayoutGuide;
 @property(nonatomic) struct UIEdgeInsets hitRectInsets; // @synthesize hitRectInsets=_hitRectInsets;
 @property(retain, nonatomic) UIImage *volumeWarningTrackImage; // @synthesize volumeWarningTrackImage=_volumeWarningTrackImage;

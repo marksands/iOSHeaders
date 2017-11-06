@@ -21,6 +21,7 @@
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
     NSData *_homeKitAuthTag;
+    _Bool _homeKitForceGetIdentity;
     _Bool _homeKitGettingIdentity;
     NSData *_homeKitIRK;
     NSData *_homeKitLTPK;
@@ -79,6 +80,7 @@
 - (void)_connectionStateChanged:(unsigned int)arg1 cnx:(id)arg2;
 - (void)_activeDeviceRemoved:(id)arg1 cnx:(id)arg2;
 - (void)_activeDeviceAdded:(id)arg1 cnx:(id)arg2;
+- (void)_serverTCPRemoveConnectionsWithIdentifier:(id)arg1 exceptConnection:(id)arg2;
 - (void)_serverTCPHandleConnectionEnded:(id)arg1;
 - (void)_serverTCPHandleConnectionStarted:(id)arg1;
 - (void)_serverTCPEnsureStopped;
@@ -93,12 +95,13 @@
 - (_Bool)_serverShouldRun;
 - (void)_clientConnectionEndedUnauth:(id)arg1 client:(id)arg2 device:(id)arg3 publicID:(id)arg4;
 - (_Bool)_clientConnectionStartUnauth:(id)arg1 client:(id)arg2 publicID:(id)arg3 error:(id *)arg4;
+- (void)_clientBonjourReevaluateUnauthDevices;
 - (void)_clientBonjourLostUnauthDevice:(id)arg1;
 - (void)_clientBonjourFoundUnauthDevice:(id)arg1;
 - (void)_clientConnectionEnded:(id)arg1 uniqueID:(id)arg2;
 - (void)_clientConnectionStart:(id)arg1 uniqueID:(id)arg2;
 - (void)_clientBonjourLostDevice:(id)arg1;
-- (void)_clientBonjourFoundDevice:(id)arg1;
+- (_Bool)_clientBonjourFoundDevice:(id)arg1;
 - (void)_clientBonjourEnsureStopped;
 - (void)_clientBonjourEnsureStarted;
 - (void)_clientEnsureStopped;
@@ -106,6 +109,7 @@
 - (void)_updateAssertions;
 - (void)_update;
 - (void)prefsChanged;
+- (_Bool)diagnosticCommand:(id)arg1 params:(id)arg2;
 - (void)_invalidated;
 - (void)_invalidate;
 - (void)invalidate;

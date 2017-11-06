@@ -17,12 +17,14 @@
 {
     _Bool _backgroundBlurred;
     _Bool _needsReloadData;
+    _Bool _notificationRequestRemovedWhilePossiblyInLongLook;
     _Bool _notificationRequestRemovedWhileInLongLook;
     CDStruct_27a46a9e _userInteractionDelegateFlags;
     id <NCNotificationListViewControllerUserInteractionDelegate> _userInteractionDelegate;
     id <NCNotificationListViewControllerDestinationDelegate> _destinationDelegate;
     NCNotificationViewController *_notificationViewControllerForSizing;
     NCNotificationViewController *_viewControllerPresentingLongLook;
+    NCNotificationViewController *_viewControllerPossiblyPresentingLongLook;
     NSMutableDictionary *_cellsSizesCaches;
     NSMutableDictionary *_cellsSizesCachesSuppressedContent;
     NSHashTable *_observers;
@@ -35,12 +37,14 @@
 @property(nonatomic) CDStruct_27a46a9e userInteractionDelegateFlags; // @synthesize userInteractionDelegateFlags=_userInteractionDelegateFlags;
 @property(retain, nonatomic) NCAnimationCoordinator *childPreferredContentSizeChangeCoordinator; // @synthesize childPreferredContentSizeChangeCoordinator=_childPreferredContentSizeChangeCoordinator;
 @property(nonatomic) _Bool notificationRequestRemovedWhileInLongLook; // @synthesize notificationRequestRemovedWhileInLongLook=_notificationRequestRemovedWhileInLongLook;
+@property(nonatomic) _Bool notificationRequestRemovedWhilePossiblyInLongLook; // @synthesize notificationRequestRemovedWhilePossiblyInLongLook=_notificationRequestRemovedWhilePossiblyInLongLook;
 @property(nonatomic) _Bool needsReloadData; // @synthesize needsReloadData=_needsReloadData;
 @property(nonatomic) __weak NCNotificationListCell *cellWithRevealedActions; // @synthesize cellWithRevealedActions=_cellWithRevealedActions;
 @property(retain, nonatomic) NCNotificationListTouchEater *touchEater; // @synthesize touchEater=_touchEater;
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) NSMutableDictionary *cellsSizesCachesSuppressedContent; // @synthesize cellsSizesCachesSuppressedContent=_cellsSizesCachesSuppressedContent;
 @property(retain, nonatomic) NSMutableDictionary *cellsSizesCaches; // @synthesize cellsSizesCaches=_cellsSizesCaches;
+@property(retain, nonatomic) NCNotificationViewController *viewControllerPossiblyPresentingLongLook; // @synthesize viewControllerPossiblyPresentingLongLook=_viewControllerPossiblyPresentingLongLook;
 @property(retain, nonatomic) NCNotificationViewController *viewControllerPresentingLongLook; // @synthesize viewControllerPresentingLongLook=_viewControllerPresentingLongLook;
 @property(readonly, nonatomic) struct UIEdgeInsets insetMargins; // @synthesize insetMargins=_insetMargins;
 @property(retain, nonatomic) NCNotificationViewController *notificationViewControllerForSizing; // @synthesize notificationViewControllerForSizing=_notificationViewControllerForSizing;
@@ -125,6 +129,7 @@
 - (void)addContentObserver:(id)arg1;
 - (void)_reloadCollectionViewDataIfNecessary;
 - (_Bool)dismissModalFullScreenAnimated:(_Bool)arg1;
+- (id)notificationRequestPossiblyInLongLook;
 - (id)notificationRequestInLongLook;
 @property(readonly, nonatomic, getter=isPresentingNotificationInLongLook) _Bool presentingNotificationInLongLook;
 - (_Bool)isContentExtensionVisible:(id)arg1;

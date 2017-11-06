@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class LAContext, NSArray, NSDate, NSMutableArray, NSString, NSTimer, TIKeyboardCandidate, UIKBBackgroundView, UIKBKeyView, UIKeyboardPredictionBarGrabber, UIKeyboardPredictionCell, UILabel, UITextSuggestion, UITouch;
+@class LAContext, NSArray, NSDate, NSMutableArray, NSString, NSTimer, TIKeyboardCandidate, UIKBBackgroundView, UIKBKeyView, UIKeyboardPredictionBarGrabber, UIKeyboardPredictionCell, UILabel, UITouch;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardPredictionView : UIView
@@ -50,7 +50,7 @@ __attribute__((visibility("hidden")))
     LAContext *m_myContext;
     int _state;
     UITouch *_activeTouch;
-    UITextSuggestion *_currentFirstTextSuggestion;
+    TIKeyboardCandidate *_currentFirstTextSuggestion;
     NSTimer *_updateTimer;
     NSArray *_scheduledPredictions;
     TIKeyboardCandidate *_scheduledAutocorrection;
@@ -77,7 +77,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TIKeyboardCandidate *scheduledAutocorrection; // @synthesize scheduledAutocorrection=_scheduledAutocorrection;
 @property(retain, nonatomic) NSArray *scheduledPredictions; // @synthesize scheduledPredictions=_scheduledPredictions;
 @property(retain, nonatomic) NSTimer *updateTimer; // @synthesize updateTimer=_updateTimer;
-@property(retain, nonatomic) UITextSuggestion *currentFirstTextSuggestion; // @synthesize currentFirstTextSuggestion=_currentFirstTextSuggestion;
+@property(retain, nonatomic) TIKeyboardCandidate *currentFirstTextSuggestion; // @synthesize currentFirstTextSuggestion=_currentFirstTextSuggestion;
 @property(nonatomic) int state; // @synthesize state=_state;
 @property(retain, nonatomic) UITouch *activeTouch; // @synthesize activeTouch=_activeTouch;
 - (id)description;

@@ -6,13 +6,15 @@
 
 #import <HomeUI/HUItemTableViewController.h>
 
+#import "HFAccessoryObserver.h"
+#import "HFMediaObjectObserver.h"
 #import "HUAlarmEditViewControllerDelegate.h"
 #import "HUHomePodAlarmItemModuleControllerDelegate.h"
 #import "HUPresentationDelegateHost.h"
 
 @class HUHomePodAlarmItemModuleController, MTAlarm, NSString, UIBarButtonItem, _UIContentUnavailableView;
 
-@interface HUAlarmTableViewController : HUItemTableViewController <HUAlarmEditViewControllerDelegate, HUHomePodAlarmItemModuleControllerDelegate, HUPresentationDelegateHost>
+@interface HUAlarmTableViewController : HUItemTableViewController <HUAlarmEditViewControllerDelegate, HUHomePodAlarmItemModuleControllerDelegate, HFAccessoryObserver, HFMediaObjectObserver, HUPresentationDelegateHost>
 {
     _Bool _isAccessoryControllable;
     id <HUPresentationDelegate> _presentationDelegate;
@@ -22,8 +24,10 @@
     _UIContentUnavailableView *_noItemsView;
     UIBarButtonItem *_addButtonItem;
     UIBarButtonItem *_editDoneButtonItem;
+    id <HFMediaProfileContainer> _mediaProfileContainer;
 }
 
+@property(readonly, nonatomic) id <HFMediaProfileContainer> mediaProfileContainer; // @synthesize mediaProfileContainer=_mediaProfileContainer;
 @property(nonatomic) _Bool isAccessoryControllable; // @synthesize isAccessoryControllable=_isAccessoryControllable;
 @property(retain, nonatomic) UIBarButtonItem *editDoneButtonItem; // @synthesize editDoneButtonItem=_editDoneButtonItem;
 @property(retain, nonatomic) UIBarButtonItem *addButtonItem; // @synthesize addButtonItem=_addButtonItem;
@@ -33,6 +37,9 @@
 @property(retain, nonatomic) UIBarButtonItem *doneButtonItem; // @synthesize doneButtonItem=_doneButtonItem;
 @property(nonatomic) __weak id <HUPresentationDelegate> presentationDelegate; // @synthesize presentationDelegate=_presentationDelegate;
 - (void).cxx_destruct;
+- (void)accessoryDidUpdateControllable:(id)arg1;
+- (void)accessoryDidUpdateReachability:(id)arg1;
+- (void)_discernReachabilityForAccessory:(id)arg1;
 - (void)_updateNavigationItems:(_Bool)arg1;
 - (void)_numberOfItemsDidChangeAnimated:(_Bool)arg1;
 - (void)_layoutNoItemsLabel;

@@ -6,11 +6,19 @@
 
 #import <HomeUI/HUViewControllerCollectionViewCell.h>
 
+@class HUQuickControlCollectionViewCellContainerViewController, HUQuickControlCollectionViewLayoutAttributes;
+
 @interface HUQuickControlViewControllerCollectionViewCell : HUViewControllerCollectionViewCell
 {
+    HUQuickControlCollectionViewLayoutAttributes *_activeLayoutAttributes;
 }
 
-- (id)preferredLayoutAttributesFittingAttributes:(id)arg1;
++ (unsigned long long)quickControlSizeForItemSize:(unsigned long long)arg1;
+@property(retain, nonatomic) HUQuickControlCollectionViewLayoutAttributes *activeLayoutAttributes; // @synthesize activeLayoutAttributes=_activeLayoutAttributes;
+- (void).cxx_destruct;
+- (void)applyLayoutAttributes:(id)arg1;
+@property(retain, nonatomic) HUQuickControlCollectionViewCellContainerViewController *viewController; // @dynamic viewController;
+- (void)_updateContentViewControllerForActiveLayoutAttributes;
 
 @end
 

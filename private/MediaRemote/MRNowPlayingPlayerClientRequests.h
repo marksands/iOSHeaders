@@ -39,7 +39,7 @@ __attribute__((visibility("hidden")))
 - (void)restoreNowPlayingClientState;
 - (void)_handleEnqueuedPlaybackQueueRequest:(void *)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)enqueuePlaybackQueueRequest:(void *)arg1 completion:(CDUnknownBlockType)arg2;
-- (_Bool)augmentCommandOptions:(id)arg1 forCommand:(unsigned int)arg2;
+- (_Bool)verifyCommandOptions:(id)arg1 forCommand:(unsigned int)arg2;
 - (void)removePlaybackQueueCompletionForRequest:(void *)arg1;
 - (void)addPlaybackQueueCompletion:(CDUnknownBlockType)arg1 forRequest:(void *)arg2;
 - (id)transactionCallbacksForName:(unsigned long long)arg1;

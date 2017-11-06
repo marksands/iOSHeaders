@@ -8,11 +8,12 @@
 
 #import "HUPreloadableViewController.h"
 #import "MFMailComposeViewControllerDelegate.h"
-#import "WKNavigationDelegate.h"
+#import "UIScrollViewDelegate.h"
+#import "UIWebViewDelegate.h"
 
-@class HMHTMLDocument, NAFuture, NSString, NSURL, UIButton, UIScrollView, WKWebView;
+@class HMHTMLDocument, NAFuture, NSString, NSURL, UIButton, UIScrollView, UIWebView;
 
-@interface HUSoftwareUpdateLicenseViewController : UIViewController <WKNavigationDelegate, MFMailComposeViewControllerDelegate, HUPreloadableViewController>
+@interface HUSoftwareUpdateLicenseViewController : UIViewController <UIScrollViewDelegate, UIWebViewDelegate, MFMailComposeViewControllerDelegate, HUPreloadableViewController>
 {
     NSURL *_URL;
     HMHTMLDocument *_document;
@@ -20,12 +21,12 @@
     CDUnknownBlockType _disagreeHandler;
     UIScrollView *_scrollView;
     UIButton *_emailButton;
-    WKWebView *_webView;
+    UIWebView *_webView;
     NAFuture *_loadFuture;
 }
 
 @property(readonly, nonatomic) NAFuture *loadFuture; // @synthesize loadFuture=_loadFuture;
-@property(readonly, nonatomic) WKWebView *webView; // @synthesize webView=_webView;
+@property(readonly, nonatomic) UIWebView *webView; // @synthesize webView=_webView;
 @property(readonly, nonatomic) UIButton *emailButton; // @synthesize emailButton=_emailButton;
 @property(readonly, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(copy, nonatomic) CDUnknownBlockType disagreeHandler; // @synthesize disagreeHandler=_disagreeHandler;
@@ -35,17 +36,18 @@
 - (void).cxx_destruct;
 - (void)_emailTermsAndConditions:(id)arg1;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(long long)arg2 error:(id)arg3;
-- (void)webView:(id)arg1 didFailNavigation:(id)arg2 withError:(id)arg3;
-- (void)webView:(id)arg1 didFinishNavigation:(id)arg2;
+- (id)viewForZoomingInScrollView:(id)arg1;
+- (void)webViewDidFinishLoad:(id)arg1;
+- (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
+- (_Bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;
 - (void)_startLoadWithDocument:(id)arg1 orMaybeAURL:(id)arg2;
 - (void)_disagreeToTerms:(id)arg1;
 - (void)_agreeToTerms:(id)arg1;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)viewWillLayoutSubviews;
 - (void)loadView;
 - (id)hu_preloadContent;
-- (void)dealloc;
 - (id)_initWithDocument:(id)arg1 orMaybeAURL:(id)arg2;
 - (id)initWithDocument:(id)arg1;
 - (id)initWithURL:(id)arg1;

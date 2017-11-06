@@ -9,20 +9,22 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class MediaControlsCollectionViewCountData, NSArray, NSIndexSet, NSMutableDictionary, NSMutableSet, NSString, UIScrollView, _MediaControlsTapHoldGestureRecognizer;
+@class MediaControlsCollectionViewCountData, NSArray, NSIndexSet, NSMutableDictionary, NSMutableSet, NSString, UIScrollView, UIViewController<MediaControlsCollectionItemViewController>, _MediaControlsTapHoldGestureRecognizer;
 
 @interface MediaControlsCollectionViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 {
     NSMutableDictionary *_activeViewControllers;
+    UIViewController<MediaControlsCollectionItemViewController> *_inactiveSelectedViewController;
     NSMutableSet *_inactiveViewControllers;
     CDUnknownBlockType _pendingUpdates;
+    struct UIEdgeInsets _controlCenterEdgeInsets;
     struct CGSize _lastKnownEnvironmentSize;
+    long long _animatedSelectionCount;
     _Bool _shouldDisableAutoReaping;
     _Bool _shouldIgnoreScrollNotifications;
     _Bool _isAnimatingSelection;
     _Bool _isPerformingBatchUpdates;
     _Bool _isTransitioningAppearance;
-    _Bool _needsInactiveViewControllersRemovedFromParent;
     _Bool _needsReloadData;
     MediaControlsCollectionViewCountData *_countData;
     id <MediaControlsCollectionViewDataSource> _dataSource;
@@ -60,10 +62,8 @@
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)_setHighlighted:(_Bool)arg1 forViewControllerAtIndex:(long long)arg2;
-- (void)_setNeedsInactiveViewControllersRemovedFromParent;
 - (void)_removeViewController:(id)arg1;
-- (void)_removeViewControllers:(id)arg1;
-- (void)_removeInactiveViewControllersFromParentIfNeeded;
+- (void)_removeInactiveViewControllersFromHierarchy;
 - (void)_reapActiveViews;
 - (void)_reapViewAtIndex:(long long)arg1;
 - (id)_insertViewControllerForIndex:(long long)arg1;
@@ -113,7 +113,7 @@
 - (id)viewControllerForSelectedItem;
 - (id)viewControllerForItemAtIndex:(long long)arg1;
 - (id)viewControllerForItemAtPoint:(struct CGPoint)arg1;
-- (id)dequeueReusableViewController;
+- (id)dequeueReusableViewControllerForItemAtIndex:(long long)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLayoutSubviews;

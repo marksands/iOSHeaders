@@ -13,13 +13,13 @@
     NSArray *_outputDevices;
     MRTransportExternalDevice *_externalDevice;
     MRAVConcreteOutputDevice *_designatedGroupLeader;
-    NSString *_staticUniqueIdentifier;
+    NSString *_instanceIdentifier;
     NSDictionary *_outsourcedExternalDeviceCache;
 }
 
 @property(copy, nonatomic) NSDictionary *outsourcedExternalDeviceCache; // @synthesize outsourcedExternalDeviceCache=_outsourcedExternalDeviceCache;
-@property(readonly, nonatomic) NSString *staticUniqueIdentifier; // @synthesize staticUniqueIdentifier=_staticUniqueIdentifier;
 - (void)_reloadExternalDevice;
+- (id)instanceIdentifier;
 @property(retain, nonatomic) MRAVConcreteOutputDevice *designatedGroupLeader;
 @property(retain, nonatomic) MRTransportExternalDevice *externalDevice;
 @property(copy, nonatomic) NSArray *outputDevices;

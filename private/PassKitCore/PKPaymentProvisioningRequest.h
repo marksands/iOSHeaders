@@ -20,10 +20,14 @@
     NSString *_cardSecurityCode;
     NSData *_activationData;
     PKDSPContext *_context;
+    NSData *_cryptogram;
+    NSData *_challengeResponse;
     NSString *_referrerIdentifier;
 }
 
 @property(copy, nonatomic) NSString *referrerIdentifier; // @synthesize referrerIdentifier=_referrerIdentifier;
+@property(copy, nonatomic) NSData *challengeResponse; // @synthesize challengeResponse=_challengeResponse;
+@property(copy, nonatomic) NSData *cryptogram; // @synthesize cryptogram=_cryptogram;
 @property(copy, nonatomic) PKDSPContext *context; // @synthesize context=_context;
 @property(copy, nonatomic) NSData *activationData; // @synthesize activationData=_activationData;
 @property(copy, nonatomic) NSString *cardSecurityCode; // @synthesize cardSecurityCode=_cardSecurityCode;

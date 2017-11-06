@@ -7,6 +7,7 @@
 #import "NSObject.h"
 
 @protocol SBUIConntrollerAccessibilityProtocol <NSObject>
+- (void)_updateVoiceOverVisualizationState;
 - (void)_accessibilityHidInterfaceButton:(unsigned long long)arg1 changedAtTimestamp:(unsigned long long)arg2;
 @end
 

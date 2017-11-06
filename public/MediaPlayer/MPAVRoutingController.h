@@ -54,6 +54,7 @@
 - (long long)_volumeControlStateForPickedRoute;
 - (long long)_externalScreenType:(_Bool *)arg1;
 - (void)_scheduleSendDelegateRoutesChanged;
+- (void)_sendDelegatePickedRoutesChanged;
 - (void)_updateCachedRoutes;
 - (void)_onQueueSetExternalScreenType:(long long)arg1;
 - (void)_setExternalScreenType:(long long)arg1;

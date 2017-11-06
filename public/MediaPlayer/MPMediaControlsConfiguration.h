@@ -23,6 +23,7 @@
 @property(copy, nonatomic) NSString *routingContextUID; // @synthesize routingContextUID=_routingContextUID;
 @property(nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

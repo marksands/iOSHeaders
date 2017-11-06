@@ -10,7 +10,6 @@
 {
 }
 
-+ (void)load;
 - (id)init;
 
 @end

@@ -6,10 +6,12 @@
 
 #import <iTunesCloud/ICAsyncOperation.h>
 
-@class ICStorePlatformRequest;
+@class ICStorePlatformRequest, ICStoreURLRequest, NSObject<OS_dispatch_queue>;
 
 @interface ICStorePlatformRequestOperation : ICAsyncOperation
 {
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    ICStoreURLRequest *_activeURLRequest;
     ICStorePlatformRequestOperation *_strongSelf;
     ICStorePlatformRequest *_platformRequest;
     CDUnknownBlockType _responseHandler;
@@ -26,6 +28,7 @@
 - (void)_enqueueDataRequest:(id)arg1;
 - (void)finishWithError:(id)arg1;
 - (void)execute;
+- (void)cancel;
 - (id)initWithPlatformRequest:(id)arg1;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "HUQuickControlControllableView.h"
 
-@class HUDynamicFormattingLabel, HUIconView, HUQuickControlSwitchViewProfile, NSLayoutConstraint, NSString;
+@class HUDynamicFormattingLabel, HUIconView, HUQuickControlSwitchViewProfile, NSString;
 
 @interface HUQuickControlSwitchView : UIView <HUQuickControlControllableView>
 {
@@ -18,11 +18,9 @@
     HUDynamicFormattingLabel *_supplementaryValueLabel;
     HUIconView *_decorationIconView;
     double _switchValue;
-    NSLayoutConstraint *_aspectRatioConstraint;
 }
 
 + (_Bool)requiresConstraintBasedLayout;
-@property(retain, nonatomic) NSLayoutConstraint *aspectRatioConstraint; // @synthesize aspectRatioConstraint=_aspectRatioConstraint;
 @property(nonatomic) double switchValue; // @synthesize switchValue=_switchValue;
 @property(retain, nonatomic) HUIconView *decorationIconView; // @synthesize decorationIconView=_decorationIconView;
 @property(retain, nonatomic) HUDynamicFormattingLabel *supplementaryValueLabel; // @synthesize supplementaryValueLabel=_supplementaryValueLabel;
@@ -35,12 +33,12 @@
 - (void)_updateSupplementaryValueLabelAnimated:(_Bool)arg1;
 - (void)_updateDecorationIconDescriptorAnimated:(_Bool)arg1;
 @property(retain, nonatomic) id value;
+- (id)intrinsicSizeDescriptorForControlSize:(unsigned long long)arg1;
 - (struct CGPoint)_knobCenterForMetrics:(CDStruct_2418a849)arg1 switchValue:(double)arg2;
 - (struct CGSize)_knobSizeForMetrics:(CDStruct_2418a849)arg1;
 - (struct CGRect)_knobFrameForMetrics:(CDStruct_2418a849)arg1 switchValue:(double)arg2;
 - (void)layoutSubviews;
 - (struct CGSize)intrinsicContentSize;
-- (void)updateConstraints;
 - (id)initWithProfile:(id)arg1;
 
 // Remaining properties

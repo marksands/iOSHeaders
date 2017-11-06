@@ -11,6 +11,7 @@
 }
 
 + (void)startAccessibility;
+- (void)_updateVoiceOverVisualizationState;
 - (void)_touchAccommodationsSettingsChanged;
 - (void)_voiceOverEnabledChanged:(id)arg1;
 - (void)_loadAccessibility;

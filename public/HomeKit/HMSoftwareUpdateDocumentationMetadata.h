@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class HMFDigest, NSURL;
 
-@interface HMSoftwareUpdateDocumentationMetadata : NSObject <NSSecureCoding>
+@interface HMSoftwareUpdateDocumentationMetadata : NSObject <NSCopying, NSSecureCoding>
 {
     NSURL *_URL;
     HMFDigest *_digest;
@@ -22,6 +23,7 @@
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

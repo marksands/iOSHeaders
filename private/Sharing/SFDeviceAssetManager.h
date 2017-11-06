@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MAAsset, NSDictionary, NSObject<OS_dispatch_queue>;
+@class MAAsset, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface SFDeviceAssetManager : NSObject
 {
@@ -16,10 +16,12 @@
     _Bool _invalidateDone;
     MAAsset *_deviceAssetManagement;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
+    NSString *_networkStatus;
     NSDictionary *_productTypesMappingTable;
 }
 
 @property(readonly, nonatomic) NSDictionary *productTypesMappingTable; // @synthesize productTypesMappingTable=_productTypesMappingTable;
+@property(readonly, nonatomic) NSString *networkStatus; // @synthesize networkStatus=_networkStatus;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
 - (id)additionalMappedProducts;
@@ -39,6 +41,7 @@
 - (void)onqueue_invalidate;
 - (void)invalidate;
 - (void)onqueue_updateMetaDataWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)logNetworkStatus;
 - (void)onqueue_activate;
 - (void)activate;
 - (id)init;

@@ -25,9 +25,8 @@
 - (id)_controlItemMatchingPredicate:(id)arg1;
 - (id)overrideStatusText;
 - (id)childQuickControlContentViewControllers;
-- (_Bool)prefersFullSizeContent;
 - (void)viewDidLoad;
-- (id)initWithControlItems:(id)arg1 home:(id)arg2;
+- (id)initWithControlItems:(id)arg1 home:(id)arg2 itemUpdater:(id)arg3;
 
 @end
 

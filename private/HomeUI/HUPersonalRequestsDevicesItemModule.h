@@ -34,6 +34,7 @@
 - (_Bool)isItemPersonalRequestsDevice:(id)arg1;
 - (_Bool)isItemPersonalRequestsToggle:(id)arg1;
 - (id)buildSectionsWithDisplayedItems:(id)arg1;
+- (_Bool)_showPersonalRequestsItems;
 - (void)_createItemProviders;
 @property(readonly, nonatomic) HMAssistantAccessControl *accessControl;
 - (id)initWithItemUpdater:(id)arg1 userItem:(id)arg2 home:(id)arg3;

@@ -59,6 +59,7 @@
 @property(readonly, nonatomic) double browserSwitcherGutterWidth;
 @property(readonly, nonatomic) double browserSwitcherExpandThreshold;
 @property(readonly, nonatomic) double browserSwitcherExpandedGrabberHeaderHeight;
+@property(readonly, nonatomic) double browserSwitcherCompactGrabberVisibleHeight;
 @property(readonly, nonatomic) double browserSwitcherCompactGrabberHeaderHeight;
 @property(readonly, nonatomic) double appStripToEntryViewBottomSpace;
 @property(readonly, nonatomic) unsigned long long suggestedMinimumRecentsCount;

@@ -15,10 +15,12 @@ __attribute__((visibility("hidden")))
     UIImage *_backgroundImage;
     NSArray *_headerSupplementaryViews;
     UICollectionView *_stackView;
+    UIView *_backgroundView;
     NSArray *_supplementaryCellLayoutAttributes;
 }
 
 @property(readonly, copy, nonatomic) NSArray *supplementaryCellLayoutAttributes; // @synthesize supplementaryCellLayoutAttributes=_supplementaryCellLayoutAttributes;
+@property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) UICollectionView *stackView; // @synthesize stackView=_stackView;
 @property(copy, nonatomic) NSArray *headerSupplementaryViews; // @synthesize headerSupplementaryViews=_headerSupplementaryViews;
 @property(retain, nonatomic) UIImage *backgroundImage; // @synthesize backgroundImage=_backgroundImage;

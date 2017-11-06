@@ -65,6 +65,7 @@ __attribute__((visibility("hidden")))
     UIDragInteraction *dragInteraction;
     double horizontalScaleFactorBeforeRotation;
     struct CGPoint documentViewCenterBeforeRotation;
+    struct UIEdgeInsets lastSafeAreaInsets;
 }
 
 - (void).cxx_destruct;

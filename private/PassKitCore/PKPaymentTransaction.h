@@ -143,6 +143,7 @@
 - (id)_transactionTypeString;
 - (id)_transactionSourceString;
 - (id)description;
+- (id)updateReasonsDescription;
 - (void)addUpdateReasons:(unsigned long long)arg1;
 @property(readonly, nonatomic) _Bool hasBackingData;
 @property(readonly, nonatomic) _Bool hasTransactionSource;

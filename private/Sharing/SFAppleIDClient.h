@@ -26,8 +26,8 @@
 - (void)requestWithInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)appleIDListWithCompletion:(CDUnknownBlockType)arg1;
 - (void)addAppleID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)_personInfoWithEmails:(id)arg1 phones:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)personInfoWithEmails:(id)arg1 phones:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_personInfoWithEmailOrPhone:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)personInfoWithEmailOrPhone:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_myAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (void)myAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_copyIdentityForAppleID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

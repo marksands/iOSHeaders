@@ -41,7 +41,7 @@
 - (id)currentOffer;
 - (void)dealloc;
 - (id)init;
-- (void)updateOfferId:(id)arg1 buttonId:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)updateOfferId:(id)arg1 buttonId:(id)arg2 info:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)clearFollowups;
 @property(nonatomic, getter=isBuddyOfferEnabled) _Bool buddyOfferEnabled;
 @property(readonly, nonatomic) NSNumber *photosLibrarySize;

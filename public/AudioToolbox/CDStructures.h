@@ -135,8 +135,6 @@ struct AudioComponentDescription {
     unsigned int componentFlagsMask;
 };
 
-struct AudioComponentPluginScanner;
-
 struct AudioComponentRegistrarImpl {
     _Bool _field1;
     _Bool _field2;
@@ -147,8 +145,7 @@ struct AudioComponentRegistrarImpl {
     struct AudioComponentVector _field7;
     struct PurgeableDataWrapper _field8;
     struct PurgeableDataWrapper _field9;
-    struct unique_ptr<AudioComponentPluginScanner, std::__1::default_delete<AudioComponentPluginScanner>> _field10;
-    struct unique_ptr<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>, std::__1::default_delete<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>>> _field11;
+    struct unique_ptr<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>, std::__1::default_delete<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>>> _field10;
 };
 
 struct AudioComponentVector {
@@ -359,16 +356,6 @@ struct function<NSData *()> {
     struct __base<NSData *()> *_field2;
 };
 
-struct function<void ()> {
-    struct type __buf_;
-    struct __base<void ()> *__f_;
-};
-
-struct function<void (AudioComponentVector &, AudioComponentVector &)> {
-    struct type __buf_;
-    struct __base<void (AudioComponentVector &, AudioComponentVector &)> *__f_;
-};
-
 struct map<unsigned int, AUProcessingBlock, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, AUProcessingBlock>>> {
     struct __tree<std::__1::__value_type<unsigned int, AUProcessingBlock>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, AUProcessingBlock>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, AUProcessingBlock>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
@@ -415,7 +402,7 @@ struct shared_ptr<APComponent> {
 };
 
 struct type {
-    unsigned char __lx[32];
+    unsigned char _field1[32];
 };
 
 struct unique_ptr<AUAudioUnitV2Bridge_Renderer, std::__1::default_delete<AUAudioUnitV2Bridge_Renderer>> {
@@ -443,12 +430,6 @@ struct unique_ptr<AUv3InstanceBase::AllParameterListener, std::__1::default_dele
 };
 
 struct unique_ptr<AUv3InstanceBase::ClientPropertyListener, std::__1::default_delete<AUv3InstanceBase::ClientPropertyListener>>;
-
-struct unique_ptr<AudioComponentPluginScanner, std::__1::default_delete<AudioComponentPluginScanner>> {
-    struct __compressed_pair<AudioComponentPluginScanner *, std::__1::default_delete<AudioComponentPluginScanner>> {
-        struct AudioComponentPluginScanner *_field1;
-    } _field1;
-};
 
 struct unique_ptr<CAMutex, std::__1::default_delete<CAMutex>> {
     struct __compressed_pair<CAMutex *, std::__1::default_delete<CAMutex>> {

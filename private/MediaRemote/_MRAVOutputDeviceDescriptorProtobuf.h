@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSData, NSString;
+@class NSData, NSString, _MRAVOutputDeviceSourceInfoProtobuf;
 
 @interface _MRAVOutputDeviceDescriptorProtobuf : PBCodable <NSCopying>
 {
@@ -20,6 +20,7 @@
     NSString *_modelID;
     NSData *_modelSpecificInfoData;
     NSString *_name;
+    _MRAVOutputDeviceSourceInfoProtobuf *_sourceInfo;
     NSString *_uniqueIdentifier;
     _Bool _canAccessRemoteAssets;
     _Bool _isGroupLeader;
@@ -44,6 +45,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) _MRAVOutputDeviceSourceInfoProtobuf *sourceInfo; // @synthesize sourceInfo=_sourceInfo;
 @property(nonatomic) _Bool shouldForceRemoteControlabillity; // @synthesize shouldForceRemoteControlabillity=_shouldForceRemoteControlabillity;
 @property(nonatomic) _Bool requiresAuthorization; // @synthesize requiresAuthorization=_requiresAuthorization;
 @property(nonatomic) _Bool supportsExternalScreen; // @synthesize supportsExternalScreen=_supportsExternalScreen;
@@ -70,6 +72,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasSourceInfo;
 @property(nonatomic) _Bool hasShouldForceRemoteControlabillity;
 @property(nonatomic) _Bool hasRequiresAuthorization;
 @property(nonatomic) _Bool hasSupportsExternalScreen;

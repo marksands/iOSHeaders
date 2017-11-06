@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSError, NSString;
 
 __attribute__((visibility("hidden")))
 @interface MRExternalDeviceTransport : NSObject
@@ -15,7 +15,9 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) _Bool requiresCustomPairing; // @synthesize requiresCustomPairing=_requiresCustomPairing;
+- (void)reset;
 - (_Bool)getInputStream:(id *)arg1 outputStream:(id *)arg2;
+@property(readonly, nonatomic) NSError *error;
 @property(nonatomic) _Bool shouldUseSystemAuthenticationPrompt; // @dynamic shouldUseSystemAuthenticationPrompt;
 @property(readonly, nonatomic) long long port;
 @property(readonly, nonatomic) NSString *hostname;

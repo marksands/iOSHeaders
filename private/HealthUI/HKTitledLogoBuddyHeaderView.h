@@ -15,6 +15,7 @@
 }
 
 - (void).cxx_destruct;
+- (double)bottomPadding;
 - (void)traitCollectionDidChange:(id)arg1;
 - (id)logoImageView;
 @property(retain, nonatomic) UIImage *logoImage;

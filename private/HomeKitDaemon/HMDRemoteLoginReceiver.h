@@ -21,6 +21,7 @@
 - (void)didCompleteAuthentication:(id)arg1 response:(id)arg2;
 - (void)_callCompletion:(id)arg1;
 - (void)_auditLoggedInAccountFor:(id)arg1;
+- (void)auditLoggedInAccountFor:(id)arg1;
 - (void)auditLoggedInAccount;
 - (void)_handleSignoutRequest:(id)arg1;
 - (void)_authenticate:(id)arg1 message:(id)arg2;

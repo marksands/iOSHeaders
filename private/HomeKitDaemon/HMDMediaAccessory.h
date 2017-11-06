@@ -34,6 +34,7 @@
 - (void)setAdvertisement:(id)arg1;
 @property(readonly, copy) HMDMediaAccessoryAdvertisement *advertisement; // @synthesize advertisement=_advertisement;
 - (void)handleRoomNameChanged:(id)arg1;
+- (void)configure:(id)arg1 msgDispatcher:(id)arg2 accessoryConfigureGroup:(id)arg3;
 - (id)name;
 - (void)removeAdvertisement:(id)arg1;
 - (void)addAdvertisement:(id)arg1;

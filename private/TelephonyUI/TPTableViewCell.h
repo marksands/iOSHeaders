@@ -20,6 +20,7 @@
     NSLayoutConstraint *_foregroundViewBottomAnchorLayoutConstraint;
 }
 
++ (struct UIEdgeInsets)separatorInsetForContentSizeCategory:(id)arg1;
 + (_Bool)requiresConstraintBasedLayout;
 @property(readonly, nonatomic) NSLayoutConstraint *foregroundViewBottomAnchorLayoutConstraint; // @synthesize foregroundViewBottomAnchorLayoutConstraint=_foregroundViewBottomAnchorLayoutConstraint;
 @property(readonly, nonatomic) NSLayoutConstraint *foregroundViewTopAnchorLayoutConstraint; // @synthesize foregroundViewTopAnchorLayoutConstraint=_foregroundViewTopAnchorLayoutConstraint;
@@ -33,6 +34,7 @@
 @property(readonly, nonatomic) UIView *foregroundView; // @synthesize foregroundView=_foregroundView;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)layoutSubviews;
+@property(readonly, nonatomic) struct UIEdgeInsets intrinsicSeparatorInset;
 @property(retain, nonatomic) UIColor *foregroundColor;
 - (void)updateFonts;
 - (void)updateConstraintsConstants;

@@ -18,12 +18,14 @@
     NSDictionary *_userInfo;
     NSURL *_launchActionURL;
     NSData *_launchActionArguments;
+    unsigned long long _eventSource;
     unsigned long long _sqlID;
 }
 
 + (id)actionWithLabel:(id)arg1 url:(id)arg2;
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) unsigned long long sqlID; // @synthesize sqlID=_sqlID;
+@property(nonatomic) unsigned long long eventSource; // @synthesize eventSource=_eventSource;
 @property(copy, nonatomic) NSData *launchActionArguments; // @synthesize launchActionArguments=_launchActionArguments;
 @property(copy) NSURL *launchActionURL; // @synthesize launchActionURL=_launchActionURL;
 @property(copy) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;

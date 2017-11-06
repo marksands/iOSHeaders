@@ -29,7 +29,7 @@
 - (void)_unregisterNotifications;
 - (void)_registerNotifications;
 - (void *)_copyApplicationOutputContext:(id *)arg1;
-- (void *)_createDefaultApplicationOutputContext:(id *)arg1;
+- (void *)_createDefaultApplicationOutputContext:(id *)arg1 outAudioSessionID:(unsigned int *)arg2;
 - (void)_routeStatusDidChangeNotification:(id)arg1;
 - (void)_outputDeviceVolumeDidChangeNotification:(id)arg1;
 - (void)_outputDevicesDidChangeNotification:(id)arg1;

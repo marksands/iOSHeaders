@@ -18,6 +18,8 @@
 + (id)setRemoteDevices;
 - (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *remoteDevices;
+@property(nonatomic) _Bool remoteDeviceUnreachable;
+@property(nonatomic) _Bool remoteDeviceHasNoAssistantId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

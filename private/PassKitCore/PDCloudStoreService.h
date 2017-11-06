@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 - (void)fetchAndStoreRecordsForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)simulateCloudStorePushWithCompletion:(CDUnknownBlockType)arg1;
+- (void)resetContainerWithHandler:(CDUnknownBlockType)arg1;
 - (void)resetContainerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)allTransactionsAndStoreLocally:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)removeTransactionsWithRecordNames:(id)arg1 completion:(CDUnknownBlockType)arg2;

@@ -13,6 +13,8 @@
 @interface RPCompanionLinkDevice : NSObject <NSSecureCoding>
 {
     _Bool _personal;
+    _Bool _personalDeviceConfigured;
+    _Bool _personalRequestsEnabled;
     _Bool _changed;
     unsigned int _flags;
     int _personalRequestsState;
@@ -40,7 +42,9 @@
 @property(copy, nonatomic) NSString *roomName; // @synthesize roomName=_roomName;
 @property(copy, nonatomic) NSString *role; // @synthesize role=_role;
 @property(copy, nonatomic) NSString *publicIdentifier; // @synthesize publicIdentifier=_publicIdentifier;
-@property(readonly, nonatomic) int personalRequestsState; // @synthesize personalRequestsState=_personalRequestsState;
+@property(nonatomic) int personalRequestsState; // @synthesize personalRequestsState=_personalRequestsState;
+@property(nonatomic) _Bool personalRequestsEnabled; // @synthesize personalRequestsEnabled=_personalRequestsEnabled;
+@property(nonatomic) _Bool personalDeviceConfigured; // @synthesize personalDeviceConfigured=_personalDeviceConfigured;
 @property(nonatomic, getter=isPersonal) _Bool personal; // @synthesize personal=_personal;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *model; // @synthesize model=_model;

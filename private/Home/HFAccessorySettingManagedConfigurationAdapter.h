@@ -19,6 +19,7 @@
 
 @property(retain, nonatomic) NSHashTable *profileObservers; // @synthesize profileObservers=_profileObservers;
 - (void).cxx_destruct;
+- (void)_setupDebugHandler;
 - (id)_beginMonitoringSettingsKeyPath:(id)arg1;
 - (_Bool)shouldShowSettingsEntity:(id)arg1;
 - (void)profileConnectionDidReceiveProfileListChangedNotification:(id)arg1 userInfo:(id)arg2;
@@ -30,16 +31,12 @@
 - (id)_removeProfileFromProfileManager:(id)arg1;
 - (id)_profilesSettingData;
 - (id)_installedProfileData;
-- (id)_installedProfiles;
-- (id)_profileWithIdentifier:(id)arg1;
-- (id)_profilesDataSetting;
 - (id)profilesSettingFuture;
 @property(readonly, nonatomic) unsigned long long numberOfProfiles;
 - (void)removeProfileObserver:(id)arg1;
 - (void)addProfileObserver:(id)arg1;
 - (id)profiles;
 - (id)removeProfileDataFromHomeKit:(id)arg1;
-- (id)_synchronizeProfileDataToHomeKit:(id)arg1;
 - (id)removeProfileFromHomeKit:(id)arg1;
 - (void)accessorySettingWasUpdated:(id)arg1 value:(id)arg2;
 - (void)dealloc;

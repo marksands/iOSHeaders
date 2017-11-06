@@ -16,7 +16,6 @@
 
 // Remaining properties
 @property(retain, nonatomic) NSNumber *configurationVersion; // @dynamic configurationVersion;
-@property(retain, nonatomic) NSData *constraints; // @dynamic constraints;
 @property(retain, nonatomic) NSString *name; // @dynamic name;
 @property(retain, nonatomic) NSNumber *properties; // @dynamic properties;
 @property(retain, nonatomic) NSNumber *type; // @dynamic type;

@@ -21,6 +21,7 @@
     _Bool _usePrelisteningMode;
     _Bool _pendCallbacksUntilAfterContinuation;
     _Bool _useBorealisBuffer;
+    _Bool _updateSiriOutputVolume;
     _Bool _suppressStopAlert;
     long long _activationEvent;
     NSString *_activationDeviceIdentifier;
@@ -46,6 +47,7 @@
 @property(nonatomic) _Bool suppressStopAlert; // @synthesize suppressStopAlert=_suppressStopAlert;
 @property(copy, nonatomic) NSURL *audioFileURL; // @synthesize audioFileURL=_audioFileURL;
 @property(copy, nonatomic) NSNumber *notifyState; // @synthesize notifyState=_notifyState;
+@property(nonatomic) _Bool updateSiriOutputVolume; // @synthesize updateSiriOutputVolume=_updateSiriOutputVolume;
 @property(nonatomic) _Bool useBorealisBuffer; // @synthesize useBorealisBuffer=_useBorealisBuffer;
 @property(nonatomic) _Bool pendCallbacksUntilAfterContinuation; // @synthesize pendCallbacksUntilAfterContinuation=_pendCallbacksUntilAfterContinuation;
 @property(nonatomic) _Bool usePrelisteningMode; // @synthesize usePrelisteningMode=_usePrelisteningMode;

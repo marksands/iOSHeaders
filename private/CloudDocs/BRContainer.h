@@ -38,6 +38,7 @@
     NSPurgeableData *_purgeableDataRepresentation;
     NSObject<OS_dispatch_queue> *_observationSetupQueueForDefaultConnection;
     NSObject<OS_dispatch_queue> *_observationSetupQueueForSecondaryConnection;
+    NSObject<OS_dispatch_queue> *_serialQueue;
 }
 
 + (id)_iconURLsWithProperties:(id)arg1 mangledID:(id)arg2;
@@ -122,11 +123,9 @@
 - (id)initWithMangledID:(id)arg1 dataRepresentation:(id)arg2;
 - (id)initWithDocsOrDesktopContainerID:(id)arg1;
 - (id)initWithMangledID:(id)arg1;
-- (unsigned int)currentStatus;
-- (id)lastServerUpdate;
-- (void)setCurrentStatus:(unsigned int)arg1;
-- (void)setLastServerUpdate:(id)arg1;
-@property(nonatomic, getter=isOverQuota) _Bool overQuota;
+@property unsigned int currentStatus;
+@property(retain) NSDate *lastServerUpdate;
+@property(getter=isOverQuota) _Bool overQuota;
 - (_Bool)deleteAllContentsOnClientAndServer:(id *)arg1;
 - (_Bool)containsExcludedDocumentsOnTheFSWithExcludedButPreservedFilename:(id)arg1 excludedButPreservedExtensions:(id)arg2 andStampUploadedAppWithXattr:(_Bool)arg3;
 - (_Bool)updateMetadataWithRecordData:(id)arg1 iconPaths:(id)arg2;

@@ -9,9 +9,9 @@
 @interface HFControlItem (HUQuickControlsAdditions)
 + (CDUnknownBlockType)_hf_controlItemComparator;
 + (id)hu_preferredTogglableControlItemInControlItems:(id)arg1;
-+ (id)hu_preferredQuickControlViewControllerGroupForControlItems:(id)arg1 valueSource:(id)arg2 home:(id)arg3;
-+ (id)_hu_quickControlViewControllerForControlItemWithPreferredPurposes:(unsigned long long)arg1 inControlItems:(id)arg2 valueSource:(id)arg3 home:(id)arg4;
-+ (id)_hu_quickControlViewControllerOfClass:(Class)arg1 controlItems:(id)arg2 valueSource:(id)arg3 home:(id)arg4;
++ (id)hu_preferredQuickControlViewControllerGroupForControlItems:(id)arg1 configuration:(id)arg2;
++ (id)_hu_quickControlViewControllerForControlItemWithPreferredPurposes:(unsigned long long)arg1 inControlItems:(id)arg2 configuration:(id)arg3;
++ (id)_hu_quickControlViewControllerOfClass:(Class)arg1 controlItems:(id)arg2 configuration:(id)arg3;
 + (id)_hu_prioritizedViewControllerClasses;
 @end
 

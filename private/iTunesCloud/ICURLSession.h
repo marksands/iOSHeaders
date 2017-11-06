@@ -16,16 +16,17 @@
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSObject<OS_dispatch_queue> *_operationQueue;
-    unsigned long long _maxConcurrentRequests;
     NSMutableOrderedSet *_pendingRequests;
     NSMutableSet *_activeRequests;
     NSMutableDictionary *_completionHandlers;
     _Bool _paused;
     NSObject<OS_dispatch_source> *_requestTimeoutTimer;
+    unsigned long long _maxConcurrentRequests;
     NSURLSession *_urlSession;
 }
 
 @property(readonly, nonatomic) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
+@property(readonly, nonatomic) unsigned long long maxConcurrentRequests; // @synthesize maxConcurrentRequests=_maxConcurrentRequests;
 - (void).cxx_destruct;
 - (void)_updateProgressForRequest:(id)arg1 withTotalBytesWritten:(long long)arg2 totalBytesExpectedToWrite:(long long)arg3;
 - (double)_timeoutForRequest:(id)arg1;

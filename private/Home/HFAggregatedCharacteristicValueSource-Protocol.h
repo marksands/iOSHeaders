@@ -8,10 +8,11 @@
 #import "NAIdentifiable.h"
 #import "NSCopying.h"
 
-@class HFServiceStateRecipe, HMCharacteristicMetadata, NAFuture, NSDictionary, NSSet, NSString;
+@class HFServiceDescriptor, HFServiceStateRecipe, HMCharacteristicMetadata, NAFuture, NSDictionary, NSSet, NSString;
 
 @protocol HFAggregatedCharacteristicValueSource <HFCharacteristicValueOperationBatching, NAIdentifiable, NSCopying>
 @property(readonly, nonatomic) id <HFCharacteristicValueSource> valueSource;
+@property(readonly, nonatomic) HFServiceDescriptor *primaryServiceDescriptor;
 - (id)copyWithValueSource:(id <HFCharacteristicValueSource>)arg1;
 - (NSSet *)allCharacteristicsForCharacteristicType:(NSString *)arg1;
 - (NAFuture *)writeValuesForCharacteristicRecipes:(NSDictionary *)arg1;

@@ -56,6 +56,7 @@
     AIDAServiceOwnersManager *_serviceOwnersManager;
     AAUIProfilePictureStore *_profilePictureStore;
     PSSpecifier *_specifierToSelect;
+    NSObject<OS_dispatch_queue> *_loadAllSpecifiersQueue;
     _Bool _skipSelectingGeneralOnLaunch;
     NSString *_wifiString;
     NSString *_bluetoothString;
@@ -87,7 +88,6 @@
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (id)searchResultsController:(id)arg1 iconForCategory:(id)arg2;
 - (long long)searchResultsController:(id)arg1 sortCategory1:(id)arg2 sortCategory2:(id)arg3;
-- (void)indexIfNeeded;
 - (void)searchResultsController:(id)arg1 didSelectURL:(id)arg2;
 - (void)updateSearchResultsForSearchController:(id)arg1;
 - (void)_videoSubscriberAccountAvailabilityDidChange:(id)arg1;
@@ -138,6 +138,7 @@
 - (void)setShowsCarrierSettingsMenu:(_Bool)arg1;
 - (void)networkChanged;
 - (id)currentNetwork:(id)arg1;
+- (id)getAllSpecifiers;
 - (void)_insertOrRemovePaymentSpecifierAsNeededCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)deviceSupportsApplePay;
 - (void)_localeChanged;

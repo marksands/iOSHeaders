@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_alternateContentsURLDictionary;
     NSMutableDictionary *_contextByDomainID;
     NSMutableDictionary *_domainContextByURL;
+    _Bool _isBeingDeallocated;
     FPXDomainContext *_defaultDomainContext;
     NSString *_providerIdentifier;
 }
@@ -91,6 +92,7 @@ __attribute__((visibility("hidden")))
 - (id)instanceForDomainIdentifier:(id)arg1;
 - (id)domainContextForIdentifier:(id)arg1;
 - (void)invalidate;
+- (void)dealloc;
 - (void)_setTransaction:(id)arg1;
 - (void)startWithPrincipalInstance:(id)arg1 domains:(id)arg2 alternateContentsDictionary:(id)arg3;
 - (id)initWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 contextUUID:(id)arg3;

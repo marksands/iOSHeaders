@@ -51,7 +51,7 @@
 @property(readonly, nonatomic) MPCPlayerPath *playerPath;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
-- (id)initWithEndpoint:(id)arg1 bundleID:(id)arg2;
+- (id)initWithEndpoint:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

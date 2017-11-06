@@ -21,6 +21,8 @@
     HUCircleView *_circleView;
 }
 
++ (id)intrinsicSizeDescriptor;
++ (_Bool)requiresConstraintBasedLayout;
 @property(retain, nonatomic) HUCircleView *circleView; // @synthesize circleView=_circleView;
 @property(retain, nonatomic) HUIconView *iconView; // @synthesize iconView=_iconView;
 @property(nonatomic, getter=isUserInteractionActive) _Bool userInteractionActive; // @synthesize userInteractionActive=_userInteractionActive;
@@ -29,14 +31,14 @@
 @property(copy, nonatomic) HUQuickControlViewProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (void)beginUserInteractionWithFirstTouchGestureRecognizer:(id)arg1;
+- (id)intrinsicSizeDescriptorForControlSize:(unsigned long long)arg1;
 @property(retain, nonatomic) id value; // @synthesize value=_value;
 - (void)_updateIconDescriptor;
 - (void)_updateAppearance;
 - (struct CGSize)intrinsicContentSize;
 - (void)_handleTap:(id)arg1;
-- (void)layoutSubviews;
+- (void)updateConstraints;
 - (void)_setupIconView;
-@property(readonly, nonatomic) UIColor *iconOnColor;
 @property(readonly, nonatomic) UIColor *backgroundOffColor;
 @property(readonly, nonatomic) UIColor *backgroundOnColor;
 - (id)initWithProfile:(id)arg1;

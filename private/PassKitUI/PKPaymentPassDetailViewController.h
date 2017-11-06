@@ -165,6 +165,7 @@
 - (_Bool)_shouldShowTransferCell;
 - (void)_updatePeerPaymentPreferencesSectionVisibilityAndReloadIfNecessary;
 - (id)_createTabBarWithSelectedIndex:(long long)arg1;
+- (double)_offscreenHeaderHeight;
 - (_Bool)_updateHeaderHeight;
 - (void)_updateTabBarWithSegments:(id)arg1;
 - (void)_updateTabBar;
@@ -260,6 +261,7 @@
 - (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
 - (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
 - (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
+- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewDidScroll:(id)arg1;
 - (id)tableView:(id)arg1 trailingSwipeActionsConfigurationForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;

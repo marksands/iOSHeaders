@@ -14,9 +14,11 @@
 @interface HUQuickControlCollectionViewLayoutSupplementarySectionSettings : NSObject <NSCopying, NAIdentifiable>
 {
     double _preferredHeight;
+    struct UIEdgeInsets _sectionInset;
 }
 
 + (id)na_identity;
+@property(nonatomic) struct UIEdgeInsets sectionInset; // @synthesize sectionInset=_sectionInset;
 @property(nonatomic) double preferredHeight; // @synthesize preferredHeight=_preferredHeight;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
