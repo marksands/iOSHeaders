@@ -29,6 +29,7 @@
 - (void)_publishChanges;
 - (void)_didChange;
 - (void)_willChange;
+- (void)didPublishChanges;
 - (void)willPublishChanges;
 - (void)didPerformChanges;
 - (void)performChanges:(CDUnknownBlockType)arg1;

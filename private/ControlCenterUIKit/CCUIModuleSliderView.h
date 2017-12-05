@@ -12,7 +12,7 @@
 #import "CCUIGroupRendering.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class CALayer, CCUICAPackageDescription, CCUICAPackageView, NSArray, NSString, NSTimer, UIImage, UIImageView, UILongPressGestureRecognizer, UISelectionFeedbackGenerator, _UIEdgeFeedbackGenerator;
+@class CALayer, CCUICAPackageDescription, CCUICAPackageView, NSArray, NSString, NSTimer, UIImage, UIImageView, UIPanGestureRecognizer, UISelectionFeedbackGenerator, _UIEdgeFeedbackGenerator;
 
 @interface CCUIModuleSliderView : UIControl <UIGestureRecognizerDelegate, CCUIContentModuleTopLevelGestureProvider, CCUIContentModuleExpandedStateListener, CCUIContentClipping, CCUIGroupRendering>
 {
@@ -22,11 +22,10 @@
     NSArray *_stepBackgroundViews;
     NSArray *_separatorViews;
     double _startingHeight;
-    struct CGPoint _startingLocation;
     float _startingValue;
     NSTimer *_updatesCommitTimer;
     float _previousValue;
-    UILongPressGestureRecognizer *_valueChangeGestureRecognizer;
+    UIPanGestureRecognizer *_valueChangeGestureRecognizer;
     UISelectionFeedbackGenerator *_selectionFeedbackGenerator;
     _UIEdgeFeedbackGenerator *_edgeFeedbackGenerator;
     _Bool _glyphVisible;
@@ -59,8 +58,8 @@
 - (void)_beginTrackingWithGestureRecognizer:(id)arg1;
 - (void)_handleValueChangeGestureRecognizer:(id)arg1;
 - (void)_updateStepFromValue:(float)arg1 playHaptic:(_Bool)arg2;
-- (void)_updateValueForTouchLocation:(struct CGPoint)arg1 withAbsoluteReference:(_Bool)arg2 forContinuedGesture:(_Bool)arg3;
-- (float)_valueForTouchLocation:(struct CGPoint)arg1 withAbsoluteReference:(_Bool)arg2;
+- (void)_updateValueForPanGestureRecognizer:(id)arg1 withAbsoluteReference:(_Bool)arg2 forContinuedGesture:(_Bool)arg3;
+- (float)_valueForPanGestureRecognizer:(id)arg1 withAbsoluteReference:(_Bool)arg2;
 - (float)_valueFromStep:(unsigned long long)arg1;
 - (unsigned long long)_stepFromValue:(float)arg1;
 - (double)_sliderHeightForValue:(float)arg1;

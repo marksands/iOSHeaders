@@ -6,7 +6,7 @@
 
 #import "NSValue.h"
 
-@interface NSValue (MSVRange)
+@interface NSValue (MSVSignedRange)
 + (id)valueWithMSVSignedRange:(struct _MSVSignedRange)arg1;
 @property(readonly) struct _MSVSignedRange signedRangeValue;
 @end

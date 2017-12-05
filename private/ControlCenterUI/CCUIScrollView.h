@@ -11,6 +11,7 @@
 }
 
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (void)setFrame:(struct CGRect)arg1;
 
 // Remaining properties
 @property(nonatomic) __weak id <CCUIScrollViewDelegate> delegate; // @dynamic delegate;

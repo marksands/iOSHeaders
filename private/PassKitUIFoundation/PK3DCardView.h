@@ -18,6 +18,7 @@
     int _design;
     // Error parsing type: , name: _lastRollPitch
     _Bool _renderedOnce;
+    _Bool _motionEnabled;
     id <PK3DLiveCardViewDelegate> _delegate;
 }
 
@@ -25,6 +26,7 @@
 @property(nonatomic) __weak id <PK3DLiveCardViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)renderer:(id)arg1 didRenderScene:(id)arg2 atTime:(double)arg3;
+- (void)didMoveToWindow;
 - (void)startMotionUpdates;
 - (void)stopMotionUpdates;
 - (void)setMotionEnabled:(_Bool)arg1;

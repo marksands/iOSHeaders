@@ -17,6 +17,7 @@
 - (void)didDismissDocumentManager:(UIDocumentBrowserViewController *)arg1;
 - (void)willDismissDocumentManager:(UIDocumentBrowserViewController *)arg1;
 - (_Bool)documentBrowser:(UIDocumentBrowserViewController *)arg1 shouldHandleLocation:(DOCConcreteLocation *)arg2;
+- (_Bool)documentBrowser:(UIDocumentBrowserViewController *)arg1 shouldShowActivityViewControllerForDocumentURLs:(NSArray *)arg2 barButtonItem:(UIBarButtonItem *)arg3 popoverTracker:(id <DOCServicePopoverTrackerProtocol>)arg4 sourceIsManaged:(_Bool)arg5;
 - (_Bool)documentBrowser:(UIDocumentBrowserViewController *)arg1 shouldShowActivityViewControllerForDocumentURLs:(NSArray *)arg2 barButtonItem:(UIBarButtonItem *)arg3 popoverTracker:(id <DOCServicePopoverTrackerProtocol>)arg4;
 @end
 

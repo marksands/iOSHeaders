@@ -20,6 +20,9 @@
 @property(nonatomic) _Bool isHostManaged; // @synthesize isHostManaged=_isHostManaged;
 @property(retain, nonatomic) NSString *hostIdentifier; // @synthesize hostIdentifier=_hostIdentifier;
 - (void).cxx_destruct;
+- (_Bool)canTransferSourceIsManaged:(_Bool)arg1 destinationIsManaged:(_Bool)arg2;
+- (_Bool)canTransferSourceIsManaged:(_Bool)arg1 toDestinationItem:(id)arg2;
+- (_Bool)canCopySourceIsManaged:(_Bool)arg1;
 - (_Bool)canCopyItems:(id)arg1;
 @property(readonly, nonatomic) _Bool hasRestrictions;
 - (id)queueFileDataForAcceptance:(id)arg1 originalFileName:(id)arg2 forBundleID:(id)arg3 outError:(id *)arg4;

@@ -13,6 +13,8 @@
     unsigned long long _authenticationIdentifier;
     NSObject<OS_dispatch_queue> *_contextMutationQueue;
     _Bool _invalidated;
+    _Bool _acquiringHintSupressionAssertion;
+    id <BSInvalidatable> _hintSupressionAssertion;
     id <PKAuthenticatorDelegate> _delegate;
     double _fingerPresentTimeout;
 }

@@ -7,6 +7,7 @@
 #import "WKWebsiteDataStore.h"
 
 @interface WKWebsiteDataStore (SafariSharedExtras)
++ (void)safari_clearHSTSSuperCookies;
 + (id)safari_allDataTypes;
 @end
 

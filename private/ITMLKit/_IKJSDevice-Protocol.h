@@ -10,6 +10,7 @@
 @class NSNumber, NSString;
 
 @protocol _IKJSDevice <IKJSDevice, JSExport>
+@property(readonly, nonatomic) _Bool runningAnInternalBuild;
 @property(readonly, nonatomic) NSNumber *pixelRatio;
 @property(readonly, nonatomic) NSString *vendorID;
 @property(readonly, nonatomic) _Bool isInRetailDemoMode;

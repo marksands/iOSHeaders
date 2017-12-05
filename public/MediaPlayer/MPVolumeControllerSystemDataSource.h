@@ -49,6 +49,7 @@
 - (void)_EUVolumeLimitDidChange:(id)arg1;
 - (void)reloadWarning;
 - (void)reload;
+@property(readonly, nonatomic) _Bool applicationShouldOverrideHardwareVolumeBehavior;
 - (void)dealloc;
 - (id)init;
 

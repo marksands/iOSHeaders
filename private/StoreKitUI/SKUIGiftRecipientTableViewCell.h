@@ -20,8 +20,10 @@
     MFComposeRecipientView *_recipientView;
     SKUIGiftContactSearchController *_searchController;
     UIView *_topBorderView;
+    _Bool _didLayoutSubviews;
 }
 
+@property(nonatomic) _Bool didLayoutSubviews; // @synthesize didLayoutSubviews=_didLayoutSubviews;
 - (void).cxx_destruct;
 - (void)_sendDismissContactPicker;
 - (void)_sendDidUpdateSearchController;

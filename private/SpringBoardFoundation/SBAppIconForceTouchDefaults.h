@@ -15,6 +15,7 @@
 // Remaining properties
 @property(nonatomic) float animationDurationMultiplier; // @dynamic animationDurationMultiplier;
 @property(nonatomic) _Bool enableUIPreviewInteractionAnimations; // @dynamic enableUIPreviewInteractionAnimations;
+@property(nonatomic) float quickActionAnimationDuration; // @dynamic quickActionAnimationDuration;
 
 @end
 

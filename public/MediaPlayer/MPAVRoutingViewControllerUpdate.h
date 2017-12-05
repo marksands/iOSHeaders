@@ -15,10 +15,12 @@
     NSArray *_pickedRoutes;
     NSArray *_pendingPickedRoutes;
     NSArray *_displayableAvailableRoutes;
+    NSArray *_displayAsPickedRoutes;
 }
 
 @property(nonatomic) _Bool hasPendingPickedRoutes; // @synthesize hasPendingPickedRoutes=_hasPendingPickedRoutes;
 @property(nonatomic) _Bool canGroup; // @synthesize canGroup=_canGroup;
+@property(copy, nonatomic) NSArray *displayAsPickedRoutes; // @synthesize displayAsPickedRoutes=_displayAsPickedRoutes;
 @property(copy, nonatomic) NSArray *displayableAvailableRoutes; // @synthesize displayableAvailableRoutes=_displayableAvailableRoutes;
 @property(copy, nonatomic) NSArray *pendingPickedRoutes; // @synthesize pendingPickedRoutes=_pendingPickedRoutes;
 @property(copy, nonatomic) NSArray *pickedRoutes; // @synthesize pickedRoutes=_pickedRoutes;

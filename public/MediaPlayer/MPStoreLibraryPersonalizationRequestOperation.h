@@ -20,6 +20,7 @@
 @property(copy, nonatomic) MPStoreLibraryPersonalizationRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
 - (void)execute;
+- (void)cancel;
 
 @end
 

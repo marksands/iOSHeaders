@@ -10,5 +10,6 @@
 + (id)internalMessageWithName:(id)arg1 destination:(id)arg2 messagePayload:(id)arg3;
 + (id)internalMessageWithName:(id)arg1 messagePayload:(id)arg2 responseHandler:(CDUnknownBlockType)arg3;
 + (id)internalMessageWithName:(id)arg1 messagePayload:(id)arg2;
+@property(nonatomic, getter=isInternal) _Bool internal;
 @end
 

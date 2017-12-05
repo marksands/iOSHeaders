@@ -9,8 +9,10 @@
 @interface NSString (MFStringUtils)
 + (id)mf_stringWithData:(id)arg1 encoding:(unsigned long long)arg2;
 - (id)mf_copyStringByEncodingIDNA;
+- (id)mf_copyDisplayString;
 - (id)mf_copyStringByDecodingIDNA;
 - (id)mf_copyStringByEncodingIDNAInRange:(struct _NSRange)arg1;
+- (id)mf_copyDisplayStringInRange:(struct _NSRange)arg1;
 - (id)mf_copyStringByDecodingIDNAInRange:(struct _NSRange)arg1;
 - (id)mf_messageIDSubstring;
 - (id)mf_SHA1Digest;

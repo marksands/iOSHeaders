@@ -22,5 +22,7 @@
 - (_Bool)bs_endAppearanceTransition;
 - (_Bool)bs_endAppearanceTransition:(_Bool)arg1;
 - (_Bool)bs_beginAppearanceTransition:(_Bool)arg1 animated:(_Bool)arg2;
+- (_Bool)bs_isDisappearingOrDisappeared;
+- (_Bool)bs_isAppearingOrAppeared;
 @end
 

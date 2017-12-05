@@ -17,6 +17,7 @@
     _Bool _hasEverReceivedResponse;
     _Bool _automaticResponseLoading;
     _Bool _attemptingConnection;
+    NSString *_routeName;
     long long _state;
     id <MediaControlsEndpointControllerDelegate> _delegate;
     MPRequestResponseController *_requestController;
@@ -31,6 +32,7 @@
 @property(nonatomic) __weak id <MediaControlsEndpointControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) _Bool allowsAutomaticResponseLoading; // @synthesize allowsAutomaticResponseLoading=_allowsAutomaticResponseLoading;
 @property(nonatomic) long long state; // @synthesize state=_state;
+@property(readonly, copy, nonatomic) NSString *routeName; // @synthesize routeName=_routeName;
 - (void).cxx_destruct;
 - (void)_connectionDidInvalidate:(id)arg1;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
@@ -42,10 +44,12 @@
 - (void)_createRequestController;
 - (void)_connectionHasBecomeInvalid;
 - (void)controller:(id)arg1 defersResponseReplacement:(CDUnknownBlockType)arg2;
+- (void)updateRoutePropertiesIfNeeded;
 @property(copy, nonatomic) NSString *label;
 - (void)connectAllowingAuthenticationWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) MPCPlayerResponse *response;
 @property(readonly, nonatomic, getter=isRoutingToWireless) _Bool routingToWireless;
+@property(readonly, nonatomic) _Bool isDeviceSystemRoute;
 @property(readonly, nonatomic) _Bool hasAvailableRoutes;
 @property(readonly, nonatomic) MPAVEndpointRoute *route;
 @property(readonly, nonatomic) MPCPlayerPath *playerPath;

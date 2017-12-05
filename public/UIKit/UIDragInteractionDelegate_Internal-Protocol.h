@@ -11,6 +11,7 @@
 @protocol UIDragInteractionDelegate_Internal <UIDragInteractionDelegate_Private>
 
 @optional
+- (_Bool)_dragInteractionShouldBecomeDraggingSourceDelegate:(UIDragInteraction *)arg1;
 - (_Bool)_dragInteractionDynamicallyUpdatesPrefersFullSizePreviews:(UIDragInteraction *)arg1;
 @end
 

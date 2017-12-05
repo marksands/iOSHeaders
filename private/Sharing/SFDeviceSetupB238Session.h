@@ -36,6 +36,7 @@
     int _preflightAppleMusicState;
     int _preflightMiscState;
     _Bool _locationEnabled;
+    _Bool _locationDecided;
     _Bool _siriEnabled;
     _Bool _prefStereoPairEnabled;
     HMAccessory *_stereoCounterpartAccessory;
@@ -211,7 +212,7 @@
 - (void)playAudioPasscodeAgain;
 - (void)personalRequestsEnabled:(_Bool)arg1;
 - (void)pairSetupTryPIN:(id)arg1;
-- (void)locationEnable;
+- (void)locationEnable:(_Bool)arg1;
 - (void)homeKitSelectRoom:(id)arg1;
 - (void)homeKitReselectHome;
 - (void)homeKitSelectHome:(id)arg1;

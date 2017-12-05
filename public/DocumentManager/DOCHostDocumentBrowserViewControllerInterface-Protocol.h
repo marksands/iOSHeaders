@@ -7,7 +7,7 @@
 @class DOCItem, NSArray, NSError, NSString, NSURL, NSUUID;
 
 @protocol DOCHostDocumentBrowserViewControllerInterface
-- (void)_presentActivityViewControllerForItems:(NSArray *)arg1 withPopoverTracker:(id <DOCServicePopoverTrackerProtocol>)arg2;
+- (void)_presentActivityViewControllerForItems:(NSArray *)arg1 withPopoverTracker:(id <DOCServicePopoverTrackerProtocol>)arg2 sourceIsManaged:(_Bool)arg3;
 - (void)_updateRemoteBarButtonFrames:(NSArray *)arg1 forUUID:(NSArray *)arg2;
 - (void)_failedToImportDocumentAtURL:(NSURL *)arg1 error:(NSError *)arg2;
 - (void)_didImportDocumentAtURL:(NSURL *)arg1 toDestinationItem:(DOCItem *)arg2;

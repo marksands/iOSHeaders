@@ -18,6 +18,7 @@
     NSDictionary *_options;
 }
 
++ (id)_numberForObject:(id)arg1;
 + (id)_timeIntervalNumberForObject:(id)arg1;
 + (id)_mpOrderingDirectionMappingForSortDirectionMapping:(id)arg1;
 + (id)_mpPropertiesForProperties:(id)arg1;

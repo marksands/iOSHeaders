@@ -8,11 +8,10 @@
 
 #import "BSDescriptionProviding.h"
 
-@class FBSSceneSettings, FBSSceneSettingsDiff, FBSSceneTransitionContext, FBScene, NSString;
+@class FBSSceneSettings, FBSSceneSettingsDiff, FBSSceneTransitionContext, NSString;
 
 @interface FBSceneUpdateContext : NSObject <BSDescriptionProviding>
 {
-    FBScene *_scene;
     NSString *_sceneID;
     unsigned long long _transactionID;
     FBSSceneSettings *_settings;
@@ -28,7 +27,6 @@
 @property(retain, nonatomic) FBSSceneSettings *settings; // @synthesize settings=_settings;
 @property(nonatomic) unsigned long long transactionID; // @synthesize transactionID=_transactionID;
 @property(copy, nonatomic) NSString *sceneID; // @synthesize sceneID=_sceneID;
-@property(retain, nonatomic) FBScene *scene; // @synthesize scene=_scene;
 - (void).cxx_destruct;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;

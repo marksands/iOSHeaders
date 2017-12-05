@@ -200,6 +200,7 @@
 - (void)homeManager:(id)arg1 residentProvisioningStatusChanged:(unsigned long long)arg2;
 - (void)homeManager:(id)arg1 didUpdateResidentEnabledForThisDevice:(_Bool)arg2;
 - (void)homeManagerDidUpdateCurrentHome:(id)arg1;
+- (void)homeManager:(id)arg1 didUpdateStatus:(unsigned long long)arg2;
 - (void)homeManagerDidUpdateDataSyncState:(id)arg1;
 - (void)homeManagerDidUpdateApplicationData:(id)arg1;
 - (void)homeManager:(id)arg1 didUpdateStateForIncomingInvitations:(id)arg2;

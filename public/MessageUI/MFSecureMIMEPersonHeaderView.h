@@ -10,7 +10,6 @@
 
 @interface MFSecureMIMEPersonHeaderView : UIView
 {
-    UIView *_backgroundView;
     UIView *_signedLabel;
     UIView *_secureLabel;
     UIView *_warningLabel;

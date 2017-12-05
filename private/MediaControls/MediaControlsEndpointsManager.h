@@ -39,7 +39,7 @@
 - (_Bool)_homeHasRoute:(id)arg1;
 - (long long)_indexOfRoute:(id)arg1;
 - (long long)_indexOfActiveRoute;
-- (void)activeSystemRouteDidChange:(id)arg1;
+- (void)_activeSystemRouteDidChange:(id)arg1;
 - (void)homeObserverDidUpdateKnownUIDs:(id)arg1;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
 - (id)endpointControllerForRoute:(id)arg1;

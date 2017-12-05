@@ -20,11 +20,11 @@
     struct UIEdgeInsets _controlCenterEdgeInsets;
     struct CGSize _lastKnownEnvironmentSize;
     long long _animatedSelectionCount;
+    long long _appearanceTransitionCount;
     _Bool _shouldDisableAutoReaping;
     _Bool _shouldIgnoreScrollNotifications;
     _Bool _isAnimatingSelection;
     _Bool _isPerformingBatchUpdates;
-    _Bool _isTransitioningAppearance;
     _Bool _needsReloadData;
     MediaControlsCollectionViewCountData *_countData;
     id <MediaControlsCollectionViewDataSource> _dataSource;

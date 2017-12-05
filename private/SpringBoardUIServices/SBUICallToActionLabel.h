@@ -59,6 +59,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)sizeToFit;
 - (void)layoutSubviews;
+- (void)didMoveToSuperview;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

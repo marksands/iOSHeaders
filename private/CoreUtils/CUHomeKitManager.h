@@ -28,6 +28,7 @@
     _Bool _selfAccessoryMediaSystemEnabled;
     _Bool _selfAccessorySiriAccessEnabled;
     HMUser *_selfAccessoryUser;
+    struct NSMutableDictionary *_users;
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
     struct LogCategory *_ucat;
@@ -73,7 +74,9 @@
 @property(nonatomic) unsigned int flags; // @synthesize flags=_flags;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
+- (void)user:(id)arg1 didUpdatePairingIdentity:(id)arg2;
 - (void)user:(id)arg1 didUpdateAssistantAccessControl:(id)arg2 forHome:(id)arg3;
+- (void)accessory:(id)arg1 didUpdatePairingIdentity:(id)arg2;
 - (void)accessoryDidUpdateApplicationData:(id)arg1;
 - (void)mediaSystem:(id)arg1 didUpdateComponents:(id)arg2;
 - (void)home:(id)arg1 didRemoveMediaSystem:(id)arg2;
@@ -81,6 +84,8 @@
 - (void)home:(id)arg1 didUpdateMediaPassword:(id)arg2;
 - (void)home:(id)arg1 didUpdateMediaPeerToPeerEnabled:(_Bool)arg2;
 - (void)home:(id)arg1 didUpdateMinimumMediaUserPrivilege:(long long)arg2;
+- (void)home:(id)arg1 didRemoveUser:(id)arg2;
+- (void)home:(id)arg1 didAddUser:(id)arg2;
 - (void)home:(id)arg1 didUpdateRoom:(id)arg2 forAccessory:(id)arg3;
 - (void)home:(id)arg1 didRemoveAccessory:(id)arg2;
 - (void)home:(id)arg1 didAddAccessory:(id)arg2;
@@ -98,6 +103,7 @@
 - (void)_getPairingIdentityForUserWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_getPairingIdentityForAccessoryWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)getPairingIdentityWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_updateUsers;
 - (void)_updateState;
 - (void)_updateSelfAccessorySiriAccess;
 - (void)_updateSelfAccessoryMediaSystem;

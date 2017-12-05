@@ -17,8 +17,10 @@
     NSMutableDictionary *_dictionary;
     MSVLRUDictionaryNode *_head;
     MSVLRUDictionaryNode *_tail;
+    long long _transactionCount;
 }
 
+@property(nonatomic) long long transactionCount; // @synthesize transactionCount=_transactionCount;
 @property(retain, nonatomic) MSVLRUDictionaryNode *tail; // @synthesize tail=_tail;
 @property(retain, nonatomic) MSVLRUDictionaryNode *head; // @synthesize head=_head;
 @property(retain, nonatomic) NSMutableDictionary *dictionary; // @synthesize dictionary=_dictionary;
@@ -29,6 +31,7 @@
 - (void)_moveNodeToFront:(id)arg1;
 - (void)_removeNode:(id)arg1;
 - (void)_removeNodeFromLinkedList:(id)arg1;
+- (void)_shrinkToCapacity;
 - (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
 - (id)objectForKeyedSubscript:(id)arg1;
 - (id)description;
@@ -38,7 +41,11 @@
 - (void)removeAllObjects;
 - (void)removeObjectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
+- (id)peekObjectForKey:(id)arg1;
 - (id)objectForKey:(id)arg1;
+- (void)endTransaction;
+- (void)beginTransaction;
+- (void)performTransaction:(CDUnknownBlockType)arg1;
 - (id)allValues;
 - (id)allKeys;
 @property(readonly, nonatomic) long long count;

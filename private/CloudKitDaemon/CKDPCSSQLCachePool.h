@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableDictionary *checkoutsByPath; // @synthesize checkoutsByPath=_checkoutsByPath;
 @property(retain, nonatomic) NSMutableDictionary *cachesByPath; // @synthesize cachesByPath=_cachesByPath;
 - (void).cxx_destruct;
-- (void)releaseCache:(id)arg1;
+- (void)releaseCache:(id)arg1 forContext:(id)arg2;
 - (id)cacheForContext:(id)arg1;
 - (id)_init;
 

@@ -10,14 +10,15 @@
 {
     double _pendingVolumeChange;
     _Bool _debounceVolumeRepeat;
+    _Bool _didRegisterForButtonNotifications;
     id <MPVolumeControllerDataSource> _activeDataSource;
 }
 
 + (id)sharedController;
 @property(retain, nonatomic) id <MPVolumeControllerDataSource> activeDataSource; // @synthesize activeDataSource=_activeDataSource;
 - (void).cxx_destruct;
-- (void)_unregisterButtonNotifications;
-- (void)_registerButtonNotifications;
+- (void)_unregisterForButtonNotificationsIfNeeded;
+- (void)_registerForButtonNotificationsIfNeeded;
 - (void)_applicationWillResignActiveNotification;
 - (void)_applicationDidBecomeActiveNotification;
 - (void)_volumeDownButtonTouchUp:(id)arg1;

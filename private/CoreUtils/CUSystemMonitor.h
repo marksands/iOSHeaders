@@ -46,6 +46,7 @@
 @property(readonly) _Bool powerUnlimited;
 @property(readonly, copy) NSString *meDeviceName;
 @property(readonly, copy) NSString *meDeviceIDSDeviceID;
+@property(readonly, copy) NSString *meDeviceFMFDeviceID;
 @property(readonly) int activeCallCount;
 - (void)invalidate;
 - (void)activateWithCompletion:(CDUnknownBlockType)arg1;

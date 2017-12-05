@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (long long)hardFailureCountForEventType:(id)arg1;
 - (void)incrementSuccessCountForEventType:(id)arg1;
 - (long long)successCountForEventType:(id)arg1;
+- (_Bool)tryToOpenDatabase;
 - (void)dealloc;
 
 @end

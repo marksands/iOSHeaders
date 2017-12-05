@@ -6,10 +6,11 @@
 
 #import <MediaRemote/MRAVEndpoint.h>
 
-@class MRAVConcreteOutputDevice, MRTransportExternalDevice, NSArray, NSDictionary, NSString;
+@class MRAVConcreteOutputDevice, MRTransportExternalDevice, NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MRAVConcreteEndpoint : MRAVEndpoint
 {
+    NSObject<OS_dispatch_queue> *_serialQueue;
     NSArray *_outputDevices;
     MRTransportExternalDevice *_externalDevice;
     MRAVConcreteOutputDevice *_designatedGroupLeader;
@@ -18,9 +19,12 @@
 }
 
 @property(copy, nonatomic) NSDictionary *outsourcedExternalDeviceCache; // @synthesize outsourcedExternalDeviceCache=_outsourcedExternalDeviceCache;
-- (void)_reloadExternalDevice;
+- (void)_endpointOutputDevicesDidInvalidate:(id)arg1;
+- (void)_onQueue_reloadExternalDevice;
 - (id)instanceIdentifier;
+- (void)_onQueue_setDesignatedGroupLeader:(id)arg1;
 @property(retain, nonatomic) MRAVConcreteOutputDevice *designatedGroupLeader;
+- (void)_onQueue_setExternalDevice:(id)arg1;
 @property(retain, nonatomic) MRTransportExternalDevice *externalDevice;
 @property(copy, nonatomic) NSArray *outputDevices;
 - (id)outputDeviceForDistantDevice:(id)arg1;

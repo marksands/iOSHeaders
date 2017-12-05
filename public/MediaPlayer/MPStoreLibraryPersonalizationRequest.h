@@ -15,7 +15,6 @@
     MPSectionedCollection *_representedObjects;
 }
 
-+ (void)_configureFallbackContentItemIDForIdentifierSet:(id)arg1;
 + (id)defaultLibraryView;
 + (id)personalizedResponseForContentDescriptor:(id)arg1 requestedProperties:(id)arg2;
 + (id)sharedQueue;

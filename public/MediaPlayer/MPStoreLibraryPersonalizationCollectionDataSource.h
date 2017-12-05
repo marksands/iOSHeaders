@@ -22,7 +22,6 @@
     NSMutableDictionary *_sectionToLibraryAddedOverride;
 }
 
-+ (void)_configureFallbackContentItemIDForIdentifierSet:(id)arg1;
 + (id)_identifiersByCombiningPersonalizedIdentifiers:(id)arg1 unpersonalizedIdentifiers:(id)arg2;
 + (id)_completePersonalizedObjectWithLibraryObject:(id)arg1 personalizationProperties:(id)arg2 overrideLibraryAddedStatus:(long long)arg3;
 + (id)_intersectingStoreAssetLightweightPersonalizationProperties;

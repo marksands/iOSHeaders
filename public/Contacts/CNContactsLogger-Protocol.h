@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CNContact, NSArray, NSData, NSError, NSPredicate, NSString;
+@class CNContact, NSArray, NSData, NSError, NSPredicate, NSString, Protocol;
 
 @protocol CNContactsLogger <NSObject>
 - (void)XPCConnectionWasInterrupted;
@@ -14,6 +14,7 @@
 - (void)internalError:(NSError *)arg1;
 - (void)SPIUsageLackingEntitlementRejectedForPID:(int)arg1;
 - (void)SPIUsageLackingEntitlementGrantedForPID:(int)arg1;
+- (void)errorWhenRetrievingProxyForInterface:(Protocol *)arg1;
 - (void)serviceError:(NSError *)arg1;
 - (void)updatingContact:(CNContact *)arg1;
 - (void)deletingContact:(CNContact *)arg1;

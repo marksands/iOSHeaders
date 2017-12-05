@@ -65,6 +65,7 @@ __attribute__((visibility("hidden")))
 - (void)_assertInsideChangeBlock;
 - (void)_performChanges:(CDUnknownBlockType)arg1 withAnimatorBlock:(CDUnknownBlockType)arg2;
 - (void)_performChanges:(CDUnknownBlockType)arg1;
+- (void)_invalidateSize;
 - (void)_getContainedToolbarFrame:(struct CGRect *)arg1 accessoryViewContainerFrame:(struct CGRect *)arg2 forBounds:(struct CGRect)arg3;
 - (void)layoutSubviews;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;

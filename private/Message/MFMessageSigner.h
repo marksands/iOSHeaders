@@ -6,28 +6,21 @@
 
 #import "NSObject.h"
 
-@class MFError, NSArray, NSString;
+@class MFCertificateTrustInfo, MFError;
 
 @interface MFMessageSigner : NSObject
 {
     int _status;
-    struct __SecTrust *_trust;
-    NSString *_sender;
-    NSString *_uncommentedSender;
+    MFCertificateTrustInfo *_signingCertificateTrustInfo;
+    MFCertificateTrustInfo *_encryptionCertificateTrustInfo;
 }
 
-@property(readonly, nonatomic) NSString *sender; // @synthesize sender=_sender;
-- (_Bool)hasTrustException;
-- (void)removeTrustException;
-- (void)addTrustException;
-- (struct __SecTrust *)copyTrust;
+@property(readonly, nonatomic) MFCertificateTrustInfo *encryptionCertificateTrustInfo; // @synthesize encryptionCertificateTrustInfo=_encryptionCertificateTrustInfo;
+@property(readonly, nonatomic) MFCertificateTrustInfo *signingCertificateTrustInfo; // @synthesize signingCertificateTrustInfo=_signingCertificateTrustInfo;
 @property(readonly, nonatomic) MFError *error;
-@property(readonly, nonatomic) NSArray *certificates;
-@property(readonly, nonatomic) int action;
-@property(readonly, nonatomic) NSString *emailAddress;
-@property(readonly, nonatomic) NSString *commonName;
+@property(readonly, nonatomic) _Bool hasSeparateSigningAndEncryptionCertificates;
 - (void)dealloc;
-- (id)initWithSender:(id)arg1 trust:(struct __SecTrust *)arg2 verification:(int)arg3;
+- (id)initWithSender:(id)arg1 signingTrust:(struct __SecTrust *)arg2 encryptionTrust:(struct __SecTrust *)arg3 verification:(int)arg4;
 
 @end
 

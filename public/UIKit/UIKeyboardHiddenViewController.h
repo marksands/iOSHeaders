@@ -26,9 +26,11 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) UIView *sourceView; // @synthesize sourceView=_sourceView;
+- (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
 - (void)_sceneDidChange;
 - (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
 - (void)prepareForPopoverPresentation:(id)arg1;
+- (_Bool)_formSheetObeysContentContainerSize;
 - (void)presentAutofillVCWithAnimation:(_Bool)arg1;
 - (void)presentSelfWithAnimation:(_Bool)arg1;
 - (_Bool)shouldPresentAsPopover;

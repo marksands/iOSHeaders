@@ -35,7 +35,9 @@
 - (void)_sendResponseInfoToCustomURLHandler;
 - (id)serializableRepresentation;
 @property(copy, nonatomic) NSURLRequest *redirect;
+- (_Bool)_isRequestForContentKey;
 - (void)_cacheContentInformation:(id)arg1;
+- (_Bool)_canSetOrUseCachedContentInformation;
 - (void)_appendToCachedData:(id)arg1;
 - (id)_getAndClearCachedData;
 @property(copy, nonatomic) NSURLResponse *response;

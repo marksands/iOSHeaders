@@ -12,6 +12,7 @@
 @property(readonly, nonatomic) HAPPairingIdentity *remoteUserPairingIdentity;
 @property(readonly, nonatomic) HMDDevice *remoteSourceDevice;
 @property(readonly, nonatomic) NSString *remoteSourceID;
+@property(readonly, nonatomic, getter=isSecureRemote) _Bool secureRemote;
 @property(readonly, nonatomic, getter=isRemote) _Bool remote;
 @end
 

@@ -24,6 +24,7 @@
 @property(nonatomic) __weak id <_TVAppNavigationControllerDelegate> appNavigationControllerDelegate; // @synthesize appNavigationControllerDelegate=_appNavigationControllerDelegate;
 @property(retain, nonatomic) IKAppTabBar *appTabBar; // @synthesize appTabBar=_appTabBar;
 - (void).cxx_destruct;
+- (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)transientTabItemForTabBar:(id)arg1;
 - (void)tabBar:(id)arg1 setSelectedTabItem:(id)arg2;
 - (id)selectedTabItemForTabBar:(id)arg1;

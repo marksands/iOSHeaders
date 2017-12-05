@@ -47,9 +47,8 @@
 - (void)_addLeadingStatusBarAlphaAnimationToBatch:(id)arg1 transitionState:(id)arg2;
 - (void)_addBackgroundViewWeightingAnimationToBatch:(id)arg1 transitionState:(id)arg2;
 - (void)_addScrollViewContentOffsetAnimationToBatch:(id)arg1 transitionState:(id)arg2;
-- (struct CGRect)headerViewFrame;
-- (struct UIEdgeInsets)_moduleCollectionViewFrameEdgeInsets;
-- (struct CGRect)_moduleCollectionViewFrame;
+- (struct CGRect)_headerViewFrameForContentSize:(struct CGSize)arg1 withinBounds:(struct CGRect)arg2 contentInset:(struct UIEdgeInsets)arg3 contentEdgeInsets:(struct UIEdgeInsets)arg4 orientation:(long long)arg5;
+- (struct UIEdgeInsets)_edgeInsetsForContentSize:(struct CGSize)arg1 withinBounds:(struct CGRect)arg2 contentEdgeInsets:(struct UIEdgeInsets)arg3 orientation:(long long)arg4;
 - (struct CGRect)_presentedViewFrame;
 @property(readonly, nonatomic) unsigned long long dismissalFlickAllowedDirections;
 @property(readonly, nonatomic) double dismissalFlickMinimumVelocity;

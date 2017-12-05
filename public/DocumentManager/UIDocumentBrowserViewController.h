@@ -76,12 +76,12 @@
 - (void)_didPickItems:(id)arg1;
 - (void)_didTriggerActionWithIdentifier:(id)arg1 onItems:(id)arg2;
 - (void)_commitDocumentURLPreview:(id)arg1;
-- (void)_presentActivityViewControllerForItems:(id)arg1 withPopoverTracker:(id)arg2;
+- (void)_presentActivityViewControllerForItems:(id)arg1 withPopoverTracker:(id)arg2 sourceIsManaged:(_Bool)arg3;
 - (void)keyCommandWasPerformed:(id)arg1;
 - (_Bool)canBecomeFirstResponder;
 - (id)keyCommands;
 - (id)_sandboxingURLWrapperForURL:(id)arg1 readonly:(_Bool)arg2 error:(id *)arg3;
-- (void)_displayActivityControllerWithItems:(id)arg1 popoverTracker:(id)arg2 barButtonItem:(id)arg3;
+- (void)_displayActivityControllerWithItems:(id)arg1 popoverTracker:(id)arg2 barButtonItem:(id)arg3 sourceIsManaged:(_Bool)arg4;
 - (void)addOperationToServiceQueue:(CDUnknownBlockType)arg1;
 - (id)remoteBarButtonForUUID:(id)arg1;
 - (id)trackingViewForUUID:(id)arg1;

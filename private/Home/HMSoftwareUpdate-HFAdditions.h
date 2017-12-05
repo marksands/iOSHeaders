@@ -7,6 +7,7 @@
 #import "HMSoftwareUpdate.h"
 
 @interface HMSoftwareUpdate (HFAdditions)
++ (id)hf_stringFromUpdateState:(long long)arg1;
 - (_Bool)hf_shouldShowSoftwareUpdateInfo;
 @end
 

@@ -6,20 +6,20 @@
 
 #import "NSObject.h"
 
-@class CKDClientContext, NSArray, NSObject<OS_dispatch_queue>, NSString, PQLConnection;
+@class NSArray, NSHashTable, NSObject<OS_dispatch_queue>, NSString, PQLConnection;
 
 __attribute__((visibility("hidden")))
 @interface CKDPQLCache : NSObject
 {
     PQLConnection *_pdb;
-    CKDClientContext *_context;
+    NSHashTable *_contexts;
     NSObject<OS_dispatch_queue> *_dbQueue;
     unsigned long long _openHandles;
 }
 
 @property(nonatomic) unsigned long long openHandles; // @synthesize openHandles=_openHandles;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dbQueue; // @synthesize dbQueue=_dbQueue;
-@property(readonly, nonatomic) __weak CKDClientContext *context; // @synthesize context=_context;
+@property(readonly, nonatomic) NSHashTable *contexts; // @synthesize contexts=_contexts;
 @property(readonly, nonatomic) PQLConnection *database; // @synthesize database=_pdb;
 - (void).cxx_destruct;
 - (id)infoToUpgradeFromVersion:(unsigned long long)arg1;

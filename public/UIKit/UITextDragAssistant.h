@@ -109,9 +109,11 @@ __attribute__((visibility("hidden")))
 - (id)_textRangeForDraggingFromPoint:(struct CGPoint)arg1;
 - (void)_stopObservingTextStorage;
 - (void)_textStorageDidProcessEditing;
+- (_Bool)_viewHasOtherDragInteraction;
 - (id)_accessibilityDraggableRanges;
 - (void)notifyTextInteraction;
 - (_Bool)accessibilityCanDrag;
+- (_Bool)_dragInteractionShouldBecomeDraggingSourceDelegate:(id)arg1;
 - (long long)_dataOwnerForSession:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (long long)_dragInteraction:(id)arg1 dataOwnerForAddingToSession:(id)arg2 withTouchAtPoint:(struct CGPoint)arg3;
 - (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;

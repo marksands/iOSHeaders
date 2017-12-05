@@ -36,8 +36,10 @@
     NCNotificationListStalenessEventTracker *_notificationListStalenessEventTracker;
     NSMutableSet *_notificationRequestsRemovedFromNotificationCenterDestination;
     _UILegibilitySettings *_legibilitySettings;
+    double _revealPercentage;
 }
 
+@property(nonatomic) double revealPercentage; // @synthesize revealPercentage=_revealPercentage;
 @property(nonatomic) _Bool shouldAllowNotificationsHistoryReveal; // @synthesize shouldAllowNotificationsHistoryReveal=_shouldAllowNotificationsHistoryReveal;
 @property(nonatomic) _Bool shouldPerformReloadForBatchedOperations; // @synthesize shouldPerformReloadForBatchedOperations=_shouldPerformReloadForBatchedOperations;
 @property(nonatomic, getter=isPerformingBatchedSectionListOperations) _Bool performingBatchedSectionListOperations; // @synthesize performingBatchedSectionListOperations=_performingBatchedSectionListOperations;

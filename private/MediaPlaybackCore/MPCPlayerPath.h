@@ -27,8 +27,8 @@
 @property(readonly, copy, nonatomic) NSString *playerID; // @synthesize playerID=_playerID;
 @property(readonly, copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 - (void).cxx_destruct;
-- (void *)_createMediaRemoteOriginForInvalidationObservation;
 - (void *)_createMediaRemotePlayerPathWithOrigin:(void *)arg1;
+- (void)resolveWithRouteResolvedHandler:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)resolveWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic, getter=isInProcess) _Bool inProcess;
 - (id)description;

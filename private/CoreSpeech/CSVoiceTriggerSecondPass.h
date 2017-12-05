@@ -54,8 +54,12 @@
     unsigned long long _firstPassTriggerFireSampleCount;
     NSDictionary *_firstPassChannelSelectionScores;
     unsigned long long _firstPassOnsetChannel;
+    unsigned long long _secondPassTriggerMachAbsTime;
+    NSObject<OS_dispatch_queue> *_stateSerialQueue;
 }
 
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *stateSerialQueue; // @synthesize stateSerialQueue=_stateSerialQueue;
+@property(nonatomic) unsigned long long secondPassTriggerMachAbsTime; // @synthesize secondPassTriggerMachAbsTime=_secondPassTriggerMachAbsTime;
 @property(nonatomic) _Bool hasTriggerCandidate; // @synthesize hasTriggerCandidate=_hasTriggerCandidate;
 @property(nonatomic) unsigned long long firstPassOnsetChannel; // @synthesize firstPassOnsetChannel=_firstPassOnsetChannel;
 @property(nonatomic) float firstPassOnsetScore; // @synthesize firstPassOnsetScore=_firstPassOnsetScore;
@@ -97,6 +101,7 @@
 - (void).cxx_destruct;
 - (void)speakerDetector:(id)arg1 didDetectSpeakerReject:(id)arg2;
 - (void)speakerDetector:(id)arg1 didDetectSpeaker:(id)arg2;
+- (void)_markSecondPassTriggerMachAbsoluteTime:(unsigned long long)arg1;
 - (void)keywordAnalyzerQuasar:(id)arg1 hasResultAvailable:(id)arg2 forChannel:(unsigned long long)arg3;
 - (void)keywordAnalyzerNDAPI:(id)arg1 hasResultAvailable:(id)arg2 forChannel:(unsigned long long)arg3;
 - (void)_analyzeForKeywordDetection:(id)arg1 result:(id)arg2 forChannel:(unsigned long long)arg3 forceMaximized:(_Bool)arg4;
@@ -106,6 +111,7 @@
 - (void)_notifySecondPassReject;
 - (void)speechManagerLPCMRecordBufferAvailable:(id)arg1 chunk:(id)arg2;
 - (void)voiceTriggerFirstPass:(id)arg1 didDetectKeyword:(id)arg2;
+- (void)clearTriggerCandidate;
 - (void)_setAsset:(id)arg1;
 - (void)setAsset:(id)arg1;
 - (void)_reset;

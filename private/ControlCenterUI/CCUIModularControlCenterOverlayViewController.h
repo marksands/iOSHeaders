@@ -77,12 +77,13 @@
 - (void)beginPresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
 - (void)dismissControlCenterForContentModuleContext:(id)arg1;
 - (id)compactStyleRequestForStatusBar:(id)arg1;
-@property(readonly, nonatomic) double reachabilityOffset;
+@property(readonly, nonatomic) _Bool overlayReachabilityAffectsHeader;
+@property(readonly, nonatomic) double overlayReachabilityHeight;
 @property(readonly, copy, nonatomic) CCUIStatusBarStyleSnapshot *overlayStatusBarStyle;
 @property(readonly, nonatomic) long long overlayInterfaceOrientation;
-@property(readonly, nonatomic) struct UIEdgeInsets overlayAdditionalEdgeInsets;
+- (struct UIEdgeInsets)overlayAdditionalEdgeInsets;
 @property(readonly, nonatomic) struct CGRect overlayContainerFrame;
-@property(readonly, nonatomic) struct CGSize overlayContentSize;
+@property(readonly, nonatomic) struct CGRect overlayBackgroundFrame;
 - (void)setOverlayStatusBarHidden:(_Bool)arg1;
 @property(readonly, nonatomic) UIStatusBar *overlayLeadingStatusBar;
 @property(readonly, nonatomic) CCUIHeaderPocketView *overlayHeaderView;

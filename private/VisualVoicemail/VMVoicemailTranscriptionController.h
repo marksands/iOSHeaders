@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSLocale, NSObject<OS_dispatch_queue>, NSOperationQueue, NSProgress, VMTranscriptionAssetModelOperation, VMTranscriptionSanitizeDatabaseOperation;
+@class NSLocale, NSObject<OS_dispatch_queue>, NSOperationQueue, NSProgress, VMTranscriptionAssetModelOperation;
 
 @interface VMVoicemailTranscriptionController : NSObject
 {
+    _Bool _transcribing;
     VMTranscriptionAssetModelOperation *_assetModelOperation;
-    VMTranscriptionSanitizeDatabaseOperation *_databaseOperation;
     NSLocale *_locale;
     id <VMNetworkObserver> _networkObserver;
     id <VMSpeechRecognizer> _speechRecognizer;
@@ -33,11 +33,10 @@
 @property(readonly, nonatomic) id <VMSpeechRecognizer> speechRecognizer; // @synthesize speechRecognizer=_speechRecognizer;
 @property(retain, nonatomic) id <VMNetworkObserver> networkObserver; // @synthesize networkObserver=_networkObserver;
 @property(readonly, nonatomic) NSLocale *locale; // @synthesize locale=_locale;
-@property(readonly, nonatomic) VMTranscriptionSanitizeDatabaseOperation *databaseOperation; // @synthesize databaseOperation=_databaseOperation;
 - (void)requestDatabaseSanitization;
 - (void)requestAssetModelInstallation;
 - (void)cancelQueuedTranscriptions;
-@property(readonly, nonatomic, getter=isTranscribing) _Bool transcribing;
+@property(readonly, nonatomic, getter=isTranscribing) _Bool transcribing; // @synthesize transcribing=_transcribing;
 - (_Bool)isDictationModelInstalled;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)retrieveDictationResultForFileAtURL:(id)arg1 queuePriority:(long long)arg2 duration:(double)arg3 completion:(CDUnknownBlockType)arg4;

@@ -8,10 +8,11 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class NSArray, NSMutableArray, NSString, SBUIIconForceTouchControllerDataProvider, SBUIIconForceTouchIconViewWrapperView, SBUIIconForceTouchVisualEffectView, SBUIIconForceTouchWrapperViewController, UIView;
+@class NSArray, NSMutableArray, NSString, SBAppIconForceTouchDefaults, SBUIIconForceTouchControllerDataProvider, SBUIIconForceTouchIconViewWrapperView, SBUIIconForceTouchVisualEffectView, SBUIIconForceTouchWrapperViewController, UIView;
 
 @interface SBUIIconForceTouchViewController : UIViewController <UIGestureRecognizerDelegate>
 {
+    SBAppIconForceTouchDefaults *_defaults;
     SBUIIconForceTouchVisualEffectView *_visualEffectView;
     UIView *_parallaxView;
     SBUIIconForceTouchIconViewWrapperView *_iconViewWrapperViewBelow;
@@ -24,6 +25,7 @@
     NSMutableArray *_dismissCompletionHandlers;
     double _smoothedValue;
     double _currentPeekProgress;
+    unsigned long long _tapticEngineFeedbackMask;
     SBUIIconForceTouchControllerDataProvider *_dataProvider;
     long long _state;
     long long _layout;
@@ -54,6 +56,7 @@
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithDataProvider:(id)arg1;
+- (id)_defaults;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

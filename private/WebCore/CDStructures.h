@@ -1721,9 +1721,10 @@ struct ResourceLoader {
     _Bool _field14;
     int _field15;
     _Bool _field16;
-    struct ResourceRequest _field17;
-    struct ResourceLoaderOptions _field18;
-    unsigned short _field19;
+    _Bool _field17;
+    struct ResourceRequest _field18;
+    struct ResourceLoaderOptions _field19;
+    unsigned short _field20;
 };
 
 struct ResourceLoaderOptions {

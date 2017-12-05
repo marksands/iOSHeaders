@@ -20,6 +20,7 @@
 - (id)mf_emailAddressesWithEquivalentDomains;
 - (id)mf_copyIDNAEncodedEmailAddress;
 - (id)mf_copyIDNADecodedEmailAddress;
+- (id)mf_copyDisplayEmailAddress;
 - (_Bool)mf_isEqualToAddress:(id)arg1;
 - (id)mf_addressDomain;
 - (struct _NSRange)mf_rangeOfAddressDomain;

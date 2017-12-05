@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     void *_playerPath;
     void *_playbackQueue;
     NSObject<OS_dispatch_queue> *_serialQueue;
+    NSObject<OS_dispatch_queue> *_responseQueue;
     NSMutableDictionary *_transactionCallbacks;
     NSMutableDictionary *_playbackQueueCompletions;
     NSMutableDictionary *_transactions;

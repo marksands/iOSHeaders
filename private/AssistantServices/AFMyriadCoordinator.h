@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class AFMyriadEmergencyCallPunchout, AFMyriadRecord, AFPowerAssertionManager, NSDate, NSDateFormatter, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSString, NSUUID, _DKKnowledgeStore;
+@class AFMyriadEmergencyCallPunchout, AFMyriadRecord, AFPowerAssertionManager, NSData, NSDate, NSDateFormatter, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSString, NSUUID, _DKKnowledgeStore;
 
 @interface AFMyriadCoordinator : NSObject
 {
     unsigned long long _myriadState;
     unsigned long long _nextState;
     unsigned long long _previousState;
+    NSData *_previousAdvertisedData;
     NSMutableDictionary *_replies;
     NSMutableDictionary *_replyCounts;
     NSMutableDictionary *_previousTrumps;
@@ -96,6 +97,7 @@
 - (void)_advertiseSuppressTriggerInOutput;
 - (_Bool)_okayToSuppressOnOutput;
 - (void)_advertiseTrigger;
+- (void)setupAdvIntervalsInDelay:(float *)arg1 interval:(float *)arg2;
 - (void)_duringNextWindowEnterState:(unsigned long long)arg1;
 - (void)_duringNextWindowExecute:(CDUnknownBlockType)arg1;
 - (void)_resetActionWindows;

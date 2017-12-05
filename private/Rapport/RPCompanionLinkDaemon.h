@@ -78,6 +78,7 @@
 - (void)_personalDeviceUpdate;
 - (void)_localDeviceUpdate;
 - (void)_connectionStateChanged:(unsigned int)arg1 cnx:(id)arg2;
+- (void)_activeDeviceChangedForConnection:(id)arg1 bonjourDevice:(id)arg2;
 - (void)_activeDeviceRemoved:(id)arg1 cnx:(id)arg2;
 - (void)_activeDeviceAdded:(id)arg1 cnx:(id)arg2;
 - (void)_serverTCPRemoveConnectionsWithIdentifier:(id)arg1 exceptConnection:(id)arg2;
@@ -101,7 +102,7 @@
 - (void)_clientConnectionEnded:(id)arg1 uniqueID:(id)arg2;
 - (void)_clientConnectionStart:(id)arg1 uniqueID:(id)arg2;
 - (void)_clientBonjourLostDevice:(id)arg1;
-- (_Bool)_clientBonjourFoundDevice:(id)arg1;
+- (_Bool)_clientBonjourFoundDevice:(id)arg1 reevaluate:(_Bool)arg2;
 - (void)_clientBonjourEnsureStopped;
 - (void)_clientBonjourEnsureStarted;
 - (void)_clientEnsureStopped;

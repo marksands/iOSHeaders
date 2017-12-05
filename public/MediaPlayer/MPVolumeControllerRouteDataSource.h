@@ -42,6 +42,7 @@
 - (void)reload;
 - (void)_setPendingVolumeIfNeeded;
 @property(readonly, copy, nonatomic) NSString *volumeControlLabel;
+@property(readonly, nonatomic) _Bool applicationShouldOverrideHardwareVolumeBehavior;
 - (void)dealloc;
 - (id)initWithGroupRoute:(id)arg1 outputDeviceRoute:(id)arg2;
 

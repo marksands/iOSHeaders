@@ -284,8 +284,6 @@
 - (void)_logState:(id)arg1 key:(id)arg2 indent:(id)arg3;
 - (void)_dumpToLog:(id)arg1 withState:(id)arg2;
 - (void)registerStateHandler;
-- (void)_dumpHomeConfigurationFile:(id)arg1;
-- (void)_restartWithHomeConfiguration:(id)arg1;
 - (void)_handleSysdiagnoseRequest:(id)arg1;
 - (id)_dumpHomeManagerData;
 - (void)_handleDumpState:(id)arg1;

@@ -6,14 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDate;
+@class NSData, NSDate, NSString;
 
 @interface ICDelegationPlayInfoResponseToken : NSObject
 {
     NSData *_tokenData;
     NSDate *_expirationDate;
+    NSString *_storefrontIdentifier;
 }
 
+@property(copy, nonatomic) NSString *storefrontIdentifier; // @synthesize storefrontIdentifier=_storefrontIdentifier;
 @property(copy, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
 @property(copy, nonatomic) NSData *tokenData; // @synthesize tokenData=_tokenData;
 - (void).cxx_destruct;

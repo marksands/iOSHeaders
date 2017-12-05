@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) _Bool isInRetailDemoMode;
 @property(readonly, nonatomic) double lastNetworkChangedTime;
 @property(readonly, nonatomic) NSString *networkType;
+@property(readonly, nonatomic) _Bool runningAnInternalBuild;
 @property(readonly, nonatomic) _Bool isInAirplaneMode;
 @property(readonly, nonatomic) _Bool isNetworkReachable;
 @property(readonly, nonatomic) NSNumber *pixelRatio;

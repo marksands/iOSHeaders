@@ -12,12 +12,14 @@
 
 @interface CCUIRoundButton : UIControl <UIGestureRecognizerDelegate>
 {
+    _Bool _useAlternateBackground;
     CCUICAPackageDescription *_glyphPackageDescription;
     UIImage *_glyphImage;
     NSString *_glyphState;
     UIColor *_highlightColor;
     UIView *_normalStateBackgroundView;
     UIView *_selectedStateBackgroundView;
+    UIView *_alternateSelectedStateBackgroundView;
     UIImageView *_glyphImageView;
     UIImageView *_selectedGlyphView;
     CCUICAPackageView *_glyphPackageView;
@@ -26,14 +28,17 @@
 @property(retain, nonatomic) CCUICAPackageView *glyphPackageView; // @synthesize glyphPackageView=_glyphPackageView;
 @property(retain, nonatomic) UIImageView *selectedGlyphView; // @synthesize selectedGlyphView=_selectedGlyphView;
 @property(retain, nonatomic) UIImageView *glyphImageView; // @synthesize glyphImageView=_glyphImageView;
+@property(retain, nonatomic) UIView *alternateSelectedStateBackgroundView; // @synthesize alternateSelectedStateBackgroundView=_alternateSelectedStateBackgroundView;
 @property(retain, nonatomic) UIView *selectedStateBackgroundView; // @synthesize selectedStateBackgroundView=_selectedStateBackgroundView;
 @property(retain, nonatomic) UIView *normalStateBackgroundView; // @synthesize normalStateBackgroundView=_normalStateBackgroundView;
 @property(retain, nonatomic) UIColor *highlightColor; // @synthesize highlightColor=_highlightColor;
+@property(nonatomic) _Bool useAlternateBackground; // @synthesize useAlternateBackground=_useAlternateBackground;
 @property(copy, nonatomic) NSString *glyphState; // @synthesize glyphState=_glyphState;
 @property(retain, nonatomic) UIImage *glyphImage; // @synthesize glyphImage=_glyphImage;
 @property(retain, nonatomic) CCUICAPackageDescription *glyphPackageDescription; // @synthesize glyphPackageDescription=_glyphPackageDescription;
 - (void).cxx_destruct;
 - (void)_updateForStateChange;
+- (void)_deactivateReachability:(id)arg1;
 - (void)_primaryActionPerformed:(id)arg1;
 - (void)_setCornerRadius:(double)arg1;
 - (double)_cornerRadius;

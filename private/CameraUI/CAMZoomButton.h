@@ -24,6 +24,7 @@
 
 + (double)fontSizeForContentSize:(id)arg1;
 + (double)circleDiameterForContentSize:(id)arg1;
++ (_Bool)_shouldUseLargeButtonSizeForContentSize:(id)arg1;
 + (id)textForZoomFactor:(double)arg1;
 @property(readonly, nonatomic) UIImageView *_backgroundImageView; // @synthesize _backgroundImageView=__backgroundImageView;
 @property(readonly, nonatomic) UIImageView *_circleImageView; // @synthesize _circleImageView=__circleImageView;

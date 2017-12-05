@@ -8,9 +8,8 @@
 
 #import "CNEncodedFetchCursor.h"
 
-@class CNContactFetchRequest, CNContactsEnvironment;
+@class CNContactFetchRequest, CNContactsEnvironment, NSString;
 
-__attribute__((visibility("hidden")))
 @interface CNiOSEncodedPeopleFetcher : NSObject <CNEncodedFetchCursor>
 {
     void *_addressBook;
@@ -33,6 +32,12 @@ __attribute__((visibility("hidden")))
 - (id)cursorWithError:(id *)arg1;
 - (void)dealloc;
 - (id)initWithFetchRequest:(id)arg1 addressBook:(void *)arg2 completionHandler:(CDUnknownBlockType)arg3 environment:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

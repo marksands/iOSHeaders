@@ -25,6 +25,9 @@
 - (void)removeAllEntries;
 - (void)reloadRecents;
 - (void)addEntity:(id)arg1 isDurable:(_Bool)arg2;
+- (_Bool)isValidNamedEntity:(id)arg1 explanation:(id *)arg2;
+- (_Bool)areStringCharactersWhitelisted:(id)arg1;
+- (struct USet *)exemplarSetForSupportedLocales;
 - (void)updateQueue:(id)arg1 newEntity:(id)arg2;
 - (void)removeEntry:(id)arg1 tokenizedNewEntity:(id)arg2;
 - (void)addEntry:(id)arg1 tokenizedNewEntity:(id)arg2;

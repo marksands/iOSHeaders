@@ -14,8 +14,10 @@
 {
     _Bool _appearanceTransition;
     CCUIContentModuleContainerViewController *_viewController;
+    struct CGRect _contentRestOverrideFrame;
 }
 
+@property(nonatomic) struct CGRect contentRestOverrideFrame; // @synthesize contentRestOverrideFrame=_contentRestOverrideFrame;
 @property(nonatomic, getter=isAppearanceTransition) _Bool appearanceTransition; // @synthesize appearanceTransition=_appearanceTransition;
 @property(nonatomic) __weak CCUIContentModuleContainerViewController *viewController; // @synthesize viewController=_viewController;
 - (void).cxx_destruct;

@@ -28,6 +28,8 @@
 - (void).cxx_destruct;
 - (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3 interaction:(long long)arg4;
 - (void)_updateDefaultValuesForType;
+- (struct CGSize)intrinsicContentSize;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(retain, nonatomic) UIColor *textColor;
 @property(nonatomic) long long textAlignment;
 @property(nonatomic) struct UIEdgeInsets textViewEdgeInsets;

@@ -49,7 +49,7 @@
 - (void)productLookupWithcompletion:(CDUnknownBlockType)arg1;
 - (void)appLookupForBundleIDWithAppAdamID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)appLookupWithAppAdamID:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)checkIfOfferUsedAlreadyWithPurchaseID:(id)arg1 introductoryOffer:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)checkIfOfferUsedAlreadyWithAppAdamID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)purchaseLookUp:(CDUnknownBlockType)arg1;
 - (id)initWithPurchaseID:(id)arg1 cloudContext:(id)arg2 purchaseRestore:(_Bool)arg3;
 

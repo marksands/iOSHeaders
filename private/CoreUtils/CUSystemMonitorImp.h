@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     int _activeCallCount;
     int _fmfDevicesChangedToken;
     int _meDeviceChangedToken;
+    NSString *_meDeviceFMFDeviceID;
     NSString *_meDeviceIDSDeviceID;
     NSString *_meDeviceName;
     int _powerSourceToken;

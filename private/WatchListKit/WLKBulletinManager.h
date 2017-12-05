@@ -35,6 +35,7 @@
 @property(retain, nonatomic) BBDataProviderConnection *connection; // @synthesize connection=_connection;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *privateQueue; // @synthesize privateQueue=_privateQueue;
 - (void).cxx_destruct;
+- (void)_handleTVAppInstalledNotification:(id)arg1;
 - (void)postBulletin:(id)arg1;
 - (void)bulletinStore:(id)arg1 didRemoveBulletinWithCoalescingIDs:(id)arg2;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;

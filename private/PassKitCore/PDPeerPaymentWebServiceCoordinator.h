@@ -50,6 +50,8 @@
 - (id)pushNotificationTopics;
 - (void)cloudStoreNotificationCoordinator:(id)arg1 createdZoneWithName:(id)arg2;
 - (void)performScheduledActivityWithIdentifier:(id)arg1 activityCriteria:(id)arg2 activityContext:(id)arg3;
+- (void)_performPeerPaymentReregisterActivity;
+- (void)_schedulePeerPaymentReregisterActivity;
 - (void)_performPeerPaymentPassDownloadActivity;
 - (void)_schedulePeerPaymentCoordinatorActivities;
 - (void)resetApplePayManateeViewWithCompletion:(CDUnknownBlockType)arg1;
@@ -66,7 +68,6 @@
 - (void)updateAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (void)unregisterDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_registerWithPeerPaymentWebService:(id)arg1 registerURL:(id)arg2 pushToken:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_registerDeviceWithRegistrationURL:(id)arg1 pushToken:(id)arg2 forceRegistration:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)registerDeviceWithRegistrationURL:(id)arg1 pushToken:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)registerDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)handleCompanionSerialNumberChanged;

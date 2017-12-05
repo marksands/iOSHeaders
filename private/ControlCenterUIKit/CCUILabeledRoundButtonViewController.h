@@ -12,6 +12,7 @@
 {
     _Bool _labelsVisible;
     _Bool _toggleStateOnTap;
+    _Bool _useAlternateBackground;
     _Bool _enabled;
     _Bool _inoperative;
     _Bool _useLightStyle;
@@ -30,6 +31,7 @@
 @property(retain, nonatomic) UIColor *highlightColor; // @synthesize highlightColor=_highlightColor;
 @property(nonatomic, getter=isInoperative) _Bool inoperative; // @synthesize inoperative=_inoperative;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
+@property(nonatomic) _Bool useAlternateBackground; // @synthesize useAlternateBackground=_useAlternateBackground;
 @property(nonatomic) _Bool toggleStateOnTap; // @synthesize toggleStateOnTap=_toggleStateOnTap;
 @property(nonatomic) _Bool labelsVisible; // @synthesize labelsVisible=_labelsVisible;
 @property(retain, nonatomic) UIImage *glyphImage; // @synthesize glyphImage=_glyphImage;

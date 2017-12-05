@@ -67,6 +67,7 @@
 - (id)displayItemWithIdentifier:(id)arg1;
 - (id)itemWithIdentifier:(id)arg1;
 - (struct CGSize)intrinsicContentSize;
+@property(readonly, nonatomic, getter=areAnimationsEnabled) _Bool animationsEnabled;
 @property(readonly, nonatomic) UIView *containerView;
 - (struct CGRect)frameForPartWithIdentifier:(id)arg1;
 - (id)actionForPartWithIdentifier:(id)arg1;

@@ -17,6 +17,7 @@
 {
     _UIProgressiveBlurPresentationAnimator *_presentingAnimator;
     _UIProgressiveBlurPresentationAnimator *_dismissingAnimator;
+    _Bool _dismissing;
     _TVPlaybackFadeAnimator *_playbackAnimator;
     UINavigationController *_modalRootViewController;
 }
@@ -27,6 +28,7 @@
 - (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
 - (void)_willRotateNotification:(id)arg1;
 - (void)_dismissAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (_Bool)_isDismissing;
 - (void)_configureModalController:(id)arg1 withFromController:(id)arg2 andConfiguration:(id)arg3;
 - (unsigned long long)navigationControllerSupportedInterfaceOrientations:(id)arg1;
 - (void)hideAllAnimated:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;

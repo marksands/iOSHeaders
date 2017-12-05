@@ -22,6 +22,7 @@
     _Bool _coverSheetRoutingViewControllerShouldBePresented;
     _Bool _onScreen;
     _Bool _isListeningForResponse;
+    _Bool _allowDoneButton;
     UIView *_contentView;
     UIView *_backgroundView;
     MPAVRoutingViewController *_routingViewController;
@@ -49,6 +50,7 @@
 @property(retain, nonatomic) MediaControlsEndpointController *endpointController; // @synthesize endpointController=_endpointController;
 @property(nonatomic) long long selectedMode; // @synthesize selectedMode=_selectedMode;
 @property(nonatomic) unsigned long long supportedModes; // @synthesize supportedModes=_supportedModes;
+@property(nonatomic, getter=isAllowingDoneButton) _Bool allowDoneButton; // @synthesize allowDoneButton=_allowDoneButton;
 @property(nonatomic) _Bool isListeningForResponse; // @synthesize isListeningForResponse=_isListeningForResponse;
 @property(nonatomic, getter=isOnScreen) _Bool onScreen; // @synthesize onScreen=_onScreen;
 @property(retain, nonatomic) MPArtworkCatalog *artworkCatalog; // @synthesize artworkCatalog=_artworkCatalog;
@@ -88,6 +90,7 @@
 - (void)_updateControlCenterMetadata:(id)arg1;
 - (void)_updateHeaderUI;
 - (void)_updateShouldForceVolumeControlDisabled;
+- (void)endpointControllerRouteDidUpdate:(id)arg1;
 - (void)endpointControllerDidUpdateRoutingAvailability:(id)arg1;
 - (void)endpointControllerDidChangeState:(id)arg1;
 - (void)endpointController:(id)arg1 didLoadNewResponse:(id)arg2;

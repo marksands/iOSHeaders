@@ -17,6 +17,7 @@
     NSDictionary *_downloadMetadataDictionary;
     NSDate *_expirationDate;
     _Bool _hasOverrideChildStorePlatformDictionaries;
+    NSNumber *_hasSubscriptionOffer;
     NSArray *_overrideChildStorePlatformDictionaries;
     NSDictionary *_storePlatformDictionary;
     MPStoreItemMetadata *_parentStoreItemMetadata;
@@ -60,10 +61,13 @@
 @property(readonly, nonatomic) long long episodeCount;
 @property(readonly, nonatomic) long long trackNumber;
 @property(readonly, nonatomic) long long trackCount;
+@property(readonly, nonatomic) long long subscriptionAdamID;
+@property(readonly, nonatomic) long long purchasedAdamID;
 @property(readonly, copy, nonatomic) id socialProfileID;
 @property(readonly, copy, nonatomic) id storeID;
 @property(readonly, copy, nonatomic) NSString *cloudUniversalLibraryID;
 @property(readonly, nonatomic) _Bool showComposer;
+@property(readonly, nonatomic) _Bool shouldReportPlayEvents;
 @property(readonly, copy, nonatomic) NSNumber *shouldBookmarkPlayPosition;
 @property(readonly, copy, nonatomic) NSString *shortName;
 @property(readonly, copy, nonatomic) NSDate *lastModifiedDate;
@@ -81,12 +85,14 @@
 @property(readonly, copy, nonatomic) NSString *iTunesBrandType;
 @property(readonly, copy, nonatomic) NSString *playlistType;
 @property(readonly, copy, nonatomic) NSString *itemKind;
+@property(readonly, nonatomic, getter=isStoreRedownloadable) _Bool storeRedownloadable;
 @property(readonly, nonatomic) _Bool isPreorder;
 - (_Bool)isMasteredForITunes;
 @property(readonly, nonatomic, getter=isCompilation) _Bool compilation;
 @property(readonly, nonatomic) long long explicitRating;
 @property(readonly, nonatomic, getter=isExplicitContent) _Bool explicitContent;
 @property(readonly, copy, nonatomic) NSArray *genreNames;
+@property(readonly, nonatomic) _Bool hasSubscriptionOffer;
 @property(readonly, nonatomic) _Bool hasSocialPosts;
 @property(readonly, nonatomic) _Bool hasLyrics;
 @property(readonly, nonatomic) _Bool hasArtistBiography;
@@ -105,6 +111,8 @@
 @property(readonly, copy, nonatomic) NSString *composerName;
 @property(readonly, copy, nonatomic) id collectionStoreID;
 @property(readonly, copy, nonatomic) NSString *collectionName;
+@property(readonly, nonatomic) unsigned long long cloudID;
+@property(readonly, copy, nonatomic) NSString *cloudAlbumID;
 @property(readonly, copy, nonatomic) NSArray *childStoreItemMetadatas;
 @property(readonly, copy, nonatomic) NSArray *childrenStoreIDs;
 @property(readonly, nonatomic, getter=isBeats1) _Bool beats1;

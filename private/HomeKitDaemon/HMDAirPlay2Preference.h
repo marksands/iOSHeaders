@@ -14,10 +14,9 @@
 {
     HMDSystemPreference *_airPlayPreference;
     HMDSystemPreference *_homeKitPreference;
-    HMDSystemPreference *_whaPreference;
 }
 
-@property(readonly) HMDSystemPreference *whaPreference; // @synthesize whaPreference=_whaPreference;
++ (void)load;
 @property(readonly) HMDSystemPreference *homeKitPreference; // @synthesize homeKitPreference=_homeKitPreference;
 @property(readonly) HMDSystemPreference *airPlayPreference; // @synthesize airPlayPreference=_airPlayPreference;
 - (void).cxx_destruct;
@@ -26,7 +25,6 @@
 - (_Bool)boolValue;
 @property(readonly, copy) NSString *propertyDescription;
 - (id)initWithKey:(id)arg1 options:(unsigned long long)arg2 defaultValue:(id)arg3;
-- (id)initWithKey:(id)arg1 options:(unsigned long long)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

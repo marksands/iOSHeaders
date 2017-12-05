@@ -32,10 +32,8 @@
 - (void)_addBackgroundViewWeightingAnimationToBatch:(id)arg1 transitionState:(id)arg2;
 - (void)_addScrollViewContentOffsetAnimationToBatch:(id)arg1 transitionState:(id)arg2;
 - (double)_pullUpTranslation;
-- (struct CGRect)headerViewFrame;
-- (struct UIEdgeInsets)_moduleCollectionViewFrameEdgeInsets;
-- (struct CGRect)_moduleCollectionViewFrame;
-- (struct CGRect)_presentedViewFrame;
+- (struct CGRect)_headerViewFrameForContentSize:(struct CGSize)arg1 withinBounds:(struct CGRect)arg2 contentInset:(struct UIEdgeInsets)arg3 contentEdgeInsets:(struct UIEdgeInsets)arg4 orientation:(long long)arg5;
+- (struct UIEdgeInsets)_edgeInsetsForContentSize:(struct CGSize)arg1 withinBounds:(struct CGRect)arg2 contentEdgeInsets:(struct UIEdgeInsets)arg3 orientation:(long long)arg4;
 @property(readonly, nonatomic) unsigned long long dismissalFlickAllowedDirections;
 @property(readonly, nonatomic) double dismissalFlickMinimumVelocity;
 @property(readonly, nonatomic) double dismissalFlickMaximumTime;

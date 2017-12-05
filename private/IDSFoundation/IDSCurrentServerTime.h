@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
+@class IDSCurrentServerTimePair;
+
 @interface IDSCurrentServerTime : NSObject
 {
-    unsigned long long _initialProcessTime;
-    unsigned long long _initialServerTime;
+    IDSCurrentServerTimePair *_timePair;
 }
 
 + (id)sharedInstance;
-@property(nonatomic) unsigned long long initialServerTime; // @synthesize initialServerTime=_initialServerTime;
-@property(nonatomic) unsigned long long initialProcessTime; // @synthesize initialProcessTime=_initialProcessTime;
+@property(retain) IDSCurrentServerTimePair *timePair; // @synthesize timePair=_timePair;
+- (void).cxx_destruct;
 - (void)_refreshServerTime;
 - (void)_storeInitialServerTime;
 - (double)_refreshTimeInterval;

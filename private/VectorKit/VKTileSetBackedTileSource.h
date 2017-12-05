@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)forceExpireTile:(const struct VKTileKey *)arg1;
 - (void)_expireTilesList:(id)arg1;
 - (void)_scheduleTileExpirationTimer:(double)arg1 forceUpdate:(_Bool)arg2;
+- (void)didFailToLoadTileKey:(const struct _GEOTileKey *)arg1 error:(id)arg2;
 - (void)fetchedTile:(id)arg1 forKey:(const struct VKTileKey *)arg2;
 - (id)tileForKey:(const struct VKTileKey *)arg1;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;

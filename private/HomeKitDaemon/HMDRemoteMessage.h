@@ -29,6 +29,7 @@
 - (void).cxx_destruct;
 - (void)setInternalResponseHandler:(CDUnknownBlockType)arg1;
 - (void)setResponseHandler:(CDUnknownBlockType)arg1;
+- (_Bool)isSecureRemote;
 - (_Bool)isRemote;
 - (id)description;
 - (id)debugDescription;

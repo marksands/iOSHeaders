@@ -23,6 +23,7 @@
     NSString *_playingPairedDeviceName;
 }
 
+- (id)_playingPairedDeviceNameForAVOutputDevice:(id)arg1;
 - (void)_onqueue_clearCachedAVOutputDeviceProperties;
 - (void)setVolume:(float)arg1;
 - (float)volume;

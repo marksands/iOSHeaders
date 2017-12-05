@@ -6,11 +6,7 @@
 
 #import <SoundBoardAccessibility/__SBUIControllerAccessibility_super.h>
 
-#import "SBUIConntrollerAccessibilityProtocol.h"
-
-@class NSString;
-
-@interface SBUIControllerAccessibility : __SBUIControllerAccessibility_super <SBUIConntrollerAccessibilityProtocol>
+@interface SBUIControllerAccessibility : __SBUIControllerAccessibility_super
 {
 }
 
@@ -47,12 +43,6 @@
 - (unsigned long long)_accessibilityHoldButton;
 - (void)_accessibilitySetSelectedButton:(unsigned long long)arg1;
 - (unsigned long long)_accessibilitySelectedButton;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

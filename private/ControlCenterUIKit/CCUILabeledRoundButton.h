@@ -11,6 +11,7 @@
 @interface CCUILabeledRoundButton : UIView
 {
     _Bool _labelsVisible;
+    _Bool _useAlternateBackground;
     NSString *_title;
     NSString *_subtitle;
     UIImage *_glyphImage;
@@ -26,6 +27,7 @@
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) UIColor *highlightColor; // @synthesize highlightColor=_highlightColor;
 @property(retain, nonatomic) CCUIRoundButton *buttonView; // @synthesize buttonView=_buttonView;
+@property(nonatomic) _Bool useAlternateBackground; // @synthesize useAlternateBackground=_useAlternateBackground;
 @property(nonatomic) _Bool labelsVisible; // @synthesize labelsVisible=_labelsVisible;
 @property(copy, nonatomic) NSString *glyphState; // @synthesize glyphState=_glyphState;
 @property(retain, nonatomic) CCUICAPackageDescription *glyphPackageDescription; // @synthesize glyphPackageDescription=_glyphPackageDescription;

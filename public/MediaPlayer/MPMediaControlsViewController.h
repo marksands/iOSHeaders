@@ -30,7 +30,6 @@
 @property(copy, nonatomic) CDUnknownBlockType didDismissHandler; // @synthesize didDismissHandler=_didDismissHandler;
 - (void).cxx_destruct;
 - (void)_requestRemoteViewController;
-- (void)_removeBackgroundNotifications;
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_applicationWillAddDeactivationReason:(id)arg1;
 - (void)_addRemoteView;

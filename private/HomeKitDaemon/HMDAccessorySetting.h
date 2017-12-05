@@ -15,8 +15,8 @@
 
 @interface HMDAccessorySetting : HMFObject <HMFLogging, HMDBackingStoreObjectProtocol, HMFMessageReceiver, NSSecureCoding>
 {
-    NSMutableArray *_constraints;
     long long _type;
+    NSMutableArray *_constraints;
     id _value;
     unsigned long long _configurationVersion;
     NSUUID *_identifier;
@@ -71,7 +71,7 @@
 @property(readonly, copy) NSArray *constraints;
 - (_Bool)isValid:(id *)arg1;
 @property(readonly) NSString *keyPath;
-@property(readonly) long long type; // @synthesize type=_type;
+@property(readonly) long long type;
 - (_Bool)_shouldAcceptMessage:(id)arg1;
 - (void)registerForMessages;
 - (void)configureWithAccessory:(id)arg1 messageDispatcher:(id)arg2;

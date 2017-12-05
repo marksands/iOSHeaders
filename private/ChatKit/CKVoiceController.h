@@ -43,6 +43,7 @@
 - (void)record;
 - (void)setActivationMode:(long long)arg1;
 - (id)initWithActivationMode:(long long)arg1 recordSettings:(id)arg2 queue:(id)arg3;
+- (void)cleanup;
 - (void)dealloc;
 
 // Remaining properties

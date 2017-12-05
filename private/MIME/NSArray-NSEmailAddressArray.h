@@ -7,6 +7,7 @@
 #import "NSArray.h"
 
 @interface NSArray (NSEmailAddressArray)
+- (id)mf_displayEmailAddressList;
 - (id)mf_uncommentedAddressList;
 @end
 

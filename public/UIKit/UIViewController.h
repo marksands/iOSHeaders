@@ -809,6 +809,7 @@
 - (void)setFormSheetSize:(struct CGSize)arg1;
 - (struct CGSize)_formSheetSizeForWindowWithSize:(struct CGSize)arg1;
 - (struct CGSize)formSheetSize;
+- (_Bool)_formSheetObeysContentContainerSize;
 - (_Bool)_hasPreferredInterfaceOrientationForPresentation;
 @property(retain, nonatomic, setter=_setPreviousFittingSizeInfo:) NSDictionary *_previousFittingSizeInfo;
 @property(readonly, nonatomic) _Bool _monitorsSystemLayoutFittingSize;

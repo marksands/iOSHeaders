@@ -184,6 +184,7 @@
 + (_Bool)rivenPreference;
 + (_Bool)rivenInstalled;
 + (void)refreshRivenStateWithTraits:(id)arg1 isKeyboard:(_Bool)arg2;
++ (_Bool)showsGlobeAndDictationKeysExternallyForInterfaceOrientation:(long long)arg1 inputMode:(id)arg2;
 + (_Bool)showsGlobeAndDictationKeysExternallyForInterfaceOrientation:(long long)arg1;
 + (_Bool)shouldMergeAssistantBarWithKeyboardLayout;
 + (double)additionalInstanceHeightForInterfaceOrientation:(long long)arg1;
