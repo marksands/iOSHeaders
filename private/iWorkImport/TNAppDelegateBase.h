@@ -14,20 +14,22 @@ __attribute__((visibility("hidden")))
     TSUColor *_numbersKeyColor;
 }
 
-@property(readonly, nonatomic) TSUColor *numbersKeyColor; // @synthesize numbersKeyColor=_numbersKeyColor;
+@property(readonly, copy, nonatomic) TSUColor *numbersKeyColor; // @synthesize numbersKeyColor=_numbersKeyColor;
+- (void).cxx_destruct;
 - (id)bladerunnerContainerIdentifier;
 - (id)cloudKitContainerIdentifier;
 - (void)p_inputMethodsChanged:(id)arg1;
 - (_Bool)supportsRTL;
+- (id)stringForDocumentViewOnlyMessage;
+- (id)stringForDocumentViewOnlyTitle;
 - (id)stringForOwnerHasCollabEnabledMessage;
 - (id)stringForOwnerHasCollabEnabledTitle;
-- (id)stringForBoxCollaborationOptInLearnMoreURL;
-- (id)stringForBoxCollaborationOptInTermsOfServiceURL;
 - (id)stringForBoxCollaborationOptInMessage;
 - (id)stringForCouldntCreatePDFTitle;
 - (id)stringForCloseDocumentConfirmationWillContinueToUpdateInformativeText;
 - (id)stringForCloseDocumentConfirmationAlertMessage;
 - (id)stringForApplicationUpdateError;
+- (id)stringForDocumentViewOnly;
 - (id)stringForCollaborationConnecting;
 - (id)stringForCollaborationOnline;
 - (id)stringForGenericServerUnreachable;
@@ -56,11 +58,11 @@ __attribute__((visibility("hidden")))
 - (id)stringForCollaboratorConflictWithKeepDetails;
 - (id)stringForCollaboratorConflictDetails;
 - (id)stringForCollaboratorConflict;
-- (id)stringForUpdatingDocument;
+- (id)stringForUpdatingDocumentWithoutServiceType;
 - (id)templateTypeDisplayName;
 - (id)documentTypeDisplayNameForSharingInvitation;
 - (id)documentTypeDisplayName;
-- (id)defaultAppStoreURLString;
+- (id)applicationDisplayName;
 - (id)applicationName;
 - (unsigned long long)applicationType;
 - (id)nativeSFFDocumentType;
@@ -73,7 +75,7 @@ __attribute__((visibility("hidden")))
 - (id)universalPreviewImageNameForDocumentType:(id)arg1;
 - (id)applicationTemplateVariantsForLocale:(struct __CFLocale *)arg1;
 - (id)appChartPropertyOverrides;
-@property(readonly, nonatomic) NSArray *excelDocumentTypes;
+@property(readonly, copy, nonatomic) NSArray *excelDocumentTypes;
 - (id)importableDocumentTypes;
 - (Class)documentViewControllerClass;
 - (id)createCompatibilityDelegate;
@@ -81,6 +83,7 @@ __attribute__((visibility("hidden")))
 - (void)applicationDidFinishLaunching:(id)arg1;
 - (void)configureSharedCode;
 - (void)registerClassTypeMappings;
+- (void)registerSOSClassTypeMappings;
 - (id)init;
 
 @end

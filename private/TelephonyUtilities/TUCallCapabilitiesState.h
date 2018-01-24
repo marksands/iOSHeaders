@@ -36,11 +36,11 @@
     _Bool _thumperCallingEnabled;
     _Bool _supportsRelayCalling;
     _Bool _relayCallingEnabled;
+    _Bool _relayCallingFeaturesEnabled;
     _Bool _supportsTelephonyRelayCalling;
     _Bool _supportsFaceTimeAudioRelayCalling;
     _Bool _supportsFaceTimeVideoRelayCalling;
     _Bool _supportsSimultaneousVoiceAndData;
-    _Bool _pairedDeviceExists;
     _Bool _emergencyCallbackModeEnabled;
     _Bool _supportsCarrierServices;
     int _relayCallingAvailability;
@@ -59,7 +59,6 @@
 @property(nonatomic) _Bool supportsCarrierServices; // @synthesize supportsCarrierServices=_supportsCarrierServices;
 @property(nonatomic, getter=isEmergencyCallbackModeEnabled) _Bool emergencyCallbackModeEnabled; // @synthesize emergencyCallbackModeEnabled=_emergencyCallbackModeEnabled;
 @property(copy, nonatomic) NSArray *cloudCallingDevices; // @synthesize cloudCallingDevices=_cloudCallingDevices;
-@property(nonatomic) _Bool pairedDeviceExists; // @synthesize pairedDeviceExists=_pairedDeviceExists;
 @property(nonatomic) _Bool supportsSimultaneousVoiceAndData; // @synthesize supportsSimultaneousVoiceAndData=_supportsSimultaneousVoiceAndData;
 @property(nonatomic) _Bool supportsFaceTimeVideoRelayCalling; // @synthesize supportsFaceTimeVideoRelayCalling=_supportsFaceTimeVideoRelayCalling;
 @property(nonatomic) _Bool supportsFaceTimeAudioRelayCalling; // @synthesize supportsFaceTimeAudioRelayCalling=_supportsFaceTimeAudioRelayCalling;
@@ -67,6 +66,7 @@
 @property(copy, nonatomic) NSString *outgoingRelayCallerID; // @synthesize outgoingRelayCallerID=_outgoingRelayCallerID;
 @property(copy, nonatomic) NSDictionary *relayCallingDisabledForDeviceID; // @synthesize relayCallingDisabledForDeviceID=_relayCallingDisabledForDeviceID;
 @property(nonatomic) int relayCallingAvailability; // @synthesize relayCallingAvailability=_relayCallingAvailability;
+@property(nonatomic, getter=areRelayCallingFeaturesEnabled) _Bool relayCallingFeaturesEnabled; // @synthesize relayCallingFeaturesEnabled=_relayCallingFeaturesEnabled;
 @property(nonatomic, getter=isRelayCallingEnabled) _Bool relayCallingEnabled; // @synthesize relayCallingEnabled=_relayCallingEnabled;
 @property(nonatomic) _Bool supportsRelayCalling; // @synthesize supportsRelayCalling=_supportsRelayCalling;
 @property(copy, nonatomic) NSString *thumperCallingLocalDeviceID; // @synthesize thumperCallingLocalDeviceID=_thumperCallingLocalDeviceID;

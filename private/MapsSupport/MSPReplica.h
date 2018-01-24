@@ -24,6 +24,7 @@
 - (id)editsToRemoveRecordsWithIdentifiers:(id)arg1;
 - (id)editsToInsertOrUpdateRecords:(id)arg1;
 - (void)_mergeSelfRecord:(id)arg1 withRecordFromOtherReplica:(id)arg2 identifier:(id)arg3 options:(id)arg4 edits:(id)arg5;
+- (id)_additionalEditsToUpdateContentsOfRecord:(id)arg1 identifier:(id)arg2;
 - (id)editsToMergeWithReplica:(id)arg1 mergeOptions:(id)arg2;
 - (id)editsToMergeWithReplica:(id)arg1;
 - (id)initWithRecords:(id)arg1 clientIdentifier:(id)arg2;

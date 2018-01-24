@@ -49,6 +49,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) TSCHChartValueAxis *valueAxis; // @synthesize valueAxis=mValueAxis;
 @property(readonly) TSCHChartSeries *series; // @synthesize series=mSeries;
 @property(readonly) unsigned long long seriesIndex; // @synthesize seriesIndex=mSeriesIndex;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)initWithChartModel:(id)arg1 forSeries:(unsigned long long)arg2;
 

@@ -29,6 +29,8 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)removeObserverForLocalOnlyPropertiesOnTransfer:(id)arg1;
 - (void)observeForLocalOnlyPropertiesOnTransfer:(id)arg1;
+- (void)invalidate;
+- (void)activate;
 - (void)_getRemoteObjectProxyOnQueue:(CDUnknownBlockType)arg1;
 - (id)init;
 

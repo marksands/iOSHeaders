@@ -336,6 +336,8 @@ struct PerformanceTiming {
     long long _field86;
     long long _field87;
     _Bool _field88;
+    _Bool _field89;
+    _Bool _field90;
 };
 
 struct RedirectionRecorder;
@@ -653,6 +655,10 @@ struct z_stream_s {
 };
 
 #pragma mark Typedef'd Structures
+
+typedef struct {
+    unsigned int _field1[8];
+} CDStruct_6ad76789;
 
 typedef struct {
     long long _field1;

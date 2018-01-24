@@ -18,12 +18,15 @@
     NSMutableArray *_outputDevices;
     NSString *_uniqueIdentifier;
     _Bool _isLocalEndpoint;
+    _Bool _isProxyGroupPlayer;
     struct {
         unsigned int isLocalEndpoint:1;
+        unsigned int isProxyGroupPlayer:1;
     } _has;
 }
 
 + (Class)outputDevicesType;
+@property(nonatomic) _Bool isProxyGroupPlayer; // @synthesize isProxyGroupPlayer=_isProxyGroupPlayer;
 @property(retain, nonatomic) NSString *instanceIdentifier; // @synthesize instanceIdentifier=_instanceIdentifier;
 @property(nonatomic) _Bool isLocalEndpoint; // @synthesize isLocalEndpoint=_isLocalEndpoint;
 @property(retain, nonatomic) _MRAVOutputDeviceDescriptorProtobuf *designatedGroupLeader; // @synthesize designatedGroupLeader=_designatedGroupLeader;
@@ -39,6 +42,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIsProxyGroupPlayer;
 @property(readonly, nonatomic) _Bool hasInstanceIdentifier;
 @property(nonatomic) _Bool hasIsLocalEndpoint;
 @property(readonly, nonatomic) _Bool hasDesignatedGroupLeader;

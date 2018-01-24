@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSString, NSUUID, SFBLEDevice, SFProximityEstimator;
+@class NSArray, NSString, NSUUID, SFBLEDevice;
 
 @interface SFDevice : NSObject <NSSecureCoding>
 {
@@ -18,12 +18,15 @@
     unsigned char _deviceClassCode;
     unsigned char _deviceModelCode;
     _Bool _hasProblem;
+    _Bool _needsAWDL;
     _Bool _needsKeyboard;
+    _Bool _needsNAN;
     _Bool _needsSetup;
     _Bool _wakeDevice;
     _Bool _watchLocked;
     unsigned char _osVersion;
     _Bool _paired;
+    unsigned int _deviceFlags;
     unsigned int _systemPairState;
     NSArray *_batteryInfo;
     SFBLEDevice *_bleDevice;
@@ -36,11 +39,9 @@
     NSString *_name;
     unsigned long long _problemFlags;
     NSString *_requestSSID;
-    SFProximityEstimator *_setupProximityEstimator;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) SFProximityEstimator *setupProximityEstimator; // @synthesize setupProximityEstimator=_setupProximityEstimator;
 @property(nonatomic) _Bool paired; // @synthesize paired=_paired;
 @property(nonatomic) unsigned char osVersion; // @synthesize osVersion=_osVersion;
 @property(nonatomic) _Bool watchLocked; // @synthesize watchLocked=_watchLocked;
@@ -49,7 +50,9 @@
 @property(copy, nonatomic) NSString *requestSSID; // @synthesize requestSSID=_requestSSID;
 @property(readonly, nonatomic) unsigned long long problemFlags; // @synthesize problemFlags=_problemFlags;
 @property(nonatomic) _Bool needsSetup; // @synthesize needsSetup=_needsSetup;
+@property(readonly, nonatomic) _Bool needsNAN; // @synthesize needsNAN=_needsNAN;
 @property(readonly, nonatomic) _Bool needsKeyboard; // @synthesize needsKeyboard=_needsKeyboard;
+@property(readonly, nonatomic) _Bool needsAWDL; // @synthesize needsAWDL=_needsAWDL;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *model; // @synthesize model=_model;
 @property(copy, nonatomic) NSString *idsIdentifier; // @synthesize idsIdentifier=_idsIdentifier;
@@ -58,6 +61,7 @@
 @property(nonatomic) long long distance; // @synthesize distance=_distance;
 @property(readonly, nonatomic) long long deviceType; // @synthesize deviceType=_deviceType;
 @property(readonly, nonatomic) unsigned char deviceModelCode; // @synthesize deviceModelCode=_deviceModelCode;
+@property(nonatomic) unsigned int deviceFlags; // @synthesize deviceFlags=_deviceFlags;
 @property(nonatomic) unsigned char deviceClassCode; // @synthesize deviceClassCode=_deviceClassCode;
 @property(readonly, nonatomic) unsigned char deviceActionType; // @synthesize deviceActionType=_deviceActionType;
 @property(copy, nonatomic) NSString *contactIdentifier; // @synthesize contactIdentifier=_contactIdentifier;

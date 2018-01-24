@@ -13,6 +13,7 @@
     _Bool _registeredForInternalPrefs;
     _Bool _registeredForLanguageCode;
     _Bool _registeredForOutputVoice;
+    _Bool _registeredForSupportedLanguages;
     NSObject<OS_dispatch_queue> *_navTokenQueue;
     _Bool _navTokenIsValid;
     int _navToken;
@@ -35,6 +36,8 @@
 - (long long)useDeviceSpeakerForTTS;
 - (void)setOutputVoice:(id)arg1;
 - (id)outputVoice;
+- (void)setInProgressOutputVoice:(id)arg1;
+- (id)inProgressOutputVoice;
 - (void)synchronizeVoiceServicesLanguageCode;
 - (void)setLanguageCode:(id)arg1;
 - (id)_bestSupportedLanguageCodeForLanguageCodes:(id)arg1 isGoodFit:(_Bool *)arg2;
@@ -64,6 +67,16 @@
 - (_Bool)siriDebugUIEnabled;
 - (void)setLimitedAudioLoggingEnabled:(_Bool)arg1;
 - (_Bool)limitedAudioLoggingEnabled;
+- (void)setMyriadDeviceTrumpDelay:(double)arg1;
+- (double)myriadDeviceTrumpDelay;
+- (void)setMyriadDeviceDelay:(double)arg1;
+- (double)myriadDeviceDelay;
+- (void)setMyriadDeviceAdjust:(unsigned char)arg1;
+- (unsigned char)myriadDeviceAdjust;
+- (void)setMyriadDeviceClass:(unsigned char)arg1;
+- (unsigned char)myriadDeviceClass;
+- (void)setMyriadServerHasProvisioned:(_Bool)arg1;
+- (_Bool)myriadServerHasProvisioned;
 - (void)setMyriadDeviceGroup:(id)arg1;
 - (id)myriadDeviceGroup;
 - (void)setMyriadDuckingEnabled:(_Bool)arg1;
@@ -105,12 +118,14 @@
 - (_Bool)offlineDictationOverride;
 - (_Bool)dictationIsEnabled;
 - (_Bool)assistantIsEnabled;
+- (void)_registerForSupportedLanguageChangeNotifications;
 - (void)_registerForOutputVoice;
 - (void)_registerForLanguageCodeChangeNotifications;
 - (void)_registerForInteralPrefs;
 - (void)synchronize;
 - (void)dealloc;
 - (id)init;
+- (void)_supportedLanguagesDidChangeExternally;
 - (void)_ouputVoiceDidChangeExternally;
 - (void)_languageCodeDidChangeExternally;
 - (void)_internalPreferencesDidChangeExternally;

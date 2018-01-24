@@ -10,6 +10,9 @@
 {
 }
 
++ (void)fetchMPSStateWithBaseAvailabilityURL:(id)arg1 personID:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
++ (id)_urlSession;
++ (id)appleIDSession;
 + (id)retryAfterDateBasedOnRetryAfterHeaderString:(id)arg1;
 + (id)deviceInfoDictForPersonID:(id)arg1;
 + (id)Win32SHA1OfUDID:(id)arg1;

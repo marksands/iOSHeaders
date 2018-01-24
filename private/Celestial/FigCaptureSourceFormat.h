@@ -7,15 +7,17 @@
 #import "NSObject.h"
 
 #import "FigXPCCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSDictionary, NSString;
 
-@interface FigCaptureSourceFormat : NSObject <FigXPCCoding>
+@interface FigCaptureSourceFormat : NSObject <FigXPCCoding, NSSecureCoding>
 {
     NSDictionary *_formatDictionary;
     struct opaqueCMFormatDescription *_formatDescription;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, getter=isExperimental) _Bool experimental;
 @property(readonly, getter=isDefaultActiveFormat) _Bool defaultActiveFormat;
 @property(readonly) unsigned int format;
@@ -24,6 +26,8 @@
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)initWithFigCaptureStreamFormatDictionary:(id)arg1;

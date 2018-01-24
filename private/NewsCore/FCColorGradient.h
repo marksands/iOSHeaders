@@ -22,6 +22,7 @@
 + (id)blackGradient;
 + (id)colorGradientWithConfigDict:(id)arg1;
 + (id)colorGradientWithColors:(id)arg1 locations:(id)arg2;
++ (id)colorGradientWithPBColorGradient:(id)arg1;
 @property(readonly, nonatomic) NSArray *locations; // @synthesize locations=_locations;
 @property(readonly, nonatomic) NSArray *colors; // @synthesize colors=_colors;
 @property(readonly, nonatomic) struct CGPoint endPoint; // @synthesize endPoint=_endPoint;
@@ -31,6 +32,7 @@
 - (_Bool)isSimilarToColorGradient:(id)arg1 withinPercentage:(double)arg2;
 - (id)initWithStartPoint:(struct CGPoint)arg1 endPoint:(struct CGPoint)arg2 colors:(id)arg3 locations:(id)arg4;
 - (id)init;
+- (id)pbColorGradient;
 
 @end
 

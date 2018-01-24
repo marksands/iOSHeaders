@@ -34,7 +34,7 @@
 - (_Bool)updateToLibraryCurrentRevision;
 - (void)_onQueueInvokeAndClearUpdateFinishedBlocksWithDidUpdateResult:(_Bool)arg1;
 - (void)_onQueueAddUpdateFinishedBlock:(CDUnknownBlockType)arg1;
-- (void)_mergeChangesWithFromNewPIDs:(const vector_c1c297d2 *)arg1 changedPIDs:(unordered_set_9227d2bb *)arg2;
+- (void)_mergeChangesWithFromNewPIDs:(const vector_bbba3654 *)arg1 changedPIDs:(unordered_set_da619913 *)arg2;
 - (void)_loadCurrentFullResults;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithQuery:(id)arg1;

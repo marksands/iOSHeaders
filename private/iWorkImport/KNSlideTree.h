@@ -13,11 +13,11 @@
 __attribute__((visibility("hidden")))
 @interface KNSlideTree : TSPContainedObject <KNSlideCollection>
 {
-    NSMutableOrderedSet *mSlideNodes;
-    NSMutableArray *mDisplayedSlideNodeCache;
-    NSMutableDictionary *mSlideNodesForUniqueIdentifiersCache;
-    NSMutableDictionary *mSlideNodesForFormulaReferenceNamesCache;
-    TSUPointerKeyDictionary *mFormulaReferenceNamesForSlideNodesCache;
+    NSMutableOrderedSet *_slideNodes;
+    NSMutableArray *_displayedSlideNodeCache;
+    NSMutableDictionary *_slideNodesForUniqueIdentifiersCache;
+    NSMutableDictionary *_slideNodesForFormulaReferenceNamesCache;
+    TSUPointerKeyDictionary *_formulaReferenceNamesForSlideNodesCache;
 }
 
 + (_Bool)areMultipleMasterTypesInCollection:(id)arg1;
@@ -25,7 +25,8 @@ __attribute__((visibility("hidden")))
 + (id)slideNodeDepthMapToCleanUpSlideNodes:(id)arg1 minimumValidDepth:(unsigned long long)arg2 canExceedSlideTreeMaxDepth:(_Bool)arg3;
 + (id)slideNodeDepthMapToCleanUpSlideNodes:(id)arg1 atDepths:(id)arg2 minimumValidDepth:(unsigned long long)arg3;
 + (id)slideNodeDepthMapToCleanUpSlideNodes:(id)arg1 minimumValidDepth:(unsigned long long)arg2;
-@property(retain, nonatomic) NSArray *displayedSlideNodes; // @synthesize displayedSlideNodes=mDisplayedSlideNodeCache;
+@property(retain, nonatomic) NSArray *displayedSlideNodes; // @synthesize displayedSlideNodes=_displayedSlideNodeCache;
+- (void).cxx_destruct;
 - (void)p_cacheSlideNodes;
 - (void)p_clearSlideNodeCache;
 - (void)addSlideNodeForDocumentUpgrade:(id)arg1 atDepth:(unsigned long long)arg2;

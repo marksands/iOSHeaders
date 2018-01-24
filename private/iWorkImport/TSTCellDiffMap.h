@@ -13,7 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface TSTCellDiffMap : TSPObject <NSCopying>
 {
-    vector_13f93596 _cellIDs;
+    vector_38b190b0 _cellIDs;
     _Bool _uidBased;
     TSTCellUIDList *_cellUIDList;
     NSMutableArray *_mutableDiffList;
@@ -31,10 +31,10 @@ __attribute__((visibility("hidden")))
 - (id)p_copyAndAddCellDiff:(id)arg1 andCellUID:(struct TSTCellUID)arg2;
 - (void)enumerateCellIDElementsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateElementsUsingBlock:(CDUnknownBlockType)arg1;
-- (id)cellDiffMapByRemovingColumns:(const vector_dadc1b26 *)arg1;
-- (id)cellDiffMapByRemovingRows:(const vector_dadc1b26 *)arg1;
-- (id)cellDiffMapByIntersectingUIDs:(const vector_dadc1b26 *)arg1 inRows:(_Bool)arg2;
-- (const vector_13f93596 *)cellIDs;
+- (id)cellDiffMapByRemovingColumns:(const vector_4dc5f307 *)arg1;
+- (id)cellDiffMapByRemovingRows:(const vector_4dc5f307 *)arg1;
+- (id)cellDiffMapByIntersectingUIDs:(const vector_4dc5f307 *)arg1 inRows:(_Bool)arg2;
+- (const vector_38b190b0 *)cellIDs;
 - (void)p_resolveCellIDsToUUIDsByTableInfo:(id)arg1;
 - (id)uuidBasedCellDiffMapByTableInfo:(id)arg1;
 - (id)prunedCellDiffMapAgainstTable:(id)arg1 allowMergeFragment:(_Bool)arg2 addingPrunedIndicesToIndexSet:(id)arg3;

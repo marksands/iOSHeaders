@@ -12,24 +12,24 @@
 __attribute__((visibility("hidden")))
 @interface KNMacUILayout : NSObject <NSCopying, NSMutableCopying>
 {
-    _Bool mShowingInspectorPane;
-    _Bool mInspectorPaneAutoHidden;
-    _Bool mShowingSidebar;
-    _Bool mShowingNavigatorViewInSidebar;
-    _Bool mShowingPresenterNotes;
-    _Bool mShowingLightTable;
-    _Bool mShowingMasterSlides;
-    _Bool mShowingElementList;
-    long long mInspectorPaneViewMode;
+    _Bool _showingInspectorPane;
+    _Bool _inspectorPaneAutoHidden;
+    _Bool _showingSidebar;
+    _Bool _showingNavigatorViewInSidebar;
+    _Bool _showingPresenterNotes;
+    _Bool _showingLightTable;
+    _Bool _showingMasterSlides;
+    _Bool _showingElementList;
+    long long _inspectorPaneViewMode;
 }
 
 + (id)uiLayoutFromArchive:(const struct DesktopUILayoutArchive *)arg1 unarchiver:(id)arg2 context:(id)arg3;
-@property(readonly, nonatomic, getter=isShowingElementList) _Bool showingElementList; // @synthesize showingElementList=mShowingElementList;
-@property(readonly, nonatomic, getter=isShowingMasterSlides) _Bool showingMasterSlides; // @synthesize showingMasterSlides=mShowingMasterSlides;
-@property(readonly, nonatomic) long long inspectorPaneViewMode; // @synthesize inspectorPaneViewMode=mInspectorPaneViewMode;
-@property(readonly, nonatomic, getter=isShowingLightTable) _Bool showingLightTable; // @synthesize showingLightTable=mShowingLightTable;
-@property(readonly, nonatomic, getter=isShowingPresenterNotes) _Bool showingPresenterNotes; // @synthesize showingPresenterNotes=mShowingPresenterNotes;
-@property(readonly, nonatomic, getter=isShowingSidebar) _Bool showingSidebar; // @synthesize showingSidebar=mShowingSidebar;
+@property(readonly, nonatomic, getter=isShowingElementList) _Bool showingElementList; // @synthesize showingElementList=_showingElementList;
+@property(readonly, nonatomic, getter=isShowingMasterSlides) _Bool showingMasterSlides; // @synthesize showingMasterSlides=_showingMasterSlides;
+@property(readonly, nonatomic) long long inspectorPaneViewMode; // @synthesize inspectorPaneViewMode=_inspectorPaneViewMode;
+@property(readonly, nonatomic, getter=isShowingPresenterNotes) _Bool showingPresenterNotes; // @synthesize showingPresenterNotes=_showingPresenterNotes;
+@property(readonly, nonatomic, getter=isShowingLightTable) _Bool showingLightTable; // @synthesize showingLightTable=_showingLightTable;
+@property(readonly, nonatomic, getter=isShowingSidebar) _Bool showingSidebar; // @synthesize showingSidebar=_showingSidebar;
 @property(readonly, nonatomic, getter=p_isShowingNavigatorViewInSidebar) _Bool p_showingNavigatorViewInSidebar;
 @property(readonly, nonatomic) long long inspectorPaneHiddenState;
 @property(readonly, nonatomic) long long sidebarViewMode;

@@ -10,7 +10,6 @@
 
 @class AVOutputContext, NSString;
 
-__attribute__((visibility("hidden")))
 @interface MRAVInputStream : MRAVBufferedInputStream <AVOutputContextCommunicationChannelDelegate>
 {
     AVOutputContext *_outputContext;

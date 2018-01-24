@@ -61,6 +61,7 @@
 - (_Bool)_containsFullwidthLettersAndSymbolsOnly;
 - (_Bool)_containsFullwidthLettersAndNumbers;
 - (_Bool)_containsFullwidthLettersAndNumbersOnly;
+- (_Bool)_containsSymbolsAndPunctuationOnly;
 - (_Bool)_containsCJKSymbolsAndPunctuation;
 - (_Bool)_containsCJKScriptsOnly;
 - (_Bool)_containsCJScriptsOnly;

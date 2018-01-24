@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>;
+@class NSArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MRAVRoutingDiscoverySession : NSObject
 {
@@ -33,6 +33,7 @@
 @property(nonatomic) unsigned int discoveryMode; // @dynamic discoveryMode;
 @property(readonly, nonatomic) unsigned int endpointFeatures; // @dynamic endpointFeatures;
 @property(readonly, nonatomic) _Bool hasAvailableEndpoints; // @dynamic hasAvailableEndpoints;
+@property(copy, nonatomic) NSString *routingContextUID; // @dynamic routingContextUID;
 @property(nonatomic) unsigned int targetAudioSessionID; // @dynamic targetAudioSessionID;
 
 @end

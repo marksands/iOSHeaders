@@ -13,6 +13,7 @@
     _Bool _allowAddUnauthenticatedAccessory;
     _Bool _provideNetworkCredentialsToAccessory;
     _Bool _setupCodeProvided;
+    _Bool _needsUserConsent;
     long long _linkType;
     HMFTimer *_pairingInterruptionTimer;
     CDUnknownBlockType _addAccessoryCompletionHandler;
@@ -32,6 +33,7 @@
 @property(retain, nonatomic) NSString *homeName; // @synthesize homeName=_homeName;
 @property(retain, nonatomic) NSUUID *accessoryUUID; // @synthesize accessoryUUID=_accessoryUUID;
 @property(retain, nonatomic) NSString *accessoryName; // @synthesize accessoryName=_accessoryName;
+@property(nonatomic) _Bool needsUserConsent; // @synthesize needsUserConsent=_needsUserConsent;
 @property(nonatomic) _Bool setupCodeProvided; // @synthesize setupCodeProvided=_setupCodeProvided;
 @property(nonatomic) _Bool provideNetworkCredentialsToAccessory; // @synthesize provideNetworkCredentialsToAccessory=_provideNetworkCredentialsToAccessory;
 @property(nonatomic) _Bool allowAddUnauthenticatedAccessory; // @synthesize allowAddUnauthenticatedAccessory=_allowAddUnauthenticatedAccessory;
@@ -44,7 +46,7 @@
 @property(nonatomic) long long linkType; // @synthesize linkType=_linkType;
 - (void).cxx_destruct;
 - (id)description;
-- (id)initWithAccessoryDescription:(id)arg1 linkType:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3 progressHandler:(CDUnknownBlockType)arg4;
+- (id)initWithAccessoryDescription:(id)arg1 linkType:(long long)arg2 needsUserConsent:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4 progressHandler:(CDUnknownBlockType)arg5;
 - (id)initWithAccessoryUUID:(id)arg1 accessoryName:(id)arg2 linkType:(long long)arg3 homeName:(id)arg4 setupCode:(id)arg5 completionHandler:(CDUnknownBlockType)arg6 setupCodeProvider:(CDUnknownBlockType)arg7;
 
 @end

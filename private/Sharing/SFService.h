@@ -33,12 +33,14 @@
     struct LogCategory *_ucatCrypto;
     NSXPCConnection *_xpcCnx;
     unsigned char _deviceActionType;
+    _Bool _needsAWDL;
+    _Bool _needsKeyboard;
+    _Bool _needsNAN;
     _Bool _needsSetup;
     _Bool _overrideScreenOff;
     _Bool _pairSetupDisabled;
     _Bool _tlsEnabled;
     _Bool _hasProblem;
-    _Bool _needsKeyboard;
     _Bool _supportsAirPlayReceiver;
     _Bool _wakeDevice;
     _Bool _autoUnlockEnabled;
@@ -106,7 +108,6 @@
 @property(nonatomic) _Bool wakeDevice; // @synthesize wakeDevice=_wakeDevice;
 @property(nonatomic) _Bool supportsAirPlayReceiver; // @synthesize supportsAirPlayReceiver=_supportsAirPlayReceiver;
 @property(copy, nonatomic) CDUnknownBlockType requestMessageHandler; // @synthesize requestMessageHandler=_requestMessageHandler;
-@property(nonatomic) _Bool needsKeyboard; // @synthesize needsKeyboard=_needsKeyboard;
 @property(nonatomic) _Bool hasProblem; // @synthesize hasProblem=_hasProblem;
 @property(copy, nonatomic) CDUnknownBlockType eventMessageHandler; // @synthesize eventMessageHandler=_eventMessageHandler;
 @property(copy, nonatomic) CDUnknownBlockType errorHandler; // @synthesize errorHandler=_errorHandler;
@@ -131,6 +132,9 @@
 @property(copy, nonatomic) NSDictionary *pairSetupACL; // @synthesize pairSetupACL=_pairSetupACL;
 @property(nonatomic) _Bool overrideScreenOff; // @synthesize overrideScreenOff=_overrideScreenOff;
 @property(nonatomic) _Bool needsSetup; // @synthesize needsSetup=_needsSetup;
+@property(nonatomic) _Bool needsNAN; // @synthesize needsNAN=_needsNAN;
+@property(nonatomic) _Bool needsKeyboard; // @synthesize needsKeyboard=_needsKeyboard;
+@property(nonatomic) _Bool needsAWDL; // @synthesize needsAWDL=_needsAWDL;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(copy, nonatomic) NSString *fixedPIN; // @synthesize fixedPIN=_fixedPIN;

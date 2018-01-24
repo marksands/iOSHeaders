@@ -6,9 +6,7 @@
 
 #import <MediaMiningKit/CLSClue.h>
 
-#import "NSCoding.h"
-
-@interface CLSMeaningClue : CLSClue <NSCoding>
+@interface CLSMeaningClue : CLSClue
 {
     id _relatedData;
 }
@@ -17,8 +15,6 @@
 + (id)clueWithValue:(id)arg1 forKey:(id)arg2;
 @property(retain) id relatedData; // @synthesize relatedData=_relatedData;
 - (void).cxx_destruct;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (_Bool)isEqualToClue:(id)arg1;
 

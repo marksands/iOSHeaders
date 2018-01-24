@@ -8,6 +8,33 @@
 
 @interface UIColor (HKAdditions)
 + (id)hk_randomColor;
++ (id)hk_unknownCategoryClinicalGradientBottomColor;
++ (id)hk_unknownCategoryClinicalGradientTopColor;
++ (id)hk_unknownCategoryClinicalKeyColor;
++ (id)hk_vitalsClinicalGradientBottomColor;
++ (id)hk_vitalsClinicalGradientTopColor;
++ (id)hk_vitalsClinicalKeyColor;
++ (id)hk_proceduresClinicalGradientBottomColor;
++ (id)hk_proceduresClinicalGradientTopColor;
++ (id)hk_proceduresClinicalKeyColor;
++ (id)hk_medicationsClinicalGradientBottomColor;
++ (id)hk_medicationsClinicalGradientTopColor;
++ (id)hk_medicationsClinicalKeyColor;
++ (id)hk_labResultsClinicalGradientBottomColor;
++ (id)hk_labResultsClinicalGradientTopColor;
++ (id)hk_labResultsClinicalKeyColor;
++ (id)hk_immunizationsClinicalGradientBottomColor;
++ (id)hk_immunizationsClinicalGradientTopColor;
++ (id)hk_immunizationsClinicalKeyColor;
++ (id)hk_conditionsClinicalGradientBottomColor;
++ (id)hk_conditionsClinicalGradientTopColor;
++ (id)hk_conditionsClinicalKeyColor;
++ (id)hk_allergiesClinicalGradientBottomColor;
++ (id)hk_allergiesClinicalGradientTopColor;
++ (id)hk_allergiesClinicalKeyColor;
++ (id)hk_clinicalRecordShowMoreBackgroundColor;
++ (id)hk_clinicalRecordValueColor;
++ (id)hk_clinicalRecordSeparatorColor;
 + (id)hk_activityStandGoalMissedGradientBottomColor;
 + (id)hk_activityStandGoalMissedGradientTopColor;
 + (id)hk_activityStandGoalMetGradientBottomColor;
@@ -67,6 +94,7 @@
 + (id)hk_vitalsGradientBottomColor;
 + (id)hk_vitalsGradientTopColor;
 + (id)hk_vitalsKeyColor;
++ (id)hk_appErrorColor;
 + (id)hk_appKeyColor;
 @end
 

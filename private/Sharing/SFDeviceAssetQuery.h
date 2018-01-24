@@ -12,6 +12,7 @@
 {
     _Bool _forEngagement;
     _Bool _legacyFormats;
+    struct LogCategory *_ucat;
     NSString *_productType;
     NSString *_mappedProductType;
     NSString *_marketingProductNumber;
@@ -33,10 +34,12 @@
 @property(readonly, nonatomic) NSString *productType; // @synthesize productType=_productType;
 @property(readonly, nonatomic) _Bool legacyFormats; // @synthesize legacyFormats=_legacyFormats;
 @property(readonly, nonatomic) _Bool forEngagement; // @synthesize forEngagement=_forEngagement;
+@property(readonly, nonatomic) struct LogCategory *ucat; // @synthesize ucat=_ucat;
 - (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
+@property(readonly, nonatomic) NSString *stringIdentifier;
 - (id)loggingProductType;
 - (id)initWithProductType:(id)arg1 additionalQueryParameters:(id)arg2;
 - (id)initWithBluetoothProductIdentifier:(unsigned long long)arg1 color:(unsigned long long)arg2 engagement:(_Bool)arg3;

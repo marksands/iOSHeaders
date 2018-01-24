@@ -14,7 +14,6 @@
 {
     void *_origin;
     NSObject<OS_dispatch_queue> *_serialQueue;
-    void *_activePlayerPath;
     NSMutableArray *_nowPlayingClients;
     NSMutableDictionary *_transactionCallbacks;
 }
@@ -25,8 +24,8 @@
 - (void)setTransactionCallback:(CDUnknownBlockType)arg1 forName:(unsigned long long)arg2;
 - (void)removeClient:(void *)arg1;
 - (id)nowPlayingClientRequestsForPlayerPath:(void *)arg1;
-@property(nonatomic) void *activePlayerPath;
 - (id)nowPlayingClients;
+- (id)debugDescription;
 - (void)dealloc;
 - (id)initWithOrigin:(void *)arg1;
 

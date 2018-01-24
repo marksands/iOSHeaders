@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <SafariShared/WBSParsecSearchResult.h>
+#import <SafariShared/WBSParsecLegacySearchResult.h>
 
-#import "WBSParsecSearchMapsResultFeedbackSenderClient.h"
-#import "WBSParsecSearchResultPresentedInCard.h"
+#import "WBSParsecSearchSimpleResult.h"
 
 @class NSArray, NSNumber, NSString, WBSParsecImageRepresentation, WBSParsecSearchMapsResultFeedbackSender;
 
-@interface WBSParsecSearchSimpleResult : WBSParsecSearchResult <WBSParsecSearchMapsResultFeedbackSenderClient, WBSParsecSearchResultPresentedInCard>
+@interface WBSParsecSearchSimpleResult : WBSParsecLegacySearchResult <WBSParsecSearchSimpleResult>
 {
     WBSParsecImageRepresentation *_titleGlyph;
     NSArray *_moreIconRepresentations;
@@ -34,9 +33,6 @@
 @property(retain, nonatomic) id <WBSParsecSearchSession> parsecSearchSession; // @synthesize parsecSearchSession=_parsecSearchSession;
 @property(retain, nonatomic) WBSParsecSearchMapsResultFeedbackSender *mapsFeedbackSender; // @synthesize mapsFeedbackSender=_mapsFeedbackSender;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) _Bool willPresentResultInCard;
-- (id)moreIconsWithSession:(id)arg1;
-@property(readonly, nonatomic) _Bool hasMoreIcons;
 - (id)titleGlyphWithSession:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 

@@ -71,7 +71,9 @@
 - (_Bool)_hasRemoteLibrary;
 - (_Bool)isPaymentPassActivationAvailable;
 - (id)_defaultPaymentPassForPaymentRequest:(id)arg1;
+- (void)supportedPartnersForDigitalIssuance:(CDUnknownBlockType)arg1;
 - (id)_sortedPaymentPassesForPaymentRequest:(id)arg1;
+- (void)sortedTransitPassesForAppletDataFormat:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)expressFelicaTransitPasses;
 - (id)defaultPaymentPasses;
 - (_Bool)resetSettingsForPass:(id)arg1;
@@ -104,6 +106,7 @@
 - (void)presentWalletWithRelevantPassUniqueID:(id)arg1;
 - (void)presentPaymentPass:(id)arg1;
 - (void)openPaymentSetupForMerchantIdentifier:(id)arg1 domain:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)openDigitalIssuanceSetupForIdentifier:(id)arg1;
 - (void)openPaymentSetup;
 - (void)addPasses:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)dataForBundleResourceNamed:(id)arg1 withExtension:(id)arg2 objectUniqueIdentifier:(id)arg3;

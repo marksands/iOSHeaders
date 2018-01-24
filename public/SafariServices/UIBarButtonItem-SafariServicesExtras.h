@@ -8,6 +8,7 @@
 
 @interface UIBarButtonItem (SafariServicesExtras)
 + (double)_sf_longPressAllowableMovement;
+- (void)_sf_test_simulateLongPressInvocation;
 - (void)_sf_setLongPressTarget:(id)arg1 action:(SEL)arg2;
 @property(nonatomic, setter=_sf_setLongPressEnabled:) _Bool _sf_longPressEnabled;
 @end

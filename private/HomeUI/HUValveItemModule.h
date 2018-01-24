@@ -4,30 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "HFItemModule.h"
+#import <HomeUI/HUChildServiceEditorItemModule.h>
 
-@class HFItem<HFServiceLikeItem>, HFServiceItemProvider, HMHome, NSSet;
-
-@interface HUValveItemModule : HFItemModule
+@interface HUValveItemModule : HUChildServiceEditorItemModule
 {
-    NSSet *_itemProviders;
-    unsigned long long _editingMode;
-    HMHome *_home;
-    HFItem<HFServiceLikeItem> *_sourceItem;
-    HFServiceItemProvider *_valveServiceItemProvider;
 }
 
-+ (CDUnknownBlockType)valveItemComparator;
-@property(retain, nonatomic) HFServiceItemProvider *valveServiceItemProvider; // @synthesize valveServiceItemProvider=_valveServiceItemProvider;
-@property(retain, nonatomic) HFItem<HFServiceLikeItem> *sourceItem; // @synthesize sourceItem=_sourceItem;
-@property(retain, nonatomic) HMHome *home; // @synthesize home=_home;
-@property(readonly, nonatomic) unsigned long long editingMode; // @synthesize editingMode=_editingMode;
-- (void).cxx_destruct;
-- (id)_createItemProviders;
-- (id)toggleConfigurationStateForItem:(id)arg1;
++ (id)supportedServiceTypes;
 - (id)buildSectionsWithDisplayedItems:(id)arg1;
-- (id)itemProviders;
-- (id)initWithItemUpdater:(id)arg1 home:(id)arg2 sourceItem:(id)arg3 mode:(unsigned long long)arg4;
 
 @end
 

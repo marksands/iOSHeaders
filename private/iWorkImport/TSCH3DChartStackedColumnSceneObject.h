@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)isHorizontalChart;
 + (_Bool)isStacked;
 + (id)chartSeriesType;
-- (void)sortElements:(vector_cd7372eb *)arg1 pipeline:(id)arg2;
+- (void)sortElements:(vector_d7c2985b *)arg1 pipeline:(id)arg2;
 
 @end
 

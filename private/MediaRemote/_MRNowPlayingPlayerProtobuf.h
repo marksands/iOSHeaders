@@ -12,15 +12,14 @@
 
 @interface _MRNowPlayingPlayerProtobuf : PBCodable <NSCopying>
 {
+    int _audioSessionType;
     NSString *_displayName;
     NSString *_identifier;
-    _Bool _isDefaultPlayer;
     struct {
-        unsigned int isDefaultPlayer:1;
+        unsigned int audioSessionType:1;
     } _has;
 }
 
-@property(nonatomic) _Bool isDefaultPlayer; // @synthesize isDefaultPlayer=_isDefaultPlayer;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void)mergeFrom:(id)arg1;
@@ -32,7 +31,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasIsDefaultPlayer;
+- (int)StringAsAudioSessionType:(id)arg1;
+- (id)audioSessionTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasAudioSessionType;
+@property(nonatomic) int audioSessionType; // @synthesize audioSessionType=_audioSessionType;
 @property(readonly, nonatomic) _Bool hasDisplayName;
 @property(readonly, nonatomic) _Bool hasIdentifier;
 - (void)dealloc;

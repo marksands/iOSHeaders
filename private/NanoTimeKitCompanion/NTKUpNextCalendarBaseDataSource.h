@@ -17,7 +17,7 @@
 + (id)_elementIdenfierForEventIdentifier:(id)arg1 inSection:(unsigned long long)arg2;
 + (id)_openActionForEventURL:(id)arg1;
 + (id)_upNextElementContentForForTitle:(id)arg1 location:(id)arg2 organizer:(id)arg3 calendarColor:(id)arg4 eventInterval:(id)arg5 isAllDay:(_Bool)arg6;
-+ (id)_upNextElementForTimedEventWithTitle:(id)arg1 location:(id)arg2 organizer:(id)arg3 calendarColor:(id)arg4 eventInterval:(id)arg5 isAllDay:(_Bool)arg6 irrelevanceDate:(id)arg7 inSection:(unsigned long long)arg8 eventIdentifier:(id)arg9 eventURL:(id)arg10;
++ (id)_upNextElementForTimedEventWithTitle:(id)arg1 location:(id)arg2 organizer:(id)arg3 calendarColor:(id)arg4 eventInterval:(id)arg5 isAllDay:(_Bool)arg6 irrelevanceDate:(id)arg7 inSection:(unsigned long long)arg8 eventIdentifier:(id)arg9 eventURL:(id)arg10 logHeader:(id)arg11;
 + (id)sampleContentElements;
 + (id)bundleIdentifier;
 + (id)_pillImage;

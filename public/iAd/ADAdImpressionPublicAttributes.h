@@ -15,11 +15,13 @@
     _Bool _unbranded;
     _Bool _hasAction;
     _Bool _requiresMRAID;
+    _Bool _adLibManagedVideo;
     NSString *_batchResponseIdentifier;
     NSString *_accessibilityLabel;
     double _skipThreshold;
     double _minimumIntervalBetweenPresentations;
     NSArray *_videoAssets;
+    NSDictionary *_mediaAsset;
     NSString *_uniqueIdentifier;
     NSURL *_audioURL;
     NSURL *_staticImageURL;
@@ -44,6 +46,7 @@
 @property(nonatomic) long long adPrivacyMarkPosition; // @synthesize adPrivacyMarkPosition=_adPrivacyMarkPosition;
 @property(retain, nonatomic) NSArray *excludeTags; // @synthesize excludeTags=_excludeTags;
 @property(retain, nonatomic) NSArray *matchClauses; // @synthesize matchClauses=_matchClauses;
+@property(nonatomic) _Bool adLibManagedVideo; // @synthesize adLibManagedVideo=_adLibManagedVideo;
 @property(nonatomic) long long maximumPretapRequestCount; // @synthesize maximumPretapRequestCount=_maximumPretapRequestCount;
 @property(nonatomic) _Bool requiresMRAID; // @synthesize requiresMRAID=_requiresMRAID;
 @property(nonatomic) struct CGSize containerSize; // @synthesize containerSize=_containerSize;
@@ -61,6 +64,7 @@
 @property(retain, nonatomic) NSURL *audioURL; // @synthesize audioURL=_audioURL;
 @property(nonatomic) _Bool hasAction; // @synthesize hasAction=_hasAction;
 @property(copy, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+@property(retain, nonatomic) NSDictionary *mediaAsset; // @synthesize mediaAsset=_mediaAsset;
 @property(retain, nonatomic) NSArray *videoAssets; // @synthesize videoAssets=_videoAssets;
 @property(nonatomic) double minimumIntervalBetweenPresentations; // @synthesize minimumIntervalBetweenPresentations=_minimumIntervalBetweenPresentations;
 @property(nonatomic) double skipThreshold; // @synthesize skipThreshold=_skipThreshold;

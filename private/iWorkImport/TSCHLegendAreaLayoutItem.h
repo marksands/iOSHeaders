@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     NSValue *mLegendGeometryFrame;
 }
 
+- (void).cxx_destruct;
 - (struct CGPath *)newDragAndDropHighlightPathForSelection:(id)arg1;
 - (void)protected_iterateHitChartElements:(struct CGPoint)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (struct CGAffineTransform)transformForRenderingLabel:(unsigned long long)arg1 paragraphStyle:(id)arg2 cellType:(int)arg3 range:(struct _NSRange)arg4 outElementSize:(struct CGSize *)arg5 outClipRect:(struct CGRect *)arg6;
@@ -31,7 +32,6 @@ __attribute__((visibility("hidden")))
 - (void)clearAll;
 - (void)clearLayoutSize;
 - (void)resetLayoutSize;
-- (void)dealloc;
 - (id)initWithParent:(id)arg1;
 
 @end

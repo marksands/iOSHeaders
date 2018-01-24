@@ -11,7 +11,6 @@
 @interface _SFSharingLinkExtractor : NSObject
 {
     WKWebView *_webView;
-    id <_SFWebProcessSharingLinkExtractor> _remoteObjectProxy;
 }
 
 - (void).cxx_destruct;

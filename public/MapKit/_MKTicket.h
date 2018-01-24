@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *displayHeaderSubstitutes;
 @property(readonly, nonatomic) NSString *resultDisplayHeader;
 @property(readonly, nonatomic) GEODirectionIntent *directionIntent;
+@property(readonly, nonatomic) NSArray *retainedSearchMetadata;
 @property(readonly, nonatomic) GEOResolvedItem *clientResolvedResult;
 @property(readonly, nonatomic) int searchResultType;
 @property(readonly, nonatomic) NSArray *browseCategories;

@@ -13,7 +13,6 @@
 + (void)clearDistributionKey:(id)arg1;
 + (void)pushDouble:(double)arg1 forKey:(id)arg2;
 + (void)incrementKey:(id)arg1;
-+ (void)logDidTombstoneCourse;
 + (void)logCourseCount:(unsigned long long)arg1;
 + (void)logDidDeleteCourse;
 + (void)resetConfigurationCounts;

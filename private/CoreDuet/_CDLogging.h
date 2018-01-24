@@ -10,6 +10,8 @@
 {
 }
 
++ (id)interactionSignpost;
++ (id)knowledgeSignpost;
 + (id)syncChannel;
 + (id)admissionCheckChannel;
 + (id)contextChannel;

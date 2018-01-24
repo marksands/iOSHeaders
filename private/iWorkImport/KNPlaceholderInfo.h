@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)autoListRecognition;
 - (id)instructionalText;
 - (_Bool)displaysInstructionalText;
+- (_Bool)isAllowedInGroups;
 - (Class)layoutClass;
 - (Class)repClass;
 - (id)copyAsShapeInfoWithContext:(id)arg1;

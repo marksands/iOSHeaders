@@ -9,14 +9,15 @@
 #import "TSDCanvasDelegate.h"
 #import "TSDConnectedInfoReplacing.h"
 
-@class KNAnimatedSlideModel, KNPlaybackSession, KNSlide, KNSlideNode, NSArray, NSIndexSet, NSLock, NSMapTable, NSMutableArray, NSMutableSet, NSString, TSDCanvas;
+@class KNAnimatedSlideModel, KNPlaybackSession, KNSlide, KNSlideNode, NSArray, NSIndexSet, NSLock, NSMapTable, NSMutableArray, NSMutableSet, NSSet, NSString, TSDCanvas;
 
 __attribute__((visibility("hidden")))
 @interface KNAnimatedSlideView : NSObject <TSDCanvasDelegate, TSDConnectedInfoReplacing>
 {
     unsigned long long _animationsActive;
     unsigned long long _animationsStarted;
-    NSMapTable *_buildsToStartAfterMovieStartsMap;
+    NSMutableSet *_ambientBuildRenderers;
+    NSMapTable *_buildsToStartAfterAmbientBuildStartsMap;
     NSMutableArray *_delayedAnimations;
     unsigned long long _slideNumber;
     NSMapTable *_textureDescriptionAndSetForRepMap;
@@ -36,17 +37,16 @@ __attribute__((visibility("hidden")))
     SEL _eventEndCallbackSelector;
     id _eventImmediateEndCallbackTarget;
     SEL _eventImmediateEndCallbackSelector;
-    id _movieStartCallbackTarget;
-    SEL _movieStartCallbackSelector;
-    id _movieEndCallbackTarget;
-    SEL _movieEndCallbackSelector;
+    id _ambientBuildStartCallbackTarget;
+    SEL _ambientBuildStartCallbackSelector;
+    id _ambientBuildEndCallbackTarget;
+    SEL _ambientBuildEndCallbackSelector;
     _Bool _isDoneAnimating;
     _Bool _isInDelayBeforeActiveTransition;
     _Bool _hasEventStarted;
     _Bool _playsAutomaticTransitions;
     _Bool _triggerQueued;
     TSDCanvas *_canvas;
-    NSMutableSet *_movieRenderers;
     unsigned long long _currentEventIndex;
     NSMutableSet *_activeAnimatedBuilds;
     NSIndexSet *_eventIndexesToAnimate;
@@ -78,6 +78,7 @@ __attribute__((visibility("hidden")))
 - (void)clearActiveAnimatedBuilds;
 - (void)removeActiveAnimatedBuild:(id)arg1;
 - (void)addActiveAnimatedBuild:(id)arg1;
+- (_Bool)shouldPreCache;
 - (void)serializeTextures;
 - (void)waitUntilAsyncRenderingIsCompleteShouldCancel:(_Bool)arg1;
 - (void)renderTextures;
@@ -88,23 +89,24 @@ __attribute__((visibility("hidden")))
 - (id)p_textureSetForRep:(id)arg1 shouldRender:(_Bool)arg2;
 - (id)p_initializeTextureSetForRep:(id)arg1 info:(id)arg2 eventIndex:(unsigned long long)arg3 ignoreBuildVisibility:(_Bool)arg4 isRenderingToContext:(_Bool)arg5;
 - (void)setTexture:(id)arg1 forRep:(id)arg2 forDescription:(id)arg3;
-- (void)p_resetMovieTextures;
-- (void)p_clearMovieRenderers;
-- (void)p_removeMovieRenderer:(id)arg1;
-- (void)p_addMovieRenderer:(id)arg1;
-@property(readonly, nonatomic) NSMutableSet *movieRenderers; // @synthesize movieRenderers=_movieRenderers;
+- (void)p_evictCacheAmbientBuildTexturesForTransition:(id)arg1;
+- (void)p_resetAmbientBuildTextures;
+- (void)p_clearAmbientBuildRenderers;
+- (void)p_removeAmbientBuildRenderer:(id)arg1;
+- (void)p_addAmbientBuildRenderer:(id)arg1;
+@property(readonly, nonatomic) NSSet *movieRenderers;
 - (void)p_animateBuild:(id)arg1;
 - (void)p_animateBuild:(id)arg1 afterDelay:(double)arg2;
 - (void)p_removeDelayedAnimation:(id)arg1;
-- (void)p_performAnimationWithTarget:(id)arg1 selector:(SEL)arg2 object:(id)arg3 delay:(double)arg4;
-- (_Bool)p_shouldSkipActionBuild:(id)arg1 onMovieInfo:(id)arg2;
-- (void)p_animateBuild:(id)arg1 isMoviePlayback:(_Bool)arg2;
+- (void)p_performAnimationWithTarget:(id)arg1 selector:(SEL)arg2 object:(id)arg3 delay:(double)arg4 performAsynchronously:(_Bool)arg5;
+- (_Bool)p_shouldSkipActionBuild:(id)arg1 onDrawable:(id)arg2;
+- (void)p_animateBuild:(id)arg1 isAmbientBuild:(_Bool)arg2;
 - (void)p_animateTransition:(id)arg1;
 - (void)p_setupTransitionStartTime;
 - (void)resumeAnimationsIfPaused;
 - (void)pauseAnimations;
 - (void)stopAnimations;
-- (void)p_stopAllMovieRenderers;
+- (void)p_stopAllAmbientBuildRenderers;
 - (void)interruptAndReset;
 - (void)reset;
 @property(readonly, nonatomic) unsigned long long buildEventCount;
@@ -114,7 +116,8 @@ __attribute__((visibility("hidden")))
 - (void)triggerNextEventIgnoringDelay:(_Bool)arg1;
 - (void)triggerNextEvent;
 - (_Bool)playAutomaticEvents;
-- (void)renderEvent:(unsigned long long)arg1 intoContext:(struct CGContext *)arg2 ignoreBuildVisibility:(_Bool)arg3;
+- (void)renderIntoContext:(struct CGContext *)arg1 eventIndex:(unsigned long long)arg2 ignoreBuildVisibility:(_Bool)arg3;
+- (void)p_renderCurrentEvent;
 - (void)renderCurrentEvent;
 - (id)p_addParentLayerForInfo:(id)arg1;
 @property(readonly, nonatomic) TSDCanvas *canvas; // @synthesize canvas=_canvas;
@@ -126,17 +129,17 @@ __attribute__((visibility("hidden")))
 - (id)repsCurrentlyVisible;
 - (id)infosCurrentlyVisible;
 @property(readonly, nonatomic) NSArray *allInfos;
-@property(readonly, nonatomic) _Bool isMovieAnimating;
-@property(readonly, nonatomic) _Bool isNonMovieAnimationAnimating;
-@property(readonly, nonatomic) _Bool isNonMovieAnimationActive;
+@property(readonly, nonatomic) _Bool isAmbientAnimationAnimating;
+@property(readonly, nonatomic) _Bool isNonAmbientAnimationAnimating;
+@property(readonly, nonatomic) _Bool isNonAmbientAnimationActive;
 @property(readonly, nonatomic) _Bool isAnimating;
 - (void)buildHasFinishedAnimating:(id)arg1;
-- (void)movieHasFinishedPlayback:(id)arg1;
-- (void)p_movieStarted:(id)arg1;
+- (void)p_ambientBuildEnded:(id)arg1;
+- (void)p_ambientBuildStarted:(id)arg1;
 - (void)transitionHasFinishedAnimating:(id)arg1;
 - (void)transitionHasImmediatelyFinishedAnimating:(id)arg1;
-- (void)registerForMovieEndCallback:(SEL)arg1 target:(id)arg2;
-- (void)registerForMovieStartCallback:(SEL)arg1 target:(id)arg2;
+- (void)registerForAmbientBuildEndCallback:(SEL)arg1 target:(id)arg2;
+- (void)registerForAmbientBuildStartCallback:(SEL)arg1 target:(id)arg2;
 - (void)registerForEventImmediateEndCallback:(SEL)arg1 target:(id)arg2;
 - (void)registerForEventEndCallback:(SEL)arg1 target:(id)arg2;
 - (void)registerForEventAnimationActiveCallback:(SEL)arg1 target:(id)arg2;
@@ -153,6 +156,7 @@ __attribute__((visibility("hidden")))
 - (void)p_recursivelyRemoveCallbackObserversFromAnimatedBuilds:(id)arg1;
 - (void)p_loadPerformanceAnalysisFrameWork;
 @property(readonly, copy) NSString *description;
+- (void)tearDownTransition;
 - (void)tearDown;
 - (void)dealloc;
 - (id)init;

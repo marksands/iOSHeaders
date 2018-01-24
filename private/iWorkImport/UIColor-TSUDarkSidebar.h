@@ -31,6 +31,10 @@
 + (id)tsu_sidebarInactiveTintColor;
 + (id)tsu_sidebarActiveTintColor;
 + (id)tsu_sidebarNavigationBarTitleColor;
++ (id)tsu_mediaBrowserChickletTitleDarkColor;
++ (id)tsu_mediaBrowserChickletTitleLightColor;
++ (id)tsu_mediaBrowserChickletDarkColor;
++ (id)tsu_mediaBrowserChickletLightColor;
 + (id)tsu_mediaBrowserSecondaryContentColor;
 + (id)tsu_mediaBrowserPrimaryContentColor;
 + (id)tsu_mediaBrowserNavigationBarTintColor;

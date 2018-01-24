@@ -51,7 +51,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *pipeliningDescription;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
 - (void)main;
-- (id)_possiblyWrapError:(id)arg1 withCode:(long long)arg2 format:(id)arg3;
+- (id)_possiblyWrapError:(id)arg1 forRecordWithID:(id)arg2 withCode:(long long)arg3 format:(id)arg4;
 - (void)_sendFetchChangesRequestForZoneIDs:(id)arg1 withOptions:(id)arg2 previousRequestSchedulerInfo:(id)arg3;
 - (void)_handleRecordDelete:(id)arg1 recordType:(id)arg2 perRequestSchedulerInfo:(id)arg3;
 - (void)_handleRecordChange:(id)arg1 perRequestSchedulerInfo:(id)arg2;

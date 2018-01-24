@@ -20,6 +20,7 @@
     _Bool _reUsed;
     _Bool _actionInProgress;
     _Bool _dimmingEnabled;
+    _Bool _requestCalledbackError;
     _Bool _canLoadMoreThanOnce;
     _Bool _hasLoadedFirstAd;
     int _screenfuls;
@@ -37,6 +38,7 @@
 @property(nonatomic) _Bool canLoadMoreThanOnce; // @synthesize canLoadMoreThanOnce=_canLoadMoreThanOnce;
 @property(retain, nonatomic) ADAdSpace *adSpace; // @synthesize adSpace=_adSpace;
 @property(retain, nonatomic) ADInterstitialView *interstitialView; // @synthesize interstitialView=_interstitialView;
+@property(nonatomic) _Bool requestCalledbackError; // @synthesize requestCalledbackError=_requestCalledbackError;
 @property(retain, nonatomic) ADInterstitialAdPresentationViewController *presentationViewController; // @synthesize presentationViewController=_presentationViewController;
 @property(nonatomic) int creativeType; // @synthesize creativeType=_creativeType;
 @property(nonatomic) _Bool dimmingEnabled; // @synthesize dimmingEnabled=_dimmingEnabled;

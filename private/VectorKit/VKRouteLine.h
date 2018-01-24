@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
     double _simplificationEpsilonPoints;
     double _viewUnitsPerPoint;
     id <VKRouteLineObserverProtocol> _observer;
-    vector_8449fd58 _sections;
+    vector_7b5b20f1 _sections;
     struct fast_shared_ptr<md::RouteLineSection> _userLocationSection;
     struct PolylineCoordinate _userLocationIndex;
     Matrix_8746f91e _userLocation;
@@ -38,7 +38,7 @@ __attribute__((visibility("hidden")))
 @property _Bool hasNewRoadMatches; // @synthesize hasNewRoadMatches=_hasNewRoadMatches;
 @property(readonly, nonatomic) VKPolylineOverlay *overlay; // @synthesize overlay=_overlay;
 @property(readonly, nonatomic) Box_3d7e3c2c bounds; // @synthesize bounds=_bounds;
-@property(readonly, nonatomic) vector_8449fd58 sections; // @synthesize sections=_sections;
+@property(readonly, nonatomic) vector_7b5b20f1 sections; // @synthesize sections=_sections;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (double)boundsUnitsPerMeter;

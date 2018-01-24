@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class SXComponent, SXComponentView;
+@class SXComponentView;
 
 @protocol SXComponentViewPostProcessorManager <NSObject>
 - (void)removeProcessor:(id <SXComponentViewPostProcessor>)arg1;
 - (void)addProcessor:(id <SXComponentViewPostProcessor>)arg1;
-- (void)processComponent:(SXComponent *)arg1 view:(SXComponentView *)arg2;
+- (void)processComponent:(id <SXComponent>)arg1 view:(SXComponentView *)arg2;
 @end
 

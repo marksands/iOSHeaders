@@ -73,6 +73,8 @@
 - (void)sessionAcceptReceived:(NSString *)arg1 fromID:(NSString *)arg2 withData:(NSData *)arg3;
 - (void)sessionInvitationReceivedWithPayload:(NSDictionary *)arg1 forTopic:(NSString *)arg2 sessionID:(NSString *)arg3 toIdentifier:(NSString *)arg4 fromID:(NSString *)arg5 transportType:(NSNumber *)arg6;
 - (void)IDQueryCompletedWithFromURI:(NSString *)arg1 idStatusUpdates:(NSDictionary *)arg2 service:(NSString *)arg3 success:(_Bool)arg4 error:(NSError *)arg5;
+- (void)didGeneratePhoneAuthenticationSignature:(NSData *)arg1 nonce:(NSData *)arg2 certificate:(NSData *)arg3 inputData:(NSData *)arg4 requestUUID:(NSString *)arg5 error:(NSError *)arg6;
+- (void)didAuthenticatePhoneWithAuthenticationCertificateData:(NSData *)arg1 requestUUID:(NSString *)arg2 error:(NSError *)arg3;
 - (void)account:(NSString *)arg1 localDeviceRemoved:(NSDictionary *)arg2;
 - (void)account:(NSString *)arg1 localDeviceAdded:(NSDictionary *)arg2;
 - (void)account:(NSString *)arg1 dependentDevicesUpdatedUponReconnect:(NSArray *)arg2;

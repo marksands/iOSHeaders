@@ -25,6 +25,7 @@
 + (id)placeDataCacheDirectoryPath;
 + (id)phoneNumberMUIDMappingFilePath;
 + (id)geoServicesCacheDirectoryPath;
++ (id)geodCacheDirectoryPath;
 + (id)preferencesDirectoryPath;
 + (id)homeDirectory;
 + (void)initialize;

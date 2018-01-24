@@ -4,15 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSObject<OS_dispatch_queue>, NSObject<OS_os_activity>, NSObject<OS_xpc_object>;
+@class NSError, NSObject<OS_dispatch_queue>, NSObject<OS_os_activity>, NSObject<OS_xpc_object>;
 
 @protocol GEODataXPCSessionTaskQueueTask
+@property(readonly, nonatomic) double timeoutInterval;
 @property(readonly, nonatomic) float taskQueuePriority;
 @property(readonly, nonatomic) NSObject<OS_os_activity> *activity;
 @property(readonly, nonatomic) _Bool isCancelled;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *sessionIsolation;
 @property(readonly, nonatomic) NSObject<OS_xpc_object> *xpcRequest;
 @property(readonly, nonatomic) unsigned int taskQueue;
-- (void)processResult:(int)arg1 xpcReply:(NSObject<OS_xpc_object> *)arg2;
+- (void)processResult:(int)arg1 xpcReply:(NSObject<OS_xpc_object> *)arg2 error:(NSError *)arg3;
+- (void)willSendTask:(void (^)(void))arg1;
 @end
 

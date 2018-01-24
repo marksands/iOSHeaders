@@ -14,12 +14,10 @@
 
 @interface ARImageData : NSObject <ARSensorData, NSCopying, NSSecureCoding>
 {
-    _Bool _pixelBufferIsMirrored;
+    _Bool _mirrored;
     _Bool _shouldRestrictFrameRate;
     float _exposureTargetOffset;
     float _temperature;
-    float _tint;
-    float _ISO;
     double _timestamp;
     NSDate *_captureDate;
     struct __CVBuffer *_pixelBuffer;
@@ -34,6 +32,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++     // Error parsing type: {?=[3]}24@0:8@16, name: intrinsicsFromDeviceFormat:
 + (id)captureDateFromPresentationTimestamp:(CDStruct_1b6d18a9)arg1 session:(id)arg2;
 @property(nonatomic) _Bool shouldRestrictFrameRate; // @synthesize shouldRestrictFrameRate=_shouldRestrictFrameRate;
 @property(nonatomic) long long renderFramesPerSecond; // @synthesize renderFramesPerSecond=_renderFramesPerSecond;
@@ -42,12 +41,10 @@
 @property(nonatomic) double depthDataTimestamp; // @synthesize depthDataTimestamp=_depthDataTimestamp;
 @property(retain, nonatomic) AVDepthData *depthData; // @synthesize depthData=_depthData;
 @property(retain, nonatomic) ARFaceData *faceData; // @synthesize faceData=_faceData;
-@property(nonatomic) float ISO; // @synthesize ISO=_ISO;
-@property(nonatomic) double exposureDuration; // @synthesize exposureDuration=_exposureDuration;
-@property(nonatomic) float tint; // @synthesize tint=_tint;
 @property(nonatomic) float temperature; // @synthesize temperature=_temperature;
 @property(nonatomic) float exposureTargetOffset; // @synthesize exposureTargetOffset=_exposureTargetOffset;
-@property(nonatomic) _Bool pixelBufferIsMirrored; // @synthesize pixelBufferIsMirrored=_pixelBufferIsMirrored;
+@property(nonatomic) double exposureDuration; // @synthesize exposureDuration=_exposureDuration;
+@property(nonatomic, getter=isMirrored) _Bool mirrored; // @synthesize mirrored=_mirrored;
 @property(nonatomic) struct __CVBuffer *pixelBuffer; // @synthesize pixelBuffer=_pixelBuffer;
 // Error parsing type for property cameraIntrinsics:
 // Property attributes: T{?=[3]},N,V_cameraIntrinsics
@@ -58,9 +55,11 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+@property(readonly, nonatomic) ARImageData *originalImage;
 @property(readonly, nonatomic) struct CGSize imageResolution;
 - (void)dealloc;
 - (id)initWithSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 captureFramePerSecond:(long long)arg2 renderFramePerSecond:(long long)arg3 captureDevice:(id)arg4 captureSession:(id)arg5;
+- (id)initWithImageData:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,13 +6,17 @@
 
 #import <CoreFoundation/__NSCFType.h>
 
+#import "NSSecureCoding.h"
+
 __attribute__((visibility("hidden")))
-@interface __NSCFCharacterSet : __NSCFType
+@interface __NSCFCharacterSet : __NSCFType <NSSecureCoding>
 {
 }
 
++ (_Bool)supportsSecureCoding;
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (Class)classForCoder;
 - (void)makeCharacterSetFast;
 - (void)makeCharacterSetCompact;

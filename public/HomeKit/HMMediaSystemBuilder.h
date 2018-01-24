@@ -6,21 +6,53 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString;
+#import "HMFLogging.h"
 
-@interface HMMediaSystemBuilder : NSObject
+@class HMHome, HMMediaSystem, HMThreadSafeMutableArrayCollection, NSArray, NSObject<OS_dispatch_queue>, NSString, NSUUID, _HMContext;
+
+@interface HMMediaSystemBuilder : NSObject <HMFLogging>
 {
-    NSString *_name;
     NSArray *_components;
+    NSString *_name;
+    NSObject<OS_dispatch_queue> *_propertyQueue;
+    _HMContext *_context;
+    NSUUID *_uuid;
+    NSUUID *_mediaSystemUUID;
+    NSString *_builderSessionID;
+    HMHome *_home;
+    HMMediaSystem *_mediaSystem;
+    HMThreadSafeMutableArrayCollection *_componentsArray;
 }
 
++ (_Bool)supportsMediaSystem:(id)arg1;
++ (_Bool)canSupportMediaSystem:(id)arg1;
++ (id)logCategory;
+@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *componentsArray; // @synthesize componentsArray=_componentsArray;
+@property(readonly, nonatomic) HMMediaSystem *mediaSystem; // @synthesize mediaSystem=_mediaSystem;
+@property(readonly, nonatomic) __weak HMHome *home; // @synthesize home=_home;
+@property(retain, nonatomic) NSString *builderSessionID; // @synthesize builderSessionID=_builderSessionID;
+@property(readonly, nonatomic) NSUUID *mediaSystemUUID; // @synthesize mediaSystemUUID=_mediaSystemUUID;
+@property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
+@property(retain, nonatomic) _HMContext *context; // @synthesize context=_context;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
+- (void).cxx_destruct;
+- (void)_callCompletion:(CDUnknownBlockType)arg1 builderSessionID:(id)arg2 error:(id)arg3 response:(id)arg4;
+- (void)_commitWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)commitWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(retain, nonatomic) NSArray *components; // @synthesize components=_components;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-- (void).cxx_destruct;
-- (void)commitWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)_initializeContext;
+- (id)logIdentifier;
+@property(readonly, copy) NSString *description;
+- (void)dealloc;
 - (id)initWithMediaSystem:(id)arg1;
 - (id)initWithHome:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

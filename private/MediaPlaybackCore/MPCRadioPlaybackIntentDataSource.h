@@ -14,7 +14,6 @@
 {
 }
 
-- (void)getRemotePlaybackQueueForIntent:(id)arg1 playerPath:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)getPlaybackContextForIntent:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 
 // Remaining properties

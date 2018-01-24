@@ -6,21 +6,29 @@
 
 #import "NSObject.h"
 
+#import "DEDSecureArchiving.h"
+
 @class NSString;
 
-@interface DEDExtension : NSObject
+@interface DEDExtension : NSObject <DEDSecureArchiving>
 {
     NSString *_identifier;
     NSString *_name;
 }
 
++ (id)archivedClasses;
 + (id)extensionWithDEExtension:(id)arg1;
 + (id)extensionWithDicionary:(id)arg1;
 @property(retain) NSString *name; // @synthesize name=_name;
 @property(retain) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)serialize;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

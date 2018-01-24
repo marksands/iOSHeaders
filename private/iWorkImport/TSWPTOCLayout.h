@@ -27,8 +27,6 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)columnCount;
 - (id)layoutMargins;
 - (struct CGSize)adjustedInsetsForTarget:(id)arg1;
-- (id)childSearchTargets;
-- (void)layoutSearchForString:(id)arg1 options:(unsigned long long)arg2 hitBlock:(CDUnknownBlockType)arg3;
 - (_Bool)textLayoutShouldWrapAroundExternalDrawables:(id)arg1;
 - (double)maxAutoGrowHeightForTextLayout:(id)arg1;
 - (Class)repClassForTextLayout:(id)arg1;
@@ -38,7 +36,7 @@ __attribute__((visibility("hidden")))
 - (int)verticalAlignmentForTextLayout:(id)arg1;
 - (unsigned int)autosizeFlagsForTextLayout:(id)arg1;
 - (id)commandToClampModelToLayoutSize;
-- (void)transferLayoutGeometryToInfo:(id)arg1;
+- (void)transferLayoutGeometryToInfo:(id)arg1 withAdditionalTransform:(struct CGAffineTransform)arg2 assertIfInDocument:(_Bool)arg3;
 - (_Bool)isDraggable;
 - (struct CGRect)boundsForStandardKnobs;
 - (id)computeLayoutGeometry;

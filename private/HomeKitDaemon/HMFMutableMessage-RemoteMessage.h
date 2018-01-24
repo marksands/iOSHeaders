@@ -9,7 +9,9 @@
 @class NSString;
 
 @interface HMFMutableMessage (RemoteMessage)
+@property(nonatomic) unsigned long long remoteRestriction;
 @property(retain, nonatomic) NSString *remoteSourceID;
+@property(nonatomic, getter=isSecureRemote) _Bool secureRemote;
 @property(nonatomic, getter=isRemote) _Bool remote;
 @end
 

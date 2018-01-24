@@ -50,6 +50,8 @@
 - (void)moveMemberAtIndexPath:(id)arg1 toIndexPath:(id)arg2 shouldUpdateImmediately:(_Bool)arg3;
 - (id)indexPathOfMember:(id)arg1;
 - (id)allMembers;
+- (unsigned long long)numberOfMembersWithStringName;
+- (unsigned long long)numberOfMembersWithContactName;
 - (unsigned long long)totalMemberCount;
 - (unsigned long long)photoQuantityAtIndexPath:(id)arg1;
 - (id)titleAtIndexPath:(id)arg1;

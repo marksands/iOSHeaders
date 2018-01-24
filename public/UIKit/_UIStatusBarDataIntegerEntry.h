@@ -13,6 +13,7 @@
     long long _displayValue;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool displayRawValue; // @synthesize displayRawValue=_displayRawValue;
 @property(nonatomic) long long displayValue; // @synthesize displayValue=_displayValue;
 @property(nonatomic) long long rawValue; // @synthesize rawValue=_rawValue;

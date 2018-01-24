@@ -53,8 +53,10 @@
 - (id)logContextByAddingPlaceCardStateWithMapItem:(id)arg1 timestamp:(double)arg2 resultIndex:(int)arg3 toLogContext:(id)arg4;
 - (void)captureBatchTrafficProbes:(id)arg1;
 - (void)captureRealtimeTrafficProbes:(id)arg1 tripId:(id)arg2 probeCount:(unsigned long long)arg3 recvTime:(id)arg4;
+- (void)captureWiFiConnectionQualityEvent:(id)arg1;
 - (void)registerTouristInfo:(_Bool)arg1;
 - (void)captureClientACSuggestionsEventWith:(id)arg1 queryTokens:(id)arg2 acSuggestionEntries:(id)arg3 selectedIndex:(int)arg4;
+- (void)captureTelemetricEnties:(id)arg1;
 - (void)captureTelemetricEntityForEventKey:(int)arg1 eventValue:(unsigned long long)arg2 eventDetail:(id)arg3;
 - (void)captureTelemetricEntityCountForEventKey:(int)arg1 eventDetail:(id)arg2;
 - (void)captureFullNavTraceEventWithData:(id)arg1;

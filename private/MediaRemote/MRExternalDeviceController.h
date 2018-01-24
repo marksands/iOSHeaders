@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isDiscovering) _Bool discovering; // @synthesize discovering=_discovering;
 @property(readonly, nonatomic) NSString *bonjourServiceType; // @synthesize bonjourServiceType=_bonjourServiceType;
 @property(nonatomic) id <MRExternalDeviceControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (_Bool)_isManagedConfigIDAllowed:(id)arg1;
 - (void)netService:(id)arg1 didUpdateTXTRecordData:(id)arg2;
 - (void)netServiceDidResolveAddress:(id)arg1;
 - (void)netServiceBrowser:(id)arg1 didRemoveService:(id)arg2 moreComing:(_Bool)arg3;

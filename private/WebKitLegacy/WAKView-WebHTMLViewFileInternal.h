@@ -7,6 +7,6 @@
 #import "WAKView.h"
 
 @interface WAKView (WebHTMLViewFileInternal)
-- (void)_web_addDescendantWebHTMLViewsToArray:(id)arg1;
+- (void)_web_addDescendentWebHTMLViewsToArray:(id)arg1;
 @end
 

@@ -11,14 +11,14 @@
 __attribute__((visibility("hidden")))
 @interface CKDContainerSpecificInfoURLRequest : CKDURLRequest
 {
-    _Bool _needUserID;
+    _Bool _requireUserIDs;
     NSString *_containerIdentifier;
     CKDContainerInfo *_containerInfo;
 }
 
 @property(copy, nonatomic) CKDContainerInfo *containerInfo; // @synthesize containerInfo=_containerInfo;
 @property(nonatomic) NSString *containerIdentifier; // @synthesize containerIdentifier=_containerIdentifier;
-@property(nonatomic) _Bool needUserID; // @synthesize needUserID=_needUserID;
+@property(nonatomic) _Bool requireUserIDs; // @synthesize requireUserIDs=_requireUserIDs;
 - (void).cxx_destruct;
 - (void)requestDidParseJSONObject:(id)arg1;
 - (_Bool)hasRequestBody;

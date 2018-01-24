@@ -22,7 +22,7 @@
 - (id)initFromDictionaryRepresentation:(id)arg1;
 - (void)setViewState:(id)arg1;
 - (void)setTitle:(id)arg1;
-- (id)initWithWebCoreHistoryItem:(Ref_08abb09a *)arg1;
+- (id)initWithWebCoreHistoryItem:(Ref_0785b76d *)arg1;
 - (id)initWithURLString:(id)arg1 title:(id)arg2 displayTitle:(id)arg3 lastVisitedTimeInterval:(double)arg4;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;

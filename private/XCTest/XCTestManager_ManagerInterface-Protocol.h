@@ -12,7 +12,9 @@
 - (void)_XCT_injectAssistantRecognitionStrings:(NSArray *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)_XCT_startSiriUIRequestWithAudioFileURL:(NSURL *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)_XCT_startSiriUIRequestWithText:(NSString *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
+- (void)_XCT_requestSiriEnabledStatus:(void (^)(_Bool, NSError *))arg1;
 - (void)_XCT_enableFauxCollectionViewCells:(void (^)(_Bool, NSError *))arg1;
+- (void)_XCT_setLocalizableStringsDataGatheringEnabled:(_Bool)arg1 reply:(void (^)(_Bool, NSError *))arg2;
 - (void)_XCT_loadAccessibilityWithTimeout:(double)arg1 reply:(void (^)(_Bool, NSError *))arg2;
 - (void)_XCT_setAXTimeout:(double)arg1 reply:(void (^)(int))arg2;
 - (void)_XCT_requestScreenshotWithReply:(void (^)(NSData *, NSError *))arg1;

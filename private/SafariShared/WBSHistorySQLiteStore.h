@@ -129,6 +129,7 @@
 - (long long)_currentGeneration;
 - (void)replayAndAddTombstone:(id)arg1;
 - (void)getAllTombstonesWithCompletion:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) _Bool isUsingInMemoryDatabase;
 @property(nonatomic) unsigned long long cachedNumberOfDevicesInSyncCircle;
 @property(copy, nonatomic) NSData *syncCircleSizeRetrievalThrottlerData;
 @property(copy, nonatomic) NSData *fetchThrottlerData;

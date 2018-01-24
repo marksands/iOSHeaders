@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 + (int)defaultIntValueForProperty:(int)arg1;
 + (id)propertiesAllowingNSNull;
 + (id)properties;
+- (id)parentStyleForFixingOrphanVariation;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct TOCEntryStyleArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromUnarchiver:(id)arg1;

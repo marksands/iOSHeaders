@@ -6,10 +6,14 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>;
+
 @interface AFMyriadEmergencyCallPunchout : NSObject
 {
+    NSObject<OS_dispatch_queue> *_myriadEmergencyCallingQueue;
 }
 
+- (void).cxx_destruct;
 - (void)initiateEmergencyCallMyriad;
 - (id)init;
 

@@ -8,11 +8,9 @@
 
 #import "NSSecureCoding.h"
 
-@class NSData;
-
 @interface AWAttentionEvent : NSObject <NSSecureCoding>
 {
-    NSData *_archivedTag;
+    unsigned long long _tagIndex;
     unsigned long long _eventMask;
     double _timestamp;
     id _tag;
@@ -24,9 +22,9 @@
 @property(readonly, nonatomic) unsigned long long eventMask; // @synthesize eventMask=_eventMask;
 - (void).cxx_destruct;
 - (void)updateWithConfig:(id)arg1;
-- (id)archivedTag;
+- (unsigned long long)tagIndex;
 - (id)description;
-- (id)initWithTimestamp:(double)arg1 archivedTag:(id)arg2 eventMask:(unsigned long long)arg3;
+- (id)initWithTimestamp:(double)arg1 tagIndex:(unsigned long long)arg2 eventMask:(unsigned long long)arg3;
 - (void)validateMask;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

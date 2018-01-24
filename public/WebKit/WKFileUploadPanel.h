@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 @interface WKFileUploadPanel : UIViewController <UIPopoverControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIDocumentPickerDelegate, UIDocumentMenuDelegate>
 {
     WKContentView *_view;
-    struct RefPtr<WebKit::WebOpenPanelResultListenerProxy> _listener;
+    struct RefPtr<WebKit::WebOpenPanelResultListenerProxy, WTF::DumbPtrTraits<WebKit::WebOpenPanelResultListenerProxy>> _listener;
     RetainPtr_f649c0c3 _mimeTypes;
     struct CGPoint _interactionPoint;
     _Bool _allowMultipleFiles;

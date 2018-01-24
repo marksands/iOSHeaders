@@ -7,7 +7,7 @@
 #import "HMFObject.h"
 
 #import "HAPFragmentationStreamDelegate.h"
-#import "HMDAccessoryBrowserDelegate.h"
+#import "HMDAccessoryBrowserManagerDelegate.h"
 #import "HMDAccountDelegate.h"
 #import "HMDAccountRegistryDelegate.h"
 #import "HMDBackingStoreObjectProtocol.h"
@@ -22,7 +22,7 @@
 
 @class HMDAWDLogEventObserver, HMDAccessoryBrowser, HMDAccountRegistry, HMDApplicationData, HMDApplicationRegistry, HMDAssistantGather, HMDBackingStore, HMDCentralMessageDispatcher, HMDClientConnection, HMDCloudAccount, HMDCloudDataSyncStateFilter, HMDCloudManager, HMDCompanionManager, HMDDevice, HMDFMFHandler, HMDHomeManagerObjectChangeHandler, HMDHomeManagerObjectLookup, HMDKeyTransferAgent, HMDLocation, HMDMessageFilterChain, HMDNameValidator, HMDPairedSync, HMDPendingCloudSyncTransactions, HMDPowerManager, HMDRemoteIdentityRegistry, HMDResidentMesh, HMDSoftwareUpdateManager, HMDSyncOperationManager, HMDTimeInformationMonitor, HMDWatchManager, HMFDumpCategory, HMFMessageDispatcher, HMFTimer, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSUUID;
 
-@interface HMDHomeManager : HMFObject <HMDAccountDelegate, HMDAccountRegistryDelegate, HMDCompanionManagerDelegate, HMDDeviceSetupSessionDelegate, HMDWatchManagerDelegate, HMFMessageReceiver, IDSServiceDelegate, HMDAccessoryBrowserDelegate, HMFTimerDelegate, HAPFragmentationStreamDelegate, HMDPairedSyncDelegate, HMDUserManagementOperationDelegate, HMDBackingStoreObjectProtocol>
+@interface HMDHomeManager : HMFObject <HMDAccountDelegate, HMDAccountRegistryDelegate, HMDCompanionManagerDelegate, HMDDeviceSetupSessionDelegate, HMDWatchManagerDelegate, HMFMessageReceiver, IDSServiceDelegate, HMDAccessoryBrowserManagerDelegate, HMFTimerDelegate, HAPFragmentationStreamDelegate, HMDPairedSyncDelegate, HMDUserManagementOperationDelegate, HMDBackingStoreObjectProtocol>
 {
     _Bool _speakersAreConfigured;
     _Bool _deviceLost;
@@ -46,12 +46,14 @@
     unsigned short _nextRequestTransactionIdentifier;
     HMDKeyTransferAgent *_keyTransferAgent;
     HMDSoftwareUpdateManager *_softwareUpdateManager;
+    unsigned long long _status;
     HMDHomeManagerObjectLookup *_lookup;
     HMDCompanionManager *_companionManager;
     long long _residentEnabledState;
     NSMutableDictionary *_userPushCacheMap;
     NSMutableArray *_deviceSetupSessions;
     NSMutableSet *_unprocessedOperationModelIdentifiers;
+    HMDAccessoryBrowser *_accessoryBrowserInternal;
     HMDHomeManagerObjectChangeHandler *_homeManagerObjectChangeHandler;
     NSUUID *_uuid;
     NSMutableArray *_homes;
@@ -65,7 +67,6 @@
     NSObject<OS_dispatch_queue> *_sysdiagnoseQueue;
     HMFMessageDispatcher *_messageDispatcher;
     HMDCentralMessageDispatcher *_remoteMessageDispatcher;
-    HMDAccessoryBrowser *_accessoryBrowser;
     NSMutableSet *_unassociatedRemotePeers;
     NSMutableDictionary *_associatedRemotePeers;
     NSMutableSet *_fullSyncedWatchPeers;
@@ -106,7 +107,6 @@
     HMDAssistantGather *_gatherer;
     HMFTimer *_remoteAccessHealthMonitorTimer;
     NSMutableDictionary *_pendingFragmentationStream;
-    HMFTimer *_cloudkitAccountChangedDebounceTimer;
     HMFTimer *_watchPushDelayTimer;
     HMDTimeInformationMonitor *_timeInformationMonitor;
     HMDApplicationData *_appData;
@@ -148,7 +148,6 @@
 @property(nonatomic) _Bool cloudkitAccountStatusDetermined; // @synthesize cloudkitAccountStatusDetermined=_cloudkitAccountStatusDetermined;
 @property(nonatomic) _Bool watchPerformVersionCheck; // @synthesize watchPerformVersionCheck=_watchPerformVersionCheck;
 @property(readonly, nonatomic) HMFTimer *watchPushDelayTimer; // @synthesize watchPushDelayTimer=_watchPushDelayTimer;
-@property(retain, nonatomic) HMFTimer *cloudkitAccountChangedDebounceTimer; // @synthesize cloudkitAccountChangedDebounceTimer=_cloudkitAccountChangedDebounceTimer;
 @property(nonatomic) _Bool homeDataLoadedFromArchive; // @synthesize homeDataLoadedFromArchive=_homeDataLoadedFromArchive;
 @property(retain, nonatomic) NSMutableDictionary *pendingFragmentationStream; // @synthesize pendingFragmentationStream=_pendingFragmentationStream;
 @property(readonly, nonatomic) unsigned short nextRequestTransactionIdentifier; // @synthesize nextRequestTransactionIdentifier=_nextRequestTransactionIdentifier;
@@ -202,7 +201,6 @@
 @property(retain, nonatomic) NSMutableSet *fullSyncedWatchPeers; // @synthesize fullSyncedWatchPeers=_fullSyncedWatchPeers;
 @property(retain, nonatomic) NSMutableDictionary *associatedRemotePeers; // @synthesize associatedRemotePeers=_associatedRemotePeers;
 @property(retain, nonatomic) NSMutableSet *unassociatedRemotePeers; // @synthesize unassociatedRemotePeers=_unassociatedRemotePeers;
-@property(retain, nonatomic) HMDAccessoryBrowser *accessoryBrowser; // @synthesize accessoryBrowser=_accessoryBrowser;
 @property(retain, nonatomic) HMDCentralMessageDispatcher *remoteMessageDispatcher; // @synthesize remoteMessageDispatcher=_remoteMessageDispatcher;
 @property(retain, nonatomic) HMFMessageDispatcher *messageDispatcher; // @synthesize messageDispatcher=_messageDispatcher;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *sysdiagnoseQueue; // @synthesize sysdiagnoseQueue=_sysdiagnoseQueue;
@@ -216,6 +214,7 @@
 @property(retain, nonatomic) NSMutableArray *homes; // @synthesize homes=_homes;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(readonly, nonatomic) HMDHomeManagerObjectChangeHandler *homeManagerObjectChangeHandler; // @synthesize homeManagerObjectChangeHandler=_homeManagerObjectChangeHandler;
+@property(retain, nonatomic) HMDAccessoryBrowser *accessoryBrowserInternal; // @synthesize accessoryBrowserInternal=_accessoryBrowserInternal;
 @property(retain, nonatomic) NSMutableSet *unprocessedOperationModelIdentifiers; // @synthesize unprocessedOperationModelIdentifiers=_unprocessedOperationModelIdentifiers;
 @property(readonly, nonatomic) NSMutableArray *deviceSetupSessions; // @synthesize deviceSetupSessions=_deviceSetupSessions;
 @property(readonly, nonatomic) NSMutableDictionary *userPushCacheMap; // @synthesize userPushCacheMap=_userPushCacheMap;
@@ -225,6 +224,7 @@
 @property(nonatomic, getter=isAccessAllowedWhenLocked) _Bool accessAllowedWhenLocked; // @synthesize accessAllowedWhenLocked=_accessAllowedWhenLocked;
 @property(nonatomic, getter=isDeviceLost) _Bool deviceLost; // @synthesize deviceLost=_deviceLost;
 @property(readonly, nonatomic) HMDHomeManagerObjectLookup *lookup; // @synthesize lookup=_lookup;
+@property(readonly) unsigned long long status; // @synthesize status=_status;
 @property(readonly, nonatomic) HMDSoftwareUpdateManager *softwareUpdateManager; // @synthesize softwareUpdateManager=_softwareUpdateManager;
 @property(nonatomic) _Bool speakersAreConfigured; // @synthesize speakersAreConfigured=_speakersAreConfigured;
 @property(readonly, nonatomic) HMDKeyTransferAgent *keyTransferAgent; // @synthesize keyTransferAgent=_keyTransferAgent;
@@ -248,12 +248,12 @@
 - (void)account:(id)arg1 didUpdateDevice:(id)arg2;
 - (void)account:(id)arg1 didRemoveDevice:(id)arg2;
 - (void)account:(id)arg1 didAddDevice:(id)arg2;
-- (void)accessoryBrowserDidFindNewAccessory:(id)arg1;
-- (void)mediaPlaybackStateChanged:(id)arg1;
+- (void)accessoryBrowserDidFindNewAccessory;
+- (void)evaluateIfMediaPlaybackStateChanged:(id)arg1;
 - (void)_updateAccessAllowedWhenLocked:(_Bool)arg1 message:(id)arg2;
 - (void)_handleAccessAllowedWhenLockedRequest:(id)arg1;
-@property(readonly) unsigned long long status;
-- (id)_statusMessagePayload;
+- (unsigned long long)statusForMessage:(id)arg1;
+- (id)_statusPayloadForMessage:(id)arg1;
 - (void)_notifyClientsOfUpdatedStatus;
 - (void)_handleDeviceSetupSessionOpen:(id)arg1;
 - (void)pingDevice:(id)arg1 secure:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -436,6 +436,7 @@
 - (void)_extractVendorIdentifierFor:(id)arg1 andRun:(CDUnknownBlockType)arg2;
 - (void)_handleRequestMediaAccessoryControl:(id)arg1;
 - (void)_handleRequestRuntimeStateUpdate:(id)arg1;
+- (void)_runtimeStateUpdate:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handleRequestFetchHomeConfiguration:(id)arg1;
 - (void)_retryCloudOperationWithName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_startTimerToResetCloudOperationRetryCounter;
@@ -549,7 +550,7 @@
 - (void)_postCloudSyncNotificationWithSuccess:(_Bool)arg1;
 - (void)_handleAccountStatusDeterminedWithError:(id)arg1 homeDataRecordExists:(_Bool)arg2 metadataRecordExists:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)forcePushLocalDataToCloud:(id)arg1;
-- (_Bool)isDataSyncInProgress;
+- (_Bool)isDataSyncInProgressWithMessage:(id)arg1;
 - (void)dataSyncInProgressUpdatedNotification:(id)arg1;
 - (void)_resetCloudOperationRetryCounters;
 - (void)_stopCloudOperationRetryTimer;
@@ -608,6 +609,7 @@
 - (void)migrateModelObjectsToCloud:(long long)arg1 schemaVersion:(long long)arg2;
 - (void)_reloadHomeDataFromLocalStore:(_Bool)arg1;
 - (void)reloadHomeDataFromLocalStore:(_Bool)arg1;
+@property(readonly, nonatomic) id <HMDAccessoryBrowserProtocol> accessoryBrowser;
 - (void)_deviceLostStateNotification:(id)arg1;
 - (void)_loadMessageDispatcher:(id)arg1 remoteMessageDispatcher:(id)arg2 accessoryBrowser:(id)arg3 messageFilterChain:(id)arg4 homeData:(id)arg5 localDataDecryptionFailed:(_Bool)arg6 identityRegistry:(id)arg7 appRegistry:(id)arg8 accountRegistry:(id)arg9 reloadData:(_Bool)arg10;
 - (id)initWithMessageDispatcher:(id)arg1 remoteMessageDispatcher:(id)arg2 accessoryBrowser:(id)arg3 messageFilterChain:(id)arg4 homeData:(id)arg5 localDataDecryptionFailed:(_Bool)arg6 identityRegistry:(id)arg7 appRegistry:(id)arg8 accountRegistry:(id)arg9;

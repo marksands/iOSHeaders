@@ -19,7 +19,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)canMakePathEditable;
 - (_Bool)shouldShowKnobs;
 - (_Bool)shouldCreateKnobs;
-- (id)hitRep:(struct CGPoint)arg1;
 - (id)paragraphStylesBetweenCharIndex:(unsigned long long)arg1 andCharIndex:(unsigned long long)arg2;
 - (unsigned long long)charIndexAtPoint:(struct CGPoint)arg1;
 - (id)tocInfo;

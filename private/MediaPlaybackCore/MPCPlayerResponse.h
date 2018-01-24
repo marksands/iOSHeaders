@@ -28,6 +28,7 @@
 - (id)stop;
 - (id)play;
 - (id)pause;
+- (id)description;
 - (id)initWithRequest:(id)arg1 middleware:(id)arg2;
 
 // Remaining properties

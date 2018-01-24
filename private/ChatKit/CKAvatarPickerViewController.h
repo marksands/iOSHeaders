@@ -57,6 +57,7 @@
 - (void)_handleAddressBookChange:(id)arg1;
 - (void)_handleGroupNameChange:(id)arg1;
 - (void)_handleConversationRecipientsDidChange:(id)arg1;
+- (_Bool)_shouldUseBanner;
 - (void)_handleConversationIsFilteredChange:(id)arg1;
 - (void)_chatPropertiesChanged:(id)arg1;
 - (int)chatWasDetectedAsSMSSpam;

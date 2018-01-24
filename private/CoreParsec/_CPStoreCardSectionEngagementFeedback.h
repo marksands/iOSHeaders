@@ -37,7 +37,7 @@
 @property(nonatomic) int actionCardType; // @synthesize actionCardType=_actionCardType;
 @property(nonatomic) int triggerEvent; // @synthesize triggerEvent=_triggerEvent;
 @property(retain, nonatomic) _CPPunchoutForFeedback *destination; // @synthesize destination=_destination;
-@property(nonatomic) unsigned long long timestamp;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;

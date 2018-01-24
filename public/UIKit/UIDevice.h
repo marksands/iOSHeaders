@@ -74,6 +74,7 @@
 - (void)_setBatteryLevel:(float)arg1;
 - (void)_setBatteryState:(long long)arg1;
 - (void)_setProximityState:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool _supportsPencil;
 - (long long)_nativeScreenGamut;
 - (long long)_predictionGraphicsQuality;
 - (long long)_keyboardGraphicsQuality;

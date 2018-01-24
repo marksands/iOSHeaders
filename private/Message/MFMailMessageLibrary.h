@@ -115,7 +115,7 @@
 - (id)_newConnection;
 - (id)newConnectionForConnectionPool:(id)arg1;
 - (void)_addMessageToThreadAtUnlock:(unsigned int)arg1;
-- (void)_reconcileAfterKeybagUnlock;
+- (void)_reconcileJournalIsLaunch:(_Bool)arg1;
 - (void)reconcileJournalOnStartup;
 - (_Bool)_canAccessProtectedData;
 - (void)contentProtectionStateChanged:(int)arg1 previousState:(int)arg2;
@@ -181,8 +181,7 @@
 - (id)loadMeetingExternalIDForMessage:(id)arg1;
 - (id)loadMeetingDataForMessage:(id)arg1;
 - (id)loadData:(id)arg1 forMessage:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
-- (id)metadataForMessage:(id)arg1;
-- (id)metadataForMessage:(id)arg1 key:(id)arg2;
+- (id)metadataForMessage:(id)arg1 ofClass:(Class)arg2 key:(id)arg3;
 - (void)updateMessage:(id)arg1 withMetadata:(CDUnknownBlockType)arg2;
 - (void)setSummary:(id)arg1 forMessage:(id)arg2;
 - (void)_setMessageDataString:(id)arg1 forKey:(id)arg2 forMessage:(id)arg3;

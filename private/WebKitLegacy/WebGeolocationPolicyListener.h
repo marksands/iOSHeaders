@@ -13,7 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface WebGeolocationPolicyListener : NSObject <WebAllowDenyPolicyListener>
 {
-    struct RefPtr<WebCore::Geolocation> _geolocation;
+    struct RefPtr<WebCore::Geolocation, WTF::DumbPtrTraits<WebCore::Geolocation>> _geolocation;
     struct RetainPtr<WebView *> _webView;
 }
 

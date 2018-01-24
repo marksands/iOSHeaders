@@ -33,8 +33,8 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) TSDLayoutGeometry *p_lastPureGeometry; // @synthesize p_lastPureGeometry=mLastPureGeometry;
 @property(retain, nonatomic) TSCHChartLayout *p_chartLayoutNoCreate; // @synthesize p_chartLayoutNoCreate=mChartLayout;
 @property(nonatomic) _Bool forceLayoutSettingsOmitLabelPlacement; // @synthesize forceLayoutSettingsOmitLabelPlacement=mForceLayoutSettingsOmitLabelPlacement;
+- (void).cxx_destruct;
 - (double)viewScaleForZoomingToSelectionPath:(id)arg1 targetPointSize:(double)arg2;
-- (id)childSearchTargets;
 - (id)i_computeWrapPath;
 - (id)i_computeUnitedWrapPath;
 - (struct CGRect)insertionFrame;
@@ -96,10 +96,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, retain, nonatomic) TSCHChartLayout *chartLayout;
 @property(readonly, nonatomic) TSCHChartInfo *chartInfo;
 - (id)chartDrawableInfo;
-@property(readonly, retain, nonatomic) TSCHChartLayout *p_chartLayout;
+@property(readonly, nonatomic) TSCHChartLayout *p_chartLayout;
 - (Class)repClassOverride;
 - (void)dealloc;
 - (id)initWithInfo:(id)arg1;
+- (id)optimizedLabelRectsToPreventOverlapWithCheckTitle:(_Bool)arg1;
 
 @end
 

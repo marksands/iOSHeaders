@@ -10,22 +10,16 @@
 
 @interface MPModelHomeSharingAsset : MPModelObject
 {
-    _Bool _available;
-    NSURL *_protectedContentSupportStorageFileURL;
-    NSURL *_URL;
 }
 
-+ (id)__MPModelPropertyHomeSharingAssetURL__PROPERTY;
-+ (id)__URL__KEY;
-+ (id)__MPModelPropertyHomeSharingAssetProtectedContentSupportStorageFileURL__PROPERTY;
-+ (id)__protectedContentSupportStorageFileURL__KEY;
-+ (id)__MPModelPropertyHomeSharingAssetAvailable__PROPERTY;
-+ (id)__available__KEY;
-@property(copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;
-@property(copy, nonatomic) NSURL *protectedContentSupportStorageFileURL; // @synthesize protectedContentSupportStorageFileURL=_protectedContentSupportStorageFileURL;
-@property(nonatomic, getter=isAvailable) _Bool available; // @synthesize available=_available;
-- (void).cxx_destruct;
-- (id)descriptionWithType:(long long)arg1;
++ (id)__URL_KEY;
++ (id)__protectedContentSupportStorageFileURL_KEY;
++ (id)__available_KEY;
+
+// Remaining properties
+@property(copy, nonatomic) NSURL *URL; // @dynamic URL;
+@property(nonatomic, getter=isAvailable) _Bool available; // @dynamic available;
+@property(copy, nonatomic) NSURL *protectedContentSupportStorageFileURL; // @dynamic protectedContentSupportStorageFileURL;
 
 @end
 

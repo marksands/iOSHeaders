@@ -18,10 +18,8 @@
     _Bool _hasAlternateAppearance;
     _Bool _hasFullScreenAppearance;
     struct CGSize _extrinsicContentSize;
-    struct NSDirectionalEdgeInsets _hitRectInsets;
 }
 
-@property(nonatomic) struct NSDirectionalEdgeInsets hitRectInsets; // @synthesize hitRectInsets=_hitRectInsets;
 @property(nonatomic) _Bool hasFullScreenAppearance; // @synthesize hasFullScreenAppearance=_hasFullScreenAppearance;
 @property(nonatomic) _Bool hasAlternateAppearance; // @synthesize hasAlternateAppearance=_hasAlternateAppearance;
 @property(nonatomic, getter=isIncluded) _Bool included; // @synthesize included=_included;
@@ -29,8 +27,6 @@
 @property(nonatomic) struct CGSize extrinsicContentSize; // @synthesize extrinsicContentSize=_extrinsicContentSize;
 - (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;
-- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (struct CGRect)hitRect;
 - (void)updateButtonAppearance;
 @property(readonly, nonatomic) AVButton *customButton;
 @property(readonly, nonatomic, getter=isCollapsedOrExcluded) _Bool collapsedOrExcluded;

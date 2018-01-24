@@ -54,7 +54,6 @@
 @property(readonly, nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
 - (void).cxx_destruct;
 - (void)_onQueue_pushContentItemsUpdate;
-- (void)_getInfoForRequest:(void *)arg1 item:(id)arg2 returnItem:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_contentItemChangedNotification:(id)arg1;
 - (void)_onQueue_registerPlaybackQueueDataSourceCallbacks:(id)arg1;
 - (void)_onQueue_registerLyricsDelegateCallbacks:(id)arg1;

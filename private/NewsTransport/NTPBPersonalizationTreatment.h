@@ -51,7 +51,9 @@
     double _baselineArticleScore;
     double _baselineImpressionPrior;
     double _baselineRatePrior;
+    double _channelTopicDiversificationInitialPenalty;
     double _channelTopicDiversificationPenalty;
+    double _channelTopicDiversificationPenaltyHalfLife;
     double _cohortMembershipBaselineCtrWeight;
     double _cohortMembershipCtrCeiling;
     double _cohortMembershipCurvature;
@@ -76,7 +78,9 @@
     double _dislikeClickValueBaseline;
     double _dislikeImpressionValue;
     double _dislikeImpressionValueBaseline;
+    double _diversificationInitialPenalty;
     double _diversificationPenalty;
+    double _diversificationPenaltyHalfLife;
     double _existingSubscriptionClickValue;
     double _existingSubscriptionClickValueBaseline;
     double _existingSubscriptionImpressionValue;
@@ -146,6 +150,8 @@
     double _metaGroupingSubscribedTopicMultiplier;
     double _metaGroupingTopicScoreWeight;
     long long _minClusterSize;
+    double _minimumGlobalScoreThreshold;
+    double _minimumGlobalScoreThresholdForSubscribedChannel;
     double _moveAboutnessNoiseStdIPad;
     double _moveAboutnessNoiseStdIPhone;
     double _moveAboutnessWeightRatioIPad;
@@ -193,7 +199,10 @@
     double _presentationClickValueBaseline;
     double _presentationImpressionValue;
     double _presentationImpressionValueBaseline;
+    double _publisherAggregateWeight;
+    double _publisherDiversificationInitialPenalty;
     double _publisherDiversificationPenalty;
+    double _publisherDiversificationPenaltyHalfLife;
     double _publisherDiversityMaxArticleCount;
     double _publisherDiversityMaxArticleFilter;
     double _publisherDiversityMinArticleCount;
@@ -400,7 +409,9 @@
         unsigned int baselineArticleScore:1;
         unsigned int baselineImpressionPrior:1;
         unsigned int baselineRatePrior:1;
+        unsigned int channelTopicDiversificationInitialPenalty:1;
         unsigned int channelTopicDiversificationPenalty:1;
+        unsigned int channelTopicDiversificationPenaltyHalfLife:1;
         unsigned int cohortMembershipBaselineCtrWeight:1;
         unsigned int cohortMembershipCtrCeiling:1;
         unsigned int cohortMembershipCurvature:1;
@@ -425,7 +436,9 @@
         unsigned int dislikeClickValueBaseline:1;
         unsigned int dislikeImpressionValue:1;
         unsigned int dislikeImpressionValueBaseline:1;
+        unsigned int diversificationInitialPenalty:1;
         unsigned int diversificationPenalty:1;
+        unsigned int diversificationPenaltyHalfLife:1;
         unsigned int existingSubscriptionClickValue:1;
         unsigned int existingSubscriptionClickValueBaseline:1;
         unsigned int existingSubscriptionImpressionValue:1;
@@ -495,6 +508,8 @@
         unsigned int metaGroupingSubscribedTopicMultiplier:1;
         unsigned int metaGroupingTopicScoreWeight:1;
         unsigned int minClusterSize:1;
+        unsigned int minimumGlobalScoreThreshold:1;
+        unsigned int minimumGlobalScoreThresholdForSubscribedChannel:1;
         unsigned int moveAboutnessNoiseStdIPad:1;
         unsigned int moveAboutnessNoiseStdIPhone:1;
         unsigned int moveAboutnessWeightRatioIPad:1;
@@ -542,7 +557,10 @@
         unsigned int presentationClickValueBaseline:1;
         unsigned int presentationImpressionValue:1;
         unsigned int presentationImpressionValueBaseline:1;
+        unsigned int publisherAggregateWeight:1;
+        unsigned int publisherDiversificationInitialPenalty:1;
         unsigned int publisherDiversificationPenalty:1;
+        unsigned int publisherDiversificationPenaltyHalfLife:1;
         unsigned int publisherDiversityMaxArticleCount:1;
         unsigned int publisherDiversityMaxArticleFilter:1;
         unsigned int publisherDiversityMinArticleCount:1;
@@ -712,6 +730,15 @@
 
 + (Class)realTimeUserFeedbackTagCoefficientsType;
 + (Class)portraitTagThresholdsType;
+@property(nonatomic) double minimumGlobalScoreThresholdForSubscribedChannel; // @synthesize minimumGlobalScoreThresholdForSubscribedChannel=_minimumGlobalScoreThresholdForSubscribedChannel;
+@property(nonatomic) double minimumGlobalScoreThreshold; // @synthesize minimumGlobalScoreThreshold=_minimumGlobalScoreThreshold;
+@property(nonatomic) double publisherDiversificationPenaltyHalfLife; // @synthesize publisherDiversificationPenaltyHalfLife=_publisherDiversificationPenaltyHalfLife;
+@property(nonatomic) double publisherDiversificationInitialPenalty; // @synthesize publisherDiversificationInitialPenalty=_publisherDiversificationInitialPenalty;
+@property(nonatomic) double channelTopicDiversificationPenaltyHalfLife; // @synthesize channelTopicDiversificationPenaltyHalfLife=_channelTopicDiversificationPenaltyHalfLife;
+@property(nonatomic) double channelTopicDiversificationInitialPenalty; // @synthesize channelTopicDiversificationInitialPenalty=_channelTopicDiversificationInitialPenalty;
+@property(nonatomic) double diversificationPenaltyHalfLife; // @synthesize diversificationPenaltyHalfLife=_diversificationPenaltyHalfLife;
+@property(nonatomic) double diversificationInitialPenalty; // @synthesize diversificationInitialPenalty=_diversificationInitialPenalty;
+@property(nonatomic) double publisherAggregateWeight; // @synthesize publisherAggregateWeight=_publisherAggregateWeight;
 @property(nonatomic) long long numSubscriptionsToDisableDefaultTopics; // @synthesize numSubscriptionsToDisableDefaultTopics=_numSubscriptionsToDisableDefaultTopics;
 @property(nonatomic) unsigned int auditionedAutoFavoritesEmitterLimit; // @synthesize auditionedAutoFavoritesEmitterLimit=_auditionedAutoFavoritesEmitterLimit;
 @property(nonatomic) double autoFavoriteMaxIdleTime; // @synthesize autoFavoriteMaxIdleTime=_autoFavoriteMaxIdleTime;
@@ -1063,6 +1090,15 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasMinimumGlobalScoreThresholdForSubscribedChannel;
+@property(nonatomic) _Bool hasMinimumGlobalScoreThreshold;
+@property(nonatomic) _Bool hasPublisherDiversificationPenaltyHalfLife;
+@property(nonatomic) _Bool hasPublisherDiversificationInitialPenalty;
+@property(nonatomic) _Bool hasChannelTopicDiversificationPenaltyHalfLife;
+@property(nonatomic) _Bool hasChannelTopicDiversificationInitialPenalty;
+@property(nonatomic) _Bool hasDiversificationPenaltyHalfLife;
+@property(nonatomic) _Bool hasDiversificationInitialPenalty;
+@property(nonatomic) _Bool hasPublisherAggregateWeight;
 @property(nonatomic) _Bool hasNumSubscriptionsToDisableDefaultTopics;
 @property(nonatomic) _Bool hasAuditionedAutoFavoritesEmitterLimit;
 @property(nonatomic) _Bool hasAutoFavoriteMaxIdleTime;

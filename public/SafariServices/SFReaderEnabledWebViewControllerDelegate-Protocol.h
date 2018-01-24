@@ -9,6 +9,7 @@
 @class NSURLRequest, SFWebViewController;
 
 @protocol SFReaderEnabledWebViewControllerDelegate <SFWebViewControllerDelegate>
+- (void)createReaderWebViewForWebViewController:(SFWebViewController *)arg1;
 - (void)webViewController:(SFWebViewController *)arg1 didClickLinkInReaderWithRequest:(NSURLRequest *)arg2;
 - (void)webViewControllerDidDetermineReaderAvailability:(SFWebViewController *)arg1 dueToSameDocumentNavigation:(_Bool)arg2;
 @end

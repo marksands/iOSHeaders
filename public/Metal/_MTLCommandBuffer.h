@@ -48,6 +48,7 @@
     unsigned long long _numEncoders;
     unsigned long long _numThisCommandBuffer;
     unsigned long long _listIndex;
+    _Bool _ownedByParallelEncoder;
     unsigned long long _globalTraceObjectID;
     unsigned long long _labelTraceID;
     _Bool _StatEnabled;
@@ -56,6 +57,7 @@
 }
 
 + (void)initialize;
+@property(nonatomic) _Bool ownedByParallelEncoder; // @synthesize ownedByParallelEncoder=_ownedByParallelEncoder;
 @property(nonatomic) unsigned long long numEncoders; // @synthesize numEncoders=_numEncoders;
 @property(nonatomic) unsigned long long numThisCommandBuffer; // @synthesize numThisCommandBuffer=_numThisCommandBuffer;
 @property(nonatomic, getter=getListIndex) unsigned long long listIndex; // @synthesize listIndex=_listIndex;

@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
     CDStruct_a86bd46d _wildcardNames;
     CDStruct_a86bd46d _wildcardObjects;
     CDStruct_a86bd46d _doubleWildcards;
+    struct __CFDictionary *_tokenRegistrations;
     unsigned long long _options;
 }
 

@@ -8,7 +8,7 @@
 
 #import "PKPeerPaymentContactResolverDelegate.h"
 
-@class NSString, PKFelicaPassProperties, PKPaymentPass, PKPaymentTransaction, PKPeerPaymentContactResolver, PKStackedTextItemGroup, PKStackedTextItemGroupView, UIImageView;
+@class NSString, PKPaymentPass, PKPaymentTransaction, PKPeerPaymentContactResolver, PKStackedTextItemGroup, PKStackedTextItemGroupView, PKTransitPassProperties, UIImageView;
 
 @interface PKFooterTransactionView : UIView <PKPeerPaymentContactResolverDelegate>
 {
@@ -22,12 +22,12 @@
     _Bool _needsContentUpdate;
     PKPaymentPass *_pass;
     PKPaymentTransaction *_transaction;
-    PKFelicaPassProperties *_felicaProperties;
+    PKTransitPassProperties *_transitProperties;
     PKPeerPaymentContactResolver *_peerPaymentContactResolver;
 }
 
 @property(readonly, nonatomic) PKPeerPaymentContactResolver *peerPaymentContactResolver; // @synthesize peerPaymentContactResolver=_peerPaymentContactResolver;
-@property(readonly, nonatomic) PKFelicaPassProperties *felicaProperties; // @synthesize felicaProperties=_felicaProperties;
+@property(readonly, nonatomic) PKTransitPassProperties *transitProperties; // @synthesize transitProperties=_transitProperties;
 @property(readonly, nonatomic) PKPaymentTransaction *transaction; // @synthesize transaction=_transaction;
 @property(readonly, nonatomic) PKPaymentPass *pass; // @synthesize pass=_pass;
 - (void).cxx_destruct;
@@ -35,7 +35,7 @@
 @property(readonly, nonatomic) _Bool hasContent;
 - (void)endUpdates:(_Bool)arg1;
 - (void)beginUpdates;
-- (void)setFelicaProperties:(id)arg1 animated:(_Bool)arg2;
+- (void)setTransitProperties:(id)arg1 animated:(_Bool)arg2;
 - (void)setTransaction:(id)arg1 animated:(_Bool)arg2;
 - (void)setPass:(id)arg1 animated:(_Bool)arg2;
 - (id)_image;

@@ -10,16 +10,14 @@
 #import "UICollectionViewDelegate.h"
 #import "UIViewControllerTransitioningDelegate.h"
 
-@class NSArray, NSString, UICollectionView, UICollectionViewFlowLayout, UIFont, UILabel, UINavigationBar;
+@class NSArray, NSString, UICollectionView, UICollectionViewFlowLayout, UILabel;
 
 @interface WLKUIAppsGridViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIViewControllerTransitioningDelegate>
 {
-    UINavigationBar *_navBar;
     UILabel *_titleLabel;
     UICollectionViewFlowLayout *_layout;
     UICollectionView *_collectionView;
     NSArray *_apps;
-    UIFont *_labelFont;
 }
 
 @property(copy, nonatomic) NSArray *apps; // @synthesize apps=_apps;

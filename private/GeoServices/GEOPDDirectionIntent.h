@@ -15,6 +15,8 @@
     PBUnknownFields *_unknownFields;
     GEOPDResolvedItem *_destination;
     GEOPDResolvedItem *_origin;
+    int _transportType;
+    CDStruct_a995201b _has;
 }
 
 @property(retain, nonatomic) GEOPDResolvedItem *destination; // @synthesize destination=_destination;
@@ -30,6 +32,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsTransportType:(id)arg1;
+- (id)transportTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasTransportType;
+@property(nonatomic) int transportType; // @synthesize transportType=_transportType;
 @property(readonly, nonatomic) _Bool hasDestination;
 @property(readonly, nonatomic) _Bool hasOrigin;
 

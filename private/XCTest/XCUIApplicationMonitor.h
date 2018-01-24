@@ -7,14 +7,16 @@
 #import "NSObject.h"
 
 #import "XCTUIApplicationMonitor.h"
+#import "XCUIApplicationProcessTracker.h"
 
-@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, XCUIApplicationRegistry;
+@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, XCUIApplicationImplDepot, XCUIApplicationRegistry;
 
-@interface XCUIApplicationMonitor : NSObject <XCTUIApplicationMonitor>
+@interface XCUIApplicationMonitor : NSObject <XCTUIApplicationMonitor, XCUIApplicationProcessTracker>
 {
     XCUIApplicationRegistry *_applicationRegistry;
     NSObject<OS_dispatch_queue> *_queue;
-    NSMutableDictionary *_applicationImplementations;
+    XCUIApplicationImplDepot *_applicationImplDepot;
+    NSMutableSet *_trackedBundleIDs;
     NSMutableDictionary *_applicationProcessesForPID;
     NSMutableDictionary *_applicationProcessesForToken;
     NSMutableSet *_launchedApplications;
@@ -24,11 +26,14 @@
 @property(readonly, copy) NSMutableSet *launchedApplications; // @synthesize launchedApplications=_launchedApplications;
 @property(readonly, copy) NSMutableDictionary *applicationProcessesForToken; // @synthesize applicationProcessesForToken=_applicationProcessesForToken;
 @property(readonly, copy) NSMutableDictionary *applicationProcessesForPID; // @synthesize applicationProcessesForPID=_applicationProcessesForPID;
-@property(readonly, copy) NSMutableDictionary *applicationImplementations; // @synthesize applicationImplementations=_applicationImplementations;
+@property(readonly, copy) NSMutableSet *trackedBundleIDs; // @synthesize trackedBundleIDs=_trackedBundleIDs;
+@property(readonly, copy) XCUIApplicationImplDepot *applicationImplDepot; // @synthesize applicationImplDepot=_applicationImplDepot;
 @property NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(readonly) XCUIApplicationRegistry *applicationRegistry; // @synthesize applicationRegistry=_applicationRegistry;
 - (void)requestAutomationSessionForTestTargetWithPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)updatedApplicationStateSnapshot:(id)arg1;
+- (void)_setIsTrackingForBundleID:(id)arg1;
+- (_Bool)_isTrackingBundleID:(id)arg1;
 - (void)applicationWithBundleID:(id)arg1 didUpdatePID:(int)arg2 state:(unsigned long long)arg3;
 - (void)processWithToken:(id)arg1 exitedWithStatus:(int)arg2;
 - (void)stopTrackingProcessWithToken:(id)arg1;
@@ -47,7 +52,6 @@
 - (void)setApplicationProcess:(id)arg1 forPID:(int)arg2;
 - (id)applicationProcessWithPID:(int)arg1;
 - (id)applicationImplementationForApplicationAtPath:(id)arg1 bundleID:(id)arg2;
-- (id)_lookupApplicationImplementationForApplicationAtPath:(id)arg1 bundleID:(id)arg2;
 - (id)init;
 - (void)dealloc;
 

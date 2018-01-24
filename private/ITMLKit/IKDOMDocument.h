@@ -16,18 +16,22 @@
 
 @interface IKDOMDocument : IKDOMNode <NSObject, IKJSDOMDocument, _IKJSDOMDocumentProxy, _IKJSDOMDocument, IKJSDOMXPathEvaluator>
 {
+    id <IKNetworkRequestLoader> __requestLoader;
     id <IKJSDOMDocumentAppBridge> _appBridge;
     unsigned long long _itmlIDSequence;
     NSString *__documentURI;
 }
 
 + (struct _xmlDoc *)_documentWithXMLStr:(id)arg1 lsInput:(id)arg2 error:(id *)arg3;
++ (void)_resetUpdatesForNode:(id)arg1;
 @property(retain, nonatomic, setter=_setDocumentURI:) NSString *_documentURI; // @synthesize _documentURI=__documentURI;
 @property(nonatomic) unsigned long long itmlIDSequence; // @synthesize itmlIDSequence=_itmlIDSequence;
 @property(nonatomic) __weak id <IKJSDOMDocumentAppBridge> appBridge; // @synthesize appBridge=_appBridge;
 - (void).cxx_destruct;
 - (void)_updateITMLIDRecursivelyForNodePtr:(struct _xmlNode *)arg1;
+- (void)swapITMLIDForNode:(id)arg1 withITMLIDForNode:(id)arg2;
 - (void)setITMLIDForNode:(id)arg1;
+@property(readonly, nonatomic) id <IKNetworkRequestLoader> _requestLoader; // @synthesize _requestLoader=__requestLoader;
 - (long long)nodeType;
 - (id)nodeName;
 - (id)matchingImpressions:(id)arg1:(id)arg2;
@@ -57,6 +61,7 @@
 @property(readonly, retain, nonatomic) IKDOMElement *documentElement;
 @property(readonly, nonatomic) __weak IKDOMImplementation *implementation;
 - (_Bool)markUpdated;
+- (void)dealloc;
 - (id)initWithAppContext:(id)arg1 qualifiedName:(id)arg2;
 - (id)initWithAppContext:(id)arg1 input:(id)arg2 error:(id *)arg3;
 - (id)initWithAppContext:(id)arg1 xmlStr:(id)arg2 error:(id *)arg3;

@@ -23,6 +23,7 @@ struct SBUIState {
     _Bool isInterruptionActive;
     _Bool ttsuAudioPlaying;
     _Bool displaySiriUI;
+    _Bool isDeviceIdentify;
     unsigned long long resetState;
     long long siriToneTriggered;
     _Bool callIncoming;

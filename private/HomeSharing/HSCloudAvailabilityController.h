@@ -23,6 +23,7 @@
     _Bool _isShowingAllVideo;
     _Bool _isUpdateInProgress;
     _Bool _isWiFiEnabled;
+    _Bool _isWiFiAssociated;
     _Bool _isNetworkReachable;
     _Bool _canShowCloudMusic;
     _Bool _canShowCloudVideo;
@@ -37,6 +38,7 @@
 
 + (id)sharedController;
 - (void).cxx_destruct;
+- (void)environmentMonitorDidChangeNetworkType:(id)arg1;
 - (void)environmentMonitorDidChangeNetworkReachability:(id)arg1;
 - (void)_onQueue_endObservingReachabilityChanges;
 - (void)_onQueue_beginObservingReachabilityChanges;
@@ -50,7 +52,7 @@
 - (_Bool)_hasCellularCapability;
 - (_Bool)_isAutoDownloadOnCellularAllowed;
 - (void)_applicationWillEnterForeground:(id)arg1;
-- (void)_wifiEnabledDidChangeNotification:(id)arg1;
+- (void)_wifiStateDidChangeNotification:(id)arg1;
 - (void)airplaneModeChanged;
 - (void)endObservingNetworkReachability;
 - (void)beginObservingNetworkReachability;

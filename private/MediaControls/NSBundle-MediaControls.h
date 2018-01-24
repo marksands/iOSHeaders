@@ -8,5 +8,6 @@
 
 @interface NSBundle (MediaControls)
 + (id)mediaControlsBundle;
+- (id)mediaControls_localizedStringForKey:(id)arg1 inTable:(id)arg2;
 @end
 

@@ -12,6 +12,7 @@
 }
 
 + (id)predicateWithPredicate:(id)arg1;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) ML3Predicate *predicate; // @synthesize predicate=_predicate;
 - (void).cxx_destruct;
 - (id)databaseStatementParameters;

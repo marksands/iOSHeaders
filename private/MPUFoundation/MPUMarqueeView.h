@@ -19,6 +19,7 @@
     _Bool _marqueeEnabled;
     double _contentGap;
     UIView *_contentView;
+    UIView *_animationReferenceView;
     id <MPUMarqueeViewDelegate> _delegate;
     double _marqueeDelay;
     double _marqueeScrollRate;
@@ -35,6 +36,7 @@
 @property(nonatomic) double marqueeDelay; // @synthesize marqueeDelay=_marqueeDelay;
 @property(nonatomic) __weak id <MPUMarqueeViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) struct UIEdgeInsets fadeEdgeInsets; // @synthesize fadeEdgeInsets=_fadeEdgeInsets;
+@property(nonatomic) __weak UIView *animationReferenceView; // @synthesize animationReferenceView=_animationReferenceView;
 @property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(nonatomic) struct CGSize contentSize; // @synthesize contentSize=_contentSize;
 @property(nonatomic) double contentGap; // @synthesize contentGap=_contentGap;

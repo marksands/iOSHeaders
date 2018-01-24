@@ -37,7 +37,7 @@
 - (void)_close;
 - (void)dealloc;
 - (id)init;
-- (id)initWithBackForwardList:(Ref_00b193fd *)arg1;
+- (id)initWithBackForwardList:(Ref_8012be98 *)arg1;
 
 @end
 

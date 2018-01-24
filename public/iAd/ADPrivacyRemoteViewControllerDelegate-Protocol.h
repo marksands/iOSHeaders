@@ -14,6 +14,7 @@
 @optional
 - (void)adPrivacyRemoteViewControllerDidLinkOut;
 - (void)adPrivacyRemoteViewControllerDidRenderTransparency;
+- (void)adPrivacyRemoteViewControllerDidDisappear;
 - (void)adPrivacyRemoteViewControllerDidAppear;
 - (void)adPrivacyRemoteViewControllerDidLoad;
 - (void)adPrivacyRemoteViewControllerClientRequestsDismisal;

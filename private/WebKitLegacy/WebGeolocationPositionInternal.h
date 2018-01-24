@@ -9,12 +9,11 @@
 __attribute__((visibility("hidden")))
 @interface WebGeolocationPositionInternal : NSObject
 {
-    RefPtr_f6a7fd22 _position;
+    struct GeolocationPosition _position;
 }
 
 - (id).cxx_construct;
-- (void).cxx_destruct;
-- (id)initWithCoreGeolocationPosition:(RefPtr_f6a7fd22 *)arg1;
+- (id)initWithCoreGeolocationPosition:(struct GeolocationPosition *)arg1;
 
 @end
 

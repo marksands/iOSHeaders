@@ -7,12 +7,11 @@
 #import "NSObject.h"
 
 #import "MPCPlaybackEngineEventObserving.h"
-#import "MPNowPlayingInfoLyricsDelegate.h"
 #import "MPNowPlayingPlaybackQueueDataSourcePrivate.h"
 
-@class MPCPlaybackEngine, MPLibraryAddStatusObserver, MPNowPlayingInfoCenter, MPRemoteCommandCenter, NSString;
+@class MPCPlaybackEngine, MPCPlayerPath, MPLibraryAddStatusObserver, MPNowPlayingInfoCenter, MPRemoteCommandCenter, NSString;
 
-@interface _MPCMediaRemotePublisher : NSObject <MPNowPlayingPlaybackQueueDataSourcePrivate, MPNowPlayingInfoLyricsDelegate, MPCPlaybackEngineEventObserving>
+@interface _MPCMediaRemotePublisher : NSObject <MPNowPlayingPlaybackQueueDataSourcePrivate, MPCPlaybackEngineEventObserving>
 {
     MPLibraryAddStatusObserver *_libraryAddStatusObserver;
     NSString *_lastContextID;
@@ -47,6 +46,7 @@
 - (void)removeSupportedSpecializedQueueIdentifier:(id)arg1;
 - (void)addSupportedSpecializedQueueIdentifier:(id)arg1 localizedName:(id)arg2 queueType:(long long)arg3 queueParameters:(id)arg4;
 - (void)publishIfNeeded;
+@property(readonly, nonatomic) MPCPlayerPath *playerPath;
 - (void)becomeActive;
 - (id)initWithPlaybackEngine:(id)arg1;
 - (id)nowPlayingInfoCenter:(id)arg1 lyricsForContentItem:(id)arg2 completion:(CDUnknownBlockType)arg3;

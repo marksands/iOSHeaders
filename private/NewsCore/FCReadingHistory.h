@@ -65,6 +65,8 @@
 - (id)allSortedArticleIDsInReadingHistory;
 - (id)mostRecentlyReadArticlesWithMaxCount:(unsigned long long)arg1;
 - (id)historyItemsForArticleIDs:(id)arg1;
+- (unsigned long long)softMaxRecordCountWhenMigratingZoneName:(id)arg1;
+- (double)softMaxRecordAgeWhenMigratingZoneName:(id)arg1;
 - (id)pruneRecords:(id)arg1 forZoneName:(id)arg2;
 - (_Bool)canHelpPruneZoneName:(id)arg1;
 - (id)recordsForRestoringZoneName:(id)arg1;

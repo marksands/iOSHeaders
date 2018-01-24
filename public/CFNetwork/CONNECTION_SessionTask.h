@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
     struct os_unfair_lock_s _unfair_lock;
 }
 
+- (id)_APSRelayTopic;
 - (id)_incompleteTaskMetrics;
 - (void)set_incompleteTaskMetrics:(id)arg1;
 - (_Bool)_preconnect;

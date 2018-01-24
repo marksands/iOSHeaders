@@ -10,9 +10,9 @@
 
 @interface PSSoftwareUpdateTableView : UITableView
 {
+    _Bool _updatesDeferred;
     int _state;
     NSString *_currentVersion;
-    NSString *_sourceOfUpdateRestriction;
     UILabel *_checkingStatusLabel;
     UILabel *_subtitleLabel;
     UIActivityIndicatorView *_checkingForUpdateSpinner;
@@ -22,7 +22,7 @@
 @property(retain, nonatomic) UIActivityIndicatorView *checkingForUpdateSpinner; // @synthesize checkingForUpdateSpinner=_checkingForUpdateSpinner;
 @property(retain, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
 @property(retain, nonatomic) UILabel *checkingStatusLabel; // @synthesize checkingStatusLabel=_checkingStatusLabel;
-@property(retain, nonatomic) NSString *sourceOfUpdateRestriction; // @synthesize sourceOfUpdateRestriction=_sourceOfUpdateRestriction;
+@property _Bool updatesDeferred; // @synthesize updatesDeferred=_updatesDeferred;
 @property(retain, nonatomic) NSString *currentVersion; // @synthesize currentVersion=_currentVersion;
 - (void).cxx_destruct;
 - (void)layoutSubviews;

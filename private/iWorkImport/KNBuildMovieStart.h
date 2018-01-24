@@ -6,11 +6,16 @@
 
 #import <iWorkImport/KNBuildAppear.h>
 
+#import "KNAnimationPluginAmbientAnimationStart.h"
+
+@class NSString;
+
 __attribute__((visibility("hidden")))
-@interface KNBuildMovieStart : KNBuildAppear
+@interface KNBuildMovieStart : KNBuildAppear <KNAnimationPluginAmbientAnimationStart>
 {
 }
 
++ (_Bool)startsAmbientAnimation;
 + (id)thumbnailImageNameForType:(long long)arg1;
 + (id)localizedMenuString:(long long)arg1;
 + (id)supportedTypes;
@@ -18,6 +23,12 @@ __attribute__((visibility("hidden")))
 + (id)animationName;
 + (long long)animationCategory;
 - (void)addAnimationsTo:(id)arg1 context:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

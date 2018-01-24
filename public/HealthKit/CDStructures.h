@@ -27,6 +27,10 @@ struct NSDictionary {
     Class _field1;
 };
 
+struct NSUUID {
+    Class _field1;
+};
+
 struct _HDValueAndTime;
 
 struct _NSRange {
@@ -133,6 +137,14 @@ typedef struct {
     unsigned long long _field4;
     void *_field5;
 } CDStruct_57889bad;
+
+typedef struct {
+    char *_field1;
+    char *_field2;
+    char *_field3;
+    char *_field4;
+    _Bool _field5;
+} CDStruct_457e09f6;
 
 typedef struct {
     long long _field1;

@@ -47,6 +47,7 @@
 - (void)layoutSubviews;
 - (struct UIEdgeInsets)alignmentRectInsets;
 - (struct CGSize)intrinsicContentSize;
+- (void)willMoveToWindow:(id)arg1;
 @property(readonly, nonatomic, getter=isCollapsedOrExcluded) _Bool collapsedOrExcluded;
 - (id)initWithFrame:(struct CGRect)arg1;
 

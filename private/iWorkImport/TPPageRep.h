@@ -8,16 +8,17 @@
 
 #import "TSDMasterDrawableDelegate.h"
 
-@class CALayer, NSString, TPMarginAdjustRep;
+@class CALayer, NSString, TPiOSMarginAdjustRep;
 
 __attribute__((visibility("hidden")))
 @interface TPPageRep : TSWPPageRep <TSDMasterDrawableDelegate>
 {
-    CALayer *_separatorLayer;
-    TPMarginAdjustRep *_marginAdjustRep;
+    CALayer *_horizontalSeparatorLayer;
+    CALayer *_verticalSeparatorLayer;
+    TPiOSMarginAdjustRep *_marginAdjustRep;
 }
 
-@property(readonly, nonatomic) TPMarginAdjustRep *marginAdjustRep; // @synthesize marginAdjustRep=_marginAdjustRep;
+@property(readonly, nonatomic) TPiOSMarginAdjustRep *marginAdjustRep; // @synthesize marginAdjustRep=_marginAdjustRep;
 - (void).cxx_destruct;
 - (id)bodyReps;
 - (_Bool)masksToBounds;
@@ -27,22 +28,11 @@ __attribute__((visibility("hidden")))
 - (void)setNeedsDisplay;
 - (_Bool)directlyManagesLayerContent;
 - (id)layerClass;
-- (void)p_updateBorderLayers;
-- (_Bool)p_pageRequiresSeparator;
+- (_Bool)p_pageRequiresHorizontalSeparator;
 - (_Bool)childRepIsMasterDrawable:(id)arg1;
 - (_Bool)childRepIsOnDocSetupCanvas:(id)arg1;
-- (id)colorBehindBodyTextLayer:(id)arg1;
-- (void)p_updateLayoutBordersVisibility;
-- (id)p_bodyRepThatCanSelectChildRep:(id)arg1;
-- (void)selectChildRep:(id)arg1 extendingSelection:(_Bool)arg2;
-- (_Bool)canSelectChildRep:(id)arg1;
 - (void)willBeRemoved;
-- (void)showHUDForWPRep:(id)arg1 withFlags:(unsigned long long)arg2;
-- (id)hitMasterRep:(struct CGPoint)arg1;
-- (id)p_hitRep:(struct CGPoint)arg1 passingTest:(CDUnknownBlockType)arg2;
-- (int)p_hitHeaderFooterFragment:(int)arg1 atPoint:(struct CGPoint)arg2;
-- (id)hitRep:(struct CGPoint)arg1 passingTest:(CDUnknownBlockType)arg2;
-- (_Bool)p_headerFooterIsVisibleAndInteractive:(int)arg1;
+- (id)colorBehindBodyTextLayer:(id)arg1;
 - (void)dealloc;
 
 // Remaining properties

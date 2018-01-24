@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class ACAccount, DAStatusReport, DATaskManager, DATrustHandler, NSArray, NSData, NSMapTable, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSSet, NSString, NSURL;
+@class ACAccount, DAStatusReport, DATaskManager, DATrustHandler, NSArray, NSData, NSDate, NSMapTable, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSSet, NSString, NSURL;
 
 @interface DAAccount : NSObject
 {
@@ -30,14 +30,14 @@
     NSMutableDictionary *_dataclassPropertyURLsByDataclass;
     NSMutableArray *_pendingQueries;
     NSObject<OS_dispatch_queue> *_pendingQueryQueue;
-    unsigned long long _lastQueryStartedTime;
+    NSDate *_lastQueryStartedTime;
 }
 
 + (id)daAccountSubclassWithBackingAccountInfo:(id)arg1;
 + (void)reacquireClientRestrictions:(id)arg1;
 + (id)oneshotListOfAccountIDs;
 + (id)_leafAccountTypes;
-@property(nonatomic) unsigned long long lastQueryStartedTime; // @synthesize lastQueryStartedTime=_lastQueryStartedTime;
+@property(retain, nonatomic) NSDate *lastQueryStartedTime; // @synthesize lastQueryStartedTime=_lastQueryStartedTime;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *pendingQueryQueue; // @synthesize pendingQueryQueue=_pendingQueryQueue;
 @property(retain, nonatomic) NSMutableArray *pendingQueries; // @synthesize pendingQueries=_pendingQueries;
 @property(retain, nonatomic) NSMutableDictionary *dataclassPropertyURLsByDataclass; // @synthesize dataclassPropertyURLsByDataclass=_dataclassPropertyURLsByDataclass;

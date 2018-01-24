@@ -8,21 +8,45 @@
 
 #import "ARResultDataContext.h"
 
-@class ARImageData, NSString;
+@class ARImageData, NSMutableArray, NSString;
 
 @interface ARFrameContext : NSObject <ARResultDataContext>
 {
+    NSMutableArray *_anchorsToAdd;
+    NSMutableArray *_anchorsToRemove;
+    _Bool _sessionTransformUpdated;
+    _Bool _sessionTransformReset;
+    _Bool _sessionTransformShouldResumeCameraHeading;
+    _Bool _sessionTransformShouldResumeCameraPosition;
+    _Bool _shouldRemoveExistingAnchors;
     ARImageData *_imageData;
-    // Error parsing type: {?="columns"[4]}, name: _sessionOriginTransform
+    long long _worldAlignment;
+    unsigned long long _frameDebugOptions;
+    // Error parsing type: {?="columns"[4]}, name: _sessionTransform
 }
 
-// Error parsing type for property sessionOriginTransform:
-// Property attributes: T{?=[4]},N,V_sessionOriginTransform
+@property(readonly, nonatomic) _Bool shouldRemoveExistingAnchors; // @synthesize shouldRemoveExistingAnchors=_shouldRemoveExistingAnchors;
+@property(readonly, nonatomic) _Bool sessionTransformShouldResumeCameraPosition; // @synthesize sessionTransformShouldResumeCameraPosition=_sessionTransformShouldResumeCameraPosition;
+@property(readonly, nonatomic) _Bool sessionTransformShouldResumeCameraHeading; // @synthesize sessionTransformShouldResumeCameraHeading=_sessionTransformShouldResumeCameraHeading;
+@property(readonly, nonatomic) _Bool sessionTransformReset; // @synthesize sessionTransformReset=_sessionTransformReset;
+@property(readonly, nonatomic) _Bool sessionTransformUpdated; // @synthesize sessionTransformUpdated=_sessionTransformUpdated;
+// Error parsing type for property sessionTransform:
+// Property attributes: T{?=[4]},N,V_sessionTransform
 
-@property(readonly, nonatomic) ARImageData *imageData; // @synthesize imageData=_imageData;
+@property(nonatomic) unsigned long long frameDebugOptions; // @synthesize frameDebugOptions=_frameDebugOptions;
+@property(nonatomic) long long worldAlignment; // @synthesize worldAlignment=_worldAlignment;
+@property(retain, nonatomic) ARImageData *imageData; // @synthesize imageData=_imageData;
 - (void).cxx_destruct;
 - (id)resultDataOfClass:(Class)arg1;
-- (id)initWithImageData:(id)arg1;
+- (long long)cameraPosition;
+- (void)removeAnchor:(id)arg1;
+- (void)clearAddedAnchors;
+- (void)addAnchor:(id)arg1;
+- (id)anchorsToRemove;
+- (id)anchorsToAdd;
+- (void)resumeSessionCameraPositionAndHeading;
+- (void)resumeSessionCameraPosition;
+- (void)resetSessionTransform;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

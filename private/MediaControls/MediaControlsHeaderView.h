@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class MPButton, MPCPlayerPath, MPUMarqueeView, NSString, UIButton, UIImageView, UILabel;
+@class MPButton, MPCPlayerPath, MPUMarqueeView, MediaControlsRouteLabel, NSString, UIButton, UIImageView, UILabel;
 
 @interface MediaControlsHeaderView : UIView
 {
@@ -17,7 +17,7 @@
     UIImageView *_artworkView;
     UIImageView *_placeholderArtworkView;
     long long _style;
-    NSString *_routeName;
+    MediaControlsRouteLabel *_routeLabel;
     NSString *_primaryString;
     NSString *_secondaryString;
     MPButton *_routingButton;
@@ -27,8 +27,6 @@
     long long _buttonType;
     UIView *_artworkBackgroundView;
     UIView *_shadow;
-    MPUMarqueeView *_titleMarqueeView;
-    UILabel *_routeLabel;
     MPUMarqueeView *_primaryMarqueeView;
     UILabel *_primaryLabel;
     MPUMarqueeView *_secondaryMarqueeView;
@@ -43,8 +41,6 @@
 @property(retain, nonatomic) MPUMarqueeView *secondaryMarqueeView; // @synthesize secondaryMarqueeView=_secondaryMarqueeView;
 @property(retain, nonatomic) UILabel *primaryLabel; // @synthesize primaryLabel=_primaryLabel;
 @property(retain, nonatomic) MPUMarqueeView *primaryMarqueeView; // @synthesize primaryMarqueeView=_primaryMarqueeView;
-@property(retain, nonatomic) UILabel *routeLabel; // @synthesize routeLabel=_routeLabel;
-@property(retain, nonatomic) MPUMarqueeView *titleMarqueeView; // @synthesize titleMarqueeView=_titleMarqueeView;
 @property(retain, nonatomic) UIView *shadow; // @synthesize shadow=_shadow;
 @property(retain, nonatomic) UIView *artworkBackgroundView; // @synthesize artworkBackgroundView=_artworkBackgroundView;
 @property(nonatomic) struct CGSize overrideSize; // @synthesize overrideSize=_overrideSize;
@@ -56,7 +52,7 @@
 @property(retain, nonatomic) MPButton *routingButton; // @synthesize routingButton=_routingButton;
 @property(copy, nonatomic) NSString *secondaryString; // @synthesize secondaryString=_secondaryString;
 @property(copy, nonatomic) NSString *primaryString; // @synthesize primaryString=_primaryString;
-@property(copy, nonatomic) NSString *routeName; // @synthesize routeName=_routeName;
+@property(retain, nonatomic) MediaControlsRouteLabel *routeLabel; // @synthesize routeLabel=_routeLabel;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic, getter=isTransitioning) _Bool transitioning; // @synthesize transitioning=_transitioning;
 @property(retain, nonatomic) UIImageView *placeholderArtworkView; // @synthesize placeholderArtworkView=_placeholderArtworkView;
@@ -66,6 +62,7 @@
 - (void)_handleContentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_updateRTL;
 - (void)clearOverrideSize;
+- (void)tintColorDidChange;
 - (void)didMoveToWindow;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)updateArtworkStyle;

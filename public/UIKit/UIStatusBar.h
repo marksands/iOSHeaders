@@ -37,6 +37,7 @@
     NSNumber *_overrideHeight;
     NSMutableSet *_disableRasterizationReasons;
     NSMutableDictionary *_actions;
+    _Bool _disablesRasterization;
     _Bool _timeHidden;
     UIStatusBarWindow *_statusBarWindow;
 }
@@ -61,6 +62,7 @@
 + (double)_heightForStyle:(long long)arg1 orientation:(long long)arg2 forStatusBarFrame:(_Bool)arg3;
 + (_Bool)_shouldForwardToImplementationClassForStyle:(long long)arg1;
 @property(nonatomic, getter=isTimeHidden) _Bool timeHidden; // @synthesize timeHidden=_timeHidden;
+- (_Bool)disablesRasterization;
 - (void)setStatusBarWindow:(id)arg1;
 - (id)statusBarWindow;
 - (void).cxx_destruct;
@@ -83,6 +85,7 @@
 - (void)_endDisablingRasterizationForReason:(id)arg1;
 - (void)_beginDisablingRasterizationForReason:(id)arg1;
 - (void)_updateShouldRasterize;
+- (void)_setDisablesRasterization:(_Bool)arg1;
 - (_Bool)_shouldReverseLayoutDirection;
 - (void)_didChangeFromIdiom:(long long)arg1 onScreen:(id)arg2 traverseHierarchy:(_Bool)arg3;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;

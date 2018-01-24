@@ -10,7 +10,7 @@
 #import "HDHealthDaemon.h"
 #import "HDXPCListenerDelegate.h"
 
-@class HDAchievementAssetManager, HDAchievementDefinitionAlertManager, HDAchievementDoctorManager, HDAppLauncher, HDBackgroundTaskScheduler, HDCloudSyncCoordinator, HDCoachingDiagnosticManager, HDCompanionAchievementManager, HDCompanionWorkoutCreditManager, HDContentProtectionManager, HDDemoDataGenerator, HDDynamicAchievementDefinitionDataStore, HDFitnessAppBadgeManager, HDPluginManager, HDPrimaryProfile, HDProcessStateManager, HDProfileManager, HDQueryManager, HDXPCListener, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSURL, _HKBehavior;
+@class HDAchievementAssetManager, HDAchievementDefinitionAlertManager, HDAchievementDoctorManager, HDAppLauncher, HDBackgroundTaskScheduler, HDCloudSyncCoordinator, HDCoachingDiagnosticManager, HDCompanionAchievementManager, HDCompanionWorkoutCreditManager, HDContentProtectionManager, HDDemoDataGenerator, HDDynamicAchievementDefinitionDataStore, HDFitnessAppBadgeManager, HDPluginManager, HDPrimaryProfile, HDProcessStateManager, HDProfileManager, HDQueryManager, HDXPCListener, NSDictionary, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSURL, _HKBehavior;
 
 @interface HDDaemon : NSObject <HDDiagnosticObject, HDXPCListenerDelegate, HDHealthDaemon>
 {
@@ -35,6 +35,7 @@
     NSMutableArray *_daemonLaunchObservers;
     _Bool _daemonReady;
     int _didStart;
+    NSDictionary *_daemonExtensionsByIdentifier;
     NSString *_medicalIDDirectoryPath;
     HDAchievementDoctorManager *_achievementDoctorManager;
     HDAchievementAssetManager *_achievementAssetManager;
@@ -123,6 +124,8 @@
 - (void)obliterateAndTerminateWithOptions:(unsigned long long)arg1 reason:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)invalidateAllServersForProfile:(id)arg1;
 - (void)invalidateAndWait;
+- (id)daemonExtensionsConformingToProtocol:(id)arg1;
+- (id)daemonExtensionWithIdentifier:(id)arg1;
 - (void)dealloc;
 - (void)start;
 - (id)initWithHealthDirectoryPath:(id)arg1 medicalIDDirectoryPath:(id)arg2;

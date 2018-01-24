@@ -8,19 +8,26 @@
 
 #import "NSSecureCoding.h"
 
+@class NSMutableDictionary;
+
 @interface MADownloadOptions : NSObject <NSSecureCoding>
 {
     _Bool _allowsCellularAccess;
     _Bool _canUseLocalCacheServer;
+    _Bool _discretionary;
     long long _timeoutIntervalForResource;
+    NSMutableDictionary *_additionalServerParams;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool discretionary; // @synthesize discretionary=_discretionary;
+@property(retain, nonatomic) NSMutableDictionary *additionalServerParams; // @synthesize additionalServerParams=_additionalServerParams;
 @property(nonatomic) _Bool canUseLocalCacheServer; // @synthesize canUseLocalCacheServer=_canUseLocalCacheServer;
 @property(nonatomic) long long timeoutIntervalForResource; // @synthesize timeoutIntervalForResource=_timeoutIntervalForResource;
 @property(nonatomic) _Bool allowsCellularAccess; // @synthesize allowsCellularAccess=_allowsCellularAccess;
 - (void)logOptions;
 - (void)encodeWithCoder:(id)arg1;
+- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 

@@ -22,6 +22,9 @@
 - (void).cxx_destruct;
 - (id)provisionalEnrollmentExpirationDate;
 - (_Bool)isProvisionallyEnrolled;
+- (id)languageScript;
+- (id)region;
+- (id)language;
 - (id)diagnosticsUploadURL;
 - (int)userMode;
 - (_Bool)isAwaitingConfiguration;

@@ -18,6 +18,8 @@
 - (id)init;
 
 // Remaining properties
+@property _Bool _apsRelayAttempted; // @dynamic _apsRelayAttempted;
+@property _Bool _apsRelaySucceeded; // @dynamic _apsRelaySucceeded;
 @property _Bool _cellular; // @dynamic _cellular;
 @property(copy) NSUUID *_connectionIdentifier; // @dynamic _connectionIdentifier;
 @property _Bool _connectionRace; // @dynamic _connectionRace;

@@ -25,8 +25,6 @@
     _Bool _didMeasureMetrics;
     _Bool _didStartMeasuring;
     _Bool _didStopMeasuring;
-    NSString *_filePathForUnexpectedFailure;
-    unsigned long long _lineNumberForUnexpectedFailure;
     NSString *_filePathForNestedFailure;
     unsigned long long _lineNumberForNestedFailure;
     long long _runLoopNestingCount;
@@ -55,8 +53,6 @@
 @property long long runLoopNestingCount; // @synthesize runLoopNestingCount=_runLoopNestingCount;
 @property unsigned long long lineNumberForNestedFailure; // @synthesize lineNumberForNestedFailure=_lineNumberForNestedFailure;
 @property(copy) NSString *filePathForNestedFailure; // @synthesize filePathForNestedFailure=_filePathForNestedFailure;
-@property unsigned long long lineNumberForUnexpectedFailure; // @synthesize lineNumberForUnexpectedFailure=_lineNumberForUnexpectedFailure;
-@property(copy) NSString *filePathForUnexpectedFailure; // @synthesize filePathForUnexpectedFailure=_filePathForUnexpectedFailure;
 @property(retain, nonatomic) NSMutableSet *expectations; // @synthesize expectations=_expectations;
 @property _Bool didStopMeasuring; // @synthesize didStopMeasuring=_didStopMeasuring;
 @property _Bool didStartMeasuring; // @synthesize didStartMeasuring=_didStartMeasuring;

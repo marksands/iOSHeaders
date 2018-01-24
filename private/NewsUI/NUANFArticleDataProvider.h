@@ -8,7 +8,7 @@
 
 #import "NUArticleDataProvider.h"
 
-@class FCArticle, NSString, NUANFAssetLoader, NUANFContextLoader, NUANFFontLoader, SXHost;
+@class FCArticle, NSString, NUANFAssetLoader, NUANFContextLoader, NUANFFontLoader;
 
 @interface NUANFArticleDataProvider : NSObject <NUArticleDataProvider>
 {
@@ -16,7 +16,7 @@
     id <FCContentContext> _contentContext;
     FCArticle *_article;
     id <NUFontRegistration> _fontRegistration;
-    SXHost *_host;
+    id <SXHost> _host;
     NUANFFontLoader *_fontLoader;
     NUANFContextLoader *_contextLoader;
     NUANFAssetLoader *_assetLoader;
@@ -27,7 +27,7 @@
 @property(retain, nonatomic) NUANFAssetLoader *assetLoader; // @synthesize assetLoader=_assetLoader;
 @property(retain, nonatomic) NUANFContextLoader *contextLoader; // @synthesize contextLoader=_contextLoader;
 @property(retain, nonatomic) NUANFFontLoader *fontLoader; // @synthesize fontLoader=_fontLoader;
-@property(readonly, nonatomic) SXHost *host; // @synthesize host=_host;
+@property(readonly, nonatomic) id <SXHost> host; // @synthesize host=_host;
 @property(readonly, nonatomic) id <NUFontRegistration> fontRegistration; // @synthesize fontRegistration=_fontRegistration;
 @property(readonly, nonatomic) FCArticle *article; // @synthesize article=_article;
 @property(readonly, nonatomic) id <FCContentContext> contentContext; // @synthesize contentContext=_contentContext;

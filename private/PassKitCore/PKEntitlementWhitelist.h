@@ -53,6 +53,7 @@
 @property(readonly) _Bool passesAllAccess; // @synthesize passesAllAccess=_passesAllAccess;
 - (void).cxx_destruct;
 - (void)_probeEntitlementsWithConnection:(id)arg1;
+- (_Bool)isEntitledForMerchantSession:(id)arg1;
 - (_Bool)isEntitledForPaymentRequest:(id)arg1;
 - (_Bool)supportsWebPayments;
 @property(readonly) _Bool allAccess;

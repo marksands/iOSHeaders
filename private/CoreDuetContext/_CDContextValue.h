@@ -17,6 +17,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)supportedContextValueClasses;
 @property(retain, nonatomic) NSMutableDictionary *metadata; // @synthesize metadata=_metadata;
 - (void).cxx_destruct;
 - (id)description;

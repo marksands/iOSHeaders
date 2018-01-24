@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class CLKUITextureBacking, NSMutableSet, NSString;
+@class CLKUIAtlasBacking, CLKUIResourceProviderKey, NSString;
 
 @protocol CLKUIResourceProviderDelegate <NSObject>
-- (void)addResourceUuidsToKeep:(NSMutableSet *)arg1;
-- (CLKUITextureBacking *)provideTextureBacking:(NSString *)arg1;
+- (CLKUIResourceProviderKey *)resourceProviderKey;
+- (CLKUIAtlasBacking *)provideAtlasBacking:(NSString *)arg1;
 @end
 

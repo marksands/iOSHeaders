@@ -45,6 +45,10 @@
 + (id)predicateForWorkoutsWithWorkoutActivityType:(unsigned long long)arg1;
 + (id)predicateForCategorySamplesWithOperatorType:(unsigned long long)arg1 value:(long long)arg2;
 + (id)predicateForQuantitySamplesWithOperatorType:(unsigned long long)arg1 quantity:(id)arg2;
++ (id)predicateForCreationDateWithTodayViewRange:(id)arg1;
++ (id)predicateForRecordsWithSortDateFromStartDateComponents:(id)arg1 endDateComponents:(id)arg2;
++ (id)predicateForDiagnosticTestResultCategory:(id)arg1;
++ (id)predicateForRecordsFromClinicalAccountIdentifier:(id)arg1;
 + (id)predicateForSamplesForDayFromDate:(id)arg1 calendar:(id)arg2 options:(unsigned long long)arg3;
 + (id)predicateForSamplesWithinDateInterval:(id)arg1 options:(unsigned long long)arg2;
 + (id)predicateForSamplesAssociatedWithSample:(id)arg1;

@@ -47,7 +47,8 @@
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
 - (id)nanoSyncDescription;
 - (unsigned long long)anchorCount;
-- (void)enumerateAnchorsAndSyncEntitiesWithBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateAnchorsAndEntityIdentifiersWithBlock:(CDUnknownBlockType)arg1;
+- (long long)anchorForSyncEntityIdentifier:(id)arg1;
 - (long long)anchorForSyncEntityClass:(Class)arg1;
 - (void)setAnchor:(long long)arg1 forSyncEntity:(Class)arg2;
 - (id)copyForPersistentUserInfo;

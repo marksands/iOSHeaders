@@ -10,7 +10,7 @@
 
 @protocol RWIProtocolNetworkDomainHandler <NSObject>
 - (void)resolveWebSocketWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(RWIProtocolRuntimeRemoteObject *))arg2 requestId:(NSString *)arg3 objectGroup:(id *)arg4;
-- (void)loadResourceWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(NSString *, NSString *, double))arg2 frameId:(NSString *)arg3 url:(NSString *)arg4;
+- (void)loadResourceWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(NSString *, NSString *, int))arg2 frameId:(NSString *)arg3 url:(NSString *)arg4;
 - (void)setResourceCachingDisabledWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(void))arg2 disabled:(_Bool)arg3;
 - (void)getResponseBodyWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(NSString *, _Bool))arg2 requestId:(NSString *)arg3;
 - (void)setExtraHTTPHeadersWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(void))arg2 headers:(RWIProtocolNetworkHeaders *)arg3;

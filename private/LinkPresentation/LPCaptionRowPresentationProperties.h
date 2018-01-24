@@ -17,6 +17,7 @@
 @property(readonly, retain, nonatomic) LPCaptionPresentationProperties *trailing; // @synthesize trailing=_trailing;
 @property(readonly, retain, nonatomic) LPCaptionPresentationProperties *leading; // @synthesize leading=_leading;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool hasAnyContent;
 - (id)right;
 - (id)left;
 - (id)init;

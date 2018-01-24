@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-@class SXComponent, SXLayoutBlueprint;
+@class SXLayoutBlueprint;
 
 @protocol SXLayouterDelegate <NSObject>
-- (void)layouter:(id <SXLayouter>)arg1 didFinishLayoutForComponent:(SXComponent *)arg2 layoutBlueprint:(SXLayoutBlueprint *)arg3 shouldContinueLayout:(_Bool *)arg4;
+- (void)layouter:(id <SXLayouter>)arg1 didFinishLayoutForComponent:(id <SXComponent>)arg2 layoutBlueprint:(SXLayoutBlueprint *)arg3 shouldContinueLayout:(_Bool *)arg4;
 @end
 

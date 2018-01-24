@@ -10,38 +10,24 @@
 
 @interface MPModelPlaybackPosition : MPModelObject
 {
-    _Bool _shouldRememberBookmarkTime;
-    _Bool _hasBeenPlayed;
-    double _bookmarkTime;
-    double _startTime;
-    NSNumber *_stopTime;
-    NSString *_storeUbiquitousIdentifier;
-    long long _userPlayCount;
 }
 
-+ (id)__MPModelPropertyPlaybackPositionUserPlayCount__PROPERTY;
-+ (id)__userPlayCount__KEY;
-+ (id)__MPModelPropertyPlaybackPositionStoreUbiquitousIdentifier__PROPERTY;
-+ (id)__storeUbiquitousIdentifier__KEY;
-+ (id)__MPModelPropertyPlaybackPositionStopTime__PROPERTY;
-+ (id)__stopTime__KEY;
-+ (id)__MPModelPropertyPlaybackPositionStartTime__PROPERTY;
-+ (id)__startTime__KEY;
-+ (id)__MPModelPropertyPlaybackPositionHasBeenPlayed__PROPERTY;
-+ (id)__hasBeenPlayed__KEY;
-+ (id)__MPModelPropertyPlaybackPositionShouldRememberBookmarkTime__PROPERTY;
-+ (id)__shouldRememberBookmarkTime__KEY;
-+ (id)__MPModelPropertyPlaybackPositionBookmarkTime__PROPERTY;
-+ (id)__bookmarkTime__KEY;
-@property(nonatomic) long long userPlayCount; // @synthesize userPlayCount=_userPlayCount;
-@property(copy, nonatomic) NSString *storeUbiquitousIdentifier; // @synthesize storeUbiquitousIdentifier=_storeUbiquitousIdentifier;
-@property(copy, nonatomic) NSNumber *stopTime; // @synthesize stopTime=_stopTime;
-@property(nonatomic) double startTime; // @synthesize startTime=_startTime;
-@property(nonatomic) _Bool hasBeenPlayed; // @synthesize hasBeenPlayed=_hasBeenPlayed;
-@property(nonatomic) _Bool shouldRememberBookmarkTime; // @synthesize shouldRememberBookmarkTime=_shouldRememberBookmarkTime;
-@property(nonatomic) double bookmarkTime; // @synthesize bookmarkTime=_bookmarkTime;
-- (void).cxx_destruct;
-- (id)descriptionWithType:(long long)arg1;
++ (id)__userPlayCount_KEY;
++ (id)__storeUbiquitousIdentifier_KEY;
++ (id)__stopTime_KEY;
++ (id)__startTime_KEY;
++ (id)__hasBeenPlayed_KEY;
++ (id)__shouldRememberBookmarkTime_KEY;
++ (id)__bookmarkTime_KEY;
+
+// Remaining properties
+@property(nonatomic) double bookmarkTime; // @dynamic bookmarkTime;
+@property(nonatomic) _Bool hasBeenPlayed; // @dynamic hasBeenPlayed;
+@property(nonatomic) _Bool shouldRememberBookmarkTime; // @dynamic shouldRememberBookmarkTime;
+@property(nonatomic) double startTime; // @dynamic startTime;
+@property(copy, nonatomic) NSNumber *stopTime; // @dynamic stopTime;
+@property(copy, nonatomic) NSString *storeUbiquitousIdentifier; // @dynamic storeUbiquitousIdentifier;
+@property(nonatomic) long long userPlayCount; // @dynamic userPlayCount;
 
 @end
 

@@ -12,11 +12,11 @@
 {
     MPMediaLibraryView *_libraryView;
     CDUnknownBlockType _responseHandler;
-    vector_c1c297d2 _persistentIDs;
+    vector_bbba3654 _persistentIDs;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType responseHandler; // @synthesize responseHandler=_responseHandler;
-@property(nonatomic) vector_c1c297d2 persistentIDs; // @synthesize persistentIDs=_persistentIDs;
+@property(nonatomic) vector_bbba3654 persistentIDs; // @synthesize persistentIDs=_persistentIDs;
 @property(nonatomic) MPMediaLibraryView *libraryView; // @synthesize libraryView=_libraryView;
 - (id).cxx_construct;
 - (void).cxx_destruct;

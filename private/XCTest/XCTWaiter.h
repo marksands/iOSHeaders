@@ -26,6 +26,7 @@
 + (double)watchdogTimeoutSlop;
 + (void)setWatchdogTimeoutSlop:(double)arg1;
 @property(readonly) _XCTWaiterImpl *internalImplementation; // @synthesize internalImplementation=_internalImplementation;
+@property(readonly) _Bool currentContextIsNested;
 - (long long)result;
 @property(readonly) double timeout;
 - (void)setState:(long long)arg1;

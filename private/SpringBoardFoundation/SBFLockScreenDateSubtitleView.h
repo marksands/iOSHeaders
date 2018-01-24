@@ -15,14 +15,18 @@
     NSHashTable *_replicatedViews;
     SBUILegibilityLabel *_label;
     UIView<SBFScreenFadeReplicatable> *_accessoryView;
+    UIView<SBFScreenFadeReplicatable> *_backgroundView;
     _UILegibilitySettings *_legibilitySettings;
     double _strength;
+    double _customInterItemSpacing;
 }
 
 + (double)scaledFontSize:(double)arg1 withMaximumFontSizeCategory:(id)arg2;
 + (id)labelFont;
+@property(nonatomic) double customInterItemSpacing; // @synthesize customInterItemSpacing=_customInterItemSpacing;
 @property(nonatomic) double strength; // @synthesize strength=_strength;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
+@property(retain, nonatomic) UIView<SBFScreenFadeReplicatable> *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) UIView<SBFScreenFadeReplicatable> *accessoryView; // @synthesize accessoryView=_accessoryView;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) double baselineOffsetFromBottom;
@@ -31,6 +35,7 @@
 - (void)_enumerateReplicateViews:(CDUnknownBlockType)arg1;
 - (id)_createReplicateView;
 - (id)replicate;
+- (struct CGRect)backgroundViewFrame;
 - (struct CGRect)subtitleLabelFrame;
 - (struct CGRect)accessoryViewFrame;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

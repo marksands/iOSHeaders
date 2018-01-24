@@ -6,11 +6,13 @@
 
 #import "NSError.h"
 
+@class NSString;
+
 @interface NSError (SafariCoreExtras)
 + (id)safari_errorWithDomain:(id)arg1 code:(long long)arg2 privacyPreservingDescription:(id)arg3;
 @property(readonly, nonatomic) _Bool safari_isSQLiteCorruptionError;
 @property(readonly, nonatomic) _Bool safari_isSQLiteError;
-- (id)safari_privacyPreservingDescription;
+@property(readonly, copy, nonatomic) NSString *safari_privacyPreservingDescription;
 - (id)safari_initWithDomain:(id)arg1 code:(long long)arg2 privacyPreservingDescription:(id)arg3;
 - (_Bool)safari_isClientSideNetworkError;
 @end

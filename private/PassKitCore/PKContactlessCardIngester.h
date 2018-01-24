@@ -21,6 +21,7 @@
 
 + (id)_displayableErrorForSPStatusCode:(unsigned long long)arg1 seldError:(id)arg2;
 + (id)debugDescriptionForStatus:(unsigned long long)arg1;
++ (_Bool)isSupported;
 - (void).cxx_destruct;
 - (void)_startListeningToRemoteAdminEventsIfRequired;
 - (void)_stopListeningToRemoteAdminEvents;

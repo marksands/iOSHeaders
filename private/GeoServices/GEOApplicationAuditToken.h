@@ -25,6 +25,7 @@
 - (id)bundleId;
 - (id)backingTokenData;
 - (id)init;
+- (id)publicLogDescription;
 - (id)description;
 - (id)initWithProxiedApplicationBundleId:(id)arg1;
 - (id)initWithAuditTokenData:(id)arg1;

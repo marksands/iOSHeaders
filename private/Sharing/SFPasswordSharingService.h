@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSObject<OS_dispatch_queue>, NSString, NSUUID, SFPasswordSharingInfo, SFService, SFUserNotification;
+@class NSDate, NSObject<OS_dispatch_queue>, NSString, NSUUID, SFPasswordSharingInfo, SFService, SFUserAlert;
 
 @interface SFPasswordSharingService : NSObject
 {
     _Bool _activateCalled;
     _Bool _invalidateCalled;
-    SFUserNotification *_notification;
+    SFUserAlert *_notification;
     NSUUID *_peer;
     SFPasswordSharingInfo *_promptedInfo;
     SFService *_service;

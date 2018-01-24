@@ -29,7 +29,7 @@
 - (void)_fetchBookmarksPriorToMigrationWithTarget:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_generateDAVServerIDsForExistingBookmarksWithTarget:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_createRandomBookmarkWithTarget:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)runWithTarget:(id)arg1 deviceCoordinator:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)runWithTarget:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)init;
 
 // Remaining properties

@@ -8,24 +8,30 @@
 
 #import "NSCopying.h"
 
-@class NSString, _MRColorProtobuf;
+@class NSMutableArray, NSString, _MRColorProtobuf;
 
 @interface _MRNowPlayingClientProtobuf : PBCodable <NSCopying>
 {
     NSString *_bundleIdentifier;
+    NSMutableArray *_bundleIdentifierHierarchys;
     NSString *_displayName;
     int _nowPlayingVisibility;
     NSString *_parentApplicationBundleIdentifier;
     int _processIdentifier;
     int _processUserIdentifier;
     _MRColorProtobuf *_tintColor;
+    _Bool _isEmptyDeprecated;
     struct {
         unsigned int nowPlayingVisibility:1;
         unsigned int processIdentifier:1;
         unsigned int processUserIdentifier:1;
+        unsigned int isEmptyDeprecated:1;
     } _has;
 }
 
++ (Class)bundleIdentifierHierarchyType;
+@property(nonatomic) _Bool isEmptyDeprecated; // @synthesize isEmptyDeprecated=_isEmptyDeprecated;
+@property(retain, nonatomic) NSMutableArray *bundleIdentifierHierarchys; // @synthesize bundleIdentifierHierarchys=_bundleIdentifierHierarchys;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) _MRColorProtobuf *tintColor; // @synthesize tintColor=_tintColor;
 @property(nonatomic) int processUserIdentifier; // @synthesize processUserIdentifier=_processUserIdentifier;
@@ -41,6 +47,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIsEmptyDeprecated;
+- (id)bundleIdentifierHierarchyAtIndex:(unsigned long long)arg1;
+- (unsigned long long)bundleIdentifierHierarchysCount;
+- (void)addBundleIdentifierHierarchy:(id)arg1;
+- (void)clearBundleIdentifierHierarchys;
 @property(readonly, nonatomic) _Bool hasDisplayName;
 @property(readonly, nonatomic) _Bool hasTintColor;
 - (int)StringAsNowPlayingVisibility:(id)arg1;

@@ -7,11 +7,12 @@
 #import "NSObject.h"
 
 #import "DEDClientProtocol.h"
+#import "DEDSecureArchiving.h"
 #import "DEDWorkerProtocol.h"
 
 @class DEDIDSConnection, NSObject<OS_os_log>, NSString;
 
-@interface DEDIDSOutbound : NSObject <DEDWorkerProtocol, DEDClientProtocol>
+@interface DEDIDSOutbound : NSObject <DEDWorkerProtocol, DEDClientProtocol, DEDSecureArchiving>
 {
     DEDIDSConnection *_connection;
     NSString *_deviceAddress;
@@ -19,6 +20,7 @@
     NSObject<OS_os_log> *_log;
 }
 
++ (id)archivedClasses;
 + (id)sessionWithID:(id)arg1 withDeviceAtAddress:(id)arg2 connection:(id)arg3;
 @property(retain) NSObject<OS_os_log> *log; // @synthesize log=_log;
 @property(retain) NSString *sessionID; // @synthesize sessionID=_sessionID;

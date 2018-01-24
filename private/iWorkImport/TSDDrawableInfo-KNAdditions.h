@@ -25,6 +25,8 @@
 @property(readonly, nonatomic) unsigned long long buildCount;
 @property(readonly, nonatomic) KNBuild *buildOut;
 @property(readonly, nonatomic) KNBuild *buildIn;
+@property(readonly, nonatomic) NSSet *contentBuilds;
+@property(readonly, nonatomic) _Bool hasContentBuilds;
 @property(readonly, nonatomic) NSSet *actionBuilds;
 @property(readonly, nonatomic) _Bool hasActionBuilds;
 @property(readonly, nonatomic) KNAbstractSlide *abstractSlide;

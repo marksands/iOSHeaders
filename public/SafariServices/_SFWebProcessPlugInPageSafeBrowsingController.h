@@ -8,7 +8,7 @@
 
 #import "_SFSafeBrowsingWebProcessController.h"
 
-@class NSDictionary, NSString, _SFSecurityInfo, _SFWebProcessPlugInPageController, _WKRemoteObjectInterface;
+@class NSDictionary, NSMutableSet, NSString, _SFSecurityInfo, _SFWebProcessPlugInPageController, _WKRemoteObjectInterface;
 
 __attribute__((visibility("hidden")))
 @interface _SFWebProcessPlugInPageSafeBrowsingController : NSObject <_SFSafeBrowsingWebProcessController>
@@ -20,15 +20,19 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _completionHandler;
     id <_SFSafeBrowsingWarningResponseObserver> _responseObserver;
     NSDictionary *_localizedStrings;
+    NSMutableSet *_safeURLCache;
+    NSMutableSet *_provisionalURLsNeedingSafeBrowsingCheck;
 }
 
 - (void).cxx_destruct;
+- (void)safeBrowsingDatabaseDidUpdate;
 - (void)safeBrowsingCheckFinishedWithSecurityInfo:(id)arg1 canGoBack:(_Bool)arg2 localizedStrings:(id)arg3;
 - (void)urlPassedSafeBrowsingCheck:(id)arg1 canCache:(_Bool)arg2;
 - (id)localizedStringForString:(id)arg1;
 - (void)didRespondToSecurityWarning:(long long)arg1;
 - (void)securityWarningPageLoaded;
 - (void)injectPhishingAlertBindingsForFrame:(id)arg1 inScriptWorld:(id)arg2;
+- (void)cleanUpForNewPageLoad;
 - (_Bool)urlPassesFastSafeBrowsingCheck:(id)arg1;
 - (_Bool)_canSkipSafeBrowsingCheckForURL:(id)arg1;
 - (id)_responseObserverProxy;

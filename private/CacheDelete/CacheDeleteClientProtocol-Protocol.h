@@ -7,6 +7,7 @@
 @class NSDictionary, NSString, NSXPCListenerEndpoint;
 
 @protocol CacheDeleteClientProtocol
+- (void)clientRegisterLowDiskFailure:(NSString *)arg1 failureType:(int)arg2 isRoot:(_Bool)arg3;
 - (void)clientRequestCacheableSpaceGuidance:(NSDictionary *)arg1 replyBlock:(void (^)(NSDictionary *))arg2;
 - (void)clientUpdatePurgeable:(NSDictionary *)arg1 replyBlock:(void (^)(void))arg2;
 - (void)clientGetState:(NSString *)arg1 replyBlock:(void (^)(id))arg2;

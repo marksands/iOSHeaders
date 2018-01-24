@@ -107,7 +107,7 @@
 - (_Bool)storeFlags:(id)arg1 state:(_Bool)arg2 forMessageSet:(id)arg3;
 - (id)searchUidSet:(id)arg1 forNewMessageIDs:(id)arg2;
 - (unsigned int)getMailboxIDForUID:(unsigned int)arg1;
-- (void)updateSearchCapability;
+- (void)_updateSearchCapabilityWithAccount:(id)arg1;
 - (unsigned long long)countForSearchOfUidSet:(id)arg1 forTerms:(id)arg2 success:(_Bool *)arg3;
 - (unsigned long long)countForSearchOfIDSet:(id)arg1 forTerms:(id)arg2 success:(_Bool *)arg3;
 - (id)searchIDSet:(id)arg1 forTerms:(id)arg2 success:(_Bool *)arg3;
@@ -122,7 +122,7 @@
 - (_Bool)deleteMailbox:(id)arg1;
 - (_Bool)createMailbox:(id)arg1;
 - (id)selectedMailbox;
-- (_Bool)selectMailbox:(id)arg1;
+- (_Bool)selectMailbox:(id)arg1 withAccount:(id)arg2;
 - (_Bool)examineMailbox:(id)arg1;
 - (void)fetchStatusForMailboxes:(id)arg1 args:(id)arg2;
 - (_Bool)expungeUids:(id)arg1;

@@ -13,6 +13,7 @@
     NSArray *_markers;
 }
 
++ (id)supportedVideoFormats;
 + (id)new;
 @property(copy, nonatomic) NSArray *markers; // @synthesize markers=_markers;
 - (void).cxx_destruct;

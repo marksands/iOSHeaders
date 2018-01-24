@@ -47,12 +47,12 @@ __attribute__((visibility("hidden")))
     CKTimeLogger *_timeLogger;
     id <CKDURLRequestMetricsDelegate> _metricsDelegate;
     id <CKDURLRequestAuthRetryDelegate> _authRetryDelegate;
-    CKDOperation *_operation;
     CKDProtocolTranslator *_translator;
     NSString *_automatedDeviceGroup;
     NSDictionary *_clientProvidedAdditionalHeaderValues;
     NSDictionary *_fakeResponseOperationResultByItemID;
     NSError *_error;
+    CKDOperation *_operation;
     NSObject<OS_dispatch_queue> *_lifecycleQueue;
     NSURLSessionDataTask *_urlSessionTask;
     C2RequestOptions *_c2RequestOptions;
@@ -73,6 +73,7 @@ __attribute__((visibility("hidden")))
     NSString *_iCloudAuthToken;
     NSString *_serverProvidedAutoBugCaptureReason;
     CKDTapToRadarRequest *_serverProvidedTapToRadarRequest;
+    NSString *_serverProvidedAutoSysdiagnoseCollectionReason;
     NSMutableDictionary *_countsByRequestOperationType;
     NSMutableDictionary *_overriddenHeaders;
     NSMutableArray *_redirectHistory;
@@ -81,6 +82,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *redirectHistory; // @synthesize redirectHistory=_redirectHistory;
 @property(retain, nonatomic) NSMutableDictionary *overriddenHeaders; // @synthesize overriddenHeaders=_overriddenHeaders;
 @property(retain, nonatomic) NSMutableDictionary *countsByRequestOperationType; // @synthesize countsByRequestOperationType=_countsByRequestOperationType;
+@property(retain, nonatomic) NSString *serverProvidedAutoSysdiagnoseCollectionReason; // @synthesize serverProvidedAutoSysdiagnoseCollectionReason=_serverProvidedAutoSysdiagnoseCollectionReason;
 @property(retain, nonatomic) CKDTapToRadarRequest *serverProvidedTapToRadarRequest; // @synthesize serverProvidedTapToRadarRequest=_serverProvidedTapToRadarRequest;
 @property(copy, nonatomic) NSString *serverProvidedAutoBugCaptureReason; // @synthesize serverProvidedAutoBugCaptureReason=_serverProvidedAutoBugCaptureReason;
 @property(nonatomic) _Bool didReceiveResponseBodyData; // @synthesize didReceiveResponseBodyData=_didReceiveResponseBodyData;
@@ -106,6 +108,7 @@ __attribute__((visibility("hidden")))
 @property(retain) C2RequestOptions *c2RequestOptions; // @synthesize c2RequestOptions=_c2RequestOptions;
 @property(retain) NSURLSessionDataTask *urlSessionTask; // @synthesize urlSessionTask=_urlSessionTask;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *lifecycleQueue; // @synthesize lifecycleQueue=_lifecycleQueue;
+@property(nonatomic) __weak CKDOperation *operation; // @synthesize operation=_operation;
 @property _Bool isHandlingAuthRetry; // @synthesize isHandlingAuthRetry=_isHandlingAuthRetry;
 @property _Bool isWaitingOnAuthRenew; // @synthesize isWaitingOnAuthRenew=_isWaitingOnAuthRenew;
 @property _Bool needsAuthRetry; // @synthesize needsAuthRetry=_needsAuthRetry;
@@ -114,7 +117,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSDictionary *clientProvidedAdditionalHeaderValues; // @synthesize clientProvidedAdditionalHeaderValues=_clientProvidedAdditionalHeaderValues;
 @property(retain, nonatomic) NSString *automatedDeviceGroup; // @synthesize automatedDeviceGroup=_automatedDeviceGroup;
 @property(retain, nonatomic) CKDProtocolTranslator *translator; // @synthesize translator=_translator;
-@property(nonatomic) __weak CKDOperation *operation; // @synthesize operation=_operation;
 @property(nonatomic) __weak id <CKDURLRequestAuthRetryDelegate> authRetryDelegate; // @synthesize authRetryDelegate=_authRetryDelegate;
 @property(nonatomic) __weak id <CKDURLRequestMetricsDelegate> metricsDelegate; // @synthesize metricsDelegate=_metricsDelegate;
 @property(retain, nonatomic) CKTimeLogger *timeLogger; // @synthesize timeLogger=_timeLogger;
@@ -216,8 +218,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *requestContentType;
 @property(readonly, nonatomic) NSString *protobufOperationName;
 @property(readonly, nonatomic) NSString *acceptContentType;
-@property(readonly, nonatomic) _Bool shouldSendKeyIDs;
-- (_Bool)canSendKeyIDs;
 @property(readonly, nonatomic) _Bool shouldCompressBody;
 @property(readonly, nonatomic) NSString *path;
 @property(readonly, nonatomic) NSArray *requestOperationClasses;

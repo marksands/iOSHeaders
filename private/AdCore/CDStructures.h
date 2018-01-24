@@ -16,7 +16,3 @@ typedef struct {
     unsigned long long size;
 } CDStruct_95bda58d;
 
-typedef struct {
-    unsigned int expirationDate:1;
-} CDStruct_995c676d;
-

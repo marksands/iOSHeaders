@@ -8,15 +8,16 @@
 
 #import "ARResultData.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSDictionary, NSObject<OS_dispatch_semaphore>, NSString;
 
-@interface ARFaceTrackingData : NSObject <ARResultData, NSCopying>
+@interface ARFaceTrackingData : NSObject <ARResultData, NSSecureCoding, NSCopying>
 {
-    vector_fff08e2a _meshVertices;
-    struct vector<float __attribute__((ext_vector_type(2))), std::__1::allocator<float __attribute__((ext_vector_type(2)))>> _verticesImageSpace;
-    vector_fff08e2a _normals;
-    struct vector<float, std::__1::allocator<float>> _blendShapeCoefficients;
+    vector_1cb3ea33 _meshVertices;
+    vector_e654105b _verticesImageSpace;
+    vector_1cb3ea33 _normals;
+    vector_7584168e _blendShapeCoefficients;
     // Error parsing type: {?="columns"[4]}, name: _transform
     NSObject<OS_dispatch_semaphore> *_normalsSemaphore;
     NSObject<OS_dispatch_semaphore> *_imageVerticesSemaphore;
@@ -26,6 +27,7 @@
     // Error parsing type: {?="columns"[4]}, name: _rightEyeTransform
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)sharedNeutralGeometry;
 // Error parsing type for property lookAtPoint:
 // Property attributes: T,R,N,V_lookAtPoint
@@ -39,6 +41,9 @@
 @property(readonly, nonatomic) NSDictionary *trackingData; // @synthesize trackingData=_trackingData;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (_Bool)isEqual:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 // Error parsing type for property imageVertices:
 // Property attributes: Tr^,R,N
 
@@ -60,6 +65,7 @@
 -     // Error parsing type: @160@0:8{?=[4]}16{?=[4]}80@144@152, name: anchorsForCameraWithTransform:referenceOriginTransform:existingAnchors:anchorsToRemove:
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithTrackingData:(id)arg1;
+- (id)initPrivate;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

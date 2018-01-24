@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class CKDPDate, CKDPZone, CKDPZoneCapabilities, NSData;
+@class CKDPDate, CKDPZone, CKDPZoneCapabilities, NSData, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CKDPZoneRetrieveResponseZoneSummary : PBCodable <NSCopying>
@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     NSData *_currentServerContinuationToken;
     int _deviceCount;
     CKDPZone *_targetZone;
+    NSString *_zonePcsModificationDevice;
     CKDPDate *_zonePcsModificationTime;
     _Bool _zoneKeyRollAllowed;
     _Bool _zoneishPcsNeedsRolled;
@@ -32,6 +33,7 @@ __attribute__((visibility("hidden")))
     } _has;
 }
 
+@property(retain, nonatomic) NSString *zonePcsModificationDevice; // @synthesize zonePcsModificationDevice=_zonePcsModificationDevice;
 @property(retain, nonatomic) CKDPDate *zonePcsModificationTime; // @synthesize zonePcsModificationTime=_zonePcsModificationTime;
 @property(nonatomic) _Bool zoneKeyRollAllowed; // @synthesize zoneKeyRollAllowed=_zoneKeyRollAllowed;
 @property(nonatomic) _Bool zoneishPcsNeedsRolled; // @synthesize zoneishPcsNeedsRolled=_zoneishPcsNeedsRolled;
@@ -52,6 +54,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasZonePcsModificationDevice;
 @property(readonly, nonatomic) _Bool hasZonePcsModificationTime;
 @property(nonatomic) _Bool hasZoneKeyRollAllowed;
 @property(nonatomic) _Bool hasZoneishPcsNeedsRolled;

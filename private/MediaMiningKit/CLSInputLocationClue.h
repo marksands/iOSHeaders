@@ -6,17 +6,14 @@
 
 #import <MediaMiningKit/CLSInputClue.h>
 
-#import "NSCoding.h"
-
 @class CLSPlace;
 
-@interface CLSInputLocationClue : CLSInputClue <NSCoding>
+@interface CLSInputLocationClue : CLSInputClue
 {
     CLSPlace *_place;
 }
 
 + (_Bool)needsRunloop;
-+ (_Bool)supportsSecureCoding;
 + (id)cluesWithLocations:(id)arg1;
 + (id)clueWithLocation:(id)arg1;
 - (void).cxx_destruct;
@@ -33,8 +30,6 @@
 - (id)address;
 - (void)setPlace:(id)arg1;
 - (id)place;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
 
 @end
 

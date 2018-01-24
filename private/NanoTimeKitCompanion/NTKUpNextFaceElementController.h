@@ -31,6 +31,7 @@
     _Bool _performingBatch;
     _Bool _postedScrollEvent;
     _Bool _isDeviceLocked;
+    _Bool _allowsLocationUse;
     _Bool _showsIdealizedContent;
     _Bool _showsCanonicalContent;
     id <NTKUpNextFaceElementControllerDelegate> _delegate;
@@ -42,6 +43,7 @@
 @property(nonatomic) _Bool showsCanonicalContent; // @synthesize showsCanonicalContent=_showsCanonicalContent;
 @property(nonatomic) _Bool showsIdealizedContent; // @synthesize showsIdealizedContent=_showsIdealizedContent;
 @property(nonatomic) __weak id <NTKUpNextFaceElementControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) _Bool allowsLocationUse; // @synthesize allowsLocationUse=_allowsLocationUse;
 - (void).cxx_destruct;
 - (void)_updateMonitoringVisibilityForAllElement;
 - (void)_endMonitoringVisibilityForElement:(id)arg1;

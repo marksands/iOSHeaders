@@ -6,12 +6,16 @@
 
 #import <WebKitLegacy/DOMHTMLElement.h>
 
+#import "UITextInputTraits.h"
+
 @class DOMFileList, DOMHTMLFormElement, NSString, NSURL;
 
-@interface DOMHTMLInputElement : DOMHTMLElement
+@interface DOMHTMLInputElement : DOMHTMLElement <UITextInputTraits>
 {
 }
 
+- (void)insertTextSuggestion:(id)arg1;
+- (id)_autofillContext;
 - (void)setValueForUser:(id)arg1;
 - (void)click;
 - (void)setSelectionRange:(int)arg1 end:(int)arg2;
@@ -100,6 +104,24 @@
 - (_Bool)_isAutofilled;
 - (id)endPosition;
 - (id)startPosition;
+
+// Remaining properties
+@property(nonatomic) long long autocapitalizationType;
+@property(nonatomic) long long autocorrectionType;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(nonatomic) _Bool enablesReturnKeyAutomatically;
+@property(readonly) unsigned long long hash;
+@property(nonatomic) long long keyboardAppearance;
+@property(nonatomic) long long keyboardType;
+@property(nonatomic) long long returnKeyType;
+@property(nonatomic, getter=isSecureTextEntry) _Bool secureTextEntry;
+@property(nonatomic) long long smartDashesType;
+@property(nonatomic) long long smartInsertDeleteType;
+@property(nonatomic) long long smartQuotesType;
+@property(nonatomic) long long spellCheckingType;
+@property(readonly) Class superclass;
+@property(copy, nonatomic) NSString *textContentType;
 
 @end
 

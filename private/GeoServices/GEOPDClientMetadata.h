@@ -17,6 +17,7 @@
     CDStruct_95bda58d _knownClientResolvedTypes;
     GEOABSecondPartyPlaceRequestClientMetaData *_abClientMetadata;
     GEOAdditionalEnabledMarkets *_additionalEnabledMarkets;
+    NSMutableArray *_businessChatPreflightIdentifiers;
     unsigned int _dayOfWeek;
     NSString *_debugApiKey;
     NSString *_deviceCountryCode;
@@ -40,7 +41,9 @@
     } _has;
 }
 
++ (Class)businessChatPreflightIdentifierType;
 + (Class)deviceHistoricalLocationType;
+@property(retain, nonatomic) NSMutableArray *businessChatPreflightIdentifiers; // @synthesize businessChatPreflightIdentifiers=_businessChatPreflightIdentifiers;
 @property(retain, nonatomic) NSString *debugApiKey; // @synthesize debugApiKey=_debugApiKey;
 @property(retain, nonatomic) NSMutableArray *deviceHistoricalLocations; // @synthesize deviceHistoricalLocations=_deviceHistoricalLocations;
 @property(retain, nonatomic) GEOLocation *deviceExtendedLocation; // @synthesize deviceExtendedLocation=_deviceExtendedLocation;
@@ -63,6 +66,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)businessChatPreflightIdentifierAtIndex:(unsigned long long)arg1;
+- (unsigned long long)businessChatPreflightIdentifiersCount;
+- (void)addBusinessChatPreflightIdentifier:(id)arg1;
+- (void)clearBusinessChatPreflightIdentifiers;
 - (int)StringAsKnownClientResolvedTypes:(id)arg1;
 - (id)knownClientResolvedTypesAsString:(int)arg1;
 - (void)setKnownClientResolvedTypes:(int *)arg1 count:(unsigned long long)arg2;

@@ -45,13 +45,13 @@ struct _NSRange {
 
 struct unique_ptr<SafariServices::ReaderAvailabilityController, std::__1::default_delete<SafariServices::ReaderAvailabilityController>> {
     struct __compressed_pair<SafariServices::ReaderAvailabilityController *, std::__1::default_delete<SafariServices::ReaderAvailabilityController>> {
-        struct ReaderAvailabilityController *__first_;
+        struct ReaderAvailabilityController *__value_;
     } __ptr_;
 };
 
 struct unique_ptr<SafariServices::WebProcessPlugInReaderJSController, std::__1::default_delete<SafariServices::WebProcessPlugInReaderJSController>> {
     struct __compressed_pair<SafariServices::WebProcessPlugInReaderJSController *, std::__1::default_delete<SafariServices::WebProcessPlugInReaderJSController>> {
-        struct WebProcessPlugInReaderJSController *__first_;
+        struct WebProcessPlugInReaderJSController *__value_;
     } __ptr_;
 };
 

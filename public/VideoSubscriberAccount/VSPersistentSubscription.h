@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 - (void)awakeFromFetch;
 - (void)awakeFromInsert;
 @property(copy, nonatomic) NSArray *tierIdentifiers; // @dynamic tierIdentifiers;
+@property(copy, nonatomic) NSString *billingIdentifier; // @dynamic billingIdentifier;
 @property(copy, nonatomic) NSString *subscriberIdentifierHash; // @dynamic subscriberIdentifierHash;
 @property(copy, nonatomic) NSDate *mostRecentSaveDate; // @dynamic mostRecentSaveDate;
 @property(copy, nonatomic) NSDate *expirationDate; // @dynamic expirationDate;

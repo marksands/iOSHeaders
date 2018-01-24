@@ -68,6 +68,7 @@
 - (id)_hitTest:(struct CGPoint)arg1 frame:(id)arg2 types:(unsigned long long)arg3;
 - (id)_anchorForNode:(id)arg1 inFrame:(id)arg2;
 - (void)session:(id)arg1 didOutputAudioSampleBuffer:(struct opaqueCMSampleBuffer *)arg2;
+- (void)sessionShouldAttemptRelocalization:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)sessionInterruptionEnded:(id)arg1;
 - (void)sessionWasInterrupted:(id)arg1;
 - (void)session:(id)arg1 cameraDidChangeTrackingState:(id)arg2;

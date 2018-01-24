@@ -7,11 +7,11 @@
 #import <DAEAS/ASEvent.h>
 
 #import "ASParsingAcceptingTopLevelLeaves.h"
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class ASEmailItem, NSArray, NSDate, NSMutableDictionary, NSNumber, NSString;
 
-@interface ASMeetingRequest : ASEvent <ASParsingAcceptingTopLevelLeaves, NSCoding>
+@interface ASMeetingRequest : ASEvent <ASParsingAcceptingTopLevelLeaves, NSSecureCoding>
 {
     int _meetingClassType;
     int _meetingMessageType;
@@ -26,6 +26,7 @@
     ASEmailItem *_parentEmailItem;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)asParseRules;
 + (_Bool)notifyOfUnknownTokens;
 + (_Bool)frontingBasicTypes;

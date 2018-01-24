@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class GEOResolvedItem, GEOSearchCategory, MKMapItem, NSArray, NSString;
+@class GEODirectionIntent, GEOResolvedItem, GEORetainedSearchMetadata, GEOSearchCategory, MKMapItem, NSArray, NSString;
 
 @interface MKLocalSearchCompletion : NSObject
 {
@@ -16,8 +16,12 @@
     MKMapItem *_mapItem;
     _Bool _alreadySentFeedback;
     _Bool _shouldDisplayNoResults;
+    MKLocalSearchCompletion *_directionIntentOrigin;
+    MKLocalSearchCompletion *_directionIntentDestination;
 }
 
+@property(retain, nonatomic) MKLocalSearchCompletion *directionIntentDestination; // @synthesize directionIntentDestination=_directionIntentDestination;
+@property(retain, nonatomic) MKLocalSearchCompletion *directionIntentOrigin; // @synthesize directionIntentOrigin=_directionIntentOrigin;
 @property(readonly, nonatomic, getter=_alreadySentFeedback) _Bool alreadySentFeedback; // @synthesize alreadySentFeedback=_alreadySentFeedback;
 @property(copy, nonatomic) NSString *localizedSectionHeader; // @synthesize localizedSectionHeader=_localizedSectionHeader;
 @property(copy, nonatomic) NSString *sourceID; // @synthesize sourceID=_sourceID;
@@ -25,12 +29,17 @@
 - (id)iconWithScale:(double)arg1;
 - (id)highlightsForLine:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSArray *displayLines;
+@property(readonly, nonatomic, getter=_hasDisambiguationRadiusMeters) _Bool hasDisambiguationRadiusMeters;
+@property(readonly, nonatomic, getter=_disambiguationRadiusMeters) float disambiguationRadiusMeters;
+@property(readonly, nonatomic, getter=_placeType) int placeType;
 @property(readonly, nonatomic, getter=_type) long long type;
 - (void)sendFeedback;
 - (id)copyStorage;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
+@property(readonly, nonatomic) GEORetainedSearchMetadata *retainedSearchMetadata;
+@property(readonly, nonatomic) GEODirectionIntent *directionIntent;
 @property(readonly, nonatomic) GEOResolvedItem *clientResolved;
 @property(readonly, nonatomic) GEOSearchCategory *category;
 @property(readonly, nonatomic) MKMapItem *mapItem;

@@ -25,7 +25,7 @@
 
 @property(nonatomic) int endpoint; // @synthesize endpoint=_endpoint;
 @property(copy, nonatomic) NSString *input; // @synthesize input=_input;
-@property(nonatomic) unsigned long long timestamp;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;

@@ -54,7 +54,7 @@ __attribute__((visibility("hidden")))
 - (void)updateCellData:(id)arg1;
 - (void)p_setupTileAndRowAtCellID:(struct TSUCellCoord)arg1;
 - (void)dealloc;
-- (id)initWithInfoDelegating:(id)arg1 region:(id)arg2 flags:(unsigned long long)arg3 searchMask:(unsigned long long)arg4;
+- (id)initWithTableModel:(id)arg1 region:(id)arg2 flags:(unsigned long long)arg3 searchMask:(unsigned long long)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

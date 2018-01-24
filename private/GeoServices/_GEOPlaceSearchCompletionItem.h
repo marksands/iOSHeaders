@@ -8,7 +8,7 @@
 
 #import "GEOCompletionItemPrivate.h"
 
-@class GEOMapItemIdentifier, GEOMapServiceTraits, GEOPDAutocompleteEntry, GEOResolvedItem, GEOSearchCategory, NSArray, NSData, NSString;
+@class GEODirectionIntent, GEOMapItemIdentifier, GEOMapServiceTraits, GEOPDAutocompleteEntry, GEOResolvedItem, GEORetainedSearchMetadata, GEOSearchCategory, NSArray, NSData, NSString;
 
 __attribute__((visibility("hidden")))
 @interface _GEOPlaceSearchCompletionItem : NSObject <GEOCompletionItemPrivate>
@@ -26,6 +26,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) GEOPDAutocompleteEntry *entry; // @synthesize entry=_entry;
 @property(readonly, nonatomic) NSArray *displayLines; // @synthesize displayLines=_displayLines;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) float disambiguationRadiusMeters;
+@property(readonly, nonatomic) _Bool hasDisambiguationRadiusMeters;
+@property(readonly, nonatomic) int placeType;
 @property(readonly, nonatomic) GEOMapItemIdentifier *identifier;
 @property(readonly, nonatomic) long long type;
 @property(readonly, nonatomic, getter=_placeDataAutocompleteEntry) GEOPDAutocompleteEntry *placeDataAutocompleteEntry;
@@ -35,6 +38,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSData *entryMetadata;
 - (void)sendFeedback;
 - (_Bool)getCoordinate:(CDStruct_c3b9c2ee *)arg1;
+@property(readonly, nonatomic) GEORetainedSearchMetadata *retainedSearchMetadata;
+@property(readonly, nonatomic) GEODirectionIntent *directionIntent;
 @property(readonly, nonatomic) GEOResolvedItem *clientResolved;
 @property(readonly, nonatomic) GEOSearchCategory *searchCategory;
 @property(readonly, nonatomic) id <GEOMapItem> geoMapItem;

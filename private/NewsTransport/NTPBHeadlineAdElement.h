@@ -14,6 +14,7 @@
 {
     long long _channelContentProviderID;
     NSMutableArray *_articleIAdCategories;
+    NSMutableArray *_articleIAdKeywords;
     NSMutableArray *_articleIAdSectionIDs;
     NSString *_articleID;
     NSString *_articleRating;
@@ -32,10 +33,12 @@
     } _has;
 }
 
++ (Class)articleIAdKeywordsType;
 + (Class)channelIAdCategoriesType;
 + (Class)channelIAdKeywordsType;
 + (Class)articleIAdSectionIDsType;
 + (Class)articleIAdCategoriesType;
+@property(retain, nonatomic) NSMutableArray *articleIAdKeywords; // @synthesize articleIAdKeywords=_articleIAdKeywords;
 @property(nonatomic) long long channelContentProviderID; // @synthesize channelContentProviderID=_channelContentProviderID;
 @property(retain, nonatomic) NSMutableArray *channelIAdCategories; // @synthesize channelIAdCategories=_channelIAdCategories;
 @property(retain, nonatomic) NSString *channelRating; // @synthesize channelRating=_channelRating;
@@ -57,6 +60,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)articleIAdKeywordsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)articleIAdKeywordsCount;
+- (void)addArticleIAdKeywords:(id)arg1;
+- (void)clearArticleIAdKeywords;
 @property(nonatomic) _Bool hasChannelContentProviderID;
 - (id)channelIAdCategoriesAtIndex:(unsigned long long)arg1;
 - (unsigned long long)channelIAdCategoriesCount;

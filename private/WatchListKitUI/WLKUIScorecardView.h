@@ -16,7 +16,8 @@
     id <WLKUIScorecardViewDelegate> _delegate;
     double _interitemSpacing;
     double _rowSpacing;
-    NSArray *_rowElementWidths;
+    NSArray *_rowElementSizes;
+    NSArray *_columnWidths;
     UIImage *_darkMaterialImage;
     struct CGSize _scorecardSize;
 }
@@ -24,7 +25,8 @@
 @property(nonatomic) _Bool delegateRespondsToBackgroundBlendModeForElementInRowAtIndex; // @synthesize delegateRespondsToBackgroundBlendModeForElementInRowAtIndex=_delegateRespondsToBackgroundBlendModeForElementInRowAtIndex;
 @property(nonatomic) _Bool delegateRespondsToBackgroundImageForScorecardViewMaterial; // @synthesize delegateRespondsToBackgroundImageForScorecardViewMaterial=_delegateRespondsToBackgroundImageForScorecardViewMaterial;
 @property(retain, nonatomic) UIImage *darkMaterialImage; // @synthesize darkMaterialImage=_darkMaterialImage;
-@property(retain, nonatomic) NSArray *rowElementWidths; // @synthesize rowElementWidths=_rowElementWidths;
+@property(retain, nonatomic) NSArray *columnWidths; // @synthesize columnWidths=_columnWidths;
+@property(retain, nonatomic) NSArray *rowElementSizes; // @synthesize rowElementSizes=_rowElementSizes;
 @property(nonatomic) double rowSpacing; // @synthesize rowSpacing=_rowSpacing;
 @property(nonatomic) double interitemSpacing; // @synthesize interitemSpacing=_interitemSpacing;
 @property(nonatomic) struct CGSize scorecardSize; // @synthesize scorecardSize=_scorecardSize;
@@ -33,7 +35,7 @@
 - (void).cxx_destruct;
 - (struct CGSize)_calculateMetricsOfScorecard;
 - (void)drawRect:(struct CGRect)arg1;
-- (double)_columnSpacingForRow:(long long)arg1 atIndex:(long long)arg2;
+- (void)_calculateColumnSpacing;
 - (id)_darkMaterialImage;
 - (id)_darkMaterialColor;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

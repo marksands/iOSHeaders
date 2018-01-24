@@ -13,10 +13,13 @@ __attribute__((visibility("hidden")))
 {
     NSArray *mAllWedgeLayoutInfos;
     NSArray *mAllWedgeLayoutInfosSortedBySeriesIndex;
+    struct CGRect mTitleRect;
 }
 
+@property(readonly, nonatomic) struct CGRect titleRect; // @synthesize titleRect=mTitleRect;
 - (void).cxx_destruct;
-- (struct CGRect)paddedRectWithRect:(struct CGRect)arg1;
+- (struct CGRect)paddedTitleRectWithRect:(struct CGRect)arg1;
+- (struct CGRect)paddedLabelRectWithRect:(struct CGRect)arg1;
 - (double)distanceFromCenterToChordOfLength:(double)arg1 wedgeAngle:(double)arg2;
 - (double)minimumNecessaryDistanceFromWedgeTipToWedgeLabelToPreventOverlapForWedgeLayoutInfo:(id)arg1 adjacentWedgeLayoutInfo:(id)arg2;
 - (double)minimumNecessaryDistanceFromWedgeTipForWedgeLayoutInfo:(id)arg1;
@@ -30,8 +33,10 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)calloutLineEndpointForWedgeLayoutInfo:(id)arg1;
 - (id)newCalloutLinePaths:(id)arg1 startLineEnd:(id)arg2 outStartLineEndPath:(id *)arg3 endLineEnd:(id)arg4 outEndLineEndPath:(id *)arg5 stroke:(id)arg6 outStroke:(id *)arg7 context:(struct CGContext *)arg8 contextScale:(float)arg9;
 - (id)updateLabelTransformsToPreventOverlap;
+@property(readonly, nonatomic) _Bool shouldPreventOverlapWithTitle;
 @property(readonly, nonatomic) NSArray *allWedgeLayoutInfos;
 - (id)initWithArrayOfWedgeLayoutInfos:(id)arg1;
+- (id)initWithArrayOfWedgeLayoutInfos:(id)arg1 titleRectInWedgeElementSpace:(struct CGRect)arg2;
 
 @end
 

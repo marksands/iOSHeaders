@@ -10,7 +10,7 @@
 
 @interface WKDOMNode : NSObject
 {
-    struct RefPtr<WebCore::Node> _impl;
+    struct RefPtr<WebCore::Node, WTF::DumbPtrTraits<WebCore::Node>> _impl;
 }
 
 - (id).cxx_construct;

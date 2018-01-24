@@ -30,6 +30,7 @@
 - (void)invalidate;
 - (void)runWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_sendRecipeResponseForRecipeId:(id)arg1 result:(id)arg2 parametersUsed:(id)arg3 duration:(double)arg4 error:(id)arg5 completion:(CDUnknownBlockType)arg6;
+- (void)postRecipeResponseJSONObject:(id)arg1 recipeId:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_downloadAttachments:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handleRecipeResponse:(id)arg1 recipeId:(id)arg2 recordUUID:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_fetchRecipe:(id)arg1 recordUUID:(id)arg2 completion:(CDUnknownBlockType)arg3;

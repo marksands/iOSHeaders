@@ -9,6 +9,7 @@
 @class FCFeedPersonalizedArticles, NSArray, NSString;
 
 @protocol FCFeedPersonalizing <FCTagRanking>
+- (double)decayedPublisherDiversificationPenalty;
 - (unsigned long long)whitelistLevelForTagID:(NSString *)arg1;
 - (void)prepareAutoFavoritesWithCompletionHandler:(void (^)(void))arg1;
 - (void)prepareForUseWithCompletionHandler:(void (^)(void))arg1;

@@ -31,6 +31,7 @@
 - (void)didHandleBulletinActionWithIdentifier:(id)arg1;
 @property(readonly, nonatomic) BBBulletinRequest *bulletinRequest;
 - (void)handleActionWithIdentifier:(id)arg1 notificationResponseOriginID:(id)arg2;
+- (void)_performActionAfterUnlock:(_Bool)arg1 actionBlock:(CDUnknownBlockType)arg2;
 - (void)_performActionAfterUnlock:(CDUnknownBlockType)arg1;
 - (void)_handleContactInfo:(id)arg1;
 - (void)_handleCalendarEventWithICSString:(id)arg1;

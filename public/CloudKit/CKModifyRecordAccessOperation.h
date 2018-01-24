@@ -25,9 +25,6 @@
 @property(retain, nonatomic) NSMutableDictionary *recordErrors; // @synthesize recordErrors=_recordErrors;
 @property(retain, nonatomic) NSArray *recordIDsToRevoke; // @synthesize recordIDsToRevoke=_recordIDsToRevoke;
 @property(retain, nonatomic) NSArray *recordIDsToGrant; // @synthesize recordIDsToGrant=_recordIDsToGrant;
-@property(copy, nonatomic) CDUnknownBlockType recordAccessCompletionBlock; // @synthesize recordAccessCompletionBlock=_recordAccessCompletionBlock;
-@property(copy, nonatomic) CDUnknownBlockType recordAccessRevokedBlock; // @synthesize recordAccessRevokedBlock=_recordAccessRevokedBlock;
-@property(copy, nonatomic) CDUnknownBlockType recordAccessGrantedBlock; // @synthesize recordAccessGrantedBlock=_recordAccessGrantedBlock;
 - (void).cxx_destruct;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
 - (void)_handleProgressCallback:(id)arg1;
@@ -37,6 +34,9 @@
 - (void)fillFromOperationInfo:(id)arg1;
 - (void)fillOutOperationInfo:(id)arg1;
 - (id)activityCreate;
+@property(copy, nonatomic) CDUnknownBlockType recordAccessCompletionBlock; // @synthesize recordAccessCompletionBlock=_recordAccessCompletionBlock;
+@property(copy, nonatomic) CDUnknownBlockType recordAccessRevokedBlock; // @synthesize recordAccessRevokedBlock=_recordAccessRevokedBlock;
+@property(copy, nonatomic) CDUnknownBlockType recordAccessGrantedBlock; // @synthesize recordAccessGrantedBlock=_recordAccessGrantedBlock;
 - (id)initWithRecordIDsToGrantAccess:(id)arg1 recordIDsToRevokeAccess:(id)arg2;
 
 @end

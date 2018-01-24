@@ -27,8 +27,9 @@ __attribute__((visibility("hidden")))
 + (id)variationMapForVaryingCharacterStyle:(id)arg1 overParagraphStyle:(id)arg2 withPropertyMap:(id)arg3;
 + (id)p_presenterNotesListStyleIdentifierForListLabelType:(int)arg1;
 + (id)presenterNotesParagraphStyleIdentifier;
-@property(readonly, nonatomic) TSSStylesheet *child; // @synthesize child=mChild;
+@property(nonatomic) __weak TSSStylesheet *child; // @synthesize child=mChild;
 @property(readonly, nonatomic) TSSStylesheet *parent; // @synthesize parent=mParent;
+- (void).cxx_destruct;
 - (id)unusedStyleIdentifierWithPackageString:(id)arg1 styleDescriptor:(id)arg2 contentTag:(id)arg3;
 - (void)style:(id)arg1 didChangeUUIDToValue:(id)arg2 fromValue:(id)arg3;
 - (id)pVariationOfStyle:(id)arg1 propertyMap:(id)arg2 matchStyles:(id)arg3 context:(id)arg4;
@@ -76,6 +77,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)containsStyle:(id)arg1;
 - (void)removeStyle:(id)arg1;
 - (void)addStyle:(id)arg1 withParent:(id)arg2 identifier:(id)arg3 shouldDoDOLC:(_Bool)arg4;
+- (id)repairOrReplaceErrantStyle:(id)arg1;
 - (void)addStyle:(id)arg1 withParent:(id)arg2 identifier:(id)arg3;
 - (void)addStyle:(id)arg1 withParent:(id)arg2;
 - (void)addStyle:(id)arg1 withIdentifier:(id)arg2;
@@ -86,14 +88,12 @@ __attribute__((visibility("hidden")))
 - (_Bool)isDescendentOf:(id)arg1;
 - (_Bool)isParentOf:(id)arg1;
 - (_Bool)isChildOf:(id)arg1;
-- (void)setParent:(id)arg1 withParentStyleMap:(struct __CFDictionary *)arg2;
 - (void)setParent:(id)arg1;
 @property(readonly, nonatomic) NSSet *styles;
 @property(nonatomic) _Bool canCullStyles;
 @property(nonatomic) _Bool isLocked;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1 canCullStyles:(_Bool)arg2;
 - (id)addDuplicateOfStyle:(id)arg1 withIdentifier:(id)arg2;
@@ -106,6 +106,7 @@ __attribute__((visibility("hidden")))
 - (set_713dd2e1 *)p_allFilteredIdentifiersInArchive:(const struct StylesheetArchive *)arg1 unarchiver:(id)arg2;
 - (id)headerAndFooterStyle;
 - (id)defaultEquationStyle;
+- (id)defaultTOCEntryStyle;
 - (id)defaultColumnStyle;
 - (id)defaultParagraphStyle;
 - (id)defaultListStyle;
@@ -113,6 +114,7 @@ __attribute__((visibility("hidden")))
 - (id)defaultCharacterStyle;
 - (id)variationOfCharacterStyle:(id)arg1 paragraphStyle:(id)arg2 propertyMap:(id)arg3;
 - (id)_defaultStyleOfClass:(Class)arg1 withIdentifier:(id)arg2 wasCreated:(_Bool *)arg3 usingBlock:(CDUnknownBlockType)arg4;
+- (id)_defaultTOCEntryStyleWasCreated:(_Bool *)arg1;
 - (id)_defaultColumnStyleWasCreated:(_Bool *)arg1;
 - (id)_defaultListStyleWasCreated:(_Bool *)arg1;
 - (id)_defaultParagraphStyleWasCreated:(_Bool *)arg1;

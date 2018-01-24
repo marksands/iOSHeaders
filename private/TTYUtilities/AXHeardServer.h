@@ -22,7 +22,7 @@
 - (void)handleMessageError:(id)arg1 destructive:(_Bool)arg2;
 - (void)handleMessageWithPayload:(id)arg1 forIdentifier:(unsigned long long)arg2;
 - (void)sendMessageWithPayload:(id)arg1 andIdentifier:(unsigned long long)arg2;
-- (void)setupServerIfNecessary;
+- (id)setupServerIfNecessary;
 - (void)resetConnection;
 - (void)terminateConnection;
 - (void)startServerWithDelegate:(id)arg1;

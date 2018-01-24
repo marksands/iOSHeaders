@@ -6,12 +6,12 @@
 
 #import "HMFObject.h"
 
+#import "HMDHomeMessageReceiver.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 
-@class HMDAccessory, HMDNotificationRegistration, HMDService, HMFMessageDispatcher, NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDAccessory, HMDNotificationRegistration, HMDService, HMFMessageDispatcher, NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDCameraSettingsControlManager : HMFObject <HMFMessageReceiver, HMFLogging>
+@interface HMDCameraSettingsControlManager : HMFObject <HMDHomeMessageReceiver, HMFLogging>
 {
     NSDictionary *_characteristicsValues;
     NSObject<OS_dispatch_queue> *_delegateQueue;
@@ -27,6 +27,7 @@
     HMDNotificationRegistration *_notificationRegistration;
 }
 
++ (_Bool)hasMessageReceiverChildren;
 + (id)logCategory;
 @property(readonly, nonatomic) HMDNotificationRegistration *notificationRegistration; // @synthesize notificationRegistration=_notificationRegistration;
 @property(readonly, nonatomic) NSArray *characteristicsList; // @synthesize characteristicsList=_characteristicsList;
@@ -40,6 +41,8 @@
 @property(readonly, nonatomic) __weak id <HMDCameraSettingsControlManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (void)_callDelegate;
 - (void)_updateValue:(id)arg1 forCharacteristic:(id)arg2;
 - (void)updateValue:(id)arg1 forCharacteristic:(id)arg2;
@@ -54,13 +57,12 @@
 - (void)registerForMessages;
 - (id)logIdentifier;
 - (id)initWithWorkQueue:(id)arg1 delegate:(id)arg2 delegateQueue:(id)arg3 accessory:(id)arg4 streamService:(id)arg5 characteristicsList:(id)arg6 msgDispatcher:(id)arg7;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
-@property(readonly, nonatomic) NSUUID *messageTargetUUID;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

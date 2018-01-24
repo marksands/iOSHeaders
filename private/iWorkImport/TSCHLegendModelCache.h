@@ -44,6 +44,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) NSArray *cells; // @synthesize cells=mCells;
 @property(readonly) unsigned long long cellCount; // @synthesize cellCount=mCellCount;
 @property(readonly) _Bool legendOn; // @synthesize legendOn=mLegendOn;
+- (void).cxx_destruct;
 - (id)viewCacheForWidth:(double)arg1;
 - (id)cellForSeriesIndex:(unsigned long long)arg1 cellType:(int)arg2;
 - (void)dealloc;

@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSData, NSDate, NSDecimalNumber, NSNumber, NSSet, NSString, PKColor, PKFelicaTransitAppletState, PKImage, PKNFCPayload, PKPaymentApplication;
+@class NSArray, NSData, NSDate, NSDecimalNumber, NSNumber, NSSet, NSString, PKColor, PKImage, PKNFCPayload, PKPaymentApplication, PKTransitAppletState;
 
 @interface NPKPassDescription : NSObject <NSSecureCoding, NSCopying>
 {
@@ -49,7 +49,7 @@
     NSString *_issuerCountryCode;
     NSArray *_availableActions;
     NSString *_organizationName;
-    PKFelicaTransitAppletState *_felicaTransitAppletState;
+    PKTransitAppletState *_transitAppletState;
     NSArray *_frontFieldBuckets;
     NSArray *_backFieldBuckets;
     NSDecimalNumber *_lastAddValueAmount;
@@ -65,7 +65,7 @@
 @property(retain, nonatomic) NSDecimalNumber *lastAddValueAmount; // @synthesize lastAddValueAmount=_lastAddValueAmount;
 @property(retain, nonatomic) NSArray *backFieldBuckets; // @synthesize backFieldBuckets=_backFieldBuckets;
 @property(retain, nonatomic) NSArray *frontFieldBuckets; // @synthesize frontFieldBuckets=_frontFieldBuckets;
-@property(retain, nonatomic) PKFelicaTransitAppletState *felicaTransitAppletState; // @synthesize felicaTransitAppletState=_felicaTransitAppletState;
+@property(retain, nonatomic) PKTransitAppletState *transitAppletState; // @synthesize transitAppletState=_transitAppletState;
 @property(retain, nonatomic) NSString *organizationName; // @synthesize organizationName=_organizationName;
 @property(retain, nonatomic) NSArray *availableActions; // @synthesize availableActions=_availableActions;
 @property(retain, nonatomic) NSString *issuerCountryCode; // @synthesize issuerCountryCode=_issuerCountryCode;
@@ -102,7 +102,7 @@
 - (_Bool)isEnroute;
 - (_Bool)isAddValuePending;
 - (id)fieldForKey:(id)arg1;
-- (id)felicaProperties;
+- (id)transitProperties;
 @property(readonly, nonatomic) long long effectiveContactlessPaymentApplicationState;
 - (_Bool)supportsInAppPaymentOnNetworks:(id)arg1 capabilities:(unsigned long long)arg2 issuerCountryCodes:(id)arg3 paymentApplicationStates:(id)arg4;
 - (_Bool)supportsInAppPaymentOnNetworks:(id)arg1 issuerCountryCodes:(id)arg2;

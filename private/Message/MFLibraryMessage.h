@@ -29,7 +29,7 @@
 - (void)_forceLoadOfMessageSummaryFromProtectedStore;
 - (id)attachmentStorageLocation;
 - (id)_attachmentStorageLocation;
-- (id)metadataValueForKey:(id)arg1;
+- (id)metadataValueOfClass:(Class)arg1 forKey:(id)arg2;
 - (void)setMetadataValue:(id)arg1 forKey:(id)arg2;
 - (void)_initializeMetadata;
 - (id)copyMessageInfo;

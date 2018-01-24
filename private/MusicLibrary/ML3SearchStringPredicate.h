@@ -15,6 +15,7 @@
 }
 
 + (id)predicateWithConcatenatedProperties:(id)arg1 searchString:(id)arg2;
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 @property(copy, nonatomic) NSArray *properties; // @synthesize properties=_properties;
 - (void).cxx_destruct;

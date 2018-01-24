@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface TSTMergeListWrapper : NSObject
 {
-    vector_db509b29 _mergeList;
+    vector_e87daf7b _mergeList;
 }
 
 - (id).cxx_construct;
@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 - (void)addRange:(struct TSUCellRect)arg1;
 @property(readonly) _Bool isEmpty;
 @property(readonly) unsigned long long count;
-- (id)initWithMergeList:(const vector_db509b29 *)arg1;
+- (id)initWithMergeList:(const vector_e87daf7b *)arg1;
 
 @end
 

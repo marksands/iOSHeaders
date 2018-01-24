@@ -9,13 +9,13 @@
 #import "RequestDesktopSiteUIProcessListener.h"
 #import "SFContentBlockerManagerObserver.h"
 
-@class NSMutableSet, NSString, WKWebView, _SFInjectedJavaScriptController, _WKRemoteObjectInterface;
+@class NSMutableDictionary, NSString, WKWebView, _SFInjectedJavaScriptController, _WKRemoteObjectInterface;
 
 @interface _SFReloadOptionsController : NSObject <RequestDesktopSiteUIProcessListener, SFContentBlockerManagerObserver>
 {
     _WKRemoteObjectInterface *_requestDesktopSiteUIProcessPlugInListenerInterface;
     id <RequestDesktopSiteWebProcessPlugInListener> _requestDesktopSiteWebProcessPlugInListener;
-    NSMutableSet *_domainsNeedingDesktopUserAgent;
+    NSMutableDictionary *_domainToUserAgentPolicyMap;
     WKWebView *_webView;
     _Bool _hasEnabledContentBlockers;
     _SFInjectedJavaScriptController *_activityJSController;
@@ -32,6 +32,7 @@
 - (void)requestDesktopSiteWithURL:(id)arg1;
 - (void)requestDesktopSite;
 @property(readonly, nonatomic) _Bool loadedUsingDesktopUserAgent;
+- (void)_setUpPlugInListenersIfNeeded;
 - (id)init;
 - (id)initWithWebView:(id)arg1 activityJSController:(id)arg2;
 

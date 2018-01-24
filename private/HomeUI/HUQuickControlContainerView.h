@@ -10,8 +10,9 @@
 
 @interface HUQuickControlContainerView : UIView
 {
+    _Bool _shouldShowActiveControl;
+    _Bool _shouldShowAlternateControlButton;
     _Bool _shouldShowDetailsButton;
-    _Bool _shouldShowControls;
     _Bool _controlViewSupportsTransformTransition;
     _Bool _showAlternateControlButton;
     double _controlTransitionProgress;
@@ -22,6 +23,7 @@
     UIView *_activeControlView;
     UILayoutGuide *_controlViewPreferredFrameLayoutGuide;
     NSString *_alternateControlButtonTitle;
+    HUPillButton *_alternateControlButton;
     HUQuickControlSummaryView *_summaryView;
     id <HUQuickControlContainerViewDelegate> _delegate;
     HUControlHostView *_controlHostView;
@@ -34,7 +36,6 @@
     HUQuickControlAuxiliaryHostView *_auxiliaryHostView;
     HUQuickControlButtonRowView *_buttonRowView;
     HUPillButton *_detailsButton;
-    HUPillButton *_alternateControlButton;
     UILayoutGuide *_contentToAuxiliarySpacingLayoutGuide;
     UILayoutGuide *_topToSummarySpacingLayoutGuide;
     struct CGRect _sourceRect;
@@ -43,7 +44,6 @@
 + (_Bool)requiresConstraintBasedLayout;
 @property(retain, nonatomic) UILayoutGuide *topToSummarySpacingLayoutGuide; // @synthesize topToSummarySpacingLayoutGuide=_topToSummarySpacingLayoutGuide;
 @property(retain, nonatomic) UILayoutGuide *contentToAuxiliarySpacingLayoutGuide; // @synthesize contentToAuxiliarySpacingLayoutGuide=_contentToAuxiliarySpacingLayoutGuide;
-@property(retain, nonatomic) HUPillButton *alternateControlButton; // @synthesize alternateControlButton=_alternateControlButton;
 @property(retain, nonatomic) HUPillButton *detailsButton; // @synthesize detailsButton=_detailsButton;
 @property(retain, nonatomic) HUQuickControlButtonRowView *buttonRowView; // @synthesize buttonRowView=_buttonRowView;
 @property(nonatomic) _Bool showAlternateControlButton; // @synthesize showAlternateControlButton=_showAlternateControlButton;
@@ -57,14 +57,16 @@
 @property(retain, nonatomic) HUControlHostView *controlHostView; // @synthesize controlHostView=_controlHostView;
 @property(readonly, nonatomic) __weak id <HUQuickControlContainerViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) HUQuickControlSummaryView *summaryView; // @synthesize summaryView=_summaryView;
+@property(retain, nonatomic) HUPillButton *alternateControlButton; // @synthesize alternateControlButton=_alternateControlButton;
 @property(readonly, nonatomic) struct CGRect sourceRect; // @synthesize sourceRect=_sourceRect;
 @property(copy, nonatomic) NSString *alternateControlButtonTitle; // @synthesize alternateControlButtonTitle=_alternateControlButtonTitle;
 @property(nonatomic) _Bool controlViewSupportsTransformTransition; // @synthesize controlViewSupportsTransformTransition=_controlViewSupportsTransformTransition;
 @property(retain, nonatomic) UILayoutGuide *controlViewPreferredFrameLayoutGuide; // @synthesize controlViewPreferredFrameLayoutGuide=_controlViewPreferredFrameLayoutGuide;
 @property(retain, nonatomic) UIView *activeControlView; // @synthesize activeControlView=_activeControlView;
 @property(nonatomic) unsigned long long edgesForExtendedLayout; // @synthesize edgesForExtendedLayout=_edgesForExtendedLayout;
-@property(nonatomic) _Bool shouldShowControls; // @synthesize shouldShowControls=_shouldShowControls;
 @property(nonatomic) _Bool shouldShowDetailsButton; // @synthesize shouldShowDetailsButton=_shouldShowDetailsButton;
+@property(nonatomic) _Bool shouldShowAlternateControlButton; // @synthesize shouldShowAlternateControlButton=_shouldShowAlternateControlButton;
+@property(nonatomic) _Bool shouldShowActiveControl; // @synthesize shouldShowActiveControl=_shouldShowActiveControl;
 @property(nonatomic) double initialSourceViewScale; // @synthesize initialSourceViewScale=_initialSourceViewScale;
 @property(nonatomic) double chromeTransitionProgress; // @synthesize chromeTransitionProgress=_chromeTransitionProgress;
 @property(nonatomic) double blurTransitionProgress; // @synthesize blurTransitionProgress=_blurTransitionProgress;
@@ -100,6 +102,7 @@
 - (void)_setupAlternateControlButtonIfNecessary;
 - (void)_setupBlurView;
 - (_Bool)_shouldShowControlView;
+- (void)setshouldShowActiveControl:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 delegate:(id)arg2 sourceRect:(struct CGRect)arg3;
 
 @end

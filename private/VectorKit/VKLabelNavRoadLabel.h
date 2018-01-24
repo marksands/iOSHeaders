@@ -19,8 +19,10 @@ __attribute__((visibility("hidden")))
     float _desiredOffsetDistance;
     unsigned int _displayID;
     _Bool _isPicked;
+    Mercator2_57ec32b6 _mercatorPoint;
 }
 
+@property(nonatomic) Mercator2_57ec32b6 mercatorPoint; // @synthesize mercatorPoint=_mercatorPoint;
 @property(nonatomic) float desiredOffsetDistance; // @synthesize desiredOffsetDistance=_desiredOffsetDistance;
 @property(nonatomic) unsigned char alignment; // @synthesize alignment=_alignment;
 @property(nonatomic) unsigned int displayID; // @synthesize displayID=_displayID;
@@ -38,7 +40,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isRoadLabel;
 @property(readonly, nonatomic) _Bool isShieldLabel;
 @property(nonatomic) unsigned short renderOrder;
-@property(nonatomic) Mercator2_57ec32b6 mercatorPoint;
 - (void)dealloc;
 - (id)initWithNavFeature:(id)arg1 label:(const shared_ptr_93ff9d4a *)arg2 navLabelType:(int)arg3;
 

@@ -52,7 +52,6 @@
 - (void)userTypedURLDirectly:(id)arg1;
 - (void)userDidEngageWithCompletionListItem:(id)arg1 onActionButton:(_Bool)arg2 method:(long long)arg3 doesMatchSiriSuggestion:(_Bool)arg4;
 - (void)userDidEngageWithCompletionListItem:(id)arg1 onActionButton:(_Bool)arg2 method:(long long)arg3;
-- (void)userDidEngageWithCardShowingResult:(id)arg1 onCardOfType:(id)arg2 actionType:(id)arg3 actionTarget:(id)arg4 destination:(id)arg5;
 - (void)didDisplayCompletionListItems:(id)arg1 forQuery:(id)arg2 forEvent:(long long)arg3;
 - (void)_postFeedbackOnFeedbackQueue:(id)arg1;
 - (void)postFeedback:(id)arg1;

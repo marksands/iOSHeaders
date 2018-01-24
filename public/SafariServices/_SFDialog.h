@@ -13,6 +13,7 @@
     _Bool _completed;
 }
 
++ (id)permanentlyAcceptCertificateDialogWithAcceptanceHandler:(CDUnknownBlockType)arg1;
 + (id)blockedPopupWindowDialogWithCompletionHandler:(CDUnknownBlockType)arg1;
 + (id)userMediaPermissionDialogWithHost:(id)arg1 devices:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (id)downloadBlockedDialogWithFileType:(long long)arg1 initiatingURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -30,7 +31,6 @@
 + (id)javaScriptPromptDialogWithMessage:(id)arg1 defaultText:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (id)javaScriptConfirmDialogWithMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)javaScriptAlertDialogWithMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-+ (id)saveBasicAuthenticationPasswordDialog:(_Bool)arg1 presentsAsActionSheet:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (id)authenticationDialogWithAuthenticationChallenge:(id)arg1 committedURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)didCompleteWithResponse:(id)arg1;
 - (id)newViewControllerRepresentationWithCompletionHandler:(CDUnknownBlockType)arg1;

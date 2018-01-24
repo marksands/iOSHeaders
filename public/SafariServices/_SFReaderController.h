@@ -11,7 +11,7 @@
 #import "WKNavigationDelegate.h"
 #import "WKUIDelegatePrivate.h"
 
-@class NSMutableDictionary, NSString, WBSReaderFontManager, WKWebView, _WKRemoteObjectInterface;
+@class NSMutableDictionary, NSString, NSTimer, WBSReaderFontManager, WKWebView, _WKRemoteObjectInterface;
 
 @interface _SFReaderController : NSObject <SFReaderEventsListener, SFReaderContext, WKNavigationDelegate, WKUIDelegatePrivate>
 {
@@ -21,6 +21,9 @@
     CDUnknownBlockType _readerMailContentCompletionHandler;
     CDUnknownBlockType _readerPrintContentCompletionHandler;
     NSMutableDictionary *_bookmarkIdentifierToReadingListItemInfoCompletionMap;
+    _Bool _readerWebViewContentDidBecomeReady;
+    CDUnknownBlockType _actionsDelayedUntilReaderWebViewIsReady;
+    NSTimer *_actionsDelayedUntilReaderWebViewIsReadyTimer;
     _Bool _readerAvailable;
     WKWebView *_webView;
     WKWebView *_readerWebView;
@@ -29,7 +32,6 @@
     NSString *_articleText;
 }
 
-+ (id)_defaultInitialConfiguration;
 @property(readonly, nonatomic) NSString *articleText; // @synthesize articleText=_articleText;
 @property(nonatomic) __weak id <WKUIDelegatePrivate> webViewUIDelegate; // @synthesize webViewUIDelegate=_webViewUIDelegate;
 @property(getter=isReaderAvailable) _Bool readerAvailable; // @synthesize readerAvailable=_readerAvailable;
@@ -49,7 +51,7 @@
 - (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
 - (void)owningWebViewDidCommitNavigation;
 - (void)readerTextWasExtracted:(id)arg1;
-- (void)didPrepareReaderContentForDisplay:(id)arg1;
+- (void)contentDidBecomeReadyWithDetectedLanguage:(id)arg1;
 - (void)didPrepareReaderContentForPrinting:(id)arg1;
 - (void)didCollectReaderContentForMail:(id)arg1;
 - (void)didCollectReadingListItemInfo:(id)arg1 bookmarkID:(id)arg2;
@@ -62,6 +64,7 @@
 - (void)setReaderTheme:(id)arg1;
 - (void)setReaderLanguageTag:(id)arg1;
 - (void)setReaderFont:(id)arg1;
+- (void)_collectReaderContentForMailWithCompletion:(CDUnknownBlockType)arg1;
 - (void)collectReaderContentForMailWithCompletion:(CDUnknownBlockType)arg1;
 - (id)readerURL;
 - (void)loadNewArticle;
@@ -76,6 +79,10 @@
 - (void)clearReaderWebView;
 - (void)stopLoadingNextPage;
 - (_Bool)isLoadingNextPage;
+- (void)_setUpReaderWebViewIfNeededAndPerformBlock:(CDUnknownBlockType)arg1;
+- (void)_performActionsDelayedUntilReaderWebViewIsReadyDidTimeout:(id)arg1;
+- (void)_performActionsDelayedUntilReaderWebViewIsReady;
+- (_Bool)_readerWebViewIsReady;
 - (void)prepareReaderPrintingIFrameWithCompletion:(CDUnknownBlockType)arg1;
 - (void)collectReadingListInfoWithBookmarkID:(int)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)setReaderInitialTopScrollOffset:(long long)arg1 configuration:(id)arg2 isViewingArchive:(_Bool)arg3 scrollOffsetDictionary:(id)arg4;

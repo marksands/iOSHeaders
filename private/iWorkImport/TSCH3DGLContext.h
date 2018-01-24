@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSSet *childrenContexts;
 - (void)p_removeChildContext:(id)arg1;
 - (void)p_addChildContext:(id)arg1;
+- (_Bool)clearIfBoundAsCurrentContext;
 - (id)sharedContext;
 - (void)enableSharing;
 - (void)invalidateTextureHandleValue:(unsigned int)arg1;

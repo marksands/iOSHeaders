@@ -63,6 +63,7 @@
 - (id)initWithOriginalRequest:(id)arg1 updatedRequest:(id)arg2 ident:(unsigned long long)arg3 session:(id)arg4;
 
 // Remaining properties
+@property(copy, nonatomic) NSString *_APSRelayTopic; // @dynamic _APSRelayTopic;
 @property(copy) NSDictionary *_DuetActivityProperties; // @dynamic _DuetActivityProperties;
 @property(copy) NSData *_TCPConnectionMetadata; // @dynamic _TCPConnectionMetadata;
 @property(readonly) unsigned short _TLSNegotiatedCipherSuite; // @dynamic _TLSNegotiatedCipherSuite;

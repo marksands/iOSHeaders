@@ -62,11 +62,13 @@
 @property(nonatomic) _Bool invertColorsEnabled; // @dynamic invertColorsEnabled;
 - (void)registerAssistiveTouchPID:(int)arg1;
 @property(nonatomic) _Bool sessionIsLoginSession;
+@property(nonatomic) _Bool inCheckerBoardMode;
 @property(nonatomic) _Bool inPreboardMode;
 - (id)backboardServiceInstance;
 - (_Bool)_shouldDispatchLocally;
 - (void)registerAccessibilityUIServicePID:(int)arg1;
 - (int)accessibilityUIServicePID;
+- (int)accessibilityAssistiveTouchPID;
 - (void)registerSiriViewServicePID:(int)arg1;
 - (void)setLockScreenDimTimerEnabled:(_Bool)arg1;
 - (void)adjustSystemZoom:(int)arg1;

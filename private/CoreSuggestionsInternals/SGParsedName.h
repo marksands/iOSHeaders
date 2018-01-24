@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet, NSSet, NSString, SGIdentityName;
+@class NSSet, NSString, SGIdentityName;
 
 @interface SGParsedName : NSObject
 {
     NSString *_name;
     NSSet *_nicknames;
-    NSMutableSet *_components;
+    NSSet *_components;
     SGIdentityName *_identity;
 }
 

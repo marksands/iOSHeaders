@@ -18,29 +18,15 @@
     NSObject<OS_dispatch_queue> *_queue;
     _Bool _canReachTheNetwork;
     _Bool _isUpdating;
-    int _localLatencyCount;
-    double _localLatency;
-    double _localLatencyStddev;
-    double _localBandwidth;
-    double _localBandwidthStddev;
-    double _localBandwidthBytes;
 }
 
 + (id)sharedNetworkController;
 @property _Bool isUpdating; // @synthesize isUpdating=_isUpdating;
-@property(nonatomic) _Bool canReachTheNetwork; // @synthesize canReachTheNetwork=_canReachTheNetwork;
-@property(readonly, nonatomic) double localBandwidthBytes; // @synthesize localBandwidthBytes=_localBandwidthBytes;
-@property(readonly, nonatomic) double localBandwidth; // @synthesize localBandwidth=_localBandwidth;
-@property(readonly, nonatomic) int localLatencyCount; // @synthesize localLatencyCount=_localLatencyCount;
-@property(readonly, nonatomic) double localLatency; // @synthesize localLatency=_localLatency;
+@property _Bool canReachTheNetwork; // @synthesize canReachTheNetwork=_canReachTheNetwork;
 - (void).cxx_destruct;
 - (void)_checkForNetworkAndNotify;
 - (void)_checkForNetwork;
-@property(readonly, nonatomic) double localBandwidthStddev; // @synthesize localBandwidthStddev=_localBandwidthStddev;
-- (void)_recordBandwidth:(double)arg1 bytes:(double)arg2;
-@property(readonly, nonatomic) double localLatencyStddev; // @synthesize localLatencyStddev=_localLatencyStddev;
-- (void)_recordLatency:(double)arg1;
-- (void)resetNetworkStatistics;
+- (int)dataIndicatorToConnection:(id)arg1;
 - (int)networkType;
 - (void)start;
 - (void)_updateStatus:(_Bool)arg1;

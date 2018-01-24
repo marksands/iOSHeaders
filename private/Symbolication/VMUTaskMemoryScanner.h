@@ -42,9 +42,12 @@
     unsigned long long _maxInteriorOffset;
     unsigned int _scanningMask;
     VMUDebugTimer *_debugTimer;
+    _Bool _showRawClassNames;
     NSString *_processName;
     NSString *_processDescriptionString;
     NSString *_binaryImagesDescription;
+    unsigned long long _physicalFootprint;
+    unsigned long long _physicalFootprintPeak;
     CDUnknownBlockType _referenceLogger;
     CDUnknownBlockType _nodeLogger;
     _Bool _abandonedMarkingEnabled;
@@ -57,9 +60,12 @@
 + (id)referenceDescription:(CDStruct_8b65991f)arg1 withSourceNode:(CDStruct_599faf0f)arg2 destinationNode:(CDStruct_599faf0f)arg3 sortedVMRegions:(id)arg4 symbolicator:(struct _CSTypeRef)arg5 alignmentSpacing:(unsigned int)arg6;
 + (id)nodeDescription:(CDStruct_599faf0f)arg1 withNodeOffset:(unsigned long long)arg2 sortedVMRegions:(id)arg3;
 + (void)initialize;
+@property(readonly, nonatomic) unsigned long long physicalFootprintPeak; // @synthesize physicalFootprintPeak=_physicalFootprintPeak;
+@property(readonly, nonatomic) unsigned long long physicalFootprint; // @synthesize physicalFootprint=_physicalFootprint;
 @property(readonly, nonatomic) NSString *binaryImagesDescription; // @synthesize binaryImagesDescription=_binaryImagesDescription;
 @property(readonly, nonatomic) NSString *processDescriptionString; // @synthesize processDescriptionString=_processDescriptionString;
 @property(readonly, nonatomic) NSString *processName; // @synthesize processName=_processName;
+@property(nonatomic) _Bool showRawClassNames; // @synthesize showRawClassNames=_showRawClassNames;
 @property(retain, nonatomic) VMUDebugTimer *debugTimer; // @synthesize debugTimer=_debugTimer;
 @property(nonatomic) _Bool abandonedMarkingEnabled; // @synthesize abandonedMarkingEnabled=_abandonedMarkingEnabled;
 @property(nonatomic) _Bool saveNodeLabelsInGraph; // @synthesize saveNodeLabelsInGraph=_saveNodeLabelsInGraph;

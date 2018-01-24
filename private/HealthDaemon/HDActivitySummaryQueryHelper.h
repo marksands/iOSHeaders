@@ -44,7 +44,6 @@
 - (void)_queue_deliverUpdates;
 - (void)_queue_deliverActivitySummariesToClient:(id)arg1;
 - (void)_queue_deliverErrorToClient:(id)arg1;
-- (void)_onClientQueue:(CDUnknownBlockType)arg1;
 @property _Bool shouldIncludePrivateProperties;
 - (_Bool)_shouldStopProcessing;
 - (void)_queue_stop;

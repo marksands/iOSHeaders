@@ -27,11 +27,13 @@
     id _requestToken;
     _TVDecoratorRequest *_decoratorRequestToken;
     id _imageDidWriteObserver;
+    id <IKNetworkRequestLoader> _requestLoader;
 }
 
 + (id)_imageDecoratorQueue;
 @property(nonatomic) _Bool writeToAssetLibrary; // @synthesize writeToAssetLibrary=_writeToAssetLibrary;
 @property(nonatomic) _Bool loadSynchronouslyIfCached; // @synthesize loadSynchronouslyIfCached=_loadSynchronouslyIfCached;
+@property(nonatomic) __weak id <IKNetworkRequestLoader> requestLoader; // @synthesize requestLoader=_requestLoader;
 @property(retain, nonatomic) id imageDidWriteObserver; // @synthesize imageDidWriteObserver=_imageDidWriteObserver;
 @property(retain, nonatomic) _TVDecoratorRequest *decoratorRequestToken; // @synthesize decoratorRequestToken=_decoratorRequestToken;
 @property(retain, nonatomic) id requestToken; // @synthesize requestToken=_requestToken;
@@ -58,8 +60,8 @@
 - (id)_assetKeyWithImageLoaderKey:(id)arg1 decoratorIdentifier:(id)arg2;
 - (id)_decoratorIdentifier;
 - (void)_imageDidWriteHandler:(id)arg1;
-- (void)_completeImageLoadWithImage:(id)arg1 imagePath:(id)arg2 error:(id)arg3 assetKey:(id)arg4 expiryDate:(id)arg5;
-- (void)_decorateAndWriteImage:(id)arg1 imagePath:(id)arg2 scaleToSize:(struct CGSize)arg3 cropToFit:(_Bool)arg4 scalingResult:(unsigned long long)arg5 assetKey:(id)arg6 expiryDate:(id)arg7;
+- (void)_completeImageLoadWithImage:(id)arg1 imagePath:(id)arg2 error:(id)arg3 assetKey:(id)arg4 expiryDate:(id)arg5 requestRecord:(id)arg6;
+- (void)_decorateAndWriteImage:(id)arg1 imagePath:(id)arg2 scaleToSize:(struct CGSize)arg3 cropToFit:(_Bool)arg4 scalingResult:(unsigned long long)arg5 assetKey:(id)arg6 expiryDate:(id)arg7 requestRecord:(id)arg8;
 - (void)load;
 @property(readonly, nonatomic) struct CGSize expectedSize;
 - (id)copyWithZone:(struct _NSZone *)arg1;

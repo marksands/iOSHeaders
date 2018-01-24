@@ -6,14 +6,14 @@
 
 #import "UIView.h"
 
-@class UIButton, UILabel, UIStackView, VSFontCenter;
+@class UILabel, UIStackView, VSFontCenter;
 
 __attribute__((visibility("hidden")))
 @interface VSTableHeaderFooterView : UIView
 {
     long long _kind;
     id <VSTableHeaderFooterViewDelegate> _delegate;
-    UIButton *_button;
+    UIView *_button;
     UILabel *_textLabel;
     UIStackView *_stackView;
     VSFontCenter *_fontCenter;
@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) VSFontCenter *fontCenter; // @synthesize fontCenter=_fontCenter;
 @property(retain, nonatomic) UIStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain, nonatomic) UILabel *textLabel; // @synthesize textLabel=_textLabel;
-@property(retain, nonatomic) UIButton *button; // @synthesize button=_button;
+@property(retain, nonatomic) UIView *button; // @synthesize button=_button;
 @property(nonatomic) __weak id <VSTableHeaderFooterViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long kind; // @synthesize kind=_kind;
 - (void).cxx_destruct;

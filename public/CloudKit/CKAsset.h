@@ -44,6 +44,7 @@
     NSDate *_downloadURLExpiration;
     NSData *_assetKey;
     NSData *_wrappedAssetKey;
+    NSData *_clearAssetKey;
     NSData *_referenceSignature;
     NSString *_uploadReceipt;
     double _uploadReceiptExpiration;
@@ -77,6 +78,7 @@
 @property(nonatomic) double uploadReceiptExpiration; // @synthesize uploadReceiptExpiration=_uploadReceiptExpiration;
 @property(copy, nonatomic) NSString *uploadReceipt; // @synthesize uploadReceipt=_uploadReceipt;
 @property(retain, nonatomic) NSData *referenceSignature; // @synthesize referenceSignature=_referenceSignature;
+@property(retain, nonatomic) NSData *clearAssetKey; // @synthesize clearAssetKey=_clearAssetKey;
 @property(retain, nonatomic) NSData *wrappedAssetKey; // @synthesize wrappedAssetKey=_wrappedAssetKey;
 @property(retain, nonatomic) NSData *assetKey; // @synthesize assetKey=_assetKey;
 @property(retain, nonatomic) NSDate *downloadURLExpiration; // @synthesize downloadURLExpiration=_downloadURLExpiration;

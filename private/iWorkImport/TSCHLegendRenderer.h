@@ -13,13 +13,14 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) struct CGPoint textEditingPixelAlignmentOffset; // @synthesize textEditingPixelAlignmentOffset=_textEditingPixelAlignmentOffset;
-- (void)addSelection:(id)arg1 toCGPath:(struct CGPath *)arg2;
+- (void)addSelection:(id)arg1 toCGPath:(struct CGPath *)arg2 useWrapWidth:(_Bool)arg3;
 - (void)renderIntoContext:(struct CGContext *)arg1 selection:(id)arg2;
 - (_Bool)canRenderSelectionPath:(id)arg1;
 - (void)p_renderIntoContext:(struct CGContext *)arg1 visible:(struct CGRect)arg2;
 - (void)p_drawLabelForCell:(id)arg1 intoContext:(struct CGContext *)arg2 rangePtr:(struct _NSRange *)arg3;
 - (void)p_drawBadgeForCell:(id)arg1 intoContext:(struct CGContext *)arg2;
 - (void)p_draw3DLineBadgeIntoContext:(struct CGContext *)arg1 forCell:(id)arg2;
+- (void)p_drawDonutBadgeIntoContext:(struct CGContext *)arg1 forCell:(id)arg2;
 - (void)p_drawPieBadgeIntoContext:(struct CGContext *)arg1 forCell:(id)arg2;
 - (void)p_drawLineAreaBadgeIntoContext:(struct CGContext *)arg1 forCell:(id)arg2;
 - (void)p_drawDefaultBadgeIntoContext:(struct CGContext *)arg1 forCell:(id)arg2;

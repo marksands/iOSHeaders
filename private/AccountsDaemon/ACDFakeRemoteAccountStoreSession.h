@@ -14,8 +14,9 @@
 }
 
 - (void).cxx_destruct;
-- (id)remoteObjectProxy;
+- (id)synchronousRemoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
+- (id)remoteObjectProxy;
 - (id)initWithFakeProxy:(id)arg1;
 
 @end

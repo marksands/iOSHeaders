@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableSet, WKUserContentController;
+@class NSMutableSet, NSSet, WKUserContentController;
 
 @interface SFContentBlockerManager : NSObject
 {
     id _extensionMatchingContext;
     WKUserContentController *_userContentController;
-    NSArray *_extensions;
+    NSSet *_extensions;
     NSMutableSet *_observers;
     _Bool _lastExtensionDiscoveryHadError;
 }
@@ -28,12 +28,13 @@
 - (id)displayNameForExtension:(id)arg1;
 - (void)setExtension:(id)arg1 isEnabled:(_Bool)arg2;
 - (_Bool)extensionIsEnabled:(id)arg1;
+- (void)_recompileEnabledContentBlockersIfNeeded:(id)arg1;
+- (id)_findNewExtensionsAdded:(id)arg1 toExistingExtensions:(id)arg2;
 - (void)_beginContentBlockerDiscovery;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
-@property(readonly, nonatomic) NSArray *extensions;
+@property(readonly, nonatomic) NSSet *extensions;
 - (void)reloadUserContentController;
-- (void)compileContentBlockersAfterDeviceRestore;
 @property(readonly, nonatomic) WKUserContentController *userContentController;
 
 @end

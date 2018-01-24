@@ -233,6 +233,41 @@ struct os_activity_useraction_s {
     _Bool _field11;
 };
 
+struct os_log_fmt_cspec_s {
+    char *_field1;
+    unsigned short _field2;
+    unsigned char _field3;
+    unsigned short _field4;
+    unsigned short _field5;
+    unsigned short _field6;
+    int _field7;
+    int _field8;
+    char *_field9;
+    char *_field10;
+};
+
+struct os_log_fmt_hdr_s {
+    unsigned char _field1;
+    unsigned char _field2;
+    unsigned char _field3[0];
+};
+
+struct os_log_fmt_raw_placeholder {
+    void *_field1;
+    struct os_log_fmt_cspec_s _field2;
+    union {
+        long long _field1;
+        unsigned long long _field2;
+        double _field3;
+        long double _field4;
+    } _field3;
+    unsigned char _field4;
+    unsigned char _field5;
+    unsigned short _field6;
+    unsigned long long _field7;
+    _Bool _field8;
+};
+
 struct os_log_message_s {
     unsigned long long _field1;
     unsigned long long _field2;

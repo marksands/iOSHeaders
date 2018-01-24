@@ -16,14 +16,16 @@
     NSArray *_invalidationObservers;
     MPCMediaRemoteController *_controller;
     MPSectionedCollection *_queueContentItems;
+    MPSectionedCollection *_queueModelObjects;
     id <MPCSupportedCommands> _supportedCommands;
     NSIndexPath *_playingIndexPath;
     long long _playerState;
 }
 
 @property(nonatomic) long long playerState; // @synthesize playerState=_playerState;
-@property(nonatomic) NSIndexPath *playingIndexPath; // @synthesize playingIndexPath=_playingIndexPath;
+@property(copy, nonatomic) NSIndexPath *playingIndexPath; // @synthesize playingIndexPath=_playingIndexPath;
 @property(retain, nonatomic) id <MPCSupportedCommands> supportedCommands; // @synthesize supportedCommands=_supportedCommands;
+@property(retain, nonatomic) MPSectionedCollection *queueModelObjects; // @synthesize queueModelObjects=_queueModelObjects;
 @property(retain, nonatomic) MPSectionedCollection *queueContentItems; // @synthesize queueContentItems=_queueContentItems;
 @property(retain, nonatomic) MPCMediaRemoteController *controller; // @synthesize controller=_controller;
 @property(retain, nonatomic) NSArray *invalidationObservers; // @synthesize invalidationObservers=_invalidationObservers;
@@ -32,9 +34,6 @@
 - (id)operationsForRequest:(id)arg1;
 - (id)init;
 - (float)_playbackRateForContentItem:(id)arg1;
-- (id)_itemGenericObjectPropertySetForContentItem:(id)arg1 propertySet:(id)arg2;
-- (id)_genericObjectPropertySetForContentItem:(id)arg1 preferredRelationships:(id)arg2 propertySet:(id)arg3;
-- (id)_sectionGenericObjectPropertySetForContentItem:(id)arg1 propertySet:(id)arg2;
 - (id)_supportedCommands:(unsigned int)arg1 infoValueForKey:(id)arg2;
 - (id)playerVideoView:(id)arg1 chain:(id)arg2;
 - (id)playerCommandOptionValue:(id)arg1 forKey:(id)arg2 command:(unsigned int)arg3 chain:(id)arg4;

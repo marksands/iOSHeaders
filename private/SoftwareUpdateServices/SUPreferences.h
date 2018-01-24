@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSNumber;
+@class NSNumber, NSString;
 
 @interface SUPreferences : NSObject
 {
+    _Bool _disableManagedRequest;
     _Bool _disableUserWiFiOnlyPeriod;
     _Bool _disableBuildNumberComparison;
     _Bool _allowSameBuildUpdates;
@@ -22,10 +23,16 @@
     _Bool _disableFullReplacementFallback;
     NSNumber *_updateDelayInterval;
     _Bool _shouldDelayUpdates;
+    _Bool _shouldDelayInMinutes;
     NSNumber *_unmetConstraints;
+    NSNumber *_mandatorySUFlags;
+    NSString *_requestedPMV;
 }
 
 + (id)sharedInstance;
+@property(readonly, nonatomic) NSString *requestedPMV; // @synthesize requestedPMV=_requestedPMV;
+@property(readonly, nonatomic) NSNumber *mandatorySUFlags; // @synthesize mandatorySUFlags=_mandatorySUFlags;
+@property(readonly, nonatomic) _Bool shouldDelayInMinutes; // @synthesize shouldDelayInMinutes=_shouldDelayInMinutes;
 @property(readonly, nonatomic) NSNumber *unmetConstraints; // @synthesize unmetConstraints=_unmetConstraints;
 @property(readonly, nonatomic) _Bool shouldDelayUpdates; // @synthesize shouldDelayUpdates=_shouldDelayUpdates;
 @property(readonly, nonatomic) NSNumber *updateDelayInterval; // @synthesize updateDelayInterval=_updateDelayInterval;
@@ -39,11 +46,14 @@
 @property(readonly, nonatomic) _Bool allowSameBuildUpdates; // @synthesize allowSameBuildUpdates=_allowSameBuildUpdates;
 @property(readonly, nonatomic) _Bool disableBuildNumberComparison; // @synthesize disableBuildNumberComparison=_disableBuildNumberComparison;
 @property(readonly, nonatomic) _Bool disableUserWiFiOnlyPeriod; // @synthesize disableUserWiFiOnlyPeriod=_disableUserWiFiOnlyPeriod;
+@property(readonly, nonatomic) _Bool disableManagedRequest; // @synthesize disableManagedRequest=_disableManagedRequest;
 - (void *)_copyPreferenceForKey:(struct __CFString *)arg1 ofType:(unsigned long long)arg2;
 - (id)_copyNumberPreferenceForKey:(id)arg1;
+- (id)_copyStringPreferenceForKey:(id)arg1;
 - (_Bool)_getBooleanPreferenceForKey:(id)arg1 withDefaultValue:(_Bool)arg2;
 - (void)_loadPreferences;
 - (void)reload;
+- (id)_mandatorySUFlagsForPreferences;
 - (void)dealloc;
 - (id)init;
 

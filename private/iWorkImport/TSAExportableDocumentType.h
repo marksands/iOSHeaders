@@ -23,8 +23,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSUColor *exportFormatChooserItemTextColor; // @synthesize exportFormatChooserItemTextColor=_exportFormatChooserItemTextColor;
 @property(readonly, nonatomic) NSString *localizedName; // @synthesize localizedName=_localizedName;
 @property(readonly, nonatomic) NSString *type; // @synthesize type=_type;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (id)initWithType:(id)arg1 localizedName:(id)arg2 exportFormatChooserItemTextColor:(id)arg3 exportProgressMessage:(id)arg4;
 
 @end

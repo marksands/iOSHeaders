@@ -28,7 +28,6 @@
 - (void)_updateActionButtons;
 - (void)presentDocumentInteractionControllerFromRect:(struct CGRect)arg1 inView:(id)arg2;
 - (void)updateWithQuickLookDocument:(id)arg1;
-- (void)updateTopContentInset:(double)arg1;
 - (id)init;
 
 // Remaining properties

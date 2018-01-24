@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, SXComponent, SXComponentLayout, SXComponentStyle, SXDocumentController, SXLayoutAttributes;
+@class NSMutableDictionary, SXComponentStyle, SXDocumentController, SXLayoutAttributes;
 
 @interface SXComponentSizer : NSObject
 {
-    SXComponent *_component;
-    SXComponentLayout *_componentLayout;
+    id <SXComponent> _component;
+    id <SXComponentLayout> _componentLayout;
     SXComponentStyle *_componentStyle;
     SXDocumentController *_documentController;
     SXLayoutAttributes *_layoutAttributes;
@@ -24,8 +24,8 @@
 @property(nonatomic) struct CGSize suggestedSize; // @synthesize suggestedSize=_suggestedSize;
 @property(readonly, nonatomic) SXDocumentController *documentController; // @synthesize documentController=_documentController;
 @property(readonly, nonatomic) SXComponentStyle *componentStyle; // @synthesize componentStyle=_componentStyle;
-@property(readonly, nonatomic) SXComponentLayout *componentLayout; // @synthesize componentLayout=_componentLayout;
-@property(readonly, nonatomic) SXComponent *component; // @synthesize component=_component;
+@property(readonly, nonatomic) id <SXComponentLayout> componentLayout; // @synthesize componentLayout=_componentLayout;
+@property(readonly, nonatomic) id <SXComponent> component; // @synthesize component=_component;
 - (void).cxx_destruct;
 - (void)saveInfo:(id)arg1 forRenderingPhaseWithIdentifier:(id)arg2;
 - (struct UIEdgeInsets)contentInsetsForSize:(struct CGSize)arg1;

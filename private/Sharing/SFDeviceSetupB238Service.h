@@ -6,26 +6,30 @@
 
 #import "NSObject.h"
 
-@class CUAudioPlayer, HMDeviceSetupOperationHandler, NSDate, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, SFClient, SFDeviceOperationHandlerWiFiSetup, SFService, SFSession, SFSiriClient, SFSiriDeviceSetupGreetingDetails, SFSiriWordTimingPlayer;
+@class CUAudioPlayer, HMDeviceSetupOperationHandler, NSDate, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, RPCompanionLinkClient, SFClient, SFDeviceOperationHandlerWiFiSetup, SFService, SFSession, SFSiriClient, SFSiriDeviceSetupGreetingDetails;
 
 @interface SFDeviceSetupB238Service : NSObject
 {
     _Bool _activateCalled;
     _Bool _advertiseFast;
+    RPCompanionLinkClient *_companionLinkClient;
+    NSObject<OS_dispatch_source> *_finishApplyTimer;
+    NSObject<OS_dispatch_source> *_finishTimeoutTimer;
     _Bool _finished;
     _Bool _finished2;
     _Bool _finishedEventSent;
     _Bool _finishSessionEnded;
-    NSObject<OS_dispatch_source> *_finishTimer;
     _Bool _invalidateCalled;
+    _Bool _iTunesCloudCompleted;
+    int _iTunesCloudCompleteToken;
+    _Bool _mediaSystemReady;
     unsigned long long _peerFeatureFlags;
-    SFClient *_preventExitForLocaleClient;
+    SFClient *_sfClient;
     SFService *_sfService;
     SFSession *_sfSession;
     SFSiriClient *_siriClient;
     SFSiriDeviceSetupGreetingDetails *_siriGreetingDetails;
     _Bool _siriHeardWhatCanYouDo;
-    SFSiriWordTimingPlayer *_siriWordPlayer;
     _Bool _wifiSetupEnabled;
     HMDeviceSetupOperationHandler *_homeKitSetupHandler;
     SFDeviceOperationHandlerWiFiSetup *_wifiSetupHandler;
@@ -64,6 +68,8 @@
 - (void)_handleRawRequest:(id)arg1 flags:(unsigned int)arg2 responseHandler:(CDUnknownBlockType)arg3;
 - (void)_handlePreAuthRequest:(id)arg1 responseHandler:(CDUnknownBlockType)arg2;
 - (void)_handlePlaySoundRequest:(id)arg1 responseHandler:(CDUnknownBlockType)arg2;
+- (_Bool)_handleFinishDone2Ready;
+- (void)_handleFinishDone2:(unsigned int)arg1 responseHandler:(CDUnknownBlockType)arg2;
 - (void)_handleFinishDone:(unsigned int)arg1 responseHandler:(CDUnknownBlockType)arg2;
 - (void)_handleFinishApply:(id)arg1 responseHandler:(CDUnknownBlockType)arg2;
 - (void)_handleFinishRequest:(id)arg1 responseHandler:(CDUnknownBlockType)arg2;

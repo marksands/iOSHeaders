@@ -62,7 +62,7 @@
 @property(nonatomic) __weak id <SXTangierControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic, getter=isEnclosingCanvasScrolling) _Bool enclosingCanvasScrolling; // @synthesize enclosingCanvasScrolling=_enclosingCanvasScrolling;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) TSKDocumentRoot *documentRoot;
+@property(readonly, retain, nonatomic) TSKDocumentRoot *documentRoot;
 - (id)layoutDescriptionForComponent:(id)arg1;
 - (void)endSelection;
 @property(readonly, nonatomic) _Bool shouldClipToScrollViewBoundsInVisibleBounds;

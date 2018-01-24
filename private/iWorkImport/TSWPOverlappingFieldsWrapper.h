@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)description;
 - (void)sortWithContext:(void *)arg1;
+- (void)resetTextAttributeUUIDString;
 - (id)copyWithContext:(id)arg1;
 - (_Bool)isEquivalentToObject:(id)arg1;
 - (_Bool)isEqualToOverlappingFieldWrapper:(id)arg1;

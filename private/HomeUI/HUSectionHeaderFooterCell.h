@@ -19,7 +19,9 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool prefersSeparatorsHidden;
 - (void)prepareForReuse;
+- (struct CGSize)intrinsicContentSize;
 - (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
+- (void)willMoveToSuperview:(id)arg1;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 // Remaining properties

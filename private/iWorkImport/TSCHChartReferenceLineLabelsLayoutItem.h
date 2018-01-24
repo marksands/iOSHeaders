@@ -15,13 +15,13 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, retain, nonatomic) TSCHChartAxisID *axisID; // @synthesize axisID=mAxisID;
+- (void).cxx_destruct;
 - (id)p_areaLayoutItem;
 - (id)subselectionKnobPositionsForSelection:(id)arg1;
 - (void)protected_iterateHitChartElements:(struct CGPoint)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (struct CGRect)p_drawingRectForModel:(id)arg1;
 - (struct CGRect)calcDrawingRect;
 - (struct CGSize)calcMinSize;
-- (void)dealloc;
 - (id)initWithParent:(id)arg1 axisID:(id)arg2;
 
 @end

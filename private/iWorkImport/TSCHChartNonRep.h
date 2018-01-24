@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) TSCHChartLayout *chartLayout; // @synthesize chartLayout=mChartLayout;
 @property(retain, nonatomic) TSCHChartInfo *chartInfo; // @synthesize chartInfo=mChartInfo;
+- (void).cxx_destruct;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (_Bool)requireSeparateLabelLayer;
 - (_Bool)renderTrendLinesForSeriesIndex:(unsigned long long)arg1;

@@ -38,7 +38,7 @@
 - (void)_setupLabelAndFieldStyles;
 - (id)_fieldTextColor;
 - (void)_updateFonts:(id)arg1;
-- (void)_setupBackgroundView;
+- (id)_setupBackgroundViewConstriants;
 @property(nonatomic, getter=isEnabled) _Bool enabled;
 - (void)_commonInit;
 - (void)dealloc;

@@ -12,6 +12,9 @@
 {
 }
 
+- (void)validateMapLayerDataWithHandler:(CDUnknownBlockType)arg1;
+- (unsigned long long)freePurgableSpace:(unsigned long long)arg1 forUrgency:(int)arg2;
+- (unsigned long long)calculatePurgableSpaceForUrgency:(int)arg1;
 - (id)getDefault:(id)arg1;
 - (void)lockDBs;
 - (void)unlockDBs;

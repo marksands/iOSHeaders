@@ -25,12 +25,15 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) VSOptional *storage; // @synthesize storage=_storage;
 - (void).cxx_destruct;
 - (void)executionDidBegin;
+- (void)_checkForSupportedAppsButtonWithFlow:(id)arg1;
 - (void)_checkForSupportedAppsButton;
 - (void)_resolveBundleIDs:(id)arg1 forFlow:(id)arg2;
 - (void)_findBundleIDsForAdamIDs:(id)arg1 withFlow:(id)arg2;
 - (void)_checkForPersonalizedChannelsWithResponse:(id)arg1 identityProvider:(id)arg2;
 - (void)_checkForSupportedAppsFromProvider:(id)arg1;
 - (void)_fetchProviderForAccount:(id)arg1;
+- (void)_fetchAllProviders;
+- (void)_fetchAllProvidersIfNeeded;
 - (void)_checkForExistingAccounts;
 - (void)_checkAvailability;
 - (void)_checkPreferences;

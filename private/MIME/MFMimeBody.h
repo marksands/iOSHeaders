@@ -35,8 +35,7 @@
 - (id)partWithNumber:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *mimeSubtype;
 @property(readonly, copy, nonatomic) NSString *mimeType;
-- (void)setTopLevelPart:(id)arg1;
-- (id)topLevelPart;
+@property(retain, nonatomic) MFMimePart *topLevelPart;
 - (void)dealloc;
 - (id)init;
 

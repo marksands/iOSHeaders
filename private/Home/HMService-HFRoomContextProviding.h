@@ -7,6 +7,7 @@
 #import "HMService.h"
 
 @interface HMService (HFRoomContextProviding)
+- (_Bool)hf_isValidObject;
 - (id)hf_parentRoom;
 @end
 

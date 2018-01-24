@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     _Bool _isBackground;
     _Bool _isBaked;
     _Bool _isFlippedHorizontally;
+    _Bool _containsContentBuildTextures;
     _Bool _isMagicMove;
     _Bool _shouldTransformUsingTextureCenter;
     _Bool _shouldIncludeFinalTexturesInVisibleSet;
@@ -55,6 +56,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) long long objectType; // @synthesize objectType=_objectType;
 @property(readonly, nonatomic) long long maxStageIndex; // @synthesize maxStageIndex=_maxStageIndex;
 @property(nonatomic) _Bool isMagicMove; // @synthesize isMagicMove=_isMagicMove;
+@property(nonatomic) _Bool containsContentBuildTextures; // @synthesize containsContentBuildTextures=_containsContentBuildTextures;
 @property(nonatomic) _Bool isFlippedHorizontally; // @synthesize isFlippedHorizontally=_isFlippedHorizontally;
 @property(nonatomic) _Bool isBaked; // @synthesize isBaked=_isBaked;
 @property(nonatomic) _Bool isBackground; // @synthesize isBackground=_isBackground;
@@ -71,7 +73,7 @@ __attribute__((visibility("hidden")))
 - (void)removeAllPerspectiveLayers;
 - (void)addPerspectiveLayerToTexture:(id)arg1 withShowSize:(struct CGSize)arg2;
 - (void)resetLayers;
-- (void)resetToOriginalSource;
+- (void)resetToOriginalSourceAtEventIndex:(unsigned long long)arg1;
 - (void)evictRenderedResources;
 @property(readonly, nonatomic) _Bool isRenderable;
 - (void)renderIntoContext:(struct CGContext *)arg1 eventIndex:(unsigned long long)arg2 requiresTransparentBackground:(_Bool)arg3;
@@ -85,8 +87,8 @@ __attribute__((visibility("hidden")))
 - (void)p_getComponentsOpacity:(double *)arg1 scale:(double *)arg2 angle:(double *)arg3 fromAttributes:(id)arg4 shouldApplyOpacity:(_Bool *)arg5 shouldApplyAngle:(_Bool *)arg6 shouldApplyScale:(_Bool *)arg7;
 - (void)p_applyPositionFromAttributes:(id)arg1 viewScale:(double)arg2 eventIndex:(unsigned long long)arg3;
 - (void)p_resetAttributesWithViewScale:(double)arg1 eventIndex:(unsigned long long)arg2;
-- (void)resetAnchorPoint;
-- (void)adjustAnchorPointRelativeToCenterOfRotation;
+- (void)resetAnchorPointAtEventIndex:(unsigned long long)arg1;
+- (void)adjustAnchorPointRelativeToCenterOfRotationAtEventIndex:(unsigned long long)arg1;
 - (void)p_setLayerGeometryWithLayer:(id)arg1;
 - (void)setLayerGeometry;
 - (void)setLayerGeometryAtEventIndex:(unsigned long long)arg1;
@@ -97,7 +99,7 @@ __attribute__((visibility("hidden")))
 - (id)firstVisibleTextureForTextureType:(long long)arg1;
 - (void)removeRenderable:(id)arg1;
 - (_Bool)hasTexture:(id)arg1 beenFlattenedForKey:(id)arg2;
-- (id)visibleTexturesForStage:(long long)arg1 isBuildIn:(_Bool)arg2 shouldFlatten:(_Bool)arg3 flattenKey:(id)arg4;
+- (id)visibleTexturesForStage:(long long)arg1 isBuildIn:(_Bool)arg2 isContentBuild:(_Bool)arg3 shouldFlatten:(_Bool)arg4 flattenKey:(id)arg5;
 @property(readonly, nonatomic) NSArray *visibleTextures;
 - (void)renderLayerContentsIfNeeded;
 @property(readonly, nonatomic) _Bool isImageSource;
@@ -107,7 +109,7 @@ __attribute__((visibility("hidden")))
 - (void)addRenderable:(id)arg1 forStage:(long long)arg2;
 - (void)addRenderable:(id)arg1 shouldAdjustBounds:(_Bool)arg2;
 - (void)addRenderable:(id)arg1;
-- (struct CGRect)boundingRectForStage:(long long)arg1 isBuildIn:(_Bool)arg2;
+- (struct CGRect)boundingRectForStage:(long long)arg1 isBuildIn:(_Bool)arg2 isContentBuild:(_Bool)arg3;
 @property(readonly, nonatomic) CALayer *layer; // @synthesize layer=_layer;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

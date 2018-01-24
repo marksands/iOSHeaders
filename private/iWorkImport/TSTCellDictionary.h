@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)applyBlockToAllCells:(CDUnknownBlockType)arg1;
 - (id)allCells;
-- (vector_13f93596)removeAllCells;
+- (vector_38b190b0)removeAllCells;
 - (id)cellAtCellID:(struct TSUCellCoord)arg1;
 - (void)setCell:(id)arg1 atCellID:(struct TSUCellCoord)arg2;
 - (id)init;

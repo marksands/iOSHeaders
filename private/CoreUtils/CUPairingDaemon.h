@@ -45,7 +45,6 @@
 - (id)_copyHomeKitWithOptions:(unsigned long long)arg1 error:(int *)arg2;
 - (id)copyIdentityWithOptions:(unsigned long long)arg1 error:(int *)arg2;
 @property(readonly, nonatomic) NSXPCListenerEndpoint *testListenerEndpoint;
-- (struct os_state_data_s *)_stateDump;
 - (void)reset;
 - (void)_connectionInvalidated:(id)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;

@@ -44,6 +44,9 @@
 - (void)_prepareWristRaiseAnimation;
 - (double)_verticalPaddingForStatusBar;
 - (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
+- (void)_updateComplicationViewsAlphasWithAnimation:(_Bool)arg1;
+- (void)_cleanupAfterEditing;
+- (void)_prepareForEditing;
 - (void)_applyBreathingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)_applyTransitionFraction:(double)arg1 fromOption:(id)arg2 toOption:(id)arg3 forCustomEditMode:(long long)arg4 slot:(id)arg5;
 - (void)_applyOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
@@ -65,7 +68,6 @@
 - (long long)_legacyLayoutOverrideforComplicationType:(unsigned long long)arg1 slot:(id)arg2;
 - (void)_configureComplicationView:(id)arg1 forSlot:(id)arg2;
 - (id)_newLegacyViewForComplication:(id)arg1 family:(long long)arg2 slot:(id)arg3;
-- (void)_configureComplicationFactory;
 - (void)_loadLayoutRules;
 - (long long)_utilitySlotForSlot:(id)arg1;
 - (_Bool)_needsForegroundContainerView;

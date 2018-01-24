@@ -23,6 +23,10 @@
 - (void)_display;
 - (void)_discardContents;
 - (void)_handleQuadArrayChange:(id)arg1;
+- (void)removeAllQuads;
+- (void)removeQuad:(id)arg1;
+- (void)addQuadsFromArray:(id)arg1;
+- (void)addQuad:(id)arg1;
 - (id)_snapshotInRect:(struct CGRect)arg1 scale:(double)arg2 time:(double)arg3;
 - (void)layoutSubviews;
 - (void)_resizeFramebuffer;

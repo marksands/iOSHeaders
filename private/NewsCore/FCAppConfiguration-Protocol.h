@@ -6,9 +6,13 @@
 
 #import "NFCopying.h"
 
-@class FCCoverArticlesConfiguration, FCForYouGroupsConfiguration, FCIAdConfiguration, FCNotificationsConfiguration, FCPersonalizationTreatment, FCPrefetchConfiguration, FCTopStoriesConfiguration, NSArray, NSDictionary, NSNumber, NSString, NTPBTodayConfig;
+@class FCCoverArticlesConfiguration, FCForYouGroupsConfiguration, FCIAdConfiguration, FCNotificationsConfiguration, FCPersonalizationTreatment, FCPrefetchConfiguration, FCTopStoriesConfiguration, NSArray, NSDictionary, NSNumber, NSString, NTPBTodayConfig, NTPBVideoGroupsConfig;
 
 @protocol FCAppConfiguration <NFCopying>
+@property(readonly, nonatomic) long long expirePinnedArticlesAfter;
+@property(readonly, nonatomic) long long optionalTopStoriesRefreshRate;
+@property(readonly, nonatomic) NSString *articleRecirculationConfigJSON;
+@property(readonly, copy, nonatomic) NTPBVideoGroupsConfig *forYouVideoGroupsConfig;
 @property(readonly, nonatomic) _Bool diversifyOptionalTopStories;
 @property(readonly, nonatomic) unsigned long long trendingStyle;
 @property(readonly, nonatomic) long long minimumDurationBetweenTrendingGroupsWeekend;

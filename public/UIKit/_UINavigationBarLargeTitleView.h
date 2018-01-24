@@ -44,6 +44,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) long long titleType; // @synthesize titleType=_titleType;
 - (void).cxx_destruct;
 - (void)adoptFinalStateFromTransition:(id)arg1 transitionCompleted:(_Bool)arg2;
+- (void)ensureBackButtonTruncationOccursWithContext:(id)arg1;
 - (void)recordToStateForTransition:(id)arg1;
 - (void)recordFromStateForTransition:(id)arg1;
 - (void)titleViewChangedPreferredDisplaySize:(id)arg1;

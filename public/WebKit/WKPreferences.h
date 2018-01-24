@@ -6,34 +6,42 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSCopying.h"
+#import "NSSecureCoding.h"
 #import "WKObject.h"
 
 @class NSString;
 
-@interface WKPreferences : NSObject <WKObject, NSCoding>
+@interface WKPreferences : NSObject <WKObject, NSCopying, NSSecureCoding>
 {
     struct ObjectStorage<WebKit::WebPreferences> _preferences;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)_experimentalFeatures;
 @property(readonly) struct Object *_apiObject;
 @property(nonatomic) _Bool javaScriptCanOpenWindowsAutomatically;
 @property(nonatomic) _Bool javaScriptEnabled;
 @property(nonatomic) double minimumFontSize;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)init;
-@property(nonatomic, setter=_setMediaDocumentEntersFullscreenAutomatically:) _Bool _mediaDocumentEntersFullscreenAutomatically;
 @property(nonatomic, setter=_setDOMPasteAllowed:) _Bool _domPasteAllowed;
 @property(nonatomic, setter=_setJavaScriptCanAccessClipboard:) _Bool _javaScriptCanAccessClipboard;
+@property(nonatomic, setter=_setEditableLinkBehavior:) long long _editableLinkBehavior;
+@property(nonatomic, setter=_setShouldAllowUserInstalledFonts:) _Bool _shouldAllowUserInstalledFonts;
 @property(nonatomic, setter=_setWebRTCLegacyAPIEnabled:) _Bool _webRTCLegacyAPIEnabled;
-@property(nonatomic, setter=_setICECandidateFilteringEnabled:) _Bool _iceCandidateFiltertingEnabled;
+@property(nonatomic, setter=_setICECandidateFilteringEnabled:) _Bool _iceCandidateFilteringEnabled;
 @property(nonatomic, setter=_setEnumeratingAllNetworkInterfacesEnabled:) _Bool _enumeratingAllNetworkInterfacesEnabled;
+@property(nonatomic, setter=_setInactiveMediaCaptureSteamRepromptIntervalInMinutes:) double _inactiveMediaCaptureSteamRepromptIntervalInMinutes;
 @property(nonatomic, setter=_setMediaCaptureRequiresSecureConnection:) _Bool _mediaCaptureRequiresSecureConnection;
+@property(nonatomic, setter=_setMockCaptureDevicesPromptEnabled:) _Bool _mockCaptureDevicesPromptEnabled;
 @property(nonatomic, setter=_setMockCaptureDevicesEnabled:) _Bool _mockCaptureDevicesEnabled;
+@property(nonatomic, setter=_setScreenCaptureEnabled:) _Bool _screenCaptureEnabled;
 @property(nonatomic, setter=_setMediaDevicesEnabled:) _Bool _mediaDevicesEnabled;
+@property(nonatomic, setter=_setPeerConnectionEnabled:) _Bool _peerConnectionEnabled;
 @property(nonatomic, setter=_setLoadsImagesAutomatically:) _Bool _loadsImagesAutomatically;
 @property(nonatomic, setter=_setShouldSuppressKeyboardInputDuringProvisionalNavigation:) _Bool _shouldSuppressKeyboardInputDuringProvisionalNavigation;
 @property(nonatomic, setter=_setApplePayCapabilityDisclosureAllowed:) _Bool _applePayCapabilityDisclosureAllowed;

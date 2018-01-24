@@ -25,6 +25,7 @@
     SUSearchDisplayController *_searchController;
     long long _searchFieldStyle;
     SUScriptTextFieldDelegate *_textFieldDelegate;
+    _Bool _hasLoadedSearchResultsTableView;
 }
 
 @property(nonatomic) long long searchFieldStyle; // @synthesize searchFieldStyle=_searchFieldStyle;
@@ -54,6 +55,8 @@
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (void)searchDisplayController:(id)arg1 willUnloadSearchResultsTableView:(id)arg2;
+- (void)searchDisplayController:(id)arg1 didLoadSearchResultsTableView:(id)arg2;
 - (_Bool)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
 - (void)searchBarWillRemoveFromSuperview:(id)arg1;
 - (void)searchBarTextDidEndEditing:(id)arg1;

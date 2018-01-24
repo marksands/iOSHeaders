@@ -73,6 +73,8 @@
 - (void)recordSyncManager:(id)arg1 stateDidChange:(id)arg2;
 - (void)zoneSyncManagerNotifyObservers:(id)arg1;
 - (void)zoneSyncManager:(id)arg1 stateDidChange:(id)arg2;
+- (unsigned long long)softMaxRecordCountWhenMigratingZoneName:(id)arg1;
+- (double)softMaxRecordAgeWhenMigratingZoneName:(id)arg1;
 - (id)pruneRecords:(id)arg1 forZoneName:(id)arg2;
 - (_Bool)canHelpPruneZoneName:(id)arg1;
 - (id)recordsForRestoringZoneName:(id)arg1;

@@ -6,34 +6,39 @@
 
 #import "NSObject.h"
 
-#import "ISURLOperationDelegate.h"
+#import "NSURLSessionDataDelegate.h"
+#import "NSURLSessionTaskDelegate.h"
 #import "TVImageLoader.h"
 
-@class ISOperationQueue, NSNumber, NSString;
+@class NSMapTable, NSString, NSURLSession;
 
-@interface TVURLImageLoader : NSObject <ISURLOperationDelegate, TVImageLoader>
+@interface TVURLImageLoader : NSObject <NSURLSessionTaskDelegate, NSURLSessionDataDelegate, TVImageLoader>
 {
-    ISOperationQueue *imageLoadQueue;
     _Bool _imageRotationEnabled;
+    NSURLSession *_session;
+    NSMapTable *_dataTaskMap;
 }
 
 + (id)sharedInstance;
+@property(readonly, nonatomic) NSMapTable *dataTaskMap; // @synthesize dataTaskMap=_dataTaskMap;
+@property(readonly, nonatomic) NSURLSession *session; // @synthesize session=_session;
 @property(nonatomic, getter=isImageRotationEnabled) _Bool imageRotationEnabled; // @synthesize imageRotationEnabled=_imageRotationEnabled;
 - (void).cxx_destruct;
-- (void)operation:(id)arg1 failedWithError:(id)arg2;
-- (void)operation:(id)arg1 finishedWithOutput:(id)arg2;
-- (void)cancelLoad:(id)arg1;
 - (id)loadImageForObject:(id)arg1 scaleToSize:(struct CGSize)arg2 cropToFit:(_Bool)arg3 imageDirection:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (id)loadImageForObject:(id)arg1 scaleToSize:(struct CGSize)arg2 cropToFit:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
+- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;
+- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveResponse:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)cancelLoad:(id)arg1;
+- (id)loadImageForObject:(id)arg1 scaleToSize:(struct CGSize)arg2 cropToFit:(_Bool)arg3 imageDirection:(long long)arg4 requestLoader:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (id)imageKeyForObject:(id)arg1;
+- (id)URLForObject:(id)arg1;
 - (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentage;
-@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;
-@property(readonly, nonatomic) NSNumber *metricsLoadURLSessionDuration;
 @property(readonly) Class superclass;
 
 @end

@@ -14,7 +14,7 @@
 }
 
 - (void)dealloc;
-- (id)initWithGeolocationPosition:(RefPtr_f6a7fd22 *)arg1;
+- (id)initWithGeolocationPosition:(struct GeolocationPosition *)arg1;
 - (id)initWithTimestamp:(double)arg1 latitude:(double)arg2 longitude:(double)arg3 accuracy:(double)arg4;
 
 @end

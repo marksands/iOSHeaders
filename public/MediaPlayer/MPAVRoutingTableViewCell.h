@@ -8,7 +8,7 @@
 
 #import "MPAVRoutingThemeableCellView.h"
 
-@class MPAVBatteryLevel, MPAVRoutingTableViewCellSubtitleTextState, MPVolumeSlider, NSString, NSTimer, UIActivityIndicatorView, UIImageView, UILabel, UIStackView;
+@class MPAVRoutingTableViewCellSubtitleTextState, MPVolumeSlider, NSString, NSTimer, UIActivityIndicatorView, UIImageView, UILabel, UIStackView;
 
 @interface MPAVRoutingTableViewCell : UITableViewCell <MPAVRoutingThemeableCellView>
 {
@@ -28,7 +28,6 @@
     id <MPAVRoutingTableViewCellDelegate> _delegate;
     unsigned long long _mirroringStyle;
     unsigned long long _iconStyle;
-    MPAVBatteryLevel *_batteryLevel;
     double _subtitleViewAlpha;
     MPAVRoutingTableViewCellSubtitleTextState *_subtitleTextState;
 }
@@ -37,7 +36,6 @@
 @property(nonatomic) double subtitleViewAlpha; // @synthesize subtitleViewAlpha=_subtitleViewAlpha;
 @property(nonatomic) _Bool provideOwnSeparator; // @synthesize provideOwnSeparator=_provideOwnSeparator;
 @property(nonatomic) _Bool useSmartAudioCheckmarkStyle; // @synthesize useSmartAudioCheckmarkStyle=_useSmartAudioCheckmarkStyle;
-@property(retain, nonatomic) MPAVBatteryLevel *batteryLevel; // @synthesize batteryLevel=_batteryLevel;
 @property(nonatomic) _Bool isDisplayedAsPicked; // @synthesize isDisplayedAsPicked=_isDisplayedAsPicked;
 @property(nonatomic, getter=isPendingSelection) _Bool pendingSelection; // @synthesize pendingSelection=_pendingSelection;
 @property(nonatomic) unsigned long long iconStyle; // @synthesize iconStyle=_iconStyle;

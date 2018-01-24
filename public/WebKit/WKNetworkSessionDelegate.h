@@ -13,7 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface WKNetworkSessionDelegate : NSObject <NSURLSessionDataDelegate>
 {
-    struct RefPtr<WebKit::NetworkSessionCocoa> _session;
+    struct RefPtr<WebKit::NetworkSessionCocoa, WTF::DumbPtrTraits<WebKit::NetworkSessionCocoa>> _session;
     _Bool _withCredentials;
 }
 

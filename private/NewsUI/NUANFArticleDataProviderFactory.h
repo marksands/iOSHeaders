@@ -8,18 +8,18 @@
 
 #import "NUArticleDataProviderFactory.h"
 
-@class NSString, SXHost;
+@class NSString;
 
 @interface NUANFArticleDataProviderFactory : NSObject <NUArticleDataProviderFactory>
 {
     id <FCContentContext> _contentContext;
     id <NUFontRegistration> _fontRegistration;
-    SXHost *_host;
+    id <SXHost> _host;
     id <NUEmbedDataManager> _embedDataManager;
 }
 
 @property(readonly, nonatomic) id <NUEmbedDataManager> embedDataManager; // @synthesize embedDataManager=_embedDataManager;
-@property(readonly, nonatomic) SXHost *host; // @synthesize host=_host;
+@property(readonly, nonatomic) id <SXHost> host; // @synthesize host=_host;
 @property(readonly, nonatomic) id <NUFontRegistration> fontRegistration; // @synthesize fontRegistration=_fontRegistration;
 @property(readonly, nonatomic) id <FCContentContext> contentContext; // @synthesize contentContext=_contentContext;
 - (void).cxx_destruct;

@@ -6,13 +6,13 @@
 
 #import "HMFObject.h"
 
+#import "HMDHomeMessageReceiver.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
-@class HMDRemoteLoginMessageSender, HMFMessageDispatcher, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDRemoteLoginMessageSender, HMFMessageDispatcher, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDRemoteLoginAnisetteDataProviderBridge : HMFObject <HMFLogging, HMFMessageReceiver, NSSecureCoding>
+@interface HMDRemoteLoginAnisetteDataProviderBridge : HMFObject <HMFLogging, HMDHomeMessageReceiver, NSSecureCoding>
 {
     NSUUID *_uuid;
     NSObject<OS_dispatch_queue> *_workQueue;
@@ -21,6 +21,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)hasMessageReceiverChildren;
 + (id)logCategory;
 @property(retain, nonatomic) HMDRemoteLoginMessageSender *remoteMessageSender; // @synthesize remoteMessageSender=_remoteMessageSender;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
@@ -40,6 +41,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

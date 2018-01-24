@@ -11,38 +11,41 @@
 #import "TSKTransformableObject.h"
 #import "TSWPStorageParent.h"
 
-@class NSObject<TSDContainerInfo>, NSString, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSWPStorage;
+@class NSArray, NSObject<TSDContainerInfo>, NSString, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface KNNoteInfo : TSPObject <TSDContainerInfo, TSWPStorageParent, TSKDocumentObject, TSKTransformableObject>
 {
-    NSObject<TSDContainerInfo> *mParentInfo;
-    TSWPStorage *mContainedStorage;
-    struct CGRect mFrameForPrinting;
-    _Bool mShrinkTextForPrinting;
+    NSObject<TSDContainerInfo> *_parentInfo;
+    _Bool _shrinkTextForPrinting;
+    NSObject<TSDContainerInfo> *parentInfo;
+    TSWPStorage *_containedStorage;
+    struct CGRect _frameForPrinting;
 }
 
 + (_Bool)needsObjectUUID;
-@property(nonatomic) NSObject<TSDContainerInfo> *parentInfo; // @synthesize parentInfo=mParentInfo;
-@property(retain, nonatomic) TSWPStorage *containedStorage; // @synthesize containedStorage=mContainedStorage;
-@property(nonatomic) _Bool shrinkTextForPrinting; // @synthesize shrinkTextForPrinting=mShrinkTextForPrinting;
-@property(nonatomic) struct CGRect frameForPrinting; // @synthesize frameForPrinting=mFrameForPrinting;
+@property(nonatomic) _Bool shrinkTextForPrinting; // @synthesize shrinkTextForPrinting=_shrinkTextForPrinting;
+@property(nonatomic) struct CGRect frameForPrinting; // @synthesize frameForPrinting=_frameForPrinting;
+@property(retain, nonatomic) TSWPStorage *containedStorage; // @synthesize containedStorage=_containedStorage;
+@property(nonatomic) NSObject<TSDContainerInfo> *parentInfo; // @synthesize parentInfo;
+- (void).cxx_destruct;
 - (id)objectUUIDPath;
 @property(readonly, nonatomic) int verticalAlignment;
 @property(readonly, nonatomic) long long contentWritingDirection;
 @property(readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
 - (_Bool)shouldHideEmptyBullets;
-- (_Bool)textIsLinked;
-- (_Bool)textIsVertical;
-- (_Bool)autoListTermination;
-- (_Bool)autoListRecognition;
+@property(readonly, nonatomic) _Bool preventsComments;
+@property(readonly, nonatomic) _Bool textIsLinked;
+@property(readonly, nonatomic) _Bool textIsVertical;
+@property(readonly, nonatomic) _Bool autoListTermination;
+@property(readonly, nonatomic) _Bool autoListRecognition;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)willBeAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (id)childEnumerator;
 - (id)infoForSelectionPath:(id)arg1;
-- (id)childInfos;
+@property(readonly, nonatomic) NSArray *childInfos;
 - (_Bool)isThemeContent;
 - (_Bool)isSelectable;
 - (Class)repClass;
@@ -70,6 +73,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(nonatomic) _Bool matchesObjectPlaceholderGeometry;
+@property(readonly, nonatomic) _Bool storageChangesInvalidateWrap;
 @property(readonly) Class superclass;
 
 @end

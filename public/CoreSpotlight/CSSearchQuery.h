@@ -18,6 +18,7 @@
     _Bool _fetchesURLs;
     _Bool _gatherEnded;
     unsigned long long _foundItemCount;
+    _Bool _privateIndex;
     CDUnknownBlockType _foundItemsHandler;
     CDUnknownBlockType _completionHandler;
     NSArray *_resolvedFetchAttributes;
@@ -33,6 +34,7 @@
     CDUnknownBlockType _changedAttributesHandler;
     CDUnknownBlockType _countChangedHandler;
     CDUnknownBlockType _resolvedAttributeNamesHandler;
+    NSString *_privateBundleID;
 }
 
 + (void)userEngagedWithUniqueIdentifier:(id)arg1 bundleId:(id)arg2 forUserQuery:(id)arg3 interactionType:(int)arg4;
@@ -41,6 +43,8 @@
 + (id)_requiredAttributeSet;
 + (id)_requiredAttributes;
 + (id)_attributesForURLs;
+@property(retain, nonatomic) NSString *privateBundleID; // @synthesize privateBundleID=_privateBundleID;
+@property(nonatomic) _Bool privateIndex; // @synthesize privateIndex=_privateIndex;
 @property(copy) CDUnknownBlockType resolvedAttributeNamesHandler; // @synthesize resolvedAttributeNamesHandler=_resolvedAttributeNamesHandler;
 @property(copy) CDUnknownBlockType countChangedHandler; // @synthesize countChangedHandler=_countChangedHandler;
 @property(copy) CDUnknownBlockType changedAttributesHandler; // @synthesize changedAttributesHandler=_changedAttributesHandler;
@@ -77,6 +81,7 @@
 - (void)_finishWithError:(id)arg1;
 - (id)debugDescription;
 - (id)description;
+- (id)connection;
 - (_Bool)attribute;
 - (_Bool)counting;
 - (_Bool)live;

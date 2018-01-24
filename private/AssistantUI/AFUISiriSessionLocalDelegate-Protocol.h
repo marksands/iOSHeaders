@@ -6,9 +6,10 @@
 
 #import "AFUISiriSessionListener.h"
 
-@class AFDialogPhase, AFUISiriSession, SAUIDelayedActionCancelCommand, SAUIDelayedActionCommand;
+@class AFDialogPhase, AFUISiriSession, NSString, SAUIDelayedActionCancelCommand, SAUIDelayedActionCommand;
 
 @protocol AFUISiriSessionLocalDelegate <AFUISiriSessionListener>
+- (void)siriSession:(AFUISiriSession *)arg1 speechRecordingDidBeginOnAVRecordRoute:(NSString *)arg2;
 - (void)siriSessionDidEnd:(AFUISiriSession *)arg1;
 - (void)siriSessionWillEnd:(AFUISiriSession *)arg1;
 - (_Bool)siriSessionCanEnd:(AFUISiriSession *)arg1;

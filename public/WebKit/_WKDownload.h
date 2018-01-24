@@ -8,18 +8,17 @@
 
 #import "WKObject.h"
 
-@class NSString, NSURLRequest, WKWebView;
+@class NSArray, NSString, NSURLRequest, WKWebView;
 
 @interface _WKDownload : NSObject <WKObject>
 {
     struct ObjectStorage<WebKit::DownloadProxy> _download;
-    struct WeakObjCPtr<WKWebView> _originatingWebView;
 }
 
-- (id).cxx_construct;
-- (void).cxx_destruct;
 @property(readonly) struct Object *_apiObject;
-@property(nonatomic) __weak WKWebView *originatingWebView;
+@property(readonly, nonatomic) _Bool wasUserInitiated;
+@property(readonly, copy, nonatomic) NSArray *redirectChain;
+@property(readonly, nonatomic) __weak WKWebView *originatingWebView;
 @property(readonly, nonatomic) NSURLRequest *request;
 - (void)cancel;
 - (void)dealloc;

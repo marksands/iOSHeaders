@@ -65,6 +65,10 @@
 - (void)_consentAutoInstallOperation:(id)arg1 withResult:(CDUnknownBlockType)arg2;
 - (void)_unregisterAutoInstallOperationClientHandler:(id)arg1;
 - (void)_registerAutoInstallOperationClientHandler:(id)arg1;
+- (void)getMandatorySoftwareUpdateDictionary:(CDUnknownBlockType)arg1;
+- (void)setMandatorySoftwareUpdateDictionary:(id)arg1;
+- (void)delayEndDate:(CDUnknownBlockType)arg1;
+- (void)isDelayingUpdates:(CDUnknownBlockType)arg1;
 - (void)slaVersion:(CDUnknownBlockType)arg1;
 - (_Bool)isInstallationKeybagRequired;
 - (_Bool)createInstallationKeybag:(id)arg1 forUnattendedInstall:(_Bool)arg2;

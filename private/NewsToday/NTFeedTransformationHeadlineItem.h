@@ -25,6 +25,7 @@
 @property(readonly, copy, nonatomic) NTPBFeedItem *feedItemForHeadlineFetch;
 @property(readonly, nonatomic) _Bool needsFeedItemHeadlinesFetch;
 @property(readonly, nonatomic) id <FCFeedTransformationItem> feedTransformationItem;
+@property(readonly, nonatomic) _Bool usesDynamicSlotAllocation;
 @property(readonly, nonatomic, getter=isEligibleForLeadingCellAppearance) _Bool eligibleForLeadingCellAppearance;
 @property(readonly, copy, nonatomic) NSDate *cacheCutoffTimeRelativeDate;
 @property(readonly, copy, nonatomic) NSString *clusterID;
@@ -40,6 +41,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) unsigned long long preferredDynamicSlotAllocation;
 @property(readonly) Class superclass;
 
 @end

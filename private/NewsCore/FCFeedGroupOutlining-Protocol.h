@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class FCFeedEdition, NSArray, NSDate, NSString;
+@class FCColor, FCColorGradient, FCFeedEdition, NSArray, NSDate, NSString, NTPBDiscoverMoreVideosInfo;
 
 @protocol FCFeedGroupOutlining <NSObject>
 @property(readonly, copy, nonatomic) NSString *backingTagID;
@@ -15,7 +15,12 @@
 @property(readonly, nonatomic) unsigned long long options;
 @property(readonly, copy, nonatomic) FCFeedEdition *edition;
 @property(readonly, nonatomic) NSDate *creationDate;
-@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, copy, nonatomic) NSArray *videoPlaylistHeadlines;
+@property(readonly, copy, nonatomic) NTPBDiscoverMoreVideosInfo *discoverMoreVideosInfo;
+@property(readonly, copy, nonatomic) FCColorGradient *backgroundGradient;
+@property(readonly, copy, nonatomic) FCColor *titleColor;
+@property(readonly, copy, nonatomic) NSString *subtitle;
+@property(readonly, copy, nonatomic) NSString *title;
 @property(readonly, nonatomic) long long groupType;
 @property(readonly, copy, nonatomic) NSString *sourceIdentifier;
 @property(readonly, copy, nonatomic) NSString *identifier;

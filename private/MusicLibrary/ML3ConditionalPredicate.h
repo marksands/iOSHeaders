@@ -13,6 +13,7 @@
     ML3Predicate *_elsePredicate;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)predicateWithConditionPredicate:(id)arg1 thenPredicate:(id)arg2 elsePredicate:(id)arg3;
 @property(readonly, copy, nonatomic) ML3Predicate *elsePredicate; // @synthesize elsePredicate=_elsePredicate;
 @property(readonly, copy, nonatomic) ML3Predicate *thenPredicate; // @synthesize thenPredicate=_thenPredicate;

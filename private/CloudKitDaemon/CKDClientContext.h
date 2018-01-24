@@ -31,6 +31,7 @@
     NSURL *_publicCodeServiceURL;
     NSURL *_publicMetricsServiceURL;
     NSString *_containerScopedUserID;
+    NSString *_orgAdminUserID;
     NSHashTable *_proxies;
     long long _cachedEnvironment;
     CKContainerID *_containerID;
@@ -64,6 +65,7 @@
     NSObject<OS_dispatch_queue> *_setupQueue;
     NSString *_contextID;
     CKDCachePurger *_cachePurger;
+    NSString *_containerEncryptionServiceName;
     NSString *_entitlementSpecifiedPCSServiceName;
     CKDKeyValueDiskCache *_publicIdentitiesDiskCache;
     CKDPublicIdentityLookupService *_foregroundPublicIdentityLookupService;
@@ -95,6 +97,7 @@
 @property(retain, nonatomic) CKDPublicIdentityLookupService *foregroundPublicIdentityLookupService; // @synthesize foregroundPublicIdentityLookupService=_foregroundPublicIdentityLookupService;
 @property(retain, nonatomic) CKDKeyValueDiskCache *publicIdentitiesDiskCache; // @synthesize publicIdentitiesDiskCache=_publicIdentitiesDiskCache;
 @property(retain, nonatomic) NSString *entitlementSpecifiedPCSServiceName; // @synthesize entitlementSpecifiedPCSServiceName=_entitlementSpecifiedPCSServiceName;
+@property(retain, nonatomic) NSString *containerEncryptionServiceName; // @synthesize containerEncryptionServiceName=_containerEncryptionServiceName;
 @property(nonatomic) _Bool wasInitializedWithProxy; // @synthesize wasInitializedWithProxy=_wasInitializedWithProxy;
 @property(retain, nonatomic) CKDCachePurger *cachePurger; // @synthesize cachePurger=_cachePurger;
 @property(readonly, nonatomic) NSString *contextID; // @synthesize contextID=_contextID;
@@ -142,6 +145,7 @@
 @property long long cachedEnvironment; // @synthesize cachedEnvironment=_cachedEnvironment;
 @property(retain, nonatomic) NSHashTable *proxies; // @synthesize proxies=_proxies;
 @property(nonatomic) _Bool isForClouddInternalUse; // @synthesize isForClouddInternalUse=_isForClouddInternalUse;
+@property(retain, nonatomic) NSString *orgAdminUserID; // @synthesize orgAdminUserID=_orgAdminUserID;
 @property(retain, nonatomic) NSString *containerScopedUserID; // @synthesize containerScopedUserID=_containerScopedUserID;
 @property(retain, nonatomic) NSURL *publicMetricsServiceURL; // @synthesize publicMetricsServiceURL=_publicMetricsServiceURL;
 @property(retain, nonatomic) NSURL *publicCodeServiceURL; // @synthesize publicCodeServiceURL=_publicCodeServiceURL;
@@ -162,6 +166,7 @@
 - (void)setFakeError:(id)arg1 forNextRequestOfClassName:(id)arg2;
 @property(retain, nonatomic) NSString *clientPrefixEntitlement;
 @property(retain, nonatomic) NSString *applicationIdentifier;
+@property(readonly, nonatomic) NSString *encryptionServiceName;
 @property(nonatomic) _Bool hasDisplaysSystemAcceptPromptEntitlement;
 @property(nonatomic) _Bool hasParticipantPIIEntitlement;
 @property(nonatomic) _Bool hasOutOfProcessUIEntitlement;

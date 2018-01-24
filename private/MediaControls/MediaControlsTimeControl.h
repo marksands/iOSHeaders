@@ -75,7 +75,6 @@
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (void)didMoveToWindow;
 - (void)layoutSubviews;
 - (void)viewDidMoveToSuperview;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -12,6 +12,8 @@
 
 @interface DSIDRecord : NSObject <NSCopying>
 {
+    _Bool _dirty;
+    int _nextReconcileTimestamp;
     _Bool _accountIsT13;
     _Bool _accountIsU13;
     _Bool _accountIsU18;
@@ -19,32 +21,34 @@
     _Bool _isPlaceholderAccount;
     _Bool _accountLimitAdTrackingEnabled;
     _Bool _lastSentLimitAdTrackingStatus;
+    _Bool _notificationRequired;
+    int _limitAdTrackingTimestamp;
+    int _segmentDataTimestamp;
+    int _lastSentSegmentDataTimestamp;
+    int _lastSegmentServedTimestamp;
+    int _lastSentLimitAdTrackingTimestamp;
+    int _lastPOSTLimitAdTrackingTimestamp;
     NSString *_DSID;
     NSString *_iCloudDSID;
     NSString *_segmentData;
     NSString *_IDFA;
     NSString *_iAdIDBeforeReset;
-    double _limitAdTrackingTimestamp;
-    double _segmentDataTimestamp;
-    double _lastSentSegmentDataTimestamp;
-    double _lastSegmentServedTimestamp;
     NSMutableDictionary *_ADIDRecords;
     long long _lastJingleLimitAdTrackingResponse;
-    double _lastSentLimitAdTrackingTimestamp;
-    double _lastPOSTLimitAdTrackingTimestamp;
 }
 
-@property(nonatomic) double lastPOSTLimitAdTrackingTimestamp; // @synthesize lastPOSTLimitAdTrackingTimestamp=_lastPOSTLimitAdTrackingTimestamp;
-@property(nonatomic) double lastSentLimitAdTrackingTimestamp; // @synthesize lastSentLimitAdTrackingTimestamp=_lastSentLimitAdTrackingTimestamp;
+@property(nonatomic) _Bool notificationRequired; // @synthesize notificationRequired=_notificationRequired;
+@property(nonatomic) int lastPOSTLimitAdTrackingTimestamp; // @synthesize lastPOSTLimitAdTrackingTimestamp=_lastPOSTLimitAdTrackingTimestamp;
+@property(nonatomic) int lastSentLimitAdTrackingTimestamp; // @synthesize lastSentLimitAdTrackingTimestamp=_lastSentLimitAdTrackingTimestamp;
 @property(nonatomic) _Bool lastSentLimitAdTrackingStatus; // @synthesize lastSentLimitAdTrackingStatus=_lastSentLimitAdTrackingStatus;
 @property(nonatomic) long long lastJingleLimitAdTrackingResponse; // @synthesize lastJingleLimitAdTrackingResponse=_lastJingleLimitAdTrackingResponse;
 @property(nonatomic) _Bool accountLimitAdTrackingEnabled; // @synthesize accountLimitAdTrackingEnabled=_accountLimitAdTrackingEnabled;
 @property(retain) NSMutableDictionary *ADIDRecords; // @synthesize ADIDRecords=_ADIDRecords;
 @property(nonatomic) _Bool isPlaceholderAccount; // @synthesize isPlaceholderAccount=_isPlaceholderAccount;
-@property(nonatomic) double lastSegmentServedTimestamp; // @synthesize lastSegmentServedTimestamp=_lastSegmentServedTimestamp;
-@property(nonatomic) double lastSentSegmentDataTimestamp; // @synthesize lastSentSegmentDataTimestamp=_lastSentSegmentDataTimestamp;
-@property(nonatomic) double segmentDataTimestamp; // @synthesize segmentDataTimestamp=_segmentDataTimestamp;
-@property(nonatomic) double limitAdTrackingTimestamp; // @synthesize limitAdTrackingTimestamp=_limitAdTrackingTimestamp;
+@property(nonatomic) int lastSegmentServedTimestamp; // @synthesize lastSegmentServedTimestamp=_lastSegmentServedTimestamp;
+@property(nonatomic) int lastSentSegmentDataTimestamp; // @synthesize lastSentSegmentDataTimestamp=_lastSentSegmentDataTimestamp;
+@property(nonatomic) int segmentDataTimestamp; // @synthesize segmentDataTimestamp=_segmentDataTimestamp;
+@property(nonatomic) int limitAdTrackingTimestamp; // @synthesize limitAdTrackingTimestamp=_limitAdTrackingTimestamp;
 @property(retain, nonatomic) NSString *iAdIDBeforeReset; // @synthesize iAdIDBeforeReset=_iAdIDBeforeReset;
 @property(retain, nonatomic) NSString *IDFA; // @synthesize IDFA=_IDFA;
 @property(retain, nonatomic) NSString *segmentData; // @synthesize segmentData=_segmentData;
@@ -55,6 +59,11 @@
 @property(retain, nonatomic) NSString *iCloudDSID; // @synthesize iCloudDSID=_iCloudDSID;
 @property(retain, nonatomic) NSString *DSID; // @synthesize DSID=_DSID;
 - (void).cxx_destruct;
+@property(nonatomic) int nextReconcileTimestamp;
+- (void)setlimitAdTrackingTimestamp:(int)arg1;
+- (_Bool)shouldSendNotification;
+@property(nonatomic) _Bool dirty;
+- (_Bool)iAdIDRecordsDirty;
 @property(readonly, nonatomic) _Bool isRestrictedAccount;
 @property(readonly, nonatomic) _Bool limitAdTrackingEnabled;
 - (id)dictionaryRepresentation;

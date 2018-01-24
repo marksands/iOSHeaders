@@ -6,20 +6,23 @@
 
 #import <MediaPlayer/MPMusicPlayerController.h>
 
-@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>;
+@class MPCPlayerPath, MPCRemotePlaybackEngine;
 
 @interface MPMusicPlayerApplicationController : MPMusicPlayerController
 {
-    NSObject<OS_dispatch_queue> *_queueTransationQueue;
-    NSObject<OS_dispatch_semaphore> *_queueLoadingSemaphore;
+    MPCPlayerPath *_playerPath;
+    MPCRemotePlaybackEngine *_playbackEngine;
 }
 
++ (_Bool)_isPlayerInstalled;
+@property(retain, nonatomic) MPCRemotePlaybackEngine *playbackEngine; // @synthesize playbackEngine=_playbackEngine;
+@property(retain, nonatomic) MPCPlayerPath *playerPath; // @synthesize playerPath=_playerPath;
 - (void).cxx_destruct;
-- (void)_queueDidInvalidate;
-- (void)_queueUpdateDidFinish;
-- (void)_queueRequestDidFinish;
+- (void)_playerPathDidChange:(id)arg1;
+- (void)_playbackEngineDidDisconnect:(id)arg1;
 - (void)performQueueTransaction:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (id)init;
+- (void)prepareToPlay;
+- (id)_init;
 
 @end
 

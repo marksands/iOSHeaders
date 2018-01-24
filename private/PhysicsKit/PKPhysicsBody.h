@@ -18,7 +18,7 @@
     struct b2Body *_body;
     struct PKCField *_field;
     int _dynamicType;
-    vector_4360c5cc _shapes;
+    vector_8416aa54 _shapes;
     PKPhysicsWorld *_world;
     NSMutableArray *_joints;
     _Bool _inUse;
@@ -125,7 +125,7 @@
 - (void)set_world:(id)arg1;
 - (void)setActive:(_Bool)arg1;
 - (_Bool)active;
-@property(readonly, nonatomic) vector_4360c5cc *_shapes;
+@property(readonly, nonatomic) vector_8416aa54 *_shapes;
 
 @end
 

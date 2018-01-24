@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class SXComponent, SXComponentLayout, SXComponentSizer, SXLayoutAttributes;
+@class SXComponentSizer, SXLayoutAttributes;
 
 @protocol SXComponentSizerEngine <NSObject>
-- (SXComponentSizer *)sizerForComponent:(SXComponent *)arg1 componentLayout:(SXComponentLayout *)arg2 layoutAttributes:(SXLayoutAttributes *)arg3;
+- (void)removeFactory:(id <SXComponentSizerFactory>)arg1;
+- (void)addFactory:(id <SXComponentSizerFactory>)arg1;
+- (SXComponentSizer *)sizerForComponent:(id <SXComponent>)arg1 componentLayout:(id <SXComponentLayout>)arg2 layoutAttributes:(SXLayoutAttributes *)arg3;
 @end
 

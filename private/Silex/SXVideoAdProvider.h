@@ -36,6 +36,7 @@
 - (void)presentPrivacyStatement;
 - (void)presentAction;
 @property(readonly, nonatomic) _Bool hasAction;
+@property(readonly, nonatomic) double threshold;
 @property(readonly, nonatomic) unsigned long long skipThreshold;
 - (void)skipped;
 - (void)timeElapsed:(double)arg1 duration:(double)arg2;

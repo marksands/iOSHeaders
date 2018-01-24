@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 @interface IKAppDataItem : NSObject <NSCopying>
 {
     NSString *_type;
+    NSString *_selector;
     NSString *_identifier;
     IKDataBinding *_binding;
     NSDictionary *_properties;
@@ -22,6 +23,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSDictionary *properties; // @synthesize properties=_properties;
 @property(readonly, nonatomic) IKDataBinding *binding; // @synthesize binding=_binding;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) NSString *selector; // @synthesize selector=_selector;
 @property(readonly, nonatomic) NSString *type; // @synthesize type=_type;
 - (void).cxx_destruct;
 @property(readonly, nonatomic, getter=isDisabled) _Bool disabled;
@@ -29,7 +31,7 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)initWithType:(id)arg1 identifier:(id)arg2 binding:(id)arg3;
+- (id)initWithType:(id)arg1 selector:(id)arg2 identifier:(id)arg3 binding:(id)arg4;
 
 @end
 

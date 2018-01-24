@@ -22,7 +22,6 @@
     _Bool _coverSheetRoutingViewControllerShouldBePresented;
     _Bool _onScreen;
     _Bool _isListeningForResponse;
-    _Bool _allowDoneButton;
     UIView *_contentView;
     UIView *_backgroundView;
     MPAVRoutingViewController *_routingViewController;
@@ -40,17 +39,14 @@
     unsigned long long _supportedModes;
     long long _selectedMode;
     MediaControlsEndpointController *_endpointController;
-    CDUnknownBlockType _launchNowPlayingAppBlock;
     CDUnknownBlockType _routingCornerViewTappedBlock;
 }
 
 + (id)panelViewControllerForCoverSheet;
 @property(copy, nonatomic) CDUnknownBlockType routingCornerViewTappedBlock; // @synthesize routingCornerViewTappedBlock=_routingCornerViewTappedBlock;
-@property(copy, nonatomic) CDUnknownBlockType launchNowPlayingAppBlock; // @synthesize launchNowPlayingAppBlock=_launchNowPlayingAppBlock;
 @property(retain, nonatomic) MediaControlsEndpointController *endpointController; // @synthesize endpointController=_endpointController;
 @property(nonatomic) long long selectedMode; // @synthesize selectedMode=_selectedMode;
 @property(nonatomic) unsigned long long supportedModes; // @synthesize supportedModes=_supportedModes;
-@property(nonatomic, getter=isAllowingDoneButton) _Bool allowDoneButton; // @synthesize allowDoneButton=_allowDoneButton;
 @property(nonatomic) _Bool isListeningForResponse; // @synthesize isListeningForResponse=_isListeningForResponse;
 @property(nonatomic, getter=isOnScreen) _Bool onScreen; // @synthesize onScreen=_onScreen;
 @property(retain, nonatomic) MPArtworkCatalog *artworkCatalog; // @synthesize artworkCatalog=_artworkCatalog;
@@ -99,7 +95,6 @@
 - (void)_updateOnScreenForStyle:(long long)arg1;
 - (void)_updateStyle;
 - (id)_route;
-- (id)_bundleID;
 @property(copy, nonatomic) NSString *label;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;

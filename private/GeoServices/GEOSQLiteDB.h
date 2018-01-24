@@ -25,10 +25,10 @@
     _Bool _isInTransaction;
     _Bool _isTemporaryInMemoryDatabase;
     _Bool _didEncounterExternalResourceErrorInTransaction;
-    // Error parsing type: (?="flag"{atomic_flag="_Value"AB}"dummy"i), name: _didTearDown
     NSMutableArray *_filesAddedDuringTransaction;
     NSMutableArray *_filesDeletedDuringTransaction;
     NSMapTable *_virtualTables;
+    // Error parsing type: (?="flag"{atomic_flag="_Value"AB}"dummy"i), name: _didTearDown
 }
 
 + (id)defaultPragmas;
@@ -60,6 +60,10 @@
 - (struct sqlite3_stmt *)statementForKey:(id)arg1;
 - (void)clearStatement:(id)arg1;
 - (_Bool)prepareStatement:(const char *)arg1 forKey:(id)arg2;
+- (_Bool)dropTablesLike:(id)arg1;
+- (_Bool)dropAllTables;
+- (id)getTablesLike:(id)arg1;
+- (id)getAllTables;
 - (_Bool)createTable:(const char *)arg1 withDrop:(const char *)arg2;
 - (_Bool)unregisterVirtualTable:(id)arg1;
 - (_Bool)registerVirtualTable:(id)arg1;
@@ -85,6 +89,7 @@
 - (id)initWithQueueName:(const char *)arg1 log:(id)arg2 databaseFileURL:(id)arg3 sqliteFlags:(int)arg4 pragmas:(id)arg5 setupBlock:(CDUnknownBlockType)arg6;
 - (id)initWithQueueName:(const char *)arg1 logFacility:(const char *)arg2 dbFilePath:(id)arg3 sqliteFlags:(int)arg4 pragmas:(id)arg5 setupBlock:(CDUnknownBlockType)arg6;
 @property(readonly, nonatomic) NSDictionary *pragmas;
+@property(readonly, nonatomic) NSObject<OS_os_log> *log;
 @property(readonly, nonatomic) _Bool isDBReady;
 @property(readonly, nonatomic) NSError *lastError;
 @property(readonly, nonatomic) NSString *dbFilePath;

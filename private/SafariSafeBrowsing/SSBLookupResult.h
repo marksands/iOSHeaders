@@ -28,6 +28,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)_initWithServiceLookUpResults:(id)arg1;
 - (id)_initWithServiceLookUpResults:(id)arg1 URLContainsUserInfo:(_Bool)arg2;
 
 @end

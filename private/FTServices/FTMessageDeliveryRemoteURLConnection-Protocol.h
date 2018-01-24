@@ -11,6 +11,7 @@
 @protocol FTMessageDeliveryRemoteURLConnection <NSObject>
 @property(copy) CDUnknownBlockType block;
 @property(retain) NSURLRequest *request;
+@property _Bool shouldReturnTimingData;
 @property int keepAliveCell;
 @property int keepAliveWifi;
 @property _Bool disableKeepAlive;

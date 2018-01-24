@@ -32,7 +32,6 @@
 - (_Bool)canBecomeFirstResponder;
 - (id)targetForAction:(SEL)arg1 withSender:(id)arg2;
 - (id)keyCommands;
-- (void)fullScreenPresentationDidEnd:(_Bool)arg1;
 - (void)fullScreenPresentationWillBegin;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 presentingViewController:(id)arg2 sourceView:(id)arg3;

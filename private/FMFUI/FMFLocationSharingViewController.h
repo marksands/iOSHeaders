@@ -66,7 +66,8 @@
 - (void)_showFamilyMemberDetails:(id)arg1;
 - (void)_showHandleDetails:(id)arg1;
 - (id)_shareSwitchEnabled:(id)arg1;
-- (void)displayGenericErrorAlert;
+- (void)displayAlertController:(id)arg1;
+- (id)genericAlertController;
 - (void)_setShareSwitchEnabled:(id)arg1 forSpecifier:(id)arg2;
 - (id)formatStringForHours:(long long)arg1 minutes:(long long)arg2;
 - (id)offerTimeRemaining:(double)arg1;
@@ -78,6 +79,7 @@
 - (void)_loadFamilyMembers:(_Bool)arg1;
 - (id)specifiers;
 - (void)abChanged:(id)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

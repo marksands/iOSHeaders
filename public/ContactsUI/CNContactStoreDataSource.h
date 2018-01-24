@@ -8,7 +8,7 @@
 
 #import "CNContactDataSource.h"
 
-@class CNContact, CNContactFilter, CNContactFormatter, CNContactStore, CNContactStoreFilter, CNContactStoreSnapshot, CNiOSAddressBook, NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class CNContact, CNContactFilter, CNContactFormatter, CNContactStore, CNContactStoreFilter, CNContactStoreSnapshot, CNManagedConfiguration, CNiOSAddressBook, NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CNContactStoreDataSource : NSObject <CNContactDataSource>
 {
@@ -21,6 +21,7 @@
     id <CNContactDataSourceDelegate> delegate;
     CNContactStoreFilter *_filter;
     CNContactStore *_store;
+    CNManagedConfiguration *_managedConfiguration;
     NSArray *_keysToFetch;
     CNContact *_meContact;
 }
@@ -30,6 +31,7 @@
 @property(copy, nonatomic) CNContact *meContact; // @synthesize meContact=_meContact;
 @property(nonatomic) _Bool fetchUnified; // @synthesize fetchUnified=_fetchUnified;
 @property(retain, nonatomic) NSArray *keysToFetch; // @synthesize keysToFetch=_keysToFetch;
+@property(retain, nonatomic) CNManagedConfiguration *managedConfiguration; // @synthesize managedConfiguration=_managedConfiguration;
 @property(retain, nonatomic) CNContactStore *store; // @synthesize store=_store;
 @property(copy, nonatomic) CNContactStoreFilter *filter; // @synthesize filter=_filter;
 @property(nonatomic) __weak id <CNContactDataSourceDelegate> delegate; // @synthesize delegate;

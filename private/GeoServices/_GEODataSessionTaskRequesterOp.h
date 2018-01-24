@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     PBRequest *_request;
     NSString *_debugRequestName;
     CDUnknownBlockType _completionHandler;
+    CDUnknownBlockType _validationHandler;
     id <GEOServiceRequestConfiguring> _config;
     NSString *_appIdentifier;
     GEOApplicationAuditToken *_auditToken;
@@ -27,8 +28,9 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (id)_userInfoForTask:(id)arg1;
+- (id)protobufSession:(id)arg1 validateResponse:(id)arg2;
 - (void)protobufSession:(id)arg1 didCompleteTask:(id)arg2;
-- (void)startWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)startWithValidationHandler:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)_fullURL;
 - (void)cancel;
 - (void)_cleanup;

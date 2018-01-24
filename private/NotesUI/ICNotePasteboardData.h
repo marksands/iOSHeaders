@@ -17,7 +17,6 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)pasteboardDataFromPersistenceData:(id)arg1 secureCoding:(_Bool)arg2;
 + (id)pasteboardDataFromPersistenceData:(id)arg1;
 @property(readonly, nonatomic) ICDataPersister *dataPersister; // @synthesize dataPersister=_dataPersister;
 @property(readonly, nonatomic) NSData *attributedStringData; // @synthesize attributedStringData=_attributedStringData;

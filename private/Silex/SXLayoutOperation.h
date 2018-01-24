@@ -8,7 +8,7 @@
 
 #import "SXLayouterDelegate.h"
 
-@class NSString, SXDynamicAdController, SXLayoutAttributes, SXLayoutBlueprint, SXLayoutDataProvider;
+@class NSString, SXLayoutAttributes, SXLayoutBlueprint, SXLayoutDataProvider;
 
 @interface SXLayoutOperation : NSOperation <SXLayouterDelegate>
 {
@@ -19,13 +19,17 @@
     SXLayoutAttributes *_layoutAttributes;
     SXLayoutBlueprint *_layoutBlueprint;
     NSString *_targetComponentIdentifier;
+    CDUnknownBlockType _beforeBlock;
+    CDUnknownBlockType _afterBlock;
     id <SXComponentSizerEngine> _componentSizerEngine;
-    SXDynamicAdController *_dynamicAdController;
+    id <SXLayoutBlueprintFactory> _layoutBlueprintFactory;
     struct CGSize _viewportSize;
 }
 
-@property(readonly, nonatomic) SXDynamicAdController *dynamicAdController; // @synthesize dynamicAdController=_dynamicAdController;
+@property(readonly, nonatomic) id <SXLayoutBlueprintFactory> layoutBlueprintFactory; // @synthesize layoutBlueprintFactory=_layoutBlueprintFactory;
 @property(readonly, nonatomic) id <SXComponentSizerEngine> componentSizerEngine; // @synthesize componentSizerEngine=_componentSizerEngine;
+@property(copy, nonatomic, setter=afterLayout:) CDUnknownBlockType afterBlock; // @synthesize afterBlock=_afterBlock;
+@property(copy, nonatomic, setter=beforeLayout:) CDUnknownBlockType beforeBlock; // @synthesize beforeBlock=_beforeBlock;
 @property(retain, nonatomic) NSString *targetComponentIdentifier; // @synthesize targetComponentIdentifier=_targetComponentIdentifier;
 @property(retain, nonatomic) SXLayoutBlueprint *layoutBlueprint; // @synthesize layoutBlueprint=_layoutBlueprint;
 @property(retain, nonatomic) SXLayoutAttributes *layoutAttributes; // @synthesize layoutAttributes=_layoutAttributes;
@@ -42,7 +46,6 @@
 - (void)updateLayoutBlueprint:(id)arg1 usingLayoutDataProvider:(id)arg2;
 - (_Bool)isFinishedLayoutBlueprint:(id)arg1 forLayoutDataProvider:(id)arg2;
 - (_Bool)isValidLayoutBlueprint:(id)arg1 viewportSize:(struct CGSize)arg2;
-- (void)placeDynamicAdsForBlueprint:(id)arg1;
 - (void)startLayoutWorkForBlueprint:(id)arg1;
 - (void)prepareLayoutBlueprint:(id)arg1;
 - (void)doFinishBookKeeping;
@@ -51,7 +54,7 @@
 - (_Bool)isExecuting;
 - (_Bool)isAsynchronous;
 - (void)start;
-- (id)initWithViewportSize:(struct CGSize)arg1 constrainedToWidth:(double)arg2 layoutDataProvider:(id)arg3 componentSizerEngine:(id)arg4 dynamicAdController:(id)arg5;
+- (id)initWithViewportSize:(struct CGSize)arg1 constrainedToWidth:(double)arg2 layoutDataProvider:(id)arg3 componentSizerEngine:(id)arg4 layoutBlueprintFactory:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -17,6 +17,7 @@
 - (_Bool)requiresResponse;
 @property(retain, nonatomic) SAMPPodcastCollection *podcastCollection;
 @property(copy, nonatomic) NSString *hashedRouteUID;
+@property(copy, nonatomic) NSString *assetInfo;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

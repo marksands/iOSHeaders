@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
-@class CKComposeNavbarCanvasViewController, CKComposeNavbarManagerContentView, CKNavbarCanvasViewController, UIButton;
+@class CKComposeNavbarCanvasViewController, CKComposeNavbarManagerContentView, CKNavbarCanvasViewController, UIButton, UIView;
 
 @interface CKComposeNavbarManager : NSObject
 {
     CKComposeNavbarManagerContentView *_contentView;
     CKComposeNavbarCanvasViewController *_defaultNavbarCanvasViewController;
     CKNavbarCanvasViewController *_avatarNavbarCanvasViewController;
+    UIView *_customStatusBackgroundView;
 }
 
+@property(retain, nonatomic) UIView *customStatusBackgroundView; // @synthesize customStatusBackgroundView=_customStatusBackgroundView;
 @property(retain, nonatomic) CKNavbarCanvasViewController *avatarNavbarCanvasViewController; // @synthesize avatarNavbarCanvasViewController=_avatarNavbarCanvasViewController;
 @property(retain, nonatomic) CKComposeNavbarCanvasViewController *defaultNavbarCanvasViewController; // @synthesize defaultNavbarCanvasViewController=_defaultNavbarCanvasViewController;
 @property(retain, nonatomic) CKComposeNavbarManagerContentView *contentView; // @synthesize contentView=_contentView;
@@ -24,6 +26,7 @@
 - (void)_setupDefaultNavbarCanvasViewController;
 @property(readonly, nonatomic) UIButton *cancelButton;
 - (void)updateTitle:(id)arg1 animated:(_Bool)arg2;
+- (void)dealloc;
 - (id)init;
 
 @end

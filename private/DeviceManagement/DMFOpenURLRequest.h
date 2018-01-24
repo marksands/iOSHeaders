@@ -10,11 +10,13 @@
 
 @interface DMFOpenURLRequest : CATTaskRequest
 {
+    _Bool _lockInApp;
     NSURL *_url;
     NSString *_URLDisplayName;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool lockInApp; // @synthesize lockInApp=_lockInApp;
 @property(copy, nonatomic) NSString *URLDisplayName; // @synthesize URLDisplayName=_URLDisplayName;
 @property(copy, nonatomic) NSURL *url; // @synthesize url=_url;
 - (void).cxx_destruct;

@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
     double _opacity;
     NSString *_utiType;
     struct CGImage *_uncroppedImage;
+    struct CGSize _physicalSizeInMeters;
 }
 
 + (id)displayNameForRenditionType:(long long)arg1;
@@ -51,7 +52,7 @@ __attribute__((visibility("hidden")))
 - (struct CGImage *)uncroppedImage;
 - (struct CGRect)alphaCroppedRect;
 - (struct CGSize)originalUncroppedSize;
-- (id)packedContents;
+- (id)contentNames;
 - (id)mipLevels;
 - (id)layerReferences;
 - (id)externalTags;
@@ -90,6 +91,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isOpaque;
 - (_Bool)isVectorBased;
 - (_Bool)isHeaderFlaggedFPO;
+- (struct CGSize)physicalSizeInMeters;
 - (id)utiType;
 - (id)name;
 - (long long)type;

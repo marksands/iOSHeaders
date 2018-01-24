@@ -8,15 +8,15 @@
 
 #import "SXActionActivityProvider.h"
 
-@class NSString, SXHost;
+@class NSString;
 
 @interface SXCalendarEventActionActivityProvider : NSObject <SXActionActivityProvider>
 {
     id <SXCalendarPresenter> _calendarPresenter;
-    SXHost *_host;
+    id <SXHost> _host;
 }
 
-@property(readonly, nonatomic) SXHost *host; // @synthesize host=_host;
+@property(readonly, nonatomic) id <SXHost> host; // @synthesize host=_host;
 @property(readonly, nonatomic) id <SXCalendarPresenter> calendarPresenter; // @synthesize calendarPresenter=_calendarPresenter;
 - (void).cxx_destruct;
 - (void)showInCalendar:(id)arg1;

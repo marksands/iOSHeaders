@@ -6,34 +6,21 @@
 
 #import "NSObject.h"
 
-@class MDSearchableIndexService, NSString;
+@class CSClientConnectionConfiguration, MDSearchableIndexService;
 
 @interface CSIndexClientConnection : NSObject
 {
-    _Bool _internal;
-    _Bool _searchInternal;
     _Bool _quotaDisabled;
-    _Bool _isExtension;
-    int _pid;
-    unsigned int _euid;
-    unsigned int _egid;
-    NSString *_protectionClass;
-    NSString *_bundleID;
+    CSClientConnectionConfiguration *_configuration;
     MDSearchableIndexService *_service;
 }
 
 @property(readonly, nonatomic) MDSearchableIndexService *service; // @synthesize service=_service;
-@property(readonly, nonatomic) _Bool isExtension; // @synthesize isExtension=_isExtension;
 @property(readonly, nonatomic) _Bool quotaDisabled; // @synthesize quotaDisabled=_quotaDisabled;
-@property(readonly, nonatomic) _Bool searchInternal; // @synthesize searchInternal=_searchInternal;
-@property(readonly, nonatomic) _Bool internal; // @synthesize internal=_internal;
-@property(readonly, nonatomic) unsigned int egid; // @synthesize egid=_egid;
-@property(readonly, nonatomic) unsigned int euid; // @synthesize euid=_euid;
-@property(readonly, nonatomic) int pid; // @synthesize pid=_pid;
-@property(readonly, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
-@property(readonly, nonatomic) NSString *protectionClass; // @synthesize protectionClass=_protectionClass;
+@property(readonly, nonatomic) CSClientConnectionConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (id)initWithConnection:(id)arg1 indexer:(id)arg2;
+- (id)initWithConfiguration:(id)arg1 indexer:(id)arg2;
 
 @end
 

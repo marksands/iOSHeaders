@@ -20,6 +20,7 @@
 + (id)tswp_spaceCharacterSet;
 + (id)tswp_invisibleCharacterSet;
 + (id)tswp_breakingSpaceCharacterSet;
++ (id)tswp_sentenceDelimiterCharacterSet;
 + (id)tswp_characterSetWithCharactersInArray:(const unsigned short *)arg1 length:(unsigned long long)arg2;
 @end
 

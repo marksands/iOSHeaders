@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_constraints;
     NSLayoutConstraint *_backButtonContentLeadingConstraint;
     NSLayoutConstraint *_backButtonContentTrailingContraint;
-    id <_UIButtonBarAppearanceDelegate> _appearanceDelegate;
+    id <_UIButtonBarAppearanceDelegate><NSObject> _appearanceDelegate;
     NSArray *_titleAttributes;
     NSMutableDictionary *_backgroundImages;
     _Bool _skipAttributedTitle;

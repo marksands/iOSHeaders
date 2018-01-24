@@ -78,6 +78,7 @@
 - (_Bool)requestInvalidateTransientCaches:(id *)arg1;
 - (void)requestGraphRebuildFractionCompletedWithReply:(CDUnknownBlockType)arg1;
 - (id)requestGraphStatus:(id *)arg1;
+- (void)requestHighlightEstimatesWithReply:(CDUnknownBlockType)arg1;
 - (id)requestGraphStatisticsWithOptions:(id)arg1 error:(id *)arg2;
 - (id)requestExportGraphForPurpose:(id)arg1 error:(id *)arg2;
 - (id)requestTransientMemoryPropertiesWithOptions:(id)arg1 error:(id *)arg2;

@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _lastErrorTime;
     int _displayNotifyToken;
     _Bool _displayState;
+    _Bool _smartCoverClosed;
 }
 
 - (void).cxx_destruct;
@@ -36,8 +37,10 @@ __attribute__((visibility("hidden")))
 - (void)operation:(id)arg1 faceDetectStateChanged:(id)arg2;
 - (void)updateSamplingDeadline:(unsigned long long)arg1 forClient:(id)arg2;
 - (int)currentState;
+- (void)setSmartCoverClosed:(_Bool)arg1;
 - (void)setDisplayState:(_Bool)arg1;
 - (void)setDisplayStateFromNotification;
+- (void)updateSuppressedMaskWithDisplayState:(_Bool)arg1 smartCoverClosed:(_Bool)arg2;
 - (void)updateFaceState:(_Bool)arg1;
 - (void)cancelStalledTimer;
 - (void)shouldSample:(_Bool)arg1 withDeadline:(unsigned long long)arg2;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AFUIRequestOptions, AFUISiriRemoteViewController, NSError, NSString, NSURL;
+@class AFUIRequestOptions, AFUISiriRemoteViewController, NSDictionary, NSError, NSString, NSURL;
 
 @protocol AFUISiriRemoteViewControllerDelegate <NSObject>
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 didRequestCurrentTextInputWithReplyHandler:(void (^)(NSString *))arg2;
@@ -53,7 +53,7 @@
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 startRequestWithOptions:(AFUIRequestOptions *)arg2;
 - (void)startGuidedAccessForRemoteViewController:(AFUISiriRemoteViewController *)arg1;
 - (long long)siriRemoteViewControllerRequestsActivationSource:(AFUISiriRemoteViewController *)arg1;
-- (void)dismissSiriRemoteViewController:(AFUISiriRemoteViewController *)arg1 delayForTTS:(_Bool)arg2;
+- (void)dismissSiriRemoteViewController:(AFUISiriRemoteViewController *)arg1 delayForTTS:(_Bool)arg2 userInfo:(NSDictionary *)arg3;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 viewServiceDidTerminateWithError:(NSError *)arg2;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 didEncounterUnexpectedServiceError:(NSError *)arg2;
 @end

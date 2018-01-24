@@ -55,6 +55,7 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)defaultBendedLineEndpointWithStartPoint:(struct CGPoint)arg1;
 - (struct CGPoint)bendedLineMidpointWithStartPoint:(struct CGPoint)arg1 length:(double)arg2 shouldBeUpwards:(_Bool)arg3;
 - (struct CGPoint)defaultLabelEndpointForBendedLineLabels;
+- (double)p_xShiftAmountWithEndpoint:(struct CGPoint)arg1;
 - (struct CGPoint)defaultLabelCenterPointForLabelWithSize:(struct CGSize)arg1 bended:(_Bool)arg2;
 - (struct TSCHChartPieLabelRects)labelRectsForFirstLabelWithSize:(struct CGSize)arg1 secondLabelSize:(struct CGSize)arg2 stacked:(_Bool)arg3 stackedLabelCenterAlign:(_Bool)arg4 placeToTheSideOfPieChart:(_Bool)arg5;
 - (struct CGRect)defaultLabelRectForLabelWithSize:(struct CGSize)arg1 bended:(_Bool)arg2;

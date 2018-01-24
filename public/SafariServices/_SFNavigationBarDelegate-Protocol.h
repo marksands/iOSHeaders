@@ -11,7 +11,6 @@
 @protocol _SFNavigationBarDelegate <NSObject>
 - (void)navigationBarReaderButtonWasLongPressed:(_SFNavigationBar *)arg1;
 - (void)navigationBarReaderAppearanceButtonWasTapped:(_SFNavigationBar *)arg1;
-- (_Bool)navigationBar:(_SFNavigationBar *)arg1 shouldPermitShareOperation:(long long)arg2;
 - (NSURL *)navigationBarURLForSharing:(_SFNavigationBar *)arg1;
 - (void)navigationBarStopLoadingButtonWasTapped:(_SFNavigationBar *)arg1;
 - (void)navigationBarReloadButtonWasLongPressed:(_SFNavigationBar *)arg1;

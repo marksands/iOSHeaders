@@ -10,6 +10,10 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct NSString {
+    Class _field1;
+};
+
 struct __sFILE {
     char *_field1;
     int _field2;

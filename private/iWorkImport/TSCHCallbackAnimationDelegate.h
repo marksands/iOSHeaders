@@ -19,8 +19,8 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) SEL selector; // @synthesize selector;
 @property(retain, nonatomic) id target; // @synthesize target;
+- (void).cxx_destruct;
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

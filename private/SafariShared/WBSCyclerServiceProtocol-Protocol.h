@@ -7,7 +7,6 @@
 @class NSString, NSXPCListenerEndpoint;
 
 @protocol WBSCyclerServiceProtocol
-- (void)fetchDeviceAddressWithReply:(void (^)(NSString *, NSError *))arg1;
 - (void)fetchStatusWithReply:(void (^)(WBSCyclerStatus *, NSError *))arg1;
 - (void)sendRequestToTestSuite:(NSString *)arg1 reply:(void (^)(NSError *))arg2;
 - (void)stopCyclingWithReply:(void (^)(NSError *))arg1;

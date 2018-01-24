@@ -4,24 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <PassKitCore/PKTransitPassProperties.h>
 
-@class NSDecimalNumber, NSString, PKFelicaPassProperties;
+@class NSDecimalNumber, NSString;
 
-@interface PKSuicaPassProperties : NSObject
+@interface PKSuicaPassProperties : PKTransitPassProperties
 {
-    PKFelicaPassProperties *_felicaProperties;
+    _Bool _balanceAllowedForCommute;
+    _Bool _lowBalanceGateNotificationEnabled;
 }
 
 + (id)passPropertiesForPass:(id)arg1;
-- (void).cxx_destruct;
-@property(readonly, nonatomic, getter=isBlacklisted) _Bool blacklisted;
-@property(readonly, nonatomic, getter=isGreenCarTicketUsed) _Bool greenCarTicketUsed;
-@property(readonly, nonatomic, getter=isInShinkansenStation) _Bool inShinkansenStation;
-@property(readonly, nonatomic, getter=isInStation) _Bool inStation;
-@property(readonly, copy, nonatomic) NSString *transitBalanceCurrencyCode;
-@property(readonly, copy, nonatomic) NSDecimalNumber *transitBalance;
-- (id)_initWithProperties:(id)arg1;
+@property(readonly, nonatomic, getter=isLowBalanceGateNotificationEnabled) _Bool lowBalanceGateNotificationEnabled; // @synthesize lowBalanceGateNotificationEnabled=_lowBalanceGateNotificationEnabled;
+@property(readonly, nonatomic, getter=isBalanceAllowedForCommute) _Bool balanceAllowedForCommute; // @synthesize balanceAllowedForCommute=_balanceAllowedForCommute;
+
+// Remaining properties
+@property(readonly, nonatomic, getter=isBlacklisted) _Bool blacklisted; // @dynamic blacklisted;
+@property(readonly, nonatomic, getter=isGreenCarTicketUsed) _Bool greenCarTicketUsed; // @dynamic greenCarTicketUsed;
+@property(readonly, nonatomic, getter=isInShinkansenStation) _Bool inShinkansenStation; // @dynamic inShinkansenStation;
+@property(readonly, nonatomic, getter=isInStation) _Bool inStation; // @dynamic inStation;
+@property(readonly, copy, nonatomic) NSDecimalNumber *transitBalance; // @dynamic transitBalance;
+@property(readonly, copy, nonatomic) NSString *transitBalanceCurrencyCode; // @dynamic transitBalanceCurrencyCode;
 
 @end
 

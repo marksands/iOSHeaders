@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class TSWPRangeArray;
+@class TSWPMutableRangeArray;
 
 __attribute__((visibility("hidden")))
 @interface TSWPDeletionRangeMap : NSObject
 {
     struct _NSRange _subRange;
-    TSWPRangeArray *_removedRanges;
+    TSWPMutableRangeArray *_removedRanges;
 }
 
 - (void).cxx_destruct;

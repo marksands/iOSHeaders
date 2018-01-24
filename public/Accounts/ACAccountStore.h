@@ -31,6 +31,8 @@
 - (void)notifyRemoteDevicesOfNewAccount:(id)arg1;
 - (void)notifyRemoteDevicesOfUpdatedCredentials:(id)arg1;
 - (void)notifyRemoteDevicesOfModifiedAccount:(id)arg1;
+- (id)accountsWithAccountTypeIdentifiers:(id)arg1 preloadedProperties:(id)arg2 error:(id *)arg3;
+- (id)accountsWithAccountTypeIdentifiers:(id)arg1 error:(id *)arg2;
 - (void)accountsWithAccountTypeIdentifiers:(id)arg1 preloadedProperties:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)accountsWithAccountTypeIdentifiers:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)visibleTopLevelAccountsWithAccountTypeIdentifiers:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -57,6 +59,7 @@
 - (id)dataclassActionsForAccountDeletion:(id)arg1;
 - (id)dataclassActionsForAccountSave:(id)arg1 error:(id *)arg2;
 - (id)dataclassActionsForAccountSave:(id)arg1;
+- (void)preloadDataclassOwnersWithCompletion:(CDUnknownBlockType)arg1;
 - (id)accountIdentifiersEnabledToSyncDataclass:(id)arg1;
 - (id)accountIdentifiersEnabledForDataclass:(id)arg1;
 - (id)displayTypeForAccountWithIdentifier:(id)arg1;

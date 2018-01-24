@@ -16,12 +16,14 @@
     _Bool _isOutstandingOperation;
     _Bool _isFinished;
     _Bool _clouddConnectionInterrupted;
+    _Bool _queueHasStarted;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     CKOperationConfiguration *_resolvedConfiguration;
+    CDUnknownBlockType _longLivedOperationWasPersistedBlock;
+    CDUnknownBlockType _requestCompletedBlock;
     CKOperationConfiguration *_configuration;
     CKOperationGroup *_group;
     NSString *_operationID;
-    CDUnknownBlockType _longLivedOperationWasPersistedBlock;
     NSObject<OS_dispatch_source> *_timeoutSource;
     long long _usesBackgroundSessionOverride;
     NSError *_cancelError;
@@ -35,7 +37,6 @@
     id _context;
     CKTimeLogger *_timeLogger;
     CKOperationMetrics *_metrics;
-    CDUnknownBlockType _requestCompletedBlock;
     NSString *_deviceIdentifier;
     CKOperationMMCSRequestOptions *_MMCSRequestOptions;
 }
@@ -44,7 +45,7 @@
 @property(retain, nonatomic) NSObject<OS_os_activity> *osActivity; // @synthesize osActivity=_osActivity;
 @property(retain, nonatomic) CKOperationMMCSRequestOptions *MMCSRequestOptions; // @synthesize MMCSRequestOptions=_MMCSRequestOptions;
 @property(retain, nonatomic) NSString *deviceIdentifier; // @synthesize deviceIdentifier=_deviceIdentifier;
-@property(copy, nonatomic) CDUnknownBlockType requestCompletedBlock; // @synthesize requestCompletedBlock=_requestCompletedBlock;
+@property _Bool queueHasStarted; // @synthesize queueHasStarted=_queueHasStarted;
 @property(retain, nonatomic) CKOperationMetrics *metrics; // @synthesize metrics=_metrics;
 @property(retain, nonatomic) CKTimeLogger *timeLogger; // @synthesize timeLogger=_timeLogger;
 @property(readonly, nonatomic) id context; // @synthesize context=_context;
@@ -61,7 +62,6 @@
 @property(nonatomic) _Bool isOutstandingOperation; // @synthesize isOutstandingOperation=_isOutstandingOperation;
 @property(nonatomic) long long usesBackgroundSessionOverride; // @synthesize usesBackgroundSessionOverride=_usesBackgroundSessionOverride;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *timeoutSource; // @synthesize timeoutSource=_timeoutSource;
-@property(copy, nonatomic) CDUnknownBlockType longLivedOperationWasPersistedBlock; // @synthesize longLivedOperationWasPersistedBlock=_longLivedOperationWasPersistedBlock;
 @property(copy, nonatomic) NSString *operationID; // @synthesize operationID=_operationID;
 @property(retain, nonatomic) CKOperationGroup *group; // @synthesize group=_group;
 @property(copy, nonatomic) CKOperationConfiguration *configuration; // @synthesize configuration=_configuration;
@@ -123,6 +123,8 @@
 - (void)start;
 - (void)_start;
 - (id)activityCreate;
+@property(copy, nonatomic) CDUnknownBlockType requestCompletedBlock; // @synthesize requestCompletedBlock=_requestCompletedBlock;
+@property(copy, nonatomic) CDUnknownBlockType longLivedOperationWasPersistedBlock; // @synthesize longLivedOperationWasPersistedBlock=_longLivedOperationWasPersistedBlock;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_callbackQueue;
 - (void)dealloc;
 - (id)init;

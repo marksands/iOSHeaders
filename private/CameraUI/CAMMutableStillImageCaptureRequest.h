@@ -30,6 +30,7 @@
 @property(retain, nonatomic) CLLocation *location;
 @property(nonatomic) long long videoEncodingBehavior;
 @property(nonatomic) long long photoEncodingBehavior;
+@property(nonatomic) long long loggingZoomInteractionType; // @dynamic loggingZoomInteractionType;
 @property(nonatomic) double loggingVideoZoomFactor; // @dynamic loggingVideoZoomFactor;
 @property(nonatomic) unsigned long long userInitiationTime; // @dynamic userInitiationTime;
 @property(copy, nonatomic) NSString *EV0PersistenceUUID; // @dynamic EV0PersistenceUUID;

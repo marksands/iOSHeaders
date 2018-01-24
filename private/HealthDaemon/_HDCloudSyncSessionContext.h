@@ -8,7 +8,7 @@
 
 #import "NSProgressReporting.h"
 
-@class HDSyncAnchorRangeMap, NSError, NSMutableSet, NSProgress, NSString, _HKArchiveCreator;
+@class HDProfile, HDSyncAnchorRangeMap, NSError, NSMutableSet, NSProgress, NSString, _HKArchiveCreator;
 
 @interface _HDCloudSyncSessionContext : NSObject <NSProgressReporting>
 {
@@ -16,6 +16,7 @@
     _Bool _isComplete;
     _Bool _success;
     _Bool _hasOpenSequence;
+    HDProfile *_profile;
     _HKArchiveCreator *_archiveCreator;
     HDSyncAnchorRangeMap *_pendingAnchorRangeMap;
     unsigned long long _changesetCount;
@@ -37,11 +38,13 @@
 @property(nonatomic) unsigned long long changesetCount; // @synthesize changesetCount=_changesetCount;
 @property(readonly, nonatomic) HDSyncAnchorRangeMap *pendingAnchorRangeMap; // @synthesize pendingAnchorRangeMap=_pendingAnchorRangeMap;
 @property(readonly, nonatomic) _HKArchiveCreator *archiveCreator; // @synthesize archiveCreator=_archiveCreator;
+@property(readonly, nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
+- (void)finishProgress;
 - (_Bool)addChangeData:(id)arg1 changes:(id)arg2 sessionIdentifier:(id)arg3 outError:(id *)arg4;
 - (_Bool)resetInvalidArchiveCreatorWithSessionUUID:(id)arg1 error:(id *)arg2;
 @property(readonly, nonatomic) unsigned long long archiveSize;
-- (id)initWithChangedSyncEntityCount:(unsigned long long)arg1;
+- (id)initWithChangedSyncEntityCount:(unsigned long long)arg1 profile:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

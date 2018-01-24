@@ -7,16 +7,16 @@
 #import "NSObject.h"
 #import "PMLPlistAndChunksSerializableProtocol.h"
 
-@class PMLDenseMatrix, PMLDenseVector, PMLModelWeights, PMLMutableDenseVector, PMLSparseMatrix, PMLSparseVector;
+@class PMLDenseMatrix, PMLModelWeights, PMLMutableDenseVector, PMLSparseMatrix, PMLSparseVector;
 
 @protocol PMLNoiseStrategy <NSObject, PMLPlistAndChunksSerializableProtocol>
 @property int maxIterations;
 - (void)addNoiseToDenseVector:(PMLMutableDenseVector *)arg1;
 - (void)addNoiseToSparseMatrix:(PMLSparseMatrix *)arg1;
 - (void)addNoiseToSparseVector:(PMLSparseVector *)arg1;
-- (void)addNoiseToObjectiveFeatures:(PMLDenseVector *)arg1;
+- (void)addNoiseToObjectiveFeatures:(PMLMutableDenseVector *)arg1;
 - (void)addNoiseToFeatureMatrix:(PMLDenseMatrix *)arg1;
-- (void)addNoiseToGradient:(PMLDenseVector *)arg1;
+- (void)addNoiseToGradient:(PMLMutableDenseVector *)arg1;
 - (void)addNoiseToWeights:(PMLModelWeights *)arg1;
 @end
 

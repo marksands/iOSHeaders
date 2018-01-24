@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 
 + (id)styleState;
 @property(retain, nonatomic) TSCHChartStyleState *themeChartStyleState; // @synthesize themeChartStyleState=_themeChartStyleState;
+- (void).cxx_destruct;
 - (id)fallbackSemanticUsageForSemanticUsage:(id)arg1;
 - (id)fallbackSemanticTagForSemanticTag:(id)arg1;
 - (void)replaceStylesUsingBlock:(CDUnknownBlockType)arg1;
@@ -57,7 +58,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSCHLegendStyle *legendStyle; // @dynamic legendStyle;
 @property(retain, nonatomic) TSCHChartStyle *chartStyle; // @dynamic chartStyle;
 - (id)description;
-- (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)checkParagraphStyleIndicies;
 - (id)listOfStyles;

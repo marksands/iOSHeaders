@@ -35,7 +35,6 @@ __attribute__((visibility("hidden")))
 - (id)websiteDataStore;
 - (id)websiteDataStoreConfiguration;
 - (_Bool)_privateBrowsingInitiallyEnabled;
-- (_Bool)canInstallProfiles;
 - (_Bool)canPrint;
 - (void)webViewController:(id)arg1 didFinishNavigation:(id)arg2;
 - (void)webViewController:(id)arg1 didFailProvisionalNavigation:(id)arg2 withError:(id)arg3;
@@ -43,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (void)webViewController:(id)arg1 decidePolicyForNavigationAction:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
 - (void)webViewControllerDidFirstVisuallyNonEmptyLayout:(id)arg1;
 - (void)webViewControllerDidChangeLoadingState:(id)arg1;
+- (void)_hostApplicationDidEnterBackground;
 - (void)setNeedsStatusBarAppearanceUpdate;
 - (long long)preferredStatusBarStyle;
 - (void)viewDidLoad;

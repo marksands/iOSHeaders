@@ -13,16 +13,16 @@
 __attribute__((visibility("hidden")))
 @interface KNMasterSlide : KNAbstractSlide <TSKTransformableObject>
 {
-    NSString *mName;
-    struct CGRect mObjectRect;
-    KNClassicStylesheetRecord *mClassicStylesheetRecord;
-    NSArray *mBodyParagraphStyles;
-    NSArray *mBodyListStyles;
-    NSString *mThumbnailTextForTitlePlaceholder;
-    NSString *mThumbnailTextForBodyPlaceholder;
-    _Bool mSlideObjectsLayerWithMaster;
-    _Bool mHasBug16580905;
-    _Bool mCalculatedHasBug16580905;
+    NSString *_name;
+    struct CGRect _objectRect;
+    KNClassicStylesheetRecord *_classicStylesheetRecord;
+    NSArray *_bodyParagraphStyles;
+    NSArray *_bodyListStyles;
+    NSString *_thumbnailTextForTitlePlaceholder;
+    NSString *_thumbnailTextForBodyPlaceholder;
+    _Bool _slideObjectsLayerWithMaster;
+    _Bool _hasBug16580905;
+    _Bool _calculatedHasBug16580905;
 }
 
 + (id)p_defaultMasterGuideColor;
@@ -31,7 +31,8 @@ __attribute__((visibility("hidden")))
 + (_Bool)hasLocalizedThumbnailText;
 + (void)initialize;
 + (void)mastersNotEquivalentWithFile:(id)arg1 lineNumber:(long long)arg2 reason:(id)arg3;
-@property(readonly, nonatomic) KNClassicStylesheetRecord *classicStylesheetRecord; // @synthesize classicStylesheetRecord=mClassicStylesheetRecord;
+@property(readonly, nonatomic) KNClassicStylesheetRecord *classicStylesheetRecord; // @synthesize classicStylesheetRecord=_classicStylesheetRecord;
+- (void).cxx_destruct;
 - (void)replaceReferencedStylesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)referencedStyles;
 - (id)objectForProperty:(int)arg1;
@@ -57,7 +58,6 @@ __attribute__((visibility("hidden")))
 - (id)nonPlaceholderObjects;
 - (id)imagePlaceholders;
 - (_Bool)isObjectVisible;
-- (void)dealloc;
 - (id)thumbnailTextForPlaceholder:(id)arg1;
 - (id)p_defaultThumbnailTextForPlaceholder:(id)arg1;
 - (id)tagsforNewPlaceholderInfos:(id)arg1;
@@ -66,12 +66,12 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *description;
 - (id)initWithSlideNode:(id)arg1 context:(id)arg2;
 @property(nonatomic) _Bool slideObjectsLayerWithMaster;
-@property(retain, nonatomic) NSString *thumbnailTextForBodyPlaceholder;
-@property(retain, nonatomic) NSString *thumbnailTextForTitlePlaceholder;
+@property(copy, nonatomic) NSString *thumbnailTextForBodyPlaceholder;
+@property(copy, nonatomic) NSString *thumbnailTextForTitlePlaceholder;
 @property(copy, nonatomic) NSArray *bodyListStyles;
 @property(copy, nonatomic) NSArray *bodyParagraphStyles;
 @property(nonatomic) struct CGRect objectRect;
-@property(retain, nonatomic) NSString *name;
+@property(copy, nonatomic) NSString *name;
 - (_Bool)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;

@@ -12,11 +12,19 @@
 
 @interface ADConfigurationResponse : PBCodable <NSCopying>
 {
+    int _bannerProxyType;
+    NSString *_configVersion;
     NSMutableArray *_theConfigurations;
+    NSString *_resourceConnectProxyURL;
     NSString *_resourceProxyURL;
+    struct {
+        unsigned int bannerProxyType:1;
+    } _has;
 }
 
 + (Class)theConfigurationType;
+@property(retain, nonatomic) NSString *configVersion; // @synthesize configVersion=_configVersion;
+@property(retain, nonatomic) NSString *resourceConnectProxyURL; // @synthesize resourceConnectProxyURL=_resourceConnectProxyURL;
 @property(retain, nonatomic) NSString *resourceProxyURL; // @synthesize resourceProxyURL=_resourceProxyURL;
 @property(retain, nonatomic) NSMutableArray *theConfigurations; // @synthesize theConfigurations=_theConfigurations;
 - (void).cxx_destruct;
@@ -29,6 +37,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasConfigVersion;
+- (int)StringAsBannerProxyType:(id)arg1;
+- (id)bannerProxyTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasBannerProxyType;
+@property(nonatomic) int bannerProxyType; // @synthesize bannerProxyType=_bannerProxyType;
+@property(readonly, nonatomic) _Bool hasResourceConnectProxyURL;
 @property(readonly, nonatomic) _Bool hasResourceProxyURL;
 - (id)theConfigurationAtIndex:(unsigned long long)arg1;
 - (unsigned long long)theConfigurationsCount;

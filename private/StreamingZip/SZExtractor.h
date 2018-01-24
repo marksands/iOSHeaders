@@ -28,6 +28,7 @@
 
 + (void)enableDebugLogging;
 + (_Bool)supportsSecureCoding;
++ (id)knownSZExtractorImplementations;
 @property(nonatomic) _Bool hasHadPostSetupMethodsCalled; // @synthesize hasHadPostSetupMethodsCalled=_hasHadPostSetupMethodsCalled;
 @property(nonatomic) _Bool needsPreparation; // @synthesize needsPreparation=_needsPreparation;
 @property(readonly, nonatomic) _Bool isLocalExtractor; // @synthesize isLocalExtractor=_isLocalExtractor;

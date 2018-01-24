@@ -19,6 +19,12 @@
     struct __CFRunLoopSource *_jsThreadRunLoopSource;
     NSObject<OS_dispatch_source> *_lowMemoryWarningSource;
     _Bool _respondsToTraitCollection;
+    struct {
+        _Bool respondsToHighlightViewForOneElement;
+        _Bool respondsToHighlightViewsForManyElements;
+        _Bool respondsToCancelHighlightForAppContext;
+        _Bool respondsToDidInspectElementModeChanged;
+    } _delegateFlags;
     _Bool _isValid;
     _Bool _remoteInspectionEnabled;
     _Bool _mescalPrimeEnabledForXHRRequests;
@@ -76,6 +82,11 @@
 - (void).cxx_destruct;
 - (void)handleCacheUpdate;
 - (void)appCache:(id)arg1 didUpdateWithChecksum:(id)arg2;
+- (void)unregisterLoaderWithIdentifier:(id)arg1;
+- (id)registerLoaderWithIdentifier:(id)arg1;
+- (void)inspectElement:(id)arg1;
+- (_Bool)isInspectElementModeEnabled;
+- (void)inspectElementModeChanged:(_Bool)arg1;
 - (_Bool)cancelHighlightView;
 - (_Bool)highlightViewForElementWithID:(long long)arg1 contentColor:(id)arg2 paddingColor:(id)arg3 borderColor:(id)arg4 marginColor:(id)arg5;
 - (_Bool)highlightViewsForElementsWithIDs:(id)arg1 contentColor:(id)arg2 paddingColor:(id)arg3 borderColor:(id)arg4 marginColor:(id)arg5;

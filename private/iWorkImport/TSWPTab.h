@@ -40,6 +40,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *leader; // @synthesize leader=_leader;
 @property(nonatomic) int alignment; // @synthesize alignment=_alignment;
 @property(nonatomic) double position; // @synthesize position=_position;
+- (void).cxx_destruct;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -51,7 +52,6 @@ __attribute__((visibility("hidden")))
 - (id)initWithArchive:(const struct TabArchive *)arg1 unarchiver:(id)arg2;
 - (id)initWithPosition:(double)arg1 alignment:(int)arg2 leader:(id)arg3;
 - (id)init;
-- (void)dealloc;
 - (void)setPositionInInches:(double)arg1;
 - (double)positionInInches;
 

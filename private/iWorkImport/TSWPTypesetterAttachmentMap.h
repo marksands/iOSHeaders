@@ -21,7 +21,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct __CTLine *lineRef; // @synthesize lineRef=_lineRef;
 @property(nonatomic) _Bool layoutNeedsRevalidation; // @synthesize layoutNeedsRevalidation=_layoutNeedsRevalidation;
 @property(retain, nonatomic) TSDLayout *layout; // @synthesize layout=_layout;
-@property(nonatomic) TSWPAttachment *attachment; // @synthesize attachment=_attachment;
+@property(nonatomic) __weak TSWPAttachment *attachment; // @synthesize attachment=_attachment;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

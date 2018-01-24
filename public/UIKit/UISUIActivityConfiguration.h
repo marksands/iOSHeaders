@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 @interface UISUIActivityConfiguration : NSObject <NSSecureCoding>
 {
     _Bool _activitySupportsPromiseURLs;
+    _Bool _appIsDocumentTypeOwner;
     NSUUID *_activityUUID;
     long long _activityCategory;
     NSString *_activityType;
@@ -40,6 +41,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *defaultActivityTitle; // @synthesize defaultActivityTitle=_defaultActivityTitle;
 @property(retain, nonatomic) NSString *overrideTitle; // @synthesize overrideTitle=_overrideTitle;
 @property(readonly, nonatomic) unsigned long long indexInApplicationDefinedActivities; // @synthesize indexInApplicationDefinedActivities=_indexInApplicationDefinedActivities;
+@property(readonly, nonatomic) _Bool appIsDocumentTypeOwner; // @synthesize appIsDocumentTypeOwner=_appIsDocumentTypeOwner;
 @property(readonly, nonatomic) long long defaultSortGroup; // @synthesize defaultSortGroup=_defaultSortGroup;
 @property(readonly, nonatomic) _Bool activitySupportsPromiseURLs; // @synthesize activitySupportsPromiseURLs=_activitySupportsPromiseURLs;
 @property(readonly, nonatomic) struct CGSize preferredThumbnailSize; // @synthesize preferredThumbnailSize=_preferredThumbnailSize;
@@ -53,11 +55,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) UIImage *settingsImage;
 - (void)_collectPropertiesFromAttributesOfUnderlyingActivity:(id)arg1;
 - (void)_encodeByPropertiesWithCoder:(id)arg1;
-- (void)_initByLoadingPropertiesWithCoder:(id)arg1;
+- (void)_decodeForEncodingByPropertiesWithCoder:(id)arg1;
 - (void)_encodeByClassNameWithCoder:(id)arg1;
-- (void)_initByLoadingClassNameWithCoder:(id)arg1;
-- (void)_encodeOverridePropertiesWithCoder:(id)arg1;
-- (void)_initByLoadingOverridePropertiesWithCoder:(id)arg1;
+- (void)_decodeForEncodingByClassNameWithCoder:(id)arg1;
+- (void)_encodeBasicPropertiesWithCoder:(id)arg1;
+- (void)_decodeBasicPropertiesWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(readonly, nonatomic) NSString *activityTitle; // @dynamic activityTitle;

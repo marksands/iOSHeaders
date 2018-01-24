@@ -105,6 +105,9 @@
 @property(nonatomic) int slotPosition; // @synthesize slotPosition=_slotPosition;
 @property(nonatomic) int screenfuls; // @synthesize screenfuls=_screenfuls;
 @property(copy, nonatomic) NSString *adResponseId; // @synthesize adResponseId=_adResponseId;
+- (id)currentAdIdentifier;
+- (void)unregisterVideoPlayerForAdAnalytics:(id)arg1;
+- (void)registerVideoPlayerForAdAnalytics:(id)arg1;
 - (id)context;
 - (void)setContext:(id)arg1;
 - (id)publicImpressionAttributes;
@@ -149,6 +152,12 @@
 - (id)requiredContentSizeIdentifiers;
 - (void)setRequiredContentSizeIdentifiers:(id)arg1;
 @property(nonatomic) __weak id <ADBannerViewDelegate> delegate;
+- (void)bannerViewVideoAdDidToggleToMute:(_Bool)arg1;
+- (void)bannerViewVideoAdDidTapForMoreInfo;
+- (void)bannerViewVideoAdDidCompletePlay:(int)arg1;
+- (void)bannerViewVideoAdDidPausePlay;
+- (void)bannerViewVideoAdDidResumePlay;
+- (void)bannerViewVideoAdDidImpress;
 - (void)creativeControllerViewWasTappedAtPoint:(struct CGPoint)arg1 withMRAIDAction:(id)arg2;
 - (_Bool)shouldTestVisibilityAtPoint:(struct CGPoint)arg1;
 - (void)resumeBannerMedia;
@@ -202,6 +211,21 @@
 - (id)_initWithInternalAdType:(int)arg1 options:(long long)arg2;
 - (id)initWithAdType:(long long)arg1;
 - (void)dealloc;
+- (void)videoBannerTouched:(id)arg1;
+- (void)videoBannerVisibilityDidChange:(id)arg1;
+- (void)playbackFailed:(id)arg1 forURL:(id)arg2;
+- (void)playbackMediaWasSkipped:(id)arg1;
+- (void)playbackDidExitFullscreen:(id)arg1;
+- (void)playbackDidEnterFullscreen:(id)arg1;
+- (void)playbackAudioWasUnmuted:(id)arg1;
+- (void)playbackAudioWasMuted:(id)arg1;
+- (void)playbackDidReachProgressEvent:(id)arg1;
+- (void)playbackDidFinish:(id)arg1;
+- (void)playbackDidResume:(id)arg1;
+- (void)playbackDidPause:(id)arg1;
+- (void)playbackDidStart:(id)arg1;
+- (void)videoBannerDidUnload:(id)arg1;
+- (void)videoBannerDidLoad:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

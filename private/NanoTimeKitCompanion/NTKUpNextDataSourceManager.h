@@ -16,6 +16,7 @@
     NSLock *_lock;
     NSObject<OS_dispatch_queue> *_queue;
     _Bool _paused;
+    _Bool _allowsLocationUse;
     NSObject<OS_dispatch_queue> *_coordinatorQueue;
     id <NTKUpNextDataSourceManagerDelegate> _delegate;
 }
@@ -34,6 +35,7 @@
 + (id)_dataSourceTitleCache;
 + (id)_dataSourceImageCache;
 @property(readonly, nonatomic) __weak id <NTKUpNextDataSourceManagerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) _Bool allowsLocationUse; // @synthesize allowsLocationUse=_allowsLocationUse;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *coordinatorQueue; // @synthesize coordinatorQueue=_coordinatorQueue;
 - (void).cxx_destruct;
 - (void)_availableDataSourcesDidChange;

@@ -50,6 +50,7 @@
 - (void)_performInteractivelyAuthenticatedRepair:(CDUnknownBlockType)arg1;
 - (void)repairCloudDataProtectionStateWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_predicateForRecordUpgradeCheck;
+- (id)_predicateForRecordUpgradeCheckIgnoringBottled;
 - (void)_authenticatedShouldPerformRepairWithCompletion:(CDUnknownBlockType)arg1;
 - (void)shouldPerformRepairWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_recoverSecureBackupWithCircleJoinResult:(id)arg1 completion:(CDUnknownBlockType)arg2;

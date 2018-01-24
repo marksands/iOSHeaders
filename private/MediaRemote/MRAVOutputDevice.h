@@ -14,6 +14,7 @@
     _Bool _remoteControllable;
     _Bool _groupLeader;
     _Bool _groupable;
+    _Bool _deviceGroupable;
     _Bool _pickedOnPairedDevice;
     _Bool _hasBatteryLevel;
     _Bool _localDevice;
@@ -49,6 +50,7 @@
 @property(readonly, nonatomic) unsigned int deviceSubtype; // @synthesize deviceSubtype=_deviceSubtype;
 @property(readonly, nonatomic) unsigned int deviceType; // @synthesize deviceType=_deviceType;
 @property(readonly, nonatomic, getter=isPickedOnPairedDevice) _Bool pickedOnPairedDevice; // @synthesize pickedOnPairedDevice=_pickedOnPairedDevice;
+@property(readonly, nonatomic, getter=isDeviceGroupable) _Bool deviceGroupable; // @synthesize deviceGroupable=_deviceGroupable;
 @property(readonly, nonatomic, getter=isGroupable) _Bool groupable; // @synthesize groupable=_groupable;
 @property(readonly, nonatomic, getter=isGroupLeader) _Bool groupLeader; // @synthesize groupLeader=_groupLeader;
 @property(readonly, nonatomic, getter=isRemoteControllable) _Bool remoteControllable; // @synthesize remoteControllable=_remoteControllable;

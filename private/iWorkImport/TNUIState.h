@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSArray, NSMutableDictionary, TSKSelectionPath;
+@class NSArray, NSMutableDictionary, TSDFreehandDrawingToolkitUIState, TSKSelectionPath;
 
 __attribute__((visibility("hidden")))
 @interface TNUIState : NSObject <NSCopying>
@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     id <TNUIStateDelegate> _delegate;
     long long _documentMode;
     NSArray *_selectedQuickCalcFunctions;
+    TSDFreehandDrawingToolkitUIState *_freehandDrawingToolkitUIState;
     NSMutableDictionary *_chartUIState;
     NSMutableDictionary *_sheetUIStates;
     NSMutableDictionary *_editModeSheetUIStates;
@@ -41,6 +42,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool showCanvasGuides; // @synthesize showCanvasGuides=_showCanvasGuides;
 @property(nonatomic) struct CGSize desktopScreenSize; // @synthesize desktopScreenSize=_desktopScreenSize;
 @property(nonatomic) struct CGRect desktopWindowFrame; // @synthesize desktopWindowFrame=_desktopWindowFrame;
+@property(retain, nonatomic) TSDFreehandDrawingToolkitUIState *freehandDrawingToolkitUIState; // @synthesize freehandDrawingToolkitUIState=_freehandDrawingToolkitUIState;
 @property(nonatomic) _Bool showsRulers; // @synthesize showsRulers=_showsRulers;
 @property(nonatomic) _Bool showsComments; // @synthesize showsComments=_showsComments;
 @property(nonatomic) _Bool removedAllQuickCalcFunctions; // @synthesize removedAllQuickCalcFunctions=_removedAllQuickCalcFunctions;

@@ -20,6 +20,7 @@
     HKQueryServerConfiguration *_configuration;
     CDUnknownBlockType _queryDidFinishHandler;
     NSArray *_dataObservationAssertions;
+    _Bool _shouldTakeObservationAssertions;
     int _shouldFinish;
     int _shouldPause;
     NSObject<OS_dispatch_queue> *_unitTestQueryQueue;
@@ -82,8 +83,10 @@
 @property(readonly, nonatomic) HKSampleType *sampleType;
 - (void)remote_deactivateServer;
 - (void)clientStateChanged;
+- (void)_queue_updateDataCollectionAssertions;
 - (void)_queue_stopDataCollection;
 - (void)_queue_startDataCollection;
+- (id)_queue_sampleTypesForObservation;
 - (void)_queue_setQueryState:(long long)arg1;
 - (void)_queue_transitionToSuspendedState:(long long)arg1;
 - (void)_queue_transitionToPaused;

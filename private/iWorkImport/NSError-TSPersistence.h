@@ -23,6 +23,7 @@
 + (id)tsp_errorWithCode:(long long)arg1 userInfo:(id)arg2 isRecoverable:(_Bool)arg3;
 + (id)tsp_errorWithCode:(long long)arg1 userInfo:(id)arg2;
 + (id)tsp_errorWithCode:(long long)arg1;
+@property(readonly, nonatomic) _Bool tsp_isPasswordInputError;
 @property(readonly, nonatomic) _Bool tsp_isCorruptZipOfPackageError;
 @property(readonly, nonatomic) _Bool tsp_isUnsupportedVersionError;
 @property(readonly, nonatomic) _Bool tsp_isDocumentTooNewError;

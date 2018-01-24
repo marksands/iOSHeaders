@@ -10,7 +10,7 @@
 
 @interface WKProcessGroup : NSObject
 {
-    struct RefPtr<WebKit::WebProcessPool> _processPool;
+    struct RefPtr<WebKit::WebProcessPool, WTF::DumbPtrTraits<WebKit::WebProcessPool>> _processPool;
     struct WeakObjCPtr<id<WKProcessGroupDelegate>> _delegate;
     struct RetainPtr<WKGeolocationProviderIOS> _geolocationProvider;
 }

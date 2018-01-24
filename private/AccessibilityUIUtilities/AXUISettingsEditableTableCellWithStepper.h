@@ -10,7 +10,6 @@
 
 @interface AXUISettingsEditableTableCellWithStepper : AXUISettingsEditableTextCell
 {
-    _Bool _specifierVersion;
     UIStepper *_stepper;
     id <AXUISettingsEditableTableCellWithStepperDelegate> _delegate;
     UILabel *_secondsLabel;

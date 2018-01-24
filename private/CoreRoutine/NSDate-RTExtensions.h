@@ -27,6 +27,10 @@
 - (id)startOfDay;
 - (id)dateOfTimestampForCurrentCalendar;
 - (id)dateOfTimestampForCalendar:(id)arg1;
+- (_Bool)isOnOrAfter:(id)arg1;
+- (_Bool)isAfterDate:(id)arg1;
+- (_Bool)isOnOrBefore:(id)arg1;
+- (_Bool)isBeforeDate:(id)arg1;
 - (_Bool)betweenDate:(id)arg1 andDate:(id)arg2;
 @end
 

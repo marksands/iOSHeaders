@@ -6,13 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSObject<TSDContainerInfo>, TSDRep;
+@class NSArray, NSObject<TSDContainerInfo>;
 
 @protocol TSDContainerRep <NSObject>
+@property(readonly, nonatomic) NSArray *childReps;
 @property(readonly, nonatomic) NSObject<TSDContainerInfo> *containerInfo;
-- (void)selectChildRep:(TSDRep *)arg1 extendingSelection:(_Bool)arg2;
-- (_Bool)canSelectChildRep:(TSDRep *)arg1;
-- (void)addAdditionalChildLayersToArray:(NSMutableArray *)arg1;
-- (NSArray *)childReps;
 @end
 

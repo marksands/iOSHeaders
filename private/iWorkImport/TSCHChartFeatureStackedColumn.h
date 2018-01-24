@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (_Bool)editableFormatForValueStrings;
 - (_Bool)supportsReferenceLines;
 - (double)spiceMaxDepthRatio;
 - (double)sageMaxDepthRatio;

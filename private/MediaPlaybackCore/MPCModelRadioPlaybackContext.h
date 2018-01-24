@@ -32,7 +32,10 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) MPAVItem *prefixItem;
 - (id)descriptionComponents;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)init;
+- (void)getRemotePlaybackQueueRepresentationWithPlayerPath:(id)arg1 completion:(CDUnknownBlockType)arg2;
 
 @end
 

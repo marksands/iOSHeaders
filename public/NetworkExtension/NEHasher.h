@@ -6,13 +6,19 @@
 
 #import "NSCoder.h"
 
+@class NSArray;
+
 @interface NEHasher : NSCoder
 {
     struct CC_SHA1state_st *_sha1Context;
+    NSArray *_classPrefixWhitelist;
 }
 
++ (id)hashObject:(id)arg1 withClassPrefixWhitelist:(id)arg2;
 + (id)hashObject:(id)arg1;
+@property(retain) NSArray *classPrefixWhitelist; // @synthesize classPrefixWhitelist=_classPrefixWhitelist;
 @property struct CC_SHA1state_st *sha1Context; // @synthesize sha1Context=_sha1Context;
+- (void).cxx_destruct;
 - (id)decodePropertyListForKey:(id)arg1;
 - (id)decodeObjectOfClasses:(id)arg1 forKey:(id)arg2;
 - (id)decodeObjectOfClass:(Class)arg1 forKey:(id)arg2;

@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (long long)textStyle;
 - (id)contentsImage;
 - (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
+- (_Bool)shouldTintContentImage;
 
 @end
 

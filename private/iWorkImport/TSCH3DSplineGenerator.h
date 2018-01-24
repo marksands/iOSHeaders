@@ -12,8 +12,8 @@ __attribute__((visibility("hidden")))
     float mDetail;
     float mTension;
     float mAdaptiveThreshold;
-    vector_35283da1 mControlPts;
-    vector_b5bccc4d mSplineExclude;
+    vector_d73af98f mControlPts;
+    vector_afed86a5 mSplineExclude;
 }
 
 + (id)generator;
@@ -22,10 +22,10 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) float detail; // @synthesize detail=mDetail;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)generatePoints:(vector_35283da1 *)arg1;
+- (void)generatePoints:(vector_d73af98f *)arg1;
 - (void)calcControlMatrix:(tmat4x4_3074befe *)arg1 pointNum:(long long)arg2;
-- (vector_b5bccc4d *)splineExclude;
-- (vector_35283da1 *)controlPts;
+- (vector_afed86a5 *)splineExclude;
+- (vector_d73af98f *)controlPts;
 - (_Bool)isClosed;
 - (id)init;
 

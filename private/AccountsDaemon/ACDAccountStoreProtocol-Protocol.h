@@ -46,6 +46,7 @@
 - (void)isPerformingDataclassActionsForAccount:(ACAccount *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)dataclassActionsForAccountDeletion:(ACAccount *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)dataclassActionsForAccountSave:(ACAccount *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
+- (void)preloadDataclassOwnersWithCompletion:(void (^)(NSError *))arg1;
 - (void)syncableDataclassesForAccountType:(ACAccountType *)arg1 handler:(void (^)(NSSet *, NSError *))arg2;
 - (void)supportedDataclassesForAccountType:(ACAccountType *)arg1 handler:(void (^)(NSSet *, NSError *))arg2;
 - (void)dataclassesWithHandler:(void (^)(NSArray *, NSError *))arg1;

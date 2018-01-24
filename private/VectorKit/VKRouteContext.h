@@ -11,7 +11,7 @@
 @interface VKRouteContext : NSObject
 {
     VKRouteInfo *_routeInfo;
-    unsigned char useType;
+    unsigned char _useType;
     long long _inspectedLegIndex;
     long long _inspectedStepIndex;
     struct PolylineCoordinate _routeOffset;
@@ -32,7 +32,6 @@
     NSHashTable *_alternateRouteLineObservers;
     NSArray *_alternateRoutes;
     struct multimap<unsigned int, std::__1::vector<RouteSection, std::__1::allocator<RouteSection>>, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, std::__1::vector<RouteSection, std::__1::allocator<RouteSection>>>>> _shareSections;
-    unsigned char _useType;
 }
 
 @property(retain, nonatomic) NSArray *alternateRoutes; // @synthesize alternateRoutes=_alternateRoutes;

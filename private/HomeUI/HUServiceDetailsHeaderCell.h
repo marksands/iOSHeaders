@@ -7,39 +7,41 @@
 #import "UITableViewCell.h"
 
 #import "HUCellProtocol.h"
-#import "UITextViewDelegate.h"
 
-@class HFItem, HUGridServiceCell, NSArray, NSLayoutConstraint, NSString, UIActivityIndicatorView, UILabel, UIStackView, UITextView;
+@class HFItem, HUGridServiceCell, NSArray, NSLayoutConstraint, NSString, UIActivityIndicatorView, UIButton, UILabel, UIStackView, UITextView;
 
-@interface HUServiceDetailsHeaderCell : UITableViewCell <UITextViewDelegate, HUCellProtocol>
+@interface HUServiceDetailsHeaderCell : UITableViewCell <HUCellProtocol>
 {
     HFItem *_item;
     id <HUResizableCellDelegate> _resizingDelegate;
+    UIButton *_actionButton;
+    UITextView *_messageTextView;
     HUGridServiceCell *_serviceCell;
     NSArray *_hiddenMessageTextViewConstraints;
     NSArray *_visibleMessageTextViewConstraints;
-    UITextView *_messageTextView;
     UIStackView *_titleSpinnerStackView;
     UIActivityIndicatorView *_checkingForUpdateSpinner;
     UILabel *_titleLabel;
     NSLayoutConstraint *_spinnerBottomConstraint;
     NSLayoutConstraint *_messageBottomConstraint;
+    NSLayoutConstraint *_actionBottomConstraint;
 }
 
 + (_Bool)requiresConstraintBasedLayout;
+@property(retain, nonatomic) NSLayoutConstraint *actionBottomConstraint; // @synthesize actionBottomConstraint=_actionBottomConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *messageBottomConstraint; // @synthesize messageBottomConstraint=_messageBottomConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *spinnerBottomConstraint; // @synthesize spinnerBottomConstraint=_spinnerBottomConstraint;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) UIActivityIndicatorView *checkingForUpdateSpinner; // @synthesize checkingForUpdateSpinner=_checkingForUpdateSpinner;
 @property(retain, nonatomic) UIStackView *titleSpinnerStackView; // @synthesize titleSpinnerStackView=_titleSpinnerStackView;
-@property(retain, nonatomic) UITextView *messageTextView; // @synthesize messageTextView=_messageTextView;
 @property(retain, nonatomic) NSArray *visibleMessageTextViewConstraints; // @synthesize visibleMessageTextViewConstraints=_visibleMessageTextViewConstraints;
 @property(retain, nonatomic) NSArray *hiddenMessageTextViewConstraints; // @synthesize hiddenMessageTextViewConstraints=_hiddenMessageTextViewConstraints;
 @property(retain, nonatomic) HUGridServiceCell *serviceCell; // @synthesize serviceCell=_serviceCell;
+@property(retain, nonatomic) UITextView *messageTextView; // @synthesize messageTextView=_messageTextView;
+@property(retain, nonatomic) UIButton *actionButton; // @synthesize actionButton=_actionButton;
 @property(nonatomic) __weak id <HUResizableCellDelegate> resizingDelegate; // @synthesize resizingDelegate=_resizingDelegate;
 @property(retain, nonatomic) HFItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
-- (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3 interaction:(long long)arg4;
 - (id)_visibleMessageTextViewConstraints;
 - (id)_hiddenMessageTextViewConstraints;
 - (void)_updateRequiredHeightIfNeeded;

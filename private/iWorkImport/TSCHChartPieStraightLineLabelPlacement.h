@@ -25,10 +25,11 @@ __attribute__((visibility("hidden")))
 - (id)wedgeLayoutInfo:(id)arg1 conflictsWithWedgeLayoutInfos:(id)arg2;
 - (id)wedgeLayoutInfosThatShareCellsWithWedgeLayoutInfo:(id)arg1;
 - (_Bool)conflictsExist;
-- (void)shiftLabelOutwards:(id)arg1 shiftAmount:(double)arg2;
+- (void)shiftLabelOutwards:(id)arg1 shiftAmount:(double)arg2 invalidateCahes:(_Bool)arg3;
 - (double)shiftAmountForWedgeLayoutInfo:(id)arg1;
 - (_Bool)shouldShiftWedgeLayoutInfo:(id)arg1;
 - (void)fixConflictsForWedgeLayoutInfos;
+- (void)fixTitleConflictsIfNeeded;
 - (id)wedgeLayoutInfosToTheLeftOfWedgeLayoutInfo:(id)arg1;
 - (unsigned long long)spatialMapCellSize;
 - (struct CGPoint)cellForPoint:(struct CGPoint)arg1;

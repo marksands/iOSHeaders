@@ -8,11 +8,12 @@
 
 #import "HFSetupPairingController.h"
 
-@class HFDiscoveredAccessory, HFSetupAccessoryResult, HMHome, HMSetupAccessoryDescription, NAFuture, NSDate, NSHashTable, NSSet, NSString, NSTimer;
+@class HFDiscoveredAccessory, HFSetupAccessoryResult, HMAccessorySetupCompletedInfo, HMHome, HMSetupAccessoryDescription, NAFuture, NSDate, NSHashTable, NSSet, NSString, NSTimer;
 
 @interface HFSetupAutomaticDiscoveryPairingController : NSObject <HFSetupPairingController>
 {
     HFSetupAccessoryResult *_setupResult;
+    HMAccessorySetupCompletedInfo *_completedInfo;
     HMSetupAccessoryDescription *_setupAccessoryDescription;
     id <HMSetupRemoteService> _setupRemoteService;
     unsigned long long _phase;
@@ -42,11 +43,12 @@
 @property(nonatomic) unsigned long long phase; // @synthesize phase=_phase;
 @property(nonatomic) __weak id <HMSetupRemoteService> setupRemoteService; // @synthesize setupRemoteService=_setupRemoteService;
 @property(readonly, nonatomic) HMSetupAccessoryDescription *setupAccessoryDescription; // @synthesize setupAccessoryDescription=_setupAccessoryDescription;
+@property(retain, nonatomic) HMAccessorySetupCompletedInfo *completedInfo; // @synthesize completedInfo=_completedInfo;
 @property(retain, nonatomic) HFSetupAccessoryResult *setupResult; // @synthesize setupResult=_setupResult;
 - (void).cxx_destruct;
 - (void)_assertValidTransitionFromPhase:(unsigned long long)arg1 toPhase:(unsigned long long)arg2;
 - (void)_updateStatusTextAndNotifyDelegate:(_Bool)arg1;
-- (void)_finishPairingWithAccessories:(id)arg1;
+- (void)_finishPairingWithAccessories:(id)arg1 completedInfo:(id)arg2;
 - (void)_failPairingWithError:(id)arg1;
 - (id)_sendCancellationRequestToHomeKit;
 - (id)cancel;

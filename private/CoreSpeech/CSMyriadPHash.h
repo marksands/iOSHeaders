@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "CSSelfTriggerDetectorDelegate.h"
 #import "CSVoiceTriggerDelegate.h"
 
 @class NSString;
 
-@interface CSMyriadPHash : NSObject <CSVoiceTriggerDelegate>
+@interface CSMyriadPHash : NSObject <CSVoiceTriggerDelegate, CSSelfTriggerDetectorDelegate>
 {
     unsigned char _signalFractional;
     short _signalEstimate;
@@ -19,6 +20,7 @@
 + (id)lastHash;
 @property(nonatomic) unsigned char signalFractional; // @synthesize signalFractional=_signalFractional;
 @property(nonatomic) short signalEstimate; // @synthesize signalEstimate=_signalEstimate;
+- (void)selfTriggerDetector:(id)arg1 didDetectSelfTrigger:(id)arg2;
 - (void)voiceTriggerDidDetectSpeakerReject:(id)arg1;
 - (void)voiceTriggerDidDetectNearMiss:(id)arg1;
 - (void)voiceTriggerDidDetectKeyword:(id)arg1;

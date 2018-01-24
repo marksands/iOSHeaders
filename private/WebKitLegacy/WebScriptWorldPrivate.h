@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface WebScriptWorldPrivate : NSObject
 {
-    struct RefPtr<WebCore::DOMWrapperWorld> world;
+    struct RefPtr<WebCore::DOMWrapperWorld, WTF::DumbPtrTraits<WebCore::DOMWrapperWorld>> world;
 }
 
 - (id).cxx_construct;

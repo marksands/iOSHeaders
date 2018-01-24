@@ -23,7 +23,7 @@
 - (void)performOperation;
 
 // Remaining properties
-@property(retain, nonatomic) FCPaidSubscriptionCursor *cursor; // @dynamic cursor;
+@property(retain, nonatomic) FCPaidSubscriptionCursor *fromCursor; // @dynamic fromCursor;
 @property(retain, nonatomic) FCPaidSubscriptionCursor *resultCursor; // @dynamic resultCursor;
 @property(retain, nonatomic) FCPaidSubscriptionCursor *toCursor; // @dynamic toCursor;
 

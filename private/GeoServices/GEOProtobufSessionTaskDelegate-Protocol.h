@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class GEOProtobufSession, GEOProtobufSessionTask;
+@class GEOProtobufSession, GEOProtobufSessionTask, NSError, PBCodable;
 
 @protocol GEOProtobufSessionTaskDelegate <NSObject>
 - (void)protobufSession:(GEOProtobufSession *)arg1 didCompleteTask:(GEOProtobufSessionTask *)arg2;
 
 @optional
+- (NSError *)protobufSession:(GEOProtobufSession *)arg1 validateResponse:(PBCodable *)arg2;
 - (void)protobufSession:(GEOProtobufSession *)arg1 willSendRequestForTask:(GEOProtobufSessionTask *)arg2 completionHandler:(void (^)(PBRequest *))arg3;
 @end
 

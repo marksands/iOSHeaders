@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDate, PKFelicaAppletHistory, PKPaymentApplication, PKPaymentPass, PKPaymentTransaction;
+@class NSArray, NSDate, PKFelicaAppletHistory, PKPaymentApplication, PKPaymentPass, PKPaymentTransaction, PKTransitAppletHistory;
 
 @interface PKContactlessInterfaceTransactionContext : NSObject
 {
@@ -17,10 +17,12 @@
     PKPaymentTransaction *_transaction;
     NSArray *_valueAddedServicePasses;
     NSArray *_valueAddedServiceTransactions;
+    PKTransitAppletHistory *_transitHistory;
     PKFelicaAppletHistory *_felicaHistory;
 }
 
-@property(retain, nonatomic) PKFelicaAppletHistory *felicaHistory; // @synthesize felicaHistory=_felicaHistory;
+@property(readonly, nonatomic) PKFelicaAppletHistory *felicaHistory; // @synthesize felicaHistory=_felicaHistory;
+@property(retain, nonatomic) PKTransitAppletHistory *transitHistory; // @synthesize transitHistory=_transitHistory;
 @property(retain, nonatomic) NSArray *valueAddedServiceTransactions; // @synthesize valueAddedServiceTransactions=_valueAddedServiceTransactions;
 @property(retain, nonatomic) NSArray *valueAddedServicePasses; // @synthesize valueAddedServicePasses=_valueAddedServicePasses;
 @property(retain, nonatomic) PKPaymentTransaction *transaction; // @synthesize transaction=_transaction;

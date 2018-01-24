@@ -15,6 +15,7 @@
 + (_Bool)tsk_appIsInDarkMode;
 + (_Bool)tsk_deviceCanUseSidebar;
 + (_Bool)tsk_appCanUseSidebar;
++ (double)tsk_appFrameScreenWidthFraction;
 + (_Bool)tsk_appIsInSplitViewMode;
 + (_Bool)tsk_phoneUI812H;
 + (_Bool)tsk_phoneUI736H;
@@ -22,6 +23,7 @@
 + (_Bool)tsk_phoneUI667H;
 + (_Bool)tsk_phoneUI568HOrSmaller;
 + (_Bool)tsk_phoneUI568H;
++ (_Bool)tsk_pad1112H;
 + (_Bool)tsk_pad1366H;
 @end
 

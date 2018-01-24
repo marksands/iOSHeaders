@@ -13,7 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface WebGeolocationProviderInitializationListener : NSObject <WebGeolocationProviderInitializationListener>
 {
-    struct RefPtr<WebCore::Geolocation> m_geolocation;
+    struct RefPtr<WebCore::Geolocation, WTF::DumbPtrTraits<WebCore::Geolocation>> m_geolocation;
 }
 
 - (id).cxx_construct;

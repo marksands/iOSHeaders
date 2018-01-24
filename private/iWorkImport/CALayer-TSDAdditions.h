@@ -7,6 +7,8 @@
 #import "CALayer.h"
 
 @interface CALayer (TSDAdditions)
+- (_Bool)tsd_hideOverlayLayerDuringZoomOperations;
+- (void)tsd_setHideOverlayLayerDuringZoomOperations:(_Bool)arg1;
 - (void)resumeAtTime:(double)arg1;
 - (void)resume;
 - (void)pauseAtTime:(double)arg1;

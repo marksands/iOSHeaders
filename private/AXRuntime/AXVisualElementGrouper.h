@@ -16,7 +16,6 @@
 @property(nonatomic) double maximumNeighbourDistance; // @synthesize maximumNeighbourDistance=_maximumNeighbourDistance;
 - (id)_groupablesForItems:(id)arg1;
 - (id)initWithHeuristics:(long long)arg1;
-- (id)init;
 
 @end
 

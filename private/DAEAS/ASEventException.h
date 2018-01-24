@@ -7,11 +7,11 @@
 #import <DAEAS/ASEvent.h>
 
 #import "ASParsingAcceptingTopLevelLeaves.h"
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSDate, NSMutableDictionary, NSNumber;
 
-@interface ASEventException : ASEvent <ASParsingAcceptingTopLevelLeaves, NSCoding>
+@interface ASEventException : ASEvent <ASParsingAcceptingTopLevelLeaves, NSSecureCoding>
 {
     ASEvent *_originalEvent;
     NSNumber *_isDeleted;
@@ -19,6 +19,7 @@
     NSMutableDictionary *_placeHolder;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)eventExceptionWithCalEvent:(void *)arg1 originalEvent:(id)arg2 account:(id)arg3;
 + (id)asParseRules;
 + (_Bool)notifyOfUnknownTokens;

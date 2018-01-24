@@ -27,6 +27,7 @@
 - (void).cxx_destruct;
 - (void)_deleteItemFromSelection:(id)arg1;
 - (void)_addItemToSelection:(id)arg1;
+- (_Bool)_wantsToggleButtonForSection:(unsigned long long)arg1;
 - (void)_updateToggleStateForSection:(long long)arg1 headerView:(id)arg2;
 - (void)_setSelected:(_Bool)arg1 forItemsInSection:(long long)arg2;
 - (void)_updateSelectionState:(_Bool)arg1 forCell:(id)arg2;

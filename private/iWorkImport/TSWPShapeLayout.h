@@ -55,7 +55,6 @@ __attribute__((visibility("hidden")))
 - (int)verticalAlignmentForTextLayout:(id)arg1;
 - (unsigned int)autosizeFlagsForTextLayout:(id)arg1;
 @property(readonly, nonatomic) _Bool autosizes;
-- (unsigned int)cropLine:(struct CGRect)arg1 lineSegmentRects:(struct CGRect [128])arg2;
 - (id)interiorClippingPath;
 - (id)textWrapper;
 - (id)interiorWrapPath;

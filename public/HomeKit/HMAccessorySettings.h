@@ -13,7 +13,8 @@
 
 @interface HMAccessorySettings : NSObject <HMFLogging, HMObjectMerge>
 {
-    HMAccessory *_accessory;
+    id <HMAccessorySettingsContainer> _settingsContainer;
+    id <HMControllable> _settingsControl;
     id <HMAccessorySettingsDelegate> _delegate;
     HMAccessorySettingGroup *_rootGroup;
     NSObject<OS_dispatch_queue> *_propertyQueue;
@@ -31,10 +32,12 @@
 - (void)__notifyDelegateSettingsWillUpdateWithCompletionHanlder:(CDUnknownBlockType)arg1;
 - (void)_updateSettingsWithBlock:(CDUnknownBlockType)arg1;
 @property(readonly, getter=isControllable) _Bool controllable;
-@property(readonly) __weak id <HMAccessorySettingsContainer> settingsContainer;
-@property __weak HMAccessory *accessory; // @synthesize accessory=_accessory;
+@property __weak id <HMControllable> settingsControl; // @synthesize settingsControl=_settingsControl;
+- (void)setSettingsContainer:(id)arg1;
+@property(readonly) __weak id <HMAccessorySettingsContainer> settingsContainer; // @synthesize settingsContainer=_settingsContainer;
+@property(readonly) __weak HMAccessory *accessory;
 - (void)_configureWithContext:(id)arg1;
-- (id)initWithAccessory:(id)arg1 rootGroup:(id)arg2;
+- (id)initWithSettingsContainer:(id)arg1 settingsControl:(id)arg2 rootGroup:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

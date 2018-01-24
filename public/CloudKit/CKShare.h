@@ -87,7 +87,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_setPublicPermissionNoSideEffects:(long long)arg1;
 - (void)_removeAllParticipants;
-- (void)_removePendingPrivateParticipants;
+- (void)_removePendingPrivateAndAdminParticipants;
 - (void)_commonCKShareInit;
 - (void)_addOwnerParticipant;
 - (id)_initWithShareRecordID:(id)arg1;

@@ -22,8 +22,10 @@ __attribute__((visibility("hidden")))
     NSString *_bundleVersion;
     GEOApplicationAuditToken *_auditToken;
     _Bool _requireWiFi;
+    _Bool _allowNetwork;
 }
 
+@property(readonly, nonatomic) _Bool allowNetwork; // @synthesize allowNetwork=_allowNetwork;
 @property(readonly, nonatomic) _Bool requireWiFi; // @synthesize requireWiFi=_requireWiFi;
 @property(readonly, nonatomic) GEOApplicationAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 @property(readonly, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;
@@ -38,7 +40,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)description;
 - (id)initWithKeyList:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3;
-- (id)initWithKeyList:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3 cachedEtags:(id)arg4 cachedData:(id)arg5 priorities:(id)arg6 additionalInfos:(id)arg7 bundleIdentifier:(id)arg8 bundleVersion:(id)arg9 auditToken:(id)arg10 requireWiFi:(_Bool)arg11;
+- (id)initWithKeyList:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3 cachedEtags:(id)arg4 cachedData:(id)arg5 priorities:(id)arg6 additionalInfos:(id)arg7 bundleIdentifier:(id)arg8 bundleVersion:(id)arg9 auditToken:(id)arg10 requireWiFi:(_Bool)arg11 allowNetwork:(_Bool)arg12;
 - (id)init;
 
 @end

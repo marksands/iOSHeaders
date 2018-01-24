@@ -6,10 +6,12 @@
 
 #import "NSObject.h"
 
+#import "TSDShapeSearchResultProviding.h"
+
 @class NSCache, NSDictionary, NSObject<OS_dispatch_queue>, NSString, NSUserDefaults, TSDShapeSearchIndex;
 
 __attribute__((visibility("hidden")))
-@interface TSDUserDefinedShapeLibrary : NSObject
+@interface TSDUserDefinedShapeLibrary : NSObject <TSDShapeSearchResultProviding>
 {
     NSObject<OS_dispatch_queue> *_searchIndexQueue;
     _Bool _isWritingDefaultsDatabase;
@@ -40,8 +42,8 @@ __attribute__((visibility("hidden")))
 - (void)p_setPathSourceDefaults:(id)arg1;
 - (id)p_pathSourceDefaults;
 - (void)p_addUserDefinedShapeWithPathSource:(id)arg1 atIndex:(unsigned long long)arg2 pathSourceDefaults:(id)arg3 withChangedIndexSet:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (id)shapeFromSearchResult:(id)arg1;
 - (id)resultsForSearchTerm:(id)arg1;
-- (id)userDefinedShapeForSearchResult:(id)arg1;
 - (id)userDefinedShapeAtIndex:(unsigned long long)arg1;
 - (_Bool)updateShapeAtIndex:(unsigned long long)arg1 withName:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)removeUserDefinedShapeAtIndex:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;

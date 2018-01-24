@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 + (double)p_sideIntersectionLengthForChartAreaRange:(struct TSCHLegendAnchorRange)arg1;
 @property(copy, nonatomic) NSArray *p_legendConfinementBounds; // @synthesize p_legendConfinementBounds=mLegendConfinementBounds;
 @property(nonatomic) _Bool p_shouldUpdateConfinedPushableAnchoring; // @synthesize p_shouldUpdateConfinedPushableAnchoring=mShouldUpdateConfinedPushableAnchoring;
+- (void).cxx_destruct;
 - (id)resizedLegendGeometry:(id)arg1 forLastChartAreaFrame:(struct CGRect)arg2 newChartAreaFrame:(struct CGRect)arg3 isIndirectResizing:(_Bool)arg4;
 - (void)p_updateStateForIsIndirectResizing:(_Bool)arg1;
 - (struct TSCHLegendAnchorRange)p_resizedLegendForFrames:(struct TSCHChartDrawableLayoutLegendResizerFrames)arg1 dimension:(long long)arg2;
@@ -37,7 +38,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)p_isConfinedPushableAnchoring;
 - (void)p_initializeAnchoringStateForFrames:(struct TSCHChartDrawableLayoutLegendResizerFrames)arg1;
 - (int)p_anchoringStateForLegendFrame:(struct CGRect)arg1 chartAreaFrame:(struct CGRect)arg2 dimension:(long long)arg3 returningAnchoringPosition:(double *)arg4;
-- (void)dealloc;
 - (id)initWithInitialFrames:(struct TSCHChartDrawableLayoutLegendResizerFrames)arg1;
 
 @end

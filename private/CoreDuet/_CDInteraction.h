@@ -21,21 +21,25 @@
     long long _mechanism;
     long long _direction;
     NSString *_bundleId;
+    NSString *_targetBundleId;
     NSURL *_contentURL;
     NSString *_domainIdentifier;
     NSString *_account;
     _CDContact *_sender;
     NSArray *_recipients;
     NSArray *_keywords;
+    NSArray *_attachments;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain) NSArray *attachments; // @synthesize attachments=_attachments;
 @property(retain) NSArray *keywords; // @synthesize keywords=_keywords;
 @property(retain) NSArray *recipients; // @synthesize recipients=_recipients;
 @property(retain) _CDContact *sender; // @synthesize sender=_sender;
 @property(retain) NSString *account; // @synthesize account=_account;
 @property(retain) NSString *domainIdentifier; // @synthesize domainIdentifier=_domainIdentifier;
 @property(retain) NSURL *contentURL; // @synthesize contentURL=_contentURL;
+@property(retain) NSString *targetBundleId; // @synthesize targetBundleId=_targetBundleId;
 @property(retain) NSString *bundleId; // @synthesize bundleId=_bundleId;
 @property _Bool isResponse; // @synthesize isResponse=_isResponse;
 @property long long direction; // @synthesize direction=_direction;
@@ -55,7 +59,7 @@
 @property(readonly, nonatomic) NSArray *peopleIdentifiers;
 @property(readonly, nonatomic) NSDate *timestamp;
 @property(readonly, nonatomic) _Bool userIsSender;
-- (id)initwithINInteraction:(id)arg1 bundleID:(id)arg2;
+- (id)initWithINInteraction:(id)arg1 bundleID:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

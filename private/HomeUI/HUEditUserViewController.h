@@ -10,19 +10,17 @@
 #import "HUAboutResidentDeviceViewControllerDelegate.h"
 #import "HUSwitchCellDelegate.h"
 
-@class HFUserItem, HUAboutResidentDeviceFooterView, HUEditUserItemManager, HUPendingAccessoriesGridViewController, HUPersonalRequestsDevicesModuleController, NSString;
+@class HFUserItem, HUAboutResidentDeviceFooterView, HUEditUserItemManager, HUPendingAccessoriesGridViewController, NSString;
 
 @interface HUEditUserViewController : HUUserTableViewController <HUAboutResidentDeviceFooterViewDelegate, HUAboutResidentDeviceViewControllerDelegate, HUSwitchCellDelegate>
 {
     HFUserItem *_userItem;
     HUEditUserItemManager *_editUserItemManager;
     HUPendingAccessoriesGridViewController *_pendingAccessoriesViewController;
-    HUPersonalRequestsDevicesModuleController *_personalRequestsDevicesModuleController;
     HUAboutResidentDeviceFooterView *_aboutResidentDeviceFooterView;
 }
 
 @property(retain, nonatomic) HUAboutResidentDeviceFooterView *aboutResidentDeviceFooterView; // @synthesize aboutResidentDeviceFooterView=_aboutResidentDeviceFooterView;
-@property(readonly, nonatomic) HUPersonalRequestsDevicesModuleController *personalRequestsDevicesModuleController; // @synthesize personalRequestsDevicesModuleController=_personalRequestsDevicesModuleController;
 @property(readonly, nonatomic) HUPendingAccessoriesGridViewController *pendingAccessoriesViewController; // @synthesize pendingAccessoriesViewController=_pendingAccessoriesViewController;
 @property(readonly, nonatomic) HUEditUserItemManager *editUserItemManager; // @synthesize editUserItemManager=_editUserItemManager;
 @property(readonly, copy, nonatomic) HFUserItem *userItem; // @synthesize userItem=_userItem;
@@ -39,7 +37,6 @@
 - (_Bool)shouldHideSeparatorsForCell:(id)arg1 indexPath:(id)arg2;
 - (void)setupCell:(id)arg1 forItem:(id)arg2 indexPath:(id)arg3;
 - (Class)cellClassForItem:(id)arg1 indexPath:(id)arg2;
-- (id)itemModuleControllers;
 - (id)userID;
 - (id)initWithItem:(id)arg1 home:(id)arg2;
 

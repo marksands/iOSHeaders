@@ -81,7 +81,7 @@ __attribute__((visibility("hidden")))
 - (void)setError:(id)arg1 forRecordID:(id)arg2;
 - (id)errorForRecordID:(id)arg1;
 - (void)fetchRecordsWithIDs:(id)arg1 andFullRecords:(id)arg2;
-- (void)_findCurrentUserParticipantOnShare:(id)arg1 identityDelegate:(id)arg2;
+- (void)_findSpecialParticipantsOnShare:(id)arg1 identityDelegate:(id)arg2;
 - (id)nameForState:(unsigned long long)arg1;
 - (_Bool)makeStateTransition;
 - (id)activityCreate;

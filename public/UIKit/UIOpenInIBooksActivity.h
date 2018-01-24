@@ -44,6 +44,7 @@
 - (id)_loadedApplicationProxy;
 - (id)printInteractionController;
 - (_Bool)canPerformWithActivityItems:(id)arg1;
+- (_Bool)_appIsDocumentTypeOwner;
 - (id)activityTitle;
 - (id)_bundleIdentifierForActivityImageCreation;
 - (id)activityType;

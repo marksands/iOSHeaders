@@ -18,8 +18,8 @@ __attribute__((visibility("hidden")))
     UUIDData_5fbc143e _ownerUID;
     TSTFormulaStore *_mergeRangeStorage;
     // Error parsing type: A@, name: _mergeRangeCache
-    unordered_map_47ee37d2 _mergeOriginsMap;
-    unordered_map_47ee37d2 _reverseOriginsMap;
+    unordered_map_ddbde191 _mergeOriginsMap;
+    unordered_map_ddbde191 _reverseOriginsMap;
 }
 
 @property(readonly, nonatomic) TSTFormulaStore *formulaStore; // @synthesize formulaStore=_mergeRangeStorage;
@@ -34,12 +34,12 @@ __attribute__((visibility("hidden")))
 - (CDStruct_2a4d9400)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_ed6d627d)arg2 isInCycle:(_Bool)arg3 hasCalculatedPrecedents:(_Bool)arg4;
 - (void)unregisterFromCalculationEngine;
 - (int)registerWithCalculationEngine:(id)arg1;
-- (void)rewriteMergesForInsertedRange:(struct _NSRange)arg1 uids:(const vector_dadc1b26 *)arg2 isRows:(_Bool)arg3;
-- (void)rewriteMergesForRemovedRange:(struct _NSRange)arg1 uids:(const vector_dadc1b26 *)arg2 isRows:(_Bool)arg3;
+- (void)rewriteMergesForInsertedRange:(struct _NSRange)arg1 uids:(const vector_4dc5f307 *)arg2 isRows:(_Bool)arg3;
+- (void)rewriteMergesForRemovedRange:(struct _NSRange)arg1 uids:(const vector_4dc5f307 *)arg2 isRows:(_Bool)arg3;
 - (struct TSUCellRect)rewroteFormula:(struct TSCEFormula)arg1 atCoordinate:(struct TSUCellCoord *)arg2 withRewriteSpec:(id)arg3 isUndo:(_Bool)arg4;
 - (void)commitRewritingTransaction;
 - (void)openRewritingTransaction;
-- (void)remapTableUIDsInFormulasWithMap:(const UUIDMap_727ee07e *)arg1 calcEngine:(id)arg2;
+- (void)remapTableUIDsInFormulasWithMap:(const UUIDMap_b66c2694 *)arg1 calcEngine:(id)arg2;
 - (id)expandCellRegionToCoverMergedCells:(id)arg1;
 - (struct TSUCellRect)expandCellRangeToCoverMergedCells:(struct TSUCellRect)arg1;
 - (_Bool)hasRangeSpanningRowsForCellRange:(struct TSUCellRect)arg1;
@@ -51,10 +51,10 @@ __attribute__((visibility("hidden")))
 - (_Bool)hasMergeRangesIntersectingCellRegion:(id)arg1;
 - (id)mergesIntersectingCellRegion:(id)arg1;
 - (id)mergesIntersectingRange:(struct TSUCellRect)arg1;
-- (vector_db509b29)mergeRangesAndCrumbsIntersectingRange:(struct TSUCellRect)arg1;
-- (vector_db509b29)mergeRangesIntersectingCellRegion:(id)arg1;
-- (vector_db509b29)mergeRangesIntersectingRange:(struct TSUCellRect)arg1;
-- (vector_db509b29)mergeRanges;
+- (vector_e87daf7b)mergeRangesAndCrumbsIntersectingRange:(struct TSUCellRect)arg1;
+- (vector_e87daf7b)mergeRangesIntersectingCellRegion:(id)arg1;
+- (vector_e87daf7b)mergeRangesIntersectingRange:(struct TSUCellRect)arg1;
+- (vector_e87daf7b)mergeRanges;
 - (id)mergedGridIndicesForDimension:(long long)arg1;
 - (void)insertAll:(id)arg1;
 - (void)enumerateMergeFormulasUsingBlock:(CDUnknownBlockType)arg1;

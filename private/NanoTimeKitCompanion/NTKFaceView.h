@@ -219,6 +219,8 @@
 - (void)setZoomFraction:(double)arg1 iconDiameter:(double)arg2;
 - (void)prepareToZoomWithIconView:(id)arg1 minDiameter:(double)arg2 maxDiameter:(double)arg3;
 - (_Bool)usesCustomZoom;
+- (void)_becameInactiveFace;
+- (void)_becameActiveFace;
 - (_Bool)_wantsOpportunisticLiveFaceLoading;
 - (_Bool)_canStartTimeScrubbing;
 - (_Bool)_supportsTimeScrubbing;
@@ -258,6 +260,7 @@
 - (id)complicationPickerViewForSlot:(id)arg1;
 - (void)setComplicationPickerView:(id)arg1 forSlot:(id)arg2;
 - (id)customEditingViewController;
+- (_Bool)presentedViewControllerShouldBecomeFirstResponder:(id)arg1;
 - (void)cleanupAfterTransitionComplicationSlot:(id)arg1;
 - (void)applyRubberBandingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)applyBreathingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;

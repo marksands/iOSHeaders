@@ -8,7 +8,5 @@
 
 @interface NSData (SafariServicesExtras)
 + (id)safari_readingListThumbnailImageDataWithCGImage:(struct CGImage *)arg1;
-- (id)safari_SHA1Hash;
-- (id)safari_dataByAppendingData:(id)arg1;
 @end
 

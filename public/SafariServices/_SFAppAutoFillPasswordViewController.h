@@ -4,40 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIViewController.h"
+#import <SafariServices/_SFPasswordViewController.h>
 
-#import "SFPasswordRemoteViewControllerDelegate.h"
-#import "SFQueueingServiceViewControllerProxyDelegate.h"
+@class SFPasswordRemoteViewController, SFQueueingServiceViewControllerProxy<SFPasswordPickerServiceViewControllerProtocol>;
 
-@class NSString, SFPasswordRemoteViewController, SFQueueingServiceViewControllerProxy<SFPasswordServiceViewControllerProtocol>, _UIAsyncInvocation;
-
-@interface _SFAppAutoFillPasswordViewController : UIViewController <SFPasswordRemoteViewControllerDelegate, SFQueueingServiceViewControllerProxyDelegate>
+@interface _SFAppAutoFillPasswordViewController : _SFPasswordViewController
 {
-    _UIAsyncInvocation *_cancelViewServiceRequest;
     SFPasswordRemoteViewController *_remoteViewController;
-    SFQueueingServiceViewControllerProxy<SFPasswordServiceViewControllerProtocol> *_serviceProxy;
-    _Bool _hasAttemptedAuthenticationForPasswords;
-    id <_SFAppAutoFillPasswordViewControllerDelegate> _delegate;
+    SFQueueingServiceViewControllerProxy<SFPasswordPickerServiceViewControllerProtocol> *_serviceProxy;
 }
 
-@property(nonatomic) __weak id <_SFAppAutoFillPasswordViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)serviceProxyWillQueueInvocation:(id)arg1;
+- (id)_remoteViewController;
+- (void)setWebViewURL:(id)arg1;
 - (void)authenticateToPresentInPopover:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)remoteViewController:(id)arg1 viewServiceDidTerminateWithError:(id)arg2;
-- (void)remoteViewControllerWillDismiss:(id)arg1;
-- (void)_addRemoteView;
-- (void)_addRemoteViewAsChild;
 - (void)viewDidLoad;
-- (void)_connectToService;
+- (id)_connectToServiceWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_setUpServiceProxyIfNeeded;
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

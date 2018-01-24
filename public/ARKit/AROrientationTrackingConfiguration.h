@@ -10,8 +10,12 @@
 {
 }
 
++ (id)supportedVideoFormats;
 + (id)new;
 - (id)init;
+
+// Remaining properties
+@property(nonatomic, getter=isAutoFocusEnabled) _Bool autoFocusEnabled; // @dynamic autoFocusEnabled;
 
 @end
 

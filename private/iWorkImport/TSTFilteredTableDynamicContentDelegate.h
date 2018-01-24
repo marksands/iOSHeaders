@@ -8,18 +8,19 @@
 
 #import "TSTLayoutDynamicContentProtocol.h"
 
-@class NSString, TSTTableModel;
+@class NSString, TSTInfo;
 
 __attribute__((visibility("hidden")))
 @interface TSTFilteredTableDynamicContentDelegate : NSObject <TSTLayoutDynamicContentProtocol>
 {
-    TSTTableModel *mTableModel;
+    TSTInfo *_tableInfo;
 }
 
+@property(retain, nonatomic) TSTInfo *tableInfo; // @synthesize tableInfo=_tableInfo;
+- (void).cxx_destruct;
 - (_Bool)dynamicContentMustDrawOnMainThread;
 - (_Bool)cell:(id *)arg1 forCellID:(struct TSUCellCoord)arg2;
-- (void)dealloc;
-- (id)initWithTableModel:(id)arg1;
+- (id)initWithTableInfo:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

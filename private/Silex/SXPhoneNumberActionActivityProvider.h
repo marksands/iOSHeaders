@@ -8,11 +8,11 @@
 
 #import "SXActionActivityProvider.h"
 
-@class NSString, SXHost;
+@class NSString;
 
 @interface SXPhoneNumberActionActivityProvider : NSObject <SXActionActivityProvider>
 {
-    SXHost *_host;
+    id <SXHost> _host;
     id <SXContactsPresenter> _contactsPresenter;
     id <SXMessagePresenter> _messagePresenter;
     id <SXDeviceCapabilities> _deviceCapabilities;
@@ -21,7 +21,7 @@
 @property(readonly, nonatomic) id <SXDeviceCapabilities> deviceCapabilities; // @synthesize deviceCapabilities=_deviceCapabilities;
 @property(readonly, nonatomic) id <SXMessagePresenter> messagePresenter; // @synthesize messagePresenter=_messagePresenter;
 @property(readonly, nonatomic) id <SXContactsPresenter> contactsPresenter; // @synthesize contactsPresenter=_contactsPresenter;
-@property(readonly, nonatomic) SXHost *host; // @synthesize host=_host;
+@property(readonly, nonatomic) id <SXHost> host; // @synthesize host=_host;
 - (void).cxx_destruct;
 - (void)copy:(id)arg1;
 - (void)addToContacts:(id)arg1;

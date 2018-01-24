@@ -11,10 +11,11 @@
 __attribute__((visibility("hidden")))
 @interface KNAnimationRegistryWithFallbacks : NSObject
 {
-    KNAnimationRegistry *mRegistry;
-    NSMutableDictionary *mFallbacks;
+    KNAnimationRegistry *_registry;
+    NSMutableDictionary *_fallbacks;
 }
 
+- (void).cxx_destruct;
 - (void)registerFallbackEffectIdentifer:(id)arg1 forEffectIdentifer:(id)arg2;
 - (id)animationInfoForEffectIdentifier:(id)arg1 animationType:(long long)arg2;
 - (id)init;

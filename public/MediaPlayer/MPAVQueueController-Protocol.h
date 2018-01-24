@@ -6,12 +6,10 @@
 
 #import "NSObject.h"
 
-@class MPAVController, MPAVItem, MPPlaybackContext, MPQueuePlayer, NSString;
+@class MPAVController, MPAVItem, MPPlaybackContext, NSString;
 
 @protocol MPAVQueueController <NSObject>
 @property(readonly, nonatomic) long long currentIndex;
-@property(readonly, nonatomic) _Bool isTransitioningSource;
-@property(readonly, nonatomic) MPQueuePlayer *player;
 @property(nonatomic) __weak MPAVController *avController;
 @property(readonly, nonatomic) _Bool allowsQueueResetWhenReachingEnd;
 @property(readonly, nonatomic) long long upNextItemCount;
@@ -29,8 +27,6 @@
 - (MPAVItem *)itemForPlaylistIndex:(long long)arg1;
 - (void)updateForSoundCheckDefaultsChange;
 - (void)handlePlaybackFailureForItem:(MPAVItem *)arg1;
-- (void)disconnectPlayer;
-- (void)connectPlayer;
 - (void)updateLocationDependentPropertiesForItem:(MPAVItem *)arg1;
 - (_Bool)isPlaceholderItemForContentItemID:(NSString *)arg1;
 - (MPAVItem *)itemForContentItemID:(NSString *)arg1;

@@ -62,6 +62,7 @@
 @property(copy) NSString *serverFriendlyDescription; // @synthesize serverFriendlyDescription=_serverFriendlyDescription;
 - (void).cxx_destruct;
 @property(readonly) NSString *phoneNumber;
+@property(readonly) _Bool isMultiUserMode;
 @property(readonly) _Bool isInternalBuild;
 @property(readonly) NSString *integratedCircuitCardIdentifier;
 @property(readonly) NSString *mobileEquipmentIdentifier;

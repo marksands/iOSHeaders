@@ -9,6 +9,7 @@
 @class HAPPairingIdentity, HMDDevice, NSString;
 
 @interface HMFMessage (RemoteMessage)
+@property(readonly, nonatomic) unsigned long long remoteRestriction;
 @property(readonly, nonatomic) HAPPairingIdentity *remoteUserPairingIdentity;
 @property(readonly, nonatomic) HMDDevice *remoteSourceDevice;
 @property(readonly, nonatomic) NSString *remoteSourceID;

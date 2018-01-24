@@ -14,6 +14,7 @@
 + (_Bool)convertNumber:(id)arg1 toFormMetadataRequestType:(unsigned long long *)arg2;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (id)metadataForActiveFormInPageWithMainFrame:(id)arg1;
 - (_Bool)shouldAttemptToClassifyFormsWithoutAPasswordFieldAsLoginForms;
 - (_Bool)shouldIncludeNonEmptyFields;
 - (id)visibleNonEmptyTextFieldsInForm:(id)arg1 inFrame:(id)arg2;
@@ -23,7 +24,7 @@
 - (void)addressBookAutoFillableFieldBlurred:(id)arg1 inFrame:(id)arg2 page:(id)arg3 textFieldMetadata:(id)arg4 formMetadata:(id)arg5;
 - (void)addressBookAutoFillableFieldFocused:(id)arg1 withAddressBookAutoFillableFieldMetadata:(id)arg2 inFrame:(id)arg3;
 - (void)usernameFieldBlurred:(id)arg1 inFrame:(id)arg2 page:(id)arg3 textFieldMetadata:(id)arg4 formMetadata:(id)arg5;
-- (void)usernameFieldFocused:(id)arg1 inForm:(id)arg2 inFrame:(id)arg3;
+- (void)usernameFieldFocused:(id)arg1 fieldMetadata:(id)arg2 inForm:(id)arg3 inFrame:(id)arg4;
 - (void)creditCardFieldBlurred:(id)arg1 inFrame:(id)arg2 page:(id)arg3 textFieldMetadata:(id)arg4 formMetadata:(id)arg5;
 - (void)creditCardFieldFocused:(id)arg1 inFrame:(id)arg2;
 - (void)passwordFieldBlurred:(id)arg1 inFrame:(id)arg2 page:(id)arg3 textFieldMetadata:(id)arg4 formMetadata:(id)arg5;

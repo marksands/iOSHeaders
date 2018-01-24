@@ -7,6 +7,6 @@
 @class MKPlaceAttributionCellButton;
 
 @protocol MKPlaceAttributionCellButtonDelegate
-- (void)attributionCellButton:(MKPlaceAttributionCellButton *)arg1 isHighighted:(_Bool)arg2;
+- (void)attributionCellButton:(MKPlaceAttributionCellButton *)arg1 isHighighted:(_Bool)arg2 executeAction:(_Bool)arg3;
 @end
 

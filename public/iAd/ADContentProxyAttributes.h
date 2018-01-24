@@ -11,10 +11,13 @@
 @interface ADContentProxyAttributes : NSObject
 {
     NSURL *_contentProxyURL;
+    NSURL *_contentProxyURLConnect;
 }
 
 + (id)sharedInstance;
+@property(copy, nonatomic) NSURL *contentProxyURLConnect; // @synthesize contentProxyURLConnect=_contentProxyURLConnect;
 @property(copy, nonatomic) NSURL *contentProxyURL; // @synthesize contentProxyURL=_contentProxyURL;
+- (void)contentProxyURLConnectDidChange:(id)arg1;
 - (void)contentProxyURLDidChange:(id)arg1;
 - (void)dealloc;
 

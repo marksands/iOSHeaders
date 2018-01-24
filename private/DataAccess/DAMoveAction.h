@@ -15,6 +15,7 @@
     NSString *_destinationContainerId;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSString *destinationContainerId; // @synthesize destinationContainerId=_destinationContainerId;
 @property(retain, nonatomic) NSString *sourceServerId; // @synthesize sourceServerId=_sourceServerId;
 @property(retain, nonatomic) NSString *sourceContainerId; // @synthesize sourceContainerId=_sourceContainerId;

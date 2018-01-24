@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, NSString;
+@class NSData, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CUSystemMonitor : NSObject
 {
@@ -16,6 +16,7 @@
     _Bool _invalidateCalled;
     _Bool _invalidateCalled2;
     CDUnknownBlockType _invalidationHandler;
+    CDUnknownBlockType _bluetoothAddressChangedHandler;
     CDUnknownBlockType _callChangedHandler;
     CDUnknownBlockType _meDeviceChangedHandler;
     CDUnknownBlockType _powerUnlimitedChangedHandler;
@@ -34,6 +35,7 @@
 @property(copy) CDUnknownBlockType powerUnlimitedChangedHandler; // @synthesize powerUnlimitedChangedHandler=_powerUnlimitedChangedHandler;
 @property(copy) CDUnknownBlockType meDeviceChangedHandler; // @synthesize meDeviceChangedHandler=_meDeviceChangedHandler;
 @property(copy) CDUnknownBlockType callChangedHandler; // @synthesize callChangedHandler=_callChangedHandler;
+@property(copy) CDUnknownBlockType bluetoothAddressChangedHandler; // @synthesize bluetoothAddressChangedHandler=_bluetoothAddressChangedHandler;
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
@@ -44,9 +46,12 @@
 @property(readonly) _Bool screenLocked;
 @property(readonly) _Bool primaryAppleIDIsHSA2;
 @property(readonly) _Bool powerUnlimited;
+@property(readonly) _Bool meDeviceValid;
 @property(readonly, copy) NSString *meDeviceName;
 @property(readonly, copy) NSString *meDeviceIDSDeviceID;
 @property(readonly, copy) NSString *meDeviceFMFDeviceID;
+@property(readonly, copy) NSData *bluetoothAddressData;
+@property(readonly) CDStruct_83abfce7 bluetoothAddress48;
 @property(readonly) int activeCallCount;
 - (void)invalidate;
 - (void)activateWithCompletion:(CDUnknownBlockType)arg1;

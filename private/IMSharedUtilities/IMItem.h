@@ -35,11 +35,17 @@
     NSData *_cloudKitServerChangeTokenBlob;
     NSString *_cloudKitRecordChangeTag;
     NSString *_parentChatID;
+    long long _srCloudKitSyncState;
+    NSString *_srCloudKitRecordID;
+    NSString *_srCloudKitRecordChangeTag;
 }
 
 + (_Bool)supportsSecureCoding;
 + (Class)classForMessageItemDictionary:(id)arg1;
 + (Class)classForIMItemType:(long long)arg1;
+@property(copy, nonatomic) NSString *srCloudKitRecordChangeTag; // @synthesize srCloudKitRecordChangeTag=_srCloudKitRecordChangeTag;
+@property(copy, nonatomic) NSString *srCloudKitRecordID; // @synthesize srCloudKitRecordID=_srCloudKitRecordID;
+@property(nonatomic) long long srCloudKitSyncState; // @synthesize srCloudKitSyncState=_srCloudKitSyncState;
 @property(copy, nonatomic) NSString *parentChatID; // @synthesize parentChatID=_parentChatID;
 @property(copy, nonatomic) NSString *cloudKitRecordChangeTag; // @synthesize cloudKitRecordChangeTag=_cloudKitRecordChangeTag;
 @property(copy, nonatomic) NSData *cloudKitServerChangeTokenBlob; // @synthesize cloudKitServerChangeTokenBlob=_cloudKitServerChangeTokenBlob;

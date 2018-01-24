@@ -22,10 +22,10 @@
     NSString *_uuid;
 }
 
-@property(copy, nonatomic) NSString *uuid;
+@property(copy, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 @property(nonatomic) int triggerEvent; // @synthesize triggerEvent=_triggerEvent;
 @property(copy, nonatomic) NSString *input; // @synthesize input=_input;
-@property(nonatomic) unsigned long long timestamp;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;
@@ -41,7 +41,6 @@
 @property(readonly, nonatomic) _Bool hasTimestamp;
 - (id)init;
 @property(readonly, nonatomic) _Bool requiresQueryId;
-- (id)initWithTriggerEvent:(int)arg1 input:(id)arg2 uuid:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

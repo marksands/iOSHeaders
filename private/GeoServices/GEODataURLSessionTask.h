@@ -7,19 +7,20 @@
 #import "NSObject.h"
 
 #import "GEODataSessionTask.h"
+#import "GEODataSessionUpdatableTask.h"
 #import "GEOStateCapturing.h"
 
-@class GEOClientMetrics, GEODataRequest, GEODataURLSessionTaskQueue, NSData, NSError, NSHTTPURLResponse, NSMutableData, NSObject<OS_dispatch_queue>, NSObject<OS_os_activity>, NSString, NSURL, NSURLRequest, NSURLSessionDataTask, NSURLSessionTaskMetrics;
+@class GEOClientMetrics, GEODataRequest, GEODataURLSessionTaskQueue, NSData, NSError, NSHTTPURLResponse, NSMutableData, NSObject<OS_dispatch_queue>, NSObject<OS_os_activity>, NSObject<OS_voucher>, NSString, NSURL, NSURLRequest, NSURLSessionDataTask, NSURLSessionTaskMetrics;
 
 __attribute__((visibility("hidden")))
-@interface GEODataURLSessionTask : NSObject <GEOStateCapturing, GEODataSessionTask>
+@interface GEODataURLSessionTask : NSObject <GEOStateCapturing, GEODataSessionTask, GEODataSessionUpdatableTask>
 {
     id <GEODataSessionTaskDelegate> _delegate;
     GEODataRequest *_request;
     NSObject<OS_dispatch_queue> *_delegateQueue;
     NSObject<OS_dispatch_queue> *_sessionIsolation;
     NSURLSessionDataTask *_backingTask;
-    NSError *_error;
+    NSError *_nonBackingTaskError;
     NSData *_cachedData;
     NSMutableData *_receivedData;
     NSURLSessionTaskMetrics *_urlTaskMetrics;
@@ -35,6 +36,8 @@ __attribute__((visibility("hidden")))
     _Bool _finished;
     unsigned int _qos;
     NSObject<OS_os_activity> *_activity;
+    NSObject<OS_voucher> *_voucher;
+    id <NSObject> _parsedResponse;
 }
 
 @property(nonatomic) unsigned int sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
@@ -51,6 +54,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) GEODataRequest *request; // @synthesize request=_request;
 @property(readonly) NSObject<OS_os_activity> *activity; // @synthesize activity=_activity;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) id <GEORequestCounterTicket> requestCounterTicket;
 - (void)notifyDelegateWithSession:(id)arg1;
 @property(readonly, nonatomic) NSString *remoteAddressAndPort;
 @property(readonly, nonatomic) GEOClientMetrics *clientMetrics;
@@ -58,7 +62,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long incomingPayloadSize;
 @property(readonly, nonatomic) unsigned long long outgoingPayloadSize;
 @property(readonly, nonatomic) NSURLRequest *originalURLRequest;
-@property(readonly, nonatomic) NSError *error;
+- (void)setParsedResponse:(id)arg1;
+@property(readonly, nonatomic) id <NSObject> parsedResponse;
+@property(retain, nonatomic) NSError *error;
 @property(readonly, nonatomic) NSHTTPURLResponse *response;
 @property(readonly, nonatomic) NSData *receivedData;
 @property(readonly, nonatomic) _Bool protocolBufferHasPreamble;

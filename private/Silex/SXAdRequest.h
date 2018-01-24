@@ -15,11 +15,13 @@
     NSDictionary *_componentMetadata;
     unsigned long long _adType;
     NSDictionary *_campaignData;
+    double _aspectRatioOfVideoPlayer;
     struct CGPoint _positionInArticle;
     struct CGSize _viewportSize;
     struct CGSize _contentSize;
 }
 
+@property(nonatomic) double aspectRatioOfVideoPlayer; // @synthesize aspectRatioOfVideoPlayer=_aspectRatioOfVideoPlayer;
 @property(nonatomic) _Bool dynamicPlacement; // @synthesize dynamicPlacement=_dynamicPlacement;
 @property(retain, nonatomic) NSDictionary *campaignData; // @synthesize campaignData=_campaignData;
 @property(nonatomic) struct CGSize contentSize; // @synthesize contentSize=_contentSize;

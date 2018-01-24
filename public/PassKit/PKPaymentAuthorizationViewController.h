@@ -19,6 +19,7 @@
     id <PKPaymentAuthorizationViewControllerPrivateDelegate> _privateDelegate;
 }
 
++ (void)paymentServicesMerchantURLForAPIType:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 + (void)paymentServicesMerchantURL:(CDUnknownBlockType)arg1;
 + (_Bool)canMakePaymentsUsingNetworks:(id)arg1 capabilities:(unsigned long long)arg2;
 + (_Bool)canMakePaymentsUsingNetworks:(id)arg1;
@@ -36,10 +37,6 @@
 - (void)paymentAuthorizationCoordinator:(id)arg1 didAuthorizePayment:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)paymentAuthorizationCoordinatorWillAuthorizePayment:(id)arg1;
 - (void)paymentAuthorizationCoordinator:(id)arg1 didRequestMerchantSession:(CDUnknownBlockType)arg2;
-- (void)_removeDeactivationReason:(id)arg1;
-- (void)_addDeactivationReason:(id)arg1;
-- (void)_unregisterForApplicationLifeCycleNotifications;
-- (void)_registerForApplicationLifeCycleNotifications;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (unsigned long long)supportedInterfaceOrientations;

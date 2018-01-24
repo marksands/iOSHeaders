@@ -18,8 +18,11 @@
 + (id)getLocalDefaultSoftwareUpdateAssetIfExists;
 + (void)purgeMSUUpdate:(CDUnknownBlockType)arg1;
 + (id)findAssetWithMatcher:(id)arg1 localSearch:(_Bool)arg2 releaseDate:(id *)arg3 error:(id *)arg4;
++ (void)setCleanupFilters:(id)arg1;
++ (void)setAssetQueryFilters:(id)arg1;
 + (id)findAssetWithMatcher:(id)arg1 localSearch:(_Bool)arg2 error:(id *)arg3;
 + (id)_gestaltValueForKey:(struct __CFString *)arg1;
++ (_Bool)requestCatalogDownload:(id)arg1;
 + (void)cleanupAllSoftwareUpdateAndRelatedAssets;
 + (void)cleanupAllSoftwareUpdateAssets;
 + (void)_cleanupAllAssetsOfType:(id)arg1;

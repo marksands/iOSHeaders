@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class ICRadioPlaybackHistory, ICRadioPlaybackHistoryStore, ICStoreRequestContext, MPModelRadioStation, MPSectionedCollection, NSMutableArray, NSString, _MPCModelRadioPlaybackQueueAVItemSection, _MPCModelRadioPlaybackQueueStationTracksSection;
+@class ICRadioPlaybackHistory, ICRadioPlaybackHistoryStore, ICStoreRequestContext, MPModelRadioStation, MPSectionedCollection, NSMutableArray, NSString, _MPCModelRadioPlaybackQueueAVItemSection, _MPCModelRadioPlaybackQueueExternalFeederSection, _MPCModelRadioPlaybackQueueStationTracksSection;
 
 @interface MPCModelRadioPlaybackQueue : NSObject
 {
     NSString *_originalStationName;
     _MPCModelRadioPlaybackQueueAVItemSection *_placeholderItemSection;
     ICRadioPlaybackHistoryStore *_playbackHistoryStore;
-    _MPCModelRadioPlaybackQueueAVItemSection *_prefixItemSection;
+    _MPCModelRadioPlaybackQueueExternalFeederSection *_prefixItemSection;
     MPModelRadioStation *_radioStation;
     NSMutableArray *_sections;
     _MPCModelRadioPlaybackQueueStationTracksSection *_stationTracksSection;

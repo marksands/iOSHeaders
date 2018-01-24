@@ -26,7 +26,7 @@ struct vector<dispatch::block<void (^)(NSDictionary *)>, std::__1::allocator<dis
     struct block<void (^)(NSDictionary *)> *__begin_;
     struct block<void (^)(NSDictionary *)> *__end_;
     struct __compressed_pair<dispatch::block<void (^)(NSDictionary *)>*, std::__1::allocator<dispatch::block<void (^)(NSDictionary *)>>> {
-        struct block<void (^)(NSDictionary *)> *__first_;
+        struct block<void (^)(NSDictionary *)> *__value_;
     } __end_cap_;
 };
 

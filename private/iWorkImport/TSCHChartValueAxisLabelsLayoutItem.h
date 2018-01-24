@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
 - (id)labelStringForAxis:(id)arg1 index:(unsigned long long)arg2;
 - (double)unitSpaceValueForAxis:(id)arg1 index:(unsigned long long)arg2;
 - (unsigned long long)numberOfLabelsForAxis:(id)arg1;
-- (void)dealloc;
 - (id)initWithParent:(id)arg1;
 
 @end

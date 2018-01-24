@@ -36,6 +36,7 @@
 @property(readonly, nonatomic) _Bool iCloudDriveAllowsCellularAccess;
 @property(readonly, nonatomic) _Bool isFakeAccount;
 @property(readonly, nonatomic) NSString *serverPreferredPushEnvironment;
+- (_Bool)canRenew;
 - (id)iCloudAuthTokenWithError:(id *)arg1;
 - (id)cloudKitAuthTokenWithError:(id *)arg1;
 @property(readonly, nonatomic) NSPersonNameComponents *fullName;

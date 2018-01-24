@@ -16,7 +16,10 @@
 }
 
 @property(readonly) struct Object *_apiObject;
+- (void)removeVisitedLinkWithURL:(id)arg1;
+- (_Bool)containsVisitedLinkWithURL:(id)arg1;
 - (void)removeAll;
+- (void)addVisitedLinkWithString:(id)arg1;
 - (void)addVisitedLinkWithURL:(id)arg1;
 - (void)dealloc;
 - (id)init;

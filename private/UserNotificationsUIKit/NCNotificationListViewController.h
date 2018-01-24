@@ -118,6 +118,7 @@
 - (void)handleEatenTouchEndStateForGestureRecognizer:(id)arg1;
 - (void)handleEatenTouchBeginStateForGestureRecognizer:(id)arg1;
 - (_Bool)shouldReceiveTouch:(id)arg1 forGestureRecognizer:(id)arg2;
+- (_Bool)isNotificationListCellVisibleForNotificationRequest:(id)arg1;
 - (void)listViewControllerPresentedByUserAction;
 @property(readonly, nonatomic) NSString *backgroundGroupName;
 @property(readonly, nonatomic) double itemSpacing;

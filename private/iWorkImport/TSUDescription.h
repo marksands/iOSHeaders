@@ -23,9 +23,10 @@ __attribute__((visibility("hidden")))
 
 + (id)descriptionWithObject:(id)arg1;
 + (id)descriptionWithCFType:(void *)arg1 format:(id)arg2;
-+ (id)descriptionWithObject:(id)arg1 class:(Class)arg2;
 + (id)descriptionWithObject:(id)arg1 format:(id)arg2;
++ (id)descriptionWithObject:(id)arg1 class:(Class)arg2;
 + (id)descriptionWithObject:(id)arg1 class:(Class)arg2 format:(id)arg3;
+- (void).cxx_destruct;
 - (id)descriptionString;
 - (void)setFieldOptionCommaSeparated;
 - (void)addSuperDescription;
@@ -34,7 +35,6 @@ __attribute__((visibility("hidden")))
 - (void)addField:(id)arg1 format:(id)arg2;
 - (void)addField:(id)arg1 value:(id)arg2;
 - (id)p_header;
-- (void)dealloc;
 - (id)initWithObject:(id)arg1;
 - (id)initWithObject:(id)arg1 format:(id)arg2;
 - (id)initWithObject:(id)arg1 class:(Class)arg2 format:(id)arg3;

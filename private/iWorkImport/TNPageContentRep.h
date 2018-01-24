@@ -14,7 +14,6 @@ __attribute__((visibility("hidden")))
 - (Class)layerClass;
 - (_Bool)isOpaque;
 - (struct CGRect)clipRect;
-- (void)updateLayerGeometryFromLayout:(id)arg1;
 - (_Bool)directlyManagesLayerContent;
 - (_Bool)masksToBounds;
 

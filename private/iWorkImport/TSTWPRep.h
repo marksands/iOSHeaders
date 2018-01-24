@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)recursivelyDrawInContext:(struct CGContext *)arg1;
 
 @end

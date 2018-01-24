@@ -4,102 +4,75 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <SafariShared/WBSParsecModel.h>
+#import "NSObject.h"
 
 #import "WBSCompletionListItem.h"
+#import "WBSParsecSearchGenericResult.h"
+#import "WBSParsecSearchMapsResult.h"
+#import "WBSParsecSearchResult.h"
+#import "WBSParsecSearchSimpleResult.h"
 
-@class MKMapItem, NSArray, NSDictionary, NSNumber, NSString, NSURL, SFResultSection, SFSearchResult, WBSParsecActionButton, WBSParsecImageRepresentation, WBSQuerySuggestion;
+@class MKMapItem, NSArray, NSNumber, NSString, NSURL, SFSearchResult, WBSParsecActionButton, WBSParsecAuxiliaryInfo, WBSParsecImageRepresentation, WBSParsecLegacySearchResult, WBSParsecSearchMapsResultFeedbackSender, WBSQuerySuggestion;
 
-@interface WBSParsecSearchResult : WBSParsecModel <WBSCompletionListItem>
+@interface WBSParsecSearchResult : NSObject <WBSParsecSearchResult, WBSCompletionListItem, WBSParsecSearchGenericResult, WBSParsecSearchMapsResult, WBSParsecSearchSimpleResult>
 {
-    WBSParsecImageRepresentation *_icon;
-    WBSParsecImageRepresentation *_completionIcon;
-    NSURL *_reportProblemURL;
-    _Bool _topHit;
-    SFSearchResult *_sfSearchResult;
-    NSString *_title;
-    NSString *_descriptionText;
-    NSString *_identifier;
-    NSString *_feedbackIdentifier;
-    NSString *_urlString;
-    NSString *_sectionHeader;
-    NSString *_iTunesItemIdentifier;
-    NSString *_completion;
-    NSString *_query;
-    unsigned long long _type;
-    NSString *_typeString;
-    unsigned long long _minimumRankOfTopHitToSuppressResult;
-    NSString *_appName;
-    NSString *_appBundleIdentifier;
-    NSURL *_appInstallURL;
-    NSURL *_appPunchoutURL;
-    NSString *_mediaKind;
-    NSString *_referrerForLoadingResult;
-    NSArray *_cardSections;
-    WBSParsecActionButton *_actionButton;
-    NSURL *_cardURL;
-    NSNumber *_cardLoadHint;
-    MKMapItem *_mapItem;
-    NSArray *_additionalMapItems;
-    SFSearchResult *_sfSearchResultValue;
-    SFResultSection *_sfResultSection;
-    NSArray *_supportedStyleOverrides;
-    NSDictionary *_styleOverrides;
+    WBSParsecLegacySearchResult *_legacySearchResult;
 }
 
-+ (Class)_resultClassForDictionary:(id)arg1;
-+ (id)resultWithDictionary:(id)arg1;
-+ (id)searchResultSchemaForCardDetailRequest;
-+ (id)_specializedSchema;
-+ (id)schema;
-+ (Class)replacementClass;
-+ (void)setReplacementClass:(Class)arg1;
-+ (id)allocWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) WBSParsecImageRepresentation *completionIcon; // @synthesize completionIcon=_completionIcon;
-@property(readonly, nonatomic) WBSParsecImageRepresentation *icon; // @synthesize icon=_icon;
-@property(readonly, nonatomic) NSDictionary *styleOverrides; // @synthesize styleOverrides=_styleOverrides;
-@property(readonly, nonatomic) NSArray *supportedStyleOverrides; // @synthesize supportedStyleOverrides=_supportedStyleOverrides;
-@property(retain, nonatomic) SFResultSection *sfResultSection; // @synthesize sfResultSection=_sfResultSection;
-@property(retain, nonatomic) SFSearchResult *sfSearchResultValue; // @synthesize sfSearchResultValue=_sfSearchResultValue;
-@property(readonly, nonatomic) NSArray *additionalMapItems; // @synthesize additionalMapItems=_additionalMapItems;
-@property(readonly, nonatomic) MKMapItem *mapItem; // @synthesize mapItem=_mapItem;
-@property(readonly, nonatomic) NSNumber *cardLoadHint; // @synthesize cardLoadHint=_cardLoadHint;
-@property(readonly, nonatomic) NSURL *cardURL; // @synthesize cardURL=_cardURL;
-@property(readonly, nonatomic) WBSParsecActionButton *actionButton; // @synthesize actionButton=_actionButton;
-@property(copy, nonatomic) NSArray *cardSections; // @synthesize cardSections=_cardSections;
-@property(readonly, copy, nonatomic) NSString *referrerForLoadingResult; // @synthesize referrerForLoadingResult=_referrerForLoadingResult;
-@property(readonly, copy, nonatomic) NSString *mediaKind; // @synthesize mediaKind=_mediaKind;
-@property(readonly, nonatomic) NSURL *appPunchoutURL; // @synthesize appPunchoutURL=_appPunchoutURL;
-@property(readonly, nonatomic) NSURL *appInstallURL; // @synthesize appInstallURL=_appInstallURL;
-@property(readonly, nonatomic) NSString *appBundleIdentifier; // @synthesize appBundleIdentifier=_appBundleIdentifier;
-@property(readonly, nonatomic) NSString *appName; // @synthesize appName=_appName;
-@property(readonly, nonatomic) unsigned long long minimumRankOfTopHitToSuppressResult; // @synthesize minimumRankOfTopHitToSuppressResult=_minimumRankOfTopHitToSuppressResult;
-@property(readonly, copy, nonatomic) NSString *typeString; // @synthesize typeString=_typeString;
-@property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
-@property(readonly, copy, nonatomic) NSString *query; // @synthesize query=_query;
-@property(readonly, nonatomic) NSString *completion; // @synthesize completion=_completion;
-@property(readonly, copy, nonatomic) NSString *iTunesItemIdentifier; // @synthesize iTunesItemIdentifier=_iTunesItemIdentifier;
-@property(readonly, nonatomic) NSString *sectionHeader; // @synthesize sectionHeader=_sectionHeader;
-@property(readonly, nonatomic) NSString *urlString; // @synthesize urlString=_urlString;
-@property(readonly, nonatomic) NSString *feedbackIdentifier; // @synthesize feedbackIdentifier=_feedbackIdentifier;
-@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(readonly, nonatomic) NSString *descriptionText; // @synthesize descriptionText=_descriptionText;
-@property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, nonatomic) WBSParsecLegacySearchResult *legacySearchResult; // @synthesize legacySearchResult=_legacySearchResult;
 - (void).cxx_destruct;
-- (void)_setStyleOverridesWithDictionary:(id)arg1;
-- (id)_glyphsFromGlyphRepresentations:(id)arg1 withSession:(id)arg2;
-- (id)_glyphRepresentationsFromGlyphDictionaries:(id)arg1;
-- (_Bool)canBecomeTopHitForQuery:(id)arg1;
+- (id)_simpleResult;
+- (id)_mapsResult;
+- (id)_genericResult;
+- (id)_result;
+- (id)titleGlyphWithSession:(id)arg1;
+@property(readonly, nonatomic) _Bool hasSingleLineDescriptionAndTitle;
+@property(readonly, nonatomic) _Bool descriptionTextCanWrap;
+@property(readonly, nonatomic) NSNumber *descriptionMaximumNumberOfLines;
+@property(readonly, nonatomic) NSString *descriptionLeadInText;
+@property(readonly, nonatomic) NSNumber *titleMaximumNumberOfLines;
+@property(retain, nonatomic) WBSParsecSearchMapsResultFeedbackSender *mapsFeedbackSender;
+@property(retain, nonatomic) id <WBSParsecSearchSession> parsecSearchSession;
+- (id)thumbnailWithSession:(id)arg1;
+@property(readonly, nonatomic) WBSParsecImageRepresentation *thumbnail;
+@property(readonly, nonatomic) WBSParsecAuxiliaryInfo *auxiliaryInfo;
+@property(readonly, nonatomic) WBSParsecImageRepresentation *secondaryTitleGlyph;
+@property(readonly, copy, nonatomic) NSString *secondaryTitle;
+@property(readonly, copy, nonatomic) NSString *footnote;
+@property(readonly, copy, nonatomic) NSArray *descriptionRichTexts;
+@property(readonly, nonatomic) NSNumber *titleMaximumLines;
 @property(readonly, nonatomic) unsigned long long engagementDestination;
+@property(readonly, nonatomic) NSString *parsecDomainIdentifier;
 - (id)completionIconWithSession:(id)arg1;
 - (id)iconWithSession:(id)arg1;
-@property(readonly, nonatomic) NSString *parsecDomainIdentifier;
-@property(readonly, nonatomic) NSURL *reportProblemURL;
-@property(readonly, copy) NSString *description;
-- (id)initWithDictionary:(id)arg1;
+@property(readonly, nonatomic) WBSParsecImageRepresentation *completionIcon;
+@property(readonly, nonatomic) WBSParsecImageRepresentation *icon;
+@property(readonly, copy, nonatomic) NSString *sectionBundleIdentifier;
+@property(readonly, nonatomic) SFSearchResult *sfSearchResultValue;
+- (_Bool)canBecomeTopHitForQuery:(id)arg1;
+@property(readonly, nonatomic) NSArray *additionalMapItems;
+@property(readonly, nonatomic) MKMapItem *mapItem;
+@property(readonly, nonatomic) WBSParsecActionButton *actionButton;
+@property(readonly, copy, nonatomic) NSString *referrerForLoadingResult;
+@property(readonly, copy, nonatomic) NSString *mediaKind;
+@property(readonly, nonatomic) NSURL *appPunchoutURL;
+@property(readonly, nonatomic) unsigned long long minimumRankOfTopHitToSuppressResult;
+@property(readonly, copy, nonatomic) NSString *query;
+@property(readonly, nonatomic) NSString *completion;
+@property(readonly, nonatomic) NSString *sectionHeader;
+@property(readonly, nonatomic) NSString *urlString;
+@property(readonly, nonatomic) NSString *feedbackIdentifier;
+@property(readonly, nonatomic) NSString *identifier;
+@property(readonly, nonatomic) NSString *descriptionText;
+@property(readonly, nonatomic) NSString *title;
+@property(readonly, nonatomic) long long subtype;
+@property(readonly, nonatomic) long long type;
+- (id)initWithLegacySearchResult:(id)arg1;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSString *lastSearchQuery;
 @property(retain, nonatomic) WBSQuerySuggestion *siriSuggestion;

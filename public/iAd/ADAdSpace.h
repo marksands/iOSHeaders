@@ -10,7 +10,7 @@
 #import "ADPrivacyViewControllerInternalDelegate.h"
 #import "ADWebViewActionViewControllerDelegate.h"
 
-@class ADAdActionPublicAttributes, ADAdImpressionPublicAttributes, ADAdSpaceConfiguration, ADContext, ADCreativeController, ADPrivacyViewController, ADRemoteActionViewController, ADWebViewActionViewController, NSString, NSURL, _UIAsyncInvocation;
+@class ADAdActionPublicAttributes, ADAdImpressionPublicAttributes, ADAdSpaceConfiguration, ADContext, ADCreativeController, ADPrivacyViewController, ADRemoteActionViewController, ADWebViewActionViewController, NSArray, NSString, NSURL, _UIAsyncInvocation;
 
 @interface ADAdSpace : NSObject <ADPrivacyViewControllerInternalDelegate, ADWebViewActionViewControllerDelegate, ADCreativeControllerDelegate>
 {
@@ -29,6 +29,9 @@
     _Bool _actionViewControllerWantsDismissal;
     _Bool _fastVisibilityContextIsFeed;
     _Bool _shouldTearDownCreativeControllerAfterDismissingRemoteActionViewController;
+    _Bool _adLibManagedVideo;
+    _Bool _privacyRequestInProgress;
+    int _videoPlayCount;
     NSString *_identifier;
     NSURL *_serverURL;
     NSString *_advertisingSection;
@@ -36,18 +39,28 @@
     ADContext *_context;
     ADAdImpressionPublicAttributes *_currentAdImpressionPublicAttributes;
     ADAdActionPublicAttributes *_currentActionPublicAttributes;
+    unsigned long long _reUseCount;
     long long _visibility;
     double _lastSlowCheck;
     ADCreativeController *_creativeController;
     ADRemoteActionViewController *_remoteActionViewController;
     ADWebViewActionViewController *_webViewActionViewController;
     _UIAsyncInvocation *_remoteViewControllerRequestCancelationInvocation;
+    long long _visibilityPercentage;
+    long long _progressMileStoneMet;
+    NSArray *_prerollVideoAssets;
     ADPrivacyViewController *_privacyViewController;
     struct CGRect _selectedAdFrame;
 }
 
 + (id)ADIdentifierNameForCreativeType:(int)arg1;
+@property(nonatomic) _Bool privacyRequestInProgress; // @synthesize privacyRequestInProgress=_privacyRequestInProgress;
 @property(retain, nonatomic) ADPrivacyViewController *privacyViewController; // @synthesize privacyViewController=_privacyViewController;
+@property(retain, nonatomic) NSArray *prerollVideoAssets; // @synthesize prerollVideoAssets=_prerollVideoAssets;
+@property(nonatomic) long long progressMileStoneMet; // @synthesize progressMileStoneMet=_progressMileStoneMet;
+@property(nonatomic) int videoPlayCount; // @synthesize videoPlayCount=_videoPlayCount;
+@property(nonatomic) long long visibilityPercentage; // @synthesize visibilityPercentage=_visibilityPercentage;
+@property(nonatomic) _Bool adLibManagedVideo; // @synthesize adLibManagedVideo=_adLibManagedVideo;
 @property(nonatomic) _Bool shouldTearDownCreativeControllerAfterDismissingRemoteActionViewController; // @synthesize shouldTearDownCreativeControllerAfterDismissingRemoteActionViewController=_shouldTearDownCreativeControllerAfterDismissingRemoteActionViewController;
 @property(nonatomic) _Bool fastVisibilityContextIsFeed; // @synthesize fastVisibilityContextIsFeed=_fastVisibilityContextIsFeed;
 @property(nonatomic) _Bool actionViewControllerWantsDismissal; // @synthesize actionViewControllerWantsDismissal=_actionViewControllerWantsDismissal;
@@ -63,6 +76,7 @@
 @property(nonatomic) _Bool adRequestMade; // @synthesize adRequestMade=_adRequestMade;
 @property(nonatomic) _Bool visibilityCheckScheduled; // @synthesize visibilityCheckScheduled=_visibilityCheckScheduled;
 @property(nonatomic) long long visibility; // @synthesize visibility=_visibility;
+@property(nonatomic) unsigned long long reUseCount; // @synthesize reUseCount=_reUseCount;
 @property(nonatomic) _Bool hasImpressed; // @synthesize hasImpressed=_hasImpressed;
 @property(nonatomic) _Bool didInstallCreativeView; // @synthesize didInstallCreativeView=_didInstallCreativeView;
 @property(nonatomic) struct CGRect selectedAdFrame; // @synthesize selectedAdFrame=_selectedAdFrame;
@@ -76,6 +90,21 @@
 @property(copy, nonatomic) NSString *advertisingSection; // @synthesize advertisingSection=_advertisingSection;
 @property(copy, nonatomic) NSURL *serverURL; // @synthesize serverURL=_serverURL;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (void)creativeControllerVideoVolumeChanged:(float)arg1;
+- (void)creativeControllerVideoExitFullScreenTapped;
+- (void)creativeControllerVideoFullScreenTapped;
+- (void)creativeControllerVideoSkipAdTapped;
+- (void)creativeControllerVideoMoreInfoTapped;
+- (void)creativeControllerVideoUnmuted;
+- (void)creativeControllerVideoMuted;
+- (void)creativeControllerVideoViewabilityChanged:(_Bool)arg1;
+- (void)creativeControllerVideoCompleted;
+- (void)creativeControllerVideoProgressed:(float)arg1;
+- (void)creativeControllerVideoPaused:(float)arg1;
+- (void)creativeControllerVideoResumedPlaying:(float)arg1;
+- (void)creativeControllerVideoStartedPlaying:(float)arg1;
+- (void)creativeControllerVideoCreativeViewLoaded;
+- (void)creativeControllerNavigationAttemptBlockedDueToAccidentalTap;
 - (void)creativeControllerTapGestureTimerDidExpireBeforePrimaryActionWasInvoked;
 - (void)creativeControllerViewDidRequestOpenURL:(id)arg1 withTapLocation:(struct CGPoint)arg2;
 - (void)creativeControllerViewDidRequestExpandURL:(id)arg1 withMaximumSize:(struct CGSize)arg2 withTapLocation:(struct CGPoint)arg3;
@@ -94,6 +123,7 @@
 - (void)impressionPublicAttributesDidLoad:(id)arg1;
 - (void)adPrivacyViewControllerDidLinkOut:(id)arg1;
 - (void)adPrivacyViewControllerDidRenderTransparency:(id)arg1;
+- (void)adPrivacyViewControllerDidDisappear:(id)arg1;
 - (void)adPrivacyViewControllerDidAppear:(id)arg1;
 - (void)adPrivacyViewController:(id)arg1 didFailWithError:(id)arg2;
 - (void)adPrivacyViewControllerDidDismiss:(id)arg1;
@@ -114,6 +144,7 @@
 - (void)startVisibilityMonitoring;
 - (void)internalAdTypeDidChange;
 - (id)_updateIdentifier;
+- (id)_videoAssetsForVideoURL:(id)arg1;
 - (void)updateCreativeControllerVisibility;
 - (void)updateVisibility;
 - (void)_presentPrivacyViewController;
@@ -133,6 +164,8 @@
 @property(readonly, copy) NSString *description;
 - (id)initForRecipient:(id)arg1;
 - (void)dealloc;
+- (void)captureEvent:(id)arg1 forVideoState:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)captureEvent:(id)arg1 completion:(CDUnknownBlockType)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

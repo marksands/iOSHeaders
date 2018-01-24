@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSObject<TSWPColumnMetrics>, NSObject<TSWPTopicNumberHints>, TSDCanvas, TSDDrawableInfo, TSDLayout, TSPObject<TSDHint>, TSUBezierPath, TSWPStorage;
+@class NSArray, NSMutableArray, NSObject<TSWPColumnMetrics>, NSObject<TSWPTopicNumberHints>, TSDCanvas, TSDLayout, TSDWrapSegments, TSPObject<TSDHint>, TSUBezierPath, TSWPStorage;
 
 @protocol TSWPLayoutTarget <NSObject>
 @property(readonly, nonatomic) double maxAnchorY;
@@ -31,10 +31,10 @@
 @property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider;
 @property(readonly, nonatomic) id <TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
 @property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *nextTargetTopicNumbers;
-@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
+@property(readonly, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
 @property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *previousTargetTopicNumbers;
-@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
-@property(readonly, retain, nonatomic) NSMutableArray *columns;
+@property(readonly, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
+@property(readonly, nonatomic) NSMutableArray *columns;
 - (_Bool)isLayoutOffscreen;
 - (void)addAttachmentLayout:(TSDLayout *)arg1;
 - (NSArray *)currentAnchoredDrawableLayouts;
@@ -47,6 +47,7 @@
 - (NSObject<TSWPColumnMetrics> *)columnMetricsForCharIndex:(unsigned long long)arg1 outRange:(struct _NSRange *)arg2;
 
 @optional
+@property(readonly, nonatomic) _Bool marginsAreMirrored;
 @property(readonly, nonatomic) _Bool isLinked;
 @property(readonly, nonatomic) _Bool repShouldPreventCaret;
 @property(readonly, nonatomic) struct __CFLocale *hyphenationLocale;
@@ -55,7 +56,7 @@
 @property(readonly, nonatomic) TSDCanvas *canvas;
 @property(retain, nonatomic) NSMutableArray *anchoredDrawablesForRelayout;
 @property(readonly, nonatomic) struct CGRect maskRect;
-- (_Bool)siblingTargetIsManipulatingDrawable:(TSDDrawableInfo *)arg1;
+- (TSDWrapSegments *)interiorWrapSegments;
 - (TSUBezierPath *)interiorClippingPath;
 - (_Bool)invalidateForPageCountChange;
 - (unsigned int)pageIndex;

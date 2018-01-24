@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface WKRemoteObjectEncoder : NSCoder
 {
-    struct RefPtr<API::Dictionary> _rootDictionary;
+    struct RefPtr<API::Dictionary, WTF::DumbPtrTraits<API::Dictionary>> _rootDictionary;
     struct Array *_objectStream;
     struct Dictionary *_currentDictionary;
 }

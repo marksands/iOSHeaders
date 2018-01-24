@@ -11,6 +11,7 @@
 @interface HMDCloudTransaction : HMFObject
 {
     _Bool _needConflictResolution;
+    _Bool _iCloudSwitchStateEnabled;
     _Bool _temporaryCache;
     _Bool _createZone;
     _Bool _zoneWasCreated;
@@ -39,6 +40,7 @@
 @property(nonatomic, getter=shouldCreateZone) _Bool createZone; // @synthesize createZone=_createZone;
 @property(readonly, nonatomic, getter=isTemporaryCache) _Bool temporaryCache; // @synthesize temporaryCache=_temporaryCache;
 @property(retain, nonatomic) CKServerChangeToken *updatedServerChangeToken; // @synthesize updatedServerChangeToken=_updatedServerChangeToken;
+@property(nonatomic) _Bool iCloudSwitchStateEnabled; // @synthesize iCloudSwitchStateEnabled=_iCloudSwitchStateEnabled;
 @property(nonatomic) _Bool needConflictResolution; // @synthesize needConflictResolution=_needConflictResolution;
 @property(nonatomic) __weak HMDCloudZone *cloudZone; // @synthesize cloudZone=_cloudZone;
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;

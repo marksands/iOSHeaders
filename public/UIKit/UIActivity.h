@@ -46,6 +46,8 @@
 - (id)_thumbnailImageForActivityItem:(id)arg1;
 - (id)_dataTypeIdentifierForActivityItem:(id)arg1;
 - (id)_subjectForActivityItem:(id)arg1;
+- (_Bool)_supportsOpenInPlace;
+- (_Bool)_appIsDocumentTypeOwner;
 - (long long)_defaultSortGroup;
 - (id)_activityTypeUsingFallbackActivityTypeIfNecessary;
 - (void)activityDidFinish:(_Bool)arg1;

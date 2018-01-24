@@ -17,6 +17,7 @@
     NSString *_messageId;
     NSString *_externalReferenceId;
     NSData *_textData;
+    unsigned long long _originalContentSize;
     NSArray *_attachments;
 }
 
@@ -24,6 +25,7 @@
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool partiallyLoaded; // @synthesize partiallyLoaded=_partiallyLoaded;
 @property(retain, nonatomic) NSArray *attachments; // @synthesize attachments=_attachments;
+@property(nonatomic) unsigned long long originalContentSize; // @synthesize originalContentSize=_originalContentSize;
 @property(retain, nonatomic) NSData *textData; // @synthesize textData=_textData;
 @property(nonatomic) _Bool mainAlternativeValid; // @synthesize mainAlternativeValid=_mainAlternativeValid;
 @property(retain, nonatomic) NSString *externalReferenceId; // @synthesize externalReferenceId=_externalReferenceId;

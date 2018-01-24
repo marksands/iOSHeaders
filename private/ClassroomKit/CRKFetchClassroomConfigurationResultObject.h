@@ -11,9 +11,11 @@
 @interface CRKFetchClassroomConfigurationResultObject : CATTaskResultObject
 {
     NSDictionary *_configuration;
+    NSDictionary *_configurationsByType;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSDictionary *configurationsByType; // @synthesize configurationsByType=_configurationsByType;
 @property(copy, nonatomic) NSDictionary *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

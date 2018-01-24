@@ -12,6 +12,7 @@
 {
     _Bool _allowLocalEquivalencies;
     _Bool _shouldIgnoreCache;
+    _Bool _shouldRequireCachedResults;
     unsigned long long _reason;
     NSArray *_itemIdentifiers;
     NSNumber *_timeoutInterval;
@@ -32,6 +33,7 @@
 @property(copy, nonatomic) ICClientInfo *clientInfo; // @synthesize clientInfo=_clientInfo;
 @property(nonatomic) long long personalizationStyle; // @synthesize personalizationStyle=_personalizationStyle;
 @property(copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
+@property(nonatomic) _Bool shouldRequireCachedResults; // @synthesize shouldRequireCachedResults=_shouldRequireCachedResults;
 @property(nonatomic) _Bool shouldIgnoreCache; // @synthesize shouldIgnoreCache=_shouldIgnoreCache;
 @property(nonatomic) double retryDelay; // @synthesize retryDelay=_retryDelay;
 @property(copy, nonatomic) NSString *platform; // @synthesize platform=_platform;

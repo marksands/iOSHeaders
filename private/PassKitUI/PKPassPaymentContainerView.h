@@ -8,14 +8,16 @@
 
 #import "PKAuthenticatorDelegate.h"
 #import "PKContactlessInterfaceSessionDelegate.h"
+#import "PKForegroundActiveArbiterObserver.h"
 #import "PKPassPaymentApplicationViewDelegate.h"
 #import "PKPassPaymentPayStateViewDelegate.h"
 #import "PKPassPaymentSummaryViewDelegate.h"
 #import "PKPaymentServiceDelegate.h"
+#import "PKUIForegroundActiveArbiterDeactivationObserver.h"
 
 @class NSMutableArray, NSNumber, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, PKAuthenticator, PKContactlessInterfaceSession, PKFooterTransactionView, PKPassLibrary, PKPassPaymentApplicationView, PKPassPaymentPayStateView, PKPassPaymentSummaryView, PKPassPeerPaymentAccountResolutionView, PKPassValueAddedServiceInfoView, PKPaymentService, PKPeerPaymentAccountResolutionController, PKPeerPaymentContactResolver, PKPeerPaymentService, PKPhysicalButtonView, UIButton, UIView, UIViewController;
 
-@interface PKPassPaymentContainerView : PKPassFooterContentView <PKPaymentServiceDelegate, PKAuthenticatorDelegate, PKPassPaymentSummaryViewDelegate, PKPassPaymentPayStateViewDelegate, PKPassPaymentApplicationViewDelegate, PKContactlessInterfaceSessionDelegate>
+@interface PKPassPaymentContainerView : PKPassFooterContentView <PKPaymentServiceDelegate, PKAuthenticatorDelegate, PKPassPaymentSummaryViewDelegate, PKPassPaymentPayStateViewDelegate, PKPassPaymentApplicationViewDelegate, PKContactlessInterfaceSessionDelegate, PKForegroundActiveArbiterObserver, PKUIForegroundActiveArbiterDeactivationObserver>
 {
     PKPaymentService *_paymentService;
     PKAuthenticator *_authenticator;
@@ -58,8 +60,8 @@
     _Bool _presentingPasscode;
     _Bool _requiresPasscodeDismissal;
     UIViewController *_passcodePresenterVC;
-    _Bool _inBackground;
-    unsigned long long _deactivationReasons;
+    CDStruct_973bafd3 _foregroundActiveState;
+    unsigned int _deactivationReasons;
     _Bool _isVisible;
     _Bool _valueAddedServiceInfoViewHidden;
     _Bool _waitingForPasses;
@@ -133,18 +135,18 @@
 - (void)_configureForValueAddedServiceWithPass:(id)arg1 context:(id)arg2;
 - (void)_configureForPaymentWithPaymentPass:(id)arg1 context:(id)arg2;
 - (void)_configureForStyle:(long long)arg1 context:(id)arg2;
-- (_Bool)_isForegroundActiveWithReasons:(unsigned long long)arg1;
-- (_Bool)_isInBackgroundWithReasons:(unsigned long long)arg1;
-- (_Bool)_isDeactivatedWithReasons:(unsigned long long)arg1;
-- (void)_handleRemoveDeactivationReasonNotification:(id)arg1;
-- (void)_handleAddDeactivationReasonNotification:(id)arg1;
-- (void)_handleEnterBackgroundNotification:(id)arg1;
-- (void)_handleEnterForegroundNotification:(id)arg1;
-- (_Bool)_isLifecycleNotificationRelevant:(id)arg1;
+- (_Bool)_isBackgroundedForReasons:(unsigned long long)arg1;
+- (_Bool)_isDeactivatedForReasons:(unsigned long long)arg1;
+- (_Bool)_isForegroundActive;
+- (_Bool)_isBackgrounded;
+- (_Bool)_isDeactivated;
+- (void)foregroundActiveArbiter:(id)arg1 didUpdateDeactivationReasons:(unsigned int)arg2;
+- (void)foregroundActiveArbiter:(id)arg1 didUpdateForegroundActiveState:(CDStruct_973bafd3)arg2;
+- (void)_performActivationStateUpdate:(CDUnknownBlockType)arg1;
 - (void)_updateApplicationsView;
 - (void)_updateContentViewsWithMessage:(id)arg1 appLaunchToken:(id)arg2;
-- (void)_updateContentViewsWithTransaction:(id)arg1 felicaProperties:(id)arg2;
-- (void)_updateContentViewsWithFelicaProperties:(id)arg1;
+- (void)_updateContentViewsWithTransaction:(id)arg1 transitProperties:(id)arg2;
+- (void)_updateContentViewsWithTransitProperties:(id)arg1;
 - (void)_updateContentViewsWithTransaction:(id)arg1;
 - (void)_applyLatestTransactionContentWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_applyLatestContentToViews;
@@ -195,7 +197,7 @@
 - (_Bool)_shouldDisplayTransaction:(id)arg1;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didReceiveMessage:(id)arg2;
 - (void)paymentServiceReceivedInterruption;
-- (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithFelicaPassProperties:(id)arg2;
+- (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithTransitPassProperties:(id)arg2;
 - (void)dismissPasscodeViewController;
 - (void)presentPasscodeViewController:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)_cancelBiometricRecognitionAndPromptUserAction:(long long)arg1;

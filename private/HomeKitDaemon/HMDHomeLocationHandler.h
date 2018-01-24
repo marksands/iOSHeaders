@@ -6,13 +6,13 @@
 
 #import "HMFObject.h"
 
+#import "HMDHomeMessageReceiver.h"
 #import "HMDLocationDelegate.h"
-#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
-@class CLLocation, CLRegion, HMDHome, HMDHomeLocationData, HMFMessageDispatcher, NSDate, NSObject<OS_dispatch_queue>, NSString, NSTimeZone, NSUUID;
+@class CLLocation, CLRegion, HMDHome, HMDHomeLocationData, HMFMessageDispatcher, NSDate, NSObject<OS_dispatch_queue>, NSSet, NSString, NSTimeZone, NSUUID;
 
-@interface HMDHomeLocationHandler : HMFObject <HMDLocationDelegate, HMFMessageReceiver, NSSecureCoding>
+@interface HMDHomeLocationHandler : HMFObject <HMDLocationDelegate, HMDHomeMessageReceiver, NSSecureCoding>
 {
     _Bool _isExtractingCurrentLocation;
     int _locationAuthorization;
@@ -26,6 +26,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)hasMessageReceiverChildren;
 + (_Bool)mergeLocationDataForLocalHome:(id)arg1 withCloudHome:(id)arg2;
 @property(nonatomic) _Bool isExtractingCurrentLocation; // @synthesize isExtractingCurrentLocation=_isExtractingCurrentLocation;
 @property(retain, nonatomic) CLRegion *region; // @synthesize region=_region;
@@ -72,6 +73,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

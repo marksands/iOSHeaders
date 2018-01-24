@@ -6,17 +6,17 @@
 
 #import "NSOperation.h"
 
+#import "FCOperationCanceling.h"
+#import "FCOperationIdentifying.h"
 #import "FCOperationPrioritizing.h"
 
-@class NFMutexLock, NSMutableArray, NSObject<OS_dispatch_group>, NSString;
+@class FCOnce, NFMutexLock, NSMutableArray, NSObject<OS_dispatch_group>, NSString;
 
-@interface FCOperation : NSOperation <FCOperationPrioritizing>
+@interface FCOperation : NSOperation <FCOperationCanceling, FCOperationIdentifying, FCOperationPrioritizing>
 {
     _Bool _executing;
     _Bool _finished;
     _Bool _childOperationsCancelled;
-    _Bool _childOperationsFinished;
-    _Bool _started;
     long long _relativePriority;
     unsigned long long _retryCount;
     double _timeoutDuration;
@@ -26,13 +26,13 @@
     CDUnknownBlockType _timedOutTest;
     NSMutableArray *_childOperations;
     NFMutexLock *_childOperationsLock;
+    FCOnce *_startOnce;
     NSObject<OS_dispatch_group> *_finishedGroup;
 }
 
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *finishedGroup; // @synthesize finishedGroup=_finishedGroup;
-@property(nonatomic) _Bool started; // @synthesize started=_started;
+@property(retain, nonatomic) FCOnce *startOnce; // @synthesize startOnce=_startOnce;
 @property(retain, nonatomic) NFMutexLock *childOperationsLock; // @synthesize childOperationsLock=_childOperationsLock;
-@property(nonatomic) _Bool childOperationsFinished; // @synthesize childOperationsFinished=_childOperationsFinished;
 @property(nonatomic) _Bool childOperationsCancelled; // @synthesize childOperationsCancelled=_childOperationsCancelled;
 @property(retain, nonatomic) NSMutableArray *childOperations; // @synthesize childOperations=_childOperations;
 @property(copy, nonatomic) CDUnknownBlockType timedOutTest; // @synthesize timedOutTest=_timedOutTest;
@@ -43,6 +43,8 @@
 @property(nonatomic) unsigned long long retryCount; // @synthesize retryCount=_retryCount;
 @property(nonatomic) long long relativePriority; // @synthesize relativePriority=_relativePriority;
 - (void).cxx_destruct;
+- (id)longOperationDescription;
+- (id)shortOperationDescription;
 - (id)_errorUserInfo;
 - (void)_finishOperationWithError:(id)arg1;
 @property(readonly, nonatomic) _Bool hasOperationStarted;
@@ -69,6 +71,7 @@
 - (void)_finishedPerformingOperationWithError:(id)arg1;
 - (void)finishedPerformingOperationWithError:(id)arg1;
 - (void)performOperation;
+- (_Bool)_startIfNeeded;
 - (void)start;
 - (void)startIfNeeded;
 - (void)prepareOperation;

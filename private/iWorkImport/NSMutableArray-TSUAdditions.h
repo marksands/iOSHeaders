@@ -13,6 +13,7 @@
 - (void)tsu_addObjectsFromNonNilArray:(id)arg1;
 - (void)tsu_addNonNilObject:(id)arg1;
 - (void)tsu_addObjects:(id)arg1;
+- (id)tsu_peek;
 - (id)tsu_pop;
 - (void)tsu_push:(id)arg1;
 - (id)tsu_dequeue;

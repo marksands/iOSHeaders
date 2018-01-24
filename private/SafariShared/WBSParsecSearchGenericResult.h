@@ -4,11 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <SafariShared/WBSParsecSearchResult.h>
+#import <SafariShared/WBSParsecLegacySearchResult.h>
+
+#import "WBSParsecSearchGenericResult.h"
 
 @class NSArray, NSNumber, NSString, WBSParsecActionButton, WBSParsecAuxiliaryInfo, WBSParsecImageRepresentation;
 
-@interface WBSParsecSearchGenericResult : WBSParsecSearchResult
+@interface WBSParsecSearchGenericResult : WBSParsecLegacySearchResult <WBSParsecSearchGenericResult>
 {
     WBSParsecActionButton *_actionButton;
     NSNumber *_titleMaximumLines;
@@ -17,13 +19,11 @@
     NSString *_secondaryTitle;
     WBSParsecImageRepresentation *_secondaryTitleGlyph;
     WBSParsecAuxiliaryInfo *_auxiliaryInfo;
-    NSArray *_rowSections;
     WBSParsecImageRepresentation *_thumbnail;
 }
 
 + (id)_specializedSchema;
 @property(readonly, nonatomic) WBSParsecImageRepresentation *thumbnail; // @synthesize thumbnail=_thumbnail;
-@property(readonly, nonatomic) NSArray *rowSections; // @synthesize rowSections=_rowSections;
 @property(readonly, nonatomic) WBSParsecAuxiliaryInfo *auxiliaryInfo; // @synthesize auxiliaryInfo=_auxiliaryInfo;
 @property(readonly, nonatomic) WBSParsecImageRepresentation *secondaryTitleGlyph; // @synthesize secondaryTitleGlyph=_secondaryTitleGlyph;
 @property(readonly, copy, nonatomic) NSString *secondaryTitle; // @synthesize secondaryTitle=_secondaryTitle;

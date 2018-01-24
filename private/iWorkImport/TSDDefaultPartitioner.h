@@ -21,8 +21,10 @@ __attribute__((visibility("hidden")))
     TSUPointerKeyDictionary *mMainRepsByCanvas;
     TSUPointerKeyDictionary *mCachedImagesByCanvas;
     TSUPointerKeyDictionary *mPartialRepsByCanvas;
+    _Bool mPaginateRightToLeft;
 }
 
+@property(readonly, nonatomic) _Bool paginateRightToLeft; // @synthesize paginateRightToLeft=mPaginateRightToLeft;
 - (void)processChanges:(id)arg1 forChangeSource:(id)arg2;
 - (void)preprocessChanges:(id)arg1 forChangeSource:(id)arg2;
 - (void)i_layoutUnregistered:(id)arg1;
@@ -43,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (id)i_repForCanvas:(id)arg1;
 - (id)i_layout;
 - (id)documentRoot;
+- (void)setLayoutPartititionsRightToLeft:(_Bool)arg1 contentPartitionsRightToLeft:(_Bool)arg2;
 - (void)reset;
 - (id)nextLayoutForSize:(struct CGSize)arg1 parentLayout:(id)arg2 previousHint:(id)arg3 horizontally:(_Bool)arg4 outFinished:(out _Bool *)arg5;
 - (id)nextHintForSize:(struct CGSize)arg1 parentLayout:(id)arg2 previousHint:(id)arg3 horizontally:(_Bool)arg4 outFinished:(out _Bool *)arg5;

@@ -59,6 +59,7 @@ __attribute__((visibility("hidden")))
 - (void)updateChildrenFromInfo;
 - (_Bool)containsLayoutForInfo:(id)arg1;
 - (void)setChildren:(id)arg1;
+@property(readonly) _Bool pageLayoutDirectionIsRTL;
 - (void)addChild:(id)arg1;
 @property(readonly) struct CGRect contentFrame;
 @property(readonly) struct CGRect pageBounds;

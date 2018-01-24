@@ -52,6 +52,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double duration;
 @property(readonly, nonatomic) _Bool hasAutomaticTrigger;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) _Bool supportsTwist;
+@property(readonly, nonatomic) _Bool supportsColor;
 @property(readonly, nonatomic) _Bool supportsBounce;
 @property(readonly, nonatomic) _Bool supportsDuration;
 @property(readonly, nonatomic) _Bool supportsDirection;

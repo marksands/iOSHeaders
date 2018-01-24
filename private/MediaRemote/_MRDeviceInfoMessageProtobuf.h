@@ -16,9 +16,12 @@
     NSString *_applicationBundleIdentifier;
     NSString *_applicationBundleVersion;
     NSData *_bluetoothAddress;
+    int _deviceClass;
+    unsigned int _groupedDeviceCount;
     unsigned int _lastSupportedMessageType;
     NSString *_localReceiverPairingIdentity;
     NSString *_localizedModelName;
+    NSString *_managedConfigDeviceID;
     NSString *_name;
     unsigned int _sharedQueueVersion;
     NSString *_systemBuildVersion;
@@ -26,23 +29,34 @@
     NSString *_uniqueIdentifier;
     _Bool _allowsPairing;
     _Bool _connected;
+    _Bool _isProxyGroupPlayer;
     _Bool _supportsACL;
     _Bool _supportsExtendedMotion;
     _Bool _supportsSharedQueue;
     _Bool _supportsSystemPairing;
+    _Bool _tightlySyncedGroup;
     struct {
         unsigned int protocolVersion:1;
+        unsigned int deviceClass:1;
+        unsigned int groupedDeviceCount:1;
         unsigned int lastSupportedMessageType:1;
         unsigned int sharedQueueVersion:1;
         unsigned int allowsPairing:1;
         unsigned int connected:1;
+        unsigned int isProxyGroupPlayer:1;
         unsigned int supportsACL:1;
         unsigned int supportsExtendedMotion:1;
         unsigned int supportsSharedQueue:1;
         unsigned int supportsSystemPairing:1;
+        unsigned int tightlySyncedGroup:1;
     } _has;
 }
 
+@property(nonatomic) _Bool isProxyGroupPlayer; // @synthesize isProxyGroupPlayer=_isProxyGroupPlayer;
+@property(nonatomic) _Bool tightlySyncedGroup; // @synthesize tightlySyncedGroup=_tightlySyncedGroup;
+@property(nonatomic) unsigned int groupedDeviceCount; // @synthesize groupedDeviceCount=_groupedDeviceCount;
+@property(nonatomic) int deviceClass; // @synthesize deviceClass=_deviceClass;
+@property(retain, nonatomic) NSString *managedConfigDeviceID; // @synthesize managedConfigDeviceID=_managedConfigDeviceID;
 @property(retain, nonatomic) NSString *localReceiverPairingIdentity; // @synthesize localReceiverPairingIdentity=_localReceiverPairingIdentity;
 @property(nonatomic) unsigned int sharedQueueVersion; // @synthesize sharedQueueVersion=_sharedQueueVersion;
 @property(retain, nonatomic) NSData *bluetoothAddress; // @synthesize bluetoothAddress=_bluetoothAddress;
@@ -70,6 +84,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIsProxyGroupPlayer;
+@property(nonatomic) _Bool hasTightlySyncedGroup;
+@property(nonatomic) _Bool hasGroupedDeviceCount;
+@property(nonatomic) _Bool hasDeviceClass;
+@property(readonly, nonatomic) _Bool hasManagedConfigDeviceID;
 @property(readonly, nonatomic) _Bool hasLocalReceiverPairingIdentity;
 @property(nonatomic) _Bool hasSharedQueueVersion;
 @property(readonly, nonatomic) _Bool hasBluetoothAddress;

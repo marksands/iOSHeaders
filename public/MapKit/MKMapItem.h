@@ -11,7 +11,7 @@
 #import "NSItemProviderWriting.h"
 #import "NSSecureCoding.h"
 
-@class GEOAddress, GEOFeatureStyleAttributes, GEOMapItemDetourInfo, GEOMapItemStorage, GEOMapItemStorageUserValues, GEOMapRegion, GEOPDBusinessClaim, GEOPDFlyover, GEOPlace, MKMapItemIdentifier, MKMapItemMetadata, MKPlacemark, NSArray, NSData, NSNumber, NSNumberFormatter, NSString, NSTimeZone, NSURL, _MKMapItemPhotosAttribution, _MKMapItemPlaceAttribution, _MKMapItemReviewsAttribution, _MKPlaceReservationInfo;
+@class GEOAddress, GEOFeatureStyleAttributes, GEOMapItemDetourInfo, GEOMapItemStorage, GEOMapItemStorageUserValues, GEOMapRegion, GEOPDBusinessClaim, GEOPDFlyover, GEOPlace, MKMapItemIdentifier, MKMapItemMetadata, MKPlacemark, NSArray, NSData, NSNumber, NSNumberFormatter, NSString, NSTimeZone, NSURL, UIColor, _MKMapItemPhotosAttribution, _MKMapItemPlaceAttribution, _MKMapItemReviewsAttribution, _MKPlaceReservationInfo;
 
 @interface MKMapItem : NSObject <NSSecureCoding, NSItemProviderReading, NSItemProviderWriting, GEOURLSerializable>
 {
@@ -98,6 +98,9 @@
 @property(readonly, nonatomic, getter=_tips) NSArray *tips;
 @property(readonly, nonatomic, getter=_reviews) NSArray *reviews;
 @property(readonly, nonatomic, getter=_quickLinks) NSArray *quickLinks;
+@property(readonly, nonatomic, getter=_navTintBrandColor) UIColor *navTintBrandColor;
+@property(readonly, nonatomic, getter=_navBackgroundbrandColor) UIColor *navBackgroundbrandColor;
+@property(readonly, nonatomic, getter=_isMessageIDVerified) _Bool isMessageIDVerified;
 @property(readonly, nonatomic, getter=_messageURLString) NSString *messageURLString;
 @property(readonly, nonatomic, getter=_messageID) NSString *messageID;
 @property(readonly, nonatomic, getter=_isStandAloneBrand) _Bool isStandAloneBrand;
@@ -129,7 +132,7 @@
 - (id)_postalAddressFromMeCardUsingAddressIdentifier:(id)arg1;
 - (id)_addressFormattedAsCity;
 - (id)_addressOrNil:(id)arg1;
-- (void)validateMessageIDWithCompletion:(CDUnknownBlockType)arg1;
+- (id)_bestNavbarBrandIconURLForSize:(struct CGSize)arg1 allowSmaller:(_Bool)arg2;
 - (id)_bestBrandIconURLForSize:(struct CGSize)arg1 allowSmaller:(_Bool)arg2;
 - (_Bool)_canGetDirections;
 - (id)_urlExtraStorage;
@@ -154,8 +157,6 @@
 @property(readonly, nonatomic, getter=_localizedResponseTime) NSString *localizedResponseTime;
 @property(readonly, nonatomic, getter=_messageBusinessHours) NSArray *messageBusinessHours;
 - (id)_localizedNextOpeningStringShort:(_Bool)arg1;
-@property(readonly, nonatomic, getter=_localizedMessageBusinessOperatingHours) NSString *localizedMessageBusinessOperatingHours;
-@property(readonly, nonatomic, getter=_localizedOperatingHours) NSString *localizedOperatingHours;
 @property(readonly, nonatomic, getter=_hasLocalizedOperatingHours) _Bool hasLocalizedOperatingHours;
 @property(readonly, nonatomic, getter=_hasOperatingHours) _Bool hasOperatingHours;
 @property(readonly, nonatomic, getter=_responseStatusIsIncomplete) _Bool responseStatusIncomplete;
@@ -228,6 +229,7 @@
 - (void)dealloc;
 - (id)initWithPlacemark:(id)arg1;
 - (id)initWithCLLocation:(id)arg1;
+- (id)initWithCLLocation:(id)arg1 placeType:(int)arg2;
 - (id)initWithAddressDictionary:(id)arg1;
 - (id)initWithPlace:(id)arg1 isPlaceHolderPlace:(_Bool)arg2;
 - (id)initWithPlace:(id)arg1;
@@ -236,16 +238,11 @@
 - (void)_launchActivityForBrandItem;
 - (id)thumbnailWithSize:(struct CGSize)arg1 annotationView:(id)arg2;
 - (id)sharingURL;
-- (_Bool)_isBusinessClosed;
-- (id)_localizedBusinessHoursWithOptions:(unsigned long long)arg1;
 - (id)formattedNumberOfReviewsIncludingProvider:(_Bool)arg1 formatter:(id)arg2;
 @property(readonly, nonatomic) NSString *formattedNumberOfReviewsIncludingProvider;
 @property(readonly, nonatomic) NSString *formattedNumberOfReviews;
 - (id)_reviewForIdentifier:(id)arg1;
 - (void)updateTransitInfoWithMapItem:(id)arg1;
-- (id)_localizedBusinessHoursWithOpeningHoursOptions:(unsigned long long)arg1 andOperationsHours:(id)arg2;
-- (id)_localizedMessageBusinessHoursWithCurrentOpeningHoursOptions;
-- (id)_localizedBusinessHoursWithCurrentOpeningHoursOptions;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)loadDataWithTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;

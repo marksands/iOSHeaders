@@ -16,7 +16,7 @@
 - (void)shutDownWithCompletion:(void (^)(NSError *))arg1;
 - (void)validateAppBundleIDs:(NSArray *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)setupAssistantDidFinishCompletion:(void (^)(NSError *))arg1;
-- (void)filteredMailAccountsWithSourceAccountManagement:(int)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
+- (void)loadMailAccountsWithFilteringEnabled:(_Bool)arg1 sourceAccountManagement:(int)arg2 completion:(void (^)(NSArray *, NSError *))arg3;
 - (void)allowedKeyboardBundleIDsAfterApplyingFilterToBundleIDs:(NSArray *)arg1 hostAppBundleID:(NSString *)arg2 accountIsManaged:(_Bool)arg3 completion:(void (^)(NSArray *))arg4;
 - (void)unstashWhitelistURLStringsWithCompletion:(void (^)(NSError *))arg1;
 - (void)stashWhitelistURLStringsWithCompletion:(void (^)(NSError *))arg1;

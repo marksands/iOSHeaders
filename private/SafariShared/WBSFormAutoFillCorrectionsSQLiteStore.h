@@ -41,7 +41,7 @@
 - (void)_closeDatabases;
 - (void)_openLocalDatabase;
 - (void)_openParsecDatabase;
-- (void)_openDatabaseAtURL:(id)arg1;
+- (void)_configureDatabase:(id)arg1 currentSchemaVersion:(int)arg2;
 - (void)_openDatabasesIfNeeded;
 - (id)_normalizeDomain:(id)arg1;
 - (int)_migrateToSchemaVersion_3;

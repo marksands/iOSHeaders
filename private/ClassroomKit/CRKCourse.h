@@ -8,21 +8,26 @@
 
 #import "NSSecureCoding.h"
 
-@class CRKUser, DMFControlGroupIdentifier, NSDictionary, NSString;
+@class CRKUser, DMFControlGroupIdentifier, NSDate, NSDictionary, NSString;
 
 @interface CRKCourse : NSObject <NSSecureCoding>
 {
-    _Bool _managed;
+    _Bool _requestingUnenroll;
     DMFControlGroupIdentifier *_courseIdentifier;
     NSString *_courseName;
     NSString *_courseDescription;
     CRKUser *_courseUser;
     NSDictionary *_instructorsByIdentifier;
+    unsigned long long _type;
+    NSDate *_automaticRemovalDate;
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)stringForType:(unsigned long long)arg1;
 + (id)new;
-@property(nonatomic, getter=isManaged) _Bool managed; // @synthesize managed=_managed;
+@property(retain, nonatomic) NSDate *automaticRemovalDate; // @synthesize automaticRemovalDate=_automaticRemovalDate;
+@property(nonatomic, getter=isRequestingUnenroll) _Bool requestingUnenroll; // @synthesize requestingUnenroll=_requestingUnenroll;
+@property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(copy, nonatomic) NSDictionary *instructorsByIdentifier; // @synthesize instructorsByIdentifier=_instructorsByIdentifier;
 @property(retain, nonatomic) CRKUser *courseUser; // @synthesize courseUser=_courseUser;
 @property(copy, nonatomic) NSString *courseDescription; // @synthesize courseDescription=_courseDescription;
@@ -35,7 +40,10 @@
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)description;
+- (void)setManaged:(_Bool)arg1;
+@property(readonly, nonatomic, getter=isManaged) _Bool managed;
 - (id)initWithIdentifier:(id)arg1 managed:(_Bool)arg2;
+- (id)initWithIdentifier:(id)arg1 type:(unsigned long long)arg2;
 - (id)init;
 
 @end

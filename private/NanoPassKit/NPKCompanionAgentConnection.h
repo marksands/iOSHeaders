@@ -54,9 +54,10 @@
 - (id)_remoteObjectProxyWithFailureHandler:(CDUnknownBlockType)arg1;
 - (void)_sharedPaymentWebServiceContextForDevice:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)handlePotentialExpressPass:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)felicaStateWithPassUniqueIdentifier:(id)arg1 paymentApplication:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)transitStateWithPassUniqueIdentifier:(id)arg1 paymentApplication:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)deletePaymentTransactionWithIdentifier:(id)arg1 passUniqueIdentifier:(id)arg2 fromDevice:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)transactionsForPaymentPassWithUniqueIdentifier:(id)arg1 withTransactionSource:(unsigned long long)arg2 withBackingData:(unsigned long long)arg3 limit:(long long)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)markAllAppletsForDeletionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)initiateLostModeExitAuthWithCompletion:(CDUnknownBlockType)arg1;
 - (id)watchPaymentWebService;
 - (void)shouldShowApplePaySettingsWithCompletion:(CDUnknownBlockType)arg1;

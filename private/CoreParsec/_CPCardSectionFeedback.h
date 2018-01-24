@@ -24,7 +24,7 @@
 @property(copy, nonatomic) NSString *resultId; // @synthesize resultId=_resultId;
 @property(copy, nonatomic) NSString *cardSectionId; // @synthesize cardSectionId=_cardSectionId;
 @property(retain, nonatomic) _CPCardSectionForFeedback *cardSection; // @synthesize cardSection=_cardSection;
-@property(nonatomic) unsigned long long timestamp;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;

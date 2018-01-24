@@ -43,6 +43,8 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;
 @property(readonly, nonatomic) _Bool hasArchivableState;
+- (void)updateCachedStocksIntoStore:(id)arg1;
+- (void)updateCachedStocksFromKnownStocks:(id)arg1;
 @property(readonly, nonatomic) _Bool hasFullyPopulatedCache;
 - (void)updateWithRemoteDataMap:(id)arg1 quotes:(struct NSDictionary *)arg2 syncKey:(double)arg3;
 - (id)p_dictionaryForRemoteData:(id)arg1;

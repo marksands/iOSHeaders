@@ -6,18 +6,16 @@
 
 #import "NSObject.h"
 
-@class GEODirectionsFeedback, GEODirectionsFeedbackLogMessage, NSMutableArray, NSMutableSet;
+@class GEODirectionsFeedback, GEODirectionsFeedbackLogMessage, NSMutableArray;
 
 @interface GEODirectionsFeedbackCollector : NSObject
 {
     GEODirectionsFeedback *_currentDirectionsFeedback;
     GEODirectionsFeedbackLogMessage *_currentFeedbackLogMessage;
-    NSMutableSet *_routeIDs;
     double _currentDirectionsModeStartTime;
     NSMutableArray *_navigationModes;
 }
 
-@property(retain, nonatomic) NSMutableSet *routeIDs; // @synthesize routeIDs=_routeIDs;
 @property(retain, nonatomic) GEODirectionsFeedback *currentDirectionsFeedback; // @synthesize currentDirectionsFeedback=_currentDirectionsFeedback;
 @property(retain, nonatomic) GEODirectionsFeedbackLogMessage *currentFeedbackLogMessage; // @synthesize currentFeedbackLogMessage=_currentFeedbackLogMessage;
 - (void).cxx_destruct;

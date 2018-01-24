@@ -10,7 +10,7 @@
 #import "MPRTCReportingItemSessionContaining.h"
 #import "MPShuffleControllerDataSource.h"
 
-@class MPCPlaybackRequestEnvironment, MPIdentifierSet, MPModelRequest, MPModelResponse, MPPlaceholderAVItem, MPPlaybackPlaceholderMediaItem, MPShuffleController, NSDictionary, NSHashTable, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString;
+@class ICUserIdentity, MPCPlaybackRequestEnvironment, MPIdentifierSet, MPModelRequest, MPModelResponse, MPPlaceholderAVItem, MPPlaybackPlaceholderMediaItem, MPShuffleController, NSDictionary, NSHashTable, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString;
 
 @interface MPCModelQueueFeeder : MPQueueFeeder <MPRTCReportingItemSessionContaining, MPShuffleControllerDataSource, MPCQueueBehaviorManaging>
 {
@@ -38,6 +38,7 @@
     _Bool _isSiriInitiated;
     MPIdentifierSet *_startItemIdentifiers;
     MPCPlaybackRequestEnvironment *_playbackRequestEnvironment;
+    ICUserIdentity *_proactiveCacheIdentity;
     struct map<unsigned long, MPIdentifierSet *, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, MPIdentifierSet *>>> _retrievedIndexToIdentifiers;
     NSDictionary *_startTimeModifications;
 }
@@ -46,6 +47,7 @@
 + (_Bool)supportsStateRestoration;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)_updateProactiveCaching;
 - (void)_unregisterNotificationsForResponse:(id)arg1;
 - (unsigned long long)_songShuffledIndexForIndex:(unsigned long long)arg1;
 - (unsigned long long)_indexOfItemWithIdentifier:(id)arg1 shouldIgnoreShuffle:(_Bool)arg2;

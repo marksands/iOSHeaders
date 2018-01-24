@@ -17,7 +17,7 @@
 + (_Bool)_insertObjectsFromCodableObjectCollection:(id)arg1 syncStore:(id)arg2 profile:(id)arg3 error:(id *)arg4;
 + (id)_baseDataObjectPredicate;
 + (Class)healthEntityClass;
-+ (long long)syncEntityType;
++ (id)syncEntityIdentifier;
 + (id)_companionNanoSyncPredicateConjunctionForSession:(id)arg1;
 + (unsigned long long)supportedNanoSyncDirectionsForProtocolVersion:(int)arg1;
 + (int)nanoSyncObjectType;

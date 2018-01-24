@@ -21,9 +21,9 @@ __attribute__((visibility("hidden")))
 + (id)replaceTextDataWithLanguage:(id)arg1 dictationAndAutocorrection:(id)arg2;
 @property(readonly, copy, nonatomic) NSString *dictationAndAutocorrection; // @synthesize dictationAndAutocorrection=_dictationAndAutocorrection;
 @property(readonly, copy, nonatomic) NSString *language; // @synthesize language=_language;
+- (void).cxx_destruct;
 - (id)replaceTextDataByChangingDictationAndAutocorrection:(id)arg1;
 - (id)replaceTextDataByChangingLanguage:(id)arg1;
-- (void)dealloc;
 - (id)init;
 - (id)initWithDictationAndAutocorrection:(id)arg1;
 - (id)initWithLanguage:(id)arg1;

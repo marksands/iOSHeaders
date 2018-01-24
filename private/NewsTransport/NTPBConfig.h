@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSMutableArray, NSString, NTPBBinningConfig, NTPBIAdConfig, NTPBPaidSubscriptionConfig, NTPBPersonalizationConfig, NTPBPersonalizationTreatment, NTPBPrefetchConfig, NTPBWidgetConfig;
+@class NSMutableArray, NSString, NTPBBinningConfig, NTPBIAdConfig, NTPBPaidSubscriptionConfig, NTPBPersonalizationConfig, NTPBPersonalizationTreatment, NTPBPrefetchConfig, NTPBVideoGroupsConfig, NTPBWidgetConfig;
 
 @interface NTPBConfig : PBCodable <NSCopying>
 {
@@ -25,6 +25,7 @@
     long long _corryBarMaxArticleCountForSingleArticle;
     long long _endOfArticleMaxInaccessiblePaidArticles;
     double _endOfArticleMinPaidHeadlineRatio;
+    long long _expirePinnedArticlesAfter;
     long long _expiredPaidSubscriptionGroupCutoffTime;
     long long _initialArticlesFromNewFavorite;
     double _interstitialAdLoadDelay;
@@ -47,6 +48,7 @@
     long long _notificationArticleWithRapidUpdatesCacheTimeout;
     long long _notificationEnabledChannelsRefreshFrequency;
     long long _numberOfScreenfulsScrolledToBypassWidgetTimeLimit;
+    long long _optionalTopStoriesRefreshRate;
     double _prerollLoadingTimeout;
     double _publisherDiversitySlope;
     double _publisherDiversityYIntercept;
@@ -68,6 +70,7 @@
     long long _trendingTopicsRefreshRate;
     NTPBWidgetConfig *_alternativeButlerWidgetConfig;
     NSString *_anfEmbedConfigurationAsset;
+    NSString *_articleRecirculationConfig;
     NTPBBinningConfig *_binningConfig;
     NTPBWidgetConfig *_butlerWidgetConfig;
     unsigned int _enabledPrivateDataEncryptionLevel;
@@ -76,6 +79,7 @@
     NSMutableArray *_externalAnalyticsConfigs;
     NSString *_fallbackLanguageTag;
     NSString *_forYouNonPersonalizedGroupsOrder;
+    NTPBVideoGroupsConfig *_forYouVideoGroupsConfig;
     NTPBIAdConfig *_iadConfig;
     NSMutableArray *_languageConfigs;
     unsigned int _orderFeedEnabledLevel;
@@ -116,6 +120,7 @@
         unsigned int corryBarMaxArticleCountForSingleArticle:1;
         unsigned int endOfArticleMaxInaccessiblePaidArticles:1;
         unsigned int endOfArticleMinPaidHeadlineRatio:1;
+        unsigned int expirePinnedArticlesAfter:1;
         unsigned int expiredPaidSubscriptionGroupCutoffTime:1;
         unsigned int initialArticlesFromNewFavorite:1;
         unsigned int interstitialAdLoadDelay:1;
@@ -138,6 +143,7 @@
         unsigned int notificationArticleWithRapidUpdatesCacheTimeout:1;
         unsigned int notificationEnabledChannelsRefreshFrequency:1;
         unsigned int numberOfScreenfulsScrolledToBypassWidgetTimeLimit:1;
+        unsigned int optionalTopStoriesRefreshRate:1;
         unsigned int prerollLoadingTimeout:1;
         unsigned int publisherDiversitySlope:1;
         unsigned int publisherDiversityYIntercept:1;
@@ -177,6 +183,9 @@
 + (Class)externalAnalyticsConfigType;
 + (Class)endpointConfigsType;
 + (Class)languageConfigsType;
+@property(nonatomic) long long optionalTopStoriesRefreshRate; // @synthesize optionalTopStoriesRefreshRate=_optionalTopStoriesRefreshRate;
+@property(retain, nonatomic) NSString *articleRecirculationConfig; // @synthesize articleRecirculationConfig=_articleRecirculationConfig;
+@property(retain, nonatomic) NTPBVideoGroupsConfig *forYouVideoGroupsConfig; // @synthesize forYouVideoGroupsConfig=_forYouVideoGroupsConfig;
 @property(nonatomic) long long minimumDurationBetweenTrendingGroupsWeekend; // @synthesize minimumDurationBetweenTrendingGroupsWeekend=_minimumDurationBetweenTrendingGroupsWeekend;
 @property(nonatomic) long long minimumDurationBetweenTrendingGroupsWeekday; // @synthesize minimumDurationBetweenTrendingGroupsWeekday=_minimumDurationBetweenTrendingGroupsWeekday;
 @property(nonatomic) long long minimumDurationBetweenForYouGroupsWeekend; // @synthesize minimumDurationBetweenForYouGroupsWeekend=_minimumDurationBetweenForYouGroupsWeekend;
@@ -255,6 +264,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasExpirePinnedArticlesAfter;
+@property(nonatomic) long long expirePinnedArticlesAfter; // @synthesize expirePinnedArticlesAfter=_expirePinnedArticlesAfter;
+@property(nonatomic) _Bool hasOptionalTopStoriesRefreshRate;
+@property(readonly, nonatomic) _Bool hasArticleRecirculationConfig;
+@property(readonly, nonatomic) _Bool hasForYouVideoGroupsConfig;
 @property(nonatomic) _Bool hasDiversifyOptionalTopStories;
 @property(nonatomic) _Bool diversifyOptionalTopStories; // @synthesize diversifyOptionalTopStories=_diversifyOptionalTopStories;
 @property(nonatomic) _Bool hasMinimumDurationBetweenTrendingGroupsWeekend;

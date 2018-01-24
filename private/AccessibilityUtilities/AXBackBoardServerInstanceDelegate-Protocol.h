@@ -14,8 +14,9 @@
 - (void)zoomListenerRegistered;
 - (void)setVoiceOverItemChooserVisible:(_Bool)arg1;
 - (void)setSiriViewServicePid:(int)arg1;
-- (int)accessibilityUIPid;
-- (void)setAccessibilityUIPid:(int)arg1;
+- (int)accessibilityUIServerPid;
+- (void)setAccessibilityUIServerPid:(int)arg1;
+- (int)accessibilityAssistiveTouchPid;
 - (void)setAssistiveTouchPid:(int)arg1;
 - (void)registerEventListener:(_Bool)arg1;
 - (void)setDisableSystemGestureRecognitionInEvents:(_Bool)arg1;

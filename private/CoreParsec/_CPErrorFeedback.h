@@ -22,7 +22,7 @@
 
 @property(retain, nonatomic) _CPError *underlyingError; // @synthesize underlyingError=_underlyingError;
 @property(retain, nonatomic) _CPError *error; // @synthesize error=_error;
-@property(nonatomic) unsigned long long timestamp;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;

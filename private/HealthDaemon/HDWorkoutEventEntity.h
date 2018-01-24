@@ -10,6 +10,7 @@
 {
 }
 
++ (id)_decodeMetadataFromData:(id)arg1;
 + (_Bool)enumerateEventsForWorkout:(long long)arg1 withStatement:(id)arg2 error:(id *)arg3 eventHandler:(CDUnknownBlockType)arg4;
 + (id)statementForEnumeratingEventsForWorkoutInDatabase:(id)arg1 error:(id *)arg2;
 + (id)deleteStatementForWorkoutEventsWithDatabase:(id)arg1;

@@ -11,6 +11,7 @@
     long long _type;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) long long type; // @synthesize type=_type;
 - (id)_ui_descriptionBuilder;
 - (_Bool)isEqual:(id)arg1;

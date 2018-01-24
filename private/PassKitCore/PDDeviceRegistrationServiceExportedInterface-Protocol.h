@@ -6,7 +6,9 @@
 
 #import "PDXPCServiceExportedInterface.h"
 
+@class NSString;
+
 @protocol PDDeviceRegistrationServiceExportedInterface <PDXPCServiceExportedInterface>
-- (void)performDeviceRegistrationWithCompletion:(void (^)(unsigned long long))arg1;
+- (void)performDeviceRegistrationForReason:(NSString *)arg1 completion:(void (^)(unsigned long long))arg2;
 @end
 

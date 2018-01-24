@@ -29,7 +29,8 @@
 
 @property(nonatomic) __weak id <PKPeerPaymentAddBankAcountInformationViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)_countrySpecificLocalizedStringKeyForKey:(id)arg1 digitsString:(id)arg2;
+- (id)_countrySpecificLocalizedStringKeyForKey:(id)arg1 minDigits:(unsigned long long)arg2 maxDigits:(unsigned long long)arg3;
+- (id)_countrySpecificLocalizedStringKeyForKey:(id)arg1 numberOfDigits:(unsigned long long)arg2;
 - (id)_countrySpecificLocalizedStringKeyForKey:(id)arg1;
 - (unsigned long long)_maxTextLengthForRow:(unsigned long long)arg1;
 - (unsigned long long)_minTextLengthForRow:(unsigned long long)arg1;

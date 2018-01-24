@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
     _Bool mIsEnabled;
     NSArray *mRules;
     _Bool mNeedsFormulaRewriteForImport;
-    vector_88016b54 mFilterOffsets;
+    vector_06e666a8 mFilterOffsets;
 }
 
 - (id).cxx_construct;

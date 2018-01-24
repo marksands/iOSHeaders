@@ -6,17 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSData, NSString;
+@class NSData, NSDictionary, NSString;
 
 @interface UMUserSwitchContext : NSObject
 {
     _Bool _secondaryActionRequired;
     NSData *_setupData;
     NSString *_shortLivedToken;
+    NSDictionary *_environmentsByServices;
 }
 
 + (id)contextWithDataRepresentation:(id)arg1;
 + (id)contextWithSetupData:(id)arg1 shortLivedToken:(id)arg2 secondaryActionRequired:(_Bool)arg3;
+@property(copy, nonatomic) NSDictionary *environmentsByServices; // @synthesize environmentsByServices=_environmentsByServices;
 @property(nonatomic) _Bool secondaryActionRequired; // @synthesize secondaryActionRequired=_secondaryActionRequired;
 @property(copy, nonatomic) NSString *shortLivedToken; // @synthesize shortLivedToken=_shortLivedToken;
 @property(copy, nonatomic) NSData *setupData; // @synthesize setupData=_setupData;

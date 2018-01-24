@@ -10,18 +10,14 @@
 
 @interface MPModelLyrics : MPModelObject
 {
-    _Bool _hasStoreLyrics;
-    NSString *_text;
 }
 
-+ (id)__MPModelPropertyLyricsHasStoreLyrics__PROPERTY;
-+ (id)__hasStoreLyrics__KEY;
-+ (id)__MPModelPropertyLyricsText__PROPERTY;
-+ (id)__text__KEY;
-@property(nonatomic) _Bool hasStoreLyrics; // @synthesize hasStoreLyrics=_hasStoreLyrics;
-@property(copy, nonatomic) NSString *text; // @synthesize text=_text;
-- (void).cxx_destruct;
-- (id)descriptionWithType:(long long)arg1;
++ (id)__hasStoreLyrics_KEY;
++ (id)__text_KEY;
+
+// Remaining properties
+@property(nonatomic) _Bool hasStoreLyrics; // @dynamic hasStoreLyrics;
+@property(copy, nonatomic) NSString *text; // @dynamic text;
 
 @end
 

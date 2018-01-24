@@ -6,20 +6,20 @@
 
 #import "NSObject.h"
 
-@class MPCModelStorePlaybackItemsRequest, MPMutableSectionedCollection, MPSectionedCollection, MPStoreModelGenericObjectBuilder, NSArray, NSDate, NSDictionary, NSMapTable, NSMutableArray, NSMutableDictionary;
+@class MPCModelStorePlaybackItemsRequest, MPMutableSectionedCollection, MPSectionedCollection, MPStoreModelGenericObjectBuilder, NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary;
 
 @interface MPCModelStorePlaybackItemsRequestAccumulator : NSObject
 {
     long long _currentBatchCount;
     long long _defaultLibraryPersonalizationStyle;
     NSMutableDictionary *_equivalencyMapping;
-    NSMapTable *_baseContentItemIDToOccurrenceCount;
-    MPStoreModelGenericObjectBuilder *_genericObjectBuilder;
     _Bool _lastStoreIDBasedSectionWasPlaylist;
     NSArray *_orderedStoreIDs;
     NSMutableArray *_pendingOrderedStoreIDs;
     NSMutableArray *_pendingPrioritizedStoreIDs;
     MPMutableSectionedCollection *_progressiveContentDescriptors;
+    NSMutableDictionary *_receivedStoreIDs;
+    MPStoreModelGenericObjectBuilder *_resultsGenericObjectBuilder;
     NSMutableDictionary *_sectionIndexToDeletedIndexSet;
     NSMutableDictionary *_storeIDToIndexPathReference;
     long long _unknownEndpointLibraryPersonalizationStyle;

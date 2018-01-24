@@ -10,8 +10,10 @@
 
 @interface CSXPCConnection : NSObject
 {
+    _Bool _machService;
     _Bool _listener;
-    NSString *_machServiceName;
+    NSString *_uuid;
+    NSString *_serviceName;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_xpc_object> *_connection;
 }
@@ -27,7 +29,9 @@
 @property(retain, nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
 @property(readonly, nonatomic) _Bool listener; // @synthesize listener=_listener;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
-@property(readonly, nonatomic) NSString *machServiceName; // @synthesize machServiceName=_machServiceName;
+@property(readonly, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
+@property(readonly, nonatomic) _Bool machService; // @synthesize machService=_machService;
+@property(readonly, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
 - (void)sendMessageAsync:(id)arg1;
 - (void)sendMessageAsync:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -35,11 +39,15 @@
 - (void)handleError:(id)arg1;
 - (void)_lostClientConnection:(id)arg1 error:(id)arg2;
 - (_Bool)lostClientConnection:(id)arg1 error:(id)arg2;
-- (_Bool)allowClientConnection:(id)arg1;
-- (void)_handleMessage:(id)arg1 type:(struct _xpc_type_s *)arg2 connection:(id)arg3;
+- (_Bool)addClientConnectionIfAllowedForConnection:(id)arg1;
+- (_Bool)addClientConnectionIfAllowedForConfiguration:(id)arg1;
 - (_Bool)handleMessage:(id)arg1 type:(struct _xpc_type_s *)arg2 connection:(id)arg3;
 - (_Bool)handleCommand:(const char *)arg1 info:(id)arg2 connection:(id)arg3;
-- (id)initListenerWithMachServiceName:(id)arg1;
+- (id)initMachServiceListenerWithName:(id)arg1;
+- (id)initListenerWithName:(id)arg1;
+- (id)initWithServiceName:(id)arg1 machService:(_Bool)arg2;
+- (id)initWithServiceName:(id)arg1 machService:(_Bool)arg2 uuid:(id)arg3;
+- (id)initWithServiceName:(id)arg1;
 - (id)initWithMachServiceName:(id)arg1;
 - (void)startListener;
 

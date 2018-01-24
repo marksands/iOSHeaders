@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MPAVItem, MPQueuePlayer, NSArray, NSDate, NSHashTable, NSMutableSet, NSOperationQueue;
+@class MPAVItem, MPQueuePlayer, NSArray, NSHashTable, NSMutableSet, NSOperationQueue;
 
 @interface MPAVQueueCoordinator : NSObject
 {
@@ -18,11 +18,9 @@
     _Bool _isSyncingPlayerItems;
     NSHashTable *_itemsPendingAssetLoading;
     MPAVItem *_lastItemAnchor;
-    NSDate *_lastPausedDate;
     unsigned long long _lastPreferredQueueDepth;
     _Bool _needsCurrentItemUpdateAfterPlayerItemSync;
     _Bool _preventLoadingItems;
-    double _rateQueueDepthAdjustmentDelay;
     NSMutableSet *_reusableItems;
     _Bool _shouldDeferItemLoading;
     MPQueuePlayer *_player;

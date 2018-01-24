@@ -6,9 +6,11 @@
 
 #import "HFItemModule.h"
 
-@class HFItem, HFItemProvider, HFUserItem, HMAssistantAccessControl, HMHome, NSArray, NSSet;
+#import "HULocationDeviceManagerObserver.h"
 
-@interface HUPersonalRequestsDevicesItemModule : HFItemModule
+@class HFItem, HFItemProvider, HFUserItem, HMAssistantAccessControl, HMHome, HULocationDeviceManager, NAFuture, NSArray, NSSet, NSString;
+
+@interface HUPersonalRequestsDevicesItemModule : HFItemModule <HULocationDeviceManagerObserver>
 {
     NSSet *_itemProviders;
     HMHome *_home;
@@ -16,8 +18,10 @@
     HFItemProvider *_devicesItemProvider;
     HFItem *_footerItem;
     HFItem *_personalRequestsToggleItem;
+    HULocationDeviceManager *_locationDeviceManager;
 }
 
+@property(readonly, nonatomic) HULocationDeviceManager *locationDeviceManager; // @synthesize locationDeviceManager=_locationDeviceManager;
 @property(readonly, nonatomic) HFItem *personalRequestsToggleItem; // @synthesize personalRequestsToggleItem=_personalRequestsToggleItem;
 @property(readonly, nonatomic) HFItem *footerItem; // @synthesize footerItem=_footerItem;
 @property(readonly, nonatomic) HFItemProvider *devicesItemProvider; // @synthesize devicesItemProvider=_devicesItemProvider;
@@ -25,7 +29,10 @@
 @property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(readonly, nonatomic) NSSet *itemProviders; // @synthesize itemProviders=_itemProviders;
 - (void).cxx_destruct;
+- (void)locationDeviceManager:(id)arg1 didUpdateActiveLocationDevice:(id)arg2;
 - (id)_commitUpdateToAccessControl:(id)arg1;
+- (id)updateLocationDeviceToThisDevice;
+@property(readonly, nonatomic) NAFuture *activeLocationDeviceFuture;
 @property(copy, nonatomic) NSArray *personalRequestsHomePods;
 - (void)toggleAllPersonalRequestsDevices;
 - (unsigned long long)personalRequestsAuthenticationRequirement;
@@ -37,7 +44,15 @@
 - (_Bool)_showPersonalRequestsItems;
 - (void)_createItemProviders;
 @property(readonly, nonatomic) HMAssistantAccessControl *accessControl;
+- (void)unregisterForExternalUpdates;
+- (void)registerForExternalUpdates;
 - (id)initWithItemUpdater:(id)arg1 userItem:(id)arg2 home:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -7,14 +7,14 @@
 #import "HMFObject.h"
 
 #import "HMDBackingStoreObjectProtocol.h"
+#import "HMDHomeMessageReceiver.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "HMFTimerDelegate.h"
 #import "NSSecureCoding.h"
 
-@class HMDCentralMessageDispatcher, HMDHome, HMDResidentDevice, HMFMessageDispatcher, HMFTimer, NSArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDCentralMessageDispatcher, HMDHome, HMDResidentDevice, HMFMessageDispatcher, HMFTimer, NSArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDResidentDeviceManager : HMFObject <HMFTimerDelegate, HMFLogging, HMFMessageReceiver, NSSecureCoding, HMDBackingStoreObjectProtocol>
+@interface HMDResidentDeviceManager : HMFObject <HMFTimerDelegate, HMFLogging, HMDHomeMessageReceiver, NSSecureCoding, HMDBackingStoreObjectProtocol>
 {
     NSMutableSet *_residentDevices;
     _Bool _residentAvailable;
@@ -35,6 +35,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)hasMessageReceiverChildren;
 + (id)logCategory;
 + (long long)compareElectionVersions:(id)arg1 otherVersion:(id)arg2;
 + (id)shortDescription;
@@ -129,6 +130,7 @@
 
 // Remaining properties
 @property(readonly) unsigned long long hash;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

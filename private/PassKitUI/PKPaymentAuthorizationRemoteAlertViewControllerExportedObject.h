@@ -18,8 +18,8 @@
     PKPaymentAuthorizationRemoteAlertViewController *_controller;
 }
 
-@property(nonatomic) PKPaymentAuthorizationRemoteAlertViewController *controller; // @synthesize controller=_controller;
-@property(nonatomic) id <PKPaymentAuthorizationServiceProtocol> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak PKPaymentAuthorizationRemoteAlertViewController *controller; // @synthesize controller=_controller;
+@property(nonatomic) __weak id <PKPaymentAuthorizationServiceProtocol> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSMutableSet *completionHandlers; // @synthesize completionHandlers=_completionHandlers;
 - (void).cxx_destruct;
 - (void)authorizationDidSelectPaymentMethodCompleteWithPaymentSummaryItems:(id)arg1;
@@ -35,6 +35,7 @@
 - (void)handleHostApplicationDidBecomeActive;
 - (void)handleHostApplicationWillResignActive:(_Bool)arg1;
 - (void)handleHostApplicationDidCancel;
+- (void)_executeCompletionHandlers;
 - (void)dealloc;
 - (id)initWithController:(id)arg1;
 

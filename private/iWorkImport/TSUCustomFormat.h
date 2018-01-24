@@ -16,6 +16,8 @@ __attribute__((visibility("hidden")))
 {
     NSString *_formatNameStem;
     NSString *_formatNameTag;
+    NSString *_currencyCode;
+    _Bool _currencyCodeComputed;
     int _formatType;
     TSUCustomFormatData *_defaultFormatData;
     NSString *_formatName;
@@ -28,6 +30,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) int formatType; // @synthesize formatType=_formatType;
 - (void).cxx_destruct;
 - (id)description;
+@property(readonly, nonatomic) NSString *currencyCode;
 - (id)conditionalFormatDataForKey:(unsigned long long)arg1;
 - (id)conditionalFormatAtIndex:(unsigned long long)arg1;
 - (id)conditionalFormatDataForValue:(double)arg1 outKey:(unsigned long long *)arg2;

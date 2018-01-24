@@ -8,7 +8,7 @@
 
 #import "TSPDatabaseUnarchiverDelegate.h"
 
-@class NSHashTable, NSObject<OS_dispatch_queue>, NSString, TSPDatabase;
+@class NSHashTable, NSObject<OS_dispatch_queue>, NSString, TSPComponent, TSPDatabase;
 
 __attribute__((visibility("hidden")))
 @interface TSPDatabaseReader : TSPReader <TSPDatabaseUnarchiverDelegate>
@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_databaseQueue;
     TSPDatabase *_database;
     unsigned long long _databaseVersion;
-    unordered_map_502345cb _readIdentifiers;
+    unordered_map_38045d47 _readIdentifiers;
     NSHashTable *_datas;
 }
 
@@ -41,6 +41,7 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, nonatomic) _Bool canRetainObjectReferencedByWeakLazyReference;
+@property(readonly, nonatomic) TSPComponent *component;
 @property(readonly, nonatomic) long long componentIdentifier;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

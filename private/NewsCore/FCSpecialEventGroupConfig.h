@@ -6,23 +6,23 @@
 
 #import <NewsCore/FCGroupConfig.h>
 
-@class FCColorGradient, NSArray, NSString;
+@class NSArray, NSDictionary, NSString;
 
 @interface FCSpecialEventGroupConfig : FCGroupConfig
 {
-    FCColorGradient *_groupBackgroundColorGradient;
     NSArray *_specialEventItems;
+    NSDictionary *_specialEventsArticleMetadataByArticleID;
     NSArray *_breakingNewsArticleIDs;
     NSArray *_specialEventArticleIDs;
 }
 
 @property(retain, nonatomic) NSArray *specialEventArticleIDs; // @synthesize specialEventArticleIDs=_specialEventArticleIDs;
 @property(retain, nonatomic) NSArray *breakingNewsArticleIDs; // @synthesize breakingNewsArticleIDs=_breakingNewsArticleIDs;
+@property(readonly, nonatomic) NSDictionary *specialEventsArticleMetadataByArticleID; // @synthesize specialEventsArticleMetadataByArticleID=_specialEventsArticleMetadataByArticleID;
 @property(retain, nonatomic) NSArray *specialEventItems; // @synthesize specialEventItems=_specialEventItems;
-@property(retain, nonatomic) FCColorGradient *groupBackgroundColorGradient; // @synthesize groupBackgroundColorGradient=_groupBackgroundColorGradient;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) NSString *groupMicaAnimationFileUrlStringiPad;
-@property(readonly, nonatomic) NSString *groupMicaAnimationFileUrlString;
+@property(readonly, nonatomic) NSString *groupMicaAnimationFileURLStringiPad;
+@property(readonly, nonatomic) NSString *groupMicaAnimationFileURLString;
 - (id)initWithDictionary:(id)arg1;
 
 @end

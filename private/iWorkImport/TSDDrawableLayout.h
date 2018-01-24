@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 {
     TSDWrapSegments *mCachedWrapSegments;
     TSUBezierPath *mCachedWrapPath;
-    TSUBezierPath *mCachedExternalWrapPath;
+    TSUBezierPath *mCachedPathForClippingConnectionLines;
     TSUBezierPath *mCachedExteriorWrapPath;
 }
 
@@ -37,7 +37,7 @@ __attribute__((visibility("hidden")))
 - (id)wrapSegments;
 - (id)wrapPath;
 - (id)p_exteriorTextWrapPath;
-- (id)i_externalWrapPath;
+- (id)pathForClippingConnectionLines;
 - (id)i_wrapPath;
 - (id)i_computeWrapPath;
 - (id)i_computeWrapPathClosed:(_Bool)arg1;

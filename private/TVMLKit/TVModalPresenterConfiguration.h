@@ -11,6 +11,7 @@
 @interface TVModalPresenterConfiguration : NSObject
 {
     _Bool _allowsModalOverModal;
+    _Bool _allowsMenuDismissal;
     _Bool _navigationBarHidden;
     NSString *_barButtonID;
     unsigned long long _configurationType;
@@ -31,6 +32,7 @@
 @property(nonatomic) struct CGSize formSheetSize; // @synthesize formSheetSize=_formSheetSize;
 @property(nonatomic) unsigned long long configurationType; // @synthesize configurationType=_configurationType;
 @property(copy, nonatomic) NSString *barButtonID; // @synthesize barButtonID=_barButtonID;
+@property(nonatomic) _Bool allowsMenuDismissal; // @synthesize allowsMenuDismissal=_allowsMenuDismissal;
 @property(nonatomic) _Bool allowsModalOverModal; // @synthesize allowsModalOverModal=_allowsModalOverModal;
 - (void).cxx_destruct;
 - (void)_configureWithDictionary:(id)arg1;

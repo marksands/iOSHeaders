@@ -60,8 +60,10 @@
     _Bool _isAPICall;
     _Bool _isRedoSearch;
     _Bool _navigating;
+    _Bool _supportDirectionIntentAutocomplete;
     _Bool _supportDirectionIntentSearch;
     _Bool _supportDymSuggestion;
+    _Bool _supportUnresolvedDirectionIntent;
     _Bool _useBackgroundUrl;
     _Bool _wantsBrandIcon;
     struct {
@@ -88,8 +90,10 @@
         unsigned int isAPICall:1;
         unsigned int isRedoSearch:1;
         unsigned int navigating:1;
+        unsigned int supportDirectionIntentAutocomplete:1;
         unsigned int supportDirectionIntentSearch:1;
         unsigned int supportDymSuggestion:1;
+        unsigned int supportUnresolvedDirectionIntent:1;
         unsigned int useBackgroundUrl:1;
         unsigned int wantsBrandIcon:1;
     } _has;
@@ -99,6 +103,8 @@
 + (Class)reviewUserPhotoSizesType;
 + (Class)photoSizesType;
 + (Class)deviceDisplayLanguageType;
+@property(nonatomic) _Bool supportUnresolvedDirectionIntent; // @synthesize supportUnresolvedDirectionIntent=_supportUnresolvedDirectionIntent;
+@property(nonatomic) _Bool supportDirectionIntentAutocomplete; // @synthesize supportDirectionIntentAutocomplete=_supportDirectionIntentAutocomplete;
 @property(nonatomic) double sessionRelativeTimestamp; // @synthesize sessionRelativeTimestamp=_sessionRelativeTimestamp;
 @property(retain, nonatomic) NSString *analyticsAppIdentifier; // @synthesize analyticsAppIdentifier=_analyticsAppIdentifier;
 @property(nonatomic) unsigned int httpRequestPriority; // @synthesize httpRequestPriority=_httpRequestPriority;
@@ -150,6 +156,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSupportUnresolvedDirectionIntent;
+@property(nonatomic) _Bool hasSupportDirectionIntentAutocomplete;
 @property(nonatomic) _Bool hasSessionRelativeTimestamp;
 @property(readonly, nonatomic) _Bool hasAnalyticsAppIdentifier;
 @property(nonatomic) _Bool hasHttpRequestPriority;

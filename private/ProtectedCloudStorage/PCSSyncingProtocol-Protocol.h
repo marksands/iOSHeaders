@@ -4,10 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSDictionary, NSString;
+@class NSArray, NSDictionary, NSString;
 
 @protocol PCSSyncingProtocol
+- (NSArray *)getServicesToRoll;
+- (_Bool)shouldRoll;
+- (void)checkForBackupStateChange;
+- (void)triggerKeyRolling;
+- (void)mobileBackupStatus:(void (^)(_Bool, NSError *))arg1;
 - (void)fetchStats:(void (^)(UserRegistryStats *))arg1;
+- (void)restoreMobileBackup:(_Bool)arg1 withReply:(void (^)(NSNumber *, NSNumber *, NSNumber *, NSError *))arg2;
+- (void)userDBBackupRecordIDsWithReply:(void (^)(NSArray *, NSError *))arg1;
+- (void)mobileBackupRecordIDsWithReply:(void (^)(NSArray *, NSError *))arg1;
 - (void)escrowRecordIDs:(NSDictionary *)arg1 withReply:(void (^)(NSArray *, NSError *))arg2;
 - (void)deleteThisDevice:(NSDictionary *)arg1 withReply:(void (^)(NSError *))arg2;
 - (void)triggerUserRegistryCheck:(NSDictionary *)arg1 withReply:(void (^)(NSError *))arg2;

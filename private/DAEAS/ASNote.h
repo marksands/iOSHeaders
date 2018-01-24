@@ -23,6 +23,7 @@
 }
 
 + (id)noteWithLocalNoteObject:(id)arg1 serverID:(id)arg2 account:(id)arg3;
++ (id)externalRepClasses;
 + (id)asParseRules;
 + (_Bool)notifyOfUnknownTokens;
 + (_Bool)frontingBasicTypes;

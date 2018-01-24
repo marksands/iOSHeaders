@@ -45,6 +45,7 @@
 - (_Bool)expectsSecureRendering;
 - (id)uniqueIdentifier;
 - (long long)type;
+@property(readonly, nonatomic, getter=isTatlDisplay) _Bool tatlDisplay;
 @property(readonly, nonatomic, getter=isCarDisplay) _Bool carDisplay;
 @property(readonly, nonatomic, getter=isMainDisplay) _Bool mainDisplay;
 @property(readonly, nonatomic) _Bool isRootIdentity;

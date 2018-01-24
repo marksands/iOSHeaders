@@ -32,6 +32,8 @@
     _Bool _shouldSendIdentityTokenForRemoteUI;
     _Bool _isPasswordEditable;
     _Bool _shouldSkipInitialReachabilityCheck;
+    _Bool _shouldPreventInteractiveAuth;
+    _Bool _shouldForceInteractiveAuth;
     _Bool _isUsernameEditable;
     _Bool _shouldAllowAppleIDCreation;
     _Bool _needsCredentialRecovery;
@@ -42,8 +44,6 @@
     _Bool _shouldOfferSecurityUpgrade;
     _Bool _shouldPromptForPasswordOnly;
     _Bool _shouldUpdatePersistentServiceTokens;
-    _Bool _shouldPreventInteractiveAuth;
-    _Bool _shouldForceInteractiveAuth;
     _Bool _shouldRequestRecoveryPET;
     _Bool _shouldRequestShortLivedToken;
     _Bool _shouldRequestConfigurationInfo;
@@ -53,6 +53,7 @@
     _Bool _shouldSkipSettingsLaunchAlert;
     NSString *_proxiedAppBundleID;
     NSUUID *_identifier;
+    NSString *_identityToken;
     NSString *_passwordPromptTitle;
     NSString *_proxiedAppName;
     NSString *_password;
@@ -72,6 +73,7 @@
     NSString *_title;
     NSString *_helpAnchor;
     NSString *_helpBook;
+    unsigned long long _authenticationType;
     id <AKAnisetteServiceProtocol> _anisetteDataProvider;
     NSNumber *_isAppleIDLoginEnabled;
     NSNumber *_hasEmptyPassword;
@@ -100,10 +102,9 @@
 @property(copy, nonatomic, setter=setHasEmptyPassword:) NSNumber *hasEmptyPassword; // @synthesize hasEmptyPassword=_hasEmptyPassword;
 @property(copy, nonatomic, setter=setAppleIDLoginEnabled:) NSNumber *isAppleIDLoginEnabled; // @synthesize isAppleIDLoginEnabled=_isAppleIDLoginEnabled;
 @property(copy, nonatomic) id <AKAnisetteServiceProtocol> anisetteDataProvider; // @synthesize anisetteDataProvider=_anisetteDataProvider;
-@property(nonatomic) _Bool shouldForceInteractiveAuth; // @synthesize shouldForceInteractiveAuth=_shouldForceInteractiveAuth;
-@property(nonatomic) _Bool shouldPreventInteractiveAuth; // @synthesize shouldPreventInteractiveAuth=_shouldPreventInteractiveAuth;
 @property(nonatomic) _Bool shouldUpdatePersistentServiceTokens; // @synthesize shouldUpdatePersistentServiceTokens=_shouldUpdatePersistentServiceTokens;
 @property(nonatomic) _Bool shouldPromptForPasswordOnly; // @synthesize shouldPromptForPasswordOnly=_shouldPromptForPasswordOnly;
+@property(nonatomic) unsigned long long authenticationType; // @synthesize authenticationType=_authenticationType;
 @property(copy) NSString *helpBook; // @synthesize helpBook=_helpBook;
 @property(copy) NSString *helpAnchor; // @synthesize helpAnchor=_helpAnchor;
 @property(retain) NSString *title; // @synthesize title=_title;
@@ -135,6 +136,7 @@
 @property(copy, nonatomic, setter=_setProxiedAppName:) NSString *_proxiedAppName; // @synthesize _proxiedAppName;
 @property(copy, nonatomic) NSString *_passwordPromptTitle; // @synthesize _passwordPromptTitle;
 @property(nonatomic) _Bool _shouldSendIdentityTokenForRemoteUI; // @synthesize _shouldSendIdentityTokenForRemoteUI;
+@property(copy, nonatomic, setter=_setIdentityToken:) NSString *_identityToken; // @synthesize _identityToken;
 @property(readonly, nonatomic) NSUUID *_identifier; // @synthesize _identifier;
 @property(copy, nonatomic, setter=_setProxiedAppBundleID:) NSString *_proxiedAppBundleID; // @synthesize _proxiedAppBundleID;
 @property(nonatomic, setter=_setProxyingForApp:) _Bool _isProxyingForApp; // @synthesize _isProxyingForApp;
@@ -154,7 +156,10 @@
 @property(copy, nonatomic) AKDevice *companionDevice;
 @property(copy, nonatomic) AKDevice *proxiedDevice;
 @property(copy, nonatomic) NSString *serviceIdentifier;
+@property(readonly, nonatomic) NSString *_interpolatedReasonWithBlame;
 @property(readonly, nonatomic) NSString *_interpolatedReason;
+@property(nonatomic) _Bool shouldForceInteractiveAuth; // @synthesize shouldForceInteractiveAuth=_shouldForceInteractiveAuth;
+@property(nonatomic) _Bool shouldPreventInteractiveAuth; // @synthesize shouldPreventInteractiveAuth=_shouldPreventInteractiveAuth;
 @property(readonly, nonatomic) unsigned long long _capabilityForUIDisplay; // @synthesize _capabilityForUIDisplay;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

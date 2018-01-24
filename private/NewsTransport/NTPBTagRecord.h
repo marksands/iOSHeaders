@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSData, NSMutableArray, NSString, NTPBFeedConfiguration, NTPBPublisherPaidDescriptionStrings, NTPBRecordBase;
+@class NSData, NSMutableArray, NSString, NTPBDate, NTPBFeedConfiguration, NTPBPublisherPaidDescriptionStrings, NTPBRecordBase;
 
 @interface NTPBTagRecord : PBCodable <NSCopying>
 {
@@ -19,6 +19,7 @@
     double _nameImageScaleFactor;
     long long _score;
     NSMutableArray *_allowedStorefrontIDs;
+    NSData *_articleRecirculationConfiguration;
     NTPBRecordBase *_base;
     NSMutableArray *_blockedStorefrontIDs;
     NSString *_channelDefaultSectionID;
@@ -49,12 +50,15 @@
     NSMutableArray *_publisherPaidFeldsparablePurchaseIDs;
     NSString *_publisherPaidVerificationURL;
     NSString *_publisherPaidWebaccessURL;
+    NSMutableArray *_publisherSpecifiedArticleIds;
+    NTPBDate *_publisherSpecifiedArticleIdsModifiedDate;
     NSMutableArray *_purchaseOfferableConfigurations;
     NSMutableArray *_relatedChannelIDs;
     NSMutableArray *_relatedChannelIDsForOnboardings;
     NSMutableArray *_relatedTopicIDs;
     NSMutableArray *_relatedTopicIDsForOnboardings;
     NSString *_replacementID;
+    NSString *_subtitle;
     NSString *_templateJson;
     int _type;
     _Bool _hideAccessoryText;
@@ -85,6 +89,7 @@
     } _has;
 }
 
++ (Class)publisherSpecifiedArticleIdsType;
 + (Class)iAdKeywordsType;
 + (Class)purchaseOfferableConfigurationType;
 + (Class)publisherPaidFeldsparablePurchaseIDsType;
@@ -98,6 +103,10 @@
 + (Class)relatedTopicIDsForOnboardingType;
 + (Class)relatedChannelIDsType;
 + (Class)relatedTopicIDsType;
+@property(retain, nonatomic) NTPBDate *publisherSpecifiedArticleIdsModifiedDate; // @synthesize publisherSpecifiedArticleIdsModifiedDate=_publisherSpecifiedArticleIdsModifiedDate;
+@property(retain, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
+@property(retain, nonatomic) NSMutableArray *publisherSpecifiedArticleIds; // @synthesize publisherSpecifiedArticleIds=_publisherSpecifiedArticleIds;
+@property(retain, nonatomic) NSData *articleRecirculationConfiguration; // @synthesize articleRecirculationConfiguration=_articleRecirculationConfiguration;
 @property(nonatomic) long long behaviorFlags; // @synthesize behaviorFlags=_behaviorFlags;
 @property(nonatomic) _Bool isHidden; // @synthesize isHidden=_isHidden;
 @property(retain, nonatomic) NSData *nameImageCompactMetadata; // @synthesize nameImageCompactMetadata=_nameImageCompactMetadata;
@@ -157,6 +166,13 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasPublisherSpecifiedArticleIdsModifiedDate;
+@property(readonly, nonatomic) _Bool hasSubtitle;
+- (id)publisherSpecifiedArticleIdsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)publisherSpecifiedArticleIdsCount;
+- (void)addPublisherSpecifiedArticleIds:(id)arg1;
+- (void)clearPublisherSpecifiedArticleIds;
+@property(readonly, nonatomic) _Bool hasArticleRecirculationConfiguration;
 @property(nonatomic) _Bool hasBehaviorFlags;
 @property(nonatomic) _Bool hasIsHidden;
 @property(nonatomic) _Bool hasGroupingAvailability;

@@ -19,7 +19,8 @@ __attribute__((visibility("hidden")))
 + (id)sharedDelegate;
 @property(retain, nonatomic) id <TSADownloadDelegate> downloadDelegate; // @synthesize downloadDelegate=_downloadDelegate;
 @property(nonatomic) TSADocumentRoot *documentRoot; // @synthesize documentRoot=mDocumentRoot;
-- (void)setAppTextDefaults:(id)arg1;
+- (void)setAppTextDefaults:(id)arg1 passphraseVerifier:(id)arg2;
+- (id)iWorkTextDefaultsPassphraseVerifier;
 - (id)appTextDefaults;
 - (id)appTextDefaultsKey;
 - (void)setIWorkAuthorPrivateID:(id)arg1;
@@ -40,7 +41,7 @@ __attribute__((visibility("hidden")))
 - (void)ubiquitousKeyValueStoreDidChange:(id)arg1;
 - (id)iCloudPreferenceKeys;
 - (unsigned long long)collaboratorColorIndexForKvsDocumentKey:(id)arg1;
-- (id)collaboratorNameForCachedDocumentInfo:(id)arg1 firstName:(id *)arg2 lastName:(id *)arg3;
+- (id)collaboratorNameForDocumentInfo:(id)arg1 firstName:(id *)arg2 lastName:(id *)arg3;
 - (void)clearIWorkAuthorColorIndex;
 - (void)clearIWorkAuthorName;
 - (void)clearICloudDocumentPreferences;
@@ -54,6 +55,7 @@ __attribute__((visibility("hidden")))
 - (id)invalidURLSchemes;
 - (double)maximumAspectRatioForPreviewImage;
 - (double)mimimumAspectRatioForPreviewImage;
+- (Class)drawableInfoSubclassForClass:(Class)arg1 unarchiver:(id)arg2;
 - (id)applicationTemplateVariantsForLocale:(struct __CFLocale *)arg1;
 @property(readonly, nonatomic) NSArray *applicationTemplateVariants;
 - (void)registerDefaults;
@@ -70,6 +72,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *nativeDocumentType;
 - (void)persistenceError:(id)arg1;
 - (void)wakeUpDownloadManager;
+- (void)registerSOSClassTypeMappings;
 - (Class)documentRootClass;
 - (void)dealloc;
 - (id)init;

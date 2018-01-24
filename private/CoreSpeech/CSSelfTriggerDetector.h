@@ -14,6 +14,7 @@
 @interface CSSelfTriggerDetector : NSObject <CSKeywordAnalyzerNDAPIScoreDelegate, CSSpeechManagerDelegate>
 {
     float _keywordThreshold;
+    id <CSSelfTriggerDetectorDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_queue;
     CSSpeechManager *_speechManager;
     CSAsset *_currentAsset;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) CSAsset *currentAsset; // @synthesize currentAsset=_currentAsset;
 @property(nonatomic) __weak CSSpeechManager *speechManager; // @synthesize speechManager=_speechManager;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(nonatomic) __weak id <CSSelfTriggerDetectorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)keywordAnalyzerNDAPI:(id)arg1 hasResultAvailable:(id)arg2 forChannel:(unsigned long long)arg3;
 - (void)speechManagerDidStopForwarding:(id)arg1 forReason:(long long)arg2;

@@ -16,8 +16,11 @@
     unsigned long long _markerID;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool isTracked; // @synthesize isTracked=_isTracked;
 @property(readonly, nonatomic) unsigned long long markerID; // @synthesize markerID=_markerID;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 -     // Error parsing type: @92@0:8Q16{?=[4]}24B88, name: initWithMarkerID:transform:isTracked:
 

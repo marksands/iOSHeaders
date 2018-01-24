@@ -7,6 +7,7 @@
 @class TSDLayout;
 
 @protocol TSDPartitioner
+- (void)setLayoutPartititionsRightToLeft:(_Bool)arg1 contentPartitionsRightToLeft:(_Bool)arg2;
 - (id <TSDHint>)hintForLayout:(TSDLayout *)arg1;
 - (_Bool)didHint:(id <TSDHint>)arg1 syncWithNextHint:(id <TSDHint>)arg2 horizontally:(_Bool)arg3 delta:(int)arg4;
 - (TSDLayout *)layoutForHint:(id <TSDHint>)arg1 parentLayout:(TSDLayout *)arg2;

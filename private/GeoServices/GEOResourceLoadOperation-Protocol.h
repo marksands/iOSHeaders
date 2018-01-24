@@ -5,10 +5,11 @@
 //
 
 #import "NSObject.h"
+#import "NSProgressReporting.h"
 
 @class GEOApplicationAuditToken, GEOResourceInfo, NSData, NSObject<OS_dispatch_queue>, NSString;
 
-@protocol GEOResourceLoadOperation <NSObject>
+@protocol GEOResourceLoadOperation <NSObject, NSProgressReporting>
 @property(readonly, nonatomic) NSData *data;
 @property(nonatomic) _Bool requiresWiFi;
 - (void)cancel;

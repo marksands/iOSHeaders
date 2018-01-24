@@ -15,6 +15,7 @@
     NSString *_folderID;
 }
 
++ (_Bool)supportsSecureCoding;
 - (id)description;
 - (_Bool)performWithAccount:(id)arg1 offlineCache:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;

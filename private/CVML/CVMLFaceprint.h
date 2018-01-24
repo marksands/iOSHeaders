@@ -7,11 +7,11 @@
 #import "NSObject.h"
 
 #import "CVMLFaceprintModel.h"
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSData, NSString;
 
-@interface CVMLFaceprint : NSObject <CVMLFaceprintModel, NSCoding>
+@interface CVMLFaceprint : NSObject <CVMLFaceprintModel, NSSecureCoding>
 {
     unsigned int _platform;
     unsigned int _profile;
@@ -20,6 +20,7 @@
     NSString *_faceprintInputPath;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy) NSString *faceprintInputPath; // @synthesize faceprintInputPath=_faceprintInputPath;
 @property unsigned int profile; // @synthesize profile=_profile;
 @property unsigned int platform; // @synthesize platform=_platform;

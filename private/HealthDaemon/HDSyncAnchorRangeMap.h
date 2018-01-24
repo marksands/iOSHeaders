@@ -12,11 +12,11 @@
 
 @interface HDSyncAnchorRangeMap : NSObject <NSSecureCoding>
 {
-    NSMutableDictionary *_anchorRangesByObjectType;
+    NSMutableDictionary *_anchorRangesByEntityIdentifier;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) NSMutableDictionary *anchorRangesByObjectType; // @synthesize anchorRangesByObjectType=_anchorRangesByObjectType;
+@property(retain, nonatomic) NSMutableDictionary *anchorRangesByEntityIdentifier; // @synthesize anchorRangesByEntityIdentifier=_anchorRangesByEntityIdentifier;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -24,9 +24,9 @@
 - (id)description;
 - (void)reset;
 - (unsigned long long)anchorRangeCount;
-- (void)enumerateAnchorRangesAndSyncEntitiesWithBlock:(CDUnknownBlockType)arg1;
-- (_Bool)getAnchorRange:(struct HDSyncAnchorRange *)arg1 forSyncEntityClass:(Class)arg2;
-- (void)setAnchorRange:(struct HDSyncAnchorRange)arg1 forSyncEntityClass:(Class)arg2;
+- (void)enumerateAnchorRangesAndEntityIdentifiersWithBlock:(CDUnknownBlockType)arg1;
+- (_Bool)getAnchorRange:(struct HDSyncAnchorRange *)arg1 forSyncEntityIdentifier:(id)arg2;
+- (void)setAnchorRange:(struct HDSyncAnchorRange)arg1 forSyncEntityIdentifier:(id)arg2;
 - (id)codableSyncAnchorRangeMap;
 - (id)initWithCodableSyncAnchorRangeMap:(id)arg1 error:(id *)arg2;
 

@@ -23,7 +23,6 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)selectionPathLabelIndexForIndex:(unsigned long long)arg1;
 - (_Bool)isRangeContinuous;
 - (_Bool)isCategory;
-- (void)dealloc;
 - (pair_952e027e)labelEnumeratorPair;
 - (id)g_genericToSpecificPropertyMap;
 

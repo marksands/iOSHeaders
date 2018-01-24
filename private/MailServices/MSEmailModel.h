@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSArray, NSString, NSURL;
 
-@interface MSEmailModel : NSObject <NSCoding>
+@interface MSEmailModel : NSObject <NSSecureCoding>
 {
     NSString *_subject;
     NSString *_body;
@@ -21,6 +21,7 @@
     int _type;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(retain, nonatomic) NSURL *reference; // @synthesize reference=_reference;
 @property(retain, nonatomic) NSString *body; // @synthesize body=_body;

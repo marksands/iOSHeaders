@@ -21,7 +21,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldProceedParsingOnFailure;
 - (void)read;
 - (id)initWithComponent:(id)arg1 delegate:(id)arg2 readChannel:(id)arg3 descriptionGenerator:(id)arg4;
-- (id)init;
 
 @end
 

@@ -22,6 +22,7 @@
 @property(nonatomic) __weak id <VSSpeechConnectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (void)getTTSServerVoicesWithFilter:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)getLogToFile:(CDUnknownBlockType)arg1;
 - (void)setLogToFile:(_Bool)arg1;
 - (void)getVoiceInfoForLanguageCode:(id)arg1 footprint:(long long)arg2 gender:(long long)arg3 type:(long long)arg4 reply:(CDUnknownBlockType)arg5;
@@ -38,6 +39,8 @@
 - (void)stopPresynthesizedAudioRequest;
 - (void)startPresynthesizedAudioRequest:(id)arg1;
 - (void)startSpeechRequest:(id)arg1;
+- (void)endAudioPowerUpdate;
+- (void)beginAudioPowerUpdateWithReply:(CDUnknownBlockType)arg1;
 - (_Bool)isSystemSpeakingOnBehalfOfCurrentConnection;
 - (_Bool)isSystemSpeaking;
 - (id)availableFootprintsForVoice:(id)arg1 languageCode:(id)arg2;

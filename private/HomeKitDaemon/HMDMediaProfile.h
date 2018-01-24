@@ -6,21 +6,26 @@
 
 #import <HomeKitDaemon/HMDAccessoryProfile.h>
 
-@class HMDMediaSession, NSObject<OS_dispatch_queue>;
+@class HMDAccessorySettingContainer, HMDAppleMediaAccessory, HMDMediaSession, HMDMediaSystem, NSObject<OS_dispatch_queue>;
 
 @interface HMDMediaProfile : HMDAccessoryProfile
 {
     HMDMediaSession *_mediaSession;
+    HMDMediaSystem *_mediaSystem;
+    HMDAccessorySettingContainer *_container;
     NSObject<OS_dispatch_queue> *_propertyQueue;
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)hasMessageReceiverChildren;
 + (id)logCategory;
 + (id)sessionNamespace;
 + (id)namespace;
 @property(readonly) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
+@property(retain, nonatomic) HMDAccessorySettingContainer *container; // @synthesize container=_container;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
+- (id)messageReceiverChildren;
 - (void)updateWithResponses:(id)arg1 message:(id)arg2;
 - (void)sessionAudioControlUpdated:(id)arg1;
 - (void)_sessionPlaybackStateUpdated:(id)arg1 forceNotifyXPCClients:(_Bool)arg2;
@@ -30,6 +35,8 @@
 - (void)handleMediaResponses:(id)arg1 message:(id)arg2;
 - (void)_handleSetPlayback:(id)arg1;
 @property(retain) HMDMediaSession *mediaSession; // @synthesize mediaSession=_mediaSession;
+@property(nonatomic) __weak HMDMediaSystem *mediaSystem; // @synthesize mediaSystem=_mediaSystem;
+@property(readonly) __weak HMDAppleMediaAccessory *mediaAccessory;
 - (void)registerForMessages;
 - (void)configureWithMessageDispatcher:(id)arg1;
 - (id)initWithAccessory:(id)arg1;

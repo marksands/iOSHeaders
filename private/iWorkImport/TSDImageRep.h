@@ -7,64 +7,40 @@
 #import <iWorkImport/TSDMediaRep.h>
 
 #import "CALayerDelegate.h"
+#import "TSDImageDrawingDataSource.h"
 #import "TSDMagicMoveMatching.h"
 
-@class CALayer, CAShapeLayer, NSCache, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSRecursiveLock, NSString, TSDImageRepSizingState, TSDInstantAlphaTracker, TSDLayoutGeometry, TSPData;
+@class NSMutableArray, NSObject<OS_dispatch_semaphore>, NSString, TSDImageDrawingHelper, TSDImageInfo, TSDImageLayout, TSDLayoutGeometry, TSDMaskInfo, TSDMaskLayout, TSPData;
 
 __attribute__((visibility("hidden")))
-@interface TSDImageRep : TSDMediaRep <CALayerDelegate, TSDMagicMoveMatching>
+@interface TSDImageRep : TSDMediaRep <CALayerDelegate, TSDImageDrawingDataSource, TSDMagicMoveMatching>
 {
     TSDLayoutGeometry *mLastImageGeometryInRoot;
     TSDLayoutGeometry *mLastMaskGeometryInRoot;
     struct CGAffineTransform mLastLayoutToImageTransform;
     struct CGRect mFrameInUnscaledCanvasRelativeToSuper;
     _Bool mFrameInUnscaledCanvasIsValid;
-    CALayer *mContentsLayer;
-    CAShapeLayer *mMaskPathLayer;
-    CAShapeLayer *mIAMaskLayer;
-    CAShapeLayer *mMaskSublayer;
-    struct CGAffineTransform mLastPictureFrameLayerTransform;
-    CAShapeLayer *mStrokeLayer;
-    CALayer *mFrameMaskLayer;
-    struct CGRect mLastPictureFrameLayerRect;
-    _Bool mDirectlyManagesLayerContent;
-    _Bool mShowImageHighlight;
-    _Bool mIsEquation;
-    _Bool mCachedIsEquation;
-    _Bool mInInstantAlphaMode;
-    TSDInstantAlphaTracker *mInstantAlphaTracker;
-    struct CGImage *mInstantAlphaImage;
-    struct CGAffineTransform mBaseMaskLayoutTransform;
-    NSRecursiveLock *mLayerUpdateAndSizingStateLock;
-    TSDImageRepSizingState *mSizingState;
-    _Bool mSizingStateReady;
-    NSObject<OS_dispatch_queue> *mSizedImageAccessQueue;
-    struct CGImage *mSizedImage;
-    struct CGSize mSizedImageSize;
-    _Bool mSizedImageIsWide;
-    long long mSizedImageOrientation;
-    _Bool mSizedImageHasMaskBakedIn;
-    _Bool mSizedImageHasAdjustmentsBakedIn;
-    struct CGPath *mSizedImageMaskPath;
-    NSCache *mHitTestCache;
-    NSMutableSet *mDisabledCanvasViewGRs;
+    TSDImageDrawingHelper *mDrawingHelper;
     NSMutableArray *mUpdateFromLayoutBlocks;
     NSObject<OS_dispatch_semaphore> *mUpdateFromLayoutBlocksLock;
 }
 
-+ (struct CGPath *)p_newPathToBakeIntoSizedImageForSize:(struct CGSize)arg1 withImageLayout:(id)arg2 orientation:(long long)arg3;
 + (double)magicMoveAttributeMatchPercentBetweenOutgoingObject:(id)arg1 incomingObject:(id)arg2 mixingTypeContext:(id)arg3;
 - (void).cxx_destruct;
 - (_Bool)canDrawShadowInOneStepWithChildren:(_Bool)arg1;
 - (_Bool)p_drawsInOneStep;
-- (id)p_validatedThumbnailImageProvider;
 - (id)p_validatedBitmapImageProvider;
 - (id)p_validatedImageProvider;
-- (id)p_imageProvider;
-- (id)p_imageData;
 - (id)textureForDescription:(id)arg1;
 - (_Bool)p_shouldUseSourceImageForDescription:(id)arg1 clipBounds:(struct CGRect)arg2 transform:(struct CGAffineTransform)arg3 image:(struct CGImage *)arg4;
 - (void)setTextureAttributes:(id)arg1 textureBounds:(struct CGRect)arg2;
+- (id)imageDrawingHelperThumbnailAdjustedImageData:(id)arg1;
+- (id)imageDrawingHelperAdjustedImageData:(id)arg1;
+- (_Bool)imageDrawingHelperImageHasAlpha:(id)arg1;
+- (struct CGAffineTransform)imageDrawingHelperImageTransformInRootForAntialiasingDefeat:(id)arg1;
+- (struct CGRect)imageDrawingHelperImageRect:(id)arg1;
+- (id)imageDrawingHelperThumbnailImageData:(id)arg1;
+- (id)imageDrawingHelperImageData:(id)arg1;
 - (struct CGRect)frameInUnscaledCanvas;
 - (void)p_drawInContext:(struct CGContext *)arg1 withContent:(_Bool)arg2 strokeDrawOptions:(unsigned long long)arg3 withOpacity:(double)arg4 withMask:(_Bool)arg5 withIAMask:(_Bool)arg6 forLayer:(_Bool)arg7 forShadow:(_Bool)arg8 forHitTest:(_Bool)arg9;
 - (_Bool)canDrawInParallel;
@@ -76,10 +52,10 @@ __attribute__((visibility("hidden")))
 - (_Bool)isDataCurrentlyDownloading;
 @property(readonly) TSPData *imageDataForRendering;
 - (void)willBeRemoved;
-- (id)maskLayout;
-- (id)maskInfo;
-- (id)imageLayout;
-- (id)imageInfo;
+@property(readonly, nonatomic) TSDMaskLayout *maskLayout;
+@property(readonly, nonatomic) TSDMaskInfo *maskInfo;
+@property(readonly, nonatomic) TSDImageLayout *imageLayout;
+@property(readonly, nonatomic) TSDImageInfo *imageInfo;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
 

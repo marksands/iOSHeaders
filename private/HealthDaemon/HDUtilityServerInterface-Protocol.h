@@ -9,6 +9,7 @@
 @class HKObjectType, HKQuantity, NSArray, NSPredicate, NSString;
 
 @protocol HDUtilityServerInterface <NSObject>
+- (void)remote_fetchURLForAnalyticsFileWithName:(NSString *)arg1 completion:(void (^)(NSURL *, NSError *))arg2;
 - (void)remote_stopObservingDataCollectionForType:(HKObjectType *)arg1;
 - (void)remote_observeDataCollectionForType:(HKObjectType *)arg1 interval:(double)arg2 inBackground:(_Bool)arg3 hasRunningWorkout:(_Bool)arg4;
 - (void)remote_resetAWDTask:(NSString *)arg1 completion:(void (^)(_Bool, NSError *))arg2;

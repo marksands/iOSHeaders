@@ -139,6 +139,7 @@
 - (long long)_persistedLikedState;
 - (void)_handleUpdatedLikedState:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_currentPlaybackRateDidChange:(float)arg1;
+- (id)storeFrontIdentifier;
 - (_Bool)shouldPreventPlayback;
 - (void)setPlaybackStoppedTime:(double)arg1;
 - (void)setPlaybackFinishedTime:(double)arg1;
@@ -162,7 +163,6 @@
 - (id)stationName;
 - (id)stationHash;
 - (long long)stationID;
-- (_Bool)stationAllowsItemLiking;
 @property(readonly, nonatomic) _Bool shouldReportPlayEventsToStore;
 - (void)setRating:(float)arg1;
 - (void)setLoudnessInfoVolumeNormalization:(float)arg1;

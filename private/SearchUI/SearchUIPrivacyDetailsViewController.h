@@ -11,7 +11,7 @@
 }
 
 - (void)dismiss;
-- (id)initWithTitle:(id)arg1 text:(id)arg2;
+- (id)init;
 
 @end
 

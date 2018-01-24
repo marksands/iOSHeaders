@@ -50,6 +50,8 @@ __attribute__((visibility("hidden")))
     NSCache *_cachedLocalizedStrings;
     NSString *_trueString;
     NSString *_falseString;
+    NSString *_amString;
+    NSString *_pmString;
 }
 
 + (void)saveLocaleForReuse:(id)arg1;
@@ -69,12 +71,15 @@ __attribute__((visibility("hidden")))
 + (id)canonicalizeLocaleIdentifierWithLanguageOnly:(id)arg1;
 + (id)canonicalizeLocaleIdentifier:(id)arg1;
 + (id)applicationLocale;
++ (id)preferredLocale;
 + (id)currentLocale;
 + (id)preferredLanguages;
 + (id)cacheKeyForLocale:(id)arg1;
 + (unsigned long long)autoupdatingCurrentLocaleChangeCount;
 + (void)setLocalizedStringBundle:(struct __CFBundle *)arg1;
 + (void)initialize;
+@property(readonly) NSString *pmString; // @synthesize pmString=_pmString;
+@property(readonly) NSString *amString; // @synthesize amString=_amString;
 @property(readonly) TSUDateParserLibrary *dateParserLibrary; // @synthesize dateParserLibrary=_dateParserLibrary;
 @property(readonly) NSString *falseString; // @synthesize falseString=_falseString;
 @property(readonly) NSString *trueString; // @synthesize trueString=_trueString;

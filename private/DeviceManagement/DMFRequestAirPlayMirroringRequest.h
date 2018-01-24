@@ -10,6 +10,7 @@
 
 @interface DMFRequestAirPlayMirroringRequest : CATTaskRequest
 {
+    _Bool _force;
     NSString *_destinationName;
     NSString *_destinationDeviceID;
     NSString *_password;
@@ -19,6 +20,7 @@
 + (_Bool)supportsSecureCoding;
 + (Class)whitelistedClassForResultObject;
 @property(nonatomic) double scanWaitInterval; // @synthesize scanWaitInterval=_scanWaitInterval;
+@property(nonatomic) _Bool force; // @synthesize force=_force;
 @property(copy, nonatomic) NSString *password; // @synthesize password=_password;
 @property(copy, nonatomic) NSString *destinationDeviceID; // @synthesize destinationDeviceID=_destinationDeviceID;
 @property(copy, nonatomic) NSString *destinationName; // @synthesize destinationName=_destinationName;

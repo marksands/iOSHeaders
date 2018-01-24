@@ -12,6 +12,7 @@
 {
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSData *data;
 @property(readonly, nonatomic) NSString *identifier;
 - (id)description;

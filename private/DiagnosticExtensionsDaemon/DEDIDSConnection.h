@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "DEDSecureArchiving.h"
 #import "IDSServiceDelegate.h"
 
 @class IDSService, NSMutableArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_os_log>, NSString;
 
-@interface DEDIDSConnection : NSObject <IDSServiceDelegate>
+@interface DEDIDSConnection : NSObject <IDSServiceDelegate, DEDSecureArchiving>
 {
     id <DEDClientProtocol> _remoteSideDelegate;
     NSObject<OS_os_log> *_log;
@@ -24,6 +25,7 @@
 
 + (id)unpackProtobuf:(id)arg1;
 + (id)packPayload:(id)arg1;
++ (id)archivedClasses;
 @property(copy) CDUnknownBlockType deviceStatusCallback; // @synthesize deviceStatusCallback=_deviceStatusCallback;
 @property(retain) id <IDSServiceDelegate> incomingDelegate; // @synthesize incomingDelegate=_incomingDelegate;
 @property(retain) NSMutableArray *availableDevices; // @synthesize availableDevices=_availableDevices;

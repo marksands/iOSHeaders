@@ -62,6 +62,7 @@
 - (id)_primaryStatusTextForLatestResults:(id)arg1 showingSecondaryStatus:(_Bool)arg2;
 - (void)_updateIconDescriptorNotifyingDelegate:(_Bool)arg1;
 - (id)_itemToUseForIconAndStatus;
+@property(readonly, nonatomic) HUQuickControlViewController *alternateController;
 @property(readonly, nonatomic) HUQuickControlViewController *activeController;
 @property(readonly, nonatomic) NSArray *allControllers;
 - (id)viewControllerOfType:(unsigned long long)arg1;

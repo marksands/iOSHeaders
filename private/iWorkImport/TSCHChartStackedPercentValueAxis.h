@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     TSCHChartAxisAnalysis *mInProgressAnalysisForErrorBarData;
 }
 
+- (void).cxx_destruct;
 - (void)updateGridValueTypeInterceptInAnalysis:(id)arg1;
 - (id)valueForFormattedString:(id)arg1;
 - (id)formattedStringForSeries:(id)arg1 index:(unsigned long long)arg2;

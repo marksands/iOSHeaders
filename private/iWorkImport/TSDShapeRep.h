@@ -8,6 +8,8 @@
 
 #import "TSDMagicMoveMatching.h"
 
+@class TSDShapeInfo, TSDShapeLayout;
+
 __attribute__((visibility("hidden")))
 @interface TSDShapeRep : TSDStyledRep <TSDMagicMoveMatching>
 {
@@ -16,6 +18,12 @@ __attribute__((visibility("hidden")))
     _Bool mDirectlyManagesLayerContent;
     struct CGRect mOriginalAliasedAlignmentFrameInLayerFrame;
     _Bool mShadowOnChildrenDisabled;
+    struct CGContext *mCommittedPathContext;
+    struct CGImage *mCommittedPathImage;
+    struct _NSRange mCommittedPointRange;
+    struct _NSRange mAvailableToCommitPointRange;
+    struct CGRect mLastDynamicInvalidRect;
+    _Bool mFillChanged;
 }
 
 + (double)magicMoveAttributeMatchPercentBetweenOutgoingObject:(id)arg1 incomingObject:(id)arg2 mixingTypeContext:(id)arg3;
@@ -23,21 +31,11 @@ __attribute__((visibility("hidden")))
 - (_Bool)p_drawsSelfInOneStep;
 - (void)p_drawLineEndForHead:(_Bool)arg1 withDelta:(struct CGPoint)arg2 andStroke:(id)arg3 inContext:(struct CGContext *)arg4 useFastDrawing:(_Bool)arg5;
 - (void)setTextureAttributes:(id)arg1 textureBounds:(struct CGRect)arg2;
-- (_Bool)canBeginEditing;
-- (void)beginEditing;
-- (void)beginEditingWithString:(id)arg1;
-- (_Bool)canBeUsedForImageMask;
-- (id)pathSourceForSelectionHighlightBehavior;
-- (_Bool)intersectsUnscaledRect:(struct CGRect)arg1;
-- (double)shortestDistanceToPoint:(struct CGPoint)arg1 countAsHit:(_Bool *)arg2;
-- (_Bool)shouldExpandHitRegionWhenSmall;
-- (_Bool)containsPoint:(struct CGPoint)arg1;
-- (_Bool)shouldHitTestWithFill;
+- (_Bool)isInvisible;
 - (id)imageOfStroke:(struct CGRect *)arg1;
 - (struct CGRect)strokeBoundsWithOptions:(unsigned long long)arg1 fallbackBounds:(struct CGRect)arg2;
 - (void)p_drawInContext:(struct CGContext *)arg1 withContent:(_Bool)arg2 strokeDrawOptions:(unsigned long long)arg3 withOpacity:(_Bool)arg4;
 - (void)drawInContextWithoutEffects:(struct CGContext *)arg1 withContent:(_Bool)arg2 strokeDrawOptions:(unsigned long long)arg3 withOpacity:(_Bool)arg4 forAlphaOnly:(_Bool)arg5 drawChildren:(_Bool)arg6;
-- (_Bool)isEditingChildRep;
 - (void)drawInLayerContext:(struct CGContext *)arg1;
 - (void)p_drawChildrenWithoutOpacityInContext:(struct CGContext *)arg1;
 - (void)recursivelyDrawChildrenInContext:(struct CGContext *)arg1;
@@ -46,8 +44,9 @@ __attribute__((visibility("hidden")))
 - (_Bool)p_beginApplyOpacity:(struct CGContext *)arg1 forDrawingInOneStep:(_Bool)arg2;
 - (struct CGRect)clipRect;
 - (struct CGRect)frameInUnscaledCanvas;
-- (id)shapeLayout;
-- (id)shapeInfo;
+@property(readonly, nonatomic) TSDShapeLayout *shapeLayout;
+@property(readonly, nonatomic) TSDShapeInfo *shapeInfo;
+- (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
 
 @end

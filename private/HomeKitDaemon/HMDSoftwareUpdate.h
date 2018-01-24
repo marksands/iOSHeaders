@@ -7,14 +7,14 @@
 #import "HMFObject.h"
 
 #import "HMDBackingStoreObjectProtocol.h"
+#import "HMDHomeMessageReceiver.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "HMFObject.h"
 #import "NSSecureCoding.h"
 
-@class HMDAccessory, HMDSoftwareUpdateModel, HMFMessageDispatcher, HMFSoftwareVersion, HMSoftwareUpdateDocumentationMetadata, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDAccessory, HMDSoftwareUpdateModel, HMFMessageDispatcher, HMFSoftwareVersion, HMSoftwareUpdateDocumentationMetadata, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDSoftwareUpdate : HMFObject <HMFLogging, HMFObject, HMDBackingStoreObjectProtocol, HMFMessageReceiver, NSSecureCoding>
+@interface HMDSoftwareUpdate : HMFObject <HMFLogging, HMFObject, HMDBackingStoreObjectProtocol, HMDHomeMessageReceiver, NSSecureCoding>
 {
     long long _state;
     HMSoftwareUpdateDocumentationMetadata *_documentationMetadata;
@@ -28,6 +28,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)hasMessageReceiverChildren;
 + (id)logCategory;
 + (id)modelNamespace;
 @property __weak HMDAccessory *accessory; // @synthesize accessory=_accessory;
@@ -68,6 +69,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

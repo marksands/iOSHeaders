@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class FCGroupConfig, FCInterestToken, FCSpecialEventGroupConfig, FCTopStoriesGroupConfig, NSArray, NSDate, NSString, NTPBForYouConfigRecord;
+@class FCGroupConfig, FCInterestToken, FCSpecialEventGroupConfig, FCTopStoriesGroupConfig, FCVideoGroupConfig, NSArray, NSDate, NSString, NTPBForYouConfigRecord;
 
 @interface FCForYouConfig : NSObject <NSCopying>
 {
@@ -18,12 +18,16 @@
     FCGroupConfig *_trendingGroupConfig;
     FCGroupConfig *_coverArticlesGroupConfig;
     NSArray *_editorialGroupConfigs;
+    FCVideoGroupConfig *_topVideosGroupConfig;
+    FCVideoGroupConfig *_moreVideosGroupConfig;
     NTPBForYouConfigRecord *_forYouConfigRecord;
     FCInterestToken *_interestToken;
 }
 
 @property(retain, nonatomic) FCInterestToken *interestToken; // @synthesize interestToken=_interestToken;
 @property(retain, nonatomic) NTPBForYouConfigRecord *forYouConfigRecord; // @synthesize forYouConfigRecord=_forYouConfigRecord;
+@property(retain, nonatomic) FCVideoGroupConfig *moreVideosGroupConfig; // @synthesize moreVideosGroupConfig=_moreVideosGroupConfig;
+@property(retain, nonatomic) FCVideoGroupConfig *topVideosGroupConfig; // @synthesize topVideosGroupConfig=_topVideosGroupConfig;
 @property(retain, nonatomic) NSArray *editorialGroupConfigs; // @synthesize editorialGroupConfigs=_editorialGroupConfigs;
 @property(retain, nonatomic) FCGroupConfig *coverArticlesGroupConfig; // @synthesize coverArticlesGroupConfig=_coverArticlesGroupConfig;
 @property(retain, nonatomic) FCGroupConfig *trendingGroupConfig; // @synthesize trendingGroupConfig=_trendingGroupConfig;
@@ -33,6 +37,8 @@
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSDate *fetchedDate;
+@property(readonly, nonatomic) NSString *moreVideosArticleListID;
+@property(readonly, nonatomic) NSArray *topVideosArticleIDs;
 @property(readonly, nonatomic) NSArray *editorialSectionTagIDs;
 @property(readonly, nonatomic) NSArray *editorialArticleListIDs;
 @property(readonly, nonatomic) NSString *coverArticlesArticleListID;

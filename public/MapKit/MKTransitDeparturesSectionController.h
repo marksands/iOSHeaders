@@ -6,7 +6,7 @@
 
 #import <MapKit/MKTransitSectionController.h>
 
-@class NSArray, NSDictionary, NSMapTable, NSString;
+@class MKTransitDepartureServiceGapFormatter, NSArray, NSDictionary, NSMapTable, NSString;
 
 __attribute__((visibility("hidden")))
 @interface MKTransitDeparturesSectionController : MKTransitSectionController
@@ -18,14 +18,16 @@ __attribute__((visibility("hidden")))
     _Bool _needsFindRowForServiceGap;
     _Bool _needsFindDeparturesAreVehicleSpecific;
     _Bool _departuresAreVehicleSpecific;
+    MKTransitDepartureServiceGapFormatter *_serviceGapFormatter;
 }
 
+@property(retain, nonatomic) MKTransitDepartureServiceGapFormatter *serviceGapFormatter; // @synthesize serviceGapFormatter=_serviceGapFormatter;
 - (void).cxx_destruct;
 - (id)serviceGapDescriptionForRow:(long long)arg1;
 - (void)_serviceGapDate:(out id *)arg1 string:(out id *)arg2 forSequence:(id)arg3 withDepartureIndex:(unsigned long long)arg4;
-- (id)_descriptionForDepartureDate:(id)arg1 canIncludeDate:(_Bool)arg2;
 - (id)_nextLastDepartureDateForSequence:(id)arg1 afterDate:(id)arg2;
 - (_Bool)_isDateLastDeparture:(id)arg1 withNextDepartureDate:(id)arg2 forSequence:(id)arg3;
+- (void)setDepartureCutoffDate:(id)arg1;
 - (void)_buildRows;
 - (void)_setNeedsBuildRows;
 - (id)_pagingFilter;

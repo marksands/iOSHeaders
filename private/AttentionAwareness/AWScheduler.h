@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)setDebugPreference:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)getDebugPreferences:(CDUnknownBlockType)arg1;
 - (void)armEvents;
+- (void)setSmartCoverClosed:(_Bool)arg1;
 - (void)processHIDEvent:(unsigned long long)arg1 timestamp:(unsigned long long)arg2;
 - (void)removeClientsForConnection:(id)arg1;
 - (void)removeInvalidClients;

@@ -13,6 +13,7 @@
     struct CGSize _size;
     NSString *_name;
     NSString *_utiType;
+    struct CGSize _physicalSizeInMeters;
     NSMutableArray *_slices;
     NSMutableArray *_bitmaps;
     NSMutableArray *_metrics;
@@ -45,7 +46,7 @@
     unsigned short _linkLayout;
     struct CGSize _originalUncroppedSize;
     struct CGRect _alphaCroppedFrame;
-    NSArray *_explicitlyPackedContents;
+    NSArray *_containedNamedElements;
     double _compressionQuality;
     long long _compressionType;
     _Bool _isCubeMap;
@@ -91,6 +92,7 @@
 @property(nonatomic) long long templateRenderingMode; // @synthesize templateRenderingMode=_templateRenderingMode;
 @property(nonatomic) _Bool isVectorBased; // @synthesize isVectorBased=_isVectorBased;
 @property(nonatomic) _Bool isRenditionFPO; // @synthesize isRenditionFPO=_isFPOHint;
+@property(nonatomic) struct CGSize physicalSizeInMeters; // @synthesize physicalSizeInMeters=_physicalSizeInMeters;
 @property(copy, nonatomic) NSString *utiType; // @synthesize utiType=_utiType;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
@@ -125,7 +127,7 @@
 - (id)initWithLayerStackData:(id)arg1 withCanvasSize:(struct CGSize)arg2;
 - (id)initWithExternalReference:(id)arg1 tags:(id)arg2;
 - (id)initWithRawData:(id)arg1 pixelFormat:(unsigned int)arg2 layout:(short)arg3;
-- (id)initWithExplicitlyPackedList:(id)arg1;
+- (id)initWithNameList:(id)arg1;
 - (id)initWithShapeEffectPreset:(id)arg1 forScaleFactor:(unsigned int)arg2;
 - (id)initWithCanvasSize:(struct CGSize)arg1 sliceCount:(unsigned int)arg2 layout:(short)arg3;
 

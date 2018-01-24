@@ -48,8 +48,10 @@
     NSNumber *_discoveryModeOverride;
     id <MPAVRoutingViewControllerThemeDelegate> _themeDelegate;
     MPAVEndpointRoute *_endpointRoute;
+    id <MPAVOutputDevicePlaybackDataSource> _playbackDataSource;
 }
 
+@property(nonatomic) __weak id <MPAVOutputDevicePlaybackDataSource> playbackDataSource; // @synthesize playbackDataSource=_playbackDataSource;
 @property(retain, nonatomic) MPAVEndpointRoute *endpointRoute; // @synthesize endpointRoute=_endpointRoute;
 @property(nonatomic) __weak id <MPAVRoutingViewControllerThemeDelegate> themeDelegate; // @synthesize themeDelegate=_themeDelegate;
 @property(copy, nonatomic) NSNumber *discoveryModeOverride; // @synthesize discoveryModeOverride=_discoveryModeOverride;
@@ -64,8 +66,8 @@
 - (double)_tableViewHeaderViewHeight;
 - (id)_tableHeaderView;
 - (unsigned long long)_tableViewNumberOfRows;
-- (_Bool)_pickOrGroupRoute:(id)arg1;
-- (void)_pickRoute:(id)arg1;
+- (void)_promptForHijackIfNeeded:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (_Bool)_pickOrGroupRoute:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_applyUpdate:(id)arg1;
 - (void)_updateDisplayedRoutes;
 - (void)_reloadEmptyStateVisibility;
@@ -80,6 +82,7 @@
 - (void)_beginRouteDiscovery;
 - (void)_unregisterNotifications;
 - (void)_registerNotifications;
+- (void)_configureCell:(id)arg1 forIndexPath:(id)arg2;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 - (double)_tableViewHeightAccordingToDataSource;

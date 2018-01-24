@@ -10,11 +10,11 @@
 
 @interface PKInkBehavior : NSObject
 {
-    vector_3aeccfac _radiusOutput;
-    vector_3aeccfac _opacityOutput;
-    vector_3aeccfac _edgeWidthOutput;
-    vector_3aeccfac _aspectRatioOutput;
-    vector_3aeccfac _brushOpacityOutput;
+    vector_2b0a8222 _radiusOutput;
+    vector_2b0a8222 _opacityOutput;
+    vector_2b0a8222 _edgeWidthOutput;
+    vector_2b0a8222 _aspectRatioOutput;
+    vector_2b0a8222 _brushOpacityOutput;
     double _baseRadiusStylus;
     double _baseRadiusTouchPad;
     double _baseRadiusTouchPhone;
@@ -94,15 +94,15 @@
 - (unsigned int)particleTexture;
 - (double)rulerOffsetForBaseValues:(struct _PKStrokePoint)arg1 inputType:(long long)arg2 inputScale:(double)arg3;
 - (double)baseRadiusForInputType:(long long)arg1;
-- (double)solve:(vector_3aeccfac *)arg1 forPoint:(CDStruct_f17e9403)arg2 context:(CDStruct_5237edf5 *)arg3;
-- (double)solveForTime:(vector_3aeccfac *)arg1 forTime:(double)arg2 stillChanging:(_Bool *)arg3;
+- (double)solve:(vector_2b0a8222 *)arg1 forPoint:(CDStruct_f17e9403)arg2 context:(CDStruct_5237edf5 *)arg3;
+- (double)solveForTime:(vector_2b0a8222 *)arg1 forTime:(double)arg2 stillChanging:(_Bool *)arg3;
 - (struct _PKStrokePoint)outputTimePoint:(struct _PKStrokePoint)arg1 atTime:(double)arg2 stillChanging:(_Bool *)arg3;
 - (struct _PKStrokePoint)outputForPoint:(CDStruct_f17e9403)arg1 context:(CDStruct_5237edf5 *)arg2;
 - (double)alphaForStroke:(id)arg1;
 - (double)brushOpacityForPoint:(CDStruct_f17e9403)arg1 context:(CDStruct_5237edf5 *)arg2;
 - (unique_ptr_61416811)loadFunction:(id)arg1;
 - (void)validatePiecewiseBezierFunction:(struct PKFunctionPiecewiseBezier *)arg1;
-- (vector_3aeccfac)loadOutput:(id)arg1;
+- (vector_2b0a8222)loadOutput:(id)arg1;
 - (void)loadBaseRadius:(id)arg1;
 - (void)verifyParameters;
 - (void)loadInkWithDictionary:(id)arg1;

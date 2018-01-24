@@ -24,7 +24,7 @@
 @property(readonly, nonatomic) struct _SXConvertibleValue distanceFromMedia; // @dynamic distanceFromMedia;
 @property(readonly, nonatomic) unsigned long long frequency; // @dynamic frequency;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) id <SXDynamicAdLayout> layout; // @dynamic layout;
+@property(readonly, nonatomic) id <SXAutoPlacementLayout> layout; // @dynamic layout;
 @property(readonly) Class superclass;
 
 @end

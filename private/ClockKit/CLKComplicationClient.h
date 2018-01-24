@@ -9,12 +9,13 @@
 #import "CLKComplicationDataSource.h"
 #import "CLKComplicationServer.h"
 
-@class NSHashTable, NSNumber, NSSet, NSString, NSXPCConnection;
+@class NSHashTable, NSLock, NSNumber, NSSet, NSString, NSXPCConnection;
 
 @interface CLKComplicationClient : NSObject <CLKComplicationServer, CLKComplicationDataSource>
 {
     NSXPCConnection *_connection;
     NSHashTable *_invalidationObservers;
+    NSLock *_invalidationObserversLock;
     _Bool _invalidated;
     NSString *_clientIdentifier;
     NSString *_clientBundlePath;

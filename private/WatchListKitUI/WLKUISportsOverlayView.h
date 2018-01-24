@@ -48,6 +48,7 @@
 - (long long)styleForScorecardView:(id)arg1;
 - (void)_resetTextBadge;
 - (id)_materialImageForImage:(id)arg1 forFrame:(struct CGRect)arg2;
+- (void)backgroundImageSizeDidChange:(struct CGSize)arg1;
 - (void)reset;
 - (void)layoutWithElement:(id)arg1;
 - (void)layoutSubviews;

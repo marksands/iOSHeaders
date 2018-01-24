@@ -17,15 +17,11 @@ __attribute__((visibility("hidden")))
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)sharedDictionary;
 + (id)_singletonAlloc;
+- (void).cxx_destruct;
 - (id)transcriberWithIdentifier:(id)arg1;
 - (id)transcriberForBaseText:(id)arg1 range:(struct _NSRange)arg2 gettingLocale:(id *)arg3 inputLanguage:(id *)arg4;
 - (id)pronunciationForBaseText:(id)arg1 locale:(id)arg2 inputLanguage:(id)arg3;
-- (void)dealloc;
 - (id)init;
-- (id)autorelease;
-- (oneway void)release;
-- (unsigned long long)retainCount;
-- (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

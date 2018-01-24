@@ -62,6 +62,8 @@
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)description;
+- (void)setFriendLevel:(id)arg1;
+@property(readonly, nonatomic) NSString *friendLevel; // @dynamic friendLevel;
 @property(retain, nonatomic) NSString *playerID; // @dynamic playerID;
 @property(readonly, nonatomic) CDStruct_c6d350ec stats;
 @property(readonly, nonatomic) GKGame *lastPlayedGame;

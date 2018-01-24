@@ -15,33 +15,32 @@
 __attribute__((visibility("hidden")))
 @interface TSKCOReplaceRangeOperation : TSKCOReplaceOperation <TSKCORangeOperation, TSKCOReplaceRangeOperationSubset, TSKCOTransforming>
 {
-    TSKCORangeAddress *mAddress;
-    unsigned long long mInsertLength;
-    _Bool mPreserveLowerPriorityLocation;
+    _Bool _preserveLowerPriorityLocation;
+    TSKCORangeAddress *_address;
+    unsigned long long _insertLength;
 }
 
-@property(readonly, nonatomic) _Bool preserveLowerPriorityLocation; // @synthesize preserveLowerPriorityLocation=mPreserveLowerPriorityLocation;
-@property(readonly, nonatomic) unsigned long long insertLength; // @synthesize insertLength=mInsertLength;
-@property(readonly, nonatomic) TSKCORangeAddress *address; // @synthesize address=mAddress;
+@property(readonly, nonatomic) _Bool preserveLowerPriorityLocation; // @synthesize preserveLowerPriorityLocation=_preserveLowerPriorityLocation;
+@property(readonly, nonatomic) unsigned long long insertLength; // @synthesize insertLength=_insertLength;
+@property(readonly, nonatomic) TSKCORangeAddress *address; // @synthesize address=_address;
+- (void).cxx_destruct;
+- (id)toString;
 - (void)p_validateAndMergeTransformedRanges:(id)arg1;
-- (id)description;
-- (id)transformUpdateRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)transformReplaceRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)transformUpdateIdOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)transformIdPlacementBaseOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
+- (id)ut_transformByTransformer:(id)arg1;
+- (id)transformDynamicByAnyOperation:(id)arg1 byHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformStaticByAnyOperation:(id)arg1 byHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformUpdateRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformReplaceRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformUpdateIdOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformIdPlacementBaseOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
 - (_Bool)hasNoEffects;
-- (id)fromReplaceRangeOperation:(id)arg1;
 - (id)toReplaceRangeOperation;
 - (id)operationWithNewAddress:(id)arg1 newPreserveLowerPriorityLocation:(_Bool)arg2;
 - (id)operationWithNewAddress:(id)arg1;
 - (id)operationWithNewNoop:(_Bool)arg1;
-- (void)dealloc;
 - (id)initWithRangeAddress:(id)arg1 insertLength:(unsigned long long)arg2;
 - (id)initWithRangeAddress:(id)arg1 insertLength:(unsigned long long)arg2 noop:(_Bool)arg3;
 - (id)initWithRangeAddress:(id)arg1 insertLength:(unsigned long long)arg2 preserveLowerPriorityLocation:(_Bool)arg3 noop:(_Bool)arg4;
-- (id)ut_transformByTransformer:(id)arg1;
-- (id)transformDynamicByAnyOperation:(id)arg1 byHigherPriority:(_Bool)arg2;
-- (id)transformStaticByAnyOperation:(id)arg1 byHigherPriority:(_Bool)arg2;
 - (void)saveToArchiver:(id)arg1 message:(struct Operation *)arg2;
 - (id)initWithUnarchiver:(id)arg1 message:(const struct Operation *)arg2;
 - (id)p_transformUpdateRange:(struct _NSRange)arg1 replacementRange:(struct _NSRange)arg2 replacementLength:(unsigned long long)arg3 transformBehavior:(int)arg4;

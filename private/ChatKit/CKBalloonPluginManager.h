@@ -31,6 +31,7 @@
     NSDictionary *_pluginVersionMap;
     NSDictionary *_pluginSeenMap;
     NSDictionary *_pluginIndexPathMap;
+    NSMutableDictionary *_historicalPluginIndexPathMap;
     NSMutableArray *_MRUPluginInteractionList;
     NSDictionary *_pluginLaunchTimeMap;
     NSArray *_allPlugins;
@@ -55,6 +56,7 @@
 @property(retain, nonatomic) NSArray *allPlugins; // @synthesize allPlugins=_allPlugins;
 @property(retain, nonatomic) NSDictionary *pluginLaunchTimeMap; // @synthesize pluginLaunchTimeMap=_pluginLaunchTimeMap;
 @property(retain, nonatomic) NSMutableArray *MRUPluginInteractionList; // @synthesize MRUPluginInteractionList=_MRUPluginInteractionList;
+@property(retain, nonatomic) NSMutableDictionary *historicalPluginIndexPathMap; // @synthesize historicalPluginIndexPathMap=_historicalPluginIndexPathMap;
 @property(retain, nonatomic) NSDictionary *pluginIndexPathMap; // @synthesize pluginIndexPathMap=_pluginIndexPathMap;
 @property(retain, nonatomic) NSDictionary *pluginSeenMap; // @synthesize pluginSeenMap=_pluginSeenMap;
 @property(retain, nonatomic) NSDictionary *pluginVersionMap; // @synthesize pluginVersionMap=_pluginVersionMap;
@@ -99,6 +101,7 @@
 - (id)_encodeIndexPathMap:(id)arg1;
 - (_Bool)isPluginEnabled:(id)arg1;
 - (void)setEnabled:(_Bool)arg1 forPlugin:(id)arg2;
+- (void)_updateHistoricalPluginIndexPathMap;
 - (void)commitInteractionTimeOrderingChanges;
 - (void)updateInteractionTimeForPlugin:(id)arg1;
 - (void)removeAppWithIdentifier:(id)arg1;
@@ -134,6 +137,7 @@
 - (_Bool)isEnabledAndVisible:(id)arg1;
 - (void)updateIndexPath:(id)arg1 forPlugin:(id)arg2 isDrawerPluginPath:(_Bool)arg3;
 - (void)regeneratePluginIndexPaths;
+- (id)_pluginIndexPathForFavoritePluginWithIdentifier:(id)arg1 pluginMap:(id)arg2 fallbackMap:(id)arg3;
 - (id)orderedPlugins:(_Bool)arg1;
 - (id)allPotentiallyVisiblePlugins;
 @property(readonly, nonatomic) NSArray *potentiallyVisibleNonFavoritePlugins;

@@ -13,12 +13,18 @@ __attribute__((visibility("hidden")))
 {
     struct _NSRange _dayOfWeekRange;
     NSArray *_openIntervals;
+    double _closingSoonThresholdSeconds;
+    double _openingSoonThresholdSeconds;
 }
 
-+ (id)dailyHours:(id)arg1 forDays:(struct _NSRange)arg2;
++ (id)dailyHours:(id)arg1 forDays:(struct _NSRange)arg2 withClosingThreshold:(double)arg3 withOpeningThreshold:(double)arg4;
+@property(nonatomic) double openingSoonThresholdSeconds; // @synthesize openingSoonThresholdSeconds=_openingSoonThresholdSeconds;
+@property(nonatomic) double closingSoonThresholdSeconds; // @synthesize closingSoonThresholdSeconds=_closingSoonThresholdSeconds;
 @property(readonly) NSArray *openIntervals; // @synthesize openIntervals=_openIntervals;
 @property(readonly) struct _NSRange dayOfWeekRange; // @synthesize dayOfWeekRange=_dayOfWeekRange;
 - (void).cxx_destruct;
+- (id)_intervalContainingDate:(id)arg1 intervals:(id)arg2;
+- (id)dateIntervalInOpenIntervalsContainingDate:(id)arg1 withOpeningThreshold:(double)arg2;
 - (id)description;
 
 @end

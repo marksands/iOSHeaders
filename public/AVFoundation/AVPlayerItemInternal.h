@@ -75,6 +75,8 @@
     _Bool reversesMoreVideoFramesInMemoryWasSet;
     _Bool aggressivelyCachesVideoFrames;
     _Bool aggressivelyCachesVideoFramesWasSet;
+    _Bool decodesAllFramesDuringOrdinaryPlayback;
+    _Bool decodesAllFramesDuringOrdinaryPlaybackWasSet;
     _Bool initialContinuesPlayingDuringPrerollForSeek;
     _Bool initialContinuesPlayingDuringPrerollForRateChange;
     _Bool usesIFrameOnlyPlaybackForHighRateScaledEditsWasSet;

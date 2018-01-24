@@ -6,15 +6,16 @@
 
 #import <iWorkImport/KNAnimationEffect.h>
 
-#import "KNChunkableBuildAnimator.h"
+#import "KNBuildCAAnimator.h"
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface KNBuildAppear : KNAnimationEffect <KNChunkableBuildAnimator>
+@interface KNBuildAppear : KNAnimationEffect <KNBuildCAAnimator>
 {
 }
 
++ (long long)rendererTypeForAnimationContext:(id)arg1;
 + (id)thumbnailImageNameForType:(long long)arg1;
 + (id)defaultAttributes;
 + (void)fillLocalizedDirectionMenu:(id)arg1 forType:(long long)arg2;

@@ -9,16 +9,16 @@
 __attribute__((visibility("hidden")))
 @interface ML3QueryResultSet_BackingStore : NSObject
 {
-    vector_c1c297d2 _persistentIDs;
+    vector_bbba3654 _persistentIDs;
     struct vector<unsigned char, std::__1::allocator<unsigned char>> _sections;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)backingStoreByRemovingPersistentIDs:(const unordered_set_9227d2bb *)arg1;
+- (id)backingStoreByRemovingPersistentIDs:(const unordered_set_da619913 *)arg1;
 - (void)reverseEnumerateSectionsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateSectionsUsingBlock:(CDUnknownBlockType)arg1;
-- (_Bool)containsPersistentIDs:(const unordered_set_9227d2bb *)arg1;
+- (_Bool)containsPersistentIDs:(const unordered_set_da619913 *)arg1;
 - (void)reverseEnumeratePersistentIDsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumeratePersistentIDsUsingBlock:(CDUnknownBlockType)arg1;
 - (long long)persistentIDAtIndex:(unsigned long long)arg1;

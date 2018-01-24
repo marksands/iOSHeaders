@@ -77,6 +77,8 @@
 - (_Bool)_usesCustomZoom;
 - (void)setTimeOffset:(double)arg1;
 - (void)setOverrideDate:(id)arg1 duration:(double)arg2;
+- (void)_becameInactiveFace;
+- (void)_becameActiveFace;
 - (void)_updateLocation:(id)arg1 lastLocation:(id)arg2;
 - (void)_updateTimeAnimated:(_Bool)arg1;
 - (void)_updateLocaleAnimated:(_Bool)arg1;

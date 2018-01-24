@@ -6,11 +6,11 @@
 
 #import <MediaPlayer/MPModelRequest.h>
 
-@class MPSectionedCollection;
+@class MPSectionedCollection, NSDictionary, NSMutableDictionary;
 
 @interface MPStoreLibraryPersonalizationRequest : MPModelRequest
 {
-    MPModelRequest *_unpersonalizedRequest;
+    NSMutableDictionary *_itemIndexPathToOverridePropertySet;
     MPSectionedCollection *_unpersonalizedContentDescriptors;
     MPSectionedCollection *_representedObjects;
 }
@@ -20,11 +20,14 @@
 + (id)sharedQueue;
 @property(retain, nonatomic) MPSectionedCollection *representedObjects; // @synthesize representedObjects=_representedObjects;
 @property(readonly, nonatomic) MPSectionedCollection *unpersonalizedContentDescriptors; // @synthesize unpersonalizedContentDescriptors=_unpersonalizedContentDescriptors;
-@property(readonly, copy, nonatomic) MPModelRequest *unpersonalizedRequest; // @synthesize unpersonalizedRequest=_unpersonalizedRequest;
 - (void).cxx_destruct;
+@property(readonly, copy, nonatomic) NSDictionary *itemIndexPathToOverridePropertySet;
+- (void)setProperties:(id)arg1 forItemAtIndexPath:(id)arg2;
+- (id)propertiesForItemAtIndexPath:(id)arg1;
 - (id)newOperationWithResponseHandler:(CDUnknownBlockType)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithUnpersonalizedRequest:(id)arg1 unpersonalizedContentDescriptors:(id)arg2;
+- (id)initWithUnpersonalizedContentDescriptors:(id)arg1;
 
 @end
 

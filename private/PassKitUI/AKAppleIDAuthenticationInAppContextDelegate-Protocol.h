@@ -11,6 +11,7 @@
 @protocol AKAppleIDAuthenticationInAppContextDelegate <NSObject>
 
 @optional
+- (void)contextDidEndPresentingSecondaryUI:(AKAppleIDAuthenticationInAppContext *)arg1;
 - (void)contextWillBeginPresentingSecondaryUI:(AKAppleIDAuthenticationInAppContext *)arg1;
 - (void)contextDidDismissLoginAlertController:(AKAppleIDAuthenticationInAppContext *)arg1;
 - (void)contextWillDismissLoginAlertController:(AKAppleIDAuthenticationInAppContext *)arg1;

@@ -20,6 +20,7 @@
 - (id)_gkStringByQuotingWithFormat:(id)arg1;
 - (id)_gkTruncationSymbolWithFormat:(id)arg1;
 - (id)_gkStringByAddingBidiEmbeddingMarkers;
+- (_Bool)_gkSearchMatchesItem:(id)arg1 withSearchTerms:(id)arg2;
 - (_Bool)_gkIsMixedDirection;
 - (_Bool)_gkIsNaturallyRTL;
 - (void)processUTF16CharactersForBidi:(CDUnknownBlockType)arg1;

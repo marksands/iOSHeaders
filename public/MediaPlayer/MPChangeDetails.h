@@ -22,6 +22,7 @@
     NSArray *_updatedItemIndexPaths;
 }
 
++ (id)changeDetailsWithPreviousCount:(long long)arg1 finalCount:(long long)arg2 isEqualBlock:(CDUnknownBlockType)arg3 isUpdatedBlock:(CDUnknownBlockType)arg4;
 @property(copy, nonatomic) NSArray *updatedItemIndexPaths; // @synthesize updatedItemIndexPaths=_updatedItemIndexPaths;
 @property(copy, nonatomic) NSArray *deletedItemIndexPaths; // @synthesize deletedItemIndexPaths=_deletedItemIndexPaths;
 @property(copy, nonatomic) NSArray *insertedItemIndexPaths; // @synthesize insertedItemIndexPaths=_insertedItemIndexPaths;
@@ -30,6 +31,10 @@
 @property(copy, nonatomic) NSIndexSet *insertedSections; // @synthesize insertedSections=_insertedSections;
 - (void).cxx_destruct;
 - (void)_finalize;
+- (void)enumerateMovesWithBlock:(CDUnknownBlockType)arg1;
+@property(readonly, copy, nonatomic) NSIndexSet *updatedIndexes;
+@property(readonly, copy, nonatomic) NSIndexSet *deletedIndexes;
+@property(readonly, copy, nonatomic) NSIndexSet *insertedIndexes;
 - (void)enumerateItemMovesWithBlock:(CDUnknownBlockType)arg1;
 - (void)removeItemMoveFromIndexPath:(id)arg1;
 - (void)appendItemMoveFromIndexPath:(id)arg1 toIndexPath:(id)arg2 updated:(_Bool)arg3;

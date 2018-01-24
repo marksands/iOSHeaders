@@ -28,7 +28,6 @@
 - (void)setPrimitiveGeometry:(TSDInfoGeometry *)arg1;
 
 @optional
-- (_Bool)needsDownload;
 - (TSKCollaboratorCursor *)collaboratorCursorForSelectionPath:(TSKSelectionPath *)arg1;
 - (id <TSDInfoUUIDPathPrefixComponentsProvider>)uuidPathPrefixComponentsProvider;
 @end

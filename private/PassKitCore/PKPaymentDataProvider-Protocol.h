@@ -24,6 +24,7 @@
 - (void)addDelegate:(id <PKPaymentDataProviderDelegate>)arg1;
 - (void)deletePaymentTransactionWithIdentifier:(NSString *)arg1 forPassWithUniqueIdentifier:(NSString *)arg2;
 - (void)transactionsForPaymentPassWithUniqueIdentifier:(NSString *)arg1 withTransactionSource:(unsigned long long)arg2 withNotificationServiceData:(unsigned long long)arg3 limit:(long long)arg4 completion:(void (^)(NSSet *))arg5;
+- (_Bool)supportsExpressMode:(NSString *)arg1;
 - (_Bool)supportsExpressModeForExpressPassType:(long long)arg1;
 - (_Bool)supportsInAppPaymentsForPass:(PKPass *)arg1;
 - (_Bool)supportsNotificationsForPass:(PKPass *)arg1;
@@ -34,11 +35,13 @@
 - (void)transactionsForPaymentPassWithUniqueIdentifier:(NSString *)arg1 withTransactionSource:(unsigned long long)arg2 withBackingData:(unsigned long long)arg3 limit:(long long)arg4 completion:(void (^)(NSSet *))arg5;
 - (NSString *)transactionsAppLaunchTokenForPassWithUniqueIdentifier:(NSString *)arg1;
 - (void)startServiceModeForPassWithUniqueIdentifier:(NSString *)arg1 visibleViewController:(id)arg2;
+- (void)transitStateWithPassUniqueIdentifier:(NSString *)arg1 paymentApplication:(PKPaymentApplication *)arg2 completion:(void (^)(PKTransitAppletState *))arg3;
 - (void)felicaStateWithPassUniqueIdentifier:(NSString *)arg1 paymentApplication:(PKPaymentApplication *)arg2 completion:(void (^)(PKFelicaTransitAppletState *))arg3;
 - (void)setExpressWithPassInformation:(PKExpressPassInformation *)arg1 visibleViewController:(id)arg2 completion:(void (^)(_Bool, PKExpressPassInformation *))arg3;
 - (void)setExpressWithPassInformation:(PKExpressPassInformation *)arg1 credential:(NSData *)arg2 completion:(void (^)(_Bool, PKExpressPassInformation *))arg3;
 - (PKExpressPassInformation *)expressPassInformationForMode:(NSString *)arg1;
 - (NSSet *)expressPassesInformation;
+- (NSString *)defaultExpressTransitPassIdentifier;
 - (NSString *)defaultExpressFelicaTransitPassIdentifier;
 @end
 

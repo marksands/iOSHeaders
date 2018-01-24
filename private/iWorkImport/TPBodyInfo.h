@@ -8,7 +8,7 @@
 
 #import "TSDContainerInfo.h"
 
-@class NSObject<TSDContainerInfo>, NSObject<TSWPTopicNumberHints>, NSString, TPPageHint, TPPageInfo, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSWPStorage;
+@class NSArray, NSObject<TSDContainerInfo>, NSObject<TSWPTopicNumberHints>, NSString, TPPageHint, TPPageInfo, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TPBodyInfo : NSObject <TSDContainerInfo>
@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo; // @synthesize parentInfo=_pageInfo;
 - (id)infoForSelectionPath:(id)arg1;
-- (id)childInfos;
+@property(readonly, nonatomic) NSArray *childInfos;
 - (id)copyWithContext:(id)arg1;
 - (_Bool)isThemeContent;
 - (_Bool)isSelectable;

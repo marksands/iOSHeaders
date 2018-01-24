@@ -124,6 +124,8 @@
 @property(readonly, nonatomic) UIImage *grayThumbsUpAckImage;
 @property(readonly, nonatomic) UIImage *grayHeartAckImage;
 - (void)prewarmAcknowledgementsImage;
+@property(readonly, nonatomic) double bannerAdditionalOffset;
+@property(readonly, nonatomic) struct CGSize bannerSize;
 @property(readonly, nonatomic) UIFont *avatarNameFont;
 @property(readonly, nonatomic) UIFont *avatarStackTitleFont;
 @property(readonly, nonatomic) double avatarPancakeOffset;

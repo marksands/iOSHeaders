@@ -25,7 +25,7 @@
 
 @property(nonatomic) int headerType; // @synthesize headerType=_headerType;
 @property(retain, nonatomic) _CPResultSectionForFeedback *section; // @synthesize section=_section;
-@property(nonatomic) unsigned long long timestamp;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;

@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
-@interface SCROCallback : NSObject <NSCoding>
+@interface SCROCallback : NSObject <NSSecureCoding>
 {
     int _key;
-    id _object;
+    id <NSSecureCoding> _object;
     _Bool _isAtomic;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 - (void)postToHandler:(id)arg1;
 - (_Bool)isAtomic;

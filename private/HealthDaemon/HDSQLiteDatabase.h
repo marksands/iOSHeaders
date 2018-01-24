@@ -66,6 +66,8 @@
 - (_Bool)setUserVersion:(long long)arg1 withDatabaseName:(id)arg2 error:(id *)arg3;
 - (void)_resetStatement:(struct sqlite3_stmt *)arg1 finalize:(_Bool)arg2;
 - (_Bool)_executeSQL:(id)arg1 cache:(_Bool)arg2 error:(id *)arg3 bindingHandler:(CDUnknownBlockType)arg4 enumerationHandler:(CDUnknownBlockType)arg5;
+- (_Bool)executeSQLStatements:(id)arg1 error:(id *)arg2;
+- (_Bool)executeSQL:(id)arg1 error:(id *)arg2;
 - (_Bool)executeUncachedSQL:(id)arg1 error:(id *)arg2 bindingHandler:(CDUnknownBlockType)arg3 enumerationHandler:(CDUnknownBlockType)arg4;
 - (_Bool)executeSQL:(id)arg1 error:(id *)arg2 bindingHandler:(CDUnknownBlockType)arg3 enumerationHandler:(CDUnknownBlockType)arg4;
 - (_Bool)_prepareStatementForSQL:(id)arg1 cache:(_Bool)arg2 error:(id *)arg3 usingBlock:(CDUnknownBlockType)arg4;
@@ -82,6 +84,9 @@
 - (int)openWithError:(id *)arg1;
 - (int)_openForWriting:(_Bool)arg1 error:(id *)arg2;
 - (void)dealloc;
+- (id)initWithDatabaseURL:(id)arg1 copyingDatabase:(id)arg2 delegate:(id)arg3;
+- (id)initMemoryDatabaseFromURL:(id)arg1 delegate:(id)arg2;
+- (int)_copyContentsFromDatabase:(struct sqlite3 *)arg1 toDatabase:(struct sqlite3 *)arg2;
 - (id)initMemoryDatabaseWithDelegate:(id)arg1;
 - (id)initWithDatabaseURL:(id)arg1 delegate:(id)arg2;
 - (_Bool)accessHFDForWritingWithError:(id *)arg1 block:(CDUnknownBlockType)arg2;

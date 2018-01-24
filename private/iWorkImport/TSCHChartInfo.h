@@ -69,6 +69,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)groupedShadowsForChartModel:(id)arg1;
++ (_Bool)updateInitialLabelExplosionIfNeededForChartType:(id)arg1 seriesNonStyles:(inout id *)arg2 stylePreset:(id)arg3 rowCount:(unsigned long long)arg4 columnCount:(unsigned long long)arg5;
 + (id)scale3DPropertyToConstantDepthInfoChartScaleMappingsWithBarShape:(int)arg1 conversionBlock:(CDUnknownBlockType)arg2;
 + (id)p_chartTypeTo3DScalePropertyPairs;
 + (id)referenceLineStyleIdentifierForRoleIndex:(unsigned long long)arg1 ordinal:(unsigned long long)arg2;
@@ -110,12 +111,13 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *informationalMessageString; // @synthesize informationalMessageString=mMessageString;
 @property(nonatomic) _Bool displayMessageOnRepCreation; // @synthesize displayMessageOnRepCreation=mDisplayMessageOnRepCreation;
 @property(copy, nonatomic) NSString *lastAppliedFillSetLookupString; // @synthesize lastAppliedFillSetLookupString=mLastAppliedFillSetLookupString;
-@property(readonly, nonatomic) TSCHChartDrawableInfo *drawableInfo; // @synthesize drawableInfo=mDrawableInfo;
+@property(readonly, nonatomic) __weak TSCHChartDrawableInfo *drawableInfo; // @synthesize drawableInfo=mDrawableInfo;
 @property(nonatomic) struct CGPoint previewOrigin; // @synthesize previewOrigin=mPreviewOrigin;
 @property(retain, nonatomic) TSCHChartMediator *mediator; // @synthesize mediator=mChartMediator;
-@property(readonly, retain, nonatomic) TSCHChartType *chartType; // @synthesize chartType=mChartType;
+@property(readonly, nonatomic) TSCHChartType *chartType; // @synthesize chartType=mChartType;
 @property(retain, nonatomic) TSCHLegendModel *legend; // @synthesize legend=mLegendModel;
 @property(retain, nonatomic) TSCHChartModel *model; // @synthesize model=mModel;
+- (void).cxx_destruct;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 - (_Bool)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
@@ -225,7 +227,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)gridEqualToDefaultGrid;
 - (void)setChartType:(id)arg1 andSetLegendDefaults:(_Bool)arg2 gridRowIds:(id)arg3 gridColumnIds:(id)arg4 forDocumentLocale:(id)arg5;
 - (void)setInfoGeometryByUpdatingLegendGeometryAccommodatedForInitialLayoutGeometry:(id)arg1;
-- (id)p_infoGeometryForGeometry:(id)arg1 isCircumscribing:(_Bool)arg2;
+- (id)p_infoGeometryForGeometry:(id)arg1 isCircumscribing:(_Bool)arg2 omitLabelPlacement:(_Bool)arg3;
+- (id)infoGeometryForDesiredCircumscribingGeometry:(id)arg1 omitLabelPlacement:(_Bool)arg2;
 - (id)infoGeometryForDesiredCircumscribingGeometry:(id)arg1;
 - (id)infoGeometryForDesiredPureLayoutGeometry:(id)arg1;
 - (id)infoGeometryForVisiblePositioningInfoGeometry:(id)arg1;
@@ -259,8 +262,8 @@ __attribute__((visibility("hidden")))
 - (id)allCustomFormatKeys;
 - (id)styleSwapCommandToApplyFillSetSeriesPropertyMaps:(id)arg1;
 - (id)commandToApplyFillSet:(id)arg1;
-- (id)create3DSceneWithLayoutSettings:(const CDStruct_44ada6bf *)arg1;
-@property(nonatomic) CDStruct_44ada6bf defaultLayoutSettings;
+- (id)create3DSceneWithLayoutSettings:(const CDStruct_b1c75024 *)arg1;
+@property(nonatomic) CDStruct_b1c75024 defaultLayoutSettings;
 @property(readonly, nonatomic) _Bool hasSetDefaultLayoutSettings;
 - (void)debugLayoutCache;
 @property(readonly, nonatomic) TSCHChartLayoutCache *sceneAreaLayoutItemCache;

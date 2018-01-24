@@ -6,10 +6,9 @@
 
 #import "NSObject.h"
 
-@class MPCPlaybackIntent, MPCPlayerPath;
+@class MPCPlaybackIntent;
 
 @protocol MPCPlaybackIntentDataSource <NSObject>
-- (void)getRemotePlaybackQueueForIntent:(MPCPlaybackIntent *)arg1 playerPath:(MPCPlayerPath *)arg2 withCompletion:(void (^)(MPRemotePlaybackQueue *, NSError *))arg3;
 - (void)getPlaybackContextForIntent:(MPCPlaybackIntent *)arg1 withCompletion:(void (^)(MPPlaybackContext *, NSError *))arg2;
 @end
 

@@ -114,6 +114,7 @@
 - (_Bool)isAutomatic;
 - (_Bool)isActive;
 - (void)activate;
+- (void)activateIfNeeded;
 @property(nonatomic) _Bool typingEnabled;
 - (void)takeSnapshot;
 - (void)clearSnapshot;

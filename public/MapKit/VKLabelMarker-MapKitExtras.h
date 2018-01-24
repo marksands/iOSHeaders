@@ -10,6 +10,7 @@
 
 @interface VKLabelMarker (MapKitExtras)
 - (id)_annotationTitle;
+@property(readonly, nonatomic) MKMapItemIdentifier *flyoverTourIdentifier;
 @property(readonly, nonatomic) MKMapItemIdentifier *identifier;
 @end
 

@@ -8,24 +8,29 @@
 
 #import "FMFSessionDelegate.h"
 
-@class FMFSession, NAFuture, NSString;
+@class FMFSession, NAFuture, NSHashTable, NSString;
 
 @interface HULocationDeviceManager : NSObject <FMFSessionDelegate>
 {
     FMFSession *_fmfSession;
     NAFuture *_activeFMFDeviceFuture;
     NAFuture *_availableFMFDevicesFuture;
+    NSHashTable *_observers;
 }
 
+@property(readonly, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) NAFuture *availableFMFDevicesFuture; // @synthesize availableFMFDevicesFuture=_availableFMFDevicesFuture;
 @property(retain, nonatomic) NAFuture *activeFMFDeviceFuture; // @synthesize activeFMFDeviceFuture=_activeFMFDeviceFuture;
 @property(readonly, nonatomic) FMFSession *fmfSession; // @synthesize fmfSession=_fmfSession;
 - (void).cxx_destruct;
 - (void)didChangeActiveLocationSharingDevice:(id)arg1;
 - (void)didUpdateActiveDeviceList:(id)arg1;
+- (void)_updateActiveFMFDevice:(id)arg1;
 - (id)updateActiveLocationDevice:(id)arg1;
 @property(readonly, nonatomic) NAFuture *availableLocationDevicesFuture;
 @property(readonly, nonatomic) NAFuture *activeLocationDeviceFuture;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1;
 - (id)init;
 
 // Remaining properties

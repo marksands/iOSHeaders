@@ -9,7 +9,7 @@
 #import "MFIMAPConnectionDelegate.h"
 #import "MFIMAPMailboxListFilter.h"
 
-@class MFIMAPOperationCache, NSArray, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSSet, NSString;
+@class MFIMAPOperationCache, NSArray, NSLock, NSMutableArray, NSMutableDictionary, NSNumber, NSRecursiveLock, NSSet, NSString;
 
 @interface IMAPAccount : MailAccount <MFIMAPConnectionDelegate, MFIMAPMailboxListFilter>
 {
@@ -31,6 +31,8 @@
     unsigned int _fetchedMailboxList:1;
     unsigned int _isOffline:1;
     NSArray *_lastKnownCapabilities;
+    NSLock *_eSearchSupportedLock;
+    NSNumber *_eSearchSupported;
     double _lastPushRegistration;
     NSString *_apsTopic;
     NSSet *_pushedMailboxUids;
@@ -180,6 +182,7 @@
 - (void)_invokeBlock:(CDUnknownBlockType)arg1;
 - (void)filterMailboxList:(id)arg1 forMailbox:(id)arg2 options:(int)arg3;
 - (void)unselectMailbox:(id)arg1;
+- (_Bool)verifyESearchSupportWithBlock:(CDUnknownBlockType)arg1;
 - (void)checkInConnectionsForStore:(id)arg1;
 - (void)checkInConnection:(id)arg1 destroy:(_Bool)arg2;
 - (void)checkInConnection:(id)arg1;

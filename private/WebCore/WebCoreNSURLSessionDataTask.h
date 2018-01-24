@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 @interface WebCoreNSURLSessionDataTask : NSObject
 {
     WebCoreNSURLSession *_session;
-    struct RefPtr<WebCore::PlatformMediaResource> _resource;
+    struct RefPtr<WebCore::PlatformMediaResource, WTF::DumbPtrTraits<WebCore::PlatformMediaResource>> _resource;
     struct RetainPtr<NSURLResponse> _response;
     unsigned long long _taskIdentifier;
     NSURLRequest *_originalRequest;
@@ -45,7 +45,7 @@ __attribute__((visibility("hidden")))
 - (void)resource:(struct PlatformMediaResource *)arg1 loadFailedWithError:(const struct ResourceError *)arg2;
 - (void)resource:(struct PlatformMediaResource *)arg1 accessControlCheckFailedWithError:(const struct ResourceError *)arg2;
 - (void)_resource:(struct PlatformMediaResource *)arg1 loadFinishedWithError:(id)arg2;
-- (void)resource:(struct PlatformMediaResource *)arg1 receivedRedirect:(const struct ResourceResponse *)arg2 request:(struct ResourceRequest *)arg3;
+- (void)resource:(struct PlatformMediaResource *)arg1 receivedRedirect:(const struct ResourceResponse *)arg2 request:(struct ResourceRequest *)arg3 completionHandler:(CompletionHandler_1797e72a *)arg4;
 - (void)resource:(struct PlatformMediaResource *)arg1 receivedData:(const char *)arg2 length:(int)arg3;
 - (_Bool)resource:(struct PlatformMediaResource *)arg1 shouldCacheResponse:(const struct ResourceResponse *)arg2;
 - (void)resource:(struct PlatformMediaResource *)arg1 receivedResponse:(const struct ResourceResponse *)arg2;

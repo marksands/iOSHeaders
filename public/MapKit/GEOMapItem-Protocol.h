@@ -130,7 +130,8 @@
 @property(readonly, nonatomic) NSData *encodedData;
 @property(readonly, nonatomic) NSString *name;
 - (_Bool)isEqualToMapItem:(id <GEOMapItem>)arg1;
-- (NSURL *)_bestBrandIconURLForSize:(struct CGSize)arg1 allowSmaller:(_Bool)arg2;
+- (NSURL *)_bestNavbarBrandIconURLForSize:(struct CGSize)arg1 allowSmaller:(_Bool)arg2;
+- (NSURL *)_bestAvatarBrandIconURLForSize:(struct CGSize)arg1 allowSmaller:(_Bool)arg2;
 - (NSString *)weatherDisplayName;
 - (NSString *)shortAddress;
 - (GEOAddressObject *)addressObject;

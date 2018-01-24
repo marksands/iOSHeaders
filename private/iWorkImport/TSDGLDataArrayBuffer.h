@@ -8,29 +8,32 @@
 
 #import "TSDGLDataBufferAccessor.h"
 
-@class NSMutableArray, NSMutableDictionary, NSString;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TSDGLDataArrayBuffer : NSObject <TSDGLDataBufferAccessor>
 {
     NSMutableArray *_vertexAttributes;
-    unsigned long long mVertexCount;
+    unsigned long long _vertexCount;
     unsigned long long _dataTypeSizeInBytes;
     unsigned int _bufferUsage;
-    long long *mNeedsUpdateFirstIndex;
-    long long *mNeedsUpdateLastIndex;
-    char *mGLData;
-    _Bool mGLDataBufferHasBeenSetup;
-    unsigned int *mGLDataBuffers;
-    NSMutableDictionary *mAttributeOffsetsDictionary;
-    unsigned long long _GLDataBufferEntrySize;
+    _Bool _usesMetalBuffer;
+    long long *_needsUpdateFirstIndex;
+    long long *_needsUpdateLastIndex;
+    char *_gLData;
+    _Bool _dataBufferHasBeenSetup;
+    unsigned int *_gLDataBuffers;
+    NSMutableDictionary *_attributeOffsetsDictionary;
+    NSArray *_metalDataBuffers;
+    unsigned long long _bufferIndex;
+    unsigned long long _dataBufferEntrySize;
     unsigned long long _bufferCount;
     unsigned long long _currentBufferIndex;
 }
 
 @property(nonatomic) unsigned long long currentBufferIndex; // @synthesize currentBufferIndex=_currentBufferIndex;
 @property(readonly, nonatomic) unsigned long long bufferCount; // @synthesize bufferCount=_bufferCount;
-@property(readonly, nonatomic) unsigned long long GLDataBufferEntrySize; // @synthesize GLDataBufferEntrySize=_GLDataBufferEntrySize;
+@property(readonly, nonatomic) unsigned long long dataBufferEntrySize; // @synthesize dataBufferEntrySize=_dataBufferEntrySize;
 @property(readonly, copy) NSString *description;
 - (void)setGLPoint4D:(CDStruct_818bb265)arg1 forAttribute:(id)arg2 atIndex:(unsigned long long)arg3;
 - (CDStruct_818bb265)GLPoint4DForAttribute:(id)arg1 atIndex:(unsigned long long)arg2;
@@ -43,8 +46,10 @@ __attribute__((visibility("hidden")))
 - (float)GLfloatForAttribute:(id)arg1 atIndex:(unsigned long long)arg2;
 - (unsigned long long)vertexCount;
 @property(readonly, nonatomic) _Bool hasUpdatedData;
-- (char *)GLDataPointer;
-- (void)swapGLDataBuffers;
+- (char *)dataPointer;
+- (void)swapGPUDataBuffers;
+- (void)encodeArrayBufferWithEncoder:(id)arg1 atIndex:(long long)arg2;
+- (void)enableArrayBufferWithDevice:(id)arg1;
 - (void)disableVertexAttributeArrayBuffersWithShader:(id)arg1;
 - (void)enableVertexAttributeArrayBuffersWithShader:(id)arg1;
 - (void)addIndexNeedsUpdate:(long long)arg1;
@@ -53,6 +58,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithVertexAttributes:(id)arg1 vertexCount:(unsigned long long)arg2 bufferCount:(unsigned long long)arg3;
 - (unsigned long long)p_bufferOffsetOfAttribute:(id)arg1 atIndex:(unsigned long long)arg2 component:(unsigned long long)arg3;
+- (void)p_setupMetalDataBufferIfNecessaryWithDevice:(id)arg1;
 - (void)updateDataBufferIfNecessary;
 - (void)p_setupGLDataBufferIfNecessary;
 

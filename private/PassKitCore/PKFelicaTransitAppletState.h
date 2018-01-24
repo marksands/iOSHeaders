@@ -4,25 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <PassKitCore/PKTransitAppletState.h>
 
 #import "NSCopying.h"
-#import "NSSecureCoding.h"
 
 @class NSData, NSNumber, NSString;
 
-@interface PKFelicaTransitAppletState : NSObject <NSCopying, NSSecureCoding>
+@interface PKFelicaTransitAppletState : PKTransitAppletState <NSCopying>
 {
-    _Bool _blacklisted;
-    _Bool _inStation;
     _Bool _inShinkansenStation;
     _Bool _shinkansenTicketActive;
     _Bool _greenCarTicketUsed;
+    _Bool _balanceAllowedForCommute;
+    _Bool _lowBalanceNotificationEnabled;
     _Bool _hasShinkansenTicket;
     _Bool _hasGreenCarTicket;
-    _Bool _needsStationProcessing;
-    NSNumber *_historySequenceNumber;
-    NSNumber *_balance;
     NSNumber *_shinkansenValidityStartDate;
     NSNumber *_shinkansenValidityTerm;
     NSData *_shinkansenOriginStationCode;
@@ -59,7 +55,6 @@
 @property(copy, nonatomic) NSString *shinkansenSecondaryOriginStationString; // @synthesize shinkansenSecondaryOriginStationString=_shinkansenSecondaryOriginStationString;
 @property(copy, nonatomic) NSString *shinkansenDestinationStationString; // @synthesize shinkansenDestinationStationString=_shinkansenDestinationStationString;
 @property(copy, nonatomic) NSString *shinkansenOriginStationString; // @synthesize shinkansenOriginStationString=_shinkansenOriginStationString;
-@property(nonatomic) _Bool needsStationProcessing; // @synthesize needsStationProcessing=_needsStationProcessing;
 @property(nonatomic) _Bool hasGreenCarTicket; // @synthesize hasGreenCarTicket=_hasGreenCarTicket;
 @property(copy, nonatomic) NSNumber *greenCarValidityStartDate; // @synthesize greenCarValidityStartDate=_greenCarValidityStartDate;
 @property(copy, nonatomic) NSData *greenCarDestinationStationCode; // @synthesize greenCarDestinationStationCode=_greenCarDestinationStationCode;
@@ -83,14 +78,13 @@
 @property(copy, nonatomic) NSData *shinkansenOriginStationCode; // @synthesize shinkansenOriginStationCode=_shinkansenOriginStationCode;
 @property(copy, nonatomic) NSNumber *shinkansenValidityTerm; // @synthesize shinkansenValidityTerm=_shinkansenValidityTerm;
 @property(copy, nonatomic) NSNumber *shinkansenValidityStartDate; // @synthesize shinkansenValidityStartDate=_shinkansenValidityStartDate;
-@property(copy, nonatomic) NSNumber *balance; // @synthesize balance=_balance;
-@property(copy, nonatomic) NSNumber *historySequenceNumber; // @synthesize historySequenceNumber=_historySequenceNumber;
+@property(nonatomic, getter=isLowBalanceNotificationEnabled) _Bool lowBalanceNotificationEnabled; // @synthesize lowBalanceNotificationEnabled=_lowBalanceNotificationEnabled;
+@property(nonatomic, getter=isBalanceAllowedForCommute) _Bool balanceAllowedForCommute; // @synthesize balanceAllowedForCommute=_balanceAllowedForCommute;
 @property(nonatomic, getter=isGreenCarTicketUsed) _Bool greenCarTicketUsed; // @synthesize greenCarTicketUsed=_greenCarTicketUsed;
 @property(nonatomic, getter=isShinkansenTicketActive) _Bool shinkansenTicketActive; // @synthesize shinkansenTicketActive=_shinkansenTicketActive;
 @property(nonatomic, getter=isInShinkansenStation) _Bool inShinkansenStation; // @synthesize inShinkansenStation=_inShinkansenStation;
-@property(nonatomic, getter=isInStation) _Bool inStation; // @synthesize inStation=_inStation;
-@property(nonatomic, getter=isBlacklisted) _Bool blacklisted; // @synthesize blacklisted=_blacklisted;
 - (void).cxx_destruct;
+- (id)transitPassPropertiesWithPaymentApplication:(id)arg1;
 - (id)_concreteTransactionForRecordAtIndex:(unsigned long long)arg1 withBalance:(unsigned int *)arg2 historyRecords:(id)arg3 terminalState:(id)arg4 numberProcessed:(unsigned long long *)arg5 exitedShinkansen:(_Bool *)arg6;
 - (void)_resolveTransactionsFromState:(id)arg1 toState:(id)arg2 withHistoryRecords:(id)arg3 concreteTransactions:(id *)arg4 ephemeralTransaction:(id *)arg5;
 - (id)processUpdateWithAppletHistory:(id)arg1 concreteTransactions:(id *)arg2 ephemeralTransactions:(id *)arg3;
@@ -100,7 +94,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithAppletHistory:(id)arg1;
 - (id)init;
 
 @end

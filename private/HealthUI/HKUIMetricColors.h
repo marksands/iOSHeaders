@@ -30,6 +30,14 @@
 + (id)bodyMeasurementColors;
 + (id)activityColors;
 + (id)vitalsColors;
++ (id)unknownCategoryClinicalColors;
++ (id)vitalsClinicalColors;
++ (id)proceduresClinicalColors;
++ (id)medicationsClinicalColors;
++ (id)labResultsClinicalColors;
++ (id)immunizationsClinicalColors;
++ (id)conditionsClinicalColors;
++ (id)allergiesClinicalColors;
 + (id)metricColorsForHeartRateContext:(long long)arg1;
 @property(retain, nonatomic) UIColor *contextViewChartGradientBottomColor; // @synthesize contextViewChartGradientBottomColor=_contextViewChartGradientBottomColor;
 @property(retain, nonatomic) UIColor *contextViewChartGradientTopColor; // @synthesize contextViewChartGradientTopColor=_contextViewChartGradientTopColor;

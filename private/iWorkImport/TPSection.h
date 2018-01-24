@@ -10,13 +10,13 @@
 #import "TSKModel.h"
 #import "TSWPSection.h"
 
-@class NSString, TPPageMaster, TSWPStorage;
+@class NSArray, NSString, TPPageMaster, TPPageTemplate, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TPSection : TSPObject <TSKDocumentObject, TSKModel, TSWPSection>
 {
-    TSWPStorage *_parentStorage;
     TPPageMaster *_pageMasters[3];
+    TSWPStorage *_parentStorage;
     NSString *_name;
     _Bool _inheritPreviousHeaderFooter;
     _Bool _pageMasterFirstPageDifferent;
@@ -29,16 +29,19 @@ __attribute__((visibility("hidden")))
 
 + (_Bool)needsObjectUUID;
 - (void).cxx_destruct;
+- (id)allDrawables;
+- (void)p_addAllDrawablesFromInfo:(id)arg1 toMutableArray:(id)arg2;
 @property(readonly, copy) NSString *description;
 - (id)pageMasterOwningModel:(id)arg1;
-- (id)pageMasterForType:(int)arg1;
-- (id)pageMasters;
+- (id)pageMasterForType:(long long)arg1;
+@property(readonly, nonatomic) NSArray *pageMasters;
 - (void)p_makeUserGuideStorage;
 - (void)p_upgradePageSizeAndMarginsFromParsedArchive:(const struct SectionArchive *)arg1;
 - (void)p_unarchiveAndUpgrade:(id)arg1 archive:(const struct SectionArchive *)arg2;
 - (void)i_clearPropertiesToDefaults;
 - (void)i_copyHeadersAndFootersFrom:(id)arg1 dolcContext:(id)arg2 withBlock:(CDUnknownBlockType)arg3;
 - (void)i_ensureHeaderFooterStoragesExistWithStylesheet:(id)arg1;
+- (void)acceptVisitor:(id)arg1;
 - (id)childEnumerator;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
@@ -46,9 +49,10 @@ __attribute__((visibility("hidden")))
 - (void)willBeAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
 @property(nonatomic) __weak TSWPStorage *parentStorage;
+- (void)setPageMasterForFirstPage:(id)arg1;
 - (id)copyWithContext:(id)arg1;
-- (_Bool)isHeaderFooterEmpty:(int)arg1;
-- (_Bool)isHeaderFooterVisible:(int)arg1;
+- (_Bool)isHeaderFooterEmpty:(long long)arg1;
+- (_Bool)isHeaderFooterVisible:(long long)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;
 - (id)objectUUIDPath;
@@ -62,6 +66,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool pageMasterFirstPageDifferent;
 @property(nonatomic) _Bool inheritPreviousHeaderFooter;
 @property(copy, nonatomic) NSString *name;
+@property(readonly, nonatomic) NSArray *pageInfosForPropagation;
+@property(readonly, nonatomic) TPPageTemplate *pageTemplate;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

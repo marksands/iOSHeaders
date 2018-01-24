@@ -20,6 +20,7 @@
 + (id)sharedInstance;
 - (void).cxx_destruct;
 - (void)getCustomVoiceAssetsLocalOnly:(_Bool)arg1 language:(id)arg2 voiceType:(long long)arg3 reply:(CDUnknownBlockType)arg4;
+- (id)getPreinstalledGryphonAssetsForLanguage:(id)arg1;
 - (id)_voiceAssetForASAsset:(id)arg1 voiceType:(long long)arg2;
 - (id)resourcePathForLanguage:(id)arg1 gender:(long long)arg2 footprint:(long long)arg3 voiceName:(id)arg4 voiceType:(long long)arg5 outAsset:(id *)arg6;
 - (id)_voiceAssetQueryForVoiceName:(id)arg1 language:(id)arg2 gender:(long long)arg3 footprint:(long long)arg4 version:(id)arg5 voiceType:(long long)arg6 localOnly:(_Bool)arg7;

@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class NSDictionary, NTPBPublisherFavorabilityScores;
 
-@interface FCPersonalizationFavorabilityScores : NSObject
+@interface FCPersonalizationFavorabilityScores : NSObject <NSSecureCoding>
 {
     NTPBPublisherFavorabilityScores *_pbFavorabilityScores;
     NSDictionary *_tagIDToScores;

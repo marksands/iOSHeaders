@@ -6,7 +6,7 @@
 
 #import <AXHearingSupport/AXHearingAidDevice.h>
 
-@class NSArray, NSDate, NSMutableArray, NSString;
+@class CBPeripheral, NSArray, NSDate, NSMutableArray, NSString;
 
 @interface AXFakeHearingAidDevice : AXHearingAidDevice
 {
@@ -31,12 +31,16 @@
     NSString *_rightHardwareVersion;
     NSDate *_leftBatteryLowDate;
     NSDate *_rightBatteryLowDate;
+    CBPeripheral *leftPeripheral;
+    CBPeripheral *rightPeripheral;
     unsigned long long _excludedProperties;
 }
 
 @property(nonatomic) _Bool connected; // @synthesize connected=_connected;
 @property(nonatomic) unsigned long long excludedProperties; // @synthesize excludedProperties=_excludedProperties;
 @property(nonatomic) int type; // @synthesize type=_type;
+@property(retain, nonatomic) CBPeripheral *rightPeripheral; // @synthesize rightPeripheral;
+@property(retain, nonatomic) CBPeripheral *leftPeripheral; // @synthesize leftPeripheral;
 @property(nonatomic) short rightMicrophoneVolumeSteps; // @synthesize rightMicrophoneVolumeSteps=_rightMicrophoneVolumeSteps;
 @property(nonatomic) short leftMicrophoneVolumeSteps; // @synthesize leftMicrophoneVolumeSteps=_leftMicrophoneVolumeSteps;
 @property(retain, nonatomic) NSDate *rightBatteryLowDate; // @synthesize rightBatteryLowDate=_rightBatteryLowDate;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, NSString;
+@class NSObject<OS_dispatch_queue>, NSString, TSBonjourNode;
 
 @interface TSBonjourAddress : NSObject
 {
@@ -24,8 +24,12 @@
     _Bool _hasIPv6Address;
     unsigned int _ipv4Address;
     NSString *_interfaceName;
+    id <TSBonjourAddressDelegate> _delegate;
+    TSBonjourNode *_node;
 }
 
+@property(nonatomic) TSBonjourNode *node; // @synthesize node=_node;
+@property(nonatomic) id <TSBonjourAddressDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) _Bool hasIPv6Address; // @synthesize hasIPv6Address=_hasIPv6Address;
 @property(nonatomic) unsigned int ipv4Address; // @synthesize ipv4Address=_ipv4Address;
 @property(nonatomic) _Bool hasIPv4Address; // @synthesize hasIPv4Address=_hasIPv4Address;

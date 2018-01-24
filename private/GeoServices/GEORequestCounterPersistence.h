@@ -8,12 +8,12 @@
 
 @class GEOSQLiteDB;
 
-__attribute__((visibility("hidden")))
 @interface GEORequestCounterPersistence : NSObject
 {
     GEOSQLiteDB *_db;
     double _maxAge;
     _Bool _enabled;
+    // Error parsing type: Aq, name: _nextId
 }
 
 + (id)sharedInstance;
@@ -23,9 +23,11 @@ __attribute__((visibility("hidden")))
 - (void)recordTrafficProbeCollectionAt:(id)arg1 tripId:(id)arg2 locationCount:(int)arg3 result:(unsigned char)arg4;
 - (void)purgeAllCounts;
 - (void)_purgeOlderThan:(id)arg1;
+- (void)logsStartingFrom:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)countsStartingFrom:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)incrementAtTime:(id)arg1 app:(id)arg2 requestType:(unsigned char)arg3 result:(unsigned char)arg4 xmitBytes:(unsigned int)arg5 recvBytes:(unsigned int)arg6 withCompletion:(CDUnknownBlockType)arg7;
-- (void)incrementForApp:(id)arg1 requestType:(unsigned char)arg2 result:(unsigned char)arg3 xmitBytes:(unsigned int)arg4 recvBytes:(unsigned int)arg5 withCompletion:(CDUnknownBlockType)arg6;
+- (void)incrementForApp:(id)arg1 time:(id)arg2 requestId:(long long)arg3 requestType:(unsigned char)arg4 requestMode:(unsigned char)arg5 result:(unsigned char)arg6 xmitBytes:(long long)arg7 recvBytes:(long long)arg8 withCompletion:(CDUnknownBlockType)arg9;
+- (long long)nextRequestID;
+- (void)_populateNextID:(struct sqlite3 *)arg1;
 - (void)dealloc;
 - (id)initWithDBFilePath:(id)arg1 maxCountAge:(double)arg2;
 - (id)init;

@@ -10,40 +10,24 @@
 
 @interface MPModelStoreBrowseSection : MPModelObject
 {
-    _Bool _memberOfChartSet;
-    _Bool _brick;
-    NSString *_title;
-    long long _sectionType;
-    NSURL *_loadAdditionalContentURL;
-    long long _uniformContentItemType;
-    MPModelStoreBrowseResponse *_previouslyRetrievedNestedResponse;
 }
 
-+ (id)__MPModelStoreBrowseSectionPropertyPreviouslyRetrievedNestedResponse__PROPERTY;
-+ (id)__previouslyRetrievedNestedResponse__KEY;
-+ (id)__MPModelStoreBrowseSectionPropertyBrick__PROPERTY;
-+ (id)__brick__KEY;
-+ (id)__MPModelStoreBrowseSectionPropertyMemberOfChartSet__PROPERTY;
-+ (id)__memberOfChartSet__KEY;
-+ (id)__MPModelStoreBrowseSectionPropertyUniformContentItemType__PROPERTY;
-+ (id)__uniformContentItemType__KEY;
-+ (id)__MPModelStoreBrowseSectionPropertyLoadAdditionalContentURL__PROPERTY;
-+ (id)__loadAdditionalContentURL__KEY;
-+ (id)__MPModelStoreBrowseSectionPropertyType__PROPERTY;
-+ (id)__sectionType__KEY;
-+ (id)__MPModelStoreBrowseSectionPropertyTitle__PROPERTY;
-+ (id)__title__KEY;
-@property(retain, nonatomic) MPModelStoreBrowseResponse *previouslyRetrievedNestedResponse; // @synthesize previouslyRetrievedNestedResponse=_previouslyRetrievedNestedResponse;
-@property(nonatomic, getter=isBrick) _Bool brick; // @synthesize brick=_brick;
-@property(nonatomic, getter=isMemberOfChartSet) _Bool memberOfChartSet; // @synthesize memberOfChartSet=_memberOfChartSet;
-@property(nonatomic) long long uniformContentItemType; // @synthesize uniformContentItemType=_uniformContentItemType;
-@property(copy, nonatomic) NSURL *loadAdditionalContentURL; // @synthesize loadAdditionalContentURL=_loadAdditionalContentURL;
-@property(nonatomic) long long sectionType; // @synthesize sectionType=_sectionType;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
-- (void).cxx_destruct;
-- (id)descriptionWithType:(long long)arg1;
-- (_Bool)isEqual:(id)arg1;
-- (unsigned long long)hash;
++ (id)__previouslyRetrievedNestedResponse_KEY;
++ (id)__brick_KEY;
++ (id)__memberOfChartSet_KEY;
++ (id)__uniformContentItemType_KEY;
++ (id)__loadAdditionalContentURL_KEY;
++ (id)__sectionType_KEY;
++ (id)__title_KEY;
+
+// Remaining properties
+@property(nonatomic, getter=isBrick) _Bool brick; // @dynamic brick;
+@property(copy, nonatomic) NSURL *loadAdditionalContentURL; // @dynamic loadAdditionalContentURL;
+@property(nonatomic, getter=isMemberOfChartSet) _Bool memberOfChartSet; // @dynamic memberOfChartSet;
+@property(retain, nonatomic) MPModelStoreBrowseResponse *previouslyRetrievedNestedResponse; // @dynamic previouslyRetrievedNestedResponse;
+@property(nonatomic) long long sectionType; // @dynamic sectionType;
+@property(copy, nonatomic) NSString *title; // @dynamic title;
+@property(nonatomic) long long uniformContentItemType; // @dynamic uniformContentItemType;
 
 @end
 

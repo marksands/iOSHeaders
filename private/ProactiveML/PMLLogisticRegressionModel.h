@@ -25,6 +25,7 @@
 - (void).cxx_destruct;
 - (id)initWithPlist:(id)arg1 chunks:(id)arg2 context:(id)arg3;
 - (id)toPlistWithChunks:(id)arg1;
+- (id)weights;
 - (_Bool)classify:(id)arg1;
 - (float)predict:(id)arg1;
 - (id)initWithSolver:(id)arg1;

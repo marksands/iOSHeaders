@@ -10,13 +10,14 @@
 #import "HDSyncChange.h"
 #import "NSCopying.h"
 
-@class NSMutableArray, NSNumber, NSString;
+@class HDCodableEntityIdentifier, NSMutableArray, NSNumber, NSString;
 
 @interface HDCodableNanoSyncChange : PBCodable <HDSyncChange, HDNanoSyncDescription, NSCopying>
 {
     long long _endAnchor;
     long long _sequence;
     long long _startAnchor;
+    HDCodableEntityIdentifier *_entityIdentifier;
     NSMutableArray *_objectDatas;
     int _objectType;
     NSMutableArray *_requiredAnchors;
@@ -35,6 +36,7 @@
 + (Class)requiredAnchorsType;
 + (Class)objectDataType;
 + (id)changeWithNanoSyncEntityClass:(Class)arg1;
+@property(retain, nonatomic) HDCodableEntityIdentifier *entityIdentifier; // @synthesize entityIdentifier=_entityIdentifier;
 @property(nonatomic) _Bool complete; // @synthesize complete=_complete;
 @property(nonatomic) long long sequence; // @synthesize sequence=_sequence;
 @property(nonatomic) _Bool speculative; // @synthesize speculative=_speculative;
@@ -52,6 +54,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) _Bool hasEntityIdentifier;
 @property(nonatomic) _Bool hasComplete;
 @property(nonatomic) _Bool hasSequence;
 @property(nonatomic) _Bool hasSpeculative;
@@ -70,16 +73,15 @@
 @property(nonatomic) _Bool hasObjectType;
 @property(nonatomic) int objectType; // @synthesize objectType=_objectType;
 - (id)nanoSyncDescription;
-- (id)decodedObjects;
+- (id)decodedObjectsForProfile:(id)arg1 error:(id *)arg2;
 - (id)requiredAnchorMapWithError:(id *)arg1;
 - (void)setSequenceNumber:(long long)arg1 done:(_Bool)arg2;
 @property(readonly, nonatomic) _Bool done;
 @property(readonly, nonatomic) NSNumber *sequenceNumber;
 - (void)setObjects:(id)arg1 syncAnchorRange:(struct HDSyncAnchorRange)arg2 requiredAnchorMap:(id)arg3;
 - (id)speculativeCopy;
-- (Class)_syncEntityClass;
-- (Class)nanoSyncEntityClass;
-- (Class)syncEntityClass;
+- (Class)syncEntityClassForProfile:(id)arg1;
+- (id)syncEntityIdentifier;
 @property(readonly, nonatomic) struct HDSyncAnchorRange syncAnchorRange;
 
 // Remaining properties

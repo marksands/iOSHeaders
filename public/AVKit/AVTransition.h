@@ -13,6 +13,7 @@
     _Bool _wasInitiallyInteractive;
     id <UIViewControllerContextTransitioning> _transitionContext;
     AVPlayerViewController *_playerViewController;
+    UIView *_backgroundView;
     UIViewPropertyAnimator *_currentAnimator;
     double _interactiveTransitionPercentComplete;
 }
@@ -21,6 +22,7 @@
 @property(nonatomic) _Bool wasInitiallyInteractive; // @synthesize wasInitiallyInteractive=_wasInitiallyInteractive;
 @property(nonatomic) double interactiveTransitionPercentComplete; // @synthesize interactiveTransitionPercentComplete=_interactiveTransitionPercentComplete;
 @property(nonatomic) __weak UIViewPropertyAnimator *currentAnimator; // @synthesize currentAnimator=_currentAnimator;
+@property(readonly, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(readonly, nonatomic) __weak AVPlayerViewController *playerViewController; // @synthesize playerViewController=_playerViewController;
 @property(readonly, nonatomic) id <UIViewControllerContextTransitioning> transitionContext; // @synthesize transitionContext=_transitionContext;
 - (void).cxx_destruct;

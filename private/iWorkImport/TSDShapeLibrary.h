@@ -6,12 +6,15 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSCache, NSDictionary, NSSet, NSURL, TSDShapeSearchIndex;
+#import "TSDShapeSearchResultProviding.h"
+
+@class NSArray, NSCache, NSDictionary, NSSet, NSURL, TSDShapeSearchIndex, TSULocale;
 
 __attribute__((visibility("hidden")))
-@interface TSDShapeLibrary : NSObject
+@interface TSDShapeLibrary : NSObject <TSDShapeSearchResultProviding>
 {
     NSArray *_categories;
+    TSULocale *_locale;
     NSArray *_categorySort;
     unsigned long long _dataLoadStatus;
     NSDictionary *_library;
@@ -30,6 +33,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSDictionary *p_library; // @synthesize p_library=_library;
 @property(nonatomic) unsigned long long p_dataLoadStatus; // @synthesize p_dataLoadStatus=_dataLoadStatus;
 @property(retain, nonatomic) NSArray *p_categorySort; // @synthesize p_categorySort=_categorySort;
+@property(readonly, nonatomic) TSULocale *locale; // @synthesize locale=_locale;
 - (void).cxx_destruct;
 - (id)p_libraryByRemovingBlacklistedShapes:(id)arg1;
 - (id)p_shapeIDByLocalizationKeyFromLibrary:(id)arg1;
@@ -46,11 +50,12 @@ __attribute__((visibility("hidden")))
 - (void)p_loadDataInBackground;
 - (void)p_loadCategoriesAndSearchIndexIfNeeded;
 - (void)p_setupLibraryIfNeeded;
+- (id)shapeFromSearchResult:(id)arg1;
 - (id)resultsForSearchTerm:(id)arg1;
 - (id)shapeWithLocalizationKey:(id)arg1;
 - (id)shapeWithID:(id)arg1;
 @property(readonly, nonatomic) NSArray *categories; // @synthesize categories=_categories;
-- (id)initWithShapeLibraryURL:(id)arg1 categorySortURL:(id)arg2;
+- (id)initWithShapeLibraryURL:(id)arg1 categorySortURL:(id)arg2 locale:(id)arg3;
 
 @end
 

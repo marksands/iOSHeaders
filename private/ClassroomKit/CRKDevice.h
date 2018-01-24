@@ -18,6 +18,7 @@
     _Bool _orientationLocked;
     _Bool _appLocked;
     _Bool _passcodeEnabled;
+    _Bool _requestingUnenroll;
     float _batteryLevel;
     float _volume;
     NSString *_identifier;
@@ -56,6 +57,7 @@
     NSString *_managementLockPasscode;
 }
 
++ (id)bootDate;
 + (_Bool)supportsSecureCoding;
 + (id)allPropertyKeys;
 + (id)CRKKeyForDMFKey:(id)arg1;
@@ -63,6 +65,7 @@
 @property(copy, nonatomic) NSString *managementLockPasscode; // @synthesize managementLockPasscode=_managementLockPasscode;
 @property(copy, nonatomic) NSArray *availableAirPlayRoutes; // @synthesize availableAirPlayRoutes=_availableAirPlayRoutes;
 @property(copy, nonatomic) NSDictionary *activeAirPlayRoute; // @synthesize activeAirPlayRoute=_activeAirPlayRoute;
+@property(nonatomic, getter=isRequestingUnenroll) _Bool requestingUnenroll; // @synthesize requestingUnenroll=_requestingUnenroll;
 @property(copy, nonatomic) NSString *instructorImageIdentifier; // @synthesize instructorImageIdentifier=_instructorImageIdentifier;
 @property(copy, nonatomic) NSString *studentImageIdentifier; // @synthesize studentImageIdentifier=_studentImageIdentifier;
 @property(nonatomic, getter=isPasscodeEnabled) _Bool passcodeEnabled; // @synthesize passcodeEnabled=_passcodeEnabled;

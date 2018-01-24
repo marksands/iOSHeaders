@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "SXDynamicAdLayout.h"
+#import "SXAutoPlacementLayout.h"
 
 @class NSString;
 
-@interface SXDebugAdLayout : NSObject <SXDynamicAdLayout>
+@interface SXDebugAdLayout : NSObject <SXAutoPlacementLayout>
 {
     id <SXEdgeSpacing> _margin;
 }

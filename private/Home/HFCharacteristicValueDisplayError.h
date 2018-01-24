@@ -16,6 +16,7 @@
     HMSymptom *_underlyingSymptom;
 }
 
++ (id)mostEgregiousError:(id)arg1;
 + (id)errorWithUnderlyingSymptom:(id)arg1 isFixingCurrently:(_Bool)arg2 contextProvider:(id)arg3;
 + (id)errorWithUnderlyingError:(id)arg1 readTraits:(id)arg2 contextProvider:(id)arg3;
 @property(retain, nonatomic) HMSymptom *underlyingSymptom; // @synthesize underlyingSymptom=_underlyingSymptom;

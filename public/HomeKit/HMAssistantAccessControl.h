@@ -20,7 +20,6 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)accessoriesClasses;
 + (id)shortDescription;
 + (_Bool)isAccessorySupported:(id)arg1;
 @property(readonly) unsigned long long options; // @synthesize options=_options;

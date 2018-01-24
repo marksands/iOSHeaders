@@ -22,15 +22,17 @@
 - (void)executionEnvironmentDidEnterBackground:(id)arg1;
 - (id)_markTermsAndConditionsAsReadForLicenseAgreementVersion:(id)arg1 inHome:(id)arg2;
 - (_Bool)_shouldPresentTermsAndConditionsForSoftwareLicenseAgreementVersion:(id)arg1 home:(id)arg2;
-- (id)_presentLicensesIfNeededForSoftwareUpdate:(id)arg1 home:(id)arg2 presentationDelegate:(id)arg3;
+- (id)presentLicensesIfNeededForSoftwareUpdate:(id)arg1 home:(id)arg2 presentationDelegate:(id)arg3;
+- (_Bool)isLicensePresentationNecessaryForSoftwareUpdate:(id)arg1 home:(id)arg2 error:(out id *)arg3;
 - (id)startUpdateForAccessory:(id)arg1 update:(id)arg2 presentationDelegate:(id)arg3;
 - (id)startUpdatesForAccessories:(id)arg1 presentationDelegate:(id)arg2;
 - (id)startUpdatesForAllAccessoriesInHome:(id)arg1 presentationDelegate:(id)arg2;
 - (long long)numberOfAccessoriesWithAvailableUpdatesInHome:(id)arg1;
 - (long long)numberOfAccessoriesWithAvailableUpdates:(id)arg1;
+- (id)fetchAvailableUpdatesForAccessories:(id)arg1;
+- (id)fetchAvailableUpdatesForHome:(id)arg1;
 - (id)fetchAvailableUpdatesForAccessory:(id)arg1;
 - (id)startSilentBackgroundCheckForHome:(id)arg1;
-- (id)fetchAvailableUpdatesForHome:(id)arg1;
 - (id)init;
 
 // Remaining properties

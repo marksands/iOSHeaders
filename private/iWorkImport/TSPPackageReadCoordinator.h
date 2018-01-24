@@ -33,11 +33,11 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_ioCompletionQueue;
     NSObject<OS_dispatch_queue> *_readCompletionQueue;
     NSObject<OS_dispatch_queue> *_componentQueue;
-    unordered_map_502345cb _readIdentifiers;
+    unordered_map_38045d47 _readIdentifiers;
     NSMutableArray *_componentsToUpgrade;
     NSObject<OS_dispatch_queue> *_objectQueue;
     NSMapTable *_objects;
-    unordered_map_502345cb _readExternalObjects;
+    unordered_map_38045d47 _readExternalObjects;
     _Bool _losesDataOnWrite;
     _Bool _didRequireUpgrade;
     NSSet *_unsupportedFeatureIdentifiers;

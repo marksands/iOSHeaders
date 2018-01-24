@@ -7,11 +7,10 @@
 #import "NSObject.h"
 
 #import "ADAdSheetConnectionDelegate.h"
-#import "ADAdSheetProxyDelegate.h"
 
 @class ADAdSheetConnection, NSString;
 
-@interface ADOptInManager : NSObject <ADAdSheetConnectionDelegate, ADAdSheetProxyDelegate>
+@interface ADOptInManager : NSObject <ADAdSheetConnectionDelegate>
 {
     ADAdSheetConnection *_connection;
 }
@@ -19,8 +18,6 @@
 + (id)sharedManager;
 @property(retain, nonatomic) ADAdSheetConnection *connection; // @synthesize connection=_connection;
 - (void)adSheetConnectionInterrupted;
-- (id)additionalAdSheetLaunchOptions;
-- (_Bool)shouldLaunchAdSheet;
 - (void)getiAdIDsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)handlePushNotification:(id)arg1;
 - (void)primeAdSheetDataStore;

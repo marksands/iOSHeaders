@@ -10,7 +10,7 @@
 #import "TSCHChartRepPlatformProtocols.h"
 #import "TSCHSupportsRendering.h"
 
-@class CALayer, CAShapeLayer, NSArray, NSMutableArray, NSString, TSCHChartDrawableInfo, TSCHChartLayout, TSCHLegendMoveKnob, TSCHRendererLayer, TSCHSearchSelection, TSCHSelectionPath;
+@class CALayer, CAShapeLayer, NSArray, NSMutableArray, NSString, TSCHChartDrawableInfo, TSCHChartLayout, TSCHLegendMoveKnob, TSCHSearchSelection, TSCHSelectionPath;
 
 __attribute__((visibility("hidden")))
 @interface TSCHChartRep : TSWPTextHostRep <TSCHChartRepPlatformProtocols, TSCHSupportsRendering, CALayerDelegate>
@@ -29,23 +29,19 @@ __attribute__((visibility("hidden")))
     unsigned long long mTextureDeliveryStyle;
     int mTextureByGlyphStyle;
     TSCHSelectionPath *mActiveTextEditingPath;
-    TSCHRendererLayer *mLegendLayer;
     _Bool mForceSeparateLegendLayer;
     _Bool mIsLayerBasedRep;
     _Bool mInvalidateLegendLayerForLayerBasedRep;
     TSCHChartLayout *mChartLayout;
     _Bool mWantsPreviewLayout;
     _Bool mEditorIsEditingInfo;
-    _Bool mMediatorEditingHaloLayerPathValid;
     CAShapeLayer *mMediatorEditingHaloLayer;
-    _Bool mLegendBorderHaloLayerPathValid;
     CAShapeLayer *mLegendBorderHaloLayer;
     _Bool mChartRepGoingAway;
     _Bool mCDEIsEditingInfo;
     _Bool mCDECausedSetNeedsDisplay;
     _Bool mDrawingSearchReference;
     CALayer *mSubselectionKnobLayer;
-    _Bool mFinishedBecomingSelected;
     TSCHLegendMoveKnob *mDynamicLegendKnob;
     _Bool mIs2DRepFor3DChartRep;
     int mRenderPassChunkPhase;
@@ -67,6 +63,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool drawingSearchReference; // @synthesize drawingSearchReference=mDrawingSearchReference;
 @property(retain, nonatomic) TSCHLegendMoveKnob *dynamicLegendKnob; // @synthesize dynamicLegendKnob=mDynamicLegendKnob;
 @property(nonatomic) _Bool forceSeparateLegendLayer; // @synthesize forceSeparateLegendLayer=mForceSeparateLegendLayer;
+- (void).cxx_destruct;
 - (struct CGRect)convertUnscaledToBoundsRect:(struct CGRect)arg1;
 - (struct CGRect)outerShadowFrame;
 - (void)p_removeOrShowAndPositionMessageOverlay;

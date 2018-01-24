@@ -18,12 +18,12 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) NSUUID *outOfSyncToken; // @synthesize outOfSyncToken=_outOfSyncToken;
+- (void).cxx_destruct;
 - (id)recordingSyncStateByMarkingRecordingAsOutOfSync:(_Bool)arg1 withLocalOutOfSyncToken:(id)arg2;
 - (_Bool)isRecordingLocallyOutOfSyncUsingLocalOutOfSyncToken:(id)arg1;
 @property(readonly, nonatomic, getter=isRecordingOutOfSync) _Bool recordingOutOfSync;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
-- (void)dealloc;
 - (id)init;
 - (id)initWithOutOfSyncToken:(id)arg1 canClearOutOfSyncToken:(_Bool)arg2;
 - (void)saveToArchive:(struct RecordingSyncState *)arg1 archiver:(id)arg2;

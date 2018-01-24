@@ -93,6 +93,7 @@ __attribute__((visibility("hidden")))
 - (void)createDefaultParagraphStyleIfNeeded;
 - (void)modifyHyperlinkStyleToMatchSage;
 - (id)defaultEquationStyle;
+- (id)defaultTOCEntryStyle;
 - (id)defaultColumnStyle;
 - (id)defaultListStyle;
 - (id)defaultParagraphStyle;

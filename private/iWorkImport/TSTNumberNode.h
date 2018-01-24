@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (id)argumentSpec;
 @property(retain, nonatomic) NSString *string;
 - (int)tokenType;
+- (void)fixStorageLanguage:(id)arg1;
 - (_Bool)isEqualToExpressionNode:(id)arg1;
 - (struct TSTCSENodeData)recordHashesForSubexpressions:(id)arg1;
 - (void)setNumber:(double)arg1 withLocale:(id)arg2;

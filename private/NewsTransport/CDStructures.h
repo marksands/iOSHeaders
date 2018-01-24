@@ -44,6 +44,7 @@ typedef struct {
     unsigned int characterCount:1;
     unsigned int coverArticleDisplayRank:1;
     unsigned int coverArticleFeatureType:1;
+    unsigned int curatedContentType:1;
     unsigned int displayRank:1;
     unsigned int feedAutoSubscribeType:1;
     unsigned int feedCellHostType:1;
@@ -96,7 +97,7 @@ typedef struct {
     unsigned int isVideoInFeed:1;
     unsigned int subscriptionOnlyArticle:1;
     unsigned int viewFromNotificationDirectOpen:1;
-} CDStruct_5e5ef9bf;
+} CDStruct_23675145;
 
 // Ambiguous groups
 typedef struct {

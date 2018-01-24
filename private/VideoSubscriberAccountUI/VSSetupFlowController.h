@@ -39,11 +39,10 @@
 - (void)identityProviderViewControllerDidCancel:(id)arg1;
 - (void)dismissIdentityProviderViewController:(id)arg1;
 - (void)identityProviderPickerViewController:(id)arg1 didPickIdentityProvider:(id)arg2;
-- (void)_dismissAboutPrivacy:(id)arg1;
-- (void)showAboutPrivacy;
 - (void)showSupportedApps;
 - (void)notNow;
 - (void)_offerFreeOnBoardingIfNeededAfterOfferingOptions:(_Bool)arg1 endingUndoGrouping:(_Bool)arg2 arrivedViaNotNowButton:(_Bool)arg3 arrivedAfterSigningIn:(_Bool)arg4 goingBack:(_Bool)arg5;
+- (void)startSigningInForIdentityProvider:(id)arg1;
 - (void)startSigningIn;
 - (void)_startLoadingAfterOfferingOptions:(_Bool)arg1 endingUndoGrouping:(_Bool)arg2 arrivedViaNotNowButton:(_Bool)arg3 arrivedAfterSigningIn:(_Bool)arg4 goingBack:(_Bool)arg5;
 - (void)startLoadingWhenGoingBack:(_Bool)arg1;
@@ -55,6 +54,7 @@
 - (void)_presentViewController:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_requestAccessWithViewController:(id)arg1;
 - (void)_pickProviderWithViewController:(id)arg1;
+- (void)_offerAuthenticationForProvider:(id)arg1 withSupportedAppsButton:(_Bool)arg2;
 - (void)_offerAuthenticationWithSupportedAppsButton:(_Bool)arg1;
 - (void)_didStartLoading;
 - (void)dealloc;

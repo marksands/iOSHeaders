@@ -14,7 +14,9 @@
 {
     double _expirationDate;
     NSMutableArray *_searchAdsSettingsParams;
-    CDStruct_995c676d _has;
+    struct {
+        unsigned int expirationDate:1;
+    } _has;
 }
 
 + (Class)searchAdsSettingsParamsType;

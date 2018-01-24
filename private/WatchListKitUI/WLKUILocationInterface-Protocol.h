@@ -6,11 +6,10 @@
 
 #import "JSExport.h"
 
-@class JSValue, NSDictionary, NSNumber;
+@class NSNumber;
 
 @protocol WLKUILocationInterface <JSExport>
-- (void)requestLocation:(NSDictionary *)arg1:(JSValue *)arg2;
-- (void)requestLastLocation:(JSValue *)arg1;
+- (void)shouldUpdateUserLocation;
 - (void)requestAuthorization;
 - (NSNumber *)authorizationStatus;
 @end

@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSLock, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
+@class NSDictionary, NSLock, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
 @interface GEODBWriter : NSObject
 {
     NSString *_path;
+    NSDictionary *_pragmaOverrides;
     struct sqlite3 *_db;
     struct sqlite3_stmt *_versionQuery;
     struct sqlite3_stmt *_versionInsert;
@@ -97,6 +98,7 @@
 - (void)_editionUpdate:(id)arg1;
 - (void)_deviceLocked;
 - (void)_localeChanged:(id)arg1;
+- (id)initWithPath:(id)arg1 pragmaOverrides:(id)arg2;
 - (id)initWithPath:(id)arg1;
 
 @end

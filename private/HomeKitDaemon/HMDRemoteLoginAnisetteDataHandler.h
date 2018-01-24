@@ -6,13 +6,14 @@
 
 #import "HMFObject.h"
 
+#import "HMDHomeMessageReceiver.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 
-@class AKAnisetteProvisioningController, HMFMessageDispatcher, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class AKAnisetteProvisioningController, HMDAppleMediaAccessory, HMFMessageDispatcher, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDRemoteLoginAnisetteDataHandler : HMFObject <HMFLogging, HMFMessageReceiver>
+@interface HMDRemoteLoginAnisetteDataHandler : HMFObject <HMFLogging, HMDHomeMessageReceiver>
 {
+    HMDAppleMediaAccessory *_accessory;
     NSUUID *_uuid;
     NSObject<OS_dispatch_queue> *_workQueue;
     HMFMessageDispatcher *_msgDispatcher;
@@ -20,22 +21,25 @@
 }
 
 + (id)logCategory;
++ (_Bool)hasMessageReceiverChildren;
 @property(readonly, nonatomic) AKAnisetteProvisioningController *provisioningController; // @synthesize provisioningController=_provisioningController;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
+@property(readonly) __weak HMDAppleMediaAccessory *accessory; // @synthesize accessory=_accessory;
 - (void).cxx_destruct;
 - (id)logIdentifier;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (void)registerForMessages;
 - (void)configureWithWorkQueue:(id)arg1 messageDispatcher:(id)arg2;
-- (id)initWithUUID:(id)arg1;
+- (id)initWithUUID:(id)arg1 accessory:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

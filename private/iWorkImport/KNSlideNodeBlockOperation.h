@@ -12,11 +12,13 @@ __attribute__((visibility("hidden")))
 @interface KNSlideNodeBlockOperation : NSBlockOperation
 {
     KNSlideNode *_slideNode;
+    long long _type;
 }
 
+@property(nonatomic) long long type; // @synthesize type=_type;
 @property(nonatomic) __weak KNSlideNode *slideNode; // @synthesize slideNode=_slideNode;
 - (void).cxx_destruct;
-- (id)initWithSlideNode:(id)arg1;
+- (id)initWithSlideNode:(id)arg1 type:(long long)arg2;
 
 @end
 

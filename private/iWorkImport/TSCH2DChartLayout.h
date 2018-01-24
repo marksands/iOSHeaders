@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)propertiesThatInvalidateLayout;
+- (void).cxx_destruct;
 - (struct CGPath *)newDragAndDropHighlightPathForSelection:(id)arg1;
 - (id)subselectionHaloPositionsForSelections:(id)arg1;
 - (id)subselectionKnobPositionsForSelection:(id)arg1;
@@ -44,7 +45,7 @@ __attribute__((visibility("hidden")))
 - (void)layoutForChartAreaSize:(struct CGSize)arg1;
 - (void)layoutForCircumscribingSize:(struct CGSize)arg1;
 @property(readonly) TSCHChartRootLayoutItem *p_layoutTree;
-- (void)setLayoutSettings:(CDStruct_44ada6bf)arg1;
+- (void)setLayoutSettings:(CDStruct_b1c75024)arg1;
 - (struct CGRect)chartBodyFrame;
 - (void)setLegendModelGeometryFrame:(struct CGRect)arg1;
 - (struct CGRect)legendModelGeometryFrame;

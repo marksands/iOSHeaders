@@ -16,9 +16,9 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)capturedFillSetWithIdentifier:(id)arg1 seriesStyles:(id)arg2 numberOfThemeSeriesStyles:(unsigned long long)arg3;
+- (void).cxx_destruct;
 - (id)fillForSeriesIndex:(unsigned long long)arg1 seriesType:(id)arg2 context:(id)arg3;
 - (unsigned long long)countOfDefinedSeriesForSeriesType:(id)arg1;
-- (void)dealloc;
 - (id)initWithIdentifier:(id)arg1 seriesStyles:(id)arg2 numberOfThemeSeriesStyles:(unsigned long long)arg3;
 
 @end

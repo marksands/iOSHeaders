@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+#import "DEDSecureArchiving.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class NSNumber, NSString;
 
-@interface DEDBugSessionConfiguration : NSObject <NSSecureCoding, NSCopying>
+@interface DEDBugSessionConfiguration : NSObject <NSSecureCoding, NSCopying, DEDSecureArchiving>
 {
     _Bool _allowsCellularUpload;
     long long _finishingMove;
@@ -24,6 +25,8 @@
     NSString *_radarAuthToken;
 }
 
++ (id)secureUnarchiveWithData:(id)arg1;
++ (id)archivedClasses;
 + (_Bool)supportsSecureCoding;
 @property(retain) NSString *radarAuthToken; // @synthesize radarAuthToken=_radarAuthToken;
 @property(retain) NSNumber *radarProblemID; // @synthesize radarProblemID=_radarProblemID;
@@ -35,9 +38,18 @@
 @property _Bool allowsCellularUpload; // @synthesize allowsCellularUpload=_allowsCellularUpload;
 @property long long finishingMove; // @synthesize finishingMove=_finishingMove;
 - (void).cxx_destruct;
+- (id)secureArchive;
+- (_Bool)isEqualToConfiguration:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

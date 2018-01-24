@@ -13,9 +13,11 @@
     id _authenticatedCiphertextInternal;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 @property(readonly) NSData *initializationVector;
 @property(readonly) NSData *authenticationCode;
+- (_Bool)isEqual:(id)arg1;
 - (id)debugDescription;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

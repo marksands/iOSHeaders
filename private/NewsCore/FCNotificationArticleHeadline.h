@@ -17,6 +17,8 @@
     _Bool _featureCandidate;
     _Bool _needsRapidUpdates;
     _Bool _showMinimalChrome;
+    _Bool _boundToContext;
+    _Bool _hiddenFromFeeds;
     _Bool _paid;
     NSString *_versionIdentifier;
     NSString *_identifier;
@@ -76,6 +78,8 @@
 - (void)setPaid:(_Bool)arg1;
 - (_Bool)isPaid;
 - (long long)minimumNewsVersion;
+- (_Bool)isHiddenFromFeeds;
+- (_Bool)isBoundToContext;
 - (_Bool)showMinimalChrome;
 - (_Bool)needsRapidUpdates;
 - (void)setStoryStyle:(id)arg1;

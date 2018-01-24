@@ -82,6 +82,7 @@ __attribute__((visibility("hidden")))
 - (Class)preferredRepClass;
 - (struct CGSize)naturalSize;
 - (struct CGAffineTransform)pathFlipTransform;
+- (void)beginNewSubpath;
 - (void)setLockedFlipTransform:(_Bool)arg1;
 - (void)reverseDirection;
 @property(copy, nonatomic) NSArray *nodes;

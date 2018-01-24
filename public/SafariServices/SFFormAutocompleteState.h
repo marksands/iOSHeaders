@@ -6,7 +6,7 @@
 
 #import "WBUFormAutoCompleteState.h"
 
-@class NSDictionary, NSString, SFFormAutoFillFrameHandle, UIView, WBSFormAutoFillMetadataCorrector, WBSFormMetadata, _SFFormAutoFillController;
+@class NSDictionary, NSString, SFFormAutoFillFrameHandle, UIView, WBSFormAutoFillMetadataCorrector, WBSFormMetadata, _SFFormAutoFillController, _SFFormAutoFillInputSession;
 
 __attribute__((visibility("hidden")))
 @interface SFFormAutocompleteState : WBUFormAutoCompleteState
@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     NSDictionary *_textFieldMetadata;
     NSString *_textFieldValue;
     _SFFormAutoFillController *_autoFillController;
-    id <_WKFormInputSession> _inputSession;
+    _SFFormAutoFillInputSession *_inputSession;
     UIView *_emptyInputView;
     WBSFormAutoFillMetadataCorrector *_metadataCorrector;
     NSString *_prefixForSuggestions;
@@ -45,7 +45,7 @@ __attribute__((visibility("hidden")))
 - (void)updateSuggestions;
 - (void)autoFillFormWithCreditCardDataAfterAuthenticationIfNeeded:(id)arg1;
 - (void)autoFillValuesAfterAuthenticationIfNeeded:(id)arg1;
-- (void)fillCredentialAfterAuthenticationIfNeeded:(id)arg1;
+- (void)fillCredentialAfterAuthenticationIfNeeded:(id)arg1 setAsDefaultCredential:(_Bool)arg2;
 - (void)setAutoFillButtonTitle:(id)arg1;
 - (void)dealloc;
 - (void)invalidate;

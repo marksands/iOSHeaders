@@ -11,6 +11,7 @@
     long long _status;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) long long status; // @synthesize status=_status;
 - (id)_ui_descriptionBuilder;
 - (_Bool)isEqual:(id)arg1;

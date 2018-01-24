@@ -17,6 +17,7 @@
 @property(retain, nonatomic) NSMutableArray *contextLists; // @synthesize contextLists=_contextLists;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 - (void).cxx_destruct;
+- (void)addProgressHandler:(id)arg1 forAccessoryIdentifier:(id)arg2;
 - (id)removeTriggerForIdentifier:(id)arg1;
 - (void)addTrigger:(id)arg1 andCompletionBlock:(id)arg2 forIdentifier:(id)arg3;
 - (id)removeProgressBlockForIdentifier:(id)arg1;

@@ -51,6 +51,7 @@
     NSArray *_colorComponents;
     NSValue *_iconSize;
     struct CGSize _resizableSliceSize;
+    struct CGSize _physicalSizeInMeters;
     struct CGSize _canvasSize;
     CDStruct_3c058996 _sliceInsets;
     struct CGRect _alignmentRect;
@@ -70,6 +71,7 @@
 @property(nonatomic) unsigned long long textureWidth; // @synthesize textureWidth=_textureWidth;
 @property(copy, nonatomic) NSArray *layerReferences; // @synthesize layerReferences=_layerReferences;
 @property(nonatomic) struct CGSize canvasSize; // @synthesize canvasSize=_canvasSize;
+@property(nonatomic) struct CGSize physicalSizeInMeters; // @synthesize physicalSizeInMeters=_physicalSizeInMeters;
 @property(copy, nonatomic) NSArray *containedImageNames; // @synthesize containedImageNames=_containedImageNames;
 @property(copy, nonatomic) NSString *universalTypeIdentifier; // @synthesize universalTypeIdentifier=_universalTypeIdentifier;
 @property(copy, nonatomic) NSSet *tags; // @synthesize tags=_tags;

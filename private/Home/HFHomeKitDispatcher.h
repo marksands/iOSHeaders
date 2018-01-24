@@ -99,6 +99,7 @@
 - (void)_finishAllHomesPromises:(id)arg1;
 - (void)_finishHomePromises:(id)arg1;
 - (void)_updateRemoteAccessStateForHome:(id)arg1 notifyingObservers:(_Bool)arg2;
+- (void)home:(id)arg1 didUpdateReprovisionStateForAccessory:(id)arg2;
 - (void)symptomsHandler:(id)arg1 didUpdateFixState:(long long)arg2;
 - (void)symptomsHandler:(id)arg1 didUpdateCanInitiateFix:(_Bool)arg2;
 - (void)symptomsHandler:(id)arg1 didUpdateSymptoms:(id)arg2;

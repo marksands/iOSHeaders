@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSData, NSString;
 
 __attribute__((visibility("hidden")))
-@interface MPImageDescriptor : NSObject <NSCoding>
+@interface MPImageDescriptor : NSObject <NSSecureCoding>
 {
     float _quality;
     float _nextLeafDescriptorDistance;
@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
     NSString *_imageFilePath;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly) NSString *imageFilePath; // @synthesize imageFilePath=_imageFilePath;
 @property float previousLeafTotalDistance; // @synthesize previousLeafTotalDistance=_previousLeafTotalDistance;
 @property float nextLeafTotalDistance; // @synthesize nextLeafTotalDistance=_nextLeafTotalDistance;

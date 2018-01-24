@@ -11,7 +11,6 @@
 @interface NTCatchUpOperation : FCOperation
 {
     _Bool _forYouEnabled;
-    _Bool _trendingByParsecEnabled;
     id <FCAppConfiguration> _appConfiguration;
     id <FCContentContext> _contentContext;
     id <FCFeedPersonalizing> _feedPersonalizer;
@@ -19,12 +18,10 @@
     unsigned long long _maximumCachedAgeForForYou;
     NTCatchUpOperationForYouRequest *_forYouRequest;
     CDUnknownBlockType _sessionProvider;
-    unsigned long long _maximumCachedAgeForTrendingByParsec;
     NSDictionary *_resultsByArticleListID;
     NSDictionary *_resultsByArticleIDsRequestID;
     NTCatchUpOperationResults *_forYouResults;
     NTCatchUpOperationForYouFetchInfo *_forYouFetchInfo;
-    NTCatchUpOperationResults *_trendingByParsecResults;
     CDUnknownBlockType _catchUpCompletionHandler;
     NSDate *_fetchDate;
     NSMutableArray *_articleListRequests;
@@ -35,13 +32,10 @@
 @property(retain, nonatomic) NSMutableArray *articleListRequests; // @synthesize articleListRequests=_articleListRequests;
 @property(copy, nonatomic) NSDate *fetchDate; // @synthesize fetchDate=_fetchDate;
 @property(copy, nonatomic) CDUnknownBlockType catchUpCompletionHandler; // @synthesize catchUpCompletionHandler=_catchUpCompletionHandler;
-@property(copy, nonatomic) NTCatchUpOperationResults *trendingByParsecResults; // @synthesize trendingByParsecResults=_trendingByParsecResults;
 @property(copy, nonatomic) NTCatchUpOperationForYouFetchInfo *forYouFetchInfo; // @synthesize forYouFetchInfo=_forYouFetchInfo;
 @property(copy, nonatomic) NTCatchUpOperationResults *forYouResults; // @synthesize forYouResults=_forYouResults;
 @property(copy, nonatomic) NSDictionary *resultsByArticleIDsRequestID; // @synthesize resultsByArticleIDsRequestID=_resultsByArticleIDsRequestID;
 @property(copy, nonatomic) NSDictionary *resultsByArticleListID; // @synthesize resultsByArticleListID=_resultsByArticleListID;
-@property(nonatomic, getter=isTrendingByParsecEnabled) _Bool trendingByParsecEnabled; // @synthesize trendingByParsecEnabled=_trendingByParsecEnabled;
-@property(nonatomic) unsigned long long maximumCachedAgeForTrendingByParsec; // @synthesize maximumCachedAgeForTrendingByParsec=_maximumCachedAgeForTrendingByParsec;
 @property(copy, nonatomic) CDUnknownBlockType sessionProvider; // @synthesize sessionProvider=_sessionProvider;
 @property(nonatomic, getter=isForYouEnabled) _Bool forYouEnabled; // @synthesize forYouEnabled=_forYouEnabled;
 @property(copy, nonatomic) NTCatchUpOperationForYouRequest *forYouRequest; // @synthesize forYouRequest=_forYouRequest;
@@ -51,7 +45,6 @@
 @property(retain, nonatomic) id <FCContentContext> contentContext; // @synthesize contentContext=_contentContext;
 @property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;
-- (void)_fetchTrendingByParsecResultsIfNeededWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_fetchArticleListAndArticleIDsResultsIfNeededWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_fetchForYouResultsIfNeededWithCompletion:(CDUnknownBlockType)arg1;
 - (void)operationWillFinishWithError:(id)arg1;

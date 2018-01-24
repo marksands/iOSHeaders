@@ -14,6 +14,7 @@
 }
 
 + (id)predicateWithProperty:(id)arg1 values:(id)arg2;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSSet *values; // @synthesize values=_values;
 - (void).cxx_destruct;
 - (_Bool)containsPropertyPredicate:(id)arg1 matchingValue:(id)arg2 usingComparison:(int)arg3;

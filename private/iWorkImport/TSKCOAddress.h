@@ -11,14 +11,15 @@
 __attribute__((visibility("hidden")))
 @interface TSKCOAddress : NSObject
 {
-    TSKCOAddress *mParent;
-    NSArray *mAllPathElements;
+    NSArray *_allPathElements;
+    TSKCOAddress *_parent;
 }
 
 + (id)newObjectForUnarchiver:(id)arg1 message:(const struct Message *)arg2;
 + (void)registerClass:(Class)arg1 forExtensionNumber:(unsigned int)arg2;
 + (id)typeRegistry;
-@property(readonly, nonatomic) TSKCOAddress *parent; // @synthesize parent=mParent;
+@property(readonly, nonatomic) TSKCOAddress *parent; // @synthesize parent=_parent;
+- (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1 message:(struct Address *)arg2;
 - (id)initWithUnarchiver:(id)arg1 message:(const struct Address *)arg2;
 - (id)description;
@@ -30,7 +31,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *allPathElements;
 @property(readonly, nonatomic) NSString *path;
 @property(readonly, nonatomic) NSString *pathElement;
-- (void)dealloc;
 - (id)initWithParent:(id)arg1;
 
 @end

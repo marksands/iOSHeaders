@@ -19,9 +19,12 @@
     double _scale;
     UIImage *_image;
     struct CGImage *_imageRef;
-    void *_surfaceRef;
+    void *_nonProtectedSurfaceRef;
+    void *_protectedSurfaceRef;
+    _Bool _allowsProtectedContent;
 }
 
+@property(nonatomic) _Bool allowsProtectedContent; // @synthesize allowsProtectedContent=_allowsProtectedContent;
 @property(nonatomic) struct CGSize snapshotSize; // @synthesize snapshotSize=_snapshotSize;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(nonatomic, getter=isOpaque) _Bool opaque; // @synthesize opaque=_opaque;
@@ -35,6 +38,7 @@
 @property(readonly, nonatomic) UIImage *UIImage;
 @property(readonly, nonatomic) struct CGImage *CGImage;
 @property(readonly, nonatomic, getter=isDataLoaded) _Bool dataLoaded;
+@property(readonly, nonatomic) void *fallbackIOSurface;
 @property(readonly, nonatomic) void *IOSurface;
 - (_Bool)capture;
 - (void)dealloc;

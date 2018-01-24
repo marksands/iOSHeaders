@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MPUDataSourceConfiguration, NSString;
+@class MPUDataSourceConfiguration;
 
 @interface MPUViewControllerConfiguration : NSObject
 {
@@ -14,7 +14,6 @@
     _Bool _wantsNavigationController;
     Class _cellConfigurationClass;
     Class _viewControllerClass;
-    NSString *_aggregateStatisticDisplayCountKey;
     MPUDataSourceConfiguration *_dataSourceConfiguration;
     CDUnknownBlockType _configurationBlock;
     Class _navigationControllerClass;
@@ -27,7 +26,6 @@
 @property(nonatomic) _Bool wantsModalPresentation; // @synthesize wantsModalPresentation=_wantsModalPresentation;
 @property(copy, nonatomic) CDUnknownBlockType configurationBlock; // @synthesize configurationBlock=_configurationBlock;
 @property(retain, nonatomic) MPUDataSourceConfiguration *dataSourceConfiguration; // @synthesize dataSourceConfiguration=_dataSourceConfiguration;
-@property(copy, nonatomic) NSString *aggregateStatisticDisplayCountKey; // @synthesize aggregateStatisticDisplayCountKey=_aggregateStatisticDisplayCountKey;
 @property(readonly, nonatomic) Class viewControllerClass; // @synthesize viewControllerClass=_viewControllerClass;
 @property(readonly, nonatomic) Class cellConfigurationClass; // @synthesize cellConfigurationClass=_cellConfigurationClass;
 - (void).cxx_destruct;

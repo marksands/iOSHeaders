@@ -10,7 +10,6 @@
 + (id)CKDataFromBase64URLSafeString:(id)arg1;
 + (id)CKDataWithHexString:(id)arg1;
 + (id)CKDataWithHexString:(id)arg1 stringIsUppercase:(_Bool)arg2;
-- (id)ck_securelyDecodeRootObjectOfClass:(Class)arg1;
 - (id)CKSHA256;
 - (id)CKBase64URLSafeString;
 - (id)CKUppercaseHexStringWithoutSpaces;

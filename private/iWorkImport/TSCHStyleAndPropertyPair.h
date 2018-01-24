@@ -18,12 +18,12 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)pairWithStyle:(id)arg1 property:(int)arg2;
+- (void).cxx_destruct;
 - (id)description;
 - (int)property;
 - (id)style;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithStyle:(id)arg1 property:(int)arg2;
 

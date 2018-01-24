@@ -9,18 +9,22 @@
 #import "PKAddPassesCardStackViewControllerDelegate.h"
 #import "PKServiceAddPassesViewControllerProtocol.h"
 
-@class NSString;
+@class NSString, PKAddPassesCardStackViewController;
 
 @interface PKServiceAddPassesViewController : PKNavigationController <PKAddPassesCardStackViewControllerDelegate, PKServiceAddPassesViewControllerProtocol>
 {
     struct CGSize _screenSize;
     double _screenScale;
     _Bool _placeholderViewControllerDidCancel;
+    PKAddPassesCardStackViewController *_cardStackViewController;
 }
 
 + (id)_remoteViewControllerInterface;
 + (id)_exportedInterface;
 + (_Bool)_preventsAppearanceProxyCustomization;
+- (void).cxx_destruct;
+- (void)resetBrightness;
+- (void)evaluateBrightness;
 - (void)ingestPassesWithData:(id)arg1 fromPresentationSource:(unsigned long long)arg2;
 - (void)setDisplayPropertiesWithScreenSize:(struct CGSize)arg1 scale:(double)arg2;
 - (void)addPassesCardStackViewController:(id)arg1 didCancelAddingPasses:(id)arg2;

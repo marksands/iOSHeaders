@@ -24,13 +24,13 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)analyzerForAxis:(id)arg1 needsMedian:(_Bool)arg2;
+- (void).cxx_destruct;
 - (double)average;
 - (double)median;
 - (double)max;
 - (double)min;
 - (void)addGridValue:(id)arg1 forSeries:(id)arg2;
 - (_Bool)p_hasMedianReferenceLine;
-- (void)dealloc;
 - (id)initForAxis:(id)arg1 needsMedian:(_Bool)arg2;
 
 @end

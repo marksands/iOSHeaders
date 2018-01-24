@@ -31,6 +31,10 @@
     NSMutableArray *_galleryImageIds;
     int _galleryType;
     NSData *_galleryViewingSessionId;
+    NSString *_iadNativeAd;
+    NSString *_iadNativeCampaign;
+    NSString *_iadNativeCampaignAd;
+    NSString *_iadNativeLine;
     NSString *_mediaId;
     int _mediaType;
     NSString *_metadata;
@@ -72,6 +76,10 @@
 + (Class)fractionalCohortMembershipType;
 + (Class)galleryImageIdsType;
 + (Class)namedEntitiesType;
+@property(retain, nonatomic) NSString *iadNativeCampaignAd; // @synthesize iadNativeCampaignAd=_iadNativeCampaignAd;
+@property(retain, nonatomic) NSString *iadNativeAd; // @synthesize iadNativeAd=_iadNativeAd;
+@property(retain, nonatomic) NSString *iadNativeLine; // @synthesize iadNativeLine=_iadNativeLine;
+@property(retain, nonatomic) NSString *iadNativeCampaign; // @synthesize iadNativeCampaign=_iadNativeCampaign;
 @property(retain, nonatomic) NSData *galleryViewingSessionId; // @synthesize galleryViewingSessionId=_galleryViewingSessionId;
 @property(retain, nonatomic) NSString *galleryId; // @synthesize galleryId=_galleryId;
 @property(nonatomic) long long previousArticlePublisherArticleVersion; // @synthesize previousArticlePublisherArticleVersion=_previousArticlePublisherArticleVersion;
@@ -113,6 +121,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasIadNativeCampaignAd;
+@property(readonly, nonatomic) _Bool hasIadNativeAd;
+@property(readonly, nonatomic) _Bool hasIadNativeLine;
+@property(readonly, nonatomic) _Bool hasIadNativeCampaign;
 @property(readonly, nonatomic) _Bool hasGalleryViewingSessionId;
 @property(readonly, nonatomic) _Bool hasGalleryId;
 @property(nonatomic) _Bool hasPreviousArticlePublisherArticleVersion;

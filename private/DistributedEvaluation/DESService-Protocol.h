@@ -9,6 +9,7 @@
 @class NSArray, NSData, NSDictionary, NSString, NSURL, NSUUID;
 
 @protocol DESService <NSObject>
+- (void)postRecipeResultForBundleId:(NSString *)arg1 result:(NSDictionary *)arg2 recipeUUID:(NSUUID *)arg3 completion:(void (^)(NSError *))arg4;
 - (void)runLiveEvaluationForAllBundlesWithBaseURL:(NSURL *)arg1 localeIdentifier:(NSString *)arg2 completion:(void (^)(NSError *))arg3;
 - (void)runLiveEvaluationForBundleId:(NSString *)arg1 baseURL:(NSURL *)arg2 localeIdentifier:(NSString *)arg3 completion:(void (^)(NSError *))arg4;
 - (void)runEvaluationForBundleId:(NSString *)arg1 recipe:(NSDictionary *)arg2 recordUUID:(NSUUID *)arg3 attachments:(NSArray *)arg4 completion:(void (^)(NSDictionary *, NSError *))arg5;

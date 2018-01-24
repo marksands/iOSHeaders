@@ -6,7 +6,7 @@
 
 #import "NUVideoExportRequest.h"
 
-@class NSString, NSURL;
+@class NSString, NSURL, NUColorSpace;
 
 @interface PIAutoLoopExportRequest : NUVideoExportRequest
 {
@@ -20,6 +20,7 @@
 @property(readonly) NSString *destinationUTI; // @synthesize destinationUTI=_destinationUTI;
 - (void).cxx_destruct;
 - (void)submit:(CDUnknownBlockType)arg1;
+@property(readonly) NUColorSpace *outputColorSpace;
 - (long long)mediaComponentType;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)newRenderJob;

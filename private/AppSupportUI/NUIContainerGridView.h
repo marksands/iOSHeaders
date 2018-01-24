@@ -40,8 +40,8 @@
 @property(nonatomic) long long horizontalAlignment; // @synthesize horizontalAlignment=_horizontalAlignment;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)populateGridArrangementDimension:(vector_29d414c0 *)arg1 withCells:(const vector_f7a18e83 *)arg2 axis:(long long)arg3;
-- (void)populateGridArrangementCells:(vector_f7a18e83 *)arg1;
+- (void)populateGridArrangementDimension:(vector_b8a5df6e *)arg1 withCells:(const vector_f8404f95 *)arg2 axis:(long long)arg3;
+- (void)populateGridArrangementCells:(vector_f8404f95 *)arg1;
 - (void)_setupViewRangesIfNeeded;
 - (long long)_verticalAlignmentOfView:(id)arg1 inColumn:(long long)arg2;
 - (long long)_horizontalAlignmentOfView:(id)arg1 inColumn:(long long)arg2;

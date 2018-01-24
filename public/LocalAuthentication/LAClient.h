@@ -54,6 +54,7 @@
 - (void)_performCallBool:(CDUnknownBlockType)arg1 finally:(CDUnknownBlockType)arg2;
 - (void)_performCallIdCore:(CDUnknownBlockType)arg1 finally:(CDUnknownBlockType)arg2;
 - (void)_performCallId:(CDUnknownBlockType)arg1 finally:(CDUnknownBlockType)arg2;
+- (void)_serializedInvalidateWithMessage:(id)arg1;
 - (void)invalidateWithMessage:(id)arg1;
 - (void)dealloc;
 - (void)tccPreflightWithService:(id)arg1 reply:(CDUnknownBlockType)arg2;

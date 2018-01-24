@@ -19,6 +19,8 @@
 + (id)writeAheadLogSharedMemoryURLForDatabaseURL:(id)arg1;
 + (id)writeAheadLogURLForDatabaseURL:(id)arg1;
 + (id)_errorWithErrorCode:(int)arg1;
++ (id)privateOnDiskDatabaseURL;
++ (id)inMemoryDatabaseURL;
 + (void)setUpLogCollection;
 + (void)initialize;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;

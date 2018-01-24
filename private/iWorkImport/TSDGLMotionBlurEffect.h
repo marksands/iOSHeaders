@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class TSDGLDataBuffer, TSDGLFrameBuffer, TSDGLShader, TSDGLState;
+@class TSDGLFrameBuffer, TSDGLShader, TSDGLState;
 
 __attribute__((visibility("hidden")))
 @interface TSDGLMotionBlurEffect : NSObject
@@ -19,10 +19,10 @@ __attribute__((visibility("hidden")))
     TSDGLFrameBuffer *_velocityFramebuffer;
     TSDGLShader *_defaultTextureShader;
     TSDGLFrameBuffer *_colorFramebuffer;
-    TSDGLDataBuffer *_colorFBODataBuffer;
-    TSDGLDataBuffer *_velocityFBODataBuffer;
-    TSDGLDataBuffer *_velocitySquashedFBODataBuffer;
-    TSDGLDataBuffer *_FBODataBuffer;
+    id <TSDGLDataBuffer> _colorFBODataBuffer;
+    id <TSDGLDataBuffer> _velocityFBODataBuffer;
+    id <TSDGLDataBuffer> _velocitySquashedFBODataBuffer;
+    id <TSDGLDataBuffer> _FBODataBuffer;
     TSDGLShader *_velocityTileMaxVerticalShader;
     TSDGLShader *_velocityTileMaxHorizontalShader;
     TSDGLShader *_velocityNeighborMaxHorizontalShader;

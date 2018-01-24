@@ -67,7 +67,6 @@
 @property(readonly, nonatomic) NSDate *lastMoviePlayedDate; // @synthesize lastMoviePlayedDate=_lastMoviePlayedDate;
 @property(readonly, nonatomic) NSDate *lastViewedDate; // @synthesize lastViewedDate=_lastViewedDate;
 @property(readonly, nonatomic) double score; // @synthesize score=_score;
-@property(readonly, nonatomic) NSData *photosGraphData; // @synthesize photosGraphData=_photosGraphData;
 @property(readonly, nonatomic) long long photosGraphVersion; // @synthesize photosGraphVersion=_photosGraphVersion;
 @property(readonly, nonatomic) NSData *movieData; // @synthesize movieData=_movieData;
 @property(readonly, nonatomic, getter=isUserCreated) _Bool userCreated; // @synthesize userCreated=_userCreated;
@@ -78,7 +77,7 @@
 @property(readonly, nonatomic) long long subcategory; // @synthesize subcategory=_subcategory;
 @property(readonly, nonatomic) long long category; // @synthesize category=_category;
 - (void).cxx_destruct;
-- (id)_photosGraphProperties;
+@property(readonly, nonatomic) NSDictionary *photosGraphProperties; // @synthesize photosGraphProperties=_photosGraphProperties;
 @property(readonly, nonatomic) _Bool isGreat;
 @property(readonly, nonatomic) _Bool isStellar;
 @property(readonly, nonatomic) _Bool isMustSee;

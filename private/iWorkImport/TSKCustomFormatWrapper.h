@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSUUID *customFormatKey; // @synthesize customFormatKey=_customFormatKey;
 - (void).cxx_destruct;
 - (id)asCustomFormatWrapper;
+- (id)currencyCodeForValue:(double)arg1;
 - (id)stringFromDate:(id)arg1 locale:(id)arg2;
 - (id)stringFromString:(id)arg1 locale:(id)arg2;
 - (id)stringFromDouble:(double)arg1 locale:(id)arg2;

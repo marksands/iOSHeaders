@@ -9,21 +9,31 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSDate, NSDictionary, NSNumber, NSString;
+@class NSArray, NSDate, NSDictionary, NSNumber, NSString;
 
 @interface ASDSoftwareUpdate : NSObject <NSCopying, NSSecureCoding>
 {
+    _Bool _perDevice;
+    _Bool _profileValidated;
+    NSArray *_blockedBy;
     NSDate *_installDate;
     NSDictionary *_rawUpdateDictionary;
     NSDate *_timestamp;
     long long _updateState;
+    NSDictionary *_metrics;
+    long long _rawUpdateState;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) long long rawUpdateState; // @synthesize rawUpdateState=_rawUpdateState;
+@property(copy, nonatomic) NSDictionary *metrics; // @synthesize metrics=_metrics;
 @property(nonatomic) long long updateState; // @synthesize updateState=_updateState;
 @property(copy, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 @property(readonly, nonatomic) NSDictionary *rawUpdateDictionary; // @synthesize rawUpdateDictionary=_rawUpdateDictionary;
+@property(nonatomic, getter=isProfileValidated) _Bool profileValidated; // @synthesize profileValidated=_profileValidated;
+@property(nonatomic, getter=isPerDevice) _Bool perDevice; // @synthesize perDevice=_perDevice;
 @property(copy, nonatomic) NSDate *installDate; // @synthesize installDate=_installDate;
+@property(copy, nonatomic) NSArray *blockedBy; // @synthesize blockedBy=_blockedBy;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

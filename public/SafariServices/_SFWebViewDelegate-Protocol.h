@@ -11,6 +11,7 @@
 @protocol _SFWebViewDelegate <NSObject>
 
 @optional
+- (void)sfWebViewDidEndFormControlInteraction:(_SFWebView *)arg1;
 - (void)sfWebViewDidChangeSafeAreaInsets:(_SFWebView *)arg1;
 @end
 

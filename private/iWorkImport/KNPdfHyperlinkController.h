@@ -11,12 +11,13 @@
 __attribute__((visibility("hidden")))
 @interface KNPdfHyperlinkController : TSAPdfHyperlinkController
 {
-    NSArray *mSlides;
-    struct CGRect mCanvasRect;
-    long long mCurrentSlideNumber;
+    NSArray *_slides;
+    struct CGRect _canvasRect;
+    long long _currentSlideNumber;
 }
 
-@property(nonatomic) long long currentSlideNumber; // @synthesize currentSlideNumber=mCurrentSlideNumber;
+@property(nonatomic) long long currentSlideNumber; // @synthesize currentSlideNumber=_currentSlideNumber;
+- (void).cxx_destruct;
 - (void)addHyperlinksForReps:(id)arg1 targetRect:(struct CGRect)arg2 context:(struct CGContext *)arg3;
 - (struct CGRect)canvasRect;
 - (_Bool)ignoreUrl:(id)arg1;
@@ -26,7 +27,6 @@ __attribute__((visibility("hidden")))
 - (id)currentSlideName;
 - (id)nameFromIndex:(unsigned long long)arg1;
 - (id)nameForSlide:(id)arg1;
-- (void)dealloc;
 - (id)initWithShow:(id)arg1;
 
 @end

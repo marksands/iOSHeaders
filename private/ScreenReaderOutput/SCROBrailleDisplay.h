@@ -114,6 +114,8 @@
 - (void)_aggregatedStatusHandler:(id)arg1;
 - (void)_statusDisplayHandler:(id)arg1;
 - (void)_setBrailleFormatter:(id)arg1;
+- (void)unpauseInputOnBrailleFormatterChange;
+- (void)_unpauseInputAndProcessKeyEvents;
 - (void)_setBrailleFormatterHandler:(id)arg1;
 - (id)_statusStringWithDictionary:(id)arg1;
 - (void)_unloadHandler;

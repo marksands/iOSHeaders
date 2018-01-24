@@ -13,6 +13,7 @@
 
 @interface CUReachabilityMonitor : NSObject <NSURLSessionDelegate, NSURLSessionDownloadDelegate>
 {
+    int _downloadStatus;
     NSObject<OS_dispatch_source> *_timeoutTimer;
     NSURLSession *_urlSession;
     CDUnknownBlockType _completionHandler;

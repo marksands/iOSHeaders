@@ -37,6 +37,7 @@
 - (id)bookmarkForFirstHeadline;
 - (id)bookmarkForGroup:(id)arg1 headline:(id)arg2;
 @property(readonly, nonatomic) double ageOfTopmostGroup;
+@property(readonly, copy, nonatomic) NSArray *headlines;
 - (id)init;
 - (id)initWithArchive:(id)arg1;
 - (id)initWithIdentifier:(id)arg1 internalElements:(id)arg2 externalElements:(id)arg3;

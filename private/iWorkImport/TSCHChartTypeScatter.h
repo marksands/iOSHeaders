@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (long long)userInterfaceTag;
 - (id)allCDESectionLabels;
 - (_Bool)supportsErrorBarsScatterX;
 - (id)defaultSeriesType:(unsigned long long)arg1;

@@ -26,6 +26,9 @@
 - (id)_accountOptionsDictForRenewCredentialsForService:(id)arg1 username:(id)arg2 shouldFailIfNotSilent:(_Bool)arg3;
 - (void)setHandlesForProfileID:(id)arg1 username:(id)arg2 service:(id)arg3 handles:(id)arg4;
 - (void)setAuthTokenForProfileID:(id)arg1 username:(id)arg2 service:(id)arg3 authToken:(id)arg4 selfHandle:(id)arg5 accountStatus:(id)arg6 outRequestID:(id *)arg7 completionBlock:(CDUnknownBlockType)arg8;
+- (void)removeAuthTokenAllowingGracePeriodForProfileID:(id)arg1 username:(id)arg2;
+- (double)authTokenGracePeriod;
+- (_Bool)isAuthTokenReceiptTime:(double)arg1 withinGracePeriod:(double)arg2;
 - (void)setAuthTokenForProfileID:(id)arg1 username:(id)arg2 service:(id)arg3 authToken:(id)arg4 selfHandle:(id)arg5 outRequestID:(id *)arg6 completionBlock:(CDUnknownBlockType)arg7;
 - (void)setPasswordForProfileID:(id)arg1 username:(id)arg2 service:(id)arg3 password:(id)arg4 outRequestID:(id *)arg5 completionBlock:(CDUnknownBlockType)arg6;
 - (void)requestAuthTokenForProfileID:(id)arg1 username:(id)arg2 service:(id)arg3 badPassword:(_Bool)arg4 showForgotPassword:(_Bool)arg5 failIfNotSilent:(_Bool)arg6 outRequestID:(id *)arg7 completionBlock:(CDUnknownBlockType)arg8;

@@ -9,13 +9,14 @@
 @class NSData, NSDictionary, NSError, NSHTTPURLResponse, NSString, NSURLRequest;
 
 @protocol IKNetworkRequestRecord <NSObject>
-@property(retain, nonatomic) NSString *frameId;
-@property(readonly, nonatomic) NSString *loaderId;
-- (void)loadingError:(NSError *)arg1 withIdentifier:(NSString *)arg2;
-- (void)loadingCompletedWithResponseBody:(NSData *)arg1 forIdentifier:(NSString *)arg2;
-- (void)loadingCompletedFromCacheWithResponseBody:(NSData *)arg1 mimeType:(NSString *)arg2 resourceType:(unsigned long long)arg3 forIdentifier:(NSString *)arg4;
-- (void)dataReceived:(NSData *)arg1 withIdentifier:(NSString *)arg2;
-- (void)responseReceived:(NSHTTPURLResponse *)arg1 timingData:(NSDictionary *)arg2 resourceType:(unsigned long long)arg3 withIdentifier:(NSString *)arg4;
-- (void)request:(NSURLRequest *)arg1 willBeSentWithIdentifier:(NSString *)arg2;
+@property(readonly, nonatomic) long long initiatorType;
+@property(readonly, nonatomic) long long resourceType;
+@property(readonly, copy, nonatomic) NSString *identifier;
+- (void)didFailWithError:(NSError *)arg1;
+- (void)didCompleteLoadingWithResponseBody:(NSData *)arg1;
+- (void)didCompleteLoadingFromCache:(long long)arg1 withResponseBody:(NSData *)arg2 mimeType:(NSString *)arg3;
+- (void)didReceiveData:(NSData *)arg1;
+- (void)didReceiveResponse:(NSHTTPURLResponse *)arg1 timingData:(NSDictionary *)arg2;
+- (void)willSendRequest:(NSURLRequest *)arg1;
 @end
 

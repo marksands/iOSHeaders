@@ -39,10 +39,11 @@ __attribute__((visibility("hidden")))
 - (void)loadFromFlowInfoArchive:(const struct FlowInfoArchive *)arg1 unarchiver:(id)arg2;
 - (void)loadFromUnarchiver:(id)arg1;
 @property(readonly, nonatomic) long long contentWritingDirection;
-- (_Bool)textIsLinked;
-- (_Bool)textIsVertical;
-- (_Bool)autoListTermination;
-- (_Bool)autoListRecognition;
+@property(readonly, nonatomic) _Bool preventsComments;
+@property(readonly, nonatomic) _Bool textIsLinked;
+@property(readonly, nonatomic) _Bool textIsVertical;
+@property(readonly, nonatomic) _Bool autoListTermination;
+@property(readonly, nonatomic) _Bool autoListRecognition;
 - (_Bool)isThemeContent;
 - (_Bool)isSelectable;
 @property(readonly, nonatomic, getter=isAttachedToBodyText) _Bool attachedToBodyText;
@@ -59,7 +60,7 @@ __attribute__((visibility("hidden")))
 - (void)clearBackPointerToParentInfoIfNeeded:(id)arg1;
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo;
 - (id)copyWithContext:(id)arg1;
-- (id)childInfos;
+@property(readonly, nonatomic) NSArray *childInfos;
 - (id)childEnumerator;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
@@ -81,6 +82,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(nonatomic) _Bool matchesObjectPlaceholderGeometry;
+@property(readonly, nonatomic) _Bool storageChangesInvalidateWrap;
 @property(readonly) Class superclass;
 
 @end

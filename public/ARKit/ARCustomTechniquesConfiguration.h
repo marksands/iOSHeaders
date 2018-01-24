@@ -21,7 +21,12 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)configureRecordingTechnique;
 - (void)ensureTechniqueAndCustomSensorCompatibility;
+- (void)_updateCaptureSettings;
+- (void)setCameraPosition:(long long)arg1;
 - (void)setCustomSensors:(id)arg1;
+- (_Bool)isLightEstimationEnabled;
+- (long long)worldAlignment;
+- (void)setVideoFormat:(id)arg1;
 - (id)init;
 
 @end

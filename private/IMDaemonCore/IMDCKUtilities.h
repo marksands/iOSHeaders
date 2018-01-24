@@ -6,21 +6,41 @@
 
 #import "NSObject.h"
 
+@class FTDeviceSupport, IDSServerBag, IMDefaults, IMLockdownManager;
+
 @interface IMDCKUtilities : NSObject
 {
     _Bool _useDeprecatedApi;
+    IMLockdownManager *_lockdownManager;
+    IDSServerBag *_serverBag;
+    FTDeviceSupport *_deviceSupport;
+    IMDefaults *_imDefaults;
 }
 
 + (id)sharedInstance;
 + (id)im_AKSecurityLevelKey;
 @property(nonatomic) _Bool useDeprecatedApi; // @synthesize useDeprecatedApi=_useDeprecatedApi;
-- (void)logDumpAndSendMessageTo:(id)arg1 forHours:(int)arg2;
-- (_Bool)_isLogDumpingEnabled;
+@property(retain, nonatomic) IMDefaults *imDefaults; // @synthesize imDefaults=_imDefaults;
+@property(retain, nonatomic) FTDeviceSupport *deviceSupport; // @synthesize deviceSupport=_deviceSupport;
+@property(retain, nonatomic) IDSServerBag *serverBag; // @synthesize serverBag=_serverBag;
+@property(retain, nonatomic) IMLockdownManager *lockdownManager; // @synthesize lockdownManager=_lockdownManager;
+- (void).cxx_destruct;
+- (void)eligibleForTruthZoneWithCompletion:(CDUnknownBlockType)arg1;
+- (void)enableMOCIfNeeded;
+- (id)_primaryiCloudAccountAltDSID;
+- (id)_primaryiCloudAccount;
+- (id)_accountManager;
+- (id)metricForPCSReportManateeStatus;
+- (void)logDumpAndSendMessageTo:(id)arg1 forHours:(int)arg2 reason:(id)arg3;
+- (void)_showCKLogNotificationWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)errorIndicatesIdentityWasLost:(id)arg1;
+- (_Bool)_deviceActive;
+- (id)deviceActiveString;
 - (id)lastDeviceBackUpDate;
 - (id)newfilteredArrayRemovingCKRecordIDDupes:(id)arg1;
 - (id)newfilteredArrayRemovingCKRecordDupes:(id)arg1;
 - (_Bool)deviceConditionsAllowPeriodicSync;
+- (id)deviceConditions;
 - (void)primaryAccountHasiCloudBackupEnabledWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_personIdFromAccount:(id)arg1;
 - (void)fetchiCloudAccountPersonID:(CDUnknownBlockType)arg1;
@@ -38,9 +58,20 @@
 - (id)extractServerRecordFromCKServerErrorRecordChanged:(id)arg1;
 - (id)_errorsFromPartialError:(id)arg1;
 - (_Bool)_isCKErrorPartialFailure:(id)arg1;
+- (unsigned long long)_mocEnabledStateFromAccountStatus:(long long)arg1;
+- (void)fetchMOCEnabledStateWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)recordNameForMessageWithGUID:(id)arg1 usingSalt:(id)arg2;
-- (void)presentCloudKitDebugUIWithString:(id)arg1 internalOnly:(_Bool)arg2;
-- (_Bool)_shouldPresentDebugCloudKitPopUP;
+- (void)_askToTapToRadarWithString:(id)arg1 internalOnly:(_Bool)arg2;
+- (void)reportMOCDebuggingErrorWithString:(id)arg1 internalOnly:(_Bool)arg2 initialSync:(_Bool)arg3 sendToHandle:(id)arg4;
+- (void)reportMOCDebuggingErrorWithString:(id)arg1 internalOnly:(_Bool)arg2 initialSync:(_Bool)arg3;
+- (void)reportMOCDebuggingErrorWithString:(id)arg1 internalOnly:(_Bool)arg2;
+- (id)logCollectorAddress;
+- (_Bool)shouldCollectDailyLogDump;
+- (_Bool)shouldLogDumpOnCloudKitError;
+- (_Bool)shouldPresentTTROnCloudKitError;
+- (_Bool)_checkIfBuildVersionIsNewEnoughToLogDump;
+- (id)_dumpLogsForTrainPrefix;
+- (_Bool)_checkIfEnabledByServerBagOrDefault:(id)arg1;
 - (void)fetchCloudKitAccountStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_createAccountError:(id)arg1;
 - (void)_checkEligibilityWithLoggedInAccountWithCompletion:(CDUnknownBlockType)arg1;
@@ -49,6 +80,7 @@
 - (id)_authenticationController;
 - (_Bool)accountIsVerifiedForMOCAndSafeForCacheDelete;
 - (_Bool)cacheDeleteEnabled;
+- (_Bool)enableAttachmentMetricCollection;
 - (_Bool)_serverAllowsCacheDelete;
 - (void)_resetKeepMessagesSettingandBroadcastToAllDevices;
 - (void)setCloudKitSyncingEnabled:(_Bool)arg1;
@@ -57,19 +89,21 @@
 - (void)checkiCloudQuota:(CDUnknownBlockType)arg1;
 - (unsigned long long)messageDatabaseSize;
 - (void)isFirstSyncWithCompletion:(CDUnknownBlockType)arg1;
+- (long long)overrideNumberOfChatsToWrite;
+- (long long)overrideNumberOfChatsToFetch;
+- (_Bool)shouldSyncToSRContainer;
 - (_Bool)shouldForceArchivedMessagesSync;
 - (_Bool)shouldUseDevContainer;
 - (void)broadcastInstantStateChangeNotification;
 - (id)init;
+- (id)initWithServerBag:(id)arg1 lockDownmanager:(id)arg2 deviceSupport:(id)arg3 imDefaults:(id)arg4;
 - (id)_truthDatabase;
 - (id)_truthContainer;
-- (void)isEligibleForTruthZoneWithCompletionDeprecated:(CDUnknownBlockType)arg1;
 - (void)account:(id)arg1 fetchCloudKitAccountStatusWithCompletion:(CDUnknownBlockType)arg2;
 - (_Bool)securityLevelIsEligibleForTruthZone:(unsigned long long)arg1;
 - (void)fetchSecurityLevelForAccount:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (id)accountWithDSID:(id)arg1;
 - (id)accountDSID:(id)arg1;
-- (id)_accountManager;
 
 @end
 

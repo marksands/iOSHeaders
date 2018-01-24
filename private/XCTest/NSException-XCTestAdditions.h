@@ -6,7 +6,9 @@
 
 #import "NSException.h"
 
+@class NSString;
+
 @interface NSException (XCTestAdditions)
-- (id)xct_formattedDescription;
+@property(readonly, copy) NSString *xct_formattedDescription;
 @end
 

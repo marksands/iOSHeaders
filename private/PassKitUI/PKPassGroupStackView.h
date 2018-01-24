@@ -255,6 +255,8 @@
 - (void)_refreshBacklightForFrontmostPassGroup;
 - (void)_refreshBrightness;
 - (void)_resetBrightness;
+- (void)resetBrightness;
+- (void)evaluateBrightness;
 - (void)_presentModalGroupView:(id)arg1 animated:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_presentOffscreenAnimated:(_Bool)arg1 split:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_generateModalGroupPileWithVisibleIndexes:(struct _NSRange)arg1 reservePlaceForModalGroup:(_Bool)arg2;

@@ -20,6 +20,7 @@
 
 - (void).cxx_destruct;
 - (void)reset;
+- (void)_resetLocked;
 - (unsigned long long)_reserveCapacity:(unsigned int)arg1;
 - (void)expand:(unsigned long long)arg1 andRunWithLock:(CDUnknownBlockType)arg2;
 - (void)_die;

@@ -10,21 +10,25 @@
 #import "XCTElementSnapshotAttributeDataSource.h"
 #import "XCTElementSnapshotProvider.h"
 
-@class NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface XCAXClient_iOS : NSObject <XCTAXClient, XCTElementSnapshotProvider, XCTElementSnapshotAttributeDataSource>
 {
+    id <XCUIApplicationProcessTracker> _applicationProcessTracker;
+    NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_userTestingNotificationHandlers;
-    NSMutableDictionary *_cacheAccessibilityLoadedValuesForPIDs;
+    NSMutableDictionary *_cachedAccessibilityLoadedValuesForPIDs;
     unsigned long long _alertNotificationCounter;
 }
 
 + (id)sharedClient;
 @property unsigned long long alertNotificationCounter; // @synthesize alertNotificationCounter=_alertNotificationCounter;
-@property(retain) NSMutableDictionary *cacheAccessibilityLoadedValuesForPIDs; // @synthesize cacheAccessibilityLoadedValuesForPIDs=_cacheAccessibilityLoadedValuesForPIDs;
+@property(retain) NSMutableDictionary *cachedAccessibilityLoadedValuesForPIDs; // @synthesize cachedAccessibilityLoadedValuesForPIDs=_cachedAccessibilityLoadedValuesForPIDs;
 @property(retain) NSMutableDictionary *userTestingNotificationHandlers; // @synthesize userTestingNotificationHandlers=_userTestingNotificationHandlers;
+@property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property double AXTimeout;
 - (_Bool)_setAXTimeout:(double)arg1 error:(id *)arg2;
+- (id)localizableStringsDataForActiveApplications;
 - (_Bool)performAction:(int)arg1 onElement:(id)arg2 value:(id)arg3 error:(id *)arg4;
 - (id)parameterizedAttributeForElement:(id)arg1 attribute:(id)arg2 parameter:(id)arg3;
 - (_Bool)setAttribute:(id)arg1 value:(id)arg2 element:(id)arg3 outError:(id *)arg4;
@@ -49,7 +53,8 @@
 - (_Bool)loadAccessibility:(id *)arg1;
 - (_Bool)_registerForAXNotification:(int)arg1 error:(id *)arg2;
 - (_Bool)_loadAccessibility:(id *)arg1;
-- (id)init;
+@property(readonly) id <XCUIApplicationProcessTracker> applicationProcessTracker; // @synthesize applicationProcessTracker=_applicationProcessTracker;
+- (id)initWithApplicationProcessTracker:(id)arg1;
 - (void)dealloc;
 
 // Remaining properties

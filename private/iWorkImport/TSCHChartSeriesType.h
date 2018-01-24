@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 + (id)stackedBar3DSeries;
 + (id)bar3DSeries;
 + (id)stackedColumn3DSeries;
++ (id)donut3DSeries;
 + (id)pie3DSeries;
 + (id)stackedArea3DSeries;
 + (id)area3DSeries;
@@ -40,9 +41,12 @@ __attribute__((visibility("hidden")))
 + (id)barSeries;
 + (id)columnSeries;
 + (id)scatterSeries;
++ (id)donutSeries;
 + (id)pieSeries;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)_singletonAlloc;
+- (void).cxx_destruct;
+- (id)seriesFillLabelUIString;
 - (id)inspectorLocalizedValueLabelsDisclosureTitle;
 - (id)inspectorLocalizedValueLabelsTabName;
 - (_Bool)supportsFillSetFill;
@@ -96,13 +100,8 @@ __attribute__((visibility("hidden")))
 - (id)elementBuilder;
 - (id)seriesRendererClasses;
 - (unsigned long long)valueDimensions;
-- (void)dealloc;
 - (id)init;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)autorelease;
-- (oneway void)release;
-- (unsigned long long)retainCount;
-- (id)retain;
 - (int)fillPropertyType;
 - (id)fillPropertyTypeName;
 - (_Bool)canUseEstimatedValueLabelsDrawingRect;

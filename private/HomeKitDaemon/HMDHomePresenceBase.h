@@ -6,12 +6,12 @@
 
 #import "HMFObject.h"
 
+#import "HMDHomeMessageReceiver.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 
-@class HMDHome, HMDNotificationRegistration, HMFMessageDispatcher, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDHome, HMDNotificationRegistration, HMFMessageDispatcher, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDHomePresenceBase : HMFObject <HMFLogging, HMFMessageReceiver>
+@interface HMDHomePresenceBase : HMFObject <HMFLogging, HMDHomeMessageReceiver>
 {
     HMDHome *_home;
     NSObject<OS_dispatch_queue> *_workQueue;
@@ -21,6 +21,7 @@
     HMDNotificationRegistration *_notificationRegistration;
 }
 
++ (_Bool)hasMessageReceiverChildren;
 + (id)logCategory;
 @property(readonly, nonatomic) HMDNotificationRegistration *notificationRegistration; // @synthesize notificationRegistration=_notificationRegistration;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
@@ -43,6 +44,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

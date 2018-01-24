@@ -16,9 +16,9 @@ __attribute__((visibility("hidden")))
     TSUIntegerKeyDictionary *mValuesToForce;
 }
 
+- (void).cxx_destruct;
 - (void)migrateToSeries:(id)arg1;
 - (void)visitExistingSeries:(id)arg1;
-- (void)dealloc;
 - (id)initWithProperties:(id)arg1;
 
 @end

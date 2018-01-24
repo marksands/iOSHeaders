@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TSPObject.h>
 
-@class NSString, TSTIntegerKeyDict, TSTTableDataObjectKeyDict;
+@class NSObject<TSDContainerInfo><TSWPStorageParent>, NSString, TSTIntegerKeyDict, TSTTableDataObjectKeyDict;
 
 __attribute__((visibility("hidden")))
 @interface TSTTableDataList : TSPObject
@@ -15,9 +15,11 @@ __attribute__((visibility("hidden")))
     TSTIntegerKeyDict *mData;
     TSTTableDataObjectKeyDict *mDataToKeyDict;
     unsigned int mNextID;
+    NSObject<TSDContainerInfo><TSWPStorageParent> *_richTextParentInfo;
 }
 
 + (Class)classForUnarchiver:(id)arg1;
+@property(nonatomic) NSObject<TSDContainerInfo><TSWPStorageParent> *richTextParentInfo; // @synthesize richTextParentInfo=_richTextParentInfo;
 @property(nonatomic) unsigned int nextID; // @synthesize nextID=mNextID;
 @property(retain, nonatomic) TSTTableDataObjectKeyDict *dataToKeyDict; // @synthesize dataToKeyDict=mDataToKeyDict;
 @property(retain, nonatomic) TSTIntegerKeyDict *data; // @synthesize data=mData;
@@ -41,6 +43,8 @@ __attribute__((visibility("hidden")))
 - (id)initWithType:(int)arg1 context:(id)arg2;
 - (void)p_setupWithType:(int)arg1 nextKeyID:(unsigned int)arg2;
 - (_Bool)supportsIDMapForType:(int)arg1;
+- (_Bool)auditMultipleChoiceListRefCountsAgainstExpected:(id)arg1 result:(id *)arg2;
+- (id)multipleChoiceListExpectedRefCountsFromFormatList;
 - (id)styleForKey:(unsigned int)arg1;
 - (id)stringForKey:(unsigned int)arg1;
 - (id)richTextPayloadForKey:(unsigned int)arg1;

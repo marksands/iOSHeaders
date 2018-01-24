@@ -14,16 +14,16 @@ __attribute__((visibility("hidden")))
     TSCEFormulaRewrite_RegionInfo *_srcRegion;
     TSCEFormulaRewrite_RegionInfo *_dstRegion;
     TSCEFormulaRewrite_RegionInfo *_originalSrcRegion;
-    UUIDMap_727ee07e _srcUidForDstUid;
-    UUIDMap_727ee07e _dstUidForSrcUid;
+    UUIDMap_b66c2694 _srcUidForDstUid;
+    UUIDMap_b66c2694 _dstUidForSrcUid;
     _Bool _spanningRows;
     _Bool _spanningColumns;
 }
 
 @property(nonatomic) _Bool spanningColumns; // @synthesize spanningColumns=_spanningColumns;
 @property(nonatomic) _Bool spanningRows; // @synthesize spanningRows=_spanningRows;
-@property(readonly, nonatomic) const UUIDMap_727ee07e *dstUidForSrcUid; // @synthesize dstUidForSrcUid=_dstUidForSrcUid;
-@property(readonly, nonatomic) const UUIDMap_727ee07e *srcUidForDstUid; // @synthesize srcUidForDstUid=_srcUidForDstUid;
+@property(readonly, nonatomic) const UUIDMap_b66c2694 *dstUidForSrcUid; // @synthesize dstUidForSrcUid=_dstUidForSrcUid;
+@property(readonly, nonatomic) const UUIDMap_b66c2694 *srcUidForDstUid; // @synthesize srcUidForDstUid=_srcUidForDstUid;
 @property(retain, nonatomic) TSCEFormulaRewrite_RegionInfo *originalSrcRegion; // @synthesize originalSrcRegion=_originalSrcRegion;
 @property(readonly, nonatomic) TSCEFormulaRewrite_RegionInfo *dstRegion; // @synthesize dstRegion=_dstRegion;
 @property(readonly, nonatomic) TSCEFormulaRewrite_RegionInfo *srcRegion; // @synthesize srcRegion=_srcRegion;
@@ -50,7 +50,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) UUIDData_5fbc143e srcTableUID;
 - (id)description;
 - (void)dealloc;
-- (id)initWithSrcTableUID:(const UUIDData_5fbc143e *)arg1 srcColumnUids:(const vector_dadc1b26 *)arg2 srcRowUids:(const vector_dadc1b26 *)arg3 dstTableUID:(const UUIDData_5fbc143e *)arg4 dstColumnUids:(const vector_dadc1b26 *)arg5 dstRowUids:(const vector_dadc1b26 *)arg6;
+- (id)initWithSrcTableUID:(const UUIDData_5fbc143e *)arg1 srcColumnUids:(const vector_4dc5f307 *)arg2 srcRowUids:(const vector_4dc5f307 *)arg3 dstTableUID:(const UUIDData_5fbc143e *)arg4 dstColumnUids:(const vector_4dc5f307 *)arg5 dstRowUids:(const vector_4dc5f307 *)arg6;
 
 @end
 

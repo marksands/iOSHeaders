@@ -8,14 +8,16 @@
 
 #import "MPModelLazySectionedCollectionDataSource.h"
 
-@class MPMediaLibraryEntityTranslationContext, MPMediaLibraryView, MPModelRequest, MPSectionedCollection, NSMapTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class MPMediaLibraryEntityTranslationContext, MPMediaLibraryView, MPPropertySet, MPSectionedCollection, NSDictionary, NSMapTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MPStoreLibraryPersonalizationCollectionDataSource : NSObject <MPModelLazySectionedCollectionDataSource>
 {
     NSObject<OS_dispatch_queue> *_accessSerialQueue;
     struct vector<std::__1::shared_ptr<mlcore::EntityCache>, std::__1::allocator<std::__1::shared_ptr<mlcore::EntityCache>>> _entityCaches;
     MPSectionedCollection *_unpersonalizedContentDescriptors;
-    MPModelRequest *_unpersonalizedRequest;
+    MPPropertySet *_itemProperties;
+    MPPropertySet *_sectionProperties;
+    NSDictionary *_itemIndexPathToOverridePropertySet;
     MPMediaLibraryView *_libraryView;
     MPMediaLibraryEntityTranslationContext *_translatingContext;
     NSMapTable *_relativeModelClassToMappingResponse;
@@ -36,7 +38,9 @@
 @property(copy, nonatomic) NSMapTable *relativeModelClassToMappingResponse; // @synthesize relativeModelClassToMappingResponse=_relativeModelClassToMappingResponse;
 @property(retain, nonatomic) MPMediaLibraryEntityTranslationContext *translatingContext; // @synthesize translatingContext=_translatingContext;
 @property(copy, nonatomic) MPMediaLibraryView *libraryView; // @synthesize libraryView=_libraryView;
-@property(copy, nonatomic) MPModelRequest *unpersonalizedRequest; // @synthesize unpersonalizedRequest=_unpersonalizedRequest;
+@property(copy, nonatomic) NSDictionary *itemIndexPathToOverridePropertySet; // @synthesize itemIndexPathToOverridePropertySet=_itemIndexPathToOverridePropertySet;
+@property(copy, nonatomic) MPPropertySet *sectionProperties; // @synthesize sectionProperties=_sectionProperties;
+@property(copy, nonatomic) MPPropertySet *itemProperties; // @synthesize itemProperties=_itemProperties;
 @property(retain, nonatomic) MPSectionedCollection *unpersonalizedContentDescriptors; // @synthesize unpersonalizedContentDescriptors=_unpersonalizedContentDescriptors;
 - (id).cxx_construct;
 - (void).cxx_destruct;

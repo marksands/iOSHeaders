@@ -10,40 +10,27 @@
 
 @interface MPModelSocialPerson : MPModelPerson
 {
-    _Bool _privatePerson;
-    _Bool _verified;
-    NSString *_uncensoredName;
-    NSString *_handle;
-    NSString *_biography;
-    long long _pendingRequestsCount;
-    CDUnknownBlockType _artworkCatalogBlock;
 }
 
 + (id)kind;
-+ (id)__MPModelPropertySocialPersonArtwork__PROPERTY;
-+ (id)__artworkCatalogBlock__KEY;
-+ (id)__MPModelPropertySocialPersonPendingRequestsCount__PROPERTY;
-+ (id)__pendingRequestsCount__KEY;
-+ (id)__MPModelPropertySocialPersonIsVerified__PROPERTY;
-+ (id)__verified__KEY;
-+ (id)__MPModelPropertySocialPersonIsPrivate__PROPERTY;
-+ (id)__privatePerson__KEY;
-+ (id)__MPModelPropertySocialPersonBiography__PROPERTY;
-+ (id)__biography__KEY;
-+ (id)__MPModelPropertySocialPersonHandle__PROPERTY;
-+ (id)__handle__KEY;
-+ (id)__MPModelPropertySocialPersonUncensoredName__PROPERTY;
-+ (id)__uncensoredName__KEY;
++ (id)__artworkCatalogBlock_KEY;
++ (id)__pendingRequestsCount_KEY;
++ (id)__verified_KEY;
++ (id)__privatePerson_KEY;
++ (id)__biography_KEY;
++ (id)__handle_KEY;
++ (id)__uncensoredName_KEY;
 + (id)storeItemMetadataRequestItemIdentifierForIdentifiers:(id)arg1;
-@property(copy, nonatomic) CDUnknownBlockType artworkCatalogBlock; // @synthesize artworkCatalogBlock=_artworkCatalogBlock;
-@property(nonatomic, getter=isVerified) _Bool verified; // @synthesize verified=_verified;
-@property(nonatomic, getter=isPrivate) _Bool privatePerson; // @synthesize privatePerson=_privatePerson;
-@property(nonatomic) long long pendingRequestsCount; // @synthesize pendingRequestsCount=_pendingRequestsCount;
-@property(copy, nonatomic) NSString *biography; // @synthesize biography=_biography;
-@property(copy, nonatomic) NSString *handle; // @synthesize handle=_handle;
-@property(copy, nonatomic) NSString *uncensoredName; // @synthesize uncensoredName=_uncensoredName;
-- (void).cxx_destruct;
 - (id)artworkCatalog;
+
+// Remaining properties
+@property(copy, nonatomic) CDUnknownBlockType artworkCatalogBlock; // @dynamic artworkCatalogBlock;
+@property(copy, nonatomic) NSString *biography; // @dynamic biography;
+@property(copy, nonatomic) NSString *handle; // @dynamic handle;
+@property(nonatomic) long long pendingRequestsCount; // @dynamic pendingRequestsCount;
+@property(nonatomic, getter=isPrivate) _Bool privatePerson; // @dynamic privatePerson;
+@property(copy, nonatomic) NSString *uncensoredName; // @dynamic uncensoredName;
+@property(nonatomic, getter=isVerified) _Bool verified; // @dynamic verified;
 
 @end
 

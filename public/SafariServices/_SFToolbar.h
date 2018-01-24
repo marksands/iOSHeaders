@@ -27,7 +27,6 @@
 - (void)updateTintColor;
 - (id)_backdropInputSettings;
 @property(copy, nonatomic) NSString *backdropGroupName;
-@property(nonatomic) _Bool backdropComputesColorSettings;
 - (void)layoutSubviews;
 @property(readonly, nonatomic) double URLFieldHorizontalMargin;
 @property(readonly, nonatomic) long long toolbarSize;

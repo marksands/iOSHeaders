@@ -7,16 +7,20 @@
 #import "NSObject.h"
 
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSUUID;
 
-@interface ARAnchor : NSObject <NSCopying>
+@interface ARAnchor : NSObject <NSCopying, NSSecureCoding>
 {
     NSUUID *_identifier;
+    double _lastUpdateTimestamp;
     // Error parsing type: {?="columns"[4]}, name: _transform
     // Error parsing type: {?="columns"[4]}, name: _referenceTransform
 }
 
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) double lastUpdateTimestamp; // @synthesize lastUpdateTimestamp=_lastUpdateTimestamp;
 // Error parsing type for property referenceTransform:
 // Property attributes: T{?=[4]},N,V_referenceTransform
 
@@ -25,6 +29,8 @@
 
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)debugQuickLookObject;
 - (id)description;

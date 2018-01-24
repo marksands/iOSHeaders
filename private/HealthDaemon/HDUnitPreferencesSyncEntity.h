@@ -12,7 +12,7 @@
 
 + (id)syncEntityDependenciesForSyncProtocolVersion:(int)arg1;
 + (void)didReceiveValuesForKeys:(id)arg1 profile:(id)arg2;
-+ (long long)syncEntityType;
++ (id)syncEntityIdentifier;
 + (long long)category;
 + (unsigned long long)supportedNanoSyncDirectionsForProtocolVersion:(int)arg1;
 + (int)nanoSyncObjectType;

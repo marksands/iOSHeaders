@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     TSCHChartFeature *mFeature;
 }
 
++ (id)chartTypeForUserInterfaceTag:(long long)arg1;
 + (double)sageDepthFactorForExportingChartInfo:(id)arg1;
 + (id)constantDepthInfoChartScaleForInfoChartScale:(id)arg1 chartType:(id)arg2 barShape:(int)arg3;
 + (id)chartTypePlaceholderForDefault3DScaleProperty;
@@ -27,6 +28,7 @@ __attribute__((visibility("hidden")))
 + (id)stackedBarChart3D;
 + (id)barChart3D;
 + (id)stackedColumnChart3D;
++ (id)donutChart3D;
 + (id)pieChart3D;
 + (id)stackedAreaChart3D;
 + (id)areaChart3D;
@@ -43,11 +45,32 @@ __attribute__((visibility("hidden")))
 + (id)lineChart;
 + (id)columnChart;
 + (id)barChart;
++ (id)donutChart;
 + (id)pieChart;
 + (struct CGSize)fallbackMinimumChartBodySize;
+@property(readonly, nonatomic) TSCHChartFeature *feature; // @synthesize feature=mFeature;
+- (void).cxx_destruct;
+- (_Bool)supportsStartAngleRotation;
+- (id)alternateArchiveChartTypeAndReturnWriterVersion:(unsigned long long *)arg1 readerVersion:(unsigned long long *)arg2 featureID:(id *)arg3;
 - (id)p_debugDescription;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
+- (long long)userInterfaceTag;
+- (id)userInterfaceNameForPlaceTitleAtCenter:(_Bool)arg1;
+- (_Bool)shouldChangeExplosionWithPreviousChartType:(id)arg1 seriesList:(id)arg2;
+- (double)maxInnerRadiusPercentage;
+- (double)minInnerRadiusPercentage;
+- (_Bool)supportsInnerRadius;
+- (_Bool)supportsPlaceTitleAtCenter;
+- (_Bool)supportsCalloutLines;
+- (float)defaultLabelExplosionPercentage;
+- (_Bool)editableFormatForValueStrings;
+- (_Bool)includeValueLabelPositionOff;
+- (id)localizedActionStringForWedgeExplosion;
+- (id)localizedWedgeDragLabelWithPercent:(unsigned long long)arg1;
+- (id)localizedTitleForDeliveryTypeWedge;
+- (id)unlocalizedDeliveryTypeForWedge;
+- (id)localizedDeliveryTypeForWedge;
 - (id)filteredStyleOwnersFromStyleOwners:(id)arg1;
 - (_Bool)supportsShowLabelsInFrontOption;
 - (void)updateTitlesForExportingModel:(id)arg1 info:(id)arg2;
@@ -61,9 +84,12 @@ __attribute__((visibility("hidden")))
 - (id)allCDESectionLabels;
 - (_Bool)supportsCategoryLabelsInChartRangeEditor;
 - (_Bool)isMultiData;
-- (_Bool)supportsMoreThanOneLiveCategory;
+- (_Bool)supportsMultipleValuesPerSeries;
 - (_Bool)supportsIndividualShadowRendering;
-- (_Bool)isPie;
+- (_Bool)rendersUsingRadialGeometry;
+- (_Bool)hasExplodableSeriesElements;
+- (_Bool)rendersBackgroundAxis;
+- (_Bool)hasFixedFrameRatio;
 - (_Bool)isHorizontal;
 - (_Bool)supportsCategoryAxisPlotToEdgesOption;
 - (_Bool)supportsConnectingLines;
@@ -80,6 +106,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)supportsSymbolOverhang;
 - (id)supportedAxisScales;
 - (_Bool)supportsPercentNumberFormatting;
+- (double)defaultLabelExplosionValue;
 - (_Bool)supportsLabelExplosion;
 - (_Bool)supportsElementSeriesNames;
 - (_Bool)supportsErrorBarsScatterX;
@@ -158,6 +185,7 @@ __attribute__((visibility("hidden")))
 - (id)g_genericToSpecificPropertyMapArea;
 - (id)g_genericToSpecificPropertyMapColumn;
 - (id)g_genericToSpecificPropertyMapBar;
+- (id)g_genericToSpecificPropertyMapDonut;
 - (id)g_genericToSpecificPropertyMapPie;
 
 @end

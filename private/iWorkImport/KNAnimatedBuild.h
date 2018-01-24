@@ -6,16 +6,16 @@
 
 #import "NSObject.h"
 
-@class KNBuildAttributes, NSDictionary, NSString;
+@class KNBuildAttributeValue, KNBuildAttributes, NSArray, NSDictionary, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNAnimatedBuild : NSObject
 {
     _Bool _automatic;
     _Bool _animateAtEndOfPreviousBuild;
-    _Bool _isMovieStartBuild;
     _Bool _isVisibleAtBeginning;
     _Bool _isVisibleAtEnd;
+    _Bool _isInitialAmbientBuild;
     long long _buildType;
     NSString *_effectIdentifier;
     long long _eventIndex;
@@ -32,13 +32,17 @@ __attribute__((visibility("hidden")))
     double _eventEndTime;
     NSDictionary *_previousAttributes;
     NSDictionary *_finalAttributes;
+    KNAnimatedBuild *_parentBuild;
+    NSArray *_childBuilds;
 }
 
+@property(readonly, nonatomic) NSArray *childBuilds; // @synthesize childBuilds=_childBuilds;
+@property(nonatomic) KNAnimatedBuild *parentBuild; // @synthesize parentBuild=_parentBuild;
 @property(copy, nonatomic) NSDictionary *finalAttributes; // @synthesize finalAttributes=_finalAttributes;
 @property(copy, nonatomic) NSDictionary *previousAttributes; // @synthesize previousAttributes=_previousAttributes;
+@property(nonatomic) _Bool isInitialAmbientBuild; // @synthesize isInitialAmbientBuild=_isInitialAmbientBuild;
 @property(nonatomic) _Bool isVisibleAtEnd; // @synthesize isVisibleAtEnd=_isVisibleAtEnd;
 @property(nonatomic) _Bool isVisibleAtBeginning; // @synthesize isVisibleAtBeginning=_isVisibleAtBeginning;
-@property(nonatomic) _Bool isMovieStartBuild; // @synthesize isMovieStartBuild=_isMovieStartBuild;
 @property(nonatomic) _Bool animateAtEndOfPreviousBuild; // @synthesize animateAtEndOfPreviousBuild=_animateAtEndOfPreviousBuild;
 @property(readonly, nonatomic) _Bool automatic; // @synthesize automatic=_automatic;
 @property(readonly, nonatomic) double eventEndTime; // @synthesize eventEndTime=_eventEndTime;
@@ -55,15 +59,35 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) long long eventIndex; // @synthesize eventIndex=_eventIndex;
 @property(readonly, nonatomic) NSString *effectIdentifier; // @synthesize effectIdentifier=_effectIdentifier;
 @property(readonly, nonatomic) long long buildType; // @synthesize buildType=_buildType;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) NSArray *requiredScaleAttributes;
+@property(readonly, nonatomic) NSArray *requiredScales;
+@property(readonly, nonatomic) _Bool requiresMaxScale;
+@property(readonly, nonatomic) KNBuildAttributeValue *maxScaleAttribute;
+@property(readonly, nonatomic) double maxScale;
+@property(readonly, nonatomic) KNBuildAttributeValue *finalScaleAttribute;
+@property(readonly, nonatomic) double finalScale;
+@property(readonly, nonatomic) KNBuildAttributeValue *initialScaleAttribute;
+@property(readonly, nonatomic) double initialScale;
+@property(readonly, nonatomic) _Bool isActionMotionPath;
+@property(readonly, nonatomic) _Bool isActionOpacity;
+@property(readonly, nonatomic) _Bool isActionRotation;
+@property(readonly, nonatomic) _Bool isActionScale;
+- (_Bool)p_isActionEffect:(id)arg1;
+- (void)addChildBuild:(id)arg1;
+@property(readonly, nonatomic) double durationWithChildren;
+@property(readonly, nonatomic) _Bool isChildBuild;
+@property(readonly, nonatomic) _Bool isParentBuild;
+@property(readonly, nonatomic) _Bool isImplicitlyVisibleAtBeginning;
 @property(readonly, nonatomic) _Bool isMagicChartBuild;
 @property(readonly, nonatomic) _Bool isDriftBuild;
+@property(readonly, nonatomic) _Bool isContentBuild;
 @property(readonly, nonatomic) _Bool isEmphasisBuild;
 @property(readonly, nonatomic) _Bool isActionBuild;
 @property(readonly, nonatomic) _Bool isBuildOut;
 @property(readonly, nonatomic) _Bool isBuildIn;
 - (id)description;
-- (void)dealloc;
-- (id)initWithBuildType:(long long)arg1 effectIdentifier:(id)arg2 attributes:(id)arg3 pluginClass:(Class)arg4 deliveryStyle:(unsigned long long)arg5 eventIndex:(long long)arg6 stageIndex:(long long)arg7 startTime:(double)arg8 eventStartTime:(double)arg9 duration:(double)arg10 direction:(unsigned long long)arg11 automatic:(_Bool)arg12 animateAtEndOfPreviousBuild:(_Bool)arg13;
+- (id)initWithBuildType:(long long)arg1 effectIdentifier:(id)arg2 attributes:(id)arg3 pluginClass:(Class)arg4 deliveryStyle:(unsigned long long)arg5 eventIndex:(long long)arg6 stageIndex:(long long)arg7 startTime:(double)arg8 eventStartTime:(double)arg9 duration:(double)arg10 direction:(unsigned long long)arg11 automatic:(_Bool)arg12 animateAtEndOfPreviousBuild:(_Bool)arg13 parentBuild:(id)arg14;
 
 @end
 

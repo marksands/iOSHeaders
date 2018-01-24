@@ -17,7 +17,10 @@
 }
 
 - (void).cxx_destruct;
+- (void)enumerateAndClearItemsWithBlock:(CDUnknownBlockType)arg1;
+- (void)_clearLocked;
 - (void)clear;
+- (void)_enumerateItemsWithBlockLocked:(CDUnknownBlockType)arg1;
 - (void)enumerateItemsWithBlock:(CDUnknownBlockType)arg1;
 - (void)_gc;
 - (void)log:(id)arg1;

@@ -34,11 +34,12 @@
 @property(retain, nonatomic) HMHome *home; // @synthesize home=_home;
 - (void).cxx_destruct;
 - (void)_presentAsTopmostViewController;
+- (void)accessorySetupDidFinishWithInfo:(id)arg1 error:(id)arg2;
 - (void)accessorySetupDidFinishWithError:(id)arg1;
 - (void)accessorySetupDidFinishPairing;
 - (void)accessorySetupDidBeginPairing;
 - (void)accessorySetupDidLoad;
-- (void)_finishSetupWithError:(id)arg1;
+- (void)_finishSetupWithInfo:(id)arg1 error:(id)arg2;
 - (void)_configureAndAddRemoteViewController;
 - (void)_requestRemoteViewController;
 - (void)viewDidLoad;

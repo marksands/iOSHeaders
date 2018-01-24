@@ -6,6 +6,9 @@
 
 #import "WBSHistoryConnectionProtocol.h"
 
+@class WBSMemoryFootprint;
+
 @protocol WBSHistoryConnectionProxy <WBSHistoryConnectionProtocol>
+- (WBSMemoryFootprint *)queryMemoryFootprintWithError:(id *)arg1;
 @end
 

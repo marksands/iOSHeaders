@@ -21,9 +21,9 @@ __attribute__((visibility("hidden")))
 + (id)_singletonAlloc;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)p_addEntryForFont:(struct __CTFont *)arg1 heightInfo:(const CDStruct_a6fa95e6 *)arg2;
-- (_Bool)p_findEntryForFont:(struct __CTFont *)arg1 outHeightInfo:(CDStruct_a6fa95e6 *)arg2 collision:(_Bool *)arg3;
-- (CDStruct_a6fa95e6)fontHeightInfoForFont:(struct __CTFont *)arg1;
+- (void)p_addEntryForFont:(struct __CTFont *)arg1 heightInfo:(const CDStruct_5b0a1db3 *)arg2;
+- (_Bool)p_findEntryForFont:(struct __CTFont *)arg1 outHeightInfo:(CDStruct_5b0a1db3 *)arg2 collision:(_Bool *)arg3;
+- (CDStruct_5b0a1db3)fontHeightInfoForFont:(struct __CTFont *)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)copyWithZone:(struct _NSZone *)arg1;

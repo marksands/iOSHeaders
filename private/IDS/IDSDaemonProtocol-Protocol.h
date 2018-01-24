@@ -47,7 +47,7 @@
 - (void)setPreferences:(NSDictionary *)arg1 forSessionWithUniqueID:(NSString *)arg2;
 - (void)setMuted:(_Bool)arg1 forSessionWithUniqueID:(NSString *)arg2;
 - (void)setAudioEnabled:(_Bool)arg1 forSessionWithUniqueID:(NSString *)arg2;
-- (void)sendSessionMessage:(NSData *)arg1 toSession:(NSString *)arg2;
+- (void)sendSessionMessage:(NSData *)arg1 toDestinations:(NSSet *)arg2 forSessionWithUniqueID:(NSString *)arg3;
 - (void)endSession:(NSString *)arg1 withData:(NSData *)arg2;
 - (void)endSession:(NSString *)arg1;
 - (void)declineInvitation:(NSString *)arg1 withData:(NSData *)arg2;
@@ -115,6 +115,8 @@
 - (void)localSetupUnpair;
 - (void)stopLocalSetup;
 - (void)startLocalSetup;
+- (void)generatePhoneAuthenticationSignatureOverData:(NSData *)arg1 withRequestUUID:(NSString *)arg2;
+- (void)authenticatePhoneWithRequestUUID:(NSString *)arg1;
 - (void)getRegisteredIdentities;
 - (void)repairAccounts;
 - (void)reRegisterWithUserID:(NSString *)arg1 action:(NSNumber *)arg2 service:(NSString *)arg3;

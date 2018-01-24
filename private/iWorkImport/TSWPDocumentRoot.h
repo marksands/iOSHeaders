@@ -13,12 +13,15 @@
 __attribute__((visibility("hidden")))
 @interface TSWPDocumentRoot : TSKDocumentRoot <TSWPObjectIndex>
 {
-    _Bool _didRemoveMissingAttachments;
     NSUUID *_uuid;
+    _Bool _didRemoveMissingAttachments;
 }
 
 @property(nonatomic) _Bool didRemoveMissingAttachments; // @synthesize didRemoveMissingAttachments=_didRemoveMissingAttachments;
+- (void).cxx_destruct;
 - (double)bodyWidth;
+- (void)fontUpdatedForStyleClient:(id)arg1;
+- (_Bool)has_30356142_build;
 - (id)documentId;
 @property(readonly, nonatomic) _Bool supportHeaderFooterParagraphAlignmentInInspectors;
 - (int)verticalAlignmentForTextStorage:(id)arg1;
@@ -34,7 +37,7 @@ __attribute__((visibility("hidden")))
 - (id)documentFonts;
 - (id)p_fontsInStylesheetUsingBlock:(CDUnknownBlockType)arg1;
 - (_Bool)useLigatures;
-- (struct __CFLocale *)hyphenationLocale;
+- (const struct __CFLocale *)hyphenationLocale;
 - (_Bool)shouldHyphenate;
 - (id)changeVisibility;
 - (id)changeSessionManagerForModel:(id)arg1;

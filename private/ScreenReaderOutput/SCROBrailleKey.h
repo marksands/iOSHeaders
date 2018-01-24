@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSMutableArray, NSString;
 
-@interface SCROBrailleKey : NSObject <NSCoding>
+@interface SCROBrailleKey : NSObject <NSSecureCoding>
 {
     NSMutableArray *_maskArray;
     NSString *_identifier;
@@ -18,11 +18,12 @@
     long long _routerToken;
     long long _routerLocation;
     _Bool _hasRouterInfo;
-    id _appToken;
+    id <NSSecureCoding> _appToken;
     int _displayToken;
     int _displayMode;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 - (_Bool)getRouterIndex:(long long *)arg1 token:(long long *)arg2 location:(long long *)arg3 appToken:(id *)arg4;
 - (void)setRouterIndex:(long long)arg1 token:(long long)arg2 location:(long long)arg3 appToken:(id)arg4;

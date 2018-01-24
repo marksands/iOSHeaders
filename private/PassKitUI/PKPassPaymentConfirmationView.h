@@ -37,11 +37,11 @@
 - (void)_registerForExpressTransactionNotifications:(_Bool)arg1;
 - (_Bool)_isRegisteredForAnyExpressTransactionNotifications;
 - (_Bool)_isRegisteredForAllExpressTransactionNotifications;
-- (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithFelicaPassProperties:(id)arg2;
+- (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithTransitPassProperties:(id)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didReceiveTransaction:(id)arg2;
 - (void)payStateView:(id)arg1 revealingCheckmark:(_Bool)arg2;
-- (void)_updateContentViewsWithTransaction:(id)arg1 felicaProperties:(id)arg2;
-- (void)_updateContentViewsWithFelicaProperties:(id)arg1;
+- (void)_updateContentViewsWithTransaction:(id)arg1 transitProperties:(id)arg2;
+- (void)_updateContentViewsWithTransitProperties:(id)arg1;
 - (void)_updateContentViewsWithTransaction:(id)arg1;
 - (void)_resolveActivityIfNecessary;
 - (void)_presentCheckmarkIfNecessary;

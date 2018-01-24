@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <iWorkImport/TSCHPresetImager.h>
+#import <iWorkImport/TSCHPresetImagerRadial.h>
 
 __attribute__((visibility("hidden")))
-@interface TSCHPresetImagerPie : TSCHPresetImager
+@interface TSCHPresetImagerPie : TSCHPresetImagerRadial
 {
 }
 
-- (void)p_drawShadowedContentIntoContext:(struct CGContext *)arg1 size:(struct CGSize)arg2 contentsScale:(double)arg3 preset:(id)arg4 shouldCache:(_Bool *)arg5;
+- (struct CGPath *)newMutablePathWithRadius:(double)arg1 center:(struct CGPoint)arg2 startAngle:(double)arg3 endAngle:(double)arg4;
 - (id)p_chartType;
 
 @end

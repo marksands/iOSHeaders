@@ -9,6 +9,7 @@
 @interface NUISizeCache : NSObject
 {
     struct nui_size_cache _sizeCache;
+    _Bool _threadSafe;
 }
 
 - (id).cxx_construct;
@@ -17,6 +18,7 @@
 - (void)insertSize:(struct CGSize)arg1 forTargetSize:(struct CGSize)arg2;
 - (_Bool)getSize:(struct CGSize *)arg1 forItem:(id)arg2 targetSize:(struct CGSize)arg3;
 - (void)dealloc;
+- (id)initForAsynchroniousAccess:(_Bool)arg1;
 
 @end
 

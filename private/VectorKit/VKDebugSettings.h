@@ -120,9 +120,14 @@
     float _venueZoomOutFalloff;
     _Bool _enableTrafficCameraLabelDebugging;
     _Bool _enableEtaLabelDebugging;
+    _Bool _enableRouteShareSectionDebugging;
+    _Bool _enableEtaLabelRectDebugging;
+    unsigned long long _etaLabelDebugScore;
+    unsigned int _etaLabelDebugOrientationMask;
     _Bool _etaLabelsAvoidScreenEdges;
     _Bool _enableRouteIntersectionTesting;
     _Bool _forceEtaLabelPlacement;
+    _Bool _traceEtaDebugLog;
     _Bool _trafficCameraLabelSelfCollide;
     _Bool _trafficCameraLabelCollideOutExternal;
     _Bool _trafficCameraLabelCollideWithExternal;
@@ -161,9 +166,14 @@
 @property(nonatomic) _Bool trafficCameraLabelCollideWithExternal; // @synthesize trafficCameraLabelCollideWithExternal=_trafficCameraLabelCollideWithExternal;
 @property(nonatomic) _Bool trafficCameraLabelCollideOutExternal; // @synthesize trafficCameraLabelCollideOutExternal=_trafficCameraLabelCollideOutExternal;
 @property(nonatomic) _Bool trafficCameraLabelSelfCollide; // @synthesize trafficCameraLabelSelfCollide=_trafficCameraLabelSelfCollide;
+@property(nonatomic) _Bool traceEtaDebugLog; // @synthesize traceEtaDebugLog=_traceEtaDebugLog;
 @property(nonatomic) _Bool forceEtaLabelPlacement; // @synthesize forceEtaLabelPlacement=_forceEtaLabelPlacement;
 @property(nonatomic) _Bool etaLabelsAvoidScreenEdges; // @synthesize etaLabelsAvoidScreenEdges=_etaLabelsAvoidScreenEdges;
 @property(nonatomic) _Bool enableRouteIntersectionTesting; // @synthesize enableRouteIntersectionTesting=_enableRouteIntersectionTesting;
+@property(nonatomic) unsigned int etaLabelDebugOrientationMask; // @synthesize etaLabelDebugOrientationMask=_etaLabelDebugOrientationMask;
+@property(nonatomic) unsigned long long etaLabelDebugScore; // @synthesize etaLabelDebugScore=_etaLabelDebugScore;
+@property(nonatomic) _Bool enableEtaLabelRectDebugging; // @synthesize enableEtaLabelRectDebugging=_enableEtaLabelRectDebugging;
+@property(nonatomic) _Bool enableRouteShareSectionDebugging; // @synthesize enableRouteShareSectionDebugging=_enableRouteShareSectionDebugging;
 @property(nonatomic) _Bool enableEtaLabelDebugging; // @synthesize enableEtaLabelDebugging=_enableEtaLabelDebugging;
 @property(nonatomic) _Bool enableTrafficCameraLabelDebugging; // @synthesize enableTrafficCameraLabelDebugging=_enableTrafficCameraLabelDebugging;
 @property(nonatomic) _Bool enableShieldsOnRouteLine; // @synthesize enableShieldsOnRouteLine=_enableShieldsOnRouteLine;
@@ -289,7 +299,7 @@
 - (void).cxx_destruct;
 - (void)clearFootprintsToSuppress;
 - (void)addFootprintToSuppress:(id)arg1;
-- (const vector_fbcf581f *)customLandmarkObjectGroupsForKey:(const struct _GEOTileKey *)arg1;
+- (const vector_defea32f *)customLandmarkObjectGroupsForKey:(const struct _GEOTileKey *)arg1;
 - (void)setCustomLandmarkFromData:(id)arg1 tileKey:(const struct _GEOTileKey *)arg2 texturePath:(id)arg3;
 - (void)setCustomLandmarkFromDisk:(id)arg1 tileKey:(const struct _GEOTileKey *)arg2 styleKey:(unsigned int)arg3 styleValue:(int)arg4;
 - (void)setCustomLandmarkFromDisk:(id)arg1 tileKey:(const struct _GEOTileKey *)arg2;

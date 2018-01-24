@@ -22,8 +22,10 @@ __attribute__((visibility("hidden")))
     TSPObject *_guideStorage;
     NSArray *_topLevelObjects;
     TSPObject *_appNativeObject;
+    TSPObject *_nativeContentDescription;
 }
 
+@property(retain, nonatomic) TSPObject *nativeContentDescription; // @synthesize nativeContentDescription=_nativeContentDescription;
 @property(nonatomic) _Bool isSmartCopyPaste; // @synthesize isSmartCopyPaste=_isSmartCopyPaste;
 @property(nonatomic) _Bool isTextPrimary; // @synthesize isTextPrimary=_isTextPrimary;
 @property(readonly, nonatomic) _Bool isCrossDocumentPaste; // @synthesize isCrossDocumentPaste=_isCrossDocumentPaste;

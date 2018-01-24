@@ -6,6 +6,7 @@
 
 #import "UIViewController.h"
 
+#import "AKAppleIDAuthenticationInAppContextPasswordDelegate.h"
 #import "RemoteUIControllerDelegate.h"
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
@@ -14,7 +15,7 @@
 
 @class AAUIBuddyView, AAUIHeaderView, NSArray, NSString, UILabel, UITableView, UITableViewCell, UITableViewHeaderFooterView;
 
-@interface AAUISignInViewController : UIViewController <RemoteUIControllerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
+@interface AAUISignInViewController : UIViewController <AKAppleIDAuthenticationInAppContextPasswordDelegate, RemoteUIControllerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 {
     UITableView *_tableView;
     UITableViewCell *_usernameCell;
@@ -24,6 +25,7 @@
     UITableViewHeaderFooterView *_tableFooterView;
     NSArray *_compactConstraints;
     NSArray *_expandedConstraints;
+    CDUnknownBlockType _passwordHandler;
     _Bool _shouldAnticipatePiggybacking;
     _Bool _allowsAccountCreation;
     _Bool _showServiceIcons;
@@ -51,6 +53,7 @@
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (_Bool)remoteUIController:(id)arg1 shouldLoadRequest:(id)arg2 redirectResponse:(id)arg3;
+- (void)context:(id)arg1 needsPasswordWithCompletion:(CDUnknownBlockType)arg2;
 - (void)_delegate_signInViewControllerDidCancel;
 - (void)_delegate_signInViewControllerDidCompleteWithAuthenticationResults:(id)arg1;
 - (void)sizeCategoryDidChange:(id)arg1;
@@ -64,6 +67,10 @@
 - (void)_textFieldDidChange:(id)arg1;
 - (void)_endObservingTextFieldDidChangeNotifications;
 - (void)_beginObservingTextFieldDidChangeNotifications;
+- (id)_passwordFieldIndexPath;
+- (void)_setUsernameCellWaiting:(_Bool)arg1;
+- (void)_setPasswordFieldHidden:(_Bool)arg1;
+- (void)_cancelPasswordDelegateIfNecessary;
 - (void)_presentAppleIDPrivacyInformationPane;
 - (id)_authorizationValueForAuthenticationResults:(id)arg1;
 - (void)_repairCloudAccountWithAuthenticationResults:(id)arg1;
@@ -75,8 +82,9 @@
 - (void)_nextButtonSelected:(id)arg1;
 - (void)_cancelButtonSelected:(id)arg1;
 - (void)_setEnabled:(_Bool)arg1;
-- (id)_attributedStringForFooter;
+- (id)_stringForFooter;
 - (_Bool)_isGreenTeaCapable;
+- (_Bool)_isPasswordFieldVisible;
 - (_Bool)_hasValidCredentials;
 - (void)constrainView:(id)arg1 toFillHeaderFooterView:(id)arg2;
 - (id)_tableFooterView;
@@ -92,6 +100,7 @@
 - (id)authenticationContext;
 - (void)dealloc;
 - (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewDidLayoutSubviews;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;

@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
-@interface CVMLObservation : NSObject <NSCoding>
+@interface CVMLObservation : NSObject <NSSecureCoding>
 {
     float _confidence;
 }
 
++ (_Bool)supportsSecureCoding;
 @property float confidence; // @synthesize confidence=_confidence;
 - (id)serializeSelfForKey:(id)arg1;
 - (id)initWithData:(id)arg1 forKey:(id)arg2;

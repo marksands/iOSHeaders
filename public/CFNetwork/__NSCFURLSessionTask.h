@@ -109,10 +109,13 @@ __attribute__((visibility("hidden")))
     NSURL *_backgroundPublishingURL;
     struct os_unfair_lock_s _unfair_lock;
     _Bool _preconnect;
+    NSString *_APSRelayTopic;
     _Bool _extractorPreparedForExtraction;
 }
 
 + (_Bool)supportsSecureCoding;
+- (void)set_APSRelayTopic:(id)arg1;
+- (id)_APSRelayTopic;
 - (void)set_incompleteTaskMetrics:(id)arg1;
 - (id)_incompleteTaskMetrics;
 - (void)set_backgroundPublishingURL:(id)arg1;

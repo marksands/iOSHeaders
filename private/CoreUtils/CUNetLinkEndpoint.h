@@ -6,11 +6,8 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface CUNetLinkEndpoint : NSObject
 {
-    NSObject<OS_dispatch_queue> *_dispatchQueue;
     CDUnion_fab80606 _ipAddr;
     int _state;
     CDUnknownBlockType _stateChangedHandler;

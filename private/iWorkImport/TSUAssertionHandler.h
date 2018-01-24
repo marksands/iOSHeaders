@@ -14,9 +14,9 @@ __attribute__((visibility("hidden")))
 + (int)_atomicIncrementAssertCount;
 + (void)handleFailureInFunction:(id)arg1 file:(id)arg2 lineNumber:(long long)arg3 isFatal:(_Bool)arg4 description:(const char *)arg5;
 + (void)simulateCrashWithMessage:(id)arg1;
-+ (void)logBacktraceThrottled;
-+ (void)logBacktraceWithCallStackSymbols:(id)arg1;
-+ (void)logBacktrace;
++ (id)packedBacktraceString;
++ (void)_logBacktraceWithCallStackSymbols:(id)arg1;
++ (void)logFullBacktrace;
 + (id)p_performBlockIgnoringAssertions:(CDUnknownBlockType)arg1 onlyFatal:(_Bool)arg2;
 + (id)performBlockIgnoringFatalAssertions:(CDUnknownBlockType)arg1;
 + (id)performBlockIgnoringAssertions:(CDUnknownBlockType)arg1;

@@ -13,7 +13,7 @@
 + (id)storedActivationLockBypassCodeHash;
 + (void)clearStoredActivationLockHash;
 + (void)clearStoredActivationLockBypassCode;
-+ (id)storedActivationLockBypassCode;
++ (id)storedActivationLockBypassCodeWithOutError:(id *)arg1;
 + (id)storeActivationLockBypassCode:(id)arg1 hash:(id)arg2;
 + (void)createNewActivationLockBypassCodeOutCode:(char *)arg1 outRawBytes:(char *)arg2 outHash:(char *)arg3;
 + (id)createAndStoreNewActivationLockBypassCodeAndHash;

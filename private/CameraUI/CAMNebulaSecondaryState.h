@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSDate;
 
-@interface CAMNebulaSecondaryState : NSObject <NSCoding>
+@interface CAMNebulaSecondaryState : NSObject <NSSecureCoding>
 {
     NSDate *_stopTime;
     long long _stopReasons;
@@ -20,6 +20,7 @@
 }
 
 + (id)secondaryStateWithContentsOfFile:(id)arg1;
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) long long failedStateReadAttemptsCount; // @synthesize failedStateReadAttemptsCount=_failedStateReadAttemptsCount;
 @property(readonly, nonatomic) long long movieWriteAttemptsCount; // @synthesize movieWriteAttemptsCount=_movieWriteAttemptsCount;
 @property(readonly, nonatomic) NSDate *lastMovieWriteAttemptTime; // @synthesize lastMovieWriteAttemptTime=_lastMovieWriteAttemptTime;

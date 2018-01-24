@@ -44,6 +44,7 @@
     NSString *_EV0VideoPersistenceUUID;
     unsigned long long _userInitiationTime;
     double _loggingVideoZoomFactor;
+    long long _loggingZoomInteractionType;
     id <CAMStillImageCaptureRequestDelegate> _delegate;
 }
 
@@ -53,6 +54,7 @@
 @property(readonly, copy, nonatomic) NSString *timelapseIdentifier; // @synthesize timelapseIdentifier=_timelapseIdentifier;
 @property(readonly, copy, nonatomic) NSString *EV0PersistenceUUID; // @synthesize EV0PersistenceUUID=_EV0PersistenceUUID;
 @property(readonly, nonatomic) __weak id <CAMStillImageCaptureRequestDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) long long loggingZoomInteractionType; // @synthesize loggingZoomInteractionType=_loggingZoomInteractionType;
 @property(readonly, nonatomic) double loggingVideoZoomFactor; // @synthesize loggingVideoZoomFactor=_loggingVideoZoomFactor;
 @property(readonly, nonatomic) unsigned long long userInitiationTime; // @synthesize userInitiationTime=_userInitiationTime;
 @property(readonly, copy, nonatomic) NSString *EV0VideoPersistenceUUID; // @synthesize EV0VideoPersistenceUUID=_EV0VideoPersistenceUUID;

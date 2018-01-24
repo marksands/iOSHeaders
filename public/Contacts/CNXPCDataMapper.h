@@ -58,9 +58,9 @@
 - (_Bool)requestAccessForEntityType:(long long)arg1 error:(id *)arg2;
 - (void)requestAccessForEntityType:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
-- (id)init;
 - (id)initWithContactsEnvironment:(id)arg1 connection:(id)arg2;
-- (id)initWithContactsEnvironment:(id)arg1;
+- (id)initWithContactsEnvironment:(id)arg1 managedConfiguration:(id)arg2;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

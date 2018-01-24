@@ -46,6 +46,8 @@
 - (id)annotationsForFieldName:(id)arg1;
 - (id)annotationWithUUID:(id)arg1;
 - (void)getAnnotations;
+- (void)enableUndoManagerForAK:(_Bool)arg1;
+- (_Bool)disableUndoManagerForAK;
 - (id)scannedAnnotations;
 - (void)drawPopupAnnotationsWithBox:(long long)arg1;
 - (_Bool)hasOpenPopups;

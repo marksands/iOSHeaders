@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *relatedSearchSuggestions;
 @property(readonly, nonatomic) double requestResponseTime;
 @property(readonly, nonatomic) NSString *resultDisplayHeader;
+@property(readonly, nonatomic) NSArray *retainedSearchMetadata;
 @property(readonly, nonatomic) int searchResultType;
 @property(readonly, nonatomic) NSString *sectionHeader;
 @property(readonly, nonatomic) _Bool shouldEnableRedoSearch;

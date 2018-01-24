@@ -20,6 +20,8 @@
     _Bool _showsReaderButton;
     _Bool _showsReaderAvailabilityText;
     _Bool _overrideBarStyleForSecurityWarning;
+    _Bool _showsNotSecureAnnotation;
+    _Bool _showsNotSecureMessage;
     NSString *_text;
     NSString *_textWhenExpanded;
     unsigned long long _startIndexOfTextInExpandedText;
@@ -30,6 +32,8 @@
 }
 
 @property(nonatomic, setter=_setNavigationBar:) __weak _SFNavigationBar *navigationBar; // @synthesize navigationBar=_navigationBar;
+@property(nonatomic) _Bool showsNotSecureMessage; // @synthesize showsNotSecureMessage=_showsNotSecureMessage;
+@property(nonatomic) _Bool showsNotSecureAnnotation; // @synthesize showsNotSecureAnnotation=_showsNotSecureAnnotation;
 @property(nonatomic) unsigned long long mediaCaptureDeviceIcon; // @synthesize mediaCaptureDeviceIcon=_mediaCaptureDeviceIcon;
 @property(retain, nonatomic) _SFFluidProgressView *progressView; // @synthesize progressView=_progressView;
 @property(nonatomic) _Bool overrideBarStyleForSecurityWarning; // @synthesize overrideBarStyleForSecurityWarning=_overrideBarStyleForSecurityWarning;
@@ -47,6 +51,7 @@
 @property(readonly, nonatomic) NSString *textWhenExpanded; // @synthesize textWhenExpanded=_textWhenExpanded;
 @property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
+- (void)setShowsNotSecureAnnotation:(_Bool)arg1 showsNotSecureMessage:(_Bool)arg2;
 - (void)setShowsReaderButton:(_Bool)arg1 showsAvailabilityText:(_Bool)arg2;
 - (void)setText:(id)arg1 textWhenExpanded:(id)arg2 startIndex:(unsigned long long)arg3;
 - (id)init;

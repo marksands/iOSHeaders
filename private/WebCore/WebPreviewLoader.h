@@ -9,9 +9,9 @@
 __attribute__((visibility("hidden")))
 @interface WebPreviewLoader : NSObject
 {
-    struct RefPtr<WebCore::ResourceLoader> _resourceLoader;
+    struct RefPtr<WebCore::ResourceLoader, WTF::DumbPtrTraits<WebCore::ResourceLoader>> _resourceLoader;
     struct ResourceResponse _response;
-    struct RefPtr<WebCore::PreviewLoaderClient> _client;
+    struct RefPtr<WebCore::PreviewLoaderClient, WTF::DumbPtrTraits<WebCore::PreviewLoaderClient>> _client;
     struct unique_ptr<WebCore::PreviewConverter, std::__1::default_delete<WebCore::PreviewConverter>> _converter;
     struct RetainPtr<NSMutableArray> _bufferedDataArray;
     _Bool _hasSentDidReceiveResponse;

@@ -53,6 +53,7 @@ struct JSObject {
     unsigned char _field4;
     unsigned char _field5;
     struct AuxiliaryBarrier<JSC::Butterfly *> _field6;
+    unsigned int _field7;
 };
 
 struct JSValue {
@@ -61,7 +62,7 @@ struct JSValue {
 
 struct OpaqueJSValue;
 
-struct RefPtr<JSC::JSLock> {
+struct RefPtr<JSC::JSLock, WTF::DumbPtrTraits<JSC::JSLock>> {
     struct JSLock *m_ptr;
 };
 
@@ -102,7 +103,7 @@ struct pair<JSC::JSObject *, JSC::JSObject *> {
 
 struct unique_ptr<JSC::WeakGCMap<id, JSC::JSObject, WTF::PtrHash<id>, WTF::HashTraits<id>>, std::__1::default_delete<JSC::WeakGCMap<id, JSC::JSObject, WTF::PtrHash<id>, WTF::HashTraits<id>>>> {
     struct __compressed_pair<JSC::WeakGCMap<id, JSC::JSObject, WTF::PtrHash<id>, WTF::HashTraits<id>>*, std::__1::default_delete<JSC::WeakGCMap<id, JSC::JSObject, WTF::PtrHash<id>, WTF::HashTraits<id>>>> {
-        struct WeakGCMap<id, JSC::JSObject, WTF::PtrHash<id>, WTF::HashTraits<id>> *__first_;
+        struct WeakGCMap<id, JSC::JSObject, WTF::PtrHash<id>, WTF::HashTraits<id>> *__value_;
     } __ptr_;
 };
 

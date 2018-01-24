@@ -20,6 +20,11 @@ __attribute__((visibility("hidden")))
     _UIDynamicAnimationGroup *_animationGroup;
     long long _style;
     struct CGPoint _offsetWhenPanStarted;
+    CDStruct_5e2aa800 _previousPanVelocity;
+    unsigned long long _accelerationSwipeCount;
+    double _accelerationMultiplier;
+    double _accelerationStartMultiplier;
+    double _accelerationLastSwipeTime;
     NSArray *_displayedEntries;
     double _initialEdgeDigitizerLocation;
     long long _initialIndexEntry;
@@ -80,6 +85,7 @@ __attribute__((visibility("hidden")))
 - (void)_startPressDisplayLink;
 - (void)_startPressTrackingWithVelocity:(CDStruct_c3b9c2ee)arg1;
 - (void)_handlePressGesture:(id)arg1;
+- (void)_resetSwipeAcceleration;
 - (void)_endDraggingWithFinalVelocity:(CDStruct_c3b9c2ee)arg1;
 - (void)_beginInitialSwipeDeceleration;
 - (void)_handleSwipePanEnd:(id)arg1;

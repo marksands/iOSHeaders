@@ -43,7 +43,7 @@
 - (id)_observer;
 - (void)creditCardFieldFocused:(id)arg1 inFrame:(id)arg2;
 - (void)passwordFieldFocused:(id)arg1 inFrame:(id)arg2;
-- (void)usernameFieldFocused:(id)arg1 inForm:(id)arg2 inFrame:(id)arg3;
+- (void)usernameFieldFocused:(id)arg1 fieldMetadata:(id)arg2 inForm:(id)arg3 inFrame:(id)arg4;
 - (id)formAutoFillNodeForJSWrapper:(struct OpaqueJSValue *)arg1 inContext:(struct OpaqueJSContext *)arg2;
 - (void)clearScriptWorld;
 - (void)collectMetadataForTextField:(id)arg1 inFrame:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

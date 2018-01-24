@@ -6,8 +6,6 @@
 
 #import "NSObject.h"
 
-@class CALayer;
-
 @protocol TSKMediaPlayerController <NSObject>
 @property(readonly, nonatomic) double duration;
 @property(readonly, nonatomic) double absoluteDuration;
@@ -27,6 +25,8 @@
 @property(nonatomic, getter=isPlaying) _Bool playing;
 @property(readonly, nonatomic) _Bool canPlay;
 @property(readonly, nonatomic) id <TSKMediaPlayerControllerDelegate> delegate;
+- (void)removeObservationToken:(id <NSObject>)arg1;
+- (void)addObservationToken:(id <NSObject>)arg1;
 - (void)removePeriodicTimeObserver:(id)arg1;
 - (id)addPeriodicTimeObserverForInterval:(double)arg1 block:(void (^)(void))arg2;
 - (void)seekToEnd;
@@ -40,6 +40,5 @@
 - (void)beginScrubbing;
 - (void)stopSynchronously;
 - (void)teardown;
-- (CALayer *)newLayer;
 @end
 

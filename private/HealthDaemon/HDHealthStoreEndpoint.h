@@ -31,7 +31,6 @@
 - (id)remoteInterface;
 - (id)exportedInterface;
 - (void)invalidate;
-- (void)remote_fetchPluginServiceEndpointWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_serverForConfiguration:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithClient:(id)arg1 daemon:(id)arg2;
 

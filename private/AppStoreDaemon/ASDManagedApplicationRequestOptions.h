@@ -15,9 +15,11 @@
     NSString *_bundleVersion;
     NSNumber *_externalVersionIdentifier;
     NSNumber *_itemIdentifier;
+    long long _requestType;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) long long requestType; // @synthesize requestType=_requestType;
 @property(readonly, nonatomic) _Bool skipDownloads; // @synthesize skipDownloads=_skipDownloads;
 @property(readonly, nonatomic) NSNumber *itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
 @property(readonly, nonatomic) NSNumber *externalVersionIdentifier; // @synthesize externalVersionIdentifier=_externalVersionIdentifier;

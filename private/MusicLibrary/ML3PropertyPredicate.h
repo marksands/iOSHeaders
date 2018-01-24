@@ -13,6 +13,7 @@
     NSString *_property;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)predicateWithProperty:(id)arg1;
 @property(copy, nonatomic) NSString *property; // @synthesize property=_property;
 - (void).cxx_destruct;

@@ -9,12 +9,12 @@
 @class NSString;
 
 @interface HMAccessory (HFMediaAdditions)
-- (id)hf_fixSymptom;
-- (_Bool)hf_shouldAutoFixSymptom:(id)arg1;
 - (_Bool)hf_shouldDisplayManualFixOption;
 - (_Bool)hf_shouldShowSoftwareUpdateInfo;
+- (id)hf_identifyHomePod;
 @property(readonly, copy, nonatomic) NSString *hf_defaultName;
 @property(readonly, nonatomic) NSString *hf_editingNameForMediaAccessories;
+@property(readonly, nonatomic) _Bool hf_needsSoftwareUpdateToSupportBeingAddedToMediaSystem;
 @property(readonly, nonatomic) _Bool hf_isDumbSpeaker;
 @property(readonly, nonatomic) _Bool hf_isAirPortExtremeSpeaker;
 @property(readonly, nonatomic) _Bool hf_isAppleTV;

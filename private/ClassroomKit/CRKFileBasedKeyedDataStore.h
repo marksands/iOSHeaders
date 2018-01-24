@@ -12,10 +12,12 @@
 
 @interface CRKFileBasedKeyedDataStore : NSObject <CRKKeyedDataStoreProtocol>
 {
-    NSURL *mDirectoryURL;
-    NSFileManager *mFileManager;
+    NSURL *_directoryURL;
+    NSFileManager *_fileManager;
 }
 
+@property(retain, nonatomic) NSFileManager *fileManager; // @synthesize fileManager=_fileManager;
+@property(retain, nonatomic) NSURL *directoryURL; // @synthesize directoryURL=_directoryURL;
 - (void).cxx_destruct;
 - (id)URLForKey:(id)arg1;
 - (_Bool)isKeyValid:(id)arg1;

@@ -29,9 +29,8 @@ __attribute__((visibility("hidden")))
 - (void)selectChildRep:(id)arg1 extendingSelection:(_Bool)arg2;
 - (_Bool)canSelectChildRep:(id)arg1;
 - (void)addAdditionalChildLayersToArray:(id)arg1;
-- (id)childReps;
+@property(readonly, nonatomic) NSArray *childReps;
 @property(readonly, nonatomic) NSObject<TSDContainerInfo> *containerInfo;
-- (id)hitRep:(struct CGPoint)arg1;
 - (void)recursivelyPerformSelector:(SEL)arg1 withObject:(id)arg2;
 - (void)recursivelyPerformSelector:(SEL)arg1;
 - (void)recursivelyPerformSelectorIfImplemented:(SEL)arg1 withObject:(id)arg2;
@@ -39,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (void)updateChildrenFromLayout;
 - (void)willBeRemoved;
 - (void)dealloc;
+- (void)finishInit;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
 
 // Remaining properties

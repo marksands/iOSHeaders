@@ -9,7 +9,7 @@
 #import "GEOSimpleTileRequesterOperationDelegate.h"
 #import "GEOSimpleTileRequesterSubclass.h"
 
-@class GEODataSession, GEOTileRequestBalancer, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_os_activity>, NSString;
+@class GEODataSession, GEOTileRequestBalancer, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_os_activity>, NSObject<OS_voucher>, NSString;
 
 @interface GEOSimpleTileRequester : GEOTileRequester <GEOSimpleTileRequesterSubclass, GEOSimpleTileRequesterOperationDelegate>
 {
@@ -17,6 +17,7 @@
     NSMutableArray *_running;
     NSMutableArray *_errors;
     NSObject<OS_os_activity> *_activity;
+    NSObject<OS_voucher> *_voucher;
     NSObject<OS_dispatch_queue> *_workQueue;
     GEODataSession *_dataSession;
     unsigned int _qos;
@@ -47,7 +48,7 @@
 - (void)cancel;
 - (void)_cancelAllRunningOperations;
 - (void)_cleanup;
-- (id)newRequestWithType:(int)arg1 URL:(id)arg2 xpcRequest:(id)arg3 entityTag:(id)arg4 cachedData:(id)arg5 allowedRequestMode:(BOOL)arg6;
+- (id)newRequestWithType:(int)arg1 URL:(id)arg2 xpcRequest:(id)arg3 entityTag:(id)arg4 cachedData:(id)arg5 allowedRequestMode:(BOOL)arg6 requestCounterTicket:(id)arg7;
 - (void)_startOperation:(id)arg1;
 - (void)createRequest:(id *)arg1 localizationRequest:(id *)arg2 forKey:(const struct _GEOTileKey *)arg3;
 - (id)_createOperationsForTileKey:(const struct _GEOTileKey *)arg1 priority:(unsigned int)arg2;

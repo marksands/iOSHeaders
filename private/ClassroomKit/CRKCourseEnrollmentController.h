@@ -9,7 +9,7 @@
 #import "CATTaskOperationNotificationDelegate.h"
 #import "CRKStudentDaemonProxyObserver.h"
 
-@class CATRemoteTaskOperation, CRKStudentDaemonProxy, NSArray, NSSet, NSString;
+@class CATRemoteTaskOperation, CRKSecureCodedUserDefaultsObject, CRKStudentDaemonProxy, NSArray, NSDictionary, NSString;
 
 @interface CRKCourseEnrollmentController : NSObject <CRKStudentDaemonProxyObserver, CATTaskOperationNotificationDelegate>
 {
@@ -17,20 +17,27 @@
     CRKStudentDaemonProxy *mDaemonProxy;
     CATRemoteTaskOperation *mBrowseOperation;
     CATRemoteTaskOperation *mActiveCoursesOperation;
+    CATRemoteTaskOperation *mCloudStatusSubscriptionOperation;
+    CRKSecureCodedUserDefaultsObject *mStoredCourses;
     NSArray *_courses;
     NSArray *_courseInvitations;
     NSArray *_activeCourseIdentifiers;
     NSArray *_activeInstructorIdentifiers;
-    NSSet *_currentScreenObservers;
+    NSDictionary *_observingInstructorIdentifiersByCourseIdentifiers;
+    long long _cloudEnrollmentStatus;
 }
 
-@property(retain, nonatomic) NSSet *currentScreenObservers; // @synthesize currentScreenObservers=_currentScreenObservers;
+@property(nonatomic) long long cloudEnrollmentStatus; // @synthesize cloudEnrollmentStatus=_cloudEnrollmentStatus;
+@property(retain, nonatomic) NSDictionary *observingInstructorIdentifiersByCourseIdentifiers; // @synthesize observingInstructorIdentifiersByCourseIdentifiers=_observingInstructorIdentifiersByCourseIdentifiers;
 @property(copy, nonatomic) NSArray *activeInstructorIdentifiers; // @synthesize activeInstructorIdentifiers=_activeInstructorIdentifiers;
 @property(copy, nonatomic) NSArray *activeCourseIdentifiers; // @synthesize activeCourseIdentifiers=_activeCourseIdentifiers;
 @property(copy, nonatomic) NSArray *courseInvitations; // @synthesize courseInvitations=_courseInvitations;
 @property(copy, nonatomic) NSArray *courses; // @synthesize courses=_courses;
 - (void).cxx_destruct;
 - (void)taskOperation:(id)arg1 didPostNotificationWithName:(id)arg2 userInfo:(id)arg3;
+- (void)cloudEnrollmentStatusDidChange:(long long)arg1;
+- (void)fetchCloudEnrollmentStatusDidFinish:(id)arg1;
+- (void)fetchCloudEnrollmentStatus;
 - (void)screenObserversHaveChanged:(id)arg1;
 - (void)fetchScreenObserversDidFinish:(id)arg1;
 - (void)fetchScreenObservers;

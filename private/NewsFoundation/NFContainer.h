@@ -9,17 +9,19 @@
 #import "NFDefinitionContainer.h"
 #import "NFRegistrationContainer.h"
 
-@class NFContainerPool, NSMutableDictionary, NSString;
+@class NFCallbackStore, NFContainerPool, NSMutableDictionary, NSString;
 
 @interface NFContainer : NSObject <NFDefinitionContainer, NFRegistrationContainer>
 {
     id <NFResolver> _resolver;
     NSMutableDictionary *_definitions;
     NFContainerPool *_pool;
+    NFCallbackStore *_callbackStore;
     NSMutableDictionary *_privateContainers;
 }
 
 @property(retain, nonatomic) NSMutableDictionary *privateContainers; // @synthesize privateContainers=_privateContainers;
+@property(retain, nonatomic) NFCallbackStore *callbackStore; // @synthesize callbackStore=_callbackStore;
 @property(retain, nonatomic) NFContainerPool *pool; // @synthesize pool=_pool;
 @property(retain, nonatomic) NSMutableDictionary *definitions; // @synthesize definitions=_definitions;
 @property(retain, nonatomic) id <NFResolver> resolver; // @synthesize resolver=_resolver;

@@ -13,7 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface WebUserMediaPolicyListener : NSObject <WebAllowDenyPolicyListener>
 {
-    struct RefPtr<WebCore::UserMediaRequest> _request;
+    struct RefPtr<WebCore::UserMediaRequest, WTF::DumbPtrTraits<WebCore::UserMediaRequest>> _request;
 }
 
 - (id).cxx_construct;
@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 - (void)deny;
 - (void)allow;
 - (void)cancelUserMediaAccessRequest;
-- (id)initWithUserMediaRequest:(Ref_b5a94c78 *)arg1;
+- (id)initWithUserMediaRequest:(Ref_6ce5dec9 *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

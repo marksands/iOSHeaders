@@ -32,10 +32,13 @@
 @property(retain, nonatomic) CKOperationConfiguration *exitConfigurtation; // @synthesize exitConfigurtation=_exitConfigurtation;
 @property(retain, nonatomic) CKRecordID *exitRecordID; // @synthesize exitRecordID=_exitRecordID;
 - (void)sendCloudKitZoneFetchRequestToNoteFeatureIsOn;
-- (void)submitCloudKitMetricWithData:(id)arg1 operationGroupName:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)submitCloudKitMetricWithData:(id)arg1 operationGroupName:(id)arg2 useManatee:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (id)_modifiedOpGroupName:(id)arg1 useManatee:(_Bool)arg2;
+- (id)_sharedCKUtilities;
+- (void)_scheduleMetricOperation:(id)arg1 useManate:(_Bool)arg2;
 - (_Bool)_serverAllowsMetricSubmission;
-- (void)submitCloudKitMetricWithOperationGroupName:(id)arg1;
-- (void)writeSyncCompletedRecordWithDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)submitCloudKitMetricWithOperationGroupName:(id)arg1 useManatee:(_Bool)arg2;
+- (void)writeSyncCompletedRecordWithDate:(id)arg1 useManatee:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)writeInitialSyncCompletedRecordIfNeeded;
 - (_Bool)_saltZoneCreated;
 - (void)_scheduleOperation:(id)arg1;

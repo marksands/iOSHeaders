@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class KNAnimatedBuild, KNAnimationContext, KNAnimationPluginMenu, NSArray, NSDictionary, NSString, TSDCapabilities;
+@class KNAnimatedBuild, KNAnimationContext, KNAnimationPluginMenu, NSArray, NSDictionary, NSString;
 
 @protocol KNAnimationPlugin <NSObject>
 + (NSString *)thumbnailImageNameForType:(long long)arg1;
@@ -21,7 +21,7 @@
 - (id)initWithAnimationContext:(KNAnimationContext *)arg1;
 
 @optional
-+ (long long)rendererTypeForCapabilities:(TSDCapabilities *)arg1;
++ (long long)rendererTypeForAnimationContext:(KNAnimationContext *)arg1;
 + (NSDictionary *)customEffectTimingCurveDisplayParametersForAttributes:(NSDictionary *)arg1 layoutStyleOnly:(_Bool)arg2;
 + (NSArray *)customAttributes;
 - (NSDictionary *)animationInfoForAnimatedBuild:(KNAnimatedBuild *)arg1;

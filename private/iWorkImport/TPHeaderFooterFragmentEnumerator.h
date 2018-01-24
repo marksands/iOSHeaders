@@ -11,13 +11,13 @@
 __attribute__((visibility("hidden")))
 @interface TPHeaderFooterFragmentEnumerator : NSEnumerator
 {
-    int _fragmentIndex;
-    int _headerFooterType;
     TPPageMaster *_pageMaster;
+    long long _fragmentIndex;
+    long long _headerFooterType;
 }
 
-@property(nonatomic) int headerFooterType; // @synthesize headerFooterType=_headerFooterType;
-@property(nonatomic) int fragmentIndex; // @synthesize fragmentIndex=_fragmentIndex;
+@property(nonatomic) long long headerFooterType; // @synthesize headerFooterType=_headerFooterType;
+@property(nonatomic) long long fragmentIndex; // @synthesize fragmentIndex=_fragmentIndex;
 @property(retain, nonatomic) TPPageMaster *pageMaster; // @synthesize pageMaster=_pageMaster;
 - (void).cxx_destruct;
 - (void)p_incrementHeaderFooterType;

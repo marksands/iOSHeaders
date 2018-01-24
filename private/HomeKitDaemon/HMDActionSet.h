@@ -7,13 +7,13 @@
 #import "HMFObject.h"
 
 #import "HMDBackingStoreObjectProtocol.h"
+#import "HMDHomeMessageReceiver.h"
 #import "HMFDumpState.h"
-#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
-@class HMDApplicationData, HMDHome, HMFMessageDispatcher, NSArray, NSDate, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDApplicationData, HMDHome, HMFMessageDispatcher, NSArray, NSDate, NSMutableArray, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDActionSet : HMFObject <HMFMessageReceiver, NSSecureCoding, HMFDumpState, HMDBackingStoreObjectProtocol>
+@interface HMDActionSet : HMFObject <HMDHomeMessageReceiver, NSSecureCoding, HMFDumpState, HMDBackingStoreObjectProtocol>
 {
     _Bool _executionInProgress;
     NSString *_name;
@@ -27,6 +27,7 @@
     HMDApplicationData *_appData;
 }
 
++ (_Bool)hasMessageReceiverChildren;
 + (_Bool)supportsSecureCoding;
 + (_Bool)isBuiltinActionSetType:(id)arg1;
 @property(retain, nonatomic) HMDApplicationData *appData; // @synthesize appData=_appData;
@@ -94,6 +95,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

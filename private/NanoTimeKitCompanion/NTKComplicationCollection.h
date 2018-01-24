@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSHashTable, NSMutableArray, NSMutableDictionary, NSNumber, NSString, NSUUID, NSXPCConnection;
+@class NSHashTable, NSLock, NSMutableArray, NSMutableDictionary, NSNumber, NSString, NSUUID, NSXPCConnection;
 
 @interface NTKComplicationCollection : NSObject
 {
@@ -14,7 +14,9 @@
     _Bool _registrationNeeded;
     NSNumber *_seqId;
     NSMutableDictionary *_localizeableSampleDataTemplates;
+    NSLock *_templatesLock;
     NSHashTable *_observers;
+    NSLock *_observersLock;
     _Bool _updatesSuspended;
     NSMutableArray *_updatesEnqueuedWhileSuspended;
     _Bool _hasLoaded;

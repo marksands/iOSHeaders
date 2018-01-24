@@ -29,6 +29,7 @@
 
 + (id)sharedConnection;
 + (id)profileInstallationErrorWithUnderlyingError:(id)arg1;
++ (id)features;
 - (void).cxx_destruct;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
@@ -51,6 +52,7 @@
 - (void)_createAndResumeXPCConnection;
 @property(readonly, nonatomic) NSXPCConnection *publicXPCConnection; // @synthesize publicXPCConnection=_publicXPCConnection;
 @property(readonly, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
+- (_Bool)isClassroomRequestPermissionToLeaveClassesForced;
 - (_Bool)isClassroomUnpromptedAppAndDeviceLockForced;
 - (_Bool)isClassroomAutomaticClassJoiningForced;
 - (_Bool)isClassroomUnpromptedScreenObservationForced;
@@ -295,6 +297,7 @@
 - (_Bool)isNotificationsModificationAllowedForBundleID:(id)arg1;
 - (_Bool)isTodayViewModificationAllowed;
 - (_Bool)isTodayViewAllowed;
+- (_Bool)isUSBRestrictedModeAllowed;
 - (void)setDriverDoNotDisturbModificationsAllowed:(_Bool)arg1;
 - (_Bool)isDriverDoNotDisturbModificationsAllowed;
 - (_Bool)isVPNCreationAllowed;
@@ -307,6 +310,7 @@
 - (void)setRemoteAppPairingAllowed:(_Bool)arg1;
 - (_Bool)isRemoteAppPairingAllowed;
 - (_Bool)isWiFiWhitelistingEnforced;
+- (unsigned long long)enforcedSoftwareUpdateDelayInDays;
 - (_Bool)isSoftwareUpdateResisted;
 - (void)setTVAllowed:(_Bool)arg1;
 - (_Bool)isTVAllowed;
@@ -433,7 +437,7 @@
 - (id)_localizedSourceDescriptionForType:(long long)arg1 MDMName:(id)arg2 exchangeName:(id)arg3 exchangeCount:(long long)arg4 profileName:(id)arg5 profileCount:(long long)arg6;
 - (id)_localizedRestrictionSourceDescriptionFromMDMName:(id)arg1 exchangeName:(id)arg2 exchangeCount:(long long)arg3 profileName:(id)arg4 profileCount:(long long)arg5;
 - (id)_localizedCertificateSourceDescriptionFromMDMName:(id)arg1 exchangeName:(id)arg2 exchangeCount:(long long)arg3 profileName:(id)arg4 profileCount:(long long)arg5;
-- (id)activationLockBypassKeyCreateNewIfNeeded:(_Bool)arg1;
+- (id)activationLockBypassKeyCreateNewIfNeeded:(_Bool)arg1 outError:(id *)arg2;
 - (void)doMCICDidFinishPreflightWithError:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)doMCICDidRequestShowUserWarnings:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)doMCICDidRequestUserInput:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -557,6 +561,7 @@
 - (id)filteredOpenInAccounts:(id)arg1 originatingAppBundleID:(id)arg2 sourceAccountManagement:(int)arg3;
 - (_Bool)shouldApplyFilterForBundleID:(id)arg1 sourceAccountManagement:(int)arg2 outAllowManagedAccounts:(_Bool *)arg3 outAllowUnmanagedAccounts:(_Bool *)arg4;
 - (id)filteredMailSheetAccountsForBundleID:(id)arg1 sourceAccountManagement:(int)arg2;
+- (_Bool)hasAnyMailAccountIgnoringFiltering;
 - (_Bool)canSendMail:(id)arg1 sourceAccountManagement:(int)arg2;
 - (_Bool)mayShowLocalAccountsForBundleID:(id)arg1 sourceAccountManagement:(int)arg2;
 - (long long)dragDropTargetManagementStateForBundleID:(id)arg1;

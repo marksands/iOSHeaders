@@ -200,8 +200,8 @@
 - (id)customObjectForKey:(id)arg1;
 - (void)_setCustomObject:(id)arg1 forKey:(id)arg2 local:(_Bool)arg3;
 - (id)_customObjectForKey:(id)arg1 local:(_Bool)arg2;
-- (void)setStructuredDataDictionary:(id)arg1 local:(_Bool)arg2;
-- (id)structuredDataDictionaryLocal:(_Bool)arg1;
+- (id)_dataFromStructuredDataDictionary:(id)arg1;
+- (id)_structuredDataDictionaryFromData:(id)arg1;
 @property(copy, nonatomic) NSData *localStructuredData;
 @property(copy, nonatomic) NSData *structuredData;
 

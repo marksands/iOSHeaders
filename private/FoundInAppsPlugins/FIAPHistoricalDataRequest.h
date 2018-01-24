@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class NSDate, NSString;
 
-@interface FIAPHistoricalDataRequest : NSObject
+@interface FIAPHistoricalDataRequest : NSObject <NSSecureCoding>
 {
     unsigned long long _requestId;
     NSString *_pluginIdentifier;

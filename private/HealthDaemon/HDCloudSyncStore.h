@@ -50,7 +50,6 @@
 - (id)syncEntityDependenciesForSyncEntity:(Class)arg1;
 - (id)syncStoreDefaultSourceBundleIdentifier;
 - (id)syncStoreIdentifier;
-- (id)syncStoreTypeIdentifier;
 - (long long)syncEpoch;
 - (long long)syncProvenance;
 - (id)persistedStateWithError:(id *)arg1;
@@ -60,6 +59,7 @@
 - (_Bool)replacePersistedAnchorMap:(id)arg1 error:(id *)arg2;
 - (_Bool)resetReceivedSyncAnchorMapWithError:(id *)arg1;
 - (id)receivedSyncAnchorMapWithError:(id *)arg1;
+@property(readonly) long long syncStoreType;
 @property(readonly) int protocolVersion;
 - (id)syncStoreForEpoch:(long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

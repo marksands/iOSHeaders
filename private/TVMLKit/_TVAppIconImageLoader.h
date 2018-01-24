@@ -22,6 +22,7 @@
 - (id)loadImageForObject:(id)arg1 scaleToSize:(struct CGSize)arg2 cropToFit:(_Bool)arg3 imageDirection:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)loadImageForObject:(id)arg1 scaleToSize:(struct CGSize)arg2 cropToFit:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)imageKeyForObject:(id)arg1;
+- (id)URLForObject:(id)arg1;
 - (id)init;
 
 // Remaining properties

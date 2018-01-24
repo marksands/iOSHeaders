@@ -10,7 +10,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSDate, NSNumber, NSString;
+@class NSData, NSDate, NSDictionary, NSNumber, NSString;
 
 @interface CDPDevice : NSObject <NSCopying, NSSecureCoding, CDPDeviceProtocol>
 {
@@ -21,7 +21,9 @@
     unsigned long long _platform;
     NSString *_recordID;
     NSString *_machineID;
+    NSData *_simplePublicKey;
     NSDate *_recordDate;
+    NSDictionary *_recordInfo;
     _Bool _hasRandomSecret;
     _Bool _hasNumericSecret;
     NSNumber *_numericSecretLength;
@@ -37,6 +39,8 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSData *simplePublicKey; // @synthesize simplePublicKey=_simplePublicKey;
+@property(copy, nonatomic) NSDictionary *recordInfo; // @synthesize recordInfo=_recordInfo;
 @property(retain, nonatomic) NSNumber *coolOffPeriod; // @synthesize coolOffPeriod=_coolOffPeriod;
 @property(nonatomic) unsigned long long recoveryStatus; // @synthesize recoveryStatus=_recoveryStatus;
 @property(copy, nonatomic) NSString *localizedDescription; // @synthesize localizedDescription=_localizedDescription;

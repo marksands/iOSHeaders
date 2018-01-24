@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     NSArray *_sortedEntries;
     NSMutableDictionary *_entriesMap;
     TSUZipWriterEntry *_currentEntry;
+    _Bool _isClosed;
     _Bool _calculateSize;
     _Bool _force32BitSize;
     _Bool _calculateCRC;
@@ -33,21 +34,20 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_writeQueue;
     long long _writtenOffset;
     NSError *_error;
-    _Bool _isClosed;
 }
 
-@property(readonly, nonatomic) _Bool isClosed; // @synthesize isClosed=_isClosed;
 - (void).cxx_destruct;
 - (void)truncateToOffsetImpl:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)truncateToOffset:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)truncateToNumberOfEntriesImpl:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)truncateToNumberOfEntries:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)entryWithName:(id)arg1;
-@property(readonly, nonatomic) NSArray *sortedEntries;
+@property(readonly) _Bool isClosed;
+@property(readonly) NSArray *sortedEntries;
 - (id)sortedEntriesImpl;
 - (void)enumerateEntriesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)handleWriteError:(id)arg1;
-@property(readonly, nonatomic) unsigned long long archiveLength;
+@property(readonly) unsigned long long archiveLength;
 - (id)prepareWriteChannelWithCloseCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)p_writeData:(id)arg1 offset:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)writeData:(id)arg1 offset:(long long)arg2;
@@ -77,7 +77,8 @@ __attribute__((visibility("hidden")))
 - (void)beginEntryWithNameImpl:(id)arg1 force32BitSize:(_Bool)arg2 lastModificationDate:(id)arg3 size:(unsigned long long)arg4 CRC:(unsigned int)arg5 forceCalculatingSizeAndCRCForPreservingLastModificationDate:(_Bool)arg6;
 - (void)beginEntryWithName:(id)arg1 force32BitSize:(_Bool)arg2 lastModificationDate:(id)arg3 size:(unsigned long long)arg4 CRC:(unsigned int)arg5 forceCalculatingSizeAndCRCForPreservingLastModificationDate:(_Bool)arg6;
 - (id)p_writeChannel;
-@property(readonly, nonatomic) unsigned long long entriesCount;
+- (unsigned long long)entriesCountImpl;
+@property(readonly) unsigned long long entriesCount;
 - (id)initWithOptions:(unsigned long long)arg1;
 - (id)init;
 

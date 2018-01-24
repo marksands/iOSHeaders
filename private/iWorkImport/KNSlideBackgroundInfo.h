@@ -10,22 +10,22 @@
 #import "TSKDocumentObject.h"
 #import "TSKTransformableObject.h"
 
-@class KNAbstractSlide, NSObject<TSDContainerInfo>, NSString, TSDFill, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSSPropertySetChangeDetails, TSSStylesheet;
+@class KNAbstractSlide, NSObject<TSDContainerInfo>, NSString, TSDFill, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSSPropertySetChangeDetails;
 
 __attribute__((visibility("hidden")))
 @interface KNSlideBackgroundInfo : NSObject <TSDChangeableInfo, TSKDocumentObject, TSKTransformableObject>
 {
-    NSObject<TSDContainerInfo> *mParentInfo;
-    TSDInfoGeometry *mGeometry;
-    TSSPropertySetChangeDetails *mChanges;
-    TSSStylesheet *mStylesheet;
-    KNAbstractSlide *mSlide;
+    NSObject<TSDContainerInfo> *_parentInfo;
+    TSSPropertySetChangeDetails *_changes;
+    TSDInfoGeometry *_geometry;
+    KNAbstractSlide *_slide;
 }
 
 + (id)backgroundWithSlide:(id)arg1 andGeometry:(id)arg2;
-@property(readonly, nonatomic) KNAbstractSlide *slide; // @synthesize slide=mSlide;
-@property(copy, nonatomic) TSDInfoGeometry *geometry; // @synthesize geometry=mGeometry;
-@property(nonatomic) NSObject<TSDContainerInfo> *parentInfo; // @synthesize parentInfo=mParentInfo;
+@property(readonly, nonatomic) __weak KNAbstractSlide *slide; // @synthesize slide=_slide;
+@property(copy, nonatomic) TSDInfoGeometry *geometry; // @synthesize geometry=_geometry;
+@property(nonatomic) NSObject<TSDContainerInfo> *parentInfo; // @synthesize parentInfo=_parentInfo;
+- (void).cxx_destruct;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
@@ -51,7 +51,6 @@ __attribute__((visibility("hidden")))
 - (void)clearBackPointerToParentInfoIfNeeded:(id)arg1;
 - (_Bool)isThemeContent;
 - (Class)repClass;
-- (void)dealloc;
 - (id)initWithSlide:(id)arg1 andGeometry:(id)arg2;
 
 // Remaining properties

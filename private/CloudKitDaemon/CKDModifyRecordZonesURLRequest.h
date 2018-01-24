@@ -32,7 +32,6 @@ __attribute__((visibility("hidden")))
 - (id)requestOperationClasses;
 - (id)zoneIDsToLock;
 - (int)operationType;
-- (_Bool)shouldSendKeyIDs;
 - (id)initWithRecordZonesToSave:(id)arg1 recordZoneIDsToDelete:(id)arg2;
 
 @end

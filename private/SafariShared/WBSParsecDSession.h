@@ -17,6 +17,7 @@
     WBSParsecDFeedbackDispatcher *_feedbackDispatcher;
     GEOUserSessionEntity *_geoUserSessionEntity;
     _Bool _valid;
+    _Bool _skipAutoFillDataUpdates;
     id <WBSParsecSearchSessionDelegate> _delegate;
     WBSCompletionQuery *_currentQuery;
     double _uiScale;
@@ -26,12 +27,12 @@
 
 + (void)_updateAutoFillCorrectionSetsIfNeededForSession:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)_updateAutoFillTLDsIfNeededForSession:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-+ (_Bool)shouldUseSearchFoundation;
 + (id)sharedCorrectionsProcessor;
 + (id)sharedDomainPolicyProvider;
 + (id)sharedPARSession;
 @property unsigned long long currentQueryID; // @synthesize currentQueryID=_currentQueryID;
 @property(retain, nonatomic) PARSession *parsecdSession; // @synthesize parsecdSession=_parsecdSession;
+@property(readonly, nonatomic) _Bool skipAutoFillDataUpdates; // @synthesize skipAutoFillDataUpdates=_skipAutoFillDataUpdates;
 @property(nonatomic, setter=setUIScale:) double uiScale; // @synthesize uiScale=_uiScale;
 @property(readonly, nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_valid;
 @property(retain, nonatomic) WBSCompletionQuery *currentQuery; // @synthesize currentQuery=_currentQuery;
@@ -40,11 +41,8 @@
 - (void)_startUpdatingAutoFillDataInBackgroundIfPossibleForSession:(id)arg1;
 - (void)session:(id)arg1 bag:(id)arg2 didLoadWithError:(id)arg3;
 @property(readonly, nonatomic) id <WBSParsecFeedbackDispatcher> feedbackDispatcher;
-- (void)fetchCardDetailsForResult:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_didReceiveResponse:(id)arg1 error:(id)arg2 forTask:(id)arg3 query:(id)arg4;
-- (id)_parsecResultsFromRawResponse:(id)arg1 identifiersToSFSearchResults:(id)arg2 identifiersToSFResultSections:(id)arg3;
-- (id)_parsecResultsFromResponse:(id)arg1;
-- (id)initWithParsecdSession:(id)arg1;
+- (id)initWithParsecdSession:(id)arg1 skipAutoFillDataUpdates:(_Bool)arg2;
 - (id)init;
 
 // Remaining properties

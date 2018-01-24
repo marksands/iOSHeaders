@@ -13,6 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface TSTCellSelection : TSKSelection <TSDTextSelection>
 {
+    _Bool _beginImplicitEditing;
     struct TSUCellCoord _anchorCellID;
     struct TSUCellCoord _cursorCellID;
     TSTCellRegion *_cellRegion;
@@ -28,6 +29,7 @@ __attribute__((visibility("hidden")))
 + (id)selectionWithTableModel:(id)arg1 cellUID:(const struct TSTCellUID *)arg2;
 + (id)selectionWithTableModel:(id)arg1 cellID:(struct TSUCellCoord)arg2;
 @property(nonatomic) struct _NSRange searchReferenceRange; // @synthesize searchReferenceRange=_searchReferenceRange;
+@property(readonly, nonatomic) _Bool beginImplicitEditing; // @synthesize beginImplicitEditing=_beginImplicitEditing;
 @property(readonly, nonatomic) struct TSUCellCoord cursorCellID; // @synthesize cursorCellID=_cursorCellID;
 @property(readonly, nonatomic) TSTCellRegion *baseRegion; // @synthesize baseRegion=_baseRegion;
 @property(readonly, nonatomic) struct TSUCellCoord anchorCellID; // @synthesize anchorCellID=_anchorCellID;
@@ -50,6 +52,7 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)remove:(long long)arg1 atIndex:(unsigned short)arg2 count:(unsigned short)arg3;
 - (void)insert:(long long)arg1 atIndex:(unsigned short)arg2 count:(unsigned short)arg3;
+- (id)selectionToBeginImplicitEditing;
 - (void)setCellRange:(struct TSUCellRect)arg1;
 - (id)selectionAdjustedForGeometryInTableInfo:(id)arg1;
 - (id)selectionAdjustedForColumnVisibilityInTableInfo:(id)arg1;
@@ -78,7 +81,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithTableModel:(id)arg1 cellRegion:(id)arg2 anchorCellID:(struct TSUCellCoord)arg3 cursorCellID:(struct TSUCellCoord)arg4 baseRegion:(id)arg5;
 - (id)initWithTableModel:(id)arg1 cellRegion:(id)arg2 anchorCellID:(struct TSUCellCoord)arg3 cursorCellID:(struct TSUCellCoord)arg4 baseRegion:(id)arg5 selectionType:(long long)arg6;
 - (id)initWithCellRegion:(id)arg1 anchorCellID:(struct TSUCellCoord)arg2 cursorCellID:(struct TSUCellCoord)arg3 baseRegion:(id)arg4 selectionType:(long long)arg5;
-- (id)initWithCellRegion:(id)arg1 anchorCellID:(struct TSUCellCoord)arg2 cursorCellID:(struct TSUCellCoord)arg3 baseRegion:(id)arg4 selectionType:(long long)arg5 searchReferenceRange:(struct _NSRange)arg6;
+- (id)initWithCellRegion:(id)arg1 anchorCellID:(struct TSUCellCoord)arg2 cursorCellID:(struct TSUCellCoord)arg3 baseRegion:(id)arg4 selectionType:(long long)arg5 searchReferenceRange:(struct _NSRange)arg6 beginImplicitEditing:(_Bool)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -26,6 +26,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)hasMessageReceiverChildren;
 + (_Bool)__validateRecurrences:(id)arg1;
 + (id)logCategory;
 @property(nonatomic) unsigned long long activationState; // @synthesize activationState=_activationState;
@@ -51,6 +52,7 @@
 - (void)_transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)messageReceiverChildren;
 - (void)_handleUserPermissionRequest:(id)arg1;
 - (void)_userDidConfirmExecute:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)userDidConfirmExecute:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;

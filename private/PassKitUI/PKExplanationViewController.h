@@ -6,12 +6,11 @@
 
 #import <PassKitUI/PKViewController.h>
 
-#import "PKPaymentSetupPrivacyFooterViewDelegate.h"
+@class OBPrivacyLinkController, PKExplanationView;
 
-@class PKExplanationView;
-
-@interface PKExplanationViewController : PKViewController <PKPaymentSetupPrivacyFooterViewDelegate>
+@interface PKExplanationViewController : PKViewController
 {
+    OBPrivacyLinkController *_privacyLinkController;
     _Bool _showCancelButton;
     _Bool _showDoneButton;
     id <PKExplanationViewControllerDelegate> _explanationViewControllerDelegate;
@@ -25,7 +24,6 @@
 @property(readonly, nonatomic) long long context; // @synthesize context=_context;
 @property(nonatomic) __weak id <PKExplanationViewControllerDelegate> explanationViewControllerDelegate; // @synthesize explanationViewControllerDelegate=_explanationViewControllerDelegate;
 - (void).cxx_destruct;
-- (void)privacyFooterLinkTapped:(id)arg1;
 - (void)_dismissViewController;
 - (void)_donePressed;
 - (void)_cancelPressed;

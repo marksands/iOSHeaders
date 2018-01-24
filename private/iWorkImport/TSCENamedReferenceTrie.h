@@ -11,8 +11,8 @@
 __attribute__((visibility("hidden")))
 @interface TSCENamedReferenceTrie : NSObject
 {
-    struct TSCENamedReferenceTrieNode mRoot;
-    NSLocale *mLocale;
+    struct TSCENamedReferenceTrieNode _root;
+    NSLocale *_locale;
 }
 
 - (id).cxx_construct;

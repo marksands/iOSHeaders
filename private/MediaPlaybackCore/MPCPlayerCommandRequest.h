@@ -23,6 +23,7 @@
 @property(readonly, copy, nonatomic) NSDictionary *options; // @synthesize options=_options;
 @property(readonly, nonatomic) unsigned int command; // @synthesize command=_command;
 - (void).cxx_destruct;
+- (void)setCommandOptionValue:(id)arg1 forKey:(id)arg2;
 - (id)initWithMediaRemoteCommand:(unsigned int)arg1 options:(id)arg2 response:(id)arg3;
 
 @end

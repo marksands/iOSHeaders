@@ -8,29 +8,36 @@
 
 #import "ARResultData.h"
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface ARPlaneData : NSObject <ARResultData>
 {
+    int _surfaceCount;
+    struct SurfaceDetectionPlane **_surfaces;
     unsigned long long _detectionTypeMask;
-    unsigned long long _techniqueIdentifier;
-    CovariantVector_bf42e37e _detectedSurfaces;
+    long long _techniqueID;
+    NSArray *_anchorIdentifierMap;
 }
 
-@property(readonly, nonatomic) unsigned long long techniqueIdentifier; // @synthesize techniqueIdentifier=_techniqueIdentifier;
+@property(retain, nonatomic) NSArray *anchorIdentifierMap; // @synthesize anchorIdentifierMap=_anchorIdentifierMap;
+@property(readonly, nonatomic) long long techniqueID; // @synthesize techniqueID=_techniqueID;
 @property(readonly, nonatomic) unsigned long long detectionTypeMask; // @synthesize detectionTypeMask=_detectionTypeMask;
-@property(readonly, nonatomic) CovariantVector_bf42e37e detectedSurfaces; // @synthesize detectedSurfaces=_detectedSurfaces;
-- (id).cxx_construct;
+@property(readonly, nonatomic) int surfaceCount; // @synthesize surfaceCount=_surfaceCount;
+@property(readonly, nonatomic) struct SurfaceDetectionPlane **surfaces; // @synthesize surfaces=_surfaces;
 - (void).cxx_destruct;
--     // Error parsing type: @92@0:8r^{SurfaceExtent<float>={Matrix<float, 3, 3>=[9f]}{vector<acv::geometry::BoundingBox2<float, acv::geometry::BoundingBoxFlags::Safe>, std::__1::allocator<acv::geometry::BoundingBox2<float, acv::geometry::BoundingBoxFlags::Safe> > >=^{BoundingBox2<float, acv::geometry::BoundingBoxFlags::Safe>}^{BoundingBox2<float, acv::geometry::BoundingBoxFlags::Safe>}{__compressed_pair<acv::geometry::BoundingBox2<float, acv::geometry::BoundingBoxFlags::Safe> *, std::__1::allocator<acv::geometry::BoundingBox2<float, acv::geometry::BoundingBoxFlags::Safe> > >=^{BoundingBox2<float, acv::geometry::BoundingBoxFlags::Safe>}}}{SE3GroupStorage<float, cva::Matrix<float, 4, 4> >=[16f]}f}16{?=[4]}24i88, name: _gridExtentFromSurfaceExtent:planeToAnchorTransform:alignmentRotation:
--     // Error parsing type: {?=}92@0:8r^{SurfaceExtent<float>={Matrix<float, 3, 3>=[9f]}{vector<acv::geometry::BoundingBox2<float, acv::geometry::BoundingBoxFlags::Safe>, std::__1::allocator<acv::geometry::BoundingBox2<float, acv::geometry::BoundingBoxFlags::Safe> > >=^{BoundingBox2<float, acv::geometry::BoundingBoxFlags::Safe>}^{BoundingBox2<float, acv::geometry::BoundingBoxFlags::Safe>}{__compressed_pair<acv::geometry::BoundingBox2<float, acv::geometry::BoundingBoxFlags::Safe> *, std::__1::allocator<acv::geometry::BoundingBox2<float, acv::geometry::BoundingBoxFlags::Safe> > >=^{BoundingBox2<float, acv::geometry::BoundingBoxFlags::Safe>}}}{SE3GroupStorage<float, cva::Matrix<float, 4, 4> >=[16f]}f}16{?=[4]}24i88, name: _boundsFromSurfaceExtent:planeToAnchorTransform:alignmentRotation:
--     // Error parsing type: {?=[4]}24@0:8r^{IAlignedSurface<float>=^^?}16, name: _planeToWorldTransformForSurface:
--     // Error parsing type: i88@0:8{?=[4]}16q80, name: _alignmentRotationForAnchorTransform:planeAlignment:
--     // Error parsing type: @104@0:8@16r^{IAlignedSurface<float>=^^?}24@32{?=[4]}40, name: _updatedAnchor:forSurface:identifier:referenceOriginTransform:
--     // Error parsing type: @96@0:8r^{IAlignedSurface<float>=^^?}16@24{?=[4]}32, name: _anchorForSurface:identifier:referenceOriginTransform:
-- (id)hitTestFromOrigin:withDirection: /* Error: Ran out of types for this method. */;
+-     // Error parsing type: @96@0:8^{SurfaceDetectionPlane=i[3{SurfaceExtent=[16f][9f]^{SurfaceDetectionBoundingBox}Q^{SurfacePoint2d}Qf}]Q[3f][3f]iQQ^Q}16{?=[4]}24q88, name: _gridExtentForSurface:planeToAnchorTransform:alignmentRotation:
+-     // Error parsing type: @128@0:8^{SurfaceDetectionPlane=i[3{SurfaceExtent=[16f][9f]^{SurfaceDetectionBoundingBox}Q^{SurfacePoint2d}Qf}]Q[3f][3f]iQQ^Q}16{?=[4]}24q88{?=}96, name: _geometryForSurface:planeToAnchorTransform:alignmentRotation:planeBounds:
+- (long long)_identifierForSurfaceID:(long long)arg1;
+-     // Error parsing type: {?=}96@0:8^{SurfaceDetectionPlane=i[3{SurfaceExtent=[16f][9f]^{SurfaceDetectionBoundingBox}Q^{SurfacePoint2d}Qf}]Q[3f][3f]iQQ^Q}16{?=[4]}24q88, name: _boundsForSurface:planeToAnchorTransform:alignmentRotation:
+-     // Error parsing type: {?=[4]}24@0:8^{SurfaceDetectionPlane=i[3{SurfaceExtent=[16f][9f]^{SurfaceDetectionBoundingBox}Q^{SurfacePoint2d}Qf}]Q[3f][3f]iQQ^Q}16, name: _planeToWorldTransformForSurface:
+-     // Error parsing type: q88@0:8{?=[4]}16q80, name: _worldAlignmentRotationForReferenceTransform:planeAlignment:
+-     // Error parsing type: @96@0:8@16^{SurfaceDetectionPlane=i[3{SurfaceExtent=[16f][9f]^{SurfaceDetectionBoundingBox}Q^{SurfacePoint2d}Qf}]Q[3f][3f]iQQ^Q}24{?=[4]}32, name: _updatedAnchor:forSurface:referenceOriginTransform:
+-     // Error parsing type: @88@0:8^{SurfaceDetectionPlane=i[3{SurfaceExtent=[16f][9f]^{SurfaceDetectionBoundingBox}Q^{SurfacePoint2d}Qf}]Q[3f][3f]iQQ^Q}16{?=[4]}24, name: _anchorForSurface:referenceOriginTransform:
+- (id)hitTestFromOrigin:(long long)arg1 withDirection:planeAlignment: /* Error: Ran out of types for this method. */;
 -     // Error parsing type: @160@0:8{?=[4]}16{?=[4]}80@144@152, name: anchorsForCameraWithTransform:referenceOriginTransform:existingAnchors:anchorsToRemove:
-- (id)initWithDetectedSurfaces:(CovariantVector_bf42e37e)arg1 detectionTypeMask:(unsigned long long)arg2 techniqueIdentifier:(unsigned long long)arg3;
+@property(readonly, nonatomic) long long maxPlaneID;
+- (void)dealloc;
+- (id)initWithSurfaces:(struct SurfaceDetectionPlane **)arg1 surfaceCount:(int)arg2 detectionTypeMask:(unsigned long long)arg3 techniqueIdentifier:(long long)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

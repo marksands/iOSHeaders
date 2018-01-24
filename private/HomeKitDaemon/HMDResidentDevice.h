@@ -53,6 +53,7 @@
 - (id)dumpState;
 - (_Bool)mergeObject:(id)arg1;
 - (_Bool)_updateDevice:(id)arg1;
+@property(readonly, nonatomic) _Bool supportsMediaSystem;
 @property(readonly, nonatomic) _Bool supportsSharedEventTriggerActivation;
 @property(readonly, nonatomic) unsigned long long status;
 - (_Bool)isEqual:(id)arg1;

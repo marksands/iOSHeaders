@@ -13,6 +13,7 @@
     FCCKPrivateDatabase *_database;
     CKRecordZoneID *_recordZoneID;
     id <FCCKDatabaseMigrator> _migrator;
+    id <FCCKZonePruningAssistant> _pruningAssistant;
     CDUnknownBlockType _migrationCompletionHandler;
     NSMutableSet *_createdZones;
     NSMutableArray *_resultZoneIDsEligibleForDeletion;
@@ -23,6 +24,7 @@
 @property(retain, nonatomic) NSMutableArray *resultZoneIDsEligibleForDeletion; // @synthesize resultZoneIDsEligibleForDeletion=_resultZoneIDsEligibleForDeletion;
 @property(retain, nonatomic) NSMutableSet *createdZones; // @synthesize createdZones=_createdZones;
 @property(copy, nonatomic) CDUnknownBlockType migrationCompletionHandler; // @synthesize migrationCompletionHandler=_migrationCompletionHandler;
+@property(retain, nonatomic) id <FCCKZonePruningAssistant> pruningAssistant; // @synthesize pruningAssistant=_pruningAssistant;
 @property(retain, nonatomic) id <FCCKDatabaseMigrator> migrator; // @synthesize migrator=_migrator;
 @property(copy, nonatomic) CKRecordZoneID *recordZoneID; // @synthesize recordZoneID=_recordZoneID;
 @property(retain, nonatomic) FCCKPrivateDatabase *database; // @synthesize database=_database;
@@ -35,7 +37,9 @@
 - (void)_migrateAndUpdateRecords:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_pruneRecords:(id)arg1;
 - (void)_migrateRecordIDs:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_migrateEverythingWithPreviousServerChangeToken:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)_shouldStopGatheringAfterFetchingRecords:(id)arg1 cumulativeRecords:(id)arg2;
+- (void)_continueGatheringRecordsWithPreviousServerChangeToken:(id)arg1 recordsAlreadyFetched:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_gatherRecordsToMigrateWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;
 - (void)prepareOperation;

@@ -16,7 +16,7 @@
 #import "SiriUIAudioRoutePickerControllerDelegate.h"
 #import "SiriUIKeyboardViewDelegate.h"
 
-@class AFUIDelayedActionCommandCache, AFUIRequestOptions, AFUISiriRemoteViewController, AFUISiriSession, NSNumber, NSObject<OS_dispatch_queue>, NSString, SiriUIAudioRoutePickerController, SiriUIConfiguration, SiriUIKeyboardView, UIStatusBar, UIView, UIView<AFUISiriRemoteViewHosting>;
+@class AFUIDelayedActionCommandCache, AFUIRequestOptions, AFUISiriRemoteViewController, AFUISiriSession, NSDictionary, NSNumber, NSObject<OS_dispatch_queue>, NSString, SiriUIAudioRoutePickerController, SiriUIConfiguration, SiriUIKeyboardView, UIStatusBar, UIView, UIView<AFUISiriRemoteViewHosting>;
 
 @interface AFUISiriViewController : UIViewController <AFUISiriRemoteViewControllerDataSource, AFUISiriRemoteViewControllerDelegate, AFUISiriViewDelegate, SiriUIAudioRoutePickerControllerDelegate, AFUISiriSessionLocalDataSource, AFUISiriSessionLocalDelegate, AFUIDelayedActionCommandCacheDelegate, AFUISiriViewDataSource, SiriUIKeyboardViewDelegate>
 {
@@ -36,6 +36,7 @@
     CDStruct_a82615c4 _keyboardInfo;
     _Bool _unlockScreenVisible;
     _Bool _remoteViewControllerIsPresenting;
+    NSDictionary *_dismissalUserInfo;
     _Bool _visible;
     _Bool _eyesFree;
     _Bool _isStark;
@@ -83,6 +84,7 @@
 @property(nonatomic) __weak id <AFUISiriViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <AFUISiriViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (void)siriSession:(id)arg1 speechRecordingDidBeginOnAVRecordRoute:(id)arg2;
 - (void)siriSessionDidUpdateSessionInfo:(id)arg1;
 - (void)siriSessionDidEnd:(id)arg1;
 - (void)siriSessionWillEnd:(id)arg1;
@@ -228,7 +230,7 @@
 - (void)userRelevantEventDidOccurInSiriRemoteViewController:(id)arg1;
 - (void)siriRemoteViewController:(id)arg1 startRequestWithOptions:(id)arg2;
 - (void)startGuidedAccessForRemoteViewController:(id)arg1;
-- (void)dismissSiriRemoteViewController:(id)arg1 delayForTTS:(_Bool)arg2;
+- (void)dismissSiriRemoteViewController:(id)arg1 delayForTTS:(_Bool)arg2 userInfo:(id)arg3;
 - (void)siriRemoteViewController:(id)arg1 viewServiceDidTerminateWithError:(id)arg2;
 - (long long)siriRemoteViewControllerRequestsActivationSource:(id)arg1;
 - (void)siriRemoteViewController:(id)arg1 didEncounterUnexpectedServiceError:(id)arg2;

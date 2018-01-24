@@ -17,11 +17,14 @@ __attribute__((visibility("hidden")))
     } _observerFlags;
     _Bool _subscriptWildcard;
     id <IKJSDataItemObserver> _observer;
+    NSString *_observerHash;
     NSString *_pathString;
 }
 
++ (id)hashForObserver:(id)arg1;
 @property(readonly, nonatomic, getter=isSubscriptWildcard) _Bool subscriptWildcard; // @synthesize subscriptWildcard=_subscriptWildcard;
 @property(readonly, nonatomic) NSString *pathString; // @synthesize pathString=_pathString;
+@property(readonly, nonatomic) __weak NSString *observerHash; // @synthesize observerHash=_observerHash;
 @property(readonly, nonatomic) __weak id <IKJSDataItemObserver> observer; // @synthesize observer=_observer;
 - (void).cxx_destruct;
 - (_Bool)isAffectedByPropertyPathWithString:(id)arg1 subscript:(long long)arg2;

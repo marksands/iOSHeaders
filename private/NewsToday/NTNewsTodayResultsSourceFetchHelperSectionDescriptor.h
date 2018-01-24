@@ -8,7 +8,7 @@
 
 #import "NTSectionDescriptor.h"
 
-@class NSString, NSURL;
+@class NSString, NSURL, NTPBDiscoverMoreVideosInfo;
 
 @interface NTNewsTodayResultsSourceFetchHelperSectionDescriptor : NSObject <NTSectionDescriptor>
 {
@@ -24,9 +24,8 @@
 @property(readonly, nonatomic) _Bool videoPlaysMutedByDefault;
 @property(readonly, nonatomic) int leadingCellPromotionPolicy;
 @property(readonly, copy, nonatomic) NSString *backgroundGradientColor;
-@property(readonly, copy, nonatomic) NSURL *discoverMoreVideosURL;
-@property(readonly, copy, nonatomic) NSString *discoverMoreVideosSubtitle;
-@property(readonly, copy, nonatomic) NSString *discoverMoreVideosTitle;
+@property(readonly, copy, nonatomic) NTPBDiscoverMoreVideosInfo *discoverMoreVideosInfo;
+@property(readonly, nonatomic) _Bool openVideoPlaylistInApp;
 @property(readonly, nonatomic) _Bool useNameColorInWidget;
 @property(readonly, nonatomic) _Bool displaysAsVideoPlaylist;
 @property(readonly, nonatomic) long long supplementalIntraSectionFilterOptions;

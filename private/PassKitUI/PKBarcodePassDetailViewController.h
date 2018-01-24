@@ -113,7 +113,7 @@
 - (id)linkedApp;
 - (id)_createTabBarWithSelectedIndex:(long long)arg1;
 - (double)_offscreenHeaderHeight;
-- (_Bool)_updateHeaderHeight;
+- (_Bool)_updateHeaderHeightDeterminingLayout:(_Bool)arg1;
 - (void)_updateTabBarWithSegments:(id)arg1;
 - (void)_updateTabBar;
 - (void)reloadData;

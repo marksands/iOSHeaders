@@ -10,35 +10,23 @@
 
 @interface MPModelStoreAsset : MPModelObject
 {
-    _Bool _redownloadable;
-    _Bool _shouldReportPlayEvents;
-    _Bool _subscriptionRequired;
-    long long _endpointType;
-    NSString *_redownloadParameters;
-    unsigned long long _accountIdentifier;
 }
 
-+ (id)__MPModelPropertyStoreAssetSubscriptionRequired__PROPERTY;
-+ (id)__subscriptionRequired__KEY;
-+ (id)__MPModelPropertyStoreAssetShouldReportPlayEvents__PROPERTY;
-+ (id)__shouldReportPlayEvents__KEY;
-+ (id)__MPModelPropertyStoreAssetAccountIdentifier__PROPERTY;
-+ (id)__accountIdentifier__KEY;
-+ (id)__MPModelPropertyStoreAssetRedownloadable__PROPERTY;
-+ (id)__redownloadable__KEY;
-+ (id)__MPModelPropertyStoreAssetRedownloadParameters__PROPERTY;
-+ (id)__redownloadParameters__KEY;
-+ (id)__MPModelPropertyStoreAssetEndpointType__PROPERTY;
-+ (id)__endpointType__KEY;
++ (id)__subscriptionRequired_KEY;
++ (id)__shouldReportPlayEvents_KEY;
++ (id)__accountIdentifier_KEY;
++ (id)__redownloadable_KEY;
++ (id)__redownloadParameters_KEY;
++ (id)__endpointType_KEY;
 + (id)allSupportedProperties;
-@property(nonatomic, getter=isSubscriptionRequired) _Bool subscriptionRequired; // @synthesize subscriptionRequired=_subscriptionRequired;
-@property(nonatomic) _Bool shouldReportPlayEvents; // @synthesize shouldReportPlayEvents=_shouldReportPlayEvents;
-@property(nonatomic) unsigned long long accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
-@property(nonatomic, getter=isRedownloadable) _Bool redownloadable; // @synthesize redownloadable=_redownloadable;
-@property(copy, nonatomic) NSString *redownloadParameters; // @synthesize redownloadParameters=_redownloadParameters;
-@property(nonatomic) long long endpointType; // @synthesize endpointType=_endpointType;
-- (void).cxx_destruct;
-- (id)descriptionWithType:(long long)arg1;
+
+// Remaining properties
+@property(nonatomic) unsigned long long accountIdentifier; // @dynamic accountIdentifier;
+@property(nonatomic) long long endpointType; // @dynamic endpointType;
+@property(copy, nonatomic) NSString *redownloadParameters; // @dynamic redownloadParameters;
+@property(nonatomic, getter=isRedownloadable) _Bool redownloadable; // @dynamic redownloadable;
+@property(nonatomic) _Bool shouldReportPlayEvents; // @dynamic shouldReportPlayEvents;
+@property(nonatomic, getter=isSubscriptionRequired) _Bool subscriptionRequired; // @dynamic subscriptionRequired;
 
 @end
 

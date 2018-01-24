@@ -26,8 +26,8 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *fileName; // @synthesize fileName=_fileName;
 @property(retain, nonatomic) KNAnimParameterSavedGroup *savedGroup; // @synthesize savedGroup=_savedGroup;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 - (void)p_loadParameters;
-- (void)dealloc;
 - (id)initWithFileName:(id)arg1;
 - (id)mediaTimingFunctionForAnimationCurve:(id)arg1 reversed:(_Bool)arg2;
 - (id)mediaTimingFunctionForAnimationCurve:(id)arg1;

@@ -6,18 +6,25 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class HDProfile, NSString;
 
 @interface HDAnalyticsWriter : NSObject
 {
-    NSString *_bugType;
+    HDProfile *_profile;
     struct __SecCertificate *_certificate;
+    NSString *_analyticsDirectory;
 }
 
++ (id)_payloadIdentifierForBugType:(id)arg1;
 - (void).cxx_destruct;
-- (_Bool)submitJSONAnaltyicsData:(id)arg1 error:(id *)arg2;
+- (_Bool)_cleanAnalyticsDirectory:(id)arg1 error:(id *)arg2;
+- (_Bool)_createAnalyticsDirectory:(id)arg1 error:(id *)arg2;
 - (_Bool)_loadCertificateWithError:(id *)arg1;
-- (id)initWithBugType:(id)arg1;
+- (id)analyticsFilePathsWithError:(id *)arg1;
+- (id)URLForAnalyticsFileWithName:(id)arg1;
+- (_Bool)submitJSONAnaltyicsData:(id)arg1 bugType:(id)arg2 error:(id *)arg3;
+- (id)init;
+- (id)initWithProfile:(id)arg1;
 
 @end
 

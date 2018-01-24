@@ -7,7 +7,7 @@
 #import "UINavigationBar.h"
 
 @interface UINavigationBar (CKUtilities)
-- (void)setBizEffectStyle:(_Bool)arg1;
+- (void)enableBranding:(_Bool)arg1 forBusinessChat:(id)arg2;
 - (void)setDarkEffectStyle:(_Bool)arg1;
 @end
 

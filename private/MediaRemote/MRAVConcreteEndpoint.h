@@ -11,22 +11,26 @@
 @interface MRAVConcreteEndpoint : MRAVEndpoint
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
+    NSString *_uniqueIdentifier;
     NSArray *_outputDevices;
     MRTransportExternalDevice *_externalDevice;
     MRAVConcreteOutputDevice *_designatedGroupLeader;
     NSString *_instanceIdentifier;
+    id _outputContextDidChangeNotificationToken;
     NSDictionary *_outsourcedExternalDeviceCache;
 }
 
 @property(copy, nonatomic) NSDictionary *outsourcedExternalDeviceCache; // @synthesize outsourcedExternalDeviceCache=_outsourcedExternalDeviceCache;
-- (void)_endpointOutputDevicesDidInvalidate:(id)arg1;
+- (void)_updateOutputContextInfo;
 - (void)_onQueue_reloadExternalDevice;
+- (_Bool)isProxyGroupPlayer;
 - (id)instanceIdentifier;
 - (void)_onQueue_setDesignatedGroupLeader:(id)arg1;
 @property(retain, nonatomic) MRAVConcreteOutputDevice *designatedGroupLeader;
 - (void)_onQueue_setExternalDevice:(id)arg1;
 @property(retain, nonatomic) MRTransportExternalDevice *externalDevice;
 @property(copy, nonatomic) NSArray *outputDevices;
+- (id)uniqueIdentifier;
 - (id)outputDeviceForDistantDevice:(id)arg1;
 - (void)dealloc;
 - (id)initWithOutputDevices:(id)arg1;

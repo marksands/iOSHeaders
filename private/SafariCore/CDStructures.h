@@ -21,6 +21,60 @@ struct _NSRange {
     unsigned long long _field2;
 };
 
+struct _malloc_zone_t {
+    void *_field1;
+    void *_field2;
+    CDUnknownFunctionPointerType _field3;
+    CDUnknownFunctionPointerType _field4;
+    CDUnknownFunctionPointerType _field5;
+    CDUnknownFunctionPointerType _field6;
+    CDUnknownFunctionPointerType _field7;
+    CDUnknownFunctionPointerType _field8;
+    CDUnknownFunctionPointerType _field9;
+    char *_field10;
+    CDUnknownFunctionPointerType _field11;
+    CDUnknownFunctionPointerType _field12;
+    struct malloc_introspection_t *_field13;
+    unsigned int _field14;
+    CDUnknownFunctionPointerType _field15;
+    CDUnknownFunctionPointerType _field16;
+    CDUnknownFunctionPointerType _field17;
+};
+
+struct malloc_introspection_t;
+
+struct malloc_statistics_t {
+    unsigned int blocks_in_use;
+    unsigned long long size_in_use;
+    unsigned long long max_size_in_use;
+    unsigned long long size_allocated;
+};
+
+struct task_vm_info {
+    unsigned long long virtual_size;
+    int region_count;
+    int page_size;
+    unsigned long long resident_size;
+    unsigned long long resident_size_peak;
+    unsigned long long device;
+    unsigned long long device_peak;
+    unsigned long long internal;
+    unsigned long long internal_peak;
+    unsigned long long external;
+    unsigned long long external_peak;
+    unsigned long long reusable;
+    unsigned long long reusable_peak;
+    unsigned long long purgeable_volatile_pmap;
+    unsigned long long purgeable_volatile_resident;
+    unsigned long long purgeable_volatile_virtual;
+    unsigned long long compressed;
+    unsigned long long compressed_peak;
+    unsigned long long compressed_lifetime;
+    unsigned long long phys_footprint;
+    unsigned long long min_address;
+    unsigned long long max_address;
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {

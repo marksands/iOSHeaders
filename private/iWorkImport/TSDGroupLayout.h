@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     TSDLayoutGeometry *mDynamicLayoutGeometry;
     struct CGRect mBoundsForStandardKnobs;
     TSUBezierPath *mCachedWrapPath;
-    TSUBezierPath *mCachedExternalWrapPath;
+    TSUBezierPath *mCachedPathForClippingConnectionLines;
 }
 
 + (id)p_childWrapPathsFrom:(id)arg1;
@@ -27,9 +27,9 @@ __attribute__((visibility("hidden")))
 - (void)setDynamicGeometry:(id)arg1;
 - (void)p_createDynamicCopies;
 - (id)descendentWrappables;
-- (void)transferLayoutGeometryToInfo:(id)arg1;
+- (void)transferLayoutGeometryToInfo:(id)arg1 withAdditionalTransform:(struct CGAffineTransform)arg2 assertIfInDocument:(_Bool)arg3;
 - (struct CGRect)rectInRootForCalculatingActivityLineEndpoint;
-- (id)i_externalWrapPath;
+- (id)pathForClippingConnectionLines;
 - (id)i_wrapPath;
 - (id)i_computeWrapPath;
 - (_Bool)supportsFlipping;
@@ -57,10 +57,10 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)boundsForStandardKnobs;
 - (void)processChangedProperty:(int)arg1;
 - (id)computeLayoutGeometry;
+- (struct CGRect)computeBoundsForStandardKnobs;
 - (id)additionalDependenciesForChildLayout:(id)arg1;
 - (id)reliedOnLayouts;
 - (id)layoutGeometryFromInfo;
-- (_Bool)canInspectGeometry;
 - (id)visibleGeometries;
 
 @end

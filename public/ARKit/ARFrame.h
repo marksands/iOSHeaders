@@ -8,12 +8,13 @@
 
 #import "NSCopying.h"
 
-@class ARAnchor, ARCamera, ARFaceData, ARLightEstimate, ARPlaneData, ARPointCloud, ARTrackingErrorData, AVDepthData, NSArray, NSDate;
+@class ARCamera, ARFaceData, ARFrameTimingData, ARLightEstimate, ARPlaneData, ARPointCloud, ARWorldTrackingErrorData, AVDepthData, NSArray, NSDate;
 
 @interface ARFrame : NSObject <NSCopying>
 {
     ARPlaneData *_cachedHorizontalPlaneData;
     ARPlaneData *_cachedVerticalPlaneData;
+    unsigned long long _transformFlags;
     _Bool _shouldRestrictFrameRate;
     double _timestamp;
     struct __CVBuffer *_capturedImage;
@@ -25,19 +26,37 @@
     ARPointCloud *_featurePoints;
     ARPointCloud *_referenceFeaturePoints;
     NSArray *_cachedPointClouds;
-    ARAnchor *_worldOrigin;
-    ARTrackingErrorData *_trackingErrorData;
+    long long _worldAlignment;
+    ARFrameTimingData *_timingData;
+    ARWorldTrackingErrorData *_trackingErrorData;
     long long _renderFramesPerSecond;
     NSDate *_captureDate;
     ARFaceData *_faceData;
+    // Error parsing type: {?="columns"[4]}, name: _referenceOriginTransform
+    // Error parsing type: {?="columns"[4]}, name: _referenceOriginDelta
+    // Error parsing type: {?="columns"[4]}, name: _sessionOriginTransform
+    // Error parsing type: {?="columns"[4]}, name: _worldAlignmentTransform
 }
 
 @property(retain, nonatomic) ARFaceData *faceData; // @synthesize faceData=_faceData;
 @property(retain, nonatomic) NSDate *captureDate; // @synthesize captureDate=_captureDate;
 @property(nonatomic) _Bool shouldRestrictFrameRate; // @synthesize shouldRestrictFrameRate=_shouldRestrictFrameRate;
 @property(nonatomic) long long renderFramesPerSecond; // @synthesize renderFramesPerSecond=_renderFramesPerSecond;
-@property(retain, nonatomic) ARTrackingErrorData *trackingErrorData; // @synthesize trackingErrorData=_trackingErrorData;
-@property(retain, nonatomic) ARAnchor *worldOrigin; // @synthesize worldOrigin=_worldOrigin;
+@property(retain, nonatomic) ARWorldTrackingErrorData *trackingErrorData; // @synthesize trackingErrorData=_trackingErrorData;
+@property(retain, nonatomic) ARFrameTimingData *timingData; // @synthesize timingData=_timingData;
+@property(nonatomic) long long worldAlignment; // @synthesize worldAlignment=_worldAlignment;
+// Error parsing type for property worldAlignmentTransform:
+// Property attributes: T{?=[4]},N,V_worldAlignmentTransform
+
+// Error parsing type for property sessionOriginTransform:
+// Property attributes: T{?=[4]},N,V_sessionOriginTransform
+
+// Error parsing type for property referenceOriginDelta:
+// Property attributes: T{?=[4]},N,V_referenceOriginDelta
+
+// Error parsing type for property referenceOriginTransform:
+// Property attributes: T{?=[4]},N,V_referenceOriginTransform
+
 @property(retain, nonatomic) NSArray *cachedPointClouds; // @synthesize cachedPointClouds=_cachedPointClouds;
 @property(retain, nonatomic) ARPointCloud *referenceFeaturePoints; // @synthesize referenceFeaturePoints=_referenceFeaturePoints;
 @property(retain, nonatomic) ARPointCloud *featurePoints; // @synthesize featurePoints=_featurePoints;
@@ -53,12 +72,23 @@
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (id)_hitTestEstimatedPlanesFromOrigin:(long long)arg1 withDirection:planeAlignment: /* Error: Ran out of types for this method. */;
+- (id)_horizontalPlaneEstimateFromFeaturePoint:fromOrigin:withDirection: /* Error: Ran out of types for this method. */;
 - (id)_hitTestFromOrigin:(unsigned long long)arg1 withDirection:types: /* Error: Ran out of types for this method. */;
+-     // Error parsing type: {?=[4]}16@0:8, name: gravityAlignmentTransform
+- (_Bool)worldAlignmentTransformAvailable;
+- (_Bool)sessionOriginTransformAvailable;
+- (_Bool)referenceOriginDeltaAvailable;
+- (void)setReferenceOriginChanged:(_Bool)arg1;
+- (_Bool)referenceOriginChanged;
+- (void)setReferenceOriginTransformUpdated:(_Bool)arg1;
+- (_Bool)referenceOriginTransformUpdated;
+- (_Bool)referenceOriginTransformAvailable;
 @property(readonly, nonatomic) ARPointCloud *rawFeaturePoints;
 - (struct CGAffineTransform)displayTransformForOrientation:(long long)arg1 viewportSize:(struct CGSize)arg2;
 - (id)hitTest:(struct CGPoint)arg1 types:(unsigned long long)arg2;
 - (void)dealloc;
-- (id)initWithContext:(id)arg1;
+- (id)initWithTimestamp:(double)arg1 context:(id)arg2;
 - (id)initWithCamera:(id)arg1 timestamp:(double)arg2;
 
 @end

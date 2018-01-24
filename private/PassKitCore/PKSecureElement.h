@@ -24,6 +24,7 @@
 
 + (id)secureElementIdentifiers;
 + (id)primarySecureElementIdentifier;
++ (_Bool)hardwareSupportsExpressMode:(id)arg1;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSUUID *ownerUserUUID;
 @property(readonly, nonatomic) NSArray *secureElementIdentifiers;

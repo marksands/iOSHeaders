@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSString;
+@class NSData, NSObject<OS_dispatch_queue>, NSString;
 
 @interface ICDeviceInfo : NSObject
 {
@@ -26,6 +26,7 @@
     NSString *_pairedDeviceGUID;
     NSString *_serialNumber;
     NSString *_systemReleaseType;
+    NSObject<OS_dispatch_queue> *_accessQueue;
 }
 
 + (id)defaultInfo;
@@ -55,6 +56,7 @@
 @property(readonly, copy, nonatomic) NSString *rawDeviceModel;
 @property(readonly, copy, nonatomic) NSString *deviceModel;
 - (void)dealloc;
+- (id)_init;
 
 @end
 

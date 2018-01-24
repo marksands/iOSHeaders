@@ -90,8 +90,8 @@
 - (id)regionByAddingRange:(CDStruct_5f1f7aa9)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)fillCellRangeRowMajorSet:(set_87729393 *)arg1 leftToRight:(_Bool)arg2;
-- (void)fillCellRangeColMajorSet:(set_79f671e2 *)arg1 leftToRight:(_Bool)arg2;
+- (void)fillCellRangeRowMajorSet:(set_1f50691b *)arg1 leftToRight:(_Bool)arg2;
+- (void)fillCellRangeColMajorSet:(set_3ba0425c *)arg1 leftToRight:(_Bool)arg2;
 
 @end
 

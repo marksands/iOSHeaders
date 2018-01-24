@@ -16,11 +16,11 @@ __attribute__((visibility("hidden")))
 {
     struct TSUCellCoord _minCursorCellID;
     NSMutableArray *_iterators;
-    vector_13f93596 _cursorCellIDs;
+    vector_38b190b0 _cursorCellIDs;
 }
 
 @property(retain, nonatomic) NSMutableArray *iterators; // @synthesize iterators=_iterators;
-@property(nonatomic) vector_13f93596 cursorCellIDs; // @synthesize cursorCellIDs=_cursorCellIDs;
+@property(nonatomic) vector_38b190b0 cursorCellIDs; // @synthesize cursorCellIDs=_cursorCellIDs;
 @property(nonatomic) struct TSUCellCoord minCursorCellID; // @synthesize minCursorCellID=_minCursorCellID;
 - (id).cxx_construct;
 - (void).cxx_destruct;

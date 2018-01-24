@@ -20,6 +20,7 @@
 + (void)setServerProxyClass:(Class)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
++ (id)tileLoaderWithConfiguration:(id)arg1 serverProxy:(id)arg2;
 + (id)modernLoaderForResourceManifestConfiguration:(id)arg1 locale:(id)arg2;
 + (id)modernLoaderForTileGroupIdentifier:(unsigned int)arg1 locale:(id)arg2;
 + (id)modernLoader;
@@ -48,7 +49,9 @@
 - (void)cancelAllForClient:(id)arg1;
 - (void)cancelKey:(const struct _GEOTileKey *)arg1 forClient:(id)arg2;
 - (_Bool)reprioritizeKey:(const struct _GEOTileKey *)arg1 forClient:(id)arg2 newPriority:(unsigned int)arg3;
+- (void)loadKey:(const struct _GEOTileKey *)arg1 additionalInfo:(const CDStruct_58878026 *)arg2 priority:(unsigned int)arg3 forClient:(id)arg4 options:(unsigned long long)arg5 qos:(unsigned int)arg6 callbackQ:(id)arg7 beginNetwork:(CDUnknownBlockType)arg8 callback:(CDUnknownBlockType)arg9;
 - (void)loadKey:(const struct _GEOTileKey *)arg1 additionalInfo:(const CDStruct_58878026 *)arg2 priority:(unsigned int)arg3 forClient:(id)arg4 options:(unsigned long long)arg5 callbackQ:(id)arg6 beginNetwork:(CDUnknownBlockType)arg7 callback:(CDUnknownBlockType)arg8;
+- (void)loadKey:(const struct _GEOTileKey *)arg1 priority:(unsigned int)arg2 forClient:(id)arg3 options:(unsigned long long)arg4 qos:(unsigned int)arg5 callbackQ:(id)arg6 beginNetwork:(CDUnknownBlockType)arg7 callback:(CDUnknownBlockType)arg8;
 - (void)loadKey:(const struct _GEOTileKey *)arg1 priority:(unsigned int)arg2 forClient:(id)arg3 options:(unsigned long long)arg4 callbackQ:(id)arg5 beginNetwork:(CDUnknownBlockType)arg6 callback:(CDUnknownBlockType)arg7;
 - (void)closeForClient:(id)arg1;
 - (void)openForClient:(id)arg1;

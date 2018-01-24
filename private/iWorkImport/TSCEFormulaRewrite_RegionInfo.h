@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)loadIndexesForTable:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithTableUID:(const UUIDData_5fbc143e *)arg1 columnUids:(const vector_dadc1b26 *)arg2 rowUids:(const vector_dadc1b26 *)arg3;
+- (id)initWithTableUID:(const UUIDData_5fbc143e *)arg1 columnUids:(const vector_4dc5f307 *)arg2 rowUids:(const vector_4dc5f307 *)arg3;
 
 @end
 

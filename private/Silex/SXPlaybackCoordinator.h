@@ -11,18 +11,18 @@
 #import "SXVideoMetadataProviding.h"
 #import "SXVolumeObserver.h"
 
-@class NSArray, NSHashTable, NSObject<SXVideoPlaybackHost>, NSString, SXAVPlayer, SXKeyValueObserver;
+@class NSArray, NSError, NSHashTable, NSObject<SXVideoPlaybackHost>, NSString, SXAVPlayer, SXKeyValueObserver;
 
 @interface SXPlaybackCoordinator : NSObject <SXVideoMetadataProviding, SXMediaSelectionControllerDelegate, SXMediaSelectionControllerDataSource, SXVolumeObserver>
 {
     _Bool _hasMediaSelectionOptions;
-    _Bool _requiresReadyToDisplay;
     _Bool _muted;
     _Bool _playbackRequested;
     _Bool _initiatedPlayback;
     id <SXVideoProviding> _video;
     unsigned long long _state;
     NSObject<SXVideoPlaybackHost> *_host;
+    NSError *_error;
     NSHashTable *_observers;
     SXAVPlayer *_player;
     CDUnknownBlockType _cancelHandler;
@@ -38,16 +38,14 @@
 @property(retain, nonatomic) SXAVPlayer *player; // @synthesize player=_player;
 @property(readonly, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(nonatomic) _Bool playbackRequested; // @synthesize playbackRequested=_playbackRequested;
+@property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) _Bool muted; // @synthesize muted=_muted;
-@property(nonatomic) _Bool requiresReadyToDisplay; // @synthesize requiresReadyToDisplay=_requiresReadyToDisplay;
 @property(nonatomic) __weak NSObject<SXVideoPlaybackHost> *host; // @synthesize host=_host;
 @property(nonatomic) struct CGSize dimensions; // @synthesize dimensions=_dimensions;
 @property(nonatomic) _Bool hasMediaSelectionOptions; // @synthesize hasMediaSelectionOptions=_hasMediaSelectionOptions;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(readonly, nonatomic) id <SXVideoProviding> video; // @synthesize video=_video;
 - (void).cxx_destruct;
-- (void)removeReadyForDisplayObserver;
-- (void)addReadyForDisplayObserver;
 - (void)removePlayerItemPresentationSizeObserver;
 - (void)addPlayerItemPresentationSizeObserver;
 - (void)updateMediaSelectionOptionAvailability;
@@ -68,8 +66,8 @@
 - (void)playbackInitiated;
 - (void)setupPlayerWithURL:(id)arg1;
 - (void)loadVideoIfNeeded;
-- (void)prefetch;
-- (void)playIfReady;
+- (void)load;
+@property(readonly, nonatomic) double loadingProgress;
 @property(readonly, nonatomic) double volume;
 @property(readonly, nonatomic) _Bool playbackBufferFull;
 @property(readonly, nonatomic) _Bool playbackLikelyToKeepUp;

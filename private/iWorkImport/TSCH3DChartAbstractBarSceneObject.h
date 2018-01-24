@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 
 + (void)setLowDetailedGeometriesForScene:(id)arg1;
 + (Class)propertiesClass;
-- (void)sortElements:(vector_cd7372eb *)arg1 pipeline:(id)arg2;
+- (void)sortElements:(vector_d7c2985b *)arg1 pipeline:(id)arg2;
 - (tvec3_17f03ce0)sortingPositionForElement:(const struct RenderElementInfo *)arg1;
 - (tvec3_17f03ce0)adjustedScaleForInfoChartScale:(const tvec3_17f03ce0 *)arg1 scene:(id)arg2;
 - (float)chartMinZForScene:(id)arg1;

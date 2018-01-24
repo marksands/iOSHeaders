@@ -76,7 +76,7 @@
 - (void)addNotificationRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)showDailyLocateReport;
 - (void)setDailyLocateReportEnabled:(_Bool)arg1;
-- (void)disableTouchIDForLostModeWithCompletion:(CDUnknownBlockType)arg1;
+- (void)disableBiometricIDForLostModeWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_postWipePrefPath;
 - (_Bool)_quickFetchFMIPEnabledstate;
 

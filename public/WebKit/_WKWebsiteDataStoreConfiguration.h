@@ -14,10 +14,12 @@
     struct RetainPtr<NSURL> _indexedDBDatabaseDirectoryURL;
     struct RetainPtr<NSURL> _webSQLDatabaseDirectoryURL;
     struct RetainPtr<NSURL> _cookieStorageFileURL;
+    struct RetainPtr<NSURL> _resourceLoadStatisticsDirectoryURL;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
+@property(copy, nonatomic, setter=_setResourceLoadStatisticsDirectory:) NSURL *_resourceLoadStatisticsDirectory;
 @property(copy, nonatomic, setter=_setCookieStorageFile:) NSURL *_cookieStorageFile;
 @property(copy, nonatomic, setter=_setWebSQLDatabaseDirectory:) NSURL *_webSQLDatabaseDirectory;
 @property(copy, nonatomic, setter=_setIndexedDBDatabaseDirectory:) NSURL *_indexedDBDatabaseDirectory;

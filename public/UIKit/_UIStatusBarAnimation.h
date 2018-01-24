@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 + (void)_addAnimations:(id)arg1 toPreparingAnimations:(id)arg2 exclusiveAnimations:(id)arg3 visitedDisplayItemIdentifiers:(id)arg4;
 + (void)prepareAnimations:(id)arg1 forStatusBar:(id)arg2;
 + (id)animationWithBlock:(CDUnknownBlockType)arg1;
++ (void)initialize;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(retain, nonatomic) NSMutableArray *completionHandlers; // @synthesize completionHandlers=_completionHandlers;
 @property(copy, nonatomic) CDUnknownBlockType animationBlock; // @synthesize animationBlock=_animationBlock;

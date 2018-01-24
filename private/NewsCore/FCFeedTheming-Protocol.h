@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSCopying.h"
+#import "NFCopying.h"
 #import "NSObject.h"
 
 @class FCAssetHandle, FCColor, FCHeadlineTemplate, FCTagBanner, FCTextInfo, NSArray, NSString;
 
-@protocol FCFeedTheming <NSObject, NSCopying>
+@protocol FCFeedTheming <NSObject, NFCopying>
 @property(readonly, nonatomic) _Bool allowCustomBottomStyle;
 @property(readonly, nonatomic) FCHeadlineTemplate *defaultHeadlineTemplate;
 @property(readonly, nonatomic) NSArray *loadableFonts;
@@ -24,7 +24,6 @@
 @property(readonly, nonatomic) FCAssetHandle *nameImageCompactAssetHandle;
 @property(readonly, nonatomic) FCAssetHandle *nameImageAssetHandle;
 @property(readonly, nonatomic) FCAssetHandle *logoImageAssetHandle;
-@property(readonly, nonatomic) FCColor *groupTitleColor;
 @property(readonly, nonatomic) FCColor *foregroundColor;
 @property(readonly, nonatomic) FCColor *backgroundColor;
 @property(readonly, copy, nonatomic) FCTextInfo *headlineBylineTextInfo;

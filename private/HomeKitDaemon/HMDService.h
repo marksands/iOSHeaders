@@ -8,13 +8,13 @@
 
 #import "HMDBackingStoreObjectProtocol.h"
 #import "HMDBulletinIdentifiers.h"
+#import "HMDHomeMessageReceiver.h"
 #import "HMFDumpState.h"
-#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
-@class HMDApplicationData, HMDBulletinBoardNotification, HMDHAPAccessory, HMDHome, HMFMessageDispatcher, NSArray, NSMutableDictionary, NSNumber, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDApplicationData, HMDBulletinBoardNotification, HMDHAPAccessory, HMDHome, HMFMessageDispatcher, NSArray, NSMutableDictionary, NSNumber, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDService : HMFObject <HMDBulletinIdentifiers, NSSecureCoding, HMFDumpState, HMDBackingStoreObjectProtocol, HMFMessageReceiver>
+@interface HMDService : HMFObject <HMDBulletinIdentifiers, NSSecureCoding, HMFDumpState, HMDBackingStoreObjectProtocol, HMDHomeMessageReceiver>
 {
     _Bool _hidden;
     _Bool _primary;
@@ -39,6 +39,7 @@
     NSString *_providedName;
 }
 
++ (_Bool)hasMessageReceiverChildren;
 + (_Bool)supportsSecureCoding;
 + (_Bool)validateProvidedName:(id)arg1;
 + (id)generateUUIDWithAccessoryUUID:(id)arg1 serviceID:(id)arg2;
@@ -117,6 +118,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

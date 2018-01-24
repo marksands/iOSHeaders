@@ -7,7 +7,6 @@
 #import "NSURL.h"
 
 @interface NSURL (WebNSURLExtras)
-+ (id)uniqueURLWithRelativePart:(id)arg1;
 + (id)_web_URLWithData:(id)arg1 relativeToURL:(id)arg2;
 + (id)_web_URLWithData:(id)arg1;
 + (id)_web_URLWithDataAsString:(id)arg1 relativeToURL:(id)arg2;

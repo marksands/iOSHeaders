@@ -10,15 +10,13 @@
 
 @interface CKArchiveRecordsOperation : CKDatabaseOperation
 {
-    NSArray *_recordIDs;
     CDUnknownBlockType _recordArchivedBlock;
     CDUnknownBlockType _archiveRecordsCompletionBlock;
+    NSArray *_recordIDs;
     NSMutableDictionary *_perItemErrors;
 }
 
 @property(retain, nonatomic) NSMutableDictionary *perItemErrors; // @synthesize perItemErrors=_perItemErrors;
-@property(copy, nonatomic) CDUnknownBlockType archiveRecordsCompletionBlock; // @synthesize archiveRecordsCompletionBlock=_archiveRecordsCompletionBlock;
-@property(copy, nonatomic) CDUnknownBlockType recordArchivedBlock; // @synthesize recordArchivedBlock=_recordArchivedBlock;
 @property(copy, nonatomic) NSArray *recordIDs; // @synthesize recordIDs=_recordIDs;
 - (void).cxx_destruct;
 - (id)activityCreate;
@@ -29,6 +27,8 @@
 - (_Bool)hasCKOperationCallbacksSet;
 - (void)fillFromOperationInfo:(id)arg1;
 - (void)fillOutOperationInfo:(id)arg1;
+@property(copy, nonatomic) CDUnknownBlockType archiveRecordsCompletionBlock; // @synthesize archiveRecordsCompletionBlock=_archiveRecordsCompletionBlock;
+@property(copy, nonatomic) CDUnknownBlockType recordArchivedBlock; // @synthesize recordArchivedBlock=_recordArchivedBlock;
 - (id)initWithRecordIDs:(id)arg1;
 - (id)init;
 

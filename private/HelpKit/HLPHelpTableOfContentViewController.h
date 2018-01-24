@@ -21,6 +21,7 @@
     NSLayoutConstraint *_copyrightFooterLabelHeightConstraint;
     NSLayoutConstraint *_copyrightFooterLabelTopConstraint;
     HLPHelpSearchResultTableViewController *_searchResultTableViewController;
+    _Bool _fullBookView;
     id <HLPHelpTableOfContentViewControllerDelegate> _delegate;
     NSArray *_searchTerms;
     HLPHelpLocale *_locale;
@@ -39,6 +40,7 @@
 @property(retain, nonatomic) HLPHelpLocale *locale; // @synthesize locale=_locale;
 @property(retain, nonatomic) NSArray *searchTerms; // @synthesize searchTerms=_searchTerms;
 @property(nonatomic) __weak id <HLPHelpTableOfContentViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) _Bool fullBookView; // @synthesize fullBookView=_fullBookView;
 - (void).cxx_destruct;
 - (void)updateSearchResultsForSearchController:(id)arg1;
 - (void)willDismissSearchController:(id)arg1;
@@ -53,6 +55,7 @@
 - (void)showTopicItem:(id)arg1 fromTableView:(id)arg2;
 - (void)updateCellSelectionWithScollPosition:(long long)arg1 helpItem:(id)arg2 animated:(_Bool)arg3;
 - (void)appendChildrenForSectionItem:(id)arg1;
+- (void)loadError;
 - (void)updateWithHelpBookController:(id)arg1;
 - (void)contentSizeCategoryDidChange:(id)arg1;
 - (void)updateFooterViewLayout;

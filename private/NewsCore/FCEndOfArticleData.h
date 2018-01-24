@@ -6,17 +6,17 @@
 
 #import "NSObject.h"
 
-@class FCStreamingResults, NSArray;
+@class NSArray;
 
 @interface FCEndOfArticleData : NSObject
 {
     NSArray *_allTopics;
-    FCStreamingResults *_publisherHeadlines;
-    FCStreamingResults *_relatedHeadlines;
+    NSArray *_publisherHeadlines;
+    NSArray *_relatedHeadlines;
 }
 
-@property(retain, nonatomic) FCStreamingResults *relatedHeadlines; // @synthesize relatedHeadlines=_relatedHeadlines;
-@property(retain, nonatomic) FCStreamingResults *publisherHeadlines; // @synthesize publisherHeadlines=_publisherHeadlines;
+@property(retain, nonatomic) NSArray *relatedHeadlines; // @synthesize relatedHeadlines=_relatedHeadlines;
+@property(retain, nonatomic) NSArray *publisherHeadlines; // @synthesize publisherHeadlines=_publisherHeadlines;
 @property(retain, nonatomic) NSArray *allTopics; // @synthesize allTopics=_allTopics;
 - (void).cxx_destruct;
 

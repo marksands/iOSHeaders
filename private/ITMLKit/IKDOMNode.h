@@ -32,6 +32,7 @@
 + (id)_eventListenerMapKeyForType:(id)arg1 useCapture:(_Bool)arg2;
 + (void)handleNodeWillRelease:(struct _xmlNode *)arg1;
 + (void)handleNodeParentDidChange:(struct _xmlNode *)arg1;
++ (long long)ITMLIDForITMLIDString:(id)arg1;
 + (id)ITMLIDStringforITMLID:(unsigned long long)arg1;
 + (id)nodeWithAppContext:(id)arg1 nodePtr:(struct _xmlNode *)arg2;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
@@ -100,6 +101,10 @@
 - (void)dealloc;
 - (id)initWithAppContext:(id)arg1 xmlNode:(struct _xmlNode *)arg2;
 - (id)asPrivateIKJSDOMNode;
+- (id)ik_pathsForSearchQuery:(id)arg1 currentPath:(id)arg2;
+- (id)ik_nodesWithIds:(id)arg1;
+- (id)ik_nodeWithId:(long long)arg1;
+- (id)ik_nodePath;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

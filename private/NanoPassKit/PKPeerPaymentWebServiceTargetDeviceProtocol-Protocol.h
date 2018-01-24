@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSString, NSURL, PKPaymentProvisioningController, PKPeerPaymentAccount, PKPeerPaymentCredential;
+@class NSArray, NSString, NSURL, PKPaymentProvisioningController, PKPeerPaymentAccount, PKPeerPaymentCredential;
 
 @protocol PKPeerPaymentWebServiceTargetDeviceProtocol <NSObject>
 - (void)cloudStoreStatusWithCompletion:(void (^)(CKAccountInfo *, _Bool, NSError *))arg1;
 - (void)provisionPeerPaymentPassWithProvisioningController:(PKPaymentProvisioningController *)arg1 credential:(PKPeerPaymentCredential *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)setUserHasDisabledPeerPayment:(_Bool)arg1;
 - (_Bool)userHasDisabledPeerPayment;
+- (NSArray *)secureElementIdentifiers;
 - (NSString *)bridgedClientInfo;
 - (void)updateAccountWithCompletion:(void (^)(PKPeerPaymentAccount *))arg1;
 - (PKPeerPaymentAccount *)account;

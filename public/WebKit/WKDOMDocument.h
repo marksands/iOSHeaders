@@ -12,6 +12,8 @@
 {
 }
 
+- (id)createDocumentFragmentWithText:(id)arg1;
+- (id)createDocumentFragmentWithMarkupString:(id)arg1 baseURL:(id)arg2;
 @property(readonly) WKDOMElement *body;
 - (id)createTextNode:(id)arg1;
 - (id)createElement:(id)arg1;

@@ -230,7 +230,8 @@
 - (void)startHealthServiceSession:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)endHealthServiceDiscovery:(id)arg1;
 - (void)startHealthServiceDiscovery:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
-- (void)setBadgeCount:(long long)arg1 forDomain:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)setBadge:(id)arg1 forDomain:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)badgeForDomain:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)waitOnHealthCloudSyncWithProgress:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)disableCloudSyncAndDeleteAllCloudDataWithProgress:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchCloudDescriptionWithProgress:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
@@ -257,6 +258,7 @@
 - (void)forceNanoSyncWithPullRequest:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)forceNanoSyncWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchNanoSyncPairedDevicesWithCompletion:(CDUnknownBlockType)arg1;
+- (void)fetchURLForAnalyticsFileWithName:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)stopObservingDataCollectionForType:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)observeDataCollectionForType:(id)arg1 interval:(double)arg2 inBackground:(_Bool)arg3 hasRunningWorkout:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)resetAWDTask:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -272,6 +274,7 @@
 - (void)diagnosticsForKeys:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)stopFakingDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)startFakingDataWithActivityType:(long long)arg1 speed:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_setDaemonPreferenceValue:(id)arg1 forKey:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_fetchDaemonPreferenceForKey:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_safeFetchDaemonPreferenceForKey:(id)arg1 expectedReturnClass:(Class)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_fetchBoolDaemonPreferenceForKey:(id)arg1 completion:(CDUnknownBlockType)arg2;

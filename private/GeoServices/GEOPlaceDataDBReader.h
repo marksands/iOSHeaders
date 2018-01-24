@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (void)_openDBIfNotAlreadyOpen;
 - (void)_openDB;
 - (void)dealloc;
+- (id)initWithPath:(id)arg1;
 - (id)componentForKey:(union _GEOPlaceDataComponentKey)arg1;
 
 @end

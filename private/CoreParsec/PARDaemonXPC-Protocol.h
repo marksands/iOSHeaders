@@ -11,6 +11,7 @@
 - (void)updateParameters:(double)arg1 safariLast1day:(double)arg2 safariLast1week:(double)arg3 safariLast1month:(double)arg4 safariAll:(double)arg5 safariMostRecent:(double)arg6 minThresholdToSend:(double)arg7;
 - (void)addCompletion:(NSString *)arg1 forInput:(NSString *)arg2;
 - (void)clearEngagedCompletionsFromDate:(NSDate *)arg1 toDate:(NSDate *)arg2;
+- (void)fileHandleForWritingFeedbackType:(unsigned long long)arg1 reply:(void (^)(NSFileHandle *, NSError *))arg2;
 - (void)fileHandleAndAttributesForResource:(NSString *)arg1 completion:(void (^)(NSFileHandle *, NSDictionary *, NSError *))arg2;
 - (void)listSessions:(void (^)(NSArray *))arg1;
 - (void)listenToFlusher:(void (^)(NSXPCListenerEndpoint *))arg1;

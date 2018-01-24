@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain) TSUProgressContext *progressContext; // @synthesize progressContext=mProgressContext;
+- (void).cxx_destruct;
 - (_Bool)paginate;
 - (void)setPaginate:(_Bool)arg1;
 - (unsigned long long)pageCount;
@@ -51,7 +52,6 @@ __attribute__((visibility("hidden")))
 - (void)drawAllPagesWithContext:(struct CGContext *)arg1 returnSuccess:(_Bool *)arg2;
 - (void)waitForRecalcToFinish;
 - (void)p_drawCurrentPageWithContext:(struct CGContext *)arg1 returnSuccess:(_Bool *)arg2 createPage:(_Bool)arg3;
-- (void)dealloc;
 - (id)initWithDocumentRoot:(id)arg1;
 - (id)initWithDocumentRoot:(id)arg1 imager:(id)arg2;
 - (id)p_renderingExporterDelegate;

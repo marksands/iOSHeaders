@@ -15,10 +15,10 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) TSCHChartAxisID *axisID; // @synthesize axisID=mAxisID;
+- (void).cxx_destruct;
 - (_Bool)p_hasReferenceLineLabelsWithModel:(id)arg1;
 - (struct CGSize)p_calcMinSizeForModel:(id)arg1;
 - (struct CGSize)calcMinSize;
-- (void)dealloc;
 - (id)initWithParent:(id)arg1 axisID:(id)arg2;
 
 @end

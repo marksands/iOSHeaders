@@ -13,7 +13,7 @@
 @interface VMUVMRegionTracker : NSObject <NSSecureCoding>
 {
     unsigned int _task;
-    struct _CSTypeRef _symbolicator;
+    id <VMUStackLogReader> _stackLogReader;
     NSMutableArray *_regionInfoArray;
 }
 
@@ -28,7 +28,6 @@
 @property(readonly) long long regionCount;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithTask:(unsigned int)arg1 stackLogReader:(id)arg2;
 - (id)initWithTask:(unsigned int)arg1;
 

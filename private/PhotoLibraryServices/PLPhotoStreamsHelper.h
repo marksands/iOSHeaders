@@ -17,6 +17,8 @@
 + (id)iCloudServiceAccount;
 + (_Bool)photoStreamsEnabled;
 + (id)sharedPhotoStreamsHelper;
+- (void)handleMPSStateIfNecessary;
+- (void)fetchMPSStateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)enumerateMasterHashesAndPublicGlobalUUIDsForAssets:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)initiateDeletionOfOriginalAssets:(id)arg1;
 - (void)initiateDeletionOfPhotoStreamAssets:(id)arg1;

@@ -19,7 +19,9 @@
 @property(readonly, nonatomic) int interestedStates; // @synthesize interestedStates=_interestedStates;
 @property(readonly, nonatomic) NSString *assetType; // @synthesize assetType=_assetType;
 - (_Bool)_matchesFilterType:(id)arg1;
+- (void)_modifyMADownloadOptions:(id)arg1;
 - (id)_findMatchFromCandidates:(id)arg1 error:(id *)arg2;
+- (void)modifyMADownloadOptions:(id)arg1;
 - (id)findMatchFromCandidates:(id)arg1 error:(id *)arg2;
 - (id)initWithType:(id)arg1 interestedStates:(int)arg2;
 

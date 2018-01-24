@@ -20,10 +20,10 @@
     id <_HMAccesorySettingGroupDelegate> _delegate;
     NSUUID *_identifier;
     NSString *_name;
+    _HMContext *_context;
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     HMAccessorySettings *_accessorySettings;
-    _HMContext *_context;
 }
 
 + (id)supportedGroupsClasses;
@@ -31,10 +31,10 @@
 + (_Bool)supportsSecureCoding;
 + (id)logCategory;
 + (id)shortDescription;
-@property(retain, nonatomic) _HMContext *context; // @synthesize context=_context;
 @property(retain, nonatomic) HMAccessorySettings *accessorySettings; // @synthesize accessorySettings=_accessorySettings;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
+@property(retain, nonatomic) _HMContext *context; // @synthesize context=_context;
 @property(readonly, copy) NSString *name; // @synthesize name=_name;
 @property(readonly, copy) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property __weak id <_HMAccesorySettingGroupDelegate> delegate; // @synthesize delegate=_delegate;

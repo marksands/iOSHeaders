@@ -19,6 +19,7 @@
 + (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 @property(readonly) NSData *ciphertext;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

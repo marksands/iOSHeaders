@@ -9,13 +9,12 @@
 __attribute__((visibility("hidden")))
 @interface WebNetworkStateObserver : NSObject
 {
-    const struct NetworkStateNotifier *_notifier;
+    CDUnknownBlockType block;
 }
 
-@property(nonatomic) const struct NetworkStateNotifier *notifier; // @synthesize notifier=_notifier;
 - (void)networkStateChanged:(id)arg1;
 - (void)dealloc;
-- (id)initWithNotifier:(const struct NetworkStateNotifier *)arg1;
+- (id)initWithBlock:(CDUnknownBlockType)arg1;
 
 @end
 

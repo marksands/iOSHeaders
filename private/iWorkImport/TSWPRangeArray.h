@@ -7,27 +7,41 @@
 #import "NSObject.h"
 
 #import "NSCopying.h"
+#import "NSMutableCopying.h"
 
 __attribute__((visibility("hidden")))
-@interface TSWPRangeArray : NSObject <NSCopying>
+@interface TSWPRangeArray : NSObject <NSCopying, NSMutableCopying>
 {
-    struct TSWPRangeVector *_rangeVectorOpaque;
+    vector_b5e32e34 _rangeVector;
 }
 
++ (id)rangeArray;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (unsigned long long)p_finish;
+- (unsigned long long)p_start;
+- (id)shortDescription;
 - (id)description;
+- (id)rangesIntersecting:(struct _NSRange)arg1;
+- (id)intersection:(struct _NSRange)arg1;
+- (unsigned long long)indexForRange:(struct _NSRange)arg1;
+- (_Bool)intersectsRange:(struct _NSRange)arg1;
+- (struct _NSRange)rangeContainingPosition:(unsigned long long)arg1 excludeInitialPosition:(_Bool)arg2;
+- (struct _NSRange)rangeContainingPosition:(unsigned long long)arg1;
+- (_Bool)containsRange:(struct _NSRange)arg1;
+- (_Bool)containsCharacterAtIndex:(unsigned long long)arg1 inclusive:(_Bool)arg2;
+- (_Bool)containsCharacterAtIndex:(unsigned long long)arg1;
+@property(readonly, nonatomic) unsigned long long indexCount;
 - (void)enumerateRangesInRange:(struct _NSRange)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (void)enumerateRangesUsingBlock:(CDUnknownBlockType)arg1;
-- (void)removeRange:(struct _NSRange)arg1;
-- (struct _NSRange *)rangeReferenceAtIndex:(unsigned long long)arg1;
-- (void)addRange:(struct _NSRange)arg1;
-@property(readonly, nonatomic) unsigned long long start;
-@property(readonly, nonatomic) unsigned long long finish;
-@property(readonly, nonatomic) _Bool isEmpty;
+- (void)reverseEnumerateRanges:(CDUnknownBlockType)arg1;
+- (void)enumerateRanges:(CDUnknownBlockType)arg1;
 - (struct _NSRange)rangeAtIndex:(unsigned long long)arg1;
+@property(readonly, nonatomic) struct _NSRange superRange;
 @property(readonly, nonatomic) unsigned long long rangeCount;
+- (_Bool)isEqualToRangeArray:(id)arg1;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (id)initWithRangeVector:(const void *)arg1;
+- (id)initWithRangeVector:(const vector_b5e32e34 *)arg1;
 - (id)initWithRange:(struct _NSRange)arg1;
 - (id)init;
 

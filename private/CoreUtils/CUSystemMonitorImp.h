@@ -9,20 +9,25 @@
 #import "CXCallObserverDelegate.h"
 #import "FMFSessionDelegate.h"
 
-@class CUWiFiManager, CXCallObserver, NSObject<OS_dispatch_queue>, NSString;
+@class CUBluetoothClient, CUWiFiManager, CXCallObserver, NSData, NSObject<OS_dispatch_queue>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CUSystemMonitorImp : NSObject <FMFSessionDelegate, CXCallObserverDelegate>
 {
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     struct NSMutableSet *_monitors;
+    CDStruct_83abfce7 _bluetoothAddress48;
+    NSData *_bluetoothAddressData;
+    CUBluetoothClient *_bluetoothClient;
     CXCallObserver *_callObserver;
     int _activeCallCount;
     int _fmfDevicesChangedToken;
     int _meDeviceChangedToken;
+    int _meDeviceRetryToken;
     NSString *_meDeviceFMFDeviceID;
     NSString *_meDeviceIDSDeviceID;
     NSString *_meDeviceName;
+    _Bool _meDeviceValid;
     int _powerSourceToken;
     _Bool _powerUnlimited;
     _Bool _primaryAppleIDIsHSA2;
@@ -62,6 +67,8 @@ __attribute__((visibility("hidden")))
 - (void)callObserver:(id)arg1 callChanged:(id)arg2;
 - (void)_callMonitorStop;
 - (void)_callMonitorStart;
+- (void)_bluetoothAddressMonitorStop;
+- (void)_bluetoothAddressMonitorStart;
 - (void)_update;
 - (void)updateWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_invokeBlock:(CDUnknownBlockType)arg1 passingTest:(CDUnknownBlockType)arg2;

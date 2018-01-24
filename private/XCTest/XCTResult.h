@@ -14,6 +14,7 @@
     NSError *_error;
 }
 
++ (id)futureResultWithTimeout:(double)arg1 description:(id)arg2 block:(CDUnknownBlockType)arg3;
 + (id)resultWithError:(id)arg1;
 + (id)resultWithValue:(id)arg1;
 + (id)result;

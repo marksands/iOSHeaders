@@ -12,6 +12,7 @@
 
 @interface VNCoreMLModel : NSObject <VNObservationsCacheKeyProviding>
 {
+    NSString *_uuidStringForCacheIdentifier;
     int _modelType;
     unsigned int _inputImageFormat;
     MLModel *_model;

@@ -23,6 +23,7 @@
 + (Class)_parametersClass;
 + (id)feedbackPattern;
 + (id)type;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSTimer *repeatTimer; // @synthesize repeatTimer=_repeatTimer;
 @property(readonly, nonatomic) _Bool isRepeating; // @synthesize isRepeating=_isRepeating;
 @property(retain, nonatomic) NSArray *feedbacks; // @synthesize feedbacks=_feedbacks;

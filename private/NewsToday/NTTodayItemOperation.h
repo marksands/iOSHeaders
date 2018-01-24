@@ -14,6 +14,7 @@
     id <FCAppConfiguration> _appConfiguration;
     id <FCContentContext> _contentContext;
     NSSet *_itemIDsOfLeadingCells;
+    NSDictionary *_slotAllocationByDynamicSlotItemID;
     id <FCFeedPersonalizing> _feedPersonalizer;
     id <NTTodayResultOperationInfoProviding> _operationInfo;
     NTCatchUpOperationForYouFetchInfo *_forYouFetchInfo;
@@ -30,6 +31,7 @@
 @property(copy, nonatomic) NTCatchUpOperationForYouFetchInfo *forYouFetchInfo; // @synthesize forYouFetchInfo=_forYouFetchInfo;
 @property(copy, nonatomic) id <NTTodayResultOperationInfoProviding> operationInfo; // @synthesize operationInfo=_operationInfo;
 @property(retain, nonatomic) id <FCFeedPersonalizing> feedPersonalizer; // @synthesize feedPersonalizer=_feedPersonalizer;
+@property(copy, nonatomic) NSDictionary *slotAllocationByDynamicSlotItemID; // @synthesize slotAllocationByDynamicSlotItemID=_slotAllocationByDynamicSlotItemID;
 @property(copy, nonatomic) NSSet *itemIDsOfLeadingCells; // @synthesize itemIDsOfLeadingCells=_itemIDsOfLeadingCells;
 @property(retain, nonatomic) id <FCContentContext> contentContext; // @synthesize contentContext=_contentContext;
 @property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;

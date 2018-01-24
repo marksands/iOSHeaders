@@ -15,9 +15,11 @@
     long long _priority;
     id <VKAnimationRunner> _runner;
     long long _state;
+    float _frequency;
     _Bool _runsForever;
 }
 
+@property(nonatomic) float frequency; // @synthesize frequency=_frequency;
 @property(readonly, nonatomic) long long state; // @synthesize state=_state;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) _Bool runsForever; // @synthesize runsForever=_runsForever;
@@ -36,6 +38,7 @@
 - (id)initWithPriority:(long long)arg1 name:(id)arg2;
 - (id)initWithName:(id)arg1;
 @property(readonly, nonatomic) _Bool timed;
+@property(readonly, nonatomic) _Bool hasFrequency;
 @property(nonatomic) double duration;
 @property(readonly, nonatomic) _Bool running;
 

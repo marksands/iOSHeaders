@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class WBSCompletionQuery, WBSParsecSearchResult;
+@class WBSCompletionQuery;
 
 @protocol WBSParsecSearchSession <NSObject>
 @property(readonly, nonatomic) id <WBSParsecFeedbackDispatcher> feedbackDispatcher;
@@ -14,6 +14,5 @@
 @property(readonly, nonatomic, getter=isValid) _Bool valid;
 @property(retain, nonatomic) WBSCompletionQuery *currentQuery;
 @property(nonatomic) __weak id <WBSParsecSearchSessionDelegate> delegate;
-- (void)fetchCardDetailsForResult:(WBSParsecSearchResult *)arg1 completionBlock:(void (^)(WBSParsecSearchResult *, NSError *))arg2;
 @end
 

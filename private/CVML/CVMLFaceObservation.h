@@ -6,11 +6,11 @@
 
 #import <CVML/CVMLDetectedObject.h>
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class CVMLFaceLandmarks, CVMLFaceRegionMap, CVMLFaceprint, NSData, NSDictionary;
 
-@interface CVMLFaceObservation : CVMLDetectedObject <NSCoding>
+@interface CVMLFaceObservation : CVMLDetectedObject <NSSecureCoding>
 {
     float _landmarkScore;
     _Bool _isBlinking;
@@ -33,6 +33,7 @@
 +     // Error parsing type: B104@0:8{?=[4]}16^f80^f88^f96, name: computeYawPitchRollFromPoseMatrix:outputYaw:outputPitch:outputRoll:
 + (id)observationWithBoundingBox:(struct CGRect)arg1 andAlignedBoundingBox:(struct CGRect)arg2;
 + (id)observationWithBoundingBox:(struct CGRect)arg1;
++ (_Bool)supportsSecureCoding;
 @property(retain) CVMLFaceprint *faceprint; // @synthesize faceprint=_faceprint;
 @property unsigned long long faceId; // @synthesize faceId=_faceId;
 @property(retain) NSData *alignedMeanShape; // @synthesize alignedMeanShape=_alignedMeanShape;

@@ -9,6 +9,7 @@
 @class NSString, NSURL;
 
 @protocol TSWPBookmarkEntry <NSObject>
+@property(readonly, nonatomic) NSString *key;
 @property(readonly, nonatomic) NSURL *url;
 @property(readonly, nonatomic) struct _NSRange range;
 @property(readonly, nonatomic) NSString *displayName;

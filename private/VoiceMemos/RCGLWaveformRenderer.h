@@ -20,7 +20,7 @@
     CDStruct_73a5d3ca _renderedTimeRange;
     _Bool _renderedTimeRangeIsApproximatedWaveform;
     CDStruct_73a5d3ca _highlightTimeRange;
-    vector_ec52ae8c _waveformVertexData;
+    vector_7584168e _waveformVertexData;
     unsigned long long _renderedWaveformVertices;
     unsigned int _shaderProgram;
     int _projectionUniform;

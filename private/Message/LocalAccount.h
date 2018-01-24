@@ -12,7 +12,7 @@
 
 + (id)csAccountTypeString;
 + (id)accountTypeString;
-+ (id)defaultPathNameForAccountWithHostname:(id)arg1 username:(id)arg2;
++ (id)legacyPathNameForAccountWithHostname:(id)arg1 username:(id)arg2;
 + (id)localAccount;
 + (id)accountTypeIdentifier;
 - (_Bool)supportsArchiving;
@@ -23,6 +23,7 @@
 - (id)transientDraftsFolder;
 - (id)transientDraftsFolderShouldCreate:(_Bool)arg1;
 - (void)resetSpecialMailboxes;
+- (id)mailboxUidForRelativePath:(id)arg1 create:(_Bool)arg2 withOption:(int)arg3;
 - (id)mailboxUidForFileSystemPath:(id)arg1;
 - (_Bool)renameMailbox:(id)arg1 newName:(id)arg2 parent:(id)arg3;
 - (_Bool)_setChildren:(id)arg1 forMailboxUid:(id)arg2;
@@ -43,6 +44,7 @@
 - (id)uniqueId;
 - (_Bool)isActive;
 - (id)initWithLibrary:(id)arg1 persistentAccount:(id)arg2;
+- (id)legacySQLExpressionToMatchAllMailboxes;
 
 @end
 

@@ -11,7 +11,7 @@
 #import "SXAdDocumentStateObserver.h"
 #import "SXViewportChangeListener.h"
 
-@class ADBannerView, NSError, NSString, SXAdController, SXHost, SXIAdDebugView;
+@class ADBannerView, NSError, NSString, SXAdController, SXIAdDebugView;
 
 @interface SXIAdComponentView : SXComponentView <ADBannerViewDelegate, SXAdDisplayInstructions, SXViewportChangeListener, SXAdDocumentStateObserver>
 {
@@ -21,7 +21,7 @@
     _Bool _didUnloadBannerView;
     int _opportunityError;
     SXAdController *_adController;
-    SXHost *_host;
+    id <SXHost> _host;
     ADBannerView *_bannerView;
     CDUnknownBlockType _cancelHandler;
     SXIAdDebugView *_debugView;
@@ -41,7 +41,7 @@
 @property(nonatomic) struct CGSize viewportSizeOnAdRequest; // @synthesize viewportSizeOnAdRequest=_viewportSizeOnAdRequest;
 @property(nonatomic) _Bool hasInvalidatedLayout; // @synthesize hasInvalidatedLayout=_hasInvalidatedLayout;
 @property(retain, nonatomic) ADBannerView *bannerView; // @synthesize bannerView=_bannerView;
-@property(readonly, nonatomic) SXHost *host; // @synthesize host=_host;
+@property(readonly, nonatomic) id <SXHost> host; // @synthesize host=_host;
 @property(readonly, nonatomic) __weak SXAdController *adController; // @synthesize adController=_adController;
 - (void).cxx_destruct;
 - (void)sendOpportunityEvent;

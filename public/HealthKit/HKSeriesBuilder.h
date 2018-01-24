@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-#import "NSSecureCoding.h"
-
 @class HKDevice, HKHealthStore, NSObject<OS_dispatch_queue>;
 
-@interface HKSeriesBuilder : NSObject <NSSecureCoding>
+@interface HKSeriesBuilder : NSObject
 {
     _Bool _hasData;
     long long _state;
@@ -20,14 +18,11 @@
     NSObject<OS_dispatch_queue> *_resourceQueue;
 }
 
-+ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *resourceQueue; // @synthesize resourceQueue=_resourceQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *completionQueue; // @synthesize completionQueue=_completionQueue;
 @property(readonly, nonatomic) HKHealthStore *store; // @synthesize store=_store;
 @property(readonly, copy, nonatomic) HKDevice *device; // @synthesize device=_device;
 - (void).cxx_destruct;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
 @property(nonatomic) long long state;
 @property(nonatomic) _Bool hasData;
 - (void)_resourceQueue_discardWithHandler:(CDUnknownBlockType)arg1;

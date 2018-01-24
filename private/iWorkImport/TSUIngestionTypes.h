@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)highEfficiencyImageTypes;
 + (id)p_unsupportedPlainTextTypes;
 + (id)p_supportedPlainTextTypes;
 + (_Bool)isValidPlainTextUTI:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate.h"
 
-@class NSDecimalNumber, NSNumber, NSNumberFormatter, NSString, PKNumberPadInputView, UIColor, UIFont, UILabel, UITextField;
+@class NSDecimalNumber, NSDecimalNumberHandler, NSNumber, NSNumberFormatter, NSString, PKNumberPadInputView, UIColor, UIFont, UILabel, UITextField;
 
 @interface PKEnterCurrencyAmountView : UIView <UITextFieldDelegate>
 {
@@ -20,22 +20,22 @@
     UIColor *_textColor;
     UIFont *_amountFont;
     NSNumber *_kerning;
-    UIFont *_currencySymbolFont;
     id <PKEnterCurrencyAmountViewDelegate> _delegate;
-    UILabel *_currencySymbolLabel;
     UILabel *_amountLabel;
     PKNumberPadInputView *_numberPad;
-    NSNumberFormatter *_currentAmountFormatter;
-    NSString *_localizedAmountString;
+    NSNumberFormatter *_amountFormatter;
+    NSDecimalNumberHandler *_roundingBehavior;
+    NSNumberFormatter *_currencySymbolAmountFormatter;
+    NSString *_amountString;
 }
 
-@property(retain, nonatomic) NSString *localizedAmountString; // @synthesize localizedAmountString=_localizedAmountString;
-@property(retain, nonatomic) NSNumberFormatter *currentAmountFormatter; // @synthesize currentAmountFormatter=_currentAmountFormatter;
+@property(retain, nonatomic) NSString *amountString; // @synthesize amountString=_amountString;
+@property(retain, nonatomic) NSNumberFormatter *currencySymbolAmountFormatter; // @synthesize currencySymbolAmountFormatter=_currencySymbolAmountFormatter;
+@property(retain, nonatomic) NSDecimalNumberHandler *roundingBehavior; // @synthesize roundingBehavior=_roundingBehavior;
+@property(retain, nonatomic) NSNumberFormatter *amountFormatter; // @synthesize amountFormatter=_amountFormatter;
 @property(retain, nonatomic) PKNumberPadInputView *numberPad; // @synthesize numberPad=_numberPad;
 @property(retain, nonatomic) UILabel *amountLabel; // @synthesize amountLabel=_amountLabel;
-@property(retain, nonatomic) UILabel *currencySymbolLabel; // @synthesize currencySymbolLabel=_currencySymbolLabel;
 @property(nonatomic) __weak id <PKEnterCurrencyAmountViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(copy, nonatomic) UIFont *currencySymbolFont; // @synthesize currencySymbolFont=_currencySymbolFont;
 @property(copy, nonatomic) NSNumber *kerning; // @synthesize kerning=_kerning;
 @property(copy, nonatomic) UIFont *amountFont; // @synthesize amountFont=_amountFont;
 @property(copy, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
@@ -45,9 +45,9 @@
 @property(nonatomic) _Bool showsDecimalPointButton; // @synthesize showsDecimalPointButton=_showsDecimalPointButton;
 - (void).cxx_destruct;
 - (void)_createSubviews;
-- (double)_topPaddingForCurrencySymbol;
 - (void)_updateContent;
-- (id)_formatAmount:(id)arg1 alwaysShowDecimalSeparator:(_Bool)arg2 minimumFractionDigits:(unsigned long long)arg3 useGroupingSeparator:(_Bool)arg4;
+- (id)_decimalNumberFromString:(id)arg1;
+- (id)_formatAmountForDisplay:(id)arg1 alwaysShowDecimalSeparator:(_Bool)arg2 minimumFractionDigits:(unsigned long long)arg3 useGroupingSeparator:(_Bool)arg4;
 - (void)_createAmountFormatter;
 - (unsigned long long)_numberOfDecimalPlacesInString:(id)arg1 decimalSeperator:(id)arg2;
 - (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;

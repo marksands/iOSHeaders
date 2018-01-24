@@ -13,6 +13,7 @@
 + (id)sharedInstance;
 + (void)__setSingleton__im:(id)arg1;
 + (id)__singleton__im;
+- (void)tryToAutoCollectLogsWithErrorString:(id)arg1 sendLogsTo:(id)arg2;
 - (void)fetchCloudKitSyncStateDebuggingInfo:(id)arg1;
 - (id)syncStateDictionary;
 - (id)lastSyncErrors;
@@ -43,6 +44,8 @@
 - (_Bool)isSyncing;
 - (_Bool)isStartingSync;
 - (void)initiateSync;
+- (void)_requestMOCEnabledReturned:(unsigned long long)arg1;
+- (void)requestMOCEnabledState;
 - (void)setShouldOptimizeAttachmentStorage:(_Bool)arg1;
 - (_Bool)shouldOptimizeAttachmentStorage;
 - (_Bool)eligibleForTruthZone;

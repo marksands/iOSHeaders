@@ -33,6 +33,8 @@
 @property(copy, nonatomic) NSURL *_DKApplicationActivityMetadataKey__itemRelatedContentURL; // @dynamic _DKApplicationActivityMetadataKey__itemRelatedContentURL;
 @property(copy, nonatomic) NSString *_DKApplicationActivityMetadataKey__itemRelatedUniqueIdentifier; // @dynamic _DKApplicationActivityMetadataKey__itemRelatedUniqueIdentifier;
 @property(copy, nonatomic) NSString *_DKApplicationActivityMetadataKey__title; // @dynamic _DKApplicationActivityMetadataKey__title;
+@property(copy, nonatomic) NSString *_DKApplicationActivityMetadataKey__userActivityRequiredString; // @dynamic _DKApplicationActivityMetadataKey__userActivityRequiredString;
+@property(copy, nonatomic) NSString *_DKApplicationActivityMetadataKey__userActivityUUID; // @dynamic _DKApplicationActivityMetadataKey__userActivityUUID;
 @property(copy, nonatomic) NSString *_DKApplicationMetadataKey__backboardState; // @dynamic _DKApplicationMetadataKey__backboardState;
 @property(copy, nonatomic) NSString *_DKApplicationMetadataKey__extensionContainingBundleIdentifier; // @dynamic _DKApplicationMetadataKey__extensionContainingBundleIdentifier;
 @property(copy, nonatomic) NSString *_DKApplicationMetadataKey__extensionHostIdentifier; // @dynamic _DKApplicationMetadataKey__extensionHostIdentifier;

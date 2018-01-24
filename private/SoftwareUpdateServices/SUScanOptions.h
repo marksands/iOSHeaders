@@ -15,9 +15,11 @@
     NSString *_identifier;
     _Bool _forced;
     NSMutableSet *_types;
+    NSString *_requestedPMV;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSString *requestedPMV; // @synthesize requestedPMV=_requestedPMV;
 @property(retain, nonatomic) NSSet *types; // @synthesize types=_types;
 @property(nonatomic, getter=isForced) _Bool forced; // @synthesize forced=_forced;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;

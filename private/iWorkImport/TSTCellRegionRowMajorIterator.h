@@ -13,7 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface TSTCellRegionRowMajorIterator : NSObject <TSTCellRegionIterating>
 {
-    set_f8eea70b mCellRangeSet;
+    set_5fd94db8 mCellRangeSet;
     struct TSUCellCoord mCellID;
     struct TSUCellRect mBoundingCellRange;
 }

@@ -11,46 +11,46 @@
 __attribute__((visibility("hidden")))
 @interface TSTCellStateForLayout : NSObject
 {
-    _Bool mCellPropsRowHeight;
-    _Bool mCellWraps;
-    _Bool mForDrawing;
-    _Bool mInDynamicLayout;
-    struct TSUCellCoord mModelCellID;
-    int mVerticalAlignment;
-    int mLayoutCacheFlags;
-    TSTCell *mCell;
-    struct TSUCellRect mLayoutMergeRange;
-    TSWPColumn *mWPColumn;
-    double mMaxWidthForChildren;
-    id mCellContents;
-    TSTLayoutContentCachedKey *mKeyVal;
-    unsigned long long mPageNumber;
-    unsigned long long mPageCount;
-    struct CGSize mMinSize;
-    struct CGSize mMaxSize;
-    struct UIEdgeInsets mPaddingInsets;
+    _Bool _cellPropsRowHeight;
+    _Bool _cellWraps;
+    _Bool _forDrawing;
+    _Bool _inDynamicLayout;
+    struct TSUCellCoord _modelCellID;
+    int _verticalAlignment;
+    int _layoutCacheFlags;
+    TSTCell *_cell;
+    struct TSUCellRect _layoutMergeRange;
+    id _cellContents;
+    double _maxWidthForChildren;
+    TSTLayoutContentCachedKey *_keyVal;
+    TSWPColumn *_wpColumn;
+    unsigned long long _pageNumber;
+    unsigned long long _pageCount;
+    struct CGSize _minSize;
+    struct CGSize _maxSize;
+    struct UIEdgeInsets _paddingInsets;
 }
 
-@property(nonatomic) unsigned long long pageCount; // @synthesize pageCount=mPageCount;
-@property(nonatomic) unsigned long long pageNumber; // @synthesize pageNumber=mPageNumber;
-@property(nonatomic) int layoutCacheFlags; // @synthesize layoutCacheFlags=mLayoutCacheFlags;
-@property(retain, nonatomic) TSTLayoutContentCachedKey *keyVal; // @synthesize keyVal=mKeyVal;
-@property(retain, nonatomic) id cellContents; // @synthesize cellContents=mCellContents;
-@property(nonatomic) int verticalAlignment; // @synthesize verticalAlignment=mVerticalAlignment;
-@property(nonatomic) struct UIEdgeInsets paddingInsets; // @synthesize paddingInsets=mPaddingInsets;
-@property(nonatomic) double maxWidthForChildren; // @synthesize maxWidthForChildren=mMaxWidthForChildren;
-@property(nonatomic) struct CGSize maxSize; // @synthesize maxSize=mMaxSize;
-@property(nonatomic) struct CGSize minSize; // @synthesize minSize=mMinSize;
-@property(retain, nonatomic) TSWPColumn *wpColumn; // @synthesize wpColumn=mWPColumn;
-@property(nonatomic) _Bool inDynamicLayout; // @synthesize inDynamicLayout=mInDynamicLayout;
-@property(nonatomic) _Bool forDrawing; // @synthesize forDrawing=mForDrawing;
-@property(nonatomic) _Bool cellWraps; // @synthesize cellWraps=mCellWraps;
-@property(nonatomic) _Bool cellPropsRowHeight; // @synthesize cellPropsRowHeight=mCellPropsRowHeight;
-@property(nonatomic) struct TSUCellRect layoutMergeRange; // @synthesize layoutMergeRange=mLayoutMergeRange;
-@property(copy, nonatomic) TSTCell *cell; // @synthesize cell=mCell;
-@property(nonatomic) struct TSUCellCoord modelCellID; // @synthesize modelCellID=mModelCellID;
+@property(nonatomic) unsigned long long pageCount; // @synthesize pageCount=_pageCount;
+@property(nonatomic) unsigned long long pageNumber; // @synthesize pageNumber=_pageNumber;
+@property(retain, nonatomic) TSWPColumn *wpColumn; // @synthesize wpColumn=_wpColumn;
+@property(retain, nonatomic) TSTLayoutContentCachedKey *keyVal; // @synthesize keyVal=_keyVal;
+@property(nonatomic) int layoutCacheFlags; // @synthesize layoutCacheFlags=_layoutCacheFlags;
+@property(nonatomic) _Bool inDynamicLayout; // @synthesize inDynamicLayout=_inDynamicLayout;
+@property(nonatomic) _Bool forDrawing; // @synthesize forDrawing=_forDrawing;
+@property(nonatomic) _Bool cellWraps; // @synthesize cellWraps=_cellWraps;
+@property(nonatomic) _Bool cellPropsRowHeight; // @synthesize cellPropsRowHeight=_cellPropsRowHeight;
+@property(nonatomic) int verticalAlignment; // @synthesize verticalAlignment=_verticalAlignment;
+@property(nonatomic) struct UIEdgeInsets paddingInsets; // @synthesize paddingInsets=_paddingInsets;
+@property(nonatomic) double maxWidthForChildren; // @synthesize maxWidthForChildren=_maxWidthForChildren;
+@property(nonatomic) struct CGSize maxSize; // @synthesize maxSize=_maxSize;
+@property(nonatomic) struct CGSize minSize; // @synthesize minSize=_minSize;
+@property(retain, nonatomic) id cellContents; // @synthesize cellContents=_cellContents;
+@property(nonatomic) struct TSUCellRect layoutMergeRange; // @synthesize layoutMergeRange=_layoutMergeRange;
+@property(copy, nonatomic) TSTCell *cell; // @synthesize cell=_cell;
+@property(nonatomic) struct TSUCellCoord modelCellID; // @synthesize modelCellID=_modelCellID;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool hasContent;
-- (void)dealloc;
 - (id)init;
 
 @end

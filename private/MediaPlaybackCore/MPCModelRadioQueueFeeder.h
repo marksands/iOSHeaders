@@ -8,7 +8,7 @@
 
 #import "MPRTCReportingItemSessionContaining.h"
 
-@class ICStoreRequestContext, ICUserIdentityStore, MPAVItem, MPCModelRadioPersonalizationResponse, MPCModelRadioPlaybackQueue, MPCPlaybackRequestEnvironment, NSDictionary, NSOperationQueue, NSString, SSVPlayActivityController;
+@class ICStoreRequestContext, ICUserIdentity, ICUserIdentityStore, MPAVItem, MPCModelRadioPersonalizationResponse, MPCModelRadioPlaybackQueue, MPCPlaybackRequestEnvironment, NSDictionary, NSOperationQueue, NSString, SSVPlayActivityController;
 
 @interface MPCModelRadioQueueFeeder : MPQueueFeeder <MPRTCReportingItemSessionContaining>
 {
@@ -26,12 +26,14 @@
     SSVPlayActivityController *_playActivityController;
     MPCModelRadioPlaybackQueue *_playbackQueue;
     MPCPlaybackRequestEnvironment *_playbackRequestEnvironment;
+    ICUserIdentity *_proactiveCacheIdentity;
     long long _queueGeneration;
     NSString *_siriAssetInfo;
     ICStoreRequestContext *_storeRequestContext;
 }
 
 - (void).cxx_destruct;
+- (void)_updateProactiveCaching;
 - (id)_startPlaybackRequestWithPlaybackContext:(id)arg1;
 - (void)_savePlaybackHistoryWithCurrentIndex:(long long)arg1;
 - (void)_repersonalizeCurrentTracks;

@@ -10,7 +10,7 @@ __attribute__((visibility("hidden")))
 @interface TSTImportWarningSetByCoordinateMap : NSObject
 {
     struct unordered_map<TSUCellCoord, SFUtility::ObjcSharedPtr<TSTImportWarningSet>, std::__1::hash<TSUCellCoord>, std::__1::equal_to<TSUCellCoord>, std::__1::allocator<std::__1::pair<const TSUCellCoord, SFUtility::ObjcSharedPtr<TSTImportWarningSet>>>> _warningSetForCoordinate;
-    vector_13f93596 _coordinates;
+    vector_38b190b0 _coordinates;
 }
 
 - (id).cxx_construct;

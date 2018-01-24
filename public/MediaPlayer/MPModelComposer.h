@@ -10,14 +10,13 @@
 
 @interface MPModelComposer : MPModelPerson
 {
-    NSDate *_libraryAddedDate;
 }
 
-+ (id)__MPModelPropertyComposerLibraryAddedDate__PROPERTY;
-+ (id)__libraryAddedDate__KEY;
++ (id)__libraryAddedDate_KEY;
 + (id)kindWithAlbumKind:(id)arg1;
-@property(copy, nonatomic) NSDate *libraryAddedDate; // @synthesize libraryAddedDate=_libraryAddedDate;
-- (void).cxx_destruct;
+
+// Remaining properties
+@property(copy, nonatomic) NSDate *libraryAddedDate; // @dynamic libraryAddedDate;
 
 @end
 

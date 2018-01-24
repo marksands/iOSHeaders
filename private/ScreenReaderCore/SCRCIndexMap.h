@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
-@interface SCRCIndexMap : NSObject <NSCopying, NSCoding>
+@interface SCRCIndexMap : NSObject <NSCopying, NSSecureCoding>
 {
     struct __CFDictionary *_map;
 }
 
++ (_Bool)supportsSecureCoding;
 - (id)description;
 - (void)addObjectsFromIndexMap:(id)arg1;
 - (id)indexes;

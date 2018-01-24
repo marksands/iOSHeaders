@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
-@interface DAAction : NSObject <NSCoding>
+@interface DAAction : NSObject <NSSecureCoding>
 {
     int _changeId;
     unsigned long long _itemChangeType;
@@ -19,6 +19,7 @@
     id _forwardedAttendeeUUIDs;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) id forwardedAttendeeUUIDs; // @synthesize forwardedAttendeeUUIDs=_forwardedAttendeeUUIDs;
 @property(retain, nonatomic) id forwardedAttendees; // @synthesize forwardedAttendees=_forwardedAttendees;
 @property(nonatomic) int changeId; // @synthesize changeId=_changeId;

@@ -11,14 +11,15 @@
 __attribute__((visibility("hidden")))
 @interface KNAnimationInfo : NSObject
 {
-    Class mAnimationClass;
-    NSSet *mValidAnimationTypes;
+    Class _animationClass;
+    NSSet *_validAnimationTypes;
 }
 
 + (id)localizedEffectNamesForAnimationInfos:(id)arg1 animationType:(long long)arg2;
 + (id)effectIdentifiersForAnimationInfos:(id)arg1;
-@property(readonly, nonatomic) NSSet *validAnimationTypes; // @synthesize validAnimationTypes=mValidAnimationTypes;
-@property(readonly, nonatomic) Class animationClass; // @synthesize animationClass=mAnimationClass;
+@property(retain, nonatomic) NSSet *validAnimationTypes; // @synthesize validAnimationTypes=_validAnimationTypes;
+@property(retain, nonatomic) Class animationClass; // @synthesize animationClass=_animationClass;
+- (void).cxx_destruct;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -26,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)supportsAnimationType:(long long)arg1;
 - (id)localizedNameForType:(long long)arg1;
 @property(readonly, nonatomic) NSString *localizedTransitionName;
+@property(readonly, nonatomic) NSString *localizedContentBuildName;
 @property(readonly, nonatomic) NSString *localizedActionBuildName;
 @property(readonly, nonatomic) NSString *localizedBuildOutName;
 @property(readonly, nonatomic) NSString *localizedBuildInName;
@@ -39,7 +41,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSDictionary *defaultAttributes;
 @property(readonly, nonatomic) _Bool isDrift;
 @property(readonly, nonatomic) NSString *effectIdentifier;
-- (void)dealloc;
 - (id)initWithAnimationClass:(Class)arg1;
 
 @end

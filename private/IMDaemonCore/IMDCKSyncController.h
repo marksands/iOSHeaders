@@ -15,9 +15,11 @@
     IMTimer *_nightlySyncTimer;
     long long _initialSyncAttempts;
     CKFetchRecordZonesOperation *_cloudKitMetricsFetchOp;
+    NSDate *_lastLogDumpDate;
 }
 
 + (id)sharedInstance;
+@property(retain, nonatomic) NSDate *lastLogDumpDate; // @synthesize lastLogDumpDate=_lastLogDumpDate;
 @property(retain, nonatomic) CKFetchRecordZonesOperation *cloudKitMetricsFetchOp; // @synthesize cloudKitMetricsFetchOp=_cloudKitMetricsFetchOp;
 @property(nonatomic) long long initialSyncAttempts; // @synthesize initialSyncAttempts=_initialSyncAttempts;
 @property(retain, nonatomic) IMTimer *nightlySyncTimer; // @synthesize nightlySyncTimer=_nightlySyncTimer;
@@ -31,7 +33,7 @@
 - (void)updateSyncStateFlags;
 - (void)_noteMeticsForSyncEndedWithSuccces:(_Bool)arg1;
 - (void)syncChatsWithMessageContext:(id)arg1;
-- (void)_writeDownSyncDate;
+- (void)_writeDownSyncDateUseManatee:(_Bool)arg1;
 - (long long)_manualSyncAttemptCount;
 - (long long)_periodicSyncAttemptCount;
 - (void)_noteSyncEnded;
@@ -39,20 +41,29 @@
 - (void)_noteDownSyncStartedWithIsPeriodicSync:(_Bool)arg1;
 - (void)_autoBugCaptureWithSubType:(id)arg1 debugDescription:(id)arg2;
 - (void)_beginExitStateCleanupIfNeededWithActivity:(id)arg1;
-- (void)_ifCloudKitAbleToSyncCallBlock:(CDUnknownBlockType)arg1 activity:(id)arg2;
+- (void)_ifCloudKitAbleToSyncIsFullSync:(_Bool)arg1 callBlock:(CDUnknownBlockType)arg2 activity:(id)arg3;
+- (void)_callSyncWithCompletion:(CDUnknownBlockType)arg1 activity:(id)arg2;
 - (void)_syncChatsWithActivity:(id)arg1;
-- (void)syncDeletesToCloudKit;
+- (id)_sharedDatabaseManager;
+- (_Bool)_isSyncingToStingRay;
+- (void)syncDeletesToCloudKitWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_beginPeriodicSyncWithActivity:(id)arg1 shouldCheckDeviceConditions:(_Bool)arg2 attemptCount:(unsigned long long)arg3 useStingRay:(_Bool)arg4 syncChatsCompletionBlock:(CDUnknownBlockType)arg5;
 - (void)_beginPeriodicSyncWithActivity:(id)arg1 shouldCheckDeviceConditions:(_Bool)arg2 attemptCount:(unsigned long long)arg3;
 - (void)_nukeCKData;
 - (void)_dealWithEncryptionKeyLostErrorIfApplicable:(id)arg1;
 - (_Bool)_errorIndicatesDeviceNotGoodForSync:(id)arg1;
 - (void)beginInitialSyncAttemptCount:(unsigned long long)arg1;
+- (void)collectLogsIfNeeded;
+- (_Bool)_withinAnHourOfLogDumpHour;
+- (unsigned long long)_currentHour;
+- (_Bool)_hasDumpedLogsInPastHour;
 - (void)recordMetricIsCloudKitEnabled;
 - (void)performMetricForSuccessfulSync;
 - (void)clearLocalCloudKitSyncState;
 - (void)clearCKRelatedDefaults;
 - (void)kickOffCloudKitSyncIfNeededOnImagentLaunch;
 - (void)beginComingBackOnlineSync;
+- (void)_syncDeletesIfCloudKitEnabled;
 - (_Bool)_accountHasMultipleDevices;
 - (_Bool)_serverDoesNotSingleDeviceLimitation;
 - (_Bool)_chatSyncedRecently;
@@ -70,6 +81,8 @@
 - (_Bool)_syncNotCompletedRecently;
 - (double)_IMAHDAgentFallbackIntervalInSeconds;
 - (void)_dispatchNotification:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (id)_dateForNext24LogDumpAtHour:(long long)arg1 timeNow:(id)arg2 dumpNow:(_Bool *)arg3;
+- (void)setupNoSyncTimer;
 - (void)registerForAccountNotifications;
 - (void)_accountDidChange:(id)arg1;
 - (void)registerForSyncStateChanges;

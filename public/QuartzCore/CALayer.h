@@ -129,8 +129,7 @@
 @property(copy) NSString *contentsScaling;
 @property(copy) NSString *contentsGravity;
 @property(copy) NSString *contentsFormat;
-- (void)setDisableUpdateMask:(unsigned int)arg1;
-- (unsigned int)disableUpdateMask;
+@property unsigned int disableUpdateMask;
 @property unsigned int edgeAntialiasingMask;
 @property(retain) id contents;
 - (_Bool)containsPoint:(struct CGPoint)arg1;
@@ -182,6 +181,7 @@
 - (void)_scrollRect:(struct CGRect)arg1 fromLayer:(id)arg2;
 - (void)scrollPoint:(struct CGPoint)arg1;
 - (void)_scrollPoint:(struct CGPoint)arg1 fromLayer:(id)arg2;
+@property _Bool definesDisplayRegionOfInterest;
 @property _Bool acceleratesDrawing;
 @property struct CGSize backgroundColorPhase;
 @property struct CGSize sizeRequisition;

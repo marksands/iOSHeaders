@@ -54,6 +54,7 @@ __attribute__((visibility("hidden")))
 - (void)main;
 - (void)_sendQueryRequestWithCursor:(id)arg1 previousRequestSchedulerInfo:(id)arg2;
 - (void)_handleRecordResponse:(id)arg1 perRequestSchedulerInfo:(id)arg2;
+- (id)_wrapError:(id)arg1 format:(id)arg2;
 - (void)_handleQueryRequestFinishedWithSchedulerInfo:(id)arg1;
 - (id)activityCreate;
 @property(readonly, nonatomic) NSString *pipeliningDescription;

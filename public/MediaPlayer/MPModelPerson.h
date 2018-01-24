@@ -10,18 +10,14 @@
 
 @interface MPModelPerson : MPModelObject
 {
-    _Bool _hasSocialPosts;
-    NSString *_name;
 }
 
-+ (id)__MPModelPropertyPersonHasSocialPosts__PROPERTY;
-+ (id)__hasSocialPosts__KEY;
-+ (id)__MPModelPropertyPersonName__PROPERTY;
-+ (id)__name__KEY;
-@property(nonatomic) _Bool hasSocialPosts; // @synthesize hasSocialPosts=_hasSocialPosts;
-@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-- (void).cxx_destruct;
-- (id)descriptionWithType:(long long)arg1;
++ (id)__hasSocialPosts_KEY;
++ (id)__name_KEY;
+
+// Remaining properties
+@property(nonatomic) _Bool hasSocialPosts; // @dynamic hasSocialPosts;
+@property(copy, nonatomic) NSString *name; // @dynamic name;
 
 @end
 

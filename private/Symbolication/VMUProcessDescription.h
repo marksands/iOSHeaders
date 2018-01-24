@@ -22,6 +22,8 @@
     int _cpuType;
     _Bool _is64Bit;
     struct timeval _proc_starttime;
+    unsigned long long _physicalFootprint;
+    unsigned long long _physicalFootprintPeak;
     NSDictionary *_lsApplicationInformation;
     NSMutableArray *_binaryImages;
     NSArray *_sortedBinaryImages;
@@ -40,9 +42,12 @@
 
 + (struct _CSTypeRef)symbolicatorFromBinaryImagesDescription:(id)arg1;
 + (id)parseBinaryImagesDescription:(id)arg1;
+@property(readonly, nonatomic) unsigned long long physicalFootprintPeak; // @synthesize physicalFootprintPeak=_physicalFootprintPeak;
+@property(readonly, nonatomic) unsigned long long physicalFootprint; // @synthesize physicalFootprint=_physicalFootprint;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)description;
+- (id)processStatisticsDescription;
 - (id)analysisToolDescription;
 - (id)dateAndVersionDescription;
 - (id)processDescriptionHeader;
@@ -80,6 +85,7 @@
 - (_Bool)initFromCorpse;
 - (void)initFromLiveProcess;
 - (id)initWithTask:(unsigned int)arg1 getBinariesList:(_Bool)arg2;
+- (id)initWithPid:(int)arg1 orTask:(unsigned int)arg2;
 - (void)clearCrashReporterInfo;
 - (void)setCrashReporterInfo;
 

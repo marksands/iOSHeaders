@@ -6,12 +6,15 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 __attribute__((visibility("hidden")))
-@interface _ACComponentVector : NSObject
+@interface _ACComponentVector : NSObject <NSSecureCoding>
 {
     struct AudioComponentVector mVector;
 }
 
++ (_Bool)supportsSecureCoding;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

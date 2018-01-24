@@ -28,8 +28,8 @@
 - (id)_tintedFolderImage;
 - (void)_setGlyph:(id)arg1 withBackgroundColor:(id)arg2;
 - (void)_clearGlyph;
-- (void)_setSiteIcon:(id)arg1;
-- (void)_setImage:(id)arg1;
+- (void)_setSiteIcon:(id)arg1 withBackgroundColor:(id)arg2;
+- (void)_setImage:(id)arg1 withBackgroundColor:(id)arg2;
 - (void)_cancelTouchIconRequest;
 - (void)_updateSiteIconViewWithTouchIconResponse:(id)arg1;
 - (void)updateBookmarkData;

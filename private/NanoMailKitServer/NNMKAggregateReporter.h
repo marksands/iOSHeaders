@@ -48,6 +48,7 @@
 + (void)reportAppLaunched;
 + (void)reportImageAttachmentReceivedForMessageWithId:(id)arg1 contentId:(id)arg2 sizeInBytes:(unsigned long long)arg3 fullSyncVersion:(unsigned long long)arg4 dateSynced:(id)arg5;
 + (void)reportContentReceivedForMessageWithId:(id)arg1 sizeInBytes:(unsigned long long)arg2 fullSyncVersion:(unsigned long long)arg3 dateSynced:(id)arg4;
++ (void)reportOriginalMessageContentSizeInBytes:(unsigned long long)arg1;
 + (void)reportMessageDeletionReceivedForMessageWithId:(id)arg1 fullSyncVersion:(unsigned long long)arg2 dateSynced:(id)arg3;
 + (void)reportMessageUpdateReceivedForMessageWithId:(id)arg1 fullSyncVersion:(unsigned long long)arg2 dateSynced:(id)arg3;
 + (void)reportMessageReceivedWithId:(id)arg1 willGenerateNotification:(_Bool)arg2 fullSyncVersion:(unsigned long long)arg3 dateSynced:(id)arg4;

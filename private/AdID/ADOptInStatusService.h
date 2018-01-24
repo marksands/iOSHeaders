@@ -7,12 +7,11 @@
 #import "ADSingleton.h"
 
 #import "ADOptInStatus_XPC.h"
-#import "BackgroundTaskDelegate.h"
 #import "NSXPCListenerDelegate.h"
 
 @class NSString, NSXPCListener;
 
-@interface ADOptInStatusService : ADSingleton <NSXPCListenerDelegate, ADOptInStatus_XPC, BackgroundTaskDelegate>
+@interface ADOptInStatusService : ADSingleton <NSXPCListenerDelegate, ADOptInStatus_XPC>
 {
     _Bool _requestInFlight;
     NSXPCListener *_listener;
@@ -22,10 +21,6 @@
 @property(nonatomic) _Bool requestInFlight; // @synthesize requestInFlight=_requestInFlight;
 @property(retain) NSXPCListener *listener; // @synthesize listener=_listener;
 - (void).cxx_destruct;
-- (void)checkOnTask:(id)arg1 activity:(id)arg2;
-- (_Bool)runTask:(id)arg1;
-- (void)doRunTask;
-- (void)scheduleDeferredLATStatusChange:(_Bool)arg1;
 - (id)optInStatusString:(long long)arg1;
 - (void)advertisingIdentifierChanged:(CDUnknownBlockType)arg1;
 - (long long)optInStatusFromRecord:(id)arg1;

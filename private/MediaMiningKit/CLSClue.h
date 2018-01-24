@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
-
 @class CLSInformant, CLSProfile, NSDictionary, NSString;
 
-@interface CLSClue : NSObject <NSCoding>
+@interface CLSClue : NSObject
 {
     _Bool _transient;
     NSString *_key;
@@ -25,7 +23,6 @@
     unsigned long long _versionCount;
 }
 
-+ (_Bool)supportsSecureCoding;
 + (id)_clueWithValue:(id)arg1 forKey:(id)arg2 confidence:(double)arg3 relevance:(double)arg4;
 + (id)_clueWithValue:(id)arg1 forKey:(id)arg2;
 @property unsigned long long versionCount; // @synthesize versionCount=_versionCount;
@@ -53,8 +50,6 @@
 - (unsigned long long)enumValue;
 - (unsigned long long)valueHash;
 - (id)description;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
 - (id)init;
 
 @end

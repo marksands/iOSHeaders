@@ -7,7 +7,10 @@
 #import "NFCopying.h"
 #import "NSObject.h"
 
+@class NSString;
+
 @protocol NTTodayItem <NSObject, NFCopying>
+@property(readonly, copy, nonatomic) NSString *identifier;
 @property(readonly, nonatomic) unsigned long long itemType;
 @end
 

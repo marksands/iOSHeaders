@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSMessage, NSArray, NSData, NSString, NSUUID;
+@class MSMessage, NSArray, NSData, NSString, NSUUID, _MSMessageAppContext;
 
 @interface MSConversation : NSObject
 {
@@ -16,6 +16,7 @@
     MSMessage *_selectedMessage;
     NSUUID *_localParticipantIdentifier;
     NSArray *_remoteParticipantIdentifiers;
+    _MSMessageAppContext *_context;
     NSString *_senderAddress;
     NSArray *_recipientAddresses;
     id <MSConversationDelegate> _delegate;
@@ -25,6 +26,7 @@
 @property(nonatomic) __weak id <MSConversationDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSArray *recipientAddresses; // @synthesize recipientAddresses=_recipientAddresses;
 @property(readonly, nonatomic) NSString *senderAddress; // @synthesize senderAddress=_senderAddress;
+@property(retain, nonatomic) _MSMessageAppContext *context; // @synthesize context=_context;
 @property(retain, nonatomic) NSArray *remoteParticipantIdentifiers; // @synthesize remoteParticipantIdentifiers=_remoteParticipantIdentifiers;
 @property(readonly, nonatomic) NSUUID *localParticipantIdentifier; // @synthesize localParticipantIdentifier=_localParticipantIdentifier;
 @property(retain, nonatomic) MSMessage *selectedMessage; // @synthesize selectedMessage=_selectedMessage;
@@ -54,9 +56,8 @@
 - (void)insertText:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)insertMessage:(id)arg1 localizedChangeDescription:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)insertMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (id)context;
 - (void)_updateWithState:(id)arg1;
-- (id)_initWithState:(id)arg1;
+- (id)_initWithState:(id)arg1 context:(id)arg2;
 - (id)inputMessagePayload;
 - (void)insertStickerWithMediaAtURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)insertStickerWithImage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

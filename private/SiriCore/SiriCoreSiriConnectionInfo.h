@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSError, NSString, NSURL, SAConnectionPolicyRoute;
+@class NSError, NSString, NSURL, SAConnectionPolicy, SAConnectionPolicyRoute;
 
 @interface SiriCoreSiriConnectionInfo : NSObject
 {
     _Bool _prefersWWAN;
     _Bool _skipPeer;
     _Bool _skipEdge;
+    _Bool _forceReconnect;
     _Bool _imposePolicyBan;
     _Bool _requiresURLSession;
     NSURL *_url;
@@ -24,14 +25,17 @@
     NSString *_assistantIdentifier;
     NSString *_peerAssistantIdentifier;
     NSString *_connectionId;
+    SAConnectionPolicy *_connectionPolicy;
 }
 
+@property(copy, nonatomic) SAConnectionPolicy *connectionPolicy; // @synthesize connectionPolicy=_connectionPolicy;
 @property(nonatomic) _Bool requiresURLSession; // @synthesize requiresURLSession=_requiresURLSession;
 @property(nonatomic) _Bool imposePolicyBan; // @synthesize imposePolicyBan=_imposePolicyBan;
 @property(copy, nonatomic) NSString *connectionId; // @synthesize connectionId=_connectionId;
 @property(copy, nonatomic) NSString *peerAssistantIdentifier; // @synthesize peerAssistantIdentifier=_peerAssistantIdentifier;
 @property(copy, nonatomic) NSString *assistantIdentifier; // @synthesize assistantIdentifier=_assistantIdentifier;
 @property(nonatomic) double timeout; // @synthesize timeout=_timeout;
+@property(nonatomic) _Bool forceReconnect; // @synthesize forceReconnect=_forceReconnect;
 @property(copy, nonatomic) NSError *skipPeerErrorReason; // @synthesize skipPeerErrorReason=_skipPeerErrorReason;
 @property(nonatomic) _Bool skipEdge; // @synthesize skipEdge=_skipEdge;
 @property(nonatomic) _Bool skipPeer; // @synthesize skipPeer=_skipPeer;

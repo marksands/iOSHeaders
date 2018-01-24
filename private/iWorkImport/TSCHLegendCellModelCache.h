@@ -43,6 +43,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) unsigned long long seriesIndex; // @synthesize seriesIndex=mSeriesIndex;
 @property(readonly) int badgeType; // @synthesize badgeType=mBadgeType;
 @property(readonly) int cellType; // @synthesize cellType=mLegendCellType;
+- (void).cxx_destruct;
 @property(readonly) id symbolFill;
 @property(readonly) id fill;
 - (void)dealloc;

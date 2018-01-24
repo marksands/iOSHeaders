@@ -12,19 +12,17 @@
 {
     _Bool _isDeleted;
     _Bool _shouldFetchAssetContent;
+    CDUnknownBlockType _fetchRecordVersionsProgressBlock;
+    CDUnknownBlockType _fetchRecordVersionsCompletionBlock;
     NSArray *_recordIDs;
     NSArray *_desiredKeys;
     NSString *_minimumVersionETag;
-    CDUnknownBlockType _fetchRecordVersionsProgressBlock;
-    CDUnknownBlockType _fetchRecordVersionsCompletionBlock;
     NSMutableDictionary *_recordErrors;
 }
 
 @property(nonatomic) _Bool shouldFetchAssetContent; // @synthesize shouldFetchAssetContent=_shouldFetchAssetContent;
 @property(nonatomic) _Bool isDeleted; // @synthesize isDeleted=_isDeleted;
 @property(retain, nonatomic) NSMutableDictionary *recordErrors; // @synthesize recordErrors=_recordErrors;
-@property(copy, nonatomic) CDUnknownBlockType fetchRecordVersionsCompletionBlock; // @synthesize fetchRecordVersionsCompletionBlock=_fetchRecordVersionsCompletionBlock;
-@property(copy, nonatomic) CDUnknownBlockType fetchRecordVersionsProgressBlock; // @synthesize fetchRecordVersionsProgressBlock=_fetchRecordVersionsProgressBlock;
 @property(copy, nonatomic) NSString *minimumVersionETag; // @synthesize minimumVersionETag=_minimumVersionETag;
 @property(copy, nonatomic) NSArray *desiredKeys; // @synthesize desiredKeys=_desiredKeys;
 @property(copy, nonatomic) NSArray *recordIDs; // @synthesize recordIDs=_recordIDs;
@@ -37,6 +35,8 @@
 - (void)fillFromOperationInfo:(id)arg1;
 - (void)fillOutOperationInfo:(id)arg1;
 - (id)activityCreate;
+@property(copy, nonatomic) CDUnknownBlockType fetchRecordVersionsCompletionBlock; // @synthesize fetchRecordVersionsCompletionBlock=_fetchRecordVersionsCompletionBlock;
+@property(copy, nonatomic) CDUnknownBlockType fetchRecordVersionsProgressBlock; // @synthesize fetchRecordVersionsProgressBlock=_fetchRecordVersionsProgressBlock;
 - (id)initWithRecordIDs:(id)arg1;
 
 @end

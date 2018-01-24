@@ -12,6 +12,8 @@
 - (void)setActivePlan:(NSData *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)shouldShowAddNewRemotePlan:(void (^)(_Bool))arg1;
 - (void)getRemoteInfo:(void (^)(NSDictionary *, NSError *))arg1;
+- (void)setRoamingSignupOverride:(_Bool)arg1;
+- (void)getRoamingSignupOverrideWithCompletion:(void (^)(_Bool))arg1;
 - (void)setAutoPlanSelection:(_Bool)arg1;
 - (void)getAutoPlanSelectionWithCompletion:(void (^)(_Bool))arg1;
 - (void)deleteAllRemoteProfiles;
@@ -22,6 +24,7 @@
 - (void)eraseAllRemotePlansWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)remotePlansSignupParamsForCsn:(NSData *)arg1 completion:(void (^)(NSDictionary *))arg2;
 - (void)remotePlanLaunchInfoForCsn:(NSData *)arg1 completion:(void (^)(NSString *, NSDictionary *, NSError *))arg2;
+- (void)pendingReleaseRemotePlan;
 - (void)didCancelRemotePlan;
 - (void)didPurchaseRemotePlanForEid:(NSString *)arg1 imei:(NSString *)arg2 meid:(NSString *)arg3 iccid:(NSString *)arg4 alternateSmdpFqdn:(NSString *)arg5 completion:(void (^)(_Bool))arg6;
 - (void)didDeleteRemotePlanItem:(CTCellularPlanItem *)arg1 completion:(void (^)(_Bool, NSError *))arg2;

@@ -4,22 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <iWorkImport/TSCH2DChartType.h>
+#import <iWorkImport/TSCHChartTypePieFamily.h>
 
 __attribute__((visibility("hidden")))
-@interface TSCHChartTypePie : TSCH2DChartType
+@interface TSCHChartTypePie : TSCHChartTypePieFamily
 {
 }
 
-- (id)animationDeliveryStylesForFilter:(id)arg1;
-- (_Bool)explosionAffectsChartBodyBounds;
-- (Class)repClass;
+- (long long)userInterfaceTag;
+- (double)defaultLabelExplosionValue;
 - (Class)chartLayoutItemClass;
 - (id)defaultSeriesType:(unsigned long long)arg1;
 - (id)userInterfaceName;
 - (id)init;
-- (struct CGSize)mungeBodySize:(struct CGSize)arg1;
-- (_Bool)layoutFrameShouldEncloseInfoGeometry;
 
 @end
 

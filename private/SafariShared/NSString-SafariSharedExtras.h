@@ -14,12 +14,12 @@
 + (id)safari_localizedStringFromComponents:(id)arg1 usingConjunctionForFinalJoiner:(_Bool)arg2;
 + (id)safari_stringWithJSValue:(struct OpaqueJSValue *)arg1 context:(struct OpaqueJSContext *)arg2;
 + (id)safari_stringWithJSValue:(struct OpaqueJSValue *)arg1 context:(struct OpaqueJSContext *)arg2 nullStringPolicy:(long long)arg3;
+- (_Bool)safari_looksLikeObscuredPassword;
 @property(readonly, copy, nonatomic) NSString *safari_stringByRemovingExcessWhitespace;
 - (id)safari_stringWithFont:(id)arg1 forWidth:(double)arg2 lineBreakMode:(long long)arg3;
 - (id)safari_containedURLs;
 - (id)safari_sha256Hash;
 - (id)safari_md5Hash;
-- (id)safari_base64DecodedData;
 - (_Bool)safari_isVisualDuplicateOfURLString:(id)arg1;
 - (id)safari_canonicalURLStringForFrequentlyVisitedSites;
 - (void)safari_enumerateSubdomainRangesInHostUsingBlock:(CDUnknownBlockType)arg1;

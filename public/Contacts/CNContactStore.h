@@ -73,6 +73,7 @@
 - (id)unifiedContactWithIdentifier:(id)arg1 keysToFetch:(id)arg2 error:(id *)arg3;
 - (id)requestAccessForEntityType:(long long)arg1;
 - (void)requestAccessForEntityType:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)initWithEnvironment:(id)arg1 options:(unsigned long long)arg2 managedConfiguration:(id)arg3;
 - (id)initWithEnvironment:(id)arg1 options:(unsigned long long)arg2;
 - (id)initWithEnvironment:(id)arg1;
 - (id)init;

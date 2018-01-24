@@ -36,7 +36,6 @@
 - (void)setShuffleType:(long long)arg1;
 - (void)setRepeatType:(long long)arg1;
 - (void)reloadWithPlaybackContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)playWithOptions:(unsigned long long)arg1;
 - (id)initWithPlaybackEngine:(id)arg1;
 
 @end

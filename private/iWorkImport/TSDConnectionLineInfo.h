@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
         unsigned int connectedFrom:1;
         unsigned int connectedTo:1;
     } mInvalidFlags;
+    _Bool mWriteConnectedReferencesForCopies;
 }
 
 @property(retain, nonatomic) TSDDrawableInfo *connectedFromInfo; // @synthesize connectedFromInfo=mConnectedFromInfo;
@@ -31,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)performBlockWithTemporaryLayout:(CDUnknownBlockType)arg1;
 - (void)didCopy;
 - (void)willCopyWithOtherDrawables:(id)arg1;
+- (_Bool)shouldPreventCopyOperationWithOtherInfos:(id)arg1;
 - (_Bool)allowsParentGroupToBeResizedWithoutAspectRatioLock;
 - (_Bool)canAnchor;
 - (struct CGAffineTransform)computeLayoutFullTransform;
@@ -43,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (Class)repClass;
 - (Class)layoutClass;
 - (id)copyWithContext:(id)arg1;
+- (id)initWithContext:(id)arg1 geometry:(id)arg2 style:(id)arg3;
 - (void)saveGeometryToArchive:(struct GeometryArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct ConnectionLineArchive *)arg1 archiver:(id)arg2;

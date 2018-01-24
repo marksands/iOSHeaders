@@ -56,6 +56,12 @@ struct _MRTransactionKeyProtobuf {
 #pragma mark Typedef'd Structures
 
 typedef struct {
+    unsigned int type;
+    _Bool isProxyGroupPlayer;
+    unsigned int reserved[2];
+} CDStruct_64424771;
+
+typedef struct {
     float _field1[4];
 } CDStruct_212a8bf9;
 
@@ -105,16 +111,6 @@ typedef struct {
 } CDStruct_731552e5;
 
 #pragma mark Named Unions
-
-union _MRColor {
-    struct {
-        float red;
-        float green;
-        float blue;
-        float alpha;
-    } ;
-    float data[4];
-};
 
 union _MRHIDPoint {
     CDStruct_643d22a7 _field1;

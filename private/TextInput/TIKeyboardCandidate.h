@@ -35,6 +35,9 @@
 @property(readonly, nonatomic, getter=isSecureContentCandidate) _Bool secureContentCandidate;
 @property(readonly, nonatomic, getter=isRegionalCandidate) _Bool regionalCandidate;
 @property(readonly, nonatomic, getter=isOTAWordListCandidate) _Bool OTAWordListCandidate;
+@property(readonly, nonatomic, getter=isPunctuationCompletionCandidate) _Bool punctuationCompletionCandidate;
+@property(readonly, nonatomic, getter=isPunctuationKeyCandidate) _Bool punctuationKeyCandidate;
+- (_Bool)isPunctuation;
 @property(readonly, nonatomic, getter=isFacemarkCandidate) _Bool facemarkCandidate;
 @property(readonly, nonatomic, getter=isFullwidthCandidate) _Bool fullwidthCandidate;
 @property(readonly, nonatomic) unsigned int usageTrackingMask;

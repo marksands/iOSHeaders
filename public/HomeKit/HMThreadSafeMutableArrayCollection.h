@@ -29,6 +29,7 @@
 - (id)filteredArrayUsingPredicate:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *array;
 @property(readonly, nonatomic) unsigned long long count;
+- (void)addObjectIfNotPresent:(id)arg1;
 - (void)addObject:(id)arg1;
 - (void)removeObjectsInArray:(id)arg1;
 - (void)removeObject:(id)arg1;

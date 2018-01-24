@@ -13,7 +13,7 @@
 
 @property(nonatomic) __weak id <_SFMailContentProviderDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
-- (void)prepareContentForMail:(id)arg1;
+- (void)prepareContentForMail:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 
 @end
 

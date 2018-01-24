@@ -25,6 +25,7 @@
 + (void)__daemon__setUserActivityUserInfo:(id)arg1;
 + (void)__daemon__startBonjourService;
 + (void)__setLogger__:(CDUnknownBlockType)arg1;
++ (void)__openXPC_and_CBApplicationDidBecomeActive__;
 + (void)__openXPC__;
 + (void)__open__;
 + (void)handleUIEvent:(id)arg1;

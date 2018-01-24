@@ -86,11 +86,12 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool supportsBounce;
 @property(readonly, nonatomic) _Bool supportsDuration;
 @property(readonly, nonatomic) _Bool supportsDirection;
+@property(readonly, nonatomic) _Bool isContentBuild;
 @property(readonly, nonatomic) _Bool isEmphasisBuild;
 @property(readonly, nonatomic) _Bool isActionMotionBuild;
 @property(readonly, nonatomic) _Bool isActionBuild;
 @property(readonly, nonatomic) _Bool hasComplement;
-- (_Bool)hasComplementInBuilds:(id)arg1;
+- (_Bool)p_hasComplementInBuilds:(id)arg1;
 - (_Bool)isComplementOfBuild:(id)arg1;
 @property(readonly, nonatomic) _Bool isOnSlide;
 @property(readonly, nonatomic) NSString *title;

@@ -23,6 +23,7 @@
 + (id)protobufForCompressedData:(id)arg1;
 - (_Bool)shouldStoreMessage;
 - (id)copyCKRecordRepresentationWithZoneID:(id)arg1 salt:(id)arg2;
+- (_Bool)_usingStingRay;
 - (id)_recordFromServerChangeToken;
 - (void)_populateCKRecordWithIMMessageActionItemFields:(id)arg1;
 - (id)compressedProtobufDataForMessageActionItem;

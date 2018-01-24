@@ -7,6 +7,7 @@
 #import "UIAlertController.h"
 
 @interface UIAlertController (HUAdditions)
++ (id)hu_alertControllerWithActivityIndicatorAndTitle:(id)arg1;
 + (id)hu_alertControllerForUnimplementedFeature:(id)arg1;
 + (id)alertControllerForAddingDestinationWithTypeString:(id)arg1 andProceed:(CDUnknownBlockType)arg2;
 + (id)alertControllerForAddingDestinationWithType:(unsigned long long)arg1 andProceed:(CDUnknownBlockType)arg2;

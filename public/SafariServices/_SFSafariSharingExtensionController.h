@@ -16,7 +16,7 @@
 
 - (void).cxx_destruct;
 - (void)finalizeJavaScriptForSharingExtension:(id)arg1 arguments:(id)arg2;
-- (void)runJavaScriptForSharingExtension:(id)arg1 javaScript:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)runJavaScriptForSharingExtension:(id)arg1 javaScript:(id)arg2 extraArguments:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)_extensionControllerProxy;
 - (id)initWithWebView:(id)arg1;
 

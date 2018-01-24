@@ -39,6 +39,7 @@
 - (id)getFromObject:(id)arg1;
 - (long long)compareToProperty:(id)arg1;
 - (long long)compare:(id)arg1;
+- (id)description;
 - (id)initWithClass:(Class)arg1 property:(struct objc_property *)arg2;
 
 @end

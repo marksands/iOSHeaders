@@ -43,6 +43,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)p_contentFrameToCaptureForSheet:(id)arg1;
 - (id)previewImageForSize:(struct CGSize)arg1;
 - (double)p_imageBorderForSize:(struct CGSize)arg1;
+- (id)freehandDrawingToolkitUIState;
 - (_Bool)prepareAndValidateSidecarViewStateObjectWithVersionUUIDMismatch:(id)arg1 originalDocumentViewStateObject:(id)arg2;
 - (id)nearestDisplayableSheetToSheet:(id)arg1;
 - (void)collectDocumentOpenAnalyticsWithLogger:(id)arg1;

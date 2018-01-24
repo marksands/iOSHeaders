@@ -42,6 +42,7 @@ __attribute__((visibility("hidden")))
 + (id)colorWithHue:(double)arg1 saturation:(double)arg2 brightness:(double)arg3 alpha:(double)arg4 targetRGBSpace:(unsigned long long)arg5;
 + (id)colorWithHue:(double)arg1 saturation:(double)arg2 brightness:(double)arg3 alpha:(double)arg4;
 + (id)colorWithWhite:(double)arg1 alpha:(double)arg2;
++ (id)colorWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4 targetRGBSpace:(unsigned long long)arg5;
 + (id)colorWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 + (id)colorWithCGColor:(struct CGColor *)arg1;
 + (id)highContrastBackgroundColorForPreset:(id)arg1;
@@ -50,9 +51,13 @@ __attribute__((visibility("hidden")))
 + (id)presetKinds;
 + (id)p_defaultPresetColors:(int)arg1;
 @property(readonly, nonatomic) unsigned long long colorRGBSpace; // @synthesize colorRGBSpace=mColorRGBSpace;
+- (id)p_colorForComparingWithColor:(id)arg1;
+- (double)p_rgbComponentWithIndex:(unsigned char)arg1;
+- (_Bool)p_isEqualToColor:(id)arg1 withTolerance:(double)arg2;
 - (id)hexString;
 - (void)paintPath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2;
 - (void)paintRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
+- (id)colorByCompositingSourceOverDestinationColor:(id)arg1;
 - (id)newBlendedColorWithFraction:(double)arg1 ofColor:(id)arg2;
 - (id)blendedColorWithFraction:(double)arg1 ofColor:(id)arg2;
 - (_Bool)wantsHighContrastBackgroundForDarkMode:(id)arg1;
@@ -71,11 +76,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double blueComponent;
 @property(readonly, nonatomic) double greenComponent;
 @property(readonly, nonatomic) double redComponent;
-- (double)p_rgbComponentWithIndex:(unsigned char)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqualWithTolerance:(id)arg1;
 - (_Bool)isAlmostEqualToColor:(id)arg1;
-- (_Bool)p_isEqualToColor:(id)arg1 withTolerance:(double)arg2;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (void)dealloc;

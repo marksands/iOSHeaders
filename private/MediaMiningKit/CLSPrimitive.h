@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
-@interface CLSPrimitive : NSObject <NSCoding>
+@interface CLSPrimitive : NSObject <NSSecureCoding>
 {
 }
 
++ (_Bool)supportsSecureCoding;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;

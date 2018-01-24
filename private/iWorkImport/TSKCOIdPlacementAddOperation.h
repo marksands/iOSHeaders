@@ -13,23 +13,21 @@
 __attribute__((visibility("hidden")))
 @interface TSKCOIdPlacementAddOperation : TSKCOIdPlacementBaseOperation <TSKCOObjectCountConstraint>
 {
-    int mObjectCount;
-    int mObjectCounterSpace;
+    int _objectCount;
+    int _objectCounterSpace;
 }
 
-@property(readonly, nonatomic) int objectCounterSpace; // @synthesize objectCounterSpace=mObjectCounterSpace;
-@property(readonly, nonatomic) int objectCount; // @synthesize objectCount=mObjectCount;
+@property(readonly, nonatomic) int objectCounterSpace; // @synthesize objectCounterSpace=_objectCounterSpace;
+@property(readonly, nonatomic) int objectCount; // @synthesize objectCount=_objectCount;
 - (void)saveToArchiver:(id)arg1 message:(struct Operation *)arg2;
 - (id)initWithUnarchiver:(id)arg1 message:(const struct Operation *)arg2;
-@property(readonly, copy) NSString *description;
-- (id)transformUpdateRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)transformReplaceRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)transformUpdateIdOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)p_transformRearrangeOrPlacementOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)p_transformPlacement:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)p_transformRearrange:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)p_transformRemove:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)p_transformAdd:(id)arg1 isHigherPriority:(_Bool)arg2;
+- (id)toString;
+- (id)transformUpdateRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformReplaceRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformUpdateIdOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformRearrangeOrPlacementOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformRemoveOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformAddOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
 - (id)p_transformObjectCount:(id)arg1;
 - (id)operationWithNewObjectCount:(int)arg1;
 - (id)operationWithNewFromIndex:(int)arg1 toIndex:(int)arg2 dominating:(_Bool)arg3;
@@ -41,6 +39,7 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) _Bool isNoop;
 @property(readonly) Class superclass;

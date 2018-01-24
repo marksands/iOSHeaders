@@ -9,16 +9,16 @@
 #import "MFMailComposeViewControllerDelegate.h"
 #import "SXMailPresenter.h"
 
-@class NSString, SXHost;
+@class NSString;
 
 @interface SXMailPresenter : NSObject <MFMailComposeViewControllerDelegate, SXMailPresenter>
 {
-    SXHost *_host;
+    id <SXHost> _host;
     id <SXViewControllerPresenting> _viewControllerPresenting;
 }
 
 @property(readonly, nonatomic) id <SXViewControllerPresenting> viewControllerPresenting; // @synthesize viewControllerPresenting=_viewControllerPresenting;
-@property(readonly, nonatomic) SXHost *host; // @synthesize host=_host;
+@property(readonly, nonatomic) id <SXHost> host; // @synthesize host=_host;
 - (void).cxx_destruct;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(long long)arg2 error:(id)arg3;
 - (void)presentMail:(id)arg1;

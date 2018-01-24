@@ -157,7 +157,7 @@ __attribute__((visibility("hidden")))
 - (unsigned char)targetDisplay;
 - (void)setContentsScale:(double)arg1;
 - (void)reloadStylesheet;
-- (void)setStylesheetName:(const basic_string_805fe43b *)arg1;
+- (void)setStylesheetName:(const basic_string_23d93216 *)arg1;
 @property(nonatomic) shared_ptr_a3c46825 styleManager;
 @property(readonly, nonatomic) VKSceneConfiguration *sceneConfiguration;
 - (void)setDesiredMapMode:(long long)arg1 immediate:(_Bool)arg2;

@@ -22,6 +22,7 @@
 - (void)_handleSystemTimerFired:(id)arg1;
 - (id)_criticalFindRequestContextWithResponseHandler:(id)arg1;
 - (id)scheduleTimeoutWithResponseHandler:(id)arg1 timeoutInterval:(double)arg2 timeoutBlock:(CDUnknownBlockType)arg3;
+- (long long)inFlightRequestCount;
 - (id)init;
 - (void)dealloc;
 - (void)_accessRequestContextMapInCriticalSectionWithBlock:(CDUnknownBlockType)arg1;

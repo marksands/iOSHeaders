@@ -21,6 +21,8 @@
     _Bool _usesImageOnTopLayout;
     _Bool _needsRapidUpdates;
     _Bool _showMinimalChrome;
+    _Bool _boundToContext;
+    _Bool _hiddenFromFeeds;
     _Bool _paid;
     _Bool _showSubscriptionRequiredText;
     _Bool _canBePurchased;
@@ -74,11 +76,15 @@
     FCTopStoriesStyleConfiguration *_storyStyle;
     long long _minimumNewsVersion;
     FCCoverArt *_coverArt;
+    NSString *_videoCallToActionTitle;
+    NSURL *_videoCallToActionURL;
     unsigned long long _feedOrder;
     double _globalUserFeedback;
     NSDate *_displayDate;
     COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *_globalCohort;
     COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *_publisherCohort;
+    NSString *_articleRecirculationConfigJSON;
+    NSArray *_publisherSpecifiedArticleIDs;
     NSString *_identifier;
     NSURL *_headlineURL;
     NSString *_titleCompact;
@@ -96,6 +102,8 @@
 @property(copy, nonatomic) NSString *titleCompact; // @synthesize titleCompact=_titleCompact;
 @property(copy, nonatomic) NSURL *headlineURL; // @synthesize headlineURL=_headlineURL;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) NSArray *publisherSpecifiedArticleIDs; // @synthesize publisherSpecifiedArticleIDs=_publisherSpecifiedArticleIDs;
+@property(readonly, nonatomic) NSString *articleRecirculationConfigJSON; // @synthesize articleRecirculationConfigJSON=_articleRecirculationConfigJSON;
 @property(readonly, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *publisherCohort; // @synthesize publisherCohort=_publisherCohort;
 @property(readonly, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *globalCohort; // @synthesize globalCohort=_globalCohort;
 @property(copy, nonatomic) NSDate *displayDate; // @synthesize displayDate=_displayDate;
@@ -103,9 +111,13 @@
 @property(nonatomic) double globalUserFeedback; // @synthesize globalUserFeedback=_globalUserFeedback;
 @property(nonatomic) unsigned long long feedOrder; // @synthesize feedOrder=_feedOrder;
 @property(nonatomic) _Bool showSubscriptionRequiredText; // @synthesize showSubscriptionRequiredText=_showSubscriptionRequiredText;
+@property(readonly, copy, nonatomic) NSURL *videoCallToActionURL; // @synthesize videoCallToActionURL=_videoCallToActionURL;
+@property(readonly, copy, nonatomic) NSString *videoCallToActionTitle; // @synthesize videoCallToActionTitle=_videoCallToActionTitle;
 @property(readonly, nonatomic) FCCoverArt *coverArt; // @synthesize coverArt=_coverArt;
 @property(nonatomic, getter=isPaid) _Bool paid; // @synthesize paid=_paid;
 @property(readonly, nonatomic) long long minimumNewsVersion;
+@property(readonly, nonatomic, getter=isHiddenFromFeeds) _Bool hiddenFromFeeds; // @synthesize hiddenFromFeeds=_hiddenFromFeeds;
+@property(readonly, nonatomic, getter=isBoundToContext) _Bool boundToContext; // @synthesize boundToContext=_boundToContext;
 @property(readonly, nonatomic) _Bool showMinimalChrome; // @synthesize showMinimalChrome=_showMinimalChrome;
 @property(readonly, nonatomic) _Bool needsRapidUpdates; // @synthesize needsRapidUpdates=_needsRapidUpdates;
 @property(retain, nonatomic) FCTopStoriesStyleConfiguration *storyStyle; // @synthesize storyStyle=_storyStyle;

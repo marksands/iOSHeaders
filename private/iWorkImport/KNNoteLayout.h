@@ -56,7 +56,6 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)capturedInfoPositionForAttachment;
 - (void)updateChildrenFromInfo;
 - (void)createContainedLayoutForEditing;
-- (double)p_enclosingScrollViewScrollerWidthForLayoutController:(id)arg1;
 - (void)invalidateSize;
 - (void)replaceChild:(id)arg1 with:(id)arg2;
 - (void)insertChild:(id)arg1 above:(id)arg2;

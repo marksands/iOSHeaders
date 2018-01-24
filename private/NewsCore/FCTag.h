@@ -44,6 +44,7 @@
     NSArray *_pinnedArticleIDs;
     long long _score;
     long long _minimumNewsVersion;
+    NSString *_subtitle;
     FCAssetHandle *_nameImageAssetHandle;
     FCAssetHandle *_nameImageCompactAssetHandle;
     double _bannerImageScale;
@@ -73,6 +74,8 @@
     FCAssetHandle *_nameImageMaskWidgetLQAssetHandle;
     FCAssetHandle *_nameImageMaskWidgetHQAssetHandle;
     unsigned long long _groupingEligibility;
+    NSArray *_publisherSpecifiedArticleIDs;
+    NSDate *_publisherSpecifiedArticleIDsModifiedDate;
     NSString *_pptFeedIDOverride;
     FCInterestToken *_tagInterestToken;
     NTPBFeedConfiguration *_feedConfiguration;
@@ -101,6 +104,8 @@
 @property(copy, nonatomic) NTPBFeedConfiguration *feedConfiguration; // @synthesize feedConfiguration=_feedConfiguration;
 @property(retain, nonatomic) FCInterestToken *tagInterestToken; // @synthesize tagInterestToken=_tagInterestToken;
 @property(copy, nonatomic) NSString *pptFeedIDOverride; // @synthesize pptFeedIDOverride=_pptFeedIDOverride;
+@property(readonly, nonatomic) NSDate *publisherSpecifiedArticleIDsModifiedDate; // @synthesize publisherSpecifiedArticleIDsModifiedDate=_publisherSpecifiedArticleIDsModifiedDate;
+@property(readonly, nonatomic) NSArray *publisherSpecifiedArticleIDs; // @synthesize publisherSpecifiedArticleIDs=_publisherSpecifiedArticleIDs;
 @property(readonly, nonatomic) _Bool isRealTimeTrackingEnabed; // @synthesize isRealTimeTrackingEnabed=_isRealTimeTrackingEnabed;
 @property(readonly, nonatomic) _Bool isHidden; // @synthesize isHidden=_isHidden;
 @property(readonly, nonatomic) unsigned long long groupingEligibility; // @synthesize groupingEligibility=_groupingEligibility;
@@ -137,6 +142,7 @@
 @property(readonly, nonatomic) struct UIEdgeInsets nameImageInsets; // @synthesize nameImageInsets=_nameImageInsets;
 @property(nonatomic) struct CGSize nameImageSize; // @synthesize nameImageSize=_nameImageSize;
 @property(retain, nonatomic) FCAssetHandle *nameImageAssetHandle; // @synthesize nameImageAssetHandle=_nameImageAssetHandle;
+@property(readonly, copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(readonly, nonatomic) _Bool isNotificationEnabled; // @synthesize isNotificationEnabled=_isNotificationEnabled;
 @property(readonly, nonatomic) long long minimumNewsVersion; // @synthesize minimumNewsVersion=_minimumNewsVersion;
 @property(readonly, nonatomic) long long score; // @synthesize score=_score;
@@ -165,7 +171,7 @@
 @property(readonly, nonatomic) _Bool supportsNotifications;
 @property(readonly, nonatomic) NSData *backingTagRecordData;
 - (void)ppt_overrideFeedID:(id)arg1;
-@property(readonly, nonatomic) FCColor *groupTitleColor;
+@property(readonly, copy, nonatomic) FCColor *groupTitleColor;
 @property(readonly, nonatomic) FCColor *foregroundColor;
 @property(readonly, nonatomic) FCColor *backgroundColor;
 @property(readonly, nonatomic) FCTagBanner *compactBannerImage; // @synthesize compactBannerImage=_compactBannerImage;
@@ -175,6 +181,7 @@
 @property(readonly, nonatomic) _Bool isWhite;
 @property(readonly, nonatomic) FCTagBanner *bannerImageForMask; // @synthesize bannerImageForMask=_bannerImageForMask;
 @property(readonly, nonatomic) long long feedType;
+@property(readonly, nonatomic) NSString *articleRecirculationConfigJSON;
 - (id)prefetchPurchaseOffer;
 - (id)authorizationURL;
 - (_Bool)isAuthenticationSetup;

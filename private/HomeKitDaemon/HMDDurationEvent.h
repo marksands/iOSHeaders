@@ -6,14 +6,14 @@
 
 #import <HomeKitDaemon/HMDTimeEvent.h>
 
+#import "HMDHomeMessageReceiver.h"
 #import "HMFDumpState.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
-@class NSNumber, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class NSNumber, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDDurationEvent : HMDTimeEvent <NSSecureCoding, HMFDumpState, HMFLogging, HMFMessageReceiver>
+@interface HMDDurationEvent : HMDTimeEvent <NSSecureCoding, HMFDumpState, HMFLogging, HMDHomeMessageReceiver>
 {
     NSNumber *_duration;
 }
@@ -39,6 +39,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 @property(readonly) Class superclass;
 

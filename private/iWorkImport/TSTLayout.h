@@ -6,7 +6,6 @@
 
 #import <iWorkImport/TSWPTextHostLayout.h>
 
-#import "TSKSearchTarget.h"
 #import "TSWPColumnMetrics.h"
 #import "TSWPLayoutParent.h"
 #import "TSWPStorageObserver.h"
@@ -14,7 +13,7 @@
 @class NSMutableDictionary, NSString, TSTInfo, TSTLayoutHint, TSTLayoutSpaceBundle, TSTMasterLayout, TSTTableModel, TSWPLayout, TSWPPadding;
 
 __attribute__((visibility("hidden")))
-@interface TSTLayout : TSWPTextHostLayout <TSKSearchTarget, TSWPColumnMetrics, TSWPLayoutParent, TSWPStorageObserver>
+@interface TSTLayout : TSWPTextHostLayout <TSWPColumnMetrics, TSWPLayoutParent, TSWPStorageObserver>
 {
     TSTMasterLayout *mMasterLayout;
     TSTLayoutHint *mLayoutHint;
@@ -73,7 +72,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)p_getLayoutDirectionLeftToRight;
 - (int)p_defaultAlignmentForTableWritingDirection;
 - (int)reapCoordinatesChangedMaskForChrome;
-- (void)transferLayoutGeometryToInfo:(id)arg1;
 - (struct CGSize)initialTextSize;
 - (struct CGRect)p_maskRectForRichTextLayout:(id)arg1;
 - (struct CGRect)p_maskRectForTextEditingLayout:(id)arg1;
@@ -114,10 +112,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)orderedBefore:(id)arg1;
 - (struct CGPoint)activityLineUnscaledEndPointForSearchReference:(id)arg1;
 - (struct CGPoint)calculatePointFromSearchReference:(id)arg1;
-- (id)childSearchTargets;
-- (void)layoutSearchForAnnotationWithHitBlock:(CDUnknownBlockType)arg1;
-- (void)layoutSearchForSpellingErrorsWithHitBlock:(CDUnknownBlockType)arg1 stop:(_Bool *)arg2;
-- (void)layoutSearchForString:(id)arg1 options:(unsigned long long)arg2 hitBlock:(CDUnknownBlockType)arg3;
 - (double)viewScaleForZoomingToSelectionPath:(id)arg1 targetPointSize:(double)arg2;
 - (void)removeAttachmentCellLayouts;
 - (void)removeContainedTextEditingLayout;
@@ -148,6 +142,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isZoomedEditing;
 - (_Bool)inFindReplaceMode;
 - (_Bool)inPrintPreviewMode;
+- (id)inspectorGeometry;
 - (struct CGRect)alignmentFrame;
 - (int)wrapFitType;
 - (id)initialInfoGeometry;

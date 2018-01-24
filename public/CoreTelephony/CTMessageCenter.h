@@ -11,11 +11,12 @@
 }
 
 + (id)sharedMessageCenter;
+- (_Bool)sendBinarySMS:(id)arg1 trackingID:(unsigned int *)arg2;
 - (_Bool)simulateDeferredMessage;
 - (_Bool)simulateSmsReceived:(id)arg1;
 - (_Bool)getCharacterCount:(long long *)arg1 andMessageSplitThreshold:(long long *)arg2 forSmsText:(id)arg3;
 - (_Bool)sendSMSWithText:(id)arg1 serviceCenter:(id)arg2 toAddress:(id)arg3 withMoreToFollow:(_Bool)arg4 withID:(unsigned int)arg5;
-- (_Bool)sendSMSWithText:(id)arg1 serviceCenter:(id)arg2 toAddress:(id)arg3 withMoreToFollow:(_Bool)arg4;
+- (_Bool)sendSMSWithText:(id)arg1 serviceCenter:(id)arg2 toAddress:(id)arg3 trackingID:(unsigned int *)arg4;
 - (_Bool)sendSMSWithText:(id)arg1 serviceCenter:(id)arg2 toAddress:(id)arg3 withID:(unsigned int)arg4;
 - (_Bool)sendSMSWithText:(id)arg1 serviceCenter:(id)arg2 toAddress:(id)arg3;
 - (_Bool)isMmsConfigured;
@@ -38,7 +39,7 @@
 - (CDStruct_1ef3fb1f)sendMMS:(id)arg1;
 - (void)sendMessageAsSmsToShortCodeRecipients:(id)arg1 andReplaceData:(id *)arg2;
 - (CDStruct_1ef3fb1f)sendMMSFromData:(id)arg1 messageId:(unsigned int)arg2;
-- (CDStruct_1ef3fb1f)sendSMS:(id)arg1 withMoreToFollow:(_Bool)arg2;
+- (CDStruct_1ef3fb1f)sendSMS:(id)arg1 withMoreToFollow:(_Bool)arg2 trackingID:(unsigned int *)arg3;
 - (void)dealloc;
 - (id)init;
 

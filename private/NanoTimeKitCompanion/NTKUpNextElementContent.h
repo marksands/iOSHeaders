@@ -8,11 +8,12 @@
 
 #import "NSCopying.h"
 
-@class CLKImageProvider, CLKTextProvider, NSString, NTKUpNextAccessoryDescription, UIColor, UIImage;
+@class CLKImageProvider, CLKTextProvider, NSString, NSTimeZone, NTKUpNextAccessoryDescription, UIColor, UIImage;
 
 @interface NTKUpNextElementContent : NSObject <NSCopying>
 {
     _Bool _wantsFullCellPhoto;
+    NSTimeZone *_timeZone;
     _Bool _useMonospaceFont;
     _Bool _tintColorAffectsHeader;
     _Bool _bodyImageShouldStretch;
@@ -27,6 +28,7 @@
     CLKTextProvider *_description3TextProvider;
     UIColor *_tintColor;
     unsigned long long _style;
+    unsigned long long _headerFontStyle;
     unsigned long long _description1FontStyle;
     unsigned long long _description2FontStyle;
     NTKUpNextAccessoryDescription *_descriptionAccessory;
@@ -43,6 +45,7 @@
 @property(nonatomic) _Bool tintColorAffectsHeader; // @synthesize tintColorAffectsHeader=_tintColorAffectsHeader;
 @property(nonatomic) unsigned long long description2FontStyle; // @synthesize description2FontStyle=_description2FontStyle;
 @property(nonatomic) unsigned long long description1FontStyle; // @synthesize description1FontStyle=_description1FontStyle;
+@property(nonatomic) unsigned long long headerFontStyle; // @synthesize headerFontStyle=_headerFontStyle;
 @property(nonatomic) _Bool useMonospaceFont; // @synthesize useMonospaceFont=_useMonospaceFont;
 @property(nonatomic) unsigned long long style; // @synthesize style=_style;
 @property(copy, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;

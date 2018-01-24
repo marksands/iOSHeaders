@@ -200,6 +200,7 @@ __attribute__((visibility("hidden")))
 - (void)writeToStorageRef:(struct TSTCellStorage *)arg1;
 - (void)inflateFromStorageRef:(struct TSTCellStorage *)arg1 dataStore:(id)arg2 suppressingFormulaInflation:(_Bool)arg3 suppressingTransmutation:(_Bool)arg4;
 - (void)inflateFromStorageRef:(struct TSTCellStorage *)arg1 dataStore:(id)arg2 suppressingFormulaInflation:(_Bool)arg3;
+- (void)shallowCopyToCell:(id)arg1;
 - (void)copyToCell:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

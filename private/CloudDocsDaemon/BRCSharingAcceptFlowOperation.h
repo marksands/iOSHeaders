@@ -59,7 +59,6 @@ __attribute__((visibility("hidden")))
 - (void)_isAccountRestricted;
 - (void)_isUserSignedInToiCloudDrive;
 - (void)_isAppInstalled;
-- (void)_isURLWellFormed;
 - (void)_isFolderSharingSupported;
 - (void)openResourceOperation:(id)arg1 didFailWithError:(id)arg2;
 - (void)openResourceOperationDidComplete:(id)arg1;

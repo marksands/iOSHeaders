@@ -17,7 +17,6 @@
     AVCaptureMetadataOutput *_metaDataOutput;
     NSArray *_availableMetadataObjectTypes;
     AVCaptureDepthDataOutput *_depthDataOutput;
-    _Bool _mirrorVideoOutput;
     AVCaptureDataOutputSynchronizer *_outputSynchronizer;
     NSObject<OS_dispatch_queue> *_outputSynchronizerQueue;
     NSMutableArray *_outputSynchronizerOutputs;
@@ -32,7 +31,6 @@
     NSString *_requiredFaceMetaDataObjectType;
 }
 
-+ (id)new;
 @property(retain, nonatomic) NSString *requiredFaceMetaDataObjectType; // @synthesize requiredFaceMetaDataObjectType=_requiredFaceMetaDataObjectType;
 @property(nonatomic) _Bool recordingMode; // @synthesize recordingMode=_recordingMode;
 - (void).cxx_destruct;
@@ -42,16 +40,14 @@
 - (void)capturedSynchedOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromVideoConnection:(id)arg3 metaDataOutput:(id)arg4 didOutputMetadataObjects:(id)arg5 didOutputDepthData:(id)arg6 atTime:(CDStruct_1b6d18a9)arg7;
 - (void)dataOutputSynchronizer:(id)arg1 didOutputSynchronizedDataCollection:(id)arg2;
 - (void)captureOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
-- (void)configureMetaDataOutput;
+- (id)_configureMetaDataOutput;
 - (void)stop;
 - (void)start;
 - (id)configureCaptureDevice;
 - (id)configureCaptureSession;
 - (unsigned long long)providedDataTypes;
-@property(readonly, nonatomic) _Bool isMirrored;
 - (void)dealloc;
-- (id)initWithDeviceType:(id)arg1 mirrorVideoOutput:(_Bool)arg2 captureSession:(id)arg3;
-- (id)initWithDeviceType:(id)arg1;
+- (id)initWithSettings:(id)arg1;
 - (id)init;
 
 // Remaining properties

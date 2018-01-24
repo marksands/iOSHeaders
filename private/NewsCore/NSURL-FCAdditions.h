@@ -16,7 +16,7 @@
 - (_Bool)_isFeldsparOldTopicURL;
 - (_Bool)fc_isEqualToURL:(id)arg1;
 - (id)fc_feldsparTagID;
-- (_Bool)fc_isFeldsparTagURL;
+- (_Bool)fc_isNewsTagURL;
 - (_Bool)fc_isFeldsparInterstitialPreviewURL;
 - (_Bool)_isFeldsparOldArticleURL;
 - (_Bool)fc_isNewsURL;

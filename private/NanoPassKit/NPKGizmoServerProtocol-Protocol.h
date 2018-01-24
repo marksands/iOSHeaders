@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSData, NSDate, NSDecimalNumber, NSNumber, NSString, PKFelicaAppletHistory, PKFelicaTransitAppletState, PKPaymentApplication;
+@class NSArray, NSData, NSDate, NSDecimalNumber, NSNumber, NSString, PKPaymentApplication, PKTransitAppletHistory, PKTransitAppletState;
 
 @protocol NPKGizmoServerProtocol <NSObject>
 - (void)noteWebServiceUpdateNeededWithCompletion:(void (^)(void))arg1;
 - (void)handleEndedServiceModeRequest;
 - (void)handleAddedValue:(NSDecimalNumber *)arg1 forPassUniqueID:(NSString *)arg2;
-- (void)processFelicaTransitAppletState:(PKFelicaTransitAppletState *)arg1 forPassUniqueID:(NSString *)arg2;
-- (void)processFelicaTransitHistory:(PKFelicaAppletHistory *)arg1 forPaymentApplication:(PKPaymentApplication *)arg2 withPassUniqueIdentifier:(NSString *)arg3 transactionDate:(NSDate *)arg4;
+- (void)processTransitAppletState:(PKTransitAppletState *)arg1 forPassUniqueID:(NSString *)arg2;
+- (void)processTransitHistory:(PKTransitAppletHistory *)arg1 forPaymentApplication:(PKPaymentApplication *)arg2 withPassUniqueIdentifier:(NSString *)arg3 transactionDate:(NSDate *)arg4;
 - (void)handlePaymentTransactions:(NSArray *)arg1 forPassUniqueIDs:(NSArray *)arg2 completion:(void (^)(void))arg3;
 - (void)handleValueAddedServiceTransactions:(NSArray *)arg1 forPassUniqueIDs:(NSArray *)arg2 completion:(void (^)(void))arg3;
 - (void)addPassData:(NSData *)arg1 completion:(void (^)(_Bool, NSError *))arg2;

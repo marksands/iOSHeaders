@@ -28,6 +28,7 @@
     CDUnknownBlockType _internalValueChangedHandler;
     _Bool _emulatedMotionEnabled;
     _Bool _motionUpdatedEnabled;
+    _Bool _paused;
     GCController *_controller;
 }
 

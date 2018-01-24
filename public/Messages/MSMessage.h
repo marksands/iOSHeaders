@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class MSMessageLayout, MSSession, NSData, NSError, NSString, NSURL, NSUUID;
+@class MSMessageLayout, MSSession, NSData, NSDate, NSError, NSString, NSURL, NSUUID;
 
 @interface MSMessage : NSObject <NSCopying, NSSecureCoding>
 {
@@ -24,6 +24,7 @@
     NSString *_accessibilityLabel;
     NSString *_summaryText;
     NSError *_error;
+    NSDate *_time;
     NSData *__data;
     NSString *_statusText;
     NSString *_breadcrumbText;
@@ -35,6 +36,7 @@
 @property(nonatomic) _Bool requiresValidation; // @synthesize requiresValidation=_requiresValidation;
 @property(nonatomic) _Bool isFromMe; // @synthesize isFromMe=_isFromMe;
 @property(copy, nonatomic) NSData *_data; // @synthesize _data=__data;
+@property(retain, nonatomic) NSDate *time; // @synthesize time=_time;
 @property(copy, nonatomic) NSError *error; // @synthesize error=_error;
 @property(copy, nonatomic) NSString *summaryText; // @synthesize summaryText=_summaryText;
 @property(copy, nonatomic) NSString *accessibilityLabel; // @synthesize accessibilityLabel=_accessibilityLabel;

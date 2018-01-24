@@ -15,7 +15,6 @@
 
 - (void).cxx_destruct;
 - (void)_waitForCyclerToFinish:(id)arg1;
-- (void)_fetchPrimaryDeviceAddress:(id)arg1;
 - (void)_fetchStatus:(id)arg1;
 - (void)_configureDevice:(id)arg1;
 - (void)_sendRequestToTest:(id)arg1;

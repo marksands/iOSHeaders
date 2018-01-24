@@ -33,7 +33,6 @@
 @property(readonly, nonatomic) MPUQueryDataSource *queryDataSource;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
-- (void)viewDidAppear:(_Bool)arg1;
 - (void)decodeRestorableStateWithCoder:(id)arg1;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (void)dealloc;

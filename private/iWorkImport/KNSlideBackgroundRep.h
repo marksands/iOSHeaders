@@ -13,12 +13,13 @@
 __attribute__((visibility("hidden")))
 @interface KNSlideBackgroundRep : TSDRep <TSDMagicMoveMatching>
 {
-    CALayer *mBlackBackgroundLayer;
-    _Bool mLayerNeedsUpdate;
-    _Bool mFillCanApplyToCALayer;
+    CALayer *_blackBackgroundLayer;
+    _Bool _layerNeedsUpdate;
+    _Bool _fillCanApplyToCALayer;
 }
 
 + (id)magicMoveMatchesBetweenOutgoingObjects:(id)arg1 andIncomingObjects:(id)arg2 textureDescription:(id)arg3;
+- (void).cxx_destruct;
 - (id)textureForDescription:(id)arg1;
 - (_Bool)wantsToDistortWithImagerContext;
 - (id)additionalLayersUnderLayer;
@@ -27,7 +28,6 @@ __attribute__((visibility("hidden")))
 - (void)drawInContext:(struct CGContext *)arg1;
 @property(readonly) KNSlideBackgroundInfo *slideBackgroundInfo;
 - (_Bool)isOpaque;
-- (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
 
 @end

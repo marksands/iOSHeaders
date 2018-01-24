@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class HKQueryServerConfiguration, NSUUID, _HKActivityStatisticsQueryServerConfiguration, _HKAnchoredObjectQueryServerConfiguration, _HKCorrelationQueryServerConfiguration, _HKCurrentActivitySummaryQueryServerConfiguration, _HKDocumentQueryServerConfiguration, _HKHeartRateHistogramQueryServerConfiguration, _HKLatestSummariesQueryServerConfiguration, _HKQueryServerDataObject, _HKSampleQueryConfiguration, _HKStatisticsCollectionQueryServerConfiguration, _HKStatisticsQueryServerConfiguration, _HKWorkoutRouteQueryServerConfiguration;
+@class HKQueryServerConfiguration, NSUUID, _HKActivityStatisticsQueryServerConfiguration, _HKAnchoredObjectQueryServerConfiguration, _HKCorrelationQueryServerConfiguration, _HKCurrentActivitySummaryQueryServerConfiguration, _HKDocumentQueryServerConfiguration, _HKHeartRateHistogramQueryServerConfiguration, _HKLatestSummariesQueryServerConfiguration, _HKQueryServerDataObject, _HKSampleCountQueryServerConfiguration, _HKSampleQueryConfiguration, _HKStatisticsCollectionQueryServerConfiguration, _HKStatisticsQueryServerConfiguration, _HKWorkoutRouteQueryServerConfiguration;
 
 @protocol HDQueryControlServerInterface <NSObject>
 - (void)remote_startQueryWithUUID:(NSUUID *)arg1 serverDataObject:(_HKQueryServerDataObject *)arg2 queryClass:(Class)arg3 client:(id)arg4 handler:(void (^)(id, _Bool, NSError *))arg5;
@@ -17,6 +17,7 @@
 - (void)remote_startSourceQueryWithUUID:(NSUUID *)arg1 configuration:(HKQueryServerConfiguration *)arg2 clientProxy:(id <HKSourceQueryClientInterface>)arg3 handler:(void (^)(id <HKQueryServerInterface>, NSError *))arg4;
 - (void)remote_startSampleTypesQueryWithUUID:(NSUUID *)arg1 configuration:(HKQueryServerConfiguration *)arg2 clientProxy:(id <HKSampleTypeQueryClientInterface>)arg3 handler:(void (^)(id <HKQueryServerInterface>, NSError *))arg4;
 - (void)remote_startSampleQueryWithUUID:(NSUUID *)arg1 configuration:(_HKSampleQueryConfiguration *)arg2 clientProxy:(id <HKSampleQueryClientInterface>)arg3 handler:(void (^)(id <HKQueryServerInterface>, NSError *))arg4;
+- (void)remote_startSampleCountQueryWithUUID:(NSUUID *)arg1 configuration:(_HKSampleCountQueryServerConfiguration *)arg2 clientProxy:(id <HKSampleCountQueryClientInterface>)arg3 handler:(void (^)(id <HKQueryServerInterface>, NSError *))arg4;
 - (void)remote_startObserverQueryWithUUID:(NSUUID *)arg1 configuration:(HKQueryServerConfiguration *)arg2 clientProxy:(id <HKObserverQueryClientInterface>)arg3 handler:(void (^)(id <HKQueryServerInterface>, NSError *))arg4;
 - (void)remote_startLocationSeriesQueryWithUUID:(NSUUID *)arg1 configuration:(_HKWorkoutRouteQueryServerConfiguration *)arg2 clientProxy:(id <HKWorkoutRouteQueryClientInterface>)arg3 handler:(void (^)(id <HKQueryServerInterface>, NSError *))arg4;
 - (void)remote_startLatestSummariesQueryWithUUID:(NSUUID *)arg1 configuration:(_HKLatestSummariesQueryServerConfiguration *)arg2 clientProxy:(id <HKLatestSummariesQueryClientInterface>)arg3 handler:(void (^)(id <HKQueryServerInterface>, NSError *))arg4;

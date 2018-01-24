@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class CLLocation, NSDate, NSString;
 
-@interface CAMTimelapseState : NSObject <NSCoding, NSCopying>
+@interface CAMTimelapseState : NSObject <NSSecureCoding, NSCopying>
 {
     _Bool _allFramesWritten;
     _Bool _preferHEVC;
@@ -33,6 +33,7 @@
 
 + (id)stateWithContentsOfFile:(id)arg1;
 + (double)maxTimeToWaitForWrittenFrameAfterStop;
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool preferHEVC; // @synthesize preferHEVC=_preferHEVC;
 @property(nonatomic) struct CGSize nominalIntermediateFrameSize; // @synthesize nominalIntermediateFrameSize=_nominalIntermediateFrameSize;
 @property(nonatomic) float focusLensPosition; // @synthesize focusLensPosition=_focusLensPosition;

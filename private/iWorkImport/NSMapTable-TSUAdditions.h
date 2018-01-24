@@ -7,8 +7,9 @@
 #import "NSMapTable.h"
 
 @interface NSMapTable (TSUAdditions)
-- (id)tsu_noCopyDictionaryRepresentation;
 - (id)tsu_allKeys;
+- (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
+- (id)objectForKeyedSubscript:(id)arg1;
 - (void)setObject:(id)arg1 atIndexedSubscript:(unsigned long long)arg2;
 - (id)objectAtIndexedSubscript:(unsigned long long)arg1;
 @end

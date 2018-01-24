@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSData;
 
-@interface RCWaveformSegment : NSObject <NSCoding>
+@interface RCWaveformSegment : NSObject <NSSecureCoding>
 {
     NSData *_averagePowerLevelData;
     CDStruct_73a5d3ca _timeRange;
@@ -24,6 +24,7 @@
 + (id)segmentsByMergingSegments:(id)arg1 preferredSegmentDuration:(double)arg2;
 + (id)segmentsByShiftingSegments:(id)arg1 byTimeOffset:(double)arg2;
 + (id)segmentsByReparingDiscontinuitiesInSegments:(id)arg1;
++ (_Bool)supportsSecureCoding;
 + (id)emptySegmentWithTimeRange:(CDStruct_73a5d3ca)arg1;
 + (void)initialize;
 @property(readonly, nonatomic) CDStruct_73a5d3ca timeRange; // @synthesize timeRange=_timeRange;
@@ -44,7 +45,7 @@
 - (id)description;
 - (id)simpleDescription;
 - (id)verboseDescription;
-- (id)initWithTimeRange:(CDStruct_73a5d3ca)arg1 averagePowerLevelVector:(vector_ec52ae8c *)arg2;
+- (id)initWithTimeRange:(CDStruct_73a5d3ca)arg1 averagePowerLevelVector:(vector_7584168e *)arg2;
 - (id)_initWithTimeRange:(CDStruct_73a5d3ca)arg1 averagePowerLevelData:(id)arg2;
 - (id)initWithTimeRange:(CDStruct_73a5d3ca)arg1 averagePowerLevelData:(id)arg2;
 

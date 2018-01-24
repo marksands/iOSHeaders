@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     int mRenderingQuality;
 }
 
+- (void).cxx_destruct;
 - (_Bool)validatePassphrases:(id *)arg1;
 - (_Bool)supportsRenderingQuality;
 - (_Bool)supportsPaging;
@@ -35,7 +36,6 @@ __attribute__((visibility("hidden")))
 - (void)setCopyPassphrase:(id)arg1 hint:(id)arg2;
 - (void)setPrintPassphrase:(id)arg1 hint:(id)arg2;
 - (void)setPassphrase:(id)arg1 hint:(id)arg2;
-- (void)dealloc;
 - (id)initWithRenderingExporter:(id)arg1;
 
 @end

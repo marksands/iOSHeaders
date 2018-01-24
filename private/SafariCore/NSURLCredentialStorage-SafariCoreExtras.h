@@ -6,7 +6,10 @@
 
 #import "NSURLCredentialStorage.h"
 
+@class NSDictionary;
+
 @interface NSURLCredentialStorage (SafariCoreExtras)
+@property(readonly, nonatomic) NSDictionary *safari_allSafariCredentials;
 - (void)safari_setSynchronizableCredential:(id)arg1 forHTMLFormProtectionSpace:(id)arg2;
 @end
 

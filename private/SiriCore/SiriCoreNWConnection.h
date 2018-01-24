@@ -8,7 +8,7 @@
 
 #import "SiriCoreConnectionProvider.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSObject<OS_nw_connection>, NSObject<OS_nw_endpoint>, NSString, NSURL, SAConnectionPolicyRoute, SiriCoreConnectionType;
+@class NSArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSObject<OS_nw_connection>, NSObject<OS_nw_endpoint>, NSString, NSURL, SAConnectionPolicy, SAConnectionPolicyRoute, SiriCoreConnectionType;
 
 @interface SiriCoreNWConnection : NSObject <SiriCoreConnectionProvider>
 {
@@ -19,6 +19,7 @@
     NSObject<OS_nw_connection> *_connection;
     NSObject<OS_nw_endpoint> *_endpoint;
     SAConnectionPolicyRoute *_route;
+    SAConnectionPolicy *_policy;
     _Bool _prefersWWAN;
     _Bool _connectByPOPEnabled;
     _Bool _enforceEV;
@@ -59,7 +60,7 @@
 - (id)_sendBufferBytesRemaining:(id)arg1;
 - (_Bool)supportsInitialPayload;
 - (_Bool)shouldFallbackQuickly;
-- (id)headerData;
+- (id)headerDataWithForceReconnect:(_Bool)arg1;
 - (void)writeData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)readData:(CDUnknownBlockType)arg1;
 - (_Bool)hasActiveConnection;
@@ -77,6 +78,7 @@
 - (void)setEnforceExtendedValidation:(_Bool)arg1;
 - (void)setConnectByPOPMethod:(_Bool)arg1;
 - (void)setPrefersWWAN:(_Bool)arg1;
+- (void)setProviderConnectionPolicy:(id)arg1;
 - (void)setPolicyRoute:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)_invokeOpenCompletionWithError:(id)arg1;

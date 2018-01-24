@@ -29,7 +29,6 @@
 @property(retain, nonatomic) NSMutableDictionary *cachedPrefs; // @synthesize cachedPrefs=_cachedPrefs;
 - (void).cxx_destruct;
 - (double)minTTRPromptInterval;
-- (_Bool)sendKeyIDsOnAllRequests;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (double)shareAcceptorRetrievingDialogMinPeriod;
 - (double)shareAcceptorRetrievingDialogDelay;

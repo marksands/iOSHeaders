@@ -142,6 +142,8 @@
 - (void)layoutSubviews;
 - (void)_applyShowContentForUnadornedSnapshot;
 - (void)setViewMode:(long long)arg1;
+- (void)_becameInactiveFace;
+- (void)_becameActiveFace;
 - (void)_unloadSnapshotContentViews;
 - (void)_loadSnapshotContentViews;
 - (void)dealloc;

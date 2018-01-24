@@ -17,6 +17,7 @@
     void *_discoverySession;
     void *_callbackToken;
     _Bool _supportsMultipleSelection;
+    _Bool _devicePresenceDetected;
     NSArray *_outputDeviceRoutes;
     MPAVEndpointRoute *_endpointRoute;
 }
@@ -42,8 +43,8 @@
 - (_Bool)devicePresenceDetected;
 - (void)setDiscoveryMode:(long long)arg1;
 - (long long)discoveryMode;
-@property(copy, nonatomic) NSString *routingContextUID;
 - (_Bool)supportsMultipleSelection;
+@property(copy, nonatomic) NSString *routingContextUID;
 - (void)dealloc;
 - (id)init;
 

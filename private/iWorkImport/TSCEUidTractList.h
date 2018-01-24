@@ -19,8 +19,8 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) unsigned char stickyBits; // @synthesize stickyBits=_stickyBits;
-- (_Bool)remapUsingColumnUidMap:(const UUIDMap_727ee07e *)arg1 rowUidMap:(const UUIDMap_727ee07e *)arg2 clearIfMissing:(_Bool)arg3;
-- (_Bool)remapUsingUidMap:(const UUIDMap_727ee07e *)arg1;
+- (_Bool)remapUsingColumnUidMap:(const UUIDMap_b66c2694 *)arg1 rowUidMap:(const UUIDMap_b66c2694 *)arg2 clearIfMissing:(_Bool)arg3;
+- (_Bool)remapUsingUidMap:(const UUIDMap_b66c2694 *)arg1;
 - (id)description;
 - (void)pruneMergeUidTractsAtAndAboveIndex:(unsigned char)arg1;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
@@ -29,14 +29,14 @@ __attribute__((visibility("hidden")))
 - (void)dropTract:(id)arg1;
 - (id)firstTractWithPurpose:(unsigned char)arg1;
 - (void)addTractAtFront:(id)arg1;
-- (void)removeFromExcludedUidsTractRowUids:(const vector_dadc1b26 *)arg1;
-- (void)removeFromExcludedUidsTractColumnUids:(const vector_dadc1b26 *)arg1;
-- (void)removeFromExcludedUidsTractRowUidsSet:(const unordered_set_3f00ed57 *)arg1;
-- (void)removeFromExcludedUidsTractColumnUidsSet:(const unordered_set_3f00ed57 *)arg1;
-- (void)addToExcludedUidsTractRowUids:(const vector_dadc1b26 *)arg1;
-- (void)addToExcludedUidsTractColumnUids:(const vector_dadc1b26 *)arg1;
-- (void)addToIncludedUidsTractColumnUids:(const vector_dadc1b26 *)arg1 rowUids:(const vector_dadc1b26 *)arg2;
-- (void)addToIncludedUidsTractColumnUids:(const vector_dadc1b26 *)arg1 rowUids:(const vector_dadc1b26 *)arg2 isRangeRef:(_Bool)arg3;
+- (void)removeFromExcludedUidsTractRowUids:(const vector_4dc5f307 *)arg1;
+- (void)removeFromExcludedUidsTractColumnUids:(const vector_4dc5f307 *)arg1;
+- (void)removeFromExcludedUidsTractRowUidsSet:(const unordered_set_c6a929bd *)arg1;
+- (void)removeFromExcludedUidsTractColumnUidsSet:(const unordered_set_c6a929bd *)arg1;
+- (void)addToExcludedUidsTractRowUids:(const vector_4dc5f307 *)arg1;
+- (void)addToExcludedUidsTractColumnUids:(const vector_4dc5f307 *)arg1;
+- (void)addToIncludedUidsTractColumnUids:(const vector_4dc5f307 *)arg1 rowUids:(const vector_4dc5f307 *)arg2;
+- (void)addToIncludedUidsTractColumnUids:(const vector_4dc5f307 *)arg1 rowUids:(const vector_4dc5f307 *)arg2 isRangeRef:(_Bool)arg3;
 - (void)addToIncludedUidsTractColumnUid:(const UUIDData_5fbc143e *)arg1 rowUid:(const UUIDData_5fbc143e *)arg2;
 - (id)activeUidTract;
 - (id)preMoveRegionUidTract;

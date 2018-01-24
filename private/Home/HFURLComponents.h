@@ -16,6 +16,7 @@
 
 + (id)homeKitObjectURLForDestination:(unsigned long long)arg1 secondaryDestination:(unsigned long long)arg2 UUID:(id)arg3;
 + (id)_URLComponentsForDestination:(unsigned long long)arg1;
++ (id)musicLoginURL;
 + (id)locationPrivacyURL;
 + (id)musicPrivacyURL;
 + (id)siriPrivacyURL;

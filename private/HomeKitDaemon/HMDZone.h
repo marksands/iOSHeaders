@@ -7,13 +7,13 @@
 #import "HMFObject.h"
 
 #import "HMDBackingStoreObjectProtocol.h"
+#import "HMDHomeMessageReceiver.h"
 #import "HMFDumpState.h"
-#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
-@class HMDHome, HMFMessageDispatcher, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDHome, HMFMessageDispatcher, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDZone : HMFObject <HMFMessageReceiver, HMFDumpState, NSSecureCoding, HMDBackingStoreObjectProtocol>
+@interface HMDZone : HMFObject <HMDHomeMessageReceiver, HMFDumpState, NSSecureCoding, HMDBackingStoreObjectProtocol>
 {
     NSString *_name;
     NSUUID *_uuid;
@@ -24,6 +24,7 @@
     HMFMessageDispatcher *_msgDispatcher;
 }
 
++ (_Bool)hasMessageReceiverChildren;
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
 @property(nonatomic) __weak HMDHome *home; // @synthesize home=_home;
@@ -64,6 +65,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

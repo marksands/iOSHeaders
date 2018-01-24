@@ -8,7 +8,7 @@
 
 #import "TSWPOffscreenColumn.h"
 
-@class NSString, TSWPStorage;
+@class NSMutableArray, NSString, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TSWPColumn : NSObject <TSWPOffscreenColumn>
@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
     id <TSWPStyleProvider> _styleProvider;
     shared_ptr_1a254aea _lineFragmentArray;
     unsigned long long _storageChangeCount;
-    vector_e65b05c3 *_paragraphAdornments;
+    NSMutableArray *_paragraphAdornments;
     _Bool _textIsVertical;
 }
 
@@ -42,6 +42,7 @@ __attribute__((visibility("hidden")))
 + (id)footnoteReferenceAttachmentInColumnArray:(id)arg1 atPoint:(struct CGPoint)arg2;
 + (id)footnoteMarkAttachmentInColumnArray:(id)arg1 atPoint:(struct CGPoint)arg2;
 + (id)smartFieldWithAttributeKind:(int)arg1 inColumnArray:(id)arg2 atPoint:(struct CGPoint)arg3;
++ (unsigned long long)charIndexForPoint:(struct CGPoint)arg1 inColumnsArray:(id)arg2 allowPastBreak:(_Bool)arg3 allowNotFound:(_Bool)arg4 pastCenterGoesToNextChar:(_Bool)arg5 constrainToAscentAndDescent:(_Bool)arg6 isAtEndOfLine:(_Bool *)arg7 leadingEdge:(_Bool *)arg8;
 + (unsigned long long)charIndexForPoint:(struct CGPoint)arg1 inColumnsArray:(id)arg2 allowPastBreak:(_Bool)arg3 allowNotFound:(_Bool)arg4 pastCenterGoesToNextChar:(_Bool)arg5 isAtEndOfLine:(_Bool *)arg6 leadingEdge:(_Bool *)arg7;
 + (unsigned long long)charIndexForPoint:(struct CGPoint)arg1 inColumnsArray:(id)arg2 allowPastBreak:(_Bool)arg3 allowNotFound:(_Bool)arg4 isAtEndOfLine:(_Bool *)arg5 leadingEdge:(_Bool *)arg6;
 + (id)closestColumnInColumnsArray:(id)arg1 forPoint:(struct CGPoint)arg2 ignoreEmptyColumns:(_Bool)arg3 ignoreDrawableOnlyColumns:(_Bool)arg4;
@@ -77,12 +78,16 @@ __attribute__((visibility("hidden")))
 - (id)singleLinePartitionedInfoAtStart:(_Bool)arg1;
 - (id)partitionedLayoutForInfo:(id)arg1;
 - (id)smartFieldAtCharIndex:(unsigned long long)arg1 attributeKind:(int)arg2;
-- (void)renderWithRenderer:(id)arg1 currentSelection:(id)arg2 limitSelection:(id)arg3 listRange:(struct _NSRange)arg4 rubyGlyphRange:(struct _NSRange)arg5 isCanvasInteractive:(_Bool)arg6 suppressedMisspellingRange:(struct _NSRange)arg7 blackAndWhite:(_Bool)arg8 dictationInterpretations:(const struct TSWPRangeVector *)arg9 autocorrections:(const struct TSWPRangeVector *)arg10 markedRange:(struct _NSRange)arg11 markedText:(id)arg12 renderMode:(int)arg13 pageCount:(unsigned long long)arg14 suppressInvisibles:(_Bool)arg15 suppressFontSmoothing:(_Bool)arg16 currentCanvasSelection:(id)arg17;
+- (void)renderWithRenderer:(id)arg1 currentSelection:(id)arg2 limitSelection:(id)arg3 listRange:(struct _NSRange)arg4 rubyGlyphRange:(struct _NSRange)arg5 isCanvasInteractive:(_Bool)arg6 suppressedMisspellingRange:(struct _NSRange)arg7 blackAndWhite:(_Bool)arg8 dictationInterpretations:(id)arg9 autocorrections:(id)arg10 markedRange:(struct _NSRange)arg11 markedText:(id)arg12 renderMode:(int)arg13 pageCount:(unsigned long long)arg14 suppressInvisibles:(_Bool)arg15 suppressFontSmoothing:(_Bool)arg16 currentCanvasSelection:(id)arg17;
 - (struct _TSWPCharIndexAndPosition)calcAttachmentPositionForDrawable:(id)arg1 atPoint:(struct CGPoint)arg2 inTextLayoutTarget:(id)arg3 tlBoundsInfluencingWrap:(struct CGPoint)arg4 wrapOutset:(struct CGSize)arg5 wrapMargin:(double)arg6 makeInline:(_Bool)arg7;
-- (unsigned long long)charIndexFromWPPoint:(struct CGPoint)arg1 pastCenterGoesToNextChar:(_Bool)arg2 allowNotFound:(_Bool)arg3 outFragment:(const struct TSWPLineFragment **)arg4 leadingEdge:(_Bool *)arg5;
+- (_Bool)p_pencilAnnotationsShouldSkipLineFragment:(const struct TSWPLineFragment *)arg1;
+- (unsigned long long)p_charIndexWithTextClosestToWPPoint:(struct CGPoint)arg1 pastCenterGoesToNextChar:(_Bool)arg2 outFragment:(const struct TSWPLineFragment **)arg3 leadingEdge:(_Bool *)arg4;
+- (unsigned long long)charIndexFromWPPoint:(struct CGPoint)arg1 pastCenterGoesToNextChar:(_Bool)arg2 allowNotFound:(_Bool)arg3 constrainToAscentAndDescent:(_Bool)arg4 outFragment:(const struct TSWPLineFragment **)arg5 leadingEdge:(_Bool *)arg6;
 - (unsigned long long)charIndexForSelectionFromPoint:(struct CGPoint)arg1 isTail:(_Bool)arg2;
+- (unsigned long long)charIndexFromPoint:(struct CGPoint)arg1 allowPastBreak:(_Bool)arg2 pastCenterGoesToNextChar:(_Bool)arg3 allowNotFound:(_Bool)arg4 constrainToAscentAndDescent:(_Bool)arg5 isAtEndOfLine:(_Bool *)arg6 outFragment:(const struct TSWPLineFragment **)arg7 leadingEdge:(_Bool *)arg8;
 - (unsigned long long)charIndexFromPoint:(struct CGPoint)arg1 allowPastBreak:(_Bool)arg2 pastCenterGoesToNextChar:(_Bool)arg3 allowNotFound:(_Bool)arg4 isAtEndOfLine:(_Bool *)arg5 outFragment:(const struct TSWPLineFragment **)arg6 leadingEdge:(_Bool *)arg7;
 - (unsigned long long)charIndexFromPoint:(struct CGPoint)arg1 allowPastBreak:(_Bool)arg2 pastCenterGoesToNextChar:(_Bool)arg3 allowNotFound:(_Bool)arg4 isAtEndOfLine:(_Bool *)arg5 leadingEdge:(_Bool *)arg6;
+- (unsigned long long)charIndexFromPoint:(struct CGPoint)arg1 allowPastBreak:(_Bool)arg2 pastCenterGoesToNextChar:(_Bool)arg3 allowNotFound:(_Bool)arg4 constrainToAscentAndDescent:(_Bool)arg5 isAtEndOfLine:(_Bool *)arg6 leadingEdge:(_Bool *)arg7;
 - (id)drawableIntersectionRectsForSelection:(id)arg1 inTarget:(id)arg2;
 - (struct CGRect)erasableRectForSelectionRange:(struct _NSRange)arg1;
 - (id)rectsForSelection:(id)arg1 ranges:(id *)arg2;
@@ -92,7 +97,7 @@ __attribute__((visibility("hidden")))
 - (const struct TSWPLineFragment *)pColumnEndingPartitionedLineFragmentInSelectionRange:(struct _NSRange)arg1;
 - (struct CGRect)firstRectForSelection:(id)arg1 includeSpaceAfter:(_Bool)arg2 includeSpaceBefore:(_Bool)arg3 includeLeading:(_Bool)arg4;
 - (id)lineSelectionsForSelection:(id)arg1;
-@property(readonly, nonatomic) struct CGRect typographicBoundsForCell;
+@property(readonly, nonatomic) struct CGRect typographicBounds;
 - (struct CGRect)columnRectForRange:(struct _NSRange)arg1;
 - (unsigned long long)glyphCountForRubyFieldAtCharIndex:(unsigned long long)arg1;
 - (struct CGRect)glyphRectForRubyFieldAtCharIndex:(unsigned long long)arg1 glyphRange:(struct _NSRange)arg2;
@@ -104,7 +109,7 @@ __attribute__((visibility("hidden")))
 - (void)pInfoForCharIndex:(unsigned long long)arg1 isAtStart:(out _Bool *)arg2 isAtEnd:(out _Bool *)arg3;
 - (const struct TSWPLineFragment *)nearestLineFragmentWithSameVerticalPositionAs:(unsigned long long)arg1 xPos:(double)arg2;
 - (double)horizontalOffsetForCharIndex:(unsigned long long)arg1 lineFragmentIndex:(unsigned long long)arg2 bumpPastHyphen:(_Bool)arg3 allowPastLineBounds:(_Bool)arg4;
-- (CDStruct_b7a3d57d)lineMetricsAtCharIndex:(unsigned long long)arg1 allowEndOfLine:(_Bool)arg2;
+- (CDStruct_d12891c8)lineMetricsAtCharIndex:(unsigned long long)arg1 allowEndOfLine:(_Bool)arg2;
 - (unsigned int)hyphenCharOfLineFragmentAtIndex:(unsigned long long)arg1;
 - (struct _NSRange)rangeOfLineFragmentAtIndex:(unsigned long long)arg1;
 - (struct CGRect)boundsOfLineFragmentAtIndex:(unsigned long long)arg1;
@@ -119,12 +124,12 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct CGAffineTransform transformToWP;
 @property(readonly, nonatomic) struct CGRect frameBounds;
 - (void)clearAdornments;
-- (void)addAdornmentRect:(const struct TSWPAdornmentRect *)arg1;
+- (void)addAdornmentRect:(id)arg1;
 - (struct CGRect)changeBarRectForLineFragment:(const struct TSWPLineFragment *)arg1 layoutTarget:(id)arg2;
 - (_Bool)requiresGlyphVectorsForHeightMeasurement;
 - (double)textHeight;
 @property(readonly, nonatomic) double textBottom;
-- (struct CGRect)erasableBounds:(unsigned int)arg1;
+- (struct CGRect)erasableBounds:(unsigned long long)arg1;
 - (double)minimumHeightForLayoutOnPage;
 - (void)trimToCharIndex:(unsigned long long)arg1 inTarget:(id)arg2 removeFootnoteReferenceCount:(unsigned long long)arg3 removeAutoNumberFootnoteCount:(unsigned long long)arg4;
 - (struct CGSize)maxSize;
@@ -137,6 +142,7 @@ __attribute__((visibility("hidden")))
 - (double)logicalBoundsTop;
 - (void)dealloc;
 - (id)initWithStorage:(id)arg1 frameBounds:(struct CGRect)arg2;
+@property(readonly, nonatomic) _Bool lastLineIsEmptyAndHasListLabel;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

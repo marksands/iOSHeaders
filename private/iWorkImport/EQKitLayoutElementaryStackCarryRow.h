@@ -13,14 +13,14 @@
 __attribute__((visibility("hidden")))
 @interface EQKitLayoutElementaryStackCarryRow : EQKitLayoutElementaryStackDigitRow <EQKitLayoutElementaryStackRow>
 {
-    vector_2d5e04fe mCrossouts;
+    vector_e38595b5 mCrossouts;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)populateMaxColumnWidths:(__wrap_iter_8fb6ff7c)arg1;
 - (int)crossoutAtColumnIndex:(unsigned long long)arg1;
-- (id)initWithChildren:(id)arg1 decimalPoint:(unsigned long long)arg2 position:(long long)arg3 followingSpace:(double)arg4 crossouts:(const vector_2d5e04fe *)arg5;
+- (id)initWithChildren:(id)arg1 decimalPoint:(unsigned long long)arg2 position:(long long)arg3 followingSpace:(double)arg4 crossouts:(const vector_e38595b5 *)arg5;
 
 // Remaining properties
 @property(readonly, nonatomic) long long alignmentShift;

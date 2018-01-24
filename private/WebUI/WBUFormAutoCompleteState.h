@@ -31,6 +31,7 @@
     _Bool _hasDeterminedIfURLIsAllowedByWhiteList;
     CDUnknownBlockType _displayOtherContactsCompletionHandler;
     CDUnknownBlockType _customAutoFillContactCompletionHandler;
+    _Bool _hasNotedThatTextDidChangeInPasswordField;
     WBUFormDataController *_dataController;
 }
 
@@ -53,7 +54,7 @@
 - (void)creditCardCaptureViewController:(id)arg1 didCaptureCreditCard:(id)arg2;
 - (void)creditCardCaptureViewControllerDidCancel:(id)arg1;
 - (void)_offerToAutoFillFromPotentialCredentialMatches;
-- (void)fillCredential:(id)arg1 setAutoFilled:(_Bool)arg2;
+- (void)fillCredential:(id)arg1 setAutoFilled:(_Bool)arg2 setAsDefaultCredential:(_Bool)arg3;
 - (_Bool)hasPotentialLoginCredentialsForLoginForm;
 - (id)potentialCredentialMatches;
 - (void)getLoginFormUser:(id *)arg1 password:(id *)arg2 userIsAutoFilled:(_Bool *)arg3 passwordIsAutoFilled:(_Bool *)arg4;
@@ -68,7 +69,7 @@
 - (_Bool)_shouldUsePasswordGenerationAssistanceForTextField;
 - (void)_autoFillCreditCardData;
 - (void)autoFillFormWithCreditCardDataAfterAuthenticationIfNeeded:(id)arg1;
-- (void)fillCredentialAfterAuthenticationIfNeeded:(id)arg1;
+- (void)fillCredentialAfterAuthenticationIfNeeded:(id)arg1 setAsDefaultCredential:(_Bool)arg2;
 - (void)autoFillValuesAfterAuthenticationIfNeeded:(id)arg1;
 - (void)_captureCreditCardDataWithCameraAndFill;
 @property(readonly, nonatomic) _Bool shouldOfferActionAutoFillCredentials;

@@ -7,6 +7,7 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (HealthKit)
+- (id)hk_filterKeysWithBlock:(CDUnknownBlockType)arg1;
 - (id)hk_allValuesBySortedKeys;
 - (id)hk_sortedKeys;
 - (id)hk_dictionaryByAddingEntriesFromDictionary:(id)arg1;

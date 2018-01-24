@@ -33,6 +33,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)containsOutputDevice:(id)arg1;
 @property(readonly, nonatomic) NSString *shortDescription;
 - (_Bool)isVolumeControlAvailable;
+@property(readonly, nonatomic) _Bool isProxyGroupPlayer;
 @property(readonly, nonatomic, getter=isLocalEndpoint) _Bool localEndpoint;
 @property(readonly, nonatomic) NSString *instanceIdentifier;
 @property(readonly, nonatomic) MRAVOutputDevice *designatedGroupLeader;
@@ -41,7 +42,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _MRAVEndpointDescriptorProtobuf *descriptor;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
-- (void)dealloc;
 - (id)_init;
 
 @end

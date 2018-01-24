@@ -26,7 +26,7 @@
 + (id)_baseDataObjectPredicate;
 + (id)_objectWithCodable:(id)arg1;
 + (Class)healthEntityClass;
-+ (long long)syncEntityType;
++ (id)syncEntityIdentifier;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

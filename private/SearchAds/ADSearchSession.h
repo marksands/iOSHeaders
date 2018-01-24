@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class ADCapData, ADTargetingData, NSObject<OS_dispatch_queue>, NSString;
+@class ADCapData, NSObject<OS_dispatch_queue>, NSString;
 
 @interface ADSearchSession : NSObject
 {
@@ -16,7 +16,6 @@
     NSString *_appID;
     NSString *_appVersion;
     ADCapData *_capData;
-    ADTargetingData *_targetingData;
     NSString *_campaignNamespace;
     NSObject *_notificationObserver;
 }
@@ -24,18 +23,20 @@
 @property(nonatomic) _Bool notificationReceivedAndWaiting; // @synthesize notificationReceivedAndWaiting=_notificationReceivedAndWaiting;
 @property(retain, nonatomic) NSObject *notificationObserver; // @synthesize notificationObserver=_notificationObserver;
 @property(retain, nonatomic) NSString *campaignNamespace; // @synthesize campaignNamespace=_campaignNamespace;
-@property(retain, nonatomic) ADTargetingData *targetingData; // @synthesize targetingData=_targetingData;
 @property(retain, nonatomic) ADCapData *capData; // @synthesize capData=_capData;
 @property(nonatomic) int appsRank; // @synthesize appsRank=_appsRank;
 @property(retain, nonatomic) NSString *appVersion; // @synthesize appVersion=_appVersion;
 @property(retain, nonatomic) NSString *appID; // @synthesize appID=_appID;
 - (void).cxx_destruct;
 - (void)requestSponsoredSearchURL:(CDUnknownBlockType)arg1;
+- (void)updateToroDownloadData:(id)arg1 forType:(long long)arg2;
 - (void)updateToroClickData:(id)arg1;
+- (void)updateClickDataWith:(id)arg1;
 - (void)updateSponsoredFrequencyCapData:(id)arg1;
 - (void)requestUserTargetingIdentifier:(CDUnknownBlockType)arg1;
 - (void)refreshTargetingData:(CDUnknownBlockType)arg1;
 - (id)populateStoreFrontLanguageLocale:(id)arg1;
+- (id)sponsoredSearchRequestForLanguageLocale:(id)arg1;
 - (void)requestSponsoredSearchDataRoutingInfoAndRequestIDForLocality:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)requestSearchObjectForLocality:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)userTargetingProperties;
@@ -44,7 +45,6 @@
 - (id)requestedAdDataParameter;
 - (id)privacyDataKeyParameter;
 - (id)campaignNamespaceParameter;
-- (void)expireTargetingData;
 - (void)_setupInternalSettings;
 - (_Bool)startUpdatingIDs;
 - (void)dealloc;

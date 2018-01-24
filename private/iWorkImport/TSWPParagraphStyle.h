@@ -10,14 +10,14 @@
 #import "TSSPreset.h"
 #import "TSTCellDiffing.h"
 
-@class NSString;
+@class NSMapTable, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TSWPParagraphStyle : TSSStyle <TSTCellDiffing, TSSPreset, TSDMixing>
 {
-    void *_coreTextParagraphStyle;
-    struct __CFDictionary *_styleCache;
-    struct __CFDictionary *_scalePercentStyleCaches;
+    struct __CTParagraphStyle *_coreTextParagraphStyle;
+    NSMapTable *_styleCache;
+    NSMapTable *_scalePercentStyleCaches;
 }
 
 + (id)styleSummaryForPropertyMap:(id)arg1;
@@ -34,10 +34,10 @@ __attribute__((visibility("hidden")))
 + (id)deprecatedProperties;
 + (id)paragraphProperties;
 + (id)properties;
-+ (void)initialize;
 + (id)presetStyleDescriptorForOrdinal:(unsigned long long)arg1;
 + (id)cellDiffProperties;
 + (id)defaultStyleWithDefaultPropertiesInContext:(id)arg1;
+- (void).cxx_destruct;
 - (id)styleSummary;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
@@ -55,11 +55,11 @@ __attribute__((visibility("hidden")))
 - (id)initialListStyle;
 - (void)setInitialListStyle:(id)arg1;
 - (id)followingParagraphStyle;
-- (struct __CFDictionary *)p_newCoreTextCharacterStyle:(id)arg1 allowLigatures:(_Bool)arg2 scalePercent:(unsigned long long)arg3;
+- (id)p_coreTextCharacterStyle:(id)arg1 allowLigatures:(_Bool)arg2 scalePercent:(unsigned long long)arg3;
 - (struct __CTParagraphStyle *)p_createCoreTextParagraphStyleWithCharacterStyle:(id)arg1 writingDirection:(int)arg2;
 - (BOOL)p_coreTextWritingDirectionFromWPWritingDirection:(int)arg1;
 - (struct __CTFont *)findCachedFontForCharacterStyle:(id)arg1 scalePercent:(unsigned long long)arg2;
-- (struct __CFDictionary *)getTypesetterAttributes:(id)arg1 scalePercent:(unsigned long long)arg2 isRightToLeft:(_Bool)arg3;
+- (id)getTypesetterAttributes:(id)arg1 scalePercent:(unsigned long long)arg2 isRightToLeft:(_Bool)arg3;
 - (void)clearStyleCaches;
 - (void)willModify;
 - (id)fullPropertyMap;

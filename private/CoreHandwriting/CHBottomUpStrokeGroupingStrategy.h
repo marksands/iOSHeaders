@@ -10,24 +10,24 @@
 {
 }
 
-+ (double)_containerSupportForPoints:(const vector_fa824bf3 *)arg1 withBounds:(struct CGRect)arg2;
-+ (double)_lineOrientationForStrokePoints:(const vector_fa824bf3 *)arg1 error:(double *)arg2;
++ (double)_containerSupportForPoints:(const vector_2e7754b6 *)arg1 withBounds:(struct CGRect)arg2;
++ (double)_lineOrientationForStrokePoints:(const vector_2e7754b6 *)arg1 error:(double *)arg2;
 + (double)_vectorMeanWithoutOutliers:(vector_8f06c10f *)arg1;
 + (double)_circumferenceRatioOfCircleFittedToPoints:(list_9bacdeb6)arg1 circleCenter:(struct CGPoint *)arg2 circleRadius:(double *)arg3;
-+ (vector_fa824bf3)_convexHullForPoints:(vector_fa824bf3 *)arg1;
-+ (vector_fa824bf3)_convexHullForStroke:(id)arg1;
++ (vector_2e7754b6)_convexHullForPoints:(vector_2e7754b6 *)arg1;
++ (vector_2e7754b6)_convexHullForStroke:(id)arg1;
 + (struct CGRect)_unionStrokeBounds:(const vector_ea45b3ba *)arg1 aroundXPosition:(double)arg2 usingOneSideStrokeCountLimit:(long long)arg3;
 + (struct CGRect)_unionStrokeBounds:(const vector_ea45b3ba *)arg1 usingStrokeCountLimit:(long long)arg2 reverseOrder:(_Bool)arg3;
-+ (struct CGRect)_boundingBoxOfPoints:(const vector_fa824bf3 *)arg1 rotatedAroundPoint:(struct CGPoint)arg2 byAngle:(double)arg3;
++ (struct CGRect)_boundingBoxOfPoints:(const vector_2e7754b6 *)arg1 rotatedAroundPoint:(struct CGPoint)arg2 byAngle:(double)arg3;
 + (vector_ea45b3ba)_boundingBoxesOfStrokesInGroup:(id)arg1 rotatedAroundPoint:(struct CGPoint)arg2 byAngle:(double)arg3;
 - (_Bool)_isStrokeClassifiedAsDoodling:(id)arg1 withSubstrokes:(id)arg2;
 - (id)averageAngleAndReliabilityForStrokeGroup:(id)arg1;
 - (void)_mergeGroupsPostProcessing:(id)arg1 createdGroups:(id)arg2 deletedGroups:(id)arg3;
 - (void)_updateLocalStrokeDeviationsForSubstrokes:(id)arg1 averageStrokeDeviation:(struct CGVector *)arg2;
 - (_Bool)_refineWritingOrientationAndResortSubstrokes:(id)arg1 averageWritingOrientation:(struct CGVector *)arg2;
-- (vector_fa824bf3)_flippedCenters:(const vector_fa824bf3 *)arg1 ofSubstrokes:(id)arg2 maxStrokesGap:(long long)arg3 begnning:(_Bool)arg4;
+- (vector_2e7754b6)_flippedCenters:(const vector_2e7754b6 *)arg1 ofSubstrokes:(id)arg2 maxStrokesGap:(long long)arg3 begnning:(_Bool)arg4;
 - (void)_refineLocalWritingOrientationsForSubstrokes:(id)arg1 useCoalescedCenter:(_Bool)arg2;
-- (void)_smoothLocalWritingOrientations:(vector_892a0aec *)arg1;
+- (void)_smoothLocalWritingOrientations:(vector_5071ab7f *)arg1;
 - (void)_updateLocalWritingOrientationsForSubstrokes:(id)arg1 useCoalescedCenter:(_Bool)arg2;
 - (void)_sortSubstrokesByWritingDirection:(id)arg1 averageWritingOrientation:(struct CGVector *)arg2;
 - (void)_estimateWritingDirectionAndSortSubstrokesAccordingly:(id)arg1 averageWritingOrientation:(struct CGVector *)arg2 averageStrokeDeviation:(struct CGVector *)arg3;
@@ -36,7 +36,7 @@
 - (long long)_compareDistanceInWritingSequenceOfStroke:(id)arg1 andStroke:(id)arg2 toReferenceStroke:(id)arg3;
 - (void)_getMergingMiddleOfLineCost:(double *)arg1 mergingMiddleOfLineStroke:(id *)arg2 forStrokeSubstrokes:(id)arg3 toLineGroup:(id)arg4;
 - (void)_getMergingEndOfLineCost:(double *)arg1 mergingEndOfLineStroke:(id *)arg2 forStrokeSubstrokes:(id)arg3 toLineGroup:(id)arg4;
-- (id)_writingDirectionSortedStrokeIdentifiersFromSubstrokes:(id)arg1 localWritingOrientations:(vector_892a0aec *)arg2;
+- (id)_writingDirectionSortedStrokeIdentifiersFromSubstrokes:(id)arg1 localWritingOrientations:(vector_5071ab7f *)arg2;
 - (double)_verticalOffsetForBoundsHeight:(double)arg1 andScaleFactor:(double)arg2;
 - (double)_scaleFactorForBoundsHeight:(double)arg1;
 - (id)recognizableDrawingForStrokeGroup:(id)arg1 orderedStrokesIDs:(id *)arg2;

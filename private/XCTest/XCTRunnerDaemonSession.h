@@ -32,7 +32,9 @@
 - (void)injectAssistantRecognitionStrings:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)startSiriUIRequestWithAudioFileURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)startSiriUIRequestWithText:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)requestSiriEnabledStatus:(CDUnknownBlockType)arg1;
 - (void)enableFauxCollectionViewCells:(CDUnknownBlockType)arg1;
+- (void)setLocalizableStringsDataGatheringEnabled:(_Bool)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)loadAccessibilityWithTimeout:(double)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)setAXTimeout:(double)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)requestScreenshotWithReply:(CDUnknownBlockType)arg1;

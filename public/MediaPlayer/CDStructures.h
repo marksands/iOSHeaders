@@ -10,6 +10,12 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct Arc4State {
+    unsigned int _field1;
+    unsigned int _field2;
+    char *_field3;
+};
+
 struct CGPoint {
     double x;
     double y;
@@ -155,10 +161,10 @@ struct map<MPModelStoreBrowseDetailedContentItemType, unsigned long, std::__1::l
     struct __tree<std::__1::__value_type<MPModelStoreBrowseDetailedContentItemType, unsigned long>, std::__1::__map_value_compare<MPModelStoreBrowseDetailedContentItemType, std::__1::__value_type<MPModelStoreBrowseDetailedContentItemType, unsigned long>, std::__1::less<MPModelStoreBrowseDetailedContentItemType>, true>, std::__1::allocator<std::__1::__value_type<MPModelStoreBrowseDetailedContentItemType, unsigned long>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
         struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<MPModelStoreBrowseDetailedContentItemType, unsigned long>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __value_;
         } __pair1_;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<MPModelStoreBrowseDetailedContentItemType, std::__1::__value_type<MPModelStoreBrowseDetailedContentItemType, unsigned long>, std::__1::less<MPModelStoreBrowseDetailedContentItemType>, true>> {
-            unsigned long long __first_;
+            unsigned long long __value_;
         } __pair3_;
     } __tree_;
 };
@@ -342,7 +348,7 @@ struct vector<int, std::__1::allocator<int>> {
     int *__begin_;
     int *__end_;
     struct __compressed_pair<int *, std::__1::allocator<int>> {
-        int *__first_;
+        int *__value_;
     } __end_cap_;
 };
 
@@ -350,7 +356,7 @@ struct vector<long long, std::__1::allocator<long long>> {
     long long *__begin_;
     long long *__end_;
     struct __compressed_pair<long long *, std::__1::allocator<long long>> {
-        long long *__first_;
+        long long *__value_;
     } __end_cap_;
 };
 
@@ -358,7 +364,7 @@ struct vector<long, std::__1::allocator<long>> {
     long long *__begin_;
     long long *__end_;
     struct __compressed_pair<long *, std::__1::allocator<long>> {
-        long long *__first_;
+        long long *__value_;
     } __end_cap_;
 };
 
@@ -384,7 +390,7 @@ struct vector<std::__1::shared_ptr<mlcore::EntityCache>, std::__1::allocator<std
     shared_ptr_1c86f238 *__begin_;
     shared_ptr_1c86f238 *__end_;
     struct __compressed_pair<std::__1::shared_ptr<mlcore::EntityCache>*, std::__1::allocator<std::__1::shared_ptr<mlcore::EntityCache>>> {
-        shared_ptr_1c86f238 *__first_;
+        shared_ptr_1c86f238 *__value_;
     } __end_cap_;
 };
 
@@ -392,7 +398,7 @@ struct vector<unsigned long long, std::__1::allocator<unsigned long long>> {
     unsigned long long *__begin_;
     unsigned long long *__end_;
     struct __compressed_pair<unsigned long long *, std::__1::allocator<unsigned long long>> {
-        unsigned long long *__first_;
+        unsigned long long *__value_;
     } __end_cap_;
 };
 
@@ -420,10 +426,6 @@ typedef struct {
     unsigned long long *_field3;
     unsigned long long _field4[5];
 } CDStruct_70511ce9;
-
-typedef struct {
-    unsigned int _field1[8];
-} CDStruct_6ad76789;
 
 typedef struct {
     unsigned int identifiers:1;
@@ -597,9 +599,9 @@ typedef struct vector<long long, std::__1::allocator<long long>> {
     long long *__begin_;
     long long *__end_;
     struct __compressed_pair<long long *, std::__1::allocator<long long>> {
-        long long *__first_;
+        long long *__value_;
     } __end_cap_;
-} vector_c1c297d2;
+} vector_bbba3654;
 
 typedef struct vector<mlcore::ModelPropertyBase *, std::__1::allocator<mlcore::ModelPropertyBase *>> {
     struct ModelPropertyBase **_field1;

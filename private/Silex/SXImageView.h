@@ -8,12 +8,12 @@
 
 #import "STAXCustomRotorItemProvider.h"
 #import "SXAnimatedImageDelegate.h"
-#import "SXDragable.h"
+#import "SXDraggable.h"
 #import "SXReachabilityObserver.h"
 
 @class NSMapTable, NSString, NSTimer, SXAnimatedImage, SXImageResource, UIActivityIndicatorView, UIImage, UILongPressGestureRecognizer, UIView;
 
-@interface SXImageView : UIImageView <STAXCustomRotorItemProvider, SXAnimatedImageDelegate, SXReachabilityObserver, SXDragable>
+@interface SXImageView : UIImageView <STAXCustomRotorItemProvider, SXAnimatedImageDelegate, SXReachabilityObserver, SXDraggable>
 {
     _Bool _shouldShowLoadingIndicator;
     _Bool _scrubbingEnabled;
@@ -81,7 +81,7 @@
 - (void)didStartDragging;
 @property(readonly, nonatomic) NSString *dragIdentifier;
 @property(readonly, nonatomic) UIView *dragPreviewView;
-@property(readonly, nonatomic) id <UIItemProviderWriting> dragObject;
+@property(readonly, nonatomic) id <NSItemProviderWriting> dragObject;
 - (id)itemsForCustomRotor:(id)arg1;
 - (id)supportedCustomRotors;
 - (void)animatedImage:(id)arg1 madeImageAvailableForFrameAtIndex:(unsigned long long)arg2;

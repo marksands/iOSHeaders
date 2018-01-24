@@ -25,6 +25,7 @@
 - (id)_pushTopic;
 - (void)clearAcknowledgedPushNotifications;
 - (void)acknowledgePendingPushNotifications;
+- (void)queryMemoryFootprint:(CDUnknownBlockType)arg1;
 - (void)getPushNotifications:(CDUnknownBlockType)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)connection:(id)arg1 didReceiveIncomingMessage:(id)arg2;

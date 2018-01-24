@@ -77,6 +77,7 @@
 - (void)unlock;
 - (void)lock;
 - (int)_contextColorForInstruments;
+- (id)device;
 - (void)dealloc;
 - (void)_gpuContextCheck;
 - (id)_initWithInternalRepresentation:(void *)arg1;

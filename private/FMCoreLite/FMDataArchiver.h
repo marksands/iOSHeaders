@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSURL;
+@class NSData, NSURL;
 
 @interface FMDataArchiver : NSObject
 {
@@ -14,22 +14,30 @@
     _Bool _createDirectories;
     long long _dataProtectionClass;
     NSURL *_fileURL;
+    NSData *_unitTestData;
 }
 
++ (id)defaultClasses;
+@property(copy, nonatomic) NSData *unitTestData; // @synthesize unitTestData=_unitTestData;
 @property(retain, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(nonatomic) _Bool createDirectories; // @synthesize createDirectories=_createDirectories;
 @property(nonatomic) _Bool backedUp; // @synthesize backedUp=_backedUp;
 @property(nonatomic) long long dataProtectionClass; // @synthesize dataProtectionClass=_dataProtectionClass;
 - (void).cxx_destruct;
+- (id)readData:(id *)arg1 class:(Class)arg2;
 - (unsigned long long)dataWritingOptionForDataProtectionClass:(long long)arg1;
 - (id)saveObject:(id)arg1;
 - (_Bool)saveDictionary:(id)arg1 error:(id *)arg2;
 - (_Bool)saveArray:(id)arg1 error:(id *)arg2;
 - (id)saveDictionary:(id)arg1;
 - (id)saveArray:(id)arg1;
-- (id)readData:(id *)arg1 class:(Class)arg2;
+- (id)underlyingDataWithError:(id *)arg1;
+- (id)readDataOfClasses:(id)arg1 error:(id *)arg2;
+- (id)readArrayAndClasses:(id)arg1 error:(id *)arg2;
+- (id)readDictionaryAndClasses:(id)arg1 error:(id *)arg2;
 - (id)readDictionary:(id *)arg1;
 - (id)readArray:(id *)arg1;
+- (void)injectUnitTestData:(id)arg1;
 - (id)initWithFileURL:(id)arg1;
 
 @end

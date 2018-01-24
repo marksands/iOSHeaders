@@ -16,9 +16,9 @@
     struct GEOTileSetRegion *_hybridUnavailableRegions;
     unsigned long long _hybridUnavailableRegionsCount;
     unsigned long long _hybridUnavailableRegionsSpace;
+    struct GEOMapLayersMetadata _mapLayersMetadata;
     CDStruct_95bda58d _activeScales;
     CDStruct_95bda58d _activeScenarios;
-    struct GEOMapLayersMetadata _mapLayersMetadata;
     NSString *_abExperimentURL;
     NSMutableArray *_activeResources;
     NSString *_addressCorrectionInitURL;
@@ -75,6 +75,7 @@
     NSMutableArray *_tileSets;
     NSString *_uniqueIdentifier;
     GEOVersionManifest *_versionManifest;
+    NSString *_wifiConnectionQualityProbeURL;
     NSMutableArray *_xmlChecksums;
     NSMutableArray *_xmls;
     struct {
@@ -106,6 +107,7 @@
 + (Class)attributionType;
 + (Class)resourceType;
 + (Class)tileSetType;
+@property(retain, nonatomic) NSString *wifiConnectionQualityProbeURL; // @synthesize wifiConnectionQualityProbeURL=_wifiConnectionQualityProbeURL;
 @property(retain, nonatomic) NSString *backgroundRevGeoURL; // @synthesize backgroundRevGeoURL=_backgroundRevGeoURL;
 @property(retain, nonatomic) NSString *bluePOIURL; // @synthesize bluePOIURL=_bluePOIURL;
 @property(retain, nonatomic) NSString *backgroundDispatcherURL; // @synthesize backgroundDispatcherURL=_backgroundDispatcherURL;
@@ -175,6 +177,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasWifiConnectionQualityProbeURL;
 @property(readonly, nonatomic) _Bool hasBackgroundRevGeoURL;
 @property(readonly, nonatomic) _Bool hasBluePOIURL;
 @property(readonly, nonatomic) _Bool hasBackgroundDispatcherURL;

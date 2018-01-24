@@ -6,13 +6,13 @@
 
 #import "HMFObject.h"
 
+#import "HMDHomeMessageReceiver.h"
 #import "HMFDumpState.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 
-@class HMDDevice, HMDEventTrigger, HMFMessageDispatcher, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDDevice, HMDEventTrigger, HMFMessageDispatcher, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDEventTriggerSession : HMFObject <HMFDumpState, HMFLogging, HMFMessageReceiver>
+@interface HMDEventTriggerSession : HMFObject <HMFDumpState, HMFLogging, HMDHomeMessageReceiver>
 {
     NSUUID *_sessionID;
     NSString *_logString;
@@ -23,6 +23,7 @@
     HMDDevice *_currentDevice;
 }
 
++ (_Bool)hasMessageReceiverChildren;
 + (id)logCategory;
 @property(readonly, nonatomic) HMDDevice *currentDevice; // @synthesize currentDevice=_currentDevice;
 @property(readonly, nonatomic) NSUUID *eventTriggerUUID; // @synthesize eventTriggerUUID=_eventTriggerUUID;
@@ -47,6 +48,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

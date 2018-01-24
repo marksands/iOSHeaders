@@ -13,11 +13,11 @@
 @interface PDScheduledActivityRegistration : NSObject <NSSecureCoding>
 {
     PDScheduledActivityCriteria *_activityCriteria;
-    id <NSCoding> _activityContext;
+    id <NSObject><NSSecureCoding> _activityContext;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, nonatomic) id <NSCoding> activityContext; // @synthesize activityContext=_activityContext;
+@property(readonly, nonatomic) id <NSObject><NSSecureCoding> activityContext; // @synthesize activityContext=_activityContext;
 @property(readonly, nonatomic) PDScheduledActivityCriteria *activityCriteria; // @synthesize activityCriteria=_activityCriteria;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

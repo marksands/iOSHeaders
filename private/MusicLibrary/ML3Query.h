@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class ML3AggregateQuery, ML3MusicLibrary, ML3Predicate, NSArray, NSString;
 
-@interface ML3Query : NSObject <NSCoding, NSCopying>
+@interface ML3Query : NSObject <NSSecureCoding, NSCopying>
 {
     ML3MusicLibrary *_library;
     Class _entityClass;
@@ -25,6 +25,7 @@
     unsigned long long _limit;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) long long options; // @synthesize options=_options;
 @property(readonly, nonatomic) _Bool filtersOnDynamicProperties; // @synthesize filtersOnDynamicProperties=_filtersOnDynamicProperties;
 @property(readonly, nonatomic) ML3AggregateQuery *nonDirectAggregateQuery; // @synthesize nonDirectAggregateQuery=_nonDirectAggregateQuery;

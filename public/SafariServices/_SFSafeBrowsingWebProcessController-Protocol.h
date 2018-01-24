@@ -9,6 +9,7 @@
 @class NSDictionary, NSURL, _SFSecurityInfo;
 
 @protocol _SFSafeBrowsingWebProcessController <NSObject>
+- (void)safeBrowsingDatabaseDidUpdate;
 - (void)safeBrowsingCheckFinishedWithSecurityInfo:(_SFSecurityInfo *)arg1 canGoBack:(_Bool)arg2 localizedStrings:(NSDictionary *)arg3;
 - (void)urlPassedSafeBrowsingCheck:(NSURL *)arg1 canCache:(_Bool)arg2;
 @end

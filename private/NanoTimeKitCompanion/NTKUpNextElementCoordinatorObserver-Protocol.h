@@ -9,6 +9,7 @@
 @class NSIndexPath, NSSet, NTKUpNextElement, NTKUpNextElementCoordinator;
 
 @protocol NTKUpNextElementCoordinatorObserver <NSObject>
+@property(readonly, nonatomic) _Bool allowsLocationUse;
 @property(readonly, nonatomic) NSSet *disabledDataSources;
 @property(readonly, nonatomic) unsigned long long state;
 - (_Bool)elementCoordinator:(NTKUpNextElementCoordinator *)arg1 isElementAtIndexPathVisible:(NSIndexPath *)arg2;

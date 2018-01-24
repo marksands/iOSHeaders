@@ -76,12 +76,18 @@
 @property(retain, nonatomic) MPAVRoute *wirelessDisplayRoute;
 @property(readonly, nonatomic, getter=isRoutingToWirelessDevice) _Bool routingToWirelessDevice;
 @property(nonatomic, getter=isPicked) _Bool picked;
+@property(readonly, nonatomic) _Bool supportsRemoteControl;
+@property(readonly, nonatomic) _Bool supportsGrouping;
 @property(readonly, nonatomic, getter=isVolumeControlAvailable) _Bool volumeControlAvailable;
+@property(readonly, nonatomic, getter=isProxyGroupPlayer) _Bool proxyGroupPlayer;
 @property(readonly, nonatomic) _Bool isDeviceRoute;
 @property(readonly, nonatomic, getter=isAppleTVRoute) _Bool appleTVRoute;
+@property(readonly, nonatomic, getter=isAirPlayingToDevice) _Bool airPlayingToDevice;
 - (void)setAVRouteDescription:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *avRouteDescription;
 @property(copy, nonatomic) NSString *routeName;
+@property(readonly, nonatomic) NSArray *routeNames;
+@property(readonly, nonatomic) NSString *designatedGroupLeaderName;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

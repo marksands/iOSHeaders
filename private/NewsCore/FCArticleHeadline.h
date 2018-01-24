@@ -17,6 +17,8 @@
     _Bool _featureCandidate;
     _Bool _needsRapidUpdates;
     _Bool _showMinimalChrome;
+    _Bool _boundToContext;
+    _Bool _hiddenFromFeeds;
     _Bool _paid;
     _Bool _canBePurchased;
     NSString *_versionIdentifier;
@@ -63,6 +65,8 @@
     FCTopStoriesStyleConfiguration *_storyStyle;
     long long _minimumNewsVersion;
     FCCoverArt *_coverArt;
+    NSString *_videoCallToActionTitle;
+    NSURL *_videoCallToActionURL;
     NTPBArticleRecord *_articleRecord;
     FCInterestToken *_articleInterestToken;
     long long _behaviorFlags;
@@ -75,10 +79,14 @@
 @property(retain, nonatomic) FCInterestToken *articleInterestToken; // @synthesize articleInterestToken=_articleInterestToken;
 @property(retain, nonatomic) NTPBArticleRecord *articleRecord; // @synthesize articleRecord=_articleRecord;
 - (_Bool)canBePurchased;
+- (id)videoCallToActionURL;
+- (id)videoCallToActionTitle;
 - (id)coverArt;
 - (void)setPaid:(_Bool)arg1;
 - (_Bool)isPaid;
 - (long long)minimumNewsVersion;
+- (_Bool)isHiddenFromFeeds;
+- (_Bool)isBoundToContext;
 - (_Bool)showMinimalChrome;
 - (_Bool)needsRapidUpdates;
 - (void)setStoryStyle:(id)arg1;
@@ -151,6 +159,7 @@
 - (id)versionIdentifier;
 - (void).cxx_destruct;
 - (id)publisherID;
+- (id)articleRecirculationConfigJSON;
 - (id)backingArticleRecordData;
 - (id)endOfArticleTopicIDs;
 - (id)contentManifestWithContext:(id)arg1;

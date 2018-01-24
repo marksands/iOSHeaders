@@ -24,6 +24,7 @@
 - (Class)impactBalloonViewClass;
 - (Class)balloonViewClass;
 - (id)_attributedTextWithTextColor:(id)arg1;
+- (_Bool)showMoneyResults;
 - (id)loadTranscriptText;
 - (id)sendAnimationText;
 - (id)composition;

@@ -14,7 +14,7 @@
 {
 }
 
-- (void)loadPublicContainer:(id)arg1 privateContainer:(id)arg2;
+- (void)loadInRegistry:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

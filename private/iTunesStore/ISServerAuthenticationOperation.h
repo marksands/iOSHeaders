@@ -10,6 +10,7 @@
 
 @interface ISServerAuthenticationOperation : ISOperation
 {
+    unsigned long long _authenticatedAccountCredentialSource;
     NSNumber *_authenticatedAccountDSID;
     SSAuthenticationContext *_authenticationContext;
     ISDialog *_dialog;
@@ -25,6 +26,7 @@
 @property(retain) ISDialogButton *performedButton; // @synthesize performedButton=_performedButton;
 @property(retain) ISDialog *dialog; // @synthesize dialog=_dialog;
 @property(retain) NSNumber *authenticatedAccountDSID; // @synthesize authenticatedAccountDSID=_authenticatedAccountDSID;
+@property unsigned long long authenticatedAccountCredentialSource; // @synthesize authenticatedAccountCredentialSource=_authenticatedAccountCredentialSource;
 @property(retain) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authenticationContext;
 - (void)run;
 - (void)dealloc;

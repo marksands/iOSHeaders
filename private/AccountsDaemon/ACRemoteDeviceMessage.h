@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class ACAccount, NSData, NSDictionary, NSError, NSMutableDictionary, NSObject<NSCoding>, NSString;
+@class ACAccount, NSData, NSDictionary, NSError, NSMutableDictionary, NSObject<NSSecureCoding>, NSString;
 
 @interface ACRemoteDeviceMessage : NSObject
 {
@@ -17,6 +17,7 @@
     NSString *_identifier;
 }
 
++ (id)_whitelistedClasses;
 + (id)actionMessageWithCommand:(id)arg1 account:(id)arg2 options:(id)arg3;
 + (id)replyForMessage:(id)arg1 withSuccess:(_Bool)arg2 error:(id)arg3;
 + (id)replyForMessage:(id)arg1 withSuccess:(_Bool)arg2 result:(id)arg3 error:(id)arg4;
@@ -34,7 +35,7 @@
 @property(readonly, nonatomic) NSDictionary *options;
 @property(readonly, nonatomic) ACAccount *account;
 @property(readonly, nonatomic) NSString *command;
-@property(readonly, nonatomic) NSObject<NSCoding> *result;
+@property(readonly, nonatomic) NSObject<NSSecureCoding> *result;
 @property(readonly, nonatomic) NSError *error;
 @property(readonly, nonatomic) _Bool success;
 @property(readonly, nonatomic) NSString *sentMessageIdentifier;

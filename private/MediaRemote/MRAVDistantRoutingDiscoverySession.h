@@ -17,6 +17,7 @@
     unsigned int _discoveryMode;
     NSArray *_distantEndpoints;
     NSArray *_distantOutputDevices;
+    NSString *_routingContextUID;
     int _serviceResetNotifyToken;
     _Bool _hostedRoutingConnectionDidInitialize;
     NSXPCConnection *_hostedRoutingSessionConnection;
@@ -36,6 +37,8 @@
 - (void)availableEndpointsDidChange:(id)arg1;
 @property(retain, nonatomic) NSArray *distantOutputDevices;
 @property(retain, nonatomic) NSArray *distantEndpoints;
+- (void)setRoutingContextUID:(id)arg1;
+- (id)routingContextUID;
 - (id)availableOutputDevices;
 - (id)availableEndpoints;
 - (_Bool)hasAvailableEndpoints;

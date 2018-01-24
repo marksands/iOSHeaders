@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
     struct RetainPtr<UIPDFDocument> _pdfDocument;
     struct RetainPtr<NSString> _suggestedFilename;
     struct RetainPtr<WKPDFPageNumberIndicator> _pageNumberIndicator;
-    struct Vector<PDFPageInfo, 0, WTF::CrashOnOverflow, 16> _pages;
+    struct Vector<PDFPageInfo, 0, WTF::CrashOnOverflow, 16, WTF::FastMalloc> _pages;
     unsigned int _centerPageNumber;
     struct CGSize _minimumSize;
     struct CGSize _overlaidAccessoryViewsInset;
@@ -36,7 +36,7 @@ __attribute__((visibility("hidden")))
     unsigned int _currentFindMatchIndex;
     struct RetainPtr<UIPDFSelection> _currentFindSelection;
     struct RetainPtr<NSString> _cachedFindString;
-    struct Vector<WTF::RetainPtr<UIPDFSelection>, 0, WTF::CrashOnOverflow, 16> _cachedFindMatches;
+    struct Vector<WTF::RetainPtr<UIPDFSelection>, 0, WTF::CrashOnOverflow, 16, WTF::FastMalloc> _cachedFindMatches;
     unsigned int _cachedFindMaximumCount;
     unsigned long long _cachedFindOptionsAffectingResults;
     // Error parsing type: {atomic<unsigned int>="__a_"AI}, name: _nextComputeMatchesOperationID
@@ -65,7 +65,7 @@ __attribute__((visibility("hidden")))
 - (void)actionSheetAssistant:(id)arg1 shareElementWithURL:(id)arg2 rect:(struct CGRect)arg3;
 - (void)actionSheetAssistant:(id)arg1 openElementAtLocation:(struct CGPoint)arg2;
 - (void)actionSheetAssistant:(id)arg1 performAction:(int)arg2;
-- (optional_b0042d51)positionInformationForActionSheetAssistant:(id)arg1;
+- (optional_184d31a8)positionInformationForActionSheetAssistant:(id)arg1;
 - (void)annotation:(id)arg1 isBeingPressedAtPoint:(struct CGPoint)arg2 controller:(id)arg3;
 - (void)annotation:(id)arg1 wasTouchedAtPoint:(struct CGPoint)arg2 controller:(id)arg3;
 - (void)resetZoom:(id)arg1;

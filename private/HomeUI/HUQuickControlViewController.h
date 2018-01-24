@@ -43,10 +43,12 @@
 - (void)beginUserInteractionWithFirstTouchGestureRecognizer:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *overrideSecondaryStatusText;
 @property(readonly, copy, nonatomic) NSString *overrideStatusText;
+@property(readonly, nonatomic) _Bool shouldShowControlWhenUnreachable;
 @property(readonly, nonatomic) _Bool hasSingleControlView;
 - (id)intrinsicSizeDescriptorForControlSize:(unsigned long long)arg1;
 @property(retain, nonatomic) id <HULayoutAnchorProviding> preferredFrameLayoutGuide; // @synthesize preferredFrameLayoutGuide=_preferredFrameLayoutGuide;
 - (id)hu_preloadContent;
+@property(readonly, nonatomic) unsigned long long preferredPresentationStyle;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -41,6 +41,7 @@
 - (id)componentForIdentifier:(id)arg1;
 - (id)componentAtIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfComponents;
+- (id)allComponents;
 - (void)prepare;
 - (id)initWithComponents:(id)arg1 documentController:(id)arg2;
 

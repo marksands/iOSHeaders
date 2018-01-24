@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_os_log>;
+
 @interface PUAssetActionManager : NSObject
 {
     id <PUAssetActionManagerDelegate> _delegate;
@@ -23,6 +25,7 @@
 - (unsigned long long)preferredTrashActionTypeOnAssetsByAssetCollection:(id)arg1;
 - (_Bool)shouldEnableActionType:(unsigned long long)arg1 onAsset:(id)arg2 inAssetCollection:(id)arg3;
 - (_Bool)canPerformActionType:(unsigned long long)arg1 onAsset:(id)arg2 inAssetCollection:(id)arg3;
+@property(readonly, nonatomic) NSObject<OS_os_log> *actionManagerLog;
 
 @end
 

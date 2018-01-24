@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class HKActivitySummary, HKAnchoredObjectQuery, HKCurrentActivityCacheQuery, HKHealthStore, HKObserverQuery, HKQuantityType, HKQueryAnchor, HKSortedSampleArray, HKUnit, NSArray, NSHashTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, _HKCurrentActivitySummaryQuery, _HKDelayedOperation;
+@class HKActivitySummary, HKAnchoredObjectQuery, HKCurrentActivityCacheQuery, HKHealthStore, HKObserverQuery, HKQuantityType, HKQueryAnchor, HKSortedSampleArray, HKUnit, NSArray, NSDate, NSHashTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, _HKCurrentActivitySummaryQuery, _HKDelayedOperation;
 
 @interface NTKWellnessTimelineModel : NSObject
 {
@@ -31,6 +31,7 @@
     _HKDelayedOperation *_delayedProcessingOperation;
     NSObject<OS_dispatch_queue> *_subscriber_queue;
     NSHashTable *_subscribers;
+    NSDate *_currentDate;
     _Bool _queue_ignoreLoadingSummary;
 }
 
@@ -41,6 +42,7 @@
 - (void)_broadcastHistoricalDataWasUpdatedToSubscribers;
 - (void)_broadcastCurrentEntryUpdate:(id)arg1 toSubscriber:(id)arg2;
 - (void)_broadcastCurrentEntryUpdateToSubscribers:(id)arg1;
+- (void)_handleTimeTravelPrefChange;
 - (void)_handleTimeChange;
 - (void)_queue_processNewCalorieGoals:(id)arg1 deletedSamples:(id)arg2;
 - (void)_queue_processMoveActivityStatistics:(id)arg1 exerciseActivityStatistics:(id)arg2 standActivityStatistics:(id)arg3;
@@ -58,7 +60,7 @@
 - (id)_queue_standHourForDate:(id)arg1;
 - (id)_wellnessEntryModelFromActivitySummary:(id)arg1;
 - (_Bool)_loadingStateForActivitySummary:(id)arg1;
-- (void)_queue_restartQueries;
+- (void)_queue_restartQueriesPreservingHisoricalData:(_Bool)arg1;
 - (void)_queue_restartQueriesIfQueryInUse:(id)arg1;
 - (void)_restartQueriesIfQueryInUse:(id)arg1;
 - (void)_queue_stopQueriesPreservingHistoricalData:(_Bool)arg1;

@@ -14,6 +14,7 @@
 - (id)hf_updateColorPalette:(id)arg1;
 - (id)hf_colorPaletteOfType:(unsigned long long)arg1;
 - (id)hf_colorPalette;
+- (void)hf_startReprovisioningAccessory:(id)arg1;
 - (_Bool)hf_hasMediaAccessories;
 - (_Bool)hf_supportsSharedEventAutomation;
 - (_Bool)hf_isMediaAccessoryProfileValid:(id)arg1;
@@ -40,15 +41,19 @@
 - (id)hf_allVisibleServices;
 - (id)hf_allServices;
 - (id)hf_serviceWithIdentifier:(id)arg1;
+- (id)availableSoftwareUpdates;
+- (id)accessoriesSupportingSoftwareUpdate;
 - (id)hf_mediaSystemForAccessory:(id)arg1;
 - (id)hf_serviceGroupsForService:(id)arg1;
 - (id)hf_actionSetWithUUID:(id)arg1;
 - (id)hf_primaryResidentDevice;
-- (id)hf_accessoriesSupportingSoftwareUpdate;
 - (id)hf_allProgrammableSwitchAccessories;
 - (id)hf_allBridgeAccessories;
 - (id)hf_accessoriesMatchingCategoryType:(id)arg1;
+- (id)hf_mediaProfileContainerForSymptomsHandler:(id)arg1;
+- (id)hf_mediaSystemForSymptomsHandler:(id)arg1;
 - (id)hf_accessoryForSymptomsHandler:(id)arg1;
+- (id)hf_accessoryWithDeviceIdentifier:(id)arg1;
 - (id)hf_accessoryWithIdentifier:(id)arg1;
 - (id)hf_allNonEmptyActionSets;
 - (id)hf_zoneWithIdentifier:(id)arg1;

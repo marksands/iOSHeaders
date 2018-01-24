@@ -43,6 +43,7 @@
 - (void)updateEndpointerThreshold:(float)arg1;
 - (id)endpointerModelVersion;
 - (void)processServerEndpointFeatures:(id)arg1;
+- (double)elapsedTimeWithNoSpeech;
 - (_Bool)_shouldEnterTwoShotAtEndPointTime:(double)arg1;
 - (_Bool)_shouldUseVAD2ForTwoShot;
 - (void)endpointer:(id)arg1 didDetectHardEndpointAtTime:(double)arg2 withMetrics:(id)arg3;

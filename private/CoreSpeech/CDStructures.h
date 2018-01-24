@@ -43,25 +43,25 @@ struct SmartSiriVolume;
 
 struct unique_ptr<BatchBeepCanceller, std::__1::default_delete<BatchBeepCanceller>> {
     struct __compressed_pair<BatchBeepCanceller *, std::__1::default_delete<BatchBeepCanceller>> {
-        struct BatchBeepCanceller *__first_;
+        struct BatchBeepCanceller *__value_;
     } __ptr_;
 };
 
 struct unique_ptr<CSAudioZeroFilterImpl<unsigned short>, std::__1::default_delete<CSAudioZeroFilterImpl<unsigned short>>> {
     struct __compressed_pair<CSAudioZeroFilterImpl<unsigned short>*, std::__1::default_delete<CSAudioZeroFilterImpl<unsigned short>>> {
-        struct CSAudioZeroFilterImpl<unsigned short> *__first_;
+        struct CSAudioZeroFilterImpl<unsigned short> *__value_;
     } __ptr_;
 };
 
 struct unique_ptr<SmartSiriVolume, std::__1::default_delete<SmartSiriVolume>> {
     struct __compressed_pair<SmartSiriVolume *, std::__1::default_delete<SmartSiriVolume>> {
-        struct SmartSiriVolume *__first_;
+        struct SmartSiriVolume *__value_;
     } __ptr_;
 };
 
 struct unique_ptr<corespeech::CSAudioCircularBufferImpl<unsigned short>, std::__1::default_delete<corespeech::CSAudioCircularBufferImpl<unsigned short>>> {
     struct __compressed_pair<corespeech::CSAudioCircularBufferImpl<unsigned short>*, std::__1::default_delete<corespeech::CSAudioCircularBufferImpl<unsigned short>>> {
-        struct CSAudioCircularBufferImpl<unsigned short> *__first_;
+        struct CSAudioCircularBufferImpl<unsigned short> *__value_;
     } __ptr_;
 };
 
@@ -69,7 +69,7 @@ struct vector<float, std::__1::allocator<float>> {
     float *__begin_;
     float *__end_;
     struct __compressed_pair<float *, std::__1::allocator<float>> {
-        float *__first_;
+        float *__value_;
     } __end_cap_;
 };
 
@@ -77,7 +77,7 @@ struct vector<short, std::__1::allocator<short>> {
     short *__begin_;
     short *__end_;
     struct __compressed_pair<short *, std::__1::allocator<short>> {
-        short *__first_;
+        short *__value_;
     } __end_cap_;
 };
 

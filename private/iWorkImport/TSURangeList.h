@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface TSURangeList : NSObject
 {
-    struct vector<_NSRange, std::__1::allocator<_NSRange>> mRangeList;
+    vector_b5e32e34 mRangeList;
 }
 
 - (id).cxx_construct;

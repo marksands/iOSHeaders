@@ -33,8 +33,8 @@
     struct sqlite3_stmt *_selectPassUniqueIDAsssociateToTransactionWithServiceIdentifierStatement;
     struct sqlite3_stmt *_deleteTransactionsForPassStatement;
     struct sqlite3_stmt *_trimTransactionsForPassStatement;
-    struct sqlite3_stmt *_selectFelicaTransitAppletStateForPassStatement;
-    struct sqlite3_stmt *_updateFelicaTransitAppletStateForPassStatement;
+    struct sqlite3_stmt *_selectTransitAppletStateForPassStatement;
+    struct sqlite3_stmt *_updateTransitAppletStateForPassStatement;
     struct sqlite3_stmt *_insertEphemeralTransactionStatement;
     struct sqlite3_stmt *_deleteEphemeralTransactionByPassUniqueIDStatement;
     struct sqlite3_stmt *_currentEphemeralTransactionIdentifierStatement;
@@ -121,8 +121,8 @@
 - (id)_lastAddValueAmountForPassWithUniqueIDLocked:(id)arg1;
 - (id)_currentEphemeralTransactionIdentifierForPassWithUniqueID:(id)arg1;
 - (void)_setCurrentEphemeralTransactionIdentifier:(id)arg1 forPassWithUniqueID:(id)arg2;
-- (void)_setFelicaTransitAppletStateLocked:(id)arg1 forPassWithUniqueID:(id)arg2;
-- (id)_felicaTransitAppletStateForPassWithUniqueIDLocked:(id)arg1;
+- (void)_setTransitAppletStateLocked:(id)arg1 forPassWithUniqueID:(id)arg2;
+- (id)_transitAppletStateForPassWithUniqueIDLocked:(id)arg1;
 - (id)_passUniqueIDForTransactionWithServiceIdentifier:(id)arg1;
 - (id)_passUniqueIDForTransactionWithIdentifier:(id)arg1;
 - (id)_transactionWithServiceIdentifierLocked:(id)arg1;
@@ -151,8 +151,8 @@
 - (id)transactionsWithCloudKitArchivedState:(_Bool)arg1;
 - (id)currentEphemeralTransactionIdentifierForPassWithUniqueID:(id)arg1;
 - (void)setCurrentEphemeralTransactionIdentifier:(id)arg1 forPassWithUniqueID:(id)arg2;
-- (void)setFelicaTransitAppletState:(id)arg1 forPassWithUniqueID:(id)arg2;
-- (id)felicaTransitAppletStateForPassWithUniqueID:(id)arg1;
+- (void)setTransitAppletState:(id)arg1 forPassWithUniqueID:(id)arg2;
+- (id)transitAppletStateForPassWithUniqueID:(id)arg1;
 - (id)passUniqueIDForTransactionWithServiceIdentifier:(id)arg1;
 - (id)passUniqueIDForTransactionWithIdentifier:(id)arg1;
 - (id)transactionWithServiceIdentifier:(id)arg1;
@@ -178,8 +178,8 @@
 @property(readonly) struct sqlite3_stmt *currentEphemeralTransactionIdentifierStatement;
 @property(readonly) struct sqlite3_stmt *deleteEphemeralTransactionByPassUniqueIDStatement;
 @property(readonly) struct sqlite3_stmt *insertEphemeralTransactionStatement;
-@property(readonly) struct sqlite3_stmt *updateFelicaTransitAppletStateForPassStatement;
-@property(readonly) struct sqlite3_stmt *selectFelicaTransitAppletStateForPassStatement;
+@property(readonly) struct sqlite3_stmt *updateTransitAppletStateForPassStatement;
+@property(readonly) struct sqlite3_stmt *selectTransitAppletStateForPassStatement;
 @property(readonly) struct sqlite3_stmt *trimTransactionsForPassStatement;
 @property(readonly) struct sqlite3_stmt *deleteTransactionsForPassStatement;
 - (struct sqlite3_stmt *)selectPassUniqueIDAsssociateToTransactionWithServiceIdentifierStatement;

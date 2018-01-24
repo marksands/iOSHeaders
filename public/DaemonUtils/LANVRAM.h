@@ -18,6 +18,7 @@
 - (_Bool)setString:(id)arg1 forKey:(id)arg2;
 - (id)stringForKey:(id)arg1;
 - (_Bool)setData:(id)arg1 forKey:(id)arg2;
+- (id)dataForKey:(id)arg1 namespace:(id)arg2;
 - (id)dataForKey:(id)arg1;
 
 @end

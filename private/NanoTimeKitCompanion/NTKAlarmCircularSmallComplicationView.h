@@ -33,6 +33,7 @@
 - (void)setStateActiveWithDate:(id)arg1;
 - (void)setStateNoAlarms;
 - (void)setStateAllAlarmsOff;
+- (void)_setStateAlarmsUnknown;
 - (void)layoutSubviews;
 - (void)setUsesMediumLayout:(_Bool)arg1;
 - (void)setForegroundColor:(id)arg1;

@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 #import "WKObject.h"
 
 @class NSArray, NSString;
 
-@interface WKUserContentController : NSObject <WKObject, NSCoding>
+@interface WKUserContentController : NSObject <WKObject, NSSecureCoding>
 {
     struct ObjectStorage<WebKit::WebUserContentControllerProxy> _userContentControllerProxy;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly) struct Object *_apiObject;
 - (void)removeScriptMessageHandlerForName:(id)arg1;
 - (void)addScriptMessageHandler:(id)arg1 name:(id)arg2;

@@ -8,12 +8,15 @@
 
 @interface HUColoredButton : UIButton
 {
+    _Bool _backgroundColorFollowsTintColor;
     double _highlightedAlpha;
     double _highlightedTextAlpha;
 }
 
 @property(nonatomic) double highlightedTextAlpha; // @synthesize highlightedTextAlpha=_highlightedTextAlpha;
 @property(nonatomic) double highlightedAlpha; // @synthesize highlightedAlpha=_highlightedAlpha;
+@property(nonatomic) _Bool backgroundColorFollowsTintColor; // @synthesize backgroundColorFollowsTintColor=_backgroundColorFollowsTintColor;
+- (void)tintColorDidChange;
 - (void)setHighlighted:(_Bool)arg1;
 @property(nonatomic) double cornerRadius;
 - (id)initWithFrame:(struct CGRect)arg1 highlightedAlpha:(double)arg2 highlightedTextAlpha:(double)arg3;

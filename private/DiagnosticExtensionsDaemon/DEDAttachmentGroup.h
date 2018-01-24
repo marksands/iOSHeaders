@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "DEDSecureArchiving.h"
+
 @class DEDBugSession, NSArray, NSString, NSURL;
 
-@interface DEDAttachmentGroup : NSObject
+@interface DEDAttachmentGroup : NSObject <DEDSecureArchiving>
 {
     DEDBugSession *_fromBugSession;
     NSString *_deviceID;
@@ -18,6 +20,7 @@
     NSArray *_attachmentItems;
 }
 
++ (id)archivedClasses;
 + (id)groupWithDEGroup:(id)arg1 identifier:(id)arg2;
 + (id)groupWithDictionary:(id)arg1;
 @property(retain) NSArray *attachmentItems; // @synthesize attachmentItems=_attachmentItems;
@@ -28,10 +31,15 @@
 @property(retain) DEDBugSession *fromBugSession; // @synthesize fromBugSession=_fromBugSession;
 - (void).cxx_destruct;
 - (_Bool)isLocal;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)serialize;
 - (id)archiveName;
 - (id)totalFilesize;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,7 +10,11 @@
 
 @protocol ARResultDataContext <NSObject>
 - (NSArray *)resultDataOfClass:(Class)arg1;
--     // Error parsing type: {?=[4]}16@0:8, name: sessionOriginTransform
+- (long long)cameraPosition;
 - (ARImageData *)imageData;
+
+@optional
+- (NSArray *)anchorsToRemove;
+- (NSArray *)anchorsToAdd;
 @end
 

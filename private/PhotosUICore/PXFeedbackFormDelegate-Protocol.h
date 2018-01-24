@@ -20,6 +20,7 @@
 
 @optional
 - (_Bool)shouldContinuePresentingFormAfterFeedback;
+- (_Bool)wantsPositiveFeedbackSection;
 - (_Bool)wantsCustomFeedbackSection;
 @end
 

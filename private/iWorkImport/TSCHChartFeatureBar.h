@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 - (double)sageMaxDepthRatio;
 - (double)maxDepthRatio;
 - (Class)stageClass;
-- (id)initialSceneWithChartInfo:(id)arg1 layoutSettings:(CDStruct_44ada6bf)arg2;
+- (id)initialSceneWithChartInfo:(id)arg1 layoutSettings:(CDStruct_b1c75024)arg2;
 - (id)valueLabelPositioner;
 - (id)categoryLabelPositioner;
 - (int)labelOrientation;

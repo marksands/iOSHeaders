@@ -63,7 +63,6 @@
     _Bool _placeInBookmarks;
     _Bool _showContactActions;
     _Bool _inAirplaneModeAndNetworkUnreachable;
-    _Bool _canUseMessageId;
     NSString *_headerTitle;
     _MKDistanceDetailProvider *_distanceMonitor;
     id <_MKPlaceItem> _placeItem;
@@ -87,7 +86,6 @@
 
 + (double)headerHeightInMinimalMode;
 @property(retain, nonatomic) CLLocation *location; // @synthesize location=_location;
-@property(readonly, nonatomic) _Bool canUseMessageId; // @synthesize canUseMessageId=_canUseMessageId;
 @property(retain, nonatomic) _MKPlaceActionButtonController *headerTertiaryButtonController; // @synthesize headerTertiaryButtonController=_headerTertiaryButtonController;
 @property(retain, nonatomic) NSMutableArray *viewDidAppearBlocks; // @synthesize viewDidAppearBlocks=_viewDidAppearBlocks;
 @property(nonatomic) __weak id <UIScrollViewDelegate> scrollViewDelegate; // @synthesize scrollViewDelegate=_scrollViewDelegate;
@@ -142,6 +140,7 @@
 - (void)networkReachableChanged:(id)arg1;
 - (void)airplaneModeChanged;
 - (void)_dismissModalViewController;
+- (id)transitDeparturesViewControllerTraits:(id)arg1;
 - (void)transitDeparturesViewController:(id)arg1 didSelectTransitLine:(id)arg2 fromCell:(id)arg3;
 - (void)transitDeparturesViewController:(id)arg1 showIncidents:(id)arg2;
 - (void)transitDeparturesViewController:(id)arg1 didSelectConnectionInformation:(id)arg2;
@@ -158,6 +157,7 @@
 - (void)ETAProviderLocationUpdated:(id)arg1;
 - (void)placeHeaderButtonsViewController:(id)arg1 didSelectPrimaryType:(unsigned long long)arg2 withView:(id)arg3;
 - (double)placeCardHeaderViewControllerTrailingConstantForTitle:(id)arg1;
+- (id)_traits;
 - (void)updateHeaderTitle;
 - (void)_showShareSheetNoDeviceLockCheck:(id)arg1;
 - (void)_showShareSheet:(id)arg1;

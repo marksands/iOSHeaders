@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class MKTableViewCell, MKTransitDeparturesViewController, NSArray;
+@class GEOMapServiceTraits, MKTableViewCell, MKTransitDeparturesViewController, NSArray;
 
 @protocol MKTransitDepaturesViewControllerDelegate <NSObject>
+- (GEOMapServiceTraits *)transitDeparturesViewControllerTraits:(MKTransitDeparturesViewController *)arg1;
 - (void)transitDeparturesViewController:(MKTransitDeparturesViewController *)arg1 didSelectTransitLine:(id <MKTransitLineMarker>)arg2 fromCell:(MKTableViewCell *)arg3;
 - (void)transitDeparturesViewController:(MKTransitDeparturesViewController *)arg1 showIncidents:(NSArray *)arg2;
 - (void)transitDeparturesViewController:(MKTransitDeparturesViewController *)arg1 didSelectConnectionInformation:(id <GEOTransitConnectionInfo>)arg2;

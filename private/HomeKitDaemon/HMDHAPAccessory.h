@@ -7,12 +7,13 @@
 #import <HomeKitDaemon/HMDAccessory.h>
 
 #import "HAPRelayAccessoryDelegate.h"
+#import "HMDAccessoryIdentify.h"
 #import "HMDTimeInformationMonitorDelegate.h"
 #import "HMFTimerDelegate.h"
 
 @class HAPPairingIdentity, HMDCharacteristic, HMFTimer, NSArray, NSData, NSDate, NSMapTable, NSMutableArray, NSMutableSet, NSNumber, NSSet, NSString;
 
-@interface HMDHAPAccessory : HMDAccessory <HAPRelayAccessoryDelegate, HMDTimeInformationMonitorDelegate, HMFTimerDelegate>
+@interface HMDHAPAccessory : HMDAccessory <HAPRelayAccessoryDelegate, HMDTimeInformationMonitorDelegate, HMFTimerDelegate, HMDAccessoryIdentify>
 {
     NSMutableArray *_transportInformationInstances;
     _Bool _relayEnabled;
@@ -49,6 +50,7 @@
     NSMapTable *_serverIDToHAPAccessoryTable;
 }
 
++ (_Bool)hasMessageReceiverChildren;
 + (_Bool)supportsSecureCoding;
 + (unsigned long long)getAWDTransportTypeWithLinkType:(long long)arg1;
 + (Class)transactionClass;
@@ -77,6 +79,7 @@
 @property(copy, nonatomic) NSData *broadcastKey; // @synthesize broadcastKey=_broadcastKey;
 @property(retain, nonatomic) NSString *relayIdentifier; // @synthesize relayIdentifier=_relayIdentifier;
 - (void).cxx_destruct;
+- (id)messageReceiverChildren;
 - (id)backingStoreObjects:(long long)arg1;
 - (void)populateModelObject:(id)arg1 version:(long long)arg2;
 - (id)modelObjectWithChangeType:(unsigned long long)arg1;
@@ -110,7 +113,8 @@
 - (void)backOffAccessoryForStateNumber:(id)arg1;
 - (void)_handleDiscoveryBackoffTimerFired;
 - (id)characteristicsPassingTest:(CDUnknownBlockType)arg1;
-- (void)_handleIdentify:(id)arg1;
+- (void)identifyAccessory:(id)arg1;
+@property(readonly) _Bool supportsIdentify;
 - (void)_handleUpdateAuthorizationData:(id)arg1;
 - (void)_handleUpdateAssociatedServiceType:(id)arg1;
 - (void)_handleRenameService:(id)arg1;
@@ -148,7 +152,6 @@
 - (void)_readValueForCharacteristic:(id)arg1 hapAccessory:(id)arg2 requestMessage:(id)arg3;
 - (void)_handleCharacteristicRead:(id)arg1;
 - (void)_parseResponseFromRemotePeer:(id)arg1 message:(id)arg2 forCharacteristic:(id)arg3;
-- (void)_relayIdentifyAccessorytoResidentForMessage:(id)arg1;
 - (void)_relayReadFromCharacteristic:(id)arg1 toResidentForMessage:(id)arg2 viaDevice:(id)arg3;
 - (void)_relayWriteToCharacteristic:(id)arg1 toResidentForMessage:(id)arg2 viaDevice:(id)arg3;
 - (void)_handleCharacteristicWrite:(id)arg1;
@@ -217,6 +220,7 @@
 - (id)transportInformationInstances;
 - (void)removeBridgedAccessory:(id)arg1;
 - (void)addBridgedAccessory:(id)arg1;
+- (_Bool)_supportsMediaAccessControl;
 - (void)_handleServiceRemovedTransaction:(id)arg1 message:(id)arg2;
 - (void)_handleAddServiceTransaction:(id)arg1 message:(id)arg2;
 - (id)serviceWithUUID:(id)arg1;
@@ -267,6 +271,8 @@
 - (void)setCurrentTimeCharacteristic:(id)arg1;
 - (id)_currentTimeCharacteristic;
 @property(readonly, nonatomic) __weak HMDCharacteristic *currentTimeCharacteristic; // @synthesize currentTimeCharacteristic=_currentTimeCharacteristic;
+- (_Bool)supportsMinimumUserPrivilege;
+- (_Bool)providesHashRouteID;
 @property(copy, nonatomic) NSData *setupHash; // @synthesize setupHash=_setupHash;
 - (void)setBroadcastKey:(id)arg1 keyUpdatedStateNumber:(id)arg2 keyUpdatedTime:(id)arg3;
 - (void)_updateBroadcastKey:(id)arg1 keyUpdatedStateNumber:(id)arg2 keyUpdatedTime:(double)arg3;

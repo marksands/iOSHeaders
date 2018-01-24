@@ -48,6 +48,7 @@
 - (void)addOutputDevice:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setOutputDevices:(id)arg1;
 @property(readonly) NSArray *outputDevices;
+@property(readonly) _Bool supportsMultipleOutputDevices;
 - (void)setOutputDevice:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) AVOutputDevice *outputDevice;
 @property(readonly, copy, nonatomic) NSString *associatedAudioDeviceID;

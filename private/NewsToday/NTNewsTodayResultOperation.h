@@ -27,9 +27,9 @@
 @property(nonatomic) _Bool lastOperationFailedToFinish; // @synthesize lastOperationFailedToFinish=_lastOperationFailedToFinish;
 @property(copy, nonatomic) NSDate *filterDate; // @synthesize filterDate=_filterDate;
 - (void).cxx_destruct;
-- (void)_finalizeTodayResultsWithSectionDescriptors:(id)arg1 catchUpOperationResultsBySectionDescriptor:(id)arg2 itemIDsOfLeadingCells:(id)arg3 appConfiguration:(id)arg4 feedPersonalizer:(id)arg5 completion:(CDUnknownBlockType)arg6;
+- (void)_finalizeTodayResultsWithSectionDescriptors:(id)arg1 catchUpOperationResultsBySectionDescriptor:(id)arg2 itemIDsOfLeadingCells:(id)arg3 slotAllocationByDynamicSlotItemID:(id)arg4 appConfiguration:(id)arg5 feedPersonalizer:(id)arg6 completion:(CDUnknownBlockType)arg7;
 - (void)_registerForYouFetchWithForYouFetchInfo:(id)arg1;
-- (void)_fetchTodayResultsWithFetchHelper:(id)arg1 maximumCachedAgeForForYou:(unsigned long long)arg2 maximumCachedAgeForTrendingByParsec:(unsigned long long)arg3 aggregator:(id)arg4 appConfiguration:(id)arg5 feedPersonalizer:(id)arg6 todayData:(id)arg7 completion:(CDUnknownBlockType)arg8;
+- (void)_fetchTodayResultsWithFetchHelper:(id)arg1 maximumCachedAgeForForYou:(unsigned long long)arg2 aggregator:(id)arg3 appConfiguration:(id)arg4 feedPersonalizer:(id)arg5 todayData:(id)arg6 completion:(CDUnknownBlockType)arg7;
 - (void)_assembleQueueDescriptorsWithConfig:(id)arg1 allowOnlyWatchEligibleSections:(_Bool)arg2 respectsWidgetVisibleSectionsLimit:(_Bool)arg3 personalizationTreatment:(id)arg4 aggregateStore:(id)arg5 appConfiguration:(id)arg6 todayData:(id)arg7 completion:(CDUnknownBlockType)arg8;
 - (id)_sectionCTRsWithTodayConfig:(id)arg1 personalizationTreatment:(id)arg2 aggregateStore:(id)arg3;
 - (void)operationWillFinishWithError:(id)arg1;

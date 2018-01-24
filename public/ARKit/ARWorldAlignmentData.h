@@ -7,17 +7,26 @@
 #import "NSObject.h"
 
 #import "ARResultData.h"
+#import "NSSecureCoding.h"
 
 @class NSString;
 
-@interface ARWorldAlignmentData : NSObject <ARResultData>
+@interface ARWorldAlignmentData : NSObject <ARResultData, NSSecureCoding>
 {
-    // Error parsing type: {?="columns"[4]}, name: _worldOriginTransform
+    unsigned long long _modifiers;
+    // Error parsing type: {?="columns"[4]}, name: _worldAlignmentTransform
 }
 
-// Error parsing type for property worldOriginTransform:
-// Property attributes: T{?=[4]},N,V_worldOriginTransform
++ (_Bool)supportsSecureCoding;
+// Error parsing type for property worldAlignmentTransform:
+// Property attributes: T{?=[4]},N,V_worldAlignmentTransform
 
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+@property(nonatomic) _Bool sessionShouldResumeCameraPositionAndHeading;
+@property(nonatomic) _Bool referenceOriginChanged;
+@property(nonatomic) _Bool worldAlignmentReset;
+@property(readonly, nonatomic) unsigned long long worldAlignmentModifiers;
 - (id)init;
 
 // Remaining properties

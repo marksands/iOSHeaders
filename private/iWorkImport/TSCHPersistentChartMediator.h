@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, retain, nonatomic) TSCHChartMediator *mediator; // @synthesize mediator=mMediator;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 andMediator:(id)arg2;
 - (void)saveToArchive:(struct ChartMediatorArchive *)arg1;

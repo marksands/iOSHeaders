@@ -8,7 +8,7 @@
 
 #import "HUUserItemManager.h"
 
-@class HFItem, HFUserItem, HMHome, HMUser, HUPersonalRequestsDevicesItemModule, NSString;
+@class HFItem, HFUserItem, HMHome, HMUser, NSString;
 
 @interface HUEditUserItemManager : HFItemManager <HUUserItemManager>
 {
@@ -18,14 +18,14 @@
     HFItem *_allowEditingItem;
     HFItem *_allowEditingFooterItem;
     HFItem *_pendingAccessoriesItem;
-    HUPersonalRequestsDevicesItemModule *_personalRequestsDevicesModule;
+    HFItem *_personalRequestsItem;
     HMHome *_homeForUser;
     HFItem *_removeItem;
 }
 
 @property(retain, nonatomic) HFItem *removeItem; // @synthesize removeItem=_removeItem;
 @property(retain, nonatomic) HMHome *homeForUser; // @synthesize homeForUser=_homeForUser;
-@property(readonly, nonatomic) HUPersonalRequestsDevicesItemModule *personalRequestsDevicesModule; // @synthesize personalRequestsDevicesModule=_personalRequestsDevicesModule;
+@property(retain, nonatomic) HFItem *personalRequestsItem; // @synthesize personalRequestsItem=_personalRequestsItem;
 @property(retain, nonatomic) HFItem *pendingAccessoriesItem; // @synthesize pendingAccessoriesItem=_pendingAccessoriesItem;
 @property(retain, nonatomic) HFItem *allowEditingFooterItem; // @synthesize allowEditingFooterItem=_allowEditingFooterItem;
 @property(retain, nonatomic) HFItem *allowEditingItem; // @synthesize allowEditingItem=_allowEditingItem;

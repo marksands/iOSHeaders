@@ -20,8 +20,8 @@
     AVPlayerLayer *_video;
     AVPlayer *_player;
     AVPlayerItem *_playerItem;
-    _Bool _playerWasRemoved;
     _Bool _playerStarted;
+    _Bool _invalidated;
     CDUnknownBlockType _continueHandler;
 }
 
@@ -33,6 +33,7 @@
 - (void)_removePlayerItem;
 - (void)didFinishPlaying;
 - (void)continueTapped;
+- (void)invalidate;
 - (void)performContinue;
 - (void)startPlayingVideo;
 - (void)viewWillLayoutSubviews;

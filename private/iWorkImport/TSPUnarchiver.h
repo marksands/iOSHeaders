@@ -20,9 +20,9 @@ __attribute__((visibility("hidden")))
     id <TSPObjectDelegate> _objectDelegate;
     id <TSPLazyReferenceDelegate> _lazyReferenceDelegate;
     id <TSPUnarchiverDelegate> _delegate;
-    vector_029d225a _references;
-    vector_8ef431c5 _repeatedReferences;
-    vector_667badbd _finalizeHandlers;
+    vector_adb99b2c _references;
+    vector_cc556b2d _repeatedReferences;
+    vector_3c415888 _finalizeHandlers;
     struct FieldPath *_currentFieldPath;
 }
 
@@ -37,10 +37,10 @@ __attribute__((visibility("hidden")))
 - (void)readRepeatedLazyReferenceMessage:(const RepeatedPtrField_a0d2dbe7 *)arg1 ownershipMode:(long long)arg2 validateStrongReferences:(_Bool)arg3 allowUnknownObject:(_Bool)arg4 selector:(SEL)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)validateReferenceToObjectIdentifier:(long long)arg1 isWeak:(_Bool *)arg2 validateStrongReferences:(_Bool)arg3 selector:(SEL)arg4 weakSelector:(SEL)arg5;
 @property(readonly, nonatomic) _Bool canValidateReferences;
-- (vector_667badbd *)finalizeHandlers;
-- (vector_8ef431c5 *)repeatedReferences;
-- (vector_029d225a *)references;
-- (unordered_map_502345cb *)strongReferences;
+- (vector_3c415888 *)finalizeHandlers;
+- (vector_cc556b2d *)repeatedReferences;
+- (vector_adb99b2c *)references;
+- (unordered_map_38045d47 *)strongReferences;
 @property(readonly, nonatomic) NSUUID *objectUUID;
 - (id)initWithMessageType:(unsigned int)arg1 message:(auto_ptr_4370f086)arg2 identifier:(long long)arg3 strongReferences:(auto_ptr_945ad503)arg4 messageVersion:(unsigned long long)arg5 unknownContent:(id)arg6 objectDelegate:(id)arg7 lazyReferenceDelegate:(id)arg8 delegate:(id)arg9;
 - (id)readRepeatedWeakObjectUUIDPathReferenceMessage:(const RepeatedPtrField_0a3269f6 *)arg1 completion:(CDUnknownBlockType)arg2;

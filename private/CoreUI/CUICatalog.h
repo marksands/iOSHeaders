@@ -67,6 +67,8 @@
 - (id)_themeStore;
 - (unsigned long long)_themeRef;
 - (unsigned long long)_storageRefForRendition:(id)arg1 representsODRContent:(_Bool *)arg2;
+- (id)namedRecognitionGroupWithName:(id)arg1;
+- (id)_baseRecognitionGroupImageSetKeyForName:(id)arg1;
 - (id)modelWithName:(id)arg1;
 - (id)_modelWithName:(id)arg1;
 - (id)colorWithName:(id)arg1 displayGamut:(long long)arg2;
@@ -122,6 +124,7 @@
 - (id)imageWithName:(id)arg1 scaleFactor:(double)arg2 deviceIdiom:(long long)arg3;
 - (id)imageWithName:(id)arg1 scaleFactor:(double)arg2 displayGamut:(long long)arg3 layoutDirection:(long long)arg4;
 - (id)imageWithName:(id)arg1 scaleFactor:(double)arg2;
+- (id)_recognitionImageWithName:(id)arg1;
 - (void)_resourceUnPinnedNotification:(id)arg1;
 - (void)dealloc;
 - (id)initWithBytes:(const void *)arg1 length:(unsigned long long)arg2 error:(id *)arg3;

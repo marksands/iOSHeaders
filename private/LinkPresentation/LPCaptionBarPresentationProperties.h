@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class LPCaptionRowPresentationProperties, LPImage, UIColor;
+@class LPCaptionRowPresentationProperties, LPImage, NSNumber, UIColor;
 
 @interface LPCaptionBarPresentationProperties : NSObject
 {
@@ -22,8 +22,10 @@
     LPCaptionRowPresentationProperties *_top;
     LPCaptionRowPresentationProperties *_bottom;
     LPCaptionRowPresentationProperties *_belowBottom;
+    NSNumber *_minimumHeight;
 }
 
+@property(retain, nonatomic) NSNumber *minimumHeight; // @synthesize minimumHeight=_minimumHeight;
 @property(readonly, retain, nonatomic) LPCaptionRowPresentationProperties *belowBottom; // @synthesize belowBottom=_belowBottom;
 @property(readonly, retain, nonatomic) LPCaptionRowPresentationProperties *bottom; // @synthesize bottom=_bottom;
 @property(readonly, retain, nonatomic) LPCaptionRowPresentationProperties *top; // @synthesize top=_top;
@@ -47,7 +49,7 @@
 - (id)rightIcon;
 - (id)leftIconMaskColor;
 - (id)leftIcon;
-- (_Bool)hasAnyContent;
+@property(readonly, nonatomic) _Bool hasAnyContent;
 - (id)init;
 
 @end

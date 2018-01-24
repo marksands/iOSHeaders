@@ -8,22 +8,26 @@
 
 #import "NSXPCListenerDelegate.h"
 
-@class BKSApplicationStateMonitor, NSMutableDictionary, NSMutableSet, NSString;
+@class BKSApplicationStateMonitor, NSDictionary, NSLock, NSMutableDictionary, NSMutableSet, NSString;
 
 @interface CLKComplicationClientManager : NSObject <NSXPCListenerDelegate>
 {
+    NSMutableDictionary *_clientsByIdentifier;
+    NSLock *_clientsByIdentifierLock;
     NSMutableDictionary *_waitForClientRegistriesByIdentifier;
+    NSLock *_waitForClientRegistriesByIdentifierLock;
     NSMutableSet *_anonymousClients;
+    NSLock *_anonymousClientsLock;
     NSMutableSet *_clientPIDs;
-    BKSApplicationStateMonitor *_applicationStateMonitor;
+    NSLock *_clientPIDsLock;
     unsigned long long _nextWaitForClientTokenValue;
+    NSLock *_nextWaitForClientTokenValueLock;
+    BKSApplicationStateMonitor *_applicationStateMonitor;
     CDUnknownBlockType _clientRegistrationHandler;
     CDUnknownBlockType _clientUnregistrationHandler;
-    NSMutableDictionary *_clientsByIdentifier;
 }
 
 + (id)sharedClientManager;
-@property(retain, nonatomic) NSMutableDictionary *clientsByIdentifier; // @synthesize clientsByIdentifier=_clientsByIdentifier;
 @property(copy, nonatomic) CDUnknownBlockType clientUnregistrationHandler; // @synthesize clientUnregistrationHandler=_clientUnregistrationHandler;
 @property(copy, nonatomic) CDUnknownBlockType clientRegistrationHandler; // @synthesize clientRegistrationHandler=_clientRegistrationHandler;
 - (void).cxx_destruct;
@@ -34,6 +38,7 @@
 - (void)stopWaitingForClientWithIdentifier:(id)arg1 forToken:(struct NSNumber *)arg2;
 - (struct NSNumber *)waitForClientWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)enumerateClientsWithBlock:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) NSDictionary *clientsByIdentifier;
 - (id)init;
 
 // Remaining properties

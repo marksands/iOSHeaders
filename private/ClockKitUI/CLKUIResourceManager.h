@@ -6,24 +6,24 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary;
+@class NSMutableDictionary;
 
 @interface CLKUIResourceManager : NSObject
 {
     NSMutableDictionary *_recentProvidersForUuid;
-    NSMutableDictionary *_texturesByUuid;
-    NSMutableArray *_providers;
+    NSMutableDictionary *_atlasesByUuid;
+    NSMutableDictionary *_providersByKey;
 }
 
 + (id)sharedInstance;
 - (void).cxx_destruct;
-- (void)_purgeTextures:(id)arg1;
-- (id)_newTextureForUuid:(id)arg1;
+- (void)_purgeAtlases:(id)arg1;
+- (id)_newAtlasForUuid:(id)arg1;
 - (void)_purgeAllUnconditionally;
 - (id)delegateForUuid:(id)arg1;
 - (void)purgeAllUnused;
 - (void)purge:(id)arg1;
-- (id)textureForUuid:(id)arg1 delegate:(id)arg2;
+- (id)textureForUuid:(id)arg1 delegate:(id)arg2 rect: /* Error: Ran out of types for this method. */;
 - (void)dealloc;
 - (id)init;
 

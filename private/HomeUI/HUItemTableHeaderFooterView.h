@@ -6,15 +6,12 @@
 
 #import "UITableViewHeaderFooterView.h"
 
-#import "UITextViewDelegate.h"
-
 @class NSArray, NSAttributedString, NSLayoutConstraint, NSString, UITextView;
 
-@interface HUItemTableHeaderFooterView : UITableViewHeaderFooterView <UITextViewDelegate>
+@interface HUItemTableHeaderFooterView : UITableViewHeaderFooterView
 {
     _Bool _includeBottomSpacing;
     UITextView *_messageTextView;
-    id <HUTextInteractionHandling> _textInteractionHandler;
     NSArray *_constraints;
     NSLayoutConstraint *_bottomSpacingConstraint;
 }
@@ -22,23 +19,15 @@
 + (_Bool)requiresConstraintBasedLayout;
 @property(retain, nonatomic) NSLayoutConstraint *bottomSpacingConstraint; // @synthesize bottomSpacingConstraint=_bottomSpacingConstraint;
 @property(retain, nonatomic) NSArray *constraints; // @synthesize constraints=_constraints;
-@property(nonatomic) __weak id <HUTextInteractionHandling> textInteractionHandler; // @synthesize textInteractionHandler=_textInteractionHandler;
 @property(nonatomic) _Bool includeBottomSpacing; // @synthesize includeBottomSpacing=_includeBottomSpacing;
 @property(retain, nonatomic) UITextView *messageTextView; // @synthesize messageTextView=_messageTextView;
 - (void).cxx_destruct;
-- (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3 interaction:(long long)arg4;
 - (void)updateConstraints;
 - (double)_bottomSpacing;
 @property(nonatomic) unsigned long long numberOfLines;
 @property(copy, nonatomic) NSString *message;
 @property(copy, nonatomic) NSAttributedString *attributedMessage;
 - (id)initWithReuseIdentifier:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

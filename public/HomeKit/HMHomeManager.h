@@ -19,6 +19,7 @@
     _Bool _residentEnabledForThisDevice;
     _Bool _accessAllowedWhenLocked;
     _Bool _didUpdateHomes;
+    _Bool _frameworkMergeComplete;
     _Bool _fetchInProgress;
     _Bool _viewServiceActive;
     id <HMHomeManagerDelegate> _delegate;
@@ -56,6 +57,7 @@
 @property(retain, nonatomic) HMPendingRequests *pendingRequests; // @synthesize pendingRequests=_pendingRequests;
 @property(nonatomic) unsigned long long generationCounter; // @synthesize generationCounter=_generationCounter;
 @property(nonatomic) _Bool fetchInProgress; // @synthesize fetchInProgress=_fetchInProgress;
+@property(nonatomic) _Bool frameworkMergeComplete; // @synthesize frameworkMergeComplete=_frameworkMergeComplete;
 @property(nonatomic) _Bool didUpdateHomes; // @synthesize didUpdateHomes=_didUpdateHomes;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) NSOperationQueue *mergeOperationQueue; // @synthesize mergeOperationQueue=_mergeOperationQueue;

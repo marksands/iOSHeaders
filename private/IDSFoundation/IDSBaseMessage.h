@@ -49,8 +49,14 @@
     NSURL *_URLOverride;
     unsigned long long _sentByteCount;
     unsigned long long _receivedByteCount;
+    NSDate *_requestStart;
+    NSDate *_requestEnd;
+    NSDate *_responseReceived;
 }
 
+@property(retain, nonatomic) NSDate *responseReceived; // @synthesize responseReceived=_responseReceived;
+@property(retain, nonatomic) NSDate *requestEnd; // @synthesize requestEnd=_requestEnd;
+@property(retain, nonatomic) NSDate *requestStart; // @synthesize requestStart=_requestStart;
 @property _Bool alwaysForceCellular; // @synthesize alwaysForceCellular=_alwaysForceCellular;
 @property _Bool httpDoNotDecodeData; // @synthesize httpDoNotDecodeData=_httpDoNotDecodeData;
 @property(nonatomic) unsigned long long receivedByteCount; // @synthesize receivedByteCount=_receivedByteCount;

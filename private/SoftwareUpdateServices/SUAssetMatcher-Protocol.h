@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class ASAsset, NSArray, NSString;
+@class MAAsset, MAMsuDownloadOptions, NSArray, NSString;
 
 @protocol SUAssetMatcher <NSObject>
 @property(readonly, nonatomic) NSString *assetType;
-- (ASAsset *)findMatchFromCandidates:(NSArray *)arg1 error:(id *)arg2;
+- (void)modifyMADownloadOptions:(MAMsuDownloadOptions *)arg1;
+- (MAAsset *)findMatchFromCandidates:(NSArray *)arg1 error:(id *)arg2;
 @end
 

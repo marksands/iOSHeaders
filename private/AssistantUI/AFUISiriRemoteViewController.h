@@ -95,7 +95,7 @@
 - (void)serviceDidReadBulletinWithIdentifier:(id)arg1;
 - (void)serviceBulletinWithIdentifier:(id)arg1 replyHandler:(CDUnknownBlockType)arg2;
 - (void)serviceStartGuidedAccess;
-- (void)serviceRequestsDismissal:(_Bool)arg1;
+- (void)serviceRequestsDismissalWithDelayForTTS:(_Bool)arg1 userInfo:(id)arg2;
 - (void)serviceRequestsActivationSourceWithReplyHandler:(CDUnknownBlockType)arg1;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;

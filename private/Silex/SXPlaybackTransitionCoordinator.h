@@ -6,22 +6,37 @@
 
 #import "NSObject.h"
 
-@class SXPlaybackTransitionContext;
+#import "SXInteractivePlaybackTransitioning.h"
+#import "SXPlaybackTransitionCoordinator.h"
 
-@interface SXPlaybackTransitionCoordinator : NSObject
+@class NSMutableArray, NSString, UIViewPropertyAnimator;
+
+@interface SXPlaybackTransitionCoordinator : NSObject <SXInteractivePlaybackTransitioning, SXPlaybackTransitionCoordinator>
 {
-    SXPlaybackTransitionContext *_context;
-    id <SXPlaybackTransitionCoordinatorDelegate> _delegate;
+    UIViewPropertyAnimator *_animator;
+    NSMutableArray *_animateAlongsideBlocks;
+    NSMutableArray *_transitionAlongsideBlocks;
+    NSMutableArray *_completionBlocks;
 }
 
-@property(nonatomic) __weak id <SXPlaybackTransitionCoordinatorDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) SXPlaybackTransitionContext *context; // @synthesize context=_context;
+@property(readonly, nonatomic) NSMutableArray *completionBlocks; // @synthesize completionBlocks=_completionBlocks;
+@property(readonly, nonatomic) NSMutableArray *transitionAlongsideBlocks; // @synthesize transitionAlongsideBlocks=_transitionAlongsideBlocks;
+@property(readonly, nonatomic) NSMutableArray *animateAlongsideBlocks; // @synthesize animateAlongsideBlocks=_animateAlongsideBlocks;
+@property(retain, nonatomic) UIViewPropertyAnimator *animator; // @synthesize animator=_animator;
 - (void).cxx_destruct;
-- (double)translationForTransitionDirection:(unsigned long long)arg1;
-- (void)removeObserversFromCoordinator:(id)arg1;
-- (void)addObserversToCoordinator:(id)arg1;
-- (void)transitionAnimated:(_Bool)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (id)initWithTransitionContext:(id)arg1;
+- (void)transitionAlongside:(CDUnknownBlockType)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
+- (void)animateAlongside:(CDUnknownBlockType)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
+- (void)cancelInteractiveTransition;
+- (void)finishInteractiveTransition;
+- (void)updateInteractiveTransition:(double)arg1;
+- (void)startInteractiveTransitionWithContext:(id)arg1;
+- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

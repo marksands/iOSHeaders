@@ -13,7 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface WKWebAllowDenyPolicyListener : NSObject <WebAllowDenyPolicyListener>
 {
-    RefPtr_3037ab5c _permissionRequestProxy;
+    Function_f7a043c0 _completionHandler;
 }
 
 - (id).cxx_construct;
@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)denyOnlyThisRequest;
 - (void)deny;
 - (void)allow;
-- (id)initWithPermissionRequestProxy:(RefPtr_3037ab5c *)arg1;
+- (id)initWithCompletionHandler:(Function_f7a043c0 *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

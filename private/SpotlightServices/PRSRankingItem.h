@@ -85,6 +85,7 @@
 - (id)likelyDisplayTitle;
 - (long long)compare:(id)arg1;
 - (long long)compareWithDates:(id)arg1;
+- (id)moreRecentDateFromDate1:(id)arg1 date2:(id)arg2;
 - (id)interestingDate;
 - (id)dedupeIdentifier;
 - (void)populateTextFeatureValuesForProperty:(id)arg1 updatingBundleFeatureValues:(id)arg2 withEvaluator:(id)arg3 withContext:(struct prs_feature_population_ctx_t *)arg4 fuzzyEvaluator:(id)arg5 propertyCanFuzzyMatch:(_Bool)arg6;

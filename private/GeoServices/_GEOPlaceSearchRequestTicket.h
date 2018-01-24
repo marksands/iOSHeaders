@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) GEOMapRegion *resultBoundingRegion;
 @property(readonly, nonatomic) NSString *resultDisplayHeader;
 @property(readonly, nonatomic) NSString *resultSectionHeader;
+@property(readonly, nonatomic) NSArray *retainedSearchMetadata;
 @property(readonly, nonatomic) int searchResultType;
 @property(readonly, nonatomic) _Bool shouldEnableRedoSearch;
 @property(readonly, nonatomic) _Bool showDymSuggestionCloseButton;

@@ -69,6 +69,7 @@ __attribute__((visibility("hidden")))
 - (void)removeAnnotations:(id)arg1;
 - (void)removeAnnotation:(id)arg1;
 - (void)_removeAnnotation:(id)arg1 updateVisible:(_Bool)arg2 removeFromContainer:(_Bool)arg3;
+- (id)addRepresentationForAnnotation:(id)arg1;
 - (void)addAnnotations:(id)arg1;
 - (void)addAnnotation:(id)arg1 allowAnimation:(_Bool)arg2;
 - (void)addAnnotation:(id)arg1;

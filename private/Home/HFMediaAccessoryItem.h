@@ -40,6 +40,7 @@
 - (_Bool)isHomePodAndIsInMediaSystem;
 - (_Bool)isHomePod;
 - (_Bool)isHomePodMediaSystem;
+@property(readonly, nonatomic) NSSet *availableSoftwareUpdates;
 @property(readonly, nonatomic) NSSet *accessoriesSupportingSoftwareUpdate;
 @property(readonly, nonatomic) _Bool isContainedWithinItemGroup;
 @property(readonly, nonatomic) unsigned long long numberOfItemsContainedWithinGroup;

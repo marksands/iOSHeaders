@@ -9,12 +9,13 @@
 #import "HMDeviceSetupSessionDelegate.h"
 #import "HMFLogging.h"
 
-@class HMAccessory, HMDeviceSetupSession, NSObject<OS_dispatch_queue>, NSString, TRSession;
+@class HMAccessory, HMDeviceSetupSession, NSError, NSObject<OS_dispatch_queue>, NSString, TRSession;
 
 @interface HMDeviceSetupOperation : NSOperation <HMDeviceSetupSessionDelegate, HMFLogging>
 {
     _Bool _executing;
     _Bool _finished;
+    NSError *_error;
     HMAccessory *_accessory;
     TRSession *_session;
     NSObject<OS_dispatch_queue> *_clientQueue;
@@ -32,11 +33,14 @@
 - (id)logIdentifier;
 - (void)setupSession:(id)arg1 didReceiveExchangeData:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setupSession:(id)arg1 didCloseWithError:(id)arg2;
+- (void)cancelWithError:(id)arg1;
 - (void)cancel;
 - (void)_reallyStart;
 - (void)start;
 - (void)setAccessory:(id)arg1;
 @property(readonly) HMAccessory *accessory; // @synthesize accessory=_accessory;
+- (void)setError:(id)arg1;
+@property(readonly) NSError *error; // @synthesize error=_error;
 - (void)finish;
 @property(getter=isFinished) _Bool finished; // @synthesize finished=_finished;
 @property(getter=isExecuting) _Bool executing; // @synthesize executing=_executing;

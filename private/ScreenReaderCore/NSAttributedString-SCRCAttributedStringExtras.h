@@ -7,6 +7,6 @@
 #import "NSAttributedString.h"
 
 @interface NSAttributedString (SCRCAttributedStringExtras)
-- (id)splitBasedOnAttribute:(id)arg1;
+- (id)scrcSplitBasedOnAttribute:(id)arg1 limit:(long long)arg2;
 @end
 

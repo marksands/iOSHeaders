@@ -15,6 +15,7 @@
 - (void)_processDialogResponse:(id)arg1 toRequest:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_performAuthenticationForResponse:(id)arg1 toRequest:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_verifyMescalSignatureForResponse:(id)arg1 toRequest:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_enqueueRequest:(id)arg1;
 - (void)processCompletedResponse:(id)arg1 toRequest:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)processInitialResponse:(id)arg1 toRequest:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 

@@ -11,11 +11,15 @@
 __attribute__((visibility("hidden")))
 @interface MRExternalDevice : NSObject
 {
+    _Bool _valid;
     unsigned int _connectionState;
     void *_deviceInfo;
+    CDStruct_64424771 _systemMusicContextInfo;
 }
 
+@property(readonly, nonatomic) CDStruct_64424771 systemMusicContextInfo; // @synthesize systemMusicContextInfo=_systemMusicContextInfo;
 @property(readonly, nonatomic) unsigned int connectionState; // @synthesize connectionState=_connectionState;
+@property(readonly, nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_valid;
 @property(readonly, nonatomic) void *deviceInfo; // @synthesize deviceInfo=_deviceInfo;
 - (void)sendClientUpdatesConfigMessage;
 - (id)currentClientUpdatesConfigMessage;
@@ -27,6 +31,7 @@ __attribute__((visibility("hidden")))
 - (void)outputDeviceVolume:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setVolume:(float)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)volumeWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)setOutputContextCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setVolumeCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setCustomDataCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setPairingAllowedCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;

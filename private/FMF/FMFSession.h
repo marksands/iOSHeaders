@@ -83,6 +83,7 @@
 - (void)_registerForFMFDLaunchedNotification;
 - (void)_daemonDidLaunch;
 - (id)internalConnection;
+- (void)includeDeviceInAutomations:(CDUnknownBlockType)arg1;
 - (void)getDataForPerformanceRequest:(CDUnknownBlockType)arg1;
 - (void)sessionHandleReport:(CDUnknownBlockType)arg1;
 - (void)dumpStateWithCompletion:(CDUnknownBlockType)arg1;

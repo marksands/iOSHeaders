@@ -9,14 +9,14 @@
 #import "NSCoding.h"
 #import "NSCopying.h"
 
-@class NSDictionary, SXComponent, SXComponentLayout, SXComponentSizer, SXLayoutBlueprint;
+@class NSDictionary, SXComponentSizer, SXLayoutBlueprint;
 
 @interface SXComponentBlueprint : NSObject <NSCoding, NSCopying>
 {
     _Bool _hasValidSize;
     _Bool _hasValidPosition;
-    SXComponent *_component;
-    SXComponentLayout *_componentLayout;
+    id <SXComponent> _component;
+    id <SXComponentLayout> _componentLayout;
     SXLayoutBlueprint *_parentLayoutBlueprint;
     SXComponentSizer *_componentSizer;
     NSDictionary *_infoFromLayouting;
@@ -38,8 +38,8 @@
 @property(nonatomic) _Bool hasValidPosition; // @synthesize hasValidPosition=_hasValidPosition;
 @property(nonatomic) _Bool hasValidSize; // @synthesize hasValidSize=_hasValidSize;
 @property(nonatomic) __weak SXLayoutBlueprint *parentLayoutBlueprint; // @synthesize parentLayoutBlueprint=_parentLayoutBlueprint;
-@property(readonly, nonatomic) SXComponentLayout *componentLayout; // @synthesize componentLayout=_componentLayout;
-@property(readonly, nonatomic) SXComponent *component; // @synthesize component=_component;
+@property(readonly, nonatomic) id <SXComponentLayout> componentLayout; // @synthesize componentLayout=_componentLayout;
+@property(readonly, nonatomic) id <SXComponent> component; // @synthesize component=_component;
 @property(nonatomic) struct _NSRange columnRange; // @synthesize columnRange=_columnRange;
 - (void).cxx_destruct;
 - (id)description;

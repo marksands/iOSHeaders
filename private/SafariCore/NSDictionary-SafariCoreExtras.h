@@ -12,6 +12,7 @@
 - (id)safari_diffWithDictionary:(id)arg1;
 - (id)_safari_sortedTupleArray;
 - (id)safari_mapAndFilterKeysAndObjectsUsingBlock:(CDUnknownBlockType)arg1;
+- (id)safari_mapTableForKey:(id)arg1;
 - (id)safari_setForKey:(id)arg1;
 - (id)safari_UUIDForKey:(id)arg1;
 - (id)safari_URLForKey:(id)arg1;
@@ -19,6 +20,7 @@
 - (id)safari_arrayForKey:(id)arg1;
 - (id)safari_dateForKey:(id)arg1;
 - (id)safari_dataForKey:(id)arg1;
+- (id)safari_stringForKey:(id)arg1 returningNilIfEmpty:(_Bool)arg2;
 - (id)safari_numberForKey:(id)arg1;
 - (id)safari_stringForKey:(id)arg1;
 - (_Bool)safari_boolForKey:(id)arg1;

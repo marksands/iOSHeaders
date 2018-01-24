@@ -9,8 +9,8 @@
 __attribute__((visibility("hidden")))
 @interface TSCH3DAreaGenerator : NSObject
 {
-    vector_45b393db mTop;
-    vector_45b393db mBottom;
+    vector_7200ab52 mTop;
+    vector_7200ab52 mBottom;
     tvec2_84d5962d mYLimits;
     float mZeroValue;
 }
@@ -18,9 +18,9 @@ __attribute__((visibility("hidden")))
 + (id)generatorWithYLimits:(tvec2_84d5962d)arg1 zeroValue:(float)arg2;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)clipLine:(const vector_45b393db *)arg1 into:(vector_45b393db *)arg2;
-- (id)createGeometry:(const vector_ec52ae8c *)arg1;
-- (void)addRow:(const vector_ec52ae8c *)arg1;
+- (void)clipLine:(const vector_7200ab52 *)arg1 into:(vector_7200ab52 *)arg2;
+- (id)createGeometry:(const vector_7584168e *)arg1;
+- (void)addRow:(const vector_7584168e *)arg1;
 - (float)clampedZero;
 - (void)dealloc;
 - (id)initWithYLimits:(tvec2_84d5962d)arg1 zeroValue:(float)arg2;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, NSString;
+@class NSDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface GEODBReader : NSObject
 {
@@ -15,6 +15,7 @@
     int _editionUpdating;
     NSObject<OS_dispatch_queue> *_readQueue;
     NSString *_path;
+    NSDictionary *_pragmaOverrides;
     struct sqlite3 *_db;
     struct sqlite3_stmt *_tileQuery;
     struct sqlite3_stmt *_versionQuery;
@@ -34,9 +35,9 @@
 - (void)_closeDB;
 - (void)_editionUpdateEnd:(id)arg1;
 - (void)_editionUpdateBegin:(id)arg1;
-- (void)_deviceLocking;
 - (void)_databaseReset:(id)arg1;
 - (void)dealloc;
+- (id)initWithPath:(id)arg1 pragmaOverrides:(id)arg2;
 - (id)initWithPath:(id)arg1;
 
 @end

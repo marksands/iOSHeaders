@@ -21,6 +21,8 @@
     // Error parsing type: AQ, name: _count
     // Error parsing type: AQ, name: _countHighPriority
     // Error parsing type: AQ, name: _maxQueueItems
+    // Error parsing type: AQ, name: _pendingWrites
+    // Error parsing type: AQ, name: _maxPendingWrites
     id _lockStateChangeToken;
 }
 
@@ -40,6 +42,7 @@
 - (void)_unlinkFileWithIdLocked:(int)arg1;
 - (void)_garbageCollectFilesAsync;
 - (void)close;
+@property(nonatomic) unsigned long long maxPendingWrites;
 @property(nonatomic) unsigned long long maxQueueItems;
 - (void)countHighPriorityItems:(unsigned long long *)arg1 lowPriorityItems:(unsigned long long *)arg2;
 - (unsigned long long)count;

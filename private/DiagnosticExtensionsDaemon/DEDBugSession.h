@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "DEDSecureArchiving.h"
 #import "NSSecureCoding.h"
 
-@class DEDBugSessionConfiguration, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_os_log>, NSString;
+@class DEDBugSessionConfiguration<DEDSecureArchiving>, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_os_log>, NSString;
 
-@interface DEDBugSession : NSObject <NSSecureCoding>
+@interface DEDBugSession : NSObject <NSSecureCoding, DEDSecureArchiving>
 {
     NSString *_identifier;
     NSString *_deviceIdentifier;
@@ -22,25 +23,26 @@
     NSMutableArray *_deListCompletions;
     NSMutableDictionary *_deCompletions;
     NSMutableArray *_adoptFilesCompletions;
-    DEDBugSessionConfiguration *_config;
+    DEDBugSessionConfiguration<DEDSecureArchiving> *_config;
     NSMutableDictionary *_ongoingCompletionHandlers;
     NSMutableDictionary *_pendingOperations;
     CDUnknownBlockType _statusCompletionBlock;
     NSDictionary *_cachedExtensions;
     id <DEDClientProtocol> _client;
     id <DEDWorkerProtocol> _worker;
-    id <DEDFinisher> __finisher;
+    id <DEDFinisher><DEDSecureArchiving> __finisher;
 }
 
++ (id)archivedClasses;
 + (_Bool)supportsSecureCoding;
-@property(retain) id <DEDFinisher> _finisher; // @synthesize _finisher=__finisher;
+@property(retain) id <DEDFinisher><DEDSecureArchiving> _finisher; // @synthesize _finisher=__finisher;
 @property(retain) id <DEDWorkerProtocol> worker; // @synthesize worker=_worker;
 @property(retain) id <DEDClientProtocol> client; // @synthesize client=_client;
 @property(retain) NSDictionary *cachedExtensions; // @synthesize cachedExtensions=_cachedExtensions;
 @property(copy) CDUnknownBlockType statusCompletionBlock; // @synthesize statusCompletionBlock=_statusCompletionBlock;
 @property(retain) NSMutableDictionary *pendingOperations; // @synthesize pendingOperations=_pendingOperations;
 @property(retain) NSMutableDictionary *ongoingCompletionHandlers; // @synthesize ongoingCompletionHandlers=_ongoingCompletionHandlers;
-@property(retain) DEDBugSessionConfiguration *config; // @synthesize config=_config;
+@property(retain) DEDBugSessionConfiguration<DEDSecureArchiving> *config; // @synthesize config=_config;
 @property(retain) NSMutableArray *adoptFilesCompletions; // @synthesize adoptFilesCompletions=_adoptFilesCompletions;
 @property(retain) NSMutableDictionary *deCompletions; // @synthesize deCompletions=_deCompletions;
 @property(retain) NSMutableArray *deListCompletions; // @synthesize deListCompletions=_deListCompletions;
@@ -111,11 +113,16 @@
 - (id)configuration;
 - (id)shortDescription;
 - (id)prettyDescription;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)finisher;
 - (id)initWithConfiguration:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

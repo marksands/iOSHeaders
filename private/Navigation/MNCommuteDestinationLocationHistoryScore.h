@@ -16,13 +16,9 @@ __attribute__((visibility("hidden")))
     int _score;
     _Bool _destinationInvalid;
     NSArray *_locationHistory;
-    double _scoredDistance;
-    double _scoredTimeInterval;
 }
 
 + (double)weight;
-@property(nonatomic) double scoredTimeInterval; // @synthesize scoredTimeInterval=_scoredTimeInterval;
-@property(nonatomic) double scoredDistance; // @synthesize scoredDistance=_scoredDistance;
 @property(copy, nonatomic) NSArray *locationHistory; // @synthesize locationHistory=_locationHistory;
 - (void).cxx_destruct;
 - (void)updateLocationHistory:(id)arg1;

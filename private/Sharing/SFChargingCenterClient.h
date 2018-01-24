@@ -6,32 +6,25 @@
 
 #import "NSObject.h"
 
-@class CUPowerSource, CUPowerSourceMonitor, NSMutableDictionary, NSObject<OS_dispatch_queue>, SBUISound, SFChargingUICoordinator;
+@class NSObject<OS_dispatch_queue>, SBUISound, SFChargingUICoordinator, SFWirelessChargingMonitor;
 
 @interface SFChargingCenterClient : NSObject
 {
     _Bool _activateCalled;
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
-    unsigned long long _desiredDuplicatePowerSourceCount;
+    int _triggerEngagementToken;
+    _Bool _forcePill;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     CDUnknownBlockType _visualInformationRequestHandler;
     CDUnknownBlockType _requestHandler;
     SBUISound *_chimeSound;
-    CUPowerSourceMonitor *_monitor;
-    NSMutableDictionary *_chargingPowerSources;
-    NSMutableDictionary *_groupedPowerSources;
-    CUPowerSource *_mePowerSource;
+    SFWirelessChargingMonitor *_monitor;
     SFChargingUICoordinator *_uiCoordinator;
 }
 
-+ (id)keyPathsForValuesAffectingChargeLevel;
-+ (id)keyPathsForValuesAffectingCharging;
 @property(retain, nonatomic) SFChargingUICoordinator *uiCoordinator; // @synthesize uiCoordinator=_uiCoordinator;
-@property(retain, nonatomic) CUPowerSource *mePowerSource; // @synthesize mePowerSource=_mePowerSource;
-@property(retain, nonatomic) NSMutableDictionary *groupedPowerSources; // @synthesize groupedPowerSources=_groupedPowerSources;
-@property(retain, nonatomic) NSMutableDictionary *chargingPowerSources; // @synthesize chargingPowerSources=_chargingPowerSources;
-@property(retain, nonatomic) CUPowerSourceMonitor *monitor; // @synthesize monitor=_monitor;
+@property(retain, nonatomic) SFWirelessChargingMonitor *monitor; // @synthesize monitor=_monitor;
 @property(retain, nonatomic) SBUISound *chimeSound; // @synthesize chimeSound=_chimeSound;
 @property(copy, nonatomic) CDUnknownBlockType requestHandler; // @synthesize requestHandler=_requestHandler;
 @property(copy, nonatomic) CDUnknownBlockType visualInformationRequestHandler; // @synthesize visualInformationRequestHandler=_visualInformationRequestHandler;
@@ -40,27 +33,20 @@
 - (id)dataRepresentationForInformationProvider:(id)arg1;
 - (void)updateConfigurationContext:(id)arg1 withInformationProvider:(id)arg2;
 - (void)updateConfigurationContext:(id)arg1 withKeyPowerSource:(id)arg2;
-- (void)updateConfigurationContextWithAnyPowerSourceAsKey:(id)arg1;
 - (void)updateConfigurationContextWithPowerSourcesData:(id)arg1;
-- (void)updateGroupedPowerSources;
-- (_Bool)powerSourceHasAppleChargingCenterCharging:(id)arg1;
-- (_Bool)powerSourceHasChargingCenterCharging:(id)arg1;
 - (void)playChime;
 - (void)contextsForRemoteAlertActivationWithReason:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)sendPresentationRequestForPowerSource:(id)arg1 added:(_Bool)arg2 removed:(_Bool)arg3;
+- (void)sendPresentationRequestForPowerSource:(id)arg1 removed:(_Bool)arg2;
 - (void)presentationRequestContextsForReason:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
-- (void)removeNoLongerChargingPowerSource:(id)arg1 forKeys:(id)arg2;
-- (void)addNewChargingPowerSource:(id)arg1;
-- (void)evaluatePowerSource:(id)arg1 found:(_Bool)arg2 lost:(_Bool)arg3;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 @property(readonly, nonatomic) long long numberOfDevicesCharging;
-@property(readonly, nonatomic) double chargeLevel;
-@property(readonly, nonatomic, getter=isCharging) _Bool charging;
 - (void)onqueue_invalidate;
 - (void)invalidate;
 - (void)onqueue_activate;
 - (void)activate;
 - (void)dealloc;
 - (void)setUpMonitor;
+- (void)listenToNotifications;
 - (void)checkDefaults;
 - (id)init;
 

@@ -44,8 +44,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSSet *rawAdditionalInfos;
 @property(readonly, nonatomic) NSSet *rawExcludedInfos;
 @property(readonly, nonatomic) NSSet *rawInfos;
-- (id)copyWithVisualRanges:(const struct TSWPRangeVector *)arg1 headChar:(unsigned long long)arg2 tailChar:(unsigned long long)arg3 rightToLeft:(_Bool)arg4 sameLine:(_Bool)arg5;
-- (id)copyWithNewVisualRanges:(const struct TSWPRangeVector *)arg1;
+- (id)copyWithVisualRanges:(id)arg1 headChar:(unsigned long long)arg2 tailChar:(unsigned long long)arg3 rightToLeft:(_Bool)arg4 sameLine:(_Bool)arg5;
+- (id)copyWithNewVisualRanges:(id)arg1;
 - (id)copyWithNewStyleInsertionBehavior:(int)arg1 newCaretAffinity:(int)arg2;
 - (id)copyWithNewRange:(struct _NSRange)arg1;
 - (id)copyWithNewType:(int)arg1;

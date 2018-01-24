@@ -51,6 +51,7 @@ __attribute__((visibility("hidden")))
     NSError *_error;
     NSData *_assetKey;
     NSData *_wrappedAssetKey;
+    NSData *_clearAssetKey;
     NSData *_boundaryKey;
     NSData *_referenceSignature;
     CKDMMCSItemCommandWriter *_writer;
@@ -75,6 +76,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CKDMMCSItemCommandWriter *writer; // @synthesize writer=_writer;
 @property(retain, nonatomic) NSData *referenceSignature; // @synthesize referenceSignature=_referenceSignature;
 @property(retain, nonatomic) NSData *boundaryKey; // @synthesize boundaryKey=_boundaryKey;
+@property(retain, nonatomic) NSData *clearAssetKey; // @synthesize clearAssetKey=_clearAssetKey;
 @property(retain, nonatomic) NSData *wrappedAssetKey; // @synthesize wrappedAssetKey=_wrappedAssetKey;
 @property(retain, nonatomic) NSData *assetKey; // @synthesize assetKey=_assetKey;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;

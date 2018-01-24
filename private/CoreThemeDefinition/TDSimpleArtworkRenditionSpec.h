@@ -11,17 +11,12 @@
 @interface TDSimpleArtworkRenditionSpec : TDRenditionSpec
 {
     struct CGRect _alignmentRect;
-    _Bool _allowsMultiPassEncoding;
-    _Bool _allowsOptimalRowbytesPacking;
-    _Bool _allowsCompactCompression;
 }
 
 + (void)initialize;
-@property(nonatomic) _Bool allowsCompactCompression; // @synthesize allowsCompactCompression=_allowsCompactCompression;
-@property(nonatomic) _Bool allowsOptimalRowbytesPacking; // @synthesize allowsOptimalRowbytesPacking=_allowsOptimalRowbytesPacking;
-@property(nonatomic) _Bool allowsMultiPassEncoding; // @synthesize allowsMultiPassEncoding=_allowsMultiPassEncoding;
 - (void)drawPackableRenditionInContext:(struct CGContext *)arg1 withDocument:(id)arg2;
 - (_Bool)updatePackingPropertiesWithDocument:(id)arg1;
+- (struct CGSize)_scaleRecognitionImageFromSize:(struct CGSize)arg1;
 - (id)createCSIRepresentationWithCompression:(_Bool)arg1 colorSpaceID:(unsigned long long)arg2 document:(id)arg3;
 - (struct CGImage *)_createImageRefWithURL:(id)arg1 andDocument:(id)arg2 format:(unsigned int *)arg3 vectorBased:(_Bool *)arg4;
 - (int)_rawPixelFormatOfCGImage:(struct CGImage *)arg1;
@@ -35,17 +30,21 @@
 - (id)associatedFileModificationDateWithDocument:(id)arg1;
 - (void)copyAttributesInto:(id)arg1;
 - (void)awakeFromFetch;
+@property(nonatomic) struct CGSize physicalSizeInMeters;
 @property(nonatomic) struct CGRect alignmentRect; // @dynamic alignmentRect;
 @property(nonatomic) struct CGRect primitiveAlignmentRect;
-- (id)initWithEntity:(id)arg1 insertIntoManagedObjectContext:(id)arg2;
 
 // Remaining properties
 @property(retain, nonatomic) NSString *alignmentRectString; // @dynamic alignmentRectString;
+@property(nonatomic) _Bool allowsCompactCompression; // @dynamic allowsCompactCompression;
+@property(nonatomic) _Bool allowsMultiPassEncoding; // @dynamic allowsMultiPassEncoding;
+@property(nonatomic) _Bool allowsOptimalRowbytesPacking; // @dynamic allowsOptimalRowbytesPacking;
 @property(retain, nonatomic) TDPNGAsset *asset; // @dynamic asset;
 @property(retain, nonatomic) TDThemeCompressionType *compressionType; // @dynamic compressionType;
 @property(nonatomic) _Bool isTintable; // @dynamic isTintable;
 @property(retain, nonatomic) NSString *nonAlphaImageAreaString; // @dynamic nonAlphaImageAreaString;
 @property(retain, nonatomic) NSString *originalImageSizeString; // @dynamic originalImageSizeString;
+@property(retain, nonatomic) NSString *physicalSizeInMetersString; // @dynamic physicalSizeInMetersString;
 @property(retain, nonatomic) NSOrderedSet *slices; // @dynamic slices;
 
 @end

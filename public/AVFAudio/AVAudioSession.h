@@ -26,6 +26,7 @@
 - (void)privateUpdatePromptStyle:(id)arg1;
 - (void)privateUpdateOutputVolume:(id)arg1;
 - (_Bool)privateSetPropertyValue:(unsigned int)arg1 withBool:(_Bool)arg2 error:(id *)arg3;
+- (void)privateHandleServerConnectionCompletion:(struct ConnectionResult)arg1;
 - (void)privateHandleRoutingContextChange;
 - (void)privateUpdatePiPAvailabilityChange:(id)arg1;
 - (void)privateHandleSecondaryAudioHintChange:(id)arg1;
@@ -61,7 +62,6 @@
 - (_Bool)setPreferredHardwareSampleRate:(double)arg1 error:(id *)arg2;
 - (void)setDelegate:(id)arg1;
 - (id)delegate;
-- (void)privateHandleServerReturned;
 - (id)privateRefreshAvailableInputs;
 @property(readonly) NSArray *availableInputs;
 - (double)speechDetectionDeviceSampleRate;

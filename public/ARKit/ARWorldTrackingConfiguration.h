@@ -6,21 +6,30 @@
 
 #import <ARKit/ARConfiguration.h>
 
+@class NSSet;
+
 @interface ARWorldTrackingConfiguration : ARConfiguration
 {
     _Bool _relocalizationEnabled;
     unsigned long long _planeDetection;
+    NSSet *_detectionImages;
 }
 
++ (id)supportedVideoFormats;
 + (id)new;
 + (_Bool)isSupported;
 @property(nonatomic) _Bool relocalizationEnabled; // @synthesize relocalizationEnabled=_relocalizationEnabled;
+@property(copy, nonatomic) NSSet *detectionImages; // @synthesize detectionImages=_detectionImages;
 @property(nonatomic) unsigned long long planeDetection; // @synthesize planeDetection=_planeDetection;
+- (void).cxx_destruct;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (id)techniques;
 - (id)init;
+
+// Remaining properties
+@property(nonatomic, getter=isAutoFocusEnabled) _Bool autoFocusEnabled; // @dynamic autoFocusEnabled;
 
 @end
 

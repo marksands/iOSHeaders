@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)replaceDynamicStrokeLayerWith:(id)arg1;
 - (_Bool)replaceCustomStrokeLayerWith:(id)arg1;
 - (_Bool)replaceDefaultStrokeLayerWith:(id)arg1;
+- (_Bool)hasSpillStrokeInRange:(struct TSTSimpleRange)arg1;
 - (void)insertSpillStroke:(id)arg1 atRange:(struct TSTSimpleRange)arg2;
 - (void)insertDynamicStroke:(id)arg1 strokeOrder:(int)arg2 atRange:(struct TSTSimpleRange)arg3;
 - (void)insertClearedStrokeAtRange:(struct TSTSimpleRange)arg1;

@@ -17,15 +17,15 @@
     int _location;
     NSString *_requestID;
     _MRNowPlayingPlayerPathProtobuf *_resolvedPlayerPath;
-    _Bool _notSendingTransaction;
+    _Bool _sendingPlaybackQueueTransaction;
     struct {
         unsigned int location:1;
-        unsigned int notSendingTransaction:1;
+        unsigned int sendingPlaybackQueueTransaction:1;
     } _has;
 }
 
 + (Class)contentItemType;
-@property(nonatomic) _Bool notSendingTransaction; // @synthesize notSendingTransaction=_notSendingTransaction;
+@property(nonatomic) _Bool sendingPlaybackQueueTransaction; // @synthesize sendingPlaybackQueueTransaction=_sendingPlaybackQueueTransaction;
 @property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *resolvedPlayerPath; // @synthesize resolvedPlayerPath=_resolvedPlayerPath;
 @property(retain, nonatomic) NSString *requestID; // @synthesize requestID=_requestID;
 @property(retain, nonatomic) _MRPlaybackQueueContextProtobuf *context; // @synthesize context=_context;
@@ -40,7 +40,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasNotSendingTransaction;
+@property(nonatomic) _Bool hasSendingPlaybackQueueTransaction;
 @property(readonly, nonatomic) _Bool hasResolvedPlayerPath;
 @property(readonly, nonatomic) _Bool hasRequestID;
 @property(readonly, nonatomic) _Bool hasContext;

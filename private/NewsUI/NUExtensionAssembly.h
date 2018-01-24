@@ -17,7 +17,7 @@
 
 @property(readonly, nonatomic) __weak id <NUExtensionContextProvider> extensionContextProvider; // @synthesize extensionContextProvider=_extensionContextProvider;
 - (void).cxx_destruct;
-- (void)loadPublicContainer:(id)arg1 privateContainer:(id)arg2;
+- (void)loadInRegistry:(id)arg1;
 - (id)initWithExtensionContextProvider:(id)arg1;
 
 // Remaining properties

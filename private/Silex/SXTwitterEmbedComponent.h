@@ -10,6 +10,7 @@
 {
 }
 
+- (unsigned long long)traits;
 - (id)classification;
 - (id)embedType;
 - (id)type;

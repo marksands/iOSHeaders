@@ -32,9 +32,8 @@
 + (id)orderedSetWithObjects:(const id *)arg1 count:(unsigned long long)arg2;
 + (id)newOrderedSetWithObjects:(const id *)arg1 count:(unsigned long long)arg2;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (Class)classForCoder;
-- (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithSet:(id)arg1;

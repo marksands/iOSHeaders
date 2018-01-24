@@ -11,10 +11,10 @@
 @protocol GEOTileServerProxyDelegate <NSObject>
 - (void)proxy:(GEOTileServerProxy *)arg1 didShrinkDiskCacheByAmount:(unsigned long long)arg2;
 - (void)proxy:(GEOTileServerProxy *)arg1 canShrinkDiskCacheByAmount:(unsigned long long)arg2;
-- (void)proxy:(GEOTileServerProxy *)arg1 willGoToNetworkForTiles:(GEOTileKeyList *)arg2;
+- (void)proxy:(GEOTileServerProxy *)arg1 willGoToNetworkForTiles:(GEOTileKeyList *)arg2 inBatch:(int)arg3;
 - (void)proxy:(GEOTileServerProxy *)arg1 failedToLoadAllPendingTilesWithError:(NSError *)arg2;
-- (void)proxy:(GEOTileServerProxy *)arg1 failedToLoadTiles:(GEOTileKeyList *)arg2 error:(NSError *)arg3;
-- (void)proxy:(GEOTileServerProxy *)arg1 loadedTile:(NSData *)arg2 forKey:(const struct _GEOTileKey *)arg3 info:(NSDictionary *)arg4;
+- (void)proxy:(GEOTileServerProxy *)arg1 failedToLoadTiles:(GEOTileKeyList *)arg2 inBatch:(int)arg3 error:(NSError *)arg4;
+- (void)proxy:(GEOTileServerProxy *)arg1 loadedTile:(NSData *)arg2 forKey:(const struct _GEOTileKey *)arg3 inBatch:(int)arg4 info:(NSDictionary *)arg5;
 
 @optional
 - (void)proxyDidDownloadRegionalResources:(GEOTileServerProxy *)arg1;

@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSDate;
 
-@interface FCDateRange : NSObject <NSCopying, NSCoding>
+@interface FCDateRange : NSObject <NSCopying, NSSecureCoding>
 {
     NSDate *_startDate;
     NSDate *_endDate;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)dateRangeWithEarlierDate:(id)arg1 laterDate:(id)arg2;
 + (id)dateRangeWithStartDate:(id)arg1 endDate:(id)arg2;
 @property(readonly, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;

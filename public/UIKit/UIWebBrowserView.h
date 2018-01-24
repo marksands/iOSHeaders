@@ -10,7 +10,7 @@
 #import "UIWebTouchEventsGestureRecognizerDelegate.h"
 #import "_UIWebRotationDelegate.h"
 
-@class DOMNode, NSHashTable, NSLock, NSMutableArray, NSMutableSet, NSObject<UIFormPeripheral>, NSString, UIResponder, UIWebFormAccessory, UIWebFormDelegate, UIWebTouchEventsGestureRecognizer;
+@class DOMNode, NSHashTable, NSLock, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject<UIFormPeripheral>, NSString, UIResponder, UIWebFormAccessory, UIWebFormDelegate, UIWebTouchEventsGestureRecognizer;
 
 @interface UIWebBrowserView : UIWebDocumentView <UIWebTouchEventsGestureRecognizerDelegate, UIWebFormAccessoryDelegate, _UIWebRotationDelegate>
 {
@@ -43,6 +43,7 @@
     NSLock *_pendingOverflowDataLock;
     NSMutableArray *_pendingOverflowScrolls;
     _Bool _pendingGeometryChangeAfterOverflowScroll;
+    NSMutableDictionary *_focusPreservingTokens;
     struct {
         NSMutableArray *all;
         NSMutableArray *html;
@@ -155,6 +156,9 @@
 @property(nonatomic) _Bool allowsPictureInPictureVideo;
 @property(nonatomic) _Bool mediaPlaybackRequiresUserAction;
 @property(nonatomic) _Bool allowsInlineMediaPlayback;
+- (void)_clearToken:(id)arg1;
+- (_Bool)_restoreFocusWithToken:(id)arg1;
+- (void)_preserveFocusWithToken:(id)arg1 destructively:(_Bool)arg2;
 - (void)_reloadInputViewsAfterPotentialFocusRedirect;
 - (void)assistFormNode:(id)arg1;
 - (void)_assistFormNode:(id)arg1;

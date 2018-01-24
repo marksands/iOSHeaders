@@ -68,6 +68,15 @@
 + (id)batteryPercentageKey;
 + (id)keyPathForBatteryStateDataDictionary;
 + (id)intentDKObjUUIDKey;
++ (id)intentGoalKey;
++ (id)intentWorkoutNameKey;
++ (id)intentAmountKey;
++ (id)intentPayerKey;
++ (id)intentPayeeKey;
++ (id)intentDropOffLocationKey;
++ (id)intentPickupLocationKey;
++ (id)intentServiceNameKey;
++ (id)intentRecipientsKey;
 + (id)intentHandlingStatusKey;
 + (id)intentDonatedBySiriKey;
 + (id)intentVerbKey;
@@ -119,6 +128,13 @@
 + (id)bluetoothNameKey;
 + (id)bluetoothConnectionStatusKey;
 + (id)keyPathForBluetoothDataDictionary;
++ (id)userActivityRequiredString;
++ (id)itemIdentifier;
++ (id)userActivityType;
++ (id)title;
++ (id)eligibility;
++ (id)userActivityUUID;
++ (id)keyPathForUserActivityDataDictionary;
 
 @end
 

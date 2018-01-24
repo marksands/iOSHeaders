@@ -8,7 +8,7 @@
 
 #import "UIScrollViewDelegate.h"
 
-@class NSString, PKPaymentSetupDockView, PKPaymentSetupPrivacyFooterView, UIActivityIndicatorView, UIFont, UIImage, UIImageView, UILabel, UIScrollView, _UIBackdropView;
+@class NSString, OBPrivacyLinkController, PKPaymentSetupDockView, UIActivityIndicatorView, UIFont, UIImage, UIImageView, UILabel, UIScrollView, _UIBackdropView;
 
 @interface PKExplanationView : UIView <UIScrollViewDelegate>
 {
@@ -16,7 +16,6 @@
     _Bool _privacyFooterShouldPin;
     UIScrollView *_scrollView;
     UIImageView *_imageView;
-    PKPaymentSetupPrivacyFooterView *_privacyFooter;
     PKPaymentSetupDockView *_dockView;
     NSString *_titleText;
     UILabel *_titleLabel;
@@ -37,6 +36,7 @@
     UIView *_heroView;
     UIFont *_titleFont;
     NSString *_bodyText;
+    OBPrivacyLinkController *_privacyLink;
     UIImageView *_logoImageView;
 }
 
@@ -44,6 +44,7 @@
 @property(readonly, nonatomic) UIImageView *checkmarkView; // @synthesize checkmarkView=_checkmarkView;
 @property(readonly, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
 @property(readonly, nonatomic) PKPaymentSetupDockView *dockView; // @synthesize dockView=_dockView;
+@property(retain, nonatomic) OBPrivacyLinkController *privacyLink; // @synthesize privacyLink=_privacyLink;
 @property(copy, nonatomic) NSString *bodyText; // @synthesize bodyText=_bodyText;
 @property(copy, nonatomic) UIFont *titleFont; // @synthesize titleFont=_titleFont;
 @property(copy, nonatomic) NSString *titleText; // @synthesize titleText=_titleText;
@@ -66,7 +67,6 @@
 - (void)_setupLater;
 - (void)_continue;
 @property(readonly, nonatomic) UIImageView *imageView;
-@property(readonly, nonatomic) PKPaymentSetupPrivacyFooterView *privacyView;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithContext:(long long)arg1 delegate:(id)arg2;

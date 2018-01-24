@@ -40,11 +40,14 @@
     NSString *_name;
     NSDictionary *_configuration;
     NSDictionary *_configResponse;
+    unsigned int _pairSetupFlags;
+    unsigned int _pairVerifyFlags;
     _Bool _pausesAfterApply;
     _Bool _skipPairSetup;
     _Bool _supportsHAP;
     _Bool _supportsHAP2;
     _Bool _supportsMFi;
+    _Bool _supportsPairSetup;
     _Bool _supportsTLV;
     _Bool _preConfigMetricsSet;
     CDStruct_56123b44 _preConfigMetrics;
@@ -83,6 +86,8 @@
 @property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;
 @property(nonatomic) _Bool skipPairSetup; // @synthesize skipPairSetup=_skipPairSetup;
 @property(nonatomic) _Bool pausesAfterApply; // @synthesize pausesAfterApply=_pausesAfterApply;
+@property(nonatomic) unsigned int pairVerifyFlags; // @synthesize pairVerifyFlags=_pairVerifyFlags;
+@property(nonatomic) unsigned int pairSetupFlags; // @synthesize pairSetupFlags=_pairSetupFlags;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *model; // @synthesize model=_model;
 @property(nonatomic) unsigned long long features; // @synthesize features=_features;

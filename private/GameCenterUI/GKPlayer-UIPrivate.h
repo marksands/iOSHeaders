@@ -10,7 +10,9 @@
 + (void)preloadImagesForPlayers:(id)arg1 size:(long long)arg2;
 + (long long)sizeForPhotoSize:(long long)arg1;
 - (id)placeholderImageForType:(unsigned char)arg1;
+- (id)cacheKeyForType:(unsigned char)arg1;
 - (id)imageSourceForPlaceholders;
+- (id)placeholderImageSelected;
 - (id)placeholderImage;
 - (id)photoURLForSize:(long long)arg1;
 - (id)imageURLForPhotoSizeList;

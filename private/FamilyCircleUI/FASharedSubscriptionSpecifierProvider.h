@@ -29,6 +29,7 @@
 - (void)_loadSubscriptionServices;
 - (id)_valueForServiceSpecifier:(id)arg1;
 - (void)_serviceSpecifierWasTapped:(id)arg1;
+- (id)_iconURLStringForService:(id)arg1;
 - (id)_sharedSubscriptionGroupSpecifier;
 - (id)initWithAppleAccount:(id)arg1 presenter:(id)arg2;
 

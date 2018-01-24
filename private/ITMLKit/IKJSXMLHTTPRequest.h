@@ -7,14 +7,13 @@
 #import <ITMLKit/IKJSEventListenerObject.h>
 
 #import "IKJSXMLHTTPRequest.h"
-#import "IKNetworkRequestLoader.h"
 #import "ISStoreURLOperationDelegate.h"
 #import "NSURLSessionDataDelegate.h"
 #import "NSURLSessionTaskDelegate.h"
 
 @class IKDOMDocument, ISURLOperation, JSManagedValue, NSData, NSDictionary, NSError, NSHTTPURLResponse, NSMutableArray, NSMutableURLRequest, NSNumber, NSString, NSURL, NSURLConnection, NSURLSession, NSURLSessionConfiguration;
 
-@interface IKJSXMLHTTPRequest : IKJSEventListenerObject <ISStoreURLOperationDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, IKNetworkRequestLoader, IKJSXMLHTTPRequest>
+@interface IKJSXMLHTTPRequest : IKJSEventListenerObject <ISStoreURLOperationDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, IKJSXMLHTTPRequest>
 {
     _Bool _shouldSquashOnReadyStateEvents;
     struct os_unfair_lock_s _onReadyStateChangeMessageQueueLock;

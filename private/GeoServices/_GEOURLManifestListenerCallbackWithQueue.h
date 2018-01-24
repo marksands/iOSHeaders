@@ -8,13 +8,15 @@
 
 #import "_GEOURLManifestListenerCallback.h"
 
-@class NSObject<OS_dispatch_queue>, NSString;
+@class NSObject<OS_dispatch_queue>, NSObject<OS_voucher>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface _GEOURLManifestListenerCallbackWithQueue : NSObject <_GEOURLManifestListenerCallback>
 {
     CDUnknownBlockType _handler;
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_voucher> *_voucher;
+    unsigned int _qos;
 }
 
 - (void).cxx_destruct;

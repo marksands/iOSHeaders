@@ -17,6 +17,7 @@
 + (Class)nanoNewsDataSourceClass;
 @property(retain, nonatomic) NTKUpNextElementDataSource *newsDataSourceProxy; // @synthesize newsDataSourceProxy=_newsDataSourceProxy;
 - (void).cxx_destruct;
+- (void)setAllowsLocationUse:(_Bool)arg1;
 - (void)resume;
 - (void)pause;
 - (void)getElementsDuringDateInterval:(id)arg1 inSection:(unsigned long long)arg2 withHandler:(CDUnknownBlockType)arg3;

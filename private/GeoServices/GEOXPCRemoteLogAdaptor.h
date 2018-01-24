@@ -60,6 +60,7 @@
 - (void)_unregisterXPCActivityTimer;
 - (void)_registerXPCActivityTimer;
 - (void)protobufSession:(id)arg1 didCompleteTask:(id)arg2;
+- (void)_captureTrafficProbesAndTelemetricEventsFor:(id)arg1 result:(unsigned char)arg2;
 - (void)_continueToSendNextBatch:(_Bool)arg1;
 - (void)_requesterStartSendRequest:(id)arg1;
 - (void)_sendLogMessageRequest:(id)arg1;

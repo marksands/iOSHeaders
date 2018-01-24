@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (id)p_targetLastHint;
 - (id)p_targetFirstHint;
 - (void)trimToCharIndex:(unsigned long long)arg1 inTarget:(id)arg2 removeFootnoteReferenceCount:(unsigned long long)arg3 removeAutoNumberFootnoteCount:(unsigned long long)arg4;
+@property(readonly, nonatomic) _Bool lastLineIsEmptyAndHasListLabel;
 @property(readonly, nonatomic) unsigned long long nextWidowPullsDownFromCharIndex;
 @property(readonly, nonatomic) struct _NSRange anchoredRange;
 - (unsigned long long)startAnchoredCharIndex;

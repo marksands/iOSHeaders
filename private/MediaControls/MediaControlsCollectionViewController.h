@@ -54,7 +54,7 @@
 - (id)_visibleTopViewControllers;
 - (void)_enumerateActiveViewControllers:(CDUnknownBlockType)arg1;
 - (_Bool)_wantsTapGestureRecognizer;
-- (void)_setSelectedItemIndex:(long long)arg1 animated:(_Bool)arg2 shouldScroll:(_Bool)arg3 shouldNotifyDelegate:(_Bool)arg4;
+- (void)_setSelectedItemIndex:(long long)arg1 animated:(_Bool)arg2 shouldScroll:(_Bool)arg3 shouldNotifyDelegate:(_Bool)arg4 withReason:(long long)arg5;
 - (void)_handleScrollViewTap:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;

@@ -21,6 +21,8 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool hasVideo;
 @property(readonly, nonatomic) id <FCNativeAdProviding> associatedAd;
+@property(readonly, nonatomic) NSArray *publisherSpecifiedArticleIDs;
+@property(readonly, nonatomic) NSString *articleRecirculationConfigJSON;
 @property(readonly, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *publisherCohort;
 @property(readonly, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *globalCohort;
 @property(readonly, nonatomic) _Bool canBePurchased;
@@ -41,8 +43,12 @@
 @property(readonly, nonatomic) double globalUserFeedback;
 @property(readonly, copy, nonatomic) NSString *publisherID;
 @property(readonly, copy, nonatomic) NSString *sourceFeedID;
+@property(readonly, nonatomic, getter=isHiddenFromFeeds) _Bool hiddenFromFeeds;
+@property(readonly, nonatomic, getter=isBoundToContext) _Bool boundToContext;
 @property(readonly, nonatomic) _Bool showMinimalChrome;
 @property(readonly, nonatomic) _Bool needsRapidUpdates;
+@property(readonly, copy, nonatomic) NSURL *videoCallToActionURL;
+@property(readonly, copy, nonatomic) NSString *videoCallToActionTitle;
 @property(readonly, nonatomic) FCCoverArt *coverArt;
 @property(readonly, nonatomic, getter=isPaid) _Bool paid;
 @property(readonly, nonatomic) long long minimumNewsVersion;

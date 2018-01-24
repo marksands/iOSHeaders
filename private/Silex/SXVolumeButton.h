@@ -7,25 +7,26 @@
 #import <Silex/SXMaterialButton.h>
 
 #import "SXVideoControlItem.h"
+#import "SXVolumeObserver.h"
 
 @class NSString;
 
-@interface SXVolumeButton : SXMaterialButton <SXVideoControlItem>
+@interface SXVolumeButton : SXMaterialButton <SXVideoControlItem, SXVolumeObserver>
 {
     _Bool hideable;
     _Bool _muted;
-    double autoAppearanceTimeInterval;
 }
 
 @property(nonatomic) _Bool muted; // @synthesize muted=_muted;
-@property(readonly, nonatomic) double autoAppearanceTimeInterval; // @synthesize autoAppearanceTimeInterval;
 - (id)accessibilityLabel;
 - (_Bool)isAccessibilityElement;
+@property(readonly, nonatomic) double autoAppearanceTimeInterval;
 - (_Bool)isVisible;
 - (void)hide:(_Bool)arg1 withAnimationCoordinator:(id)arg2;
 @property(readonly, nonatomic) _Bool hideable; // @synthesize hideable;
 - (id)imageForMuteState:(_Bool)arg1;
 - (struct CGSize)intrinsicContentSize;
+- (void)muteStateChanged:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

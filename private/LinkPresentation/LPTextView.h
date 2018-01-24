@@ -21,11 +21,10 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-- (id)_createTextViewWithText:(id)arg1 style:(id)arg2;
+- (id)_createTextViewWithAttributedString:(id)arg1 style:(id)arg2;
 - (struct UIEdgeInsets)_effectiveContentInset;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutComponentView;
-@property(nonatomic) long long textAlignment;
 - (double)descender;
 - (double)ascender;
 - (double)firstLineLeading;

@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)performBlock:(CDUnknownBlockType)arg1;
 - (void)_performBlock:(CDUnknownBlockType)arg1 andWait:(_Bool)arg2;
 - (_Bool)_setupPersistenceIfNeeded:(id *)arg1;
+- (void)_removePersistentStore;
 - (id)init;
 
 @end

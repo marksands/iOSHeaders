@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AFUIRequestOptions, NSString, NSURL;
+@class AFUIRequestOptions, NSDictionary, NSString, NSURL;
 
 @protocol SVSSiriViewControllerHosting <NSObject>
 - (void)serviceDidRequestCurrentTextInput:(void (^)(NSString *))arg1;
@@ -54,7 +54,7 @@
 - (void)serviceDidReadBulletinWithIdentifier:(NSString *)arg1;
 - (void)serviceBulletinWithIdentifier:(NSString *)arg1 replyHandler:(void (^)(AFBulletin *))arg2;
 - (void)serviceStartGuidedAccess;
-- (void)serviceRequestsDismissal:(_Bool)arg1;
+- (void)serviceRequestsDismissalWithDelayForTTS:(_Bool)arg1 userInfo:(NSDictionary *)arg2;
 - (void)serviceRequestsActivationSourceWithReplyHandler:(void (^)(long long))arg1;
 @end
 

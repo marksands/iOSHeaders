@@ -16,6 +16,7 @@
     NSString *_crossfadeString;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool showsEmergencyOnlyWhenDisconnected; // @synthesize showsEmergencyOnlyWhenDisconnected=_showsEmergencyOnlyWhenDisconnected;
 @property(copy, nonatomic) NSString *crossfadeString; // @synthesize crossfadeString=_crossfadeString;
 @property(copy, nonatomic) NSString *string; // @synthesize string=_string;

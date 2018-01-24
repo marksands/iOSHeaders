@@ -7,7 +7,7 @@
 @class SXDragManager, UIView;
 
 @protocol SXDragManagerDataSource
-- (id <SXDragable>)dragManager:(SXDragManager *)arg1 dragableAtLocation:(struct CGPoint)arg2;
+- (id <SXDraggable>)dragManager:(SXDragManager *)arg1 dragableAtLocation:(struct CGPoint)arg2;
 - (UIView *)viewForDragManager:(SXDragManager *)arg1;
 @end
 

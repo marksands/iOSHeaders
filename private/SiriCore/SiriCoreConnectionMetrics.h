@@ -33,11 +33,13 @@
     NSString *_carrierName;
     NSNumber *_signalStrengthBars;
     NSString *_providerStyle;
+    NSString *_policyId;
     NSDictionary *_flowNetworkInterfaceType;
     NSString *_wifiPhyMode;
     NSString *_wifiChannelInfo;
     NSNumber *_rssi;
     NSNumber *_snr;
+    NSNumber *_isCaptive;
     NSDictionary *_symptomsBasedNetworkQuality;
     NSNumber *_dnsResolutionTime;
     NSNumber *_connectionStartTimeToDNSResolutionTimeMsec;
@@ -45,8 +47,10 @@
     NSNumber *_connectionStartTimeToConnectionEstablishmentTimeMsec;
     NSNumber *_tlsHandshakeTimeMsec;
     NSNumber *_connectionStartTimeToTLSHandshakeTimeMsec;
+    NSString *_tlsVersion;
 }
 
+@property(copy, nonatomic) NSString *tlsVersion; // @synthesize tlsVersion=_tlsVersion;
 @property(copy, nonatomic) NSNumber *connectionStartTimeToTLSHandshakeTimeMsec; // @synthesize connectionStartTimeToTLSHandshakeTimeMsec=_connectionStartTimeToTLSHandshakeTimeMsec;
 @property(copy, nonatomic) NSNumber *tlsHandshakeTimeMsec; // @synthesize tlsHandshakeTimeMsec=_tlsHandshakeTimeMsec;
 @property(copy, nonatomic) NSNumber *connectionStartTimeToConnectionEstablishmentTimeMsec; // @synthesize connectionStartTimeToConnectionEstablishmentTimeMsec=_connectionStartTimeToConnectionEstablishmentTimeMsec;
@@ -54,11 +58,13 @@
 @property(copy, nonatomic) NSNumber *connectionStartTimeToDNSResolutionTimeMsec; // @synthesize connectionStartTimeToDNSResolutionTimeMsec=_connectionStartTimeToDNSResolutionTimeMsec;
 @property(copy, nonatomic) NSNumber *dnsResolutionTime; // @synthesize dnsResolutionTime=_dnsResolutionTime;
 @property(copy, nonatomic) NSDictionary *symptomsBasedNetworkQuality; // @synthesize symptomsBasedNetworkQuality=_symptomsBasedNetworkQuality;
+@property(copy, nonatomic) NSNumber *isCaptive; // @synthesize isCaptive=_isCaptive;
 @property(copy, nonatomic) NSNumber *snr; // @synthesize snr=_snr;
 @property(copy, nonatomic) NSNumber *rssi; // @synthesize rssi=_rssi;
 @property(copy, nonatomic) NSString *wifiChannelInfo; // @synthesize wifiChannelInfo=_wifiChannelInfo;
 @property(copy, nonatomic) NSString *wifiPhyMode; // @synthesize wifiPhyMode=_wifiPhyMode;
 @property(copy, nonatomic) NSDictionary *flowNetworkInterfaceType; // @synthesize flowNetworkInterfaceType=_flowNetworkInterfaceType;
+@property(copy, nonatomic) NSString *policyId; // @synthesize policyId=_policyId;
 @property(copy, nonatomic) NSString *providerStyle; // @synthesize providerStyle=_providerStyle;
 @property(copy, nonatomic) NSNumber *signalStrengthBars; // @synthesize signalStrengthBars=_signalStrengthBars;
 @property(copy, nonatomic) NSString *carrierName; // @synthesize carrierName=_carrierName;

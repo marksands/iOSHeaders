@@ -39,6 +39,7 @@
 - (void)_inflateCache;
 - (void)_persistCache;
 - (void)_evictIfNeeded;
+- (_Bool)_boldTextEnabled;
 - (id)_fontSizeCategory;
 - (id)_systemVersion;
 - (id)cacheKeyForChatItem:(id)arg1 fittingSize:(struct CGSize)arg2;

@@ -19,6 +19,7 @@
     _Bool _requiresSubscriptionForConsent;
     _Bool _requiresAccountLevelConsent;
     _Bool _shouldPromptForConsentOnSubscriptionChange;
+    _Bool _shouldTrackPlayActivity;
     _Bool _shouldIncludeInConsent;
     _Bool _appInstalled;
     NSString *_channelID;
@@ -33,6 +34,7 @@
 
 @property(readonly, nonatomic, getter=isAppInstalled) _Bool appInstalled; // @synthesize appInstalled=_appInstalled;
 @property(readonly, nonatomic) _Bool shouldIncludeInConsent; // @synthesize shouldIncludeInConsent=_shouldIncludeInConsent;
+@property(readonly, nonatomic) _Bool shouldTrackPlayActivity; // @synthesize shouldTrackPlayActivity=_shouldTrackPlayActivity;
 @property(readonly, nonatomic) NSDictionary *rateLimit; // @synthesize rateLimit=_rateLimit;
 @property(readonly, nonatomic) _Bool shouldPromptForConsentOnSubscriptionChange; // @synthesize shouldPromptForConsentOnSubscriptionChange=_shouldPromptForConsentOnSubscriptionChange;
 @property(readonly, nonatomic) _Bool requiresAccountLevelConsent; // @synthesize requiresAccountLevelConsent=_requiresAccountLevelConsent;

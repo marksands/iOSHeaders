@@ -22,6 +22,7 @@
 - (id)actionsForDeletingAccount:(id)arg1 affectingDataclass:(id)arg2 withError:(id *)arg3;
 - (id)actionsForAddingAccount:(id)arg1 affectingDataclass:(id)arg2 withError:(id *)arg3;
 - (_Bool)isPerformingDataclassActionsForAccount:(id)arg1;
+- (void)preloadDataclassOwnersWithError:(id *)arg1;
 - (id)init;
 
 @end

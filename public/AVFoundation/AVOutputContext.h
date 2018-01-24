@@ -53,6 +53,7 @@
 - (void)setOutputDevices:(id)arg1;
 - (void)outputContextImplDidChangeOutputDevices:(id)arg1;
 - (id)outputDevices;
+- (_Bool)supportsMultipleOutputDevices;
 - (void)outputContextImplDidChangeGlobalOutputDeviceConfiguration:(id)arg1;
 - (void)outputContextImplDidChangeOutputDevice:(id)arg1;
 - (void)outputContextImpl:(id)arg1 didInitiateDestinationChange:(id)arg2;

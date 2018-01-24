@@ -27,10 +27,15 @@
     NSObject<OS_dispatch_queue> *_customDataCallbackQueue;
     CDUnknownBlockType _volumeCallback;
     NSObject<OS_dispatch_queue> *_volumeCallbackQueue;
+    CDUnknownBlockType _outputContextCallback;
+    NSObject<OS_dispatch_queue> *_outputContextCallbackQueue;
 }
 
++ (id)_notificationSerialQueue;
 + (id)clientInterface;
 + (id)serviceInterface;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *outputContextCallbackQueue; // @synthesize outputContextCallbackQueue=_outputContextCallbackQueue;
+@property(copy, nonatomic) CDUnknownBlockType outputContextCallback; // @synthesize outputContextCallback=_outputContextCallback;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *volumeCallbackQueue; // @synthesize volumeCallbackQueue=_volumeCallbackQueue;
 @property(copy, nonatomic) CDUnknownBlockType volumeCallback; // @synthesize volumeCallback=_volumeCallback;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *customDataCallbackQueue; // @synthesize customDataCallbackQueue=_customDataCallbackQueue;
@@ -44,6 +49,7 @@
 - (void)_synchronousLoadExternalDeviceMetadataIfNecessary;
 - (id)_remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)_hostedExternalDeviceConnection;
+- (void)hostedExternalDeviceOutputContextDidChangeWithInfo:(CDStruct_64424771)arg1;
 - (void)hostedExternalDeviceVolumeDidChange:(float)arg1 forEndpointWithIdentifier:(id)arg2 forOutputDeviceWithIdentifier:(id)arg3;
 - (void)hostedExternalDeviceDidReceiveCustomData:(id)arg1 withName:(id)arg2;
 - (void)hostedExternalDeviceNameDidChange:(id)arg1;
@@ -55,6 +61,7 @@
 - (void)outputDeviceVolume:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setVolume:(float)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)volumeWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)setOutputContextCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setVolumeCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setCustomDataCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setPairingAllowedCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
@@ -68,6 +75,7 @@
 - (void *)deviceInfo;
 - (void)setUsingSystemPairing:(_Bool)arg1;
 - (_Bool)isUsingSystemPairing;
+- (CDStruct_64424771)systemMusicContextInfo;
 - (_Bool)isPaired;
 - (unsigned int)connectionState;
 - (void)setWantsVolumeNotifications:(_Bool)arg1;
@@ -79,6 +87,7 @@
 - (long long)port;
 - (id)hostName;
 - (id)name;
+- (_Bool)isValid;
 - (void)dealloc;
 - (id)initWithExternalDeviceListenerEndpoint:(id)arg1;
 

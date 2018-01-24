@@ -26,7 +26,6 @@
     NSMapTable *_lastThreadBacktraceMap;
     unsigned int *_previousThreadList;
     unsigned int _mainThread;
-    unsigned int _samplingThreadPort;
     unsigned int _previousThreadCount;
     unsigned int _maxPreviousThreadCount;
     double _tbRate;

@@ -16,6 +16,7 @@
     NSMutableSet *_usedWebViews;
     NSMutableSet *_reusableWebViews;
     NSMutableArray *_siteMetadataProviders;
+    NSObject<OS_dispatch_queue> *_siteMetadataProvidersAccessQueue;
     NSOperationQueue *_operationQueue;
     NSCountedSet *_activeOperations;
     NSObject<OS_dispatch_queue> *_internalQueue;
@@ -40,7 +41,6 @@
 - (id)_providerForRequest:(id)arg1;
 - (void)_registerToken:(id)arg1 withProvider:(id)arg2;
 - (void)savePendingProviderChangesBeforeTermination;
-- (void)purgeUnneededProviderCacheEntries;
 - (void)emptyProviderCaches;
 - (void)setPriority:(long long)arg1 ofRequestsWithTokens:(id)arg2;
 - (void)setPriority:(long long)arg1 ofRequestWithToken:(id)arg2;

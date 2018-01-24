@@ -17,6 +17,7 @@
 
 - (void).cxx_destruct;
 - (void)debugGetDatabaseURLWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)queryMemoryFootprint:(CDUnknownBlockType)arg1;
 - (void)unregisterForRemoteHistoryNotifications;
 - (void)registerForRemoteHistoryNotifications;
 - (void)groupVisitsIntoSessionsBetweenStartDate:(id)arg1 endDate:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

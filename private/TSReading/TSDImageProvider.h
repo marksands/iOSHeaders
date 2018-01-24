@@ -12,14 +12,15 @@
 {
     int mLoadState;
     TSPData *mImageData;
-    // Error parsing type: Ai, name: mRetainCount
-    // Error parsing type: Ai, name: mOwnerCount
     TSUFlushingManager *mFlushingManager;
     int mInterest;
     struct os_unfair_lock_s mInterestLock;
+    // Error parsing type: {atomic<int>="__a_"Ai}, name: mRetainCount
+    // Error parsing type: {atomic<int>="__a_"Ai}, name: mOwnerCount
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
+- (id).cxx_construct;
 - (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;

@@ -11,18 +11,16 @@
 @interface CKFetchShareMetadataOperation : CKOperation
 {
     _Bool _shouldFetchRootRecord;
-    NSArray *_shareURLs;
-    NSArray *_rootRecordDesiredKeys;
     CDUnknownBlockType _perShareMetadataBlock;
     CDUnknownBlockType _fetchShareMetadataCompletionBlock;
+    NSArray *_shareURLs;
+    NSArray *_rootRecordDesiredKeys;
     NSMutableDictionary *_errorsByURL;
     NSMutableSet *_packagesToDestroy;
 }
 
 @property(retain, nonatomic) NSMutableSet *packagesToDestroy; // @synthesize packagesToDestroy=_packagesToDestroy;
 @property(retain, nonatomic) NSMutableDictionary *errorsByURL; // @synthesize errorsByURL=_errorsByURL;
-@property(copy, nonatomic) CDUnknownBlockType fetchShareMetadataCompletionBlock; // @synthesize fetchShareMetadataCompletionBlock=_fetchShareMetadataCompletionBlock;
-@property(copy, nonatomic) CDUnknownBlockType perShareMetadataBlock; // @synthesize perShareMetadataBlock=_perShareMetadataBlock;
 @property(copy, nonatomic) NSArray *rootRecordDesiredKeys; // @synthesize rootRecordDesiredKeys=_rootRecordDesiredKeys;
 @property(nonatomic) _Bool shouldFetchRootRecord; // @synthesize shouldFetchRootRecord=_shouldFetchRootRecord;
 @property(copy, nonatomic) NSArray *shareURLs; // @synthesize shareURLs=_shareURLs;
@@ -36,6 +34,8 @@
 - (_Bool)hasCKOperationCallbacksSet;
 - (void)fillFromOperationInfo:(id)arg1;
 - (void)fillOutOperationInfo:(id)arg1;
+@property(copy, nonatomic) CDUnknownBlockType fetchShareMetadataCompletionBlock; // @synthesize fetchShareMetadataCompletionBlock=_fetchShareMetadataCompletionBlock;
+@property(copy, nonatomic) CDUnknownBlockType perShareMetadataBlock; // @synthesize perShareMetadataBlock=_perShareMetadataBlock;
 - (id)initWithShareURLs:(id)arg1;
 - (id)init;
 

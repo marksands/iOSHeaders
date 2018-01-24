@@ -62,6 +62,7 @@
 - (void).cxx_destruct;
 - (void)remote_containerAppExtensionEntitlementsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_badgeHealthAppForEmergencyContactsConsolidationWithCompletion:(CDUnknownBlockType)arg1;
+- (void)remote_setDaemonPreferenceValue:(id)arg1 forKey:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)remote_fetchDaemonPreferenceForKey:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_splitTotalCalories:(double)arg1 timeInterval:(double)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)remote_weeklySummaryInfoForDate:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
@@ -149,6 +150,7 @@
 - (void)remote_requestAuthorizationToShareTypes:(id)arg1 readTypes:(id)arg2 shouldPrompt:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)remote_authorizationStatusForType:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_fetchDisplayNameWithCompletion:(CDUnknownBlockType)arg1;
+- (void)remote_fetchPluginServiceEndpointWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_proxyForQueryControlServerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_proxyForProfileServerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_proxyForWorkoutServerWithCompletion:(CDUnknownBlockType)arg1;

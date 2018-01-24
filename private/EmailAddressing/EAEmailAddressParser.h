@@ -12,7 +12,7 @@
 
 + (void)insertPreviousRoute:(unsigned short *)arg1 ofLength:(unsigned long long)arg2 toBuffer:(unsigned short **)arg3 ofLength:(unsigned long long)arg4 atPosition:(unsigned short *)arg5 addSpace:(_Bool)arg6;
 + (id)displayNameFromAddress:(id)arg1;
-+ (void)_componentsForFullAddress:(id)arg1 rawAddressRange:(struct _NSRange *)arg2 localPartRange:(struct _NSRange *)arg3 domainRange:(struct _NSRange *)arg4;
++ (void)_componentsForFullAddress:(id)arg1 rawAddressIndexes:(id *)arg2 localPartIndexes:(id *)arg3 domainIndexes:(id *)arg4;
 + (id)addressDomainFromAddress:(id)arg1;
 + (id)localPartFromAddress:(id)arg1;
 + (id)rawAddressRespectingGroupsFromFullAddress:(id)arg1;

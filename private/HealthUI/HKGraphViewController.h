@@ -14,10 +14,12 @@
 {
     HKGraphView *_graphView;
     id <HKGraphViewDelegate> _graphViewDelegateProxy;
+    id <HKGraphViewControllerDelegate> _delegate;
     long long _dateZoom;
 }
 
 @property(readonly, nonatomic) long long dateZoom; // @synthesize dateZoom=_dateZoom;
+@property(nonatomic) __weak id <HKGraphViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <HKGraphViewDelegate> graphViewDelegateProxy; // @synthesize graphViewDelegateProxy=_graphViewDelegateProxy;
 @property(readonly, nonatomic) HKGraphView *graphView; // @synthesize graphView=_graphView;
 - (void).cxx_destruct;

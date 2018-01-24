@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)_monogramConfiguration;
 + (id)_generateDefaultFavoritesIconWithGlyphColor:(id)arg1;
 + (id)_favoritesGlyph;
 + (id)defaultBackgroundColor;

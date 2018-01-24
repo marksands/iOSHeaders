@@ -134,7 +134,6 @@
 - (void)_handleSMSCAvailable;
 - (void)clearActivationError;
 - (id)activationError;
-- (void)_contextActivationSucceeded:(id)arg1;
 - (void)_setActivationError:(id)arg1;
 - (void)_reportReachabilityChange:(id)arg1;
 - (void)_updateOnlineStatus;

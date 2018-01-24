@@ -17,7 +17,6 @@
     _Bool _isRequestedRating;
     NSURL *_defaultToroServerURL;
     NSURL *_defaultAdTargetingServerURL;
-    NSString *_storefrontLocalizationLanguage;
     NSString *_algoID;
     NSArray *_userKeyboards;
     double _requestedLocationAccuracy;
@@ -46,7 +45,6 @@
 @property(nonatomic) double requestedLocationAccuracy; // @synthesize requestedLocationAccuracy=_requestedLocationAccuracy;
 @property(retain, nonatomic) NSArray *userKeyboards; // @synthesize userKeyboards=_userKeyboards;
 @property(retain, nonatomic) NSString *algoID; // @synthesize algoID=_algoID;
-@property(retain, nonatomic) NSString *storefrontLocalizationLanguage; // @synthesize storefrontLocalizationLanguage=_storefrontLocalizationLanguage;
 @property(retain, nonatomic) NSURL *defaultAdTargetingServerURL; // @synthesize defaultAdTargetingServerURL=_defaultAdTargetingServerURL;
 @property(retain, nonatomic) NSURL *defaultToroServerURL; // @synthesize defaultToroServerURL=_defaultToroServerURL;
 - (void).cxx_destruct;

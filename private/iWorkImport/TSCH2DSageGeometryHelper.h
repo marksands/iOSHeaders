@@ -93,7 +93,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)isScatter;
 - (_Bool)isLine;
 - (_Bool)isArea;
-- (_Bool)isPie;
 - (_Bool)isVertical;
 
 @end

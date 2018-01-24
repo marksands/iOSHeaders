@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+#import "MPAVOutputDevicePlaybackDataSource.h"
 #import "MPAVRoutingControllerDelegate.h"
 #import "MediaControlsHomeObserverDelegate.h"
 
 @class MPAVEndpointRoute, MPAVRoutingController, MPMediaControlsConfiguration, MediaControlsHomeObserver, NSArray, NSMutableDictionary, NSString;
 
-@interface MediaControlsEndpointsManager : NSObject <MPAVRoutingControllerDelegate, MediaControlsHomeObserverDelegate>
+@interface MediaControlsEndpointsManager : NSObject <MPAVRoutingControllerDelegate, MediaControlsHomeObserverDelegate, MPAVOutputDevicePlaybackDataSource>
 {
     NSMutableDictionary *_endpointControllersMap;
     _Bool _didLoadHomeUIDsOnce;
@@ -37,10 +38,12 @@
 - (void)_updateActiveRoute;
 - (void)_setRoutes:(id)arg1 withChangeDetails:(id)arg2;
 - (_Bool)_homeHasRoute:(id)arg1;
+- (id)_endpointControllerContainingOutputDevice:(id)arg1 externalDeviceRef:(void **)arg2;
 - (long long)_indexOfRoute:(id)arg1;
 - (long long)_indexOfActiveRoute;
 - (void)_activeSystemRouteDidChange:(id)arg1;
 - (void)homeObserverDidUpdateKnownUIDs:(id)arg1;
+- (void)getOutputDeviceIsPlaying:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
 - (id)endpointControllerForRoute:(id)arg1;
 - (void)dealloc;

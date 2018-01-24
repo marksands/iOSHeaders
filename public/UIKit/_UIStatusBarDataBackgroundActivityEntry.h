@@ -15,6 +15,7 @@
     NSString *_detailString;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *detailString; // @synthesize detailString=_detailString;
 @property(nonatomic) double displayStartDate; // @synthesize displayStartDate=_displayStartDate;
 @property(nonatomic) long long type; // @synthesize type=_type;

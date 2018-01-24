@@ -83,9 +83,12 @@
 @property(readonly) long long storeSheetTypeAskToBuy;
 @property(readonly) long long storeSheetTypeDefault;
 @property(readonly) NSString *safariViewControllerIdentifierQueryParameterName;
-@property(readonly) NSString *askToBuyPrompt;
+@property(readonly) NSString *userAgent;
+@property(readonly) SUScriptDictionary *tidHeaders;
 @property(readonly) long long storeSheetType;
 @property(readonly) NSString *storeFrontIdentifier;
+- (void)setUserAgent:(id)arg1;
+- (void)setTidHeaders:(id)arg1;
 - (void)setStoreFrontIdentifier:(id)arg1;
 - (void)setNavigationBar:(id)arg1;
 - (void)setSafariViewControllerDismissButtonStyle:(id)arg1;
@@ -109,13 +112,14 @@
 @property(readonly) id loggingEnabled;
 @property(readonly) id globalRootObject;
 @property(readonly) NSString *deviceSerialNumber;
+@property(readonly) id creditCardReaderAvailable;
 @property(readonly) NSString *cookieForDefaultURL;
 @property(readonly) NSString *cookieDefaultURL;
 @property(readonly) NSString *clientIdentifier;
 - (id)_className;
+@property(readonly) NSString *askToBuyPrompt;
 @property(readonly) SUScriptKeyValueStore *applicationLocalStorage;
 @property(readonly) id applicationAccessibilityEnabled;
-@property(readonly) id creditCardReaderAvailable;
 - (void)showSafariViewControllerWithURLString:(id)arg1 identifier:(id)arg2 animated:(_Bool)arg3;
 - (void)dismissSafariViewControllerAnimated:(_Bool)arg1;
 - (void)accessibilityPostScreenChange;
@@ -271,7 +275,6 @@
 - (id)makeScriptActionWithType:(id)arg1;
 - (id)makeDateFormatter;
 @property(readonly) SUScriptPurchaseManager *purchaseManager;
-- (id)makeTweetComposeViewController;
 - (id)makeMediaPlayerItemWithProperties:(id)arg1;
 - (void)showMediaPreviewWithURLString:(id)arg1;
 - (void)showMediaPlayerWithURLString:(id)arg1 orientation:(id)arg2 title:(id)arg3 subtitle:(id)arg4 bookmarkID:(id)arg5 duration:(id)arg6 type:(id)arg7 imageURL:(id)arg8;

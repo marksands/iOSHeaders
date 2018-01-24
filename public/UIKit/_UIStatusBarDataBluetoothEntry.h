@@ -14,6 +14,7 @@
     _UIStatusBarDataBatteryEntry *_batteryEntry;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) _UIStatusBarDataBatteryEntry *batteryEntry; // @synthesize batteryEntry=_batteryEntry;
 @property(nonatomic) long long state; // @synthesize state=_state;
 - (void).cxx_destruct;

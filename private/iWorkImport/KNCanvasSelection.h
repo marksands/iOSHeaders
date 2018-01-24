@@ -11,12 +11,13 @@
 __attribute__((visibility("hidden")))
 @interface KNCanvasSelection : TSDCanvasSelection
 {
-    NSSet *mBuildChunks;
+    NSSet *_buildChunks;
 }
 
 + (Class)archivedSelectionClass;
 + (id)emptySelection;
-@property(readonly, nonatomic) NSSet *buildChunks; // @synthesize buildChunks=mBuildChunks;
+@property(retain, nonatomic) NSSet *buildChunks; // @synthesize buildChunks=_buildChunks;
+- (void).cxx_destruct;
 - (id)UUIDDescription;
 - (id)subclassDescription;
 - (unsigned long long)hash;

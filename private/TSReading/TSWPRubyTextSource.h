@@ -12,8 +12,8 @@
 
 @interface TSWPRubyTextSource : NSObject <TSWPTextSource>
 {
-    vector_88016b54 _spaceCharIndexes;
-    vector_88016b54 _bidiCharIndexes;
+    vector_06e666a8 _spaceCharIndexes;
+    vector_06e666a8 _bidiCharIndexes;
     id <TSWPTextSource> _source;
     TSWPRangeMap *_rangeMap;
     unsigned long long _length;

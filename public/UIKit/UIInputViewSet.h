@@ -84,6 +84,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)containsView:(id)arg1;
 @property(readonly, nonatomic, getter=isEmpty) _Bool empty;
 @property(nonatomic) _Bool restoreUsingBecomeFirstResponder;
+- (void)_forceRestoreUsingBecomeFirstResponder:(_Bool)arg1;
 @property(readonly, nonatomic) UIView *splitExemptSubview;
 @property(readonly, nonatomic) UIView *layeringView;
 - (void)_setRenderConfig:(id)arg1;

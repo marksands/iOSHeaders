@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSSet, STTextTangierContainerInfo, STTextTangierDocumentRoot, SXTextSource, TSDLayoutController;
+@class NSArray, NSSet, STTextTangierContainerInfo, STTextTangierDocumentRoot, SXTextSource, TSDLayoutController;
 
 @interface SXTextLayouter : NSObject
 {
@@ -26,6 +26,8 @@
 - (id)exclusionPathIndexes;
 - (id)wpLayout;
 - (id)wpStorage;
+- (double)verticalLocationOfCharacterAtIndex:(unsigned long long)arg1;
+@property(readonly, nonatomic) NSArray *paragraphRanges;
 - (struct CGSize)boundingSize;
 - (double)baselineForLastLine;
 - (id)firstColumn;

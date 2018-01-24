@@ -9,7 +9,8 @@
 @class NSURL;
 
 @interface NTPBTodaySectionConfigWebEmbed (NTAdditions)
-@property(readonly, copy, nonatomic) NSURL *URL;
+- (id)identifier;
 - (unsigned long long)itemType;
+@property(readonly, copy, nonatomic) NSURL *URL;
 @end
 

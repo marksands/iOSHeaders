@@ -13,9 +13,11 @@
     id _iesCiphertextInternal;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 @property(readonly) NSData *authenticationCode;
 @property(readonly) _SFECPublicKey *ephemeralSenderPublicKey;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithCiphertext:(id)arg1 ephemeralSenderPublicKey:(id)arg2 authenticationCode:(id)arg3;

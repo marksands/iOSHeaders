@@ -27,7 +27,7 @@
     _Bool _usesSpriteSizeUniform;
     shared_ptr_394c00aa _backingProgram;
     shared_ptr_394c00aa _backingProgramWithTransform;
-    map_7c6d24d7 _attributeBuffers;
+    map_48758480 _attributeBuffers;
     _Bool _performFullCapture;
 }
 
@@ -76,7 +76,7 @@
 - (id)fragmentPreludeMetal;
 - (id)fragmentPrelude;
 @property(copy) NSString *source;
-@property(readonly) map_7c6d24d7 *_attributeBuffers;
+@property(readonly) map_48758480 *_attributeBuffers;
 @property(copy, nonatomic) NSArray *attributes;
 - (id)initWithSource:(id)arg1 uniforms:(id)arg2;
 - (id)initWithSource:(id)arg1;

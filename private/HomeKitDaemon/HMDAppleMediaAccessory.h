@@ -23,6 +23,8 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)hasMessageReceiverChildren;
++ (_Bool)shouldAcceptMessage:(id)arg1 home:(id)arg2 privilege:(unsigned long long)arg3;
 @property(readonly) HMDAccessorySymptomHandler *symptomsHandler; // @synthesize symptomsHandler=_symptomsHandler;
 @property(readonly) HMDRemoteLoginHandler *remoteLoginHandler; // @synthesize remoteLoginHandler=_remoteLoginHandler;
 - (void).cxx_destruct;
@@ -30,6 +32,7 @@
 - (id)dumpState;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)messageReceiverChildren;
 - (void)handleRemovedSoftwareUpdateModel:(id)arg1 message:(id)arg2;
 - (void)handleAddedSoftwareUpdateModel:(id)arg1 message:(id)arg2;
 - (void)handleAddedRootSettingsModel:(id)arg1 message:(id)arg2;
@@ -86,7 +89,6 @@
 - (id)init;
 - (id)initWithTransaction:(id)arg1 home:(id)arg2;
 - (id)assistantObject;
-- (id)_decodeHashedRouteUID:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

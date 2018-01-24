@@ -12,7 +12,7 @@
 #import "XCUIElementTypeQueryProvider.h"
 #import "XCUIScreenshotProviding.h"
 
-@class NSString, XCElementSnapshot, XCUIApplication, XCUICoordinate, XCUIElementQuery;
+@class NSString, XCElementSnapshot, XCTLocalizableStringInfo, XCUIApplication, XCUICoordinate, XCUIElementQuery;
 
 @interface XCUIElement : NSObject <XCUIScreenshotProviding, XCTNSPredicateExpectationObject, XCElementAttributesPrivate, XCUIElementAttributes, XCUIElementTypeQueryProvider>
 {
@@ -114,6 +114,7 @@
 @property(readonly, nonatomic) long long interfaceOrientation;
 @property(readonly) _Bool hasKeyboardFocus;
 - (unsigned long long)traits;
+@property(readonly, copy) XCTLocalizableStringInfo *localizableStringInfo;
 @property(readonly) long long horizontalSizeClass;
 @property(readonly) long long verticalSizeClass;
 @property(readonly) unsigned long long elementType;

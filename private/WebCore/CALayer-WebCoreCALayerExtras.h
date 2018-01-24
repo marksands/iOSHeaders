@@ -7,6 +7,7 @@
 #import "CALayer.h"
 
 @interface CALayer (WebCoreCALayerExtras)
++ (id)_web_renderLayerWithContextID:(unsigned int)arg1;
 - (void)web_disableAllActions;
 @end
 

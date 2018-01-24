@@ -11,7 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface TSCECellCoordinateVector : NSObject
 {
-    vector_13f93596 _cellCoordinates;
+    vector_38b190b0 _cellCoordinates;
     NSObject<OS_dispatch_semaphore> *_sem;
 }
 
@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)removeAllCellCoordinates;
 - (void)addCellCoordinate:(struct TSUCellCoord)arg1;
 - (unordered_set_c5f37819)cellCoordinatesSet;
-- (vector_13f93596 *)cellCoordinates;
+- (vector_38b190b0 *)cellCoordinates;
 - (id)init;
 
 @end

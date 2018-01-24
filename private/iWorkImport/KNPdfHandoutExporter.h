@@ -9,15 +9,15 @@
 __attribute__((visibility("hidden")))
 @interface KNPdfHandoutExporter : KNPdfExporter
 {
-    _Bool mPrintingRuledLines;
-    _Bool mPrintingNotes;
-    _Bool mPrintingDivider;
-    _Bool mIsPrintingNote;
+    _Bool _printingRuledLines;
+    _Bool _printingNotes;
+    _Bool _printingDivider;
+    _Bool _isPrintingNote;
 }
 
-@property(nonatomic, getter=isPrintingDivider) _Bool printingDivider; // @synthesize printingDivider=mPrintingDivider;
-@property(nonatomic, getter=isPrintingNotes) _Bool printingNotes; // @synthesize printingNotes=mPrintingNotes;
-@property(nonatomic, getter=isPrintingRuledLines) _Bool printingRuledLines; // @synthesize printingRuledLines=mPrintingRuledLines;
+@property(nonatomic, getter=isPrintingDivider) _Bool printingDivider; // @synthesize printingDivider=_printingDivider;
+@property(nonatomic, getter=isPrintingNotes) _Bool printingNotes; // @synthesize printingNotes=_printingNotes;
+@property(nonatomic, getter=isPrintingRuledLines) _Bool printingRuledLines; // @synthesize printingRuledLines=_printingRuledLines;
 - (void)p_drawNotesForNode:(id)arg1 index:(unsigned long long)arg2 forRect:(struct CGRect)arg3 unscaledClipRect:(struct CGRect)arg4 scaledClipRect:(struct CGRect)arg5 context:(struct CGContext *)arg6;
 - (void)p_drawRuledLinesForRect:(struct CGRect)arg1 pageRect:(struct CGRect)arg2 numberOfLines:(unsigned long long)arg3 context:(struct CGContext *)arg4;
 - (void)p_drawDividerLineForRect:(struct CGRect)arg1 pageRect:(struct CGRect)arg2 context:(struct CGContext *)arg3;

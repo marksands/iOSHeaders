@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class FCDateRange, FCFeedCursor;
 
-@interface FCFeedRange : NSObject <NSCoding, NSCopying>
+@interface FCFeedRange : NSObject <NSSecureCoding, NSCopying>
 {
     FCFeedCursor *_top;
     FCFeedCursor *_bottom;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)feedRangeByMergingRange:(id)arg1 withRange:(id)arg2;
 + (id)feedRangeFromDateRange:(id)arg1;
 + (id)feedRangeFromDate:(id)arg1 toDate:(id)arg2;

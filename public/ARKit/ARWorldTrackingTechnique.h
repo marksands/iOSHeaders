@@ -6,7 +6,7 @@
 
 #import <ARKit/ARTechnique.h>
 
-@class ARPointCloud, ARTrackingErrorData, ARWorldTrackingData, NSMutableArray, NSObject<OS_dispatch_semaphore>, NSString;
+@class ARWorldTrackingErrorData, ARWorldTrackingPoseData, ARWorldTrackingReferenceAnchorData, NSMutableArray, NSObject<OS_dispatch_semaphore>, NSString;
 
 @interface ARWorldTrackingTechnique : ARTechnique
 {
@@ -14,24 +14,34 @@
     unsigned long long _vioState;
     NSObject<OS_dispatch_semaphore> *_vioStateSemaphore;
     NSMutableArray *_latestVisionFeaturePointDatas;
-    ARPointCloud *_cachedFeaturePointCloud;
-    ARTrackingErrorData *_errorData;
-    ARWorldTrackingData *_cachedTrackingData;
-    ARWorldTrackingData *_lastPointCloudTrackingData;
+    ARWorldTrackingReferenceAnchorData *_anchorData;
+    ARWorldTrackingErrorData *_errorData;
+    ARWorldTrackingPoseData *_cachedTrackingData;
+    double _lastRelocalizationTimestamp;
+    _Bool _relocalizingAfterSensorDataDrop;
+    _Bool _didRelocalize;
+    _Bool _didClearMap;
     NSObject<OS_dispatch_semaphore> *_resultSemaphore;
-    double _lastErrorLogTimestamp;
+    double _minVergenceAngleCosine;
+    _Bool _allowPoseGraphUpdates;
     _Bool _relocalizationEnabled;
     NSString *_deviceModel;
     long long _latencyFrameCount;
+    struct CGSize _imageResolution;
 }
 
++ (_Bool)supports1080p;
 + (_Bool)isSupported;
+@property(nonatomic) struct CGSize imageResolution; // @synthesize imageResolution=_imageResolution;
 @property(nonatomic) _Bool relocalizationEnabled; // @synthesize relocalizationEnabled=_relocalizationEnabled;
 @property(readonly, nonatomic) long long latencyFrameCount; // @synthesize latencyFrameCount=_latencyFrameCount;
 @property(readonly, nonatomic) NSString *deviceModel; // @synthesize deviceModel=_deviceModel;
 - (void).cxx_destruct;
 -     // Error parsing type: {?=[4]}24@0:8d16, name: cameraTransformAtTimestamp:
+- (void)removeReferenceAnchors:(id)arg1;
+- (void)addReferenceAnchors:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
+- (void)clearMap;
 - (id)initWithDeviceModel:(id)arg1 latencyFrameCount:(long long)arg2;
 - (id)init;
 

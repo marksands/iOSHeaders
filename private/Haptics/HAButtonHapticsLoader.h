@@ -13,6 +13,8 @@
 + (id)sharedInstance;
 @property(readonly, nonatomic) _Bool serviceAvailable;
 @property(readonly, nonatomic) long long maxNumberOfSlots;
+- (float)audioGainForType:(long long)arg1;
+- (float)hapticGainForType:(long long)arg1;
 - (float)defaultUpGainForType:(long long)arg1;
 - (float)defaultDownGainForType:(long long)arg1;
 - (_Bool)hapticAssetType:(long long)arg1 hasAudio:(_Bool *)arg2 hasHaptic:(_Bool *)arg3 error:(id *)arg4;

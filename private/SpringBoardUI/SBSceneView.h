@@ -52,6 +52,7 @@
 - (void)_hotSwapPlaceholderContentView;
 - (void)_clearSnapshotViews;
 - (void)_reloadPlaceholderContentIfNecessary;
+- (void)_configureBackgroundColorForLiveSnapshot:(_Bool)arg1;
 - (void)_configureHostView;
 - (void)_configureLiveSnapshotView;
 - (void)_configurePlaceholderContentView;

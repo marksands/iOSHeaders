@@ -6,15 +6,17 @@
 
 #import <iWorkImport/TSDDrawableInfo.h>
 
+#import "TSDAttachmentAwareContainerInfo.h"
 #import "TSDMixing.h"
+#import "TSDModelContainer.h"
 #import "TSDMutableContainerInfo.h"
 #import "TSDSelectionStatisticsContributor.h"
 #import "TSKDocumentObject.h"
 
-@class NSMutableArray, NSObject<TSDContainerInfo>, NSString, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
+@class NSArray, NSMutableArray, NSObject<TSDContainerInfo>, NSSet, NSString, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
 
 __attribute__((visibility("hidden")))
-@interface TSDGroupInfo : TSDDrawableInfo <TSDMutableContainerInfo, TSDMixing, TSKDocumentObject, TSDSelectionStatisticsContributor>
+@interface TSDGroupInfo : TSDDrawableInfo <TSDMutableContainerInfo, TSDMixing, TSKDocumentObject, TSDSelectionStatisticsContributor, TSDModelContainer, TSDAttachmentAwareContainerInfo>
 {
     NSMutableArray *mChildInfos;
     _Bool mIsInDocument;
@@ -23,6 +25,7 @@ __attribute__((visibility("hidden")))
 + (id)p_drawablesToInsertForGroup:(id)arg1 outDidUngroup:(_Bool *)arg2 filteredWithBlock:(CDUnknownBlockType)arg3;
 + (id)drawablesToInsertForGroup:(id)arg1 filteredWithBlock:(CDUnknownBlockType)arg2;
 + (id)groupGeometryFromChildrenInfos:(id)arg1;
++ (Class)classForUnarchiver:(id)arg1;
 - (void).cxx_destruct;
 - (void)processSelectedStoragesWithStatisticsController:(id)arg1;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
@@ -51,17 +54,24 @@ __attribute__((visibility("hidden")))
 - (void)insertChildInfo:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addChildInfo:(id)arg1;
 - (void)setChildInfos:(id)arg1;
+- (void)moveModel:(id)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeContainedModel:(id)arg1;
+- (void)insertContainedModel:(id)arg1 atIndex:(unsigned long long)arg2;
+@property(readonly, nonatomic) NSArray *containedModels;
+@property(readonly, nonatomic) NSSet *infosToObserveForAttachedInfo;
 - (id)infoForSelectionPath:(id)arg1;
-- (id)childInfos;
-- (id)allNestedChildrenInfosIncludingGroups;
-- (id)allNestedChildrenInfos;
+@property(readonly, nonatomic) NSArray *childInfos;
+@property(readonly, nonatomic) NSArray *allNestedChildrenInfosIncludingGroups;
+@property(readonly, nonatomic) NSArray *allNestedChildrenInfosForWrap;
+@property(readonly, nonatomic) NSArray *allNestedChildrenInfos;
 - (id)copyWithContext:(id)arg1;
+@property(readonly, nonatomic) _Bool isFreehandDrawing;
 - (Class)repClass;
 - (Class)layoutClass;
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
 - (_Bool)supportsParentRotation;
 - (_Bool)allowsParentGroupToBeResizedWithoutAspectRatioLock;
-- (_Bool)canAspectRatioLockBeChangedByUser;
+@property(readonly, nonatomic) _Bool canAspectRatioLockBeChangedByUser;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2;
 - (void)saveToArchiver:(id)arg1;

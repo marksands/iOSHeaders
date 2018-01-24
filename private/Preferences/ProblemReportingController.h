@@ -45,9 +45,9 @@
 - (void)setBoolValue:(_Bool)arg1 forIdMSConfigKey:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)showAboutWheelchairDataSheet;
 - (void)showAboutHealthDataSheet;
-- (void)showAboutiCloudAnalyticsSheet;
 - (void)showAboutAppAnalyticsSheet;
-- (void)showAboutDiagnosticsSheet;
+- (void)showAboutiCloudAnalyticsSheet;
+- (void)showAboutAnalyticsSheet;
 - (void)dismissAboutSheet:(id)arg1;
 - (void)showAboutSheetWithTitle:(id)arg1 content:(id)arg2;
 - (void)launchDiagnosticsSession:(id)arg1;

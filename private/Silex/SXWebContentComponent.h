@@ -8,21 +8,35 @@
 
 #import "SXWebContentComponent.h"
 
-@class NSString, NSURL;
+@class NSString, NSURL, SXComponentAnimation, SXComponentClassification, SXComponentConditions, SXJSONArray, SXJSONDictionary;
 
 @interface SXWebContentComponent : SXComponent <SXWebContentComponent>
 {
 }
 
 + (id)typeString;
+@property(readonly, nonatomic) unsigned long long traits;
 - (id)URLWithValue:(id)arg1 withType:(int)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) NSURL *URL; // @dynamic URL;
+@property(readonly, nonatomic) SXJSONArray *additions;
+@property(readonly, nonatomic) SXJSONDictionary *analytics;
+@property(readonly, nonatomic) id <SXComponentAnchor> anchor;
+@property(readonly, nonatomic) SXComponentAnimation *animation;
+@property(readonly, nonatomic) SXJSONArray *behaviors;
+@property(readonly, nonatomic) SXComponentClassification *classification;
+@property(readonly, nonatomic) SXComponentConditions *conditions;
+@property(readonly, nonatomic) unsigned long long contentRelevance;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSString *identifier;
+@property(readonly, nonatomic) NSString *layout;
+@property(readonly, nonatomic) int role;
+@property(readonly, nonatomic) NSString *style;
 @property(readonly) Class superclass;
+@property(readonly, nonatomic) NSString *type;
 
 @end
 

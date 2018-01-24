@@ -10,7 +10,7 @@
 #import "IKAppDeviceConfig.h"
 #import "_TVAppNavigationControllerDelegate.h"
 
-@class IKAppContext, IKAppDataStorage, IKAppTabBar, NSDate, NSDictionary, NSString, NSXPCListener, TVApplicationControllerContext, UINavigationController, UIView, UIViewController, UIWindow, _TVAppNavigationController, _TVInspectorHighlightView, _TVMLKitApplication, _TVRootMenuBarController;
+@class IKAppContext, IKAppDataStorage, IKAppTabBar, NSDate, NSDictionary, NSString, NSXPCListener, TVApplicationControllerContext, UINavigationController, UIView, UIViewController, UIWindow, _TVAppNavigationController, _TVApplicationInspector, _TVMLKitApplication, _TVRootMenuBarController;
 
 @interface TVApplicationController : NSObject <IKAppContextInspectorDelegate, IKAppDeviceConfig, _TVAppNavigationControllerDelegate>
 {
@@ -32,7 +32,7 @@
     long long _interfaceOrientation;
     _TVRootMenuBarController *_menuBarController;
     IKAppTabBar *_tabBar;
-    _TVInspectorHighlightView *_inspectorView;
+    _TVApplicationInspector *_applicationInspector;
     UIWindow *_window;
     TVApplicationControllerContext *_context;
     id <TVApplicationControllerDelegate> _delegate;
@@ -54,6 +54,7 @@
 - (void)_openURLControllerDidDisplay:(id)arg1;
 - (void)_openURLOnAppLaunchControllerDidDisplay:(id)arg1;
 @property(readonly, nonatomic) UINavigationController *_currentNavigationController;
+- (id)_appContext;
 - (void)applicationWillSuspend:(id)arg1;
 - (void)applicationDidResume:(id)arg1;
 @property(nonatomic) __weak UIView *viewServiceKeyView;
@@ -81,7 +82,9 @@
 - (id)navigationControllerForContext:(id)arg1;
 - (id)deviceConfigForContext:(id)arg1;
 - (_Bool)cancelHighlightViewForAppContext:(id)arg1;
+- (_Bool)appContext:(id)arg1 highlightViewsForElements:(id)arg2 contentColor:(id)arg3 paddingColor:(id)arg4 borderColor:(id)arg5 marginColor:(id)arg6;
 - (_Bool)appContext:(id)arg1 highlightViewForElement:(id)arg2 contentColor:(id)arg3 paddingColor:(id)arg4 borderColor:(id)arg5 marginColor:(id)arg6;
+- (void)appContext:(id)arg1 didChangeInspectElementMode:(_Bool)arg2;
 - (void)_statusBarOrientationDidChange:(id)arg1;
 - (void)_applicationWillTerminateNotification:(id)arg1;
 - (void)_applicationWillResignActiveNotification:(id)arg1;

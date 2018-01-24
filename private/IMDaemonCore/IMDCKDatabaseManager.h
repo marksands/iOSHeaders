@@ -6,16 +6,26 @@
 
 #import "NSObject.h"
 
-@class CKContainer;
+@class CKContainer, IMDCKMockDatabase;
 
 @interface IMDCKDatabaseManager : NSObject
 {
-    CKContainer *_truthContainer;
+    _Bool _useStingRay;
+    CKContainer *_stingRayContainer;
+    CKContainer *_manateeContainer;
+    IMDCKMockDatabase *_mockDatabase;
 }
 
 + (id)sharedInstance;
-@property(readonly, nonatomic) CKContainer *truthContainer; // @synthesize truthContainer=_truthContainer;
+@property(readonly, nonatomic) IMDCKMockDatabase *mockDatabase; // @synthesize mockDatabase=_mockDatabase;
+@property(readonly, nonatomic) CKContainer *manateeContainer; // @synthesize manateeContainer=_manateeContainer;
+@property(readonly, nonatomic) CKContainer *stingRayContainer; // @synthesize stingRayContainer=_stingRayContainer;
+@property(nonatomic) _Bool useStingRay; // @synthesize useStingRay=_useStingRay;
+- (id)manateeDataBase;
+@property(readonly, nonatomic) CKContainer *truthContainer;
+- (id)stingRayDatabase;
 - (id)truthDatabase;
+- (_Bool)_useMockCloudKit;
 - (void)dealloc;
 - (id)init;
 

@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
     struct VKEdgeInsets _labelEdgeInsets;
     _Bool _deallocing;
     struct unique_ptr<md::RenderQueue, std::__1::default_delete<md::RenderQueue>> _renderQueue;
-    Renderer_e10ca448 *_mapRenderer;
+    Renderer_94857723 *_mapRenderer;
     struct LayoutContext *_layoutContext;
     Matrix_5173352a _bgColor;
     id <MDMapControllerDelegate> _mapDelegate;

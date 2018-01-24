@@ -10,7 +10,6 @@
 
 @interface ADAdSheetProxy : NSObject
 {
-    id <ADAdSheetProxyDelegate> _delegate;
     _Bool _serviceLaunchThrottled;
     _Bool _waitingForAdSheet;
     _Bool _openApplicationInProgress;
@@ -42,7 +41,6 @@
 - (void)resetAdSheetThrottle;
 - (void)releaseLaunchAssertion:(id)arg1;
 - (void)takeLaunchAssertion:(id)arg1;
-@property(nonatomic) __weak id <ADAdSheetProxyDelegate> delegate;
 - (id)init;
 
 @end

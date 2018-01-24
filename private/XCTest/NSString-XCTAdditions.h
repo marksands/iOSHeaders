@@ -7,6 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (XCTAdditions)
+- (id)xct_realPath;
 - (id)xct_quotedSwiftStringRepresentation;
 @end
 

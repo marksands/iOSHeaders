@@ -7,6 +7,7 @@
 #import "NSURL.h"
 
 @interface NSURL (HUAdditions)
++ (id)hu_locationServicesSettingsURL;
 + (id)hu_locationDeviceSettingsURL;
 + (id)hu_allowAccessWhileLockedSettingsURL;
 + (id)hu_notificationSettingsURL;

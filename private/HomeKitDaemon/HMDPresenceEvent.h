@@ -6,15 +6,15 @@
 
 #import <HomeKitDaemon/HMDEvent.h>
 
+#import "HMDHomeMessageReceiver.h"
 #import "HMDTriggerEventProtocol.h"
 #import "HMFDumpState.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
-@class HMDEventTriggerExecutionSession, HMPresenceEventActivation, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDEventTriggerExecutionSession, HMPresenceEventActivation, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDPresenceEvent : HMDEvent <NSSecureCoding, HMFDumpState, HMFLogging, HMFMessageReceiver, HMDTriggerEventProtocol>
+@interface HMDPresenceEvent : HMDEvent <NSSecureCoding, HMFDumpState, HMFLogging, HMDHomeMessageReceiver, HMDTriggerEventProtocol>
 {
     _Bool _currentStatus;
     NSString *_presenceType;
@@ -72,6 +72,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 @property(readonly) Class superclass;
 

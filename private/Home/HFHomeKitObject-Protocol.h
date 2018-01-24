@@ -10,5 +10,8 @@
 
 @protocol HFHomeKitObject <NSObject>
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier;
+
+@optional
+- (_Bool)hf_isValidObject;
 @end
 

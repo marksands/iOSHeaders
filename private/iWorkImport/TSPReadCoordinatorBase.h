@@ -9,7 +9,7 @@
 #import "TSPLazyReferenceDelegate.h"
 #import "TSPReaderDelegate.h"
 
-@class NSError, NSHashTable, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class NSError, NSHashTable, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSUUID, TSPCancellationState;
 
 __attribute__((visibility("hidden")))
 @interface TSPReadCoordinatorBase : NSObject <TSPReaderDelegate, TSPLazyReferenceDelegate>
@@ -24,8 +24,10 @@ __attribute__((visibility("hidden")))
     struct unordered_map<long long, TSP::ExternalReferenceInfo, TSP::ObjectIdentifierHash, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, TSP::ExternalReferenceInfo>>> _externalReferences;
     struct vector<TSP::RepeatedExternalReferenceCompletionInfo, std::__1::allocator<TSP::RepeatedExternalReferenceCompletionInfo>> _repeatedExternalReferences;
     _Bool _success;
+    TSPCancellationState *_cancellationState;
 }
 
+@property(retain, nonatomic) TSPCancellationState *cancellationState; // @synthesize cancellationState=_cancellationState;
 @property(readonly, nonatomic) _Bool success; // @synthesize success=_success;
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -39,6 +41,7 @@ __attribute__((visibility("hidden")))
 - (struct ExternalReferenceInfo *)externalReferenceInfoForObjectIdentifier:(long long)arg1 componentIdentifier:(long long)arg2;
 - (id)reader:(id)arg1 wantsDataForIdentifier:(long long)arg2;
 - (long long)reader:(id)arg1 wantsObjectIdentifierForUUID:(id)arg2;
+- (id)cancellationStateForReader:(id)arg1;
 - (id)lazyReferenceDelegateForReader:(id)arg1;
 - (id)objectDelegateForReader:(id)arg1;
 - (id)contextForReader:(id)arg1;

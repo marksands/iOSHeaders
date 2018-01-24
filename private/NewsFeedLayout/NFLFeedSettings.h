@@ -33,13 +33,13 @@
     NFLCellGeneratorManager *_cellGeneratorManager;
     id <NFLFeedLayoutSearchConfiguration> _defaultFeedLayoutSearchConfiguration;
     NFLFontCache *_fontCache;
-    id <FCFeedTheming> _feedTheme;
     UITraitCollection *_traitCollection;
+    id <FCFeedTheming> _feedTheme;
     struct CGSize _viewportSize;
 }
 
-@property(retain, nonatomic) UITraitCollection *traitCollection; // @synthesize traitCollection=_traitCollection;
 @property(retain, nonatomic) id <FCFeedTheming> feedTheme; // @synthesize feedTheme=_feedTheme;
+@property(retain, nonatomic) UITraitCollection *traitCollection; // @synthesize traitCollection=_traitCollection;
 @property(readonly, nonatomic) _Bool showingPrefetchedPurchase; // @synthesize showingPrefetchedPurchase=_showingPrefetchedPurchase;
 @property(readonly, nonatomic) _Bool authenticationSetup; // @synthesize authenticationSetup=_authenticationSetup;
 @property(nonatomic) _Bool allowsExcerptsInAllCells; // @synthesize allowsExcerptsInAllCells=_allowsExcerptsInAllCells;

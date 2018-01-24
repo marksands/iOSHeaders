@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
     double _startTime;
     double _endTime;
     _Bool _didStart;
+    _Bool _willSendRequestDelegateCalled;
 }
 
 @property(readonly, nonatomic) NSObject<OS_os_activity> *activity; // @synthesize activity=_activity;
@@ -44,6 +45,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *sessionIsolation; // @synthesize sessionIsolation=_sessionIsolation;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) id <GEORequestCounterTicket> requestCounterTicket;
 @property(readonly, nonatomic) GEOClientMetrics *clientMetrics;
 @property(readonly) _Bool failedDueToCancel;
 @property(readonly, nonatomic) NSString *remoteAddressAndPort;
@@ -51,13 +53,14 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long incomingPayloadSize;
 @property(readonly, nonatomic) NSData *receivedData;
 @property(readonly, nonatomic) _Bool protocolBufferHasPreamble;
+@property(readonly, nonatomic) id <NSObject> parsedResponse;
 @property(readonly, nonatomic) NSError *error;
 - (void)cancel;
 - (void)start;
 @property float priority;
 @property(readonly, copy) NSString *debugDescription;
 - (void)dealloc;
-- (id)initWithSession:(id)arg1 rules:(id)arg2 delegate:(id)arg3 delegateQueue:(id)arg4 requestKind:(int)arg5;
+- (id)initWithSession:(id)arg1 rules:(id)arg2 delegate:(id)arg3 delegateQueue:(id)arg4 requestKind:(int)arg5 requestCounterTicket:(id)arg6;
 - (_Bool)validateTileResponseWithError:(id *)arg1;
 - (void)rulesDidChooseCompletedSubtask:(id)arg1;
 - (void)dataSession:(id)arg1 willSendRequest:(id)arg2 forTask:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;

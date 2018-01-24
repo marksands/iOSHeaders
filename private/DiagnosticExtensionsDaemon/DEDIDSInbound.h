@@ -6,17 +6,19 @@
 
 #import "NSObject.h"
 
+#import "DEDSecureArchiving.h"
 #import "IDSServiceDelegate.h"
 
 @class DEDController, DEDIDSConnection, NSObject<OS_os_log>, NSString;
 
-@interface DEDIDSInbound : NSObject <IDSServiceDelegate>
+@interface DEDIDSInbound : NSObject <IDSServiceDelegate, DEDSecureArchiving>
 {
     DEDIDSConnection *_connection;
     DEDController *_delegate;
     NSObject<OS_os_log> *_log;
 }
 
++ (id)archivedClasses;
 @property(retain) NSObject<OS_os_log> *log; // @synthesize log=_log;
 @property __weak DEDController *delegate; // @synthesize delegate=_delegate;
 @property __weak DEDIDSConnection *connection; // @synthesize connection=_connection;

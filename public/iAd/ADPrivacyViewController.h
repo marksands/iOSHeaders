@@ -26,6 +26,7 @@
 @property(retain, nonatomic) ADPrivacyRemoteViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
 - (void)adPrivacyRemoteViewControllerDidLinkOut;
 - (void)adPrivacyRemoteViewControllerDidRenderTransparency;
+- (void)adPrivacyRemoteViewControllerDidDisappear;
 - (void)adPrivacyRemoteViewControllerDidAppear;
 - (void)adPrivacyRemoteViewControllerDidLoad;
 - (void)adPrivacyRemoteViewControllerDidTerminateWithError:(id)arg1;

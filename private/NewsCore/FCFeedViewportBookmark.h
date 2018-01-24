@@ -6,18 +6,19 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSString;
 
-@interface FCFeedViewportBookmark : NSObject <NSCopying, NSCoding>
+@interface FCFeedViewportBookmark : NSObject <NSCopying, NSSecureCoding>
 {
     NSString *_externalGroupID;
     NSString *_internalGroupID;
     NSString *_articleID;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) NSString *articleID; // @synthesize articleID=_articleID;
 @property(readonly, copy, nonatomic) NSString *internalGroupID; // @synthesize internalGroupID=_internalGroupID;
 @property(readonly, copy, nonatomic) NSString *externalGroupID; // @synthesize externalGroupID=_externalGroupID;

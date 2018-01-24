@@ -39,6 +39,8 @@
 - (long long)modalTransitionStyle;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)applicationWillResignActive:(id)arg1;
+- (void)applicationDidBecomeActive:(id)arg1;
 - (void)dealloc;
 - (id)initWithPasses:(id)arg1 presentationSource:(unsigned long long)arg2;
 - (id)initWithPasses:(id)arg1;

@@ -9,18 +9,21 @@
 #import "NTKFaceCollectionObserver.h"
 #import "NTKFaceObserver.h"
 
-@class NSString, NTKFace, NTKFaceCollection;
+@class NSObject<OS_dispatch_queue>, NSString, NTKFace, NTKFaceCollection;
 
 @interface NTKLibrarySelectedFaceSnapshotProvider : NSObject <NTKFaceCollectionObserver, NTKFaceObserver>
 {
     NTKFaceCollection *_libraryCollection;
     NTKFace *_selectedFace;
     NSString *_snapshotKey;
+    NSObject<OS_dispatch_queue> *_snapshotRequestsQueue;
+    _Bool _resumedQueue;
     id <NTKLibrarySelectedFaceSnapshotProviderDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <NTKLibrarySelectedFaceSnapshotProviderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)snapshotSelectedFaceWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handleFaceChange:(id)arg1;
 - (void)_updateSelectedFaceAndSnapshotKey;
 - (void)_notifyIfSnapshotAvailable;

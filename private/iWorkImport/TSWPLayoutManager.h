@@ -6,18 +6,20 @@
 
 #import "NSObject.h"
 
+#import "TSKChangeSourceObserver.h"
 #import "TSWPStorageObserver.h"
 
-@class NSObject<TSWPTopicNumberHints>, NSString, TSWPCTTypesetterCache, TSWPMutableTopicNumberHints, TSWPStorage;
+@class NSObject<TSWPTopicNumberHints>, NSString, TSWPCTTypesetterCache, TSWPDirtyRangeArray, TSWPMutableDirtyRangeArray, TSWPMutableTopicNumberHints, TSWPStorage;
 
 __attribute__((visibility("hidden")))
-@interface TSWPLayoutManager : NSObject <TSWPStorageObserver>
+@interface TSWPLayoutManager : NSObject <TSWPStorageObserver, TSKChangeSourceObserver>
 {
     TSWPStorage *_storage;
     _Bool _isObservingStorage;
     _Bool _useLigatures;
     _Bool _layoutFinished;
-    struct TSWPDirtyRangeVector _dirtyRanges;
+    _Bool _shouldClearTypesetterCache;
+    TSWPMutableDirtyRangeArray *_dirtyRanges;
     TSWPCTTypesetterCache *_typesetterCache;
     TSWPMutableTopicNumberHints *_initialTopicNumbers;
     id <TSWPLayoutOwner> _owner;
@@ -25,14 +27,13 @@ __attribute__((visibility("hidden")))
 
 + (void)fixColumnBoundsForTarget:(id)arg1 storage:(id)arg2 charIndex:(unsigned long long)arg3 firstColumnIndex:(unsigned long long)arg4 precedingHeight:(double)arg5 height:(double)arg6 alreadyHasMargins:(_Bool)arg7 styleProvider:(id)arg8 vertical:(_Bool)arg9;
 @property(readonly, nonatomic) _Bool layoutFinished; // @synthesize layoutFinished=_layoutFinished;
-@property(readonly, nonatomic) id <TSWPLayoutOwner> owner; // @synthesize owner=_owner;
+@property(readonly, nonatomic) __weak id <TSWPLayoutOwner> owner; // @synthesize owner=_owner;
 @property(copy, nonatomic) NSObject<TSWPTopicNumberHints> *initialTopicNumberHints; // @synthesize initialTopicNumberHints=_initialTopicNumbers;
-@property(readonly, nonatomic) const struct TSWPDirtyRangeVector *dirtyRanges; // @synthesize dirtyRanges=_dirtyRanges;
-@property(readonly, retain, nonatomic) TSWPStorage *storage; // @synthesize storage=_storage;
-- (id).cxx_construct;
+@property(readonly, nonatomic) TSWPDirtyRangeArray *dirtyRanges; // @synthesize dirtyRanges=_dirtyRanges;
+@property(readonly, nonatomic) TSWPStorage *storage; // @synthesize storage=_storage;
 - (void).cxx_destruct;
 - (int)p_layoutConfigFlagsForTarget:(id)arg1;
-@property(readonly, retain, nonatomic) TSWPCTTypesetterCache *typesetterCache;
+@property(readonly, nonatomic) TSWPCTTypesetterCache *typesetterCache;
 - (void)destroyLayoutState:(void *)arg1;
 - (void)inflateTarget:(id)arg1 fromHints:(id)arg2 childHint:(id)arg3 anchoredDrawablePositions:(id)arg4 topicNumbers:(id)arg5;
 - (void)deflateTarget:(id)arg1 intoHints:(inout id)arg2 childHints:(inout id)arg3 anchoredDrawablePositions:(id *)arg4 startingPartitionedAttachments:(out id *)arg5 topicNumbers:(out id *)arg6 layoutState:(void *)arg7;

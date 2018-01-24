@@ -23,7 +23,7 @@
     NSOperationQueue *_loadingQueue;
     struct PowerMeter _samplePowerMeter;
     _Bool _isSampleRateKnown;
-    vector_ec52ae8c _powerLevelBuffer;
+    vector_7584168e _powerLevelBuffer;
     float _powerLevelBufferLastPushedValue;
     unsigned long long _powerLevelsConsumedSinceLastFlush;
     unsigned long long _framesConsumedSinceLastFlush;

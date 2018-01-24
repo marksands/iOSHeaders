@@ -10,7 +10,10 @@
 
 @interface ICSecurityInfo : NSObject
 {
-    _Bool _classCUnlocked;
+    _Bool _hasLoadedDeviceClassCUnlocked;
+    _Bool _isDeviceClassCUnlocked;
+    _Bool _hasLoadedContentProtectionEnabled;
+    _Bool _isContentProtectionEnabled;
     int _firstUnlockNotificationToken;
     NSMutableArray *_pendingFirstUnlockBlocks;
     NSObject<OS_dispatch_queue> *_accessQueue;
@@ -20,10 +23,12 @@
 + (id)sharedSecurityInfo;
 - (void).cxx_destruct;
 - (void)_processFirstUnlockNotification;
+- (void)_loadContentProtectionEnabled:(_Bool)arg1 isDeviceClassCUnlocked:(_Bool)arg2;
+- (void)_getContentProtectionEnabled:(_Bool *)arg1 isDeviceClassCUnlocked:(_Bool *)arg2;
 - (void)performBlockAfterFirstUnlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic, getter=isDeviceUnlocked) _Bool deviceUnlocked;
-@property(readonly, nonatomic, getter=isDeviceClassCUnlocked) _Bool deviceClassCUnlocked;
-@property(readonly, nonatomic, getter=isContentProtectionEnabled) _Bool contentProtectionEnabled;
+@property(readonly, nonatomic, getter=isDeviceClassCUnlocked) _Bool deviceClassCUnlocked; // @synthesize deviceClassCUnlocked=_isDeviceClassCUnlocked;
+@property(readonly, nonatomic, getter=isContentProtectionEnabled) _Bool contentProtectionEnabled; // @synthesize contentProtectionEnabled=_isContentProtectionEnabled;
 - (void)dealloc;
 - (id)init;
 

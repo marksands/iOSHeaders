@@ -17,6 +17,7 @@
 + (unsigned char)hashForString:(id)arg1;
 - (void).cxx_destruct;
 - (id)description;
+- (void)enumerateAndResetCounters:(CDUnknownBlockType)arg1 distributions:(CDUnknownBlockType)arg2;
 - (void)reset;
 - (void)enumerateCounters:(CDUnknownBlockType)arg1 distributions:(CDUnknownBlockType)arg2;
 - (void)updateDistributionWithValue:(double)arg1 forKey:(id)arg2 maxSampleSize:(unsigned short)arg3;

@@ -25,6 +25,8 @@
 - (void)transferWithIdentifierWasAccepted:(id)arg1;
 - (void)updateTransferWithIdentifier:(id)arg1 withState:(long long)arg2 information:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_getRemoteObjectProxyOnQueue:(CDUnknownBlockType)arg1;
+- (void)invalidate;
+- (void)activate;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

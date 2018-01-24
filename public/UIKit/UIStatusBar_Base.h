@@ -20,6 +20,7 @@
     _Bool _registered;
     _Bool _suppressesHiddenSideEffects;
     _Bool _homeItemsDisabled;
+    _Bool _disablesRasterization;
     int _styleOverrides;
     int _activeStyleOverride;
     id <UIStatusBarStyleDelegate> _styleDelegate;
@@ -56,6 +57,7 @@
 @property(copy, nonatomic) UIStatusBarStyleRequest *styleRequest; // @synthesize styleRequest=_styleRequest;
 @property(nonatomic) long long legibilityStyle; // @synthesize legibilityStyle=_legibilityStyle;
 @property(retain, nonatomic) UIColor *foregroundColor; // @synthesize foregroundColor=_foregroundColor;
+@property(nonatomic, setter=_setDisablesRasterization:) _Bool disablesRasterization; // @synthesize disablesRasterization=_disablesRasterization;
 @property(nonatomic) _Bool homeItemsDisabled; // @synthesize homeItemsDisabled=_homeItemsDisabled;
 @property(nonatomic) _Bool suppressesHiddenSideEffects; // @synthesize suppressesHiddenSideEffects=_suppressesHiddenSideEffects;
 @property(nonatomic, getter=_requestStyle, setter=_setRequestedStyle:) long long requestedStyle; // @synthesize requestedStyle=_requestedStyle;

@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 + (float)chartSeriesDepth;
 + (float)chartSeriesPolygonOffset;
 + (id)chartSeriesType;
-- (void)sortElements:(vector_cd7372eb *)arg1 pipeline:(id)arg2;
+- (void)sortElements:(vector_d7c2985b *)arg1 pipeline:(id)arg2;
 - (float)depthForScene:(id)arg1;
 - (_Bool)transparencyDepthMask;
 

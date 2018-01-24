@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 
 + (struct CGRect)sageChartAreaBoundsForExportWithChartInfo:(id)arg1 geometryRect:(struct CGRect)arg2 returningContainingViewportSize:(id *)arg3;
 + (id)helperWithImportedChartInfo:(id)arg1 importedInfoGeometry:(id)arg2;
+- (void).cxx_destruct;
 - (struct CGSize)naturalSize;
 - (void)dealloc;
 - (id)initWithImportedChartInfo:(id)arg1 importedInfoGeometry:(id)arg2;

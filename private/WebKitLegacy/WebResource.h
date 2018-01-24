@@ -29,7 +29,7 @@
 - (id)initWithData:(id)arg1 URL:(id)arg2 MIMEType:(id)arg3 textEncodingName:(id)arg4 frameName:(id)arg5;
 - (id)init;
 - (struct ArchiveResource *)_coreResource;
-- (id)_initWithCoreResource:(Ref_e6cb3a5e *)arg1;
+- (id)_initWithCoreResource:(Ref_23906fc6 *)arg1;
 - (id)_stringValue;
 - (id)_response;
 - (id)_suggestedFilename;

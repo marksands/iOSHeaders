@@ -13,7 +13,6 @@
 @interface HMDConnectionProxy : HMFObject <HMDaemonConnection>
 {
     _Bool _entitledForAPIAccess;
-    _Bool _entitledForSPIAccess;
     _Bool _entitledForBackgroundMode;
     _Bool _activated;
     NSXPCConnection *_xpcConnection;
@@ -36,7 +35,6 @@
 @property(retain, nonatomic) HMFMessageDispatcher *recvDispatcher; // @synthesize recvDispatcher=_recvDispatcher;
 @property(retain, nonatomic) NSString *clientName; // @synthesize clientName=_clientName;
 @property(readonly, nonatomic, getter=isEntitledForBackgroundMode) _Bool entitledForBackgroundMode; // @synthesize entitledForBackgroundMode=_entitledForBackgroundMode;
-@property(readonly, nonatomic, getter=isEntitledForSPIAccess) _Bool entitledForSPIAccess; // @synthesize entitledForSPIAccess=_entitledForSPIAccess;
 @property(readonly, nonatomic, getter=isEntitledForAPIAccess) _Bool entitledForAPIAccess; // @synthesize entitledForAPIAccess=_entitledForAPIAccess;
 @property(readonly) unsigned long long entitlements; // @synthesize entitlements=_entitlements;
 @property(nonatomic) __weak HMDProcessInfo *processInfo; // @synthesize processInfo=_processInfo;
@@ -63,6 +61,7 @@
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 @property(readonly, nonatomic, getter=isAuthorizedForLocationAccess) _Bool authorizedForLocationAccess;
+@property(readonly, getter=isEntitledForSPIAccess) _Bool entitledForSPIAccess;
 @property(readonly, nonatomic, getter=isAuthorizedForMicrophoneAccess) _Bool authorizedForMicrophoneAccess;
 @property(readonly, nonatomic, getter=isAuthorizedForHomeDataAccess) _Bool authorizedForHomeDataAccess;
 - (id)initWithConnection:(id)arg1 queue:(id)arg2 activeMessageTracker:(id)arg3 recvDispatcher:(id)arg4 appRegistry:(id)arg5;

@@ -60,6 +60,8 @@
 - (id)uploadBatchTaskForBatch:(id)arg1 progressHandler:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)checkRecordsExistenceTaskForRecords:(id)arg1 fetchRecordProperties:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (id)setupTaskCreateLibraryIfNecessary:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) Class userIdentifierClass;
+@property(readonly, nonatomic) Class transportGroupClass;
 - (id)initWithEngineLibrary:(id)arg1;
 
 // Remaining properties

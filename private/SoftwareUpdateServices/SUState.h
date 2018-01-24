@@ -27,6 +27,7 @@
     NSString *_lastProductType;
     NSString *_lastReleaseType;
     NSDictionary *_unlockCallbacks;
+    NSDictionary *_mandatoryUpdateDict;
     _SUAutoInstallOperationModel *_lastAutoInstallOperationModel;
     SUManagedDeviceUpdateDelay *_mdmDelay;
     SUInstallPolicy *_installPolicy;
@@ -35,6 +36,7 @@
 
 + (id)currentState;
 + (id)statePath;
+@property(retain, nonatomic) NSDictionary *mandatoryUpdateDict; // @synthesize mandatoryUpdateDict=_mandatoryUpdateDict;
 @property(nonatomic) _Bool manifestSubmitted; // @synthesize manifestSubmitted=_manifestSubmitted;
 @property(retain, nonatomic) SUInstallPolicy *installPolicy; // @synthesize installPolicy=_installPolicy;
 @property(retain, nonatomic) SUManagedDeviceUpdateDelay *mdmDelay; // @synthesize mdmDelay=_mdmDelay;

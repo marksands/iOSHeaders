@@ -12,20 +12,24 @@
 {
     long long _HUDStyle;
     UIColor *_darkAppTintColor;
+    long long _businessStatusBarStyle;
     UIColor *_transcriptNavBarTextColor;
     UIColor *_detailsCellStaticTextColor;
 }
 
 @property(readonly, nonatomic) UIColor *detailsCellStaticTextColor; // @synthesize detailsCellStaticTextColor=_detailsCellStaticTextColor;
 @property(readonly, nonatomic) UIColor *transcriptNavBarTextColor; // @synthesize transcriptNavBarTextColor=_transcriptNavBarTextColor;
+@property(readonly, nonatomic) long long businessStatusBarStyle; // @synthesize businessStatusBarStyle=_businessStatusBarStyle;
 @property(readonly, nonatomic) UIColor *darkAppTintColor; // @synthesize darkAppTintColor=_darkAppTintColor;
 @property(nonatomic) long long HUDStyle; // @synthesize HUDStyle=_HUDStyle;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) UIColor *syncProgressUserActionButtonTextColor;
 @property(readonly, nonatomic) UIColor *syncProgressUserMessageColor;
 @property(readonly, nonatomic) UIColor *syncProgressLabelColor;
-@property(readonly, nonatomic) UIColor *businessNavTintColor;
-@property(readonly, nonatomic) UIColor *businessNavBarTintColor;
+- (long long)navBarTextStyleForBusinessChat:(id)arg1;
+- (long long)statusBarStyleForBusinessChat:(id)arg1;
+- (id)secondaryBrandColorForBusinessChat:(id)arg1;
+- (id)primaryBrandColorForBusinessChat:(id)arg1;
 @property(readonly, nonatomic) UIColor *businessInfoViewDescriptionTextColor;
 @property(readonly, nonatomic) UIColor *businessDescriptionViewControllerBackgroundColor;
 @property(readonly, nonatomic) UIColor *fsmPickerCurrentPageColor;
@@ -199,7 +203,6 @@
 @property(readonly, nonatomic) CNContactStyle *contactStyle;
 @property(readonly, nonatomic) long long scrollIndicatorStyle;
 @property(readonly, nonatomic) long long appManagerStatusBarStyle;
-@property(readonly, nonatomic) long long businessStatusBarStyle;
 @property(readonly, nonatomic) long long statusBarStyle;
 @property(readonly, nonatomic) long long defaultBarStyle;
 @property(readonly, nonatomic) long long navBarStyle;

@@ -47,7 +47,9 @@
 @property(readonly, nonatomic) NSString *normalizedQueryStringForParsec;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithQueryString:(id)arg1 queryID:(long long)arg2 triggerEvent:(unsigned long long)arg3;
 - (id)initWithQueryString:(id)arg1 queryID:(long long)arg2;
+- (id)initWithQueryString:(id)arg1 triggerEvent:(unsigned long long)arg2;
 - (id)initWithQueryString:(id)arg1;
 - (id)_initWithQueryString:(id)arg1 queryID:(long long)arg2 timestamp:(time_point_e708cccf)arg3 indexInFeedbackArray:(unsigned long long)arg4 triggerEvent:(unsigned long long)arg5;
 - (id)init;

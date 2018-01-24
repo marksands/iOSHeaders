@@ -42,6 +42,7 @@
 - (void)presentContactlessInterfaceForDefaultPassFromSource:(long long)arg1 handler:(void (^)(_Bool))arg2;
 - (void)requestContactlessInterfaceSuppressionWithHandler:(void (^)(_Bool))arg1;
 - (void)openWalletUIWithRelevantPass:(NSString *)arg1;
+- (void)openDigitalIssuanceUIForIdentifier:(NSString *)arg1 withCompletion:(void (^)(_Bool))arg2;
 - (void)openPaymentUIWithCompletion:(void (^)(_Bool))arg1;
 @end
 

@@ -16,12 +16,14 @@ __attribute__((visibility("hidden")))
     _Bool _shouldShowInstructionalText;
     KNBodyPlaceholderInfo *_replacementBodyPlaceholder;
     KNTitlePlaceholderInfo *_replacementTitlePlaceholder;
+    _Bool _shouldTintWhiteImages;
     unsigned long long _slideNumber;
     KNAbstractSlide *_slide;
     double _elementListThumbnailContentInset;
     struct CGSize _elementListThumbnailSize;
 }
 
+@property(nonatomic) _Bool shouldTintWhiteImages; // @synthesize shouldTintWhiteImages=_shouldTintWhiteImages;
 @property(nonatomic) double elementListThumbnailContentInset; // @synthesize elementListThumbnailContentInset=_elementListThumbnailContentInset;
 @property(nonatomic) struct CGSize elementListThumbnailSize; // @synthesize elementListThumbnailSize=_elementListThumbnailSize;
 @property(nonatomic) _Bool shouldShowInstructionalText; // @synthesize shouldShowInstructionalText=_shouldShowInstructionalText;

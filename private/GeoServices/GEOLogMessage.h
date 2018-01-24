@@ -25,6 +25,7 @@
 + (id)allowedSessionTypes;
 + (id)disallowedStatesForLogMsgEvent:(id)arg1 logMessage:(id)arg2;
 + (_Bool)disallowedStateWithStateType:(int)arg1 logMsgEvent:(id)arg2 logMessage:(id)arg3;
++ (_Bool)allowApplicationStatesForLogMsgEvent:(id)arg1;
 + (_Bool)supportsCohortSessionForLogMsgEvent:(id)arg1;
 + (id)logMessagesForEvent:(id)arg1;
 + (_Bool)logMessageType:(int)arg1 acceptsLogMsgEventType:(int)arg2;
@@ -51,6 +52,7 @@
 - (void)clearLogMsgEvents;
 @property(nonatomic) _Bool hasGroupRetryCount;
 @property(nonatomic) unsigned int groupRetryCount;
+- (void)removeUnsupportedStatesFromEvent;
 - (_Bool)isFullExperimentsStateAllowed;
 - (_Bool)isFullCarPlayStateAllowed;
 - (_Bool)isNavigationSessionAllowed;

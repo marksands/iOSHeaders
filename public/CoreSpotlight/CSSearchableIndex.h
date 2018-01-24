@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CSIndexingQueue, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+@class CSIndexConnection, CSIndexingQueue, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CSSearchableIndex : NSObject
 {
@@ -97,7 +97,7 @@
 - (_Bool)_supportsBatching;
 @property __weak id <CSSearchableIndexDelegate> indexDelegate; // @synthesize indexDelegate=_indexDelegate;
 - (void)_checkInWithIndexDelegate:(id)arg1 reason:(id)arg2;
-- (id)xpc_dictionary_for_command:(const char *)arg1;
+- (id)xpc_dictionary_for_command:(const char *)arg1 requiresInitialization:(_Bool)arg2;
 - (void)_registerAwakeNotifyToken;
 - (void)_cancelAwakeNotifyToken;
 @property(readonly, nonatomic) CSIndexingQueue *activityQueue;
@@ -116,6 +116,7 @@
 - (void)throttle;
 - (id)throttleQueue;
 - (id)requestQueue;
+@property(readonly) CSIndexConnection *connection;
 
 @end
 

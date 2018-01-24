@@ -18,6 +18,7 @@
     QLCacheVersionedFileIdentifier *_fileIdentifier;
     double _scale;
     double _minimumSize;
+    long long _sequenceNumber;
     struct CGSize _size;
 }
 
@@ -26,6 +27,7 @@
 + (id)thumbnailRequestForFPItem:(id)arg1 size:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 iconMode:(_Bool)arg5;
 + (id)thumbnailRequestForFPItem:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 iconMode:(_Bool)arg4;
 + (_Bool)supportsSecureCoding;
+@property long long sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 @property _Bool cancelled; // @synthesize cancelled=_cancelled;
 @property(readonly) _Bool iconMode; // @synthesize iconMode=_iconMode;
 @property(readonly) double minimumSize; // @synthesize minimumSize=_minimumSize;

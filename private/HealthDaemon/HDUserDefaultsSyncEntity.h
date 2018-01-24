@@ -10,7 +10,7 @@
 {
 }
 
-+ (long long)syncEntityType;
++ (id)syncEntityIdentifier;
 + (long long)category;
 + (unsigned long long)supportedNanoSyncDirectionsForProtocolVersion:(int)arg1;
 + (int)nanoSyncObjectType;

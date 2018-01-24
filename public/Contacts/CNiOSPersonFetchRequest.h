@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class CNManagedConfiguration, NSArray;
 
 __attribute__((visibility("hidden")))
 @interface CNiOSPersonFetchRequest : NSObject
@@ -18,12 +18,14 @@ __attribute__((visibility("hidden")))
     _Bool _unifiedFetch;
     NSArray *_keysToFetch;
     unsigned long long _batchSize;
+    CNManagedConfiguration *_managedConfiguration;
 }
 
 + (id)effectivePredicate:(id)arg1;
 + (id)validatePredicate:(id)arg1 error:(id *)arg2;
-+ (id)fetchRequestFromCNFetchRequest:(id)arg1 error:(id *)arg2;
++ (id)fetchRequestFromCNFetchRequest:(id)arg1 managedConfiguration:(id)arg2 error:(id *)arg3;
 + (long long)resolvedSortOrderFromContactSortOrder:(long long)arg1;
+@property(readonly) CNManagedConfiguration *managedConfiguration; // @synthesize managedConfiguration=_managedConfiguration;
 @property(readonly) unsigned long long batchSize; // @synthesize batchSize=_batchSize;
 @property(readonly) _Bool unifiedFetch; // @synthesize unifiedFetch=_unifiedFetch;
 @property(readonly) NSArray *keysToFetch; // @synthesize keysToFetch=_keysToFetch;
@@ -33,7 +35,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) id <CNiOSContactPredicate> predicate; // @synthesize predicate=_predicate;
 - (void).cxx_destruct;
 @property(readonly) unsigned int sortOrderIncludingNone;
-- (id)initWithPredicate:(id)arg1 keysToFetch:(id)arg2 shouldSort:(_Bool)arg3 sortOrder:(unsigned int)arg4 unifiedFetch:(_Bool)arg5 batchSize:(unsigned long long)arg6 options:(unsigned long long)arg7;
+- (id)initWithPredicate:(id)arg1 keysToFetch:(id)arg2 shouldSort:(_Bool)arg3 sortOrder:(unsigned int)arg4 unifiedFetch:(_Bool)arg5 batchSize:(unsigned long long)arg6 managedConfiguration:(id)arg7 options:(unsigned long long)arg8;
 
 @end
 

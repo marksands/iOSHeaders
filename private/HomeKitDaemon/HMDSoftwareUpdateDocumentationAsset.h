@@ -7,13 +7,14 @@
 #import "HMFObject.h"
 
 #import "HMFLogging.h"
+#import "HMFObject.h"
 #import "NSSecureCoding.h"
 #import "NSURLSessionDownloadDelegate.h"
 #import "SZExtractorDelegate.h"
 
 @class HMSoftwareUpdateDocumentation, HMSoftwareUpdateDocumentationMetadata, NSInputStream, NSObject<OS_dispatch_queue>, NSString, NSURL, NSURLSession, NSUUID, SZExtractor;
 
-@interface HMDSoftwareUpdateDocumentationAsset : HMFObject <HMFLogging, NSURLSessionDownloadDelegate, SZExtractorDelegate, NSSecureCoding>
+@interface HMDSoftwareUpdateDocumentationAsset : HMFObject <HMFLogging, HMFObject, NSURLSessionDownloadDelegate, SZExtractorDelegate, NSSecureCoding>
 {
     _Bool _shouldAutomaticallyCache;
     long long _state;
@@ -64,6 +65,8 @@
 @property _Bool shouldAutomaticallyCache; // @synthesize shouldAutomaticallyCache=_shouldAutomaticallyCache;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy) NSString *propertyDescription;
+- (id)shortDescription;
 - (id)initWithDocumentationMetadata:(id)arg1;
 - (id)init;
 

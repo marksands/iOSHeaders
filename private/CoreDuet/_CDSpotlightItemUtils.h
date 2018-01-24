@@ -13,6 +13,7 @@
 + (_Bool)shouldFilterEmailAddress:(id)arg1;
 + (id)querySpotlightItemsWithStartDate:(id)arg1 endDate:(id)arg2 getMail:(_Bool)arg3 getMessages:(_Bool)arg4;
 + (id)collectionEventForSearchableItem:(id)arg1 userAction:(id)arg2;
++ (id)contextDictionaryForSearchableItem:(id)arg1 userAction:(id)arg2;
 + (id)knowledgeEventsForSearchableItem:(id)arg1 userAction:(id)arg2;
 + (id)_metadataForSearchableItem:(id)arg1 userAction:(id)arg2;
 + (id)interactionForSearchableItem:(id)arg1;

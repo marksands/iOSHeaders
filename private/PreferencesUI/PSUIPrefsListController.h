@@ -36,6 +36,7 @@
     PSSpecifier *_faceTimeSpecifier;
     PSSpecifier *_gameCenterSpecifier;
     PSSpecifier *_siriSpecifier;
+    PSSpecifier *_tvSpecifier;
     PSSpecifier *_carrierSelectionSpecifier;
     PSSpecifier *_personalHotspotSpecifier;
     PSSpecifier *_classroomSpecifier;
@@ -123,8 +124,13 @@
 - (void)_presentAppleAccountSignInController:(id)arg1;
 - (void)_setupAppleAccountSpecifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_setupAppleAccountSpecifierAsync:(id)arg1;
+- (void)appleAccountSpecifierWasTappedWhileInCachedState:(id)arg1;
+- (void)_setupAppleAccountSpecifier:(id)arg1 title:(id)arg2;
+- (void)_setupAppleAccountSpecifierForLogin:(id)arg1;
 - (void)_setupAppleAccountSpecifier:(id)arg1;
 - (void)setupPrimaryAppleAccountGroup:(id)arg1;
+- (void)saveAppleAccountIcon:(id)arg1 toCacheWithKey:(id)arg2;
+- (id)appleAccountIconLocalCacheURLForKey:(id)arg1;
 - (id)getTetheringStatus:(id)arg1;
 - (void)updateEthernet;
 - (_Bool)shouldShowEthernetSpecifier;

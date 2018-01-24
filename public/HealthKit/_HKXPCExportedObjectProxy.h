@@ -10,8 +10,10 @@ __attribute__((visibility("hidden")))
 @interface _HKXPCExportedObjectProxy : NSObject
 {
     id _weakExportedObject;
+    Class _weakExportedObjectClass;
 }
 
+@property(retain, nonatomic) Class weakExportedObjectClass; // @synthesize weakExportedObjectClass=_weakExportedObjectClass;
 @property(nonatomic) __weak id weakExportedObject; // @synthesize weakExportedObject=_weakExportedObject;
 - (void).cxx_destruct;
 - (void)forwardInvocation:(id)arg1;

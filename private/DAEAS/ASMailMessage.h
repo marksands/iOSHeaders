@@ -13,6 +13,7 @@
     ASEmailItem *_ASEmailItem;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

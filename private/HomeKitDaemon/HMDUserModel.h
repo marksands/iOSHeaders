@@ -15,6 +15,7 @@
 + (id)properties;
 
 // Remaining properties
+@property(retain, nonatomic) NSString *changeTag; // @dynamic changeTag;
 @property(retain, nonatomic) NSString *displayName; // @dynamic displayName;
 @property(retain, nonatomic) NSDictionary *pairingIdentity; // @dynamic pairingIdentity;
 @property(retain, nonatomic) NSNumber *presenceAuthorizationStatus; // @dynamic presenceAuthorizationStatus;

@@ -13,13 +13,14 @@
     _Bool _atomic;
     _Bool _shouldReportRecordsInFlight;
     _Bool _shouldOnlySaveAssetContent;
+    CDUnknownBlockType _perRecordProgressBlock;
+    CDUnknownBlockType _perRecordCompletionBlock;
+    CDUnknownBlockType _modifyRecordsCompletionBlock;
+    CDUnknownBlockType _recordsInFlightBlock;
     NSArray *_recordsToSave;
     NSArray *_recordIDsToDelete;
     long long _savePolicy;
     NSData *_clientChangeTokenData;
-    CDUnknownBlockType _perRecordProgressBlock;
-    CDUnknownBlockType _perRecordCompletionBlock;
-    CDUnknownBlockType _modifyRecordsCompletionBlock;
     NSMutableArray *_savedRecords;
     NSMutableArray *_deletedRecordIDs;
     NSMutableDictionary *_recordsByRecordIDs;
@@ -29,10 +30,8 @@
     NSDictionary *_recordIDsToDeleteToEtags;
     NSDictionary *_conflictLosersToResolveByRecordID;
     NSDictionary *_pluginFieldsForRecordDeletesByID;
-    CDUnknownBlockType _recordsInFlightBlock;
 }
 
-@property(copy, nonatomic) CDUnknownBlockType recordsInFlightBlock; // @synthesize recordsInFlightBlock=_recordsInFlightBlock;
 @property(copy, nonatomic) NSDictionary *pluginFieldsForRecordDeletesByID; // @synthesize pluginFieldsForRecordDeletesByID=_pluginFieldsForRecordDeletesByID;
 @property(retain, nonatomic) NSDictionary *conflictLosersToResolveByRecordID; // @synthesize conflictLosersToResolveByRecordID=_conflictLosersToResolveByRecordID;
 @property(copy, nonatomic) NSDictionary *recordIDsToDeleteToEtags; // @synthesize recordIDsToDeleteToEtags=_recordIDsToDeleteToEtags;
@@ -44,9 +43,6 @@
 @property(retain, nonatomic) NSMutableDictionary *recordsByRecordIDs; // @synthesize recordsByRecordIDs=_recordsByRecordIDs;
 @property(retain, nonatomic) NSMutableArray *deletedRecordIDs; // @synthesize deletedRecordIDs=_deletedRecordIDs;
 @property(retain, nonatomic) NSMutableArray *savedRecords; // @synthesize savedRecords=_savedRecords;
-@property(copy, nonatomic) CDUnknownBlockType modifyRecordsCompletionBlock; // @synthesize modifyRecordsCompletionBlock=_modifyRecordsCompletionBlock;
-@property(copy, nonatomic) CDUnknownBlockType perRecordCompletionBlock; // @synthesize perRecordCompletionBlock=_perRecordCompletionBlock;
-@property(copy, nonatomic) CDUnknownBlockType perRecordProgressBlock; // @synthesize perRecordProgressBlock=_perRecordProgressBlock;
 @property(nonatomic) _Bool atomic; // @synthesize atomic=_atomic;
 @property(copy, nonatomic) NSData *clientChangeTokenData; // @synthesize clientChangeTokenData=_clientChangeTokenData;
 @property(nonatomic) long long savePolicy; // @synthesize savePolicy=_savePolicy;
@@ -65,6 +61,10 @@
 - (void)fillFromOperationInfo:(id)arg1;
 - (void)fillOutOperationInfo:(id)arg1;
 - (id)activityCreate;
+@property(copy, nonatomic) CDUnknownBlockType recordsInFlightBlock; // @synthesize recordsInFlightBlock=_recordsInFlightBlock;
+@property(copy, nonatomic) CDUnknownBlockType modifyRecordsCompletionBlock; // @synthesize modifyRecordsCompletionBlock=_modifyRecordsCompletionBlock;
+@property(copy, nonatomic) CDUnknownBlockType perRecordCompletionBlock; // @synthesize perRecordCompletionBlock=_perRecordCompletionBlock;
+@property(copy, nonatomic) CDUnknownBlockType perRecordProgressBlock; // @synthesize perRecordProgressBlock=_perRecordProgressBlock;
 - (id)initWithRecordsToSave:(id)arg1 recordIDsToDelete:(id)arg2;
 - (id)init;
 

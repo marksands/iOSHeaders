@@ -14,6 +14,7 @@
     struct _NSRange _textRange;
 }
 
++ (id)wordTimingInfoFrom:(id)arg1 timestamps:(id)arg2;
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) struct _NSRange textRange; // @synthesize textRange=_textRange;
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;

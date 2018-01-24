@@ -6,12 +6,14 @@
 
 #import "NSObject.h"
 
-@class AVPlayerViewControllerContentView;
+@class AVPlaybackControlsView, AVPlayerViewControllerContentView;
 
 @protocol AVPlayerViewControllerContentViewDelegate <NSObject>
+- (_Bool)playerViewControllerContentViewIsBeingTransitionedToOrFromFullScreen:(AVPlayerViewControllerContentView *)arg1;
 - (void)playerViewControllerContentViewDidChangeVideoGravity:(AVPlayerViewControllerContentView *)arg1;
 - (_Bool)playerViewControllerContentViewShouldApplyAutomaticVideoGravity:(AVPlayerViewControllerContentView *)arg1;
 - (void)playerViewControllerContentViewDidMoveToWindow:(AVPlayerViewControllerContentView *)arg1;
-- (void)playerViewControllerContentViewWillLayoutSubviews:(AVPlayerViewControllerContentView *)arg1;
+- (void)playerViewControllerContentViewDidLayoutSubviews:(AVPlayerViewControllerContentView *)arg1;
+- (void)playerViewControllerContentView:(AVPlayerViewControllerContentView *)arg1 didLoadPlaybackControlsView:(AVPlaybackControlsView *)arg2;
 @end
 

@@ -25,6 +25,7 @@
     int _feedType;
     NSData *_feedViewExposureId;
     int _groupType;
+    NSData *_groupViewExposureId;
     int _presentationReason;
     NSString *_presentationReasonSearchString;
     NSString *_previousArticleId;
@@ -59,6 +60,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSData *groupViewExposureId; // @synthesize groupViewExposureId=_groupViewExposureId;
 @property(nonatomic) long long previousArticlePublisherArticleVersion; // @synthesize previousArticlePublisherArticleVersion=_previousArticlePublisherArticleVersion;
 @property(retain, nonatomic) NSString *previousArticleVersion; // @synthesize previousArticleVersion=_previousArticleVersion;
 @property(retain, nonatomic) NSString *previousArticleId; // @synthesize previousArticleId=_previousArticleId;
@@ -90,6 +92,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasGroupViewExposureId;
 @property(nonatomic) _Bool hasPreviousArticlePublisherArticleVersion;
 @property(readonly, nonatomic) _Bool hasPreviousArticleVersion;
 @property(readonly, nonatomic) _Bool hasPreviousArticleId;

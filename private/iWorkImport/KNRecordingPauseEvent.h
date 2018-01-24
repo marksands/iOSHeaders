@@ -9,10 +9,10 @@
 __attribute__((visibility("hidden")))
 @interface KNRecordingPauseEvent : KNRecordingEvent
 {
-    long long mPauseEventType;
+    long long _pauseEventType;
 }
 
-@property(readonly, nonatomic) long long pauseEventType; // @synthesize pauseEventType=mPauseEventType;
+@property(readonly, nonatomic) long long pauseEventType; // @synthesize pauseEventType=_pauseEventType;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;

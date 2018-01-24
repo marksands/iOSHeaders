@@ -11,7 +11,7 @@
 }
 
 - (id)headlinesLogFromHeadlines:(id)arg1 includeScore:(_Bool)arg2;
-- (id)_filterHeadlines:(id)arg1 withArticleMetadata:(id)arg2;
+- (id)_filterHeadlines:(id)arg1 withArticleMetadata:(id)arg2 pinnedTopStoriesEnabled:(_Bool)arg3;
 - (id)_personalizedFeedTransformationWithLimit:(unsigned long long)arg1 otherArticleIDs:(id)arg2 preselectedArticles:(id)arg3;
 - (id)_feedTransformationWithOtherArticleIDs:(id)arg1;
 - (void)performOperation;

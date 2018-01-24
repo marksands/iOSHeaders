@@ -4,19 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
-
-#import "NSCoding.h"
+#import <NewsCore/FCFeedGroupEmittingCursor.h>
 
 @class NSMutableDictionary, NSMutableSet;
 
-@interface FCPaidSubscriptionCursor : NSObject <NSCoding>
+@interface FCPaidSubscriptionCursor : FCFeedGroupEmittingCursor
 {
     NSMutableSet *_processedChannelIDs;
     NSMutableDictionary *_supplementalArticleIDs;
     NSMutableDictionary *_expiredChannelIDs;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSMutableDictionary *expiredChannelIDs; // @synthesize expiredChannelIDs=_expiredChannelIDs;
 @property(retain, nonatomic) NSMutableDictionary *supplementalArticleIDs; // @synthesize supplementalArticleIDs=_supplementalArticleIDs;
 @property(retain, nonatomic) NSMutableSet *processedChannelIDs; // @synthesize processedChannelIDs=_processedChannelIDs;

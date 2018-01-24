@@ -25,7 +25,7 @@
 + (_Bool)isPredefinedAccountType;
 + (id)accountTypeString;
 + (id)displayedAccountTypeString;
-+ (id)defaultPathNameForAccountWithHostname:(id)arg1 username:(id)arg2;
++ (id)legacyPathNameForAccountWithHostname:(id)arg1 username:(id)arg2;
 + (id)emailAddressHostPart;
 + (id)accountTypeIdentifier;
 - (_Bool)shouldFetchACEDBInfoForError:(id)arg1;

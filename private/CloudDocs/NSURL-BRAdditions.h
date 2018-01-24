@@ -20,6 +20,7 @@
 - (_Bool)br_isPromiseURL;
 - (id)br_logicalURL;
 - (id)br_physicalURL;
+- (id)br_documentRecordIDWithError:(id *)arg1;
 - (id)br_itemID;
 - (id)br_URLByResolvingExternalDocumentReferenceWithError:(id *)arg1;
 - (id)br_URLByResolvingInProcessExternalDocumentReferenceWithProperties:(id)arg1;

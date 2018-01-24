@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface TSCH3DUShortDataBuffer : TSCH3DVectorDataBuffer
 {
-    vector_a3e57ab7 mContainer;
+    vector_e28bcd8e mContainer;
 }
 
 - (id).cxx_construct;
@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)count;
 - (void)fillCapacity;
 - (const void *)data;
-@property(readonly, nonatomic) vector_a3e57ab7 *container;
+@property(readonly, nonatomic) vector_e28bcd8e *container;
 - (id)initWithCapacity:(unsigned long long)arg1;
 
 @end

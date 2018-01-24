@@ -87,7 +87,7 @@
 - (_Bool)_sendAcePingWithId:(unsigned int)arg1 error:(id *)arg2;
 - (void)sendCommands:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (void)sendCommand:(id)arg1 moreComing:(_Bool)arg2 errorHandler:(CDUnknownBlockType)arg3;
-- (void)_prepareProviderHeader;
+- (void)_prepareProviderHeaderWithForceReconnect:(_Bool)arg1;
 - (void)_sendGeneralData:(id)arg1;
 - (void)_bufferGeneralData:(id)arg1;
 - (void)_tryToWriteBufferedOutputData;
@@ -134,8 +134,8 @@
 - (id)_httpHeaderData;
 - (void)cancel;
 - (void)_startNetworkProviderWithInfo:(id)arg1;
-- (void)_updateBuffersForInitialPayload:(id)arg1 bufferedLength:(unsigned long long)arg2;
-- (id)_getInitialPayloadWithBufferedLength:(unsigned long long *)arg1;
+- (void)_updateBuffersForInitialPayload:(id)arg1 bufferedLength:(unsigned long long)arg2 forceReconnect:(_Bool)arg3;
+- (id)_getInitialPayloadWithBufferedLength:(unsigned long long *)arg1 forceReconnect:(_Bool)arg2;
 - (Class)_providerClass;
 - (void)_startWithConnectionInfo:(id)arg1 proposedFallbackMethod:(long long)arg2 allowFallbackToNewMethod:(_Bool)arg3;
 - (void)startWithConnectionInfo:(id)arg1;

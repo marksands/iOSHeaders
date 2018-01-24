@@ -9,13 +9,13 @@
 __attribute__((visibility("hidden")))
 @interface WKEditCommandObjC : NSObject
 {
-    struct RefPtr<WebKit::WebEditCommandProxy> m_command;
+    struct RefPtr<WebKit::WebEditCommandProxy, WTF::DumbPtrTraits<WebKit::WebEditCommandProxy>> m_command;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (struct WebEditCommandProxy *)command;
-- (id)initWithWebEditCommandProxy:(Ref_9c2c5577 *)arg1;
+- (id)initWithWebEditCommandProxy:(Ref_eaa5e81d *)arg1;
 
 @end
 

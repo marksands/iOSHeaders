@@ -11,6 +11,7 @@
 @protocol CKBalloonViewDelegate <NSObject>
 - (void)interactionStoppedFromPreviewItemControllerInBalloonView:(CKBalloonView *)arg1;
 - (void)interactionStartedFromPreviewItemControllerInBalloonView:(CKBalloonView *)arg1;
+- (void)liveBalloonTouched:(CKBalloonView *)arg1;
 - (void)balloonViewLongTouched:(CKBalloonView *)arg1;
 - (void)balloonViewDoubleTapped:(CKBalloonView *)arg1;
 - (void)balloonViewTapped:(CKBalloonView *)arg1;

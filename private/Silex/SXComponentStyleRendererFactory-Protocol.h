@@ -6,9 +6,7 @@
 
 #import "NSObject.h"
 
-@class SXComponent;
-
 @protocol SXComponentStyleRendererFactory <NSObject>
-- (id <SXComponentStyleRenderer>)componentStyleRendererForComponent:(SXComponent *)arg1;
+- (id <SXComponentStyleRenderer>)componentStyleRendererForComponent:(id <SXComponent>)arg1;
 @end
 

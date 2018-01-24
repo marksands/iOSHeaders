@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class HKDisplayCategory, HKDisplayTypeChartingRules, HKObjectType, HKSampleType, NSAttributedString, NSDictionary, NSPredicate, NSSet, NSString, UIImage;
+@class HKDisplayCategory, HKDisplayTypeChartingRules, HKObjectType, HKSampleType, HKValueRange, NSAttributedString, NSDictionary, NSPredicate, NSSet, NSString, UIImage;
 
 @interface HKDisplayType : NSObject <NSCopying>
 {
@@ -30,6 +30,7 @@
     _Bool _showAllDataHierarchically;
     _Bool _shouldDisplayUnitStringOnYAxis;
     _Bool _disallowsSourceReordering;
+    _Bool _excludeFromDataTypeSearch;
     _Bool _shouldUseSingleSecondaryValue;
     _Bool __wheelchairUser;
     long long _displayTypeIdentifier;
@@ -40,12 +41,15 @@
     NSAttributedString *_attributedSummaryAttribution;
     HKDisplayTypeChartingRules *_chartingRules;
     unsigned long long _statisticsMergeStrategy;
+    HKValueRange *_defaultAxisRangeOverride;
     HKObjectType *_objectType;
 }
 
 @property(getter=_isWheelchairUser, setter=_setWheelchairUser:) _Bool _wheelchairUser; // @synthesize _wheelchairUser=__wheelchairUser;
 @property(readonly, nonatomic) HKObjectType *objectType; // @synthesize objectType=_objectType;
 @property(readonly, nonatomic) _Bool shouldUseSingleSecondaryValue; // @synthesize shouldUseSingleSecondaryValue=_shouldUseSingleSecondaryValue;
+@property(readonly, nonatomic) _Bool excludeFromDataTypeSearch; // @synthesize excludeFromDataTypeSearch=_excludeFromDataTypeSearch;
+@property(retain, nonatomic) HKValueRange *defaultAxisRangeOverride; // @synthesize defaultAxisRangeOverride=_defaultAxisRangeOverride;
 @property(readonly, nonatomic) unsigned long long statisticsMergeStrategy; // @synthesize statisticsMergeStrategy=_statisticsMergeStrategy;
 @property(readonly, nonatomic) _Bool disallowsSourceReordering; // @synthesize disallowsSourceReordering=_disallowsSourceReordering;
 @property(nonatomic) _Bool shouldDisplayUnitStringOnYAxis; // @synthesize shouldDisplayUnitStringOnYAxis=_shouldDisplayUnitStringOnYAxis;

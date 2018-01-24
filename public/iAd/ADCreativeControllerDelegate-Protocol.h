@@ -9,6 +9,21 @@
 @class NSDictionary, NSURL;
 
 @protocol ADCreativeControllerDelegate <NSObject>
+- (void)creativeControllerVideoVolumeChanged:(float)arg1;
+- (void)creativeControllerVideoExitFullScreenTapped;
+- (void)creativeControllerVideoFullScreenTapped;
+- (void)creativeControllerVideoSkipAdTapped;
+- (void)creativeControllerVideoMoreInfoTapped;
+- (void)creativeControllerVideoUnmuted;
+- (void)creativeControllerVideoMuted;
+- (void)creativeControllerVideoCompleted;
+- (void)creativeControllerVideoViewabilityChanged:(_Bool)arg1;
+- (void)creativeControllerVideoProgressed:(float)arg1;
+- (void)creativeControllerVideoPaused:(float)arg1;
+- (void)creativeControllerVideoResumedPlaying:(float)arg1;
+- (void)creativeControllerVideoStartedPlaying:(float)arg1;
+- (void)creativeControllerVideoCreativeViewLoaded;
+- (void)creativeControllerNavigationAttemptBlockedDueToAccidentalTap;
 - (void)creativeControllerTapGestureTimerDidExpireBeforePrimaryActionWasInvoked;
 - (void)creativeControllerViewDidRequestOpenURL:(NSURL *)arg1 withTapLocation:(struct CGPoint)arg2;
 - (void)creativeControllerViewDidRequestExpandURL:(NSURL *)arg1 withMaximumSize:(struct CGSize)arg2 withTapLocation:(struct CGPoint)arg3;

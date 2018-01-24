@@ -9,9 +9,9 @@
 __attribute__((visibility("hidden")))
 @interface TSCH3DExtrusionGeometry : TSCH3DGeometry
 {
-    vector_35283da1 mCrossSection;
-    vector_45b393db mSpine;
-    vector_35283da1 mScale;
+    vector_d73af98f mCrossSection;
+    vector_7200ab52 mSpine;
+    vector_d73af98f mScale;
     _Bool mBeginCap;
     _Bool mEndCap;
     float mCrossSectionCreaseAngle;
@@ -36,12 +36,12 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)debug_dumpGeometryBounds;
 - (void)generateArrays;
-- (const vector_35283da1 *)scale;
-- (void)setScale:(const vector_35283da1 *)arg1;
-- (const vector_45b393db *)spine;
-- (void)setSpine:(const vector_45b393db *)arg1;
-- (const vector_35283da1 *)crossSection;
-- (void)setCrossSection:(const vector_35283da1 *)arg1;
+- (const vector_d73af98f *)scale;
+- (void)setScale:(const vector_d73af98f *)arg1;
+- (const vector_7200ab52 *)spine;
+- (void)setSpine:(const vector_7200ab52 *)arg1;
+- (const vector_d73af98f *)crossSection;
+- (void)setCrossSection:(const vector_d73af98f *)arg1;
 - (void)dealloc;
 - (id)init;
 

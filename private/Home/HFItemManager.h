@@ -68,6 +68,7 @@
 - (id)_indexPathForItem:(id)arg1 inDisplayedItemsArray:(id)arg2;
 - (id)_allDisplayedItemsIncludingInternalItems;
 @property(readonly, nonatomic) NSSet *allDisplayedItems;
+- (id)_itemsToUpdateForMediaProfileContainer:(id)arg1;
 - (id)_itemsToUpdateForMediaSystemChange:(id)arg1;
 - (id)_invalidationReasonsForAddedOrRemovedMediaSystem:(id)arg1;
 - (id)_invalidationReasonsForAddedOrRemovedAccessory:(id)arg1;
@@ -184,7 +185,7 @@
 - (void)home:(id)arg1 didUpdateMediaSystem:(id)arg2;
 - (void)home:(id)arg1 didRemoveMediaSystem:(id)arg2;
 - (void)home:(id)arg1 didAddMediaSystem:(id)arg2;
-- (void)_accessorySettingValueUpdated:(id)arg1;
+- (void)settingsDidUpdate:(id)arg1;
 - (void)mediaObject:(id)arg1 didUpdateSettings:(id)arg2;
 - (void)mediaObject:(id)arg1 didUpdateMediaSession:(id)arg2;
 - (void)mediaSession:(id)arg1 failedToUpdatePlaybackStateWithError:(id)arg2;
@@ -219,6 +220,7 @@
 - (void)residentDevice:(id)arg1 didUpdateEnabled:(_Bool)arg2;
 - (void)residentDevice:(id)arg1 didUpdateCapabilities:(unsigned long long)arg2;
 - (void)residentDevice:(id)arg1 didUpdateName:(id)arg2;
+- (void)home:(id)arg1 didUpdateReprovisionStateForAccessory:(id)arg2;
 - (void)accessory:(id)arg1 didUpdateConfigurationStateForService:(id)arg2;
 - (void)accessory:(id)arg1 didUpdateServiceSubtypeForService:(id)arg2;
 - (void)accessory:(id)arg1 didUpdateDefaultNameForService:(id)arg2;

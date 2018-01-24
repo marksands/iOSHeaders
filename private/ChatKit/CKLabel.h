@@ -6,23 +6,22 @@
 
 #import "UILabel.h"
 
-@class UIColor, UIImageView;
+@class UIImageView;
 
 @interface CKLabel : UILabel
 {
     UIImageView *_titleIconImageView;
     long long _titleIconImageType;
-    UIColor *_titleIconImageColor;
 }
 
-@property(retain, nonatomic) UIColor *titleIconImageColor; // @synthesize titleIconImageColor=_titleIconImageColor;
 @property(nonatomic) long long titleIconImageType; // @synthesize titleIconImageType=_titleIconImageType;
 @property(retain, nonatomic) UIImageView *titleIconImageView; // @synthesize titleIconImageView=_titleIconImageView;
 - (void).cxx_destruct;
+- (struct CGSize)sizeOfAccessoryImageView;
+- (struct CGSize)sizeOfTitleLabel;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)drawTextInRect:(struct CGRect)arg1;
 - (void)layoutSubviews;
-- (id)init;
 
 @end
 

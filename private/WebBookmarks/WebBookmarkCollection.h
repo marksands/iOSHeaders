@@ -307,6 +307,7 @@
 - (id)webFilterWhiteListFolder;
 - (id)readingListFolder;
 - (id)bookmarksBarBookmark;
+- (id)validBookmarkUUIDsFromUUIDs:(id)arg1;
 - (id)bookmarkWithUUID:(id)arg1;
 - (id)bookmarkWithID:(int)arg1;
 - (unsigned long long)purge:(unsigned long long)arg1;

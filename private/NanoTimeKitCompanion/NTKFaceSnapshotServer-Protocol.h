@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class NTKFace;
+@class NSDictionary, NTKFace;
 
 @protocol NTKFaceSnapshotServer <NSObject>
 - (void)performAfterCompletingCurrentlyPendingSnapshots:(void (^)(void))arg1;
+- (void)snapshotFace:(NTKFace *)arg1 options:(NSDictionary *)arg2 completion:(void (^)(UIImage *))arg3;
 - (void)requestSnapshotOfFace:(NTKFace *)arg1;
 - (void)createFaceForPerformanceTesting:(long long)arg1;
 - (void)updateAllSnapshots;

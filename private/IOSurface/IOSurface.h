@@ -14,6 +14,9 @@
 }
 
 + (_Bool)supportsSecureCoding;
+- (unsigned long long)registryID;
+- (unsigned long long)timestampAtIndex:(unsigned long long)arg1;
+- (void)setTimestamp:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
 - (_Bool)supportsProtectionOptions:(unsigned long long)arg1;
 - (unsigned long long)protectionOptions;
 - (int)setPurgeable:(unsigned int)arg1 oldState:(unsigned int *)arg2;

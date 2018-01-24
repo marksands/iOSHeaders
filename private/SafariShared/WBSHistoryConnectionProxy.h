@@ -22,6 +22,8 @@
 @property(readonly, nonatomic, getter=isRegisteredForHistoryNotifications) _Bool registeredForHistoryNotifications; // @synthesize registeredForHistoryNotifications=_registeredForHistoryNotifications;
 - (void).cxx_destruct;
 - (void)processRemoteHistoryNotification:(id)arg1;
+- (id)queryMemoryFootprintWithError:(id *)arg1;
+- (void)queryMemoryFootprint:(CDUnknownBlockType)arg1;
 - (void)killService;
 - (void)unregisterForHistoryNotifications;
 - (void)_registerForHistoryNotifications;

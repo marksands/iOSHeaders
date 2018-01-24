@@ -14,11 +14,13 @@
     NSArray *_savedPasswords;
     WBSKeychainCredentialNotificationMonitor *_keychainMonitor;
     id _keychainNotificationRegistrationToken;
+    _Bool _hasPasswordsEligibleForAutoFill;
 }
 
 + (void)removePassword:(id)arg1;
 + (id)savedPasswordForURL:(id)arg1 user:(id)arg2 password:(id)arg3;
 + (id)sharedStore;
+@property(readonly, nonatomic) _Bool hasPasswordsEligibleForAutoFill; // @synthesize hasPasswordsEligibleForAutoFill=_hasPasswordsEligibleForAutoFill;
 - (void).cxx_destruct;
 - (void)reset;
 - (void)_postSavedPasswordStoreDidChangeNotification;

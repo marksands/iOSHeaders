@@ -14,6 +14,7 @@
     NSString *_displayId;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *displayId; // @synthesize displayId=_displayId;
 @property(nonatomic) long long type; // @synthesize type=_type;
 - (void).cxx_destruct;

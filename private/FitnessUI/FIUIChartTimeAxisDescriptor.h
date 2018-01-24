@@ -97,7 +97,7 @@
 - (id)_newSubLabelFromDate:(id)arg1 withTimeInterval:(unsigned long long)arg2 textStyle:(unsigned long long)arg3;
 - (long long)_hourComponentFromDate:(id)arg1;
 - (id)_labelsForSpacingInterval:(unsigned long long)arg1 withSpacing:(id)arg2 textStyle:(unsigned long long)arg3;
-- (_Bool)_assertPropertiesValid;
+- (_Bool)_validateProperties;
 - (void)_generateAxisSubLabels;
 - (void)_generateAxisLabels;
 - (void)_clearFormatters;

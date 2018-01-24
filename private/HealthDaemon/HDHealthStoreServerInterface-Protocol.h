@@ -11,6 +11,7 @@
 @protocol HDHealthStoreServerInterface <NSObject>
 - (void)remote_containerAppExtensionEntitlementsWithCompletion:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)remote_badgeHealthAppForEmergencyContactsConsolidationWithCompletion:(void (^)(_Bool, NSError *))arg1;
+- (void)remote_setDaemonPreferenceValue:(id)arg1 forKey:(NSString *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)remote_fetchDaemonPreferenceForKey:(NSString *)arg1 completion:(void (^)(id, NSError *))arg2;
 - (void)remote_splitTotalCalories:(double)arg1 timeInterval:(double)arg2 withCompletion:(void (^)(double, NSError *))arg3;
 - (void)remote_weeklySummaryInfoForDate:(NSDate *)arg1 withCompletion:(void (^)(NSDictionary *, NSError *))arg2;
@@ -70,6 +71,7 @@
 - (void)remote_requestAuthorizationToShareTypes:(NSSet *)arg1 readTypes:(NSSet *)arg2 shouldPrompt:(_Bool)arg3 completion:(void (^)(_Bool, NSError *))arg4;
 - (void)remote_authorizationStatusForType:(HKObjectType *)arg1 completion:(void (^)(NSNumber *, NSError *))arg2;
 - (void)remote_fetchDisplayNameWithCompletion:(void (^)(NSString *, NSError *))arg1;
+- (void)remote_fetchPluginServiceEndpointWithIdentifier:(NSString *)arg1 completion:(void (^)(NSXPCListenerEndpoint *, NSError *))arg2;
 - (void)remote_proxyForWorkoutServerWithCompletion:(void (^)(HDWorkoutServer *, NSError *))arg1;
 - (void)remote_proxyForUtilityServerWithCompletion:(void (^)(HDUtilityServer *, NSError *))arg1;
 - (void)remote_proxyForQueryControlServerWithCompletion:(void (^)(HDQueryControlServer *, NSError *))arg1;

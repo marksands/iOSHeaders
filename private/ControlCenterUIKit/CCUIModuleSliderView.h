@@ -12,7 +12,7 @@
 #import "CCUIGroupRendering.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class CALayer, CCUICAPackageDescription, CCUICAPackageView, NSArray, NSString, NSTimer, UIImage, UIImageView, UIPanGestureRecognizer, UISelectionFeedbackGenerator, _UIEdgeFeedbackGenerator;
+@class CALayer, CCUICAPackageDescription, CCUICAPackageView, NSArray, NSString, NSTimer, UIImage, UIImageView, UIPanGestureRecognizer, UISelectionFeedbackGenerator, UIView, _UIEdgeFeedbackGenerator;
 
 @interface CCUIModuleSliderView : UIControl <UIGestureRecognizerDelegate, CCUIContentModuleTopLevelGestureProvider, CCUIContentModuleExpandedStateListener, CCUIContentClipping, CCUIGroupRendering>
 {
@@ -20,6 +20,8 @@
     CCUICAPackageView *_glyphPackageView;
     CCUICAPackageView *_compensatingGlyphPackageView;
     NSArray *_stepBackgroundViews;
+    UIView *_continuousValueClippingView;
+    UIView *_continuousValueBackgroundView;
     NSArray *_separatorViews;
     double _startingHeight;
     float _startingValue;
@@ -37,6 +39,7 @@
     UIImage *_glyphImage;
     CCUICAPackageDescription *_glyphPackageDescription;
     NSString *_glyphState;
+    double _continuousSliderCornerRadius;
     unsigned long long _numberOfSteps;
     unsigned long long _step;
 }
@@ -47,6 +50,7 @@
 @property(nonatomic) _Bool firstStepIsDisabled; // @synthesize firstStepIsDisabled=_firstStepIsDisabled;
 @property(nonatomic) unsigned long long numberOfSteps; // @synthesize numberOfSteps=_numberOfSteps;
 @property(nonatomic) float value; // @synthesize value=_value;
+@property(nonatomic) double continuousSliderCornerRadius; // @synthesize continuousSliderCornerRadius=_continuousSliderCornerRadius;
 @property(nonatomic) _Bool throttleUpdates; // @synthesize throttleUpdates=_throttleUpdates;
 @property(nonatomic, getter=isGlyphVisible) _Bool glyphVisible; // @synthesize glyphVisible=_glyphVisible;
 @property(retain, nonatomic) NSString *glyphState; // @synthesize glyphState=_glyphState;
@@ -70,12 +74,13 @@
 - (id)_createBackgroundViewForStep:(unsigned long long)arg1;
 - (void)_createSeparatorViewsForNumberOfSteps:(unsigned long long)arg1;
 - (void)_createStepViewsForNumberOfSteps:(unsigned long long)arg1;
+- (void)_createContinuousSliderClippingViewWithBackgroundView:(id)arg1;
 - (void)_layoutContinuousValueViewForValue:(float)arg1;
 - (void)_layoutContinuousValueView;
 - (void)_layoutValueViewsForStepChange:(_Bool)arg1;
 - (void)_layoutValueViewsForStepChange;
 - (void)_layoutValueViews;
-- (id)_continuousValueView;
+- (id)_continuousValueClippingView;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 @property(readonly, nonatomic) CALayer *punchOutRootLayer;
 @property(readonly, nonatomic, getter=isGroupRenderingRequired) _Bool groupRenderingRequired;

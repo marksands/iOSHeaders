@@ -6,12 +6,12 @@
 
 #import <iWorkImport/TSPObject.h>
 
-#import "NSFastEnumeration.h"
+#import "TSTStyleProviding.h"
 
 @class TSTCellStyle, TSTTableStyle, TSWPParagraphStyle, TSWPShapeStyle;
 
 __attribute__((visibility("hidden")))
-@interface TSTTableStyleNetwork : TSPObject <NSFastEnumeration>
+@interface TSTTableStyleNetwork : TSPObject <TSTStyleProviding>
 {
     int _presetIndex;
     TSTTableStyle *_tableStyle;
@@ -33,12 +33,13 @@ __attribute__((visibility("hidden")))
 + (id)defaultTableNameShapeStyleWithContext:(id)arg1;
 + (id)tableNameShapeStyleIDForPreset:(unsigned long long)arg1;
 + (id)tableNameStyleIDForPreset:(unsigned long long)arg1;
++ (id)networkWithContext:(id)arg1 presetID:(unsigned long long)arg2 styleProvider:(id)arg3 styleMorphingBlock:(CDUnknownBlockType)arg4;
 + (id)networkFromTheme:(id)arg1 presetIndex:(unsigned long long)arg2;
 + (id)networkFromTheme:(id)arg1 presetID:(unsigned long long)arg2;
 + (id)networkFromStylesheet:(id)arg1 presetID:(unsigned long long)arg2;
 + (id)createStylesInStylesheet:(id)arg1 presetID:(unsigned long long)arg2 colors:(id)arg3 alternate:(int)arg4;
 + (id)networkWithContext:(id)arg1 presetID:(unsigned long long)arg2 colors:(id)arg3 alternate:(int)arg4;
-+ (id)networkFromTableModel:(id)arg1;
++ (id)networkFromStyleProvider:(id)arg1;
 - (void).cxx_destruct;
 - (void)upgradeIfNecessary;
 - (void)saveToArchive:(struct TableStyleNetworkArchive *)arg1 archiver:(id)arg2;
@@ -48,13 +49,13 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1 fromDictionary:(id)arg2 withPreset:(unsigned long long)arg3;
 - (_Bool)valid;
 - (id)dictionaryWithPreset:(unsigned long long)arg1;
-- (id)styleArray;
+- (void)enumerateAllStylesWithBlock:(CDUnknownBlockType)arg1;
+- (id)styleForStyleNetworkIndex:(unsigned long long)arg1;
 - (void)setTextStyle:(id)arg1 forTableArea:(unsigned long long)arg2;
 - (void)setCellStyle:(id)arg1 forTableArea:(unsigned long long)arg2;
 - (id)textStyleForTableArea:(unsigned long long)arg1;
 - (id)cellStyleForTableArea:(unsigned long long)arg1;
 - (_Bool)stylesInStylesheet:(id)arg1;
-- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (_Bool)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1 styleComparisonBlock:(CDUnknownBlockType)arg2;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -62,28 +63,20 @@ __attribute__((visibility("hidden")))
 - (id)copyWithContext:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1 context:(id)arg2;
-- (id)initWithContext:(id)arg1 fromTableModel:(id)arg2;
-- (id)initWithContext:(id)arg1 fromArray:(id)arg2 presetID:(unsigned long long)arg3;
+- (id)initWithContext:(id)arg1 styleProvider:(id)arg2 presetID:(unsigned long long)arg3;
+- (id)initWithContext:(id)arg1 styleProvider:(id)arg2;
 - (id)initWithContext:(id)arg1;
 @property(nonatomic) unsigned long long presetID;
 @property(retain, nonatomic) TSWPShapeStyle *tableNameShapeStyle;
 @property(retain, nonatomic) TSWPParagraphStyle *tableNameStyle;
-- (void)setHeaderRowTextStyle:(id)arg1;
-@property(readonly, nonatomic) TSWPParagraphStyle *headerRowTextStyle;
-- (void)setFooterRowTextStyle:(id)arg1;
-@property(readonly, nonatomic) TSWPParagraphStyle *footerRowTextStyle;
-- (void)setHeaderColumnTextStyle:(id)arg1;
-@property(readonly, nonatomic) TSWPParagraphStyle *headerColumnTextStyle;
-- (void)setBodyTextStyle:(id)arg1;
-@property(readonly, nonatomic) TSWPParagraphStyle *bodyTextStyle;
-- (void)setHeaderRowCellStyle:(id)arg1;
-@property(readonly, nonatomic) TSTCellStyle *headerRowCellStyle;
-- (void)setFooterRowCellStyle:(id)arg1;
-@property(readonly, nonatomic) TSTCellStyle *footerRowCellStyle;
-- (void)setHeaderColumnCellStyle:(id)arg1;
-@property(readonly, nonatomic) TSTCellStyle *headerColumnCellStyle;
-- (void)setBodyCellStyle:(id)arg1;
-@property(readonly, nonatomic) TSTCellStyle *bodyCellStyle;
+@property(retain, nonatomic) TSWPParagraphStyle *headerRowTextStyle;
+@property(retain, nonatomic) TSWPParagraphStyle *footerRowTextStyle;
+@property(retain, nonatomic) TSWPParagraphStyle *headerColumnTextStyle;
+@property(retain, nonatomic) TSWPParagraphStyle *bodyTextStyle;
+@property(retain, nonatomic) TSTCellStyle *headerRowCellStyle;
+@property(retain, nonatomic) TSTCellStyle *footerRowCellStyle;
+@property(retain, nonatomic) TSTCellStyle *headerColumnCellStyle;
+@property(retain, nonatomic) TSTCellStyle *bodyCellStyle;
 @property(retain, nonatomic) TSTTableStyle *tableStyle;
 
 @end

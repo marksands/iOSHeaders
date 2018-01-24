@@ -11,7 +11,7 @@
 
 @class ACAccountStore, NSSet, NSString, NSURL;
 
-@interface ACAccountType : NSObject <NSSecureCoding, ACProtobufCoding>
+@interface ACAccountType : NSObject <ACProtobufCoding, NSSecureCoding>
 {
     NSString *_accountTypeDescription;
     NSString *_identifier;

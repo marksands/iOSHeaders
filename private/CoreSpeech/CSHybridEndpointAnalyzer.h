@@ -22,6 +22,7 @@
     _Bool _didCommunicateEndpoint;
     _Bool _didTimestampFirstAudioPacket;
     _Bool _recordingDidStop;
+    _Bool _didDetectSpeech;
     id <CSEndpointAnalyzerDelegate> _delegate;
     unsigned long long _activeChannel;
     long long _endpointStyle;
@@ -55,8 +56,11 @@
     double _hepAudioOriginInMs;
     NSDate *_firstAudioPacketTimestamp;
     NSObject<OS_dispatch_queue> *_silencePosteriorGeneratorQueue;
+    double _elapsedTimeWithNoSpeech;
 }
 
+@property(nonatomic) double elapsedTimeWithNoSpeech; // @synthesize elapsedTimeWithNoSpeech=_elapsedTimeWithNoSpeech;
+@property(nonatomic) _Bool didDetectSpeech; // @synthesize didDetectSpeech=_didDetectSpeech;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *silencePosteriorGeneratorQueue; // @synthesize silencePosteriorGeneratorQueue=_silencePosteriorGeneratorQueue;
 @property(nonatomic) _Bool recordingDidStop; // @synthesize recordingDidStop=_recordingDidStop;
 @property(nonatomic) _Bool didTimestampFirstAudioPacket; // @synthesize didTimestampFirstAudioPacket=_didTimestampFirstAudioPacket;

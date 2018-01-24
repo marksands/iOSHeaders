@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 #import "UIItemProviderReading.h"
 #import "UIItemProviderWriting.h"
 
 @class CNAutocompleteResult, CNContact, MFComposeRecipientOriginContext, NSArray, NSString;
 
-@interface MFComposeRecipient : NSObject <UIItemProviderReading, UIItemProviderWriting, NSCopying, NSCoding>
+@interface MFComposeRecipient : NSObject <UIItemProviderReading, UIItemProviderWriting, NSCopying, NSSecureCoding>
 {
     void *_record;
     int _recordID;
@@ -41,6 +41,7 @@
 + (id)recipientWithProperty:(int)arg1 address:(id)arg2;
 + (id)recipientWithRecord:(void *)arg1 property:(int)arg2 identifier:(int)arg3;
 + (id)recipientWithRecord:(void *)arg1 recordID:(int)arg2 property:(int)arg3 identifier:(int)arg4;
++ (_Bool)supportsSecureCoding;
 + (id)composeRecipientWithAutocompleteResult:(id)arg1;
 + (id)mf_recipientWithGALResult:(id)arg1;
 + (id)writableTypeIdentifiersForItemProvider;

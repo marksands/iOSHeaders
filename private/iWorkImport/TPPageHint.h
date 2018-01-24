@@ -13,7 +13,9 @@
 __attribute__((visibility("hidden")))
 @interface TPPageHint : NSObject <TSWPOffscreenColumn>
 {
-    int _pageKind;
+    long long _pageKind;
+    unsigned long long _pageRow;
+    unsigned long long _pageColumn;
     NSArray *_hints;
     TSUNoCopyDictionary *_flowHints;
     struct _NSRange _footnoteAutoNumberRange;
@@ -30,7 +32,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSUNoCopyDictionary *anchoredDrawablePositions; // @synthesize anchoredDrawablePositions=_anchoredDrawablePositions;
 @property(nonatomic) struct _NSRange footnoteLayoutRange; // @synthesize footnoteLayoutRange=_footnoteLayoutRange;
 @property(nonatomic) struct _NSRange footnoteAutoNumberRange; // @synthesize footnoteAutoNumberRange=_footnoteAutoNumberRange;
-@property(nonatomic) int pageKind; // @synthesize pageKind=_pageKind;
+@property(nonatomic) unsigned long long pageRow; // @synthesize pageRow=_pageRow;
+@property(nonatomic) unsigned long long pageColumn; // @synthesize pageColumn=_pageColumn;
+@property(nonatomic) long long pageKind; // @synthesize pageKind=_pageKind;
 - (void).cxx_destruct;
 - (void)p_unarchiveTopicNumbers:(id)arg1 fromArchive:(const struct TopicNumberHintsArchive *)arg2 unarchiver:(id)arg3;
 - (void)p_archiveTopicNumbers:(id)arg1 intoArchive:(struct TopicNumberHintsArchive *)arg2 archiver:(id)arg3;
@@ -40,6 +44,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithArchive:(const struct PageHintArchive *)arg1 unarchiver:(id)arg2;
 @property(readonly, nonatomic) unsigned long long lineCount;
 - (void)trimToCharIndex:(unsigned long long)arg1 inTarget:(id)arg2 removeFootnoteReferenceCount:(unsigned long long)arg3 removeAutoNumberFootnoteCount:(unsigned long long)arg4;
+@property(readonly, nonatomic) _Bool lastLineIsEmptyAndHasListLabel;
 @property(readonly, nonatomic) unsigned long long nextWidowPullsDownFromCharIndex;
 @property(readonly, nonatomic) struct _NSRange anchoredRange;
 - (struct _NSRange)rangeAndChildHints:(out id *)arg1;

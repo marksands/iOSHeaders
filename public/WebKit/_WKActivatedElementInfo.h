@@ -14,7 +14,7 @@
     struct RetainPtr<NSString> _title;
     struct CGPoint _interactionLocation;
     struct RetainPtr<NSString> _ID;
-    struct RefPtr<WebKit::ShareableBitmap> _image;
+    struct RefPtr<WebKit::ShareableBitmap, WTF::DumbPtrTraits<WebKit::ShareableBitmap>> _image;
     struct RetainPtr<UIImage> _uiImage;
     struct RetainPtr<NSDictionary> _userInfo;
     long long _type;

@@ -14,6 +14,7 @@
 @interface CDPContext : NSObject <NSSecureCoding, NSCopying>
 {
     _Bool _isHSA2Account;
+    _Bool _isFederatedAccount;
     _Bool _didUseSMSVerification;
     _Bool _guestMode;
     _Bool _supportsSkipSignIn;
@@ -55,6 +56,7 @@
 @property(copy, nonatomic) NSString *cachedLocalSecret; // @synthesize cachedLocalSecret=_cachedLocalSecret;
 @property(nonatomic) long long type; // @synthesize type=_type;
 @property(nonatomic) _Bool didUseSMSVerification; // @synthesize didUseSMSVerification=_didUseSMSVerification;
+@property(nonatomic) _Bool isFederatedAccount; // @synthesize isFederatedAccount=_isFederatedAccount;
 @property(nonatomic) _Bool isHSA2Account; // @synthesize isHSA2Account=_isHSA2Account;
 @property(copy, nonatomic) NSString *altDSID; // @synthesize altDSID=_altDSID;
 @property(copy, nonatomic) NSNumber *dsid; // @synthesize dsid=_dsid;

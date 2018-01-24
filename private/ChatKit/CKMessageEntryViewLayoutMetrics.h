@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
-@interface CKMessageEntryViewLayoutMetrics : NSObject <NSCoding>
+@interface CKMessageEntryViewLayoutMetrics : NSObject <NSSecureCoding>
 {
     double _defaultEntryContentViewHeight;
     double _defaultSubjectEntryContentViewHeight;
@@ -18,6 +18,7 @@
     struct UIEdgeInsets _entryViewTextAlignmentInsets;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) double defaultSubjectEntryViewHeight; // @synthesize defaultSubjectEntryViewHeight=_defaultSubjectEntryViewHeight;
 @property(readonly, nonatomic) double defaultEntryViewHeight; // @synthesize defaultEntryViewHeight=_defaultEntryViewHeight;
 @property(readonly, nonatomic) double defaultSubjectEntryContentViewHeight; // @synthesize defaultSubjectEntryContentViewHeight=_defaultSubjectEntryContentViewHeight;

@@ -19,8 +19,10 @@
 @property(retain, nonatomic) NSMutableArray *gatheredData; // @synthesize gatheredData=_gatheredData;
 @property(retain, nonatomic) id parentContext; // @synthesize parentContext=_parentContext;
 - (void).cxx_destruct;
+- (id)anchorsToRemove;
+- (id)anchorsToAdd;
 - (id)resultDataOfClass:(Class)arg1;
--     // Error parsing type: {?=[4]}16@0:8, name: sessionOriginTransform
+- (long long)cameraPosition;
 - (id)imageData;
 - (id)initWithParentContext:(id)arg1;
 

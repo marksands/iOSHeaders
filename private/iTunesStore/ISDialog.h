@@ -12,7 +12,6 @@
 
 @interface ISDialog : NSObject <SSXPCCoding>
 {
-    _Bool _allowsBioAuthorization;
     _Bool _allowDuplicates;
     SSAuthenticationContext *_authenticationContext;
     _Bool _authorizationIsForced;
@@ -70,7 +69,6 @@
 - (id)initWithXPCEncoding:(id)arg1;
 - (long long)_kindForString:(id)arg1;
 - (id)buyParams;
-@property(readonly) _Bool allowsBioAuthorization;
 - (id)valueForUserInfoKey:(id)arg1;
 - (void)setValue:(void *)arg1 forCFUserNotificationKey:(struct __CFString *)arg2;
 - (void)setValue:(id)arg1 forUserInfoKey:(id)arg2;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class FCColor, NSArray, NSDictionary, NSString;
+@class FCColor, FCColorGradient, NSArray, NSDictionary, NSString;
 
 @interface FCGroupConfig : NSObject
 {
@@ -14,12 +14,14 @@
     NSArray *_groupFonts;
     unsigned long long _cutoffTimeSecs;
     unsigned long long _cutoffCount;
-    NSDictionary *_articleMetadataByArticleID;
+    FCColorGradient *_groupBackgroundColorGradient;
     NSDictionary *_dictionary;
+    NSDictionary *_articleMetadataByArticleID;
 }
 
-@property(retain, nonatomic) NSDictionary *dictionary; // @synthesize dictionary=_dictionary;
 @property(retain, nonatomic) NSDictionary *articleMetadataByArticleID; // @synthesize articleMetadataByArticleID=_articleMetadataByArticleID;
+@property(retain, nonatomic) NSDictionary *dictionary; // @synthesize dictionary=_dictionary;
+@property(retain, nonatomic) FCColorGradient *groupBackgroundColorGradient; // @synthesize groupBackgroundColorGradient=_groupBackgroundColorGradient;
 @property(nonatomic) unsigned long long cutoffCount; // @synthesize cutoffCount=_cutoffCount;
 @property(nonatomic) unsigned long long cutoffTimeSecs; // @synthesize cutoffTimeSecs=_cutoffTimeSecs;
 @property(retain, nonatomic) NSArray *groupFonts; // @synthesize groupFonts=_groupFonts;
@@ -28,7 +30,7 @@
 @property(readonly, nonatomic) NSString *feedID;
 @property(readonly, nonatomic) NSString *channelID;
 @property(readonly, nonatomic) NSString *sectionID;
-@property(readonly, nonatomic) NSString *groupActionUrlString;
+@property(readonly, nonatomic) NSString *groupActionURLString;
 @property(readonly, nonatomic) NSString *groupActionTitle;
 @property(readonly, nonatomic) double groupTitleFontTrackingiPad;
 @property(readonly, nonatomic) double groupTitleFontTracking;
@@ -39,6 +41,7 @@
 @property(readonly, nonatomic) double groupTitleOffsetY;
 @property(readonly, nonatomic) double groupTitleFontSize;
 @property(readonly, nonatomic) NSString *groupTitleFontName;
+@property(readonly, nonatomic) NSString *groupSubtitle;
 @property(readonly, nonatomic) NSString *groupName;
 @property(readonly, nonatomic) NSString *articleListID;
 - (id)initWithDictionary:(id)arg1;

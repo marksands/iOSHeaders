@@ -98,6 +98,7 @@
 - (void)startEditingPayload:(id)arg1 dismiss:(_Bool)arg2 forPlugin:(id)arg3;
 - (void)startEditingPayload:(id)arg1 dismiss:(_Bool)arg2;
 - (void)startEditingPayload:(id)arg1;
+- (void)startEditingPayloadBypassingValidation:(id)arg1 forPlugin:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_deferredRequestPresentationStyleExpanded:(id)arg1;
 - (void)requestPresentationStyleExpanded:(_Bool)arg1 forPlugin:(id)arg2;
 - (void)requestPresentationStyleExpanded:(_Bool)arg1;
@@ -111,9 +112,12 @@
 - (void)commitSticker:(id)arg1 withDragTarget:(id)arg2;
 - (void)_deferredCommitSticker:(id)arg1;
 - (void)commitSticker:(id)arg1;
+- (void)commitSticker:(id)arg1 forPlugin:(id)arg2 bypassValidation:(_Bool)arg3;
 - (void)commitSticker:(id)arg1 forPlugin:(id)arg2;
+- (void)commitStickerBypassingValidation:(id)arg1 forPlugin:(id)arg2;
 - (void)_deferredCommitPayload:(id)arg1;
 - (_Bool)commitPayload:(id)arg1 forPlugin:(id)arg2 allowAllCommits:(_Bool)arg3 error:(id *)arg4;
+- (_Bool)commitPayloadBypassingValidation:(id)arg1 forPlugin:(id)arg2;
 - (void)commitPayload:(id)arg1;
 - (void)_openContainingBundleID:(id)arg1 applicationService:(id)arg2 withURL:(id)arg3 pluginID:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)openURL:(id)arg1 applicationIdentifier:(id)arg2 pluginID:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -188,6 +192,7 @@
 - (void)showPhotosBrowserCollapsingEntryField:(_Bool)arg1;
 - (void)showPhotosBrowser;
 - (void)_loadPhotosBrowserCollapsingEntryField:(_Bool)arg1;
+- (_Bool)_isRunningInMVS;
 - (void)_loadPhotosBrowser;
 - (void)didTransitionFromOrientation:(long long)arg1 toOrientation:(long long)arg2;
 - (void)clearBrowserViewControllerIfNecessary;

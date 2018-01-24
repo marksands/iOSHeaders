@@ -32,11 +32,13 @@
 - (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (void)_dismissViewControllerAnimated:(_Bool)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)updateWithViewElement:(id)arg1;
 @property(readonly, nonatomic) UITableView *tableView;
 @property(readonly, nonatomic) struct CGSize calculatedPreferredContentSize;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (id)_modalPresenterPresentedViewController;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)viewDidLoad;
 - (void)loadView;

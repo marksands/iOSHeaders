@@ -29,7 +29,10 @@
 - (id)_fetchClientSourceForPersistentID:(id)arg1 error:(id *)arg2;
 - (id)_sourcePersistentIDsFromSourceEntities:(id)arg1;
 - (void)_deleteSourceIfNoSampleFoundWithBundleIdentifier:(id)arg1;
+- (_Bool)_deleteSourcesWithUUIDs:(id)arg1 localSourceEntityCacheKey:(id)arg2 deleteSamples:(_Bool)arg3 database:(id)arg4 error:(id *)arg5;
+- (id)_sourceUUIDsForBundleIdentifier:(id)arg1 error:(id *)arg2;
 - (_Bool)deleteSourceWithBundleIdentifier:(id)arg1 error:(id *)arg2;
+- (_Bool)_createSourcesWithCodables:(id)arg1 provenance:(long long)arg2 sourceUUIDSToDelete:(id)arg3 deleteSamples:(_Bool)arg4 database:(id)arg5 error:(id *)arg6;
 - (_Bool)createSourcesWithCodables:(id)arg1 provenance:(long long)arg2 error:(id *)arg3;
 - (id)_clientSourcesWithPredicate:(id)arg1 error:(id *)arg2;
 - (id)allWatchSourcesWithError:(id *)arg1;
@@ -48,6 +51,7 @@
 - (id)sourceForApplicationIdentifier:(id)arg1 createOrUpdateIfNecessary:(_Bool)arg2 entitlements:(id)arg3 name:(id)arg4 error:(id *)arg5;
 - (id)createOrUpdateSourceForClient:(id)arg1 error:(id *)arg2;
 - (id)sourceForClient:(id)arg1 error:(id *)arg2;
+- (id)sourceForClinicalAccountIdentifier:(id)arg1 provenance:(long long)arg2 createIfNecessary:(_Bool)arg3 error:(id *)arg4;
 - (id)healthAppSourceWithError:(id *)arg1;
 - (id)localDeviceSourceWithError:(id *)arg1;
 - (id)_predicateForSourceBundleIdentifier:(id)arg1 localOnly:(_Bool)arg2;

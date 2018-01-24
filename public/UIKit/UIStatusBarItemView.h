@@ -20,12 +20,14 @@ __attribute__((visibility("hidden")))
     NSString *_lastGeneratedTextImageText;
     _Bool _visible;
     _Bool _allowsUpdates;
+    _Bool _shouldTintContentImage;
     UIStatusBarItem *_item;
     UIStatusBarLayoutManager *_layoutManager;
     UIStatusBarForegroundStyleAttributes *_foregroundStyle;
 }
 
 + (id)createViewForItem:(id)arg1 withData:(id)arg2 actions:(int)arg3 foregroundStyle:(id)arg4;
+@property(readonly, nonatomic) _Bool shouldTintContentImage; // @synthesize shouldTintContentImage=_shouldTintContentImage;
 @property(nonatomic) _Bool allowsUpdates; // @synthesize allowsUpdates=_allowsUpdates;
 @property(nonatomic, getter=isVisible) _Bool visible; // @synthesize visible=_visible;
 @property(readonly, nonatomic) UIStatusBarForegroundStyleAttributes *foregroundStyle; // @synthesize foregroundStyle=_foregroundStyle;
@@ -41,6 +43,7 @@ __attribute__((visibility("hidden")))
 - (id)imageWithShadowNamed:(id)arg1;
 - (void)clearCachedTextImage;
 - (id)cachedImageWithText:(id)arg1 truncatedWithEllipsesAtMaxWidth:(double)arg2 letterSpacing:(double)arg3;
+- (id)imageWithText:(id)arg1 shouldCache:(_Bool)arg2;
 - (id)imageWithText:(id)arg1;
 - (void)endImageContext;
 - (id)imageFromImageContextClippedToWidth:(double)arg1;

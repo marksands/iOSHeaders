@@ -7,6 +7,7 @@
 #import "NSMutableArray.h"
 
 @interface NSMutableArray (SafariCoreExtras)
+- (void)safari_setObject:(id)arg1 atIndex:(unsigned long long)arg2 withPaddingObject:(id)arg3;
 - (void)safari_addObjectUnlessNil:(id)arg1;
 @end
 

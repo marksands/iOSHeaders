@@ -8,7 +8,7 @@
 
 #import "TSKApplicationDelegate.h"
 
-@class NSArray, NSDate, NSString;
+@class NSArray, NSData, NSDate, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TSKApplicationDelegate : NSObject <TSKApplicationDelegate>
@@ -33,7 +33,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSDate *applicationLaunchTime;
 @property(readonly, nonatomic) NSString *bladerunnerContainerIdentifier;
 @property(readonly, nonatomic) NSString *cloudKitContainerIdentifier;
-@property(copy, nonatomic) id appTextDefaults;
+@property(readonly, copy, nonatomic) NSData *iWorkTextDefaultsPassphraseVerifier;
+- (void)setAppTextDefaults:(id)arg1 passphraseVerifier:(id)arg2;
+@property(readonly, copy, nonatomic) id appTextDefaults;
 @property(copy, nonatomic) NSString *iWorkAuthorPrivateID; // @dynamic iWorkAuthorPrivateID;
 @property(nonatomic) unsigned long long iWorkAuthorColorIndex;
 @property(copy, nonatomic) NSString *iWorkAuthorName;
@@ -46,11 +48,14 @@ __attribute__((visibility("hidden")))
 - (_Bool)openURL:(id)arg1;
 - (id)invalidURLSchemes;
 - (Class)drawableInfoSubclassForClass:(Class)arg1 unarchiver:(id)arg2;
-@property(readonly, nonatomic) _Bool supportsNativeEquations;
+@property(readonly, nonatomic) _Bool supportsInlineNativeEquationObjects;
 - (id)appChartPropertyOverrides;
 - (void)customizeHyperlinkViewController:(id)arg1;
 - (id)previewImageForType:(id)arg1;
+@property(readonly, nonatomic) _Bool imageGalleryCaptionsUsePlaceholderText;
 - (_Bool)shouldValidateMasterLayoutWhileInsertingRows;
+@property(readonly, nonatomic) _Bool supportsCanvasNativeEquationObjects;
+@property(readonly, nonatomic) _Bool supportsLinkedTextBoxes;
 - (_Bool)supportsAutosizingTextboxes;
 - (_Bool)supportsShrinkTextToFit;
 - (_Bool)sidebarPositionRespectsUserInterfaceLayoutDirection;
@@ -67,6 +72,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *documentTypeDisplayName;
 - (id)applicationNameForTitleBar;
 @property(readonly, nonatomic) unsigned long long applicationType;
+@property(readonly, nonatomic) NSString *applicationDisplayName;
 @property(readonly, nonatomic) NSString *applicationName;
 - (void)dealloc;
 - (id)init;

@@ -8,17 +8,21 @@
 
 #import "NSCopying.h"
 
-@class MPIdentifierSet, NSMutableSet;
+@class MPIdentifierSet, NSMutableDictionary;
 
 @interface MPModelObject : NSObject <NSCopying>
 {
-    _Bool _wasFullyInitialized;
-    NSMutableSet *_initializedProperties;
     MPModelObject *_originalObject;
+    NSMutableDictionary *_storage;
+    _Bool _isFinalized;
     MPIdentifierSet *_identifiers;
 }
 
++ (id)_modelKeyForPropertySelector:(SEL)arg1;
++ (_Bool)_lookupPropertyForSelector:(SEL)arg1 result:(CDUnknownBlockType)arg2;
++ (void)_indexProperties;
 + (void)performWithoutEnforcement:(CDUnknownBlockType)arg1;
++ (_Bool)resolveInstanceMethod:(SEL)arg1;
 + (void)initialize;
 + (id)requiredLibraryAddStatusObservationProperties;
 + (_Bool)supportsLibraryAddStatusObservation;
@@ -30,12 +34,15 @@
 + (id)storeItemMetadataRequestItemIdentifierForIdentifiers:(id)arg1;
 @property(readonly, copy, nonatomic) MPIdentifierSet *identifiers; // @synthesize identifiers=_identifiers;
 - (void).cxx_destruct;
-- (_Bool)hasLoadedValuesForProperties:(id)arg1;
+- (_Bool)_isModelKey:(id)arg1;
+- (void)setValue:(id)arg1 forModelKey:(id)arg2;
+- (id)valueForModelKey:(id)arg1;
+- (_Bool)hasLoadedValuesForPropertySet:(id)arg1;
 - (_Bool)hasLoadedValueForKey:(id)arg1;
-- (id)descriptionWithType:(long long)arg1;
-- (void)appendIdentifiersToDescription:(id)arg1;
 @property(readonly, nonatomic) MPIdentifierSet *originalIdentifierSet;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
+- (id)valueForUndefinedKey:(id)arg1;
 - (id)description;
 - (id)copyWithIdentifiers:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (id)initWithIdentifiers:(id)arg1 block:(CDUnknownBlockType)arg2;

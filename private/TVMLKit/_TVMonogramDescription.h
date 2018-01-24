@@ -25,11 +25,13 @@
     UIColor *_fillColor;
     double _borderWidth;
     UIColor *_borderColor;
+    id <IKNetworkRequestLoader> _requestLoader;
     struct CGSize _size;
     struct UIEdgeInsets _padding;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) __weak id <IKNetworkRequestLoader> requestLoader; // @synthesize requestLoader=_requestLoader;
 @property(retain, nonatomic) UIColor *borderColor; // @synthesize borderColor=_borderColor;
 @property(nonatomic) double borderWidth; // @synthesize borderWidth=_borderWidth;
 @property(nonatomic) _Bool hasPlaceholder; // @synthesize hasPlaceholder=_hasPlaceholder;

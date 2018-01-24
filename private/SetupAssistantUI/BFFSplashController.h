@@ -47,7 +47,7 @@
 - (void)_updateTrayVisibility;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)updateBleedColor;
-- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;

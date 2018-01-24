@@ -23,6 +23,8 @@
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_proactiveFetchQueue;
     NSSet *_pushTopics;
+    _Bool _isProcessingCloudStorePushNotification;
+    _Bool _shouldProcessCloudStoreNotification;
 }
 
 + (_Bool)canInitalizeCloudStoreWithWebService:(id)arg1;
@@ -30,6 +32,7 @@
 - (void)_unregisterForPushNotifications;
 - (void)_registerForPushNotifications;
 - (void)applyPushNotificationToken:(id)arg1;
+- (void)_processCloudStorePushNotification;
 - (void)handlePushNotificationForTopic:(id)arg1 userInfo:(id)arg2;
 - (id)pushNotificationTopics;
 - (void)_unscheduleBackgroundContainerSetupActivities;
@@ -40,7 +43,7 @@
 - (double)_nextTimeIntervalForBackgroundInterval:(unsigned long long)arg1;
 - (void)_scheduleCloudStoreContainerSetupBackgroundActivityWithNextInterval:(unsigned long long)arg1;
 - (void)_performCloudStoreContainerInitalizationBackgroundActivityWithCurrentInterval:(unsigned long long)arg1 nextBackgroundInterval:(unsigned long long)arg2;
-- (void)performScheduledActivityWithIdentifier:(id)arg1 activityCriteria:(id)arg2 activityContext:(id)arg3;
+- (void)performScheduledActivityWithIdentifier:(id)arg1 activityCriteria:(id)arg2;
 - (_Bool)canSyncTransactionFromCloudKitForPassUniqueIdentifier:(id)arg1;
 - (_Bool)canSyncTransactionToCloudKitWithBackingData:(_Bool)arg1 passUniqueIdentifier:(id)arg2 serviceIdentifier:(id)arg3;
 - (void)simulateCloudStorePushWithCompletion:(CDUnknownBlockType)arg1;

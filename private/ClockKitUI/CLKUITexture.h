@@ -6,24 +6,25 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class CLKUIAtlas, NSString;
 
 @interface CLKUITexture : NSObject
 {
-    NSString *_uuid;
-    unsigned long long _status;
-    unsigned long long _width;
-    unsigned long long _height;
+    CLKUIAtlas *_atlas;
+    // Error parsing type: , name: _rect
 }
 
++ (id)textureWithProviderDelegate:(id)arg1 uuid:(id)arg2 rect: /* Error: Ran out of types for this method. */;
 + (id)textureWithProviderDelegate:(id)arg1 uuid:(id)arg2;
-@property(readonly, nonatomic) unsigned long long height; // @synthesize height=_height;
-@property(readonly, nonatomic) unsigned long long width; // @synthesize width=_width;
-@property(nonatomic) unsigned long long status; // @synthesize status=_status;
-@property(readonly, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
+// Error parsing type for property rect:
+// Property attributes: T,R,N,V_rect
+
+@property(readonly, nonatomic) CLKUIAtlas *atlas; // @synthesize atlas=_atlas;
 - (void).cxx_destruct;
-- (id)backing;
-- (id)initWithUuid:(id)arg1;
+@property(readonly, nonatomic) unsigned long long status;
+@property(readonly, nonatomic) NSString *uuid;
+- (void)dealloc;
+- (id)initWithAtlas:(id)arg1 rect: /* Error: Ran out of types for this method. */;
 
 @end
 

@@ -20,8 +20,8 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)processFragmentsForSpaceFormatting;
-- (void)p_splitStorageInThree:(int)arg1 withRanges:(struct _NSRange [2])arg2;
-- (void)p_splitStorageInTwo:(int)arg1 withRanges:(struct _NSRange [2])arg2 firstTarget:(int)arg3 secondTarget:(int)arg4;
+- (void)p_splitStorageInThree:(long long)arg1 withRanges:(struct _NSRange [2])arg2;
+- (void)p_splitStorageInTwo:(long long)arg1 withRanges:(struct _NSRange [2])arg2 firstTarget:(long long)arg3 secondTarget:(long long)arg4;
 - (unsigned long long)countOfWhitespaceRunsInString:(id)arg1 ranges:(struct _NSRange [2])arg2;
 - (_Bool)p_storageIsEffectivelyEmpty:(id)arg1;
 - (id)initWithFragments:(id *)arg1 storageContext:(id)arg2 objectsContext:(id)arg3;

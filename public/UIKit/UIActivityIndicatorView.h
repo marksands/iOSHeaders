@@ -7,17 +7,17 @@
 #import <UIKit/UIView.h>
 
 #import "NSCoding.h"
-#import "_UIStatusBarDisplayable.h"
 
-@class NSArray, NSString, UIAccessibilityHUDItem, UIColor, UIImageView;
+@class NSArray, NSString, UIColor, UIImageView;
 
-@interface UIActivityIndicatorView : UIView <_UIStatusBarDisplayable, NSCoding>
+@interface UIActivityIndicatorView : UIView <NSCoding>
 {
     double _duration;
     _Bool _animating;
     long long _activityIndicatorViewStyle;
     long long _actualActivityIndicatorViewStyle;
     _Bool _hidesWhenStopped;
+    _Bool _disableUpdateColorOnTraitCollectionChange;
     _Bool _hasShadow;
     _Bool _clockWise;
     _Bool _spinning;
@@ -111,6 +111,7 @@
 - (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
 - (_Bool)_contentHuggingDefault_isUsuallyFixedHeight;
 - (_Bool)_contentHuggingDefault_isUsuallyFixedWidth;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_populateArchivedSubviews:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -120,16 +121,7 @@
 - (void)_commonInit;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)_applicationDidEnterBackground:(id)arg1;
-@property(readonly, nonatomic) _Bool wantsCrossfade;
 - (_Bool)isElementAccessibilityExposedToInterfaceBuilder;
-
-// Remaining properties
-@property(readonly, nonatomic) UIAccessibilityHUDItem *accessibilityHUDRepresentation;
-@property(readonly, nonatomic) double baselineOffset;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

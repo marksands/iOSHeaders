@@ -21,21 +21,18 @@
     WebHTMLViewPrivate *_private;
 }
 
-+ (void)initialize;
 + (id)unsupportedTextMIMETypes;
 + (id)supportedNonImageMIMETypes;
 + (id)supportedImageMIMETypes;
 + (id)supportedMediaMIMETypes;
 + (id)supportedMIMETypes;
-- (void)_windowChangedKeyState;
-- (void)_updateControlTints;
 - (_Bool)_wantsKeyDownForEvent:(id)arg1;
 - (void)makeBaseWritingDirectionNatural:(id)arg1;
 - (void)capitalizeWord:(id)arg1;
 - (void)lowercaseWord:(id)arg1;
 - (void)uppercaseWord:(id)arg1;
 - (void)_changeWordCaseWithSelector:(SEL)arg1;
-- (void)_applyEditingStyleToSelection:(Ref_72bb9b7b *)arg1 withUndoAction:(int)arg2;
+- (void)_applyEditingStyleToSelection:(Ref_8e48ecf0 *)arg1 withUndoAction:(int)arg2;
 - (void)_applyStyleToSelection:(id)arg1 withUndoAction:(int)arg2;
 - (id)_emptyStyle;
 - (void)centerSelectionInVisibleArea:(id)arg1;
@@ -70,7 +67,6 @@
 - (void)addSubview:(id)arg1;
 - (void)viewDidMoveToHostWindow;
 - (void)viewWillMoveToHostWindow:(id)arg1;
-- (void)_web_makePluginSubviewsPerformSelector:(SEL)arg1 withObject:(id)arg2;
 - (void)viewDidMoveToWindow;
 - (void)viewWillMoveToWindow:(id)arg1;
 - (_Bool)maintainsInactiveSelection;
@@ -184,7 +180,6 @@
 - (_Bool)_isTopHTMLView;
 - (id)_topHTMLView;
 - (void)_setMouseDownEvent:(id)arg1;
-- (_Bool)_shouldDeleteRange:(id)arg1;
 - (id)_selectedRange;
 - (_Bool)_shouldReplaceSelectionWithText:(id)arg1 givenAction:(long long)arg2;
 - (_Bool)_shouldInsertText:(id)arg1 replacingDOMRange:(id)arg2 givenAction:(long long)arg3;
@@ -204,7 +199,6 @@
 - (_Bool)_isInPrintMode;
 - (id)_compositingLayersHostingView;
 - (_Bool)_isUsingAcceleratedCompositing;
-- (_Bool)_hasHTMLDocument;
 - (void)close;
 - (void)_decreaseSelectionListLevel;
 - (id)_increaseSelectionListLevelUnordered;
@@ -214,8 +208,6 @@
 - (_Bool)_canIncreaseSelectionListLevel;
 - (id)_insertUnorderedList;
 - (id)_insertOrderedList;
-- (void)_setTransparentBackground:(_Bool)arg1;
-- (_Bool)_transparentBackground;
 - (_Bool)_isEditable;
 - (_Bool)_hasInsertionPoint;
 - (_Bool)_hasSelectionOrInsertionPoint;
@@ -223,26 +215,18 @@
 - (_Bool)_canAlterCurrentSelection;
 - (_Bool)_canEditRichly;
 - (_Bool)_canEdit;
-- (void)_autoscroll;
-- (void)_stopAutoscrollTimer;
 - (struct CGRect)_selectionRect;
-- (void)_startAutoscrollTimer:(id)arg1;
 - (void)setScale:(float)arg1;
 - (void)layoutIfNeeded;
-- (id)_pluginController;
 - (void)_setToolTip:(id)arg1;
-- (void)_clearLastHitViewIfSelf;
 - (id)hitTest:(struct CGPoint)arg1;
-- (_Bool)_insideAnotherHTMLView;
 - (void)viewWillDraw;
 - (void)_restoreSubviews;
 - (void)_setAsideSubviews;
 - (void)_frameOrBoundsChanged;
 - (void)mouseMoved:(id)arg1;
-- (_Bool)_web_isDrawingIntoAcceleratedLayer;
-- (_Bool)_web_isDrawingIntoLayer;
-- (void)detachRootLayer;
-- (void)attachRootLayer:(id)arg1;
+- (id)_pluginController;
+- (void)_stopAutoscrollTimer;
 - (_Bool)_needsLayout;
 - (void)_destroyAllWebPlugins;
 - (void)_web_updateLayoutAndStyleIfNeededRecursive;
@@ -253,7 +237,6 @@
 - (id)_frame;
 - (_Bool)_canSmartCopyOrDelete;
 - (void)_selectionChanged;
-- (void)_updateSelectionForInputManager;
 - (void)insertText:(id)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
 - (void)markedTextUpdate:(id)arg1;

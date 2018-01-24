@@ -14,6 +14,7 @@
 - (id)fc_orderedSetByMinusingOrderedSet:(id)arg1;
 - (id)fc_orderedSetWithObjectsAtIndexes:(id)arg1;
 - (id)fc_orderedSetWithObjectsInRange:(struct _NSRange)arg1;
+- (id)fc_orderedSetOfObjectsPassingTest:(CDUnknownBlockType)arg1;
 - (_Bool)fc_containsObjectPassingTest:(CDUnknownBlockType)arg1;
 - (id)fc_firstObjectPassingTest:(CDUnknownBlockType)arg1;
 - (id)fc_indexesOfObjectsInOrderedSet:(id)arg1;

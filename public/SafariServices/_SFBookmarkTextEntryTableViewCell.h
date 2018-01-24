@@ -16,6 +16,7 @@
 
 @property(readonly, nonatomic) UITextField *editableTextField; // @synthesize editableTextField=_textField;
 - (void).cxx_destruct;
+- (void)layoutMarginsDidChange;
 - (void)setSeparatorInset:(struct UIEdgeInsets)arg1;
 - (void)updateConstraints;
 - (id)initWithText:(id)arg1 autocapitalizationType:(long long)arg2 autocorrectionType:(long long)arg3;

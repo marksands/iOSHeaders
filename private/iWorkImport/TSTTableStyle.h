@@ -56,7 +56,6 @@ __attribute__((visibility("hidden")))
 - (id)verticalStrokeForStrokePreset:(unsigned long long)arg1;
 - (id)horizontalStrokeForStrokePreset:(unsigned long long)arg1;
 - (id)strokeForStrokePreset:(unsigned long long)arg1;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1 name:(id)arg2 overridePropertyMap:(id)arg3 isVariation:(_Bool)arg4;
 
 // Remaining properties

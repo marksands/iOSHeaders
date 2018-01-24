@@ -8,7 +8,7 @@
 
 #import "WKObject.h"
 
-@class NSString;
+@class NSDictionary, NSString, WKWebsiteDataStore;
 
 @interface _WKWebsitePolicies : NSObject <WKObject>
 {
@@ -17,6 +17,8 @@
 
 @property(readonly) struct Object *_apiObject;
 @property(readonly, copy) NSString *description;
+@property(retain, nonatomic) WKWebsiteDataStore *websiteDataStore;
+@property(copy, nonatomic) NSDictionary *customHeaderFields;
 @property(nonatomic) long long autoplayPolicy;
 @property(nonatomic) unsigned long long allowedAutoplayQuirks;
 @property(nonatomic) _Bool contentBlockersEnabled;

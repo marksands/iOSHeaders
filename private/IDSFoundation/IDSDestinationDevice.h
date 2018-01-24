@@ -14,6 +14,7 @@
     _Bool _isGuest;
 }
 
++ (_Bool)supportsSecureCoding;
 + (_Bool)isDeviceURI:(id)arg1;
 @property(nonatomic) _Bool isGuest; // @synthesize isGuest=_isGuest;
 @property(retain, nonatomic) IDSURI *destinationURI; // @synthesize destinationURI=_destinationURI;

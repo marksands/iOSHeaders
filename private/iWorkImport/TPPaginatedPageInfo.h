@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TPPageInfo.h>
 
-@class NSArray;
+@class NSArray, TPDrawablesZOrder;
 
 __attribute__((visibility("hidden")))
 @interface TPPaginatedPageInfo : TPPageInfo
@@ -17,7 +17,9 @@ __attribute__((visibility("hidden")))
 - (Class)layoutClass;
 - (struct CGRect)pageFrame;
 - (id)pageController;
+- (id)orderedDrawables:(id)arg1;
 @property(readonly, nonatomic) _Bool isDocumentSetupPage;
+@property(readonly, nonatomic) TPDrawablesZOrder *drawablesZOrder;
 @property(readonly, nonatomic) NSArray *floatingDrawableInfos;
 
 @end

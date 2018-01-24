@@ -7,19 +7,24 @@
 #import "NSObject.h"
 
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class ARFaceTrackingData, NSObject<OS_dispatch_semaphore>;
 
-@interface ARFaceGeometry : NSObject <NSCopying>
+@interface ARFaceGeometry : NSObject <NSSecureCoding, NSCopying>
 {
-    vector_fff08e2a _customVertices;
-    vector_fff08e2a _normals;
+    vector_1cb3ea33 _customVertices;
+    vector_1cb3ea33 _normals;
     ARFaceTrackingData *_trackingData;
     NSObject<OS_dispatch_semaphore> *_normalsSemaphore;
 }
 
++ (_Bool)supportsSecureCoding;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (_Bool)isEqual:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 @property(readonly, nonatomic) unsigned long long triangleCount;
 @property(readonly, nonatomic) const short *triangleIndices;
 @property(readonly, nonatomic) unsigned long long textureCoordinateCount;

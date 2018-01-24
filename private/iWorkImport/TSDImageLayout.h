@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
     TSDLayoutGeometry *mBaseImageLayoutGeometry;
     TSDInfoGeometry *mDynamicInfoGeometry;
     TSDInfoGeometry *mBaseInfoGeometry;
-    int mMaskEditMode;
+    long long mMaskEditMode;
     _Bool mScalingInMaskMode;
     _Bool mInInstantAlphaMode;
     _Bool mIsUpdatingImageAdjustments;
@@ -55,7 +55,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)pathBoundsWithoutStroke;
 - (id)smartPathSource;
 - (void)p_calculateClampModelValuesAndPerformBlock:(CDUnknownBlockType)arg1;
-- (void)transferLayoutGeometryToInfo:(id)arg1;
+- (void)transferLayoutGeometryToInfo:(id)arg1 withAdditionalTransform:(struct CGAffineTransform)arg2 assertIfInDocument:(_Bool)arg3;
 - (_Bool)isInvisible;
 - (_Bool)hasAlpha;
 - (double)descentForInlineLayout;

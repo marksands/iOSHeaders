@@ -35,11 +35,11 @@ struct prs_feature_population_ctx_t {
     struct __CFArray *_field2;
     struct __CFArray *_field3;
     unsigned char _field4;
-    double _field5[28];
-    double _field6;
-    double _field7;
-    double _field8;
-    double _field9;
+    float _field5[28];
+    float _field6;
+    float _field7;
+    float _field8;
+    float _field9;
     unsigned int _field10;
     unsigned long long _field11;
     unsigned long long _field12;

@@ -10,16 +10,18 @@
 {
     id <FCTagProviding> _tag;
     long long _feedType;
+    long long _feedSortMethod;
+    long long _feedFilterOptions;
     id <FCTagProviding> _masterTag;
 }
 
 @property(readonly, copy, nonatomic) id <FCTagProviding> masterTag; // @synthesize masterTag=_masterTag;
+- (long long)feedFilterOptions;
+- (long long)feedSortMethod;
 - (void)setFeedType:(long long)arg1;
 - (long long)feedType;
 @property(copy, nonatomic) id <FCTagProviding> tag; // @synthesize tag=_tag;
 - (void).cxx_destruct;
-- (long long)feedFilterOptions;
-- (long long)feedSortMethod;
 - (id)feedGroupEmittersWithAppConfiguration:(id)arg1;
 - (id)iAdSectionID;
 - (id)iAdFeedID;
@@ -42,7 +44,9 @@
 - (_Bool)hideAccessoryText;
 - (id)name;
 - (_Bool)isEqual:(id)arg1;
-- (id)initWithContext:(id)arg1 identifier:(id)arg2 tag:(id)arg3;
+- (id)initWithIdentifier:(id)arg1;
+- (id)initWithContext:(id)arg1 tag:(id)arg2;
+- (id)initWithContext:(id)arg1 tag:(id)arg2 sortMethod:(long long)arg3 filterOptions:(long long)arg4;
 
 @end
 

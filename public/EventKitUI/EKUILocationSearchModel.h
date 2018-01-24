@@ -59,6 +59,7 @@
 - (void)updateEventLocations:(id)arg1;
 - (void)searchFrequentLocations:(id)arg1;
 - (void)updateRecents:(id)arg1;
+- (void)_updateContactsSearchWithResults:(id)arg1 forToken:(id)arg2;
 - (void)updateContacts:(id)arg1;
 - (void)completerDidUpdateResults:(id)arg1 finished:(_Bool)arg2;
 - (void)dedupeResults;

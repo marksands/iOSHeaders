@@ -11,13 +11,14 @@
 #import "TSDSelectionStatisticsContributor.h"
 #import "TSWPStorageParent.h"
 
-@class NSObject<TSDContainerInfo>, NSString, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSPObject<TSWPFlowInfo>, TSWPColumns, TSWPPadding, TSWPShapeStyle, TSWPStorage;
+@class NSArray, NSObject<TSDContainerInfo>, NSString, TSDInfoGeometry, TSPObject<TSDOwningAttachment>, TSPObject<TSWPFlowInfo>, TSWPColumns, TSWPPadding, TSWPShapeStyle, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TSWPShapeInfo : TSDShapeInfo <TSDMixing, TSDContainerInfo, TSWPStorageParent, TSDSelectionStatisticsContributor>
 {
     TSWPStorage *_containedStorage;
     _Bool _isTextBox;
+    _Bool _preventsComments;
     TSPObject<TSWPFlowInfo> *_textFlow;
 }
 
@@ -34,6 +35,7 @@ __attribute__((visibility("hidden")))
 + (id)textPropertiesAffectingObjectMatch;
 + (id)textPropertiesNeedingCharacterAnimation;
 @property(nonatomic) __weak TSPObject<TSWPFlowInfo> *textFlow; // @synthesize textFlow=_textFlow;
+@property(readonly, nonatomic) _Bool preventsComments; // @synthesize preventsComments=_preventsComments;
 @property(readonly, nonatomic) _Bool isTextBox; // @synthesize isTextBox=_isTextBox;
 - (void).cxx_destruct;
 - (void)processSelectedStoragesWithStatisticsController:(id)arg1;
@@ -42,13 +44,13 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)p_nonTopicParagraphBreakCount;
 - (unsigned long long)p_chunkCountForByBulletGroup;
 - (unsigned long long)p_chunkCountForByBullet;
-- (_Bool)autoListTermination;
-- (_Bool)autoListRecognition;
+@property(readonly, nonatomic) _Bool autoListTermination;
+@property(readonly, nonatomic) _Bool autoListRecognition;
 - (id)stylesForCopyStyle;
 - (id)propertyMapForNewPreset;
 - (struct CGPoint)transformableObjectAnchorPoint;
 - (id)textureDeliveryStylesLocalized:(_Bool)arg1 animationFilter:(id)arg2;
-- (id)childInfos;
+@property(readonly, nonatomic) NSArray *childInfos;
 - (id)copyWithContext:(id)arg1;
 - (Class)repClass;
 - (Class)layoutClass;
@@ -84,12 +86,13 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) int columnDirection;
 @property(nonatomic) int verticalAlignment;
 @property(nonatomic) _Bool textIsVertical;
-- (_Bool)textIsLinked;
+@property(readonly, nonatomic) _Bool textIsLinked;
 @property(nonatomic) _Bool shrinkTextToFit;
 - (_Bool)supportsShrinkTextToFit;
 - (_Bool)supportsTextInset;
 - (_Bool)canAnchor;
 - (_Bool)isLocked;
+@property(readonly, nonatomic) _Bool shouldIgnoreWPContent;
 @property(readonly, nonatomic) _Bool isLinkable;
 @property(readonly, nonatomic) _Bool isLinked;
 - (id)i_ownedTextStorage;
@@ -123,6 +126,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment; // @dynamic owningAttachment;
 @property(readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse; // @dynamic owningAttachmentNoRecurse;
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo; // @dynamic parentInfo;
+@property(readonly, nonatomic) _Bool storageChangesInvalidateWrap;
 @property(readonly) Class superclass;
 
 @end

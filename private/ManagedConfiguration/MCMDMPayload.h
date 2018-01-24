@@ -19,6 +19,8 @@
     NSString *_topic;
     NSString *_serverURLString;
     NSString *_checkInURLString;
+    NSString *_controlURLString;
+    NSString *_statusURLString;
     NSArray *_serverCapabilities;
     NSNumber *_useDevelopmentAPNSNum;
     NSNumber *_signMessageNum;
@@ -35,6 +37,8 @@
 @property(readonly, nonatomic) _Bool checkOutWhenRemoved; // @synthesize checkOutWhenRemoved=_checkOutWhenRemoved;
 @property(readonly, nonatomic) _Bool signMessage; // @synthesize signMessage=_signMessage;
 @property(readonly, nonatomic) int accessRights; // @synthesize accessRights=_accessRights;
+@property(readonly, retain, nonatomic) NSString *statusURLString; // @synthesize statusURLString=_statusURLString;
+@property(readonly, retain, nonatomic) NSString *controlURLString; // @synthesize controlURLString=_controlURLString;
 @property(readonly, retain, nonatomic) NSString *checkInURLString; // @synthesize checkInURLString=_checkInURLString;
 @property(readonly, nonatomic) _Bool useDevelopmentAPNS; // @synthesize useDevelopmentAPNS=_useDevelopmentAPNS;
 @property(readonly, retain, nonatomic) NSString *serverURLString; // @synthesize serverURLString=_serverURLString;

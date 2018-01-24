@@ -7,20 +7,17 @@
 #import "NSObject.h"
 
 #import "NSXPCListenerDelegate.h"
-#import "WBSCyclerDeviceCoordinatorDelegate.h"
 #import "WBSCyclerServiceProtocol.h"
 
-@class NSString, NSXPCListener, WBSCyclerDeviceCoordinator, WBSCyclerTestRunner, WBSCyclerTestTargetProxyController;
+@class NSString, NSXPCListener, WBSCyclerTestRunner, WBSCyclerTestTargetProxyController;
 
-@interface WBSCyclerService : NSObject <NSXPCListenerDelegate, WBSCyclerDeviceCoordinatorDelegate, WBSCyclerServiceProtocol>
+@interface WBSCyclerService : NSObject <NSXPCListenerDelegate, WBSCyclerServiceProtocol>
 {
     NSXPCListener *_xpcListener;
     WBSCyclerTestTargetProxyController *_testTargetProxyController;
     Class _testSuiteClass;
     id <WBSCyclerTestSuite> _testSuite;
     WBSCyclerTestRunner *_testRunner;
-    WBSCyclerDeviceCoordinator *_deviceCoordinator;
-    CDUnknownBlockType _deviceAddressRequestReply;
     NSString *_identifier;
 }
 
@@ -32,12 +29,7 @@
 - (void)_setSeed:(unsigned long long)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)_setTestSuiteName:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (id)_startCyclingFromBeginning:(_Bool)arg1;
-- (void)deviceCoordinator:(id)arg1 didReceiveData:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (void)deviceCoordinatorDidEstablishConnectionsToAllDevices:(id)arg1;
-- (void)deviceCoordinator:(id)arg1 didEncounterError:(id)arg2;
-- (void)deviceCoordinator:(id)arg1 didBeginPrimaryDeviceCoordinationWithAddress:(id)arg2;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
-- (void)fetchDeviceAddressWithReply:(CDUnknownBlockType)arg1;
 - (void)fetchStatusWithReply:(CDUnknownBlockType)arg1;
 - (void)sendRequestToTestSuite:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)stopCyclingWithReply:(CDUnknownBlockType)arg1;

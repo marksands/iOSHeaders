@@ -25,6 +25,7 @@
 @property(readonly) float volume;
 @property(readonly) _Bool providesControlForAllVolumeFeatures;
 @property(readonly) NSArray *outputDevices;
+@property(readonly) _Bool supportsMultipleOutputDevices;
 @property(readonly, copy, nonatomic) NSString *associatedAudioDeviceID;
 @property(readonly, nonatomic) AVOutputDevice *outputDevice;
 @property(readonly, nonatomic) NSString *outputContextType;

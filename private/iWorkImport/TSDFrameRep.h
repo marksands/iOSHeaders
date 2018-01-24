@@ -11,14 +11,16 @@
 __attribute__((visibility("hidden")))
 @interface TSDFrameRep : NSObject
 {
-    TSDFrame *mFrame;
-    NSArray *mImages;
-    NSArray *mMasks;
-    TSDBitmapImageProvider *mAdornment;
-    CALayer *mMaskLayer;
-    _Bool mShouldEnableBlendMode;
+    TSDFrame *_frame;
+    NSArray *_images;
+    NSArray *_masks;
+    TSDBitmapImageProvider *_adornment;
+    CALayer *_maskLayer;
+    _Bool _shouldEnableBlendMode;
 }
 
+@property(readonly, nonatomic) TSDFrame *frame; // @synthesize frame=_frame;
+- (void).cxx_destruct;
 - (void)p_adjustRepeatingLayer:(id)arg1 withImageRect:(struct CGRect)arg2 start:(double)arg3 end:(double)arg4 vertical:(_Bool)arg5;
 - (void)p_setRepeatingLayerWithIndex:(unsigned int)arg1 sublayers:(id)arg2 maskLayers:(id)arg3 toRect:(struct CGRect)arg4 start:(double)arg5 end:(double)arg6;
 - (void)p_setUnreplicatedLayerWithIndex:(unsigned int)arg1 sublayers:(id)arg2 maskLayers:(id)arg3 toRect:(struct CGRect)arg4;
@@ -34,8 +36,8 @@ __attribute__((visibility("hidden")))
 - (void)blendMaskBeforeRenderingImageInContext:(struct CGContext *)arg1;
 - (void)applyMaskForRectWithCoverage:(struct CGRect)arg1 toContext:(struct CGContext *)arg2;
 - (void)frameRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2 withTotalScale:(double)arg3;
-- (id)frame;
 - (void)dealloc;
+- (id)init;
 - (id)initWithTSDFrame:(id)arg1;
 
 @end

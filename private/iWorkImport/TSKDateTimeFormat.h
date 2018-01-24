@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithFormatString:(id)arg1;
 - (id)initWithLocale:(id)arg1;
 - (id)initWithFormatType:(int)arg1;
+@property(readonly, nonatomic) _Bool formatStringContainsAMPMSpecifier;
 @property(readonly, nonatomic) _Bool formatStringContainsOnlyDate;
 
 @end

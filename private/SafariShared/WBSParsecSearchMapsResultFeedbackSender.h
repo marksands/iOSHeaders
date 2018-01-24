@@ -12,10 +12,10 @@
 
 @interface WBSParsecSearchMapsResultFeedbackSender : NSObject <_MKPlaceViewControllerFeedbackDelegate>
 {
-    id <WBSCompletionListItem><WBSParsecSearchResultPresentedInCard> _searchResult;
+    id <WBSParsecSearchResultPresentedInCard><WBSCompletionListItem> _searchResult;
 }
 
-@property(readonly, nonatomic) __weak id <WBSCompletionListItem><WBSParsecSearchResultPresentedInCard> searchResult; // @synthesize searchResult=_searchResult;
+@property(readonly, nonatomic) __weak id <WBSParsecSearchResultPresentedInCard><WBSCompletionListItem> searchResult; // @synthesize searchResult=_searchResult;
 - (void).cxx_destruct;
 - (void)placeViewController:(id)arg1 shouldLogFeedbackOfType:(int)arg2;
 - (id)initWithSearchResult:(id)arg1;

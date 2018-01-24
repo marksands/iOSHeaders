@@ -8,13 +8,14 @@
 
 #import "HMFObject.h"
 
-@class NSArray, NSString;
+@class HMDAccessorySettingMergeStrategy, NSArray, NSString;
 
 @interface HMDAccessorySettingMetadata : HMFObject <HMFObject>
 {
     NSString *_name;
     long long _type;
     unsigned long long _properties;
+    HMDAccessorySettingMergeStrategy *_mergeStrategy;
     NSArray *_constraints;
     id _value;
 }
@@ -24,6 +25,7 @@
 + (id)settingsWithArrayRepresenation:(id)arg1;
 @property(readonly) id value; // @synthesize value=_value;
 @property(readonly, copy) NSArray *constraints; // @synthesize constraints=_constraints;
+@property(readonly) HMDAccessorySettingMergeStrategy *mergeStrategy; // @synthesize mergeStrategy=_mergeStrategy;
 @property(readonly) unsigned long long properties; // @synthesize properties=_properties;
 @property(readonly) long long type; // @synthesize type=_type;
 @property(readonly, copy) NSString *name; // @synthesize name=_name;
@@ -31,7 +33,7 @@
 - (id)modelWithParentIdentifier:(id)arg1;
 - (id)modelsWithParentIdentifier:(id)arg1;
 @property(readonly, copy) NSString *propertyDescription;
-- (id)initWithName:(id)arg1 type:(long long)arg2 properties:(unsigned long long)arg3 constraints:(id)arg4 value:(id)arg5;
+- (id)initWithName:(id)arg1 type:(long long)arg2 properties:(unsigned long long)arg3 constraints:(id)arg4 mergeStrategy:(id)arg5 value:(id)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

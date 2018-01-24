@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 + (id)propertySetWithProperties:(int)arg1;
 + (id)propertySetWithProperty:(int)arg1;
 + (id)p_mutableIndexSetWithFirstProperty:(int)arg1 argumentList:(struct __va_list_tag [1])arg2;
+- (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

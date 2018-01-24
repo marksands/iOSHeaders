@@ -44,6 +44,7 @@
 - (_Bool)paymentWebServiceSupportsPeerPaymentRegistration:(PKPaymentWebService *)arg1;
 - (void)paymentWebService:(PKPaymentWebService *)arg1 removePass:(PKPass *)arg2 withCompletionHandler:(void (^)(_Bool, NSError *))arg3;
 - (void)paymentWebService:(PKPaymentWebService *)arg1 addPaymentPass:(PKPaymentPass *)arg2 withCompletionHandlerV2:(void (^)(PKPaymentPass *))arg3;
+- (_Bool)supportsExpressMode:(NSString *)arg1;
 - (_Bool)supportsExpressModeForExpressPassType:(long long)arg1;
 - (_Bool)felicaSecureElementIsAvailable;
 - (void)paymentWebService:(PKPaymentWebService *)arg1 handlePotentialExpressPass:(PKPaymentPass *)arg2 withCompletionHandler:(void (^)(NSSet *))arg3;

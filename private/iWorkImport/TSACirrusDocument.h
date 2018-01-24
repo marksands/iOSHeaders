@@ -28,7 +28,8 @@ __attribute__((visibility("hidden")))
 - (id)supportDirectoryURL;
 - (id)documentCachePath;
 - (id)name;
-- (id)tskCachedDocumentInfo;
+- (id)tskDocumentInfo;
+- (id)logContext;
 @property(readonly, nonatomic) _Bool skipDocumentUpgrade;
 - (void)documentDidLoad;
 - (void)close;

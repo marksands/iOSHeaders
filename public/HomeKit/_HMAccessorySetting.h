@@ -16,6 +16,7 @@
 @interface _HMAccessorySetting : NSObject <HMFLogging, HMFMessageReceiver, HMFMerging, NSSecureCoding>
 {
     NSMutableOrderedSet *_constraints;
+    _Bool _reflected;
     id <NSCopying><NSSecureCoding> _value;
     id <_HMAccesorySettingDelegate> _delegate;
     NSUUID *_identifier;
@@ -54,6 +55,9 @@
 @property(copy) id <NSCopying><NSSecureCoding> value; // @synthesize value=_value;
 - (void)updateConstraints:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)replaceConstraints:(id)arg1 withConstraints:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_handleReflectedUpdate:(id)arg1;
+- (void)setReflected:(_Bool)arg1;
+@property(readonly, getter=isReflected) _Bool reflected; // @synthesize reflected=_reflected;
 - (void)removeConstraint:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handleRemovedConstraint:(id)arg1;
 - (void)notifyDelegateOfRemovedConstraint:(id)arg1;

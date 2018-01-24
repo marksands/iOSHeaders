@@ -8,17 +8,17 @@
 
 #import "UIWebViewDelegate.h"
 
-@class NSData, NSString, UIWebView;
+@class NSString, UIWebView;
 
 @interface HUInlineWebContainerView : UIView <UIWebViewDelegate>
 {
     UIWebView *_webView;
-    NSData *_content;
+    NSString *_HTMLContent;
     id <HUInlineWebContainerViewDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <HUInlineWebContainerViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) NSData *content; // @synthesize content=_content;
+@property(copy, nonatomic) NSString *HTMLContent; // @synthesize HTMLContent=_HTMLContent;
 @property(readonly, nonatomic) UIWebView *webView; // @synthesize webView=_webView;
 - (void).cxx_destruct;
 - (void)webViewDidFinishLoad:(id)arg1;

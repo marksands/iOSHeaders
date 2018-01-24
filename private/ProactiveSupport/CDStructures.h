@@ -36,7 +36,7 @@ struct _opaque_pthread_mutex_t {
 
 struct unique_ptr<(anonymous namespace)::BuddyAllocator, std::__1::default_delete<(anonymous namespace)::BuddyAllocator>> {
     struct __compressed_pair<(anonymous namespace)::BuddyAllocator *, std::__1::default_delete<(anonymous namespace)::BuddyAllocator>> {
-        struct BuddyAllocator *__first_;
+        struct BuddyAllocator *__value_;
     } __ptr_;
 };
 

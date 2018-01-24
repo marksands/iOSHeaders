@@ -103,7 +103,6 @@
 - (id)_sharedSubscriptionSpecifiers;
 - (void)traitCollectionDidChange:(id)arg1;
 - (id)specifiers;
-- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)_requestConfigurator;
 - (id)_appleIDGrandSlamSigner;

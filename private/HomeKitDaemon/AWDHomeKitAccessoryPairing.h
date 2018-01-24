@@ -20,6 +20,7 @@
     AWDHomeKitVendorInformation *_vendorDetails;
     _Bool _isAdd;
     _Bool _isAddedViaWAC;
+    _Bool _isSecureWAC;
     struct {
         unsigned int timestamp:1;
         unsigned int certified:1;
@@ -28,9 +29,11 @@
         unsigned int transportType:1;
         unsigned int isAdd:1;
         unsigned int isAddedViaWAC:1;
+        unsigned int isSecureWAC:1;
     } _has;
 }
 
+@property(nonatomic) _Bool isSecureWAC; // @synthesize isSecureWAC=_isSecureWAC;
 @property(retain, nonatomic) AWDHomeKitVendorInformation *vendorDetails; // @synthesize vendorDetails=_vendorDetails;
 @property(nonatomic) _Bool isAddedViaWAC; // @synthesize isAddedViaWAC=_isAddedViaWAC;
 @property(nonatomic) _Bool isAdd; // @synthesize isAdd=_isAdd;
@@ -47,6 +50,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIsSecureWAC;
 - (int)StringAsCertified:(id)arg1;
 - (id)certifiedAsString:(int)arg1;
 @property(nonatomic) _Bool hasCertified;

@@ -40,7 +40,6 @@
 - (void)setView:(id)arg1;
 - (void)clearWeakReferencesToObject:(id)arg1;
 - (void)setOrientation:(long long)arg1 animate:(_Bool)arg2;
-- (void)incrementAggregateStatisticsDisplayCount;
 - (void)unregisterForPlayerNotifications;
 - (void)registerForPlayerNotifications;
 - (void)unlockPlayer;

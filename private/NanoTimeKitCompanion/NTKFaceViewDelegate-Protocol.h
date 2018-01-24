@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSString, UIViewController;
+@class NSDate, NSString, NTKFaceView, UIViewController;
 
 @protocol NTKFaceViewDelegate <NSObject>
+- (NSString *)faceViewComplicationAppIdentifierForSlot:(NSString *)arg1;
+- (_Bool)faceView:(NTKFaceView *)arg1 wantsToDismissPresentedViewControllerAnimated:(_Bool)arg2;
 - (void)faceViewWantsToPresentViewController:(UIViewController *)arg1;
 - (void)faceViewRequestedLaunchFromRect:(struct CGRect)arg1;
 - (void)faceViewUpdatedResourceDirectory:(NSString *)arg1 wantsToTransferOwnership:(_Bool)arg2;

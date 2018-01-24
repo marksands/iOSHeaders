@@ -7,30 +7,39 @@
 #import "NSObject.h"
 
 #import "SFFormMetadataObserver.h"
+#import "_SFAuthenticationClient.h"
 
-@class NSMutableIndexSet, NSString, NSTimer, SFFormAutocompleteState, UIView<WBUFormAutoFillWebView>, WKWebView<WBUFormAutoFillWebView>, _WKRemoteObjectInterface;
+@class NSMutableIndexSet, NSMutableSet, NSString, NSTimer, SFFormAutocompleteState, UIView<WBUFormAutoFillWebView>, WKWebView<WBUFormAutoFillWebView>, _SFAuthenticationContext, _SFAutoFillAuthenticationCache, _WKRemoteObjectInterface;
 
-@interface _SFFormAutoFillController : NSObject <SFFormMetadataObserver>
+@interface _SFFormAutoFillController : NSObject <SFFormMetadataObserver, _SFAuthenticationClient>
 {
     WKWebView<WBUFormAutoFillWebView> *_webView;
     id <SFFormAutoFillControllerDelegate> _delegate;
     _WKRemoteObjectInterface *_remoteObjectInterface;
     id <SFFormAutoFiller> _autoFiller;
+    _Bool _isCurrentlyAuthenticating;
     SFFormAutocompleteState *_state;
     NSTimer *_prefillTimer;
     NSMutableIndexSet *_uniqueIDsOfFormsThatWereAutoFilled;
-    _Bool _isCurrentlyAuthenticating;
+    NSMutableSet *_uniqueIDsOfControlsThatWereAutoFilled;
     _Bool _metadataCorrectionsEnabled;
 }
 
 @property(nonatomic) _Bool metadataCorrectionsEnabled; // @synthesize metadataCorrectionsEnabled=_metadataCorrectionsEnabled;
 - (void).cxx_destruct;
 - (void)autoFillDidFinishWithUpdatedFormMetadata:(id)arg1;
+- (void)_removeUniqueIDsOfAutoFilledForm:(id)arg1;
+- (void)_addUniqueIDsOfAutoFilledForm:(id)arg1;
 - (void)willNavigateFrame:(id)arg1 withUnsubmittedForm:(id)arg2 loadingIsDeferred:(_Bool)arg3;
 - (void)didFillGeneratedPasswordInForm:(id)arg1 inFrame:(id)arg2;
 - (void)textDidChangeInTextField:(id)arg1 inForm:(id)arg2 inFrame:(id)arg3;
 - (void)didCollectFormMetadataForPreFilling:(id)arg1 atURL:(id)arg2 ancestorFramesOfFormToPreFill:(id)arg3;
+- (id)authenticationCustomUIProgressObserverForContext:(id)arg1;
+- (id)authenticationMessageForContext:(id)arg1;
 - (void)authenticateForAutoFillOnPageLoad:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)_authenticateForAutoFillForHighLevelDomain:(id)arg1 onPageLoad:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) _SFAuthenticationContext *authenticationContext;
+@property(readonly, nonatomic) _SFAutoFillAuthenticationCache *authenticationCache;
 - (void)_didCollectURLsForPreFilling:(id)arg1 atURL:(id)arg2;
 - (void)didCollectURLsForPreFilling:(id)arg1 atURL:(id)arg2;
 - (void)willSubmitFormValues:(id)arg1 userObject:(id)arg2 submissionHandler:(CDUnknownBlockType)arg3;

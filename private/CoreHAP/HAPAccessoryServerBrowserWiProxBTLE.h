@@ -16,6 +16,7 @@
 - (void)probeReachabilityForTrackedAccessories;
 - (void)stopTrackingHAPBLEAccessoriesWithIdentifiers:(id)arg1;
 - (void)startTrackingHAPBLEAccessoriesWithIdentifiers:(id)arg1;
+- (void)pauseScans;
 - (void)stopBrowsingForHAPBLEAccessories;
 - (void)startBrowsingForHAPBLEAccessories;
 - (id)initWithDelegate:(id)arg1 queue:(id)arg2;

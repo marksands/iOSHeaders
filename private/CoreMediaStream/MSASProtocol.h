@@ -100,7 +100,6 @@
 - (id)HTTPErrorWithStatusCode:(long long)arg1;
 - (void)_prepareHeadersForRequest:(id)arg1;
 - (void)_sendOneURLRequest:(id)arg1 checkServerSideConfigVersion:(_Bool)arg2 retryCount:(unsigned long long)arg3 completionBlock:(CDUnknownBlockType)arg4;
-- (id)_appleIDSession;
 - (void)sendURLRequest:(id)arg1 method:(id)arg2 bodyObj:(id)arg3 checkServerSideConfigVersion:(_Bool)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (void)sendURLRequest:(id)arg1 bodyObj:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (CDUnknownBlockType)stopHandlerBlock;

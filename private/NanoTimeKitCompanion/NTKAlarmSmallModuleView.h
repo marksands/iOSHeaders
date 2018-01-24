@@ -25,6 +25,7 @@
 - (void)setStateActiveWithDate:(id)arg1;
 - (void)setStateNoAlarms;
 - (void)setStateAllAlarmsOff;
+- (void)_setStateAlarmsUnknown;
 - (id)_alarmInactiveImageProviderXL:(_Bool)arg1;
 - (void)_layoutContentView;
 - (void)_enumerateSecondaryForegroundColoringViewsWithBlock:(CDUnknownBlockType)arg1;

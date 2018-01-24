@@ -25,6 +25,10 @@ struct CGSize {
     double height;
 };
 
+struct NSNumber {
+    Class _field1;
+};
+
 struct UIEdgeInsets {
     double top;
     double left;

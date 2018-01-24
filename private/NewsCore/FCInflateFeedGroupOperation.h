@@ -26,6 +26,7 @@
 @property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;
 - (void)_fetchTagsForPBGroup:(id)arg1 sharedStrings:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_fetchHeadlinesWithDeflatedHeadlines:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_fetchHeadlinesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;

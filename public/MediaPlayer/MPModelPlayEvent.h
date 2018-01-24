@@ -10,31 +10,22 @@
 
 @interface MPModelPlayEvent : MPModelObject
 {
-    NSDate *_datePlayed;
-    MPModelAlbum *_album;
-    MPModelArtist *_artist;
-    MPModelPlaylist *_playlist;
-    MPModelRadioStation *_radioStation;
 }
 
-+ (id)__MPModelRelationshipPlayEventRadioStation__PROPERTY;
-+ (id)__radioStation__KEY;
-+ (id)__MPModelRelationshipPlayEventPlaylist__PROPERTY;
-+ (id)__playlist__KEY;
-+ (id)__MPModelRelationshipPlayEventArtist__PROPERTY;
-+ (id)__artist__KEY;
-+ (id)__MPModelRelationshipPlayEventAlbum__PROPERTY;
-+ (id)__album__KEY;
-+ (id)__MPModelPropertyPlayEventDatePlayed__PROPERTY;
-+ (id)__datePlayed__KEY;
-@property(retain, nonatomic) MPModelRadioStation *radioStation; // @synthesize radioStation=_radioStation;
-@property(retain, nonatomic) MPModelPlaylist *playlist; // @synthesize playlist=_playlist;
-@property(retain, nonatomic) MPModelArtist *artist; // @synthesize artist=_artist;
-@property(retain, nonatomic) MPModelAlbum *album; // @synthesize album=_album;
-@property(copy, nonatomic) NSDate *datePlayed; // @synthesize datePlayed=_datePlayed;
-- (void).cxx_destruct;
++ (id)__radioStation_KEY;
++ (id)__playlist_KEY;
++ (id)__artist_KEY;
++ (id)__album_KEY;
++ (id)__datePlayed_KEY;
 - (long long)itemType;
 - (id)contentItemCollectionInfo;
+
+// Remaining properties
+@property(retain, nonatomic) MPModelAlbum *album; // @dynamic album;
+@property(retain, nonatomic) MPModelArtist *artist; // @dynamic artist;
+@property(copy, nonatomic) NSDate *datePlayed; // @dynamic datePlayed;
+@property(retain, nonatomic) MPModelPlaylist *playlist; // @dynamic playlist;
+@property(retain, nonatomic) MPModelRadioStation *radioStation; // @dynamic radioStation;
 
 @end
 

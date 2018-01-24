@@ -44,9 +44,9 @@
 - (void)_tearDownKeyPaths;
 - (void)_setupMissingKeyPaths;
 - (id)_missingKeyPaths;
-- (void)_setupKeyPaths;
-- (void)_updateRootAccessorySettings:(id)arg1;
-- (void)_updateRootAccessorySettingsIfNeeded:(id)arg1;
+- (_Bool)_setupKeyPaths;
+- (_Bool)_updateRootAccessorySettings;
+- (_Bool)_updateRootAccessorySettingsIfNeeded;
 - (void)mediaObject:(id)arg1 didUpdateSettings:(id)arg2;
 - (void)settingsDidUpdate:(id)arg1;
 - (void)accessorySettings:(id)arg1 didUpdateSetting:(id)arg2;

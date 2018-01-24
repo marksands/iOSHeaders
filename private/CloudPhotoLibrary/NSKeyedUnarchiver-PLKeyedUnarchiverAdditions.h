@@ -7,8 +7,6 @@
 #import "NSKeyedUnarchiver.h"
 
 @interface NSKeyedUnarchiver (PLKeyedUnarchiverAdditions)
-+ (id)cpl_safeUnarchiveObjectWithFile:(id)arg1;
-+ (id)cpl_safeUnarchiveObjectWithData:(id)arg1;
-- (id)cpl_safeInitForReadingWithData:(id)arg1;
++ (id)cpl_safeUnarchiveObjectWithData:(id)arg1 class:(Class)arg2;
 @end
 

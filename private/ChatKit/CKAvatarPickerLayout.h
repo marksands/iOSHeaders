@@ -53,6 +53,7 @@
 - (void)prepareLayout;
 - (struct CGSize)collectionViewContentSize;
 - (_Bool)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
+- (void)_setupBannerLayout;
 - (void)_setupPancakeLayout;
 - (void)_setupExpandedLayout;
 - (struct _NSRange)_collapseableRange;

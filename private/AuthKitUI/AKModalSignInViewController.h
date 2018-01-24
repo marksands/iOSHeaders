@@ -7,11 +7,12 @@
 #import <AuthKitUI/AKBaseSignInViewController.h>
 
 #import "AKAppleIDAuthenticationInAppContextAlertDelegate.h"
+#import "AKAppleIDAuthenticationInAppContextPasswordDelegate.h"
 #import "UITextFieldDelegate.h"
 
 @class AKRoundedButton, NSString, UIButton, UIControl, UILabel, UITextField, UIView;
 
-@interface AKModalSignInViewController : AKBaseSignInViewController <AKAppleIDAuthenticationInAppContextAlertDelegate, UITextFieldDelegate>
+@interface AKModalSignInViewController : AKBaseSignInViewController <AKAppleIDAuthenticationInAppContextAlertDelegate, AKAppleIDAuthenticationInAppContextPasswordDelegate, UITextFieldDelegate>
 {
     UIControl *_firstResponder;
     UILabel *_titleLabel;
@@ -29,6 +30,7 @@
 @property(retain, nonatomic) UILabel *bodyLabel; // @synthesize bodyLabel=_bodyLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void).cxx_destruct;
+- (void)context:(id)arg1 needsPasswordWithCompletion:(CDUnknownBlockType)arg2;
 - (void)displayAlertForContext:(id)arg1 error:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)textFieldShouldReturn:(id)arg1;
 - (_Bool)canBecomeFirstResponder;

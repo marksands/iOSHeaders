@@ -6,11 +6,11 @@
 
 #import <CVML/CVMLObservation.h>
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSArray, NSMutableArray, NSMutableDictionary, NSString;
 
-@interface CVMLFaceModelObservation : CVMLObservation <NSCoding>
+@interface CVMLFaceModelObservation : CVMLObservation <NSSecureCoding>
 {
     _Bool mIsModelBuilt;
     unsigned int mModelVersion;
@@ -25,6 +25,7 @@
     NSArray *_modelLabels;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain) NSArray *modelLabels; // @synthesize modelLabels=_modelLabels;
 - (id).cxx_construct;
 - (void).cxx_destruct;

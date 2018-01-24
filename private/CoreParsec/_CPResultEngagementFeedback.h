@@ -39,7 +39,7 @@
 @property(nonatomic) int destination; // @synthesize destination=_destination;
 @property(nonatomic) int triggerEvent; // @synthesize triggerEvent=_triggerEvent;
 @property(nonatomic) _Bool actionEngaged; // @synthesize actionEngaged=_actionEngaged;
-@property(nonatomic) unsigned long long timestamp;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;

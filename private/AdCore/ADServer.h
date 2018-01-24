@@ -12,8 +12,8 @@
 
 @interface ADServer : ADSingleton <NSURLSessionDelegate>
 {
+    int _configurationExpirationTime;
     NSDictionary *_configurations;
-    double _configurationExpirationTime;
     NSURLSession *_session;
 }
 
@@ -21,7 +21,7 @@
 + (void)initialize;
 + (id)sharedInstance;
 @property(retain) NSURLSession *session; // @synthesize session=_session;
-@property double configurationExpirationTime; // @synthesize configurationExpirationTime=_configurationExpirationTime;
+@property int configurationExpirationTime; // @synthesize configurationExpirationTime=_configurationExpirationTime;
 @property(retain) NSDictionary *configurations; // @synthesize configurations=_configurations;
 - (void).cxx_destruct;
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;

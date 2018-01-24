@@ -7,12 +7,14 @@
 #import "NSObject.h"
 
 #import "BSDescriptionProviding.h"
+#import "XBApplicationSnapshotManifestDelegate.h"
 
 @class NSString, XBApplicationSnapshotManifestImpl;
 
-@interface XBApplicationSnapshotManifest : NSObject <BSDescriptionProviding>
+@interface XBApplicationSnapshotManifest : NSObject <XBApplicationSnapshotManifestDelegate, BSDescriptionProviding>
 {
     XBApplicationSnapshotManifestImpl *_manifestImpl;
+    id <XBApplicationSnapshotManifestDelegate> _delegate;
 }
 
 + (unsigned long long)maximumInFlightDataSize;
@@ -20,7 +22,9 @@
 + (id)debugDescription;
 + (void)initialize;
 @property(readonly, nonatomic) __weak XBApplicationSnapshotManifestImpl *manifestImpl; // @synthesize manifestImpl=_manifestImpl;
+@property(nonatomic) __weak id <XBApplicationSnapshotManifestDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)manifestDidUpdateUnderMemoryPressure:(id)arg1;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;

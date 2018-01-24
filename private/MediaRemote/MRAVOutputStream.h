@@ -8,7 +8,6 @@
 
 @class AVOutputContext, AVOutputContextCommunicationChannel;
 
-__attribute__((visibility("hidden")))
 @interface MRAVOutputStream : MRAVBufferedOutputStream
 {
     AVOutputContextCommunicationChannel *_communicationChannel;
@@ -16,6 +15,7 @@ __attribute__((visibility("hidden")))
     AVOutputContext *_outputContext;
 }
 
+@property(readonly, nonatomic) AVOutputContextCommunicationChannel *communicationChannel; // @synthesize communicationChannel=_communicationChannel;
 @property(readonly, nonatomic) AVOutputContext *outputContext; // @synthesize outputContext=_outputContext;
 - (void)_outputContextDidCloseCommunicationChannelNotification:(id)arg1;
 - (_Bool)hasSpaceAvailable;
@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithURL:(id)arg1 append:(_Bool)arg2;
 - (id)initToBuffer:(char *)arg1 capacity:(unsigned long long)arg2;
 - (id)initToMemory;
+- (id)initWithCommunicationChannel:(id)arg1;
 - (id)initWithOutputContext:(id)arg1;
 
 @end

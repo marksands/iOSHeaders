@@ -60,7 +60,7 @@
 - (void)volumeController:(id)arg1 volumeControlLabelDidChange:(id)arg2;
 - (void)volumeController:(id)arg1 volumeControlAvailableDidChange:(_Bool)arg2;
 @property(readonly, nonatomic) NSString *volumeAudioCategory;
-@property(readonly, nonatomic, getter=isOnScreen) _Bool onScreen;
+@property(readonly, nonatomic, getter=isOnScreenForVolumeDisplay) _Bool onScreenForVolumeDisplay;
 - (void)setVolumeDataSource:(id)arg1;
 @property(retain, nonatomic) MPAVRoute *route;
 @property(retain, nonatomic) MPAVController *player;
@@ -93,6 +93,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic, getter=isOnScreen) _Bool onScreen;
 @property(readonly) Class superclass;
 
 @end

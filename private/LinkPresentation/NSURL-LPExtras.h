@@ -9,6 +9,7 @@
 @interface NSURL (LPExtras)
 + (id)_lp_URLWithUserTypedString:(id)arg1 relativeToURL:(id)arg2;
 - (id)_lp_highLevelDomain;
+- (_Bool)_lp_userVisibleStringUsesEncodedHost;
 - (id)_lp_userVisibleString;
 - (id)_lp_simplifiedDisplayString;
 @end

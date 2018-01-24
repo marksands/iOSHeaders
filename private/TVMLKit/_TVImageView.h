@@ -54,6 +54,8 @@
 - (void)_setCornerRadius:(double)arg1;
 - (double)_continuousCornerRadius;
 - (void)_setContinuousCornerRadius:(double)arg1;
+- (id)backgroundColor;
+- (void)setBackgroundColor:(id)arg1;
 - (void)setImageProxy:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(retain, nonatomic) UIImage *image;
 - (void)willMoveToWindow:(id)arg1;

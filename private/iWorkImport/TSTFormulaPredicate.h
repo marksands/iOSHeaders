@@ -60,8 +60,8 @@ __attribute__((visibility("hidden")))
 - (id)copyByUpgradingToLinkedRefForTable:(const UUIDData_5fbc143e *)arg1 hostCell:(struct TSUCellCoord)arg2;
 - (id)copyByOffsettingRelativeReferencesWithColumnOffset:(short)arg1 rowOffset:(int)arg2;
 - (id)copyByRewritingWithSpec:(id)arg1 inOwner:(id)arg2 inCellCoordinate:(struct TSUCellCoord)arg3;
-- (id)copyByRemappingHostCellAgnosticOwnerUIDsWithMap:(const UUIDMap_727ee07e *)arg1 calcEngine:(id)arg2 ownerUID:(const UUIDData_5fbc143e *)arg3 error:(_Bool *)arg4;
-- (id)copyByRemappingOwnerUIDsWithMap:(const UUIDMap_727ee07e *)arg1 calcEngine:(id)arg2 error:(_Bool *)arg3;
+- (id)copyByRemappingHostCellAgnosticOwnerUIDsWithMap:(const UUIDMap_b66c2694 *)arg1 calcEngine:(id)arg2 ownerUID:(const UUIDData_5fbc143e *)arg3 error:(_Bool *)arg4;
+- (id)copyByRemappingOwnerUIDsWithMap:(const UUIDMap_b66c2694 *)arg1 calcEngine:(id)arg2 error:(_Bool *)arg3;
 - (void)p_populateMembersFromFormula;
 - (void)p_clearDerivedVariables;
 - (id)description;

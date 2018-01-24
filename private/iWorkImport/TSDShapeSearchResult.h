@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSNumber, NSString;
 
 __attribute__((visibility("hidden")))
 @interface TSDShapeSearchResult : NSObject
@@ -15,8 +15,10 @@ __attribute__((visibility("hidden")))
     id _identifier;
     NSString *_matchingKeyword;
     unsigned long long _priority;
+    NSNumber *_score;
 }
 
+@property(copy, nonatomic) NSNumber *score; // @synthesize score=_score;
 @property(readonly, nonatomic) unsigned long long priority; // @synthesize priority=_priority;
 @property(nonatomic) _Bool isExactMatch; // @synthesize isExactMatch=_isExactMatch;
 @property(readonly, nonatomic) NSString *matchingKeyword; // @synthesize matchingKeyword=_matchingKeyword;
@@ -25,7 +27,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
-- (id)initWithIdentifier:(id)arg1 matchingKeyword:(id)arg2 priority:(unsigned long long)arg3;
+- (id)initWithIdentifier:(id)arg1 matchingKeyword:(id)arg2 priority:(unsigned long long)arg3 score:(id)arg4;
 
 @end
 

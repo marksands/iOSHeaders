@@ -9,15 +9,15 @@
 @class CKRecord, CKRecordID, CKRecordZone, CKRecordZoneID, FCCKPrivateDatabase, NSString;
 
 @protocol FCCKDatabaseRecordMiddleware <NSObject>
-- (NSString *)clientRecordType:(NSString *)arg1 withRecordID:(CKRecordID *)arg2 inDatabase:(FCCKPrivateDatabase *)arg3 error:(id *)arg4;
-- (NSString *)serverRecordType:(NSString *)arg1 withRecordID:(CKRecordID *)arg2 inDatabase:(FCCKPrivateDatabase *)arg3 error:(id *)arg4;
-- (CKRecordZone *)clientRecordZone:(CKRecordZone *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
-- (CKRecordZone *)serverRecordZone:(CKRecordZone *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
-- (CKRecord *)clientRecord:(CKRecord *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
-- (CKRecord *)serverRecord:(CKRecord *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
-- (CKRecordZoneID *)clientRecordZoneID:(CKRecordZoneID *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
-- (CKRecordZoneID *)serverRecordZoneID:(CKRecordZoneID *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
-- (CKRecordID *)clientRecordID:(CKRecordID *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
-- (CKRecordID *)serverRecordID:(CKRecordID *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
+- (NSString *)serverToClientRecordType:(NSString *)arg1 withRecordID:(CKRecordID *)arg2 inDatabase:(FCCKPrivateDatabase *)arg3 error:(id *)arg4;
+- (NSString *)clientToServerRecordType:(NSString *)arg1 withRecordID:(CKRecordID *)arg2 inDatabase:(FCCKPrivateDatabase *)arg3 error:(id *)arg4;
+- (CKRecordZone *)serverToClientRecordZone:(CKRecordZone *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
+- (CKRecordZone *)clientToServerRecordZone:(CKRecordZone *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
+- (CKRecord *)serverToClientRecord:(CKRecord *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
+- (CKRecord *)clientToServerRecord:(CKRecord *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
+- (CKRecordZoneID *)serverToClientRecordZoneID:(CKRecordZoneID *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
+- (CKRecordZoneID *)clientToServerRecordZoneID:(CKRecordZoneID *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
+- (CKRecordID *)serverToClientRecordID:(CKRecordID *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
+- (CKRecordID *)clientToServerRecordID:(CKRecordID *)arg1 inDatabase:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
 @end
 

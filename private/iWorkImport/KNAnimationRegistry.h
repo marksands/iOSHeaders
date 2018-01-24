@@ -11,12 +11,12 @@
 __attribute__((visibility("hidden")))
 @interface KNAnimationRegistry : NSObject
 {
-    NSDictionary *mClassesForTypeAndName;
-    NSDictionary *mClassesForTypeAndCategory;
-    NSDictionary *mClassesForTypeAndFilter;
-    NSDictionary *mClassesForTypeAndObsoleteName;
-    NSDictionary *mAlternateEffectIdentifiersForEffectIdentifierAndFilter;
-    NSArray *mAnimationInfos;
+    NSDictionary *_classesForTypeAndName;
+    NSDictionary *_classesForTypeAndCategory;
+    NSDictionary *_classesForTypeAndFilter;
+    NSDictionary *_classesForTypeAndObsoleteName;
+    NSDictionary *_alternateEffectIdentifiersForEffectIdentifierAndFilter;
+    NSArray *_animationInfos;
 }
 
 + (id)localizedNameForUnsupportedAnimation:(id)arg1;
@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 + (id)categoryNameForPluginClass:(Class)arg1;
 + (id)animationsInBundle;
 + (id)instance;
+- (void).cxx_destruct;
 - (id)animationInfosForAnimationType:(long long)arg1 filter:(id)arg2;
 - (_Bool)canMapEffectIdentifier:(id)arg1 animationType:(long long)arg2 toEffectIdentifier:(id)arg3 includeObsoleteNames:(_Bool)arg4 forDrawable:(id)arg5;
 - (id)allAnimationInfos;
@@ -32,7 +33,6 @@ __attribute__((visibility("hidden")))
 - (id)animationInfoForEffectIdentifier:(id)arg1 animationType:(long long)arg2;
 - (id)animationInfosForAnimationType:(long long)arg1 category:(id)arg2;
 - (id)distinctCategoriesForType:(long long)arg1;
-- (void)dealloc;
 - (id)init;
 - (id)p_buildAlternateFilterMap;
 

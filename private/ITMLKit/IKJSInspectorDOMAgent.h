@@ -8,25 +8,25 @@
 
 #import "RWIProtocolDOMDomainHandler.h"
 
-@class IKJSInspectorController, NSMutableDictionary, NSString, RWIProtocolDOMNode;
+@class IKJSInspectorController, NSMapTable, NSMutableDictionary, NSString, RWIProtocolDOMNode;
 
 @interface IKJSInspectorDOMAgent : NSObject <RWIProtocolDOMDomainHandler>
 {
     NSMutableDictionary *_searches;
     RWIProtocolDOMNode *_rootNode;
+    NSMapTable *_eventListenersMap;
+    int _eventListenerIdSequence;
+    _Bool _inspectElementModeEnabled;
     IKJSInspectorController *_controller;
 }
 
 + (id)_nodeIDsFromNodePaths:(id)arg1;
-+ (id)_searchNode:(id)arg1 query:(id)arg2 currentPath:(id)arg3;
-+ (void)_updateProtocolNode:(id)arg1 withDOMNode:(id)arg2 dispatcher:(id)arg3;
 + (id)_parseAttributeString:(id)arg1;
-+ (id)_procotolNodeForDOMNode:(id)arg1;
-+ (void)_buildNodePath:(id)arg1 rootProtocolNode:(id)arg2 rootDOMNode:(id)arg3 withDispatcher:(id)arg4;
-+ (id)_buildNodeTreeForNode:(id)arg1 depth:(int)arg2;
-+ (id)_findNodeWithNodeId:(int)arg1 node:(id)arg2;
+@property(readonly, nonatomic, getter=isInspectElementModeEnabled) _Bool inspectElementModeEnabled; // @synthesize inspectElementModeEnabled=_inspectElementModeEnabled;
 @property(readonly, nonatomic) __weak IKJSInspectorController *controller; // @synthesize controller=_controller;
 - (void).cxx_destruct;
+- (void)_fullfillNodePath:(id)arg1;
+- (void)setInspectedNodeWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3;
 - (void)focusWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3;
 - (void)markUndoableStateWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2;
 - (void)redoWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2;
@@ -50,10 +50,13 @@
 - (void)discardSearchResultsWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 searchId:(id)arg3;
 - (void)getSearchResultsWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 searchId:(id)arg3 fromIndex:(int)arg4 toIndex:(int)arg5;
 - (void)performSearchWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 query:(id)arg3 nodeIds:(id *)arg4;
+- (void)insertAdjacentHTMLWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3 position:(id)arg4 html:(id)arg5;
 - (void)setOuterHTMLWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3 outerHTML:(id)arg4;
 - (void)getOuterHTMLWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3;
 - (void)getAccessibilityPropertiesForNodeWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3;
+- (void)setEventListenerDisabledWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 eventListenerId:(int)arg3 disabled:(_Bool)arg4;
 - (void)getEventListenersForNodeWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3 objectGroup:(id *)arg4;
+- (int)_eventListenerIDForListener:(id)arg1;
 - (void)removeAttributeWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3 name:(id)arg4;
 - (void)setAttributesAsTextWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3 text:(id)arg4 name:(id *)arg5;
 - (void)setAttributeValueWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3 name:(id)arg4 value:(id)arg5;
@@ -64,6 +67,9 @@
 - (void)querySelectorWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3 selector:(id)arg4;
 - (void)requestChildNodesWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3 depth:(int *)arg4;
 - (void)getDocumentWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2;
+- (void)willRemoveEventListenerForNodeID:(int)arg1;
+- (void)didAddEventListenerForNodeID:(int)arg1;
+- (void)inspectNodeWithID:(long long)arg1;
 - (void)documentDidChange;
 - (void)documentDidUpdate;
 - (id)initWithInspectorController:(id)arg1;

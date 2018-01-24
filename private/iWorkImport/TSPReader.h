@@ -9,13 +9,14 @@
 #import "TSPObjectDelegate.h"
 #import "TSPUnarchiverDelegate.h"
 
-@class NSError, NSHashTable, NSMapTable, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString, TSPComponent, TSPComponentObjectUUIDMap, TSPFinalizeHandlerQueue, TSPObjectContext;
+@class NSError, NSHashTable, NSMapTable, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString, TSPCancellationState, TSPComponent, TSPComponentObjectUUIDMap, TSPFinalizeHandlerQueue, TSPObjectContext;
 
 __attribute__((visibility("hidden")))
 @interface TSPReader : NSObject <TSPObjectDelegate, TSPUnarchiverDelegate>
 {
     _Bool _hasReadFailure;
     id <TSPReaderDelegate> _delegate;
+    TSPCancellationState *_cancellationState;
     TSPComponent *_component;
     TSPComponentObjectUUIDMap *_componentObjectUUIDMap;
     TSPFinalizeHandlerQueue *_finalizeHandlerQueue;
@@ -25,7 +26,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_unarchiveQueue;
     NSObject<OS_dispatch_queue> *_objectsQueue;
     struct unordered_map<long long, TSP::ObjectInfo, TSP::ObjectIdentifierHash, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, TSP::ObjectInfo>>> _objectInfoMap;
-    vector_8ef431c5 _repeatedReferences;
+    vector_cc556b2d _repeatedReferences;
     NSMapTable *_objects;
     NSObject<OS_dispatch_queue> *_objectsToModifyQueue;
     NSHashTable *_objectsToModify;

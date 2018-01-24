@@ -79,6 +79,11 @@ struct _NSRange {
 #pragma mark Typedef'd Structures
 
 typedef struct {
+    _Bool foreground;
+    _Bool foregroundActive;
+} CDStruct_973bafd3;
+
+typedef struct {
     unsigned long long numberOfSections;
     unsigned long long *indexToSection;
     unsigned long long *sectionToIndex;

@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_recalcHighPriorityQueue;
     NSObject<OS_dispatch_queue> *_recalcLowPriorityQueue;
     NSObject<OS_dispatch_semaphore> *_modifiedOwnersSem;
-    unordered_set_3f00ed57 _modifiedOwnersInThisRecalcCycle;
+    unordered_set_c6a929bd _modifiedOwnersInThisRecalcCycle;
     _Bool _shouldRefillRecalcQueue;
     NSMutableSet *_retainReferenceResolvers;
     struct unordered_map<TSU::UUIDData<TSP::UUIDData>, id<TSCEReferenceResolving>, std::__1::hash<TSUUUID>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, std::__1::allocator<std::__1::pair<const TSU::UUIDData<TSP::UUIDData>, id<TSCEReferenceResolving>>>> _referenceResolversByUid;
@@ -42,6 +42,8 @@ __attribute__((visibility("hidden")))
     _Bool _dirtyAllFormulasInDocumentDidLoad;
     UUIDData_5fbc143e _transposingTableUID;
     _Bool _duringRollback;
+    _Bool _calculationWillShutDown;
+    _Bool _sentSetNowCommand;
     int _XLImportDateMode;
     TSKAccessController *_accessController;
     TSKChangeNotifier *_changeNotifier;
@@ -145,6 +147,7 @@ __attribute__((visibility("hidden")))
 - (void)markLocationVolatileFunctionsAsDirty;
 - (void)markLocaleVolatileFunctionsAsDirty;
 - (void)markRandomVolatileFunctionsAsDirty;
+@property(readonly, nonatomic) _Bool shouldSendSetNowCommand;
 - (void)markTimeVolatileFunctionsAsDirtyForCurrentDateTime;
 - (void)markTimeVolatileFunctionsAsDirty;
 - (void)detectAndRepairConsistencyViolations;
@@ -170,8 +173,8 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)dirtyCellCount;
 - (unsigned long long)dirtyCellCountInOwner:(const UUIDData_5fbc143e *)arg1;
 - (unordered_set_7ec2a700)formulaCellsUsingVolatiles:(unsigned long long)arg1;
-- (vector_13f93596)formulaCoordsInRange:(const struct TSCERangeCoordinate *)arg1 inOwner:(const UUIDData_5fbc143e *)arg2;
-- (vector_13f93596)formulaCoordsReferringToRange:(const struct TSCERangeRef *)arg1 fromOwner:(const UUIDData_5fbc143e *)arg2;
+- (vector_38b190b0)formulaCoordsInRange:(const struct TSCERangeCoordinate *)arg1 inOwner:(const UUIDData_5fbc143e *)arg2;
+- (vector_38b190b0)formulaCoordsReferringToRange:(const struct TSCERangeRef *)arg1 fromOwner:(const UUIDData_5fbc143e *)arg2;
 - (void)foreachFormulaInOwner:(const UUIDData_5fbc143e *)arg1 block:(CDUnknownBlockType)arg2;
 - (struct TSCECellRef)rootCauseForErrorInCell:(const struct TSCECellRef *)arg1 atRootCell:(_Bool *)arg2;
 - (void)clearErrorForCell:(const struct TSCECellRef *)arg1;
@@ -189,10 +192,11 @@ __attribute__((visibility("hidden")))
 - (void)setOwnerUIDForLegacyGlobalID:(id)arg1 ownerUID:(const UUIDData_5fbc143e *)arg2;
 - (UUIDData_5fbc143e)ownerUIDForLegacyGlobalID:(id)arg1 registeringIfNeeded:(_Bool)arg2;
 - (id)resolverForTableUID:(const UUIDData_5fbc143e *)arg1;
+- (id)anyResolver;
 - (id)resolverForCellRef:(id)arg1;
 - (void)clearLegacyGlobalIDs;
 - (void)enumerateFormulaOwnersUsingBlock:(CDUnknownBlockType)arg1;
-- (vector_dadc1b26)allOwnerUIDs;
+- (vector_4dc5f307)allOwnerUIDs;
 - (id)ownerForOwnerUID:(const UUIDData_5fbc143e *)arg1;
 - (_Bool)allOwnersRegistered;
 - (_Bool)ownerIsRegistered:(const UUIDData_5fbc143e *)arg1;
@@ -205,7 +209,7 @@ __attribute__((visibility("hidden")))
 - (void)recalculateWithTimeout:(double)arg1;
 - (void)recalcHoldingWriteLock;
 - (void)notifyObserversOfRecalcProgress;
-- (void)wroteCells:(const vector_13f93596 *)arg1 inOwnerUID:(const UUIDData_5fbc143e *)arg2;
+- (void)wroteCells:(const vector_38b190b0 *)arg1 inOwnerUID:(const UUIDData_5fbc143e *)arg2;
 - (_Bool)recalcHoldingReadLock;
 - (void)p_recalcOneCellHoldingReadLock:(struct TSCEInternalCellReference)arg1 formulaOwner:(id)arg2 hasExistingCalculatedPrecedents:(_Bool)arg3 isInACycle:(_Bool)arg4;
 - (void)p_enqueueTaskForCell:(struct TSCEInternalCellReference)arg1;

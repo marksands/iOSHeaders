@@ -14,10 +14,12 @@
 @interface ARAccelerometerData : NSObject <ARMutableSensorData, NSSecureCoding>
 {
     double _timestamp;
+    double _temperature;
     CDStruct_31142d93 _acceleration;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) double temperature; // @synthesize temperature=_temperature;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(nonatomic) CDStruct_31142d93 acceleration; // @synthesize acceleration=_acceleration;
 - (id)copyWithZone:(struct _NSZone *)arg1;

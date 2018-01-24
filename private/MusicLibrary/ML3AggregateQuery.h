@@ -6,15 +6,18 @@
 
 #import <MusicLibrary/ML3Query.h>
 
+#import "NSSecureCoding.h"
+
 @class NSString;
 
-@interface ML3AggregateQuery : ML3Query
+@interface ML3AggregateQuery : ML3Query <NSSecureCoding>
 {
     Class _aggregateEntityClass;
     NSString *_foreignPersistentIDProperty;
     _Bool _isFastCountable;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool isFastCountable; // @synthesize isFastCountable=_isFastCountable;
 @property(readonly, nonatomic) NSString *foreignPersistentIDProperty; // @synthesize foreignPersistentIDProperty=_foreignPersistentIDProperty;
 @property(readonly, nonatomic) Class aggregateEntityClass; // @synthesize aggregateEntityClass=_aggregateEntityClass;

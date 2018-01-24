@@ -110,7 +110,7 @@ struct PKAzimuthFilter {
     double _field4;
     long long _field5;
     long long _field6;
-    vector_0f1b893d _field7;
+    vector_58517711 _field7;
     long long _field8;
     _Bool _field9;
     double _field10;
@@ -139,7 +139,7 @@ struct PKCompressionFilter {
     double _field4;
     long long _field5;
     long long _field6;
-    vector_5de2d2d9 _field7;
+    vector_03cfcf00 _field7;
     long long _field8;
     struct vector<PKCompressedStrokePoint, std::__1::allocator<PKCompressedStrokePoint>> _field9;
 };
@@ -153,7 +153,7 @@ struct PKDecompressionFilter {
     long long _field6;
     struct vector<PKCompressedStrokePoint, std::__1::allocator<PKCompressedStrokePoint>> _field7;
     long long _field8;
-    vector_5de2d2d9 _field9;
+    vector_03cfcf00 _field9;
     double _field10;
 };
 
@@ -228,9 +228,9 @@ struct PKInputSmoother {
     double _field4;
     long long _field5;
     long long _field6;
-    vector_5de2d2d9 _field7;
+    vector_03cfcf00 _field7;
     long long _field8;
-    vector_5de2d2d9 _field9;
+    vector_03cfcf00 _field9;
     double _field10;
     struct vector<PKSmoothingPoint, std::__1::allocator<PKSmoothingPoint>> _field11;
     id _field12;
@@ -243,9 +243,9 @@ struct PKInputToOutputFilter {
     double _field4;
     long long _field5;
     long long _field6;
-    vector_0f1b893d _field7;
+    vector_58517711 _field7;
     long long _field8;
-    vector_5de2d2d9 _field9;
+    vector_03cfcf00 _field9;
     id _field10;
 };
 
@@ -270,9 +270,9 @@ struct PKPointReductionFilter {
     double _field4;
     long long _field5;
     long long _field6;
-    vector_0f1b893d _field7;
+    vector_58517711 _field7;
     long long _field8;
-    vector_0f1b893d _field9;
+    vector_58517711 _field9;
     long long _field10;
     long long _field11;
     long long _field12;
@@ -290,9 +290,9 @@ struct PKRulerExtremaFilter {
     double _field4;
     long long _field5;
     long long _field6;
-    vector_5de2d2d9 _field7;
+    vector_03cfcf00 _field7;
     long long _field8;
-    vector_5de2d2d9 _field9;
+    vector_03cfcf00 _field9;
     id _field10;
 };
 
@@ -589,23 +589,23 @@ struct unique_ptr<legacy_drawing::VectorTimestampClock, std::__1::default_delete
 
 struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, void *>*>*>>> {
     struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, void *>*> **__first_;
+        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, void *>*> **__value_;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, void *>*>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, void *>*>*>> {
-                unsigned long long __first_;
+                unsigned long long __value_;
             } __data_;
-        } __second_;
+        } __value_;
     } __ptr_;
 };
 
 struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, void *>*>*>>> {
     struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, void *>*> **__first_;
+        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, void *>*> **__value_;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, void *>*>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, void *>*>*>> {
-                unsigned long long __first_;
+                unsigned long long __value_;
             } __data_;
-        } __second_;
+        } __value_;
     } __ptr_;
 };
 
@@ -621,13 +621,13 @@ struct unordered_map<unsigned long long, DKDGLFrameBufferTextureConfig *, std::_
     struct __hash_table<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, std::__1::__unordered_map_hasher<unsigned long long, std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, std::__1::hash<unsigned long long>, true>, std::__1::__unordered_map_equal<unsigned long long, std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, std::__1::equal_to<unsigned long long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>>> {
         struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, void *>*>*>>> __bucket_list_;
         struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, void *>*> __first_;
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, void *>*> __value_;
         } __p1_;
         struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned long long, std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, std::__1::hash<unsigned long long>, true>> {
-            unsigned long long __first_;
+            unsigned long long __value_;
         } __p2_;
         struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned long long, std::__1::__hash_value_type<unsigned long long, DKDGLFrameBufferTextureConfig *>, std::__1::equal_to<unsigned long long>, true>> {
-            float __first_;
+            float __value_;
         } __p3_;
     } __table_;
 };
@@ -636,13 +636,13 @@ struct unordered_map<unsigned long long, DKDGLShader *, std::__1::hash<unsigned 
     struct __hash_table<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, std::__1::__unordered_map_hasher<unsigned long long, std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, std::__1::hash<unsigned long long>, true>, std::__1::__unordered_map_equal<unsigned long long, std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, std::__1::equal_to<unsigned long long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>>> {
         struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, void *>*>*>>> __bucket_list_;
         struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, void *>*> __first_;
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, void *>*> __value_;
         } __p1_;
         struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned long long, std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, std::__1::hash<unsigned long long>, true>> {
-            unsigned long long __first_;
+            unsigned long long __value_;
         } __p2_;
         struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned long long, std::__1::__hash_value_type<unsigned long long, DKDGLShader *>, std::__1::equal_to<unsigned long long>, true>> {
-            float __first_;
+            float __value_;
         } __p3_;
     } __table_;
 };
@@ -651,7 +651,7 @@ struct vector<AnimatingStroke, std::__1::allocator<AnimatingStroke>> {
     struct AnimatingStroke *__begin_;
     struct AnimatingStroke *__end_;
     struct __compressed_pair<AnimatingStroke *, std::__1::allocator<AnimatingStroke>> {
-        struct AnimatingStroke *__first_;
+        struct AnimatingStroke *__value_;
     } __end_cap_;
 };
 
@@ -675,7 +675,7 @@ struct vector<PKInputPoint, std::__1::allocator<PKInputPoint>> {
     CDStruct_183601bc *__begin_;
     CDStruct_183601bc *__end_;
     struct __compressed_pair<PKInputPoint *, std::__1::allocator<PKInputPoint>> {
-        CDStruct_183601bc *__first_;
+        CDStruct_183601bc *__value_;
     } __end_cap_;
 };
 
@@ -683,7 +683,7 @@ struct vector<PKOutputFunction, std::__1::allocator<PKOutputFunction>> {
     struct PKOutputFunction *__begin_;
     struct PKOutputFunction *__end_;
     struct __compressed_pair<PKOutputFunction *, std::__1::allocator<PKOutputFunction>> {
-        struct PKOutputFunction *__first_;
+        struct PKOutputFunction *__value_;
     } __end_cap_;
 };
 
@@ -699,7 +699,7 @@ struct vector<_PKStrokePoint, std::__1::allocator<_PKStrokePoint>> {
     struct _PKStrokePoint *__begin_;
     struct _PKStrokePoint *__end_;
     struct __compressed_pair<_PKStrokePoint *, std::__1::allocator<_PKStrokePoint>> {
-        struct _PKStrokePoint *__first_;
+        struct _PKStrokePoint *__value_;
     } __end_cap_;
 };
 
@@ -928,23 +928,23 @@ typedef struct vector<PKInputPoint, std::__1::allocator<PKInputPoint>> {
     CDStruct_183601bc *__begin_;
     CDStruct_183601bc *__end_;
     struct __compressed_pair<PKInputPoint *, std::__1::allocator<PKInputPoint>> {
-        CDStruct_183601bc *__first_;
+        CDStruct_183601bc *__value_;
     } __end_cap_;
-} vector_0f1b893d;
+} vector_58517711;
 
 typedef struct vector<PKOutputFunction, std::__1::allocator<PKOutputFunction>> {
     struct PKOutputFunction *__begin_;
     struct PKOutputFunction *__end_;
     struct __compressed_pair<PKOutputFunction *, std::__1::allocator<PKOutputFunction>> {
-        struct PKOutputFunction *__first_;
+        struct PKOutputFunction *__value_;
     } __end_cap_;
-} vector_3aeccfac;
+} vector_2b0a8222;
 
 typedef struct vector<_PKStrokePoint, std::__1::allocator<_PKStrokePoint>> {
     struct _PKStrokePoint *__begin_;
     struct _PKStrokePoint *__end_;
     struct __compressed_pair<_PKStrokePoint *, std::__1::allocator<_PKStrokePoint>> {
-        struct _PKStrokePoint *__first_;
+        struct _PKStrokePoint *__value_;
     } __end_cap_;
-} vector_5de2d2d9;
+} vector_03cfcf00;
 

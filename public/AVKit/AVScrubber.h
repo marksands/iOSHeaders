@@ -11,7 +11,6 @@
 @interface AVScrubber : UISlider
 {
     struct CGPoint _previousTouchLocationInView;
-    UISelectionFeedbackGenerator *_feedbackBehavior;
     double _trackingStartTime;
     float _previousValue;
     double _previousValueChangeTime;
@@ -25,13 +24,14 @@
     _Bool _hasFullScreenAppearance;
     float _estimatedFrameRate;
     float _rate;
+    UISelectionFeedbackGenerator *_feedbackGenerator;
+    UIView *_loadedTrackOverlayView;
+    NSMutableArray *_previousScrubberVelocities;
     id <AVScrubberDelegate> _delegate;
     NSArray *_loadedTimeRanges;
     long long _scrubbingSpeed;
     double _resolution;
-    UIView *_loadedTrackOverlayView;
     UIImageView *_currentThumbView;
-    NSMutableArray *_previousScrubberVelocities;
     NSTimer *_updateSlowKnobMovementDetectedTimer;
     double _timestampWhenTrackingEnded;
     struct CGSize _extrinsicContentSize;
@@ -46,9 +46,7 @@
 @property(nonatomic) struct CGSize extrinsicContentSize; // @synthesize extrinsicContentSize=_extrinsicContentSize;
 @property(nonatomic) double timestampWhenTrackingEnded; // @synthesize timestampWhenTrackingEnded=_timestampWhenTrackingEnded;
 @property(retain, nonatomic) NSTimer *updateSlowKnobMovementDetectedTimer; // @synthesize updateSlowKnobMovementDetectedTimer=_updateSlowKnobMovementDetectedTimer;
-@property(retain, nonatomic) NSMutableArray *previousScrubberVelocities; // @synthesize previousScrubberVelocities=_previousScrubberVelocities;
 @property(nonatomic) __weak UIImageView *currentThumbView; // @synthesize currentThumbView=_currentThumbView;
-@property(readonly, nonatomic) UIView *loadedTrackOverlayView; // @synthesize loadedTrackOverlayView=_loadedTrackOverlayView;
 @property(nonatomic) _Bool shouldRecoverFromPrecisionScrubbingIfNeeded; // @synthesize shouldRecoverFromPrecisionScrubbingIfNeeded=_shouldRecoverFromPrecisionScrubbingIfNeeded;
 @property(nonatomic) _Bool slowKnobMovementDetected; // @synthesize slowKnobMovementDetected=_slowKnobMovementDetected;
 @property(nonatomic) float rate; // @synthesize rate=_rate;
@@ -58,6 +56,7 @@
 @property(nonatomic) long long scrubbingSpeed; // @synthesize scrubbingSpeed=_scrubbingSpeed;
 @property(copy, nonatomic) NSArray *loadedTimeRanges; // @synthesize loadedTimeRanges=_loadedTimeRanges;
 @property(nonatomic) __weak id <AVScrubberDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) NSMutableArray *previousScrubberVelocities; // @synthesize previousScrubberVelocities=_previousScrubberVelocities;
 - (void).cxx_destruct;
 - (void)_updateSlowKnobMovementDetectedForTargetValue:(float)arg1;
 - (void)_updateSlowKnobMovementDetected;
@@ -76,10 +75,14 @@
 - (struct CGRect)thumbRectForBounds:(struct CGRect)arg1 trackRect:(struct CGRect)arg2 value:(float)arg3;
 - (struct CGRect)maximumValueImageRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)minimumValueImageRectForBounds:(struct CGRect)arg1;
+- (void)willMoveToWindow:(id)arg1;
+- (struct CGSize)intrinsicContentSize;
 @property(readonly, nonatomic, getter=isCollapsedOrExcluded) _Bool collapsedOrExcluded;
 @property(readonly, nonatomic) double timeIntervalSinceTrackingEnded;
 @property(readonly, nonatomic) NSString *localizedScrubbingSpeedName;
 - (float)clampedEstimatedFrameRate;
+@property(readonly, nonatomic) UIView *loadedTrackOverlayView; // @synthesize loadedTrackOverlayView=_loadedTrackOverlayView;
+@property(readonly, nonatomic) UISelectionFeedbackGenerator *feedbackGenerator; // @synthesize feedbackGenerator=_feedbackGenerator;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

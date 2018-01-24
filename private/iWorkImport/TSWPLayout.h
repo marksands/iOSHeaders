@@ -22,11 +22,14 @@ __attribute__((visibility("hidden")))
     unsigned long long _lastLayoutMgrChangeCount;
     TSDLayout<TSWPLayoutParent> *_wpLayoutParent;
     _Bool _optimizeSegmentationOfEmptyLines;
+    _Bool _useBlackTextColor;
 }
 
+@property(nonatomic) _Bool useBlackTextColor; // @synthesize useBlackTextColor=_useBlackTextColor;
 @property(nonatomic) _Bool optimizeSegmentationOfEmptyLines; // @synthesize optimizeSegmentationOfEmptyLines=_optimizeSegmentationOfEmptyLines;
-@property(readonly, retain, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
+@property(readonly, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
 @property(readonly, nonatomic) TSWPStorage *storage; // @synthesize storage=_storage;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool isLinked;
 - (id)textColorOverride;
 @property(readonly, nonatomic) TSUBezierPath *interiorClippingPath;
@@ -35,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)p_rectForSelectionPath:(id)arg1 useParagraphModeRects:(_Bool)arg2;
 - (_Bool)selectionMustBeEntirelyOnscreenToCountAsVisibleInSelectionPath:(id)arg1;
 - (double)viewScaleForZoomingToSelectionPath:(id)arg1 targetPointSize:(double)arg2;
+- (struct CGRect)rectInRootForAnchoringPencilAnnotationsForSelectionPath:(id)arg1;
 - (struct CGRect)rectInRootForPresentingAnnotationPopoverForSelectionPath:(id)arg1;
 - (struct CGRect)rectInRootOfAutoZoomContextOfSelectionPath:(id)arg1;
 - (struct CGRect)rectInRootForZoomingToSelectionPath:(id)arg1;
@@ -75,10 +79,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider;
 @property(readonly, nonatomic) id <TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
 @property(readonly, nonatomic) TSPObject<TSDHint> *nextTargetFirstChildHint;
-@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
+@property(readonly, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
 @property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *nextTargetTopicNumbers;
 @property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *previousTargetTopicNumbers;
-@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
+@property(readonly, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
 - (id)columnMetricsForCharIndex:(unsigned long long)arg1 outRange:(struct _NSRange *)arg2;
 @property(readonly, nonatomic) _Bool isOverflowing;
 - (struct CGRect)p_protectedRectWithinLayoutForSelectionRect:(struct CGRect)arg1;
@@ -121,7 +125,7 @@ __attribute__((visibility("hidden")))
 - (void)i_setTextLayoutValid:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool textLayoutValid;
 @property(readonly, nonatomic) TSWPLayoutManager *layoutManager;
-- (void)dealloc;
+- (id)interiorWrapSegments;
 - (id)initWithInfo:(id)arg1 storage:(id)arg2 frame:(struct CGRect)arg3;
 - (id)initWithInfo:(id)arg1 frame:(struct CGRect)arg2;
 - (id)initWithInfo:(id)arg1;
@@ -133,6 +137,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) struct __CFLocale *hyphenationLocale;
+@property(readonly, nonatomic) _Bool marginsAreMirrored;
 @property(readonly, nonatomic) TSDLayout *parentLayoutForInlineAttachments;
 @property(readonly, nonatomic) _Bool repShouldPreventCaret;
 @property(readonly, nonatomic) _Bool shouldHyphenate;

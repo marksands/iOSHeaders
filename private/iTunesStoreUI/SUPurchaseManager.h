@@ -11,7 +11,7 @@
 #import "SSPurchaseRequestDelegatePrivate.h"
 #import "SUContinuationDelegate.h"
 
-@class NSMutableArray, NSMutableSet, NSSet, NSString, SUQueueSessionManager;
+@class NSDictionary, NSMutableArray, NSMutableSet, NSSet, NSString, SUQueueSessionManager;
 
 @interface SUPurchaseManager : NSObject <SSPurchaseRequestDelegatePrivate, SUContinuationDelegate, SSDownloadManagerObserver, SSPurchaseRequestDelegate>
 {
@@ -25,12 +25,14 @@
     NSMutableArray *_purchaseRequests;
     SUQueueSessionManager *_queueSessionManager;
     _Bool _showingErrorDialogs;
+    NSDictionary *_tidHeaders;
     long long _updatesCount;
     NSString *_userAgent;
     _Bool _waitingForAuthentication;
 }
 
 @property(copy, nonatomic) NSString *userAgent; // @synthesize userAgent=_userAgent;
+@property(copy, nonatomic) NSDictionary *tidHeaders; // @synthesize tidHeaders=_tidHeaders;
 @property(retain, nonatomic) SUQueueSessionManager *queueSessionManager; // @synthesize queueSessionManager=_queueSessionManager;
 @property(readonly, nonatomic) NSSet *purchasedItemIdentifiers; // @synthesize purchasedItemIdentifiers=_purchasedIdentifiers;
 @property(readonly, nonatomic) NSSet *futurePurchases; // @synthesize futurePurchases=_futurePurchases;

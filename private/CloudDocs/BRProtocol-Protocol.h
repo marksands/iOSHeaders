@@ -6,7 +6,7 @@
 
 #import "CKXPCShareDaemon.h"
 
-@class BRFileObjectID, CKShare, CKShareMetadata, NSArray, NSData, NSDictionary, NSFileHandle, NSObject<BROperationClient>, NSSet, NSString, NSURL;
+@class BRFileObjectID, CKRecordID, CKShare, CKShareMetadata, NSArray, NSData, NSDictionary, NSFileHandle, NSObject<BROperationClient>, NSSet, NSString, NSURL;
 
 @protocol BRProtocol <CKXPCShareDaemon>
 - (void)scheduleDeepScanForContainer:(NSString *)arg1 reply:(void (^)(NSError *))arg2;
@@ -66,6 +66,7 @@
 - (void)startOperation:(NSObject<BROperationClient> *)arg1 toPrepFolderForSharingAt:(NSURL *)arg2 reply:(void (^)(NSError *))arg3;
 - (void)startOperation:(NSObject<BROperationClient> *)arg1 toUploadAllFilesInContainer:(NSString *)arg2 reply:(void (^)(NSError *))arg3;
 - (void)startOperation:(NSObject<BROperationClient> *)arg1 toCopyAvailableQuotaWithReply:(void (^)(NSNumber *, NSError *))arg2;
+- (void)startOperation:(NSObject<BROperationClient> *)arg1 toCopyDocumentURLForRecordID:(CKRecordID *)arg2 syncIfNeeded:(_Bool)arg3 reply:(void (^)(FPSandboxingURLWrapper *, NSError *))arg4;
 - (void)startOperation:(NSObject<BROperationClient> *)arg1 toCopySharingAccessToken:(NSURL *)arg2 reply:(void (^)(NSData *, NSString *, NSError *))arg3;
 - (void)startOperation:(NSObject<BROperationClient> *)arg1 toCopySharingWebAuthTokenForContainerID:(NSString *)arg2 reply:(void (^)(NSString *, NSError *))arg3;
 - (void)startOperation:(NSObject<BROperationClient> *)arg1 toCopySharingInfoAtURL:(NSURL *)arg2 reply:(void (^)(CKShare *, NSURL *, NSError *))arg3;

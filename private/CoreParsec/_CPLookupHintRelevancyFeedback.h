@@ -32,7 +32,7 @@
 @property(nonatomic) _Bool discarded; // @synthesize discarded=_discarded;
 @property(copy, nonatomic) NSString *domain; // @synthesize domain=_domain;
 @property(retain, nonatomic) _CPRange *hintRange; // @synthesize hintRange=_hintRange;
-@property(nonatomic) unsigned long long timestamp;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;

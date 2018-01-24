@@ -6,12 +6,15 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 __attribute__((visibility("hidden")))
-@interface _ACComponentWrapper : NSObject
+@interface _ACComponentWrapper : NSObject <NSSecureCoding>
 {
     shared_ptr_a99cf2ba mComponent;
 }
 
++ (_Bool)supportsSecureCoding;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;

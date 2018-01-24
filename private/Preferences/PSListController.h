@@ -12,11 +12,12 @@
 #import "UIAppearance.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 #import "UITableViewDataSource.h"
+#import "UITableViewDataSourcePrefetching.h"
 #import "UITableViewDelegate.h"
 
 @class NSArray, NSDictionary, NSIndexPath, NSMutableArray, NSMutableDictionary, NSString, PSListContainerView, UIColor, UIKeyboard, UITableView;
 
-@interface PSListController : PSViewController <UIAppearance, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate, UIPopoverPresentationControllerDelegate, PSSpecifierObserver, PSViewControllerOffsetProtocol>
+@interface PSListController : PSViewController <UIAppearance, UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching, UIAlertViewDelegate, UIPopoverPresentationControllerDelegate, PSSpecifierObserver, PSViewControllerOffsetProtocol>
 {
     NSMutableArray *_prequeuedReusablePSTableCells;
     NSMutableDictionary *_cells;
@@ -47,6 +48,7 @@
     _Bool _sectionContentInsetInitialized;
     NSIndexPath *_savedSelectedIndexPath;
     _Bool _edgeToEdgeCells;
+    _Bool _prefetchingEnabled;
     _Bool _usesDarkTheme;
     NSDictionary *_pendingURLResourceDictionary;
     NSString *_specifierIDPendingPush;
@@ -94,11 +96,14 @@
 @property(retain, nonatomic) UIColor *foregroundColor; // @synthesize foregroundColor=_foregroundColor;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) _Bool usesDarkTheme; // @synthesize usesDarkTheme=_usesDarkTheme;
+@property(nonatomic) _Bool prefetchingEnabled; // @synthesize prefetchingEnabled=_prefetchingEnabled;
 @property(copy, nonatomic) NSString *specifierIDPendingPush; // @synthesize specifierIDPendingPush=_specifierIDPendingPush;
 @property(retain, nonatomic) NSDictionary *pendingURLResourceDictionary; // @synthesize pendingURLResourceDictionary=_pendingURLResourceDictionary;
 @property(nonatomic) _Bool edgeToEdgeCells; // @synthesize edgeToEdgeCells=_edgeToEdgeCells;
 @property(nonatomic) _Bool forceSynchronousIconLoadForCreatedCells; // @synthesize forceSynchronousIconLoadForCreatedCells=_forceSynchronousIconLoadForCreatedCells;
 - (void).cxx_destruct;
+- (void)prefetchResourcesFor:(id)arg1;
+- (void)tableView:(id)arg1 prefetchRowsAtIndexPaths:(id)arg2;
 - (void)invalidateSpecifiersForDataSource:(id)arg1;
 - (void)performSpecifierUpdates:(id)arg1;
 - (void)dataSource:(id)arg1 performUpdates:(id)arg2;

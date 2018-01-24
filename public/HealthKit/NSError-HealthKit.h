@@ -19,6 +19,7 @@
 - (id)hk_sanitizedError;
 - (id)hk_underlyingErrorWithDomain:(id)arg1;
 - (_Bool)hk_isCocoaNoSuchFileError;
+- (_Bool)hk_isUserCanceledError;
 - (_Bool)hk_isTimeoutError;
 - (_Bool)hk_isStreamFailureError;
 - (_Bool)hk_isInternalFailureError;

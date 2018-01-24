@@ -7,13 +7,12 @@
 #import "NSObject.h"
 #import "UIScrollViewDelegate.h"
 
-@class CNContact, CNLabeledValue, GEOComposedWaypoint, GEOSearchCategory, GEOTransitDecoderData, GEOTransitSuggestedRoute, MKActivityViewController, MKMapItem, NSArray, NSNumber, NSString, _MKPlaceViewController;
+@class CNContact, CNLabeledValue, GEOComposedWaypoint, GEOMapServiceTraits, GEOSearchCategory, GEOTransitDecoderData, GEOTransitSuggestedRoute, MKActivityViewController, MKMapItem, NSArray, NSNumber, NSString, _MKPlaceViewController;
 
 @protocol _MKPlaceViewControllerDelegate <NSObject, UIScrollViewDelegate>
 
 @optional
 - (void)placeViewControllerDidUpdateHeight:(_MKPlaceViewController *)arg1;
-- (void)placeViewController:(_MKPlaceViewController *)arg1 getOfflineMap:(id <_MKPlaceItem>)arg2;
 - (void)placeViewController:(_MKPlaceViewController *)arg1 didSelectParent:(MKMapItem *)arg2;
 - (void)placeViewController:(_MKPlaceViewController *)arg1 didSelectSearchCategory:(GEOSearchCategory *)arg2;
 - (int)mapTypeForPlaceViewController:(_MKPlaceViewController *)arg1;
@@ -45,6 +44,7 @@
 - (void)placeViewController:(_MKPlaceViewController *)arg1 didSelectRouteToCurrentSearchResultWithMode:(unsigned long long)arg2;
 - (double)placeViewControllerPlaceCardHeaderTitleTrailingConstant:(_MKPlaceViewController *)arg1;
 - (void)placeViewController:(_MKPlaceViewController *)arg1 didSelectActivityOfType:(NSString *)arg2 completed:(_Bool)arg3;
+- (GEOMapServiceTraits *)traitsForPlaceViewController:(_MKPlaceViewController *)arg1;
 - (MKActivityViewController *)activityViewControllerForPlaceViewController:(_MKPlaceViewController *)arg1;
 @end
 

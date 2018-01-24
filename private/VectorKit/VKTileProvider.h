@@ -55,7 +55,7 @@ __attribute__((visibility("hidden")))
     float _lastMidDisplayZoomLevel;
     CDStruct_34734122 _sortPoint;
     double _contentScale;
-    vector_ea81101c _exclusionAreas;
+    vector_6d9977eb _exclusionAreas;
     _Bool _exclusionAreaVisible;
     _VKTileProviderTimerTarget *_evaluationTarget;
     _VKTileProviderTimerTarget *_prefetchTarget;
@@ -161,7 +161,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithClient:(id)arg1 resourceManifestConfiguration:(id)arg2 locale:(id)arg3 taskContext:(shared_ptr_e963992e)arg4 tileSelectionProfile:(unique_ptr_6bf34eb3 *)arg5;
 @property(nonatomic) double lodBias;
 - (_Bool)tileExclusionAreaVisible;
-- (void)setTileExclusionAreas:(const vector_ea81101c *)arg1;
+- (void)setTileExclusionAreas:(const vector_6d9977eb *)arg1;
 @property(readonly, nonatomic) NSArray *visibleTileSets;
 
 // Remaining properties

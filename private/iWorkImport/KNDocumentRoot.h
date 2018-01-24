@@ -9,22 +9,23 @@
 #import "TSKModel.h"
 #import "TSTResolverContainerNameProvider.h"
 
-@class KNRecordingSyncMaintainer, KNShow, KNSlidePreviewManager, KNThumbnailManager, NSString;
+@class KNRecordingSyncMaintainer, KNShow, NSString;
 
 __attribute__((visibility("hidden")))
 @interface KNDocumentRoot : TSADocumentRoot <TSKModel, TSTResolverContainerNameProvider>
 {
-    KNShow *mShow;
-    KNThumbnailManager *mThumbnailManager;
-    KNSlidePreviewManager *mSlidePreviewManager;
-    KNRecordingSyncMaintainer *mRecordingSyncMaintainer;
-    _Bool mIsObservingRecording;
+    _Bool _isObservingRecording;
+    KNShow *_show;
+    KNRecordingSyncMaintainer *_recordingSyncMaintainer;
 }
 
 + (void)localizeModelObject:(id)arg1 withTemplateBundle:(id)arg2 andLocale:(id)arg3;
-@property(readonly, nonatomic) KNRecordingSyncMaintainer *recordingSyncMaintainer; // @synthesize recordingSyncMaintainer=mRecordingSyncMaintainer;
+@property(retain, nonatomic) KNRecordingSyncMaintainer *recordingSyncMaintainer; // @synthesize recordingSyncMaintainer=_recordingSyncMaintainer;
+@property(retain, nonatomic) KNShow *show; // @synthesize show=_show;
+- (void).cxx_destruct;
 - (void)p_applicationDidBecomeActive:(id)arg1;
 - (void)p_applicationWillResignActive:(id)arg1;
+- (void)addDefaultGalleryCaptionParagraphStyleIfNeededToStylesheet:(id)arg1;
 - (_Bool)validateSlideNode:(id)arg1;
 - (_Bool)isSharedReadOnly;
 - (unsigned long long)writingDirectionForStorage;
@@ -44,34 +45,32 @@ __attribute__((visibility("hidden")))
 - (id)resolverContainerForName:(id)arg1 caseSensitive:(_Bool)arg2;
 - (id)nameForResolverContainer:(id)arg1;
 - (id)resolverContainerNameForResolver:(id)arg1;
+- (void)changeShowThemeUsingTemplate:(id)arg1 themeDocumentRoot:(id)arg2 toSize:(struct CGSize)arg3 keepChangesToThemeDefaults:(_Bool)arg4 commandGroupActionStringOverride:(id)arg5;
 - (void)changeShowSizeTo:(struct CGSize)arg1;
 - (id)slideNodeForClearedShow;
 - (id)stylesToNotResizeInStylesheet:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (_Bool)isMultiPageForQuickLook;
 - (id)createViewStateRootForContinuation:(_Bool)arg1;
-- (unsigned long long)rootSearchTargetCountThroughIndex:(unsigned long long)arg1;
-- (void)withRootSearchTargetAtIndex:(unsigned long long)arg1 executeBlock:(CDUnknownBlockType)arg2;
+- (id)freehandDrawingToolkitUIState;
 - (void)upgradeTextStylesForUnityAfterSingleStylesheetUpgrade;
 - (id)protected_defaultTextPresetOrdering;
-- (_Bool)shouldAllowDrawableInGroups:(id)arg1 forImport:(_Bool)arg2;
 - (void)setStylesheetForUpgradeToSingleStylesheet:(id)arg1;
 - (id)stylesheet;
 - (void)setThemeForTemplateImport:(id)arg1;
 - (void)setTheme:(id)arg1;
 - (id)theme;
 - (id)childEnumerator;
-@property(nonatomic) id <KNDocumentRootDelegate> delegate; // @dynamic delegate;
+@property(nonatomic) __weak id <KNDocumentRootDelegate> delegate; // @dynamic delegate;
 - (void)dealloc;
 - (void)collectDocumentOpenAnalyticsWithLogger:(id)arg1;
 - (void)willClose;
 - (void)documentDidLoad;
 - (void)p_thumbnailUpgradeForUnity20SlideNodes:(id)arg1 andMasterSlideNodess:(id)arg2;
-- (id)initWithContext:(id)arg1;
 - (double)stickyCommentScaleMultiplier;
 - (_Bool)shouldShowComments;
-@property(retain, nonatomic) KNShow *show;
 - (unsigned long long)applicationType;
+- (id)initWithContext:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;
 - (void)p_hyperlinkAndBreadcrumbUpgradeForUnity20SlideNodes:(id)arg1;

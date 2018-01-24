@@ -49,9 +49,9 @@
 - (void)handlePushNotificationForTopic:(id)arg1 userInfo:(id)arg2;
 - (id)pushNotificationTopics;
 - (void)cloudStoreNotificationCoordinator:(id)arg1 createdZoneWithName:(id)arg2;
-- (void)performScheduledActivityWithIdentifier:(id)arg1 activityCriteria:(id)arg2 activityContext:(id)arg3;
-- (void)_performPeerPaymentReregisterActivity;
-- (void)_schedulePeerPaymentReregisterActivity;
+- (void)performScheduledActivityWithIdentifier:(id)arg1 activityCriteria:(id)arg2;
+- (void)_performPeerPaymentReregisterActivityForReason:(id)arg1;
+- (void)_schedulePeerPaymentReregisterActivityForReason:(id)arg1;
 - (void)_performPeerPaymentPassDownloadActivity;
 - (void)_schedulePeerPaymentCoordinatorActivities;
 - (void)resetApplePayManateeViewWithCompletion:(CDUnknownBlockType)arg1;

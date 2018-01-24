@@ -39,6 +39,7 @@
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSString *credentialType;
 @property(copy, nonatomic) NSDate *tokenExpiryDate;
+@property(copy, nonatomic) NSString *mdmServerToken;
 @property(copy, nonatomic) NSString *hsaToken;
 @property(copy, nonatomic) NSString *mapsToken;
 @property(copy, nonatomic) NSString *findMyiPhoneToken;

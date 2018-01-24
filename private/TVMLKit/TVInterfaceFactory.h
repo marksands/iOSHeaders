@@ -8,7 +8,7 @@
 
 #import "TVInterfaceCreating.h"
 
-@class NSMutableDictionary, NSString, _TVControllerFactory, _TVLockupFactory, _TVTemplateFactory, _TVViewFactory;
+@class NSMutableDictionary, NSString, TVStyleSheetRegistry, _TVControllerFactory, _TVLockupFactory, _TVTemplateFactory, _TVViewFactory;
 
 @interface TVInterfaceFactory : NSObject <TVInterfaceCreating>
 {
@@ -28,6 +28,7 @@
     _TVLockupFactory *_lockupFactory;
     _TVControllerFactory *_controllerFactory;
     _TVTemplateFactory *_templateFactory;
+    TVStyleSheetRegistry *_styleSheetRegistry;
     id <TVInterfaceCreating> _extendedInterfaceCreator;
 }
 
@@ -35,11 +36,10 @@
 + (id)_tvmlResourceMap;
 + (id)sharedInterfaceFactory;
 + (void)initialize;
+@property(readonly, nonatomic) TVStyleSheetRegistry *styleSheetRegistry; // @synthesize styleSheetRegistry=_styleSheetRegistry;
 @property(retain, nonatomic) id <TVInterfaceCreating> extendedInterfaceCreator; // @synthesize extendedInterfaceCreator=_extendedInterfaceCreator;
 - (void).cxx_destruct;
 - (id)_getImageFromURLorBundle:(id)arg1;
-- (void)_setViewProxy:(id)arg1 forViewElement:(id)arg2;
-- (id)_viewForElement:(id)arg1;
 - (id)_styleSheetURLForTemplate:(id)arg1;
 - (id)_imageProxyForElement:(id)arg1;
 - (id)_controllerTransitionFromElement:(id)arg1 toElement:(id)arg2 forNavigationControllerOperation:(long long)arg3 relativeToFrom:(_Bool)arg4;

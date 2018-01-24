@@ -8,7 +8,7 @@
 
 #import "TSTCellIterating.h"
 
-@class NSMutableIndexSet, NSString, TSTCell, TSTCellRegion, TSTInfo, TSTMutableCellIteratorData;
+@class NSMutableIndexSet, NSString, TSTCell, TSTCellRegion, TSTInfo, TSTMutableCellIteratorData, TSTTableModel;
 
 __attribute__((visibility("hidden")))
 @interface TSTCellIterator : NSObject <TSTCellIterating>
@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
     _Bool _returnOneEmptyCell;
     _Bool _terminateRegionIterator;
     unsigned short _rowForColumnIndiciesWithMerges;
-    id <TSTInfoDelegating> _infoDelegating;
+    TSTTableModel *_tableModel;
     TSTInfo *_tableInfo;
     TSTCellRegion *_region;
     TSTCell *_cell;
@@ -42,7 +42,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSTCell *cell; // @synthesize cell=_cell;
 @property(readonly, nonatomic) TSTCellRegion *region; // @synthesize region=_region;
 @property(readonly, retain, nonatomic) TSTInfo *tableInfo; // @synthesize tableInfo=_tableInfo;
-@property(retain, nonatomic) id <TSTInfoDelegating> infoDelegating; // @synthesize infoDelegating=_infoDelegating;
+@property(retain, nonatomic) TSTTableModel *tableModel; // @synthesize tableModel=_tableModel;
 - (void).cxx_destruct;
 - (void)p_updateDataForCellID:(struct TSUCellCoord)arg1;
 - (void)p_updateDataForMergeAtCellID:(struct TSUCellCoord)arg1;
@@ -56,7 +56,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithTableInfo:(id)arg1 range:(struct TSUCellRect)arg2 flags:(unsigned long long)arg3 searchFlags:(unsigned long long)arg4;
 - (id)initWithTableInfo:(id)arg1 flags:(unsigned long long)arg2 searchFlags:(unsigned long long)arg3;
 - (id)initWithTableInfo:(id)arg1 region:(id)arg2 flags:(unsigned long long)arg3 searchFlags:(unsigned long long)arg4 clampingRange:(struct TSUCellRect)arg5;
-- (id)initWithTableInfo:(id)arg1 infoDelegating:(id)arg2 region:(id)arg3 flags:(unsigned long long)arg4 searchFlags:(unsigned long long)arg5 clampingRange:(struct TSUCellRect)arg6;
+- (id)initWithTableInfo:(id)arg1 tableModel:(id)arg2 region:(id)arg3 flags:(unsigned long long)arg4 searchFlags:(unsigned long long)arg5 clampingRange:(struct TSUCellRect)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

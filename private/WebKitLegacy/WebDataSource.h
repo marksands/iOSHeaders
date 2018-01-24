@@ -43,7 +43,7 @@
 - (id)_responseMIMEType;
 - (void)_addSubframeArchives:(id)arg1;
 - (id)_mainDocumentError;
-- (id)_initWithDocumentLoader:(Ref_3e0aa115 *)arg1;
+- (id)_initWithDocumentLoader:(Ref_2c3922bd *)arg1;
 - (struct DocumentLoader *)_documentLoader;
 - (void)_makeRepresentation;
 - (_Bool)_isDocumentHTML;

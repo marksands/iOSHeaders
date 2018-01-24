@@ -6,18 +6,19 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
 #import "NSMutableCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSArray, NSMutableArray;
 
-@interface RCWaveform : NSObject <NSMutableCopying, NSCopying, NSCoding>
+@interface RCWaveform : NSObject <NSMutableCopying, NSCopying, NSSecureCoding>
 {
     NSMutableArray *_segments;
     unsigned long long _decodedVersion;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)waveformWithContentsOfURL:(id)arg1 minimumRequiredVersion:(unsigned long long)arg2;
 + (id)waveformURLForAVURL:(id)arg1;
 + (void)initialize;

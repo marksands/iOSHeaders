@@ -6,11 +6,12 @@
 
 #import "ACAccount.h"
 
-@class NSArray, NSDictionary, NSString;
+@class AARegionInfo, NSArray, NSDictionary, NSNumber, NSString;
 
 @interface ACAccount (AppleAccount)
 + (id)aa_dataclassesBoundToSingleAppleAccount;
 + (id)aa_dataclassesBoundToPrimaryAppleAccount;
+@property(copy, nonatomic, setter=aa_setLastKnownQuota:) NSNumber *aa_lastKnownQuota;
 @property(readonly, nonatomic) int aa_repairerPID;
 @property(nonatomic, setter=aa_setUndergoingRepair:) _Bool aa_isUndergoingRepair;
 @property(readonly, nonatomic) _Bool aa_isNotesMigrated;
@@ -28,6 +29,7 @@
 @property(readonly, nonatomic) NSDictionary *aa_serviceUnavailableInfo;
 @property(readonly, nonatomic) _Bool aa_serviceUnavailable;
 - (void)aa_updateWithProvisioningResponse:(id)arg1;
+@property(readonly, copy, nonatomic) AARegionInfo *aa_regionInfo;
 @property(readonly, nonatomic) _Bool aa_hasOptionalTerms;
 @property(readonly, nonatomic) _Bool aa_isSandboxAccount;
 @property(readonly, nonatomic) _Bool aa_isManagedAppleID;
@@ -36,6 +38,8 @@
 @property(readonly, nonatomic) NSString *aa_accountFooterText;
 @property(copy, nonatomic, setter=aa_setPassword:) NSString *aa_password;
 - (void)aa_setHSAToken:(id)arg1;
+- (void)aa_setMDMServerToken:(id)arg1;
+@property(readonly, nonatomic) NSString *aa_mdmServerToken;
 - (id)aa_hsaTokenWithError:(id *)arg1;
 @property(readonly, nonatomic) NSString *aa_hsaToken;
 - (void)aa_setMapsToken:(id)arg1;

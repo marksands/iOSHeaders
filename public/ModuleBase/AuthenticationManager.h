@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class AuthenticationInProgress, NSMutableArray;
+@class AuthenticationInProgress, NSMutableArray, NSMutableDictionary;
 
 @interface AuthenticationManager : NSObject
 {
     AuthenticationInProgress *_runningAuthentication;
     CDUnknownBlockType _completionHandler;
     NSMutableArray *_idleBlocks;
+    NSMutableDictionary *_callHistoryForPid;
     AuthenticationInProgress *_pendingAuthentication;
 }
 
@@ -20,6 +21,8 @@
 @property(readonly, nonatomic) AuthenticationInProgress *runningAuthentication; // @synthesize runningAuthentication=_runningAuthentication;
 @property(readonly, nonatomic) AuthenticationInProgress *pendingAuthentication; // @synthesize pendingAuthentication=_pendingAuthentication;
 - (void).cxx_destruct;
+- (_Bool)_checkHistory:(struct NSMutableArray *)arg1 withLimitOf:(unsigned long long)arg2 perTimeInterval:(double)arg3 clearOlderRecords:(_Bool)arg4;
+- (_Bool)_checkBackoffForPid:(int)arg1;
 - (void)_runIdleBlocksNow;
 - (void)_runIdleBlocks;
 - (void)runWhenIdle:(CDUnknownBlockType)arg1;

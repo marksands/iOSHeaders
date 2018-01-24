@@ -73,6 +73,7 @@
 - (void)setMuted:(_Bool)arg1;
 - (_Bool)getAudioEnabled;
 - (void)setAudioEnabled:(_Bool)arg1;
+- (void)sendSessionMessage:(id)arg1 toDestinations:(id)arg2;
 - (void)sendSessionMessage:(id)arg1;
 - (void)endSessionWithData:(id)arg1;
 - (void)endSession;

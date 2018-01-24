@@ -7,7 +7,7 @@
 #import "NSObject.h"
 
 @protocol NFAssembly <NSObject>
-- (void)loadPublicContainer:(id <NFRegistrationContainer>)arg1 privateContainer:(id <NFRegistrationContainer>)arg2;
+- (void)loadInRegistry:(id <NFContainerRegistry>)arg1;
 
 @optional
 - (void)loadedContainer:(id <NFResolver>)arg1;

@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)centerPointForSeries:(id)arg1 index:(unsigned long long)arg2 frame:(struct CGRect)arg3 point:(struct CGPoint *)arg4 nullsUseIntercept:(_Bool)arg5;
 + (_Bool)centerPointForSeries:(id)arg1 index:(unsigned long long)arg2 frame:(struct CGRect)arg3 point:(struct CGPoint *)arg4;
 + (void)drawNullFillSwatchInContext:(struct CGContext *)arg1 frame:(struct CGRect)arg2;
++ (void)drawImageFill:(id)arg1 inContext:(struct CGContext *)arg2 path:(struct CGPath *)arg3 withinBounds:(struct CGRect)arg4;
 + (void)drawFill:(id)arg1 inContext:(struct CGContext *)arg2 path:(struct CGPath *)arg3;
 + (void)drawFill:(id)arg1 inContext:(struct CGContext *)arg2 frame:(struct CGRect)arg3;
 + (id)p_fillToRenderWithFill:(id)arg1 inContext:(struct CGContext *)arg2;

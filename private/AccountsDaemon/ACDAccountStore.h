@@ -68,6 +68,7 @@
 - (void)isPerformingDataclassActionsForAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dataclassActionsForAccountDeletion:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dataclassActionsForAccountSave:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)preloadDataclassOwnersWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateExistenceCacheOfAccountWithTypeIdentifier:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)_updateExistenceCacheOfAccountWithTypeIdentifier:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)typeIdentifierForDomain:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
@@ -144,6 +145,8 @@
 - (void)updateAccountNoSave:(id)arg1 error:(id *)arg2;
 - (id)_addAccountNoSave:(id)arg1 withDataclassActions:(id)arg2 error:(id *)arg3;
 - (void)addAccountNoSave:(id)arg1 error:(id *)arg2;
+- (_Bool)_performDataclassActions:(id)arg1 forAccount:(id)arg2 error:(id *)arg3;
+- (id)_commitOrRollbackDataclassActions:(id)arg1 forAccount:(id)arg2 originalEnabledDataclasses:(id)arg3;
 - (_Bool)_saveWithError:(id *)arg1;
 - (_Bool)_removeAccountNoSave:(id)arg1 withDataclassActions:(id)arg2 withError:(id *)arg3;
 - (_Bool)accountsExistWithAccountTypeIdentifier:(id)arg1;

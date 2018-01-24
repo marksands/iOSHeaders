@@ -16,6 +16,7 @@
     long long _repeatType;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) long long repeatType; // @synthesize repeatType=_repeatType;
 @property(readonly, nonatomic) long long shuffleType; // @synthesize shuffleType=_shuffleType;
 @property(readonly, nonatomic) NSArray *trackIdentifiers; // @synthesize trackIdentifiers=_trackIdentifiers;

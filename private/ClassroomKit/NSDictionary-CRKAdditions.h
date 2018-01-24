@@ -9,5 +9,7 @@
 @interface NSDictionary (CRKAdditions)
 - (id)crk_dictionaryByAddingEntriesFromDictionary:(id)arg1;
 - (id)crk_mapUsingBlock:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) id crk_keyValueObservingNewObject;
+@property(readonly, nonatomic) id crk_keyValueObservingOldObject;
 @end
 

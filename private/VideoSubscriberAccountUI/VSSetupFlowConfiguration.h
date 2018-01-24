@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 {
     _Bool _shouldSkipSetupEntirely;
     _Bool _shouldOfferAuthenticationFlow;
+    _Bool _shouldOfferSoleAuthenticationFlow;
     _Bool _canShowSupportedAppsButton;
     VSIdentityProvider *_identityProvider;
     NSArray *_bundlesIDsToConsent;
@@ -24,6 +25,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSDictionary *vouchersByBundleID; // @synthesize vouchersByBundleID=_vouchersByBundleID;
 @property(copy, nonatomic) NSArray *bundlesIDsToConsent; // @synthesize bundlesIDsToConsent=_bundlesIDsToConsent;
 @property(retain, nonatomic) VSIdentityProvider *identityProvider; // @synthesize identityProvider=_identityProvider;
+@property(nonatomic) _Bool shouldOfferSoleAuthenticationFlow; // @synthesize shouldOfferSoleAuthenticationFlow=_shouldOfferSoleAuthenticationFlow;
 @property(nonatomic) _Bool shouldOfferAuthenticationFlow; // @synthesize shouldOfferAuthenticationFlow=_shouldOfferAuthenticationFlow;
 @property(nonatomic) _Bool shouldSkipSetupEntirely; // @synthesize shouldSkipSetupEntirely=_shouldSkipSetupEntirely;
 - (void).cxx_destruct;

@@ -34,6 +34,7 @@
 @property(copy, nonatomic) FCPersonalizationTreatment *personalizationTreatment; // @synthesize personalizationTreatment=_personalizationTreatment;
 - (void).cxx_destruct;
 - (id)limitArticlesByMinimumArticleQuality:(id)arg1;
+- (double)decayedPublisherDiversificationPenalty;
 - (unsigned long long)whitelistLevelForTagID:(id)arg1;
 - (id)scoresForTagIDs:(id)arg1;
 - (id)rankTagIDsDescending:(id)arg1;

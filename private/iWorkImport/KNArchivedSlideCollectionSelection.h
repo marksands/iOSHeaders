@@ -13,14 +13,14 @@
 __attribute__((visibility("hidden")))
 @interface KNArchivedSlideCollectionSelection : TSPObject <TSKArchivedSelection>
 {
-    KNSlideCollectionSelection *mSelection;
+    KNSlideCollectionSelection *_selection;
 }
 
-@property(retain, nonatomic) TSKSelection *selection; // @synthesize selection=mSelection;
+@property(retain, nonatomic) TSKSelection *selection; // @synthesize selection=_selection;
+- (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;
 @property(readonly, nonatomic) KNSlideCollectionSelection *slideCollectionSelection;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1;
 
 // Remaining properties

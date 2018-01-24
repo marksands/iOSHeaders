@@ -26,6 +26,7 @@
 @property(copy, nonatomic) NSString *headsetName;
 @property(copy, nonatomic) NSString *headsetId;
 @property(copy, nonatomic) NSString *headsetAddress;
+@property(copy, nonatomic) NSString *firmwareVersion;
 @property(copy, nonatomic) NSString *dspStatus;
 @property(copy, nonatomic) NSString *deviceModel;
 @property(copy, nonatomic) NSString *deviceIdentifier;

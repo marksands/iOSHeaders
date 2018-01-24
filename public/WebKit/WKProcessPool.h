@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 #import "WKObject.h"
 
 @class NSString, WKGeolocationProviderIOS, _WKProcessPoolConfiguration;
 
-@interface WKProcessPool : NSObject <WKObject, NSCoding>
+@interface WKProcessPool : NSObject <WKObject, NSSecureCoding>
 {
     struct ObjectStorage<WebKit::WebProcessPool> _processPool;
     struct WeakObjCPtr<id<_WKAutomationDelegate>> _automationDelegate;
@@ -21,6 +21,7 @@
     struct RetainPtr<id<_WKGeolocationCoreLocationProvider>> _coreLocationProvider;
 }
 
++ (_Bool)supportsSecureCoding;
 + (void)_forceGameControllerFramework;
 + (id)_websiteDataURLForContainerWithURL:(id)arg1 bundleIdentifierIfNotInContainer:(id)arg2;
 + (id)_websiteDataURLForContainerWithURL:(id)arg1;
@@ -37,12 +38,19 @@
 - (id)init;
 - (id)_initWithConfiguration:(id)arg1;
 @property(nonatomic, setter=_setCoreLocationProvider:) id <_WKGeolocationCoreLocationProvider> _coreLocationProvider;
+- (void)_setAllowsAnySSLCertificateForServiceWorker:(_Bool)arg1;
+@property(nonatomic, getter=_isStorageAccessAPIEnabled, setter=_setStorageAccessAPIEnabled:) _Bool _storageAccessAPIEnabled;
 @property(nonatomic, getter=_isCookieStoragePartitioningEnabled, setter=_setCookieStoragePartitioningEnabled:) _Bool _cookieStoragePartitioningEnabled;
+- (unsigned long long)_pluginProcessCount;
+- (void)_preconnectToServer:(id)arg1;
+- (unsigned long long)_webPageContentProcessCount;
 - (unsigned long long)_webProcessCount;
 - (void)_syncNetworkProcessCookies;
+- (int)_storageProcessIdentifier;
 - (int)_networkProcessIdentifier;
+- (void)_terminateServiceWorkerProcess;
 - (void)_terminateNetworkProcess;
-- (void)_terminateDatabaseProcess;
+- (void)_terminateStorageProcess;
 - (void)_setAutomationSession:(id)arg1;
 - (void)_automationCapabilitiesDidChange;
 - (void)_warmInitialProcess;
@@ -53,6 +61,7 @@
 - (id)_objectForBundleParameter:(id)arg1;
 - (void)_setCookieAcceptPolicy:(unsigned long long)arg1;
 - (void)_setCanHandleHTTPSServerTrustEvaluation:(_Bool)arg1;
+- (void)_registerURLSchemeServiceWorkersCanHandle:(id)arg1;
 - (void)_setAllowsSpecificHTTPSCertificate:(id)arg1 forHost:(id)arg2;
 
 // Remaining properties

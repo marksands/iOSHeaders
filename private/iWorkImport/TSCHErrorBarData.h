@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)hasErrorBarsForSeries:(id)arg1;
 @property(readonly, nonatomic) long long minValueGroupIndex; // @synthesize minValueGroupIndex=mMinValueGroupIndex;
 @property(readonly, nonatomic) long long maxValueGroupIndex; // @synthesize maxValueGroupIndex=mMaxValueGroupIndex;
+- (void).cxx_destruct;
 - (_Bool)p_errorBarIsVerticalForAxisID:(id)arg1 chartVertical:(_Bool)arg2;
 - (struct CGPoint)p_getValuePointForGroup:(unsigned long long)arg1 inputAxisID:(id)arg2 outputAxisID:(id)arg3 barVertical:(_Bool)arg4;
 - (void)p_updateDataForAxisID:(id)arg1;

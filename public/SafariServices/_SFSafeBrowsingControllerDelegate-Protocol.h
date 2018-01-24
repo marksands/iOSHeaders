@@ -9,6 +9,7 @@
 @class NSURL, _SFSafeBrowsingController;
 
 @protocol _SFSafeBrowsingControllerDelegate <NSObject>
+- (NSURL *)safeBrowsingControllerExpectedOrCurrentURL:(_SFSafeBrowsingController *)arg1;
 - (void)safeBrowsingControllerDidShowSecurityWarningPage:(_SFSafeBrowsingController *)arg1;
 - (void)safeBrowsingControllerClosePage:(_SFSafeBrowsingController *)arg1;
 - (void)safeBrowsingControllerGoBack:(_SFSafeBrowsingController *)arg1;

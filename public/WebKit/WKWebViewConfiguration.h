@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
-@class NSMutableDictionary, NSString, WKPreferences, WKProcessPool, WKUserContentController, WKWebView, WKWebViewContentProviderRegistry, WKWebsiteDataStore, _WKVisitedLinkStore, _WKWebsiteDataStore;
+@class NSMutableDictionary, NSString, WKPreferences, WKProcessPool, WKUserContentController, WKWebView, WKWebViewContentProviderRegistry, WKWebsiteDataStore, _WKApplicationManifest, _WKVisitedLinkStore, _WKWebsiteDataStore;
 
-@interface WKWebViewConfiguration : NSObject <NSCoding, NSCopying>
+@interface WKWebViewConfiguration : NSObject <NSSecureCoding, NSCopying>
 {
     struct LazyInitialized<WTF::RetainPtr<WKProcessPool>> _processPool;
     struct LazyInitialized<WTF::RetainPtr<WKPreferences>> _preferences;
@@ -36,7 +36,6 @@
     _Bool _allowsInlineMediaPlayback;
     _Bool _inlineMediaPlaybackRequiresPlaysInlineAttribute;
     _Bool _allowsInlineMediaPlaybackAfterFullscreen;
-    _Bool _allowsBlockSelection;
     unsigned long long _dragLiftDelay;
     _Bool _invisibleAutoplayNotPermitted;
     _Bool _mediaDataLoadsAutomatically;
@@ -45,6 +44,7 @@
     _Bool _initialCapitalizationEnabled;
     _Bool _waitsForPaintAfterViewDidMoveToWindow;
     _Bool _controlledByAutomation;
+    struct RetainPtr<_WKApplicationManifest> _applicationManifest;
     _Bool _applePayEnabled;
     _Bool _needsStorageAccessFromFileURLsQuirk;
     _Bool _legacyEncryptedMediaAPIEnabled;
@@ -60,6 +60,7 @@
     unsigned long long _dataDetectorTypes;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool ignoresViewportScaleLimits; // @synthesize ignoresViewportScaleLimits=_ignoresViewportScaleLimits;
 @property(nonatomic) unsigned long long dataDetectorTypes; // @synthesize dataDetectorTypes=_dataDetectorTypes;
 @property(nonatomic) _Bool allowsPictureInPictureMediaPlayback; // @synthesize allowsPictureInPictureMediaPlayback=_allowsPictureInPictureMediaPlayback;
@@ -70,7 +71,6 @@
 @property(nonatomic) _Bool suppressesIncrementalRendering; // @synthesize suppressesIncrementalRendering=_suppressesIncrementalRendering;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)_validate;
 @property(nonatomic, setter=_setContentProviderRegistry:) WKWebViewContentProviderRegistry *_contentProviderRegistry;
 @property(readonly, nonatomic) NSMutableDictionary *_urlSchemeHandlers;
 @property(retain, nonatomic, setter=_setWebsiteDataStore:) _WKWebsiteDataStore *_websiteDataStore;
@@ -93,6 +93,7 @@
 @property(nonatomic, setter=_setOverrideContentSecurityPolicy:) NSString *_overrideContentSecurityPolicy;
 @property(nonatomic, setter=_setNeedsStorageAccessFromFileURLsQuirk:) _Bool _needsStorageAccessFromFileURLsQuirk;
 @property(nonatomic, setter=_setApplePayEnabled:) _Bool _applePayEnabled;
+@property(nonatomic, setter=_setApplicationManifest:) _WKApplicationManifest *_applicationManifest;
 @property(nonatomic, getter=_isControlledByAutomation, setter=_setControlledByAutomation:) _Bool _controlledByAutomation;
 @property(nonatomic, setter=_setWaitsForPaintAfterViewDidMoveToWindow:) _Bool _waitsForPaintAfterViewDidMoveToWindow;
 @property(nonatomic, setter=_setInitialCapitalizationEnabled:) _Bool _initialCapitalizationEnabled;
@@ -103,7 +104,6 @@
 @property(nonatomic, setter=_setMediaDataLoadsAutomatically:) _Bool _mediaDataLoadsAutomatically;
 @property(nonatomic, setter=_setInvisibleAutoplayNotPermitted:) _Bool _invisibleAutoplayNotPermitted;
 @property(nonatomic, setter=_setDragLiftDelay:) unsigned long long _dragLiftDelay;
-@property(nonatomic, setter=_setAllowsBlockSelection:) _Bool _allowsBlockSelection;
 @property(nonatomic, setter=_setAllowsInlineMediaPlaybackAfterFullscreen:) _Bool _allowsInlineMediaPlaybackAfterFullscreen;
 @property(nonatomic, setter=_setInlineMediaPlaybackRequiresPlaysInlineAttribute:) _Bool _inlineMediaPlaybackRequiresPlaysInlineAttribute;
 @property(nonatomic, setter=_setAlwaysRunsAtForegroundPriority:) _Bool _alwaysRunsAtForegroundPriority;

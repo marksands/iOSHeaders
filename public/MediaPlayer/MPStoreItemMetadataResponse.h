@@ -12,12 +12,14 @@
 
 @interface MPStoreItemMetadataResponse : NSObject <NSCopying>
 {
+    NSArray *_cacheMissItemIdentifiers;
     NSMutableDictionary *_itemIdentifierToStoreItemMetadata;
     _Bool _finalResponse;
     NSArray *_lastBatchItemIdentifiers;
     NSArray *_requestItemIdentifiers;
 }
 
+@property(copy, nonatomic) NSArray *cacheMissItemIdentifiers; // @synthesize cacheMissItemIdentifiers=_cacheMissItemIdentifiers;
 @property(copy, nonatomic) NSArray *requestItemIdentifiers; // @synthesize requestItemIdentifiers=_requestItemIdentifiers;
 @property(copy, nonatomic) NSArray *lastBatchItemIdentifiers; // @synthesize lastBatchItemIdentifiers=_lastBatchItemIdentifiers;
 @property(nonatomic, getter=isFinalResponse) _Bool finalResponse; // @synthesize finalResponse=_finalResponse;

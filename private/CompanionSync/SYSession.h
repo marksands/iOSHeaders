@@ -39,6 +39,7 @@
     NSMutableDictionary *_peerGenerationIDs;
 }
 
++ (id)unarchiveMetadata:(id)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 @property(copy, nonatomic) NSMutableDictionary *peerGenerationIDs; // @synthesize peerGenerationIDs=_peerGenerationIDs;
 @property(nonatomic) unsigned long long sessionSignpost; // @synthesize sessionSignpost=_sessionSignpost;

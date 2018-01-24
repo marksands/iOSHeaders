@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString, TSWPAttachment, TSWPCharacterStyle, TSWPFootnoteReferenceAttachment, TSWPParagraphStyle, TSWPSmartField;
+@class NSArray, NSLocale, NSString, TSWPAttachment, TSWPCharacterStyle, TSWPFootnoteReferenceAttachment, TSWPParagraphStyle, TSWPSmartField;
 
 @protocol TSWPTextSource <NSObject>
 - (unsigned long long)storageLength;
@@ -20,7 +20,7 @@
 - (struct _NSRange)charRangeMappedToStorage:(struct _NSRange)arg1;
 - (unsigned long long)charIndexMappedFromStorage:(unsigned long long)arg1;
 - (unsigned long long)charIndexMappedToStorage:(unsigned long long)arg1;
-- (long long)hyphenationLocationBeforeIndex:(long long)arg1 inRange:(struct _NSRange)arg2 locale:(struct __CFLocale *)arg3 hyphenChar:(unsigned int *)arg4;
+- (long long)hyphenationLocationBeforeIndex:(long long)arg1 inRange:(struct _NSRange)arg2 locale:(NSLocale *)arg3 hyphenChar:(unsigned int *)arg4;
 - (unsigned short)characterAtIndex:(unsigned long long)arg1;
 - (struct _NSRange)wordAtCharIndex:(unsigned long long)arg1 includePreviousWord:(_Bool)arg2;
 - (TSWPCharacterStyle *)characterStyleAtCharIndex:(unsigned long long)arg1 effectiveRange:(struct _NSRange *)arg2;
@@ -31,7 +31,7 @@
 - (TSWPFootnoteReferenceAttachment *)footnoteReferenceAtCharIndex:(unsigned long long)arg1;
 - (NSArray *)smartFieldsWithAttributeKind:(int)arg1 intersectingRange:(struct _NSRange)arg2;
 - (TSWPSmartField *)smartFieldAtCharIndex:(unsigned long long)arg1 attributeKind:(int)arg2 effectiveRange:(struct _NSRange *)arg3;
-- (void)attributesAtCharIndex:(unsigned long long)arg1 attributesOfInterest:(_Bool [20])arg2 attributesTable:(id [20])arg3 effectiveRange:(struct _NSRange *)arg4;
+- (void)attributesAtCharIndex:(unsigned long long)arg1 attributesOfInterest:(_Bool [21])arg2 attributesTable:(id [21])arg3 effectiveRange:(struct _NSRange *)arg4;
 - (_Bool)hasColumnStyleForParagraphBreakAtCharIndex:(unsigned long long)arg1;
 - (_Bool)hasColumnBreakAtCharIndex:(unsigned long long)arg1;
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;

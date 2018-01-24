@@ -11,7 +11,7 @@
 @interface WKBrowsingContextController : NSObject
 {
     struct WeakObjCPtr<id<WKBrowsingContextHistoryDelegate>> _historyDelegate;
-    RefPtr_0cd9f53a _page;
+    RefPtr_a805eeb8 _page;
     struct unique_ptr<WebKit::PageLoadStateObserver, std::__1::default_delete<WebKit::PageLoadStateObserver>> _pageLoadStateObserver;
     struct WeakObjCPtr<id<WKBrowsingContextLoadDelegate>> _loadDelegate;
     struct WeakObjCPtr<id<WKBrowsingContextPolicyDelegate>> _policyDelegate;

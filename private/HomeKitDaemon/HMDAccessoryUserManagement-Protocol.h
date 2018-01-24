@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class HAPPairingIdentity, HMDUser;
+@class HMDUser, HMFPairingIdentity;
 
 @protocol HMDAccessoryUserManagement <NSObject>
-@property(readonly, copy) HAPPairingIdentity *pairingIdentity;
+@property(readonly, copy) HMFPairingIdentity *pairingIdentity;
 @property(readonly) _Bool supportsUserManagement;
 - (void)pairingsWithCompletionHandler:(void (^)(NSArray *, NSError *))arg1;
 - (void)removeUser:(HMDUser *)arg1 completionHandler:(void (^)(NSError *))arg2;

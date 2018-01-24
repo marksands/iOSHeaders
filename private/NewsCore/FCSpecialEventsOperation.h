@@ -12,16 +12,14 @@
 {
     id <FCAppConfiguration> _appConfiguration;
     FCCloudContext *_context;
-    FCSpecialEventsOperationResult *_breakingNewsResult;
-    FCSpecialEventsOperationResult *_specialEventResult;
+    FCSpecialEventsOperationResult *_specialEventsResult;
     NSError *_error;
     CDUnknownBlockType _catchUpCompletionHandler;
 }
 
 @property(copy) CDUnknownBlockType catchUpCompletionHandler; // @synthesize catchUpCompletionHandler=_catchUpCompletionHandler;
 @property(retain) NSError *error; // @synthesize error=_error;
-@property(retain) FCSpecialEventsOperationResult *specialEventResult; // @synthesize specialEventResult=_specialEventResult;
-@property(readonly) FCSpecialEventsOperationResult *breakingNewsResult; // @synthesize breakingNewsResult=_breakingNewsResult;
+@property(retain) FCSpecialEventsOperationResult *specialEventsResult; // @synthesize specialEventsResult=_specialEventsResult;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
 @property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;

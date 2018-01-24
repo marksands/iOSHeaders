@@ -7,6 +7,8 @@
 #import "NTPBTodayWidgetConfig.h"
 
 @interface NTPBTodayWidgetConfig (NTAdditions)
+- (id)videoGroupsConfig;
+- (void)setVideoGroupsConfig:(id)arg1;
 - (id)externalAnalyticsConfigurations;
 - (void)setExternalAnalyticsConfigurations:(id)arg1;
 @end

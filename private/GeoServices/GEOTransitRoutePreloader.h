@@ -37,7 +37,6 @@
 - (void)_makeBatchForTilesAroundStationsForSteps:(id)arg1;
 - (void)_ignoreAlreadyRequestedTilesAndUpdateGlobalListWithNonDuplicatesForTileKeyList:(id)arg1;
 - (void)_makeBatchesForSteps:(id)arg1;
-- (void)_performSubscriptionRequests;
 - (void)_performNextRequests;
 - (struct PolylineCoordinate)_polylineCoordinateForDouble:(double)arg1;
 - (void)_cancelAllBatches;

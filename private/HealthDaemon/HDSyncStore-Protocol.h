@@ -9,6 +9,7 @@
 @class HDProfile, NSArray, NSError, NSSet, NSString, NSUUID;
 
 @protocol HDSyncStore <NSObject>
+@property(readonly) long long syncStoreType;
 @property(readonly) int protocolVersion;
 - (void)setExpectedSequenceNumber:(long long)arg1 forSyncEntityClass:(Class)arg2;
 - (long long)expectedSequenceNumberForSyncEntityClass:(Class)arg1;
@@ -21,7 +22,6 @@
 - (NSArray *)orderedSyncEntities;
 - (NSString *)syncStoreDefaultSourceBundleIdentifier;
 - (NSUUID *)syncStoreIdentifier;
-- (NSString *)syncStoreTypeIdentifier;
 - (long long)syncEpoch;
 - (long long)syncProvenance;
 - (HDProfile *)profile;

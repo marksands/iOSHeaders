@@ -49,7 +49,7 @@
 - (void)_checkCloudStoreState;
 - (void)_beginSetup;
 - (struct CGSize)_snapshotSize;
-- (void)_processCloudStorePCSErrorWithTargetDevice:(id)arg1;
+- (void)_processCloudStorePCSError;
 - (void)_initalizeCloudStoreWithTargetDevice:(id)arg1 ifNecessaryWithCompletion:(CDUnknownBlockType)arg2;
 - (void)remoteUIController:(id)arg1 didReceiveObjectModel:(id)arg2 actionSignal:(unsigned long long *)arg3;
 - (void)deviceToDeviceEncryptionHelper:(id)arg1 shouldContinueUpgradingUserToHSA2WithCompletion:(CDUnknownBlockType)arg2;

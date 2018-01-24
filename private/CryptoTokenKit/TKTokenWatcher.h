@@ -8,7 +8,7 @@
 
 #import "TKProtocolTokenWatcher.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSXPCConnection;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSXPCConnection, NSXPCListenerEndpoint;
 
 @interface TKTokenWatcher : NSObject <TKProtocolTokenWatcher>
 {
@@ -19,15 +19,18 @@
 }
 
 - (void).cxx_destruct;
+@property(readonly) NSXPCListenerEndpoint *endpoint;
 @property(readonly) NSArray *tokenIDs;
 - (void)removedToken:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)insertedToken:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)addRemovalHandler:(CDUnknownBlockType)arg1 forTokenID:(id)arg2;
 - (void)setInsertionHandler:(CDUnknownBlockType)arg1;
-- (void)setup;
+- (void)setupWithConnection:(id)arg1;
 - (id)initWithInsertionHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;
+- (id)initWithEndpoint:(id)arg1;
 - (id)init;
+- (id)initWithConnection:(id)arg1;
 
 @end
 

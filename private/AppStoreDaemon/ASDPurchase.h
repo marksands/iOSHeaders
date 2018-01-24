@@ -16,9 +16,11 @@
     NSArray *_buyParameters;
     _Bool _createsJobs;
     _Bool _displaysOnLockScreen;
+    _Bool _installUniversalVariant;
     _Bool _isBackgroundUpdate;
     _Bool _isRedownload;
     _Bool _shouldCancelForInstalledBundleItems;
+    _Bool _isRefresh;
     _Bool _sendGUID;
     NSString *_bundleID;
     NSNumber *_itemID;
@@ -34,12 +36,17 @@
     NSString *_referrerURL;
     long long _purchaseID;
     NSArray *_requiredCapabilities;
+    NSString *_clientID;
+    NSNumber *_ownerDSID;
     NSNumber *_purchaserDSID;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool sendGUID; // @synthesize sendGUID=_sendGUID;
 @property(copy, nonatomic) NSNumber *purchaserDSID; // @synthesize purchaserDSID=_purchaserDSID;
+@property(copy, nonatomic) NSNumber *ownerDSID; // @synthesize ownerDSID=_ownerDSID;
+@property(nonatomic) _Bool isRefresh; // @synthesize isRefresh=_isRefresh;
+@property(copy, nonatomic) NSString *clientID; // @synthesize clientID=_clientID;
 @property(nonatomic) _Bool shouldCancelForInstalledBundleItems; // @synthesize shouldCancelForInstalledBundleItems=_shouldCancelForInstalledBundleItems;
 @property(copy, nonatomic) NSArray *requiredCapabilities; // @synthesize requiredCapabilities=_requiredCapabilities;
 @property long long purchaseID; // @synthesize purchaseID=_purchaseID;
@@ -47,6 +54,7 @@
 @property(copy, nonatomic) NSString *referrerURL; // @synthesize referrerURL=_referrerURL;
 @property(copy, nonatomic) NSString *referrerName; // @synthesize referrerName=_referrerName;
 @property(nonatomic) _Bool isBackgroundUpdate; // @synthesize isBackgroundUpdate=_isBackgroundUpdate;
+@property(nonatomic) _Bool installUniversalVariant; // @synthesize installUniversalVariant=_installUniversalVariant;
 @property(copy, nonatomic) NSArray *gratisIdentifiers; // @synthesize gratisIdentifiers=_gratisIdentifiers;
 @property long long extensionsToEnable; // @synthesize extensionsToEnable=_extensionsToEnable;
 @property(nonatomic) _Bool displaysOnLockScreen; // @synthesize displaysOnLockScreen=_displaysOnLockScreen;

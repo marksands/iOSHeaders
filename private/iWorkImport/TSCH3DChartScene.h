@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 - (void)addLabelsToScene;
 - (void)addChartTitlesToScene;
 - (void)adjustSceneSettings;
-- (const CDStruct_44ada6bf *)layoutSettings;
+- (const CDStruct_b1c75024 *)layoutSettings;
 - (id)seriesType;
 - (id)chartType;
 - (id)chartInfo;

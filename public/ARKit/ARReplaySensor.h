@@ -8,14 +8,16 @@
 
 #import "ARSensor.h"
 
-@class AVAssetReader, AVAssetReaderOutputMetadataAdaptor, AVAssetReaderTrackOutput, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
+@class AVAsset, AVAssetReader, AVAssetReaderOutputMetadataAdaptor, AVAssetReaderTrackOutput, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSSet, NSString;
 
 @interface ARReplaySensor : NSObject <ARSensor>
 {
+    AVAsset *_asset;
     NSMutableArray *_arImageData;
     NSMutableArray *_arAccelerometerData;
     NSMutableArray *_arGyroData;
     NSMutableArray *_arDeviceOrientationData;
+    NSDictionary *_recordedResultGetters;
     NSObject<OS_dispatch_queue> *_replayQueue;
     NSObject<OS_dispatch_source> *_timer;
     double _startTime;
@@ -24,8 +26,10 @@
     int _accelDataIndex;
     int _gyroDataIndex;
     int _deviceOrientationDataIndex;
-    _Bool _replayInProgress;
-    _Bool _dataLoadedFromAsset;
+    _Bool _running;
+    _Bool _metadataLoadedFromAsset;
+    _Bool _interrupted;
+    _Bool _replayStarted;
     struct opaqueCMSampleBuffer *_nextSampleBuffer;
     AVAssetReader *_assetReader;
     AVAssetReaderTrackOutput *_imageOutput;
@@ -36,14 +40,22 @@
     AVAssetReaderOutputMetadataAdaptor *_gyroOutputMetadataAdaptor;
     AVAssetReaderOutputMetadataAdaptor *_imageOutputMetadataAdaptor;
     AVAssetReaderOutputMetadataAdaptor *_deviceOrientationOutputMetadataAdaptor;
+    NSDictionary *_recordedResultAdaptors;
     unsigned long long _sensorDataTypes;
+    _Bool _isReplayingManually;
     id <ARSensorDelegate> _delegate;
     id <ARReplaySensorDelegate> _replaySensorDelegate;
     NSString *_deviceModel;
     unsigned long long _recordedSensorTypes;
+    NSSet *_recordedResultClasses;
+    struct CGSize _imageResolution;
 }
 
+@property(readonly, nonatomic) _Bool interrupted; // @synthesize interrupted=_interrupted;
+@property(readonly, nonatomic) _Bool isReplayingManually; // @synthesize isReplayingManually=_isReplayingManually;
+@property(readonly, nonatomic) NSSet *recordedResultClasses; // @synthesize recordedResultClasses=_recordedResultClasses;
 @property(readonly, nonatomic) unsigned long long recordedSensorTypes; // @synthesize recordedSensorTypes=_recordedSensorTypes;
+@property(readonly, nonatomic) struct CGSize imageResolution; // @synthesize imageResolution=_imageResolution;
 @property(readonly, nonatomic) NSString *deviceModel; // @synthesize deviceModel=_deviceModel;
 @property(nonatomic) __weak id <ARReplaySensorDelegate> replaySensorDelegate; // @synthesize replaySensorDelegate=_replaySensorDelegate;
 @property(nonatomic) __weak id <ARSensorDelegate> delegate; // @synthesize delegate=_delegate;
@@ -52,8 +64,10 @@
 - (struct __CVBuffer *)requestNextDepthPixelBufferForTimestamp:(double)arg1;
 - (struct __CVBuffer *)requestNextPixelBufferForTimestamp:(double)arg1;
 - (void)enumerateDataWithIdentifier:(id)arg1 inOutputAdaptor:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (id)unpackTimestampedItemsOfClass:(Class)arg1 withIdentifier:(id)arg2 inOutputAdaptor:(id)arg3;
 - (id)unpackItemsOfClass:(Class)arg1 withIdentifier:(id)arg2 inOutputAdaptor:(id)arg3;
 - (void)preloadNextPixelBuffers:(int)arg1;
+- (id)getResultDataForClasses:(id)arg1 atTimestamp:(double)arg2;
 - (id)getNextDeviceOrientationData;
 - (id)getNextGyroData;
 - (id)getNextAccelerometerData;
@@ -61,19 +75,30 @@
 - (_Bool)hasDeviceOrientationDataForTime:(double)arg1;
 - (_Bool)hasGyroDataForTime:(double)arg1;
 - (_Bool)hasAccelerometerDataForTime:(double)arg1;
+- (void)fastForwardIndexesToTime:(double)arg1;
 - (_Bool)hasImageDataForTime:(double)arg1;
 - (_Bool)hasMoreData;
+- (void)_didOutputSensorData:(id)arg1;
+- (void)advance;
 - (void)tick;
-- (void)replayData;
-- (void)readMetadataIntoArrays;
+- (double)currentTime;
+- (void)startReplayIfNeeded;
+- (void)loadAllMetadata;
 - (id)createAndAddMetadataAdaptorForTrack:(id)arg1;
 - (_Bool)track:(id)arg1 hasMetadataIdentifier:(id)arg2;
 - (void)failWithError:(id)arg1;
-- (void)initializeAssetReaderWithAsset:(id)arg1;
+- (void)initializeAssetReaderWithAsset:(id)arg1 buffersOnly:(_Bool)arg2;
+- (id)replayTechniqueForResultDataClasses:(id)arg1;
+- (void)advanceFrame;
+- (void)endReplay;
+- (void)prepareForReplay;
+- (void)endInterruption;
+- (void)interrupt;
 - (void)stop;
 - (void)start;
 - (unsigned long long)providedDataTypes;
 - (void)dealloc;
+- (id)initWithSequenceURL:(id)arg1 manualReplay:(_Bool)arg2;
 - (id)initWithDataFromFile:(id)arg1;
 
 // Remaining properties

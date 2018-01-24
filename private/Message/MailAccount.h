@@ -65,9 +65,9 @@
 + (id)defaultMailAccountForDeliveryExcludingRestricted;
 + (id)defaultMailAccountForDelivery;
 + (void)setGlobalPathForAccounts:(id)arg1;
-+ (id)defaultPathNameForAccountWithHostname:(id)arg1 username:(id)arg2;
 + (id)defaultAccountDirectory;
-+ (id)defaultPathForAccountWithHostname:(id)arg1 username:(id)arg2;
++ (id)legacyPathNameForAccountWithHostname:(id)arg1 username:(id)arg2;
++ (id)legacyPathForAccountIdentifier:(id)arg1 withHostname:(id)arg2 username:(id)arg3;
 + (id)newAccountWithDictionary:(id)arg1;
 + (id)newAccountWithPath:(id)arg1;
 + (id)accountWithPath:(id)arg1;
@@ -335,6 +335,9 @@
 - (void)setLastKnownHostname:(id)arg1;
 - (void)setPath:(id)arg1;
 - (id)path;
+@property(readonly, nonatomic) NSString *defaultPath;
+- (id)URLStringFromLegacyURLString:(id)arg1;
+- (id)legacySQLExpressionToMatchAllMailboxes;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1;
 - (id)initWithLibrary:(id)arg1 path:(id)arg2;

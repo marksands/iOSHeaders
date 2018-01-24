@@ -11,12 +11,13 @@
 __attribute__((visibility("hidden")))
 @interface VKBuildingTile : VKSkewingVectorTile
 {
-    vector_dc840c5c _facadeTextures;
+    vector_73877b71 _facadeTextures;
     NSMutableArray *_polygonGroups[3];
     VK3DObjectSubTile *_objectSubTile;
     struct unique_ptr<ggl::Texture2D, std::__1::default_delete<ggl::Texture2D>> _shadowTexture;
     Matrix_08d701e4 _shadowModelMatrix;
     shared_ptr_696716c4 _shadowViewConstantData;
+    float _fadeProgress;
     float _alpha;
     float _scale;
     float _minLayeringHeight;
@@ -36,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) float minLayeringHeight; // @synthesize minLayeringHeight=_minLayeringHeight;
 @property(nonatomic) float scale; // @synthesize scale=_scale;
 @property(nonatomic) float alpha; // @synthesize alpha=_alpha;
+@property(nonatomic) float fadeProgress; // @synthesize fadeProgress=_fadeProgress;
 @property(readonly, nonatomic) VK3DObjectSubTile *objectSubTile; // @synthesize objectSubTile=_objectSubTile;
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -48,7 +50,7 @@ __attribute__((visibility("hidden")))
 - (void)_fillShadowAreasInContext:(struct CGContext *)arg1 data:(char *)arg2;
 - (Box_3fb92e00)_shadowBounds;
 - (id)polygonGroupsForTextureAtIndex:(unsigned long long)arg1;
-- (const vector_dc840c5c *)facadeTextures;
+- (const vector_73877b71 *)facadeTextures;
 - (unsigned long long)numberOfFacadeTextures;
 - (void)buildMeshesWithTriangulator:(id)arg1 device:(Device_9226c869 *)arg2 prepareExtrusion:(_Bool)arg3;
 - (void)confirmBuildingSuppression:(CDStruct_bc04cdca *)arg1;

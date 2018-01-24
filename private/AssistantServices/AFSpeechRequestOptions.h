@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSDictionary, NSFileHandle, NSNumber, NSString, NSURL, NSXPCListenerEndpoint;
+@class AFSpeechSynthesisRecord, NSDictionary, NSFileHandle, NSNumber, NSString, NSURL, NSXPCListenerEndpoint;
 
 @interface AFSpeechRequestOptions : NSObject <NSSecureCoding>
 {
@@ -40,9 +40,15 @@
     NSNumber *_notifyState;
     NSURL *_audioFileURL;
     unsigned long long _bargeInOptions;
+    AFSpeechSynthesisRecord *_speechSynthesisRecord;
+    NSDictionary *_startContext;
+    NSDictionary *_stopContext;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSDictionary *stopContext; // @synthesize stopContext=_stopContext;
+@property(copy, nonatomic) NSDictionary *startContext; // @synthesize startContext=_startContext;
+@property(copy, nonatomic) AFSpeechSynthesisRecord *speechSynthesisRecord; // @synthesize speechSynthesisRecord=_speechSynthesisRecord;
 @property(nonatomic) unsigned long long bargeInOptions; // @synthesize bargeInOptions=_bargeInOptions;
 @property(nonatomic) _Bool suppressStopAlert; // @synthesize suppressStopAlert=_suppressStopAlert;
 @property(copy, nonatomic) NSURL *audioFileURL; // @synthesize audioFileURL=_audioFileURL;

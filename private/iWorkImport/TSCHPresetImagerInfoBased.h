@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)presetImagerForChartType:(id)arg1;
+- (void).cxx_destruct;
 - (double)p_canvasScale;
 - (struct CGRect)p_updateSwatchFrameForInwardLayoutIfNeeded:(struct CGRect)arg1 outImageSize:(struct CGSize *)arg2 outImageScale:(double *)arg3 outSwatchOffset:(struct CGPoint *)arg4 outCanvasScale:(double *)arg5;
 - (struct CGRect)p_updateSwatchFrameForRectAdjustmentIfNeeded:(struct CGRect)arg1 rectAdjustment:(id)arg2 outSwatchOffset:(struct CGPoint *)arg3;
@@ -24,7 +25,6 @@ __attribute__((visibility("hidden")))
 - (id)p_rectAdjustmentForChartType:(id)arg1;
 - (id)p_imageRectAdjustments;
 - (id)p_chartType;
-- (void)dealloc;
 - (id)initWithChartType:(id)arg1;
 
 @end

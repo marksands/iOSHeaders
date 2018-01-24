@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
     NSMutableSet *_pendingTiles;
     NSMutableArray *_junctions;
     VKLabelNavRoadGraph *_roadGraph;
-    vector_c899b68f _activeSigns;
+    vector_ecfc0b70 _activeSigns;
     NSMutableArray *_fadingLabels;
     NSMutableDictionary *_visibleLabelsByName;
     NSMutableArray *_visibleLabels;
@@ -57,7 +57,7 @@ __attribute__((visibility("hidden")))
     _Bool _debugEnableShieldsOnRouteLine;
     shared_ptr_a3c46825 _styleManager;
     _Bool _shouldLabelOppositeCarriageways;
-    vector_13142ee6 _externalCollisionLabelsForLayout;
+    vector_b4a52264 _externalCollisionLabelsForLayout;
 }
 
 @property(nonatomic) struct VKLabelNavArtworkCache *artworkCache; // @synthesize artworkCache=_artworkCache;
@@ -65,7 +65,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool debugDisableRoadSignLimit; // @synthesize debugDisableRoadSignLimit=_debugDisableRoadSignLimit;
 @property(retain, nonatomic) NSString *currentShieldGroup; // @synthesize currentShieldGroup=_currentShieldGroup;
 @property(retain, nonatomic) NSString *currentRoadName; // @synthesize currentRoadName=_currentRoadName;
-@property(readonly, nonatomic) const vector_c899b68f *activeSigns; // @synthesize activeSigns=_activeSigns;
+@property(readonly, nonatomic) const vector_ecfc0b70 *activeSigns; // @synthesize activeSigns=_activeSigns;
 @property(retain, nonatomic) NSString *currentLocationText; // @synthesize currentLocationText=_currentLocationText;
 @property(nonatomic) struct PolylineCoordinate routeUserOffset; // @synthesize routeUserOffset=_routeUserOffset;
 @property(nonatomic) _Bool drawRoadSigns; // @synthesize drawRoadSigns=_drawRoadSigns;
@@ -85,7 +85,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_addJunctionsForTile:(id)arg1;
 - (void)_addLabelsForJunctions:(id)arg1 withContext:(struct NavContext *)arg2 maxLabelsToAdd:(unsigned long long)arg3 useAllJunctions:(_Bool)arg4 placeShieldsFrontToBack:(_Bool)arg5;
 - (void)_addLabelsAtJunctions:(id)arg1 withContext:(struct NavContext *)arg2 maxLabelsToAdd:(unsigned long long)arg3;
-- (void)layoutWithNavContext:(struct NavContext *)arg1 externalCollisionLabels:(const vector_13142ee6 *)arg2;
+- (void)layoutWithNavContext:(struct NavContext *)arg1 externalCollisionLabels:(const vector_b4a52264 *)arg2;
 - (unsigned char)orientationForRoadSign:(id)arg1 roadLabel:(id)arg2 navContext:(struct NavContext *)arg3;
 - (void)_generateCurrentRoadSignWithContext:(struct NavContext *)arg1;
 - (_Bool)_collideLabel:(id)arg1 activeLabel:(id)arg2 labelsToRemove:(id)arg3;

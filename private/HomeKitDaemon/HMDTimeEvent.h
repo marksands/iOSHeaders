@@ -6,14 +6,14 @@
 
 #import <HomeKitDaemon/HMDEvent.h>
 
+#import "HMDHomeMessageReceiver.h"
 #import "HMFDumpState.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
-@class HMDBackgroundTaskAgentTimer, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDBackgroundTaskAgentTimer, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDTimeEvent : HMDEvent <NSSecureCoding, HMFDumpState, HMFLogging, HMFMessageReceiver>
+@interface HMDTimeEvent : HMDEvent <NSSecureCoding, HMFDumpState, HMFLogging, HMDHomeMessageReceiver>
 {
     _Bool _repetitive;
     HMDBackgroundTaskAgentTimer *_btaTimer;
@@ -41,6 +41,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 @property(readonly) Class superclass;
 

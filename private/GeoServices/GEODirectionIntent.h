@@ -13,11 +13,13 @@ __attribute__((visibility("hidden")))
 {
     GEOResolvedItem *_origin;
     GEOResolvedItem *_destination;
+    int _transportType;
 }
 
+@property(readonly, nonatomic) int transportType; // @synthesize transportType=_transportType;
+@property(readonly, nonatomic) GEOResolvedItem *destination; // @synthesize destination=_destination;
+@property(readonly, nonatomic) GEOResolvedItem *origin; // @synthesize origin=_origin;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) GEOResolvedItem *destination;
-@property(readonly, nonatomic) GEOResolvedItem *origin;
 - (id)initWithDirectionIntent:(id)arg1;
 
 @end

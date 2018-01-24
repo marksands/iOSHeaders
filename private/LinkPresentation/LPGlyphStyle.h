@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class LPImage, LPImageViewStyle, LPPadding;
+@class LPImage, LPImageViewStyle, LPPadding, LPPointUnit;
 
 __attribute__((visibility("hidden")))
 @interface LPGlyphStyle : NSObject
@@ -15,14 +15,17 @@ __attribute__((visibility("hidden")))
     LPPadding *_padding;
     double _opacity;
     LPImageViewStyle *_imageStyle;
+    LPPointUnit *_baselineOffset;
 }
 
+@property(retain, nonatomic) LPPointUnit *baselineOffset; // @synthesize baselineOffset=_baselineOffset;
 @property(readonly, nonatomic) LPImageViewStyle *imageStyle; // @synthesize imageStyle=_imageStyle;
 @property(nonatomic) double opacity; // @synthesize opacity=_opacity;
 @property(readonly, retain, nonatomic) LPPadding *padding; // @synthesize padding=_padding;
 @property(retain, nonatomic) LPImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
 - (id)initSearchGlyph;
+- (id)init;
 
 @end
 

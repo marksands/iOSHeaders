@@ -28,7 +28,7 @@
 @property(copy, nonatomic) NSString *url; // @synthesize url=_url;
 @property(nonatomic) int cbaType; // @synthesize cbaType=_cbaType;
 @property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
-@property(nonatomic) unsigned long long timestamp;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;

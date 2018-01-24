@@ -17,6 +17,7 @@
 }
 
 + (id)calculateDistanceBetweenImageprint1:(id)arg1 andImageprint2:(id)arg2;
++ (_Bool)supportsSecureCoding;
 @property(retain) NSString *imageprintType; // @synthesize imageprintType=_imageprintType;
 @property(retain) MPImageDescriptor *imageprintDescriptor; // @synthesize imageprintDescriptor=_imageprintDescriptor;
 @property(retain) NSString *imageprintVersion; // @synthesize imageprintVersion=_imageprintVersion;

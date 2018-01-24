@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class UIViewController<HUPresentationDelegateHost><HUPreloadableViewController>;
+@class NSString, UIViewController<HUPresentationDelegateHost><HUPreloadableViewController>;
 
 @protocol HUQuickControlDetailsViewControllerVendor <NSObject>
+- (NSString *)secondaryQuickControlPresentationStyle;
 - (UIViewController<HUPresentationDelegateHost><HUPreloadableViewController> *)createDetailsViewController;
 @end
 

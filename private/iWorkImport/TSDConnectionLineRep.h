@@ -14,12 +14,10 @@ __attribute__((visibility("hidden")))
     TSDPathSource *mLastPathSource;
 }
 
+- (void).cxx_destruct;
 - (_Bool)shouldSetPathSourceWhenChangingInfoGeometry;
 - (void)updateFromLayout;
-- (double)shortestDistanceToPoint:(struct CGPoint)arg1 countAsHit:(_Bool *)arg2;
-- (_Bool)containsPoint:(struct CGPoint)arg1;
 - (id)connectionLineLayout;
-- (void)dealloc;
 
 @end
 

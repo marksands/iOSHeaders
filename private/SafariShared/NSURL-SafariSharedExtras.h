@@ -11,6 +11,8 @@
 + (id)safari_URLWithDataAsString:(id)arg1 relativeToURL:(id)arg2;
 + (id)safari_URLWithDataAsString:(id)arg1;
 + (id)safari_URLWithUserTypedString:(id)arg1;
+- (_Bool)safari_canBeSafelyRedirectedToURL:(id)arg1;
+@property(readonly, nonatomic) _Bool safari_isTopLevelURL;
 - (id)safari_URLWithUniqueFilename;
 - (id)safari_userVisibleHostWithoutWWWSubdomain;
 - (id)safari_userVisibleHost;
@@ -28,8 +30,10 @@
 - (id)safari_URLByReplacingHostWithString:(id)arg1;
 - (id)_safari_URLByReplacingComponent:(long long)arg1 withString:(id)arg2;
 - (id)_safari_URLByReplacingComponent:(long long)arg1 includingSeparators:(_Bool)arg2 withString:(id)arg3;
+- (id)safari_URLByRemovingUserAndPath;
 - (_Bool)safari_hasSameOriginAsURL:(id)arg1;
 - (_Bool)safari_isDataURL;
+- (_Bool)safari_isHTTPURL;
 - (_Bool)safari_isHTTPFamilyURL;
 - (_Bool)safari_hasScheme:(id)arg1;
 - (id)safari_path;

@@ -37,11 +37,11 @@
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(copy, nonatomic) NSString *fbq; // @synthesize fbq=_fbq;
 @property(copy, nonatomic) NSString *parsecStatus; // @synthesize parsecStatus=_parsecStatus;
-@property(copy, nonatomic) NSString *uuid;
+@property(copy, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) _CPStruct *networkTimingData; // @synthesize networkTimingData=_networkTimingData;
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
 @property(nonatomic) long long responseSize; // @synthesize responseSize=_responseSize;
-@property(nonatomic) unsigned long long timestamp;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;

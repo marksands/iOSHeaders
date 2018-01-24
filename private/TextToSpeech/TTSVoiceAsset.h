@@ -19,9 +19,11 @@
     NSArray *_languages;
     long long _gender;
     long long _footprint;
+    NSString *_voicePath;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSString *voicePath; // @synthesize voicePath=_voicePath;
 @property(readonly, nonatomic) _Bool isBuiltInVoice; // @synthesize isBuiltInVoice=_isBuiltInVoice;
 @property(readonly, nonatomic) _Bool isInstalled; // @synthesize isInstalled=_isInstalled;
 @property(readonly, nonatomic) long long footprint; // @synthesize footprint=_footprint;

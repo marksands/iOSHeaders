@@ -18,6 +18,7 @@
     _Bool _hasTelephonyCapability;
     _Bool _isRunningStoreDemoMode;
     _Bool _runningInStoreDemoModeF201;
+    _Bool _deviceSupportsHeartRateMotionContexts;
     _Bool _supportsActivitySharing;
     _Bool _supportsAppSubscriptions;
     _Bool _supportsAWDMetricSubmission;
@@ -41,6 +42,7 @@
 + (_Bool)_shouldShowBuddy;
 + (_Bool)_isForceBuddyEnabled;
 + (_Bool)_runningInStoreDemoModeF201;
++ (_Bool)_deviceSupportsHeartRateMotionContexts;
 + (long long)_runningInStoreDemoModeFProgramNumber;
 + (_Bool)_isRunningStoreDemoMode;
 + (_Bool)_hasTelephonyCapability;
@@ -63,6 +65,7 @@
 + (_Bool)isDeviceSupported;
 + (_Bool)isAppleInternalInstall;
 + (_Bool)hasTelephonyCapability;
++ (_Bool)activePairedWatchSupportsHeartRateMotionContexts;
 + (_Bool)activePairedWatchHasSmartFitnessCoaching;
 + (_Bool)anyPairedWatchHasFlightsClimbedCapability;
 + (_Bool)anyPairedWatchHasSOSModeCapability;
@@ -90,6 +93,7 @@
 @property(nonatomic) _Bool supportsAWDMetricSubmission; // @synthesize supportsAWDMetricSubmission=_supportsAWDMetricSubmission;
 @property(nonatomic) _Bool supportsAppSubscriptions; // @synthesize supportsAppSubscriptions=_supportsAppSubscriptions;
 @property(nonatomic) _Bool supportsActivitySharing; // @synthesize supportsActivitySharing=_supportsActivitySharing;
+@property(nonatomic) _Bool deviceSupportsHeartRateMotionContexts; // @synthesize deviceSupportsHeartRateMotionContexts=_deviceSupportsHeartRateMotionContexts;
 @property(readonly, nonatomic) _Bool runningInStoreDemoModeF201; // @synthesize runningInStoreDemoModeF201=_runningInStoreDemoModeF201;
 @property(readonly, nonatomic) _Bool isRunningStoreDemoMode; // @synthesize isRunningStoreDemoMode=_isRunningStoreDemoMode;
 @property(nonatomic) _Bool hasTelephonyCapability; // @synthesize hasTelephonyCapability=_hasTelephonyCapability;
@@ -105,6 +109,7 @@
 @property(readonly, copy, nonatomic) NSTimeZone *localTimeZone;
 @property(readonly, nonatomic) CDStruct_f6aba300 currentOSVersionStruct;
 @property(readonly, copy, nonatomic) NSString *currentOSVersion;
+@property(readonly, copy, nonatomic) NSString *currentOSName;
 @property(readonly, copy, nonatomic) NSString *currentOSBuild;
 @property(readonly, copy, nonatomic) NSString *currentDeviceClass;
 @property(readonly, nonatomic) _Bool isCurrentDeviceN2XA;

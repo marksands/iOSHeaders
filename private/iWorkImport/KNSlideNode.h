@@ -9,12 +9,11 @@
 #import "TSCEResolverContainer.h"
 #import "TSKDocumentObject.h"
 #import "TSKModel.h"
-#import "TSKSearchTarget.h"
 
 @class KNAbstractSlide, KNSlideTree, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSSet, NSString, TSPLazyReference;
 
 __attribute__((visibility("hidden")))
-@interface KNSlideNode : TSPObject <TSKDocumentObject, TSKModel, TSKSearchTarget, TSCEResolverContainer>
+@interface KNSlideNode : TSPObject <TSKDocumentObject, TSKModel, TSCEResolverContainer>
 {
     TSPLazyReference *_slideReference;
     NSMutableDictionary *_thumbnails;
@@ -39,7 +38,6 @@ __attribute__((visibility("hidden")))
     unsigned long long _buildEventCount;
     _Bool _buildEventCountIsUpToDate;
     NSMutableSet *_remappedTableNames;
-    NSString *mPreviousIdentifier;
     KNSlideTree *_slideTree;
 }
 
@@ -55,7 +53,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSSet *digestsForDatasThatNeedDownloadForThumbnail; // @synthesize digestsForDatasThatNeedDownloadForThumbnail=_digestsForDatasThatNeedDownloadForThumbnail;
 @property(readonly, nonatomic) NSDictionary *thumbnails; // @synthesize thumbnails=_thumbnails;
 @property(nonatomic) __weak KNSlideTree *slideTree; // @synthesize slideTree=_slideTree;
-@property(retain, nonatomic) NSString *previousIdentifier; // @synthesize previousIdentifier=mPreviousIdentifier;
+@property(retain, nonatomic) NSString *previousIdentifier; // @synthesize previousIdentifier=_previousIdentifier;
 - (void).cxx_destruct;
 - (void)p_commonInit;
 - (void)purgeU15ModelIfNeeded;
@@ -83,7 +81,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, getter=isHidden) _Bool hidden;
 @property(retain, nonatomic) KNAbstractSlide *slide;
 @property(readonly, nonatomic) KNAbstractSlide *slideIfLoaded;
-- (id)childSearchTargets;
 - (id)childEnumerator;
 - (id)p_getSlideSpecificMappingForStorage:(id)arg1 forSlideNode:(id)arg2;
 - (void)removeSlideSpecificMappingsFromDrawablesInGroup:(id)arg1;

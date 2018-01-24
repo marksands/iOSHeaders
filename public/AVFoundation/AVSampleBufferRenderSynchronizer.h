@@ -20,6 +20,7 @@
 - (void)dealloc;
 - (int)_initializeTimebase;
 - (id)init;
+- (void)_performRendererRemoval:(id)arg1;
 - (void)removeRenderer:(id)arg1 atTime:(CDStruct_1b6d18a9)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)removeRenderer:(id)arg1 atTime:(CDStruct_1b6d18a9)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)_scheduleTimedRendererRemovalAtTime:(id)arg1 atTime:(CDStruct_1b6d18a9)arg2 withClientCompletionHandler:(CDUnknownBlockType)arg3;

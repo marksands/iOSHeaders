@@ -9,7 +9,7 @@
 #import "CBCentralManagerPrivateDelegate.h"
 #import "CBPairingAgentDelegate.h"
 
-@class CBCentralManager, CBUUID, HDDataCollectionManager, HDIdentifierTable, HDProfile, NSLock, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString;
+@class CBCentralManager, CBUUID, HDDataCollectionManager, HDIdentifierTable, HDProfile, NSLock, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString;
 
 @interface HDHealthServiceManager : NSObject <CBCentralManagerPrivateDelegate, CBPairingAgentDelegate>
 {
@@ -23,7 +23,6 @@
     NSMutableDictionary *_discoveryInfosByServiceUUID;
     NSSet *_scanServiceUUIDs;
     CBUUID *_allServicesUUID;
-    NSMutableArray *_allServicesArray;
     NSLock *_connectionLock;
     HDIdentifierTable *_connectionInfosTable;
     NSMutableDictionary *_connectionInfosByPeripheralUUID;
@@ -37,7 +36,6 @@
 @property(retain, nonatomic) NSMutableDictionary *connectionInfosByPeripheralUUID; // @synthesize connectionInfosByPeripheralUUID=_connectionInfosByPeripheralUUID;
 @property(retain, nonatomic) HDIdentifierTable *connectionInfosTable; // @synthesize connectionInfosTable=_connectionInfosTable;
 @property(retain, nonatomic) NSLock *connectionLock; // @synthesize connectionLock=_connectionLock;
-@property(retain, nonatomic) NSMutableArray *allServicesArray; // @synthesize allServicesArray=_allServicesArray;
 @property(retain, nonatomic) CBUUID *allServicesUUID; // @synthesize allServicesUUID=_allServicesUUID;
 @property(retain, nonatomic) NSSet *scanServiceUUIDs; // @synthesize scanServiceUUIDs=_scanServiceUUIDs;
 @property(retain, nonatomic) NSMutableDictionary *discoveryInfosByServiceUUID; // @synthesize discoveryInfosByServiceUUID=_discoveryInfosByServiceUUID;
@@ -71,6 +69,7 @@
 - (void)updateConnectionInfosForPeripheralUUID:(id)arg1 withMutation:(CDUnknownBlockType)arg2;
 - (void)characteristicReceived:(id)arg1 device:(id)arg2;
 - (void)dataReceived:(id)arg1 deviceEntity:(id)arg2;
+- (id)_allServiceUUIDs;
 - (id)_healthServiceForPeriperalID:(id)arg1 serviceType:(long long)arg2;
 - (void)_queue_stopScan;
 - (void)_queue_updateScan;

@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) struct UIEdgeInsets alignmentRectInsets; // @synthesize alignmentRectInsets=_alignmentRectInsets;
 - (void)applyStyleAttributes:(id)arg1;
+@property(readonly, nonatomic) _Bool wantsCrossfade;
 
 // Remaining properties
 @property(readonly, nonatomic) UIAccessibilityHUDItem *accessibilityHUDRepresentation;
@@ -26,7 +27,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
-@property(readonly, nonatomic) _Bool wantsCrossfade;
 
 @end
 

@@ -8,5 +8,6 @@
 
 @interface UINavigationController (MFMailComposeRemoteService)
 - (id)mf_keyPathsMapForUICustomization;
+- (id)mf_classesForUICustomization;
 @end
 

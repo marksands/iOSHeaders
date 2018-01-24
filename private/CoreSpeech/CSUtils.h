@@ -15,6 +15,7 @@
 + (id)getFixedPrioritySerialQueueWithLabel:(id)arg1 fixedPriority:(int)arg2;
 + (id)rootQueueWithFixedPriority:(int)arg1;
 + (_Bool)hasRemoteCoreSpeech;
++ (_Bool)supportSmartVolume;
 + (_Bool)supportAlwaysListening;
 + (_Bool)supportHybridEndpointer;
 + (_Bool)supportCSTwoShotDecision;

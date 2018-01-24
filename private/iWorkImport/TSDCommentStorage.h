@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak TSDCommentStorage *parent; // @synthesize parent=_parent;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
+- (_Bool)isEqualToCommentStorage:(id)arg1;
 - (_Bool)p_matchesCommentStorage:(id)arg1;
 - (id)matchingReply:(id)arg1;
 - (_Bool)canDeleteWithAuthor:(id)arg1 docIsReadOnly:(_Bool)arg2;

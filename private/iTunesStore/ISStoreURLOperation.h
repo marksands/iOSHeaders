@@ -76,7 +76,7 @@
 - (id)_urlBagForContext:(id)arg1;
 - (_Bool)_shouldRetryForTouchIDChallengeWithError:(id)arg1;
 - (void)_runURLOperation;
-- (id)_resolvedURLInBagContext:(id)arg1 URLBag:(id *)arg2;
+- (id)_resolvedURLInBagContext:(id)arg1 bagTrusted:(_Bool *)arg2;
 - (_Bool)_performMachineDataRequest:(id)arg1;
 - (id)_loadURLBagInterpreterWithRequest:(id)arg1 requestProperties:(id)arg2;
 - (_Bool)_isErrorTokenError:(id)arg1;

@@ -33,14 +33,16 @@
 - (void)_onQueue_setLeaseStatus:(id)arg1 updatedLeaseExpirationDate:(id)arg2;
 - (void)_performAutomaticRefresh;
 - (id)_newOperationForPlaybackRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_setLeaseStatus:(id)arg1 updatedLeaseExpirationDate:(id)arg2;
+- (void)_receivedUserInteractionEvent;
+- (void)_handleRemoteServerDidBecomeLikelyReachable;
+- (void)_handlePlaybackLeaseDidEndPushNotification;
 - (void)reloadFairPlayKeyStatusWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)performPlaybackRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic, getter=isAutomaticallyRefreshingLease) _Bool automaticallyRefreshingLease;
 - (void)endAutomaticallyRefreshingLease;
 - (void)beginAutomaticallyRefreshingLease;
 @property(readonly, copy, nonatomic) ICMusicSubscriptionLeaseStatus *leaseStatus;
-- (void)_setLeaseStatus:(id)arg1 updatedLeaseExpirationDate:(id)arg2;
-- (void)_receivedUserInteractionEvent;
 - (id)description;
 - (void)dealloc;
 - (id)_initWithRequestContext:(id)arg1 isDelegatedLeaseSession:(_Bool)arg2 delegate:(id)arg3 leaseStatus:(id)arg4;

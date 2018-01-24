@@ -59,6 +59,7 @@
 - (id)notificationTitle;
 - (id)localizedName;
 - (void)_copyURL:(id)arg1;
+- (void)_copyStringOnly:(id)arg1;
 - (void)_copyURL:(id)arg1 andString:(id)arg2;
 @property(readonly, nonatomic) __weak DDAction *companionAction;
 - (void)_performFromView:(id)arg1 byOpeningURL:(id)arg2;

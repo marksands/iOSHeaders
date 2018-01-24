@@ -27,6 +27,7 @@
 - (_Bool)isBeingSetup;
 - (void)clearPendingDeleteTable;
 - (id)copyRecordIDsAndGUIDsPendingCloudKitDelete;
+- (void)processMessageUsingCKRecord:(id)arg1 updatedLastMessageCount:(int)arg2;
 - (void)processMessageUsingCKRecord:(id)arg1;
 - (id)_lookupChatUsingID:(id)arg1;
 - (id)messagesToUploadToCloudKitWithLimit:(unsigned long long)arg1;
@@ -37,11 +38,12 @@
 - (void)markChatAsDeferredForSyncingUsingCKRecord:(id)arg1;
 - (void)updateChatUsingCKRecord:(id)arg1;
 - (void)_markForksAsSyncedForChat:(id)arg1;
+- (_Bool)_isUsingStingRay;
 - (id)_existingChatForCKRecord:(id)arg1;
 - (id)_existingChatWithOriginalGroupID:(id)arg1 onService:(id)arg2;
 - (void)_insertChatUsingCKRecord:(id)arg1;
 - (void)updateChatWithGUID:(id)arg1 serverChangeToken:(id)arg2 CKSystemPropertiesBlob:(id)arg3;
-- (id)chatsToUploadToCloudKitWithLimit:(unsigned long long)arg1;
+- (id)chatsToUploadToCloudKitWithLimit:(unsigned long long)arg1 isUsingStingRay:(_Bool)arg2;
 - (id)personCentricGroupedChatsDictionary;
 - (id)groupChatsBasedOnIdentity;
 - (void)startHandleIDPopulation;
@@ -84,6 +86,7 @@
 - (void)updateStateForChat:(id)arg1 hintMessage:(id)arg2;
 - (void)updateStateForChat:(id)arg1 fromMessage:(id)arg2 toMessage:(id)arg3 forcePost:(_Bool)arg4 hintMessage:(id)arg5;
 - (_Bool)updateUnreadCountForChat:(id)arg1;
+- (void)updateLastMessageForChat:(id)arg1 hintMessage:(id)arg2 historyQuery:(_Bool)arg3;
 - (void)updateLastMessageForChat:(id)arg1 hintMessage:(id)arg2;
 - (id)allExistingChatsWithIdentifier:(id)arg1 style:(unsigned char)arg2;
 - (id)existingChatForRoom:(id)arg1 account:(id)arg2;

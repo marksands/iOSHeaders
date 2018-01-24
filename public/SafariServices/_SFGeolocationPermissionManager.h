@@ -15,8 +15,8 @@
 
 + (id)sharedManager;
 - (void).cxx_destruct;
+- (void)_showDialogRequestingPermissionForURL:(id)arg1 frame:(id)arg2 dialogPresenter:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)requestPermissionForURL:(id)arg1 frame:(id)arg2 dialogPresenter:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)_fallbackRequestPermissionForURL:(id)arg1 origin:(id)arg2 dialogPresenter:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)init;
 
 @end

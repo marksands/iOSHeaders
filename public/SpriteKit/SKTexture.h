@@ -108,6 +108,7 @@
 - (struct CGImage *)CGImage;
 - (id)_textureCache;
 - (id)imgName;
+- (void)setIsData:(_Bool)arg1;
 - (shared_ptr_bb77cfd9)_backingTexture;
 - (id)initWithBackingTetxure:(shared_ptr_bb77cfd9)arg1 logicalWidth:(float)arg2 height:(float)arg3;
 - (id)initWithBackingTetxure:(shared_ptr_bb77cfd9)arg1;

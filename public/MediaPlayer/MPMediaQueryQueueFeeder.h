@@ -21,7 +21,7 @@
     MPMediaQuery *_query;
     NSArray *_queryItems;
     MPShuffleController *_shuffleController;
-    vector_c1c297d2 _itemPIDs;
+    vector_bbba3654 _itemPIDs;
     MPMutableBidirectionalDictionary *_indexToIdentifierCache;
     unsigned long long _currentInvalidationRevision;
     NSDictionary *_startTimeModifications;

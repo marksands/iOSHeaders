@@ -26,12 +26,14 @@
     _Bool _isPerformingReload;
     NSMutableArray *_enqueuedBlocks;
     _Bool _willUnload;
+    _Bool _allowsLocationUse;
     Class _dataSourceClass;
     NTKUpNextElementDataSource *_dataSource;
     unsigned long long _state;
     id <NTKUpNextElementDataSourceControllerDelegate> _delegate;
 }
 
++ (id)_sharedDataSourceQueue;
 @property(nonatomic) __weak id <NTKUpNextElementDataSourceControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(readonly, nonatomic) NTKUpNextElementDataSource *dataSource; // @synthesize dataSource=_dataSource;
@@ -64,6 +66,8 @@
 - (void)invalidateElements;
 - (id)elementOperationQueue;
 - (void)prepareToUnload;
+- (void)_queue_updateDataSourceLocationUse;
+- (void)setAllowsLocationUse:(_Bool)arg1;
 - (void)pause;
 - (void)resume;
 - (void)_handleDeviceLockStateChange:(id)arg1;

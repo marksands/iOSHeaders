@@ -42,6 +42,14 @@ struct _NSRange {
     unsigned long long length;
 };
 
+struct _SXComponentContentInset {
+    _Bool all;
+    _Bool left;
+    _Bool top;
+    _Bool right;
+    _Bool bottom;
+};
+
 struct _SXConvertibleValue {
     double value;
     unsigned long long unit;

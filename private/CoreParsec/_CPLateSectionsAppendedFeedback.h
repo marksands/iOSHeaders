@@ -20,7 +20,7 @@
 }
 
 @property(copy, nonatomic) NSArray *sections; // @synthesize sections=_sections;
-@property(nonatomic) unsigned long long timestamp;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;

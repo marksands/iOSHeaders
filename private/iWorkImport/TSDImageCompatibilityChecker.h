@@ -19,6 +19,8 @@ __attribute__((visibility("hidden")))
     // Error parsing type: AB, name: mCancelled
 }
 
++ (_Bool)platformSupportsHEIF;
++ (void)initialize;
 @property(readonly, nonatomic) NSError *error; // @synthesize error=mError;
 @property(readonly, nonatomic) long long compatibilityLevel; // @synthesize compatibilityLevel=mCompatibilityLevel;
 - (void).cxx_destruct;

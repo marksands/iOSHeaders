@@ -16,6 +16,7 @@
 }
 
 + (id)secureCodedPropertyKeys;
++ (_Bool)supportsSecureCoding;
 - (void)setLastPlayedGame:(id)arg1;
 - (id)lastPlayedGame;
 - (void)setLastPlayedDate:(id)arg1;

@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+#import "CRKCloudStoringSubItem.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSData, NSPersonNameComponents, NSString, UIImage;
+@class CRKImage, NSData, NSPersonNameComponents, NSString;
 
-@interface CRKUser : NSObject <NSSecureCoding, NSCopying>
+@interface CRKUser : NSObject <NSSecureCoding, NSCopying, CRKCloudStoringSubItem>
 {
     NSString *_userIdentifier;
     NSString *_displayName;
@@ -22,14 +23,21 @@
     NSString *_imageIdentifier;
     NSString *_imageURL;
     NSString *_userSource;
+    long long _role;
     NSData *_userImageData;
-    UIImage *_userImage;
+    CRKImage *_userImage;
 }
 
++ (id)instanceWithParentObject:(id)arg1 keyValue:(id)arg2;
++ (id)instanceWithKeyValue:(id)arg1;
++ (id)instanceWithRecord:(id)arg1;
++ (id)recordType;
++ (id)skeletonInstance;
 + (_Bool)supportsSecureCoding;
 + (id)meCardUser;
-@property(copy, nonatomic) UIImage *userImage; // @synthesize userImage=_userImage;
+@property(copy, nonatomic) CRKImage *userImage; // @synthesize userImage=_userImage;
 @property(copy, nonatomic) NSData *userImageData; // @synthesize userImageData=_userImageData;
+@property(nonatomic) long long role; // @synthesize role=_role;
 @property(copy, nonatomic) NSString *userSource; // @synthesize userSource=_userSource;
 @property(copy, nonatomic) NSString *imageURL; // @synthesize imageURL=_imageURL;
 @property(copy, nonatomic) NSString *imageIdentifier; // @synthesize imageIdentifier=_imageIdentifier;
@@ -40,19 +48,26 @@
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(copy, nonatomic) NSString *userIdentifier; // @synthesize userIdentifier=_userIdentifier;
 - (void).cxx_destruct;
+- (_Bool)isChangedFrom:(id)arg1;
+- (void)applyFieldsToRecord:(id)arg1;
+- (id)recordName;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (_Bool)isEqualToUser:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
-- (unsigned long long)hash;
-- (id)description;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy) NSString *description;
 - (void)updateUserImage;
 @property(readonly, nonatomic) _Bool isValid;
 @property(readonly, nonatomic) _Bool isMeCardUser;
 - (id)dictionaryValue;
 @property(readonly, copy, nonatomic) NSPersonNameComponents *nameComponents;
 - (id)initWithDictionary:(id)arg1;
+- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

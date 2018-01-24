@@ -8,7 +8,7 @@
 
 #import "APSConnectionDelegate.h"
 
-@class APSConnection, CKContainer, CKDatabase, HMDCloudCache, HMDCloudDataSyncStateFilter, HMDCloudHomeManagerZone, HMDCloudLegacyZone, HMDCloudMetadataZone, HMDHomeManager, HMFMessageDispatcher, NSData, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSUUID;
+@class APSConnection, CKContainer, CKDatabase, CKServerChangeToken, HMDCloudCache, HMDCloudDataSyncStateFilter, HMDCloudHomeManagerZone, HMDCloudLegacyZone, HMDCloudMetadataZone, HMDHomeManager, HMFMessageDispatcher, NSData, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSUUID;
 
 @interface HMDCloudManager : HMFObject <APSConnectionDelegate>
 {
@@ -16,6 +16,7 @@
     _Bool _cloudHomeDataRecordExists;
     _Bool _keychainSyncEnabled;
     _Bool _firstV3Fetch;
+    int _whaProxSetupNotificationToken;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     CKContainer *_container;
     CKDatabase *_database;
@@ -27,6 +28,8 @@
     NSObject<OS_dispatch_source> *_retryTimer;
     NSObject<OS_dispatch_source> *_pollTimer;
     NSObject<OS_dispatch_source> *_controllerKeyPollTimer;
+    NSObject<OS_dispatch_source> *_watchdogControllerKeyPollTimer;
+    CKServerChangeToken *_databaseServerChangeToken;
     APSConnection *_pushConnection;
     CDUnknownBlockType _cloudDataDeletedNotificationHandler;
     CDUnknownBlockType _cloudMetadataDeletedNotificationHandler;
@@ -44,6 +47,7 @@
 @property(nonatomic, getter=isFirstV3Fetch) _Bool firstV3Fetch; // @synthesize firstV3Fetch=_firstV3Fetch;
 @property(copy, nonatomic) CDUnknownBlockType accountActiveUpdateHandler; // @synthesize accountActiveUpdateHandler=_accountActiveUpdateHandler;
 @property(copy, nonatomic) CDUnknownBlockType dataDecryptionFailedHandler; // @synthesize dataDecryptionFailedHandler=_dataDecryptionFailedHandler;
+@property(nonatomic) int whaProxSetupNotificationToken; // @synthesize whaProxSetupNotificationToken=_whaProxSetupNotificationToken;
 @property(retain, nonatomic) NSMutableArray *currentBackoffTimerValuesInMinutes; // @synthesize currentBackoffTimerValuesInMinutes=_currentBackoffTimerValuesInMinutes;
 @property(nonatomic) __weak HMDHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
@@ -53,6 +57,8 @@
 @property(copy, nonatomic) CDUnknownBlockType cloudMetadataDeletedNotificationHandler; // @synthesize cloudMetadataDeletedNotificationHandler=_cloudMetadataDeletedNotificationHandler;
 @property(copy, nonatomic) CDUnknownBlockType cloudDataDeletedNotificationHandler; // @synthesize cloudDataDeletedNotificationHandler=_cloudDataDeletedNotificationHandler;
 @property(retain, nonatomic) APSConnection *pushConnection; // @synthesize pushConnection=_pushConnection;
+@property(retain, nonatomic) CKServerChangeToken *databaseServerChangeToken; // @synthesize databaseServerChangeToken=_databaseServerChangeToken;
+@property(retain, nonatomic) NSObject<OS_dispatch_source> *watchdogControllerKeyPollTimer; // @synthesize watchdogControllerKeyPollTimer=_watchdogControllerKeyPollTimer;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *controllerKeyPollTimer; // @synthesize controllerKeyPollTimer=_controllerKeyPollTimer;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *pollTimer; // @synthesize pollTimer=_pollTimer;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *retryTimer; // @synthesize retryTimer=_retryTimer;
@@ -71,12 +77,20 @@
 - (void)connection:(id)arg1 didReceiveIncomingMessage:(id)arg2;
 - (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;
 - (void)connection:(id)arg1 didReceiveToken:(id)arg2 forTopic:(id)arg3 identifier:(id)arg4;
+- (void)_fetchDatabaseZoneChanges;
+- (void)fetchDatabaseZoneChanges;
+- (void)_scheduleZoneFetch:(id)arg1;
 - (void)_registerForPushNotifications;
 - (void)_setupSubscriptionForZone:(id)arg1;
+- (void)_registerForWHAProxSetupNotifications;
+- (void)_auditWHAProxSetupNotification;
+- (_Bool)_isWHAProxSetupRunning;
 - (void)_stopControllerKeyPollTimer;
 - (void)_startControllerKeyPollTimerWithValue:(long long)arg1;
 - (void)_startControllerKeyPollTimerWithBackoff;
 - (void)_startControllerKeyPollTimer;
+- (void)_stopWatchdogControllerKeyPollTimer;
+- (void)_startWatchdogControllerKeyPollTimer;
 - (void)_handleControllerKeyAvailable;
 - (void)_handleKeychainSyncStateChanged:(_Bool)arg1;
 - (void)handleKeychainStateChangedNotification:(id)arg1;

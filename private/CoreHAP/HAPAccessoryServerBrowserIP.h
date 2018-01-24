@@ -46,9 +46,11 @@
 - (void)matchAccessoryServerWithSetupID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)processPendingBonjourRemoveEvents:(id)arg1;
 - (void)discoverAccessoryServerWithIdentifier:(id)arg1;
+- (void)notifyDelegatesOfWACCompletionWithIdentifier:(id)arg1 error:(id)arg2;
 - (void)stopWACScan;
-- (void)startWACScan;
+- (void)startWACScanWithIdentifier:(id)arg1;
 - (void)mergeScanResults:(id)arg1;
+- (void)startDiscoveringWACAccessoryServerWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateWACAccessoryServerAgeOut:(long long)arg1;
 - (void)stopDiscoveringWACAccessoryServers;
 - (void)stopDiscoveringAccessoryServers;

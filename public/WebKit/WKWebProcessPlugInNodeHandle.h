@@ -23,6 +23,10 @@
 - (_Bool)isTextField;
 @property(readonly, nonatomic) _Bool HTMLTextAreaElementIsUserEdited;
 @property(readonly, nonatomic) _Bool HTMLInputElementIsUserEdited;
+- (long long)htmlInputElementLastAutoFillButtonType;
+- (long long)htmlInputElementAutoFillButtonType;
+- (void)setHTMLInputElementAutoFillButtonEnabledWithButtonType:(long long)arg1;
+- (_Bool)isHTMLInputElementAutoFillButtonEnabled;
 @property(nonatomic) _Bool HTMLInputElementIsAutoFilled;
 @property(readonly, nonatomic) struct CGRect elementBounds;
 - (id)renderedImageWithOptions:(unsigned int)arg1 width:(id)arg2;

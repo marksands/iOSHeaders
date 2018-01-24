@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     MRPlaybackQueueContentItemCallbacks *_infoCallbacks;
     MRPlaybackQueueContentItemCallbacks *_lyricsCallbacks;
     MRPlaybackQueueContentItemCallbacks *_artworkCallbacks;
+    MRPlaybackQueueContentItemCallbacks *_artworkURLTemplateCallbacks;
     CDUnknownBlockType _beginLyricsEventCallback;
     CDUnknownBlockType _endLyricsEventCallback;
     CDUnknownBlockType _videoThumbnailsCallback;
@@ -36,6 +37,8 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) CDUnknownBlockType endLyricsEventCallback;
 @property(copy, nonatomic) CDUnknownBlockType beginLyricsEventCallback;
 - (_Bool)removeCallback:(void *)arg1;
+@property(readonly, nonatomic) NSArray *artworkURLTemplateCallbacks;
+- (void *)addArtworkURLTemplateCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
 @property(readonly, nonatomic) NSArray *artworkCallbacks;
 - (void *)addArtworkCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
 @property(readonly, nonatomic) NSArray *lyricsCallbacks;

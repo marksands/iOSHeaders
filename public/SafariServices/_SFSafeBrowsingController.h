@@ -29,6 +29,7 @@
 @property(nonatomic) __weak id <_SFSafeBrowsingControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)didRespondToSafeBrowsingWarningWithResult:(long long)arg1;
+- (void)_databaseDidUpdate:(id)arg1;
 - (void)updateShowingSecurityWarningPageIfNeeded;
 - (void)hideSecurityWarningPage;
 - (void)showSecurityWarningPageWithSecurityInfo:(id)arg1;

@@ -20,10 +20,15 @@
 @property(nonatomic) _Bool isInternalBuild; // @synthesize isInternalBuild=_isInternalBuild;
 @property(readonly, nonatomic) _Bool internalBuild; // @synthesize internalBuild=_internalBuild;
 - (void).cxx_destruct;
+@property(nonatomic) _Bool useNewBackend;
+@property(nonatomic) _Bool forceServerTTS;
+@property(nonatomic) float serverTTSTimeout;
 @property(nonatomic) _Bool enableHomePodSimulation;
 @property(nonatomic) _Bool enableLocalVoices;
 @property(nonatomic) _Bool disableAssetCleaning;
 @property(nonatomic) _Bool disableCache;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)dealloc;
 - (id)init;
 
 @end

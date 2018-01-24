@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSDate, NSURL;
+@class FPSandboxingURLWrapper, NSDate, NSURL;
 
 @protocol QLThumbnailAdditionIndexInterface
 - (void)removeAllAdditions;
 - (void)retrieveAllAdditions:(void (^)(NSArray *))arg1;
-- (void)addThumbnailForURL:(NSURL *)arg1 size:(unsigned long long)arg2 completion:(void (^)(_Bool))arg3;
+- (void)addThumbnailForURLWrapper:(FPSandboxingURLWrapper *)arg1 size:(unsigned long long)arg2 completion:(void (^)(_Bool))arg3;
 - (void)removeThumbnailForURL:(NSURL *)arg1 completion:(void (^)(_Bool))arg2;
 - (void)updateLastHitDate:(NSDate *)arg1 ofThumbnailForURL:(NSURL *)arg2 completion:(void (^)(_Bool))arg3;
 - (void)updateFileSize:(unsigned long long)arg1 ofThumbnailForURL:(NSURL *)arg2 completion:(void (^)(_Bool))arg3;
-- (void)hasThumbnailForURL:(NSURL *)arg1 updateLastHitDate:(_Bool)arg2 andSize:(unsigned long long)arg3 completion:(void (^)(_Bool))arg4;
+- (void)hasThumbnailForURLWrapper:(FPSandboxingURLWrapper *)arg1 updateLastHitDate:(_Bool)arg2 andSize:(unsigned long long)arg3 completion:(void (^)(_Bool))arg4;
 @end
 

@@ -21,10 +21,9 @@ __attribute__((visibility("hidden")))
 }
 
 + (struct CGSize)minimumBodySize;
-@property(readonly, retain, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
+@property(readonly, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
 @property(retain, nonatomic) NSMutableArray *anchoredDrawablesForRelayout; // @synthesize anchoredDrawablesForRelayout=_anchoredDrawablesForRelayout;
 - (void).cxx_destruct;
-- (_Bool)siblingTargetIsManipulatingDrawable:(id)arg1;
 @property(readonly, nonatomic) _Bool textIsVertical;
 - (_Bool)invalidateForPageCountChange;
 @property(readonly, nonatomic) unsigned long long pageCount;
@@ -64,10 +63,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider;
 @property(readonly, nonatomic) id <TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
 @property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *nextTargetTopicNumbers;
-@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
+@property(readonly, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
 @property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *previousTargetTopicNumbers;
-@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
+@property(readonly, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
 @property(readonly, nonatomic) TSWPStorage *storage;
+@property(readonly, nonatomic) _Bool marginsAreMirrored;
 - (id)columnMetricsForCharIndex:(unsigned long long)arg1 outRange:(struct _NSRange *)arg2;
 - (_Bool)shouldProvideSizingGuides;
 - (void)p_addLayoutIfAttached:(id)arg1;
@@ -82,12 +82,13 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)maximumFrameSizeForChild:(id)arg1;
 - (double)contentHeight;
 - (_Bool)processWidowAndInflation;
-- (void)updateStartCharIndexWithDirtyRanges:(const struct TSWPDirtyRangeVector *)arg1;
+- (void)updateStartCharIndexWithDirtyRanges:(id)arg1;
 - (void)setNeedsInflation;
 - (void)p_killDrawableLayouts:(id)arg1;
 - (_Bool)needsInflation;
 - (struct CGRect)p_rectForSelection:(id)arg1 useParagraphModeRects:(_Bool)arg2;
 - (struct CGRect)rectForPresentingAnnotationPopoverForSelectionPath:(id)arg1;
+- (struct CGRect)rectInRootForAnchoringPencilAnnotationsForSelectionPath:(id)arg1;
 - (struct CGRect)rectInRootForPresentingAnnotationPopoverForSelectionPath:(id)arg1;
 - (struct CGRect)rectForSelection:(id)arg1;
 - (_Bool)selectionMustBeEntirelyOnscreenToCountAsVisibleInSelectionPath:(id)arg1;

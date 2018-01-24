@@ -10,6 +10,16 @@
 {
 }
 
++ (id)identityExpirationDateFromPersistentId:(id)arg1;
++ (id)createIdentityPersistentIdFromCommonName:(id)arg1 groupName:(id)arg2;
++ (struct __SecIdentity *)identityFromPrivateKeyData:(id)arg1 certificateData:(id)arg2;
++ (id)addCertificateData:(id)arg1 toGroup:(id)arg2;
++ (id)persistentIdFromCertificateData:(id)arg1;
++ (struct __SecCertificate *)certificateFromPersistentId:(id)arg1;
++ (struct __SecKey *)privateKeyFromPersistentId:(id)arg1;
++ (id)certificateDataFromPersistentId:(id)arg1;
++ (id)privateKeyDataFromPersistentId:(id)arg1;
++ (id)persistentIdFromPrivateKeyData:(id)arg1 certificateData:(id)arg2;
 + (id)getIdentityPublicCertificateData:(struct __SecIdentity *)arg1;
 + (id)getIdentityFingerprint:(struct __SecIdentity *)arg1;
 + (id)getIdentityExpirationDate:(struct __SecIdentity *)arg1;
@@ -27,7 +37,9 @@
 + (struct __SecCertificate *)copyCertificateWithPersistentID:(id)arg1;
 + (void *)copyItemWithPersistentID:(id)arg1;
 + (_Bool)removeItemWithPersistentID:(id)arg1;
++ (id)addPrivateKeyData:(id)arg1 certificateData:(id)arg2 toGroup:(id)arg3;
 + (id)addItem:(void *)arg1 toGroup:(id)arg2;
++ (id)baseQueryAttributes;
 
 @end
 

@@ -6,17 +6,33 @@
 
 #import "NSObject.h"
 
-@class ARPointCloud;
+#import "ARResultData.h"
+#import "NSSecureCoding.h"
 
-@interface ARWorldTrackingFeaturePointData : NSObject
+@class ARPointCloud, NSString;
+
+@interface ARWorldTrackingFeaturePointData : NSObject <ARResultData, NSSecureCoding>
 {
     double _timestamp;
+    ARPointCloud *_visionFeaturePoints;
     ARPointCloud *_featurePoints;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) ARPointCloud *featurePoints; // @synthesize featurePoints=_featurePoints;
-@property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
+@property(retain, nonatomic) ARPointCloud *visionFeaturePoints; // @synthesize visionFeaturePoints=_visionFeaturePoints;
+@property(readonly, nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly) unsigned long long hash;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithTimestamp:(double)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

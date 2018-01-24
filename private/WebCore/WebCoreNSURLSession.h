@@ -10,7 +10,7 @@
 
 @interface WebCoreNSURLSession : NSObject
 {
-    struct RefPtr<WebCore::PlatformMediaResourceLoader> _loader;
+    struct RefPtr<WebCore::PlatformMediaResourceLoader, WTF::DumbPtrTraits<WebCore::PlatformMediaResourceLoader>> _loader;
     struct RetainPtr<id<NSURLSessionDelegate>> _delegate;
     struct RetainPtr<NSOperationQueue> _queue;
     NSString *_sessionDescription;
@@ -50,7 +50,7 @@
 @property(readonly, retain) NSOperationQueue *delegateQueue; // @dynamic delegateQueue;
 @property(retain) id <NSURLSessionTaskDelegate> delegate; // @dynamic delegate;
 - (void)task:(id)arg1 didReceiveCORSAccessCheckResult:(_Bool)arg2;
-- (void)addDelegateOperation:(CDUnknownBlockType)arg1;
+- (void)addDelegateOperation:(Function_89d21b48 *)arg1;
 - (void)taskCompleted:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

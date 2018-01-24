@@ -52,6 +52,7 @@
     _Bool _avoidsHighways;
     _Bool _avoidsTolls;
     _Bool _avoidsTraffic;
+    _Bool _isOfflineResponse;
     struct {
         unsigned int arrivalStepID:1;
         unsigned int departureStepID:1;
@@ -67,6 +68,7 @@
         unsigned int avoidsHighways:1;
         unsigned int avoidsTolls:1;
         unsigned int avoidsTraffic:1;
+        unsigned int isOfflineResponse:1;
     } _has;
 }
 
@@ -221,6 +223,8 @@
 @property(nonatomic) _Bool hasTransportType;
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
 - (void)dealloc;
+@property(nonatomic) _Bool hasIsOfflineResponse;
+@property(nonatomic) _Bool isOfflineResponse;
 - (int)transportTypeForStep:(id)arg1;
 - (_Bool)isContingentRoute;
 - (_Bool)isMainOrAlternateRoute;

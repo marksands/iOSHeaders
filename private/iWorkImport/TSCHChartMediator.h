@@ -21,8 +21,9 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)propertiesThatInvalidateMediator;
-@property(nonatomic) id <TSCHNotifyOnModify> objectToNotify; // @synthesize objectToNotify=mObjectToNotify;
-@property(nonatomic) TSCHChartInfo *chartInfo; // @synthesize chartInfo=mChartInfo;
+@property(nonatomic) __weak id <TSCHNotifyOnModify> objectToNotify; // @synthesize objectToNotify=mObjectToNotify;
+@property(nonatomic) __weak TSCHChartInfo *chartInfo; // @synthesize chartInfo=mChartInfo;
+- (void).cxx_destruct;
 - (_Bool)preferSeriesToValues;
 - (unsigned long long)p_gridSeriesIndexForRemoteSeriesIndex:(unsigned long long)arg1;
 - (unsigned long long)p_remoteSeriesIndexForGridSeriesIndex:(unsigned long long)arg1;

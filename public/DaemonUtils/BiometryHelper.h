@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class BKDevice, NSDictionary;
+@class BKDevice, NSDictionary, NSMutableDictionary;
 
 @interface BiometryHelper : NSObject
 {
+    NSMutableDictionary *_databaseHashesByUserId;
     _Bool _biometryRunning;
     NSDictionary *_identities;
     BKDevice *_device;
@@ -30,7 +31,6 @@
 - (void)resetBiometry;
 - (void)_refreshIdentities;
 - (id)_identitiesForUser:(id)arg1;
-- (id)cachedIdentities:(id)arg1;
 - (id)catacombUUID:(id)arg1;
 - (_Bool)isIdentificationEnabled:(id)arg1;
 - (_Bool)isBiometryOnForUnlock:(id)arg1;
@@ -38,7 +38,8 @@
 - (_Bool)_protectedConfigrationBoolForUser:(id)arg1 queryBlock:(CDUnknownBlockType)arg2;
 - (unsigned int)_uidFromUserId:(id)arg1;
 - (_Bool)userPresent:(_Bool *)arg1 error:(id *)arg2;
-- (id)enrolledFingersHash:(id)arg1;
+- (void)_clearHashes;
+- (id)biometryDatabaseHashForUser:(id)arg1;
 - (_Bool)isLockedOut:(id)arg1 forUnlock:(_Bool)arg2 error:(id *)arg3;
 - (id)lockoutErrorForState:(long long)arg1 userId:(id)arg2;
 - (_Bool)isAnyUserEnrolledWithError:(id *)arg1;

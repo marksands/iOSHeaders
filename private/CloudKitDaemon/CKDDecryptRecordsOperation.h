@@ -31,7 +31,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool forcePCSDecrypt; // @synthesize forcePCSDecrypt=_forcePCSDecrypt;
 - (void).cxx_destruct;
 - (void)main;
-- (id)_possiblyWrapError:(id)arg1 withCode:(long long)arg2 format:(id)arg3;
+- (id)_possiblyWrapError:(id)arg1 forRecordWithID:(id)arg2 withCode:(long long)arg3 format:(id)arg4;
 - (void)_finishDecryptOperation;
 - (void)finishDecryption;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;

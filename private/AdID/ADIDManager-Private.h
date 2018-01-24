@@ -12,9 +12,10 @@
 
 @interface ADIDManager (Private) <BackgroundTaskDelegate>
 + (void)initialize;
+- (void)checkForLateReconcile;
+- (void)setReconcileOperations:(id)arg1;
+- (id)reconcileOperations;
 - (_Bool)reconcileInProgress;
-- (void)resumeSaveNotificationsAndShouldNotify:(_Bool)arg1;
-- (void)suspendSaveNotifications;
 - (void)checkOnTask:(id)arg1 activity:(id)arg2;
 - (_Bool)runTask:(id)arg1;
 - (_Bool)scheduleReconciliation:(double)arg1;
@@ -23,13 +24,16 @@
 - (void)reconcile:(CDUnknownBlockType)arg1;
 - (void)updateAccountData:(CDUnknownBlockType)arg1;
 - (void)finishedReconciling:(CDUnknownBlockType)arg1 withError:(id)arg2;
-- (void)save:(CDUnknownBlockType)arg1;
+- (void)performOperationAfterReconcile:(CDUnknownBlockType)arg1;
+- (id)saveAndNotifyIfNecessary;
+- (id)save;
 - (void)incrementMonthlyResetCount;
 - (void)notifyActiveRecordChanged;
 - (void)deleteRecords:(CDUnknownBlockType)arg1;
 - (void)handleIDFAReset:(CDUnknownBlockType)arg1;
 - (void)prepareForPushNotification;
 - (void)setDSID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)setDSID:(id)arg1 withoutRestrictions:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)init;
 
 // Remaining properties

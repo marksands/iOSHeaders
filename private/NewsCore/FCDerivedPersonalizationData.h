@@ -7,17 +7,18 @@
 #import "NSObject.h"
 
 #import "FCDerivedPersonalizationData.h"
-#import "NSCoding.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSDictionary, NSString, NTPBPersonalizationProfile;
 
-@interface FCDerivedPersonalizationData : NSObject <FCDerivedPersonalizationData, NSCoding, NSCopying>
+@interface FCDerivedPersonalizationData : NSObject <FCDerivedPersonalizationData, NSSecureCoding, NSCopying>
 {
     NTPBPersonalizationProfile *_profile;
     NSDictionary *_aggregatesByFeatureKey;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSDictionary *aggregatesByFeatureKey; // @synthesize aggregatesByFeatureKey=_aggregatesByFeatureKey;
 @property(copy, nonatomic) NTPBPersonalizationProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;

@@ -30,8 +30,8 @@ __attribute__((visibility("hidden")))
 - (void)transformArrays:(const tmat4x4_3074befe *)arg1;
 - (tvec3_17f03ce0 *)normalArrayPointer;
 - (tvec3_17f03ce0 *)vertexArrayPointer;
-- (vector_45b393db *)normalArray;
-- (vector_45b393db *)vertexArray;
+- (vector_7200ab52 *)normalArray;
+- (vector_7200ab52 *)vertexArray;
 - (id)normalBuffer;
 - (id)vertexBuffer;
 - (void)reset;

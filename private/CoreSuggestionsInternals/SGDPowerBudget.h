@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSObject<OS_os_log>;
 
 @interface SGDPowerBudget : NSObject
 {
-    NSString *_bundleId;
+    NSObject<OS_os_log> *_log;
 }
 
 + (id)defaultBudget;
@@ -19,6 +19,14 @@
 - (void)endWork;
 - (void)startWork;
 - (_Bool)canDoDiscretionaryWork;
+- (void)_endThrottleBudgetedWork;
+- (void)_startThrottleBudgetedWork;
+- (_Bool)_hasThrottleBudgetRemaining;
+- (void)_endDuetBudgetedWork;
+- (void)_startDuetBudgetedWork;
+- (_Bool)_hasDuetBudgetRemaining;
+- (void)dealloc;
+- (id)init;
 
 @end
 

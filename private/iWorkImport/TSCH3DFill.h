@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 - (void)didInitFromSOS;
 - (int)fillType;
 - (id)referenceColor;
+- (void)paintPath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2 offset:(struct CGPoint)arg3;
 - (void)paintPath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2;
 - (void)drawSwatchInRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
 - (void)paintPath:(struct CGPath *)arg1 naturalBounds:(struct CGRect)arg2 inContext:(struct CGContext *)arg3 isPDF:(_Bool)arg4;

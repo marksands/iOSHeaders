@@ -11,6 +11,7 @@
     long long _unlockFailureCount;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) long long unlockFailureCount; // @synthesize unlockFailureCount=_unlockFailureCount;
 
 @end

@@ -11,17 +11,17 @@
 __attribute__((visibility("hidden")))
 @interface TSTSortRuleReferenceTrackerReference : NSObject
 {
-    unsigned char mColumnIndex;
-    TSCETrackedReference *mTrackedReference;
+    unsigned char _columnIndex;
+    TSCETrackedReference *_trackedReference;
 }
 
 + (id)referenceWithColumnIndex:(unsigned char)arg1 trackedReference:(id)arg2;
-@property(retain, nonatomic) TSCETrackedReference *trackedReference; // @synthesize trackedReference=mTrackedReference;
-@property(nonatomic) unsigned char columnIndex; // @synthesize columnIndex=mColumnIndex;
+@property(retain, nonatomic) TSCETrackedReference *trackedReference; // @synthesize trackedReference=_trackedReference;
+@property(nonatomic) unsigned char columnIndex; // @synthesize columnIndex=_columnIndex;
+- (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)hasTrackedReferenceEqualTo:(id)arg1;
 - (unsigned long long)hash;
-- (void)dealloc;
 - (id)initWithColumnIndex:(unsigned char)arg1 trackedReference:(id)arg2;
 
 @end

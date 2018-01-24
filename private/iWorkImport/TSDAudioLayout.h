@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)movieInfo;
+- (struct CGRect)frameForCulling;
 - (int)wrapType;
 - (_Bool)canFlip;
 - (_Bool)allowsConnections;

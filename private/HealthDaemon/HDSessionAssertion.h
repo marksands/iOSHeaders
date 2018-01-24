@@ -21,6 +21,7 @@
 @property(readonly, copy, nonatomic) NSString *assertionIdentifier; // @synthesize assertionIdentifier=_assertionIdentifier;
 @property(readonly, copy, nonatomic) NSString *ownerIdentifier; // @synthesize ownerIdentifier=_ownerIdentifier;
 - (void).cxx_destruct;
+- (id)description;
 - (void)invalidate;
 - (void)dealloc;
 - (id)initWithAssertionIdentifier:(id)arg1 ownerIdentifier:(id)arg2 client:(id)arg3 manager:(id)arg4;

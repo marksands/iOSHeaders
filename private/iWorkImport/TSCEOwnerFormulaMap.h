@@ -10,7 +10,7 @@ __attribute__((visibility("hidden")))
 @interface TSCEOwnerFormulaMap : NSObject
 {
     struct vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>> _formulas;
-    vector_13f93596 _nonFormulaCells;
+    vector_38b190b0 _nonFormulaCells;
 }
 
 - (id).cxx_construct;

@@ -13,7 +13,7 @@
 + (id)syncEntityDependenciesForSyncProtocolVersion:(int)arg1;
 + (long long)receiveSyncObjects:(id)arg1 syncStore:(id)arg2 profile:(id)arg3 error:(id *)arg4;
 + (id)_allowableCategories;
-+ (long long)syncEntityType;
++ (id)syncEntityIdentifier;
 + (long long)category;
 + (unsigned long long)supportedNanoSyncDirectionsForProtocolVersion:(int)arg1;
 + (int)nanoSyncObjectType;

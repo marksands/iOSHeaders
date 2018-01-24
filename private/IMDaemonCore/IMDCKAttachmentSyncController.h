@@ -12,7 +12,6 @@
 {
     _Bool _assetDownloadInProgress;
     _Bool _shouldCheckDeviceConditions;
-    CKServerChangeToken *_latestSyncToken;
     NSObject<OS_dispatch_queue> *_ckQueue;
     IMDRecordZoneManager *_recordZoneManager;
     IMDCKAttachmentSyncCKOperationFactory *_CKOperationFactory;
@@ -43,12 +42,14 @@
 - (id)_constructAttachmentRecordIDUsingTombStoneDictionary:(id)arg1;
 - (_Bool)__shouldOptimizeAttachmentDefault;
 - (id)fileTransferCenter;
-- (void)_fetchFileTransfersFromCloudKit:(id)arg1 capturedWithABC:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_processRecordsFetchedForAttachmentPurge:(id)arg1 recordIDsToTransfers:(id)arg2 capturedWithABC:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_fetchAndValidateFileTransfersFromCloudKit:(id)arg1 capturedWithABC:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_processAndValidateAttachmentRecordsEligibleForPurge:(id)arg1 recordIDsToTransfers:(id)arg2 capturedWithABC:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_validateTransferFromCloudKit:(id)arg1 localTransfer:(id)arg2 validateCompletion:(CDUnknownBlockType)arg3;
 - (void)clearLocalSyncState;
 - (void)deleteAttachmentZone;
-@property(retain, nonatomic) CKServerChangeToken *latestSyncToken; // @synthesize latestSyncToken=_latestSyncToken;
+- (void)_deleteStingRayToken;
+@property(retain, nonatomic) CKServerChangeToken *latestSyncToken;
+- (id)_changeTokenKey;
 - (void)_migrateSyncToken;
 - (void)_resetAttachmentSyncStateForRecord:(id)arg1 toState:(long long)arg2;
 - (void)_markTransferAsNotBeingAbleToSyncUsingCKRecord:(id)arg1;
@@ -74,6 +75,8 @@
 - (void)_fetchAttachmentZoneChangesShouldWriteBackChanges:(_Bool)arg1 desiredKeys:(long long)arg2 syncType:(long long)arg3 currentBatchCount:(long long)arg4 maxBatchCount:(long long)arg5 syncToken:(id)arg6 completionBlock:(CDUnknownBlockType)arg7;
 - (void)_fetchAttachmentZoneRecords:(id)arg1 desiredKeys:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_writeAttachmentsToCloudKit:(CDUnknownBlockType)arg1;
+- (id)_updateAttachmentGUIDIfNeededAndReturnTransfersToForceMarkAsSync:(id)arg1 transfersToSyncRowIDs:(id)arg2;
+- (void)_markAttachmentWithROWIDAsSyncedWithCloudKit:(id)arg1;
 - (unsigned long long)_numberOfAttachmentsToWriteUp;
 - (unsigned long long)_numberOfAttachmentsToDownload;
 - (void)_scheduleOperation:(id)arg1;

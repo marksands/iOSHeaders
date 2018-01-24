@@ -17,7 +17,6 @@
 - (void)scheduleHSTSSuperCookieCleanup;
 - (void)scheduleBookmarksDatabaseMigrationTask;
 - (void)scheduleBookmarksDatabaseMaintenance;
-- (void)getCurrentlySelectedSearchEngineWithCompletion:(CDUnknownBlockType)arg1;
 - (void)clearAllSafariHistoryWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)getSafariDataUsageByteCountWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)deleteSafariPersistentURLCacheStorageWithCompletionHandler:(CDUnknownBlockType)arg1;

@@ -15,6 +15,7 @@
     UINavigationController *_genericTermsUIViewController;
     UIViewController *_presenter;
     _Bool _showWarranty;
+    _Bool _showingOfflineTerms;
     CDUnknownBlockType _completionHandler;
     CDUnknownBlockType _loadedHandler;
     RemoteUIController *_termsController;
@@ -27,8 +28,11 @@
 - (void)remoteUIController:(id)arg1 willPresentModalNavigationController:(id)arg2;
 - (_Bool)remoteUIController:(id)arg1 shouldLoadRequest:(id)arg2 redirectResponse:(id)arg3;
 - (void)remoteUIController:(id)arg1 didFinishLoadWithError:(id)arg2;
+- (void)dismissTerms:(_Bool)arg1;
 - (void)doneButtonPressed;
 - (void)loadOfflineTerms;
+- (void)_termsDisagree;
+- (void)_handleAgreeFromObjectModel:(id)arg1;
 - (void)activate;
 - (id)initWithPresenter:(id)arg1 showWarranty:(_Bool)arg2;
 

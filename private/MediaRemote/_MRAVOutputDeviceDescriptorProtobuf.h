@@ -23,6 +23,7 @@
     _MRAVOutputDeviceSourceInfoProtobuf *_sourceInfo;
     NSString *_uniqueIdentifier;
     _Bool _canAccessRemoteAssets;
+    _Bool _isDeviceGroupable;
     _Bool _isGroupLeader;
     _Bool _isGroupable;
     _Bool _isLocalDevice;
@@ -35,6 +36,7 @@
         unsigned int deviceSubType:1;
         unsigned int deviceType:1;
         unsigned int canAccessRemoteAssets:1;
+        unsigned int isDeviceGroupable:1;
         unsigned int isGroupLeader:1;
         unsigned int isGroupable:1;
         unsigned int isLocalDevice:1;
@@ -45,6 +47,7 @@
     } _has;
 }
 
+@property(nonatomic) _Bool isDeviceGroupable; // @synthesize isDeviceGroupable=_isDeviceGroupable;
 @property(retain, nonatomic) _MRAVOutputDeviceSourceInfoProtobuf *sourceInfo; // @synthesize sourceInfo=_sourceInfo;
 @property(nonatomic) _Bool shouldForceRemoteControlabillity; // @synthesize shouldForceRemoteControlabillity=_shouldForceRemoteControlabillity;
 @property(nonatomic) _Bool requiresAuthorization; // @synthesize requiresAuthorization=_requiresAuthorization;
@@ -72,6 +75,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIsDeviceGroupable;
 @property(readonly, nonatomic) _Bool hasSourceInfo;
 @property(nonatomic) _Bool hasShouldForceRemoteControlabillity;
 @property(nonatomic) _Bool hasRequiresAuthorization;

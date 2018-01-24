@@ -29,6 +29,7 @@
 - (void)logPeopleDetailKeyPhotoChanged;
 - (void)logPeopleRemoveFromPeopleHome;
 - (void)logPeopleAddToPeopleHome;
+- (void)logPeopleHomeNumberOfPeopleWithContactName:(unsigned long long)arg1 numberOfPeopleWithStringName:(unsigned long long)arg2;
 - (void)logPeopleHomeFavoritePersonCount:(unsigned long long)arg1 totalPersonCount:(unsigned long long)arg2;
 - (void)logNamingTypeSelection:(unsigned long long)arg1;
 - (void)logConfirmAdditionalMergeCandidatesVerifiedConfirmed:(unsigned long long)arg1 verifiedRejected:(unsigned long long)arg2 unverifiedConfirmed:(unsigned long long)arg3 unverifiedRejected:(unsigned long long)arg4;

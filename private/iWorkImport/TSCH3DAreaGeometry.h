@@ -9,8 +9,8 @@
 __attribute__((visibility("hidden")))
 @interface TSCH3DAreaGeometry : TSCH3DGeometry
 {
-    vector_45b393db mTopLine;
-    vector_45b393db mBottomLine;
+    vector_7200ab52 mTopLine;
+    vector_7200ab52 mBottomLine;
     float mMinZ;
     float mMaxZ;
     float mZeroValue;
@@ -32,9 +32,9 @@ __attribute__((visibility("hidden")))
 - (int)capCount;
 - (unsigned int)capOffset;
 - (int)geometryCount;
-- (const vector_45b393db *)bottomLine;
-- (const vector_45b393db *)topLine;
-- (void)setTopLine:(const vector_45b393db *)arg1 bottomLine:(const vector_45b393db *)arg2 zeroValue:(float)arg3;
+- (const vector_7200ab52 *)bottomLine;
+- (const vector_7200ab52 *)topLine;
+- (void)setTopLine:(const vector_7200ab52 *)arg1 bottomLine:(const vector_7200ab52 *)arg2 zeroValue:(float)arg3;
 - (id)init;
 
 @end

@@ -48,6 +48,7 @@
 - (void)thumbnailOperation:(id)arg1 didLoadThumbnail:(id)arg2 representativeIcon:(_Bool)arg3;
 - (void)thumbnailLoaded:(id)arg1;
 @property(readonly, nonatomic) UIImage *thumbnail;
+@property(readonly) _Bool hasFinishedTryingToFetchCorrectThumbnail;
 - (void)removeListener:(id)arg1;
 - (void)addListener:(id)arg1;
 @property(readonly, nonatomic) _Bool isRepresentativeIcon;

@@ -9,6 +9,8 @@
 @class NSArray, NSString;
 
 @protocol FCCKZonePruningAssistant <NSObject>
+- (unsigned long long)softMaxRecordCountWhenMigratingZoneName:(NSString *)arg1;
+- (double)softMaxRecordAgeWhenMigratingZoneName:(NSString *)arg1;
 - (NSArray *)pruneRecords:(NSArray *)arg1 forZoneName:(NSString *)arg2;
 - (_Bool)canHelpPruneZoneName:(NSString *)arg1;
 @end

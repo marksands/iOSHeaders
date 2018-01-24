@@ -6,13 +6,15 @@
 
 #import <MediaPlayer/MPNondurableMediaItem.h>
 
-@class NSDictionary;
+@class MPModelObject, NSDictionary;
 
 @interface MPModelObjectMediaItem : MPNondurableMediaItem
 {
     NSDictionary *_propertyValues;
+    MPModelObject *_modelObject;
 }
 
+@property(readonly, nonatomic) MPModelObject *modelObject; // @synthesize modelObject=_modelObject;
 - (void).cxx_destruct;
 - (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;

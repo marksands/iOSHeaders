@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "TSKMediaPlayerController.h"
+#import "TSKLayerMediaPlayerController.h"
 
 @class CADisplayLink, NSArray, NSMutableSet, NSString;
 
 __attribute__((visibility("hidden")))
-@interface TSKAnimatedGIFController : NSObject <TSKMediaPlayerController>
+@interface TSKAnimatedGIFController : NSObject <TSKLayerMediaPlayerController>
 {
     id <TSKMediaPlayerControllerDelegate> mDelegate;
     struct CGImageSource *mSource;
@@ -28,20 +28,26 @@ __attribute__((visibility("hidden")))
     double mEndTime;
     float mVolume;
     long long mRepeatMode;
+    NSMutableSet *mObservationTokens;
     CADisplayLink *mDisplayLink;
     _Bool fastReversing;
     _Bool fastForwarding;
 }
 
-@property(nonatomic, getter=isFastForwarding) _Bool fastForwarding; // @synthesize fastForwarding;
-@property(nonatomic, getter=isFastReversing) _Bool fastReversing; // @synthesize fastReversing;
-@property(nonatomic) long long repeatMode; // @synthesize repeatMode=mRepeatMode;
-@property(nonatomic) double endTime; // @synthesize endTime=mEndTime;
-@property(nonatomic) double startTime; // @synthesize startTime=mStartTime;
+- (void)setFastForwarding:(_Bool)arg1;
+- (_Bool)isFastForwarding;
+- (void)setFastReversing:(_Bool)arg1;
+- (_Bool)isFastReversing;
+- (long long)repeatMode;
+- (void)setEndTime:(double)arg1;
+- (void)setStartTime:(double)arg1;
+- (double)startTime;
 @property(nonatomic) double lastDisplayUpdateTime; // @synthesize lastDisplayUpdateTime=mLastDisplayUpdateTime;
-@property(nonatomic) float volume; // @synthesize volume=mVolume;
-@property(readonly, nonatomic) id <TSKMediaPlayerControllerDelegate> delegate; // @synthesize delegate=mDelegate;
-@property(nonatomic) float rate; // @synthesize rate=mRate;
+- (void)setVolume:(float)arg1;
+- (float)volume;
+- (id)delegate;
+- (void)setRate:(float)arg1;
+- (float)rate;
 - (void)p_updateLayers;
 - (void)p_displayLinkDidTrigger:(id)arg1;
 - (void)p_disableDisplayLink;
@@ -53,6 +59,8 @@ __attribute__((visibility("hidden")))
 - (id)newLayer;
 - (void)removeLayer:(id)arg1;
 - (void)addLayer:(id)arg1;
+- (void)removeObservationToken:(id)arg1;
+- (void)addObservationToken:(id)arg1;
 - (void)removePeriodicTimeObserver:(id)arg1;
 - (id)addPeriodicTimeObserverForInterval:(double)arg1 block:(CDUnknownBlockType)arg2;
 - (struct CGImage *)imageForTime:(double)arg1;
@@ -60,23 +68,26 @@ __attribute__((visibility("hidden")))
 - (void)seekToBeginning;
 - (void)seekForwardByOneFrame;
 - (void)seekBackwardByOneFrame;
-@property(readonly, nonatomic) _Bool canFastForward;
-@property(readonly, nonatomic) _Bool canFastReverse;
+- (_Bool)canFastForward;
+- (_Bool)canFastReverse;
 - (void)endScrubbing;
 - (void)cancelPendingSeeks;
 - (void)scrubToTime:(double)arg1 withTolerance:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)scrubToTime:(double)arg1 withTolerance:(double)arg2;
-@property(readonly, nonatomic, getter=isScrubbing) _Bool scrubbing;
+- (_Bool)isScrubbing;
 - (void)beginScrubbing;
-@property(readonly, nonatomic) double duration;
-@property(readonly, nonatomic) double absoluteDuration;
-@property(readonly, nonatomic) double remainingTime;
-@property(readonly, nonatomic) double absoluteCurrentTime;
+- (void)setRepeatMode:(long long)arg1;
+- (double)endTime;
+- (double)duration;
+- (double)absoluteDuration;
+- (double)remainingTime;
+- (double)absoluteCurrentTime;
 - (void)p_setAbsoluteCurrentTime:(double)arg1;
-@property(readonly, nonatomic) double currentTime;
+- (double)currentTime;
 - (void)stopSynchronously;
-@property(nonatomic, getter=isPlaying) _Bool playing;
-@property(readonly, nonatomic) _Bool canPlay;
+- (void)setPlaying:(_Bool)arg1;
+- (_Bool)isPlaying;
+- (_Bool)canPlay;
 - (void)teardown;
 - (void)dealloc;
 - (id)init;

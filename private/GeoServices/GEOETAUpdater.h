@@ -56,9 +56,12 @@
 - (_Bool)_shouldStartConditionalETARequest;
 - (void)_continueUpdateRequests;
 - (double)_calculateNextTransitionTime;
+- (void)_updateRequestModeForRequest:(id)arg1 withResponse:(id)arg2;
+- (int)_requestModeForRequest:(id)arg1;
 - (void)_sendRequest:(id)arg1 shouldCallWillSendCallback:(_Bool)arg2;
 - (_Bool)_updateETAResponse:(id)arg1 withRemainingDistanceFromRequest:(id)arg2;
 - (void)_startConditionalConnectionETARequest;
+- (double)_currentTime;
 - (void)_startStateWaitingForBestTimeStart:(id)arg1;
 - (void)_updateRequest:(id)arg1;
 - (void)stopUpdateRequests;

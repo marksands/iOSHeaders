@@ -8,11 +8,10 @@
 
 #import "OSLogEventProvider.h"
 
-@class NSDate, NSString, NSTimeZone, NSUUID;
+@class NSDate, NSString, NSTimeZone, NSUUID, OSLogEventDecomposedMessage;
 
 @interface OSLogEventProxy : NSObject <OSLogEventProvider>
 {
-    struct os_activity_map_s *_aid_map;
     struct {
         unsigned long long type;
         int pid;
@@ -76,6 +75,7 @@
             unsigned char ttl;
         } statedump;
     } _eint;
+    struct os_activity_map_s *_aid_map;
     CDStruct_c6d697a1 *_event;
     unsigned long long _efv;
     struct _os_timesync_db_s *_tsdb;
@@ -88,6 +88,7 @@
     NSString *_processImagePath;
     NSString *_senderImagePath;
     NSString *_logMessage;
+    OSLogEventDecomposedMessage *_decomposedMessage;
     unsigned long long _uuidi;
 }
 
@@ -131,6 +132,7 @@
 @property(readonly, nonatomic) unsigned long long size;
 @property(readonly, nonatomic) unsigned long long logType;
 @property(readonly, nonatomic) unsigned long long type;
+@property(readonly, nonatomic) OSLogEventDecomposedMessage *decomposedMessage;
 @property(readonly, nonatomic) NSString *composedMessage;
 @property(readonly, nonatomic) unsigned int _oversizeIdentifier;
 - (id)description;

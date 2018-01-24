@@ -36,7 +36,6 @@
 - (id)_SQLForSelectWithProperties:(id)arg1 columns:(id)arg2;
 - (CDUnknownBlockType)_joinClauseComparatorWithPreferredEntityOrder:(id)arg1;
 - (id)_sortedJoinClauses:(id)arg1 preferredOrder:(id)arg2 baseTables:(id)arg3;
-- (id)_sortedJoinClauses:(id)arg1 withTables:(id)arg2;
 - (id)_SQLForSelectWithProperties:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

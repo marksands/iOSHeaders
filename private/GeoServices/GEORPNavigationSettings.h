@@ -15,6 +15,7 @@
     unsigned long long _distanceUnits;
     unsigned long long _maxAlternateRouteCount;
     unsigned long long _voiceVolume;
+    int _userPreferredTransportType;
     NSString *_voiceLanguage;
     _Bool _beepBeforeInstruction;
     _Bool _muteSpeechOverride;
@@ -25,6 +26,7 @@
         unsigned int distanceUnits:1;
         unsigned int maxAlternateRouteCount:1;
         unsigned int voiceVolume:1;
+        unsigned int userPreferredTransportType:1;
         unsigned int beepBeforeInstruction:1;
         unsigned int muteSpeechOverride:1;
         unsigned int pauseSpokenAudio:1;
@@ -52,6 +54,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsUserPreferredTransportType:(id)arg1;
+- (id)userPreferredTransportTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasUserPreferredTransportType;
+@property(nonatomic) int userPreferredTransportType; // @synthesize userPreferredTransportType=_userPreferredTransportType;
 @property(nonatomic) _Bool hasShouldUseGuidanceEventManager;
 @property(readonly, nonatomic) _Bool hasVoiceLanguage;
 @property(nonatomic) _Bool hasBeepBeforeInstruction;

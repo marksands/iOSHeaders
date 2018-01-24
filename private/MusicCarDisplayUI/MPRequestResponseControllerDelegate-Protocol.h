@@ -11,6 +11,8 @@
 @protocol MPRequestResponseControllerDelegate <NSObject>
 
 @optional
+- (void)didFinishLoadingRequestForController:(MPRequestResponseController *)arg1;
+- (void)willBeginLoadingRequestForController:(MPRequestResponseController *)arg1;
 - (_Bool)controller:(MPRequestResponseController *)arg1 shouldRetryFailedRequestWithError:(NSError *)arg2;
 - (void)controller:(MPRequestResponseController *)arg1 defersResponseReplacement:(void (^)(void))arg2;
 @end

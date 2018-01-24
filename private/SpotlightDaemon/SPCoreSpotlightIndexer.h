@@ -41,11 +41,14 @@
 + (void)writeDiagnostic:(id)arg1 bundleID:(id)arg2 identifier:(id)arg3;
 + (id)sharedInstance;
 + (id)sharedInstanceWithDelegate:(id)arg1;
++ (void)setPrivate:(_Bool)arg1;
 + (void)setIndexerDelegate:(id)arg1;
 + (id)allProtectionClasses;
 + (void)shutdown;
 + (void)deactivate;
++ (void)setMemoryPressureStatus:(unsigned long long)arg1;
 + (void)shrink:(unsigned long long)arg1;
++ (void)unlock;
 + (void)sync;
 + (void)cooldown;
 + (void)preheat;
@@ -144,7 +147,7 @@
 - (void)start;
 - (void)locked;
 - (void)locking;
-- (void)unlockFirstUnlockInSB:(_Bool)arg1;
+- (void)unlock;
 - (void)resume;
 - (id)initWithDelegate:(id)arg1;
 

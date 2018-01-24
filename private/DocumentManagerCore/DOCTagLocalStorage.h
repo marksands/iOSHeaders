@@ -13,7 +13,7 @@
     NSUserDefaults *_userDefaults;
 }
 
-+ (id)sharedInstance;
++ (id)sharedAppGroupStorage;
 @property(retain, nonatomic) NSUserDefaults *userDefaults; // @synthesize userDefaults=_userDefaults;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSOrderedSet *discoveredTags;

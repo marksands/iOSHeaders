@@ -12,9 +12,5 @@
 - (_Bool)browserToolbarShouldShowOpenInSafariBarButtonItem:(_SFBrowserToolbar *)arg1;
 - (double)browserToolbarDismissButtonPadding:(_SFBrowserToolbar *)arg1;
 - (struct CGSize)browserToolbarDismissButtonSize:(_SFBrowserToolbar *)arg1;
-- (_Bool)browserToolbarCanOpenPageInSafari:(_SFBrowserToolbar *)arg1;
-- (_Bool)browserToolbarCanShowAction:(_SFBrowserToolbar *)arg1;
-- (_Bool)browserToolbarCanGoForward:(_SFBrowserToolbar *)arg1;
-- (_Bool)browserToolbarCanGoBack:(_SFBrowserToolbar *)arg1;
 @end
 

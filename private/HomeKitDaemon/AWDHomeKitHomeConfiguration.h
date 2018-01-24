@@ -16,9 +16,14 @@
     unsigned int _numAccessories;
     unsigned int _numAccessoryServiceGroups;
     unsigned int _numAdmins;
+    unsigned int _numAppleAudioAccessories;
+    unsigned int _numAppleMediaAccessories;
+    unsigned int _numAppleTVAccessories;
     unsigned int _numBridgedAccessories;
+    unsigned int _numCameraAccessories;
     unsigned int _numCertifiedAccessories;
     unsigned int _numEventTriggers;
+    unsigned int _numHAPAccessories;
     unsigned int _numNotCertifiedAccessories;
     unsigned int _numRooms;
     unsigned int _numScenes;
@@ -26,6 +31,7 @@
     unsigned int _numTimerTriggers;
     unsigned int _numTriggers;
     unsigned int _numUsers;
+    unsigned int _numWholeHouseAudioAccessories;
     unsigned int _numZones;
     _Bool _isPrimaryResident;
     _Bool _isResidentAvailable;
@@ -33,9 +39,14 @@
         unsigned int numAccessories:1;
         unsigned int numAccessoryServiceGroups:1;
         unsigned int numAdmins:1;
+        unsigned int numAppleAudioAccessories:1;
+        unsigned int numAppleMediaAccessories:1;
+        unsigned int numAppleTVAccessories:1;
         unsigned int numBridgedAccessories:1;
+        unsigned int numCameraAccessories:1;
         unsigned int numCertifiedAccessories:1;
         unsigned int numEventTriggers:1;
+        unsigned int numHAPAccessories:1;
         unsigned int numNotCertifiedAccessories:1;
         unsigned int numRooms:1;
         unsigned int numScenes:1;
@@ -43,6 +54,7 @@
         unsigned int numTimerTriggers:1;
         unsigned int numTriggers:1;
         unsigned int numUsers:1;
+        unsigned int numWholeHouseAudioAccessories:1;
         unsigned int numZones:1;
         unsigned int isPrimaryResident:1;
         unsigned int isResidentAvailable:1;
@@ -50,6 +62,12 @@
 }
 
 + (Class)eventTriggersType;
+@property(nonatomic) unsigned int numCameraAccessories; // @synthesize numCameraAccessories=_numCameraAccessories;
+@property(nonatomic) unsigned int numAppleTVAccessories; // @synthesize numAppleTVAccessories=_numAppleTVAccessories;
+@property(nonatomic) unsigned int numAppleAudioAccessories; // @synthesize numAppleAudioAccessories=_numAppleAudioAccessories;
+@property(nonatomic) unsigned int numWholeHouseAudioAccessories; // @synthesize numWholeHouseAudioAccessories=_numWholeHouseAudioAccessories;
+@property(nonatomic) unsigned int numAppleMediaAccessories; // @synthesize numAppleMediaAccessories=_numAppleMediaAccessories;
+@property(nonatomic) unsigned int numHAPAccessories; // @synthesize numHAPAccessories=_numHAPAccessories;
 @property(retain, nonatomic) NSMutableArray *eventTriggers; // @synthesize eventTriggers=_eventTriggers;
 @property(nonatomic) unsigned int numCertifiedAccessories; // @synthesize numCertifiedAccessories=_numCertifiedAccessories;
 @property(nonatomic) unsigned int numNotCertifiedAccessories; // @synthesize numNotCertifiedAccessories=_numNotCertifiedAccessories;
@@ -77,6 +95,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasNumCameraAccessories;
+@property(nonatomic) _Bool hasNumAppleTVAccessories;
+@property(nonatomic) _Bool hasNumAppleAudioAccessories;
+@property(nonatomic) _Bool hasNumWholeHouseAudioAccessories;
+@property(nonatomic) _Bool hasNumAppleMediaAccessories;
+@property(nonatomic) _Bool hasNumHAPAccessories;
 - (id)eventTriggersAtIndex:(unsigned long long)arg1;
 - (unsigned long long)eventTriggersCount;
 - (void)addEventTriggers:(id)arg1;

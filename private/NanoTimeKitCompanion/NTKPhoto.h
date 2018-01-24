@@ -38,6 +38,7 @@
 @property(copy, nonatomic) NSDate *modificationDate; // @synthesize modificationDate=_modificationDate;
 @property(copy, nonatomic) NSString *localIdentifier; // @synthesize localIdentifier=_localIdentifier;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *uuidFromLocalIdentifierAndModificationDate;
 - (_Bool)isEqualToAsset:(id)arg1;
 - (_Bool)isEqualToPhoto:(id)arg1;
 - (id)encodeAsDictionary;

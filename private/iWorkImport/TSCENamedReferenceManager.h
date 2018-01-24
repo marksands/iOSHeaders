@@ -8,18 +8,19 @@
 
 #import "TSCEReferenceTrackerDelegate.h"
 
-@class NSLock, NSString, TSCECalculationEngine, TSCENamedReferenceTrie, TSCEReferenceTracker;
+@class NSObject<OS_dispatch_queue>, NSString, TSCECalculationEngine, TSCENamedReferenceTrie, TSCEReferenceTracker;
 
 __attribute__((visibility("hidden")))
 @interface TSCENamedReferenceManager : TSPObject <TSCEReferenceTrackerDelegate>
 {
     TSCENamedReferenceTrie *_names;
     struct unordered_map<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>, std::__1::hash<TSUUUID>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, std::__1::allocator<std::__1::pair<const TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>>> _stringsByTrackedReferenceByTable;
-    NSLock *_nrmLock;
+    NSObject<OS_dispatch_queue> *_nrmQueue;
     TSCEReferenceTracker *_referenceTracker;
     TSCECalculationEngine *_calcEngine;
 }
 
+@property __weak TSCECalculationEngine *calcEngine; // @synthesize calcEngine=_calcEngine;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)loadFromUnarchiver:(id)arg1;
@@ -54,6 +55,7 @@ __attribute__((visibility("hidden")))
 - (void)setCalculationEngine:(id)arg1;
 - (id)initWithContext:(id)arg1 calculationEngine:(id)arg2;
 - (id)initWithContext:(id)arg1;
+- (void)commonInit;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

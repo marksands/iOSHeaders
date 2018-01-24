@@ -8,7 +8,7 @@
 
 #import "MRNowPlayingClientState.h"
 
-@class NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+@class NSArray, NSMutableArray, NSObject<OS_dispatch_queue>;
 
 @interface MRNowPlayingOriginClient : NSObject <MRNowPlayingClientState>
 {
@@ -19,9 +19,6 @@
     _Bool _isOverrideApp;
     unsigned int _routeDiscoveryMode;
     NSMutableArray *_applicationPickedRoutes;
-    NSString *_parentApplication;
-    unsigned int _visibility;
-    union _MRColor _tintColor;
     unsigned int _inputMode;
     int _volumeCapabilities;
     CDUnknownBlockType _playbackQueueCallback;
@@ -37,6 +34,7 @@
 
 @property(nonatomic) unsigned int hardwareRemoteBehavior; // @synthesize hardwareRemoteBehavior=_hardwareRemoteBehavior;
 @property(readonly, nonatomic) void *origin; // @synthesize origin=_origin;
+- (id)debugDescription;
 - (id)description;
 - (void)restoreNowPlayingClientState;
 - (void)_unregisterMediaServerNotifications;
@@ -47,11 +45,8 @@
 @property(nonatomic) void *activeNowPlayingClient;
 @property(nonatomic) _Bool canBeNowPlayingApp;
 @property(nonatomic) unsigned int inputMode;
-@property(nonatomic) union _MRColor tintColor;
-@property(nonatomic) unsigned int visibility;
 @property(nonatomic) unsigned int routeDiscoveryMode;
 @property(nonatomic) _Bool isOverrideApp;
-@property(copy, nonatomic) NSString *parentApplication;
 @property(copy, nonatomic) NSArray *applicationPickedRoutes;
 @property(copy, nonatomic) CDUnknownBlockType endLyricsEventCallback;
 @property(copy, nonatomic) CDUnknownBlockType beginLyricsEventCallback;

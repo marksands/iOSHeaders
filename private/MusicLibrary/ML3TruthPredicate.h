@@ -11,6 +11,7 @@
     _Bool _truthValue;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)falsePredicate;
 + (id)truePredicate;
 - (_Bool)isFalseAlways;

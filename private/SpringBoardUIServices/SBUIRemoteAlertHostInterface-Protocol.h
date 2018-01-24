@@ -14,6 +14,7 @@
 - (void)setShouldDisableFadeInAnimation:(_Bool)arg1;
 - (void)setShouldDismissOnUILock:(_Bool)arg1;
 - (void)setStatusBarHidden:(_Bool)arg1 withDuration:(double)arg2;
+- (void)setDesiredAutoLockDurationWithoutWarn:(double)arg1;
 - (void)setDesiredAutoLockDuration:(double)arg1;
 - (void)setIdleTimerDisabled:(_Bool)arg1 forReason:(NSString *)arg2;
 - (void)setStyleOverridesToCancel:(int)arg1 animationSettings:(BSAnimationSettings *)arg2;

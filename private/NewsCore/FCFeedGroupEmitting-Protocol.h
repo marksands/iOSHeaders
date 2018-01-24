@@ -4,16 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+#import "FCFeedGroupInsertionDescriptor.h"
 #import "NSObject.h"
 
-@class FCFeedGroupEmittingContext, FCFeedGroupEmittingOperation, NSString;
+@class FCFeedGroupEmittingContext, FCFeedGroupEmittingCursor, FCFeedGroupEmittingOperation, NSSet, NSString;
 
-@protocol FCFeedGroupEmitting <NSObject>
+@protocol FCFeedGroupEmitting <FCFeedGroupInsertionDescriptor, NSObject>
 @property(readonly, copy, nonatomic) NSString *groupEmitterIdentifier;
-- (_Bool)canEmitGroupsWithType:(long long)arg1;
-- (_Bool)wantsToInsertGroup:(id <FCFeedGroupOutlining>)arg1 withContext:(FCFeedGroupEmittingContext *)arg2;
-- (FCFeedGroupEmittingOperation *)operationToEmitGroupWithContext:(FCFeedGroupEmittingContext *)arg1 fromCursor:(id <NSCoding>)arg2 toCursor:(id <NSCoding>)arg3;
-- (_Bool)wantsToEmitGroupInContext:(FCFeedGroupEmittingContext *)arg1 withCursor:(id <NSCoding>)arg2 toCursor:(id <NSCoding>)arg3;
+@property(readonly, copy, nonatomic) NSSet *emittableGroupTypes;
+- (FCFeedGroupEmittingOperation *)operationToEmitGroupWithContext:(FCFeedGroupEmittingContext *)arg1 fromCursor:(FCFeedGroupEmittingCursor *)arg2 toCursor:(FCFeedGroupEmittingCursor *)arg3;
+- (_Bool)wantsToEmitGroupInContext:(FCFeedGroupEmittingContext *)arg1 fromCursor:(FCFeedGroupEmittingCursor *)arg2 toCursor:(FCFeedGroupEmittingCursor *)arg3;
 
 @optional
 @property(readonly, nonatomic) _Bool isRequiredByFollowingEmitters;

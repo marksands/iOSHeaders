@@ -7,9 +7,12 @@
 #import "NFCopying.h"
 #import "NSObject.h"
 
-@class FCAssetHandle, FCPurchaseOfferableConfiguration, NSArray, NSData, NSDate, NSString, NSURL, NTPBPublisherPaidDescriptionStrings;
+@class FCAssetHandle, FCColor, FCPurchaseOfferableConfiguration, NSArray, NSData, NSDate, NSString, NSURL, NTPBPublisherPaidDescriptionStrings;
 
 @protocol FCTagProviding <NSObject, NFCopying>
+@property(readonly, nonatomic) NSDate *publisherSpecifiedArticleIDsModifiedDate;
+@property(readonly, nonatomic) NSArray *publisherSpecifiedArticleIDs;
+@property(readonly, nonatomic) NSString *articleRecirculationConfigJSON;
 @property(readonly, nonatomic) _Bool isRealTimeTrackingEnabed;
 @property(readonly, nonatomic) _Bool isHidden;
 @property(readonly, nonatomic) unsigned long long groupingEligibility;
@@ -25,6 +28,7 @@
 @property(readonly, copy, nonatomic) NSString *publisherPaidWebAccessURL;
 @property(readonly, copy, nonatomic) NSString *publisherPaidVerificationURL;
 @property(readonly, copy, nonatomic) NSString *publisherPaidAuthorizationURL;
+@property(readonly, copy, nonatomic) NSString *subtitle;
 @property(readonly, nonatomic) _Bool isNotificationEnabled;
 @property(readonly, nonatomic) long long minimumNewsVersion;
 @property(readonly, nonatomic) long long score;
@@ -33,6 +37,7 @@
 @property(readonly, nonatomic) NSArray *blockedStorefrontIDs;
 @property(readonly, nonatomic) NSArray *iAdKeywords;
 @property(readonly, nonatomic) NSArray *iAdCategories;
+@property(readonly, copy, nonatomic) FCColor *groupTitleColor;
 @property(readonly, copy, nonatomic) id <FCFeedTheming> theme;
 @property(readonly, copy, nonatomic) NSString *coverArticleListID;
 @property(readonly, nonatomic) FCAssetHandle *coverImageAssetHandle;

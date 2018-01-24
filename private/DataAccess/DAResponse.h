@@ -11,6 +11,7 @@
     long long _status;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) long long status; // @synthesize status=_status;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

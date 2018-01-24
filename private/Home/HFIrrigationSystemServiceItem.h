@@ -10,6 +10,7 @@
 {
 }
 
++ (id)supportedServiceTypes;
 - (id)currentStateActionBuildersForHome:(id)arg1;
 - (_Bool)containsActionableCharacteristics;
 - (id)_subclass_updateWithOptions:(id)arg1;

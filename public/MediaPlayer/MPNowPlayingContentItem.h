@@ -13,15 +13,11 @@
 @interface MPNowPlayingContentItem : MPContentItem <NSCopying>
 {
     NSDictionary *_nowPlayingInfo;
-    id <MPNowPlayingContentItemLyricsDataSource> _lyricsDataSource;
-    id <MPNowPlayingContentItemDescriptionDataSource> _descriptionDataSource;
     id <MPNowPlayingContentItemArtworkDataSource> _artworkDataSource;
 }
 
 + (_Bool)shouldPushArtworkData;
 @property(retain, nonatomic) id <MPNowPlayingContentItemArtworkDataSource> artworkDataSource; // @synthesize artworkDataSource=_artworkDataSource;
-@property(nonatomic) __weak id <MPNowPlayingContentItemDescriptionDataSource> descriptionDataSource; // @synthesize descriptionDataSource=_descriptionDataSource;
-@property(nonatomic) __weak id <MPNowPlayingContentItemLyricsDataSource> lyricsDataSource; // @synthesize lyricsDataSource=_lyricsDataSource;
 - (void).cxx_destruct;
 @property(nonatomic, getter=isExplicitItem) _Bool explicitItem;
 - (void)_mergeContentItem:(id)arg1;

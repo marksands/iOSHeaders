@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface TSCH3DVectorN2DDataBuffer : TSCH3D2DDataBuffer
 {
-    vector_a3426c4e mContainer;
+    vector_aab22ae2 mContainer;
 }
 
 - (id).cxx_construct;
@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 - (void)fillCapacity;
 - (void *)mutableData;
 - (const void *)data;
-@property(readonly, nonatomic) vector_a3426c4e *container;
+@property(readonly, nonatomic) vector_aab22ae2 *container;
 - (unsigned long long)componentByteSize;
 - (int)componentType;
 - (unsigned long long)count;

@@ -10,7 +10,7 @@ __attribute__((visibility("hidden")))
 @interface TSTWidthHeightCollection : NSObject
 {
     struct vector<std::__1::pair<TSUCellCoord, double>, std::__1::allocator<std::__1::pair<TSUCellCoord, double>>> mFittingHeights;
-    vector_13f93596 mResetHeights;
+    vector_38b190b0 mResetHeights;
 }
 
 - (id).cxx_construct;

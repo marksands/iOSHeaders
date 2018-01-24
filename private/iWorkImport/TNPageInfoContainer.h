@@ -8,7 +8,7 @@
 
 #import "TSDContainerInfo.h"
 
-@class NSObject<TSDContainerInfo>, NSString, TNPageController, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
+@class NSArray, NSObject<TSDContainerInfo>, NSString, TNPageController, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
 
 __attribute__((visibility("hidden")))
 @interface TNPageInfoContainer : NSObject <TSDContainerInfo>
@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)infoForSelectionPath:(id)arg1;
-- (id)childInfos;
+@property(readonly, nonatomic) NSArray *childInfos;
 - (_Bool)isSelectable;
 - (Class)layoutClass;
 @property(readonly, nonatomic, getter=isAttachedToBodyText) _Bool attachedToBodyText;

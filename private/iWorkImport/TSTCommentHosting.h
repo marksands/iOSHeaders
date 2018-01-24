@@ -15,14 +15,15 @@ __attribute__((visibility("hidden")))
 {
     TSDCommentStorage *mStorage;
     TSTInfo *_tableInfo;
+    NSString *_annotationUUID;
     struct TSTCellUID _cellUID;
 }
 
+@property(retain, nonatomic) NSString *annotationUUID; // @synthesize annotationUUID=_annotationUUID;
 @property(readonly, nonatomic) struct TSTCellUID cellUID; // @synthesize cellUID=_cellUID;
 @property(retain, nonatomic) TSTInfo *tableInfo; // @synthesize tableInfo=_tableInfo;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) NSString *annotationUUID;
 - (_Bool)isInDocument;
 - (void)commentWillBeAddedToDocumentRoot;
 @property(readonly, nonatomic) _Bool isHighlight;
@@ -35,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (Class)editorClass;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(copy, nonatomic) TSDCommentStorage *storage;
+- (void)p_updateAnnotationUUID;
 - (id)initWithStorage:(id)arg1 forTableInfo:(id)arg2 cellID:(struct TSUCellCoord)arg3;
 
 // Remaining properties

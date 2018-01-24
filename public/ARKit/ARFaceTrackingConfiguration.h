@@ -10,9 +10,13 @@
 {
 }
 
++ (id)supportedVideoFormats;
 + (_Bool)isSupported;
 + (id)new;
+- (id)renderingTechnique;
 - (id)techniques;
+- (void)setMirroredFrameOutput:(_Bool)arg1;
+- (void)setCameraPosition:(long long)arg1;
 - (void)setLightEstimationEnabled:(_Bool)arg1;
 - (id)init;
 

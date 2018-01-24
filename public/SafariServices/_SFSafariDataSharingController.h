@@ -6,32 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSURL;
+@class NSMutableArray, NSObject<OS_dispatch_queue>;
 
 @interface _SFSafariDataSharingController : NSObject
 {
     NSObject<OS_dispatch_queue> *_dataSharingQueue;
-    NSMutableDictionary *_dataSharingStore;
     NSMutableArray *_appBundlesWithSeparateData;
 }
 
 + (id)sharedController;
 - (void).cxx_destruct;
-- (void)importSafariWebsiteDataWithURL:(id)arg1 appBundleID:(id)arg2 webView:(id)arg3 notification:(id)arg4 completion:(CDUnknownBlockType)arg5;
-- (void)fetchCookiesForURL:(id)arg1 appBundleID:(id)arg2 webView:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (id)_oAuthWebsiteDataStore;
-- (id)websiteDataStoreConfigurationWithRootURL:(id)arg1;
-- (void)_fetchMatchedCookiesForURL:(id)arg1 inStore:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_addDataSharingOAuthDomainWithAppBundleID:(id)arg1 domain:(id)arg2 allowShare:(_Bool)arg3;
 - (void)clearAllWebsitesData;
-- (void)_checkInAppBundleIDIfNeeded:(id)arg1;
+- (void)checkInAppBundleIDIfNeeded:(id)arg1;
 - (void)_loadAppBundlesWithSeparateDataIfNeeded;
-- (void)_saveDataSharingDictionary:(id)arg1 appBundleID:(id)arg2;
-- (void)setDataSharingModeWithAppBundleID:(id)arg1 mode:(long long)arg2;
-- (void)getDataSharingModeWithAppBundleID:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_loadSharingModePlistWithBundleID:(id)arg1;
-- (id)_policyFileURLWithBundleID:(id)arg1;
-@property(readonly, nonatomic) NSURL *oAuthDataContainerURL;
 - (id)systemDataContainerURLWithAppBundleID:(id)arg1;
 - (id)init;
 

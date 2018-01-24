@@ -13,9 +13,11 @@
 
 @interface PKPaymentSummaryItem : NSObject <NSCopying, NSSecureCoding>
 {
+    _Bool _useDarkColor;
     NSString *_label;
     NSDecimalNumber *_amount;
     unsigned long long _type;
+    NSString *_localizedAmount;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -23,6 +25,8 @@
 + (id)summaryItemWithLabel:(id)arg1 amount:(id)arg2;
 + (long long)version;
 + (id)itemWithProtobuf:(id)arg1;
+@property(nonatomic) _Bool useDarkColor; // @synthesize useDarkColor=_useDarkColor;
+@property(retain, nonatomic) NSString *localizedAmount; // @synthesize localizedAmount=_localizedAmount;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(copy, nonatomic) NSDecimalNumber *amount; // @synthesize amount=_amount;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;

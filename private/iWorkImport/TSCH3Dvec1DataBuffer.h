@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface TSCH3Dvec1DataBuffer : TSCH3DFloatVectorDataBuffer
 {
-    vector_7cfb452c mContainer;
+    vector_9ed239ac mContainer;
 }
 
 - (id).cxx_construct;
@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)count;
 - (void)fillCapacity;
 - (const void *)data;
-@property(readonly, nonatomic) vector_7cfb452c *container;
+@property(readonly, nonatomic) vector_9ed239ac *container;
 - (id)initWithCapacity:(unsigned long long)arg1;
 
 @end

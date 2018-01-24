@@ -9,33 +9,28 @@
 #import "SFFormAutoFillControllerDelegate.h"
 #import "WKNavigationDelegatePrivate.h"
 #import "WKUIDelegatePrivate.h"
-#import "_SFAuthenticationClient.h"
-#import "_SFAuthenticationContextDelegate.h"
 #import "_SFDialogControllerDelegate.h"
 #import "_SFDialogPresenting.h"
 #import "_SFDialogViewControllerPresenting.h"
 #import "_SFWebViewDelegate.h"
 #import "_WKInputDelegate.h"
 
-@class NSString, WKWebView, WKWebViewConfiguration, _SFAuthenticationContext, _SFAutoFillAuthenticationCache, _SFDialogController, _SFFormAutoFillController;
+@class NSString, WKWebView, WKWebViewConfiguration, _SFAuthenticationContext, _SFDialogController, _SFFormAutoFillController;
 
 __attribute__((visibility("hidden")))
-@interface SFWebViewController : UIViewController <SFFormAutoFillControllerDelegate, WKNavigationDelegatePrivate, WKUIDelegatePrivate, _SFDialogControllerDelegate, _SFDialogViewControllerPresenting, _SFWebViewDelegate, _WKInputDelegate, _SFAuthenticationClient, _SFAuthenticationContextDelegate, _SFDialogPresenting>
+@interface SFWebViewController : UIViewController <SFFormAutoFillControllerDelegate, WKNavigationDelegatePrivate, WKUIDelegatePrivate, _SFDialogControllerDelegate, _SFDialogViewControllerPresenting, _SFWebViewDelegate, _WKInputDelegate, _SFDialogPresenting>
 {
     _SFFormAutoFillController *_autoFillController;
     _Bool _didFirstLayout;
     _Bool _didFinishDocumentLoad;
     _Bool _shouldSuppressDialogsThatBlockWebProcess;
-    _SFAutoFillAuthenticationCache *_autoFillAuthenticationCache;
     _Bool _loading;
     _Bool _didFirstVisuallyNonEmptyLayout;
     id <SFWebViewControllerDelegate> _delegate;
     WKWebViewConfiguration *_webViewConfiguration;
     _SFDialogController *_dialogController;
-    _SFAuthenticationContext *_autoFillPearlAuthenticationContext;
 }
 
-@property(readonly, nonatomic) _SFAuthenticationContext *autoFillPearlAuthenticationContext; // @synthesize autoFillPearlAuthenticationContext=_autoFillPearlAuthenticationContext;
 @property(readonly, nonatomic) _SFDialogController *dialogController; // @synthesize dialogController=_dialogController;
 @property(readonly, nonatomic) WKWebViewConfiguration *webViewConfiguration; // @synthesize webViewConfiguration=_webViewConfiguration;
 @property(readonly, nonatomic) _Bool didFirstVisuallyNonEmptyLayout; // @synthesize didFirstVisuallyNonEmptyLayout=_didFirstVisuallyNonEmptyLayout;
@@ -48,6 +43,8 @@ __attribute__((visibility("hidden")))
 - (void)presentDialog:(id)arg1 sender:(id)arg2;
 - (void)dialogController:(id)arg1 willPresentDialog:(id)arg2;
 - (long long)dialogController:(id)arg1 presentationPolicyForDialog:(id)arg2;
+- (long long)_webView:(id)arg1 dataOwnerForDragSession:(id)arg2;
+- (long long)_webView:(id)arg1 dataOwnerForDropSession:(id)arg2;
 - (void)_webView:(id)arg1 didChangeSafeAreaShouldAffectObscuredInsets:(_Bool)arg2;
 - (void)_webView:(id)arg1 requestGeolocationAuthorizationForURL:(id)arg2 frame:(id)arg3 decisionHandler:(CDUnknownBlockType)arg4;
 - (void)_webView:(id)arg1 printFrame:(id)arg2;
@@ -65,17 +62,12 @@ __attribute__((visibility("hidden")))
 - (void)_webView:(id)arg1 accessoryViewCustomButtonTappedInFormInputSession:(id)arg2;
 - (void)_webView:(id)arg1 willSubmitFormValues:(id)arg2 userObject:(id)arg3 submissionHandler:(CDUnknownBlockType)arg4;
 - (void)_webView:(id)arg1 didStartInputSession:(id)arg2;
-- (_Bool)contextShouldAllowMultipleBiometricFailures:(id)arg1;
-- (_Bool)contextShouldAllowPasscodeFallback:(id)arg1;
-- (_Bool)contextRequiresSessionBasedAuthentication:(id)arg1;
-- (_Bool)authenticationEnabledForContext:(id)arg1;
-- (id)authenticationCustomUIProgressObserverForContext:(id)arg1;
-- (id)authenticationMessageForContext:(id)arg1;
 - (void)formAutoFillControllerGetAuthenticationForAutoFill:(id)arg1 onPageLoad:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)formAutoFillControllerGetAuthenticationForAutoFillOnPageLoad:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)formAutoFillControllerShouldDisableAutoFill:(id)arg1;
 - (id)formAutoFillControllerURLForFormAutoFill:(id)arg1;
 - (_Bool)formAutoFillControllerCanPrefillForm:(id)arg1;
+@property(readonly, nonatomic) _SFAuthenticationContext *autoFillAuthenticationContext;
 - (int)_analyticsClient;
 - (void)webView:(id)arg1 didReceiveAuthenticationChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_webViewWebProcessDidCrash:(id)arg1;
@@ -100,7 +92,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) WKWebView *webView;
 - (id)_presentingViewControllerForWebView:(id)arg1;
 - (void)presentViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_authenticationContextInvalidated:(id)arg1;
 - (void)loadView;
 - (id)initWithWebViewConfiguration:(id)arg1;
 

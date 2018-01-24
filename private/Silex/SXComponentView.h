@@ -12,9 +12,9 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIViewControllerPreviewingDelegate.h"
 
-@class NSString, SXColumnLayout, SXComponent, SXComponentExposureEvent, SXComponentExposureMonitor, SXComponentLayout, SXComponentStyle, SXDocumentController, SXFillView, SXViewport;
+@class NSString, SXColumnLayout, SXComponentExposureEvent, SXComponentExposureMonitor, SXComponentStyle, SXDocumentController, SXFillView, SXViewport;
 
-@interface SXComponentView : UIView <UIGestureRecognizerDelegate, SXAXAssistiveTechStatusChangeListener, STTextCanvasRenderSource, SXTransitionDataSource, UIViewControllerPreviewingDelegate>
+@interface SXComponentView : UIView <UIGestureRecognizerDelegate, STTextCanvasRenderSource, SXAXAssistiveTechStatusChangeListener, SXTransitionDataSource, UIViewControllerPreviewingDelegate>
 {
     _Bool _hasRenderedContents;
     _Bool _requiresThoroughFrameCalculations;
@@ -26,8 +26,8 @@
     _Bool _hasAnimation;
     _Bool _hasBehaviors;
     CDStruct_1cc9d0d0 _presentationChanges;
-    SXComponentLayout *_componentLayout;
-    SXComponent *_component;
+    id <SXComponentLayout> _componentLayout;
+    id <SXComponent> _component;
     SXDocumentController *_documentController;
     SXViewport *_viewport;
     id <SXPresentationDelegate> _presentationDelegate;
@@ -79,14 +79,14 @@
 @property(readonly, nonatomic) __weak id <SXPresentationDelegate> presentationDelegate; // @synthesize presentationDelegate=_presentationDelegate;
 @property(readonly, nonatomic) SXViewport *viewport; // @synthesize viewport=_viewport;
 @property(readonly, nonatomic) SXDocumentController *documentController; // @synthesize documentController=_documentController;
-@property(readonly, nonatomic) SXComponent *component; // @synthesize component=_component;
+@property(readonly, nonatomic) id <SXComponent> component; // @synthesize component=_component;
 - (void).cxx_destruct;
 - (void)assistiveTechnologyStatusDidChange;
 @property(readonly, copy) NSString *description;
 - (id)classification;
 @property(nonatomic) struct CGRect absoluteFrame; // @synthesize absoluteFrame=_absoluteFrame;
 - (void)receivedInfo:(id)arg1 fromLayoutingPhaseWithIdentifier:(id)arg2;
-@property(readonly, nonatomic) SXComponentLayout *componentLayout; // @synthesize componentLayout=_componentLayout;
+@property(readonly, nonatomic) id <SXComponentLayout> componentLayout; // @synthesize componentLayout=_componentLayout;
 - (void)didApplyBehavior:(id)arg1;
 - (void)animationDidFinish:(id)arg1;
 - (void)animationDidStart:(id)arg1;

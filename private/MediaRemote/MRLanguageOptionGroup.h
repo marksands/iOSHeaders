@@ -6,13 +6,14 @@
 
 #import <MediaRemote/_MRLanguageOptionGroupProtobuf.h>
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 __attribute__((visibility("hidden")))
-@interface MRLanguageOptionGroup : _MRLanguageOptionGroupProtobuf <NSCoding>
+@interface MRLanguageOptionGroup : _MRLanguageOptionGroupProtobuf <NSSecureCoding>
 {
 }
 
++ (_Bool)supportsSecureCoding;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 

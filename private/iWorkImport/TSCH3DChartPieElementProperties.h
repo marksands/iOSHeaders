@@ -9,9 +9,9 @@
 __attribute__((visibility("hidden")))
 @interface TSCH3DChartPieElementProperties : TSCH3DChartBasicElementProperties
 {
-    vector_ec52ae8c mPercentOfTotal;
-    vector_ec52ae8c mRotation;
-    vector_ec52ae8c mExplode;
+    vector_7584168e mPercentOfTotal;
+    vector_7584168e mRotation;
+    vector_7584168e mExplode;
 }
 
 - (id).cxx_construct;

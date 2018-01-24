@@ -6,7 +6,7 @@
 
 #import <MapKit/MKPlaceSectionRowView.h>
 
-@class NSArray, NSLayoutConstraint;
+@class NSArray, NSLayoutConstraint, UIColor;
 
 __attribute__((visibility("hidden")))
 @interface MKPlaceHoursDayRow : MKPlaceSectionRowView
@@ -15,11 +15,13 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_baselineToTop;
     NSArray *_baselineToBaselineConstraints;
     NSArray *_baselineToBottomConstraints;
+    UIColor *_openingStateColor;
 }
 
+@property(retain, nonatomic) UIColor *openingStateColor; // @synthesize openingStateColor=_openingStateColor;
 - (void).cxx_destruct;
 - (void)_contentSizeDidChange;
-- (void)setDays:(id)arg1 hours:(id)arg2 shouldStack:(_Bool)arg3;
+- (void)setDays:(id)arg1 hours:(id)arg2 shouldStack:(_Bool)arg3 isViewControllerExpanding:(_Bool)arg4;
 - (id)_standardLabel;
 - (_Bool)wantsDefaultClipping;
 - (id)initWithFrame:(struct CGRect)arg1;

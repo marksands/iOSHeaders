@@ -9,7 +9,7 @@
 #import "CSAudioConverterDelegate.h"
 #import "CSSpeechManagerDelegate.h"
 
-@class CSAudioConverter, CSAudioFileWriter, CSAudioSampleRateConverter, CSAudioZeroCounter, CSEndpointerProxy, CSSpeechManager, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class CSAudioConverter, CSAudioFileWriter, CSAudioSampleRateConverter, CSAudioZeroCounter, CSEndpointerProxy, CSSpeechManager, NSDictionary, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CSSpeechController : NSObject <CSSpeechManagerDelegate, CSAudioConverterDelegate>
 {
@@ -21,10 +21,14 @@
     NSDictionary *_requestedRecordSettings;
     NSDictionary *_lastVoiceTriggerInfo;
     CSAudioZeroCounter *_continuousZeroCounter;
+    NSObject<OS_dispatch_queue> *_twoShotAudibleFeedbackQueue;
+    NSObject<OS_dispatch_group> *_twoShotAudibleFeedbackDecisionGroup;
     _Bool _isOpus;
     _Bool _isActivated;
     _Bool _isNarrowBand;
     _Bool _twoShotNotificationEnabled;
+    _Bool _isMediaPlaying;
+    _Bool _myriadPreventingTwoShotFeedback;
     id <CSSpeechControllerDelegate> _delegate;
     CSEndpointerProxy *_endpointerProxy;
     CSSpeechManager *_speechManager;
@@ -34,6 +38,8 @@
 }
 
 + (id)sharedController;
+@property(nonatomic) _Bool myriadPreventingTwoShotFeedback; // @synthesize myriadPreventingTwoShotFeedback=_myriadPreventingTwoShotFeedback;
+@property(nonatomic) _Bool isMediaPlaying; // @synthesize isMediaPlaying=_isMediaPlaying;
 @property(nonatomic) _Bool twoShotNotificationEnabled; // @synthesize twoShotNotificationEnabled=_twoShotNotificationEnabled;
 @property(nonatomic) unsigned long long activeChannel; // @synthesize activeChannel=_activeChannel;
 @property(retain, nonatomic) CSAudioFileWriter *audioFileWriter; // @synthesize audioFileWriter=_audioFileWriter;
@@ -45,6 +51,9 @@
 @property(retain, nonatomic) CSEndpointerProxy *endpointerProxy; // @synthesize endpointerProxy=_endpointerProxy;
 @property(nonatomic) __weak id <CSSpeechControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)CSMediaPlayingMonitor:(id)arg1 didReceiveMediaPlayingChanged:(long long)arg2;
+- (void)endWaitingForMyriadWithDecision:(unsigned long long)arg1;
+- (void)beginWaitingForMyriad;
 - (float)getSmartSiriVolume;
 - (void)shouldAcceptEagerResultForDuration:(double)arg1 resultsCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)updateEndpointerDelayedTrigger:(_Bool)arg1;
@@ -82,7 +91,7 @@
 - (void)speechManagerEndRecordInterruption:(id)arg1;
 - (void)speechManagerBeginRecordInterruption:(id)arg1 withContext:(id)arg2;
 - (void)speechManagerBeginRecordInterruption:(id)arg1;
-- (void)speechManagerDetectedSystemVolumeChange:(id)arg1 withVolume:(float)arg2;
+- (void)speechManagerDetectedSystemVolumeChange:(id)arg1 withVolume:(float)arg2 forReason:(unsigned long long)arg3;
 - (void)speechManagerRecordHardwareConfigurationDidChange:(id)arg1 toConfiguration:(long long)arg2;
 - (id)speechManagerRecordingContext;
 - (void)speechManagerDidStopForwarding:(id)arg1 forReason:(long long)arg2;

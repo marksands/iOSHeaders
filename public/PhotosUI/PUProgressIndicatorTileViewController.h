@@ -9,7 +9,7 @@
 #import "PUAssetSharedViewModelChangeObserver.h"
 #import "PUBrowsingVideoPlayerChangeObserver.h"
 
-@class NSString, PLRoundProgressView, PUAssetSharedViewModel, PUBrowsingVideoPlayer, PUOperationStatus, UIButton, UILabel;
+@class NSObject<OS_os_log>, NSString, PLRoundProgressView, PUAssetSharedViewModel, PUBrowsingVideoPlayer, PUOperationStatus, UIButton, UILabel;
 
 __attribute__((visibility("hidden")))
 @interface PUProgressIndicatorTileViewController : PUTileViewController <PUAssetSharedViewModelChangeObserver, PUBrowsingVideoPlayerChangeObserver>
@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     _Bool __needsUpdateSizeClass;
     _Bool __needsUpdateStatusViews;
     _Bool __isProgressViewVisible;
+    _Bool __didStartProgressLogging;
     PUAssetSharedViewModel *_assetSharedViewModel;
     PUBrowsingVideoPlayer *_videoPlayer;
     long long __progressViewStyle;
@@ -31,6 +32,7 @@ __attribute__((visibility("hidden")))
 
 + (id)_loadErrorIconForSizeClass:(long long)arg1;
 + (struct CGSize)progressIndicatorTileSizeForSizeClass:(long long)arg1;
+@property(nonatomic, getter=_didStartProgressLogging, setter=_setDidStartProgressLogging:) _Bool _didStartProgressLogging; // @synthesize _didStartProgressLogging=__didStartProgressLogging;
 @property(retain, nonatomic, setter=_setDebugProgressLabel:) UILabel *_debugProgressLabel; // @synthesize _debugProgressLabel=__debugProgressLabel;
 @property(retain, nonatomic, setter=_setErrorButton:) UIButton *_errorButton; // @synthesize _errorButton=__errorButton;
 @property(nonatomic, setter=_setProgressViewVisible:) _Bool _isProgressViewVisible; // @synthesize _isProgressViewVisible=__isProgressViewVisible;
@@ -45,6 +47,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) PUBrowsingVideoPlayer *videoPlayer; // @synthesize videoPlayer=_videoPlayer;
 @property(retain, nonatomic) PUAssetSharedViewModel *assetSharedViewModel; // @synthesize assetSharedViewModel=_assetSharedViewModel;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSObject<OS_os_log> *_progressLog;
 - (void)_handleVideoPlayer:(id)arg1 didChange:(id)arg2;
 - (void)_handleAssetSharedViewModel:(id)arg1 didChange:(id)arg2;
 - (void)viewModel:(id)arg1 didChange:(id)arg2;

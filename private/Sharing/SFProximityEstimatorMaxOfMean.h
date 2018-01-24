@@ -15,7 +15,7 @@
     unsigned int _rssiMinCount;
 }
 
-- (_Bool)updateWithSFBLEDevice:(id)arg1;
+- (int)_estimateRSSIForSFBLEDevice:(id)arg1;
 - (void)dealloc;
 - (id)initWithProximityInfo:(id)arg1;
 

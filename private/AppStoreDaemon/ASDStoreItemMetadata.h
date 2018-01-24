@@ -22,7 +22,10 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)storeTransationID;
+- (id)requiredDeviceCapabilities;
 @property(readonly, nonatomic) long long storeItemIdentifier;
+- (id)cancelDownloadURL;
 @property(readonly, nonatomic) NSString *bundleIdentifier;
 - (id)initWithDictionary:(id)arg1;
 

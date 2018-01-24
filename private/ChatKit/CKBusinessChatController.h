@@ -20,6 +20,7 @@
 - (long long)preferredStatusBarStyle;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillDisappear:(_Bool)arg1;
+- (void)dealloc;
 - (void)loadView;
 
 @end

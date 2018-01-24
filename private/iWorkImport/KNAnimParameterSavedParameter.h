@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSString, TSUBezierPath;
 
 __attribute__((visibility("hidden")))
-@interface KNAnimParameterSavedParameter : NSObject <NSCoding>
+@interface KNAnimParameterSavedParameter : NSObject <NSSecureCoding>
 {
     _Bool _hasMaxValue;
     _Bool _hasMinValue;
@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
     NSString *_parameterDescription;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *parameterDescription; // @synthesize parameterDescription=_parameterDescription;
 @property(nonatomic) _Bool debugOnly; // @synthesize debugOnly=_debugOnly;
 @property(nonatomic) _Bool removed; // @synthesize removed=_removed;
@@ -37,11 +38,11 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSUBezierPath *pathValue; // @synthesize pathValue=_pathValue;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 - (id)p_bezierPathFromSavedPathElements:(id)arg1;
 - (id)p_savedPathFromPath:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 
 @end
 

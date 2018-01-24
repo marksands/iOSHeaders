@@ -18,9 +18,11 @@
 + (id)interface;
 + (id)sharedInstance;
 - (void).cxx_destruct;
+- (void)updateLastHitDateOfAddition:(id)arg1 onPhysicalURL:(id)arg2;
 - (void)touchOrAddThumbnailAddition:(id)arg1 forURL:(id)arg2;
 - (void)askThumbnailAdditionIndex:(CDUnknownBlockType)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
+- (id)indexProxy;
 - (void)dealloc;
 - (id)init;
 

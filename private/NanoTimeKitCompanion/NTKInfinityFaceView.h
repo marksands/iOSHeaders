@@ -63,6 +63,7 @@
 - (void)videoPlayerViewDidPauseAfterPlayingVideoToEnd:(id)arg1;
 - (void)videoPlayerViewDidBeginPlaying:(id)arg1;
 - (void)videoPlayerViewDidFinishPlayingVideoToEnd:(id)arg1;
+- (void)_backlightDidTurnOff;
 - (void)_backlightWillTurnOff;
 - (void)_handleOrdinaryScreenWake;
 - (void)_handleWristRaiseScreenWake;
@@ -75,6 +76,7 @@
 - (void)layoutSubviews;
 - (void)_unloadSnapshotContentViews;
 - (void)_loadSnapshotContentViews;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

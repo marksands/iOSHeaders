@@ -35,6 +35,7 @@
 + (id)_generateDefaultFavoritesIconWithGlyphColor:(id)arg1;
 + (id)_favoritesGlyph;
 + (id)generateFavoritesIconForTitle:(id)arg1 url:(id)arg2 backgroundColor:(id)arg3;
++ (id)_generateFavoritesIconForRequest:(id)arg1 withBackgroundColor:(id)arg2;
 + (id)defaultFavoritesIcon;
 + (id)defaultGlyphColor;
 + (id)defaultBackgroundColor;

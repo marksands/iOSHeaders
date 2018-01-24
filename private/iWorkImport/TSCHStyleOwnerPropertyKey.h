@@ -20,9 +20,9 @@ __attribute__((visibility("hidden")))
 + (id)propertyKeyWithStyleOwnerPath:(id)arg1 property:(int)arg2;
 @property(readonly, nonatomic) int property; // @synthesize property=mProperty;
 @property(readonly, nonatomic) TSCHStyleOwnerPath *styleOwnerPath; // @synthesize styleOwnerPath=mStyleOwnerPath;
+- (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithStyleOwnerPath:(id)arg1 property:(int)arg2;
 

@@ -7,17 +7,20 @@
 #import "NSObject.h"
 
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class MPAVRoute, NSString;
 
-@interface MPCPlayerPath : NSObject <NSCopying>
+@interface MPCPlayerPath : NSObject <NSCopying, NSSecureCoding>
 {
+    int _pid;
     NSString *_bundleID;
     NSString *_playerID;
     void *_mediaRemotePlayerPath;
     MPAVRoute *_route;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)pathWithRoute:(id)arg1 mediaRemotePlayerPath:(void *)arg2;
 + (id)pathWithRoute:(id)arg1 bundleID:(id)arg2 playerID:(id)arg3;
 + (id)systemMusicPathWithRoute:(id)arg1 playerID:(id)arg2;
@@ -30,12 +33,18 @@
 - (void *)_createMediaRemotePlayerPathWithOrigin:(void *)arg1;
 - (void)resolveWithRouteResolvedHandler:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)resolveWithCompletion:(CDUnknownBlockType)arg1;
+@property(readonly, copy, nonatomic) NSString *representedBundleID;
+@property(readonly, copy, nonatomic) NSString *representedBundleDisplayName;
+@property(readonly, nonatomic, getter=isSystemMusicPath) _Bool systemMusicPath;
 @property(readonly, nonatomic, getter=isInProcess) _Bool inProcess;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
+- (id)initWithRoute:(id)arg1 bundleID:(id)arg2 pid:(int)arg3 playerID:(id)arg4;
 - (id)initWithRoute:(id)arg1 bundleID:(id)arg2 playerID:(id)arg3;
 
 @end

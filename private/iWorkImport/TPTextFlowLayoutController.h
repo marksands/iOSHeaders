@@ -9,15 +9,16 @@
 #import "TSKChangeSourceObserver.h"
 #import "TSWPLayoutOwner.h"
 
-@class NSMapTable, NSString, TPPaginatedPageController;
+@class NSMapTable, NSObject<TSWPTopicNumberHints>, NSString, TPPageController;
 
 __attribute__((visibility("hidden")))
 @interface TPTextFlowLayoutController : NSObject <TSWPLayoutOwner, TSKChangeSourceObserver>
 {
-    TPPaginatedPageController *_pageController;
+    TPPageController *_pageController;
     NSMapTable *_layoutMgrs;
     NSMapTable *_flows;
     _Bool _tornDown;
+    NSObject<TSWPTopicNumberHints> *_startTargetTopicNumberHints;
 }
 
 - (void).cxx_destruct;

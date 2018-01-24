@@ -86,6 +86,7 @@
 - (_Bool)_changedFlagsForMessage:(id)arg1 fetchResponse:(id)arg2 newFlags:(unsigned long long *)arg3;
 - (void)willRemoveDelegation:(id)arg1;
 - (void)reselectMailbox;
+- (_Bool)_selectMailbox:(id)arg1 withConnection:(id)arg2;
 - (id)remoteIDsFromUniqueRemoteIDs:(id)arg1;
 - (_Bool)performBatchOperationWithUIDs:(id)arg1 requiringConnection:(_Bool)arg2 withOptions:(int)arg3 operation:(CDUnknownBlockType)arg4;
 - (_Bool)performOperationRequiringConnection:(_Bool)arg1 withOptions:(int)arg2 operation:(CDUnknownBlockType)arg3;
@@ -131,9 +132,9 @@
 - (id)_newSearchResponseQueueForConnection:(id)arg1 limit:(unsigned int)arg2;
 - (id)_remoteBodySearchForCriterion:(id)arg1;
 - (_Bool)canFetchSearchResults;
-- (void)_fetchStatusCountIfNeededWithConnection:(id)arg1;
 - (void)_updateServerUnreadCount:(unsigned long long)arg1;
 - (void)_fetchServerUnreadCountWithConnection:(id)arg1;
+- (void)updateServerUnreadCountClosingConnection:(_Bool)arg1;
 - (long long)fetchNumMessages:(unsigned long long)arg1 preservingUID:(id)arg2 options:(unsigned long long)arg3;
 - (unsigned long long)growFetchWindow;
 - (id)_searchArgumentsForSynchronize;

@@ -12,6 +12,7 @@
     long long _color;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool sunlightMode; // @synthesize sunlightMode=_sunlightMode;
 @property(nonatomic) long long color; // @synthesize color=_color;
 - (id)_ui_descriptionBuilder;

@@ -8,10 +8,11 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDictionary, NSString, NSURL;
+@class NSArray, NSDictionary, NSNumber, NSString, NSURL;
 
 @interface WBSFormMetadata : NSObject <NSSecureCoding>
 {
+    NSNumber *_containsAtLeastOneSecureTextField;
     _Bool _allowsAutocomplete;
     _Bool _containsActiveElement;
     _Bool _bestForCredentialPreFill;
@@ -56,6 +57,7 @@
 @property(readonly, copy, nonatomic) NSDictionary *annotations; // @synthesize annotations=_annotations;
 @property(readonly, nonatomic) _Bool allowsAutocomplete; // @synthesize allowsAutocomplete=_allowsAutocomplete;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool containsAtLeastOneSecureTextField;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 @property(readonly, copy, nonatomic) NSDictionary *dictionaryRepresentation;

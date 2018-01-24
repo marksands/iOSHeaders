@@ -14,6 +14,7 @@
     _Bool _shouldContain;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)predicateWithPersistentIDs:(id)arg1 shouldContain:(_Bool)arg2;
 + (id)predicateWithPersistentIDs:(const long long *)arg1 count:(unsigned long long)arg2 shouldContain:(_Bool)arg3;
 @property(readonly, nonatomic) _Bool shouldContain; // @synthesize shouldContain=_shouldContain;

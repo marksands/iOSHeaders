@@ -12,6 +12,8 @@
 - (void)networkRequest:(NSURLRequest *)arg1 replyHandler:(void (^)(NSHTTPURLResponse *, NSData *, NSError *))arg2;
 - (void)prewarm;
 - (void)ping;
+- (void)writeLocation:(NSDictionary *)arg1 replyHandler:(void (^)(_Bool))arg2;
+- (void)readLocation:(void (^)(NSDictionary *))arg1;
 - (void)fetchSettings:(void (^)(NSDictionary *))arg1;
 - (void)postSettings:(NSDictionary *)arg1 replyHandler:(void (^)(_Bool))arg2;
 - (void)writeSettingsStore:(NSDictionary *)arg1 replyHandler:(void (^)(_Bool))arg2;

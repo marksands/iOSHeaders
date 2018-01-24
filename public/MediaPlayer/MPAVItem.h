@@ -80,6 +80,7 @@
     MPModelGenericObject *_modelGenericObject;
     NSString *_aggregateDictionaryItemIdentifier;
     NSString *_playerIdentifier;
+    NSString *_storeFrontIdentifier;
     NSString *_contentItemID;
 }
 
@@ -89,6 +90,7 @@
 + (void)setDefaultScaleMode:(long long)arg1;
 + (long long)defaultScaleMode;
 @property(copy, nonatomic) NSString *contentItemID; // @synthesize contentItemID=_contentItemID;
+@property(readonly, copy, nonatomic) NSString *storeFrontIdentifier; // @synthesize storeFrontIdentifier=_storeFrontIdentifier;
 @property(nonatomic, getter=isActiveItem) _Bool activeItem; // @synthesize activeItem=_activeItem;
 @property(copy, nonatomic) NSString *playerIdentifier; // @synthesize playerIdentifier=_playerIdentifier;
 @property(nonatomic) __weak MPAVController *player; // @synthesize player=_player;

@@ -9,7 +9,7 @@
 #import "MPAVRoutingControllerDelegate.h"
 #import "MPRequestResponseControllerDelegate.h"
 
-@class MPAVEndpointRoute, MPAVRoutingController, MPCPlayerPath, MPCPlayerResponse, MPRequestResponseController, NSString;
+@class MPAVEndpointRoute, MPAVRoutingController, MPCPlayerPath, MPCPlayerResponse, MPMediaControlsConfiguration, MPRequestResponseController, NSArray, NSString;
 
 @interface MediaControlsEndpointController : NSObject <MPRequestResponseControllerDelegate, MPAVRoutingControllerDelegate>
 {
@@ -17,7 +17,8 @@
     _Bool _hasEverReceivedResponse;
     _Bool _automaticResponseLoading;
     _Bool _attemptingConnection;
-    NSString *_routeName;
+    MPMediaControlsConfiguration *_configuration;
+    NSArray *_routeNames;
     long long _state;
     id <MediaControlsEndpointControllerDelegate> _delegate;
     MPRequestResponseController *_requestController;
@@ -32,11 +33,13 @@
 @property(nonatomic) __weak id <MediaControlsEndpointControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) _Bool allowsAutomaticResponseLoading; // @synthesize allowsAutomaticResponseLoading=_allowsAutomaticResponseLoading;
 @property(nonatomic) long long state; // @synthesize state=_state;
-@property(readonly, copy, nonatomic) NSString *routeName; // @synthesize routeName=_routeName;
+@property(readonly, copy, nonatomic) NSArray *routeNames; // @synthesize routeNames=_routeNames;
+@property(retain, nonatomic) MPMediaControlsConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)_connectionDidInvalidate:(id)arg1;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
 - (void)routingController:(id)arg1 pickedRouteDidChange:(id)arg2;
+- (void)_reloadPlayerPathWithRoute:(id)arg1;
 - (void)_connectIfNeeded;
 - (void)_updateState;
 - (void)_getConnected:(_Bool *)arg1 invalid:(_Bool *)arg2;
@@ -45,14 +48,17 @@
 - (void)_connectionHasBecomeInvalid;
 - (void)controller:(id)arg1 defersResponseReplacement:(CDUnknownBlockType)arg2;
 - (void)updateRoutePropertiesIfNeeded;
+- (void)launchNowPlayingApp;
 @property(copy, nonatomic) NSString *label;
 - (void)connectAllowingAuthenticationWithCompletion:(CDUnknownBlockType)arg1;
+@property(retain, nonatomic) MPAVEndpointRoute *route;
 @property(readonly, nonatomic) MPCPlayerResponse *response;
 @property(readonly, nonatomic, getter=isRoutingToWireless) _Bool routingToWireless;
 @property(readonly, nonatomic) _Bool isDeviceSystemRoute;
+@property(readonly, nonatomic, getter=isAirPlaying) _Bool airplaying;
 @property(readonly, nonatomic) _Bool hasAvailableRoutes;
-@property(readonly, nonatomic) MPAVEndpointRoute *route;
 @property(readonly, nonatomic) MPCPlayerPath *playerPath;
+@property(readonly, copy, nonatomic) NSString *bundleID;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithEndpoint:(id)arg1;

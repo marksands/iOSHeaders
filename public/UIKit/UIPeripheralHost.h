@@ -262,6 +262,9 @@
 - (void)_preserveInputViewsWithId:(id)arg1 animated:(_Bool)arg2;
 - (void)_preserveInputViewsWithId:(id)arg1;
 - (void)_preserveInputViewsWithId:(id)arg1 animated:(_Bool)arg2 reset:(_Bool)arg3;
+- (void)_clearMultiDocumentTokenIfNecessary:(id)arg1 withId:(id)arg2;
+- (_Bool)_restoreMultiDocumentTokenIfNecessary:(id)arg1 withId:(id)arg2;
+- (_Bool)_preserveMultiDocumentTokenIfNecessary:(id)arg1 withId:(id)arg2 reset:(_Bool)arg3;
 @property(readonly, nonatomic) _Bool keyClicksEnabled;
 - (_Bool)_isSuppressedByManualKeyboard;
 - (id)_inputViewsForResponder:(id)arg1 withAutomaticKeyboard:(_Bool)arg2;

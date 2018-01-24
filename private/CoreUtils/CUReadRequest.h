@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSError, NSMutableData;
+@class NSData, NSError, NSMutableData;
 
 @interface CUReadRequest : NSObject
 {
@@ -15,6 +15,7 @@
     unsigned long long _length;
     void *_bufferBytes;
     NSMutableData *_bufferData;
+    NSData *_data;
     CDUnknownBlockType _completion;
     unsigned long long _minLength;
     unsigned long long _maxLength;
@@ -25,6 +26,7 @@
 @property(readonly, nonatomic) unsigned long long length; // @synthesize length=_length;
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
+@property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(retain, nonatomic) NSMutableData *bufferData; // @synthesize bufferData=_bufferData;
 @property(nonatomic) void *bufferBytes; // @synthesize bufferBytes=_bufferBytes;
 - (void).cxx_destruct;

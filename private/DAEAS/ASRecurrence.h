@@ -6,11 +6,11 @@
 
 #import <DAEAS/ASItem.h>
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class ASEvent, NSDate, NSNumber;
 
-@interface ASRecurrence : ASItem <NSCoding>
+@interface ASRecurrence : ASItem <NSSecureCoding>
 {
     NSNumber *_type;
     NSNumber *_interval;
@@ -25,6 +25,7 @@
     ASEvent *_parentEvent;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)asParseRules;
 + (_Bool)notifyOfUnknownTokens;
 + (_Bool)frontingBasicTypes;

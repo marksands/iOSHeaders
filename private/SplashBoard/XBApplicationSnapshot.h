@@ -49,6 +49,7 @@
     UIImage *_cachedImage;
     unsigned long long _imageAccessCount;
     _Bool _keepImageAccessUntilExpiration;
+    _Bool _hasProtectedContent;
     NSDictionary *_extendedData;
     CDUnknownBlockType _imageGenerator;
     struct CGAffineTransform _imageTransform;
@@ -94,6 +95,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (void)_purgeCachedImageIfAppropriate:(_Bool)arg1;
 - (_Bool)_shouldDeleteFileOnPurge;
+- (void)_setHasProtectedContent:(_Bool)arg1;
 - (void)_cacheImage:(id)arg1;
 - (id)_cachedImage;
 - (void)_configureWithPath:(id)arg1;
@@ -125,6 +127,7 @@
 @property(readonly, nonatomic) _Bool hasFullSizedContent;
 @property(nonatomic) struct CGRect contentFrame;
 @property(readonly, nonatomic) struct CGSize naturalSize;
+@property(readonly, nonatomic) _Bool hasProtectedContent;
 @property(readonly, nonatomic, getter=isExpired) _Bool expired;
 @property(readonly, nonatomic) _Bool fileExists;
 @property(readonly, copy, nonatomic) NSString *filename; // @synthesize filename=_filename;

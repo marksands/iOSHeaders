@@ -11,6 +11,7 @@
     id _values;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)predicateWithProperty:(id)arg1 valueSet:(id)arg2;
 + (id)predicateWithProperty:(id)arg1 values:(id)arg2;
 @property(copy, nonatomic) id values; // @synthesize values=_values;

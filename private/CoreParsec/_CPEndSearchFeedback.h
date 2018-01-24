@@ -20,8 +20,8 @@
     NSString *_uuid;
 }
 
-@property(copy, nonatomic) NSString *uuid;
-@property(nonatomic) unsigned long long timestamp;
+@property(copy, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;

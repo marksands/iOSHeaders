@@ -13,11 +13,13 @@
 
 @interface HFAccessorySettingManagedConfigurationAdapter : HFAccessorySettingAdapter <MCProfileConnectionObserver, HFAccessorySettingAdapterDisplayArbitrating>
 {
+    _Bool _isSettingUp;
     MCProfileConnection *_profileConnectionForSynchronization;
     NSHashTable *_profileObservers;
 }
 
 @property(retain, nonatomic) NSHashTable *profileObservers; // @synthesize profileObservers=_profileObservers;
+@property(nonatomic) _Bool isSettingUp; // @synthesize isSettingUp=_isSettingUp;
 - (void).cxx_destruct;
 - (void)_setupDebugHandler;
 - (id)_beginMonitoringSettingsKeyPath:(id)arg1;

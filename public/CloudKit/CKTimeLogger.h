@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
-@interface CKTimeLogger : NSObject <NSCoding>
+@interface CKTimeLogger : NSObject <NSSecureCoding>
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableArray *_childLoggers;
@@ -24,6 +24,7 @@
     NSString *_parentLoggerDescription;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)loggerForObject:(id)arg1;
 @property(retain, nonatomic) NSString *parentLoggerDescription; // @synthesize parentLoggerDescription=_parentLoggerDescription;
 @property(retain) NSMutableDictionary *currentSessions; // @synthesize currentSessions=_currentSessions;

@@ -18,16 +18,21 @@
     NSString *_coverArticlesArticleListID;
     NSMutableArray *_editorialArticleListIDs;
     NSMutableArray *_editorialSectionTagIDs;
+    NSString *_moreVideosArticleListID;
     NSMutableArray *_specialEventArticleIDs;
     NSMutableArray *_topStoriesCombinedArticleIDs;
+    NSMutableArray *_topVideosArticleIDs;
     NSString *_trendingArticleListID;
 }
 
++ (Class)topVideosArticleIDsType;
 + (Class)specialEventArticleIDsType;
 + (Class)topStoriesCombinedArticleIDsType;
 + (Class)breakingNewsArticleIDsType;
 + (Class)editorialSectionTagIDsType;
 + (Class)editorialArticleListIDsType;
+@property(retain, nonatomic) NSString *moreVideosArticleListID; // @synthesize moreVideosArticleListID=_moreVideosArticleListID;
+@property(retain, nonatomic) NSMutableArray *topVideosArticleIDs; // @synthesize topVideosArticleIDs=_topVideosArticleIDs;
 @property(retain, nonatomic) NSMutableArray *specialEventArticleIDs; // @synthesize specialEventArticleIDs=_specialEventArticleIDs;
 @property(retain, nonatomic) NSMutableArray *topStoriesCombinedArticleIDs; // @synthesize topStoriesCombinedArticleIDs=_topStoriesCombinedArticleIDs;
 @property(retain, nonatomic) NSMutableArray *breakingNewsArticleIDs; // @synthesize breakingNewsArticleIDs=_breakingNewsArticleIDs;
@@ -45,6 +50,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasMoreVideosArticleListID;
+- (id)topVideosArticleIDsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)topVideosArticleIDsCount;
+- (void)addTopVideosArticleIDs:(id)arg1;
+- (void)clearTopVideosArticleIDs;
 - (id)specialEventArticleIDsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)specialEventArticleIDsCount;
 - (void)addSpecialEventArticleIDs:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import <Home/HFAccessorySettingAdapter.h>
 
-@class NAFuture, NSHashTable, NSMutableSet, NSSet;
+@class HMAccessoryCollectionSetting, NAFuture, NSHashTable, NSMutableSet, NSSet;
 
 @interface HFAccessorySettingMobileTimerAdapter : HFAccessorySettingAdapter
 {
@@ -40,8 +40,11 @@
 - (id)updateAlarm:(id)arg1;
 - (id)alarmManagerAlarms;
 - (id)alarmSettingsCurrentItemsFuture;
+- (id)allAlarmsFuture;
 - (id)allAlarms;
 - (void)accessorySettingWasUpdated:(id)arg1 value:(id)arg2;
+@property(readonly, nonatomic) _Bool isAdapterReady;
+@property(readonly, nonatomic) HMAccessoryCollectionSetting *alarmCollectionSetting;
 @property(readonly, copy, nonatomic) NSSet *alarmsWithPendingEdits;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;

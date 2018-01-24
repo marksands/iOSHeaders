@@ -8,9 +8,12 @@
 
 #import "NSCopying.h"
 
+@class HDCodableEntityIdentifier;
+
 @interface HDCodableNanoSyncAnchor : PBCodable <NSCopying>
 {
     long long _anchor;
+    HDCodableEntityIdentifier *_entityIdentifier;
     int _objectType;
     struct {
         unsigned int anchor:1;
@@ -18,7 +21,9 @@
     } _has;
 }
 
+@property(retain, nonatomic) HDCodableEntityIdentifier *entityIdentifier; // @synthesize entityIdentifier=_entityIdentifier;
 @property(nonatomic) long long anchor; // @synthesize anchor=_anchor;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -28,6 +33,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasEntityIdentifier;
 @property(nonatomic) _Bool hasAnchor;
 - (int)StringAsObjectType:(id)arg1;
 - (id)objectTypeAsString:(int)arg1;

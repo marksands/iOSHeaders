@@ -6,13 +6,14 @@
 
 #import <iWorkImport/TSPObject.h>
 
+#import "TSDModelContainer.h"
 #import "TSDMutableContainerInfo.h"
 #import "TSKDocumentObject.h"
 
-@class NSMutableArray, NSObject<TSDContainerInfo>, NSString, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
+@class NSArray, NSMutableArray, NSObject<TSDContainerInfo>, NSString, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
 
 __attribute__((visibility("hidden")))
-@interface TSDContainerInfo : TSPObject <TSDMutableContainerInfo, TSKDocumentObject>
+@interface TSDContainerInfo : TSPObject <TSDMutableContainerInfo, TSKDocumentObject, TSDModelContainer>
 {
     TSDInfoGeometry *mGeometry;
     NSObject<TSDContainerInfo> *mParentInfo;
@@ -35,8 +36,12 @@ __attribute__((visibility("hidden")))
 - (void)insertChildInfo:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addChildInfo:(id)arg1;
 - (void)setChildInfos:(id)arg1;
+- (void)moveModel:(id)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeContainedModel:(id)arg1;
+- (void)insertContainedModel:(id)arg1 atIndex:(unsigned long long)arg2;
+@property(readonly, nonatomic) NSArray *containedModels;
 - (id)infoForSelectionPath:(id)arg1;
-- (id)childInfos;
+@property(readonly, nonatomic) NSArray *childInfos;
 - (id)copyWithContext:(id)arg1;
 - (_Bool)isThemeContent;
 - (Class)repClass;

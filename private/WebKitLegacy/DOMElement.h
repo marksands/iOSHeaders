@@ -48,7 +48,6 @@
 - (id)children;
 @property(readonly) DOMElement *nextElementSibling;
 @property(readonly) DOMElement *previousElementSibling;
-- (id)webkitRegionOverset;
 - (void)setUiactions:(id)arg1;
 - (id)uiactions;
 @property(readonly, copy) NSString *innerText;

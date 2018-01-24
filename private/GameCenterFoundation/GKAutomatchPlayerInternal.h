@@ -11,6 +11,7 @@
     long long _automatchPosition;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) long long automatchPosition; // @synthesize automatchPosition=_automatchPosition;
 - (_Bool)isAutomatchPlayer;
 - (id)alias;

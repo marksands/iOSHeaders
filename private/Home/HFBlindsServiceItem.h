@@ -10,6 +10,7 @@
 {
 }
 
++ (id)supportedServiceTypes;
 - (long long)_doorServicePriority;
 - (id)createControlItems;
 

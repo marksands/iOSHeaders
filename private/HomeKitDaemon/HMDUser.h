@@ -7,14 +7,14 @@
 #import "HMFObject.h"
 
 #import "HMDBackingStoreObjectProtocol.h"
+#import "HMDHomeMessageReceiver.h"
 #import "HMFDumpState.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
-@class HAPPairingIdentity, HMDAccount, HMDAssistantAccessControl, HMDHome, HMUserPresenceAuthorization, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class AVOutputDeviceAuthorizedPeer, HAPPairingIdentity, HMDAccount, HMDAssistantAccessControl, HMDHome, HMUserPresenceAuthorization, NSMutableArray, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDUser : HMFObject <HMFLogging, HMFMessageReceiver, HMFDumpState, HMDBackingStoreObjectProtocol, NSSecureCoding>
+@interface HMDUser : HMFObject <HMFLogging, HMFDumpState, HMDBackingStoreObjectProtocol, HMDHomeMessageReceiver, NSSecureCoding>
 {
     NSMutableArray *_relayAccessTokens;
     _Bool _remoteAccessAllowed;
@@ -34,6 +34,7 @@
 
 + (id)userWithDictionary:(id)arg1 forHomeIdentifier:(id)arg2;
 + (_Bool)supportsSecureCoding;
++ (_Bool)hasMessageReceiverChildren;
 + (id)logCategory;
 + (id)UUIDWithUserID:(id)arg1 forHomeIdentifier:(id)arg2 uuid:(id)arg3 pairingIdentity:(id)arg4;
 + (id)destinationWithUserID:(id)arg1;
@@ -47,6 +48,7 @@
 - (id)modelObjectWithChangeType:(unsigned long long)arg1 version:(long long)arg2;
 - (id)modelObjectWithChangeType:(unsigned long long)arg1;
 - (id)backingStoreObjects:(long long)arg1;
+- (void)migrateAfterCloudMerge:(CDUnknownBlockType)arg1;
 - (void)migrateCloudZone:(id)arg1 migrationQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_fixupRelayAccessTokens;
 - (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
@@ -104,8 +106,10 @@
 - (id)initWithUserID:(id)arg1 displayName:(id)arg2 forHomeIdentifier:(id)arg3 uuid:(id)arg4 pairingIdentity:(id)arg5 privilege:(unsigned long long)arg6;
 - (id)initWithUserID:(id)arg1 forHomeIdentifier:(id)arg2 uuid:(id)arg3 pairingIdentity:(id)arg4 privilege:(unsigned long long)arg5;
 - (id)initWithModelObject:(id)arg1;
+@property(readonly, copy) AVOutputDeviceAuthorizedPeer *av_authorizedPeer;
 
 // Remaining properties
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

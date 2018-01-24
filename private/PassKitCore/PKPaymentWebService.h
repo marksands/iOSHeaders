@@ -80,6 +80,7 @@
 - (unsigned long long)moreInfoItemAtURL:(id)arg1 withMetadata:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (unsigned long long)passActionWithRemoteContentPassAction:(id)arg1 forPass:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (unsigned long long)paymentProvisioningNonceWithCompletion:(CDUnknownBlockType)arg1;
+- (unsigned long long)provisioningMethodWithRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (unsigned long long)availableProductsWithRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)backgroundDownloadWithPassTypeIdentifier:(id)arg1 serialNumber:(id)arg2;
 - (unsigned long long)passWithPassTypeIdentifier:(id)arg1 serialNumber:(id)arg2 completion:(CDUnknownBlockType)arg3;

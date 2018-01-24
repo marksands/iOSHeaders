@@ -9,12 +9,12 @@
 __attribute__((visibility("hidden")))
 @interface WebDeviceOrientationInternal : NSObject
 {
-    RefPtr_dd461606 m_orientation;
+    RefPtr_2fae532e m_orientation;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)initWithCoreDeviceOrientation:(RefPtr_dd461606 *)arg1;
+- (id)initWithCoreDeviceOrientation:(RefPtr_2fae532e *)arg1;
 
 @end
 

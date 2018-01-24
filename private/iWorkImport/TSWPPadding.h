@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (void)saveToPropertyCommandMessage:(struct Message *)arg1 archiver:(id)arg2;
 - (id)initFromPropertyCommandMessage:(const struct Message *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchive:(struct PaddingArchive *)arg1 archiver:(id)arg2;
+- (id)paddingByMirroringHorizontal;
 - (void)transform:(struct CGAffineTransform)arg1;
 - (id)initWithArchive:(const struct PaddingArchive *)arg1 unarchiver:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;

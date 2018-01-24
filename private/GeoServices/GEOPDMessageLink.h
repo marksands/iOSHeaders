@@ -16,15 +16,22 @@
     NSMutableArray *_hoursOfOperations;
     NSString *_messageId;
     NSString *_messageUrl;
+    NSString *_navBackgroundColor;
+    NSString *_navTintColor;
     int _responseTime;
     GEOTimezone *_timezone;
+    _Bool _isVerified;
     struct {
         unsigned int responseTime:1;
+        unsigned int isVerified:1;
     } _has;
 }
 
 + (Class)hoursOfOperationType;
 + (id)messageLinkForPlaceData:(id)arg1;
+@property(retain, nonatomic) NSString *navTintColor; // @synthesize navTintColor=_navTintColor;
+@property(retain, nonatomic) NSString *navBackgroundColor; // @synthesize navBackgroundColor=_navBackgroundColor;
+@property(nonatomic) _Bool isVerified; // @synthesize isVerified=_isVerified;
 @property(retain, nonatomic) GEOTimezone *timezone; // @synthesize timezone=_timezone;
 @property(retain, nonatomic) NSMutableArray *hoursOfOperations; // @synthesize hoursOfOperations=_hoursOfOperations;
 @property(retain, nonatomic) NSString *messageUrl; // @synthesize messageUrl=_messageUrl;
@@ -40,6 +47,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasNavTintColor;
+@property(readonly, nonatomic) _Bool hasNavBackgroundColor;
+@property(nonatomic) _Bool hasIsVerified;
 @property(readonly, nonatomic) _Bool hasTimezone;
 - (id)hoursOfOperationAtIndex:(unsigned long long)arg1;
 - (unsigned long long)hoursOfOperationsCount;

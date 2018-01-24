@@ -32,7 +32,7 @@
 - (void)_validateServerBookmarksWithTarget:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)handleRequest:(id)arg1 withTarget:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)canHandleRequest:(id)arg1;
-- (void)runWithTarget:(id)arg1 deviceCoordinator:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)runWithTarget:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic, getter=isFinished) _Bool finished;
 - (void)tearDown;
 - (void)setUp;

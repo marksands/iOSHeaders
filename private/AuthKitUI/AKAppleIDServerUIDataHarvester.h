@@ -18,9 +18,9 @@
 - (void)harvestIDMSRecoveryInfoFromClientInfo:(id)arg1;
 - (void)_harvestIDMSRecoveryHeadersInfo:(id)arg1;
 - (void)harvestDataFromServerHTTPResponse:(id)arg1;
-- (void)_harvestIDMSRecoveryInfoFromObjectModel:(id)arg1;
+- (void)_harvestDataFromClientInfo:(id)arg1 withExtractor:(id)arg2;
+- (void)harvestDataFromCompanionResponse:(id)arg1;
 - (void)harvestDataFromServerUIObjectModel:(id)arg1;
-- (id)_valueForTextFieldWithID:(id)arg1 inObjectModel:(id)arg2;
 @property(readonly, copy, nonatomic) NSDictionary *harvestedData;
 - (id)init;
 

@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 
 - (struct CGRect)frameForEditingTextForSelectionPath:(id)arg1;
 - (_Bool)canEditTextForSelectionPath:(id)arg1;
-- (void)addSelection:(id)arg1 toCGPath:(struct CGPath *)arg2;
+- (void)addSelection:(id)arg1 toCGPath:(struct CGPath *)arg2 useWrapWidth:(_Bool)arg3;
 - (_Bool)p_doesSelectionPathReferToAxisSeriesLabel:(id)arg1;
 - (_Bool)p_doesSelectionPathReferToAxisLabel:(id)arg1;
 - (void)renderIntoContext:(struct CGContext *)arg1 selection:(id)arg2;

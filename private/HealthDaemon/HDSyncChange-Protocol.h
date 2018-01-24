@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSNumber;
+@class HDProfile, HDSyncEntityIdentifier, NSArray, NSNumber;
 
 @protocol HDSyncChange <NSObject>
 @property(readonly, nonatomic) _Bool done;
@@ -15,8 +15,9 @@
 @property(readonly, nonatomic, getter=isSpeculative) _Bool speculative;
 - (id <HDSyncAnchorMap>)requiredAnchorMapWithError:(id *)arg1;
 - (void)setSequenceNumber:(long long)arg1 done:(_Bool)arg2;
-- (NSArray *)decodedObjects;
+- (NSArray *)decodedObjectsForProfile:(HDProfile *)arg1 error:(id *)arg2;
 - (void)setObjects:(NSArray *)arg1 syncAnchorRange:(struct HDSyncAnchorRange)arg2 requiredAnchorMap:(id <HDSyncAnchorMap>)arg3;
-- (Class)syncEntityClass;
+- (Class)syncEntityClassForProfile:(HDProfile *)arg1;
+- (HDSyncEntityIdentifier *)syncEntityIdentifier;
 @end
 

@@ -30,11 +30,13 @@
     _Bool _loadsHTTPFailures;
     _Bool _uploadProgressRequested;
     NSArray *_passThroughErrors;
+    NSNumber *__accountDSIDOverride;
 }
 
 + (struct __CFURLStorageSession *)_sharedCacheStorageSession;
 + (struct _CFURLCache *)sharedCFURLCache;
 + (id)copyUserAgent;
+@property(retain, nonatomic, setter=_setAccountDSIDOverride:) NSNumber *_accountDSIDOverride; // @synthesize _accountDSIDOverride=__accountDSIDOverride;
 @property(retain, nonatomic) NSArray *passThroughErrors; // @synthesize passThroughErrors=_passThroughErrors;
 @property(nonatomic, getter=isUploadProgressRequested) _Bool uploadProgressRequested; // @synthesize uploadProgressRequested=_uploadProgressRequested;
 @property(getter=_usesPrivateCookieStore, setter=_setUsesPrivateCookieStore:) _Bool _usesPrivateCookieStore; // @synthesize _usesPrivateCookieStore;

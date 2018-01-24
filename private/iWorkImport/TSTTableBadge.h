@@ -22,8 +22,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double viewScale; // @synthesize viewScale=_viewScale;
 @property(retain, nonatomic) TSUColor *color; // @synthesize color=_color;
 @property(nonatomic) int badgeType; // @synthesize badgeType=_badgeType;
+- (void).cxx_destruct;
 - (void)drawInContext:(struct CGContext *)arg1;
-- (void)dealloc;
 
 @end
 

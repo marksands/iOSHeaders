@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSFileProviderDomain, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, NSURL, NSXPCConnection<FPDDaemon>;
+@class NSArray, NSFileProviderDomain, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSString, NSURL, NSXPCConnection<FPDDaemon>;
 
 @interface NSFileProviderManager : NSObject
 {
@@ -18,6 +18,9 @@
     NSURL *_documentStorageURL;
     NSString *_providerIdentifier;
     NSFileProviderDomain *_domain;
+    NSObject<OS_dispatch_queue> *_signalUpdateQueue;
+    NSObject<OS_dispatch_source> *_signalUpdateSource;
+    NSMutableDictionary *_completionHandlersByItemID;
     NSArray *_presentedFiles;
 }
 
@@ -41,6 +44,8 @@
 - (void)_cacheProviderInfo;
 - (void)deleteSearchableItemsWithDomainIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)registerURLSessionTask:(id)arg1 forItemWithIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_callAllCompletionHandlersForItemID:(id)arg1 error:(id)arg2;
+- (void)_signalPendingEnumerators;
 - (void)signalEnumeratorForContainerItemIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)itemIDForIdentifier:(id)arg1;
 - (id)_connection;

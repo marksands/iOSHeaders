@@ -41,9 +41,9 @@
 @property(copy, nonatomic) NSDictionary *headers; // @synthesize headers=_headers;
 @property(copy, nonatomic) NSString *url; // @synthesize url=_url;
 @property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
-@property(copy, nonatomic) NSString *uuid;
+@property(copy, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 @property(copy, nonatomic) NSString *input; // @synthesize input=_input;
-@property(nonatomic) unsigned long long timestamp;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;

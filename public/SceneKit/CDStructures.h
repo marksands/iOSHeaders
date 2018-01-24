@@ -1077,10 +1077,10 @@ struct set<unsigned short, std::__1::less<unsigned short>, std::__1::allocator<u
     struct __tree<unsigned short, std::__1::less<unsigned short>, std::__1::allocator<unsigned short>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
         struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<unsigned short, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __value_;
         } __pair1_;
         struct __compressed_pair<unsigned long, std::__1::less<unsigned short>> {
-            unsigned long long __first_;
+            unsigned long long __value_;
         } __pair3_;
     } __tree_;
 };
@@ -1097,7 +1097,7 @@ struct vector<c3dPhysicsField *, std::__1::allocator<c3dPhysicsField *>> {
     struct c3dPhysicsField **__begin_;
     struct c3dPhysicsField **__end_;
     struct __compressed_pair<c3dPhysicsField **, std::__1::allocator<c3dPhysicsField *>> {
-        struct c3dPhysicsField **__first_;
+        struct c3dPhysicsField **__value_;
     } __end_cap_;
 };
 
@@ -1105,7 +1105,7 @@ struct vector<unsigned short, std::__1::allocator<unsigned short>> {
     unsigned short *__begin_;
     unsigned short *__end_;
     struct __compressed_pair<unsigned short *, std::__1::allocator<unsigned short>> {
-        unsigned short *__first_;
+        unsigned short *__value_;
     } __end_cap_;
 };
 

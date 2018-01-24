@@ -18,12 +18,16 @@
     ARFaceTrackingData *_trackingData;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)blendShapeMapping;
 + (void)initialize;
 @property(nonatomic) _Bool isTracked; // @synthesize isTracked=_isTracked;
 @property(retain, nonatomic) ARFaceTrackingData *trackingData; // @synthesize trackingData=_trackingData;
 @property(readonly, nonatomic) ARFaceGeometry *geometry; // @synthesize geometry=_geometry;
 - (void).cxx_destruct;
+- (_Bool)isEqualToFaceAnchor:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 @property(readonly, copy) NSString *debugDescription;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 -     // Error parsing type: r^16@0:8, name: imageVertices

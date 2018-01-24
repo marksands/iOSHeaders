@@ -85,6 +85,7 @@
 @property(readonly, nonatomic) double nativeOrientation;
 @property(readonly, nonatomic) struct CGPoint nativeCenter;
 @property(readonly, copy, nonatomic) FBSDisplayMode *preferredMode;
+@property(readonly, nonatomic, getter=isTatlDisplay) _Bool tatlDisplay;
 @property(readonly, nonatomic, getter=isCarDisplay) _Bool carDisplay;
 @property(readonly, nonatomic, getter=isExternal) _Bool external;
 @property(readonly, nonatomic, getter=isMainDisplay) _Bool mainDisplay;

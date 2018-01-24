@@ -7,13 +7,14 @@
 #import "NSObject.h"
 
 #import "GEODataSessionTask.h"
+#import "GEODataSessionUpdatableTask.h"
 #import "GEODataXPCSessionTaskQueueTask.h"
 #import "GEOStateCapturing.h"
 
-@class GEOClientMetrics, GEODataRequest, GEODataXPCSession, NSData, NSError, NSObject<OS_dispatch_queue>, NSObject<OS_os_activity>, NSObject<OS_xpc_object>, NSString;
+@class GEOClientMetrics, GEODataRequest, GEODataXPCSession, NSData, NSError, NSObject<OS_dispatch_queue>, NSObject<OS_os_activity>, NSObject<OS_voucher>, NSObject<OS_xpc_object>, NSString;
 
 __attribute__((visibility("hidden")))
-@interface GEODataXPCSessionTask : NSObject <GEODataXPCSessionTaskQueueTask, GEOStateCapturing, GEODataSessionTask>
+@interface GEODataXPCSessionTask : NSObject <GEODataXPCSessionTaskQueueTask, GEOStateCapturing, GEODataSessionTask, GEODataSessionUpdatableTask>
 {
     GEODataXPCSession *_session;
     id <GEODataSessionTaskDelegate> _delegate;
@@ -27,9 +28,11 @@ __attribute__((visibility("hidden")))
     double _endTime;
     unsigned int _taskIdentifier;
     NSObject<OS_os_activity> *_activity;
+    NSObject<OS_voucher> *_voucher;
     float _priority;
     _Bool _canceled;
     _Bool _didNotifyDelegate;
+    id <NSObject> _parsedResponse;
 }
 
 @property(readonly, nonatomic) unsigned int taskIdentifier; // @synthesize taskIdentifier=_taskIdentifier;
@@ -38,13 +41,16 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) __weak GEODataXPCSession *session; // @synthesize session=_session;
 @property(readonly, nonatomic) GEODataRequest *request; // @synthesize request=_request;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *sessionIsolation; // @synthesize sessionIsolation=_sessionIsolation;
-@property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
 @property(readonly, nonatomic) NSData *receivedData; // @synthesize receivedData=_receivedData;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 @property(readonly, nonatomic) NSObject<OS_os_activity> *activity; // @synthesize activity=_activity;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) id <GEORequestCounterTicket> requestCounterTicket;
 @property(readonly, nonatomic) NSString *remoteAddressAndPort;
 @property(readonly, nonatomic) GEOClientMetrics *clientMetrics;
+- (void)setParsedResponse:(id)arg1;
+@property(readonly, nonatomic) id <NSObject> parsedResponse;
+@property(retain, nonatomic) NSError *error;
 @property(readonly, nonatomic) unsigned long long incomingPayloadSize;
 @property(readonly, nonatomic) unsigned long long outgoingPayloadSize;
 @property(readonly, nonatomic) _Bool protocolBufferHasPreamble;
@@ -61,11 +67,15 @@ __attribute__((visibility("hidden")))
 - (void)notifyDelegate;
 - (_Bool)processFailedReplyXPCDictionary:(id)arg1;
 - (_Bool)processReplyXPCDictionary:(id)arg1;
-- (void)processXPCReply:(id)arg1;
+- (void)_finishAndNotifyDelegate;
+- (void)processXPCReply:(id)arg1 error:(id)arg2;
+- (void)processTaskTimeout;
 - (void)processTaskCancelled;
 @property(readonly, nonatomic) unsigned int taskQueue;
+@property(readonly, nonatomic) double timeoutInterval;
 @property(readonly, nonatomic) float taskQueuePriority;
-- (void)processResult:(int)arg1 xpcReply:(id)arg2;
+- (void)processResult:(int)arg1 xpcReply:(id)arg2 error:(id)arg3;
+- (void)willSendTask:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) _Bool isCancelled;
 @property(readonly) double elapsedTime;
 - (id)captureStateWithHints:(struct os_state_hints_s *)arg1;

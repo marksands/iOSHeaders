@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSURL *bundledDocumentContainerURL; // @synthesize bundledDocumentContainerURL=_bundledDocumentContainerURL;
 @property(readonly, nonatomic) NSString *documentVariant; // @synthesize documentVariant=_documentVariant;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 - (id)initHeadlessWithName:(id)arg1 documentVariant:(id)arg2 previewVariant:(id)arg3;
 - (id)initHeadlessWithName:(id)arg1 variant:(unsigned long long)arg2 locale:(struct __CFLocale *)arg3;
 - (id)initHeadlessWithName:(id)arg1 variant:(unsigned long long)arg2;
@@ -45,7 +46,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSBundle *previewBundle;
 - (id)previewImageURL;
 - (id)makeIdentifier;
-- (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithPropertyList:(id)arg1 documentLocale:(id)arg2 documentVariant:(id)arg3 previewVariant:(id)arg4;
 - (id)initWithDisplayName:(id)arg1 name:(id)arg2 documentVariant:(id)arg3 previewVariant:(id)arg4;

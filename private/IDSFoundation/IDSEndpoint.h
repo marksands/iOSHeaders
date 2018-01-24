@@ -29,7 +29,6 @@
 + (_Bool)supportsSecureCoding;
 + (id)publicDeviceIdentityFromClientData:(id)arg1 accountPublicIdentity:(id)arg2;
 + (id)publicAccountIdentityFromKeyHistory:(id)arg1;
-+ (id)publicLegacyIdentityFromClientData:(id)arg1;
 @property(readonly, retain, nonatomic) IDSEndpointCapabilities *capabilities; // @synthesize capabilities=_capabilities;
 @property(readonly, retain, nonatomic) IDSPublicDeviceIdentity *devicePublicIdentity; // @synthesize devicePublicIdentity=_devicePublicIdentity;
 @property(readonly, retain, nonatomic) IDSMPPublicLegacyIdentity *publicMessageProtectionIdentity; // @synthesize publicMessageProtectionIdentity=_publicMessageProtectionIdentity;
@@ -48,6 +47,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
+- (id)initWithURI:(id)arg1 clientData:(id)arg2 pushToken:(id)arg3 sessionToken:(id)arg4 expireDate:(id)arg5 refreshDate:(id)arg6 accountKeyHistory:(id)arg7 anonymizedSenderID:(id)arg8 verifiedBusiness:(_Bool)arg9 serializedPublicMessageProtectionIdentity:(id)arg10;
 - (id)initWithURI:(id)arg1 clientData:(id)arg2 pushToken:(id)arg3 sessionToken:(id)arg4 expireDate:(id)arg5 refreshDate:(id)arg6 accountKeyHistory:(id)arg7 anonymizedSenderID:(id)arg8 verifiedBusiness:(_Bool)arg9;
 - (id)initWithURI:(id)arg1 clientData:(id)arg2 pushToken:(id)arg3 sessionToken:(id)arg4 expireDate:(id)arg5 refreshDate:(id)arg6 accountKeyHistory:(id)arg7;
 

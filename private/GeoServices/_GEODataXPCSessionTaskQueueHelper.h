@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
     struct unordered_map<unsigned int, unsigned int, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, unsigned int>>> _inflightTaskCount;
     struct unordered_map<unsigned int, unsigned int, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, unsigned int>>> _inflightTaskLimit;
+    struct unique_ptr<geo::DispatchTimer, std::__1::default_delete<geo::DispatchTimer>> _expiredTaskCheckTimer;
 }
 
 - (id).cxx_construct;

@@ -13,6 +13,7 @@
     long long _heartRateContext;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) long long heartRateContext; // @synthesize heartRateContext=_heartRateContext;
 @property(readonly, nonatomic) HKQuantity *heartRate;
 - (void)encodeWithCoder:(id)arg1;

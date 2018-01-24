@@ -60,6 +60,7 @@ __attribute__((visibility("hidden")))
 - (Class)layoutClass;
 - (Class)repClass;
 - (_Bool)supportsHyperlinks;
+- (_Bool)isAllowedInGroups;
 - (_Bool)isLockable;
 - (int)elementKind;
 - (id)copyWithContext:(id)arg1;

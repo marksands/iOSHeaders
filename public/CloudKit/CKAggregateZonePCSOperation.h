@@ -10,12 +10,11 @@
 
 @interface CKAggregateZonePCSOperation : CKDatabaseOperation
 {
+    CDUnknownBlockType _aggregateZonePCSCompletionBlock;
     NSArray *_sourceZoneIDs;
     CKRecordZone *_targetZone;
-    CDUnknownBlockType _aggregateZonePCSCompletionBlock;
 }
 
-@property(copy, nonatomic) CDUnknownBlockType aggregateZonePCSCompletionBlock; // @synthesize aggregateZonePCSCompletionBlock=_aggregateZonePCSCompletionBlock;
 @property(copy, nonatomic) CKRecordZone *targetZone; // @synthesize targetZone=_targetZone;
 @property(copy, nonatomic) NSArray *sourceZoneIDs; // @synthesize sourceZoneIDs=_sourceZoneIDs;
 - (void).cxx_destruct;
@@ -26,6 +25,7 @@
 - (void)fillOutOperationInfo:(id)arg1;
 - (void)performCKOperation;
 - (id)activityCreate;
+@property(copy, nonatomic) CDUnknownBlockType aggregateZonePCSCompletionBlock; // @synthesize aggregateZonePCSCompletionBlock=_aggregateZonePCSCompletionBlock;
 - (id)initWithSourceZoneIDs:(id)arg1 targetZone:(id)arg2;
 - (id)init;
 

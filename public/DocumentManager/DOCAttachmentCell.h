@@ -17,7 +17,7 @@
 }
 
 @property(nonatomic) struct UIEdgeInsets contentEdgeInsets; // @synthesize contentEdgeInsets=_contentEdgeInsets;
-@property(retain, nonatomic) NSTextAttachment *cellAttachment; // @synthesize cellAttachment=_cellAttachment;
+@property(nonatomic) __weak NSTextAttachment *cellAttachment; // @synthesize cellAttachment=_cellAttachment;
 - (void).cxx_destruct;
 - (id)attachment;
 - (void)setAttachment:(id)arg1;

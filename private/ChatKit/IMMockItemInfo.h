@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
-@interface IMMockItemInfo : NSObject <NSCoding>
+@interface IMMockItemInfo : NSObject <NSSecureCoding>
 {
     _Bool _outgoing;
     long long _type;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)decodedMockItemInfoArray:(id)arg1;
 + (id)encodedMockItemInfoArray:(id)arg1;
 + (id)defaultMockInfoArray;

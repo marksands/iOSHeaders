@@ -24,6 +24,7 @@
 + (id)predicateWithProperty:(id)arg1 value:(id)arg2 comparison:(int)arg3 caseInsensitive:(_Bool)arg4 treatNullAsString:(id)arg5;
 + (id)predicateWithProperty:(id)arg1 value:(id)arg2 comparison:(int)arg3 caseInsensitive:(_Bool)arg4;
 + (id)predicateWithProperty:(id)arg1 value:(id)arg2 comparison:(int)arg3;
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *transformFunction; // @synthesize transformFunction=_transformFunction;
 @property(copy, nonatomic) NSString *treatNullAsString; // @synthesize treatNullAsString=_treatNullAsString;
 @property(nonatomic) _Bool caseInsensitive; // @synthesize caseInsensitive=_caseInsensitive;

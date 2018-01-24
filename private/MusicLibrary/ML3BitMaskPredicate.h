@@ -13,6 +13,7 @@
 }
 
 + (id)predicateWithProperty:(id)arg1 mask:(long long)arg2 value:(long long)arg3;
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) long long value; // @synthesize value=_value;
 @property(nonatomic) long long mask; // @synthesize mask=_mask;
 - (id)databaseStatementParameters;

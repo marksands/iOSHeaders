@@ -13,6 +13,7 @@
     NSString *_stringValue;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)entryWithStringValue:(id)arg1;
 @property(copy, nonatomic) NSString *stringValue; // @synthesize stringValue=_stringValue;
 - (void).cxx_destruct;

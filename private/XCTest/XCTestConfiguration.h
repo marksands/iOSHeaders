@@ -18,6 +18,7 @@
     _Bool _reportActivities;
     _Bool _testsMustRunOnMainThread;
     _Bool _initializeForUITesting;
+    _Bool _gatherLocalizableStringsData;
     _Bool _emitOSLogs;
     NSString *_absolutePath;
     NSString *_testBundleRelativePath;
@@ -52,6 +53,7 @@
 @property(copy) NSDictionary *aggregateStatisticsBeforeCrash; // @synthesize aggregateStatisticsBeforeCrash=_aggregateStatisticsBeforeCrash;
 @property(copy) NSArray *targetApplicationArguments; // @synthesize targetApplicationArguments=_targetApplicationArguments;
 @property(copy) NSDictionary *targetApplicationEnvironment; // @synthesize targetApplicationEnvironment=_targetApplicationEnvironment;
+@property _Bool gatherLocalizableStringsData; // @synthesize gatherLocalizableStringsData=_gatherLocalizableStringsData;
 @property _Bool initializeForUITesting; // @synthesize initializeForUITesting=_initializeForUITesting;
 @property _Bool testsMustRunOnMainThread; // @synthesize testsMustRunOnMainThread=_testsMustRunOnMainThread;
 @property _Bool reportActivities; // @synthesize reportActivities=_reportActivities;

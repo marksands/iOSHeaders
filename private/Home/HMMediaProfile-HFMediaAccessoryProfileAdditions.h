@@ -8,7 +8,7 @@
 
 #import "HFMediaProfileContainer.h"
 
-@class HFAccessorySettingAdapterManager, HFMediaProfileContainerSettingsValueManager, HFServiceNameComponents, HMAccessory, HMAccessorySettings, HMHome, HMMediaSession, HMRemoteLoginHandler, HMRoom, NSDate, NSSet, NSString, NSUUID;
+@class HFAccessorySettingAdapterManager, HFMediaProfileContainerSettingsValueManager, HFServiceNameComponents, HMAccessory, HMAccessorySettings, HMHome, HMMediaSession, HMRoom, HMSymptomsHandler, NSDate, NSSet, NSString, NSUUID;
 
 @interface HMMediaProfile (HFMediaAccessoryProfileAdditions) <HFMediaProfileContainer>
 - (id)hf_updateDateAdded:(id)arg1;
@@ -25,12 +25,8 @@
 - (id)hf_fetchLogListWithTimeout:(double)arg1;
 - (id)hf_idsDeviceIdentifierWithError:(id *)arg1;
 @property(readonly, nonatomic) HFMediaProfileContainerSettingsValueManager *hf_settingsValueManager;
-- (id)hf_appleMusicLogout;
-- (id)hf_appleMusicCompleteLoginWithAuthenticationResults:(id)arg1;
-- (id)hf_appleMusicLoginWithAccount:(id)arg1;
 - (id)hf_appleMusicCurrentLoggedInAccountDSID;
 - (id)hf_appleMusicCurrentLoggedInAccount;
-@property(readonly, nonatomic) HMRemoteLoginHandler *hf_remoteLoginHandler;
 @property(readonly, nonatomic) unsigned long long numberOfItemsContainedWithinGroup;
 @property(readonly, nonatomic) _Bool isContainedWithinItemGroup;
 @property(readonly, nonatomic) _Bool isItemGroup;
@@ -38,8 +34,14 @@
 @property(readonly, nonatomic) NSSet *hf_dependentHomeKitObjects;
 @property(readonly, nonatomic) HFAccessorySettingAdapterManager *hf_settingsAdapterManager;
 @property(readonly, nonatomic) id <HFMediaValueSource> hf_mediaValueSource;
+@property(readonly, nonatomic) _Bool hf_isAccessorySettingsReachable;
+@property(readonly, nonatomic) _Bool hf_isAppleMusicReachable;
 @property(readonly, nonatomic) _Bool hf_supportsSoftwareUpdate;
+@property(readonly, nonatomic) _Bool hf_supportsMediaSystem;
 @property(readonly, nonatomic) _Bool hf_isReachable;
+@property(readonly, nonatomic) NSSet *hf_fakeDebugSymptoms;
+@property(readonly, copy) NSSet *symptoms;
+@property(readonly, nonatomic) HMSymptomsHandler *symptomsHandler;
 @property(readonly, nonatomic) _Bool hf_isCurrentAccessory;
 @property(readonly, nonatomic) __weak HMRoom *hf_parentRoom;
 @property(readonly, nonatomic) HMHome *hf_home;

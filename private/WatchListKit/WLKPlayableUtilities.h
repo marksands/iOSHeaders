@@ -26,9 +26,6 @@
 + (_Bool)openPlayable:(id)arg1 forContentType:(unsigned long long)arg2 canonicalID:(id)arg3 showCanonicalID:(id)arg4 seasonCanonicalID:(id)arg5;
 + (_Bool)openPlayable:(id)arg1 forContentType:(unsigned long long)arg2 canonicalID:(id)arg3 showCanonicalID:(id)arg4;
 + (_Bool)openPlayable:(id)arg1 forContentType:(unsigned long long)arg2 canonicalID:(id)arg3;
-+ (_Bool)openPlayable:(id)arg1 forContentType:(unsigned long long)arg2 scheme:(id)arg3 canonicalID:(id)arg4 showCanonicalID:(id)arg5 seasonCanonicalID:(id)arg6;
-+ (_Bool)openPlayable:(id)arg1 forContentType:(unsigned long long)arg2 scheme:(id)arg3 canonicalID:(id)arg4 showCanonicalID:(id)arg5;
-+ (_Bool)openPlayable:(id)arg1 forContentType:(unsigned long long)arg2 scheme:(id)arg3 canonicalID:(id)arg4;
 
 @end
 

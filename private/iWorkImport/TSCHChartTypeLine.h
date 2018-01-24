@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (long long)userInterfaceTag;
 - (_Bool)supportsSeriesFill;
 - (_Bool)supportsCategoryAxisPlotToEdgesOption;
 - (id)defaultSeriesType:(unsigned long long)arg1;

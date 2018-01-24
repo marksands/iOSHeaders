@@ -24,6 +24,7 @@
     _Bool _showsFamilyNameFirst;
     _Bool _showsPhoneticName;
     _Bool _editingUser;
+    _Bool _isObserving;
     UIViewController *_presentingViewController;
     id <CRKUserTableViewCellDelegate> _delegate;
     CRKUser *_user;
@@ -33,6 +34,7 @@
     UILabel *_fullNameLabel;
     UITableView *_editorTableView;
     UIButton *_editButton;
+    UIImageView *_screenObservationImageView;
     UITextField *_givenNameTextField;
     UITextField *_phoneticGivenNameTextField;
     UITextField *_familyNameTextField;
@@ -45,12 +47,14 @@
 @property(nonatomic) __weak UITextField *familyNameTextField; // @synthesize familyNameTextField=_familyNameTextField;
 @property(nonatomic) __weak UITextField *phoneticGivenNameTextField; // @synthesize phoneticGivenNameTextField=_phoneticGivenNameTextField;
 @property(nonatomic) __weak UITextField *givenNameTextField; // @synthesize givenNameTextField=_givenNameTextField;
+@property(retain, nonatomic) UIImageView *screenObservationImageView; // @synthesize screenObservationImageView=_screenObservationImageView;
 @property(retain, nonatomic) UIButton *editButton; // @synthesize editButton=_editButton;
 @property(retain, nonatomic) UITableView *editorTableView; // @synthesize editorTableView=_editorTableView;
 @property(retain, nonatomic) UILabel *fullNameLabel; // @synthesize fullNameLabel=_fullNameLabel;
 @property(retain, nonatomic) CNAvatarViewController *avatarViewController; // @synthesize avatarViewController=_avatarViewController;
 @property(retain, nonatomic) UIImageView *userImageView; // @synthesize userImageView=_userImageView;
 @property(retain, nonatomic) CNMutableContact *contact; // @synthesize contact=_contact;
+@property(nonatomic) _Bool isObserving; // @synthesize isObserving=_isObserving;
 @property(nonatomic) _Bool editingUser; // @synthesize editingUser=_editingUser;
 @property(nonatomic) _Bool showsPhoneticName; // @synthesize showsPhoneticName=_showsPhoneticName;
 @property(nonatomic) _Bool showsFamilyNameFirst; // @synthesize showsFamilyNameFirst=_showsFamilyNameFirst;

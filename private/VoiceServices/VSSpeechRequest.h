@@ -17,6 +17,7 @@
     _Bool _useCustomVoice;
     _Bool _audioSessionIDIsValid;
     _Bool _maintainsInput;
+    _Bool _forceServerTTS;
     unsigned int _audioSessionID;
     unsigned int _audioQueueFlags;
     NSString *_text;
@@ -44,6 +45,7 @@
 @property(nonatomic) long long pointer; // @synthesize pointer=_pointer;
 @property(copy, nonatomic) CDUnknownBlockType pauseHandler; // @synthesize pauseHandler=_pauseHandler;
 @property(copy, nonatomic) CDUnknownBlockType stopHandler; // @synthesize stopHandler=_stopHandler;
+@property(nonatomic) _Bool forceServerTTS; // @synthesize forceServerTTS=_forceServerTTS;
 @property(nonatomic) unsigned long long requestCreatedTimestamp; // @synthesize requestCreatedTimestamp=_requestCreatedTimestamp;
 @property(copy, nonatomic) NSString *clientBundleIdentifier; // @synthesize clientBundleIdentifier=_clientBundleIdentifier;
 @property(nonatomic) unsigned int audioQueueFlags; // @synthesize audioQueueFlags=_audioQueueFlags;

@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSNumber;
+@class NSNumber, NSString;
 
 @interface ASDIAPInfo : NSObject <NSCopying, NSSecureCoding>
 {
@@ -22,9 +22,11 @@
     NSNumber *_lastModifiedTimestamp;
     NSNumber *_purchaseTimestamp;
     NSNumber *_accountId;
+    NSString *_subscriptionFamilyId;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSString *subscriptionFamilyId; // @synthesize subscriptionFamilyId=_subscriptionFamilyId;
 @property(nonatomic) _Bool hasUsedIntroPricingOffer; // @synthesize hasUsedIntroPricingOffer=_hasUsedIntroPricingOffer;
 @property(nonatomic) _Bool hasUsedFreeOffer; // @synthesize hasUsedFreeOffer=_hasUsedFreeOffer;
 @property(retain, nonatomic) NSNumber *accountId; // @synthesize accountId=_accountId;

@@ -15,7 +15,10 @@
     char _rssiHistory[8];
     unsigned char _rssiCount;
     unsigned char _rssiIndex;
+    _Bool _insideBubble;
     _Bool _paired;
+    _Bool _triggered;
+    int _rssiEstimate;
     unsigned int _connectedServices;
     NSData *_advertisementData;
     NSDictionary *_advertisementFields;
@@ -29,6 +32,7 @@
     long long _rssiCeiling;
     long long _rssiFloor;
     long long _smoothedRSSI;
+    SFProximityEstimator *_infoProximityEstimator;
     double _lastSeen;
     double _pairCheckTime;
     SFProximityEstimator *_setupProximityEstimator;
@@ -36,16 +40,20 @@
 
 + (_Bool)supportsSecureCoding;
 + (void)setRSSIEstimatorInfo:(id)arg1;
+@property(nonatomic) _Bool triggered; // @synthesize triggered=_triggered;
 @property(retain, nonatomic) SFProximityEstimator *setupProximityEstimator; // @synthesize setupProximityEstimator=_setupProximityEstimator;
 @property(nonatomic) _Bool paired; // @synthesize paired=_paired;
 @property(nonatomic) double pairCheckTime; // @synthesize pairCheckTime=_pairCheckTime;
 @property(nonatomic) double lastSeen; // @synthesize lastSeen=_lastSeen;
+@property(retain, nonatomic) SFProximityEstimator *infoProximityEstimator; // @synthesize infoProximityEstimator=_infoProximityEstimator;
 @property(nonatomic) unsigned int connectedServices; // @synthesize connectedServices=_connectedServices;
 @property(nonatomic) long long smoothedRSSI; // @synthesize smoothedRSSI=_smoothedRSSI;
 @property(nonatomic) long long rssiFloor; // @synthesize rssiFloor=_rssiFloor;
 @property(nonatomic) long long rssiCeiling; // @synthesize rssiCeiling=_rssiCeiling;
+@property(nonatomic) int rssiEstimate; // @synthesize rssiEstimate=_rssiEstimate;
 @property(nonatomic) long long rssi; // @synthesize rssi=_rssi;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(nonatomic) _Bool insideBubble; // @synthesize insideBubble=_insideBubble;
 @property(copy, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) unsigned long long foundTicks; // @synthesize foundTicks=_foundTicks;
 @property(nonatomic) long long distance; // @synthesize distance=_distance;

@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSData, NSDictionary, NSString, NSURL, NSUUID, NSXPCListenerEndpoint, SFBLEDevice, SFCoordinatedAlertRequest, SFDevice, SFDeviceDiscovery, SFEventMessage, SFRemoteInteractionSession, SFRequestMessage, SFResponseMessage, SFService, SFSession, SFUserNotification;
+@class NSData, NSDictionary, NSString, NSURL, NSUUID, NSXPCListenerEndpoint, SFBLEDevice, SFCoordinatedAlertRequest, SFDevice, SFDeviceDiscovery, SFEventMessage, SFRemoteInteractionSession, SFRequestMessage, SFResponseMessage, SFService, SFSession, SFUserAlert;
 
 @protocol SDXPCInterface
-- (void)userNotificationPresent:(SFUserNotification *)arg1;
+- (void)userNotificationPresent:(SFUserAlert *)arg1;
 - (void)pairTLSClient:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
 - (void)sessionSendTLSEncryptedObject:(NSDictionary *)arg1;
 - (void)sessionSendResponse:(SFResponseMessage *)arg1;

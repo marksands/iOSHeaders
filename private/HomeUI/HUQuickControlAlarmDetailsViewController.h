@@ -15,6 +15,8 @@
 }
 
 + (Class)controlItemClass;
+- (_Bool)shouldShowControlWhenUnreachable;
+- (id)secondaryQuickControlPresentationStyle;
 - (id)createInteractionCoordinator;
 - (id)createDetailsViewController;
 

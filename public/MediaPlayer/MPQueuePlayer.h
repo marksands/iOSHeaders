@@ -49,7 +49,6 @@
 - (void)_setExpectedAssetTypes:(id)arg1;
 @property(copy, nonatomic) NSString *externalPlaybackVideoGravity;
 - (void)_setEQPreset:(int)arg1;
-@property(nonatomic) _Bool disallowsAMRAudio;
 - (void)_setClientName:(id)arg1;
 - (void)_setCALayerDestinationIsTVOut:(_Bool)arg1;
 - (_Bool)_resumePlayback:(double)arg1;

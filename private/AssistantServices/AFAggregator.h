@@ -52,6 +52,10 @@
 + (void)logSiriSpeechRequestStarted;
 + (void)logRequestLaunchedApp;
 + (id)_fullAggDKeyWithPrefix:(id)arg1 error:(id)arg2;
++ (void)logSiriPausedMedia;
++ (void)logSiriMediaVolumeAction:(long long)arg1;
++ (void)logSiriQuickStopAction:(unsigned long long)arg1;
++ (void)logSiriInvokedVia:(long long)arg1;
 + (void)logRequestCancelAfterSeconds:(double)arg1;
 + (void)missedAlertContextForRequest;
 + (void)missedAppContextForRequest;

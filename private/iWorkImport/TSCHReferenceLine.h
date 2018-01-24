@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 + (unsigned char)styleOwnerPathType;
 @property(readonly, copy, nonatomic) TSCHChartAxisID *axisID; // @synthesize axisID=mAxisID;
 @property(readonly, copy, nonatomic) NSUUID *uuid; // @synthesize uuid=mUUID;
+- (void).cxx_destruct;
 - (void)setStyle:(id)arg1 nonStyle:(id)arg2;
 - (id)nonstyle;
 - (id)style;

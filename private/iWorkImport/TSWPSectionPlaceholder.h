@@ -19,7 +19,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)needsObjectUUID;
-@property(nonatomic) TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
+@property(nonatomic) __weak TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
+- (void).cxx_destruct;
 - (id)pageMasterOwningModel:(id)arg1;
 - (void)i_ensureHeaderFooterStoragesExistWithStylesheet:(id)arg1;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;

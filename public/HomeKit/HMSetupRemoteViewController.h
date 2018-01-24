@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 - (void)accessorySetupDidFinishPairing;
 - (void)accessorySetupDidBeginPairing;
+- (void)accessorySetupDidFinishWithInfo:(id)arg1 error:(id)arg2;
 - (void)accessorySetupDidFinishWithError:(id)arg1;
 - (void)accessorySetupDidLoad;
 - (void)viewDidLoad;

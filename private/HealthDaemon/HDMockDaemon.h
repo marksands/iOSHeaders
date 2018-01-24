@@ -26,6 +26,8 @@
 @property(readonly) HDBackgroundTaskScheduler *backgroundTaskScheduler; // @synthesize backgroundTaskScheduler;
 @property(retain, nonatomic) HDAchievementDefinitionAlertManager *achievementDefinitionAlertManager; // @synthesize achievementDefinitionAlertManager;
 - (void).cxx_destruct;
+- (id)daemonExtensionsConformingToProtocol:(id)arg1;
+- (id)daemonExtensionWithIdentifier:(id)arg1;
 - (id)createXPCListenerWithMachServiceName:(id)arg1;
 @property(readonly, nonatomic) HDPrimaryProfile *primaryProfile; // @synthesize primaryProfile;
 - (void)unregisterForLaunchNotification:(const char *)arg1;

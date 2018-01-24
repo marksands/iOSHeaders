@@ -18,6 +18,7 @@
     NSString *_storefrontID;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *storefrontID; // @synthesize storefrontID=_storefrontID;
 @property(copy, nonatomic) NSString *deviceToken; // @synthesize deviceToken=_deviceToken;
 @property(copy, nonatomic) NSString *userID; // @synthesize userID=_userID;

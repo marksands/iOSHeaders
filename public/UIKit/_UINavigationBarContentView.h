@@ -7,13 +7,14 @@
 #import <UIKit/_UIBarContentView.h>
 
 #import "_UIBarButtonItemViewOwner.h"
+#import "_UIButtonBarButtonChangeObserver.h"
 #import "_UINavigationBarTitleViewDataSource.h"
 #import "_UINavigationBarTransitionContextParticipant.h"
 
 @class NSArray, NSDictionary, NSMutableArray, NSString, UIBarButtonItem, UIColor, UIImage, UIView, _UINavigationBarContentViewLayout, _UINavigationBarTransitionContext;
 
 __attribute__((visibility("hidden")))
-@interface _UINavigationBarContentView : _UIBarContentView <_UIBarButtonItemViewOwner, _UINavigationBarTitleViewDataSource, _UINavigationBarTransitionContextParticipant>
+@interface _UINavigationBarContentView : _UIBarContentView <_UIBarButtonItemViewOwner, _UINavigationBarTitleViewDataSource, _UINavigationBarTransitionContextParticipant, _UIButtonBarButtonChangeObserver>
 {
     _UINavigationBarContentViewLayout *_layout;
     _UINavigationBarTransitionContext *_transitionContext;
@@ -77,6 +78,7 @@ __attribute__((visibility("hidden")))
 - (void)titleView:(id)arg1 needsUpdatedContentOverlayRects:(id)arg2;
 - (struct CGRect)_overlayRectForView:(id)arg1 inTargetView:(id)arg2;
 - (void)_appearanceChanged;
+- (void)backButtonTitleDidChange;
 @property(nonatomic, setter=_setBackButtonMaximumWidth:) double backButtonMaximumWidth;
 @property(nonatomic) double backButtonMargin;
 - (void)setBackIndicatorImage:(id)arg1;
@@ -87,6 +89,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)edgesPaddingBarButtonItem:(id)arg1;
 - (void)tintColorDidChange;
 - (void)adoptFinalStateFromTransition:(id)arg1 transitionCompleted:(_Bool)arg2;
+- (void)ensureBackButtonTruncationOccursWithContext:(id)arg1;
 - (void)recordToStateForTransition:(id)arg1;
 - (void)recordFromStateForTransition:(id)arg1;
 - (void)updateContent;

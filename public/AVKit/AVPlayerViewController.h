@@ -12,7 +12,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 
-@class AVAppBasedStatusBarAppearanceController, AVFullScreenViewController, AVNowPlayingInfoController, AVPictureInPictureController, AVPlaybackControlsController, AVPlaybackControlsVisibilityController, AVPlayer, AVPlayerController, AVPlayerView, AVPlayerViewControllerContentView, AVTransitionController, NSDictionary, NSString, UIPopoverPresentationController, UIScreen, UIView, UIWindow, __AVPlayerLayerView;
+@class AVAppBasedStatusBarAppearanceController, AVFullScreenViewController, AVNowPlayingInfoController, AVPictureInPictureController, AVPlaybackControlsController, AVPlaybackControlsVisibilityController, AVPlayer, AVPlayerController, AVPlayerView, AVPlayerViewControllerContentView, AVTransitionController, AVWindow, NSDictionary, NSString, UIPopoverPresentationController, UIScreen, UIView, UIWindow, __AVPlayerLayerView;
 
 @interface AVPlayerViewController : UIViewController <AVPictureInPictureControllerDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate, AVPlaybackControlsVisibilityControllerDelegate, AVFullScreenViewControllerDelegate>
 {
@@ -25,6 +25,7 @@
     _Bool _allowsPictureInPicturePlayback;
     _Bool _hasClientSetVideoGravity;
     NSDictionary *_pixelBufferAttributes;
+    _Bool _didBeginObservations;
     AVNowPlayingInfoController *_nowPlayingInfoController;
     AVPictureInPictureController *_pictureInPictureController;
     UIPopoverPresentationController *_mediaSelectionPopoverPresentationController;
@@ -53,17 +54,23 @@
         _Bool playerViewControllerShouldAutomaticallyDismissAtPictureInPictureStart;
         _Bool playerViewController_restoreUserInterfaceForPictureInPictureStopWithCompletionHandler;
         _Bool playerViewController_shouldExitFullScreenWithReason;
+        _Bool playerViewControllerMetricsCollectionEventOccured;
         _Bool playerViewControllerWillExitAutoplayPhase;
     } _delegateRespondsTo;
     _Bool _showsExitFullScreenButton;
+    _Bool _updatesNowPlayingInfoCenter;
     _Bool _entersFullScreenWhenPlaybackBegins;
     _Bool _exitsFullScreenWhenPlaybackEnds;
     _Bool _shouldUseNetworkingResourcesForLiveStreamingWhilePaused;
+    _Bool __wasInitializedWithPlayerLayerView;
+    _Bool _canPausePlaybackWhenExitingFullScreen;
     AVFullScreenViewController *_fullScreenViewController;
+    AVWindow *__fullScreenWindow;
     UIWindow *_secondScreenWindow;
     UIScreen *_playbackTargetScreen;
     CDUnknownBlockType _finishPreparingForInteractiveDismissalHandler;
     CDUnknownBlockType _interactiveDismissalCompletionHandler;
+    CDUnknownBlockType __provideCurrentItemAndInitiatePlayback;
 }
 
 + (id)keyPathsForValuesAffectingPixelBufferAttributes;
@@ -75,19 +82,23 @@
 + (id)keyPathsForValuesAffectingPictureInPictureSuspended;
 + (id)keyPathsForValuesAffectingPictureInPictureActive;
 + (id)keyPathsForValuesAffectingPictureInPicturePossible;
+@property(copy, nonatomic, setter=_setProvideCurrentItemAndInitiatePlayback:) CDUnknownBlockType _provideCurrentItemAndInitiatePlayback; // @synthesize _provideCurrentItemAndInitiatePlayback=__provideCurrentItemAndInitiatePlayback;
+@property(nonatomic) _Bool canPausePlaybackWhenExitingFullScreen; // @synthesize canPausePlaybackWhenExitingFullScreen=_canPausePlaybackWhenExitingFullScreen;
+@property(nonatomic, setter=_setWasInitializedWithPlayerLayerView:) _Bool _wasInitializedWithPlayerLayerView; // @synthesize _wasInitializedWithPlayerLayerView=__wasInitializedWithPlayerLayerView;
 @property(copy, nonatomic) CDUnknownBlockType interactiveDismissalCompletionHandler; // @synthesize interactiveDismissalCompletionHandler=_interactiveDismissalCompletionHandler;
 @property(copy, nonatomic) CDUnknownBlockType finishPreparingForInteractiveDismissalHandler; // @synthesize finishPreparingForInteractiveDismissalHandler=_finishPreparingForInteractiveDismissalHandler;
 @property(nonatomic) _Bool shouldUseNetworkingResourcesForLiveStreamingWhilePaused; // @synthesize shouldUseNetworkingResourcesForLiveStreamingWhilePaused=_shouldUseNetworkingResourcesForLiveStreamingWhilePaused;
 @property(retain, nonatomic) UIScreen *playbackTargetScreen; // @synthesize playbackTargetScreen=_playbackTargetScreen;
 @property(retain, nonatomic) UIWindow *secondScreenWindow; // @synthesize secondScreenWindow=_secondScreenWindow;
+@property(retain, nonatomic, setter=_setFullScreenWindow:) AVWindow *_fullScreenWindow; // @synthesize _fullScreenWindow=__fullScreenWindow;
 @property(nonatomic) __weak AVFullScreenViewController *fullScreenViewController; // @synthesize fullScreenViewController=_fullScreenViewController;
 @property(nonatomic) _Bool exitsFullScreenWhenPlaybackEnds; // @synthesize exitsFullScreenWhenPlaybackEnds=_exitsFullScreenWhenPlaybackEnds;
 @property(nonatomic) _Bool entersFullScreenWhenPlaybackBegins; // @synthesize entersFullScreenWhenPlaybackBegins=_entersFullScreenWhenPlaybackBegins;
+@property(nonatomic) _Bool updatesNowPlayingInfoCenter; // @synthesize updatesNowPlayingInfoCenter=_updatesNowPlayingInfoCenter;
 - (void).cxx_destruct;
 - (id)keyCommandResponderForFullScreenViewController:(id)arg1;
 - (void)fullScreenViewControllerNeedsAppBasedStatusBarAppearanceUpdate:(id)arg1;
 - (_Bool)prefersStatusBarHiddenForFullScreenViewController:(id)arg1;
-- (void)fullScreenViewControllerDidEndFullScreenPresentation:(id)arg1 wasInteractive:(_Bool)arg2;
 - (id)viewForFullScreenViewController:(id)arg1;
 - (void)fullScreenViewControllerWillBeginFullScreenPresentation:(id)arg1;
 - (id)transitioningDelegateForFullScreenViewController:(id)arg1;
@@ -95,6 +106,7 @@
 - (void)playbackControlsVisibilityControllerWillExitAutoplayPhase:(id)arg1;
 - (void)playbackControlsVisibilityController:(id)arg1 animateAlongsideVisibilityAnimations:(id)arg2;
 - (void)playbackControlsVisibilityControllerDidChangeViewVisibility:(id)arg1;
+- (void)playbackControlsVisibilityController:(id)arg1 willShowView:(id)arg2;
 - (void)playbackControlsVisibilityController:(id)arg1 updateStatusBarAppearanceUsingAnimator:(id)arg2;
 - (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
 - (void)prepareForPopoverPresentation:(id)arg1;
@@ -110,15 +122,17 @@
 - (_Bool)_isTransitioningToOrFromFullScreen;
 - (void)_mediaSelectionDoneButtonTapped:(id)arg1;
 - (void)_togglePictureInPicture;
+- (void)_restoreContentViewToPlayerViewControllerView;
 - (void)_transitionFromFullScreenAnimated:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_transitionToFullScreenAnimated:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_transitionToFullScreenAnimated:(_Bool)arg1 interactive:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)_canEnterFullScreen;
 - (void)_transitionFromFullScreenWithReason:(long long)arg1 animated:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)_isDescendantOfRootViewController;
-- (void)_loadPlaybackControlsControllersIfNeeded;
+- (void)_notifyDelegateOfMetricsCollectionEvent:(long long)arg1;
 - (void)_handleDoubleDoubleTapGesture:(id)arg1;
 - (void)_handleSingleTapGesture:(id)arg1;
 - (void)_handleDoubleTapGesture:(id)arg1;
+- (void)_updateNowPlayingInfoController;
 - (void)_updatePlaybackControlsController;
 - (void)_updatePlayerLayerViewAndContentOverlayViewExcludingScreen:(id)arg1;
 - (void)_updatePlayerLayerViewAndContentOverlayView;
@@ -127,6 +141,7 @@
 - (_Bool)_isAudioOnlyContent;
 - (void)_updateUnsupportedContentIndicatorView;
 - (_Bool)_isUnsupportedContent;
+- (void)_addObservers;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_handleFastForwardKeyReleasedCommand:(id)arg1;
 - (void)_handleFastForwardKeyPressedCommand:(id)arg1;
@@ -165,17 +180,19 @@
 @property(nonatomic) long long preferredUnobscuredArea;
 @property(nonatomic) _Bool canHideInteractiveContentOverlayView;
 @property(nonatomic) _Bool requiresLinearPlayback;
+- (void)_setInlinePlaybackControlsAlwaysShowLargePlayButtonWhenPaused:(_Bool)arg1;
+- (_Bool)_inlinePlaybackControlsAlwaysShowLargePlayButtonWhenPaused;
+@property(nonatomic) _Bool allowsEnteringFullScreen;
 @property(nonatomic) _Bool canHidePlaybackControls;
 @property(readonly, nonatomic) UIView *interactiveContentOverlayView;
 @property(copy, nonatomic) NSDictionary *pixelBufferAttributes;
-@property(nonatomic) _Bool updatesNowPlayingInfoCenter;
 @property(retain, nonatomic) AVPlayerController *playerController;
 @property(nonatomic) __weak id <AVPlayerViewControllerDelegate> delegate;
 @property(nonatomic) _Bool allowsPictureInPicturePlayback;
 @property(readonly, nonatomic) UIView *contentOverlayView;
 @property(readonly, nonatomic) struct CGRect videoBounds;
 @property(readonly, nonatomic, getter=isReadyForDisplay) _Bool readyForDisplay;
-- (void)_setVideoGravity:(id)arg1 forLayoutMetrics:(unsigned long long)arg2;
+- (void)_setVideoGravity:(id)arg1 forLayoutClass:(unsigned long long)arg2;
 @property(copy, nonatomic) NSString *videoGravity;
 @property(nonatomic) _Bool showsPlaybackControls;
 @property(retain, nonatomic) AVPlayer *player;
@@ -195,7 +212,7 @@
 @property(nonatomic) _Bool showsExitFullScreenButton;
 - (id)initWithPlayerLayerView:(id)arg1;
 @property(readonly, nonatomic) AVPlaybackControlsVisibilityController *playbackControlsVisibilityController;
-- (_Bool)presentRoutingViewController:(id)arg1;
+- (void)toggleMuted:(id)arg1;
 - (void)pictureInPictureButtonTapped:(id)arg1;
 - (void)fullScreenButtonTapped:(id)arg1;
 - (void)mediaSelectionButtonTapped:(id)arg1;

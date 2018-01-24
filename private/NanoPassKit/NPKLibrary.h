@@ -72,8 +72,8 @@
 - (void)noteWebServiceUpdateNeededWithCompletion:(CDUnknownBlockType)arg1;
 - (void)handleEndedServiceModeRequest;
 - (void)handleAddedValue:(id)arg1 forPassUniqueID:(id)arg2;
-- (void)processFelicaTransitAppletState:(id)arg1 forPassUniqueID:(id)arg2;
-- (void)processFelicaTransitHistory:(id)arg1 forPaymentApplication:(id)arg2 withPassUniqueIdentifier:(id)arg3 transactionDate:(id)arg4;
+- (void)processTransitAppletState:(id)arg1 forPassUniqueID:(id)arg2;
+- (void)processTransitHistory:(id)arg1 forPaymentApplication:(id)arg2 withPassUniqueIdentifier:(id)arg3 transactionDate:(id)arg4;
 - (void)handlePaymentTransactions:(id)arg1 forPassUniqueIDs:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)handleValueAddedServiceTransactions:(id)arg1 forPassUniqueIDs:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)addPassData:(id)arg1 completion:(CDUnknownBlockType)arg2;

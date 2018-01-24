@@ -23,8 +23,8 @@ __attribute__((visibility("hidden")))
 - (void)mutateInfoWithContainingViewport:(id)arg1 scene:(id)arg2;
 - (id)containingViewportByResizingScene:(id)arg1 toResizingFrame:(struct CGRect)arg2;
 - (struct CGRect)oldResizingFrame;
-- (id)sceneResetWithLayoutSettings:(CDStruct_44ada6bf)arg1;
-- (CDStruct_44ada6bf)oldLayoutSettings;
+- (id)sceneResetWithLayoutSettings:(CDStruct_b1c75024)arg1;
+- (CDStruct_b1c75024)oldLayoutSettings;
 - (void)dealloc;
 
 @end

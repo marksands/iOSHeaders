@@ -30,6 +30,7 @@
 @property(readonly, nonatomic, getter=isBookmarksAvailable) _Bool bookmarksAvailable; // @synthesize bookmarksAvailable=_bookmarksAvailable;
 @property(readonly, nonatomic, getter=isAutoFillAvailable) _Bool autoFillAvailable; // @synthesize autoFillAvailable=_autoFillAvailable;
 - (void).cxx_destruct;
+@property(readonly, nonatomic, getter=isPrivateBrowsingAvailable) _Bool privateBrowsingAvailable;
 @property(readonly, nonatomic, getter=isParsecITunesResultsAvailable) _Bool parsecITunesResultsAvailable;
 @property(readonly, nonatomic, getter=isCloudTabsAvailable) _Bool cloudTabsAvailable;
 @property(readonly, nonatomic, getter=isCloudHistorySyncAvailable) _Bool cloudHistorySyncAvailable;

@@ -8,12 +8,15 @@
 
 #import "PKExtensionVendorContextProtocol.h"
 
-@class NSString;
+@class NSString, PKEntitlementWhitelist;
 
 @interface PKExtensionVendorContext : PKExtensionBaseContext <PKExtensionVendorContextProtocol>
 {
+    PKEntitlementWhitelist *_whitelist;
 }
 
+- (void).cxx_destruct;
+- (id)entitlementWhitelist;
 - (void)prepareWithPaymentRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)handleDismissWithCompletion:(CDUnknownBlockType)arg1;
 - (void)handleHostApplicationDidCancel;

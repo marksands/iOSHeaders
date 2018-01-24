@@ -12,25 +12,22 @@
 {
     _Bool _shouldFetchAssetContent;
     _Bool _fetchAllResults;
+    CDUnknownBlockType _recordFetchedBlock;
+    CDUnknownBlockType _queryCompletionBlock;
+    CDUnknownBlockType _queryCursorFetchedBlock;
     CKQuery *_query;
     CKQueryCursor *_cursor;
     CKRecordZoneID *_zoneID;
     unsigned long long _resultsLimit;
     NSArray *_desiredKeys;
-    CDUnknownBlockType _recordFetchedBlock;
-    CDUnknownBlockType _queryCompletionBlock;
     CKQueryCursor *_resultsCursor;
     NSDictionary *_assetTransferOptionsByKey;
-    CDUnknownBlockType _queryCursorFetchedBlock;
 }
 
-@property(copy, nonatomic) CDUnknownBlockType queryCursorFetchedBlock; // @synthesize queryCursorFetchedBlock=_queryCursorFetchedBlock;
 @property(retain, nonatomic) NSDictionary *assetTransferOptionsByKey; // @synthesize assetTransferOptionsByKey=_assetTransferOptionsByKey;
 @property(nonatomic) _Bool fetchAllResults; // @synthesize fetchAllResults=_fetchAllResults;
 @property(nonatomic) _Bool shouldFetchAssetContent; // @synthesize shouldFetchAssetContent=_shouldFetchAssetContent;
 @property(retain, nonatomic) CKQueryCursor *resultsCursor; // @synthesize resultsCursor=_resultsCursor;
-@property(copy, nonatomic) CDUnknownBlockType queryCompletionBlock; // @synthesize queryCompletionBlock=_queryCompletionBlock;
-@property(copy, nonatomic) CDUnknownBlockType recordFetchedBlock; // @synthesize recordFetchedBlock=_recordFetchedBlock;
 @property(copy, nonatomic) NSArray *desiredKeys; // @synthesize desiredKeys=_desiredKeys;
 @property(nonatomic) unsigned long long resultsLimit; // @synthesize resultsLimit=_resultsLimit;
 @property(copy, nonatomic) CKRecordZoneID *zoneID; // @synthesize zoneID=_zoneID;
@@ -46,6 +43,9 @@
 - (_Bool)hasCKOperationCallbacksSet;
 - (void)_handleProgressCallback:(id)arg1;
 - (id)activityCreate;
+@property(copy, nonatomic) CDUnknownBlockType queryCursorFetchedBlock; // @synthesize queryCursorFetchedBlock=_queryCursorFetchedBlock;
+@property(copy, nonatomic) CDUnknownBlockType queryCompletionBlock; // @synthesize queryCompletionBlock=_queryCompletionBlock;
+@property(copy, nonatomic) CDUnknownBlockType recordFetchedBlock; // @synthesize recordFetchedBlock=_recordFetchedBlock;
 - (id)initWithCursor:(id)arg1;
 - (id)initWithQuery:(id)arg1;
 - (id)init;

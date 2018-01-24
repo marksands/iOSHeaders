@@ -17,6 +17,7 @@
     NSString *_messageID;
 }
 
++ (_Bool)supportsSecureCoding;
 - (id)description;
 - (_Bool)performWithAccount:(id)arg1 offlineCache:(id)arg2;
 - (void)dealloc;

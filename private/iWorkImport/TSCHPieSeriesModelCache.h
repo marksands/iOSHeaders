@@ -59,16 +59,16 @@ __attribute__((visibility("hidden")))
 @property(readonly) double percentage; // @synthesize percentage=mCurrentSeriesPercentage;
 @property(readonly) double endAngle; // @synthesize endAngle=mEndAngle;
 @property(readonly) double midAngle; // @synthesize midAngle=mMidAngle;
-@property(readonly) TSCHChartSeries *series; // @synthesize series=mCurrentSeries;
+@property(readonly) __weak TSCHChartSeries *series; // @synthesize series=mCurrentSeries;
 @property(readonly) _Bool nullData; // @synthesize nullData=mCurrentSeriesNullData;
 @property(readonly) double startAngle; // @synthesize startAngle=mCurrentSeriesStartAngle;
 @property(readonly) double seriesAxisValue; // @synthesize seriesAxisValue=mCurrentSeriesAxisValue;
 @property(readonly) double totalValue; // @synthesize totalValue=mTotalValue;
 @property(readonly) unsigned long long seriesIndex; // @synthesize seriesIndex=mCurrentSeriesIndex;
+- (void).cxx_destruct;
 - (id)labelStringForType:(long long)arg1;
 @property(readonly) _Bool shouldRenderCalloutLine;
 @property(readonly) _Bool shouldRenderLabel;
-- (void)dealloc;
 - (id)labelStringWithValueLabelString:(id)arg1 seriesNameLabelString:(id)arg2;
 - (id)initWithPrior:(id)arg1 orChartModel:(id)arg2 forSeries:(unsigned long long)arg3;
 - (id)init;

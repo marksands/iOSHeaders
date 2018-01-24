@@ -32,9 +32,11 @@
     NSString *_group;
     NSDictionary *_lastSyncDates;
     NSString *_localeIdentifier;
+    NSDate *_connectionPolicyFirstFailureDate;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSDate *connectionPolicyFirstFailureDate; // @synthesize connectionPolicyFirstFailureDate=_connectionPolicyFirstFailureDate;
 @property(nonatomic) _Bool isActive; // @synthesize isActive=_isActive;
 @property(copy, nonatomic) NSString *localeIdentifier; // @synthesize localeIdentifier=_localeIdentifier;
 @property(copy, nonatomic) NSDictionary *lastSyncDates; // @synthesize lastSyncDates=_lastSyncDates;

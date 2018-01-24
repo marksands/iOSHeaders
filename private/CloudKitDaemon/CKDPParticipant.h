@@ -28,6 +28,7 @@
     _Bool _acceptedInProcess;
     _Bool _createdInProcess;
     _Bool _isInNetwork;
+    _Bool _isOrgUser;
     struct {
         unsigned int acceptTimestamp:1;
         unsigned int outOfNetworkKeyType:1;
@@ -38,9 +39,11 @@
         unsigned int acceptedInProcess:1;
         unsigned int createdInProcess:1;
         unsigned int isInNetwork:1;
+        unsigned int isOrgUser:1;
     } _has;
 }
 
+@property(nonatomic) _Bool isOrgUser; // @synthesize isOrgUser=_isOrgUser;
 @property(nonatomic) _Bool isInNetwork; // @synthesize isInNetwork=_isInNetwork;
 @property(nonatomic) _Bool acceptedInProcess; // @synthesize acceptedInProcess=_acceptedInProcess;
 @property(nonatomic) int outOfNetworkKeyType; // @synthesize outOfNetworkKeyType=_outOfNetworkKeyType;
@@ -63,6 +66,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIsOrgUser;
 @property(nonatomic) _Bool hasIsInNetwork;
 @property(nonatomic) _Bool hasAcceptedInProcess;
 @property(nonatomic) _Bool hasPublicKeyVersion;

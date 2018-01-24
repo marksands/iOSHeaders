@@ -39,6 +39,7 @@
 - (id)initWithMinimumParticleCapacity:(unsigned long long)arg1 minimumPositionBufferCapacity:(unsigned long long)arg2;
 - (id)initWithMinimumParticleCapacity:(unsigned long long)arg1;
 - (id)init;
+- (void)commonInit;
 @property(nonatomic) unsigned int fieldBitMask;
 - (void)resetSimulation;
 @property(nonatomic) unsigned long long numParticlesToEmit;

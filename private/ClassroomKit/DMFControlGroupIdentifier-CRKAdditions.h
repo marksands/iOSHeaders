@@ -7,6 +7,7 @@
 #import "DMFControlGroupIdentifier.h"
 
 @interface DMFControlGroupIdentifier (CRKAdditions)
++ (id)crk_asmXPCGroupIdentifier;
 + (id)crk_adHocXPCGroupIdentifier;
 + (id)crk_managedXPCGroupIdentifier;
 @end

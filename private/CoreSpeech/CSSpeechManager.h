@@ -6,19 +6,21 @@
 
 #import "NSObject.h"
 
+#import "CSAlarmMonitorDelegate.h"
 #import "CSAssetManagerDelegate.h"
 #import "CSAudioRecorderDelegate.h"
 #import "CSLanguageCodeUpdateMonitorDelegate.h"
 #import "CSSiriEnabledMonitorDelegate.h"
 #import "CSStateMachineDelegate.h"
+#import "CSTimerMonitorDelegate.h"
 #import "CSVoiceTriggerDelegate.h"
+#import "CSVolumeMonitorDelegate.h"
 
 @class CSAsset, CSAudioCircularBuffer, CSAudioRecorder, CSContinuousVoiceTrigger, CSKeywordDetector, CSMyriadPHash, CSSelfTriggerDetector, CSSmartSiriVolume, CSStateMachine, CSVoiceTriggerEventNotifier, CSVoiceTriggerFidesClient, CSVoiceTriggerFileLogger, CSVoiceTriggerFirstPass, CSVoiceTriggerSecondPass, NSDictionary, NSHashTable, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSUUID;
 
-@interface CSSpeechManager : NSObject <CSAudioRecorderDelegate, CSStateMachineDelegate, CSVoiceTriggerDelegate, CSSiriEnabledMonitorDelegate, CSAssetManagerDelegate, CSLanguageCodeUpdateMonitorDelegate>
+@interface CSSpeechManager : NSObject <CSAudioRecorderDelegate, CSStateMachineDelegate, CSVoiceTriggerDelegate, CSSiriEnabledMonitorDelegate, CSVolumeMonitorDelegate, CSAlarmMonitorDelegate, CSTimerMonitorDelegate, CSAssetManagerDelegate, CSLanguageCodeUpdateMonitorDelegate>
 {
     _Bool _isSiriEnabled;
-    float _systemVolumeValue;
     CSAudioRecorder *_audioRecorder;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_assetQueryQueue;
@@ -48,7 +50,6 @@
 }
 
 @property(nonatomic) _Bool isSiriEnabled; // @synthesize isSiriEnabled=_isSiriEnabled;
-@property(nonatomic) float systemVolumeValue; // @synthesize systemVolumeValue=_systemVolumeValue;
 @property(copy, nonatomic) CDUnknownBlockType pendingSetRecordModeToRecordingCompletion; // @synthesize pendingSetRecordModeToRecordingCompletion=_pendingSetRecordModeToRecordingCompletion;
 @property(retain, nonatomic) NSUUID *pendingSetRecordModeToRecordingToken; // @synthesize pendingSetRecordModeToRecordingToken=_pendingSetRecordModeToRecordingToken;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *listenPollingTimer; // @synthesize listenPollingTimer=_listenPollingTimer;
@@ -76,6 +77,9 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) CSAudioRecorder *audioRecorder; // @synthesize audioRecorder=_audioRecorder;
 - (void).cxx_destruct;
+- (void)CSTimerMonitor:(id)arg1 didReceiveTimerChanged:(long long)arg2;
+- (void)CSAlarmMonitor:(id)arg1 didReceiveAlarmChanged:(long long)arg2;
+- (void)CSVolumeMonitor:(id)arg1 didReceiveMusicVolumeChanged:(float)arg2;
 - (void)CSSiriEnabledMonitor:(id)arg1 didReceiveEnabled:(_Bool)arg2;
 - (float)getEstimatedTTSVolume;
 - (id)_eventName:(unsigned long long)arg1;
@@ -99,11 +103,6 @@
 - (void)audioRecorderBufferAvailable:(id)arg1 buffer:(id)arg2;
 - (void)audioRecorderBufferAvailable:(id)arg1 buffer:(id)arg2 atTime:(unsigned long long)arg3;
 - (id)_getClientRecordContext;
-- (void)_startObservingSystemControllerLifecycle;
-- (void)startObservingSystemVolumes;
-- (void)systemControllerDied:(id)arg1;
-- (void)systemVolumeDidChange:(id)arg1;
-- (void)fetchVolumeFromAVSystemController;
 - (void)_startForwardingToSmartSiriVolume;
 - (void)_stopForwardingToKeywordDetector;
 - (void)_startForwardingToKeywordDetector;

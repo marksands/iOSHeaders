@@ -25,7 +25,7 @@
 
 @property(copy, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 @property(nonatomic) double blendingDuration; // @synthesize blendingDuration=_blendingDuration;
-@property(nonatomic) unsigned long long timestamp;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;

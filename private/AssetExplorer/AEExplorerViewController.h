@@ -116,7 +116,6 @@
 - (void)_handleAttemptedSelectionToggleOfAssetReference:(id)arg1 cancelIfAlreadySelected:(_Bool)arg2 suppressLivePhotoContent:(_Bool)arg3;
 - (void)handleInProgressPackageGenerator:(id)arg1;
 - (void)_handleInProgressPackageGenerator:(id)arg1 suppressLivePhotoContent:(_Bool)arg2 mediaOrigin:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)_stagePackageWithLivePhotoContentSuppressed:(id)arg1;
 - (id)scrollView;
 - (void)reviewViewController:(id)arg1 didFinishReviewingAssets:(id)arg2;
 - (void)reviewViewControllerDidRequestRetake:(id)arg1;

@@ -10,6 +10,8 @@
 
 @interface SFChargingUICoordinator : SFXPCClient
 {
+    _Bool _activateCalled;
+    _Bool _invalidateCalled;
     NSDate *_syncMaxDate;
     NSDate *_syncRequestDate;
     NSObject<OS_dispatch_source> *_syncTimer;
@@ -37,6 +39,10 @@
 - (void)_syncHandleShowUIDate:(id)arg1;
 - (void)_requestToShowUIWithHandler:(CDUnknownBlockType)arg1;
 - (void)requestToShowUIWithHandler:(CDUnknownBlockType)arg1;
+- (void)_invalidate;
+- (void)invalidate;
+- (void)_activate;
+- (void)activate;
 
 @end
 

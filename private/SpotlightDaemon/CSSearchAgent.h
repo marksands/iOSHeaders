@@ -27,7 +27,8 @@
 - (void)cancelQuery:(id)arg1;
 - (id)searchConnection:(id)arg1;
 - (_Bool)lostClientConnection:(id)arg1 error:(id)arg2;
-- (_Bool)allowClientConnection:(id)arg1;
+- (_Bool)addClientConnectionIfAllowedForConnection:(id)arg1;
+- (_Bool)addClientConnectionIfAllowedForConfiguration:(id)arg1;
 
 @end
 

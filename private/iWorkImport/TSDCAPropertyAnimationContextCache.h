@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *keyPath; // @synthesize keyPath=_keyPath;
 - (id)interpolatedValueFrom:(id)arg1 to:(id)arg2 percent:(double)arg3;
 - (id)adjustedResultWithValue:(id)arg1;
+- (id)valueForKeyPath:(id)arg1 atTime:(double)arg2 animationCache:(id)arg3;
 - (id)initWithAnimation:(id)arg1;
 
 @end

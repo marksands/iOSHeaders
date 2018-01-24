@@ -10,10 +10,6 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
-struct NSMutableArray {
-    Class _field1;
-};
-
 struct NSMutableDictionary {
     Class _field1;
 };
@@ -21,11 +17,4 @@ struct NSMutableDictionary {
 struct NSMutableSet {
     Class _field1;
 };
-
-#pragma mark Typedef'd Structures
-
-typedef struct {
-    unsigned char frameType;
-    unsigned char frameLen[3];
-} CDStruct_798ebea5;
 

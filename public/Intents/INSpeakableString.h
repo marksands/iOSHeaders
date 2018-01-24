@@ -8,10 +8,11 @@
 
 #import "INSpeakable.h"
 #import "INSpeakableStringExport.h"
+#import "NSSecureCoding.h"
 
 @class NSArray, NSString;
 
-@interface INSpeakableString : NSObject <INSpeakableStringExport, INSpeakable>
+@interface INSpeakableString : NSObject <INSpeakableStringExport, INSpeakable, NSSecureCoding>
 {
     NSString *_spokenPhrase;
     NSString *_pronunciationHint;

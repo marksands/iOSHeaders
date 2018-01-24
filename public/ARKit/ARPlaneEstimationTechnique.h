@@ -6,27 +6,31 @@
 
 #import <ARKit/ARTechnique.h>
 
-@class ARCamera, ARPlaneData, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>;
+@class ARCamera, ARPlaneData, NSArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>;
 
 @interface ARPlaneEstimationTechnique : ARTechnique
 {
-    unsigned long long _detectionTypeMask;
     NSObject<OS_dispatch_semaphore> *_semaphoreResult;
-    shared_ptr_406f5783 _surfaceDetector;
+    struct SurfaceDetectionContext *_surfaceDetectionHandle;
     ARPlaneData *_planeResultData;
     NSObject<OS_dispatch_queue> *_detectionQueue;
     NSObject<OS_dispatch_semaphore> *_detectionSemaphore;
     ARCamera *_camera;
+    NSArray *_anchorIdentifierMap;
+    unsigned long long _detectionTypeMask;
 }
 
-+ (id)_detectPlanesWithDetector:(shared_ptr_406f5783)arg1 types:(unsigned long long)arg2 camera:(id)arg3 featurePoints:(id)arg4 inVisionCoordinates:(_Bool)arg5;
++ (id)_detectPlanesWithDetector:(struct SurfaceDetectionContext *)arg1 types:(unsigned long long)arg2 camera:(id)arg3 featurePoints:(id)arg4 inVisionCoordinates:(_Bool)arg5 singleShot:(_Bool)arg6;
 + (id)detectPlanes:(unsigned long long)arg1 withFrame:(id)arg2;
-- (id).cxx_construct;
+@property unsigned long long detectionTypeMask; // @synthesize detectionTypeMask=_detectionTypeMask;
 - (void).cxx_destruct;
-- (_Bool)isEqual:(id)arg1;
+- (id)generateAnchorIdentifiersForCount:(long long)arg1;
 - (void)requestResultDataAtTimestamp:(double)arg1 context:(id)arg2;
 - (id)processData:(id)arg1;
+- (void)reconfigureFrom:(id)arg1;
+- (id)resultDataClasses;
 - (unsigned long long)requiredSensorDataTypes;
+- (void)dealloc;
 - (id)initWithPlaneDetection:(unsigned long long)arg1;
 
 @end

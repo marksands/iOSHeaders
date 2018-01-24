@@ -7,13 +7,12 @@
 #import "NSObject.h"
 
 #import "GEOResourceLoadOperation.h"
-#import "NSProgressReporting.h"
 #import "NSURLSessionDataDelegate.h"
 
 @class GEOApplicationAuditToken, GEOReportedProgress, NSData, NSLock, NSMutableData, NSObject<OS_dispatch_queue>, NSProgress, NSString, NSURL, NSURLSession, NSURLSessionTask;
 
 __attribute__((visibility("hidden")))
-@interface _GEOResourceLoadOperation : NSObject <NSURLSessionDataDelegate, GEOResourceLoadOperation, NSProgressReporting>
+@interface _GEOResourceLoadOperation : NSObject <NSURLSessionDataDelegate, GEOResourceLoadOperation>
 {
     NSURL *_url;
     CDUnknownBlockType _completionHandler;

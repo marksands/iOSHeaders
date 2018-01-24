@@ -26,6 +26,7 @@
 - (void)postEvent:(id)arg1 fromObserver:(id)arg2;
 - (void)elementAtIndexPathDidBecomeHidden:(id)arg1 fromObserver:(id)arg2;
 - (void)elementAtIndexPathWillBecomeVisible:(id)arg1 fromObserver:(id)arg2;
+- (void)observerDidUpdateAllowsLocationUse:(id)arg1;
 - (void)observerDidUpdateDisabledDataSources:(id)arg1;
 - (void)observerDidUpdateState:(id)arg1;
 - (void)_performOperationsToDisplayElements:(id)arg1 toSection:(unsigned long long)arg2;

@@ -11,11 +11,12 @@
 #import "TSPDataArchiver.h"
 #import "TSPObjectModifyDelegate.h"
 #import "TSPProxyObjectMapping.h"
+#import "TSPProxyObjectWriting.h"
 
 @class NSHashTable, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSURL, TSPArchiverManager, TSPObjectContext, TSURetainedPointerKeyDictionary;
 
 __attribute__((visibility("hidden")))
-@interface TSPEncoderWriteCoordinator : NSObject <TSPArchiverManagerDelegate, TSPComponentWriterDelegate, TSPDataArchiver, TSPObjectModifyDelegate, TSPProxyObjectMapping>
+@interface TSPEncoderWriteCoordinator : NSObject <TSPArchiverManagerDelegate, TSPComponentWriterDelegate, TSPDataArchiver, TSPObjectModifyDelegate, TSPProxyObjectWriting, TSPProxyObjectMapping>
 {
     id <TSPEncoder> _encoder;
     TSPArchiverManager *_archiverManager;

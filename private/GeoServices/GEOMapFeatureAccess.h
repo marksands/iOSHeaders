@@ -22,6 +22,7 @@
 @property(nonatomic) _Bool allowNetworkTileLoad; // @synthesize allowNetworkTileLoad=_allowNetworkTileLoad;
 - (void).cxx_destruct;
 - (void)_preloadTilesNear:(CDStruct_c3b9c2ee)arg1 radius:(double)arg2 tileSetStyle:(int)arg3 tileSize:(int)arg4 tileScale:(int)arg5 completionHandler:(CDUnknownBlockType)arg6;
+- (id)roadTileKeysNear:(CDStruct_c3b9c2ee)arg1 radius:(double)arg2;
 - (void)preloadBuildingTilesNear:(CDStruct_c3b9c2ee)arg1 radius:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)preloadTransitTilesNear:(CDStruct_c3b9c2ee)arg1 radius:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)preloadRoadTilesNear:(CDStruct_c3b9c2ee)arg1 radius:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;

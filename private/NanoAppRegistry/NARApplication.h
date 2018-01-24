@@ -16,7 +16,6 @@
     NSString *_launchServicesBundleType;
     NSString *_parentApplicationBundleIdentifier;
     NSArray *_appTags;
-    NARGlance *_glance;
     NARApplicationState *_appState;
     NSDictionary *_infoPlist;
     NSDictionary *_localizedStrings;
@@ -28,12 +27,12 @@
 @property(retain, nonatomic) NSDictionary *localizedStrings; // @synthesize localizedStrings=_localizedStrings;
 @property(retain, nonatomic) NSDictionary *infoPlist; // @synthesize infoPlist=_infoPlist;
 @property(retain, nonatomic) NARApplicationState *appState; // @synthesize appState=_appState;
-@property(retain, nonatomic) NARGlance *glance; // @synthesize glance=_glance;
 @property(retain, nonatomic) NSArray *appTags; // @synthesize appTags=_appTags;
 @property(readonly, copy, nonatomic) NSString *parentApplicationBundleIdentifier; // @synthesize parentApplicationBundleIdentifier=_parentApplicationBundleIdentifier;
 @property(copy, nonatomic) NSString *launchServicesBundleType; // @synthesize launchServicesBundleType=_launchServicesBundleType;
 @property(nonatomic) unsigned long long sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NARGlance *glance;
 - (id)description;
 - (id)objectForInfoDictionaryKey:(id)arg1 localization:(id)arg2;
 - (id)objectForInfoDictionaryKey:(id)arg1;

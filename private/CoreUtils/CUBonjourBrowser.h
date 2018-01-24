@@ -10,28 +10,31 @@
 
 @interface CUBonjourBrowser : NSObject
 {
+    _Bool _activateCalled;
+    _Bool _activated;
     struct BonjourBrowser *_bonjourBrowser;
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
     struct NSMutableDictionary *_devices;
     struct LogCategory *_ucat;
+    _Bool _browseFlagsChanged;
     unsigned int _changeFlags;
     unsigned long long _browseFlags;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSString *_label;
     NSString *_serviceType;
-    CDUnknownBlockType _interruptionHandler;
-    CDUnknownBlockType _invalidationHandler;
     CDUnknownBlockType _deviceFoundHandler;
     CDUnknownBlockType _deviceLostHandler;
     CDUnknownBlockType _deviceChangedHandler;
+    CDUnknownBlockType _interruptionHandler;
+    CDUnknownBlockType _invalidationHandler;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
+@property(copy, nonatomic) CDUnknownBlockType interruptionHandler; // @synthesize interruptionHandler=_interruptionHandler;
 @property(copy, nonatomic) CDUnknownBlockType deviceChangedHandler; // @synthesize deviceChangedHandler=_deviceChangedHandler;
 @property(copy, nonatomic) CDUnknownBlockType deviceLostHandler; // @synthesize deviceLostHandler=_deviceLostHandler;
 @property(copy, nonatomic) CDUnknownBlockType deviceFoundHandler; // @synthesize deviceFoundHandler=_deviceFoundHandler;
-@property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
-@property(copy, nonatomic) CDUnknownBlockType interruptionHandler; // @synthesize interruptionHandler=_interruptionHandler;
 @property(copy, nonatomic) NSString *serviceType; // @synthesize serviceType=_serviceType;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
@@ -42,10 +45,14 @@
 - (void)_bonjourHandleAddOrUpdateDevice:(id)arg1;
 - (void)_bonjourHandleEventType:(unsigned int)arg1 info:(id)arg2;
 - (int)_bonjourStart;
+- (void)_updateLocked;
+- (void)_update;
+- (void)update;
 - (void)_lostAllDevices;
 - (void)_invalidated;
 - (void)invalidate;
 - (void)_interrupted;
+- (void)_activateSafeInvokeBlock:(CDUnknownBlockType)arg1;
 - (void)activate;
 - (id)descriptionWithLevel:(int)arg1;
 - (id)description;

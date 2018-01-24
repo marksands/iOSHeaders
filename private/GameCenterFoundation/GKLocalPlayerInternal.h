@@ -21,6 +21,7 @@
 }
 
 + (id)secureCodedPropertyKeys;
++ (_Bool)supportsSecureCoding;
 @property unsigned long long loginStatus; // @synthesize loginStatus=_loginStatus;
 - (void)setNumberOfChallenges:(unsigned short)arg1;
 - (unsigned short)numberOfChallenges;

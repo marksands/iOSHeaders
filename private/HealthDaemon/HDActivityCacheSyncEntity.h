@@ -12,7 +12,7 @@
 
 + (id)_objectWithCodable:(id)arg1;
 + (Class)healthEntityClass;
-+ (long long)syncEntityType;
++ (id)syncEntityIdentifier;
 + (unsigned long long)syncObjectLimitForNanoSyncMessage;
 + (id)_companionNanoSyncPredicateConjunctionForSession:(id)arg1;
 + (int)nanoSyncObjectType;

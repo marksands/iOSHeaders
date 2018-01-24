@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
     UUIDData_5fbc143e _tableUID;
     UUIDData_5fbc143e _conditionalStyleOwnerUID;
     TSCEFormulaRewrite_Uids *_rowOrColumnUids;
-    vector_dadc1b26 _rowOrColumnUuids;
+    vector_4dc5f307 _rowOrColumnUuids;
     _Bool _isRows;
     NSArray *_rangeEntries;
     struct TSCERangeCoordinate _tableRange;
@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) UUIDData_5fbc143e insertAtUid; // @synthesize insertAtUid=_insertAtUid;
 @property(readonly, retain, nonatomic) TSUUUIDSet *expandedRowColumnUuids; // @synthesize expandedRowColumnUuids=_expandedRowColumnUuids;
 @property(retain, nonatomic) TSCEFormulaRewriteInfo_RowColumnInfo *auxRowColumnInfo; // @synthesize auxRowColumnInfo=_auxRowColumnInfo;
-@property(readonly, nonatomic) const vector_dadc1b26 *rowOrColumnUuids; // @synthesize rowOrColumnUuids=_rowOrColumnUuids;
+@property(readonly, nonatomic) const vector_4dc5f307 *rowOrColumnUuids; // @synthesize rowOrColumnUuids=_rowOrColumnUuids;
 @property(readonly, retain, nonatomic) TSCEFormulaRewrite_Uids *rowOrColumnUids; // @synthesize rowOrColumnUids=_rowOrColumnUids;
 @property(readonly, nonatomic) _Bool isRows; // @synthesize isRows=_isRows;
 @property(readonly, nonatomic) const UUIDData_5fbc143e *conditionalStyleOwnerUID; // @synthesize conditionalStyleOwnerUID=_conditionalStyleOwnerUID;
@@ -34,7 +34,7 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)description;
-- (vector_dadc1b26)uuidsForRowsInRange:(struct _NSRange)arg1;
+- (vector_4dc5f307)uuidsForRowsInRange:(struct _NSRange)arg1;
 - (vector_60dd006f)coordRangesForInsertRemove;
 - (struct TSCERangeCoordinate)affectedRangeForMoveRows;
 - (struct TSCERangeCoordinate)affectedRangeForInsertRows;
@@ -55,7 +55,7 @@ __attribute__((visibility("hidden")))
 - (id)initFromMessage:(const struct ColumnOrRowUuidsInfoArchive *)arg1;
 @property(readonly, nonatomic) _Bool isColumns;
 - (void)dealloc;
-- (id)initWithFormulaOwnerUID:(const UUIDData_5fbc143e *)arg1 uuids:(const vector_dadc1b26 *)arg2 areRows:(_Bool)arg3;
+- (id)initWithFormulaOwnerUID:(const UUIDData_5fbc143e *)arg1 uuids:(const vector_4dc5f307 *)arg2 areRows:(_Bool)arg3;
 
 @end
 

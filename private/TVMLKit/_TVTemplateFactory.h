@@ -19,7 +19,6 @@ __attribute__((visibility("hidden")))
 - (void)_registerTemplateControllers;
 - (void)_registerStyleSheet:(id)arg1 forTemplate:(id)arg2 parentStyleSheets:(id)arg3;
 - (void)registerProductTemplateURL:(id)arg1 forTemplateName:(id)arg2 includeParentStyleSheets:(_Bool)arg3;
-- (void)registerTemplateStyleSheets;
 - (id)init;
 
 @end

@@ -10,7 +10,7 @@
 #import "DOCHostSourceViewControllerProxy.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 
-@class DOCAppearance, DOCConfiguration, NSString, UINavigationController, UIViewController<DOCRemoteAppearanceInterface>, _UIResilientRemoteViewContainerViewController;
+@class DOCAppearance, DOCConfiguration, NSArray, NSString, UINavigationController, UIViewController<DOCRemoteAppearanceInterface>, _UIResilientRemoteViewContainerViewController;
 
 @interface DOCSourceViewController : UIViewController <DOCHostSourceViewControllerProxy, DOCAppearanceProtocol, UIPopoverPresentationControllerDelegate>
 {
@@ -21,12 +21,14 @@
     _Bool _editing;
     UINavigationController *_internalNavigationController;
     id <DOCSourceViewControllerDelegate> _sourceDelegate;
+    NSArray *_additionalTrailingNavigationBarButtonItems;
     id <DOCServiceSourceViewControllerProxy> _serviceProxy;
     DOCConfiguration *_configuration;
 }
 
 @property(readonly) DOCConfiguration *configuration; // @synthesize configuration=_configuration;
 @property(readonly) id <DOCServiceSourceViewControllerProxy> serviceProxy; // @synthesize serviceProxy=_serviceProxy;
+@property(retain, nonatomic) NSArray *additionalTrailingNavigationBarButtonItems; // @synthesize additionalTrailingNavigationBarButtonItems=_additionalTrailingNavigationBarButtonItems;
 @property(nonatomic) __weak id <DOCSourceViewControllerDelegate> sourceDelegate; // @synthesize sourceDelegate=_sourceDelegate;
 - (void).cxx_destruct;
 - (void)updateAppearance:(id)arg1;
@@ -52,6 +54,7 @@
 - (void)viewDidLoad;
 - (id)remoteInterface;
 - (id)remoteViewController;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)initWithConfiguration:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithCoder:(id)arg1;

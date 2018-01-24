@@ -11,7 +11,7 @@
 @protocol NUAdProvider <NSObject>
 - (void)bannerViewDidUnload:(NUAdBannerView *)arg1;
 - (void)bannerViewDidLoad:(NUAdBannerView *)arg1;
-- (void)videoInTodayMidrollForContextProviders:(NSArray *)arg1 withCompletionBlock:(void (^)(NUAdBannerView *, NSURL *, unsigned long long, NSError *))arg2;
+- (void)videoPlaylistAdForContextProviders:(NSArray *)arg1 withCompletionBlock:(void (^)(NUAdBannerView *, NSURL *, unsigned long long, NSError *))arg2;
 - (void)prerollForContextProviders:(NSArray *)arg1 withCompletionBlock:(void (^)(NUAdBannerView *, NSURL *, unsigned long long, NSError *))arg2;
 - (void)interstitialViewForContextProviders:(NSArray *)arg1 contextProvidersWithKeys:(NSDictionary *)arg2 withCompletionBlock:(void (^)(ADInterstitialAd *, NSError *))arg3;
 - (void)interstitialViewForContextProviders:(NSArray *)arg1 withCompletionBlock:(void (^)(ADInterstitialAd *, NSError *))arg2;

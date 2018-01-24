@@ -13,24 +13,22 @@
 @interface SearchUIFirstTimeExperienceViewController : UIViewController <UITextViewDelegate>
 {
     id <SearchUIFirstTimeExperienceDelegate> _delegate;
-    NSString *_privacyDetailsTitle;
-    NSString *_privacyDetailsText;
     unsigned long long _style;
     unsigned long long _supportedDomains;
     NSString *_explanationText;
     NSString *_learnMoreText;
     NSString *_continueButtonTitle;
+    NSString *_bundleIdentifier;
     long long _horizontalSizeClass;
 }
 
 @property long long horizontalSizeClass; // @synthesize horizontalSizeClass=_horizontalSizeClass;
+@property(retain) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(retain) NSString *continueButtonTitle; // @synthesize continueButtonTitle=_continueButtonTitle;
 @property(retain) NSString *learnMoreText; // @synthesize learnMoreText=_learnMoreText;
 @property(retain) NSString *explanationText; // @synthesize explanationText=_explanationText;
 @property unsigned long long supportedDomains; // @synthesize supportedDomains=_supportedDomains;
 @property unsigned long long style; // @synthesize style=_style;
-@property(retain) NSString *privacyDetailsText; // @synthesize privacyDetailsText=_privacyDetailsText;
-@property(retain) NSString *privacyDetailsTitle; // @synthesize privacyDetailsTitle=_privacyDetailsTitle;
 @property(nonatomic) __weak id <SearchUIFirstTimeExperienceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)showPrivacyView;
@@ -41,6 +39,7 @@
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)makeViews;
+- (id)initWithStyle:(unsigned long long)arg1 supportedDomains:(unsigned long long)arg2 explanationText:(id)arg3 learnMoreText:(id)arg4 continueButtonTitle:(id)arg5;
 - (id)initWithStyle:(unsigned long long)arg1 supportedDomains:(unsigned long long)arg2 explanationText:(id)arg3 learnMoreText:(id)arg4 continueButtonTitle:(id)arg5 privacyDetailsTitle:(id)arg6 privacyDetailsText:(id)arg7;
 
 // Remaining properties

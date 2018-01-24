@@ -14,8 +14,8 @@ __attribute__((visibility("hidden")))
     unsigned long long mSheetIndex;
     unsigned long long mPageIndex;
     unsigned long long mTotalPagesCount;
-    vector_88016b54 mSheetPageCountArray;
-    vector_88016b54 mSheetPageStartArray;
+    vector_06e666a8 mSheetPageCountArray;
+    vector_06e666a8 mSheetPageStartArray;
     TNPageController *mPageController;
     TNPdfHyperlinkController *mHyperlinkController;
     NSMutableArray *mCanvasBasedSheets;
@@ -40,8 +40,8 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithDocumentRoot:(id)arg1;
 - (id)pageController;
-- (vector_88016b54)p_pageStartArray;
-- (vector_88016b54)p_pageCountArray;
+- (vector_06e666a8)p_pageStartArray;
+- (vector_06e666a8)p_pageCountArray;
 - (double)progressForCurrentPage;
 - (_Bool)drawCurrentPageInContext:(struct CGContext *)arg1 viewScale:(double)arg2 unscaledClipRect:(struct CGRect)arg3 createPage:(_Bool)arg4;
 - (_Bool)incrementPage;

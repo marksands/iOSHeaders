@@ -13,15 +13,12 @@ __attribute__((visibility("hidden")))
 
 - (void)saveToArchiver:(id)arg1 message:(struct Operation *)arg2;
 - (id)initWithUnarchiver:(id)arg1 message:(const struct Operation *)arg2;
-- (id)description;
-- (id)transformUpdateRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)transformReplaceRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)transformUpdateIdOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)p_transformRearrangeOrPlacementOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)p_transformPlacement:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)p_transformRearrange:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)p_transformRemove:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)p_transformAdd:(id)arg1 isHigherPriority:(_Bool)arg2;
+- (id)transformUpdateRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformReplaceRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformUpdateIdOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformRearrangeOrPlacementOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformRemoveOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformAddOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
 - (id)initWithIdAddress:(id)arg1 fromIndex:(int)arg2 toIndex:(int)arg3 dominating:(_Bool)arg4;
 - (id)initWithIdAddress:(id)arg1 fromIndex:(int)arg2 toIndex:(int)arg3 dominating:(_Bool)arg4 noop:(_Bool)arg5;
 

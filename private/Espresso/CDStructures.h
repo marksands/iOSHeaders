@@ -75,7 +75,7 @@ struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>
                     unsigned long long __words[3];
                 } __r;
             } ;
-        } __first_;
+        } __value_;
     } __r_;
 };
 
@@ -102,10 +102,10 @@ struct map<std::__1::basic_string<char>, float, std::__1::less<std::__1::basic_s
     struct __tree<std::__1::__value_type<std::__1::basic_string<char>, float>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, float>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, float>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
         struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, float>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __value_;
         } __pair1_;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, float>, std::__1::less<std::__1::basic_string<char>>, true>> {
-            unsigned long long __first_;
+            unsigned long long __value_;
         } __pair3_;
     } __tree_;
 };
@@ -244,7 +244,7 @@ struct vector<double, std::__1::allocator<double>> {
     double *__begin_;
     double *__end_;
     struct __compressed_pair<double *, std::__1::allocator<double>> {
-        double *__first_;
+        double *__value_;
     } __end_cap_;
 };
 
@@ -252,7 +252,7 @@ struct vector<int, std::__1::allocator<int>> {
     int *__begin_;
     int *__end_;
     struct __compressed_pair<int *, std::__1::allocator<int>> {
-        int *__first_;
+        int *__value_;
     } __end_cap_;
 };
 
@@ -260,7 +260,7 @@ struct vector<std::__1::pair<unsigned long long, unsigned long long>, std::__1::
     struct pair<unsigned long long, unsigned long long> *__begin_;
     struct pair<unsigned long long, unsigned long long> *__end_;
     struct __compressed_pair<std::__1::pair<unsigned long long, unsigned long long>*, std::__1::allocator<std::__1::pair<unsigned long long, unsigned long long>>> {
-        struct pair<unsigned long long, unsigned long long> *__first_;
+        struct pair<unsigned long long, unsigned long long> *__value_;
     } __end_cap_;
 };
 
@@ -268,7 +268,7 @@ struct vector<std::__1::shared_ptr<Espresso::blob<float, 3>>, std::__1::allocato
     shared_ptr_dc6ac1b7 *__begin_;
     shared_ptr_dc6ac1b7 *__end_;
     struct __compressed_pair<std::__1::shared_ptr<Espresso::blob<float, 3>>*, std::__1::allocator<std::__1::shared_ptr<Espresso::blob<float, 3>>>> {
-        shared_ptr_dc6ac1b7 *__first_;
+        shared_ptr_dc6ac1b7 *__value_;
     } __end_cap_;
 };
 
@@ -276,7 +276,7 @@ struct vector<std::__1::shared_ptr<Espresso::fast_pyramid_resizer>, std::__1::al
     shared_ptr_7fb9d9f9 *__begin_;
     shared_ptr_7fb9d9f9 *__end_;
     struct __compressed_pair<std::__1::shared_ptr<Espresso::fast_pyramid_resizer>*, std::__1::allocator<std::__1::shared_ptr<Espresso::fast_pyramid_resizer>>> {
-        shared_ptr_7fb9d9f9 *__first_;
+        shared_ptr_7fb9d9f9 *__value_;
     } __end_cap_;
 };
 
@@ -284,7 +284,7 @@ struct vector<std::__1::shared_ptr<Espresso::net>, std::__1::allocator<std::__1:
     shared_ptr_d082c67d *__begin_;
     shared_ptr_d082c67d *__end_;
     struct __compressed_pair<std::__1::shared_ptr<Espresso::net>*, std::__1::allocator<std::__1::shared_ptr<Espresso::net>>> {
-        shared_ptr_d082c67d *__first_;
+        shared_ptr_d082c67d *__value_;
     } __end_cap_;
 };
 

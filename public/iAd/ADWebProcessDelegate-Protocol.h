@@ -11,6 +11,21 @@
 @protocol ADWebProcessDelegate <NSObject>
 
 @optional
+- (void)webProcessVideoAdJSODidCallExitFullScreenTapped;
+- (void)webProcessVideoAdJSODidCallFullScreenTapped;
+- (void)webProcessVideoAdJSODidCallSkipAdTapped;
+- (void)webProcessVideoAdJSODidCallMoreInfoTapped;
+- (void)webProcessVideoAdJSODidCallAudioUnmuted;
+- (void)webProcessVideoAdJSODidCallAudioMuted;
+- (void)webProcessVideoAdJSODidCallVolumeChanged:(float)arg1;
+- (void)webProcessVideoAdJSODidCallViewabilityChanged:(_Bool)arg1;
+- (void)webProcessVideoAdJSODidCallPlayCompleted;
+- (void)webProcessVideoAdJSODidCallPlayProgressed:(float)arg1;
+- (void)webProcessVideoAdJSODidCallPlayPaused:(float)arg1;
+- (void)webProcessVideoAdJSODidCallPlayResumed:(float)arg1;
+- (void)webProcessVideoAdJSODidCallPlayStarted:(float)arg1;
+- (void)webProcessVideoAdJSOCreativeViewLoaded;
+- (void)webProcessVideoAdJSOGetVideoInfo:(void (^)(NSString *))arg1;
 - (void)webProcessMRAIDJSODidCallOpen:(NSURL *)arg1;
 - (void)webProcessMRAIDJSODidCallCreateCalendarEvent:(NSDictionary *)arg1;
 - (void)webProcessMRAIDJSODidCallExpand:(NSURL *)arg1 withMaximumSize:(NSValue *)arg2;

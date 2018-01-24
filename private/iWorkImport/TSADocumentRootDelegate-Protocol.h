@@ -6,14 +6,14 @@
 
 #import "TSKDocumentRootDelegate.h"
 
-@class NSString, TSACachedDocumentInfo, TSACollaborationErrorAction, TSADocumentRoot, TSKMailboxDocStatusMessage;
+@class NSString, TSACollaborationErrorAction, TSADocumentInfo, TSADocumentRoot, TSKMailboxDocStatusMessage;
 
 @protocol TSADocumentRootDelegate <TSKDocumentRootDelegate>
 @property(readonly, nonatomic) NSString *name;
 
 @optional
 @property(readonly) TSACollaborationErrorAction *collaborationDisallowedErrorAction;
-@property(readonly, nonatomic) TSACachedDocumentInfo *cachedDocumentInfo;
+@property(readonly, nonatomic) TSADocumentInfo *documentInfo;
 @property(readonly, nonatomic) NSString *documentCachePath;
 @property(readonly, nonatomic) NSString *defaultDraftName;
 - (_Bool)hasPersistenceWarningsOfKind:(long long)arg1;

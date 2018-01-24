@@ -90,6 +90,9 @@
 - (void)getLocalVoiceResources:(CDUnknownBlockType)arg1;
 - (void)getLocalVoiceAssets:(CDUnknownBlockType)arg1;
 - (void)cleanUnusedAssets:(CDUnknownBlockType)arg1;
+- (void)endAudioPowerUpdate;
+- (void)beginAudioPowerUpdateWithReply:(CDUnknownBlockType)arg1;
+- (void)getTTSServerVoicesWithFilter:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (_Bool)continueSpeakingWithError:(id *)arg1;
 - (_Bool)stopSpeakingAtNextBoundary:(long long)arg1 error:(id *)arg2;
 - (_Bool)startSpeakingString:(id)arg1 toURL:(id)arg2 withLanguageCode:(id)arg3 error:(id *)arg4;

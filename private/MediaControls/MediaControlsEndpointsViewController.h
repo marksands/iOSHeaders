@@ -13,22 +13,19 @@
 #import "MediaControlsEndpointsManagerDelegate.h"
 #import "MediaControlsPanelViewControllerDelegate.h"
 
-@class MPAVEndpointRoute, MPAVOutputDeviceRoutingDataSource, MPAVRoutingViewController, MPMediaControlsConfiguration, MediaControlsEndpointsManager, NSObject<OS_dispatch_group>, NSString;
+@class MPAVEndpointRoute, MPAVOutputDeviceRoutingDataSource, MPAVRoutingViewController, MPMediaControlsConfiguration, MediaControlsEndpointsManager, NSString;
 
 @interface MediaControlsEndpointsViewController : MediaControlsCollectionViewController <MPAVRoutingViewControllerDelegate, MediaControlsPanelViewControllerDelegate, MediaControlsCollectionViewDataSource, MediaControlsCollectionViewDelegate, MediaControlsEndpointsManagerDelegate, CCUIContentModuleContentViewController>
 {
     MPAVOutputDeviceRoutingDataSource *_outputDeviceRoutingDataSource;
     long long _lastSelectedModeForActivePanelViewController;
-    NSObject<OS_dispatch_group> *_routeSelectionNotificationGroup;
-    _Bool _didRetrieveActiveRouteOnce;
-    _Bool _hasSentSelectedIndex;
+    _Bool _didRetrieveActiveSystemRouteOnce;
+    _Bool _shouldReselectActiveSystemRoute;
     _Bool _prewarming;
     _Bool _shouldTransitionToVisibleWhenReady;
-    long long _pendingSelectCount;
     _Bool _dismissing;
     _Bool _onScreen;
     MPMediaControlsConfiguration *_configuration;
-    CDUnknownBlockType _launchNowPlayingAppBlock;
     CDUnknownBlockType _routingCornerViewTappedBlock;
     MediaControlsEndpointsManager *_endpointsManager;
     MPAVRoutingViewController *_routingViewController;
@@ -43,12 +40,12 @@
 @property(nonatomic, getter=isOnScreen) _Bool onScreen; // @synthesize onScreen=_onScreen;
 @property(nonatomic, getter=isDismissing) _Bool dismissing; // @synthesize dismissing=_dismissing;
 @property(copy, nonatomic) CDUnknownBlockType routingCornerViewTappedBlock; // @synthesize routingCornerViewTappedBlock=_routingCornerViewTappedBlock;
-@property(copy, nonatomic) CDUnknownBlockType launchNowPlayingAppBlock; // @synthesize launchNowPlayingAppBlock=_launchNowPlayingAppBlock;
 @property(retain, nonatomic) MPMediaControlsConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)homeObserverDidUpdateKnownUIDs:(id)arg1;
 - (void)_transitionToVisibleIfNeeded;
 - (_Bool)_isReadyForAppearanceTransition;
+- (void)_selectActiveSystemRouteIfNeeded;
 - (void)_setSelectedRoute:(id)arg1 isUserSelected:(_Bool)arg2;
 - (void)_setupRoutingViewController;
 - (void)_setupEndpointsManager;
@@ -59,8 +56,8 @@
 - (_Bool)_isSelectedRouteInRoutes;
 - (void)endpointsManager:(id)arg1 willUpdateRoutes:(id)arg2 defersRoutesReplacement:(CDUnknownBlockType)arg3;
 - (void)endpointsManager:(id)arg1 activeSystemRouteDidChange:(id)arg2;
-- (void)mediaControlsCollectionViewController:(id)arg1 didSelectItemAtIndex:(long long)arg2;
-- (void)mediaControlsCollectionViewController:(id)arg1 willSelectItemAtIndex:(long long)arg2;
+- (void)mediaControlsCollectionViewController:(id)arg1 didSelectItemAtIndex:(long long)arg2 withReason:(long long)arg3;
+- (void)mediaControlsCollectionViewController:(id)arg1 willSelectItemAtIndex:(long long)arg2 withReason:(long long)arg3;
 - (_Bool)mediaControlsCollectionViewController:(id)arg1 canSelectItemAtIndex:(long long)arg2;
 - (void)mediaControlsCollectionViewController:(id)arg1 didEndDisplayingViewController:(id)arg2 forItemAtIndex:(long long)arg3;
 - (void)mediaControlsCollectionViewController:(id)arg1 didDisplayViewController:(id)arg2 forItemAtIndex:(long long)arg3;
@@ -71,10 +68,9 @@
 - (void)_transitionToVisible:(_Bool)arg1;
 - (void)reloadData;
 - (void)setDisplayMode:(long long)arg1;
-- (void)didDismissMediaControlsPanelViewController:(id)arg1;
+- (void)dismissMediaControlsPanelViewController:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)routingViewController:(id)arg1 didPickRoute:(id)arg2;
 - (void)mediaControlsPanelViewController:(id)arg1 didToggleRoutingPicker:(_Bool)arg2;
-- (void)launchNowPlayingApp:(id)arg1;
 - (void)stopPrewarming;
 - (void)startPrewarming;
 - (void)didSelectRoute:(id)arg1;

@@ -18,7 +18,7 @@
 #import "TSSPresetSource.h"
 #import "TSSStyleClient.h"
 
-@class NSString, TSCHChartInfo, TSCHChunkManager, TSPObject<TSCHMediatorProvider>;
+@class NSString, TSCHChartDrawableInfoProxy, TSCHChartInfo, TSCHChunkManager, TSPObject<TSCHMediatorProvider>;
 
 __attribute__((visibility("hidden")))
 @interface TSCHChartDrawableInfo : TSDDrawableInfo <TSCECalculationEngineRegistration, TSDReducibleImageContainer, TSKCustomFormatContainingInfo, TSPCopying, TSKSearchable, TSKModel, TSSPresetSource, TSCHStyleSwapSupporting, TSDMixing, TSSStyleClient, TSDCompatibilityAwareMediaContainer>
@@ -26,11 +26,14 @@ __attribute__((visibility("hidden")))
     TSCHChartInfo *mChart;
     TSPObject<TSCHMediatorProvider> *mMediatorPersistentObject;
     TSCHChunkManager *mChunkManager;
+    TSCHChartDrawableInfoProxy *_chartDrawableInfoProxy;
 }
 
 + (void)bootstrapPresetsOfKind:(id)arg1 inTheme:(id)arg2 alternate:(int)arg3;
 + (id)presetKinds;
 + (_Bool)needsObjectUUID;
+@property(nonatomic) __weak TSCHChartDrawableInfoProxy *chartDrawableInfoProxy; // @synthesize chartDrawableInfoProxy=_chartDrawableInfoProxy;
+- (void).cxx_destruct;
 - (_Bool)isEquivalentForSerializationRoundTrip:(id)arg1;
 - (_Bool)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 - (void)reassignPasteboardCustomFormatKeys;
@@ -38,6 +41,7 @@ __attribute__((visibility("hidden")))
 - (id)changeDetailsForCustomFormatListDidUpdateToCustomFormat:(id)arg1;
 - (long long)mediaCompatibilityTypeForData:(id)arg1 associatedHint:(id)arg2;
 - (struct CGSize)targetSizeForImageData:(id)arg1 associatedHint:(id)arg2;
+- (void)finalizeDataOnDeepCopyBeforeSerializingForDragAndDrop;
 - (id)styleOwnerFromSwapType:(int)arg1 andIndex:(unsigned long long)arg2;
 - (id)applyStyleSwapTuples:(id)arg1;
 - (id)applyStyleSwapTuple:(id)arg1;

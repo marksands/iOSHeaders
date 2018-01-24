@@ -41,7 +41,6 @@
 - (void).cxx_destruct;
 - (void)_invalidateAllSortedEntriesInReadingList;
 - (void)_addedArticleIDs:(id)arg1 removedArticleIDs:(id)arg2 eventInitiationLevel:(long long)arg3;
-- (id)_entryIDForArticleID:(id)arg1;
 - (void)operationThrottler:(id)arg1 performAsyncOperationWithCompletion:(CDUnknownBlockType)arg2;
 - (void)readingListContentControllerDidUpdateArticleAvailabilityInOfflineMode:(id)arg1;
 - (id)recordsForRestoringZoneName:(id)arg1;

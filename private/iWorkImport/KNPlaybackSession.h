@@ -15,6 +15,9 @@ __attribute__((visibility("hidden")))
 {
     KNSlideNode *_currentSlideNode;
     _Bool _hasEndShowHandlerBeenCancelled;
+    id <MTLDevice> _metalDevice;
+    _Bool _isMetalCapable;
+    _Bool _isMetalCapableCheckInitialized;
     _Bool _disableAutoAnimationRemoval;
     _Bool _disableTransitionTextureCaching;
     _Bool _isExitingShow;
@@ -90,7 +93,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak KNSlideNode *alternateNextSlideNode; // @synthesize alternateNextSlideNode=_alternateNextSlideNode;
 @property(nonatomic) __weak id <TSKAccessControllerReadTicket> accessControllerReadTicket; // @synthesize accessControllerReadTicket=_accessControllerReadTicket;
 - (void).cxx_destruct;
-- (_Bool)isPreCachingOperationActive;
+@property(readonly, nonatomic) _Bool isMetalCapable;
+@property(readonly, nonatomic) id <MTLDevice> metalDevice;
+@property(readonly, nonatomic) _Bool isWideGamut;
 - (void)setSharedGLContextAsCurrentContextShouldCreate:(_Bool)arg1;
 - (void)tearDownSharedGLLayer;
 - (void)cancelEndShowHandler;
@@ -98,8 +103,8 @@ __attribute__((visibility("hidden")))
 - (void)executeEndShowHandlerAfterDelay:(double)arg1;
 - (void)waitUntilSlideTextureRenderingIsCompleteForIdentifier:(id)arg1;
 - (id)repForInfo:(id)arg1 onCanvas:(id)arg2;
-- (double)showScale;
-- (_Bool)isOffscreenPlayback;
+@property(readonly, nonatomic) double showScale;
+@property(readonly, nonatomic) _Bool isOffscreenPlayback;
 @property(readonly, nonatomic) _Bool isPreview;
 - (unsigned long long)slideNumberForSlideNode:(id)arg1;
 - (id)animatedSlideViewFor:(id)arg1;
@@ -111,6 +116,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool atEndOfDeck;
 @property(readonly, nonatomic) _Bool atBegginingOfDeck;
 - (id)gotoPreviousSlide;
+- (id)previousSlideNodeBeforeSlideNode:(id)arg1;
 - (id)previousSlideNodeBeforeCurrent;
 - (id)gotoNextSlide;
 - (id)nextSlideAfterCurrent;

@@ -9,11 +9,13 @@
 #import "HFHomeObserver.h"
 #import "HFSetupPairingController.h"
 
-@class HFDiscoveredAccessory, HFSetupAccessoryResult, HMHome, HMSetupAccessoryDescription, NAFuture, NSDate, NSHashTable, NSSet, NSString;
+@class HFDiscoveredAccessory, HFSetupAccessoryResult, HMAccessorySetupCompletedInfo, HMHome, HMSetupAccessoryDescription, NAFuture, NSDate, NSHashTable, NSSet, NSString;
 
 @interface HFSetupSingleAccessoryPairingController : NSObject <HFHomeObserver, HFSetupPairingController>
 {
+    _Bool _accessoryRequiresCode;
     HFSetupAccessoryResult *_setupResult;
+    HMAccessorySetupCompletedInfo *_completedInfo;
     HFDiscoveredAccessory *_discoveredAccessoryToPair;
     id <HMSetupRemoteService> _setupRemoteService;
     HMSetupAccessoryDescription *_setupAccessoryDescription;
@@ -28,6 +30,7 @@
 }
 
 + (_Bool)supportsSetupPayloadRetry;
+@property(nonatomic) _Bool accessoryRequiresCode; // @synthesize accessoryRequiresCode=_accessoryRequiresCode;
 @property(retain, nonatomic) NSDate *phaseStartDate; // @synthesize phaseStartDate=_phaseStartDate;
 @property(retain, nonatomic) NAFuture *pairingFuture; // @synthesize pairingFuture=_pairingFuture;
 @property(retain, nonatomic) NSHashTable *pairingObservers; // @synthesize pairingObservers=_pairingObservers;
@@ -39,6 +42,7 @@
 @property(readonly, nonatomic) HMSetupAccessoryDescription *setupAccessoryDescription; // @synthesize setupAccessoryDescription=_setupAccessoryDescription;
 @property(nonatomic) __weak id <HMSetupRemoteService> setupRemoteService; // @synthesize setupRemoteService=_setupRemoteService;
 @property(readonly, nonatomic) HFDiscoveredAccessory *discoveredAccessoryToPair; // @synthesize discoveredAccessoryToPair=_discoveredAccessoryToPair;
+@property(readonly, nonatomic) HMAccessorySetupCompletedInfo *completedInfo; // @synthesize completedInfo=_completedInfo;
 @property(retain, nonatomic) HFSetupAccessoryResult *setupResult; // @synthesize setupResult=_setupResult;
 - (void).cxx_destruct;
 - (void)_assertValidTransitionFromPhase:(unsigned long long)arg1 toPhase:(unsigned long long)arg2;

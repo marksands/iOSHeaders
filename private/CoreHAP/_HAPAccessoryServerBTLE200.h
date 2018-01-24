@@ -7,21 +7,23 @@
 #import <CoreHAP/HAPAccessoryServerBTLE.h>
 
 #import "CBPeripheralDelegate.h"
+#import "HAPAuthSessionDelegate.h"
 #import "HAPBTLEControlOutputStreamDelegate.h"
 #import "HAPPairSetupSessionClientDelegate.h"
 #import "HAPSecuritySessionDelegate.h"
 #import "HMFLogging.h"
 #import "HMFTimerDelegate.h"
 
-@class HAPBLEAccessoryCache, HAPCharacteristic, HAPPairSetupSession, HAPSecuritySession, HMFTimer, NSMapTable, NSMutableArray, NSOperationQueue, NSString, _HAPBTLEDiscoveryContext;
+@class HAPAccessoryProtocolInfo, HAPAuthSession, HAPBLEAccessoryCache, HAPCharacteristic, HAPPairSetupSession, HAPSecuritySession, HMFTimer, NSMapTable, NSMutableArray, NSOperationQueue, NSString, _HAPBTLEDiscoveryContext;
 
-@interface _HAPAccessoryServerBTLE200 : HAPAccessoryServerBTLE <CBPeripheralDelegate, HAPBTLEControlOutputStreamDelegate, HAPPairSetupSessionClientDelegate, HAPSecuritySessionDelegate, HMFTimerDelegate, HMFLogging>
+@interface _HAPAccessoryServerBTLE200 : HAPAccessoryServerBTLE <CBPeripheralDelegate, HAPBTLEControlOutputStreamDelegate, HAPPairSetupSessionClientDelegate, HAPSecuritySessionDelegate, HMFTimerDelegate, HAPAuthSessionDelegate, HMFLogging>
 {
     _Bool _hasValidCache;
     _Bool _verified;
     _Bool _badPairSetupCode;
     _Bool _pairing;
-    _Bool _supportsMFiPairSetup;
+    _Bool _authenticated;
+    unsigned char _featureFlags;
     HAPSecuritySession *_securitySession;
     HAPBLEAccessoryCache *_accessoryCache;
     long long _connectionState;
@@ -32,6 +34,8 @@
     HAPPairSetupSession *_pairSetupSession;
     double _pairSetupBackoffTimeInterval;
     CDUnknownBlockType _setupCodeCompletionHandler;
+    HAPAuthSession *_authSession;
+    HAPAccessoryProtocolInfo *_authenticatedProtocolInfo;
     HAPCharacteristic *_pairingFeaturesCharacteristic;
     HAPCharacteristic *_pairSetupCharacteristic;
     HAPCharacteristic *_pairVerifyCharacteristic;
@@ -62,6 +66,7 @@
 + (id)parseSignatureResponse:(id)arg1 error:(id *)arg2;
 + (id)signatureRequestForService:(id)arg1 characteristic:(id)arg2 requiresAuthentication:(_Bool)arg3 error:(id *)arg4;
 + (id)signatureRequestForCharacteristic:(id)arg1 requiresAuthentication:(_Bool)arg2 error:(id *)arg3;
+@property(nonatomic) unsigned char featureFlags; // @synthesize featureFlags=_featureFlags;
 @property(readonly, nonatomic) NSMapTable *characteristicEnableEventCompletionHandlers; // @synthesize characteristicEnableEventCompletionHandlers=_characteristicEnableEventCompletionHandlers;
 @property(readonly, nonatomic) NSMapTable *characteristicWriteCompletionHandlers; // @synthesize characteristicWriteCompletionHandlers=_characteristicWriteCompletionHandlers;
 @property(readonly, nonatomic) NSOperationQueue *clientOperationQueue; // @synthesize clientOperationQueue=_clientOperationQueue;
@@ -73,7 +78,9 @@
 @property(nonatomic) __weak HAPCharacteristic *pairVerifyCharacteristic; // @synthesize pairVerifyCharacteristic=_pairVerifyCharacteristic;
 @property(nonatomic) __weak HAPCharacteristic *pairSetupCharacteristic; // @synthesize pairSetupCharacteristic=_pairSetupCharacteristic;
 @property(nonatomic) __weak HAPCharacteristic *pairingFeaturesCharacteristic; // @synthesize pairingFeaturesCharacteristic=_pairingFeaturesCharacteristic;
-@property(nonatomic) _Bool supportsMFiPairSetup; // @synthesize supportsMFiPairSetup=_supportsMFiPairSetup;
+@property(retain, nonatomic) HAPAccessoryProtocolInfo *authenticatedProtocolInfo; // @synthesize authenticatedProtocolInfo=_authenticatedProtocolInfo;
+@property(retain, nonatomic) HAPAuthSession *authSession; // @synthesize authSession=_authSession;
+@property(nonatomic) _Bool authenticated; // @synthesize authenticated=_authenticated;
 @property(nonatomic, getter=isPairing) _Bool pairing; // @synthesize pairing=_pairing;
 @property(copy, nonatomic) CDUnknownBlockType setupCodeCompletionHandler; // @synthesize setupCodeCompletionHandler=_setupCodeCompletionHandler;
 @property(nonatomic, getter=isBadSetupCode) _Bool badPairSetupCode; // @synthesize badPairSetupCode=_badPairSetupCode;
@@ -95,6 +102,18 @@
 - (void)securitySession:(id)arg1 didReceiveSetupExchangeData:(id)arg2;
 - (id)securitySession:(id)arg1 didReceiveRequestForPeerPairingIdentityWithIdentifier:(id)arg2 error:(id *)arg3;
 - (id)securitySession:(id)arg1 didReceiveLocalPairingIdentityRequestWithError:(id *)arg2;
+- (void)authSession:(id)arg1 authComplete:(id)arg2;
+- (void)authSession:(id)arg1 confirmUUID:(id)arg2 token:(id)arg3;
+- (void)authSession:(id)arg1 authenticateUUID:(id)arg2 token:(id)arg3;
+- (void)authSession:(id)arg1 validateUUID:(id)arg2 token:(id)arg3;
+- (void)authSession:(id)arg1 sendAuthExchangeData:(id)arg2;
+- (void)_continuePairingAfterMFiCertValidation;
+- (void)tearDownSessionOnAuthCompletion;
+- (void)provisionToken:(id)arg1;
+- (void)continueAuthAfterValidation:(_Bool)arg1;
+- (void)authenticateAccessory;
+- (_Bool)_validateProtocolInfo:(id)arg1;
+- (void)getAccessoryInfo:(CDUnknownBlockType)arg1;
 - (_Bool)pairSetupSession:(id)arg1 didReceiveBackoffRequestWithTimeInterval:(double)arg2;
 - (void)pairSetupSessionDidReceiveInvalidSetupCode:(id)arg1;
 - (void)pairSetupSession:(id)arg1 didReceiveSetupCodeRequestWithCompletionHandler:(CDUnknownBlockType)arg2;
@@ -133,6 +152,7 @@
 - (void)connectWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)_decryptData:(id)arg1 error:(id *)arg2;
 - (id)_encryptDataAndGenerateAuthTag:(id)arg1 error:(id *)arg2;
+- (id)protocolInfoServiceSignatureCharacteristics;
 - (void)_handleSecuritySessionSetupExchangeData:(id)arg1;
 - (void)_establishSecureSession;
 - (void)setSecuritySessionOpen:(_Bool)arg1;
@@ -143,6 +163,7 @@
 - (void)_suspendAllOperations;
 - (unsigned long long)_outstandingRequests;
 - (void)_enqueueRequest:(id)arg1;
+- (void)_sendProtocolInfoServiceExchangeData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handleResponseData:(id)arg1 fromCharacteristic:(id)arg2 error:(id)arg3;
 - (void)_requestResponseForRequest:(id)arg1;
 - (void)_handleWriteCompletionForCharacteristic:(id)arg1 error:(id)arg2;
@@ -154,6 +175,8 @@
 - (id)_pendingResponseForRequest:(id)arg1;
 - (id)_pendingRequestForCharacteristic:(id)arg1;
 - (void)identifyWithCompletion:(CDUnknownBlockType)arg1;
+- (unsigned long long)_getAuthMethod:(unsigned char)arg1;
+- (unsigned long long)_getPairSetupType;
 - (id)getLocalPairingIdentityWithError:(id *)arg1;
 - (void)_sendPairingRequestData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)listPairingsWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -166,10 +189,10 @@
 - (void)_handlePairSetupSessionExchangeData:(id)arg1;
 - (_Bool)stopPairingWithError:(id *)arg1;
 - (void)continuePairingAfterAuthPrompt;
-- (_Bool)_parsePairingFeaturesCharacteristic:(id)arg1 supportsMFiPairSetup:(_Bool *)arg2 error:(id *)arg3;
+- (_Bool)_parsePairingFeaturesCharacteristic:(id)arg1 authMethods:(unsigned long long *)arg2 error:(id *)arg3;
 - (void)_getPairingFeaturesWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)_checkForAuthPrompt;
-- (void)startPairing;
+- (void)_checkForAuthPrompt:(_Bool)arg1;
+- (void)startPairingWithConsentRequired:(_Bool)arg1;
 - (void)_enableBroadcastEvent:(_Bool)arg1 interval:(unsigned long long)arg2 forCharacteristic:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_configureCharacteristics:(id)arg1 queue:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)configureCharacteristics:(id)arg1 queue:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;

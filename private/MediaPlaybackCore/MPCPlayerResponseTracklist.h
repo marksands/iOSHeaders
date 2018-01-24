@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) long long upNextItemCount; // @synthesize upNextItemCount=_upNextItemCount;
 @property(readonly, nonatomic) long long lastChangeDirection; // @synthesize lastChangeDirection=_lastChangeDirection;
 - (void).cxx_destruct;
+- (id)disableModificationsCommand;
 - (id)changeItemCommand;
 - (id)shuffleCommand;
 - (id)repeatCommand;

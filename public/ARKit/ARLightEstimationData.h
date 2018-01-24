@@ -17,6 +17,7 @@
 
 @property(retain, nonatomic) ARLightEstimate *lightEstimate; // @synthesize lightEstimate=_lightEstimate;
 - (void).cxx_destruct;
+- (double)timestamp;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

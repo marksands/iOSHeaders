@@ -8,7 +8,7 @@
 
 #import "FCFeedGroupEmitting.h"
 
-@class NSString;
+@class NSSet, NSString;
 
 @interface FCLatestFeedGroupEmitter : NSObject <FCFeedGroupEmitting>
 {
@@ -17,10 +17,10 @@
 @property(readonly, nonatomic) long long requiredForYouContentTypes;
 - (_Bool)canMergeGroupsUnconditionally;
 @property(readonly, copy, nonatomic) NSString *groupEmitterIdentifier;
-- (_Bool)canEmitGroupsWithType:(long long)arg1;
+@property(readonly, copy, nonatomic) NSSet *emittableGroupTypes;
 - (_Bool)wantsToInsertGroup:(id)arg1 withContext:(id)arg2;
 - (id)operationToEmitGroupWithContext:(id)arg1 fromCursor:(id)arg2 toCursor:(id)arg3;
-- (_Bool)wantsToEmitGroupInContext:(id)arg1 withCursor:(id)arg2 toCursor:(id)arg3;
+- (_Bool)wantsToEmitGroupInContext:(id)arg1 fromCursor:(id)arg2 toCursor:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

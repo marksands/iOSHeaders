@@ -32,7 +32,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isHighlighted;
 @property(retain, nonatomic) _MKUILabel *label; // @synthesize label=_label;
 - (void).cxx_destruct;
-- (void)attributionCellButton:(id)arg1 isHighighted:(_Bool)arg2;
+- (void)attributionCellButton:(id)arg1 isHighighted:(_Bool)arg2 executeAction:(_Bool)arg3;
 - (double)currentHeight;
 - (void)setAttributionString:(id)arg1;
 - (void)attributionClicked;

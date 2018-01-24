@@ -9,7 +9,7 @@
 #import "IMSendProgressDelegate.h"
 #import "INSpeakable.h"
 
-@class IMAccount, IMChatRegistry, IMHandle, IMMessage, IMScheduledUpdater, IMSendProgress, IMTimingCollection, NSArray, NSData, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNumber, NSSet, NSString;
+@class IMAccount, IMChatRegistry, IMHandle, IMMessage, IMScheduledUpdater, IMSendProgress, IMTimingCollection, MKMapItem, NSArray, NSData, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNumber, NSSet, NSString;
 
 @interface IMChat : IMItemsController <INSpeakable, IMSendProgressDelegate>
 {
@@ -289,10 +289,11 @@
 - (void)sendMessageAcknowledgment:(long long)arg1 forChatItem:(id)arg2 withMessageSummaryInfo:(id)arg3;
 - (void)deleteExtensionPayloadData;
 - (void)closeSession;
-- (_Bool)isAppleChat;
-- (_Bool)isMakoChat;
-- (_Bool)isBusinessChat;
-- (_Bool)isReplyEnabled;
+@property(readonly, nonatomic) _Bool isAppleChat;
+@property(readonly, nonatomic) _Bool isMakoChat;
+@property(readonly, nonatomic) _Bool isBusinessChat;
+@property(readonly, nonatomic) _Bool isReplyEnabled;
+@property(readonly, nonatomic) MKMapItem *mapItem;
 - (id)_privateInitWithAccount:(id)arg1 style:(unsigned char)arg2 roomName:(id)arg3 messages:(id)arg4 participants:(id)arg5 isFiltered:(_Bool)arg6 hasHadSuccessfulQuery:(_Bool)arg7;
 - (void)deleteTransfers:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *attachments;

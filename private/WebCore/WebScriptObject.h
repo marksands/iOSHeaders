@@ -37,9 +37,9 @@
 - (struct RootObject *)_rootObject;
 - (_Bool)_hasImp;
 - (struct JSObject *)_imp;
-- (id)_initWithJSObject:(struct JSObject *)arg1 originRootObject:(RefPtr_e0d66d50 *)arg2 rootObject:(RefPtr_e0d66d50 *)arg3;
-- (void)_setOriginRootObject:(RefPtr_e0d66d50 *)arg1 andRootObject:(RefPtr_e0d66d50 *)arg2;
-- (void)_setImp:(struct JSObject *)arg1 originRootObject:(RefPtr_e0d66d50 *)arg2 rootObject:(RefPtr_e0d66d50 *)arg3;
+- (id)_initWithJSObject:(struct JSObject *)arg1 originRootObject:(RefPtr_11363527 *)arg2 rootObject:(RefPtr_11363527 *)arg3;
+- (void)_setOriginRootObject:(RefPtr_11363527 *)arg1 andRootObject:(RefPtr_11363527 *)arg2;
+- (void)_setImp:(struct JSObject *)arg1 originRootObject:(RefPtr_11363527 *)arg2 rootObject:(RefPtr_11363527 *)arg3;
 - (id)objectAtIndex:(unsigned int)arg1;
 
 @end

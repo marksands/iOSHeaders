@@ -29,6 +29,7 @@
     NSMutableArray *_recommendedNotificationChannels;
     NTPBCategory *_rootCategory;
     NSString *_savedStoriesTagId;
+    NSString *_specialEventsChannelId;
     NTPBTopStoriesConfig *_topStoriesConfig;
     NSString *_trendingTagId;
     NSString *_widgetSectionConfigId;
@@ -39,6 +40,7 @@
 + (Class)preSubscribedNotificationsChannelIdsType;
 + (Class)onboardingTagIdsType;
 + (Class)preSubscribedFeedIdsType;
+@property(retain, nonatomic) NSString *specialEventsChannelId; // @synthesize specialEventsChannelId=_specialEventsChannelId;
 @property(retain, nonatomic) NSMutableArray *mediaSharingBlacklistedChannelIds; // @synthesize mediaSharingBlacklistedChannelIds=_mediaSharingBlacklistedChannelIds;
 @property(retain, nonatomic) NSString *breakingNewsChannelId; // @synthesize breakingNewsChannelId=_breakingNewsChannelId;
 @property(retain, nonatomic) NSString *exploreArticleId; // @synthesize exploreArticleId=_exploreArticleId;
@@ -68,6 +70,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasSpecialEventsChannelId;
 - (id)mediaSharingBlacklistedChannelIdsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)mediaSharingBlacklistedChannelIdsCount;
 - (void)addMediaSharingBlacklistedChannelIds:(id)arg1;

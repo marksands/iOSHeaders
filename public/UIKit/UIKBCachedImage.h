@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) UIColor *formatColor;
 @property(readonly, nonatomic) _Bool hasFormatColor;
 

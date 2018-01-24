@@ -23,8 +23,9 @@ __attribute__((visibility("hidden")))
     struct CGPoint _anchor;
 }
 
-@property(readonly, retain, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
+@property(readonly, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
 @property(readonly, nonatomic) TSWPStorage *storage; // @synthesize storage=_storage;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool columnsAreLeftToRight;
 @property(readonly, nonatomic) _Bool shrinkTextToFit;
 @property(readonly, nonatomic) _Bool alwaysStartsNewTarget;
@@ -68,15 +69,14 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSPObject<TSDHint> *nextTargetFirstChildHint;
 @property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider;
 @property(readonly, nonatomic) id <TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
-@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
+@property(readonly, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
 @property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *nextTargetTopicNumbers;
 @property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *previousTargetTopicNumbers;
-@property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
+@property(readonly, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
 - (id)columnMetricsForCharIndex:(unsigned long long)arg1 outRange:(struct _NSRange *)arg2;
 - (struct CGSize)measuredSizeWithFlags:(unsigned int)arg1 minSize:(struct CGSize)arg2 maxSize:(struct CGSize)arg3;
 - (struct CGSize)measuredSizeWithFlags:(unsigned int)arg1;
 - (id)pLayoutWithMinSize:(struct CGSize)arg1 maxSize:(struct CGSize)arg2 anchor:(struct CGPoint)arg3 flags:(unsigned int)arg4;
-- (void)dealloc;
 - (id)initWithStorage:(id)arg1;
 
 // Remaining properties
@@ -87,6 +87,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) struct __CFLocale *hyphenationLocale;
 @property(readonly, nonatomic) _Bool isLinked;
+@property(readonly, nonatomic) _Bool marginsAreMirrored;
 @property(readonly, nonatomic) struct CGRect maskRect;
 @property(readonly, nonatomic) TSDLayout *parentLayoutForInlineAttachments;
 @property(readonly, nonatomic) _Bool repShouldPreventCaret;

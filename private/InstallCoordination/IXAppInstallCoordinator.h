@@ -13,12 +13,13 @@
 @interface IXAppInstallCoordinator : NSObject <IXCoordinatorWithPlaceholderPromise>
 {
     _Bool _complete;
+    NSError *_error;
+    unsigned long long _errorSourceIdentifier;
     id <IXAppInstallCoordinatorObserver> _observer;
     IXAppInstallCoordinatorSeed *_seed;
     NSObject<OS_dispatch_queue> *_observerCalloutQueue;
+    NSObject<OS_dispatch_queue> *_internalQueue;
     unsigned long long _observersCalled;
-    NSError *_error;
-    unsigned long long _errorSourceIdentifier;
 }
 
 + (void)setRemovability:(unsigned long long)arg1 forAppWithBundleID:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -52,10 +53,8 @@
 + (void)installApplication:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)installApplication:(id)arg1 consumeSource:(_Bool)arg2 options:(id)arg3 completion:(CDUnknownBlockType)arg4;
 + (void)_beginInstallForURL:(id)arg1 consumeSource:(_Bool)arg2 options:(id)arg3 completion:(CDUnknownBlockType)arg4;
-@property(nonatomic) unsigned long long errorSourceIdentifier; // @synthesize errorSourceIdentifier=_errorSourceIdentifier;
-@property(retain, nonatomic) NSError *error; // @synthesize error=_error;
-@property(nonatomic, getter=isComplete) _Bool complete; // @synthesize complete=_complete;
 @property(nonatomic) unsigned long long observersCalled; // @synthesize observersCalled=_observersCalled;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *internalQueue; // @synthesize internalQueue=_internalQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *observerCalloutQueue; // @synthesize observerCalloutQueue=_observerCalloutQueue;
 @property(readonly, nonatomic) IXAppInstallCoordinatorSeed *seed; // @synthesize seed=_seed;
 @property(nonatomic) __weak id <IXAppInstallCoordinatorObserver> observer; // @synthesize observer=_observer;
@@ -80,6 +79,9 @@
 - (_Bool)isPaused:(_Bool *)arg1 withError:(id *)arg2;
 - (_Bool)resumeWithError:(id *)arg1;
 - (_Bool)pauseWithError:(id *)arg1;
+@property(nonatomic, getter=isComplete) _Bool complete; // @synthesize complete=_complete;
+@property(nonatomic) unsigned long long errorSourceIdentifier; // @synthesize errorSourceIdentifier=_errorSourceIdentifier;
+@property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 - (_Bool)setPreparationPromise:(id)arg1 withError:(id *)arg2;
 - (id)preparationPromiseWithError:(id *)arg1;
 - (id)userDataRestoreShouldBegin:(_Bool *)arg1;

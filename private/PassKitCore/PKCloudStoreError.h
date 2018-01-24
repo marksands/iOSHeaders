@@ -14,6 +14,7 @@
 + (id)errorWithDomain:(id)arg1 code:(long long)arg2 userInfo:(id)arg3;
 - (id)_allPartialErrors;
 - (long long)_code;
+- (_Bool)isInitializationTimeOutError;
 - (_Bool)isPCSError;
 - (_Bool)isKeychainSyncingInProgress;
 - (_Bool)isNetworkUnavailable;

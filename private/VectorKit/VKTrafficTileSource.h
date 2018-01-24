@@ -42,11 +42,12 @@ __attribute__((visibility("hidden")))
 - (void)tileSource:(id)arg1 didFetchTile:(id)arg2 forKey:(const struct VKTileKey *)arg3;
 - (void)failedToDecodeSourceKey:(const struct VKTileKey *)arg1;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
+- (void)forceExpireTile:(const struct VKTileKey *)arg1;
 - (void)_fetchedTile:(id)arg1;
 - (void)didFailToLoadTileKey:(const struct _GEOTileKey *)arg1 error:(id)arg2;
 - (void)_notifyRoadsTileSourceOfErrorForSourceKey:(const struct VKTileKey *)arg1;
-- (void)fetchTileForKey:(const struct VKTileKey *)arg1 sourceKey:(const struct VKTileKey *)arg2;
-- (void)fetchTileForKey:(const struct VKTileKey *)arg1;
+- (void)fetchTileForKey:(const struct VKTileKey *)arg1 sourceKey:(const struct VKTileKey *)arg2 isPrefetch:(_Bool)arg3;
+- (void)fetchTileForKey:(const struct VKTileKey *)arg1 isPrefetch:(_Bool)arg2;
 - (void)setContentScale:(double)arg1;
 - (void)setStyleManager:(shared_ptr_a3c46825)arg1;
 - (_Bool)canFetchTrafficTileForKey:(const struct VKTileKey *)arg1;
@@ -60,7 +61,7 @@ __attribute__((visibility("hidden")))
 - (void)populateVisibleTileSets:(id)arg1 withTiles:(id)arg2;
 - (void)clearCaches;
 - (void)dealloc;
-- (id)initWithSkeletonTileSet:(id)arg1 dynamicTileSet:(id)arg2 resourceManifestConfiguration:(id)arg3 locale:(id)arg4 sharedResources:(id)arg5 taskContext:(shared_ptr_e963992e)arg6;
+- (id)initWithSkeletonTileSet:(id)arg1 dynamicTileSet:(id)arg2 resourceManifestConfiguration:(id)arg3 locale:(id)arg4 sharedResources:(id)arg5 taskContext:(shared_ptr_e963992e)arg6 origin:(unsigned char)arg7;
 - (void)setMapType:(long long)arg1;
 - (id)detailedDescription;
 

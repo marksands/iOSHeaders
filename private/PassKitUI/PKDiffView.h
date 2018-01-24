@@ -13,7 +13,6 @@
     CAShapeLayer *_shapeLayer;
 }
 
-+ (void)initialize;
 - (void).cxx_destruct;
 - (void)performStrokeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateShapeLayer;

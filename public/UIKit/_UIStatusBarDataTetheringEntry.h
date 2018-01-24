@@ -11,6 +11,7 @@
     long long _connectionCount;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) long long connectionCount; // @synthesize connectionCount=_connectionCount;
 - (id)_ui_descriptionBuilder;
 - (_Bool)isEqual:(id)arg1;

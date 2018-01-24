@@ -9,7 +9,7 @@
 #import "ARSensor.h"
 #import "AVCaptureVideoDataOutputSampleBufferDelegate.h"
 
-@class AVCaptureAudioDataOutput, AVCaptureDevice, AVCaptureSession, AVCaptureVideoDataOutput, NSObject<OS_dispatch_queue>, NSString;
+@class ARImageSensorSettings, AVCaptureAudioDataOutput, AVCaptureDevice, AVCaptureSession, AVCaptureVideoDataOutput, NSObject<OS_dispatch_queue>, NSString;
 
 @interface ARImageSensor : NSObject <AVCaptureVideoDataOutputSampleBufferDelegate, ARSensor>
 {
@@ -17,32 +17,31 @@
     id <AVCaptureVideoDataOutputSampleBufferDelegate> _previousOutputDelegate;
     NSObject<OS_dispatch_queue> *_previousOutputCallbackQueue;
     NSObject<OS_dispatch_queue> *_captureQueue;
-    _Bool _autoFocusEnabled;
     _Bool _running;
     _Bool _interrupted;
+    float _defaultLensPosition;
     id <ARSensorDelegate> _delegate;
+    ARImageSensorSettings *_settings;
     AVCaptureDevice *_captureDevice;
     AVCaptureSession *_captureSession;
     AVCaptureVideoDataOutput *_videoOutput;
     unsigned long long _powerUsage;
-    CDStruct_79c71658 _videoResolution;
     long long _captureFramesPerSecond;
     long long _renderFramesPerSecond;
 }
 
 + (float)defaultLensPosition;
-+ (id)bestFormatForDevice:(id)arg1 withResolution:(CDStruct_79c71658)arg2 pixelFormatType:(unsigned int)arg3 frameRate:(double)arg4;
 + (double)closestFrameRateIn:(id)arg1 target:(double)arg2 preferHigher:(_Bool)arg3;
 @property _Bool interrupted; // @synthesize interrupted=_interrupted;
 @property _Bool running; // @synthesize running=_running;
 @property long long renderFramesPerSecond; // @synthesize renderFramesPerSecond=_renderFramesPerSecond;
 @property long long captureFramesPerSecond; // @synthesize captureFramesPerSecond=_captureFramesPerSecond;
-@property(nonatomic) CDStruct_79c71658 videoResolution; // @synthesize videoResolution=_videoResolution;
+@property float defaultLensPosition; // @synthesize defaultLensPosition=_defaultLensPosition;
 @property(nonatomic) unsigned long long powerUsage; // @synthesize powerUsage=_powerUsage;
-@property(nonatomic, getter=isAutoFocusEnabled) _Bool autoFocusEnabled; // @synthesize autoFocusEnabled=_autoFocusEnabled;
 @property(readonly, nonatomic) AVCaptureVideoDataOutput *videoOutput; // @synthesize videoOutput=_videoOutput;
 @property(readonly, nonatomic) AVCaptureSession *captureSession; // @synthesize captureSession=_captureSession;
 @property(readonly, nonatomic) AVCaptureDevice *captureDevice; // @synthesize captureDevice=_captureDevice;
+@property(readonly, nonatomic) ARImageSensorSettings *settings; // @synthesize settings=_settings;
 @property(nonatomic) __weak id <ARSensorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)captureSessionStateChanged:(id)arg1;
@@ -53,12 +52,15 @@
 - (_Bool)_validateCameraAuthorization;
 - (id)configureCaptureDevice;
 - (id)configureCaptureSession;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)stop;
 - (void)start;
 - (unsigned long long)providedDataTypes;
+- (void)reconfigure:(id)arg1;
+- (_Bool)canReconfigure:(id)arg1;
 - (void)dealloc;
-- (id)initWithDevicePosition:(long long)arg1 deviceType:(id)arg2;
-- (id)initWithDevicePosition:(long long)arg1 deviceType:(id)arg2 captureSession:(id)arg3;
+- (id)initWithSettings:(id)arg1;
+- (id)init;
 - (long long)preferredRenderFrameRateForPowerUsage:(unsigned long long)arg1 devicePosition:(long long)arg2;
 - (double)preferredCaptureFrameRateForPowerUsage:(unsigned long long)arg1 devicePosition:(long long)arg2;
 - (void)_adjustForPowerUsage;

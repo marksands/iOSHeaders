@@ -27,6 +27,8 @@
     id <SiriCoreLocalSpeechRecognizerDelegate> _delegate;
 }
 
++ (id)purgeInstalledAssetsWithError:(id *)arg1;
++ (id)installedAssetSizeWithError:(id *)arg1;
 + (id)speechProfileDataLastModifiedDataForLanguage:(id)arg1;
 @property(readonly, nonatomic) __weak id <SiriCoreLocalSpeechRecognizerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
@@ -51,6 +53,7 @@
 - (void)createSpeechProfileWithLanguage:(id)arg1 JSONData:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)startSpeechRecognitionWithLanguage:(id)arg1 task:(id)arg2 context:(id)arg3 narrowband:(_Bool)arg4 detectUtterances:(_Bool)arg5 maximumRecognitionDuration:(double)arg6 farField:(_Bool)arg7 secureOfflineOnly:(_Bool)arg8 censorSpeech:(_Bool)arg9 originalAudioFileURL:(id)arg10 overrides:(id)arg11 modelOverrideURL:(id)arg12 didStartHandler:(CDUnknownBlockType)arg13;
 - (void)preheatSpeechRecognitionWithLanguage:(id)arg1;
+- (id)_synchronousServiceWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)_serviceWithFunctionName:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (id)_service;
 - (id)_connection;

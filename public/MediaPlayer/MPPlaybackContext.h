@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class MPAVItem, NSData, NSString;
 
-@interface MPPlaybackContext : NSObject <NSCoding>
+@interface MPPlaybackContext : NSObject <NSCoding, NSSecureCoding>
 {
     MPAVItem *_playerCurrentItem;
     _Bool _shouldStartPlayback;
@@ -25,6 +26,7 @@
     NSString *_siriReferenceIdentifier;
 }
 
++ (_Bool)supportsSecureCoding;
 + (Class)queueFeederClass;
 @property(copy, nonatomic) NSString *siriReferenceIdentifier; // @synthesize siriReferenceIdentifier=_siriReferenceIdentifier;
 @property(copy, nonatomic) NSString *siriAssetInfo; // @synthesize siriAssetInfo=_siriAssetInfo;

@@ -7,10 +7,10 @@
 #import "NSObject.h"
 
 @protocol TSDAnimationSession <NSObject>
+@property(readonly, nonatomic) double showScale;
 @property(nonatomic) _Bool shouldForceTextureGeneration;
 @property(nonatomic) _Bool shouldUseSourceImage;
 @property(nonatomic) _Bool shouldDrawTexturesAsynchronously;
-- (double)showScale;
-- (_Bool)isOffscreenPlayback;
+@property(readonly, nonatomic) _Bool isOffscreenPlayback;
 @end
 

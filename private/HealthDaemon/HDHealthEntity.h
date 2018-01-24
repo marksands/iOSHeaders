@@ -23,7 +23,6 @@
 + (_Bool)performReadTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
 + (_Bool)_isNilDatabase:(id)arg1 error:(id *)arg2;
 + (id)uniquedColumns;
-+ (id)checkConstraints;
 + (id)createTableSQL;
 + (id)databaseName;
 + (id)columnsDefinition;
@@ -47,6 +46,7 @@
 + (id)columnNamesForTimeOffset;
 + (id)updateSQLForTimeOffsetWithBindingCount:(unsigned long long *)arg1;
 - (_Bool)updateProperties:(id)arg1 healthDatabase:(id)arg2 error:(id *)arg3 bindingHandler:(CDUnknownBlockType)arg4;
+- (id)stringForProperty:(id)arg1 healthDatabase:(id)arg2 error:(out id *)arg3;
 - (id)valueForProperty:(id)arg1 healthDatabase:(id)arg2 error:(id *)arg3;
 - (_Bool)getValuesForProperties:(id)arg1 healthDatabase:(id)arg2 error:(id *)arg3 handler:(CDUnknownBlockType)arg4;
 

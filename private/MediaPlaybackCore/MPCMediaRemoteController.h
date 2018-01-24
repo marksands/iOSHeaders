@@ -59,6 +59,7 @@
 - (void)_onQueue_setOptimisticPlaybackState:(unsigned int)arg1 withOptions:(id)arg2;
 - (void)_onQueue_mergeContentItems:(id)arg1 queueRange:(struct _MSVSignedRange)arg2;
 - (id)_onQueue_identifiersForRange:(struct _MSVSignedRange)arg1;
+- (void)updateOptimisticStateForCommand:(unsigned int)arg1 options:(id)arg2;
 - (void)invalidateAllTokens;
 - (void)dictionary:(id)arg1 willRemoveObject:(id)arg2 forKey:(id)arg3;
 - (void)_contentItemArtworkChangedNotification:(id)arg1;

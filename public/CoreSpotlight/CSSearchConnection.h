@@ -10,15 +10,19 @@
 
 @interface CSSearchConnection : CSXPCConnection
 {
+    _Bool _previouslyInitialized;
     NSMutableDictionary *_queries;
 }
 
 + (id)sharedSearchConnection;
 + (void)initialize;
-@property(readonly, nonatomic) NSMutableDictionary *queries; // @synthesize queries=_queries;
+@property(readonly, nonatomic) _Bool previouslyInitialized; // @synthesize previouslyInitialized=_previouslyInitialized;
+@property(retain, nonatomic) NSMutableDictionary *queries; // @synthesize queries=_queries;
 - (void).cxx_destruct;
+- (void)sendMessageAsync:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)cancelQuery:(unsigned long long)arg1;
 - (void)startQuery:(id)arg1 context:(id)arg2;
+- (id)createXPCDictionaryForQuery:(id)arg1 queryID:(long long)arg2 queryContext:(id)arg3 needsInitialization:(_Bool)arg4;
 - (void)handleReply:(id)arg1;
 - (void)handleError:(id)arg1;
 - (void)setQuery:(id)arg1 forID:(id)arg2;

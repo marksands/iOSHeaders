@@ -16,7 +16,7 @@
     _Bool _sourceIsManaged;
     _Bool _keyboardVisible;
     _Bool _hasAnyAccount;
-    _Bool _hasFilteredAccount;
+    _Bool _hasValidAccountForSending;
     NSString *_sourceApplicationBundleID;
     NSString *_subject;
     NSString *_autosaveIdentifier;
@@ -26,7 +26,7 @@
 + (id)applicationBundleID;
 + (long long)activityCategory;
 + (unsigned long long)_xpcAttributes;
-@property(nonatomic) _Bool hasFilteredAccount; // @synthesize hasFilteredAccount=_hasFilteredAccount;
+@property(nonatomic) _Bool hasValidAccountForSending; // @synthesize hasValidAccountForSending=_hasValidAccountForSending;
 @property(nonatomic) _Bool hasAnyAccount; // @synthesize hasAnyAccount=_hasAnyAccount;
 @property(retain, nonatomic) MFMailComposeViewController *mailComposeViewController; // @synthesize mailComposeViewController=_mailComposeViewController;
 @property(retain, nonatomic) NSString *autosaveIdentifier; // @synthesize autosaveIdentifier=_autosaveIdentifier;

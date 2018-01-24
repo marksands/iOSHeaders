@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 - (struct GeometryResource)boundsGeometryForSeries:(id)arg1 index:(const tvec2_3b141483 *)arg2;
 - (struct GeometryResource)geometryForSeries:(id)arg1 index:(const tvec2_3b141483 *)arg2;
 - (void)createResources;
-- (void)resetWithEnumerator:(id)arg1 layoutSettings:(CDStruct_44ada6bf)arg2;
+- (void)resetWithEnumerator:(id)arg1 layoutSettings:(CDStruct_b1c75024)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

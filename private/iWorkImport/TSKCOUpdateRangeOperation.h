@@ -15,31 +15,31 @@
 __attribute__((visibility("hidden")))
 @interface TSKCOUpdateRangeOperation : TSKCOUpdateOperation <TSKCORangeOperation, TSKCOUpdateRangeOperationSubset, TSKCOTransforming>
 {
-    TSKCORangeAddress *mAddress;
-    int mTransformBehavior;
+    int _transformBehavior;
+    TSKCORangeAddress *_address;
 }
 
-@property(readonly, nonatomic) int transformBehavior; // @synthesize transformBehavior=mTransformBehavior;
-@property(readonly, nonatomic) TSKCORangeAddress *address; // @synthesize address=mAddress;
++ (id)stringForTransformBehavior:(int)arg1;
+@property(readonly, nonatomic) int transformBehavior; // @synthesize transformBehavior=_transformBehavior;
+@property(readonly, nonatomic) TSKCORangeAddress *address; // @synthesize address=_address;
+- (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1 message:(struct Operation *)arg2;
 - (id)initWithUnarchiver:(id)arg1 message:(const struct Operation *)arg2;
-- (id)description;
-- (id)transformUpdateRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)transformReplaceRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)transformUpdateIdOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)transformIdPlacementBaseOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)fromUpdateRangeOperation:(id)arg1;
+- (id)toString;
+- (id)ut_transformByTransformer:(id)arg1;
+- (id)transformDynamicByAnyOperation:(id)arg1 byHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformStaticByAnyOperation:(id)arg1 byHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformUpdateRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformReplaceRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformUpdateIdOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformIdPlacementBaseOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
 - (id)toUpdateRangeOperation;
 - (id)operationWithNewAddress:(id)arg1;
 - (id)operationWithNewNoop:(_Bool)arg1;
-- (void)dealloc;
 - (id)initWithRangeAddress:(id)arg1 selectionPropertyName:(id)arg2;
 - (id)initWithRangeAddress:(id)arg1 propertyName:(id)arg2 noop:(_Bool)arg3;
 - (id)initWithRangeAddress:(id)arg1 propertyName:(id)arg2;
 - (id)p_initWithRangeAddress:(id)arg1 propertyName:(id)arg2 transformBehavior:(int)arg3 noop:(_Bool)arg4;
-- (id)ut_transformByTransformer:(id)arg1;
-- (id)transformDynamicByAnyOperation:(id)arg1 byHigherPriority:(_Bool)arg2;
-- (id)transformStaticByAnyOperation:(id)arg1 byHigherPriority:(_Bool)arg2;
 
 @end
 

@@ -6,11 +6,13 @@
 
 #import "UIView.h"
 
+#import "PKForegroundActiveArbiterObserver.h"
 #import "PKPassFooterContentViewDelegate.h"
+#import "PKUIForegroundActiveArbiterDeactivationObserver.h"
 
 @class NSObject<OS_dispatch_group>, NSObject<OS_dispatch_source>, NSString, PKPassFooterContentView, PKPassView, PKPaymentSessionHandle;
 
-@interface PKPassFooterView : UIView <PKPassFooterContentViewDelegate>
+@interface PKPassFooterView : UIView <PKPassFooterContentViewDelegate, PKForegroundActiveArbiterObserver, PKUIForegroundActiveArbiterDeactivationObserver>
 {
     PKPassView *_passView;
     PKPassFooterContentView *_contentView;
@@ -21,6 +23,7 @@
     _Bool _isAssistantActive;
     _Bool _acquiringSession;
     unsigned long long _sessionToken;
+    _Bool _invalidated;
     unsigned char _visibility;
     unsigned char _contentViewVisibility;
     NSObject<OS_dispatch_group> *_sessionDelayGroup;
@@ -50,10 +53,8 @@
 - (void)_startContactlessInterfaceSessionWithSessionAvailable:(CDUnknownBlockType)arg1 sessionUnavailable:(CDUnknownBlockType)arg2;
 - (id)_contentViewForPaymentApplicationWithContext:(id)arg1;
 - (void)_configureForState:(long long)arg1 context:(id)arg2 passView:(id)arg3;
-- (void)_handleRemoveDeactivationReasonNotification:(id)arg1;
-- (void)_handleAddDeactivationReasonNotification:(id)arg1;
-- (void)_handleEnterBackgroundNotification:(id)arg1;
-- (void)_handleEnterForegroundNotification:(id)arg1;
+- (void)foregroundActiveArbiter:(id)arg1 didUpdateDeactivationReasons:(unsigned int)arg2;
+- (void)foregroundActiveArbiter:(id)arg1 didUpdateForegroundActiveState:(CDStruct_973bafd3)arg2;
 - (void)_updateForNonForegroundActivePresentationAnimated:(_Bool)arg1;
 - (void)_updateForForegroundActivePresentationIfNecessaryAnimated:(_Bool)arg1;
 - (void)passFooterContentViewDidEndAuthenticating:(id)arg1;
@@ -61,6 +62,7 @@
 - (void)passFooterContentViewDidChangeUserIntentRequirement:(id)arg1;
 - (void)passFooterContentViewRequestsSessionSuppression:(id)arg1;
 @property(readonly, nonatomic, getter=isPassAuthorized) _Bool passAuthorized;
+- (void)invalidate;
 - (void)configureForState:(long long)arg1 context:(id)arg2 passView:(id)arg3;
 - (void)didBecomeHiddenAnimated:(_Bool)arg1;
 - (void)didBecomeVisibleAnimated:(_Bool)arg1;

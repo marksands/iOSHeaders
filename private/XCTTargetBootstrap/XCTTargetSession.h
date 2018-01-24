@@ -23,6 +23,7 @@
 @property(retain) NSXPCListener *clientListener; // @synthesize clientListener=_clientListener;
 @property(retain) NSXPCConnection *daemonConnection; // @synthesize daemonConnection=_daemonConnection;
 @property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+- (void).cxx_destruct;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)_XCT_requestEndpointWithAutomationSupportLibraryPath:(id)arg1 protocolVersion:(unsigned long long)arg2 reply:(CDUnknownBlockType)arg3;
 - (id)_on_queue_getListenerEndpoint;
@@ -30,7 +31,6 @@
 - (_Bool)_on_queue_loadAutomationSupportLibraryFromPath:(id)arg1 error:(id *)arg2;
 - (void)_on_queue_connect;
 - (void)connect;
-- (void)dealloc;
 - (id)initWithDaemonConnection:(id)arg1;
 - (id)init;
 

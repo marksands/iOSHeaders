@@ -24,7 +24,6 @@
 @property(nonatomic) _Bool isFirstSection; // @synthesize isFirstSection=_isFirstSection;
 - (double)headerHeightForWidth:(double)arg1 inTableView:(id)arg2;
 - (void)setSectionIsFirst:(_Bool)arg1;
-- (void)dealloc;
 - (id)initWithAttributes:(id)arg1;
 
 // Remaining properties

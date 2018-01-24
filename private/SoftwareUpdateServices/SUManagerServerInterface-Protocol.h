@@ -4,10 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSArray, NSString, NSUUID, SUDownloadMetadata, SUScanOptions;
+@class NSArray, NSDictionary, NSString, NSUUID, SUDownloadMetadata, SUScanOptions;
 
 @protocol SUManagerServerInterface
 - (void)createInstallationKeybag:(NSString *)arg1 forUnattendedInstall:(_Bool)arg2 withResult:(void (^)(_Bool, NSError *))arg3;
+- (void)getMandatorySoftwareUpdateDictionary:(void (^)(NSDictionary *, NSError *))arg1;
+- (void)setMandatorySoftwareUpdateDictionary:(NSDictionary *)arg1;
+- (void)delayEndDate:(void (^)(NSDate *, NSError *))arg1;
+- (void)isDelayingUpdates:(void (^)(_Bool, NSError *))arg1;
 - (void)slaVersion:(void (^)(NSNumber *, NSError *))arg1;
 - (void)setClientType:(int)arg1 withResult:(void (^)(_Bool, NSError *))arg2;
 - (void)installUpdateWithOptions:(NSArray *)arg1 withResult:(void (^)(_Bool, NSError *))arg2;

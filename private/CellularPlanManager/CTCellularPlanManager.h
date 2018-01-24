@@ -33,12 +33,15 @@
 - (void)_remotePlansWithCsn:(id)arg1 parameters:(id)arg2 remoteCompletion:(CDUnknownBlockType)arg3;
 - (void)remotePlanLaunchInfoForEid:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remotePlanLaunchInfoForCsn:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)pendingReleaseRemotePlan;
 - (void)didCancelRemotePlan;
 - (void)didPurchaseRemotePlanForEid:(id)arg1 imei:(id)arg2 meid:(id)arg3 iccid:(id)arg4 alternateSmdpFqdn:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)getRemoteInfo:(CDUnknownBlockType)arg1;
 - (void)deleteAllRemoteProfiles;
 - (void)deleteRemoteProfile:(id)arg1;
 - (void)selectRemoteProfile:(id)arg1;
+- (void)setRoamingSignupOverride:(_Bool)arg1;
+- (void)getRoamingSignupOverrideWithCompletion:(CDUnknownBlockType)arg1;
 - (void)setAutoPlanSelection:(_Bool)arg1;
 - (void)getAutoPlanSelectionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchRemoteProfiles:(id)arg1;

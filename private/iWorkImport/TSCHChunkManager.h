@@ -6,19 +6,16 @@
 
 #import "NSObject.h"
 
-@class TSCHChunkMap, TSUWeakReference;
+@class TSCHChartInfo, TSCHChunkMap;
 
 __attribute__((visibility("hidden")))
 @interface TSCHChunkManager : NSObject
 {
-    TSUWeakReference *mWeakChart;
+    TSCHChartInfo *mWeakChart;
     TSCHChunkMap *mCachedChunkMap;
 }
 
-+ (id)p_allChartDeliveryStylesLocalized:(_Bool)arg1;
-+ (id)p_allNonLocalizedChartDeliveryStyles;
-+ (id)p_allLocalizedChartDeliveryStyles;
-+ (id)p_makeAllChartDeliveryStylesLocalized:(_Bool)arg1;
+- (void).cxx_destruct;
 - (id)containedTextForChartDeliveryStyle:(unsigned long long)arg1 chunkIndex:(unsigned long long)arg2 displayName:(id)arg3;
 - (id)p_nameForMultiDataSetCategory:(unsigned long long)arg1 chart:(id)arg2;
 - (id)p_seriesNameForSeriesAtIndex:(unsigned long long)arg1 withPrefix:(id)arg2 chart:(id)arg3;
@@ -39,15 +36,18 @@ __attribute__((visibility("hidden")))
 - (_Bool)p_legendOnForChart:(id)arg1;
 - (_Bool)p_titleOnForChart:(id)arg1;
 - (_Bool)p_isMultiDataForChart:(id)arg1;
-- (_Bool)p_isPieForChart:(id)arg1;
+- (_Bool)p_supportsByWedgeDeliveryStyle:(id)arg1;
 - (unsigned long long)chunkCountByUpdatingCacheIfNecessaryForChartDeliveryStyle:(unsigned long long)arg1;
 - (void)updateCache:(unsigned long long)arg1;
 - (id)p_cachedChunkMap;
 - (id)p_chunkMapForChart:(id)arg1 chunkStyle:(unsigned long long)arg2 forceUpdateCache:(_Bool)arg3;
 - (id)p_createChunkMapForChart:(id)arg1 chunkStyle:(unsigned long long)arg2;
 - (id)p_chart;
-- (void)dealloc;
 - (id)initWithChartInfo:(id)arg1;
+- (id)p_allChartDeliveryStylesLocalized:(_Bool)arg1;
+- (id)p_allNonLocalizedChartDeliveryStyles;
+- (id)p_allLocalizedChartDeliveryStyles;
+- (id)p_makeAllChartDeliveryStylesLocalized:(_Bool)arg1;
 
 @end
 

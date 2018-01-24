@@ -23,7 +23,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (unsigned char)styleOwnerPathType;
-@property(nonatomic) TSCHChartInfo *chartInfo; // @synthesize chartInfo=mChartInfo;
+@property(nonatomic) __weak TSCHChartInfo *chartInfo; // @synthesize chartInfo=mChartInfo;
+- (void).cxx_destruct;
 - (_Bool)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;

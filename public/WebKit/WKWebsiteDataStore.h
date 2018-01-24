@@ -6,19 +6,22 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 #import "WKObject.h"
 
 @class NSString, WKHTTPCookieStore;
 
-@interface WKWebsiteDataStore : NSObject <WKObject, NSCoding>
+@interface WKWebsiteDataStore : NSObject <WKObject, NSSecureCoding>
 {
     struct ObjectStorage<API::WebsiteDataStore> _websiteDataStore;
 }
 
 + (id)allWebsiteDataTypes;
++ (_Bool)supportsSecureCoding;
 + (id)nonPersistentDataStore;
 + (id)defaultDataStore;
++ (void)_allowWebsiteDataRecordsForAllOrigins;
++ (_Bool)_defaultDataStoreExists;
 + (id)_allWebsiteDataTypesIncludingPrivate;
 @property(readonly) struct Object *_apiObject;
 - (void)removeDataOfTypes:(id)arg1 forDataRecords:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -53,12 +56,17 @@
 - (void)_resourceLoadStatisticsIsGrandfathered:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_resourceLoadStatisticsSetIsGrandfathered:(_Bool)arg1 forHost:(id)arg2;
 - (void)_resourceLoadStatisticsHadUserInteraction:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_resourceLoadStatisticsSetHasHadNonRecentUserInteractionForHost:(id)arg1;
 - (void)_resourceLoadStatisticsSetHadUserInteraction:(_Bool)arg1 forHost:(id)arg2;
 - (void)_resourceLoadStatisticsIsRegisteredAsRedirectingTo:(id)arg1 hostRedirectedTo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_resourceLoadStatisticsIsRegisteredAsSubFrameUnder:(id)arg1 topFrameHost:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_resourceLoadStatisticsIsPrevalentResource:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_resourceLoadStatisticsSetIsPrevalentResource:(_Bool)arg1 forHost:(id)arg2;
 - (void)_resourceLoadStatisticsSetLastSeen:(double)arg1 forHost:(id)arg2;
+@property(nonatomic, setter=_setAllowsCellularAccess:) _Bool _allowsCellularAccess;
+@property(nonatomic, setter=_setBoundInterfaceIdentifier:) NSString *_boundInterfaceIdentifier;
+@property(nonatomic, setter=_setCacheStorageDirectory:) NSString *_cacheStorageDirectory;
+@property(nonatomic, setter=_setCacheStoragePerOriginQuota:) unsigned long long _cacheStoragePerOriginQuota;
 @property(nonatomic, setter=_setResourceLoadStatisticsEnabled:) _Bool _resourceLoadStatisticsEnabled;
 - (void)_fetchDataRecordsOfTypes:(id)arg1 withOptions:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)_initWithConfiguration:(id)arg1;

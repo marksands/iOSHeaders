@@ -20,6 +20,7 @@
 - (void)writePersistentBool:(_Bool)arg1 forKey:(id)arg2;
 - (id)prefsWriter;
 - (id)ckUtilities;
+@property(readonly, nonatomic) _Bool isUsingStingRay;
 
 @end
 

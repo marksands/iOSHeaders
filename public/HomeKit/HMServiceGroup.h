@@ -60,7 +60,7 @@
 - (id)initWithName:(id)arg1 uuid:(id)arg2;
 - (id)init;
 - (void)setApplicationData:(id)arg1;
-@property(readonly, nonatomic) HMApplicationData *applicationData; // @synthesize applicationData=_applicationData;
+@property(readonly, nonatomic) HMApplicationData *applicationData;
 @property(nonatomic) __weak HMHome *home; // @synthesize home=_home;
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(readonly, copy, nonatomic) NSArray *services;

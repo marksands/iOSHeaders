@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 
 + (id)allAnimationFilters;
 + (tvec3_17f03ce0)adjustedScaleForInfoChartScale:(const tvec3_17f03ce0 *)arg1 chartType:(id)arg2 barShape:(int)arg3;
+- (_Bool)supportsCalloutLines;
 - (_Bool)supportsReferenceLines;
 - (_Bool)supportsIncrementalResize;
 - (_Bool)needsRefinementForInwardLayout;
@@ -32,7 +33,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isHomogeneous;
 - (id)renderers;
 - (id)animationFiltersWithDefaultFilters:(id)arg1;
-- (id)sceneWithChartInfo:(id)arg1 layoutSettings:(CDStruct_44ada6bf)arg2;
+- (id)sceneWithChartInfo:(id)arg1 layoutSettings:(CDStruct_b1c75024)arg2;
 - (Class)stageClass;
 - (id)categoryLabelPositioner;
 - (id)valueLabelPositioner;

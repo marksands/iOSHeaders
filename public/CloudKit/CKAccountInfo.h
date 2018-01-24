@@ -13,14 +13,20 @@
 @interface CKAccountInfo : NSObject <NSSecureCoding>
 {
     _Bool _supportsDeviceToDeviceEncryption;
+    _Bool _hasValidCredentials;
+    _Bool _hasEncryptionIdentity;
     long long _accountStatus;
+    NSError *_deviceToDeviceEncryptionAvailabilityError;
     long long _accountPartition;
     NSError *_manateeError;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSError *manateeError; // @synthesize manateeError=_manateeError;
+@property(nonatomic) _Bool hasEncryptionIdentity; // @synthesize hasEncryptionIdentity=_hasEncryptionIdentity;
+@property(nonatomic) _Bool hasValidCredentials; // @synthesize hasValidCredentials=_hasValidCredentials;
 @property(nonatomic) long long accountPartition; // @synthesize accountPartition=_accountPartition;
+@property(retain, nonatomic) NSError *deviceToDeviceEncryptionAvailabilityError; // @synthesize deviceToDeviceEncryptionAvailabilityError=_deviceToDeviceEncryptionAvailabilityError;
 @property(nonatomic) _Bool supportsDeviceToDeviceEncryption; // @synthesize supportsDeviceToDeviceEncryption=_supportsDeviceToDeviceEncryption;
 @property(nonatomic) long long accountStatus; // @synthesize accountStatus=_accountStatus;
 - (void).cxx_destruct;
@@ -31,7 +37,6 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
-@property(retain, nonatomic) NSError *manateeAvailabilityError;
 
 @end
 

@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (id)seriesFillLabelUIString;
 - (id)inspectorLocalizedValueLabelsDisclosureTitle;
 - (id)inspectorLocalizedValueLabelsTabName;
 - (_Bool)supportsCalloutLines;

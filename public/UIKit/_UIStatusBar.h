@@ -68,6 +68,7 @@
 - (id)itemWithIdentifier:(id)arg1;
 - (struct CGSize)intrinsicContentSize;
 @property(readonly, nonatomic, getter=areAnimationsEnabled) _Bool animationsEnabled;
+@property(readonly, nonatomic) unsigned int animationContextId;
 @property(readonly, nonatomic) UIView *containerView;
 - (struct CGRect)frameForPartWithIdentifier:(id)arg1;
 - (id)actionForPartWithIdentifier:(id)arg1;

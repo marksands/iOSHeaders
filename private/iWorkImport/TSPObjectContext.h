@@ -12,20 +12,23 @@
 #import "TSPPassphraseConsumer.h"
 #import "TSPSupportDirectoryDelegate.h"
 
-@class NSData, NSHashTable, NSMapTable, NSMutableArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSProgress, NSRecursiveLock, NSSet, NSString, NSURL, NSUUID, SFUCryptoKey, TSPComponentManager, TSPDataDownloadManager, TSPDataManager, TSPDocumentMetadata, TSPDocumentProperties, TSPDocumentRevision, TSPDocumentSaveOperationState, TSPObject, TSPObjectContainer, TSPObjectUUIDMap, TSPPackage, TSPPackageWriteCoordinator, TSPRegistry, TSPResourceContext, TSPSupportManager, TSPSupportMetadata, TSUTemporaryDirectory;
+@class NSData, NSHashTable, NSMapTable, NSMutableArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSProgress, NSRecursiveLock, NSSet, NSString, NSURL, NSUUID, SFUCryptoKey, TSPCancellationState, TSPComponentManager, TSPDataDownloadManager, TSPDataManager, TSPDocumentMetadata, TSPDocumentProperties, TSPDocumentRevision, TSPDocumentSaveOperationState, TSPObject, TSPObjectContainer, TSPObjectUUIDMap, TSPPackage, TSPPackageWriteCoordinator, TSPRegistry, TSPResourceContext, TSPSupportManager, TSPSupportMetadata, TSUTemporaryDirectory;
 
 __attribute__((visibility("hidden")))
-@interface TSPObjectContext : NSObject <TSPFileCoordinatorDelegate, TSPObjectDelegate, TSPLazyReferenceDelegate, TSPSupportDirectoryDelegate, TSPPassphraseConsumer>
+@interface TSPObjectContext : NSObject <TSPFileCoordinatorDelegate, TSPLazyReferenceDelegate, TSPObjectDelegate, TSPSupportDirectoryDelegate, TSPPassphraseConsumer>
 {
     // Error parsing type: Aq, name: _lastObjectIdentifier
     // Error parsing type: Aq, name: _modifyObjectToken
     // Error parsing type: Ai, name: _modifyObjectCount
+    // Error parsing type: AB, name: _didClose
     unsigned int _mode;
     SFUCryptoKey *_decryptionKey;
     NSURL *_documentURL;
     TSPPackage *_documentPackage;
     TSPPackage *_supportPackage;
     NSURL *_supportURL;
+    NSProgress *_readProgress;
+    TSPCancellationState *_readCancellationState;
     TSPDocumentProperties *_documentProperties;
     NSMapTable *_objects;
     TSPObjectUUIDMap *_objectUUIDMap;
@@ -275,6 +278,7 @@ __attribute__((visibility("hidden")))
 - (void)close;
 - (void)dealloc;
 - (void)createInternalMetadataIfNeeded;
+@property(readonly, nonatomic) _Bool isReadCancelled;
 - (id)initWithURL:(id)arg1 delegate:(id)arg2 registry:(id)arg3 mode:(unsigned int)arg4 passphrase:(id)arg5 skipDocumentUpgrade:(_Bool)arg6 error:(id *)arg7;
 - (id)initWithURL:(id)arg1 delegate:(id)arg2 mode:(unsigned int)arg3 passphrase:(id)arg4 skipDocumentUpgrade:(_Bool)arg5 error:(id *)arg6;
 - (id)initWithURL:(id)arg1 delegate:(id)arg2 passphrase:(id)arg3 skipDocumentUpgrade:(_Bool)arg4 error:(id *)arg5;

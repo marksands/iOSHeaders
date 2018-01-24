@@ -24,6 +24,7 @@
     int _identityUpdateToken;
     CKContainerID *_containerID;
     CKRecordID *_containerScopedUserID;
+    CKRecordID *_orgAdminUserID;
     CKContainerOptions *_options;
     CKDatabase *_privateCloudDatabase;
     CKDatabase *_publicCloudDatabase;
@@ -80,6 +81,7 @@
 @property(retain, nonatomic) CKDatabase *publicCloudDatabase; // @synthesize publicCloudDatabase=_publicCloudDatabase;
 @property(retain, nonatomic) CKDatabase *privateCloudDatabase; // @synthesize privateCloudDatabase=_privateCloudDatabase;
 @property(retain, nonatomic) CKContainerOptions *options; // @synthesize options=_options;
+@property(retain, nonatomic) CKRecordID *orgAdminUserID; // @synthesize orgAdminUserID=_orgAdminUserID;
 @property(retain, nonatomic) CKRecordID *containerScopedUserID; // @synthesize containerScopedUserID=_containerScopedUserID;
 @property(retain, nonatomic) CKContainerID *containerID; // @synthesize containerID=_containerID;
 - (void).cxx_destruct;
@@ -163,7 +165,11 @@
 - (void)discoverUserIdentityWithEmailAddress:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_discoverUserIdentityWithLookupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)discoverAllIdentitiesWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)fetchOrgAdminUserRecordIDWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)fetchUserRecordIDWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_fetchImportantUserRecordIDOfType:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)_importantUserRecordIDOfType:(long long)arg1;
+- (void)_setImportantUserRecordID:(id)arg1 ofType:(long long)arg2;
 - (void)getNewWebSharingIdentityDataWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)getNewWebSharingIdentity:(CDUnknownBlockType)arg1;
 - (void)decryptPersonalInfoOnShare:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

@@ -9,15 +9,16 @@
 #import "TSDContainerRep.h"
 #import "TSWPStorageObserver.h"
 
-@class NSObject<TSDContainerInfo>, NSString, TSWPRep;
+@class NSArray, NSObject<TSDContainerInfo>, NSString, TSWPRep;
 
 __attribute__((visibility("hidden")))
 @interface KNNoteRep : TSDRep <TSDContainerRep, TSWPStorageObserver>
 {
-    TSWPRep *mContainedRep;
+    TSWPRep *_containedRep;
 }
 
-@property(readonly, nonatomic) TSWPRep *containedRep; // @synthesize containedRep=mContainedRep;
+@property(readonly, nonatomic) TSWPRep *containedRep; // @synthesize containedRep=_containedRep;
+- (void).cxx_destruct;
 - (void)storage:(id)arg1 didChangeRange:(struct _NSRange)arg2 delta:(long long)arg3 broadcastKind:(int)arg4;
 - (void)willEndEditingContainedRep;
 - (void)willBeginEditingContainedRep;
@@ -29,8 +30,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldShowCollaboratorCursorHighlight;
 - (id)editingRep;
 - (double)columnHeight;
-- (id)hitRep:(struct CGPoint)arg1;
-- (id)childReps;
+@property(readonly, nonatomic) NSArray *childReps;
 - (void)updateChildrenFromLayout;
 - (void)addAdditionalChildLayersToArray:(id)arg1;
 - (_Bool)canSelectChildRep:(id)arg1;

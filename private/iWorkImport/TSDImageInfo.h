@@ -6,6 +6,7 @@
 
 #import <iWorkImport/TSDMediaInfo.h>
 
+#import "TSDAttachmentAwareContainerInfo.h"
 #import "TSDCompatibilityAwareMediaContainer.h"
 #import "TSDContainerInfo.h"
 #import "TSDMixing.h"
@@ -13,10 +14,10 @@
 #import "TSKTransformableObject.h"
 #import "TSSPresetSource.h"
 
-@class NSObject<TSDContainerInfo>, NSString, TSDImageAdjustments, TSDInfoGeometry, TSDMaskInfo, TSDMediaStyle, TSPData, TSPObject<TSDOwningAttachment>, TSUBezierPath;
+@class NSArray, NSObject<TSDContainerInfo>, NSSet, NSString, TSDImageAdjustments, TSDImageDataHelper, TSDInfoGeometry, TSDMaskInfo, TSDMediaStyle, TSPData, TSPObject<TSDOwningAttachment>, TSUBezierPath;
 
 __attribute__((visibility("hidden")))
-@interface TSDImageInfo : TSDMediaInfo <TSDReducibleImageContainer, TSDContainerInfo, TSDMixing, TSSPresetSource, TSKTransformableObject, TSDCompatibilityAwareMediaContainer>
+@interface TSDImageInfo : TSDMediaInfo <TSDReducibleImageContainer, TSDContainerInfo, TSDMixing, TSSPresetSource, TSKTransformableObject, TSDCompatibilityAwareMediaContainer, TSDAttachmentAwareContainerInfo>
 {
     TSPData *mImageData;
     TSPData *mThumbnailImageData;
@@ -24,6 +25,8 @@ __attribute__((visibility("hidden")))
     TSDImageAdjustments *mImageAdjustments;
     TSPData *mAdjustedImageData;
     TSPData *mThumbnailAdjustedImageData;
+    TSDImageDataHelper *mImageDataHelper;
+    TSDImageDataHelper *mAdjustedImageDataHelper;
     TSPData *mEnhancedImageData;
     TSDMediaStyle *mStyle;
     TSDMaskInfo *mMaskInfo;
@@ -58,6 +61,8 @@ __attribute__((visibility("hidden")))
 - (void)updateGeometryToReplaceMediaInfo:(id)arg1;
 - (void)scaleDownSizeToFitWithinSize:(struct CGSize)arg1;
 - (struct CGPoint)centerForReplacingWithNewMedia;
+- (id)promisedDataForType:(id)arg1;
+- (id)typesToPromiseWhenCopyingSingleDrawable;
 - (_Bool)hasPDFDataForCopy;
 - (_Bool)isPDF;
 - (id)updatedMaskInfoGeometryForImageDraggedBy:(struct CGPoint)arg1;
@@ -81,13 +86,13 @@ __attribute__((visibility("hidden")))
 - (_Bool)needsDownload;
 - (long long)mediaCompatibilityTypeForData:(id)arg1 associatedHint:(id)arg2;
 - (struct CGSize)targetSizeForImageData:(id)arg1 associatedHint:(id)arg2;
-- (id)datasForReplacingMediaContentsWithAssociatedHints;
+@property(readonly, nonatomic) NSSet *infosToObserveForAttachedInfo;
 - (_Bool)p_aspectRatioUnlockedResizeWouldCauseSkew;
 - (_Bool)allowsParentGroupToBeResizedWithoutAspectRatioLock;
 - (struct CGAffineTransform)computeFullTransform;
 - (id)geometryWithMask;
 - (id)infoForSelectionPath:(id)arg1;
-- (id)childInfos;
+@property(readonly, nonatomic) NSArray *childInfos;
 - (id)styleIdentifierTemplateForNewPreset;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
@@ -105,7 +110,6 @@ __attribute__((visibility("hidden")))
 - (id)copyWithContext:(id)arg1;
 - (id)copyWithContext:(id)arg1 style:(id)arg2;
 - (void)dealloc;
-- (id)initWithContext:(id)arg1 geometry:(id)arg2;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2 style:(id)arg3 imageData:(id)arg4 thumbnailImageData:(id)arg5 originalImageData:(id)arg6 imageAdjustments:(id)arg7 adjustedImageData:(id)arg8 thumbnailAdjustedImageData:(id)arg9;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2 style:(id)arg3 imageData:(id)arg4 originalImageData:(id)arg5;
 @property(retain, nonatomic) TSPData *enhancedImageData;

@@ -26,9 +26,14 @@
 @property(readonly, copy) NSString *description;
 - (void)technique:(id)arg1 didFailWithError:(id)arg2;
 - (void)technique:(id)arg1 didOutputResultData:(id)arg2 timestamp:(double)arg3 context:(id)arg4;
+- (void)replaceTechniques:(id)arg1;
+- (id)techniqueOfClass:(Class)arg1;
 - (id)processResultData:(id)arg1 timestamp:(double)arg2 context:(id)arg3;
+- (id)predictedResultDataAtTimestamp:(double)arg1 context:(id)arg2;
 - (void)requestResultDataAtTimestamp:(double)arg1 context:(id)arg2;
 - (id)processData:(id)arg1;
+- (void)reconfigureFrom:(id)arg1;
+- (id)resultDataClasses;
 - (unsigned long long)requiredSensorDataTypes;
 - (void)dealloc;
 - (id)initWithTechniques:(id)arg1;

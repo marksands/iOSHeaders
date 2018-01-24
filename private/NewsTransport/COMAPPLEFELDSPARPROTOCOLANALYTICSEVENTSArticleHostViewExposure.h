@@ -44,6 +44,7 @@
     int _coverArticleDisplayRank;
     int _coverArticleFeatureType;
     NSString *_creativeId;
+    int _curatedContentType;
     int _displayRank;
     int _feedAutoSubscribeType;
     int _feedCellHostType;
@@ -128,7 +129,7 @@
     _Bool _isVideoInFeed;
     _Bool _subscriptionOnlyArticle;
     _Bool _viewFromNotificationDirectOpen;
-    CDStruct_5e5ef9bf _has;
+    CDStruct_23675145 _has;
 }
 
 + (Class)surfacedByTagIdsType;
@@ -239,6 +240,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsCuratedContentType:(id)arg1;
+- (id)curatedContentTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasCuratedContentType;
+@property(nonatomic) int curatedContentType; // @synthesize curatedContentType=_curatedContentType;
 @property(readonly, nonatomic) _Bool hasIadNativeCampaignAd;
 - (id)surfacedByTagIdsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)surfacedByTagIdsCount;

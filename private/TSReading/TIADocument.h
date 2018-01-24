@@ -76,7 +76,7 @@
 @property(readonly, nonatomic) NSString *documentCachePath;
 - (id)documentUUID;
 - (_Bool)hasUnsavedChanges;
-@property(readonly, nonatomic) TSADocumentRoot *documentRoot;
+@property(readonly, retain, nonatomic) TSADocumentRoot *documentRoot;
 - (void)dealloc;
 - (id)initWithTemporaryFileURL:(id)arg1;
 

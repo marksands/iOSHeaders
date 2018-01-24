@@ -24,6 +24,7 @@
 @property(nonatomic) _Bool enableSFO; // @synthesize enableSFO=_enableSFO;
 @property(retain) NSObject<OS_nw_parameters> *internalParameters; // @synthesize internalParameters=_internalParameters;
 - (void).cxx_destruct;
+@property(nonatomic) _Bool allowUnusableAddresses;
 - (id)createProtocolBufferObject;
 @property(nonatomic) NSData *metadata;
 - (unsigned long long)hash;

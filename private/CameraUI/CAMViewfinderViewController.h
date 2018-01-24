@@ -175,6 +175,7 @@
     UIAlertController *__flashOrTorchUnavailableAlertController;
     CAMDisabledModeOverlayView *__disabledModeOverlayView;
     NSMutableSet *__filterNamesSelectedBeforeCapture;
+    long long __lastZoomInteractionType;
     CAMBarsAccessibilityHUDManager *__topBarHUDManager;
     CAMBarsAccessibilityHUDManager *__bottomBarHUDManager;
     UISelectionFeedbackGenerator *__modeSelectionFeedbackGenerator;
@@ -218,6 +219,7 @@
 @property(readonly, nonatomic) UISelectionFeedbackGenerator *_modeSelectionFeedbackGenerator; // @synthesize _modeSelectionFeedbackGenerator=__modeSelectionFeedbackGenerator;
 @property(retain, nonatomic, setter=_setBottomBarAccessibilityHUDManager:) CAMBarsAccessibilityHUDManager *_bottomBarHUDManager; // @synthesize _bottomBarHUDManager=__bottomBarHUDManager;
 @property(retain, nonatomic, setter=_setTopBarAccessibilityHUDManager:) CAMBarsAccessibilityHUDManager *_topBarHUDManager; // @synthesize _topBarHUDManager=__topBarHUDManager;
+@property(nonatomic, setter=_setLastZoomInteractionType:) long long _lastZoomInteractionType; // @synthesize _lastZoomInteractionType=__lastZoomInteractionType;
 @property(readonly, nonatomic) NSMutableSet *_filterNamesSelectedBeforeCapture; // @synthesize _filterNamesSelectedBeforeCapture=__filterNamesSelectedBeforeCapture;
 @property(retain, nonatomic, setter=_setDisabledModeOverlayView:) CAMDisabledModeOverlayView *_disabledModeOverlayView; // @synthesize _disabledModeOverlayView=__disabledModeOverlayView;
 @property(nonatomic, getter=_isModeDisabledForMultitasking, setter=_setModeDisabledForMultitasking:) _Bool _modeDisabledForMultitasking; // @synthesize _modeDisabledForMultitasking=__modeDisabledForMultitasking;
@@ -379,7 +381,7 @@
 - (void)_updateTorchAggregateDictionaryForRequest:(id)arg1 isTorchActive:(_Bool)arg2;
 - (void)_updateLivePhotoAggregateDictionaryForRequest:(id)arg1;
 - (void)_updateVideoConfigurationAggregateDictionaryForRequest:(id)arg1;
-- (void)_updateZoomAggregateDictionaryForMode:(long long)arg1 device:(long long)arg2 videoConfiguration:(long long)arg3 zoomFactor:(double)arg4;
+- (void)_updateZoomAggregateDictionaryForMode:(long long)arg1 device:(long long)arg2 videoConfiguration:(long long)arg3 zoomFactor:(double)arg4 zoomInteractionType:(long long)arg5;
 - (void)_updateZoomAggregateDictionaryForRequest:(id)arg1 response:(id)arg2;
 - (void)_updateLightingAggregateDictionariesForRequest:(id)arg1;
 - (void)_resetAggregateInfoForPhotoFilters;
@@ -436,6 +438,7 @@
 - (void)pressShutterForRemoteShutter;
 - (void)_dismissDiskSpaceAlertViewAnimated:(_Bool)arg1;
 - (void)_showDiskSpaceAlertView;
+- (void)_aggregateLowDiskEventWithIdentifier:(id)arg1;
 - (void)_updateDiskSpaceAlertViewVisibilityAnimated:(_Bool)arg1;
 - (_Bool)_hasBeenPromptedForICPLToday;
 - (void)_handleTimelapseLowDiskSpaceNotification:(id)arg1;
@@ -474,6 +477,7 @@
 - (void)_zoomSliderValueDidChange:(id)arg1 forEvent:(id)arg2;
 - (double)_zoomFactorForZoomSliderValue:(double)arg1;
 - (double)_zoomSliderValueForZoomFactor:(double)arg1;
+- (void)_resetZoom;
 - (void)_changeToZoomFactor:(double)arg1 rampDuration:(double)arg2 shouldAnimate:(_Bool)arg3;
 - (void)_updateZoomControlWithZoomFactor:(double)arg1 forGraphConfiguration:(id)arg2;
 - (void)captureController:(id)arg1 didChangeRampingVideoZoom:(_Bool)arg2;

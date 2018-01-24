@@ -11,7 +11,7 @@
 #import "HLPHelpTopicViewControllerDelegate.h"
 #import "HLPReachabilityManagerDelegate.h"
 
-@class HLPHelpBookController, HLPHelpLoadingView, HLPHelpLocaleController, HLPHelpTableOfContentViewController, HLPHelpTopicViewController, HLPHelpUsageController, HLPReachabilityManager, NSArray, NSLayoutConstraint, NSMutableDictionary, NSString, NSURL, UIBarButtonItem;
+@class HLPHelpBookController, HLPHelpLoadingView, HLPHelpLocaleController, HLPHelpTableOfContentViewController, HLPHelpTopicViewController, HLPHelpUsageController, HLPReachabilityManager, NSArray, NSLayoutConstraint, NSMutableDictionary, NSString, NSURL, UIBarButtonItem, UIView;
 
 @interface HLPHelpViewController : UIViewController <HLPHelpTableOfContentViewControllerDelegate, HLPHelpTopicViewControllerDelegate, HLPReachabilityManagerDelegate, HLPHelpLoadingViewDelegate>
 {
@@ -22,6 +22,7 @@
     NSMutableDictionary *_localHelpBookNameIDMap;
     UIBarButtonItem *_doneBarButtonItem;
     NSLayoutConstraint *_loadingViewTopConstraint;
+    UIView *_fullBookViewSeparator;
     HLPHelpUsageController *_usageController;
     HLPHelpLocaleController *_localeListController;
     HLPHelpBookController *_helpBookController;
@@ -30,6 +31,7 @@
     _Bool _displayHelpTopicsOnly;
     _Bool _showTopicNameAsTitle;
     _Bool _showTopicViewOnLoad;
+    _Bool __fullBookView;
     id <HLPHelpViewControllerDelegate> _delegate;
     NSString *_identifier;
     NSString *_version;
@@ -48,6 +50,7 @@
 + (id)helpViewControllerWithIdentifier:(id)arg1 version:(id)arg2;
 + (id)helpViewControllerWithLocalHelpBookFileURL:(id)arg1;
 + (id)helpViewController;
+@property(nonatomic, getter=_fullBookView, setter=_setFullBookView:) _Bool _fullBookView; // @synthesize _fullBookView=__fullBookView;
 @property(retain, nonatomic) HLPHelpTableOfContentViewController *tableOfContentViewController; // @synthesize tableOfContentViewController=_tableOfContentViewController;
 @property(retain, nonatomic) HLPHelpLoadingView *loadingView; // @synthesize loadingView=_loadingView;
 @property(retain, nonatomic) HLPReachabilityManager *reachabilityManager; // @synthesize reachabilityManager=_reachabilityManager;
@@ -83,10 +86,14 @@
 - (void)loadFromStaticServer;
 - (void)loadHelpBook;
 - (void)displayHelpBookWithLocale:(id)arg1;
+- (void)loadHelpTopicID:(id)arg1;
+- (void)setupTopicViewController;
 - (void)setupTableContentViewController;
 - (void)showTopicView;
 - (void)updateDoneButton;
 - (void)updateTOCButton;
+- (void)updateChildViewConstraints;
+- (void)setupFullBookView;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

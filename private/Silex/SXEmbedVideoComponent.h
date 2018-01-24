@@ -13,6 +13,7 @@
 }
 
 + (id)typeString;
+- (unsigned long long)traits;
 - (id)URLWithValue:(id)arg1 withType:(int)arg2;
 
 // Remaining properties

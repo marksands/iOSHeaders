@@ -31,13 +31,11 @@
     BLTSectionConfiguration *_sectionConfiguration;
     BLTUserNotificationList *_userNotificationList;
     BLTBulletinFetcher *_bulletinFetcher;
-    NSMutableDictionary *_transcodedAttachmentsForBulletinID;
     BLTPingSubscriberManager *_pingSubscriberManager;
 }
 
 + (id)sharedDistributor;
 @property(retain, nonatomic) BLTPingSubscriberManager *pingSubscriberManager; // @synthesize pingSubscriberManager=_pingSubscriberManager;
-@property(retain, nonatomic) NSMutableDictionary *transcodedAttachmentsForBulletinID; // @synthesize transcodedAttachmentsForBulletinID=_transcodedAttachmentsForBulletinID;
 @property(retain, nonatomic) BLTBulletinFetcher *bulletinFetcher; // @synthesize bulletinFetcher=_bulletinFetcher;
 @property(retain, nonatomic) BLTUserNotificationList *userNotificationList; // @synthesize userNotificationList=_userNotificationList;
 @property(retain, nonatomic) BLTSectionConfiguration *sectionConfiguration; // @synthesize sectionConfiguration=_sectionConfiguration;

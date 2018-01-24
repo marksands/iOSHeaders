@@ -7,6 +7,7 @@
 #import "NSData.h"
 
 @interface NSData (SafariCoreExtras)
+- (id)safari_dataByAppendingData:(id)arg1;
 - (id)safari_descriptionWithoutSpaces;
 - (id)safari_SHA1Hash;
 - (unsigned long long)safari_hashMD5;

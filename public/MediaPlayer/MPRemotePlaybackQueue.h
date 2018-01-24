@@ -6,13 +6,16 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class NSDictionary, NSString;
 
-@interface MPRemotePlaybackQueue : NSObject
+@interface MPRemotePlaybackQueue : NSObject <NSSecureCoding>
 {
     struct _MRSystemAppPlaybackQueue *_mediaRemotePlaybackQueue;
 }
 
++ (_Bool)supportsSecureCoding;
 + (void)registerRemotePlaybackQueueClass:(Class)arg1 forPlaybackQueueType:(int)arg2;
 + (id)queueWithMediaRemotePlaybackQueue:(struct _MRSystemAppPlaybackQueue *)arg1;
 - (struct _MRSystemAppPlaybackQueue *)_mediaRemotePlaybackQueue;
@@ -23,6 +26,8 @@
 @property(copy, nonatomic) NSString *siriRecommendationIdentifier;
 @property(readonly, copy, nonatomic) NSString *siriAssetInfo;
 @property(nonatomic, getter=isRequestingImmediatePlayback) _Bool requestingImmediatePlayback;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)initWithMediaRemotePlaybackQueue:(struct _MRSystemAppPlaybackQueue *)arg1;

@@ -25,6 +25,7 @@
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToURI:(id)arg1;
 @property(readonly, nonatomic) NSString *unprefixedURI;
 - (id)initWithUnprefixedURI:(id)arg1;
 - (id)initWithPrefixedURI:(id)arg1;

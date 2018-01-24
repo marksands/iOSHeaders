@@ -6,13 +6,13 @@
 
 #import "HMFObject.h"
 
+#import "HMDHomeMessageReceiver.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
 @class HMDAppleMediaAccessory, HMFMessageDispatcher, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDAccessorySymptomHandler : HMFObject <NSSecureCoding, HMFLogging, HMFMessageReceiver>
+@interface HMDAccessorySymptomHandler : HMFObject <NSSecureCoding, HMFLogging, HMDHomeMessageReceiver>
 {
     _Bool _canInitiateFix;
     int _deviceProblemNotificationToken;
@@ -25,6 +25,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)hasMessageReceiverChildren;
 + (id)logCategory;
 @property(nonatomic) long long fixState; // @synthesize fixState=_fixState;
 @property(nonatomic) _Bool canInitiateFix; // @synthesize canInitiateFix=_canInitiateFix;
@@ -57,6 +58,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

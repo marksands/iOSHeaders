@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MRStandardCallback, NSArray, NSObject<OS_dispatch_source>;
+@class MSVCallback, NSArray, NSObject<OS_dispatch_source>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface MRAVOutputContextModification : NSObject
@@ -15,14 +15,16 @@ __attribute__((visibility("hidden")))
     _Bool _valid;
     unsigned long long _modificationType;
     NSArray *_outputDevices;
-    MRStandardCallback *_callback;
+    MSVCallback *_callback;
+    NSString *_password;
 }
 
 + (id)replaceModificationWithDevices:(id)arg1 callback:(id)arg2;
 + (id)removeModificationWithDevices:(id)arg1 callback:(id)arg2;
 + (id)addModificationWithDevices:(id)arg1 callback:(id)arg2;
+@property(copy, nonatomic) NSString *password; // @synthesize password=_password;
 @property(readonly, nonatomic) _Bool valid; // @synthesize valid=_valid;
-@property(readonly, nonatomic) MRStandardCallback *callback; // @synthesize callback=_callback;
+@property(readonly, nonatomic) MSVCallback *callback; // @synthesize callback=_callback;
 @property(readonly, nonatomic) NSArray *outputDevices; // @synthesize outputDevices=_outputDevices;
 @property(readonly, nonatomic) unsigned long long modificationType; // @synthesize modificationType=_modificationType;
 - (void)invalidate;

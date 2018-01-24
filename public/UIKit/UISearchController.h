@@ -66,6 +66,7 @@
 - (void)_updateSearchBarMaskIfNecessary;
 - (void)_updateTableHeaderBackgroundViewInTableView:(id)arg1 amountScrolledUnder:(double)arg2;
 @property(readonly, nonatomic) _Bool _searchbarWasTableHeaderView;
+- (struct UIEdgeInsets)_edgeInsetsForChildViewController:(id)arg1 insetsAreAbsolute:(_Bool *)arg2;
 - (void)_presentingViewControllerDidChange:(id)arg1;
 - (void)_presentingViewControllerWillChange:(id)arg1;
 - (void)_updateSearchResultsControllerWithDelta:(struct CGSize)arg1;

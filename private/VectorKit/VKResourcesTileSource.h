@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void)cancelDownload:(const struct _GEOTileKey *)arg1;
-- (void)performDownload:(const struct _GEOTileKey *)arg1;
+- (void)performDownload:(const struct _GEOTileKey *)arg1 isPrefetch:(_Bool)arg2;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
 - (struct VKTileKey)sourceKeyForRenderKey:(const struct VKTileKey *)arg1;
 - (_Bool)canFetchTileForKey:(const struct VKTileKey *)arg1;

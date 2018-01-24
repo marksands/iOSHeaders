@@ -9,6 +9,8 @@
 @class NSArray, NSData, NSDictionary, NSString, NSURL, SiriCoreLocalSpeechDESRecord, SiriCoreLocalSpeechUserData;
 
 @protocol AFSpeechService <NSObject>
+- (oneway void)purgeInstalledAssetsWithCompletion:(void (^)(NSNumber *, NSError *))arg1;
+- (oneway void)getInstalledAssetSizeWithCompletion:(void (^)(NSNumber *, NSError *))arg1;
 - (oneway void)runAdaptationRecipeEvaluation:(NSDictionary *)arg1 localSpeechDESRecord:(SiriCoreLocalSpeechDESRecord *)arg2 attachments:(NSArray *)arg3 completion:(void (^)(NSDictionary *, NSData *, NSError *))arg4;
 - (oneway void)fetchUserDataForLanguage:(NSString *)arg1 completion:(void (^)(SiriCoreLocalSpeechUserData *))arg2;
 - (oneway void)fetchAssetsForLanguage:(NSString *)arg1 completion:(void (^)(NSString *, NSError *))arg2;

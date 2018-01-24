@@ -57,7 +57,7 @@
 @property(readonly, nonatomic) HFItem *hu_presentedItem;
 - (void)hideAuxiliaryViewForQuickControlContent:(id)arg1;
 - (void)quickControlContent:(id)arg1 showAuxiliaryView:(id)arg2;
-- (void)quickControlContentWantsDismissal:(id)arg1;
+- (void)quickControlContent:(id)arg1 requestDismissalOfType:(unsigned long long)arg2;
 - (void)controllerCoordinator:(id)arg1 didUpdateReachability:(_Bool)arg2;
 - (void)controllerCoordinator:(id)arg1 didUpdateStatusWithPrimaryText:(id)arg2 secondaryText:(id)arg3;
 - (void)controllerCoordinator:(id)arg1 didUpdateIconDescriptor:(id)arg2 showOffState:(_Bool)arg3;
@@ -79,7 +79,7 @@
 - (void)presentControlFromSourceRect:(struct CGRect)arg1 animated:(_Bool)arg2;
 - (struct CGAffineTransform)sourceViewTransformForPresentationProgress:(double)arg1;
 - (void)_updateUserInteractionEnabledForActiveControl;
-- (void)_updateControlReachability;
+- (void)_updateReachabilityStateForActiveControl;
 - (void)_updateIconDescriptorAnimated:(_Bool)arg1;
 - (void)_updateControlStatusText;
 - (id)presentAlternateActionViewControllerAnimated:(_Bool)arg1;

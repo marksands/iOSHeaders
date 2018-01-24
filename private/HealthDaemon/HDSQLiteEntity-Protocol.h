@@ -11,6 +11,7 @@
 @protocol HDSQLiteEntity <NSObject>
 + (NSString *)disambiguatedSQLForProperty:(NSString *)arg1;
 + (NSSet *)joinClausesForProperty:(NSString *)arg1;
++ (NSSet *)checkConstraints;
 + (NSArray *)allDatabaseColumnNames;
 + (NSString *)disambiguatedDatabaseTable;
 + (Class)entityForProperty:(NSString *)arg1;

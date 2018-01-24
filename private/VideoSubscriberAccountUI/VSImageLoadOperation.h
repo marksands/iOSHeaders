@@ -6,16 +6,18 @@
 
 #import "VSAsyncOperation.h"
 
-@class NSItemProvider, VSAuditToken, VSOptional;
+@class NSItemProvider, NSURLSessionTask, VSAuditToken, VSOptional;
 
 @interface VSImageLoadOperation : VSAsyncOperation
 {
     NSItemProvider *_itemProvider;
     VSAuditToken *_auditToken;
     VSOptional *_result;
+    NSURLSessionTask *_task;
     struct CGSize _preferredImageSize;
 }
 
+@property(retain, nonatomic) NSURLSessionTask *task; // @synthesize task=_task;
 @property(retain, nonatomic) VSOptional *result; // @synthesize result=_result;
 @property(copy, nonatomic) VSAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 @property(readonly, nonatomic) struct CGSize preferredImageSize; // @synthesize preferredImageSize=_preferredImageSize;

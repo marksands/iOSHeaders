@@ -12,8 +12,8 @@
 {
     NSDateInterval *_dateInterval;
     long long _activityCacheIndex;
-    vector_4f6645df _heartRateSamples;
-    vector_53e1d725 _workouts;
+    vector_8ece868d _heartRateSamples;
+    vector_89c96404 _workouts;
     HKQuantity *_restingHeartRate;
     HKQuantity *_walkingAverageHeartRate;
     HKHeartRateSummaryStatistics *_allDayStatistics;
@@ -36,13 +36,13 @@
 - (id)_recoveryReadingsForWorkoutStatistics:(id)arg1;
 - (void)_updateMetricsForWorkoutStatistics:(id)arg1;
 - (id)_averageCalculatorForWorkoutStatistics:(id)arg1;
-- (void)_addHeartRateStatisticsForNewWorkouts:(const vector_53e1d725 *)arg1;
-- (void)addWorkouts:(const vector_53e1d725 *)arg1;
+- (void)_addHeartRateStatisticsForNewWorkouts:(const vector_89c96404 *)arg1;
+- (void)addWorkouts:(const vector_89c96404 *)arg1;
 - (void)_updateMetricsForSessionStatistics:(id)arg1;
 - (void)_addBeatsPerMinute:(double)arg1 time:(double)arg2 toSessionStatistics:(id)arg3;
-- (void)_addHeartRateSamples:(const vector_4f6645df *)arg1 toStatistics:(id)arg2;
-- (void)_addHeartRateSamplesToAllStatistics:(const vector_4f6645df *)arg1;
-- (void)addHeartRateSamples:(const vector_4f6645df *)arg1;
+- (void)_addHeartRateSamples:(const vector_8ece868d *)arg1 toStatistics:(id)arg2;
+- (void)_addHeartRateSamplesToAllStatistics:(const vector_8ece868d *)arg1;
+- (void)addHeartRateSamples:(const vector_8ece868d *)arg1;
 - (id)heartRateDateInterval;
 - (id)walkingAverageHeartRate;
 - (id)restingHeartRate;

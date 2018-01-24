@@ -20,8 +20,6 @@
     NSString *_serviceName;
 }
 
-+ (id)daemonPublicListenerWithExportedObject:(id)arg1;
-+ (id)daemonListenerWithExportedObject:(id)arg1;
 @property(nonatomic) _Bool isResumed; // @synthesize isResumed=_isResumed;
 @property(retain, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
 @property(retain, nonatomic) NSXPCListener *listener; // @synthesize listener=_listener;

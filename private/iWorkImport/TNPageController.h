@@ -78,8 +78,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)p_headersOrFootersContainPageNumberRelatedAttachments;
 - (void)p_didEndDynamicContentScaleChange:(id)arg1;
 - (void)p_willBeginDynamicContentScaleChange:(id)arg1;
-- (void)i_setLayer:(id)arg1 forHeaderType:(int)arg2 fragment:(int)arg3 atPageCoordinate:(struct TSUCellCoord)arg4;
-- (id)i_layerForHeaderType:(int)arg1 fragment:(int)arg2 atPageCoordinate:(struct TSUCellCoord)arg3;
+- (void)i_setLayer:(id)arg1 forHeaderType:(long long)arg2 fragment:(long long)arg3 atPageCoordinate:(struct TSUCellCoord)arg4;
+- (id)i_layerForHeaderType:(long long)arg1 fragment:(long long)arg2 atPageCoordinate:(struct TSUCellCoord)arg3;
 - (void)invalidatePageLayout;
 - (void)p_invalidateCachedAutoFitContentScaleForSheet:(id)arg1 notify:(_Bool)arg2;
 - (void)invalidateCachedAutoFitContentScaleForSheet:(id)arg1;

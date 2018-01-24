@@ -30,6 +30,7 @@
     _Bool _viewSizeIsTransitioning;
     struct UIEdgeInsets _verticalScrollIndicatorBaseInsets;
     struct UIEdgeInsets _horizontalScrollIndicatorBaseInsets;
+    _Bool _defersAddingRemoteViewController;
     id <SFSafariViewControllerDelegate> _delegate;
     UIColor *_preferredBarTintColor;
     UIColor *_preferredControlTintColor;
@@ -38,6 +39,7 @@
     NSURL *_initialURL;
 }
 
+@property(nonatomic) _Bool defersAddingRemoteViewController; // @synthesize defersAddingRemoteViewController=_defersAddingRemoteViewController;
 @property(readonly, nonatomic) NSURL *initialURL; // @synthesize initialURL=_initialURL;
 @property(readonly, nonatomic) SFQueueingServiceViewControllerProxy<SFServiceViewControllerProtocol> *serviceProxy; // @synthesize serviceProxy=_serviceProxy;
 @property(nonatomic) long long dismissButtonStyle; // @synthesize dismissButtonStyle=_dismissButtonStyle;
@@ -58,6 +60,7 @@
 - (id)_fetchCustomActivitiesForURL:(id)arg1 title:(id)arg2;
 - (void)remoteViewController:(id)arg1 fetchActivityViewControllerInfoForURL:(id)arg2 title:(id)arg3;
 - (void)remoteViewController:(id)arg1 viewServiceDidTerminateWithError:(id)arg2;
+- (void)_restartServiceViewController;
 - (void)viewWillLayoutSubviews;
 - (void)remoteViewControllerWillDismiss:(id)arg1;
 - (void)remoteViewControllerDidLoadWebView:(id)arg1;
@@ -68,6 +71,7 @@
 - (void)_addRemoteView;
 - (void)_forwardNotificationToViewService:(id)arg1;
 - (id)childViewControllerForStatusBarStyle;
+- (id)childViewControllerForHomeIndicatorAutoHidden;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)_updateScrollViewIndicatorInsets;

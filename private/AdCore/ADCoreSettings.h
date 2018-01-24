@@ -26,6 +26,7 @@
     NSString *_osVersionAndBuild;
     NSString *_deviceModel;
     NSString *_bundleIdentifier;
+    NSString *_storefrontLocalizationLanguage;
     NSString *_homeCarrierMCC;
     NSString *_homeCarrierMNC;
     NSString *_currentCarrierMCC;
@@ -44,6 +45,7 @@
 @property(copy, nonatomic) NSString *homeCarrierMNC; // @synthesize homeCarrierMNC=_homeCarrierMNC;
 @property(copy, nonatomic) NSString *homeCarrierMCC; // @synthesize homeCarrierMCC=_homeCarrierMCC;
 @property(readonly, nonatomic) _Bool educationModeEnabled; // @synthesize educationModeEnabled=_educationModeEnabled;
+@property(retain, nonatomic) NSString *storefrontLocalizationLanguage; // @synthesize storefrontLocalizationLanguage=_storefrontLocalizationLanguage;
 @property(nonatomic) float timezone; // @synthesize timezone=_timezone;
 @property(nonatomic) int connectionType; // @synthesize connectionType=_connectionType;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
@@ -57,8 +59,8 @@
 @property(retain, nonatomic) NSURL *defaultServerURL; // @synthesize defaultServerURL=_defaultServerURL;
 @property(retain, nonatomic) NSUUID *IDFA; // @synthesize IDFA=_IDFA;
 - (void).cxx_destruct;
-@property(nonatomic) double maxSegmentSendInterval;
-@property(nonatomic) double segmentRetrievalInterval;
+@property(nonatomic) int maxSegmentSendInterval;
+@property(nonatomic) int segmentRetrievalInterval;
 @property(readonly, nonatomic) NSString *localeIdentifier;
 - (void)gatherTelephonyData;
 @property(readonly, nonatomic) _Bool deviceLimitsAdTracking;

@@ -7,15 +7,15 @@
 #import "NSObject.h"
 
 #import "NSURLConnectionDelegate.h"
-#import "WebCoreResourceLoaderDelegate.h"
 
 @class NSObject<OS_dispatch_semaphore>, NSString;
 
 __attribute__((visibility("hidden")))
-@interface WebCoreResourceHandleAsOperationQueueDelegate : NSObject <NSURLConnectionDelegate, WebCoreResourceLoaderDelegate>
+@interface WebCoreResourceHandleAsOperationQueueDelegate : NSObject <NSURLConnectionDelegate>
 {
     struct ResourceHandle *m_handle;
     NSObject<OS_dispatch_semaphore> *m_semaphore;
+    // Error parsing type: ^{MessageQueue<WTF::Function<void ()> >={Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}{Condition={Atomic<bool>={atomic<bool>=AB}}}{Deque<std::__1::unique_ptr<WTF::Function<void ()>, std::__1::default_delete<WTF::Function<void ()> > >, 0>=QQ{VectorBuffer<std::__1::unique_ptr<WTF::Function<void ()>, std::__1::default_delete<WTF::Function<void ()> > >, 0, WTF::FastMalloc>=^{unique_ptr<WTF::Function<void ()>, std::__1::default_delete<WTF::Function<void ()> > >}III}}B}, name: m_messageQueue
     struct RetainPtr<NSURLRequest> m_requestResult;
     struct RetainPtr<NSCachedURLResponse> m_cachedResponseResult;
     _Bool m_boolResult;
@@ -35,10 +35,10 @@ __attribute__((visibility("hidden")))
 - (void)continueWillCacheResponse:(id)arg1;
 - (void)continueCanAuthenticateAgainstProtectionSpace:(_Bool)arg1;
 - (void)continueDidReceiveResponse;
-- (void)continueWillSendRequest:(id)arg1;
 - (void)dealloc;
 - (void)detachHandle;
-- (id)initWithHandle:(struct ResourceHandle *)arg1;
+-     // Error parsing type: @32@0:8^{ResourceHandle=^^?I{unique_ptr<WebCore::ResourceHandleInternal, std::__1::default_delete<WebCore::ResourceHandleInternal> >={__compressed_pair<WebCore::ResourceHandleInternal *, std::__1::default_delete<WebCore::ResourceHandleInternal> >=^{ResourceHandleInternal}}}}16^{MessageQueue<WTF::Function<void ()> >={Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}{Condition={Atomic<bool>={atomic<bool>=AB}}}{Deque<std::__1::unique_ptr<WTF::Function<void ()>, std::__1::default_delete<WTF::Function<void ()> > >, 0>=QQ{VectorBuffer<std::__1::unique_ptr<WTF::Function<void ()>, std::__1::default_delete<WTF::Function<void ()> > >, 0, WTF::FastMalloc>=^{unique_ptr<WTF::Function<void ()>, std::__1::default_delete<WTF::Function<void ()> > >}III}}B}24, name: initWithHandle:messageQueue:
+- (void)callFunctionOnMainThread:(Function_89d21b48 *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

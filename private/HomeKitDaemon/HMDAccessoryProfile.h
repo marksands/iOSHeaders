@@ -7,14 +7,14 @@
 #import "HMFObject.h"
 
 #import "HMDBulletinIdentifiers.h"
+#import "HMDHomeMessageReceiver.h"
 #import "HMFDumpState.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
-@class HMDAccessory, HMFMessageDispatcher, NSArray, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDAccessory, HMFMessageDispatcher, NSArray, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDAccessoryProfile : HMFObject <HMDBulletinIdentifiers, HMFMessageReceiver, HMFDumpState, HMFLogging, NSSecureCoding>
+@interface HMDAccessoryProfile : HMFObject <HMDBulletinIdentifiers, HMDHomeMessageReceiver, HMFDumpState, HMFLogging, NSSecureCoding>
 {
     HMFMessageDispatcher *_msgDispatcher;
     NSObject<OS_dispatch_queue> *_workQueue;
@@ -25,6 +25,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)hasMessageReceiverChildren;
 + (id)logCategory;
 @property(readonly, nonatomic) NSArray *services; // @synthesize services=_services;
 @property(readonly) __weak HMDAccessory *accessory; // @synthesize accessory=_accessory;
@@ -51,6 +52,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

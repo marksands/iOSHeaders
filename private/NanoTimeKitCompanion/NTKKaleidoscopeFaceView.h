@@ -9,7 +9,7 @@
 #import "CLKUIQuadViewDelegate.h"
 #import "CLKUIResourceProviderDelegate.h"
 
-@class CLKUIQuadView, NSString, NTKFaceLayoutContentProvider, NTKKaleidoscopePathfinder, UIColor;
+@class CLKUIQuadView, CLKUIResourceProviderKey, NSString, NTKFaceLayoutContentProvider, NTKKaleidoscopePathfinder, UIColor;
 
 @interface NTKKaleidoscopeFaceView : NTKAnalogFaceView <CLKUIQuadViewDelegate, CLKUIResourceProviderDelegate>
 {
@@ -23,6 +23,7 @@
     UIColor *_complicationPlatterColor;
     double _lastComplicationUpdateTime;
     struct CGColorSpace *_extendedSRGBcolorSpace;
+    CLKUIResourceProviderKey *_resourceProviderKey;
     float _crownTurnsPerRotation;
     double _dayDuration;
     unsigned long long _currentAsset;
@@ -39,7 +40,6 @@
 - (id)_quadWithStyle:(unsigned long long)arg1 asset:(unsigned long long)arg2;
 - (id)_textureForAsset:(unsigned long long)arg1;
 - (id)_pathfinderForAsset:(unsigned long long)arg1;
-- (double)_idealizedOffsetPercentageForAsset:(unsigned long long)arg1;
 - (id)_imageForAsset:(unsigned long long)arg1;
 - (void)_updateComplications;
 - (void)_updatePathForTime:(double)arg1;
@@ -52,8 +52,8 @@
 - (double)_contentAlphaForEditMode:(long long)arg1;
 - (double)_handAlphaForEditMode:(long long)arg1;
 - (void)_updateDayDuration;
-- (void)addResourceUuidsToKeep:(id)arg1;
-- (id)provideTextureBacking:(id)arg1;
+- (id)resourceProviderKey;
+- (id)provideAtlasBacking:(id)arg1;
 - (_Bool)_supportsUnadornedSnapshot;
 - (struct CGRect)_keylineFrameForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (_Bool)_keylineLabelShouldShowIndividualOptionNamesForCustomEditMode:(long long)arg1;

@@ -14,6 +14,7 @@
     NSString *_alias;
     NSDictionary *_photos;
     NSString *_messagesID;
+    NSString *_friendLevel;
     unsigned short _numberOfFriends;
     unsigned short _numberOfGames;
     unsigned short _numberOfFriendsInCommon;
@@ -37,6 +38,8 @@
 + (id)displayNameWithOptions:(unsigned char)arg1 alias:(id)arg2 composite:(id)arg3;
 + (id)compositeNameForFirstName:(id)arg1 lastName:(id)arg2;
 + (id)secureCodedPropertyKeys;
++ (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSString *friendLevel; // @synthesize friendLevel=_friendLevel;
 @property(retain, nonatomic) NSString *messagesID; // @synthesize messagesID=_messagesID;
 @property(nonatomic) unsigned int numberOfAchievementPoints; // @synthesize numberOfAchievementPoints=_numberOfAchievementPoints;
 @property(nonatomic) unsigned int numberOfAchievements; // @synthesize numberOfAchievements=_numberOfAchievements;
@@ -85,6 +88,7 @@
 - (id)conciseDescription;
 - (id)cacheKey;
 - (void)dealloc;
+- (_Bool)_gkIsSameAsPlayer:(id)arg1;
 
 @end
 

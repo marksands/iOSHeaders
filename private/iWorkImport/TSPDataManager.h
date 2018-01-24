@@ -49,7 +49,7 @@ __attribute__((visibility("hidden")))
 - (id)dataFromExternalReferenceURL:(id)arg1 filename:(id)arg2 useFileCoordination:(_Bool)arg3;
 - (id)dataWithTemporaryDataStorageURL:(id)arg1 digest:(id)arg2 filename:(id)arg3;
 - (id)temporaryDataStorageURLForFilename:(id)arg1;
-- (_Bool)linkTemporaryURL:(id)arg1 fromURL:(id)arg2;
+- (_Bool)linkOrCloneTemporaryURL:(id)arg1 fromURL:(id)arg2 canLink:(_Bool)arg3;
 - (int)openTemporaryURL:(id)arg1;
 - (id)dataForIdentifierImpl:(long long)arg1;
 - (id)dataForIdentifier:(long long)arg1;

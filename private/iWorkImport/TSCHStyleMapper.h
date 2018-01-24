@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 + (void)replaceReferencedStylesInMap:(id)arg1 withMapper:(id)arg2;
 @property(nonatomic) _Bool forceMatchStyle; // @synthesize forceMatchStyle=mForceMatchStyle;
 @property(readonly) id <TSKStyleMapper> underlyingMapper; // @synthesize underlyingMapper=mUnderlyingMapper;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool clientsMustRemap;
 - (id)mappedStyleForStyle:(id)arg1;
 - (id)mappedStyleForStyle:(id)arg1 bakeComputable:(_Bool)arg2;

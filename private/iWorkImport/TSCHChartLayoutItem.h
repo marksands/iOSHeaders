@@ -29,7 +29,8 @@ __attribute__((visibility("hidden")))
 
 + (id)chartLayoutWithChartInfo:(id)arg1;
 @property(nonatomic) struct CGPoint layoutOffset; // @synthesize layoutOffset=mOffset;
-@property(readonly, nonatomic) TSCHChartLayoutItem *parent; // @synthesize parent=mParent;
+@property(readonly, nonatomic) __weak TSCHChartLayoutItem *parent; // @synthesize parent=mParent;
+- (void).cxx_destruct;
 - (struct CGPath *)newDragAndDropHighlightPathForSelection:(id)arg1;
 - (id)subselectionHaloPositionsForSelections:(id)arg1;
 - (id)subselectionKnobPositionsForSelection:(id)arg1;
@@ -67,7 +68,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) struct CGSize minSize;
 - (struct CGSize)calcMinSize;
 @property(readonly, nonatomic) unsigned long long dataSetIndex;
-@property(nonatomic) CDStruct_44ada6bf layoutSettings;
+@property(nonatomic) CDStruct_b1c75024 layoutSettings;
 @property(readonly, nonatomic) TSCHChartModel *model;
 @property(readonly, nonatomic) TSCHChartInfo *chartInfo;
 @property(readonly, nonatomic) TSCHChartRootLayoutItem *root;

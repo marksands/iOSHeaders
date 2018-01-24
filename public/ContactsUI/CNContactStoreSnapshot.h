@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CNContactMatchSummarizer, CNContactStoreDataSource, CNContactStoreFilter, NSArray, NSMapTable, NSMutableArray, NSMutableAttributedString, NSMutableDictionary, NSObject<OS_dispatch_semaphore>;
+@class CNContactMatchSummarizer, CNContactStoreDataSource, CNContactStoreFilter, CNManagedConfiguration, NSArray, NSMapTable, NSMutableArray, NSMutableAttributedString, NSMutableDictionary, NSObject<OS_dispatch_semaphore>;
 
 __attribute__((visibility("hidden")))
 @interface CNContactStoreSnapshot : NSObject
@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _lastRequestedIndex;
     CNContactStoreDataSource *_dataSource;
     CNContactStoreFilter *_filter;
+    CNManagedConfiguration *_managedConfiguration;
     NSMutableDictionary *_contactMatchInfos;
     NSMapTable *_identifiersToIndexPath;
     NSMutableArray *_batchContactIdentifiers;
@@ -30,6 +31,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSMutableArray *batchContactIdentifiers; // @synthesize batchContactIdentifiers=_batchContactIdentifiers;
 @property(readonly, nonatomic) NSMapTable *identifiersToIndexPath; // @synthesize identifiersToIndexPath=_identifiersToIndexPath;
 @property(readonly, nonatomic) NSMutableDictionary *contactMatchInfos; // @synthesize contactMatchInfos=_contactMatchInfos;
+@property(retain, nonatomic) CNManagedConfiguration *managedConfiguration; // @synthesize managedConfiguration=_managedConfiguration;
 @property(retain, nonatomic) CNContactStoreFilter *filter; // @synthesize filter=_filter;
 @property(nonatomic) __weak CNContactStoreDataSource *dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;

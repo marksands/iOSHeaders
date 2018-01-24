@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSLocale, NSObject<OS_dispatch_queue>, NSOperationQueue, NSProgress, VMTranscriptionAssetModelOperation;
+@class NSLocale, NSMapTable, NSObject<OS_dispatch_queue>, NSOperationQueue, NSProgress, VMTranscriptionAssetModelOperation;
 
 @interface VMVoicemailTranscriptionController : NSObject
 {
@@ -18,8 +18,10 @@
     NSOperationQueue *_transcriptionOperationQueue;
     NSProgress *_transcriptionProgress;
     NSObject<OS_dispatch_queue> *_serialDispatchQueue;
+    NSMapTable *_delegateToQueue;
 }
 
+@property(readonly, nonatomic) NSMapTable *delegateToQueue; // @synthesize delegateToQueue=_delegateToQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *serialDispatchQueue; // @synthesize serialDispatchQueue=_serialDispatchQueue;
 @property(nonatomic) __weak VMTranscriptionAssetModelOperation *assetModelOperation; // @synthesize assetModelOperation=_assetModelOperation;
 - (void).cxx_destruct;
@@ -41,6 +43,8 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)retrieveDictationResultForFileAtURL:(id)arg1 queuePriority:(long long)arg2 duration:(double)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)reportDictationProblemForFileAtURL:(id)arg1;
+- (void)removeDelegate:(id)arg1;
+- (void)addDelegate:(id)arg1 queue:(id)arg2;
 - (void)dealloc;
 - (id)initWithSpeechRecognizer:(id)arg1;
 - (id)initWithLocale:(id)arg1;

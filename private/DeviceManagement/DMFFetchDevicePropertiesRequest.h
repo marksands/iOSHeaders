@@ -13,6 +13,13 @@
     NSArray *_propertyKeys;
 }
 
++ (id)watchOSDevicePropertyKeys;
++ (id)tvOSDevicePropertyKeys;
++ (id)macOSDevicePropertyKeys;
++ (id)iOSDevicePropertyKeys;
++ (id)iOSPlatformDevicePropertyKeys;
++ (id)allPlatformDevicePropertyKeys;
++ (id)currentPlatformDevicePropertyKeys;
 + (_Bool)supportsSecureCoding;
 + (Class)whitelistedClassForResultObject;
 @property(copy, nonatomic) NSArray *propertyKeys; // @synthesize propertyKeys=_propertyKeys;

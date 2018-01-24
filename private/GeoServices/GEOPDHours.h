@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class PBUnknownFields;
+@class GEOPDHoursThreshold, PBUnknownFields;
 
 @interface GEOPDHours : PBCodable <NSCopying>
 {
@@ -17,6 +17,7 @@
     struct GEOPDLocalTimeRange *_timeRanges;
     unsigned long long _timeRangesCount;
     unsigned long long _timeRangesSpace;
+    GEOPDHoursThreshold *_hoursThreshold;
 }
 
 + (id)completeOperatingHoursForPlaceData:(id)arg1 withTimeZone:(id)arg2;
@@ -24,6 +25,7 @@
 + (_Bool)currentOperatingHoursAvailableForPlaceData:(id)arg1 withTimeZone:(id)arg2;
 + (id)_allHoursForPlaceData:(id)arg1;
 + (_Bool)operatingHoursAvailableForPlaceData:(id)arg1;
+@property(retain, nonatomic) GEOPDHoursThreshold *hoursThreshold; // @synthesize hoursThreshold=_hoursThreshold;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
@@ -35,6 +37,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasHoursThreshold;
 - (void)setTimeRanges:(struct GEOPDLocalTimeRange *)arg1 count:(unsigned long long)arg2;
 - (struct GEOPDLocalTimeRange)timeRangeAtIndex:(unsigned long long)arg1;
 - (void)addTimeRange:(struct GEOPDLocalTimeRange)arg1;

@@ -13,18 +13,18 @@
 __attribute__((visibility("hidden")))
 @interface KNTransitionRenderer : KNAnimationRenderer <CAAnimationDelegate>
 {
-    CALayer *mBackgroundLayer;
-    NSMutableArray *mTextures;
-    NSDictionary *mAttributes;
-    long long mNumberOfAnimationsStarted;
+    CALayer *_backgroundLayer;
+    NSMutableArray *_textures;
+    NSDictionary *_attributes;
+    long long _numberOfAnimationsStarted;
     NSMapTable *_animatedLayers;
-    _Bool mShouldAnimateTransition;
-    _Bool mAnimationsRanToCompletion;
-    id mTransitionEndCallbackTarget;
-    SEL mTransitionEndCallbackSelector;
-    id mTransitionImmediateEndCallbackTarget;
-    SEL mTransitionImmediateEndCallbackSelector;
-    TSDFPSCounter *mFPSCounter;
+    _Bool _shouldAnimateTransition;
+    _Bool _animationsRanToCompletion;
+    _Bool _hasBeenTornDown;
+    id _transitionEndCallbackTarget;
+    SEL _transitionEndCallbackSelector;
+    TSDFPSCounter *_FPSCounter;
+    _Bool _shouldTearDownIncomingTexture;
 }
 
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
@@ -41,12 +41,12 @@ __attribute__((visibility("hidden")))
 - (void)animateWithDelay:(double)arg1;
 - (void)renderSlideIndex:(unsigned long long)arg1;
 - (void)waitUntilAsyncRenderingIsCompleteShouldCancel:(_Bool)arg1;
+- (void)renderTexturesSynchronously;
 - (void)renderTextures;
 - (void)generateTextures;
 - (void)setupLayerTreeForTransition;
 @property(readonly, copy) NSString *description;
 - (void)p_checkForNullTransitions:(Class)arg1;
-- (void)registerForTransitionImmediateEndCallback:(SEL)arg1 target:(id)arg2;
 - (void)registerForTransitionEndCallback:(SEL)arg1 target:(id)arg2;
 - (void)setupPluginContext;
 - (id)plugin;

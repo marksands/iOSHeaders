@@ -6,7 +6,7 @@
 
 #import "HMFObject.h"
 
-@class NSString;
+@class AVOutputDevice, NSString;
 
 @interface HMDMediaOutputDevice : HMFObject
 {
@@ -30,6 +30,7 @@
 @property(readonly, nonatomic, getter=isRemoteControllable) _Bool remoteControllable;
 @property(readonly, nonatomic, getter=isGroupable) _Bool groupable;
 - (id)initWithOutputDevice:(void *)arg1;
+@property(readonly) AVOutputDevice *av_OutputDevice;
 
 @end
 

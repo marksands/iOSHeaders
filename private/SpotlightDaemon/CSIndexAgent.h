@@ -22,7 +22,8 @@
 - (_Bool)handleCommand:(const char *)arg1 info:(id)arg2 connection:(id)arg3;
 - (id)indexConnection:(id)arg1;
 - (_Bool)lostClientConnection:(id)arg1 error:(id)arg2;
-- (_Bool)allowClientConnection:(id)arg1;
+- (_Bool)addClientConnectionIfAllowedForConnection:(id)arg1;
+- (_Bool)addClientConnectionIfAllowedForConfiguration:(id)arg1;
 
 @end
 

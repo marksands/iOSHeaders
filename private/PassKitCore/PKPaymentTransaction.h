@@ -68,6 +68,7 @@
     long long _transactionType;
     long long _technologyType;
     unsigned long long _transactionSource;
+    long long _transactionDeclinedReason;
     unsigned long long _updateReasons;
 }
 
@@ -77,6 +78,7 @@
 + (id)paymentTransactionWithSource:(unsigned long long)arg1;
 + (id)paymentTransactionFromSource:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long updateReasons; // @synthesize updateReasons=_updateReasons;
+@property(nonatomic) long long transactionDeclinedReason; // @synthesize transactionDeclinedReason=_transactionDeclinedReason;
 @property(nonatomic) unsigned long long transactionSource; // @synthesize transactionSource=_transactionSource;
 @property(nonatomic) long long technologyType; // @synthesize technologyType=_technologyType;
 @property(nonatomic) long long transactionType; // @synthesize transactionType=_transactionType;
@@ -140,6 +142,7 @@
 @property(readonly, nonatomic) PKCurrencyAmount *primaryFundingSourceCurrencyAmount;
 @property(readonly, nonatomic) PKCurrencyAmount *subtotalCurrencyAmount;
 @property(readonly, nonatomic) PKCurrencyAmount *currencyAmount;
+- (id)_transitSubtypeString;
 - (id)_transactionTypeString;
 - (id)_transactionSourceString;
 - (id)description;
@@ -162,6 +165,7 @@
 - (unsigned long long)hash;
 - (id)dictionaryRepresentation;
 - (id)init;
+- (void)updateTransactionTypeFromDetailString:(id)arg1;
 
 @end
 

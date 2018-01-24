@@ -142,6 +142,7 @@
 - (void)handleHostApplicationDidBecomeActive;
 - (void)handleHostApplicationWillResignActive:(_Bool)arg1;
 - (void)handleHostApplicationDidCancel;
+- (void)setFooterState:(long long)arg1 string:(id)arg2 animated:(_Bool)arg3 withCompletion:(CDUnknownBlockType)arg4;
 - (void)setFooterState:(long long)arg1 string:(id)arg2 animated:(_Bool)arg3;
 - (void)_selectOptionsForDataItem:(id)arg1;
 - (void)_startEvaluation;

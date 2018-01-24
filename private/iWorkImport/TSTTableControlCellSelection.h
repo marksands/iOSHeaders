@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 + (Class)archivedSelectionClass;
 + (id)controlCellSelection;
 @property(readonly, nonatomic, getter=isKeyboardShown) _Bool keyboardShown; // @synthesize keyboardShown=_keyboardShown;
+- (id)copy;
 - (id)initWithKeyboardShown:(_Bool)arg1;
 
 @end

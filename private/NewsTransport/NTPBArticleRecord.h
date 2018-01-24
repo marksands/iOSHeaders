@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, NSMutableArray, NSString, NTPBDate, NTPBRecordBase;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, NSData, NSMutableArray, NSString, NTPBDate, NTPBRecordBase;
 
 @interface NTPBArticleRecord : PBCodable <NSCopying>
 {
@@ -28,6 +28,7 @@
     double _videoDuration;
     NSString *_accessoryText;
     NSMutableArray *_allowedStorefrontIDs;
+    NSData *_articleRecirculationConfiguration;
     NTPBRecordBase *_base;
     NSMutableArray *_blockedStorefrontIDs;
     NSString *_clusterID;
@@ -44,6 +45,7 @@
     NSMutableArray *_moreFromPublisherArticleIDs;
     NSString *_primaryAudience;
     NTPBDate *_publishDate;
+    NSMutableArray *_publisherSpecifiedArticleIds;
     NSString *_referencedArticleID;
     NSMutableArray *_relatedArticleIDs;
     NSString *_shortExcerpt;
@@ -65,6 +67,8 @@
     NSString *_title;
     NSString *_titleCompact;
     NSMutableArray *_topics;
+    NSString *_videoCallToActionTitle;
+    NSString *_videoCallToActionURL;
     NSString *_videoURL;
     _Bool _isDraft;
     _Bool _isFeatureCandidate;
@@ -94,6 +98,7 @@
     } _has;
 }
 
++ (Class)publisherSpecifiedArticleIdsType;
 + (Class)topicsType;
 + (Class)moreFromPublisherArticleIDsType;
 + (Class)relatedArticleIDsType;
@@ -103,6 +108,10 @@
 + (Class)iAdKeywordsType;
 + (Class)iAdCategoriesType;
 + (Class)flintFontResourceIDsType;
+@property(retain, nonatomic) NSMutableArray *publisherSpecifiedArticleIds; // @synthesize publisherSpecifiedArticleIds=_publisherSpecifiedArticleIds;
+@property(retain, nonatomic) NSData *articleRecirculationConfiguration; // @synthesize articleRecirculationConfiguration=_articleRecirculationConfiguration;
+@property(retain, nonatomic) NSString *videoCallToActionURL; // @synthesize videoCallToActionURL=_videoCallToActionURL;
+@property(retain, nonatomic) NSString *videoCallToActionTitle; // @synthesize videoCallToActionTitle=_videoCallToActionTitle;
 @property(retain, nonatomic) NSString *titleCompact; // @synthesize titleCompact=_titleCompact;
 @property(retain, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *globalCohort; // @synthesize globalCohort=_globalCohort;
 @property(retain, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *sourceChannelCohort; // @synthesize sourceChannelCohort=_sourceChannelCohort;
@@ -167,6 +176,13 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)publisherSpecifiedArticleIdsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)publisherSpecifiedArticleIdsCount;
+- (void)addPublisherSpecifiedArticleIds:(id)arg1;
+- (void)clearPublisherSpecifiedArticleIds;
+@property(readonly, nonatomic) _Bool hasArticleRecirculationConfiguration;
+@property(readonly, nonatomic) _Bool hasVideoCallToActionURL;
+@property(readonly, nonatomic) _Bool hasVideoCallToActionTitle;
 @property(readonly, nonatomic) _Bool hasTitleCompact;
 @property(readonly, nonatomic) _Bool hasGlobalCohort;
 @property(readonly, nonatomic) _Bool hasSourceChannelCohort;

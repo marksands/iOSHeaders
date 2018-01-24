@@ -43,7 +43,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSNumber *userMin;
 @property(readonly, nonatomic) NSNumber *userMax;
 - (_Bool)supportsReferenceLines;
-- (void)dealloc;
 - (pair_952e027e)labelEnumeratorPair;
 - (id)g_genericToSpecificPropertyMap;
 

@@ -6,21 +6,22 @@
 
 #import <IMDaemonCore/IMDCKAbstractSyncController.h>
 
-@class CKServerChangeToken, IMDCKMessageSyncCKOperationFactory, IMDRecordZoneManager, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
+@class CKServerChangeToken, IMDCKMessageSyncCKOperationFactory, IMDRecordZoneManager, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
 
 @interface IMDCKMessageSyncController : IMDCKAbstractSyncController
 {
     _Bool _shouldCheckDeviceConditions;
-    CKServerChangeToken *_latestSyncToken;
     CKServerChangeToken *_archivedRecordSyncToken;
     NSObject<OS_dispatch_queue> *_ckQueue;
     IMDRecordZoneManager *_recordZoneManager;
     id <IMDCKSyncTokenStore> _syncTokenStore;
     IMDCKMessageSyncCKOperationFactory *_CKOperationFactory;
     NSObject<OS_xpc_object> *_activity;
+    NSMutableDictionary *_visitedChats;
 }
 
 + (id)sharedInstance;
+@property(retain, nonatomic) NSMutableDictionary *visitedChats; // @synthesize visitedChats=_visitedChats;
 @property(nonatomic) _Bool shouldCheckDeviceConditions; // @synthesize shouldCheckDeviceConditions=_shouldCheckDeviceConditions;
 @property NSObject<OS_xpc_object> *activity; // @synthesize activity=_activity;
 @property(retain, nonatomic) IMDCKMessageSyncCKOperationFactory *CKOperationFactory; // @synthesize CKOperationFactory=_CKOperationFactory;
@@ -50,7 +51,9 @@
 - (void)_fetchArchivedRecordsIfNeeded:(_Bool)arg1 currentBatchCount:(long long)arg2 maxNumberOfBatches:(long long)arg3 WithCompletionBlock:(CDUnknownBlockType)arg4;
 - (void)_processArchivedRecordsFetchCompletionZoneID:(id)arg1 serverChangeToken:(id)arg2 moreComing:(_Bool)arg3 currentBatchCount:(long long)arg4 maxNumberOfBatches:(long long)arg5 NSError:(id)arg6 completionBlock:(CDUnknownBlockType)arg7;
 - (void)_resetSyncToken;
-@property(retain, nonatomic) CKServerChangeToken *latestSyncToken; // @synthesize latestSyncToken=_latestSyncToken;
+- (void)_deleteStingRaySyncToken;
+@property(retain, nonatomic) CKServerChangeToken *latestSyncToken;
+- (id)_changeTokenKey;
 - (void)_resetArvchivedRecordSyncToken;
 @property(retain, nonatomic) CKServerChangeToken *archivedRecordSyncToken; // @synthesize archivedRecordSyncToken=_archivedRecordSyncToken;
 - (void)_migrateSyncTokens;

@@ -10,7 +10,7 @@
 
 @interface WKDOMRange : NSObject
 {
-    struct RefPtr<WebCore::Range> _impl;
+    struct RefPtr<WebCore::Range, WTF::DumbPtrTraits<WebCore::Range>> _impl;
 }
 
 - (id).cxx_construct;

@@ -9,9 +9,21 @@
 @class HMResidentDevice, NSSet;
 
 @interface HMAccessory (HFAdditions)
+@property(readonly, nonatomic) _Bool hf_needsReprovisioningCheck;
 @property(readonly, nonatomic) HMAccessory *hf_owningBridgeAccessory;
 @property(readonly, nonatomic) NSSet *hf_servicesBehindBridge;
 @property(readonly, nonatomic) NSSet *hf_programmableSwitchNamespaceServices;
+@property(readonly, nonatomic) NSSet *hf_fakeDebugSymptoms;
+@property(readonly, nonatomic) _Bool hf_fakeShouldDisplayManualFixOption;
+@property(readonly, nonatomic) _Bool hf_fakeITunesSymptom;
+@property(readonly, nonatomic) _Bool hf_fakeICloudSymptom;
+@property(readonly, nonatomic) _Bool hf_fakeHomeKitSymptom;
+@property(readonly, nonatomic) _Bool hf_fakeGeneralFixSymptom;
+@property(readonly, nonatomic) _Bool hf_fakeHardwareFixSymptom;
+@property(readonly, nonatomic) _Bool hf_fakeInternetFixSymptom;
+@property(readonly, nonatomic) _Bool hf_fakeWiFiPerformanceSymptom;
+@property(readonly, nonatomic) _Bool hf_fakeWiFiSymptom;
+@property(readonly, nonatomic) _Bool hf_fakeUnreachableError;
 - (id)hf_serviceOfType:(id)arg1;
 @property(readonly, nonatomic) unsigned long long hf_numberOfProgrammableSwitches;
 @property(readonly, nonatomic) long long hf_appPunchOutReason;

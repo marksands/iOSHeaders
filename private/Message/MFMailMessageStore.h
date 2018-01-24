@@ -65,6 +65,7 @@
 - (_Bool)setPreferredEncoding:(unsigned int)arg1 forMessage:(id)arg2;
 - (long long)fetchMobileSynchronously:(unsigned long long)arg1;
 - (long long)fetchMobileSynchronously:(unsigned long long)arg1 preservingUID:(id)arg2 options:(unsigned long long)arg3;
+- (void)updateServerUnreadCountClosingConnection:(_Bool)arg1;
 - (long long)fetchNumMessages:(unsigned long long)arg1 preservingUID:(id)arg2 options:(unsigned long long)arg3;
 - (id)status;
 - (void)setNumberOfAttachments:(unsigned int)arg1 isSigned:(_Bool)arg2 isEncrypted:(_Bool)arg3 forMessage:(id)arg4;

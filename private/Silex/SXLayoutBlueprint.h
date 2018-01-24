@@ -17,6 +17,7 @@
     _Bool _didPlaceDynamicAds;
     SXLayoutBlueprint *_parentLayoutBlueprint;
     SXLayoutAttributes *_layoutAttributes;
+    id <SXComponentBlueprintFactory> _componentBlueprintFactory;
     NSMutableDictionary *_blueprint;
     NSMutableDictionary *_flattenedBlueprint;
     NSMutableArray *_orderedComponentIdentifiers;
@@ -39,6 +40,7 @@
 @property(retain, nonatomic) NSMutableArray *orderedComponentIdentifiers; // @synthesize orderedComponentIdentifiers=_orderedComponentIdentifiers;
 @property(retain, nonatomic) NSMutableDictionary *flattenedBlueprint; // @synthesize flattenedBlueprint=_flattenedBlueprint;
 @property(retain, nonatomic) NSMutableDictionary *blueprint; // @synthesize blueprint=_blueprint;
+@property(readonly, nonatomic) id <SXComponentBlueprintFactory> componentBlueprintFactory; // @synthesize componentBlueprintFactory=_componentBlueprintFactory;
 @property(retain, nonatomic) SXLayoutAttributes *layoutAttributes; // @synthesize layoutAttributes=_layoutAttributes;
 @property(nonatomic) struct CGSize blueprintSize; // @synthesize blueprintSize=_blueprintSize;
 @property(readonly, nonatomic) _Bool isComplete; // @synthesize isComplete=_isComplete;
@@ -68,7 +70,7 @@
 - (void)unregisterLayout:(id)arg1;
 - (void)registerLayout:(id)arg1 sizer:(id)arg2 forComponent:(id)arg3;
 - (void)registerLayout:(id)arg1 sizer:(id)arg2 forComponent:(id)arg3 atIndex:(unsigned long long)arg4;
-- (id)init;
+- (id)initWithComponentBlueprintFactory:(id)arg1;
 
 @end
 

@@ -10,13 +10,12 @@
 
 @interface CUBonjourAdvertiser : NSObject
 {
-    _Bool _activateCalled;
     _Bool _activated;
     struct BonjourAdvertiserPrivate *_bonjourAdvertiser;
     _Bool _invalidateCalled;
     _Bool _started;
     struct LogCategory *_ucat;
-    _Bool _updating;
+    _Bool _updatePending;
     _Bool _advertiseFlagsChanged;
     _Bool _domainChanged;
     _Bool _interfaceIndexChanged;
@@ -50,11 +49,9 @@
 - (void).cxx_destruct;
 - (void)_updateTXTDictionary;
 - (void)_updateLocked;
-- (void)_update;
-- (void)performUpdate:(CDUnknownBlockType)arg1;
 - (void)invalidate;
 - (void)_activateSafeInvokeBlock:(CDUnknownBlockType)arg1;
-- (void)_activate;
+- (void)_activateLocked;
 - (void)activate;
 - (id)descriptionWithLevel:(int)arg1;
 - (id)description;

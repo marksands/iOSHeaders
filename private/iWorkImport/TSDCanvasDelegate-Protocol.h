@@ -14,7 +14,7 @@
 @optional
 @property(readonly, nonatomic) id <TSDCanvasProxyDelegate> canvasProxyDelegate;
 - (_Bool)imageIsRenderingForMovie;
-- (_Bool)isExportingFixedLayoutEPub;
+- (_Bool)isExportingFixedLayoutEPUB;
 - (_Bool)isRenderingForKPF;
 - (_Bool)supportsAdaptiveLayout;
 - (_Bool)isCanvasDrawingIntoPDF:(TSDCanvas *)arg1;
@@ -30,7 +30,7 @@
 - (NSSet *)infosToHideForCanvas:(TSDCanvas *)arg1;
 - (NSSet *)additionalVisibleInfosForCanvas:(TSDCanvas *)arg1;
 - (struct CGRect)visibleScaledBoundsForClippingRepsOnCanvas:(TSDCanvas *)arg1;
-- (void)canvasDidUpdateRepsFromLayouts:(TSDCanvas *)arg1;
+- (void)updateLayerTreeForInteractiveCanvas:(TSDCanvas *)arg1;
 - (void)canvasWillUpdateRepsFromLayouts:(TSDCanvas *)arg1;
 - (void)canvasDidUpdateVisibleBounds:(TSDCanvas *)arg1;
 - (void)canvasDidValidateLayoutsWithDependencies:(TSDCanvas *)arg1;

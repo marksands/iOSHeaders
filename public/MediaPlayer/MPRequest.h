@@ -9,7 +9,7 @@
 #import "MPRequestCancellationToken.h"
 #import "NSCopying.h"
 
-@class NSArray, NSBlockOperation, NSError, NSOperationQueue, NSString;
+@class NSArray, NSError, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString;
 
 @interface MPRequest : NSObject <MPRequestCancellationToken, NSCopying>
 {
@@ -17,8 +17,8 @@
     long long _qualityOfService;
     double _timeoutInterval;
     NSOperationQueue *_calloutQueue;
-    NSBlockOperation *_completionOperation;
     NSError *_cancelationError;
+    NSObject<OS_dispatch_queue> *_cleanupQueue;
     NSOperationQueue *_queue;
     NSArray *_middlewareClasses;
 }
@@ -27,8 +27,8 @@
 + (Class)responseClass;
 @property(copy, nonatomic) NSArray *middlewareClasses; // @synthesize middlewareClasses=_middlewareClasses;
 @property(readonly, nonatomic) NSOperationQueue *queue; // @synthesize queue=_queue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *cleanupQueue; // @synthesize cleanupQueue=_cleanupQueue;
 @property(readonly, nonatomic) NSError *cancelationError; // @synthesize cancelationError=_cancelationError;
-@property(readonly, nonatomic) NSBlockOperation *completionOperation; // @synthesize completionOperation=_completionOperation;
 @property(readonly, nonatomic) NSOperationQueue *calloutQueue; // @synthesize calloutQueue=_calloutQueue;
 @property(nonatomic) double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
 @property(nonatomic) long long qualityOfService; // @synthesize qualityOfService=_qualityOfService;

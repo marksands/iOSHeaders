@@ -10,12 +10,14 @@
 
 @interface _MPCLeaseManager : NSObject
 {
+    _Bool _isPreparingForImminentPlaybackIntent;
     MPCPlaybackEngine *_playbackEngine;
 }
 
 @property(readonly, nonatomic) __weak MPCPlaybackEngine *playbackEngine; // @synthesize playbackEngine=_playbackEngine;
 - (void).cxx_destruct;
 - (void)_playerDidPauseForPlaybackPreventionNotification:(id)arg1;
+- (void)prepareForPlayback;
 - (void)dealloc;
 - (id)initWithPlaybackEngine:(id)arg1;
 

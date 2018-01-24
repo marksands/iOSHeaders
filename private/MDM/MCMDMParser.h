@@ -16,6 +16,7 @@
     NSString *_managingProfileIdentifier;
 }
 
++ (id)_stringForAppState:(unsigned long long)arg1;
 + (id)_MCKeysToDMFKeys;
 + (id)errorChainFromError:(id)arg1;
 + (id)malformedRequestErrorResult;
@@ -24,15 +25,15 @@
 @property(readonly, nonatomic) _Bool isChaperoned; // @synthesize isChaperoned=_isChaperoned;
 @property(nonatomic) __weak MCMDMServer *server; // @synthesize server=_server;
 - (void).cxx_destruct;
+- (id)_softwareUpdatesNotPermittedWithLoggedInUserError;
+- (void)_rejectSoftwareUpdateBecauseOfMalformedRequestCompletionBlock:(CDUnknownBlockType)arg1;
+- (_Bool)_rejectSoftwareUpdateBecauseUserLoggedInCompletionBlock:(CDUnknownBlockType)arg1;
+- (id)_responseForMalformedUpdateRequest;
 - (void)_statusOfOSUpdates:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_availableOSUpdates:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (void)_scheduleOSUpdateScan:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (void)_scheduleOSUpdate:(id)arg1 tryDownload:(_Bool)arg2 tryInstall:(_Bool)arg3 assertion:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
-- (id)_iosUpdateProductKey:(id)arg1;
-- (_Bool)shouldReportErrorCode:(long long)arg1;
-- (id)statusStringForErrorCode:(long long)arg1;
+- (void)_mdmScheduleOSUpdate:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_scheduleOSUpdate:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (id)_softwareUpdatesNotPermittedWithLoggedInUserError;
+- (void)_scheduleOSUpdateScan:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_deviceConfigured:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_removeMedia:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_managedMediaList:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
@@ -46,15 +47,21 @@
 - (id)_triggerDiagnostics:(id)arg1;
 - (id)_removeApplication:(id)arg1;
 - (id)_managedApplicationFeedback:(id)arg1;
-- (id)managedFeedbackDictionaryForBundleID:(id)arg1 delete:(_Bool)arg2;
 - (id)_managedApplicationAttributes:(id)arg1;
 - (id)_managedApplicationConfiguration:(id)arg1;
 - (id)_managedApplicationList:(id)arg1;
-- (id)_managedApplicationsForBundleIDs:(id)arg1 outError:(id *)arg2;
+- (id)_handleFetchAppsRequest:(id)arg1 managedOnly:(_Bool)arg2 deleteFeedback:(_Bool)arg3 advanceTransientStates:(_Bool)arg4 block:(CDUnknownBlockType)arg5;
 - (id)_applyRedemptionCode:(id)arg1 assertion:(id)arg2;
 - (id)_validateApplications:(id)arg1;
 - (void)_installApplication:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (id)_stringForAppState:(unsigned long long)arg1;
+- (id)_invalidManifestErrorWithURL:(id)arg1 underlyingError:(id)arg2;
+- (id)_cannotValidateAppIDErrorUnderlyingError:(id)arg1;
+- (id)_licenseNotFoundErrorWithiTunesStoreID:(id)arg1 underlyingError:(id)arg2;
+- (id)_licenseNotFoundErrorWithBundleID:(id)arg1 underlyingError:(id)arg2;
+- (id)_appAlreadyQueuedErrorWithiTunesStoreID:(id)arg1;
+- (id)_appAlreadyQueuedErrorWithBundleID:(id)arg1;
+- (id)_appAlreadyInstalledErrorWithiTunesStoreID:(id)arg1;
+- (id)_appAlreadyInstalledErrorWithBundleID:(id)arg1;
 - (id)_stringForBookState:(unsigned long long)arg1;
 - (id)_appStoreDisabledError;
 - (id)_settings:(id)arg1 accessRights:(int)arg2;
@@ -65,10 +72,13 @@
 - (id)_performSetAppAnalytics:(id)arg1;
 - (id)_performSetDiagnosticSubmission:(id)arg1;
 - (id)_performSetMaximumResidentUsers:(id)arg1;
-- (id)approvedAppAttributesFromAttributes:(id)arg1;
 - (id)_performSetAppAttributes:(id)arg1 outAdditionalResponseKeys:(id *)arg2;
 - (id)_performSetAppConfig:(id)arg1 outAdditionalResponseKeys:(id *)arg2;
+- (id)_handleSetAppManagementInfoRequest:(id)arg1 outAdditionalResponseKeys:(id *)arg2 block:(CDUnknownBlockType)arg3;
+- (_Bool)_isManagedApp:(id)arg1;
+- (id)_malformedRequestError;
 - (id)_performSetPersonalHotspot:(id)arg1;
+- (id)_performSetBluetooth:(id)arg1;
 - (id)_performSetVoiceRoaming:(id)arg1;
 - (id)_performSetDataRoaming:(id)arg1;
 - (id)_performSetWallpaper:(id)arg1;
@@ -99,6 +109,7 @@
 - (id)_requestUnlockToken:(id)arg1;
 - (id)_clearPasscode:(id)arg1;
 - (id)_deviceLocation:(id)arg1;
+- (id)_originator;
 - (id)_deviceNotInMDMLostModeError;
 - (void)_disableLostMode:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_playLostModeSound:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;

@@ -646,6 +646,7 @@
 - (void)textChanged:(id)arg1;
 - (void)layoutHasChanged;
 - (void)textWillChange:(id)arg1;
+- (_Bool)hasDelegate;
 - (void)storeDelegateConformance;
 - (_Bool)autocorrectSpellingEnabled;
 - (void)setAutocorrectSpellingEnabled:(_Bool)arg1;
@@ -686,6 +687,7 @@
 - (void)finishSetInputMode:(id)arg1 didChangeDirection:(_Bool)arg2;
 - (void)finishSetExtensionInputMode:(id)arg1 didChangeDirection:(_Bool)arg2;
 - (void)finishSetKeyboardInputMode:(id)arg1 didChangeDirection:(_Bool)arg2;
+- (_Bool)inputModeHasHardwareLayout:(id)arg1;
 - (void)reinitializeAfterInputModeSwitch:(_Bool)arg1;
 - (void)updateForHandBiasChange;
 - (void)updatePredictionView;

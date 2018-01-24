@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) struct CGSize legendSize; // @synthesize legendSize=mFinalSize;
 @property(readonly) unsigned long long numberOfColumns; // @synthesize numberOfColumns=mNumberOfColumns;
 @property(readonly) unsigned long long numberOfRows; // @synthesize numberOfRows=mNumberOfRows;
+- (void).cxx_destruct;
 - (struct CGPoint)originForCell:(id)arg1;
 - (void)dealloc;
 - (void)clearParent;

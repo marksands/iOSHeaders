@@ -79,7 +79,7 @@
 - (void)_updateCloudDataSyncState:(_Bool)arg1;
 - (void)updateCloudDataSyncState:(_Bool)arg1;
 - (_Bool)_cloudSyncinProgressCheck:(id)arg1 supressPopup:(_Bool)arg2 sendCanceledError:(_Bool *)arg3 dataSyncState:(unsigned long long *)arg4;
-- (_Bool)dataSyncInProgressWithState:(unsigned long long *)arg1;
+- (_Bool)dataSyncInProgressWithState:(unsigned long long *)arg1 withMessage:(id)arg2;
 - (_Bool)acceptMessage:(id)arg1 target:(id)arg2 errorReason:(id *)arg3;
 - (void)_updateCurrentAccount:(id)arg1;
 - (void)updateCurrentAccount:(id)arg1;

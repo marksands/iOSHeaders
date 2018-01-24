@@ -22,6 +22,7 @@
     NSArray *_binaryImages;
 }
 
+@property(copy, nonatomic) NSString *binaryImagesDescription; // @synthesize binaryImagesDescription=_binaryImagesDescription;
 - (void).cxx_destruct;
 - (id)chargeSystemLibrariesToCallersAndKeepBoundaries:(_Bool)arg1;
 - (id)initWithCallGraphFile:(id)arg1 fileHeader:(id *)arg2 topFunctionsList:(id *)arg3 binaryImagesList:(id *)arg4;

@@ -20,6 +20,7 @@
 // Remaining properties
 @property(readonly, nonatomic) id <SXAdvertisingSettings> advertisingSettings; // @dynamic advertisingSettings;
 @property(readonly, nonatomic) SXJSONArray *allComponents; // @dynamic allComponents;
+@property(readonly, nonatomic) id <SXAutoPlacement> autoplacement; // @dynamic autoplacement;
 @property(readonly, nonatomic) SXJSONDictionary *componentLayouts; // @dynamic componentLayouts;
 @property(readonly, nonatomic) SXJSONDictionary *componentStyles; // @dynamic componentStyles;
 @property(readonly, nonatomic) SXJSONDictionary *componentTextStyles; // @dynamic componentTextStyles;

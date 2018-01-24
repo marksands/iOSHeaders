@@ -13,15 +13,20 @@
 @interface GEOPDAutocompleteEntryAddress : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    double _disambiguationRadiusMeters;
     double _distance;
     unsigned long long _opaqueGeoId;
     GEOLatLng *_center;
+    int _placeType;
     struct {
+        unsigned int disambiguationRadiusMeters:1;
         unsigned int distance:1;
         unsigned int opaqueGeoId:1;
+        unsigned int placeType:1;
     } _has;
 }
 
+@property(nonatomic) double disambiguationRadiusMeters; // @synthesize disambiguationRadiusMeters=_disambiguationRadiusMeters;
 @property(nonatomic) double distance; // @synthesize distance=_distance;
 @property(nonatomic) unsigned long long opaqueGeoId; // @synthesize opaqueGeoId=_opaqueGeoId;
 @property(retain, nonatomic) GEOLatLng *center; // @synthesize center=_center;
@@ -36,6 +41,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasDisambiguationRadiusMeters;
+- (int)StringAsPlaceType:(id)arg1;
+- (id)placeTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasPlaceType;
+@property(nonatomic) int placeType; // @synthesize placeType=_placeType;
 @property(nonatomic) _Bool hasDistance;
 @property(nonatomic) _Bool hasOpaqueGeoId;
 @property(readonly, nonatomic) _Bool hasCenter;

@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class HFItemUpdateRequest, NAFuture;
+@class HFItem, HFItemUpdateRequest, NAFuture, NSSet;
 
 @protocol HFItemUpdating <NSObject>
+- (NSSet *)childItemsForItem:(HFItem *)arg1;
 - (NAFuture *)performItemUpdateRequest:(HFItemUpdateRequest *)arg1;
 @end
 

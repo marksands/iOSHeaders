@@ -12,6 +12,6 @@
 + (id)safari_imageViewDescriptors;
 + (id)safari_defaultDescriptors;
 - (id)safari_valueForWBSABProperty:(id)arg1;
-@property(readonly, nonatomic) NSString *fullName;
+@property(readonly, nonatomic) NSString *safari_fullName;
 @end
 

@@ -5,6 +5,8 @@
 //
 
 @protocol AWUnitTestSampler
+- (void)setSmartCoverCallback:(void (^)(_Bool))arg1;
+- (void)setSmartCoverClosed:(_Bool)arg1;
 - (void)setDisplayCallback:(void (^)(_Bool))arg1;
 - (void)setDisplayState:(_Bool)arg1;
 - (void)setSampleState:(_Bool)arg1;

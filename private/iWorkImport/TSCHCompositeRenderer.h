@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 + (void)renderTSCHCompositeRendering:(id)arg1 intoContext:(struct CGContext *)arg2 visible:(struct CGRect)arg3;
 + (void)p_delegateSelector:(SEL)arg1 toRenderer:(id)arg2 transparencyLayer:(int)arg3 inContext:(struct CGContext *)arg4;
 @property(readonly, nonatomic) NSArray *renderers; // @synthesize renderers=mSubRenderers;
+- (void).cxx_destruct;
 - (void)p_renderIntoContext:(struct CGContext *)arg1 visible:(struct CGRect)arg2;
 - (void)didEndTransparencyLayer:(int)arg1 inContext:(struct CGContext *)arg2;
 - (void)willEndTransparencyLayer:(int)arg1 inContext:(struct CGContext *)arg2;
@@ -29,7 +30,6 @@ __attribute__((visibility("hidden")))
 - (void)drawIntoLayer:(int)arg1 inContext:(struct CGContext *)arg2 visible:(struct CGRect)arg3;
 - (_Bool)needsAnySeparateLayers;
 - (id)transparencyLayers;
-- (void)dealloc;
 - (id)initWithChartRep:(id)arg1 withSubRenderers:(id)arg2;
 
 // Remaining properties

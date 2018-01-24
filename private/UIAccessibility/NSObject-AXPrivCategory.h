@@ -442,6 +442,8 @@
 - (SEL)_accessibilityPotentiallyAttributedSelectorForNonAttributedSelector:(SEL)arg1 attributedSelector:(SEL)arg2;
 - (_Bool)_accessibilityOverridesLabelValueHintSelector:(SEL)arg1;
 - (_Bool)_accessibilitySpeakThisIgnoresAccessibilityElementStatus;
+- (id)_accessibilityPostProcessValueForAutomation:(id)arg1;
+- (id)_accessibilityProcessedLabelAttribute;
 - (id)_accessibilitySpeakThisString;
 - (id)_accessibilitySpeakThisStringValue;
 - (void)_accessibilitySetIsSpeakThisElement:(_Bool)arg1;

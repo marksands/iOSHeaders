@@ -22,7 +22,6 @@ __attribute__((visibility("hidden")))
     _Bool _isExpectingClientRedirect;
     _Bool _hasBegunFirstNavigation;
     SFBrowserPersonaAnalyticsHelper *_cachedAnalyticsHelper;
-    _Bool _isBeingUsedForLinkPreview;
     SFUserNotification *_userNotification;
     NSString *_hostApplicationCallbackURLScheme;
 }
@@ -31,7 +30,6 @@ __attribute__((visibility("hidden")))
 + (id)_remoteViewControllerInterface;
 @property(copy, nonatomic) NSString *hostApplicationCallbackURLScheme; // @synthesize hostApplicationCallbackURLScheme=_hostApplicationCallbackURLScheme;
 @property(retain, nonatomic) SFUserNotification *userNotification; // @synthesize userNotification=_userNotification;
-@property(nonatomic) _Bool isBeingUsedForLinkPreview; // @synthesize isBeingUsedForLinkPreview=_isBeingUsedForLinkPreview;
 - (void).cxx_destruct;
 - (void)safariActivity:(id)arg1 didFinish:(_Bool)arg2;
 - (void)webViewController:(id)arg1 didFinishDocumentLoadForNavigation:(id)arg2;
@@ -41,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (void)webViewController:(id)arg1 didReceiveServerRedirectForProvisionalNavigation:(id)arg2;
 - (unsigned long long)_persona;
 - (id)_analyticsHelper;
+- (id)bundleIdentifierForProfileInstallation;
 - (id)_applicationPayloadForOpeningInSafari;
 - (void)_closeDatabasesOnBackgroundingOrDismissal;
 - (void)_recordHostAppIdAndURLForTapToRadar:(id)arg1;
@@ -59,7 +58,7 @@ __attribute__((visibility("hidden")))
 - (void)repostNotificationInViewService:(id)arg1;
 - (void)_fetchActivityViewControllerInfoForURL:(id)arg1 title:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)didFetchCustomActivities:(id)arg1 excludedActivityTypes:(id)arg2;
-- (void)_getSafariDataSharingModeWithPrivacyPrompt:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_getSafariDataSharingModeWithCompletion:(CDUnknownBlockType)arg1;
 - (id)websiteDataStoreConfiguration;
 - (_Bool)_ensureWebsiteDataStoreURL:(id)arg1 cookieStoreURL:(id)arg2;
 - (id)_webDataStoreRootURL;

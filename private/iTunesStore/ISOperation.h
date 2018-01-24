@@ -67,10 +67,12 @@
 - (id)init;
 - (_Bool)loadURLBagWithContext:(id)arg1 returningError:(id *)arg2;
 - (id)loadedURLBagWithContext:(id)arg1 returningError:(id *)arg2;
+- (id)loadedURLBagWithContext:(id)arg1 accountDSID:(id)arg2 returningError:(id *)arg3;
 - (_Bool)loadSoftwareMapReturningError:(id *)arg1;
-- (_Bool)copyAccountID:(id *)arg1 byHandlingAuthenticateResponse:(id)arg2 returningError:(id *)arg3;
-- (_Bool)copyAccountID:(id *)arg1 byAuthenticatingWithContext:(id)arg2 returningError:(id *)arg3;
+- (_Bool)copyAccountID:(id *)arg1 credentialSource:(unsigned long long *)arg2 byHandlingAuthenticateResponse:(id)arg3 returningError:(id *)arg4;
+- (_Bool)copyAccountID:(id *)arg1 credentialSource:(unsigned long long *)arg2 byAuthenticatingWithContext:(id)arg3 returningError:(id *)arg4;
 - (id)authenticatedAccountDSID;
+- (unsigned long long)authenticatedAccountCredentialSource;
 
 @end
 

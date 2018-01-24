@@ -24,8 +24,8 @@
 @property(readonly, nonatomic) NUAdStore *adStore; // @synthesize adStore=_adStore;
 - (void).cxx_destruct;
 - (id)videoInTodayHeaderDefinition;
-- (id)videoInTodayMidrollBodyDefinition;
-- (id)videoInTodayMidrollRootDefinition;
+- (id)videoPlaylistAdBodyDefinition;
+- (id)videoPlaylistAdRootDefinition;
 - (id)prerollHeaderDefinition;
 - (id)prerollBodyDefinition;
 - (id)prerollRootDefinition;
@@ -35,7 +35,7 @@
 - (id)defaultHeaderDefinition;
 - (id)defaultRootDefinition;
 - (id)contextForContextProviders:(id)arg1 keyedContextProviders:(id)arg2 constructor:(id)arg3;
-- (id)videoInTodayMidrollContextConstructor;
+- (id)videoPlaylistAdContextConstructor;
 - (id)prerollContextConstructor;
 - (id)interstitialContextConstructor;
 - (id)inArticleContextConstructor;
@@ -44,7 +44,7 @@
 - (id)adWithIdentifier:(id)arg1;
 - (void)bannerViewDidUnload:(id)arg1;
 - (void)bannerViewDidLoad:(id)arg1;
-- (void)videoInTodayMidrollForContextProviders:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
+- (void)videoPlaylistAdForContextProviders:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)prerollForContextProviders:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)videoAdForContextProviders:(id)arg1 constructor:(id)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
 - (void)interstitialViewForContextProviders:(id)arg1 contextProvidersWithKeys:(id)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;

@@ -17,8 +17,10 @@
 
 @property(readonly, nonatomic) SXComponentTypeMatching *factoryMatching; // @synthesize factoryMatching=_factoryMatching;
 - (void).cxx_destruct;
+- (void)removeFactory:(id)arg1;
+- (void)addFactory:(id)arg1;
 - (id)sizerForComponent:(id)arg1 componentLayout:(id)arg2 layoutAttributes:(id)arg3;
-- (id)initWithFactories:(id)arg1;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

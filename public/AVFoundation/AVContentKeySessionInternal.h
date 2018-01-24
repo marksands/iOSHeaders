@@ -22,7 +22,6 @@
     NSData *_appIdentifier;
     struct OpaqueFigContentKeySession *_figContentKeySession;
     NSMutableArray *_cryptorsList;
-    NSString *_hlsMethod;
     NSString *_keySystem;
 }
 

@@ -18,6 +18,7 @@
 
 + (id)discreteFeedbackForType:(long long)arg1;
 + (id)type;
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) long long type; // @synthesize type=_type;
 @property(readonly, nonatomic, getter=isHighPriority) _Bool highPriority; // @synthesize highPriority=_highPriority;
 - (id)_debugDictionary;

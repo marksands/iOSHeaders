@@ -9,11 +9,11 @@
 #import "MFDiagnosticsGenerator.h"
 #import "RadiosPreferencesDelegate.h"
 
-@class AWDMailNetworkDiagnosticsReport, MFObservable, NSLock, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSThread, RadiosPreferences;
+@class AWDMailNetworkDiagnosticsReport, MFObservable, NSConditionLock, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSThread, RadiosPreferences;
 
 @interface MFNetworkController : NSObject <MFDiagnosticsGenerator, RadiosPreferencesDelegate>
 {
-    NSLock *_lock;
+    NSConditionLock *_lock;
     struct __CFRunLoop *_rl;
     NSThread *_thread;
     NSMutableArray *_observers;
@@ -55,6 +55,7 @@
 - (void)_handleNotification:(id)arg1 info:(id)arg2 forConnection:(struct __CTServerConnection *)arg3;
 - (void)_setDataStatus_nts:(id)arg1;
 - (void)_checkKeys:(id)arg1 forStore:(struct __SCDynamicStore *)arg2;
+- (void)_checkKeys_nts:(id)arg1 forStore:(struct __SCDynamicStore *)arg2;
 - (void)_setFlags:(unsigned int)arg1 forReachability:(struct __SCNetworkReachability *)arg2;
 - (_Bool)hasAlternateAdvice;
 - (_Bool)is4GConnection;

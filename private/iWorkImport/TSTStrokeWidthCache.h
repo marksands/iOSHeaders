@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
     unsigned int mCount;
     struct _opaque_pthread_rwlock_t mLock;
-    vector_3f7ffb82 mStrokeWidth;
+    vector_b67dfe3a mStrokeWidth;
 }
 
 - (id).cxx_construct;

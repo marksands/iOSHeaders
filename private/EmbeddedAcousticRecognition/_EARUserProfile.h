@@ -14,6 +14,7 @@
     struct unique_ptr<quasar::G2P, std::__1::default_delete<quasar::G2P>> _g2p;
     struct shared_ptr<quasar::PronCache<std::__1::basic_string<char>, std::__1::vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>>>> _pronCache;
     struct BasicTextSanitizer _sanitizer;
+    struct unique_ptr<quasar::PersonalizationRecipe, std::__1::default_delete<quasar::PersonalizationRecipe>> _personalizationRecipe;
     struct unique_ptr<quasar::LmeData, std::__1::default_delete<quasar::LmeData>> _quasarLmeData;
 }
 
@@ -22,6 +23,9 @@
 - (void).cxx_destruct;
 - (id)sanitizedStringWithString:(id)arg1;
 - (id)pronunciationsForOrthography:(id)arg1;
+- (void)writeOutUserDataToJson:(id)arg1 withConfig:(id)arg2;
+- (void)addPersonalizationJsonData:(id)arg1;
+- (void)addPersonalizationData:(id)arg1;
 - (void)readUserProfile:(id)arg1;
 - (id)dataProfile;
 - (void)removeAllWords;

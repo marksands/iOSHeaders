@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class ICURLBagRadioConfiguration, NSArray, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString;
+@class ICURLBagLibraryDAAPConfiguration, ICURLBagRadioConfiguration, NSArray, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString;
 
 @interface ICURLBag : NSObject
 {
@@ -27,6 +27,7 @@
 @property(retain, nonatomic) NSArray *GUIDURLRegexPatterns; // @synthesize GUIDURLRegexPatterns=_GUIDURLRegexPatterns;
 @property(readonly, nonatomic) _Bool canPostKeybagSyncData;
 @property(readonly, copy, nonatomic) NSString *storefrontHeaderSuffix;
+@property(readonly, nonatomic) ICURLBagLibraryDAAPConfiguration *libraryDAAPConfiguration;
 @property(readonly, nonatomic) ICURLBagRadioConfiguration *radioConfiguration;
 - (id)mescalConfigurationForResponseURL:(id)arg1;
 - (id)mescalConfigurationForRequestURL:(id)arg1;

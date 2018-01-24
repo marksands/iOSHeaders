@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 + (int)schemeFromURL:(id)arg1;
 + (id)defaultFieldStyleIdentifier;
 @property(readonly, nonatomic) NSString *displayTextForChangeTracking; // @synthesize displayTextForChangeTracking=_displayTextForChangeTracking;
+- (void).cxx_destruct;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1 storage:(id)arg2;
 - (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)p_performHyperlinkSelector:(SEL)arg1 onStorage:(id)arg2;
@@ -49,7 +50,6 @@ __attribute__((visibility("hidden")))
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
 - (id)copyWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1 url:(id)arg2;
-- (void)dealloc;
 @property(readonly, nonatomic) _Bool isInGroupedShape;
 @property(readonly, nonatomic) NSString *displayText;
 @property(readonly, nonatomic) TSWPSelection *highlightSelection;

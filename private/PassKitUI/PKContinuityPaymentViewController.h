@@ -82,6 +82,7 @@
 - (void)_setPassphraseViewController:(id)arg1;
 - (void)_setPasscodeViewController:(id)arg1;
 - (void)_setAuthenticating:(_Bool)arg1;
+- (void)setProgressState:(long long)arg1 string:(id)arg2 animated:(_Bool)arg3 withCompletion:(CDUnknownBlockType)arg4;
 - (void)setProgressState:(long long)arg1 string:(id)arg2 animated:(_Bool)arg3;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;

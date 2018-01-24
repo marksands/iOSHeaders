@@ -42,7 +42,7 @@
 - (void)_downloadDidCancel:(id)arg1;
 - (void)_download:(id)arg1 didFailWithError:(id)arg2;
 - (void)_downloadDidFinish:(id)arg1;
-- (id)_download:(id)arg1 decideDestinationWithSuggestedFilename:(id)arg2 allowOverwrite:(_Bool *)arg3;
+- (void)_download:(id)arg1 decideDestinationWithSuggestedFilename:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_download:(id)arg1 didReceiveData:(unsigned long long)arg2;
 - (void)_clearFileDownloadState;
 - (void)_endDownloadBackgroundTask;

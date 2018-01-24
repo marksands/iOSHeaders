@@ -31,9 +31,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool shouldRetry; // @synthesize shouldRetry=_shouldRetry;
 @property(nonatomic) int numRetries; // @synthesize numRetries=_numRetries;
 @property(nonatomic) _Bool wasFetchedFromCache; // @synthesize wasFetchedFromCache=_wasFetchedFromCache;
+@property(retain, nonatomic) NSError *fetchError; // @synthesize fetchError=_fetchError;
 @property(nonatomic) _Bool didFetchData; // @synthesize didFetchData=_didFetchData;
 @property(nonatomic) _Bool willRetryFetchSuperCalled; // @synthesize willRetryFetchSuperCalled=_willRetryFetchSuperCalled;
-@property(retain, nonatomic) NSError *fetchError; // @synthesize fetchError=_fetchError;
 @property(retain, nonatomic) CKDPCSData *pcsData; // @synthesize pcsData=_pcsData;
 @property(nonatomic) unsigned long long fetchOptions; // @synthesize fetchOptions=_fetchOptions;
 @property(retain, nonatomic) id <CKSQLiteItem> itemID; // @synthesize itemID=_itemID;

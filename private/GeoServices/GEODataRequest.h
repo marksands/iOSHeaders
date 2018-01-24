@@ -26,8 +26,10 @@
     BOOL _allowedRequestMode;
     _Bool _allowTLSSessionTicketUse;
     _Bool _allowTFOUse;
+    id <GEORequestCounterTicket> _requestCounterTicket;
 }
 
+@property(readonly, nonatomic) id <GEORequestCounterTicket> requestCounterTicket; // @synthesize requestCounterTicket=_requestCounterTicket;
 @property(readonly, nonatomic) _Bool allowTFOUse; // @synthesize allowTFOUse=_allowTFOUse;
 @property(readonly, nonatomic) _Bool allowTLSSessionTicketUse; // @synthesize allowTLSSessionTicketUse=_allowTLSSessionTicketUse;
 @property(readonly, nonatomic) BOOL HTTPMethod; // @synthesize HTTPMethod=_HTTPMethod;
@@ -43,15 +45,16 @@
 @property(readonly, nonatomic) NSObject<OS_xpc_object> *xpcRequest; // @synthesize xpcRequest=_xpcRequest;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
+- (id)publicLogDescription;
 @property(readonly, copy) NSString *description;
-- (id)initWithKind:(int)arg1 URL:(id)arg2 xpcRequest:(id)arg3 auditToken:(id)arg4 timeoutInterval:(double)arg5 additionalHTTPHeaders:(id)arg6 HTTPMethod:(BOOL)arg7 bodyData:(id)arg8 HTTPShouldHandleCookies:(_Bool)arg9 allowsCellularAccess:(_Bool)arg10 allowTLSSessionTicketUse:(_Bool)arg11 allowTFOUse:(_Bool)arg12 allowedRequestMode:(BOOL)arg13 userAgent:(id)arg14 entityTag:(id)arg15 cachedData:(id)arg16;
+- (id)initWithKind:(int)arg1 URL:(id)arg2 xpcRequest:(id)arg3 auditToken:(id)arg4 timeoutInterval:(double)arg5 additionalHTTPHeaders:(id)arg6 HTTPMethod:(BOOL)arg7 bodyData:(id)arg8 HTTPShouldHandleCookies:(_Bool)arg9 allowsCellularAccess:(_Bool)arg10 allowTLSSessionTicketUse:(_Bool)arg11 allowTFOUse:(_Bool)arg12 allowedRequestMode:(BOOL)arg13 userAgent:(id)arg14 entityTag:(id)arg15 cachedData:(id)arg16 requestCounterTicket:(id)arg17;
 - (id)init;
 - (id)captureStateWithHints:(struct os_state_hints_s *)arg1;
 - (id)newURLRequest;
 - (id)updatedRequestWithNewProtobufRequest:(id)arg1;
 - (id)updatedRequestWithNewBodyData:(id)arg1;
-- (id)initHttpOnlyRequestWithKind:(int)arg1 protobufRequest:(id)arg2 URL:(id)arg3 additionalHTTPHeaders:(id)arg4 allowCellularUse:(_Bool)arg5 compressRequest:(_Bool)arg6;
-- (id)initWithKind:(int)arg1 protobufRequest:(id)arg2 URL:(id)arg3 additionalHTTPHeaders:(id)arg4 auditToken:(id)arg5 traits:(id)arg6;
+- (id)initHttpOnlyRequestWithKind:(int)arg1 protobufRequest:(id)arg2 URL:(id)arg3 additionalHTTPHeaders:(id)arg4 allowCellularUse:(_Bool)arg5 compressRequest:(_Bool)arg6 requestCounterTicket:(id)arg7;
+- (id)initWithKind:(int)arg1 protobufRequest:(id)arg2 URL:(id)arg3 additionalHTTPHeaders:(id)arg4 auditToken:(id)arg5 traits:(id)arg6 requestCounterTicket:(id)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -10,39 +10,27 @@
 
 @interface MPModelForYouRecommendationItem : MPModelObject
 {
-    _Bool _backedByStoreItemMetadata;
-    unsigned long long _itemType;
-    MPModelAlbum *_album;
-    MPModelPlaylist *_playlist;
-    MPModelForYouRecommendationGroup *_parentGroup;
-    long long _subgroupIndex;
 }
 
 + (id)requiredStoreLibraryPersonalizationProperties;
-+ (id)__MPModelForYouRecommendationItemPropertySubgroupIndex__PROPERTY;
-+ (id)__subgroupIndex__KEY;
-+ (id)__MPModelForYouRecommendationItemPropertyParentGroup__PROPERTY;
-+ (id)__parentGroup__KEY;
-+ (id)__MPModelForYouRecommendationItemPropertyBackedByStoreItemMetadata__PROPERTY;
-+ (id)__backedByStoreItemMetadata__KEY;
-+ (id)__MPModelForYouRecommendationItemRelationshipPlaylist__PROPERTY;
-+ (id)__playlist__KEY;
-+ (id)__MPModelForYouRecommendationItemRelationshipAlbum__PROPERTY;
-+ (id)__album__KEY;
-+ (id)__MPModelForYouRecommendationItemPropertyItemType__PROPERTY;
-+ (id)__itemType__KEY;
-@property(nonatomic, getter=isBackedByStoreItemMetadata) _Bool backedByStoreItemMetadata; // @synthesize backedByStoreItemMetadata=_backedByStoreItemMetadata;
-@property(nonatomic) long long subgroupIndex; // @synthesize subgroupIndex=_subgroupIndex;
-@property(nonatomic) __weak MPModelForYouRecommendationGroup *parentGroup; // @synthesize parentGroup=_parentGroup;
-@property(retain, nonatomic) MPModelPlaylist *playlist; // @synthesize playlist=_playlist;
-@property(retain, nonatomic) MPModelAlbum *album; // @synthesize album=_album;
-@property(nonatomic) unsigned long long itemType; // @synthesize itemType=_itemType;
-- (void).cxx_destruct;
++ (id)__subgroupIndex_KEY;
++ (id)__parentGroup_KEY;
++ (id)__backedByStoreItemMetadata_KEY;
++ (id)__playlist_KEY;
++ (id)__album_KEY;
++ (id)__itemType_KEY;
 - (id)objectWithStoreLibraryPersonalizationRelativeModelObject:(id)arg1;
 - (id)relativeModelObjectForStoreLibraryPersonalization;
 - (id)personalizationScopedPropertiesForProperties:(id)arg1;
 @property(readonly, nonatomic) MPModelForYouRecommendationGroup *subgroup;
-- (id)descriptionWithType:(long long)arg1;
+
+// Remaining properties
+@property(retain, nonatomic) MPModelAlbum *album; // @dynamic album;
+@property(nonatomic, getter=isBackedByStoreItemMetadata) _Bool backedByStoreItemMetadata; // @dynamic backedByStoreItemMetadata;
+@property(nonatomic) unsigned long long itemType; // @dynamic itemType;
+@property(nonatomic) __weak MPModelForYouRecommendationGroup *parentGroup; // @dynamic parentGroup;
+@property(retain, nonatomic) MPModelPlaylist *playlist; // @dynamic playlist;
+@property(nonatomic) long long subgroupIndex; // @dynamic subgroupIndex;
 
 @end
 

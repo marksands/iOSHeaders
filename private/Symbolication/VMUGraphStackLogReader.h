@@ -4,17 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <Symbolication/VMUStackLogReaderBase.h>
 
 #import "NSSecureCoding.h"
 #import "VMUStackLogReader.h"
 
-@class NSString, VMUDebugTimer, VMUProcessObjectGraph, VMURangeToStringMap, VMUVMRegionTracker;
+@class NSSet, NSString, VMUDebugTimer, VMUProcessObjectGraph, VMURangeToStringMap, VMUVMRegionTracker;
 
 __attribute__((visibility("hidden")))
-@interface VMUGraphStackLogReader : NSObject <NSSecureCoding, VMUStackLogReader>
+@interface VMUGraphStackLogReader : VMUStackLogReaderBase <NSSecureCoding, VMUStackLogReader>
 {
-    unsigned int _task;
     struct _CSTypeRef _symbolicator;
     VMUProcessObjectGraph *_graph;
     VMUDebugTimer *_debugTimer;
@@ -38,14 +37,12 @@ __attribute__((visibility("hidden")))
     } *_backtraceUniquingTable;
     VMURangeToStringMap *_functionNameRanges;
     VMURangeToStringMap *_sourceInfoRanges;
-    VMUVMRegionTracker *_regionTracker;
 }
 
 + (void)initialize;
 + (void)_claimUnarchivingOfClass:(id)arg1;
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) __weak VMUProcessObjectGraph *graph; // @synthesize graph=_graph;
-@property(readonly) VMUVMRegionTracker *regionTracker; // @synthesize regionTracker=_regionTracker;
 - (void).cxx_destruct;
 - (id)vmuVMRegionForAddress:(unsigned long long)arg1;
 - (long long)getFramesForStackID:(unsigned long long)arg1 stackFramesBuffer:(unsigned long long *)arg2;
@@ -54,7 +51,9 @@ __attribute__((visibility("hidden")))
 - (int)enumerateRecords:(CDUnknownBlockType)arg1;
 @property(readonly) _Bool usesLiteMode;
 @property(readonly) _Bool inspectingLiveProcess;
+@property(readonly) _Bool is64bit;
 - (struct _VMURange)sourceLineRangeContainingPCaddress:(unsigned long long)arg1;
+- (id)sourceFileNameAndLineNumberForPCaddress:(unsigned long long)arg1 fullPath:(_Bool)arg2;
 - (unsigned int)sourceLineNumberForPCaddress:(unsigned long long)arg1;
 - (id)sourceFileNameForPCaddress:(unsigned long long)arg1;
 - (id)sourcePathForPCaddress:(unsigned long long)arg1;
@@ -63,6 +62,8 @@ __attribute__((visibility("hidden")))
 - (struct _VMURange)functionRangeContainingPCaddress:(unsigned long long)arg1;
 - (id)functionNameForPCaddress:(unsigned long long)arg1;
 - (void)_setFunctionName:(id)arg1 forPCAddressRange:(struct _VMURange)arg2;
+- (struct _VMURange)binaryImageRangeForPCaddress:(unsigned long long)arg1;
+- (id)binaryImagePathForPCaddress:(unsigned long long)arg1;
 - (void)symbolicateBacktraceUniquingTable;
 - (void)populateBacktraceUniquingTableWithStackLogs:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -73,8 +74,11 @@ __attribute__((visibility("hidden")))
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(retain, nonatomic) NSSet *excludedFrames;
 @property(readonly) unsigned long long hash;
+@property(readonly) VMUVMRegionTracker *regionTracker;
 @property(readonly) Class superclass;
+@property(readonly) unsigned int task;
 
 @end
 

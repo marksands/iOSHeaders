@@ -14,6 +14,7 @@
 {
 }
 
+- (_Bool)IsFollowUpItemNotificationForced:(id)arg1;
 - (id)_clearAction;
 - (id)_notificationFromPayload:(id)arg1;
 - (id)_actionFromInfo:(id)arg1;

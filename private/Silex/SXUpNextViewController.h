@@ -6,55 +6,42 @@
 
 #import "UIViewController.h"
 
-#import "SXVideoControlItem.h"
+#import "SXVideoAccessoryItem.h"
+#import "SXVideoTransitionObserver.h"
 
-@class NSString, SXSkipButton, SXTimeline, SXUpNextButton, SXUpNextItem, SXUpNextView, SXVideoButton, UIActivityIndicatorView;
+@class NSString, SXNowPlayingButton, SXSkipViewController, UIView;
 
-@interface SXUpNextViewController : UIViewController <SXVideoControlItem>
+@interface SXUpNextViewController : UIViewController <SXVideoTransitionObserver, SXVideoAccessoryItem>
 {
-    id <SXUpNextViewControllerDelegate> _delegate;
-    double _duration;
-    double _time;
-    SXTimeline *_timeline;
-    SXUpNextItem *_item;
-    SXVideoButton *_advanceButton;
-    SXVideoButton *_replayButton;
-    SXSkipButton *_skipButton;
-    UIActivityIndicatorView *_activityIndicator;
-    SXUpNextButton *_upNextButton;
+    unsigned long long displayMode;
+    SXNowPlayingButton *_upNextButton;
+    SXSkipViewController *_skipViewController;
+    id <SXVideoSkipLockObserverFactory> _skipLockObserverFactory;
+    id <SXNowPlayingVideoTitleProviding> _titleProvider;
+    id <SXVideoQueueProviding> _queueProvider;
+    id <SXVideoSkipLockObserving> _skipLockObserver;
 }
 
-@property(retain, nonatomic) SXUpNextButton *upNextButton; // @synthesize upNextButton=_upNextButton;
-@property(retain, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
-@property(retain, nonatomic) SXSkipButton *skipButton; // @synthesize skipButton=_skipButton;
-@property(retain, nonatomic) SXVideoButton *replayButton; // @synthesize replayButton=_replayButton;
-@property(retain, nonatomic) SXVideoButton *advanceButton; // @synthesize advanceButton=_advanceButton;
-@property(retain, nonatomic) SXUpNextItem *item; // @synthesize item=_item;
-@property(retain, nonatomic) SXTimeline *timeline; // @synthesize timeline=_timeline;
-@property(nonatomic) double time; // @synthesize time=_time;
-@property(nonatomic) double duration; // @synthesize duration=_duration;
-@property(nonatomic) __weak id <SXUpNextViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) id <SXVideoSkipLockObserving> skipLockObserver; // @synthesize skipLockObserver=_skipLockObserver;
+@property(readonly, nonatomic) id <SXVideoQueueProviding> queueProvider; // @synthesize queueProvider=_queueProvider;
+@property(readonly, nonatomic) id <SXNowPlayingVideoTitleProviding> titleProvider; // @synthesize titleProvider=_titleProvider;
+@property(readonly, nonatomic) id <SXVideoSkipLockObserverFactory> skipLockObserverFactory; // @synthesize skipLockObserverFactory=_skipLockObserverFactory;
+@property(readonly, nonatomic) SXSkipViewController *skipViewController; // @synthesize skipViewController=_skipViewController;
+@property(readonly, nonatomic) SXNowPlayingButton *upNextButton; // @synthesize upNextButton=_upNextButton;
+@property(nonatomic) unsigned long long displayMode; // @synthesize displayMode;
 - (void).cxx_destruct;
-- (id)accessoryViewsConfiguredForItem:(id)arg1;
-- (void)replay;
-- (void)skip;
-- (void)scheduleSkipDurationUpdateWithSeconds:(long long)arg1;
-- (void)scheduleAutoAppearanceOfReplayButton;
-- (void)populateWithItem:(id)arg1;
-- (_Bool)isVisible;
-- (void)hide:(_Bool)arg1 withAnimationCoordinator:(id)arg2;
-@property(readonly, nonatomic) double autoAppearanceTimeInterval;
-@property(readonly, nonatomic) _Bool hideable;
+- (void)willTransitionToDisplayMode:(unsigned long long)arg1 withTransitionCoordinator:(id)arg2;
+- (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
+- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
-- (void)loadView;
-- (id)init;
+- (id)initWithUpNextButton:(id)arg1 skipViewController:(id)arg2 skipLockObserverFactory:(id)arg3 titleProvider:(id)arg4 queueProvider:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
-@property(retain) SXUpNextView *view; // @dynamic view;
+@property(readonly, nonatomic) UIView *view;
 
 @end
 

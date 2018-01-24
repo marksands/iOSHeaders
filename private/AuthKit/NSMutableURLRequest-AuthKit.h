@@ -15,9 +15,13 @@
 + (id)ak_timeZoneHeader;
 + (id)ak_localeHeader;
 + (id)ak_clientTimeHeader;
+- (void)ak_addDeviceModel;
+- (void)ak_addShowWarranty;
 - (void)ak_addProxyApp:(id)arg1;
 - (void)ak_addClientApp:(id)arg1;
 - (void)ak_addAcceptedSLAHeaderWithVersion:(unsigned long long)arg1;
+- (void)ak_addPhoneNumberCertificateHeaderWithValue:(id)arg1;
+- (void)ak_addPhoneNumberHeader;
 - (void)ak_addDeviceSerialNumberHeader;
 - (void)ak_addDeviceMLBHeader;
 - (void)ak_addDeviceROMHeader;
@@ -47,9 +51,12 @@
 - (void)ak_addProxiedClientInfoHeader:(id)arg1;
 - (void)ak_addCompanionClientInfoHeader:(id)arg1;
 - (void)ak_addCircleStatusHeader;
+- (void)ak_addClientTimeHeader;
 - (void)ak_addClientInfoHeader;
 - (void)ak_addProxiedDeviceUDIDHeader:(id)arg1;
 - (void)ak_addDeviceUDIDHeader;
+- (void)ak_addAppleIDUserModeHeaderWithValue:(unsigned long long)arg1;
+- (void)ak_addAppleIDHeaderWithValue:(id)arg1;
 - (void)ak_addLocalUserUUIDHashHeader;
 - (void)ak_addInternalBuildHeader;
 @end

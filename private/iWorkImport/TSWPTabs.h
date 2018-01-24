@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 
 + (id)instanceWithArchive:(const struct Message *)arg1 unarchiver:(id)arg2;
 + (id)tabs;
+- (void).cxx_destruct;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
@@ -36,7 +37,6 @@ __attribute__((visibility("hidden")))
 - (id)tabAtIndex:(unsigned long long)arg1;
 - (unsigned long long)count;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (void)saveToArchive:(struct TabsArchive *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct TabsArchive *)arg1 unarchiver:(id)arg2;
 - (id)initWithTabs:(id)arg1;

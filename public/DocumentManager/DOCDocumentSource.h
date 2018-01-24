@@ -33,7 +33,7 @@
 + (id)defaultSourceForBundleIdentifier:(id)arg1 defaultSourceIdentifier:(id)arg2 sources:(id)arg3;
 + (void)defaultSourceForBundleIdentifier:(id)arg1 selectedSourceIdentifier:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 + (id)defaultSourceIdentifierForBundleIdentifier:(id)arg1;
-+ (_Bool)isICloudFileProviderEnabled;
++ (_Bool)isICloudFileProviderEnabledForBundleIdentifier:(id)arg1;
 @property FPProvider *searching_fileProvider; // @synthesize searching_fileProvider=_searching_fileProvider;
 @property(copy) NSArray *documentTypes; // @synthesize documentTypes=_documentTypes;
 @property(copy) NSString *identifier; // @synthesize identifier=_identifier;

@@ -4,25 +4,22 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <PassKitCore/PKTransitPassProperties.h>
 
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSDateComponents, NSDecimalNumber, NSNumber, NSString;
+@class NSDateComponents, NSNumber, NSString;
 
-@interface PKFelicaPassProperties : NSObject <NSCopying, NSSecureCoding>
+@interface PKFelicaPassProperties : PKTransitPassProperties <NSCopying, NSSecureCoding>
 {
     _Bool _shinkansenTicketActive;
     _Bool _greenCarTicketUsed;
-    _Bool _blacklisted;
-    _Bool _inStation;
     _Bool _inShinkansenStation;
+    _Bool _balanceAllowedForCommute;
+    _Bool _lowBalanceGateNotificationEnabled;
     _Bool _hasGreenCarTicket;
     _Bool _hasShinkansenTicket;
-    NSString *_currencyCode;
-    NSString *_appletFormat;
-    NSDecimalNumber *_transitBalance;
     NSDateComponents *_shinkansenValidityStartDate;
     NSNumber *_shinkansenValidityTerm;
     NSString *_shinkansenOriginStation;
@@ -71,23 +68,19 @@
 @property(copy, nonatomic) NSString *shinkansenOriginStation; // @synthesize shinkansenOriginStation=_shinkansenOriginStation;
 @property(copy, nonatomic) NSNumber *shinkansenValidityTerm; // @synthesize shinkansenValidityTerm=_shinkansenValidityTerm;
 @property(copy, nonatomic) NSDateComponents *shinkansenValidityStartDate; // @synthesize shinkansenValidityStartDate=_shinkansenValidityStartDate;
+@property(nonatomic, getter=isLowBalanceGateNotificationEnabled) _Bool lowBalanceGateNotificationEnabled; // @synthesize lowBalanceGateNotificationEnabled=_lowBalanceGateNotificationEnabled;
+@property(nonatomic, getter=isBalanceAllowedForCommute) _Bool balanceAllowedForCommute; // @synthesize balanceAllowedForCommute=_balanceAllowedForCommute;
 @property(nonatomic, getter=isInShinkansenStation) _Bool inShinkansenStation; // @synthesize inShinkansenStation=_inShinkansenStation;
-@property(nonatomic, getter=isInStation) _Bool inStation; // @synthesize inStation=_inStation;
-@property(nonatomic, getter=isBlacklisted) _Bool blacklisted; // @synthesize blacklisted=_blacklisted;
 @property(nonatomic, getter=isGreenCarTicketUsed) _Bool greenCarTicketUsed; // @synthesize greenCarTicketUsed=_greenCarTicketUsed;
 @property(nonatomic, getter=isShinkansenTicketActive) _Bool shinkansenTicketActive; // @synthesize shinkansenTicketActive=_shinkansenTicketActive;
-@property(copy, nonatomic) NSDecimalNumber *transitBalance; // @synthesize transitBalance=_transitBalance;
-@property(copy, nonatomic) NSString *appletFormat; // @synthesize appletFormat=_appletFormat;
-@property(copy, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
 - (void).cxx_destruct;
 - (id)_stringForRow:(id)arg1 seat:(id)arg2;
 - (id)displayableShinkansenSecondarySeat;
 - (id)displayableShinkansenSeat;
-- (id)decimalTransitBalance;
-- (id)displayableTransitBalance;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithTransitAppletState:(id)arg1 paymentApplication:(id)arg2;
 - (id)initWithFelicaAppletState:(id)arg1 paymentApplication:(id)arg2;
 
 @end

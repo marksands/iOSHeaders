@@ -10,8 +10,8 @@
 
 @protocol PDInAppPaymentServiceExportedInterface <PDXPCServiceExportedInterface>
 - (void)paymentHardwareStatusWithCompletion:(void (^)(_Bool, unsigned long long))arg1;
-- (void)paymentServicesMerchantURL:(void (^)(_Bool, NSURL *))arg1;
-- (void)merchantStatusCheck:(NSString *)arg1 merchantDomain:(NSString *)arg2 sourceApplicationSecondaryIdentifier:(NSString *)arg3 handler:(void (^)(_Bool, NSError *))arg4;
+- (void)paymentServicesMerchantURLForAPIType:(unsigned long long)arg1 handler:(void (^)(_Bool, NSURL *))arg2;
+- (void)merchantStatusCheck:(NSString *)arg1 merchantDomain:(NSString *)arg2 handler:(void (^)(_Bool, NSError *))arg3;
 - (void)retrievePaymentListenerEndpointForHostIdentifier:(NSString *)arg1 handler:(void (^)(_Bool, NSXPCListenerEndpoint *))arg2;
 - (void)registerPaymentListenerEndpoint:(NSXPCListenerEndpoint *)arg1 forHostIdentifier:(NSString *)arg2 handler:(void (^)(_Bool))arg3;
 - (void)presentInAppPaymentInterfaceWithPaymentRequest:(PKPaymentRequest *)arg1 forHostIdentifier:(NSString *)arg2 orientation:(NSNumber *)arg3 handler:(void (^)(_Bool, NSError *))arg4;

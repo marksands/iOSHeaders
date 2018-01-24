@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)interactiveTransition:(id)arg1 gestureRecognizer:(id)arg2 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg3;
 - (_Bool)shouldBeginInteractiveTransition:(id)arg1;
 - (void)startInteractiveTransition:(id)arg1;
+- (id)transitionForDirection:(int)arg1;
 - (int)directionForTransition:(id)arg1;
 - (void)invalidate;
 - (id)initWithViewGestureController:(struct ViewGestureController *)arg1 gestureRecognizerView:(id)arg2;

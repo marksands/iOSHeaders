@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
+
 @class NSString;
 
-@interface FCForYouGroupConfiguration : NSObject
+@interface FCForYouGroupConfiguration : NSObject <NSCopying>
 {
     _Bool _allowsNativeAds;
     long long _groupType;
@@ -23,6 +25,7 @@
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) long long groupType; // @synthesize groupType=_groupType;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

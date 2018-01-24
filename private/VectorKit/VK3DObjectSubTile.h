@@ -11,7 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface VK3DObjectSubTile : NSObject
 {
-    vector_fbcf581f _objectGroups;
+    vector_defea32f _objectGroups;
     GEOVectorTile *_modelTile;
     shared_ptr_a3c46825 _styleManager;
     VKSharedResources *_sharedResources;
@@ -34,7 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)_replaceThreeBuldingsInModelTile:(id)arg1 objects:(vector_25c79282 *)arg2;
 - (void)dealloc;
 - (id)initWithKey:(const struct VKTileKey *)arg1 modelTile:(id)arg2 styleManager:(shared_ptr_a3c46825)arg3 sharedResources:(id)arg4 contentScale:(double)arg5;
-@property(readonly, nonatomic) vector_fbcf581f *objectGroups;
+@property(readonly, nonatomic) vector_defea32f *objectGroups;
 
 @end
 

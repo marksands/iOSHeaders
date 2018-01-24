@@ -39,10 +39,11 @@
 @property _Bool fetchPublisherHeadlines; // @synthesize fetchPublisherHeadlines=_fetchPublisherHeadlines;
 @property _Bool fetchAllTopics; // @synthesize fetchAllTopics=_fetchAllTopics;
 - (void).cxx_destruct;
-- (void)_streamingHeadlinesForArticleIDs:(id)arg1 endOfArticleTransform:(id)arg2 callbackQueue:(id)arg3 minimumResultCount:(unsigned long long)arg4 completion:(CDUnknownBlockType)arg5;
-- (id)_streamingHeadlinesForFeedItems:(id)arg1 tagsByID:(id)arg2;
+- (void)_headlinesForArticleIDs:(id)arg1 endOfArticleTransform:(id)arg2 callbackQueue:(id)arg3 minimumResultCount:(unsigned long long)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)_headlinesForFeedItems:(id)arg1 appConfiguration:(id)arg2 tagsByID:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_fetchThumbnailsForHeadlines:(id)arg1 callbackQueue:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)_filterHeadlines:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_performOperationWithAppConfig:(id)arg1;
 - (void)performOperation;
 - (void)prepareOperation;
 - (id)initWithContext:(id)arg1 headline:(id)arg2;

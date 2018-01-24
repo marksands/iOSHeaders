@@ -24,13 +24,14 @@
     UIButton *_disallowButton;
     UIButton *_nackButton;
     UILabel *_privacyLabel;
-    UIButton *_privacyButton;
     UIButton *_seeAllButton;
     TVCarouselView *_carouselView;
     _Bool _didLayout;
+    UIView *_privacyView;
 }
 
 + (struct CGSize)iconSize;
+@property(retain, nonatomic) UIView *privacyView; // @synthesize privacyView=_privacyView;
 - (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)_imageViewForIndex:(unsigned long long)arg1;
@@ -46,7 +47,6 @@
 - (id)bodyScroll;
 - (id)nackButton;
 - (id)seeAllButton;
-- (id)privacyButton;
 - (id)disallowButton;
 - (id)allowButton;
 - (void)dealloc;

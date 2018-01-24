@@ -27,15 +27,15 @@
 @property(nonatomic) long long navigationGesturePolicy; // @synthesize navigationGesturePolicy=_navigationGesturePolicy;
 @property(nonatomic) struct UIEdgeInsets hitTestInsets; // @synthesize hitTestInsets=_hitTestInsets;
 - (void).cxx_destruct;
-- (void)safeAreaInsetsDidChange;
 - (void)safariKillWebContentProcessUIActivityKillWebProcess:(id)arg1;
 - (void)dismissDialogView:(id)arg1 withAdditionalAnimations:(CDUnknownBlockType)arg2 forDialogController:(id)arg3;
 - (void)presentDialogView:(id)arg1 withAdditionalAnimations:(CDUnknownBlockType)arg2 forDialogController:(id)arg3;
 - (int)webProcessIDForDialogController:(id)arg1;
 - (void)setPlaceholderImage:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *evOrganizationName;
-- (struct __SecTrust *)_serverTrust;
+- (void)didEndFormControlInteraction;
 - (_Bool)becomeFirstResponder;
+- (void)safeAreaInsetsDidChange;
 - (void)layoutSubviews;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)_enclosingViewForExposedRectComputation;

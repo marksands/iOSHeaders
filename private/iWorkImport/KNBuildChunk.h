@@ -58,15 +58,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long eventTrigger;
 @property(readonly, nonatomic) NSArray *availableEventTriggers;
 @property(readonly, nonatomic) KNBuildChunk *nextChunkOnSlide;
-- (id)p_previousActiveChunkOnSlide;
 @property(readonly, nonatomic) KNBuildChunk *previousChunkOnSlide;
 @property(readonly, nonatomic, getter=isAutomaticWithPreviousChunkOnSameDrawable) _Bool automaticWithPreviousChunkOnSameDrawable;
 @property(readonly, nonatomic, getter=isAutomaticWithPreviousChunk) _Bool automaticWithPreviousChunk;
-@property(readonly, nonatomic) _Bool supportsWithStart;
-- (id)p_chunksBuildingWithThisChunk;
-- (_Bool)p_chunksBuildingWithThisChunkCanBuildWithChunk:(id)arg1;
-- (_Bool)p_canBuildWithChunk:(id)arg1 checkOtherChunksBuildingWithThisChunk:(_Bool)arg2;
-- (_Bool)canBuildWithChunk:(id)arg1;
 @property(nonatomic) unsigned long long referent;
 @property(nonatomic, getter=isAutomatic) _Bool automatic;
 @property(readonly, nonatomic) KNBuild *build;

@@ -22,15 +22,18 @@
 + (_Bool)supportsSecureCoding;
 + (id)pathfinderFromFile:(id)arg1;
 + (id)pathfinderFromDirectory:(id)arg1;
-+ (id)pathfinderWithImage:(id)arg1 divisor:(float)arg2;
 + (id)pathfinderWithImage:(id)arg1;
+@property(readonly, nonatomic) int pathLength; // @synthesize pathLength=_pathLength;
+@property(readonly, nonatomic) int cellGridHeight; // @synthesize cellGridHeight=_cellGridHeight;
+@property(readonly, nonatomic) int cellGridWidth; // @synthesize cellGridWidth=_cellGridWidth;
+- (void)adjustPathStart: /* Error: Ran out of types for this method. */;
 - (_Bool)writeToFile:(id)arg1;
 - (_Bool)writeToDirectory:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (struct NTKKaleidoscopePathfinderPoint)pointForTime:(float)arg1;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithImage:(id)arg1 divisor:(float)arg2;
+- (id)initWithImage:(id)arg1;
 
 @end
 

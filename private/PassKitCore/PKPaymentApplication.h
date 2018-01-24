@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDecimalNumber, NSString, PKFelicaPassProperties;
+@class NSArray, NSDecimalNumber, NSString, PKFelicaPassProperties, PKTransitPassProperties;
 
 @interface PKPaymentApplication : NSObject <NSSecureCoding, NSCopying>
 {
@@ -35,12 +35,12 @@
     unsigned long long _paymentType;
     NSString *_displayName;
     NSString *_appletDataFormat;
-    PKFelicaPassProperties *_felicaProperties;
+    PKTransitPassProperties *_transitProperties;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)applicationWithProtobuf:(id)arg1;
-@property(copy, nonatomic) PKFelicaPassProperties *felicaProperties; // @synthesize felicaProperties=_felicaProperties;
+@property(copy, nonatomic) PKTransitPassProperties *transitProperties; // @synthesize transitProperties=_transitProperties;
 @property(copy, nonatomic) NSString *appletDataFormat; // @synthesize appletDataFormat=_appletDataFormat;
 @property(nonatomic, getter=isAuxiliary) _Bool auxiliary; // @synthesize auxiliary=_auxiliary;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
@@ -64,8 +64,14 @@
 @property(copy, nonatomic, setter=setDPANSuffix:) NSString *dpanSuffix; // @synthesize dpanSuffix=_dpanSuffix;
 @property(copy, nonatomic, setter=setDPANIdentifier:) NSString *dpanIdentifier; // @synthesize dpanIdentifier=_dpanIdentifier;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *stationCodeProvider;
 @property(readonly, nonatomic) _Bool supportsExpressSuica;
+@property(readonly, nonatomic) _Bool supportsSuica;
+@property(copy, nonatomic) PKFelicaPassProperties *felicaProperties;
+@property(readonly, nonatomic) _Bool supportsTransit;
+@property(readonly, nonatomic) _Bool supportsExpressTransit;
 - (_Bool)supportsExpressMode:(id)arg1;
+- (_Bool)_expressModesIncludeTransit:(id)arg1;
 - (_Bool)supportsWebPaymentMode:(long long)arg1 withExclusionList:(id)arg2 clientOSVersion:(id)arg3;
 - (_Bool)supportsWebPaymentMode:(long long)arg1 withExclusionList:(id)arg2;
 @property(readonly, nonatomic) NSString *stateAsString;

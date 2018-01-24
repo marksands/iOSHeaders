@@ -7,11 +7,12 @@
 #import "NSObject.h"
 
 #import "DEDPairingProtocol.h"
+#import "DEDSecureArchiving.h"
 #import "DEDXPCProtocol.h"
 
 @class DEDIDSConnection, DEDSharingConnection, DEDXPCConnector, DEDXPCInbound, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_os_log>, NSString, NSXPCConnection;
 
-@interface DEDController : NSObject <DEDXPCProtocol, DEDPairingProtocol>
+@interface DEDController : NSObject <DEDXPCProtocol, DEDPairingProtocol, DEDSecureArchiving>
 {
     _Bool _isDaemon;
     _Bool _started;
@@ -39,6 +40,7 @@
     CDUnknownBlockType _didCancelCompletion;
 }
 
++ (id)archivedClasses;
 @property(copy) CDUnknownBlockType didCancelCompletion; // @synthesize didCancelCompletion=_didCancelCompletion;
 @property(retain) NSObject<OS_os_log> *log; // @synthesize log=_log;
 @property(retain) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;

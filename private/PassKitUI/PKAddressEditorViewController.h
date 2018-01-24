@@ -21,6 +21,7 @@
     _Bool _displayGivenNameFirst;
     _Bool _displayPhoneticName;
     _Bool _readOnly;
+    _Bool _requirementsMet;
     id <PKAddressEditorViewControllerDelegate> _delegate;
     NSString *_givenName;
     NSString *_familyName;
@@ -49,6 +50,7 @@
     PKAddressTextField *_phoneticFamilyNameTextField;
 }
 
+@property(nonatomic) _Bool requirementsMet; // @synthesize requirementsMet=_requirementsMet;
 @property(nonatomic) __weak PKAddressTextField *phoneticFamilyNameTextField; // @synthesize phoneticFamilyNameTextField=_phoneticFamilyNameTextField;
 @property(nonatomic) __weak PKAddressTextField *phoneticGivenNameTextField; // @synthesize phoneticGivenNameTextField=_phoneticGivenNameTextField;
 @property(nonatomic) __weak PKAddressTextField *familyNameTextField; // @synthesize familyNameTextField=_familyNameTextField;
@@ -80,10 +82,10 @@
 - (void)countryPicker:(id)arg1 didPickCountryCode:(id)arg2;
 - (void)completer:(id)arg1 didFailWithError:(id)arg2;
 - (void)completerDidUpdateResults:(id)arg1;
-- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)addressTextField:(id)arg1 textDidChange:(id)arg2;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
+- (void)textDidChange:(id)arg1;
 - (_Bool)textFieldShouldBeginEditing:(id)arg1;
 - (struct CGSize)preferredContentSize;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;

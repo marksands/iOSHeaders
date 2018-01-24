@@ -8,30 +8,45 @@
 
 #import "HMFTimerDelegate.h"
 
-@class HMFTimer, NSObject<OS_dispatch_queue>, NSString;
+@class HMFTimer, NSData, NSMutableData, NSObject<OS_dispatch_queue>, NSString;
 
 @interface HAPPairSetupSession : HMFObject <HMFTimerDelegate>
 {
     id <HAPPairSetupSessionDelegate> _delegate;
     long long _role;
-    long long _options;
     NSObject<OS_dispatch_queue> *_clientQueue;
     unsigned long long _state;
     struct PairingSessionPrivate *_pairingSession;
     HMFTimer *_backoffTimer;
+    unsigned long long _pairSetupType;
+    NSData *_sessionReadKey;
+    NSData *_sessionWriteKey;
+    NSMutableData *_sessionReadNonce;
+    NSMutableData *_sessionWriteNonce;
+    NSData *_certificate;
 }
 
 + (_Bool)isValidSetupCode:(id)arg1;
 + (void)initialize;
+@property(retain, nonatomic) NSData *certificate; // @synthesize certificate=_certificate;
+@property(retain, nonatomic) NSMutableData *sessionWriteNonce; // @synthesize sessionWriteNonce=_sessionWriteNonce;
+@property(retain, nonatomic) NSMutableData *sessionReadNonce; // @synthesize sessionReadNonce=_sessionReadNonce;
+@property(retain, nonatomic) NSData *sessionWriteKey; // @synthesize sessionWriteKey=_sessionWriteKey;
+@property(retain, nonatomic) NSData *sessionReadKey; // @synthesize sessionReadKey=_sessionReadKey;
+@property(nonatomic) unsigned long long pairSetupType; // @synthesize pairSetupType=_pairSetupType;
 @property(retain, nonatomic) HMFTimer *backoffTimer; // @synthesize backoffTimer=_backoffTimer;
 @property(readonly, nonatomic) struct PairingSessionPrivate *pairingSession; // @synthesize pairingSession=_pairingSession;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
-@property(readonly, nonatomic) long long options; // @synthesize options=_options;
 @property(readonly, nonatomic) long long role; // @synthesize role=_role;
 @property(readonly) __weak id <HAPPairSetupSessionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)timerDidFire:(id)arg1;
+- (id)decryptData:(id)arg1 additionalAuthenticatedData:(id)arg2 error:(id *)arg3;
+- (id)encryptData:(id)arg1 additionalAuthenticatedData:(id)arg2 error:(id *)arg3;
+- (_Bool)isSecureSession;
+- (id)getCertificate;
+- (void)generateSessionKeys;
 - (void)_stopWithError:(id)arg1;
 - (void)stopWithError:(id)arg1;
 - (void)stop;
@@ -54,7 +69,7 @@
 - (id)shortDescription;
 - (void)_invalidate;
 - (void)dealloc;
-- (id)initWithRole:(long long)arg1 options:(long long)arg2 delegate:(id)arg3;
+- (id)initWithRole:(long long)arg1 pairSetupType:(unsigned long long)arg2 delegate:(id)arg3;
 - (id)init;
 
 // Remaining properties

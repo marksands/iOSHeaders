@@ -30,7 +30,6 @@
 - (id)fontSizeForTagID:(id)arg1;
 - (void)setFontSizeForTagID:(id)arg1 fontSize:(id)arg2;
 - (void)syncFontSizeForTagID:(id)arg1;
-- (id)_entryIDForTagID:(id)arg1;
 - (void)loadLocalCachesFromStore;
 - (id)initWithStore:(id)arg1 tagSettingsDelegate:(id)arg2;
 

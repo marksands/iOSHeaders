@@ -7,6 +7,9 @@
 #import "NSData.h"
 
 @interface NSData (HealthKit)
++ (id)hk_randomDataOfLength:(long long)arg1;
++ (id)hk_nilDataMD5;
 + (id)hk_dataWithSHA256Fingerprint:(id)arg1 error:(out id *)arg2;
+- (id)hk_MD5;
 @end
 

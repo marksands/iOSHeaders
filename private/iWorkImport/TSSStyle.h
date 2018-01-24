@@ -20,11 +20,11 @@ __attribute__((visibility("hidden")))
 @interface TSSStyle : TSPObject <NSCopying, TSSPropertyValueValidator, TSSStyleObject, TSSPropertySource, TSSStyleClient, TSKModel, TSKTransformableObject>
 {
     TSSPropertyMap *mOverridePropertyMap;
+    TSSStylesheet *mStylesheet;
     NSString *mName;
     NSString *mStyleIdentifier;
     TSSStyle *mParent;
     _Bool mIsVariation;
-    TSSStylesheet *mStylesheet;
     _Bool mWasUnarchivedAsOrphanVariation;
 }
 
@@ -52,8 +52,9 @@ __attribute__((visibility("hidden")))
 + (id)validateFontName:(id)arg1 size:(double)arg2 bold:(_Bool)arg3 italic:(_Bool)arg4 checkedFontMap:(id)arg5 newFontName:(id *)arg6 newBold:(_Bool *)arg7 newItalic:(_Bool *)arg8;
 + (struct __CTFont *)pCreateFontWithName:(id)arg1 fontSize:(double)arg2;
 + (id)pReplacementForMissingFontName:(id)arg1 outBold:(int *)arg2 outItalic:(int *)arg3 outQuiet:(_Bool *)arg4;
-@property(readonly, nonatomic) TSSStylesheet *stylesheet; // @synthesize stylesheet=mStylesheet;
+@property(nonatomic) __weak TSSStylesheet *stylesheet; // @synthesize stylesheet=mStylesheet;
 @property(readonly, nonatomic) TSSStyle *parent; // @synthesize parent=mParent;
+- (void).cxx_destruct;
 - (id)parentStyleForFixingOrphanVariation;
 - (void)setObjectUUID:(id)arg1;
 - (void)replaceReferencedStylesUsingBlock:(CDUnknownBlockType)arg1;
@@ -138,11 +139,9 @@ __attribute__((visibility("hidden")))
 - (_Bool)isEqualToStyle:(id)arg1 ignoreObjectContext:(_Bool)arg2;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
-- (void)dealloc;
 - (id)init;
 - (id)initWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1 name:(id)arg2 overridePropertyMap:(id)arg3 isVariation:(_Bool)arg4;
-- (void)setStylesheet:(id)arg1;
 - (void)setIsVariation:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool isVariation;
 - (void)setStyleIdentifier:(id)arg1;

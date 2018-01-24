@@ -16,6 +16,7 @@
 + (id)log;
 @property(readonly, nonatomic) AWDServerConnection *awdServerConnection; // @synthesize awdServerConnection=_awdServerConnection;
 - (void).cxx_destruct;
+- (void)submitFetchMetricsReport:(id)arg1;
 - (void)submitComposeAttachmentReport:(id)arg1;
 - (void)submitMessageLoadingReport:(id)arg1;
 - (_Bool)submitWithIdentifier:(unsigned int)arg1 metricGenerator:(CDUnknownBlockType)arg2;

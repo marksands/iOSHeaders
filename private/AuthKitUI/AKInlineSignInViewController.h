@@ -6,11 +6,12 @@
 
 #import <AuthKitUI/AKBaseSignInViewController.h>
 
+#import "AKAppleIDAuthenticationInAppContextPasswordDelegate.h"
 #import "UITextFieldDelegate.h"
 
 @class AKAppleIDAuthenticationInAppContext, AKTextField, NSString, UIActivityIndicatorView, UIButton, UIView;
 
-@interface AKInlineSignInViewController : AKBaseSignInViewController <UITextFieldDelegate>
+@interface AKInlineSignInViewController : AKBaseSignInViewController <UITextFieldDelegate, AKAppleIDAuthenticationInAppContextPasswordDelegate>
 {
     _Bool _usesDarkMode;
     _Bool _usesVibrancy;
@@ -18,6 +19,7 @@
     NSString *_secondaryButtonTitle;
     NSString *_tertiaryButtonTitle;
     AKAppleIDAuthenticationInAppContext *_context;
+    CDUnknownBlockType _passwordRequiredCompletion;
     _Bool _wantsAuthenticationProgress;
     NSString *_primaryButtonTitle;
     UIView *_loginFieldsContainer;
@@ -39,13 +41,16 @@
 @property(readonly) NSString *primaryButtonTitle; // @synthesize primaryButtonTitle=_primaryButtonTitle;
 @property _Bool wantsAuthenticationProgress; // @synthesize wantsAuthenticationProgress=_wantsAuthenticationProgress;
 - (void).cxx_destruct;
+- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
+- (_Bool)textFieldShouldReturn:(id)arg1;
+- (void)context:(id)arg1 needsPasswordWithCompletion:(CDUnknownBlockType)arg2;
 @property(nonatomic) long long blurEffectStyle;
 @property(nonatomic) _Bool usesVibrancy;
-- (_Bool)textFieldShouldReturn:(id)arg1;
 - (void)_updateFonts:(id)arg1;
 - (void)_updateSignInButtonState;
 - (void)_passwordTextFieldDidChange:(id)arg1;
 - (void)_appleIDTextFieldDidChange:(id)arg1;
+- (void)_setPasswordFieldHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_hidebusyWorkUI;
 - (void)_startBusyWorkUI;
 - (void)_beginAuthenticationIfPossibleWithOption:(unsigned long long)arg1;

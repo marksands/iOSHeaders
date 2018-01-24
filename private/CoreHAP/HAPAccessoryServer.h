@@ -26,20 +26,24 @@
     NSArray *_accessories;
     long long _linkType;
     HMFVersion *_version;
+    unsigned long long _authMethods;
     NSHashTable *_internalDelegates;
     NSObject<OS_dispatch_queue> *_internalDelegateQueue;
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     id <HAPKeyStore> _keyStore;
+    unsigned long long _pairSetupType;
 }
 
 + (_Bool)isAccessoryServerWithIdentifierPaired:(id)arg1 keyStore:(id)arg2;
+@property(nonatomic) unsigned long long pairSetupType; // @synthesize pairSetupType=_pairSetupType;
 @property(readonly, nonatomic) __weak id <HAPKeyStore> keyStore; // @synthesize keyStore=_keyStore;
 @property(nonatomic, getter=isIncompatibleUpdate) _Bool incompatibleUpdate; // @synthesize incompatibleUpdate=_incompatibleUpdate;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *internalDelegateQueue; // @synthesize internalDelegateQueue=_internalDelegateQueue;
 @property(readonly, nonatomic) NSHashTable *internalDelegates; // @synthesize internalDelegates=_internalDelegates;
+@property(nonatomic) unsigned long long authMethods; // @synthesize authMethods=_authMethods;
 @property(copy) HMFVersion *version; // @synthesize version=_version;
 @property(nonatomic) _Bool supportsTimedWrite; // @synthesize supportsTimedWrite=_supportsTimedWrite;
 @property(readonly, nonatomic) long long linkType; // @synthesize linkType=_linkType;
@@ -63,7 +67,7 @@
 - (void)addPairing:(id)arg1 completionQueue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)stopPairingWithError:(id *)arg1;
 - (_Bool)tryPairingPassword:(id)arg1 error:(id *)arg2;
-- (void)startPairing;
+- (void)startPairingWithConsentRequired:(_Bool)arg1;
 - (void)continuePairingAfterAuthPrompt;
 - (_Bool)matchesSetupID:(id)arg1;
 @property(readonly, nonatomic, getter=isPaired) _Bool paired;

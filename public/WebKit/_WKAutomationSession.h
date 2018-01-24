@@ -8,21 +8,25 @@
 
 #import "WKObject.h"
 
-@class NSString;
+@class NSString, _WKAutomationSessionConfiguration;
 
 @interface _WKAutomationSession : NSObject <WKObject>
 {
     struct ObjectStorage<WebKit::WebAutomationSession> _session;
+    struct RetainPtr<_WKAutomationSessionConfiguration> _configuration;
     struct WeakObjCPtr<id<_WKAutomationSessionDelegate>> _delegate;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 @property(readonly) struct Object *_apiObject;
+@property(readonly, nonatomic, getter=isSimulatingUserInteraction) _Bool simulatingUserInteraction;
 @property(readonly, nonatomic, getter=isPaired) _Bool paired;
+@property(readonly, copy, nonatomic) _WKAutomationSessionConfiguration *configuration;
 @property(copy, nonatomic) NSString *sessionIdentifier;
 @property(nonatomic) __weak id <_WKAutomationSessionDelegate> delegate;
 - (void)dealloc;
+- (id)initWithConfiguration:(id)arg1;
 - (id)init;
 
 // Remaining properties

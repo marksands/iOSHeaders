@@ -11,9 +11,9 @@
 __attribute__((visibility("hidden")))
 @interface _RWITCPRelayMessage : NSObject
 {
-    NSData *_payload;
     _Bool _writtenHeader;
     unsigned long long _writtenPayloadOffset;
+    NSData *_payload;
 }
 
 + (id)TCPRelayMessageWithPayload:(id)arg1;

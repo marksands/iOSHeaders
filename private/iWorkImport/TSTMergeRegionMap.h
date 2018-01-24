@@ -9,18 +9,18 @@
 __attribute__((visibility("hidden")))
 @interface TSTMergeRegionMap : TSPObject
 {
-    unordered_map_47ee37d2 mCellIDToMergeOrigin;
-    unordered_map_41e29bd8 mMergeOriginToSize;
+    unordered_map_ddbde191 mCellIDToMergeOrigin;
+    unordered_map_89444acf mMergeOriginToSize;
     struct TSUCellRect mUnionedMergeRange;
 }
 
 + (id)mergeRegionMapWithContext:(id)arg1 andCellRangesSet:(const unordered_set_ea210bc4 *)arg2;
-+ (id)mergeRegionMapWithContext:(id)arg1 andCellRanges:(const vector_db509b29 *)arg2;
++ (id)mergeRegionMapWithContext:(id)arg1 andCellRanges:(const vector_e87daf7b *)arg2;
 + (id)mergeRegionMapFromMap:(id)arg1 intersectingRange:(struct TSUCellRect)arg2;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (const unordered_map_41e29bd8 *)mergeOriginToSize;
-- (const unordered_map_47ee37d2 *)cellIDToMergeOrigin;
+- (const unordered_map_89444acf *)mergeOriginToSize;
+- (const unordered_map_ddbde191 *)cellIDToMergeOrigin;
 - (_Bool)hasRangeSpanningRows;
 - (_Bool)find:(struct TSUCellRect)arg1;
 - (struct TSUCellRect)mergedRangeForCellID:(struct TSUCellCoord)arg1;

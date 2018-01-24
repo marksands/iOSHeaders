@@ -8,25 +8,16 @@
 
 #import "CALayerDelegate.h"
 
-@class CALayer, NSString, TSDMutableReflection, TSDReflection, TSDShadow;
+@class NSString, TSDReflection, TSDShadow, TSDStyledInfo, TSDStyledLayout;
 
 __attribute__((visibility("hidden")))
 @interface TSDStyledRep : TSDRep <CALayerDelegate>
 {
-    CALayer *mShadowLayer;
-    CALayer *mReflectionLayer;
-    struct CGPoint mOriginalReflectionLayerPositionInScaledCanvas;
-    _Bool mIsUpdatingReflectionOpacity;
-    TSDMutableReflection *mDynamicReflection;
-    _Bool mIsUpdatingShadow;
-    TSDShadow *mDynamicShadow;
     struct {
         unsigned int shadowInvalid:1;
     } mFlags;
 }
 
-@property(readonly, nonatomic) CALayer *reflectionLayer; // @synthesize reflectionLayer=mReflectionLayer;
-@property(readonly, nonatomic) CALayer *shadowLayer; // @synthesize shadowLayer=mShadowLayer;
 - (id)textureForDescription:(id)arg1;
 - (struct CGImage *)newFrameMaskForViewScale:(double)arg1 frameRect:(struct CGRect *)arg2;
 - (void)calculateTextureClipBounds:(struct CGRect *)arg1 andOffset:(struct CGPoint *)arg2 withTransform:(struct CGAffineTransform *)arg3 andRectOnCanvas:(struct CGRect *)arg4 textureDescription:(id)arg5 isUsingImageTexture:(_Bool)arg6;
@@ -49,9 +40,9 @@ __attribute__((visibility("hidden")))
 - (struct CGImage *)newShadowImageWithSize:(struct CGSize)arg1 shadow:(id)arg2 drawSelector:(SEL)arg3 unflipped:(_Bool)arg4;
 - (_Bool)canDrawShadowInOneStepWithChildren:(_Bool)arg1;
 - (struct CGRect)reflectionLayerFrameInRoot;
-- (_Bool)isInvisible;
-- (_Bool)shouldShowShadow;
-- (_Bool)shouldShowReflection;
+@property(readonly, nonatomic) _Bool isInvisible;
+@property(readonly, nonatomic) _Bool shouldShowShadow;
+@property(readonly, nonatomic) _Bool shouldShowReflection;
 @property(readonly, nonatomic) TSDShadow *shadow;
 @property(readonly, nonatomic) TSDReflection *reflection;
 - (struct CGRect)p_rectWithEffectsAppliedToRect:(struct CGRect)arg1 additionalTransform:(struct CGAffineTransform)arg2 includeShadow:(_Bool)arg3 includeReflection:(_Bool)arg4;
@@ -62,8 +53,8 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)p_clipRectInRootForTransform:(struct CGAffineTransform)arg1 includeShadow:(_Bool)arg2 includeReflection:(_Bool)arg3;
 - (struct CGRect)clipRect;
 - (struct CGRect)clipRectWithoutEffects;
-- (id)styledLayout;
-- (id)styledInfo;
+@property(readonly, nonatomic) TSDStyledLayout *styledLayout;
+@property(readonly, nonatomic) TSDStyledInfo *styledInfo;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 

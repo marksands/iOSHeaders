@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSUUID, TSPData, TSPLazyReference, TSPObject, TSPObjectContext, TSPReader;
+@class NSArray, NSUUID, TSPCancellationState, TSPData, TSPLazyReference, TSPObject, TSPObjectContext, TSPReader;
 
 @protocol TSPReaderDelegate <NSObject>
 @property(readonly, nonatomic) _Bool canRetainObjectReferencedByWeakLazyReference;
@@ -21,6 +21,7 @@
 - (void)reader:(TSPReader *)arg1 didFindExternalReferenceToObjectIdentifier:(long long)arg2 componentIdentifier:(long long)arg3 isWeak:(_Bool)arg4 allowUnknownObject:(_Bool)arg5 fromParentObject:(TSPObject *)arg6 completion:(void (^)(id))arg7;
 - (TSPData *)reader:(TSPReader *)arg1 wantsDataForIdentifier:(long long)arg2;
 - (long long)reader:(TSPReader *)arg1 wantsObjectIdentifierForUUID:(NSUUID *)arg2;
+- (TSPCancellationState *)cancellationStateForReader:(TSPReader *)arg1;
 - (id <TSPLazyReferenceDelegate>)lazyReferenceDelegateForReader:(TSPReader *)arg1;
 - (id <TSPObjectDelegate>)objectDelegateForReader:(TSPReader *)arg1;
 - (TSPObjectContext *)contextForReader:(TSPReader *)arg1;

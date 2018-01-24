@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSSet, NSString, NSURL, PKCurrencyAmount, PKFelicaPassProperties, PKPaymentApplication;
+@class NSArray, NSSet, NSString, NSURL, PKCurrencyAmount, PKPaymentApplication, PKTransitPassProperties;
 
 @interface PKPaymentPass : PKPass <NSCopying, NSSecureCoding>
 {
@@ -47,6 +47,7 @@
 + (unsigned long long)defaultSettings;
 + (_Bool)supportsSecureCoding;
 + (id)displayableErrorForAction:(id)arg1 andReason:(unsigned long long)arg2;
++ (id)displayableNoPaymentNetworkErrorMessageForAction:(id)arg1;
 @property(copy, nonatomic) NSArray *availableActions; // @synthesize availableActions=_availableActions;
 @property(nonatomic) _Bool requiresTransferSerialNumberBasedProvisioning; // @synthesize requiresTransferSerialNumberBasedProvisioning=_requiresTransferSerialNumberBasedProvisioning;
 @property(copy, nonatomic) NSString *localizedSuspendedReason; // @synthesize localizedSuspendedReason=_localizedSuspendedReason;
@@ -80,7 +81,8 @@
 - (id)sortedPaymentApplications:(id)arg1 ascending:(_Bool)arg2;
 - (id)_launchURLForPassAction:(id)arg1;
 - (id)addValueURL;
-@property(readonly, copy, nonatomic) PKFelicaPassProperties *felicaProperties;
+- (id)felicaProperties;
+@property(readonly, copy, nonatomic) PKTransitPassProperties *transitProperties;
 - (id)notificationCenterTitle;
 - (id)_localizedSuspendedReasonForAID:(id)arg1;
 - (_Bool)supportsWebPaymentMode:(long long)arg1 withExclusionList:(id)arg2 clientOSVersion:(id)arg3;
@@ -97,6 +99,8 @@
 @property(readonly) __weak NSString *deviceAccountIdentifier;
 - (_Bool)availableForAutomaticPresentationUsingBeaconContext;
 - (_Bool)availableForAutomaticPresentationUsingVASContext;
+- (_Bool)isSuicaPass;
+- (_Bool)isTransitPass;
 - (_Bool)isAccessPass;
 @property(readonly, nonatomic, getter=isPrivateLabel) _Bool privateLabel;
 - (_Bool)isDevicePrimaryPaymentApplicationPersonalized;

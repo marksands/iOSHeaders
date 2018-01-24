@@ -60,6 +60,7 @@ __attribute__((visibility("hidden")))
 - (void)p_drawStrokeForGridRow:(unsigned int)arg1 strokeRect:(CDStruct_58eae27c)arg2 clearStroke:(_Bool)arg3 shadowType:(int)arg4 context:(struct CGContext *)arg5;
 - (void)p_drawStrokeForGridColumn:(unsigned int)arg1 strokeRect:(CDStruct_58eae27c)arg2 clearStroke:(_Bool)arg3 shadowType:(int)arg4 context:(struct CGContext *)arg5;
 - (int)validateTableOffset:(id)arg1;
+- (void)validateCoordinateDirection;
 - (int)validate:(id)arg1;
 - (void)invalidateTableOffset;
 - (void)invalidateCoordinatesAfterRow:(unsigned short)arg1;

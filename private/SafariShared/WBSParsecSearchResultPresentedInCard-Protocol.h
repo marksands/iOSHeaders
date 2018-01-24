@@ -7,7 +7,6 @@
 #import "NSObject.h"
 
 @protocol WBSParsecSearchResultPresentedInCard <NSObject>
-@property(readonly, nonatomic) _Bool willPresentResultInCard;
 @property(retain, nonatomic) id <WBSParsecSearchSession> parsecSearchSession;
 @end
 

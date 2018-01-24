@@ -33,7 +33,7 @@
 - (_Bool)_exportOutputImage:(id)arg1 format:(int)arg2 colorSpace:(struct CGColorSpace *)arg3 toURL:(id)arg4 uti:(id)arg5 error:(out id *)arg6;
 - (id)_dynamismMapWithMinImage:(id)arg1 maxImage:(id)arg2 extent:(CDStruct_996ac03c)arg3;
 - (_Bool)writeMaskImage:(id)arg1 UTI:(id)arg2 error:(out id *)arg3;
-- (_Bool)writeLongExposureImage:(id)arg1 UTI:(id)arg2 error:(out id *)arg3;
+- (_Bool)writeLongExposureImage:(id)arg1 UTI:(id)arg2 colorSpace:(id)arg3 error:(out id *)arg4;
 - (_Bool)_accumulate:(id)arg1 error:(out id *)arg2;
 - (void)_accumulate:(id)arg1;
 - (_Bool)_initializeAccumulation:(out id *)arg1;
@@ -51,7 +51,6 @@
 - (_Bool)_initializeStorage:(id)arg1 image:(id)arg2 error:(out id *)arg3;
 - (_Bool)start:(out id *)arg1;
 - (void)cancel;
-- (id)outputColorSpace;
 - (id)workingColorSpace;
 - (void)dealloc;
 - (id)initWithSize:(CDStruct_912cb5d2)arg1 renderer:(id)arg2;

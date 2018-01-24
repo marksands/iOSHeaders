@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 {
     _Bool _filterColons;
     _Bool _referenceIsComplete;
+    _Bool _trimNames;
     _Bool _namesUsed;
     unsigned char _stickyBits;
     id <TSCEReferenceResolving> _contextResolver;
@@ -36,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *sheetName; // @synthesize sheetName=_sheetName;
 @property(nonatomic) unsigned char stickyBits; // @synthesize stickyBits=_stickyBits;
 @property(nonatomic) _Bool namesUsed; // @synthesize namesUsed=_namesUsed;
+@property(nonatomic) _Bool trimNames; // @synthesize trimNames=_trimNames;
 @property(retain, nonatomic) TSCEAbortObject *abortObject; // @synthesize abortObject=_abortObject;
 @property(nonatomic) _Bool referenceIsComplete; // @synthesize referenceIsComplete=_referenceIsComplete;
 @property(nonatomic) _Bool filterColons; // @synthesize filterColons=_filterColons;

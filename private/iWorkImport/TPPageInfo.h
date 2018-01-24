@@ -8,7 +8,7 @@
 
 #import "TSDContainerInfo.h"
 
-@class NSObject<TSDContainerInfo>, NSString, TPBodyInfo, TPDocumentRoot, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
+@class NSArray, NSObject<TSDContainerInfo>, NSString, TPBodyInfo, TPDocumentRoot, TSDInfoGeometry, TSPObject<TSDOwningAttachment>;
 
 __attribute__((visibility("hidden")))
 @interface TPPageInfo : NSObject <TSDContainerInfo>
@@ -19,13 +19,15 @@ __attribute__((visibility("hidden")))
     id <TPPageLayoutInfoProvider> _layoutInfoProvider;
 }
 
++ (_Bool)isDocSetupPageIndex:(unsigned long long)arg1;
++ (_Bool)hasBodyInfo;
 @property(readonly, nonatomic) __weak id <TPPageLayoutInfoProvider> layoutInfoProvider; // @synthesize layoutInfoProvider=_layoutInfoProvider;
 @property(readonly, nonatomic) __weak TPDocumentRoot *documentRoot; // @synthesize documentRoot=_documentRoot;
 @property(readonly, nonatomic) TPBodyInfo *bodyInfo; // @synthesize bodyInfo=_bodyInfo;
 @property(readonly, nonatomic) unsigned long long pageIndex; // @synthesize pageIndex=_pageIndex;
 - (void).cxx_destruct;
 - (id)infoForSelectionPath:(id)arg1;
-- (id)childInfos;
+@property(readonly, nonatomic) NSArray *childInfos;
 - (Class)layoutClass;
 - (_Bool)isSelectable;
 @property(readonly, nonatomic, getter=isAttachedToBodyText) _Bool attachedToBodyText;

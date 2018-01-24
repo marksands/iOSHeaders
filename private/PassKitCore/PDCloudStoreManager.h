@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "PDScheduledActivityClient.h"
+
 @class CKContainer, NSError, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, PKPaymentTransactionProcessor, PKPeerPaymentAccount;
 
-@interface PDCloudStoreManager : NSObject
+@interface PDCloudStoreManager : NSObject <PDScheduledActivityClient>
 {
     CKContainer *_container;
     PKPeerPaymentAccount *_peerPaymentAccount;
@@ -17,7 +19,7 @@
     NSMutableDictionary *_changeTokensByZoneID;
     NSMutableDictionary *_completedFetchTimestampByZoneID;
     PKPaymentTransactionProcessor *_transactionProcessor;
-    NSMutableSet *_initalizationCompletionHandlers;
+    NSMutableSet *_initializationCompletionHandlers;
     NSError *_operationError;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_source> *_retryTimer;
@@ -28,6 +30,7 @@
     _Bool _resettingCloudStore;
     _Bool _accountChangedNotificationReceived;
     _Bool _shouldInvalidateCloudStore;
+    _Bool _shouldCancelAllTasks;
     id <PDCloudStoreDataSource> _dataSource;
     NSString *_archivePath;
     id <PDCloudStoreManagerDelegate> _delegate;
@@ -38,10 +41,11 @@
 @property(readonly, nonatomic) id <PDCloudStoreDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (void)_addOperation:(id)arg1;
+- (void)_cancelAllOperations;
 - (id)_errorWithCode:(long long)arg1 description:(id)arg2;
 - (id)_cannotPerformActionErrorWithFailureReason:(id)arg1;
 - (void)_keychainSyncFinishedFired;
-- (void)_callInitalizationCompletionHandlersWithSuccess:(_Bool)arg1 error:(id)arg2;
+- (void)_callInitializationCompletionHandlersWithSuccess:(_Bool)arg1 error:(id)arg2;
 - (void)_stopFetchRetryTimer;
 - (void)_startFetchRetryTimerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_resetZonesByName;
@@ -76,6 +80,9 @@
 - (id)_serverChangeTokenFromArchiveData:(id)arg1;
 - (id)_cachedServerChangeTokens;
 - (void)_saveServerChangeTokens;
+- (void)performScheduledActivityWithIdentifier:(id)arg1 activityCriteria:(id)arg2;
+- (void)_cancelCloudStoreInitializationTimer;
+- (void)_startCloudStoreInitializationTimer;
 - (void)_retryContainerStateWithError:(id)arg1 retryCount:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_processResultWithError:(id)arg1 nextExpectedState:(unsigned long long)arg2 retryCount:(unsigned long long)arg3 shouldRetry:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
 - (_Bool)_canSyncTransactionToCloudKit:(id)arg1;
@@ -110,6 +117,12 @@
 - (id)initWithDataSource:(id)arg1 transactionProcessor:(id)arg2;
 - (void)resetContainerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)initialCloudDatabaseSetupWithCompletion:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

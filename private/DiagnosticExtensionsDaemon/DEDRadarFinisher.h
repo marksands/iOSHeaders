@@ -7,12 +7,13 @@
 #import "NSObject.h"
 
 #import "DEDFinisher.h"
+#import "DEDSecureArchiving.h"
 #import "NSSecureCoding.h"
 #import "NSURLSessionDataDelegate.h"
 
 @class DEDBugSession, NSArray, NSMutableArray, NSObject<OS_os_log>, NSString;
 
-@interface DEDRadarFinisher : NSObject <NSURLSessionDataDelegate, DEDFinisher, NSSecureCoding>
+@interface DEDRadarFinisher : NSObject <NSURLSessionDataDelegate, DEDFinisher, NSSecureCoding, DEDSecureArchiving>
 {
     float _percentComplete;
     DEDBugSession *_session;
@@ -21,6 +22,7 @@
     NSMutableArray *_finishedAttachments;
 }
 
++ (id)archivedClasses;
 + (_Bool)supportsSecureCoding;
 @property(retain) NSMutableArray *finishedAttachments; // @synthesize finishedAttachments=_finishedAttachments;
 @property(retain) NSArray *attachments; // @synthesize attachments=_attachments;

@@ -33,6 +33,7 @@
 - (void)viewDidLoad;
 - (void)_doneTapped:(id)arg1;
 - (void)_cancelTapped:(id)arg1;
+- (_Bool)prefersToBePresentedFromUINavigationController;
 - (void)setSearchAccountID:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 event:(id)arg2 overriddenEventStartDate:(id)arg3 overriddenEventEndDate:(id)arg4;
 

@@ -18,7 +18,6 @@
     _Bool _requiresMescal;
     _Bool _encodeQueryParams;
     _Bool _runsInDaemon;
-    id <WLKNetworkRequestOperationDelegate> _delegate;
     NSDictionary *_additionalHeaderFields;
     NSString *_serverRouteKey;
     NSDictionary *_serverRouteReplacements;
@@ -55,12 +54,9 @@
 @property(nonatomic) _Bool encodeQueryParams; // @synthesize encodeQueryParams=_encodeQueryParams;
 @property(nonatomic) _Bool requiresMescal; // @synthesize requiresMescal=_requiresMescal;
 @property(nonatomic) _Bool allowAuthentication; // @synthesize allowAuthentication=_allowAuthentication;
-@property(nonatomic) __weak id <WLKNetworkRequestOperationDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_connection;
 - (id)_runNetworkOperationAndReturnError:(id *)arg1;
-- (void)_finishWithResponse:(id)arg1;
-- (void)_failWithError:(id)arg1;
 - (void)_didFailWithError:(id)arg1;
 - (void)_didFinishWithResponse:(id)arg1;
 - (id)_requestPropertiesWithServerRouteKey:(id)arg1 queryParameters:(id)arg2 additionalHeaderFields:(id)arg3;

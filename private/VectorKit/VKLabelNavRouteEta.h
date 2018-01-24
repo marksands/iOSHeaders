@@ -18,29 +18,28 @@ __attribute__((visibility("hidden")))
     _Bool _isAwayFromRoute;
     _Bool _isOnRoute;
     struct PolylineCoordinate _routeOffset;
-    Mercator2_57ec32b6 _mercatorPoint;
     _Bool _selected;
     VKRouteInfo *_routeInfo;
     VKRouteEtaDescription *_displayEtaDescription;
     _Bool _isPicked;
     _Bool _isRepositioning;
-    float _placedZoomLevel;
+    unsigned char _orientation;
 }
 
++ (unsigned char)toStyleEtaComparison:(unsigned char)arg1;
 + (shared_ptr_c5d816ee)styleQueryForNavContext:(const struct NavContext *)arg1 selected:(_Bool)arg2 etaComparison:(unsigned char)arg3 transportType:(unsigned char)arg4;
 + (id)artworkForEtaDescription:(id)arg1 navContext:(const struct NavContext *)arg2 styleQuery:(shared_ptr_c5d816ee)arg3 orientation:(unsigned char)arg4 artworkCache:(struct VKLabelNavArtworkCache *)arg5 selected:(_Bool)arg6;
-@property(nonatomic) float placedZoomLevel; // @synthesize placedZoomLevel=_placedZoomLevel;
 @property(nonatomic) _Bool isRepositioning; // @synthesize isRepositioning=_isRepositioning;
 @property(nonatomic) _Bool isPicked; // @synthesize isPicked=_isPicked;
 @property(readonly, nonatomic) VKRouteEtaDescription *displayEtaDescription; // @synthesize displayEtaDescription=_displayEtaDescription;
 @property(retain, nonatomic) VKRouteInfo *routeInfo; // @synthesize routeInfo=_routeInfo;
 @property(nonatomic) _Bool selected; // @synthesize selected=_selected;
 @property(readonly, nonatomic) VKLabelNavRoadLabel *label; // @synthesize label=_etaLabel;
-@property(nonatomic) Mercator2_57ec32b6 mercatorPoint; // @synthesize mercatorPoint=_mercatorPoint;
 @property(readonly, nonatomic) struct PolylineCoordinate routeOffset; // @synthesize routeOffset=_routeOffset;
 @property(readonly, nonatomic) _Bool isAwayFromRoute; // @synthesize isAwayFromRoute=_isAwayFromRoute;
 @property(readonly, nonatomic) _Bool isOnRoute; // @synthesize isOnRoute=_isOnRoute;
 - (id).cxx_construct;
+- (void)repositionAtRouteCoord:(struct PolylineCoordinate)arg1;
 @property(readonly, nonatomic) _Bool isTrafficCameraFeature;
 @property(readonly, nonatomic) _Bool isEtaFeature;
 @property(readonly, nonatomic) long long intraRoadPriority;
@@ -50,7 +49,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *shieldDisplayGroup;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) _Bool isRamp;
-- (_retain_ptr_86da96eb)updateRoadSignWithOrientation:(unsigned char)arg1 navContext:(const struct NavContext *)arg2 artworkCache:(struct VKLabelNavArtworkCache *)arg3;
+- (_retain_ptr_86da96eb)updateRoadSignWithNavContext:(const struct NavContext *)arg1 artworkCache:(struct VKLabelNavArtworkCache *)arg2;
 - (Box_3fb92e00)labelRectForOrientation:(unsigned char)arg1 styleQuery:(const shared_ptr_c5d816ee *)arg2 navContext:(const struct NavContext *)arg3 anchorPosition:(Matrix_8746f91e)arg4 artworkCache:(struct VKLabelNavArtworkCache *)arg5;
 - (void)prepareStyleVarsWithContext:(struct NavContext *)arg1;
 - (void)createLabelWithNavContext:(const struct NavContext *)arg1 orientation:(unsigned char)arg2 etaDescription:(id)arg3 selected:(_Bool)arg4 artworkCache:(struct VKLabelNavArtworkCache *)arg5;
@@ -58,7 +57,9 @@ __attribute__((visibility("hidden")))
 - (void)_clearLabel;
 - (void)dealloc;
 @property(readonly, nonatomic) unsigned char etaComparisonToMain;
-- (id)initWithRouteInfo:(id)arg1;
+- (id)initWithRouteInfo:(id)arg1 routeCoord:(struct PolylineCoordinate)arg2;
+@property(nonatomic) unsigned char orientation;
+@property(readonly, nonatomic) Matrix_6e1d3589 worldPoint;
 
 @end
 

@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class MPCPlaybackIntent, MPProtocolProxy<MPCPlaybackEngineEventObserving>, NSString, UIView, _MPCAVController, _MPCLeaseManager, _MPCMediaRemotePublisher, _MPCReportingController;
+@class MPCPlaybackIntent, MPCPlayerPath, MPProtocolProxy<MPCPlaybackEngineEventObserving>, NSString, UIView, _MPCAVController, _MPCLeaseManager, _MPCMediaRemotePublisher, _MPCReportingController;
 
 @interface MPCPlaybackEngine : NSObject
 {
-    _Bool _isPreparingForImminentPlaybackIntent;
     _Bool _pictureInPictureSupported;
     _Bool _videoSupported;
     _Bool _stateRestorationSupported;
@@ -43,10 +42,10 @@
 - (void).cxx_destruct;
 - (void)_restorePlaybackStateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_preservePlaybackStateImmediately;
+- (void)_initializePlaybackStack;
 - (void)schedulePlaybackStatePreservation;
-- (void)prepareForImminentPlaybackIntent;
-- (id)_playerForMusicPlayerServer;
 @property(readonly, nonatomic) UIView *videoView;
+@property(readonly, nonatomic) MPCPlayerPath *playerPath;
 - (void)reportUserSeekFromTime:(double)arg1 toTime:(double)arg2;
 - (void)removeEngineObserver:(id)arg1;
 - (void)addEngineObserver:(id)arg1;

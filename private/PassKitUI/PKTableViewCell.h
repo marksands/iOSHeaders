@@ -14,13 +14,16 @@
     UIColor *_highlightColor;
     UIColor *_checkmarkAccessoryColor;
     UIColor *_customAccessoryColor;
+    double _minimumHeight;
 }
 
+@property(nonatomic) double minimumHeight; // @synthesize minimumHeight=_minimumHeight;
 @property(nonatomic) _Bool showsActionSpinner; // @synthesize showsActionSpinner=_showsActionSpinner;
 @property(copy, nonatomic) UIColor *customAccessoryColor; // @synthesize customAccessoryColor=_customAccessoryColor;
 @property(copy, nonatomic) UIColor *checkmarkAccessoryColor; // @synthesize checkmarkAccessoryColor=_checkmarkAccessoryColor;
 @property(copy, nonatomic) UIColor *highlightColor; // @synthesize highlightColor=_highlightColor;
 - (void).cxx_destruct;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)_disclosureChevronImage:(_Bool)arg1;
 - (id)_checkmarkImage:(_Bool)arg1;
 - (void)pk_applyAppearance:(id)arg1;

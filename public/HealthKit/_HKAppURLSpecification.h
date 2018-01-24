@@ -10,5 +10,10 @@
 {
 }
 
++ (_Bool)parseClinicalLoginRedirectURL:(id)arg1 resultHandler:(CDUnknownBlockType)arg2 errorHandler:(CDUnknownBlockType)arg3;
++ (_Bool)isClinicalLoginRedirectURL:(id)arg1;
++ (_Bool)parseClinicalOnboardingURL:(id)arg1 resultHandler:(CDUnknownBlockType)arg2 errorHandler:(CDUnknownBlockType)arg3;
++ (_Bool)isClinicalOnboardingURL:(id)arg1;
+
 @end
 

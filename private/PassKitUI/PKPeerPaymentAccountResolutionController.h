@@ -16,7 +16,6 @@
 {
     id <PKPeerPaymentAccountResolutionControllerDelegate> _delegate;
     id <PKPassLibraryDataProvider> _passLibraryDataProvider;
-    id <PKPaymentSetupViewControllerDelegate> _setupViewControllerDelegate;
     long long _context;
     PKPeerPaymentWebService *_webService;
     PKPeerPaymentPerformActionViewController *_peerPaymentActionViewController;

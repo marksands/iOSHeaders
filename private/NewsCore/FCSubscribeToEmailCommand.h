@@ -15,6 +15,7 @@
     NSString *_primaryLanguage;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *primaryLanguage; // @synthesize primaryLanguage=_primaryLanguage;
 @property(copy, nonatomic) NSString *storeFrontID; // @synthesize storeFrontID=_storeFrontID;
 @property(copy, nonatomic) NSString *DSID; // @synthesize DSID=_DSID;

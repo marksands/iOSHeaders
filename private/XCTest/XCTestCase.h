@@ -32,6 +32,7 @@
 + (void)tearDown;
 + (void)setUp;
 + (id)defaultTestSuite;
++ (id)performFailableBlock:(CDUnknownBlockType)arg1 shouldInterruptTest:(_Bool *)arg2;
 + (id)allTestMethodInvocations;
 + (void)_allTestMethodInvocations:(id)arg1;
 + (id)testMethodInvocations;
@@ -81,16 +82,10 @@
 - (void)_performTearDownSequenceWithSelector:(SEL)arg1;
 - (void)performTest:(id)arg1;
 - (void)_reportFailuresForUnwaitedExpectations;
+- (void)_reportFailuresAtFile:(id)arg1 line:(unsigned long long)arg2 forTestAssertionsInScope:(CDUnknownBlockType)arg3;
 - (void)invokeTest;
 - (Class)testRunClass;
 - (Class)_requiredTestRunBaseClass;
-- (void)_reportFailuresAtFile:(id)arg1 line:(unsigned long long)arg2 forTestAssertionsInScope:(CDUnknownBlockType)arg3;
-- (void)_recordUnexpectedFailureWithDescription:(id)arg1 error:(id)arg2;
-- (void)_recordUnexpectedFailureWithDescription:(id)arg1 exception:(id)arg2;
-- (void)_recordUnexpectedFailureWithDescription:(id)arg1;
-- (void)_enqueueFailureWithDescription:(id)arg1 inFile:(id)arg2 atLine:(unsigned long long)arg3 expected:(_Bool)arg4 breakWhenDequeued:(_Bool)arg5;
-- (void)_dequeueFailures;
-- (void)_recordFailureActivityWithDescription:(id)arg1 inFile:(id)arg2 atLine:(unsigned long long)arg3;
 - (void)recordFailureWithDescription:(id)arg1 inFile:(id)arg2 atLine:(unsigned long long)arg3 expected:(_Bool)arg4;
 - (void)_interruptTest;
 @property(nonatomic) _Bool shouldHaltWhenReceivesControl;
@@ -123,6 +118,12 @@
 - (void)waitForExpectationsWithTimeout:(double)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)_waitForExpectations:(id)arg1 timeout:(double)arg2 enforceOrder:(_Bool)arg3 handler:(CDUnknownBlockType)arg4;
 - (id)_expectationForDarwinNotification:(id)arg1;
+- (void)_performTurningExceptionsIntoFailuresInterruptAfterHandling:(_Bool)arg1 block:(CDUnknownBlockType)arg2;
+- (void)_recordActivityWithFailure:(id)arg1;
+- (void)_recordFailure:(id)arg1;
+- (void)_recordFailureWithDescription:(id)arg1 inFile:(id)arg2 atLine:(unsigned long long)arg3 expected:(_Bool)arg4;
+- (void)_enqueueFailureWithDescription:(id)arg1 inFile:(id)arg2 atLine:(unsigned long long)arg3 expected:(_Bool)arg4 breakWhenDequeued:(_Bool)arg5;
+- (void)_dequeueFailures;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

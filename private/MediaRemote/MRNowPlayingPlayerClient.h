@@ -35,13 +35,12 @@
 
 @property(readonly, nonatomic) MRNowPlayingPlayerClientCallbacks *clientCallbacks; // @synthesize clientCallbacks=_clientCallbacks;
 @property(readonly, nonatomic) MRPlaybackQueuePlayerClient *playbackQueueClient; // @synthesize playbackQueueClient=_playbackQueueClient;
-@property(readonly, nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
+@property(nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
+- (id)debugDescription;
 - (id)description;
-- (void)_registerCallbacks;
-- (void)contentItemsUpdatedNotification:(id)arg1;
 - (void)updatePlaybackQueueWithCachedUpdates:(void *)arg1 forPendingRequest:(void *)arg2;
-- (void)clearCachedContentItemArtworkForItems:(struct __CFArray *)arg1;
-- (void)cacheContentItemUpdates:(struct __CFArray *)arg1;
+- (void)clearCachedContentItemArtworkForItems:(id)arg1;
+- (void)cacheContentItemUpdates:(id)arg1;
 - (void)startCachingContentItemUpdatesForItem:(void *)arg1 forPendingRequest:(void *)arg2;
 - (void)addPendingRequest:(void *)arg1;
 - (void)transactionDidEnd:(id)arg1;
@@ -52,6 +51,7 @@
 - (void)restoreNowPlayingClientState;
 - (void)preProcessCommand:(unsigned int)arg1 options:(struct __CFDictionary *)arg2;
 - (void)preProcessChangePlaybackRateCommandWithOptions:(struct __CFDictionary *)arg1;
+- (void)updateCacheWithContentItems:(id)arg1;
 - (void)updateCacheWithItem:(void *)arg1;
 - (void *)_onQueue_nowPlayingContentItem;
 @property(readonly, nonatomic) void *nowPlayingContentItem;
@@ -62,6 +62,7 @@
 - (_Bool)testAndSetCoalescingRequests;
 - (void)unsetCoalescingInvalidations;
 - (_Bool)testAndSetCoalescingInvalidations;
+- (void)updatePlayer:(void *)arg1;
 @property(nonatomic) unsigned int playbackState;
 @property(nonatomic) double invalidatationTimestamp;
 @property(copy, nonatomic) NSArray *supportedCommands;

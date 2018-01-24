@@ -19,15 +19,15 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)needsObjectUUID;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (void)saveToArchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithSoundtrackMedia:(id)arg1 context:(id)arg2;
 - (id)initWithContext:(id)arg1;
 @property(copy, nonatomic) NSArray *media;
 @property(nonatomic) long long mode;
 @property(nonatomic) float volume;
-- (void)saveToArchiver:(id)arg1;
-- (void)loadFromUnarchiver:(id)arg1;
 
 @end
 

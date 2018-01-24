@@ -65,6 +65,7 @@
 - (void)newFolderNameTextFieldDidChange:(id)arg1;
 - (void)createNewFolderWithMaxThumbnailSize:(struct CGSize)arg1;
 - (void)showLocationOnTopOfCurrentBrowser:(id)arg1 animated:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (void)safeSetViewControllersHierarchy:(id)arg1;
 - (void)browser:(id)arg1 didResolveShownLocation:(id)arg2 previousLocation:(id)arg3;
 - (void)browser:(id)arg1 wantsToShowLocation:(id)arg2 forceReplaceLocation:(_Bool)arg3;
 - (void)_clearSearch:(_Bool)arg1 updatePalette:(_Bool)arg2;
@@ -143,7 +144,6 @@
 - (_Bool)_canCreateDocumentsFromViewController:(id)arg1;
 - (_Bool)_shouldShowCreateDocumentsOnViewController:(id)arg1;
 - (void)clearCurrentOpenInteraction;
-- (void)clearCurrentInteraction;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)popToRootViewController;

@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
     NSArray *mDependees;
     TSCH3DShaderProgram *mProgram;
     struct TSCH3DShaderType mLinkageType;
-    vector_aeadf634 mDependeeScopes;
+    vector_22c20f1a mDependeeScopes;
 }
 
 + (id)assignmentWithAssignee:(id)arg1 statement:(id)arg2 dependees:(id)arg3 program:(id)arg4;
@@ -41,7 +41,7 @@ __attribute__((visibility("hidden")))
 - (id)updateDependeesWithPreviousType:(struct TSCH3DShaderType)arg1;
 - (id)updateVaryingAssignmentForLinkage:(id)arg1;
 - (id)varyingAssignmentForLinkage:(id)arg1;
-- (vector_aeadf634 *)dependeeScopes;
+- (vector_22c20f1a *)dependeeScopes;
 @property(readonly, nonatomic) _Bool isLinked;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;

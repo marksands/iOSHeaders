@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (void)enumerateStoragesInColumnRange:(struct _NSRange)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)description;
 - (id)p_debugDumpCompact;
+- (_Bool)validateWithResult:(id *)arg1;
 - (void)validate;
 - (void)debugDump;
 - (void)saveToArchive:(struct TileRowInfo *)arg1 archiver:(id)arg2;

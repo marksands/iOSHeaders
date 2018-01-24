@@ -13,11 +13,11 @@
 __attribute__((visibility("hidden")))
 @interface KNPdfExporter : KNRenderingExporter <TSKEncryptedDocumentExporter>
 {
-    NSDictionary *mOptions;
+    NSDictionary *_options;
 }
 
+- (void).cxx_destruct;
 - (void)setOptions:(id)arg1;
-- (void)dealloc;
 - (_Bool)validatePassphrases:(id *)arg1;
 - (void)setCopyPassphrase:(id)arg1 hint:(id)arg2;
 - (void)setPrintPassphrase:(id)arg1 hint:(id)arg2;

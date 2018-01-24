@@ -15,6 +15,7 @@
     NSArray *_localRecords;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)desiredKeys;
 @property(nonatomic) _Bool merge; // @synthesize merge=_merge;
 @property(copy, nonatomic) NSArray *localRecords; // @synthesize localRecords=_localRecords;

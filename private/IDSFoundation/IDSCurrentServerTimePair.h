@@ -8,13 +8,13 @@
 
 @interface IDSCurrentServerTimePair : NSObject
 {
-    unsigned long long _initialProcessTime;
-    unsigned long long _initialServerTime;
+    unsigned long long _initialProcessMachTime;
+    unsigned long long _initialServerTimeInNanoSeconds;
 }
 
-@property(readonly, nonatomic) unsigned long long initialServerTime; // @synthesize initialServerTime=_initialServerTime;
-@property(readonly, nonatomic) unsigned long long initialProcessTime; // @synthesize initialProcessTime=_initialProcessTime;
-- (id)initWithInitialProcessTime:(unsigned long long)arg1 initialServerTime:(unsigned long long)arg2;
+@property(readonly, nonatomic) unsigned long long initialServerTimeInNanoSeconds; // @synthesize initialServerTimeInNanoSeconds=_initialServerTimeInNanoSeconds;
+@property(readonly, nonatomic) unsigned long long initialProcessMachTime; // @synthesize initialProcessMachTime=_initialProcessMachTime;
+- (id)initWithInitialProcessMachTime:(unsigned long long)arg1 initialServerTimeInNanoSeconds:(unsigned long long)arg2;
 
 @end
 

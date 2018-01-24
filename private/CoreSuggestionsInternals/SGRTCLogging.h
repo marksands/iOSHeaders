@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
 
-@interface SGRTCLogging : NSObject <NSCoding>
+@interface SGRTCLogging : NSObject <NSSecureCoding>
 {
     struct _opaque_pthread_mutex_t _lock;
     NSString *_path;
@@ -23,6 +23,7 @@
     NSObject<OS_dispatch_queue> *_interactionsWriteQueue;
 }
 
++ (_Bool)supportsSecureCoding;
 + (_Bool)_createEmptyFileAtPath:(id)arg1;
 + (id)defaultLogger;
 + (id)locationTypeForRealtimeEvent:(id)arg1;

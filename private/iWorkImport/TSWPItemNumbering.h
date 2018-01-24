@@ -16,6 +16,10 @@ __attribute__((visibility("hidden")))
     NSDictionary *_formatTypeInfo;
 }
 
++ (id)localizedStringForPageNumberFormatPageNofNWithLocale:(id)arg1;
++ (id)localizedStringForPageNumberFormatPageNWithLocale:(id)arg1;
++ (id)localizedStringForPageNumberFormatNofNWithLocale:(id)arg1;
++ (id)localizedStringForPageNumberFormatNWithLocale:(id)arg1;
 + (id)pageNumberFormatNameForType:(int)arg1;
 + (int)pageNumberFormatTypeForName:(id)arg1;
 + (id)stringFromNumber:(unsigned long long)arg1 forPageNumberFormatType:(int)arg2;

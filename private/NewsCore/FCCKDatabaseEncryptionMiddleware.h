@@ -30,16 +30,16 @@
 - (id)_serverZoneIDFromClientZoneID:(id)arg1 error:(id *)arg2;
 - (_Bool)_encryptRecordID:(id)arg1 withEncryptionKey:(id)arg2 error:(id *)arg3;
 - (_Bool)_encryptRecord:(id)arg1 withEncryptionKey:(id)arg2 schema:(id)arg3 error:(id *)arg4;
-- (id)clientRecordType:(id)arg1 withRecordID:(id)arg2 inDatabase:(id)arg3 error:(id *)arg4;
-- (id)serverRecordType:(id)arg1 withRecordID:(id)arg2 inDatabase:(id)arg3 error:(id *)arg4;
-- (id)clientRecordZone:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
-- (id)serverRecordZone:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
-- (id)clientRecord:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
-- (id)serverRecord:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
-- (id)clientRecordID:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
-- (id)serverRecordID:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
-- (id)clientRecordZoneID:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
-- (id)serverRecordZoneID:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
+- (id)serverToClientRecordType:(id)arg1 withRecordID:(id)arg2 inDatabase:(id)arg3 error:(id *)arg4;
+- (id)clientToServerRecordType:(id)arg1 withRecordID:(id)arg2 inDatabase:(id)arg3 error:(id *)arg4;
+- (id)serverToClientRecordZone:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
+- (id)clientToServerRecordZone:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
+- (id)serverToClientRecord:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
+- (id)clientToServerRecord:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
+- (id)serverToClientRecordID:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
+- (id)clientToServerRecordID:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
+- (id)serverToClientRecordZoneID:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
+- (id)clientToServerRecordZoneID:(id)arg1 inDatabase:(id)arg2 error:(id *)arg3;
 - (id)initWithEncryptionSchema:(id)arg1;
 - (id)initWithEncryptionSchema:(id)arg1 recordNameCipher:(id)arg2;
 

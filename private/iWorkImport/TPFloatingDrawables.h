@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 {
     NSMutableDictionary *_drawablesByPageIndex;
     TSUPointerKeyDictionary *_pageIndexByDrawable;
+    TSUPointerKeyDictionary *_tagByDrawable;
     TPDocumentRoot *_documentRoot;
 }
 
@@ -28,12 +29,15 @@ __attribute__((visibility("hidden")))
 - (void)removeDrawables:(id)arg1;
 - (void)removeDrawable:(id)arg1;
 - (void)removeDrawable:(id)arg1 suppressDOLC:(_Bool)arg2;
+- (void)removeTagForDrawable:(id)arg1;
 - (void)p_removeDrawable:(id)arg1;
+- (void)applyTag:(id)arg1 toDrawable:(id)arg2;
 - (void)addDrawables:(id)arg1 toPageIndex:(unsigned long long)arg2 insertContext:(id)arg3;
 - (void)addDrawable:(id)arg1 toPageIndex:(unsigned long long)arg2 insertContext:(id)arg3;
 - (void)addDrawable:(id)arg1 toPageIndex:(unsigned long long)arg2 insertContext:(id)arg3 suppressDOLC:(_Bool)arg4;
 - (void)p_addDrawable:(id)arg1 toPageIndex:(unsigned long long)arg2;
 - (id)drawableEnumerator;
+- (id)tagForDrawable:(id)arg1;
 - (unsigned long long)pageIndexForDrawable:(id)arg1;
 - (unsigned long long)maximumPageIndex;
 - (id)orderedDrawablesOnPageIndex:(unsigned long long)arg1;

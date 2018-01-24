@@ -11,7 +11,8 @@
 + (id)fp_containerPrefixURL;
 + (id)fp_homeDirectory;
 + (id)fp_supportDirectory;
-- (void)fp_associateThumbnailFromDocumentAtURL:(id)arg1 error:(id *)arg2;
+- (id)fp_directorySizeWithError:(id *)arg1;
+- (_Bool)fp_associateThumbnailFromDocumentAtURL:(id)arg1 error:(id *)arg2;
 - (id)fp_addDocumentTrackingWithError:(id *)arg1;
 - (_Bool)fp_makeWritableWithError:(id *)arg1;
 - (id)fp_moveToTempFolderWithFilename:(id)arg1 error:(id *)arg2;

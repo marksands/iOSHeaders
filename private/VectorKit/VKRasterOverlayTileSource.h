@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)invalidateRect:(const Box_3d7e3c2c *)arg1 level:(long long)arg2;
 - (void)_queueDraw:(const struct VKTileKey *)arg1;
 - (_Bool)cancelFetchForKey:(const struct VKTileKey *)arg1;
-- (void)fetchTileForKey:(const struct VKTileKey *)arg1 sourceKey:(const struct VKTileKey *)arg2;
+- (void)fetchTileForKey:(const struct VKTileKey *)arg1 sourceKey:(const struct VKTileKey *)arg2 isPrefetch:(_Bool)arg3;
 - (_Bool)maximumZoomLevelBoundsCamera;
 - (_Bool)minimumZoomLevelBoundsCamera;
 - (unsigned int)maximumDownloadZoomLevel;

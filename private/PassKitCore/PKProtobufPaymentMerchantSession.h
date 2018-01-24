@@ -8,23 +8,33 @@
 
 #import "NSCopying.h"
 
-@class NSData, NSString;
+@class NSData, NSMutableArray, NSString;
 
 @interface PKProtobufPaymentMerchantSession : PBCodable <NSCopying>
 {
     unsigned long long _epochTimestamp;
+    unsigned long long _expiresAt;
     NSString *_displayName;
     NSString *_domain;
+    NSString *_initiative;
+    NSString *_initiativeContext;
     NSString *_merchantIdentifier;
     NSString *_nonce;
     NSString *_retryNonce;
     NSString *_sessionIdentifier;
     NSData *_signature;
+    NSMutableArray *_signedFields;
     struct {
         unsigned int epochTimestamp:1;
+        unsigned int expiresAt:1;
     } _has;
 }
 
++ (Class)signedFieldsType;
+@property(retain, nonatomic) NSMutableArray *signedFields; // @synthesize signedFields=_signedFields;
+@property(retain, nonatomic) NSString *initiative; // @synthesize initiative=_initiative;
+@property(retain, nonatomic) NSString *initiativeContext; // @synthesize initiativeContext=_initiativeContext;
+@property(nonatomic) unsigned long long expiresAt; // @synthesize expiresAt=_expiresAt;
 @property(retain, nonatomic) NSString *retryNonce; // @synthesize retryNonce=_retryNonce;
 @property(retain, nonatomic) NSData *signature; // @synthesize signature=_signature;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
@@ -43,6 +53,13 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)signedFieldsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)signedFieldsCount;
+- (void)addSignedFields:(id)arg1;
+- (void)clearSignedFields;
+@property(readonly, nonatomic) _Bool hasInitiative;
+@property(readonly, nonatomic) _Bool hasInitiativeContext;
+@property(nonatomic) _Bool hasExpiresAt;
 @property(readonly, nonatomic) _Bool hasRetryNonce;
 @property(readonly, nonatomic) _Bool hasSignature;
 @property(readonly, nonatomic) _Bool hasDisplayName;

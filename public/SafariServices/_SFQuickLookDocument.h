@@ -23,6 +23,7 @@
     id <_SFQuickLookDocumentSource> _documentSource;
 }
 
++ (_Bool)_hasSuitableApplicationForOpeningDocument:(id)arg1;
 @property(copy, nonatomic) NSString *fileName; // @synthesize fileName=_fileName;
 @property(copy, nonatomic) NSString *savedPathWithProperExtension; // @synthesize savedPathWithProperExtension=_savedPathWithProperExtension;
 @property(retain, nonatomic) LSDocumentProxy *documentProxy; // @synthesize documentProxy=_documentProxy;

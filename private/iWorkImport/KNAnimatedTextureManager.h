@@ -19,12 +19,10 @@ __attribute__((visibility("hidden")))
     NSLock *_slideNodesInMemorySetLock;
     NSOperationQueue *_preCacheBackgroundQueue;
     NSOperationQueue *_rasterizeTextureQueue;
-    _Bool _shouldPrecache;
-    NSLock *_synchronizedRenderingLock;
+    _Bool _shouldPreCache;
 }
 
-@property(readonly, nonatomic) NSLock *synchronizedRenderingLock; // @synthesize synchronizedRenderingLock=_synchronizedRenderingLock;
-@property(nonatomic) _Bool shouldPrecache; // @synthesize shouldPrecache=_shouldPrecache;
+@property(nonatomic) _Bool shouldPreCache; // @synthesize shouldPreCache=_shouldPreCache;
 @property(nonatomic) __weak KNSlideNode *currentSlideNode; // @synthesize currentSlideNode=_currentSlideNode;
 - (void).cxx_destruct;
 - (void)p_didReceiveMemoryWarning:(id)arg1;
@@ -34,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)evictCaches;
 - (void)p_serializeExtraSlideNodes;
 - (void)p_serializeTexturesForSlideNode:(id)arg1;
+- (void)p_invalidateASV:(id)arg1;
 - (void)addTextureToRasterizationQueue:(id)arg1 isOpenGL:(_Bool)arg2 asv:(id)arg3;
 - (void)p_rasterizeTexture:(id)arg1 isOpenGL:(_Bool)arg2;
 - (void)stopPreCaching;
@@ -41,6 +40,7 @@ __attribute__((visibility("hidden")))
 - (id)p_slideNodesToCacheAroundCurrentSlideNode:(id)arg1 shouldIncludeExtraSlideAtEnd:(_Bool)arg2;
 - (void)p_setCurrentSlideNodeToProcess:(id)arg1;
 - (void)p_processSlideNode:(id)arg1 isHighPriority:(_Bool)arg2;
+- (_Bool)p_shouldProcessSlideNode:(id)arg1;
 - (id)ASVForSlideNode:(id)arg1;
 - (void)p_addSlideNodeToMemorySet:(id)arg1;
 - (id)description;

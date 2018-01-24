@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (id)p_trendLineSubselectionKnobsForSeries:(id)arg1;
 - (id)p_errorBarSubselectionKnobsForSeries:(id)arg1 axisID:(id)arg2;
 - (id)p_valueLabelSubselectionKnobsForSeries:(id)arg1;
+- (_Bool)layoutSpacePointIsInChartBody:(struct CGPoint)arg1;
 - (void)protected_iterateHitChartElements:(struct CGPoint)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (unsigned long long)countOfElementsForModel:(id)arg1 series:(id)arg2 forGroupsBySeries:(id)arg3 outNewElementBounds:(struct CGRect **)arg4 outNewClipRects:(struct CGRect **)arg5 outNewElementPaths:(const struct CGPath ***)arg6;
 - (struct CGAffineTransform)transformForRenderingLabelForSeries:(unsigned long long)arg1 forGroup:(unsigned long long)arg2 outElementSize:(struct CGSize *)arg3 outClipRect:(struct CGRect *)arg4;

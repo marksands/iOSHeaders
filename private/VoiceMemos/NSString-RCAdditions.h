@@ -8,6 +8,7 @@
 
 @interface NSString (RCAdditions)
 + (id)rc_stringWithPersistentID:(long long)arg1;
+- (id)rc_intentionallyNonLocalizedString;
 - (long long)rc_persistentIDValue;
 - (id)rc_stringByReplacingBreakingWithNonBreakingSpaces;
 @end

@@ -91,7 +91,7 @@
 - (id)bulletinBoardNotification;
 @property(readonly, nonatomic) HMBulletinBoardNotification *bulletinBoardNotificationInternal; // @synthesize bulletinBoardNotificationInternal=_bulletinBoardNotificationInternal;
 - (void)setApplicationData:(id)arg1;
-@property(readonly, nonatomic) HMApplicationData *applicationData; // @synthesize applicationData=_applicationData;
+@property(readonly, nonatomic) HMApplicationData *applicationData;
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(readonly, copy, nonatomic) NSArray *characteristics;
 @property(nonatomic) long long configurationState; // @synthesize configurationState=_configurationState;

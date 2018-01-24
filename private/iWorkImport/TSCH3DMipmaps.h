@@ -26,10 +26,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long components; // @synthesize components=mComponents;
 @property(readonly, nonatomic) int height; // @synthesize height=mHeight;
 @property(readonly, nonatomic) int width; // @synthesize width=mWidth;
+- (void).cxx_destruct;
 - (_Bool)writeToFile:(id)arg1;
 - (_Bool)valid;
 - (id)description;
-- (void)dealloc;
 - (id)initFromData:(id)arg1;
 - (id)initWithWidth:(int)arg1 height:(int)arg2 components:(unsigned long long)arg3 mipmapData:(id)arg4;
 

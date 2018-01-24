@@ -7,6 +7,7 @@
 #import "HMAccessoryProfile.h"
 
 @interface HMAccessoryProfile (HFRoomContextProviding)
+- (_Bool)hf_isValidObject;
 - (id)hf_parentRoom;
 @end
 

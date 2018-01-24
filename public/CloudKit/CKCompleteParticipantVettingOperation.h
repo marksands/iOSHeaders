@@ -31,7 +31,6 @@
 @property(copy, nonatomic) NSString *vettingEmail; // @synthesize vettingEmail=_vettingEmail;
 @property(copy, nonatomic) NSString *vettingToken; // @synthesize vettingToken=_vettingToken;
 @property(retain, nonatomic) NSError *verificationError; // @synthesize verificationError=_verificationError;
-@property(copy, nonatomic) CDUnknownBlockType completeParticipantVettingCompletionBlock; // @synthesize completeParticipantVettingCompletionBlock=_completeParticipantVettingCompletionBlock;
 - (void).cxx_destruct;
 - (id)activityCreate;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
@@ -40,6 +39,7 @@
 - (_Bool)CKOperationShouldRun:(id *)arg1;
 - (void)fillFromOperationInfo:(id)arg1;
 - (void)fillOutOperationInfo:(id)arg1;
+@property(copy, nonatomic) CDUnknownBlockType completeParticipantVettingCompletionBlock; // @synthesize completeParticipantVettingCompletionBlock=_completeParticipantVettingCompletionBlock;
 - (id)initWithVettingToken:(id)arg1 vettingRecord:(id)arg2;
 - (id)init;
 

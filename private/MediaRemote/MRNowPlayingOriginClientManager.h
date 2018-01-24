@@ -30,6 +30,7 @@
 - (id)originClientForPlayerPath:(void *)arg1;
 - (id)originClientForOrigin:(void *)arg1;
 - (id)localOriginClient;
+- (id)debugDescription;
 - (void)dealloc;
 - (id)init;
 

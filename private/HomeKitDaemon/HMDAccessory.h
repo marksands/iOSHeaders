@@ -6,16 +6,17 @@
 
 #import "HMFObject.h"
 
+#import "HMDAccessoryMinimumUserPrivilegeCapable.h"
 #import "HMDBackingStoreObjectProtocol.h"
 #import "HMDBulletinIdentifiers.h"
+#import "HMDHomeMessageReceiver.h"
 #import "HMFDumpState.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
-@class HMAccessoryCategory, HMDAccessoryTransaction, HMDAccessoryVersion, HMDApplicationData, HMDApplicationRegistry, HMDHome, HMDRoom, HMDVendorModelEntry, HMFMessageDispatcher, NSArray, NSMutableSet, NSNumber, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMAccessoryCategory, HMDAccessoryTransaction, HMDAccessoryVersion, HMDApplicationData, HMDApplicationRegistry, HMDHome, HMDRoom, HMDVendorModelEntry, HMFMessageDispatcher, NSArray, NSMutableSet, NSNumber, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDAccessory : HMFObject <HMDBulletinIdentifiers, NSSecureCoding, HMFMessageReceiver, HMDBackingStoreObjectProtocol, HMFDumpState, HMFLogging>
+@interface HMDAccessory : HMFObject <HMDBulletinIdentifiers, HMDAccessoryMinimumUserPrivilegeCapable, NSSecureCoding, HMDHomeMessageReceiver, HMDBackingStoreObjectProtocol, HMFDumpState, HMFLogging>
 {
     _Bool _primary;
     _Bool _reachable;
@@ -44,10 +45,13 @@
     unsigned long long _configNumber;
     HMDApplicationRegistry *_appRegistry;
     HMDAccessoryTransaction *_transaction;
+    unsigned long long _accessoryReprovisionState;
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)hasMessageReceiverChildren;
 + (id)logCategory;
+@property(nonatomic) unsigned long long accessoryReprovisionState; // @synthesize accessoryReprovisionState=_accessoryReprovisionState;
 @property(retain, nonatomic) HMDAccessoryTransaction *transaction; // @synthesize transaction=_transaction;
 @property(retain, nonatomic) HMDApplicationRegistry *appRegistry; // @synthesize appRegistry=_appRegistry;
 @property(nonatomic) unsigned long long configNumber; // @synthesize configNumber=_configNumber;
@@ -66,8 +70,15 @@
 @property(retain, nonatomic) HMAccessoryCategory *category; // @synthesize category=_category;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
+- (void)handleUpdatedPassword:(id)arg1;
+- (void)handleUpdatedMinimumUserPrivilege:(long long)arg1;
+- (_Bool)supportsMinimumUserPrivilege;
+- (id)minimumUserPrivilegeProvider;
+- (id)hashRouteID;
+- (_Bool)providesHashRouteID;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 - (id)messageDestination;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
@@ -136,6 +147,8 @@
 - (void)unconfigure;
 - (void)configure:(id)arg1 msgDispatcher:(id)arg2 accessoryConfigureGroup:(id)arg3;
 - (void)registerForMessagesWithNewUUID:(id)arg1;
+- (void)_relayIdentifyAccessorytoResidentForMessage:(id)arg1;
+- (void)_handleIdentify:(id)arg1;
 - (void)_registerForMessages;
 - (id)backingStoreObjects:(long long)arg1;
 - (void)populateModelObject:(id)arg1 version:(long long)arg2;

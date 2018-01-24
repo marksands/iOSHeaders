@@ -8,19 +8,19 @@
 
 #import "SXLayoutOperationFactory.h"
 
-@class NSString, SXDynamicAdController;
+@class NSString;
 
 @interface SXLayoutOperationFactory : NSObject <SXLayoutOperationFactory>
 {
     id <SXComponentSizerEngine> _componentSizerEngine;
-    SXDynamicAdController *_dynamicAdController;
+    id <SXLayoutBlueprintFactory> _layoutBlueprintFactory;
 }
 
-@property(readonly, nonatomic) SXDynamicAdController *dynamicAdController; // @synthesize dynamicAdController=_dynamicAdController;
+@property(readonly, nonatomic) id <SXLayoutBlueprintFactory> layoutBlueprintFactory; // @synthesize layoutBlueprintFactory=_layoutBlueprintFactory;
 @property(readonly, nonatomic) id <SXComponentSizerEngine> componentSizerEngine; // @synthesize componentSizerEngine=_componentSizerEngine;
 - (void).cxx_destruct;
 - (id)layoutOperationWithViewportSize:(struct CGSize)arg1 constrainedToWidth:(double)arg2 layoutDataProvider:(id)arg3;
-- (id)initWithComponentSizerEngine:(id)arg1 dynamicAdController:(id)arg2;
+- (id)initWithComponentSizerEngine:(id)arg1 layoutBlueprintFactory:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

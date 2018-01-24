@@ -11,10 +11,11 @@
 #import "SFPersonCollectionViewCellDelegate.h"
 #import "SFWirelessSettingsControllerDelegate.h"
 #import "UICollectionViewDataSource.h"
+#import "UIGestureRecognizerDelegate.h"
 
 @class NSArray, NSCache, NSLayoutConstraint, NSMutableArray, NSMutableDictionary, NSMutableOrderedSet, NSObject<SFAirDropActivityViewControllerDelegate>, NSOperationQueue, NSString, SFAirDropActiveIconView, SFAirDropBrowser, SFAirDropIconView, SFCollectionViewLayout, SFPersonCollectionViewCell, SFWirelessSettingsController, UIButton, UICollectionView, UIFocusContainerGuide, UILabel, UITextView, UIVisualEffectView;
 
-@interface SFAirDropActivityViewController : UIViewController <UICollectionViewDataSource, SFCollectionViewDelegateLayout, SFAirDropBrowserDelegate, SFPersonCollectionViewCellDelegate, SFWirelessSettingsControllerDelegate>
+@interface SFAirDropActivityViewController : UIViewController <UICollectionViewDataSource, SFCollectionViewDelegateLayout, SFAirDropBrowserDelegate, SFPersonCollectionViewCellDelegate, SFWirelessSettingsControllerDelegate, UIGestureRecognizerDelegate>
 {
     NSString *_sendingAppBundleID;
     long long _attachmentCount;
@@ -42,9 +43,11 @@
     NSArray *_airdropViewYConstraints;
     NSArray *_largeTextAirdropViewYConstraints;
     UICollectionView *_collectionView;
+    UICollectionView *_detailCollectionView;
     UIButton *_showMoreButton;
     _Bool _shouldExpandTextIfNeeded;
     SFCollectionViewLayout *_collectionViewLayout;
+    SFCollectionViewLayout *_detailCollectionViewLayout;
     SFPersonCollectionViewCell *_prototypeActivityCell;
     NSCache *_cachedPreferredItemSizesByString;
     struct CGSize _cachedPreferredItemSize;
@@ -131,6 +134,10 @@
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (_Bool)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
 - (id)indexPathForPreferredFocusedViewInCollectionView:(id)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (void)pressToSend:(id)arg1;
+- (void)longPress:(id)arg1;
+- (void)scrollViewDidScroll:(id)arg1;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 @property(readonly, nonatomic) struct CGSize suggestedThumbnailSize;

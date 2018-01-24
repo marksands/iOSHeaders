@@ -7,14 +7,13 @@
 #import "NSObject.h"
 
 #import "AAUISpecifierProvider.h"
-#import "FAFamilyInvitationsViewControllerDelegate.h"
 #import "FAFamilySettingsViewControllerDelegate.h"
 #import "FASetupDelegate.h"
 #import "RemoteUIControllerDelegate.h"
 
 @class AAFamilyDetailsResponse, AAFamilyEligibilityResponse, AAGrandSlamSigner, AAUIAccountManager, FACircleContext, FAFamilyMemberDetailsPageSurrogate, FAFamilyNotificationObserver, FARequestConfigurator, NSArray, NSMutableArray, NSOperationQueue, NSString, PSListController, PSSpecifier;
 
-@interface FASettingsSpecifierProvider : NSObject <FASetupDelegate, FAFamilyInvitationsViewControllerDelegate, FAFamilySettingsViewControllerDelegate, RemoteUIControllerDelegate, AAUISpecifierProvider>
+@interface FASettingsSpecifierProvider : NSObject <FASetupDelegate, FAFamilySettingsViewControllerDelegate, RemoteUIControllerDelegate, AAUISpecifierProvider>
 {
     FAFamilyMemberDetailsPageSurrogate *_profileSurrogate;
     FAFamilyNotificationObserver *_familyNotificationObserver;
@@ -67,9 +66,6 @@
 - (void)_loadFamilyEligibilityWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_viewFamilySpecifierWasTapped:(id)arg1;
 - (id)_valueForFamilySpecifier:(id)arg1;
-- (void)familyInvitationsViewControllerDidFinish:(id)arg1;
-- (void)familyInvitationsViewController:(id)arg1 didProcessInvite:(id)arg2;
-- (void)_pushInvitationsViewControllerWithSpecifier:(id)arg1 invites:(id)arg2 viewingInviteAtIndex:(long long)arg3;
 - (void)_presentPendingInvitesRemoteUI;
 - (void)_pendingInvitationsSpecifierWasTapped:(id)arg1;
 - (id)_valueForInvitiationsSpecifier:(id)arg1;

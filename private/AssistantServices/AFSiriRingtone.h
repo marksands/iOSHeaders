@@ -42,6 +42,7 @@
 - (id)_generateSpokenTextForContacts:(id)arg1 voiceLanguage:(id)arg2 displayedCallerID:(id)arg3 callerIDType:(long long)arg4 callDestinationID:(id)arg5 callDestinationIDType:(long long)arg6 callServiceSpeakableName:(id)arg7;
 @property(readonly, nonatomic) NSString *textToSpeak;
 - (id)initWithContacts:(id)arg1;
+- (id)_bestVoiceInfoWithCurrentLocale:(id)arg1;
 - (id)init;
 
 @end

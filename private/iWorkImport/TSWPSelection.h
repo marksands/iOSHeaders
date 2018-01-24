@@ -8,7 +8,7 @@
 
 #import "TSDTextSelection.h"
 
-@class NSString;
+@class NSString, TSWPRangeArray;
 
 __attribute__((visibility("hidden")))
 @interface TSWPSelection : TSKSelection <TSDTextSelection>
@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
     int _styleInsertionBehavior;
     int _caretAffinity;
     struct _NSRange _smartFieldRange;
-    struct TSWPRangeVector _visualRanges;
+    TSWPRangeArray *_visualRanges;
 }
 
 + (_Bool)p_checkEndOfLineFlagForRange:(struct _NSRange *)arg1 leadingEdge:(_Bool *)arg2 type:(int *)arg3 endOfLine:(_Bool)arg4 storage:(id)arg5;
@@ -41,27 +41,25 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct _NSRange smartFieldRange; // @synthesize smartFieldRange=_smartFieldRange;
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
 @property(readonly, nonatomic) struct _NSRange rawRange; // @synthesize rawRange=_range;
-- (id).cxx_construct;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) _Bool isAtEndOfLine;
 - (void)saveToArchive:(struct SelectionArchive *)arg1 archiver:(id)arg2;
 - (_Bool)intersectsRange:(struct _NSRange)arg1;
-- (_Bool)containsCharacterAtIndex:(unsigned long long)arg1 allowRightEdge:(_Bool)arg2;
 - (_Bool)containsCharacterAtIndex:(unsigned long long)arg1;
 - (unsigned long long)rightEdge;
 - (unsigned long long)leftEdge;
 - (unsigned long long)visualRangeCount;
 - (void)setHeadChar:(unsigned long long)arg1 tailChar:(unsigned long long)arg2;
 - (id)visualRangesArray;
-- (struct TSWPRangeVector *)i_visualRanges;
-- (const struct TSWPRangeVector *)visualRanges;
-- (void)i_setVisualRanges:(const struct TSWPRangeVector *)arg1;
+- (id)i_visualRanges;
+- (id)visualRanges;
+- (void)i_setVisualRanges:(id)arg1;
 - (struct _NSRange)superRange;
 - (unsigned long long)end;
 - (unsigned long long)start;
-- (id)copyWithVisualRanges:(const struct TSWPRangeVector *)arg1 headChar:(unsigned long long)arg2 tailChar:(unsigned long long)arg3 rightToLeft:(_Bool)arg4 sameLine:(_Bool)arg5;
-- (id)copyWithNewVisualRanges:(const struct TSWPRangeVector *)arg1;
+- (id)copyWithVisualRanges:(id)arg1 headChar:(unsigned long long)arg2 tailChar:(unsigned long long)arg3 rightToLeft:(_Bool)arg4 sameLine:(_Bool)arg5;
+- (id)copyWithNewVisualRanges:(id)arg1;
 - (id)constrainToRange:(struct _NSRange)arg1;
 - (id)copyWithNewStyleInsertionBehavior:(int)arg1 newCaretAffinity:(int)arg2;
 - (id)copyWithNewRange:(struct _NSRange)arg1;

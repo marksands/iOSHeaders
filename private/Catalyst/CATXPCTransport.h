@@ -34,6 +34,10 @@
 - (void)dealloc;
 - (id)initWithXPCConnection:(id)arg1;
 - (id)init;
+@property(readonly) unsigned int effectiveGroupIdentifier;
+@property(readonly) unsigned int effectiveUserIdentifier;
+@property(readonly) int processIdentifier;
+@property(readonly) int auditSessionIdentifier;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

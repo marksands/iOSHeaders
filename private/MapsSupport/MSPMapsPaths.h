@@ -11,10 +11,12 @@
 @interface MSPMapsPaths : NSObject
 {
     NSURL *_libraryURL;
+    NSURL *_groupLibraryURL;
     CDUnknownBlockType _invalidationHandler;
     NSString *_fuzzyLocationStoragePath;
     NSString *_mapsDirectory;
     NSString *_cacheDirectory;
+    NSString *_groupDirectory;
     NSString *_nanoDirectory;
     NSString *_bookmarksSettingsPath;
     NSString *_geoBookmarksSettingsPath;
@@ -55,9 +57,11 @@
 + (id)geoBookmarksSettingsPath;
 + (id)bookmarksSettingsPath;
 + (id)nanoDirectory;
++ (id)groupDirectory;
 + (id)cacheDirectory;
 + (id)mapsDirectory;
 + (id)pathsAtLocation:(long long)arg1;
++ (id)currentMapsGroupContainerURL;
 + (id)currentMapsApplicationContainerURL;
 + (id)mapsApplicationContainerPaths;
 + (id)mapsApplicationContainerPathsWithInvalidationHandler:(CDUnknownBlockType)arg1;
@@ -88,11 +92,12 @@
 @property(readonly, nonatomic) NSString *geoBookmarksSettingsPath; // @synthesize geoBookmarksSettingsPath=_geoBookmarksSettingsPath;
 @property(readonly, nonatomic) NSString *bookmarksSettingsPath; // @synthesize bookmarksSettingsPath=_bookmarksSettingsPath;
 @property(readonly, nonatomic) NSString *nanoDirectory; // @synthesize nanoDirectory=_nanoDirectory;
+@property(readonly, nonatomic) NSString *groupDirectory; // @synthesize groupDirectory=_groupDirectory;
 @property(readonly, nonatomic) NSString *cacheDirectory; // @synthesize cacheDirectory=_cacheDirectory;
 @property(readonly, nonatomic) NSString *mapsDirectory; // @synthesize mapsDirectory=_mapsDirectory;
 @property(readonly, nonatomic) NSString *homeDirectory;
 - (void)_invalidate;
-- (id)initWithLibraryDirectoryURL:(id)arg1 invalidationHandler:(CDUnknownBlockType)arg2;
+- (id)initWithLibraryDirectoryURL:(id)arg1 groupLibraryURL:(id)arg2 invalidationHandler:(CDUnknownBlockType)arg3;
 
 @end
 

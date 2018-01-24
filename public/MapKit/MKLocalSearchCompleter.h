@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class CLLocation, GEOMapServiceTraits, GEOSearchCategory, NSArray, NSString, NSTimer;
+@class CLLocation, GEOMapServiceTraits, GEORetainedSearchMetadata, GEOSearchCategory, NSArray, NSString, NSTimer;
 
 @interface MKLocalSearchCompleter : NSObject
 {
     NSString *_queryFragment;
     CDStruct_b7cb895d _region;
     GEOSearchCategory *_categoryFilter;
+    GEORetainedSearchMetadata *_retainedSearchMetadata;
     id <MKLocalSearchCompleterDelegate> _delegate;
     id _context;
     NSString *_identifier;
@@ -42,6 +43,7 @@
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) __weak id context; // @synthesize context=_context;
 @property(nonatomic) __weak id <MKLocalSearchCompleterDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) GEORetainedSearchMetadata *retainedSearchMetadata; // @synthesize retainedSearchMetadata=_retainedSearchMetadata;
 @property(retain, nonatomic) GEOSearchCategory *categoryFilter; // @synthesize categoryFilter=_categoryFilter;
 @property(nonatomic) CDStruct_b7cb895d region; // @synthesize region=_region;
 @property(copy, nonatomic) NSString *queryFragment; // @synthesize queryFragment=_queryFragment;

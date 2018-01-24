@@ -16,7 +16,7 @@
 - (void)disableWiFiTimeout;
 - (void)enableWiFiTimeout;
 - (_Bool)isWifiEnabled;
-- (_Bool)hasAssociatedNetworkWithRSSI:(int *)arg1 andSNR:(int *)arg2 andPhyMode:(id *)arg3 andChannelInfo:(id *)arg4;
+- (_Bool)hasAssociatedNetworkWithRSSI:(int *)arg1 andSNR:(int *)arg2 andPhyMode:(id *)arg3 andChannelInfo:(id *)arg4 isCaptive:(_Bool *)arg5;
 - (void)dealloc;
 - (id)init;
 

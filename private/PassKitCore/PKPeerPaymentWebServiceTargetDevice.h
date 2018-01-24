@@ -25,7 +25,9 @@
 - (void)provisionPeerPaymentPassWithProvisioningController:(id)arg1 credential:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setUserHasDisabledPeerPayment:(_Bool)arg1;
 - (_Bool)userHasDisabledPeerPayment;
+- (id)secureElementIdentifiers;
 - (id)bridgedClientInfo;
+- (id)deviceRegion;
 - (void)updateAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (id)account;
 - (void)downloadPassIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;

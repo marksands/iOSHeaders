@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSDate, NSString, NSTimeZone, NSUUID;
+@class NSDate, NSString, NSTimeZone, NSUUID, OSLogEventDecomposedMessage;
 
 @protocol OSLogEventProvider
 @property(readonly, nonatomic) unsigned long long creatorProcessUniqueIdentifier;
@@ -12,6 +12,7 @@
 @property(readonly, nonatomic) unsigned long long signpostScope;
 @property(readonly, nonatomic) unsigned long long signpostType;
 @property(readonly, nonatomic) unsigned long long signpostIdentifier;
+@property(readonly, nonatomic) OSLogEventDecomposedMessage *decomposedMessage;
 @property(readonly, nonatomic) NSString *formatString;
 @property(readonly, nonatomic) NSString *category;
 @property(readonly, nonatomic) NSString *subsystem;

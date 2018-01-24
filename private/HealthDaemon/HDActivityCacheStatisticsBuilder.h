@@ -10,9 +10,9 @@
 
 @interface HDActivityCacheStatisticsBuilder : NSObject
 {
-    vector_53e1d725 _workouts;
-    vector_81c32433 _standHourSamples;
-    vector_6dc0ebed _activationLogSamples;
+    vector_89c96404 _workouts;
+    vector_6cc1e454 _standHourSamples;
+    vector_67487aec _activationLogSamples;
     HKQuantity *_lastActiveEnergyValue;
     HKQuantity *_lastDistanceWalkingValue;
     NSNumber *_lastFlightsClimbedValue;
@@ -21,7 +21,7 @@
     NSNumber *_lastStandHourValue;
     NSNumber *_lastExerciseMinuteValue;
     double _deepBreathingDurationValue;
-    vector_6dc0ebed _activeSourcesList;
+    vector_67487aec _activeSourcesList;
     struct map<_HKDataTypeCode, std::__1::map<long long, _HDActivityCacheSourceTotal, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, _HDActivityCacheSourceTotal>>>, std::__1::less<_HKDataTypeCode>, std::__1::allocator<std::__1::pair<const _HKDataTypeCode, std::__1::map<long long, _HDActivityCacheSourceTotal, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, _HDActivityCacheSourceTotal>>>>>> _sourceTotalsByIntervalIndexByTypeCode;
     double _builderStartTime;
     double _builderEndTime;
@@ -34,10 +34,10 @@
 @property(nonatomic) double intervalDuration; // @synthesize intervalDuration=_intervalDuration;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (double)_sumSourceTotals:(map_c63dce6d *)arg1 orderedSources:(vector_c1c297d2)arg2 strictStartTime:(double)arg3 strictEndTime:(double)arg4;
-- (double)_sumSourceTotals:(map_c63dce6d *)arg1 orderedSources:(vector_c1c297d2)arg2;
+- (double)_sumSourceTotals:(map_c63dce6d *)arg1 orderedSources:(vector_bbba3654)arg2 strictStartTime:(double)arg3 strictEndTime:(double)arg4;
+- (double)_sumSourceTotals:(map_c63dce6d *)arg1 orderedSources:(vector_bbba3654)arg2;
 - (void)_addSample:(struct HDActivityCacheStatisticsBuilderSample)arg1 toSourceTotals:(map_c63dce6d *)arg2 fromWorkout:(_Bool)arg3;
-- (void)_addSamples:(const vector_e4bf223f *)arg1 toSourceTotals:(map_c63dce6d *)arg2 fromWorkout:(_Bool)arg3;
+- (void)_addSamples:(const vector_7eaa0458 *)arg1 toSourceTotals:(map_c63dce6d *)arg2 fromWorkout:(_Bool)arg3;
 - (double)_maxTimestampInSourceTotals:(const map_c63dce6d *)arg1;
 - (double)_minTimestampInSourceTotals:(const map_c63dce6d *)arg1;
 - (_Bool)_sourceMapIsEmpty:(const map_c63dce6d *)arg1;
@@ -47,19 +47,19 @@
 - (id)createMoveStatisticsWithIntervalComponents:(id)arg1 calendar:(id)arg2;
 - (id)_createStatisticsForType:(id)arg1 withIntervalComponents:(id)arg2 calendar:(id)arg3;
 - (id)createStatisticsCollectionWithType:(id)arg1 intervalComponents:(id)arg2 calendar:(id)arg3;
-- (vector_6dc0ebed)_activeSourceVectorFromActivationLogSamples:(const vector_e4bf223f *)arg1;
+- (vector_67487aec)_activeSourceVectorFromActivationLogSamples:(const vector_7eaa0458 *)arg1;
 - (void)addDeepBreathingSessionDuration:(double)arg1;
 - (void)addWorkoutSample:(struct HDActivityCacheStatisticsBuilderSample)arg1 typeCode:(long long)arg2;
-- (void)addDeviceSamples:(const vector_e4bf223f *)arg1 typeCode:(long long)arg2;
+- (void)addDeviceSamples:(const vector_7eaa0458 *)arg1 typeCode:(long long)arg2;
 - (void)addDeviceSample:(struct HDActivityCacheStatisticsBuilderSample)arg1 typeCode:(long long)arg2;
-- (void)addActivationLogSamples:(const vector_e4bf223f *)arg1;
-- (void)addStandHourSamples:(const vector_81c32433 *)arg1;
-- (void)addWorkouts:(const vector_53e1d725 *)arg1;
+- (void)addActivationLogSamples:(const vector_7eaa0458 *)arg1;
+- (void)addStandHourSamples:(const vector_6cc1e454 *)arg1;
+- (void)addWorkouts:(const vector_89c96404 *)arg1;
 - (void)_resetAllCachedValues;
 - (void)_clearCachedValueForTypeCode:(long long)arg1;
 - (void)_loadActiveSourceList;
 - (void)_clearActiveSources;
-- (void)_logActiveSourcesList:(vector_6dc0ebed *)arg1;
+- (void)_logActiveSourcesList:(vector_67487aec *)arg1;
 - (id)_workoutIdentifiersStringForActiveSource:(struct HDActivityCacheActiveSource *)arg1;
 - (id)_loggingPrefix;
 - (double)deepBreathingDurationValue;
@@ -70,7 +70,7 @@
 - (long long)flightsClimbedValue;
 - (id)distanceWalkingValue;
 - (id)activeEnergyValue;
-- (vector_c1c297d2)_sourceOrderForTypeCode:(long long)arg1;
+- (vector_bbba3654)_sourceOrderForTypeCode:(long long)arg1;
 - (id)init;
 - (id)initWithDateInterval:(id)arg1 loggingName:(id)arg2;
 

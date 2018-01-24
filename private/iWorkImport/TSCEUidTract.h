@@ -11,28 +11,28 @@
 __attribute__((visibility("hidden")))
 @interface TSCEUidTract : NSObject <NSCopying>
 {
-    vector_dadc1b26 _columnUids;
-    vector_dadc1b26 _rowUids;
+    vector_4dc5f307 _columnUids;
+    vector_4dc5f307 _rowUids;
     _Bool _isRangeRef;
     unsigned char _purpose;
 }
 
-+ (_Bool)p_remapUidVector:(vector_dadc1b26 *)arg1 usingUidMap:(const UUIDMap_727ee07e *)arg2 clearIfMissing:(_Bool)arg3;
-+ (void)saveToArchive:(struct ASTNodeArrayArchive_ASTUidTract *)arg1 columnUids:(const vector_dadc1b26 *)arg2 rowUids:(const vector_dadc1b26 *)arg3 isRangeRef:(_Bool)arg4 purpose:(unsigned char)arg5;
++ (_Bool)p_remapUidVector:(vector_4dc5f307 *)arg1 usingUidMap:(const UUIDMap_b66c2694 *)arg2 clearIfMissing:(_Bool)arg3;
++ (void)saveToArchive:(struct ASTNodeArrayArchive_ASTUidTract *)arg1 columnUids:(const vector_4dc5f307 *)arg2 rowUids:(const vector_4dc5f307 *)arg3 isRangeRef:(_Bool)arg4 purpose:(unsigned char)arg5;
 + (id)stringForPurpose:(unsigned char)arg1;
 @property(nonatomic) unsigned char purpose; // @synthesize purpose=_purpose;
 @property(nonatomic) _Bool isRangeRef; // @synthesize isRangeRef=_isRangeRef;
-@property(readonly) vector_dadc1b26 *rowUids; // @synthesize rowUids=_rowUids;
-@property(readonly) vector_dadc1b26 *columnUids; // @synthesize columnUids=_columnUids;
+@property(readonly) vector_4dc5f307 *rowUids; // @synthesize rowUids=_rowUids;
+@property(readonly) vector_4dc5f307 *columnUids; // @synthesize columnUids=_columnUids;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (_Bool)remapUsingColumnUidMap:(const UUIDMap_727ee07e *)arg1 rowUidMap:(const UUIDMap_727ee07e *)arg2 clearIfMissing:(_Bool)arg3;
-- (_Bool)remapUsingUidMap:(const UUIDMap_727ee07e *)arg1;
+- (_Bool)remapUsingColumnUidMap:(const UUIDMap_b66c2694 *)arg1 rowUidMap:(const UUIDMap_b66c2694 *)arg2 clearIfMissing:(_Bool)arg3;
+- (_Bool)remapUsingUidMap:(const UUIDMap_b66c2694 *)arg1;
 - (id)description;
 - (void)saveToArchive:(struct ASTNodeArrayArchive_ASTUidTract *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithArchive:(const struct ASTNodeArrayArchive_ASTUidTract *)arg1;
-- (id)initWithColumnUids:(const vector_dadc1b26 *)arg1 rowUids:(const vector_dadc1b26 *)arg2 purpose:(unsigned char)arg3;
+- (id)initWithColumnUids:(const vector_4dc5f307 *)arg1 rowUids:(const vector_4dc5f307 *)arg2 purpose:(unsigned char)arg3;
 - (id)initWithColumnUid:(const UUIDData_5fbc143e *)arg1 rowUid:(const UUIDData_5fbc143e *)arg2 purpose:(unsigned char)arg3;
 
 @end

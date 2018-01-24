@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     _Bool mInOutwardLayout;
 }
 
+- (void).cxx_destruct;
 - (void)protected_iterateHitChartElements:(struct CGPoint)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)p_updateMinHitSizes;
 - (struct CGRect)i_currentBufferAreaUnitRect;
@@ -32,7 +33,6 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)titleFrame;
 @property(readonly, nonatomic) TSCHChartReferenceLineLabelsLayoutItem *topRefLineLabels;
 @property(readonly, nonatomic) TSCHChartReferenceLineLabelsLayoutItem *rightRefLineLabels;
-- (void)dealloc;
 
 @end
 

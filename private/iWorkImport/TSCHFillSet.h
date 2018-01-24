@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 + (struct CGSize)defaultSwatchSize;
 @property(readonly, nonatomic) NSString *plistPath; // @synthesize plistPath=mPListPath;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=mIdentifier;
+- (void).cxx_destruct;
 - (id)seriesStylesForSeriesTypes:(id)arg1 context:(id)arg2;
 - (id)propertyMutationTuplesForPreviewOnChart:(id)arg1;
 - (void)p_createSeriesSwatchImagesWithSeriesCount:(unsigned long long)arg1 swatchSize:(struct CGSize)arg2;

@@ -22,8 +22,8 @@
 - (unsigned long long)p_extendLeftMappedIndex:(unsigned long long)arg1;
 - (unsigned long long)unmappedCharIndex:(unsigned long long)arg1;
 - (unsigned long long)mappedCharIndex:(unsigned long long)arg1;
-- (id)initWithSubRange:(struct _NSRange)arg1 unmappedIndexes:(const vector_88016b54 *)arg2 affinity:(int)arg3;
-- (id)initWithSubRange:(struct _NSRange)arg1 unmappedPairIndexes:(const vector_88016b54 *)arg2;
+- (id)initWithSubRange:(struct _NSRange)arg1 unmappedIndexes:(const vector_06e666a8 *)arg2 affinity:(int)arg3;
+- (id)initWithSubRange:(struct _NSRange)arg1 unmappedPairIndexes:(const vector_06e666a8 *)arg2;
 
 @end
 

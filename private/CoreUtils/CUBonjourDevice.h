@@ -18,8 +18,12 @@
     NSDictionary *_txtDictionary;
     NSData *_txtData;
     NSDictionary *_deviceInfo;
+    NSString *_identifierStr;
+    NSUUID *_identifierUUID;
 }
 
+@property(copy, nonatomic) NSUUID *identifierUUID; // @synthesize identifierUUID=_identifierUUID;
+@property(copy, nonatomic) NSString *identifierStr; // @synthesize identifierStr=_identifierStr;
 @property(copy, nonatomic) NSDictionary *deviceInfo; // @synthesize deviceInfo=_deviceInfo;
 @property(copy, nonatomic) NSData *txtData; // @synthesize txtData=_txtData;
 @property(readonly, copy, nonatomic) NSDictionary *txtDictionary; // @synthesize txtDictionary=_txtDictionary;

@@ -12,6 +12,8 @@
 @property(readonly, nonatomic) _Bool isWarmingUp;
 @property(readonly, nonatomic) TSDGLState *GLState;
 @property(readonly, nonatomic) _Bool isPreview;
+@property(readonly, nonatomic) _Bool isMetalRenderer;
+@property(readonly, nonatomic) _Bool isOpenGLRenderer;
 @property(readonly, nonatomic) _Bool isFrameRenderer;
 @property(readonly, nonatomic) _Bool isMagicMove;
 @property(readonly, nonatomic) _Bool isTransition;
@@ -27,6 +29,7 @@
 @property(readonly, nonatomic) double duration;
 @property(readonly, nonatomic) unsigned long long direction;
 @property(readonly, nonatomic) NSArray *tags;
+@property(readonly, nonatomic) NSDictionary *scaledTextures;
 @property(readonly, nonatomic) NSArray *textures;
 @end
 

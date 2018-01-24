@@ -68,7 +68,8 @@
 - (void)showActivitySpinnerWithTitle:(id)arg1 subtitle:(id)arg2;
 - (void)handleNextActionError:(id)arg1 shouldContinue:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)handleNextActionWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_triggerNextActionLoop;
+- (void)_triggerNextActionLoop:(_Bool)arg1;
+- (void)triggerNextActionLoop;
 - (void)handleNextButtonTapped:(id)arg1;
 - (void)_handleNextButtonTapped:(id)arg1;
 - (_Bool)fieldCellEditableTextFieldShouldClear:(id)arg1;

@@ -14,6 +14,7 @@
 @property(readonly, nonatomic) _Bool showDymSuggestionCloseButton;
 @property(readonly, nonatomic) unsigned int dymSuggestionVisibleTime;
 @property(readonly, nonatomic) GEODirectionIntent *directionIntent;
+@property(readonly, nonatomic) NSArray *retainedSearchMetadata;
 @property(readonly, nonatomic) GEOResolvedItem *clientResolvedResult;
 @property(readonly, nonatomic) NSError *error;
 @property(readonly, nonatomic) _Bool shouldEnableRedoSearch;

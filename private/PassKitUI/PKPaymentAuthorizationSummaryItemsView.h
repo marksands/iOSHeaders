@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSLayoutConstraint, NSMutableArray, PKPaymentAuthorizationLayout;
+@class NSLayoutConstraint, NSMutableArray, NSString, PKPaymentAuthorizationLayout, UILabel;
 
 @interface PKPaymentAuthorizationSummaryItemsView : UIView
 {
@@ -14,17 +14,22 @@
     NSMutableArray *_valueViews;
     NSMutableArray *_hasBottomPadding;
     NSMutableArray *_constraints;
+    UILabel *_titleLabel;
     NSLayoutConstraint *_emptyConstraint;
     PKPaymentAuthorizationLayout *_layout;
+    NSString *_title;
 }
 
+@property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) PKPaymentAuthorizationLayout *layout; // @synthesize layout=_layout;
 - (void).cxx_destruct;
 - (id)_valueAttributedStringWithString:(id)arg1 type:(unsigned long long)arg2;
-- (id)_labelAttributedStringWithString:(id)arg1;
+- (id)_labelAttributedStringWithString:(id)arg1 withDarkColor:(_Bool)arg2;
 - (void)updateConstraints;
-- (void)addLabel:(id)arg1 value:(id)arg2 itemType:(unsigned long long)arg3 maxLabelLines:(long long)arg4 hasBottomPadding:(_Bool)arg5;
+- (void)addLabel:(id)arg1 value:(id)arg2 itemType:(unsigned long long)arg3 maxLabelLines:(long long)arg4 hasBottomPadding:(_Bool)arg5 useDarkColor:(_Bool)arg6;
+- (void)removeAllConstraints;
 - (void)removeLabelsAndValues;
+- (id)titleLabel;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

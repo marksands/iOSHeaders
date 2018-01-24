@@ -9,6 +9,7 @@
 @interface GEOProtobufSession : NSObject
 {
     id <GEODataSession> _dataSession;
+    id <GEODataSessionRulesProvider> _rulesProvider;
     // Error parsing type: AQ, name: _lastTaskIdentifier
 }
 
@@ -18,9 +19,9 @@
 @property(readonly, nonatomic) id <GEODataSession> dataSession; // @synthesize dataSession=_dataSession;
 - (void).cxx_destruct;
 - (id)taskWithRequest:(id)arg1 requestTypeCode:(unsigned int)arg2 responseClass:(Class)arg3 delegate:(id)arg4 delegateQueue:(id)arg5;
-- (id)initWithDataSession:(id)arg1;
+- (id)initWithDataSession:(id)arg1 rulesProvider:(id)arg2;
 - (id)init;
-- (id)taskWithRequestKind:(int)arg1 protobufRequest:(id)arg2 URL:(id)arg3 additionalHTTPHeaders:(id)arg4 auditToken:(id)arg5 traits:(id)arg6 delegate:(id)arg7 delegateQueue:(id)arg8;
+- (id)taskWithRequestKind:(int)arg1 protobufRequest:(id)arg2 URL:(id)arg3 additionalHTTPHeaders:(id)arg4 auditToken:(id)arg5 traits:(id)arg6 delegate:(id)arg7 delegateQueue:(id)arg8 requestCounterTicket:(id)arg9;
 
 @end
 

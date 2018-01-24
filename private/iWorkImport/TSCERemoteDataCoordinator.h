@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (id)p_localeStocks;
 - (void)removeRemoteDataInterest:(id)arg1 forStore:(id)arg2;
 - (void)addRemoteDataInterest:(id)arg1 forStore:(id)arg2;
+- (void)updateKnownCachedStocksInStore:(id)arg1;
 - (id)cachedQuoteForSingleSymbol:(id)arg1;
 - (id)valueForSingleKey:(id)arg1;
 - (void)autoCompleteQuotesWithInput:(id)arg1 completion:(CDUnknownBlockType)arg2;

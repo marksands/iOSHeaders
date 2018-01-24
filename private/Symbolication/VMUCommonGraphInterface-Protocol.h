@@ -9,6 +9,8 @@
 @class NSString, VMUClassInfoMap, VMUScanOverlay, VMUVMRegion;
 
 @protocol VMUCommonGraphInterface <NSObject>
+@property(readonly, nonatomic) unsigned long long physicalFootprintPeak;
+@property(readonly, nonatomic) unsigned long long physicalFootprint;
 @property(readonly, nonatomic) NSString *binaryImagesDescription;
 @property(readonly, nonatomic) NSString *processDescriptionString;
 @property(readonly, nonatomic) NSString *processName;

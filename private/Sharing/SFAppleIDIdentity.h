@@ -14,6 +14,7 @@
 {
     NSString *_encDSID;
     _Bool _linkedToCurrentUser;
+    NSString *_accountIdentifier;
     NSString *_altDSID;
     NSString *_appleID;
     NSDate *_certificateExpirationDate;
@@ -38,6 +39,7 @@
 @property(retain, nonatomic) NSDate *certificateExpirationDate; // @synthesize certificateExpirationDate=_certificateExpirationDate;
 @property(readonly, nonatomic) NSString *appleID; // @synthesize appleID=_appleID;
 @property(readonly, nonatomic) NSString *altDSID; // @synthesize altDSID=_altDSID;
+@property(retain, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
 - (void).cxx_destruct;
 - (void)removeFromKeychain;
 - (struct __SecIdentity *)copyIdentity;

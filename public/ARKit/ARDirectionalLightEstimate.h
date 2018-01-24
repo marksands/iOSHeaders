@@ -15,11 +15,13 @@
     CDStruct_9c26ff66 _sphericalHarmonicIntensity;
     NSData *_sphericalHarmonicsCoefficients;
     double _primaryLightIntensity;
+    double _timestamp;
     double _confidenceRating;
     // Error parsing type: , name: _primaryLightDirection
 }
 
 @property(nonatomic) double confidenceRating; // @synthesize confidenceRating=_confidenceRating;
+@property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(readonly, nonatomic) double primaryLightIntensity; // @synthesize primaryLightIntensity=_primaryLightIntensity;
 // Error parsing type for property primaryLightDirection:
 // Property attributes: T,R,N,V_primaryLightDirection
@@ -27,6 +29,7 @@
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
+-     // Error parsing type: @64@0:8{?=[3]}16, name: lightEstimateByApplyingRotation:
 @property(readonly, copy, nonatomic) NSData *sphericalHarmonicsCoefficients;
 - (id)initWithDirectionalLightEstimate:(id)arg1;
 - (id)initWithSphericalHarmonics:(CDStruct_9c26ff66)arg1 temperature:(double)arg2;

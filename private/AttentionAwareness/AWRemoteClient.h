@@ -8,7 +8,7 @@
 
 #import "AWRemoteClient.h"
 
-@class AWAttentionEvent, AWScheduler, NSArray, NSData, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
+@class AWAttentionEvent, AWScheduler, NSArray, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
 
 __attribute__((visibility("hidden")))
 @interface AWRemoteClient : NSObject <AWRemoteClient>
@@ -19,11 +19,12 @@ __attribute__((visibility("hidden")))
     NSXPCConnection *_connection;
     unsigned long long _lastPositiveEventTime;
     unsigned long long _lastPositiveNonSampledEventTime;
+    unsigned long long _pollingStartTime;
     unsigned long long _pollingDeadline;
     _Bool _sentPollInitialized;
     _Bool _lastAttentionState;
     AWAttentionEvent *_lastEvent;
-    NSData *_archivedTag;
+    unsigned long long _tagIndex;
     unsigned long long _eventMask;
     _Bool _samplingClient;
     double _lastNegativeEventTimeoutValueSec;

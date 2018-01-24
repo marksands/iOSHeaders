@@ -87,7 +87,10 @@
 - (_Bool)pickSpeakerRoute;
 - (_Bool)pickHandsetRoute;
 - (_Bool)pickBestDeviceRoute;
+- (_Bool)_updateGroupMembership:(long long)arg1 forRoute:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)removePickedRoute:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)removePickedRoute:(id)arg1;
+- (_Bool)addPickedRoute:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)addPickedRoute:(id)arg1;
 @property(readonly, nonatomic) _Bool supportsMultipleSelection;
 - (_Bool)pickRoute:(id)arg1 withPassword:(id)arg2 completion:(CDUnknownBlockType)arg3;

@@ -105,6 +105,7 @@
 - (_Bool)_hasPairedAccessoriesOfType:(unsigned long long)arg1;
 - (void)_startScanningForPairingPeers;
 - (void)_stopActiveScan;
+- (void)pauseScans;
 - (void)_matchAccessoryServerWithSetupID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)matchAccessoryServerWithSetupID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)stopDiscoveringAccessoryServers;

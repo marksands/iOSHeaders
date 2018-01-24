@@ -6,14 +6,14 @@
 
 #import "AKAnisetteProvisioningClientProtocol.h"
 
-@class AKAccountRecoveryContext, AKAppleIDAuthenticationContext, AKAppleIDServerResourceLoadDelegate, NSDictionary, NSError, NSString, NSURLRequest, NSUUID;
+@class AKAccountRecoveryContext, AKAppleIDAuthenticationContext, AKServerRequestConfiguration, NSDictionary, NSError, NSString, NSUUID;
 
 @protocol AKAppleIDAuthenticationClientProtocol <AKAnisetteProvisioningClientProtocol>
 - (void)shouldContinueWithAuthenticationResults:(NSDictionary *)arg1 error:(NSError *)arg2 forContextID:(NSUUID *)arg3 completion:(void (^)(_Bool, NSDictionary *))arg4;
 - (void)dismissNativeRecoveryUIForContext:(AKAppleIDAuthenticationContext *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)presentNativeRecoveryUIForContext:(AKAppleIDAuthenticationContext *)arg1 recoveryContext:(AKAccountRecoveryContext *)arg2 completion:(void (^)(NSDictionary *, NSError *))arg3;
 - (void)dismissServerProvidedUIForContext:(AKAppleIDAuthenticationContext *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
-- (void)presentServerProvidedUIForContext:(AKAppleIDAuthenticationContext *)arg1 URLRequest:(NSURLRequest *)arg2 delegate:(AKAppleIDServerResourceLoadDelegate *)arg3 completion:(void (^)(NSHTTPURLResponse *, NSDictionary *, NSError *))arg4;
+- (void)presentServerProvidedUIForContext:(AKAppleIDAuthenticationContext *)arg1 withConfiguration:(AKServerRequestConfiguration *)arg2 completion:(void (^)(NSHTTPURLResponse *, NSDictionary *, NSError *))arg3;
 - (void)presentSecondFactorAlertForContext:(AKAppleIDAuthenticationContext *)arg1 withError:(NSError *)arg2 title:(NSString *)arg3 message:(NSString *)arg4 completion:(void (^)(NSNumber *, NSError *))arg5;
 - (void)dismissSecondFactorUIForContext:(AKAppleIDAuthenticationContext *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)presentSecondFactorUIForContext:(AKAppleIDAuthenticationContext *)arg1 completion:(void (^)(NSNumber *, NSError *))arg2;

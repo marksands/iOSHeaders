@@ -152,6 +152,7 @@
 - (void)setPreviewURLOverride:(id)arg1;
 - (_Bool)_delegateExistsAndImplementsRequiredMethods:(id *)arg1;
 - (id)_documentProxySourceIsManaged:(_Bool)arg1;
+- (id)_documentProxy;
 - (void)_invalidate;
 @property(readonly, nonatomic) NSArray *gestureRecognizers;
 - (_Bool)_isImage;

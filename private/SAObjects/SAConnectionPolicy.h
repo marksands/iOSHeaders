@@ -19,8 +19,12 @@
 @property(copy, nonatomic) NSNumber *timeToLive;
 @property(copy, nonatomic) NSArray *routes;
 @property(copy, nonatomic) NSString *policyId;
+@property(copy, nonatomic) NSNumber *mptcpFallbackPort;
 @property(copy, nonatomic) NSNumber *globalTimeout;
 @property(nonatomic) _Bool enabled;
+@property(copy, nonatomic) NSNumber *enableTcpFastOpen;
+@property(copy, nonatomic) NSNumber *enableTLS13ZeroRTT;
+@property(copy, nonatomic) NSNumber *enableTLS13;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

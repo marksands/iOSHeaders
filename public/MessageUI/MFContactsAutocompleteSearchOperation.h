@@ -8,13 +8,12 @@
 
 #import "CNAutocompleteFetchDelegate.h"
 
-@class CNAutocompleteFetchContext, CNAutocompleteStore, NSError, NSObject<OS_dispatch_semaphore>, NSString;
+@class CNAutocompleteFetchContext, CNAutocompleteStore, MFCancelationToken, MFPromise, NSString;
 
 @interface MFContactsAutocompleteSearchOperation : MFContactsSearchOperation <CNAutocompleteFetchDelegate>
 {
-    id <CNCancelable> _fetchRequestHandle;
-    NSObject<OS_dispatch_semaphore> *_fetchRequestSemaphore;
-    NSError *_fetchError;
+    MFCancelationToken *_fetchRequestToken;
+    MFPromise *_fetchRequestPromise;
     _Bool _includeContacts;
     _Bool _includeRecents;
     _Bool _includeSuggestions;

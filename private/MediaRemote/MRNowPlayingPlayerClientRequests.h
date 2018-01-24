@@ -45,7 +45,9 @@ __attribute__((visibility("hidden")))
 - (void)addPlaybackQueueCompletion:(CDUnknownBlockType)arg1 forRequest:(void *)arg2;
 - (id)transactionCallbacksForName:(unsigned long long)arg1;
 - (void)addTransactionCallback:(CDUnknownBlockType)arg1 forName:(unsigned long long)arg2;
-@property(nonatomic) void *playbackQueue;
+@property(readonly, nonatomic) void *playbackQueue;
+- (void)setPlaybackQueue:(void *)arg1;
+- (id)debugDescription;
 - (void)dealloc;
 - (id)initWithPlayerPath:(void *)arg1;
 

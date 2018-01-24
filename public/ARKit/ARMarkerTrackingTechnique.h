@@ -22,6 +22,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)requestResultDataAtTimestamp:(double)arg1 context:(id)arg2;
 - (id)processData:(id)arg1;
+- (id)resultDataClasses;
 - (unsigned long long)requiredSensorDataTypes;
 - (void)dealloc;
 - (id)initWithIDMarkers:(id)arg1;

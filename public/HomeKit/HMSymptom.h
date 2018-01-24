@@ -16,7 +16,9 @@
     NSString *_localizedTitle;
 }
 
++ (id)archiveSymptomDict:(struct NSDictionary *)arg1;
 + (id)archive:(id)arg1;
++ (struct NSDictionary *)unarchiveSymptomDict:(id)arg1;
 + (id)unarchive:(id)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)symptomWithType:(long long)arg1;

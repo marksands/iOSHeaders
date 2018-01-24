@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+#import "AdAnalyzable.h"
 #import "NSObject.h"
 
 @class ADMRAIDAction, NSError, NSString, UIView, UIViewController;
 
-@protocol ADAdRecipient <NSObject>
+@protocol ADAdRecipient <NSObject, AdAnalyzable>
 @property(nonatomic) long long lastErrorCode;
 @property(nonatomic) _Bool reUsed;
 @property(nonatomic) _Bool displayed;
@@ -19,6 +20,12 @@
 @property(readonly, nonatomic) UIView *adSpaceView;
 @property(readonly, nonatomic) long long options;
 @property(readonly, nonatomic) int internalAdType;
+- (void)bannerViewVideoAdDidToggleToMute:(_Bool)arg1;
+- (void)bannerViewVideoAdDidTapForMoreInfo;
+- (void)bannerViewVideoAdDidCompletePlay:(int)arg1;
+- (void)bannerViewVideoAdDidPausePlay;
+- (void)bannerViewVideoAdDidResumePlay;
+- (void)bannerViewVideoAdDidImpress;
 - (_Bool)shouldTestVisibilityAtPoint:(struct CGPoint)arg1;
 - (void)resumeBannerMedia;
 - (void)pauseBannerMedia;

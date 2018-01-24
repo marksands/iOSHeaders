@@ -9,14 +9,14 @@
 @class NSEnumerator, TSKDocumentRoot, TSWPStorage;
 
 @protocol TSWPHeaderFooterProvider <NSObject>
-- (double)bodyWidth;
-- (TSKDocumentRoot *)documentRoot;
-- (NSEnumerator *)headerFooterFragmentEnumerator;
-- (_Bool)isHeaderFooterEmpty:(int)arg1 fragmentAtIndex:(int)arg2;
-- (_Bool)isHeaderFooterEmpty:(int)arg1;
-- (int)headerFragmentIndexForModel:(id <TSKModel>)arg1;
-- (int)headerFooterTypeForModel:(id <TSKModel>)arg1;
-- (TSWPStorage *)headerFooter:(int)arg1 fragmentAtIndex:(int)arg2;
-- (_Bool)usesSingleHeaderFooter;
+@property(readonly, nonatomic) double bodyWidth;
+@property(readonly, nonatomic) TSKDocumentRoot *documentRoot;
+@property(readonly, nonatomic) NSEnumerator *headerFooterFragmentEnumerator;
+@property(readonly, nonatomic) _Bool usesSingleHeaderFooter;
+- (_Bool)isHeaderFooterEmpty:(long long)arg1 fragmentAtIndex:(long long)arg2;
+- (_Bool)isHeaderFooterEmpty:(long long)arg1;
+- (long long)headerFragmentIndexForModel:(id <TSKModel>)arg1;
+- (long long)headerFooterTypeForModel:(id <TSKModel>)arg1;
+- (TSWPStorage *)headerFooter:(long long)arg1 fragmentAtIndex:(long long)arg2;
 @end
 

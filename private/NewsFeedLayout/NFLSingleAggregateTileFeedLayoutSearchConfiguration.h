@@ -15,8 +15,12 @@
     _Bool _showAccessoryText;
     Class _subBatchLayoutTilingOperationClass;
     Class _rankedLayoutGenerationOperationClass;
+    long long _cellType;
+    long long _rowSpan;
 }
 
+@property(nonatomic) long long rowSpan; // @synthesize rowSpan=_rowSpan;
+@property(nonatomic) long long cellType; // @synthesize cellType=_cellType;
 @property(retain, nonatomic) Class rankedLayoutGenerationOperationClass; // @synthesize rankedLayoutGenerationOperationClass=_rankedLayoutGenerationOperationClass;
 @property(retain, nonatomic) Class subBatchLayoutTilingOperationClass; // @synthesize subBatchLayoutTilingOperationClass=_subBatchLayoutTilingOperationClass;
 @property(nonatomic, getter=isShowingAccessoryText) _Bool showAccessoryText; // @synthesize showAccessoryText=_showAccessoryText;
@@ -34,7 +38,7 @@
 @property(readonly, nonatomic) unsigned long long preferredTileInfoBatchSize;
 - (_Bool)supportsTileInfoType:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithSubBatchLayoutTilingOperationClass:(Class)arg1 rankedLayoutGenerationOperationClass:(Class)arg2;
+- (id)initWithSubBatchLayoutTilingOperationClass:(Class)arg1 rankedLayoutGenerationOperationClass:(Class)arg2 cellType:(long long)arg3 rowSpan:(long long)arg4;
 - (id)init;
 
 // Remaining properties

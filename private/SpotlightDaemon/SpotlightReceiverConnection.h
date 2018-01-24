@@ -6,7 +6,7 @@
 
 #import "CSXPCConnection.h"
 
-@class NSArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSSet, NSString;
+@class NSArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSSet;
 
 @interface SpotlightReceiverConnection : CSXPCConnection
 {
@@ -22,7 +22,6 @@
     NSSet *_bundleIDs;
     NSArray *_contentTypes;
     NSSet *_INIntentClassNames;
-    NSString *_serviceName;
     NSObject<OS_dispatch_queue> *_senderQueue;
     double _minDate;
     NSObject<OS_dispatch_semaphore> *_setupSemaphore;
@@ -40,7 +39,6 @@
 
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *senderQueue; // @synthesize senderQueue=_senderQueue;
 @property(readonly, nonatomic) int supportedJobs; // @synthesize supportedJobs=_supportedJobs;
-@property(readonly, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
 @property(readonly, nonatomic) NSSet *INIntentClassNames; // @synthesize INIntentClassNames=_INIntentClassNames;
 @property(readonly, nonatomic) NSArray *contentTypes; // @synthesize contentTypes=_contentTypes;
 @property(readonly, nonatomic) NSSet *bundleIDs; // @synthesize bundleIDs=_bundleIDs;

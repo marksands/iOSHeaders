@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 
 - (void)_cancelNotifications;
 - (void)cancelNotifications;
-- (void)notifyParsedBarcodeWithData:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)notifyParsedBarcodeWithData:(id)arg1 codePayload:(id)arg2 reply:(CDUnknownBlockType)arg3;
 
 @end
 

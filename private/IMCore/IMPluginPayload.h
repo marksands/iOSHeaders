@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class DDScannerResult, IMBalloonPluginDataSource, NSArray, NSAttributedString, NSData, NSDictionary, NSString, NSURL;
+@class DDScannerResult, IMBalloonPluginDataSource, NSArray, NSAttributedString, NSData, NSDate, NSDictionary, NSString, NSURL;
 
 @interface IMPluginPayload : NSObject <NSSecureCoding, NSCopying>
 {
@@ -25,6 +25,7 @@
     NSString *_statusText;
     NSDictionary *_userInfo;
     NSString *_messageGUID;
+    NSDate *_time;
     NSString *_associatedMessageGUID;
     NSString *_pluginBundleID;
     NSArray *_consumedSessionPayloads;
@@ -46,6 +47,7 @@
 @property(retain, nonatomic) NSArray *consumedSessionPayloads; // @synthesize consumedSessionPayloads=_consumedSessionPayloads;
 @property(retain, nonatomic) NSString *pluginBundleID; // @synthesize pluginBundleID=_pluginBundleID;
 @property(retain, nonatomic) NSString *associatedMessageGUID; // @synthesize associatedMessageGUID=_associatedMessageGUID;
+@property(retain, nonatomic) NSDate *time; // @synthesize time=_time;
 @property(retain, nonatomic) NSString *messageGUID; // @synthesize messageGUID=_messageGUID;
 @property(retain, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) _Bool shouldExpire; // @synthesize shouldExpire=_shouldExpire;

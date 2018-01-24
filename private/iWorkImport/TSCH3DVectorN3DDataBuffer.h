@@ -10,7 +10,7 @@ __attribute__((visibility("hidden")))
 @interface TSCH3DVectorN3DDataBuffer : TSCH3DDataBuffer
 {
     struct DataBuffer3DDimension mDimension;
-    vector_a3426c4e mContainer;
+    vector_aab22ae2 mContainer;
 }
 
 + (id)bufferWithCapacity3DDimension:(const struct DataBuffer3DDimension *)arg1;
@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)fillCapacity;
 - (const void *)data;
-@property(readonly, nonatomic) vector_a3426c4e *container;
+@property(readonly, nonatomic) vector_aab22ae2 *container;
 - (unsigned long long)componentByteSize;
 - (int)componentType;
 - (unsigned long long)components;

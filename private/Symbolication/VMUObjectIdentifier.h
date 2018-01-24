@@ -56,9 +56,11 @@
 @property(readonly, nonatomic) NSString *swiftCoreSymbolOwnerPath;
 - (id)_scanner;
 - (struct _CSTypeRef)_symbolicator;
+- (id)labelForMemory:(void *)arg1 length:(unsigned long long)arg2 remoteAddress:(unsigned long long)arg3 expectedClassName:(id)arg4;
 - (id)labelForMemory:(void *)arg1 length:(unsigned long long)arg2 remoteAddress:(unsigned long long)arg3;
 - (id)labelForMemory:(void *)arg1 length:(unsigned long long)arg2;
 - (id)labelForMemory:(void *)arg1 length:(unsigned long long)arg2 remoteAddress:(unsigned long long)arg3 usingHandlerBlock:(CDUnknownBlockType)arg4;
+- (id)labelForObjectOfClass:(id)arg1 atOffset:(unsigned int)arg2 ofObject:(void *)arg3;
 - (id)labelForMallocBlock:(struct _VMURange)arg1 usingHandlerBlock:(CDUnknownBlockType)arg2;
 - (id)labelForMallocBlock:(struct _VMURange)arg1;
 - (id)labelFor__NSMallocBlock__:(void *)arg1;
@@ -82,6 +84,8 @@
 - (id)labelForItemCount:(long long)arg1;
 - (id)labelForNSDate:(void *)arg1;
 - (id)labelForNSNumber:(void *)arg1;
+- (id)labelForNSBundle:(void *)arg1;
+- (id)labelForCFBundle:(void *)arg1;
 - (id)labelForNSPathStore2:(void *)arg1;
 - (id)labelForNSURL:(void *)arg1;
 - (id)labelForNSConcreteAttributedString:(void *)arg1;

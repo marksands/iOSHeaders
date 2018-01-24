@@ -15,7 +15,6 @@ __attribute__((visibility("hidden")))
 - (void)p_renderGridlines:(struct CGContext *)arg1 axis:(id)arg2 locations:(id)arg3 showProperty:(int)arg4 strokeProperty:(int)arg5 shadowProperty:(int)arg6 opacityProperty:(int)arg7;
 - (void)p_renderBackground:(struct CGContext *)arg1;
 - (void)p_renderBackground:(struct CGContext *)arg1 style:(id)arg2;
-- (void)dealloc;
 - (id)init;
 
 @end

@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class NSUUID;
 
-@interface HMAccessorySettingConstraint : NSObject <NSSecureCoding>
+@interface HMAccessorySettingConstraint : NSObject <NSSecureCoding, NSCopying>
 {
     NSUUID *_identifier;
     long long _type;
@@ -32,6 +33,7 @@
 - (id)shortDescription;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithType:(long long)arg1 value:(id)arg2;
 - (id)init;
 

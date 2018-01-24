@@ -16,8 +16,10 @@ __attribute__((visibility("hidden")))
     GEOTileKeyList *_networkList;
     GEOTileKeyList *_pendingNetworkList;
     GEOTileRequester *_tileRequester;
+    int _batchID;
 }
 
+@property(nonatomic) int batchID; // @synthesize batchID=_batchID;
 @property(retain, nonatomic) GEOTileRequester *tileRequester; // @synthesize tileRequester=_tileRequester;
 @property(retain, nonatomic) GEOTileKeyList *pendingNetworkList; // @synthesize pendingNetworkList=_pendingNetworkList;
 @property(retain, nonatomic) GEOTileKeyList *networkList; // @synthesize networkList=_networkList;

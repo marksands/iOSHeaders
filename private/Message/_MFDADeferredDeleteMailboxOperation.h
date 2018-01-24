@@ -15,6 +15,7 @@
     NSString *_folderID;
 }
 
++ (_Bool)supportsSecureCoding;
 - (id)description;
 - (id)folderChangeResult;
 - (void)applyToFolderMap:(id)arg1;

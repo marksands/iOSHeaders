@@ -28,6 +28,7 @@
 - (void)markAllMessagesAsNeedingCloudKitSync;
 - (id)messagesThatNeedSyncWithCloudKitWithLimit:(long long)arg1;
 - (id)_messagesThatNeedSyncWithCloudKitWithLimit:(long long)arg1 attemptCount:(unsigned long long)arg2;
+- (_Bool)_isUsingStingRay;
 - (_Bool)_itemClassShouldUpdateTransferForItem:(id)arg1;
 - (void)loadConsumedSessionPayloadsForItems:(id)arg1;
 - (id)replaceMessageAcknowledgmentsWithNewMessageAcknowledgment:(id)arg1 associatedMessageGUID:(id)arg2 sender:(id)arg3;

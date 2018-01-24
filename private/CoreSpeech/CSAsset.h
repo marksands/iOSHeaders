@@ -57,6 +57,7 @@
 @property(readonly, nonatomic) unsigned int SSVLKFSLowerPercentile;
 @property(readonly, nonatomic) unsigned int SSVNoiseUpperPercentile;
 @property(readonly, nonatomic) unsigned int SSVNoiseLowerPercentile;
+@property(readonly, nonatomic) unsigned int SSVEnergyBufferSize;
 @property(readonly, nonatomic) unsigned long long SSVLKFSChannelBitset;
 @property(readonly, nonatomic) unsigned long long SSVNoiseLevelChannelBitset;
 @property(readonly, nonatomic) unsigned long long VTFirstPassProcessingChannelsBitset;
@@ -65,6 +66,7 @@
 @property(readonly, nonatomic) float VTFirstPassDelaySecondsForChannelSelection;
 @property(readonly, nonatomic) float VTFirstPassThreshold;
 @property(readonly, nonatomic) NSString *VTFirstPassConfigPathNDAPI;
+@property(readonly, nonatomic) float VTSecondPassTwoShotFeedbackDelay;
 @property(readonly, nonatomic) float VTSecondPassRecognizerWaitTime;
 @property(readonly, nonatomic) NSString *VTSecondPassRecognizerToken;
 @property(readonly, nonatomic) float VTSecondPassRecognizerScoreScaleFactor;

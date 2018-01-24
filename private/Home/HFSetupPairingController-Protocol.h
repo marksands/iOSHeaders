@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class HFDiscoveredAccessory, HFSetupAccessoryResult, HMHome, HMSetupAccessoryDescription, NAFuture, NSSet, NSString;
+@class HFDiscoveredAccessory, HFSetupAccessoryResult, HMAccessorySetupCompletedInfo, HMHome, HMSetupAccessoryDescription, NAFuture, NSSet, NSString;
 
 @protocol HFSetupPairingController <NSObject>
 + (_Bool)supportsSetupPayloadRetry;
+@property(readonly, nonatomic) HMAccessorySetupCompletedInfo *completedInfo;
 @property(readonly, nonatomic) HFDiscoveredAccessory *discoveredAccessoryToPair;
 @property(readonly, nonatomic) NSString *statusDescription;
 @property(readonly, nonatomic) NSString *statusTitle;

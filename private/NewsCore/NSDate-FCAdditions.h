@@ -25,8 +25,10 @@
 - (unsigned long long)fc_millisecondTimeIntervalSince1970;
 - (id)fc_dateBySubtractingTimeInterval:(double)arg1;
 - (_Bool)fc_isWithinTimeInterval:(double)arg1 ofDate:(id)arg2;
+- (_Bool)fc_isLaterThan:(id)arg1 withPrecision:(long long)arg2;
 - (_Bool)fc_isLaterThanOrEqualTo:(id)arg1;
 - (_Bool)fc_isLaterThan:(id)arg1;
+- (_Bool)fc_isEarlierThan:(id)arg1 withPrecision:(long long)arg2;
 - (_Bool)fc_isEarlierThanOrEqualTo:(id)arg1;
 - (_Bool)fc_isEarlierThan:(id)arg1;
 @property(readonly) double fc_timeIntervalUntilNow;

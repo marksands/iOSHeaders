@@ -154,6 +154,8 @@
 - (_Bool)canImportNamedAssetImportInfo:(id)arg1;
 - (void)importNamedAssetsFromFileURLs:(id)arg1 referenceFiles:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_backwardsCompatibilityPatchForLayoutDirection;
+- (void)createNamedRenditionGroupProductionsForImportInfos:(id)arg1 error:(id *)arg2;
+- (void)_tidyUpRecognitionImages;
 - (void)_tidyUpLayerStacks;
 - (void)_makeRadiosityImages;
 - (void)_addResolvedLayerReferenceToFlattenedImageRendition:(id)arg1 usingArtworkRendition:(id)arg2 andLayerReference:(id)arg3;

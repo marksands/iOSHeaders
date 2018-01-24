@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 + (id)invalidCellRef;
 @property(readonly, nonatomic) struct TSCECellRef cellRef; // @synthesize cellRef=_cellRef;
 - (id).cxx_construct;
+- (id)description;
 - (_Bool)isValid;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

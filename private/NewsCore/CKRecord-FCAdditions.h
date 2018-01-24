@@ -7,10 +7,6 @@
 #import "CKRecord.h"
 
 @interface CKRecord (FCAdditions)
-+ (id)fc_recordWithEncodedSystemFields:(id)arg1;
-- (id)fc_encodeSystemFields;
-- (void)fc_setZoneName:(id)arg1;
-- (void)fc_setRecordName:(id)arg1;
 - (_Bool)fc_isDifferentFromRecord:(id)arg1 forKey:(id)arg2;
 @end
 

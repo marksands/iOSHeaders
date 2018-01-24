@@ -18,10 +18,9 @@
 @property(retain) NSXPCConnection *connection; // @synthesize connection=_connection;
 @property(retain) NSObject<OS_xpc_object> *endpoint; // @synthesize endpoint=_endpoint;
 - (void).cxx_destruct;
+- (void)rpcKnownBadState:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)rpcTLKMissing:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)rpcForceUploadAnalyticsWithReply:(CDUnknownBlockType)arg1;
-- (void)rpcGetAnalyticsJSONWithReply:(CDUnknownBlockType)arg1;
-- (void)rpcGetAnalyticsSysdiagnoseWithReply:(CDUnknownBlockType)arg1;
+- (void)rpcGetCKDeviceIDWithReply:(CDUnknownBlockType)arg1;
 - (void)rpcPerformanceCounters:(CDUnknownBlockType)arg1;
 - (void)rpcPushOutgoingChanges:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)rpcFetchAndProcessClassAChanges:(id)arg1 reply:(CDUnknownBlockType)arg2;

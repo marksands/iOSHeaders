@@ -29,13 +29,17 @@
 - (void)showApplicationBadgeForPendingUpdates;
 - (void)removeUpdateBulletins;
 - (void)reloadForSettingsFromServerWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)reloadManagedUpdatesWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)reloadFromServerWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)reloadFromServerInBackgroundWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)refreshUpdatesWithCompletionBlock:(id)arg1 userInitiated:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)refreshUpdateCountWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)hideApplicationBadgeForPendingUpdates;
 - (_Bool)hasEntitlement;
+- (void)getUpdatesIncludingMetricsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)getUpdatesWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (void)getUpdateableFirstPartyAppMetadataWithCompletion:(CDUnknownBlockType)arg1;
+- (void)getMetricsWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)getManagedUpdatesWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)clearExpiredUpdateHistoryWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)init;

@@ -23,6 +23,7 @@
 @property(nonatomic) _Bool isMuted;
 @property(nonatomic) _Bool isAudioEnabled;
 - (void)sendAllocationRequest:(id)arg1;
+- (void)sendSessionMessage:(id)arg1 toDestinations:(id)arg2;
 - (void)sendSessionMessage:(id)arg1;
 - (void)endSessionWithData:(id)arg1;
 - (void)endSession;

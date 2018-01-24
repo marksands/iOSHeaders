@@ -40,7 +40,7 @@
 - (int)handleSetup:(id)arg1;
 - (_Bool)handleCommand:(const char *)arg1 info:(id)arg2 connection:(id)arg3;
 - (_Bool)lostClientConnection:(id)arg1 error:(id)arg2;
-- (_Bool)allowClientConnection:(id)arg1;
+- (_Bool)addClientConnectionIfAllowedForConnection:(id)arg1;
 - (id)initWithReceiver:(id)arg1 forServiceName:(id)arg2;
 
 @end

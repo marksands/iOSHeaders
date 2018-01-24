@@ -15,7 +15,6 @@
 }
 
 + (_Bool)wifiEnabled;
-+ (void)releaseSharedInstance;
 + (id)sharedInstance;
 - (void)dealloc;
 - (id)init;

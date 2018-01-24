@@ -52,6 +52,9 @@
     long long _cloudKitSyncState;
     NSData *_cloudKitServerChangeTokenBlob;
     NSString *_cloudKitRecordID;
+    long long _srCloudKitSyncState;
+    NSData *_srCloudKitServerChangeTokenBlob;
+    NSString *_srCloudKitRecordID;
     NSURL *_localURL;
     NSURL *_temporaryHighQualityLocalURL;
     NSDictionary *_attributionInfo;
@@ -66,6 +69,9 @@
 @property(retain, nonatomic) NSDictionary *attributionInfo; // @synthesize attributionInfo=_attributionInfo;
 @property(retain, nonatomic) NSURL *temporaryHighQualityLocalURL; // @synthesize temporaryHighQualityLocalURL=_temporaryHighQualityLocalURL;
 @property(retain, nonatomic, setter=_setLocalURL:) NSURL *localURL; // @synthesize localURL=_localURL;
+@property(retain, nonatomic) NSString *srCloudKitRecordID; // @synthesize srCloudKitRecordID=_srCloudKitRecordID;
+@property(retain, nonatomic) NSData *srCloudKitServerChangeTokenBlob; // @synthesize srCloudKitServerChangeTokenBlob=_srCloudKitServerChangeTokenBlob;
+@property(nonatomic) long long srCloudKitSyncState; // @synthesize srCloudKitSyncState=_srCloudKitSyncState;
 @property(retain, nonatomic) NSString *cloudKitRecordID; // @synthesize cloudKitRecordID=_cloudKitRecordID;
 @property(retain, nonatomic) NSData *cloudKitServerChangeTokenBlob; // @synthesize cloudKitServerChangeTokenBlob=_cloudKitServerChangeTokenBlob;
 @property(nonatomic) long long cloudKitSyncState; // @synthesize cloudKitSyncState=_cloudKitSyncState;

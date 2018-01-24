@@ -18,6 +18,7 @@
 @property(nonatomic) _Bool dimmed; // @synthesize dimmed=_dimmed;
 @property(retain, nonatomic) ADTapGestureRecognizer *gestureRecognizer; // @synthesize gestureRecognizer=_gestureRecognizer;
 - (void)removeADTapGestureRecognizer;
+- (void)addADTapGestureRecognizer;
 @property(readonly, nonatomic) _Bool enabled;
 - (void)_tapRecognized:(id)arg1;
 @property(nonatomic) __weak id <ADDimmerViewDelegate> delegate;

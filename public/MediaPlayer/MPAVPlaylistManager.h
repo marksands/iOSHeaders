@@ -12,35 +12,29 @@
 #import "MPQueueFeederDelegate.h"
 #import "NSCoding.h"
 
-@class MPAVController, MPAVItem, MPAVQueueCoordinator, MPQueueFeeder, MPQueuePlayer, NSString;
+@class MPAVController, MPAVItem, MPAVQueueCoordinator, MPQueueFeeder, NSString;
 
 @interface MPAVPlaylistManager : NSObject <MPQueueFeederDelegate, MPAVQueueCoordinatorDataSource, MPAVQueueController, MPQueueBehaviorManaging, NSCoding>
 {
     MPAVItem *_currentItem;
     _Bool _goToTargetIndex;
     long long _lastSelectionDirection;
-    MPQueuePlayer *_player;
     MPQueueFeeder *_playlistFeeder;
     long long _repeatMode;
     long long _targetIndex;
     _Bool _updatedAudioSessionMode;
     MPQueueFeeder *_currentQueueFeeder;
     id <MPAVItemQueueIdentifier> _currentItemQueueIdentifier;
-    _Bool _changingPlayer;
-    _Bool _changingPlaylistFeeder;
     long long _playbackMode;
     MPAVController *_avController;
     MPAVQueueCoordinator *_queueCoordinator;
     id <MPAVPlaylistManagerDelegate> _delegate;
 }
 
-@property(readonly) MPAVItem *currentItem; // @synthesize currentItem=_currentItem;
-@property(readonly, nonatomic, getter=isChangingPlaylistFeeder) _Bool changingPlaylistFeeder; // @synthesize changingPlaylistFeeder=_changingPlaylistFeeder;
-@property(readonly, nonatomic, getter=isChangingPlayer) _Bool changingPlayer; // @synthesize changingPlayer=_changingPlayer;
+@property(retain) MPAVItem *currentItem; // @synthesize currentItem=_currentItem;
 @property(readonly, nonatomic) MPQueueFeeder *playlistFeeder; // @synthesize playlistFeeder=_playlistFeeder;
 @property(nonatomic) __weak id <MPAVPlaylistManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly) MPAVQueueCoordinator *queueCoordinator; // @synthesize queueCoordinator=_queueCoordinator;
-@property(readonly) MPQueuePlayer *player; // @synthesize player=_player;
 @property(nonatomic) __weak MPAVController *avController; // @synthesize avController=_avController;
 @property(readonly, nonatomic) long long playbackMode; // @synthesize playbackMode=_playbackMode;
 - (void).cxx_destruct;
@@ -61,7 +55,6 @@
 - (long long)_nextItemIndex:(long long)arg1 repeatMode:(long long)arg2;
 - (void)_reloadQueuedItemsIfPathBecameAvailable;
 - (_Bool)setPlaylistFeeder:(id)arg1 startIndex:(long long)arg2 keepPlaying:(_Bool)arg3;
-- (_Bool)canChangePlaylistFeeder;
 - (void)reloadWithPlaybackContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(nonatomic) long long repeatMode;
 @property(readonly) long long currentIndex;
@@ -108,14 +101,12 @@
 @property(nonatomic) _Bool shouldDeferItemLoading;
 @property(readonly, nonatomic) long long upNextItemCount;
 - (_Bool)hasQueueContents;
-@property(readonly, nonatomic) _Bool isTransitioningSource;
 - (_Bool)canSeekItem:(id)arg1;
 - (void)reset;
 - (void)clearQueueFeeder;
 - (void)player:(id)arg1 currentItemDidChangeFromItem:(id)arg2 toItem:(id)arg3;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)disconnectPlayer;
-- (void)connectPlayer;
+- (void)disconnectQueueCoordinator;
+- (void)connectQueueCoordinator:(id)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (void)finalizeStateRestorationWithCompletionHandler:(CDUnknownBlockType)arg1;

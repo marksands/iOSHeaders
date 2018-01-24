@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (int)chunkPlane;
-- (void)addSelection:(id)arg1 toCGPath:(struct CGPath *)arg2;
+- (void)addSelection:(id)arg1 toCGPath:(struct CGPath *)arg2 useWrapWidth:(_Bool)arg3;
 - (void)renderIntoContext:(struct CGContext *)arg1 selection:(id)arg2;
 - (_Bool)canRenderSelectionPath:(id)arg1;
 - (void)p_renderIntoContext:(struct CGContext *)arg1 visible:(struct CGRect)arg2;

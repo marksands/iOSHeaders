@@ -20,13 +20,13 @@
     NSString *_setupCode;
     NSString *_setupID;
     NSNumber *_categoryNumber;
-    NSURL *_setupPayloadURL;
     NSNumber *_flags;
+    NSURL *_setupPayloadURL;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) NSNumber *flags; // @synthesize flags=_flags;
 @property(retain, nonatomic) NSURL *setupPayloadURL; // @synthesize setupPayloadURL=_setupPayloadURL;
+@property(retain, nonatomic) NSNumber *flags; // @synthesize flags=_flags;
 @property(nonatomic) _Bool paired; // @synthesize paired=_paired;
 @property(nonatomic) _Bool supportsBTLE; // @synthesize supportsBTLE=_supportsBTLE;
 @property(nonatomic) _Bool supportsWAC; // @synthesize supportsWAC=_supportsWAC;

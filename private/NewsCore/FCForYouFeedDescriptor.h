@@ -22,6 +22,7 @@
 @property(nonatomic) unsigned long long trendingAndSavedStoriesCount; // @synthesize trendingAndSavedStoriesCount=_trendingAndSavedStoriesCount;
 - (void).cxx_destruct;
 - (void)d_fetchAllHeadlinesWithCloudContext:(id)arg1 sinceDate:(id)arg2 filter:(_Bool)arg3 personalize:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (id)_sortedEditorialGroupEmittersWithForYouGroupsConfiguration:(id)arg1;
 - (id)editionFollowingEdition:(id)arg1;
 - (id)editionAtDate:(id)arg1;
 - (long long)feedFilterOptions;

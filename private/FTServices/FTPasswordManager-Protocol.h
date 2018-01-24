@@ -15,6 +15,8 @@
 - (ACAccount *)acAccountWithProfileID:(NSString *)arg1 username:(NSString *)arg2 accountStore:(ACAccountStore *)arg3;
 - (void)cancelRequestID:(NSString *)arg1 serviceIdentifier:(NSString *)arg2;
 - (void)setHandlesForProfileID:(NSString *)arg1 username:(NSString *)arg2 service:(NSString *)arg3 handles:(NSArray *)arg4;
+- (_Bool)isAuthTokenReceiptTime:(double)arg1 withinGracePeriod:(double)arg2;
+- (void)removeAuthTokenAllowingGracePeriodForProfileID:(NSString *)arg1 username:(NSString *)arg2;
 - (void)setAuthTokenForProfileID:(NSString *)arg1 username:(NSString *)arg2 service:(NSString *)arg3 authToken:(NSString *)arg4 selfHandle:(NSString *)arg5 accountStatus:(NSNumber *)arg6 outRequestID:(id *)arg7 completionBlock:(void (^)(NSString *, NSString *, NSString *, _Bool))arg8;
 - (void)setAuthTokenForProfileID:(NSString *)arg1 username:(NSString *)arg2 service:(NSString *)arg3 authToken:(NSString *)arg4 selfHandle:(NSString *)arg5 outRequestID:(id *)arg6 completionBlock:(void (^)(NSString *, NSString *, NSString *, _Bool))arg7;
 - (void)setPasswordForProfileID:(NSString *)arg1 username:(NSString *)arg2 service:(NSString *)arg3 password:(NSString *)arg4 outRequestID:(id *)arg5 completionBlock:(void (^)(NSString *, NSString *, NSString *, _Bool))arg6;

@@ -11,9 +11,11 @@
 @interface BFFPaneHeaderView : UIView
 {
     UIImageView *_iconView;
+    struct CGSize _iconSize;
     UIButton *_linkButton;
     CDUnknownBlockType _linkHandler;
     UIView *_bottomLine;
+    _Bool _iconInheritsTint;
     _Bool _useMinimumTopPadding;
     _Bool _textLabelAlignedByLastBaseline;
     UIImage *_icon;
@@ -27,6 +29,7 @@
 @property(nonatomic, getter=isTextLabelAlignedByLastBaseline) _Bool textLabelAlignedByLastBaseline; // @synthesize textLabelAlignedByLastBaseline=_textLabelAlignedByLastBaseline;
 @property(nonatomic) double customTopPadding; // @synthesize customTopPadding=_customTopPadding;
 @property(nonatomic) _Bool useMinimumTopPadding; // @synthesize useMinimumTopPadding=_useMinimumTopPadding;
+@property(nonatomic) _Bool iconInheritsTint; // @synthesize iconInheritsTint=_iconInheritsTint;
 @property(nonatomic) double flexibleHeight; // @synthesize flexibleHeight=_flexibleHeight;
 @property(readonly, nonatomic) UILabel *subLabel; // @synthesize subLabel=_subLabel;
 @property(readonly, nonatomic) UILabel *detailTextLabel; // @synthesize detailTextLabel=_detailTextLabel;
@@ -41,6 +44,8 @@
 - (void)setLinkText:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)setTitleText:(id)arg1;
 - (void)_linkButtonPressed;
+- (void)tintColorDidChange;
+@property(nonatomic) struct CGSize iconSize;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -67,7 +67,7 @@
 - (void)dealloc;
 - (id)initWithName:(id)arg1 type:(id)arg2 uuid:(id)arg3;
 - (void)setApplicationData:(id)arg1;
-@property(readonly, nonatomic) HMApplicationData *applicationData; // @synthesize applicationData=_applicationData;
+@property(readonly, nonatomic) HMApplicationData *applicationData;
 @property(nonatomic) __weak HMHome *home; // @synthesize home=_home;
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(readonly, nonatomic, getter=isExecuting) _Bool executing;

@@ -32,6 +32,7 @@
 - (void)_addVisitedLinksForItemsIfNeeded:(id)arg1;
 - (void)_removeAllVisitedLinks;
 - (id)_createHistoryStore;
+- (void)_unload;
 - (void)historyStore:(id)arg1 didRemoveItems:(id)arg2;
 - (void)historyStore:(id)arg1 didRemoveVisits:(id)arg2;
 - (void)historyStoreDidFailDatabaseIntegrityCheck:(id)arg1;
@@ -56,6 +57,7 @@
 - (void)_startLoading;
 - (void)_loadHistory;
 - (void)_loadHistoryAsynchronouslyIfNeeded;
+- (void)closeWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)close;
 - (void)performMaintenance:(CDUnknownBlockType)arg1;
 - (void)performMaintenance;
@@ -94,7 +96,7 @@
 @property(readonly, nonatomic) unsigned long long numberOfHistoryItemsOnHistoryQueue;
 @property(readonly, nonatomic) unsigned long long numberOfHistoryItems;
 @property(readonly, nonatomic) _Bool hasAnyHistoryItems;
-@property(readonly, nonatomic) NSArray *allItems;
+@property(readonly) NSArray *allItems;
 - (void)_removeItemFromStringsForUserTypedDomainExpansion:(id)arg1;
 - (void)_addItemToStringsForUserTypedDomainExpansion:(id)arg1;
 - (_Bool)_isStringForUserTypedDomainExpansionInHistory:(id)arg1;

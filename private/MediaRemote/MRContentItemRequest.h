@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 __attribute__((visibility("hidden")))
-@interface MRContentItemRequest : NSObject <NSCoding>
+@interface MRContentItemRequest : NSObject <NSSecureCoding>
 {
     void *_item;
     void *_request;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) void *request; // @synthesize request=_request;
 @property(nonatomic) void *item; // @synthesize item=_item;
 - (id)description;

@@ -6,11 +6,11 @@
 
 #import "NFCopying.h"
 
-@class NSArray, NSMutableDictionary, NSObject<NTTodayItem>, NSString;
+@class NSArray, NSMutableDictionary, NSString;
 
 @protocol NTTodayProtoitem <NFCopying>
 @property(readonly, copy, nonatomic) NSString *identifier;
-- (NSObject<NTTodayItem> *)itemWithContentContext:(id <FCContentContext>)arg1 operationInfo:(id <NTTodayResultOperationInfoProviding>)arg2 sectionDescriptor:(id <NTSectionDescriptor>)arg3 assetFileURLsByRemoteURL:(NSMutableDictionary *)arg4 forLeadingCellAppearance:(_Bool)arg5;
+- (id <NTTodayItem>)itemWithContentContext:(id <FCContentContext>)arg1 operationInfo:(id <NTTodayResultOperationInfoProviding>)arg2 sectionDescriptor:(id <NTSectionDescriptor>)arg3 assetFileURLsByRemoteURL:(NSMutableDictionary *)arg4 forLeadingCellAppearance:(_Bool)arg5 preferredDynamicSlotAllocation:(unsigned long long)arg6;
 - (NSArray *)assetHandlesWithOperationInfo:(id <NTTodayResultOperationInfoProviding>)arg1 forLeadingCellAppearance:(_Bool)arg2;
 @end
 

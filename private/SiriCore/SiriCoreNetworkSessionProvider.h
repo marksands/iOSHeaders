@@ -10,13 +10,14 @@
 #import "NSURLSessionDelegate.h"
 #import "SiriCoreConnectionProvider.h"
 
-@class NSInputStream, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSOperationQueue, NSOutputStream, NSString, NSURL, NSURLSession, NSURLSessionStreamTask, SAConnectionPolicyRoute, SiriCoreConnectionType;
+@class NSInputStream, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSOperationQueue, NSOutputStream, NSString, NSURL, NSURLSession, NSURLSessionStreamTask, SAConnectionPolicy, SAConnectionPolicyRoute, SiriCoreConnectionType;
 
 @interface SiriCoreNetworkSessionProvider : NSObject <NSURLSessionDelegate, NSStreamDelegate, SiriCoreConnectionProvider>
 {
     id <SiriCoreConnectionProviderDelegate> _delegate;
     NSURL *_url;
     SAConnectionPolicyRoute *_route;
+    SAConnectionPolicy *_policy;
     _Bool _prefersWWAN;
     _Bool _connectByPOPEnabled;
     _Bool _enforceEV;
@@ -51,6 +52,7 @@
 - (void)setEnforceExtendedValidation:(_Bool)arg1;
 - (void)setConnectByPOPMethod:(_Bool)arg1;
 - (void)setPrefersWWAN:(_Bool)arg1;
+- (void)setProviderConnectionPolicy:(id)arg1;
 - (void)setPolicyRoute:(id)arg1;
 - (_Bool)isCanceled;
 - (_Bool)isReady;
@@ -82,7 +84,7 @@
 - (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
 - (void)_invokeOpenCompletionWithError:(id)arg1;
 - (_Bool)shouldFallbackQuickly;
-- (id)headerData;
+- (id)headerDataWithForceReconnect:(_Bool)arg1;
 - (void)setDelegate:(id)arg1;
 - (id)delegate;
 - (id)initWithQueue:(id)arg1;

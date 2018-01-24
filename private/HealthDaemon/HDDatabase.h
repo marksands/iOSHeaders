@@ -158,11 +158,16 @@
 - (_Bool)_applyOffsetTimeInterval:(double)arg1 database:(id)arg2 error:(id *)arg3;
 - (_Bool)_runPostMigrationUpdatesWithDatabase:(id)arg1 error:(id *)arg2;
 - (long long)_migrateDatabase:(id)arg1 fromUserVersion:(long long)arg2 protectedDatabase:(_Bool)arg3 error:(id *)arg4;
-- (_Bool)_createDataTablesInDatabase:(id)arg1 entityClasses:(id)arg2 error:(id *)arg3;
+- (_Bool)_databaseRequiresMigration:(id)arg1 protectedDatabase:(_Bool)arg2 migrator:(id)arg3 schemaProviders:(id)arg4 error:(id *)arg5;
+- (void)_presentRollbackAlertForSchema:(id)arg1 protectedDatabase:(_Bool)arg2 foundVersion:(long long)arg3 currentVersion:(long long)arg4;
+- (_Bool)_createEntitiesOrAddMigrationStepsForProtectionClass:(long long)arg1 schemaProviders:(id)arg2 migrator:(id)arg3 error:(id *)arg4;
+- (_Bool)_createEntitiesForSchemaProvider:(id)arg1 protectionClass:(long long)arg2 migrator:(id)arg3 error:(id *)arg4;
+- (_Bool)_createDataTablesInDatabase:(id)arg1 entityClasses:(id)arg2 requiredPrefix:(id)arg3 error:(id *)arg4;
 - (long long)currentSchemaVersionForProtectedDatabase:(_Bool)arg1;
 - (id)_databaseNameForProtectedDatabase:(_Bool)arg1;
 - (long long)_createEntitiesInDatabase:(id)arg1 protectedEntities:(_Bool)arg2 error:(id *)arg3;
 - (long long)_migrateOrCreateSchemaWithDatabase:(id)arg1 protectedDatabase:(_Bool)arg2 error:(id *)arg3;
+- (long long)_insertDatabaseIdentifiersIfNeededIntoDatabase:(id)arg1 error:(id *)arg2;
 - (long long)migrateOrCreateSchemaInDatabase:(id)arg1 protectedDatabaseAvailable:(_Bool)arg2 error:(id *)arg3;
 
 // Remaining properties

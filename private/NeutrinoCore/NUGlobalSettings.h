@@ -30,6 +30,8 @@
 + (long long)cacheNodeFilePermissions;
 + (void)setCacheNodeCacheSizeLimit:(long long)arg1;
 + (long long)cacheNodeCacheSizeLimit;
++ (void)setImageSourceDisableCacheImmediately:(_Bool)arg1;
++ (_Bool)imageSourceDisableCacheImmediately;
 + (void)setImageSourceDisableRAW:(_Bool)arg1;
 + (_Bool)imageSourceDisableRAW;
 + (void)setImageTileSize:(long long)arg1;

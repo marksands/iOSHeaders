@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+#import "DEDSecureArchiving.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class NSString, SFDevice;
 
-@interface DEDDevice : NSObject <NSSecureCoding, NSCopying>
+@interface DEDDevice : NSObject <NSSecureCoding, NSCopying, DEDSecureArchiving>
 {
     NSString *_address;
     NSString *_build;
@@ -38,6 +39,7 @@
 + (id)deviceWithDictionary:(id)arg1;
 + (id)currentDevice;
 + (_Bool)supportsSecureCoding;
++ (id)archivedClasses;
 @property(retain) SFDevice *sfDevice; // @synthesize sfDevice=_sfDevice;
 @property long long remoteTransport; // @synthesize remoteTransport=_remoteTransport;
 @property long long transport; // @synthesize transport=_transport;
@@ -57,7 +59,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)shortDescription;
 - (id)publicLogDescription;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (_Bool)isCurrentDevice;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)serialize;
@@ -67,6 +69,11 @@
 - (id)imageURLForScale:(float)arg1;
 - (id)imageData;
 - (void)fetchIconImageDataForScale:(float)arg1 completionCompletion:(CDUnknownBlockType)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

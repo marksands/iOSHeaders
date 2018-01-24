@@ -26,6 +26,9 @@
 @property(copy, nonatomic) NSString *sanitizedPrimaryAccountNumber; // @synthesize sanitizedPrimaryAccountNumber=_sanitizedPrimaryAccountNumber;
 @property(nonatomic) long long credentialType; // @synthesize credentialType=_credentialType;
 - (void).cxx_destruct;
+@property(readonly, nonatomic, getter=isTransitCredential) _Bool transitCredential;
+- (id)digitalIssuanceProductCredential;
+- (_Bool)isDigitalIssuanceProductCredential;
 - (id)contactlessProductCredential;
 - (_Bool)isContactlessProductCredential;
 - (id)peerPaymentCredential;

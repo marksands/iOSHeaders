@@ -7,11 +7,12 @@
 #import "NSObject.h"
 
 #import "GEODataSession.h"
+#import "GEODataSessionRulesProvider.h"
 
 @class GEODataURLSession, GEODataXPCSession, NSObject<OS_dispatch_queue>, NSString;
 
 __attribute__((visibility("hidden")))
-@interface GEODataSession : NSObject <GEODataSession>
+@interface GEODataSession : NSObject <GEODataSessionRulesProvider, GEODataSession>
 {
     NSObject<OS_dispatch_queue> *_sessionIsolation;
     id <GEODataSession> _urlSession;

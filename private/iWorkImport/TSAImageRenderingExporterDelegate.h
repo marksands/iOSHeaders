@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool scaleToFit; // @synthesize scaleToFit=mScaleToFit;
 @property(nonatomic) unsigned long long height; // @synthesize height=mHeight;
 @property(nonatomic) unsigned long long width; // @synthesize width=mWidth;
+- (void).cxx_destruct;
 - (_Bool)supportsRenderingQuality;
 - (_Bool)supportsPaging;
 - (void)releaseCGContext:(struct CGContext *)arg1;
@@ -34,7 +35,6 @@ __attribute__((visibility("hidden")))
 - (double)viewScale;
 - (void)teardown;
 - (void)setup;
-- (void)dealloc;
 - (id)initWithRenderingExporter:(id)arg1;
 
 @end

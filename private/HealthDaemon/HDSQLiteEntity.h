@@ -17,6 +17,7 @@
 
 + (id)_copyDeleteSQLWithTableName:(id)arg1 columnName:(id)arg2;
 + (id)deleteStatementWithProperty:(id)arg1 database:(id)arg2;
++ (id)checkConstraints;
 + (id)joinClausesForProperty:(id)arg1;
 + (id)disambiguatedSQLForProperty:(id)arg1;
 + (id)_generateDisambiguatedDatabaseTableName;

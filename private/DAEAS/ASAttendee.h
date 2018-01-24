@@ -7,10 +7,11 @@
 #import <DAEAS/ASItem.h>
 
 #import "ASParsingAcceptingTopLevelLeaves.h"
+#import "NSSecureCoding.h"
 
 @class NSDate, NSMutableDictionary, NSString;
 
-@interface ASAttendee : ASItem <ASParsingAcceptingTopLevelLeaves>
+@interface ASAttendee : ASItem <ASParsingAcceptingTopLevelLeaves, NSSecureCoding>
 {
     int _status;
     int _role;
@@ -23,6 +24,7 @@
     NSMutableDictionary *_placeHolder;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)asParseRules;
 + (_Bool)notifyOfUnknownTokens;
 + (_Bool)frontingBasicTypes;

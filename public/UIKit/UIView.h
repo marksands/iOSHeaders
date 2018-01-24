@@ -46,6 +46,7 @@
     UIView *_templateLayoutView;
     float _charge;
     long long _tag;
+    unsigned int _pseudo_id;
     UIViewController *_viewDelegate;
     NSString *_backgroundColorSystemColorName;
     unsigned long long _countOfMotionEffectsInSubtree;

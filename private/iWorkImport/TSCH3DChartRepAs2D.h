@@ -13,7 +13,6 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)p_mutationsForConverting3DFillFromSeries:(id)arg1;
-- (void)layoutInRootChangedFrom:(id)arg1 to:(id)arg2 translatedOnly:(_Bool)arg3;
 - (void)renderIntoContext:(struct CGContext *)arg1 visible:(struct CGRect)arg2;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (void)p_update2DLayout;

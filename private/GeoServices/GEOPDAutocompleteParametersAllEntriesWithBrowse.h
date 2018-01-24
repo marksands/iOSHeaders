@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class GEOPDAutocompleteEntry, GEOPDVenueIdentifier, GEOPDViewportInfo, NSData, NSString, PBUnknownFields;
+@class GEOPDAutocompleteEntry, GEOPDRetainedSearchMetadata, GEOPDVenueIdentifier, GEOPDViewportInfo, NSData, NSString, PBUnknownFields;
 
 @interface GEOPDAutocompleteParametersAllEntriesWithBrowse : PBCodable <NSCopying>
 {
@@ -17,17 +17,25 @@
     NSData *_categorySuggestionEntryMetadata;
     int _maxResults;
     NSString *_query;
+    GEOPDRetainedSearchMetadata *_retainedSearch;
     GEOPDVenueIdentifier *_venueIdentifier;
     GEOPDViewportInfo *_viewportInfo;
     _Bool _highlightDiff;
     _Bool _interleaveCategorySuggestions;
+    _Bool _supportDirectionIntentSuggestions;
+    _Bool _supportUnresolvedDirectionIntent;
     struct {
         unsigned int maxResults:1;
         unsigned int highlightDiff:1;
         unsigned int interleaveCategorySuggestions:1;
+        unsigned int supportDirectionIntentSuggestions:1;
+        unsigned int supportUnresolvedDirectionIntent:1;
     } _has;
 }
 
+@property(nonatomic) _Bool supportUnresolvedDirectionIntent; // @synthesize supportUnresolvedDirectionIntent=_supportUnresolvedDirectionIntent;
+@property(retain, nonatomic) GEOPDRetainedSearchMetadata *retainedSearch; // @synthesize retainedSearch=_retainedSearch;
+@property(nonatomic) _Bool supportDirectionIntentSuggestions; // @synthesize supportDirectionIntentSuggestions=_supportDirectionIntentSuggestions;
 @property(retain, nonatomic) GEOPDVenueIdentifier *venueIdentifier; // @synthesize venueIdentifier=_venueIdentifier;
 @property(nonatomic) _Bool interleaveCategorySuggestions; // @synthesize interleaveCategorySuggestions=_interleaveCategorySuggestions;
 @property(retain, nonatomic) GEOPDAutocompleteEntry *categorySuggestionEntry; // @synthesize categorySuggestionEntry=_categorySuggestionEntry;
@@ -45,6 +53,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSupportUnresolvedDirectionIntent;
+@property(readonly, nonatomic) _Bool hasRetainedSearch;
+@property(nonatomic) _Bool hasSupportDirectionIntentSuggestions;
 @property(readonly, nonatomic) _Bool hasVenueIdentifier;
 @property(nonatomic) _Bool hasInterleaveCategorySuggestions;
 @property(readonly, nonatomic) _Bool hasCategorySuggestionEntry;

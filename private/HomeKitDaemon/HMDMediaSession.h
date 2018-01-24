@@ -6,15 +6,15 @@
 
 #import "HMFObject.h"
 
+#import "HMDHomeMessageReceiver.h"
 #import "HMFDumpState.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "HMFTimerDelegate.h"
 #import "NSSecureCoding.h"
 
 @class HMDMediaEndpoint, HMDMediaSessionState, HMFMessageDispatcher, HMFTimer, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDMediaSession : HMFObject <HMFTimerDelegate, HMFMessageReceiver, HMFDumpState, HMFLogging, NSSecureCoding>
+@interface HMDMediaSession : HMFObject <HMFTimerDelegate, HMDHomeMessageReceiver, HMFDumpState, HMFLogging, NSSecureCoding>
 {
     HMFMessageDispatcher *_msgDispatcher;
     NSMutableSet *_mediaProfiles;
@@ -26,17 +26,16 @@
     NSString *_logID;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSUUID *_uuid;
-    NSMutableArray *_pendingBlocks;
     NSMutableArray *_setPlaybackStateCompletionHandlers;
     HMFTimer *_setPlaybackStateTimer;
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)hasMessageReceiverChildren;
 + (id)logCategory;
 + (id)sessionForCurrentAccessory:(id)arg1;
 @property(retain, nonatomic) HMFTimer *setPlaybackStateTimer; // @synthesize setPlaybackStateTimer=_setPlaybackStateTimer;
 @property(retain, nonatomic) NSMutableArray *setPlaybackStateCompletionHandlers; // @synthesize setPlaybackStateCompletionHandlers=_setPlaybackStateCompletionHandlers;
-@property(retain, nonatomic) NSMutableArray *pendingBlocks; // @synthesize pendingBlocks=_pendingBlocks;
 @property(readonly, copy, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(readonly, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
@@ -65,24 +64,22 @@
 - (void)handleSetPlayback:(id)arg1;
 - (void)_handleSetPlayback:(id)arg1;
 - (void)_setPlaybackState:(long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_queueSetPlaybackStateCompletion:(CDUnknownBlockType)arg1;
 - (void)_invokePendingSetPlaybackStateBlocksOfError:(id)arg1;
-- (void)_notifyPendingBlocksOfError:(id)arg1;
-- (void)_addPendingBlock:(CDUnknownBlockType)arg1 externalDevice:(void *)arg2;
-- (void)updateWithResponse:(id)arg1;
+- (void)updateWithResponses:(id)arg1 message:(id)arg2;
 - (void)_notifyClientsOfPlaybackStateUpdateWithError:(id)arg1 inResponseToMessage:(id)arg2;
 - (void)_registerForSessionUpdates:(_Bool)arg1;
-- (void)mediaPlaybackStateChanged:(id)arg1;
+- (void)evaluateIfMediaPlaybackStateChanged:(id)arg1;
+- (void)handleMediaPlaybackStateNotification:(id)arg1;
 - (void)handleRefreshPlayback:(id)arg1;
 - (void)_handleGetPlaybackState:(id)arg1;
 - (void)_getPlaybackStateWithCompletion:(CDUnknownBlockType)arg1;
-- (void *)_getExternalDevice;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (id)dumpState;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (id)logIdentifier;
-- (void *)getOrigin;
 - (void)dealloc;
 - (id)_initWithMediaProfiles:(id)arg1 state:(id)arg2;
 - (id)initWithEndpoint:(id)arg1 mediaProfiles:(id)arg2 state:(id)arg3;
@@ -91,6 +88,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

@@ -45,6 +45,7 @@
     ASMeetingRequest *_meetingRequest;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)asParseRules;
 + (_Bool)notifyOfUnknownTokens;
 + (_Bool)frontingBasicTypes;

@@ -23,7 +23,7 @@
 #import "UITableViewDelegate.h"
 #import "UIViewControllerPreviewingDelegate.h"
 
-@class NSArray, NSDateComponentsFormatter, NSDateFormatter, NSIndexPath, NSMutableDictionary, NSNumber, NSNumberFormatter, NSObject<OS_dispatch_source>, NSString, PKExpressPassInformation, PKFelicaPassProperties, PKLinkedApplication, PKPassHeaderView, PKPaymentApplication, PKPaymentPass, PKPaymentPassDetailActivationFooterView, PKPaymentTransactionCellController, PKPaymentVerificationController, PKPaymentWebService, PKPeerPaymentAccount, PKPeerPaymentAccountResolutionController, PKPeerPaymentContactResolver, PKPeerPaymentController, PKPeerPaymentPerformActionViewController, PKPeerPaymentPreferences, PKPeerPaymentWebService, PKSettingTableCell, PKSpinnerHeaderView, UIColor, UISegmentedControl, UIView, UIVisualEffectView;
+@class NSArray, NSDateComponentsFormatter, NSDateFormatter, NSIndexPath, NSMutableDictionary, NSNumber, NSNumberFormatter, NSObject<OS_dispatch_source>, NSString, PKExpressPassInformation, PKLinkedApplication, PKPassHeaderView, PKPaymentApplication, PKPaymentPass, PKPaymentPassDetailActivationFooterView, PKPaymentTransactionCellController, PKPaymentVerificationController, PKPaymentWebService, PKPeerPaymentAccount, PKPeerPaymentAccountResolutionController, PKPeerPaymentContactResolver, PKPeerPaymentController, PKPeerPaymentPerformActionViewController, PKPeerPaymentPreferences, PKPeerPaymentWebService, PKSettingTableCell, PKSpinnerHeaderView, PKTransitPassProperties, UIColor, UISegmentedControl, UIView, UIVisualEffectView;
 
 @interface PKPaymentPassDetailViewController : PKSectionTableViewController <MFMailComposeViewControllerDelegate, PKPerformActionViewControllerDelegate, PKLowBalanceReminderSetupViewControllerDelegate, PKCommutePlanRenewalReminderSetupViewControllerDelegate, PKPeerPaymentContactResolverDelegate, PKPeerPaymentPerformActionViewControllerDelegate, PKPeerPaymentAccountResolutionControllerDelegate, CNAvatarViewDelegate, PKPaymentDataProviderDelegate, PKPaymentVerificationControllerDelegate, PKPassHeaderViewDelegate, UIViewControllerPreviewingDelegate, UITableViewDataSource, UITableViewDelegate, PSStateRestoration, PKPaymentSetupDelegate>
 {
@@ -53,7 +53,7 @@
     PKExpressPassInformation *_expressAccessPassInformation;
     _Bool _expressAccessEnabled;
     _Bool _performingCardTransfer;
-    PKFelicaPassProperties *_felicaProperties;
+    PKTransitPassProperties *_transitProperties;
     NSArray *_commuterFields;
     NSDateComponentsFormatter *_commutePlanRenewalReminderTimeIntervalFormatter;
     NSArray *_tabBarSegments;
@@ -62,6 +62,7 @@
     double _tabBarHeight;
     _Bool _changingDefaultPaymentApplication;
     double _previousLayoutTableViewWidth;
+    struct CGSize _previousLayoutContentSize;
     NSMutableDictionary *_contextualActionHandlers;
     _Bool _navigationControllerHidesShadow;
     UIView *_headerView;
@@ -81,6 +82,7 @@
     NSIndexPath *_loadingPeerPaymentAccountActionIndexPath;
     PKPeerPaymentAccountResolutionController *_peerPaymentAccountResolutionController;
     unsigned long long _peerPaymentAccountResolution;
+    _Bool _requestingStatement;
     id <PKPassDeleteHandler> _deleteOverrider;
     UIColor *_primaryTextColor;
     UIColor *_detailTextColor;
@@ -119,7 +121,7 @@
 - (void)_expressAccessSwitchChanged:(id)arg1;
 - (void)_automaticPresentationSwitchChanged:(id)arg1;
 - (void)_tabBarSegmentChanged:(id)arg1;
-- (void)_setFelicaProperties:(id)arg1;
+- (void)_setTransitProperties:(id)arg1;
 - (double)_paymentTransactionCellHeight;
 - (double)_heightForPassStateSectionWithTableView:(id)arg1;
 - (id)_footerTextForPassStateSection;
@@ -141,6 +143,7 @@
 - (void)_didSelectContactBankSectionAtIndexPath:(long long)arg1;
 - (void)_didSelectTransactionAtRow:(long long)arg1;
 - (void)_openPaymentSetup;
+- (void)_openPaymentSetupWithNetworkWhitelist:(id)arg1 paymentSetupMode:(long long)arg2;
 - (void)_didSelectReminderConfigurationRowAtIndex:(long long)arg1;
 - (void)_didSelectAvailableActionAtRow:(long long)arg1;
 - (_Bool)_hasActionOfType:(unsigned long long)arg1;
@@ -166,7 +169,7 @@
 - (void)_updatePeerPaymentPreferencesSectionVisibilityAndReloadIfNecessary;
 - (id)_createTabBarWithSelectedIndex:(long long)arg1;
 - (double)_offscreenHeaderHeight;
-- (_Bool)_updateHeaderHeight;
+- (_Bool)_updateHeaderHeightDeterminingLayout:(_Bool)arg1;
 - (void)_updateTabBarWithSegments:(id)arg1;
 - (void)_updateTabBar;
 - (void)_cancelPendingTransactionTimer;
@@ -251,7 +254,7 @@
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didEnableMessageService:(_Bool)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didRemoveTransactionWithIdentifier:(id)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didReceiveTransaction:(id)arg2;
-- (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithFelicaPassProperties:(id)arg2;
+- (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithTransitPassProperties:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
@@ -261,6 +264,8 @@
 - (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
 - (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
 - (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
+- (struct CGPoint)_normalizedContentOffsetForTargetOffset:(struct CGPoint)arg1;
+- (void)_normalizeContentOffset;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewDidScroll:(id)arg1;
 - (id)tableView:(id)arg1 trailingSwipeActionsConfigurationForRowAtIndexPath:(id)arg2;
@@ -274,7 +279,7 @@
 - (long long)rowAnimationForInsertingSection:(unsigned long long)arg1;
 - (long long)rowAnimationForReloadingSection:(unsigned long long)arg1;
 - (_Bool)shouldMapSection:(unsigned long long)arg1;
-- (void)_updateFelicaProperties;
+- (void)_updateTransitProperties;
 - (void)_updateAccessExpressPassInformation;
 - (void)_updatePassProperties;
 - (void)_reloadTransactionSectionsAnimated:(_Bool)arg1;

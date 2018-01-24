@@ -273,6 +273,7 @@
 - (id)_stringDescriptionForMeaningfulEventCollections:(id)arg1;
 - (id)_stringDescriptionForSupersets:(id)arg1;
 - (id)_stringDescriptionForSocialGroups:(id)arg1;
+- (id)_highlightEstimatesStatistics;
 - (id)_partOfDayStatistics;
 - (id)_interestingStatistics;
 - (id)_moodStatistics;

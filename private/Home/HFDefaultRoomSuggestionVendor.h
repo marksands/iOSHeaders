@@ -16,9 +16,12 @@
     NSURL *_roomSuggestionsPlistURL;
 }
 
++ (id)homeAppSuggestionVendor;
++ (id)TVAccessorySuggestionVendor;
 @property(readonly, nonatomic) NSURL *roomSuggestionsPlistURL; // @synthesize roomSuggestionsPlistURL=_roomSuggestionsPlistURL;
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSSet *roomSuggestions; // @synthesize roomSuggestions=_roomSuggestions;
+- (id)prioritizedRoomSuggestions;
 - (id)init;
 - (id)initWithRoomSuggestionsPlistURL:(id)arg1;
 

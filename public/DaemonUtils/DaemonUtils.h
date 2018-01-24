@@ -14,6 +14,7 @@
     NSString *_daemonDir;
 }
 
++ (void)dispatchReallyAfter:(long long)arg1 tolerance:(double)arg2 queue:(id)arg3 block:(CDUnknownBlockType)arg4;
 + (_Bool)deviceHasPearl;
 + (_Bool)deviceHasSEP;
 + (_Bool)isSiriPlugin:(id)arg1;

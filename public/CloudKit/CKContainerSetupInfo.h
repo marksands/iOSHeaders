@@ -25,12 +25,14 @@
     NSString *_sourceApplicationBundleIdentifier;
     CKAccountOverrideInfo *_accountInfoOverride;
     NSDictionary *_fakeEntitlements;
+    NSString *_containerEncryptionServiceName;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool masqueradeAsThirdPartyApp; // @synthesize masqueradeAsThirdPartyApp=_masqueradeAsThirdPartyApp;
 @property(nonatomic) unsigned int clientSDKVersion; // @synthesize clientSDKVersion=_clientSDKVersion;
 @property(nonatomic) _Bool bypassPCSEncryption; // @synthesize bypassPCSEncryption=_bypassPCSEncryption;
+@property(retain, nonatomic) NSString *containerEncryptionServiceName; // @synthesize containerEncryptionServiceName=_containerEncryptionServiceName;
 @property(nonatomic) _Bool useMMCSEncryptionV2; // @synthesize useMMCSEncryptionV2=_useMMCSEncryptionV2;
 @property(nonatomic) _Bool returnPCSMetadata; // @synthesize returnPCSMetadata=_returnPCSMetadata;
 @property(nonatomic) _Bool holdAllOperations; // @synthesize holdAllOperations=_holdAllOperations;

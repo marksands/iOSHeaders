@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
 @property _Bool started; // @synthesize started=_started;
 - (void).cxx_destruct;
 - (id)createSummaryEventForSession;
+- (void)dealloc;
 - (void)endSync:(_Bool)arg1;
 - (void)end;
 - (void)sendMessage:(id)arg1 category:(unsigned short)arg2 type:(unsigned short)arg3 reply:(CDUnknownBlockType)arg4;

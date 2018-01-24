@@ -16,8 +16,8 @@
 }
 
 @property(nonatomic) struct _NSRange contextRange; // @synthesize contextRange=_contextRange;
-@property(retain, nonatomic) NSString *context; // @synthesize context=_context;
-@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(copy, nonatomic) NSString *context; // @synthesize context=_context;
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 
 @end

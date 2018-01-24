@@ -44,7 +44,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool shouldReuseBitmapContext; // @synthesize shouldReuseBitmapContext=mShouldReuseBitmapContext;
 @property(nonatomic) _Bool imageMustHaveEvenDimensions; // @synthesize imageMustHaveEvenDimensions=mImageMustHaveEvenDimensions;
 @property(nonatomic) _Bool distortedToMatch; // @synthesize distortedToMatch=mDistortedToMatch;
-@property(readonly, nonatomic) struct CGRect actualScaledClipRect; // @synthesize actualScaledClipRect=mActualScaledClipRect;
 @property(nonatomic) struct CGRect unscaledClipRect; // @synthesize unscaledClipRect=mUnscaledClipRect;
 @property(copy, nonatomic) TSUColor *backgroundColor; // @synthesize backgroundColor=mBackgroundColor;
 @property(retain, nonatomic) NSArray *infos; // @synthesize infos=mInfos;
@@ -54,6 +53,7 @@ __attribute__((visibility("hidden")))
 - (void)p_drawPageInContext:(struct CGContext *)arg1 createPage:(_Bool)arg2;
 - (struct CGSize)p_evenDimensionsWithSize:(struct CGSize)arg1;
 - (_Bool)p_configureCanvas;
+@property(readonly, nonatomic) struct CGRect actualScaledClipRect; // @synthesize actualScaledClipRect=mActualScaledClipRect;
 - (void)p_assertHasReadLock;
 - (_Bool)isPrintingCanvas;
 - (_Bool)isCanvasDrawingIntoPDF:(id)arg1;

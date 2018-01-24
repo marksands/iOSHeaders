@@ -22,8 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)sendMessage:(id)arg1;
 - (void)tcpConnection:(id)arg1 didReceiveMessage:(id)arg2;
 - (void)tcpConnectionDidClose:(id)arg1;
-- (void)dealloc;
-- (void)close;
+- (void)closeInternal;
 - (id)initWithTCPConnection:(id)arg1 delegate:(id)arg2;
 
 // Remaining properties

@@ -76,6 +76,7 @@
 - (id)initWhiteListBookmarkWithTitle:(id)arg1 address:(id)arg2;
 - (id)initCarrierBookmarkWithTitle:(id)arg1 address:(id)arg2;
 - (id)initBuiltinDeviceBookmarkWithTitle:(id)arg1 address:(id)arg2;
+- (id)initBuiltinBookmarkWithTitle:(id)arg1 address:(id)arg2;
 - (id)initFolderWithParentID:(int)arg1;
 - (id)initWithTitle:(id)arg1 address:(id)arg2;
 - (_Bool)_attributesMarkedAsModified:(unsigned long long)arg1;

@@ -8,7 +8,7 @@
 
 #import "FCAppConfiguration.h"
 
-@class FCCoverArticlesConfiguration, FCForYouGroupsConfiguration, FCIAdConfiguration, FCNotificationsConfiguration, FCPrefetchConfiguration, FCRecommendedCategory, FCTopStoriesConfiguration, NSArray, NSDictionary, NSNumber, NSString, NTPBConfig, NTPBLanguageConfig, NTPBWidgetConfig;
+@class FCCoverArticlesConfiguration, FCForYouGroupsConfiguration, FCIAdConfiguration, FCNotificationsConfiguration, FCPrefetchConfiguration, FCRecommendedCategory, FCTopStoriesConfiguration, NSArray, NSDictionary, NSNumber, NSString, NTPBConfig, NTPBLanguageConfig, NTPBVideoGroupsConfig, NTPBWidgetConfig;
 
 @interface FCAppConfiguration : NSObject <FCAppConfiguration>
 {
@@ -56,6 +56,9 @@
 @property(readonly, nonatomic) FCCoverArticlesConfiguration *coverArticlesConfig; // @synthesize coverArticlesConfig=_coverArticlesConfig;
 @property(readonly, nonatomic) NSDictionary *endpointConfigsByEnvironment; // @synthesize endpointConfigsByEnvironment=_endpointConfigsByEnvironment;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) long long expirePinnedArticlesAfter;
+@property(readonly, nonatomic) long long optionalTopStoriesRefreshRate;
+@property(readonly, copy, nonatomic) NTPBVideoGroupsConfig *forYouVideoGroupsConfig;
 @property(readonly, nonatomic) _Bool diversifyOptionalTopStories;
 @property(readonly, nonatomic) unsigned long long trendingStyle;
 @property(readonly, nonatomic) long long minimumDurationBetweenTrendingGroupsWeekend;
@@ -95,6 +98,7 @@
 @property(readonly, nonatomic) double parsecPopulationFloor;
 @property(readonly, nonatomic) _Bool universalLinksEnabled;
 - (id)todayConfigWithQueueConfigs:(id)arg1 maxSlotCount:(unsigned long long)arg2;
+@property(readonly, nonatomic) NSString *articleRecirculationConfigJSON;
 @property(readonly, nonatomic) unsigned int widgetMinimumNumberOfTimesPreseenToBeSeen;
 @property(readonly, nonatomic) long long widgetMinimumArticleExposureDurationToBePreseenInMilliseconds;
 @property(readonly, nonatomic) NSString *widgetConfigID;

@@ -33,6 +33,7 @@
 @property(nonatomic) unsigned long long context; // @synthesize context=_context;
 @property(nonatomic) __weak id <NPKPaymentWebServiceCompanionTargetDeviceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (_Bool)_deviceSupportExpressModeTypeAGeneric;
 - (_Bool)_deviceSupportAccessExpressMode;
 - (_Bool)_deviceIsFortuneOrLater;
 - (_Bool)_deviceIsDaytonaOrLater;
@@ -77,6 +78,7 @@
 - (void)cancelOutstandingSetDefaultExpressPassRequestsWithExpressMode:(id)arg1;
 - (void)enableServiceModeResponse:(id)arg1;
 - (void)setExpressWithPassInformation:(id)arg1 requestAuthorization:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)_shouldAllowSetExpressWithPassInformation:(id)arg1;
 - (void)setExpressPassResponse:(id)arg1;
 - (void)handleUpdatedAppletState:(id)arg1;
 - (void)handleDeletePaymentTransactionWithIdentifier:(id)arg1 passUniqueIdentifier:(id)arg2;
@@ -122,6 +124,8 @@
 - (void)provisioningDataResponse:(id)arg1;
 - (void)paymentWebService:(id)arg1 registrationDataWithAuthToken:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)registrationDataResponse:(id)arg1;
+- (void)markAllAppletsForDeletionWithCompletion:(CDUnknownBlockType)arg1;
+- (void)markAllAppletsForDeletionResponse:(id)arg1;
 - (void)paymentWebService:(id)arg1 queueConnectionToTrustedServiceManagerForPushTopic:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)queueTSMConnectionResponse:(id)arg1;
 - (void)paymentWebService:(id)arg1 setNewAuthRandom:(CDUnknownBlockType)arg2;

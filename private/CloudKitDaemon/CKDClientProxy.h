@@ -170,7 +170,7 @@
 - (void)_setApplicationPermission:(unsigned long long)arg1 enabled:(_Bool)arg2 setupInfo:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_globalStatusForApplicationPermission:(unsigned long long)arg1 setupInfo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)statusForApplicationPermission:(unsigned long long)arg1 setupInfo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)currentUserIDWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)importantUserIDsWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)accountInfoWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)accountStatusWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_accountStatusWithClientContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

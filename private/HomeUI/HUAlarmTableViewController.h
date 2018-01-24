@@ -7,6 +7,7 @@
 #import <HomeUI/HUItemTableViewController.h>
 
 #import "HFAccessoryObserver.h"
+#import "HFAccessorySettingMobileTimerAdapterObserver.h"
 #import "HFMediaObjectObserver.h"
 #import "HUAlarmEditViewControllerDelegate.h"
 #import "HUHomePodAlarmItemModuleControllerDelegate.h"
@@ -14,9 +15,10 @@
 
 @class HUHomePodAlarmItemModuleController, MTAlarm, NSString, UIBarButtonItem, _UIContentUnavailableView;
 
-@interface HUAlarmTableViewController : HUItemTableViewController <HUAlarmEditViewControllerDelegate, HUHomePodAlarmItemModuleControllerDelegate, HFAccessoryObserver, HFMediaObjectObserver, HUPresentationDelegateHost>
+@interface HUAlarmTableViewController : HUItemTableViewController <HUAlarmEditViewControllerDelegate, HUHomePodAlarmItemModuleControllerDelegate, HFAccessoryObserver, HFMediaObjectObserver, HFAccessorySettingMobileTimerAdapterObserver, HUPresentationDelegateHost>
 {
     _Bool _isAccessoryControllable;
+    _Bool _isAlarmsSettingReady;
     id <HUPresentationDelegate> _presentationDelegate;
     UIBarButtonItem *_doneButtonItem;
     HUHomePodAlarmItemModuleController *_alarmModuleController;
@@ -28,7 +30,8 @@
 }
 
 @property(readonly, nonatomic) id <HFMediaProfileContainer> mediaProfileContainer; // @synthesize mediaProfileContainer=_mediaProfileContainer;
-@property(nonatomic) _Bool isAccessoryControllable; // @synthesize isAccessoryControllable=_isAccessoryControllable;
+@property(readonly, nonatomic) _Bool isAlarmsSettingReady; // @synthesize isAlarmsSettingReady=_isAlarmsSettingReady;
+@property(readonly, nonatomic) _Bool isAccessoryControllable; // @synthesize isAccessoryControllable=_isAccessoryControllable;
 @property(retain, nonatomic) UIBarButtonItem *editDoneButtonItem; // @synthesize editDoneButtonItem=_editDoneButtonItem;
 @property(retain, nonatomic) UIBarButtonItem *addButtonItem; // @synthesize addButtonItem=_addButtonItem;
 @property(retain, nonatomic) _UIContentUnavailableView *noItemsView; // @synthesize noItemsView=_noItemsView;
@@ -37,8 +40,10 @@
 @property(retain, nonatomic) UIBarButtonItem *doneButtonItem; // @synthesize doneButtonItem=_doneButtonItem;
 @property(nonatomic) __weak id <HUPresentationDelegate> presentationDelegate; // @synthesize presentationDelegate=_presentationDelegate;
 - (void).cxx_destruct;
+- (void)mobileTimerAdapterDidUpdateReadiness:(id)arg1;
 - (void)accessoryDidUpdateControllable:(id)arg1;
 - (void)accessoryDidUpdateReachability:(id)arg1;
+- (void)_updateAccessoryControllable:(_Bool)arg1 alarmsSettingReady:(_Bool)arg2;
 - (void)_discernReachabilityForAccessory:(id)arg1;
 - (void)_updateNavigationItems:(_Bool)arg1;
 - (void)_numberOfItemsDidChangeAnimated:(_Bool)arg1;

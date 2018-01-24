@@ -19,10 +19,11 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) NSString *editingString; // @synthesize editingString=mEditingString;
+- (void).cxx_destruct;
 - (void)useEditedString:(id)arg1;
 - (struct CGRect)frameForEditingTextForSelectionPath:(id)arg1;
 - (_Bool)canEditTextForSelectionPath:(id)arg1;
-- (void)addSelection:(id)arg1 toCGPath:(struct CGPath *)arg2;
+- (void)addSelection:(id)arg1 toCGPath:(struct CGPath *)arg2 useWrapWidth:(_Bool)arg3;
 - (_Bool)p_isTitleVisible;
 - (void)renderIntoContext:(struct CGContext *)arg1 selection:(id)arg2;
 - (_Bool)canRenderSelectionPath:(id)arg1;
@@ -40,7 +41,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)p_needsSharedTickMarkLayer;
 - (_Bool)p_needsPositionBasedTransparencyLayer;
 - (id)axisTitleSelectionPath;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

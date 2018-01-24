@@ -46,28 +46,28 @@
     PKPeerPaymentAccountResolutionController *_peerPaymentAccountResolutionController;
     PKPeerPaymentAccount *_peerPaymentAccount;
     _Bool _registeringForPeerPayment;
-    NSArray *_expressFelicaTransitPasses;
-    NSString *_defaultExpressFelicaTransitPassIdentifier;
-    PSSpecifier *_defaultExpressFelicaTransitSpecifier;
-    NSMutableDictionary *_latestFelicaPassProperties;
+    NSArray *_expressTransitPasses;
+    NSString *_defaultExpressTransitPassIdentifier;
+    PSSpecifier *_defaultExpressTransitSpecifier;
+    NSMutableDictionary *_latestTransitPassProperties;
     id <PKPassbookSettingsDelegate> _delegate;
 }
 
 @property(nonatomic) id <PKPassbookSettingsDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (long long)_paymentSetupContextForSettingsContext:(long long)arg1;
-- (void)_felicaPropertiesForPaymentPass:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)_transitPropertiesForPaymentPass:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_performPhoneToWatchProvisioningForPaymentPass:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_setCardAddProvisioningButtonEnabled:(_Bool)arg1 forPaymentPass:(id)arg2;
 - (void)_requestDelegatePresentViewController:(id)arg1;
 - (void)_handleProvisioningError:(id)arg1 viewController:(id)arg2;
 - (void)_presentProvisioningPaymentPassNavController:(id)arg1 paymentPass:(id)arg2;
 - (void)addButtonPressedForPaymentPass:(id)arg1;
-- (void)_finishDefaultExpressFelicaTransitUpdateWithContainer:(id)arg1 preference:(id)arg2;
-- (void)_handleDefaultExpressFelicaTransitPassChangedTo:(id)arg1 withContainer:(id)arg2 preference:(id)arg3;
-- (void)_showExpressFelicaTransitOptions:(id)arg1;
-- (id)_defaultExpressFelicaTransitPassDescription;
-- (id)_defaultExpressFelicaTransitSpecifier;
+- (void)_finishDefaultExpressTransitUpdateWithContainer:(id)arg1 preference:(id)arg2;
+- (void)_handleDefaultExpressTransitPassChangedTo:(id)arg1 withContainer:(id)arg2 preference:(id)arg3;
+- (void)_showExpressTransitOptions:(id)arg1;
+- (id)_defaultExpressTransitPassDescription;
+- (id)_defaultExpressTransitSpecifier;
 - (id)_transitDefaultsGroupSpecifiers;
 - (void)switchSpinnerCell:(id)arg1 hasToggledSwitch:(_Bool)arg2;
 - (id)_peerPaymentSwitchSpecifier;
@@ -81,7 +81,7 @@
 - (void)peerPaymentAccountResolutionController:(id)arg1 requestsDismissCurrentViewControllerAnimated:(_Bool)arg2;
 - (void)peerPaymentAccountResolutionController:(id)arg1 requestsPresentViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)_peerPaymentAccountDidChangeNotification:(id)arg1;
-- (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithFelicaPassProperties:(id)arg2;
+- (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithTransitPassProperties:(id)arg2;
 - (id)_displayableStringForLabeledValue:(id)arg1;
 - (id)_getDefaultContactPhone;
 - (id)_getDefaultContactEmail;
@@ -119,7 +119,7 @@
 - (id)passWithUniqueIdentifier:(id)arg1;
 - (void)refreshPeerPaymentStatus;
 - (void)_updateExpressPassIdentifiersWithReload:(_Bool)arg1;
-- (void)refreshExpressFelicaTransitCard;
+- (void)refreshExpressTransitCard;
 - (void)refreshDefaultCard;
 - (void)refreshPasses;
 - (void)_reloadPassData;
@@ -132,8 +132,8 @@
 - (void)_updateAddButtonSpecifier;
 - (void)_updateCompanionPassesAddButton;
 - (void)_regionConfigurationDidChangeNotification;
-- (void)_saveLatestFelicaProperties:(id)arg1 forPass:(id)arg2;
-- (id)_latestFelicaProperties:(id)arg1;
+- (void)_saveLatestTransitProperties:(id)arg1 forPass:(id)arg2;
+- (id)_latestTransitProperties:(id)arg1;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 dataSource:(id)arg2 context:(long long)arg3;
 

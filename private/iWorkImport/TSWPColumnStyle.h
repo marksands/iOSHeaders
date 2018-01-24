@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (double)widthForColumnIndex:(unsigned long long)arg1 bodyWidth:(double)arg2;
 @property(readonly, nonatomic) unsigned long long columnCount;
 - (_Bool)equalWidth;
+- (id)layoutMarginsForTarget:(id)arg1;
 @property(readonly, nonatomic) TSWPPadding *layoutMargins;
 - (struct CGSize)adjustedInsetsForTarget:(id)arg1;
 

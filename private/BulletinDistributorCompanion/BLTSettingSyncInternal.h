@@ -38,6 +38,7 @@
 - (void)setSectionSubtypeParametersIcon:(id)arg1 forSectionID:(id)arg2 forSubtypeID:(long long)arg3;
 - (void)setSectionInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dealloc;
+- (void)connect;
 - (id)initWithSectionConfiguration:(id)arg1 queue:(id)arg2;
 - (id)init;
 

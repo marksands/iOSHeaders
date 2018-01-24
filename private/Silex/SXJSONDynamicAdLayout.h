@@ -6,11 +6,11 @@
 
 #import <Silex/SXJSONObject.h>
 
-#import "SXDynamicAdLayout.h"
+#import "SXAutoPlacementLayout.h"
 
 @class NSString;
 
-@interface SXJSONDynamicAdLayout : SXJSONObject <SXDynamicAdLayout>
+@interface SXJSONDynamicAdLayout : SXJSONObject <SXAutoPlacementLayout>
 {
 }
 

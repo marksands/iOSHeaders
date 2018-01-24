@@ -20,10 +20,11 @@
 - (void)_stopListeningForNotifications;
 - (void)_startListeningForNotifications;
 - (id)specifiers;
+- (void)syncToiCloudNow:(id)arg1;
 - (void)clearData:(id)arg1;
 - (void)clearLocalSyncState:(id)arg1;
-- (void)setiMessageOniCloudEnabled:(id)arg1 specifier:(id)arg2;
-- (id)iMessageOniCloudEnabled:(id)arg1;
+- (void)setMessagesOniCloudEnabled:(id)arg1 specifier:(id)arg2;
+- (id)messagesOniCloudEnabled:(id)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 

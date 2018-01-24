@@ -6,31 +6,20 @@
 
 #import "NSObject.h"
 
-#import "CRKCourseEnrollmentControllerDelegate.h"
-
-@class CRKCourseEnrollmentController, NSString;
-
-@interface PSUIClassroomVisibilityArbitrator : NSObject <CRKCourseEnrollmentControllerDelegate>
+@interface PSUIClassroomVisibilityArbitrator : NSObject
 {
-    CRKCourseEnrollmentController *_enrollmentController;
-    _Bool _previouslyEnrolled;
     unsigned long long _visibilityState;
     CDUnknownBlockType _visibilityStateChangeHandler;
+    id <CRKSettingsUIVisibilityProvider> _visibilityProvider;
 }
 
+@property(retain, nonatomic) id <CRKSettingsUIVisibilityProvider> visibilityProvider; // @synthesize visibilityProvider=_visibilityProvider;
 @property(copy, nonatomic) CDUnknownBlockType visibilityStateChangeHandler; // @synthesize visibilityStateChangeHandler=_visibilityStateChangeHandler;
 @property(nonatomic) unsigned long long visibilityState; // @synthesize visibilityState=_visibilityState;
 - (void).cxx_destruct;
-- (void)enrollmentControllerDidUpdateInvitations:(id)arg1;
-- (void)enrollmentControllerDidUpdateCourses:(id)arg1;
 - (void)reloadVisibilityState;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

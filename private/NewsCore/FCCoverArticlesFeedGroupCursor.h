@@ -4,17 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
-
-#import "NSCoding.h"
+#import <NewsCore/FCFeedGroupEmittingCursor.h>
 
 @class NSOrderedSet;
 
-@interface FCCoverArticlesFeedGroupCursor : NSObject <NSCoding>
+@interface FCCoverArticlesFeedGroupCursor : FCFeedGroupEmittingCursor
 {
     NSOrderedSet *_promotedArticleIDs;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSOrderedSet *promotedArticleIDs; // @synthesize promotedArticleIDs=_promotedArticleIDs;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

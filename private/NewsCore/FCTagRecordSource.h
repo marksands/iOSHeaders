@@ -27,6 +27,8 @@
 - (id)recordFromCKRecord:(id)arg1 base:(id)arg2;
 - (id)localizedKeysByOriginalKey;
 - (id)localizableKeys;
+- (id)experimentalizedKeysByOriginalKey;
+- (id)experimentalizableKeys;
 - (id)desiredKeys;
 - (id)initWithContentDatabase:(id)arg1 contentDirectory:(id)arg2 desiredTagRecordFieldOptions:(unsigned long long)arg3;
 - (id)initWithContentDatabase:(id)arg1 contentDirectory:(id)arg2 experimentalizableFieldsPostfix:(id)arg3 activeTreatmentID:(id)arg4;

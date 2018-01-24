@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSNumber;
 
-@interface ICSByDayValue : NSObject <NSCoding>
+@interface ICSByDayValue : NSObject <NSSecureCoding>
 {
     NSNumber *_number;
     int _weekday;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)byDayValueFromICSString:(id)arg1;
 + (int)weekdayFromICSString:(id)arg1;
 @property int weekday; // @synthesize weekday=_weekday;

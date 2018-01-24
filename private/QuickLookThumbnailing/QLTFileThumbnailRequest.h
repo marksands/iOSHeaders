@@ -6,16 +6,17 @@
 
 #import <QuickLookThumbnailing/QLTThumbnailRequest.h>
 
-@class NSURL;
+@class FPSandboxingURLWrapper, NSURL;
 
 @interface QLTFileThumbnailRequest : QLTThumbnailRequest
 {
-    NSURL *_url;
+    FPSandboxingURLWrapper *_sandboxWrapper;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly) NSURL *url; // @synthesize url=_url;
+@property(readonly, nonatomic) FPSandboxingURLWrapper *sandboxWrapper; // @synthesize sandboxWrapper=_sandboxWrapper;
 - (void).cxx_destruct;
+@property(readonly) NSURL *url;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

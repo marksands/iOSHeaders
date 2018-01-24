@@ -38,9 +38,9 @@
 - (CKDMescalSession *)mescalSession;
 - (void)fetchDeviceIDForOperation:(CKDOperation *)arg1 withCompletionHandler:(void (^)(NSString *, NSError *))arg2;
 - (void)fetchServerEnvironmentForOperation:(CKDOperation *)arg1 withCompletionHandler:(void (^)(long long, NSError *))arg2;
-- (void)fetchContainerScopedUserIDForOperation:(CKDOperation *)arg1 withCompletionHandler:(void (^)(NSString *, NSError *))arg2;
-- (void)fetchPrivateURLForServerType:(long long)arg1 operation:(CKDOperation *)arg2 completionHandler:(void (^)(NSURL *, NSError *))arg3;
+- (void)fetchImportantUserIDsForOperation:(CKDOperation *)arg1 withCompletionHandler:(void (^)(NSString *, NSString *, NSError *))arg2;
 - (void)fetchPublicURLForServerType:(long long)arg1 operation:(CKDOperation *)arg2 completionHandler:(void (^)(NSURL *, NSError *))arg3;
+- (void)fetchPrivateURLForServerType:(long long)arg1 operation:(CKDOperation *)arg2 completionHandler:(void (^)(NSURL *, NSError *))arg3;
 - (void)fetchConfigurationForOperation:(CKDOperation *)arg1 withCompletionHandler:(void (^)(CKDServerConfiguration *, NSError *))arg2;
 - (CKDServerConfiguration *)config;
 - (NSURL *)baseURLForServerType:(long long)arg1 partitionType:(long long)arg2;

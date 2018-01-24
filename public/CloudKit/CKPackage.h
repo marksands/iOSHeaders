@@ -98,7 +98,7 @@
 - (void)_locked_open;
 - (_Bool)openWithError:(id *)arg1;
 @property(readonly, copy) NSString *description;
-- (id)CKPropertiesDescription;
+- (id)CKDescriptionPropertiesWithPublic:(_Bool)arg1 private:(_Bool)arg2 shouldExpand:(_Bool)arg3;
 - (void)releaseDB;
 - (void)removeDB;
 - (void)releaseDBWithRemove:(_Bool)arg1;

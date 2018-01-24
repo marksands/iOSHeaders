@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 @interface TSDTextureDescription : NSObject <NSCopying>
 {
     unsigned int _isMagicMove:1;
+    unsigned int _includesActionBuilds:1;
     unsigned int _shouldAddFinal:1;
     unsigned int _shouldAddMasks:1;
     unsigned int _shouldAddMagicMoveObjectOnly:1;
@@ -54,6 +55,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool shouldAddMasks; // @synthesize shouldAddMasks=_shouldAddMasks;
 @property(nonatomic) _Bool shouldAddMagicMoveObjectOnly; // @synthesize shouldAddMagicMoveObjectOnly=_shouldAddMagicMoveObjectOnly;
 @property(nonatomic) _Bool shouldAddFinal; // @synthesize shouldAddFinal=_shouldAddFinal;
+@property(nonatomic) _Bool includesActionBuilds; // @synthesize includesActionBuilds=_includesActionBuilds;
 @property(nonatomic) _Bool isMagicMove; // @synthesize isMagicMove=_isMagicMove;
 @property(nonatomic) __weak id <TSDAnimationSession> session; // @synthesize session=_session;
 - (void).cxx_destruct;

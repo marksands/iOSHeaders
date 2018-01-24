@@ -11,6 +11,7 @@
 @interface NTKUpNextElementDataSource : NSObject
 {
     _Bool _running;
+    _Bool _allowsLocationUse;
     _Bool _unlockedSinceBoot;
     id <NTKUpNextElementDataSourceDelegate> _delegate;
     unsigned long long _state;
@@ -29,6 +30,7 @@
 @property(readonly, nonatomic, getter=hasUnlockedSinceBoot) _Bool unlockedSinceBoot; // @synthesize unlockedSinceBoot=_unlockedSinceBoot;
 @property(readonly, nonatomic) NSString *logHeader; // @synthesize logHeader=_logHeader;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
+@property(nonatomic) _Bool allowsLocationUse; // @synthesize allowsLocationUse=_allowsLocationUse;
 @property(readonly, nonatomic, getter=isRunning) _Bool running; // @synthesize running=_running;
 @property(nonatomic) __weak id <NTKUpNextElementDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;

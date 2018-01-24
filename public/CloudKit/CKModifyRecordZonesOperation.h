@@ -11,9 +11,9 @@
 @interface CKModifyRecordZonesOperation : CKDatabaseOperation
 {
     _Bool _markZonesAsUserPurged;
+    CDUnknownBlockType _modifyRecordZonesCompletionBlock;
     NSArray *_recordZonesToSave;
     NSArray *_recordZoneIDsToDelete;
-    CDUnknownBlockType _modifyRecordZonesCompletionBlock;
     NSMutableArray *_savedRecordZones;
     NSMutableArray *_deletedRecordZoneIDs;
     NSMutableDictionary *_recordZonesByZoneIDs;
@@ -25,7 +25,6 @@
 @property(retain, nonatomic) NSMutableDictionary *recordZonesByZoneIDs; // @synthesize recordZonesByZoneIDs=_recordZonesByZoneIDs;
 @property(retain, nonatomic) NSMutableArray *deletedRecordZoneIDs; // @synthesize deletedRecordZoneIDs=_deletedRecordZoneIDs;
 @property(retain, nonatomic) NSMutableArray *savedRecordZones; // @synthesize savedRecordZones=_savedRecordZones;
-@property(copy, nonatomic) CDUnknownBlockType modifyRecordZonesCompletionBlock; // @synthesize modifyRecordZonesCompletionBlock=_modifyRecordZonesCompletionBlock;
 @property(copy, nonatomic) NSArray *recordZoneIDsToDelete; // @synthesize recordZoneIDsToDelete=_recordZoneIDsToDelete;
 @property(copy, nonatomic) NSArray *recordZonesToSave; // @synthesize recordZonesToSave=_recordZonesToSave;
 - (void).cxx_destruct;
@@ -37,6 +36,7 @@
 - (void)fillFromOperationInfo:(id)arg1;
 - (void)fillOutOperationInfo:(id)arg1;
 - (id)activityCreate;
+@property(copy, nonatomic) CDUnknownBlockType modifyRecordZonesCompletionBlock; // @synthesize modifyRecordZonesCompletionBlock=_modifyRecordZonesCompletionBlock;
 - (id)initWithRecordZonesToSave:(id)arg1 recordZoneIDsToDelete:(id)arg2;
 - (id)init;
 

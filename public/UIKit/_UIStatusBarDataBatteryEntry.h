@@ -16,6 +16,7 @@
     NSString *_detailString;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *detailString; // @synthesize detailString=_detailString;
 @property(nonatomic) _Bool saverModeActive; // @synthesize saverModeActive=_saverModeActive;
 @property(nonatomic) long long state; // @synthesize state=_state;

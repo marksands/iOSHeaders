@@ -13,7 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface WebOpenPanelResultListener : NSObject <WebOpenPanelResultListener>
 {
-    struct RefPtr<WebCore::FileChooser> _chooser;
+    struct RefPtr<WebCore::FileChooser, WTF::DumbPtrTraits<WebCore::FileChooser>> _chooser;
 }
 
 - (id).cxx_construct;

@@ -110,6 +110,7 @@
 @property(nonatomic) long long preferredFramesPerSecond;
 @property(nonatomic) float preferredFrameRate;
 @property(nonatomic) long long frameInterval;
+- (void)_ibSetSceneName:(id)arg1;
 - (void)writeContentsToPNG:(id)arg1;
 - (void)runOnce;
 - (void)onInit;

@@ -8,7 +8,7 @@
 
 #import "HFServiceLikeBuilder.h"
 
-@class HFRoomBuilder, HMMediaSystem, HMMediaSystemBuilder, NSArray, NSString;
+@class HFAppleMusicAccountArbitrator, HFRoomBuilder, HMAccessory, HMMediaSystem, HMMediaSystemBuilder, NSArray, NSString;
 
 @interface HFMediaSystemBuilder : HFItemBuilder <HFServiceLikeBuilder>
 {
@@ -16,6 +16,8 @@
     _Bool _hasSetRoom;
     _Bool _isCreatingMediaSystem;
     id <HFIconDescriptor> _iconDescriptor;
+    HFAppleMusicAccountArbitrator *_accountArbitrator;
+    HMAccessory *_firstSetupSourceAccessory;
     HMMediaSystemBuilder *_homeKitMediaSystemBuilder;
     HFRoomBuilder *_roomBuilder;
 }
@@ -25,6 +27,8 @@
 @property(nonatomic) _Bool hasSetRoom; // @synthesize hasSetRoom=_hasSetRoom;
 @property(retain, nonatomic) HFRoomBuilder *roomBuilder; // @synthesize roomBuilder=_roomBuilder;
 @property(retain, nonatomic) HMMediaSystemBuilder *homeKitMediaSystemBuilder; // @synthesize homeKitMediaSystemBuilder=_homeKitMediaSystemBuilder;
+@property(readonly, nonatomic) HMAccessory *firstSetupSourceAccessory; // @synthesize firstSetupSourceAccessory=_firstSetupSourceAccessory;
+@property(retain, nonatomic) HFAppleMusicAccountArbitrator *accountArbitrator; // @synthesize accountArbitrator=_accountArbitrator;
 @property(retain, nonatomic) id <HFIconDescriptor> iconDescriptor; // @synthesize iconDescriptor=_iconDescriptor;
 @property(nonatomic) _Bool isFavorite; // @synthesize isFavorite=_isFavorite;
 - (void).cxx_destruct;

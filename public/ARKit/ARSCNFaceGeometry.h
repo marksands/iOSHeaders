@@ -10,11 +10,13 @@
 {
     id <MTLBuffer> _vertexBuffer;
     id <MTLBuffer> _normalBuffer;
+    id <MTLBuffer> _textureBuffer;
 }
 
 + (id)faceGeometryWithDevice:(id)arg1 fillMesh:(_Bool)arg2;
 + (id)faceGeometryWithDevice:(id)arg1;
 + (id)faceGeometryWithDevice:(id)arg1 eyesFilled:(_Bool)arg2 mouthFilled:(_Bool)arg3;
+@property(retain, nonatomic) id <MTLBuffer> textureBuffer; // @synthesize textureBuffer=_textureBuffer;
 @property(retain, nonatomic) id <MTLBuffer> normalBuffer; // @synthesize normalBuffer=_normalBuffer;
 @property(retain, nonatomic) id <MTLBuffer> vertexBuffer; // @synthesize vertexBuffer=_vertexBuffer;
 - (void).cxx_destruct;

@@ -45,6 +45,7 @@
     NSString *_savedPortForEvaluator;
     _Bool _skipPeer;
     _Bool _skipEdge;
+    _Bool _forceReconnect;
     NSError *_skipPeerError;
     SAConnectionPolicy *_connectionPolicy;
 }
@@ -64,6 +65,7 @@
 @property(nonatomic) double timeout; // @synthesize timeout=_timeout;
 @property(copy, nonatomic) NSString *languageCode; // @synthesize languageCode=_languageCode;
 @property(copy, nonatomic) NSString *aceHost; // @synthesize aceHost=_aceHost;
+@property(nonatomic) _Bool forceReconnect; // @synthesize forceReconnect=_forceReconnect;
 @property(nonatomic) _Bool prefersWWAN; // @synthesize prefersWWAN=_prefersWWAN;
 @property(copy, nonatomic) NSError *skipPeerError; // @synthesize skipPeerError=_skipPeerError;
 @property(nonatomic) _Bool skipEdge; // @synthesize skipEdge=_skipEdge;
@@ -92,9 +94,9 @@
 - (void)sendCommands:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (void)sendCommand:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (void)start;
-- (void)_scheduleBackgroundConnectionWithRoute:(id)arg1 delay:(double)arg2;
-- (void)_startBackgroundConnectionWithRoute:(id)arg1;
-- (id)_connectionInfoForRoute:(id)arg1;
+- (void)_scheduleBackgroundConnectionWithRoute:(id)arg1 delay:(double)arg2 policy:(id)arg3;
+- (void)_startBackgroundConnectionWithRoute:(id)arg1 policy:(id)arg2;
+- (id)_connectionInfoForRoute:(id)arg1 policy:(id)arg2;
 - (id)_pathEvaluator:(id)arg1 port:(id)arg2;
 - (void)dealloc;
 - (id)initWithQueue:(id)arg1;

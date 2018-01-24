@@ -45,7 +45,7 @@
 - (void)timerDidFire:(id)arg1;
 - (void)updateLocalAccountContext;
 @property(retain) HMDLocalAccountContext *localAccountContext; // @synthesize localAccountContext=_localAccountContext;
-- (void)_cleanupDevices;
+- (void)_cleanupDevices:(id)arg1;
 - (void)_updateLocalDevices;
 - (void)_updateLocalAccount;
 - (void)stopMonitoring;

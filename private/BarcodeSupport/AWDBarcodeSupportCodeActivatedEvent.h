@@ -12,11 +12,15 @@ __attribute__((visibility("hidden")))
 @interface AWDBarcodeSupportCodeActivatedEvent : PBCodable <NSCopying>
 {
     unsigned long long _timestamp;
+    int _appLinkActivationOpenStrategy;
     int _barcodeDataType;
+    int _barcodeURLType;
     int _clientType;
     struct {
         unsigned int timestamp:1;
+        unsigned int appLinkActivationOpenStrategy:1;
         unsigned int barcodeDataType:1;
+        unsigned int barcodeURLType:1;
         unsigned int clientType:1;
     } _has;
 }
@@ -31,6 +35,14 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsAppLinkActivationOpenStrategy:(id)arg1;
+- (id)appLinkActivationOpenStrategyAsString:(int)arg1;
+@property(nonatomic) _Bool hasAppLinkActivationOpenStrategy;
+@property(nonatomic) int appLinkActivationOpenStrategy; // @synthesize appLinkActivationOpenStrategy=_appLinkActivationOpenStrategy;
+- (int)StringAsBarcodeURLType:(id)arg1;
+- (id)barcodeURLTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasBarcodeURLType;
+@property(nonatomic) int barcodeURLType; // @synthesize barcodeURLType=_barcodeURLType;
 - (int)StringAsBarcodeDataType:(id)arg1;
 - (id)barcodeDataTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasBarcodeDataType;

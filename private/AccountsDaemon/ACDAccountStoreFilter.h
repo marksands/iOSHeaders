@@ -57,6 +57,7 @@
 - (void)isPerformingDataclassActionsForAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dataclassActionsForAccountDeletion:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dataclassActionsForAccountSave:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)preloadDataclassOwnersWithCompletion:(CDUnknownBlockType)arg1;
 - (void)syncableDataclassesForAccountType:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)supportedDataclassesForAccountType:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)dataclassesWithHandler:(CDUnknownBlockType)arg1;

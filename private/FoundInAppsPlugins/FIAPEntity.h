@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class NSDate, NSString;
 
-@interface FIAPEntity : NSObject
+@interface FIAPEntity : NSObject <NSSecureCoding>
 {
     unsigned char _type;
     NSString *_name;

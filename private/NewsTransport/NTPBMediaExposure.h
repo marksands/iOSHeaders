@@ -30,6 +30,10 @@
     NSMutableArray *_fractionalCohortMemberships;
     NSString *_galleryId;
     int _galleryType;
+    NSString *_iadNativeAd;
+    NSString *_iadNativeCampaign;
+    NSString *_iadNativeCampaignAd;
+    NSString *_iadNativeLine;
     NSString *_mediaId;
     int _mediaLocation;
     int _mediaType;
@@ -77,6 +81,10 @@
 
 + (Class)fractionalCohortMembershipType;
 + (Class)namedEntitiesType;
+@property(retain, nonatomic) NSString *iadNativeCampaignAd; // @synthesize iadNativeCampaignAd=_iadNativeCampaignAd;
+@property(retain, nonatomic) NSString *iadNativeAd; // @synthesize iadNativeAd=_iadNativeAd;
+@property(retain, nonatomic) NSString *iadNativeLine; // @synthesize iadNativeLine=_iadNativeLine;
+@property(retain, nonatomic) NSString *iadNativeCampaign; // @synthesize iadNativeCampaign=_iadNativeCampaign;
 @property(retain, nonatomic) NSString *galleryId; // @synthesize galleryId=_galleryId;
 @property(nonatomic) long long previousArticlePublisherArticleVersion; // @synthesize previousArticlePublisherArticleVersion=_previousArticlePublisherArticleVersion;
 @property(nonatomic) long long backendArticleVersionInt64; // @synthesize backendArticleVersionInt64=_backendArticleVersionInt64;
@@ -118,6 +126,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasIadNativeCampaignAd;
+@property(readonly, nonatomic) _Bool hasIadNativeAd;
+@property(readonly, nonatomic) _Bool hasIadNativeLine;
+@property(readonly, nonatomic) _Bool hasIadNativeCampaign;
 @property(readonly, nonatomic) _Bool hasGalleryId;
 @property(nonatomic) _Bool hasPreviousArticlePublisherArticleVersion;
 @property(nonatomic) _Bool hasBackendArticleVersionInt64;

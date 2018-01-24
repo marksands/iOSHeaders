@@ -12,9 +12,9 @@
 {
 }
 
+- (void)_locationDidChange:(id)arg1;
 - (void)_authorizationStatusDidChange:(id)arg1;
-- (void)requestLocation:(id)arg1:(id)arg2;
-- (void)requestLastLocation:(id)arg1;
+- (void)shouldUpdateUserLocation;
 - (void)requestAuthorization;
 - (id)authorizationStatus;
 - (void)dealloc;

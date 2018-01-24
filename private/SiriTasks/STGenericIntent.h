@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class AFSiriTask, NSMutableDictionary, NSString, STGenericIntentRequest;
 
-@interface STGenericIntent : NSObject <NSCoding>
+@interface STGenericIntent : NSObject <NSSecureCoding>
 {
     _Bool _appInForeground;
     _Bool _isLaunch;
@@ -24,6 +24,7 @@
     STGenericIntentRequest *_intentRequest;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool finishedState; // @synthesize finishedState=_finishedState;
 @property(nonatomic) _Bool handled; // @synthesize handled=_handled;
 @property(retain, nonatomic) STGenericIntentRequest *intentRequest; // @synthesize intentRequest=_intentRequest;

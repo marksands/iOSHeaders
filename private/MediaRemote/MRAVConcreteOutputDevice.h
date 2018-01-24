@@ -36,6 +36,7 @@
 - (unsigned int)deviceSubtype;
 - (unsigned int)deviceType;
 - (_Bool)isPickedOnPairedDevice;
+- (_Bool)isDeviceGroupable;
 - (_Bool)isGroupable;
 - (_Bool)isGroupLeader;
 - (_Bool)isRemoteControllable;

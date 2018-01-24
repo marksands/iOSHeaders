@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (void)removePlayer:(void *)arg1;
 - (id)nowPlayingPlayerClientRequestsForPlayerPath:(void *)arg1;
 - (id)playerClients;
+- (id)debugDescription;
 - (void)dealloc;
 - (id)initWithClient:(void *)arg1;
 

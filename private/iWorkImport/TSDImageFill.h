@@ -51,8 +51,9 @@ __attribute__((visibility("hidden")))
 - (id)p_standardSizeCachedImage;
 - (id)p_tintedImageWithScale:(double)arg1;
 - (void)paintPath:(struct CGPath *)arg1 naturalBounds:(struct CGRect)arg2 inContext:(struct CGContext *)arg3 isPDF:(_Bool)arg4;
+- (void)drawFillInContext:(struct CGContext *)arg1 rect:(struct CGRect)arg2 clippingToPath:(struct CGPath *)arg3;
 - (void)paintPath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2;
-- (void)p_paintPath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2;
+- (void)p_paintPath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2 rectForFill:(struct CGRect)arg3;
 - (struct CGSize)p_sizeOfFillImageForDestRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
 - (void)drawSwatchInRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
 - (struct CGSize)renderedImageSizeForObjectSize:(struct CGSize)arg1;

@@ -10,25 +10,27 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct Array;
+
 struct AugmentableInspectorController {
     CDUnknownFunctionPointerType *_field1;
 };
 
-struct HashMap<WTF::String, WTF::RefPtr<Inspector::InspectorValue>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::RefPtr<Inspector::InspectorValue>>> {
-    struct HashTable<WTF::String, WTF::KeyValuePair<WTF::String, WTF::RefPtr<Inspector::InspectorValue>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::String, WTF::RefPtr<Inspector::InspectorValue>>>, WTF::StringHash, WTF::HashMap<WTF::String, WTF::RefPtr<Inspector::InspectorValue>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::RefPtr<Inspector::InspectorValue>>>::KeyValuePairTraits, WTF::HashTraits<WTF::String>> _field1;
+struct HashMap<WTF::String, WTF::RefPtr<WTF::JSONImpl::Value, WTF::DumbPtrTraits<WTF::JSONImpl::Value>>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::RefPtr<WTF::JSONImpl::Value, WTF::DumbPtrTraits<WTF::JSONImpl::Value>>>> {
+    struct HashTable<WTF::String, WTF::KeyValuePair<WTF::String, WTF::RefPtr<WTF::JSONImpl::Value, WTF::DumbPtrTraits<WTF::JSONImpl::Value>>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::String, WTF::RefPtr<WTF::JSONImpl::Value, WTF::DumbPtrTraits<WTF::JSONImpl::Value>>>>, WTF::StringHash, WTF::HashMap<WTF::String, WTF::RefPtr<WTF::JSONImpl::Value, WTF::DumbPtrTraits<WTF::JSONImpl::Value>>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::RefPtr<WTF::JSONImpl::Value, WTF::DumbPtrTraits<WTF::JSONImpl::Value>>>>::KeyValuePairTraits, WTF::HashTraits<WTF::String>> _field1;
 };
 
-struct HashTable<WTF::String, WTF::KeyValuePair<WTF::String, WTF::RefPtr<Inspector::InspectorValue>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::String, WTF::RefPtr<Inspector::InspectorValue>>>, WTF::StringHash, WTF::HashMap<WTF::String, WTF::RefPtr<Inspector::InspectorValue>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::RefPtr<Inspector::InspectorValue>>>::KeyValuePairTraits, WTF::HashTraits<WTF::String>> {
-    struct KeyValuePair<WTF::String, WTF::RefPtr<Inspector::InspectorValue>> *_field1;
+struct HashTable<WTF::String, WTF::KeyValuePair<WTF::String, WTF::RefPtr<WTF::JSONImpl::Value, WTF::DumbPtrTraits<WTF::JSONImpl::Value>>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::String, WTF::RefPtr<WTF::JSONImpl::Value, WTF::DumbPtrTraits<WTF::JSONImpl::Value>>>>, WTF::StringHash, WTF::HashMap<WTF::String, WTF::RefPtr<WTF::JSONImpl::Value, WTF::DumbPtrTraits<WTF::JSONImpl::Value>>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::RefPtr<WTF::JSONImpl::Value, WTF::DumbPtrTraits<WTF::JSONImpl::Value>>>>::KeyValuePairTraits, WTF::HashTraits<WTF::String>> {
+    struct KeyValuePair<WTF::String, WTF::RefPtr<WTF::JSONImpl::Value, WTF::DumbPtrTraits<WTF::JSONImpl::Value>>> *_field1;
     unsigned int _field2;
     unsigned int _field3;
     unsigned int _field4;
     unsigned int _field5;
 };
 
-struct InspectorArray;
+struct KeyValuePair<WTF::String, WTF::RefPtr<WTF::JSONImpl::Value, WTF::DumbPtrTraits<WTF::JSONImpl::Value>>>;
 
-struct InspectorObject {
+struct Object {
     CDUnknownFunctionPointerType *_field1;
     unsigned int _field2;
     int _field3;
@@ -37,20 +39,18 @@ struct InspectorObject {
         double _field2;
         struct StringImpl *_field3;
     } _field4;
-    struct HashMap<WTF::String, WTF::RefPtr<Inspector::InspectorValue>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::RefPtr<Inspector::InspectorValue>>> _field5;
-    struct Vector<WTF::String, 0, WTF::CrashOnOverflow, 16> _field6;
+    struct HashMap<WTF::String, WTF::RefPtr<WTF::JSONImpl::Value, WTF::DumbPtrTraits<WTF::JSONImpl::Value>>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::RefPtr<WTF::JSONImpl::Value, WTF::DumbPtrTraits<WTF::JSONImpl::Value>>>> _field5;
+    struct Vector<WTF::String, 0, WTF::CrashOnOverflow, 16, WTF::FastMalloc> _field6;
 };
-
-struct KeyValuePair<WTF::String, WTF::RefPtr<Inspector::InspectorValue>>;
 
 struct RWIAugmentableInspectorControllerClient;
 
-struct RefPtr<Inspector::InspectorArray> {
-    struct InspectorArray *_field1;
+struct RefPtr<WTF::JSONImpl::Array, WTF::DumbPtrTraits<WTF::JSONImpl::Array>> {
+    struct Array *_field1;
 };
 
-struct RefPtr<Inspector::InspectorObject> {
-    struct InspectorObject *m_ptr;
+struct RefPtr<WTF::JSONImpl::Object, WTF::DumbPtrTraits<WTF::JSONImpl::Object>> {
+    struct Object *m_ptr;
 };
 
 struct RetainPtr<RWIProtocolConfiguration> {
@@ -61,15 +61,16 @@ struct String;
 
 struct StringImpl;
 
-struct Vector<WTF::String, 0, WTF::CrashOnOverflow, 16> {
+struct Vector<WTF::String, 0, WTF::CrashOnOverflow, 16, WTF::FastMalloc> {
     struct String *_field1;
     unsigned int _field2;
     unsigned int _field3;
+    unsigned int _field4;
 };
 
 struct unique_ptr<RWIAugmentableInspectorControllerClient, std::__1::default_delete<RWIAugmentableInspectorControllerClient>> {
     struct __compressed_pair<RWIAugmentableInspectorControllerClient *, std::__1::default_delete<RWIAugmentableInspectorControllerClient>> {
-        struct RWIAugmentableInspectorControllerClient *__first_;
+        struct RWIAugmentableInspectorControllerClient *__value_;
     } __ptr_;
 };
 
@@ -80,11 +81,11 @@ typedef struct {
 } CDStruct_6ad76789;
 
 // Template types
-typedef struct RefPtr<Inspector::InspectorArray> {
-    struct InspectorArray *_field1;
-} RefPtr_97d4108e;
+typedef struct RefPtr<WTF::JSONImpl::Array, WTF::DumbPtrTraits<WTF::JSONImpl::Array>> {
+    struct Array *_field1;
+} RefPtr_7a6ac2d3;
 
-typedef struct RefPtr<Inspector::InspectorObject> {
-    struct InspectorObject *m_ptr;
-} RefPtr_441310bd;
+typedef struct RefPtr<WTF::JSONImpl::Object, WTF::DumbPtrTraits<WTF::JSONImpl::Object>> {
+    struct Object *m_ptr;
+} RefPtr_568d2869;
 

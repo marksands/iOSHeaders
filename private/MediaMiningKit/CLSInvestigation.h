@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
-
 @class CLSArchiveRoom, CLSClueCollection, CLSInspector, CLSInvestigationFeeder, NSArray, NSMutableArray, NSMutableDictionary, NSString, PIGroup;
 
-@interface CLSInvestigation : NSObject <NSCoding>
+@interface CLSInvestigation : NSObject
 {
     NSString *_uuid;
     unsigned long long _priority;
@@ -44,9 +42,6 @@
     CLSArchiveRoom *_archiveRoom;
 }
 
-+ (id)investigationAtPath:(id)arg1;
-+ (id)investigationsDirectory;
-+ (_Bool)supportsSecureCoding;
 + (id)investigationWithProfiles:(id)arg1 clueDates:(id)arg2 clueLocations:(id)arg3 cluePeoples:(id)arg4;
 + (id)investigationWithProfiles:(id)arg1;
 @property _Bool enableDebuggingClues; // @synthesize enableDebuggingClues=_enableDebuggingClues;
@@ -83,14 +78,8 @@
 - (void)_didEndInvestigation:(_Bool)arg1;
 - (void)_addOperations:(id)arg1;
 - (void)_willBeginInvestigation:(id)arg1;
-- (id)saveToDisk;
-- (_Bool)saveToPath:(id)arg1;
-- (id)saveToDirectory:(id)arg1;
-- (id)investigationsDirectory;
 - (id)description:(_Bool)arg1;
 - (id)description;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
 - (id)initWithProfiles:(id)arg1;
 - (id)init;
 - (id)initWithFeeder:(id)arg1 profiles:(id)arg2;

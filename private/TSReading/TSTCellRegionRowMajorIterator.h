@@ -12,7 +12,7 @@
 
 @interface TSTCellRegionRowMajorIterator : NSObject <TSTCellRegionIterating>
 {
-    set_87729393 mCellRangeSet;
+    set_1f50691b mCellRangeSet;
     CDStruct_0441cfb5 mCellID;
     CDStruct_5f1f7aa9 mBoundingCellRange;
 }

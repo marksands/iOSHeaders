@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSDate, NSString;
 
-@interface STGenericIntentDateRange : NSObject <NSCoding>
+@interface STGenericIntentDateRange : NSObject <NSSecureCoding>
 {
     NSString *_name;
     NSDate *_startDate;
     NSDate *_endDate;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
 @property(readonly, copy, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;

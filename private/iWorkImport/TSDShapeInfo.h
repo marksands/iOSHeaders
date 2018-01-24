@@ -29,13 +29,13 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldFlipLineEndsForStyle:(id)arg1 isStyleTailEndOnLeft:(int)arg2;
 - (_Bool)isTailEndOnLeftFromTemporaryLayoutForPasteboard;
 - (id)objectForProperty:(int)arg1;
+- (void)acceptVisitor:(id)arg1;
 - (_Bool)pathIsOpen;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 - (id)animationFilters;
 - (long long)mediaCompatibilityTypeForData:(id)arg1 associatedHint:(id)arg2;
 - (struct CGSize)targetSizeForImageData:(id)arg1 associatedHint:(id)arg2;
-- (id)datasForReplacingMediaContentsWithAssociatedHints;
 - (_Bool)isValidShapeToUnarchive;
 - (void)setValuesForProperties:(id)arg1;
 @property(copy, nonatomic) TSDFill *fill;
@@ -43,8 +43,10 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) TSDLineEnd *headLineEnd;
 - (void)setStyle:(id)arg1;
 - (_Bool)allowsParentGroupToBeResizedWithoutAspectRatioLock;
+- (_Bool)isAllowedInFreehandDrawings;
 @property(readonly, nonatomic) _Bool supportsShrinkTextToFit;
 @property(readonly, nonatomic) _Bool supportsTextInset;
+- (_Bool)needsDownload;
 @property(readonly, nonatomic) TSDShapeStyle *shapeStyle;
 - (Class)styleClass;
 - (Class)repClass;

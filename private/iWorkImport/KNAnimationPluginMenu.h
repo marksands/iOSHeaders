@@ -11,25 +11,25 @@
 __attribute__((visibility("hidden")))
 @interface KNAnimationPluginMenu : NSObject
 {
-    NSMutableDictionary *mLocalizedStringToDirectionMap;
-    NSMutableDictionary *mDirectionToLocalizedStringMap;
-    unsigned long long mDefaultDirection;
-    NSMutableArray *mLocalizedDirections;
-    NSMutableArray *mDirections;
+    NSMutableDictionary *_localizedStringToDirectionMap;
+    NSMutableDictionary *_directionToLocalizedStringMap;
+    NSMutableArray *_localizedDirections;
+    NSMutableArray *_directions;
+    unsigned long long _defaultDirection;
 }
 
 + (id)localizedStringForDirection:(unsigned long long)arg1 shortVersion:(_Bool)arg2;
 + (id)animationPluginMenu;
-@property(nonatomic) unsigned long long defaultDirection; // @synthesize defaultDirection=mDefaultDirection;
-@property(readonly, nonatomic) NSArray *directions; // @synthesize directions=mDirections;
-@property(readonly, nonatomic) NSArray *localizedDirections; // @synthesize localizedDirections=mLocalizedDirections;
+@property(nonatomic) unsigned long long defaultDirection; // @synthesize defaultDirection=_defaultDirection;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long count;
 - (unsigned long long)directionForIndex:(unsigned long long)arg1;
 - (unsigned long long)indexForDirection:(unsigned long long)arg1;
 - (_Bool)containsDirection:(unsigned long long)arg1;
 - (void)addDirection:(unsigned long long)arg1 useShortString:(_Bool)arg2;
 - (void)addDirection:(unsigned long long)arg1 localizedMenuString:(id)arg2;
-- (void)dealloc;
+@property(readonly, nonatomic) NSArray *directions;
+@property(readonly, nonatomic) NSArray *localizedDirections;
 - (id)init;
 
 @end

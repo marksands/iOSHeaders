@@ -10,36 +10,24 @@
 
 @interface MPModelPodcast : MPModelObject
 {
-    _Bool _supportsSubscription;
-    NSString *_title;
-    NSURL *_feedURL;
-    NSURL *_shareURL;
-    MPModelPodcastAuthor *_author;
-    CDUnknownBlockType _artworkCatalogBlock;
 }
 
-+ (id)__MPModelPropertyPodcastArtwork__PROPERTY;
-+ (id)__artworkCatalogBlock__KEY;
-+ (id)__MPModelRelationshipPodcastAuthor__PROPERTY;
-+ (id)__author__KEY;
-+ (id)__MPModelPropertyPodcastSupportsSubscription__PROPERTY;
-+ (id)__supportsSubscription__KEY;
-+ (id)__MPModelPropertyPodcastShareURL__PROPERTY;
-+ (id)__shareURL__KEY;
-+ (id)__MPModelPropertyPodcastFeedURL__PROPERTY;
-+ (id)__feedURL__KEY;
-+ (id)__MPModelPropertyPodcastTitle__PROPERTY;
-+ (id)__title__KEY;
++ (id)__artworkCatalogBlock_KEY;
++ (id)__author_KEY;
++ (id)__supportsSubscription_KEY;
++ (id)__shareURL_KEY;
++ (id)__feedURL_KEY;
++ (id)__title_KEY;
 + (id)kindWithEpisodeKind:(id)arg1;
-@property(copy, nonatomic) CDUnknownBlockType artworkCatalogBlock; // @synthesize artworkCatalogBlock=_artworkCatalogBlock;
-@property(retain, nonatomic) MPModelPodcastAuthor *author; // @synthesize author=_author;
-@property(nonatomic) _Bool supportsSubscription; // @synthesize supportsSubscription=_supportsSubscription;
-@property(copy, nonatomic) NSURL *shareURL; // @synthesize shareURL=_shareURL;
-@property(copy, nonatomic) NSURL *feedURL; // @synthesize feedURL=_feedURL;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
-- (void).cxx_destruct;
 - (id)artworkCatalog;
-- (id)descriptionWithType:(long long)arg1;
+
+// Remaining properties
+@property(copy, nonatomic) CDUnknownBlockType artworkCatalogBlock; // @dynamic artworkCatalogBlock;
+@property(retain, nonatomic) MPModelPodcastAuthor *author; // @dynamic author;
+@property(copy, nonatomic) NSURL *feedURL; // @dynamic feedURL;
+@property(copy, nonatomic) NSURL *shareURL; // @dynamic shareURL;
+@property(nonatomic) _Bool supportsSubscription; // @dynamic supportsSubscription;
+@property(copy, nonatomic) NSString *title; // @dynamic title;
 
 @end
 

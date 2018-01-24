@@ -15,7 +15,6 @@
 
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 - (void).cxx_destruct;
-- (void)remote_fetchPluginServiceEndpointWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_serverForConfiguration:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithClient:(id)arg1 daemon:(id)arg2 error:(id)arg3;
 

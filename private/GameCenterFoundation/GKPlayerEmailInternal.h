@@ -17,6 +17,7 @@
 }
 
 + (id)secureCodedPropertyKeys;
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool verified; // @synthesize verified=_verified;
 @property(retain, nonatomic) NSString *addressPrefix; // @synthesize addressPrefix=_addressPrefix;
 @property(retain, nonatomic) NSString *addressSHA1; // @synthesize addressSHA1=_addressSHA1;

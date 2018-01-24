@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class TSKCOAbstractOperation<TSKCOTransforming>, TSKCOIdPlacementBaseOperation, TSKCOReplaceRangeOperation, TSKCOUpdateIdOperation, TSKCOUpdateRangeOperation;
+@class TSKCOAbstractOperation<TSKCOTransforming>, TSKCOIdPlacementBaseOperation, TSKCOOperationTransformHistory, TSKCOReplaceRangeOperation, TSKCOUpdateIdOperation, TSKCOUpdateRangeOperation;
 
 @protocol TSKCOTransforming
-- (TSKCOAbstractOperation<TSKCOTransforming> *)transformDynamicByAnyOperation:(TSKCOAbstractOperation<TSKCOTransforming> *)arg1 byHigherPriority:(_Bool)arg2;
-- (TSKCOUpdateRangeOperation *)transformUpdateRangeOperation:(TSKCOUpdateRangeOperation *)arg1 isHigherPriority:(_Bool)arg2;
-- (TSKCOReplaceRangeOperation *)transformReplaceRangeOperation:(TSKCOReplaceRangeOperation *)arg1 isHigherPriority:(_Bool)arg2;
-- (TSKCOUpdateIdOperation *)transformUpdateIdOperation:(TSKCOUpdateIdOperation *)arg1 isHigherPriority:(_Bool)arg2;
-- (TSKCOIdPlacementBaseOperation *)transformIdPlacementBaseOperation:(TSKCOIdPlacementBaseOperation *)arg1 isHigherPriority:(_Bool)arg2;
+- (TSKCOAbstractOperation<TSKCOTransforming> *)transformDynamicByAnyOperation:(TSKCOAbstractOperation<TSKCOTransforming> *)arg1 byHigherPriority:(_Bool)arg2 history:(TSKCOOperationTransformHistory *)arg3;
+- (TSKCOUpdateRangeOperation *)transformUpdateRangeOperation:(TSKCOUpdateRangeOperation *)arg1 isHigherPriority:(_Bool)arg2 history:(TSKCOOperationTransformHistory *)arg3;
+- (TSKCOReplaceRangeOperation *)transformReplaceRangeOperation:(TSKCOReplaceRangeOperation *)arg1 isHigherPriority:(_Bool)arg2 history:(TSKCOOperationTransformHistory *)arg3;
+- (TSKCOUpdateIdOperation *)transformUpdateIdOperation:(TSKCOUpdateIdOperation *)arg1 isHigherPriority:(_Bool)arg2 history:(TSKCOOperationTransformHistory *)arg3;
+- (TSKCOIdPlacementBaseOperation *)transformIdPlacementBaseOperation:(TSKCOIdPlacementBaseOperation *)arg1 isHigherPriority:(_Bool)arg2 history:(TSKCOOperationTransformHistory *)arg3;
 @end
 

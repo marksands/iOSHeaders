@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
     tvec2_3b141483 mSize;
     float mSamples;
     NSMutableArray *mLabels;
-    vector_56a3751a mPositions;
+    vector_522a5b3a mPositions;
     long long mCurrentxpos;
     long long mCurrentypos;
     long long mCurrentheight;

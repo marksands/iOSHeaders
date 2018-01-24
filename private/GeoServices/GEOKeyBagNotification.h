@@ -14,7 +14,10 @@
 
 + (id)sharedObject;
 - (void)updateState;
-- (int)state;
+@property(readonly, nonatomic) int state;
+- (void)removeObserver:(id)arg1;
+- (_Bool)addDataDidBecomeAvailableObserver:(id)arg1 ifTypeIsNotCurrentlyAccessible:(unsigned long long)arg2;
+- (_Bool)canAccessFilesWithProtection:(unsigned long long)arg1;
 - (void)dealloc;
 - (id)init;
 

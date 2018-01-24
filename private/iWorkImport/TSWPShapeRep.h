@@ -10,7 +10,7 @@
 #import "TSDMagicMoveMatching.h"
 #import "TSWPShapeLayoutDelegate.h"
 
-@class CALayer, NSObject<TSDContainerInfo>, NSString, TSWPRep, TSWPStorage;
+@class CALayer, NSArray, NSObject<TSDContainerInfo>, NSString, TSWPRep, TSWPStorage;
 
 __attribute__((visibility("hidden")))
 @interface TSWPShapeRep : TSDShapeRep <TSDMagicMoveMatching, TSDContainerRep, TSWPShapeLayoutDelegate>
@@ -37,10 +37,8 @@ __attribute__((visibility("hidden")))
 - (void)selectChildRep:(id)arg1 extendingSelection:(_Bool)arg2;
 - (_Bool)canSelectChildRep:(id)arg1;
 - (void)addAdditionalChildLayersToArray:(id)arg1;
-- (id)childReps;
+@property(readonly, nonatomic) NSArray *childReps;
 @property(readonly, nonatomic) NSObject<TSDContainerInfo> *containerInfo;
-- (id)hitReps:(struct CGPoint)arg1 withSlop:(struct CGSize)arg2;
-- (id)hitRep:(struct CGPoint)arg1;
 - (void)recursivelyPerformSelector:(SEL)arg1 withObject:(id)arg2;
 - (void)recursivelyPerformSelector:(SEL)arg1;
 - (void)recursivelyPerformSelectorIfImplemented:(SEL)arg1 withObject:(id)arg2;

@@ -112,7 +112,8 @@ struct netcore_stats_tcp_statistics_report {
     unsigned int kernel_reporting_write_stalled:1;
     unsigned int tcp_fast_open:1;
     unsigned int first_party:1;
-    unsigned int __pad_bits:6;
+    unsigned int tls13_configured:1;
+    unsigned int __pad_bits:5;
     unsigned char __pad[6];
 };
 
@@ -168,6 +169,7 @@ struct nw_connection_report_s {
     unsigned int used_fallback:1;
     unsigned int resolution_required:1;
     unsigned int tls_configured:1;
+    unsigned int tls13_configured:1;
     unsigned int tfo_configured:1;
     unsigned int multipath_configured:1;
     unsigned int connected:1;
@@ -179,7 +181,6 @@ struct nw_connection_report_s {
     unsigned int used_tfo:1;
     unsigned int tls_version_timeout:1;
     unsigned int first_party:1;
-    unsigned int tls13_configured:1;
     unsigned int __pad_bits:4;
     unsigned char __pad[3];
 };

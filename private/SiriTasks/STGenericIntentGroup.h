@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSString;
 
-@interface STGenericIntentGroup : NSObject <NSCoding>
+@interface STGenericIntentGroup : NSObject <NSSecureCoding>
 {
     NSString *_name;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;

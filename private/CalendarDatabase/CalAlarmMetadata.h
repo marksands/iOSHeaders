@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSArray, NSString;
 
-@interface CalAlarmMetadata : NSObject <NSCoding>
+@interface CalAlarmMetadata : NSObject <NSSecureCoding>
 {
     NSArray *_attach;
     NSArray *_attendee;
@@ -18,6 +18,7 @@
     NSString *_summary;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)metadataWithData:(id)arg1;
 @property(retain) NSString *summary; // @synthesize summary=_summary;
 @property(retain) NSString *description; // @synthesize description=_description;

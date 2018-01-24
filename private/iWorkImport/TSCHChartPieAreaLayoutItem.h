@@ -4,19 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <iWorkImport/TSCH2DChartAbstractAreaLayoutItem.h>
+#import <iWorkImport/TSCHChartRadialAreaLayoutItem.h>
 
 __attribute__((visibility("hidden")))
-@interface TSCHChartPieAreaLayoutItem : TSCH2DChartAbstractAreaLayoutItem
+@interface TSCHChartPieAreaLayoutItem : TSCHChartRadialAreaLayoutItem
 {
 }
 
-- (struct CGRect)titleFrame;
-- (id)renderersWithRep:(id)arg1;
-- (void)p_layoutOutward;
-- (void)p_layoutInward;
-- (void)buildSubTree;
-- (id)seriesIndexedPieNormalizedLabelDistancesFromWedgeTips;
+- (Class)bodyLayoutItemClass;
 
 @end
 

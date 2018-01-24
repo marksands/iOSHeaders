@@ -22,18 +22,19 @@ __attribute__((visibility("hidden")))
     NSArray *_prototypes;
     IKElementChangeSet *_itemsChangeset;
     IKAppDataSet *_dataSet;
-    NSDictionary *_usedPrototypesByType;
+    NSDictionary *_usedPrototypeMappingsByType;
     NSDictionary *_childrenByItemID;
     NSMutableIndexSet *_visibleIndexSet;
     NSMutableDictionary *_proxyChildrenByItemID;
 }
 
-+ (_Bool)_isPrototypeDOMElement:(id)arg1 validForReuseWithID:(id)arg2;
++ (id)_prototypeMappingForDataItem:(id)arg1 inDictionary:(id)arg2;
++ (void)_traversePrototypeMappings:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 + (_Bool)areItemsBoundForBinding:(id)arg1;
 @property(retain, nonatomic) NSMutableDictionary *proxyChildrenByItemID; // @synthesize proxyChildrenByItemID=_proxyChildrenByItemID;
 @property(retain, nonatomic) NSMutableIndexSet *visibleIndexSet; // @synthesize visibleIndexSet=_visibleIndexSet;
 @property(copy, nonatomic) NSDictionary *childrenByItemID; // @synthesize childrenByItemID=_childrenByItemID;
-@property(copy, nonatomic) NSDictionary *usedPrototypesByType; // @synthesize usedPrototypesByType=_usedPrototypesByType;
+@property(copy, nonatomic) NSDictionary *usedPrototypeMappingsByType; // @synthesize usedPrototypeMappingsByType=_usedPrototypeMappingsByType;
 @property(retain, nonatomic) IKAppDataSet *dataSet; // @synthesize dataSet=_dataSet;
 @property(retain, nonatomic) IKElementChangeSet *itemsChangeset; // @synthesize itemsChangeset=_itemsChangeset;
 @property(retain, nonatomic) NSArray *prototypes; // @synthesize prototypes=_prototypes;
@@ -41,7 +42,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) __weak IKDataSourceElement *dataSourceElement; // @synthesize dataSourceElement=_dataSourceElement;
 - (void).cxx_destruct;
 - (id)_itemsPropertyPath;
-- (id)_prototypeForType:(id)arg1;
 - (id)_appDataItemFromJSDataItem:(id)arg1 prototype:(id)arg2;
 - (void)_appendAutoHighlightedIndexesWithIndex:(long long)arg1;
 - (void)_appendUpdatedIndexesWithIndex:(long long)arg1;

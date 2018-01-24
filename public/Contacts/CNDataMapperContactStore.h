@@ -66,9 +66,10 @@
 - (id)identifierWithError:(id *)arg1;
 - (id)requestAccessForEntityType:(long long)arg1;
 - (id)description;
+- (id)initWithDataMapper:(id)arg1 environment:(id)arg2;
+- (id)initWithEnvironment:(id)arg1 managedConfiguration:(id)arg2;
 - (id)initWithEnvironment:(id)arg1;
 - (id)init;
-- (id)initWithDataMapper:(id)arg1 environment:(id)arg2;
 - (id)iOSMapper;
 
 @end

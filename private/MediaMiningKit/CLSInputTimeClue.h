@@ -6,11 +6,9 @@
 
 #import <MediaMiningKit/CLSInputClue.h>
 
-#import "NSCoding.h"
-
 @class NSArray, NSDate, NSSet;
 
-@interface CLSInputTimeClue : CLSInputClue <NSCoding>
+@interface CLSInputTimeClue : CLSInputClue
 {
     NSArray *_dateComponentsArray;
     NSArray *_events;
@@ -22,7 +20,6 @@
     NSDate *_universalEndDate;
 }
 
-+ (_Bool)supportsSecureCoding;
 + (id)clueWithDates:(id)arg1;
 - (void).cxx_destruct;
 - (_Bool)isEqualToClue:(id)arg1;
@@ -30,8 +27,6 @@
 - (id)_prepareOperation;
 - (id)description;
 @property(copy, nonatomic) NSArray *events; // @synthesize events=_events;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
 - (unsigned long long)numberOfDays;
 - (double)timeInterval;
 - (id)localEndDate;

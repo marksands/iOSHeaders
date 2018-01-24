@@ -19,8 +19,10 @@
 @property(readonly, nonatomic) id <SXComponentViewPostProcessorManager> postProcessorManager; // @synthesize postProcessorManager=_postProcessorManager;
 @property(readonly, nonatomic) SXComponentTypeMatching *factoryMatching; // @synthesize factoryMatching=_factoryMatching;
 - (void).cxx_destruct;
+- (void)removeFactory:(id)arg1;
+- (void)addFactory:(id)arg1;
 - (id)componentViewForComponent:(id)arg1;
-- (id)initWithFactories:(id)arg1 postProcessorManager:(id)arg2;
+- (id)initWithPostProcessorManager:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -7,23 +7,30 @@
 #import "NSObject.h"
 
 #import "ARResultData.h"
+#import "NSSecureCoding.h"
 
 @class NSString;
 
-@interface ARCameraAlignmentData : NSObject <ARResultData>
+@interface ARCameraAlignmentData : NSObject <ARResultData, NSSecureCoding>
 {
+    double _timestamp;
     // Error parsing type: {?="columns"[4]}, name: _cameraTransform
 }
 
++ (_Bool)supportsSecureCoding;
 // Error parsing type for property cameraTransform:
 // Property attributes: T{?=[4]},N,V_cameraTransform
 
+@property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly) unsigned long long hash;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

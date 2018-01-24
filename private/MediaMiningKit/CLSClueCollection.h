@@ -7,11 +7,10 @@
 #import "NSObject.h"
 
 #import "CLSClueCollectionJSExports.h"
-#import "NSCoding.h"
 
 @class CLSInputPeopleClue, CLSMeaningClue, NSMapTable, NSObject<OS_dispatch_queue>;
 
-@interface CLSClueCollection : NSObject <NSCoding, CLSClueCollectionJSExports>
+@interface CLSClueCollection : NSObject <CLSClueCollectionJSExports>
 {
     unsigned long long _versionCount;
     NSObject<OS_dispatch_queue> *_accessQueue;
@@ -21,7 +20,6 @@
     NSMapTable *_meaningCluesByKey;
 }
 
-+ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) CLSInputPeopleClue *mePersonClue; // @synthesize mePersonClue=_mePersonClue;
 @property(readonly) unsigned long long versionCount; // @synthesize versionCount=_versionCount;
 - (void).cxx_destruct;
@@ -82,8 +80,6 @@
 - (id)inputCluesForKey:(id)arg1;
 - (void)_incrementVersionCount;
 - (id)description;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (id)_healthDynamismString;
 - (id)_healthSpeedString;

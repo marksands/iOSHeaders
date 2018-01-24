@@ -13,6 +13,7 @@
 }
 
 + (id)typeString;
+- (unsigned long long)traits;
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *accessibilityCaption; // @dynamic accessibilityCaption;

@@ -27,7 +27,7 @@
 + (void)setInteractivityDebuggingEnabled:(_Bool)arg1;
 + (_Bool)isDebugModeEnabled;
 + (void)setDebugModeEnabled:(_Bool)arg1;
-+ (id)debugAdvertismentSettings;
++ (id)debugAdvertisementSettings;
 + (void)setDebugAdvertisingSettings:(id)arg1;
 @property(nonatomic) _Bool didLoadFirstBannerView; // @synthesize didLoadFirstBannerView=_didLoadFirstBannerView;
 @property(retain, nonatomic) NSMutableDictionary *bannerViews; // @synthesize bannerViews=_bannerViews;

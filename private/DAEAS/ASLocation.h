@@ -6,11 +6,11 @@
 
 #import <DAEAS/ASItem.h>
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSString;
 
-@interface ASLocation : ASItem <NSCoding>
+@interface ASLocation : ASItem <NSSecureCoding>
 {
     NSString *_displayName;
     NSString *_annotation;
@@ -26,6 +26,7 @@
     NSString *_altitudeAccuracy;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)locationWithCalLocation:(void *)arg1;
 @property(retain, nonatomic) NSString *altitudeAccuracy; // @synthesize altitudeAccuracy=_altitudeAccuracy;
 @property(retain, nonatomic) NSString *altitude; // @synthesize altitude=_altitude;

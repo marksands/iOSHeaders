@@ -9,6 +9,7 @@
 @class NSArray, NSData, NSDate, NSSet, WBSHistoryItem, WBSHistoryTombstone, WBSHistoryVisit;
 
 @protocol WBSHistoryStore <WBSHistoryLoader>
+@property(readonly, nonatomic) _Bool isUsingInMemoryDatabase;
 @property(nonatomic) _Bool pushNotificationsAreInitialized;
 @property(nonatomic) unsigned long long cachedNumberOfDevicesInSyncCircle;
 @property(copy, nonatomic) NSData *syncCircleSizeRetrievalThrottlerData;

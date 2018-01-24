@@ -50,6 +50,7 @@
 - (void)confirmDevice:(id)arg1 timeout:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)notifyDeviceReachabilityChange:(_Bool)arg1 forDevice:(id)arg2;
 - (void)_handleGlobalReachabilityChange;
+- (void)handleRemovedDeviceInformation:(id)arg1;
 - (void)stopMonitoringDevice:(id)arg1;
 - (void)handleAddedDeviceInformation:(id)arg1;
 - (void)startMonitoringDevice:(id)arg1;

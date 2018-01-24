@@ -9,7 +9,7 @@
 #import "PSSpecifierGroupController.h"
 #import "PSUIWirelessDataOptionsDelegate.h"
 
-@class ACAccountStore, AppWirelessDataUsageManager, NSArray, NSMutableArray, NSNumber, NSString, PSExpandableAppListGroupController, WirelessDataUsageWorkspace;
+@class ACAccountStore, AppWirelessDataUsageManager, NSArray, NSCache, NSMutableArray, NSNumber, NSString, PSExpandableAppListGroupController, WirelessDataUsageWorkspace;
 
 @interface PSUIAppCellularUsageGroupController : NSObject <PSSpecifierGroupController, PSUIWirelessDataOptionsDelegate>
 {
@@ -31,10 +31,14 @@
     NSArray *_managedBundleIDs;
     AppWirelessDataUsageManager *_wirelessManager;
     ACAccountStore *_accountStore;
+    NSCache *_perAppSwitchStateCache;
+    NSCache *_perAppCellStateCache;
 }
 
 + (id)nameForSpecialCategory:(id)arg1;
 + (void)setSpecifierData:(id)arg1 withApp:(id)arg2;
+@property(retain, nonatomic) NSCache *perAppCellStateCache; // @synthesize perAppCellStateCache=_perAppCellStateCache;
+@property(retain, nonatomic) NSCache *perAppSwitchStateCache; // @synthesize perAppSwitchStateCache=_perAppSwitchStateCache;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
 @property(retain, nonatomic) AppWirelessDataUsageManager *wirelessManager; // @synthesize wirelessManager=_wirelessManager;
 @property(retain, nonatomic) NSArray *managedBundleIDs; // @synthesize managedBundleIDs=_managedBundleIDs;
@@ -76,6 +80,7 @@
 - (void)setAppCellularDataEnabled:(id)arg1 forSpecifier:(id)arg2;
 - (void)setSwitchesEnabled:(_Bool)arg1;
 - (void)cancel;
+- (void)prefetchResourcesFor:(id)arg1;
 - (id)specifiers;
 - (void)dealloc;
 - (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2;

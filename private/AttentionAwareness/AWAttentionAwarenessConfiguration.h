@@ -9,16 +9,16 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSData, NSDictionary, NSSet, NSString;
+@class NSDictionary, NSSet, NSString;
 
 @interface AWAttentionAwarenessConfiguration : NSObject <NSCopying, NSSecureCoding>
 {
     NSSet *_attentionLostTimeouts;
     NSDictionary *_attentionLostTimeoutDictionary;
     _Bool _samplingDelayExplicitlySet;
-    NSData *_archivedTag;
+    unsigned long long _tagIndex;
     NSString *_identifier;
-    id <NSCopying><NSSecureCoding> _tag;
+    id <NSCopying> _tag;
     unsigned long long _eventMask;
     double _samplingInterval;
     double _samplingDelay;
@@ -33,15 +33,16 @@
 @property(nonatomic) double samplingDelay; // @synthesize samplingDelay=_samplingDelay;
 @property(nonatomic) double samplingInterval; // @synthesize samplingInterval=_samplingInterval;
 @property(nonatomic) unsigned long long eventMask; // @synthesize eventMask=_eventMask;
-@property(retain, nonatomic) id <NSCopying><NSSecureCoding> tag; // @synthesize tag=_tag;
+@property(retain, nonatomic) id <NSCopying> tag; // @synthesize tag=_tag;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSDictionary *attentionLostTimeoutDictionary;
 @property(copy, nonatomic) NSSet *attentionLostTimeouts; // @dynamic attentionLostTimeouts;
 - (void)setAttentionLostTimeout:(double)arg1;
-- (id)archivedTag;
+- (unsigned long long)tagIndex;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

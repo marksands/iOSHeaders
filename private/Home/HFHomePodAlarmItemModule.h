@@ -22,7 +22,7 @@
 - (void).cxx_destruct;
 - (void)unregisterForExternalUpdates;
 - (void)registerForExternalUpdates;
-- (void)adapter:(id)arg1 didUpdateAlarms:(id)arg2;
+- (void)mobileTimerAdapter:(id)arg1 didUpdateAlarms:(id)arg2;
 - (id)buildSectionsWithDisplayedItems:(id)arg1;
 @property(readonly, nonatomic) NSSet *itemProviders; // @synthesize itemProviders=_itemProviders;
 @property(readonly, nonatomic) HFAccessorySettingMobileTimerAdapter *mobileTimerAdapter;

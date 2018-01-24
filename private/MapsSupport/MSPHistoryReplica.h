@@ -21,6 +21,7 @@
 + (_Bool)supportsSecureCoding;
 - (id)editsToMergeWithReplica:(id)arg1;
 - (id)editsToMergeWithReplica:(id)arg1 mergeOptions:(id)arg2;
+- (id)_additionalEditsToUpdateContentsOfRecord:(id)arg1 identifier:(id)arg2;
 - (id)editsToMergeWithReplica:(id)arg1 knownSyncDateForLeastRecentlySyncedClientIfAny:(id)arg2;
 - (void)_mergeSelfRecord:(id)arg1 withRecordFromOtherReplica:(id)arg2 identifier:(id)arg3 options:(id)arg4 edits:(id)arg5;
 - (id)_sortedHistoryEntriesByApplyingEdits:(id)arg1 invalidEntryIdentifiers:(out id *)arg2;

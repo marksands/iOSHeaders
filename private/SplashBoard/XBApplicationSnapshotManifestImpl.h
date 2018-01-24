@@ -31,9 +31,11 @@
 + (void)_configureSnapshot:(id)arg1 withCompatibilityInfo:(id)arg2 forLaunchRequest:(id)arg3;
 + (id)_snapshotPredicateForRequest:(id)arg1;
 + (void)_flushManifestQueue;
++ (_Bool)isUnderMemoryPressure;
 + (void)_queue_noteManifestInvalidated:(id)arg1;
 + (void)relinquishManifest:(id)arg1;
 + (id)acquireManifestForContainerIdentity:(id)arg1 store:(id)arg2 creatingIfNecessary:(_Bool)arg3;
++ (void)initialize;
 @property(readonly, copy, nonatomic) XBSnapshotManifestIdentity *identity; // @synthesize identity=_identity;
 @property(readonly, copy, nonatomic) XBSnapshotContainerIdentity *containerIdentity; // @synthesize containerIdentity=_containerIdentity;
 - (void).cxx_destruct;
@@ -65,6 +67,7 @@
 - (id)_createSnapshotWithGroupID:(id)arg1 newSnapshotCreator:(CDUnknownBlockType)arg2;
 - (id)_createSnapshotWithGroupID:(id)arg1 generationContext:(id)arg2;
 - (id)_generatableSnapshotForGroupID:(id)arg1 generationContext:(id)arg2;
+- (void)_queue_handleMemoryPressure;
 - (void)beginSnapshotAccessTransaction:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)deleteAllSnapshots;
 - (void)deleteSnapshotsForGroupID:(id)arg1;

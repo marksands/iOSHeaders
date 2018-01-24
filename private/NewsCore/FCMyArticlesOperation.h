@@ -6,7 +6,7 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class FCCloudContext, FCDateRange, NSArray, NSDictionary, NSError;
+@class FCCloudContext, FCDateRange, FCFeedPersonalizedArticles, NSArray, NSDictionary, NSError;
 
 @interface FCMyArticlesOperation : FCOperation
 {
@@ -16,6 +16,7 @@
     FCDateRange *_dateRange;
     CDUnknownBlockType _feedItemsChangedHandler;
     NSArray *_feedItems;
+    FCFeedPersonalizedArticles *_nonEditorialPersonalizedArticles;
     NSDictionary *_feedContextByFeedID;
     NSError *_error;
     long long _binOverride;
@@ -30,6 +31,7 @@
 @property(nonatomic) long long binOverride; // @synthesize binOverride=_binOverride;
 @property(copy) NSError *error; // @synthesize error=_error;
 @property(copy) NSDictionary *feedContextByFeedID; // @synthesize feedContextByFeedID=_feedContextByFeedID;
+@property(retain) FCFeedPersonalizedArticles *nonEditorialPersonalizedArticles; // @synthesize nonEditorialPersonalizedArticles=_nonEditorialPersonalizedArticles;
 @property(copy) NSArray *feedItems; // @synthesize feedItems=_feedItems;
 @property(copy, nonatomic) CDUnknownBlockType feedItemsChangedHandler; // @synthesize feedItemsChangedHandler=_feedItemsChangedHandler;
 @property(nonatomic) _Bool streamFeedItems; // @synthesize streamFeedItems=_streamFeedItems;

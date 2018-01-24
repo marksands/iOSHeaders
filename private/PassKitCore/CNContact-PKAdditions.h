@@ -24,12 +24,11 @@
 - (id)contactWithCleanedUpDistrict;
 - (id)sanitizedContact;
 - (id)nameComponents;
-- (id)_fullNameFromComponents:(id)arg1 style:(long long)arg2 preferPhoneticName:(_Bool)arg3;
+- (id)_phoneticNameFromComponents:(id)arg1 style:(long long)arg2;
 - (id)_fullNameFromComponents:(id)arg1 style:(long long)arg2;
 - (id)pkFullAndPhoneticName;
 - (id)pkPhoneticName;
 - (id)pkFullName;
-- (id)pkFullNameForDisplay;
 - (id)pkFullyQualifiedName;
 - (_Bool)isSubsetOfMeCard;
 @property(nonatomic) unsigned long long contactSource;

@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, TSDBezierNode, TSUBezierPath;
+@class NSArray, NSMutableArray, TSDBezierNode, TSUBezierPath;
 
 __attribute__((visibility("hidden")))
 @interface TSDBezierSubpath : NSObject
 {
-    NSArray *mNodes;
+    NSMutableArray *mNodes;
     _Bool mClosed;
 }
 
@@ -31,7 +31,6 @@ __attribute__((visibility("hidden")))
 - (void)selectAllNodes;
 - (void)deleteSelectedNodes;
 @property(readonly, nonatomic) _Bool canDeleteSelectedNodes;
-- (void)removeNode:(id)arg1;
 @property(readonly, nonatomic) _Bool hasSelectedNode;
 @property(readonly, nonatomic) _Bool allNodesSelected;
 - (void)offsetSelectedEdgesByDelta:(struct CGPoint)arg1;
@@ -41,6 +40,7 @@ __attribute__((visibility("hidden")))
 - (id)nodeAfterNode:(id)arg1;
 - (id)nodePriorToNode:(id)arg1;
 - (void)removeLastNode;
+- (void)removeNode:(id)arg1;
 - (void)addNode:(id)arg1;
 - (void)transformUsingAffineTransform:(struct CGAffineTransform)arg1;
 - (void)reverseDirection;

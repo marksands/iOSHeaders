@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 @interface WebSpeechSynthesisWrapper : NSObject <AVSpeechSynthesizerDelegate>
 {
     struct PlatformSpeechSynthesizer *m_synthesizerObject;
-    RefPtr_19433845 m_utterance;
+    RefPtr_0a8ffcc5 m_utterance;
     struct RetainPtr<AVSpeechSynthesizer> m_synthesizer;
 }
 
@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)cancel;
 - (void)resume;
 - (void)pause;
-- (void)speakUtterance:(RefPtr_19433845 *)arg1;
+- (void)speakUtterance:(RefPtr_0a8ffcc5 *)arg1;
 - (float)mapSpeechRateToPlatformRate:(float)arg1;
 - (id)initWithSpeechSynthesizer:(struct PlatformSpeechSynthesizer *)arg1;
 

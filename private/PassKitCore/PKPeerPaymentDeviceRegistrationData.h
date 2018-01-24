@@ -8,19 +8,21 @@
 
 #import "NSSecureCoding.h"
 
-@class NSDictionary, NSString;
+@class NSData, NSDictionary, NSString;
 
 @interface PKPeerPaymentDeviceRegistrationData : NSObject <NSSecureCoding>
 {
     _Bool _devSigned;
     NSString *_signedAuthToken;
     NSDictionary *_enrollmentData;
+    NSData *_signedEnrollmentDataSignature;
     NSString *_companionSerialNumber;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *companionSerialNumber; // @synthesize companionSerialNumber=_companionSerialNumber;
 @property(nonatomic) _Bool devSigned; // @synthesize devSigned=_devSigned;
+@property(copy, nonatomic) NSData *signedEnrollmentDataSignature; // @synthesize signedEnrollmentDataSignature=_signedEnrollmentDataSignature;
 @property(copy, nonatomic) NSDictionary *enrollmentData; // @synthesize enrollmentData=_enrollmentData;
 @property(copy, nonatomic) NSString *signedAuthToken; // @synthesize signedAuthToken=_signedAuthToken;
 - (void).cxx_destruct;

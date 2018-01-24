@@ -6,12 +6,15 @@
 
 #import <RemoteUI/RUIHTTPRequest.h>
 
-@class NSURL, RUIParser, RUIStyle;
+#import "NSURLSessionTaskDelegate.h"
 
-@interface RUILoader : RUIHTTPRequest
+@class NSString, NSURL, RUIParser, RUIStyle, _RUILoaderSessionDelegateAdapter;
+
+@interface RUILoader : RUIHTTPRequest <NSURLSessionTaskDelegate>
 {
     RUIParser *_parser;
     NSURL *_url;
+    _RUILoaderSessionDelegateAdapter *_sessionDelegateAdapter;
     _Bool _allowNonSecureHTTP;
     id <RUIParserDelegate> _parserDelegate;
     RUIStyle *_style;
@@ -35,11 +38,18 @@
 - (void)loadXMLUIWithData:(id)arg1 baseURL:(id)arg2;
 - (void)loadXMLUIWithRequest:(id)arg1;
 - (void)loadXMLUIWithURL:(id)arg1;
+- (id)urlSessionDelegate;
 - (id)sessionConfiguration;
 - (id)handleWillLoadRequest:(id)arg1;
 - (void)loadRequest:(id)arg1;
 - (void)cancel;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

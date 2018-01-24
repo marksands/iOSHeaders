@@ -230,6 +230,9 @@
 - (struct OpaqueCMTimebase *)timebase;
 - (struct OpaqueCMTimebase *)_copyTimebase;
 - (struct OpaqueCMTimebase *)_copyProxyTimebase;
+- (void)setDecodesAllFramesDuringOrdinaryPlayback:(_Bool)arg1;
+- (void)_quietlySetDecodesAllFramesDuringOrdinaryPlayback:(_Bool)arg1;
+- (_Bool)decodesAllFramesDuringOrdinaryPlayback;
 - (void)setAggressivelyCachesVideoFrames:(_Bool)arg1;
 - (void)_quietlySetAggressivelyCachesVideoFrames:(_Bool)arg1;
 - (_Bool)aggressivelyCachesVideoFrames;

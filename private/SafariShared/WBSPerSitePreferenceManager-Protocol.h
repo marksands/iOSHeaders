@@ -10,7 +10,7 @@
 
 @protocol WBSPerSitePreferenceManager <NSObject>
 @property(nonatomic) __weak id <WBSPerSitePreferenceManagerDelegate> delegate;
-- (void)removePreferenceValuesForDomains:(NSSet *)arg1 fromPreference:(WBSPerSitePreference *)arg2;
+- (void)removePreferenceValuesForDomains:(NSSet *)arg1 fromPreference:(WBSPerSitePreference *)arg2 completionHandler:(void (^)(_Bool))arg3;
 - (void)getAllDomainsConfiguredForPreference:(WBSPerSitePreference *)arg1 usingBlock:(void (^)(NSSet *))arg2;
 - (void)setDefaultValue:(WBSPerSitePreferenceValue *)arg1 ofPreference:(WBSPerSitePreference *)arg2 completionHandler:(void (^)(_Bool))arg3;
 - (void)getDefaultPreferenceValueForPreference:(WBSPerSitePreference *)arg1 completionHandler:(void (^)(WBSPerSitePreferenceValue *))arg2;

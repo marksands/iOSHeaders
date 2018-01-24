@@ -14,11 +14,11 @@
 {
     SSMutableAuthenticationContext *_authenticationContext;
     SSAuthenticateResponse *_authenticateResponse;
-    id parentViewController;
+    id _parentViewController;
 }
 
 + (_Bool)_copyErrorForAuthenticateResponse:(id)arg1 error:(id *)arg2;
-@property(retain) id parentViewController; // @synthesize parentViewController;
+@property(retain) id parentViewController; // @synthesize parentViewController=_parentViewController;
 - (void)_handleAuthenticateResponse:(id)arg1;
 - (id)uniqueKey;
 - (void)run;

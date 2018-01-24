@@ -65,7 +65,11 @@
 - (void)forceLocationUpdate;
 - (void)cancelDelayedUpdateTimer;
 - (void)scheduleDelayedUpdate:(double)arg1;
+- (_Bool)isLocationWithInRange:(id)arg1;
+- (_Bool)hasCrossedHourBoundary;
+- (_Bool)isCacheOutOfDate;
 - (_Bool)isLocalStaleOrOutOfDate;
+- (void)updateLocationWithNoConditionCheck;
 - (void)setLocationTrackingActive:(_Bool)arg1;
 - (void)monitorLocationAuthorization;
 - (void)setLocationTrackingReady:(_Bool)arg1 activelyTracking:(_Bool)arg2 watchKitExtension:(_Bool)arg3 shouldRequestAuthorization:(_Bool)arg4;

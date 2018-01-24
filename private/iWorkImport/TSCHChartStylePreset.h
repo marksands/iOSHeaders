@@ -30,6 +30,8 @@ __attribute__((visibility("hidden")))
 
 + (void)upgradeForTrendLineEquationAndR2LabelsPropertyMigrationFromChartStyle:(id)arg1 seriesStyles:(id)arg2;
 + (void)upgradeFor3DShadowPropertyMigrationFromChartStyle:(id)arg1 seriesStyles:(id)arg2;
++ (void)upgradeDonutStylesForSeriesPresets:(id)arg1;
++ (void)p_useProperty:(int)arg1 asProperty:(int)arg2 inStyle:(id)arg3;
 + (void)upgradeCalloutLineStylesForSeriesPresets:(id)arg1 valueAxisPresets:(id)arg2 paragraphPresets:(id)arg3;
 + (void)upgradeShadowPropertyForParagraphStyles:(id)arg1;
 + (void)upgradeTrendLinesAndErrorBarsForSeriesPresets:(id)arg1 valueAxisPresets:(id)arg2 paragraphPresets:(id)arg3;

@@ -13,6 +13,7 @@
 @property(nonatomic) unsigned long long cachePolicy;
 @property(readonly, nonatomic) _Bool showDymSuggestionCloseButton;
 @property(readonly, nonatomic) unsigned int dymSuggestionVisibleTime;
+@property(readonly, nonatomic) NSArray *retainedSearchMetadata;
 @property(readonly, nonatomic) GEODirectionIntent *directionIntent;
 @property(readonly, nonatomic) GEOResolvedItem *clientResolvedResult;
 @property(readonly, nonatomic) _Bool shouldEnableRedoSearch;

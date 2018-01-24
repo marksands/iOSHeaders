@@ -167,7 +167,7 @@
 - (void)_startStunCheck:(id)arg1;
 - (void)_processRemoteCandidates:(id)arg1;
 - (id)_selectInterfaceForAllocation:(id)arg1 stunTransport:(long long)arg2;
-- (_Bool)_isLocalAddressUsed:(const struct sockaddr *)arg1;
+- (_Bool)_isInterfaceUsedForRelay:(int)arg1 candidatePairs:(id)arg2;
 - (_Bool)_isReachableInterface:(id)arg1 interfaceIPVersion:(unsigned long long)arg2;
 - (void)_startExtIPDiscovery:(long long)arg1;
 - (_Bool)_requestSelfAllocationForInterfaceAddress:(id)arg1;

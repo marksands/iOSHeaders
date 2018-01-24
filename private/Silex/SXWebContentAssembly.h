@@ -17,7 +17,7 @@
 
 @property(readonly, nonatomic) unsigned long long features; // @synthesize features=_features;
 - (_Bool)isFeatureEnabled:(unsigned long long)arg1;
-- (void)loadPublicContainer:(id)arg1 privateContainer:(id)arg2;
+- (void)loadInRegistry:(id)arg1;
 - (id)initWithFeatures:(unsigned long long)arg1;
 
 // Remaining properties

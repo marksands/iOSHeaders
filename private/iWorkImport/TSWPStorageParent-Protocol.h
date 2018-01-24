@@ -6,9 +6,13 @@
 
 @protocol TSWPStorageParent
 @property(readonly, nonatomic) long long contentWritingDirection;
-- (_Bool)textIsLinked;
-- (_Bool)textIsVertical;
-- (_Bool)autoListTermination;
-- (_Bool)autoListRecognition;
+@property(readonly, nonatomic) _Bool preventsComments;
+@property(readonly, nonatomic) _Bool textIsLinked;
+@property(readonly, nonatomic) _Bool textIsVertical;
+@property(readonly, nonatomic) _Bool autoListTermination;
+@property(readonly, nonatomic) _Bool autoListRecognition;
+
+@optional
+@property(readonly, nonatomic) _Bool storageChangesInvalidateWrap;
 @end
 

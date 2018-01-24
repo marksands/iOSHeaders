@@ -44,7 +44,6 @@
 @property(readonly, nonatomic) NSObject<OS_os_log> *preloaderLog;
 - (void)_performNextRequests;
 - (void)_performTileRequestsPreemptedStepIndex:(long long)arg1 currentRoutePositionStepIndex:(long long)arg2 firstErrorStepIndex:(long long)arg3 firstLoadStepIndex:(long long)arg4 loadStepsAhead:(long long)arg5 loadStepsAheadIfNoWiFi:(long long)arg6;
-- (void)_performSubscriptionRequestsPreemptedStepIndex:(long long)arg1 currentRoutePositionStepIndex:(long long)arg2 firstErrorStepIndex:(long long)arg3 firstLoadStepIndex:(long long)arg4 loadStepsAhead:(long long)arg5 loadStepsAheadIfNoWiFi:(long long)arg6;
 - (void)_cancelRequestsInPast;
 - (id)_descriptionForStep:(id)arg1;
 - (void)_incrementErrorForStep:(id)arg1;

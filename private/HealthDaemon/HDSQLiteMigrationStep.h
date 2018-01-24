@@ -6,21 +6,27 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @interface HDSQLiteMigrationStep : NSObject
 {
-    _Bool _shouldDisableForeignKeys;
     CDUnknownBlockType _migrationHandler;
-    long long _startingSchemaVersion;
     long long _finalSchemaVersion;
+    long long _foreignKeyStatus;
+    NSString *_schemaName;
+    long long _requiredPrimarySchemaVersion;
 }
 
 + (id)migrationStepWithForeignKeysDisabledFrom:(long long)arg1 to:(long long)arg2 handler:(CDUnknownBlockType)arg3;
 + (id)migrationStepFrom:(long long)arg1 to:(long long)arg2 handler:(CDUnknownBlockType)arg3;
-@property(nonatomic) _Bool shouldDisableForeignKeys; // @synthesize shouldDisableForeignKeys=_shouldDisableForeignKeys;
+@property(readonly, nonatomic) long long requiredPrimarySchemaVersion; // @synthesize requiredPrimarySchemaVersion=_requiredPrimarySchemaVersion;
+@property(readonly, copy, nonatomic) NSString *schemaName; // @synthesize schemaName=_schemaName;
+@property(nonatomic) long long foreignKeyStatus; // @synthesize foreignKeyStatus=_foreignKeyStatus;
 @property(readonly, nonatomic) long long finalSchemaVersion; // @synthesize finalSchemaVersion=_finalSchemaVersion;
-@property(readonly, nonatomic) long long startingSchemaVersion; // @synthesize startingSchemaVersion=_startingSchemaVersion;
 @property(readonly, copy, nonatomic) CDUnknownBlockType migrationHandler; // @synthesize migrationHandler=_migrationHandler;
 - (void).cxx_destruct;
+- (id)description;
+- (id)initForSchema:(id)arg1 toVersion:(long long)arg2 requiringVersion:(long long)arg3 foreignKeys:(long long)arg4 handler:(CDUnknownBlockType)arg5;
 
 @end
 

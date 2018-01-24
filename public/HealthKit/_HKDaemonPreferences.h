@@ -10,10 +10,11 @@
 {
 }
 
-+ (void)_setPreferenceValue:(void *)arg1 forKey:(id)arg2;
++ (_Bool)_setPreferenceValue:(void *)arg1 forKey:(id)arg2;
 + (id)_safePreferenceForKey:(id)arg1 expectedReturnClass:(Class)arg2;
 + (_Bool)_boolValueForKey:(id)arg1;
 + (void)synchronizePreferencesWithWatch:(id)arg1;
++ (_Bool)setValue:(id)arg1 forKey:(id)arg2;
 + (id)valueForKey:(id)arg1;
 + (_Bool)shouldGenerateDemoData;
 + (_Bool)isStoreDemoModeSet;

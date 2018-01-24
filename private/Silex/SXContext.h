@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class SXDocumentController, SXHost;
+@class SXDocumentController;
 
 @interface SXContext : NSObject
 {
-    SXHost *_host;
+    id <SXHost> _host;
     SXDocumentController *_documentController;
     id <SXTextContentProvider> _textContentProvider;
     id <SXResourceDataSource> _resourceDataSource;
@@ -20,7 +20,7 @@
 @property(readonly, nonatomic) __weak id <SXResourceDataSource> resourceDataSource; // @synthesize resourceDataSource=_resourceDataSource;
 @property(readonly, nonatomic) id <SXTextContentProvider> textContentProvider; // @synthesize textContentProvider=_textContentProvider;
 @property(readonly, nonatomic) SXDocumentController *documentController; // @synthesize documentController=_documentController;
-@property(readonly, nonatomic) SXHost *host; // @synthesize host=_host;
+@property(readonly, nonatomic) id <SXHost> host; // @synthesize host=_host;
 - (void).cxx_destruct;
 - (id)initWithJSONData:(id)arg1 resourceDataSource:(id)arg2 host:(id)arg3 error:(id *)arg4;
 

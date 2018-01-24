@@ -9,6 +9,9 @@
 @class NSHashTable;
 
 @interface IKViewElement (ViewElementRegistry)
++ (id)tv_approximateViewElementForView:(id)arg1;
+- (id)tv_approximateView;
+- (void)tv_addViewProxy:(id)arg1;
 @property(readonly, nonatomic) NSHashTable *tv_viewProxyMap;
 @end
 

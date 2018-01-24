@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class SXComponent, SXComponentView;
+@class SXComponentView;
 
 @protocol SXComponentViewEngine <NSObject>
-- (SXComponentView *)componentViewForComponent:(SXComponent *)arg1;
+- (void)removeFactory:(id <SXComponentViewFactory>)arg1;
+- (void)addFactory:(id <SXComponentViewFactory>)arg1;
+- (SXComponentView *)componentViewForComponent:(id <SXComponent>)arg1;
 @end
 

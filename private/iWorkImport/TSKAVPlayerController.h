@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "TSKMediaPlayerController.h"
+#import "TSKLayerMediaPlayerController.h"
 
-@class AVPlayer, NSString;
+@class AVPlayer, NSMutableSet, NSString;
 
 __attribute__((visibility("hidden")))
-@interface TSKAVPlayerController : NSObject <TSKMediaPlayerController>
+@interface TSKAVPlayerController : NSObject <TSKLayerMediaPlayerController>
 {
     AVPlayer *mPlayer;
     id <TSKMediaPlayerControllerDelegate> mDelegate;
@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     _Bool mFastReversing;
     _Bool mFastForwarding;
     _Bool mIsObservingStatus;
+    NSMutableSet *mObservationTokens;
 }
 
 + (id)keyPathsForValuesAffectingCanFastForward;
@@ -37,27 +38,33 @@ __attribute__((visibility("hidden")))
 + (_Bool)automaticallyNotifiesObserversOfStartTime;
 + (id)keyPathsForValuesAffectingAbsoluteDuration;
 + (id)keyPathsForValuesAffectingDuration;
-@property(nonatomic, getter=isFastForwarding) _Bool fastForwarding; // @synthesize fastForwarding=mFastForwarding;
-@property(nonatomic, getter=isFastReversing) _Bool fastReversing; // @synthesize fastReversing=mFastReversing;
-@property(nonatomic, getter=isPlaying) _Bool playing; // @synthesize playing=mPlaying;
-@property(readonly, nonatomic) _Bool canPlay; // @synthesize canPlay=mCanPlay;
-@property(nonatomic) float volume; // @synthesize volume=mVolume;
-@property(nonatomic) long long repeatMode; // @synthesize repeatMode=mRepeatMode;
+- (_Bool)isFastForwarding;
+- (_Bool)isFastReversing;
+- (_Bool)isPlaying;
+- (_Bool)canPlay;
+- (float)volume;
+- (long long)repeatMode;
 @property(readonly, nonatomic) AVPlayer *player; // @synthesize player=mPlayer;
-@property(readonly, nonatomic) id <TSKMediaPlayerControllerDelegate> delegate; // @synthesize delegate=mDelegate;
+- (id)delegate;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)p_playerItemDidJumpTime:(id)arg1;
 - (void)p_playbackDidFailWithError:(id)arg1;
 - (void)p_playerItemDidPlayToEndTime:(id)arg1;
 - (void)playerItemDidPlayToEndTimeAtRate:(float)arg1;
+- (void)removeObservationToken:(id)arg1;
+- (void)addObservationToken:(id)arg1;
 - (void)removePeriodicTimeObserver:(id)arg1;
 - (id)addPeriodicTimeObserverForInterval:(double)arg1 block:(CDUnknownBlockType)arg2;
+- (void)setFastForwarding:(_Bool)arg1;
 - (_Bool)p_canFastForwardAtCurrentTime;
-@property(readonly, nonatomic) _Bool canFastForward;
+- (_Bool)canFastForward;
+- (void)setFastReversing:(_Bool)arg1;
 - (_Bool)p_canFastReverseAtCurrentTime;
-@property(readonly, nonatomic) _Bool canFastReverse;
+- (_Bool)canFastReverse;
 - (void)stopSynchronously;
-@property(nonatomic) float rate;
+- (void)setRate:(float)arg1;
+- (float)rate;
+- (void)setPlaying:(_Bool)arg1;
 - (void)seekToEnd;
 - (void)seekToBeginning;
 - (void)seekBackwardByOneFrame;
@@ -67,15 +74,19 @@ __attribute__((visibility("hidden")))
 - (void)scrubToTime:(double)arg1 withTolerance:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)scrubToTime:(double)arg1 withTolerance:(double)arg2;
 - (void)beginScrubbing;
-@property(readonly, nonatomic, getter=isScrubbing) _Bool scrubbing;
-@property(readonly, nonatomic) double remainingTime;
-@property(readonly, nonatomic) double currentTime;
-@property(readonly, nonatomic) double absoluteCurrentTime;
+- (_Bool)isScrubbing;
+- (double)remainingTime;
+- (double)currentTime;
+- (double)absoluteCurrentTime;
 - (void)p_applyVolumeToPlayerItem;
-@property(nonatomic) double endTime;
-@property(nonatomic) double startTime;
-@property(readonly, nonatomic) double absoluteDuration;
-@property(readonly, nonatomic) double duration;
+- (void)setVolume:(float)arg1;
+- (void)setRepeatMode:(long long)arg1;
+- (void)setEndTime:(double)arg1;
+- (double)endTime;
+- (void)setStartTime:(double)arg1;
+- (double)startTime;
+- (double)absoluteDuration;
+- (double)duration;
 - (id)newLayer;
 - (void)teardown;
 - (void)dealloc;

@@ -6,6 +6,9 @@
 
 #import "XCUIElementAttributes.h"
 
+@class XCTLocalizableStringInfo;
+
 @protocol XCElementAttributesPrivate <XCUIElementAttributes>
+@property(readonly, copy) XCTLocalizableStringInfo *localizableStringInfo;
 @end
 

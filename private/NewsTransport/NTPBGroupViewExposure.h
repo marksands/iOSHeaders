@@ -12,22 +12,27 @@
 
 @interface NTPBGroupViewExposure : PBCodable <NSCopying>
 {
+    int _curatedContentType;
     int _feedAutoSubscribeType;
     NSData *_feedViewExposureId;
     int _groupArticleCountInForYou;
+    int _groupDisplayMode;
     int _groupDisplayRankInForYou;
     NSString *_groupFeedId;
     int _groupFormationReason;
     int _groupPresentationReason;
     int _groupType;
+    NSData *_groupViewExposureId;
     NSMutableArray *_groupedArticleIds;
     int _topStoryMandatoryArticleCount;
     int _topStoryOptionalArticleCount;
     _Bool _isSubscribedToGroupFeed;
     _Bool _reachedEndOfGroup;
     struct {
+        unsigned int curatedContentType:1;
         unsigned int feedAutoSubscribeType:1;
         unsigned int groupArticleCountInForYou:1;
+        unsigned int groupDisplayMode:1;
         unsigned int groupDisplayRankInForYou:1;
         unsigned int groupFormationReason:1;
         unsigned int groupPresentationReason:1;
@@ -40,6 +45,7 @@
 }
 
 + (Class)groupedArticleIdsType;
+@property(retain, nonatomic) NSData *groupViewExposureId; // @synthesize groupViewExposureId=_groupViewExposureId;
 @property(nonatomic) _Bool reachedEndOfGroup; // @synthesize reachedEndOfGroup=_reachedEndOfGroup;
 @property(nonatomic) int topStoryOptionalArticleCount; // @synthesize topStoryOptionalArticleCount=_topStoryOptionalArticleCount;
 @property(nonatomic) int topStoryMandatoryArticleCount; // @synthesize topStoryMandatoryArticleCount=_topStoryMandatoryArticleCount;
@@ -58,6 +64,13 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasGroupDisplayMode;
+@property(nonatomic) int groupDisplayMode; // @synthesize groupDisplayMode=_groupDisplayMode;
+@property(readonly, nonatomic) _Bool hasGroupViewExposureId;
+- (int)StringAsCuratedContentType:(id)arg1;
+- (id)curatedContentTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasCuratedContentType;
+@property(nonatomic) int curatedContentType; // @synthesize curatedContentType=_curatedContentType;
 @property(nonatomic) _Bool hasReachedEndOfGroup;
 - (int)StringAsFeedAutoSubscribeType:(id)arg1;
 - (id)feedAutoSubscribeTypeAsString:(int)arg1;

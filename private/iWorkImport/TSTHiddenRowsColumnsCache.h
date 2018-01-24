@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableIndexSet *rowsInvalid; // @synthesize rowsInvalid=_rowsInvalid;
 @property(retain, nonatomic) TSTHiddenStateIndexSet *rowsUserVisible; // @synthesize rowsUserVisible=_rowsUserVisible;
 @property(retain, nonatomic) TSTHiddenStateIndexSet *rowsVisible; // @synthesize rowsVisible=_rowsVisible;
+- (void).cxx_destruct;
 - (void)validateChangeDescriptors:(id)arg1;
 - (void)validate:(id)arg1;
 - (unsigned short)numberOfVisibleRowsFromHeader:(unsigned short)arg1;
@@ -56,7 +57,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)hasHiddenColumnAtIndex:(unsigned char)arg1;
 - (_Bool)isRowUserHidden:(unsigned short)arg1;
 - (_Bool)hasHiddenRowAtIndex:(unsigned short)arg1;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

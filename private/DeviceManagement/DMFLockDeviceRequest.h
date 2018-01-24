@@ -12,9 +12,11 @@
 {
     NSString *_message;
     NSString *_phoneNumber;
+    NSString *_pin;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *pin; // @synthesize pin=_pin;
 @property(copy, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
 - (void).cxx_destruct;

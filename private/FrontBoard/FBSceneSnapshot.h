@@ -16,6 +16,7 @@
 }
 
 @property(readonly, retain, nonatomic) FBSceneSnapshotContext *context; // @synthesize context=_context;
+@property(readonly, nonatomic) void *fallbackIOSurface;
 - (_Bool)capture;
 @property(readonly, retain, nonatomic) UIImage *UIImage;
 @property(readonly, nonatomic) struct CGImage *CGImage;

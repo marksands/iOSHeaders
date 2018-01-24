@@ -20,6 +20,7 @@
     double _startTime;
     double _endTime;
     // Error parsing type: , name: _upAxis
+    _Bool _isSceneKitBridged;
     NSMapTable *_components;
     double _frameInterval;
     id <MDLAssetResolver> _resolver;
@@ -53,6 +54,7 @@
 - (_Bool)exportAssetToURL:(id)arg1 error:(id *)arg2;
 @property(readonly, nonatomic) unsigned long long count;
 - (id)initWithURL:(id)arg1 bufferAllocator:(id)arg2 preserveIndexing:(_Bool)arg3 error:(id *)arg4;
+- (id)initThroughSCNKitBridgeWithURL:(id)arg1 preserveTopology:(_Bool)arg2 error:(id)arg3;
 - (id)initWithURL:(id)arg1 vertexDescriptor:(id)arg2 bufferAllocator:(id)arg3;
 - (id)initWithURL:(id)arg1;
 - (id)initWithURL:(id)arg1 vertexDescriptor:(id)arg2 bufferAllocator:(id)arg3 preserveTopology:(_Bool)arg4 error:(id *)arg5;

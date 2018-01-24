@@ -12,7 +12,7 @@
 - (_Bool)_accessibilityHasVisibleFrame;
 - (long long)_accessibilityCompareGeometryForViewOrDictionary:(id)arg1;
 - (id)_accessibilityViewChildrenWithOptions:(id)arg1;
-- (void)_accessibilityEnumerateSiblingsWithParent:(id *)arg1 options:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (_Bool)_accessibilityEnumerateSiblingsWithParent:(id *)arg1 options:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)_handleSupplementaryViewIfNeededWithOrderedChildrenContainer:(id *)arg1 childOfOrderedChildrenContainer:(id *)arg2 headerIndex:(unsigned long long *)arg3 footerIndex:(unsigned long long *)arg4;
 - (id)_accessibilityParentFromOrderedChildrenContainer:(id)arg1;
 - (void)_accessibilityEnumerateSiblingsFromOrderedChildrenContainer:(id)arg1 fromChildAtIndex:(long long)arg2 headerIndex:(long long)arg3 footerIndex:(long long)arg4 isMovingForward:(_Bool)arg5 usingBlock:(CDUnknownBlockType)arg6;

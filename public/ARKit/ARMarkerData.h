@@ -7,21 +7,25 @@
 #import "NSObject.h"
 
 #import "ARResultData.h"
+#import "NSSecureCoding.h"
 
 @class NSString;
 
-@interface ARMarkerData : NSObject <ARResultData>
+@interface ARMarkerData : NSObject <ARResultData, NSSecureCoding>
 {
     _Bool _isTracked;
     unsigned long long _uid;
     // Error parsing type: {?="columns"[4]}, name: _transform
 }
 
++ (_Bool)supportsSecureCoding;
 // Error parsing type for property transform:
 // Property attributes: T{?=[4]},N,V_transform
 
 @property(nonatomic) _Bool isTracked; // @synthesize isTracked=_isTracked;
 @property(nonatomic) unsigned long long uid; // @synthesize uid=_uid;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 -     // Error parsing type: @160@0:8{?=[4]}16{?=[4]}80@144@152, name: anchorsForCameraWithTransform:referenceOriginTransform:existingAnchors:anchorsToRemove:
 
 // Remaining properties

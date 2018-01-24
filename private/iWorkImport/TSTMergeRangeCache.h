@@ -27,9 +27,9 @@ __attribute__((visibility("hidden")))
 - (_Bool)partiallyIntersectsCellRegion:(id)arg1;
 - (_Bool)partiallyIntersectsCellRange:(struct TSUCellRect)arg1;
 - (struct TSUCellRect)mergedRangeForCellID:(struct TSUCellCoord)arg1;
-- (vector_db509b29)mergeRangesIntersectingCellRegion:(id)arg1;
-- (vector_db509b29)mergeRangesIntersectingRange:(struct TSUCellRect)arg1;
-- (vector_db509b29)mergeRanges;
+- (vector_e87daf7b)mergeRangesIntersectingCellRegion:(id)arg1;
+- (vector_e87daf7b)mergeRangesIntersectingRange:(struct TSUCellRect)arg1;
+- (vector_e87daf7b)mergeRanges;
 - (id)mergedGridIndicesForDimension:(long long)arg1;
 - (void)enumerateCacheItemsIntersectingCellRegion:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateCacheItemsIntersectingRange:(struct TSUCellRect)arg1 usingBlock:(CDUnknownBlockType)arg2;

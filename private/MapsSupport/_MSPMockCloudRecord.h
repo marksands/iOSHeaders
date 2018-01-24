@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     NSString *_type;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSString *type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSDate *cloudRecordModificationDate; // @synthesize cloudRecordModificationDate=_cloudRecordModificationDate;

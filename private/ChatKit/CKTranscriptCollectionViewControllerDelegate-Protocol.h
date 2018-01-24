@@ -6,9 +6,12 @@
 
 #import "NSObject.h"
 
-@class CKBalloonView, CKChatItem, CKFullScreenEffect, CKMessageStatusChatItem, CKTranscriptCollectionViewController, NSArray, NSIndexPath;
+@class CKBalloonView, CKBrowserItemPayload, CKChatItem, CKFullScreenEffect, CKMessageStatusChatItem, CKTranscriptCollectionViewController, IMSticker, NSArray, NSIndexPath, NSString;
 
 @protocol CKTranscriptCollectionViewControllerDelegate <NSObject>
+- (_Bool)transcriptCollectionViewController:(CKTranscriptCollectionViewController *)arg1 balloonViewDidRequestCommitSticker:(IMSticker *)arg2 forPlugin:(NSString *)arg3 allowAllCommits:(_Bool)arg4 error:(id *)arg5;
+- (void)transcriptCollectionViewController:(CKTranscriptCollectionViewController *)arg1 balloonViewDidRequestStartEditingPayload:(CKBrowserItemPayload *)arg2 forPlugin:(NSString *)arg3 completionHandler:(void (^)(NSError *))arg4;
+- (_Bool)transcriptCollectionViewController:(CKTranscriptCollectionViewController *)arg1 balloonViewDidRequestCommitPayload:(CKBrowserItemPayload *)arg2 forPlugin:(NSString *)arg3 allowAllCommits:(_Bool)arg4 error:(id *)arg5;
 - (void)transcriptCollectionViewController:(CKTranscriptCollectionViewController *)arg1 balloonViewDidRequestPresentationStyleExpanded:(_Bool)arg2 forChatItem:(CKChatItem *)arg3;
 - (void)transcriptCollectionViewController:(CKTranscriptCollectionViewController *)arg1 didEndImpactEffectAnimationWithSendAnimationContext:(id <CKSendAnimationContext>)arg2;
 - (void)transcriptCollectionViewController:(CKTranscriptCollectionViewController *)arg1 willBeginImpactEffectAnimationWithSendAnimationContext:(id <CKSendAnimationContext>)arg2;

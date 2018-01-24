@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class TSCHChartDrawableInfo, TSDConnectionLineInfo, TSDGroupInfo, TSDImageInfo, TSDMovieInfo, TSDShapeInfo, TSTInfo, TSWPShapeInfo, TSWPStorage, TSWPTOCInfo;
+@class TSAGalleryInfo, TSAGalleryItem, TSCHChartDrawableInfo, TSDConnectionLineInfo, TSDGroupInfo, TSDImageInfo, TSDMovieInfo, TSDShapeInfo, TSTInfo, TSWPShapeInfo, TSWPStorage, TSWPTOCInfo;
 
 @protocol TSKModelVisitor <NSObject>
 - (void)visitTSWPTOCInfo:(TSWPTOCInfo *)arg1;
@@ -19,5 +19,7 @@
 - (void)visitTSDGroupInfo:(TSDGroupInfo *)arg1;
 - (void)visitTSDConnectionLineInfo:(TSDConnectionLineInfo *)arg1;
 - (void)visitTSCHChartDrawableInfo:(TSCHChartDrawableInfo *)arg1;
+- (void)visitTSAGalleryItem:(TSAGalleryItem *)arg1;
+- (void)visitTSAGalleryInfo:(TSAGalleryInfo *)arg1;
 @end
 

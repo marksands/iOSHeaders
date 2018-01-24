@@ -6,10 +6,11 @@
 
 #import <MediaPlayer/MPStoreModelObjectBuilder.h>
 
-@class MPStoreModelAlbumBuilder, MPStoreModelArtistBuilder, MPStoreModelMovieBuilder, MPStoreModelPlaylistBuilder, MPStoreModelSongBuilder, MPStoreModelTVEpisodeBuilder, MPStoreModelTVSeasonBuilder, MPStoreModelTVShowBuilder;
+@class MPStoreModelAlbumBuilder, MPStoreModelArtistBuilder, MPStoreModelMovieBuilder, MPStoreModelPlaylistBuilder, MPStoreModelSongBuilder, MPStoreModelTVEpisodeBuilder, MPStoreModelTVSeasonBuilder, MPStoreModelTVShowBuilder, NSMapTable;
 
 @interface MPStoreModelGenericObjectBuilder : MPStoreModelObjectBuilder
 {
+    NSMapTable *_baseContentItemIDToOccurrenceCount;
     MPStoreModelAlbumBuilder *_albumBuilder;
     MPStoreModelArtistBuilder *_artistBuilder;
     MPStoreModelMovieBuilder *_movieBuilder;
@@ -19,10 +20,13 @@
     MPStoreModelTVSeasonBuilder *_tvSeasonBuilder;
     MPStoreModelTVShowBuilder *_tvShowBuilder;
     _Bool _shouldUsePlaylistEntry;
+    _Bool _shouldUseUniqueContentItemIDs;
 }
 
+@property(nonatomic) _Bool shouldUseUniqueContentItemIDs; // @synthesize shouldUseUniqueContentItemIDs=_shouldUseUniqueContentItemIDs;
 @property(nonatomic) _Bool shouldUsePlaylistEntry; // @synthesize shouldUsePlaylistEntry=_shouldUsePlaylistEntry;
 - (void).cxx_destruct;
+- (id)_modelObjectWithUniqueContentItemIDForModelObject:(id)arg1;
 - (id)modelObjectWithStoreItemMetadata:(id)arg1 sourceModelObject:(id)arg2;
 
 @end

@@ -53,7 +53,7 @@
 - (void)_internalQueue_invokeDeactivationCompletionBlocks;
 - (void)_loyaltyEngineConfigurationChanged:(id)arg1;
 - (void)_handleConventionalTransactionWithContext:(id)arg1;
-- (void)_handleFelicaTransitTransactionWithContext:(id)arg1;
+- (void)_handleTransitTransactionWithContext:(id)arg1;
 - (void)contactlessInterfaceSessionHasPendingServerRequest:(id)arg1;
 - (void)contactlessInterfaceSessionDidFailDeferredAuthorization:(id)arg1;
 - (void)contactlessInterfaceSessionDidSelectValueAddedService:(id)arg1;

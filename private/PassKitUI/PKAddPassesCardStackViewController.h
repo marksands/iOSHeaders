@@ -34,6 +34,8 @@
 - (void)_nextButtonPressedForPersonalization:(id)arg1;
 - (void)_addButtonPressed:(id)arg1;
 - (void)_cancelButtonPressed:(id)arg1;
+- (void)resetBrightness;
+- (void)evaluateBrightness;
 - (void)viewControllerDidTerminateSetupFlow:(id)arg1;
 - (void)passPersonalizationViewController:(id)arg1 didFinishPersonalizingPass:(id)arg2;
 - (void)groupsController:(id)arg1 didMoveGroup:(id)arg2 fromIndex:(unsigned long long)arg3 toIndex:(unsigned long long)arg4;

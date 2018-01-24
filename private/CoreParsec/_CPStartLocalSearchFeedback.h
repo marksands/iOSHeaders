@@ -32,9 +32,9 @@
 @property(nonatomic) int indexType; // @synthesize indexType=_indexType;
 @property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
 @property(nonatomic) int triggerEvent; // @synthesize triggerEvent=_triggerEvent;
-@property(copy, nonatomic) NSString *uuid;
+@property(copy, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 @property(copy, nonatomic) NSString *input; // @synthesize input=_input;
-@property(nonatomic) unsigned long long timestamp;
+@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;

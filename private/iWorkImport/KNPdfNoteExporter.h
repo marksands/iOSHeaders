@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface KNPdfNoteExporter : KNPdfExporter
 {
-    _Bool mIsPrintingNote;
+    _Bool _isPrintingNote;
 }
 
 - (_Bool)drawCurrentPageInContext:(struct CGContext *)arg1 viewScale:(double)arg2 unscaledClipRect:(struct CGRect)arg3 createPage:(_Bool)arg4;

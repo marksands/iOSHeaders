@@ -22,7 +22,7 @@
     struct AURemoteParameterObserver *_remoteObserverToken;
     struct AURemoteParameterObserver *_remoteRecorderToken;
     id <_AURemoteParameterSynchronization> _remoteParameterSynchronizer;
-    vector_2580a1ea _addrToParamIndex;
+    vector_66b3461a _addrToParamIndex;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -41,7 +41,7 @@
 @property(nonatomic) struct AUObserverController *observerController; // @synthesize observerController=_observerController;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *observationQueue; // @synthesize observationQueue=_observationQueue;
 @property(nonatomic) _Bool _autoCreatedForV2AU; // @synthesize _autoCreatedForV2AU=__autoCreatedForV2AU;
-@property(nonatomic) vector_2580a1ea addrToParamIndex; // @synthesize addrToParamIndex=_addrToParamIndex;
+@property(nonatomic) vector_66b3461a addrToParamIndex; // @synthesize addrToParamIndex=_addrToParamIndex;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)remoteSyncParameter:(unsigned long long)arg1 value:(float)arg2 extOriginator:(unsigned long long)arg3 hostTime:(unsigned long long)arg4 eventType:(unsigned int)arg5;

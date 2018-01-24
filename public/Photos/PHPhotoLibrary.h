@@ -148,6 +148,7 @@
 - (_Bool)invalidatePersistentGraphCachesAndReturnError:(id *)arg1;
 - (_Bool)invalidateTransientGraphCachesAndReturnError:(id *)arg1;
 - (id)exportGraphForPurpose:(id)arg1 error:(id *)arg2;
+- (void)requestHighlightEstimatesWithCompletion:(CDUnknownBlockType)arg1;
 - (id)graphStatisticsDescription:(id *)arg1;
 - (id)graphStatusDescription:(id *)arg1;
 - (id)relatedDebugInformationBetweenReferenceAssetCollectionForLocalIdentifier:(id)arg1 andRelatedAssetCollectionForLocalIdentifier:(id)arg2 options:(id)arg3 precision:(unsigned long long)arg4 relatedType:(unsigned long long)arg5 error:(id *)arg6;

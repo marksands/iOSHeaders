@@ -13,7 +13,7 @@
 #import "UISpringLoadedInteractionSupporting.h"
 #import "_UIInterfaceActionPresenting.h"
 
-@class NSArray, NSLayoutConstraint, NSMutableArray, NSPointerArray, NSString, UIFont, UIInterfaceActionGroup, UIInterfaceActionRepresentationView, UIInterfaceActionSelectionTrackingController, UIInterfaceActionSeparatorAttributes, UIInterfaceActionVisualStyle, UILongPressGestureRecognizer, UIView<UISeparatorDisplaying>, _UIContentConstraintsLayoutGuide, _UIInterfaceActionRepresentationsSequenceView;
+@class NSArray, NSLayoutConstraint, NSMutableArray, NSPointerArray, NSString, UIFont, UIInterfaceActionGroup, UIInterfaceActionHighlightAttributes, UIInterfaceActionRepresentationView, UIInterfaceActionSelectionTrackingController, UIInterfaceActionSeparatorAttributes, UIInterfaceActionVisualStyle, UILongPressGestureRecognizer, UIView<UISeparatorDisplaying>, _UIContentConstraintsLayoutGuide, _UIInterfaceActionRepresentationsSequenceView;
 
 @interface UIInterfaceActionGroupView : UIView <UIScrollViewDelegate, UIGestureRecognizerDelegatePrivate, _UIInterfaceActionPresenting, UIInterfaceActionGroupDisplayPropertyObserver, UIInterfaceActionGroupDisplaying, UISpringLoadedInteractionSupporting>
 {
@@ -48,6 +48,7 @@
     UILongPressGestureRecognizer *_actionSelectionGestureRecognizer;
     double _requiredActionRepresentationWidth;
     UIInterfaceActionRepresentationView *_preferredActionRepresentation;
+    UIInterfaceActionHighlightAttributes *_visualStyleOverrideActionHighlightAttributes;
     UIInterfaceActionSeparatorAttributes *_visualStyleOverrideSeparatorAttributes;
     UIFont *_visualStyleOverrideTitleLabelFont;
     double _selectionHighlightContinuousCornerRadius;
@@ -57,6 +58,7 @@
 @property(nonatomic, getter=_drawsBackground, setter=_setDrawsBackground:) _Bool drawsBackground; // @synthesize drawsBackground=_drawsBackground;
 @property(retain, nonatomic, getter=_visualStyleOverrideTitleLabelFont, setter=_setVisualStyleOverrideTitleLabelFont:) UIFont *visualStyleOverrideTitleLabelFont; // @synthesize visualStyleOverrideTitleLabelFont=_visualStyleOverrideTitleLabelFont;
 @property(retain, nonatomic, getter=_visualStyleOverrideSeparatorAttributes, setter=_setVisualStyleOverrideSeparatorAttributes:) UIInterfaceActionSeparatorAttributes *visualStyleOverrideSeparatorAttributes; // @synthesize visualStyleOverrideSeparatorAttributes=_visualStyleOverrideSeparatorAttributes;
+@property(retain, nonatomic, setter=_setVisualStyleOverrideActionHighlightAttributes:) UIInterfaceActionHighlightAttributes *visualStyleOverrideActionHighlightAttributes; // @synthesize visualStyleOverrideActionHighlightAttributes=_visualStyleOverrideActionHighlightAttributes;
 @property(retain, nonatomic) UIInterfaceActionRepresentationView *preferredActionRepresentation; // @synthesize preferredActionRepresentation=_preferredActionRepresentation;
 @property(nonatomic) double requiredActionRepresentationWidth; // @synthesize requiredActionRepresentationWidth=_requiredActionRepresentationWidth;
 @property(retain, nonatomic) UILongPressGestureRecognizer *actionSelectionGestureRecognizer; // @synthesize actionSelectionGestureRecognizer=_actionSelectionGestureRecognizer;

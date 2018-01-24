@@ -8,7 +8,7 @@
 
 #import "PKFingerprintGlyphViewDelegate.h"
 
-@class CALayer, NSMutableArray, NSString, PKCheckGlyphLayer, PKFingerprintGlyphView, PKPhoneGlyphLayer, UIColor;
+@class CALayer, NSMutableArray, NSString, PKCheckGlyphLayer, PKFingerprintGlyphView, PKMicaLayer, PKPhoneGlyphLayer, UIColor;
 
 @interface PKGlyphView : UIView <PKFingerprintGlyphViewDelegate>
 {
@@ -23,10 +23,14 @@
     struct {
         unsigned int showingPhone:1;
         unsigned int phoneRotated:1;
+        unsigned int showingUserIntentPhone:1;
+        unsigned int showingUserIntentArrow:1;
     } _layoutFlags;
     PKFingerprintGlyphView *_fingerprintView;
     PKPhoneGlyphLayer *_phoneLayer;
     PKCheckGlyphLayer *_checkLayer;
+    PKMicaLayer *_userIntentArrowLayer;
+    PKMicaLayer *_userIntentPhoneLayer;
     double _phoneAspectRatio;
     CALayer *_customImageLayer;
     struct UIColor *_secondaryColor;
@@ -62,6 +66,7 @@
 - (void)_setRecognizedIfNecessaryWithTransitionIndex:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_updateCheckViewStateAnimated:(_Bool)arg1;
 - (void)_updateCustomImageLayerOpacityAnimated:(_Bool)arg1;
+- (void)_updateUserIntentLayoutAnimated:(_Bool)arg1;
 - (void)_endPhoneWiggle;
 - (void)_startPhoneWiggle;
 - (void)_updatePhoneWiggleIfNecessary;

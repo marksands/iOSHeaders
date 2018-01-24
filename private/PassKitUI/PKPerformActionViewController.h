@@ -18,6 +18,7 @@
     PKPerformActionLoadingView *_loadingView;
     id <PKPaymentDataProvider> _paymentDataProvider;
     _Bool _remoteContentFetched;
+    _Bool _fieldsVerified;
     PKServiceProviderPurchase *_completedPurchase;
     PKPaymentPass *_pass;
     PKPaymentPassAction *_action;

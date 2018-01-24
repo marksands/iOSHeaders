@@ -6,27 +6,21 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class FCArticleList, FCCloudContext, NSArray, NSDictionary, NSError;
+@class FCCloudContext, FCTopStoriesOperationResult, NSError;
 
 @interface FCTopStoriesOperation : FCOperation
 {
     id <FCAppConfiguration> _appConfiguration;
     FCCloudContext *_context;
     id <FCChannelProviding> _topStoriesChannel;
-    NSArray *_mandatoryHeadlines;
-    NSArray *_optionalHeadlines;
-    NSDictionary *_topStoriesMetadataByArticleID;
+    FCTopStoriesOperationResult *_topStoriesResult;
     NSError *_error;
     CDUnknownBlockType _catchUpCompletionHandler;
-    FCArticleList *_articleList;
 }
 
-@property(retain) FCArticleList *articleList; // @synthesize articleList=_articleList;
 @property(copy) CDUnknownBlockType catchUpCompletionHandler; // @synthesize catchUpCompletionHandler=_catchUpCompletionHandler;
 @property(retain) NSError *error; // @synthesize error=_error;
-@property(copy) NSDictionary *topStoriesMetadataByArticleID; // @synthesize topStoriesMetadataByArticleID=_topStoriesMetadataByArticleID;
-@property(copy) NSArray *optionalHeadlines; // @synthesize optionalHeadlines=_optionalHeadlines;
-@property(copy) NSArray *mandatoryHeadlines; // @synthesize mandatoryHeadlines=_mandatoryHeadlines;
+@property(retain) FCTopStoriesOperationResult *topStoriesResult; // @synthesize topStoriesResult=_topStoriesResult;
 @property(copy) id <FCChannelProviding> topStoriesChannel; // @synthesize topStoriesChannel=_topStoriesChannel;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
 @property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;

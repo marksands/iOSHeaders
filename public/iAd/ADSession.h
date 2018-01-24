@@ -7,12 +7,11 @@
 #import "NSObject.h"
 
 #import "ADAdSheetConnectionDelegate.h"
-#import "ADAdSheetProxyDelegate.h"
 #import "ADSession_RPC.h"
 
 @class ADAdSheetConnection, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
-@interface ADSession : NSObject <ADSession_RPC, ADAdSheetProxyDelegate, ADAdSheetConnectionDelegate>
+@interface ADSession : NSObject <ADSession_RPC, ADAdSheetConnectionDelegate>
 {
     _Bool _applicationCanReceiveBackgroundAds;
     _Bool _appExtensionCanReceiveAds;
@@ -40,7 +39,6 @@
 - (void)segmentDataForSignedInUserWithBlock:(CDUnknownBlockType)arg1;
 - (void)addClientToSegments:(id)arg1 replaceExisting:(_Bool)arg2;
 - (void)addClientToSegments:(id)arg1 replaceExisting:(_Bool)arg2 privateSegment:(_Bool)arg3;
-- (void)requestAttributionDetailsWithBlock:(CDUnknownBlockType)arg1;
 - (void)lookupAdConversionDetails:(CDUnknownBlockType)arg1;
 - (void)determineAppInstallAttributionWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_reportAdSubscriptionEvent:(id)arg1;
@@ -57,6 +55,7 @@
 - (void)_remote_creativeWithAdSpaceIdentifier:(id)arg1 didFailWithError:(id)arg2;
 - (void)_remote_adImpressionReportedWithIdentifier:(id)arg1;
 - (void)_remote_adImpressionDidLoadWithPublicAttributes:(id)arg1 identifier:(id)arg2;
+- (void)_remote_contentProxyURLConnectDidChange:(id)arg1;
 - (void)_remote_contentProxyURLDidChange:(id)arg1;
 - (id)_adSpaceForIdentifier:(id)arg1;
 - (void)unregisterAdSpace:(id)arg1;
@@ -69,9 +68,8 @@
 - (id)rpcProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) id <ADSSession_RPC> rpcProxy;
 - (void)performWhenConnected:(CDUnknownBlockType)arg1;
-- (_Bool)shouldConnectToAdSheet;
 - (id)additionalAdSheetLaunchOptions;
-- (_Bool)shouldLaunchAdSheet;
+- (_Bool)shouldConnectToAdSheet;
 - (id)_linkedOnVersion;
 - (id)init;
 - (void)dealloc;

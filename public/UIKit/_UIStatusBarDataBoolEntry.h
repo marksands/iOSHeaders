@@ -11,6 +11,7 @@
     _Bool _boolValue;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)entryWithBoolValue:(_Bool)arg1;
 @property(nonatomic) _Bool boolValue; // @synthesize boolValue=_boolValue;
 - (id)_ui_descriptionBuilder;

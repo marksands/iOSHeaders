@@ -11,13 +11,14 @@
 __attribute__((visibility("hidden")))
 @interface KNRecordingMovieEvent : KNRecordingEvent
 {
-    TSPLazyReference *mMovieInfoReference;
-    long long mMovieEventType;
-    double mMovieEventValue;
+    TSPLazyReference *_movieInfoReference;
+    long long _movieEventType;
+    double _movieEventValue;
 }
 
-@property(readonly, nonatomic) double movieEventValue; // @synthesize movieEventValue=mMovieEventValue;
-@property(readonly, nonatomic) long long movieEventType; // @synthesize movieEventType=mMovieEventType;
+@property(readonly, nonatomic) double movieEventValue; // @synthesize movieEventValue=_movieEventValue;
+@property(readonly, nonatomic) long long movieEventType; // @synthesize movieEventType=_movieEventType;
+- (void).cxx_destruct;
 - (_Bool)isIgnoredWhenSeeking;
 @property(readonly, nonatomic) _Bool stopsPlayback;
 @property(readonly, nonatomic) _Bool startsPlayback;
@@ -30,7 +31,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithStartTime:(double)arg1;
 - (id)initWithStartTime:(double)arg1 endingScrubbingForMovieInfo:(id)arg2 withRate:(double)arg3;
 - (id)initWithStartTime:(double)arg1 beginningScrubbingForMovieInfo:(id)arg2;

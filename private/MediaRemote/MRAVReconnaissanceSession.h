@@ -6,14 +6,16 @@
 
 #import "NSObject.h"
 
-@class MRAVEndpoint, MRAVRoutingDiscoverySession, NSArray, NSMutableSet, NSSet, NSTimer;
+@class MRAVEndpoint, MRAVRoutingDiscoverySession, NSArray, NSMutableSet, NSSet, NSString, NSTimer;
 
 @interface MRAVReconnaissanceSession : NSObject
 {
+    double _timeoutTimerTimeout;
     _Bool _useWeakMatching;
     _Bool _searchInProgress;
     unsigned int _endpointFeatures;
     NSSet *_matchingOutputDeviceUIDsSet;
+    NSString *_matchingOutputDeviceGroupID;
     MRAVRoutingDiscoverySession *_discoverySession;
     id _discoverySessionCallbackToken;
     CDUnknownBlockType _callback;
@@ -29,6 +31,7 @@
 @property(copy, nonatomic) CDUnknownBlockType callback; // @synthesize callback=_callback;
 @property(retain, nonatomic) id discoverySessionCallbackToken; // @synthesize discoverySessionCallbackToken=_discoverySessionCallbackToken;
 @property(retain, nonatomic) MRAVRoutingDiscoverySession *discoverySession; // @synthesize discoverySession=_discoverySession;
+@property(retain, nonatomic) NSString *matchingOutputDeviceGroupID; // @synthesize matchingOutputDeviceGroupID=_matchingOutputDeviceGroupID;
 @property(retain, nonatomic) NSSet *matchingOutputDeviceUIDsSet; // @synthesize matchingOutputDeviceUIDsSet=_matchingOutputDeviceUIDsSet;
 @property(nonatomic) _Bool useWeakMatching; // @synthesize useWeakMatching=_useWeakMatching;
 @property(readonly, nonatomic) unsigned int endpointFeatures; // @synthesize endpointFeatures=_endpointFeatures;
@@ -40,7 +43,7 @@
 - (void)beginSearchWithTimeout:(double)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSArray *matchingOutputDeviceUIDs;
 - (void)dealloc;
-- (id)initWithOutputDeviceUIDs:(id)arg1 features:(unsigned int)arg2;
+- (id)initWithOutputDeviceUIDs:(id)arg1 outputDeviceGroupID:(id)arg2 features:(unsigned int)arg3;
 
 @end
 

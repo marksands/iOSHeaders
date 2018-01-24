@@ -24,7 +24,7 @@
 - (id)_identifierForGroupType:(long long)arg1;
 - (_Bool)_defaultAllowsNativeAdsValueForGroupType:(long long)arg1;
 - (unsigned long long)_defaultGroupPositionValueForGroupType:(long long)arg1;
-- (unsigned long long)_defaultProceedingGroupsCount:(long long)arg1;
+- (unsigned long long)_defaultPrecedingGroupsCount:(long long)arg1;
 - (id)configurationForGroupType:(long long)arg1;
 - (id)initWithJSONConfiguration:(id)arg1;
 

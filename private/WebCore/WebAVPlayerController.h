@@ -29,8 +29,8 @@ __attribute__((visibility("hidden")))
     _Bool _allowsExternalPlayback;
     _Bool _pictureInPicturePossible;
     AVPlayerController *_playerControllerProxy;
-    struct WebPlaybackSessionModel *_delegate;
-    struct WebPlaybackSessionInterfaceAVKit *_playbackSessionInterface;
+    struct PlaybackSessionModel *_delegate;
+    struct PlaybackSessionInterfaceAVKit *_playbackSessionInterface;
     double _rate;
     double _contentDuration;
     double _contentDurationWithinEndTimes;
@@ -90,8 +90,8 @@ __attribute__((visibility("hidden")))
 @property _Bool canPause; // @synthesize canPause=_canPause;
 @property _Bool canPlay; // @synthesize canPlay=_canPlay;
 @property _Bool canScanBackward; // @synthesize canScanBackward=_canScanBackward;
-@property struct WebPlaybackSessionInterfaceAVKit *playbackSessionInterface; // @synthesize playbackSessionInterface=_playbackSessionInterface;
-@property struct WebPlaybackSessionModel *delegate; // @synthesize delegate=_delegate;
+@property struct PlaybackSessionInterfaceAVKit *playbackSessionInterface; // @synthesize playbackSessionInterface=_playbackSessionInterface;
+@property struct PlaybackSessionModel *delegate; // @synthesize delegate=_delegate;
 @property(retain) AVPlayerController *playerControllerProxy; // @synthesize playerControllerProxy=_playerControllerProxy;
 - (void)resetMediaState;
 - (_Bool)hasSeekableLiveStreamingContent;
@@ -124,6 +124,9 @@ __attribute__((visibility("hidden")))
 - (_Bool)hasLiveStreamingContent;
 - (void)setCurrentTimeWithinEndTimes:(double)arg1;
 - (double)currentTimeWithinEndTimes;
+- (void)seekByTimeInterval:(double)arg1 toleranceBefore:(double)arg2 toleranceAfter:(double)arg3;
+- (void)seekByTimeInterval:(double)arg1;
+- (void)seekToTime:(double)arg1 toleranceBefore:(double)arg2 toleranceAfter:(double)arg3;
 - (void)seekToTime:(double)arg1;
 - (void)endScrubbing:(id)arg1;
 - (void)beginScrubbing:(id)arg1;

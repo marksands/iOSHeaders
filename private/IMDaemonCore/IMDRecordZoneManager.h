@@ -35,6 +35,7 @@
 @property(readonly, nonatomic) CKRecordZoneID *attachmentRecordZoneID; // @synthesize attachmentRecordZoneID=_attachmentRecordZoneID;
 @property(readonly, nonatomic) CKRecordZone *chatRecordZone; // @synthesize chatRecordZone=_chatRecordZone;
 @property(readonly, nonatomic) CKRecordZoneID *chatRecordZoneID; // @synthesize chatRecordZoneID=_chatRecordZoneID;
+- (void)_deleteAllZonesForDatabase:(id)arg1;
 - (void)deleteAllZones;
 - (void)createSubscriptionIfNeededOnDeDupeZoneForSubscription:(id)arg1 recordType:(id)arg2;
 - (void)deleteDeDupeSaltZone;
@@ -45,6 +46,7 @@
 - (void)createAttachmentZoneIfNeededWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)deleteChatZone;
 - (void)createChatZoneIfNeededWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)_deleteZone:(id)arg1 forDatabase:(id)arg2;
 - (void)_deleteZone:(id)arg1;
 - (void)_createRecordZoneIfNeeded:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_createRecordZone:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;

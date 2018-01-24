@@ -31,6 +31,7 @@
 - (oneway void)showRestrictedAlert;
 - (oneway void)showActiveDeviceChangedAlert;
 - (oneway void)showSwitchMeDeviceAlertUsingCurrentMeDeviceName:(NSString *)arg1 completion:(void (^)(_Bool))arg2;
+- (oneway void)includeDeviceInAutomations:(void (^)(_Bool, NSError *))arg1;
 - (oneway void)nearbyLocationsWithCompletion:(void (^)(NSSet *, NSError *))arg1;
 - (oneway void)favoritesForMaxCount:(NSNumber *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (oneway void)getMaxLocatingInterval:(void (^)(double, NSError *))arg1;

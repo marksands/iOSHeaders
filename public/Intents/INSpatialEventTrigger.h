@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class CLPlacemark;
 
-@interface INSpatialEventTrigger : NSObject
+@interface INSpatialEventTrigger : NSObject <NSSecureCoding>
 {
     CLPlacemark *_placemark;
     long long _event;

@@ -71,6 +71,7 @@
 - (void)entitlementStatusChanged;
 - (void)handleURL:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)prefetchResourcesFor:(id)arg1;
 - (id)specifiers;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;

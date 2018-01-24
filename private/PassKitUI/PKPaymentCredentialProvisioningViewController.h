@@ -22,8 +22,11 @@
     PKPaymentCredential *_paymentCredential;
     PKPaymentSetupProduct *_setupProduct;
     _Bool _allowsManualEntry;
+    _Bool _previouslyAcceptedTerms;
+    _Bool _shouldAutoProvision;
 }
 
+@property(nonatomic) _Bool shouldAutoProvision; // @synthesize shouldAutoProvision=_shouldAutoProvision;
 - (void).cxx_destruct;
 - (void)paymentPassUpdatedOnCredential:(id)arg1;
 - (void)_cleanupTransferredCredentialFromSourceDeviceWithCompletion:(CDUnknownBlockType)arg1;
@@ -55,6 +58,7 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
+- (id)initWithProvisioningController:(id)arg1 context:(long long)arg2 setupDelegate:(id)arg3 paymentCredential:(id)arg4 setupProduct:(id)arg5 allowsManualEntry:(_Bool)arg6 previouslyAcceptedTerms:(_Bool)arg7;
 - (id)initWithProvisioningController:(id)arg1 context:(long long)arg2 setupDelegate:(id)arg3 paymentCredential:(id)arg4 setupProduct:(id)arg5 allowsManualEntry:(_Bool)arg6;
 
 // Remaining properties

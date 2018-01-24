@@ -19,6 +19,7 @@
     SGDatabaseJournalFile *_currentFile;
 }
 
++ (id)_allowedTypesForQueryKeyedArchives;
 + (CDUnknownBlockType)_binderForDictionary:(id)arg1;
 + (id)journalForInMemoryDb;
 + (id)journalWithName:(id)arg1;

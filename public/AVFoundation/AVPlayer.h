@@ -283,6 +283,7 @@
 @property(copy, nonatomic) NSString *captionRenderingStrategy;
 @property(copy, nonatomic) NSString *captionPipelineStrategy;
 @property(retain) AVAudioSession *audioSession;
+@property(nonatomic) unsigned long long preferredVideoDecoderGPURegistryID;
 
 @end
 

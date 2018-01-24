@@ -23,6 +23,9 @@
 @property(readonly) NSString *statusNotEligible;
 @property(readonly) NSString *statusNeedsManualVerification;
 @property(readonly) NSString *statusEligible;
+@property(readonly) NSString *provisioningStyleOnce;
+@property(readonly) NSString *provisioningStyleNever;
+@property(readonly) NSString *provisioningStyleAlways;
 - (id)_className;
 
 @end

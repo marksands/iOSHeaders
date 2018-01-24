@@ -31,10 +31,11 @@
 - (void)cancelPendingWriteSynchronously;
 - (void)completePendingWriteSynchronously;
 - (void)performScheduledWriteSynchronously;
+- (void)startScheduledWriteNowWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)startScheduledWriteNow;
 - (void)scheduleWrite;
 - (void)_cancelPendingWriteSynchronouslyLeavingSuddenTerminationIntact;
-- (void)_writeDataAsynchronously:(id)arg1;
+- (void)_writeDataAsynchronously:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_writeData:(id)arg1;
 - (void)_waitForWriteCompletion;
 - (id)_dataFromDataSource;

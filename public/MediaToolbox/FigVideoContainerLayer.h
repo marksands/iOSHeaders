@@ -20,6 +20,7 @@
 - (void)layoutSublayers;
 - (void)dealloc;
 - (id)actionForKey:(id)arg1;
+- (id)init;
 
 @end
 

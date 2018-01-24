@@ -13,6 +13,7 @@
 }
 
 + (id)typeString;
+- (unsigned long long)traits;
 @property(readonly, nonatomic) NSAttributedString *captionWithLocalizedRoleForSpeaking;
 @property(readonly, nonatomic) _Bool shouldBeExposedToAssistiveTechnology;
 

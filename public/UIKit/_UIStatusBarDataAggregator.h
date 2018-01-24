@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_coalescedTimers;
 }
 
++ (void)initialize;
 @property(retain, nonatomic) NSMutableDictionary *coalescedTimers; // @synthesize coalescedTimers=_coalescedTimers;
 @property(retain, nonatomic) NSMutableDictionary *coalescedKeys; // @synthesize coalescedKeys=_coalescedKeys;
 @property(retain, nonatomic) NSMutableDictionary *pendingUpdates; // @synthesize pendingUpdates=_pendingUpdates;

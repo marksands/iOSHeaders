@@ -50,8 +50,8 @@ __attribute__((visibility("hidden")))
 - (id)slideNodeForFormulaReferenceName:(id)arg1 caseSensitive:(_Bool)arg2;
 - (id)formulaReferenceNameForSlideNode:(id)arg1;
 - (void)resolveDefaultMaster;
-- (id)p_findDefaultMaster;
-- (id)i_findDefaultMaster;
+- (id)p_findDefaultMasterWithoutLoadingSlides;
+- (id)i_findDefaultMasterDuringArchiving;
 - (void)selectSecondMasterAsDefault;
 - (void)p_selectSecondMasterAsDefault;
 - (id)p_findSecondMaster;

@@ -19,6 +19,7 @@
 @property(copy, nonatomic) NSNumber *snapshotWidth; // @synthesize snapshotWidth=_snapshotWidth;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
 - (id)init;
 
 @end

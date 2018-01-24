@@ -23,6 +23,7 @@
     NSMutableArray *_fitnessFriendWorkouts;
     HDCodableGeneratedObjectCollection *_generatedObjectCollection;
     NSMutableArray *_locationSeries;
+    NSMutableArray *_medicalRecords;
     HDCodableProvenance *_provenance;
     NSMutableArray *_quantitySamples;
     HDCodableSource *_source;
@@ -30,6 +31,7 @@
     NSMutableArray *_workouts;
 }
 
++ (Class)medicalRecordsType;
 + (Class)fitnessFriendWorkoutsType;
 + (Class)fitnessFriendAchievementsType;
 + (Class)fitnessFriendActivitySnapshotsType;
@@ -44,6 +46,7 @@
 + (Class)categorySamplesType;
 @property(retain, nonatomic) HDCodableProvenance *provenance; // @synthesize provenance=_provenance;
 @property(retain, nonatomic) HDCodableGeneratedObjectCollection *generatedObjectCollection; // @synthesize generatedObjectCollection=_generatedObjectCollection;
+@property(retain, nonatomic) NSMutableArray *medicalRecords; // @synthesize medicalRecords=_medicalRecords;
 @property(retain, nonatomic) NSMutableArray *fitnessFriendWorkouts; // @synthesize fitnessFriendWorkouts=_fitnessFriendWorkouts;
 @property(retain, nonatomic) NSMutableArray *fitnessFriendAchievements; // @synthesize fitnessFriendAchievements=_fitnessFriendAchievements;
 @property(retain, nonatomic) NSMutableArray *fitnessFriendActivitySnapshots; // @synthesize fitnessFriendActivitySnapshots=_fitnessFriendActivitySnapshots;
@@ -70,6 +73,10 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasProvenance;
 @property(readonly, nonatomic) _Bool hasGeneratedObjectCollection;
+- (id)medicalRecordsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)medicalRecordsCount;
+- (void)addMedicalRecords:(id)arg1;
+- (void)clearMedicalRecords;
 - (id)fitnessFriendWorkoutsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)fitnessFriendWorkoutsCount;
 - (void)addFitnessFriendWorkouts:(id)arg1;
@@ -120,6 +127,17 @@
 - (void)clearCategorySamples;
 @property(readonly, nonatomic) _Bool hasSource;
 @property(readonly, nonatomic) _Bool hasSourceBundleIdentifier;
+- (void)addUnknownRecord:(id)arg1;
+- (void)addAccountOwner:(id)arg1;
+- (void)addProcedureRecord:(id)arg1;
+- (void)addAllergyRecord:(id)arg1;
+- (void)addConditionRecord:(id)arg1;
+- (void)addVaccinationRecord:(id)arg1;
+- (void)addDiagnosticTestReport:(id)arg1;
+- (void)addDiagnosticTestResult:(id)arg1;
+- (void)addMedicationRecord:(id)arg1;
+- (void)addMedicationDispenseRecord:(id)arg1;
+- (void)addMedicationOrder:(id)arg1;
 - (_Bool)unitTest_isEquivalentToObjectCollection:(id)arg1;
 - (id)decodedObjects;
 - (unsigned long long)count;

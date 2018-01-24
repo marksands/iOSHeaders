@@ -18,6 +18,7 @@
     _Bool _isDepthSupported;
 }
 
++ (_Bool)supportsSecureCoding;
 + (void)initialize;
 - (_Bool)isCompatibleWithInfraredFormat:(id)arg1;
 - (_Bool)isValidDerivedBravoFormatForUnderlyingFormat:(id)arg1;
@@ -93,6 +94,7 @@
 - (struct opaqueCMFormatDescription *)formatDescription;
 - (unsigned int)mediaType;
 - (void)dealloc;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyWithNewPixelFormat:(unsigned int)arg1;
 - (id)initWithFigCaptureStreamFormatDictionary:(id)arg1;

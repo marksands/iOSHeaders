@@ -27,7 +27,7 @@
 - (id)_accessibilityNativeFocusableElements:(id)arg1;
 - (id)_accessibilityExplorerElements;
 - (_Bool)_accessibilityIsContainedByVideoElement;
-- (_Bool)_accessibilityIsContainedByNativeFocusElement;
+- (_Bool)_accessibilityIsContainedByPreferredNativeFocusElement;
 - (id)_accessibilityNativeFocusElement;
 - (id)_accessibilityRetrieveHeaderElements;
 - (id)_accessibilityNativeFocusAncestor;
@@ -41,6 +41,7 @@
 - (_Bool)_accessibilityShouldSetNativeFocusWhenATVFocused;
 - (_Bool)_accessibilityViewHierarchyHasNativeFocus;
 - (_Bool)_accessibilityFullscreenVideoViewIsVisible;
+- (_Bool)_accessibilityUIKitHasNativeFocus;
 - (_Bool)_accessibilityHasNativeFocus;
 - (id)_accessibilitySpeakThisPreferredUnderlineColor;
 - (id)_accessibilitySpeakThisPreferredHighlightColor;

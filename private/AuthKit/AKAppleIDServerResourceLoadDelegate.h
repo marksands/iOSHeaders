@@ -16,8 +16,10 @@
     _Bool _shouldSendEphemeralAuthHeader;
     _Bool _shouldSendICSCIntentHeader;
     _Bool _shouldSendLocalUserHasAppleIDLoginHeader;
+    _Bool _shouldSendPhoneNumber;
     _Bool _shouldSendAbsintheHeader;
     NSString *_serviceToken;
+    NSString *_phoneNumberCertificate;
     long long _serviceType;
     NSArray *_loggedInServices;
     NSString *_passwordResetToken;
@@ -49,6 +51,8 @@
 @property(copy, nonatomic) NSString *passwordResetToken; // @synthesize passwordResetToken=_passwordResetToken;
 @property(copy, nonatomic) NSArray *loggedInServices; // @synthesize loggedInServices=_loggedInServices;
 @property(nonatomic) long long serviceType; // @synthesize serviceType=_serviceType;
+@property(copy, nonatomic) NSString *phoneNumberCertificate; // @synthesize phoneNumberCertificate=_phoneNumberCertificate;
+@property(nonatomic) _Bool shouldSendPhoneNumber; // @synthesize shouldSendPhoneNumber=_shouldSendPhoneNumber;
 @property(nonatomic) _Bool shouldSendLocalUserHasAppleIDLoginHeader; // @synthesize shouldSendLocalUserHasAppleIDLoginHeader=_shouldSendLocalUserHasAppleIDLoginHeader;
 @property(nonatomic) _Bool shouldSendICSCIntentHeader; // @synthesize shouldSendICSCIntentHeader=_shouldSendICSCIntentHeader;
 @property(nonatomic) _Bool shouldSendEphemeralAuthHeader; // @synthesize shouldSendEphemeralAuthHeader=_shouldSendEphemeralAuthHeader;

@@ -15,8 +15,6 @@
     NSObject<OS_dispatch_queue> *_completionSessionAccessQueue;
 }
 
-+ (id)_cannedMatchesWithTypedString:(id)arg1;
-+ (_Bool)_shouldReturnCannedMatches;
 - (void).cxx_destruct;
 - (void)userDidSelectCompletionMatch:(id)arg1 forTypedString:(id)arg2;
 - (void)getBestMatchesForTypedString:(id)arg1 limit:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;

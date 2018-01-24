@@ -23,6 +23,7 @@
 @property(nonatomic) double timeout;
 @property(copy, nonatomic) NSString *languageCode;
 @property(copy, nonatomic) NSString *aceHost;
+@property(nonatomic) _Bool forceReconnect;
 @property(copy, nonatomic) NSError *skipPeerError;
 @property(nonatomic) _Bool skipEdge;
 @property(nonatomic) _Bool skipPeer;

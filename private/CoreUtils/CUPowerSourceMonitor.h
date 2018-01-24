@@ -11,6 +11,8 @@
 @interface CUPowerSourceMonitor : NSObject
 {
     _Bool _activateCalled;
+    NSMutableDictionary *_aggregateSources;
+    NSMutableDictionary *_pendingAggregates;
     NSMutableDictionary *_powerSources;
     int _psNotifyTokenAccessoryAttach;
     int _psNotifyTokenAccessoryPowerSource;
@@ -36,6 +38,9 @@
 - (void)_handlePowerSourceFound:(id)arg1 desc:(id)arg2 adapterDesc:(id)arg3;
 - (void)_updatePowerSources;
 - (void)_update;
+- (void)_aggregatePowerSourceUpdate:(id)arg1 changes:(unsigned int)arg2;
+- (void)_aggregatePowerSourceLost:(id)arg1;
+- (void)_aggregatePowerSourceFound:(id)arg1;
 - (void)invalidate;
 - (void)activateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_cleanup;

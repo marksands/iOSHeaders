@@ -8,25 +8,22 @@
 
 #import "FPItemCollectionDelegate.h"
 
-@class FPItemCollection, NSDictionary, NSString;
+@class FPItemCollection, NSDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface FPExtensionProviderChangesReceiver : NSObject <FPItemCollectionDelegate>
 {
+    NSMutableSet *_changesHandlers;
     NSDictionary *_providersByID;
     FPItemCollection *_localStorageCollection;
+    NSObject<OS_dispatch_queue> *_notifyQueue;
     int _notifyToken;
     int _settingsChangedToken;
-    _Bool _invalidated;
-    CDUnknownBlockType _changesHandler;
-    NSString *_identifier;
 }
 
-@property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(copy, nonatomic) CDUnknownBlockType changesHandler; // @synthesize changesHandler=_changesHandler;
++ (id)sharedChangesReceiver;
 - (void).cxx_destruct;
 - (void)_signalLocalStorageUpdate;
-- (void)invalidate;
 - (void)providersInfoHasChanged:(id)arg1 error:(id)arg2;
 - (void)collection:(id)arg1 didPerformBatchUpdateWithReplayBlock:(CDUnknownBlockType)arg2;
 - (void)dataForCollectionShouldBeReloaded:(id)arg1;
@@ -35,7 +32,9 @@ __attribute__((visibility("hidden")))
 - (void)collection:(id)arg1 didMoveItemsFromIndexPaths:(id)arg2 toIndexPaths:(id)arg3;
 - (void)collection:(id)arg1 didInsertItemsAtIndexPaths:(id)arg2;
 - (void)updateProviderInfoWithAttemptCount:(unsigned long long)arg1;
-- (id)init;
+- (void)removeChangesHandler:(CDUnknownBlockType)arg1;
+- (void)addChangesHandler:(CDUnknownBlockType)arg1;
+- (id)_init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -27,8 +27,8 @@ __attribute__((visibility("hidden")))
 - (Class)exportOptionsControllerClass;
 - (Class)exporterClassForType:(id)arg1 options:(id)arg2;
 - (Class)importerClassForType:(id)arg1 path:(id)arg2;
-- (id)epubExportLanguageCodes;
-- (id)epubExportCategories;
+- (id)EPUBExportLanguageCodes;
+- (id)EPUBExportCategories;
 - (id)newExportableDocumentTypesForFlag:(unsigned long long)arg1;
 
 // Remaining properties

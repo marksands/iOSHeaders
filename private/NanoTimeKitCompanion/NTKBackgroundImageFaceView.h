@@ -16,12 +16,14 @@
     UIView *_transitionViewFrom;
     NTKEditOption *_editOptionTo;
     UIView *_transitionViewTo;
-    UIView *_animationView;
-    UIImageView *_animationMaskImageView;
+    UIView *_transitionDimmingView;
     _Bool _shouldAdjustLayoutForTimeTravel;
     UIView *_timeTravelDimmingOverlayView;
     UIView *_selectedContentView;
+    double _breathScaleModifier;
+    double _rubberBandScaleModifier;
     NTKDigitalTimeLabel *_timeLabel;
+    UIView *_backgroundContainerView;
     UIView *_zoomMaskView;
     UIImageView *_zoomVignette;
     UIView *_borrowedCircleView;
@@ -38,6 +40,7 @@
 @property(nonatomic) struct CGPoint timeViewZoomEndingCenter; // @synthesize timeViewZoomEndingCenter=_timeViewZoomEndingCenter;
 @property(retain, nonatomic) UIImageView *zoomVignette; // @synthesize zoomVignette=_zoomVignette;
 @property(retain, nonatomic) UIView *zoomMaskView; // @synthesize zoomMaskView=_zoomMaskView;
+@property(readonly, nonatomic) UIView *backgroundContainerView; // @synthesize backgroundContainerView=_backgroundContainerView;
 @property(retain, nonatomic) NTKDigitalTimeLabel *timeLabel; // @synthesize timeLabel=_timeLabel;
 - (void).cxx_destruct;
 - (void)_removeAllSubviewsFrom:(id)arg1;
@@ -61,6 +64,7 @@
 - (double)_timeTravelYAdjustment;
 - (_Bool)_supportsTimeScrubbing;
 - (_Bool)_shouldFadeToTransitionView;
+- (void)_applyScaleTransform:(id)arg1;
 - (void)_applyRubberBandingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)_applyBreathingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (unsigned long long)_keylineLabelAlignmentForCustomEditMode:(long long)arg1 slot:(id)arg2;

@@ -33,7 +33,6 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(readonly) long long associationOptions; // @synthesize associationOptions=_associationOptions;
 @property(readonly, copy) NSString *identifier; // @synthesize identifier=_identifier;
-@property(readonly, copy) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -41,6 +40,7 @@
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (id)messageDestination;
 - (id)logIdentifier;
+@property(copy, setter=setUUID:) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void)identifyWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_handleIdentify:(id)arg1;
 @property(readonly, getter=isReachable) _Bool reachable;

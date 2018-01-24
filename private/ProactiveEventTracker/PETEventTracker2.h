@@ -23,9 +23,9 @@
 @property(retain) NSString *logStoresDir; // @synthesize logStoresDir=_logStoresDir;
 @property(retain) NSString *rootDir; // @synthesize rootDir=_rootDir;
 - (void).cxx_destruct;
-- (void)enumerateAggregatedMessagesWithBlock:(CDUnknownBlockType)arg1;
-- (void)enumerateMessagesWithBlock:(CDUnknownBlockType)arg1 messageGroup:(id)arg2;
-- (void)enumerateMessagesWithBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateAggregatedMessagesWithBlock:(CDUnknownBlockType)arg1 clearStore:(_Bool)arg2;
+- (void)enumerateMessagesWithBlock:(CDUnknownBlockType)arg1 messageGroup:(id)arg2 clearStore:(_Bool)arg3;
+- (void)enumerateMessagesWithBlock:(CDUnknownBlockType)arg1 clearStore:(_Bool)arg2;
 - (void)trackDistributionForMessage:(id)arg1 value:(double)arg2;
 - (void)trackScalarForMessage:(id)arg1 count:(int)arg2;
 - (void)trackScalarForMessage:(id)arg1;

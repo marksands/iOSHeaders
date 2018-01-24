@@ -21,14 +21,14 @@
     NSString *_beginButtonTitle;
     NSString *_skipButtonTitle;
     NSString *_appsButtonTitle;
-    NSString *_aboutButtonTitle;
+    UIView *_privacyButtonContainer;
     NSString *_footer;
     VSFontCenter *_fontCenter;
 }
 
 @property(retain, nonatomic) VSFontCenter *fontCenter; // @synthesize fontCenter=_fontCenter;
 @property(copy, nonatomic) NSString *footer; // @synthesize footer=_footer;
-@property(copy, nonatomic) NSString *aboutButtonTitle; // @synthesize aboutButtonTitle=_aboutButtonTitle;
+@property(readonly, nonatomic) UIView *privacyButtonContainer; // @synthesize privacyButtonContainer=_privacyButtonContainer;
 @property(copy, nonatomic) NSString *appsButtonTitle; // @synthesize appsButtonTitle=_appsButtonTitle;
 @property(copy, nonatomic) NSString *skipButtonTitle; // @synthesize skipButtonTitle=_skipButtonTitle;
 @property(copy, nonatomic) NSString *beginButtonTitle; // @synthesize beginButtonTitle=_beginButtonTitle;
@@ -42,7 +42,6 @@
 @property(nonatomic) __weak id <VSSetupViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)traitCollectionDidChange:(id)arg1;
-- (void)_aboutButtonPressed:(id)arg1;
 - (void)_appsButtonPressed:(id)arg1;
 - (void)_skipButtonPressed:(id)arg1;
 - (void)_beginButtonPressed:(id)arg1;

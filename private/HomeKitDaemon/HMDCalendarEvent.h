@@ -6,14 +6,14 @@
 
 #import <HomeKitDaemon/HMDTimeEvent.h>
 
+#import "HMDHomeMessageReceiver.h"
 #import "HMFDumpState.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
-@class NSDateComponents, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class NSDateComponents, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDCalendarEvent : HMDTimeEvent <NSSecureCoding, HMFDumpState, HMFLogging, HMFMessageReceiver>
+@interface HMDCalendarEvent : HMDTimeEvent <NSSecureCoding, HMFDumpState, HMFLogging, HMDHomeMessageReceiver>
 {
     NSDateComponents *_fireDateComponents;
 }
@@ -40,6 +40,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 @property(readonly) Class superclass;
 

@@ -12,14 +12,11 @@ __attribute__((visibility("hidden")))
     unsigned long long _token;
     unsigned long long _options;
     CDUnknownBlockType _handler;
-    _Bool _registered;
+    // Error parsing type: AB, name: _registered
 }
 
-+ (void)remove:(unsigned long long)arg1;
-+ (id)find:(unsigned long long)arg1;
 + (id)createTokenRegistration:(int)arg1 token:(unsigned long long)arg2 connection:(id)arg3 notifyToken:(int)arg4 options:(unsigned long long)arg5 queue:(id)arg6 handler:(CDUnknownBlockType)arg7;
 + (const CDStruct_90be15af *)keyCallbacks;
-@property(readonly, getter=isRegistered) _Bool registered; // @synthesize registered=_registered;
 @property(readonly) unsigned long long options; // @synthesize options=_options;
 @property(readonly) unsigned long long token; // @synthesize token=_token;
 @property(readonly, copy) CDUnknownBlockType handler;
@@ -35,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)_invalidate;
 - (void)invalidate;
+@property(readonly, getter=isRegistered) _Bool registered;
 - (id)initWithToken:(unsigned long long)arg1 options:(unsigned long long)arg2 queue:(id)arg3 handler:(CDUnknownBlockType)arg4;
 
 @end

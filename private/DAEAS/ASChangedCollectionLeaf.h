@@ -6,11 +6,11 @@
 
 #import <DAEAS/ASItem.h>
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSDictionary, NSNumber, NSString;
 
-@interface ASChangedCollectionLeaf : ASItem <NSCoding>
+@interface ASChangedCollectionLeaf : ASItem <NSSecureCoding>
 {
     _Bool _isResponse;
     _Bool _validateOpeningTokens;
@@ -23,6 +23,7 @@
     NSDictionary *_applicationData;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)asParseRules;
 + (_Bool)notifyOfUnknownTokens;
 + (_Bool)frontingBasicTypes;

@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
     NSURL *_url;
 }
 
-+ (void)getActionWithData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (void)getActionWithData:(id)arg1 codePayload:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;
 @property(readonly, nonatomic) id <BCSParsedDataPrivate> data; // @synthesize data=_data;
 @property(readonly, nonatomic) NSURL *urlThatCanBeOpened; // @synthesize urlThatCanBeOpened;
@@ -35,9 +35,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy, nonatomic) NSString *localizedDefaultActionDescription;
 - (void)performDefaultAction;
 @property(readonly, copy, nonatomic) NSString *localizedActionDescription;
+@property(readonly, copy, nonatomic) NSString *localizedDefaultActionTitle;
 - (void)showActionPicker;
 - (void)performAction;
 - (long long)type;
+@property(readonly, nonatomic) _Bool canSkipUnlock;
 - (id)initWithData:(id)arg1;
 
 // Remaining properties

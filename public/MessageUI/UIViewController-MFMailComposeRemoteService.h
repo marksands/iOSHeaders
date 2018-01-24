@@ -10,5 +10,6 @@
 - (void)mf_setDataForUICustomization:(id)arg1;
 - (id)mf_dataForUICustomization;
 - (id)mf_keyPathsMapForUICustomization;
+- (id)mf_classesForUICustomization;
 @end
 

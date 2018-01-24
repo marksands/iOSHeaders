@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)suppressUpdates;
 - (void)_updateAnnotationViews:(id)arg1;
 - (void)_updateAnnotationView:(id)arg1;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)removeAnnotationView:(id)arg1;
 - (void)addAnnotationView:(id)arg1 allowAnimation:(_Bool)arg2;
 - (void)dealloc;

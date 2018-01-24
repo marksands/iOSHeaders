@@ -4,19 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <NewsCore/FCFeedGroupEmittingCursor.h>
 
-#import "NSCoding.h"
 #import "NSCopying.h"
 
 @class FCFeedRange;
 
-@interface FCSingleTagFeedGroupEmitterCursor : NSObject <NSCopying, NSCoding>
+@interface FCSingleTagFeedGroupEmitterCursor : FCFeedGroupEmittingCursor <NSCopying>
 {
     FCFeedRange *_freeFeedRange;
     FCFeedRange *_paidFeedRange;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) FCFeedRange *paidFeedRange; // @synthesize paidFeedRange=_paidFeedRange;
 @property(copy, nonatomic) FCFeedRange *freeFeedRange; // @synthesize freeFeedRange=_freeFeedRange;
 - (void).cxx_destruct;

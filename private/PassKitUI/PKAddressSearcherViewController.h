@@ -24,8 +24,12 @@
     PKAddressSearchModel *_searchModel;
     long long _style;
     CNPostalAddress *_selectedAddress;
+    NSArray *_completionSearchResults;
+    NSArray *_contactsSearchResults;
 }
 
+@property(retain, nonatomic) NSArray *contactsSearchResults; // @synthesize contactsSearchResults=_contactsSearchResults;
+@property(retain, nonatomic) NSArray *completionSearchResults; // @synthesize completionSearchResults=_completionSearchResults;
 @property(retain, nonatomic) CNPostalAddress *selectedAddress; // @synthesize selectedAddress=_selectedAddress;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(retain, nonatomic) PKAddressSearchModel *searchModel; // @synthesize searchModel=_searchModel;

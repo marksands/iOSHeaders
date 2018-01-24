@@ -8,18 +8,18 @@
 
 #import "SXActionActivityProvider.h"
 
-@class NSString, SXHost;
+@class NSString;
 
 @interface SXLinkActionActivityProvider : NSObject <SXActionActivityProvider>
 {
     id <SXURLHandling> _URLHandler;
     id <SXURLPreviewing> _URLPreviewing;
-    SXHost *_host;
+    id <SXHost> _host;
     id <SXLinkActionURLQualifier> _URLQualifier;
 }
 
 @property(readonly, nonatomic) id <SXLinkActionURLQualifier> URLQualifier; // @synthesize URLQualifier=_URLQualifier;
-@property(readonly, nonatomic) SXHost *host; // @synthesize host=_host;
+@property(readonly, nonatomic) id <SXHost> host; // @synthesize host=_host;
 @property(readonly, nonatomic) id <SXURLPreviewing> URLPreviewing; // @synthesize URLPreviewing=_URLPreviewing;
 @property(readonly, nonatomic) id <SXURLHandling> URLHandler; // @synthesize URLHandler=_URLHandler;
 - (void).cxx_destruct;

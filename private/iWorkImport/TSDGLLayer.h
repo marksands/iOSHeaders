@@ -13,8 +13,9 @@ __attribute__((visibility("hidden")))
 {
     id <TSDGLLayerContext> _layerContext;
     NSObject<TSDGLLayerDelegate> *_delegate;
+    _Bool _setNeedsDisplay;
     EAGLContext *_sharedContext;
-    CADisplayLink *mDisplayLink;
+    CADisplayLink *_displayLink;
 }
 
 @property(nonatomic) EAGLContext *sharedContext; // @synthesize sharedContext=_sharedContext;

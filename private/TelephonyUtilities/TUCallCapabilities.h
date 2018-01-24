@@ -11,11 +11,7 @@
 }
 
 + (id)debugDescription;
-+ (id)callCapabilitiesServerXPCInterface;
-+ (id)callCapabilitiesClientXPCInterface;
 + (void)_sendNotificationsAfterRunningBlock:(CDUnknownBlockType)arg1;
-+ (id)_client;
-+ (void)_setClientServer:(id)arg1;
 + (id)client;
 + (_Bool)supportsCarrierServices;
 + (void)endEmergencyCallbackMode;

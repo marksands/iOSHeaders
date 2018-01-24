@@ -42,6 +42,7 @@
 @property(readonly, nonatomic) NSMutableDictionary *_contexts; // @synthesize _contexts;
 - (void).cxx_destruct;
 - (void)receivedUrgentRequestForMessages:(id)arg1;
+- (void)returnMOCEnabledState:(unsigned long long)arg1;
 - (void)updateCloudKitStateWithDictionary:(id)arg1;
 - (void)updateCloudKitState;
 - (void)didAttemptToDisableAllDevicesResult:(_Bool)arg1;

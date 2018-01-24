@@ -7,6 +7,8 @@
 #import "WBSAnalyticsLogger.h"
 
 @interface WBSAnalyticsLogger (_SFAnalyticsLogger)
+- (void)_sf_didTerminateWebProcessBeforeNavigationForReason:(int)arg1;
+- (void)_sf_activatedHomeScreenQuickAction:(int)arg1;
 - (void)_sf_authenticatedForAutoFillWithCategory:(int)arg1 onPageLoad:(_Bool)arg2 status:(int)arg3 error:(id)arg4 client:(int)arg5;
 - (void)_sf_authenticatedForAutoFillWithCategory:(int)arg1 onPageLoad:(_Bool)arg2 status:(int)arg3 client:(int)arg4;
 - (void)_sf_reportAutoFillRequiresAuthenticationPreference:(_Bool)arg1;

@@ -12,11 +12,13 @@
 {
     ACAccount *_appleAccount;
     AAGrandSlamSigner *_grandSlamSigner;
+    AAGrandSlamSigner *_familyGrandSlamSigner;
 }
 
 - (void).cxx_destruct;
 - (id)urlRequest;
 @property(readonly, nonatomic) _Bool isUserInitiated;
+- (id)_familyGrandSlamSigner;
 - (id)initWithGrandSlamSigner:(id)arg1;
 - (id)initWithGrandSlamAccount:(id)arg1 accountStore:(id)arg2;
 - (id)initWithAppleAccount:(id)arg1 grandSlamAccount:(id)arg2 accountStore:(id)arg3;

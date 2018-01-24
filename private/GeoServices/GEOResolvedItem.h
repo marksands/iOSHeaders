@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) int itemType;
+@property(readonly, nonatomic) _Bool hasResultIndex;
 @property(readonly, nonatomic) unsigned long long resultIndex;
 @property(readonly, nonatomic) NSString *extractedTerm;
 - (id)initWithAutocompleteResolvedItem:(id)arg1;

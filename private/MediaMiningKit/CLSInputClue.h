@@ -6,9 +6,7 @@
 
 #import <MediaMiningKit/CLSClue.h>
 
-#import "NSCoding.h"
-
-@interface CLSInputClue : CLSClue <NSCoding>
+@interface CLSInputClue : CLSClue
 {
     _Bool _needsPreparation;
 }

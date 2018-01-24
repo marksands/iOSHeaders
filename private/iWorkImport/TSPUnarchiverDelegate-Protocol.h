@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSUUID, TSPData, TSPLazyReference, TSPUnarchiver;
+@class NSUUID, TSPComponent, TSPData, TSPLazyReference, TSPUnarchiver;
 
 @protocol TSPUnarchiverDelegate <NSObject>
 @property(readonly, nonatomic) _Bool canRetainObjectReferencedByWeakLazyReference;
@@ -21,6 +21,7 @@
 - (void)unarchiver:(TSPUnarchiver *)arg1 didReadLazyReference:(TSPLazyReference *)arg2 isExternal:(_Bool *)arg3;
 
 @optional
+@property(readonly, nonatomic) TSPComponent *component;
 @property(readonly, nonatomic) _Bool isCrossAppPaste;
 @property(readonly, nonatomic) _Bool isCrossDocumentPaste;
 @end

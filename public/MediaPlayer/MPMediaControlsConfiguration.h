@@ -13,12 +13,16 @@
 
 @interface MPMediaControlsConfiguration : NSObject <NSSecureCoding, NSCopying>
 {
+    _Bool _shouldPreventAutorotation;
+    _Bool _allowsNowPlayingApplicationLaunch;
     long long _style;
     NSString *_routingContextUID;
     NSString *_presentingAppBundleID;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool allowsNowPlayingApplicationLaunch; // @synthesize allowsNowPlayingApplicationLaunch=_allowsNowPlayingApplicationLaunch;
+@property(nonatomic) _Bool shouldPreventAutorotation; // @synthesize shouldPreventAutorotation=_shouldPreventAutorotation;
 @property(copy, nonatomic) NSString *presentingAppBundleID; // @synthesize presentingAppBundleID=_presentingAppBundleID;
 @property(copy, nonatomic) NSString *routingContextUID; // @synthesize routingContextUID=_routingContextUID;
 @property(nonatomic) long long style; // @synthesize style=_style;

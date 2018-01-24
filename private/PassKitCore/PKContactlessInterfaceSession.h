@@ -6,7 +6,7 @@
 
 #import <PassKitCore/PKPaymentSession.h>
 
-@class NSArray, NSObject<OS_dispatch_queue>, PKFelicaAppletHistory, PKFieldProperties, PKPaymentApplication, PKPaymentPass;
+@class NSArray, NSObject<OS_dispatch_queue>, PKFieldProperties, PKPaymentApplication, PKPaymentPass, PKTransitAppletHistory;
 
 @interface PKContactlessInterfaceSession : PKPaymentSession
 {
@@ -27,6 +27,7 @@
     NSObject<OS_dispatch_queue> *_callbackQueue;
 }
 
++ (id)transitAppletStateFromPaymentSession:(id)arg1 withPaymentApplication:(id)arg2;
 @property(readonly, nonatomic) PKFieldProperties *fieldProperties; // @synthesize fieldProperties=_fieldProperties;
 @property(readonly, nonatomic) NSArray *activatedValueAddedServicePasses; // @synthesize activatedValueAddedServicePasses=_activatedValueAddedServicePasses;
 - (void).cxx_destruct;
@@ -35,7 +36,7 @@
 @property(readonly, nonatomic) _Bool persistentCardEmulationQueued;
 @property(readonly, nonatomic) _Bool fieldPresent;
 @property(readonly, nonatomic) unsigned long long state;
-@property(readonly, nonatomic) PKFelicaAppletHistory *felicaAppletState;
+@property(readonly, nonatomic) PKTransitAppletHistory *transitAppletState;
 - (void)setState:(unsigned long long)arg1;
 @property(readonly, nonatomic) PKPaymentPass *activatedPaymentPass;
 @property(readonly, nonatomic) PKPaymentApplication *activatedPaymentApplication;

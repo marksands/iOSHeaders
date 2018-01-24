@@ -7,6 +7,8 @@
 #import "NSError.h"
 
 @interface NSError (HFAdditions)
++ (id)hf_synthesizedUnreachableHomeKitAccessoryErrorWithUserInfo:(id)arg1;
+@property(readonly, nonatomic) _Bool hf_isHomeKitUnreachableError;
 @property(readonly, nonatomic) _Bool hf_isHomeKitNamingError;
 @end
 

@@ -15,6 +15,7 @@
 #import "UIKeyboardInput.h"
 #import "UIPreviewItemDelegate.h"
 #import "UITextAutoscrolling.h"
+#import "UITextInputMultiDocument.h"
 #import "UITextInputPrivate.h"
 #import "UITextInputTokenizer.h"
 #import "UIWebFileUploadPanelDelegate.h"
@@ -25,7 +26,7 @@
 
 @class CALayer, DOMElement, DOMHTMLElement, DOMNode, DOMRange, NSArray, NSDictionary, NSIndexSet, NSString, NSTimer, NSURL, UIAutoscroll, UIColor, UIDragInteraction, UIDropInteraction, UIImage, UIInputContextHistory, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPreviewItemController, UITapGestureRecognizer, UITextChecker, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UIView, UIWebFileUploadPanel, UIWebPlaybackTargetPicker, UIWebRotatingAlertController, UIWebSelectionAssistant, WebHistoryItem, WebThreadSafeUndoManager, WebView, _UITextDragCaretView, _UITextServiceSession, _UIWebHighlightLongPressGestureRecognizer, _UIWebViewportHandler;
 
-@interface UIWebDocumentView : UIWebTiledView <DDDetectionControllerInteractionDelegate, UIDragInteractionDelegate, UIDropInteractionDelegate, UIPreviewItemDelegate, _UIRotatingAlertControllerDelegate, UITextAutoscrolling, UIAutoscrollContainer, UIGestureRecognizerDelegate, UIKeyboardInput, UITextInputPrivate, UIKeyInput, UITextInputTokenizer, _UIWebDoubleTapDelegate, UIWebFileUploadPanelDelegate, WebEditingDelegate, WebFrameLoadDelegate>
+@interface UIWebDocumentView : UIWebTiledView <DDDetectionControllerInteractionDelegate, UIDragInteractionDelegate, UIDropInteractionDelegate, UIPreviewItemDelegate, _UIRotatingAlertControllerDelegate, UITextAutoscrolling, UIAutoscrollContainer, UIGestureRecognizerDelegate, UIKeyboardInput, UITextInputPrivate, UIKeyInput, UITextInputTokenizer, UITextInputMultiDocument, _UIWebDoubleTapDelegate, UIWebFileUploadPanelDelegate, WebEditingDelegate, WebFrameLoadDelegate>
 {
     WebView *_webView;
     id m_parentTextView;

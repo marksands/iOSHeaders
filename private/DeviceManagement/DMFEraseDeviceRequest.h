@@ -6,15 +6,22 @@
 
 #import "CATTaskRequest.h"
 
+@class NSString;
+
 @interface DMFEraseDeviceRequest : CATTaskRequest
 {
+    _Bool _hideProximitySetupPane;
     unsigned long long _eraseDeviceType;
     unsigned long long _dataResetOptions;
+    NSString *_pin;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool hideProximitySetupPane; // @synthesize hideProximitySetupPane=_hideProximitySetupPane;
+@property(copy, nonatomic) NSString *pin; // @synthesize pin=_pin;
 @property(nonatomic) unsigned long long dataResetOptions; // @synthesize dataResetOptions=_dataResetOptions;
 @property(nonatomic) unsigned long long eraseDeviceType; // @synthesize eraseDeviceType=_eraseDeviceType;
+- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

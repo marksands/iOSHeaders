@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 - (id)accountPropertiesForDataclass:(id)arg1;
 - (_Bool)iCloudDriveAllowsCellularAccess;
 - (void)updateAccountPropertiesAndSaveAccountInStore:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)canRenew;
 - (id)iCloudAuthTokenWithError:(id *)arg1;
 - (id)cloudKitAuthTokenWithError:(id *)arg1;
 - (id)_accountCredentialForAccount:(id)arg1 withError:(id *)arg2;

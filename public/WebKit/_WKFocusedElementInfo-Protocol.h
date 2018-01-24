@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSObject<NSSecureCoding>, NSString;
 
 @protocol _WKFocusedElementInfo <NSObject>
+@property(readonly, nonatomic) NSObject<NSSecureCoding> *userObject;
 @property(readonly, nonatomic, getter=isUserInitiated) _Bool userInitiated;
 @property(readonly, copy, nonatomic) NSString *value;
 @property(readonly, nonatomic) long long type;

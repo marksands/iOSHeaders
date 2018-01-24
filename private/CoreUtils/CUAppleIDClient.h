@@ -51,6 +51,7 @@
 - (id)copyMyAppleIDAndReturnError:(id *)arg1;
 - (_Bool)verifyBytes:(const void *)arg1 verifyLength:(unsigned long long)arg2 signatureBytes:(const void *)arg3 signatureLength:(unsigned long long)arg4 error:(id *)arg5;
 - (_Bool)verifyData:(id)arg1 signature:(id)arg2 error:(id *)arg3;
+- (_Bool)_validatePeerHashes:(id)arg1;
 - (_Bool)validatePeerWithFlags:(unsigned int)arg1 error:(id *)arg2;
 - (id)signBytes:(const void *)arg1 length:(unsigned long long)arg2 error:(id *)arg3;
 - (id)signData:(id)arg1 error:(id *)arg2;

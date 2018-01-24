@@ -13,10 +13,9 @@
 @interface WebItemProviderPasteboard : NSObject <AbstractPasteboard>
 {
     struct RetainPtr<NSArray> _itemProviders;
-    struct RetainPtr<NSArray> _cachedTypeIdentifiers;
-    struct RetainPtr<NSArray> _typeToFileURLMaps;
     struct RetainPtr<NSArray> _supportedTypeIdentifiers;
-    struct RetainPtr<NSArray> _registrationInfoLists;
+    struct RetainPtr<WebItemProviderRegistrationInfoList> _stagedRegistrationInfoList;
+    struct Vector<WTF::RetainPtr<WebItemProviderLoadResult>, 0, WTF::CrashOnOverflow, 16, WTF::FastMalloc> _loadResults;
     long long _numberOfItems;
     long long _changeCount;
     long long _pendingOperationCount;
@@ -28,21 +27,23 @@
 @property(nonatomic) long long numberOfItems; // @synthesize numberOfItems=_numberOfItems;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (id)takeRegistrationList;
+- (void)stageRegistrationList:(id)arg1;
 - (void)enumerateItemProvidersWithBlock:(CDUnknownBlockType)arg1;
 - (void)decrementPendingOperationCount;
 - (void)incrementPendingOperationCount;
 @property(readonly, nonatomic) _Bool hasPendingOperation;
 - (id)itemProviderAtIndex:(unsigned long long)arg1;
-- (id)registrationInfoAtIndex:(unsigned long long)arg1;
 - (void)doAfterLoadingProvidedContentIntoFileURLs:(CDUnknownBlockType)arg1 synchronousTimeout:(double)arg2;
 - (void)doAfterLoadingProvidedContentIntoFileURLs:(CDUnknownBlockType)arg1;
-- (id)typeIdentifierToLoadForRegisteredTypeIdentfiers:(id)arg1;
+- (id)typeIdentifiersToLoadForRegisteredTypeIdentfiers:(id)arg1;
 @property(readonly, nonatomic) long long numberOfFiles;
-@property(readonly, nonatomic) NSArray *fileURLsForDataInteraction;
+@property(readonly, nonatomic) NSArray *allDroppedFileURLs;
+- (id)preferredFileUploadURLAtIndex:(unsigned long long)arg1 fileType:(id *)arg2;
 - (id)valuesForPasteboardType:(id)arg1 inItemSet:(id)arg2;
 - (id)dataForPasteboardType:(id)arg1 inItemSet:(id)arg2;
+- (id)dataForPasteboardType:(id)arg1;
 - (id)_preLoadedDataConformingToType:(id)arg1 forItemProviderAtIndex:(unsigned long long)arg2;
-- (void)setItemsUsingRegistrationInfoLists:(id)arg1;
 @property(copy, nonatomic) NSArray *itemProviders;
 - (id)pasteboardTypes;
 - (id)pasteboardTypesByFidelityForItemAtIndex:(unsigned long long)arg1;

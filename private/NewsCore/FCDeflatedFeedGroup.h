@@ -9,17 +9,19 @@
 #import "FCFeedElement.h"
 #import "FCFeedGroupOutlining.h"
 
-@class FCFeedEdition, FCSharedStringIndex, NSArray, NSDate, NSString, NTPBFeedViewportGroup;
+@class FCColor, FCColorGradient, FCFeedEdition, FCSharedStringIndex, NSArray, NSDate, NSString, NTPBDiscoverMoreVideosInfo, NTPBFeedViewportGroup;
 
 @interface FCDeflatedFeedGroup : NSObject <FCFeedElement, FCFeedGroupOutlining>
 {
     NSArray *_headlines;
+    NSArray *_videoPlaylistHeadlines;
     NTPBFeedViewportGroup *_pbGroup;
     FCSharedStringIndex *_sharedStrings;
 }
 
 @property(readonly, nonatomic) FCSharedStringIndex *sharedStrings; // @synthesize sharedStrings=_sharedStrings;
 @property(readonly, nonatomic) NTPBFeedViewportGroup *pbGroup; // @synthesize pbGroup=_pbGroup;
+@property(readonly, copy, nonatomic) NSArray *videoPlaylistHeadlines; // @synthesize videoPlaylistHeadlines=_videoPlaylistHeadlines;
 @property(readonly, copy, nonatomic) NSArray *headlines; // @synthesize headlines=_headlines;
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSString *backingTagID;
@@ -27,7 +29,11 @@
 @property(readonly, nonatomic) unsigned long long options;
 @property(readonly, copy, nonatomic) FCFeedEdition *edition;
 @property(readonly, nonatomic) NSDate *creationDate;
-@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, copy, nonatomic) NTPBDiscoverMoreVideosInfo *discoverMoreVideosInfo;
+@property(readonly, copy, nonatomic) FCColorGradient *backgroundGradient;
+@property(readonly, copy, nonatomic) FCColor *titleColor;
+@property(readonly, copy, nonatomic) NSString *subtitle;
+@property(readonly, copy, nonatomic) NSString *title;
 @property(readonly, nonatomic) long long groupType;
 @property(readonly, copy, nonatomic) NSString *sourceIdentifier;
 - (_Bool)isGap;

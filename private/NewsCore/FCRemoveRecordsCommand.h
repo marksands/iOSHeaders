@@ -13,6 +13,7 @@
     NSArray *_recordIDs;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *recordIDs; // @synthesize recordIDs=_recordIDs;
 - (void).cxx_destruct;
 - (void)coalesceWithCommand:(id)arg1;

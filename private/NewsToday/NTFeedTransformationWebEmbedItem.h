@@ -21,6 +21,8 @@
 @property(readonly, copy, nonatomic) NTPBFeedItem *feedItemForHeadlineFetch;
 @property(readonly, nonatomic) _Bool needsFeedItemHeadlinesFetch;
 @property(readonly, nonatomic) id <FCFeedTransformationItem> feedTransformationItem;
+@property(readonly, nonatomic) unsigned long long preferredDynamicSlotAllocation;
+@property(readonly, nonatomic) _Bool usesDynamicSlotAllocation;
 @property(readonly, nonatomic, getter=isEligibleForLeadingCellAppearance) _Bool eligibleForLeadingCellAppearance;
 @property(readonly, copy, nonatomic) SFSearchResult *searchResult;
 @property(readonly, copy, nonatomic) NSDate *cacheExpirationDate;

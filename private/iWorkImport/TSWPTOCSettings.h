@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 - (void).cxx_destruct;
 - (void)upgradeWithStylesheet:(id)arg1;
+- (void)p_upgradeStyle:(id)arg1 withStylesheet:(id)arg2;
 - (void)replaceReferencedStylesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)referencedStyles;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;

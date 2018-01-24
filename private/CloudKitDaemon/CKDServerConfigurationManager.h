@@ -43,11 +43,9 @@ __attribute__((visibility("hidden")))
 - (void)_behaviorOptionsChanged:(id)arg1;
 - (void)_dropAllConfigurations;
 - (void)_reallyDropAllConfigurations;
-- (void)serverEnvironmentForOperation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)containerScopedUserIDForOperation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)publicURLForServerType:(long long)arg1 operation:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)containerInfoForOperation:(id)arg1 requireUserIDs:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)configurationForOperation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_fetchContainerSpecificInfoForOperation:(id)arg1 needUserID:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_fetchContainerSpecificInfoForOperation:(id)arg1 requireUserIDs:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_fetchGlobalConfigForOperation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;

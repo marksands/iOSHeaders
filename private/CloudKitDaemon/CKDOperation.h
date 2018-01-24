@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     _Bool _isFinished;
     _Bool _isExecuting;
     _Bool _useEncryption;
+    _Bool _useClearAssetEncryption;
     _Bool _isProxyOperation;
     _Bool _shouldPipelineFetchAllChangesRequests;
     // Error parsing type: Ai, name: _pcsWaitCount
@@ -66,6 +67,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_callbackQueue;
 @property(nonatomic) _Bool shouldPipelineFetchAllChangesRequests; // @synthesize shouldPipelineFetchAllChangesRequests=_shouldPipelineFetchAllChangesRequests;
 @property(readonly, nonatomic) _Bool isProxyOperation; // @synthesize isProxyOperation=_isProxyOperation;
+@property(nonatomic) _Bool useClearAssetEncryption; // @synthesize useClearAssetEncryption=_useClearAssetEncryption;
 @property(nonatomic) _Bool useEncryption; // @synthesize useEncryption=_useEncryption;
 @property(nonatomic) __weak CKDClientProxy *proxy; // @synthesize proxy=_proxy;
 @property(retain, nonatomic) CKDClientContext *context; // @synthesize context=_context;

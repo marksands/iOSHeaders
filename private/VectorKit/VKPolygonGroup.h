@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 @interface VKPolygonGroup : VKPolygonalItemGroup
 {
     struct optional<md::MeshSet<ggl::PolygonCommonStroke::MeshMesh, ggl::PolygonCommonStroke::DefaultVbo>> _strokeMeshInfo;
-    vector_78bd515f _strokeMeshes;
+    vector_d473a3e0 _strokeMeshes;
     VKSharedResources *_sharedResources;
     shared_ptr_479d1306 _sourceTexture;
     shared_ptr_479d1306 _targetTexture;
@@ -36,11 +36,11 @@ __attribute__((visibility("hidden")))
 - (void)enclosePointsInBoundingBox:(Matrix_8746f91e *)arg1 count:(unsigned long long)arg2;
 - (void)prepareForPolygon:(CDStruct_f65f1467 *)arg1 hasNonWaterStyle:(_Bool)arg2;
 - (unsigned int)createStrokePointStyleList:(CDStruct_f65f1467 *)arg1 section:(unsigned long long)arg2 outPointStyles:(vector_0496561e *)arg3;
-@property(readonly, nonatomic) vector_78bd515f *strokeMeshes;
+@property(readonly, nonatomic) vector_d473a3e0 *strokeMeshes;
 - (void)updateTexturesIfNecessary:(float)arg1;
 - (void)setNeedsTextureUpdate;
 @property(readonly, nonatomic) struct FeatureAttributeSet styleAttributes;
-- (shared_ptr_479d1306)_textureForName:(const basic_string_805fe43b *)arg1;
+- (shared_ptr_479d1306)_textureForName:(const basic_string_23d93216 *)arg1;
 - (void)dealloc;
 - (id)initWithStyleQuery:(shared_ptr_c5d816ee *)arg1 tileZoom:(float)arg2 fixedAroundCentroid:(const Matrix_8746f91e *)arg3 contentScale:(float)arg4 sharedResources:(id)arg5;
 @property(readonly, nonatomic) struct Texture2D *targetRoofTexture;

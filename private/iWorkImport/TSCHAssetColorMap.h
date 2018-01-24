@@ -17,14 +17,10 @@ __attribute__((visibility("hidden")))
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)sharedInstance;
 + (id)_singletonAlloc;
+- (void).cxx_destruct;
 - (id)colorForFilename:(id)arg1 imageSetIdentifier:(id)arg2;
 - (id)colorForFilename:(id)arg1 fillSetIdentifier:(id)arg2;
-- (void)dealloc;
 - (id)init;
-- (id)autorelease;
-- (oneway void)release;
-- (unsigned long long)retainCount;
-- (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

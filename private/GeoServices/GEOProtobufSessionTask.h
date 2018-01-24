@@ -55,7 +55,9 @@ __attribute__((visibility("hidden")))
 - (id)parseResponseFromResponseData:(id)arg1;
 - (id)parseInnerProtobufFromData:(id)arg1;
 - (void)updateDataRequest:(id)arg1 withNewProtobufRequest:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)dataSession:(id)arg1 didCompleteSubtask:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)dataSession:(id)arg1 willSendRequest:(id)arg2 forTask:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_decodeResponseFromTask:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dataSession:(id)arg1 didCompleteTask:(id)arg2;
 
 // Remaining properties

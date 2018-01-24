@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) _Bool showTrendLine; // @synthesize showTrendLine=mShowTrendLine;
+- (void).cxx_destruct;
 - (void)p_releaseCache;
 - (void)p_updateTrendLineData;
 - (void)p_generateRegression;

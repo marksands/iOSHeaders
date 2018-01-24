@@ -10,7 +10,7 @@
 #import "VSIdentityProviderPickerViewController.h"
 #import "VSTableHeaderFooterViewDelegate.h"
 
-@class NSArray, NSString, UISearchController, VSFontCenter, VSIdentityProvider, VSIdentityProviderFilter, VSIdentityProviderTableViewDataSource, VSSearchBarDelegate;
+@class NSArray, NSString, UISearchController, VSFontCenter, VSIdentityProvider, VSIdentityProviderFilter, VSIdentityProviderTableViewDataSource, VSOnboardingInfoCenter, VSSearchBarDelegate;
 
 __attribute__((visibility("hidden")))
 @interface VSIdentityProviderPickerViewController_iOS : UITableViewController <UISearchControllerDelegate, VSTableHeaderFooterViewDelegate, VSIdentityProviderPickerViewController>
@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     NSString *_requestingAppDisplayName;
     NSString *_resourceTitle;
     UISearchController *_searchController;
+    VSOnboardingInfoCenter *_onboardingInfoCenter;
     VSIdentityProviderFilter *_filter;
     VSSearchBarDelegate *_searchBarDelegate;
     VSIdentityProviderTableViewDataSource *_unfilteredDataSource;
@@ -38,6 +39,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) VSIdentityProviderTableViewDataSource *unfilteredDataSource; // @synthesize unfilteredDataSource=_unfilteredDataSource;
 @property(retain, nonatomic) VSSearchBarDelegate *searchBarDelegate; // @synthesize searchBarDelegate=_searchBarDelegate;
 @property(retain, nonatomic) VSIdentityProviderFilter *filter; // @synthesize filter=_filter;
+@property(retain, nonatomic) VSOnboardingInfoCenter *onboardingInfoCenter; // @synthesize onboardingInfoCenter=_onboardingInfoCenter;
 @property(retain, nonatomic) UISearchController *searchController; // @synthesize searchController=_searchController;
 @property(copy, nonatomic) NSString *resourceTitle; // @synthesize resourceTitle=_resourceTitle;
 @property(copy, nonatomic) NSString *requestingAppDisplayName; // @synthesize requestingAppDisplayName=_requestingAppDisplayName;
@@ -56,7 +58,6 @@ __attribute__((visibility("hidden")))
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)didDismissSearchController:(id)arg1;
 - (void)_performSelectionForIdentityProvider:(id)arg1;
-- (void)_dismissAboutPrivacy:(id)arg1;
 - (void)_showAboutPrivacy:(id)arg1;
 - (void)_cancelButtonPressed:(id)arg1;
 - (void)_didPickAdditionalIdentityProviders;

@@ -20,6 +20,7 @@
 - (id)_remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)_remoteObjectProxyWithFailureHandler:(CDUnknownBlockType)arg1;
 - (id)_remoteObjectProxy;
+- (void)performDeviceRegistrationForReason:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performDeviceRegistrationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)init;

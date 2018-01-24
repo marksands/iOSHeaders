@@ -6,6 +6,7 @@
 
 #import "UITableViewController.h"
 
+#import "CKCloudKitSyncProgressViewControllerDelegate.h"
 #import "CKConversationListCellDelegate.h"
 #import "CKConversationResultsControllerDelegate.h"
 #import "CKTranscriptPreviewControllerDelegate.h"
@@ -20,7 +21,7 @@
 
 @class CKCloudKitSyncProgressViewController, CKConversation, CKConversationList, CKConversationSearchResultsController, CKMessagesController, CKScheduledUpdater, NSArray, NSIndexPath, NSString, UIBarButtonItem, UISearchController, UITableView, UIView;
 
-@interface CKConversationListController : UITableViewController <UISearchControllerDelegate, UISearchBarDelegate, CKConversationResultsControllerDelegate, CKConversationListCellDelegate, UITableViewDragDestinationDelegate, CKTranscriptPreviewControllerDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
+@interface CKConversationListController : UITableViewController <UISearchControllerDelegate, UISearchBarDelegate, CKCloudKitSyncProgressViewControllerDelegate, CKConversationResultsControllerDelegate, CKConversationListCellDelegate, UITableViewDragDestinationDelegate, CKTranscriptPreviewControllerDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 {
     UITableView *_table;
     NSIndexPath *_previouslySelectedIndexPath;

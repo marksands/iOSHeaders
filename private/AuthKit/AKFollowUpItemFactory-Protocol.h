@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString;
+@class FLFollowUpItem, NSArray, NSString;
 
 @protocol AKFollowUpItemFactory <NSObject>
+- (_Bool)IsFollowUpItemNotificationForced:(FLFollowUpItem *)arg1;
 - (NSArray *)itemIdentifiersRequiringNotificationClearFromPayload:(NSArray *)arg1;
 - (NSArray *)itemsForAltDSID:(NSString *)arg1 fromIDMSPayload:(NSArray *)arg2;
 @end

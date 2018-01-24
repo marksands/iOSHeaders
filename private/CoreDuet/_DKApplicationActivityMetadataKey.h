@@ -10,12 +10,14 @@
 {
 }
 
++ (id)userActivityRequiredString;
 + (id)expirationDate;
 + (id)isPubliclyIndexable;
 + (id)itemRelatedContentURL;
 + (id)itemRelatedUniqueIdentifier;
 + (id)itemIdentifier;
 + (id)activityType;
++ (id)userActivityUUID;
 + (id)title;
 
 @end

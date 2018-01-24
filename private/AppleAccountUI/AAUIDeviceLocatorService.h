@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>;
+@class NSObject<OS_dispatch_queue>;
 
 @interface AAUIDeviceLocatorService : NSObject
 {
@@ -14,7 +14,6 @@
     _Bool _hasAttemptedToFetchState;
     _Bool _wantsToEnable;
     NSObject<OS_dispatch_queue> *_stateUpdateQueue;
-    NSMutableArray *_completionArray;
 }
 
 + (id)sharedInstance;
@@ -25,8 +24,8 @@
 - (void)disableInContext:(unsigned long long)arg1 withWipeToken:(id)arg2;
 - (void)enableInContext:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)enableInContext:(unsigned long long)arg1;
-- (void)_stateUpdateQueue_callCompletionsIfNecessary;
-- (void)_updateStateAndNotify:(_Bool)arg1;
+- (void)refreshCurrentState:(CDUnknownBlockType)arg1;
+- (void)_updateStateAndNotify:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)isStateKnown;
 - (_Bool)isChangingState;
 - (_Bool)isEnabled;

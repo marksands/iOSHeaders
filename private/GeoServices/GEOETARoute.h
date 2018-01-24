@@ -30,6 +30,7 @@
     unsigned int _travelTimeBestEstimate;
     unsigned int _travelTimeConservativeEstimate;
     NSData *_zilchPoints;
+    _Bool _isOfflineResponse;
     _Bool _routeNoLongerValid;
     struct {
         unsigned int historicTravelTime:1;
@@ -37,6 +38,7 @@
         unsigned int travelTimeAggressiveEstimate:1;
         unsigned int travelTimeBestEstimate:1;
         unsigned int travelTimeConservativeEstimate:1;
+        unsigned int isOfflineResponse:1;
         unsigned int routeNoLongerValid:1;
     } _has;
 }
@@ -138,6 +140,8 @@
 - (unsigned long long)stepIndexOfStepWithID:(unsigned int)arg1;
 - (double)remainingTimeAlongRoute:(unsigned int)arg1 currentStepRemainingDistance:(double)arg2;
 @property(readonly, nonatomic) double expectedTime;
+@property(nonatomic) _Bool hasIsOfflineResponse;
+@property(nonatomic) _Bool isOfflineResponse;
 
 @end
 

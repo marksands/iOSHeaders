@@ -27,6 +27,7 @@
 - (void)resetSyncStateForRecord:(id)arg1 toState:(long long)arg2;
 - (void)markTransferAsNotSyncSuccessFullyUsingCKRecord:(id)arg1;
 - (id)updateTransfersWithCKRecord:(id)arg1 recordWasFetched:(_Bool)arg2 downloadAsset:(_Bool *)arg3;
+- (_Bool)_usingStingRay;
 - (_Bool)_shouldDownloadAssetForTransfer:(id)arg1 forMessageItem:(id)arg2;
 - (id)_attachmentStoreSharedInstance;
 - (id)_messageStoreSharedInstance;

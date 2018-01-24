@@ -10,8 +10,6 @@
 {
 }
 
-- (id)businessNavTintColor;
-- (id)businessNavBarTintColor;
 - (id)businessInfoViewDescriptionTextColor;
 - (id)businessDescriptionViewControllerBackgroundColor;
 - (id)browserLabelColor;
@@ -78,7 +76,6 @@
 - (id)contactStyle;
 - (long long)scrollIndicatorStyle;
 - (id)messagesControllerBackgroundColor;
-- (long long)businessStatusBarStyle;
 - (long long)statusBarStyle;
 - (long long)defaultBarStyle;
 - (long long)navBarStyle;

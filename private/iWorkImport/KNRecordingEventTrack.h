@@ -11,17 +11,17 @@
 __attribute__((visibility("hidden")))
 @interface KNRecordingEventTrack : TSPObject
 {
-    NSString *mType;
-    NSArray *mEvents;
+    NSString *_type;
+    NSArray *_events;
 }
 
-@property(readonly, nonatomic) NSArray *events; // @synthesize events=mEvents;
-@property(readonly, nonatomic) NSString *type; // @synthesize type=mType;
+@property(readonly, nonatomic) NSArray *events; // @synthesize events=_events;
+@property(readonly, nonatomic) NSString *type; // @synthesize type=_type;
+- (void).cxx_destruct;
 - (void)p_slideNodeWasAddedToOrRemovedFromDocument;
 - (void)slideNodeWillBeRemovedFromDocument:(id)arg1;
 - (void)slideNodeWasAddedToDocument:(id)arg1;
 - (id)eventTrackByReplacingSegmentAfterTime:(double)arg1 withEventTrack:(id)arg2;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1 type:(id)arg2 events:(id)arg3;
 - (void)saveToArchiver:(id)arg1;

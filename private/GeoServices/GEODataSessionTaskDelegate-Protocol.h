@@ -12,6 +12,7 @@
 - (void)dataSession:(id <GEODataSession>)arg1 didCompleteTask:(id <GEODataSessionTask>)arg2;
 
 @optional
+- (void)dataSession:(id <GEODataSession>)arg1 didCompleteSubtask:(id <GEODataSessionTask>)arg2 completion:(void (^)(void))arg3;
 - (void)dataSession:(id <GEODataSession>)arg1 willSendRequest:(GEODataRequest *)arg2 forTask:(id <GEODataSessionTask>)arg3 completionHandler:(void (^)(GEODataRequest *))arg4;
 @end
 

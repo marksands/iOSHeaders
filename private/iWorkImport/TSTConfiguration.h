@@ -82,10 +82,14 @@ __attribute__((visibility("hidden")))
     unsigned int _maxNumberOfRows;
     unsigned int _maxNumberOfColumns;
     unsigned int _maxNumberOfPopulatedCells;
+    double _structuredTextImportConfidenceThreshold;
+    double _structuredTextImportConfidenceThresholdForCanvas;
 }
 
 + (void)resetSharedTableConfiguration;
 + (id)sharedTableConfiguration;
+@property(nonatomic) double structuredTextImportConfidenceThresholdForCanvas; // @synthesize structuredTextImportConfidenceThresholdForCanvas=_structuredTextImportConfidenceThresholdForCanvas;
+@property(nonatomic) double structuredTextImportConfidenceThreshold; // @synthesize structuredTextImportConfidenceThreshold=_structuredTextImportConfidenceThreshold;
 @property(nonatomic) _Bool forceZoomInOnBeginEditing; // @synthesize forceZoomInOnBeginEditing=_forceZoomInOnBeginEditing;
 @property(nonatomic) _Bool shouldZoomOutOnEndEditing; // @synthesize shouldZoomOutOnEndEditing=_shouldZoomOutOnEndEditing;
 @property(nonatomic) _Bool supportsStockUI; // @synthesize supportsStockUI=_supportsStockUI;

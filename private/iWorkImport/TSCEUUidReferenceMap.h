@@ -19,8 +19,8 @@ __attribute__((visibility("hidden")))
 - (void)encodeToArchive:(struct UuidReferenceMapArchive *)arg1;
 - (id)initFromArchive:(const struct UuidReferenceMapArchive *)arg1 dependencyTracker:(struct TSCEDependencyTracker *)arg2;
 - (void)getCellRefs:(unordered_set_7ec2a700 *)arg1 dependencyTracker:(struct TSCEDependencyTracker *)arg2 referringToUuid:(const UUIDData_5fbc143e *)arg3;
-- (void)getCellRefs:(unordered_set_7ec2a700 *)arg1 dependencyTracker:(struct TSCEDependencyTracker *)arg2 referringToUuids:(const vector_dadc1b26 *)arg3;
-- (void)p_getCellRefs:(unordered_set_c4d0cfce *)arg1 referringToUuids:(const vector_dadc1b26 *)arg2;
+- (void)getCellRefs:(unordered_set_7ec2a700 *)arg1 dependencyTracker:(struct TSCEDependencyTracker *)arg2 referringToUuids:(const vector_4dc5f307 *)arg3;
+- (void)p_getCellRefs:(unordered_set_c4d0cfce *)arg1 referringToUuids:(const vector_4dc5f307 *)arg2;
 - (void)removeCellRef:(const struct TSCEInternalCellReference *)arg1;
 - (void)removeCellRef:(const struct TSCEInternalCellReference *)arg1 forUuid:(const UUIDData_5fbc143e *)arg2;
 - (void)addCellRef:(const struct TSCEInternalCellReference *)arg1 forUuid:(const UUIDData_5fbc143e *)arg2;

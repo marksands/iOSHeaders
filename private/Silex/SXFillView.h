@@ -11,11 +11,11 @@
 @interface SXFillView : UIView
 {
     SXFill *_fill;
-    id <SXDragable> _dragable;
+    id <SXDraggable> _dragable;
     struct CGRect _originalFrame;
 }
 
-@property(readonly, nonatomic) id <SXDragable> dragable; // @synthesize dragable=_dragable;
+@property(readonly, nonatomic) id <SXDraggable> dragable; // @synthesize dragable=_dragable;
 @property(nonatomic) struct CGRect originalFrame; // @synthesize originalFrame=_originalFrame;
 @property(readonly, nonatomic) SXFill *fill; // @synthesize fill=_fill;
 - (void).cxx_destruct;

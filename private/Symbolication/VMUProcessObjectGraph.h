@@ -25,13 +25,19 @@
     VMURangeToStringMap *_binarySectionNameRanges;
     VMURangeToStringMap *_regionSymbolNameRanges;
     _Bool _gotObjcClassStructureRanges;
+    _Bool _showRawClassNames;
     NSDictionary *_pthreadOffsets;
     VMUNodeToStringMap *_nodeLabels;
     void *_userMarked;
     VMUGraphStackLogReader *_stackLogReader;
     VMUDebugTimer *_debugTimer;
+    unsigned long long _physicalFootprint;
+    unsigned long long _physicalFootprintPeak;
 }
 
+@property(nonatomic) unsigned long long physicalFootprintPeak; // @synthesize physicalFootprintPeak=_physicalFootprintPeak;
+@property(nonatomic) unsigned long long physicalFootprint; // @synthesize physicalFootprint=_physicalFootprint;
+@property(nonatomic) _Bool showRawClassNames; // @synthesize showRawClassNames=_showRawClassNames;
 @property(retain, nonatomic) id <VMUStackLogReader> stackLogReader; // @synthesize stackLogReader=_stackLogReader;
 @property(retain, nonatomic) VMUDebugTimer *debugTimer; // @synthesize debugTimer=_debugTimer;
 @property(nonatomic) unsigned long long snapshotMachTime; // @synthesize snapshotMachTime=_machAbsolute;

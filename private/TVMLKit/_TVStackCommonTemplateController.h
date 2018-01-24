@@ -89,6 +89,8 @@
 - (void)_disableScrollingIfNecessary:(id)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
+- (id)_modalPresenterPresentedViewController;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)loadView;
 @property(readonly, retain, nonatomic) _TVStackWrappingView *stackWrappingView;
 - (void)updateWithViewElement:(id)arg1;

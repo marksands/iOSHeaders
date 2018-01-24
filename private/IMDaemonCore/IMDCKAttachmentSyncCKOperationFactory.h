@@ -13,7 +13,8 @@
 + (id)_desiredKeysArrayForType:(long long)arg1;
 - (id)deleteAttachmentCKOperationUsingRecordIDstoDelete:(id)arg1;
 - (id)_attachmentFetchRecordZoneChangesOptionsDictionaryUsingToken:(id)arg1 zoneID:(id)arg2 resultsLimit:(unsigned long long)arg3 desiredKeys:(long long)arg4;
-- (id)_operationGroup;
+- (id)_operationGroupWithName:(id)arg1;
+- (_Bool)_defaultsSayWeHaveSyncedOnce;
 - (id)saveAttachmentsCKOperationUsingRecordsToSave:(id)arg1;
 - (id)fetchAttachmentZoneRecords:(id)arg1 desiredKeys:(long long)arg2;
 - (id)fetchAttachmentZoneChangesCKOperationUsingToken:(id)arg1 zoneID:(id)arg2 resultsLimit:(unsigned long long)arg3 desiredKeys:(long long)arg4;

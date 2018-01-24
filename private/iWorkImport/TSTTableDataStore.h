@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TSPContainedObject.h>
 
-@class NSMutableDictionary, TSKCustomFormatList, TSPLazyReference, TSTMergeRegionMap, TSTTableDataList, TSTTableHeaderStorage, TSTTileIDKeyDict;
+@class NSMutableDictionary, NSObject<TSDContainerInfo><TSWPStorageParent>, TSKCustomFormatList, TSPLazyReference, TSTMergeRegionMap, TSTTableDataList, TSTTableHeaderStorage, TSTTileIDKeyDict;
 
 __attribute__((visibility("hidden")))
 @interface TSTTableDataStore : TSPContainedObject
@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
     TSTTableDataList *_multipleChoiceListFormatTableList;
     TSPLazyReference *_commentStorageTableReference;
     TSPLazyReference *_importWarningSetTableReference;
+    NSObject<TSDContainerInfo><TSWPStorageParent> *_richTextParentInfo;
     TSKCustomFormatList *_pasteboardCustomFormatList;
     NSMutableDictionary *_pasteboardCustomFormatMap;
     unsigned short _nextRowStripID;
@@ -39,6 +40,10 @@ __attribute__((visibility("hidden")))
 
 @property _Bool upgrading; // @synthesize upgrading=_upgrading;
 - (void).cxx_destruct;
+- (_Bool)auditRowInfoCellCountsReturningResult:(id *)arg1;
+- (_Bool)auditDatalistDuplicationReturningResult:(id *)arg1;
+- (_Bool)confirmRefCountsReturningResult:(id *)arg1;
+- (multimap_fcb6b22c)_makeCellMapFromTiles;
 - (void)validate;
 - (void)debugDump;
 - (void)saveToArchive:(struct DataStore *)arg1 archiver:(id)arg2 isInTheDocument:(_Bool)arg3;
@@ -63,7 +68,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSTTableDataList *importWarningSetDataList;
 @property(readonly, nonatomic) TSTTableDataList *commentStorageDataList;
 @property(readonly, nonatomic) TSTTableDataList *multipleChoiceListFormatDataList;
-- (void)resetDataLists;
+- (void)resetAlmostEverything;
+- (_Bool)verboseAuditTilesForRowOverlapAndExtensionPastTableBounds:(struct TSUCellCoord)arg1;
+- (_Bool)auditTilesForRowOverlapAndExtensionPastTableBounds:(struct TSUCellCoord)arg1 result:(id *)arg2;
 @property(readonly, nonatomic) TSTTableDataList *formatDataList;
 @property(readonly, nonatomic) TSTTableDataList *richTextPayloadDataList;
 @property(readonly, nonatomic) TSTTableDataList *formulaErrorDataList;
@@ -75,6 +82,7 @@ __attribute__((visibility("hidden")))
 - (void)gatherReorganizeValuesForColumn:(unsigned char)arg1 rowRange:(struct _NSRange)arg2 outValues:(struct TSTCellReorganizeValue *)arg3;
 - (void)reorganizeValueForStorage:(struct TSTCellStorage *)arg1 outValue:(struct TSTCellReorganizeValue *)arg2;
 - (_Bool)hasFormulaAtCellID:(struct TSUCellCoord)arg1;
+- (void)enumerateCellStoragesRowByRowToMaxID:(struct TSUCellCoord)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateCellStoragesInRange:(struct TSUCellRect)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)indicesForValueOrCommentCellsInRange:(struct TSUCellRect)arg1;
 - (void)enumerateTilesConcurrentlyUsingBlock:(CDUnknownBlockType)arg1 andWaitForAsyncBlocks:(_Bool)arg2;

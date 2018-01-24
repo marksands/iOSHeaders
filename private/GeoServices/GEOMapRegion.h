@@ -52,8 +52,6 @@
 @property(nonatomic) _Bool hasNorthLat;
 @property(nonatomic) _Bool hasWestLng;
 @property(nonatomic) _Bool hasSouthLat;
-- (_Bool)containsMapRect:(CDStruct_90e2a262)arg1;
-- (_Bool)containsCoordinate:(CDStruct_c3b9c2ee)arg1;
 @property(readonly, nonatomic) double spanLng;
 @property(readonly, nonatomic) double spanLat;
 @property(readonly, nonatomic) double centerLng;
@@ -63,6 +61,9 @@
 - (id)initWithMapRect:(CDStruct_90e2a262)arg1;
 - (id)initWithCoordinateRegion:(CDStruct_90e2a262)arg1;
 - (id)initWithLatitude:(double)arg1 longitude:(double)arg2;
+- (_Bool)containsMapRect:(CDStruct_90e2a262)arg1;
+- (_Bool)containsCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (_Bool)containsRegion:(id)arg1;
 
 @end
 

@@ -14,6 +14,7 @@
 {
     _Bool _addOperation;
     _Bool _addViaWAC;
+    _Bool _wacLegacy;
     AWDHomeKitVendorInformation *_vendorInfo;
     long long _linkType;
     long long _certificationStatus;
@@ -25,6 +26,7 @@
 + (id)uuid;
 + (void)initialize;
 @property(nonatomic) long long certificationStatus; // @synthesize certificationStatus=_certificationStatus;
+@property(nonatomic, getter=isWacLegacy) _Bool wacLegacy; // @synthesize wacLegacy=_wacLegacy;
 @property(nonatomic, getter=isAddViaWAC) _Bool addViaWAC; // @synthesize addViaWAC=_addViaWAC;
 @property(readonly, nonatomic, getter=isAddOperation) _Bool addOperation; // @synthesize addOperation=_addOperation;
 @property(nonatomic) long long linkType; // @synthesize linkType=_linkType;

@@ -10,5 +10,7 @@
 {
 }
 
++ (id)supportedServiceTypes;
+
 @end
 

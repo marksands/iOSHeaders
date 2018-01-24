@@ -79,6 +79,7 @@
 - (void)setRawTiles:(unsigned int *)arg1 rows:(unsigned long long)arg2 columns:(unsigned long long)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)commonInit;
 - (void)setAlpha:(double)arg1;
 - (double)alpha;
 @property(nonatomic) _Bool enableAutomapping;

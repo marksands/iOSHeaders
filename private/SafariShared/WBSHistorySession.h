@@ -20,6 +20,7 @@
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) _Bool isCurrentSession;
 - (id)initWithSessionStartDate:(id)arg1;
+- (id)init;
 
 @end
 

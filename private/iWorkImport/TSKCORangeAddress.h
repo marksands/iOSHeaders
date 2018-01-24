@@ -11,10 +11,11 @@
 __attribute__((visibility("hidden")))
 @interface TSKCORangeAddress : TSKCOAddress
 {
-    TSURangeList *mRangeList;
+    TSURangeList *_rangeList;
 }
 
-@property(readonly, nonatomic) TSURangeList *rangeList; // @synthesize rangeList=mRangeList;
+@property(readonly, nonatomic) TSURangeList *rangeList; // @synthesize rangeList=_rangeList;
+- (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1 message:(struct Address *)arg2;
 - (id)initWithUnarchiver:(id)arg1 message:(const struct Address *)arg2;
 - (unsigned long long)totalLengthOfRanges;
@@ -22,7 +23,6 @@ __attribute__((visibility("hidden")))
 - (id)pathElement;
 - (id)addressWithNewRangeList:(id)arg1;
 - (id)addressWithNewRange:(struct _NSRange)arg1;
-- (void)dealloc;
 - (id)initWithParent:(id)arg1 location:(unsigned long long)arg2 length:(unsigned long long)arg3;
 - (id)initWithParent:(id)arg1 range:(struct _NSRange)arg2;
 - (id)initWithParent:(id)arg1 rangeList:(id)arg2;

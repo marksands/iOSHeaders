@@ -29,6 +29,7 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)createProtocolBufferObject;
+@property(nonatomic) unsigned short alternatePort;
 @property(retain, nonatomic) NSString *parentEndpointDomain;
 @property(retain, nonatomic) NSData *txtRecord;
 @property(retain, nonatomic) NWInterface *interface;

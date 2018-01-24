@@ -71,6 +71,7 @@
     NSString *_guid;
     MKMapItem *_mapItem;
     NSData *_mapItemImageData;
+    NSData *_mapItemBannerImageData;
     NSString *_suggestedName;
 }
 
@@ -90,6 +91,7 @@
 + (void)bestHandlesForPersons:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) NSString *suggestedName; // @synthesize suggestedName=_suggestedName;
 @property(nonatomic) long long IDStatus; // @synthesize IDStatus=_IDStatus;
+@property(retain, nonatomic) NSData *mapItemBannerImageData; // @synthesize mapItemBannerImageData=_mapItemBannerImageData;
 @property(retain, nonatomic) NSData *mapItemImageData; // @synthesize mapItemImageData=_mapItemImageData;
 @property(retain, nonatomic) MKMapItem *mapItem; // @synthesize mapItem=_mapItem;
 @property(readonly, retain, nonatomic) NSString *guid; // @synthesize guid=_guid;
@@ -110,6 +112,8 @@
 @property(readonly, retain, nonatomic) NSDictionary *extraProperties; // @synthesize extraProperties=_extraProps;
 @property(readonly, retain, nonatomic) NSString *originalID; // @synthesize originalID=_uncanonicalID;
 - (void).cxx_destruct;
+- (void)_fetchMapItemBannerImageDataForMapItem:(id)arg1;
+- (void)_fetchMapItemImageDataForMapItem:(id)arg1;
 - (void)_fetchBusinessInfo;
 - (void)sendNotificationABPersonChanged;
 - (id)description;

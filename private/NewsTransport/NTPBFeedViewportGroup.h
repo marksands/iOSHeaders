@@ -8,37 +8,44 @@
 
 #import "NSCopying.h"
 
-@class NSMutableArray, NSString, NTPBDate;
+@class NSMutableArray, NSString, NTPBColor, NTPBColorGradient, NTPBDate, NTPBDiscoverMoreVideosInfo;
 
 @interface NTPBFeedViewportGroup : PBCodable <NSCopying>
 {
     unsigned long long _mergeID;
     unsigned long long _options;
+    NTPBColorGradient *_backgroundGradient;
     NTPBDate *_creationDate;
+    NTPBDiscoverMoreVideosInfo *_discoverMoreVideosInfo;
     NTPBDate *_editionFeedEndDate;
     NTPBDate *_editionFeedStartDate;
     NTPBDate *_editionKeyDate;
     NSMutableArray *_headlines;
     NSString *_identifier;
     int _l2TagIDRef;
-    int _nameRef;
     int _sourceIdentifierRef;
-    int _themeTagIDRef;
+    int _subtitleRef;
+    NTPBColor *_titleColor;
+    int _titleRef;
     int _type;
+    NSMutableArray *_videoPlaylistHeadlines;
     _Bool _isFirstFromEdition;
     struct {
         unsigned int mergeID:1;
         unsigned int options:1;
         unsigned int l2TagIDRef:1;
-        unsigned int nameRef:1;
         unsigned int sourceIdentifierRef:1;
-        unsigned int themeTagIDRef:1;
+        unsigned int subtitleRef:1;
+        unsigned int titleRef:1;
         unsigned int type:1;
         unsigned int isFirstFromEdition:1;
     } _has;
 }
 
++ (Class)videoPlaylistHeadlinesType;
 + (Class)headlinesType;
+@property(retain, nonatomic) NSMutableArray *videoPlaylistHeadlines; // @synthesize videoPlaylistHeadlines=_videoPlaylistHeadlines;
+@property(retain, nonatomic) NTPBDiscoverMoreVideosInfo *discoverMoreVideosInfo; // @synthesize discoverMoreVideosInfo=_discoverMoreVideosInfo;
 @property(nonatomic) _Bool isFirstFromEdition; // @synthesize isFirstFromEdition=_isFirstFromEdition;
 @property(retain, nonatomic) NTPBDate *editionFeedEndDate; // @synthesize editionFeedEndDate=_editionFeedEndDate;
 @property(retain, nonatomic) NTPBDate *editionFeedStartDate; // @synthesize editionFeedStartDate=_editionFeedStartDate;
@@ -47,8 +54,10 @@
 @property(nonatomic) unsigned long long mergeID; // @synthesize mergeID=_mergeID;
 @property(retain, nonatomic) NSMutableArray *headlines; // @synthesize headlines=_headlines;
 @property(nonatomic) int l2TagIDRef; // @synthesize l2TagIDRef=_l2TagIDRef;
-@property(nonatomic) int themeTagIDRef; // @synthesize themeTagIDRef=_themeTagIDRef;
-@property(nonatomic) int nameRef; // @synthesize nameRef=_nameRef;
+@property(retain, nonatomic) NTPBColorGradient *backgroundGradient; // @synthesize backgroundGradient=_backgroundGradient;
+@property(retain, nonatomic) NTPBColor *titleColor; // @synthesize titleColor=_titleColor;
+@property(nonatomic) int subtitleRef; // @synthesize subtitleRef=_subtitleRef;
+@property(nonatomic) int titleRef; // @synthesize titleRef=_titleRef;
 @property(retain, nonatomic) NTPBDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(nonatomic) int sourceIdentifierRef; // @synthesize sourceIdentifierRef=_sourceIdentifierRef;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
@@ -60,6 +69,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)videoPlaylistHeadlinesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)videoPlaylistHeadlinesCount;
+- (void)addVideoPlaylistHeadlines:(id)arg1;
+- (void)clearVideoPlaylistHeadlines;
+@property(readonly, nonatomic) _Bool hasDiscoverMoreVideosInfo;
 @property(nonatomic) _Bool hasIsFirstFromEdition;
 @property(readonly, nonatomic) _Bool hasEditionFeedEndDate;
 @property(readonly, nonatomic) _Bool hasEditionFeedStartDate;
@@ -71,8 +85,10 @@
 - (void)addHeadlines:(id)arg1;
 - (void)clearHeadlines;
 @property(nonatomic) _Bool hasL2TagIDRef;
-@property(nonatomic) _Bool hasThemeTagIDRef;
-@property(nonatomic) _Bool hasNameRef;
+@property(readonly, nonatomic) _Bool hasBackgroundGradient;
+@property(readonly, nonatomic) _Bool hasTitleColor;
+@property(nonatomic) _Bool hasSubtitleRef;
+@property(nonatomic) _Bool hasTitleRef;
 @property(readonly, nonatomic) _Bool hasCreationDate;
 @property(nonatomic) _Bool hasType;
 @property(nonatomic) int type; // @synthesize type=_type;

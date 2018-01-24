@@ -15,27 +15,26 @@
 __attribute__((visibility("hidden")))
 @interface TSKCOUpdateIdOperation : TSKCOUpdateOperation <TSKCOIdOperation, TSKCOUpdateIdOperationSubset, TSKCOTransforming>
 {
-    TSKCOIdAddress *mAddress;
+    TSKCOIdAddress *_address;
 }
 
 + (id)operationWithIdAddress:(id)arg1 propertyName:(id)arg2;
-@property(readonly, nonatomic) TSKCOIdAddress *address; // @synthesize address=mAddress;
+@property(readonly, nonatomic) TSKCOIdAddress *address; // @synthesize address=_address;
+- (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1 message:(struct Operation *)arg2;
 - (id)initWithUnarchiver:(id)arg1 message:(const struct Operation *)arg2;
-- (id)description;
-- (id)transformUpdateIdOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)transformUpdateRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)transformReplaceRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)transformIdPlacementBaseOperation:(id)arg1 isHigherPriority:(_Bool)arg2;
-- (id)fromUpdateIdOperation:(id)arg1;
+- (id)toString;
+- (id)ut_transformByTransformer:(id)arg1;
+- (id)transformDynamicByAnyOperation:(id)arg1 byHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformStaticByAnyOperation:(id)arg1 byHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformUpdateIdOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformUpdateRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformReplaceRangeOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
+- (id)transformIdPlacementBaseOperation:(id)arg1 isHigherPriority:(_Bool)arg2 history:(id)arg3;
 - (id)toUpdateIdOperation;
-- (void)dealloc;
 - (id)operationWithNewNoop:(_Bool)arg1;
 - (id)initWithIdAddress:(id)arg1 propertyName:(id)arg2;
 - (id)initWithIdAddress:(id)arg1 propertyName:(id)arg2 noop:(_Bool)arg3;
-- (id)ut_transformByTransformer:(id)arg1;
-- (id)transformDynamicByAnyOperation:(id)arg1 byHigherPriority:(_Bool)arg2;
-- (id)transformStaticByAnyOperation:(id)arg1 byHigherPriority:(_Bool)arg2;
 
 @end
 

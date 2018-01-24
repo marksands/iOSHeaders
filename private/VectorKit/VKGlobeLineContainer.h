@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)polylineGroup:(id)arg1 didSelectPolyline:(id)arg2;
 - (void)polylineGroup:(id)arg1 didRemovePolyline:(id)arg2;
 - (void)polylineGroup:(id)arg1 didAddPolyline:(id)arg2;
+- (float)halfWidthForLine:(id)arg1 styleZ:(float)arg2;
 - (void)update;
 - (void)_recreateLinesIfNeeded;
 - (void)_updateRouteSplit;

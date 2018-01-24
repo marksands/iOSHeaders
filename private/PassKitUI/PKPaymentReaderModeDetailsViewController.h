@@ -6,14 +6,19 @@
 
 #import <PassKitUI/PKPaymentSetupProvisioningFieldsViewController.h>
 
-@class PKPaymentSetupProduct;
+@class NSObject<OS_dispatch_group>, NSString, PKPaymentReaderModeProvisioningViewController, PKPaymentSetupProduct;
 
 @interface PKPaymentReaderModeDetailsViewController : PKPaymentSetupProvisioningFieldsViewController
 {
     _Bool _termsAccepted;
+    NSObject<OS_dispatch_group> *_nextScreenGroup;
+    NSString *_titleText;
+    NSString *_subtitleText;
+    PKPaymentReaderModeProvisioningViewController *_provisioningViewController;
     PKPaymentSetupProduct *_product;
 }
 
++ (_Bool)readerModeProvisioningIsSupported;
 @property(readonly, nonatomic) PKPaymentSetupProduct *product; // @synthesize product=_product;
 - (void).cxx_destruct;
 - (id)footerView;
@@ -22,6 +27,7 @@
 - (id)visibleFieldIdentifiers;
 - (id)defaultFields;
 - (void)_pushReaderModeProvisioningWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_initalizeProvisioningViewController;
 - (void)_showTerms;
 - (void)_registerLocalDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)handleNextButtonTapped:(id)arg1;

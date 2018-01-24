@@ -10,7 +10,9 @@
 + (void)safari_reverseEnumerateComponents:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 @property(readonly, copy, nonatomic) NSString *safari_userVisibleSafariBundleVersionFromFullVersion;
 @property(readonly, copy, nonatomic) NSString *safari_stringByNormalizingVersionString;
+@property(readonly, copy, nonatomic) NSString *safari_stringByReplacingHomoglyphForSpaceWithSpace;
 - (_Bool)safari_containsPeriodOrHomoglyphForPeriod;
+- (_Bool)safari_anyComponentSeparatedByString:(id)arg1 hasLocalizedCaseInsensitivePrefix:(id)arg2;
 - (_Bool)safari_hasLocalizedCaseInsensitivePrefix:(id)arg1;
 - (_Bool)safari_hasCaseInsensitiveSuffix:(id)arg1;
 - (_Bool)safari_hasCaseInsensitivePrefix:(id)arg1;
@@ -19,6 +21,7 @@
 - (_Bool)safari_hasPrefix:(id)arg1;
 - (id)safari_simplifiedUserVisibleURLString;
 - (id)safari_simplifiedUserVisibleURLStringWithSimplifications:(unsigned long long)arg1 forDisplayOnly:(_Bool)arg2 simplifiedStringOffset:(unsigned long long *)arg3;
+- (id)safari_base64DecodedData;
 - (id)safari_highLevelDomainFromHost;
 - (_Bool)safari_containsInteriorWhitespace;
 - (id)safari_stringByTrimmingWhitespace;

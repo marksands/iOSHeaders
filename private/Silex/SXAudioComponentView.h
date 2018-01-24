@@ -8,14 +8,14 @@
 
 #import "SXMediaPlaybackDelegate.h"
 
-@class AVPlayerViewController, NSString, SXAVPlayer, SXAudioComponentOverlayView, SXHost;
+@class AVPlayerViewController, NSString, SXAVPlayer, SXAudioComponentOverlayView;
 
 @interface SXAudioComponentView : SXMediaComponentView <SXMediaPlaybackDelegate>
 {
     _Bool _audioHasPlayed;
     _Bool _startPlaybackWhenReady;
     id <SXResourceDataSource> _resourceDataSource;
-    SXHost *_host;
+    id <SXHost> _host;
     SXAudioComponentOverlayView *_overlayView;
     AVPlayerViewController *_playerViewController;
     SXAVPlayer *_player;
@@ -26,7 +26,7 @@
 @property(retain, nonatomic) SXAVPlayer *player; // @synthesize player=_player;
 @property(retain, nonatomic) AVPlayerViewController *playerViewController; // @synthesize playerViewController=_playerViewController;
 @property(readonly, nonatomic) SXAudioComponentOverlayView *overlayView; // @synthesize overlayView=_overlayView;
-@property(readonly, nonatomic) SXHost *host; // @synthesize host=_host;
+@property(readonly, nonatomic) id <SXHost> host; // @synthesize host=_host;
 @property(readonly, nonatomic) id <SXResourceDataSource> resourceDataSource; // @synthesize resourceDataSource=_resourceDataSource;
 - (void).cxx_destruct;
 - (_Bool)allowHierarchyRemoval;

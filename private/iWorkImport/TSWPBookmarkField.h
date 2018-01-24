@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct BookmarkFieldArchive *)arg1 archiver:(id)arg2;
 - (void)resetTextAttributeUUIDString;
+@property(readonly, nonatomic) NSString *key;
 @property(readonly, nonatomic) NSURL *url;
 @property(readonly, nonatomic) NSString *displayName;
 @property(readonly, nonatomic) struct _NSRange effectiveRange;

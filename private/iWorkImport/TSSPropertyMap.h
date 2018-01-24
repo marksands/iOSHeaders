@@ -38,7 +38,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)containsProperty:(int)arg1;
 - (void)removeValuesFromPropertyMap:(id)arg1;
 - (void)addValuesFromPropertyMap:(id)arg1;
-- (void)setBoxedObjects:(id *)arg1 forProperties:(int *)arg2 withCount:(unsigned long long)arg3;
+- (void)setBoxedObjects:(id)arg1 forProperties:(int *)arg2;
 - (void)setBoolValue:(_Bool)arg1 forProperty:(int)arg2;
 - (void)setCGFloatValue:(double)arg1 forProperty:(int)arg2;
 - (void)setDoubleValue:(double)arg1 forProperty:(int)arg2;
@@ -77,7 +77,6 @@ __attribute__((visibility("hidden")))
 - (void)pSetArrayOfInts:(int [9])arg1 forProperty:(int)arg2;
 - (void)pSetRepeatedArrayOfFloats:(const RepeatedField_324622b8 *)arg1 forProperty:(int)arg2 defaultValues:(float [9])arg3 validator:(id)arg4;
 - (void)pSetArrayOfFloats:(float [9])arg1 forProperty:(int)arg2;
-- (void)pSetArrayOfObjects:(id [9])arg1 forProperty:(int)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -120,6 +120,8 @@
 - (void)PPTCreateComplication:(id)arg1 forSlot:(id)arg2 synchronously:(_Bool)arg3;
 - (void)PPTPrepareComplicationTest;
 - (id)PPTUniqueComplicationsToSlotForCurrentFace;
+- (id)faceViewComplicationAppIdentifierForSlot:(id)arg1;
+- (_Bool)faceView:(id)arg1 wantsToDismissPresentedViewControllerAnimated:(_Bool)arg2;
 - (void)faceViewWantsToPresentViewController:(id)arg1;
 - (void)faceViewUpdatedResourceDirectory:(id)arg1 wantsToTransferOwnership:(_Bool)arg2;
 - (_Bool)faceViewComplicationIsEmptyForSlot:(id)arg1;
@@ -156,6 +158,8 @@
 - (void)_setupEditViewForCustomEditMode:(long long)arg1;
 - (id)_keylineLabelTextForOption:(id)arg1 customEditMode:(long long)arg2;
 - (void)_setupEditing;
+- (_Bool)becomeFirstResponder;
+- (_Bool)canBecomeFirstResponder;
 - (_Bool)canStopEditing;
 - (void)hideFaceEditingUIAnimated:(_Bool)arg1;
 - (void)showEditingUIAnimated:(_Bool)arg1;

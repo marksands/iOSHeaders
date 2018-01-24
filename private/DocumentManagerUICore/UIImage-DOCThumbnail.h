@@ -14,6 +14,8 @@
 @property(readonly, nonatomic) NSOperation *operation;
 @property(readonly, nonatomic) _Bool isRepresentativeIcon;
 @property(readonly, nonatomic, getter=isLoading) _Bool loading;
+- (void)scheduleUpdateIfNeeded;
+@property(readonly) _Bool hasFinishedTryingToFetchCorrectThumbnail;
 - (void)removeListener:(id)arg1;
 - (void)addListener:(id)arg1;
 @property(readonly, nonatomic) UIImage *thumbnail;

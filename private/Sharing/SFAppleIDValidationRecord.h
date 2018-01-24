@@ -8,21 +8,31 @@
 
 #import "NSSecureCoding.h"
 
-@class NSData, NSDate, NSNumber, NSString;
+@class NSArray, NSData, NSDate, NSNumber, NSString;
 
 @interface SFAppleIDValidationRecord : NSObject <NSSecureCoding>
 {
+    NSString *_altDSID;
     NSData *_data;
     NSString *_identifier;
     NSDate *_nextCheckDate;
+    unsigned long long _suggestedValidDuration;
+    NSArray *_validatedEmailHashes;
+    NSArray *_validatedPhoneHashes;
+    NSDate *_validStartDate;
     NSNumber *_version;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSNumber *version; // @synthesize version=_version;
+@property(retain, nonatomic) NSDate *validStartDate; // @synthesize validStartDate=_validStartDate;
+@property(retain, nonatomic) NSArray *validatedPhoneHashes; // @synthesize validatedPhoneHashes=_validatedPhoneHashes;
+@property(retain, nonatomic) NSArray *validatedEmailHashes; // @synthesize validatedEmailHashes=_validatedEmailHashes;
+@property(nonatomic) unsigned long long suggestedValidDuration; // @synthesize suggestedValidDuration=_suggestedValidDuration;
 @property(retain, nonatomic) NSDate *nextCheckDate; // @synthesize nextCheckDate=_nextCheckDate;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
+@property(retain, nonatomic) NSString *altDSID; // @synthesize altDSID=_altDSID;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool needsUpdate;
 - (id)description;

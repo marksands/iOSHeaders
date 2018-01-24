@@ -10,9 +10,9 @@
 
 @interface CKModifySubscriptionsOperation : CKDatabaseOperation
 {
+    CDUnknownBlockType _modifySubscriptionsCompletionBlock;
     NSArray *_subscriptionsToSave;
     NSArray *_subscriptionIDsToDelete;
-    CDUnknownBlockType _modifySubscriptionsCompletionBlock;
     NSMutableArray *_savedSubscriptions;
     NSMutableArray *_deletedSubscriptionIDs;
     NSMutableDictionary *_subscriptionsBySubscriptionIDs;
@@ -23,7 +23,6 @@
 @property(retain, nonatomic) NSMutableDictionary *subscriptionsBySubscriptionIDs; // @synthesize subscriptionsBySubscriptionIDs=_subscriptionsBySubscriptionIDs;
 @property(retain, nonatomic) NSMutableArray *deletedSubscriptionIDs; // @synthesize deletedSubscriptionIDs=_deletedSubscriptionIDs;
 @property(retain, nonatomic) NSMutableArray *savedSubscriptions; // @synthesize savedSubscriptions=_savedSubscriptions;
-@property(copy, nonatomic) CDUnknownBlockType modifySubscriptionsCompletionBlock; // @synthesize modifySubscriptionsCompletionBlock=_modifySubscriptionsCompletionBlock;
 @property(copy, nonatomic) NSArray *subscriptionIDsToDelete; // @synthesize subscriptionIDsToDelete=_subscriptionIDsToDelete;
 @property(copy, nonatomic) NSArray *subscriptionsToSave; // @synthesize subscriptionsToSave=_subscriptionsToSave;
 - (void).cxx_destruct;
@@ -35,6 +34,7 @@
 - (void)fillFromOperationInfo:(id)arg1;
 - (void)fillOutOperationInfo:(id)arg1;
 - (id)activityCreate;
+@property(copy, nonatomic) CDUnknownBlockType modifySubscriptionsCompletionBlock; // @synthesize modifySubscriptionsCompletionBlock=_modifySubscriptionsCompletionBlock;
 - (id)initWithSubscriptionsToSave:(id)arg1 subscriptionIDsToDelete:(id)arg2;
 - (id)init;
 

@@ -9,8 +9,10 @@
 @class IMItem, IMMessageItem, NSArray, NSData, NSDate, NSDictionary, NSNumber, NSString;
 
 @protocol IMRemoteDaemonProtocol <NSObject>
-- (void)fetchCloudKitSyncStateDebuggingInfo:(NSDictionary *)arg1;
 - (void)closeSessionChatID:(NSString *)arg1 identifier:(NSString *)arg2 style:(unsigned char)arg3 account:(NSString *)arg4;
+- (void)requestMOCEnabledState;
+- (void)tryToAutoCollectLogsWithErrorString:(NSString *)arg1 sendLogsTo:(NSString *)arg2;
+- (void)fetchCloudKitSyncStateDebuggingInfo:(NSDictionary *)arg1;
 - (void)syncDeletesToCloudKit;
 - (void)printCachedRampState;
 - (void)fetchLatestRampState;

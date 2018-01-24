@@ -53,6 +53,7 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)center;
 - (id)initWithSize:(struct CGSize)arg1 context:(id)arg2;
 @property(readonly, nonatomic) _Bool slideNumbersVisible;
+- (void)setStylesheetForThemePreview:(id)arg1;
 - (void)setStylesheetForUpgradeToSingleStylesheet:(id)arg1;
 @property(retain, nonatomic) KNRecording *recording;
 @property(retain, nonatomic) KNSoundtrack *soundtrack;

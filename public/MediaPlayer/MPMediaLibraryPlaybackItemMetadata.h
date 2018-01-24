@@ -54,6 +54,7 @@
 - (_Bool)isExplicitTrack;
 - (_Bool)isOfflineHLS;
 - (id)hlsOfflinePlaybackKeys;
+- (id)hlsPlaylistURLString;
 - (double)expectedDuration;
 - (long long)endpointType;
 - (_Bool)prefersStoreContentInfo;

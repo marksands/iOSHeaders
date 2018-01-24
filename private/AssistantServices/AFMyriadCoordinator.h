@@ -23,6 +23,7 @@
     unsigned char _deviceClass;
     int _deviceAdjust;
     double _deviceDelay;
+    double _deviceTrumpDelay;
     unsigned char _deviceGroup;
     NSObject<OS_dispatch_queue> *_myriadWorkQueue;
     NSObject<OS_dispatch_queue> *_myriadWaitWiProxQueue;
@@ -49,6 +50,7 @@
     _Bool _clientLostDueToTrumping;
     _Bool _clientIsListeningAfterRecentWin;
     _Bool _clientIsWatchActivation;
+    _Bool _clientIsWatchTrumpPromote;
     NSObject<OS_dispatch_source> *_timerSource;
     NSDateFormatter *_dateFormat;
     _DKKnowledgeStore *_coreDuetStore;
@@ -65,6 +67,7 @@
 }
 
 + (void)clearCurrentCoordinator;
++ (void)didChangeDefaults;
 + (id)currentCoordinator;
 - (void).cxx_destruct;
 - (void)_signalEmergencyCallHandled;
@@ -119,6 +122,7 @@
 - (void)_startListenTimer;
 - (void)_CreateDispatchTimerForEvent:(id)arg1 toExecute:(CDUnknownBlockType)arg2;
 - (void)_CreateDispatchTimerFor:(double)arg1 toExecute:(CDUnknownBlockType)arg2;
+- (void)_initializeTimer;
 - (void)setupEnabled:(_Bool)arg1;
 - (void)setInTask:(_Bool)arg1;
 - (_Bool)inTask;
@@ -142,6 +146,8 @@
 - (void)_startAdvertisingFromVoiceTrigger;
 - (void)startAdvertisingFromVoiceTrigger;
 - (void)_initDeviceClassAndAdjustments;
+- (void)_readDefaults;
+- (void)readDefaults;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
 

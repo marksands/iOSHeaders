@@ -5,10 +5,11 @@
 //
 
 #import "TSDContainerInfo.h"
+#import "TSDModelContainer.h"
 
 @class NSArray, NSIndexSet, NSObject<TSDInfo>;
 
-@protocol TSDMutableContainerInfo <TSDContainerInfo>
+@protocol TSDMutableContainerInfo <TSDContainerInfo, TSDModelContainer>
 - (void)replaceChildInfo:(NSObject<TSDInfo> *)arg1 with:(NSObject<TSDInfo> *)arg2;
 - (void)removeChildInfo:(NSObject<TSDInfo> *)arg1;
 - (void)moveChildren:(NSArray *)arg1 toIndexes:(NSIndexSet *)arg2;

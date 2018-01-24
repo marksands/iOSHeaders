@@ -11,10 +11,13 @@
 @interface AKAccountManager : NSObject
 {
     ACAccountStore *_accountStore;
-    ACAccountType *_authKitAccountType;
-    ACAccountType *_appleIDAccountType;
-    ACAccountType *_iCloudAccountType;
     NSObject<OS_dispatch_queue> *_accountQueue;
+    ACAccountType *_authKitAccountType;
+    struct os_unfair_lock_s _authKitAccountTypeLock;
+    ACAccountType *_appleIDAccountType;
+    struct os_unfair_lock_s _appleIDAccountTypeLock;
+    ACAccountType *_iCloudAccountType;
+    struct os_unfair_lock_s _iCloudAccountTypeLock;
 }
 
 + (id)stringRepresentationForService:(long long)arg1;
@@ -59,6 +62,8 @@
 - (id)passwordResetTokenForAccount:(id)arg1;
 - (id)continuationTokenForAccount:(id)arg1;
 - (id)hearbeatTokenForAccount:(id)arg1;
+- (void)setAuthenticationMode:(unsigned long long)arg1 forAccount:(id)arg2;
+- (unsigned long long)authenticationModeForAccount:(id)arg1;
 - (void)setSecurityLevel:(unsigned long long)arg1 forAccount:(id)arg2;
 - (unsigned long long)securityLevelForAccount:(id)arg1;
 - (_Bool)saveAccount:(id)arg1 error:(id *)arg2;

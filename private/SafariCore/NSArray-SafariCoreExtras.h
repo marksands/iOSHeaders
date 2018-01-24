@@ -26,6 +26,7 @@
 - (id)safari_mapAndFilterObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)safari_arrayAtIndex:(unsigned long long)arg1;
 - (id)safari_dictionaryAtIndex:(unsigned long long)arg1;
+- (id)safari_URLAtIndex:(unsigned long long)arg1;
 - (id)safari_stringAtIndex:(unsigned long long)arg1;
 - (id)safari_numberAtIndex:(unsigned long long)arg1;
 @end

@@ -114,7 +114,6 @@
 - (void)_setMovieSubtitle:(id)arg1;
 - (void)_setMovieMediaTypesOverride:(unsigned long long)arg1;
 - (void)_setHTTPHeaderFields:(id)arg1;
-- (void)_setDisallowsAMRAudio:(_Bool)arg1;
 - (void)_setDelegate:(id)arg1;
 - (void)_setCurrentPlaybackTime:(double)arg1 timeOption:(long long)arg2;
 - (void)_setControlsHidden:(_Bool)arg1;
@@ -132,7 +131,6 @@
 - (_Bool)_isNavigationBarHidden;
 - (_Bool)_isReadyForDisplay;
 - (id)_HTTPHeaderFields;
-- (_Bool)disallowsAMRAudio;
 - (id)_delegate;
 - (id)_currentItem;
 - (_Bool)_areControlsHidden;

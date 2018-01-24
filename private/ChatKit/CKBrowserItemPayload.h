@@ -19,6 +19,7 @@
     CKMediaObject *_mediaObject;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)browserItemPayloadFromIMPluginPayload:(id)arg1;
 + (id)browserItemFromSticker:(id)arg1;
 @property(retain, nonatomic) CKMediaObject *mediaObject; // @synthesize mediaObject=_mediaObject;

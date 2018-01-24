@@ -48,6 +48,7 @@
 - (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
 - (id)decryptData:(id)arg1 error:(id *)arg2;
 - (id)encryptDataForMessage:(id)arg1;
+- (void)sendMessage:(id)arg1 timeout:(double)arg2 queue:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)sendMessage:(id)arg1 queue:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)sendMessage:(id)arg1;
 @property(readonly, nonatomic) _Bool streamsAreValid;

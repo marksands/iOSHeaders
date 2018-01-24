@@ -19,7 +19,6 @@
 @property(readonly, nonatomic) double contentHorizontalMargin; // @synthesize contentHorizontalMargin=_contentHorizontalMargin;
 @property(readonly, nonatomic) long long style; // @synthesize style=_style;
 - (id)initWithStyle:(long long)arg1;
-- (void)applyTraitCollection:(id)arg1;
 
 @end
 

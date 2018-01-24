@@ -23,6 +23,9 @@
 + (id)radioGroupSpecifiersFromDictionary:(id)arg1 stringsTable:(id)arg2 parentSpecifier:(id)arg3 target:(id)arg4;
 + (id)groupSpecifierFromDictionary:(id)arg1 stringsTable:(id)arg2 parentSpecifier:(id)arg3 target:(id)arg4;
 + (id)_localizedTitlesFromUnlocalizedTitles:(id)arg1 stringsTable:(id)arg2 parentSpecifier:(id)arg3;
++ (_Bool)canUseOnBoardingKitForPrivacyDisplayForBundleID:(id)arg1;
++ (id)onBoardingKitBundleIDDict;
++ (id)allowedPrivacyBundles;
 @property(retain, nonatomic) PSSystemPolicyForApp *systemPolicy; // @synthesize systemPolicy=_systemPolicy;
 - (void).cxx_destruct;
 - (id)bundle;
@@ -31,6 +34,7 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)setPreferenceValue:(id)arg1 specifier:(id)arg2;
 - (void)postThirdPartySettingDidChangeNotificationForSpecifier:(id)arg1;
+- (void)showPrivacyControllerForSpecifier:(id)arg1;
 - (void)_setToggleSwitchSpecifierValue:(id)arg1 specifier:(id)arg2;
 - (id)_readToggleSwitchSpecifierValue:(id)arg1;
 - (id)_valueFromUIValue:(id)arg1 specifier:(id)arg2;

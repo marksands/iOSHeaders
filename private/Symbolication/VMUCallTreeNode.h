@@ -41,6 +41,7 @@
 - (id)fullOutputWithThreshold:(unsigned int)arg1 showPseudoNodes:(_Bool)arg2;
 - (void)countFunctionOccurrencesInTree:(id)arg1;
 - (id)largestTopOfStackPath;
+- (id)sortedChildren;
 - (id)sortedChildrenWithPseudoNode;
 - (id)sortedChildrenWithPseudoNode:(id)arg1 withCompare:(SEL)arg2;
 - (id)pseudoNodeTopOfStackChild;
@@ -63,6 +64,7 @@
 - (unsigned int)count;
 - (unsigned long long)address;
 - (id)parent;
+- (id)description;
 - (void)dealloc;
 - (void)addChildCountsIntoNode;
 - (void)addChild:(id)arg1;

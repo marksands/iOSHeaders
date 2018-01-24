@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSNumber, NSString;
+@class AVSystemController, NSNumber, NSString;
 
 @interface AVVolumeController : NSObject
 {
@@ -18,14 +18,18 @@
     _Bool _EUVolumeLimitOverridden;
     _Bool _volumeChangesThrottled;
     _Bool _canOverrideEUVolumeLimit;
+    _Bool _fullyInitialized;
     float _volume;
     float _EUVolumeLimit;
-    id <AVVolumeControllerDelegate> _delegate;
     NSNumber *_targetVolumeInternal;
     NSNumber *_maximumTargetVolumeSinceChangingVolumeBegan;
     NSString *_volumeCategory;
+    AVSystemController *_sharedSystemController;
 }
 
++ (id)sharedVolumeController;
+@property(nonatomic, getter=isFullyInitialized) _Bool fullyInitialized; // @synthesize fullyInitialized=_fullyInitialized;
+@property(retain, nonatomic) AVSystemController *sharedSystemController; // @synthesize sharedSystemController=_sharedSystemController;
 @property(readonly, nonatomic) NSString *volumeCategory; // @synthesize volumeCategory=_volumeCategory;
 @property(retain, nonatomic) NSNumber *maximumTargetVolumeSinceChangingVolumeBegan; // @synthesize maximumTargetVolumeSinceChangingVolumeBegan=_maximumTargetVolumeSinceChangingVolumeBegan;
 @property(retain, nonatomic) NSNumber *targetVolumeInternal; // @synthesize targetVolumeInternal=_targetVolumeInternal;
@@ -39,7 +43,6 @@
 @property(nonatomic) _Bool prefersSystemVolumeHUDHidden; // @synthesize prefersSystemVolumeHUDHidden=_prefersSystemVolumeHUDHidden;
 @property(nonatomic) float volume; // @synthesize volume=_volume;
 @property(nonatomic, getter=isChangingVolume) _Bool changingVolume; // @synthesize changingVolume=_changingVolume;
-@property(nonatomic) __weak id <AVVolumeControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_performOnMainThread:(CDUnknownBlockType)arg1;
 - (void)_applyProposedVolumeImmediately;

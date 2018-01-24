@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class NSArray, NSString, SGTextMessage;
 
-@interface SGTextMessageItem : NSObject
+@interface SGTextMessageItem : NSObject <NSSecureCoding>
 {
     NSString *_content;
     NSString *_language;
@@ -16,6 +18,7 @@
     NSArray *_features;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain) NSArray *features; // @synthesize features=_features;
 @property(readonly) SGTextMessage *message; // @synthesize message=_message;
 - (void).cxx_destruct;

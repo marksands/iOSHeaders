@@ -8,7 +8,7 @@
 
 #import "CNEncodedFetchCursor.h"
 
-@class CNContactFetchRequest, CNContactsEnvironment, NSString;
+@class CNContactFetchRequest, CNContactsEnvironment, CNManagedConfiguration, NSString;
 
 @interface CNiOSEncodedPeopleFetcher : NSObject <CNEncodedFetchCursor>
 {
@@ -18,8 +18,10 @@
     CDUnknownBlockType _completionHandler;
     id <CNEncodedFetchCursor> _cursor;
     id <CNContactsLogger> _logger;
+    CNManagedConfiguration *_managedConfiguration;
 }
 
+@property(retain, nonatomic) CNManagedConfiguration *managedConfiguration; // @synthesize managedConfiguration=_managedConfiguration;
 @property(readonly, nonatomic) id <CNContactsLogger> logger; // @synthesize logger=_logger;
 @property(readonly, nonatomic) id <CNEncodedFetchCursor> cursor; // @synthesize cursor=_cursor;
 @property(readonly, copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
@@ -31,7 +33,7 @@
 - (_Bool)fetchEncodedPeopleWithError:(id *)arg1 cancelationToken:(id)arg2 batchHandler:(CDUnknownBlockType)arg3;
 - (id)cursorWithError:(id *)arg1;
 - (void)dealloc;
-- (id)initWithFetchRequest:(id)arg1 addressBook:(void *)arg2 completionHandler:(CDUnknownBlockType)arg3 environment:(id)arg4;
+- (id)initWithFetchRequest:(id)arg1 addressBook:(void *)arg2 managedConfiguration:(id)arg3 completionHandler:(CDUnknownBlockType)arg4 environment:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
