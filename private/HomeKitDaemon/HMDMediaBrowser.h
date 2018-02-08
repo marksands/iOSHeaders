@@ -25,11 +25,13 @@
     void *_discoverySessionCallbackToken;
     HMFTimer *_discoveryPollTimer;
     NSMutableSet *_identifiersOfAssociatedMediaAccessories;
+    NSMutableSet *_mediaEndpoints;
 }
 
 + (id)logCategory;
 + (id)advertisementsFromOutputDevices:(struct __CFArray *)arg1;
 + (id)shortDescription;
+@property(retain, nonatomic) NSMutableSet *mediaEndpoints; // @synthesize mediaEndpoints=_mediaEndpoints;
 @property(retain, nonatomic) NSMutableSet *identifiersOfAssociatedMediaAccessories; // @synthesize identifiersOfAssociatedMediaAccessories=_identifiersOfAssociatedMediaAccessories;
 @property(nonatomic) _Bool updateAvailableOutputDevices; // @synthesize updateAvailableOutputDevices=_updateAvailableOutputDevices;
 @property(retain, nonatomic) HMFTimer *discoveryPollTimer; // @synthesize discoveryPollTimer=_discoveryPollTimer;
@@ -42,7 +44,10 @@
 - (void).cxx_destruct;
 - (void)timerDidFire:(id)arg1;
 - (void)deregisterAccessories:(id)arg1;
-- (void)updateAccessories:(id)arg1;
+- (void)_updateSessionsForAccessories:(id)arg1;
+- (void)updateSessionsForAccessories:(id)arg1;
+- (void)registerAccessories:(id)arg1;
+- (void)_updateSessionForAccessory:(id)arg1;
 - (id)unassociatedAccessoryFromAdvertisementData:(id)arg1;
 - (void)_handleAvailableOutputDevices:(struct __CFArray *)arg1;
 - (void)checkForUpdatedAvailableOutputDevices:(struct __CFArray *)arg1;

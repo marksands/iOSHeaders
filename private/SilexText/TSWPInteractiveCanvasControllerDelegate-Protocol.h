@@ -6,13 +6,14 @@
 
 #import "TSDInteractiveCanvasControllerDelegate.h"
 
-@class TSDRep<TSWPHyperlinkHostRepProtocol>, TSWPFootnoteReferenceAttachment, TSWPHyperlinkField, TSWPInteractiveCanvasController, TSWPSmartField, TSWPTwoPartAction, UIDragInteraction, UIDragItem, UIView;
+@class TSDRep<TSWPHyperlinkHostRepProtocol>, TSWPFootnoteReferenceAttachment, TSWPHyperlinkField, TSWPInteractiveCanvasController, TSWPSmartField, TSWPTwoPartAction, UIDragInteraction, UIDragItem, UIView, _UINonEditableTextSelectionForceGesture;
 
 @protocol TSWPInteractiveCanvasControllerDelegate <TSDInteractiveCanvasControllerDelegate>
 
 @optional
 @property(readonly, nonatomic) _Bool interactiveCanvasControllerAllowsHyperlinkInteraction;
 - (_Bool)interactiveCanvasController:(TSWPInteractiveCanvasController *)arg1 tappedOnFootnoteAttachment:(TSWPFootnoteReferenceAttachment *)arg2;
+- (_Bool)interactiveCanvasController:(TSWPInteractiveCanvasController *)arg1 configureHardPressGesture:(_UINonEditableTextSelectionForceGesture *)arg2;
 - (_Bool)interactiveCanvasController:(TSWPInteractiveCanvasController *)arg1 allowsDragOfSmartField:(TSWPSmartField *)arg2;
 - (UIDragItem *)interactiveCanvasController:(TSWPInteractiveCanvasController *)arg1 dragItemForSmartField:(TSWPSmartField *)arg2 interaction:(UIDragInteraction *)arg3 session:(id <UIDragSession>)arg4;
 - (void)showInsertPageNumberUIFromRect:(struct CGRect)arg1 inView:(UIView *)arg2;

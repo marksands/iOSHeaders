@@ -12,8 +12,10 @@
 {
     NSArray *_topVideosArticleIDs;
     NSDictionary *_topVideosMetadataByArticleID;
+    NSString *_mutingChannelID;
 }
 
+@property(copy, nonatomic) NSString *mutingChannelID; // @synthesize mutingChannelID=_mutingChannelID;
 @property(readonly, nonatomic) NSDictionary *topVideosMetadataByArticleID; // @synthesize topVideosMetadataByArticleID=_topVideosMetadataByArticleID;
 @property(readonly, nonatomic) NSArray *topVideosArticleIDs; // @synthesize topVideosArticleIDs=_topVideosArticleIDs;
 - (void).cxx_destruct;

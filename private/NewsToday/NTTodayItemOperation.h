@@ -11,7 +11,7 @@
 @interface NTTodayItemOperation : FCOperation
 {
     NSDictionary *_catchUpOperationResultsBySectionDescriptor;
-    id <FCAppConfiguration> _appConfiguration;
+    id <FCNewsAppConfiguration> _appConfiguration;
     id <FCContentContext> _contentContext;
     NSSet *_itemIDsOfLeadingCells;
     NSDictionary *_slotAllocationByDynamicSlotItemID;
@@ -34,7 +34,7 @@
 @property(copy, nonatomic) NSDictionary *slotAllocationByDynamicSlotItemID; // @synthesize slotAllocationByDynamicSlotItemID=_slotAllocationByDynamicSlotItemID;
 @property(copy, nonatomic) NSSet *itemIDsOfLeadingCells; // @synthesize itemIDsOfLeadingCells=_itemIDsOfLeadingCells;
 @property(retain, nonatomic) id <FCContentContext> contentContext; // @synthesize contentContext=_contentContext;
-@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(copy, nonatomic) id <FCNewsAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 @property(copy, nonatomic) NSDictionary *catchUpOperationResultsBySectionDescriptor; // @synthesize catchUpOperationResultsBySectionDescriptor=_catchUpOperationResultsBySectionDescriptor;
 - (void).cxx_destruct;
 - (void)_fetchProtoitemsWithCompletion:(CDUnknownBlockType)arg1;

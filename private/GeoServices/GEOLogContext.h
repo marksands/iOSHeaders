@@ -28,6 +28,7 @@
 - (void)_registerDeviceBaseStateWithTraits:(id)arg1;
 - (void)_registerDefaultMapUIState;
 - (void)_registerExperimentsState;
+- (void)updateDeviceConnectionState;
 - (void)_registerDeviceConnectionState;
 - (void)_registerApplicationIdentifierState;
 - (void)_registerDeviceIdentifierState;

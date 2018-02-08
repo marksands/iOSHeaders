@@ -35,6 +35,7 @@
 @property _Bool stopsOnFirstMatch; // @synthesize stopsOnFirstMatch=_stopsOnFirstMatch;
 @property _Bool changesScope; // @synthesize changesScope=_changesScope;
 @property(readonly) XCUIElementQuery *inputQuery; // @synthesize inputQuery=_inputQuery;
+- (void).cxx_destruct;
 @property(readonly, copy) XCUIElementQuery *statusItems;
 @property(readonly, copy) XCUIElementQuery *otherElements;
 @property(readonly, copy) XCUIElementQuery *handles;
@@ -164,7 +165,6 @@
 @property(readonly) unsigned long long count;
 - (id)initWithInputQuery:(id)arg1 queryDescription:(id)arg2 transformer:(id)arg3;
 - (id)init;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *description;

@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <DeviceManagement/DMFStartManagingAppRequest.h>
+#import <DeviceManagement/DMFAppRequest.h>
 
 @class NSDictionary, NSString;
 
-@interface DMFMDMv1StartManagingAppRequest : DMFStartManagingAppRequest
+@interface DMFMDMv1StartManagingAppRequest : DMFAppRequest
 {
     NSString *_originator;
     unsigned long long _managementOptions;

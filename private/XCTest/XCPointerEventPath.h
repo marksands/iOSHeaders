@@ -22,6 +22,7 @@
 @property _Bool immutable; // @synthesize immutable=_immutable;
 @property unsigned long long index; // @synthesize index=_index;
 @property(readonly) unsigned long long pathType; // @synthesize pathType=_pathType;
+- (void).cxx_destruct;
 - (id)description;
 - (id)firstEventAfterOffset:(double)arg1;
 - (id)lastEventBeforeOffset:(double)arg1;
@@ -38,7 +39,6 @@
 - (id)initForMouseAtPoint:(struct CGPoint)arg1 offset:(double)arg2;
 - (id)initForTouchAtPoint:(struct CGPoint)arg1 offset:(double)arg2;
 - (id)init;
-- (void)dealloc;
 
 @end
 

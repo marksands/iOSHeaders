@@ -8,10 +8,11 @@
 
 #import "NSSecureCoding.h"
 #import "RPCompanionLinkXPCClientInterface.h"
+#import "RPMessageable.h"
 
 @class NSArray, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection, RPCompanionLinkDevice;
 
-@interface RPCompanionLinkClient : NSObject <NSSecureCoding, RPCompanionLinkXPCClientInterface>
+@interface RPCompanionLinkClient : NSObject <NSSecureCoding, RPCompanionLinkXPCClientInterface, RPMessageable>
 {
     _Bool _activateCalled;
     struct NSMutableSet *_assertions;

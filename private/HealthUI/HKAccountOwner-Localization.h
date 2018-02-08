@@ -7,7 +7,6 @@
 #import "HKAccountOwner.h"
 
 @interface HKAccountOwner (Localization)
-- (id)sortDateSummaryTitle;
 - (id)sortDateTitle;
 @end
 

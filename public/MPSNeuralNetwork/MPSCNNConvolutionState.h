@@ -24,7 +24,6 @@
 @property(readonly, nonatomic) unsigned long long kernelWidth; // @synthesize kernelWidth=_kernelWidth;
 @property(readonly, nonatomic) unsigned long long sourceHeight; // @synthesize sourceHeight=_originalConvolutionSourceHeight;
 @property(readonly, nonatomic) unsigned long long sourceWidth; // @synthesize sourceWidth=_originalConvolutionSourceWidth;
-- (id)initWithResource:(id)arg1 cache:(struct MPSAutoCache *)arg2;
 - (id)initWithSourceWidth:(unsigned long long)arg1 sourceHeight:(unsigned long long)arg2 kernelWidth:(unsigned long long)arg3 kernelHeight:(unsigned long long)arg4 sourceOffset:(CDStruct_d6af7fc0)arg5;
 
 // Remaining properties

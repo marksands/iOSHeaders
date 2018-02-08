@@ -282,8 +282,7 @@ struct DragItem {
     struct IntPoint _field4;
     struct IntPoint _field5;
     struct IntPoint _field6;
-    struct IntPoint _field7;
-    struct String _field8;
+    struct String _field7;
     struct URL {
         struct String _field1;
         unsigned int :1;
@@ -298,9 +297,9 @@ struct DragItem {
         unsigned int _field8;
         unsigned int _field9;
         unsigned int _field10;
-    } _field9;
-    struct IntRect _field10;
-    struct PasteboardWriterData _field11;
+    } _field8;
+    struct IntRect _field9;
+    struct PasteboardWriterData _field10;
 };
 
 struct DragSourceState {
@@ -1372,6 +1371,7 @@ struct NetworkDataTaskCocoa {
     struct NetworkLoadMetrics _field21;
     unsigned long long _field22;
     unsigned long long _field23;
+    _Bool _field24;
 };
 
 struct NetworkLoadMetrics {

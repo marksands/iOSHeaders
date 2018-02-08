@@ -14,6 +14,7 @@
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
     struct LogCategory *_ucat;
+    unsigned int _localInterfaceIndex;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSString *_identifier;
     NSString *_label;
@@ -25,6 +26,7 @@
 
 @property(retain, nonatomic) CUNANEndpoint *peerEndpoint; // @synthesize peerEndpoint=_peerEndpoint;
 @property(readonly, nonatomic) CDUnion_fab80606 peerAddress; // @synthesize peerAddress=_peerAddress;
+@property(readonly, nonatomic) unsigned int localInterfaceIndex; // @synthesize localInterfaceIndex=_localInterfaceIndex;
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
 @property(copy, nonatomic) CDUnknownBlockType interruptionHandler; // @synthesize interruptionHandler=_interruptionHandler;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;

@@ -12,6 +12,7 @@
 {
     id <UITraitEnvironment> _traitEnvironment;
     UITraitCollection *_traitCollection;
+    UIFont *_title0Font;
     UIFont *_title1Font;
     UIFont *_title2Font;
     UIFont *_title3Font;
@@ -34,6 +35,7 @@
 @property(copy, nonatomic) UIFont *title3Font; // @synthesize title3Font=_title3Font;
 @property(copy, nonatomic) UIFont *title2Font; // @synthesize title2Font=_title2Font;
 @property(copy, nonatomic) UIFont *title1Font; // @synthesize title1Font=_title1Font;
+@property(copy, nonatomic) UIFont *title0Font; // @synthesize title0Font=_title0Font;
 @property(copy, nonatomic) UITraitCollection *traitCollection; // @synthesize traitCollection=_traitCollection;
 @property(nonatomic) __weak id <UITraitEnvironment> traitEnvironment; // @synthesize traitEnvironment=_traitEnvironment;
 - (void).cxx_destruct;

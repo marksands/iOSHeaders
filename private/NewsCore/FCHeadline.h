@@ -188,8 +188,8 @@
 @property(readonly, nonatomic) unsigned long long halfLife;
 @property(readonly, copy, nonatomic) NSString *sourceFeedID;
 @property(readonly, nonatomic) _Bool isTopStory;
-- (void)applyHeadlineMetadata:(id)arg1 appConfig:(id)arg2;
-- (void)assignStoryType:(unsigned long long)arg1 withAppConfig:(id)arg2;
+- (void)applyHeadlineMetadata:(id)arg1 coreConfiguration:(id)arg2;
+- (void)assignStoryType:(unsigned long long)arg1 withCoreConfiguration:(id)arg2;
 - (void)overrideDisplayDate:(id)arg1;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) _Bool hasVideo;

@@ -16,7 +16,6 @@
     NSData *_artworkData;
     int _artworkDataHeight;
     int _artworkDataWidth;
-    NSData *_artworkURLTemplatesData;
     NSMutableArray *_availableLanguageOptions;
     NSMutableArray *_currentLanguageOptions;
     NSString *_identifier;
@@ -37,7 +36,6 @@
 + (Class)currentLanguageOptionsType;
 + (Class)availableLanguageOptionsType;
 + (void)initialize;
-@property(retain, nonatomic) NSData *artworkURLTemplatesData; // @synthesize artworkURLTemplatesData=_artworkURLTemplatesData;
 @property(nonatomic) int artworkDataHeight; // @synthesize artworkDataHeight=_artworkDataHeight;
 @property(nonatomic) int artworkDataWidth; // @synthesize artworkDataWidth=_artworkDataWidth;
 @property(retain, nonatomic) NSString *requestIdentifier; // @synthesize requestIdentifier=_requestIdentifier;
@@ -52,6 +50,7 @@
 @property(retain, nonatomic) NSData *artworkData; // @synthesize artworkData=_artworkData;
 @property(retain, nonatomic) _MRContentItemMetadataProtobuf *metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -61,7 +60,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasArtworkURLTemplatesData;
 @property(nonatomic) _Bool hasArtworkDataHeight;
 @property(nonatomic) _Bool hasArtworkDataWidth;
 @property(readonly, nonatomic) _Bool hasRequestIdentifier;
@@ -85,7 +83,6 @@
 @property(readonly, nonatomic) _Bool hasArtworkData;
 @property(readonly, nonatomic) _Bool hasMetadata;
 @property(readonly, nonatomic) _Bool hasIdentifier;
-- (void)dealloc;
 - (id)_initWithData:(id)arg1;
 - (id)_init;
 

@@ -24,6 +24,7 @@
 + (id)keyboardLayoutWithIdentifier:(id)arg1;
 @property(readonly) XCKeyboardKeyMap *primaryKeyMap; // @synthesize primaryKeyMap=_primaryKeyMap;
 @property(readonly, copy) NSString *identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
 - (_Bool)deactivate:(id)arg1 error:(id *)arg2;
 - (id)activateWithError:(id *)arg1;
 - (id)_setActiveLayoutState:(id)arg1 error:(id *)arg2;

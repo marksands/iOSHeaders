@@ -18,6 +18,7 @@
     NSDictionary *_assetStoreFronts;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)requiredPropertiesForStaticMediaClips;
 + (Class)queueFeederClass;
 @property(copy, nonatomic) NSDictionary *assetStoreFronts; // @synthesize assetStoreFronts=_assetStoreFronts;

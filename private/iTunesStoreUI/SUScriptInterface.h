@@ -128,11 +128,14 @@
 - (void)stopListeningForAuthenticationToken;
 - (void)startListeningForAuthenticationTokenWithCallback:(id)arg1;
 - (void)signOutPrimaryAccount;
+- (id)shouldDisplayPrivacyLinkWithIdentifier:(id)arg1;
 - (void)setLibraryIdentifierWithType:(id)arg1 value:(id)arg2;
 - (void)sendPostOfType:(id)arg1 withOptions:(id)arg2;
 - (void)requireCellularForResourceWithURL:(id)arg1;
 - (void)reportAProblemForIdentifier:(id)arg1;
 - (void)registerNavBarButtonWithTitle:(id)arg1 side:(id)arg2 function:(id)arg3;
+- (id)presentPrivacySplashWithIdentifier:(id)arg1;
+- (id)presentPrivacyViewControllerWithIdentifier:(id)arg1;
 - (void)performPurchaseAnimationForIdentifier:(id)arg1 style:(id)arg2;
 - (void)perfLog:(id)arg1;
 - (void)openWallet;
@@ -144,6 +147,7 @@
 - (void)openFamilyCircleSetupWithClientName:(id)arg1 completionFunction:(id)arg2;
 - (void)_finishCreditCardReaderWithOutput:(id)arg1 callback:(id)arg2;
 - (void)openCreditCardReaderWithCompletionFunction:(id)arg1;
+- (void)acknowledgePrivacyLinkWithIdentifier:(id)arg1;
 - (id)parentViewController;
 - (id)DOMElementWithElement:(id)arg1;
 @property(retain) WebFrame *webFrame;

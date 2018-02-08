@@ -11,7 +11,7 @@
 @protocol TTSSpeechService <NSObject>
 @property(nonatomic) NSObject<OS_dispatch_queue> *serviceQueue;
 - (_Bool)isVoiceValid:(TTSSpeechVoice *)arg1;
-- (NSString *)speechMarkupStringForType:(long long)arg1 voice:(TTSSpeechVoice *)arg2;
+- (NSString *)speechMarkupStringForType:(long long)arg1 voice:(TTSSpeechVoice *)arg2 string:(NSString *)arg3;
 - (NSSet *)supportedIPAPhonemeLanguages;
 - (oneway void)getSpeechIsActiveForRequest:(TTSSpeechRequest *)arg1 reply:(void (^)(_Bool))arg2;
 - (oneway void)getSpeechIsActiveReply:(void (^)(_Bool))arg1;

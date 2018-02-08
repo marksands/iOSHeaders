@@ -38,6 +38,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool shouldShowUserMessageLabel; // @dynamic shouldShowUserMessageLabel;
 @property(readonly, nonatomic) _Bool shouldShowUserActionLabel; // @dynamic shouldShowUserActionLabel;
+@property(readonly, nonatomic) _Bool shouldShowProgress;
 @property(readonly, nonatomic) NSArray *errors; // @dynamic errors;
 @property(readonly, nonatomic) double remainingItems; // @dynamic remainingItems;
 @property(readonly, nonatomic) double percentComplete; // @dynamic percentComplete;

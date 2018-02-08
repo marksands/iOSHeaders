@@ -22,6 +22,7 @@
 @property(retain, nonatomic) _MRGameControllerAccelerationProtobuf *attitude; // @synthesize attitude=_attitude;
 @property(retain, nonatomic) _MRGameControllerAccelerationProtobuf *userAcceleration; // @synthesize userAcceleration=_userAcceleration;
 @property(retain, nonatomic) _MRGameControllerAccelerationProtobuf *gravity; // @synthesize gravity=_gravity;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -35,7 +36,6 @@
 @property(readonly, nonatomic) _Bool hasAttitude;
 @property(readonly, nonatomic) _Bool hasUserAcceleration;
 @property(readonly, nonatomic) _Bool hasGravity;
-- (void)dealloc;
 
 @end
 

@@ -4,9 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+#import "NSObject.h"
+
 @class NSArray, NSData, NSDictionary;
 
-@protocol SOSControlProtocol
+@protocol SOSControlProtocol <NSObject>
 - (void)setWatchdogParmeters:(NSDictionary *)arg1 complete:(void (^)(NSError *))arg2;
 - (void)getWatchdogParameters:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)triggerSync:(NSArray *)arg1 complete:(void (^)(_Bool, NSError *))arg2;

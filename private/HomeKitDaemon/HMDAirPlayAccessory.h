@@ -7,12 +7,13 @@
 #import <HomeKitDaemon/HMDMediaAccessory.h>
 
 #import "HMDAccessoryDisassociation.h"
+#import "HMDAccessoryMinimumUserPrivilegeCapable.h"
 #import "HMDAccessoryUserManagement.h"
 #import "HMFLogging.h"
 
 @class HMFPairingIdentity, NSString;
 
-@interface HMDAirPlayAccessory : HMDMediaAccessory <HMDAccessoryDisassociation, HMDAccessoryUserManagement, HMFLogging>
+@interface HMDAirPlayAccessory : HMDMediaAccessory <HMDAccessoryMinimumUserPrivilegeCapable, HMDAccessoryDisassociation, HMDAccessoryUserManagement, HMFLogging>
 {
     HMFPairingIdentity *_pairingIdentity;
     NSString *_password;

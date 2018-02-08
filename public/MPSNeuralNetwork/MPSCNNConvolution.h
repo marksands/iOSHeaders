@@ -27,10 +27,14 @@
     unsigned int _weightsDataType;
     NSData *_biasOriginal;
     id <MTLBuffer> _neuronABuffer;
+    unsigned long long _accumulatorPrecisionOption;
+    _Bool _serializeWeightsAndBiases;
     unsigned long long _featureChannelsLayout;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
+@property(nonatomic) _Bool serializeWeightsAndBiases; // @synthesize serializeWeightsAndBiases=_serializeWeightsAndBiases;
+@property(nonatomic) unsigned long long accumulatorPrecisionOption; // @synthesize accumulatorPrecisionOption=_accumulatorPrecisionOption;
 @property(readonly, nonatomic) unsigned long long channelMultiplier; // @synthesize channelMultiplier=_channelMultiplier;
 @property(readonly, nonatomic) unsigned long long subPixelScaleFactor; // @synthesize subPixelScaleFactor=_scaleFactor;
 @property(readonly, nonatomic) unsigned long long groups; // @synthesize groups=_groups;
@@ -38,8 +42,17 @@
 @property(readonly, nonatomic) unsigned long long featureChannelsLayout; // @synthesize featureChannelsLayout=_featureChannelsLayout;
 @property(readonly, nonatomic) unsigned long long outputFeatureChannels; // @synthesize outputFeatureChannels=_outputFeatureChannels;
 @property(readonly, nonatomic) unsigned long long inputFeatureChannels; // @synthesize inputFeatureChannels=_inputFeatureChannels;
+- (_Bool)appendBatchBarrier;
+- (_Bool)isResultStateReusedAcrossBatch;
+- (void)reloadWeightsAndBiasesWithCommandBuffer:(id)arg1 weights:(id)arg2 biases:(id)arg3;
+- (void)reloadWeightsAndBiasesWithDataSource:(id)arg1;
+- (struct NSArray *)temporaryResultStateBatchForCommandBuffer:(id)arg1 sourceImage:(struct NSArray *)arg2 sourceStates:(id)arg3 destinationImage:(struct NSArray *)arg4;
+- (id)temporaryResultStateForCommandBuffer:(id)arg1 sourceImage:(id)arg2 sourceStates:(id)arg3 destinationImage:(id)arg4;
+- (struct NSArray *)resultStateBatchForSourceImage:(struct NSArray *)arg1 sourceStates:(id)arg2 destinationImage:(struct NSArray *)arg3;
+- (id)resultStateForSourceImage:(id)arg1 sourceStates:(id)arg2 destinationImage:(id)arg3;
 - (void)encodeToCommandBuffer:(id)arg1 sourceImage:(id)arg2 destinationImage:(id)arg3 state:(id *)arg4;
 - (id)debugDescription;
+- (void)copyToGradientState:(id)arg1 sourceImage:(id)arg2 sourceStates:(id)arg3 destinationImage:(id)arg4;
 - (id)destinationImageDescriptorForSourceImages:(id)arg1 sourceStates:(id)arg2 paddingMethod:(unsigned long long)arg3 sourceOffset:(CDStruct_d6af7fc0 *)arg4;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
@@ -50,14 +63,14 @@
 - (id)initializeWithDevice:(id)arg1 weights:(id)arg2 fullyConnected:(_Bool)arg3;
 - (id)initWithDevice:(id)arg1 convolutionDescriptor:(id)arg2 kernelWeights:(const float *)arg3 biasTerms:(const float *)arg4 flags:(unsigned long long)arg5;
 - (id)initWithDevice:(id)arg1 convolutionDescriptor:(id)arg2 kernelWeights:(const float *)arg3 biasTerms:(const float *)arg4 flags:(unsigned long long)arg5 fullyConnected:(_Bool)arg6;
--     // Error parsing type: B84@0:8@16@24r^v32I40r^44r^f52i60r^f64Q72B80, name: initialize:convolutionDescriptor:kernelWeights:dataType:range:lookUpTable:qType:biasTerms:flags:fullyConnected:
+-     // Error parsing type: B88@0:8@16@24r^v32I40r^44r^f52i60r^f64Q72B80B84, name: initialize:convolutionDescriptor:kernelWeights:dataType:range:lookUpTable:qType:biasTerms:flags:fullyConnected:serializeWeightsAndBiases:
 - (id)initWithDevice:(id)arg1;
+- (id)biases;
+- (id)weights;
 @property(readonly, nonatomic) float neuronParameterC;
 @property(readonly, nonatomic) float neuronParameterB;
 @property(readonly, nonatomic) float neuronParameterA;
 @property(readonly, nonatomic) int neuronType;
-@property(readonly, nonatomic) unsigned long long dilationRateY;
-@property(readonly, nonatomic) unsigned long long dilationRateX;
 
 @end
 

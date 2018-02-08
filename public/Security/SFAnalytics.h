@@ -40,7 +40,6 @@
 - (void)logHardFailureForEventNamed:(id)arg1 withAttributes:(id)arg2;
 - (void)logSuccessForEventNamed:(id)arg1;
 - (id)init;
-- (id)extraValuesToUploadToServer;
 - (id)datePropertyForKey:(id)arg1;
 - (void)setDateProperty:(id)arg1 forKey:(id)arg2;
 - (void)removeState;

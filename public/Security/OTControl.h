@@ -20,6 +20,7 @@
 - (void)launchBottledPeer:(id)arg1 bottleID:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)preflightBottledPeer:(id)arg1 dsid:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)signOut:(CDUnknownBlockType)arg1;
+- (void)signIn:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)listOfRecords:(CDUnknownBlockType)arg1;
 - (void)encryptionKey:(CDUnknownBlockType)arg1;
 - (void)signingKey:(CDUnknownBlockType)arg1;

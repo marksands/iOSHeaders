@@ -16,6 +16,8 @@
 - (void)audioRecorderLostMediaserverd:(CSAudioRecorder *)arg1;
 - (void)audioRecorderDisconnected:(CSAudioRecorder *)arg1;
 - (void)voiceTriggerDetectedOnAOP:(NSDictionary *)arg1;
+- (void)audioRecorder:(CSAudioRecorder *)arg1 didSetAudioSessionActive:(_Bool)arg2;
+- (void)audioRecorder:(CSAudioRecorder *)arg1 willSetAudioSessionActive:(_Bool)arg2;
 - (void)audioRecorderEndRecordInterruption:(CSAudioRecorder *)arg1;
 - (void)audioRecorderBeginRecordInterruption:(CSAudioRecorder *)arg1 withContext:(NSDictionary *)arg2;
 - (void)audioRecorderBeginRecordInterruption:(CSAudioRecorder *)arg1;

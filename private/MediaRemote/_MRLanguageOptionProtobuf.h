@@ -28,6 +28,7 @@
 @property(retain, nonatomic) NSMutableArray *characteristics; // @synthesize characteristics=_characteristics;
 @property(retain, nonatomic) NSString *languageTag; // @synthesize languageTag=_languageTag;
 @property(nonatomic) int type; // @synthesize type=_type;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -45,7 +46,6 @@
 - (void)clearCharacteristics;
 @property(readonly, nonatomic) _Bool hasLanguageTag;
 @property(nonatomic) _Bool hasType;
-- (void)dealloc;
 
 @end
 

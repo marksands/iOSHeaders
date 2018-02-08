@@ -100,6 +100,7 @@
 - (void).cxx_destruct;
 - (void)_setURLFromFPItem;
 - (void)setEditedFileURL:(id)arg1 withSandboxExtension:(id)arg2;
+- (id)shareableURL;
 @property(readonly) NSString *MIMEType;
 - (_Bool)canBePreviewed;
 - (id)createPreviewContext;

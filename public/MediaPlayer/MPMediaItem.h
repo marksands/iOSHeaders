@@ -19,6 +19,7 @@
 + (id)titlePropertyForGroupingType:(long long)arg1;
 + (id)persistentIDPropertyForGroupingType:(long long)arg1;
 + (_Bool)canFilterByProperty:(id)arg1;
++ (_Bool)supportsSecureCoding;
 + (id)screenshotArtworkCatalogCacheProperties;
 + (id)artworkCatalogCacheProperties;
 + (id)MPSD_mediaItemPropertiesForDownloadability;

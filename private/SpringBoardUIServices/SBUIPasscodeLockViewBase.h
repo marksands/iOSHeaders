@@ -168,6 +168,7 @@
 - (void)willTransitionToPasscodeView;
 - (void)_setFaceIDUsePasscodeButtonVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_advanceToPasscode;
+- (void)_advanceToPasscodeTimerFired;
 - (void)_disarmAdvanceToPasscodeTimer;
 - (void)_armAdvanceToPasscodeTimer;
 - (void)_setPasscodeLockViewState:(long long)arg1 animated:(_Bool)arg2;

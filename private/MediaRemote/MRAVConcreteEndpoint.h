@@ -21,6 +21,7 @@
 }
 
 @property(copy, nonatomic) NSDictionary *outsourcedExternalDeviceCache; // @synthesize outsourcedExternalDeviceCache=_outsourcedExternalDeviceCache;
+- (void).cxx_destruct;
 - (void)_updateOutputContextInfo;
 - (void)_onQueue_reloadExternalDevice;
 - (_Bool)isProxyGroupPlayer;

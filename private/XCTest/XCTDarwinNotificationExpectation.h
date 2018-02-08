@@ -14,6 +14,7 @@
 }
 
 @property(retain) _XCTDarwinNotificationExpectationImplementation *internal; // @synthesize internal=_internal;
+- (void).cxx_destruct;
 - (void)cleanup;
 @property(copy) CDUnknownBlockType handler;
 @property(readonly, copy) NSString *notificationName;

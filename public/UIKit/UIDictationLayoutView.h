@@ -12,29 +12,25 @@ __attribute__((visibility("hidden")))
 @interface UIDictationLayoutView : UIDictationView
 {
     _Bool _hideSwitcher;
-    UIButton *_startButton;
-    UIButton *_stopButton;
     UIButton *_globeButton;
     UIButton *_keyboardButton;
     UILabel *_languageLabel;
     NSString *_currentDictationLanguage;
     UIButton *_waveTapEndpointButton;
-    _Bool _selectionGestureDetected;
+    _Bool _blackTextColor;
 }
 
 - (_Bool)isShowing;
 - (void)returnToKeyboard;
 - (void)finishReturnToKeyboard;
 - (void)layoutSubviews;
-- (void)didEndIndirectSelectionGesture;
-- (void)willBeginIndirectSelectionGesture;
 - (void)setState:(int)arg1;
 - (void)setRenderConfig:(id)arg1;
 - (void)globeButtonPressed:(id)arg1 withEvent:(id)arg2 location:(struct CGPoint)arg3;
 - (void)globeButtonPressed:(id)arg1 withEvent:(id)arg2;
 - (void)updateLanguageLabel;
 - (void)keyboardButtonPressed;
-- (void)startStopButtonPressed;
+- (id)darkGrayColor;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
 

@@ -15,7 +15,8 @@
     NSXPCConnection *_connection;
 }
 
-@property NSXPCConnection *connection; // @synthesize connection=_connection;
+@property(retain) NSXPCConnection *connection; // @synthesize connection=_connection;
+- (void).cxx_destruct;
 - (id)matchesForQuery:(id)arg1 error:(id *)arg2;
 - (id)initWithEndpoint:(id)arg1;
 

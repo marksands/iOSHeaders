@@ -18,7 +18,6 @@
 - (id)label;
 - (id)init;
 - (id)destinationImageDescriptorForSourceImages:(id)arg1 sourceStates:(id)arg2 forKernel:(id)arg3 suggestedDescriptor:(id)arg4;
-- (unsigned long long)paddingMethod;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

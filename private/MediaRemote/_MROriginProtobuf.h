@@ -12,7 +12,7 @@
 
 @interface _MROriginProtobuf : PBCodable <NSCopying>
 {
-    _MRDeviceInfoMessageProtobuf *_deviceInfo;
+    _MRDeviceInfoMessageProtobuf *_deviceInfoDeprecated;
     NSString *_displayName;
     int _identifier;
     int _type;
@@ -22,9 +22,10 @@
     } _has;
 }
 
-@property(retain, nonatomic) _MRDeviceInfoMessageProtobuf *deviceInfo; // @synthesize deviceInfo=_deviceInfo;
+@property(retain, nonatomic) _MRDeviceInfoMessageProtobuf *deviceInfoDeprecated; // @synthesize deviceInfoDeprecated=_deviceInfoDeprecated;
 @property(nonatomic) int identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -34,14 +35,13 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasDeviceInfo;
+@property(readonly, nonatomic) _Bool hasDeviceInfoDeprecated;
 @property(nonatomic) _Bool hasIdentifier;
 @property(readonly, nonatomic) _Bool hasDisplayName;
 - (int)StringAsType:(id)arg1;
 - (id)typeAsString:(int)arg1;
 @property(nonatomic) _Bool hasType;
 @property(nonatomic) int type; // @synthesize type=_type;
-- (void)dealloc;
 
 @end
 

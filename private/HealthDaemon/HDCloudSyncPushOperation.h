@@ -9,7 +9,7 @@
 #import "HDSyncSessionDelegate.h"
 #import "NSProgressReporting.h"
 
-@class HDCloudSyncFetchOperationResult, HDCloudSyncOperationConfiguration, HDCloudSyncSequenceRecord, HDCloudSyncStoreRecord, NSMutableArray, NSObject<OS_dispatch_queue>, NSProgress, NSString, _HDCloudSyncSessionContext;
+@class HDCloudSyncFetchOperationResult, HDCloudSyncOperationConfiguration, HDCloudSyncSequenceRecord, HDCloudSyncStoreRecord, NSDate, NSMutableArray, NSObject<OS_dispatch_queue>, NSProgress, NSString, NSUUID, _HDCloudSyncSessionContext;
 
 @interface HDCloudSyncPushOperation : NSObject <HDSyncSessionDelegate, NSProgressReporting>
 {
@@ -23,6 +23,8 @@
     _Bool _isNewStoreRecord;
     NSMutableArray *_changeRecordsPendingPush;
     _Bool _isSecondaryContainer;
+    NSUUID *_operationIdentifier;
+    NSDate *_startTime;
     _Bool _queue_hasStarted;
     CDUnknownBlockType _completion;
     NSProgress *_progress;

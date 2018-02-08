@@ -19,25 +19,27 @@
 
 + (id)_fetchOrCreateSalt;
 + (id)standardTableViewCellSpacerImage;
-+ (id)standardTableViewCellImageForLogo:(id)arg1;
-+ (double)defaultLogoDimension;
 + (id)imageManagerWithHealthRecordsStore:(id)arg1;
++ (double)defaultLogoDimension;
 @property(retain, nonatomic) HKHealthRecordsStore *healthRecordsStore; // @synthesize healthRecordsStore=_healthRecordsStore;
 @property(retain, nonatomic) NSMutableDictionary *outstandingRequests; // @synthesize outstandingRequests=_outstandingRequests;
 @property(retain, nonatomic) NSMutableSet *fetchedIdentifiers; // @synthesize fetchedIdentifiers=_fetchedIdentifiers;
 - (void).cxx_destruct;
 - (id)_hashedSaltedStringFromString:(id)arg1;
-- (id)_logoURLForBrand:(id)arg1;
-- (void)_writeImageData:(id)arg1 brand:(id)arg2;
-- (id)_identifierForBrand:(id)arg1 fallback:(id)arg2;
-- (void)_dispatchResponsesForBrand:(id)arg1 fallback:(id)arg2 image:(id)arg3 error:(id)arg4;
-- (void)_resourceQueue_fetchLogoForBrand:(id)arg1 fallback:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)_loadStoredLogoForBrand:(id)arg1;
+- (id)_logoURLForBrand:(id)arg1 size:(double)arg2;
+- (id)_sizeStringForSize:(double)arg1;
+- (void)_writeImageData:(id)arg1 brand:(id)arg2 size:(double)arg3;
+- (id)_identifierForBrand:(id)arg1 size:(double)arg2;
+- (void)_dispatchResponsesForBrand:(id)arg1 size:(double)arg2 image:(id)arg3 error:(id)arg4;
+- (id)_resizeImage:(id)arg1 size:(double)arg2 resizedData:(out id *)arg3;
+- (void)_processFetchResponseWithData:(id)arg1 error:(id)arg2 brand:(id)arg3 size:(double)arg4;
+- (void)_resourceQueue_fetchLogoForBrand:(id)arg1 size:(double)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)_diskQueue_loadStoredLogoForBrand:(id)arg1 size:(double)arg2;
 - (CDUnknownBlockType)_imageCompletionHandlerOnMainQueue:(CDUnknownBlockType)arg1;
-- (void)retrieveLogoForBrand:(id)arg1 fallback:(id)arg2 options:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)retrieveLogoForBrand:(id)arg1 size:(double)arg2 options:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (CDUnknownBlockType)_cacheCompletionHandlerOnMainQueue:(CDUnknownBlockType)arg1;
 - (void)cacheFeaturedBrandLogosWithCompletion:(CDUnknownBlockType)arg1;
-- (id)_sizeForCurrentDevice;
+- (id)_scaleKeyForCurrentDevice;
 - (id)init;
 
 @end

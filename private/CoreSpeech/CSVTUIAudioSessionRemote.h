@@ -22,6 +22,8 @@
 - (void).cxx_destruct;
 - (void)audioRecorderDisconnected:(id)arg1;
 - (void)voiceTriggerDetectedOnAOP:(id)arg1;
+- (void)audioRecorder:(id)arg1 didSetAudioSessionActive:(_Bool)arg2;
+- (void)audioRecorder:(id)arg1 willSetAudioSessionActive:(_Bool)arg2;
 - (void)audioRecorderEndRecordInterruption:(id)arg1;
 - (void)audioRecorderBeginRecordInterruption:(id)arg1 withContext:(id)arg2;
 - (void)audioRecorderBeginRecordInterruption:(id)arg1;

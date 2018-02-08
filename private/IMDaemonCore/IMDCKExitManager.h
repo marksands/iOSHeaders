@@ -14,6 +14,7 @@
     CKRecordID *_exitRecordID;
     CKOperationConfiguration *_exitConfigurtation;
     NSNumber *_saltZoneCreatedOverride;
+    NSNumber *_subscriptionCreatedOverride;
     NSObject<OS_dispatch_queue> *_ckQueue;
     IMDRecordZoneManager *_recordZoneManager;
     IMDCKDatabaseManager *_databaseManager;
@@ -28,6 +29,7 @@
 @property(retain, nonatomic) IMDCKDatabaseManager *databaseManager; // @synthesize databaseManager=_databaseManager;
 @property(retain, nonatomic) IMDRecordZoneManager *recordZoneManager; // @synthesize recordZoneManager=_recordZoneManager;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *ckQueue; // @synthesize ckQueue=_ckQueue;
+@property(retain, nonatomic) NSNumber *subscriptionCreatedOverride; // @synthesize subscriptionCreatedOverride=_subscriptionCreatedOverride;
 @property(retain, nonatomic) NSNumber *saltZoneCreatedOverride; // @synthesize saltZoneCreatedOverride=_saltZoneCreatedOverride;
 @property(retain, nonatomic) CKOperationConfiguration *exitConfigurtation; // @synthesize exitConfigurtation=_exitConfigurtation;
 @property(retain, nonatomic) CKRecordID *exitRecordID; // @synthesize exitRecordID=_exitRecordID;
@@ -40,6 +42,7 @@
 - (void)submitCloudKitMetricWithOperationGroupName:(id)arg1 useManatee:(_Bool)arg2;
 - (void)writeSyncCompletedRecordWithDate:(id)arg1 useManatee:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)writeInitialSyncCompletedRecordIfNeeded;
+- (_Bool)_subscriptionCreated;
 - (_Bool)_saltZoneCreated;
 - (void)_scheduleOperation:(id)arg1;
 - (id)syncCompleteRecordID;

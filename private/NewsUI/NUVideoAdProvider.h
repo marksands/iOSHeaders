@@ -15,7 +15,6 @@
 
 @interface NUVideoAdProvider : NSObject <NUAdContextProvider, ADBannerViewInternalDelegate, SXVideo, SXVideoAdProviding>
 {
-    _Bool _displayed;
     id <NUVideoAdProviderDataSource> _dataSource;
     NSString *_placement;
     id <NUAdContextProvider> _contextProviderForVideoBefore;
@@ -29,11 +28,16 @@
     id <SXVideoMetadataProviding> _metadata;
     SXVideoAdStateManager *_stateManager;
     id <NUAdProvider> _adProvider;
+    id <SXVisibilityMonitoring> _videoPlayerVisibilityMonitor;
+    id <SXVisibilityMonitoring> _videoVisibilityMonitor;
+    id <SXVASTAnalyticsEventInfoFactory> _analyticsEventInfoFactory;
 }
 
+@property(readonly, nonatomic) id <SXVASTAnalyticsEventInfoFactory> analyticsEventInfoFactory; // @synthesize analyticsEventInfoFactory=_analyticsEventInfoFactory;
+@property(readonly, nonatomic) id <SXVisibilityMonitoring> videoVisibilityMonitor; // @synthesize videoVisibilityMonitor=_videoVisibilityMonitor;
+@property(readonly, nonatomic) id <SXVisibilityMonitoring> videoPlayerVisibilityMonitor; // @synthesize videoPlayerVisibilityMonitor=_videoPlayerVisibilityMonitor;
 @property(readonly, nonatomic) id <NUAdProvider> adProvider; // @synthesize adProvider=_adProvider;
 @property(readonly, nonatomic) SXVideoAdStateManager *stateManager; // @synthesize stateManager=_stateManager;
-@property(nonatomic) _Bool displayed; // @synthesize displayed=_displayed;
 @property(nonatomic) __weak id <SXVideoMetadataProviding> metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) SXTimeline *timeline; // @synthesize timeline=_timeline;
 @property(nonatomic) __weak id <NUVideoAdEventTracker> eventTracker; // @synthesize eventTracker=_eventTracker;
@@ -60,6 +64,7 @@
 - (void)presentAction;
 - (void)skipped;
 @property(readonly, nonatomic) _Bool hasAction;
+- (void)tappedAdvance;
 - (void)timeElapsed:(double)arg1 duration:(double)arg2;
 - (void)playbackFailedWithError:(id)arg1;
 - (void)playbackFinished;
@@ -67,14 +72,12 @@
 - (void)playbackPaused;
 - (void)playbackStarted;
 - (void)playbackInitiated;
-- (void)didDisappear;
-- (void)didAppear;
 @property(readonly, nonatomic) _Bool allowsCallToActionBar;
 @property(readonly, nonatomic) unsigned long long videoType;
 - (void)nextVideoStartedPlayback;
 - (id)viewControllerForStoryboardPresentationFromBannerView:(id)arg1;
 - (CDUnknownBlockType)loadWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (id)initWithPlacement:(id)arg1 adProvider:(id)arg2 contextProviderForVideoBefore:(id)arg3 contextProviderForVideoAfter:(id)arg4 eventTracker:(id)arg5;
+- (id)initWithPlacement:(id)arg1 adProvider:(id)arg2 contextProviderForVideoBefore:(id)arg3 contextProviderForVideoAfter:(id)arg4 eventTracker:(id)arg5 videoPlayerVisibilityMonitor:(id)arg6 videoVisibilityMonitorProvider:(id)arg7 analyticsEventInfoFactory:(id)arg8;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -39,6 +39,7 @@
 + (id)attachmentWithData:(id)arg1 uniformTypeIdentifier:(id)arg2;
 + (id)_attachmentWithData:(id)arg1 uniformTypeIdentifier:(id)arg2;
 @property(readonly) _XCTAttachmentImplementation *internalImplementation; // @synthesize internalImplementation=_internalImplementation;
+- (void).cxx_destruct;
 - (id)debugQuickLookObject;
 - (void)makeSystem;
 - (id)debugDescription;
@@ -56,7 +57,6 @@
 @property long long internalLifetime;
 @property(readonly, copy) NSString *uniformTypeIdentifier;
 - (id)initWithUniformTypeIdentifier:(id)arg1 name:(id)arg2 serializationBlock:(CDUnknownBlockType)arg3;
-- (void)dealloc;
 - (id)initWithUniformTypeIdentifier:(id)arg1 name:(id)arg2 payload:(id)arg3 userInfo:(id)arg4;
 
 @end

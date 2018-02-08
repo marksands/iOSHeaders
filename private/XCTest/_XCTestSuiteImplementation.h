@@ -20,7 +20,7 @@
 @property(retain) XCTestConfiguration *testConfiguration; // @synthesize testConfiguration=_testConfiguration;
 @property(retain) NSMutableArray *tests; // @synthesize tests=_tests;
 @property(copy) NSString *name; // @synthesize name=_name;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithName:(id)arg1;
 
 @end

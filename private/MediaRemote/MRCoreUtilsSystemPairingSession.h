@@ -13,12 +13,12 @@
 + (id)globalPairingQueue;
 + (id)pairingManager;
 + (_Bool)systemPairingAvailable;
-- (id)updateMediaRemotePairedDevice:(void *)arg1;
+- (id)updateMediaRemotePairedDevice:(id)arg1;
 - (id)pairedPeerFromPeerDevice:(void *)arg1;
-- (void *)peerDeviceFromPairedPeer:(id)arg1;
+- (void *)_createPeerDeviceFromPairedPeer:(id)arg1;
 - (struct NSMutableDictionary *)mediaRemotePairedDevices;
 - (id)pairedPeerDevices;
-- (void *)pairedPeerDevice;
+- (id)pairedPeerDevice;
 - (id)updatePeer;
 - (id)removePeer;
 - (id)addPeer;

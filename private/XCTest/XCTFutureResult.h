@@ -24,13 +24,13 @@
 @property(readonly) XCTWaiter *waiter; // @synthesize waiter=_waiter;
 @property(readonly) XCTPromise *promise; // @synthesize promise=_promise;
 @property(readonly) double deadline; // @synthesize deadline=_deadline;
+- (void).cxx_destruct;
 - (void)setValue:(id)arg1;
 - (id)value;
 - (void)setError:(id)arg1;
 - (id)error;
 - (void)_waitForFulfillment;
 - (id)initWithTimeout:(double)arg1 description:(id)arg2;
-- (void)dealloc;
 
 @end
 

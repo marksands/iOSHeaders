@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MRAVOutputDeviceSourceInfo, NSData, NSDictionary, NSString, _MRAVOutputDeviceDescriptorProtobuf;
+@class MRAVEndpoint, MRAVOutputDeviceSourceInfo, NSData, NSDictionary, NSString, _MRAVOutputDeviceDescriptorProtobuf;
 
 @interface MRAVOutputDevice : NSObject
 {
@@ -14,6 +14,7 @@
     _Bool _remoteControllable;
     _Bool _groupLeader;
     _Bool _groupable;
+    _Bool _canRelayCommunicationChannel;
     _Bool _deviceGroupable;
     _Bool _pickedOnPairedDevice;
     _Bool _hasBatteryLevel;
@@ -34,11 +35,11 @@
     NSDictionary *_modelSpecificInfo;
     NSString *_playingPairedDeviceName;
     MRAVOutputDeviceSourceInfo *_sourceInfo;
-    void *_endpoint;
+    MRAVEndpoint *_endpoint;
 }
 
 + (id)localDeviceUID;
-@property(nonatomic) void *endpoint; // @synthesize endpoint=_endpoint;
+@property(nonatomic) __weak MRAVEndpoint *endpoint; // @synthesize endpoint=_endpoint;
 @property(nonatomic) float volume; // @synthesize volume=_volume;
 @property(readonly, nonatomic) MRAVOutputDeviceSourceInfo *sourceInfo; // @synthesize sourceInfo=_sourceInfo;
 @property(readonly, nonatomic, getter=isVolumeControlAvailable) _Bool volumeControlAvailable; // @synthesize volumeControlAvailable=_volumeControlAvailable;
@@ -51,6 +52,7 @@
 @property(readonly, nonatomic) unsigned int deviceType; // @synthesize deviceType=_deviceType;
 @property(readonly, nonatomic, getter=isPickedOnPairedDevice) _Bool pickedOnPairedDevice; // @synthesize pickedOnPairedDevice=_pickedOnPairedDevice;
 @property(readonly, nonatomic, getter=isDeviceGroupable) _Bool deviceGroupable; // @synthesize deviceGroupable=_deviceGroupable;
+@property(readonly, nonatomic) _Bool canRelayCommunicationChannel; // @synthesize canRelayCommunicationChannel=_canRelayCommunicationChannel;
 @property(readonly, nonatomic, getter=isGroupable) _Bool groupable; // @synthesize groupable=_groupable;
 @property(readonly, nonatomic, getter=isGroupLeader) _Bool groupLeader; // @synthesize groupLeader=_groupLeader;
 @property(readonly, nonatomic, getter=isRemoteControllable) _Bool remoteControllable; // @synthesize remoteControllable=_remoteControllable;
@@ -63,7 +65,9 @@
 @property(readonly, nonatomic) NSString *modelID; // @synthesize modelID=_modelID;
 @property(readonly, nonatomic) NSString *uid; // @synthesize uid=_uid;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _MRAVOutputDeviceDescriptorProtobuf *descriptor;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
 

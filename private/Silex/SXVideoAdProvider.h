@@ -20,8 +20,14 @@
     SXTimeline *_timeline;
     id <SXVideoAdViewControllerProviding> _fullscreenViewControllerProvider;
     SXVideoAdStateManager *_stateManager;
+    id <SXVisibilityMonitoring> _videoVisibilityMonitor;
+    id <SXVisibilityMonitoring> _videoPlayerVisibilityMonitor;
+    id <SXVASTAnalyticsEventInfoFactory> _analyticsEventInfoFactory;
 }
 
+@property(readonly, nonatomic) id <SXVASTAnalyticsEventInfoFactory> analyticsEventInfoFactory; // @synthesize analyticsEventInfoFactory=_analyticsEventInfoFactory;
+@property(readonly, nonatomic) id <SXVisibilityMonitoring> videoPlayerVisibilityMonitor; // @synthesize videoPlayerVisibilityMonitor=_videoPlayerVisibilityMonitor;
+@property(readonly, nonatomic) id <SXVisibilityMonitoring> videoVisibilityMonitor; // @synthesize videoVisibilityMonitor=_videoVisibilityMonitor;
 @property(readonly, nonatomic) SXVideoAdStateManager *stateManager; // @synthesize stateManager=_stateManager;
 @property(readonly, nonatomic) id <SXVideoAdViewControllerProviding> fullscreenViewControllerProvider; // @synthesize fullscreenViewControllerProvider=_fullscreenViewControllerProvider;
 @property(readonly, nonatomic) SXTimeline *timeline; // @synthesize timeline=_timeline;
@@ -47,7 +53,7 @@
 - (void)playbackStarted;
 - (void)playbackInitiated;
 - (CDUnknownBlockType)loadWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (id)initWithDataSource:(id)arg1 viewControllerProvider:(id)arg2;
+- (id)initWithViewControllerProvider:(id)arg1 analyticsEventInfoFactory:(id)arg2 videoPlayerVisibilityMonitor:(id)arg3 videoVisibilityMonitor:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

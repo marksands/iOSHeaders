@@ -27,7 +27,10 @@
 - (void)unregisterSessionDemultiplexerWithIdentifier:(id)arg1;
 - (id)sessionDemultiplexerForAdByIdentifier:(id)arg1 maximumRequestCount:(long long)arg2 proxyType:(long long)arg3;
 - (id)sessionConfigurationForProxyType:(long long)arg1;
+- (void)configVersionDidChange;
+- (void)proxyTypeDidChange;
 - (void)contentProxyURLConnectDidChange;
+- (void)contentProxyURLDidChange;
 - (id)init;
 - (void)dealloc;
 

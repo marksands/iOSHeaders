@@ -8,13 +8,14 @@
 
 #import "MTMaterialSettingsObserving.h"
 
-@class MTVibrantStylingProvider, NSString;
+@class MTVibrantStylingProvider, NSString, UIViewFloatAnimatableProperty;
 
 @interface MTMaterialView : UIView <MTMaterialSettingsObserving>
 {
     id <MTMaterialSettings> _settings;
     unsigned long long _options;
     UIView *_backdropView;
+    UIView *_baseOverlayView;
     UIView *_primaryOverlayView;
     UIView *_secondaryOverlayView;
     _Bool _cornerRadiusIsContinuous;
@@ -23,9 +24,11 @@
     _Bool _highlighted;
     _Bool _shouldCrossfadeIfNecessary;
     _Bool _forceCrossfadeIfNecessary;
+    _Bool _useBuiltInAlphaTransformerAndBackdropScaleAdjustment;
     NSString *_groupName;
     double _weighting;
     CDUnknownBlockType _backdropScaleAdjustment;
+    UIViewFloatAnimatableProperty *_backdropFloatAnimatableProperty;
 }
 
 + (void)_validateRecipe:(long long *)arg1 andOptions:(unsigned long long *)arg2;
@@ -34,6 +37,8 @@
 + (void)initialize;
 + (id)materialViewWithSettings:(id)arg1 options:(unsigned long long)arg2 initialWeighting:(double)arg3 scaleAdjustment:(CDUnknownBlockType)arg4;
 + (id)materialViewWithRecipe:(long long)arg1 options:(unsigned long long)arg2 initialWeighting:(double)arg3 scaleAdjustment:(CDUnknownBlockType)arg4;
+@property(retain, nonatomic) UIViewFloatAnimatableProperty *backdropFloatAnimatableProperty; // @synthesize backdropFloatAnimatableProperty=_backdropFloatAnimatableProperty;
+@property(nonatomic) _Bool useBuiltInAlphaTransformerAndBackdropScaleAdjustment; // @synthesize useBuiltInAlphaTransformerAndBackdropScaleAdjustment=_useBuiltInAlphaTransformerAndBackdropScaleAdjustment;
 @property(nonatomic) _Bool forceCrossfadeIfNecessary; // @synthesize forceCrossfadeIfNecessary=_forceCrossfadeIfNecessary;
 @property(nonatomic) _Bool shouldCrossfadeIfNecessary; // @synthesize shouldCrossfadeIfNecessary=_shouldCrossfadeIfNecessary;
 @property(copy, nonatomic) CDUnknownBlockType backdropScaleAdjustment; // @synthesize backdropScaleAdjustment=_backdropScaleAdjustment;
@@ -47,16 +52,20 @@
 - (id)_mtBackdropView;
 - (_Bool)_supportsVariableWeighting;
 - (void)_reduceTransparencyStatusDidChange;
+- (void)_reduceMotionStatusDidChange;
 - (id)_observableSettings;
 - (void)_configureSecondaryOverlayViewIfNecessaryWithWeighting:(double)arg1;
 - (void)_configurePrimaryOverlayViewIfNecessaryWithWeighting:(double)arg1;
+- (void)_configureBaseOverlayViewIfNecessaryWithWeighting:(double)arg1;
 - (id)_basicOverlaySettings;
 - (id)_configureOverlayView:(id *)arg1 withOptions:(unsigned long long)arg2 color:(id)arg3 alpha:(double)arg4 weighting:(double)arg5;
 - (id)_configureOverlayView:(id *)arg1 ofClass:(Class)arg2 withOptions:(unsigned long long)arg3 color:(id)arg4 alpha:(double)arg5 weighting:(double)arg6;
 - (void)_configureOverlayView:(id)arg1 withColor:(id)arg2 alpha:(double)arg3 weighting:(double)arg4;
+- (void)_setupOrInvalidateTransformer;
 - (void)_adjustScaleOfBackdropView:(id)arg1 ifNecessaryWithWeighting:(double)arg2;
 - (void)_configureMTBackdropView:(id)arg1 withWeighting:(double)arg2;
 - (void)_configureBackdropViewIfNecessaryWithWeighting:(double)arg1;
+- (_Bool)_isBackdropRequiredForOverlay;
 - (id)_luminanceOverlaySettings;
 - (id)_backdropViewSettingsForMaterialSettings:(id)arg1 options:(unsigned long long)arg2;
 - (void)_configureIfNecessaryWithWeighting:(double)arg1;

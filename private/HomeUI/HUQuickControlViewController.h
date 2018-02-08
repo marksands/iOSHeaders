@@ -11,7 +11,7 @@
 #import "HUQuickControlInteractiveContentContaining.h"
 #import "HUQuickControlItemHosting.h"
 
-@class HMHome, NSSet, NSString;
+@class HMHome, HUQuickControlSimpleItemUpdater, NSSet, NSString;
 
 @interface HUQuickControlViewController : UIViewController <HUQuickControlInteractiveContentContaining, HUQuickControlContentCharacteristicWriting, HUQuickControlItemHosting, HUPreloadableViewController>
 {
@@ -24,12 +24,14 @@
     id <HUQuickControlItemUpdating> _itemUpdater;
     id <HUQuickControlViewControllerDelegate> _delegate;
     unsigned long long _controlSize;
+    HUQuickControlSimpleItemUpdater *_internalItemUpdater;
 }
 
 + (id)controlItemPredicate;
+@property(readonly, nonatomic) HUQuickControlSimpleItemUpdater *internalItemUpdater; // @synthesize internalItemUpdater=_internalItemUpdater;
 @property(nonatomic) unsigned long long controlSize; // @synthesize controlSize=_controlSize;
 @property(nonatomic) __weak id <HUQuickControlViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) id <HUQuickControlItemUpdating> itemUpdater; // @synthesize itemUpdater=_itemUpdater;
+@property(readonly, nonatomic) __weak id <HUQuickControlItemUpdating> itemUpdater; // @synthesize itemUpdater=_itemUpdater;
 @property(readonly, copy, nonatomic) NSSet *controlItems; // @synthesize controlItems=_controlItems;
 @property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(nonatomic, getter=isUserInteractionEnabled) _Bool userInteractionEnabled; // @synthesize userInteractionEnabled=_userInteractionEnabled;

@@ -58,6 +58,7 @@
 @property(readonly, nonatomic) double totalTimePlayed;
 - (void)seekToStartWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
+- (id)initWithPlayerItem:(id)arg1 audioMode:(int)arg2;
 - (id)initWithURL:(id)arg1 audioMode:(int)arg2;
 - (id)initWithURL:(id)arg1;
 

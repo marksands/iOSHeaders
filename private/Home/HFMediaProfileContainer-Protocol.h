@@ -25,6 +25,7 @@
 @property(readonly, nonatomic) HMAccessory *hf_backingAccessory;
 @property(readonly, nonatomic) HFServiceNameComponents *hf_serviceNameComponents;
 @property(readonly, nonatomic) NSString *hf_prettyDescription;
+@property(readonly, nonatomic) _Bool hf_showsAudioSettings;
 @property(readonly, nonatomic) _Bool hf_supportsMediaSystem;
 @property(readonly, nonatomic) _Bool hf_supportsSoftwareUpdate;
 @property(readonly, nonatomic) _Bool hf_isReachable;

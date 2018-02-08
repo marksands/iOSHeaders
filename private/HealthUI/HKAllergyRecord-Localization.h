@@ -7,7 +7,6 @@
 #import "HKAllergyRecord.h"
 
 @interface HKAllergyRecord (Localization)
-- (id)sortDateSummaryTitle;
 - (id)sortDateTitle;
 @end
 

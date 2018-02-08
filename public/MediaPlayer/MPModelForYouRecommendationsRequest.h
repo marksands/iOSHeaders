@@ -15,6 +15,7 @@
 
 + (id)allSupportedSectionProperties;
 + (id)allSupportedItemProperties;
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSURL *customForYouURL; // @synthesize customForYouURL=_customForYouURL;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;

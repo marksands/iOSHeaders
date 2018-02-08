@@ -16,12 +16,12 @@
 
 @property id <XCTTestRunSessionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain) XCTestConfiguration *testConfiguration; // @synthesize testConfiguration=_testConfiguration;
+- (void).cxx_destruct;
 - (_Bool)runTestsAndReturnError:(id *)arg1;
 - (_Bool)_preTestingInitialization;
 - (void)resumeAppSleep:(id)arg1;
 - (id)suspendAppSleep;
 - (id)initWithTestConfiguration:(id)arg1 delegate:(id)arg2;
-- (void)dealloc;
 
 @end
 

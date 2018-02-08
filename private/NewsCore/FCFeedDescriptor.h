@@ -32,10 +32,10 @@
 @property(readonly, nonatomic) long long feedFilterOptions;
 @property(readonly, nonatomic) long long feedSortMethod;
 @property(readonly, nonatomic) id <FCFeedPaginating> feedPaginator;
-- (_Bool)shouldFilterFeedGroupEmitter:(id)arg1 withAppConfiguration:(id)arg2;
+- (_Bool)shouldFilterFeedGroupEmitter:(id)arg1 withCoreConfiguration:(id)arg2;
 - (void)prepareToProvideFeedGroupEmittersWithCallbackQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (id)offlineFeedGroupEmittersWithAppConfiguration:(id)arg1;
-- (id)feedGroupEmittersWithAppConfiguration:(id)arg1;
+- (id)offlineFeedGroupEmittersWithCoreConfiguration:(id)arg1;
+- (id)feedGroupEmittersWithCoreConfiguration:(id)arg1;
 - (id)fetchOperationForHeadlinesWithIDs:(id)arg1 context:(id)arg2;
 - (id)streamOfLatestHeadlinesWithContext:(id)arg1;
 - (id)streamOfHeadlinesWithIDs:(id)arg1 context:(id)arg2 cachedOnly:(_Bool)arg3 maxCachedAge:(double)arg4;

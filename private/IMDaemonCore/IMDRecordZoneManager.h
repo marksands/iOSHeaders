@@ -35,9 +35,11 @@
 @property(readonly, nonatomic) CKRecordZoneID *attachmentRecordZoneID; // @synthesize attachmentRecordZoneID=_attachmentRecordZoneID;
 @property(readonly, nonatomic) CKRecordZone *chatRecordZone; // @synthesize chatRecordZone=_chatRecordZone;
 @property(readonly, nonatomic) CKRecordZoneID *chatRecordZoneID; // @synthesize chatRecordZoneID=_chatRecordZoneID;
+- (void)fetchChatZoneToCheckManateeStatus:(CDUnknownBlockType)arg1;
+- (id)ckUtilities;
 - (void)_deleteAllZonesForDatabase:(id)arg1;
 - (void)deleteAllZones;
-- (void)createSubscriptionIfNeededOnDeDupeZoneForSubscription:(id)arg1 recordType:(id)arg2;
+- (void)createSubscriptionIfNeededOnDeDupeZoneForSubscription:(id)arg1 recordType:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)deleteDeDupeSaltZone;
 - (void)createDeDupeSaltZoneIfNeededWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)deleteMessageZone;
@@ -51,8 +53,8 @@
 - (void)_createRecordZoneIfNeeded:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_createRecordZone:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_checkRecordZoneExists:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (void)_createSubscriptionIfNeededForZoneID:(id)arg1 subscriptionID:(id)arg2 recordType:(id)arg3;
-- (void)_createSubscriptionForZoneID:(id)arg1 subscriptionID:(id)arg2 recordType:(id)arg3;
+- (void)_createSubscriptionIfNeededForZoneID:(id)arg1 subscriptionID:(id)arg2 recordType:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (void)_createSubscriptionForZoneID:(id)arg1 subscriptionID:(id)arg2 recordType:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)_handleNotificationForZoneID:(id)arg1 subscriptionID:(id)arg2;
 - (void)connection:(id)arg1 didReceiveIncomingMessage:(id)arg2;
 - (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;

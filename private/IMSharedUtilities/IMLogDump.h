@@ -15,6 +15,17 @@
 
 + (id)sharedInstance;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *logDumpQueue; // @synthesize logDumpQueue=_logDumpQueue;
+- (void)disconnectedFromEitherPowerOrWifi;
+- (void)reconnectedToBothPowerAndWifi;
+- (id)getPowerAndWifiDictionaryForKey:(id)arg1;
+- (id)todaysKey;
+- (id)createTodaysStatisticDictionaryIfNeeded;
+- (void)noteSyncEnded:(_Bool)arg1;
+- (void)incrementSyncAttempts:(_Bool)arg1;
+- (void)printPowerAndWifiStats;
+- (void)printSyncDurationStats;
+- (void)printIfWeAreInTheMiddleOfASync;
+- (void)clearSyncStats;
 - (void)_includeCloudKitDebugFilesAtPath:(id)arg1;
 - (id)logShowCommandToFilePath:(id)arg1 lastHours:(int)arg2 predicate:(id)arg3;
 - (void)dumpLogsToFolderAtPath:(id)arg1 withFileName:(id)arg2 lastHours:(int)arg3 predicate:(id)arg4 includeCKDebug:(_Bool)arg5 withCompletion:(CDUnknownBlockType)arg6;

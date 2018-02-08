@@ -20,8 +20,8 @@
 @property(readonly) NSException *exception; // @synthesize exception=_exception;
 @property(retain) XCTFailureLocation *location; // @synthesize location=_location;
 @property(readonly, copy) NSString *description; // @synthesize description=_description;
+- (void).cxx_destruct;
 - (id)initWithDescription:(id)arg1 location:(id)arg2 exception:(id)arg3;
-- (void)dealloc;
 
 @end
 

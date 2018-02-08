@@ -9,6 +9,8 @@
 @class AFAudioPlaybackRequest, AFSpeechInterpretation, AFXPCWrapper, AceObject<SAAceCommand>, INImage, INIntent, NSArray, NSDictionary, NSError, NSString, NSURL, SASSpeechPartialResult, SASSpeechRecognized;
 
 @protocol AFClientServiceDelegate <NSObject>
+- (oneway void)audioSessionDidBecomeActive:(_Bool)arg1;
+- (oneway void)audioSessionWillBecomeActive:(_Bool)arg1;
 - (oneway void)startPlaybackDidFail:(long long)arg1;
 - (oneway void)willProcessStartPlayback:(long long)arg1;
 - (oneway void)audioPlaybackRequestDidStop:(AFAudioPlaybackRequest *)arg1 error:(NSError *)arg2;

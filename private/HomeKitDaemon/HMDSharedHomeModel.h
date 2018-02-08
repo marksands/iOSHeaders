@@ -13,6 +13,7 @@
 }
 
 + (id)properties;
+- (_Bool)isReplayable;
 
 // Remaining properties
 @property(retain, nonatomic) NSNumber *configurationVersion; // @dynamic configurationVersion;

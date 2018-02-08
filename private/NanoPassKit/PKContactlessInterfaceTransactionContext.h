@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDate, PKFelicaAppletHistory, PKPaymentApplication, PKPaymentPass, PKPaymentTransaction, PKTransitAppletHistory;
+@class NSArray, NSDate, PKExpressTransactionState, PKFelicaAppletHistory, PKPaymentApplication, PKPaymentPass, PKPaymentTransaction, PKTransitAppletHistory;
 
 @interface PKContactlessInterfaceTransactionContext : NSObject
 {
     _Bool _success;
+    _Bool _incompatible;
     NSDate *_date;
     PKPaymentPass *_paymentPass;
     PKPaymentApplication *_paymentApplication;
@@ -19,8 +20,10 @@
     NSArray *_valueAddedServiceTransactions;
     PKTransitAppletHistory *_transitHistory;
     PKFelicaAppletHistory *_felicaHistory;
+    PKExpressTransactionState *_expressState;
 }
 
+@property(retain, nonatomic) PKExpressTransactionState *expressState; // @synthesize expressState=_expressState;
 @property(readonly, nonatomic) PKFelicaAppletHistory *felicaHistory; // @synthesize felicaHistory=_felicaHistory;
 @property(retain, nonatomic) PKTransitAppletHistory *transitHistory; // @synthesize transitHistory=_transitHistory;
 @property(retain, nonatomic) NSArray *valueAddedServiceTransactions; // @synthesize valueAddedServiceTransactions=_valueAddedServiceTransactions;
@@ -29,6 +32,7 @@
 @property(retain, nonatomic) PKPaymentApplication *paymentApplication; // @synthesize paymentApplication=_paymentApplication;
 @property(retain, nonatomic) PKPaymentPass *paymentPass; // @synthesize paymentPass=_paymentPass;
 @property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
+@property(nonatomic, getter=isIncompatible) _Bool incompatible; // @synthesize incompatible=_incompatible;
 @property(nonatomic) _Bool success; // @synthesize success=_success;
 - (void).cxx_destruct;
 

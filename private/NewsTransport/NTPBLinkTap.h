@@ -8,22 +8,28 @@
 
 #import "NSCopying.h"
 
-@class NSString;
+@class NSData, NSString;
 
 @interface NTPBLinkTap : PBCodable <NSCopying>
 {
     NSString *_articleId;
+    NSData *_articleViewingSessionId;
+    int _groupType;
+    int _linkType;
     NSString *_referencedArticleId;
     int _tapLocationType;
     NSString *_tappedLinkUrl;
     NSString *_webEmbedId;
     int _webEmbedLocation;
     struct {
+        unsigned int groupType:1;
+        unsigned int linkType:1;
         unsigned int tapLocationType:1;
         unsigned int webEmbedLocation:1;
     } _has;
 }
 
+@property(retain, nonatomic) NSData *articleViewingSessionId; // @synthesize articleViewingSessionId=_articleViewingSessionId;
 @property(retain, nonatomic) NSString *webEmbedId; // @synthesize webEmbedId=_webEmbedId;
 @property(retain, nonatomic) NSString *tappedLinkUrl; // @synthesize tappedLinkUrl=_tappedLinkUrl;
 @property(retain, nonatomic) NSString *referencedArticleId; // @synthesize referencedArticleId=_referencedArticleId;
@@ -37,6 +43,13 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasArticleViewingSessionId;
+- (int)StringAsGroupType:(id)arg1;
+- (id)groupTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasGroupType;
+@property(nonatomic) int groupType; // @synthesize groupType=_groupType;
+@property(nonatomic) _Bool hasLinkType;
+@property(nonatomic) int linkType; // @synthesize linkType=_linkType;
 - (int)StringAsWebEmbedLocation:(id)arg1;
 - (id)webEmbedLocationAsString:(int)arg1;
 @property(nonatomic) _Bool hasWebEmbedLocation;

@@ -19,6 +19,7 @@
 @property _Bool isValid; // @synthesize isValid=_isValid;
 @property(readonly) XCTestCase *testCase; // @synthesize testCase=_testCase;
 @property(readonly) NSMutableArray *attachments; // @synthesize attachments=_attachments;
+- (void).cxx_destruct;
 - (void)enqueueAttachment:(id)arg1;
 - (void)dequeueAndReportBackgroundAttachments;
 - (void)ensureNoRemainingAttachments;

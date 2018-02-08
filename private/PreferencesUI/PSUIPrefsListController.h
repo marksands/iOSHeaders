@@ -167,6 +167,7 @@
 - (void)updateHomeKitSpecifier;
 - (void)updateHealthKitSpecifier;
 - (void)updateClassroomSpecifier;
+- (_Bool)shouldShowClassroomSpecifier;
 - (void)updateRestrictedSettings;
 - (_Bool)isSpecifierHiddenDueToRestrictions:(id)arg1;
 - (_Bool)isBundleIDHiddenDueToRestrictions:(id)arg1;

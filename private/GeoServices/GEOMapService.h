@@ -76,7 +76,7 @@
 - (id)ticketForProblem:(id)arg1 placeForProblemContext:(id)arg2 pushToken:(id)arg3 allowContactBackAtEmailAddress:(id)arg4 traits:(id)arg5;
 - (id)ticketForSpatialLookupParameters:(id)arg1 traits:(id)arg2;
 - (id)ticketForExternalTransitStationCodes:(id)arg1 sourceID:(id)arg2 transactionDate:(id)arg3 transactionLocation:(id)arg4 traits:(id)arg5;
-- (id)ticketForMerchantCode:(id)arg1 rawMerchantCode:(id)arg2 paymentNetwork:(id)arg3 transactionDate:(id)arg4 transactionLocation:(id)arg5 traits:(id)arg6;
+- (id)ticketForMerchantCode:(id)arg1 rawMerchantCode:(id)arg2 industryCategory:(id)arg3 industryCode:(id)arg4 paymentNetwork:(id)arg5 transactionDate:(id)arg6 transactionLocation:(id)arg7 traits:(id)arg8;
 - (id)ticketForBatchReverseGeocodeLocations:(id)arg1 shiftLocationsIfNeeded:(_Bool)arg2 additionalPlaceTypes:(int *)arg3 additionalPlaceTypesCount:(unsigned int)arg4 traits:(id)arg5;
 - (id)ticketForBatchReverseGeocodeLocations:(id)arg1 shiftLocationsIfNeeded:(_Bool)arg2 traits:(id)arg3;
 - (id)_cl_ticketForReverseGeocodeLocation:(id)arg1 traits:(id)arg2;

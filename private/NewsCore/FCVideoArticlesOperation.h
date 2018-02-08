@@ -10,7 +10,7 @@
 
 @interface FCVideoArticlesOperation : FCOperation
 {
-    id <FCAppConfiguration> _appConfiguration;
+    id <FCCoreConfiguration> _configuration;
     FCCloudContext *_context;
     FCVideoArticlesOperationResult *_topVideosResult;
     FCVideoArticlesOperationResult *_moreVideosResult;
@@ -23,7 +23,7 @@
 @property(retain) FCVideoArticlesOperationResult *moreVideosResult; // @synthesize moreVideosResult=_moreVideosResult;
 @property(retain) FCVideoArticlesOperationResult *topVideosResult; // @synthesize topVideosResult=_topVideosResult;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
-@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(copy, nonatomic) id <FCCoreConfiguration> configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;

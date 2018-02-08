@@ -23,6 +23,7 @@
 
 @property(retain, nonatomic) _MRVoiceInputDeviceDescriptorProtobuf *descriptor; // @synthesize descriptor=_descriptor;
 @property(nonatomic) unsigned int deviceID; // @synthesize deviceID=_deviceID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -38,7 +39,6 @@
 @property(nonatomic) int recordingState; // @synthesize recordingState=_recordingState;
 @property(readonly, nonatomic) _Bool hasDescriptor;
 @property(nonatomic) _Bool hasDeviceID;
-- (void)dealloc;
 
 @end
 

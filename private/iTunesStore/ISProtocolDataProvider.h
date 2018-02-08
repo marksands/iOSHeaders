@@ -40,6 +40,7 @@
 - (void)_performActionsForResponse:(id)arg1;
 - (id)_metricsDictionaryForResponse:(id)arg1;
 - (void)_checkInAppPurchaseQueueForAction:(id)arg1;
+- (void)_checkBiometricFailureForResponse:(id)arg1;
 - (void)_checkDownloadQueues;
 - (void)_presentDialog:(id)arg1;
 - (_Bool)parseData:(id)arg1 returningError:(id *)arg2;

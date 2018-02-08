@@ -28,8 +28,9 @@
 @property(readonly, copy) NSMutableDictionary *applicationProcessesForPID; // @synthesize applicationProcessesForPID=_applicationProcessesForPID;
 @property(readonly, copy) NSMutableSet *trackedBundleIDs; // @synthesize trackedBundleIDs=_trackedBundleIDs;
 @property(readonly, copy) XCUIApplicationImplDepot *applicationImplDepot; // @synthesize applicationImplDepot=_applicationImplDepot;
-@property NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(readonly) XCUIApplicationRegistry *applicationRegistry; // @synthesize applicationRegistry=_applicationRegistry;
+- (void).cxx_destruct;
 - (void)requestAutomationSessionForTestTargetWithPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)updatedApplicationStateSnapshot:(id)arg1;
 - (void)_setIsTrackingForBundleID:(id)arg1;
@@ -53,7 +54,6 @@
 - (id)applicationProcessWithPID:(int)arg1;
 - (id)applicationImplementationForApplicationAtPath:(id)arg1 bundleID:(id)arg2;
 - (id)init;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

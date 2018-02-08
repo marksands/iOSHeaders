@@ -15,14 +15,20 @@
     id <NUAdProvider> _adProvider;
     NSString *_placement;
     id <NUVideoAdEventTracker> _eventTracker;
+    id <SXVisibilityMonitoring> _videoPlayerVisibilityMonitor;
+    id <SXVideoVisibilityMonitorProviding> _visibilityMonitorProviding;
+    id <SXVASTAnalyticsEventInfoFactory> _analyticsEventInfoFactory;
 }
 
+@property(readonly, nonatomic) id <SXVASTAnalyticsEventInfoFactory> analyticsEventInfoFactory; // @synthesize analyticsEventInfoFactory=_analyticsEventInfoFactory;
+@property(readonly, nonatomic) id <SXVideoVisibilityMonitorProviding> visibilityMonitorProviding; // @synthesize visibilityMonitorProviding=_visibilityMonitorProviding;
+@property(readonly, nonatomic) id <SXVisibilityMonitoring> videoPlayerVisibilityMonitor; // @synthesize videoPlayerVisibilityMonitor=_videoPlayerVisibilityMonitor;
 @property(readonly, nonatomic) id <NUVideoAdEventTracker> eventTracker; // @synthesize eventTracker=_eventTracker;
 @property(readonly, copy, nonatomic) NSString *placement; // @synthesize placement=_placement;
 @property(readonly, nonatomic) id <NUAdProvider> adProvider; // @synthesize adProvider=_adProvider;
 - (void).cxx_destruct;
 - (id)createVideoAdProviderWithContextProviderForVideoBefore:(id)arg1 contextProviderForVideoAfter:(id)arg2;
-- (id)initWithAdProvider:(id)arg1 placement:(id)arg2 eventTracker:(id)arg3;
+- (id)initWithAdProvider:(id)arg1 placement:(id)arg2 eventTracker:(id)arg3 videoPlayerVisibilityMonitor:(id)arg4 videoVisibilityMonitorProvider:(id)arg5 analyticsEventInfoFactory:(id)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

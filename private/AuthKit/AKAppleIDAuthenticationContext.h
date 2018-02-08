@@ -170,6 +170,8 @@
 - (id)initWithCoder:(id)arg1;
 - (id)_initWithIdentifier:(id)arg1;
 - (id)init;
+- (id)authKitAccountForSilentServiceToken:(id *)arg1;
+- (id)authKitAccount:(id *)arg1;
 @property(copy, nonatomic) NSString *generatedCode;
 @property(copy, nonatomic) NSString *deviceEnclosureColor;
 @property(copy, nonatomic) NSString *deviceColor;

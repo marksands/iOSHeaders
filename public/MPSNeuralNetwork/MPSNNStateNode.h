@@ -12,8 +12,12 @@
 {
     id <MPSHandle> _handle;
     MPSNNFilterNode *_parent;
+    _Bool _synchronize;
+    _Bool _exportFromGraph;
 }
 
+@property(nonatomic) _Bool exportFromGraph; // @synthesize exportFromGraph=_exportFromGraph;
+@property(nonatomic) _Bool synchronizeResource; // @synthesize synchronizeResource=_synchronize;
 @property(retain, nonatomic) id <MPSHandle> handle; // @synthesize handle=_handle;
 - (void)dealloc;
 - (id)debugQuickLookObject;

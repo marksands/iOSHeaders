@@ -51,6 +51,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)fallbackDisplayString;
 @property(readonly, nonatomic) NSArray *medicalRecordPreferredSystems;
 @property(readonly, nonatomic) NSArray *medicalRecordCodings;
 @property(readonly, nonatomic) NSArray *indexKeywords;

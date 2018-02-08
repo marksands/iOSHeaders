@@ -13,18 +13,23 @@
 @interface GEOPDMerchantLookupParameters : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    long long _industryCode;
     double _transactionLocationAge;
     double _transactionTimestamp;
+    NSString *_industryCategory;
     NSString *_merchantCode;
     NSString *_paymentNetwork;
     NSString *_rawMerchantCode;
     GEOLocation *_transactionLocation;
     struct {
+        unsigned int industryCode:1;
         unsigned int transactionLocationAge:1;
         unsigned int transactionTimestamp:1;
     } _has;
 }
 
+@property(nonatomic) long long industryCode; // @synthesize industryCode=_industryCode;
+@property(retain, nonatomic) NSString *industryCategory; // @synthesize industryCategory=_industryCategory;
 @property(retain, nonatomic) NSString *rawMerchantCode; // @synthesize rawMerchantCode=_rawMerchantCode;
 @property(nonatomic) double transactionLocationAge; // @synthesize transactionLocationAge=_transactionLocationAge;
 @property(retain, nonatomic) GEOLocation *transactionLocation; // @synthesize transactionLocation=_transactionLocation;
@@ -42,6 +47,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIndustryCode;
+@property(readonly, nonatomic) _Bool hasIndustryCategory;
 @property(readonly, nonatomic) _Bool hasRawMerchantCode;
 @property(nonatomic) _Bool hasTransactionLocationAge;
 @property(readonly, nonatomic) _Bool hasTransactionLocation;

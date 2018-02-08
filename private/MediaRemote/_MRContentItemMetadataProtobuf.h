@@ -32,7 +32,7 @@
     NSString *_artworkIdentifier;
     NSString *_artworkMIMEType;
     NSString *_artworkURL;
-    NSData *_artworkURLTemplatesDataDeprecated;
+    NSData *_artworkURLTemplatesData;
     NSString *_assetURLString;
     int _chapterCount;
     NSString *_collectionIdentifier;
@@ -75,7 +75,6 @@
     int _trackNumber;
     NSData *_userInfoData;
     _Bool _artworkAvailable;
-    _Bool _artworkURLTemplateAvailable;
     _Bool _infoAvailable;
     _Bool _isAlwaysLive;
     _Bool _isContainer;
@@ -125,7 +124,6 @@
         unsigned int totalTrackCount:1;
         unsigned int trackNumber:1;
         unsigned int artworkAvailable:1;
-        unsigned int artworkURLTemplateAvailable:1;
         unsigned int infoAvailable:1;
         unsigned int isAlwaysLive:1;
         unsigned int isContainer:1;
@@ -144,9 +142,8 @@
 }
 
 + (void)initialize;
-@property(nonatomic) _Bool artworkURLTemplateAvailable; // @synthesize artworkURLTemplateAvailable=_artworkURLTemplateAvailable;
 @property(nonatomic) long long legacyUniqueIdentifier; // @synthesize legacyUniqueIdentifier=_legacyUniqueIdentifier;
-@property(retain, nonatomic) NSData *artworkURLTemplatesDataDeprecated; // @synthesize artworkURLTemplatesDataDeprecated=_artworkURLTemplatesDataDeprecated;
+@property(retain, nonatomic) NSData *artworkURLTemplatesData; // @synthesize artworkURLTemplatesData=_artworkURLTemplatesData;
 @property(nonatomic) _Bool isLoading; // @synthesize isLoading=_isLoading;
 @property(retain, nonatomic) NSString *artworkIdentifier; // @synthesize artworkIdentifier=_artworkIdentifier;
 @property(retain, nonatomic) NSData *currentPlaybackDateData; // @synthesize currentPlaybackDateData=_currentPlaybackDateData;
@@ -222,6 +219,7 @@
 @property(nonatomic) _Bool isContainer; // @synthesize isContainer=_isContainer;
 @property(retain, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -231,9 +229,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasArtworkURLTemplateAvailable;
 @property(nonatomic) _Bool hasLegacyUniqueIdentifier;
-@property(readonly, nonatomic) _Bool hasArtworkURLTemplatesDataDeprecated;
+@property(readonly, nonatomic) _Bool hasArtworkURLTemplatesData;
 @property(nonatomic) _Bool hasIsLoading;
 @property(readonly, nonatomic) _Bool hasArtworkIdentifier;
 @property(readonly, nonatomic) _Bool hasCurrentPlaybackDateData;
@@ -309,7 +306,6 @@
 @property(nonatomic) _Bool hasIsContainer;
 @property(readonly, nonatomic) _Bool hasSubtitle;
 @property(readonly, nonatomic) _Bool hasTitle;
-- (void)dealloc;
 - (id)_initWithData:(id)arg1;
 - (id)_init;
 

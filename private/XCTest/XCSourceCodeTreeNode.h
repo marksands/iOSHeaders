@@ -44,6 +44,7 @@
 @property(copy, setter=_setQueryType:) NSString *_queryType; // @synthesize _queryType;
 @property(copy, setter=_setIndex:) NSNumber *_index; // @synthesize _index;
 @property(copy, setter=_setIdentifierValues:) NSSet *_identifierValues; // @synthesize _identifierValues;
+- (void).cxx_destruct;
 - (void)_absorbOnlyChildrenIntoParents;
 - (id)_treeByPushingOutPrefix:(id *)arg1 error:(id *)arg2;
 - (id)copy;
@@ -83,7 +84,6 @@
 @property __weak XCSourceCodeTreeNode *parentNode;
 @property(readonly) XCSourceCodeTreeNode *rootNode;
 @property(readonly, copy) NSString *displayName;
-- (void)dealloc;
 - (id)initWithSourceCodePrefix:(id)arg1 sourceCodeSuffix:(id)arg2;
 - (id)init;
 

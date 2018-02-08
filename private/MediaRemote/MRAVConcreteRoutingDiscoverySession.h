@@ -29,6 +29,7 @@
     _Bool _scheduledAvailableEndpointsAndOutputDevicesReload;
 }
 
+- (void).cxx_destruct;
 - (void)_scheduleAvailableEndpointsAndOutputDevicesReload;
 - (void)_onQueue_reloadAvailableEndpointsAndOutputDevices;
 - (void)_unregisterNotifications;

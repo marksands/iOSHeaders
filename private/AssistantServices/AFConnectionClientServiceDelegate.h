@@ -17,6 +17,8 @@
 }
 
 - (void).cxx_destruct;
+- (oneway void)audioSessionDidBecomeActive:(_Bool)arg1;
+- (oneway void)audioSessionWillBecomeActive:(_Bool)arg1;
 - (oneway void)startPlaybackDidFail:(long long)arg1;
 - (oneway void)willProcessStartPlayback:(long long)arg1;
 - (oneway void)audioPlaybackRequestDidStop:(id)arg1 error:(id)arg2;

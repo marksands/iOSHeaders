@@ -16,7 +16,7 @@
 
 @property __weak XCTestCase *testCase; // @synthesize testCase=_testCase;
 @property(readonly) XCTActivityRecordStack *activityRecordStack; // @synthesize activityRecordStack=_activityRecordStack;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)init;
 
 @end

@@ -30,7 +30,6 @@
 - (void).cxx_destruct;
 - (void)requestSponsoredSearchURL:(CDUnknownBlockType)arg1;
 - (void)updateToroDownloadData:(id)arg1 forType:(long long)arg2;
-- (void)updateToroClickData:(id)arg1;
 - (void)updateClickDataWith:(id)arg1;
 - (void)updateSponsoredFrequencyCapData:(id)arg1;
 - (void)requestUserTargetingIdentifier:(CDUnknownBlockType)arg1;
@@ -45,7 +44,6 @@
 - (id)requestedAdDataParameter;
 - (id)privacyDataKeyParameter;
 - (id)campaignNamespaceParameter;
-- (void)_setupInternalSettings;
 - (_Bool)startUpdatingIDs;
 - (void)dealloc;
 - (id)initWithAppID:(id)arg1 appVersion:(id)arg2 appsRank:(int)arg3 storeFront:(id)arg4;

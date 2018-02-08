@@ -13,6 +13,8 @@
 - (id)_accessibilityUserTestingSnapshotDescendantsWithAttributes:(id)arg1 maxDepth:(unsigned long long)arg2 maxChildren:(unsigned long long)arg3 maxArrayCount:(unsigned long long)arg4;
 - (_Bool)_accessibilityUserTestingIsElementClassAcceptable;
 - (id)_accessibilityUserTestingChildren;
+- (_Bool)_accessibilityFauxTableViewCellsDisabled;
+- (void)_setAccessibilityFauxTableViewCellsDisabled:(_Bool)arg1;
 - (_Bool)_accessibilityFauxCollectionViewCellsDisabled;
 - (void)_setAccessibilityFauxCollectionViewCellsDisabled:(_Bool)arg1;
 - (id)_accessibilityUserTestingChildrenWithRange:(struct _NSRange)arg1;

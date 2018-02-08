@@ -46,6 +46,7 @@
 - (void).cxx_destruct;
 - (void)captureSessionStateChanged:(id)arg1;
 - (void)captureOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
+- (void)enableAutoFocusForDevice:(id)arg1;
 - (void)_configureCameraFocusForDevice:(id)arg1;
 - (void)_configureCameraWhiteBalanceForDevice:(id)arg1;
 - (void)_configureCameraExposureForDevice:(id)arg1;

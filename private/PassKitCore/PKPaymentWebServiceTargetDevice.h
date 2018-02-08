@@ -25,6 +25,7 @@
 - (_Bool)paymentWebServiceSupportsPeerPaymentRegistration:(id)arg1;
 - (_Bool)supportsExpressMode:(id)arg1;
 - (_Bool)supportsExpressModeForExpressPassType:(long long)arg1;
+- (_Bool)secureElementIsAvailable;
 - (_Bool)felicaSecureElementIsAvailable;
 - (void)paymentWebService:(id)arg1 validateTransferPreconditionsWithCompletion:(CDUnknownBlockType)arg2;
 - (unsigned long long)secureElementOwnershipStateForCurrentUser;

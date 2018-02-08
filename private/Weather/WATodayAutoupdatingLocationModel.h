@@ -37,9 +37,11 @@
 - (void)ubiquitousDefaultsDidChange:(id)arg1;
 - (void)_executeLocationUpdateForFirstWeatherCityWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_executeLocationUpdateForLocalWeatherCityWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)shouldNotUseUpdatedLocation;
 - (void)_willDeliverForecastModel:(id)arg1;
 - (void)_executeLocationUpdateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_weatherPreferencesWereSynchronized:(id)arg1;
+- (_Bool)updateLocationTrackingStatus;
 - (void)syncLastUpdateTime;
 - (void)_teardownLocationManager;
 - (void)checkIfNeedsToUpdate;
@@ -48,6 +50,7 @@
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (void)setCitySource:(unsigned long long)arg1 fireNotification:(_Bool)arg2;
 - (id)forecastModel;
+- (void)clearLocationUpdateState;
 - (void)dealloc;
 - (id)init;
 - (id)initWithPreferences:(id)arg1 effectiveBundleIdentifier:(id)arg2;

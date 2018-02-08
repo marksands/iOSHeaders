@@ -106,7 +106,6 @@
 - (void)browser:(id)arg1 didAddAdvertisements:(id)arg2;
 - (void)accessoryServer:(id)arg1 confirmUUID:(id)arg2 token:(id)arg3;
 - (void)accessoryServer:(id)arg1 authenticateUUID:(id)arg2 token:(id)arg3;
-- (void)accessoryServer:(id)arg1 validateCert:(id)arg2 model:(id)arg3;
 - (void)accessoryServer:(id)arg1 validateUUID:(id)arg2 token:(id)arg3 model:(id)arg4;
 - (void)accessoryServer:(id)arg1 didFinishAuth:(id)arg2;
 - (void)accessoryServer:(id)arg1 didUpdateName:(id)arg2;
@@ -245,8 +244,6 @@
 - (void)handleNoActiveHomeKitApp:(id)arg1;
 - (void)_handleNoActiveHomeKitAppOrSiriCommand;
 - (void)handleHomeKitAppInForeground:(id)arg1;
-- (void)__evaluateStopDiscoveringAssociatedMediaAccessories;
-- (void)__evaluateStartDiscoveringAssociatedMediaAccessories;
 - (_Bool)__isCurrentDevicePrimaryResident;
 - (void)_reprovisionAccessoryWithIdentifier:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)reprovisionAccessoryWithIdentifier:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

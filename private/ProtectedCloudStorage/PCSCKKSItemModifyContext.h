@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDate, NSString, PCSMTT;
+@class NSData, NSDate, NSObject<OS_os_transaction>, NSString, PCSLockAssertion, PCSMTT;
 
 @interface PCSCKKSItemModifyContext : NSObject
 {
@@ -28,8 +28,14 @@
     NSDate *_server_NextRollDate;
     struct _PCSIdentityData *_relocateIdentity;
     PCSMTT *_mtt;
+    NSObject<OS_os_transaction> *_transaction;
+    PCSLockAssertion *_lockAssertion;
+    id _activityAssertion;
 }
 
+@property(retain) id activityAssertion; // @synthesize activityAssertion=_activityAssertion;
+@property(retain) PCSLockAssertion *lockAssertion; // @synthesize lockAssertion=_lockAssertion;
+@property(retain) NSObject<OS_os_transaction> *transaction; // @synthesize transaction=_transaction;
 @property(readonly) PCSMTT *mtt; // @synthesize mtt=_mtt;
 @property _Bool roll; // @synthesize roll=_roll;
 @property _Bool sync; // @synthesize sync=_sync;

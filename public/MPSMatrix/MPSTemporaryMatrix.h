@@ -14,6 +14,7 @@
 + (void)prefetchStorageWithCommandBuffer:(id)arg1 matrixDescriptorList:(id)arg2;
 + (id)temporaryMatrixWithCommandBuffer:(id)arg1 matrixDescriptor:(id)arg2;
 @property(nonatomic) unsigned long long readCount; // @synthesize readCount=_readCount;
+- (void)synchronizeOnCommandBuffer:(id)arg1;
 - (id)initWithCommandBuffer:(id)arg1 matrixDescriptor:(id)arg2;
 
 @end

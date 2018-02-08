@@ -14,6 +14,7 @@
     MPModelObject *_modelObject;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) MPModelObject *modelObject; // @synthesize modelObject=_modelObject;
 - (void).cxx_destruct;
 - (id)valuesForProperties:(id)arg1;

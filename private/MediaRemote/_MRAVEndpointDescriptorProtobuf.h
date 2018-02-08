@@ -33,6 +33,7 @@
 @property(retain, nonatomic) NSMutableArray *outputDevices; // @synthesize outputDevices=_outputDevices;
 @property(retain, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -52,7 +53,6 @@
 - (void)clearOutputDevices;
 @property(readonly, nonatomic) _Bool hasUniqueIdentifier;
 @property(readonly, nonatomic) _Bool hasName;
-- (void)dealloc;
 
 @end
 

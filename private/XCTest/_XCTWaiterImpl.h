@@ -36,6 +36,7 @@
 @property double timeout; // @synthesize timeout=_timeout;
 @property struct __CFRunLoop *waitingRunLoop; // @synthesize waitingRunLoop=_waitingRunLoop;
 @property(copy) NSArray *waitCallStackReturnAddresses; // @synthesize waitCallStackReturnAddresses=_waitCallStackReturnAddresses;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)init;
 

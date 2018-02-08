@@ -22,7 +22,7 @@
     NFMutexLock *_conditionWaitersLock;
 }
 
-+ (id)sharedCatchUpOperationForEdition:(id)arg1 contentTypes:(long long)arg2 appConfiguration:(id)arg3 context:(id)arg4;
++ (id)sharedCatchUpOperationForEdition:(id)arg1 contentTypes:(long long)arg2 configuration:(id)arg3 context:(id)arg4;
 @property(retain, nonatomic) NFMutexLock *conditionWaitersLock; // @synthesize conditionWaitersLock=_conditionWaitersLock;
 @property(retain, nonatomic) NSHashTable *conditionWaiters; // @synthesize conditionWaiters=_conditionWaiters;
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
@@ -58,7 +58,7 @@
 - (id)waiterForCondition:(id)arg1;
 - (void)operationDidFinishWithError:(id)arg1;
 - (void)performOperation;
-- (id)initWithContext:(id)arg1 appConfiguration:(id)arg2 dateRange:(id)arg3 contentTypes:(long long)arg4 background:(_Bool)arg5;
+- (id)initWithContext:(id)arg1 configuration:(id)arg2 dateRange:(id)arg3 contentTypes:(long long)arg4 background:(_Bool)arg5;
 
 @end
 

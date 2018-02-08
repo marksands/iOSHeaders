@@ -24,6 +24,7 @@
 @property(retain, nonatomic) _MRLyricsTokenProtobuf *token; // @synthesize token=_token;
 @property(nonatomic) double endTime; // @synthesize endTime=_endTime;
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -36,7 +37,6 @@
 @property(readonly, nonatomic) _Bool hasToken;
 @property(nonatomic) _Bool hasEndTime;
 @property(nonatomic) _Bool hasStartTime;
-- (void)dealloc;
 
 @end
 

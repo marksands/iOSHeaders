@@ -26,9 +26,10 @@
     id <MRProtocolClientConnectionDelegate> _delegate;
 }
 
-@property(nonatomic) id <MRProtocolClientConnectionDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MRProtocolClientConnectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSOutputStream *outputStream; // @synthesize outputStream=_outputStream;
 @property(readonly, nonatomic) NSInputStream *inputStream; // @synthesize inputStream=_inputStream;
+- (void).cxx_destruct;
 - (void)_closeStream:(id)arg1;
 - (void)closeAllStreams;
 - (void)_openStream:(id)arg1;

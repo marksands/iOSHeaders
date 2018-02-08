@@ -31,6 +31,7 @@
 @property(retain, nonatomic) _MRPlaybackQueueContextProtobuf *context; // @synthesize context=_context;
 @property(retain, nonatomic) NSMutableArray *contentItems; // @synthesize contentItems=_contentItems;
 @property(nonatomic) int location; // @synthesize location=_location;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -49,7 +50,6 @@
 - (void)addContentItem:(id)arg1;
 - (void)clearContentItems;
 @property(nonatomic) _Bool hasLocation;
-- (void)dealloc;
 
 @end
 

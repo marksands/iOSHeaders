@@ -22,7 +22,7 @@
     NSArray *_assets;
     NSString *_fileName;
     NSString *_path;
-    id <NSCoding> _userInfo;
+    id _userInfo;
     NSDictionary *_metadata;
     long long _photoNumber;
     NSDate *_timestamp;
@@ -47,7 +47,7 @@
 @property(retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 @property(nonatomic) long long photoNumber; // @synthesize photoNumber=_photoNumber;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
-@property(retain, nonatomic) id <NSCoding> userInfo; // @synthesize userInfo=_userInfo;
+@property(retain, nonatomic) id userInfo; // @synthesize userInfo=_userInfo;
 @property(retain, nonatomic) NSString *path; // @synthesize path=_path;
 @property(retain, nonatomic) NSString *fileName; // @synthesize fileName=_fileName;
 @property(retain, nonatomic) NSArray *assets; // @synthesize assets=_assets;

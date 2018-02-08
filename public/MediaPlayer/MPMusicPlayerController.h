@@ -18,6 +18,7 @@
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSObject<OS_dispatch_group> *_pendingRequestGroup;
     _Bool _hasPreparedToPlay;
+    _Bool _hasPendingResponse;
     MPMediaItem *_pendingNowPlayingItem;
     MPMusicPlayerQueueDescriptor *_queueDescriptor;
     MPVolumeController *_volumeController;

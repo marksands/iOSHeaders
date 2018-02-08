@@ -10,6 +10,8 @@
 {
 }
 
+- (void)updateBackgroundColor;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)tintColorDidChange;
 
 @end

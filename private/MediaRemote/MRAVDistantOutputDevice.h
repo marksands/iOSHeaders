@@ -18,6 +18,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+- (void).cxx_destruct;
 - (id)sourceInfo;
 - (_Bool)requiresAuthorization;
 - (_Bool)supportsExternalScreen;
@@ -30,16 +31,17 @@
 - (_Bool)isDeviceGroupable;
 - (_Bool)isGroupable;
 - (_Bool)isGroupLeader;
+- (_Bool)canRelayCommunicationChannel;
 - (_Bool)isRemoteControllable;
 - (_Bool)canAccessRemoteAssets;
 - (id)MACAddress;
+- (id)logicalDeviceID;
 - (id)groupID;
 - (id)modelID;
 - (id)uid;
 - (id)name;
 - (id)descriptor;
 - (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDescriptor:(id)arg1;
 

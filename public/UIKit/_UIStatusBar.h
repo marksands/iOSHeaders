@@ -81,6 +81,7 @@
 - (void)_rearrangeOverflowedItems;
 - (void)_updateRegionItems;
 - (void)layoutSubviews;
+- (void)_fixupDisplayItemAttributes;
 - (void)_performAnimations:(id)arg1;
 - (void)updateWithAnimations:(id)arg1;
 - (void)_delayUpdatesWithKeys:(id)arg1 fromAnimation:(id)arg2;

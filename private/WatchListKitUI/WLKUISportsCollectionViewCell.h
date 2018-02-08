@@ -17,6 +17,7 @@
 + (id)sportsCardCellFromElement:(id)arg1 existingView:(id)arg2;
 @property(retain, nonatomic) WLKUISportsCellView *sportsCellView; // @synthesize sportsCellView=_sportsCellView;
 - (void).cxx_destruct;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)layoutWithElement:(id)arg1;
 - (void)prepareForReuse;
 - (_Bool)canBecomeFocused;

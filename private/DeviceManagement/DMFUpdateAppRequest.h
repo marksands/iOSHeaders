@@ -6,21 +6,9 @@
 
 #import <DeviceManagement/DMFAppRequest.h>
 
-@class NSString;
-
 @interface DMFUpdateAppRequest : DMFAppRequest
 {
-    _Bool _managedByMDMv1;
-    NSString *_originatorForMDMv1;
 }
-
-+ (_Bool)supportsSecureCoding;
-+ (Class)whitelistedClassForResultObject;
-@property(copy, nonatomic) NSString *originatorForMDMv1; // @synthesize originatorForMDMv1=_originatorForMDMv1;
-@property(nonatomic) _Bool managedByMDMv1; // @synthesize managedByMDMv1=_managedByMDMv1;
-- (void).cxx_destruct;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 
 @end
 

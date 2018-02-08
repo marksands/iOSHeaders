@@ -27,13 +27,13 @@
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(copy, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) PBCodable *underlyingCodableMessage; // @synthesize underlyingCodableMessage=_underlyingCodableMessage;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSData *protobufData;
 @property(readonly, nonatomic) _Bool shouldLog;
 @property(readonly, nonatomic) unsigned long long priority;
 @property(readonly, nonatomic) unsigned long long type;
 @property(readonly, nonatomic) unsigned long long encryptionType;
 @property(readonly, nonatomic) NSString *description;
-- (void)dealloc;
 - (id)init;
 - (id)initWithUnderlyingCodableMessage:(id)arg1 identifier:(id)arg2 error:(id)arg3;
 

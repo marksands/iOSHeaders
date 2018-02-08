@@ -8,21 +8,23 @@
 
 #import "NSSecureCoding.h"
 
+@class _MRContentItemProtobuf, _MRPlaybackQueueRequestProtobuf;
+
 __attribute__((visibility("hidden")))
 @interface MRContentItemRequest : NSObject <NSSecureCoding>
 {
-    void *_item;
-    void *_request;
+    _MRContentItemProtobuf *_item;
+    _MRPlaybackQueueRequestProtobuf *_request;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) void *request; // @synthesize request=_request;
-@property(nonatomic) void *item; // @synthesize item=_item;
+@property(retain, nonatomic) _MRPlaybackQueueRequestProtobuf *request; // @synthesize request=_request;
+@property(retain, nonatomic) _MRContentItemProtobuf *item; // @synthesize item=_item;
+- (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
-- (id)initWithItem:(void *)arg1 request:(void *)arg2;
+- (id)initWithItem:(id)arg1 request:(id)arg2;
 
 @end
 

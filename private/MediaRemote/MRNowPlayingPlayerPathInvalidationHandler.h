@@ -6,21 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>;
+@class NSObject<OS_dispatch_queue>, _MRNowPlayingPlayerPathProtobuf;
 
 __attribute__((visibility("hidden")))
 @interface MRNowPlayingPlayerPathInvalidationHandler : NSObject
 {
-    void *_playerPath;
+    _MRNowPlayingPlayerPathProtobuf *_playerPath;
     NSObject<OS_dispatch_queue> *_queue;
     CDUnknownBlockType _callback;
 }
 
 @property(readonly, nonatomic) CDUnknownBlockType callback; // @synthesize callback=_callback;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
-@property(readonly, nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
-- (void)dealloc;
-- (id)initWithPlayerPath:(void *)arg1 queue:(id)arg2 invalidationCallback:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath; // @synthesize playerPath=_playerPath;
+- (void).cxx_destruct;
+- (id)initWithPlayerPath:(id)arg1 queue:(id)arg2 invalidationCallback:(CDUnknownBlockType)arg3;
 
 @end
 

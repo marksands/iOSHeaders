@@ -21,6 +21,7 @@
 }
 
 + (Class)queueFeederClass;
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSURL *stationURL; // @synthesize stationURL=_stationURL;
 @property(nonatomic) long long stationID; // @synthesize stationID=_stationID;
 @property(copy, nonatomic) NSString *stationStringID; // @synthesize stationStringID=_stationStringID;

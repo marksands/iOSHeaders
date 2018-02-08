@@ -14,8 +14,9 @@
 {
     unsigned char _deviceActionType;
     _Bool _needsSetup;
+    unsigned int _flags;
     int _proximity;
-    unsigned int _blePaired;
+    unsigned int _blePairState;
     int _rawRSSI;
     int _smoothedRSSI;
     unsigned int _systemPairState;
@@ -63,18 +64,19 @@
 @property(readonly, copy, nonatomic) NSString *model; // @synthesize model=_model;
 @property(copy, nonatomic) NSUUID *identifierUUID; // @synthesize identifierUUID=_identifierUUID;
 @property(readonly, nonatomic) unsigned char deviceActionType; // @synthesize deviceActionType=_deviceActionType;
-@property(readonly, nonatomic) unsigned int blePaired; // @synthesize blePaired=_blePaired;
+@property(readonly, nonatomic) unsigned int blePairState; // @synthesize blePairState=_blePairState;
 @property(readonly, copy, nonatomic) NSData *bleDeviceAddress; // @synthesize bleDeviceAddress=_bleDeviceAddress;
 @property(readonly, copy, nonatomic) NSData *bleAdvertisementData; // @synthesize bleAdvertisementData=_bleAdvertisementData;
 @property(readonly, copy, nonatomic) NSData *authTag; // @synthesize authTag=_authTag;
 @property(retain, nonatomic) CUMobileDevice *mobileDevice; // @synthesize mobileDevice=_mobileDevice;
 @property(readonly, nonatomic) int proximity; // @synthesize proximity=_proximity;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-@property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) unsigned int flags; // @synthesize flags=_flags;
 - (void).cxx_destruct;
 - (void)updateWithWiFiDevice:(id)arg1 changes:(unsigned int)arg2;
 - (void)updateWithSystemInfo:(id)arg1;
-- (void)updateWithSFDevice:(id)arg1 changes:(unsigned int)arg2;
+- (unsigned int)updateWithSFDevice:(id)arg1 changes:(unsigned int)arg2;
 - (unsigned int)updateWithMobileDevice:(id)arg1;
 - (unsigned int)updateWithBonjourDevice:(id)arg1;
 - (void)_updateTXTDictionary:(id)arg1;

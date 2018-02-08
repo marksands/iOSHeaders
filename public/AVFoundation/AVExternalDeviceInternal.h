@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVWeakReference, NSArray, NSData, NSObject<OS_dispatch_queue>;
+@class AVWeakReference, NSArray, NSData, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface AVExternalDeviceInternal : NSObject
 {
@@ -19,6 +19,8 @@
     NSObject<OS_dispatch_queue> *_queue;
     NSArray *_oemIcons;
     NSArray *_screenInfo;
+    NSObject<OS_dispatch_queue> *_viewAreasQueue;
+    NSMutableDictionary *_currentViewAreas;
     long long _makeIconsOnlyOnce;
 }
 

@@ -10,7 +10,7 @@
 
 @interface FCSpecialEventsOperation : FCOperation
 {
-    id <FCAppConfiguration> _appConfiguration;
+    id <FCCoreConfiguration> _configuration;
     FCCloudContext *_context;
     FCSpecialEventsOperationResult *_specialEventsResult;
     NSError *_error;
@@ -21,7 +21,7 @@
 @property(retain) NSError *error; // @synthesize error=_error;
 @property(retain) FCSpecialEventsOperationResult *specialEventsResult; // @synthesize specialEventsResult=_specialEventsResult;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
-@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(copy, nonatomic) id <FCCoreConfiguration> configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)_checkShouldShowBreakingNewsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)operationWillFinishWithError:(id)arg1;

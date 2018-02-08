@@ -27,7 +27,8 @@ __attribute__((visibility("hidden")))
 + (Class)externalDeviceClass;
 @property(readonly, nonatomic, getter=isDiscovering) _Bool discovering; // @synthesize discovering=_discovering;
 @property(readonly, nonatomic) NSString *bonjourServiceType; // @synthesize bonjourServiceType=_bonjourServiceType;
-@property(nonatomic) id <MRExternalDeviceControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MRExternalDeviceControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (_Bool)_isManagedConfigIDAllowed:(id)arg1;
 - (void)netService:(id)arg1 didUpdateTXTRecordData:(id)arg2;
 - (void)netServiceDidResolveAddress:(id)arg1;

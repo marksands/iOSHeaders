@@ -32,7 +32,6 @@
 - (void *)_copyApplicationOutputContext:(id *)arg1;
 - (void *)_createDefaultApplicationOutputContext:(id *)arg1 outAudioSessionID:(unsigned int *)arg2;
 - (void)_routeStatusDidChangeNotification:(id)arg1;
-- (void)_outputDeviceVolumeDidChangeNotification:(id)arg1;
 - (void)_outputDevicesDidChangeNotification:(id)arg1;
 - (void)_endpointsDidChangeNotification:(id)arg1;
 - (_Bool)routeIsLeaderOfEndpoint:(id)arg1;

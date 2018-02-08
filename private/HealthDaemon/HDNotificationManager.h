@@ -31,9 +31,11 @@
 - (id)sectionIdentifier;
 - (id)sortDescriptors;
 - (void)_postBadgesDidUpdateNotification;
-- (CDUnknownBlockType)_completionOnClientQueue:(CDUnknownBlockType)arg1;
+- (CDUnknownBlockType)_objectCompletionOnClientQueue:(CDUnknownBlockType)arg1;
+- (CDUnknownBlockType)_actionCompletionOnClientQueue:(CDUnknownBlockType)arg1;
 - (void)_resourceQueue_updateApplicationBadge;
 - (id)_resourceQueue_coaleseDomainBadges;
+- (_Bool)_resourceQueue_setBadge:(id)arg1 domain:(long long)arg2 error:(out id *)arg3;
 - (id)_resourceQueue_badgeForDomain:(long long)arg1 error:(out id *)arg2;
 - (id)_resourceQueue_badgeForDomain:(long long)arg1;
 - (id)_aggregateBadge;
@@ -45,6 +47,7 @@
 - (void)postNotificationWithTitle:(id)arg1 body:(id)arg2 categoryIdentifier:(id)arg3 subtitle:(id)arg4 domain:(long long)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)postNotificationWithIdentifier:(id)arg1 content:(id)arg2 trigger:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)setBadge:(id)arg1 forDomain:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)incrementBadgeForDomain:(long long)arg1 count:(long long)arg2 error:(out id *)arg3;
 - (void)badgeForDomain:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setupBulletinBoardSettings;
 - (void)dealloc;

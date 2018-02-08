@@ -17,6 +17,7 @@
     NSObject<OS_dispatch_queue> *_serialQueue;
 }
 
+- (void).cxx_destruct;
 - (void)notifyDelegateOfStreamEvent:(unsigned long long)arg1;
 - (id)streamError;
 - (unsigned long long)streamStatus;
@@ -28,7 +29,6 @@
 - (id)delegate;
 - (void)close;
 - (void)open;
-- (void)dealloc;
 - (id)init;
 - (id)initToFileAtPath:(id)arg1 append:(_Bool)arg2;
 - (id)initToBuffer:(char *)arg1 capacity:(unsigned long long)arg2;

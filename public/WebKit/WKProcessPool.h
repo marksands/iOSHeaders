@@ -61,6 +61,7 @@
 - (id)_objectForBundleParameter:(id)arg1;
 - (void)_setCookieAcceptPolicy:(unsigned long long)arg1;
 - (void)_setCanHandleHTTPSServerTrustEvaluation:(_Bool)arg1;
+- (void)_setMaximumNumberOfProcesses:(unsigned long long)arg1;
 - (void)_registerURLSchemeServiceWorkersCanHandle:(id)arg1;
 - (void)_setAllowsSpecificHTTPSCertificate:(id)arg1 forHost:(id)arg2;
 

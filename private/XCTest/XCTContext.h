@@ -25,6 +25,7 @@
 + (void)runActivityNamed:(id)arg1 block:(CDUnknownBlockType)arg2;
 + (id)currentContext;
 @property(retain) _XCTContextImplementation *internalImplementation; // @synthesize internalImplementation=_internalImplementation;
+- (void).cxx_destruct;
 @property(readonly) NSDictionary *aggregationRecords;
 - (id)topActivity;
 - (long long)activityRecordStackDepth;
@@ -34,7 +35,6 @@
 - (id)willStartActivityWithTitle:(id)arg1 type:(id)arg2;
 - (id)initInternally;
 - (void)_runActivityNamed:(id)arg1 block:(CDUnknownBlockType)arg2;
-- (void)dealloc;
 
 @end
 

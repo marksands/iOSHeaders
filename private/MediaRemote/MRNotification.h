@@ -20,7 +20,7 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(readonly, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(readonly, nonatomic) NSString *notification; // @synthesize notification=_notification;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithNotification:(id)arg1 userInfo:(id)arg2 queue:(id)arg3;
 
 @end

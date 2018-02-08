@@ -28,9 +28,11 @@
     CDUnknownBlockType _cancelHandler;
     SXKeyValueObserver *_playerItemPresentationSizeObserver;
     SXKeyValueObserver *_readyForDisplayObserver;
+    id <SXAVPlayerFactory> _playerFactory;
     struct CGSize _dimensions;
 }
 
+@property(readonly, nonatomic) id <SXAVPlayerFactory> playerFactory; // @synthesize playerFactory=_playerFactory;
 @property(retain, nonatomic) SXKeyValueObserver *readyForDisplayObserver; // @synthesize readyForDisplayObserver=_readyForDisplayObserver;
 @property(retain, nonatomic) SXKeyValueObserver *playerItemPresentationSizeObserver; // @synthesize playerItemPresentationSizeObserver=_playerItemPresentationSizeObserver;
 @property(nonatomic) _Bool initiatedPlayback; // @synthesize initiatedPlayback=_initiatedPlayback;
@@ -81,7 +83,7 @@
 - (void)addPlaybackObserver:(id)arg1;
 - (void)pause;
 - (void)play;
-- (id)initWithVideo:(id)arg1;
+- (id)initWithVideo:(id)arg1 playerFactory:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -8,26 +8,30 @@
 
 #import "MRNowPlayingClientState.h"
 
-@class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, _MRDeviceInfoMessageProtobuf, _MROriginProtobuf;
 
 @interface MRNowPlayingOriginClientRequests : NSObject <MRNowPlayingClientState>
 {
-    void *_origin;
     NSObject<OS_dispatch_queue> *_serialQueue;
+    _MRDeviceInfoMessageProtobuf *_deviceInfo;
     NSMutableArray *_nowPlayingClients;
     NSMutableDictionary *_transactionCallbacks;
+    _MROriginProtobuf *_origin;
 }
 
-@property(readonly, nonatomic) void *origin; // @synthesize origin=_origin;
+@property(readonly, nonatomic) _MROriginProtobuf *origin; // @synthesize origin=_origin;
+- (void).cxx_destruct;
+- (void)_handleDeviceInfoDidChange:(id)arg1;
 - (void)restoreNowPlayingClientState;
 - (CDUnknownBlockType)transactionCallbackForName:(unsigned long long)arg1;
 - (void)setTransactionCallback:(CDUnknownBlockType)arg1 forName:(unsigned long long)arg2;
-- (void)removeClient:(void *)arg1;
-- (id)nowPlayingClientRequestsForPlayerPath:(void *)arg1;
+@property(copy, nonatomic) _MRDeviceInfoMessageProtobuf *deviceInfo;
+- (void)removeClient:(id)arg1;
+- (id)existingNowPlayingClientRequestsForPlayerPath:(id)arg1;
+- (id)nowPlayingClientRequestsForPlayerPath:(id)arg1;
 - (id)nowPlayingClients;
 - (id)debugDescription;
-- (void)dealloc;
-- (id)initWithOrigin:(void *)arg1;
+- (id)initWithOrigin:(id)arg1;
 
 @end
 

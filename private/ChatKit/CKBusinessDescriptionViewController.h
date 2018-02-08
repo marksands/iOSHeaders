@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIViewController.h"
+#import <ChatKit/CKViewController.h>
 
 #import "UITextViewDelegate.h"
 
 @class NSString, UITextView;
 
-@interface CKBusinessDescriptionViewController : UIViewController <UITextViewDelegate>
+@interface CKBusinessDescriptionViewController : CKViewController <UITextViewDelegate>
 {
     UITextView *_businessDetailsTextView;
 }
@@ -19,7 +19,6 @@
 - (void).cxx_destruct;
 - (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3 interaction:(long long)arg4;
 - (void)doneButtonTapped;
-- (void)setTextViewContentInset;
 - (void)setupBusinessDetailsText;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillAppear:(_Bool)arg1;

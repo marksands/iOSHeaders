@@ -20,5 +20,6 @@
 @property(nonatomic) __weak id <MPVolumeControllerDataSourceDelegate> delegate;
 - (void)reloadWarning;
 - (void)reload;
+- (void)adjustVolumeValue:(float)arg1;
 @end
 

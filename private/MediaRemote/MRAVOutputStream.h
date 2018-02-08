@@ -11,12 +11,16 @@
 @interface MRAVOutputStream : MRAVBufferedOutputStream
 {
     AVOutputContextCommunicationChannel *_communicationChannel;
+    _Bool _channelOpen;
     _Bool _channelIsOpen;
     AVOutputContext *_outputContext;
 }
 
+@property(nonatomic) _Bool channelIsOpen; // @synthesize channelIsOpen=_channelIsOpen;
+@property(readonly, nonatomic, getter=isChannelOpen) _Bool channelOpen; // @synthesize channelOpen=_channelOpen;
 @property(readonly, nonatomic) AVOutputContextCommunicationChannel *communicationChannel; // @synthesize communicationChannel=_communicationChannel;
 @property(readonly, nonatomic) AVOutputContext *outputContext; // @synthesize outputContext=_outputContext;
+- (void).cxx_destruct;
 - (void)_outputContextDidCloseCommunicationChannelNotification:(id)arg1;
 - (_Bool)hasSpaceAvailable;
 - (long long)write:(const char *)arg1 maxLength:(unsigned long long)arg2;

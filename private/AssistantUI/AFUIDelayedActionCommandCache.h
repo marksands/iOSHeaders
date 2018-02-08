@@ -12,20 +12,19 @@
 {
     NSMutableDictionary *_delayedActionTimersByIdentifier;
     NSMutableDictionary *_dismissalDelayedActionCommandsByIdentifier;
-    id <AFUIDelayedActionCommandCacheDelegate> _delegate;
 }
 
-@property(nonatomic) __weak id <AFUIDelayedActionCommandCacheDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) _Bool hasPendingCommands;
+- (void)_performCommandsWithDelayedActionCommand:(id)arg1;
+- (id)_commandHandler;
 - (void)performDismissalCommands;
 - (void)_invalidateDelayedActionTimer:(id)arg1 withKey:(id)arg2;
 - (void)invalidatePendingCommands;
 - (void)_performDelayedActionCommandTimerAction:(id)arg1;
-- (void)handleDelayedActionCancelCommand:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)handleDelayedActionCommand:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)cancelDelayedActionWithDelayedActionCancelCommand:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)enqueueDelayedActionCommand:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dealloc;
-- (id)initWithDelegate:(id)arg1;
+- (id)init;
 
 @end
 

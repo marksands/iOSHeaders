@@ -220,6 +220,7 @@
 - (_Bool)pairedDeviceSupportQuickSwitch;
 - (_Bool)pairedDeviceCountIsLessThanMaxPairedDevices;
 - (long long)maxPairedDeviceCount;
+- (_Bool)isKeychainEnabled;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

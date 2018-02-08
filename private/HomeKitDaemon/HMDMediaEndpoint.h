@@ -8,7 +8,7 @@
 
 #import "HMFLogging.h"
 
-@class NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSSet, NSString;
+@class HMDMediaBrowser, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSSet, NSString;
 
 @interface HMDMediaEndpoint : HMFObject <HMFLogging>
 {
@@ -20,39 +20,46 @@
     NSObject<OS_dispatch_queue> *_propertyQueue;
     NSString *_logID;
     NSObject<OS_dispatch_queue> *_workQueue;
+    HMDMediaBrowser *_mediaBrowser;
     NSMutableArray *_pendingBlocks;
 }
 
 + (id)logCategory;
 @property(retain, nonatomic) NSMutableArray *pendingBlocks; // @synthesize pendingBlocks=_pendingBlocks;
+@property(readonly, nonatomic) __weak HMDMediaBrowser *mediaBrowser; // @synthesize mediaBrowser=_mediaBrowser;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(readonly, nonatomic) NSString *logID; // @synthesize logID=_logID;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSString *localizedName; // @synthesize localizedName=_localizedName;
 @property(readonly, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
-@property(retain, nonatomic) NSSet *outputDeviceIdentifiers; // @synthesize outputDeviceIdentifiers=_outputDeviceIdentifiers;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (id)logIdentifier;
 @property(readonly, copy) NSString *description;
+- (void)_setPlaybackState:(unsigned int)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)setPlaybackState:(unsigned int)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_getPlaybackStateWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)getPlaybackStateWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)_addPendingBlock:(CDUnknownBlockType)arg1;
 - (void)_notifyPendingBlocksOfError:(id)arg1;
 - (void)evaluateIfMediaPlaybackStateChanged:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (_Bool)doesContainAnyAccessory:(id)arg1;
 @property(readonly, nonatomic) NSArray *advertisements;
 - (void)registerForNowPlayingUpdates:(_Bool)arg1;
-- (void)_connect:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)connect:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic, getter=isConnected) _Bool connected;
-@property(readonly, nonatomic) void *origin;
+- (void)_connectWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)updateOutputDevicesAndConnectWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)disconnectWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)disconnectFromEndpoint:(void *)arg1;
+- (void *)copyOrigin;
 @property(readonly, nonatomic) void *externalDevice;
+@property(readonly, nonatomic, getter=isConnected) _Bool connected;
+@property(retain, nonatomic) NSSet *outputDeviceIdentifiers; // @synthesize outputDeviceIdentifiers=_outputDeviceIdentifiers;
 @property(nonatomic) unsigned int connectionState; // @synthesize connectionState=_connectionState;
-@property void *endpoint; // @synthesize endpoint=_endpoint;
+- (void)updateEndpoint:(void *)arg1;
+- (void)_updateOutputDeviceIdentifiers;
+@property(readonly) void *endpoint; // @synthesize endpoint=_endpoint;
 - (void)dealloc;
-- (id)initWithEndpoint:(void *)arg1;
+- (id)initWithEndpoint:(void *)arg1 mediaBrowser:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

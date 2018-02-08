@@ -18,13 +18,13 @@
 
 + (id)discoverySessionWithEndpointFeatures:(unsigned int)arg1;
 @property(nonatomic) _Bool alwaysAllowUpdates; // @synthesize alwaysAllowUpdates=_alwaysAllowUpdates;
+- (void).cxx_destruct;
 - (void)removeOutputDevicesChangedCallback:(id)arg1;
 - (void)removeEndpointsChangedCallback:(id)arg1;
 - (id)addOutputDevicesChangedCallback:(CDUnknownBlockType)arg1;
 - (id)addEndpointsChangedCallback:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSArray *outputDevicesChangedCallbacks;
 @property(readonly, nonatomic) NSArray *endpointsChangedCallbacks;
-- (void)dealloc;
 - (id)_init;
 
 // Remaining properties

@@ -4,14 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <MediaRemote/MRWeakRef.h>
+#import "NSObject.h"
 
-@interface MRWeakProxy : MRWeakRef
+@interface MRWeakProxy : NSObject
 {
+    id _object;
 }
 
++ (id)weakProxyWithObject:(id)arg1;
+@property(nonatomic) __weak id object; // @synthesize object=_object;
+- (void).cxx_destruct;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 
 @end
 

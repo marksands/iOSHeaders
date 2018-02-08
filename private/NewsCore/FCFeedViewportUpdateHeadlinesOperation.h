@@ -10,7 +10,7 @@
 
 @interface FCFeedViewportUpdateHeadlinesOperation : FCOperation
 {
-    id <FCAppConfiguration> _appConfiguration;
+    id <FCCoreConfiguration> _configuration;
     FCCloudContext *_context;
     FCFeedViewport *_viewport;
     FCFeedDescriptor *_feedDescriptor;
@@ -35,7 +35,7 @@
 @property(retain, nonatomic) FCFeedDescriptor *feedDescriptor; // @synthesize feedDescriptor=_feedDescriptor;
 @property(retain, nonatomic) FCFeedViewport *viewport; // @synthesize viewport=_viewport;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
-@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(copy, nonatomic) id <FCCoreConfiguration> configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;

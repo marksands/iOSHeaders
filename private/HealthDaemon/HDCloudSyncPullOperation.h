@@ -8,7 +8,7 @@
 
 #import "NSProgressReporting.h"
 
-@class CKServerChangeToken, HDCloudSyncOperationConfiguration, HDCloudSyncStore, HDCloudSyncStoreRecord, NSFileHandle, NSMutableArray, NSObject<OS_dispatch_queue>, NSProgress, NSString, _HDCloudSyncStorePersistableState;
+@class CKServerChangeToken, HDCloudSyncOperationConfiguration, HDCloudSyncStore, HDCloudSyncStoreRecord, NSDate, NSFileHandle, NSMutableArray, NSObject<OS_dispatch_queue>, NSProgress, NSString, NSUUID, _HDCloudSyncStorePersistableState;
 
 @interface HDCloudSyncPullOperation : NSObject <NSProgressReporting>
 {
@@ -22,6 +22,8 @@
     NSFileHandle *_fileHandle;
     NSProgress *_allAssetProgress;
     NSProgress *_perAssetRecordProgress;
+    NSUUID *_operationIdentifier;
+    NSDate *_startTime;
     _Bool _hasAppliedChange;
     _Bool _queue_hasStarted;
     CDUnknownBlockType _completion;

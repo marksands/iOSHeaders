@@ -8,11 +8,16 @@
 
 @interface SXButton : UIButton
 {
+    CDUnknownBlockType _touchUpInsideBlock;
     struct UIEdgeInsets _touchInsets;
 }
 
+@property(copy, nonatomic, setter=onTouchUpInside:) CDUnknownBlockType touchUpInsideBlock; // @synthesize touchUpInsideBlock=_touchUpInsideBlock;
 @property(nonatomic) struct UIEdgeInsets touchInsets; // @synthesize touchInsets=_touchInsets;
+- (void).cxx_destruct;
+- (void)_privateButtonTapped;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

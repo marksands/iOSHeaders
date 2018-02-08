@@ -11,8 +11,10 @@
     double _totalDuration;
     double _currentPlaybackTime;
     double _visiblePercentage;
+    double _volume;
 }
 
+@property(nonatomic) double volume; // @synthesize volume=_volume;
 @property(nonatomic) double visiblePercentage; // @synthesize visiblePercentage=_visiblePercentage;
 @property(nonatomic) double currentPlaybackTime; // @synthesize currentPlaybackTime=_currentPlaybackTime;
 @property(nonatomic) double totalDuration; // @synthesize totalDuration=_totalDuration;

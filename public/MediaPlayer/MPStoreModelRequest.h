@@ -16,6 +16,7 @@
     NSString *_clientVersion;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *clientVersion; // @synthesize clientVersion=_clientVersion;
 @property(copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 @property(nonatomic) double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;

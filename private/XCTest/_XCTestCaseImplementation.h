@@ -68,6 +68,7 @@
 @property(retain) XCTestCaseRun *testCaseRun; // @synthesize testCaseRun=_testCaseRun;
 @property(retain) NSThread *primaryThread; // @synthesize primaryThread=_primaryThread;
 @property(retain) NSInvocation *invocation; // @synthesize invocation=_invocation;
+- (void).cxx_destruct;
 - (void)resetExpectations;
 - (void)addExpectation:(id)arg1;
 - (id)init;

@@ -81,7 +81,6 @@
 - (void)dealloc;
 - (id)_initWithURL:(id)arg1 apsEnvironmentName:(id)arg2 allowSelfSignedCertificates:(_Bool)arg3 allowUnsignedBags:(_Bool)arg4;
 - (void)_generateURLRequest;
-- (_Bool)shouldForceDevicesToCarry;
 - (void)_bagExternallyReloaded;
 - (void)_saveToCache;
 - (void)_saveCacheToPrefs;

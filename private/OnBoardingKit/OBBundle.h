@@ -12,10 +12,12 @@
 {
     NSString *_identifier;
     NSBundle *_bundle;
+    NSString *_bundleVersion;
 }
 
 + (id)bundleAtPath:(id)arg1;
 + (id)bundleWithIdentifier:(id)arg1;
+@property(readonly, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;
 @property(readonly, nonatomic) NSBundle *bundle; // @synthesize bundle=_bundle;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;

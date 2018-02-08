@@ -22,7 +22,7 @@
 - (long long)feedType;
 @property(copy, nonatomic) id <FCTagProviding> tag; // @synthesize tag=_tag;
 - (void).cxx_destruct;
-- (id)feedGroupEmittersWithAppConfiguration:(id)arg1;
+- (id)feedGroupEmittersWithCoreConfiguration:(id)arg1;
 - (id)iAdSectionID;
 - (id)iAdFeedID;
 - (id)iAdPrimaryAudience;

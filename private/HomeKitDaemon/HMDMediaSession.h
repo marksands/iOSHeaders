@@ -12,14 +12,15 @@
 #import "HMFTimerDelegate.h"
 #import "NSSecureCoding.h"
 
-@class HMDMediaEndpoint, HMDMediaSessionState, HMFMessageDispatcher, HMFTimer, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
+@class HMDMediaEndpoint, HMDMediaSessionState, HMFMessageDispatcher, HMFTimer, NSArray, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
 @interface HMDMediaSession : HMFObject <HMFTimerDelegate, HMDHomeMessageReceiver, HMFDumpState, HMFLogging, NSSecureCoding>
 {
     HMFMessageDispatcher *_msgDispatcher;
     NSMutableSet *_mediaProfiles;
-    _Bool _connecting;
+    _Bool _connected;
     _Bool _currentAccessorySession;
+    NSObject<OS_dispatch_queue> *_propertyQueue;
     NSString *_sessionIdentifier;
     HMDMediaEndpoint *_endpoint;
     HMDMediaSessionState *_state;
@@ -41,10 +42,11 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(retain, nonatomic) NSString *logID; // @synthesize logID=_logID;
 @property(nonatomic, getter=isCurrentAccessorySession) _Bool currentAccessorySession; // @synthesize currentAccessorySession=_currentAccessorySession;
-@property(nonatomic, getter=isConnecting) _Bool connecting; // @synthesize connecting=_connecting;
+@property(nonatomic, getter=isConnected) _Bool connected; // @synthesize connected=_connected;
 @property(retain, nonatomic) HMDMediaSessionState *state; // @synthesize state=_state;
 @property(retain, nonatomic) HMDMediaEndpoint *endpoint; // @synthesize endpoint=_endpoint;
 @property(readonly, copy, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 - (void).cxx_destruct;
 - (void)timerDidFire:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -53,7 +55,7 @@
 - (void)readProperties:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)removeMediaProfile:(id)arg1;
 - (void)addMediaProfile:(id)arg1;
-@property(readonly, nonatomic) NSSet *mediaProfiles;
+@property(readonly, nonatomic) NSArray *mediaProfiles;
 - (void)updateEndpoint:(id)arg1;
 - (void)registerForSessionUpdates:(_Bool)arg1;
 - (void)_handleMediaUpdateMuted:(id)arg1;
@@ -67,7 +69,8 @@
 - (void)_queueSetPlaybackStateCompletion:(CDUnknownBlockType)arg1;
 - (void)_invokePendingSetPlaybackStateBlocksOfError:(id)arg1;
 - (void)updateWithResponses:(id)arg1 message:(id)arg2;
-- (void)_notifyClientsOfPlaybackStateUpdateWithError:(id)arg1 inResponseToMessage:(id)arg2;
+- (void)_postNotificationOfPlaybackStateUpdateWithPayload:(id)arg1;
+- (void)_postNotificationOfPlaybackStateUpdateWithError:(id)arg1 inResponseToMessage:(id)arg2;
 - (void)_registerForSessionUpdates:(_Bool)arg1;
 - (void)evaluateIfMediaPlaybackStateChanged:(id)arg1;
 - (void)handleMediaPlaybackStateNotification:(id)arg1;

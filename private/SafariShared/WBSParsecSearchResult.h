@@ -21,6 +21,7 @@
 
 @property(readonly, nonatomic) WBSParsecLegacySearchResult *legacySearchResult; // @synthesize legacySearchResult=_legacySearchResult;
 - (void).cxx_destruct;
+- (id)_resultPresentedInCard;
 - (id)_simpleResult;
 - (id)_mapsResult;
 - (id)_genericResult;

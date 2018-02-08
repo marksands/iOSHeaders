@@ -68,6 +68,7 @@
 - (void)reloadStorefront:(CDUnknownBlockType)arg1;
 - (int)deviceRunStateForBundleIdentifier:(id)arg1;
 - (id)deviceDescription;
+@property(readonly, nonatomic) _Bool isManagediCloudAccount;
 @property(readonly, nonatomic) _Bool isManagedAppleID;
 @property(readonly, nonatomic) NSString *customJinglePayload;
 @property(readonly, nonatomic) NSString *iTunesAccountIdentifier;

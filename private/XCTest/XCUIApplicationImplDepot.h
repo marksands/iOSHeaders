@@ -14,8 +14,8 @@
     NSMutableDictionary *_applicationImpls;
 }
 
+- (void).cxx_destruct;
 - (id)applicationImplForIdentifier:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

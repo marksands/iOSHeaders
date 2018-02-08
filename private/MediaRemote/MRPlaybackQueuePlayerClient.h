@@ -6,39 +6,40 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>;
+@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, _MRContentItemProtobuf, _MRNowPlayingPlayerPathProtobuf;
 
 @interface MRPlaybackQueuePlayerClient : NSObject
 {
     NSMutableDictionary *_cache;
     NSMutableDictionary *_offsets;
     NSMutableSet *_requests;
-    void *_playerPath;
     NSObject<OS_dispatch_queue> *_queue;
+    _MRNowPlayingPlayerPathProtobuf *_playerPath;
 }
 
+@property(readonly, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath; // @synthesize playerPath=_playerPath;
+- (void).cxx_destruct;
 - (id)description;
 - (void)_onQueue_invalidate;
-- (_Bool)verifyCommandOptions:(id)arg1 forCommand:(unsigned int)arg2;
+- (void)_onQueue_augmentCommandOptions:(id)arg1 forCommand:(unsigned int)arg2;
+- (void)augmentCommandOptions:(id)arg1 forCommand:(unsigned int)arg2;
 - (void)invalidate;
-- (id)subscribedContentItemsIdentifiers:(id)arg1 forRequest:(void *)arg2;
-- (id)subscribedContentItems:(id)arg1 forRequest:(void *)arg2;
+- (id)subscribedContentItemsIdentifiers:(id)arg1 forRequest:(id)arg2;
+- (id)subscribedContentItems:(id)arg1 forRequest:(id)arg2;
 - (id)subscribedContentItemRequests:(id)arg1;
 - (id)subscribedContentItems:(id)arg1;
-- (void)subscribeToPlaybackQueue:(void *)arg1 forRequest:(void *)arg2;
-- (void *)requestForContentItem:(void *)arg1;
+- (void)subscribeToPlaybackQueue:(id)arg1 forRequest:(id)arg2;
+- (id)requestForContentItem:(id)arg1;
 - (id)offsetForIdentifier:(id)arg1;
-- (void *)contentItemForOffset:(long long)arg1;
-- (void *)nowPlayingItem;
-- (void *)requestForIdentifer:(id)arg1;
+- (id)contentItemForOffset:(long long)arg1;
+@property(readonly, nonatomic) _MRContentItemProtobuf *nowPlayingItem;
+- (id)requestForIdentifer:(id)arg1;
 - (_Bool)hasRequest:(id)arg1;
 - (void)removeRequest:(id)arg1;
-- (void)addRequest:(void *)arg1;
-@property(readonly, nonatomic) void *playerPath;
+- (void)addRequest:(id)arg1;
 - (id)_onQueue_writeData;
 - (void)readData:(id)arg1;
-- (void)dealloc;
-- (id)initWithPlayerPath:(void *)arg1 queue:(id)arg2;
+- (id)initWithPlayerPath:(id)arg1 queue:(id)arg2;
 
 @end
 

@@ -58,7 +58,7 @@
 - (void)enumerateAggregatesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)aggregatesForFeatureKeys:(id)arg1;
 - (void)activityObservingApplicationDidEnterBackground;
-- (void)_reloadTreatmentWithReliablyFetchedAppConfig:(_Bool)arg1;
+- (void)_reloadTreatmentWithReliablyFetchedCoreConfig:(_Bool)arg1 feldsparID:(id)arg2;
 - (void)_applicationDidEnterBackground;
 - (void)_closeOpenChangeGroup;
 - (void)_writeToLocalStoreWithCompletionHandler:(CDUnknownBlockType)arg1;

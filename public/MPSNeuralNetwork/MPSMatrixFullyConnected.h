@@ -10,6 +10,7 @@
 {
     CDUnknownFunctionPointerType _encode;
     id <MTLBuffer> neuronAParamBuf;
+    id <MPSExternalMatrixFullyConnected> _plugin;
     int _neuronType;
     float _neuronA;
     float _neuronB;

@@ -6,7 +6,6 @@
 
 #import "UIViewController.h"
 
-#import "AFUIDelayedActionCommandCacheDelegate.h"
 #import "AFUISiriRemoteViewControllerDataSource.h"
 #import "AFUISiriRemoteViewControllerDelegate.h"
 #import "AFUISiriSessionLocalDataSource.h"
@@ -18,7 +17,7 @@
 
 @class AFUIDelayedActionCommandCache, AFUIRequestOptions, AFUISiriRemoteViewController, AFUISiriSession, NSDictionary, NSNumber, NSObject<OS_dispatch_queue>, NSString, SiriUIAudioRoutePickerController, SiriUIConfiguration, SiriUIKeyboardView, UIStatusBar, UIView, UIView<AFUISiriRemoteViewHosting>;
 
-@interface AFUISiriViewController : UIViewController <AFUISiriRemoteViewControllerDataSource, AFUISiriRemoteViewControllerDelegate, AFUISiriViewDelegate, SiriUIAudioRoutePickerControllerDelegate, AFUISiriSessionLocalDataSource, AFUISiriSessionLocalDelegate, AFUIDelayedActionCommandCacheDelegate, AFUISiriViewDataSource, SiriUIKeyboardViewDelegate>
+@interface AFUISiriViewController : UIViewController <AFUISiriRemoteViewControllerDataSource, AFUISiriRemoteViewControllerDelegate, AFUISiriViewDelegate, SiriUIAudioRoutePickerControllerDelegate, AFUISiriSessionLocalDataSource, AFUISiriSessionLocalDelegate, AFUISiriViewDataSource, SiriUIKeyboardViewDelegate>
 {
     _Bool _active;
     _Bool _attemptingRemoteViewControllerPresentation;
@@ -88,7 +87,6 @@
 - (void)siriSessionDidUpdateSessionInfo:(id)arg1;
 - (void)siriSessionDidEnd:(id)arg1;
 - (void)siriSessionWillEnd:(id)arg1;
-- (_Bool)siriSessionCanEnd:(id)arg1;
 - (void)siriSessionDidResetContext:(id)arg1;
 - (void)siriSession:(id)arg1 didChangeDialogPhase:(id)arg2;
 - (void)siriSessionRecordingPreparationHasFinished:(id)arg1;
@@ -100,9 +98,6 @@
 - (unsigned long long)lockStateForSiriSession:(id)arg1;
 - (id)contextAppInfosForSiriSession:(id)arg1;
 - (id)bulletinsForSiriSession:(id)arg1;
-- (void)commandCache:(id)arg1 didInvalidateDelayedActionCommand:(id)arg2;
-- (void)commandCache:(id)arg1 didPerformDelayedActionCommand:(id)arg2;
-- (void)performGenericAceCommands:(id)arg1 forCommandCache:(id)arg2;
 - (void)routePickerControllerWillDismiss:(id)arg1;
 - (void)routePickerControllerWillShow:(id)arg1;
 - (void)routePickerControllerPickedNewRoute:(id)arg1 isBluetooth:(_Bool)arg2;

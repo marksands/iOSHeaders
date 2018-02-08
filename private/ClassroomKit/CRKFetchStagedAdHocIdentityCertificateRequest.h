@@ -6,19 +6,12 @@
 
 #import "CATTaskRequest.h"
 
-@class DMFControlGroupIdentifier;
-
 @interface CRKFetchStagedAdHocIdentityCertificateRequest : CATTaskRequest
 {
-    DMFControlGroupIdentifier *_groupIdentifier;
 }
 
 + (_Bool)supportsSecureCoding;
 + (Class)whitelistedClassForResultObject;
-@property(copy, nonatomic) DMFControlGroupIdentifier *groupIdentifier; // @synthesize groupIdentifier=_groupIdentifier;
-- (void).cxx_destruct;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
 
 @end
 

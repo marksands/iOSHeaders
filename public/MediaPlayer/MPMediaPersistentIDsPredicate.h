@@ -17,6 +17,7 @@
     unsigned long long _count;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)predicateWithPersistentIDs:(const long long *)arg1 count:(unsigned long long)arg2 shouldContain:(_Bool)arg3;
 @property(readonly, nonatomic) _Bool shouldContain; // @synthesize shouldContain=_shouldContain;
 @property(readonly, nonatomic) const long long *persistentIDs; // @synthesize persistentIDs=_persistentIDs;

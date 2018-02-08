@@ -49,6 +49,7 @@
 - (void)syncDeletesToCloudKitWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_beginPeriodicSyncWithActivity:(id)arg1 shouldCheckDeviceConditions:(_Bool)arg2 attemptCount:(unsigned long long)arg3 useStingRay:(_Bool)arg4 syncChatsCompletionBlock:(CDUnknownBlockType)arg5;
 - (void)_beginPeriodicSyncWithActivity:(id)arg1 shouldCheckDeviceConditions:(_Bool)arg2 attemptCount:(unsigned long long)arg3;
+- (id)_recordManager;
 - (void)_nukeCKData;
 - (void)_dealWithEncryptionKeyLostErrorIfApplicable:(id)arg1;
 - (_Bool)_errorIndicatesDeviceNotGoodForSync:(id)arg1;
@@ -72,6 +73,7 @@
 - (void)beginFullSyncPeriodic:(_Bool)arg1 shouldCheckDeviceConditions:(_Bool)arg2 activity:(id)arg3;
 - (void)beginChatSyncPeriodic:(_Bool)arg1 activity:(id)arg2;
 - (void)beginInitialSync;
+- (void)performInitialSyncOnFirstConnectionOfImagentIfNeeded;
 - (void)_postSyncStateChanged;
 - (void)dealloc;
 - (id)init;

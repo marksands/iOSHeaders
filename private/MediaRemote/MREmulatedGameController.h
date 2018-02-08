@@ -18,13 +18,14 @@
 }
 
 @property(retain, nonatomic) GCController *controller; // @synthesize controller=_controller;
-@property(nonatomic) id <MREmulatedGameControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MREmulatedGameControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) double buttonAUpDelay; // @synthesize buttonAUpDelay=_buttonAUpDelay;
 @property(readonly, nonatomic) int profile; // @synthesize profile=_profile;
+- (void).cxx_destruct;
 - (void)_handleGameControllerDidChange:(id)arg1;
-- (void)sendGameControllerEvent:(void *)arg1;
+- (void)sendGameControllerEvent:(id)arg1;
 - (void)dealloc;
-- (id)initWithProperties:(void *)arg1;
+- (id)initWithProperties:(id)arg1;
 
 @end
 

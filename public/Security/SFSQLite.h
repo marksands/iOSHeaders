@@ -80,6 +80,7 @@
 - (void)close;
 - (void)open;
 - (_Bool)openWithError:(id *)arg1;
+- (void)attemptProperDatabasePermissions;
 - (void)_periodicVacuum;
 @property(readonly, nonatomic) _Bool isOpen;
 - (id)_createSchemaHash;

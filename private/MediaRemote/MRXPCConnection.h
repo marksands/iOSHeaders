@@ -20,6 +20,7 @@
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
 @property(copy, nonatomic) CDUnknownBlockType messageHandler; // @synthesize messageHandler=_messageHandler;
 @property(readonly, nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
+- (void).cxx_destruct;
 - (void)_registerCallbacks;
 - (void)removeCustomXPCHandler:(id)arg1;
 - (void)addCustomXPCHandler:(CDUnknownBlockType)arg1 forKey:(id)arg2;

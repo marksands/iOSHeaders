@@ -16,6 +16,7 @@
     NSString *_searchString;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 @property(retain, nonatomic) MPMediaLibrary *mediaLibrary; // @synthesize mediaLibrary=_mediaLibrary;
 @property(nonatomic) long long maximumResultsPerScope; // @synthesize maximumResultsPerScope=_maximumResultsPerScope;

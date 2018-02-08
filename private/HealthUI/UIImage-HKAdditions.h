@@ -7,6 +7,7 @@
 #import "UIImage.h"
 
 @interface UIImage (HKAdditions)
++ (id)hk_disclosureChevronImage;
 - (id)hk_watchIconImage;
 - (id)hk_resizedImageWithSize:(struct CGSize)arg1;
 - (id)hk_croppedImageWithRect:(struct CGRect)arg1;

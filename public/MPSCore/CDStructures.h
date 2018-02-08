@@ -68,6 +68,11 @@ struct MPSLibraryInfo {
     struct MPSDeviceSpecificInfo _field13;
     struct MPSDeviceSpecificInfo _field14;
     struct MPSDeviceSpecificInfo _field15;
+    struct MPSDeviceSpecificInfo _field16;
+    struct MPSDeviceSpecificInfo _field17;
+    struct MPSDeviceSpecificInfo _field18;
+    struct MPSDeviceSpecificInfo _field19;
+    struct MPSDeviceSpecificInfo _field20;
 };
 
 struct MPSPixelInfo {
@@ -90,6 +95,26 @@ struct MPSPixelInfo {
     unsigned int chunkSizePlane2:6;
     unsigned int log2MinAlignment:4;
     unsigned int _padding:5;
+};
+
+struct MPSStateTextureInfo {
+    unsigned long long _field1;
+    unsigned long long _field2;
+    unsigned long long _field3;
+    unsigned long long _field4;
+    unsigned long long _field5;
+    unsigned long long _field6;
+    unsigned long long _field7;
+    unsigned long long _field8[4];
+};
+
+struct NSArray {
+    Class _field1;
+};
+
+struct ResourceListNode {
+    CDUnknownFunctionPointerType *_field1;
+    struct ResourceListNode *_field2;
 };
 
 struct ResourceNode {

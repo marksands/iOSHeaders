@@ -19,6 +19,7 @@
 @property(nonatomic) _Bool waitForBackgroundTaskCompletion;
 @property(nonatomic) _Bool shouldTakeKeyboardFocus;
 @property(nonatomic) double execTime;
+@property(nonatomic) unsigned long long signpostID;
 @property(nonatomic) double userLaunchEventTime;
 @property(nonatomic) _Bool safeMode;
 @property(nonatomic) _Bool forTesting;

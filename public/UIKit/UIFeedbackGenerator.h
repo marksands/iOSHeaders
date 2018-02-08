@@ -44,6 +44,7 @@
 - (long long)_outputMode;
 - (void)_setOutputMode:(long long)arg1;
 @property(readonly, nonatomic) NSString *_stats_key;
+- (void)_stopFeedback:(id)arg1;
 - (void)_playFeedback:(id)arg1 withMinimumIntervalPassed:(double)arg2 since:(double *)arg3 prefersRegularPace:(_Bool)arg4;
 - (void)_playFeedback:(id)arg1;
 - (void)performFeedbackWithDelay:(double)arg1 insideBlock:(CDUnknownBlockType)arg2;

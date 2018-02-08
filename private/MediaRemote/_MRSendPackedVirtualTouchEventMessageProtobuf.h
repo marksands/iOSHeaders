@@ -16,6 +16,7 @@
 }
 
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -26,7 +27,6 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(readonly, nonatomic) _Bool hasData;
-- (void)dealloc;
 
 @end
 

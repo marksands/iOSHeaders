@@ -11,7 +11,7 @@
 @interface NTCatchUpOperation : FCOperation
 {
     _Bool _forYouEnabled;
-    id <FCAppConfiguration> _appConfiguration;
+    id <FCNewsAppConfiguration> _appConfiguration;
     id <FCContentContext> _contentContext;
     id <FCFeedPersonalizing> _feedPersonalizer;
     FCCachePolicy *_cachePolicyForArticleLists;
@@ -43,7 +43,7 @@
 @property(retain, nonatomic) FCCachePolicy *cachePolicyForArticleLists; // @synthesize cachePolicyForArticleLists=_cachePolicyForArticleLists;
 @property(retain, nonatomic) id <FCFeedPersonalizing> feedPersonalizer; // @synthesize feedPersonalizer=_feedPersonalizer;
 @property(retain, nonatomic) id <FCContentContext> contentContext; // @synthesize contentContext=_contentContext;
-@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(copy, nonatomic) id <FCNewsAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 - (void).cxx_destruct;
 - (void)_fetchArticleListAndArticleIDsResultsIfNeededWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_fetchForYouResultsIfNeededWithCompletion:(CDUnknownBlockType)arg1;

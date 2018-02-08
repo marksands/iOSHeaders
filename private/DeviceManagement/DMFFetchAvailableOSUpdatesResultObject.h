@@ -6,20 +6,21 @@
 
 #import "CATTaskResultObject.h"
 
-@class NSArray;
+@class DMFOSUpdate;
 
 @interface DMFFetchAvailableOSUpdatesResultObject : CATTaskResultObject
 {
-    NSArray *_availableOSUpdates;
+    DMFOSUpdate *_update;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, copy, nonatomic) NSArray *availableOSUpdates; // @synthesize availableOSUpdates=_availableOSUpdates;
+@property(readonly, copy, nonatomic) DMFOSUpdate *update; // @synthesize update=_update;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithAvailableOSUpdates:(id)arg1;
+- (id)initWithUpdate:(id)arg1;
+- (id)init;
 
 @end
 

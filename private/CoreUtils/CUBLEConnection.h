@@ -8,10 +8,11 @@
 
 #import "CBCentralManagerDelegate.h"
 #import "CBPeripheralDelegate.h"
+#import "CUReadWriteRequestable.h"
 
 @class CBCentralManager, CBL2CAPChannel, CBPeripheral, CUReadRequest, CUWriteRequest, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSUUID;
 
-@interface CUBLEConnection : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate>
+@interface CUBLEConnection : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate, CUReadWriteRequestable>
 {
     CDUnknownBlockType _activateCompletion;
     CBCentralManager *_centralManager;

@@ -42,6 +42,8 @@
 - (void)voiceTriggerOccuredNotification:(id)arg1;
 - (void)updateVoiceTriggerAOPModel:(id)arg1;
 - (void)enableVoiceTriggerOnAOP:(_Bool)arg1;
+- (void)voiceControllerDidSetAudioSessionActive:(id)arg1 isActivated:(_Bool)arg2;
+- (void)voiceControllerWillSetAudioSessionActive:(id)arg1 willActivate:(_Bool)arg2;
 - (void)voiceControllerEndRecordInterruption:(id)arg1;
 - (void)voiceControllerBeginRecordInterruption:(id)arg1 withContext:(id)arg2;
 - (void)voiceControllerBeginRecordInterruption:(id)arg1;

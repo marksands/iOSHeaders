@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-#import "FCAppConfiguration.h"
+#import "FCCoreConfiguration.h"
+#import "FCNewsAppConfiguration.h"
 
 @class FCCoverArticlesConfiguration, FCForYouGroupsConfiguration, FCIAdConfiguration, FCNotificationsConfiguration, FCPrefetchConfiguration, FCRecommendedCategory, FCTopStoriesConfiguration, NSArray, NSDictionary, NSNumber, NSString, NTPBConfig, NTPBLanguageConfig, NTPBVideoGroupsConfig, NTPBWidgetConfig;
 
-@interface FCAppConfiguration : NSObject <FCAppConfiguration>
+@interface FCAppConfiguration : NSObject <FCCoreConfiguration, FCNewsAppConfiguration>
 {
     _Bool _privateDataEncryptionAllowed;
     _Bool _privateDataEncryptionMigrationDesired;

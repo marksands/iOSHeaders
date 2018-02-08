@@ -8,7 +8,7 @@
 
 #import "MRProtocolClientConnectionDelegate.h"
 
-@class CURunLoopThread, MRExternalClientConnection, MRExternalDeviceTransport, MRSupportedProtocolMessages, NSObject<OS_dispatch_queue>, NSString;
+@class CURunLoopThread, MRExternalClientConnection, MRExternalDeviceTransport, MRSupportedProtocolMessages, NSData, NSDictionary, NSObject<OS_dispatch_queue>, NSString, _MRContentItemProtobuf, _MRDeviceInfoMessageProtobuf, _MRNowPlayingPlayerPathProtobuf, _MROriginProtobuf;
 
 __attribute__((visibility("hidden")))
 @interface MRTransportExternalDevice : MRExternalDevice <MRProtocolClientConnectionDelegate>
@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSObject<OS_dispatch_queue> *_workerQueue;
     CURunLoopThread *_runLoopThread;
-    void *_deviceInfo;
+    _MRDeviceInfoMessageProtobuf *_deviceInfo;
     MRSupportedProtocolMessages *_supportedMessages;
     _Bool _wantsNowPlayingNotifications;
     _Bool _wantsNowPlayingArtworkNotifications;
@@ -24,19 +24,19 @@ __attribute__((visibility("hidden")))
     _Bool _usingSystemPairing;
     unsigned int _connectionState;
     unsigned int _connectionOptions;
-    void *_customOrigin;
     unsigned int _cachedServerDisconnectError;
     unsigned long long _reconnectionAttemptCount;
     _Bool _forceReconnectOnConnectionFailure;
     _Bool _disconnecting;
     _Bool _isCallingClientCallback;
+    _MROriginProtobuf *_customOrigin;
     MRExternalDeviceTransport *_transport;
     MRExternalClientConnection *_connection;
     long long _connectionRecoveryBehavior;
-    struct __CFData *_nowPlayingArtwork;
-    struct __CFDictionary *_nowPlayingInfo;
-    void *_nowPlayingItem;
-    void *_playerPath;
+    NSData *_nowPlayingArtwork;
+    NSDictionary *_nowPlayingInfo;
+    _MRContentItemProtobuf *_nowPlayingItem;
+    _MRNowPlayingPlayerPathProtobuf *_playerPath;
     CDUnknownBlockType _pairingCallback;
     NSObject<OS_dispatch_queue> *_pairingCallbackQueue;
     CDUnknownBlockType _connectionStateCallback;
@@ -67,23 +67,27 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) CDUnknownBlockType connectionStateCallback; // @synthesize connectionStateCallback=_connectionStateCallback;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *pairingCallbackQueue; // @synthesize pairingCallbackQueue=_pairingCallbackQueue;
 @property(copy, nonatomic) CDUnknownBlockType pairingCallback; // @synthesize pairingCallback=_pairingCallback;
-@property(nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
-@property(nonatomic) void *nowPlayingItem; // @synthesize nowPlayingItem=_nowPlayingItem;
-@property(nonatomic) struct __CFDictionary *nowPlayingInfo; // @synthesize nowPlayingInfo=_nowPlayingInfo;
-@property(nonatomic) struct __CFData *nowPlayingArtwork; // @synthesize nowPlayingArtwork=_nowPlayingArtwork;
+@property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath; // @synthesize playerPath=_playerPath;
+@property(retain, nonatomic) _MRContentItemProtobuf *nowPlayingItem; // @synthesize nowPlayingItem=_nowPlayingItem;
+@property(retain, nonatomic) NSDictionary *nowPlayingInfo; // @synthesize nowPlayingInfo=_nowPlayingInfo;
+@property(retain, nonatomic) NSData *nowPlayingArtwork; // @synthesize nowPlayingArtwork=_nowPlayingArtwork;
 @property(nonatomic) _Bool isCallingClientCallback; // @synthesize isCallingClientCallback=_isCallingClientCallback;
 @property(nonatomic) long long connectionRecoveryBehavior; // @synthesize connectionRecoveryBehavior=_connectionRecoveryBehavior;
 @property(retain, nonatomic) MRExternalClientConnection *connection; // @synthesize connection=_connection;
 @property(readonly, nonatomic) MRExternalDeviceTransport *transport; // @synthesize transport=_transport;
+@property(retain, nonatomic) _MROriginProtobuf *customOrigin; // @synthesize customOrigin=_customOrigin;
 - (void)setSupportedMessages:(id)arg1;
 - (id)supportedMessages;
+- (void).cxx_destruct;
 - (void)_contentItemUpdatedNotification:(id)arg1;
-- (void *)_createPlaybackQueue:(_Bool)arg1;
+- (id)_createPlaybackQueue:(_Bool)arg1;
 - (void)_updateNowPlayingInfo;
+- (void)_handlePresentRouteAuthorizationStatusMessage:(id)arg1;
+- (void)_handlePromptForRouteAuthorizationMessage:(id)arg1;
 - (void)_handleVolumeDidChangeMessage:(id)arg1;
 - (void)_handleGenericMessage:(id)arg1;
 - (void)_handleSetConnectionStateMessage:(id)arg1;
-- (void)_handleDeviceInfoChange:(void *)arg1 oldDevice:(void *)arg2;
+- (void)_handleDeviceInfoChange:(id)arg1 oldDevice:(id)arg2;
 - (void)_handleDeviceInfoUpdateMessage:(id)arg1;
 - (void)_handleTransactionMessage:(id)arg1;
 - (void)_handleSetVolumeControlAvailabilityMessage:(id)arg1;
@@ -148,8 +152,7 @@ __attribute__((visibility("hidden")))
 - (void)setPairingCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setConnectionState:(unsigned int)arg1 error:(id)arg2;
 - (unsigned int)connectionState;
-@property(nonatomic) void *customOrigin;
-- (void)setDeviceInfo:(void *)arg1;
+- (void)setDeviceInfo:(id)arg1;
 - (void)setName:(id)arg1;
 - (void)setWantsVolumeNotifications:(_Bool)arg1;
 - (_Bool)wantsVolumeNotifications;
@@ -162,7 +165,7 @@ __attribute__((visibility("hidden")))
 - (CDStruct_64424771)systemMusicContextInfo;
 - (_Bool)isPaired;
 - (_Bool)isValid;
-- (void *)deviceInfo;
+- (id)deviceInfo;
 - (long long)port;
 - (id)hostName;
 - (id)name;

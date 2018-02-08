@@ -7,11 +7,11 @@
 #import "NSObject.h"
 
 #import "MPQueueBehaviorManaging.h"
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class MPModelPlayEvent, MPMutableBidirectionalDictionary, NSData, NSMutableDictionary, NSString;
 
-@interface MPQueueFeeder : NSObject <MPQueueBehaviorManaging, NSCoding>
+@interface MPQueueFeeder : NSObject <MPQueueBehaviorManaging, NSSecureCoding>
 {
     long long _repeatType;
     long long _shuffleType;
@@ -30,6 +30,7 @@
     CDStruct_dcf4dde6 _skipLimit;
 }
 
++ (_Bool)supportsSecureCoding;
 + (_Bool)supportsStateRestoration;
 @property(readonly, nonatomic) MPModelPlayEvent *modelPlayEvent; // @synthesize modelPlayEvent=_modelPlayEvent;
 @property(readonly, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;

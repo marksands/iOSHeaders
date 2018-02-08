@@ -12,21 +12,21 @@
 
 @interface SXVideoItemViewControllerVisibilityManager : NSObject <SXVisibilityReporting>
 {
-    id <SXVisibilityMonitorFactory> _visibilityMonitorFactory;
+    id <SXVideoVisibilityMonitorProviding> _visibilityMonitorProvider;
     SXVideoTransitionManager *_transitionManager;
     NSMapTable *_visibilityMonitors;
 }
 
 @property(readonly, nonatomic) NSMapTable *visibilityMonitors; // @synthesize visibilityMonitors=_visibilityMonitors;
 @property(readonly, nonatomic) SXVideoTransitionManager *transitionManager; // @synthesize transitionManager=_transitionManager;
-@property(readonly, nonatomic) id <SXVisibilityMonitorFactory> visibilityMonitorFactory; // @synthesize visibilityMonitorFactory=_visibilityMonitorFactory;
+@property(readonly, nonatomic) id <SXVideoVisibilityMonitorProviding> visibilityMonitorProvider; // @synthesize visibilityMonitorProvider=_visibilityMonitorProvider;
 - (void).cxx_destruct;
 - (void)unlock;
 - (void)lock;
 - (void)updateVisibility;
 - (void)stopMonitoringVideoItemViewController:(id)arg1;
 - (void)startMonitoringVideoItemViewController:(id)arg1;
-- (id)initWithTransitionManager:(id)arg1 visibilityMonitorFactory:(id)arg2;
+- (id)initWithTransitionManager:(id)arg1 visibilityMonitorProvider:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

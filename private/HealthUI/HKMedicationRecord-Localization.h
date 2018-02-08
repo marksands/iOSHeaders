@@ -7,7 +7,6 @@
 #import "HKMedicationRecord.h"
 
 @interface HKMedicationRecord (Localization)
-- (id)sortDateSummaryTitle;
 - (id)sortDateTitle;
 @end
 

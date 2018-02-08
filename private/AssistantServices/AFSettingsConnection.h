@@ -25,6 +25,14 @@
 - (void)resetAnalyticsStoreWithCompletion:(CDUnknownBlockType)arg1;
 - (void)purgeAnalyticsStoreWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchEventRecordsFromAnalyticsStoreAtPath:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)setHorsemanSupplementalLanguageDictionary:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)getHorsemanSupplementalLanguageDictionary:(CDUnknownBlockType)arg1;
+- (void)getSupplementalLanguagesForProduct:(id)arg1 forBuildVersion:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)getSupplementalLanguageDictionaryForProduct:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)getSupplementalLanguagesModificationDate:(CDUnknownBlockType)arg1;
+- (void)getSupplementalLanguagesDictionary:(CDUnknownBlockType)arg1;
+- (void)setSupplementalLanguages:(id)arg1 forProduct:(id)arg2 forBuildVersion:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)setSupplementalLanguageDictionary:(id)arg1 forProduct:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)stopAllAudioPlaybackRequests:(_Bool)arg1;
 - (void)stopAudioPlaybackRequest:(id)arg1 immediately:(_Bool)arg2;
 - (void)startAudioPlaybackRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;

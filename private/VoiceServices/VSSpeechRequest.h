@@ -14,10 +14,10 @@
 {
     _Bool _shouldCache;
     _Bool _disableCompactVoiceFallback;
+    _Bool _forceServerTTS;
     _Bool _useCustomVoice;
     _Bool _audioSessionIDIsValid;
     _Bool _maintainsInput;
-    _Bool _forceServerTTS;
     unsigned int _audioSessionID;
     unsigned int _audioQueueFlags;
     NSString *_text;
@@ -45,7 +45,6 @@
 @property(nonatomic) long long pointer; // @synthesize pointer=_pointer;
 @property(copy, nonatomic) CDUnknownBlockType pauseHandler; // @synthesize pauseHandler=_pauseHandler;
 @property(copy, nonatomic) CDUnknownBlockType stopHandler; // @synthesize stopHandler=_stopHandler;
-@property(nonatomic) _Bool forceServerTTS; // @synthesize forceServerTTS=_forceServerTTS;
 @property(nonatomic) unsigned long long requestCreatedTimestamp; // @synthesize requestCreatedTimestamp=_requestCreatedTimestamp;
 @property(copy, nonatomic) NSString *clientBundleIdentifier; // @synthesize clientBundleIdentifier=_clientBundleIdentifier;
 @property(nonatomic) unsigned int audioQueueFlags; // @synthesize audioQueueFlags=_audioQueueFlags;
@@ -56,6 +55,7 @@
 @property(copy, nonatomic) NSAttributedString *attributedText; // @synthesize attributedText=_attributedText;
 @property(copy, nonatomic) NSURL *resourceSearchPathURL; // @synthesize resourceSearchPathURL=_resourceSearchPathURL;
 @property(copy, nonatomic) NSURL *resourceListURL; // @synthesize resourceListURL=_resourceListURL;
+@property(nonatomic) _Bool forceServerTTS; // @synthesize forceServerTTS=_forceServerTTS;
 @property(nonatomic) unsigned int audioSessionID; // @synthesize audioSessionID=_audioSessionID;
 @property(nonatomic) _Bool disableCompactVoiceFallback; // @synthesize disableCompactVoiceFallback=_disableCompactVoiceFallback;
 @property(copy, nonatomic) NSDictionary *contextInfo; // @synthesize contextInfo=_contextInfo;

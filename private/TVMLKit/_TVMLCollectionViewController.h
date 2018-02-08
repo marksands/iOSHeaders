@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIViewController *headerViewController; // @synthesize headerViewController=_headerViewController;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 - (void).cxx_destruct;
+- (id)_closestIndexPathToIndexPath:(id)arg1;
 - (void)_ascertainLastFocusedIndexPathInView;
 - (void)_registerCellClassesInCollectionView:(id)arg1;
 - (void)_updateHeaderView;

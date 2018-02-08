@@ -9,8 +9,10 @@
 @class AVOutputDevice, NSArray, NSData, NSNumber, NSString;
 
 @protocol AVOutputDeviceImpl <NSObject>
+@property(readonly, nonatomic) _Bool canRelayCommunicationChannel;
 @property(readonly, nonatomic) NSString *logicalDeviceID;
 @property(readonly, nonatomic) _Bool groupContainsGroupLeader;
+@property(readonly, nonatomic) _Bool participatesInGroupPlayback;
 @property(readonly, nonatomic) _Bool isGroupLeader;
 @property(readonly, nonatomic) _Bool canBeGroupLeader;
 @property(readonly, copy, nonatomic) NSString *groupID;

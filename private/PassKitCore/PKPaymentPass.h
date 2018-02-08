@@ -47,7 +47,8 @@
 + (unsigned long long)defaultSettings;
 + (_Bool)supportsSecureCoding;
 + (id)displayableErrorForAction:(id)arg1 andReason:(unsigned long long)arg2;
-+ (id)displayableNoPaymentNetworkErrorMessageForAction:(id)arg1;
++ (id)displayableErrorForTransitAction:(id)arg1 andReason:(unsigned long long)arg2;
++ (id)displayableNoPaymentNetworkErrorMessageForAction:(id)arg1 isTransit:(_Bool)arg2;
 @property(copy, nonatomic) NSArray *availableActions; // @synthesize availableActions=_availableActions;
 @property(nonatomic) _Bool requiresTransferSerialNumberBasedProvisioning; // @synthesize requiresTransferSerialNumberBasedProvisioning=_requiresTransferSerialNumberBasedProvisioning;
 @property(copy, nonatomic) NSString *localizedSuspendedReason; // @synthesize localizedSuspendedReason=_localizedSuspendedReason;

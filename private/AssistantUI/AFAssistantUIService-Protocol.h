@@ -11,6 +11,8 @@
 @protocol AFAssistantUIService <NSObject>
 
 @optional
+- (void)assistantConnection:(AFConnection *)arg1 audioSessionDidBecomeActive:(_Bool)arg2;
+- (void)assistantConnection:(AFConnection *)arg1 audioSessionWillBecomeActive:(_Bool)arg2;
 - (void)assistantConnection:(AFConnection *)arg1 startPlaybackDidFail:(long long)arg2;
 - (void)assistantConnection:(AFConnection *)arg1 willProcessStartPlayback:(long long)arg2;
 - (void)assistantConnection:(AFConnection *)arg1 didHandleQuickStopWithAction:(unsigned long long)arg2;

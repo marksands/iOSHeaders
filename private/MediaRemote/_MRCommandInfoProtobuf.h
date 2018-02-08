@@ -70,6 +70,7 @@
 @property(retain, nonatomic) NSString *localizedTitle; // @synthesize localizedTitle=_localizedTitle;
 @property(nonatomic) _Bool active; // @synthesize active=_active;
 @property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

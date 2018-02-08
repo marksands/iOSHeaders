@@ -204,6 +204,7 @@ __attribute__((visibility("hidden")))
 - (void)releaseConnection;
 - (id)dictationConnection;
 - (void)startRecordingLimitTimer;
+- (void)stopDictationByTimer;
 - (void)cancelRecordingLimitTimer;
 - (void)dealloc;
 - (int)state;

@@ -14,6 +14,7 @@
 }
 
 + (id)languageAgnosticTestClassNameForTestClass:(Class)arg1;
+- (void).cxx_destruct;
 @property(readonly) NSString *nameForLegacyLogging;
 @property(readonly) NSString *languageAgnosticTestMethodName;
 @property(readonly) NSString *languageAgnosticTestClassName;
@@ -27,7 +28,6 @@
 @property(readonly, copy) NSString *name;
 @property(readonly) unsigned long long testCaseCount;
 - (id)init;
-- (void)dealloc;
 - (void)removeTestsWithNames:(id)arg1;
 @property(readonly) NSString *_methodNameForReporting;
 @property(readonly) NSString *_classNameForReporting;

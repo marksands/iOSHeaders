@@ -12,9 +12,9 @@ __attribute__((visibility("hidden")))
     struct NSMutableDictionary *_events;
 }
 
+- (void).cxx_destruct;
 - (void)invokeEventsForController:(unsigned long long)arg1 beacuseElement:(int)arg2;
 - (id)eventForController:(unsigned long long)arg1 element:(int)arg2;
-- (void)dealloc;
 
 @end
 

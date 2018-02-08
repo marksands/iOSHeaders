@@ -6,11 +6,19 @@
 
 #import "CATTaskRequest.h"
 
+@class NSString;
+
 @interface DMFFetchAvailableOSUpdatesRequest : CATTaskRequest
 {
+    NSString *_productVersion;
 }
 
 + (Class)whitelistedClassForResultObject;
++ (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *productVersion; // @synthesize productVersion=_productVersion;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

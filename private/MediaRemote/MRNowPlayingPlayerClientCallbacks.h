@@ -6,66 +6,54 @@
 
 #import "NSObject.h"
 
-@class MRPlaybackQueueContentItemCallbacks, NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class MSVMultiCallback, NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, _MRNowPlayingPlayerPathProtobuf;
 
 __attribute__((visibility("hidden")))
 @interface MRNowPlayingPlayerClientCallbacks : NSObject
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
-    void *_playerPath;
-    MRPlaybackQueueContentItemCallbacks *_createPlaybackQueueForRequestCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_createItemForIdentifierCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_createItemForOffsetCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_createChildItemCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_metadataCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_languageOptionCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_infoCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_lyricsCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_artworkCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_artworkURLTemplateCallbacks;
+    MSVMultiCallback *_createPlaybackQueueForRequestCallbacks;
+    MSVMultiCallback *_createItemForOffsetCallbacks;
+    MSVMultiCallback *_createChildItemCallbacks;
+    MSVMultiCallback *_metadataCallbacks;
+    MSVMultiCallback *_languageOptionsCallbacks;
+    MSVMultiCallback *_infoCallbacks;
+    MSVMultiCallback *_lyricsCallbacks;
+    MSVMultiCallback *_artworkCallbacks;
     CDUnknownBlockType _beginLyricsEventCallback;
     CDUnknownBlockType _endLyricsEventCallback;
     CDUnknownBlockType _videoThumbnailsCallback;
     CDUnknownBlockType _audioAmplitudeSamplesCallback;
     NSMutableDictionary *_commandHandlerBlocks;
+    _MRNowPlayingPlayerPathProtobuf *_playerPath;
 }
 
-@property(readonly, nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
+@property(readonly, nonatomic) MSVMultiCallback *artworkCallbacks; // @synthesize artworkCallbacks=_artworkCallbacks;
+@property(readonly, nonatomic) MSVMultiCallback *lyricsCallbacks; // @synthesize lyricsCallbacks=_lyricsCallbacks;
+@property(readonly, nonatomic) MSVMultiCallback *infoCallbacks; // @synthesize infoCallbacks=_infoCallbacks;
+@property(readonly, nonatomic) MSVMultiCallback *languageOptionsCallbacks; // @synthesize languageOptionsCallbacks=_languageOptionsCallbacks;
+@property(readonly, nonatomic) MSVMultiCallback *metadataCallbacks; // @synthesize metadataCallbacks=_metadataCallbacks;
+@property(readonly, nonatomic) MSVMultiCallback *createChildItemCallbacks; // @synthesize createChildItemCallbacks=_createChildItemCallbacks;
+@property(readonly, nonatomic) MSVMultiCallback *createItemForOffsetCallbacks; // @synthesize createItemForOffsetCallbacks=_createItemForOffsetCallbacks;
+@property(readonly, nonatomic) MSVMultiCallback *createPlaybackQueueForRequestCallbacks; // @synthesize createPlaybackQueueForRequestCallbacks=_createPlaybackQueueForRequestCallbacks;
+@property(readonly, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath; // @synthesize playerPath=_playerPath;
+- (void).cxx_destruct;
+- (void)registerNowPlayingInfoArtworkAssetCallback:(id)arg1;
+- (void)registerNowPlayingInfoLanguageOptionsCallback:(id)arg1;
+- (void)registerNowPlayingInfoAssetCallbacks:(id)arg1;
+- (void)registerNowPlayingInfoCallbacks:(id)arg1;
+- (void)registerCallbacks;
 @property(readonly, copy, nonatomic) NSArray *commandHandlerBlocks;
 - (void)removeCommandHandlerBlockForKey:(id)arg1;
 - (void)addCommandHandlerBlock:(CDUnknownBlockType)arg1 forKey:(id)arg2;
 @property(copy, nonatomic) CDUnknownBlockType endLyricsEventCallback;
 @property(copy, nonatomic) CDUnknownBlockType beginLyricsEventCallback;
-- (_Bool)removeCallback:(void *)arg1;
-@property(readonly, nonatomic) NSArray *artworkURLTemplateCallbacks;
-- (void *)addArtworkURLTemplateCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) NSArray *artworkCallbacks;
-- (void *)addArtworkCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) NSArray *lyricsCallbacks;
-- (void *)addLyricsCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) NSArray *infoCallbacks;
-- (void *)addInfoCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) NSArray *languageOptionsCallbacks;
-- (void *)addLanguageOptionsCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) NSArray *metadataCallbacks;
-- (void *)addMetadataCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-- (id)fallbackArtworkAssetCallbacks;
-- (id)fallbackAssetCallbacks;
-@property(readonly, nonatomic) CDUnknownBlockType createChildItemCallback;
-- (void *)addCreateChildItemCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) CDUnknownBlockType createItemForOffsetCallback;
-- (void *)addCreateItemForOffsetCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) CDUnknownBlockType createPlaybackQueueForRequestCallback;
-- (void *)addCreatePlaybackQueueForRequestCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-- (id)_callbacksFromList:(id)arg1;
-- (void *)_addCallback:(id)arg1 toList:(id *)arg2 prepend:(_Bool)arg3;
-- (void *)_onQueue_capabilities;
-@property(readonly, nonatomic) void *capabilities;
+- (unsigned long long)_onQueue_capabilities;
+@property(readonly, nonatomic) unsigned long long capabilities;
 @property(readonly, nonatomic) _Bool hasPlaybackQueueCallbacks;
 @property(copy, nonatomic) CDUnknownBlockType audioAmplitudeSamplesCallback;
 @property(copy, nonatomic) CDUnknownBlockType videoThumbnailsCallback;
-- (void)dealloc;
-- (id)initWithPlayerPath:(void *)arg1 queue:(id)arg2;
+- (id)initWithPlayerPath:(id)arg1 queue:(id)arg2;
 
 @end
 

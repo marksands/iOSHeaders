@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "AAUIDeviceToDeviceEncryptionHelperDelegate.h"
+#import "CKAAUIDeviceToDeviceEncryptionHelperDelegate.h"
 #import "CKWhatsNewViewControllerDelegate.h"
 
 @class CKDeviceToDeviceEncryptionHelper, CKWhatsNewViewController, IMCloudKitHooks, NSString, NSUserDefaults, UIViewController;
 
-@interface CKWhatsNewController : NSObject <CKWhatsNewViewControllerDelegate, AAUIDeviceToDeviceEncryptionHelperDelegate>
+@interface CKWhatsNewController : NSObject <CKWhatsNewViewControllerDelegate, CKAAUIDeviceToDeviceEncryptionHelperDelegate>
 {
     _Bool _waitingForMOCState;
     id <CKWhatsNewControllerDelegate> _delegate;
@@ -32,7 +32,6 @@
 @property(readonly, nonatomic) UIViewController *controllerToPresentFrom; // @synthesize controllerToPresentFrom=_controllerToPresentFrom;
 @property(nonatomic) __weak id <CKWhatsNewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)deviceToDeviceEncryptionHelper:(id)arg1 shouldContinueUpgradingUserToHSA2WithCompletion:(CDUnknownBlockType)arg2;
 - (void)whatsNewNotNowButtonPressed;
 - (void)whatsNewConfirmPressed;
 - (void)cloudKitHooksReturnedWithMOCState:(id)arg1;

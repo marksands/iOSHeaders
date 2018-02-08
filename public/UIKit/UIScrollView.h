@@ -718,7 +718,7 @@
 - (void)_simulateGestureWithDuration:(double)arg1 begin:(CDUnknownBlockType)arg2 update:(CDUnknownBlockType)arg3 end:(CDUnknownBlockType)arg4;
 - (void)_simulateZoomByScaleFactor:(double)arg1 duration:(double)arg2 willBeginZooming:(CDUnknownBlockType)arg3 didEndZooming:(CDUnknownBlockType)arg4;
 - (void)_simulateScrollWithTranslation:(struct CGPoint)arg1 duration:(double)arg2 willBeginDragging:(CDUnknownBlockType)arg3 didEndDragging:(CDUnknownBlockType)arg4 willBeginDecelerating:(CDUnknownBlockType)arg5 didEndDecelerating:(CDUnknownBlockType)arg6;
-- (void)_incrementForScrollTest;
+- (void)_incrementForScrollTest:(id)arg1;
 - (id)_scrollTestExtraResults;
 - (void)_performScrollTest:(id)arg1 iterations:(int)arg2 delta:(int)arg3 length:(int)arg4 scrollAxis:(int)arg5 extraResultsBlock:(CDUnknownBlockType)arg6;
 - (void)_performScrollTest:(id)arg1 iterations:(int)arg2 delta:(int)arg3 length:(int)arg4 scrollAxis:(int)arg5;

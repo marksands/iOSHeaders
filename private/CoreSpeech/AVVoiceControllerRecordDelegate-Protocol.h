@@ -11,14 +11,16 @@
 @protocol AVVoiceControllerRecordDelegate <NSObject>
 
 @optional
+- (void)voiceControllerLPCMRecordBufferAvailable:(AVVoiceController *)arg1 buffer:(AVVCAudioBuffer *)arg2;
 - (void)voiceControllerRecordBufferAvailable:(AVVoiceController *)arg1 buffer:(AVVCAudioBuffer *)arg2;
+- (void)voiceControllerDidSetAudioSessionActive:(AVVoiceController *)arg1 isActivated:(_Bool)arg2;
+- (void)voiceControllerWillSetAudioSessionActive:(AVVoiceController *)arg1 willActivate:(_Bool)arg2;
 - (void)voiceControllerMediaServicesWereReset:(AVVoiceController *)arg1;
 - (void)voiceControllerMediaServicesWereLost:(AVVoiceController *)arg1;
 - (void)voiceControllerEndRecordInterruption:(AVVoiceController *)arg1;
 - (void)voiceControllerBeginRecordInterruption:(AVVoiceController *)arg1 withContext:(NSDictionary *)arg2;
 - (void)voiceControllerBeginRecordInterruption:(AVVoiceController *)arg1;
 - (void)voiceControllerRecordHardwareConfigurationDidChange:(AVVoiceController *)arg1 toConfiguration:(int)arg2;
-- (void)voiceControllerLPCMRecordBufferAvailable:(AVVoiceController *)arg1 buffer:(AVVCAudioBuffer *)arg2;
 - (void)voiceControllerEncoderErrorDidOccur:(AVVoiceController *)arg1 error:(NSError *)arg2;
 - (void)voiceControllerDidDetectEndpoint:(AVVoiceController *)arg1 ofType:(int)arg2 atTime:(double)arg3;
 - (void)voiceControllerDidDetectEndpoint:(AVVoiceController *)arg1 ofType:(int)arg2;

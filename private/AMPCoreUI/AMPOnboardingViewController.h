@@ -6,17 +6,19 @@
 
 #import "UIViewController.h"
 
-@class AMPOnboardingHeaderView, AMPTintedBackgroundButton, NSString, OBPrivacyLinkController, UIImage;
+@class AMPOnboardingHeaderView, AMPOnboardingMultiFeatureHeaderView, AMPTintedBackgroundButton, NSString, OBPrivacyLinkController, UIImage;
 
 @interface AMPOnboardingViewController : UIViewController
 {
     OBPrivacyLinkController *_privacyLinkController;
     CDUnknownBlockType _primaryButtonCallback;
     AMPOnboardingHeaderView *_headerView;
+    AMPOnboardingMultiFeatureHeaderView *_multiFeatureHeaderView;
     AMPTintedBackgroundButton *_primaryButton;
 }
 
 @property(retain, nonatomic) AMPTintedBackgroundButton *primaryButton; // @synthesize primaryButton=_primaryButton;
+@property(retain, nonatomic) AMPOnboardingMultiFeatureHeaderView *multiFeatureHeaderView; // @synthesize multiFeatureHeaderView=_multiFeatureHeaderView;
 @property(retain, nonatomic) AMPOnboardingHeaderView *headerView; // @synthesize headerView=_headerView;
 @property(copy, nonatomic) CDUnknownBlockType primaryButtonCallback; // @synthesize primaryButtonCallback=_primaryButtonCallback;
 @property(retain, nonatomic) OBPrivacyLinkController *privacyLinkController; // @synthesize privacyLinkController=_privacyLinkController;
@@ -27,10 +29,13 @@
 @property(readonly, nonatomic) NSString *descriptionText;
 @property(readonly, nonatomic) NSString *titleText;
 @property(readonly, nonatomic) UIImage *headerImage;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
+- (void)commonInitWithPrimaryButtonText:(id)arg1 privacyLinkController:(id)arg2;
+- (id)initWithTitleText:(id)arg1 features:(id)arg2 primaryButtonText:(id)arg3 privacyLinkController:(id)arg4;
 - (id)initWithHeaderImage:(id)arg1 titleText:(id)arg2 descriptionText:(id)arg3 primaryButtonText:(id)arg4 privacyLinkController:(id)arg5;
 
 @end

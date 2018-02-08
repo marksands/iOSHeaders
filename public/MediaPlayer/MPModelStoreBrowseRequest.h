@@ -19,6 +19,7 @@
 
 + (id)allSupportedSectionProperties;
 + (id)allSupportedItemProperties;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) MPModelStoreBrowseResponse *previousResponse; // @synthesize previousResponse=_previousResponse;
 @property(nonatomic) long long filteringPolicy; // @synthesize filteringPolicy=_filteringPolicy;
 @property(nonatomic) long long domain; // @synthesize domain=_domain;

@@ -10,6 +10,7 @@
 + (id)hu_locationServicesSettingsURL;
 + (id)hu_locationDeviceSettingsURL;
 + (id)hu_allowAccessWhileLockedSettingsURL;
++ (id)hu_wifiSettingsURL;
 + (id)hu_notificationSettingsURL;
 @end
 

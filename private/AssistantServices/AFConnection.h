@@ -163,6 +163,8 @@
 - (void)_tellSpeechDelegateRecordingDidBeginOnAVRecordRoute:(id)arg1 audioSessionID:(unsigned int)arg2;
 - (void)_tellSpeechDelegateRecordingWillBeginWithInputAudioPowerXPCWrapper:(id)arg1;
 - (void)_dispatchCallbackGroupBlock:(CDUnknownBlockType)arg1;
+- (void)_tellDelegateAudioSessionDidBecomeActive:(_Bool)arg1;
+- (void)_tellDelegateAudioSessionWillBecomeActive:(_Bool)arg1;
 - (void)_tellDelegateStartPlaybackDidFail:(long long)arg1;
 - (void)_tellDelegateWillProcessStartPlayback:(long long)arg1;
 - (void)_tellDelegateAudioPlaybackRequestDidStop:(id)arg1 error:(id)arg2;

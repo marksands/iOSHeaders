@@ -10,7 +10,7 @@
 
 @interface FCCoverArticlesOperation : FCOperation
 {
-    id <FCAppConfiguration> _appConfiguration;
+    id <FCCoreConfiguration> _configuration;
     FCCloudContext *_context;
     NSArray *_headlines;
     NSArray *_supplementalHeadlines;
@@ -21,7 +21,7 @@
 @property(copy) NSArray *supplementalHeadlines; // @synthesize supplementalHeadlines=_supplementalHeadlines;
 @property(copy) NSArray *headlines; // @synthesize headlines=_headlines;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
-@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(copy, nonatomic) id <FCCoreConfiguration> configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (id)_supplementalCoverArticleListIDs;
 - (void)performOperation;

@@ -31,7 +31,7 @@
     NSString *_assetCollectionGUID;
     NSDate *_batchCreationDate;
     NSDate *_photoCreationDate;
-    id <NSCoding> _userInfo;
+    id _userInfo;
     unsigned long long _mediaAssetType;
 }
 
@@ -41,7 +41,7 @@
 + (id)MSASPAssetFromProtocolDictionary:(id)arg1;
 @property(nonatomic) _Bool assetDataAvailableOnServer; // @synthesize assetDataAvailableOnServer=_assetDataAvailableOnServer;
 @property(nonatomic) unsigned long long mediaAssetType; // @synthesize mediaAssetType=_mediaAssetType;
-@property(retain, nonatomic) id <NSCoding> userInfo; // @synthesize userInfo=_userInfo;
+@property(retain, nonatomic) id userInfo; // @synthesize userInfo=_userInfo;
 @property(retain, nonatomic) NSDate *photoCreationDate; // @synthesize photoCreationDate=_photoCreationDate;
 @property(retain, nonatomic) NSDate *batchCreationDate; // @synthesize batchCreationDate=_batchCreationDate;
 @property(retain, nonatomic) NSString *assetCollectionGUID; // @synthesize assetCollectionGUID=_assetCollectionGUID;

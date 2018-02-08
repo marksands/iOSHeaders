@@ -13,6 +13,7 @@
     NSString *_uid;
 }
 
+- (void).cxx_destruct;
 - (id)uid;
 
 @end

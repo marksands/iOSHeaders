@@ -33,6 +33,7 @@
 + (id)_itemsForQuery:(id)arg1 shuffleType:(long long)arg2;
 + (Class)playbackItemMetadataClass;
 + (id)audioSessionModeForMediaType:(unsigned long long)arg1;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) MPMediaItem *cloudDialogAllowedMediaItem; // @synthesize cloudDialogAllowedMediaItem=_cloudDialogAllowedMediaItem;
 @property(copy, nonatomic) MPMediaQuery *query; // @synthesize query=_query;
 - (id).cxx_construct;

@@ -20,6 +20,7 @@
 }
 
 @property(retain, nonatomic) NSString *password; // @synthesize password=_password;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -34,7 +35,6 @@
 @property(nonatomic) _Bool hasSecurityType;
 @property(nonatomic) int securityType; // @synthesize securityType=_securityType;
 @property(readonly, nonatomic) _Bool hasPassword;
-- (void)dealloc;
 
 @end
 

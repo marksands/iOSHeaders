@@ -62,6 +62,7 @@
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(retain, nonatomic) NSString *artist; // @synthesize artist=_artist;
 @property(retain, nonatomic) NSString *album; // @synthesize album=_album;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -95,7 +96,6 @@
 @property(nonatomic) _Bool hasDuration;
 @property(readonly, nonatomic) _Bool hasArtist;
 @property(readonly, nonatomic) _Bool hasAlbum;
-- (void)dealloc;
 
 @end
 

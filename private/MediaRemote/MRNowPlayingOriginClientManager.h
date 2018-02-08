@@ -18,20 +18,23 @@
 }
 
 + (id)sharedManager;
-- (void)removePlayer:(void *)arg1;
-- (void)removeClient:(void *)arg1;
-- (void)removeOrigin:(void *)arg1;
+- (void).cxx_destruct;
+- (void)removePlayer:(id)arg1;
+- (void)removeClient:(id)arg1;
+- (void)removeOrigin:(id)arg1;
 - (void)restoreNowPlayingClientState;
-- (id)playerClientRequestsForPlayerPath:(void *)arg1;
-- (id)clientRequestsForPlayerPath:(void *)arg1;
-- (id)originClientRequestsForPlayerPath:(void *)arg1;
-- (id)playerClientForPlayerPath:(void *)arg1;
-- (id)clientForPlayerPath:(void *)arg1;
-- (id)originClientForPlayerPath:(void *)arg1;
-- (id)originClientForOrigin:(void *)arg1;
+- (id)existingPlayerClientRequestsForPlayerPath:(id)arg1;
+- (id)existingClientRequestsForPlayerPath:(id)arg1;
+- (id)existingOriginClientRequestsForPlayerPath:(id)arg1;
+- (id)playerClientRequestsForPlayerPath:(id)arg1;
+- (id)clientRequestsForPlayerPath:(id)arg1;
+- (id)originClientRequestsForPlayerPath:(id)arg1;
+- (id)playerClientForPlayerPath:(id)arg1;
+- (id)clientForPlayerPath:(id)arg1;
+- (id)originClientForPlayerPath:(id)arg1;
+- (id)originClientForOrigin:(id)arg1;
 - (id)localOriginClient;
 - (id)debugDescription;
-- (void)dealloc;
 - (id)init;
 
 @end

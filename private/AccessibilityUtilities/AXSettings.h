@@ -133,6 +133,8 @@
 - (void)clearVoicePrefersCompactSettings;
 - (void)configureZoomForLoginSession;
 - (void)addRotorOptionsForLoginSession;
+@property(nonatomic) _Bool switchControlShouldDisallowUSBRestrictedMode;
+@property(nonatomic) _Bool voiceOverShouldDisallowUSBRestrictedMode;
 @property(nonatomic) long long voiceOverDescribedMedia;
 @property(nonatomic) long long voiceOverPreferredTVInteractionMode;
 @property(nonatomic) _Bool voiceOverSilenceAnnouncements;
@@ -420,6 +422,7 @@
 @property _Bool voiceOverEnabled;
 @property _Bool siriSemanticContextEnabled;
 @property _Bool automationHitpointWarpingEnabled;
+@property _Bool automationFauxTableViewCellsEnabled;
 @property _Bool automationFauxCollectionViewCellsEnabled;
 @property(readonly) NSString *automationPreferredLocalization;
 @property _Bool automationLocalizedStringLookupInfoEnabled;

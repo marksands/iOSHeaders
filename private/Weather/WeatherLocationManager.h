@@ -60,6 +60,7 @@
 - (void)updateLocation:(id)arg1;
 - (void)accuracyFallbackTimerDidFire:(id)arg1;
 - (void)delayedUpdateTimerDidFire:(id)arg1;
+- (void)stopLocationUpdate;
 - (void)clearLocalWeatherUpdateState;
 - (void)clearLastLocationUpdateTime;
 - (void)forceLocationUpdate;

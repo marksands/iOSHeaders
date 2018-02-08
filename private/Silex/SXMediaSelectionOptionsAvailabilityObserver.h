@@ -9,16 +9,14 @@
 #import "SXMediaSelectionOptionsAvailabilityObserver.h"
 #import "SXVideoPlaybackObserver.h"
 
-@class NSString, SXPlaybackCoordinator;
+@class NSString;
 
 @interface SXMediaSelectionOptionsAvailabilityObserver : NSObject <SXVideoPlaybackObserver, SXMediaSelectionOptionsAvailabilityObserver>
 {
     _Bool _hasMediaSelectionOptionsAvailable;
     CDUnknownBlockType _availabilityChangedBlock;
-    SXPlaybackCoordinator *_playbackCoordinator;
 }
 
-@property(nonatomic) __weak SXPlaybackCoordinator *playbackCoordinator; // @synthesize playbackCoordinator=_playbackCoordinator;
 @property(copy, nonatomic, setter=onAvailabilityChanged:) CDUnknownBlockType availabilityChangedBlock; // @synthesize availabilityChangedBlock=_availabilityChangedBlock;
 @property(nonatomic) _Bool hasMediaSelectionOptionsAvailable; // @synthesize hasMediaSelectionOptionsAvailable=_hasMediaSelectionOptionsAvailable;
 - (void).cxx_destruct;

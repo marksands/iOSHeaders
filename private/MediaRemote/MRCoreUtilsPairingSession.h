@@ -6,23 +6,13 @@
 
 #import <MediaRemote/MRCryptoPairingSession.h>
 
-@class MRPasscodeCredentials, NSArray, NSData, NSMutableData, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class MRPasscodeCredentials, NSArray, NSData, NSMutableData, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, _MRDeviceInfoMessageProtobuf;
 
 @interface MRCoreUtilsPairingSession : MRCryptoPairingSession
 {
     MRPasscodeCredentials *_credentials;
     struct PairingSessionPrivate *_pairingSession;
-    struct {
-        void *context;
-        CDUnknownFunctionPointerType showSetupCode_f;
-        CDUnknownFunctionPointerType hideSetupCode_f;
-        CDUnknownFunctionPointerType promptForSetupCode_f;
-        CDUnknownFunctionPointerType copyIdentity_f;
-        CDUnknownFunctionPointerType findPeer_f;
-        CDUnknownFunctionPointerType savePeer_f;
-        CDUnknownFunctionPointerType resumeRequest_f;
-        CDUnknownFunctionPointerType resumeResponse_f;
-    } _pairingDelegate;
+    CDStruct_1af33fde _pairingDelegate;
     NSObject<OS_dispatch_queue> *_queue;
     _Bool _hasExchangedMessage;
     unsigned int _pairingFlags;
@@ -40,6 +30,7 @@
 @property(nonatomic) unsigned int pairingFlags; // @synthesize pairingFlags=_pairingFlags;
 @property(readonly, nonatomic) _Bool hasExchangedMessage; // @synthesize hasExchangedMessage=_hasExchangedMessage;
 @property(readonly, nonatomic) unsigned long long state; // @synthesize state=_state;
+- (void).cxx_destruct;
 - (void)_onQueueDeriveEncryptionKeys;
 - (void)_handleSetupExchangeComplete;
 - (void)_delegateDidEnterPasscode:(id)arg1;
@@ -52,11 +43,11 @@
 - (int)_displaySetupCode:(id)arg1;
 - (id)_generateSetupCodeWithMaximumLength:(unsigned long long)arg1;
 - (id)extendedPeerInfo;
-- (void *)deviceFromPeer:(id)arg1;
-- (void *)peerDeviceFromPeer:(id)arg1;
+- (void *)_createDeviceFromPeer:(id)arg1;
+- (id)_createPeerDeviceFromPeer:(id)arg1;
 @property(readonly, nonatomic) NSMutableDictionary *mediaRemotePairedDevices;
 @property(readonly, nonatomic) NSArray *pairedPeerDevices;
-@property(readonly, nonatomic) void *pairedPeerDevice;
+@property(readonly, nonatomic) _MRDeviceInfoMessageProtobuf *pairedPeerDevice;
 @property(readonly, nonatomic) NSString *peerIdentifier;
 - (id)updatePeer;
 - (id)removePeer;
@@ -77,7 +68,7 @@
 - (_Bool)isPaired;
 - (_Bool)isValid;
 - (void)dealloc;
-- (id)initWithRole:(unsigned long long)arg1 device:(void *)arg2;
+- (id)initWithRole:(unsigned long long)arg1 device:(id)arg2;
 
 @end
 

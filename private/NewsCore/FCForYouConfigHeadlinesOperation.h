@@ -11,7 +11,7 @@
 @interface FCForYouConfigHeadlinesOperation : FCOperation
 {
     _Bool _shouldFetchEditorialSectionTags;
-    id <FCAppConfiguration> _appConfiguration;
+    id <FCCoreConfiguration> _configuration;
     id <FCContentContext> _context;
     id <FCFeedPersonalizing> _personalizer;
     long long _fields;
@@ -41,7 +41,7 @@
 @property(nonatomic) long long fields; // @synthesize fields=_fields;
 @property(retain, nonatomic) id <FCFeedPersonalizing> personalizer; // @synthesize personalizer=_personalizer;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
-@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(copy, nonatomic) id <FCCoreConfiguration> configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (long long)_requestTypeOverride;
 - (void)operationWillFinishWithError:(id)arg1;

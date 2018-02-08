@@ -38,6 +38,7 @@
 + (id)testMethodInvocations;
 + (id)allSubclasses;
 @property(retain) _XCTestCaseImplementation *internalImplementation; // @synthesize internalImplementation=_internalImplementation;
+- (void).cxx_destruct;
 - (void)removeUIInterruptionMonitor:(id)arg1;
 - (id)addUIInterruptionMonitorWithDescription:(id)arg1 handler:(CDUnknownBlockType)arg2;
 @property(readonly) XCUITestContext *testContext;
@@ -116,7 +117,6 @@
 - (void)waitForExpectations:(id)arg1 timeout:(double)arg2 enforceOrder:(_Bool)arg3;
 - (void)waitForExpectations:(id)arg1 timeout:(double)arg2;
 - (void)waitForExpectationsWithTimeout:(double)arg1 handler:(CDUnknownBlockType)arg2;
-- (void)_waitForExpectations:(id)arg1 timeout:(double)arg2 enforceOrder:(_Bool)arg3 handler:(CDUnknownBlockType)arg4;
 - (id)_expectationForDarwinNotification:(id)arg1;
 - (void)_performTurningExceptionsIntoFailuresInterruptAfterHandling:(_Bool)arg1 block:(CDUnknownBlockType)arg2;
 - (void)_recordActivityWithFailure:(id)arg1;

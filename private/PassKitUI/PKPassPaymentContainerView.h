@@ -43,6 +43,9 @@
     unsigned long long _payStateTransitionCounter;
     long long _pendingPayState;
     _Bool _pendingPayStateAnimated;
+    long long _pendingPayStateGlyphState;
+    _Bool _pendingPayStateGlyphStateAnimated;
+    _Bool _pendingPayStateGlyphStateQueued;
     long long _currentPayState;
     unsigned long long _authenticatorState;
     _Bool _authenticating;
@@ -51,6 +54,7 @@
     long long _pearlState;
     _Bool _transitioning;
     NSMutableArray *_transitionCompletionHandlers;
+    NSMutableArray *_pendingGlyphStateCompletionHandlers;
     _Bool _glyphStateDirty;
     _Bool _waitingForGlyphView;
     long long _transactionSubstate;
@@ -66,6 +70,7 @@
     _Bool _valueAddedServiceInfoViewHidden;
     _Bool _waitingForPasses;
     double _lastFieldExitTime;
+    _Bool _pendingAutomaticAuthorization;
     NSNumber *_pendingPresentationContextState;
     double _lastFingerOnTime;
     double _lastTransactionTime;
@@ -89,6 +94,8 @@
 - (_Bool)_shouldShowTerminalIsNotRequestingPaymentError;
 - (void)_presentPassWithUniqueIdentifier:(id)arg1 additionalPassUniqueIdentifiers:(id)arg2 payState:(long long)arg3;
 - (void)_presentPassWithUniqueIdentifier:(id)arg1 additionalPassUniqueIdentifiers:(id)arg2;
+- (id)_paymentApplicationForAutomaticAuthorizationFromPaymentApplications:(id)arg1;
+- (id)_paymentApplicationForAutomaticAuthorization;
 - (_Bool)_passContainsPaymentApplication:(id)arg1;
 - (_Bool)_authenticationAllowed;
 - (_Bool)_isDemoMode;
@@ -110,12 +117,14 @@
 - (_Bool)_canAuthenticateWithPasscode;
 - (_Bool)_canAuthenticateWithBiometrics;
 - (void)_updateAuthenticatorState;
+- (void)_executePendingGlyphStateCompletionHandlers:(_Bool)arg1;
 - (void)_setGlyphState:(long long)arg1 animated:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_setGlyphState:(long long)arg1 animated:(_Bool)arg2;
 - (void)_executeTransitionCompletionHandlers:(_Bool)arg1;
 - (void)_addTransitionCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_endTransition:(_Bool)arg1;
 - (void)_transitionViewsAnimated:(_Bool)arg1;
+- (void)_commitPendingPayStateAnimated:(_Bool)arg1;
 - (void)_transitionToState:(long long)arg1 withTextOverride:(id)arg2 animated:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_dismissPile;
 - (void)_emphasizeStateIfPossible:(long long)arg1 withTextOverride:(id)arg2 playSystemSound:(_Bool)arg3;
@@ -154,6 +163,7 @@
 - (void)_resetActiveApplicationForPaymentPass:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_authorizeForTransactionWithCredential:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_activatePaymentApplication:(id)arg1 forPaymentPass:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (void)_didAuthorizePaymentApplicationWithAuthenticationIdentifier:(unsigned long long)arg1;
 - (void)_promoteToAuthorizedStateIfPossible;
 - (void)_resetToIdleStateAfterDelay:(double)arg1 whileIgnoreField:(_Bool)arg2;
 - (void)_resetToIdleStateAfterDelay:(double)arg1;
@@ -163,6 +173,7 @@
 - (void)_passcodeFallbackButtonPressed:(id)arg1;
 - (void)_passcodeAuthenticationButtonPressed:(id)arg1;
 - (void)_beginPasscodeOnlyAuthentication;
+- (void)_activateForPaymentWithApplication:(id)arg1;
 - (void)_activateForPayment;
 - (void)_endContactlessPaymentSession;
 - (void)_performAuthentication;

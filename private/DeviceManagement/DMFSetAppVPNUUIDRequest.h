@@ -6,16 +6,14 @@
 
 #import <DeviceManagement/DMFAppRequest.h>
 
-@class NSString, NSUUID;
+@class NSString;
 
 @interface DMFSetAppVPNUUIDRequest : DMFAppRequest
 {
     NSString *_UUIDString;
-    NSUUID *_UUID;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSUUID *UUID; // @synthesize UUID=_UUID;
 @property(copy, nonatomic) NSString *UUIDString; // @synthesize UUIDString=_UUIDString;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

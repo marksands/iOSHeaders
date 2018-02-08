@@ -20,8 +20,10 @@
 - (double)frecencyScore;
 - (void)updateFrecencyScore;
 - (void)configureUsingBlock:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)canRelayCommunicationChannel;
 - (id)logicalDeviceID;
 - (_Bool)groupContainsGroupLeader;
+- (_Bool)participatesInGroupPlayback;
 - (_Bool)isGroupLeader;
 - (_Bool)canBeGroupLeader;
 - (id)groupID;

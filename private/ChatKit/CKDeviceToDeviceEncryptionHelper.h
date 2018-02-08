@@ -4,13 +4,28 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "AAUIDeviceToDeviceEncryptionHelper.h"
+#import "NSObject.h"
 
-@interface CKDeviceToDeviceEncryptionHelper : AAUIDeviceToDeviceEncryptionHelper
+#import "CKAAUIDeviceToDeviceEncryptionHelperDelegate.h"
+
+@class NSString;
+
+@interface CKDeviceToDeviceEncryptionHelper : NSObject <CKAAUIDeviceToDeviceEncryptionHelperDelegate>
 {
+    id <CKAAUIDeviceToDeviceEncryptionHelper> _deviceToDeviceEncryptionHelper;
 }
 
+@property(readonly, nonatomic) id <CKAAUIDeviceToDeviceEncryptionHelper> deviceToDeviceEncryptionHelper; // @synthesize deviceToDeviceEncryptionHelper=_deviceToDeviceEncryptionHelper;
+- (void).cxx_destruct;
+- (void)deviceToDeviceEncryptionHelper:(id)arg1 shouldContinueUpgradingUserToHSA2WithCompletion:(CDUnknownBlockType)arg2;
 - (void)performDeviceToDeviceEncryptionStateRepairWithCompletion:(CDUnknownBlockType)arg1;
+- (id)initWithPresentingViewController:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -35,6 +35,7 @@
     _MPCAVPlaylistIteration *_softQueueModifications;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool disableQueueModifications; // @synthesize disableQueueModifications=_disableQueueModifications;
 @property(retain, nonatomic) _MPCAVPlaylistIteration *softQueueModifications; // @synthesize softQueueModifications=_softQueueModifications;
 @property(copy, nonatomic) _MPCAVItemSourceContext *repeatPlaylistIdentifer; // @synthesize repeatPlaylistIdentifer=_repeatPlaylistIdentifer;

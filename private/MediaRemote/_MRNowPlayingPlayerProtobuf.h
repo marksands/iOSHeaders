@@ -22,6 +22,7 @@
 
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -37,7 +38,6 @@
 @property(nonatomic) int audioSessionType; // @synthesize audioSessionType=_audioSessionType;
 @property(readonly, nonatomic) _Bool hasDisplayName;
 @property(readonly, nonatomic) _Bool hasIdentifier;
-- (void)dealloc;
 
 @end
 

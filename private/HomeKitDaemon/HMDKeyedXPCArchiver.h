@@ -15,11 +15,12 @@
 
 @property(retain, nonatomic) NSKeyedArchiver *archiver; // @synthesize archiver=_archiver;
 - (void).cxx_destruct;
+- (id)encodedData;
 - (void)finishEncoding;
 - (void)encodeObject:(id)arg1 forKey:(id)arg2;
 - (void)_configure;
 - (void)dealloc;
-- (id)initForWritingWithMutableData:(id)arg1 message:(id)arg2;
+- (id)initForWritingWithMessage:(id)arg1;
 
 @end
 

@@ -6,21 +6,22 @@
 
 #import "NSObject.h"
 
-@class MRSupportedProtocolMessages, NSString;
+@class MRSupportedProtocolMessages, NSString, _MRDeviceInfoMessageProtobuf, _MROriginProtobuf;
 
 __attribute__((visibility("hidden")))
 @interface MRExternalDevice : NSObject
 {
     _Bool _valid;
     unsigned int _connectionState;
-    void *_deviceInfo;
+    _MRDeviceInfoMessageProtobuf *_deviceInfo;
     CDStruct_64424771 _systemMusicContextInfo;
 }
 
 @property(readonly, nonatomic) CDStruct_64424771 systemMusicContextInfo; // @synthesize systemMusicContextInfo=_systemMusicContextInfo;
 @property(readonly, nonatomic) unsigned int connectionState; // @synthesize connectionState=_connectionState;
 @property(readonly, nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_valid;
-@property(readonly, nonatomic) void *deviceInfo; // @synthesize deviceInfo=_deviceInfo;
+@property(readonly, nonatomic) _MRDeviceInfoMessageProtobuf *deviceInfo; // @synthesize deviceInfo=_deviceInfo;
+- (void).cxx_destruct;
 - (void)sendClientUpdatesConfigMessage;
 - (id)currentClientUpdatesConfigMessage;
 - (id)errorForCurrentState;
@@ -41,7 +42,7 @@ __attribute__((visibility("hidden")))
 - (void)unpair;
 - (void)disconnect:(id)arg1;
 - (void)connectWithOptions:(unsigned int)arg1;
-@property(readonly, nonatomic) void *customOrigin;
+@property(readonly, nonatomic) _MROriginProtobuf *customOrigin;
 @property(nonatomic, getter=isUsingSystemPairing) _Bool usingSystemPairing;
 @property(readonly, nonatomic, getter=isPaired) _Bool paired;
 @property(nonatomic) _Bool wantsVolumeNotifications;

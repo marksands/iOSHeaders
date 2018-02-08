@@ -25,6 +25,7 @@
 @property _Bool safeQueryResolutionEnabled; // @synthesize safeQueryResolutionEnabled=_safeQueryResolutionEnabled;
 @property(retain) XCElementSnapshot *lastSnapshot; // @synthesize lastSnapshot=_lastSnapshot;
 @property(readonly) XCUIElementQuery *query; // @synthesize query=_query;
+- (void).cxx_destruct;
 @property(readonly, copy) XCUIElementQuery *statusItems;
 @property(readonly, copy) XCUIElementQuery *otherElements;
 @property(readonly, copy) XCUIElementQuery *handles;
@@ -139,10 +140,11 @@
 @property(readonly) _Bool exists;
 @property(readonly, nonatomic) XCUIApplication *application;
 @property(readonly, copy) NSString *description;
+- (id)elementBoundByAccessibilityElement;
 - (id)initWithElementQuery:(id)arg1;
-- (void)dealloc;
 - (id)screenshot;
 - (id)_screen;
+- (_Bool)_shouldDispatchEvent:(id *)arg1;
 - (void)_dispatchEvent:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)typeText:(id)arg1;
 - (void)rotate:(double)arg1 withVelocity:(double)arg2;

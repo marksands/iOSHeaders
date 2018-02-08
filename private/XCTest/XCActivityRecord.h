@@ -35,6 +35,7 @@
 @property(copy) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(copy) NSString *activityType; // @synthesize activityType=_activityType;
 @property(copy) NSString *title; // @synthesize title=_title;
+- (void).cxx_destruct;
 - (void)subactivityCompletedWithDuration:(double)arg1;
 - (void)_synchronized_ensureValid;
 - (void)invalidate;
@@ -59,7 +60,6 @@
 - (id)initWithCoder:(id)arg1;
 @property(readonly, copy) NSString *name;
 - (id)init;
-- (void)dealloc;
 - (void)attachDiagnosticsIncludingLocalizableStringsData:(_Bool)arg1;
 - (void)attachAutomaticScreenshot;
 

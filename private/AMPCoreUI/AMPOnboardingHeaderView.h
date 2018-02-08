@@ -10,11 +10,15 @@
 
 @interface AMPOnboardingHeaderView : UIScrollView
 {
+    _Bool _isPresentedInFormSheet;
     UIImageView *_imageView;
     UILabel *_titleLabel;
     UILabel *_descriptionLabel;
+    double _containerHeight;
 }
 
+@property(nonatomic) _Bool isPresentedInFormSheet; // @synthesize isPresentedInFormSheet=_isPresentedInFormSheet;
+@property(nonatomic) double containerHeight; // @synthesize containerHeight=_containerHeight;
 @property(retain, nonatomic) UILabel *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;

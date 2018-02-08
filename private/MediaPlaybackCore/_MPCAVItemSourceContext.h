@@ -16,6 +16,7 @@
     MPQueueFeeder *_queueFeeder;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) MPQueueFeeder *queueFeeder; // @synthesize queueFeeder=_queueFeeder;
 @property(retain, nonatomic) id <MPAVItemQueueIdentifier> itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
 - (void).cxx_destruct;

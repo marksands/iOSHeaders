@@ -11,6 +11,7 @@
 @interface DMFMDMv1InstallAppRequest : DMFInstallAppRequest
 {
     _Bool _manage;
+    NSString *_redemptionCode;
     NSString *_originator;
     unsigned long long _managementOptions;
     NSString *_VPNUUIDString;
@@ -23,6 +24,7 @@
 @property(nonatomic) unsigned long long managementOptions; // @synthesize managementOptions=_managementOptions;
 @property(nonatomic) _Bool manage; // @synthesize manage=_manage;
 @property(copy, nonatomic) NSString *originator; // @synthesize originator=_originator;
+@property(copy, nonatomic) NSString *redemptionCode; // @synthesize redemptionCode=_redemptionCode;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -61,6 +61,7 @@
 - (_Bool)validForStorage;
 - (_Bool)propertyIsAvailable:(id)arg1;
 - (_Bool)propertyIsReadOnly:(id)arg1;
+@property(readonly, nonatomic, getter=isReplayable) _Bool replayable;
 @property(readonly, nonatomic, getter=isGenericRepresentation) _Bool isGenericRepresentation; // @dynamic isGenericRepresentation;
 @property(readonly, nonatomic, getter=isReadOnly) _Bool isReadOnly; // @dynamic isReadOnly;
 - (_Bool)propertyWasSet:(id)arg1;

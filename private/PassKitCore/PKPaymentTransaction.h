@@ -51,6 +51,7 @@
     long long _peerPaymentType;
     NSString *_peerPaymentCounterpartHandle;
     NSString *_peerPaymentMemo;
+    NSDate *_peerPaymentMessageReceivedDate;
     PKPaymentTransactionForeignExchangeInformation *_foreignExchangeInformation;
     PKPaymentTransactionFees *_fees;
     NSDecimalNumber *_primaryFundingSourceAmount;
@@ -104,6 +105,7 @@
 @property(copy, nonatomic) NSDecimalNumber *primaryFundingSourceAmount; // @synthesize primaryFundingSourceAmount=_primaryFundingSourceAmount;
 @property(retain, nonatomic) PKPaymentTransactionFees *fees; // @synthesize fees=_fees;
 @property(retain, nonatomic) PKPaymentTransactionForeignExchangeInformation *foreignExchangeInformation; // @synthesize foreignExchangeInformation=_foreignExchangeInformation;
+@property(copy, nonatomic) NSDate *peerPaymentMessageReceivedDate; // @synthesize peerPaymentMessageReceivedDate=_peerPaymentMessageReceivedDate;
 @property(copy, nonatomic) NSString *peerPaymentMemo; // @synthesize peerPaymentMemo=_peerPaymentMemo;
 @property(copy, nonatomic) NSString *peerPaymentCounterpartHandle; // @synthesize peerPaymentCounterpartHandle=_peerPaymentCounterpartHandle;
 @property(nonatomic) long long peerPaymentType; // @synthesize peerPaymentType=_peerPaymentType;

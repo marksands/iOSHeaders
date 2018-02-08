@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)supportsSecureCoding;
+- (void).cxx_destruct;
 - (void)_reloadOutputDevicesFromContext;
 - (id)_localizeOutputDevices:(id)arg1;
 - (void)_outputContextDevicesDidChangeNotification:(id)arg1;

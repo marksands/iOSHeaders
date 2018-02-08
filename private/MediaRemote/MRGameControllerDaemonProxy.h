@@ -18,6 +18,7 @@
 }
 
 + (id)defaultGameControllerDaemonProxy;
+- (void).cxx_destruct;
 - (void)microControllerWithUDID:(unsigned long long)arg1 setDigitizerX:(float)arg2 digitizerY:(float)arg3 withTimeStamp:(unsigned long long)arg4 touchDown:(_Bool)arg5;
 - (void)microControllerWithDigitizerX:(float)arg1 withY:(float)arg2 withTimeStamp:(unsigned long long)arg3 touchDown:(_Bool)arg4;
 - (void)controllerWithUDID:(unsigned long long)arg1 setValue:(float)arg2 forElement:(int)arg3;
@@ -31,9 +32,8 @@
 - (void)controllerID:(unsigned long long)arg1 setValue:(float)arg2 forElement:(int)arg3;
 - (void)controllerID:(unsigned long long)arg1 setValue:(float)arg2 forElement:(int)arg3 withUpDelay:(double)arg4;
 - (void)removeEmulatedController:(id)arg1;
-- (id)addEmulatedControllerWithProperties:(void *)arg1;
+- (id)addEmulatedControllerWithProperties:(id)arg1;
 - (void)_openConnection;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

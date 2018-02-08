@@ -6,11 +6,10 @@
 
 #import "UIView.h"
 
-@class UIButton, UIColor, UIImage, UIImageView, UILabel;
+@class NSString, UIButton, UIColor, UIImage, UIImageView, UILabel;
 
 @interface BFFPaneHeaderView : UIView
 {
-    UIImageView *_iconView;
     struct CGSize _iconSize;
     UIButton *_linkButton;
     CDUnknownBlockType _linkHandler;
@@ -18,6 +17,7 @@
     _Bool _iconInheritsTint;
     _Bool _useMinimumTopPadding;
     _Bool _textLabelAlignedByLastBaseline;
+    UIImageView *_iconView;
     UIImage *_icon;
     UILabel *_textLabel;
     UILabel *_detailTextLabel;
@@ -35,6 +35,7 @@
 @property(readonly, nonatomic) UILabel *detailTextLabel; // @synthesize detailTextLabel=_detailTextLabel;
 @property(readonly, nonatomic) UILabel *textLabel; // @synthesize textLabel=_textLabel;
 @property(retain, nonatomic) UIImage *icon; // @synthesize icon=_icon;
+@property(retain, nonatomic) UIImageView *iconView; // @synthesize iconView=_iconView;
 - (void).cxx_destruct;
 - (double)heightForWidth:(double)arg1 inView:(id)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
@@ -46,6 +47,7 @@
 - (void)_linkButtonPressed;
 - (void)tintColorDidChange;
 @property(nonatomic) struct CGSize iconSize;
+@property(retain, nonatomic) NSString *iconAccessibilityLabel;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

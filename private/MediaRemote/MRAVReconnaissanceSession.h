@@ -35,6 +35,7 @@
 @property(retain, nonatomic) NSSet *matchingOutputDeviceUIDsSet; // @synthesize matchingOutputDeviceUIDsSet=_matchingOutputDeviceUIDsSet;
 @property(nonatomic) _Bool useWeakMatching; // @synthesize useWeakMatching=_useWeakMatching;
 @property(readonly, nonatomic) unsigned int endpointFeatures; // @synthesize endpointFeatures=_endpointFeatures;
+- (void).cxx_destruct;
 - (void)_endSearch;
 - (void)_concludeSearch;
 - (void)_timeoutTimerFired:(id)arg1;

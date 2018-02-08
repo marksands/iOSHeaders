@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)keyPathsForValuesAffectingDerivedSubscriptionInfo;
+- (_Bool)validateBillingIdentifier:(id *)arg1 error:(id *)arg2;
 - (_Bool)validateTierIdentifiers:(id *)arg1 error:(id *)arg2;
 - (_Bool)validateSubscriberIdentifierHash:(id *)arg1 error:(id *)arg2;
 - (_Bool)validateExpirationDate:(id *)arg1 error:(id *)arg2;

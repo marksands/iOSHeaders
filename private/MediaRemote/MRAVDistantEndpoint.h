@@ -29,6 +29,7 @@
 @property(retain, nonatomic) MRAVDistantOutputDevice *distantGroupLeader; // @synthesize distantGroupLeader=_distantGroupLeader;
 @property(copy, nonatomic) NSArray *distantOutputDevices; // @synthesize distantOutputDevices=_distantOutputDevices;
 @property(retain, nonatomic) NSXPCListenerEndpoint *externalDeviceListenerEndpoint; // @synthesize externalDeviceListenerEndpoint=_externalDeviceListenerEndpoint;
+- (void).cxx_destruct;
 - (_Bool)isLocalEndpoint;
 - (id)instanceIdentifier;
 - (id)uniqueIdentifier;
@@ -39,7 +40,6 @@
 - (void)encodeWithCoder:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDescriptor:(id)arg1;
 

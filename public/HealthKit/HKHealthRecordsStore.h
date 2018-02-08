@@ -34,8 +34,8 @@
 - (void)addIngestionStateListener:(id)arg1;
 - (void)dispatchIngestionStateChange;
 - (void)clientRemote_updateIngestionState:(long long)arg1;
-- (void)fetchLogoDataForFeaturedBrandsAtSize:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)fetchLogoDataForBrand:(id)arg1 size:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)fetchLogoDataForFeaturedBrandsAtScaleKey:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)fetchLogoDataForBrand:(id)arg1 scaleKey:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)fetchRemoteGatewayWithExternalID:(id)arg1 batchID:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)fetchRemoteProviderWithExternalID:(id)arg1 batchID:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)cancelInFlightSearchQueriesWithCompletion:(CDUnknownBlockType)arg1;
@@ -58,6 +58,7 @@
 - (void)ingestHealthRecordsWithFHIRDocumentHandle:(id)arg1 accountIdentifier:(struct NSUUID *)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)ingestHealthRecordsWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)replaceAccountWithNewAccountForAccountWithIdentifier:(struct NSUUID *)arg1 usingCredentialWithPersistentID:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)pruneAuthenticationDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)endLoginSessionWithState:(id)arg1 code:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)beginReloginSessionForAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)beginInitialLoginSessionForGateway:(id)arg1 completion:(CDUnknownBlockType)arg2;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AKAppleIDServerResourceLoadDelegate, AKAppleIDServerUIDataHarvester, NSHTTPURLResponse, NSURL;
+@class AKAppleIDServerResourceLoadDelegate, AKAppleIDServerUIDataHarvester, NSHTTPURLResponse, NSString, NSURL;
 
 @interface AKAppleIDServerUIContextController : NSObject
 {
@@ -15,8 +15,10 @@
     AKAppleIDServerResourceLoadDelegate *_serverUIDelegate;
     AKAppleIDServerUIDataHarvester *_serverDataHarvester;
     NSURL *_initiatingURL;
+    NSString *_initiatingAction;
 }
 
+@property(copy, nonatomic) NSString *initiatingAction; // @synthesize initiatingAction=_initiatingAction;
 @property(readonly, copy, nonatomic) NSURL *initiatingURL; // @synthesize initiatingURL=_initiatingURL;
 @property(readonly, nonatomic) AKAppleIDServerUIDataHarvester *serverDataHarvester; // @synthesize serverDataHarvester=_serverDataHarvester;
 @property(readonly, nonatomic) AKAppleIDServerResourceLoadDelegate *serverUIDelegate; // @synthesize serverUIDelegate=_serverUIDelegate;

@@ -18,23 +18,19 @@
 
 @property(readonly, copy, nonatomic) id <FCHeadlineProviding> headline; // @synthesize headline=_headline;
 - (void).cxx_destruct;
+@property(readonly, nonatomic, getter=isHiddenFromFeeds) _Bool hiddenFromFeeds;
 @property(readonly, copy, nonatomic) NSURL *callToActionURL;
 @property(readonly, copy, nonatomic) NSString *callToActionTitle;
 @property(readonly, copy, nonatomic) NSString *sourceTagID;
+@property(readonly, copy, nonatomic) NSString *articleID;
 @property(readonly, copy, nonatomic) NSString *compactSourceName;
 @property(readonly, nonatomic) FCAssetHandle *compactSourceNameImageAssetHandle;
 @property(readonly, nonatomic) id <NUAdContextProvider> adContextProvider; // @synthesize adContextProvider=_adContextProvider;
 @property(readonly, copy, nonatomic) NSString *title;
-- (CDUnknownBlockType)loadWithCompletionBlock:(CDUnknownBlockType)arg1;
+@property(readonly, copy, nonatomic) NSURL *videoURL;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithHeadline:(id)arg1;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <MediaRemote/_MRContentItemProtobuf.h>
 
-@class MRContentItemMetadata, NSArray;
+@class MRContentItemMetadata;
 
 __attribute__((visibility("hidden")))
 @interface MRContentItem : _MRContentItemProtobuf
@@ -15,8 +15,6 @@ __attribute__((visibility("hidden")))
 
 + (void)initialize;
 - (id)customDictionaryRepresentation;
-@property(copy, nonatomic) NSArray *artworkURLTemplates;
-- (void)setArtworkURLTemplatesData:(id)arg1;
 @property(readonly, nonatomic) _Bool hasAvailableLanguageOptions;
 @property(readonly, nonatomic) _Bool hasCurrentLanguageOptions;
 - (void)setCurrentLanguageOptions:(id)arg1;

@@ -13,12 +13,14 @@
 @interface SXLearnMoreInteractionHandlerFactory : NSObject <SXVideoInteractionHandlerFactory>
 {
     id <SXPlaybackCoordinatorProviding> _playbackCoordinatorProvider;
+    id <SXVideoPlaybackController> _playbackController;
 }
 
+@property(readonly, nonatomic) id <SXVideoPlaybackController> playbackController; // @synthesize playbackController=_playbackController;
 @property(readonly, nonatomic) id <SXPlaybackCoordinatorProviding> playbackCoordinatorProvider; // @synthesize playbackCoordinatorProvider=_playbackCoordinatorProvider;
 - (void).cxx_destruct;
 - (id)createInteractionHandlerForVideo:(id)arg1;
-- (id)initWithPlaybackCoordinatorProvider:(id)arg1;
+- (id)initWithPlaybackCoordinatorProvider:(id)arg1 playbackController:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

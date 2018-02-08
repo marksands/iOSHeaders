@@ -32,6 +32,8 @@
 - (id)_safari_URLByReplacingComponent:(long long)arg1 includingSeparators:(_Bool)arg2 withString:(id)arg3;
 - (id)safari_URLByRemovingUserAndPath;
 - (_Bool)safari_hasSameOriginAsURL:(id)arg1;
+@property(readonly, nonatomic) _Bool safari_isEligibleToShowNotSecureWarning;
+@property(readonly, nonatomic) _Bool safari_isLocalOrPrivateNetworkURL;
 - (_Bool)safari_isDataURL;
 - (_Bool)safari_isHTTPURL;
 - (_Bool)safari_isHTTPFamilyURL;

@@ -38,21 +38,22 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int gameControllerInputMode; // @synthesize gameControllerInputMode=_gameControllerInputMode;
 @property(copy, nonatomic) CDUnknownBlockType gameControllerInputModeCallback; // @synthesize gameControllerInputModeCallback=_gameControllerInputModeCallback;
 @property(readonly, nonatomic) _Bool hiliteMode; // @synthesize hiliteMode=_hiliteMode;
+- (void).cxx_destruct;
 - (void)_handleHiliteModeMessage:(id)arg1;
 - (void)_handleKeyboardMessage:(id)arg1;
 - (void)_callCientHiliteModeCallback;
 - (void)_callClientTextInputCallback:(id)arg1 type:(unsigned int)arg2;
 - (void)_callClientRecordingStateCallback;
-- (void)_callClientGameControllerPropertiesCallback:(void *)arg1 controller:(unsigned long long)arg2;
+- (void)_callClientGameControllerPropertiesCallback:(id)arg1 controller:(unsigned long long)arg2;
 - (void)_callClientGameControllerInputModeCallback;
 - (void)_sendTextInputMessageWithActionType:(unsigned long long)arg1 text:(id)arg2;
 - (void)wake;
 - (void)exitHiliteMode;
 - (void)processVoiceInputAudioDataForDeviceID:(unsigned int)arg1 withBuffer:(id)arg2 time:(CDStruct_ace97b7a)arg3 gain:(float)arg4;
 - (void)registerVoiceInputDeviceWithDescriptor:(id)arg1 replyQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)sendGameControllerEvent:(void *)arg1 controllerID:(unsigned long long)arg2;
+- (void)sendGameControllerEvent:(id)arg1 controllerID:(unsigned long long)arg2;
 - (void)unregisterGameController:(unsigned long long)arg1;
-- (void)registerGameControllerWithProperties:(void *)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)registerGameControllerWithProperties:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)clearActiveTextEditingSessionData;
 - (void)deleteBackwardInActiveTextEditingSession;
 - (void)setTextOnActiveTextEditingSessionWithText:(id)arg1;
@@ -71,7 +72,6 @@ __attribute__((visibility("hidden")))
 - (void)setGameControllerInputModeCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setHiliteMode:(_Bool)arg1;
 - (void)setVoiceRecordingState:(unsigned int)arg1;
-- (void)dealloc;
 - (id)initWithTransport:(id)arg1;
 
 @end

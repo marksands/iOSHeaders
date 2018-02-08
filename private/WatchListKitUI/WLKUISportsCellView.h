@@ -34,6 +34,7 @@
 - (double)_imageOffset;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)layoutWithElement:(id)arg1;
 - (void)layoutSubviews;
 - (void)prepareForCellReuse;

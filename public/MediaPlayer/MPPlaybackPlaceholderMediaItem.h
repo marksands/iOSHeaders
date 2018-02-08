@@ -14,6 +14,7 @@
     NSString *_placeholderTitle;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *placeholderTitle; // @synthesize placeholderTitle=_placeholderTitle;
 - (void).cxx_destruct;
 - (id)valuesForProperties:(id)arg1;

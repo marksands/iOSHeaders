@@ -13,5 +13,6 @@
 @property(readonly, nonatomic) NSArray *medicalRecordPreferredSystems;
 @property(readonly, nonatomic) NSArray *medicalRecordCodings;
 @property(readonly, nonatomic) NSArray *indexKeywords;
+- (NSString *)fallbackDisplayString;
 @end
 

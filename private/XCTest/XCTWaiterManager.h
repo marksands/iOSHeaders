@@ -19,6 +19,7 @@
 @property(readonly) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property NSThread *thread; // @synthesize thread=_thread;
 @property(retain) NSMutableArray *waiterStack; // @synthesize waiterStack=_waiterStack;
+- (void).cxx_destruct;
 - (void)waiterDidFinishWaiting:(id)arg1;
 - (void)waiterTimedOutWhileWaiting:(id)arg1;
 - (void)waiterWillBeginWaiting:(id)arg1;

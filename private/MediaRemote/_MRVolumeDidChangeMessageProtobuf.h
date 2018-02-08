@@ -21,6 +21,7 @@
 @property(retain, nonatomic) NSString *outputDeviceIdentifier; // @synthesize outputDeviceIdentifier=_outputDeviceIdentifier;
 @property(retain, nonatomic) NSString *endpointIdentifier; // @synthesize endpointIdentifier=_endpointIdentifier;
 @property(nonatomic) float volume; // @synthesize volume=_volume;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -33,7 +34,6 @@
 @property(readonly, nonatomic) _Bool hasOutputDeviceIdentifier;
 @property(readonly, nonatomic) _Bool hasEndpointIdentifier;
 @property(nonatomic) _Bool hasVolume;
-- (void)dealloc;
 
 @end
 

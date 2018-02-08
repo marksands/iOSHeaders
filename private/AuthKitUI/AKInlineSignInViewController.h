@@ -9,7 +9,7 @@
 #import "AKAppleIDAuthenticationInAppContextPasswordDelegate.h"
 #import "UITextFieldDelegate.h"
 
-@class AKAppleIDAuthenticationInAppContext, AKTextField, NSString, UIActivityIndicatorView, UIButton, UIView;
+@class AKAppleIDAuthenticationInAppContext, AKTextField, NSString, UIActivityIndicatorView, UIButton, UIColor, UIView;
 
 @interface AKInlineSignInViewController : AKBaseSignInViewController <UITextFieldDelegate, AKAppleIDAuthenticationInAppContextPasswordDelegate>
 {
@@ -22,6 +22,7 @@
     CDUnknownBlockType _passwordRequiredCompletion;
     _Bool _wantsAuthenticationProgress;
     NSString *_primaryButtonTitle;
+    UIColor *_fieldBackgroundColor;
     UIView *_loginFieldsContainer;
     AKTextField *_appleIDField;
     AKTextField *_passwordField;
@@ -38,6 +39,7 @@
 @property(retain) AKTextField *passwordField; // @synthesize passwordField=_passwordField;
 @property(retain) AKTextField *appleIDField; // @synthesize appleIDField=_appleIDField;
 @property(retain) UIView *loginFieldsContainer; // @synthesize loginFieldsContainer=_loginFieldsContainer;
+@property(retain, nonatomic) UIColor *fieldBackgroundColor; // @synthesize fieldBackgroundColor=_fieldBackgroundColor;
 @property(readonly) NSString *primaryButtonTitle; // @synthesize primaryButtonTitle=_primaryButtonTitle;
 @property _Bool wantsAuthenticationProgress; // @synthesize wantsAuthenticationProgress=_wantsAuthenticationProgress;
 - (void).cxx_destruct;

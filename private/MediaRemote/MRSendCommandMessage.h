@@ -6,7 +6,7 @@
 
 #import <MediaRemote/MRProtocolMessage.h>
 
-@class NSDate, NSDictionary;
+@class NSDate, NSDictionary, _MRNowPlayingPlayerPathProtobuf;
 
 @interface MRSendCommandMessage : MRProtocolMessage
 {
@@ -14,11 +14,12 @@
 }
 
 @property(readonly, nonatomic) NSDate *serializationDate; // @synthesize serializationDate=_serializationDate;
-@property(readonly, nonatomic) void *playerPath;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath;
 @property(readonly, nonatomic) NSDictionary *options;
 @property(readonly, nonatomic) unsigned int command;
 - (unsigned long long)type;
-- (id)initWithCommand:(unsigned int)arg1 options:(id)arg2 playerPath:(void *)arg3;
+- (id)initWithCommand:(unsigned int)arg1 options:(id)arg2 playerPath:(id)arg3;
 
 @end
 

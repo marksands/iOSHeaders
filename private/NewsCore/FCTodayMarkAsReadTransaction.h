@@ -17,6 +17,7 @@
     NSDate *_readDate;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSDate *readDate; // @synthesize readDate=_readDate;
 @property(nonatomic) long long articleVersion; // @synthesize articleVersion=_articleVersion;
 @property(copy, nonatomic) NSString *articleID; // @synthesize articleID=_articleID;

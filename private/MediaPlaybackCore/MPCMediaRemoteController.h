@@ -53,6 +53,7 @@
 - (void)_onQueue_invalidateArtworkFuturesForContentItemID:(id)arg1;
 - (void)_onQueue_purgeArtworkForContentItemIdentifier:(id)arg1;
 - (void)_onQueue_purgeArtworkForContentItemIdentifier:(id)arg1 artworkIdentifier:(id)arg2;
+- (void)_onQueue_updateOptimisticReorderedPlaybackQueueWithMovingContentItemIdentifier:(id)arg1 afterContentItemIdentifier:(id)arg2;
 - (void)_onQueue_updateOptimisticElapsedTimeForContentItem:(id)arg1 elapsedTime:(double)arg2 rate:(float)arg3;
 - (void)_onQueue_updateOptimisticStateForCommand:(unsigned int)arg1 options:(id)arg2;
 - (void)_onQueue_setOptimisticPlaybackPositionWithOptions:(id)arg1;

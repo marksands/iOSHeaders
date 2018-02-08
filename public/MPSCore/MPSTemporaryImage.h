@@ -9,16 +9,20 @@
 @interface MPSTemporaryImage : MPSImage
 {
     unsigned long long _readCount;
+    _Bool _updatedAlready;
 }
 
 + (void)prefetchStorageWithCommandBuffer:(id)arg1 imageDescriptorList:(id)arg2;
++ (id)temporaryImageWithCommandBuffer:(id)arg1 textureDescriptor:(id)arg2 featureChannels:(unsigned long long)arg3;
 + (id)temporaryImageWithCommandBuffer:(id)arg1 textureDescriptor:(id)arg2;
 + (id)temporaryImageWithCommandBuffer:(id)arg1 imageDescriptor:(id)arg2;
 + (id)defaultAllocator;
 @property(nonatomic) unsigned long long readCount; // @synthesize readCount=_readCount;
+- (void)synchronizeOnCommandBuffer:(id)arg1;
 - (id)debugDescription;
 - (void)dealloc;
 - (unsigned long long)setPurgeableState:(unsigned long long)arg1;
+- (id)initWithParentImage:(id)arg1 sliceRange:(struct _NSRange)arg2 featureChannels:(unsigned long long)arg3;
 
 @end
 

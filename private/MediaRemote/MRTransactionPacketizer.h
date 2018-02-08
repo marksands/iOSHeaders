@@ -14,10 +14,10 @@
     NSMutableDictionary *_incomingPackets;
 }
 
+- (void).cxx_destruct;
 - (void)unpacketize:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)packetize:(id)arg1 packageSize:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)isEmpty;
-- (void)dealloc;
 
 @end
 

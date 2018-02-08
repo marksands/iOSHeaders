@@ -15,6 +15,7 @@
 
 + (id)expectationWithDescription:(id)arg1;
 @property(readonly) _XCTestExpectationImplementation *internalImplementation; // @synthesize internalImplementation=_internalImplementation;
+- (void).cxx_destruct;
 - (void)cleanup;
 @property _Bool hasBeenWaitedOn;
 @property id <XCTestExpectationDelegate> delegate;
@@ -36,7 +37,6 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
 - (id)initWithDescription:(id)arg1;
 - (id)init;
-- (void)dealloc;
 
 @end
 

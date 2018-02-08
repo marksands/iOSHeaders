@@ -70,7 +70,6 @@
 @property(nonatomic) __weak CKMessagesController *messagesController; // @synthesize messagesController=_messagesController;
 @property(nonatomic) __weak CKConversationList *conversationList; // @synthesize conversationList=_conversationList;
 - (void).cxx_destruct;
-- (void)cloudKitSyncProgressViewController:(id)arg1 actionButtonWasPressed:(long long)arg2 errors:(id)arg3;
 - (void)cloudKitSyncProgressViewControllerDidChangeVisibility:(id)arg1;
 - (void)_updateSyncProgressIfNeeded;
 @property(readonly, nonatomic) _Bool shouldShowPendingCell;
@@ -110,7 +109,7 @@
 - (void)muteConversationButtonTappedForIndexPath:(id)arg1 setMuted:(_Bool)arg2;
 - (void)markAsReadButtonTappedForIndexPath:(id)arg1;
 - (void)markAsReadButtonTapped:(id)arg1;
-- (void)deleteButtonTappedForIndexPath:(id)arg1;
+- (void)deleteButtonTappedForIndexPath:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 cellToUpdate:(id)arg3;
 - (void)batchDeleteButtonTapped:(id)arg1;
 - (void)tableView:(id)arg1 didEndEditingRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willBeginEditingRowAtIndexPath:(id)arg2;
@@ -119,7 +118,7 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
-- (id)tableView:(id)arg1 trailingSwipeActionsForRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 trailingSwipeActionsConfigurationForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didDeselectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;

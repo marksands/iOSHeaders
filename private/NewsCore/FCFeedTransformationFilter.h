@@ -21,8 +21,8 @@
     NSString *_briefingsTagID;
 }
 
-+ (id)transformationWithFilterOptions:(long long)arg1 appConfiguration:(id)arg2 context:(id)arg3;
-+ (id)transformationWithFilterOptions:(long long)arg1 appConfiguration:(id)arg2 context:(id)arg3 otherArticleIDs:(id)arg4;
++ (id)transformationWithFilterOptions:(long long)arg1 configuration:(id)arg2 context:(id)arg3;
++ (id)transformationWithFilterOptions:(long long)arg1 configuration:(id)arg2 context:(id)arg3 otherArticleIDs:(id)arg4;
 + (id)transformationWithFilterOptions:(long long)arg1 otherArticleIDs:(id)arg2 otherClusterIDs:(id)arg3 subscribedTagIDs:(id)arg4 mutedChannelTagIDs:(id)arg5 purchasedTagIDs:(id)arg6 briefingsTagID:(id)arg7;
 @property(copy, nonatomic) NSString *briefingsTagID; // @synthesize briefingsTagID=_briefingsTagID;
 @property(copy, nonatomic) NSSet *purchasedTagIDs; // @synthesize purchasedTagIDs=_purchasedTagIDs;

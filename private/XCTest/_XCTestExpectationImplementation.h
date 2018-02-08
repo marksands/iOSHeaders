@@ -40,7 +40,7 @@
 @property(retain) id <XCTestExpectationDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy) NSString *expectationDescription; // @synthesize expectationDescription=_expectationDescription;
 @property _Bool fulfilled; // @synthesize fulfilled=_fulfilled;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)init;
 
 @end

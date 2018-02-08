@@ -6,21 +6,25 @@
 
 #import "CATTaskResultObject.h"
 
-@class NSArray;
+@class NSString;
 
 @interface DMFFetchOSUpdateStatusResultObject : CATTaskResultObject
 {
-    NSArray *_updateStatus;
+    NSString *_productKey;
+    unsigned long long _status;
+    double _downloadPercentComplete;
 }
 
++ (id)descriptionForStatus:(unsigned long long)arg1;
 + (_Bool)supportsSecureCoding;
-@property(readonly, copy, nonatomic) NSArray *updateStatus; // @synthesize updateStatus=_updateStatus;
+@property(nonatomic) double downloadPercentComplete; // @synthesize downloadPercentComplete=_downloadPercentComplete;
+@property(nonatomic) unsigned long long status; // @synthesize status=_status;
+@property(copy, nonatomic) NSString *productKey; // @synthesize productKey=_productKey;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithUpdateStatus:(id)arg1;
-- (id)init;
+- (id)initWithProductKey:(id)arg1 status:(unsigned long long)arg2 downloadPercentComplete:(double)arg3;
 
 @end
 

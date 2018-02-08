@@ -38,6 +38,7 @@
 @property(retain, nonatomic) NSString *parentApplicationBundleIdentifier; // @synthesize parentApplicationBundleIdentifier=_parentApplicationBundleIdentifier;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(nonatomic) int processIdentifier; // @synthesize processIdentifier=_processIdentifier;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -62,7 +63,6 @@
 @property(readonly, nonatomic) _Bool hasParentApplicationBundleIdentifier;
 @property(readonly, nonatomic) _Bool hasBundleIdentifier;
 @property(nonatomic) _Bool hasProcessIdentifier;
-- (void)dealloc;
 
 @end
 

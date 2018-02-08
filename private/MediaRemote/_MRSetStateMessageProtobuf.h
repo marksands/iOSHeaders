@@ -35,6 +35,7 @@
 @property(retain, nonatomic) _MRPlaybackQueueProtobuf *playbackQueue; // @synthesize playbackQueue=_playbackQueue;
 @property(retain, nonatomic) _MRSupportedCommandsProtobuf *supportedCommands; // @synthesize supportedCommands=_supportedCommands;
 @property(retain, nonatomic) _MRNowPlayingInfoProtobuf *nowPlayingInfo; // @synthesize nowPlayingInfo=_nowPlayingInfo;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -53,7 +54,6 @@
 @property(readonly, nonatomic) _Bool hasPlaybackQueue;
 @property(readonly, nonatomic) _Bool hasSupportedCommands;
 @property(readonly, nonatomic) _Bool hasNowPlayingInfo;
-- (void)dealloc;
 
 @end
 

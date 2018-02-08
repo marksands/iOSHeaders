@@ -28,7 +28,7 @@
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)remoteApprovalSucceeded;
-- (void)viewWillLayoutSubviews;
+- (void)viewDidLayoutSubviews;
 - (void)loadView;
 - (id)initWithEscapeOffer:(id)arg1;
 

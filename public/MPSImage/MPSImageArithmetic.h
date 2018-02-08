@@ -11,12 +11,16 @@
     float _primaryScale;
     float _secondaryScale;
     float _bias;
+    float _minimumValue;
+    float _maximumValue;
     CDStruct_da2e99ad _primaryStrideInPixels;
     CDStruct_da2e99ad _secondaryStrideInPixels;
     int _arithmeticType;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
+@property(nonatomic) float maximumValue; // @synthesize maximumValue=_maximumValue;
+@property(nonatomic) float minimumValue; // @synthesize minimumValue=_minimumValue;
 @property(nonatomic) CDStruct_14f26992 secondaryStrideInPixels; // @synthesize secondaryStrideInPixels=_secondaryStrideInPixels;
 @property(nonatomic) CDStruct_14f26992 primaryStrideInPixels; // @synthesize primaryStrideInPixels=_primaryStrideInPixels;
 @property(nonatomic) float bias; // @synthesize bias=_bias;

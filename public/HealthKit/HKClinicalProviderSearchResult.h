@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-#import "HKMedicalRecordBrandable.h"
+#import "HKClinicalBrandable.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class HKClinicalBrand, NSString;
 
-@interface HKClinicalProviderSearchResult : NSObject <NSCopying, NSSecureCoding, HKMedicalRecordBrandable>
+@interface HKClinicalProviderSearchResult : NSObject <NSCopying, NSSecureCoding, HKClinicalBrandable>
 {
     _Bool _supported;
     _Bool _multiple;
@@ -36,6 +36,7 @@
 @property(readonly, copy, nonatomic) NSString *batchID; // @synthesize batchID=_batchID;
 @property(readonly, copy, nonatomic) NSString *externalID; // @synthesize externalID=_externalID;
 - (void).cxx_destruct;
+- (id)informationURL;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -77,7 +77,6 @@ __attribute__((visibility("hidden")))
 - (void)removeObserverOfValuesForKeyPaths:(id)arg1 ofObject:(id)arg2;
 - (void)addObserverOfValuesForKeyPaths:(id)arg1 ofObject:(id)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)userDidLongPress:(_Bool)arg1 shouldSend:(_Bool)arg2;
 - (void)userDidCancel;
 - (void)userDidSelect;
 - (void)setSecondLabelText:(id)arg1 withTextColor:(id)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;

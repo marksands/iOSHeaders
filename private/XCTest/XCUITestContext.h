@@ -17,13 +17,13 @@
 + (CDUnknownBlockType)defaultAsynchronousUIElementHandler;
 @property _Bool didHandleUIInterruption; // @synthesize didHandleUIInterruption=_didHandleUIInterruption;
 @property(retain, nonatomic) XCUITestContextScope *currentScope; // @synthesize currentScope=_currentScope;
+- (void).cxx_destruct;
 - (_Bool)handleAsynchronousUIElement:(id)arg1;
 - (void)removeUIInterruptionMonitor:(id)arg1;
 - (id)addUIInterruptionMonitorWithDescription:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)performInScope:(CDUnknownBlockType)arg1;
 @property(readonly, copy) NSArray *handlers;
 - (id)init;
-- (void)dealloc;
 
 @end
 

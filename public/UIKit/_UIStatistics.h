@@ -19,6 +19,10 @@ __attribute__((visibility("hidden")))
 
 + (unsigned long long)currentTime;
 + (id)_sharedStatisticWithDomain:(id)arg1 statisticsClass:(Class)arg2 identifierReporting:(long long)arg3;
++ (id)coverSheetButtonMaximumForceWithActivation:(_Bool)arg1 category:(id)arg2;
++ (id)coverSheetButtonFirstActivationDurationWithCategory:(id)arg1;
++ (id)coverSheetButtonInteractionDurationWithCategory:(id)arg1;
++ (id)coverSheetButtonInteractionCountWithActivation:(_Bool)arg1 category:(id)arg2;
 + (id)recentsInputViewNewEntryCount;
 + (id)recentsInputViewItemSelectedCount;
 + (id)recentsInputViewNumberOfItems;

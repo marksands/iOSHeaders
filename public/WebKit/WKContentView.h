@@ -217,6 +217,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldIgnoreWebTouch;
 - (void)_preserveFocusWithToken:(id)arg1 destructively:(_Bool)arg2;
 - (void)_restoreFocusWithToken:(id)arg1;
+- (id)viewControllerForPresentingFileUploadPanel:(id)arg1;
 - (void)fileUploadPanelDidDismiss:(id)arg1;
 - (void)_showRunOpenPanel:(struct OpenPanelParameters *)arg1 resultListener:(struct WebOpenPanelResultListenerProxy *)arg2;
 - (void)_showPlaybackTargetPicker:(_Bool)arg1 fromRect:(const struct IntRect *)arg2;
@@ -351,12 +352,14 @@ __attribute__((visibility("hidden")))
 - (void)requestAutocorrectionRectsForString:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) const struct WKAutoCorrectionData *autocorrectionData;
 - (void)moveByOffset:(long long)arg1;
+- (void)changeBlockSelectionWithTouchAt:(struct CGPoint)arg1 withSelectionTouch:(long long)arg2 forHandle:(long long)arg3;
 - (void)changeSelectionWithTouchesFrom:(struct CGPoint)arg1 to:(struct CGPoint)arg2 withGesture:(long long)arg3 withState:(long long)arg4;
 - (void)changeSelectionWithTouchAt:(struct CGPoint)arg1 withSelectionTouch:(long long)arg2 baseIsStart:(_Bool)arg3 withFlags:(long long)arg4;
 - (void)changeSelectionWithTouchAt:(struct CGPoint)arg1 withSelectionTouch:(long long)arg2 baseIsStart:(_Bool)arg3;
 - (void)changeSelectionWithGestureAt:(struct CGPoint)arg1 withGesture:(long long)arg2 withState:(long long)arg3 withFlags:(long long)arg4;
 - (void)changeSelectionWithGestureAt:(struct CGPoint)arg1 withGesture:(long long)arg2 withState:(long long)arg3;
 - (_Bool)_isInteractingWithAssistedNode;
+- (void)_didUpdateBlockSelectionWithTouch:(int)arg1 withFlags:(int)arg2 growThreshold:(double)arg3 shrinkThreshold:(double)arg4;
 - (void)_accessibilityClearSelection;
 - (void)_accessibilityStoreSelection;
 - (void)_accessibilityRetrieveRectsAtSelectionOffset:(long long)arg1 withText:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

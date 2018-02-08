@@ -30,9 +30,11 @@
 - (id)_primaryiCloudAccountAltDSID;
 - (id)_primaryiCloudAccount;
 - (id)_accountManager;
-- (id)metricForPCSReportManateeStatus;
+- (void)submitPCSReportManateeStatuMetricWithPrefix:(id)arg1 andReason:(id)arg2;
+- (id)metricForPCSReportManateeStatusWithReason:(id)arg1;
 - (void)logDumpAndSendMessageTo:(id)arg1 forHours:(int)arg2 reason:(id)arg3;
 - (void)_showCKLogNotificationWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)errorIndicateDeviceDoesNotHaveKeysToSync:(id)arg1;
 - (_Bool)errorIndicatesIdentityWasLost:(id)arg1;
 - (_Bool)_deviceActive;
 - (id)deviceActiveString;
@@ -62,6 +64,7 @@
 - (void)fetchMOCEnabledStateWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)recordNameForMessageWithGUID:(id)arg1 usingSalt:(id)arg2;
 - (void)_askToTapToRadarWithString:(id)arg1 internalOnly:(_Bool)arg2;
+- (void)reportMOCDebuggingErrorWithString:(id)arg1 internalOnly:(_Bool)arg2 initialSync:(_Bool)arg3 sendToHandle:(id)arg4 reasonString:(id)arg5;
 - (void)reportMOCDebuggingErrorWithString:(id)arg1 internalOnly:(_Bool)arg2 initialSync:(_Bool)arg3 sendToHandle:(id)arg4;
 - (void)reportMOCDebuggingErrorWithString:(id)arg1 internalOnly:(_Bool)arg2 initialSync:(_Bool)arg3;
 - (void)reportMOCDebuggingErrorWithString:(id)arg1 internalOnly:(_Bool)arg2;

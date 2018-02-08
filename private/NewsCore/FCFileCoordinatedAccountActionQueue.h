@@ -6,19 +6,19 @@
 
 #import "NSObject.h"
 
-@class FCFileCoordinatedDictionary;
+@class FCSyncFileCoordinatedDictionary;
 
 @interface FCFileCoordinatedAccountActionQueue : NSObject
 {
-    FCFileCoordinatedDictionary *_fileCoordinatedDictionary;
+    FCSyncFileCoordinatedDictionary *_fileCoordinatedDictionary;
 }
 
-@property(retain, nonatomic) FCFileCoordinatedDictionary *fileCoordinatedDictionary; // @synthesize fileCoordinatedDictionary=_fileCoordinatedDictionary;
+@property(retain, nonatomic) FCSyncFileCoordinatedDictionary *fileCoordinatedDictionary; // @synthesize fileCoordinatedDictionary=_fileCoordinatedDictionary;
 - (void).cxx_destruct;
-- (void)popActionTypesUpToCount:(unsigned long long)arg1 setLocalDataHintIfNeeded:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)peekAtActionTypesWithCompletion:(CDUnknownBlockType)arg1;
-- (void)enqueueActionWithType:(long long)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)readLocalDataHintWithAccessor:(CDUnknownBlockType)arg1;
+- (_Bool)popActionTypesUpToCount:(unsigned long long)arg1 setLocalDataHintIfNeeded:(_Bool)arg2;
+- (id)peekAtActionTypes;
+- (_Bool)enqueueActionWithType:(long long)arg1;
+- (_Bool)readLocalDataHint;
 - (id)initWithFileURL:(id)arg1;
 - (id)init;
 

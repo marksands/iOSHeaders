@@ -12,6 +12,8 @@
 
 + (id)customLoader;
 + (void)setCustomLoader:(id)arg1;
++ (id)forceSubsampleImagesToScreenSize;
++ (void)setForceSubsampleImagesToScreenSize:(id)arg1;
 + (unsigned long long)forceImageLoadingScaleFactor;
 + (void)setForceImageLoadingScaleFactor:(unsigned long long)arg1;
 + (_Bool)forceRTL;

@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+#import "SXVideoEventTrackerProviding.h"
 #import "SXVideoProviderProviding.h"
 #import "SXVideoSkipThresholdProviding.h"
 
 @class NSMapTable, NSString;
 
-@interface SXVideoProviderManager : NSObject <SXVideoProviderProviding, SXVideoSkipThresholdProviding>
+@interface SXVideoProviderManager : NSObject <SXVideoProviderProviding, SXVideoSkipThresholdProviding, SXVideoEventTrackerProviding>
 {
     id <SXVideoProviderFactory> _videoProviderFactory;
     id <SXVideoAdProviderFactory> _videoAdProviderFactory;
@@ -25,6 +26,7 @@
 @property(readonly, nonatomic) id <SXVideoProviderFactory> videoProviderFactory; // @synthesize videoProviderFactory=_videoProviderFactory;
 - (void).cxx_destruct;
 - (id)videoAdProviderForVideo:(id)arg1;
+- (id)videoEventTrackerForVideo:(id)arg1;
 - (id)skipThresholdForVideo:(id)arg1;
 - (id)videoProviderForVideo:(id)arg1;
 - (id)initWithVideoProviderFactory:(id)arg1 videoAdProviderFactory:(id)arg2;

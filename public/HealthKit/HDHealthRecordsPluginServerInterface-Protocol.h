@@ -9,8 +9,8 @@
 @class HKClinicalBrand, HKMedicalCodingCollection, HKMedicalRecord, HKSource, NSArray, NSFileHandle, NSNumber, NSSet, NSString, NSUUID;
 
 @protocol HDHealthRecordsPluginServerInterface <NSObject>
-- (void)remote_fetchLogoDataForFeaturedBrandsAtSize:(NSString *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
-- (void)remote_fetchLogoDataForBrand:(HKClinicalBrand *)arg1 size:(NSString *)arg2 completion:(void (^)(NSData *, NSError *))arg3;
+- (void)remote_fetchLogoDataForFeaturedBrandsAtScaleKey:(NSString *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
+- (void)remote_fetchLogoDataForBrand:(HKClinicalBrand *)arg1 scaleKey:(NSString *)arg2 completion:(void (^)(NSData *, NSError *))arg3;
 - (void)remote_fetchRemoteGatewayWithExternalID:(NSString *)arg1 batchID:(NSString *)arg2 completion:(void (^)(HKClinicalGateway *, NSError *))arg3;
 - (void)remote_fetchRemoteProviderWithExternalID:(NSString *)arg1 batchID:(NSString *)arg2 completion:(void (^)(HKClinicalProvider *, NSError *))arg3;
 - (void)remote_cancelInFlightSearchQueriesWithCompletion:(void (^)(_Bool, NSError *))arg1;
@@ -39,6 +39,7 @@
 - (void)remote_fetchAccountForSource:(HKSource *)arg1 completion:(void (^)(HKClinicalAccount *, NSError *))arg2;
 - (void)remote_fetchAccountsForGatewaysWithExternalIDs:(NSArray *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)remote_fetchAllAccountsWithCompletion:(void (^)(NSArray *, NSError *))arg1;
+- (void)remote_pruneAuthenticationDataWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)remote_replaceAccountWithNewAccountForAccountWithIdentifier:(NSUUID *)arg1 usingCredentialWithPersistentID:(NSNumber *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)remote_endLoginSessionWithState:(NSUUID *)arg1 code:(NSString *)arg2 completion:(void (^)(_Bool, HKClinicalAccountLoginCompletionState *, NSError *))arg3;
 - (void)remote_beginReloginSessionForAccountWithIdentifier:(NSUUID *)arg1 completion:(void (^)(NSURL *, NSError *))arg2;

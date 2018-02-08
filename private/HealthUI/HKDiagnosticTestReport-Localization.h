@@ -7,7 +7,6 @@
 #import "HKDiagnosticTestReport.h"
 
 @interface HKDiagnosticTestReport (Localization)
-- (id)sortDateSummaryTitle;
 - (id)sortDateTitle;
 @end
 

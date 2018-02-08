@@ -11,8 +11,8 @@
 }
 
 - (unsigned long long)type;
-@property(readonly, nonatomic) int capabilities;
-- (id)initWithCapabilities:(int)arg1;
+@property(readonly, nonatomic) unsigned int capabilities;
+- (id)initWithCapabilities:(unsigned int)arg1;
 
 @end
 

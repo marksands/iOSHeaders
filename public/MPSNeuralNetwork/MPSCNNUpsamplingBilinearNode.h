@@ -16,6 +16,7 @@
 @property(readonly, nonatomic) double scaleFactorY; // @synthesize scaleFactorY=_scaleFactorY;
 @property(readonly, nonatomic) double scaleFactorX; // @synthesize scaleFactorX=_scaleFactorX;
 - (struct FilterGraphNode *)newFilterNode;
+- (Class)gradientClass;
 - (id)initWithSource:(id)arg1 integerScaleFactorX:(unsigned long long)arg2 integerScaleFactorY:(unsigned long long)arg3;
 
 @end

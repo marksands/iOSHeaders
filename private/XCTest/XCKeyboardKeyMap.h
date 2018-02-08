@@ -59,6 +59,7 @@
 }
 
 @property(readonly) _Bool canEmitSequenceIDAndKeyState; // @synthesize canEmitSequenceIDAndKeyState=_canEmitSequenceIDAndKeyState;
+- (void).cxx_destruct;
 - (id)description;
 - (id)stringForIntendedString:(id)arg1;
 - (id)stringForInputs:(id)arg1;

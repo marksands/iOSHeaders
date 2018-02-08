@@ -21,6 +21,7 @@
 @property(retain) NSMutableDictionary *variableNameToContentNodeDictionary; // @synthesize variableNameToContentNodeDictionary=_variableNameToContentNodeDictionary;
 @property(retain, setter=_setTreeNodes:) NSArray *_treeNodes; // @synthesize _treeNodes;
 @property(readonly) unsigned long long language; // @synthesize language=_language;
+- (void).cxx_destruct;
 - (_Bool)_shareLongestCommonSection_StartAtIndex:(long long)arg1 nextCandidateIndex:(long long *)arg2;
 - (_Bool)_createAndShareLocalVariableUsingSourceNode:(id)arg1 atIndex:(long long)arg2;
 - (id)_variableNameForVariableContentNode:(id)arg1;
@@ -40,7 +41,6 @@
 - (id)copy;
 - (id)initWithLanguage:(unsigned long long)arg1 reservedNames:(id)arg2;
 - (id)init;
-- (void)dealloc;
 
 @end
 

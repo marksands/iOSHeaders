@@ -7,7 +7,6 @@
 #import "HKProcedureRecord.h"
 
 @interface HKProcedureRecord (Localization)
-- (id)sortDateSummaryTitle;
 - (id)sortDateTitle;
 @end
 

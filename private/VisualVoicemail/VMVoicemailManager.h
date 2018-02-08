@@ -72,6 +72,7 @@
 @property(readonly, nonatomic) _Bool canChangePassword;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *completionQueue; // @synthesize completionQueue=_completionQueue;
 - (void)_requestInitialStateIfNecessaryAndSendNotifications:(_Bool)arg1;
+- (void)requestInitialStateIfNecessaryAndSendNotifications:(_Bool)arg1;
 - (id)serverConnection;
 - (id)synchronousServerConnectionWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)serverConnectionWithErrorHandler:(CDUnknownBlockType)arg1;

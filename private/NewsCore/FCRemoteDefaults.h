@@ -20,6 +20,7 @@
 - (void)processResponse:(id)arg1 data:(id)arg2 error:(id)arg3;
 - (id)URLRequest;
 - (void)updateRemoteDefaults;
+- (_Bool)isAvailable;
 - (void)checkForUpdate;
 - (id)dictionaryForKey:(id)arg1;
 - (id)URLForKey:(id)arg1;

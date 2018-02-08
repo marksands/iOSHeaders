@@ -77,6 +77,7 @@
 - (void)acquireConnectWithoutBeaconAssertionForSessionIdentifier:(id)arg1;
 - (void)lostConnectionToInvitationSessionWithIPAddress:(id)arg1;
 - (void)invitationSessionWithIPAddressInvalidated:(id)arg1;
+- (_Bool)hasConnectionToClassWithIdentifier:(id)arg1;
 - (void)lostConnectionToClassSession:(id)arg1;
 - (void)classSessionInvalidated:(id)arg1;
 - (void)connectToClassSessionWithIdentifier:(id)arg1;

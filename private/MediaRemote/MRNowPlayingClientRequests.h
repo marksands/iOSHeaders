@@ -8,26 +8,27 @@
 
 #import "MRNowPlayingClientState.h"
 
-@class NSArray, NSMutableArray, NSObject<OS_dispatch_queue>;
+@class NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, _MRNowPlayingClientProtobuf;
 
 __attribute__((visibility("hidden")))
 @interface MRNowPlayingClientRequests : NSObject <MRNowPlayingClientState>
 {
-    void *_client;
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSMutableArray *_playerClients;
+    _MRNowPlayingClientProtobuf *_client;
     NSArray *_nowPlayingClients;
 }
 
 @property(readonly, nonatomic) NSArray *nowPlayingClients; // @synthesize nowPlayingClients=_nowPlayingClients;
-@property(readonly, nonatomic) void *client; // @synthesize client=_client;
+@property(readonly, nonatomic) _MRNowPlayingClientProtobuf *client; // @synthesize client=_client;
+- (void).cxx_destruct;
 - (void)restoreNowPlayingClientState;
-- (void)removePlayer:(void *)arg1;
-- (id)nowPlayingPlayerClientRequestsForPlayerPath:(void *)arg1;
+- (void)removePlayer:(id)arg1;
+- (id)existingNowPlayingPlayerClientRequestsForPlayerPath:(id)arg1;
+- (id)nowPlayingPlayerClientRequestsForPlayerPath:(id)arg1;
 - (id)playerClients;
 - (id)debugDescription;
-- (void)dealloc;
-- (id)initWithClient:(void *)arg1;
+- (id)initWithClient:(id)arg1;
 
 @end
 

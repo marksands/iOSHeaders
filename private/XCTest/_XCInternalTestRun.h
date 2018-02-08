@@ -28,6 +28,7 @@
 @property unsigned long long executionCountBeforeCrash; // @synthesize executionCountBeforeCrash=_executionCountBeforeCrash;
 @property(readonly) _Bool hasStopped; // @synthesize hasStopped=_hasStopped;
 @property(readonly) XCTest *test; // @synthesize test=_test;
+- (void).cxx_destruct;
 - (void)recordFailureWithDescription:(id)arg1 inFile:(id)arg2 atLine:(unsigned long long)arg3 expected:(_Bool)arg4;
 @property(readonly) unsigned long long testCaseCount;
 @property(readonly) unsigned long long unexpectedExceptionCount;
@@ -40,7 +41,6 @@
 @property(readonly) double testDuration;
 @property(readonly) double totalDuration;
 - (id)initWithTest:(id)arg1;
-- (void)dealloc;
 
 @end
 

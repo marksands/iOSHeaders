@@ -21,7 +21,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
-- (id)_getPrimaryLastPushForwardProgressDate;
+- (id)lastPushForwardProgressDate;
 - (void)_addFinalProgressUpdateWithTaskTree:(id)arg1 progress:(id)arg2;
 - (void)_cloudSyncContainersForProfile:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_containerIdentifiersForCurrentAccountWithCompletion:(CDUnknownBlockType)arg1;

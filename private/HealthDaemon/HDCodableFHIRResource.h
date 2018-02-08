@@ -14,6 +14,7 @@
 {
     long long _extractionHints;
     double _receivedDate;
+    NSString *_accountIdentifier;
     NSString *_fhirVersion;
     NSString *_gatewayExternalID;
     NSData *_rawContent;
@@ -27,6 +28,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
 @property(nonatomic) long long extractionHints; // @synthesize extractionHints=_extractionHints;
 @property(retain, nonatomic) NSString *sourceURL; // @synthesize sourceURL=_sourceURL;
 @property(retain, nonatomic) NSString *receivedDateTimeZoneName; // @synthesize receivedDateTimeZoneName=_receivedDateTimeZoneName;
@@ -46,6 +48,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasAccountIdentifier;
 @property(nonatomic) _Bool hasExtractionHints;
 @property(readonly, nonatomic) _Bool hasSourceURL;
 @property(readonly, nonatomic) _Bool hasReceivedDateTimeZoneName;

@@ -21,7 +21,6 @@
 - (void)setTrailingAccessoryViews:(id)arg1 animated:(_Bool)arg2;
 - (void)updateViewConstraints;
 - (void)viewDidLoad;
-- (void)loadView;
 
 @end
 

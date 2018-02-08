@@ -15,6 +15,7 @@
     NSDictionary *_endTimeModifications;
 }
 
++ (_Bool)supportsSecureCoding;
 + (Class)queueFeederClass;
 @property(copy, nonatomic) NSDictionary *endTimeModifications; // @synthesize endTimeModifications=_endTimeModifications;
 @property(copy, nonatomic) NSDictionary *startTimeModifications; // @synthesize startTimeModifications=_startTimeModifications;

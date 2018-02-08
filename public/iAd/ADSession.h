@@ -33,6 +33,7 @@
 @property(retain, nonatomic) NSMutableArray *adSpaces; // @synthesize adSpaces=_adSpaces;
 @property(nonatomic) _Bool appExtensionCanReceiveAds; // @synthesize appExtensionCanReceiveAds=_appExtensionCanReceiveAds;
 @property(nonatomic) _Bool applicationCanReceiveBackgroundAds; // @synthesize applicationCanReceiveBackgroundAds=_applicationCanReceiveBackgroundAds;
+- (void)adAnalyticsEventReceived:(id)arg1;
 - (void)_appDidEnterBackground;
 - (void)_appDidBecomeActive;
 - (void)prepareForAdRequests;
@@ -55,6 +56,8 @@
 - (void)_remote_creativeWithAdSpaceIdentifier:(id)arg1 didFailWithError:(id)arg2;
 - (void)_remote_adImpressionReportedWithIdentifier:(id)arg1;
 - (void)_remote_adImpressionDidLoadWithPublicAttributes:(id)arg1 identifier:(id)arg2;
+- (void)_remote_configVersionDidChange:(id)arg1;
+- (void)_remote_proxyTypeDidChange:(long long)arg1;
 - (void)_remote_contentProxyURLConnectDidChange:(id)arg1;
 - (void)_remote_contentProxyURLDidChange:(id)arg1;
 - (id)_adSpaceForIdentifier:(id)arg1;

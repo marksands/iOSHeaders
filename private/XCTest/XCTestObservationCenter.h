@@ -15,6 +15,7 @@
 
 + (void)setSharedTestObservationCenter:(id)arg1;
 + (id)sharedTestObservationCenter;
+- (void).cxx_destruct;
 - (void)_testCase:(id)arg1 didFinishActivity:(id)arg2;
 - (void)_testCase:(id)arg1 willStartActivity:(id)arg2;
 - (void)_testCaseDidFail:(id)arg1 withDescription:(id)arg2 inFile:(id)arg3 atLine:(unsigned long long)arg4;
@@ -33,7 +34,6 @@
 @property _Bool suspended;
 @property(readonly) NSMutableArray *observers;
 - (id)description;
-- (void)dealloc;
 - (id)init;
 - (id)initBasicCenter;
 

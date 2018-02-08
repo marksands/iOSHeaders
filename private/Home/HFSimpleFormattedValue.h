@@ -7,20 +7,16 @@
 #import "NSObject.h"
 
 #import "HFDynamicFormattingValue.h"
-#import "NAIdentifiable.h"
 
 @class NSString;
 
-@interface HFSimpleFormattedValue : NSObject <HFDynamicFormattingValue, NAIdentifiable>
+@interface HFSimpleFormattedValue : NSObject <HFDynamicFormattingValue>
 {
     id <HFStringGenerator> _currentFormattedValue;
 }
 
-+ (id)na_identity;
 @property(readonly, nonatomic) id <HFStringGenerator> currentFormattedValue; // @synthesize currentFormattedValue=_currentFormattedValue;
 - (void).cxx_destruct;
-@property(readonly) unsigned long long hash;
-- (_Bool)isEqual:(id)arg1;
 - (id)observeFormattedValueChangesWithBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) id value;
 - (id)initWithFormattedValue:(id)arg1;
@@ -28,6 +24,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

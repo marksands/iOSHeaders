@@ -25,5 +25,6 @@
 - (void)resetApplePayManateeViewWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)checkTLKsMissingWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)initalizeCloudStoreIfNecessaryWithHandler:(void (^)(_Bool, NSError *))arg1;
+- (NSString *)deviceRegion;
 @end
 

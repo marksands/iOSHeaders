@@ -14,12 +14,15 @@
     NSString *_name;
     Class _clientClass;
     NSNumber *_measurement;
+    unsigned long long _start;
     _Bool _canceled;
 }
 
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)cancel;
+- (void)stop;
+- (void)start;
 - (void)performAction:(CDUnknownBlockType)arg1;
 - (id)initWithName:(id)arg1 clientClass:(Class)arg2;
 

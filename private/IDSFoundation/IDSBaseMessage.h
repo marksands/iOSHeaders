@@ -94,7 +94,6 @@
 @property(copy) NSDictionary *clientInfo; // @synthesize clientInfo=_clientInfo;
 @property(retain) id context; // @synthesize context=_context;
 - (void).cxx_destruct;
-- (_Bool)shouldForceDevicesToCarry;
 - (void)logFailureInfo;
 - (void)handleResponseDictionary:(id)arg1;
 - (void)handleResponseStatus:(unsigned long long)arg1;

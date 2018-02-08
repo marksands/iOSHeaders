@@ -12,6 +12,7 @@
 
 @interface MPSWeightsWrapper : NSObject <MPSCNNConvolutionDataSource>
 {
+    id <MPSCNNBatchNormalizationDataSource> _dataSource;
     id <MPSCNNConvolutionDataSource> _source;
     struct NeuronInfo _info;
     MPSCNNConvolutionDescriptor *_descriptor;
@@ -27,7 +28,7 @@
 - (id)descriptor;
 - (unsigned int)dataType;
 - (void)dealloc;
-- (id)initWithSource:(id)arg1 neuronInfo:(struct NeuronInfo)arg2;
+- (id)initWithSource:(id)arg1 neuronInfo:(struct NeuronInfo)arg2 batchNorm:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

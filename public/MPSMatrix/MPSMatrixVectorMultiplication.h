@@ -37,6 +37,7 @@
 - (CDStruct_67e7699a)primarySourceMatrixOrigin;
 - (void)setResultMatrixOrigin:(CDStruct_67e7699a)arg1;
 - (CDStruct_67e7699a)resultMatrixOrigin;
+- (void)dealloc;
 - (void)encodeToCommandBuffer:(id)arg1 inputMatrix:(id)arg2 inputVector:(id)arg3 resultVector:(id)arg4;
 - (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;
 - (id)initWithDevice:(id)arg1 rows:(unsigned long long)arg2 columns:(unsigned long long)arg3;

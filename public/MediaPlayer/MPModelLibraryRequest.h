@@ -21,6 +21,7 @@
     struct _NSRange _contentRange;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) MPMediaQuery *legacyMediaQuery; // @synthesize legacyMediaQuery=_legacyMediaQuery;
 @property(nonatomic) _Bool wantsDetailedKeepLocalRequestableResponse; // @synthesize wantsDetailedKeepLocalRequestableResponse=_wantsDetailedKeepLocalRequestableResponse;
 @property(nonatomic) struct _NSRange contentRange; // @synthesize contentRange=_contentRange;

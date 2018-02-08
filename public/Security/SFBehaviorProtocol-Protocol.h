@@ -4,9 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+#import "NSObject.h"
+
 @class NSString;
 
-@protocol SFBehaviorProtocol
+@protocol SFBehaviorProtocol <NSObject>
 - (void)configString:(NSString *)arg1 family:(NSString *)arg2 complete:(void (^)(NSString *))arg3;
 - (void)configNumber:(NSString *)arg1 family:(NSString *)arg2 complete:(void (^)(NSNumber *))arg3;
 - (void)feature:(NSString *)arg1 family:(NSString *)arg2 defaultValue:(_Bool)arg3 complete:(void (^)(_Bool))arg4;

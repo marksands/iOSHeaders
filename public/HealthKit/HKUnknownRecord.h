@@ -20,6 +20,7 @@
 + (_Bool)supportsEquivalence;
 + (_Bool)supportsSecureCoding;
 + (id)unknownRecordWithNote:(id)arg1 enteredInError:(_Bool)arg2 modifiedDate:(id)arg3 FHIRIdentifier:(id)arg4 extractionVersion:(long long)arg5 device:(id)arg6 metadata:(id)arg7 displayName:(id)arg8;
++ (id)defaultDisplayString;
 @property(readonly, copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) HKUnknownRecordType *unknownRecordType;
@@ -32,6 +33,7 @@
 - (id)description;
 - (id)_init;
 - (id)init;
+- (id)fallbackDisplayString;
 
 @end
 

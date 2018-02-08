@@ -16,6 +16,7 @@
 + (id)gregorianCalendar;
 + (id)URLIfFileExists:(id)arg1;
 + (void)setCacheable:(_Bool)arg1;
++ (void)purgeV1SUAssets;
 + (unsigned long long)devicePadding:(id)arg1;
 + (_Bool)freeCachedSpaceSynchronous:(unsigned long long)arg1 timeout:(double)arg2 isAutoDownload:(_Bool)arg3 disableCDLevelFour:(_Bool)arg4 disableSiriDeletion:(_Bool)arg5 disableAppDemotion:(_Bool)arg6;
 + (_Bool)freeCachedSpaceSynchronous:(unsigned long long)arg1 timeout:(double)arg2 isAutoDownload:(_Bool)arg3;

@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-#import "HKMedicalRecordBrandable.h"
+#import "HKClinicalBrandable.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class HKClinicalBrand, HKClinicalGateway, NSDate, NSString, NSUUID;
 
-@interface HKClinicalAccount : NSObject <NSCopying, NSSecureCoding, HKMedicalRecordBrandable>
+@interface HKClinicalAccount : NSObject <NSCopying, NSSecureCoding, HKClinicalBrandable>
 {
     _Bool _userEnabled;
     _Bool _needsRelogin;

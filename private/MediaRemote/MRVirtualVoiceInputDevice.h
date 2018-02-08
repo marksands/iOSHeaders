@@ -18,8 +18,8 @@
 @property(nonatomic) unsigned int recordingState; // @synthesize recordingState=_recordingState;
 @property(copy, nonatomic) MRVirtualVoiceInputDeviceDescriptor *descriptor; // @synthesize descriptor=_descriptor;
 @property(readonly, nonatomic) unsigned int deviceID; // @synthesize deviceID=_deviceID;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSData *data;
-- (void)dealloc;
 - (id)description;
 - (id)initWithData:(id)arg1;
 - (id)initWithDeviceID:(unsigned int)arg1;

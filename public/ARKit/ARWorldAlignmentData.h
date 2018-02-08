@@ -24,6 +24,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(nonatomic) _Bool sessionShouldResumeCameraPositionAndHeading;
+@property(nonatomic) _Bool sessionShouldResumeCameraPosition;
 @property(nonatomic) _Bool referenceOriginChanged;
 @property(nonatomic) _Bool worldAlignmentReset;
 @property(readonly, nonatomic) unsigned long long worldAlignmentModifiers;

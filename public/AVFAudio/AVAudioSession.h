@@ -92,6 +92,7 @@
 - (long long)interruptionPriority;
 - (unsigned long long)IOBufferFrameSize;
 - (double)IOBufferDuration;
+- (id)activeSessionDisplayIDs;
 - (double)outputSafetyOffset;
 - (double)inputSafetyOffset;
 - (double)outputLatency;

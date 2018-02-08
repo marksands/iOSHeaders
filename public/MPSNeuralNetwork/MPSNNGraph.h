@@ -30,6 +30,7 @@
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)debugDescription;
+- (struct NSArray *)encodeBatchToCommandBuffer:(id)arg1 sourceImages:(id)arg2 sourceStates:(id)arg3 intermediateImages:(id)arg4 destinationStates:(id)arg5;
 - (id)encodeToCommandBuffer:(id)arg1 sourceImages:(id)arg2 sourceStates:(id)arg3 intermediateImages:(id)arg4 destinationStates:(id)arg5;
 - (id)encodeToCommandBuffer:(id)arg1 sourceImages:(id)arg2;
 @property(readonly, nonatomic) id <MPSHandle> resultHandle;

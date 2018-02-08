@@ -18,7 +18,6 @@
 - (void)setProgress:(double)arg1 animated:(_Bool)arg2 forced:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)setProgress:(double)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 @property(nonatomic) double progress;
-@property(nonatomic) _Bool backwards;
 @property(nonatomic) _Bool showProgressTray;
 @property(nonatomic) double progressLineWidth;
 @property(retain, nonatomic) UIColor *progressBackgroundColor;

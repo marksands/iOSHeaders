@@ -15,6 +15,7 @@
     NSMutableArray *_itemsToRemove;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool hasModifications;
 @property(readonly, copy, nonatomic) NSArray *removals;

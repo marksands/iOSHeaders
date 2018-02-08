@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-#import "HKMedicalRecordBrandable.h"
+#import "HKClinicalBrandable.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class HKClinicalBrand, NSString, NSURL;
 
-@interface HKClinicalGateway : NSObject <NSCopying, NSSecureCoding, HKMedicalRecordBrandable>
+@interface HKClinicalGateway : NSObject <NSCopying, NSSecureCoding, HKClinicalBrandable>
 {
     NSString *_externalID;
     NSString *_title;

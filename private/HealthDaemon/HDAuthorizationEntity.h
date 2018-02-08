@@ -26,7 +26,7 @@
 + (_Bool)_setAuthorizationStatuses:(id)arg1 authorizationRequests:(id)arg2 sourceEntity:(id)arg3 dateModified:(id)arg4 syncProvenance:(long long)arg5 objectAnchor:(long long)arg6 database:(id)arg7 error:(id *)arg8;
 + (_Bool)_insertAuthorizationWithSourceIdentifier:(long long)arg1 dataTypeCode:(long long)arg2 authorizationStatus:(long long)arg3 authorizationRequest:(long long)arg4 modificationDate:(double)arg5 syncProvenance:(long long)arg6 objectAnchor:(long long)arg7 modificationEpoch:(id)arg8 database:(id)arg9 error:(id *)arg10;
 + (_Bool)_insertCodableAuthorizations:(id)arg1 sourceEntity:(id)arg2 syncProvenance:(long long)arg3 objectAnchor:(unsigned long long)arg4 database:(id)arg5 error:(id *)arg6;
-+ (_Bool)_insertCodableSourceAuthorizations:(id)arg1 syncStore:(id)arg2 profile:(id)arg3 error:(id *)arg4;
++ (_Bool)_insertCodableSourceAuthorizations:(id)arg1 overwriteExisting:(_Bool)arg2 syncStore:(id)arg3 profile:(id)arg4 error:(id *)arg5;
 + (_Bool)resetAllAuthorizationStatusesWithProfile:(id)arg1 error:(id *)arg2;
 + (_Bool)resetAuthorizationStatusesForBundleIdentifier:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (id)authorizationRecordsBySourceForType:(id)arg1 profile:(id)arg2 error:(id *)arg3;

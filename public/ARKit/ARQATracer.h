@@ -19,6 +19,8 @@
     unsigned long long _firstPlaneAtFrame;
     unsigned long long _firstFaceAtFrame;
     unsigned char _isTracing;
+    struct CGPoint _offset;
+    unsigned char _forceQuitApp;
     id <ARQATracerDelegate> _delegate;
     NSString *_traceOutputFilePath;
     UILabel *_replayFrameLabel;
@@ -48,6 +50,7 @@
 - (void)update:(id)arg1;
 - (void)stop;
 - (void)start:(id)arg1;
+- (void)receiveDefaults;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -20,6 +20,7 @@
 
 @property(retain, nonatomic) NSData *encryptedTextCyphertext; // @synthesize encryptedTextCyphertext=_encryptedTextCyphertext;
 @property(retain, nonatomic) _MRTextEditingAttributesProtobuf *attributes; // @synthesize attributes=_attributes;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -35,7 +36,6 @@
 - (id)stateAsString:(int)arg1;
 @property(nonatomic) _Bool hasState;
 @property(nonatomic) int state; // @synthesize state=_state;
-- (void)dealloc;
 
 @end
 

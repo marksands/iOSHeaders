@@ -174,8 +174,6 @@
 - (CDUnknownBlockType)_queuedReadOperationBlock:(id)arg1 timeout:(double)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_error:(id)arg1 forWriteCharacteristicValues:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_error:(id)arg1 forReadCharacteristicValues:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)_continuePairingAfterMFiCertValidation;
-- (void)_handleMFiCertValidation;
 - (_Bool)stopPairingWithError:(id *)arg1;
 - (void)_tearDownSession;
 - (_Bool)tryPairingPassword:(id)arg1 error:(id *)arg2;

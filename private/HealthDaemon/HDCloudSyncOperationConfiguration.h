@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CKContainer, CKDatabase, CKOperationGroup, HDProfile, NSString;
+@class CKContainer, CKDatabase, CKOperationGroup, HDProfile, NSString, NSUUID;
 
 @interface HDCloudSyncOperationConfiguration : NSObject
 {
@@ -18,8 +18,10 @@
     HDProfile *_profile;
     unsigned long long _options;
     long long _reason;
+    NSUUID *_syncIdentifier;
 }
 
+@property(readonly, nonatomic) NSUUID *syncIdentifier; // @synthesize syncIdentifier=_syncIdentifier;
 @property(readonly, nonatomic) long long reason; // @synthesize reason=_reason;
 @property(readonly, nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(readonly, nonatomic) HDProfile *profile; // @synthesize profile=_profile;
@@ -29,7 +31,7 @@
 @property(readonly, nonatomic) CKDatabase *privateDatabase; // @synthesize privateDatabase=_privateDatabase;
 @property(readonly, nonatomic) CKContainer *container; // @synthesize container=_container;
 - (void).cxx_destruct;
-- (id)initWithCKContainer:(id)arg1 operationGroup:(id)arg2 syncContainerPrefix:(id)arg3 ownerIdentifier:(id)arg4 profile:(id)arg5 options:(unsigned long long)arg6 reason:(long long)arg7;
+- (id)initWithCKContainer:(id)arg1 operationGroup:(id)arg2 syncContainerPrefix:(id)arg3 ownerIdentifier:(id)arg4 profile:(id)arg5 options:(unsigned long long)arg6 reason:(long long)arg7 syncIdentifier:(id)arg8;
 
 @end
 

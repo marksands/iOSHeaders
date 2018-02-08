@@ -13,17 +13,22 @@
 @interface SXVideoInteractionManager : NSObject <SXVideoTransitionObserver>
 {
     NSMutableSet *_controls;
-    NSMapTable *_handlers;
-    NSMapTable *_videoHandlers;
-    NSMapTable *_videoHandlerFactories;
+    NSMapTable *_registeredHandlers;
+    NSMapTable *_interactionHandlers;
+    NSMapTable *_interactionHandlerFactories;
+    NSMapTable *_interactionObservers;
+    NSMapTable *_interactionObserverFactories;
 }
 
-@property(readonly, nonatomic) NSMapTable *videoHandlerFactories; // @synthesize videoHandlerFactories=_videoHandlerFactories;
-@property(readonly, nonatomic) NSMapTable *videoHandlers; // @synthesize videoHandlers=_videoHandlers;
-@property(readonly, nonatomic) NSMapTable *handlers; // @synthesize handlers=_handlers;
+@property(readonly, nonatomic) NSMapTable *interactionObserverFactories; // @synthesize interactionObserverFactories=_interactionObserverFactories;
+@property(readonly, nonatomic) NSMapTable *interactionObservers; // @synthesize interactionObservers=_interactionObservers;
+@property(readonly, nonatomic) NSMapTable *interactionHandlerFactories; // @synthesize interactionHandlerFactories=_interactionHandlerFactories;
+@property(readonly, nonatomic) NSMapTable *interactionHandlers; // @synthesize interactionHandlers=_interactionHandlers;
+@property(readonly, nonatomic) NSMapTable *registeredHandlers; // @synthesize registeredHandlers=_registeredHandlers;
 @property(readonly, nonatomic) NSMutableSet *controls; // @synthesize controls=_controls;
 - (void).cxx_destruct;
 - (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
+- (void)registerControl:(id)arg1 withInteractionObserverFactory:(id)arg2;
 - (void)registerControl:(id)arg1 withInteractionHandlerFactory:(id)arg2;
 - (void)registerControl:(id)arg1 withInteractionHandler:(id)arg2;
 - (id)init;

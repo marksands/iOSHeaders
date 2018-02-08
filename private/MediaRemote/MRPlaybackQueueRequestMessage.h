@@ -6,14 +6,16 @@
 
 #import <MediaRemote/MRProtocolMessage.h>
 
+@class _MRNowPlayingPlayerPathProtobuf, _MRPlaybackQueueRequestProtobuf;
+
 @interface MRPlaybackQueueRequestMessage : MRProtocolMessage
 {
 }
 
 - (unsigned long long)type;
-@property(readonly, nonatomic) void *playerPath;
-@property(readonly, nonatomic) void *request;
-- (id)initWithRequest:(void *)arg1 forPlayerPath:(void *)arg2;
+@property(readonly, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath;
+@property(readonly, nonatomic) _MRPlaybackQueueRequestProtobuf *request;
+- (id)initWithRequest:(id)arg1 forPlayerPath:(id)arg2;
 
 @end
 

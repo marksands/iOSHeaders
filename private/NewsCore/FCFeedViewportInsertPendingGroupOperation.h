@@ -14,7 +14,7 @@
     NSArray *_resultUpdatedRefreshSessions;
     FCFeedGroup *_resultInsertedGroup;
     NSString *_resultDeletedElementID;
-    id <FCAppConfiguration> _appConfiguration;
+    id <FCCoreConfiguration> _configuration;
     FCCloudContext *_context;
     FCFeedRefreshSession *_refreshSession;
     NSArray *_feedGroupEmitters;
@@ -29,7 +29,7 @@
 @property(retain, nonatomic) NSArray *feedGroupEmitters; // @synthesize feedGroupEmitters=_feedGroupEmitters;
 @property(retain, nonatomic) FCFeedRefreshSession *refreshSession; // @synthesize refreshSession=_refreshSession;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
-@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(copy, nonatomic) id <FCCoreConfiguration> configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)_finishWithInsertedGroup:(id)arg1 backedByPendingGroup:(id)arg2 forEmitter:(id)arg3;

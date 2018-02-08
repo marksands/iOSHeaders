@@ -23,6 +23,7 @@
 @property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath; // @synthesize playerPath=_playerPath;
 @property(retain, nonatomic) _MRTransactionPacketsProtobuf *packets; // @synthesize packets=_packets;
 @property(nonatomic) unsigned long long name; // @synthesize name=_name;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -35,7 +36,6 @@
 @property(readonly, nonatomic) _Bool hasPlayerPath;
 @property(readonly, nonatomic) _Bool hasPackets;
 @property(nonatomic) _Bool hasName;
-- (void)dealloc;
 
 @end
 

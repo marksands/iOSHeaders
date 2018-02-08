@@ -17,7 +17,6 @@
     struct __SecCertificate *_peerCertificate;
     // Error parsing type: ^{__SecKey={__CFRuntimeBase=QAQ}^{__SecKeyDescriptor}^v}, name: _peerPublicKey
     _Bool _peerSignatureVerified;
-    struct __SecTrust *_peerTrust;
     NSDictionary *_peerValidationDict;
     _Bool _peerValidated;
     NSString *_myAppleID;

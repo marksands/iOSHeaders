@@ -14,7 +14,7 @@
     _Bool _overrideTagCachePolicy;
     _Bool _allowRecordChainFetch;
     _Bool _shouldFilterHeadlinesWithoutSourceChannels;
-    id <FCAppConfiguration> _appConfiguration;
+    id <FCCoreConfiguration> _configuration;
     unsigned long long _articleCachePolicy;
     double _articleMaximumCachedAge;
     unsigned long long _tagCachePolicy;
@@ -39,13 +39,13 @@
 @property double articleMaximumCachedAge; // @synthesize articleMaximumCachedAge=_articleMaximumCachedAge;
 @property unsigned long long articleCachePolicy; // @synthesize articleCachePolicy=_articleCachePolicy;
 @property _Bool overrideArticleCachePolicy; // @synthesize overrideArticleCachePolicy=_overrideArticleCachePolicy;
-@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(copy, nonatomic) id <FCCoreConfiguration> configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (id)completeFetchOperation;
 - (id)fetchArticleAndTagRecordsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)fetchTagRecordsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)fetchArticleRecordsWithCompletion:(CDUnknownBlockType)arg1;
-- (id)fetchAppConfigWithCompletion:(CDUnknownBlockType)arg1;
+- (id)fetchConfigWithCompletion:(CDUnknownBlockType)arg1;
 - (id)determineAppropriateFetchStepsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)customizeChildOperation:(id)arg1 forFetchStep:(SEL)arg2;
 - (id)initWithContext:(id)arg1 articleIDs:(id)arg2 ignoreCacheForArticleIDs:(id)arg3;

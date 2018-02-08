@@ -6,25 +6,15 @@
 
 #import <DeviceManagement/DMFAppRequest.h>
 
-@class NSString;
-
 @interface DMFInstallAppRequest : DMFAppRequest
 {
     _Bool _allowFreePurchases;
-    _Bool _managedByMDMv1;
     unsigned long long _licenseType;
-    NSString *_redemptionCode;
-    NSString *_originatorForMDMv1;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (Class)whitelistedClassForResultObject;
-@property(copy, nonatomic) NSString *originatorForMDMv1; // @synthesize originatorForMDMv1=_originatorForMDMv1;
-@property(nonatomic) _Bool managedByMDMv1; // @synthesize managedByMDMv1=_managedByMDMv1;
-@property(copy, nonatomic) NSString *redemptionCode; // @synthesize redemptionCode=_redemptionCode;
 @property(nonatomic) _Bool allowFreePurchases; // @synthesize allowFreePurchases=_allowFreePurchases;
 @property(nonatomic) unsigned long long licenseType; // @synthesize licenseType=_licenseType;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

@@ -29,7 +29,6 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *accessGroup;
 - (id)_faultWhileAccessingPrimitiveValueForKey:(id)arg1;
 - (void)_notifyWhileSettingPrimitiveValue:(id)arg1 forKey:(id)arg2;
-- (id)init;
 
 @end
 

@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) MSVCallback *callback; // @synthesize callback=_callback;
 @property(readonly, nonatomic) NSArray *outputDevices; // @synthesize outputDevices=_outputDevices;
 @property(readonly, nonatomic) unsigned long long modificationType; // @synthesize modificationType=_modificationType;
+- (void).cxx_destruct;
 - (void)invalidate;
 - (void)dealloc;
 - (id)initWithType:(unsigned long long)arg1 devices:(id)arg2 callback:(id)arg3;

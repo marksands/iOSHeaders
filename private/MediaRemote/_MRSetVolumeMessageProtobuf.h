@@ -19,6 +19,7 @@
 
 @property(retain, nonatomic) NSString *outputDeviceUID; // @synthesize outputDeviceUID=_outputDeviceUID;
 @property(nonatomic) float volume; // @synthesize volume=_volume;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -30,7 +31,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasOutputDeviceUID;
 @property(nonatomic) _Bool hasVolume;
-- (void)dealloc;
 
 @end
 

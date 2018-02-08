@@ -18,7 +18,7 @@
 @property(readonly) _Bool isTestDependency; // @synthesize isTestDependency=_isTestDependency;
 @property(readonly, copy) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(readonly, copy) NSURL *URL; // @synthesize URL=_URL;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithURL:(id)arg1 bundleIdentifier:(id)arg2 isTestDependency:(_Bool)arg3;
 
 @end

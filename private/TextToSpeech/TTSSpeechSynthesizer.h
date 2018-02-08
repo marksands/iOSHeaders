@@ -53,7 +53,7 @@
 + (id)allAvailableVoices;
 + (void)refreshAllAvailableVoices;
 + (void)testingSetAllVoices:(id)arg1;
-+ (id)speechMarkupStringForType:(long long)arg1 forIdentifier:(id)arg2;
++ (id)speechMarkupStringForType:(long long)arg1 forIdentifier:(id)arg2 string:(id)arg3;
 + (_Bool)employSpeechMarkupForType:(long long)arg1 identifier:(id)arg2 withLanguage:(id)arg3;
 + (id)voiceForIdentifier:(id)arg1;
 + (id)availableVoices;

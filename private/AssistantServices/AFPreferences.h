@@ -91,6 +91,14 @@
 - (_Bool)ignoreServerManualEndpointingThreshold;
 - (void)setActivitySummaryReportDateToNow;
 - (id)activitySummaryReportDate;
+- (id)horsemanSupplementalLanguageDictionary;
+- (id)supplementalLanguagesModificationDate;
+- (id)_supplementalLanguagesDictionary;
+- (id)supplementalLanguages;
+- (id)supplementalLanguagesForProduct:(id)arg1 forBuildVersion:(id)arg2;
+- (id)supplementalLanguageDictionaryForProduct:(id)arg1;
+- (void)_setSupplementalLanguages:(id)arg1 forProduct:(id)arg2 forBuildVersion:(id)arg3;
+- (void)_setSupplementalLanguageDictionary:(id)arg1 forProduct:(id)arg2;
 - (id)cloudSyncEnabledModificationDate;
 - (void)setCloudSyncEnabled:(_Bool)arg1;
 - (_Bool)cloudSyncEnabled;

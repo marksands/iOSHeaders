@@ -36,6 +36,7 @@
 @property(retain, nonatomic) NSString *senderAppDisplayID; // @synthesize senderAppDisplayID=_senderAppDisplayID;
 @property(nonatomic) int originUID; // @synthesize originUID=_originUID;
 @property(retain, nonatomic) _MRCommandOptionsProtobuf *options; // @synthesize options=_options;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -57,7 +58,6 @@
 - (id)commandAsString:(int)arg1;
 @property(nonatomic) _Bool hasCommand;
 @property(nonatomic) int command; // @synthesize command=_command;
-- (void)dealloc;
 
 @end
 

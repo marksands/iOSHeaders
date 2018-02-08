@@ -26,6 +26,7 @@
 @property(readonly, nonatomic) AVOutputContext *avOutputContext; // @synthesize avOutputContext=_avOutputContext;
 @property(readonly, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(readonly, nonatomic) unsigned int type; // @synthesize type=_type;
+- (void).cxx_destruct;
 - (_Bool)_contextSupportsMultipleDevices;
 - (void)_clearAnyCompletedModifications;
 - (void)_commitModification:(id)arg1;

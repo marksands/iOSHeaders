@@ -15,6 +15,5 @@
 - (struct CGPoint)_transformPoint:(struct CGPoint)arg1 windowContextID:(id)arg2 windowDisplayID:(id)arg3;
 - (id)hitTest:(struct CGPoint)arg1;
 - (id)_snapshotForAccessibilityElement:(id)arg1 error:(id *)arg2;
-- (id)_accessibilityElementAtPoint:(struct CGPoint)arg1 error:(id *)arg2;
 @end
 

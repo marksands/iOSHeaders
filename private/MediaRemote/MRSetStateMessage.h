@@ -6,13 +6,15 @@
 
 #import <MediaRemote/MRProtocolMessage.h>
 
+@class _MRSetStateMessageProtobuf;
+
 @interface MRSetStateMessage : MRProtocolMessage
 {
 }
 
 - (unsigned long long)type;
-@property(readonly, nonatomic) void *state;
-- (id)initWithNowPlayingState:(void *)arg1;
+@property(readonly, nonatomic) _MRSetStateMessageProtobuf *state;
+- (id)initWithNowPlayingState:(id)arg1;
 
 @end
 

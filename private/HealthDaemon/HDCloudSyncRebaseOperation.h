@@ -8,13 +8,15 @@
 
 #import "NSProgressReporting.h"
 
-@class HDCloudSyncFetchOperationResult, HDCloudSyncOperationConfiguration, HDCloudSyncStoreRecord, NSObject<OS_dispatch_queue>, NSProgress, NSString;
+@class HDCloudSyncFetchOperationResult, HDCloudSyncOperationConfiguration, HDCloudSyncStoreRecord, NSDate, NSObject<OS_dispatch_queue>, NSProgress, NSString, NSUUID;
 
 @interface HDCloudSyncRebaseOperation : NSObject <NSProgressReporting>
 {
     HDCloudSyncOperationConfiguration *_configuration;
     HDCloudSyncFetchOperationResult *_fetchOperationResult;
     HDCloudSyncStoreRecord *_pushStoreRecord;
+    NSUUID *_operationIdentifier;
+    NSDate *_startTime;
     NSObject<OS_dispatch_queue> *_queue;
     _Bool _queue_hasStarted;
     CDUnknownBlockType _completion;

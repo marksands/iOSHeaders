@@ -39,13 +39,13 @@
 @property(nonatomic) _Bool receivesRoutesChangedNotifications; // @synthesize receivesRoutesChangedNotifications=_receivesRoutesChangedNotifications;
 @property(nonatomic) _Bool receivesSupportedCommandsNotifications; // @synthesize receivesSupportedCommandsNotifications=_receivesSupportedCommandsNotifications;
 @property(nonatomic) _Bool receivesExternalScreenTypeChangedNotifications; // @synthesize receivesExternalScreenTypeChangedNotifications=_receivesExternalScreenTypeChangedNotifications;
+- (void).cxx_destruct;
 - (_Bool)postNotification:(id)arg1 userInfo:(id)arg2 object:(id)arg3;
 @property(readonly, nonatomic, getter=isRegisteredForNowPlayingNotifications) _Bool registeredForNowPlayingNotifications;
 - (void)unregisterForNowPlayingNotifications;
 - (void)registerForNowPlayingNotificationsWithQueue:(id)arg1;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *nowPlayingNotificationQueue;
 @property(copy, nonatomic) CDUnknownBlockType notificationCallback;
-- (void)dealloc;
 - (id)initWithNotificationCallback:(CDUnknownBlockType)arg1;
 
 @end

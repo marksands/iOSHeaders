@@ -17,6 +17,7 @@
 
 + (Class)packetsType;
 @property(retain, nonatomic) NSMutableArray *packets; // @synthesize packets=_packets;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -30,7 +31,6 @@
 - (unsigned long long)packetsCount;
 - (void)addPackets:(id)arg1;
 - (void)clearPackets;
-- (void)dealloc;
 
 @end
 

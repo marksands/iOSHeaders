@@ -10,6 +10,7 @@
 {
 }
 
++ (id)certificateExpirationFromPersistentId:(id)arg1;
 + (id)identityExpirationDateFromPersistentId:(id)arg1;
 + (id)createIdentityPersistentIdFromCommonName:(id)arg1 groupName:(id)arg2;
 + (struct __SecIdentity *)identityFromPrivateKeyData:(id)arg1 certificateData:(id)arg2;

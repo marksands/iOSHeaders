@@ -10,7 +10,7 @@
 
 @interface FCTopStoriesOperation : FCOperation
 {
-    id <FCAppConfiguration> _appConfiguration;
+    id <FCCoreConfiguration> _configuration;
     FCCloudContext *_context;
     id <FCChannelProviding> _topStoriesChannel;
     FCTopStoriesOperationResult *_topStoriesResult;
@@ -23,7 +23,7 @@
 @property(retain) FCTopStoriesOperationResult *topStoriesResult; // @synthesize topStoriesResult=_topStoriesResult;
 @property(copy) id <FCChannelProviding> topStoriesChannel; // @synthesize topStoriesChannel=_topStoriesChannel;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
-@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(copy, nonatomic) id <FCCoreConfiguration> configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)_checkShouldShowTopStoriesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)operationWillFinishWithError:(id)arg1;

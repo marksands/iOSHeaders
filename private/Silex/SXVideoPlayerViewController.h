@@ -16,6 +16,7 @@
 {
     id <SXVideoPlayerViewControllerDelegate> _delegate;
     id <SXVideoPlayerViewControllerDataSource> _dataSource;
+    unsigned long long _mode;
     unsigned long long _fullscreenBehavior;
     SXVideoPlaybackQueue *_queue;
     SXPlaybackCoordinator *_coordinator;
@@ -38,6 +39,7 @@
 @property(retain, nonatomic) SXPlaybackCoordinator *coordinator; // @synthesize coordinator=_coordinator;
 @property(retain, nonatomic) SXVideoPlaybackQueue *queue; // @synthesize queue=_queue;
 @property(nonatomic) unsigned long long fullscreenBehavior; // @synthesize fullscreenBehavior=_fullscreenBehavior;
+@property(nonatomic) unsigned long long mode; // @synthesize mode=_mode;
 @property(nonatomic) __weak id <SXVideoPlayerViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <SXVideoPlayerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
@@ -63,7 +65,6 @@
 - (void)fullscreenBehaviorManagerRequiresFullscreenPlayback:(id)arg1;
 @property(readonly, nonatomic, getter=isFullscreen) _Bool fullscreen;
 @property(readonly, nonatomic, getter=isPlaying) _Bool playing;
-@property(readonly, nonatomic) unsigned long long mode;
 - (void)exitFullscreenWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)enterFullscreenWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)pause;

@@ -9,7 +9,7 @@
 #import "PKPassPaymentPayStateViewDelegate.h"
 #import "PKPaymentServiceDelegate.h"
 
-@class NSDate, NSObject<OS_dispatch_source>, NSString, PKExpressTransactionState, PKFooterTransactionView, PKPassPaymentPayStateView, PKPaymentService;
+@class NSDate, NSMutableDictionary, NSObject<OS_dispatch_source>, NSString, PKExpressTransactionState, PKFooterTransactionView, PKPassPaymentPayStateView, PKPaymentService;
 
 @interface PKPassPaymentConfirmationView : PKPassFooterContentView <PKPassPaymentPayStateViewDelegate, PKPaymentServiceDelegate>
 {
@@ -20,14 +20,12 @@
     _Bool _receivedTransaction;
     _Bool _receivedExit;
     _Bool _needsResolution;
+    _Bool _showingAlert;
     _Bool _showingResolution;
     _Bool _animatingResolution;
     NSObject<OS_dispatch_source> *_activityResolutionTimer;
     NSDate *_visibleDate;
-    id <NSObject> _expressTransactionStartedObserver;
-    id <NSObject> _expressTransactionTimeoutObserver;
-    id <NSObject> _expressTransactionEndedObserver;
-    id <NSObject> _expressExitObserver;
+    NSMutableDictionary *_registeredExpressObservers;
     PKPaymentService *_paymentService;
 }
 
@@ -35,8 +33,10 @@
 - (_Bool)_isExpressOutstanding;
 - (void)_handleExpressNotification:(id)arg1;
 - (void)_registerForExpressTransactionNotifications:(_Bool)arg1;
+- (void)_registerObserverForNotificationName:(id)arg1 center:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (_Bool)_isRegisteredForAnyExpressTransactionNotifications;
 - (_Bool)_isRegisteredForAllExpressTransactionNotifications;
+- (id)_expressNotificationNames;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithTransitPassProperties:(id)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didReceiveTransaction:(id)arg2;
 - (void)payStateView:(id)arg1 revealingCheckmark:(_Bool)arg2;
@@ -44,6 +44,7 @@
 - (void)_updateContentViewsWithTransitProperties:(id)arg1;
 - (void)_updateContentViewsWithTransaction:(id)arg1;
 - (void)_resolveActivityIfNecessary;
+- (void)_disableActivityTimer;
 - (void)_presentCheckmarkIfNecessary;
 - (void)didBecomeHiddenAnimated:(_Bool)arg1;
 - (void)willBecomeHiddenAnimated:(_Bool)arg1;

@@ -8,12 +8,11 @@
 
 #import "MPAVRoutingThemeableCellView.h"
 
-@class MPAVRoutingTableViewCellSubtitleTextState, MPVolumeSlider, NSString, NSTimer, UIActivityIndicatorView, UIImageView, UILabel, UIStackView;
+@class MPAVRoutingTableViewCellSubtitleTextState, MPVolumeSlider, NSString, NSTimer, UIActivityIndicatorView, UIImageView, UILabel;
 
 @interface MPAVRoutingTableViewCell : UITableViewCell <MPAVRoutingThemeableCellView>
 {
     UIImageView *_iconImageView;
-    UIStackView *_detailStackView;
     UILabel *_routeNameLabel;
     UILabel *_subtitleTextLabel;
     NSTimer *_subtitleTextUpdateTimer;

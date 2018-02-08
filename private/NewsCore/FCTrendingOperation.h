@@ -10,7 +10,7 @@
 
 @interface FCTrendingOperation : FCOperation
 {
-    id <FCAppConfiguration> _appConfiguration;
+    id <FCCoreConfiguration> _configuration;
     FCCloudContext *_context;
     NSArray *_headlines;
     NSError *_error;
@@ -21,7 +21,7 @@
 @property(retain) NSError *error; // @synthesize error=_error;
 @property(copy) NSArray *headlines; // @synthesize headlines=_headlines;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
-@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(copy, nonatomic) id <FCCoreConfiguration> configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;

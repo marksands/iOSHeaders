@@ -30,7 +30,7 @@
 @property(copy) NSString *name; // @synthesize name=_name;
 @property long long lifetime; // @synthesize lifetime=_lifetime;
 @property(copy) NSString *uniformTypeIdentifier; // @synthesize uniformTypeIdentifier=_uniformTypeIdentifier;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

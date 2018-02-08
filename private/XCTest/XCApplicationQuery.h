@@ -15,6 +15,7 @@
 }
 
 @property(retain) XCElementSnapshot *lastSnapshot; // @synthesize lastSnapshot=_lastSnapshot;
+- (void).cxx_destruct;
 - (id)application;
 - (id)initWithApplication:(id)arg1;
 - (void)dealloc;

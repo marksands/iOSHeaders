@@ -29,6 +29,7 @@
 @property(nonatomic) int buttonAUpDelay; // @synthesize buttonAUpDelay=_buttonAUpDelay;
 @property(retain, nonatomic) NSString *vendorName; // @synthesize vendorName=_vendorName;
 @property(nonatomic) unsigned int playerIndex; // @synthesize playerIndex=_playerIndex;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -46,7 +47,6 @@
 @property(nonatomic) _Bool hasButtonAUpDelay;
 @property(readonly, nonatomic) _Bool hasVendorName;
 @property(nonatomic) _Bool hasPlayerIndex;
-- (void)dealloc;
 
 @end
 

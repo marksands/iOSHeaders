@@ -6,7 +6,7 @@
 
 #import "UIButton.h"
 
-@class NSString, OBTintInheritingImageView, UIImageView, UITextView;
+@class NSString, OBTintInheritingImageView, UIImageView, UIStackView, UITextView;
 
 __attribute__((visibility("hidden")))
 @interface OBPrivacyLinkButton : UIButton
@@ -14,12 +14,14 @@ __attribute__((visibility("hidden")))
     OBTintInheritingImageView *_iconView;
     UIImageView *_chevronView;
     UITextView *_textView;
+    UIStackView *_stackView;
     NSString *_captionText;
     NSString *_buttonText;
 }
 
 @property(readonly) NSString *buttonText; // @synthesize buttonText=_buttonText;
 @property(readonly) NSString *captionText; // @synthesize captionText=_captionText;
+@property(readonly) UIStackView *stackView; // @synthesize stackView=_stackView;
 @property(readonly) UITextView *textView; // @synthesize textView=_textView;
 @property(readonly) UIImageView *chevronView; // @synthesize chevronView=_chevronView;
 @property(readonly) OBTintInheritingImageView *iconView; // @synthesize iconView=_iconView;

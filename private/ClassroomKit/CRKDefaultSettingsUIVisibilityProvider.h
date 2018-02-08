@@ -24,6 +24,7 @@
 - (void)enrollmentControllerDidUpdateCloudEnrollmentStatus:(id)arg1;
 - (void)enrollmentControllerDidUpdateInvitations:(id)arg1;
 - (void)enrollmentControllerDidUpdateCourses:(id)arg1;
+- (void)connectToDaemon;
 - (void)updateVisibilityState;
 - (id)init;
 

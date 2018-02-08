@@ -10,6 +10,7 @@
 {
 }
 
++ (double)systemUpTime;
 + (id)deviceProductType;
 + (id)getFixedHighPrioritySerialQueueWithLabel:(id)arg1;
 + (id)getFixedPrioritySerialQueueWithLabel:(id)arg1 fixedPriority:(int)arg2;

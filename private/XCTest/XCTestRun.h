@@ -15,6 +15,7 @@
 
 + (id)testRunWithTest:(id)arg1;
 @property(readonly) _XCInternalTestRun *implementation; // @synthesize implementation=_internalTestRun;
+- (void).cxx_destruct;
 @property unsigned long long unexpectedExceptionCountBeforeCrash;
 @property unsigned long long failureCountBeforeCrash;
 @property unsigned long long executionCountBeforeCrash;
@@ -33,7 +34,6 @@
 @property(readonly) double totalDuration;
 @property(readonly) XCTest *test;
 - (id)description;
-- (void)dealloc;
 - (id)init;
 - (id)initWithTest:(id)arg1;
 

@@ -18,6 +18,7 @@
 @property(nonatomic) unsigned long long batchStart; // @synthesize batchStart=_batchStart;
 @property(nonatomic) CDStruct_67e7699a resultMatrixOrigin; // @synthesize resultMatrixOrigin=_resultMatrixOrigin;
 @property(nonatomic) CDStruct_67e7699a sourceMatrixOrigin; // @synthesize sourceMatrixOrigin=_sourceMatrixOrigin;
+- (id)debugDescription;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;

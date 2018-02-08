@@ -16,11 +16,12 @@
 
 + (id)currentSettings;
 @property(nonatomic, getter=isExternalDevicePairingAllowed) _Bool externalDevicePairingAllowed; // @synthesize externalDevicePairingAllowed=_externalDevicePairingAllowed;
+- (void).cxx_destruct;
 - (void)_removeValueForKey:(id)arg1;
 - (long long)_integerValueForKey:(id)arg1 usingDefaultValue:(long long)arg2;
 - (double)_doubleValueForKey:(id)arg1 usingDefaultValue:(double)arg2;
 - (_Bool)_boolValueForKey:(id)arg1 usingDefaultValue:(_Bool)arg2;
-@property(nonatomic) NSArray *connectedClientPIDs;
+@property(retain, nonatomic) NSArray *connectedClientPIDs;
 @property(readonly, nonatomic) _Bool useGenericTransportForHostedEndpoints;
 @property(readonly, nonatomic) _Bool useSystemAudioContextForAirPlayTransport;
 @property(readonly, nonatomic) double transactionWaitDurationOnNetworkSend;
@@ -45,7 +46,6 @@
 @property(readonly, nonatomic) _Bool useDebugAVRouteWithoutVolumeControl;
 @property(readonly, nonatomic) _Bool useNoDelayOptionForExternalDeviceSockets;
 @property(readonly, nonatomic) _Bool usePeerToPeerExternalDeviceConnections;
-- (void)dealloc;
 - (id)init;
 
 @end

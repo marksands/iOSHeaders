@@ -23,6 +23,7 @@
     NSString *_playingPairedDeviceName;
 }
 
+- (void).cxx_destruct;
 - (id)_playingPairedDeviceNameForAVOutputDevice:(id)arg1;
 - (void)_onqueue_clearCachedAVOutputDeviceProperties;
 - (void)setVolume:(float)arg1;
@@ -39,6 +40,7 @@
 - (_Bool)isDeviceGroupable;
 - (_Bool)isGroupable;
 - (_Bool)isGroupLeader;
+- (_Bool)canRelayCommunicationChannel;
 - (_Bool)isRemoteControllable;
 - (_Bool)canAccessRemoteAssets;
 - (id)playingPairedDeviceName;
@@ -51,7 +53,6 @@
 - (id)name;
 @property(retain, nonatomic) MRAVOutputDeviceSourceInfo *sourceInfo;
 @property(retain, nonatomic, setter=setAVOutputDevice:) AVOutputDevice *avOutputDevice;
-- (void)dealloc;
 - (id)initWithAVOutputDevice:(id)arg1 sourceInfo:(id)arg2;
 
 @end

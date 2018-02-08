@@ -21,6 +21,7 @@
 @property(retain, nonatomic) _MRNowPlayingPlayerProtobuf *player; // @synthesize player=_player;
 @property(retain, nonatomic) _MRNowPlayingClientProtobuf *client; // @synthesize client=_client;
 @property(retain, nonatomic) _MROriginProtobuf *origin; // @synthesize origin=_origin;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -33,7 +34,6 @@
 @property(readonly, nonatomic) _Bool hasPlayer;
 @property(readonly, nonatomic) _Bool hasClient;
 @property(readonly, nonatomic) _Bool hasOrigin;
-- (void)dealloc;
 - (id)customDescription;
 - (id)customDictionaryRepresentation;
 

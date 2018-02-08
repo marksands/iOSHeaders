@@ -25,6 +25,8 @@
     NSString *_feedId;
     int _feedType;
     NSData *_feedViewExposureId;
+    int _groupType;
+    NSData *_groupViewExposureId;
     NSString *_iadAd;
     NSString *_iadCampaign;
     NSString *_iadLine;
@@ -42,6 +44,7 @@
         unsigned int adLocation:1;
         unsigned int adType:1;
         unsigned int feedType:1;
+        unsigned int groupType:1;
         unsigned int newsProductType:1;
         unsigned int videoAdPlacementPosition:1;
         unsigned int videoAdType:1;
@@ -49,6 +52,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSData *groupViewExposureId; // @synthesize groupViewExposureId=_groupViewExposureId;
 @property(retain, nonatomic) NSData *feedViewExposureId; // @synthesize feedViewExposureId=_feedViewExposureId;
 @property(retain, nonatomic) NSString *sourceChannelId; // @synthesize sourceChannelId=_sourceChannelId;
 @property(retain, nonatomic) NSData *articleViewingSessionId; // @synthesize articleViewingSessionId=_articleViewingSessionId;
@@ -72,6 +76,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasGroupViewExposureId;
+- (int)StringAsGroupType:(id)arg1;
+- (id)groupTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasGroupType;
+@property(nonatomic) int groupType; // @synthesize groupType=_groupType;
 @property(readonly, nonatomic) _Bool hasFeedViewExposureId;
 @property(readonly, nonatomic) _Bool hasSourceChannelId;
 @property(readonly, nonatomic) _Bool hasArticleViewingSessionId;

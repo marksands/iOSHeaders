@@ -16,6 +16,7 @@
 - (id)deniedBrands;
 - (id)consentedBrands;
 - (id)settings;
+- (void)forceUpdate;
 - (_Bool)sportsScoreSpoilersAllowed;
 - (_Bool)privateModeEnabled;
 - (void)dealloc;

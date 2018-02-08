@@ -70,6 +70,8 @@
 - (void)finishRecording;
 - (void)requestResultDataAtTimestamp:(double)arg1 context:(id)arg2;
 - (id)processData:(id)arg1;
+@property(readonly, nonatomic) NSSet *recordingResultDataClasses;
+@property(readonly, nonatomic) unsigned long long recordingSensorDataTypes;
 - (id)initWithFileURL:(id)arg1 recordingSensorDataTypes:(unsigned long long)arg2 recordingResultDataClasses:(id)arg3;
 - (id)initWithFileURL:(id)arg1 sensorDataTypes:(unsigned long long)arg2;
 - (id)initWithTechniques:(id)arg1;

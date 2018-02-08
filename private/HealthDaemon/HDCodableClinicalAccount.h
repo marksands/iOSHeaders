@@ -16,6 +16,7 @@
     double _lastFetchDate;
     double _lastFullFetchDate;
     double _modificationDate;
+    NSString *_accountIdentifier;
     NSString *_gatewayExternalID;
     NSData *_syncIdentifier;
     _Bool _userEnabled;
@@ -28,6 +29,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
 @property(nonatomic) double lastFullFetchDate; // @synthesize lastFullFetchDate=_lastFullFetchDate;
 @property(retain, nonatomic) NSData *syncIdentifier; // @synthesize syncIdentifier=_syncIdentifier;
 @property(nonatomic) double lastFetchDate; // @synthesize lastFetchDate=_lastFetchDate;
@@ -45,6 +47,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasAccountIdentifier;
 @property(nonatomic) _Bool hasLastFullFetchDate;
 @property(readonly, nonatomic) _Bool hasSyncIdentifier;
 @property(nonatomic) _Bool hasLastFetchDate;

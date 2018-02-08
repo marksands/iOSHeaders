@@ -26,6 +26,11 @@
 @property(readonly, copy, nonatomic) id <NUVideoItem> videoItem; // @synthesize videoItem=_videoItem;
 @property(nonatomic) _Bool playbackHasStarted; // @synthesize playbackHasStarted=_playbackHasStarted;
 - (void).cxx_destruct;
+- (void)tappedNowPlaying;
+- (void)tappedDiscoverMore;
+- (void)tappedAdvance;
+- (void)tappedReplay;
+- (void)tappedCallToAction;
 - (void)configureTimelineForQuartileReporting;
 - (id)videoMetadataForCurrentState;
 - (void)timeElapsed:(double)arg1 duration:(double)arg2;
@@ -39,6 +44,7 @@
 - (CDUnknownBlockType)loadWithCompletionBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) _Bool allowsCallToActionBar;
 @property(readonly, nonatomic) unsigned long long videoType;
+@property(readonly, nonatomic, getter=areNeighboringAdsAllowed) _Bool neighboringAdsAreAllowed;
 - (id)initWithVideoItem:(id)arg1 eventTracker:(id)arg2;
 
 // Remaining properties

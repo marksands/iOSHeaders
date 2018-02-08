@@ -5,17 +5,19 @@
 //
 
 #import "NFCopying.h"
-#import "SXVideoURLProviding.h"
 
 @class FCAssetHandle, NSString, NSURL;
 
-@protocol NUVideoItem <NFCopying, SXVideoURLProviding>
+@protocol NUVideoItem <NFCopying>
+@property(readonly, nonatomic, getter=isHiddenFromFeeds) _Bool hiddenFromFeeds;
 @property(readonly, copy, nonatomic) NSString *sourceTagID;
+@property(readonly, copy, nonatomic) NSString *articleID;
 @property(readonly, copy, nonatomic) NSString *compactSourceName;
 @property(readonly, nonatomic) FCAssetHandle *compactSourceNameImageAssetHandle;
 @property(readonly, copy, nonatomic) NSURL *callToActionURL;
 @property(readonly, copy, nonatomic) NSString *callToActionTitle;
 @property(readonly, nonatomic) id <NUAdContextProvider> adContextProvider;
 @property(readonly, copy, nonatomic) NSString *title;
+@property(readonly, copy, nonatomic) NSURL *videoURL;
 @end
 

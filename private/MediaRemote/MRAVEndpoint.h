@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 + (id)sharedLocalEndpointForRoutingContextWithUID:(id)arg1;
 @property(retain, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(retain, nonatomic) NSString *localizedName; // @synthesize localizedName=_localizedName;
+- (void).cxx_destruct;
 - (void)_connectToExternalDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_requestSharedAudioPresentationOutputContextModificationWithAddingDevices:(id)arg1 removingDevices:(id)arg2 settingDevices:(id)arg3 replyQueue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (unsigned long long)_volumeControlMode;

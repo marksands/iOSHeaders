@@ -17,9 +17,11 @@
     NSMutableArray *_stagedOperations;
     NSMutableArray *_waitingOperations;
     double _initialDelay;
+    double _initialBackoff;
 }
 
 @property(nonatomic) _Bool hasExponentialBackoff; // @synthesize hasExponentialBackoff=_hasExponentialBackoff;
+@property(nonatomic) double initialBackoff; // @synthesize initialBackoff=_initialBackoff;
 @property(nonatomic) double initialDelay; // @synthesize initialDelay=_initialDelay;
 @property(retain, nonatomic) NSMutableArray *waitingOperations; // @synthesize waitingOperations=_waitingOperations;
 @property(retain, nonatomic) NSMutableArray *stagedOperations; // @synthesize stagedOperations=_stagedOperations;
@@ -42,7 +44,7 @@
 @property(readonly, nonatomic) long long count;
 @property(readonly, nonatomic) long long countTotal;
 - (id)description;
-- (id)initName:(id)arg1 syncManager:(id)arg2 initialDelay:(double)arg3 hasBackoff:(_Bool)arg4;
+- (id)initName:(id)arg1 syncManager:(id)arg2 initialDelay:(double)arg3 initialBackoff:(double)arg4 hasBackoff:(_Bool)arg5;
 
 @end
 

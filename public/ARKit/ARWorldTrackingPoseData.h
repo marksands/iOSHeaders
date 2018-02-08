@@ -9,17 +9,19 @@
 #import "ARResultData.h"
 #import "NSSecureCoding.h"
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface ARWorldTrackingPoseData : NSObject <ARResultData, NSSecureCoding>
 {
     double _timestamp;
+    NSArray *_synchronizedResultData;
     CDStruct_fdd7a678 _trackingState;
     // Error parsing type: {?="columns"[4]}, name: _visionCameraTransform
     // Error parsing type: {?="columns"[4]}, name: _cameraTransform
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSArray *synchronizedResultData; // @synthesize synchronizedResultData=_synchronizedResultData;
 // Error parsing type for property cameraTransform:
 // Property attributes: T{?=[4]},N,V_cameraTransform
 
@@ -28,6 +30,7 @@
 // Property attributes: T{?=[4]},N,V_visionCameraTransform
 
 @property(readonly, nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
+- (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (void)encodeWithCoder:(id)arg1;

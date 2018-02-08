@@ -26,7 +26,7 @@
 - (void)removeTransitionObserver:(id)arg1;
 - (void)addTransitionObserver:(id)arg1;
 - (void)transitionToVideoItemViewController:(id)arg1 withVisibilityMonitor:(id)arg2;
-- (id)initWithTransitionCoordinatorFactory:(id)arg1;
+- (id)initWithTransitionCoordinatorFactory:(id)arg1 videoQueueManager:(id)arg2;
 
 @end
 

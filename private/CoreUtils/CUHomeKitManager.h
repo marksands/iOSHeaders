@@ -48,6 +48,7 @@
     CDUnknownBlockType _selfAccessoryMediaAccessUpdatedHandler;
     HMMediaSystem *_selfAccessoryMediaSystem;
     HMAccessory *_selfAccessoryMediaSystemCounterpart;
+    NSString *_selfAccessoryMediaSystemName;
     HMMediaSystemRole *_selfAccessoryMediaSystemRole;
     CDUnknownBlockType _selfAccessoryMediaSystemUpdatedHandler;
     CDUnknownBlockType _selfAccessorySiriAccessUpdatedHandler;
@@ -57,6 +58,7 @@
 @property(readonly, nonatomic) _Bool selfAccessorySiriEnabled; // @synthesize selfAccessorySiriEnabled=_selfAccessorySiriEnabled;
 @property(copy, nonatomic) CDUnknownBlockType selfAccessoryMediaSystemUpdatedHandler; // @synthesize selfAccessoryMediaSystemUpdatedHandler=_selfAccessoryMediaSystemUpdatedHandler;
 @property(readonly, nonatomic) HMMediaSystemRole *selfAccessoryMediaSystemRole; // @synthesize selfAccessoryMediaSystemRole=_selfAccessoryMediaSystemRole;
+@property(copy, nonatomic) NSString *selfAccessoryMediaSystemName; // @synthesize selfAccessoryMediaSystemName=_selfAccessoryMediaSystemName;
 @property(readonly, nonatomic) HMAccessory *selfAccessoryMediaSystemCounterpart; // @synthesize selfAccessoryMediaSystemCounterpart=_selfAccessoryMediaSystemCounterpart;
 @property(readonly, nonatomic) HMMediaSystem *selfAccessoryMediaSystem; // @synthesize selfAccessoryMediaSystem=_selfAccessoryMediaSystem;
 @property(copy, nonatomic) CDUnknownBlockType selfAccessoryMediaAccessUpdatedHandler; // @synthesize selfAccessoryMediaAccessUpdatedHandler=_selfAccessoryMediaAccessUpdatedHandler;

@@ -7,7 +7,6 @@
 #import "HKVaccinationRecord.h"
 
 @interface HKVaccinationRecord (Localization)
-- (id)sortDateSummaryTitle;
 - (id)sortDateTitle;
 @end
 

@@ -14,8 +14,10 @@
     CDUnknownBlockType _handler;
     NSObject<OS_dispatch_queue> *_queue;
     double _timeout;
+    CDUnknownBlockType _checkpointHandler;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType checkpointHandler; // @synthesize checkpointHandler=_checkpointHandler;
 @property(nonatomic) _Bool hasTimeout; // @synthesize hasTimeout=_hasTimeout;
 @property(nonatomic) double timeout; // @synthesize timeout=_timeout;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;

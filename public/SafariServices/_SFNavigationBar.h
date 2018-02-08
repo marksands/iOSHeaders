@@ -164,6 +164,7 @@
 - (void)_hideNotSecureWebsiteMessage;
 - (void)_showNotSecureWebsiteMessage;
 - (void)_updateShowsNotSecureWarningAndAnnotationVisibility;
+- (void)_setUpNotSecureWebSiteMessageIconAndLabelIfNeeded;
 - (void)_updateShowsSearchIndicator;
 - (void)_updateSearchIndicator;
 - (void)_updateTextMetrics;

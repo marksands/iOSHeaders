@@ -15,12 +15,12 @@
 }
 
 @property(readonly) NSDictionary *aggregationRecords; // @synthesize aggregationRecords=_aggregationRecords;
+- (void).cxx_destruct;
 - (id)topActivity;
 - (long long)depth;
 - (void)unwindRemainingActivitiesWithTestCase:(id)arg1 observationCenter:(id)arg2;
 - (void)didFinishActivity:(id)arg1 testCase:(id)arg2 observationCenter:(id)arg3;
 - (id)willStartActivityWithTitle:(id)arg1 type:(id)arg2 testCase:(id)arg3 observationCenter:(id)arg4;
-- (void)dealloc;
 - (id)init;
 
 @end

@@ -69,6 +69,7 @@
 @property(readonly, nonatomic, getter=hasLoaded) _Bool hasLoaded;
 @property(readonly, nonatomic) unsigned long long selectedFaceIndex;
 - (void)enumerateFaceNamesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateFacesWithIndexesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateFacesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)faceAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) NTKFace *selectedFace;

@@ -23,6 +23,7 @@
 @property(retain, nonatomic) _MRGameControllerButtonsProtobuf *buttons; // @synthesize buttons=_buttons;
 @property(retain, nonatomic) _MRGameControllerMotionProtobuf *motion; // @synthesize motion=_motion;
 @property(nonatomic) unsigned long long controllerID; // @synthesize controllerID=_controllerID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -36,7 +37,6 @@
 @property(readonly, nonatomic) _Bool hasButtons;
 @property(readonly, nonatomic) _Bool hasMotion;
 @property(nonatomic) _Bool hasControllerID;
-- (void)dealloc;
 
 @end
 

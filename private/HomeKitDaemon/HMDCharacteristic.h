@@ -16,11 +16,11 @@
 {
     _Bool _broadcastNotificationEnabled;
     _Bool _notificationRegisteredWithRemoteGateway;
+    NSSet *_hapCharacteristicTuples;
     HMDHAPAccessory *_accessory;
     HMDService *_service;
     NSNumber *_stateNumber;
     NSData *_authorizationData;
-    NSSet *_hapCharacteristicTuples;
     NSString *_characteristicType;
     id _lastKnownValue;
     NSDate *_lastKnownValueUpdateTime;
@@ -42,7 +42,6 @@
 @property(retain, nonatomic) NSDate *lastKnownValueUpdateTime; // @synthesize lastKnownValueUpdateTime=_lastKnownValueUpdateTime;
 @property(retain, nonatomic) id lastKnownValue; // @synthesize lastKnownValue=_lastKnownValue;
 @property(retain, nonatomic) NSString *characteristicType; // @synthesize characteristicType=_characteristicType;
-@property(retain, nonatomic) NSSet *hapCharacteristicTuples; // @synthesize hapCharacteristicTuples=_hapCharacteristicTuples;
 @property(nonatomic) _Bool broadcastNotificationEnabled; // @synthesize broadcastNotificationEnabled=_broadcastNotificationEnabled;
 @property(copy, nonatomic) NSData *authorizationData; // @synthesize authorizationData=_authorizationData;
 @property(copy, nonatomic, setter=setStateNumber:) NSNumber *stateNumber; // @synthesize stateNumber=_stateNumber;
@@ -86,6 +85,7 @@
 - (id)characteristicTypeDescription;
 - (id)shortTypeDescription;
 @property(readonly, copy) NSString *description;
+@property(retain, nonatomic) NSSet *hapCharacteristicTuples; // @synthesize hapCharacteristicTuples=_hapCharacteristicTuples;
 @property(readonly, nonatomic) NSDictionary *bulletinContext;
 @property(readonly, copy, nonatomic) NSUUID *contextSPIUniqueIdentifier;
 @property(readonly, copy, nonatomic) NSString *contextID;

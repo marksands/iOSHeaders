@@ -7,7 +7,6 @@
 #import "HKUnknownRecord.h"
 
 @interface HKUnknownRecord (Localization)
-- (id)sortDateSummaryTitle;
 - (id)sortDateTitle;
 @end
 

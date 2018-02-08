@@ -141,14 +141,17 @@ struct AudioComponentRegistrarImpl {
     _Bool _field1;
     _Bool _field2;
     _Bool _field3;
-    struct RegistrarService _field4;
-    struct RegistrarService _field5;
-    id _field6;
-    struct AudioComponentVector _field7;
-    struct PurgeableDataWrapper _field8;
-    struct PurgeableDataWrapper _field9;
-    struct unique_ptr<AudioComponentPluginScanner, std::__1::default_delete<AudioComponentPluginScanner>> _field10;
-    struct unique_ptr<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>, std::__1::default_delete<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>>> _field11;
+    _Bool _field4;
+    id _field5;
+    struct function<void (const AudioComponentVector &, AudioComponentVector &)> _field6;
+    struct RegistrarService _field7;
+    struct RegistrarService _field8;
+    id _field9;
+    struct AudioComponentVector _field10;
+    struct PurgeableDataWrapper _field11;
+    struct PurgeableDataWrapper _field12;
+    struct unique_ptr<AudioComponentPluginScanner, std::__1::default_delete<AudioComponentPluginScanner>> _field13;
+    struct shared_ptr<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>> _field14;
 };
 
 struct AudioComponentVector {
@@ -345,6 +348,8 @@ struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, 
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*> *__next_;
 };
 
+struct __shared_weak_count;
+
 struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
     struct __tree_node_base<void *> *__left_;
 };
@@ -367,6 +372,11 @@ struct function<void ()> {
 struct function<void (AudioComponentVector &, AudioComponentVector &)> {
     struct type __buf_;
     struct __base<void (AudioComponentVector &, AudioComponentVector &)> *__f_;
+};
+
+struct function<void (const AudioComponentVector &, AudioComponentVector &)> {
+    struct type _field1;
+    struct __base<void (const AudioComponentVector &, AudioComponentVector &)> *_field2;
 };
 
 struct map<unsigned int, AUProcessingBlock, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, AUProcessingBlock>>> {
@@ -412,6 +422,11 @@ struct set<AUObserverController::AddressOriginator, std::__1::less<AUObserverCon
 struct shared_ptr<APComponent> {
     struct APComponent *__ptr_;
     struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>> {
+    struct Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>> *_field1;
+    struct __shared_weak_count *_field2;
 };
 
 struct type {
@@ -478,12 +493,6 @@ struct unique_ptr<TestAUProcessingBlock, std::__1::default_delete<TestAUProcessi
     struct __compressed_pair<TestAUProcessingBlock *, std::__1::default_delete<TestAUProcessingBlock>> {
         struct TestAUProcessingBlock *__value_;
     } __ptr_;
-};
-
-struct unique_ptr<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>, std::__1::default_delete<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>>> {
-    struct __compressed_pair<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>*, std::__1::default_delete<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>>> {
-        struct Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>> *_field1;
-    } _field1;
 };
 
 struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*>*>>> {

@@ -55,6 +55,8 @@
 - (void).cxx_destruct;
 - (void)_onQueue_pushContentItemsUpdate;
 - (void)_contentItemChangedNotification:(id)arg1;
+- (void)_audioSessionRoutingContextDidChangeNotification:(id)arg1;
+- (void)_updatePlayerAudioSessionProperties;
 - (void)_onQueue_registerPlaybackQueueDataSourceCallbacks:(id)arg1;
 - (void)_onQueue_registerLyricsDelegateCallbacks:(id)arg1;
 - (void)_onQueue_clearPlaybackQueueDataSourceCallbacks;
@@ -66,7 +68,7 @@
 - (id)_contentItemForIdentifier:(id)arg1 alreadyOnDataSourceQueue:(_Bool)arg2;
 - (id)_contentItemForIdentifier:(id)arg1;
 - (id)_contentItemIDsInRange:(CDStruct_912cb5d2)arg1 itemsRange:(CDStruct_912cb5d2 *)arg2;
-- (id)_childContentItemForContentItem:(id)arg1 indexPath:(id)arg2;
+- (id)_childContentItemForContentItem:(id)arg1 index:(long long)arg2;
 - (void)_becomeActiveWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_artworkCatalogForContentItem:(id)arg1;
 @property(readonly, nonatomic) _Bool supportsArtworkCatalogLoading;

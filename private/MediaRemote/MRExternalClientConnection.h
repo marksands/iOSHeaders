@@ -24,9 +24,9 @@
 @property(nonatomic) _Bool registeredKeyboardUpdates; // @synthesize registeredKeyboardUpdates=_registeredKeyboardUpdates;
 @property(nonatomic) _Bool registeredVolumeControlAvailabilityUpdates; // @synthesize registeredVolumeControlAvailabilityUpdates=_registeredVolumeControlAvailabilityUpdates;
 @property(nonatomic) _Bool registeredToNowPlayingUpdates; // @synthesize registeredToNowPlayingUpdates=_registeredToNowPlayingUpdates;
+- (void).cxx_destruct;
 - (id)decryptData:(id)arg1 error:(id *)arg2;
 - (id)encryptDataForMessage:(id)arg1;
-- (void)dealloc;
 - (id)initWithInputStream:(id)arg1 outputStream:(id)arg2 runLoop:(id)arg3;
 
 @end

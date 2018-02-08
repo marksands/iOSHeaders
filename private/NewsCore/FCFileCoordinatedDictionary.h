@@ -27,9 +27,6 @@
 @property(readonly, retain) NSOperationQueue *presentedItemOperationQueue; // @synthesize presentedItemOperationQueue=_presentedItemOperationQueue;
 @property(readonly, copy) NSURL *presentedItemURL; // @synthesize presentedItemURL=_presentedItemURL;
 - (void).cxx_destruct;
-- (_Bool)_writeDictionary:(id)arg1 toFileURL:(id)arg2;
-- (id)_readFromFileURL:(id)arg1;
-- (void)replaceWithEntriesFromDictionary:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)writeWithAccessor:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)readWithAccessor:(CDUnknownBlockType)arg1;
 - (id)initWithFileURL:(id)arg1 allowedClasses:(id)arg2;

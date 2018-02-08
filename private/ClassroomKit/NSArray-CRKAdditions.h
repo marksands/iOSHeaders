@@ -7,6 +7,9 @@
 #import "NSArray.h"
 
 @interface NSArray (CRKAdditions)
+- (id)crk_sortedSubarrayWithRange:(struct _NSRange)arg1 comparator:(CDUnknownBlockType)arg2;
+- (id)crk_sortedArrayForRange:(struct _NSRange)arg1 usingComparator:(CDUnknownBlockType)arg2;
+- (_Bool)crk_isSortedByComparator:(CDUnknownBlockType)arg1;
 - (id)crk_arrayByRemovingObject:(id)arg1;
 - (id)crk_mapUsingBlock:(CDUnknownBlockType)arg1;
 @end

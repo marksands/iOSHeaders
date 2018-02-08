@@ -18,6 +18,7 @@
     NSMutableData *_buffer;
 }
 
+- (void).cxx_destruct;
 - (void)_onRunLoop_notifyDelegateOfStreamEvent:(unsigned long long)arg1;
 - (void)handleStreamDisconnect;
 - (void)handleDataReceived:(id)arg1;
@@ -35,7 +36,6 @@
 - (id)delegate;
 - (void)close;
 - (void)open;
-- (void)dealloc;
 - (id)init;
 - (id)initWithFileAtPath:(id)arg1;
 - (id)initWithData:(id)arg1;

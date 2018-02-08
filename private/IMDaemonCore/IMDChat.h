@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class IMDAccount, IMDService, IMDServiceSession, IMMessageItem, NSArray, NSData, NSDate, NSDictionary, NSMutableDictionary, NSRecursiveLock, NSString;
+@class IMDAccount, IMDService, IMDServiceSession, IMMessageItem, NSArray, NSDate, NSDictionary, NSMutableDictionary, NSRecursiveLock, NSString;
 
 @interface IMDChat : NSObject
 {
@@ -37,20 +37,21 @@
     long long _lastReadMessageTimeStamp;
     _Bool _createEngramGroupOnMessageSend;
     _Bool _pendingENGroupParticipantUpdate;
-    NSData *_CKRecordSystemPropertiesBlob;
     NSDate *_lastSentMessageDate;
     long long _lastMessageTimeStampOnLoad;
+    NSString *_cloudKitRecordID;
+    NSString *_srCloudKitRecordID;
     NSString *_srServerChangeToken;
     long long _srCloudKitSyncState;
-    NSData *_srCKRecordSystemPropertiesBlob;
 }
 
 + (id)_recordType;
 @property _Bool pendingENGroupParticipantUpdate; // @synthesize pendingENGroupParticipantUpdate=_pendingENGroupParticipantUpdate;
 @property _Bool createEngramGroupOnMessageSend; // @synthesize createEngramGroupOnMessageSend=_createEngramGroupOnMessageSend;
-@property(copy) NSData *srCKRecordSystemPropertiesBlob; // @synthesize srCKRecordSystemPropertiesBlob=_srCKRecordSystemPropertiesBlob;
 @property long long srCloudKitSyncState; // @synthesize srCloudKitSyncState=_srCloudKitSyncState;
 @property(copy) NSString *srServerChangeToken; // @synthesize srServerChangeToken=_srServerChangeToken;
+@property(copy) NSString *srCloudKitRecordID; // @synthesize srCloudKitRecordID=_srCloudKitRecordID;
+@property(copy) NSString *cloudKitRecordID; // @synthesize cloudKitRecordID=_cloudKitRecordID;
 - (void)tearDownToneNotificationSessionIfNeeded;
 - (_Bool)isBusinessChat;
 - (id)cloudKitDebugDescription;
@@ -68,11 +69,11 @@
 - (void)updateDisplayName:(id)arg1;
 - (void)updateLastAddressedHandle:(id)arg1;
 - (void)resetCKSyncState;
+- (void)updateSrCloudKitRecordID:(id)arg1;
+- (void)updateCloudKitRecordID:(id)arg1;
 - (void)updateOriginalGroupID:(id)arg1;
 - (void)updateSRCloudKitSyncState:(long long)arg1;
 - (void)updateCloudKitSyncState:(long long)arg1;
-- (void)updateSRCKRecordSystemPropertiesBlob:(id)arg1;
-- (void)updateCKRecordSystemPropertiesBlob:(id)arg1;
 - (void)updateSRServerChangeToken:(id)arg1;
 - (void)updateServerChangeToken:(id)arg1;
 - (void)updateLastReadMessageTimeStampIfNeeded:(long long)arg1;
@@ -120,7 +121,6 @@
 - (void)setOriginalGroupID:(id)arg1;
 @property(readonly, copy) NSString *originalGroupID;
 @property long long cloudKitSyncState;
-@property(copy, nonatomic) NSData *CKRecordSystemPropertiesBlob;
 @property(copy, nonatomic) NSString *serverChangeToken;
 @property(copy, setter=setEngramID:) NSString *engramID;
 @property(copy, setter=setGroupID:) NSString *groupID;
@@ -131,12 +131,15 @@
 @property(copy) NSString *chatIdentifier;
 @property(copy) NSString *guid;
 - (void)dealloc;
-- (id)initWithAccountID:(id)arg1 service:(id)arg2 guid:(id)arg3 groupID:(id)arg4 chatIdentifier:(id)arg5 participants:(id)arg6 roomName:(id)arg7 displayName:(id)arg8 lastAddressedLocalHandle:(id)arg9 properties:(id)arg10 state:(long long)arg11 style:(unsigned char)arg12 isFiltered:(_Bool)arg13 hasHadSuccessfulQuery:(_Bool)arg14 engramID:(id)arg15 serverChangeToken:(id)arg16 cloudKitSyncState:(long long)arg17 originalGroupID:(id)arg18 lastReadMessageTimeStamp:(long long)arg19 CKRecordSystemPropertiesBlob:(id)arg20 lastMessageTimeStampOnLoad:(long long)arg21 srServerChangeToken:(id)arg22 srCloudKitSyncState:(long long)arg23 srCKRecordSystemPropertiesBlob:(id)arg24;
+- (id)initWithAccountID:(id)arg1 service:(id)arg2 guid:(id)arg3 groupID:(id)arg4 chatIdentifier:(id)arg5 participants:(id)arg6 roomName:(id)arg7 displayName:(id)arg8 lastAddressedLocalHandle:(id)arg9 properties:(id)arg10 state:(long long)arg11 style:(unsigned char)arg12 isFiltered:(_Bool)arg13 hasHadSuccessfulQuery:(_Bool)arg14 engramID:(id)arg15 serverChangeToken:(id)arg16 cloudKitSyncState:(long long)arg17 originalGroupID:(id)arg18 lastReadMessageTimeStamp:(long long)arg19 lastMessageTimeStampOnLoad:(long long)arg20 srServerChangeToken:(id)arg21 srCloudKitSyncState:(long long)arg22 cloudKitRecordID:(id)arg23 srCloudKitRecordID:(id)arg24;
 - (_Bool)applyChangesUsingCKRecord:(id)arg1 isUsingStingRay:(_Bool)arg2;
 - (id)initWithCKRecord:(id)arg1 isUsingStingRay:(_Bool)arg2;
 - (id)copyCKRecordRepresentationWithZoneID:(id)arg1 salt:(id)arg2 isUsingStingRay:(_Bool)arg3;
 - (id)recordName;
-- (id)_copyCKRecordFromExistingCKMetadataIsUsingStringRay:(_Bool)arg1;
+- (id)_copyCKRecordFromExistingCKMetadataIsUsingStringRay:(_Bool)arg1 zoneID:(id)arg2 salt:(id)arg3;
+- (id)_recordNameForRecordChangeTag:(id)arg1 ckRecordID:(id)arg2 salt:(id)arg3;
+- (id)_recordNameUsingSalt:(id)arg1;
+- (id)_recordIDUsingName:(id)arg1 zoneID:(id)arg2;
 - (id)_recordIDUsingSalt:(id)arg1 zoneID:(id)arg2;
 
 @end

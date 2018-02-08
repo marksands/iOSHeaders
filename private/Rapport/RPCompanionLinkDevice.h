@@ -14,6 +14,7 @@
 {
     _Bool _personal;
     _Bool _changed;
+    _Bool _daemon;
     unsigned int _flags;
     int _mediaSystemRole;
     int _mediaSystemState;
@@ -26,6 +27,7 @@
     NSString *_idsDeviceIdentifier;
     NSString *_idsPersonalDeviceIdentifier;
     NSUUID *_mediaSystemIdentifier;
+    NSString *_mediaSystemName;
     NSString *_model;
     NSString *_name;
     NSString *_publicIdentifier;
@@ -44,6 +46,7 @@
 @property(copy, nonatomic) NSUUID *pairingIdentifier; // @synthesize pairingIdentifier=_pairingIdentifier;
 @property(nonatomic) int mediaSystemRoleEffective; // @synthesize mediaSystemRoleEffective=_mediaSystemRoleEffective;
 @property(copy, nonatomic) NSUUID *mediaSystemIdentifierEffective; // @synthesize mediaSystemIdentifierEffective=_mediaSystemIdentifierEffective;
+@property(nonatomic) _Bool daemon; // @synthesize daemon=_daemon;
 @property(nonatomic) _Bool changed; // @synthesize changed=_changed;
 @property(retain, nonatomic) CUBonjourDevice *bonjourDevice; // @synthesize bonjourDevice=_bonjourDevice;
 @property(copy, nonatomic) NSString *tightSyncGroupID; // @synthesize tightSyncGroupID=_tightSyncGroupID;
@@ -58,6 +61,7 @@
 @property(copy, nonatomic) NSString *model; // @synthesize model=_model;
 @property(nonatomic) int mediaSystemState; // @synthesize mediaSystemState=_mediaSystemState;
 @property(nonatomic) int mediaSystemRole; // @synthesize mediaSystemRole=_mediaSystemRole;
+@property(copy, nonatomic) NSString *mediaSystemName; // @synthesize mediaSystemName=_mediaSystemName;
 @property(copy, nonatomic) NSUUID *mediaSystemIdentifier; // @synthesize mediaSystemIdentifier=_mediaSystemIdentifier;
 @property(copy, nonatomic) NSString *idsPersonalDeviceIdentifier; // @synthesize idsPersonalDeviceIdentifier=_idsPersonalDeviceIdentifier;
 @property(copy, nonatomic) NSString *idsDeviceIdentifier; // @synthesize idsDeviceIdentifier=_idsDeviceIdentifier;

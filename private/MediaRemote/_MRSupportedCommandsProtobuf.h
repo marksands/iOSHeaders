@@ -17,6 +17,7 @@
 
 + (Class)supportedCommandType;
 @property(retain, nonatomic) NSMutableArray *supportedCommands; // @synthesize supportedCommands=_supportedCommands;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -30,7 +31,6 @@
 - (unsigned long long)supportedCommandsCount;
 - (void)addSupportedCommand:(id)arg1;
 - (void)clearSupportedCommands;
-- (void)dealloc;
 
 @end
 

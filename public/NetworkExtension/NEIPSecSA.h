@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSData, NWAddressEndpoint, NWInterface;
+@class NSData, NSString, NWAddressEndpoint, NWInterface;
 
 @interface NEIPSecSA : NSObject <NSCopying>
 {
@@ -28,7 +28,7 @@
     NWAddressEndpoint *_localAddress;
     NWAddressEndpoint *_remoteAddress;
     NWInterface *_boundInterface;
-    NWInterface *_tunnelInterface;
+    NSString *_tunnelInterfaceName;
     unsigned long long _lifetimeSeconds;
     NSData *_encryptionKey;
     NSData *_authenticationKey;
@@ -50,7 +50,7 @@
 @property int encryptionAlgorithm; // @synthesize encryptionAlgorithm=_encryptionAlgorithm;
 @property unsigned long long lifetimeSeconds; // @synthesize lifetimeSeconds=_lifetimeSeconds;
 @property unsigned int replayWindowSize; // @synthesize replayWindowSize=_replayWindowSize;
-@property(retain) NWInterface *tunnelInterface; // @synthesize tunnelInterface=_tunnelInterface;
+@property(retain) NSString *tunnelInterfaceName; // @synthesize tunnelInterfaceName=_tunnelInterfaceName;
 @property(retain) NWInterface *boundInterface; // @synthesize boundInterface=_boundInterface;
 @property(retain) NWAddressEndpoint *remoteAddress; // @synthesize remoteAddress=_remoteAddress;
 @property(retain) NWAddressEndpoint *localAddress; // @synthesize localAddress=_localAddress;

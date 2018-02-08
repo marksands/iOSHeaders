@@ -6,19 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSArray, _MRDeviceInfoMessageProtobuf;
 
 @interface MRCryptoPairingSession : NSObject
 {
-    void *_device;
+    _MRDeviceInfoMessageProtobuf *_device;
     unsigned long long _role;
     id <MRCryptoPairingSessionDelegate> _delegate;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
-@property(nonatomic) id <MRCryptoPairingSessionDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MRCryptoPairingSessionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) unsigned long long role; // @synthesize role=_role;
-@property(readonly, nonatomic) void *device; // @synthesize device=_device;
+@property(readonly, nonatomic) _MRDeviceInfoMessageProtobuf *device; // @synthesize device=_device;
+- (void).cxx_destruct;
 - (_Bool)deleteIdentityWithError:(id *)arg1;
 - (id)decryptData:(id)arg1 withError:(id *)arg2;
 - (id)encryptData:(id)arg1 withError:(id *)arg2;
@@ -31,9 +32,8 @@
 @property(readonly, nonatomic) NSArray *pairedDevices;
 @property(readonly, nonatomic, getter=isValid) _Bool valid;
 @property(readonly, nonatomic, getter=isPaired) _Bool paired;
-- (void)dealloc;
 - (id)init;
-- (id)initWithRole:(unsigned long long)arg1 device:(void *)arg2;
+- (id)initWithRole:(unsigned long long)arg1 device:(id)arg2;
 
 @end
 

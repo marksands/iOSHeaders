@@ -11,8 +11,10 @@
     id *recurrentMatrices;
     id *cellMatrices;
     int nLayers;
+    _Bool _isTemporary;
 }
 
+- (_Bool)isTemporary;
 - (void)setReadCount:(unsigned long long)arg1;
 - (void)dealloc;
 - (id)initWithCommandBuffer:(id)arg1 recurrentMatrixDescriptors:(id *)arg2 cellMatrixDescriptors:(id *)arg3 isTemporary:(_Bool)arg4 layerCount:(int)arg5;

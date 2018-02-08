@@ -4,13 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+#import "NSObject.h"
+
 @class NSData, NSString;
 
-@protocol OTControlProtocol
+@protocol OTControlProtocol <NSObject>
 - (void)scrubBottledPeer:(NSString *)arg1 bottleID:(NSString *)arg2 reply:(void (^)(NSError *))arg3;
 - (void)launchBottledPeer:(NSString *)arg1 bottleID:(NSString *)arg2 reply:(void (^)(NSError *))arg3;
 - (void)preflightBottledPeer:(NSString *)arg1 dsid:(NSString *)arg2 reply:(void (^)(NSData *, NSString *, NSData *, NSError *))arg3;
 - (void)reset:(void (^)(_Bool, NSError *))arg1;
+- (void)signIn:(NSString *)arg1 reply:(void (^)(_Bool, NSError *))arg2;
 - (void)signOut:(void (^)(_Bool, NSError *))arg1;
 - (void)listOfEligibleBottledPeerRecords:(void (^)(NSArray *, NSError *))arg1;
 - (void)octagonSigningPublicKey:(void (^)(NSData *, NSError *))arg1;

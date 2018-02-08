@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSMutableArray, UIImageView, UILabel, UITextField, UIVisualEffectView;
+@class NSMutableArray, UIColor, UIImageView, UILabel, UITextField, UIVisualEffectView;
 
 @interface AKTextField : UIView
 {
@@ -16,16 +16,20 @@
     long long _textFieldStyle;
     long long _rowIdentifier;
     long long _blurEffectStyle;
+    UIColor *_fieldBackgroundColor;
     UIVisualEffectView *_visualEffectView;
     UIImageView *_backgroundImageView;
     NSMutableArray *_constraints;
 }
 
-+ (id)_cachedImageForRowIdentifier:(long long)arg1 blurEffectStyle:(long long)arg2 usingBlock:(CDUnknownBlockType)arg3;
-+ (id)_backgroundImageForRowIdentifier:(long long)arg1 blurEffectStyle:(long long)arg2;
++ (id)_cachedImageForRowIdentifier:(long long)arg1 blurEffectStyle:(long long)arg2 backgroundColor:(id)arg3 usingBlock:(CDUnknownBlockType)arg4;
++ (void)drawFillForStyle:(long long)arg1 pathRect:(struct CGRect)arg2 roundedCorners:(int)arg3 cornerRadius:(double)arg4 backgroundColor:(id)arg5;
++ (void)drawStrokeForStyle:(long long)arg1 pathRect:(struct CGRect)arg2 roundedCorners:(int)arg3 cornerRadius:(double)arg4 pathSegments:(int)arg5;
++ (id)_backgroundImageForRowIdentifier:(long long)arg1 blurEffectStyle:(long long)arg2 backgroundColor:(id)arg3;
 @property(retain, nonatomic) NSMutableArray *constraints; // @synthesize constraints=_constraints;
 @property(retain, nonatomic) UIImageView *backgroundImageView; // @synthesize backgroundImageView=_backgroundImageView;
 @property(retain, nonatomic) UIVisualEffectView *visualEffectView; // @synthesize visualEffectView=_visualEffectView;
+@property(retain, nonatomic) UIColor *fieldBackgroundColor; // @synthesize fieldBackgroundColor=_fieldBackgroundColor;
 @property(nonatomic) long long blurEffectStyle; // @synthesize blurEffectStyle=_blurEffectStyle;
 @property(nonatomic) _Bool usesVibrancy; // @synthesize usesVibrancy=_usesVibrancy;
 @property(nonatomic) long long rowIdentifier; // @synthesize rowIdentifier=_rowIdentifier;

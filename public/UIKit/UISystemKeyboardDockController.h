@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)globeItemButtonWasPressed:(id)arg1 withEvent:(id)arg2;
 - (void)dictationItemButtonWasPressed:(id)arg1 withEvent:(id)arg2;
 - (void)_dictationDidBeginNotification:(id)arg1;
+- (void)setKeyboardDockItem;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;

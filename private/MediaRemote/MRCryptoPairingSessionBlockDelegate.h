@@ -24,13 +24,13 @@
 @property(copy, nonatomic) CDUnknownBlockType hideSetupCodeBlock; // @synthesize hideSetupCodeBlock=_hideSetupCodeBlock;
 @property(copy, nonatomic) CDUnknownBlockType showSetupCodeBlock; // @synthesize showSetupCodeBlock=_showSetupCodeBlock;
 @property(copy, nonatomic) CDUnknownBlockType dataExchangeBlock; // @synthesize dataExchangeBlock=_dataExchangeBlock;
+- (void).cxx_destruct;
 - (void)pairingSession:(id)arg1 didCompleteExchangeWithError:(id)arg2;
 - (void)pairingSession:(id)arg1 promptForSetupCodeWithDelay:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)pairingSession:(id)arg1 promptForSetupCodeWithCompletion:(CDUnknownBlockType)arg2;
 - (void)pairingSessionHideSetupCode:(id)arg1;
 - (void)pairingSession:(id)arg1 showSetupCode:(id)arg2;
 - (void)pairingSession:(id)arg1 didPrepareExchangeData:(id)arg2;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

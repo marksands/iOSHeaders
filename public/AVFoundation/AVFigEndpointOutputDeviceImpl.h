@@ -21,8 +21,10 @@
 @property __weak AVOutputDevice *parentOutputDevice; // @synthesize parentOutputDevice=_parentDevice;
 - (void).cxx_destruct;
 - (void)configureUsingBlock:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) _Bool canRelayCommunicationChannel;
 @property(readonly, nonatomic) NSString *logicalDeviceID;
 @property(readonly, nonatomic) _Bool groupContainsGroupLeader;
+@property(readonly, nonatomic) _Bool participatesInGroupPlayback;
 @property(readonly, nonatomic) _Bool isGroupLeader;
 @property(readonly, nonatomic) _Bool canBeGroupLeader;
 @property(readonly, copy, nonatomic) NSString *groupID;

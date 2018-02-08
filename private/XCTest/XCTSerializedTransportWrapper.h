@@ -17,9 +17,9 @@
 
 + (_Bool)supportsSecureCoding;
 @property(readonly) NSObject<OS_xpc_object> *serializedTransport; // @synthesize serializedTransport=_serializedTransport;
+- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithSerializedTransport:(id)arg1;
 
 @end

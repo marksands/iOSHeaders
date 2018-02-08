@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, XCAXClient_iOS, XCAccessibilityElement, XCElementSnapshot, XCUIApplicationImpl, XCUIApplicationMonitor;
+@class NSObject<OS_dispatch_queue>, XCAccessibilityElement, XCElementSnapshot, XCUIApplicationImpl, XCUIApplicationMonitor;
 
 @interface XCUIApplicationProcess : NSObject
 {
@@ -26,7 +26,7 @@
     id <XCTRunnerAutomationSession> _automationSession;
     XCElementSnapshot *_lastSnapshot;
     XCUIApplicationMonitor *_applicationMonitor;
-    XCAXClient_iOS *_AXClient_iOS;
+    id <XCUIAccessibilityInterface> _axInterface;
 }
 
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
@@ -34,12 +34,13 @@
 + (id)keyPathsForValuesAffectingBackground;
 + (id)keyPathsForValuesAffectingSuspended;
 + (id)keyPathsForValuesAffectingRunning;
-@property XCAXClient_iOS *AXClient_iOS; // @synthesize AXClient_iOS=_AXClient_iOS;
-@property XCUIApplicationMonitor *applicationMonitor; // @synthesize applicationMonitor=_applicationMonitor;
+@property(retain) id <XCUIAccessibilityInterface> axInterface; // @synthesize axInterface=_axInterface;
+@property(retain) XCUIApplicationMonitor *applicationMonitor; // @synthesize applicationMonitor=_applicationMonitor;
 @property(retain) XCElementSnapshot *lastSnapshot; // @synthesize lastSnapshot=_lastSnapshot;
 @property(retain) id <XCTRunnerAutomationSession> automationSession; // @synthesize automationSession=_automationSession;
 @property _Bool hasCrashReport; // @synthesize hasCrashReport=_hasCrashReport;
 @property _Bool hasExitCode; // @synthesize hasExitCode=_hasExitCode;
+- (void).cxx_destruct;
 - (void)terminate;
 - (void)waitForViewControllerViewDidDisappearWithTimeout:(double)arg1;
 - (void)waitForAutomationSession;
@@ -64,8 +65,7 @@
 - (id)_queue_description;
 - (id)description;
 - (id)init;
-- (id)initWithApplicationMonitor:(id)arg1 AXInterface:(id)arg2;
-- (void)dealloc;
+- (id)initWithApplicationMonitor:(id)arg1 axInterface:(id)arg2;
 
 @end
 

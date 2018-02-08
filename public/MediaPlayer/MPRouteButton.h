@@ -15,24 +15,22 @@
     double _alphaOverride;
     _Bool _routeLabelHidden;
     _Bool _forcesUppercaseText;
+    double _accessoryImageSpacing;
     UIFont *_font;
     MPAVRoute *_route;
     NSString *_routeTitle;
     UIColor *_overrideColor;
-    struct UIEdgeInsets _contentEdgeInsets;
     struct UIEdgeInsets _hitRectInsets;
-    struct UIEdgeInsets _titleEdgeInsets;
 }
 
 @property(retain, nonatomic) UIColor *overrideColor; // @synthesize overrideColor=_overrideColor;
-@property(nonatomic) struct UIEdgeInsets titleEdgeInsets; // @synthesize titleEdgeInsets=_titleEdgeInsets;
 @property(nonatomic) _Bool forcesUppercaseText; // @synthesize forcesUppercaseText=_forcesUppercaseText;
 @property(nonatomic, getter=isRouteLabelHidden) _Bool routeLabelHidden; // @synthesize routeLabelHidden=_routeLabelHidden;
 @property(readonly, copy, nonatomic) NSString *routeTitle; // @synthesize routeTitle=_routeTitle;
 @property(retain, nonatomic) MPAVRoute *route; // @synthesize route=_route;
 @property(nonatomic) struct UIEdgeInsets hitRectInsets; // @synthesize hitRectInsets=_hitRectInsets;
 @property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
-@property(nonatomic) struct UIEdgeInsets contentEdgeInsets; // @synthesize contentEdgeInsets=_contentEdgeInsets;
+@property(nonatomic) double accessoryImageSpacing; // @synthesize accessoryImageSpacing=_accessoryImageSpacing;
 - (void).cxx_destruct;
 @property(retain, nonatomic) UIImage *accessoryImage;
 - (void)tintColorDidChange;

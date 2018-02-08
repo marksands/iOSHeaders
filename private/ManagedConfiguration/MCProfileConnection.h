@@ -537,6 +537,7 @@
 - (void)setupAssistantDidFinish;
 - (void)markStoredProfileForPurposeAsInstalled:(int)arg1;
 - (_Bool)shouldInstallStoredProfileForPurpose:(int)arg1;
+- (void)storeProfileData:(id)arg1 configurationSource:(int)arg2 purpose:(int)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)storeProfileData:(id)arg1 configurationSource:(int)arg2 purpose:(int)arg3;
 - (void)installProfileDataStoredForPurpose:(int)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)profileDataStoredForPurpose:(int)arg1 completionBlock:(CDUnknownBlockType)arg2;

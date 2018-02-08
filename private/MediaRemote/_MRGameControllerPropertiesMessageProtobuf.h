@@ -19,6 +19,7 @@
 
 @property(retain, nonatomic) _MRGameControllerPropertiesProtobuf *properties; // @synthesize properties=_properties;
 @property(nonatomic) unsigned long long controllerID; // @synthesize controllerID=_controllerID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -30,7 +31,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasProperties;
 @property(nonatomic) _Bool hasControllerID;
-- (void)dealloc;
 
 @end
 

@@ -13,6 +13,7 @@
 
 @interface AdAnalyticsEventInfo : NSObject <NSSecureCoding, NSCopying>
 {
+    float _volume;
     NSString *_bundleID;
     NSString *_adID;
     long long _videoState;
@@ -24,6 +25,7 @@
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
+@property(nonatomic) float volume; // @synthesize volume=_volume;
 @property(nonatomic) double visiblePercentage; // @synthesize visiblePercentage=_visiblePercentage;
 @property(nonatomic) double totalDuration; // @synthesize totalDuration=_totalDuration;
 @property(nonatomic) double currentPlaybackTime; // @synthesize currentPlaybackTime=_currentPlaybackTime;

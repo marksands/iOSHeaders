@@ -9,19 +9,18 @@
 #import "MRNowPlayingClientState.h"
 #import "MRTransactionSourceDelegate.h"
 
-@class MRNowPlayingArtwork, MRNowPlayingPlayerClientCallbacks, MRPlaybackQueuePlayerClient, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class MRNowPlayingArtwork, MRNowPlayingPlayerClientCallbacks, MRPlaybackQueuePlayerClient, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, _MRContentItemProtobuf, _MRNowPlayingPlayerPathProtobuf, _MRPlaybackQueueProtobuf;
 
 @interface MRNowPlayingPlayerClient : NSObject <MRNowPlayingClientState, MRTransactionSourceDelegate>
 {
-    void *_playerPath;
     NSObject<OS_dispatch_queue> *_serialQueue;
+    _MRPlaybackQueueProtobuf *_playbackQueue;
     NSArray *_supportedCommands;
     NSDictionary *_nowPlayingInfo;
     MRNowPlayingArtwork *_nowPlayingArtwork;
     unsigned int _playbackState;
     double _playbackStateSetToPlayTimestamp;
-    void *_playbackQueue;
-    void *_capabilities;
+    unsigned long long _capabilities;
     _Bool _coalescingInvalidations;
     _Bool _coalescingRequests;
     _Bool _triggerInvalidation;
@@ -29,47 +28,49 @@
     NSMutableDictionary *_coelscingTransactionPackets;
     NSMutableArray *_transactionSources;
     NSMutableDictionary *_cachedContentItemUpdates;
+    _MRNowPlayingPlayerPathProtobuf *_playerPath;
     MRPlaybackQueuePlayerClient *_playbackQueueClient;
     MRNowPlayingPlayerClientCallbacks *_clientCallbacks;
 }
 
 @property(readonly, nonatomic) MRNowPlayingPlayerClientCallbacks *clientCallbacks; // @synthesize clientCallbacks=_clientCallbacks;
 @property(readonly, nonatomic) MRPlaybackQueuePlayerClient *playbackQueueClient; // @synthesize playbackQueueClient=_playbackQueueClient;
-@property(nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
+@property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath; // @synthesize playerPath=_playerPath;
+- (void).cxx_destruct;
 - (id)debugDescription;
 - (id)description;
-- (void)updatePlaybackQueueWithCachedUpdates:(void *)arg1 forPendingRequest:(void *)arg2;
+- (void)updatePlaybackQueueWithCachedUpdates:(id)arg1 forPendingRequest:(id)arg2;
 - (void)clearCachedContentItemArtworkForItems:(id)arg1;
 - (void)cacheContentItemUpdates:(id)arg1;
-- (void)startCachingContentItemUpdatesForItem:(void *)arg1 forPendingRequest:(void *)arg2;
-- (void)addPendingRequest:(void *)arg1;
+- (void)startCachingContentItemUpdatesForItem:(id)arg1 forPendingRequest:(id)arg2;
+- (void)addPendingRequest:(id)arg1;
 - (void)transactionDidEnd:(id)arg1;
 - (void)_onQueue_sendTransaction:(unsigned long long)arg1 withPackets:(id)arg2;
 - (void)sendTransaction:(unsigned long long)arg1 withPackets:(id)arg2;
 - (void)endSendingTransactions;
 - (void)beginSendingTransactions;
 - (void)restoreNowPlayingClientState;
-- (void)preProcessCommand:(unsigned int)arg1 options:(struct __CFDictionary *)arg2;
-- (void)preProcessChangePlaybackRateCommandWithOptions:(struct __CFDictionary *)arg1;
+- (void)preProcessCommand:(unsigned int)arg1 options:(id)arg2;
+- (void)preProcessChangePlaybackRateCommandWithOptions:(id)arg1;
 - (void)updateCacheWithContentItems:(id)arg1;
-- (void)updateCacheWithItem:(void *)arg1;
-- (void *)_onQueue_nowPlayingContentItem;
-@property(readonly, nonatomic) void *nowPlayingContentItem;
-@property(nonatomic) void *playbackQueue;
-- (void)updateCacheWithPlaybackQueue:(void *)arg1;
-@property(nonatomic) void *capabilities;
+- (void)updateCacheWithItem:(id)arg1;
+- (id)_onQueue_nowPlayingContentItem;
+@property(readonly, nonatomic) _MRContentItemProtobuf *nowPlayingContentItem;
+@property(retain, nonatomic) _MRPlaybackQueueProtobuf *playbackQueue;
+- (void)updateCacheWithPlaybackQueue:(id)arg1;
+@property(nonatomic) unsigned long long capabilities;
 - (_Bool)unsetCoalescingRequests;
 - (_Bool)testAndSetCoalescingRequests;
 - (void)unsetCoalescingInvalidations;
 - (_Bool)testAndSetCoalescingInvalidations;
-- (void)updatePlayer:(void *)arg1;
+- (void)updatePlayer:(id)arg1;
 @property(nonatomic) unsigned int playbackState;
 @property(nonatomic) double invalidatationTimestamp;
 @property(copy, nonatomic) NSArray *supportedCommands;
 @property(retain, nonatomic) MRNowPlayingArtwork *nowPlayingArtwork;
 @property(copy, nonatomic) NSDictionary *nowPlayingInfo;
 - (void)dealloc;
-- (id)initWithPlayerPath:(void *)arg1;
+- (id)initWithPlayerPath:(id)arg1;
 
 @end
 

@@ -25,7 +25,7 @@
 @property _Bool usePlatformLauncher; // @synthesize usePlatformLauncher=_usePlatformLauncher;
 @property _Bool terminateIfRunning; // @synthesize terminateIfRunning=_terminateIfRunning;
 @property _Bool activateIfRunning; // @synthesize activateIfRunning=_activateIfRunning;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

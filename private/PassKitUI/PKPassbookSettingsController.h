@@ -76,6 +76,7 @@
 - (void)_presentPeerPaymentSetupFlowForSpecifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_presentPeerPaymentSetupFlowForSpecifier:(id)arg1;
 - (void)_presentPeerPaymentReOpenCardFlowForSpecifier:(id)arg1;
+- (void)_presentFeatureNotEnabledForDemoForSpecifier:(id)arg1;
 - (void)_registerForPeerPaymentWithSpecifier:(id)arg1;
 - (_Bool)_isPeerPaymentRegistered;
 - (void)peerPaymentAccountResolutionController:(id)arg1 requestsDismissCurrentViewControllerAnimated:(_Bool)arg2;

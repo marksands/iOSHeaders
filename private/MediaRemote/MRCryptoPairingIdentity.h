@@ -18,7 +18,7 @@
 @property(readonly, nonatomic) NSData *privateKey; // @synthesize privateKey=_privateKey;
 @property(readonly, nonatomic) NSData *publicKey; // @synthesize publicKey=_publicKey;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)init;
 - (id)initWithIdentifier:(id)arg1 publicKey:(id)arg2 privateKey:(id)arg3;
 

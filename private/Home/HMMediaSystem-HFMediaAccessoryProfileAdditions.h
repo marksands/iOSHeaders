@@ -37,6 +37,7 @@
 @property(readonly, nonatomic) _Bool hf_isAccessorySettingsReachable;
 @property(readonly, nonatomic) _Bool hf_isAppleMusicReachable;
 @property(readonly, nonatomic) _Bool hf_supportsSoftwareUpdate;
+@property(readonly, nonatomic) _Bool hf_showsAudioSettings;
 @property(readonly, nonatomic) _Bool hf_supportsMediaSystem;
 @property(readonly, nonatomic) _Bool hf_isReachable;
 @property(readonly, nonatomic) _Bool hf_isCurrentAccessory;

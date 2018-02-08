@@ -13,6 +13,7 @@
     unsigned int _task;
     int _pid;
     _Bool _taskIsCorpse;
+    NSString *_hardwareModel;
     NSString *_processName;
     _Bool _processNameNeedsCorrection;
     NSString *_executablePath;

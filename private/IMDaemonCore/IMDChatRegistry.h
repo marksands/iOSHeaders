@@ -42,7 +42,7 @@
 - (id)_existingChatForCKRecord:(id)arg1;
 - (id)_existingChatWithOriginalGroupID:(id)arg1 onService:(id)arg2;
 - (void)_insertChatUsingCKRecord:(id)arg1;
-- (void)updateChatWithGUID:(id)arg1 serverChangeToken:(id)arg2 CKSystemPropertiesBlob:(id)arg3;
+- (void)updateChatWithGUID:(id)arg1 serverChangeToken:(id)arg2 recordID:(id)arg3;
 - (id)chatsToUploadToCloudKitWithLimit:(unsigned long long)arg1 isUsingStingRay:(_Bool)arg2;
 - (id)personCentricGroupedChatsDictionary;
 - (id)groupChatsBasedOnIdentity;

@@ -75,6 +75,7 @@
 @property(retain, nonatomic) NSString *localizedModelName; // @synthesize localizedModelName=_localizedModelName;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -107,7 +108,6 @@
 @property(readonly, nonatomic) _Bool hasLocalizedModelName;
 @property(readonly, nonatomic) _Bool hasName;
 @property(readonly, nonatomic) _Bool hasUniqueIdentifier;
-- (void)dealloc;
 
 @end
 

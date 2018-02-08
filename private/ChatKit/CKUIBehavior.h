@@ -97,6 +97,7 @@
 - (id)fullscreenPickerActionLayoutAxisPrioritiesForWidth:(double)arg1;
 @property(readonly, nonatomic) Class acknowledgementPickerBarClass;
 @property(readonly, nonatomic) unsigned long long messageAcknowledgmentVotingStackSize;
+@property(readonly, nonatomic) struct CGSize businessBannerSize;
 @property(readonly, nonatomic) UIImage *businessVerifiedImageSmall;
 @property(readonly, nonatomic) UIImage *businessVerifiedImageLarge;
 @property(readonly, nonatomic) UIImage *whiteA2AckImage;

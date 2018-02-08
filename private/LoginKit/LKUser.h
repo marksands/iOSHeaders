@@ -13,7 +13,6 @@
 
 @interface LKUser : UMMutableUser <NSSecureCoding, NSCopying>
 {
-    _Bool _needFederatedAuthFlow;
     _Bool _isPhoneticInfoProvidedInConfiguration;
     _Bool _isAttemptedPhoneticTranscription;
     NSString *_passwordType;
@@ -44,7 +43,6 @@
 @property(retain, nonatomic) NSURL *localLargeImageURL; // @synthesize localLargeImageURL=_localLargeImageURL;
 @property(retain, nonatomic) NSURL *localMediumImageURL; // @synthesize localMediumImageURL=_localMediumImageURL;
 @property(retain, nonatomic) NSDate *lastOnlineAuth; // @synthesize lastOnlineAuth=_lastOnlineAuth;
-@property(nonatomic) _Bool needFederatedAuthFlow; // @synthesize needFederatedAuthFlow=_needFederatedAuthFlow;
 @property(retain, nonatomic) NSString *phoneticFamilyName; // @synthesize phoneticFamilyName=_phoneticFamilyName;
 @property(retain, nonatomic) NSString *phoneticGivenName; // @synthesize phoneticGivenName=_phoneticGivenName;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;

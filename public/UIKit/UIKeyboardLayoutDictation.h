@@ -27,8 +27,6 @@ __attribute__((visibility("hidden")))
 - (void)layoutSubviews;
 - (void)setRenderConfig:(id)arg1;
 - (void)showKeyboardWithInputTraits:(id)arg1 screenTraits:(id)arg2 splitTraits:(id)arg3;
-- (void)didEndIndirectSelectionGesture;
-- (void)willBeginIndirectSelectionGesture;
 - (void)setupBackgroundViewForNewSplitTraits:(id)arg1;
 - (int)_clipCornersOfView:(id)arg1;
 - (_Bool)visible;

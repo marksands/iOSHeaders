@@ -100,6 +100,8 @@
 @property(nonatomic) _Bool intersectionObserverEnabled;
 - (void)setModernMediaControlsEnabled:(_Bool)arg1;
 - (_Bool)modernMediaControlsEnabled;
+- (void)setFetchAPIKeepAliveEnabled:(_Bool)arg1;
+- (_Bool)fetchAPIKeepAliveEnabled;
 - (void)setWebAnimationsEnabled:(_Bool)arg1;
 - (_Bool)webAnimationsEnabled;
 @property(nonatomic) _Bool visualViewportAPIEnabled;

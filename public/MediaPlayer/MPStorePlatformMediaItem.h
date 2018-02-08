@@ -13,6 +13,7 @@
     MPStoreItemMetadata *_storeItemMetadata;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)defaultPropertyValues;
 @property(retain, nonatomic) MPStoreItemMetadata *storeItemMetadata; // @synthesize storeItemMetadata=_storeItemMetadata;
 - (void).cxx_destruct;

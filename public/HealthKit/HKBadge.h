@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSNumber;
+@class NSNumber, NSString;
 
 @interface HKBadge : NSObject <NSCopying, NSSecureCoding>
 {
@@ -35,8 +35,10 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
+- (id)badgeByIncrementingByCount:(long long)arg1;
 - (id)badgeByAggregatingWithBadge:(id)arg1;
 - (id)initWithType:(long long)arg1 count:(long long)arg2;
+@property(readonly, copy, nonatomic) NSString *stringValue;
 @property(readonly, copy, nonatomic) NSNumber *keyValueRepresentation;
 
 @end

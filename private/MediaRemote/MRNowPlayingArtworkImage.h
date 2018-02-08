@@ -16,11 +16,11 @@
 
 @property(readonly, copy, nonatomic) NSString *mimeType; // @synthesize mimeType=_mimeType;
 @property(readonly, copy, nonatomic) NSData *imageData; // @synthesize imageData=_imageData;
+- (void).cxx_destruct;
 - (id)copyImageData;
 - (_Bool)hasArtworkData;
 - (unsigned int)type;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)initWithImageData:(id)arg1 mimeType:(id)arg2;
 
 @end

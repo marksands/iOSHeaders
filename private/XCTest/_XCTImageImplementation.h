@@ -20,7 +20,7 @@
 @property(copy) NSString *name; // @synthesize name=_name;
 @property(copy) NSData *originalData; // @synthesize originalData=_originalData;
 @property(copy) UIImage *platformImage; // @synthesize platformImage=_platformImage;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

@@ -65,6 +65,7 @@
 @property(readonly, retain, nonatomic) TSKDocumentRoot *documentRoot;
 - (id)layoutDescriptionForComponent:(id)arg1;
 - (void)endSelection;
+- (_Bool)interactiveCanvasController:(id)arg1 configureHardPressGesture:(id)arg2;
 @property(readonly, nonatomic) _Bool shouldClipToScrollViewBoundsInVisibleBounds;
 - (id)interactiveCanvasController:(id)arg1 delegateConformingToProtocol:(id)arg2 forRep:(id)arg3;
 - (_Bool)interactiveCanvasControllerIsRelatedCanvasScrolling:(id)arg1;

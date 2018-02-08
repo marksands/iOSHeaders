@@ -20,6 +20,9 @@
     NSNumber *_currentAccountNumber;
 }
 
++ (_Bool)isPreorderFromBuyParameters:(id)arg1;
++ (id)storeIDFromBuyParameters:(id)arg1;
++ (id)buyParametersValueForKey:(id)arg1 fromBuyParams:(id)arg2;
 + (void)cancelAllActiveDownloads;
 + (id)sharedInstance;
 @property(retain, nonatomic) NSNumber *currentAccountNumber; // @synthesize currentAccountNumber=_currentAccountNumber;

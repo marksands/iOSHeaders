@@ -7,11 +7,10 @@
 #import "NSObject.h"
 
 #import "MSPCloudAccess.h"
-#import "MSPJournaling.h"
 
-@class CKContainer, CKDatabase, CKRecordZoneID, MSPCloudCoalescedOperationExecutor, MSPJournal, NSDate, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class CKContainer, CKDatabase, CKRecordZoneID, MSPCloudCoalescedOperationExecutor, MSPJournal, MSPLongLivedCKOpScopedCache, NSDate, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
-@interface MSPCloudKitAccountAccess : NSObject <MSPJournaling, MSPCloudAccess>
+@interface MSPCloudKitAccountAccess : NSObject <MSPCloudAccess>
 {
     NSString *_latestAccountIdentity;
     CKContainer *_container;
@@ -25,13 +24,12 @@
     MSPCloudCoalescedOperationExecutor *_coalescedExecutor;
     CDUnknownBlockType _availabilityDidChangeHandler;
     CDUnknownBlockType _contentsDidChangeHandler;
+    MSPLongLivedCKOpScopedCache *_longLivedOpCache;
 }
 
 + (id)containerForEnvironment:(long long)arg1 usesZoneWidePCS:(_Bool)arg2;
-+ (id)_snapshotLongLivedIDs;
-+ (void)_didCompleteLongLivedOperation:(id)arg1;
-+ (void)_willEmitLongLivedOperation:(id)arg1;
-+ (id)_trackedLongLivedIDsSet;
++ (_Bool)useLongLivedOperations;
+@property(retain, nonatomic) MSPLongLivedCKOpScopedCache *longLivedOpCache; // @synthesize longLivedOpCache=_longLivedOpCache;
 @property(copy, nonatomic) CDUnknownBlockType contentsDidChangeHandler; // @synthesize contentsDidChangeHandler=_contentsDidChangeHandler;
 @property(copy, nonatomic) CDUnknownBlockType availabilityDidChangeHandler; // @synthesize availabilityDidChangeHandler=_availabilityDidChangeHandler;
 - (void).cxx_destruct;

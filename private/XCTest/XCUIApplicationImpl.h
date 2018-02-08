@@ -6,11 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSString, XCAccessibilityElement, XCUIApplicationProcess;
+@class NSString, XCAccessibilityElement, XCUIApplicationMonitor, XCUIApplicationProcess;
 
 @interface XCUIApplicationImpl : NSObject
 {
     _Bool _supportsAutomationSession;
+    id <XCUIXcodeApplicationManaging> _xcodeInterface;
+    XCUIApplicationMonitor *_applicationMonitor;
+    id <XCUIAccessibilityInterface> _axInterface;
     NSString *_path;
     NSString *_bundleID;
     XCUIApplicationProcess *_currentProcess;
@@ -26,6 +29,10 @@
 @property(retain, nonatomic) XCUIApplicationProcess *currentProcess; // @synthesize currentProcess=_currentProcess;
 @property(readonly, copy) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(readonly, copy) NSString *path; // @synthesize path=_path;
+@property(readonly) id <XCUIAccessibilityInterface> axInterface; // @synthesize axInterface=_axInterface;
+@property(readonly) XCUIApplicationMonitor *applicationMonitor; // @synthesize applicationMonitor=_applicationMonitor;
+@property(readonly) id <XCUIXcodeApplicationManaging> xcodeInterface; // @synthesize xcodeInterface=_xcodeInterface;
+- (void).cxx_destruct;
 - (void)waitForViewControllerViewDidDisappearWithTimeout:(double)arg1;
 - (void)handleCrashUnderSymbol:(id)arg1;
 - (void)terminate;
@@ -34,8 +41,9 @@
 - (void)waitForAccessibilityActive;
 - (void)_waitForValidPID;
 - (void)_launchUsingPlatformWithArguments:(id)arg1 environment:(id)arg2;
+- (_Bool)_shouldRetryForLaunchError:(id)arg1;
 - (void)_launchUsingXcodeWithArguments:(id)arg1 environment:(id)arg2;
-- (void)_waitForLaunchProgress;
+- (void)_waitForLaunchProgressWithToken:(id)arg1;
 - (void)_launchWithRequest:(id)arg1;
 - (void)_activateForPlatform;
 - (void)_activate;
@@ -53,6 +61,7 @@
 - (id)description;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1 bundleID:(id)arg2;
+- (id)initWithPath:(id)arg1 bundleID:(id)arg2 xcodeInterface:(id)arg3 applicationMonitor:(id)arg4 axInterface:(id)arg5;
 
 @end
 

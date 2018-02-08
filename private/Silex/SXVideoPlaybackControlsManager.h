@@ -13,13 +13,15 @@
     SXVideoControlsVisibilityManager *_controlsVisibilityManager;
     SXVideoAccessoryBarManager *_accessoryBarManager;
     SXTopVideoControlsManager *_topControlsManager;
+    id <SXVideoControlsLockManager> _controlsLockManager;
 }
 
+@property(readonly, nonatomic) id <SXVideoControlsLockManager> controlsLockManager; // @synthesize controlsLockManager=_controlsLockManager;
 @property(readonly, nonatomic) SXTopVideoControlsManager *topControlsManager; // @synthesize topControlsManager=_topControlsManager;
 @property(readonly, nonatomic) SXVideoAccessoryBarManager *accessoryBarManager; // @synthesize accessoryBarManager=_accessoryBarManager;
 @property(readonly, nonatomic) SXVideoControlsVisibilityManager *controlsVisibilityManager; // @synthesize controlsVisibilityManager=_controlsVisibilityManager;
 - (void).cxx_destruct;
-- (id)initWithVisibilityManger:(id)arg1 topControlsManager:(id)arg2 accessoryBarManager:(id)arg3;
+- (id)initWithVisibilityManger:(id)arg1 topControlsManager:(id)arg2 accessoryBarManager:(id)arg3 controlsLockManager:(id)arg4;
 
 @end
 

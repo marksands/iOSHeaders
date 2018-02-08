@@ -38,6 +38,7 @@
 - (void).cxx_destruct;
 - (void)_routeConnectionVolumeDidChangeNotification:(id)arg1;
 - (void)_pickedRouteVolumeControlAvailabilityChanged:(id)arg1;
+- (void)adjustVolumeValue:(float)arg1;
 - (void)reloadWarning;
 - (void)reload;
 - (void)_setPendingVolumeIfNeeded;

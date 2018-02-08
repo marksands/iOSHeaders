@@ -8,7 +8,7 @@
 
 #import "MRAVDistantExternalDeviceClientProtocol.h"
 
-@class MRAVDistantExternalDeviceMetadata, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
+@class MRAVDistantExternalDeviceMetadata, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection, _MROriginProtobuf;
 
 @interface MRDistantExternalDevice : MRExternalDevice <MRAVDistantExternalDeviceClientProtocol>
 {
@@ -18,7 +18,7 @@
     unsigned long long _callbacks;
     unsigned long long _deviceNotifications;
     unsigned int _connectionState;
-    void *_customOrigin;
+    _MROriginProtobuf *_customOrigin;
     CDUnknownBlockType _connectionStateCallback;
     NSObject<OS_dispatch_queue> *_connectionStateCallbackQueue;
     CDUnknownBlockType _nameCallback;
@@ -44,6 +44,7 @@
 @property(copy, nonatomic) CDUnknownBlockType nameCallback; // @synthesize nameCallback=_nameCallback;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *connectionStateCallbackQueue; // @synthesize connectionStateCallbackQueue=_connectionStateCallbackQueue;
 @property(copy, nonatomic) CDUnknownBlockType connectionStateCallback; // @synthesize connectionStateCallback=_connectionStateCallback;
+- (void).cxx_destruct;
 - (void)_updateHostedDeviceDesiredNotifications;
 - (void)_updateHostedDeviceDesiredCallbacks;
 - (void)_synchronousLoadExternalDeviceMetadataIfNecessary;
@@ -71,8 +72,9 @@
 - (void)unpair;
 - (void)disconnect:(id)arg1;
 - (void)connectWithOptions:(unsigned int)arg1;
-- (void *)customOrigin;
-- (void *)deviceInfo;
+- (id)customOrigin;
+- (id)deviceInfo;
+- (void)_handleDeviceInfoDidChange:(id)arg1;
 - (void)setUsingSystemPairing:(_Bool)arg1;
 - (_Bool)isUsingSystemPairing;
 - (CDStruct_64424771)systemMusicContextInfo;

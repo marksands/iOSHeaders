@@ -17,6 +17,7 @@
 + (id)contentKeySessionWithKeySystem:(id)arg1;
 + (void)removePendingExpiredSessionReports:(id)arg1 withAppIdentifier:(id)arg2 storageDirectoryAtURL:(id)arg3;
 + (id)pendingExpiredSessionReportsWithAppIdentifier:(id)arg1 storageDirectoryAtURL:(id)arg2;
++ (id)_uniqueIDForCyptorUUID:(id)arg1 cryptorRequestID:(unsigned long long)arg2;
 - (void)makeSecureTokenForExpirationDateOfPersistableContentKey:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)renewExpiringResponseDataForContentKeyRequest:(id)arg1;
 - (void)processContentKeyRequestWithIdentifier:(id)arg1 initializationData:(id)arg2 options:(id)arg3;
@@ -37,6 +38,9 @@
 - (id)initWithKeySystem:(id)arg1 storageDirectoryAtURL:(id)arg2;
 - (id)initWithStorageDirectoryAtURL:(id)arg1;
 - (id)init;
+- (void)_removeContentKeyRequestForCryptorUUID:(id)arg1 cryptorRequestID:(unsigned long long)arg2;
+- (id)_contentKeyRequestForCryptorUUID:(id)arg1 cryptorRequestID:(unsigned long long)arg2;
+- (void)_setContentKeyRequest:(id)arg1 forCryptorUUID:(id)arg2 cryptorRequestID:(unsigned long long)arg3;
 - (id)delegateStorage;
 - (void)issueContentKeyRequestWithPreloadingRequestOptions:(id)arg1 identifier:(id)arg2 initializationData:(id)arg3 providesPersistableKey:(_Bool)arg4;
 - (void)issueContentKeyRequestWithCustomURLHandler:(struct OpaqueFigCustomURLHandler *)arg1 identifier:(id)arg2 requestInfo:(struct __CFDictionary *)arg3 requestID:(unsigned long long)arg4 providesPersistableKey:(_Bool)arg5;
@@ -46,6 +50,9 @@
 - (void)createProtectorSessionIdentifierIfNecessary;
 - (int)decodeKeyRequestInitializationData:(id)arg1 IntoSinfs:(id *)arg2 CodecType:(id *)arg3 MediaType:(id *)arg4 ContainerType:(id *)arg5;
 - (int)setAppIdentifier:(id)arg1;
+- (void)_handleKeyResponseSuccessfullyProcessedForCryptorUUID:(id)arg1 andCryptorRequestID:(unsigned long long)arg2;
+- (void)_handleKeyResponseError:(id)arg1 forCryptorUUID:(id)arg2 andCryptorRequestID:(unsigned long long)arg3;
+- (void)_handleUpdateToPersistentKey:(id)arg1 forKeyIdentifier:(id)arg2;
 - (int)createAndInstallCustomURLHandlerForAsset:(id)arg1 outHandler:(struct OpaqueFigCustomURLHandler **)arg2;
 - (void)_handleRequest:(struct __CFDictionary *)arg1 withRequestID:(unsigned long long)arg2 fromHandler:(struct OpaqueFigCustomURLHandler *)arg3 willHandleRequest:(_Bool *)arg4;
 - (const struct OpaqueFigContentKeySession *)_figContentKeySession;

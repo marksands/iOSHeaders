@@ -17,6 +17,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)paddingForTensorflowAveragePoolingValidOnly;
 + (id)paddingForTensorflowAveragePooling;
 + (id)paddingWithMethod:(unsigned long long)arg1;
 - (void)dealloc;

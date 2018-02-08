@@ -10,11 +10,11 @@
 #import "MPAVQueueCoordinatorDataSource.h"
 #import "MPQueueBehaviorManaging.h"
 #import "MPQueueFeederDelegate.h"
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class MPAVController, MPAVItem, MPAVQueueCoordinator, MPQueueFeeder, NSString;
 
-@interface MPAVPlaylistManager : NSObject <MPQueueFeederDelegate, MPAVQueueCoordinatorDataSource, MPAVQueueController, MPQueueBehaviorManaging, NSCoding>
+@interface MPAVPlaylistManager : NSObject <MPQueueFeederDelegate, MPAVQueueCoordinatorDataSource, MPAVQueueController, MPQueueBehaviorManaging, NSSecureCoding>
 {
     MPAVItem *_currentItem;
     _Bool _goToTargetIndex;
@@ -31,6 +31,7 @@
     id <MPAVPlaylistManagerDelegate> _delegate;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain) MPAVItem *currentItem; // @synthesize currentItem=_currentItem;
 @property(readonly, nonatomic) MPQueueFeeder *playlistFeeder; // @synthesize playlistFeeder=_playlistFeeder;
 @property(nonatomic) __weak id <MPAVPlaylistManagerDelegate> delegate; // @synthesize delegate=_delegate;

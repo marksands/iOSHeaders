@@ -20,6 +20,7 @@
 + (id)nodeWithSource:(id)arg1 filterSize:(unsigned long long)arg2;
 @property(readonly, nonatomic) unsigned long long dilationRateY; // @synthesize dilationRateY=_dilationRateY;
 @property(readonly, nonatomic) unsigned long long dilationRateX; // @synthesize dilationRateX=_dilationRateX;
+- (Class)gradientClass;
 - (struct FilterGraphNode *)newFilterNode;
 - (id)initWithSource:(id)arg1 filterSize:(unsigned long long)arg2;
 - (id)initWithSource:(id)arg1 filterSize:(unsigned long long)arg2 stride:(unsigned long long)arg3 dilationRate:(unsigned long long)arg4;

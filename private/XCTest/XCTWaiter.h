@@ -16,7 +16,6 @@
     _XCTWaiterImpl *_internalImplementation;
 }
 
-+ (id)waitForActivity:(id)arg1 timeout:(double)arg2 block:(CDUnknownBlockType)arg3;
 + (long long)waitForExpectations:(id)arg1 timeout:(double)arg2 enforceOrder:(_Bool)arg3;
 + (long long)waitForExpectations:(id)arg1 timeout:(double)arg2;
 + (void)wait:(double)arg1;
@@ -26,6 +25,7 @@
 + (double)watchdogTimeoutSlop;
 + (void)setWatchdogTimeoutSlop:(double)arg1;
 @property(readonly) _XCTWaiterImpl *internalImplementation; // @synthesize internalImplementation=_internalImplementation;
+- (void).cxx_destruct;
 @property(readonly) _Bool currentContextIsNested;
 - (long long)result;
 @property(readonly) double timeout;
@@ -54,7 +54,6 @@
 @property(readonly, copy) NSString *description;
 - (id)initWithDelegate:(id)arg1;
 - (id)init;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

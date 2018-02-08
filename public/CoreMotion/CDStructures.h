@@ -360,6 +360,7 @@ struct Item {
     struct unique_ptr<CMMsl::PressureGps, std::__1::default_delete<CMMsl::PressureGps>> _pressureGps;
     struct unique_ptr<CMMsl::PressureOscarEmu, std::__1::default_delete<CMMsl::PressureOscarEmu>> _pressureOscarEmu;
     struct unique_ptr<CMMsl::Prox, std::__1::default_delete<CMMsl::Prox>> _prox;
+    struct unique_ptr<CMMsl::RotationRate, std::__1::default_delete<CMMsl::RotationRate>> _rotationRate;
     struct unique_ptr<CMMsl::SessionOverride, std::__1::default_delete<CMMsl::SessionOverride>> _sessionOverride;
     struct unique_ptr<CMMsl::StepCadenceToStrideLengthBin, std::__1::default_delete<CMMsl::StepCadenceToStrideLengthBin>> _stepCadenceToStrideLengthBin;
     struct unique_ptr<CMMsl::StreamingHeartRateData, std::__1::default_delete<CMMsl::StreamingHeartRateData>> _streamingHeartRateData;
@@ -371,11 +372,11 @@ struct Item {
     struct unique_ptr<CMMsl::WorkoutRecorderAccel, std::__1::default_delete<CMMsl::WorkoutRecorderAccel>> _workoutRecorderAccel;
     struct unique_ptr<CMMsl::WorkoutRecorderBodyMetrics, std::__1::default_delete<CMMsl::WorkoutRecorderBodyMetrics>> _workoutRecorderBodyMetrics;
     struct unique_ptr<CMMsl::WorkoutRecorderElevation, std::__1::default_delete<CMMsl::WorkoutRecorderElevation>> _workoutRecorderElevation;
-    struct unique_ptr<CMMsl::WorkoutRecorderGyro, std::__1::default_delete<CMMsl::WorkoutRecorderGyro>> _workoutRecorderGyro;
+    struct unique_ptr<CMMsl::WorkoutRecorderHealthKitInfo, std::__1::default_delete<CMMsl::WorkoutRecorderHealthKitInfo>> _workoutRecorderHealthKitInfo;
     struct unique_ptr<CMMsl::WorkoutRecorderHeartRate, std::__1::default_delete<CMMsl::WorkoutRecorderHeartRate>> _workoutRecorderHeartRate;
     struct unique_ptr<CMMsl::WorkoutRecorderOdometer, std::__1::default_delete<CMMsl::WorkoutRecorderOdometer>> _workoutRecorderOdometer;
+    struct unique_ptr<CMMsl::WorkoutRecorderRotationRate, std::__1::default_delete<CMMsl::WorkoutRecorderRotationRate>> _workoutRecorderRotationRate;
     struct unique_ptr<CMMsl::WorkoutRecorderWorkoutEvent, std::__1::default_delete<CMMsl::WorkoutRecorderWorkoutEvent>> _workoutRecorderWorkoutEvent;
-    struct unique_ptr<CMMsl::WorkoutRecorderWorkoutHKInfo, std::__1::default_delete<CMMsl::WorkoutRecorderWorkoutHKInfo>> _workoutRecorderWorkoutHKInfo;
     struct {
         unsigned int cftime:1;
     } _has;
@@ -423,6 +424,8 @@ struct Prox;
 
 struct Reader;
 
+struct RotationRate;
+
 struct SessionOverride;
 
 struct StepCadenceToStrideLengthBin;
@@ -463,15 +466,15 @@ struct WorkoutRecorderBodyMetrics;
 
 struct WorkoutRecorderElevation;
 
-struct WorkoutRecorderGyro;
+struct WorkoutRecorderHealthKitInfo;
 
 struct WorkoutRecorderHeartRate;
 
 struct WorkoutRecorderOdometer;
 
-struct WorkoutRecorderWorkoutEvent;
+struct WorkoutRecorderRotationRate;
 
-struct WorkoutRecorderWorkoutHKInfo;
+struct WorkoutRecorderWorkoutEvent;
 
 struct Writer;
 
@@ -991,6 +994,12 @@ struct unique_ptr<CMMsl::Reader, std::__1::default_delete<CMMsl::Reader>> {
     } __ptr_;
 };
 
+struct unique_ptr<CMMsl::RotationRate, std::__1::default_delete<CMMsl::RotationRate>> {
+    struct __compressed_pair<CMMsl::RotationRate *, std::__1::default_delete<CMMsl::RotationRate>> {
+        struct RotationRate *__value_;
+    } __ptr_;
+};
+
 struct unique_ptr<CMMsl::SessionOverride, std::__1::default_delete<CMMsl::SessionOverride>> {
     struct __compressed_pair<CMMsl::SessionOverride *, std::__1::default_delete<CMMsl::SessionOverride>> {
         struct SessionOverride *__value_;
@@ -1057,9 +1066,9 @@ struct unique_ptr<CMMsl::WorkoutRecorderElevation, std::__1::default_delete<CMMs
     } __ptr_;
 };
 
-struct unique_ptr<CMMsl::WorkoutRecorderGyro, std::__1::default_delete<CMMsl::WorkoutRecorderGyro>> {
-    struct __compressed_pair<CMMsl::WorkoutRecorderGyro *, std::__1::default_delete<CMMsl::WorkoutRecorderGyro>> {
-        struct WorkoutRecorderGyro *__value_;
+struct unique_ptr<CMMsl::WorkoutRecorderHealthKitInfo, std::__1::default_delete<CMMsl::WorkoutRecorderHealthKitInfo>> {
+    struct __compressed_pair<CMMsl::WorkoutRecorderHealthKitInfo *, std::__1::default_delete<CMMsl::WorkoutRecorderHealthKitInfo>> {
+        struct WorkoutRecorderHealthKitInfo *__value_;
     } __ptr_;
 };
 
@@ -1075,15 +1084,15 @@ struct unique_ptr<CMMsl::WorkoutRecorderOdometer, std::__1::default_delete<CMMsl
     } __ptr_;
 };
 
-struct unique_ptr<CMMsl::WorkoutRecorderWorkoutEvent, std::__1::default_delete<CMMsl::WorkoutRecorderWorkoutEvent>> {
-    struct __compressed_pair<CMMsl::WorkoutRecorderWorkoutEvent *, std::__1::default_delete<CMMsl::WorkoutRecorderWorkoutEvent>> {
-        struct WorkoutRecorderWorkoutEvent *__value_;
+struct unique_ptr<CMMsl::WorkoutRecorderRotationRate, std::__1::default_delete<CMMsl::WorkoutRecorderRotationRate>> {
+    struct __compressed_pair<CMMsl::WorkoutRecorderRotationRate *, std::__1::default_delete<CMMsl::WorkoutRecorderRotationRate>> {
+        struct WorkoutRecorderRotationRate *__value_;
     } __ptr_;
 };
 
-struct unique_ptr<CMMsl::WorkoutRecorderWorkoutHKInfo, std::__1::default_delete<CMMsl::WorkoutRecorderWorkoutHKInfo>> {
-    struct __compressed_pair<CMMsl::WorkoutRecorderWorkoutHKInfo *, std::__1::default_delete<CMMsl::WorkoutRecorderWorkoutHKInfo>> {
-        struct WorkoutRecorderWorkoutHKInfo *__value_;
+struct unique_ptr<CMMsl::WorkoutRecorderWorkoutEvent, std::__1::default_delete<CMMsl::WorkoutRecorderWorkoutEvent>> {
+    struct __compressed_pair<CMMsl::WorkoutRecorderWorkoutEvent *, std::__1::default_delete<CMMsl::WorkoutRecorderWorkoutEvent>> {
+        struct WorkoutRecorderWorkoutEvent *__value_;
     } __ptr_;
 };
 

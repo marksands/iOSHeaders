@@ -47,6 +47,7 @@
 @property(readonly, nonatomic) _Bool allowHotPocketDuringTransition; // @dynamic allowHotPocketDuringTransition;
 @property(readonly, nonatomic) unsigned long long backgroundMaterialOptions; // @dynamic backgroundMaterialOptions;
 @property(readonly, nonatomic, getter=isPanDismissalAvailable) _Bool panDismissalAvailable; // @dynamic panDismissalAvailable;
+- (_Bool)backdropViewShouldUseAlphaTransformer;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

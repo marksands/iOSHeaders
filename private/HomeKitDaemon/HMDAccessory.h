@@ -6,7 +6,6 @@
 
 #import "HMFObject.h"
 
-#import "HMDAccessoryMinimumUserPrivilegeCapable.h"
 #import "HMDBackingStoreObjectProtocol.h"
 #import "HMDBulletinIdentifiers.h"
 #import "HMDHomeMessageReceiver.h"
@@ -16,7 +15,7 @@
 
 @class HMAccessoryCategory, HMDAccessoryTransaction, HMDAccessoryVersion, HMDApplicationData, HMDApplicationRegistry, HMDHome, HMDRoom, HMDVendorModelEntry, HMFMessageDispatcher, NSArray, NSMutableSet, NSNumber, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDAccessory : HMFObject <HMDBulletinIdentifiers, HMDAccessoryMinimumUserPrivilegeCapable, NSSecureCoding, HMDHomeMessageReceiver, HMDBackingStoreObjectProtocol, HMFDumpState, HMFLogging>
+@interface HMDAccessory : HMFObject <HMDBulletinIdentifiers, NSSecureCoding, HMDHomeMessageReceiver, HMDBackingStoreObjectProtocol, HMFDumpState, HMFLogging>
 {
     _Bool _primary;
     _Bool _reachable;
@@ -70,10 +69,7 @@
 @property(retain, nonatomic) HMAccessoryCategory *category; // @synthesize category=_category;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
-- (void)handleUpdatedPassword:(id)arg1;
-- (void)handleUpdatedMinimumUserPrivilege:(long long)arg1;
 - (_Bool)supportsMinimumUserPrivilege;
-- (id)minimumUserPrivilegeProvider;
 - (id)hashRouteID;
 - (_Bool)providesHashRouteID;
 - (void)encodeWithCoder:(id)arg1;

@@ -163,7 +163,6 @@
 - (void)_sendOpenParentApplicationRequest;
 - (void)updateUserActivity:(id)arg1 userInfo:(id)arg2 webpageURL:(id)arg3 controller:(id)arg4;
 - (void)fetchNotificationForNotificationID:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)sendComplicationObject:(id)arg1;
 - (void)replyTimingData:(id)arg1;
 - (void)replyWithExtensionTimingData:(id)arg1;
 - (void)_requestTimingData:(id)arg1;

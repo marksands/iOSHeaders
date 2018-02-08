@@ -127,6 +127,7 @@
     unsigned long long m_previousReturnKeyBehavior;
     _Bool m_usesCandidateSelection;
     _Bool m_UsedCandidateSelection;
+    _Bool m_hasEditedMarkedTextInExtendedView;
     _Bool m_updatingLayout;
     _Bool m_suppressUpdateLayout;
     _Bool m_animateUpdateBars;

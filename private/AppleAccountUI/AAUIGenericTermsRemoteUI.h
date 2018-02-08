@@ -42,8 +42,9 @@
 - (void)objectModel:(id)arg1 pressedButton:(id)arg2 attributes:(id)arg3;
 - (id)sessionConfigurationForLoader:(id)arg1;
 - (void)loader:(id)arg1 didFailWithError:(id)arg2;
+- (_Bool)_isUnauthorizedError:(id)arg1;
 - (void)loader:(id)arg1 receivedObjectModel:(id)arg2 actionSignal:(unsigned long long)arg3;
-- (void)_loadRequestPreferingPassword:(_Bool)arg1;
+- (void)_loadRequestPreferringPassword:(_Bool)arg1;
 - (void)presentFromViewController:(id)arg1 modal:(_Bool)arg2;
 - (id)initWithAccount:(id)arg1 inStore:(id)arg2;
 

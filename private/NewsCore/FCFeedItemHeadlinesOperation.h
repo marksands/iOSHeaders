@@ -11,7 +11,7 @@
 @interface FCFeedItemHeadlinesOperation : FCOperation
 {
     _Bool _shouldFilterHeadlinesWithoutSourceChannels;
-    id <FCAppConfiguration> _appConfiguration;
+    id <FCCoreConfiguration> _configuration;
     id <FCContentContext> _context;
     id <FCFeedPersonalizing> _personalizer;
     NSArray *_feedItems;
@@ -35,7 +35,7 @@
 @property(copy, nonatomic) NSArray *feedItems; // @synthesize feedItems=_feedItems;
 @property(retain, nonatomic) id <FCFeedPersonalizing> personalizer; // @synthesize personalizer=_personalizer;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
-@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(copy, nonatomic) id <FCCoreConfiguration> configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)_fetchUnadornedHeadlinesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)operationWillFinishWithError:(id)arg1;

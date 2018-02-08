@@ -14,6 +14,7 @@
 @property(readonly, nonatomic) _Bool allowHotPocketDuringTransition;
 @property(readonly, nonatomic) unsigned long long backgroundMaterialOptions;
 @property(readonly, nonatomic, getter=isPanDismissalAvailable) _Bool panDismissalAvailable;
+- (_Bool)backdropViewShouldUseAlphaTransformer;
 - (_Bool)tapAllowsDismissalForLocation:(struct CGPoint)arg1;
 - (CCUIAnimationBatch *)animationBatchForTransitionState:(CCUIOverlayTransitionState *)arg1 previousTransitionState:(CCUIOverlayTransitionState *)arg2;
 - (void)layoutViews;

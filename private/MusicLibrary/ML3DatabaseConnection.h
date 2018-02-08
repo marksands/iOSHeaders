@@ -38,8 +38,6 @@
     unsigned long long _checkpointStatementThreshold;
 }
 
-+ (void)_updateLastCorruptionRestoreAttemptDate;
-+ (id)_lastCorruptionRestoreAttemptDate;
 @property(nonatomic) _Bool logQueryPlans; // @synthesize logQueryPlans=_logQueryPlans;
 @property(nonatomic) unsigned long long checkpointStatementThreshold; // @synthesize checkpointStatementThreshold=_checkpointStatementThreshold;
 @property(nonatomic) _Bool automaticCheckpointingEnabled; // @synthesize automaticCheckpointingEnabled=_automaticCheckpointingEnabled;

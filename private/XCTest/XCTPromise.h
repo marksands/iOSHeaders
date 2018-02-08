@@ -6,23 +6,25 @@
 
 #import "NSObject.h"
 
-@class NSError, XCTestExpectation;
+@class NSError, NSString, XCTestExpectation;
 
 @interface XCTPromise : NSObject
 {
     NSError *_error;
     id _value;
     XCTestExpectation *_expectation;
+    NSString *_promiseDescription;
 }
 
+@property(readonly) NSString *promiseDescription; // @synthesize promiseDescription=_promiseDescription;
 @property(readonly) XCTestExpectation *expectation; // @synthesize expectation=_expectation;
 @property(retain) id value; // @synthesize value=_value;
 @property(retain) NSError *error; // @synthesize error=_error;
+- (void).cxx_destruct;
 - (void)fulfillWithValue:(id)arg1 error:(id)arg2;
 - (void)fulfillWithError:(id)arg1;
 - (void)fulfillWithValue:(id)arg1;
 - (id)initWithDescription:(id)arg1;
-- (void)dealloc;
 
 @end
 

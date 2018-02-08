@@ -8,11 +8,10 @@
 
 #import "HFDynamicFormattingValue.h"
 #import "HFSynchronizedTimerObserver.h"
-#import "NAIdentifiable.h"
 
 @class NSDate, NSDateComponentsFormatter, NSMapTable, NSString;
 
-@interface HFFormattedTimeRemainingValue : NSObject <HFSynchronizedTimerObserver, HFDynamicFormattingValue, NAIdentifiable>
+@interface HFFormattedTimeRemainingValue : NSObject <HFSynchronizedTimerObserver, HFDynamicFormattingValue>
 {
     NSMapTable *_observationBlocks;
     NSDate *_value;
@@ -20,15 +19,12 @@
     id <HFStringGenerator> _currentFormattedValue;
 }
 
-+ (id)na_identity;
 + (id)valueWithRemainingDuration:(double)arg1 relativeToDate:(id)arg2;
 + (id)defaultFormatter;
 @property(retain, nonatomic) id <HFStringGenerator> currentFormattedValue; // @synthesize currentFormattedValue=_currentFormattedValue;
 @property(readonly, nonatomic) NSDateComponentsFormatter *formatter; // @synthesize formatter=_formatter;
 @property(readonly, nonatomic) NSDate *value; // @synthesize value=_value;
 - (void).cxx_destruct;
-@property(readonly) unsigned long long hash;
-- (_Bool)isEqual:(id)arg1;
 - (void)countdownTimerDidFire:(id)arg1;
 - (void)_stopTimer;
 - (void)_updateTimerState;
@@ -42,6 +38,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

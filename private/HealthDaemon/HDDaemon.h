@@ -10,7 +10,7 @@
 #import "HDHealthDaemon.h"
 #import "HDXPCListenerDelegate.h"
 
-@class HDAchievementAssetManager, HDAchievementDefinitionAlertManager, HDAchievementDoctorManager, HDAppLauncher, HDBackgroundTaskScheduler, HDCloudSyncCoordinator, HDCoachingDiagnosticManager, HDCompanionAchievementManager, HDCompanionWorkoutCreditManager, HDContentProtectionManager, HDDemoDataGenerator, HDDynamicAchievementDefinitionDataStore, HDFitnessAppBadgeManager, HDPluginManager, HDPrimaryProfile, HDProcessStateManager, HDProfileManager, HDQueryManager, HDXPCListener, NSDictionary, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSURL, _HKBehavior;
+@class HDAchievementAssetManager, HDAchievementDefinitionAlertManager, HDAnalyticsSubmissionCoordinator, HDAppLauncher, HDBackgroundTaskScheduler, HDCloudSyncCoordinator, HDCoachingDiagnosticManager, HDCompanionAchievementManager, HDCompanionWorkoutCreditManager, HDContentProtectionManager, HDDemoDataGenerator, HDDynamicAchievementDefinitionDataStore, HDFitnessAppBadgeManager, HDPluginManager, HDPrimaryProfile, HDProcessStateManager, HDProfileManager, HDQueryManager, HDXPCListener, NSDictionary, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSURL, _HKBehavior;
 
 @interface HDDaemon : NSObject <HDDiagnosticObject, HDXPCListenerDelegate, HDHealthDaemon>
 {
@@ -37,7 +37,7 @@
     int _didStart;
     NSDictionary *_daemonExtensionsByIdentifier;
     NSString *_medicalIDDirectoryPath;
-    HDAchievementDoctorManager *_achievementDoctorManager;
+    HDAnalyticsSubmissionCoordinator *_analyticsSubmissionCoordinator;
     HDAchievementAssetManager *_achievementAssetManager;
     HDCompanionAchievementManager *_companionAchievementManager;
     id <HDNanoAlertSuppressionService> _alertSuppressionService;
@@ -67,7 +67,7 @@
 @property(retain, nonatomic) HDCompanionAchievementManager *companionAchievementManager; // @synthesize companionAchievementManager=_companionAchievementManager;
 @property(retain, nonatomic) HDAchievementDefinitionAlertManager *achievementDefinitionAlertManager; // @synthesize achievementDefinitionAlertManager=_achievementDefinitionAlertManager;
 @property(retain, nonatomic) HDAchievementAssetManager *achievementAssetManager; // @synthesize achievementAssetManager=_achievementAssetManager;
-@property(retain, nonatomic) HDAchievementDoctorManager *achievementDoctorManager; // @synthesize achievementDoctorManager=_achievementDoctorManager;
+@property(retain, nonatomic) HDAnalyticsSubmissionCoordinator *analyticsSubmissionCoordinator; // @synthesize analyticsSubmissionCoordinator=_analyticsSubmissionCoordinator;
 @property(readonly, copy) NSString *medicalIDDirectoryPath; // @synthesize medicalIDDirectoryPath=_medicalIDDirectoryPath;
 - (void).cxx_destruct;
 - (void)unitTest_queryServerDidInit:(id)arg1;
@@ -79,6 +79,7 @@
 - (id)_newBackgroundTaskScheduler;
 - (id)_newProcessStateManager;
 - (id)_newPrimaryProfile;
+- (id)_newAnalyticsSubmissionCoordinator;
 - (id)_newCloudSyncCoordinator;
 - (id)_newContentProtectionManager;
 - (id)_newMainQueue;

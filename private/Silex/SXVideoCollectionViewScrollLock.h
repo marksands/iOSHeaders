@@ -12,17 +12,19 @@
 
 @interface SXVideoCollectionViewScrollLock : NSObject <SXVideoTransitionObserver>
 {
+    _Bool _pagingAllowed;
     id <SXVideoCollectionViewProviding> _collectionViewProvider;
     id <SXVideoSkipLockObserverFactory> _skipLockObserverFactory;
     id <SXVideoSkipLockObserving> _skipLockObserver;
 }
 
+@property(readonly, nonatomic) _Bool pagingAllowed; // @synthesize pagingAllowed=_pagingAllowed;
 @property(retain, nonatomic) id <SXVideoSkipLockObserving> skipLockObserver; // @synthesize skipLockObserver=_skipLockObserver;
 @property(readonly, nonatomic) id <SXVideoSkipLockObserverFactory> skipLockObserverFactory; // @synthesize skipLockObserverFactory=_skipLockObserverFactory;
 @property(readonly, nonatomic) id <SXVideoCollectionViewProviding> collectionViewProvider; // @synthesize collectionViewProvider=_collectionViewProvider;
 - (void).cxx_destruct;
 - (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
-- (id)initWithCollectionViewProvider:(id)arg1 skipLockObserverFactory:(id)arg2;
+- (id)initWithCollectionViewProvider:(id)arg1 skipLockObserverFactory:(id)arg2 pagingAllowed:(_Bool)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

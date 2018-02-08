@@ -21,9 +21,9 @@
 + (id)resultWithValue:(id)arg1 error:(id)arg2;
 @property(retain) NSError *error; // @synthesize error=_error;
 @property(retain) id value; // @synthesize value=_value;
+- (void).cxx_destruct;
 @property(readonly) _Bool hasError;
 @property(readonly) _Bool hasValue;
-- (void)dealloc;
 - (id)initWithValue:(id)arg1 error:(id)arg2;
 
 @end

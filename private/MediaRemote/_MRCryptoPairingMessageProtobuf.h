@@ -30,6 +30,7 @@
 @property(nonatomic) _Bool isRetrying; // @synthesize isRetrying=_isRetrying;
 @property(nonatomic) int status; // @synthesize status=_status;
 @property(retain, nonatomic) NSData *pairingData; // @synthesize pairingData=_pairingData;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -44,7 +45,6 @@
 @property(nonatomic) _Bool hasIsRetrying;
 @property(nonatomic) _Bool hasStatus;
 @property(readonly, nonatomic) _Bool hasPairingData;
-- (void)dealloc;
 
 @end
 

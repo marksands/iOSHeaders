@@ -22,6 +22,7 @@
 @property(readonly) NSNotificationCenter *notificationCenter; // @synthesize notificationCenter=_notificationCenter;
 @property(readonly, copy) NSString *notificationName; // @synthesize notificationName=_notificationName;
 @property(readonly) id observedObject; // @synthesize observedObject=_observedObject;
+- (void).cxx_destruct;
 - (void)cleanup;
 - (void)_observeExpectedNotification:(id)arg1;
 @property(copy) CDUnknownBlockType handler;

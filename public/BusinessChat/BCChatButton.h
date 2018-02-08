@@ -6,24 +6,33 @@
 
 #import "UIControl.h"
 
-@class UILabel;
+@class CAGradientLayer, UILabel;
 
 @interface BCChatButton : UIControl
 {
     long long _style;
     UILabel *_label;
+    CAGradientLayer *_gradientLayer;
 }
 
+@property(retain, nonatomic) CAGradientLayer *gradientLayer; // @synthesize gradientLayer=_gradientLayer;
 @property(retain, nonatomic) UILabel *label; // @synthesize label=_label;
 @property(nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
-- (void)setConstraints;
-- (void)setAppearance;
 - (void)prepareForInterfaceBuilder;
-- (void)openTranscript:(id)arg1 intentParameters:(id)arg2;
+- (void)_setStyle:(long long)arg1;
+- (void)setConstraints;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (id)color:(struct BCColor)arg1;
+- (void)updateAppearanceForState:(long long)arg1;
+- (void)setAppearance;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)setBounds:(struct CGRect)arg1;
 - (void)setAccessibilityValues;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)setEnabled:(_Bool)arg1;
 - (void)setup;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithStyle:(long long)arg1;

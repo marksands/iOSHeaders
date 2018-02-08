@@ -27,6 +27,8 @@
 - (void)_updatePreferredFontIncludingValue:(_Bool)arg1;
 - (void)_updateFormattedValueIncludingFont:(_Bool)arg1;
 - (id)_formattedValueWithFont:(id)arg1;
+- (void)_updateFormattedValueObservation;
+- (void)didMoveToWindow;
 
 @end
 

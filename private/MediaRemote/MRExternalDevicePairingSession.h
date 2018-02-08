@@ -16,6 +16,7 @@
 
 @property(retain, nonatomic) MRCryptoPairingSessionBlockDelegate *pairingDelegate; // @synthesize pairingDelegate=_pairingDelegate;
 @property(retain, nonatomic) MRCoreUtilsPairingSession *pairingSession; // @synthesize pairingSession=_pairingSession;
+- (void).cxx_destruct;
 - (_Bool)_useSystemPairing;
 - (_Bool)deleteIdentityWithError:(id *)arg1;
 - (id)decryptData:(id)arg1 withError:(id *)arg2;
@@ -34,8 +35,7 @@
 @property(readonly, nonatomic, getter=isUsingSystemPairing) _Bool usingSystemPairing;
 @property(readonly, nonatomic) _Bool hasExchangedMessage;
 @property(readonly, nonatomic) unsigned long long state;
-- (void)dealloc;
-- (id)initWithDevice:(void *)arg1;
+- (id)initWithDevice:(id)arg1;
 
 @end
 

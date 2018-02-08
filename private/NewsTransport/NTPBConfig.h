@@ -68,6 +68,8 @@
     long long _timeBetweenWidgetInsertions;
     long long _treatmentId;
     long long _trendingTopicsRefreshRate;
+    long long _userSegmentationApiModMax;
+    long long _userSegmentationApiModThreshold;
     NTPBWidgetConfig *_alternativeButlerWidgetConfig;
     NSString *_anfEmbedConfigurationAsset;
     NSString *_articleRecirculationConfig;
@@ -163,6 +165,8 @@
         unsigned int timeBetweenWidgetInsertions:1;
         unsigned int treatmentId:1;
         unsigned int trendingTopicsRefreshRate:1;
+        unsigned int userSegmentationApiModMax:1;
+        unsigned int userSegmentationApiModThreshold:1;
         unsigned int enabledPrivateDataEncryptionLevel:1;
         unsigned int orderFeedEnabledLevel:1;
         unsigned int orderFeedEnabledLevelDeprecated:1;
@@ -183,6 +187,8 @@
 + (Class)externalAnalyticsConfigType;
 + (Class)endpointConfigsType;
 + (Class)languageConfigsType;
+@property(nonatomic) long long userSegmentationApiModMax; // @synthesize userSegmentationApiModMax=_userSegmentationApiModMax;
+@property(nonatomic) long long userSegmentationApiModThreshold; // @synthesize userSegmentationApiModThreshold=_userSegmentationApiModThreshold;
 @property(nonatomic) long long optionalTopStoriesRefreshRate; // @synthesize optionalTopStoriesRefreshRate=_optionalTopStoriesRefreshRate;
 @property(retain, nonatomic) NSString *articleRecirculationConfig; // @synthesize articleRecirculationConfig=_articleRecirculationConfig;
 @property(retain, nonatomic) NTPBVideoGroupsConfig *forYouVideoGroupsConfig; // @synthesize forYouVideoGroupsConfig=_forYouVideoGroupsConfig;
@@ -264,6 +270,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasUserSegmentationApiModMax;
+@property(nonatomic) _Bool hasUserSegmentationApiModThreshold;
 @property(nonatomic) _Bool hasExpirePinnedArticlesAfter;
 @property(nonatomic) long long expirePinnedArticlesAfter; // @synthesize expirePinnedArticlesAfter=_expirePinnedArticlesAfter;
 @property(nonatomic) _Bool hasOptionalTopStoriesRefreshRate;

@@ -14,13 +14,15 @@
 {
     SXVolumeController *_volumeController;
     id <SXVideoProviderProviding> _videoProviderProvider;
+    id <SXAVPlayerFactoryProviding> _playerFactoryProvider;
 }
 
+@property(readonly, nonatomic) id <SXAVPlayerFactoryProviding> playerFactoryProvider; // @synthesize playerFactoryProvider=_playerFactoryProvider;
 @property(readonly, nonatomic) id <SXVideoProviderProviding> videoProviderProvider; // @synthesize videoProviderProvider=_videoProviderProvider;
 @property(readonly, nonatomic) SXVolumeController *volumeController; // @synthesize volumeController=_volumeController;
 - (void).cxx_destruct;
 - (id)createPlaybackCoordinatorForVideo:(id)arg1;
-- (id)initWithVolumeController:(id)arg1 videoProviderProvider:(id)arg2;
+- (id)initWithVolumeController:(id)arg1 videoProviderProvider:(id)arg2 playerFactoryProvider:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

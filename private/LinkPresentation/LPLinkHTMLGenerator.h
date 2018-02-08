@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class DOMDocument, DOMDocumentFragment, DOMElement, LPCSSResolver, LPCaptionBarPresentationProperties, LPHTMLComponent, LPHTMLVideoComponent, LPImage, LPLinkMetadata, LPMetadataProvider, LPTheme, LPVideo, NSString, NSURL, UIColor;
+@class DOMDocument, DOMDocumentFragment, DOMElement, LPCSSResolver, LPCaptionBarPresentationProperties, LPHTMLComponent, LPHTMLVideoComponent, LPImage, LPLinkMetadata, LPMetadataProvider, LPPointUnit, LPTheme, LPVideo, NSString, NSURL, UIColor;
 
 @interface LPLinkHTMLGenerator : NSObject
 {
@@ -65,6 +65,7 @@
 - (id)_createMediaBottomCaptionBar;
 - (id)_createMediaTopCaptionBar;
 - (id)_createCaptionBar;
+@property(readonly, nonatomic) LPPointUnit *rootWidth;
 @property(readonly, nonatomic) _Bool hasTallMedia;
 @property(readonly, nonatomic) _Bool useFlexibleWidth;
 - (void)_setPresentationProperties:(id)arg1;

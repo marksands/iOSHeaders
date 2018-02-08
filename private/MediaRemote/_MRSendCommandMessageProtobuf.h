@@ -22,6 +22,7 @@
 
 @property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath; // @synthesize playerPath=_playerPath;
 @property(retain, nonatomic) _MRCommandOptionsProtobuf *options; // @synthesize options=_options;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -37,7 +38,6 @@
 - (id)commandAsString:(int)arg1;
 @property(nonatomic) _Bool hasCommand;
 @property(nonatomic) int command; // @synthesize command=_command;
-- (void)dealloc;
 
 @end
 

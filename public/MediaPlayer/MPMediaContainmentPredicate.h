@@ -14,6 +14,7 @@
     NSSet *_values;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)predicateWithProperty:(id)arg1 values:(id)arg2;
 @property(readonly, copy, nonatomic) NSSet *values; // @synthesize values=_values;
 @property(readonly, copy, nonatomic) NSString *property; // @synthesize property=_property;

@@ -33,6 +33,7 @@
 @property(readonly, nonatomic) NAValueThrottler *valueWriteThrottler; // @synthesize valueWriteThrottler=_valueWriteThrottler;
 @property(nonatomic, getter=areWritesInProgressOrPossible) _Bool writesInProgressOrPossible; // @synthesize writesInProgressOrPossible=_writesInProgressOrPossible;
 @property(readonly, nonatomic) id modelValue; // @synthesize modelValue=_modelValue;
+@property(readonly, nonatomic) HUQuickControlInteractionCoordinator *interactionCoordinator; // @synthesize interactionCoordinator=_interactionCoordinator;
 - (void).cxx_destruct;
 - (void)interactionCoordinator:(id)arg1 updateControlVerticalStretchFactor:(double)arg2;
 - (void)interactionCoordinator:(id)arg1 updateControlHorizontalCompressionFactor:(double)arg2;
@@ -60,7 +61,6 @@
 - (void)invalidateViewProfile;
 - (void)setUserInteractionEnabled:(_Bool)arg1;
 - (_Bool)isUserInteractionEnabled;
-@property(readonly, nonatomic) HUQuickControlInteractionCoordinator *interactionCoordinator; // @synthesize interactionCoordinator=_interactionCoordinator;
 - (void)setControlSize:(unsigned long long)arg1;
 - (void)beginUserInteractionWithFirstTouchGestureRecognizer:(id)arg1;
 - (id)overrideValueForCharacteristic:(id)arg1;

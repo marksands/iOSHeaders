@@ -16,6 +16,7 @@
     int _deviceSubType;
     int _deviceType;
     NSString *_groupID;
+    NSString *_logicalDeviceID;
     NSData *_macAddress;
     NSString *_modelID;
     NSData *_modelSpecificInfoData;
@@ -23,6 +24,7 @@
     _MRAVOutputDeviceSourceInfoProtobuf *_sourceInfo;
     NSString *_uniqueIdentifier;
     _Bool _canAccessRemoteAssets;
+    _Bool _canRelayCommunicationChannel;
     _Bool _isDeviceGroupable;
     _Bool _isGroupLeader;
     _Bool _isGroupable;
@@ -36,6 +38,7 @@
         unsigned int deviceSubType:1;
         unsigned int deviceType:1;
         unsigned int canAccessRemoteAssets:1;
+        unsigned int canRelayCommunicationChannel:1;
         unsigned int isDeviceGroupable:1;
         unsigned int isGroupLeader:1;
         unsigned int isGroupable:1;
@@ -47,6 +50,8 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *logicalDeviceID; // @synthesize logicalDeviceID=_logicalDeviceID;
+@property(nonatomic) _Bool canRelayCommunicationChannel; // @synthesize canRelayCommunicationChannel=_canRelayCommunicationChannel;
 @property(nonatomic) _Bool isDeviceGroupable; // @synthesize isDeviceGroupable=_isDeviceGroupable;
 @property(retain, nonatomic) _MRAVOutputDeviceSourceInfoProtobuf *sourceInfo; // @synthesize sourceInfo=_sourceInfo;
 @property(nonatomic) _Bool shouldForceRemoteControlabillity; // @synthesize shouldForceRemoteControlabillity=_shouldForceRemoteControlabillity;
@@ -66,6 +71,7 @@
 @property(retain, nonatomic) NSString *groupID; // @synthesize groupID=_groupID;
 @property(retain, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -75,6 +81,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasLogicalDeviceID;
+@property(nonatomic) _Bool hasCanRelayCommunicationChannel;
 @property(nonatomic) _Bool hasIsDeviceGroupable;
 @property(readonly, nonatomic) _Bool hasSourceInfo;
 @property(nonatomic) _Bool hasShouldForceRemoteControlabillity;
@@ -94,7 +102,6 @@
 @property(readonly, nonatomic) _Bool hasGroupID;
 @property(readonly, nonatomic) _Bool hasUniqueIdentifier;
 @property(readonly, nonatomic) _Bool hasName;
-- (void)dealloc;
 
 @end
 

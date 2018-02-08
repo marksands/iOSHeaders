@@ -10,7 +10,7 @@
 
 @interface FCFeedViewportRemoveGroupsOperation : FCOperation
 {
-    id <FCAppConfiguration> _appConfiguration;
+    id <FCCoreConfiguration> _configuration;
     FCFeedViewport *_viewport;
     CDUnknownBlockType _groupRemovalTestBlock;
     FCFeedDescriptor *_feedDescriptor;
@@ -25,7 +25,7 @@
 @property(retain, nonatomic) FCFeedDescriptor *feedDescriptor; // @synthesize feedDescriptor=_feedDescriptor;
 @property(copy, nonatomic) CDUnknownBlockType groupRemovalTestBlock; // @synthesize groupRemovalTestBlock=_groupRemovalTestBlock;
 @property(retain, nonatomic) FCFeedViewport *viewport; // @synthesize viewport=_viewport;
-@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(copy, nonatomic) id <FCCoreConfiguration> configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)operationDidFinishWithError:(id)arg1;
 - (void)performOperation;

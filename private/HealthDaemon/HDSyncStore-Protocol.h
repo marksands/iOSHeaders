@@ -21,6 +21,7 @@
 - (NSSet *)syncEntityDependenciesForSyncEntity:(Class)arg1;
 - (NSArray *)orderedSyncEntities;
 - (NSString *)syncStoreDefaultSourceBundleIdentifier;
+- (NSUUID *)databaseIdentifier;
 - (NSUUID *)syncStoreIdentifier;
 - (long long)syncEpoch;
 - (long long)syncProvenance;

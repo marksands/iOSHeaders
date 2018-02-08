@@ -7,27 +7,21 @@
 #import "UIViewController.h"
 
 #import "SXVideoAccessoryItem.h"
-#import "SXVideoTransitionObserver.h"
 
 @class NSString, SXReplayButton, UIView;
 
-@interface SXReplayViewController : UIViewController <SXVideoAccessoryItem, SXVideoTransitionObserver>
+@interface SXReplayViewController : UIViewController <SXVideoAccessoryItem>
 {
     unsigned long long displayMode;
     SXReplayButton *_replayButton;
-    id <SXVideoSkipLockObserverFactory> _skipLockObserverFactory;
-    id <SXVideoSkipLockObserving> _skipLockObserver;
 }
 
-@property(retain, nonatomic) id <SXVideoSkipLockObserving> skipLockObserver; // @synthesize skipLockObserver=_skipLockObserver;
-@property(readonly, nonatomic) id <SXVideoSkipLockObserverFactory> skipLockObserverFactory; // @synthesize skipLockObserverFactory=_skipLockObserverFactory;
 @property(readonly, nonatomic) SXReplayButton *replayButton; // @synthesize replayButton=_replayButton;
 @property(nonatomic) unsigned long long displayMode; // @synthesize displayMode;
 - (void).cxx_destruct;
-- (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
-- (id)initWithReplayButton:(id)arg1 skipLockObserverFactory:(id)arg2;
+- (id)initWithReplayButton:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

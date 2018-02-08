@@ -174,6 +174,7 @@
 - (void)playerViewControllerContentViewDidLayoutSubviews:(id)arg1;
 - (void)playerViewControllerContentViewDidMoveToWindow:(id)arg1;
 - (void)playerViewControllerContentView:(id)arg1 didLoadPlaybackControlsView:(id)arg2;
+- (_Bool)playerViewControllerContentViewIsPlayingOnSecondScreen:(id)arg1;
 - (void)playbackControlsVisibilityDidChange;
 - (void)visibilityControllerWillShowView:(id)arg1;
 - (void)playbackControlsViewDidLoad:(id)arg1;

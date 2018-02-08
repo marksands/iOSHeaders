@@ -27,6 +27,7 @@
 @property(copy) NSString *debugDescription; // @synthesize debugDescription=_debugDescription;
 @property(readonly, copy) NSPredicate *predicate; // @synthesize predicate=_predicate;
 @property(readonly) id <XCTNSPredicateExpectationObject> object; // @synthesize object=_object;
+- (void).cxx_destruct;
 - (void)cleanup;
 - (_Bool)_shouldFulfillForExpectation:(id)arg1 object:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)_considerFulfilling;

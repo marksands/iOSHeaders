@@ -20,6 +20,7 @@
 
 + (id)defaultRequestEnvironment;
 + (id)requiredPropertiesForStaticMediaClips;
++ (_Bool)supportsSecureCoding;
 + (Class)queueFeederClass;
 @property(copy, nonatomic) NSDictionary *assetStoreFronts; // @synthesize assetStoreFronts=_assetStoreFronts;
 @property(copy, nonatomic) NSDictionary *endTimeModifications; // @synthesize endTimeModifications=_endTimeModifications;

@@ -14,8 +14,10 @@ __attribute__((visibility("hidden")))
     id <UIKeyboardDockViewDelegate> _delegate;
     UIKeyboardDockItem *_leftDockItem;
     UIKeyboardDockItem *_rightDockItem;
+    UIKeyboardDockItem *_centerDockItem;
 }
 
+@property(retain, nonatomic) UIKeyboardDockItem *centerDockItem; // @synthesize centerDockItem=_centerDockItem;
 @property(retain, nonatomic) UIKeyboardDockItem *rightDockItem; // @synthesize rightDockItem=_rightDockItem;
 @property(retain, nonatomic) UIKeyboardDockItem *leftDockItem; // @synthesize leftDockItem=_leftDockItem;
 @property(nonatomic) __weak id <UIKeyboardDockViewDelegate> delegate; // @synthesize delegate=_delegate;

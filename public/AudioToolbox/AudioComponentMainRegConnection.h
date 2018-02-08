@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)getComponentList:(id)arg1 linkedSDKVersion:(int)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)getComponentList:(id)arg1 linkedSDKVersion:(int)arg2 includeExtensions:(_Bool)arg3 reply:(CDUnknownBlockType)arg4;
 - (id)initWithRegistrar:(struct AudioComponentRegistrarImpl *)arg1 connection:(id)arg2;
 
 @end

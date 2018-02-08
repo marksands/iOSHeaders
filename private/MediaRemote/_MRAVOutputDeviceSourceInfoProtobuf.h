@@ -21,6 +21,7 @@
 
 @property(nonatomic) _Bool multipleBuiltInDevices; // @synthesize multipleBuiltInDevices=_multipleBuiltInDevices;
 @property(retain, nonatomic) NSString *routingContextUID; // @synthesize routingContextUID=_routingContextUID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +33,6 @@
 - (id)description;
 @property(nonatomic) _Bool hasMultipleBuiltInDevices;
 @property(readonly, nonatomic) _Bool hasRoutingContextUID;
-- (void)dealloc;
 
 @end
 

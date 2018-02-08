@@ -17,12 +17,12 @@
     _Bool _internal;
     NSObject<OS_dispatch_queue> *_threadSafetyQ;
     struct __CFData *_protectorSessionIdentifier;
-    NSMutableDictionary *_decryptorsByInitData;
     NSHashTable *_contentKeyRecipients;
     NSData *_appIdentifier;
     struct OpaqueFigContentKeySession *_figContentKeySession;
     NSMutableArray *_cryptorsList;
     NSString *_keySystem;
+    NSMutableDictionary *keyRequestsByRequestID;
 }
 
 @end

@@ -130,6 +130,8 @@
 - (void)_accessibilitySetNavigationControllerInset:(struct UIEdgeInsets)arg1;
 - (void)_accessibilityConvertStyleAttributesToAccessibility:(id)arg1;
 - (void)_accessibilitySetValue:(id)arg1;
+- (_Bool)_accessibilityTextViewShouldBreakUpParagraphs;
+- (void)_accessibilitySetTextViewShouldBreakUpParagraphs:(_Bool)arg1;
 - (id)_accessibilityTextChecker;
 - (_Bool)_accessibilitySupportsRangeForLineNumber;
 - (_Bool)_accessibilitySupportsFrameForRange;
@@ -283,6 +285,7 @@
 - (void)_accessibilitySetAuditIssueForType:(unsigned long long)arg1;
 - (id)_accessibilityControlDescendantWithAction:(SEL)arg1;
 - (id)_accessibilityControlDescendantWithTarget:(id)arg1;
+- (id)_accessibilityFindUnsortedDescendantsPassingTest:(CDUnknownBlockType)arg1;
 - (id)_accessibilityFindUnsortedSubviewDescendantsPassingTest:(CDUnknownBlockType)arg1;
 - (id)_accessibilityFindSubviewDescendantsPassingTest:(CDUnknownBlockType)arg1;
 - (id)_accessibilityFindSubviewDescendant:(CDUnknownBlockType)arg1;

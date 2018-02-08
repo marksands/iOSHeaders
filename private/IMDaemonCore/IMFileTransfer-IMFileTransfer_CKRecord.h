@@ -14,7 +14,7 @@
 + (long long)sizeOfAssetForRecord:(id)arg1;
 + (id)utiTypeForRecord:(id)arg1;
 + (_Bool)_recordIsValid:(id)arg1;
-+ (id)_transferMetaDataFromRecord:(id)arg1;
++ (id)transferMetaDataFromRecord:(id)arg1;
 + (id)_recordType;
 - (id)_fileManager;
 - (id)initWithCKRecord:(id)arg1 writeAssetToDisk:(_Bool)arg2;

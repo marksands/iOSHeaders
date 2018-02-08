@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class HKQuantity, NSDictionary, NSString;
 
-@interface FIUIWorkoutActivityType : NSObject <NSCoding>
+@interface FIUIWorkoutActivityType : NSObject <NSSecureCoding>
 {
     _Bool _isIndoor;
     unsigned long long _identifier;
@@ -21,6 +21,7 @@
 + (id)possibleActivityTypesForIdentifier:(unsigned long long)arg1 locationType:(long long)arg2 swimmingLocationType:(long long)arg3 wheelchairUser:(_Bool)arg4;
 + (id)wheelchairActivityTypes;
 + (id)supportedActivityTypesWithIsWheelchairUser:(_Bool)arg1;
++ (_Bool)supportsSecureCoding;
 + (id)activityTypeWithWorkout:(id)arg1;
 + (id)activityTypeWithHKWorkoutActivityTypeIdentifier:(unsigned long long)arg1 isIndoor:(_Bool)arg2 metadata:(id)arg3;
 + (id)activityTypeWithHKWorkoutActivityTypeIdentifier:(unsigned long long)arg1 isIndoor:(_Bool)arg2;

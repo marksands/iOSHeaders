@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     double _flushInterval;
     _Bool _flushImmediately;
     _Bool _autovacuumInProgress;
+    long long _changesOverride;
     unsigned long long _vmStepsExecuted;
 }
 
@@ -37,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (void)flushToMakeEditsVisibleToIPCReaders;
 - (_Bool)attachDBAtPath:(id)arg1 as:(id)arg2 error:(id *)arg3;
 @property(nonatomic) _Bool profilingEnabled;
+- (long long)changes;
 - (_Bool)openAtURL:(id)arg1 withFlags:(int)arg2 error:(id *)arg3;
 - (void)_setLockedHandler;
 - (void)_setErrorHandlerWithDBCorruptionHandler:(CDUnknownBlockType)arg1;

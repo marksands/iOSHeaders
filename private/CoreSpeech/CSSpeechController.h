@@ -28,6 +28,9 @@
     _Bool _isNarrowBand;
     _Bool _twoShotNotificationEnabled;
     _Bool _isMediaPlaying;
+    _Bool _isAlarmPlaying;
+    _Bool _isTimerPlaying;
+    _Bool _isSoundPlaying;
     _Bool _myriadPreventingTwoShotFeedback;
     id <CSSpeechControllerDelegate> _delegate;
     CSEndpointerProxy *_endpointerProxy;
@@ -39,6 +42,9 @@
 
 + (id)sharedController;
 @property(nonatomic) _Bool myriadPreventingTwoShotFeedback; // @synthesize myriadPreventingTwoShotFeedback=_myriadPreventingTwoShotFeedback;
+@property(nonatomic) _Bool isSoundPlaying; // @synthesize isSoundPlaying=_isSoundPlaying;
+@property(nonatomic) _Bool isTimerPlaying; // @synthesize isTimerPlaying=_isTimerPlaying;
+@property(nonatomic) _Bool isAlarmPlaying; // @synthesize isAlarmPlaying=_isAlarmPlaying;
 @property(nonatomic) _Bool isMediaPlaying; // @synthesize isMediaPlaying=_isMediaPlaying;
 @property(nonatomic) _Bool twoShotNotificationEnabled; // @synthesize twoShotNotificationEnabled=_twoShotNotificationEnabled;
 @property(nonatomic) unsigned long long activeChannel; // @synthesize activeChannel=_activeChannel;
@@ -51,6 +57,9 @@
 @property(retain, nonatomic) CSEndpointerProxy *endpointerProxy; // @synthesize endpointerProxy=_endpointerProxy;
 @property(nonatomic) __weak id <CSSpeechControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_setSoundPlayingState;
+- (void)CSTimerMonitor:(id)arg1 didReceiveTimerChanged:(long long)arg2;
+- (void)CSAlarmMonitor:(id)arg1 didReceiveAlarmChanged:(long long)arg2;
 - (void)CSMediaPlayingMonitor:(id)arg1 didReceiveMediaPlayingChanged:(long long)arg2;
 - (void)endWaitingForMyriadWithDecision:(unsigned long long)arg1;
 - (void)beginWaitingForMyriad;
@@ -88,6 +97,8 @@
 - (void)audioConverterDidConvertPackets:(id)arg1 packets:(id)arg2 timestamp:(unsigned long long)arg3;
 - (_Bool)_setupAudioConverter:(_Bool)arg1;
 - (void)_setupDownsamplerIfNeeded;
+- (void)speechManager:(id)arg1 didSetAudioSessionActive:(_Bool)arg2;
+- (void)speechManager:(id)arg1 willSetAudioSessionActive:(_Bool)arg2;
 - (void)speechManagerEndRecordInterruption:(id)arg1;
 - (void)speechManagerBeginRecordInterruption:(id)arg1 withContext:(id)arg2;
 - (void)speechManagerBeginRecordInterruption:(id)arg1;
@@ -121,6 +132,9 @@
 - (_Bool)prepareRecordWithSettings:(id)arg1 error:(id *)arg2;
 - (void)startController;
 - (_Bool)initializeRecordSessionWithContext:(id)arg1;
+- (void)_initializeTimerState;
+- (void)_initializeAlarmState;
+- (void)_initializeMediaPlayingState;
 - (id)initWithManager:(id)arg1;
 
 // Remaining properties

@@ -40,6 +40,7 @@
 - (void)setState:(unsigned long long)arg1;
 @property(readonly, nonatomic) PKPaymentPass *activatedPaymentPass;
 @property(readonly, nonatomic) PKPaymentApplication *activatedPaymentApplication;
+- (_Bool)paymentApplicationSupportsAutomaticAuthorization:(id)arg1;
 - (_Bool)resetPersistentCardEmulation;
 - (_Bool)queuePersistentCardEmulation;
 - (void)resetExpressState;

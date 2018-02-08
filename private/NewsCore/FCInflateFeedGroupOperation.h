@@ -11,7 +11,7 @@
 @interface FCInflateFeedGroupOperation : FCOperation
 {
     _Bool _cachedOnly;
-    id <FCAppConfiguration> _appConfiguration;
+    id <FCCoreConfiguration> _configuration;
     FCCloudContext *_context;
     FCDeflatedFeedGroup *_deflatedGroup;
     CDUnknownBlockType _inflationCompletionHandler;
@@ -23,7 +23,7 @@
 @property(nonatomic) _Bool cachedOnly; // @synthesize cachedOnly=_cachedOnly;
 @property(retain, nonatomic) FCDeflatedFeedGroup *deflatedGroup; // @synthesize deflatedGroup=_deflatedGroup;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
-@property(copy, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(copy, nonatomic) id <FCCoreConfiguration> configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)_fetchTagsForPBGroup:(id)arg1 sharedStrings:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_fetchHeadlinesWithDeflatedHeadlines:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

@@ -18,10 +18,10 @@
 
 @property(readonly) NSString *path; // @synthesize path=_path;
 @property(readonly) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
+- (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)description;
-- (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithBundleIdentifier:(id)arg1 path:(id)arg2;
 

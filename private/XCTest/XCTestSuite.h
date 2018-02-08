@@ -25,6 +25,7 @@
 + (id)emptyTestSuiteNamedFromPath:(id)arg1;
 + (id)testSuiteWithName:(id)arg1;
 + (id)testCaseNamesForScopeNames:(id)arg1;
+- (void).cxx_destruct;
 - (id)_initWithTestConfiguration:(id)arg1;
 - (void)_sortTestsUsingComparator:(CDUnknownBlockType)arg1;
 @property(readonly) NSDictionary *activityAggregateStatistics;
@@ -43,7 +44,6 @@
 - (id)_testSuiteWithIdentifier:(id)arg1;
 - (id)description;
 @property(copy) NSString *name;
-- (void)dealloc;
 - (id)initWithName:(id)arg1;
 - (id)init;
 - (void)removeTestsWithNames:(id)arg1;

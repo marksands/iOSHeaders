@@ -6,20 +6,9 @@
 
 #import "CATTaskResultObject.h"
 
-@class DMFApp;
-
 @interface DMFUpdateAppResultObject : CATTaskResultObject
 {
-    DMFApp *_app;
 }
-
-+ (_Bool)supportsSecureCoding;
-@property(readonly, copy, nonatomic) DMFApp *app; // @synthesize app=_app;
-- (void).cxx_destruct;
-- (id)description;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithApp:(id)arg1;
 
 @end
 

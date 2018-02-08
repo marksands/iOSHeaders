@@ -16,7 +16,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool volumeUpdates;
 @property(readonly, nonatomic) _Bool artworkUpdates;
 @property(readonly, nonatomic) _Bool nowPlayingUpdates;
-- (void)dealloc;
 - (id)initWithNowPlayingUpdates:(_Bool)arg1 artworkUpdates:(_Bool)arg2 volumeUpdates:(_Bool)arg3 keyboardUpdates:(_Bool)arg4;
 
 @end

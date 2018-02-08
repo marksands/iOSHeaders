@@ -56,6 +56,7 @@ __attribute__((visibility("hidden")))
 - (void)_segmentControlValueDidChange:(id)arg1;
 - (void)selectInputMode:(id)arg1;
 - (void)setInputMode:(id)arg1;
+- (void)fadeWithDelay:(double)arg1;
 - (void)selectRowForInputMode:(id)arg1;
 - (long long)_indexOfInputSwitcherItemWithIdentifier:(id)arg1;
 - (_Bool)shouldShowSelectionExtraViewForIndexPath:(id)arg1;

@@ -49,6 +49,7 @@
 - (_Bool)canRecieveSyncObjectsForEntityClass:(Class)arg1;
 - (id)syncEntityDependenciesForSyncEntity:(Class)arg1;
 - (id)syncStoreDefaultSourceBundleIdentifier;
+- (id)databaseIdentifier;
 - (id)syncStoreIdentifier;
 - (long long)syncEpoch;
 - (long long)syncProvenance;

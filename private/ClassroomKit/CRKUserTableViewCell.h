@@ -62,6 +62,7 @@
 @property(nonatomic) __weak id <CRKUserTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
 - (void).cxx_destruct;
+- (id)accessibilityLabel;
 - (_Bool)textFieldShouldReturn:(id)arg1;
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;

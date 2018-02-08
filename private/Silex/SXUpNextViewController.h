@@ -16,16 +16,12 @@
     unsigned long long displayMode;
     SXNowPlayingButton *_upNextButton;
     SXSkipViewController *_skipViewController;
-    id <SXVideoSkipLockObserverFactory> _skipLockObserverFactory;
     id <SXNowPlayingVideoTitleProviding> _titleProvider;
     id <SXVideoQueueProviding> _queueProvider;
-    id <SXVideoSkipLockObserving> _skipLockObserver;
 }
 
-@property(retain, nonatomic) id <SXVideoSkipLockObserving> skipLockObserver; // @synthesize skipLockObserver=_skipLockObserver;
 @property(readonly, nonatomic) id <SXVideoQueueProviding> queueProvider; // @synthesize queueProvider=_queueProvider;
 @property(readonly, nonatomic) id <SXNowPlayingVideoTitleProviding> titleProvider; // @synthesize titleProvider=_titleProvider;
-@property(readonly, nonatomic) id <SXVideoSkipLockObserverFactory> skipLockObserverFactory; // @synthesize skipLockObserverFactory=_skipLockObserverFactory;
 @property(readonly, nonatomic) SXSkipViewController *skipViewController; // @synthesize skipViewController=_skipViewController;
 @property(readonly, nonatomic) SXNowPlayingButton *upNextButton; // @synthesize upNextButton=_upNextButton;
 @property(nonatomic) unsigned long long displayMode; // @synthesize displayMode;
@@ -34,7 +30,7 @@
 - (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
-- (id)initWithUpNextButton:(id)arg1 skipViewController:(id)arg2 skipLockObserverFactory:(id)arg3 titleProvider:(id)arg4 queueProvider:(id)arg5;
+- (id)initWithUpNextButton:(id)arg1 skipViewController:(id)arg2 titleProvider:(id)arg3 queueProvider:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

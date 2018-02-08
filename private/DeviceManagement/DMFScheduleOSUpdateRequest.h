@@ -6,20 +6,26 @@
 
 #import "CATTaskRequest.h"
 
-@class NSArray;
+@class NSString;
 
 @interface DMFScheduleOSUpdateRequest : CATTaskRequest
 {
-    NSArray *_actions;
+    unsigned long long _action;
+    NSString *_productKey;
+    NSString *_productVersion;
 }
 
 + (_Bool)supportsSecureCoding;
 + (Class)whitelistedClassForResultObject;
-@property(copy, nonatomic) NSArray *actions; // @synthesize actions=_actions;
++ (id)_descriptionForAction:(unsigned long long)arg1;
++ (_Bool)_action:(unsigned long long *)arg1 fromString:(id)arg2;
+@property(copy, nonatomic) NSString *productVersion; // @synthesize productVersion=_productVersion;
+@property(copy, nonatomic) NSString *productKey; // @synthesize productKey=_productKey;
+@property(nonatomic) unsigned long long action; // @synthesize action=_action;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithActions:(id)arg1;
+- (id)init;
 
 @end
 

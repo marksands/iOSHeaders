@@ -15,14 +15,15 @@
 
 + (id)siriService;
 @property(retain) XCUIApplication *siriApplication; // @synthesize siriApplication=_siriApplication;
+- (void).cxx_destruct;
 - (id)forwardingTargetForSelector:(SEL)arg1;
+- (void)_waitForActivation;
 - (void)_assertSiriEnabled;
 @property(readonly, getter=isEnabled) _Bool enabled;
 - (void)injectVoiceRecognitionAudioInputPaths:(id)arg1;
 - (void)injectAssistantRecognitionStrings:(id)arg1;
 - (void)activateWithVoiceRecognitionText:(id)arg1;
 @property(readonly, copy) NSString *debugDescription;
-- (void)dealloc;
 - (id)init;
 
 @end

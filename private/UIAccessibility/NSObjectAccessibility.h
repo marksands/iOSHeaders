@@ -15,6 +15,7 @@
 - (id)accessibilityUserDefinedDropPointDescriptors;
 - (id)accessibilityUserDefinedDragSourceDescriptors;
 - (void)setAccessibilityElements:(id)arg1;
+- (id)accessibilityElements;
 - (id)accessibilityUserDefinedContainer;
 - (id)accessibilityHeaderElements;
 - (long long)accessibilityNavigationStyle;

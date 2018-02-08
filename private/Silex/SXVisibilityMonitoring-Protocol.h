@@ -7,7 +7,7 @@
 #import "NSObject.h"
 
 @protocol SXVisibilityMonitoring <NSObject>
-@property(readonly, nonatomic) id object;
+@property(readonly, nonatomic) __weak id object;
 @property(readonly, nonatomic) double visiblePercentage;
 @property(readonly, nonatomic) _Bool appeared;
 - (void)onDidDisappear:(void (^)(id <SXVisibilityMonitoring>))arg1;

@@ -14,14 +14,12 @@ __attribute__((visibility("hidden")))
     double _progressLineWidth;
     double _oneFullRotation;
     _Bool _showProgressTray;
-    _Bool _backwards;
     long long _progressStartPoint;
     UIColor *_progressColor;
     UIColor *_progressBackgroundColor;
 }
 
 + (_Bool)needsDisplayForKey:(id)arg1;
-@property(nonatomic) _Bool backwards; // @synthesize backwards=_backwards;
 @property(nonatomic) _Bool showProgressTray; // @synthesize showProgressTray=_showProgressTray;
 @property(nonatomic) double progressLineWidth; // @synthesize progressLineWidth=_progressLineWidth;
 @property(retain, nonatomic) UIColor *progressBackgroundColor; // @synthesize progressBackgroundColor=_progressBackgroundColor;

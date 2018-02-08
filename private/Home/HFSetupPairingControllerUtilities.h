@@ -10,6 +10,7 @@
 {
 }
 
++ (unsigned long long)processSetupAccessoryProgressChange:(long long)arg1 currentPhase:(unsigned long long)arg2 accessoryDescription:(id)arg3 discoveredAccessory:(id)arg4 home:(id)arg5 callerClass:(Class)arg6;
 + (void)getStatusTitle:(id *)arg1 statusDescription:(id *)arg2 forPairingPhase:(unsigned long long)arg3 phaseStartDate:(id)arg4 discoveredAccessory:(id)arg5 setupResult:(id)arg6;
 + (id)_accessoryNotFoundStatusDescriptionSuffixForSetupResult:(id)arg1;
 + (_Bool)isPairingPhaseIdle:(unsigned long long)arg1;

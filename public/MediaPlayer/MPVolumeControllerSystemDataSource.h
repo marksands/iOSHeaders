@@ -47,6 +47,7 @@
 - (void)_mediaServerDiedNotification:(id)arg1;
 - (void)_EUVolumeLimitEnforcedDidChange:(id)arg1;
 - (void)_EUVolumeLimitDidChange:(id)arg1;
+- (void)adjustVolumeValue:(float)arg1;
 - (void)reloadWarning;
 - (void)reload;
 @property(readonly, nonatomic) _Bool applicationShouldOverrideHardwareVolumeBehavior;

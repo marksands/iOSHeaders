@@ -26,6 +26,7 @@
 + (id)clientInterface;
 + (id)serviceInterface;
 @property(retain, nonatomic) NSXPCConnection *hostedRoutingSessionConnection; // @synthesize hostedRoutingSessionConnection=_hostedRoutingSessionConnection;
+- (void).cxx_destruct;
 - (void)_reloadAvailableDistantOutputDevices;
 - (void)_reloadAvailableDistantOutputDevicesWithOutputDevices:(id)arg1;
 - (void)_reloadAvailableDistantEndpoints;

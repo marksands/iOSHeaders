@@ -11,8 +11,11 @@
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
+- (void)copyToGradientState:(id)arg1 sourceImages:(id)arg2 sourceStates:(id)arg3 destinationImage:(id)arg4;
+- (id)resultStateForImages:(id)arg1 sourceStates:(id)arg2 destinationImage:(id)arg3;
+- (_Bool)isResultStateReusedAcrossBatch;
 - (id)destinationImageDescriptorForSourceImages:(id)arg1 sourceStates:(id)arg2 paddingMethod:(unsigned long long)arg3 sourceOffset:(CDStruct_d6af7fc0 *)arg4;
-- (id)encodeToCommandBuffer:(id)arg1 sourceImages:(id)arg2;
+- (void)encodeBatchToCommandBuffer:(id)arg1 sourceImages:(id)arg2 destinationImage:(struct NSArray *)arg3;
 - (void)encodeToCommandBuffer:(id)arg1 sourceImages:(id)arg2 destinationImage:(id)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;

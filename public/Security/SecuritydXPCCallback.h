@@ -8,6 +8,8 @@
 
 #import "SecuritydXPCCallbackProtocol.h"
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface SecuritydXPCCallback : NSObject <SecuritydXPCCallbackProtocol>
 {
@@ -18,6 +20,12 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)callCallback:(_Bool)arg1 error:(id)arg2;
 - (id)initWithCallback:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

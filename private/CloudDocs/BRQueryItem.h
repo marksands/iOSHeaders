@@ -48,6 +48,7 @@
             unsigned int isBRAlias:1;
             unsigned int isTrashed:1;
             unsigned int itemMode:3;
+            unsigned int fromReadOnlyDB:1;
             unsigned char BRQueryItemKind;
             unsigned char kind;
         } ;

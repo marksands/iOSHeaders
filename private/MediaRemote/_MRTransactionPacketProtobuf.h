@@ -29,6 +29,7 @@
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) NSData *packetData; // @synthesize packetData=_packetData;
 @property(retain, nonatomic) _MRTransactionKeyProtobuf *key; // @synthesize key=_key;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -43,7 +44,6 @@
 @property(readonly, nonatomic) _Bool hasIdentifier;
 @property(readonly, nonatomic) _Bool hasPacketData;
 @property(readonly, nonatomic) _Bool hasKey;
-- (void)dealloc;
 - (id)customDictionaryRepresentation;
 
 @end

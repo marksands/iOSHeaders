@@ -30,6 +30,7 @@
 - (void)performDelayedUpdatesForObserver:(id)arg1;
 - (void)_fireTodayModelForecastWasUpdated:(id)arg1;
 - (void)_fireTodayModelWantsUpdate;
+- (void)clearLocationUpdateState;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (_Bool)hasCrossedHourlyBoundary;

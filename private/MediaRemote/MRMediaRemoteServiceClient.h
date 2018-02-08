@@ -6,46 +6,44 @@
 
 #import "NSObject.h"
 
-@class MRAVRoutingClientController, MRNotificationClient, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class MRAVRoutingClientController, MRMediaRemoteService, MRNotificationClient, MRNotificationServiceClient, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, _MRNowPlayingPlayerPathProtobuf;
 
 __attribute__((visibility("hidden")))
 @interface MRMediaRemoteServiceClient : NSObject
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
-    NSObject<OS_dispatch_queue> *_playbackQueueDispatchQueue;
     NSMutableArray *_registeredOrigins;
     MRAVRoutingClientController *_routingClientController;
-    void *_activePlayerPath;
+    _MRNowPlayingPlayerPathProtobuf *_activePlayerPath;
     int _notifyRestoreClientStateForLaunch;
     NSString *_preparedBundleID;
     NSMutableDictionary *_playerPathInvalidationHandlers;
-    struct MRMediaRemoteService *_service;
+    MRNotificationServiceClient *_notificationService;
+    MRMediaRemoteService *_service;
     MRNotificationClient *_notificationClient;
+    NSObject<OS_dispatch_queue> *_playbackQueueDispatchQueue;
 }
 
 + (id)sharedServiceClient;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *playbackQueueDispatchQueue; // @synthesize playbackQueueDispatchQueue=_playbackQueueDispatchQueue;
 @property(readonly, nonatomic) MRNotificationClient *notificationClient; // @synthesize notificationClient=_notificationClient;
-@property(readonly, nonatomic) struct MRMediaRemoteService *service; // @synthesize service=_service;
-- (void)notificationFired:(id)arg1 originNotification:(id)arg2 nowPlayingNotification:(id)arg3;
-- (void)notificationFired:(id)arg1 playerPathNotifcation:(id)arg2 originNotification:(id)arg3 nowPlayingNotification:(id)arg4;
-- (_Bool)_shouldPostNotifications;
+@property(readonly, nonatomic) MRMediaRemoteService *service; // @synthesize service=_service;
+- (void).cxx_destruct;
 - (void)registerCallbacks;
 - (void)_callInvalidationHandler:(id)arg1;
 - (void)_processPlayerPathInvalidationHandlersWithBlock:(CDUnknownBlockType)arg1;
 - (void)_onQueue_processPlayerPathInvalidationHandlersWithBlock:(CDUnknownBlockType)arg1;
 - (void)processPlayerPathInvalidationHandlersWithBlock:(CDUnknownBlockType)arg1;
-- (void)processPlayerPathInvalidationHandlersWithInvalidOrigin:(void *)arg1;
-- (void)removeInvalidationHandler:(void *)arg1;
-- (void *)addPlayerPathInvalidationHandler:(id)arg1;
+- (void)processPlayerPathInvalidationHandlersWithInvalidOrigin:(id)arg1;
+- (void)removeInvalidationHandler:(id)arg1;
+- (id)addPlayerPathInvalidationHandler:(id)arg1;
 - (void)fetchPickableRoutesWithCategory:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)unregisterAllOriginsWithCompletion:(CDUnknownBlockType)arg1;
-- (void)unregisterOrigin:(void *)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)registerOrigin:(void *)arg1 withCompletion:(CDUnknownBlockType)arg2;
-@property(copy, nonatomic) NSString *preparedBundleID;
-@property(nonatomic) void *activePlayerPath;
-- (void)_onQueue_setActivePlayerPath:(void *)arg1;
+- (void)unregisterOrigin:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)registerOrigin:(id)arg1 withDeviceInfo:(id)arg2 completion:(CDUnknownBlockType)arg3;
+@property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *activePlayerPath;
+- (void)_onQueue_setActivePlayerPath:(id)arg1;
 @property(readonly, nonatomic) NSArray *registeredOrigins;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *playbackQueueDispatchQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workerSerialQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workerQueue;
 - (void)dealloc;

@@ -21,6 +21,7 @@
 + (Class)handlerReturnStatusDataType;
 @property(retain, nonatomic) NSMutableArray *handlerReturnStatusDatas; // @synthesize handlerReturnStatusDatas=_handlerReturnStatusDatas;
 @property(nonatomic) unsigned int errorCode; // @synthesize errorCode=_errorCode;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

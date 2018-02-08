@@ -17,6 +17,7 @@
 + (_Bool)_isValidPlaylistProperty:(id)arg1;
 + (void)_createFilterableDictionary;
 + (_Bool)canFilterByProperty:(id)arg1;
++ (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 - (void)setUserSelectedArtworkImage:(id)arg1;
 - (_Bool)canPlayUsingNetworkType:(long long)arg1;

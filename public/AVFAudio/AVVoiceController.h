@@ -64,6 +64,8 @@
 - (void)finalize;
 - (void)prewarmAudioSession;
 - (id)initWithContext:(id)arg1 error:(id *)arg2;
+- (void)endAudioSessionActivate:(_Bool)arg1;
+- (void)beginAudioSessionActivate:(_Bool)arg1;
 - (void)endPlaybackInterruption;
 - (void)beginPlaybackInterruption;
 - (void)endRecordInterruption;

@@ -97,6 +97,8 @@
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 pushNotificationCenter:(id)arg2 storeDirectory:(id)arg3;
 - (id)init;
+- (void)_possiblySimulateCrashWithMessage:(id)arg1;
+- (void)assertReadyForUse;
 - (void)prepareForUse;
 - (void)mergeLocalStoreWithCloud;
 - (void)createLocalStore;

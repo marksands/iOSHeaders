@@ -54,6 +54,7 @@
 - (id)_searchBarInViewController:(id)arg1;
 - (void)_reloadDataInViewController:(id)arg1;
 - (_Bool)_isMetadataAddable:(id)arg1;
+- (void)_insertSearchBarIntoViewControllerIfNeeded:(id)arg1;
 - (void)_insertSearchBarIntoTableView:(id)arg1;
 - (void)_configureNavigationBar;
 - (id)_allPlayableChildrenMetadataObjectsForMetadata:(id)arg1;
@@ -68,6 +69,7 @@
 @property(readonly, nonatomic) UIBarButtonItem *rightBarButtonItem;
 - (void)pushViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)viewSafeAreaInsetsDidChange;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

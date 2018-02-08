@@ -10,6 +10,7 @@
 
 @interface IMDCKChatSyncController : IMDCKAbstractSyncController
 {
+    _Bool _fetchedChatsDuringLastSync;
     CKServerChangeToken *_latestSyncToken;
     NSObject<OS_dispatch_queue> *_ckQueue;
     IMDChatRegistry *_chatRegistry;
@@ -30,6 +31,7 @@
 @property(retain, nonatomic) IMDRecordZoneManager *recordZoneManager; // @synthesize recordZoneManager=_recordZoneManager;
 @property(retain, nonatomic) IMDChatRegistry *chatRegistry; // @synthesize chatRegistry=_chatRegistry;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *ckQueue; // @synthesize ckQueue=_ckQueue;
+@property(nonatomic) _Bool fetchedChatsDuringLastSync; // @synthesize fetchedChatsDuringLastSync=_fetchedChatsDuringLastSync;
 - (void)syncPendingDeletionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_handleChatDeletionCompletionForRecordIDs:(id)arg1 error:(id)arg2;
 - (id)_copyRecordIDsToDelete;

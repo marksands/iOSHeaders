@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSError, NSString;
+@class NSError, NSString, _MRDeviceInfoMessageProtobuf;
 
 __attribute__((visibility("hidden")))
 @interface MRExternalDeviceTransport : NSObject
@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) long long port;
 @property(readonly, nonatomic) NSString *hostname;
 @property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic) void *deviceInfo;
+@property(readonly, nonatomic) _MRDeviceInfoMessageProtobuf *deviceInfo;
 
 @end
 

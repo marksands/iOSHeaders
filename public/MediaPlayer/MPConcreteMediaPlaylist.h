@@ -19,6 +19,7 @@
     void *_clusterPlaylist;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 - (_Bool)_allowsEditing;
 - (void)endGeneratingGeniusClusterItems;

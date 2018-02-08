@@ -15,6 +15,7 @@
     _Bool _presentedViewControllerShouldUseDarkMode;
     _Bool _displayIcon;
     _Bool _displayLargeIcon;
+    _Bool _displayCaptionText;
     _Bool _allowsOpeningSafari;
 }
 
@@ -22,6 +23,7 @@
 + (id)linkWithBundleIdentifiers:(id)arg1;
 + (Class)_platformSpecificClass;
 @property _Bool allowsOpeningSafari; // @synthesize allowsOpeningSafari=_allowsOpeningSafari;
+@property _Bool displayCaptionText; // @synthesize displayCaptionText=_displayCaptionText;
 @property _Bool displayLargeIcon; // @synthesize displayLargeIcon=_displayLargeIcon;
 @property _Bool displayIcon; // @synthesize displayIcon=_displayIcon;
 @property(nonatomic) _Bool presentedViewControllerShouldUseDarkMode; // @synthesize presentedViewControllerShouldUseDarkMode=_presentedViewControllerShouldUseDarkMode;

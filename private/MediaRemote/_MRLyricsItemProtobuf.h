@@ -23,6 +23,7 @@
 @property(retain, nonatomic) _MRLyricsTokenProtobuf *token; // @synthesize token=_token;
 @property(nonatomic) _Bool userProvided; // @synthesize userProvided=_userProvided;
 @property(retain, nonatomic) NSString *lyrics; // @synthesize lyrics=_lyrics;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -35,7 +36,6 @@
 @property(readonly, nonatomic) _Bool hasToken;
 @property(nonatomic) _Bool hasUserProvided;
 @property(readonly, nonatomic) _Bool hasLyrics;
-- (void)dealloc;
 
 @end
 

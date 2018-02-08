@@ -14,6 +14,7 @@
 
 @property(nonatomic) unsigned long long zeroPadSizeY; // @synthesize zeroPadSizeY=_zeroPadSizeY;
 @property(nonatomic) unsigned long long zeroPadSizeX; // @synthesize zeroPadSizeX=_zeroPadSizeX;
+- (_Bool)isResultStateReusedAcrossBatch;
 - (id)debugDescription;
 - (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;

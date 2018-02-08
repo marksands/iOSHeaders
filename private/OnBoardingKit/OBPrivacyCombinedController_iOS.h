@@ -23,9 +23,10 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)setDarkMode:(_Bool)arg1;
-- (void)updateNavigationBarTitle;
+- (void)updateNavigationBarAnimated:(_Bool)arg1;
 - (void)updateBackgroundColor;
 - (void)viewDidLayoutSubviews;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (id)initWithIdentifiers:(id)arg1;
 

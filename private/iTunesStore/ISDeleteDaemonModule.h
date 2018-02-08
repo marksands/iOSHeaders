@@ -10,13 +10,13 @@
 
 @interface ISDeleteDaemonModule : NSObject
 {
-    SSAppPurchaseHistoryCache *_purchaseHistoryCache;
+    SSAppPurchaseHistoryCache *__purchaseHistoryCache;
 }
 
+- (void).cxx_destruct;
+- (id)_purchaseHistoryCache;
 - (unsigned long long)purgeableSpace;
 - (unsigned long long)purge:(unsigned long long)arg1;
-- (void)dealloc;
-- (id)init;
 
 @end
 

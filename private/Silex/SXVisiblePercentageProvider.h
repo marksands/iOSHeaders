@@ -13,11 +13,12 @@
 
 @interface SXVisiblePercentageProvider : NSObject <SXVisiblePercentageProviding, SXVisiblePercentageReporting>
 {
-    double visiblePercentage;
+    double _visiblePercentage;
 }
 
-@property(nonatomic) double visiblePercentage; // @synthesize visiblePercentage;
+@property(nonatomic) double visiblePercentage; // @synthesize visiblePercentage=_visiblePercentage;
 - (double)visiblePercentageOfObject:(id)arg1;
+- (id)initWithVisiblePercentage:(double)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

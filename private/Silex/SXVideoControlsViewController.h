@@ -6,7 +6,7 @@
 
 #import "UIViewController.h"
 
-@class SXPlayButtonViewController, SXTopVideoControlsViewController, SXVideoAccessoryBarViewController, SXVideoPlaybackControlsManager, SXVideoProgressViewController;
+@class SXPlayButtonViewController, SXTopVideoControlsViewController, SXVideoAccessoryBarViewController, SXVideoPlaybackControlsManager, SXVideoProgressViewController, UIButton;
 
 @interface SXVideoControlsViewController : UIViewController
 {
@@ -15,8 +15,12 @@
     SXVideoProgressViewController *_progressViewController;
     SXVideoPlaybackControlsManager *_playbackControlsManager;
     SXVideoAccessoryBarViewController *_accessoryBarViewController;
+    UIButton *_skipToPreviousButton;
+    UIButton *_skipToNextButton;
 }
 
+@property(readonly, nonatomic) UIButton *skipToNextButton; // @synthesize skipToNextButton=_skipToNextButton;
+@property(readonly, nonatomic) UIButton *skipToPreviousButton; // @synthesize skipToPreviousButton=_skipToPreviousButton;
 @property(readonly, nonatomic) SXVideoAccessoryBarViewController *accessoryBarViewController; // @synthesize accessoryBarViewController=_accessoryBarViewController;
 @property(readonly, nonatomic) SXVideoPlaybackControlsManager *playbackControlsManager; // @synthesize playbackControlsManager=_playbackControlsManager;
 @property(readonly, nonatomic) SXVideoProgressViewController *progressViewController; // @synthesize progressViewController=_progressViewController;
@@ -24,8 +28,7 @@
 @property(readonly, nonatomic) SXTopVideoControlsViewController *topControlsViewController; // @synthesize topControlsViewController=_topControlsViewController;
 - (void).cxx_destruct;
 - (void)viewDidLoad;
-- (void)loadView;
-- (id)initWithPlaybackControlsManager:(id)arg1 topVideoControlsViewController:(id)arg2 playButtonViewController:(id)arg3 progressViewController:(id)arg4 videoAccessoryBar:(id)arg5;
+- (id)initWithPlaybackControlsManager:(id)arg1 topVideoControlsViewController:(id)arg2 playButtonViewController:(id)arg3 progressViewController:(id)arg4 videoAccessoryBar:(id)arg5 skipToPreviousButton:(id)arg6 skipToNextButton:(id)arg7;
 
 @end
 

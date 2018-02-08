@@ -16,11 +16,11 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)sharedManager;
+- (void).cxx_destruct;
 - (void)clearDevices;
 - (void)registerDevice:(id)arg1;
 - (id)deviceWithIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSArray *allDevices;
-- (void)dealloc;
 - (id)init;
 
 @end

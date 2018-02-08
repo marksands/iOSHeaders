@@ -16,6 +16,7 @@
 }
 
 @property _Bool settingsUIVisible; // @synthesize settingsUIVisible=_settingsUIVisible;
+- (void)connectToDaemon;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

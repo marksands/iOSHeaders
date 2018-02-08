@@ -9,10 +9,11 @@
 #import "XCTTestRunSessionDelegate.h"
 #import "XCTestDriverInterface.h"
 #import "XCTestObservation.h"
+#import "XCUIXcodeApplicationManaging.h"
 
 @class DTXConnection, NSObject<OS_dispatch_queue>, NSString, XCTestRun;
 
-@interface XCTRunnerIDESession : NSObject <XCTestObservation, XCTestDriverInterface, XCTTestRunSessionDelegate>
+@interface XCTRunnerIDESession : NSObject <XCTestObservation, XCTestDriverInterface, XCTTestRunSessionDelegate, XCUIXcodeApplicationManaging>
 {
     NSObject<OS_dispatch_queue> *_queue;
     DTXConnection *_IDEConnection;
@@ -32,6 +33,7 @@
 @property(retain) DTXConnection *IDEConnection; // @synthesize IDEConnection=_IDEConnection;
 @property __weak id <XCTUIApplicationMonitor> applicationMonitor; // @synthesize applicationMonitor=_applicationMonitor;
 @property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+- (void).cxx_destruct;
 - (void)testBundleDidFinish:(id)arg1;
 - (void)_testCase:(id)arg1 didFinishActivity:(id)arg2;
 - (void)_testCase:(id)arg1 willStartActivity:(id)arg2;
@@ -62,7 +64,6 @@
 @property(readonly) _Bool reportsCrashes;
 @property long long IDEProtocolVersion; // @synthesize IDEProtocolVersion=_IDEProtocolVersion;
 - (id)initWithTransport:(id)arg1;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -58,6 +58,7 @@
 - (_Bool)enforceSyncEntityOrdering;
 - (id)orderedSyncEntities;
 - (id)syncStoreDefaultSourceBundleIdentifier;
+- (id)databaseIdentifier;
 - (id)syncStoreIdentifier;
 - (long long)syncEpoch;
 - (long long)syncProvenance;

@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 @interface _TVButton : UIControl
 {
     UIColor *__backgroundColor;
+    _Bool _isFocused;
     _Bool _blurEnabled;
     _Bool _imageTrailsTextContent;
     long long _backdropStyle;
@@ -35,6 +36,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool blurEnabled; // @synthesize blurEnabled=_blurEnabled;
 @property(readonly, nonatomic) long long backdropStyle; // @synthesize backdropStyle=_backdropStyle;
 - (void).cxx_destruct;
+- (void)_updateFocusStateWithCoordinator:(id)arg1;
 - (void)_setFocused:(_Bool)arg1 animationCoordinator:(id)arg2;
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2 withAnimationCoordinator:(id)arg3;
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;

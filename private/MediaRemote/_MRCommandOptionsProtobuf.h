@@ -95,6 +95,7 @@
 @property(nonatomic) _Bool externalPlayerCommand; // @synthesize externalPlayerCommand=_externalPlayerCommand;
 @property(retain, nonatomic) NSString *mediaType; // @synthesize mediaType=_mediaType;
 @property(retain, nonatomic) NSString *sourceID; // @synthesize sourceID=_sourceID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -145,7 +146,6 @@
 @property(nonatomic) _Bool hasExternalPlayerCommand;
 @property(readonly, nonatomic) _Bool hasMediaType;
 @property(readonly, nonatomic) _Bool hasSourceID;
-- (void)dealloc;
 
 @end
 

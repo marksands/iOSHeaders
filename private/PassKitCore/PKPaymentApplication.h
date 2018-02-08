@@ -65,6 +65,7 @@
 @property(copy, nonatomic, setter=setDPANIdentifier:) NSString *dpanIdentifier; // @synthesize dpanIdentifier=_dpanIdentifier;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *stationCodeProvider;
+@property(readonly, nonatomic, getter=isParsedTransitApplication) _Bool parsedTransitApplication;
 @property(readonly, nonatomic) _Bool supportsExpressSuica;
 @property(readonly, nonatomic) _Bool supportsSuica;
 @property(copy, nonatomic) PKFelicaPassProperties *felicaProperties;

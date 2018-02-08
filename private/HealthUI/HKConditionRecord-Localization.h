@@ -7,7 +7,6 @@
 #import "HKConditionRecord.h"
 
 @interface HKConditionRecord (Localization)
-- (id)sortDateSummaryTitle;
 - (id)sortDateTitle;
 @end
 

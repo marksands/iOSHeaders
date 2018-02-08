@@ -22,7 +22,6 @@
     int _location;
     _MRNowPlayingPlayerPathProtobuf *_playerPath;
     NSString *_requestID;
-    _Bool _includeArtworkURLTemplate;
     _Bool _includeInfo;
     _Bool _includeLanguageOptions;
     _Bool _includeLyrics;
@@ -36,7 +35,6 @@
         unsigned int cachingPolicy:1;
         unsigned int length:1;
         unsigned int location:1;
-        unsigned int includeArtworkURLTemplate:1;
         unsigned int includeInfo:1;
         unsigned int includeLanguageOptions:1;
         unsigned int includeLyrics:1;
@@ -49,7 +47,6 @@
 
 + (Class)contentItemIdentifiersType;
 + (void)initialize;
-@property(nonatomic) _Bool includeArtworkURLTemplate; // @synthesize includeArtworkURLTemplate=_includeArtworkURLTemplate;
 @property(nonatomic) _Bool isLegacyNowPlayingInfoRequest; // @synthesize isLegacyNowPlayingInfoRequest=_isLegacyNowPlayingInfoRequest;
 @property(retain, nonatomic) NSString *label; // @synthesize label=_label;
 @property(nonatomic) int cachingPolicy; // @synthesize cachingPolicy=_cachingPolicy;
@@ -67,6 +64,7 @@
 @property(nonatomic) _Bool includeMetadata; // @synthesize includeMetadata=_includeMetadata;
 @property(nonatomic) int length; // @synthesize length=_length;
 @property(nonatomic) int location; // @synthesize location=_location;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -76,7 +74,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasIncludeArtworkURLTemplate;
 @property(nonatomic) _Bool hasIsLegacyNowPlayingInfoRequest;
 @property(readonly, nonatomic) _Bool hasLabel;
 @property(nonatomic) _Bool hasCachingPolicy;
@@ -97,7 +94,6 @@
 @property(nonatomic) _Bool hasIncludeMetadata;
 @property(nonatomic) _Bool hasLength;
 @property(nonatomic) _Bool hasLocation;
-- (void)dealloc;
 - (id)customDescription;
 - (id)customDictionaryRepresentation;
 

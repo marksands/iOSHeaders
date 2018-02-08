@@ -23,6 +23,7 @@
     UIImage *_platformImage;
 }
 
++ (id)_loadImageSubsampledToScreenSizeFromData:(id)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)_PNGImageNamed:(id)arg1;
 @property(retain, nonatomic) UIImage *platformImage; // @synthesize platformImage=_platformImage;

@@ -7,14 +7,15 @@
 #import "NSObject.h"
 
 #import "XCTestManager_TestsInterface.h"
+#import "XCUIRemoteAXInterface.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSXPCConnection;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
 
-@interface XCTRunnerDaemonSession : NSObject <XCTestManager_TestsInterface>
+@interface XCTRunnerDaemonSession : NSObject <XCTestManager_TestsInterface, XCUIRemoteAXInterface>
 {
     NSObject<OS_dispatch_queue> *_queue;
     id <XCTUIApplicationMonitor> _applicationMonitor;
-    id <XCTAXClient> _accessibilityClient;
+    id <XCUIAXNotificationHandling> _accessibilityClient;
     NSXPCConnection *_connection;
     unsigned long long _daemonProtocolVersion;
     NSMutableDictionary *_invalidationHandlers;
@@ -23,10 +24,11 @@
 + (_Bool)isSupported;
 + (id)sharedSession;
 @property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
-@property id <XCTAXClient> accessibilityClient; // @synthesize accessibilityClient=_accessibilityClient;
+@property id <XCUIAXNotificationHandling> accessibilityClient; // @synthesize accessibilityClient=_accessibilityClient;
 @property id <XCTUIApplicationMonitor> applicationMonitor; // @synthesize applicationMonitor=_applicationMonitor;
 @property(retain) NSMutableDictionary *invalidationHandlers; // @synthesize invalidationHandlers=_invalidationHandlers;
 @property(retain) NSXPCConnection *connection; // @synthesize connection=_connection;
+- (void).cxx_destruct;
 - (void)requestBundleIDForPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)injectVoiceRecognitionAudioInputPaths:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)injectAssistantRecognitionStrings:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -39,12 +41,14 @@
 - (void)setAXTimeout:(double)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)requestScreenshotWithReply:(CDUnknownBlockType)arg1;
 - (void)sendString:(id)arg1 maximumFrequency:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)getDeviceOrientationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateDeviceOrientation:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performDeviceEvent:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)synthesizeEvent:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)requestElementAtPoint:(struct CGPoint)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)fetchParameterizedAttributeForElement:(id)arg1 attribute:(id)arg2 parameter:(id)arg3 reply:(CDUnknownBlockType)arg4;
+- (void)fetchParameterizedAttribute:(id)arg1 forElement:(id)arg2 parameter:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)setAttribute:(id)arg1 value:(id)arg2 element:(id)arg3 reply:(CDUnknownBlockType)arg4;
+- (void)fetchAttributes:(id)arg1 forElement:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)fetchAttributesForElement:(id)arg1 attributes:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)requestSnapshotForElement:(id)arg1 attributes:(id)arg2 parameters:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)snapshotForElement:(id)arg1 attributes:(id)arg2 parameters:(id)arg3 reply:(CDUnknownBlockType)arg4;
@@ -71,6 +75,12 @@
 - (void)_reportInvalidation;
 - (id)initWithConnection:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

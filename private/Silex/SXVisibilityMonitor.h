@@ -42,7 +42,7 @@
 @property(readonly, nonatomic) NFStateMachineState *appearingState; // @synthesize appearingState=_appearingState;
 @property(readonly, nonatomic) NFStateMachine *stateMachine; // @synthesize stateMachine=_stateMachine;
 @property(readonly, nonatomic) id <SXVisiblePercentageProviding> visiblePercentageProvider; // @synthesize visiblePercentageProvider=_visiblePercentageProvider;
-@property(readonly, nonatomic) id object; // @synthesize object=_object;
+@property(readonly, nonatomic) __weak id object; // @synthesize object=_object;
 @property(nonatomic) double visiblePercentage; // @synthesize visiblePercentage=_visiblePercentage;
 @property(readonly, nonatomic) _Bool appeared; // @synthesize appeared=_appeared;
 - (void).cxx_destruct;

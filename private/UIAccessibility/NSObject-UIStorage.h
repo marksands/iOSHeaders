@@ -67,6 +67,7 @@
 - (void)_setAccessibilityActivateBlock:(CDUnknownBlockType)arg1;
 - (void)_setAccessibilityGuideElementHeaderTextBlock:(CDUnknownBlockType)arg1;
 - (void)_setAccessibilityLinkedUIElementsBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityElementsBlock:(CDUnknownBlockType)arg1;
 - (void)_setAccessibilityHeaderElementsBlock:(CDUnknownBlockType)arg1;
 - (void)_setAccessibilityNavigationStyleBlock:(CDUnknownBlockType)arg1;
 - (void)_setShouldGroupAccessibilityChildrenBlock:(CDUnknownBlockType)arg1;

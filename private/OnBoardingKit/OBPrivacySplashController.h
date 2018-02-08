@@ -27,15 +27,15 @@
 @property _Bool useModalStyle; // @synthesize useModalStyle=_useModalStyle;
 @property _Bool useSmallTitle; // @synthesize useSmallTitle=_useSmallTitle;
 @property _Bool showsLinkToUnifiedAbout; // @synthesize showsLinkToUnifiedAbout=_showsLinkToUnifiedAbout;
-@property _Bool showLinkToPrivacyGateway; // @synthesize showLinkToPrivacyGateway=_showLinkToPrivacyGateway;
+@property(nonatomic) _Bool showLinkToPrivacyGateway; // @synthesize showLinkToPrivacyGateway=_showLinkToPrivacyGateway;
 @property _Bool allowsOpeningSafari; // @synthesize allowsOpeningSafari=_allowsOpeningSafari;
 @property _Bool suppressPerPageAnalyticsLogging; // @synthesize suppressPerPageAnalyticsLogging=_suppressPerPageAnalyticsLogging;
 - (void).cxx_destruct;
 - (void)scrollViewDidScroll:(id)arg1;
-- (void)updateNavigationBarTitle;
+- (void)updateNavigationBarAnimated:(_Bool)arg1;
 - (void)setDarkMode:(_Bool)arg1;
 - (void)setDismissHandlerForDefaultButton:(CDUnknownBlockType)arg1;
-- (void)viewDidLayoutSubviews;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)_initializeFromBundle;
 - (void)viewDidLoad;
 - (void)showPrivacyGateway:(id)arg1;

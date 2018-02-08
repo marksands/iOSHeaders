@@ -15,7 +15,7 @@
 + (id)limitArticles:(id)arg1 byHourlyFlowRate:(double)arg2 articleFilterPerPublisher:(double)arg3 timeInterval:(double)arg4;
 + (id)sortArticles:(id)arg1 withArticleToGlobalScoreMap:(id)arg2 readonlyPersonalizationAggregateStore:(id)arg3 personalizationDataSource:(id)arg4 configurableValues:(id)arg5 subscribedTagIDs:(id)arg6 mutedTagIDs:(id)arg7 autofavoritedTagIDs:(id)arg8;
 + (id)sortArticles:(id)arg1 withArticleToGlobalScoreMap:(id)arg2 readonlyPersonalizationAggregateStore:(id)arg3 personalizationDataSource:(id)arg4 configurableValues:(id)arg5 subscribedTagIDs:(id)arg6 mutedTagIDs:(id)arg7 autofavoritedTagIDs:(id)arg8 sortOptions:(long long)arg9;
-+ (double)decayedDiverificationPenaltyWithInitialValue:(double)arg1 finalValue:(double)arg2 halfLife:(double)arg3 baselineAggregate:(id)arg4;
++ (double)decayedDiversificationPenaltyWithInitialValue:(double)arg1 finalValue:(double)arg2 halfLife:(double)arg3 baselineAggregate:(id)arg4;
 
 @end
 

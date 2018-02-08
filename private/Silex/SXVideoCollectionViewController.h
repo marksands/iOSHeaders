@@ -9,7 +9,7 @@
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegateFlowLayout.h"
 
-@class NSString, SXVideoItemViewControllerVisibilityManager, SXVideoView, UICollectionView;
+@class NSString, SXVideoCollectionViewScrollLock, SXVideoControlsViewController, SXVideoItemViewControllerVisibilityManager, SXVideoView, UICollectionView;
 
 @interface SXVideoCollectionViewController : UIViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 {
@@ -19,8 +19,12 @@
     id <SXVideoQueueObserving> _queueObserver;
     id <SXVideoQueueProviding> _queueProvider;
     id <SXVideoItemViewControllerFactory> _itemViewControllerFactory;
+    SXVideoControlsViewController *_controlsViewController;
+    SXVideoCollectionViewScrollLock *_scrollLock;
 }
 
+@property(readonly, nonatomic) SXVideoCollectionViewScrollLock *scrollLock; // @synthesize scrollLock=_scrollLock;
+@property(readonly, nonatomic) SXVideoControlsViewController *controlsViewController; // @synthesize controlsViewController=_controlsViewController;
 @property(readonly, nonatomic) id <SXVideoItemViewControllerFactory> itemViewControllerFactory; // @synthesize itemViewControllerFactory=_itemViewControllerFactory;
 @property(readonly, nonatomic) id <SXVideoQueueProviding> queueProvider; // @synthesize queueProvider=_queueProvider;
 @property(readonly, nonatomic) id <SXVideoQueueObserving> queueObserver; // @synthesize queueObserver=_queueObserver;
@@ -39,7 +43,7 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (id)initWithCollectionViewProvider:(id)arg1 visibilityManager:(id)arg2 queueProvider:(id)arg3 queueObserver:(id)arg4 skipObserver:(id)arg5 itemViewControllerFactory:(id)arg6 collectionViewLayoutFactory:(id)arg7 pagingAllowed:(_Bool)arg8;
+- (id)initWithCollectionViewProvider:(id)arg1 visibilityManager:(id)arg2 queueProvider:(id)arg3 queueObserver:(id)arg4 skipObserver:(id)arg5 itemViewControllerFactory:(id)arg6 collectionViewLayoutFactory:(id)arg7 controlsViewController:(id)arg8 scrollLock:(id)arg9;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

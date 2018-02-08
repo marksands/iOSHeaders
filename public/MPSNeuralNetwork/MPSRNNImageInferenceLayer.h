@@ -33,7 +33,6 @@
 @property(readonly, nonatomic) unsigned long long numberOfLayers; // @synthesize numberOfLayers=_numberOfLayers;
 - (void)encodeBidirectionalSequenceToCommandBuffer:(id)arg1 sourceSequence:(id)arg2 destinationForwardImages:(id)arg3 destinationBackwardImages:(id)arg4;
 - (void)encodeSequenceToCommandBuffer:(id)arg1 sourceImages:(id)arg2 destinationImages:(id)arg3 recurrentInputState:(id)arg4 recurrentOutputStates:(id)arg5;
-- (void)encodeToCommandBuffer:(id)arg1 sourceImage:(id)arg2 destinationImage:(id)arg3 recurrentInputState:(id)arg4 recurrentOutputState:(id *)arg5;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;

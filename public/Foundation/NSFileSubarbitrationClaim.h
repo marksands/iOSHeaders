@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly) _Bool nullified; // @synthesize nullified=_nullified;
 @property(retain) NSXPCConnection *subarbiterConnection; // @synthesize subarbiterConnection=_subarbiterConnection;
 - (void)forwardReacquisitionForWritingClaim:(_Bool)arg1 withID:(in id)arg2 toPresenterForID:(id)arg3 usingReplySender:(CDUnknownBlockType)arg4;
 - (void)forwardRelinquishmentForWritingClaim:(_Bool)arg1 withID:(id)arg2 options:(unsigned long long)arg3 purposeID:(id)arg4 subitemURL:(id)arg5 toPresenter:(id)arg6 usingReplySender:(CDUnknownBlockType)arg7;

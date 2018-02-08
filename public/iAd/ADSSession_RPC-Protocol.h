@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class ADAdSpaceConfiguration, ADAdSpaceEventInfo, ADMRAIDAction, NSArray, NSData, NSDictionary, NSString, NSURL, NSValue;
+@class ADAdSpaceConfiguration, ADAdSpaceEventInfo, ADMRAIDAction, AdAnalyticsEventInfo, NSArray, NSData, NSDictionary, NSString, NSURL, NSValue;
 
 @protocol ADSSession_RPC
+- (void)_remote_captureAnalytics:(AdAnalyticsEventInfo *)arg1 completion:(void (^)(AdAnalyticsEventInfo *, NSError *))arg2;
 - (void)_remote_reportPreRollDidStopForAdSpaceWithIdentifier:(NSString *)arg1;
 - (void)_remote_reportPreRollDidStartForAdSpaceWithIdentifier:(NSString *)arg1;
 - (void)_remote_userDidSkipPrerollForAdSpaceWithIdentifier:(NSString *)arg1;
