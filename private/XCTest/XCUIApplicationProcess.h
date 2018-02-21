@@ -43,6 +43,7 @@
 - (void).cxx_destruct;
 - (void)terminate;
 - (void)waitForViewControllerViewDidDisappearWithTimeout:(double)arg1;
+- (void)acquireBackgroundAssertion;
 - (void)waitForAutomationSession;
 - (void)waitForQuiescenceIncludingAnimationsIdle:(_Bool)arg1;
 @property _Bool hasReceivedAnimationsHaveFinished;

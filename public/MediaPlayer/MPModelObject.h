@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class MPIdentifierSet, NSMutableDictionary;
 
-@interface MPModelObject : NSObject <NSCopying>
+@interface MPModelObject : NSObject <NSCopying, NSSecureCoding>
 {
     MPModelObject *_originalObject;
     NSMutableDictionary *_storage;
@@ -21,6 +22,7 @@
 + (id)_modelKeyForPropertySelector:(SEL)arg1;
 + (_Bool)_lookupPropertyForSelector:(SEL)arg1 result:(CDUnknownBlockType)arg2;
 + (void)_indexProperties;
++ (_Bool)supportsSecureCoding;
 + (void)performWithoutEnforcement:(CDUnknownBlockType)arg1;
 + (_Bool)resolveInstanceMethod:(SEL)arg1;
 + (void)initialize;
@@ -41,6 +43,8 @@
 - (_Bool)hasLoadedValueForKey:(id)arg1;
 @property(readonly, nonatomic) MPIdentifierSet *originalIdentifierSet;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
 - (id)description;

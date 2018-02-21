@@ -28,6 +28,7 @@
     _Bool _requiresLinearPlayback;
     _Bool _showsDoneButtonWhenFullScreen;
     _Bool _prefersAssetInspectionSuspended;
+    _Bool _playingOnSecondScreen;
     _Bool _showsLoadingIndicator;
     _Bool _prefersVolumeSliderExpanded;
     _Bool _includesVideoGravityButton;
@@ -113,6 +114,7 @@
 @property(retain, nonatomic) AVPlayerControllerTimeResolver *timeResolver; // @synthesize timeResolver=_timeResolver;
 @property(retain, nonatomic) AVPlaybackControlsView *playbackControlsView; // @synthesize playbackControlsView=_playbackControlsView;
 @property(readonly, nonatomic) __weak AVPlayerViewController *playerViewController; // @synthesize playerViewController=_playerViewController;
+@property(nonatomic, getter=isPlayingOnSecondScreen) _Bool playingOnSecondScreen; // @synthesize playingOnSecondScreen=_playingOnSecondScreen;
 @property(nonatomic) _Bool prefersAssetInspectionSuspended; // @synthesize prefersAssetInspectionSuspended=_prefersAssetInspectionSuspended;
 @property(readonly, nonatomic) AVVolumeController *volumeController; // @synthesize volumeController=_volumeController;
 @property(retain, nonatomic) AVPictureInPictureController *pictureInPictureController; // @synthesize pictureInPictureController=_pictureInPictureController;

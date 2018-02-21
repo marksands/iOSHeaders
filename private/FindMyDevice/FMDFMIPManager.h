@@ -6,18 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSURL;
-
 @interface FMDFMIPManager : NSObject
 {
-    NSURL *_managedLostModeFileURL;
-    NSURL *_needsLocateAckLostModeFileURL;
 }
 
 + (id)sharedInstance;
-@property(retain, nonatomic) NSURL *needsLocateAckLostModeFileURL; // @synthesize needsLocateAckLostModeFileURL=_needsLocateAckLostModeFileURL;
-@property(retain, nonatomic) NSURL *managedLostModeFileURL; // @synthesize managedLostModeFileURL=_managedLostModeFileURL;
-- (void).cxx_destruct;
 - (id)getNeedsLocateAckLostModeFileURL;
 - (id)getManagedLostModeFileURL;
 - (void)_disableFMIPUsingToken:(id)arg1 inContext:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;

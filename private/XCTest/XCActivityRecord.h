@@ -27,6 +27,7 @@
 
 + (_Bool)_shouldSaveAttachmentWithName:(id)arg1 lifetime:(long long)arg2;
 + (_Bool)supportsSecureCoding;
+@property(readonly, getter=isValid) _Bool valid; // @synthesize valid=_valid;
 @property(readonly) double subactivitiesDuration; // @synthesize subactivitiesDuration=_subactivitiesDuration;
 @property(copy) NSString *aggregationIdentifier; // @synthesize aggregationIdentifier=_aggregationIdentifier;
 @property _Bool useLegacySerializationFormat; // @synthesize useLegacySerializationFormat=_useLegacySerializationFormat;

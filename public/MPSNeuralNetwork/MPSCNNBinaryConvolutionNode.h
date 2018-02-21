@@ -10,7 +10,6 @@
 
 @interface MPSCNNBinaryConvolutionNode : MPSCNNConvolutionNode
 {
-    id <MPSCNNConvolutionDataSource> _weights;
     float _scaleValue;
     unsigned long long _type;
     unsigned long long _flags;

@@ -376,6 +376,7 @@ struct Item {
     struct unique_ptr<CMMsl::WorkoutRecorderHeartRate, std::__1::default_delete<CMMsl::WorkoutRecorderHeartRate>> _workoutRecorderHeartRate;
     struct unique_ptr<CMMsl::WorkoutRecorderOdometer, std::__1::default_delete<CMMsl::WorkoutRecorderOdometer>> _workoutRecorderOdometer;
     struct unique_ptr<CMMsl::WorkoutRecorderRotationRate, std::__1::default_delete<CMMsl::WorkoutRecorderRotationRate>> _workoutRecorderRotationRate;
+    struct unique_ptr<CMMsl::WorkoutRecorderWatchOrientationSettings, std::__1::default_delete<CMMsl::WorkoutRecorderWatchOrientationSettings>> _workoutRecorderWatchOrientationSettings;
     struct unique_ptr<CMMsl::WorkoutRecorderWorkoutEvent, std::__1::default_delete<CMMsl::WorkoutRecorderWorkoutEvent>> _workoutRecorderWorkoutEvent;
     struct {
         unsigned int cftime:1;
@@ -473,6 +474,8 @@ struct WorkoutRecorderHeartRate;
 struct WorkoutRecorderOdometer;
 
 struct WorkoutRecorderRotationRate;
+
+struct WorkoutRecorderWatchOrientationSettings;
 
 struct WorkoutRecorderWorkoutEvent;
 
@@ -1087,6 +1090,12 @@ struct unique_ptr<CMMsl::WorkoutRecorderOdometer, std::__1::default_delete<CMMsl
 struct unique_ptr<CMMsl::WorkoutRecorderRotationRate, std::__1::default_delete<CMMsl::WorkoutRecorderRotationRate>> {
     struct __compressed_pair<CMMsl::WorkoutRecorderRotationRate *, std::__1::default_delete<CMMsl::WorkoutRecorderRotationRate>> {
         struct WorkoutRecorderRotationRate *__value_;
+    } __ptr_;
+};
+
+struct unique_ptr<CMMsl::WorkoutRecorderWatchOrientationSettings, std::__1::default_delete<CMMsl::WorkoutRecorderWatchOrientationSettings>> {
+    struct __compressed_pair<CMMsl::WorkoutRecorderWatchOrientationSettings *, std::__1::default_delete<CMMsl::WorkoutRecorderWatchOrientationSettings>> {
+        struct WorkoutRecorderWatchOrientationSettings *__value_;
     } __ptr_;
 };
 

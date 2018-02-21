@@ -25,6 +25,7 @@
 - (id)peerPaymentDataSource;
 - (id)peerPaymentDelegate;
 - (_Bool)canRegisterForPeerPayment;
+- (id)setupBrowsableProductTypesForDevice;
 - (id)setupFeaturedNetworksForDevice;
 - (id)secureElementID;
 - (id)optionsDelegate;

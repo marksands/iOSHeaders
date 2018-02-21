@@ -29,6 +29,7 @@
     double _nextWaterConsumedSampleTime;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) double nextWaterConsumedSampleTime; // @synthesize nextWaterConsumedSampleTime=_nextWaterConsumedSampleTime;
 @property(nonatomic) double bloodGlucoseDecreaseRateDueToInsulin; // @synthesize bloodGlucoseDecreaseRateDueToInsulin=_bloodGlucoseDecreaseRateDueToInsulin;
 @property(nonatomic) double bloodGlucoseCarbohydrateGlycemicRate; // @synthesize bloodGlucoseCarbohydrateGlycemicRate=_bloodGlucoseCarbohydrateGlycemicRate;
@@ -47,6 +48,8 @@
 @property(nonatomic) double nextMealTime; // @synthesize nextMealTime=_nextMealTime;
 @property(retain, nonatomic) HDDemoDataFoodDatabase *foodDatabase; // @synthesize foodDatabase=_foodDatabase;
 - (void).cxx_destruct;
+- (id)_lastMeal;
+- (void)_generateRandomLastMeal;
 - (double)_computeNutrientForDemoPerson:(id)arg1 atTime:(double)arg2 mealItem:(id)arg3 quantityType:(id)arg4;
 - (double)_computeBloodGlucoseForDemoPerson:(id)arg1 atTime:(double)arg2 weight:(double)arg3;
 - (double)_nextMealTimeForDemoPerson:(id)arg1 atTime:(double)arg2;

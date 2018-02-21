@@ -16,6 +16,7 @@
     WLKServerConfigurationResponse *_response;
     NSArray *_orderedChannels;
     NSDictionary *_channelsByID;
+    long long _vppaStatus;
     int _didChangeNotificationToken;
     NSMutableDictionary *_completions;
     NSString *_nextEK;
@@ -55,6 +56,7 @@
 - (void)fetchConfiguration:(CDUnknownBlockType)arg1;
 - (id)serverRouteForKey:(id)arg1;
 - (id)APIBaseURL;
+@property(readonly, nonatomic) long long vppaStatus;
 @property(readonly, copy, nonatomic) NSDate *expirationDate;
 @property(readonly, copy, nonatomic) NSDictionary *serverRoutesDictionary;
 @property(readonly, copy, nonatomic) NSArray *orderedChannels;

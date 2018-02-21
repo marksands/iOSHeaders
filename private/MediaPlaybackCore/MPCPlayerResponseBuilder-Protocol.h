@@ -25,6 +25,7 @@
 - (long long)playerLastChangeDirection:(long long)arg1 chain:(MPMiddlewareChain *)arg2;
 - (long long)playerShuffleType:(long long)arg1 chain:(MPMiddlewareChain *)arg2;
 - (long long)playerRepeatType:(long long)arg1 chain:(MPMiddlewareChain *)arg2;
+- (NSString *)tracklistUniqueIdentifier:(NSString *)arg1 chain:(MPMiddlewareChain *)arg2;
 - (long long)playerState:(long long)arg1 chain:(MPMiddlewareChain *)arg2;
 - (MPCMediaRemoteController *)controller:(MPCMediaRemoteController *)arg1 chain:(MPMiddlewareChain *)arg2;
 @end

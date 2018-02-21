@@ -32,7 +32,7 @@
     _Bool _appearedOnce;
     _Bool _insertedGroupsVC;
     _Bool _shouldInsertGroupsVC;
-    _Bool _invalidated;
+    long long _invalidationStatus;
 }
 
 + (_Bool)_isSecureForRemoteViewService;
@@ -69,6 +69,7 @@
 - (void)loadView;
 - (void)_willAppearInRemoteViewController;
 - (void)viewDidMoveToWindow:(id)arg1 shouldAppearOrDisappear:(_Bool)arg2;
+- (void)_invalidateForType:(long long)arg1;
 - (void)_invalidate;
 - (void)dealloc;
 - (id)init;

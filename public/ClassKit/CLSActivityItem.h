@@ -21,7 +21,6 @@
 @property(copy, nonatomic) NSString *_title; // @synthesize _title=__title;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
-- (void)checkForStartedActivity;
 @property(copy, nonatomic) NSString *title;
 - (_Bool)validateObject:(id *)arg1;
 - (id)dictionaryRepresentation;
@@ -30,7 +29,6 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithIdentifier:(id)arg1 title:(id)arg2;
 - (id)_init;
-- (id)identity;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

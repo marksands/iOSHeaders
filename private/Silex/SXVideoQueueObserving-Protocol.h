@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @protocol SXVideoQueueObserving <NSObject>
-- (void)onUpdate:(void (^)(NSOrderedSet *, NSOrderedSet *))arg1;
+- (void)onUpdate:(void (^)(id <SXVideoQueue>, id <SXVideoQueue>, id <SXVideoQueueDiff>))arg1;
 @end
 

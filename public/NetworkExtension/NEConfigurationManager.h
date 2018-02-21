@@ -31,6 +31,7 @@
     NSUUID *_userUUID;
     id <NEConfigurationManagerDelegate> _delegate;
     long long _configurationChangeSource;
+    CDUnknownBlockType _getIndexDelegateCallback;
 }
 
 + (void)disableConfiguration:(id)arg1 onDemandOnly:(_Bool)arg2;
@@ -39,6 +40,7 @@
 + (void)updateFlags:(unsigned long long *)arg1 withConfiguration:(id)arg2;
 + (id)sharedManagerForAllUsers;
 + (id)sharedManager;
+@property(copy) CDUnknownBlockType getIndexDelegateCallback; // @synthesize getIndexDelegateCallback=_getIndexDelegateCallback;
 @property long long configurationChangeSource; // @synthesize configurationChangeSource=_configurationChangeSource;
 @property(retain) id <NEConfigurationManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly) NSUUID *userUUID; // @synthesize userUUID=_userUUID;
@@ -92,6 +94,7 @@
 - (void)clearLoadedConfigurationsWithIDs:(id)arg1;
 - (void)didLoadConfiguration:(id)arg1;
 - (void)didLoadConfiguration:(id)arg1 withSignature:(id)arg2;
+- (void)deregisterForChangeNotifications;
 - (void)registerForChangeNotifications;
 - (void)notifyChanges;
 - (void)getCurrentIndexWithCompletionHandler:(CDUnknownBlockType)arg1;

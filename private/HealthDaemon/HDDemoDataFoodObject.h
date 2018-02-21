@@ -26,6 +26,9 @@
 @property(copy, nonatomic) NSString *genericName; // @synthesize genericName=_genericName;
 @property(copy, nonatomic) NSString *brandName; // @synthesize brandName=_brandName;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToHDDemoDataFoodObject:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;

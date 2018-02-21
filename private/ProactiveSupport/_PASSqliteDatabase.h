@@ -31,6 +31,7 @@
 }
 
 + (id)corruptionMarkerPathForPath:(id)arg1;
++ (void)runDebugCommand:(const char *)arg1 onDbWithHandle:(id)arg2;
 + (_Bool)shouldCacheSql:(const char *)arg1;
 + (void)truncateDatabaseAtPath:(id)arg1;
 + (id)randomlyNamedInMemoryPathWithBaseName:(id)arg1;

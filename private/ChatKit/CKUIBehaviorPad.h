@@ -10,6 +10,7 @@
 {
 }
 
+- (double)welcomeViewContentViewTopAnchorLayoutConstraintConstant;
 - (_Bool)shouldPopoverSuggestionsBanner;
 - (unsigned long long)suggestedAppStripLimit;
 - (id)fullscreenPickerActionLayoutAxisPrioritiesForWidth:(double)arg1;

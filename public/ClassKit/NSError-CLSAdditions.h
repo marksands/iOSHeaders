@@ -16,6 +16,9 @@
 + (id)cls_createErrorWithCode:(long long)arg1 description:(id)arg2;
 + (id)cls_createErrorWithCode:(long long)arg1 errorObject:(id)arg2 format:(id)arg3;
 + (id)cls_createErrorWithCode:(long long)arg1 errorObject:(id)arg2 description:(id)arg3;
+- (void)cls_debug:(id)arg1;
+- (void)cls_info:(id)arg1;
+- (void)cls_warn:(id)arg1;
 - (void)cls_log:(id)arg1;
 - (id)cls_underlyingErrorWithDomain:(id)arg1;
 - (_Bool)cls_isClassKitError;

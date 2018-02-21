@@ -11,7 +11,7 @@
 - (_Bool)_iAd_isFeldsparClientVisibleFast;
 - (_Bool)_iAd_isVisibleFast;
 - (_Bool)_iAd_isVisible:(CDUnknownBlockType)arg1;
-- (long long)_iAd_visiblePercentage;
+- (float)_iAd_visiblePercentage;
 - (_Bool)_iAd_isVisiblePercentageThreshold:(long long)arg1;
 @end
 

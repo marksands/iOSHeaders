@@ -109,6 +109,7 @@
 - (void)speechManagerDidStartForwarding:(id)arg1 successfully:(_Bool)arg2 error:(id)arg3;
 - (void)speechManagerRecordBufferAvailable:(id)arg1 buffer:(id)arg2;
 - (void)speechManagerLPCMRecordBufferAvailable:(id)arg1 chunk:(id)arg2;
+- (_Bool)_isAutoPrompted;
 - (_Bool)_isVoiceTriggered;
 - (_Bool)isVoiceTriggered;
 - (id)recordRoute;

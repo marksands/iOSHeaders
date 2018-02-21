@@ -20,7 +20,6 @@
     AVAssetWriterInputPixelBufferAdaptor *_videoInputAdaptor;
     AVAssetWriterInput *_depthInput;
     AVAssetWriterInputPixelBufferAdaptor *_depthInputAdaptor;
-    struct __CVPixelBufferPool *_depthBufferPoolFloat16;
     AVAssetWriterInputMetadataAdaptor *_accelInputAdaptor;
     AVAssetWriterInputMetadataAdaptor *_gyroInputAdaptor;
     AVAssetWriterInputMetadataAdaptor *_videoMetadataInputAdaptor;

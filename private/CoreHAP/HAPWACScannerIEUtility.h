@@ -18,7 +18,8 @@
     unsigned long long _len;
     _Bool _supportsHomeKit;
     _Bool _supportsPairSetupWAC;
-    _Bool _supportsMFi;
+    _Bool _supportsMFiAuthICV2;
+    _Bool _supportsMFiAuthICV3;
     _Bool _supportsSTAOnly;
     _Bool _supportsAudioOnly;
     _Bool _supports2pt4GHzNetworks;
@@ -33,7 +34,8 @@
 @property(readonly, nonatomic) _Bool supports2pt4GHzNetworks; // @synthesize supports2pt4GHzNetworks=_supports2pt4GHzNetworks;
 @property(readonly, nonatomic) _Bool supportsAudioOnly; // @synthesize supportsAudioOnly=_supportsAudioOnly;
 @property(readonly, nonatomic) _Bool supportsSTAOnly; // @synthesize supportsSTAOnly=_supportsSTAOnly;
-@property(readonly, nonatomic) _Bool supportsMFi; // @synthesize supportsMFi=_supportsMFi;
+@property(readonly, nonatomic) _Bool supportsMFiAuthICV3; // @synthesize supportsMFiAuthICV3=_supportsMFiAuthICV3;
+@property(readonly, nonatomic) _Bool supportsMFiAuthICV2; // @synthesize supportsMFiAuthICV2=_supportsMFiAuthICV2;
 @property(readonly, nonatomic) _Bool supportsPairSetupWAC; // @synthesize supportsPairSetupWAC=_supportsPairSetupWAC;
 @property(readonly, nonatomic) _Bool supportsHomeKit; // @synthesize supportsHomeKit=_supportsHomeKit;
 - (void).cxx_destruct;

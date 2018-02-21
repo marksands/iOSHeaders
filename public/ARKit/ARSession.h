@@ -34,6 +34,7 @@
     double _defaultRelocalizationDuration;
     NSDate *_relocalizationTimeoutDate;
     _Bool _relocalizationRequested;
+    double _currentTrackingStartingTimestamp;
     long long _featurePointAccumulationCount;
     _Bool _relocalizing;
     id <ARSessionDelegate> _delegate;

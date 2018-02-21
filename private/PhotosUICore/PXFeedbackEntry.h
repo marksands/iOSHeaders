@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSDate, NSDictionary, NSMutableDictionary, NSString;
 
-@interface PXFeedbackEntry : NSObject <NSCoding>
+@interface PXFeedbackEntry : NSObject <NSSecureCoding>
 {
     NSDictionary *_feedbackItemDetails;
     _Bool _alreadyCollected;
@@ -31,6 +31,7 @@
 + (id)positiveFeedbackForMemoriesKeys;
 + (id)negativeFeedbackForMemoryDetailsKeys;
 + (id)positiveFeedbackForMemoryDetailsKeys;
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *appVersion; // @synthesize appVersion=_appVersion;
 @property(nonatomic) _Bool alreadyCollected; // @synthesize alreadyCollected=_alreadyCollected;
 @property(retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;

@@ -16,7 +16,8 @@
 }
 
 - (void).cxx_destruct;
-- (id)_valueForTextFieldWithID:(id)arg1 inObjectModel:(id)arg2;
+- (id)_valueForTextFieldFromPage:(id)arg1 rowID:(id)arg2;
+- (id)_valueForFieldWithID:(id)arg1 inObjectModel:(id)arg2;
 - (id)valueForFieldWithID:(id)arg1;
 - (id)initWithObjectModel:(id)arg1;
 

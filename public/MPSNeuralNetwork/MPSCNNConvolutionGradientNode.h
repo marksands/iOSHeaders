@@ -6,16 +6,28 @@
 
 #import <MPSNeuralNetwork/MPSNNGradientFilterNode.h>
 
-@interface MPSCNNConvolutionGradientNode : MPSNNGradientFilterNode
+#import "MPSNNTrainableNode.h"
+
+@class NSString;
+
+@interface MPSCNNConvolutionGradientNode : MPSNNGradientFilterNode <MPSNNTrainableNode>
 {
     id <MPSCNNConvolutionDataSource> _weights;
+    unsigned long long _trainingStyle;
 }
 
 + (id)nodeWithSourceGradient:(id)arg1 sourceImage:(id)arg2 convolutionGradientState:(id)arg3 weights:(id)arg4;
+@property(nonatomic) unsigned long long trainingStyle; // @synthesize trainingStyle=_trainingStyle;
+@property(readonly, copy) NSString *debugDescription;
 - (void)dealloc;
 - (struct FilterGraphNode *)newFilterNode;
 - (id)initWithGradientImages:(id)arg1 forwardFilter:(id)arg2;
 - (id)initWithSourceGradient:(id)arg1 sourceImage:(id)arg2 convolutionGradientState:(id)arg3 weights:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

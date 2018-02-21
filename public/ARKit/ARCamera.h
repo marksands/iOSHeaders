@@ -13,12 +13,22 @@
 {
     long long _trackingState;
     long long _trackingStateReason;
+    unsigned long long _lensType;
     struct CGSize _imageResolution;
+    // Error parsing type: , name: _tangentialDistortion
+    // Error parsing type: , name: _radialDistortion
     // Error parsing type: {?="columns"[3]}, name: _intrinsics
     // Error parsing type: {?="columns"[4]}, name: _transform
 }
 
 + (_Bool)supportsSecureCoding;
+// Error parsing type for property tangentialDistortion:
+// Property attributes: T,N,V_tangentialDistortion
+
+// Error parsing type for property radialDistortion:
+// Property attributes: T,N,V_radialDistortion
+
+@property(nonatomic) unsigned long long lensType; // @synthesize lensType=_lensType;
 @property(nonatomic) struct CGSize imageResolution; // @synthesize imageResolution=_imageResolution;
 // Error parsing type for property intrinsics:
 // Property attributes: T{?=[3]},N,V_intrinsics

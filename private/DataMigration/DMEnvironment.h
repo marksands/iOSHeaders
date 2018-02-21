@@ -8,10 +8,12 @@
 
 @interface DMEnvironment : NSObject
 {
+    _Bool _testMigrationInfrastructureOnly;
 }
 
 + (id)sharedInstance;
 + (_Bool)isBuildVersion:(id)arg1 equalToBuildVersion:(id)arg2;
+@property(nonatomic) _Bool testMigrationInfrastructureOnly; // @synthesize testMigrationInfrastructureOnly=_testMigrationInfrastructureOnly;
 - (_Bool)suppressMigrationPluginWrapperExitMarkerPref;
 - (_Bool)waitForExecutePluginsSignalMarkerPref;
 - (id)continuousIntegrationMarkerPref;

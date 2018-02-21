@@ -15,7 +15,7 @@
     id <SXVideoCloseInteractionHandler> _closeInteractionHandler;
 }
 
-@property(readonly, nonatomic) __weak id <SXVideoCloseInteractionHandler> closeInteractionHandler; // @synthesize closeInteractionHandler=_closeInteractionHandler;
+@property(readonly, nonatomic) id <SXVideoCloseInteractionHandler> closeInteractionHandler; // @synthesize closeInteractionHandler=_closeInteractionHandler;
 - (void).cxx_destruct;
 - (void)handleInteractionWithControl:(id)arg1;
 - (id)initWithCloseInteractionHandler:(id)arg1;

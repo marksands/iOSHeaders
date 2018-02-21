@@ -30,6 +30,7 @@
 }
 
 - (void)dealloc;
+- (id)debugDescription;
 - (id)destinationImageDescriptorForSourceImages:(id)arg1 sourceStates:(id)arg2 forKernel:(id)arg3 suggestedDescriptor:(id)arg4;
 
 @end

@@ -29,7 +29,7 @@
 - (void)defaultPaymentApplicationForPassWithUniqueID:(NSString *)arg1 completion:(void (^)(PKPaymentApplication *))arg2;
 - (void)defaultCard:(void (^)(NSString *))arg1;
 - (void)setDefaultCard:(NSString *)arg1 completion:(void (^)(_Bool))arg2;
-- (void)removePaymentPassWithUniqueID:(NSString *)arg1 forPairingID:(NSUUID *)arg2 requireRemoteConfirmation:(_Bool)arg3 completion:(void (^)(_Bool, NSError *))arg4;
+- (void)removePaymentPassWithUniqueID:(NSString *)arg1 forPairingID:(NSUUID *)arg2 waitForConfirmation:(_Bool)arg3 completion:(void (^)(_Bool, NSError *))arg4;
 - (void)savePaymentPassAtURL:(NSURL *)arg1 withUniqueID:(NSString *)arg2 forPairingID:(NSUUID *)arg3 completion:(void (^)(_Bool))arg4;
 - (void)paymentPassWithDeviceAccountIdentifier:(NSString *)arg1 completion:(void (^)(PKPaymentPass *))arg2;
 - (void)paymentPassesWithPrimaryAccountIdentifier:(NSString *)arg1 completion:(void (^)(NSSet *))arg2;

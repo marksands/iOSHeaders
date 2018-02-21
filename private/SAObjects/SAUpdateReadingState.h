@@ -8,7 +8,7 @@
 
 #import "SAServerBoundCommand.h"
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface SAUpdateReadingState : SABaseCommand <SAServerBoundCommand>
 {
@@ -20,6 +20,7 @@
 @property(nonatomic) long long updatedItemIndex;
 @property(nonatomic) long long updatedGroupIndex;
 @property(copy, nonatomic) NSString *readingStateId;
+@property(copy, nonatomic) NSArray *items;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

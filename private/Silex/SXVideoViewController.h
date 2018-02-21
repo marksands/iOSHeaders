@@ -8,7 +8,7 @@
 
 #import "SXAnimatableVideoViewController.h"
 
-@class SXTimelineManager, SXVideoCollectionViewController, SXVideoControlsVisibilityManager, SXVideoPlaybackManager, SXVideoView, SXVideoViewControllerConfiguration, UITapGestureRecognizer, UIView;
+@class SXTimelineManager, SXVideoCollectionViewController, SXVideoControlsVisibilityManager, SXVideoPlaybackManager, SXVideoView, SXVideoViewControllerConfiguration, SXVideoVolumeManager, UITapGestureRecognizer, UIView;
 
 @interface SXVideoViewController : UIViewController <SXAnimatableVideoViewController>
 {
@@ -19,8 +19,10 @@
     SXVideoControlsVisibilityManager *_controlsVisibilityManager;
     UITapGestureRecognizer *_tapGestureRecognizer;
     SXTimelineManager *_timelineManager;
+    SXVideoVolumeManager *_volumeManager;
 }
 
+@property(readonly, nonatomic) SXVideoVolumeManager *volumeManager; // @synthesize volumeManager=_volumeManager;
 @property(readonly, nonatomic) SXTimelineManager *timelineManager; // @synthesize timelineManager=_timelineManager;
 @property(readonly, nonatomic) UITapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
 @property(readonly, nonatomic) SXVideoControlsVisibilityManager *controlsVisibilityManager; // @synthesize controlsVisibilityManager=_controlsVisibilityManager;
@@ -31,10 +33,10 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) SXVideoView *videoView;
 @property(readonly, nonatomic) UIView *videoHostView;
-- (void)viewDidLayoutSubviews;
+- (void)viewWillLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (id)initWithCollectionViewController:(id)arg1 videoControlsViewController:(id)arg2 videoPlaybackManager:(id)arg3 controlsVisibilityManager:(id)arg4 timelineManager:(id)arg5;
+- (id)initWithCollectionViewController:(id)arg1 videoControlsViewController:(id)arg2 videoPlaybackManager:(id)arg3 controlsVisibilityManager:(id)arg4 timelineManager:(id)arg5 volumeManager:(id)arg6 tapGestureRecognizer:(id)arg7;
 
 @end
 

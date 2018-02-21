@@ -12,6 +12,7 @@
     unsigned long long _options;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)kindWithVariants:(unsigned long long)arg1 options:(unsigned long long)arg2;
 @property(readonly, nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(readonly, nonatomic) unsigned long long variants; // @synthesize variants=_variants;

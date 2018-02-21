@@ -10,7 +10,7 @@
 #import "SXAutomaticFullscreenVideoPlaybackBehaviorManagerDelegate.h"
 #import "SXVideoPlaybackObserver.h"
 
-@class AVPlayerViewController, NSString, SXAdPrivacyButton, SXAutomaticFullscreenVideoPlaybackBehaviorManager, SXKeyValueObserver, SXLearnMoreButton, SXPlaybackCoordinator, SXVideoAdSkipButton, SXVideoPlaybackQueue, UIActivityIndicatorView;
+@class AVPlayerViewController, NSString, SXAdPrivacyButton, SXAutomaticFullscreenVideoPlaybackBehaviorManager, SXKeyValueObserver, SXLearnMoreButton, SXPlaybackCoordinator, SXTouchForwardingView, SXVideoAdSkipButton, SXVideoPlaybackQueue, SXVideoPlayerViewControllerFullscreenObserver, SXVideoVolumeObserver, UIActivityIndicatorView;
 
 @interface SXVideoPlayerViewController : UIViewController <SXVideoPlaybackObserver, AVPlayerViewControllerDelegate_WebKitOnly, SXAutomaticFullscreenVideoPlaybackBehaviorManagerDelegate>
 {
@@ -27,8 +27,16 @@
     UIActivityIndicatorView *_activityIndicatorView;
     SXKeyValueObserver *_videoBoundsObserver;
     SXAutomaticFullscreenVideoPlaybackBehaviorManager *_fullscreenBehaviorManager;
+    SXVideoPlayerViewControllerFullscreenObserver *_fullscreenObserver;
+    SXTouchForwardingView *_touchForwardingView;
+    id <SXVolumeReporting> _volumeReporter;
+    SXVideoVolumeObserver *_volumeObserver;
 }
 
+@property(retain, nonatomic) SXVideoVolumeObserver *volumeObserver; // @synthesize volumeObserver=_volumeObserver;
+@property(readonly, nonatomic) id <SXVolumeReporting> volumeReporter; // @synthesize volumeReporter=_volumeReporter;
+@property(readonly, nonatomic) SXTouchForwardingView *touchForwardingView; // @synthesize touchForwardingView=_touchForwardingView;
+@property(readonly, nonatomic) SXVideoPlayerViewControllerFullscreenObserver *fullscreenObserver; // @synthesize fullscreenObserver=_fullscreenObserver;
 @property(readonly, nonatomic) SXAutomaticFullscreenVideoPlaybackBehaviorManager *fullscreenBehaviorManager; // @synthesize fullscreenBehaviorManager=_fullscreenBehaviorManager;
 @property(retain, nonatomic) SXKeyValueObserver *videoBoundsObserver; // @synthesize videoBoundsObserver=_videoBoundsObserver;
 @property(retain, nonatomic) UIActivityIndicatorView *activityIndicatorView; // @synthesize activityIndicatorView=_activityIndicatorView;
@@ -73,7 +81,7 @@
 - (void)viewDidLoad;
 - (void)dealloc;
 - (void)loadView;
-- (id)init;
+- (id)initWithVolumeReporter:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

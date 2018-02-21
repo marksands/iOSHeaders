@@ -14,7 +14,12 @@
 {
     _Bool _autoHidingEnabled;
     SXTimeline *_timeline;
-    id <SXVideoPlaybackStateProviding> _playbackStateProvider;
+    id <SXVideoQueueProviding> _queueProvider;
+    id <SXVideoControlTimingProviding> _timingProvider;
+    id <SXVideoLoadingStateObserverFactory> _loadingStateObserverFactory;
+    id <SXVideoPlaybackStateObserverFactory> _playbackStateObserverFactory;
+    id <SXVideoLoadingStateObserving> _loadingStateObserver;
+    id <SXVideoPlaybackStateObserving> _playbackStateObserver;
     NSTimer *_autohideTimer;
     NSMutableSet *_items;
     NSMapTable *_actions;
@@ -24,13 +29,18 @@
 @property(readonly, nonatomic) NSMapTable *actions; // @synthesize actions=_actions;
 @property(readonly, nonatomic) NSMutableSet *items; // @synthesize items=_items;
 @property(retain, nonatomic) NSTimer *autohideTimer; // @synthesize autohideTimer=_autohideTimer;
-@property(readonly, nonatomic) id <SXVideoPlaybackStateProviding> playbackStateProvider; // @synthesize playbackStateProvider=_playbackStateProvider;
+@property(retain, nonatomic) id <SXVideoPlaybackStateObserving> playbackStateObserver; // @synthesize playbackStateObserver=_playbackStateObserver;
+@property(retain, nonatomic) id <SXVideoLoadingStateObserving> loadingStateObserver; // @synthesize loadingStateObserver=_loadingStateObserver;
+@property(readonly, nonatomic) id <SXVideoPlaybackStateObserverFactory> playbackStateObserverFactory; // @synthesize playbackStateObserverFactory=_playbackStateObserverFactory;
+@property(readonly, nonatomic) id <SXVideoLoadingStateObserverFactory> loadingStateObserverFactory; // @synthesize loadingStateObserverFactory=_loadingStateObserverFactory;
+@property(readonly, nonatomic) id <SXVideoControlTimingProviding> timingProvider; // @synthesize timingProvider=_timingProvider;
+@property(readonly, nonatomic) id <SXVideoQueueProviding> queueProvider; // @synthesize queueProvider=_queueProvider;
 @property(readonly, nonatomic) SXTimeline *timeline; // @synthesize timeline=_timeline;
 - (void).cxx_destruct;
 - (id)itemsPassingTest:(CDUnknownBlockType)arg1;
 - (void)cancelAutohideTimer;
 - (void)scheduleAutohideTimer;
-- (void)scheduleAutoAppearanceForItem:(id)arg1;
+- (void)scheduleAutoAppearanceForItem:(id)arg1 withTimeInterval:(double)arg2;
 - (void)ensureItemsAreVisible:(id)arg1 animated:(_Bool)arg2;
 - (void)ensureItemsAreHidden:(id)arg1 animated:(_Bool)arg2;
 - (void)ensureHideableItemsAreHidden;
@@ -40,7 +50,7 @@
 - (void)showItems:(id)arg1 animated:(_Bool)arg2;
 - (void)removeItem:(id)arg1;
 - (void)addItem:(id)arg1;
-- (id)initWithTimeline:(id)arg1 playbackStateProvider:(id)arg2;
+- (id)initWithTimeline:(id)arg1 queueProvider:(id)arg2 timingProvider:(id)arg3 loadingStateObserverFactory:(id)arg4 playbackStateObserverFactory:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -53,7 +53,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSOperationQueue *notificationQueue; // @synthesize notificationQueue=_notificationQueue;
 @property(readonly, nonatomic) __weak CKDClientContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
-- (_Bool)hasCurrentKeyForService:(id)arg1 inIdentitySet:(struct _PCSIdentitySetData *)arg2;
+- (_Bool)_hasCurrentKeyForService:(id)arg1 inIdentitySet:(struct _PCSIdentitySetData *)arg2 withError:(id *)arg3;
 - (id)etagFromPCSData:(id)arg1;
 - (struct _OpaquePCSShareProtection *)_copyShareProtectionFromExportedData:(id)arg1 identities:(struct _PCSIdentitySetData *)arg2 error:(struct __CFError **)arg3;
 - (void)_onSynchronizeQueue:(CDUnknownBlockType)arg1;

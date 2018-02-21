@@ -210,6 +210,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 - (id)pl_aggregateKeysForPreviousPhotoEditModel:(id)arg1;
+- (id)pl_aggregateNameForPortraitFilter;
 - (id)pl_aggregateNameForEffectFilter;
 
 @end

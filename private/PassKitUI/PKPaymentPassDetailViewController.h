@@ -235,6 +235,7 @@
 - (id)_moreTransactionsCellForTableView:(id)arg1;
 - (id)_linkedApplicationCellForTableView:(id)arg1;
 - (id)_linkedAppCellForTableView:(id)arg1;
+- (id)_infoCellWithPrimaryText:(id)arg1 detailText:(id)arg2 cellStyle:(long long)arg3 reuseIdentifier:(id)arg4 forTableView:(id)arg5;
 - (id)_infoCellWithPrimaryText:(id)arg1 detailText:(id)arg2 cellStyle:(long long)arg3 forTableView:(id)arg4;
 - (id)_infoCellWithDescription:(id)arg1 forTableView:(id)arg2;
 - (id)_disclosureCellWithTitle:(id)arg1 forTableView:(id)arg2;

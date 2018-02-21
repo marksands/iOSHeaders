@@ -24,6 +24,7 @@
 - (void)endpointForItemAtURL:(NSURL *)arg1 completionHandler:(void (^)(NSArray *, NSXPCListenerEndpoint *, NSError *))arg2;
 - (void)valuesForAttributes:(NSArray *)arg1 forItemAtURL:(NSURL *)arg2 completionHandler:(void (^)(NSDictionary *, NSError *))arg3;
 - (void)extendBookmarkForItemID:(FPItemID *)arg1 consumerID:(NSString *)arg2 completionHandler:(void (^)(NSString *, NSError *))arg3;
+- (void)fetchIndexPropertiesForItemAtURL:(NSURL *)arg1 completionHandler:(void (^)(FPItem *, NSString *, NSString *, NSError *))arg2;
 - (void)itemForURL:(NSURL *)arg1 completionHandler:(void (^)(FPItem *, NSError *))arg2;
 - (void)fetchRemoteServiceEndpointCreatingProviderWithIdentifier:(NSString *)arg1 itemURL:(NSURL *)arg2 handler:(void (^)(id <FPDRemoteServiceEndpointCreatingProvider>, NSError *))arg3;
 - (void)fetchRemoteFileProviderWithIdentifier:(NSString *)arg1 handler:(void (^)(id <FPDRemoteFileProvider>, NSString *, NSError *))arg2;

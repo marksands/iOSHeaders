@@ -38,6 +38,7 @@
 @property(copy, nonatomic) NSString *userTransparencyDetails; // @synthesize userTransparencyDetails=_userTransparencyDetails;
 @property(retain, nonatomic) id <UserTransparencyViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (id)bundleForTransparencyDetailsViewFramework;
 - (void)_reportUserTransparencyViewControllerEventWithType:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;
 - (void)loadWebView;

@@ -8,10 +8,11 @@
 
 #import "NSCopying.h"
 
-@class NSMutableArray, NSString;
+@class GEOLocation, NSMutableArray, NSString;
 
 @interface GEOWiFiConnectionQuality : PBCodable <NSCopying>
 {
+    CDStruct_95bda58d _traits;
     unsigned long long _bytesInActive;
     unsigned long long _bytesInTotal;
     unsigned long long _bytesOutActive;
@@ -43,6 +44,8 @@
     unsigned int _channelWidth;
     unsigned int _colocatedState;
     unsigned int _disassocReason;
+    GEOLocation *_location;
+    int _networkType;
     NSMutableArray *_otherUniqueIDs;
     unsigned int _phyMode;
     float _roundTripTimeAvg;
@@ -55,6 +58,7 @@
     unsigned int _securityType;
     int _snr;
     NSString *_uniqueID;
+    unsigned int _wasCaptiveFlag;
     _Bool _hotspot20;
     struct {
         unsigned int bytesInActive:1;
@@ -87,6 +91,7 @@
         unsigned int channelWidth:1;
         unsigned int colocatedState:1;
         unsigned int disassocReason:1;
+        unsigned int networkType:1;
         unsigned int phyMode:1;
         unsigned int roundTripTimeAvg:1;
         unsigned int roundTripTimeAvgActive:1;
@@ -97,12 +102,15 @@
         unsigned int rssi:1;
         unsigned int securityType:1;
         unsigned int snr:1;
+        unsigned int wasCaptiveFlag:1;
         unsigned int hotspot20:1;
     } _has;
 }
 
 + (Class)otherUniqueIDsType;
 + (Class)additionalUniqueIDsType;
+@property(nonatomic) unsigned int wasCaptiveFlag; // @synthesize wasCaptiveFlag=_wasCaptiveFlag;
+@property(retain, nonatomic) GEOLocation *location; // @synthesize location=_location;
 @property(nonatomic) unsigned int associatedTime; // @synthesize associatedTime=_associatedTime;
 @property(nonatomic) unsigned long long timeOfDay; // @synthesize timeOfDay=_timeOfDay;
 @property(nonatomic) unsigned int phyMode; // @synthesize phyMode=_phyMode;
@@ -157,6 +165,20 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsTraits:(id)arg1;
+- (id)traitsAsString:(int)arg1;
+- (void)setTraits:(int *)arg1 count:(unsigned long long)arg2;
+- (int)traitsAtIndex:(unsigned long long)arg1;
+- (void)addTraits:(int)arg1;
+- (void)clearTraits;
+@property(readonly, nonatomic) int *traits;
+@property(readonly, nonatomic) unsigned long long traitsCount;
+- (int)StringAsNetworkType:(id)arg1;
+- (id)networkTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasNetworkType;
+@property(nonatomic) int networkType; // @synthesize networkType=_networkType;
+@property(nonatomic) _Bool hasWasCaptiveFlag;
+@property(readonly, nonatomic) _Bool hasLocation;
 @property(nonatomic) _Bool hasAssociatedTime;
 @property(nonatomic) _Bool hasTimeOfDay;
 @property(nonatomic) _Bool hasPhyMode;
@@ -207,6 +229,7 @@
 - (void)clearAdditionalUniqueIDs;
 @property(readonly, nonatomic) _Bool hasUniqueID;
 @property(nonatomic) _Bool hasTimestamp;
+- (void)dealloc;
 
 @end
 

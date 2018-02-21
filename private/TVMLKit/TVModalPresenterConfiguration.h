@@ -17,13 +17,11 @@
     unsigned long long _configurationType;
     long long _presentationStyle;
     UIView *_sourceView;
-    unsigned long long _preferredInterfaceOrientation;
     struct CGSize _formSheetSize;
     struct CGSize _popoverSize;
     struct CGRect _sourceRect;
 }
 
-@property(nonatomic) unsigned long long preferredInterfaceOrientation; // @synthesize preferredInterfaceOrientation=_preferredInterfaceOrientation;
 @property(nonatomic) struct CGRect sourceRect; // @synthesize sourceRect=_sourceRect;
 @property(retain, nonatomic) UIView *sourceView; // @synthesize sourceView=_sourceView;
 @property(nonatomic) long long presentationStyle; // @synthesize presentationStyle=_presentationStyle;

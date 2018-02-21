@@ -48,6 +48,7 @@
 {
     struct CGPoint _startingScrollOffset;
     _Bool _shouldBecomeFirstResponderWhenDismissingModalBrowser;
+    _Bool _shouldDisplayKeyboardWhenDismissingModalBrowser;
     CKComposition *_dropComposition;
     _Bool _isAnimatingMessageSend;
     _Bool _transitioningSize;

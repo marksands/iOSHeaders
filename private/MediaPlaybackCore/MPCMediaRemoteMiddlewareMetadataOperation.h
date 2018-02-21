@@ -20,8 +20,10 @@
     MPCPlayerRequest *_playerRequest;
     MPCFuture *_playQueueIdentifiersFuture;
     MPCFuture *_playingIdentifierFuture;
+    MPCFuture *_queueIdentifierFuture;
 }
 
+@property(retain, nonatomic) MPCFuture *queueIdentifierFuture; // @synthesize queueIdentifierFuture=_queueIdentifierFuture;
 @property(retain, nonatomic) MPCFuture *playingIdentifierFuture; // @synthesize playingIdentifierFuture=_playingIdentifierFuture;
 @property(retain, nonatomic) MPCFuture *playQueueIdentifiersFuture; // @synthesize playQueueIdentifiersFuture=_playQueueIdentifiersFuture;
 @property(retain, nonatomic) MPCPlayerRequest *playerRequest; // @synthesize playerRequest=_playerRequest;

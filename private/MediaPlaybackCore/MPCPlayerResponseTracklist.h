@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class MPCPlayerResponse, MPSectionedCollection, NSIndexPath;
+@class MPCPlayerResponse, MPCPlayerResponseItem, MPSectionedCollection, NSIndexPath, NSString;
 
 @interface MPCPlayerResponseTracklist : NSObject
 {
+    NSString *_uniqueIdentifier;
     long long _lastChangeDirection;
     long long _upNextItemCount;
     long long _repeatType;
@@ -30,6 +31,7 @@
 @property(readonly, nonatomic) long long repeatType; // @synthesize repeatType=_repeatType;
 @property(readonly, nonatomic) long long upNextItemCount; // @synthesize upNextItemCount=_upNextItemCount;
 @property(readonly, nonatomic) long long lastChangeDirection; // @synthesize lastChangeDirection=_lastChangeDirection;
+@property(readonly, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 - (void).cxx_destruct;
 - (id)disableModificationsCommand;
 - (id)changeItemCommand;
@@ -38,6 +40,7 @@
 - (id)reorderCommand;
 - (id)insertCommand;
 - (id)resetCommand;
+@property(readonly, nonatomic) MPCPlayerResponseItem *playingItem;
 - (id)initWithResponse:(id)arg1;
 
 @end

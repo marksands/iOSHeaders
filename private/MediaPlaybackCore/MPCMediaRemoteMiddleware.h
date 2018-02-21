@@ -19,10 +19,12 @@
     MPSectionedCollection *_queueModelObjects;
     id <MPCSupportedCommands> _supportedCommands;
     NSIndexPath *_playingIndexPath;
+    NSString *_queueIdentifier;
     long long _playerState;
 }
 
 @property(nonatomic) long long playerState; // @synthesize playerState=_playerState;
+@property(copy, nonatomic) NSString *queueIdentifier; // @synthesize queueIdentifier=_queueIdentifier;
 @property(copy, nonatomic) NSIndexPath *playingIndexPath; // @synthesize playingIndexPath=_playingIndexPath;
 @property(retain, nonatomic) id <MPCSupportedCommands> supportedCommands; // @synthesize supportedCommands=_supportedCommands;
 @property(retain, nonatomic) MPSectionedCollection *queueModelObjects; // @synthesize queueModelObjects=_queueModelObjects;
@@ -35,6 +37,7 @@
 - (id)init;
 - (float)_playbackRateForContentItem:(id)arg1;
 - (id)_supportedCommands:(unsigned int)arg1 infoValueForKey:(id)arg2;
+- (id)tracklistUniqueIdentifier:(id)arg1 chain:(id)arg2;
 - (id)playerVideoView:(id)arg1 chain:(id)arg2;
 - (id)playerCommandOptionValue:(id)arg1 forKey:(id)arg2 command:(unsigned int)arg3 chain:(id)arg4;
 - (_Bool)playerCommandEnabled:(_Bool)arg1 command:(unsigned int)arg2 chain:(id)arg3;

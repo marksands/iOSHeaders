@@ -8,14 +8,12 @@
 
 #import "NSXPCListenerDelegate.h"
 
-@class NSLock, NSString, NSXPCConnection, NSXPCListener;
+@class NSString, NSXPCListener;
 
 @interface FLFollowUpController : NSObject <NSXPCListenerDelegate>
 {
     NSString *_clientIdentifier;
     NSString *_machServiceName;
-    NSXPCConnection *_conn;
-    NSLock *_connLock;
     NSXPCListener *_listener;
     id <FLFollowUpControllerDelegate> _delegate;
 }

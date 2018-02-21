@@ -48,8 +48,6 @@
 - (void)_remote_reportTotalCreativeRequestCount:(long long)arg1 forAdSpaceWithIdentifier:(NSString *)arg2;
 - (void)_remote_requestAdSpaceWithConfiguration:(ADAdSpaceConfiguration *)arg1;
 - (void)_remote_addClientToSegments:(NSArray *)arg1 replaceExisting:(_Bool)arg2 privateSegment:(_Bool)arg3;
-- (void)_remote_lookupAdConversionDetails:(void (^)(NSDate *, NSDate *))arg1;
-- (void)_remote_determineAppInstallAttributionWithCompletionHandler:(void (^)(_Bool))arg1;
 - (void)_remote_reportPrerollRequest;
 - (void)_reportSubscriptionEventWithType:(long long)arg1 withQToken:(NSString *)arg2 sourceIdentifier:(NSString *)arg3 eventTime:(double)arg4 info:(NSDictionary *)arg5;
 - (void)_remote_setClientLinkedOnVersion:(NSString *)arg1;

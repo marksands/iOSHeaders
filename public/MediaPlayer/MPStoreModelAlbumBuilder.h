@@ -31,6 +31,7 @@
         unsigned int shortEditorNotes:1;
         unsigned int volumeNormalization:1;
         unsigned int songPopularity:1;
+        unsigned int representativeSong:1;
         CDStruct_63a3d127 artist;
         CDStruct_63a3d127 genre;
     } _requestedAlbumProperties;

@@ -32,9 +32,11 @@
     NSDate *_departureGateClosedTime;
     NSDate *_departureRunwayTime;
     NSDate *_arrivalRunwayTime;
+    NSDate *_arrivalGateTime;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSDate *arrivalGateTime; // @synthesize arrivalGateTime=_arrivalGateTime;
 @property(copy, nonatomic) NSDate *arrivalRunwayTime; // @synthesize arrivalRunwayTime=_arrivalRunwayTime;
 @property(copy, nonatomic) NSDate *departureRunwayTime; // @synthesize departureRunwayTime=_departureRunwayTime;
 @property(copy, nonatomic) NSDate *departureGateClosedTime; // @synthesize departureGateClosedTime=_departureGateClosedTime;

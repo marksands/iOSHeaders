@@ -20,6 +20,7 @@
     LPImage *_image;
     LPVideo *_video;
     UIColor *_backgroundColor;
+    LPPointUnit *_minimumRootHeight;
     DOMElement *_rootElement;
     LPHTMLComponent *_linkComponent;
     LPHTMLVideoComponent *_videoComponent;
@@ -65,6 +66,7 @@
 - (id)_createMediaBottomCaptionBar;
 - (id)_createMediaTopCaptionBar;
 - (id)_createCaptionBar;
+@property(readonly, nonatomic) LPPointUnit *minimumRootHeight;
 @property(readonly, nonatomic) LPPointUnit *rootWidth;
 @property(readonly, nonatomic) _Bool hasTallMedia;
 @property(readonly, nonatomic) _Bool useFlexibleWidth;

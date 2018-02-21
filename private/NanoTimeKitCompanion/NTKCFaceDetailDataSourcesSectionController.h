@@ -18,6 +18,7 @@
 + (_Bool)hasDataSourcesSectionForFace:(id)arg1 inGallery:(_Bool)arg2;
 @property(nonatomic) __weak id <NTKCFaceDetailDataSourcesSectionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (_Bool)_dataSourceAvailableOnGizmo:(id)arg1;
 - (id)_getDisabledDataSources;
 - (void)_buildRows;
 - (void)toggleCell:(id)arg1 didToggle:(_Bool)arg2;

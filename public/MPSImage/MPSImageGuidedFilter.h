@@ -12,12 +12,20 @@
 {
     unsigned long long _kernelDiameter;
     float _epsilon;
+    float _reconstructScale;
+    float _reconstructOffset;
+    _Bool _rescaleCoefficients;
+    _Bool _reconstructionCoefficientsSampleBicubic;
     MPSImageBox *_boxFilter;
     MPSImageLanczosScale *_lanczosScaler;
     MPSImageBilinearScale *_bilinearScaler;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
+@property(nonatomic) _Bool reconstructionCoefficientsSampleBicubic; // @synthesize reconstructionCoefficientsSampleBicubic=_reconstructionCoefficientsSampleBicubic;
+@property(nonatomic) _Bool rescaleCoefficients; // @synthesize rescaleCoefficients=_rescaleCoefficients;
+@property(nonatomic) float reconstructOffset; // @synthesize reconstructOffset=_reconstructOffset;
+@property(nonatomic) float reconstructScale; // @synthesize reconstructScale=_reconstructScale;
 @property(nonatomic) float epsilon; // @synthesize epsilon=_epsilon;
 @property(readonly, nonatomic) unsigned long long kernelDiameter; // @synthesize kernelDiameter=_kernelDiameter;
 - (void)encodeReconstructionToCommandBuffer:(id)arg1 guidanceTexture:(id)arg2 coefficientsTexture:(id)arg3 destinationTexture:(id)arg4;

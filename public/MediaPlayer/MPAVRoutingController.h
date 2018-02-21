@@ -23,6 +23,7 @@
     long long _volumeControlStateForPickedRoute;
     int _deviceAvailabilityNotifyToken;
     _Bool _deviceAvailabilityOverrideState;
+    _Bool _fetchAvailableRoutesSynchronously;
     id <MPAVRoutingControllerDelegate> _delegate;
     MPAVRoutingDataSource *_dataSource;
     NSString *_name;
@@ -43,6 +44,7 @@
 @property(readonly, nonatomic) NSSet *pendingPickedRoutes; // @synthesize pendingPickedRoutes=_pendingPickedRoutes;
 @property(nonatomic) long long routeTypes; // @synthesize routeTypes=_routeTypes;
 @property(copy, nonatomic) NSString *category; // @synthesize category=_category;
+@property(nonatomic) _Bool fetchAvailableRoutesSynchronously; // @synthesize fetchAvailableRoutesSynchronously=_fetchAvailableRoutesSynchronously;
 @property(nonatomic) long long discoveryMode; // @synthesize discoveryMode=_discoveryMode;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) MPAVRoutingDataSource *dataSource; // @synthesize dataSource=_dataSource;
@@ -66,6 +68,7 @@
 - (void)_refreshPendingRoutes;
 - (void)_removePendingRoute:(id)arg1;
 - (void)_addPendingRoute:(id)arg1;
+- (void)_fetchAvailableRoutesWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)logCurrentRoutes;
 - (void)_onQueueClearCachedRoutes;
 - (void)clearCachedRoutes;

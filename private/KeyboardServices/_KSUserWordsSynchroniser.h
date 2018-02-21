@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>, _KSCloudKitManager, _KSControlFileController, _KSSystemTask;
+@class NSArray, NSObject<OS_dispatch_queue>, _KSCloudKitManager, _KSControlFileController, _KSRequestThrottle, _KSSystemTask;
 
 @interface _KSUserWordsSynchroniser : NSObject
 {
@@ -19,6 +19,7 @@
     _Bool _attemptingConnection;
     _Bool _retryPending;
     _Bool _needRetry;
+    _KSRequestThrottle *_identityThrottle;
 }
 
 + (Class)infoClass;

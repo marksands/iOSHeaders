@@ -21,7 +21,9 @@
 @property(copy) NSString *label; // @synthesize label=_label;
 @property(retain, nonatomic) id <MPSNNPadding> paddingPolicy; // @synthesize paddingPolicy=_paddingPolicy;
 @property(readonly, nonatomic) MPSNNImageNode *resultImage; // @synthesize resultImage=_resultImage;
+- (id)gradientFiltersWithSource:(id)arg1;
 - (id)gradientFiltersWithSources:(id)arg1;
+- (id)gradientFilterWithSource:(id)arg1;
 - (id)gradientFilterWithSources:(id)arg1;
 - (Class)gradientClass;
 - (id)debugQuickLookObject;

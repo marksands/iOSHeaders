@@ -9,7 +9,6 @@
 @interface MPSTemporaryImage : MPSImage
 {
     unsigned long long _readCount;
-    _Bool _updatedAlready;
 }
 
 + (void)prefetchStorageWithCommandBuffer:(id)arg1 imageDescriptorList:(id)arg2;

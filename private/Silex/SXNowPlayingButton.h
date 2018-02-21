@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIControl.h"
+#import <Silex/SXButton.h>
 
 @class NSString, UILabel;
 
-@interface SXNowPlayingButton : UIControl
+@interface SXNowPlayingButton : SXButton
 {
     NSString *_title;
     NSString *_subtitle;
@@ -23,7 +23,6 @@
 - (void).cxx_destruct;
 - (id)accessibilityLabel;
 - (void)setHighlighted:(_Bool)arg1;
-- (struct CGSize)intrinsicContentSize;
 - (void)setSubtitle:(id)arg1 animated:(_Bool)arg2;
 - (void)setTitle:(id)arg1 animated:(_Bool)arg2;
 - (void)layoutSubviews;

@@ -22,6 +22,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)newWithBuilder:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSString *salt; // @synthesize salt=_salt;
 @property(readonly, copy, nonatomic) NSArray *experimentGroups; // @synthesize experimentGroups=_experimentGroups;
 @property(readonly, copy, nonatomic) AFExperimentGroup *controlGroup; // @synthesize controlGroup=_controlGroup;
@@ -37,7 +38,7 @@
 - (id)_descriptionWithIndent:(unsigned long long)arg1;
 - (id)description;
 - (id)initWithType:(long long)arg1 identifier:(id)arg2 version:(id)arg3 controlGroup:(id)arg4 experimentGroups:(id)arg5 salt:(id)arg6;
-- (id)builder;
+- (id)mutatedCopyWithMutator:(CDUnknownBlockType)arg1;
 
 @end
 

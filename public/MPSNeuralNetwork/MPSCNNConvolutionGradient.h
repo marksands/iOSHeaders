@@ -16,9 +16,11 @@
     _Bool _fullyConnected;
     unsigned int _weightsDataType;
     _Bool _serializeWeightsAndBiases;
+    id <MPSCNNConvolutionDataSource> _dataSource;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
+@property(readonly, retain, nonatomic) id <MPSCNNConvolutionDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) _Bool serializeWeightsAndBiases; // @synthesize serializeWeightsAndBiases=_serializeWeightsAndBiases;
 @property(nonatomic) unsigned long long gradientOption; // @synthesize gradientOption=_gradientOption;
 @property(readonly, nonatomic) unsigned long long groups; // @synthesize groups=_groups;
@@ -31,11 +33,11 @@
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;
-- (void)reloadWeightsAndBiasesWithCommandBuffer:(id)arg1 weights:(id)arg2 biases:(id)arg3;
+- (void)reloadWeightsAndBiasesWithCommandBuffer:(id)arg1 state:(id)arg2;
 - (void)reloadWeightsAndBiasesWithDataSource:(id)arg1;
 - (id)initWithDevice:(id)arg1 weights:(id)arg2;
 - (id)initWithDevice:(id)arg1 weights:(id)arg2 fullyConnected:(_Bool)arg3;
-- (void)initialize:(id)arg1 weights:(id)arg2 fullyConnected:(_Bool)arg3;
+- (void)initialize:(id)arg1 weights:(id)arg2 fullyConnected:(_Bool)arg3 serializeWeightsAndBiases:(_Bool)arg4;
 - (void)initialize:(id)arg1 convDesc:(id)arg2 weights:(void *)arg3 dataType:(unsigned int)arg4 serializeWeightsAndBiases:(_Bool)arg5 fullyConnected:(_Bool)arg6;
 - (id)initWithDevice:(id)arg1;
 

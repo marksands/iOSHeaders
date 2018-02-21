@@ -26,6 +26,7 @@
     _Bool _hasClientSetVideoGravity;
     NSDictionary *_pixelBufferAttributes;
     _Bool _didBeginObservations;
+    _Bool _allowsFullScreenPresentationsInNewWindow;
     AVNowPlayingInfoController *_nowPlayingInfoController;
     AVPictureInPictureController *_pictureInPictureController;
     UIPopoverPresentationController *_mediaSelectionPopoverPresentationController;

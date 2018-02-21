@@ -6,17 +6,27 @@
 
 #import "NSObject.h"
 
-@class NSURLSession;
+@class NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_queue>, NSURLSession;
 
 @interface PKFileDownloader : NSObject
 {
+    NSMutableDictionary *_downloads;
+    NSMutableOrderedSet *_pendingURLs;
+    NSMutableSet *_downloadingURLs;
+    NSObject<OS_dispatch_queue> *_queue;
     NSURLSession *_session;
+    long long _concurrentRequests;
 }
 
+@property long long concurrentRequests; // @synthesize concurrentRequests=_concurrentRequests;
 @property(retain) NSURLSession *session; // @synthesize session=_session;
 - (void).cxx_destruct;
+- (void)invalidate;
 - (void)downloadWithRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)downloadFromUrl:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_scheduleDownload:(id)arg1 forURL:(id)arg2;
+- (void)_schedulePendingDownloads;
+- (void)_handleResponseForURL:(id)arg1 data:(id)arg2 response:(id)arg3 error:(id)arg4;
 - (id)initWithSession:(id)arg1;
 - (id)init;
 

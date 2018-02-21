@@ -27,6 +27,9 @@
 @property(nonatomic) float secondaryScale; // @synthesize secondaryScale=_secondaryScale;
 @property(nonatomic) float primaryScale; // @synthesize primaryScale=_primaryScale;
 - (id)destinationImageDescriptorForSourceImages:(id)arg1 sourceStates:(id)arg2 paddingMethod:(unsigned long long)arg3 primaryOffset:(CDStruct_d6af7fc0 *)arg4 secondaryOffset:(CDStruct_d6af7fc0 *)arg5 kernelOffset:(CDStruct_d6af7fc0 *)arg6;
+- (id)temporaryResultStateForCommandBuffer:(id)arg1 primaryImage:(id)arg2 secondaryImage:(id)arg3 sourceStates:(id)arg4 destinationImage:(id)arg5;
+- (id)resultStateForPrimaryImage:(id)arg1 secondaryImage:(id)arg2 sourceStates:(id)arg3 destinationImage:(id)arg4;
+- (id)privateResultStateForPrimaryImage:(id)arg1 secondaryImage:(id)arg2 sourceStates:(id)arg3 destinationImage:(id)arg4 commandBuffer:(id)arg5 isTemporary:(_Bool)arg6;
 - (id)debugDescription;
 - (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;

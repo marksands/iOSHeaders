@@ -36,6 +36,7 @@
 - (void)update;
 - (void)saveLocally:(unsigned long long)arg1;
 - (id)_processMessage:(id)arg1 setting:(id)arg2;
+- (id)updateValueWithPayload:(id)arg1 setting:(id)arg2;
 - (id)logIdentifier;
 @property(readonly, copy) NSString *description;
 - (id)initWithSessionID:(id)arg1 setting:(id)arg2 clientQueue:(id)arg3 delegate:(id)arg4 message:(id)arg5 outError:(id *)arg6;

@@ -10,6 +10,7 @@
 {
     CDStruct_da2e99ad _lossImageSize;
     _Bool _isScalarLoss;
+    unsigned long long _numNonZeroWeights;
 }
 
 - (void)dealloc;

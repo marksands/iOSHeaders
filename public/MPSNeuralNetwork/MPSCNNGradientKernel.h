@@ -15,6 +15,7 @@
 @property(nonatomic) long long kernelOffsetY; // @synthesize kernelOffsetY=_kernelOffsetY;
 @property(nonatomic) long long kernelOffsetX; // @synthesize kernelOffsetX=_kernelOffsetX;
 - (_Bool)isStateModified;
+- (void)readBinaryGradientState:(id)arg1 isSecondarySourceFilter:(_Bool)arg2;
 - (void)readGradientState:(id)arg1;
 - (void)encodeBatchToCommandBuffer:(id)arg1 sourceGradients:(struct NSArray *)arg2 sourceImages:(struct NSArray *)arg3 gradientStates:(struct NSArray *)arg4 destinationGradients:(struct NSArray *)arg5;
 - (struct NSArray *)encodeBatchToCommandBuffer:(id)arg1 sourceGradients:(struct NSArray *)arg2 sourceImages:(struct NSArray *)arg3 gradientStates:(struct NSArray *)arg4;

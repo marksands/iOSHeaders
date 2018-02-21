@@ -6,16 +6,17 @@
 
 #import <ARKit/ARTechnique.h>
 
-@class ARImageDetectionResultData, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>;
+@class ARImageDetectionResultData, NSArray, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>;
 
 @interface ARImageDetectionTechnique : ARTechnique
 {
-    NSMutableDictionary *_referenceImageMap;
+    NSArray *_referenceImages;
     NSMutableDictionary *_detectionCountByImageID;
     struct OpaqueVTPixelTransferSession *_vtPixelTransferSession;
     struct __CVPixelBufferPool *_grayPixelBufferPool;
     ARImageDetectionResultData *_latestResultData;
     NSObject<OS_dispatch_queue> *_processDataQueue;
+    NSObject<OS_dispatch_semaphore> *_loadingSemaphore;
     NSObject<OS_dispatch_semaphore> *_dataSemaphore;
     NSObject<OS_dispatch_semaphore> *_detectionSemaphore;
     ARImageDetectionResultData *_referenceImageData;
@@ -23,15 +24,15 @@
     _Bool _continousDetection;
     _Bool _estimateScale;
     unsigned long long _estimateScaleCount;
+    ARImageDetectionResultData *_currentDetectionResultData;
+    NSDictionary *_referenceImageMap;
 }
 
+@property(retain) NSDictionary *referenceImageMap; // @synthesize referenceImageMap=_referenceImageMap;
+@property(readonly, copy, nonatomic) ARImageDetectionResultData *currentDetectionResultData; // @synthesize currentDetectionResultData=_currentDetectionResultData;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
-- (id)processImageDataAndPose:(id)arg1 worldTrackingPose:(id)arg2;
-- (void)requestResultDataAtTimestamp:(double)arg1 context:(id)arg2;
-@property(readonly, copy, nonatomic) ARImageDetectionResultData *currentDetectionResultData;
 - (unsigned long long)requiredSensorDataTypes;
-- (void)dealloc;
 - (id)initWithReferenceImages:(id)arg1;
 
 @end

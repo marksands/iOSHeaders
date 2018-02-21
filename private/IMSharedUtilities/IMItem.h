@@ -28,6 +28,7 @@
     id _context;
     long long _type;
     NSString *_balloonBundleID;
+    unsigned long long _sortID;
     NSString *_destinationCallerID;
     NSDate *_clientSendTime;
     long long _cloudKitSyncState;
@@ -53,6 +54,7 @@
 @property(nonatomic) long long cloudKitSyncState; // @synthesize cloudKitSyncState=_cloudKitSyncState;
 @property(retain, nonatomic) NSDate *clientSendTime; // @synthesize clientSendTime=_clientSendTime;
 @property(retain, nonatomic) NSString *destinationCallerID; // @synthesize destinationCallerID=_destinationCallerID;
+@property(nonatomic) unsigned long long sortID; // @synthesize sortID=_sortID;
 @property(retain, nonatomic) NSString *balloonBundleID; // @synthesize balloonBundleID=_balloonBundleID;
 @property(nonatomic) long long type; // @synthesize type=_type;
 @property(retain, nonatomic) id context; // @synthesize context=_context;

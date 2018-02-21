@@ -114,6 +114,7 @@
 + (_Bool)isPhotoIrisPlaceholderWithPhotoIris:(_Bool)arg1 videoCpDuration:(long long)arg2 isCloudShared:(_Bool)arg3 videoCpFilePath:(id)arg4;
 + (id)predicateForDepthDataPhotos;
 + (id)predicateForDepthEffectPhotos;
++ (id)predicateToExcludeAssetsMissingThumbnailsWithThumbnailIndexKeyPath:(id)arg1;
 + (id)predicateToExcludeNonvisibleBurstAssetsWithAvalanchePickTypeKeyPath:(id)arg1;
 + (id)predicateToExcludeNonvisibleBurstAssets;
 + (id)predicateToExcludeHiddenAssetsWithHiddenKeyPath:(id)arg1;
@@ -168,6 +169,8 @@
 + (id)cloudAdjustmentFingerprintWithAdjustmentDataBlob:(id)arg1 formatIdentifier:(id)arg2 formatVersion:(id)arg3 editorBundleID:(id)arg4 baseVersion:(long long)arg5 baseImageData:(id)arg6;
 + (id)_cloudAdjustmentFingerprintWithAdjustmentDataBlob:(id)arg1 largeAdjustmentBlobFingerpint:(id)arg2 formatIdentifier:(id)arg3 formatVersion:(id)arg4 editorBundleID:(id)arg5 baseVersion:(long long)arg6 baseImageData:(id)arg7 baseImageFingerprint:(id)arg8;
 + (id)predicateForCompleteResources;
++ (id)originalResourceTypesForAsset;
++ (id)originalResourceTypesForMaster;
 + (void)countOfAssetsWithRequiredResourcesNotLocallyAvailableInLibrary:(id)arg1 outCount:(unsigned long long *)arg2 photoCount:(unsigned long long *)arg3 videoCount:(unsigned long long *)arg4;
 + (unsigned long long)CPLAssetHDRTypeFromPLPhotoHDRType:(short)arg1;
 + (void)createMastersInLibrary:(id)arg1;
@@ -508,6 +511,7 @@
 - (_Bool)becomePhotoIrisWithMediaGroupUUID:(id)arg1 videoURL:(id)arg2 videoDuration:(CDStruct_1b6d18a9)arg3 stillDisplayTime:(CDStruct_1b6d18a9)arg4 createSidecar:(_Bool)arg5;
 - (void)updatePhotoIrisMetadataWithMediaGroupUUID:(id)arg1 videoDuration:(CDStruct_1b6d18a9)arg2 stillDisplayTime:(CDStruct_1b6d18a9)arg3;
 - (void)_updatePhotoIrisTemporalMetadataFromVideoComplementAVAsset:(id)arg1;
+- (id)shotType;
 - (id)sidecarWithObjectID:(id)arg1;
 - (id)photoIrisSidecarIgnoringSubtype:(_Bool)arg1;
 - (void)_setVideoComplementData:(id)arg1;
@@ -745,7 +749,6 @@
 @property(nonatomic) double duration; // @dynamic duration;
 @property(nonatomic) long long faceAreaPoints; // @dynamic faceAreaPoints;
 @property(retain, nonatomic) NSSet *faceCrops; // @dynamic faceCrops;
-@property(readonly, nonatomic) _Bool faceProcessed;
 @property(nonatomic) _Bool favorite; // @dynamic favorite;
 @property(retain, nonatomic) NSString *filename; // @dynamic filename;
 @property(nonatomic) unsigned long long groupingState; // @dynamic groupingState;

@@ -11,6 +11,9 @@
 @protocol SXVideoEventTracker <NSObject>
 
 @optional
+- (void)tappedToToggleControls;
+- (void)exitedFullscreen;
+- (void)enteredFullscreen;
 - (void)tappedDiscoverMore;
 - (void)tappedAdvance;
 - (void)tappedReplay;

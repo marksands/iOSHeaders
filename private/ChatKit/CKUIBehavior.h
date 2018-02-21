@@ -126,7 +126,7 @@
 @property(readonly, nonatomic) UIImage *grayHeartAckImage;
 - (void)prewarmAcknowledgementsImage;
 @property(readonly, nonatomic) double bannerAdditionalOffset;
-@property(readonly, nonatomic) struct CGSize bannerSize;
+@property(readonly, nonatomic) struct CGSize bannerCellSize;
 @property(readonly, nonatomic) UIFont *avatarNameFont;
 @property(readonly, nonatomic) UIFont *avatarStackTitleFont;
 @property(readonly, nonatomic) double avatarPancakeOffset;
@@ -140,6 +140,17 @@
 @property(readonly, nonatomic) UIFont *recipientNameFont;
 @property(readonly, nonatomic) UIFont *nameFieldFont;
 @property(readonly, nonatomic) _Bool shouldAlignRecipientGlyphsWithMargins;
+@property(readonly, nonatomic) UIImage *whatsNewViewApplePayImage;
+@property(readonly, nonatomic) UIFont *whatsNewViewDescriptionLabelFont;
+@property(readonly, nonatomic) UIFont *whatsNewViewBulletPointTextLabelFont;
+@property(readonly, nonatomic) UIFont *whatsNewViewBulletPointSymbolLabelFont;
+@property(readonly, nonatomic) double whatsNewViewBulletPointTextTrailingAnchorLayoutConstraintConstant;
+@property(readonly, nonatomic) double whatsNewViewBulletPointSymbolLeadingAnchorLayoutConstraintConstant;
+@property(readonly, nonatomic) UIFont *welcomeViewTitleLabelFont;
+@property(readonly, nonatomic) UIFont *welcomeViewConfirmButtonFont;
+@property(readonly, nonatomic) UIFont *welcomeViewCancelButtonFont;
+@property(readonly, nonatomic) double welcomeViewContentViewTopAnchorLayoutConstraintConstant;
+@property(readonly, nonatomic) double welcomeViewContentViewLeadingAnchorLayoutConstraintConstant;
 @property(readonly, nonatomic) double photoPickerMaxPhotoHeight;
 - (double)photoPickerMaxPopoverPhotoHeight;
 - (double)photoPickerMaxZoomedPhotoHeightForAlertWidth:(double)arg1;

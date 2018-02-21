@@ -31,6 +31,7 @@
 - (void)_performCommandEvent:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_updateUpNextItemCount;
 - (void)_updateSupportedCommands;
+- (void)_enqueueFallbackIntentIfNeededForCommandEvent:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_disableQueueModificationsChangedNotification:(id)arg1;
 - (void)_likedStateChangedNotification:(id)arg1;
 - (void)_durationAvailableNotification:(id)arg1;
@@ -54,6 +55,7 @@
 - (id)nowPlayingInfoCenter:(id)arg1 artworkForContentItem:(id)arg2 size:(struct CGSize)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)nowPlayingInfoCenter:(id)arg1 contentItemForID:(id)arg2;
 - (id)nowPlayingInfoCenter:(id)arg1 contentItemIDForOffset:(long long)arg2;
+- (id)playbackQueueIdentifierForNowPlayingInfoCenter:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

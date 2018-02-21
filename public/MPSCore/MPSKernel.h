@@ -14,7 +14,7 @@
 @interface MPSKernel : NSObject <NSCopying, NSSecureCoding>
 {
     unsigned long long _options;
-    // Error parsing type: ^{MPSDevice=^^?^{MPSDevice}@^{MPSDeviceFreeList}{atomic<MTLLibraryNode *>=A^{MTLLibraryNode}}[2[2[2{atomic<void *>=A^v}]]][563{MPSPixelCapabilities=b1b1b1b1b1b2b1b8}]^{MPSFunctionTable}{atomic<void *>=A^v}Ii{MPSGPUInfo=b8b8b8b16b4b20}[68{atomic<MPSLibrary *>=A^{MPSLibrary}}]}, name: _device
+    // Error parsing type: ^{MPSDevice=^^?^{MPSDevice}@^{MPSDeviceFreeList}{atomic<MTLLibraryNode *>=A^{MTLLibraryNode}}[2[2[2{atomic<void *>=A^v}]]][563{MPSPixelCapabilities=b1b1b1b1b1b2b1b8}]^{MPSFunctionTable}{atomic<void *>=A^v}Ii{MPSGPUInfo=b8b8b8b16b4b20}[69{atomic<MPSLibrary *>=A^{MPSLibrary}}]}, name: _device
     struct MPSLibrary *_library;
     NSString *_label;
     unsigned long long _allowedOptions;

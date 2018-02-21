@@ -13,7 +13,6 @@
 @interface SXVideoCloseButton : SXMaterialButton <SXVideoControlItem>
 {
     _Bool hideable;
-    double autoAppearanceTimeInterval;
 }
 
 - (id)accessibilityLabel;
@@ -21,7 +20,7 @@
 - (_Bool)isVisible;
 - (void)hide:(_Bool)arg1 withAnimationCoordinator:(id)arg2;
 @property(readonly, nonatomic) _Bool hideable; // @synthesize hideable;
-@property(readonly, nonatomic) double autoAppearanceTimeInterval; // @synthesize autoAppearanceTimeInterval;
+@property(readonly, nonatomic) _Bool supportsAutoAppearance;
 - (struct CGSize)intrinsicContentSize;
 - (id)initWithFrame:(struct CGRect)arg1;
 

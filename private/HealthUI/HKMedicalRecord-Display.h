@@ -7,6 +7,7 @@
 #import "HKMedicalRecord.h"
 
 @interface HKMedicalRecord (Display)
+- (id)viewControllerTitleDisplayStringWithDateCache:(id)arg1;
 - (id)sortDateDisplayStringWithPreferredForm:(long long)arg1 showTime:(_Bool)arg2;
 - (id)sortDateDisplayStringWithPreferredForm:(long long)arg1;
 - (id)sortDateTitle;

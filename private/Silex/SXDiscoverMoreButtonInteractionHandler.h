@@ -15,7 +15,7 @@
     id <SXDiscoverMoreInteractionHandler> _discoverMoreInteractionHandler;
 }
 
-@property(readonly, nonatomic) __weak id <SXDiscoverMoreInteractionHandler> discoverMoreInteractionHandler; // @synthesize discoverMoreInteractionHandler=_discoverMoreInteractionHandler;
+@property(readonly, nonatomic) id <SXDiscoverMoreInteractionHandler> discoverMoreInteractionHandler; // @synthesize discoverMoreInteractionHandler=_discoverMoreInteractionHandler;
 - (void).cxx_destruct;
 - (void)handleInteractionWithControl:(id)arg1;
 - (id)initWithDiscoverMoreInteractionHandler:(id)arg1;

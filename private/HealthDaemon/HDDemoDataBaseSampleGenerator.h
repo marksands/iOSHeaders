@@ -17,6 +17,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool createdFromNSKeyedUnarchiver; // @synthesize createdFromNSKeyedUnarchiver=_createdFromNSKeyedUnarchiver;
 @property(nonatomic) __weak HDDemoDataGenerator *demoDataGenerator; // @synthesize demoDataGenerator=_demoDataGenerator;
 - (void).cxx_destruct;
 - (void)generateSamplesForDemoPerson:(id)arg1 atTime:(double)arg2 sampleDate:(id)arg3 objectCollection:(id)arg4;
@@ -24,7 +25,7 @@
 - (void)setupWithDemoDataGenerator:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (_Bool)createdFromNSKeyedUnarchiver;
+- (_Bool)_createdFromNSKeyedUnarchiver;
 - (id)init;
 
 @end

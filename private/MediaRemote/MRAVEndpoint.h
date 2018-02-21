@@ -6,11 +6,15 @@
 
 #import "NSObject.h"
 
-@class MRAVOutputDevice, MRExternalDevice, NSArray, NSString, _MRAVEndpointDescriptorProtobuf;
+@class MRAVOutputDevice, MRExternalDevice, NSArray, NSMutableArray, NSOperationQueue, NSString, NSTimer, _MRAVEndpointDescriptorProtobuf;
 
 __attribute__((visibility("hidden")))
 @interface MRAVEndpoint : NSObject
 {
+    NSMutableArray *_pendingConnectionHandlers;
+    NSOperationQueue *_connectionHandlerOperationQueue;
+    _Bool _registeredForConnectionStateDidChangeNotifications;
+    NSTimer *_connectionTimeoutTimer;
     NSString *_localizedName;
     NSString *_uniqueIdentifier;
 }
@@ -19,6 +23,8 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(retain, nonatomic) NSString *localizedName; // @synthesize localizedName=_localizedName;
 - (void).cxx_destruct;
+- (void)_callAllCompletionHandlersWithError:(id)arg1;
+- (void)_externalDeviceConnectionStateDidChangeNotification:(id)arg1;
 - (void)_connectToExternalDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_requestSharedAudioPresentationOutputContextModificationWithAddingDevices:(id)arg1 removingDevices:(id)arg2 settingDevices:(id)arg3 replyQueue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (unsigned long long)_volumeControlMode;
@@ -43,6 +49,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _MRAVEndpointDescriptorProtobuf *descriptor;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
+- (void)dealloc;
 - (id)_init;
 
 @end

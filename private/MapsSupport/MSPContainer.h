@@ -50,6 +50,7 @@
 - (void)editObjectsWithIdentifiers:(id)arg1 usingBarrierBlock:(CDUnknownBlockType)arg2 context:(id)arg3 completionQueue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)editObjectsWithIdentifiers:(id)arg1 usingBarrierBlock:(CDUnknownBlockType)arg2 completionQueue:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)editContentsUsingBarrierBlock:(CDUnknownBlockType)arg1 context:(id)arg2 completionQueue:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)eraseFromStorageTypes:(unsigned long long)arg1 withCompletionQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)eraseWithCompletionQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)editByMergingStateSnapshot:(id)arg1 mergeOptions:(id)arg2 context:(id)arg3 completionQueue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)_processNewLoadedContents:(id)arg1;

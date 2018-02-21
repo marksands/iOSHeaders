@@ -25,6 +25,8 @@
 + (id)specifierForStorageApp:(id)arg1;
 - (void).cxx_destruct;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
+- (id)lastSizeStringForAppID:(id)arg1;
+- (void)setLastSizeString:(id)arg1 forAppID:(id)arg2;
 - (void)updateConstraints;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 

@@ -149,6 +149,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) float displayMinZoom;
 @property(readonly, nonatomic) _Bool hasDisplayMaxZoom;
 @property(readonly, nonatomic) _Bool hasDisplayMinZoom;
+@property(readonly, nonatomic, getter=_hasGenderNeutralRestroom) _Bool hasGenderNeutralRestroom;
+@property(readonly, nonatomic, getter=_hasGenderNeutralRestroomAmenity) _Bool hasGenderNeutralRestroomAmenity;
 @property(readonly, nonatomic, getter=_hasVenueFeatureType) _Bool hasVenueFeatureType;
 @property(readonly, nonatomic, getter=_hasWifiFingerprintConfidence) _Bool hasWifiFingerprintConfidence;
 @property(readonly, nonatomic, getter=_hasWifiFingerprintLabelStatusCode) _Bool hasWifiFingerprintLabelStatusCode;

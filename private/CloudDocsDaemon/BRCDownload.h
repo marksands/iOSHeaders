@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) CKRecordID *recordID; // @synthesize recordID=_recordID;
 @property(readonly, nonatomic) BRCItemID *itemID; // @synthesize itemID=_itemID;
 - (void).cxx_destruct;
+- (void)dealloc;
 - (id)initWithDocument:(id)arg1 stageID:(id)arg2;
 @property(retain, nonatomic) CKRecord *secondaryRecord;
 @property(readonly, nonatomic) CKRecordID *secondaryRecordID;

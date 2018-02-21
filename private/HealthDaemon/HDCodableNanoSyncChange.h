@@ -74,7 +74,7 @@
 @property(nonatomic) int objectType; // @synthesize objectType=_objectType;
 - (id)nanoSyncDescription;
 - (id)decodedObjectsForProfile:(id)arg1 error:(id *)arg2;
-- (id)requiredAnchorMapWithError:(id *)arg1;
+- (id)requiredAnchorMapWithProfile:(id)arg1 error:(id *)arg2;
 - (void)setSequenceNumber:(long long)arg1 done:(_Bool)arg2;
 @property(readonly, nonatomic) _Bool done;
 @property(readonly, nonatomic) NSNumber *sequenceNumber;

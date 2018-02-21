@@ -45,6 +45,10 @@
 @property(readonly, nonatomic) double threshold;
 @property(readonly, nonatomic) unsigned long long skipThreshold;
 - (void)skipped;
+- (void)muteStateChanged:(_Bool)arg1;
+- (void)tappedToToggleControls;
+- (void)exitedFullscreen;
+- (void)enteredFullscreen;
 - (void)timeElapsed:(double)arg1 duration:(double)arg2;
 - (void)playbackFailedWithError:(id)arg1;
 - (void)playbackFinished;

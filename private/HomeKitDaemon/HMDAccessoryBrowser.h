@@ -12,26 +12,22 @@
 #import "HMDAccessoryBrowserProtocol.h"
 #import "HMDAuthServerDelegate.h"
 #import "HMDMediaBrowserDelegate.h"
-#import "HMDWACAccessoryConfigurationDelegate.h"
-#import "HMDWACBrowserDelegate.h"
 #import "HMDWatchSystemStateDelegate.h"
 #import "HMFLogging.h"
 #import "HMFMessageReceiver.h"
 #import "HMFTimerDelegate.h"
 
-@class HAPAccessoryServerBrowserBTLE, HAPAccessoryServerBrowserIP, HAPAccessoryServerBrowserRelay, HMDAuthServer, HMDHomeManager, HMDMediaBrowser, HMDUnassociatedWACAccessory, HMDWACBrowser, HMFMessageDispatcher, HMFTimer, NSArray, NSHashTable, NSMapTable, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSUUID;
+@class HAPAccessoryServerBrowserBTLE, HAPAccessoryServerBrowserIP, HAPAccessoryServerBrowserRelay, HMDAuthServer, HMDHomeManager, HMDMediaBrowser, HMFMessageDispatcher, HMFTimer, NSArray, NSHashTable, NSMapTable, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSUUID;
 
-@interface HMDAccessoryBrowser : HMFObject <HAPAccessoryServerBrowserDelegate, HAPAccessoryServerDelegate, HMFMessageReceiver, HMFTimerDelegate, HMDMediaBrowserDelegate, HMDWACBrowserDelegate, HMDWACAccessoryConfigurationDelegate, HMDWatchSystemStateDelegate, HMDAuthServerDelegate, HMFLogging, HMDAccessoryBrowserProtocol, HMDAccessoryBrowserHapProtocol>
+@interface HMDAccessoryBrowser : HMFObject <HAPAccessoryServerBrowserDelegate, HAPAccessoryServerDelegate, HMFMessageReceiver, HMFTimerDelegate, HMDMediaBrowserDelegate, HMDWatchSystemStateDelegate, HMDAuthServerDelegate, HMFLogging, HMDAccessoryBrowserProtocol, HMDAccessoryBrowserHapProtocol>
 {
     NSMutableSet *_unpairedHAPAccessories;
     NSMutableSet *_unassociatedMediaAccessories;
     NSMutableSet *_deviceSetupMediaAccessories;
-    NSMutableSet *_unassociatedWACAccessories;
     NSMutableSet *_mediaAccessoryControlConnections;
     _Bool _browseForMediaAccessories;
     _Bool _appIsInForeground;
     _Bool _activeSiriCommand;
-    HMDUnassociatedWACAccessory *_accessoryPerformingWAC;
     HAPAccessoryServerBrowserRelay *_relayAccessoryServerBrowser;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
@@ -46,7 +42,6 @@
     HAPAccessoryServerBrowserIP *_ipAccessoryServerBrowser;
     HAPAccessoryServerBrowserBTLE *_btleAccessoryServerBrowser;
     HMDMediaBrowser *_mediaBrowser;
-    HMDWACBrowser *_wacBrowser;
     HMDAuthServer *_authServer;
     HMFTimer *_stopReprovisioningTimer;
     HMFTimer *_stopBrowsingAccessoriesNeedingReprovisioningTimer;
@@ -78,7 +73,6 @@
 @property(retain, nonatomic) HMFTimer *stopBrowsingAccessoriesNeedingReprovisioningTimer; // @synthesize stopBrowsingAccessoriesNeedingReprovisioningTimer=_stopBrowsingAccessoriesNeedingReprovisioningTimer;
 @property(retain, nonatomic) HMFTimer *stopReprovisioningTimer; // @synthesize stopReprovisioningTimer=_stopReprovisioningTimer;
 @property(retain, nonatomic) HMDAuthServer *authServer; // @synthesize authServer=_authServer;
-@property(retain, nonatomic) HMDWACBrowser *wacBrowser; // @synthesize wacBrowser=_wacBrowser;
 @property(retain, nonatomic) HMDMediaBrowser *mediaBrowser; // @synthesize mediaBrowser=_mediaBrowser;
 @property(retain, nonatomic) HAPAccessoryServerBrowserBTLE *btleAccessoryServerBrowser; // @synthesize btleAccessoryServerBrowser=_btleAccessoryServerBrowser;
 @property(retain, nonatomic) HAPAccessoryServerBrowserIP *ipAccessoryServerBrowser; // @synthesize ipAccessoryServerBrowser=_ipAccessoryServerBrowser;
@@ -219,13 +213,6 @@
 - (void)_handleRemovedUnpairedHAPAccessory:(id)arg1;
 - (void)removeUnpairedHAPAccessory:(id)arg1;
 - (void)addUnpairedHAPAccessory:(id)arg1;
-- (void)unassociatedWACAccessoryDidFinishAssociation:(id)arg1 withError:(id)arg2;
-- (void)unassociatedWACAccessoryDidStartAssociation:(id)arg1;
-- (void)requestPermissionToAssociateWACAccessory:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-@property(retain, nonatomic, getter=getActiveWACSession, setter=setActiveWACSession:) HMDUnassociatedWACAccessory *accessoryPerformingWAC; // @synthesize accessoryPerformingWAC=_accessoryPerformingWAC;
-- (void)updateUnassociatedWACAccessory:(id)arg1;
-- (void)removeUnassociatedWACAccessory:(id)arg1;
-- (void)addUnassociatedWACAccessory:(id)arg1;
 - (void)removeUnassociatedMediaAccessory:(id)arg1;
 - (void)addUnassociatedMediaAccessory:(id)arg1 forDeviceSetup:(_Bool)arg2;
 - (id)_progressHandlerForUnpairedAccessory:(id)arg1;
@@ -244,6 +231,8 @@
 - (void)handleNoActiveHomeKitApp:(id)arg1;
 - (void)_handleNoActiveHomeKitAppOrSiriCommand;
 - (void)handleHomeKitAppInForeground:(id)arg1;
+- (void)__evaluateStopDiscoveringAssociatedMediaAccessories;
+- (void)__evaluateStartDiscoveringAssociatedMediaAccessories;
 - (_Bool)__isCurrentDevicePrimaryResident;
 - (void)_reprovisionAccessoryWithIdentifier:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)reprovisionAccessoryWithIdentifier:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

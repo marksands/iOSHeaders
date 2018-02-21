@@ -17,6 +17,8 @@
     ARWorldTrackingReferenceAnchorData *_anchorData;
     ARWorldTrackingErrorData *_errorData;
     ARWorldTrackingPoseData *_cachedTrackingData;
+    long long _reinitializationAttempts;
+    long long _reinitializationAttemptsAtInitialization;
     double _lastRelocalizationTimestamp;
     _Bool _relocalizingAfterSensorDataDrop;
     _Bool _didRelocalize;
@@ -24,6 +26,10 @@
     NSObject<OS_dispatch_semaphore> *_resultSemaphore;
     double _minVergenceAngleCosine;
     _Bool _allowPoseGraphUpdates;
+    unsigned long long _customLensType;
+    // Error parsing type: {?="columns"[3]}, name: _customIntrinsics
+    // Error parsing type: , name: _radialDistortion
+    // Error parsing type: , name: _tangentialDistortion
     _Bool _relocalizationEnabled;
     NSString *_deviceModel;
     long long _latencyFrameCount;

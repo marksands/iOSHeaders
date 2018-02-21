@@ -242,7 +242,7 @@
 @property(retain, nonatomic) NSDate *gaxInternalSettingsLastPasscodeSetDate;
 @property(retain, nonatomic) NSDate *gaxInternalSettingsLastActivationDate;
 @property(copy, nonatomic) NSString *gaxInternalSettingsProductBuildVersion;
-@property(copy, nonatomic) NSString *gaxInternalSettingsDeviceID;
+@property(copy, nonatomic) NSNumber *gaxInternalSettingsECID;
 @property(nonatomic) _Bool gaxInternalSettingsSystemDidRestartDueToLowBattery;
 @property(nonatomic) _Bool gaxInternalSettingsIsActiveAppSelfLocked;
 @property(nonatomic) _Bool gaxInternalSettingsTimeRestrictionHasExpired;

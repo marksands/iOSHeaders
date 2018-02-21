@@ -14,7 +14,6 @@
 
 @interface PKPaymentCredentialProvisioningViewController : PKPaymentSetupProvisioningFieldsViewController <PKPaymentSetupRequiresPreflightProtocol, PKPaymentProvisioningControllerDelegate, PKPaymentSetupHideSetupLaterButtonProtocol>
 {
-    UIImage *_passSnapshot;
     UIImage *_passSnapshotPlaceHolder;
     unsigned long long _credentialProvisioningType;
     unsigned long long _displayType;
@@ -24,8 +23,10 @@
     _Bool _allowsManualEntry;
     _Bool _previouslyAcceptedTerms;
     _Bool _shouldAutoProvision;
+    UIImage *_passSnapshot;
 }
 
+@property(copy, nonatomic) UIImage *passSnapshot; // @synthesize passSnapshot=_passSnapshot;
 @property(nonatomic) _Bool shouldAutoProvision; // @synthesize shouldAutoProvision=_shouldAutoProvision;
 - (void).cxx_destruct;
 - (void)paymentPassUpdatedOnCredential:(id)arg1;

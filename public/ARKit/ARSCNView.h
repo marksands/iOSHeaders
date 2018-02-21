@@ -9,7 +9,7 @@
 #import "ARInternalSessionObserver.h"
 #import "_SCNSceneRendererDelegate.h"
 
-@class ARPointCloud, ARSession, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSString, SCNNode, SCNScene, UIView;
+@class ARPointCloud, ARSession, CIWarpKernel, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSString, SCNNode, SCNScene, UIView;
 
 @interface ARSCNView : SCNView <ARInternalSessionObserver, _SCNSceneRendererDelegate>
 {
@@ -32,6 +32,8 @@
     long long _lastInterfaceOrientation;
     struct CGSize _viewportSize;
     UIView *_rotationSnapshot;
+    CIWarpKernel *_warpKernel;
+    unsigned long long _warpKernelLensType;
     _Bool _automaticallyUpdatesLighting;
     _Bool _shouldRestrictFrameRate;
     _Bool _drawsCameraImage;
@@ -47,6 +49,8 @@
 @property _Bool shouldRestrictFrameRate; // @synthesize shouldRestrictFrameRate=_shouldRestrictFrameRate;
 @property(nonatomic) _Bool automaticallyUpdatesLighting; // @synthesize automaticallyUpdatesLighting=_automaticallyUpdatesLighting;
 - (void).cxx_destruct;
+- (struct __CVBuffer *)_warpPixelBuffer:(struct __CVBuffer *)arg1 withCamera:(id)arg2;
+- (void)_loadWarpKernalForLensType:(unsigned long long)arg1;
 - (void)cleanupLingeringRotationState;
 - (void)windowDidRotateNotification:(id)arg1;
 - (void)deviceOrientationDidChange:(id)arg1;

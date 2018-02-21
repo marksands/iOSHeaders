@@ -19,6 +19,7 @@
 - (void)forceUpdate;
 - (_Bool)sportsScoreSpoilersAllowed;
 - (_Bool)privateModeEnabled;
+- (unsigned long long)privacyFlowContentVersion;
 - (void)dealloc;
 - (id)initWithAppContext:(id)arg1;
 

@@ -11,6 +11,9 @@
     _Bool _useTiling;
     id <MPSExternalMatrixMultiplication> _plugin;
     CDUnknownFunctionPointerType _encode;
+    unsigned long long _MPlugin;
+    unsigned long long _NPlugin;
+    unsigned long long _KPlugin;
     _Bool _transA;
     _Bool _transB;
     unsigned long long _batchStart;

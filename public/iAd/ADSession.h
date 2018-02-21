@@ -40,8 +40,6 @@
 - (void)segmentDataForSignedInUserWithBlock:(CDUnknownBlockType)arg1;
 - (void)addClientToSegments:(id)arg1 replaceExisting:(_Bool)arg2;
 - (void)addClientToSegments:(id)arg1 replaceExisting:(_Bool)arg2 privateSegment:(_Bool)arg3;
-- (void)lookupAdConversionDetails:(CDUnknownBlockType)arg1;
-- (void)determineAppInstallAttributionWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_reportAdSubscriptionEvent:(id)arg1;
 - (void)reportPrerollRequest;
 - (void)_remote_policyEngineDidIdleDisable;

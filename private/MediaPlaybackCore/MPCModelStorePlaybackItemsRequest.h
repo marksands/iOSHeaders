@@ -27,6 +27,7 @@
     NSArray *_playbackPrioritizedIndexPaths;
 }
 
++ (_Bool)supportsSecureCoding;
 + (void)MPC_consumeSiriAssetInfo:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) NSArray *playbackPrioritizedIndexPaths; // @synthesize playbackPrioritizedIndexPaths=_playbackPrioritizedIndexPaths;
 @property(copy, nonatomic) NSArray *storeIDs; // @synthesize storeIDs=_storeIDs;

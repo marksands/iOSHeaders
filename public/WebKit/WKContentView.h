@@ -51,6 +51,7 @@ __attribute__((visibility("hidden")))
     struct RetainPtr<WKFileUploadPanel> _fileUploadPanel;
     struct RetainPtr<UIGestureRecognizer> _previewGestureRecognizer;
     struct RetainPtr<UIGestureRecognizer> _previewSecondaryGestureRecognizer;
+    struct Vector<bool, 0, WTF::CrashOnOverflow, 16, WTF::FastMalloc> _focusStateStack;
     struct RetainPtr<UIPreviewItemController> _previewItemController;
     struct unique_ptr<WebKit::SmartMagnificationController, std::__1::default_delete<WebKit::SmartMagnificationController>> _smartMagnificationController;
     id <UITextInputDelegate> _inputDelegate;

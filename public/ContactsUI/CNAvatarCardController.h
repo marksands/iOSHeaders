@@ -10,7 +10,7 @@
 #import "CNAvatarCardViewControllerDelegate.h"
 #import "UIPreviewInteractionDelegatePrivate.h"
 
-@class CNAvatarCardViewController, CNAvatarView, CNContact, CNContactOrbHeaderView, NSArray, NSString, UIAlertController, UIGestureRecognizer, UIPreviewInteraction, UIView, UIViewController;
+@class CNAvatarCardViewController, CNAvatarView, CNContact, CNContactOrbHeaderView, NSArray, NSString, UIAlertController, UIGestureRecognizer, UIPreviewInteraction, UITapGestureRecognizer, UIView, UIViewController;
 
 @interface CNAvatarCardController : NSObject <CNAvatarCardViewControllerDelegate, CNAvatarCardControllerOrbTransitionDelegate, UIPreviewInteractionDelegatePrivate>
 {
@@ -27,6 +27,7 @@
     UIPreviewInteraction *_previewInteraction;
     long long _presentationResult;
     NSArray *_cardControllerConstraints;
+    UITapGestureRecognizer *_tapGestureRecognizer;
     CNAvatarView *_avatarView;
     CNContactOrbHeaderView *_headerView;
     UIGestureRecognizer *_rolloverGestureRecognizer;
@@ -42,6 +43,7 @@
 @property(retain, nonatomic) UIGestureRecognizer *rolloverGestureRecognizer; // @synthesize rolloverGestureRecognizer=_rolloverGestureRecognizer;
 @property(retain, nonatomic) CNContactOrbHeaderView *headerView; // @synthesize headerView=_headerView;
 @property(nonatomic) __weak CNAvatarView *avatarView; // @synthesize avatarView=_avatarView;
+@property(retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
 @property(retain, nonatomic) NSArray *cardControllerConstraints; // @synthesize cardControllerConstraints=_cardControllerConstraints;
 @property(nonatomic) long long presentationResult; // @synthesize presentationResult=_presentationResult;
 @property(retain, nonatomic) UIPreviewInteraction *previewInteraction; // @synthesize previewInteraction=_previewInteraction;

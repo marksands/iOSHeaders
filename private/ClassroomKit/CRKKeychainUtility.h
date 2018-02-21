@@ -10,13 +10,15 @@
 {
 }
 
-+ (id)certificateExpirationFromPersistentId:(id)arg1;
++ (_Bool)identityExpiredWithPersistentId:(id)arg1;
++ (_Bool)certificateExpiredWithPersistentId:(id)arg1;
++ (_Bool)dateHasPassed:(id)arg1;
++ (id)certificateExpirationDateFromPersistentId:(id)arg1;
 + (id)identityExpirationDateFromPersistentId:(id)arg1;
 + (id)createIdentityPersistentIdFromCommonName:(id)arg1 groupName:(id)arg2;
 + (struct __SecIdentity *)identityFromPrivateKeyData:(id)arg1 certificateData:(id)arg2;
 + (id)addCertificateData:(id)arg1 toGroup:(id)arg2;
 + (id)persistentIdFromCertificateData:(id)arg1;
-+ (struct __SecCertificate *)certificateFromPersistentId:(id)arg1;
 + (struct __SecKey *)privateKeyFromPersistentId:(id)arg1;
 + (id)certificateDataFromPersistentId:(id)arg1;
 + (id)privateKeyDataFromPersistentId:(id)arg1;

@@ -8,19 +8,19 @@
 
 #import "SXVisiblePercentageProviding.h"
 
-@class NSString, UICollectionView;
+@class NSString;
 
 @interface SXVideoVisiblePercentageProvider : NSObject <SXVisiblePercentageProviding>
 {
-    UICollectionView *_collectionView;
     id <SXVideoQueueProviding> _queueProvider;
+    id <SXVideoCollectionViewProviding> _collectionViewProvider;
 }
 
+@property(readonly, nonatomic) id <SXVideoCollectionViewProviding> collectionViewProvider; // @synthesize collectionViewProvider=_collectionViewProvider;
 @property(readonly, nonatomic) id <SXVideoQueueProviding> queueProvider; // @synthesize queueProvider=_queueProvider;
-@property(readonly, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 - (void).cxx_destruct;
 - (double)visiblePercentageOfObject:(id)arg1;
-- (id)initWithQueueProvider:(id)arg1 collectionView:(id)arg2;
+- (id)initWithQueueProvider:(id)arg1 collectionViewProvider:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

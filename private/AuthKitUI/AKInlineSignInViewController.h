@@ -63,6 +63,7 @@
 - (void)_prefillAuthFields;
 - (void)_updateSignInFieldStatuses;
 - (void)_updatePlaceholderIfNeeded;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)setContext:(id)arg1;
 - (id)context;

@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableDictionary *keyRegistrySyncMetadataByServiceName; // @synthesize keyRegistrySyncMetadataByServiceName=_keyRegistrySyncMetadataByServiceName;
 - (void).cxx_destruct;
 - (void)synchronizeUserKeyRegistryForService:(id)arg1 shouldThrottle:(_Bool)arg2 onBehalfOfContext:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)registerAndPerformKeyRegistrySyncForService:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_registerAndPerformKeyRegistrySyncForService:(id)arg1 shouldThrottle:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)serviceKeyForServiceName:(id)arg1;
 - (id)init;
 

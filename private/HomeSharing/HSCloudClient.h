@@ -18,11 +18,16 @@
     unsigned long long _daemonConfiguration;
     long long _preferredVideoQuality;
     CDUnknownBlockType _updateInProgressChangedHandler;
+    CDUnknownBlockType _updateSagaInProgressChangedHandler;
+    CDUnknownBlockType _updateJaliscoInProgressChangedHandler;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType updateJaliscoInProgressChangedHandler; // @synthesize updateJaliscoInProgressChangedHandler=_updateJaliscoInProgressChangedHandler;
+@property(copy, nonatomic) CDUnknownBlockType updateSagaInProgressChangedHandler; // @synthesize updateSagaInProgressChangedHandler=_updateSagaInProgressChangedHandler;
 @property(copy, nonatomic) CDUnknownBlockType updateInProgressChangedHandler; // @synthesize updateInProgressChangedHandler=_updateInProgressChangedHandler;
 - (void).cxx_destruct;
-- (void)_serverUpdateInProgressDidChange;
+- (void)_serverJaliscoUpdateInProgressDidChange;
+- (void)_serverSagaUpdateInProgressDidChange;
 - (void)_serverDidLaunch;
 - (void)_sendConfigurationToDaemon;
 - (id)connection;
@@ -52,6 +57,10 @@
 - (void)setDaemonConfiguration:(unsigned long long)arg1;
 - (void)resignActive;
 - (void)resetConfiguration:(id)arg1;
+- (void)loadJaliscoUpdateProgressWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)loadSagaUpdateProgressWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)loadIsJaliscoUpdateInProgressWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)loadIsSagaUpdateInProgressWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)loadUpdateProgressWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)loadIsUpdateInProgressWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)loadGeniusItemsForSagaID:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;

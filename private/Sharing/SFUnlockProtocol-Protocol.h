@@ -22,7 +22,6 @@
 - (void)attemptAutoUnlockWithClientProxy:(id <SFUnlockClientProtocol>)arg1;
 - (void)disableAutoUnlockForDevice:(SFAutoUnlockDevice *)arg1 completionHandler:(void (^)(_Bool, NSError *))arg2;
 - (void)cancelEnablingAutoUnlockForDevice:(SFAutoUnlockDevice *)arg1;
-- (void)enableAutoUnlockWithDevice:(SFAutoUnlockDevice *)arg1 passcode:(NSString *)arg2 completionHandler:(void (^)(_Bool, NSError *))arg3;
 - (void)enableAutoUnlockWithDevice:(SFAutoUnlockDevice *)arg1 passcode:(NSString *)arg2 clientProxy:(id <SFUnlockClientProtocol>)arg3;
 - (void)eligibleAutoUnlockDevicesWithCompletionHandler:(void (^)(NSSet *, NSError *))arg1;
 - (void)repairCloudPairing;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class MPSNNGraph, NSData, NSNull;
+@class MPSNNGraph, NSData, NSNull, NSObject<OS_dispatch_semaphore>;
 
 #pragma mark Function Pointers and Blocks
 
@@ -32,6 +32,8 @@ struct FilterGraphNode {
     id _field9;
     unsigned long long _field10;
     _Bool _field11;
+    unsigned int _field12;
+    unsigned long long _field13;
 };
 
 struct Graph {
@@ -44,6 +46,7 @@ struct Graph {
     struct NodeList<FilterGraphNode *> _filters;
     struct NodeList<ResourceGraphNode *> _images;
     struct NodeList<ResourceGraphNode *> _states;
+    NSObject<OS_dispatch_semaphore> *_cpuUpdateSem;
     NSNull *_graphNull;
 };
 

@@ -17,6 +17,7 @@
     CDUnknownBlockType _feedbackWarmingBlock;
     double _currentDelay;
     NSSet *_usedFeedbacks;
+    _Bool _activated;
     _Bool _hasMutableFeedbackKeyPaths;
     long long _activationCount;
     long long _externalActivationCount;

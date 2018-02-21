@@ -101,8 +101,10 @@
 - (void)_presentTransactionDetailsForTransaction:(id)arg1 paymentPass:(id)arg2;
 - (void)presentTransactionDetailsForTransactionWithServiceIdentifier:(id)arg1;
 - (void)presentTransactionDetailsForTransactionWithIdentifier:(id)arg1;
+- (void)presentPassWithUniqueID:(id)arg1 context:(id)arg2 dismissVC:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)presentPassWithUniqueID:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)presentPaymentPassDetailsWithUniqueID:(id)arg1 animated:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)presentPassWithUniqueID:(id)arg1 animated:(_Bool)arg2 dismissVC:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)presentPassWithUniqueID:(id)arg1 animated:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setTableModalPresentationEnabled:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)presentGroupTableAnimated:(_Bool)arg1;

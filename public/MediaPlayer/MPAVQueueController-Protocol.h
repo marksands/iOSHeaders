@@ -13,11 +13,13 @@
 @property(nonatomic) __weak MPAVController *avController;
 @property(readonly, nonatomic) _Bool allowsQueueResetWhenReachingEnd;
 @property(readonly, nonatomic) long long upNextItemCount;
+@property(readonly, nonatomic) long long playlistItemCount;
 @property(nonatomic) _Bool shouldDeferItemLoading;
 @property(nonatomic) long long repeatMode;
 @property(readonly, nonatomic) _Bool canSkipToPreviousItem;
 @property(nonatomic) __weak id delegate;
 @property(readonly, nonatomic) MPAVItem *currentItem;
+@property(readonly, nonatomic) NSString *uniqueIdentifier;
 - (long long)_indexForStringIdentifier:(NSString *)arg1;
 - (long long)indexOfItemIdentifier:(id <MPAVItemQueueIdentifier>)arg1;
 - (long long)indexWithDelta:(long long)arg1 fromIndex:(long long)arg2 ignoreElapsedTime:(_Bool)arg3 didReachEnd:(_Bool *)arg4;

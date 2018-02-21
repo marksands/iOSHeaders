@@ -38,7 +38,7 @@
 
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) CDUnknownBlockType localDeviceUpdatedHandler; // @synthesize localDeviceUpdatedHandler=_localDeviceUpdatedHandler;
-@property(readonly, copy, nonatomic) RPCompanionLinkDevice *localDevice; // @synthesize localDevice=_localDevice;
+@property(retain) RPCompanionLinkDevice *localDevice; // @synthesize localDevice=_localDevice;
 @property(copy, nonatomic) CDUnknownBlockType deviceChangedHandler; // @synthesize deviceChangedHandler=_deviceChangedHandler;
 @property(copy, nonatomic) CDUnknownBlockType deviceLostHandler; // @synthesize deviceLostHandler=_deviceLostHandler;
 @property(copy, nonatomic) CDUnknownBlockType deviceFoundHandler; // @synthesize deviceFoundHandler=_deviceFoundHandler;
@@ -67,8 +67,8 @@
 - (void)companionLinkChangedDevice:(id)arg1 changes:(unsigned int)arg2;
 - (void)companionLinkLostDevice:(id)arg1;
 - (void)companionLinkFoundDevice:(id)arg1;
-@property(readonly, copy, nonatomic) RPCompanionLinkDevice *activePersonalCompanion;
-@property(readonly, copy, nonatomic) NSArray *activeDevices;
+@property(readonly) RPCompanionLinkDevice *activePersonalCompanion;
+@property(readonly, copy) NSArray *activeDevices;
 - (void)_reregisterAssertions;
 - (void)_invalidateAssertion:(id)arg1;
 - (id)activateAssertionID:(id)arg1 destinationID:(id)arg2 options:(id)arg3 completion:(CDUnknownBlockType)arg4;

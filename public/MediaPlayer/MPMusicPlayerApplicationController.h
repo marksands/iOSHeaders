@@ -10,6 +10,7 @@
 
 @interface MPMusicPlayerApplicationController : MPMusicPlayerController
 {
+    long long _notificationsCount;
     MPCPlayerPath *_playerPath;
     MPCRemotePlaybackEngine *_playbackEngine;
 }
@@ -21,6 +22,8 @@
 - (void)_playerPathDidChange:(id)arg1;
 - (void)_playbackEngineDidDisconnect:(id)arg1;
 - (void)performQueueTransaction:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)endGeneratingPlaybackNotifications;
+- (void)beginGeneratingPlaybackNotifications;
 - (void)prepareToPlay;
 - (id)_init;
 

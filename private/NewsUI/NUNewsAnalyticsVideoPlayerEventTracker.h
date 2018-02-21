@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "NSSNewsAnalyticsArticleViewingSessionTracker.h"
 #import "NUVideoPlayerEventTracker.h"
 
 @class NSArray, NSData, NSSNewsAnalyticsEventAnnotator, NSString, NTPBEvent, NUNewsAnalyticsVideoPlayerEventTrackerConfiguration;
 
-@interface NUNewsAnalyticsVideoPlayerEventTracker : NSObject <NUVideoPlayerEventTracker>
+@interface NUNewsAnalyticsVideoPlayerEventTracker : NSObject <NUVideoPlayerEventTracker, NSSNewsAnalyticsArticleViewingSessionTracker>
 {
     _Bool _playbackFinishedForLastVideo;
     _Bool _videoPlayerIsVisible;
@@ -36,6 +37,7 @@
 @property(readonly, nonatomic) __weak id <NSSNewsAnalyticsPBEventStreamObserver> observer; // @synthesize observer=_observer;
 - (void).cxx_destruct;
 - (id)_currentArticleViewingSessionID;
+- (id)_currentArticleID;
 - (id)_articleViewingSessionIDForVideoItem:(id)arg1;
 - (unsigned long long)_displayRankOfVideoItem:(id)arg1;
 - (id)_widgetEngagementForVideoItem:(id)arg1;
@@ -58,6 +60,7 @@
 - (void)_submitEvent:(id)arg1;
 - (void)_submitEventForEventObject:(id)arg1;
 - (id)_eventForEventObject:(id)arg1;
+- (id)articleViewingSessionIDForArticleWithID:(id)arg1;
 - (void)userSkippedPlaybackOfVideoAdWithMetadata:(id)arg1;
 - (void)userEngagedWithCallToActionOfVideoAdWithMetadata:(id)arg1;
 - (void)playbackFinishedForVideoAdWithMetadata:(id)arg1;

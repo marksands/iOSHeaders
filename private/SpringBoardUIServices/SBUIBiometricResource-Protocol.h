@@ -18,7 +18,8 @@
 @property(readonly, nonatomic, getter=isFingerOn) _Bool fingerOn;
 @property(readonly, nonatomic) _Bool hasBiometricAuthenticationCapabilityEnabled;
 @property(readonly, nonatomic) _Bool hasEnrolledIdentities;
-- (void)restartMatchingIfNeededForAssertion:(id <BSInvalidatable>)arg1;
+- (void)resumeMatchingAdvisory:(_Bool)arg1;
+- (void)resumeMatchingForAssertion:(id <BSInvalidatable>)arg1 advisory:(_Bool)arg2;
 - (void)refreshMatchMode;
 - (id <BSInvalidatable>)acquireMatchingAssertionWithMode:(unsigned long long)arg1 reason:(NSString *)arg2;
 - (id <BSInvalidatable>)acquireFingerDetectionWantedAssertionForReason:(NSString *)arg1;

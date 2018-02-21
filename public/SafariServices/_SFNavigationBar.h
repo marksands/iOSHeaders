@@ -13,7 +13,7 @@
 #import "_SFNavigationBarURLButtonDelegate.h"
 #import "_UIBasicAnimationFactory.h"
 
-@class NSArray, NSAttributedString, NSString, NSTimer, SFCrossfadingImageView, SFNavigationBarReaderButton, UIButton, UIColor, UIImageView, UILabel, UILongPressGestureRecognizer, UITextField, _SFDimmingButton, _SFDismissButton, _SFFluidProgressView, _SFNavigationBarBackdrop, _SFNavigationBarItem, _SFNavigationBarLabelsContainer, _SFNavigationBarURLButton, _SFToolbar, _UIBackdropViewSettings;
+@class NSArray, NSAttributedString, NSString, NSTimer, SFCrossfadingImageView, SFNavigationBarReaderButton, SFWebsiteNotSecureMessageView, UIButton, UIColor, UIImageView, UILabel, UILongPressGestureRecognizer, UITextField, _SFDimmingButton, _SFDismissButton, _SFFluidProgressView, _SFNavigationBarBackdrop, _SFNavigationBarItem, _SFNavigationBarLabelsContainer, _SFNavigationBarURLButton, _SFToolbar, _UIBackdropViewSettings;
 
 @interface _SFNavigationBar : UIView <UIGestureRecognizerDelegate, _SFFluidProgressViewDelegate, _SFNavigationBarURLButtonDelegate, _UIBasicAnimationFactory, UIDragInteractionDelegate_Private, UIDropInteractionDelegate_Private>
 {
@@ -23,10 +23,8 @@
     UIView *_labelScalingContainer;
     UILabel *_URLLabel;
     UILabel *_expandedURLLabel;
-    UILabel *_notSecureURLAnnotationLabel;
-    UILabel *_websiteNotSecuredMessageLabel;
-    UIView *_notSecureWebsiteMessageAndIconContainer;
-    UIView *_URLLabelAndNotSecureWarningContainer;
+    _Bool _urlLabelShowsNotSecureAnnotation;
+    SFWebsiteNotSecureMessageView *_websiteNotSecureMessageView;
     UILabel *_readerAvailabilityLabel;
     double _URLWidth;
     double _URLHeight;
@@ -153,7 +151,6 @@
 - (void)_updateTintColorForControls;
 - (void)backdropDidApplySettings:(id)arg1;
 @property(nonatomic) _Bool updatesBackdrop;
-- (id)_warningImageWithSize:(double)arg1;
 - (id)_tintForWarningImage;
 - (id)_lockImageUsingMiniatureVersion:(_Bool)arg1;
 - (id)_tintForLockImage:(_Bool)arg1;
@@ -163,8 +160,8 @@
 - (void)_updateBackdropGroupName;
 - (void)_hideNotSecureWebsiteMessage;
 - (void)_showNotSecureWebsiteMessage;
-- (void)_updateShowsNotSecureWarningAndAnnotationVisibility;
-- (void)_setUpNotSecureWebSiteMessageIconAndLabelIfNeeded;
+- (void)_updateNotSecureWarningsVisibility;
+- (void)_setUpWebsiteNotSecureMessageIconAndLabelIfNeeded;
 - (void)_updateShowsSearchIndicator;
 - (void)_updateSearchIndicator;
 - (void)_updateTextMetrics;
@@ -189,6 +186,8 @@
 - (void)setExpanded:(_Bool)arg1 textFieldSelectionRange:(struct _NSRange)arg2;
 - (void)_updateToolbarAlpha;
 - (void)_updateFakeViews;
+- (_Bool)_isURLLabelAnnotatedWithAttributedString;
+- (id)_attributedStringByInsertingNotSecureAnnotationInURL:(id)arg1 annotationOffset:(double *)arg2;
 - (void)_updateText;
 - (id)_expandedURLLabelParagraphStyle;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
@@ -235,6 +234,7 @@
 - (void)_barMetricsDidChange;
 - (void)_updateURLOutlineCornerRadius;
 - (void)_updateProgressViewCornerRadius;
+- (id)_URLLabelFont;
 - (void)_updateFonts;
 - (id)readerAppearanceButton;
 @property(nonatomic) _Bool hasToolbar;

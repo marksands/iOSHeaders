@@ -13,17 +13,17 @@
 
 @interface SXNowPlayingViewController : UIViewController <SXVideoTransitionObserver, SXVideoAccessoryItem>
 {
-    unsigned long long displayMode;
+    unsigned long long _displayMode;
     SXNowPlayingButton *_nowPlayingButton;
     id <SXNowPlayingVideoTitleProviding> _videoTitleProvider;
 }
 
 @property(readonly, nonatomic) id <SXNowPlayingVideoTitleProviding> videoTitleProvider; // @synthesize videoTitleProvider=_videoTitleProvider;
 @property(readonly, nonatomic) SXNowPlayingButton *nowPlayingButton; // @synthesize nowPlayingButton=_nowPlayingButton;
-@property(nonatomic) unsigned long long displayMode; // @synthesize displayMode;
+@property(nonatomic) unsigned long long displayMode; // @synthesize displayMode=_displayMode;
 - (void).cxx_destruct;
+- (void)willTransitionToDisplayMode:(unsigned long long)arg1 withTransitionCoordinator:(id)arg2;
 - (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (id)initWithNowPlayingButton:(id)arg1 videoTitleProvider:(id)arg2;
 

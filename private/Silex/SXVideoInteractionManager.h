@@ -13,7 +13,9 @@
 @interface SXVideoInteractionManager : NSObject <SXVideoTransitionObserver>
 {
     NSMutableSet *_controls;
+    NSMutableSet *_gestureRecognizers;
     NSMapTable *_registeredHandlers;
+    NSMapTable *_registeredObservers;
     NSMapTable *_interactionHandlers;
     NSMapTable *_interactionHandlerFactories;
     NSMapTable *_interactionObservers;
@@ -24,13 +26,28 @@
 @property(readonly, nonatomic) NSMapTable *interactionObservers; // @synthesize interactionObservers=_interactionObservers;
 @property(readonly, nonatomic) NSMapTable *interactionHandlerFactories; // @synthesize interactionHandlerFactories=_interactionHandlerFactories;
 @property(readonly, nonatomic) NSMapTable *interactionHandlers; // @synthesize interactionHandlers=_interactionHandlers;
+@property(readonly, nonatomic) NSMapTable *registeredObservers; // @synthesize registeredObservers=_registeredObservers;
 @property(readonly, nonatomic) NSMapTable *registeredHandlers; // @synthesize registeredHandlers=_registeredHandlers;
+@property(readonly, nonatomic) NSMutableSet *gestureRecognizers; // @synthesize gestureRecognizers=_gestureRecognizers;
 @property(readonly, nonatomic) NSMutableSet *controls; // @synthesize controls=_controls;
 - (void).cxx_destruct;
-- (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
+- (void)configureGestureRecognizer:(id)arg1 withHandler:(id)arg2 observer:(id)arg3;
+- (id)interactionObserverForInteractionWithGestureRecognizer:(id)arg1 forVideo:(id)arg2;
+- (id)interactionHandlerForInteractionWithGestureRecognizer:(id)arg1 forVideo:(id)arg2;
+- (void)configureGestureRecognizerInteractionManagementForVideo:(id)arg1;
+- (void)configureControl:(id)arg1 withHandler:(id)arg2 observer:(id)arg3;
+- (id)interactionObserverForInteractionWithControl:(id)arg1 forVideo:(id)arg2;
+- (id)interactionHandlerForInteractionWithControl:(id)arg1 forVideo:(id)arg2;
+- (void)configureControlInteractionManagementForVideo:(id)arg1;
+- (void)registerGestureRecognizer:(id)arg1 withInteractionObserverFactory:(id)arg2;
+- (void)registerGestureRecognizer:(id)arg1 withInteractionHandlerFactory:(id)arg2;
+- (void)registerGestureRecognizer:(id)arg1 withInteractionObserver:(id)arg2;
+- (void)registerGestureRecognizer:(id)arg1 withInteractionHandler:(id)arg2;
 - (void)registerControl:(id)arg1 withInteractionObserverFactory:(id)arg2;
 - (void)registerControl:(id)arg1 withInteractionHandlerFactory:(id)arg2;
+- (void)registerControl:(id)arg1 withInteractionObserver:(id)arg2;
 - (void)registerControl:(id)arg1 withInteractionHandler:(id)arg2;
+- (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (id)init;
 
 // Remaining properties

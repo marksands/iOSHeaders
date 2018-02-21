@@ -13,6 +13,7 @@
 - (CKRecord *)databaseMigrationMigrateRecord:(CKRecord *)arg1 database:(FCCKPrivateDatabase *)arg2 error:(id *)arg3;
 - (_Bool)databaseMigrationShouldDropRecord:(CKRecord *)arg1 database:(FCCKPrivateDatabase *)arg2;
 - (NSArray *)databaseMigrationRecordNamesToMigrateInZone:(NSString *)arg1 database:(FCCKPrivateDatabase *)arg2;
+- (_Bool)databaseMigrationShouldMigrateEntireZone:(NSString *)arg1 database:(FCCKPrivateDatabase *)arg2;
 - (NSSet *)databaseMigrationZoneNamesForDatabase:(FCCKPrivateDatabase *)arg1;
 @end
 

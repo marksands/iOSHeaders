@@ -249,7 +249,7 @@
 - (void)account:(id)arg1 didRemoveDevice:(id)arg2;
 - (void)account:(id)arg1 didAddDevice:(id)arg2;
 - (void)accessoryBrowserDidFindNewAccessory;
-- (void)evaluateIfMediaPlaybackStateChanged:(id)arg1;
+- (void)mediaPlaybackStateChanged:(id)arg1;
 - (void)_updateAccessAllowedWhenLocked:(_Bool)arg1 message:(id)arg2;
 - (void)_handleAccessAllowedWhenLockedRequest:(id)arg1;
 - (unsigned long long)statusForMessage:(id)arg1;
@@ -436,7 +436,6 @@
 - (void)_extractVendorIdentifierFor:(id)arg1 andRun:(CDUnknownBlockType)arg2;
 - (void)_handleRequestMediaAccessoryControl:(id)arg1;
 - (void)_handleRequestRuntimeStateUpdate:(id)arg1;
-- (void)_runtimeStateUpdate:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handleRequestFetchHomeConfiguration:(id)arg1;
 - (void)_retryCloudOperationWithName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_startTimerToResetCloudOperationRetryCounter;
@@ -494,8 +493,7 @@
 - (void)setHomekitLastSyncedAssistantConfigurationVersion:(unsigned long long)arg1;
 - (void)_setHomekitAssistantConfigurationVersion:(unsigned long long)arg1;
 - (_Bool)_updateAccessoriesConfigured;
-- (void)setMediaAccessoriesPresent:(_Bool)arg1 homePodsPresent:(_Bool)arg2 inOwnedHomes:(_Bool)arg3;
-- (void)registerForMediaPlaybackStateChangeNotifications:(_Bool)arg1;
+- (void)setSpeakersAreConfigured:(_Bool)arg1 inOwnedHomes:(_Bool)arg2;
 - (void)_updateHomeKitInUsePreferences;
 - (void)updateIncomingInvitesPresent;
 - (void)updateHomesConfigured;

@@ -6,14 +6,13 @@
 
 #import "NSObject.h"
 
-@class HKHealthRecordsStore, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>;
+@class HKHealthRecordsStore, NSCache, NSMutableDictionary, NSOperationQueue;
 
 @interface HKBrandImageManager : NSObject
 {
-    NSObject<OS_dispatch_queue> *_diskQueue;
-    NSObject<OS_dispatch_queue> *_resourceQueue;
-    NSMutableSet *_fetchedIdentifiers;
+    NSCache *_fetchedImages;
     NSMutableDictionary *_outstandingRequests;
+    NSOperationQueue *_fileOperationQueue;
     HKHealthRecordsStore *_healthRecordsStore;
 }
 
@@ -22,22 +21,19 @@
 + (id)imageManagerWithHealthRecordsStore:(id)arg1;
 + (double)defaultLogoDimension;
 @property(retain, nonatomic) HKHealthRecordsStore *healthRecordsStore; // @synthesize healthRecordsStore=_healthRecordsStore;
+@property(retain) NSOperationQueue *fileOperationQueue; // @synthesize fileOperationQueue=_fileOperationQueue;
 @property(retain, nonatomic) NSMutableDictionary *outstandingRequests; // @synthesize outstandingRequests=_outstandingRequests;
-@property(retain, nonatomic) NSMutableSet *fetchedIdentifiers; // @synthesize fetchedIdentifiers=_fetchedIdentifiers;
+@property(retain, nonatomic) NSCache *fetchedImages; // @synthesize fetchedImages=_fetchedImages;
 - (void).cxx_destruct;
 - (id)_hashedSaltedStringFromString:(id)arg1;
-- (id)_logoURLForBrand:(id)arg1 size:(double)arg2;
-- (id)_sizeStringForSize:(double)arg1;
-- (void)_writeImageData:(id)arg1 brand:(id)arg2 size:(double)arg3;
-- (id)_identifierForBrand:(id)arg1 size:(double)arg2;
-- (void)_dispatchResponsesForBrand:(id)arg1 size:(double)arg2 image:(id)arg3 error:(id)arg4;
-- (id)_resizeImage:(id)arg1 size:(double)arg2 resizedData:(out id *)arg3;
-- (void)_processFetchResponseWithData:(id)arg1 error:(id)arg2 brand:(id)arg3 size:(double)arg4;
-- (void)_resourceQueue_fetchLogoForBrand:(id)arg1 size:(double)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)_diskQueue_loadStoredLogoForBrand:(id)arg1 size:(double)arg2;
-- (CDUnknownBlockType)_imageCompletionHandlerOnMainQueue:(CDUnknownBlockType)arg1;
+- (id)_logoURLForBrand:(id)arg1;
+- (void)_writeImageData:(id)arg1 brand:(id)arg2;
+- (void)dispatchResponsesForBrand:(id)arg1 image:(id)arg2 error:(id)arg3;
+- (void)processFetchResponseWithData:(id)arg1 error:(id)arg2 brand:(id)arg3;
+- (void)fetchLogoForBrand:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)loadStoredLogoForBrand:(id)arg1;
 - (void)retrieveLogoForBrand:(id)arg1 size:(double)arg2 options:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
-- (CDUnknownBlockType)_cacheCompletionHandlerOnMainQueue:(CDUnknownBlockType)arg1;
+- (void)onMainQueue:(CDUnknownBlockType)arg1;
 - (void)cacheFeaturedBrandLogosWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_scaleKeyForCurrentDevice;
 - (id)init;

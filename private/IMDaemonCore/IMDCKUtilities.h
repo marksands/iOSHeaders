@@ -27,11 +27,17 @@
 - (void).cxx_destruct;
 - (void)eligibleForTruthZoneWithCompletion:(CDUnknownBlockType)arg1;
 - (void)enableMOCIfNeeded;
+- (_Bool)_allowDestructiveMOCFeatureForDSID:(id)arg1;
+- (_Bool)_allowDestructiveMOCFeaturesBasedOnDSID;
+- (id)dsid;
 - (id)_primaryiCloudAccountAltDSID;
 - (id)_primaryiCloudAccount;
 - (id)_accountManager;
 - (void)submitPCSReportManateeStatuMetricWithPrefix:(id)arg1 andReason:(id)arg2;
 - (id)metricForPCSReportManateeStatusWithReason:(id)arg1;
+- (_Bool)logDumpIsNecessaryAfterSync;
+- (void)noteAllSyncedItemsPriorToSync;
+- (id)_ckStatisticCaluclations;
 - (void)logDumpAndSendMessageTo:(id)arg1 forHours:(int)arg2 reason:(id)arg3;
 - (void)_showCKLogNotificationWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)errorIndicateDeviceDoesNotHaveKeysToSync:(id)arg1;
@@ -48,7 +54,11 @@
 - (void)fetchiCloudAccountPersonID:(CDUnknownBlockType)arg1;
 - (void)_fetchPrimaryAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (void)setiCloudSettingsSwitchEnabled:(_Bool)arg1;
+- (void)checkCloudkitEnabledStatusAndToggleiCloudSwitchIfNeeded;
+- (void)toggleiCloudSettingsSwitchForExitDate:(id)arg1 exitError:(id)arg2;
 - (id)_accountStore;
+- (void)resetLastSyncDate;
+- (_Bool)errorIndicatesUserDeletedZone:(id)arg1;
 - (_Bool)errorIndicatesZoneNotCreated:(id)arg1;
 - (id)extractRecordIDsDeletedFromCKPartialError:(id)arg1;
 - (_Bool)acceptableErrorCodeWhileDeleting:(id)arg1;
@@ -62,6 +72,7 @@
 - (_Bool)_isCKErrorPartialFailure:(id)arg1;
 - (unsigned long long)_mocEnabledStateFromAccountStatus:(long long)arg1;
 - (void)fetchMOCEnabledStateWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (id)syncFailureMetricString:(id)arg1 error:(id)arg2;
 - (id)recordNameForMessageWithGUID:(id)arg1 usingSalt:(id)arg2;
 - (void)_askToTapToRadarWithString:(id)arg1 internalOnly:(_Bool)arg2;
 - (void)reportMOCDebuggingErrorWithString:(id)arg1 internalOnly:(_Bool)arg2 initialSync:(_Bool)arg3 sendToHandle:(id)arg4 reasonString:(id)arg5;
@@ -82,6 +93,8 @@
 - (_Bool)_checkEligibilityWithAccountInfo:(id)arg1;
 - (id)_authenticationController;
 - (_Bool)accountIsVerifiedForMOCAndSafeForCacheDelete;
+- (_Bool)removeFromBackUpAllowed;
+- (_Bool)_serverAllowsRemovalFromBackUp;
 - (_Bool)cacheDeleteEnabled;
 - (_Bool)enableAttachmentMetricCollection;
 - (_Bool)_serverAllowsCacheDelete;

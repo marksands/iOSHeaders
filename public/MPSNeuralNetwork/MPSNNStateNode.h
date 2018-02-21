@@ -12,6 +12,7 @@
 {
     id <MPSHandle> _handle;
     MPSNNFilterNode *_parent;
+    unsigned long long _clientCount;
     _Bool _synchronize;
     _Bool _exportFromGraph;
 }

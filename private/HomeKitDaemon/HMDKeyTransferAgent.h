@@ -13,7 +13,7 @@
 
 @interface HMDKeyTransferAgent : HMFObject <HMFLogging, HMFMessageReceiver>
 {
-    _Bool _inProgress;
+    NSString *_progressState;
     unsigned long long _residentProvisioningStatus;
     NSObject<OS_dispatch_queue> *_workQueue;
     HMDHomeManager *_homeManager;
@@ -25,7 +25,7 @@
 @property(nonatomic) __weak HMDHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(readonly) unsigned long long residentProvisioningStatus; // @synthesize residentProvisioningStatus=_residentProvisioningStatus;
-@property(nonatomic, getter=isInProgress) _Bool inProgress; // @synthesize inProgress=_inProgress;
+@property(retain, nonatomic) NSString *progressState; // @synthesize progressState=_progressState;
 - (void).cxx_destruct;
 - (id)logIdentifier;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;

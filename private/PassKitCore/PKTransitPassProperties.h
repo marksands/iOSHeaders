@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSDate, NSDecimalNumber, NSString, PKCurrencyAmount, PKFelicaPassProperties, PKSuicaPassProperties;
+@class NSDate, NSDecimalNumber, NSString, PKCurrencyAmount, PKFelicaPassProperties;
 
 @interface PKTransitPassProperties : NSObject <NSCopying, NSSecureCoding>
 {
@@ -38,7 +38,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithTransitAppletState:(id)arg1 paymentApplication:(id)arg2;
 @property(readonly, nonatomic) PKFelicaPassProperties *felicaProperties;
-@property(readonly, nonatomic) PKSuicaPassProperties *suicaProperties;
 
 @end
 

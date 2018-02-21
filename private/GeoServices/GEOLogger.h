@@ -29,7 +29,7 @@
 - (void)cachedStateOfType:(int)arg1 getCachedStateOfTypeBlock:(CDUnknownBlockType)arg2;
 - (id)_cachedStateOfType:(int)arg1;
 - (void)registerLogMsgState:(id)arg1;
-- (void)_generateAndQueueLogMessagesForLogMsgEvent:(id)arg1 userSessionSnapshot:(id)arg2;
+- (void)_generateAndQueueLogMessagesForLogMsgEvent:(id)arg1 userSessionSnapshot:(id)arg2 currentContext:(id)arg3;
 - (void)_captureLogMsgEvent:(id)arg1 userSessionSnapshot:(id)arg2 withMergedContext:(id)arg3;
 - (void)captureLogMsgEvent:(id)arg1 userSessionSnapshot:(id)arg2 withLogContext:(id)arg3;
 - (void)captureLogMsgEvent:(id)arg1 userSessionSnapshot:(id)arg2;

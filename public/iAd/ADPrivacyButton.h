@@ -15,11 +15,15 @@
     UIImageView *_iconImageView;
 }
 
++ (id)highlightedIconImageForVideo;
++ (id)iconImageForVideo;
 + (id)highlightedIconImage;
 + (id)iconImage;
 @property(retain, nonatomic) UIImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
 @property(retain, nonatomic) UIImage *highlightedIconImage; // @synthesize highlightedIconImage=_highlightedIconImage;
 @property(retain, nonatomic) UIImage *iconImage; // @synthesize iconImage=_iconImage;
+- (void)setIconImageSize:(struct CGSize)arg1;
+- (void)resetIconImagesForVideo;
 - (void)setHighlighted:(_Bool)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (id)init;

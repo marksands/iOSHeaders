@@ -27,9 +27,9 @@
 - (void)calculateFreeableSize;
 - (void)flushPendingWrites;
 - (void)reportCorruptTile:(const struct _GEOTileKey *)arg1;
-- (void)reprioritizeKey:(const struct _GEOTileKey *)arg1 inBatch:(int)arg2 newPriority:(unsigned int)arg3;
-- (void)cancel:(const struct _GEOTileKey *)arg1 inBatch:(int)arg2;
-- (void)loadTiles:(id)arg1 priorities:(const unsigned int *)arg2 hasAdditionalInfos:(const _Bool *)arg3 additionalInfos:(const CDStruct_58878026 *)arg4 options:(unsigned long long)arg5 batchID:(int)arg6 client:(id)arg7;
+- (void)reprioritizeKey:(const struct _GEOTileKey *)arg1 newPriority:(unsigned int)arg2;
+- (void)cancel:(const struct _GEOTileKey *)arg1;
+- (void)loadTiles:(id)arg1 priorities:(const unsigned int *)arg2 hasAdditionalInfos:(const _Bool *)arg3 additionalInfos:(const CDStruct_58878026 *)arg4 options:(unsigned long long)arg5 client:(id)arg6;
 - (void)close;
 - (void)open;
 - (void)dealloc;

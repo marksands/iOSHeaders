@@ -58,6 +58,8 @@
 @property(retain, nonatomic) UIView *inputAccessoryView;
 @property(retain, nonatomic) NSDecimalNumber *currentAmount;
 - (id)initWithCurrency:(id)arg1 amount:(id)arg2;
+- (id)pk_childrenForAppearance;
+- (void)pk_applyAppearance:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,19 +6,18 @@
 
 #import "NSObject.h"
 
-@class AKAppleIDServerResourceLoadDelegate, AKAppleIDServerUIDataHarvester, NSHTTPURLResponse, NSString, NSURL;
+@class AKAppleIDServerResourceLoadDelegate, AKAppleIDServerUIDataHarvester, AKServerRequestConfiguration, NSHTTPURLResponse, NSURL;
 
 @interface AKAppleIDServerUIContextController : NSObject
 {
     CDUnknownBlockType _serverUICompletion;
     NSHTTPURLResponse *_latestReadResponse;
+    AKServerRequestConfiguration *_configuration;
     AKAppleIDServerResourceLoadDelegate *_serverUIDelegate;
     AKAppleIDServerUIDataHarvester *_serverDataHarvester;
     NSURL *_initiatingURL;
-    NSString *_initiatingAction;
 }
 
-@property(copy, nonatomic) NSString *initiatingAction; // @synthesize initiatingAction=_initiatingAction;
 @property(readonly, copy, nonatomic) NSURL *initiatingURL; // @synthesize initiatingURL=_initiatingURL;
 @property(readonly, nonatomic) AKAppleIDServerUIDataHarvester *serverDataHarvester; // @synthesize serverDataHarvester=_serverDataHarvester;
 @property(readonly, nonatomic) AKAppleIDServerResourceLoadDelegate *serverUIDelegate; // @synthesize serverUIDelegate=_serverUIDelegate;
@@ -28,9 +27,10 @@
 - (void)completeWithError:(id)arg1 additionalData:(id)arg2;
 - (void)completeWithError:(id)arg1;
 - (void)processResponse:(id)arg1;
+- (id)_headerValueFromType:(unsigned long long)arg1;
 - (void)signRequest:(id)arg1;
 - (_Bool)handleAuthKitActionAttribute:(id)arg1;
-- (id)initWithRequest:(id)arg1 delegate:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)initWithRequestConfiguration:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)tearDownContext;
 
 @end

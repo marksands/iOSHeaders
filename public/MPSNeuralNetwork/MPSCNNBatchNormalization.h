@@ -12,19 +12,19 @@
     // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _beta
     // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _meanDS
     // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _varDS
-    _Bool _serializeGammaAndBeta;
-    _Bool _serializeStatistics;
+    id <MPSCNNBatchNormalizationDataSource> _dataSource;
     float _epsilon;
     unsigned long long _numberOfFeatureChannels;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
-@property(nonatomic) _Bool serializeStatistics; // @synthesize serializeStatistics=_serializeStatistics;
-@property(nonatomic) _Bool serializeGammaAndBeta; // @synthesize serializeGammaAndBeta=_serializeGammaAndBeta;
+@property(readonly, retain, nonatomic) id <MPSCNNBatchNormalizationDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) float epsilon; // @synthesize epsilon=_epsilon;
 @property(readonly, nonatomic) unsigned long long numberOfFeatureChannels; // @synthesize numberOfFeatureChannels=_numberOfFeatureChannels;
+- (id)debugDescription;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
+- (void)reloadGammaAndBetaWithCommandBuffer:(id)arg1 gammaAndBetaState:(id)arg2;
 - (void)reloadDataSource:(id)arg1;
 - (id)temporaryResultStateForCommandBuffer:(id)arg1 sourceImages:(struct NSArray *)arg2;
 - (id)resultStateForSourceImages:(struct NSArray *)arg1;

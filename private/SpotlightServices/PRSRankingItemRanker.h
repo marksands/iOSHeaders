@@ -24,6 +24,7 @@
 }
 
 + (id)importantAttributesForBundle:(id)arg1;
++ (id)settingsBundle;
 + (id)appsBundle;
 + (id)musicBundle;
 + (id)calendarBundle;

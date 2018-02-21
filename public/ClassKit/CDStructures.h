@@ -10,6 +10,14 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct NSHashTable {
+    Class _field1;
+};
+
+struct NSMapTable {
+    Class _field1;
+};
+
 struct NSMutableDictionary {
     Class _field1;
 };

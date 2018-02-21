@@ -6,25 +6,24 @@
 
 #import <HomeKitDaemon/HMDAccessoryAdvertisement.h>
 
-#import "HMDWACAccessoryAssociation.h"
+@class HMDMediaOutputDevice, NSObject<OS_dispatch_queue>, NSString;
 
-@class HMDMediaOutputDevice, NSObject<OS_dispatch_queue>;
-
-@interface HMDMediaAccessoryAdvertisement : HMDAccessoryAdvertisement <HMDWACAccessoryAssociation>
+@interface HMDMediaAccessoryAdvertisement : HMDAccessoryAdvertisement
 {
     _Bool _associated;
     HMDMediaOutputDevice *_outputDevice;
+    NSString *_sessionIdentifier;
     NSObject<OS_dispatch_queue> *_propertyQueue;
 }
 
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
+@property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 - (void).cxx_destruct;
 @property(getter=isAssociated) _Bool associated; // @synthesize associated=_associated;
 @property(retain) HMDMediaOutputDevice *outputDevice; // @synthesize outputDevice=_outputDevice;
 - (id)description;
-- (_Bool)matchesWACDeviceID:(id)arg1;
-- (id)initWithIdentifier:(id)arg1 name:(id)arg2 category:(id)arg3;
-- (id)initWithOutputDevice:(id)arg1;
+- (id)initWithIdentifier:(id)arg1 sessionIdentifier:(id)arg2 name:(id)arg3 category:(id)arg4;
+- (id)initWithOutputDevice:(id)arg1 sessionIdentifier:(id)arg2;
 
 @end
 

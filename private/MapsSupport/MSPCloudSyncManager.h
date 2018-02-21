@@ -51,6 +51,7 @@
 - (void)requestMergeIfNeeded;
 - (void)noteDidReceiveCloudKitNotificationWithUserInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)synchronizer:(id)arg1 didFailAttemptingTask:(id)arg2 withError:(id)arg3 reattemptingAfterDate:(id)arg4;
+- (void)containerDidEraseContents:(id)arg1 fromStorageTypes:(unsigned long long)arg2;
 - (void)container:(id)arg1 didEditWithNewContents:(id)arg2 orderedEdits:(id)arg3 cause:(long long)arg4 context:(id)arg5;
 - (id)taskToDownloadCloudStoreByErasingLocalStoreForSynchronizer:(id)arg1;
 - (void)_finishTask:(id)arg1 byUpdatingRegistrationRecord:(id)arg2 throughAccess:(id)arg3;

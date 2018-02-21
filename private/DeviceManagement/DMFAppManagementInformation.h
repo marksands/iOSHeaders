@@ -13,6 +13,7 @@
 
 @interface DMFAppManagementInformation : NSObject <NSCopying, NSSecureCoding>
 {
+    NSString *_displayName;
     unsigned long long _state;
     unsigned long long _options;
     NSString *_redemptionCode;
@@ -25,6 +26,7 @@
 @property(copy, nonatomic) NSString *redemptionCode; // @synthesize redemptionCode=_redemptionCode;
 @property(nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
+@property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 - (void).cxx_destruct;
 - (id)_stringForOptions:(unsigned long long)arg1;
 - (id)description;

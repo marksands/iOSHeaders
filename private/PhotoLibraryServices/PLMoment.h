@@ -30,6 +30,7 @@
 + (id)insertNewMomentInManagedObjectContext:(id)arg1 error:(id *)arg2;
 @property(nonatomic) _Bool didRegisteredWithUserInterfaceContext; // @synthesize didRegisteredWithUserInterfaceContext;
 @property(nonatomic) _Bool isRegisteredForChanges; // @synthesize isRegisteredForChanges;
+@property(readonly, retain, nonatomic) NSArray *batchedAssets;
 @property(retain, nonatomic) NSArray *userTitles;
 - (void)removeAssetData:(id)arg1;
 - (void)replaceAssetDataAtIndex:(unsigned long long)arg1 withAssetData:(id)arg2;

@@ -52,6 +52,7 @@
 + (double)hostTimeToTimeInterval:(unsigned long long)arg1;
 + (float)hostTimeToSeconds:(unsigned long long)arg1;
 + (unsigned long long)secondsToHostTime:(float)arg1;
++ (_Bool)isRecordContextAutoPrompt:(id)arg1;
 + (_Bool)isRecordContextVoiceTrigger:(id)arg1;
 + (id)assetHashInResourcePath:(id)arg1;
 - (id)_contentsOfDirectoryAtURL:(id)arg1 matchingPattern:(id)arg2 includingPropertiesForKeys:(id)arg3 error:(id *)arg4;

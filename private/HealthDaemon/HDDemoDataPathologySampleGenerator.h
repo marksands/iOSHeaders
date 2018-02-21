@@ -16,6 +16,7 @@
     double _nextAsthmaAttackEndTime;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool forcePEFR; // @synthesize forcePEFR=_forcePEFR;
 @property(nonatomic) double nextAsthmaAttackEndTime; // @synthesize nextAsthmaAttackEndTime=_nextAsthmaAttackEndTime;
 @property(nonatomic) double nextAsthmaAttackSampleTime; // @synthesize nextAsthmaAttackSampleTime=_nextAsthmaAttackSampleTime;

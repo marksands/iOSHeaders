@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CNContactMatchSummarizer, CNContactStoreDataSource, CNContactStoreFilter, CNManagedConfiguration, NSArray, NSMapTable, NSMutableArray, NSMutableAttributedString, NSMutableDictionary, NSObject<OS_dispatch_semaphore>;
+@class CNContactDataSourceLIFOScheduler, CNContactMatchSummarizer, CNContactStoreDataSource, CNContactStoreFilter, CNManagedConfiguration, NSArray, NSMapTable, NSMutableArray, NSMutableAttributedString, NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSPointerArray;
 
 __attribute__((visibility("hidden")))
 @interface CNContactStoreSnapshot : NSObject
@@ -24,17 +24,22 @@ __attribute__((visibility("hidden")))
     CNContactStoreFilter *_filter;
     CNManagedConfiguration *_managedConfiguration;
     NSMutableDictionary *_contactMatchInfos;
+    CNContactDataSourceLIFOScheduler *_summarizationQueue;
+    NSPointerArray *_summarizationFutures;
     NSMapTable *_identifiersToIndexPath;
     NSMutableArray *_batchContactIdentifiers;
 }
 
 @property(readonly, nonatomic) NSMutableArray *batchContactIdentifiers; // @synthesize batchContactIdentifiers=_batchContactIdentifiers;
 @property(readonly, nonatomic) NSMapTable *identifiersToIndexPath; // @synthesize identifiersToIndexPath=_identifiersToIndexPath;
+@property(readonly, nonatomic) NSPointerArray *summarizationFutures; // @synthesize summarizationFutures=_summarizationFutures;
+@property(readonly, nonatomic) CNContactDataSourceLIFOScheduler *summarizationQueue; // @synthesize summarizationQueue=_summarizationQueue;
 @property(readonly, nonatomic) NSMutableDictionary *contactMatchInfos; // @synthesize contactMatchInfos=_contactMatchInfos;
 @property(retain, nonatomic) CNManagedConfiguration *managedConfiguration; // @synthesize managedConfiguration=_managedConfiguration;
 @property(retain, nonatomic) CNContactStoreFilter *filter; // @synthesize filter=_filter;
 @property(nonatomic) __weak CNContactStoreDataSource *dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (void)dealloc;
 @property(readonly, nonatomic) NSArray *indexSections;
 @property(readonly, nonatomic) NSArray *sections;
 - (void)prepareAllContacts;

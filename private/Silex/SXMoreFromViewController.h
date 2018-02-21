@@ -24,8 +24,8 @@
 @property(readonly, nonatomic) SXMoreFromButton *moreFromButton; // @synthesize moreFromButton=_moreFromButton;
 @property(nonatomic) unsigned long long displayMode; // @synthesize displayMode;
 - (void).cxx_destruct;
+- (void)willTransitionToDisplayMode:(unsigned long long)arg1 withTransitionCoordinator:(id)arg2;
 - (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (id)initWithMoreFromButton:(id)arg1 titleProvider:(id)arg2 logoProvider:(id)arg3;
 

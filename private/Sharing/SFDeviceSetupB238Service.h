@@ -64,6 +64,7 @@
 - (void)_siriGreetingIntroPhrase:(id)arg1 error:(id)arg2;
 - (void)_siriGreetingIntroStart;
 - (void)_siriGreetingStart:(CDUnknownBlockType)arg1;
+- (void)_playReadyToSetupSound;
 - (void)_handleSiriDialogIdentifier:(id)arg1;
 - (void)_handleRawRequest:(id)arg1 flags:(unsigned int)arg2 responseHandler:(CDUnknownBlockType)arg3;
 - (void)_handlePreAuthRequest:(id)arg1 responseHandler:(CDUnknownBlockType)arg2;

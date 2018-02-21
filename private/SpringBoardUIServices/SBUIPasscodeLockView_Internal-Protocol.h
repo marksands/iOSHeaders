@@ -9,6 +9,7 @@
 @class NSString;
 
 @protocol SBUIPasscodeLockView_Internal <SBUIPasscodeLockView>
+- (void)_resumeBiometricMatchingAdvisory:(_Bool)arg1;
 - (void)_overrideBiometricMatchingEnabled:(_Bool)arg1 forReason:(NSString *)arg2;
 
 @optional

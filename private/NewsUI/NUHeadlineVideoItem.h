@@ -18,6 +18,7 @@
 
 @property(readonly, copy, nonatomic) id <FCHeadlineProviding> headline; // @synthesize headline=_headline;
 - (void).cxx_destruct;
+@property(readonly, nonatomic, getter=isBoundToContext) _Bool boundToContext;
 @property(readonly, nonatomic, getter=isHiddenFromFeeds) _Bool hiddenFromFeeds;
 @property(readonly, copy, nonatomic) NSURL *callToActionURL;
 @property(readonly, copy, nonatomic) NSString *callToActionTitle;

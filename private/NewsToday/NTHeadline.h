@@ -15,6 +15,7 @@
     _Bool _needsSeenStateTracking;
     _Bool _displaysWithLeadingCellAppearance;
     _Bool _supportsSavingForLater;
+    _Bool _boundToContext;
     _Bool _hiddenFromFeeds;
     NSString *_title;
     NSString *_titleCompact;
@@ -55,6 +56,7 @@
 @property(copy, nonatomic) NTPBHeadlineAdElement *adElement; // @synthesize adElement=_adElement;
 @property(copy, nonatomic) NTPBHeadlineAnalyticsElement *analyticsElement; // @synthesize analyticsElement=_analyticsElement;
 @property(nonatomic, getter=isHiddenFromFeeds) _Bool hiddenFromFeeds; // @synthesize hiddenFromFeeds=_hiddenFromFeeds;
+@property(nonatomic, getter=isBoundToContext) _Bool boundToContext; // @synthesize boundToContext=_boundToContext;
 @property(nonatomic) _Bool supportsSavingForLater; // @synthesize supportsSavingForLater=_supportsSavingForLater;
 @property(nonatomic) _Bool displaysWithLeadingCellAppearance; // @synthesize displaysWithLeadingCellAppearance=_displaysWithLeadingCellAppearance;
 @property(nonatomic) _Bool needsSeenStateTracking; // @synthesize needsSeenStateTracking=_needsSeenStateTracking;

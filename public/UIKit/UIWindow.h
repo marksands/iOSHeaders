@@ -139,6 +139,7 @@
 + (void)_setKeyWindowStackEnabled:(_Bool)arg1;
 + (unsigned long long)_keyWindowStackSize;
 + (void)_clearKeyWindowStack;
++ (_Bool)_clearPreCommitHandlerRegistration;
 + (void)_synchronizeDrawingWithFence:(id)arg1 preCommitHandler:(CDUnknownBlockType)arg2;
 + (void)_synchronizeDrawingWithFence:(id)arg1;
 + (id)_synchronizedDrawingFence;

@@ -16,5 +16,13 @@
 @property(retain, nonatomic, setter=ic_setActiveStoreAccount:) ACAccount *ic_activeStoreAccount;
 @property(readonly, nonatomic) ACAccount *ic_primaryAppleAccount;
 @property(readonly, copy, nonatomic) NSArray *ic_allStoreAccounts;
+- (void)ic_storeAccountTypeWithCompletion:(CDUnknownBlockType)arg1;
+- (void)ic_storeAccountForStoreAccountID:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)ic_primaryAppleAccountWithCompletion:(CDUnknownBlockType)arg1;
+- (void)ic_setActiveLockerAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)ic_activeLockerAccountWithCompletion:(CDUnknownBlockType)arg1;
+- (void)ic_setActiveStoreAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)ic_activeStoreAccountWithCompletion:(CDUnknownBlockType)arg1;
+- (void)ic_allStoreAccountsWithCompletion:(CDUnknownBlockType)arg1;
 @end
 

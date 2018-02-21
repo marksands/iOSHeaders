@@ -30,6 +30,7 @@
     unsigned long long _attemptIndex;
     _Bool _isProxyingForApp;
     _Bool _shouldSendIdentityTokenForRemoteUI;
+    _Bool _shouldSendGrandSlamTokensForRemoteUI;
     _Bool _isPasswordEditable;
     _Bool _shouldSkipInitialReachabilityCheck;
     _Bool _shouldPreventInteractiveAuth;
@@ -135,6 +136,7 @@
 @property(copy, nonatomic, setter=_setPassword:) NSString *_password; // @synthesize _password;
 @property(copy, nonatomic, setter=_setProxiedAppName:) NSString *_proxiedAppName; // @synthesize _proxiedAppName;
 @property(copy, nonatomic) NSString *_passwordPromptTitle; // @synthesize _passwordPromptTitle;
+@property(nonatomic) _Bool _shouldSendGrandSlamTokensForRemoteUI; // @synthesize _shouldSendGrandSlamTokensForRemoteUI;
 @property(nonatomic) _Bool _shouldSendIdentityTokenForRemoteUI; // @synthesize _shouldSendIdentityTokenForRemoteUI;
 @property(copy, nonatomic, setter=_setIdentityToken:) NSString *_identityToken; // @synthesize _identityToken;
 @property(readonly, nonatomic) NSUUID *_identifier; // @synthesize _identifier;
@@ -150,6 +152,7 @@
 - (void)presentSecondFactorUIWithCompletion:(CDUnknownBlockType)arg1;
 - (void)presentLoginAlertWithError:(id)arg1 title:(id)arg2 message:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)dismissBasicLoginUIWithCompletion:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) _Bool _requiresPasswordInput;
 - (void)presentBasicLoginUIWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dismissNativeRecoveryUIWithCompletion:(CDUnknownBlockType)arg1;
 - (void)presentNativeRecoveryUIWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;

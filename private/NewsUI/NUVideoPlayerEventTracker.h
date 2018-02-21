@@ -7,23 +7,23 @@
 #import "NSObject.h"
 
 #import "NSSNewsAnalyticsSessionManagerObserving.h"
-#import "NUVideoPlayerEventTracker.h"
+#import "NUAggregateVideoPlayerEventTracker.h"
 #import "NUViewAppearanceEventTracker.h"
 
-@class NSArray, NSString;
+@class NSMutableArray, NSString;
 
-@interface NUVideoPlayerEventTracker : NSObject <NSSNewsAnalyticsSessionManagerObserving, NUVideoPlayerEventTracker, NUViewAppearanceEventTracker>
+@interface NUVideoPlayerEventTracker : NSObject <NSSNewsAnalyticsSessionManagerObserving, NUAggregateVideoPlayerEventTracker, NUViewAppearanceEventTracker>
 {
     _Bool _hostProcessIsForeground;
     _Bool _videoPlayerViewHasAppeared;
     _Bool _videoPlayerIsVisible;
-    NSArray *_eventTrackers;
+    NSMutableArray *_eventTrackers;
 }
 
 @property(nonatomic, getter=isVideoPlayerVisible) _Bool videoPlayerIsVisible; // @synthesize videoPlayerIsVisible=_videoPlayerIsVisible;
 @property(nonatomic, getter=hasVideoPlayerViewAppeared) _Bool videoPlayerViewHasAppeared; // @synthesize videoPlayerViewHasAppeared=_videoPlayerViewHasAppeared;
 @property(nonatomic, getter=isHostProcessForeground) _Bool hostProcessIsForeground; // @synthesize hostProcessIsForeground=_hostProcessIsForeground;
-@property(readonly, nonatomic) NSArray *eventTrackers; // @synthesize eventTrackers=_eventTrackers;
+@property(readonly, nonatomic) NSMutableArray *eventTrackers; // @synthesize eventTrackers=_eventTrackers;
 - (void).cxx_destruct;
 - (void)_updateVideoPlayerVisibilityIfNeeded;
 - (void)_performBlockForEventTrackersRespondingToSelector:(SEL)arg1 block:(CDUnknownBlockType)arg2;
@@ -38,6 +38,8 @@
 - (void)playbackFinishedForVideoAdWithMetadata:(id)arg1;
 - (void)playbackPausedForVideoAdWithMetadata:(id)arg1;
 - (void)impressionThresholdReachedForVideoAdWithMetadata:(id)arg1;
+- (void)playbackStartedForVideoAdWithMetadata:(id)arg1;
+- (void)loadingFinishedForVideoAdWithMetadata:(id)arg1;
 - (void)userEngagedWithDiscoverMoreButtonWithVideoItem:(id)arg1;
 - (void)userEngagedWithCallToActionBarWithVideoItem:(id)arg1;
 - (void)videoPlaybackPassedThirdQuartileWithVideoItem:(id)arg1;
@@ -50,7 +52,9 @@
 - (void)playbackPausedWithVideoItem:(id)arg1 metadata:(id)arg2;
 - (void)playbackStartedWithVideoItem:(id)arg1 metadata:(id)arg2;
 - (void)playbackInitiatedWithVideoItem:(id)arg1 metadata:(id)arg2;
-- (id)initWithSessionManager:(id)arg1 analyticsEventTracker:(id)arg2 externalAnalyticsEventTracker:(id)arg3 readingHistoryEventTracker:(id)arg4 personalizationEventTracker:(id)arg5;
+- (void)removeEventTracker:(id)arg1;
+- (void)addEventTracker:(id)arg1;
+- (id)initWithSessionManager:(id)arg1;
 - (id)init;
 
 // Remaining properties

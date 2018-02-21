@@ -8,26 +8,28 @@
 
 #import "CLSFaultProcessorDelegate.h"
 
-@class CLSActivity, CLSContext, CLSCurrentUser, CLSEndpointConnection, NSArray, NSMapTable, NSMutableDictionary, NSMutableSet, NSString;
+@class CLSActivity, CLSContext, CLSCurrentUser, CLSEndpointConnection, CLSGraph, NSMutableDictionary, NSMutableSet, NSString;
 
 @interface CLSDataStore : NSObject <CLSFaultProcessorDelegate>
 {
     NSMutableSet *_dataObservers;
-    struct NSMutableDictionary *_rootObjectsByID;
     struct NSMutableDictionary *_deletedObjectsByID;
     NSMutableDictionary *_objectGenerationsByID;
-    NSMapTable *_objectsByID;
     CLSCurrentUser *_cachedCurrentUser;
     int _accountChangeToken;
     id <CLSDataStoreDelegate> _delegate;
     CLSContext *_mainAppContext;
     CLSEndpointConnection *_endpointConnection;
+    CLSGraph *_graph;
 }
 
 + (_Bool)isDashboardApp;
++ (_Bool)isPDTool;
++ (id)newDatastore;
 + (_Bool)isAvailable;
 + (id)shared;
 + (Class)endpointClass;
+@property(readonly, nonatomic) CLSGraph *graph; // @synthesize graph=_graph;
 @property(retain, nonatomic) CLSEndpointConnection *endpointConnection; // @synthesize endpointConnection=_endpointConnection;
 @property(retain, nonatomic) CLSContext *mainAppContext; // @synthesize mainAppContext=_mainAppContext;
 @property(nonatomic) __weak id <CLSDataStoreDelegate> delegate; // @synthesize delegate=_delegate;
@@ -40,8 +42,11 @@
 - (void)applicationWillResignActive:(id)arg1;
 - (void)reset;
 - (void)developerModeChanged:(id)arg1;
+- (void)setShouldSyncTeacherBrowsedContexts:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)shouldSyncTeacherBrowsedContextsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchTransparencyMessageInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)triggerProgressTransparencyMessageIfNeeded;
+- (_Bool)isAppClient;
 @property(readonly, nonatomic) CLSActivity *runningActivity;
 @property(readonly, nonatomic) CLSContext *activeContext;
 - (id)dataServer:(CDUnknownBlockType)arg1;
@@ -49,7 +54,6 @@
 - (void)contextsMatchingIdentifierPath:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)removeContextWithObjectID:(id)arg1;
 - (void)removeContext:(id)arg1;
-- (id)rootObjectWithID:(id)arg1;
 - (_Bool)isRemovedObject:(id)arg1;
 - (void)markObjectAsDeleted:(id)arg1;
 - (void)removeObject:(id)arg1;
@@ -59,7 +63,6 @@
 - (void)saveObjects:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)saveWithCompletion:(CDUnknownBlockType)arg1;
 - (void)contextsMatchingPredicate:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (id)queryForObjectsOfType:(Class)arg1 predicate:(id)arg2 sortDescriptors:(id)arg3 error:(id *)arg4;
 - (void)contextsMatchingIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)allContexts;
 - (id)appIdentifier;
@@ -83,9 +86,7 @@
 - (_Bool)isDashboardAPIEnabled;
 - (void)classesForPersonID:(id)arg1 role:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)personsInClassWithClassID:(id)arg1 role:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)personsInClassWithClassID:(id)arg1 role:(unsigned long long)arg2;
 - (void)instructedClassesWithCompletion:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) NSArray *instructedClasses;
 - (void)_classesForCurrentUserWithRole:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)removeFavorite:(id)arg1;
 - (void)addFavorite:(id)arg1;
@@ -94,7 +95,6 @@
 - (void)removeHandout:(id)arg1;
 - (void)addHandout:(id)arg1;
 - (void)enrolledClassesWithCompletion:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) NSArray *enrolledClasses;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

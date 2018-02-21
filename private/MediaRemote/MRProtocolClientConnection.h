@@ -11,7 +11,7 @@
 #import "MSVMessageParserDelegate.h"
 #import "NSStreamDelegate.h"
 
-@class MRProtocolMessageQueue, MSVMessageParser, NSInputStream, NSOutputStream, NSRunLoop, NSString;
+@class MRProtocolMessageQueue, MSVMessageParser, NSInputStream, NSOutputStream, NSRunLoop, NSString, _MRDeviceInfoMessageProtobuf;
 
 @interface MRProtocolClientConnection : NSObject <NSStreamDelegate, MSVMessageParserDelegate, MRProtocolMessageQueueDelegate, MRProtocolMessageQueueDataSource>
 {
@@ -23,10 +23,12 @@
     unsigned long long _firstDeviceTicks;
     NSInputStream *_inputStream;
     NSOutputStream *_outputStream;
+    _MRDeviceInfoMessageProtobuf *_deviceInfo;
     id <MRProtocolClientConnectionDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <MRProtocolClientConnectionDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) _MRDeviceInfoMessageProtobuf *deviceInfo; // @synthesize deviceInfo=_deviceInfo;
 @property(readonly, nonatomic) NSOutputStream *outputStream; // @synthesize outputStream=_outputStream;
 @property(readonly, nonatomic) NSInputStream *inputStream; // @synthesize inputStream=_inputStream;
 - (void).cxx_destruct;

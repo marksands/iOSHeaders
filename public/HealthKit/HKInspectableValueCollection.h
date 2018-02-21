@@ -19,6 +19,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)hasNoValue:(id)arg1;
 + (id)inspectableValueCollectionTaggedListWithValues:(id)arg1 tags:(id)arg2;
 + (id)inspectableValueCollectionListWithValues:(id)arg1;
 + (id)inspectableValueCollectionRangeWithMax:(id)arg1;

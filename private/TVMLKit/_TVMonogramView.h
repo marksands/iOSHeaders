@@ -37,7 +37,6 @@
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(readonly, nonatomic) TVMonogramViewConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
-- (id)_copyMonogramDescriptionWithoutImageURL:(id)arg1;
 - (void)_loadWithMonogramDescription:(id)arg1 imageProxy:(id)arg2;
 - (struct UIEdgeInsets)selectionMarginsForSize:(struct CGSize)arg1;
 - (void)floatingContentView:(id)arg1 didFinishTransitioningToState:(unsigned long long)arg2;

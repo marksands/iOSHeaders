@@ -6,8 +6,6 @@
 
 #import "UIAccessibilityElement.h"
 
-@class UITextRange;
-
 @interface UIAccessibilityLinkSubelement : UIAccessibilityElement
 {
     struct _NSRange _range;
@@ -15,7 +13,7 @@
 
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
 - (struct CGRect)accessibilityFrame;
-@property(readonly) UITextRange *textRange;
+- (id)textRangeForTextView:(id)arg1;
 - (unsigned long long)accessibilityTraits;
 
 @end

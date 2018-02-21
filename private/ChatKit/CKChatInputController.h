@@ -21,7 +21,7 @@
 #import "DDMoneyActionDelegate.h"
 #import "UITextInputPayloadDelegate.h"
 
-@class CKBrowserSwitcherViewController, CKDeviceOrientationManager, CKHandwritingPresentationController, CKKeyboardContentViewController, CKMessageEntryView, CKScheduledUpdater, IMBalloonPlugin, IMBalloonPluginDataSource, IMScheduledUpdater, NSDate, NSString, UINavigationController, UIViewController, UIViewController<CKBrowserViewControllerProtocol>;
+@class CKBrowserSwitcherViewController, CKDeviceOrientationManager, CKHandwritingPresentationController, CKKeyboardContentViewController, CKMessageEntryView, CKScheduledUpdater, IMBalloonPlugin, IMBalloonPluginDataSource, IMScheduledUpdater, NSDate, NSString, UINavigationController, UITextInputPayloadController, UIViewController, UIViewController<CKBrowserViewControllerProtocol>;
 
 @interface CKChatInputController : NSObject <UITextInputPayloadDelegate, DDMoneyActionDelegate, CKMessageEntryViewInputDelegate, CKBrowserViewControllerSendDelegate, CKPhotoBrowserViewControllerSendDelegate, CKHandwritingViewControllerSendDelegate, CKBrowserViewControllerStoreSendDelegate, CKPluginEntryViewControllerDelegate, CKFullScreenAppViewControllerDelegate, CKDeviceOrientationManagerDelegate, CKBrowserSwitcherViewControllerDelegate, CKBrowserTransitionCoordinatorDelegate, CKHandwritingPresentationControllerDelegate, CKBrowserAppManagerViewControllerDelegate>
 {
@@ -47,10 +47,14 @@
     IMScheduledUpdater *_dismissEntryViewShelfUpdater;
     CKScheduledUpdater *_orientationUpdater;
     CKHandwritingPresentationController *_handwritingPresentationController;
+    UITextInputPayloadController *_textInputPayloadController;
     CDUnknownBlockType _insertPayloadCompletionHandler;
+    IMBalloonPluginDataSource *_deferredPluginDataSource;
 }
 
+@property(retain, nonatomic) IMBalloonPluginDataSource *deferredPluginDataSource; // @synthesize deferredPluginDataSource=_deferredPluginDataSource;
 @property(copy, nonatomic) CDUnknownBlockType insertPayloadCompletionHandler; // @synthesize insertPayloadCompletionHandler=_insertPayloadCompletionHandler;
+@property(retain, nonatomic) UITextInputPayloadController *textInputPayloadController; // @synthesize textInputPayloadController=_textInputPayloadController;
 @property(nonatomic) _Bool shouldRestoreAppSwitcher; // @synthesize shouldRestoreAppSwitcher=_shouldRestoreAppSwitcher;
 @property(retain, nonatomic) CKHandwritingPresentationController *handwritingPresentationController; // @synthesize handwritingPresentationController=_handwritingPresentationController;
 @property(retain, nonatomic) CKScheduledUpdater *orientationUpdater; // @synthesize orientationUpdater=_orientationUpdater;
@@ -88,7 +92,7 @@
 - (void)fullscreenAppViewControllerSwitcherDidSelectAppManager:(id)arg1;
 - (void)fullscreenAppViewControllerSwitcherDidSelectAppStore:(id)arg1;
 - (void)fullscreenAppViewController:(id)arg1 hasUpdatedLastTouchDate:(id)arg2;
-- (void)fullscreenAppViewController:(id)arg1 wantsToSwitchToPlugin:(id)arg2;
+- (void)fullscreenAppViewController:(id)arg1 wantsToSwitchToPlugin:(id)arg2 datasource:(id)arg3;
 - (void)fullscreenAppViewControllerWantsToCollapse:(id)arg1;
 - (void)setLocalUserIsTyping:(_Bool)arg1;
 - (id)pluginBundleID;

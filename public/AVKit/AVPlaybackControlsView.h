@@ -48,8 +48,10 @@
     NSLayoutConstraint *_volumeTopToViewTopConstraint;
     NSLayoutConstraint *_screenModeControlsToVolumeControlsSpacingConstraint;
     UIViewPropertyAnimator *_showsProminentPlayButtonVisibilityAnimator;
+    struct UIEdgeInsets _interactiveContentOverlayViewLayoutMargins;
 }
 
+@property(nonatomic) struct UIEdgeInsets interactiveContentOverlayViewLayoutMargins; // @synthesize interactiveContentOverlayViewLayoutMargins=_interactiveContentOverlayViewLayoutMargins;
 @property(retain, nonatomic) UIViewPropertyAnimator *showsProminentPlayButtonVisibilityAnimator; // @synthesize showsProminentPlayButtonVisibilityAnimator=_showsProminentPlayButtonVisibilityAnimator;
 @property(nonatomic) _Bool needsIntialLayout; // @synthesize needsIntialLayout=_needsIntialLayout;
 @property(nonatomic, getter=isDoubleRowLayoutEnabled) _Bool doubleRowLayoutEnabled; // @synthesize doubleRowLayoutEnabled=_doubleRowLayoutEnabled;
@@ -97,6 +99,7 @@
 - (void)_setupInitialLayout;
 - (void)_updateDoubleRowTransportControlsEnabled;
 - (struct UIEdgeInsets)_interactiveContentOverlayViewLayoutMargins;
+- (void)updateInteractiveContentOverlayViewLayoutMargins;
 - (void)layoutSubviews;
 - (void)safeAreaInsetsDidChange;
 - (void)traitCollectionDidChange:(id)arg1;

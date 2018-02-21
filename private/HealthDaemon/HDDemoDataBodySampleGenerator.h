@@ -25,6 +25,7 @@
     double _weightAdultStartInKg;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) double weightAdultStartInKg; // @synthesize weightAdultStartInKg=_weightAdultStartInKg;
 @property(nonatomic) double lastWeightInKg; // @synthesize lastWeightInKg=_lastWeightInKg;
 @property(nonatomic) double lastHeightInCm; // @synthesize lastHeightInCm=_lastHeightInCm;

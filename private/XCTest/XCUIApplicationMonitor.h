@@ -31,6 +31,7 @@
 @property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(readonly) XCUIApplicationRegistry *applicationRegistry; // @synthesize applicationRegistry=_applicationRegistry;
 - (void).cxx_destruct;
+- (void)acquireBackgroundAssertionForPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)requestAutomationSessionForTestTargetWithPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)updatedApplicationStateSnapshot:(id)arg1;
 - (void)_setIsTrackingForBundleID:(id)arg1;

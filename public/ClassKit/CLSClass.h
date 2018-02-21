@@ -6,30 +6,20 @@
 
 #import <ClassKit/CLSObject.h>
 
-#import "CLSRelationable.h"
-
 @class NSString;
 
-@interface CLSClass : CLSObject <CLSRelationable>
+@interface CLSClass : CLSObject
 {
     NSString *_className;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)relations;
 @property(copy, nonatomic) NSString *className; // @synthesize className=_className;
 - (void).cxx_destruct;
 - (id)dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)_init;
-- (id)identity;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

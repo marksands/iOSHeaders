@@ -54,6 +54,7 @@
 - (void)_removeRemoteSubscriptions:(id)arg1;
 - (void)_modifyRemoteSubscriptions:(id)arg1;
 - (void)_addRemoteSubscriptions:(id)arg1;
+- (_Bool)hasAutoFavoriteSubscriptionForTagID:(id)arg1;
 - (_Bool)hasIgnoredSubscriptionForTagID:(id)arg1;
 - (_Bool)hasMutedSubscriptionForTagID:(id)arg1;
 - (_Bool)setNotificationsEnabled:(_Bool)arg1 forTagID:(id)arg2;

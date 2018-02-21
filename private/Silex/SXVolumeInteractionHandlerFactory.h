@@ -8,17 +8,19 @@
 
 #import "SXVideoInteractionHandlerFactory.h"
 
-@class NSString, SXVolumeController;
+@class NSString;
 
 @interface SXVolumeInteractionHandlerFactory : NSObject <SXVideoInteractionHandlerFactory>
 {
-    SXVolumeController *_volumeController;
+    id <SXPlaybackCoordinatorProviding> _playbackCoordinatorProvider;
+    id <SXVolumeProviding> _volumeProvider;
 }
 
-@property(readonly, nonatomic) SXVolumeController *volumeController; // @synthesize volumeController=_volumeController;
+@property(readonly, nonatomic) id <SXVolumeProviding> volumeProvider; // @synthesize volumeProvider=_volumeProvider;
+@property(readonly, nonatomic) id <SXPlaybackCoordinatorProviding> playbackCoordinatorProvider; // @synthesize playbackCoordinatorProvider=_playbackCoordinatorProvider;
 - (void).cxx_destruct;
 - (id)createInteractionHandlerForVideo:(id)arg1;
-- (id)initWithVolumeController:(id)arg1;
+- (id)initWithPlaybackCoordinatorProvider:(id)arg1 volumeProvider:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

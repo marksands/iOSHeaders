@@ -6,9 +6,11 @@
 
 #import <PhotoEditSupport/AutoEncodeDecodeObject.h>
 
+#import "NSSecureCoding.h"
+
 @class NSMutableData;
 
-@interface BLBrushStroke : AutoEncodeDecodeObject
+@interface BLBrushStroke : AutoEncodeDecodeObject <NSSecureCoding>
 {
     _Bool _erase;
     _Bool _magicEdges;
@@ -25,6 +27,7 @@
     struct CGRect _strokeRect;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) struct CGRect strokeRect; // @synthesize strokeRect=_strokeRect;
 @property(retain, nonatomic) NSMutableData *offsets; // @synthesize offsets=_offsets;
 @property(nonatomic) struct CGPoint lastPoint; // @synthesize lastPoint=_lastPoint;

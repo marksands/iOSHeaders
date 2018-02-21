@@ -18,6 +18,7 @@
     _Bool _showLinkToPrivacyGateway;
     _Bool _showsLinkToUnifiedAbout;
     _Bool _useSmallTitle;
+    _Bool _forceLargeMargins;
     _Bool _useModalStyle;
     _Bool _isCombined;
 }
@@ -25,6 +26,7 @@
 + (id)splashPageWithBundleIdentifier:(id)arg1;
 @property(nonatomic) _Bool isCombined; // @synthesize isCombined=_isCombined;
 @property _Bool useModalStyle; // @synthesize useModalStyle=_useModalStyle;
+@property _Bool forceLargeMargins; // @synthesize forceLargeMargins=_forceLargeMargins;
 @property _Bool useSmallTitle; // @synthesize useSmallTitle=_useSmallTitle;
 @property _Bool showsLinkToUnifiedAbout; // @synthesize showsLinkToUnifiedAbout=_showsLinkToUnifiedAbout;
 @property(nonatomic) _Bool showLinkToPrivacyGateway; // @synthesize showLinkToPrivacyGateway=_showLinkToPrivacyGateway;
@@ -36,6 +38,7 @@
 - (void)setDarkMode:(_Bool)arg1;
 - (void)setDismissHandlerForDefaultButton:(CDUnknownBlockType)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)viewWillLayoutSubviews;
 - (void)_initializeFromBundle;
 - (void)viewDidLoad;
 - (void)showPrivacyGateway:(id)arg1;

@@ -18,9 +18,11 @@
     NSNumber *_offset;
     long long _size;
     NSFileHandle *_dataFile;
+    NSNumber *_index;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy) NSNumber *index; // @synthesize index=_index;
 @property(retain) NSFileHandle *dataFile; // @synthesize dataFile=_dataFile;
 @property long long size; // @synthesize size=_size;
 @property(copy) NSNumber *offset; // @synthesize offset=_offset;

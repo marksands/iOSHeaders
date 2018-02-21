@@ -14,7 +14,7 @@
 #import "SXVideoPlayerViewControllerDelegate.h"
 #import "SXViewportChangeListener.h"
 
-@class NSString, SXAdController, SXPosterFrameView, SXVideoAnalyticsRouter, SXVideoComponentAnalyticsReporting, SXVideoPlayerViewController;
+@class NSString, SXAdController, SXPosterFrameView, SXVideoAnalyticsRouter, SXVideoComponentAnalyticsReporting, SXVideoPlayerViewController, SXVideoPlayerViewControllerManager, SXVolumeProvider;
 
 @interface SXVideoComponentView : SXMediaComponentView <SXViewportChangeListener, SXMediaPlaybackDelegate, SXVideoPlayerViewControllerDelegate, SXVideoPlayerViewControllerDataSource, SXVideoAdProviderDataSource, SXReachabilityObserver, SXFullscreenVideoPlaybackCandidate>
 {
@@ -29,8 +29,12 @@
     SXVideoAnalyticsRouter *_analyticsRouter;
     SXVideoComponentAnalyticsReporting *_videoComponentAnalyticsReporter;
     id <SXScrollObserverManager> _scrollObserverManager;
+    SXVolumeProvider *_volumeProvider;
+    SXVideoPlayerViewControllerManager *_videoPlayerViewControllerManager;
 }
 
+@property(readonly, nonatomic) SXVideoPlayerViewControllerManager *videoPlayerViewControllerManager; // @synthesize videoPlayerViewControllerManager=_videoPlayerViewControllerManager;
+@property(readonly, nonatomic) SXVolumeProvider *volumeProvider; // @synthesize volumeProvider=_volumeProvider;
 @property(readonly, nonatomic) id <SXScrollObserverManager> scrollObserverManager; // @synthesize scrollObserverManager=_scrollObserverManager;
 @property(retain, nonatomic) SXVideoComponentAnalyticsReporting *videoComponentAnalyticsReporter; // @synthesize videoComponentAnalyticsReporter=_videoComponentAnalyticsReporter;
 @property(retain, nonatomic) SXVideoAnalyticsRouter *analyticsRouter; // @synthesize analyticsRouter=_analyticsRouter;
@@ -77,7 +81,7 @@
 - (void)renderContents;
 - (void)presentComponentWithChanges:(CDStruct_1cc9d0d0)arg1;
 - (void)loadComponent:(id)arg1;
-- (id)initWithDocumentController:(id)arg1 viewport:(id)arg2 presentationDelegate:(id)arg3 analyticsReporting:(id)arg4 componentStyleRendererFactory:(id)arg5 appStateMonitor:(id)arg6 resourceDataSource:(id)arg7 reachabilityProvider:(id)arg8 adController:(id)arg9 scrollObserverManager:(id)arg10;
+- (id)initWithDocumentController:(id)arg1 viewport:(id)arg2 presentationDelegate:(id)arg3 analyticsReporting:(id)arg4 componentStyleRendererFactory:(id)arg5 appStateMonitor:(id)arg6 resourceDataSource:(id)arg7 reachabilityProvider:(id)arg8 adController:(id)arg9 scrollObserverManager:(id)arg10 volumeProvider:(id)arg11 videoPlayerViewControllerManager:(id)arg12;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

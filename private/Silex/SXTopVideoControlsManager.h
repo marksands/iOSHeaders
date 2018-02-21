@@ -14,6 +14,7 @@
 {
     SXTopVideoControlsViewController *_controlsViewController;
     id <SXTopVideoControlsProviding> _controlsProvider;
+    id <SXVideoShareabilityProviding> _shareabilityProvider;
     id <SXMediaSelectionOptionsAvailabilityObserverFactory> _mediaSelectionOptionsAvailabilityObserverFactory;
     id <SXVideoAdActionAvailabilityObserverFactory> _actionAvailabilityObserverFactory;
     id <SXVideoLoadingStateObserverFactory> _loadingStateObserverFactory;
@@ -28,11 +29,12 @@
 @property(readonly, nonatomic) id <SXVideoLoadingStateObserverFactory> loadingStateObserverFactory; // @synthesize loadingStateObserverFactory=_loadingStateObserverFactory;
 @property(readonly, nonatomic) id <SXVideoAdActionAvailabilityObserverFactory> actionAvailabilityObserverFactory; // @synthesize actionAvailabilityObserverFactory=_actionAvailabilityObserverFactory;
 @property(readonly, nonatomic) id <SXMediaSelectionOptionsAvailabilityObserverFactory> mediaSelectionOptionsAvailabilityObserverFactory; // @synthesize mediaSelectionOptionsAvailabilityObserverFactory=_mediaSelectionOptionsAvailabilityObserverFactory;
+@property(readonly, nonatomic) id <SXVideoShareabilityProviding> shareabilityProvider; // @synthesize shareabilityProvider=_shareabilityProvider;
 @property(readonly, nonatomic) id <SXTopVideoControlsProviding> controlsProvider; // @synthesize controlsProvider=_controlsProvider;
 @property(readonly, nonatomic) SXTopVideoControlsViewController *controlsViewController; // @synthesize controlsViewController=_controlsViewController;
 - (void).cxx_destruct;
 - (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
-- (id)initWithTopControlsViewController:(id)arg1 topControlsProvider:(id)arg2 mediaSelectionOptionsAvailabilityObserverFactory:(id)arg3 actionAvailabilityObserverFactory:(id)arg4 loadingStateObserverFactory:(id)arg5;
+- (id)initWithTopControlsViewController:(id)arg1 topControlsProvider:(id)arg2 shareabilityProvider:(id)arg3 mediaSelectionOptionsAvailabilityObserverFactory:(id)arg4 actionAvailabilityObserverFactory:(id)arg5 loadingStateObserverFactory:(id)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

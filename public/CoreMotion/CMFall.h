@@ -11,7 +11,7 @@
 }
 
 + (_Bool)areStatsAvailable;
-- (void)simulateFallEvent;
+- (void)simulateEvent:(unsigned long long)arg1;
 - (void)sendStatsDataToUrl:(id)arg1 onCompletion:(CDUnknownBlockType)arg2;
 - (id)sendStatsDataToUrl:(id)arg1;
 - (id)fallConfig;

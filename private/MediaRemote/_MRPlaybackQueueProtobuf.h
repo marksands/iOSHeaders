@@ -15,6 +15,7 @@
     NSMutableArray *_contentItems;
     _MRPlaybackQueueContextProtobuf *_context;
     int _location;
+    NSString *_queueIdentifier;
     NSString *_requestID;
     _MRNowPlayingPlayerPathProtobuf *_resolvedPlayerPath;
     _Bool _sendingPlaybackQueueTransaction;
@@ -25,6 +26,7 @@
 }
 
 + (Class)contentItemType;
+@property(retain, nonatomic) NSString *queueIdentifier; // @synthesize queueIdentifier=_queueIdentifier;
 @property(nonatomic) _Bool sendingPlaybackQueueTransaction; // @synthesize sendingPlaybackQueueTransaction=_sendingPlaybackQueueTransaction;
 @property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *resolvedPlayerPath; // @synthesize resolvedPlayerPath=_resolvedPlayerPath;
 @property(retain, nonatomic) NSString *requestID; // @synthesize requestID=_requestID;
@@ -41,6 +43,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasQueueIdentifier;
 @property(nonatomic) _Bool hasSendingPlaybackQueueTransaction;
 @property(readonly, nonatomic) _Bool hasResolvedPlayerPath;
 @property(readonly, nonatomic) _Bool hasRequestID;

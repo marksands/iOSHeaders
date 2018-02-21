@@ -19,8 +19,8 @@
 @property(readonly, nonatomic) SXPlaybackCoordinator *playbackCoordinator; // @synthesize playbackCoordinator=_playbackCoordinator;
 @property(readonly, nonatomic) id <SXVideo> video; // @synthesize video=_video;
 - (void).cxx_destruct;
+- (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
-- (void)viewDidLayoutSubviews;
 - (id)initWithVideo:(id)arg1 playbackCoordinator:(id)arg2;
 
 @end

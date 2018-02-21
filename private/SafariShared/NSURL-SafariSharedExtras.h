@@ -11,6 +11,8 @@
 + (id)safari_URLWithDataAsString:(id)arg1 relativeToURL:(id)arg2;
 + (id)safari_URLWithDataAsString:(id)arg1;
 + (id)safari_URLWithUserTypedString:(id)arg1;
+@property(readonly, nonatomic) _Bool safari_isURLTooLongToDisplay;
+- (id)safari_userVisibleStringConsideringLongURLs;
 - (_Bool)safari_canBeSafelyRedirectedToURL:(id)arg1;
 @property(readonly, nonatomic) _Bool safari_isTopLevelURL;
 - (id)safari_URLWithUniqueFilename;

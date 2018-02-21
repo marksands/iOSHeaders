@@ -21,6 +21,7 @@
     double _timestamp;
     NSDate *_captureDate;
     struct __CVBuffer *_pixelBuffer;
+    unsigned long long _lensType;
     double _exposureDuration;
     ARFaceData *_faceData;
     AVDepthData *_depthData;
@@ -28,6 +29,8 @@
     long long _cameraPosition;
     long long _captureFramesPerSecond;
     long long _renderFramesPerSecond;
+    // Error parsing type: , name: _tangentialDistortion
+    // Error parsing type: , name: _radialDistortion
     // Error parsing type: {?="columns"[3]}, name: _cameraIntrinsics
 }
 
@@ -44,6 +47,13 @@
 @property(nonatomic) float temperature; // @synthesize temperature=_temperature;
 @property(nonatomic) float exposureTargetOffset; // @synthesize exposureTargetOffset=_exposureTargetOffset;
 @property(nonatomic) double exposureDuration; // @synthesize exposureDuration=_exposureDuration;
+// Error parsing type for property tangentialDistortion:
+// Property attributes: T,N,V_tangentialDistortion
+
+// Error parsing type for property radialDistortion:
+// Property attributes: T,N,V_radialDistortion
+
+@property(nonatomic) unsigned long long lensType; // @synthesize lensType=_lensType;
 @property(nonatomic, getter=isMirrored) _Bool mirrored; // @synthesize mirrored=_mirrored;
 @property(nonatomic) struct __CVBuffer *pixelBuffer; // @synthesize pixelBuffer=_pixelBuffer;
 // Error parsing type for property cameraIntrinsics:

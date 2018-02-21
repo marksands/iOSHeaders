@@ -261,9 +261,10 @@ struct DeferrableOneShotTimer {
     unsigned int _field6;
     _Bool _field7;
     struct Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow, 16, WTF::FastMalloc> *_field8;
-    Function_89d21b48 _field9;
-    struct Seconds _field10;
-    _Bool _field11;
+    struct Ref<WTF::Thread, WTF::DumbPtrTraits<WTF::Thread>> _field9;
+    Function_89d21b48 _field10;
+    struct Seconds _field11;
+    _Bool _field12;
 };
 
 struct Deque<WTF::Function<void ()>, 0> {
@@ -1402,6 +1403,10 @@ struct RectEdges<bool> {
     struct array<bool, 4> _field1;
 };
 
+struct Ref<WTF::Thread, WTF::DumbPtrTraits<WTF::Thread>> {
+    struct Thread *_field1;
+};
+
 struct Ref<WebCore::Document, WTF::DumbPtrTraits<WebCore::Document>> {
     struct Document *_field1;
 };
@@ -1771,6 +1776,8 @@ struct ResourceUsageOverlay {
     struct RetainPtr<CALayer> _field7;
 };
 
+struct RetainPtr<AVAssetResourceLoadingRequest>;
+
 struct RetainPtr<AVSampleBufferDisplayLayer> {
     void *_field1;
 };
@@ -2052,6 +2059,8 @@ struct TextTrackRepresentationCocoa {
     struct RetainPtr<WebCoreTextTrackRepresentationCocoaHelper> _field4;
 };
 
+struct Thread;
+
 struct TileController {
     CDUnknownFunctionPointerType *_field1;
     struct PlatformCALayer *_field2;
@@ -2106,7 +2115,8 @@ struct Timer {
     unsigned int _field6;
     _Bool _field7;
     struct Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow, 16, WTF::FastMalloc> *_field8;
-    Function_89d21b48 _field9;
+    struct Ref<WTF::Thread, WTF::DumbPtrTraits<WTF::Thread>> _field9;
+    Function_89d21b48 _field10;
 };
 
 struct TreeScope;
@@ -2164,6 +2174,13 @@ struct Vector<WTF::RefPtr<WebCore::TextTrack, WTF::DumbPtrTraits<WebCore::TextTr
     unsigned int _field2;
     unsigned int _field3;
     unsigned int _field4;
+};
+
+struct Vector<WTF::RetainPtr<AVAssetResourceLoadingRequest>, 0, WTF::CrashOnOverflow, 16, WTF::FastMalloc> {
+    struct RetainPtr<AVAssetResourceLoadingRequest> *m_buffer;
+    unsigned int m_capacity;
+    unsigned int m_size;
+    unsigned int m_mask;
 };
 
 struct Vector<WTF::RetainPtr<WebItemProviderLoadResult>, 0, WTF::CrashOnOverflow, 16, WTF::FastMalloc> {

@@ -10,12 +10,13 @@
 #import "PKPaymentAuthorizationCoordinatorPrivateDelegate.h"
 #import "PKPaymentSetupDelegate.h"
 #import "PKPaymentSetupPurchaseAmountViewDelegate.h"
+#import "PKPaymentSetupRequiresPreflightProtocol.h"
 #import "PKPaymentSetupViewControllerDelegate.h"
 #import "RemoteUIControllerDelegate.h"
 
-@class NSDecimalNumber, NSString, PKPaymentAuthorizationCoordinator, PKPaymentProvisioningController, PKPaymentProvisioningMethodMetadata, PKPaymentSetupProduct, PKPaymentSetupPurchaseAmoutView, PKPaymentSetupPurchaseController, PKServiceProviderPurchase, RemoteUIController, UIImageView;
+@class NSDecimalNumber, NSString, PKFileDownloader, PKPaymentAuthorizationCoordinator, PKPaymentProvisioningController, PKPaymentProvisioningMethodMetadata, PKPaymentSetupProduct, PKPaymentSetupPurchaseAmoutView, PKPaymentSetupPurchaseController, PKServiceProviderPurchase, RemoteUIController, UIImage, UIImageView;
 
-@interface PKPaymentSetupPurchaseViewController : UIViewController <PKPaymentSetupPurchaseAmountViewDelegate, PKPaymentAuthorizationCoordinatorDelegate, PKPaymentAuthorizationCoordinatorPrivateDelegate, PKPaymentSetupViewControllerDelegate, RemoteUIControllerDelegate, PKPaymentSetupDelegate>
+@interface PKPaymentSetupPurchaseViewController : UIViewController <PKPaymentSetupPurchaseAmountViewDelegate, PKPaymentAuthorizationCoordinatorDelegate, PKPaymentAuthorizationCoordinatorPrivateDelegate, PKPaymentSetupViewControllerDelegate, RemoteUIControllerDelegate, PKPaymentSetupDelegate, PKPaymentSetupRequiresPreflightProtocol>
 {
     _Bool _fieldsVerified;
     _Bool _acceptedTerms;
@@ -31,8 +32,12 @@
     PKPaymentAuthorizationCoordinator *_authorizationCoordinator;
     PKServiceProviderPurchase *_purchase;
     RemoteUIController *_termsController;
+    PKFileDownloader *_fileDownloader;
+    UIImage *_cardImage;
 }
 
+@property(retain, nonatomic) UIImage *cardImage; // @synthesize cardImage=_cardImage;
+@property(retain, nonatomic) PKFileDownloader *fileDownloader; // @synthesize fileDownloader=_fileDownloader;
 @property(nonatomic) _Bool acceptedTerms; // @synthesize acceptedTerms=_acceptedTerms;
 @property(retain, nonatomic) RemoteUIController *termsController; // @synthesize termsController=_termsController;
 @property(nonatomic) _Bool fieldsVerified; // @synthesize fieldsVerified=_fieldsVerified;
@@ -66,6 +71,7 @@
 - (void)transferBalanceFromExistingCard;
 - (void)didUpdateAmount:(id)arg1 isValid:(_Bool)arg2;
 - (void)shakeCard;
+- (void)preflightWithCompletion:(CDUnknownBlockType)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

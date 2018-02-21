@@ -10,6 +10,7 @@
 {
 }
 
++ (void)applyUserDefaultOverridesToResponse:(id)arg1;
 + (void)fetchMPSStateWithBaseAvailabilityURL:(id)arg1 personID:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 + (id)_urlSession;
 + (id)appleIDSession;

@@ -28,12 +28,13 @@
     NSData *_biasOriginal;
     id <MTLBuffer> _neuronABuffer;
     unsigned long long _accumulatorPrecisionOption;
-    _Bool _serializeWeightsAndBiases;
+    id <MPSCNNConvolutionDataSource> _dataSource;
+    NSData *_batchNormalizationData;
     unsigned long long _featureChannelsLayout;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
-@property(nonatomic) _Bool serializeWeightsAndBiases; // @synthesize serializeWeightsAndBiases=_serializeWeightsAndBiases;
+@property(readonly, retain, nonatomic) id <MPSCNNConvolutionDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) unsigned long long accumulatorPrecisionOption; // @synthesize accumulatorPrecisionOption=_accumulatorPrecisionOption;
 @property(readonly, nonatomic) unsigned long long channelMultiplier; // @synthesize channelMultiplier=_channelMultiplier;
 @property(readonly, nonatomic) unsigned long long subPixelScaleFactor; // @synthesize subPixelScaleFactor=_scaleFactor;
@@ -44,7 +45,8 @@
 @property(readonly, nonatomic) unsigned long long inputFeatureChannels; // @synthesize inputFeatureChannels=_inputFeatureChannels;
 - (_Bool)appendBatchBarrier;
 - (_Bool)isResultStateReusedAcrossBatch;
-- (void)reloadWeightsAndBiasesWithCommandBuffer:(id)arg1 weights:(id)arg2 biases:(id)arg3;
+- (id)exportWeightsAndBiasesWithCommandBuffer:(id)arg1 resultStateCanBeTemporary:(_Bool)arg2;
+- (void)reloadWeightsAndBiasesWithCommandBuffer:(id)arg1 state:(id)arg2;
 - (void)reloadWeightsAndBiasesWithDataSource:(id)arg1;
 - (struct NSArray *)temporaryResultStateBatchForCommandBuffer:(id)arg1 sourceImage:(struct NSArray *)arg2 sourceStates:(id)arg3 destinationImage:(struct NSArray *)arg4;
 - (id)temporaryResultStateForCommandBuffer:(id)arg1 sourceImage:(id)arg2 sourceStates:(id)arg3 destinationImage:(id)arg4;
@@ -63,7 +65,7 @@
 - (id)initializeWithDevice:(id)arg1 weights:(id)arg2 fullyConnected:(_Bool)arg3;
 - (id)initWithDevice:(id)arg1 convolutionDescriptor:(id)arg2 kernelWeights:(const float *)arg3 biasTerms:(const float *)arg4 flags:(unsigned long long)arg5;
 - (id)initWithDevice:(id)arg1 convolutionDescriptor:(id)arg2 kernelWeights:(const float *)arg3 biasTerms:(const float *)arg4 flags:(unsigned long long)arg5 fullyConnected:(_Bool)arg6;
--     // Error parsing type: B88@0:8@16@24r^v32I40r^44r^f52i60r^f64Q72B80B84, name: initialize:convolutionDescriptor:kernelWeights:dataType:range:lookUpTable:qType:biasTerms:flags:fullyConnected:serializeWeightsAndBiases:
+-     // Error parsing type: B84@0:8@16@24r^v32I40r^44r^f52i60r^f64Q72B80, name: initialize:convolutionDescriptor:kernelWeights:dataType:range:lookUpTable:qType:biasTerms:flags:fullyConnected:
 - (id)initWithDevice:(id)arg1;
 - (id)biases;
 - (id)weights;

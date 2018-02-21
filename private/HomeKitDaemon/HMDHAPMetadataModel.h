@@ -12,6 +12,7 @@
 {
 }
 
++ (id)allowedTypes;
 + (id)modelWithDictionary:(id)arg1;
 + (id)metadataModelObjectUUID;
 + (id)properties;

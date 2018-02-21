@@ -18,6 +18,7 @@
 @optional
 @property(readonly, nonatomic) _Bool isRequiredByFollowingEmitters;
 @property(readonly, nonatomic) long long requiredForYouContentTypes;
+@property(readonly, nonatomic) _Bool emitsSingleRefreshSessionGroups;
 @property(readonly, nonatomic) _Bool emitsSingletonGroups;
 - (NSString *)backingChannelTagIDWithCoreConfiguration:(id <FCCoreConfiguration>)arg1;
 - (_Bool)canMergeHeadlinesFromGroup:(id <FCFeedGroupOutlining>)arg1 intoGroup:(id <FCFeedGroupOutlining>)arg2;

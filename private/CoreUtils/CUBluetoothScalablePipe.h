@@ -58,7 +58,7 @@
 - (void)scalablePipeManagerDidUpdateState:(id)arg1;
 - (void)_completeWriteRequest:(id)arg1 error:(id)arg2;
 - (void)_abortWritesWithError:(id)arg1;
-- (void)_writeBytes:(const char *)arg1 length:(unsigned long long)arg2 outLen:(unsigned long long *)arg3;
+- (unsigned long long)_writeBytes:(const char *)arg1 length:(unsigned long long)arg2;
 - (int)_writeIOArray:(struct iovec **)arg1 ioCount:(int *)arg2;
 - (_Bool)_prepareWriteRequest:(id)arg1 error:(id *)arg2;
 - (void)_processWrites;

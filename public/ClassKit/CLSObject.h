@@ -6,14 +6,17 @@
 
 #import "NSObject.h"
 
+#import "CLSGraphVertex.h"
+#import "CLSRelationable.h"
 #import "NSSecureCoding.h"
 
 @class CLSDataStore, NSDate, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
-@interface CLSObject : NSObject <NSSecureCoding>
+@interface CLSObject : NSObject <CLSRelationable, CLSGraphVertex, NSSecureCoding>
 {
     _Bool _deleted;
     _Bool _modified;
+    CLSDataStore *_dataStore;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_childrenByID;
     CLSObject *_parent;
@@ -24,13 +27,11 @@
     NSString *__appIdentifier;
     NSString *_objectID;
     NSString *__parentObjectID;
-    CLSDataStore *_dataStore;
 }
 
 + (id)dateFormatter;
 + (_Bool)supportsSecureCoding;
-+ (id)childrenSortDescriptors;
-@property(nonatomic) __weak CLSDataStore *dataStore; // @synthesize dataStore=_dataStore;
++ (id)relations;
 @property(copy, nonatomic) NSString *_parentObjectID; // @synthesize _parentObjectID=__parentObjectID;
 @property(copy, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
 @property(copy, nonatomic) NSString *_appIdentifier; // @synthesize _appIdentifier=__appIdentifier;
@@ -41,10 +42,13 @@
 - (void).cxx_destruct;
 - (void)sync;
 - (id)dictionaryRepresentation;
+- (void)removeMetaProperty:(id)arg1;
+- (void)addMetaProperty:(id)arg1;
+- (id)metaProperties;
 - (_Bool)validateObject:(id *)arg1;
 - (void)didSaveObject;
 - (void)willSaveObject;
-- (id)description;
+@property(readonly, copy) NSString *description;
 @property(nonatomic, getter=isModified) _Bool modified;
 @property(nonatomic, getter=isDeleted) _Bool deleted;
 - (void)enumerateTree:(CDUnknownBlockType)arg1;
@@ -57,16 +61,22 @@
 - (void)_addChild:(id)arg1;
 - (void)addChild:(id)arg1 changedPropertyName:(id)arg2;
 - (void)addChild:(id)arg1;
-@property(readonly, nonatomic) NSMutableDictionary *_childrenByID;
+- (void)enumerateChildren:(CDUnknownBlockType)arg1;
 - (id)childrenPassingTest:(CDUnknownBlockType)arg1;
-- (void)childrenOfClass:(Class)arg1 changeKey:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)childrenOfClass:(Class)arg1 changeKey:(id)arg2 refetch:(_Bool)arg3;
 - (id)childrenOfClass:(Class)arg1;
+@property(nonatomic) __weak CLSDataStore *dataStore;
+@property(readonly, nonatomic) id vertexID;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)_init;
 - (id)init;
 - (id)initWithDeletedObjectID:(id)arg1;
+- (id)identity;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

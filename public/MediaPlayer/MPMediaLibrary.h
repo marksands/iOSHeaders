@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSPointerArray, NSString, NSURL, QueryCriteriaResultsCache;
+@class ML3MusicLibrary, NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSPointerArray, NSString, NSURL, QueryCriteriaResultsCache;
 
 @interface MPMediaLibrary : NSObject <NSSecureCoding>
 {
@@ -131,6 +131,7 @@
 - (id)artworkDataSource;
 - (id)libraryDataProvider;
 - (id)_initWithLibraryDataProvider:(id)arg1;
+@property(readonly, nonatomic) ML3MusicLibrary *ml3Library;
 - (void)_tearDownNotifications;
 - (void)_setupNotifications;
 - (void)_disconnect;

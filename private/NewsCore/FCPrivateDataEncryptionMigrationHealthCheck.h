@@ -24,7 +24,7 @@
 @property(retain, nonatomic) CKContainer *container; // @synthesize container=_container;
 @property(retain, nonatomic) FCCKPrivateDatabaseSchema *schema; // @synthesize schema=_schema;
 - (void).cxx_destruct;
-- (_Bool)shouldDeleteOriginalDataAfterMigrationForDatabase:(id)arg1;
+- (void)fetchOriginalDataShouldBeDeletedAfterMigrationForDatabase:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchPrivateDataEncryptionMigrationIsDesiredForDatabase:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchPrivateDataEncryptionIsAllowedForDatabase:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_prepareSentinelsAndReturnExpectations;

@@ -14,6 +14,8 @@
 - (id)hf_updateDateAdded:(id)arg1;
 @property(readonly, copy, nonatomic) NSDate *hf_dateAdded;
 @property(readonly, nonatomic) HFServiceNameComponents *hf_serviceNameComponents;
+@property(readonly, nonatomic) NSString *hf_editingName;
+@property(readonly, nonatomic) NSString *hf_defaultName;
 @property(readonly, copy, nonatomic) NSString *hf_displayName;
 - (id)hf_serializedStateDumpRepresentation;
 - (id)hf_prettyDescriptionOfType:(unsigned long long)arg1;

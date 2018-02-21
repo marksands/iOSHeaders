@@ -12,6 +12,7 @@
 {
 }
 
+- (_Bool)isEqual:(id)arg1;
 - (id)decorate:(id)arg1 scaledWithSize:(struct CGSize)arg2 croppedToFit:(_Bool)arg3;
 @property(readonly, copy, nonatomic) NSString *decoratorIdentifier;
 @property(readonly, nonatomic) struct CGSize expectedSize;

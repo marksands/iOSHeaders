@@ -9,19 +9,20 @@
 @class NSDictionary, NSURL;
 
 @protocol ADCreativeControllerDelegate <NSObject>
-- (void)creativeControllerVideoVolumeChanged:(float)arg1;
-- (void)creativeControllerVideoExitFullScreenTapped;
-- (void)creativeControllerVideoFullScreenTapped;
-- (void)creativeControllerVideoSkipAdTapped;
-- (void)creativeControllerVideoMoreInfoTapped;
-- (void)creativeControllerVideoUnmuted;
-- (void)creativeControllerVideoMuted;
-- (void)creativeControllerVideoCompleted;
-- (void)creativeControllerVideoViewabilityChanged:(_Bool)arg1;
-- (void)creativeControllerVideoProgressed:(float)arg1;
-- (void)creativeControllerVideoPaused:(float)arg1;
-- (void)creativeControllerVideoResumedPlaying:(float)arg1;
-- (void)creativeControllerVideoStartedPlaying:(float)arg1;
+- (void)creativeControllerVideoVolumeChanged:(float)arg1 playTime:(float)arg2;
+- (void)creativeControllerVideoExitFullScreenTapped:(float)arg1 volume:(float)arg2;
+- (void)creativeControllerVideoFullScreenTapped:(float)arg1 volume:(float)arg2;
+- (void)creativeControllerVideoSkipAdTapped:(float)arg1 volume:(float)arg2;
+- (void)creativeControllerVideoTapped:(float)arg1 volume:(float)arg2;
+- (void)creativeControllerVideoMoreInfoTapped:(float)arg1 volume:(float)arg2;
+- (void)creativeControllerVideoUnmuted:(float)arg1 volume:(float)arg2;
+- (void)creativeControllerVideoMuted:(float)arg1;
+- (void)creativeControllerVideoCompletedWithVolume:(float)arg1;
+- (void)creativeControllerVideoViewabilityChanged:(_Bool)arg1 playTime:(float)arg2 volume:(float)arg3;
+- (void)creativeControllerVideoProgressed:(float)arg1 volume:(float)arg2;
+- (void)creativeControllerVideoPaused:(float)arg1 volume:(float)arg2;
+- (void)creativeControllerVideoResumedPlaying:(float)arg1 volume:(float)arg2;
+- (void)creativeControllerVideoStartedPlaying:(float)arg1 volume:(float)arg2;
 - (void)creativeControllerVideoCreativeViewLoaded;
 - (void)creativeControllerNavigationAttemptBlockedDueToAccidentalTap;
 - (void)creativeControllerTapGestureTimerDidExpireBeforePrimaryActionWasInvoked;

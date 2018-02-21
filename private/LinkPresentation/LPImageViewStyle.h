@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     LPPadding *_margin;
     LPPadding *_padding;
     long long _filter;
+    long long _verticalAlignment;
     UIColor *_backgroundColor;
     LPPointUnit *_backgroundInset;
     double _foregroundOpacity;
@@ -32,6 +33,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double foregroundOpacity; // @synthesize foregroundOpacity=_foregroundOpacity;
 @property(retain, nonatomic) LPPointUnit *backgroundInset; // @synthesize backgroundInset=_backgroundInset;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(nonatomic) long long verticalAlignment; // @synthesize verticalAlignment=_verticalAlignment;
 @property(nonatomic) long long filter; // @synthesize filter=_filter;
 @property(readonly, retain, nonatomic) LPPadding *padding; // @synthesize padding=_padding;
 @property(readonly, retain, nonatomic) LPPadding *margin; // @synthesize margin=_margin;

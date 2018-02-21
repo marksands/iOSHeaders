@@ -8,23 +8,28 @@
 
 #import "NSSecureCoding.h"
 
-@class NSString;
+@class NSDate, NSString;
 
 @interface TTYUtterance : NSObject <NSSecureCoding>
 {
     NSString *_contactPath;
     NSString *_text;
+    NSDate *_lastChangeDate;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)utteranceWithContactPath:(id)arg1 andText:(id)arg2;
+@property(retain, nonatomic) NSDate *lastChangeDate; // @synthesize lastChangeDate=_lastChangeDate;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 @property(retain, nonatomic) NSString *contactPath; // @synthesize contactPath=_contactPath;
 - (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isComplete;
+- (void)resetTimeout;
+- (_Bool)hasTimedOut;
 - (_Bool)isMe;
+- (void)updateText:(id)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)updateNavigationBarAnimated:(_Bool)arg1;
 - (void)updateBackgroundColor;
 - (void)viewDidLayoutSubviews;
+- (void)viewWillLayoutSubviews;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (id)initWithIdentifiers:(id)arg1;

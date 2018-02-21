@@ -216,6 +216,7 @@
 @property(nonatomic) __weak id <UICollectionViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) UICollectionViewLayout *collectionViewLayout; // @synthesize collectionViewLayout=_layout;
 - (void).cxx_destruct;
+- (void)_managedSubviewAdded:(id)arg1;
 - (id)_prefetchDataSourceActual;
 - (id)_delegateActual;
 - (id)_dataSourceActual;

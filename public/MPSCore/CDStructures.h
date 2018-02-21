@@ -21,6 +21,7 @@ struct HeapNode {
 struct MPSAutoCache {
     id _field1;
     id _field2;
+    struct CacheFrame *_field3;
 };
 
 struct MPSDeviceBehaviors;

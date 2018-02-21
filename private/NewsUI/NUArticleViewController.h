@@ -12,7 +12,7 @@
 #import "SXAnalyticsReporting.h"
 #import "SXScrollViewControllerDelegate.h"
 
-@class FCObservable, NSString, NUArticleAdManager, NUEventManager, NUMultiDelegate, SXScrollViewController, SXVideoPlayerViewControllerManager;
+@class FCObservable, NSString, NUArticleAdManager, NUEventManager, NUMultiDelegate, SXScrollViewController;
 
 @interface NUArticleViewController : UIViewController <SXScrollViewControllerDelegate, SXAnalyticsReporting, NUEndOfArticleDataProviderDelegate, NUDynamicTypeObserving, NULoadable>
 {
@@ -28,13 +28,11 @@
     NUArticleAdManager *_adManager;
     id <NUDynamicTypeProviding> _dynamicTypeProviding;
     NUEventManager *_eventManager;
-    SXVideoPlayerViewControllerManager *_videoPlayerViewControllerManager;
     id <NUScrollViewKeyCommandHandler> _keyCommandHandler;
     struct UIEdgeInsets _contentInsets;
 }
 
 @property(readonly, nonatomic) id <NUScrollViewKeyCommandHandler> keyCommandHandler; // @synthesize keyCommandHandler=_keyCommandHandler;
-@property(retain, nonatomic) SXVideoPlayerViewControllerManager *videoPlayerViewControllerManager; // @synthesize videoPlayerViewControllerManager=_videoPlayerViewControllerManager;
 @property(readonly, nonatomic) NUEventManager *eventManager; // @synthesize eventManager=_eventManager;
 @property(nonatomic) _Bool articleIsPresentingFullscreen; // @synthesize articleIsPresentingFullscreen=_articleIsPresentingFullscreen;
 @property(readonly, nonatomic) id <NUDynamicTypeProviding> dynamicTypeProviding; // @synthesize dynamicTypeProviding=_dynamicTypeProviding;

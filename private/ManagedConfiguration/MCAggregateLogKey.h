@@ -12,6 +12,9 @@
 {
 }
 
++ (id)bucketSpecificKeys:(unsigned long long)arg1;
++ (id)keysForAllBuckets;
++ (id)debugKeys;
 + (id)keys;
 + (unsigned long long)bucket;
 @property(readonly, nonatomic) unsigned long long value;

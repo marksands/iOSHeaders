@@ -13,6 +13,7 @@
     MPModelPodcastEpisodeKind *_episodeKind;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)kindWithEpisodeKind:(id)arg1;
 @property(readonly, nonatomic) MPModelPodcastEpisodeKind *episodeKind; // @synthesize episodeKind=_episodeKind;
 - (void).cxx_destruct;

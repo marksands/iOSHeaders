@@ -24,7 +24,6 @@
 - (id)dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)identity;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

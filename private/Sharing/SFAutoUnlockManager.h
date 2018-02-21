@@ -37,7 +37,6 @@
 - (void)attemptAutoUnlock;
 - (void)disableAutoUnlockForDevice:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)cancelEnablingAutoUnlockForDevice:(id)arg1;
-- (void)enableAutoUnlockWithDevice:(id)arg1 passcode:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)enableAutoUnlockWithDevice:(id)arg1 passcode:(id)arg2;
 - (void)eligibleAutoUnlockDevicesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)repairCloudPairing;

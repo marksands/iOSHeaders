@@ -38,9 +38,12 @@
 @property(readonly, nonatomic) NSString *featuredStoriesTagID;
 @property(readonly, nonatomic) NSString *trendingTagID;
 @property(readonly, nonatomic) NSString *briefingsTagID;
+@property(readonly, nonatomic) NSString *moreVideosChannelID;
+@property(readonly, nonatomic) NSString *topVideosChannelID;
 @property(readonly, nonatomic) NSString *breakingNewsChannelID;
 @property(readonly, nonatomic) FCTopStoriesConfiguration *topStoriesConfig;
 @property(readonly, nonatomic) NSDictionary *endpointConfigsByEnvironment;
+@property(readonly, nonatomic, getter=isPrivateDataMigrationCleanupEnabled) _Bool privateDataMigrationCleanupEnabled;
 @property(readonly, nonatomic) _Bool privateDataEncryptionMigrationRequiresAllDevicesRunningTigris;
 @property(readonly, nonatomic, getter=isPrivateDataEncryptionMigrationDesired) _Bool privateDataEncryptionMigrationDesired;
 @property(readonly, nonatomic, getter=isPrivateDataEncryptionAllowed) _Bool privateDataEncryptionAllowed;

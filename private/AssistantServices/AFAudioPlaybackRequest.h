@@ -23,6 +23,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)newWithBuilder:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(readonly, nonatomic) double fadeOutDuration; // @synthesize fadeOutDuration=_fadeOutDuration;
 @property(readonly, nonatomic) double fadeInDuration; // @synthesize fadeInDuration=_fadeInDuration;
@@ -39,7 +40,7 @@
 - (id)_descriptionWithIndent:(unsigned long long)arg1;
 - (id)description;
 - (id)initWithItemURL:(id)arg1 itemData:(id)arg2 numberOfLoops:(long long)arg3 volume:(float)arg4 fadeInDuration:(double)arg5 fadeOutDuration:(double)arg6 userInfo:(id)arg7;
-- (id)builder;
+- (id)mutatedCopyWithMutator:(CDUnknownBlockType)arg1;
 
 @end
 

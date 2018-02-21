@@ -31,6 +31,8 @@
 @property(retain, nonatomic) NSArray *favoritePlugins; // @synthesize favoritePlugins=_favoritePlugins;
 @property(nonatomic) __weak id <CKAppManagerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (_Bool)togglePluginAtIndex:(unsigned long long)arg1 enabled:(_Bool)arg2;
+- (_Bool)allowEnablingDisabledApps;
 - (void)appCell:(id)arg1 wasToggledOn:(_Bool)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)modelIndexPathForManagerIndexPath:(id)arg1;
@@ -47,6 +49,7 @@
 - (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 shouldIndentWhileEditingRowAtIndexPath:(id)arg2;
 - (void)reloadPluginsImmediately;
+- (id)balloonPluginManager;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)searchBarSearchButtonClicked:(id)arg1;
 - (void)searchBarCancelButtonClicked:(id)arg1;

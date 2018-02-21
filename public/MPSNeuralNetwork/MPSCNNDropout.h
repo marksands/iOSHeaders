@@ -24,7 +24,6 @@
 @property(readonly, nonatomic) float keepProbability; // @synthesize keepProbability=_keepProbability;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)temporaryResultStateForCommandBuffer:(id)arg1 sourceImage:(id)arg2 sourceStates:(id)arg3 destinationImage:(id)arg4;
 - (id)resultStateForSourceImage:(id)arg1 sourceStates:(id)arg2 destinationImage:(id)arg3;
 - (id)privateResultStateForSourceImage:(id)arg1 sourceStates:(id)arg2 destinationImage:(id)arg3 commandBuffer:(id)arg4 isTemporary:(_Bool)arg5;
 - (id)debugDescription;

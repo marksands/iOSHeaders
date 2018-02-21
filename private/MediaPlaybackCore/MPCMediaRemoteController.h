@@ -19,7 +19,9 @@
     MPCFuture *_supportedCommandsFuture;
     long long _supportedCommandsCacheState;
     long long _playingIdentifierCacheState;
+    long long _queueIdentifierCacheState;
     NSString *_playingItemIdentifier;
+    NSString *_queueIdentifier;
     struct _MSVSignedRange _maximumLoadedRange;
     NSMutableArray *_contentItemIDs;
     MSVLRUDictionary *_contentItems;
@@ -28,6 +30,7 @@
     MSVLRUDictionary *_contentItemArtwork;
     NSMutableDictionary *_contentItemArtworkIdentifiers;
     MPCFuture *_playingItemIdentifierFuture;
+    MPCFuture *_queueIdentifierFuture;
     NSMapTable *_contentItemIDsFutures;
     NSMapTable *_contentItemFutures;
     NSMutableDictionary *_contentItemArtworkFutures;
@@ -42,6 +45,7 @@
 @property(retain, nonatomic) id invalidationToken; // @synthesize invalidationToken=_invalidationToken;
 @property(readonly, nonatomic) id <MPArtworkDataSource> remotePlayerArtworkDataSource; // @synthesize remotePlayerArtworkDataSource=_remotePlayerArtworkDataSource;
 @property(readonly, nonatomic) id <MPArtworkDataSource> mediaRemoteArtworkDataSource; // @synthesize mediaRemoteArtworkDataSource=_mediaRemoteArtworkDataSource;
+@property(readonly, nonatomic) long long queueIdentifierCacheState; // @synthesize queueIdentifierCacheState=_queueIdentifierCacheState;
 @property(retain, nonatomic) MPCPlayerPath *resolvedPlayerPath; // @synthesize resolvedPlayerPath=_resolvedPlayerPath;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *calloutQueue; // @synthesize calloutQueue=_calloutQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *accessQueue; // @synthesize accessQueue=_accessQueue;
@@ -72,6 +76,7 @@
 - (long long)contentItemArtworkCacheStateForArtworkIdentifier:(id)arg1 size:(struct CGSize)arg2;
 - (id)contentItemForIdentifier:(id)arg1;
 - (long long)contentItemCacheStateForIdentifier:(id)arg1;
+@property(readonly, nonatomic) MPCFuture *queueIdentifier;
 @property(readonly, nonatomic) MPCFuture *playingIdentifier;
 - (id)playQueueIdentifiersForRange:(struct _MSVSignedRange)arg1;
 - (id)playQueueIdentifiersForRequest:(void *)arg1;

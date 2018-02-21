@@ -13,6 +13,7 @@
     _Bool _internal;
     _Bool _searchInternal;
     _Bool _isExtension;
+    _Bool _privateIndexNonSandboxAllowed;
     _Bool _quotaDisabled;
     int _pid;
     unsigned int _euid;
@@ -23,6 +24,7 @@
 }
 
 @property(readonly, nonatomic) _Bool quotaDisabled; // @synthesize quotaDisabled=_quotaDisabled;
+@property(readonly, nonatomic) _Bool privateIndexNonSandboxAllowed; // @synthesize privateIndexNonSandboxAllowed=_privateIndexNonSandboxAllowed;
 @property(readonly, nonatomic) _Bool isExtension; // @synthesize isExtension=_isExtension;
 @property(readonly, nonatomic) _Bool searchInternal; // @synthesize searchInternal=_searchInternal;
 @property(readonly, nonatomic) _Bool internal; // @synthesize internal=_internal;

@@ -6,19 +6,23 @@
 
 #import "NSObject.h"
 
+@class UIView;
+
 @interface SXVideoAccessoryBarItemDisplayState : NSObject
 {
     id <SXVideoAccessoryItem> _item;
+    UIView *_containerView;
     unsigned long long _displayMode;
     struct CGRect _frame;
 }
 
 @property(readonly, nonatomic) struct CGRect frame; // @synthesize frame=_frame;
 @property(readonly, nonatomic) unsigned long long displayMode; // @synthesize displayMode=_displayMode;
+@property(readonly, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
 @property(readonly, nonatomic) id <SXVideoAccessoryItem> item; // @synthesize item=_item;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
-- (id)initWithItem:(id)arg1 displayMode:(unsigned long long)arg2 frame:(struct CGRect)arg3;
+- (id)initWithItem:(id)arg1 containerView:(id)arg2 displayMode:(unsigned long long)arg3 frame:(struct CGRect)arg4;
 
 @end
 

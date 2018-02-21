@@ -10,6 +10,8 @@
 
 @protocol _SFPBFlightLeg <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasArrivalGateTime;
+@property(retain, nonatomic) _SFPBDate *arrivalGateTime;
 @property(readonly, nonatomic) _Bool hasArrivalRunwayTime;
 @property(retain, nonatomic) _SFPBDate *arrivalRunwayTime;
 @property(readonly, nonatomic) _Bool hasDepartureRunwayTime;

@@ -22,11 +22,11 @@
     id <HAPAccessoryServerDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_delegateQueue;
     NSData *_setupHash;
+    unsigned long long _authMethod;
     HAPAccessory *_primaryAccessory;
     NSArray *_accessories;
     long long _linkType;
     HMFVersion *_version;
-    unsigned long long _authMethods;
     NSHashTable *_internalDelegates;
     NSObject<OS_dispatch_queue> *_internalDelegateQueue;
     NSObject<OS_dispatch_queue> *_clientQueue;
@@ -43,7 +43,6 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *internalDelegateQueue; // @synthesize internalDelegateQueue=_internalDelegateQueue;
 @property(readonly, nonatomic) NSHashTable *internalDelegates; // @synthesize internalDelegates=_internalDelegates;
-@property(nonatomic) unsigned long long authMethods; // @synthesize authMethods=_authMethods;
 @property(copy) HMFVersion *version; // @synthesize version=_version;
 @property(nonatomic) _Bool supportsTimedWrite; // @synthesize supportsTimedWrite=_supportsTimedWrite;
 @property(readonly, nonatomic) long long linkType; // @synthesize linkType=_linkType;
@@ -76,6 +75,7 @@
 @property(copy, nonatomic) NSNumber *category; // @synthesize category=_category;
 - (void)notifyDelegateUpdatedName:(id)arg1;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(nonatomic) unsigned long long authMethod; // @synthesize authMethod=_authMethod;
 @property(copy, nonatomic) NSData *setupHash; // @synthesize setupHash=_setupHash;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, copy) HAPDeviceID *deviceID;

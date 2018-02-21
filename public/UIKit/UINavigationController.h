@@ -342,6 +342,7 @@
 - (CDStruct_c3b9c2ee)_intrinsicNavigationBarHeightRangeForViewController:(id)arg1;
 - (double)_preferredHeightForHidingNavigationBarForViewController:(id)arg1;
 - (double)_widthForLayout;
+- (id)_independentContainedScrollViewIntermediateToDescendantViewController:(id)arg1;
 - (void)_calculateTopViewFramesForExpandedLayoutWithViewController:(id)arg1 contentScrollView:(id)arg2 gettingNavBarFrame:(struct CGRect *)arg3 topPaletteFrame:(struct CGRect *)arg4;
 - (void)_calculateTopViewFramesForPushPopIncomingLayoutWithViewController:(id)arg1 contentScrollView:(id)arg2 gettingNavBarFrame:(struct CGRect *)arg3 topPaletteFrame:(struct CGRect *)arg4;
 - (double)_topPalettePreferredLayoutHeightForVisibilityStateIfDisplayedForViewController:(id)arg1;

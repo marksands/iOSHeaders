@@ -8,7 +8,7 @@
 
 #import "LPLinkPresentationPropertyProvider.h"
 
-@class LPCaptionBarPresentationProperties, LPImage, LPVideo, LPiTunesPlaybackInformation, NSString, UIColor;
+@class LPCaptionBarPresentationProperties, LPImage, LPVideo, LPiTunesPlaybackInformation, NSNumber, NSString, UIColor;
 
 @interface LPWebLinkPresentationProperties : NSObject <LPLinkPresentationPropertyProvider>
 {
@@ -21,10 +21,12 @@
     LPImage *_image;
     LPVideo *_video;
     UIColor *_backgroundColor;
+    NSNumber *_minimumHeight;
     LPiTunesPlaybackInformation *_iTunesPlaybackInformation;
 }
 
 @property(retain, nonatomic) LPiTunesPlaybackInformation *iTunesPlaybackInformation; // @synthesize iTunesPlaybackInformation=_iTunesPlaybackInformation;
+@property(retain, nonatomic) NSNumber *minimumHeight; // @synthesize minimumHeight=_minimumHeight;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(retain, nonatomic) LPVideo *video; // @synthesize video=_video;
 @property(retain, nonatomic) LPImage *image; // @synthesize image=_image;

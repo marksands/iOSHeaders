@@ -12,7 +12,7 @@
 
 @interface NUVideoViewControllerOpenAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 {
-    id <NUVideoAnimationDataSource> _dataSource;
+    id <NUVideoViewControllerOpenAnimatorDataSource> _dataSource;
     SXVideoView *_videoView;
     double _animationBeginTime;
     SXKeyValueObserver *_videoRectObserver;
@@ -23,13 +23,12 @@
 @property(retain, nonatomic) SXKeyValueObserver *videoRectObserver; // @synthesize videoRectObserver=_videoRectObserver;
 @property(nonatomic) double animationBeginTime; // @synthesize animationBeginTime=_animationBeginTime;
 @property(retain, nonatomic) SXVideoView *videoView; // @synthesize videoView=_videoView;
-@property(readonly, nonatomic) __weak id <NUVideoAnimationDataSource> dataSource; // @synthesize dataSource=_dataSource;
+@property(readonly, nonatomic) __weak id <NUVideoViewControllerOpenAnimatorDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (void)configureSpringAnimation:(id)arg1 withBeginTime:(double)arg2;
 - (void)makeVideoViewVisible:(id)arg1 animated:(_Bool)arg2;
 - (void)removeObservers;
 - (void)addObserversToVideoView:(id)arg1;
-- (void)animationEnded:(_Bool)arg1;
 - (void)animateTransition:(id)arg1;
 - (double)transitionDuration:(id)arg1;
 - (id)initWithDataSource:(id)arg1;

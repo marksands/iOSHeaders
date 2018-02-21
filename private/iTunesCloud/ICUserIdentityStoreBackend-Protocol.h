@@ -8,21 +8,21 @@
 #import "NSObject.h"
 #import "NSSecureCoding.h"
 
-@class ICMutableUserIdentityProperties, ICUserIdentityProperties, ICUserVerificationContext, NSNumber;
+@class ICUserIdentityProperties, NSNumber;
 
 @protocol ICUserIdentityStoreBackend <NSObject, NSCopying, NSSecureCoding>
-@property(readonly, copy, nonatomic) ICUserVerificationContext *verificationContextToEstablishAccount;
-@property(readonly, copy, nonatomic) ICUserIdentityProperties *primaryICloudAccountIdentityProperties;
-@property(readonly, nonatomic) NSNumber *activeLockerAccountDSID;
-@property(readonly, nonatomic) NSNumber *activeAccountDSID;
 @property(nonatomic) __weak id <ICUserIdentityStoreBackendDelegate> delegate;
-- (ICUserVerificationContext *)verificationContextForDSID:(NSNumber *)arg1;
+- (void)verificationContextForAccountEstablishmentWithCompletion:(void (^)(ICUserVerificationContext *, NSError *))arg1;
+- (void)verificationContextForDSID:(NSNumber *)arg1 completion:(void (^)(ICUserVerificationContext *, NSError *))arg2;
 - (void)synchronize;
-- (void)setIdentityProperties:(ICUserIdentityProperties *)arg1 forDSID:(NSNumber *)arg2 withCompletionHandler:(void (^)(_Bool, NSError *))arg3;
-- (void)replaceIdentityProperties:(ICUserIdentityProperties *)arg1 forDSID:(NSNumber *)arg2 withCompletionHandler:(void (^)(_Bool, NSError *))arg3;
-- (void)removeIdentityForDSID:(NSNumber *)arg1 withCompletionHandler:(void (^)(_Bool, NSError *))arg2;
-- (ICMutableUserIdentityProperties *)identityPropertiesForDSID:(NSNumber *)arg1;
+- (void)setIdentityProperties:(ICUserIdentityProperties *)arg1 forDSID:(NSNumber *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
+- (void)replaceIdentityProperties:(ICUserIdentityProperties *)arg1 forDSID:(NSNumber *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
+- (void)removeIdentityForDSID:(NSNumber *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
+- (void)identityPropertiesForPrimaryICloudAccountWithCompletion:(void (^)(ICUserIdentityProperties *, NSError *))arg1;
+- (void)identityPropertiesForDSID:(NSNumber *)arg1 completion:(void (^)(ICUserIdentityProperties *, NSError *))arg2;
 - (void)updateActiveLockerAccountDSID:(NSNumber *)arg1 completion:(void (^)(NSError *))arg2;
+- (void)activeLockerAccountDSIDWithCompletion:(void (^)(NSNumber *, NSError *))arg1;
 - (void)updateActiveAccountDSID:(NSNumber *)arg1 completion:(void (^)(NSError *))arg2;
+- (void)activeAccountDSIDWithCompletion:(void (^)(NSNumber *, NSError *))arg1;
 @end
 

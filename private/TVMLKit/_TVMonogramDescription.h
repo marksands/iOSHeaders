@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSSecureCoding.h"
+#import "NSCopying.h"
 
 @class NSString, NSURL, UIColor, UIFont;
 
-@interface _TVMonogramDescription : NSObject <NSSecureCoding>
+@interface _TVMonogramDescription : NSObject <NSCopying>
 {
     _Bool _hasPlaceholder;
     NSString *_firstName;
@@ -30,7 +30,6 @@
     struct UIEdgeInsets _padding;
 }
 
-+ (_Bool)supportsSecureCoding;
 @property(nonatomic) __weak id <IKNetworkRequestLoader> requestLoader; // @synthesize requestLoader=_requestLoader;
 @property(retain, nonatomic) UIColor *borderColor; // @synthesize borderColor=_borderColor;
 @property(nonatomic) double borderWidth; // @synthesize borderWidth=_borderWidth;
@@ -48,9 +47,10 @@
 @property(readonly, copy, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
 @property(readonly, copy, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
 - (void).cxx_destruct;
+- (unsigned long long)preferedMonogramType;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithType:(unsigned long long)arg1;
 - (id)init;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 - (id)initWithFirstName:(id)arg1 lastName:(id)arg2 imageURL:(id)arg3 font:(id)arg4;
 
 @end

@@ -19,6 +19,8 @@
 @property(readonly, nonatomic) CDUnknownBlockType didBlock; // @synthesize didBlock=_didBlock;
 @property(readonly, nonatomic) CDUnknownBlockType willBlock; // @synthesize willBlock=_willBlock;
 - (void).cxx_destruct;
+- (void)didHandleInteractionWithGestureRecognizer:(id)arg1;
+- (void)willHandleInteractionWithGestureRecognizer:(id)arg1;
 - (void)didHandleInteractionWithControl:(id)arg1;
 - (void)willHandleInteractionWithControl:(id)arg1;
 - (id)initWithDidHandleInteractionBlock:(CDUnknownBlockType)arg1;

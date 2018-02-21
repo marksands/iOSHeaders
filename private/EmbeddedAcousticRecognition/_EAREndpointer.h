@@ -11,6 +11,7 @@
     struct unique_ptr<quasar::HybridEndpointer, std::__1::default_delete<quasar::HybridEndpointer>> _endpointer;
 }
 
++ (void)initialize;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (_Bool)acceptEagerResultWithFeatures:(id)arg1 featuresToLog:(id *)arg2;

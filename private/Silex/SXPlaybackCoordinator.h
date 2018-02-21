@@ -9,11 +9,10 @@
 #import "SXMediaSelectionControllerDataSource.h"
 #import "SXMediaSelectionControllerDelegate.h"
 #import "SXVideoMetadataProviding.h"
-#import "SXVolumeObserver.h"
 
 @class NSArray, NSError, NSHashTable, NSObject<SXVideoPlaybackHost>, NSString, SXAVPlayer, SXKeyValueObserver;
 
-@interface SXPlaybackCoordinator : NSObject <SXVideoMetadataProviding, SXMediaSelectionControllerDelegate, SXMediaSelectionControllerDataSource, SXVolumeObserver>
+@interface SXPlaybackCoordinator : NSObject <SXVideoMetadataProviding, SXMediaSelectionControllerDelegate, SXMediaSelectionControllerDataSource>
 {
     _Bool _hasMediaSelectionOptions;
     _Bool _muted;
@@ -29,9 +28,11 @@
     SXKeyValueObserver *_playerItemPresentationSizeObserver;
     SXKeyValueObserver *_readyForDisplayObserver;
     id <SXAVPlayerFactory> _playerFactory;
+    SXKeyValueObserver *_muteStateObserver;
     struct CGSize _dimensions;
 }
 
+@property(retain, nonatomic) SXKeyValueObserver *muteStateObserver; // @synthesize muteStateObserver=_muteStateObserver;
 @property(readonly, nonatomic) id <SXAVPlayerFactory> playerFactory; // @synthesize playerFactory=_playerFactory;
 @property(retain, nonatomic) SXKeyValueObserver *readyForDisplayObserver; // @synthesize readyForDisplayObserver=_readyForDisplayObserver;
 @property(retain, nonatomic) SXKeyValueObserver *playerItemPresentationSizeObserver; // @synthesize playerItemPresentationSizeObserver=_playerItemPresentationSizeObserver;
@@ -50,9 +51,10 @@
 - (void).cxx_destruct;
 - (void)removePlayerItemPresentationSizeObserver;
 - (void)addPlayerItemPresentationSizeObserver;
+- (void)muteStateChanged;
+- (void)addMuteStateObserver;
 - (void)updateMediaSelectionOptionAvailability;
 - (void)loadAvailableMediaCharacteristics;
-- (void)muteStateChanged:(_Bool)arg1;
 - (id)mediaSelectionController:(id)arg1 preferredMediaSelectionOptionInMediaSelectionGroup:(id)arg2;
 - (id)mediaSelectionController:(id)arg1 selectedMediaSelectionOptionInMediaSelectionGroup:(id)arg2;
 - (void)mediaSelectionController:(id)arg1 selectMediaSelectionOption:(id)arg2 inMediaSelectionGroup:(id)arg3;

@@ -6,13 +6,13 @@
 
 #import "HMFObject.h"
 
+#import "HMDHomeMessageReceiver.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "HMFTimerDelegate.h"
 
-@class HMDHome, HMFMessageDispatcher, HMFTimer, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDHome, HMFMessageDispatcher, HMFTimer, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDHomeReprovisionHandler : HMFObject <HMFMessageReceiver, HMFTimerDelegate, HMFLogging>
+@interface HMDHomeReprovisionHandler : HMFObject <HMFTimerDelegate, HMFLogging, HMDHomeMessageReceiver>
 {
     _Bool _reprovisionBrowsingAllowed;
     _Bool _reprovisionBrowsingPending;
@@ -24,6 +24,7 @@
     NSMutableDictionary *_pendingReprovisionRequests;
 }
 
++ (_Bool)hasMessageReceiverChildren;
 + (id)logCategory;
 @property(retain, nonatomic) NSMutableDictionary *pendingReprovisionRequests; // @synthesize pendingReprovisionRequests=_pendingReprovisionRequests;
 @property(retain, nonatomic) HMFTimer *disableReprovisionBrowsingTimer; // @synthesize disableReprovisionBrowsingTimer=_disableReprovisionBrowsingTimer;
@@ -53,6 +54,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

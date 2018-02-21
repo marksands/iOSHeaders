@@ -8,7 +8,7 @@
 
 #import "CLSRelationable.h"
 
-@class CLSClass, NSArray, NSDate, NSString;
+@class CLSClass, NSArray, NSDate, NSError, NSString;
 
 @interface CLSHandout : CLSObject <CLSRelationable>
 {
@@ -18,6 +18,8 @@
     NSDate *_dateOfPublication;
     NSDate *_dateLastReviewed;
     long long _state;
+    long long _publishingState;
+    NSError *_publishError;
     NSString *__title;
     NSString *__instructions;
     NSDate *__dueDate;
@@ -29,6 +31,8 @@
 @property(retain, nonatomic) NSDate *_dueDate; // @synthesize _dueDate=__dueDate;
 @property(copy, nonatomic) NSString *_instructions; // @synthesize _instructions=__instructions;
 @property(copy, nonatomic) NSString *_title; // @synthesize _title=__title;
+@property(retain, nonatomic) NSError *publishError; // @synthesize publishError=_publishError;
+@property(nonatomic) long long publishingState; // @synthesize publishingState=_publishingState;
 @property(nonatomic) long long state; // @synthesize state=_state;
 @property(retain, nonatomic) NSDate *dateLastReviewed; // @synthesize dateLastReviewed=_dateLastReviewed;
 @property(retain, nonatomic) NSDate *dateOfPublication; // @synthesize dateOfPublication=_dateOfPublication;
@@ -52,7 +56,6 @@
 - (id)init;
 - (id)_init;
 @property(readonly, nonatomic) CLSClass *effectiveClass;
-- (id)identity;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -8,21 +8,25 @@
 
 #import "MPSImageSizeEncodingState.h"
 
-@class NSString;
+@class MPSCNNConvolution, NSString;
 
 @interface MPSCNNConvolutionGradientState : MPSNNGradientState <MPSImageSizeEncodingState>
 {
     _Bool _initialized;
+    MPSCNNConvolution *_convolution;
 }
 
-- (id)initWithDevice:(id)arg1 weightsBufferSize:(unsigned long long)arg2 biasesBufferSize:(unsigned long long)arg3;
++ (id)temporaryStateWithCommandBuffer:(id)arg1 resourceList:(id)arg2 convolution:(id)arg3;
+@property(readonly, retain, nonatomic) MPSCNNConvolution *convolution; // @synthesize convolution=_convolution;
+@property(readonly, copy) NSString *debugDescription;
+- (void)dealloc;
+- (id)initWithDevice:(id)arg1 weightsBufferSize:(unsigned long long)arg2 biasesBufferSize:(unsigned long long)arg3 convolution:(id)arg4;
 @property(readonly, nonatomic) id <MTLBuffer> gradientForBiases;
 @property(readonly, nonatomic) id <MTLBuffer> gradientForWeights;
 @property(readonly, nonatomic) unsigned long long sourceHeight;
 @property(readonly, nonatomic) unsigned long long sourceWidth;
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;

@@ -10,8 +10,6 @@
 {
 }
 
-+ (id)getNeedsLocateAckLostModeFileURL;
-+ (id)getManagedLostModeFileURL;
 + (id)_fmipSharedFileURL;
 + (_Bool)_removeSharedInfo;
 + (_Bool)_writeSharedInfo:(id)arg1;

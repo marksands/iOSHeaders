@@ -46,7 +46,7 @@
 - (void)fullscreenAppViewControllerSwitcherDidSelectAppManager:(id)arg1;
 - (void)fullscreenAppViewControllerSwitcherDidSelectAppStore:(id)arg1;
 - (void)fullscreenAppViewController:(id)arg1 hasUpdatedLastTouchDate:(id)arg2;
-- (void)fullscreenAppViewController:(id)arg1 wantsToSwitchToPlugin:(id)arg2;
+- (void)fullscreenAppViewController:(id)arg1 wantsToSwitchToPlugin:(id)arg2 datasource:(id)arg3;
 - (void)fullscreenAppViewControllerWantsToCollapse:(id)arg1;
 - (void)dismissCurrentFullscreenBrowserAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)presentCurrentBrowserFullscreenAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;

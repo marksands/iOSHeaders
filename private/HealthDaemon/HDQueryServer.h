@@ -16,11 +16,11 @@
 {
     _Bool _didEndActivationTransaction;
     _Bool _observingData;
+    _Bool _isCollectingData;
     NSDictionary *_baseDataEntityEncodingOptions;
     HKQueryServerConfiguration *_configuration;
     CDUnknownBlockType _queryDidFinishHandler;
     NSArray *_dataObservationAssertions;
-    _Bool _shouldTakeObservationAssertions;
     int _shouldFinish;
     int _shouldPause;
     NSObject<OS_dispatch_queue> *_unitTestQueryQueue;
@@ -85,7 +85,7 @@
 - (void)clientStateChanged;
 - (void)_queue_updateDataCollectionAssertions;
 - (void)_queue_stopDataCollection;
-- (void)_queue_startDataCollection;
+- (void)_queue_startDataCollectionIfNecessary;
 - (id)_queue_sampleTypesForObservation;
 - (void)_queue_setQueryState:(long long)arg1;
 - (void)_queue_transitionToSuspendedState:(long long)arg1;
@@ -95,15 +95,13 @@
 - (_Bool)_shouldSuspendQuery;
 - (_Bool)_shouldStopProcessingQuery;
 - (void)resumeServer;
-- (void)_pauseServerValidate:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)pauseServerValidateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)pauseServer;
 - (void)deactivateServerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_queue_startQueryIfNecessary;
 - (void)_scheduleStartQuery;
 - (void)_queue_closeActivationTransactionIfNecessary;
 - (void)setQueryDidFinishHandler:(CDUnknownBlockType)arg1;
-- (void)activateServerWithCompletion:(CDUnknownBlockType)arg1;
+- (void)activateServerPaused:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_activationTransactionString;
 - (void)dealloc;
 - (id)initWithQueryUUID:(id)arg1 dataObject:(id)arg2 clientProxy:(id)arg3 client:(id)arg4 delegate:(id)arg5 profile:(id)arg6;

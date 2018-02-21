@@ -96,6 +96,7 @@
     NSString *_personalizationWhitelistResourceId;
     NSString *_personalizationWidgetSectionMappingResourceId;
     NTPBPrefetchConfig *_prefetchConfig;
+    int _privateDataMigrationCleanupLevel;
     int _trendingStyle;
     NTPBWidgetConfig *_widgetConfig;
     NTPBWidgetConfig *_widgetConfig2;
@@ -170,6 +171,7 @@
         unsigned int enabledPrivateDataEncryptionLevel:1;
         unsigned int orderFeedEnabledLevel:1;
         unsigned int orderFeedEnabledLevelDeprecated:1;
+        unsigned int privateDataMigrationCleanupLevel:1;
         unsigned int trendingStyle:1;
         unsigned int alternativeButlerWidgetConfigEnabled:1;
         unsigned int articleSearchEnabled:1;
@@ -270,6 +272,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasPrivateDataMigrationCleanupLevel;
+@property(nonatomic) int privateDataMigrationCleanupLevel; // @synthesize privateDataMigrationCleanupLevel=_privateDataMigrationCleanupLevel;
 @property(nonatomic) _Bool hasUserSegmentationApiModMax;
 @property(nonatomic) _Bool hasUserSegmentationApiModThreshold;
 @property(nonatomic) _Bool hasExpirePinnedArticlesAfter;

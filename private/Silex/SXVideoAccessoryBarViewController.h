@@ -6,7 +6,7 @@
 
 #import "UIViewController.h"
 
-@class AVBackgroundView, SXVideoAccessoryBarDisplayModeTransition, SXVideoAccessoryBarDisplayState, SXVideoAccessoryBarItemTransition;
+@class AVBackgroundView, SXVideoAccessoryBarDisplayModeTransition, SXVideoAccessoryBarDisplayState, SXVideoAccessoryBarItemTransition, SXVideoProgressViewController;
 
 @interface SXVideoAccessoryBarViewController : UIViewController
 {
@@ -17,6 +17,7 @@
     id <SXVideoAccessoryItemDisplayModeTransitionCoordinatorProviding> _displayModeTransitionCoordinatorProvider;
     AVBackgroundView *_leadingContainerView;
     AVBackgroundView *_trailingContainerView;
+    SXVideoProgressViewController *_progressViewController;
     SXVideoAccessoryBarItemTransition *_pendingLeadingItemTransition;
     SXVideoAccessoryBarItemTransition *_pendingTrailingItemTransition;
     SXVideoAccessoryBarItemTransition *_activeLeadingItemTransition;
@@ -33,6 +34,7 @@
 @property(retain, nonatomic) SXVideoAccessoryBarItemTransition *activeLeadingItemTransition; // @synthesize activeLeadingItemTransition=_activeLeadingItemTransition;
 @property(retain, nonatomic) SXVideoAccessoryBarItemTransition *pendingTrailingItemTransition; // @synthesize pendingTrailingItemTransition=_pendingTrailingItemTransition;
 @property(retain, nonatomic) SXVideoAccessoryBarItemTransition *pendingLeadingItemTransition; // @synthesize pendingLeadingItemTransition=_pendingLeadingItemTransition;
+@property(readonly, nonatomic) SXVideoProgressViewController *progressViewController; // @synthesize progressViewController=_progressViewController;
 @property(readonly, nonatomic) AVBackgroundView *trailingContainerView; // @synthesize trailingContainerView=_trailingContainerView;
 @property(readonly, nonatomic) AVBackgroundView *leadingContainerView; // @synthesize leadingContainerView=_leadingContainerView;
 @property(readonly, nonatomic) id <SXVideoAccessoryItemDisplayModeTransitionCoordinatorProviding> displayModeTransitionCoordinatorProvider; // @synthesize displayModeTransitionCoordinatorProvider=_displayModeTransitionCoordinatorProvider;
@@ -47,10 +49,11 @@
 - (void)expandItem:(id)arg1 animated:(_Bool)arg2;
 - (void)setTrailingItem:(id)arg1 withCoordinator:(id)arg2;
 - (void)setLeadingItem:(id)arg1 withCoordinator:(id)arg2;
-- (void)viewDidLayoutSubviews;
+- (void)updateViewConstraints;
+- (void)viewWillLayoutSubviews;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLoad;
-- (id)initWithItemSizer:(id)arg1 displayModeTransitionCoordinatorProvider:(id)arg2;
+- (id)initWithItemSizer:(id)arg1 progressViewController:(id)arg2 displayModeTransitionCoordinatorProvider:(id)arg3;
 
 @end
 

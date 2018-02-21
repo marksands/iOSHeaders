@@ -13,14 +13,16 @@
 @interface SXVASTAnalyticsEventInfoFactory : NSObject <SXVASTAnalyticsEventInfoFactory>
 {
     id <SXVisibilityMonitoring> _visibilityMonitor;
+    id <SXVolumeProviding> _volumeProvider;
 }
 
+@property(readonly, nonatomic) id <SXVolumeProviding> volumeProvider; // @synthesize volumeProvider=_volumeProvider;
 @property(readonly, nonatomic) id <SXVisibilityMonitoring> visibilityMonitor; // @synthesize visibilityMonitor=_visibilityMonitor;
 - (void).cxx_destruct;
 - (id)createAnalyticsProgressEventInfoForQuartile:(unsigned long long)arg1 withMetadata:(id)arg2;
 - (id)createAnalyticsEventInfoWithMetadata:(id)arg1;
 - (id)createAnalyticsEventInfo;
-- (id)initWithVisibilityMonitor:(id)arg1;
+- (id)initWithVisibilityMonitor:(id)arg1 volumeProvider:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

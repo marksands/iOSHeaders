@@ -7,12 +7,14 @@
 #import "NSObject.h"
 
 #import "NSCoding.h"
+#import "NSSecureCoding.h"
 
-@interface MPModelKind : NSObject <NSCoding>
+@interface MPModelKind : NSObject <NSCoding, NSSecureCoding>
 {
     Class _modelClass;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)kindWithModelClass:(Class)arg1;
 @property(readonly, nonatomic) Class modelClass; // @synthesize modelClass=_modelClass;
 - (void).cxx_destruct;

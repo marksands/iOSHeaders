@@ -17,11 +17,13 @@
     unsigned long long _interfaceType;
     // Error parsing type: AB, name: _cachedFieldPropertiesValid
     _Bool _hasPaymentDeviceFieldProperties;
+    _Bool _forceConnectionOnResume;
     id <PKPaymentServiceDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <PKPaymentServiceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_accessDelegate:(CDUnknownBlockType)arg1;
 - (_Bool)_hasInterfaceOfType:(unsigned long long)arg1;
 - (void)_defaultPaymentPassUniqueIdentifier:(CDUnknownBlockType)arg1;
 - (void)_messagesAppLaunchTokenForPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -99,6 +101,7 @@
 - (void)remoteServiceDidSuspend:(id)arg1;
 - (void)remoteService:(id)arg1 didInterruptConnection:(id)arg2;
 - (void)remoteService:(id)arg1 didEstablishConnection:(id)arg2;
+- (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
 - (id)init;
 

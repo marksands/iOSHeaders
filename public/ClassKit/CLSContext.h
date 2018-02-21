@@ -63,7 +63,6 @@
 @property(nonatomic) long long authorizationStatus;
 - (void)removeFromParent;
 - (id)childContextWithIdentifier:(id)arg1;
-- (void)childrenWithCompletion:(CDUnknownBlockType)arg1;
 - (void)addChildContext:(id)arg1;
 - (void)mergeWithObject:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -78,7 +77,6 @@
 - (id)activityViewControllerPlaceholderItem:(id)arg1;
 - (id)createNewActivity;
 @property(readonly, nonatomic) CLSActivity *currentActivity;
-- (id)identity;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

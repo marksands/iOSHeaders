@@ -10,20 +10,32 @@
 
 @interface IMLogDump : NSObject
 {
+    _Bool _shouldCollectStats;
     NSObject<OS_dispatch_queue> *_logDumpQueue;
 }
 
 + (id)sharedInstance;
+@property(readonly, nonatomic) _Bool shouldCollectStats; // @synthesize shouldCollectStats=_shouldCollectStats;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *logDumpQueue; // @synthesize logDumpQueue=_logDumpQueue;
-- (void)disconnectedFromEitherPowerOrWifi;
-- (void)reconnectedToBothPowerAndWifi;
+- (void)disconnectFromResourceForTotalDurationKey:(id)arg1 dateKey:(id)arg2 powerWifiDict:(id)arg3;
+- (void)reconnectToResourceForTotalDurationKey:(id)arg1 dateKey:(id)arg2 powerWifiDict:(id)arg3;
 - (id)getPowerAndWifiDictionaryForKey:(id)arg1;
 - (id)todaysKey;
 - (id)createTodaysStatisticDictionaryIfNeeded;
-- (void)noteSyncEnded:(_Bool)arg1;
-- (void)incrementSyncAttempts:(_Bool)arg1;
+- (void)_noteSyncEndedForDurationKey:(id)arg1 dateKey:(id)arg2;
+- (void)noteAHDASyncEnded;
+- (void)noteCoreDuetSyncEnded;
+- (void)_incrementSyncAttemptsWithKey:(id)arg1 syncDateKey:(id)arg2;
+- (void)incrementAHDASyncAttempts;
+- (void)incrementCoreDuetSyncAttempts;
 - (void)printPowerAndWifiStats;
+- (id)_calculatePowerAndWifiConnectedTimeInMinutesForDictionary:(id)arg1;
+- (void)_calculateConnectedMinutesForDateKey:(id)arg1 durationKey:(id)arg2 daysDictionary:(id)arg3 totalDurationDictionary:(id)arg4 totalDurationKey:(id)arg5;
+- (_Bool)_isOnPower;
+- (_Bool)_isWifiUsable;
+- (id)_dictionaryForDayKey:(id)arg1;
 - (void)printSyncDurationStats;
+- (double)_calculateMinutesSyncingWithDurationKey:(id)arg1 attemptDateKey:(id)arg2;
 - (void)printIfWeAreInTheMiddleOfASync;
 - (void)clearSyncStats;
 - (void)_includeCloudKitDebugFilesAtPath:(id)arg1;

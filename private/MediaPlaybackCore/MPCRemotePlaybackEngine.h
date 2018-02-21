@@ -18,6 +18,7 @@
 - (id)playerPath;
 - (void).cxx_destruct;
 - (void)_updatePlayerPath;
+- (void)setWantsReverseProcessAssertion:(_Bool)arg1;
 - (void)becomeActive;
 - (void)start;
 - (void)dealloc;

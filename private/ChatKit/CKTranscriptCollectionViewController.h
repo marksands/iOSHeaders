@@ -198,8 +198,8 @@
 - (void)balloonView:(id)arg1 mediaObjectDidFinishPlaying:(id)arg2;
 - (void)interactionStoppedFromPreviewItemControllerInBalloonView:(id)arg1;
 - (void)interactionStartedFromPreviewItemControllerInBalloonView:(id)arg1;
-- (void)liveViewController:(id)arg1 stageSticker:(id)arg2 skipShelf:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)liveViewController:(id)arg1 stagePayload:(id)arg2 skipShelf:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)liveViewController:(id)arg1 stageSticker:(id)arg2 skipShelf:(_Bool)arg3 allowAllCommits:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)liveViewController:(id)arg1 stagePayload:(id)arg2 skipShelf:(_Bool)arg3 allowAllCommits:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)liveViewController:(id)arg1 requestPresentationStyleExpanded:(_Bool)arg2;
 - (void)associatedMessageTranscriptCellLongTouched:(id)arg1;
 - (void)associatedMessageTranscriptCellDoubleTapped:(id)arg1;

@@ -10,11 +10,14 @@
 {
 }
 
+- (id)_defaultBackgroundGradient;
 - (_Bool)hasSeenAllPreviousArticleIDs:(id)arg1;
 - (id)headlinesLogFromHeadlines:(id)arg1 includeScore:(_Bool)arg2;
 - (id)_filterHeadlines:(id)arg1 withArticleMetadata:(id)arg2;
+- (void)_fetchHeadlinesForArticleIDs:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (id)_personalizedFeedTransformationWithLimit:(unsigned long long)arg1 otherArticleIDs:(id)arg2 preselectedArticles:(id)arg3;
 - (id)_feedTransformationWithOtherArticleIDs:(id)arg1;
+- (void)_selectHeadlinesFromMandatory:(id)arg1 optional:(id)arg2 articleMetadataByArticleID:(id)arg3 cursor:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)performOperation;
 - (void)_buildGroupWithCatchUpOperation:(id)arg1;
 

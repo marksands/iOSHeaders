@@ -52,7 +52,7 @@
 - (void)componentView:(id)arg1 didUnloadBannerView:(id)arg2 withError:(id)arg3;
 - (void)componentView:(id)arg1 didLoadBannerView:(id)arg2;
 - (CDUnknownBlockType)prerollForComponent:(id)arg1 metadataProvider:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (CDUnknownBlockType)bannerViewForComponentView:(id)arg1 metadataProvider:(id)arg2 adType:(unsigned long long)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (CDUnknownBlockType)bannerViewForComponentView:(id)arg1 component:(id)arg2 metadataProvider:(id)arg3 adType:(unsigned long long)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (_Bool)componentViewWithinScreenHeightOfViewport:(id)arg1;
 - (_Bool)shouldRequestBannerViewForComponentView:(id)arg1;
 - (void)transitionToSizeWithVisibleBounds:(struct CGRect)arg1;

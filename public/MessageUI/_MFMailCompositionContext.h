@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "MFMailCompositionUTITypes.h"
+
 @class MFAttachmentCompositionContext, MFMailMessage, MFMessageLoadingContext, NSArray, NSMutableArray, NSString, UIView<MFComposeBodyField>;
 
-@interface _MFMailCompositionContext : NSObject
+@interface _MFMailCompositionContext : NSObject <MFMailCompositionUTITypes>
 {
     NSString *_sendingAddress;
     NSString *_subject;
@@ -32,6 +34,7 @@
     _Bool _usingDefaultAccount;
     _Bool _prefersFirstLineSelection;
     int _sourceAccountManagement;
+    NSArray *UTITypes;
     unsigned long long _caretPosition;
     NSString *_originatingBundleID;
     UIView<MFComposeBodyField> *_bodyField;
@@ -43,6 +46,7 @@
 @property(retain, nonatomic) MFMessageLoadingContext *loadingContext; // @synthesize loadingContext=_loadingContext;
 @property(nonatomic) unsigned long long caretPosition; // @synthesize caretPosition=_caretPosition;
 @property(nonatomic) _Bool prefersFirstLineSelection; // @synthesize prefersFirstLineSelection=_prefersFirstLineSelection;
+@property(copy, nonatomic) NSArray *UTITypes; // @synthesize UTITypes;
 @property(retain, nonatomic) NSString *attachmentToMarkupContentID; // @synthesize attachmentToMarkupContentID=_attachmentToMarkupContentID;
 @property(readonly, nonatomic) MFAttachmentCompositionContext *attachmentContext; // @synthesize attachmentContext=_attachmentContext;
 @property(readonly, nonatomic) MFMailMessage *originalMessage; // @synthesize originalMessage=_originalMessage;

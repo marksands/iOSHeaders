@@ -4,33 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <ManagedConfiguration/MCAggregateLogProfileKey.h>
+#import <ManagedConfiguration/MCAggregateLogFeatureKey.h>
 
-@class NSString;
-
-@interface MCAggregateLogProfileRestrictionKey : MCAggregateLogProfileKey
+@interface MCAggregateLogProfileRestrictionKey : MCAggregateLogFeatureKey
 {
-    unsigned long long _type;
-    NSString *_feature;
-    NSString *_nameSuffix;
 }
 
-+ (void)updateRestrictions;
-+ (id)_feature:(id)arg1 name:(id)arg2 type:(unsigned long long)arg3;
-+ (id)intersectionFeature:(id)arg1 name:(id)arg2;
-+ (id)objectFeature:(id)arg1 name:(id)arg2;
-+ (id)valueFeature:(id)arg1 name:(id)arg2;
-+ (id)falseFeature:(id)arg1 name:(id)arg2;
-+ (id)trueFeature:(id)arg1 name:(id)arg2;
-+ (id)intersectionFeature:(id)arg1;
-+ (id)objectFeature:(id)arg1;
-+ (id)valueFeature:(id)arg1;
-+ (id)falseFeature:(id)arg1;
-+ (id)trueFeature:(id)arg1;
-@property(retain, nonatomic) NSString *nameSuffix; // @synthesize nameSuffix=_nameSuffix;
-@property(retain, nonatomic) NSString *feature; // @synthesize feature=_feature;
-@property(nonatomic) unsigned long long type; // @synthesize type=_type;
-- (void).cxx_destruct;
++ (void)update;
 - (unsigned long long)value;
 - (id)name;
 

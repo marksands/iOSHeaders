@@ -51,6 +51,7 @@
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_updateNavigationButtons;
 - (void)_dismissViewController;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)viewDidLoad;
 - (id)remoteInterface;
 - (id)remoteViewController;

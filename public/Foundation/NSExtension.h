@@ -8,7 +8,7 @@
 
 #import "_NSExtensionContextHosting.h"
 
-@class BKSProcessAssertion, NSArray, NSBundle, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
+@class NSArray, NSBundle, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
 @interface NSExtension : NSObject <_NSExtensionContextHosting>
 {
@@ -30,8 +30,6 @@
     NSMutableDictionary *__extensionServiceConnections;
     NSMutableDictionary *__extensionContexts;
     NSSet *__allowedErrorClasses;
-    BKSProcessAssertion *__extensionProcessAssertion;
-    long long __assertionRefCount;
     NSUUID *_connectionUUID;
     NSObject<OS_dispatch_queue> *__safePluginQueue;
 }
@@ -52,8 +50,6 @@
 @property(nonatomic) NSObject<OS_dispatch_queue> *_safePluginQueue; // @synthesize _safePluginQueue=__safePluginQueue;
 @property(copy, nonatomic) NSUUID *connectionUUID; // @synthesize connectionUUID=_connectionUUID;
 @property(nonatomic, getter=_isObservingHostAppStateChanges, setter=_setObservingHostAppStateChanges:) _Bool observingHostAppStateChanges; // @synthesize observingHostAppStateChanges=_observingHostAppStateChanges;
-@property(nonatomic, setter=_setAssertionRefCount:) long long _assertionRefCount; // @synthesize _assertionRefCount=__assertionRefCount;
-@property(retain, setter=_setExtensionProcessAssertion:) BKSProcessAssertion *_extensionProcessAssertion; // @synthesize _extensionProcessAssertion=__extensionProcessAssertion;
 @property(copy, nonatomic, setter=_setAllowedErrorClasses:) NSSet *_allowedErrorClasses; // @synthesize _allowedErrorClasses=__allowedErrorClasses;
 @property(retain, nonatomic, setter=_setExtensionContexts:) NSMutableDictionary *_extensionContexts; // @synthesize _extensionContexts=__extensionContexts;
 @property(retain, nonatomic, setter=_setExtensionServiceConnections:) NSMutableDictionary *_extensionServiceConnections; // @synthesize _extensionServiceConnections=__extensionServiceConnections;
@@ -79,6 +75,8 @@
 - (void)_kill:(int)arg1;
 - (void)_safelyEndUsingWithProcessAssertion:(id)arg1 continuation:(CDUnknownBlockType)arg2;
 - (void)_safelyEndUsing:(CDUnknownBlockType)arg1;
+- (void)_safelyBeginUsing_withAssertion:(CDUnknownBlockType)arg1;
+- (void)_safelyBeginUsing_withAssertion_onSafeQueue:(CDUnknownBlockType)arg1;
 - (void)_safelyBeginUsing:(CDUnknownBlockType)arg1;
 - (int)_plugInProcessIdentifier;
 - (_Bool)_wantsProcessPerRequest;
@@ -98,7 +96,7 @@
 - (void)cancelExtensionRequestWithIdentifier:(id)arg1;
 - (void)beginExtensionRequestWithInputItems:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)beginExtensionRequestWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_reallyBeginExtensionRequestWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_reallyBeginExtensionRequestWithInputItems:(id)arg1 processAssertion:(id)arg2 listenerEndpoint:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)_bareExtensionServiceConnection;
 - (_Bool)attemptOptOut:(id *)arg1;
 - (_Bool)attemptOptIn:(id *)arg1;

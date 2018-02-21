@@ -53,6 +53,7 @@
 - (void)playedToEnd:(id)arg1;
 - (void)addObservers;
 - (void)stopTimeObserver;
+- (void)updateTime:(CDStruct_1b6d18a9)arg1 duration:(CDStruct_1b6d18a9)arg2;
 - (void)startTimeObserver;
 - (void)loadFrameRate;
 @property(readonly, nonatomic) double totalTimePlayed;

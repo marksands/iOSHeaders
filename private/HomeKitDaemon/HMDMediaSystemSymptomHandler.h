@@ -6,13 +6,13 @@
 
 #import "HMFObject.h"
 
+#import "HMDHomeMessageReceiver.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "NSSecureCoding.h"
 
 @class HMDMediaSystem, HMFMessageDispatcher, NSDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDMediaSystemSymptomHandler : HMFObject <NSSecureCoding, HMFLogging, HMFMessageReceiver>
+@interface HMDMediaSystemSymptomHandler : HMFObject <NSSecureCoding, HMFLogging, HMDHomeMessageReceiver>
 {
     NSUUID *_uuid;
     HMDMediaSystem *_mediaSystem;
@@ -21,6 +21,7 @@
     HMFMessageDispatcher *_msgDispatcher;
 }
 
++ (_Bool)hasMessageReceiverChildren;
 + (_Bool)supportsSecureCoding;
 + (id)logCategory;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
@@ -49,6 +50,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly) Class superclass;
 
 @end

@@ -130,6 +130,7 @@
 - (void)setAdditionalTrailingNavigationBarButtonItems:(id)arg1;
 - (void)snapshotForParentLocationFrom:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)prepareParentHierarchyIfNeededWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)showLocation:(id)arg1 animated:(_Bool)arg2 retryingIfNeeded:(_Bool)arg3 withCompletionBlock:(CDUnknownBlockType)arg4;
 - (void)showLocation:(id)arg1 animated:(_Bool)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
 - (void)changeToLocation:(id)arg1;
 - (void)_toggleSelectionMode;

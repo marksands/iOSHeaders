@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSMutableArray, NSString, NTPBCategory, NTPBCoverArticlesConfig, NTPBTopStoriesConfig;
+@class NSMutableArray, NSString, NTPBCategory, NTPBCoverArticlesConfig, NTPBTopStoriesConfig, NTPBVideoPlayerConfig;
 
 @interface NTPBLanguageConfig : PBCodable <NSCopying>
 {
@@ -23,14 +23,17 @@
     NSString *_hiddenFeedId;
     NSString *_languageTag;
     NSMutableArray *_mediaSharingBlacklistedChannelIds;
+    NSString *_moreVideosChannelId;
     NSMutableArray *_onboardingTagIds;
     NSMutableArray *_preSubscribedFeedIds;
     NSMutableArray *_preSubscribedNotificationsChannelIds;
     NSMutableArray *_recommendedNotificationChannels;
     NTPBCategory *_rootCategory;
     NSString *_savedStoriesTagId;
+    NTPBVideoPlayerConfig *_shareVideoPlayerConfig;
     NSString *_specialEventsChannelId;
     NTPBTopStoriesConfig *_topStoriesConfig;
+    NSString *_topVideosChannelId;
     NSString *_trendingTagId;
     NSString *_widgetSectionConfigId;
 }
@@ -40,6 +43,9 @@
 + (Class)preSubscribedNotificationsChannelIdsType;
 + (Class)onboardingTagIdsType;
 + (Class)preSubscribedFeedIdsType;
+@property(retain, nonatomic) NTPBVideoPlayerConfig *shareVideoPlayerConfig; // @synthesize shareVideoPlayerConfig=_shareVideoPlayerConfig;
+@property(retain, nonatomic) NSString *moreVideosChannelId; // @synthesize moreVideosChannelId=_moreVideosChannelId;
+@property(retain, nonatomic) NSString *topVideosChannelId; // @synthesize topVideosChannelId=_topVideosChannelId;
 @property(retain, nonatomic) NSString *specialEventsChannelId; // @synthesize specialEventsChannelId=_specialEventsChannelId;
 @property(retain, nonatomic) NSMutableArray *mediaSharingBlacklistedChannelIds; // @synthesize mediaSharingBlacklistedChannelIds=_mediaSharingBlacklistedChannelIds;
 @property(retain, nonatomic) NSString *breakingNewsChannelId; // @synthesize breakingNewsChannelId=_breakingNewsChannelId;
@@ -70,6 +76,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasShareVideoPlayerConfig;
+@property(readonly, nonatomic) _Bool hasMoreVideosChannelId;
+@property(readonly, nonatomic) _Bool hasTopVideosChannelId;
 @property(readonly, nonatomic) _Bool hasSpecialEventsChannelId;
 - (id)mediaSharingBlacklistedChannelIdsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)mediaSharingBlacklistedChannelIdsCount;

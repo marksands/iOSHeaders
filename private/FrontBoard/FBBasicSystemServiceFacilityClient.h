@@ -16,7 +16,8 @@
 }
 
 + (id)facilityClientWithSystemServiceClient:(id)arg1;
-@property(readonly, nonatomic) id <FBSystemServiceClient> systemServiceClient; // @synthesize systemServiceClient=_systemServiceClient;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) __weak id <FBSystemServiceClient> systemServiceClient; // @synthesize systemServiceClient=_systemServiceClient;
 - (id)initWithSystemServiceClient:(id)arg1;
 
 // Remaining properties

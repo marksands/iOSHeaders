@@ -15,6 +15,7 @@
 {
     SXVideoAccessoryBarViewController *_accessoryBarViewController;
     SXTimeline *_timeline;
+    id <SXVideoControlTimingProviding> _timingProvider;
     id <SXVideoAccessoryItem> _nowPlayingItem;
     id <SXVideoAccessoryItem> _moreFromItem;
     id <SXVideoAccessoryItem> _replayItem;
@@ -41,19 +42,23 @@
 @property(readonly, nonatomic) id <SXVideoAccessoryItem> replayItem; // @synthesize replayItem=_replayItem;
 @property(readonly, nonatomic) id <SXVideoAccessoryItem> moreFromItem; // @synthesize moreFromItem=_moreFromItem;
 @property(readonly, nonatomic) id <SXVideoAccessoryItem> nowPlayingItem; // @synthesize nowPlayingItem=_nowPlayingItem;
+@property(readonly, nonatomic) id <SXVideoControlTimingProviding> timingProvider; // @synthesize timingProvider=_timingProvider;
 @property(readonly, nonatomic) SXTimeline *timeline; // @synthesize timeline=_timeline;
 @property(readonly, nonatomic) SXVideoAccessoryBarViewController *accessoryBarViewController; // @synthesize accessoryBarViewController=_accessoryBarViewController;
 - (void).cxx_destruct;
 - (void)hide:(_Bool)arg1 withAnimationCoordinator:(id)arg2;
-@property(readonly, nonatomic) double autoAppearanceTimeInterval;
+@property(readonly, nonatomic) _Bool supportsAutoAppearance;
 @property(readonly, nonatomic) _Bool hideable;
 - (_Bool)isVisible;
-- (void)cancelScheduledNowPlayingToMoreFromTransition;
-- (void)scheduleAutoRepeatingNowPlayingToMoreFromTransition;
-- (void)scheduleDisplayOfReplayItemWithTrailingItemExpansion;
+- (void)cancelScheduledNowPlayingOrMoreFromTransition;
+- (void)scheduleTransitionToLeadingItem:(id)arg1 withTimeInterval:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (void)scheduleMoreFromTransition;
+- (void)scheduleNowPlayingTransition;
+- (void)scheduleNowPlayingOrMoreFromTransition;
+- (void)scheduleDisplayOfReplayItemWithTrailingItemExpansionWithTimeInterval:(double)arg1;
 - (void)cancelDisplayOfReplayItemWithTrailingItemExpansion;
 - (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
-- (id)initWithTimeline:(id)arg1 accessoryBarViewController:(id)arg2 nowPlayingAccessoryItem:(id)arg3 moreFromAccessoryItem:(id)arg4 replayAccessoryItem:(id)arg5 upNextAccessoryItem:(id)arg6 discoverMoreAccessoryItem:(id)arg7 playbackStateObserverFactory:(id)arg8 queueProvider:(id)arg9 loadingStateObserverFactory:(id)arg10;
+- (id)initWithTimeline:(id)arg1 timingProvider:(id)arg2 accessoryBarViewController:(id)arg3 nowPlayingAccessoryItem:(id)arg4 moreFromAccessoryItem:(id)arg5 replayAccessoryItem:(id)arg6 upNextAccessoryItem:(id)arg7 discoverMoreAccessoryItem:(id)arg8 playbackStateObserverFactory:(id)arg9 queueProvider:(id)arg10 loadingStateObserverFactory:(id)arg11;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

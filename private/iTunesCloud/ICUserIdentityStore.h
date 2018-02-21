@@ -9,20 +9,20 @@
 #import "ICUserIdentityStoreBackendDelegate.h"
 #import "NSSecureCoding.h"
 
-@class ACAccountStore, ICDelegateAccountStore, ICDelegateAccountStoreOptions, ICUserIdentityStoreCoding, ICValueHistory, NSError, NSObject<OS_dispatch_queue>, NSString;
+@class ACAccountStore, ICDelegateAccountStore, ICDelegateAccountStoreOptions, ICUserIdentityStoreCoding, ICValueHistory, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString;
 
 @interface ICUserIdentityStore : NSObject <ICUserIdentityStoreBackendDelegate, NSSecureCoding>
 {
-    NSObject<OS_dispatch_queue> *_accessQueue;
     ACAccountStore *_accountStore;
     ICValueHistory *_activeAccountHistory;
     ICValueHistory *_activeLockerAccountHistory;
     id <ICUserIdentityStoreBackend> _backend;
-    NSObject<OS_dispatch_queue> *_callbackQueue;
     ICUserIdentityStoreCoding *_codingHelper;
     ICDelegateAccountStore *_delegateAccountStore;
-    NSError *_delegateAccountStoreError;
     ICDelegateAccountStoreOptions *_delegateAccountStoreOptions;
+    NSOperationQueue *_operationQueue;
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    NSObject<OS_dispatch_queue> *_callbackQueue;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -35,13 +35,13 @@
 - (void)_unregisterForDelegateAccountStoreNotifications:(id)arg1;
 - (void)_saveIdentityProperties:(id)arg1 forUserIdentity:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_registerForDelegateAccountStoreNotifications:(id)arg1;
-- (void)_openDelegateAccountStoreIfNeededIfNecessaryForUserIdentity:(id)arg1;
-- (void)_openDelegateAccountStoreIfNeeded;
+- (void)_openDelegateAccountStoreForUserIdentity:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)_openDelegateAccountStoreWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_importValuesFromCodingHelper:(id)arg1;
-- (id)_existingIdentityPropertiesForUserIdentity:(id)arg1;
-- (id)_dsidForUserIdentity:(id)arg1;
+- (void)_existingIdentityPropertiesForUserIdentity:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_dsidForUserIdentity:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_dsidForTimestamp:(unsigned long long)arg1 history:(id)arg2;
-- (void)_dispatchDidChange:(_Bool)arg1 didDelegateAccountStoreChange:(_Bool)arg2 result:(_Bool)arg3 error:(id)arg4 handler:(CDUnknownBlockType)arg5;
+- (void)_dispatchDidChangeNotification:(_Bool)arg1 didDelegateAccountStoreChange:(_Bool)arg2;
 - (_Bool)_allowsDelegationForUserIdentity:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -51,7 +51,6 @@
 - (void)_resetDelegateAccountStoreWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_reloadForExternalChange;
 - (void)_prepareDelegateAccountStoreWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (id)_delegateAccountStorePath;
 - (void)userIdentityStoreBackendDidChange:(id)arg1;
 - (void)updatePropertiesForUserIdentity:(id)arg1 usingBlock:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)updatePropertiesForUserIdentity:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;

@@ -6,14 +6,10 @@
 
 #import "HMAccessory.h"
 
-@class NSString;
-
 @interface HMAccessory (HFMediaAdditions)
 - (_Bool)hf_shouldDisplayManualFixOption;
 - (_Bool)hf_shouldShowSoftwareUpdateInfo;
 - (id)hf_identifyHomePod;
-@property(readonly, copy, nonatomic) NSString *hf_defaultName;
-@property(readonly, nonatomic) NSString *hf_editingNameForMediaAccessories;
 @property(readonly, nonatomic) _Bool hf_needsSoftwareUpdateToSupportBeingAddedToMediaSystem;
 @property(readonly, nonatomic) _Bool hf_isDumbSpeaker;
 @property(readonly, nonatomic) _Bool hf_isAirPortExtremeSpeaker;

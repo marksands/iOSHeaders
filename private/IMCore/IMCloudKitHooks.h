@@ -34,6 +34,7 @@
 - (void)loadDeletedMessagesWithLimit:(long long)arg1;
 - (void)_updateCloudKitState;
 - (void)_updateCloudKitStateWithDictionary:(id)arg1;
+- (id)exitDate;
 - (_Bool)isInExitState;
 - (void)_didAttemptToDisableAllDevicesResult:(_Bool)arg1;
 - (_Bool)isDisablingDevices;

@@ -15,7 +15,7 @@
 }
 
 + (id)convertFlightModel:(id)arg1 withError:(id *)arg2;
-+ (void)extractTimeForFlightStep:(id)arg1 fromLeg:(id)arg2 departure:(_Bool)arg3;
++ (void)extractTimeForFlightStep:(id)arg1 fromLeg:(id)arg2;
 + (id)airportFromSFAirport:(id)arg1;
 + (void)loadFlightStructuresWithFlightNumber:(unsigned long long)arg1 airlineCode:(id)arg2 date:(id)arg3 dateType:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
 + (void)loadFlightsWithNumber:(unsigned long long)arg1 airlineCode:(id)arg2 date:(id)arg3 dateType:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;

@@ -6,9 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSOrderedSet;
-
 @protocol SXVideoQueueModifying <NSObject>
-- (void)replaceCurrentQueueWithQueue:(NSOrderedSet *)arg1;
+- (id <SXVideoQueue>)modifyQueue:(id <SXVideoQueue>)arg1;
 @end
 

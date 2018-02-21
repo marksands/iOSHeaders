@@ -293,6 +293,7 @@
 - (void)userExpungeAssets:(id)arg1;
 - (void)userUntrashAssets:(id)arg1;
 - (void)userTrashAssets:(id)arg1;
+- (void)_reportExpungedAssets:(id)arg1;
 - (void)_userApplyTrashedState:(short)arg1 toAssets:(id)arg2;
 - (void)_filterAssets:(id)arg1 toTrashableAssets:(id *)arg2 deletableAssets:(id *)arg3 otherAssets:(id *)arg4;
 - (void)_userDeleteAssets:(id)arg1 withReason:(id)arg2;

@@ -14,7 +14,7 @@
 + (void)didGenerateCodableSourceAuthorizationsForSyncSession:(id)arg1;
 + (_Bool)generateSyncObjectsForSession:(id)arg1 predicate:(id)arg2 syncAnchorRange:(struct HDSyncAnchorRange)arg3 maxEncodedBytesPerMessage:(long long)arg4 profile:(id)arg5 error:(id *)arg6 handler:(CDUnknownBlockType)arg7;
 + (id)syncEntityIdentifier;
-+ (id)_backupInfoKey;
++ (id)backupInfoUserDefaultsKey;
 + (void)_setBackupInfo:(id)arg1;
 + (id)_backupInfoWithSyncStore:(id)arg1;
 + (void)resetAuthorizationBackupIdentifiers;

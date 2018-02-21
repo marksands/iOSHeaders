@@ -151,6 +151,7 @@
 - (void)_resumeAuthenticationWithPreviousError:(id)arg1 animated:(_Bool)arg2;
 - (void)_invalidPaymentDataWithParam:(id)arg1;
 - (void)_processClientCallback:(id)arg1;
+- (void)_updateCancelButtonEnabledForState:(unsigned long long)arg1 param:(id)arg2;
 - (_Bool)paymentAuthorizationStateMachine:(id)arg1 didTransitionFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3 withParam:(id)arg4;
 - (void)invalidate;
 - (id)handlePaymentRequest:(id)arg1 fromAppWithLocalizedName:(id)arg2 andApplicationIdentifier:(id)arg3;

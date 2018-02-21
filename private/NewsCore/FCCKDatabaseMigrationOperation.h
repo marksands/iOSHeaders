@@ -23,8 +23,8 @@
 @property(retain, nonatomic) id <FCCKDatabaseMigrator> migrator; // @synthesize migrator=_migrator;
 @property(retain, nonatomic) FCCKPrivateDatabase *database; // @synthesize database=_database;
 - (void).cxx_destruct;
-- (void)_migrateZoneWithName:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_migrateZoneNames:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_migrateZoneID:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_migrateZoneIDs:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)operationWillFinishWithError:(id)arg1;
 - (_Bool)canRetryWithError:(id)arg1 retryAfter:(id *)arg2;
 - (void)performOperation;

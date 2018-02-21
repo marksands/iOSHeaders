@@ -33,6 +33,7 @@
 @property(nonatomic) struct __CFString *defaultsBundleID; // @synthesize defaultsBundleID=_defaultsBundleID;
 @property(retain, nonatomic) NSMutableDictionary *factoryDefaults; // @synthesize factoryDefaults=_factoryDefaults;
 - (id)init;
+- (void)dealloc;
 
 @end
 

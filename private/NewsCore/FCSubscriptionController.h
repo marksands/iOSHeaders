@@ -45,7 +45,7 @@
 - (void)subscriptionList:(id)arg1 didAddSubscriptions:(id)arg2 changeSubscriptions:(id)arg3 removeSubscriptions:(id)arg4 eventInitiationLevel:(long long)arg5;
 - (_Bool)addGroupableSubscriptionForTagID:(id)arg1 origin:(unsigned long long)arg2 eventInitiationLevel:(long long)arg3;
 - (void)addAutoFavoriteSubscriptionForTagIDs:(id)arg1 groupableSubscriptionForTagIDs:(id)arg2 originProvider:(CDUnknownBlockType)arg3 eventInitiationLevelProvider:(CDUnknownBlockType)arg4 completion:(CDUnknownBlockType)arg5;
-- (void)removeAllAutofavoriteSubscriptions:(CDUnknownBlockType)arg1;
+- (void)removeAllAutoFavoriteSubscriptions:(CDUnknownBlockType)arg1;
 - (id)externalSignalDrivenAutoFavorites;
 - (_Bool)addIgnoredSubscriptionForTagID:(id)arg1 groupID:(id)arg2 eventInitiationLevel:(long long)arg3;
 - (_Bool)addIgnoredSubscriptionForTagID:(id)arg1 eventInitiationLevel:(long long)arg2;
@@ -53,6 +53,7 @@
 - (_Bool)addMutedSubscriptionForTagID:(id)arg1 groupID:(id)arg2 eventInitiationLevel:(long long)arg3;
 - (_Bool)addMutedSubscriptionForTagID:(id)arg1 eventInitiationLevel:(long long)arg2;
 - (_Bool)hasMutedSubscriptionForTagID:(id)arg1;
+- (_Bool)hasAutoFavoriteSubscriptionForTagID:(id)arg1;
 - (id)newlySubscribedTagIDsInDateRange:(id)arg1;
 - (void)fetchSubscribedTagsWithCallbackQueue:(id)arg1 preferCache:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)fetchAllTagsWithCallbackQueue:(id)arg1 maximumCachedAge:(double)arg2 qualityOfService:(long long)arg3 completion:(CDUnknownBlockType)arg4;
@@ -63,6 +64,7 @@
 - (_Bool)setNotificationsEnabled:(_Bool)arg1 forTagID:(id)arg2 error:(id *)arg3;
 - (_Bool)setNotificationsEnabled:(_Bool)arg1 forTag:(id)arg2 error:(id *)arg3;
 - (void)removeSubscriptionForTagID:(id)arg1 type:(unsigned long long)arg2 eventInitiationLevel:(long long)arg3;
+- (void)removeAutoFavoriteSubscriptionToTag:(id)arg1 eventInitiationLevel:(long long)arg2;
 - (void)removeSubscriptionToTag:(id)arg1 eventInitiationLevel:(long long)arg2;
 - (_Bool)addSubscriptionToTag:(id)arg1 eventInitiationLevel:(long long)arg2 options:(long long)arg3 error:(id *)arg4;
 - (_Bool)addSubscriptionToTag:(id)arg1 notificationsEnabled:(_Bool)arg2 error:(id *)arg3 eventInitiationLevel:(long long)arg4;

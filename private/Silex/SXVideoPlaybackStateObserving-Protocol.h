@@ -7,8 +7,7 @@
 #import "NSObject.h"
 
 @protocol SXVideoPlaybackStateObserving <NSObject>
-- (void)playbackPaused;
-- (void)playbackResumed;
-- (void)playbackStarted;
+@property(copy, nonatomic, setter=onChange:) CDUnknownBlockType changeBlock;
+@property(readonly, nonatomic, getter=isPlaying) _Bool playing;
 @end
 

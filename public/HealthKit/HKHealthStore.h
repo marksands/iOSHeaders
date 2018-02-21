@@ -231,8 +231,7 @@
 - (void)endHealthServiceDiscovery:(id)arg1;
 - (void)startHealthServiceDiscovery:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)setBadge:(id)arg1 forDomain:(long long)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_badgeForDomain:(long long)arg1 completion:(CDUnknownBlockType)arg2;
-- (id)badgeForDomain:(long long)arg1 error:(out id *)arg2;
+- (void)badgeForDomain:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)waitOnHealthCloudSyncWithProgress:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)disableCloudSyncAndDeleteAllCloudDataWithProgress:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchCloudDescriptionWithProgress:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;

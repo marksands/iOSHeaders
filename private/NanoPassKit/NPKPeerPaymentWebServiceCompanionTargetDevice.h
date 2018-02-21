@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NPSManager *preferencesSyncManager; // @synthesize preferencesSyncManager=_preferencesSyncManager;
 @property(retain, nonatomic) NPSDomainAccessor *globalDomainAccessor; // @synthesize globalDomainAccessor=_globalDomainAccessor;
 - (void).cxx_destruct;
+- (void)_handleAccountChanged:(id)arg1;
 - (id)deviceRegion;
 - (void)peerPaymentReRegisterWithURL:(id)arg1 pushToken:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)cloudStoreStatusWithCompletion:(CDUnknownBlockType)arg1;
@@ -35,6 +36,7 @@
 - (void)updateAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (id)account;
 - (void)downloadPassIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

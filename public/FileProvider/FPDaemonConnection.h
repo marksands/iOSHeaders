@@ -27,7 +27,6 @@
 - (void).cxx_destruct;
 - (void)dumpStateTo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)valuesForAttributes:(id)arg1 forItemAtURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)endpointForItemAtURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)unobserveWithToken:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)documentURLFromBookmarkableString:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)bookmarkableStringFromDocumentURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

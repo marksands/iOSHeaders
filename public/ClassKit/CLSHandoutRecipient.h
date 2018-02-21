@@ -27,7 +27,6 @@
 - (_Bool)validateObject:(id *)arg1;
 - (id)initWithClassID:(id)arg1 personID:(id)arg2;
 - (id)_init;
-- (id)identity;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

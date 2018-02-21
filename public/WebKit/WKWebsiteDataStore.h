@@ -65,6 +65,7 @@
 - (void)_resourceLoadStatisticsSetLastSeen:(double)arg1 forHost:(id)arg2;
 @property(nonatomic, setter=_setAllowsCellularAccess:) _Bool _allowsCellularAccess;
 @property(nonatomic, setter=_setBoundInterfaceIdentifier:) NSString *_boundInterfaceIdentifier;
+@property(nonatomic, setter=_setServiceWorkerRegistrationDirectory:) NSString *_serviceWorkerRegistrationDirectory;
 @property(nonatomic, setter=_setCacheStorageDirectory:) NSString *_cacheStorageDirectory;
 @property(nonatomic, setter=_setCacheStoragePerOriginQuota:) unsigned long long _cacheStoragePerOriginQuota;
 @property(nonatomic, setter=_setResourceLoadStatisticsEnabled:) _Bool _resourceLoadStatisticsEnabled;

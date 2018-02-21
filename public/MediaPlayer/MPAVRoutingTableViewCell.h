@@ -8,7 +8,7 @@
 
 #import "MPAVRoutingThemeableCellView.h"
 
-@class MPAVRoutingTableViewCellSubtitleTextState, MPVolumeSlider, NSString, NSTimer, UIActivityIndicatorView, UIImageView, UILabel;
+@class MPAVRoutingTableViewCellSubtitleTextState, NSString, NSTimer, UIActivityIndicatorView, UIImageView, UILabel;
 
 @interface MPAVRoutingTableViewCell : UITableViewCell <MPAVRoutingThemeableCellView>
 {
@@ -18,7 +18,6 @@
     NSTimer *_subtitleTextUpdateTimer;
     UIActivityIndicatorView *_spinnerView;
     UIImageView *_smartAudioImageView;
-    MPVolumeSlider *_volumeSlider;
     _Bool _mirroringSwitchVisible;
     _Bool _pendingSelection;
     _Bool _isDisplayedAsPicked;
@@ -59,7 +58,6 @@
 - (void)layoutSubviews;
 - (id)separatorView;
 - (id)iconView;
-- (id)volumeView;
 - (id)subtitleView;
 - (id)titleView;
 - (void)updateForEndpoint:(id)arg1 route:(id)arg2 inferLocalizedModelName:(_Bool)arg3;

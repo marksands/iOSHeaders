@@ -40,7 +40,6 @@
 @property(readonly, nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
 - (id)initWithData:(id)arg1 url:(id)arg2 messageGUID:(id)arg3 isFromMe:(_Bool)arg4;
-- (id)initWithData:(id)arg1 url:(id)arg2 messageGUID:(id)arg3;
 
 @end
 

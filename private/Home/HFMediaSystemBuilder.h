@@ -38,7 +38,7 @@
 @property(readonly, nonatomic) NSString *originalName;
 - (id)_rooms;
 - (id)_updateAssistantAccessControl;
-- (id)_updateRooms;
+- (id)_updateRoomAndName;
 - (id)_updateFavorite;
 - (id)_commitChangesToMediaSystemBuilder;
 - (id)_performValidation;

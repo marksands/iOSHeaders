@@ -19,7 +19,7 @@
 @property _Bool passcodeValid; // @synthesize passcodeValid=_passcodeValid;
 @property(retain) NSString *passcode; // @synthesize passcode=_passcode;
 - (void).cxx_destruct;
-- (void)setResponseFromDictionary:(id)arg1;
+- (void)setResponseFromData:(id)arg1;
 - (id)responsePayload;
 - (id)requestPayload;
 - (_Bool)hasResponse;

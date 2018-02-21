@@ -6,9 +6,11 @@
 
 #import "HMAccessory.h"
 
-@class HMResidentDevice, NSSet;
+@class HMResidentDevice, NSSet, NSString;
 
 @interface HMAccessory (HFAdditions)
+@property(readonly, copy, nonatomic) NSString *hf_defaultName;
+@property(readonly, nonatomic) NSString *hf_editingName;
 @property(readonly, nonatomic) _Bool hf_needsReprovisioningCheck;
 @property(readonly, nonatomic) HMAccessory *hf_owningBridgeAccessory;
 @property(readonly, nonatomic) NSSet *hf_servicesBehindBridge;

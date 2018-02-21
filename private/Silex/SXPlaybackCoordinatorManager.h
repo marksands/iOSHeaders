@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "SXPlaybackCoordinatorProviding.h"
+#import "SXVolumeObserving.h"
 
 @class NSMapTable, NSString;
 
-@interface SXPlaybackCoordinatorManager : NSObject <SXPlaybackCoordinatorProviding>
+@interface SXPlaybackCoordinatorManager : NSObject <SXPlaybackCoordinatorProviding, SXVolumeObserving>
 {
     id <SXPlaybackCoordinatorFactory> _factory;
     NSMapTable *_playbackCoordinators;
@@ -19,6 +20,7 @@
 @property(readonly, nonatomic) NSMapTable *playbackCoordinators; // @synthesize playbackCoordinators=_playbackCoordinators;
 @property(readonly, nonatomic) id <SXPlaybackCoordinatorFactory> factory; // @synthesize factory=_factory;
 - (void).cxx_destruct;
+- (void)muteStateChanged:(id)arg1;
 - (id)playbackCoordinatorForVideo:(id)arg1;
 - (id)initWithPlaybackCoordinatorFactory:(id)arg1;
 

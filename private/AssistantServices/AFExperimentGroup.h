@@ -19,6 +19,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)newWithBuilder:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSDictionary *properties; // @synthesize properties=_properties;
 @property(readonly, nonatomic) unsigned long long allocation; // @synthesize allocation=_allocation;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
@@ -31,7 +32,7 @@
 - (id)_descriptionWithIndent:(unsigned long long)arg1;
 - (id)description;
 - (id)initWithIdentifier:(id)arg1 allocation:(unsigned long long)arg2 properties:(id)arg3;
-- (id)builder;
+- (id)mutatedCopyWithMutator:(CDUnknownBlockType)arg1;
 
 @end
 

@@ -95,6 +95,8 @@
 @property(readonly, nonatomic) _Bool hasExpiredComponents;
 @property(readonly, nonatomic, getter=_hasFeatureLink) _Bool hasFeatureLink;
 @property(readonly, nonatomic, getter=_hasFlyover) _Bool hasFlyover;
+@property(readonly, nonatomic, getter=_hasGenderNeutralRestroom) _Bool hasGenderNeutralRestroom;
+@property(readonly, nonatomic, getter=_hasGenderNeutralRestroomAmenity) _Bool hasGenderNeutralRestroomAmenity;
 @property(readonly, nonatomic, getter=_hasGoodForKidsAmenity) _Bool hasGoodForKidsAmenity;
 @property(readonly, nonatomic, getter=_hasOperatingHours) _Bool hasOperatingHours;
 @property(readonly, nonatomic, getter=_hasPriceRange) _Bool hasPriceRange;

@@ -146,6 +146,7 @@
 - (void)becomeActiveWithAnimationSettings:(id)arg1;
 - (_Bool)becomeFirstResponder;
 - (_Bool)canBecomeFirstResponder;
+- (void)_resumeBiometricMatchingAdvisory:(_Bool)arg1;
 - (void)_overrideBiometricMatchingEnabled:(_Bool)arg1 forReason:(id)arg2;
 - (void)_setBiometricMatchingState:(unsigned long long)arg1;
 - (void)_evaluateBiometricMatchingState;

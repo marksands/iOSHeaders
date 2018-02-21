@@ -124,6 +124,7 @@
 - (void)_dispatchSetDeviceOrientation:(int)arg1;
 - (void)_dispatchSetMaximumUnobscuredSize:(struct FloatSize)arg1;
 - (void)_dispatchSetMinimumLayoutSize:(struct FloatSize)arg1;
+- (struct UIEdgeInsets)_scrollViewSystemContentInset;
 - (void)_enclosingScrollerScrollingEnded:(id)arg1;
 - (void)_didScroll;
 - (struct CGRect)_visibleContentRect;
@@ -283,7 +284,7 @@
 @property(nonatomic, setter=_setObscuredInsets:) struct UIEdgeInsets _obscuredInsets;
 - (void)_setMinimumLayoutSizeOverride:(struct CGSize)arg1;
 @property(readonly, nonatomic) struct CGSize _minimumLayoutSizeOverride;
-- (void)_setPageMuted:(long long)arg1;
+- (void)_setPageMuted:(unsigned long long)arg1;
 @property(nonatomic, setter=_setMediaCaptureEnabled:) _Bool _mediaCaptureEnabled;
 - (void)_muteMediaCapture;
 @property(readonly, nonatomic) _Bool _isInFullscreen;

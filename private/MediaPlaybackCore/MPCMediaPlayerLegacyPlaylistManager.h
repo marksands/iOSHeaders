@@ -83,7 +83,7 @@
 - (void)queueFeederDidInvalidateRealShuffleType:(id)arg1;
 - (void)queueFeeder:(id)arg1 didChangeContentsWithReplacementPlaybackContext:(id)arg2;
 - (void)queueFeeder:(id)arg1 didChangeContentsWithPreferredStartIndex:(unsigned long long)arg2 error:(id)arg3;
-- (unsigned long long)playlistItemCount;
+- (long long)playlistItemCount;
 - (long long)playlistIndexWithDelta:(long long)arg1 fromIndex:(long long)arg2 ignoreElapsedTime:(_Bool)arg3 didReachEnd:(_Bool *)arg4;
 - (void)setRepeatMode:(long long)arg1;
 - (_Bool)setPlaylistFeeder:(id)arg1 startIndex:(long long)arg2 keepPlaying:(_Bool)arg3;
@@ -116,6 +116,7 @@
 - (void)clearSoftQueue;
 - (void)clearHardQueue;
 - (void)addPlaybackContext:(id)arg1 toQueueWithInsertionType:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)uniqueIdentifier;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_commonInit;
 - (void)finalizeStateRestorationWithCompletionHandler:(CDUnknownBlockType)arg1;

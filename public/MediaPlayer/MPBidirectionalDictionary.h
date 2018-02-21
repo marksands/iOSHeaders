@@ -6,18 +6,19 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSCopying.h"
 #import "NSMutableCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSMutableDictionary;
 
-@interface MPBidirectionalDictionary : NSObject <NSCopying, NSMutableCopying, NSCoding>
+@interface MPBidirectionalDictionary : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
 {
     NSMutableDictionary *_keyToObjectDictionary;
     NSMutableDictionary *_objectToKeyDictionary;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)bidirectionalDictionary;
 - (void).cxx_destruct;
 - (id)description;
@@ -25,8 +26,8 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)keyForObject:(id)arg1;
 - (id)objectForKey:(id)arg1;
 - (id)allKeys;

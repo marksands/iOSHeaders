@@ -10,7 +10,6 @@
 
 @protocol NUVideoAdProviderDataSource <NSObject>
 - (double)aspectRatioOfPlayerForVideoAdProvider:(NUVideoAdProvider *)arg1;
-- (_Bool)previousVideoHasStartedPlaybackForVideoAdProvider:(NUVideoAdProvider *)arg1;
 - (unsigned long long)numberOfVideosPlayedSinceLastAdForVideoAdProvider:(NUVideoAdProvider *)arg1;
 - (unsigned long long)numberOfVideosPlayedInSessionForVideoAdProvider:(NUVideoAdProvider *)arg1;
 - (long long)onboardingVersionForVideoAdProvider:(NUVideoAdProvider *)arg1;

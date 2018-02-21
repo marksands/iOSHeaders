@@ -19,7 +19,7 @@
 
 @property(retain, nonatomic) FCInterestToken *interestToken; // @synthesize interestToken=_interestToken;
 @property(retain, nonatomic) NTPBChannelMembershipRecord *record; // @synthesize record=_record;
-@property(nonatomic) NSString *draftListID; // @synthesize draftListID=_draftListID;
+@property(retain, nonatomic) NSString *draftListID; // @synthesize draftListID=_draftListID;
 @property(nonatomic) _Bool isAllowedToSeeDrafts; // @synthesize isAllowedToSeeDrafts=_isAllowedToSeeDrafts;
 @property(retain, nonatomic) NSString *channelID; // @synthesize channelID=_channelID;
 - (void).cxx_destruct;

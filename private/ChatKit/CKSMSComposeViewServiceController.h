@@ -9,7 +9,7 @@
 #import "CKComposeChatControllerDelegate.h"
 #import "CKSMSComposeViewServiceProtocol.h"
 
-@class CKModalTranscriptController, NSString;
+@class CKModalTranscriptController, NSArray, NSString;
 
 @interface CKSMSComposeViewServiceController : UINavigationController <CKComposeChatControllerDelegate, CKSMSComposeViewServiceProtocol>
 {
@@ -18,7 +18,9 @@
     _Bool _supportsMessageInspection;
     _Bool _forceMMS;
     _Bool _disableCameraAttachments;
+    NSArray *_utiTypes;
     CKModalTranscriptController *_modalTranscriptController;
+    id <CKSMSComposeViewServiceControllerDelegate> _composeDelegate;
     CDUnknownBlockType _gameCenterPickerBlock;
 }
 
@@ -26,8 +28,10 @@
 + (id)_exportedInterface;
 + (_Bool)_isSecureForRemoteViewService;
 @property(copy, nonatomic) CDUnknownBlockType gameCenterPickerBlock; // @synthesize gameCenterPickerBlock=_gameCenterPickerBlock;
+@property(nonatomic) __weak id <CKSMSComposeViewServiceControllerDelegate> composeDelegate; // @synthesize composeDelegate=_composeDelegate;
 @property(retain, nonatomic) CKModalTranscriptController *modalTranscriptController; // @synthesize modalTranscriptController=_modalTranscriptController;
 - (void).cxx_destruct;
+- (void)donateInteractionWithRecipients:(id)arg1;
 - (void)_willAppearInRemoteViewController;
 - (_Bool)supportsMessageInspection;
 - (_Bool)supportsAttachments;
@@ -51,6 +55,7 @@
 - (void)setGameCenterModeWithPickerBlock:(CDUnknownBlockType)arg1;
 - (void)forceMMS;
 - (void)_forceMMSIfNecessary;
+- (void)setUTIs:(id)arg1;
 - (void)setUICustomizationData:(id)arg1;
 - (void)forceCancelComposition;
 - (void)insertRemoteItemForSending:(id)arg1;

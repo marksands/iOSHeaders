@@ -6,31 +6,28 @@
 
 #import "UIButton.h"
 
-@class NSString, OBTintInheritingImageView, UIImageView, UIStackView, UITextView;
+@class NSString, OBTintInheritingImageView, UITextView, UIView;
 
 __attribute__((visibility("hidden")))
 @interface OBPrivacyLinkButton : UIButton
 {
     OBTintInheritingImageView *_iconView;
-    UIImageView *_chevronView;
     UITextView *_textView;
-    UIStackView *_stackView;
+    UIView *_containerView;
     NSString *_captionText;
     NSString *_buttonText;
 }
 
 @property(readonly) NSString *buttonText; // @synthesize buttonText=_buttonText;
 @property(readonly) NSString *captionText; // @synthesize captionText=_captionText;
-@property(readonly) UIStackView *stackView; // @synthesize stackView=_stackView;
+@property(readonly) UIView *containerView; // @synthesize containerView=_containerView;
 @property(readonly) UITextView *textView; // @synthesize textView=_textView;
-@property(readonly) UIImageView *chevronView; // @synthesize chevronView=_chevronView;
 @property(readonly) OBTintInheritingImageView *iconView; // @synthesize iconView=_iconView;
 - (void).cxx_destruct;
 - (void)traitCollectionDidChange:(id)arg1;
 - (id)_textViewFont;
 - (struct _NSRange)_rangeForButtonText;
 - (id)viewForLastBaselineLayout;
-- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)setHighlighted:(_Bool)arg1;
 - (void)setEnabled:(_Bool)arg1;
 - (id)titleForState:(unsigned long long)arg1;

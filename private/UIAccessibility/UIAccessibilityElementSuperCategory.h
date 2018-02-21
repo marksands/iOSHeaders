@@ -13,6 +13,7 @@
 + (Class)safeCategoryBaseClass;
 + (id)safeCategoryTargetClassName;
 - (_Bool)_accessibilitySupportsHandwriting;
+- (id)_accessibilityUserTestingVisibleAncestor;
 - (_Bool)_accessibilityViewHierarchyHasNativeFocus;
 - (_Bool)_accessibilitySetNativeFocus;
 - (id)_accessibilityAutomaticIdentifier;

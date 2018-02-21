@@ -18,7 +18,7 @@
 @property(readonly, nonatomic) SXMaterialVideoPlayButton *playButton; // @synthesize playButton=_playButton;
 - (void).cxx_destruct;
 - (void)hide:(_Bool)arg1 withAnimationCoordinator:(id)arg2;
-@property(readonly, nonatomic) double autoAppearanceTimeInterval;
+@property(readonly, nonatomic) _Bool supportsAutoAppearance;
 - (_Bool)isVisible;
 @property(readonly, nonatomic) _Bool hideable;
 - (void)loadView;

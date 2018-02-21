@@ -15,6 +15,7 @@
     unsigned long long _options;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)kindWithVariants:(unsigned long long)arg1 playlistEntryKind:(id)arg2 options:(unsigned long long)arg3;
 @property(readonly, nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(readonly, nonatomic) MPModelPlaylistEntryKind *playlistEntryKind; // @synthesize playlistEntryKind=_playlistEntryKind;

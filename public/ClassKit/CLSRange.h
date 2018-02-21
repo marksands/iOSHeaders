@@ -33,7 +33,6 @@
 - (id)initWithRange:(id)arg1;
 - (id)initWithStart:(double)arg1 end:(double)arg2;
 - (id)_init;
-- (id)identity;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

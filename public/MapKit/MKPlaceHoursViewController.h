@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)infoCardChildPossibleActions;
 - (void)_updateHoursAnimated:(_Bool)arg1;
+- (_Bool)_shouldCollapseFurtherAndColorTopString;
 - (id)formattedData;
 - (void)calculateWidthsForData:(id)arg1;
 - (void)_contentSizeDidChange;

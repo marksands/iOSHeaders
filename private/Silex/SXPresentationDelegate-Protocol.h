@@ -14,7 +14,6 @@
 @property(readonly, nonatomic) SXPresentationAttributes *presentationAttributes;
 @property(readonly, nonatomic) SXMediaPlaybackController *mediaPlaybackController;
 @property(readonly, nonatomic) SXFullscreenVideoPlaybackManager *fullscreenVideoPlaybackManager;
-@property(readonly, nonatomic) id <SXVideoPlayerViewControllerProvider> videoPlayerViewControllerProvider;
 @property(readonly, nonatomic) SXComponentBehaviorController *behaviorController;
 @property(readonly, nonatomic) SXComponentAnimationController *animationController;
 @property(readonly, nonatomic) SXTangierController *tangierController;

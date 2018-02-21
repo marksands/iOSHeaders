@@ -13,6 +13,7 @@
     NSArray *_kinds;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)kindWithKinds:(id)arg1;
 @property(readonly, nonatomic) NSArray *kinds; // @synthesize kinds=_kinds;
 - (void).cxx_destruct;

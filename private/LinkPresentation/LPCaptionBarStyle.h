@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
     LPCaptionBarAccessoryStyle *_trailingAccessory;
     LPVerticalTextStackViewStyle *_textStack;
     LPPointUnit *_minimumWidth;
-    LPPointUnit *_minimumHeight;
     LPImageViewStyle *_placeholderIcon;
     LPMusicPlayButtonStyle *_playButton;
     LPPadding *_playButtonPadding;
@@ -27,7 +26,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, retain, nonatomic) LPPadding *playButtonPadding; // @synthesize playButtonPadding=_playButtonPadding;
 @property(readonly, nonatomic) LPMusicPlayButtonStyle *playButton; // @synthesize playButton=_playButton;
 @property(readonly, nonatomic) LPImageViewStyle *placeholderIcon; // @synthesize placeholderIcon=_placeholderIcon;
-@property(retain, nonatomic) LPPointUnit *minimumHeight; // @synthesize minimumHeight=_minimumHeight;
 @property(retain, nonatomic) LPPointUnit *minimumWidth; // @synthesize minimumWidth=_minimumWidth;
 @property(readonly, nonatomic) LPVerticalTextStackViewStyle *textStack; // @synthesize textStack=_textStack;
 @property(readonly, nonatomic) LPCaptionBarAccessoryStyle *trailingAccessory; // @synthesize trailingAccessory=_trailingAccessory;

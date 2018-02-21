@@ -35,6 +35,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;
+@property(readonly, nonatomic) _Bool isTVApp;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;
 

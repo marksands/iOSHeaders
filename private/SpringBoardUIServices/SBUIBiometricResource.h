@@ -35,6 +35,7 @@
     NSHashTable *_observers;
     NSMutableOrderedSet *_matchAssertions;
     NSMutableOrderedSet *_fingerDetectAssertions;
+    Class _bkMatchPearlOperationClass;
     id <SBUIBiometricAuthenticationPolicy> _authenticationPolicy;
 }
 
@@ -60,6 +61,7 @@
 - (void)_deactivateAssertion:(id)arg1;
 - (void)_activateFingerDetectAssertion:(id)arg1;
 - (void)_activateMatchAssertion:(id)arg1;
+- (void)_reallyResumeMatchingForAssertion:(id)arg1 advisory:(_Bool)arg2;
 - (void)_reallySetAuthenticated:(_Bool)arg1 keybagState:(id)arg2;
 - (void)biometricKitInterface:(id)arg1 handleEvent:(unsigned long long)arg2;
 - (void)biometricKitInterface:(id)arg1 enrolledIdentitiesDidChange:(_Bool)arg2;
@@ -75,7 +77,8 @@
 - (void)_setAuthenticated:(_Bool)arg1;
 - (void)refreshMatchMode;
 - (id)acquireFingerDetectionWantedAssertionForReason:(id)arg1;
-- (void)restartMatchingIfNeededForAssertion:(id)arg1;
+- (void)resumeMatchingAdvisory:(_Bool)arg1;
+- (void)resumeMatchingForAssertion:(id)arg1 advisory:(_Bool)arg2;
 - (id)acquireMatchingAssertionWithMode:(unsigned long long)arg1 reason:(id)arg2;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;

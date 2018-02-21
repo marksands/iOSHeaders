@@ -35,6 +35,7 @@
     unsigned long long _lastForwardedSampleCount;
     unsigned long long _clientStartSampleCount;
     NSObject<OS_dispatch_source> *_listenPollingTimer;
+    long long _listenPollingTimerCount;
     NSUUID *_pendingSetRecordModeToRecordingToken;
     CDUnknownBlockType _pendingSetRecordModeToRecordingCompletion;
 }
@@ -42,6 +43,7 @@
 @property(nonatomic) _Bool isSiriEnabled; // @synthesize isSiriEnabled=_isSiriEnabled;
 @property(copy, nonatomic) CDUnknownBlockType pendingSetRecordModeToRecordingCompletion; // @synthesize pendingSetRecordModeToRecordingCompletion=_pendingSetRecordModeToRecordingCompletion;
 @property(retain, nonatomic) NSUUID *pendingSetRecordModeToRecordingToken; // @synthesize pendingSetRecordModeToRecordingToken=_pendingSetRecordModeToRecordingToken;
+@property(nonatomic) long long listenPollingTimerCount; // @synthesize listenPollingTimerCount=_listenPollingTimerCount;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *listenPollingTimer; // @synthesize listenPollingTimer=_listenPollingTimer;
 @property(nonatomic) unsigned long long clientStartSampleCount; // @synthesize clientStartSampleCount=_clientStartSampleCount;
 @property(nonatomic) unsigned long long lastForwardedSampleCount; // @synthesize lastForwardedSampleCount=_lastForwardedSampleCount;

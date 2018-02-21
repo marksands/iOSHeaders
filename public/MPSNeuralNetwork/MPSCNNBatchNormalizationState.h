@@ -6,10 +6,11 @@
 
 #import "MPSState.h"
 
+@class MPSCNNBatchNormalization, MPSCNNNormalizationGammaAndBetaState;
+
 @interface MPSCNNBatchNormalizationState : MPSState
 {
-    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _gamma
-    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _beta
+    MPSCNNBatchNormalization *_batchNormalization;
     // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _mean
     // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _var
     // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _sumGrad
@@ -17,19 +18,19 @@
     unsigned long long _accumulationCount;
     unsigned long long _numberOfFeatureChannels;
     float _epsilon;
+    MPSCNNNormalizationGammaAndBetaState *_gammaAndBetaState;
 }
 
+@property(readonly, retain, nonatomic) MPSCNNNormalizationGammaAndBetaState *gammaAndBetaState; // @synthesize gammaAndBetaState=_gammaAndBetaState;
+@property(readonly, retain, nonatomic) MPSCNNBatchNormalization *batchNormalization; // @synthesize batchNormalization=_batchNormalization;
 - (void)dealloc;
 - (id)gradientForBeta;
 - (id)gradientForGamma;
 - (id)variance;
 - (id)mean;
-- (id)beta;
-- (id)gamma;
 - (void)synchronizeOnCommandBuffer:(id)arg1;
 - (void)reset;
-- (id)initWithDevice:(id)arg1 numberOfFeatureChannels:(unsigned long long)arg2 epsilon:(float)arg3;
-- (id)initDeferredWithDevice:(id)arg1 numberOfFeatureChannels:(unsigned long long)arg2 epsilon:(float)arg3;
+- (id)initDeferredWithDevice:(id)arg1 numberOfFeatureChannels:(unsigned long long)arg2 epsilon:(float)arg3 batchNormalization:(id)arg4;
 - (unsigned long long)resourceSize;
 
 @end

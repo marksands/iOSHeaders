@@ -6,16 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSString, PKPaymentSetupProduct;
 
 @interface PKPickerItem : NSObject
 {
     NSString *_title;
+    PKPaymentSetupProduct *_product;
     CDUnknownBlockType _selectionHandler;
 }
 
++ (id)itemWithProduct:(id)arg1 selectionHandler:(CDUnknownBlockType)arg2;
 + (id)itemWithTitle:(id)arg1 selectionHandler:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) CDUnknownBlockType selectionHandler; // @synthesize selectionHandler=_selectionHandler;
+@property(nonatomic) PKPaymentSetupProduct *product; // @synthesize product=_product;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
 - (void)handleSelectionWithCompletionHandler:(CDUnknownBlockType)arg1;

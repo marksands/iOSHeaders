@@ -611,6 +611,7 @@
 @property(nonatomic, getter=_contentScrollsAlongXAxis, setter=_setContentScrollsAlongXAxis:) _Bool contentScrollsAlongXAxis;
 - (void)_resetContentScrollableAxes;
 - (void)_adjustForAutomaticKeyboardInfo:(id)arg1 animated:(_Bool)arg2 lastAdjustment:(double *)arg3;
+- (void)_managedSubviewAdded:(id)arg1;
 - (_Bool)_canSkipTraitsAndOverlayUpdatesForViewControllerToNotifyOnLayoutResetState:(_Bool)arg1;
 - (void)setNeedsLayout;
 - (void)_setShowsHorizontalScrollIndicator:(_Bool)arg1;

@@ -31,8 +31,10 @@
     _SFPBDate *_departureGateClosedTime;
     _SFPBDate *_departureRunwayTime;
     _SFPBDate *_arrivalRunwayTime;
+    _SFPBDate *_arrivalGateTime;
 }
 
+@property(retain, nonatomic) _SFPBDate *arrivalGateTime; // @synthesize arrivalGateTime=_arrivalGateTime;
 @property(retain, nonatomic) _SFPBDate *arrivalRunwayTime; // @synthesize arrivalRunwayTime=_arrivalRunwayTime;
 @property(retain, nonatomic) _SFPBDate *departureRunwayTime; // @synthesize departureRunwayTime=_departureRunwayTime;
 @property(retain, nonatomic) _SFPBDate *departureGateClosedTime; // @synthesize departureGateClosedTime=_departureGateClosedTime;
@@ -59,6 +61,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasArrivalGateTime;
 @property(readonly, nonatomic) _Bool hasArrivalRunwayTime;
 @property(readonly, nonatomic) _Bool hasDepartureRunwayTime;
 @property(readonly, nonatomic) _Bool hasDepartureGateClosedTime;

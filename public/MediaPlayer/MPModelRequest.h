@@ -35,8 +35,8 @@
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 - (void).cxx_destruct;
 - (id)_kindForClass:(Class)arg1;
-@property(nonatomic) Class itemClass;
-@property(nonatomic) Class sectionClass;
+@property(retain, nonatomic) Class itemClass;
+@property(retain, nonatomic) Class sectionClass;
 - (id)newOperationWithResponseHandler:(CDUnknownBlockType)arg1;
 - (void)performWithResponseHandler:(CDUnknownBlockType)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

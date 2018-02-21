@@ -10,8 +10,6 @@
 
 @protocol CLSUtilityServerInterface <NSObject>
 - (oneway void)remote_statusWithCompletion:(void (^)(id, NSError *))arg1;
-- (oneway void)remote_setShouldSyncTeacherBrowsedContexts:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
-- (oneway void)remote_shouldSyncTeacherBrowsedContextsWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (oneway void)remote_getDevModeWithCompletion:(void (^)(int, NSError *))arg1;
 - (oneway void)remote_setDevMode:(int)arg1 completion:(void (^)(NSError *))arg2;
 - (oneway void)remote_recreateDevelopmentDatabaseWithCompletion:(void (^)(_Bool, NSError *))arg1;

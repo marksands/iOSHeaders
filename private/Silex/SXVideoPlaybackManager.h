@@ -16,7 +16,7 @@
 @interface SXVideoPlaybackManager : NSObject <SXVideoPlaybackObserver, SXVideoPlaybackController, SXVideoSeeking, SXVideoTransitionObserver>
 {
     id <SXVideoPlaybackPolicy> _playbackPolicy;
-    id <SXVideoPlaybackStateObserving> _playbackStateObserver;
+    id <SXVideoPlaybackStateReporting> _playbackStateReporter;
     id <SXVideoPlaybackAdvancing> _playbackAdvancer;
     id <SXPlaybackCoordinatorProviding> _playbackCoordinatorProvider;
     SXPlaybackCoordinator *_playbackCoordinator;
@@ -25,11 +25,10 @@
 @property(nonatomic) __weak SXPlaybackCoordinator *playbackCoordinator; // @synthesize playbackCoordinator=_playbackCoordinator;
 @property(readonly, nonatomic) id <SXPlaybackCoordinatorProviding> playbackCoordinatorProvider; // @synthesize playbackCoordinatorProvider=_playbackCoordinatorProvider;
 @property(readonly, nonatomic) id <SXVideoPlaybackAdvancing> playbackAdvancer; // @synthesize playbackAdvancer=_playbackAdvancer;
-@property(readonly, nonatomic) id <SXVideoPlaybackStateObserving> playbackStateObserver; // @synthesize playbackStateObserver=_playbackStateObserver;
+@property(readonly, nonatomic) id <SXVideoPlaybackStateReporting> playbackStateReporter; // @synthesize playbackStateReporter=_playbackStateReporter;
 @property(readonly, nonatomic) id <SXVideoPlaybackPolicy> playbackPolicy; // @synthesize playbackPolicy=_playbackPolicy;
 - (void).cxx_destruct;
 - (void)playbackCoordinatorPausedPlayback:(id)arg1;
-- (void)playbackCoordinatorResumedPlayback:(id)arg1;
 - (void)playbackCoordinatorStartedPlayback:(id)arg1;
 - (void)playbackCoordinator:(id)arg1 playbackFailedWithError:(id)arg2;
 - (void)playbackCoordinatorFinishedPlayback:(id)arg1;
@@ -40,7 +39,7 @@
 - (void)seekToStartWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)managePlaybackStateWithPlaybackCoordinator:(id)arg1;
 - (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
-- (id)initWithPlaybackPolicy:(id)arg1 playbackAdvancer:(id)arg2 playbackStateObserver:(id)arg3 playbackCoordinatorProvider:(id)arg4;
+- (id)initWithPlaybackPolicy:(id)arg1 playbackAdvancer:(id)arg2 playbackStateReporter:(id)arg3 playbackCoordinatorProvider:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

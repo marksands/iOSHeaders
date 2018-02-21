@@ -13,6 +13,7 @@
     MPModelTVSeasonKind *_seasonKind;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)kindWithSeasonKind:(id)arg1;
 @property(readonly, copy, nonatomic) MPModelTVSeasonKind *seasonKind; // @synthesize seasonKind=_seasonKind;
 - (void).cxx_destruct;

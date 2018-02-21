@@ -23,6 +23,7 @@
 + (id)keyPathsForValuesAffectingVideosCount;
 + (id)keyPathsForValuesAffectingPhotosCount;
 + (id)keyPathsForValuesAffectingApproximateCount;
++ (id)validKindsForPersistence;
 + (id)childKeyForOrdering;
 + (id)albumSupportsAssetOrderKeysPredicate;
 + (id)searchIndexAllowedPredicate;

@@ -23,6 +23,7 @@
 @property(readonly, nonatomic) id <SXAdvertisingSettingsProvider> advertisingSettingsProvider; // @synthesize advertisingSettingsProvider=_advertisingSettingsProvider;
 @property(readonly, nonatomic) id <SXComponentInsertionConditionEngine> conditionEngine; // @synthesize conditionEngine=_conditionEngine;
 - (void).cxx_destruct;
+- (unsigned long long)adTypeFromBannerType:(unsigned long long)arg1;
 - (id)componentInsertForMarker:(id)arg1 layoutProvider:(id)arg2;
 - (_Bool)validateMarker:(id)arg1 remainingMarkerCount:(unsigned long long)arg2 layoutProvider:(id)arg3;
 - (unsigned long long)componentTraits;

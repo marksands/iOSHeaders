@@ -29,8 +29,8 @@
 - (_Bool)containsPropertySet:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)description;
 - (id)debugDescription;
 - (id)initWithProperties:(id)arg1 relationships:(id)arg2;

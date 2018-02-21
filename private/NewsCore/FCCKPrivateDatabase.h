@@ -73,6 +73,7 @@
 - (void).cxx_destruct;
 - (void)_possiblySimulateCrashForError:(id)arg1 message:(id)arg2;
 - (void)reportFatalStartUpError:(id)arg1;
+- (void)reportPostMigrationCleanupError:(id)arg1;
 - (void)reportEncryptionMigrationError:(id)arg1;
 - (void)reportRecoverableStartUpError:(id)arg1;
 - (void)takeDatabaseOfflineDueToError:(id)arg1;

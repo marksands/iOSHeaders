@@ -10,6 +10,7 @@
 {
 }
 
++ (id)new;
 - (void)removeRelationship:(id)arg1;
 - (void)addRelationship:(id)arg1 properties:(id)arg2;
 - (void)removeProperty:(id)arg1;

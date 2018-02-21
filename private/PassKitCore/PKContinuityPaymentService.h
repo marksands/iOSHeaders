@@ -8,13 +8,13 @@
 
 #import "PKContinuityPaymentServiceExportedInterface.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>, PKXPCService;
+@class NSArray, NSLock, NSObject<OS_dispatch_queue>, PKXPCService;
 
 @interface PKContinuityPaymentService : NSObject <PKContinuityPaymentServiceExportedInterface>
 {
     PKXPCService *_remoteService;
     NSObject<OS_dispatch_queue> *_delegateQueue;
-    NSObject<OS_dispatch_queue> *_internalQueue;
+    NSLock *_remoteDeviceLock;
     NSArray *_remoteDevices;
     id <PKContinuityPaymentServiceDelegate> _delegate;
 }

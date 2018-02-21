@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSOrderedSet;
+@class NSOrderedSet, SXVideoQueue;
 
 @protocol NUVideoViewControllerQueueFactory
-- (NSOrderedSet *)createQueueWithVideoItems:(NSOrderedSet *)arg1;
+- (SXVideoQueue *)createQueueWithVideoItems:(NSOrderedSet *)arg1;
 @end
 

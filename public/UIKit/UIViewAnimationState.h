@@ -121,6 +121,7 @@ __attribute__((visibility("hidden")))
 - (void)_transferAnimationToTrackingAnimator:(id)arg1;
 - (int)_didEndCount;
 - (void)_performWithCompletionCallbacksDisabledOnPop:(CDUnknownBlockType)arg1;
+- (_Bool)shouldAnimatePropertyWithKey:(id)arg1;
 - (void)pushWithViewAnimationID:(id)arg1 context:(void *)arg2;
 - (void)_prepareForViewAnimationAfterPush;
 

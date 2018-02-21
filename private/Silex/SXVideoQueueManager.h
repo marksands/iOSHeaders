@@ -6,28 +6,27 @@
 
 #import "NSObject.h"
 
-#import "SXVideoQueueModifying.h"
+#import "SXVideoQueueManager.h"
 #import "SXVideoQueueObserving.h"
 #import "SXVideoQueueProviding.h"
 #import "SXVideoTransitionObserver.h"
 
-@class NSMutableArray, NSOrderedSet, NSString;
+@class NSMutableArray, NSString;
 
-@interface SXVideoQueueManager : NSObject <SXVideoTransitionObserver, SXVideoQueueProviding, SXVideoQueueObserving, SXVideoQueueModifying>
+@interface SXVideoQueueManager : NSObject <SXVideoTransitionObserver, SXVideoQueueProviding, SXVideoQueueObserving, SXVideoQueueManager>
 {
-    NSOrderedSet *_queue;
-    id <SXVideo> _video;
+    id <SXVideoQueue> _queue;
     NSMutableArray *_updateBlocks;
+    NSMutableArray *_modifiers;
 }
 
+@property(readonly, nonatomic) NSMutableArray *modifiers; // @synthesize modifiers=_modifiers;
 @property(readonly, nonatomic) NSMutableArray *updateBlocks; // @synthesize updateBlocks=_updateBlocks;
-@property(retain, nonatomic) id <SXVideo> video; // @synthesize video=_video;
-@property(retain, nonatomic) NSOrderedSet *queue; // @synthesize queue=_queue;
+@property(copy, nonatomic) id <SXVideoQueue> queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) id <SXVideo> previousVideo;
-- (id)nextVideoOfType:(unsigned long long)arg1;
-@property(readonly, nonatomic) id <SXVideo> nextVideo;
 - (void)onUpdate:(CDUnknownBlockType)arg1;
+- (void)removeModifier:(id)arg1;
+- (void)addModifier:(id)arg1;
 - (void)replaceCurrentQueueWithQueue:(id)arg1;
 - (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (id)initWithQueue:(id)arg1;

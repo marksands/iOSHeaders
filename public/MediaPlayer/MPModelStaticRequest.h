@@ -13,6 +13,7 @@
     MPModelStaticResponse *_staticResponse;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) MPModelStaticResponse *staticResponse; // @synthesize staticResponse=_staticResponse;
 - (void).cxx_destruct;
 - (id)newOperationWithResponseHandler:(CDUnknownBlockType)arg1;

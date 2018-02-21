@@ -9,13 +9,14 @@
 #import "FCCoreConfiguration.h"
 #import "FCNewsAppConfiguration.h"
 
-@class FCCoverArticlesConfiguration, FCForYouGroupsConfiguration, FCIAdConfiguration, FCNotificationsConfiguration, FCPrefetchConfiguration, FCRecommendedCategory, FCTopStoriesConfiguration, NSArray, NSDictionary, NSNumber, NSString, NTPBConfig, NTPBLanguageConfig, NTPBVideoGroupsConfig, NTPBWidgetConfig;
+@class FCCoverArticlesConfiguration, FCForYouGroupsConfiguration, FCIAdConfiguration, FCNotificationsConfiguration, FCPrefetchConfiguration, FCRecommendedCategory, FCTopStoriesConfiguration, NSArray, NSDictionary, NSNumber, NSString, NTPBConfig, NTPBDiscoverMoreVideosInfo, NTPBLanguageConfig, NTPBVideoGroupsConfig, NTPBWidgetConfig;
 
 @interface FCAppConfiguration : NSObject <FCCoreConfiguration, FCNewsAppConfiguration>
 {
     _Bool _privateDataEncryptionAllowed;
     _Bool _privateDataEncryptionMigrationDesired;
     _Bool _privateDataEncryptionMigrationRequiresAllDevicesRunningTigris;
+    _Bool _privateDataMigrationCleanupEnabled;
     NSDictionary *_endpointConfigsByEnvironment;
     FCCoverArticlesConfiguration *_coverArticlesConfig;
     FCForYouGroupsConfiguration *_forYouGroupsConfiguration;
@@ -27,6 +28,7 @@
     FCPrefetchConfiguration *_prefetchConfig;
     FCTopStoriesConfiguration *_topStoriesConfig;
     NSArray *_topStoriesPublishDates;
+    NTPBDiscoverMoreVideosInfo *_shareDiscoverMoreVideosInfo;
     NTPBConfig *_config;
     NTPBLanguageConfig *_languageConfig;
     NTPBWidgetConfig *_widgetConfig;
@@ -45,6 +47,7 @@
 @property(readonly, copy, nonatomic) NSArray *topStoriesPublishDates; // @synthesize topStoriesPublishDates=_topStoriesPublishDates;
 @property(readonly, nonatomic) FCTopStoriesConfiguration *topStoriesConfig; // @synthesize topStoriesConfig=_topStoriesConfig;
 @property(readonly, nonatomic) FCPrefetchConfiguration *prefetchConfig; // @synthesize prefetchConfig=_prefetchConfig;
+@property(readonly, nonatomic, getter=isPrivateDataMigrationCleanupEnabled) _Bool privateDataMigrationCleanupEnabled; // @synthesize privateDataMigrationCleanupEnabled=_privateDataMigrationCleanupEnabled;
 @property(readonly, nonatomic) _Bool privateDataEncryptionMigrationRequiresAllDevicesRunningTigris; // @synthesize privateDataEncryptionMigrationRequiresAllDevicesRunningTigris=_privateDataEncryptionMigrationRequiresAllDevicesRunningTigris;
 @property(readonly, nonatomic, getter=isPrivateDataEncryptionMigrationDesired) _Bool privateDataEncryptionMigrationDesired; // @synthesize privateDataEncryptionMigrationDesired=_privateDataEncryptionMigrationDesired;
 @property(readonly, nonatomic, getter=isPrivateDataEncryptionAllowed) _Bool privateDataEncryptionAllowed; // @synthesize privateDataEncryptionAllowed=_privateDataEncryptionAllowed;
@@ -61,6 +64,7 @@
 @property(readonly, nonatomic) long long optionalTopStoriesRefreshRate;
 @property(readonly, copy, nonatomic) NTPBVideoGroupsConfig *forYouVideoGroupsConfig;
 @property(readonly, nonatomic) _Bool diversifyOptionalTopStories;
+@property(readonly, nonatomic) NTPBDiscoverMoreVideosInfo *shareDiscoverMoreVideosInfo; // @synthesize shareDiscoverMoreVideosInfo=_shareDiscoverMoreVideosInfo;
 @property(readonly, nonatomic) unsigned long long trendingStyle;
 @property(readonly, nonatomic) long long minimumDurationBetweenTrendingGroupsWeekend;
 @property(readonly, nonatomic) long long minimumDurationBetweenTrendingGroupsWeekday;
@@ -127,6 +131,8 @@
 @property(readonly, nonatomic) NSString *featuredStoriesTagID;
 @property(readonly, nonatomic) NSString *trendingTagID;
 @property(readonly, nonatomic) NSString *briefingsTagID;
+@property(readonly, nonatomic) NSString *moreVideosChannelID;
+@property(readonly, nonatomic) NSString *topVideosChannelID;
 @property(readonly, nonatomic) NSString *editorialGemsSectionID;
 @property(readonly, nonatomic) NSString *editorialChannelID;
 @property(readonly, nonatomic) long long minimumDistanceBetweenImageOnTopTiles;

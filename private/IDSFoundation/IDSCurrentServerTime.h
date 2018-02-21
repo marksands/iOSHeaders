@@ -21,7 +21,6 @@
 - (void)_refreshServerTime;
 - (void)_storeInitialServerTime;
 - (double)_refreshTimeInterval;
-- (_Bool)_shouldReturnCourierTime;
 - (id)currentServerTimeDate;
 - (double)currentServerTimeInterval;
 - (id)initWithServerTimeProvider:(id)arg1;

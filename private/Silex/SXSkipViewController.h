@@ -32,7 +32,7 @@
 @property(readonly, nonatomic) SXAdvanceButton *advanceButton; // @synthesize advanceButton=_advanceButton;
 - (void).cxx_destruct;
 - (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
-- (void)viewDidLayoutSubviews;
+- (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
 - (id)initWithAdvanceButton:(id)arg1 countdownView:(id)arg2 loadingStateObserverFactory:(id)arg3 skipLockObserverFactory:(id)arg4;
 

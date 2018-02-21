@@ -14,6 +14,7 @@
     double _lastWalkingHeartRateAverage;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) double lastWalkingHeartRateAverage; // @synthesize lastWalkingHeartRateAverage=_lastWalkingHeartRateAverage;
 @property(nonatomic) double lastRestingHeartRate; // @synthesize lastRestingHeartRate=_lastRestingHeartRate;
 @property(nonatomic) double nextWalkingHeartRateAverageSampleTime; // @synthesize nextWalkingHeartRateAverageSampleTime=_nextWalkingHeartRateAverageSampleTime;

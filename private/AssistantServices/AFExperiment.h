@@ -23,6 +23,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)newWithBuilder:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) long long deploymentReason; // @synthesize deploymentReason=_deploymentReason;
 @property(readonly, copy, nonatomic) NSDictionary *deploymentGroupProperties; // @synthesize deploymentGroupProperties=_deploymentGroupProperties;
 @property(readonly, copy, nonatomic) NSString *deploymentGroupIdentifier; // @synthesize deploymentGroupIdentifier=_deploymentGroupIdentifier;
@@ -40,7 +41,7 @@
 - (void)logExperimentExposureForSiriVOXSounds;
 @property(readonly, nonatomic) _Bool playsSessionInactiveSoundForSiriVOXSounds;
 @property(readonly, nonatomic) _Bool playsTwoShotSoundForSiriVOXSounds;
-- (id)builder;
+- (id)mutatedCopyWithMutator:(CDUnknownBlockType)arg1;
 - (void)logExperimentExposureForTapToSiriBehavior;
 @property(readonly, nonatomic) _Bool playsSound;
 

@@ -31,9 +31,9 @@
 @property(copy, nonatomic) CDUnknownBlockType queryCompletionHandler; // @synthesize queryCompletionHandler=_queryCompletionHandler;
 @property(copy, nonatomic) NSString *locale; // @synthesize locale=_locale;
 @property(copy, nonatomic) NSArray *desiredKeys; // @synthesize desiredKeys=_desiredKeys;
-@property(nonatomic) CKQueryCursor *cursor; // @synthesize cursor=_cursor;
+@property(retain, nonatomic) CKQueryCursor *cursor; // @synthesize cursor=_cursor;
 @property(nonatomic) long long tagType; // @synthesize tagType=_tagType;
-@property(nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
+@property(copy, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 @property(nonatomic) unsigned long long resultsLimit; // @synthesize resultsLimit=_resultsLimit;
 @property(retain, nonatomic) FCCKContentDatabase *database; // @synthesize database=_database;
 - (void).cxx_destruct;

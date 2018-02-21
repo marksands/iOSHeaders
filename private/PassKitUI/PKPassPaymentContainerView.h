@@ -161,7 +161,7 @@
 - (void)_applyLatestContentToViews;
 - (void)_resetCardEmulationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_resetActiveApplicationForPaymentPass:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)_authorizeForTransactionWithCredential:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)_authorizeForTransactionWithCredential:(id)arg1 authenticationIdentifier:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_activatePaymentApplication:(id)arg1 forPaymentPass:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)_didAuthorizePaymentApplicationWithAuthenticationIdentifier:(unsigned long long)arg1;
 - (void)_promoteToAuthorizedStateIfPossible;

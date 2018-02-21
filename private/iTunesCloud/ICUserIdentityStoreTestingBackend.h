@@ -8,7 +8,7 @@
 
 #import "ICUserIdentityStoreBackend.h"
 
-@class ICUserIdentityProperties, ICUserVerificationContext, NSMutableDictionary, NSNumber, NSString;
+@class NSMutableDictionary, NSNumber, NSString;
 
 @interface ICUserIdentityStoreTestingBackend : NSObject <ICUserIdentityStoreBackend>
 {
@@ -22,23 +22,23 @@
 + (void)setDefaultActiveLockerAccountDSID:(id)arg1;
 + (void)setDefaultActiveAccountDSID:(id)arg1;
 @property(nonatomic) __weak id <ICUserIdentityStoreBackendDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) NSNumber *activeLockerAccountDSID; // @synthesize activeLockerAccountDSID=_activeLockerAccountDSID;
-@property(readonly, nonatomic) NSNumber *activeAccountDSID; // @synthesize activeAccountDSID=_activeAccountDSID;
 - (void).cxx_destruct;
 - (id)_propertiesToSaveForProperties:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, copy, nonatomic) ICUserVerificationContext *verificationContextToEstablishAccount;
-- (id)verificationContextForDSID:(id)arg1;
+- (void)verificationContextForDSID:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)verificationContextForAccountEstablishmentWithCompletion:(CDUnknownBlockType)arg1;
 - (void)synchronize;
-- (void)setIdentityProperties:(id)arg1 forDSID:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)replaceIdentityProperties:(id)arg1 forDSID:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)removeIdentityForDSID:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)identityPropertiesForPrimaryICloudAccountWithCompletion:(CDUnknownBlockType)arg1;
+- (void)setIdentityProperties:(id)arg1 forDSID:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)identityPropertiesForDSID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateActiveLockerAccountDSID:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)activeLockerAccountDSIDWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateActiveAccountDSID:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)replaceIdentityProperties:(id)arg1 forDSID:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
-- (void)removeIdentityForDSID:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-@property(readonly, copy, nonatomic) ICUserIdentityProperties *primaryICloudAccountIdentityProperties;
-- (id)identityPropertiesForDSID:(id)arg1;
+- (void)activeAccountDSIDWithCompletion:(CDUnknownBlockType)arg1;
 - (id)init;
 
 // Remaining properties

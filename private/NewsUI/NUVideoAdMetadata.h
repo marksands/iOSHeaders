@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSString, NUAdBannerView;
 
 @interface NUVideoAdMetadata : NSObject
 {
+    NUAdBannerView *_bannerView;
     NSString *_adCampaign;
     NSString *_adLine;
     NSString *_adCreative;
@@ -28,6 +29,7 @@
 @property(copy, nonatomic) NSString *adCreative; // @synthesize adCreative=_adCreative;
 @property(copy, nonatomic) NSString *adLine; // @synthesize adLine=_adLine;
 @property(copy, nonatomic) NSString *adCampaign; // @synthesize adCampaign=_adCampaign;
+@property(retain, nonatomic) NUAdBannerView *bannerView; // @synthesize bannerView=_bannerView;
 - (void).cxx_destruct;
 
 @end

@@ -16,6 +16,7 @@
     _Bool _needsFixedOrderKeysComplianceUpdate;
 }
 
++ (id)validKindsForPersistence;
 + (id)localizedRecoveredTitle;
 + (id)childKeyForOrdering;
 + (id)entityInManagedObjectContext:(id)arg1;

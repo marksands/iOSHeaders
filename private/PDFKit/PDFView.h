@@ -163,6 +163,7 @@
 - (void)dealloc;
 - (void)_commonInit;
 - (void)removeFromSuperview;
+- (void)layoutSubviews;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

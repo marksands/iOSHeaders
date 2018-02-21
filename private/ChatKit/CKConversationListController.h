@@ -109,6 +109,7 @@
 - (void)muteConversationButtonTappedForIndexPath:(id)arg1 setMuted:(_Bool)arg2;
 - (void)markAsReadButtonTappedForIndexPath:(id)arg1;
 - (void)markAsReadButtonTapped:(id)arg1;
+- (void)_cancelDeletion:(CDUnknownBlockType)arg1;
 - (void)deleteButtonTappedForIndexPath:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 cellToUpdate:(id)arg3;
 - (void)batchDeleteButtonTapped:(id)arg1;
 - (void)tableView:(id)arg1 didEndEditingRowAtIndexPath:(id)arg2;

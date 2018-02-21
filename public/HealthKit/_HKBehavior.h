@@ -59,6 +59,7 @@
 + (_Bool)shouldShowBuddy;
 + (_Bool)hasCompletedBuddy;
 + (void)disableForceBuddy;
++ (_Bool)showSensitiveLogItems;
 + (_Bool)isTestingDevice;
 + (_Bool)runningInStoreDemoModeF201;
 + (_Bool)isRunningStoreDemoMode;

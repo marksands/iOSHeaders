@@ -7,9 +7,10 @@
 #import "FCCoreConfiguration.h"
 #import "NFCopying.h"
 
-@class FCCoverArticlesConfiguration, FCIAdConfiguration, FCPrefetchConfiguration, NSArray, NSString;
+@class FCCoverArticlesConfiguration, FCIAdConfiguration, FCPrefetchConfiguration, NSArray, NSString, NTPBDiscoverMoreVideosInfo;
 
 @protocol FCNewsAppConfiguration <FCCoreConfiguration, NFCopying>
+@property(readonly, nonatomic) NTPBDiscoverMoreVideosInfo *shareDiscoverMoreVideosInfo;
 @property(readonly, nonatomic) NSString *articleRecirculationConfigJSON;
 @property(readonly, nonatomic) unsigned long long trendingStyle;
 @property(readonly, copy, nonatomic) NSArray *topStoriesPublishDates;

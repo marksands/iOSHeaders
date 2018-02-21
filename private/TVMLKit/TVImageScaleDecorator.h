@@ -42,6 +42,7 @@
 - (id)decoratorIdentifier;
 @property(nonatomic) double upscaleAdjustment;
 @property(nonatomic) _Bool cropToFit;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithScaleToSize:(struct CGSize)arg1 cropToFit:(_Bool)arg2;
 - (id)initWithScaleToSize:(struct CGSize)arg1 scaleMode:(long long)arg2;
 - (id)initWithScaleToSize:(struct CGSize)arg1;

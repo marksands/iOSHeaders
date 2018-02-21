@@ -15,6 +15,7 @@
 
 + (id)allSupportedItemProperties;
 + (id)allSupportedSectionProperties;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) MPIdentifierSet *collectionIdentifiers; // @synthesize collectionIdentifiers=_collectionIdentifiers;
 - (void).cxx_destruct;
 - (id)newOperationWithResponseHandler:(CDUnknownBlockType)arg1;

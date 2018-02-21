@@ -24,6 +24,7 @@
     unsigned int _numCertifiedAccessories;
     unsigned int _numEventTriggers;
     unsigned int _numHAPAccessories;
+    unsigned int _numMediaSystems;
     unsigned int _numNotCertifiedAccessories;
     unsigned int _numRooms;
     unsigned int _numScenes;
@@ -47,6 +48,7 @@
         unsigned int numCertifiedAccessories:1;
         unsigned int numEventTriggers:1;
         unsigned int numHAPAccessories:1;
+        unsigned int numMediaSystems:1;
         unsigned int numNotCertifiedAccessories:1;
         unsigned int numRooms:1;
         unsigned int numScenes:1;
@@ -62,6 +64,7 @@
 }
 
 + (Class)eventTriggersType;
+@property(nonatomic) unsigned int numMediaSystems; // @synthesize numMediaSystems=_numMediaSystems;
 @property(nonatomic) unsigned int numCameraAccessories; // @synthesize numCameraAccessories=_numCameraAccessories;
 @property(nonatomic) unsigned int numAppleTVAccessories; // @synthesize numAppleTVAccessories=_numAppleTVAccessories;
 @property(nonatomic) unsigned int numAppleAudioAccessories; // @synthesize numAppleAudioAccessories=_numAppleAudioAccessories;
@@ -95,6 +98,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasNumMediaSystems;
 @property(nonatomic) _Bool hasNumCameraAccessories;
 @property(nonatomic) _Bool hasNumAppleTVAccessories;
 @property(nonatomic) _Bool hasNumAppleAudioAccessories;

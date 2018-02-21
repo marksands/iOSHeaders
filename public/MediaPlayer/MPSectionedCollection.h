@@ -8,15 +8,17 @@
 
 #import "NSCopying.h"
 #import "NSMutableCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSArray;
 
-@interface MPSectionedCollection : NSObject <NSCopying, NSMutableCopying>
+@interface MPSectionedCollection : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
 {
     NSArray *_sectionedItems;
     NSArray *_sections;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 - (void)_initializeAsEmptySectionedCollection;
 - (id)changeDetailsToSectionedCollection:(id)arg1 isEqualBlock:(CDUnknownBlockType)arg2 isUpdatedBlock:(CDUnknownBlockType)arg3;
@@ -40,6 +42,8 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (id)debugDescription;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)indexPathForItemWithIdentifiersIntersectingSet:(id)arg1;
 - (id)identifiersForSectionAtIndex:(long long)arg1;

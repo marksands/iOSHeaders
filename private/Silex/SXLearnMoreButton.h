@@ -13,7 +13,6 @@
 @interface SXLearnMoreButton : SXMaterialButton <SXVideoControlItem>
 {
     _Bool hideable;
-    double autoAppearanceTimeInterval;
 }
 
 - (id)accessibilityLabel;
@@ -24,7 +23,7 @@
 - (struct CGSize)intrinsicContentSize;
 - (void)setHighlighted:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool hideable; // @synthesize hideable;
-@property(readonly, nonatomic) double autoAppearanceTimeInterval; // @synthesize autoAppearanceTimeInterval;
+@property(readonly, nonatomic) _Bool supportsAutoAppearance;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

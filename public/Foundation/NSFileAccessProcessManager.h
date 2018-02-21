@@ -20,8 +20,6 @@ __attribute__((visibility("hidden")))
     int _pendingMessageCount;
 }
 
-+ (void)_removeAssertionWithToken:(id)arg1;
-+ (id)_addAssertionForPID:(int)arg1 name:(id)arg2;
 + (_Bool)needToManageConnection:(id)arg1 forURLs:(id)arg2;
 - (void)invalidate;
 - (void)allowSuspension;

@@ -15,6 +15,7 @@
 
 + (id)nodeWithSourceGradient:(id)arg1 sourceImage:(id)arg2 gradientState:(id)arg3 descriptor:(id)arg4;
 @property(readonly, nonatomic) MPSNNNeuronDescriptor *descriptor; // @synthesize descriptor=_descriptor;
+- (struct FilterGraphNode *)newFilterNode;
 - (void)dealloc;
 - (id)initWithGradientImages:(id)arg1 forwardFilter:(id)arg2;
 - (id)initWithSourceGradient:(id)arg1 sourceImage:(id)arg2 gradientState:(id)arg3 descriptor:(id)arg4;

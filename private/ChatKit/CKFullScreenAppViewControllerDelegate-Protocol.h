@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CKFullScreenAppViewController, IMBalloonPlugin, NSDate;
+@class CKFullScreenAppViewController, IMBalloonPlugin, IMBalloonPluginDataSource, NSDate;
 
 @protocol CKFullScreenAppViewControllerDelegate <NSObject>
 
@@ -15,7 +15,7 @@
 - (void)fullscreenAppViewControllerSwitcherDidSelectAppManager:(CKFullScreenAppViewController *)arg1;
 - (void)fullscreenAppViewControllerSwitcherDidSelectAppStore:(CKFullScreenAppViewController *)arg1;
 - (void)fullscreenAppViewController:(CKFullScreenAppViewController *)arg1 hasUpdatedLastTouchDate:(NSDate *)arg2;
-- (void)fullscreenAppViewController:(CKFullScreenAppViewController *)arg1 wantsToSwitchToPlugin:(IMBalloonPlugin *)arg2;
+- (void)fullscreenAppViewController:(CKFullScreenAppViewController *)arg1 wantsToSwitchToPlugin:(IMBalloonPlugin *)arg2 datasource:(IMBalloonPluginDataSource *)arg3;
 - (void)fullscreenAppViewControllerWantsToCollapse:(CKFullScreenAppViewController *)arg1;
 @end
 

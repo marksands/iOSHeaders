@@ -19,6 +19,7 @@
 @property(nonatomic) int cachedCount;
 @property(retain, nonatomic) id <PLMomentListData> megaMomentList;
 @property(retain, nonatomic) id <PLMomentListData> yearMomentList;
+@property(readonly, retain, nonatomic) NSArray *batchedAssets;
 @property(retain, nonatomic) NSOrderedSet *assets;
 @property(retain, nonatomic) CLLocation *approximateLocation;
 @property(readonly, retain, nonatomic) NSObject<NSCopying> *uniqueObjectID;

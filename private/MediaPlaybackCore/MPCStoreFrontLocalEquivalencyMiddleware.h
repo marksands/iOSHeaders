@@ -24,6 +24,7 @@
 - (void).cxx_destruct;
 - (id)operationsForPlayerRequest:(id)arg1;
 - (id)operationsForRequest:(id)arg1;
+- (id)tracklistUniqueIdentifier:(id)arg1 chain:(id)arg2;
 - (id)playerVideoView:(id)arg1 chain:(id)arg2;
 - (id)playerCommandOptionValue:(id)arg1 forKey:(id)arg2 command:(unsigned int)arg3 chain:(id)arg4;
 - (_Bool)playerCommandEnabled:(_Bool)arg1 command:(unsigned int)arg2 chain:(id)arg3;

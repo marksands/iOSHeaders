@@ -41,6 +41,7 @@
 - (void)paymentAuthorizationCoordinator:(id)arg1 didAuthorizePurchase:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)paymentAuthorizationCoordinatorDidFinish:(id)arg1;
 - (void)paymentAuthorizationCoordinator:(id)arg1 didAuthorizePayment:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (_Bool)_shouldPresentPaymentRequest:(long long)arg1;
 - (void)_presentPaymentSetupControllerWithAllowedPaymentNetworks:(id)arg1;
 - (void)_showGenericErrorAlert:(CDUnknownBlockType)arg1;
 - (void)_canPerformPaymentWithCompletion:(CDUnknownBlockType)arg1;

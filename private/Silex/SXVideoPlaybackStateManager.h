@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "SXVideoPlaybackStateObserving.h"
 #import "SXVideoPlaybackStateProviding.h"
+#import "SXVideoPlaybackStateReporting.h"
 
 @class NSMutableArray, NSString;
 
-@interface SXVideoPlaybackStateManager : NSObject <SXVideoPlaybackStateObserving, SXVideoPlaybackStateProviding>
+@interface SXVideoPlaybackStateManager : NSObject <SXVideoPlaybackStateReporting, SXVideoPlaybackStateProviding>
 {
     _Bool _playing;
     NSMutableArray *_onPlayBlocks;
@@ -23,7 +23,6 @@
 @property(nonatomic) _Bool playing; // @synthesize playing=_playing;
 - (void).cxx_destruct;
 - (void)playbackPaused;
-- (void)playbackResumed;
 - (void)playbackStarted;
 - (void)onPause:(CDUnknownBlockType)arg1;
 - (void)onPlay:(CDUnknownBlockType)arg1;

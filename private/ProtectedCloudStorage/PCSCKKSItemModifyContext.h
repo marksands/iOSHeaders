@@ -13,6 +13,7 @@
     struct __CFDictionary *_rollAttributes;
     _Bool _sync;
     _Bool _roll;
+    int _retryLeftCount;
     struct _PCSIdentitySetData *_set;
     struct __PCSLogContext *_log;
     long long _timeoutValue;
@@ -37,6 +38,7 @@
 @property(retain) PCSLockAssertion *lockAssertion; // @synthesize lockAssertion=_lockAssertion;
 @property(retain) NSObject<OS_os_transaction> *transaction; // @synthesize transaction=_transaction;
 @property(readonly) PCSMTT *mtt; // @synthesize mtt=_mtt;
+@property int retryLeftCount; // @synthesize retryLeftCount=_retryLeftCount;
 @property _Bool roll; // @synthesize roll=_roll;
 @property _Bool sync; // @synthesize sync=_sync;
 @property struct _PCSIdentityData *relocateIdentity; // @synthesize relocateIdentity=_relocateIdentity;

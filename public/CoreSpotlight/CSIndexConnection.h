@@ -14,7 +14,6 @@
     NSMutableDictionary *_indexMap;
 }
 
-+ (id)privateIndexConnectionWithOverrideBundle:(id)arg1;
 + (id)sharedConnection;
 @property(readonly, nonatomic) _Bool previouslyInitialized; // @synthesize previouslyInitialized=_previouslyInitialized;
 @property(readonly, nonatomic) NSMutableDictionary *indexMap; // @synthesize indexMap=_indexMap;

@@ -10,6 +10,7 @@
 {
 }
 
++ (_Bool)supportsSecureCoding;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

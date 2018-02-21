@@ -21,9 +21,11 @@
     double _totalDuration;
     double _visiblePercentage;
     double _timestamp;
+    long long _sequenceNumber;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) long long sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(nonatomic) float volume; // @synthesize volume=_volume;
 @property(nonatomic) double visiblePercentage; // @synthesize visiblePercentage=_visiblePercentage;

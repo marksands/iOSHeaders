@@ -12,6 +12,7 @@
     _Bool _isLandscape;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool isLandscape; // @synthesize isLandscape=_isLandscape;
 @property(nonatomic) _Bool isLeftToRightSwipe; // @synthesize isLeftToRightSwipe=_isLeftToRightSwipe;
 - (void)updateForLandscape:(_Bool)arg1;

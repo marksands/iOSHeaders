@@ -17,7 +17,7 @@
 @property(retain) SASProximityInformation *information; // @synthesize information=_information;
 - (void).cxx_destruct;
 - (id)responsePayload;
-- (void)setResponseFromDictionary:(id)arg1;
+- (void)setResponseFromData:(id)arg1;
 - (_Bool)hasResponse;
 - (id)init;
 

@@ -1681,6 +1681,10 @@ struct Ref<WTF::Stopwatch, WTF::DumbPtrTraits<WTF::Stopwatch>> {
     struct Stopwatch *_field1;
 };
 
+struct Ref<WTF::Thread, WTF::DumbPtrTraits<WTF::Thread>> {
+    struct Thread *_field1;
+};
+
 struct Ref<WebCore::ApplicationCacheStorage, WTF::DumbPtrTraits<WebCore::ApplicationCacheStorage>> {
     struct ApplicationCacheStorage *_field1;
 };
@@ -2416,6 +2420,8 @@ struct TextResourceDecoder;
 
 struct TextTrackList;
 
+struct Thread;
+
 struct TimeRanges;
 
 struct Timer {
@@ -2427,7 +2433,8 @@ struct Timer {
     unsigned int _field6;
     _Bool _field7;
     struct Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow, 16, WTF::FastMalloc> *_field8;
-    struct Function<void ()> _field9;
+    struct Ref<WTF::Thread, WTF::DumbPtrTraits<WTF::Thread>> _field9;
+    struct Function<void ()> _field10;
 };
 
 struct TreeScope;

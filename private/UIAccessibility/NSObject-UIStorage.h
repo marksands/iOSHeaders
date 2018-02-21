@@ -17,6 +17,7 @@
 - (id)_accessibilityExtendedLabelForFocusParcelWithLabel:(id)arg1;
 - (unsigned long long)_accessibilityFocusParcelChildrenCount:(unsigned long long)arg1;
 - (_Bool)_accessibilityIsFocusParcel;
+- (id)_accessibilityTextForSubhierarchyIncludingHeaders:(_Bool)arg1 focusableItems:(_Bool)arg2 exclusions:(id)arg3 classExclusions:(id)arg4;
 - (id)_accessibilityTextForSubhierarchyIncludingHeaders:(_Bool)arg1 focusableItems:(_Bool)arg2 exclusions:(id)arg3;
 - (id)_accessibilitySubviews;
 - (_Bool)_isAccessibilityExplorerElement;

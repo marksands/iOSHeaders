@@ -6,79 +6,25 @@
 
 #import "UIViewController.h"
 
-#import "NUVideoAdProviderDataSource.h"
 #import "SXAnimatableVideoViewController.h"
-#import "SXDiscoverMoreConfigurationProviding.h"
-#import "SXDiscoverMoreInteractionHandler.h"
-#import "SXMoreFromInteractionHandlerFactory.h"
-#import "SXMoreFromPublisherActionTitleProviding.h"
-#import "SXMoreFromPublisherLogoProviding.h"
-#import "SXNowPlayingVideoTitleProviding.h"
-#import "SXVideoAdProviderFactory.h"
-#import "SXVideoCloseInteractionHandler.h"
-#import "SXVideoPlaybackStateObserving.h"
-#import "SXVideoProviderFactory.h"
 
-@class NSOrderedSet, NSString, NTPBDiscoverMoreVideosInfo, NTPBVideoGroupsConfig, NUVideoPlaybackAllowabilityManager, NUVideoPlayerEventTracker, SXVideoView, SXVideoViewController, UIView;
+@class SXVideoView, SXVideoViewController, UIView;
 
-@interface NUVideoViewController : UIViewController <NUVideoAdProviderDataSource, SXVideoProviderFactory, SXVideoAdProviderFactory, SXDiscoverMoreInteractionHandler, SXNowPlayingVideoTitleProviding, SXMoreFromPublisherActionTitleProviding, SXMoreFromPublisherLogoProviding, SXDiscoverMoreConfigurationProviding, SXMoreFromInteractionHandlerFactory, SXVideoCloseInteractionHandler, SXVideoPlaybackStateObserving, SXAnimatableVideoViewController>
+@interface NUVideoViewController : UIViewController <SXAnimatableVideoViewController>
 {
     id <NUVideoViewControllerDelegate> _delegate;
-    NUVideoPlayerEventTracker *_eventTracker;
-    NTPBDiscoverMoreVideosInfo *_discoverMoreVideosInfo;
-    NTPBVideoGroupsConfig *_videoGroupsConfig;
-    id <NUVideoAdProviderFactory> _videoAdProviderFactory;
-    long long _onboardingVersion;
+    id <NUViewAppearanceEventTracker> _viewAppearanceEventTracker;
     SXVideoViewController *_videoViewController;
     id <SXVideoPlaybackController> _playbackController;
-    NUVideoPlaybackAllowabilityManager *_playbackAllowabilityManager;
-    id <SXVideoQueueModifying> _queueModifier;
-    id <SXVideoQueueProviding> _queueProvider;
-    NSOrderedSet *_normalVideos;
-    NSOrderedSet *_allVideos;
-    unsigned long long _numberOfVideosPlayedInSession;
+    id <NUVideoAdProviderDataSource> _videoAdProviderDataSource;
 }
 
-@property(nonatomic) unsigned long long numberOfVideosPlayedInSession; // @synthesize numberOfVideosPlayedInSession=_numberOfVideosPlayedInSession;
-@property(copy, nonatomic) NSOrderedSet *allVideos; // @synthesize allVideos=_allVideos;
-@property(copy, nonatomic) NSOrderedSet *normalVideos; // @synthesize normalVideos=_normalVideos;
-@property(retain, nonatomic) id <SXVideoQueueProviding> queueProvider; // @synthesize queueProvider=_queueProvider;
-@property(retain, nonatomic) id <SXVideoQueueModifying> queueModifier; // @synthesize queueModifier=_queueModifier;
-@property(retain, nonatomic) NUVideoPlaybackAllowabilityManager *playbackAllowabilityManager; // @synthesize playbackAllowabilityManager=_playbackAllowabilityManager;
-@property(retain, nonatomic) id <SXVideoPlaybackController> playbackController; // @synthesize playbackController=_playbackController;
-@property(retain, nonatomic) SXVideoViewController *videoViewController; // @synthesize videoViewController=_videoViewController;
-@property(readonly, nonatomic) long long onboardingVersion; // @synthesize onboardingVersion=_onboardingVersion;
-@property(readonly, nonatomic) id <NUVideoAdProviderFactory> videoAdProviderFactory; // @synthesize videoAdProviderFactory=_videoAdProviderFactory;
-@property(readonly, copy, nonatomic) NTPBVideoGroupsConfig *videoGroupsConfig; // @synthesize videoGroupsConfig=_videoGroupsConfig;
-@property(readonly, copy, nonatomic) NTPBDiscoverMoreVideosInfo *discoverMoreVideosInfo; // @synthesize discoverMoreVideosInfo=_discoverMoreVideosInfo;
-@property(readonly, nonatomic) NUVideoPlayerEventTracker *eventTracker; // @synthesize eventTracker=_eventTracker;
+@property(readonly, nonatomic) id <NUVideoAdProviderDataSource> videoAdProviderDataSource; // @synthesize videoAdProviderDataSource=_videoAdProviderDataSource;
+@property(readonly, nonatomic) id <SXVideoPlaybackController> playbackController; // @synthesize playbackController=_playbackController;
+@property(readonly, nonatomic) SXVideoViewController *videoViewController; // @synthesize videoViewController=_videoViewController;
+@property(readonly, nonatomic) id <NUViewAppearanceEventTracker> viewAppearanceEventTracker; // @synthesize viewAppearanceEventTracker=_viewAppearanceEventTracker;
 @property(nonatomic) __weak id <NUVideoViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)_callToActionURLForVideoItem:(id)arg1;
-- (id)_callToActionTitleForVideoItem:(id)arg1;
-- (id)createInteractionHandlerForVideo:(id)arg1;
-@property(readonly, nonatomic) NSString *subtitle;
-@property(readonly, nonatomic) NSString *title;
-- (CDUnknownBlockType)moreFromLogoForVideo:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
-- (id)actionTitleForVideo:(id)arg1;
-- (id)titleForVideo:(id)arg1;
-- (void)handleInteractionWithVideoCloseControl;
-- (void)handleInteractionWithDiscoverMoreControl;
-- (id)createVideoAdProviderForVideo:(id)arg1;
-- (id)createVideoProviderForVideo:(id)arg1;
-- (void)resetNumberOfVideosPlayedSinceLastAd;
-- (void)incrementNumberOfVideosPlayedSinceLastAd;
-@property(nonatomic) unsigned long long numberOfVideosPlayedSinceLastAd;
-- (void)notifyPreviousAdOfVideoPlaybackStart:(id)arg1;
-- (void)playbackPaused;
-- (void)playbackResumed;
-- (void)playbackStarted;
-- (_Bool)previousVideoHasStartedPlaybackForVideoAdProvider:(id)arg1;
-- (double)aspectRatioOfPlayerForVideoAdProvider:(id)arg1;
-- (unsigned long long)numberOfVideosPlayedSinceLastAdForVideoAdProvider:(id)arg1;
-- (unsigned long long)numberOfVideosPlayedInSessionForVideoAdProvider:(id)arg1;
-- (long long)onboardingVersionForVideoAdProvider:(id)arg1;
-- (id)viewControllerForVideoAdProvider:(id)arg1;
 @property(readonly, nonatomic) UIViewController *controlsViewController;
 @property(readonly, nonatomic) SXVideoView *videoView;
 @property(readonly, nonatomic) UIView *videoHostView;
@@ -88,15 +34,9 @@
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (id)initWithResolver:(id)arg1 videoItems:(id)arg2 eventTracker:(id)arg3 configuration:(id)arg4 discoverMoreVideosInfo:(id)arg5 videoGroupsConfig:(id)arg6 videoProviderFactory:(id)arg7 videoAdProviderFactory:(id)arg8 adConfiguration:(id)arg9 onboardingVersion:(long long)arg10 visibilityMonitor:(id)arg11;
+- (id)initWithResolver:(id)arg1 videoItems:(id)arg2 eventTracker:(id)arg3 configuration:(id)arg4 discoverMoreVideosInfo:(id)arg5 videoGroupsConfig:(id)arg6 videoProviderFactory:(id)arg7 videoAdProviderFactory:(id)arg8 onboardingVersion:(long long)arg9 visibilityMonitor:(id)arg10 activityViewControllerFactory:(id)arg11;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

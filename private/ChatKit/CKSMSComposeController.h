@@ -45,6 +45,7 @@
 - (void)smsComposeControllerCancelled;
 - (void)smsComposeControllerAppeared;
 - (void)smsComposeControllerDataInserted;
+- (void)setUTIs:(id)arg1;
 - (void)setUICustomizationData:(id)arg1;
 - (void)setGameCenterPickedHandles:(id)arg1 playerNames:(id)arg2;
 - (void)setGameCenterModeWithPickerBlock:(CDUnknownBlockType)arg1;

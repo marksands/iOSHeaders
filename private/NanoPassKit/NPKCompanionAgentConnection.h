@@ -38,6 +38,7 @@
 @property(nonatomic) _Bool hasQueuedPaymentPasses; // @synthesize hasQueuedPaymentPasses=_hasQueuedPaymentPasses;
 @property(nonatomic) _Bool queueAppropriateFailedActions; // @synthesize queueAppropriateFailedActions=_queueAppropriateFailedActions;
 - (void).cxx_destruct;
+- (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithTransitPassProperties:(id)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didRemoveTransactionWithIdentifier:(id)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didReceiveTransaction:(id)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didEnableTransactionService:(_Bool)arg2;
@@ -76,7 +77,7 @@
 - (void)defaultPaymentApplicationForPassWithUniqueID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)defaultCardUniqueID:(CDUnknownBlockType)arg1;
 - (void)setDefaultCardUniqueID:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)removePaymentPassWithUniqueID:(id)arg1 forDevice:(id)arg2 requireRemoteConfirmation:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)removePaymentPassWithUniqueID:(id)arg1 forDevice:(id)arg2 waitForConfirmation:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)savePaymentPass:(id)arg1 forDevice:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)paymentPassWithDeviceAccountIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)paymentPassesWithPrimaryAccountIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;

@@ -91,6 +91,7 @@
     NSMutableArray *_removedUsers;
     NSMutableArray *_unconfiguredResidentDevices;
     HMDRoom *_roomForEntireHome;
+    long long _lastKnownReachableIPAndMediaAccessoryCount;
     long long _lastKnownReachableAccessoryCount;
     long long _configurationVersion;
     long long _expectedConfigurationVersion;
@@ -172,6 +173,7 @@
 @property(nonatomic) long long expectedConfigurationVersion; // @synthesize expectedConfigurationVersion=_expectedConfigurationVersion;
 @property(nonatomic) long long configurationVersion; // @synthesize configurationVersion=_configurationVersion;
 @property(nonatomic) long long lastKnownReachableAccessoryCount; // @synthesize lastKnownReachableAccessoryCount=_lastKnownReachableAccessoryCount;
+@property(nonatomic) long long lastKnownReachableIPAndMediaAccessoryCount; // @synthesize lastKnownReachableIPAndMediaAccessoryCount=_lastKnownReachableIPAndMediaAccessoryCount;
 @property(retain, nonatomic) HMDRoom *roomForEntireHome; // @synthesize roomForEntireHome=_roomForEntireHome;
 @property(retain, nonatomic) NSMutableArray *unconfiguredResidentDevices; // @synthesize unconfiguredResidentDevices=_unconfiguredResidentDevices;
 @property(retain, nonatomic) NSMutableArray *removedUsers; // @synthesize removedUsers=_removedUsers;
@@ -229,7 +231,7 @@
 - (void)_handleMediaPropertiesRead:(id)arg1;
 - (void)_handleReadMediaProperties:(struct NSDictionary *)arg1 source:(unsigned long long)arg2 message:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)redispatchMediaReadRequests:(id)arg1 viaDevice:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)evaluateIfMediaPlaybackStateChanged:(id)arg1;
+- (void)mediaPlaybackStateChanged:(id)arg1;
 - (void)removeMediaSessionState:(id)arg1;
 - (void)addMediaSessionState:(id)arg1;
 - (id)mediaSessionStateWithIdentifier:(id)arg1;

@@ -9,7 +9,7 @@
 #import "CBCentralManagerDelegate.h"
 #import "CBScalablePipeManagerDelegate.h"
 
-@class CBCentralManager, CBScalablePipe, CBScalablePipeManager, NSData, NSMutableData, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, SFBLEData;
+@class CBCentralManager, CBScalablePipe, CBScalablePipeManager, NSData, NSDate, NSMutableData, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, SFBLEData;
 
 @interface SFBLEPipe : NSObject <CBCentralManagerDelegate, CBScalablePipeManagerDelegate>
 {
@@ -40,6 +40,7 @@
     CBScalablePipeManager *_btPipeManager;
     struct NSMutableDictionary *_frameHandlers;
     _Bool _invalidateCalled;
+    NSDate *_lastDisconnectDate;
     struct LogCategory *_ucat;
     _Bool _manualConnect;
     CDUnknownBlockType _bluetoothStateChangedHandler;
@@ -58,6 +59,7 @@
 @property(copy, nonatomic) CDUnknownBlockType connectionStateChangedHandler; // @synthesize connectionStateChangedHandler=_connectionStateChangedHandler;
 @property(copy, nonatomic) CDUnknownBlockType bluetoothStateChangedHandler; // @synthesize bluetoothStateChangedHandler=_bluetoothStateChangedHandler;
 - (void).cxx_destruct;
+- (void)postedConnectionStateChanged;
 - (void)scalablePipeManager:(id)arg1 pipeDidDisconnect:(id)arg2 error:(id)arg3;
 - (void)scalablePipeManager:(id)arg1 pipeDidConnect:(id)arg2;
 - (void)scalablePipeManager:(id)arg1 didUnregisterEndpoint:(id)arg2;

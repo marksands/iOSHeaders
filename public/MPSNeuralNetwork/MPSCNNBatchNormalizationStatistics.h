@@ -12,14 +12,12 @@
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
-@property(readonly, nonatomic) unsigned long long numberOfFeatureChannels; // @synthesize numberOfFeatureChannels=_numberOfFeatureChannels;
+@property(nonatomic) unsigned long long numberOfFeatureChannels; // @synthesize numberOfFeatureChannels=_numberOfFeatureChannels;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
-- (id)temporaryResultStateForCommandBuffer:(id)arg1 sourceImages:(struct NSArray *)arg2;
-- (id)resultStateForSourceImages:(struct NSArray *)arg1;
 - (void)encodeBatchToCommandBuffer:(id)arg1 sourceImages:(struct NSArray *)arg2 batchNormalizationState:(id)arg3;
-- (id)initWithDevice:(id)arg1 numberOfFeatureChannels:(unsigned long long)arg2;
 - (_Bool)appendBatchBarrier;
 - (_Bool)isResultStateReusedAcrossBatch;
+- (id)initWithDevice:(id)arg1;
 
 @end
 

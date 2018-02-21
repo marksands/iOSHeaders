@@ -18,6 +18,7 @@
 @property(nonatomic) double visiblePercentage; // @synthesize visiblePercentage=_visiblePercentage;
 @property(nonatomic) double currentPlaybackTime; // @synthesize currentPlaybackTime=_currentPlaybackTime;
 @property(nonatomic) double totalDuration; // @synthesize totalDuration=_totalDuration;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

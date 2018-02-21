@@ -33,6 +33,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CKRecord *record; // @synthesize record=_record;
 @property(readonly, nonatomic) BRCItemID *itemID; // @synthesize itemID=_itemID;
 - (void).cxx_destruct;
+- (void)dealloc;
 - (id)initWithDocument:(id)arg1 stageID:(id)arg2 transferSize:(unsigned long long)arg3;
 - (id)description;
 @property(readonly, nonatomic) NSNumber *transferID;

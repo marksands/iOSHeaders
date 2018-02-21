@@ -34,8 +34,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSDate *sunset;
 @property(readonly, nonatomic) NSDate *transit;
 @property(readonly, nonatomic) NSDate *sunrise;
-- (id)_dateFromOffset:(double)arg1 ofJulianDay:(double)arg2;
-- (id)initWithJulianDay:(double)arg1 riseTransitSet:(struct CAARiseTransitSetDetails)arg2;
+- (id)_dateFromOffset:(double)arg1 ofJulianEphemerisDay:(double)arg2;
+- (id)initWithJulianEphemerisDay:(double)arg1 riseTransitSet:(struct CAARiseTransitSetDetails)arg2;
 
 @end
 

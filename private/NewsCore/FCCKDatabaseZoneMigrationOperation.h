@@ -40,6 +40,8 @@
 - (_Bool)_shouldStopGatheringAfterFetchingRecords:(id)arg1 cumulativeRecords:(id)arg2;
 - (void)_continueGatheringRecordsWithPreviousServerChangeToken:(id)arg1 recordsAlreadyFetched:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_gatherRecordsToMigrateWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_migrateIndividualRecordsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_migrateEntireZoneWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;
 - (void)prepareOperation;

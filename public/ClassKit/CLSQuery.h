@@ -8,7 +8,7 @@
 
 #import "CLSQuery.h"
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+@class NSDate, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CLSQuery : CLSDataObserver <CLSQuery>
 {
@@ -17,12 +17,14 @@
     _Bool _executing;
     long long _fetchLimit;
     CDUnknownBlockType _completion;
+    NSDate *_startDate;
     unsigned long long _state;
 }
 
 + (id)queryWithObjectType:(Class)arg1 predicate:(id)arg2 error:(id *)arg3;
 + (id)queryWithObjectType:(Class)arg1 predicate:(id)arg2;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
+@property(retain) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 @property(nonatomic) long long fetchLimit; // @synthesize fetchLimit=_fetchLimit;
 @property(getter=isExecuting) _Bool executing; // @synthesize executing=_executing;

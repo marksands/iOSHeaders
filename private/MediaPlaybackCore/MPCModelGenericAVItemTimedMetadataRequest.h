@@ -17,6 +17,7 @@
 }
 
 + (id)metadataIdentifiers;
++ (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) NSArray *timedMetadataGroups; // @synthesize timedMetadataGroups=_timedMetadataGroups;
 @property(readonly, copy, nonatomic) ICStoreRequestContext *storeRequestContext; // @synthesize storeRequestContext=_storeRequestContext;
 @property(readonly, nonatomic) MPModelGenericObject *genericObject; // @synthesize genericObject=_genericObject;

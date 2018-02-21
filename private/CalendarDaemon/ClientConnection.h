@@ -69,6 +69,7 @@
 - (id)operations;
 - (void)addOperation:(id)arg1;
 @property(readonly, nonatomic) NSString *changeTrackingID;
+- (void)closeDatabase;
 - (void)dealloc;
 - (id)initWithXPCConnection:(id)arg1;
 

@@ -8,17 +8,18 @@
 
 @interface MPSCNNInstanceNormalization : MPSCNNKernel
 {
-    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _gammaBeta
-    unsigned long long _gammaOffset;
-    unsigned long long _betaOffset;
+    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _gamma
+    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _beta
+    id <MPSCNNInstanceNormalizationDataSource> _dataSource;
     unsigned long long _numberOfFeatureChannels;
     float _epsilon;
-    _Bool _serializeGammaAndBeta;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
-@property(nonatomic) _Bool serializeGammaAndBeta; // @synthesize serializeGammaAndBeta=_serializeGammaAndBeta;
 @property(nonatomic) float epsilon; // @synthesize epsilon=_epsilon;
+@property(readonly, retain, nonatomic) id <MPSCNNInstanceNormalizationDataSource> dataSource; // @synthesize dataSource=_dataSource;
+- (void)reloadGammaAndBetaWithCommandBuffer:(id)arg1 gammaAndBetaState:(id)arg2;
+- (id)debugDescription;
 - (void)reloadDataSource:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;

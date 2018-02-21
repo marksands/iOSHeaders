@@ -22,6 +22,7 @@
 
 + (id)defaultDatabaseDirectory;
 + (id)storeWithDirectory:(id)arg1 readOnly:(_Bool)arg2;
+@property(readonly, nonatomic) _DKCoreDataStorage *storage; // @synthesize storage=_storage;
 @property(retain) id <_DKLocationHistorian> locationHistorian; // @synthesize locationHistorian=_locationHistorian;
 - (void).cxx_destruct;
 - (void)anonymizeContactsWithSalt:(id)arg1;
@@ -45,6 +46,7 @@
 - (unsigned long long)deleteInteractionsOlderThanDate:(id)arg1 limit:(unsigned long long)arg2;
 - (unsigned long long)deleteUnreferencedContacts;
 - (unsigned long long)deleteUnreferencedKeywords;
+- (id)interactionCountPerMechanism;
 - (id)histogramContactInteractionsUsingPredicate:(id)arg1 withLimit:(unsigned long long)arg2;
 - (id)queryContactInteractionsUsingPredicate:(id)arg1 withLimit:(unsigned long long)arg2;
 - (unsigned long long)numberOfContactsMatchingPredicate:(id)arg1;

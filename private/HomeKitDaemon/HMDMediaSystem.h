@@ -7,32 +7,33 @@
 #import "NSObject.h"
 
 #import "HMDBackingStoreObjectProtocol.h"
+#import "HMDHomeMessageReceiver.h"
 #import "HMFDumpState.h"
 #import "HMFLogging.h"
-#import "HMFMessageReceiver.h"
 #import "HMFTimerDelegate.h"
 #import "NSSecureCoding.h"
 
-@class HMDAccessorySettingGroup, HMDAppleMediaAccessory, HMDApplicationData, HMDHome, HMDMediaSession, HMDMediaSystemSymptomHandler, HMFMessageDispatcher, HMFTimer, NSArray, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDAccessorySettingGroup, HMDAppleMediaAccessory, HMDApplicationData, HMDHome, HMDMediaSession, HMDMediaSystemSymptomHandler, HMFMessageDispatcher, HMFTimer, NSArray, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDMediaSystem : NSObject <NSSecureCoding, HMFDumpState, HMFLogging, HMDBackingStoreObjectProtocol, HMFMessageReceiver, HMFTimerDelegate>
+@interface HMDMediaSystem : NSObject <NSSecureCoding, HMFDumpState, HMFLogging, HMDBackingStoreObjectProtocol, HMFTimerDelegate, HMDHomeMessageReceiver>
 {
     NSString *_name;
     NSArray *_components;
     HMDApplicationData *_appData;
     HMDAccessorySettingGroup *_rootSettings;
-    HMDMediaSession *_mediaSession;
     NSUUID *_uuid;
     HMDHome *_home;
     NSArray *_accessories;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     NSObject<OS_dispatch_queue> *_workQueue;
     HMFMessageDispatcher *_msgDispatcher;
+    HMDMediaSession *_mediaSession;
     HMFTimer *_auditSettingsTimer;
     HMFTimer *_fixupSettingsTimer;
     HMDMediaSystemSymptomHandler *_symptomsHandler;
 }
 
++ (_Bool)hasMessageReceiverChildren;
 + (_Bool)supportsSecureCoding;
 + (id)sortMediaComponents:(id)arg1;
 + (void)_configureMediaSystemComponents:(id)arg1 mediaSystem:(id)arg2;
@@ -40,6 +41,7 @@
 @property(readonly) HMDMediaSystemSymptomHandler *symptomsHandler; // @synthesize symptomsHandler=_symptomsHandler;
 @property(retain, nonatomic) HMFTimer *fixupSettingsTimer; // @synthesize fixupSettingsTimer=_fixupSettingsTimer;
 @property(retain, nonatomic) HMFTimer *auditSettingsTimer; // @synthesize auditSettingsTimer=_auditSettingsTimer;
+@property(retain, nonatomic) HMDMediaSession *mediaSession; // @synthesize mediaSession=_mediaSession;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
@@ -47,6 +49,7 @@
 @property(readonly, nonatomic) __weak HMDHome *home; // @synthesize home=_home;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
+@property(readonly, copy) NSSet *messageReceiverChildren;
 - (id)modelObjectWithChangeType:(unsigned long long)arg1;
 - (id)backingStoreObjects;
 - (void)encodeWithCoder:(id)arg1;
@@ -63,7 +66,6 @@
 @property(readonly, nonatomic) HMDAppleMediaAccessory *targetAccessory;
 @property(retain, nonatomic) HMDAccessorySettingGroup *rootSettings; // @synthesize rootSettings=_rootSettings;
 @property(retain, nonatomic) HMDApplicationData *appData; // @synthesize appData=_appData;
-@property(retain, nonatomic) HMDMediaSession *mediaSession; // @synthesize mediaSession=_mediaSession;
 @property(retain, nonatomic) NSArray *components; // @synthesize components=_components;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (id)serialize;

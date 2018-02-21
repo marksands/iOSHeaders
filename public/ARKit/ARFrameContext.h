@@ -14,6 +14,7 @@
 {
     NSMutableArray *_anchorsToAdd;
     NSMutableArray *_anchorsToRemove;
+    _Bool _didRelocalize;
     _Bool _sessionTransformUpdated;
     _Bool _sessionTransformReset;
     _Bool _sessionTransformShouldResumeCameraHeading;
@@ -22,6 +23,7 @@
     ARImageData *_imageData;
     long long _worldAlignment;
     unsigned long long _frameDebugOptions;
+    // Error parsing type: {?="columns"[4]}, name: _relocalizationDeltaTransform
     // Error parsing type: {?="columns"[4]}, name: _sessionTransform
 }
 
@@ -33,6 +35,10 @@
 // Error parsing type for property sessionTransform:
 // Property attributes: T{?=[4]},N,V_sessionTransform
 
+// Error parsing type for property relocalizationDeltaTransform:
+// Property attributes: T{?=[4]},N,V_relocalizationDeltaTransform
+
+@property(nonatomic) _Bool didRelocalize; // @synthesize didRelocalize=_didRelocalize;
 @property(nonatomic) unsigned long long frameDebugOptions; // @synthesize frameDebugOptions=_frameDebugOptions;
 @property(nonatomic) long long worldAlignment; // @synthesize worldAlignment=_worldAlignment;
 @property(retain, nonatomic) ARImageData *imageData; // @synthesize imageData=_imageData;

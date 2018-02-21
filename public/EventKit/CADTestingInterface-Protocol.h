@@ -5,6 +5,7 @@
 //
 
 @protocol CADTestingInterface
+- (void)CADTestingCloseDatabase:(void (^)(int))arg1;
 - (void)CADTestingSimulateDaemonCrash;
 @end
 

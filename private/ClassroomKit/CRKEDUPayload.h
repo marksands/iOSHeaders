@@ -55,7 +55,7 @@
 - (id)parseUserFromDictionary:(id)arg1 isStub:(_Bool)arg2 outError:(id *)arg3;
 - (id)parseGroupFromDictionary:(id)arg1 isStub:(_Bool)arg2 outError:(id *)arg3;
 - (id)parseDepartmentFromDictionary:(id)arg1 isStub:(_Bool)arg2 outError:(id *)arg3;
-- (void)parseDictionary:(id)arg1 isStub:(_Bool)arg2 outError:(id *)arg3;
+- (_Bool)parseDictionary:(id)arg1 isStub:(_Bool)arg2 outError:(id *)arg3;
 - (id)initWithDictionary:(id)arg1 isStub:(_Bool)arg2 error:(id *)arg3;
 
 @end

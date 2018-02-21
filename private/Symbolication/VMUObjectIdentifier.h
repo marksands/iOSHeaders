@@ -37,6 +37,7 @@
     NSMutableSet *_stringUniquingSet;
     NSHashTable *_objcRuntimeMallocBlocksHash;
     VMUNonOverlappingRangeArray *_targetProcessVMranges;
+    _Bool _targetProcessContainsMallocStackLoggingLiteZone;
     unsigned long long _cfBooleanTrueAddress;
     unsigned long long _cfBooleanFalseAddress;
 }
@@ -106,7 +107,9 @@
 - (id)classInfoForMemory:(void *)arg1 length:(unsigned long long)arg2 remoteAddress:(unsigned long long)arg3;
 - (id)classInfoForMemory:(void *)arg1 length:(unsigned long long)arg2;
 - (id)classInfoForNonobjectMemory:(void *)arg1 length:(unsigned long long)arg2;
+- (id)_classInfoWithPthreadType:(id)arg1;
 - (id)_classInfoWithNonobjectType:(id)arg1 binaryPath:(id)arg2;
+- (_Bool)_isValidInstanceLength:(unsigned long long)arg1 expectedLength:(unsigned long long)arg2;
 - (id)classInfoForObjectWithRange:(struct _VMURange)arg1;
 - (void)enumerateAllClassInfosWithBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateRealizedClassInfosWithBlock:(CDUnknownBlockType)arg1;

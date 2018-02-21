@@ -46,6 +46,7 @@
 - (_Bool)hideStashInSafeHaven;
 - (void)stashFlowSkipIdentifiers:(id)arg1;
 - (void)removeObjectForBuddyKey:(id)arg1;
+- (void)setObject:(id)arg1 forBuddyKey:(id)arg2;
 - (void)setBool:(_Bool)arg1 forBuddyKey:(id)arg2;
 - (void)setAssistantVoiceTriggerEnabled:(_Bool)arg1;
 - (void)setAssistantEnabled:(_Bool)arg1;

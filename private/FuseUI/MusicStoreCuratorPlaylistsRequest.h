@@ -16,6 +16,7 @@
 
 + (id)allSupportedItemProperties;
 + (id)allSupportedSectionProperties;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) MusicStoreCuratorPlaylistsResponse *previousResponse; // @synthesize previousResponse=_previousResponse;
 @property(nonatomic) long long curatorStoreAdamID; // @synthesize curatorStoreAdamID=_curatorStoreAdamID;
 - (void).cxx_destruct;

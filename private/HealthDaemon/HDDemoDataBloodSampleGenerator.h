@@ -11,6 +11,7 @@
     double _nextBloodAlcoholContentSampleTime;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) double nextBloodAlcoholContentSampleTime; // @synthesize nextBloodAlcoholContentSampleTime=_nextBloodAlcoholContentSampleTime;
 - (double)_computeNumDrinksTodayForDemoPerson:(id)arg1 atTime:(double)arg2;
 - (id)bloodAlcoholContentForDemoPerson:(id)arg1 atTime:(double)arg2;

@@ -20,6 +20,5 @@
 @property(readonly, nonatomic) NSURL *url;
 @property(readonly, nonatomic) NSData *data;
 - (id)initWithData:(NSData *)arg1 url:(NSURL *)arg2 messageGUID:(NSString *)arg3 isFromMe:(_Bool)arg4;
-- (id)initWithData:(NSData *)arg1 url:(NSURL *)arg2 messageGUID:(NSString *)arg3;
 @end
 

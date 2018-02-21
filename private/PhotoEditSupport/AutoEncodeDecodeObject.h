@@ -7,14 +7,16 @@
 #import "NSObject.h"
 
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSArray;
 
-@interface AutoEncodeDecodeObject : NSObject <NSCopying>
+@interface AutoEncodeDecodeObject : NSObject <NSCopying, NSSecureCoding>
 {
     NSArray *_keysToEncode;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSArray *keysToEncode; // @synthesize keysToEncode=_keysToEncode;
 - (void).cxx_destruct;
 - (void)dealloc;

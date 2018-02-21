@@ -27,6 +27,7 @@
 - (void)saveIdentityMapForAccountIdentifier:(id)arg1;
 - (void)registerAccountIdentifier:(id)arg1;
 @property(readonly) NSNumber *lastRegisteredAccountIdentifier;
+- (unsigned long long)keyCountForAccountIdentifier:(id)arg1;
 - (_Bool)isIdentityMapValidForAccountIdentifier:(id)arg1;
 @property(readonly, getter=isBiometricStateEnabled) _Bool biometricStateEnabled;
 - (unsigned long long)identityMapCount;

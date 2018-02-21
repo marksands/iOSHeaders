@@ -6,13 +6,12 @@
 
 #import "UIViewController.h"
 
-@class SXPlayButtonViewController, SXTopVideoControlsViewController, SXVideoAccessoryBarViewController, SXVideoPlaybackControlsManager, SXVideoProgressViewController, UIButton;
+@class SXPlayButtonViewController, SXTopVideoControlsViewController, SXVideoAccessoryBarViewController, SXVideoPlaybackControlsManager, UIButton;
 
 @interface SXVideoControlsViewController : UIViewController
 {
     SXTopVideoControlsViewController *_topControlsViewController;
     SXPlayButtonViewController *_playButtonViewController;
-    SXVideoProgressViewController *_progressViewController;
     SXVideoPlaybackControlsManager *_playbackControlsManager;
     SXVideoAccessoryBarViewController *_accessoryBarViewController;
     UIButton *_skipToPreviousButton;
@@ -23,12 +22,13 @@
 @property(readonly, nonatomic) UIButton *skipToPreviousButton; // @synthesize skipToPreviousButton=_skipToPreviousButton;
 @property(readonly, nonatomic) SXVideoAccessoryBarViewController *accessoryBarViewController; // @synthesize accessoryBarViewController=_accessoryBarViewController;
 @property(readonly, nonatomic) SXVideoPlaybackControlsManager *playbackControlsManager; // @synthesize playbackControlsManager=_playbackControlsManager;
-@property(readonly, nonatomic) SXVideoProgressViewController *progressViewController; // @synthesize progressViewController=_progressViewController;
 @property(readonly, nonatomic) SXPlayButtonViewController *playButtonViewController; // @synthesize playButtonViewController=_playButtonViewController;
 @property(readonly, nonatomic) SXTopVideoControlsViewController *topControlsViewController; // @synthesize topControlsViewController=_topControlsViewController;
 - (void).cxx_destruct;
+- (void)viewSafeAreaInsetsDidChange;
+- (void)updateViewConstraints;
 - (void)viewDidLoad;
-- (id)initWithPlaybackControlsManager:(id)arg1 topVideoControlsViewController:(id)arg2 playButtonViewController:(id)arg3 progressViewController:(id)arg4 videoAccessoryBar:(id)arg5 skipToPreviousButton:(id)arg6 skipToNextButton:(id)arg7;
+- (id)initWithPlaybackControlsManager:(id)arg1 topVideoControlsViewController:(id)arg2 playButtonViewController:(id)arg3 videoAccessoryBar:(id)arg4 skipToPreviousButton:(id)arg5 skipToNextButton:(id)arg6;
 
 @end
 

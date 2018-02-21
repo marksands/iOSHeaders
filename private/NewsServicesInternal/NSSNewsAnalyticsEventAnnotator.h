@@ -12,7 +12,7 @@
     id <NSSNewsAnalyticsUserIDProvider> _userIDProvider;
 }
 
-@property(readonly, nonatomic) __weak id <NSSNewsAnalyticsUserIDProvider> userIDProvider; // @synthesize userIDProvider=_userIDProvider;
+@property(readonly, nonatomic) id <NSSNewsAnalyticsUserIDProvider> userIDProvider; // @synthesize userIDProvider=_userIDProvider;
 @property(readonly, nonatomic) __weak id <NSSNewsAnalyticsSessionManager> sessionManager; // @synthesize sessionManager=_sessionManager;
 - (void).cxx_destruct;
 - (void)annotateEvent:(id)arg1 withOptions:(unsigned long long)arg2;

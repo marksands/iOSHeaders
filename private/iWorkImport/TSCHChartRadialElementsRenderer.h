@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (double)p_calculateIntersectionAreaForRectangle:(struct CGRect)arg1 circleCenter:(struct CGPoint)arg2 circleRadius:(double)arg3;
 - (struct CGRect)chartLayoutSpaceRenderingRect;
 - (void)drawAll;
 - (void)drawAllButSeriesIndicies:(id)arg1;
@@ -29,7 +30,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)p_shouldRenderSeriesIndex:(unsigned long long)arg1;
 - (void)renderLabelWithPieLabel:(id)arg1 combinedLabelTransform:(struct CGAffineTransform)arg2 context:(struct CGContext *)arg3 paragraphStyle:(id)arg4;
 - (void)renderLabelsWithWedgeLayoutInfo:(id)arg1 paragraphStyle:(id)arg2 context:(struct CGContext *)arg3;
-- (_Bool)p_useLableHeightToTestDonutLabelOverlapWithAngle:(double)arg1;
 - (void)p_renderIntoContext:(struct CGContext *)arg1 visible:(struct CGRect)arg2;
 - (struct CGLayer *)p_newPreRenderedImageWithContext:(struct CGContext *)arg1 wedgePath:(struct CGPath *)arg2 fullWedgePath:(struct CGPath *)arg3 fill:(id)arg4 stroke:(id)arg5 shadow:(id)arg6 outUserSpaceLayerBounds:(struct CGRect *)arg7;
 - (struct CGLayer *)p_newCGLayerForUserSpaceRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2 outUserSpaceLayerBounds:(struct CGRect *)arg3;

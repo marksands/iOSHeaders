@@ -6,7 +6,11 @@
 
 #import "NSObject.h"
 
-@interface NUVideoPlaybackAllowabilityManager : NSObject
+#import "NUVideoPlayerEventTracker.h"
+
+@class NSString;
+
+@interface NUVideoPlaybackAllowabilityManager : NSObject <NUVideoPlayerEventTracker>
 {
     id <SXVisibilityMonitoring> _visibilityMonitor;
     id <SXVideoPlaybackController> _playbackController;
@@ -17,8 +21,15 @@
 @property(readonly, nonatomic) id <SXVideoPlaybackController> playbackController; // @synthesize playbackController=_playbackController;
 @property(readonly, nonatomic) id <SXVisibilityMonitoring> visibilityMonitor; // @synthesize visibilityMonitor=_visibilityMonitor;
 - (void).cxx_destruct;
+- (void)videoPlayerDidBecomeInvisible;
 - (id)initWithPlayerVisibilityMonitor:(id)arg1 playbackController:(id)arg2 playbackPolicy:(id)arg3;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,10 +6,11 @@
 
 #import "UIViewController.h"
 
-@class NSArray;
+@class NSArray, NSMutableArray;
 
 @interface SXTopVideoControlsViewController : UIViewController
 {
+    NSMutableArray *_currentConstraints;
     NSArray *_leadingAccessoryViews;
     NSArray *_trailingAccessoryViews;
 }
@@ -17,6 +18,7 @@
 @property(retain, nonatomic) NSArray *trailingAccessoryViews; // @synthesize trailingAccessoryViews=_trailingAccessoryViews;
 @property(retain, nonatomic) NSArray *leadingAccessoryViews; // @synthesize leadingAccessoryViews=_leadingAccessoryViews;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSMutableArray *currentConstraints; // @synthesize currentConstraints=_currentConstraints;
 - (void)setLeadingAccessoryViews:(id)arg1 animated:(_Bool)arg2;
 - (void)setTrailingAccessoryViews:(id)arg1 animated:(_Bool)arg2;
 - (void)updateViewConstraints;

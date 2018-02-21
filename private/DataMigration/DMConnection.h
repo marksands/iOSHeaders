@@ -21,7 +21,7 @@
 - (void)testMigrationUIWithProgress:(_Bool)arg1 forceInvert:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)changeVisibility:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)orderedPluginIdentifiersWithCompletion:(CDUnknownBlockType)arg1;
-- (void)migrateCheckingNecessity:(_Bool)arg1 lastRelevantPlugin:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)migrateCheckingNecessity:(_Bool)arg1 lastRelevantPlugin:(id)arg2 testMigrationInfrastructureOnly:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)previousBuildVersion:(CDUnknownBlockType)arg1;
 - (void)userDataDisposition:(CDUnknownBlockType)arg1;
 - (void)isMigrationNeeded:(CDUnknownBlockType)arg1;

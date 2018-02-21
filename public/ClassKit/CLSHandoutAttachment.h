@@ -69,7 +69,6 @@
 - (_Bool)validateObject:(id *)arg1;
 - (id)initWithType:(int)arg1 title:(id)arg2;
 - (id)_init;
-- (id)identity;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -34,8 +34,8 @@
 }
 
 @property(readonly, nonatomic) id <SXVASTAnalyticsEventInfoFactory> analyticsEventInfoFactory; // @synthesize analyticsEventInfoFactory=_analyticsEventInfoFactory;
-@property(readonly, nonatomic) id <SXVisibilityMonitoring> videoVisibilityMonitor; // @synthesize videoVisibilityMonitor=_videoVisibilityMonitor;
-@property(readonly, nonatomic) id <SXVisibilityMonitoring> videoPlayerVisibilityMonitor; // @synthesize videoPlayerVisibilityMonitor=_videoPlayerVisibilityMonitor;
+@property(readonly, nonatomic) __weak id <SXVisibilityMonitoring> videoVisibilityMonitor; // @synthesize videoVisibilityMonitor=_videoVisibilityMonitor;
+@property(readonly, nonatomic) __weak id <SXVisibilityMonitoring> videoPlayerVisibilityMonitor; // @synthesize videoPlayerVisibilityMonitor=_videoPlayerVisibilityMonitor;
 @property(readonly, nonatomic) id <NUAdProvider> adProvider; // @synthesize adProvider=_adProvider;
 @property(readonly, nonatomic) SXVideoAdStateManager *stateManager; // @synthesize stateManager=_stateManager;
 @property(nonatomic) __weak id <SXVideoMetadataProviding> metadata; // @synthesize metadata=_metadata;
@@ -54,7 +54,6 @@
 - (void)configureTimelineForImpressionReporting;
 @property(readonly, nonatomic) double threshold;
 - (double)aspectRatioOfPlayer;
-- (_Bool)mayRequestAd;
 - (unsigned long long)numberOfVideosPlayedSinceLastAd;
 - (unsigned long long)numberOfVideosPlayedInSession;
 - (id)contextProvidersForKeyPath:(id)arg1;
@@ -64,6 +63,8 @@
 - (void)presentAction;
 - (void)skipped;
 @property(readonly, nonatomic) _Bool hasAction;
+- (void)muteStateChanged:(_Bool)arg1;
+- (void)tappedToToggleControls;
 - (void)tappedAdvance;
 - (void)timeElapsed:(double)arg1 duration:(double)arg2;
 - (void)playbackFailedWithError:(id)arg1;
@@ -74,7 +75,6 @@
 - (void)playbackInitiated;
 @property(readonly, nonatomic) _Bool allowsCallToActionBar;
 @property(readonly, nonatomic) unsigned long long videoType;
-- (void)nextVideoStartedPlayback;
 - (id)viewControllerForStoryboardPresentationFromBannerView:(id)arg1;
 - (CDUnknownBlockType)loadWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)initWithPlacement:(id)arg1 adProvider:(id)arg2 contextProviderForVideoBefore:(id)arg3 contextProviderForVideoAfter:(id)arg4 eventTracker:(id)arg5 videoPlayerVisibilityMonitor:(id)arg6 videoVisibilityMonitorProvider:(id)arg7 analyticsEventInfoFactory:(id)arg8;

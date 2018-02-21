@@ -6,9 +6,12 @@
 
 #import "NSObject.h"
 
-@class UIControl;
+@class UIControl, UIGestureRecognizer;
 
 @protocol SXInteractionHandling <NSObject>
+
+@optional
+- (void)handleInteractionWithGestureRecognizer:(UIGestureRecognizer *)arg1;
 - (void)handleInteractionWithControl:(UIControl *)arg1;
 @end
 

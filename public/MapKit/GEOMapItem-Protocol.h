@@ -57,6 +57,8 @@
 @property(readonly, nonatomic, getter=_operatingHours) NSArray *operatingHours;
 @property(readonly, nonatomic, getter=_hasCurrentOperatingHours) _Bool hasCurrentOperatingHours;
 @property(readonly, nonatomic, getter=_hasOperatingHours) _Bool hasOperatingHours;
+@property(readonly, nonatomic, getter=_hasGenderNeutralRestroom) _Bool hasGenderNeutralRestroom;
+@property(readonly, nonatomic, getter=_hasGenderNeutralRestroomAmenity) _Bool hasGenderNeutralRestroomAmenity;
 @property(readonly, nonatomic, getter=_acceptsApplePay) _Bool acceptsApplePay;
 @property(readonly, nonatomic, getter=_hasAcceptsApplePayAmenity) _Bool hasAcceptsApplePayAmenity;
 @property(readonly, nonatomic, getter=_takesReservations) _Bool takesReservations;

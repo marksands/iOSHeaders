@@ -6,30 +6,29 @@
 
 #import <MPSNeuralNetwork/MPSNNGradientState.h>
 
+@class MPSCNNInstanceNormalization, MPSCNNNormalizationGammaAndBetaState;
+
 @interface MPSCNNInstanceNormalizationGradientState : MPSNNGradientState
 {
     // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _meanVarBuf
-    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _gammaBetaBuf
-    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _gradientBuf
+    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _gradientGammaBuf
+    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _gradientBetaBuf
+    MPSCNNInstanceNormalization *_instanceNormalization;
     unsigned long long _numberOfFeatureChannels;
     float _epsilon;
-    unsigned long long _gammaOffset;
-    unsigned long long _betaOffset;
-    unsigned long long _gradientForGammaOffset;
-    unsigned long long _gradientForBetaOffset;
+    MPSCNNNormalizationGammaAndBetaState *_gammaAndBetaState;
 }
 
-+ (id)temporaryStateWithCommandBuffer:(id)arg1;
-+ (id)temporaryStateWithCommandBuffer:(id)arg1 bufferSize:(unsigned long long)arg2;
-@property(nonatomic) unsigned long long gradientForBetaOffset; // @synthesize gradientForBetaOffset=_gradientForBetaOffset;
-@property(nonatomic) unsigned long long gradientForGammaOffset; // @synthesize gradientForGammaOffset=_gradientForGammaOffset;
-@property(nonatomic) unsigned long long betaOffset; // @synthesize betaOffset=_betaOffset;
-@property(nonatomic) unsigned long long gammaOffset; // @synthesize gammaOffset=_gammaOffset;
++ (id)temporaryStateWithCommandBuffer:(id)arg1 instanceNormalization:(id)arg2;
++ (id)temporaryStateWithCommandBuffer:(id)arg1 bufferSize:(unsigned long long)arg2 instanceNormalization:(id)arg3;
+@property(readonly, retain, nonatomic) MPSCNNNormalizationGammaAndBetaState *gammaAndBetaState; // @synthesize gammaAndBetaState=_gammaAndBetaState;
+@property(readonly, retain, nonatomic) MPSCNNInstanceNormalization *instanceNormalization; // @synthesize instanceNormalization=_instanceNormalization;
+- (id)debugDescription;
 - (void)dealloc;
 - (void)synchronizeOnCommandBuffer:(id)arg1;
-- (id)initWithDevice:(id)arg1 bufferSize:(unsigned long long)arg2;
-@property(readonly, nonatomic) id <MTLBuffer> gradientForGammaAndBeta;
-- (id)gammaAndBeta;
+- (id)initWithDevice:(id)arg1 bufferSize:(unsigned long long)arg2 instanceNormalization:(id)arg3;
+@property(readonly, nonatomic) id <MTLBuffer> gradientForBeta;
+@property(readonly, nonatomic) id <MTLBuffer> gradientForGamma;
 
 @end
 

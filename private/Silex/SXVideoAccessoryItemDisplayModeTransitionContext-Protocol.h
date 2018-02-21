@@ -10,9 +10,11 @@
 
 @protocol SXVideoAccessoryItemDisplayModeTransitionContext <NSObject>
 @property(readonly, nonatomic) _Bool transitionWasCancelled;
+@property(readonly, nonatomic) NSSet *containerViews;
 @property(readonly, nonatomic) NSSet *transitioningViews;
 @property(readonly, nonatomic) NSSet *disappearingViews;
 @property(readonly, nonatomic) NSSet *appearingViews;
+@property(readonly, nonatomic) NSSet *views;
 - (void)completeTransition:(_Bool)arg1;
 - (unsigned long long)targetDisplayModeForView:(UIView *)arg1;
 - (unsigned long long)initialDisplayModeForView:(UIView *)arg1;

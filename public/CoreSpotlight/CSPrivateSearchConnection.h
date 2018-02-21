@@ -10,14 +10,15 @@
 
 @interface CSPrivateSearchConnection : CSSearchConnection
 {
-    NSString *_bundleID;
+    NSString *_token;
 }
 
-+ (id)privateSearchConnectionForBundle:(id)arg1;
-@property(retain, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
++ (id)privateSearchConnectionWithToken:(id)arg1;
+@property(retain, nonatomic) NSString *token; // @synthesize token=_token;
 - (void).cxx_destruct;
+- (void)sendMessageAsync:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)createXPCDictionaryForQuery:(id)arg1 queryID:(long long)arg2 queryContext:(id)arg3 needsInitialization:(_Bool)arg4;
-- (id)initWithBundle:(id)arg1;
+- (id)initWithToken:(id)arg1;
 
 @end
 

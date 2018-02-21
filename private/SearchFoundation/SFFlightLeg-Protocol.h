@@ -11,6 +11,7 @@
 @protocol SFFlightLeg <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+@property(copy, nonatomic) NSDate *arrivalGateTime;
 @property(copy, nonatomic) NSDate *arrivalRunwayTime;
 @property(copy, nonatomic) NSDate *departureRunwayTime;
 @property(copy, nonatomic) NSDate *departureGateClosedTime;

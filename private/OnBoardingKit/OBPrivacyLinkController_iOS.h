@@ -15,7 +15,6 @@
 
 - (void).cxx_destruct;
 @property(readonly) UITextView *textView;
-@property(readonly) UIImageView *chevronView;
 @property(readonly) UIImageView *iconView;
 - (void)setLinkEnabled:(_Bool)arg1;
 - (void)loadView;

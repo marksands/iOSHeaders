@@ -19,7 +19,7 @@
 @property(readonly, nonatomic) SXReplayButton *replayButton; // @synthesize replayButton=_replayButton;
 @property(nonatomic) unsigned long long displayMode; // @synthesize displayMode;
 - (void).cxx_destruct;
-- (void)viewDidLayoutSubviews;
+- (void)willTransitionToDisplayMode:(unsigned long long)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLoad;
 - (id)initWithReplayButton:(id)arg1;
 

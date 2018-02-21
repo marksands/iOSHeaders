@@ -17,6 +17,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)newWithBuilder:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSDictionary *experimentsByConfigurationIdentifier; // @synthesize experimentsByConfigurationIdentifier=_experimentsByConfigurationIdentifier;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
@@ -28,7 +29,7 @@
 - (id)description;
 - (id)initWithExperimentsByConfigurationIdentifier:(id)arg1;
 @property(readonly, nonatomic) AFExperiment<AFExperimentForSiriVOXSounds> *experimentForSiriVOXSounds;
-- (id)builder;
+- (id)mutatedCopyWithMutator:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) AFExperiment<AFExperimentForSiriVOXTapToSiriBehavior> *experimentForSiriVOXTapToSiriBehavior;
 
 @end

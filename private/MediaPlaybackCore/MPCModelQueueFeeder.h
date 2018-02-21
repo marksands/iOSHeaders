@@ -45,6 +45,7 @@
 
 + (id)requiredPropertiesForStaticMediaClips;
 + (_Bool)supportsStateRestoration;
++ (_Bool)supportsSecureCoding;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)_updateProactiveCaching;

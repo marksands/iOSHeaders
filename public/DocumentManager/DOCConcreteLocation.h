@@ -26,6 +26,8 @@
 + (id)emptyLocation;
 + (id)defaultSaveLocation;
 + (id)defaultLocation;
++ (id)sharedItemsLocation;
++ (id)recentDocumentsLocation;
 + (id)recentsLocation;
 + (id)searchLocation;
 @property _Bool isFPV2; // @synthesize isFPV2=_isFPV2;

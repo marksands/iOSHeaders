@@ -116,6 +116,9 @@
         unsigned int freezeLayoutForOrientationChangeOnDismissal:1;
         unsigned int viewRespectsSystemMinimumLayoutMargins:1;
         unsigned int ignoresWrapperViewForContentOverlayInsets:1;
+        unsigned int overridesContentScrollView:1;
+        unsigned int didCheckContentScrollViewReturnValue:1;
+        unsigned int usingContentScrollViewForUnknownPurpose:1;
     } _viewControllerFlags;
     long long _retainCount;
     _Bool _ignoreAppSupportedOrientations;
@@ -835,6 +838,8 @@
 - (struct UIEdgeInsets)_edgeInsetsForChildViewController:(id)arg1 insetsAreAbsolute:(_Bool *)arg2;
 - (void)_marginInfoForChild:(id)arg1 leftMargin:(double *)arg2 rightMargin:(double *)arg3;
 - (_Bool)__updateContentOverlayInsetsWithOurRect:(struct CGRect)arg1 inBoundsOfAncestorViewController:(id)arg2 viaImmediateChildOfAncestor:(id)arg3;
+- (id)_independentContainedScrollViewIntermediateToDescendantViewController:(id)arg1;
+- (id)_contentScrollView;
 - (void)__updateContentOverlayInsetsToPresentationControllerBaseInsets;
 - (void)_updateContentOverlayInsetsFromParentIfNecessary;
 - (struct UIEdgeInsets)_customBasePresentationInsetsForView:(id)arg1;

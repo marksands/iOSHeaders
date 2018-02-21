@@ -11,6 +11,7 @@
     double _nextSleepDurationSampleTime;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) double nextSleepDurationSampleTime; // @synthesize nextSleepDurationSampleTime=_nextSleepDurationSampleTime;
 - (_Bool)_isDemoPersonSleeping:(id)arg1 atTime:(double)arg2;
 - (_Bool)_isDemoPersonAwake:(id)arg1 atTime:(double)arg2;

@@ -7,7 +7,7 @@
 #import "NSNumber.h"
 
 @interface NSNumber (XPCObject)
-- (id)xpcObject;
-- (id)initWithXPCObject:(id)arg1;
+- (id)_cs_xpcObject;
+- (id)_cs_initWithXPCObject:(id)arg1;
 @end
 

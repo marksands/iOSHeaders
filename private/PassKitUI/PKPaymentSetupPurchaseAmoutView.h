@@ -9,7 +9,7 @@
 #import "PKEnterCurrencyAmountViewDelegate.h"
 #import "PKNumberPadSuggestionsViewDelegate.h"
 
-@class NSDecimalNumber, NSString, PKEnterCurrencyAmountView, PKNumberPadSuggestionsView, PKPaymentProvisioningMethodMetadata, PKPaymentSetupProduct, UIButton, UILabel, UITextField;
+@class NSDecimalNumber, NSString, PKEnterCurrencyAmountView, PKNumberPadSuggestionsView, PKNumericSuggestionsEnterValueAlgorithm, PKPaymentProvisioningMethodMetadata, PKPaymentSetupProduct, UIButton, UILabel, UITextField;
 
 @interface PKPaymentSetupPurchaseAmoutView : UIView <PKEnterCurrencyAmountViewDelegate, PKNumberPadSuggestionsViewDelegate>
 {
@@ -22,14 +22,16 @@
     NSDecimalNumber *_maxLoadedBalance;
     PKEnterCurrencyAmountView *_enterCurrencyAmountView;
     NSDecimalNumber *_currentAmount;
-    UILabel *_depositLabel;
+    UILabel *_messageLabel;
     UIButton *_transferBalanceButton;
     PKNumberPadSuggestionsView *_suggestionView;
+    PKNumericSuggestionsEnterValueAlgorithm *_suggestionGenerator;
 }
 
+@property(retain, nonatomic) PKNumericSuggestionsEnterValueAlgorithm *suggestionGenerator; // @synthesize suggestionGenerator=_suggestionGenerator;
 @property(retain, nonatomic) PKNumberPadSuggestionsView *suggestionView; // @synthesize suggestionView=_suggestionView;
 @property(retain, nonatomic) UIButton *transferBalanceButton; // @synthesize transferBalanceButton=_transferBalanceButton;
-@property(retain, nonatomic) UILabel *depositLabel; // @synthesize depositLabel=_depositLabel;
+@property(retain, nonatomic) UILabel *messageLabel; // @synthesize messageLabel=_messageLabel;
 @property(retain, nonatomic) NSDecimalNumber *currentAmount; // @synthesize currentAmount=_currentAmount;
 @property(retain, nonatomic) PKEnterCurrencyAmountView *enterCurrencyAmountView; // @synthesize enterCurrencyAmountView=_enterCurrencyAmountView;
 @property(copy, nonatomic) NSDecimalNumber *maxLoadedBalance; // @synthesize maxLoadedBalance=_maxLoadedBalance;
@@ -41,10 +43,12 @@
 @property(nonatomic) __weak id <PKPaymentSetupPurchaseAmountViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_transferBalanceButtonTapped:(id)arg1;
+- (void)_updateMessageLabelForAmount:(id)arg1;
 - (void)_updateCurrentAmount:(id)arg1;
 - (_Bool)_shouldShakeCard:(id)arg1;
 - (_Bool)_isAmountValid:(id)arg1;
 - (id)_defaultSuggestions;
+- (id)_defaultValues;
 - (void)_createSubviews;
 - (void)numberPadSuggestionsView:(id)arg1 didSelectSuggestion:(id)arg2;
 - (void)enterCurrencyAmountViewDidChangeAmount:(id)arg1;

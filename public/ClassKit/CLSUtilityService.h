@@ -25,8 +25,6 @@
 - (void)syncFetchWithCompletion:(CDUnknownBlockType)arg1;
 - (void)syncPushWithCompletion:(CDUnknownBlockType)arg1;
 - (void)syncStatsWithCompletion:(CDUnknownBlockType)arg1;
-- (void)setShouldSyncTeacherBrowsedContexts:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)shouldSyncTeacherBrowsedContextsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)setDevMode:(int)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)getDevModeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)recreateDevelopmentDatabaseWithCompletion:(CDUnknownBlockType)arg1;

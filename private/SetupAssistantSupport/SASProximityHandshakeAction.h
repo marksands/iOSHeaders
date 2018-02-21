@@ -17,7 +17,7 @@
 @property(retain) SASProximityHandshake *handshake; // @synthesize handshake=_handshake;
 - (void).cxx_destruct;
 - (id)responsePayload;
-- (void)setResponseFromDictionary:(id)arg1;
+- (void)setResponseFromData:(id)arg1;
 - (_Bool)hasResponse;
 - (id)init;
 

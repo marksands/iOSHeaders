@@ -14,6 +14,7 @@
 {
     NSData *_identityPersistentId;
     NSData *_stagedIdentityPersistentId;
+    NSString *_commonNamePrefix;
     NSDate *_identityExpirationDate;
     NSDate *_stagedIdentityExpirationDate;
 }
@@ -23,13 +24,14 @@
 + (id)skeletonInstance;
 + (_Bool)supportsSecureCoding;
 + (id)recordType;
-+ (id)commonName;
 + (id)keychainGroup;
-+ (id)createIdentity;
-+ (id)freshPrivateIdentity;
++ (id)commonNameWithPrefix:(id)arg1;
++ (id)createIdentityWithCommonName:(id)arg1;
++ (id)freshPrivateIdentityWithCommonNamePrefix:(id)arg1;
 + (id)new;
 @property(retain, nonatomic) NSDate *stagedIdentityExpirationDate; // @synthesize stagedIdentityExpirationDate=_stagedIdentityExpirationDate;
 @property(retain, nonatomic) NSDate *identityExpirationDate; // @synthesize identityExpirationDate=_identityExpirationDate;
+@property(copy, nonatomic) NSString *commonNamePrefix; // @synthesize commonNamePrefix=_commonNamePrefix;
 @property(retain, nonatomic) NSData *stagedIdentityPersistentId; // @synthesize stagedIdentityPersistentId=_stagedIdentityPersistentId;
 @property(retain, nonatomic) NSData *identityPersistentId; // @synthesize identityPersistentId=_identityPersistentId;
 - (void).cxx_destruct;
@@ -43,7 +45,7 @@
 - (id)dictionaryValue;
 - (id)initWithDictionary:(id)arg1;
 - (_Bool)refreshIdentities;
-- (id)initWithIdentityPersistentId:(id)arg1 stagedIdentityPersistentId:(id)arg2;
+- (id)initWithIdentityPersistentId:(id)arg1 stagedIdentityPersistentId:(id)arg2 commonNamePrefix:(id)arg3;
 - (id)init;
 
 // Remaining properties

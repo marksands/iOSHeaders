@@ -21,6 +21,7 @@
     double _lastPeripheralPerfusionIndexValue;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) double lastPeripheralPerfusionIndexValue; // @synthesize lastPeripheralPerfusionIndexValue=_lastPeripheralPerfusionIndexValue;
 @property(nonatomic) double nextPeripheralPerfusionIndexSampleTime; // @synthesize nextPeripheralPerfusionIndexSampleTime=_nextPeripheralPerfusionIndexSampleTime;
 @property(nonatomic) double nextOxygenSaturationSampleTime; // @synthesize nextOxygenSaturationSampleTime=_nextOxygenSaturationSampleTime;

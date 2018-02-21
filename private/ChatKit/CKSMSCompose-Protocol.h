@@ -13,6 +13,7 @@
 + (double)maxTrimDurationForVideo;
 + (double)maxTrimDurationForAudio;
 + (_Bool)acceptsMIMEType:(NSString *)arg1;
+- (void)setUTIs:(NSArray *)arg1;
 - (void)setUICustomizationData:(NSData *)arg1;
 - (void)setGameCenterPickedHandles:(NSArray *)arg1 playerNames:(NSArray *)arg2;
 - (void)setGameCenterModeWithPickerBlock:(void (^)(void))arg1;

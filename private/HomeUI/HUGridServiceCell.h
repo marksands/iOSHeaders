@@ -49,6 +49,7 @@
 @property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 @property(retain, nonatomic) HFItem *serviceItem; // @synthesize serviceItem=_serviceItem;
 - (void).cxx_destruct;
+- (void)_updateExclamationViewColor;
 - (void)_createExclamationViewIfNecessary;
 - (void)_updateAccessoryView;
 - (void)_updateSecondaryContentDisplayStyle;

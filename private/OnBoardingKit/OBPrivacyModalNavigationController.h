@@ -10,15 +10,16 @@ __attribute__((visibility("hidden")))
 @interface OBPrivacyModalNavigationController : UINavigationController
 {
     _Bool _darkMode;
-    CDUnknownBlockType _dismissHandler;
+    unsigned long long _supportedInterfaceOrientations;
+    CDUnknownBlockType _dismissButtonPressedHandler;
 }
 
-@property(copy) CDUnknownBlockType dismissHandler; // @synthesize dismissHandler=_dismissHandler;
+@property(copy) CDUnknownBlockType dismissButtonPressedHandler; // @synthesize dismissButtonPressedHandler=_dismissButtonPressedHandler;
+@property(nonatomic) unsigned long long supportedInterfaceOrientations; // @synthesize supportedInterfaceOrientations=_supportedInterfaceOrientations;
 @property(nonatomic, getter=isDarkMode) _Bool darkMode; // @synthesize darkMode=_darkMode;
 - (void).cxx_destruct;
-- (unsigned long long)supportedInterfaceOrientations;
 - (void)_doneButtonPressed;
-- (void)addDismissButtonWithHandler:(CDUnknownBlockType)arg1;
+- (void)addDismissButtonWithPressedHandler:(CDUnknownBlockType)arg1;
 - (void)viewDidLoad;
 
 @end

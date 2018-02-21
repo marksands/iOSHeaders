@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
     id <CLSFaultProcessorDelegate> _delegate;
 }
 
-@property(readonly, nonatomic) id <CLSFaultProcessorDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) __weak id <CLSFaultProcessorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (oneway void)clientRemote_itemChanged:(unsigned long long)arg1;
 - (oneway void)clientRemote_finishWithState:(unsigned long long)arg1 error:(id)arg2;

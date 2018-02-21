@@ -50,7 +50,7 @@
 @property(readonly, nonatomic) FCNotificationController *notificationController; // @synthesize notificationController=_notificationController;
 @property(retain, nonatomic) id <FCAppActivityMonitor> appActivityMonitor; // @synthesize appActivityMonitor=_appActivityMonitor;
 - (void).cxx_destruct;
-- (_Bool)shouldDeleteOriginalDataAfterMigrationForDatabase:(id)arg1;
+- (void)fetchOriginalDataShouldBeDeletedAfterMigrationForDatabase:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchPrivateDataEncryptionMigrationIsDesiredForDatabase:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchPrivateDataEncryptionIsAllowedForDatabase:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)insertTestArticlesWithCount:(unsigned long long)arg1;

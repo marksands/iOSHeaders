@@ -24,6 +24,7 @@
 @property(nonatomic) double duration; // @synthesize duration;
 @property(nonatomic) double time; // @synthesize time;
 - (void).cxx_destruct;
+- (void)updateWithTime:(double)arg1 duration:(double)arg2;
 - (void)playbackCoordinator:(id)arg1 timeElapsed:(double)arg2 duration:(double)arg3;
 - (id)initWithPlaybackCoordinator:(id)arg1;
 

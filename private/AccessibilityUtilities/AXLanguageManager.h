@@ -12,6 +12,7 @@
 {
     AXDialectMap *_dialectForSystemLanguage;
     AXDialectMap *_dialectForCurrentLocale;
+    AXDialectMap *_dialectForCurrentRegion;
     NSArray *_langMaps;
     NSCharacterSet *_commonCharacters;
     NSLocale *_userLocale;
@@ -41,6 +42,7 @@
 - (id)dialectThatCanSpeakCharacter:(unsigned short)arg1;
 - (id)dialectsThatCanSpeakCharacter:(unsigned short)arg1;
 - (id)dialectForLanguageID:(id)arg1;
+@property(nonatomic) __weak AXDialectMap *dialectForCurrentRegion;
 @property(nonatomic) __weak AXDialectMap *dialectForCurrentLocale;
 @property(readonly, nonatomic) __weak AXDialectMap *dialectForUserLocale;
 @property(nonatomic) __weak AXDialectMap *dialectForSystemLanguage;

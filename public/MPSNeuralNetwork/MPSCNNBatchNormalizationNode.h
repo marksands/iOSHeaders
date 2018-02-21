@@ -9,9 +9,12 @@
 @interface MPSCNNBatchNormalizationNode : MPSNNFilterNode
 {
     id <MPSCNNBatchNormalizationDataSource> _dataSource;
+    unsigned long long _flags;
 }
 
 + (id)nodeWithSource:(id)arg1 dataSource:(id)arg2;
+@property(nonatomic) unsigned long long flags; // @synthesize flags=_flags;
+- (Class)gradientClass;
 - (struct FilterGraphNode *)newFilterNode;
 - (void)dealloc;
 - (id)initWithSource:(id)arg1 dataSource:(id)arg2;

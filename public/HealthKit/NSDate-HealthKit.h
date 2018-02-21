@@ -7,6 +7,7 @@
 #import "NSDate.h"
 
 @interface NSDate (HealthKit)
+- (id)hk_truncateToDay;
 - (id)hk_nearestDate:(id)arg1;
 - (id)hk_rfc3339String;
 - (_Bool)hk_isAfterOrEqualToDate:(id)arg1;

@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 #import "PLFaceRebuildDescription.h"
 
 @class NSString;
 
-@interface PLPersistedPersonFaceMetadata : NSObject <NSCoding, PLFaceRebuildDescription>
+@interface PLPersistedPersonFaceMetadata : NSObject <NSSecureCoding, PLFaceRebuildDescription>
 {
     _Bool _isHidden;
     _Bool _manual;
@@ -33,6 +33,7 @@
 + (id)_persistedFaceMetadataWithDetectedFace:(id)arg1 isKeyFace:(_Bool)arg2 isClusterRejected:(_Bool)arg3;
 + (id)_detectedFaceRelationshipKeyPathsToPrefetch;
 + (id)_detectedFacePropertiesToFetch;
++ (_Bool)supportsSecureCoding;
 @property(nonatomic, getter=isHidden) _Bool hidden; // @synthesize hidden=_hidden;
 @property(readonly, nonatomic, getter=isHidden) _Bool isHidden; // @synthesize isHidden=_isHidden;
 @property(nonatomic) int cloudNameSource; // @synthesize cloudNameSource=_cloudNameSource;

@@ -43,6 +43,7 @@
 @property(readonly, copy) NSString *description;
 - (oneway void)clientRemote_itemChanged:(unsigned long long)arg1;
 - (oneway void)clientRemote_invalidate;
+- (void)reset;
 @property(readonly, nonatomic) NSString *className;
 - (id)initWithObjectType:(Class)arg1 predicate:(id)arg2 sortDescriptors:(id)arg3 error:(id *)arg4;
 - (id)initWithObjectType:(Class)arg1 predicate:(id)arg2 sortDescriptors:(id)arg3;

@@ -55,6 +55,7 @@
     unsigned int _autoplayDisabledForCurrentItem:1;
     _Bool _autoPlayBackgroundTaskAssertionEnabled;
     long long _autoPlayBackgroundTaskCount;
+    _Bool _appHasBeenSuspended;
     unsigned long long _autoPlayBackgroundTaskIdentifier;
     NSObject<OS_dispatch_source> *_autoPlayTimeoutSource;
     double _nextFadeOutDuration;

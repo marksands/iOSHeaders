@@ -9,6 +9,7 @@
 @class NSString, NSValue;
 
 @protocol ADWebProcessProxy <NSObject>
+- (void)resetVideoTagPlaytime;
 - (void)actionDidFailWithErrorDescription:(NSString *)arg1;
 - (void)setExpandedSize:(NSValue *)arg1;
 - (void)creativeVisibilityDidChange:(_Bool)arg1;

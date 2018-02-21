@@ -12,7 +12,7 @@
 
 @interface MPVideoView (MPCPlaybackEngineMiddlewareAdditions) <MPCVideoView>
 + (id)keyPathsForValuesAffectingPreferredContentSize;
-+ (id)keyPathsForValuesAffectingReadyForDisplay;
++ (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 @property(retain, nonatomic) NSString *videoGravity;
 @property(readonly, nonatomic) struct CGSize preferredContentSize;
 @property(readonly, nonatomic, getter=isReadyForDisplay) _Bool readyForDisplay;

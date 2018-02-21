@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class MPSCNNNeuron, NSData;
+@class MPSCNNNeuron, MPSNNNeuronDescriptor, NSData;
 
 @interface MPSCNNConvolutionDescriptor : NSObject <NSSecureCoding, NSCopying>
 {
@@ -26,12 +26,8 @@
     unsigned long long _subPixelScaleFactor;
     unsigned long long _dilationRateX;
     unsigned long long _dilationRateY;
-    int _neuronType;
-    float _neuronA;
-    float _neuronB;
-    float _neuronC;
     _Bool _depthWiseConvolution;
-    NSData *_perChannelNeuronA;
+    MPSNNNeuronDescriptor *_fusedNeuronDescriptor;
     MPSCNNNeuron *_neuron_deprecated;
 }
 
@@ -72,6 +68,7 @@
 - (void)setNeuronParameterB:(float)arg1;
 - (void)setNeuronParameterA:(float)arg1;
 - (void)setNeuronType:(int)arg1;
+@property(retain, nonatomic) MPSNNNeuronDescriptor *fusedNeuronDescriptor; // @synthesize fusedNeuronDescriptor=_fusedNeuronDescriptor;
 
 @end
 

@@ -8,5 +8,6 @@
 
 @interface UIBarButtonItem (HealthUI)
 + (id)hk_backButtonForDate:(id)arg1;
++ (id)hk_backButtonWithTitle:(id)arg1;
 @end
 

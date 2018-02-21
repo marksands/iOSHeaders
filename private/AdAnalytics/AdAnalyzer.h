@@ -6,13 +6,23 @@
 
 #import "NSObject.h"
 
+@class NSMutableDictionary;
+
 @interface AdAnalyzer : NSObject
 {
+    NSMutableDictionary *_adSequences;
 }
 
++ (void)clearSequenceNumbersForAd:(id)arg1;
++ (long long)nextSequenceNumberForAd:(id)arg1;
 + (void)captureAdAnalyticsEvent:(id)arg1 event:(id)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)stopAdAnalytics:(id)arg1;
 + (void)startAdAnalytics:(id)arg1;
++ (id)sharedInstance;
+@property(retain, nonatomic) NSMutableDictionary *adSequences; // @synthesize adSequences=_adSequences;
+- (void).cxx_destruct;
+- (void)captureEvent:(id)arg1 event:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)init;
 
 @end
 

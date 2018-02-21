@@ -10,10 +10,12 @@
 {
 }
 
+@property(readonly, nonatomic) _Bool isURLTypedByUser;
 @property(readonly, nonatomic) unsigned long long type;
 @property(readonly, nonatomic) _Bool shouldReturnDefaultIconIfNoneAvailable;
 @property(readonly, nonatomic) struct CGSize iconSize;
-- (id)_initWithURL:(id)arg1 type:(unsigned long long)arg2 iconSize:(struct CGSize)arg3 shouldReturnDefaultIconIfNoneAvailable:(_Bool)arg4;
+- (id)_initWithURL:(id)arg1 type:(unsigned long long)arg2 iconSize:(struct CGSize)arg3 shouldReturnDefaultIconIfNoneAvailable:(_Bool)arg4 isURLTypedByUser:(_Bool)arg5;
+- (id)initWithURL:(id)arg1 iconSize:(struct CGSize)arg2 shouldReturnDefaultIconIfNoneAvailable:(_Bool)arg3 isURLTypedByUser:(_Bool)arg4;
 - (id)initWithURL:(id)arg1 iconSize:(struct CGSize)arg2 shouldReturnDefaultIconIfNoneAvailable:(_Bool)arg3;
 - (id)initWithDomain:(id)arg1 iconSize:(struct CGSize)arg2 shouldReturnDefaultIconIfNoneAvailable:(_Bool)arg3;
 - (id)initWithURL:(id)arg1 extraInfo:(id)arg2;

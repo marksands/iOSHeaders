@@ -21,8 +21,6 @@
 }
 
 + (id)_orderedPrefetchConditionStringsOnAssets;
-+ (id)_originalResourceTypesForAsset;
-+ (id)_originalResourceTypesForMaster;
 + (id)_originalResourceTypes;
 - (void)_resourcesToPrefetchWithPredicates:(id)arg1 budget:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_resourcesWithPredicate:(id)arg1 limit:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;

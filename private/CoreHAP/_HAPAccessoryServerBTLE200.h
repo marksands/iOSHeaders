@@ -174,7 +174,6 @@
 - (id)_pendingResponseForRequest:(id)arg1;
 - (id)_pendingRequestForCharacteristic:(id)arg1;
 - (void)identifyWithCompletion:(CDUnknownBlockType)arg1;
-- (unsigned long long)_getAuthMethod:(unsigned char)arg1;
 - (unsigned long long)_getPairSetupType;
 - (id)getLocalPairingIdentityWithError:(id *)arg1;
 - (void)_sendPairingRequestData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -188,7 +187,7 @@
 - (void)_handlePairSetupSessionExchangeData:(id)arg1;
 - (_Bool)stopPairingWithError:(id *)arg1;
 - (void)continuePairingAfterAuthPrompt;
-- (_Bool)_parsePairingFeaturesCharacteristic:(id)arg1 authMethods:(unsigned long long *)arg2 error:(id *)arg3;
+- (_Bool)_parsePairingFeaturesCharacteristic:(id)arg1 authMethod:(unsigned long long *)arg2 error:(id *)arg3;
 - (void)_getPairingFeaturesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_checkForAuthPrompt:(_Bool)arg1;
 - (void)startPairingWithConsentRequired:(_Bool)arg1;

@@ -13,7 +13,7 @@
 
 @interface SXUpNextViewController : UIViewController <SXVideoTransitionObserver, SXVideoAccessoryItem>
 {
-    unsigned long long displayMode;
+    unsigned long long _displayMode;
     SXNowPlayingButton *_upNextButton;
     SXSkipViewController *_skipViewController;
     id <SXNowPlayingVideoTitleProviding> _titleProvider;
@@ -24,11 +24,10 @@
 @property(readonly, nonatomic) id <SXNowPlayingVideoTitleProviding> titleProvider; // @synthesize titleProvider=_titleProvider;
 @property(readonly, nonatomic) SXSkipViewController *skipViewController; // @synthesize skipViewController=_skipViewController;
 @property(readonly, nonatomic) SXNowPlayingButton *upNextButton; // @synthesize upNextButton=_upNextButton;
-@property(nonatomic) unsigned long long displayMode; // @synthesize displayMode;
+@property(nonatomic) unsigned long long displayMode; // @synthesize displayMode=_displayMode;
 - (void).cxx_destruct;
 - (void)willTransitionToDisplayMode:(unsigned long long)arg1 withTransitionCoordinator:(id)arg2;
 - (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (id)initWithUpNextButton:(id)arg1 skipViewController:(id)arg2 titleProvider:(id)arg3 queueProvider:(id)arg4;
 

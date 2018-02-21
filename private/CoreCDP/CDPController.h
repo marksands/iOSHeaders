@@ -27,6 +27,7 @@
 - (void)invalidate;
 - (id)initWithContext:(id)arg1;
 - (id)init;
+- (id)initWithXpcEndpoint:(id)arg1 context:(id)arg2;
 
 @end
 

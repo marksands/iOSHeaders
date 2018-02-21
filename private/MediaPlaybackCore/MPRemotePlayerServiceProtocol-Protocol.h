@@ -7,6 +7,7 @@
 @class NSString;
 
 @protocol MPRemotePlayerServiceProtocol
+- (void)setWantsReverseProcessAssertion:(_Bool)arg1 forPlayerID:(NSString *)arg2;
 - (void)becomeActiveForPlayerID:(NSString *)arg1;
 - (void)startPlayerForPlayerID:(NSString *)arg1;
 - (void)getPlayerPathForPlayerID:(NSString *)arg1 reply:(void (^)(MPCPlayerPath *))arg2;

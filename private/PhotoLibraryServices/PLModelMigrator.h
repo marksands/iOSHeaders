@@ -183,6 +183,7 @@
 + (_Bool)_persistMetadataToFileSystemForAlbum:(id)arg1;
 + (_Bool)_forceAlbumMetadataToDiskInStore:(id)arg1;
 + (_Bool)_setupRootFolderInStore:(id)arg1;
++ (_Bool)_fixDuplicatedRootFolderAndOrphanedAlbumsInStore:(id)arg1;
 + (_Bool)_migrateRevGeoLocationDataFromKeyedArchiverFormat:(id)arg1;
 + (_Bool)_migrateAssetLocationData:(id)arg1;
 + (_Bool)_addLocationHashesToAssets:(id)arg1;

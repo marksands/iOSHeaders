@@ -30,6 +30,7 @@
     _HDDemoDataActivityWorkoutState *_workoutState;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) _HDDemoDataActivityWorkoutState *workoutState; // @synthesize workoutState=_workoutState;
 @property(retain, nonatomic) HDDemoDataGeneratorWorkoutConfiguration *currentWorkoutConfiguration; // @synthesize currentWorkoutConfiguration=_currentWorkoutConfiguration;
 @property(retain, nonatomic) HKActivityCache *lastActivityCache; // @synthesize lastActivityCache=_lastActivityCache;

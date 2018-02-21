@@ -20,6 +20,7 @@
 @property(nonatomic) _Bool isHostManaged; // @synthesize isHostManaged=_isHostManaged;
 @property(retain, nonatomic) NSString *hostIdentifier; // @synthesize hostIdentifier=_hostIdentifier;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool isInEducationMode;
 @property(readonly, nonatomic) _Bool isHostAccountOrAppManaged;
 - (_Bool)canTransferSourceIsManaged:(_Bool)arg1 destinationIsManaged:(_Bool)arg2;
 - (_Bool)canTransferSourceIsManaged:(_Bool)arg1 toDestinationItem:(id)arg2;

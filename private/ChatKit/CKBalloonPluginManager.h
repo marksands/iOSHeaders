@@ -17,9 +17,9 @@
     NSArray *_visibleSwitcherPlugins;
     NSArray *_recentAppStripPlugins;
     NSArray *_visibleRecentAppStripPlugins;
-    _Bool _appStoreAutoEnableToggled;
-    _Bool _isAppInstalationEnabled;
+    _Bool _isAppInstallationEnabled;
     _Bool _isAppRemovalEnabled;
+    _Bool _appStoreAutoEnableToggled;
     _Bool _keepingEmptySections;
     _Bool _isAppInstallationObserver;
     NSString *_lastLaunchedIdentifier;
@@ -60,13 +60,13 @@
 @property(retain, nonatomic) NSDictionary *pluginIndexPathMap; // @synthesize pluginIndexPathMap=_pluginIndexPathMap;
 @property(retain, nonatomic) NSDictionary *pluginSeenMap; // @synthesize pluginSeenMap=_pluginSeenMap;
 @property(retain, nonatomic) NSDictionary *pluginVersionMap; // @synthesize pluginVersionMap=_pluginVersionMap;
-@property(nonatomic) _Bool isAppRemovalEnabled; // @synthesize isAppRemovalEnabled=_isAppRemovalEnabled;
-@property(nonatomic) _Bool isAppInstalationEnabled; // @synthesize isAppInstalationEnabled=_isAppInstalationEnabled;
 @property(retain, nonatomic) NSArray *favoriteAppStripPlugins; // @synthesize favoriteAppStripPlugins=_favoriteAppStripPlugins;
 @property(retain, nonatomic) NSArray *visibleSwitcherPlugins; // @synthesize visibleSwitcherPlugins=_visibleSwitcherPlugins;
 @property(retain, nonatomic) NSArray *cachedPotentiallyVisiblePlugins; // @synthesize cachedPotentiallyVisiblePlugins=_cachedPotentiallyVisiblePlugins;
 @property(retain, nonatomic) NSArray *visiblePlugins; // @synthesize visiblePlugins=_visiblePlugins;
 @property(nonatomic, getter=isAppStoreAutoEnableToggled) _Bool appStoreAutoEnableToggled; // @synthesize appStoreAutoEnableToggled=_appStoreAutoEnableToggled;
+@property(nonatomic) _Bool isAppRemovalEnabled; // @synthesize isAppRemovalEnabled=_isAppRemovalEnabled;
+@property(nonatomic) _Bool isAppInstallationEnabled; // @synthesize isAppInstallationEnabled=_isAppInstallationEnabled;
 @property(nonatomic) __weak IMBalloonPlugin *lastViewedPlugin; // @synthesize lastViewedPlugin=_lastViewedPlugin;
 @property(nonatomic) __weak id <CKExtensionConsumer> currentExtensionConsumer; // @synthesize currentExtensionConsumer=_currentExtensionConsumer;
 @property(retain, nonatomic) NSString *lastLaunchedIdentifier; // @synthesize lastLaunchedIdentifier=_lastLaunchedIdentifier;

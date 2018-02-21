@@ -50,7 +50,6 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithURL:(id)arg1;
 - (id)_init;
-- (id)identity;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

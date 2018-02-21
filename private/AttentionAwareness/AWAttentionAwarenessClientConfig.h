@@ -12,9 +12,11 @@ __attribute__((visibility("hidden")))
 @interface AWAttentionAwarenessClientConfig : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
+    int _notifyToken;
     NSMutableDictionary *_notifyQueues;
     NSMutableDictionary *_notifyBlocks;
     unsigned long long _supportedEvents;
+    _Bool _supportedEventsValid;
     unsigned long long _nextTagIndex;
     NSMutableDictionary *_tagMap;
     NSMutableDictionary *_tagRefCount;
@@ -30,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (struct AWNotification_s *)notifySupportedEventsChangedWithQueue:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)updateState:(_Bool)arg1;
 - (unsigned long long)supportedEvents;
+- (void)dealloc;
 - (id)init;
 
 @end

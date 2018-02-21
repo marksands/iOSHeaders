@@ -14,7 +14,7 @@
 #import "UISearchControllerDelegate.h"
 #import "UISearchResultsUpdating.h"
 
-@class AAUIProfilePictureStore, ACAccountStore, AIDAServiceOwnersManager, CSSearchQuery, EAAccessory, HFHomeSettingsVisibilityArbitrator, NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, PSKeyboardNavigationSearchController, PSSpecifier, PSSpotlightSearchResultsController, PSUIClassroomVisibilityArbitrator, PSUIHealthKitVisibilityArbitrator, UIViewController<PSController>, VSAccountStore;
+@class AAUIProfilePictureStore, ACAccountStore, AIDAServiceOwnersManager, CSSearchQuery, EAAccessory, HFHomeSettingsVisibilityArbitrator, NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, PSKeyboardNavigationSearchController, PSSpecifier, PSSpotlightSearchResultsController, PSUIClassKitVisibilityArbitrator, PSUIClassroomVisibilityArbitrator, UIViewController<PSController>, VSAccountStore;
 
 @interface PSUIPrefsListController : PSListController <AAUISignInControllerDelegate, UISearchResultsUpdating, PSSpotlightSearchResultsControllerDelegate, UISearchBarDelegate, UISearchControllerDelegate, RadiosPreferencesDelegate, DevicePINControllerDelegate>
 {
@@ -39,6 +39,7 @@
     PSSpecifier *_tvSpecifier;
     PSSpecifier *_carrierSelectionSpecifier;
     PSSpecifier *_personalHotspotSpecifier;
+    PSSpecifier *_classKitSpecifier;
     PSSpecifier *_classroomSpecifier;
     PSSpecifier *_homeKitSpecifier;
     PSSpecifier *_healthKitSpecifier;
@@ -50,30 +51,30 @@
     NSDictionary *_iconCache;
     ACAccountStore *_accountStore;
     NSString *_pendingOffsetItemName;
+    PSUIClassKitVisibilityArbitrator *_classKitVisibilityArbitrator;
     PSUIClassroomVisibilityArbitrator *_classroomVisibilityArbitrator;
     HFHomeSettingsVisibilityArbitrator *_homeKitVisibilityArbitrator;
-    PSUIHealthKitVisibilityArbitrator *_healthKitVisibilityArbitrator;
     VSAccountStore *_videoSubscriberAccountStore;
     AIDAServiceOwnersManager *_serviceOwnersManager;
     AAUIProfilePictureStore *_profilePictureStore;
     PSSpecifier *_specifierToSelect;
     NSObject<OS_dispatch_queue> *_loadAllSpecifiersQueue;
     _Bool _skipSelectingGeneralOnLaunch;
-    NSString *_wifiString;
     NSString *_bluetoothString;
     PSKeyboardNavigationSearchController *_spotlightSearchController;
     PSSpotlightSearchResultsController *_spotlightResultsController;
     CSSearchQuery *_searchQuery;
+    NSString *_wifiString;
 }
 
 + (void)setAirplaneMode:(_Bool)arg1;
 + (_Bool)airplaneMode;
 + (id)radiosPreferences;
+@property(copy, nonatomic) NSString *wifiString; // @synthesize wifiString=_wifiString;
 @property(retain, nonatomic) CSSearchQuery *searchQuery; // @synthesize searchQuery=_searchQuery;
 @property(retain, nonatomic) PSSpotlightSearchResultsController *spotlightResultsController; // @synthesize spotlightResultsController=_spotlightResultsController;
 @property(retain, nonatomic) PSKeyboardNavigationSearchController *spotlightSearchController; // @synthesize spotlightSearchController=_spotlightSearchController;
 @property(copy, nonatomic) NSString *bluetoothString; // @synthesize bluetoothString=_bluetoothString;
-@property(copy, nonatomic) NSString *wifiString; // @synthesize wifiString=_wifiString;
 @property(nonatomic) _Bool skipSelectingGeneralOnLaunch; // @synthesize skipSelectingGeneralOnLaunch=_skipSelectingGeneralOnLaunch;
 - (void).cxx_destruct;
 - (void)didDismissSearchController:(id)arg1;
@@ -135,8 +136,7 @@
 - (void)updateEthernet;
 - (_Bool)shouldShowEthernetSpecifier;
 - (id)wifiNetwork:(id)arg1;
-- (void)wifiNetworkFetch:(id)arg1;
-- (void)wifiGetCurrentWiFiNetwork:(id)arg1;
+- (void)wifiGetCurrentWiFiNetwork;
 - (void)updateWifi;
 - (void)willBecomeActive;
 - (void)willEnterForeground;
@@ -165,8 +165,9 @@
 - (void)showDeviceSupervisionInfo;
 - (void)updateAccountSpecifiers;
 - (void)updateHomeKitSpecifier;
-- (void)updateHealthKitSpecifier;
 - (void)updateClassroomSpecifier;
+- (void)updateClassKitSpecifier;
+- (_Bool)shouldShowClassKitSpecifier;
 - (_Bool)shouldShowClassroomSpecifier;
 - (void)updateRestrictedSettings;
 - (_Bool)isSpecifierHiddenDueToRestrictions:(id)arg1;
@@ -187,6 +188,7 @@
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (id)specifiersToAddFromList:(id)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (id)identifierForSelectedIndex;
 - (id)generalViewController;

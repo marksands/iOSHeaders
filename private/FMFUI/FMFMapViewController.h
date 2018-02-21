@@ -12,7 +12,7 @@
 #import "FMFSessionDelegateInternal.h"
 #import "MKUserTrackingView.h"
 
-@class FMFMapOptionsViewController, FMFMapViewDelegateInternal, FMFNoLocationView, FMFRefreshBarButtonItem, FMFSession, FMFTitleView, MKMapView, NSSet, NSString, UIBarButtonItem, UIColor, UIImageView, UIToolbar, UIView, _MKUserTrackingButton;
+@class FMFMapOptionsViewController, FMFMapViewDelegateInternal, FMFNoLocationView, FMFRefreshBarButtonItem, FMFSession, FMFTitleView, MKMapView, NSSet, NSString, UIBarButtonItem, UIColor, UIImageView, _MKUserTrackingButton;
 
 @interface FMFMapViewController : UIViewController <FMFSessionDelegateInternal, FMFMapViewDelegateInternalDelegate, MKUserTrackingView, FMFNoLocationViewDelegate, FMFMapOptionsViewControllerDelegate>
 {
@@ -40,12 +40,9 @@
     FMFMapOptionsViewController *_mapOptionsVC;
     FMFTitleView *_titleView;
     void *_addressBook;
-    UIToolbar *_toolbar;
     UIBarButtonItem *_userTrackingButtonItem;
     UIBarButtonItem *_directionsBarButtonItem;
     UIBarButtonItem *_infoBarButtonItem;
-    UIToolbar *_floatingLocationToolbar;
-    UIView *_floatingToolbarView;
     FMFRefreshBarButtonItem *_refreshButton;
     UIImageView *_cachedMapView;
     unsigned long long _defaultMapType;
@@ -62,12 +59,9 @@
 @property(nonatomic) unsigned long long defaultMapType; // @synthesize defaultMapType=_defaultMapType;
 @property(retain, nonatomic) UIImageView *cachedMapView; // @synthesize cachedMapView=_cachedMapView;
 @property(retain, nonatomic) FMFRefreshBarButtonItem *refreshButton; // @synthesize refreshButton=_refreshButton;
-@property(retain, nonatomic) UIView *floatingToolbarView; // @synthesize floatingToolbarView=_floatingToolbarView;
-@property(retain, nonatomic) UIToolbar *floatingLocationToolbar; // @synthesize floatingLocationToolbar=_floatingLocationToolbar;
 @property(retain, nonatomic) UIBarButtonItem *infoBarButtonItem; // @synthesize infoBarButtonItem=_infoBarButtonItem;
 @property(retain, nonatomic) UIBarButtonItem *directionsBarButtonItem; // @synthesize directionsBarButtonItem=_directionsBarButtonItem;
 @property(retain, nonatomic) UIBarButtonItem *userTrackingButtonItem; // @synthesize userTrackingButtonItem=_userTrackingButtonItem;
-@property(retain, nonatomic) UIToolbar *toolbar; // @synthesize toolbar=_toolbar;
 @property(nonatomic) void *addressBook; // @synthesize addressBook=_addressBook;
 @property(retain, nonatomic) FMFTitleView *titleView; // @synthesize titleView=_titleView;
 @property(retain, nonatomic) FMFMapOptionsViewController *mapOptionsVC; // @synthesize mapOptionsVC=_mapOptionsVC;
@@ -168,7 +162,6 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (id)openInAppURL;
 - (void)_updateLocationButtonEnabled;
-- (void)addFloatingToolbar;
 - (void)setupToolbarItems;
 - (void)viewDidLoad;
 - (void)loadView;

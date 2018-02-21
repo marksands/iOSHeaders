@@ -19,6 +19,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)newWithBuilder:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) unsigned long long endTimestamp; // @synthesize endTimestamp=_endTimestamp;
 @property(readonly, nonatomic) unsigned long long beginTimestamp; // @synthesize beginTimestamp=_beginTimestamp;
 @property(readonly, copy, nonatomic) NSString *utterance; // @synthesize utterance=_utterance;
@@ -31,7 +32,7 @@
 - (id)_descriptionWithIndent:(unsigned long long)arg1;
 - (id)description;
 - (id)initWithUtterance:(id)arg1 beginTimestamp:(unsigned long long)arg2 endTimestamp:(unsigned long long)arg3;
-- (id)builder;
+- (id)mutatedCopyWithMutator:(CDUnknownBlockType)arg1;
 
 @end
 

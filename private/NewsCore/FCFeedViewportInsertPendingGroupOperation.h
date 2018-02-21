@@ -6,14 +6,14 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class FCCloudContext, FCFeedGroup, FCFeedGroupEmittingContext, FCFeedRefreshSession, NSArray, NSString;
+@class FCCloudContext, FCFeedGroup, FCFeedGroupEmittingContext, FCFeedRefreshSession, NSArray, NSSet;
 
 @interface FCFeedViewportInsertPendingGroupOperation : FCOperation
 {
     FCFeedRefreshSession *_resultRefreshSession;
     NSArray *_resultUpdatedRefreshSessions;
     FCFeedGroup *_resultInsertedGroup;
-    NSString *_resultDeletedElementID;
+    NSSet *_resultDeletedElementIDs;
     id <FCCoreConfiguration> _configuration;
     FCCloudContext *_context;
     FCFeedRefreshSession *_refreshSession;

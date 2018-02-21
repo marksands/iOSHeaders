@@ -16,6 +16,7 @@
 
 + (id)nodeWithSource:(id)arg1 lossDescriptor:(id)arg2;
 @property(readonly, retain, nonatomic) MPSNNLabelsNode *inputLabels; // @synthesize inputLabels=_labels;
+- (struct FilterGraphNode *)newFilterNode;
 - (void)dealloc;
 - (id)gradientFilterWithSources:(id)arg1;
 - (id)initWithSource:(id)arg1 lossDescriptor:(id)arg2;

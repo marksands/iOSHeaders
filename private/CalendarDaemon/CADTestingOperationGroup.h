@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)requiresEventOrReminderAccess;
 + (_Bool)requiresReminderAccess;
 + (_Bool)requiresEventAccess;
+- (void)CADTestingCloseDatabase:(CDUnknownBlockType)arg1;
 - (void)CADTestingSimulateDaemonCrash;
 - (_Bool)accessGrantedToPerformSelector:(SEL)arg1;
 

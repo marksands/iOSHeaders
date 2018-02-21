@@ -8,13 +8,12 @@
 
 #import "HAPRelayAccessoryDelegate.h"
 #import "HMDAccessoryIdentify.h"
-#import "HMDAccessoryMinimumUserPrivilegeCapable.h"
 #import "HMDTimeInformationMonitorDelegate.h"
 #import "HMFTimerDelegate.h"
 
 @class HAPPairingIdentity, HMDCharacteristic, HMFTimer, NSArray, NSData, NSDate, NSMapTable, NSMutableArray, NSMutableSet, NSNumber, NSSet, NSString;
 
-@interface HMDHAPAccessory : HMDAccessory <HMDAccessoryMinimumUserPrivilegeCapable, HAPRelayAccessoryDelegate, HMDTimeInformationMonitorDelegate, HMFTimerDelegate, HMDAccessoryIdentify>
+@interface HMDHAPAccessory : HMDAccessory <HAPRelayAccessoryDelegate, HMDTimeInformationMonitorDelegate, HMFTimerDelegate, HMDAccessoryIdentify>
 {
     NSMutableArray *_transportInformationInstances;
     _Bool _relayEnabled;
@@ -221,7 +220,6 @@
 - (id)transportInformationInstances;
 - (void)removeBridgedAccessory:(id)arg1;
 - (void)addBridgedAccessory:(id)arg1;
-- (_Bool)_supportsMediaAccessControl;
 - (void)_handleServiceRemovedTransaction:(id)arg1 message:(id)arg2;
 - (void)_handleAddServiceTransaction:(id)arg1 message:(id)arg2;
 - (id)serviceWithUUID:(id)arg1;
@@ -272,10 +270,6 @@
 - (void)setCurrentTimeCharacteristic:(id)arg1;
 - (id)_currentTimeCharacteristic;
 @property(readonly, nonatomic) __weak HMDCharacteristic *currentTimeCharacteristic; // @synthesize currentTimeCharacteristic=_currentTimeCharacteristic;
-- (void)handleUpdatedPassword:(id)arg1;
-- (void)handleUpdatedMinimumUserPrivilege:(long long)arg1;
-- (_Bool)supportsMinimumUserPrivilege;
-- (_Bool)providesHashRouteID;
 @property(copy, nonatomic) NSData *setupHash; // @synthesize setupHash=_setupHash;
 - (void)setBroadcastKey:(id)arg1 keyUpdatedStateNumber:(id)arg2 keyUpdatedTime:(id)arg3;
 - (void)_updateBroadcastKey:(id)arg1 keyUpdatedStateNumber:(id)arg2 keyUpdatedTime:(double)arg3;

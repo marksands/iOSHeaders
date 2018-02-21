@@ -17,6 +17,7 @@
 
 @property(readonly, nonatomic) SXAdRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
+- (id)contextProvidersForKeyPath:(id)arg1;
 - (id)creativeTypeFromBannerType:(unsigned long long)arg1;
 - (id)adContextValueForKeyPath:(id)arg1;
 - (id)initWithAdRequest:(id)arg1;

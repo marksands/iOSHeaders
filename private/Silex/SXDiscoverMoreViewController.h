@@ -12,7 +12,7 @@
 
 @interface SXDiscoverMoreViewController : UIViewController <SXVideoAccessoryItem>
 {
-    unsigned long long displayMode;
+    unsigned long long _displayMode;
     SXNowPlayingButton *_discoverMoreButton;
     SXAdvanceButton *_advanceButton;
     id <SXDiscoverMoreConfigurationProviding> _configurationProvider;
@@ -21,10 +21,9 @@
 @property(readonly, nonatomic) id <SXDiscoverMoreConfigurationProviding> configurationProvider; // @synthesize configurationProvider=_configurationProvider;
 @property(readonly, nonatomic) SXAdvanceButton *advanceButton; // @synthesize advanceButton=_advanceButton;
 @property(readonly, nonatomic) SXNowPlayingButton *discoverMoreButton; // @synthesize discoverMoreButton=_discoverMoreButton;
-@property(nonatomic) unsigned long long displayMode; // @synthesize displayMode;
+@property(nonatomic) unsigned long long displayMode; // @synthesize displayMode=_displayMode;
 - (void).cxx_destruct;
 - (void)willTransitionToDisplayMode:(unsigned long long)arg1 withTransitionCoordinator:(id)arg2;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (id)initWithDiscoverMoreButton:(id)arg1 advanceButton:(id)arg2 configurationProvider:(id)arg3;
 

@@ -12,6 +12,7 @@
 
 + (id)shared;
 - (_Bool)settingsUIVisible;
+- (_Bool)hasSupportedRole;
 - (_Bool)hasCapableAccount;
 - (id)init;
 

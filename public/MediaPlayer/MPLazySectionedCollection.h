@@ -18,6 +18,7 @@
     id <MPLazySectionedCollectionDataSource> _dataSource;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) id <MPLazySectionedCollectionDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (id).cxx_construct;
 - (void).cxx_destruct;

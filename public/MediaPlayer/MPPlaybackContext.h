@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
 #import "NSSecureCoding.h"
 
 @class MPAVItem, NSData, NSString;
 
-@interface MPPlaybackContext : NSObject <NSCoding, NSSecureCoding>
+@interface MPPlaybackContext : NSObject <NSSecureCoding>
 {
     MPAVItem *_playerCurrentItem;
     _Bool _shouldStartPlayback;

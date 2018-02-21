@@ -18,6 +18,7 @@
     unsigned long long _currentAttachedVideoCount;
     unsigned long long _currentAttachedAudioCount;
     unsigned long long _currentAttachedImageCount;
+    NSArray *_UTITypes;
     NSArray *_attachments;
 }
 
@@ -38,6 +39,8 @@
 + (_Bool)_canSendText;
 + (void)_setupAccountMonitor;
 @property(readonly, copy, nonatomic) NSArray *attachments; // @synthesize attachments=_attachments;
+- (void)setUTITypes:(id)arg1;
+- (id)UTITypes;
 @property(nonatomic) unsigned long long currentAttachedImageCount; // @synthesize currentAttachedImageCount=_currentAttachedImageCount;
 @property(nonatomic) unsigned long long currentAttachedAudioCount; // @synthesize currentAttachedAudioCount=_currentAttachedAudioCount;
 @property(nonatomic) unsigned long long currentAttachedVideoCount; // @synthesize currentAttachedVideoCount=_currentAttachedVideoCount;

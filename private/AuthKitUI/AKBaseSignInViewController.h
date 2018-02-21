@@ -30,7 +30,6 @@
 - (_Bool)_canBeginAuthenticationWithOption:(unsigned long long)arg1;
 - (_Bool)_isAccountModificationRestricted;
 - (_Bool)_isSignInAllowed;
-- (_Bool)_shouldDefaultToPasswordFieldEnableForCurrentContext;
 @property(readonly) AKAppleIDAuthenticationController *authenticationController;
 - (void)_setPasswordFieldHiddenIfNeeded;
 - (void)viewDidAppear:(_Bool)arg1;

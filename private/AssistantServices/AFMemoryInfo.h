@@ -20,6 +20,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)newWithBuilder:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) unsigned long long physicalMemoryFootprintInBytes; // @synthesize physicalMemoryFootprintInBytes=_physicalMemoryFootprintInBytes;
 @property(readonly, nonatomic) unsigned long long peakResidentMemorySizeInBytes; // @synthesize peakResidentMemorySizeInBytes=_peakResidentMemorySizeInBytes;
 @property(readonly, nonatomic) unsigned long long residentMemorySizeInBytes; // @synthesize residentMemorySizeInBytes=_residentMemorySizeInBytes;
@@ -34,7 +35,7 @@
 - (id)_descriptionWithIndent:(unsigned long long)arg1;
 - (id)description;
 - (id)initWithVirtualMemorySizeInBytes:(unsigned long long)arg1 numberOfRegions:(int)arg2 pageSizeInBytes:(int)arg3 residentMemorySizeInBytes:(unsigned long long)arg4 peakResidentMemorySizeInBytes:(unsigned long long)arg5 physicalMemoryFootprintInBytes:(unsigned long long)arg6;
-- (id)builder;
+- (id)mutatedCopyWithMutator:(CDUnknownBlockType)arg1;
 
 @end
 

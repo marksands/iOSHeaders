@@ -27,8 +27,10 @@
     NSString *_activatingPaymentPassUniqueID;
     _Bool _hideSetupLaterButton;
     PKPaymentProvisioningController *_paymentProvisioningController;
+    CDUnknownBlockType _tryAgainHandler;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType tryAgainHandler; // @synthesize tryAgainHandler=_tryAgainHandler;
 @property(nonatomic) _Bool hideSetupLaterButton; // @synthesize hideSetupLaterButton=_hideSetupLaterButton;
 @property(retain, nonatomic) PKPaymentProvisioningController *paymentProvisioningController; // @synthesize paymentProvisioningController=_paymentProvisioningController;
 - (void).cxx_destruct;

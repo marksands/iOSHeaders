@@ -6,12 +6,14 @@
 
 #import "NSObject.h"
 
-@class CKContainer, CKDatabase, CKRecordZone, NSObject<OS_dispatch_queue>, NSString;
+@class CKContainer, CKDatabase, CKRecordZone, NSObject<OS_dispatch_queue>, NSString, _KSRequestThrottle;
 
 @interface _KSCloudKitManager : NSObject
 {
     NSObject<OS_dispatch_queue> *_ckWorkQueue;
     NSObject<OS_dispatch_queue> *_dataQueue;
+    _KSRequestThrottle *_accountChangeThrottle;
+    _KSRequestThrottle *_fetchZoneThrottle;
     _Bool _recordZoneOperationInProgress;
     _Bool _subscriptionOperationInProgress;
     CKDatabase *_cloudKitDatabase;
@@ -24,6 +26,7 @@
     NSString *_lastKnownUserKey;
 }
 
++ (id)prepareContainerForID:(id)arg1;
 @property(nonatomic) _Bool subscriptionOperationInProgress; // @synthesize subscriptionOperationInProgress=_subscriptionOperationInProgress;
 @property(nonatomic) _Bool recordZoneOperationInProgress; // @synthesize recordZoneOperationInProgress=_recordZoneOperationInProgress;
 @property(readonly, nonatomic) NSString *lastKnownUserKey; // @synthesize lastKnownUserKey=_lastKnownUserKey;

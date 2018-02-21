@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class SXAdPrivacyButton, SXLearnMoreButton, SXMediaSelectionButton, SXVolumeButton;
+@class SXAdPrivacyButton, SXLearnMoreButton, SXMediaSelectionButton, SXShareButton, SXVolumeButton;
 
 @protocol SXTopVideoControlsProviding <NSObject>
+@property(readonly, nonatomic) SXShareButton *shareButton;
 @property(readonly, nonatomic) SXMediaSelectionButton *mediaSelectionButton;
 @property(readonly, nonatomic) SXAdPrivacyButton *adPrivacyButton;
 @property(readonly, nonatomic) SXLearnMoreButton *learnMoreButton;

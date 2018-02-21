@@ -11,7 +11,6 @@
 @interface SUManagedDeviceUpdateDelay : NSObject
 {
     _Bool _isDelayed;
-    _Bool _hasStartedDelaying;
     NSDate *_delayedStartDate;
     unsigned long long _delayPeriod;
 }
@@ -19,7 +18,6 @@
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) unsigned long long delayPeriod; // @synthesize delayPeriod=_delayPeriod;
 @property(retain, nonatomic) NSDate *delayedStartDate; // @synthesize delayedStartDate=_delayedStartDate;
-@property(nonatomic) _Bool hasStartedDelaying; // @synthesize hasStartedDelaying=_hasStartedDelaying;
 @property(nonatomic) _Bool isDelayed; // @synthesize isDelayed=_isDelayed;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

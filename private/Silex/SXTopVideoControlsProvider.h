@@ -8,7 +8,7 @@
 
 #import "SXTopVideoControlsProviding.h"
 
-@class NSString, SXAdPrivacyButton, SXLearnMoreButton, SXMediaSelectionButton, SXVolumeButton;
+@class NSString, SXAdPrivacyButton, SXLearnMoreButton, SXMediaSelectionButton, SXShareButton, SXVolumeButton;
 
 @interface SXTopVideoControlsProvider : NSObject <SXTopVideoControlsProviding>
 {
@@ -16,14 +16,16 @@
     SXMediaSelectionButton *_mediaSelectionButton;
     SXLearnMoreButton *_learnMoreButton;
     SXAdPrivacyButton *_adPrivacyButton;
+    SXShareButton *_shareButton;
 }
 
+@property(readonly, nonatomic) SXShareButton *shareButton; // @synthesize shareButton=_shareButton;
 @property(readonly, nonatomic) SXAdPrivacyButton *adPrivacyButton; // @synthesize adPrivacyButton=_adPrivacyButton;
 @property(readonly, nonatomic) SXLearnMoreButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
 @property(readonly, nonatomic) SXMediaSelectionButton *mediaSelectionButton; // @synthesize mediaSelectionButton=_mediaSelectionButton;
 @property(readonly, nonatomic) SXVolumeButton *volumeButton; // @synthesize volumeButton=_volumeButton;
 - (void).cxx_destruct;
-- (id)initWithVolumeButton:(id)arg1 mediaSelectionButton:(id)arg2 learnMoreButton:(id)arg3 adPrivacyButton:(id)arg4;
+- (id)initWithVolumeButton:(id)arg1 mediaSelectionButton:(id)arg2 learnMoreButton:(id)arg3 adPrivacyButton:(id)arg4 shareButton:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

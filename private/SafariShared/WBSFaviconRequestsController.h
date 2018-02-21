@@ -23,9 +23,9 @@
 - (void).cxx_destruct;
 - (void)_issueRequest:(id)arg1 isOneTime:(_Bool)arg2 withToken:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)cancelAllRegistrations;
-- (void)registerOneTimeRequestForURLString:(id)arg1 withToken:(id)arg2 returnDefaultIconIfNoneAvailable:(_Bool)arg3 iconSize:(struct CGSize)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)registerOneTimeRequestForURLString:(id)arg1 withToken:(id)arg2 returnDefaultIconIfNoneAvailable:(_Bool)arg3 iconSize:(struct CGSize)arg4 isURLTypedByUser:(_Bool)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)registerOneTimeRequestForURLString:(id)arg1 withToken:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)registerRequestForURLString:(id)arg1 withToken:(id)arg2 returnDefaultIconIfNoneAvailable:(_Bool)arg3 iconSize:(struct CGSize)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)registerRequestForURLString:(id)arg1 withToken:(id)arg2 returnDefaultIconIfNoneAvailable:(_Bool)arg3 iconSize:(struct CGSize)arg4 isURLTypedByUser:(_Bool)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)registerRequestForURLString:(id)arg1 withToken:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)registerRequestForDomain:(id)arg1 withToken:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)dealloc;

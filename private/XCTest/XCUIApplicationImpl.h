@@ -11,6 +11,7 @@
 @interface XCUIApplicationImpl : NSObject
 {
     _Bool _supportsAutomationSession;
+    _Bool _codeCoverageEnabled;
     id <XCUIXcodeApplicationManaging> _xcodeInterface;
     XCUIApplicationMonitor *_applicationMonitor;
     id <XCUIAccessibilityInterface> _axInterface;
@@ -25,6 +26,7 @@
 + (id)keyPathsForValuesAffectingSuspended;
 + (id)keyPathsForValuesAffectingRunning;
 + (id)keyPathsForValuesAffectingState;
+@property _Bool codeCoverageEnabled; // @synthesize codeCoverageEnabled=_codeCoverageEnabled;
 @property _Bool supportsAutomationSession; // @synthesize supportsAutomationSession=_supportsAutomationSession;
 @property(retain, nonatomic) XCUIApplicationProcess *currentProcess; // @synthesize currentProcess=_currentProcess;
 @property(readonly, copy) NSString *bundleID; // @synthesize bundleID=_bundleID;

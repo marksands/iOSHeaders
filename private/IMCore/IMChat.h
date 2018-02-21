@@ -193,10 +193,10 @@
 - (void)_setJoinState:(long long)arg1 quietly:(_Bool)arg2;
 - (void)_setJoinState:(long long)arg1;
 - (_Bool)_handleIncomingItem:(id)arg1;
+- (void)_fixSendingItemDateAndSortID:(id)arg1;
 - (_Bool)hasSurfRequestNotFromMe:(id)arg1;
 - (_Bool)hasSurfRequestForPaymentType:(unsigned long long)arg1;
 - (unsigned long long)paymentTypeForMessage:(id)arg1;
-- (void)_fixSendingItemDate:(id)arg1;
 - (void)_handleMessageGUIDDeletions:(id)arg1;
 - (void)_setParticipantState:(unsigned long long)arg1 forHandles:(id)arg2 quietly:(_Bool)arg3;
 - (void)_setParticipantState:(unsigned long long)arg1 forHandle:(id)arg2 quietly:(_Bool)arg3;
@@ -237,6 +237,7 @@
 @property(readonly, nonatomic) IMMessage *lastFinishedMessage;
 @property(readonly, nonatomic) IMMessage *firstMessage;
 - (id)messageForGUID:(id)arg1;
+- (void)_assignSortIDsToItems:(id)arg1;
 - (id)_appendArchivedItemsToItemsArray:(id)arg1;
 - (id)_archivedItemsToReplace:(id)arg1 numberOfMessagesBeforeGUID:(unsigned long long)arg2 numberOfMessagesAfterGUID:(unsigned long long)arg3;
 - (void)_insertHistoricalMessages:(id)arg1 queryID:(id)arg2 isRefresh:(_Bool)arg3 isHistoryQuery:(_Bool)arg4 limit:(unsigned long long)arg5 numberOfMessagesBeforeGUID:(unsigned long long)arg6 numberOfMessagesAfterGUID:(unsigned long long)arg7;

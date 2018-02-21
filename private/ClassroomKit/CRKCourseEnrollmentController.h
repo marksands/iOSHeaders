@@ -19,14 +19,17 @@
     CATRemoteTaskOperation *mActiveCoursesOperation;
     CATRemoteTaskOperation *mCloudStatusSubscriptionOperation;
     CRKSecureCodedUserDefaultsObject *mStoredCourses;
+    _Bool mConfigurationFetched;
     NSArray *_courses;
     NSArray *_courseInvitations;
     NSArray *_activeCourseIdentifiers;
     NSArray *_activeInstructorIdentifiers;
     NSDictionary *_observingInstructorIdentifiersByCourseIdentifiers;
     long long _cloudEnrollmentStatus;
+    unsigned long long _configurationType;
 }
 
+@property(nonatomic) unsigned long long configurationType; // @synthesize configurationType=_configurationType;
 @property(nonatomic) long long cloudEnrollmentStatus; // @synthesize cloudEnrollmentStatus=_cloudEnrollmentStatus;
 @property(retain, nonatomic) NSDictionary *observingInstructorIdentifiersByCourseIdentifiers; // @synthesize observingInstructorIdentifiersByCourseIdentifiers=_observingInstructorIdentifiersByCourseIdentifiers;
 @property(copy, nonatomic) NSArray *activeInstructorIdentifiers; // @synthesize activeInstructorIdentifiers=_activeInstructorIdentifiers;
@@ -49,6 +52,12 @@
 - (void)fetchCourses;
 - (void)fetchActiveCoursesOperationDidFinish:(id)arg1;
 - (void)fetchActiveCourses;
+- (void)fetchConfigurationTypeOperationDidFinish:(id)arg1;
+- (void)fetchConfiguration;
+- (void)stopBrowsingForInvitations;
+- (void)startBrowsingForInvitations;
+- (_Bool)canBrowseForInvitations;
+- (void)updateInvitationBrowsingStatus;
 - (void)stopLongRunningOperations;
 - (void)startLongRunningOperations;
 - (void)applicationDidEnterBackground:(id)arg1;

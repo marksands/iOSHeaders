@@ -27,6 +27,7 @@
     float _maximumRating;
     float _minimumRating;
     int _numAvailableSkips;
+    float _preferredPlaybackRate;
     int _presentationStyle;
     int _repeatMode;
     int _shuffleMode;
@@ -43,6 +44,7 @@
         unsigned int maximumRating:1;
         unsigned int minimumRating:1;
         unsigned int numAvailableSkips:1;
+        unsigned int preferredPlaybackRate:1;
         unsigned int presentationStyle:1;
         unsigned int repeatMode:1;
         unsigned int shuffleMode:1;
@@ -56,6 +58,7 @@
 }
 
 + (Class)supportedCustomQueueIdentifierType;
+@property(nonatomic) float preferredPlaybackRate; // @synthesize preferredPlaybackRate=_preferredPlaybackRate;
 @property(nonatomic) int upNextItemCount; // @synthesize upNextItemCount=_upNextItemCount;
 @property(nonatomic) _Bool supportsSharedQueue; // @synthesize supportsSharedQueue=_supportsSharedQueue;
 @property(retain, nonatomic) NSMutableArray *supportedCustomQueueIdentifiers; // @synthesize supportedCustomQueueIdentifiers=_supportedCustomQueueIdentifiers;
@@ -80,6 +83,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasPreferredPlaybackRate;
 @property(nonatomic) _Bool hasUpNextItemCount;
 @property(nonatomic) _Bool hasSupportsSharedQueue;
 - (void)setSupportedInsertionPositions:(int *)arg1 count:(unsigned long long)arg2;

@@ -47,7 +47,7 @@ __attribute__((visibility("hidden")))
 - (id)_propertyValueForKey:(id)arg1;
 - (void)_updatePersistentValueForKey:(id)arg1;
 - (void)updatePersistentValueForKeyIfNeeded:(id)arg1;
-- (void)_performBlockOnOwnedRelatedObjects:(CDUnknownBlockType)arg1;
+- (void)_performBlockOnOwnedCachedRelatedObjects:(CDUnknownBlockType)arg1;
 - (void)markAsCommitted;
 - (void)markAsSaved;
 - (void)markAsUndeleted;

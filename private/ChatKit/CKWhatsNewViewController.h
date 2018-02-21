@@ -6,72 +6,77 @@
 
 #import "UIViewController.h"
 
-@class NSLayoutConstraint, NSMutableArray, UIImageView, UILabel, UIScrollView, UIView, UIVisualEffectView;
+#import "CKWelcomeViewDelegate.h"
 
-@interface CKWhatsNewViewController : UIViewController
+@class CKWelcomeView, NSLayoutConstraint, NSString, UILabel;
+
+@interface CKWhatsNewViewController : UIViewController <CKWelcomeViewDelegate>
 {
-    _Bool __didAdjustScrollPosition;
     id <CKWhatsNewViewControllerDelegate> _delegate;
     unsigned long long _whatsNewLayout;
-    NSMutableArray *_constraints;
-    NSMutableArray *_landscapeConstraints;
-    NSLayoutConstraint *_topImageContentConstraint;
-    NSLayoutConstraint *_topImageConstraint;
-    UIVisualEffectView *_buttonContainerView;
-    UIImageView *_iconImageView;
-    UILabel *_bulletLabelOne;
-    UILabel *_bulletLabelTwo;
-    UILabel *_bulletLabelThree;
-    UIImageView *_imageView;
-    UIView *_imageContentView;
-    UILabel *_textLabel;
-    UILabel *_titleLabel;
-    UIScrollView *_scrollView;
+    CKWelcomeView *_welcomeView;
+    UILabel *_bulletPointOneSymbolLabel;
+    UILabel *_bulletPointTwoSymbolLabel;
+    UILabel *_bulletPointThreeSymbolLabel;
+    UILabel *_bulletPointOneTextLabel;
+    UILabel *_bulletPointTwoTextLabel;
+    UILabel *_bulletPointThreeTextLabel;
+    UILabel *_descriptionLabel;
+    NSLayoutConstraint *_bulletPointOneTextLabelFirstBaselineAnchorLayoutConstraint;
+    NSLayoutConstraint *_bulletPointTwoTextLabelFirstBaselineAnchorLayoutConstraint;
+    NSLayoutConstraint *_bulletPointThreeTextLabelFirstBaselineAnchorLayoutConstraint;
+    NSLayoutConstraint *_descriptionLabelFirstBaselineAnchorLayoutConstraint;
+    NSLayoutConstraint *_descriptionLabelLastBaselineAnchorLayoutConstraint;
+    double _bulletImageViewHeightAnchorLayoutConstraintConstant;
+    double _bulletImageViewWidthAnchorLayoutConstraintConstant;
 }
 
-@property(nonatomic, setter=_setDidAdjustScrollPosition:) _Bool _didAdjustScrollPosition; // @synthesize _didAdjustScrollPosition=__didAdjustScrollPosition;
-@property(readonly, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
-@property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
-@property(readonly, nonatomic) UILabel *textLabel; // @synthesize textLabel=_textLabel;
-@property(readonly, nonatomic) UIView *imageContentView; // @synthesize imageContentView=_imageContentView;
-@property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
-@property(readonly, nonatomic) UILabel *bulletLabelThree; // @synthesize bulletLabelThree=_bulletLabelThree;
-@property(readonly, nonatomic) UILabel *bulletLabelTwo; // @synthesize bulletLabelTwo=_bulletLabelTwo;
-@property(readonly, nonatomic) UILabel *bulletLabelOne; // @synthesize bulletLabelOne=_bulletLabelOne;
-@property(readonly, nonatomic) UIImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
-@property(readonly, nonatomic) UIVisualEffectView *buttonContainerView; // @synthesize buttonContainerView=_buttonContainerView;
-@property(readonly, nonatomic) NSLayoutConstraint *topImageConstraint; // @synthesize topImageConstraint=_topImageConstraint;
-@property(readonly, nonatomic) NSLayoutConstraint *topImageContentConstraint; // @synthesize topImageContentConstraint=_topImageContentConstraint;
-@property(readonly, nonatomic) NSMutableArray *landscapeConstraints; // @synthesize landscapeConstraints=_landscapeConstraints;
-@property(readonly, nonatomic) NSMutableArray *constraints; // @synthesize constraints=_constraints;
+@property(readonly, nonatomic) double bulletImageViewWidthAnchorLayoutConstraintConstant; // @synthesize bulletImageViewWidthAnchorLayoutConstraintConstant=_bulletImageViewWidthAnchorLayoutConstraintConstant;
+@property(readonly, nonatomic) double bulletImageViewHeightAnchorLayoutConstraintConstant; // @synthesize bulletImageViewHeightAnchorLayoutConstraintConstant=_bulletImageViewHeightAnchorLayoutConstraintConstant;
+@property(retain, nonatomic) NSLayoutConstraint *descriptionLabelLastBaselineAnchorLayoutConstraint; // @synthesize descriptionLabelLastBaselineAnchorLayoutConstraint=_descriptionLabelLastBaselineAnchorLayoutConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *descriptionLabelFirstBaselineAnchorLayoutConstraint; // @synthesize descriptionLabelFirstBaselineAnchorLayoutConstraint=_descriptionLabelFirstBaselineAnchorLayoutConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *bulletPointThreeTextLabelFirstBaselineAnchorLayoutConstraint; // @synthesize bulletPointThreeTextLabelFirstBaselineAnchorLayoutConstraint=_bulletPointThreeTextLabelFirstBaselineAnchorLayoutConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *bulletPointTwoTextLabelFirstBaselineAnchorLayoutConstraint; // @synthesize bulletPointTwoTextLabelFirstBaselineAnchorLayoutConstraint=_bulletPointTwoTextLabelFirstBaselineAnchorLayoutConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *bulletPointOneTextLabelFirstBaselineAnchorLayoutConstraint; // @synthesize bulletPointOneTextLabelFirstBaselineAnchorLayoutConstraint=_bulletPointOneTextLabelFirstBaselineAnchorLayoutConstraint;
+@property(readonly, nonatomic) UILabel *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
+@property(readonly, nonatomic) UILabel *bulletPointThreeTextLabel; // @synthesize bulletPointThreeTextLabel=_bulletPointThreeTextLabel;
+@property(readonly, nonatomic) UILabel *bulletPointTwoTextLabel; // @synthesize bulletPointTwoTextLabel=_bulletPointTwoTextLabel;
+@property(readonly, nonatomic) UILabel *bulletPointOneTextLabel; // @synthesize bulletPointOneTextLabel=_bulletPointOneTextLabel;
+@property(readonly, nonatomic) UILabel *bulletPointThreeSymbolLabel; // @synthesize bulletPointThreeSymbolLabel=_bulletPointThreeSymbolLabel;
+@property(readonly, nonatomic) UILabel *bulletPointTwoSymbolLabel; // @synthesize bulletPointTwoSymbolLabel=_bulletPointTwoSymbolLabel;
+@property(readonly, nonatomic) UILabel *bulletPointOneSymbolLabel; // @synthesize bulletPointOneSymbolLabel=_bulletPointOneSymbolLabel;
+@property(readonly, nonatomic) CKWelcomeView *welcomeView; // @synthesize welcomeView=_welcomeView;
 @property(readonly, nonatomic) unsigned long long whatsNewLayout; // @synthesize whatsNewLayout=_whatsNewLayout;
 @property(nonatomic) __weak id <CKWhatsNewViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) double titleLabelTopLayoutConstraintConstant;
-@property(readonly, nonatomic) double titleLabelFirstBaselineLayoutConstraintConstant;
-@property(readonly, nonatomic) double scrollViewTrailingLayoutConstraintConstant;
-@property(readonly, nonatomic) double scrollViewLeadingLayoutConstraintConstant;
-@property(readonly, nonatomic) double scrollViewBottomLayoutConstraintConstant;
-@property(readonly, nonatomic) double bulletThreeLabelFirstBaselineLayoutConstraintConstant;
-@property(readonly, nonatomic) double bulletTwoLabelFirstBaselineLayoutConstraintConstant;
-@property(readonly, nonatomic) double bulletOneLabelFirstBaselineLayoutConstraintConstant;
-@property(readonly, nonatomic) double buttonContainerViewTrailingLayoutConstraintConstant;
-@property(readonly, nonatomic) double buttonContainerViewLeadingLayoutConstraintConstant;
-@property(readonly, nonatomic) double buttonContainerViewBottomLayoutConstraintConstant;
-- (id)_bulletLabelWithText:(id)arg1;
+@property(readonly, nonatomic) double descriptionLabelLastBaselineAnchorLayoutConstraintConstant;
+@property(readonly, nonatomic) double descriptionLabelFirstBaselineAnchorLayoutConstraintConstant;
+@property(readonly, nonatomic) double bulletPointThreeTextLabelFirstBaselineAnchorLayoutConstraintConstant;
+@property(readonly, nonatomic) double bulletPointTwoTextLabelFirstBaselineAnchorLayoutConstraintConstant;
+@property(readonly, nonatomic) double bulletPointOneTextLabelFirstBaselineAnchorLayoutConstraintConstant;
+@property(readonly, nonatomic) double bulletPointTextTrailingAnchorLayoutConstraintConstant;
+@property(readonly, nonatomic) double bulletPointSymbolLeadingAnchorLayoutConstraintConstant;
+- (id)bulletPointTextLabel;
+- (id)bulletPointSymbolLabel;
 @property(readonly, nonatomic) long long type;
-- (void)_handleNotNowButton:(id)arg1;
-- (void)_handleContinueButton:(id)arg1;
-- (void)viewWillLayoutSubviews;
-- (void)orientationChanged:(id)arg1;
-- (void)viewSafeAreaInsetsDidChange;
-- (void)viewWillDisappear:(_Bool)arg1;
-- (void)viewDidAppear:(_Bool)arg1;
-- (void)dealloc;
+- (void)welcomeViewConfirmButtonTapped:(id)arg1;
+- (void)welcomeViewCancelButtonTapped:(id)arg1;
+- (void)handleUIContentSizeCategoryDidChangeNotification:(id)arg1;
+- (void)handleUIDeviceOrientationDidChangeNotification:(id)arg1;
 - (void)layoutForSurf;
 - (void)layoutForMOC;
+- (void)updateConstraints;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
+- (void)loadView;
 - (id)initWithLayout:(unsigned long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

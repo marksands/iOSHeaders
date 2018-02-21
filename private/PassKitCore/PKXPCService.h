@@ -21,6 +21,7 @@
     NSXPCConnection *_connection;
     PKXPCForwarder *_exportedProxy;
     _Bool _suspendCallbacks;
+    _Bool _forceConnectionOnResume;
     id <PKForegroundActiveArbiter> _foregroundActiveArbiter;
     id <NSObject> _foregroundListener;
     id <NSObject> _backgroundListener;
@@ -34,6 +35,7 @@
 - (void).cxx_destruct;
 - (CDUnknownBlockType)_newErrorHandlerWithSemaphore:(id)arg1;
 - (CDUnknownBlockType)_newWrappedErrorHandlerForHandler:(CDUnknownBlockType)arg1;
+@property(nonatomic) _Bool forceConnectionOnResume;
 @property(readonly, nonatomic) _Bool connectionEstablished;
 @property(readonly, nonatomic, getter=isSuspended) _Bool suspended;
 @property(nonatomic) __weak id <PKXPCServiceDelegate> delegate; // @synthesize delegate=_delegate;

@@ -6,13 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSOrderedSet;
-
 @protocol SXVideoQueueProviding <NSObject>
-@property(readonly, nonatomic) id <SXVideo> previousVideo;
-@property(readonly, nonatomic) id <SXVideo> nextVideo;
-@property(readonly, nonatomic) id <SXVideo> video;
-@property(readonly, nonatomic) NSOrderedSet *queue;
-- (id <SXVideo>)nextVideoOfType:(unsigned long long)arg1;
+@property(readonly, copy, nonatomic) id <SXVideoQueue> queue;
 @end
 

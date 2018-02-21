@@ -10,13 +10,15 @@
 #import "PKPaymentSetupBrowseProductsViewControllerDelegate.h"
 #import "PKPaymentSetupHideSetupLaterButtonProtocol.h"
 
-@class NSMutableArray, NSString, PKPaymentProvisioningController, PKPaymentSetupFooterView, PKTableHeaderView;
+@class NSMutableArray, NSMutableDictionary, NSString, PKFileDownloader, PKPaymentProvisioningController, PKPaymentSetupFooterView, PKTableHeaderView;
 
 @interface PKPaymentSetupFlowPickerViewController : PKPaymentSetupTableViewController <PKPaymentSetupActivitySpinnerProtocol, PKPaymentSetupBrowseProductsViewControllerDelegate, PKPaymentSetupHideSetupLaterButtonProtocol>
 {
     PKTableHeaderView *_headerView;
     PKPaymentSetupFooterView *_footerView;
     NSMutableArray *_pickerSections;
+    PKFileDownloader *_thumbnailDownloader;
+    NSMutableDictionary *_thumbnailImageCache;
     _Bool _hideSetupLaterButton;
     _Bool _allowsManualEntry;
     PKPaymentProvisioningController *_provisioningController;
@@ -24,7 +26,7 @@
     long long _setupContext;
 }
 
-+ (id)_filteredPaymentSetupProducts:(id)arg1 localCredential:(id)arg2;
++ (id)_filteredPaymentSetupProducts:(id)arg1 localCredential:(id)arg2 setupContext:(long long)arg3;
 + (id)paymentSetupFlowPickerWithSetupDelegate:(id)arg1 context:(long long)arg2 provisioningController:(id)arg3;
 @property(nonatomic) _Bool allowsManualEntry; // @synthesize allowsManualEntry=_allowsManualEntry;
 @property(nonatomic) _Bool hideSetupLaterButton; // @synthesize hideSetupLaterButton=_hideSetupLaterButton;
@@ -54,6 +56,7 @@
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (id)footerView;
+- (void)dealloc;
 - (id)initWithSetupDelegate:(id)arg1 context:(long long)arg2 provisioningController:(id)arg3;
 
 // Remaining properties

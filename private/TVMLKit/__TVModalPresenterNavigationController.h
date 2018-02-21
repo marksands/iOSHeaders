@@ -38,6 +38,8 @@
 - (void)pushViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)popViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)pushViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_ensureNavigationBarHiddenSafelyForViewSize:(struct CGSize)arg1;
+- (void)viewDidLayoutSubviews;
 - (id)childViewControllerForHomeIndicatorAutoHidden;
 - (id)initWithRootViewController:(id)arg1;
 

@@ -28,6 +28,8 @@
 + (id)allMomentListsInLibrary:(id)arg1 forLevel:(short)arg2 returnsObjectsAsFaults:(_Bool)arg3;
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
+- (id)_batchedMomentsPredicate;
+@property(readonly, retain, nonatomic) NSArray *batchedMoments;
 @property(retain, nonatomic) NSArray *userTitles;
 - (id)momentListDebugDescription;
 - (void)addMoment:(id)arg1 forMegaMomentAtIndex:(unsigned long long)arg2;

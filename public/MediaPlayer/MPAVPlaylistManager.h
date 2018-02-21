@@ -58,6 +58,7 @@
 - (_Bool)setPlaylistFeeder:(id)arg1 startIndex:(long long)arg2 keepPlaying:(_Bool)arg3;
 - (void)reloadWithPlaybackContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(nonatomic) long long repeatMode;
+@property(readonly, nonatomic) long long playlistItemCount;
 @property(readonly) long long currentIndex;
 - (void)setCurrentIndex:(long long)arg1 selectionDirection:(long long)arg2;
 - (void)reloadItemsKeepingCurrentItem:(_Bool)arg1;
@@ -108,6 +109,7 @@
 - (void)player:(id)arg1 currentItemDidChangeFromItem:(id)arg2 toItem:(id)arg3;
 - (void)disconnectQueueCoordinator;
 - (void)connectQueueCoordinator:(id)arg1;
+@property(readonly, nonatomic) NSString *uniqueIdentifier;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (void)finalizeStateRestorationWithCompletionHandler:(CDUnknownBlockType)arg1;
