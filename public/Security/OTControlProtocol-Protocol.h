@@ -9,11 +9,10 @@
 @class NSData, NSString;
 
 @protocol OTControlProtocol <NSObject>
-- (void)scheduleCFUForFuture:(void (^)(NSError *))arg1;
-- (void)doesThisDeviceHaveABottle:(void (^)(_Bool, NSError *))arg1;
 - (void)scrubBottledPeer:(NSString *)arg1 bottleID:(NSString *)arg2 reply:(void (^)(NSError *))arg3;
 - (void)launchBottledPeer:(NSString *)arg1 bottleID:(NSString *)arg2 reply:(void (^)(NSError *))arg3;
 - (void)preflightBottledPeer:(NSString *)arg1 dsid:(NSString *)arg2 reply:(void (^)(NSData *, NSString *, NSData *, NSError *))arg3;
+- (void)scheduleCFUForFuture;
 - (void)reset:(void (^)(_Bool, NSError *))arg1;
 - (void)signIn:(NSString *)arg1 reply:(void (^)(_Bool, NSError *))arg2;
 - (void)signOut:(void (^)(_Bool, NSError *))arg1;

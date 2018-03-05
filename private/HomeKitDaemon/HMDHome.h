@@ -246,6 +246,7 @@
 - (void)_migrateHomeUsersCloudZone:(id)arg1 migrationQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_migrateHomeMediaSettingsCloudZone:(id)arg1 migrationQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_migrateHomeSettingsCloudZone:(id)arg1 migrationQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_migrateResidentDevicesCloudZone:(id)arg1 migrationQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)cleanChangesIfNoAddChangeObjectID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dropAllChangesWithObjectID:(id)arg1;
 - (void)dropAllChangesWithArrayOfObjectIDs:(id)arg1;
@@ -613,8 +614,8 @@
 - (id)hapAccessoriesForServer:(id)arg1;
 - (id)hapAccessoriesForServer:(id)arg1 linkType:(long long)arg2;
 - (void)_readProfileState:(id)arg1 viaDevice:(id)arg2 message:(id)arg3;
-- (void)_getRunTimeStateUpdate:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)getRunTimeStateUpdate:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_getRunTimeStateUpdate:(_Bool)arg1 includeHAPAccessoryState:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)getRunTimeStateUpdate:(_Bool)arg1 includeHAPAccessoryState:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)auditNotifications;
 - (void)_auditNotifications;
 - (void)handleBackgroundTaskAgentJob:(id)arg1;

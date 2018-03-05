@@ -14,6 +14,8 @@
 - (void)playbackCoordinatorMuteStateChanged:(SXPlaybackCoordinator *)arg1;
 - (void)mediaSelectionOptionsAvailabilityChangedForPlaybackCoordinator:(SXPlaybackCoordinator *)arg1;
 - (void)playbackCoordinatorStateChanged:(SXPlaybackCoordinator *)arg1;
+- (void)playbackCoordinatorPlaybackLikelyToKeepUpStateChanged:(SXPlaybackCoordinator *)arg1;
+- (void)playbackCoordinatorPlaybackBufferFullStateChanged:(SXPlaybackCoordinator *)arg1;
 - (void)playbackCoordinator:(SXPlaybackCoordinator *)arg1 loadingProgressed:(double)arg2;
 - (void)playbackCoordinator:(SXPlaybackCoordinator *)arg1 timeElapsed:(double)arg2 duration:(double)arg3;
 - (void)playbackCoordinator:(SXPlaybackCoordinator *)arg1 playbackFailedWithError:(NSError *)arg2;

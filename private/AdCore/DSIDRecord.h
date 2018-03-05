@@ -18,6 +18,7 @@
     _Bool _accountIsU13;
     _Bool _accountIsU18;
     _Bool _isActiveRecord;
+    _Bool _isRestrictedByEU_GDPR;
     _Bool _isPlaceholderAccount;
     _Bool _accountLimitAdTrackingEnabled;
     _Bool _lastSentLimitAdTrackingStatus;
@@ -35,12 +36,14 @@
     NSString *_iAdIDBeforeReset;
     NSMutableDictionary *_ADIDRecords;
     long long _lastJingleLimitAdTrackingResponse;
+    long long _lastJingleAccountStatus;
 }
 
 @property(nonatomic) _Bool notificationRequired; // @synthesize notificationRequired=_notificationRequired;
 @property(nonatomic) int lastPOSTLimitAdTrackingTimestamp; // @synthesize lastPOSTLimitAdTrackingTimestamp=_lastPOSTLimitAdTrackingTimestamp;
 @property(nonatomic) int lastSentLimitAdTrackingTimestamp; // @synthesize lastSentLimitAdTrackingTimestamp=_lastSentLimitAdTrackingTimestamp;
 @property(nonatomic) _Bool lastSentLimitAdTrackingStatus; // @synthesize lastSentLimitAdTrackingStatus=_lastSentLimitAdTrackingStatus;
+@property(nonatomic) long long lastJingleAccountStatus; // @synthesize lastJingleAccountStatus=_lastJingleAccountStatus;
 @property(nonatomic) long long lastJingleLimitAdTrackingResponse; // @synthesize lastJingleLimitAdTrackingResponse=_lastJingleLimitAdTrackingResponse;
 @property(nonatomic) _Bool accountLimitAdTrackingEnabled; // @synthesize accountLimitAdTrackingEnabled=_accountLimitAdTrackingEnabled;
 @property(retain) NSMutableDictionary *ADIDRecords; // @synthesize ADIDRecords=_ADIDRecords;
@@ -50,6 +53,7 @@
 @property(nonatomic) int segmentDataTimestamp; // @synthesize segmentDataTimestamp=_segmentDataTimestamp;
 @property(nonatomic) int limitAdTrackingTimestamp; // @synthesize limitAdTrackingTimestamp=_limitAdTrackingTimestamp;
 @property(retain, nonatomic) NSString *iAdIDBeforeReset; // @synthesize iAdIDBeforeReset=_iAdIDBeforeReset;
+@property(readonly, nonatomic) _Bool isRestrictedByEU_GDPR; // @synthesize isRestrictedByEU_GDPR=_isRestrictedByEU_GDPR;
 @property(retain, nonatomic) NSString *IDFA; // @synthesize IDFA=_IDFA;
 @property(retain, nonatomic) NSString *segmentData; // @synthesize segmentData=_segmentData;
 @property(readonly, nonatomic) _Bool isActiveRecord; // @synthesize isActiveRecord=_isActiveRecord;
@@ -64,7 +68,7 @@
 - (_Bool)shouldSendNotification;
 @property(nonatomic) _Bool dirty;
 - (_Bool)iAdIDRecordsDirty;
-@property(readonly, nonatomic) _Bool isRestrictedAccount;
+@property(readonly, nonatomic) _Bool isRestrictedByApple;
 @property(readonly, nonatomic) _Bool limitAdTrackingEnabled;
 - (id)dictionaryRepresentation;
 - (id)description;

@@ -26,12 +26,16 @@
 - (id)_queue_region:(id)arg1;
 - (id)_queue_regions;
 - (_Bool)_queue_supportedForOSVersion:(id)arg1 inRegion:(id)arg2 deviceClass:(id)arg3 platform:(id)arg4;
+- (id)marketGeoRegionNoitificationHourForRegion:(id)arg1;
+- (id)marketGeoRegionNoitificationSendLimitForRegion:(id)arg1;
+- (id)marketGeoRegionNotificationDisabledNetworksForRegion:(id)arg1;
 - (_Bool)remotePaymentsRequiredForVoiceover;
 - (id)unsupportedWebPaymentConfigurations;
 - (id)supportedRegionsForOSVersion:(id)arg1 deviceClass:(id)arg2 platform:(id)arg3;
 - (id)supportedRegionsForOSVersion:(id)arg1 deviceClass:(id)arg2;
 - (id)maxRefreshIntervalForRegion:(id)arg1;
 - (id)maxRefreshIntervalForUnsupportedRegion;
+- (id)betaTransitPaymentNetworksForRegion:(id)arg1;
 - (_Bool)userCanResetCloudStoreApplePayViewForRegion:(id)arg1;
 - (_Bool)peerPaymentEnabledForRegion:(id)arg1;
 - (double)provisioningEnablementPercentageForRegion:(id)arg1;

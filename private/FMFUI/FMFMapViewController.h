@@ -21,7 +21,6 @@
     _Bool _showFloatingMapLocationButton;
     _Bool _isMapCenteringDisabled;
     _Bool _isSimpleMap;
-    _Bool _canShowNoLocation;
     _Bool __refreshingIsPaused;
     _Bool __blockDidReceiveAnimation;
     _Bool __isRenderingInitialMap;
@@ -73,7 +72,6 @@
 @property(nonatomic) _Bool _refreshingIsPaused; // @synthesize _refreshingIsPaused=__refreshingIsPaused;
 @property(retain, nonatomic) NSSet *_internalHandlesShowingLocations; // @synthesize _internalHandlesShowingLocations=__internalHandlesShowingLocations;
 @property(retain, nonatomic) FMFNoLocationView *noLocationView; // @synthesize noLocationView=_noLocationView;
-@property(nonatomic) _Bool canShowNoLocation; // @synthesize canShowNoLocation=_canShowNoLocation;
 @property(nonatomic) _Bool isSimpleMap; // @synthesize isSimpleMap=_isSimpleMap;
 @property(retain, nonatomic) NSSet *_preloadedHandles; // @synthesize _preloadedHandles=__preloadedHandles;
 @property(retain, nonatomic) FMFMapViewDelegateInternal *mapViewDelegate; // @synthesize mapViewDelegate=_mapViewDelegate;
@@ -143,6 +141,7 @@
 - (void)updateMapWithNewLocation:(id)arg1 animated:(_Bool)arg2;
 - (_Bool)mapHasUserLocations;
 - (void)updateNoLocationView:(_Bool)arg1;
+- (_Bool)canShowNoLocation;
 - (void)viewWillLayoutSubviews;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)didReceiveMemoryWarning;

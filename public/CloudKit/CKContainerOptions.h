@@ -17,10 +17,12 @@
     _Bool _useMMCSEncryptionV2;
     _Bool _bypassPCSEncryption;
     _Bool _enforceNamedOperationGroups;
+    _Bool _forceEnableReadOnlyManatee;
     CKAccountOverrideInfo *_accountInfoOverride;
     NSString *_encryptionServiceName;
 }
 
+@property(nonatomic) _Bool forceEnableReadOnlyManatee; // @synthesize forceEnableReadOnlyManatee=_forceEnableReadOnlyManatee;
 @property(nonatomic) _Bool enforceNamedOperationGroups; // @synthesize enforceNamedOperationGroups=_enforceNamedOperationGroups;
 @property(nonatomic) _Bool bypassPCSEncryption; // @synthesize bypassPCSEncryption=_bypassPCSEncryption;
 @property(retain, nonatomic) NSString *encryptionServiceName; // @synthesize encryptionServiceName=_encryptionServiceName;

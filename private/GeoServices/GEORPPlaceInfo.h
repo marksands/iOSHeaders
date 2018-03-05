@@ -36,6 +36,7 @@
 @property(readonly, nonatomic) _Bool hasSourceApplication;
 @property(readonly, nonatomic) _Bool hasPlaceResponse;
 @property(readonly, nonatomic) _Bool hasPlaceRequest;
+- (void)clearLocationsFromPlaceRequest;
 - (void)clearSessionIdFromPlaceRequest;
 
 @end

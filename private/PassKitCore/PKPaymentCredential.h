@@ -27,6 +27,8 @@
 @property(nonatomic) long long credentialType; // @synthesize credentialType=_credentialType;
 - (void).cxx_destruct;
 @property(readonly, nonatomic, getter=isTransitCredential) _Bool transitCredential;
+- (id)purchasedProductCredential;
+- (_Bool)isPurchasedProductCredential;
 - (id)digitalIssuanceProductCredential;
 - (_Bool)isDigitalIssuanceProductCredential;
 - (id)contactlessProductCredential;

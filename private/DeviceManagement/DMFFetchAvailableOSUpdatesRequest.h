@@ -10,15 +10,18 @@
 
 @interface DMFFetchAvailableOSUpdatesRequest : CATTaskRequest
 {
+    _Bool _useDelay;
     NSString *_productVersion;
 }
 
 + (Class)whitelistedClassForResultObject;
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool useDelay; // @synthesize useDelay=_useDelay;
 @property(copy, nonatomic) NSString *productVersion; // @synthesize productVersion=_productVersion;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)init;
 
 @end
 

@@ -71,6 +71,7 @@
 - (_Bool)_hasRemoteLibrary;
 - (_Bool)isPaymentPassActivationAvailable;
 - (id)_defaultPaymentPassForPaymentRequest:(id)arg1;
+- (void)supportedTransitPartnersForDigitalIssuance:(CDUnknownBlockType)arg1;
 - (void)supportedPartnersForDigitalIssuance:(CDUnknownBlockType)arg1;
 - (id)_sortedPaymentPassesForPaymentRequest:(id)arg1;
 - (void)sortedTransitPassesForAppletDataFormat:(id)arg1 completion:(CDUnknownBlockType)arg2;

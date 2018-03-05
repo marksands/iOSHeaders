@@ -46,6 +46,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic, getter=hasMultipleLocations) _Bool multiple;
 @property(readonly) Class superclass;
 
 @end

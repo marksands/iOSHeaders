@@ -155,6 +155,7 @@ __attribute__((visibility("hidden")))
 - (id)_addIdentitiesFromServiceNamed:(id)arg1 toMutableSet:(struct _PCSIdentitySetData *)arg2;
 - (struct _PCSIdentitySetData *)_getPCSIdentitiesForService:(id)arg1 forFakeAccount:(id)arg2 withError:(id *)arg3;
 - (struct _PCSIdentityData *)debugSharingIdentity;
+@property(readonly, nonatomic) _Bool forceEnableReadOnlyManatee;
 - (void)dealloc;
 - (id)initWithClientContext:(id)arg1;
 - (id)_serviceNameForContainerID:(id)arg1;

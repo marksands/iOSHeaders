@@ -6,15 +6,15 @@
 
 #import "UIView.h"
 
-#import "MPAVRoutingControllerDelegate.h"
+#import "MPAVLightweightRoutingControllerDelegate.h"
 #import "NSCoding.h"
 
-@class MPAVRoutingController, MPMediaControlsStandaloneViewController, MPVolumeSlider, NSString, UIButton, UIImage, UILabel;
+@class MPAVLightweightRoutingController, MPMediaControlsStandaloneViewController, MPVolumeSlider, NSString, UIButton, UIImage, UILabel;
 
-@interface MPVolumeView : UIView <MPAVRoutingControllerDelegate, NSCoding>
+@interface MPVolumeView : UIView <MPAVLightweightRoutingControllerDelegate, NSCoding>
 {
     MPMediaControlsStandaloneViewController *_mediaControlsViewController;
-    MPAVRoutingController *_routingController;
+    MPAVLightweightRoutingController *_lightweightRoutingController;
     _Bool _hasNonDefaultRouteButtonImages;
     _Bool _hasNonDefaultMaxVolumeSliderImage;
     _Bool _hasNonDefaultMinVolumeSliderImage;
@@ -37,7 +37,7 @@
 }
 
 - (void).cxx_destruct;
-- (void)_routingControllerDidUpdateVolumeControlState:(id)arg1;
+- (void)_volumeSliderVolumeControlAvailabilityDidChangeNotification:(id)arg1;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 - (void)_updateWirelessRouteStatus;
@@ -77,8 +77,8 @@
 - (id)minimumVolumeSliderImageForState:(unsigned long long)arg1;
 @property(readonly, nonatomic, getter=areWirelessRoutesAvailable) _Bool wirelessRoutesAvailable;
 @property(readonly, nonatomic, getter=isWirelessRouteActive) _Bool wirelessRouteActive;
-- (void)routingController:(id)arg1 volumeControlAvailabilityDidChange:(_Bool)arg2;
-- (void)routingControllerAvailableRoutesDidChange:(id)arg1;
+- (void)lightweightRoutingController:(id)arg1 didChangePickedRoutes:(id)arg2;
+- (void)lightweightRoutingController:(id)arg1 didChangeDevicePresenceDetected:(_Bool)arg2;
 - (void)setHidden:(_Bool)arg1;
 - (void)setAlpha:(double)arg1;
 - (void)didMoveToWindow;

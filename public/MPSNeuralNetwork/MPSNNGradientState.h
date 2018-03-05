@@ -25,6 +25,7 @@
     _Bool _isBackwards;
     unsigned long long _edgeMode;
     CDStruct_da2e99ad _srcSize;
+    unsigned long long _sourceFeatureChannels;
     _Bool _initOnce;
     unsigned int _provenance;
 }

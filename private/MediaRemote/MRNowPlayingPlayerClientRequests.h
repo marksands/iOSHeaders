@@ -48,6 +48,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _MRPlaybackQueueProtobuf *playbackQueue;
 - (void)setPlaybackQueue:(id)arg1;
 - (id)debugDescription;
+- (void)dealloc;
 - (id)initWithPlayerPath:(id)arg1;
 
 @end

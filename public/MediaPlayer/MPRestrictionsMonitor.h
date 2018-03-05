@@ -20,9 +20,13 @@
     _Bool _allowsExplicitContent;
     _Bool _allowsStorePurchases;
     _Bool _allowsRadioPurchases;
+    long long _maximumTVShowRatingForAgeGate;
+    long long _maximumMovieRatingForAgeGate;
 }
 
 + (id)sharedRestrictionsMonitor;
+@property(nonatomic) long long maximumMovieRatingForAgeGate; // @synthesize maximumMovieRatingForAgeGate=_maximumMovieRatingForAgeGate;
+@property(nonatomic) long long maximumTVShowRatingForAgeGate; // @synthesize maximumTVShowRatingForAgeGate=_maximumTVShowRatingForAgeGate;
 @property(readonly, nonatomic) _Bool allowsRadioPurchases; // @synthesize allowsRadioPurchases=_allowsRadioPurchases;
 @property(readonly, nonatomic) _Bool allowsStorePurchases; // @synthesize allowsStorePurchases=_allowsStorePurchases;
 @property(readonly, nonatomic) _Bool allowsExplicitContent; // @synthesize allowsExplicitContent=_allowsExplicitContent;

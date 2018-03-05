@@ -11,16 +11,11 @@
 @interface PKPaymentServiceProviderPurchaseRequest : PKPaymentWebServiceRequest
 {
     NSString *_purchaseIdentifier;
-    NSString *_purchaseState;
-    NSString *_serviceProviderIdentifier;
 }
 
-@property(copy, nonatomic) NSString *serviceProviderIdentifier; // @synthesize serviceProviderIdentifier=_serviceProviderIdentifier;
-@property(copy, nonatomic) NSString *purchaseState; // @synthesize purchaseState=_purchaseState;
 @property(copy, nonatomic) NSString *purchaseIdentifier; // @synthesize purchaseIdentifier=_purchaseIdentifier;
 - (void).cxx_destruct;
 - (id)_urlRequestWithServiceURL:(id)arg1 account:(id)arg2;
-- (id)initWithPurchaseIdentifier:(id)arg1 purchaseState:(id)arg2 serviceProviderIdentifier:(id)arg3;
 - (id)initWithPurchaseIdentifier:(id)arg1;
 
 @end

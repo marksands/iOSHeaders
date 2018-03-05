@@ -137,6 +137,7 @@
 - (_Bool)isEnabledAndVisible:(id)arg1;
 - (void)updateIndexPath:(id)arg1 forPlugin:(id)arg2 isDrawerPluginPath:(_Bool)arg3;
 - (void)regeneratePluginIndexPaths;
+- (_Bool)_addPluginToRecentsFrontIfNeeded:(id)arg1 frontOfRecents:(id)arg2 pluginMap:(id)arg3 fallbackMap:(id)arg4;
 - (id)_pluginIndexPathForFavoritePluginWithIdentifier:(id)arg1 pluginMap:(id)arg2 fallbackMap:(id)arg3;
 - (id)orderedPlugins:(_Bool)arg1;
 - (id)allPotentiallyVisiblePlugins;

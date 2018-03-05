@@ -23,10 +23,11 @@
 @property(readonly, nonatomic) id <SXVideoSkipPolicy> policyHandler; // @synthesize policyHandler=_policyHandler;
 @property(readonly, nonatomic) id <SXVideoQueueProviding> queueProvider; // @synthesize queueProvider=_queueProvider;
 - (void).cxx_destruct;
-- (_Bool)skipToVideo:(id)arg1 animated:(_Bool)arg2;
+- (_Bool)skipToVideo:(id)arg1 animated:(_Bool)arg2 force:(_Bool)arg3;
 - (void)onSkip:(CDUnknownBlockType)arg1;
 - (_Bool)skipToPrevious;
 - (_Bool)skipToNext;
+- (_Bool)advanceAnimated:(_Bool)arg1 force:(_Bool)arg2;
 - (_Bool)advanceAnimated:(_Bool)arg1;
 - (id)initWithQueueProvider:(id)arg1 policyHandler:(id)arg2;
 

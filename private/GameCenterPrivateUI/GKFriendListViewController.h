@@ -40,7 +40,6 @@
 - (void)setupNoContentView:(id)arg1 withError:(id)arg2;
 - (void)hideNoContentPlaceholder;
 - (void)showNoContentPlaceholderForError:(id)arg1;
-- (void)setViewsToHideHidden:(_Bool)arg1;
 - (void)showLoadingIndicator;
 - (void)updateTitlesWith:(long long)arg1;
 - (void)loadDataWithCompletionHandler:(CDUnknownBlockType)arg1;

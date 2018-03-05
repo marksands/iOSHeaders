@@ -19,6 +19,7 @@
 @property(retain) NSString *cachedSalt; // @synthesize cachedSalt=_cachedSalt;
 - (void)deleteDeDupeRecordZone;
 - (void)clearLocalSyncState;
+- (void)fetchLatestRecordKeyFromCKAndCreateIfKeyDoesNotExistWithCompletion:(CDUnknownBlockType)arg1 forceFetch:(_Bool)arg2;
 - (void)fetchLatestRecordKeyFromCKAndCreateIfKeyDoesNotExistWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_fetchLatestSaltFromCloudKitAndPersistWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_container;

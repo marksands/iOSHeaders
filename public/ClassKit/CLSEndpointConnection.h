@@ -8,11 +8,11 @@
 
 #import "CLSClientDelegate.h"
 
-@class NSObject<OS_dispatch_queue>, NSString, NSXPCConnection, NSXPCListenerEndpoint;
+@class NSRecursiveLock, NSString, NSXPCConnection, NSXPCListenerEndpoint;
 
 @interface CLSEndpointConnection : NSObject <CLSClientDelegate>
 {
-    NSObject<OS_dispatch_queue> *_queue;
+    NSRecursiveLock *_lock;
     NSXPCConnection *_serverConnection;
     NSXPCListenerEndpoint *_endpoint;
     _Bool _connectionBorked;
@@ -35,7 +35,6 @@
 - (void).cxx_destruct;
 - (void)client:(id)arg1 recievedNewDevMode:(int)arg2;
 - (void)accountChanged;
-- (void)_addBarrierBlock:(CDUnknownBlockType)arg1;
 - (void)addBarrierBlock:(CDUnknownBlockType)arg1;
 - (void)connect;
 - (void)deleteAppWithBundleIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -43,14 +42,16 @@
 - (void)setOverrideBundleIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)listAppsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)server:(CDUnknownBlockType)arg1;
+- (id)syncServer:(CDUnknownBlockType)arg1;
 - (id)utilityServer:(CDUnknownBlockType)arg1;
+- (id)syncUtilityServer:(CDUnknownBlockType)arg1;
 - (id)dataServer:(CDUnknownBlockType)arg1;
+- (id)syncDataServer:(CDUnknownBlockType)arg1;
 - (void)invalidate;
 - (void)connectionBorked;
 - (void)connectionInterupted;
 - (void)_envokeOnInteruptCallback;
 - (id)serverConnection;
-- (_Bool)_isBorked;
 - (_Bool)isBorked;
 - (void)_registerForDarwinNotifications;
 - (void)dealloc;

@@ -47,7 +47,7 @@
     _Bool _simulateAssetContentDownload;
     _Bool _simulateAssetContentDownloadFailure;
     long long _suggestionsStyle;
-    long long _suggestionMinimumAssetAgeInDays;
+    long long _suggestionMaximumAssetAgeInDays;
     long long _simulatedAssetVariationSuggestion;
     double _initialDetailsIndicatorDelay;
     double _initialDetailsIndicatorDuration;
@@ -186,7 +186,7 @@
 @property(nonatomic) _Bool enableSuggestionsAnalysis; // @synthesize enableSuggestionsAnalysis=_enableSuggestionsAnalysis;
 @property(nonatomic) _Bool showInitialDetailsIndicator; // @synthesize showInitialDetailsIndicator=_showInitialDetailsIndicator;
 @property(nonatomic) long long simulatedAssetVariationSuggestion; // @synthesize simulatedAssetVariationSuggestion=_simulatedAssetVariationSuggestion;
-@property(nonatomic) long long suggestionMinimumAssetAgeInDays; // @synthesize suggestionMinimumAssetAgeInDays=_suggestionMinimumAssetAgeInDays;
+@property(nonatomic) long long suggestionMaximumAssetAgeInDays; // @synthesize suggestionMaximumAssetAgeInDays=_suggestionMaximumAssetAgeInDays;
 @property(nonatomic) long long suggestionsStyle; // @synthesize suggestionsStyle=_suggestionsStyle;
 - (void).cxx_destruct;
 - (void)_updatePrototypeRelatedSettings;

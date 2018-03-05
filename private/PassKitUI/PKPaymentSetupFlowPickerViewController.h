@@ -10,15 +10,14 @@
 #import "PKPaymentSetupBrowseProductsViewControllerDelegate.h"
 #import "PKPaymentSetupHideSetupLaterButtonProtocol.h"
 
-@class NSMutableArray, NSMutableDictionary, NSString, PKFileDownloader, PKPaymentProvisioningController, PKPaymentSetupFooterView, PKTableHeaderView;
+@class NSArray, NSMutableArray, NSString, PKPaymentProvisioningController, PKPaymentSetupFooterView, PKTableHeaderView;
 
 @interface PKPaymentSetupFlowPickerViewController : PKPaymentSetupTableViewController <PKPaymentSetupActivitySpinnerProtocol, PKPaymentSetupBrowseProductsViewControllerDelegate, PKPaymentSetupHideSetupLaterButtonProtocol>
 {
     PKTableHeaderView *_headerView;
     PKPaymentSetupFooterView *_footerView;
     NSMutableArray *_pickerSections;
-    PKFileDownloader *_thumbnailDownloader;
-    NSMutableDictionary *_thumbnailImageCache;
+    NSArray *_betaTransitNetworks;
     _Bool _hideSetupLaterButton;
     _Bool _allowsManualEntry;
     PKPaymentProvisioningController *_provisioningController;
@@ -26,7 +25,8 @@
     long long _setupContext;
 }
 
-+ (id)_filteredPaymentSetupProducts:(id)arg1 localCredential:(id)arg2 setupContext:(long long)arg3;
++ (id)_filteredPaymentSetupProducts:(id)arg1 localCredential:(id)arg2 setupContext:(long long)arg3 webService:(id)arg4 mobileCarrierRegion:(id)arg5;
++ (_Bool)_localCredentials:(id)arg1 containProduct:(id)arg2;
 + (id)paymentSetupFlowPickerWithSetupDelegate:(id)arg1 context:(long long)arg2 provisioningController:(id)arg3;
 @property(nonatomic) _Bool allowsManualEntry; // @synthesize allowsManualEntry=_allowsManualEntry;
 @property(nonatomic) _Bool hideSetupLaterButton; // @synthesize hideSetupLaterButton=_hideSetupLaterButton;
@@ -35,6 +35,7 @@
 @property(readonly, nonatomic) PKPaymentProvisioningController *provisioningController; // @synthesize provisioningController=_provisioningController;
 - (void).cxx_destruct;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 titleForFooterInSection:(long long)arg2;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
@@ -56,7 +57,6 @@
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (id)footerView;
-- (void)dealloc;
 - (id)initWithSetupDelegate:(id)arg1 context:(long long)arg2 provisioningController:(id)arg3;
 
 // Remaining properties

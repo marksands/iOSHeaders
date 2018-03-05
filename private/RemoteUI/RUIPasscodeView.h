@@ -29,19 +29,19 @@
     NSString *_headerTitle;
     PSPasscodeField *_passcodeField;
     UIColor *_foregroundColor;
+    NSString *_submittedPIN;
     long long _keyboardAppearance;
     unsigned long long _numberOfEntryFields;
     RUIHeaderElement *_header;
     RUIHTMLHeaderElement *_HTMLHeader;
-    NSString *_submittedPIN;
 }
 
-@property(copy, nonatomic) NSString *submittedPIN; // @synthesize submittedPIN=_submittedPIN;
 @property(retain, nonatomic) RUIElement *footer; // @synthesize footer=_footer;
 @property(retain, nonatomic) RUIHTMLHeaderElement *HTMLHeader; // @synthesize HTMLHeader=_HTMLHeader;
 @property(retain, nonatomic) RUIHeaderElement *header; // @synthesize header=_header;
 @property(nonatomic) unsigned long long numberOfEntryFields; // @synthesize numberOfEntryFields=_numberOfEntryFields;
 @property(nonatomic) long long keyboardAppearance; // @synthesize keyboardAppearance=_keyboardAppearance;
+@property(copy, nonatomic) NSString *submittedPIN; // @synthesize submittedPIN=_submittedPIN;
 @property(retain, nonatomic) UIColor *foregroundColor; // @synthesize foregroundColor=_foregroundColor;
 @property(readonly, nonatomic) PSPasscodeField *passcodeField; // @synthesize passcodeField=_passcodeField;
 @property(copy, nonatomic) NSString *headerTitle; // @synthesize headerTitle=_headerTitle;

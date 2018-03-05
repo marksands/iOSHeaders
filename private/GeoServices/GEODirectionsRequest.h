@@ -165,6 +165,8 @@
 - (id)initWithFeedback:(id)arg1;
 - (id)init;
 - (id)initWithQuickETARequest:(id)arg1 withFeedback:(id)arg2;
+- (void)clearLocations;
+- (void)clearSessionId;
 
 @end
 

@@ -11,6 +11,8 @@
 @interface IMDCKExitManager : IMDCKAbstractSyncController
 {
     _Bool _fetchedExitDateOnLaunch;
+    NSDate *_exitRecordDate;
+    NSError *_errorFetchingExitDate;
     CKRecordID *_exitRecordID;
     CKOperationConfiguration *_exitConfigurtation;
     NSNumber *_saltZoneCreatedOverride;
@@ -18,14 +20,10 @@
     NSObject<OS_dispatch_queue> *_ckQueue;
     IMDRecordZoneManager *_recordZoneManager;
     IMDCKDatabaseManager *_databaseManager;
-    NSDate *_exitRecordDate;
-    NSError *_errorFetchingExitDate;
 }
 
 + (id)sharedInstance;
 @property(nonatomic) _Bool fetchedExitDateOnLaunch; // @synthesize fetchedExitDateOnLaunch=_fetchedExitDateOnLaunch;
-@property(retain, nonatomic) NSError *errorFetchingExitDate; // @synthesize errorFetchingExitDate=_errorFetchingExitDate;
-@property(retain, nonatomic) NSDate *exitRecordDate; // @synthesize exitRecordDate=_exitRecordDate;
 @property(retain, nonatomic) IMDCKDatabaseManager *databaseManager; // @synthesize databaseManager=_databaseManager;
 @property(retain, nonatomic) IMDRecordZoneManager *recordZoneManager; // @synthesize recordZoneManager=_recordZoneManager;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *ckQueue; // @synthesize ckQueue=_ckQueue;
@@ -48,9 +46,12 @@
 - (id)syncCompleteRecordID;
 - (void)deleteExitRecordWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_fetchExitRecordDateWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_evalToggleiCloudSettingsSwitch;
 - (void)exitRecordDateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)writeExitRecordWithDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)handleNotificationForSubscriptionID:(id)arg1;
+@property(retain, nonatomic) NSError *errorFetchingExitDate; // @synthesize errorFetchingExitDate=_errorFetchingExitDate;
+@property(retain, nonatomic) NSDate *exitRecordDate; // @synthesize exitRecordDate=_exitRecordDate;
 - (void)_setUpSubscription;
 - (void)dealloc;
 - (id)init;

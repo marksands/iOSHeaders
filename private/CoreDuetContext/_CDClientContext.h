@@ -61,7 +61,8 @@
 - (_Bool)hasKnowledgeOfContextualKeyPath:(id)arg1;
 - (void)dealloc;
 - (id)initWithEndpoint:(id)arg1;
-- (void)setUpXPCConnectionWithEndpoint:(id)arg1;
+- (id)currentConnection;
+- (void)unprotectedSetUpXPCConnectionWithEndpoint:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

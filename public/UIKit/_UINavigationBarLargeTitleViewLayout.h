@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 @interface _UINavigationBarLargeTitleViewLayout : NSObject
 {
     NSMutableDictionary *_titleHeightCache;
+    NSMutableDictionary *_restingHeightCache;
     double _cachedRestingHeight;
     _Bool _supportsTwoLines;
     _Bool _alignAccessoryViewToTitleBaseline;

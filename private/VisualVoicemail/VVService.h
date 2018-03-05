@@ -8,7 +8,7 @@
 
 #import "VMTranscriptionService.h"
 
-@class NSArray, NSError, NSRecursiveLock, NSString, VMVoicemailTranscriptionController, VMVoicemailTranscriptionTask;
+@class NSArray, NSError, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSRecursiveLock, NSString, VMStateRequestController, VMVoicemailTranscriptionController, VMVoicemailTranscriptionTask;
 
 @interface VVService : NSObject <VMTranscriptionService>
 {
@@ -36,11 +36,14 @@
         unsigned int notificationFallbackEnabled:1;
         unsigned int capabilitiesLoaded:1;
     } _serviceFlags;
+    NSMutableDictionary *_stateRequestAttemptCount;
     NSString *_serviceIdentifier;
     VMVoicemailTranscriptionController *_transcriptionController;
     VMVoicemailTranscriptionTask *_transcriptionTask;
     unsigned long long _numFailedAttemptsToSyncOverWifi;
     struct __CFString *_lastConnectionTypeUsed;
+    NSObject<OS_dispatch_queue> *_serialDispatchQueue;
+    VMStateRequestController *_stateRequestController;
 }
 
 + (void)releaseInsomniaAssertion;
@@ -58,12 +61,19 @@
 + (_Bool)_waitingForInsomniaStateToBecomeActive;
 + (void)initialize;
 + (id)transcriptionLanguageCodes;
+@property(readonly, nonatomic) VMStateRequestController *stateRequestController; // @synthesize stateRequestController=_stateRequestController;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *serialDispatchQueue; // @synthesize serialDispatchQueue=_serialDispatchQueue;
 @property(nonatomic) struct __CFString *lastConnectionTypeUsed; // @synthesize lastConnectionTypeUsed=_lastConnectionTypeUsed;
 @property(nonatomic) unsigned long long numFailedAttemptsToSyncOverWifi; // @synthesize numFailedAttemptsToSyncOverWifi=_numFailedAttemptsToSyncOverWifi;
 @property(retain, nonatomic) VMVoicemailTranscriptionTask *transcriptionTask; // @synthesize transcriptionTask=_transcriptionTask;
 @property(retain, nonatomic) VMVoicemailTranscriptionController *transcriptionController; // @synthesize transcriptionController=_transcriptionController;
 @property(retain, nonatomic) NSString *serviceIdentifier; // @synthesize serviceIdentifier=_serviceIdentifier;
 - (void).cxx_destruct;
+- (void)performSynchronousBlock:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) NSMutableDictionary *stateRequestAttemptCount; // @synthesize stateRequestAttemptCount=_stateRequestAttemptCount;
+- (void)removeAttemptCountForStateRequest:(id)arg1;
+- (void)incrementAttemptCountForStateRequest:(id)arg1;
+- (long long)attemptCountForStateRequest:(id)arg1;
 - (void)handleVVServiceDataAvailableNotification:(id)arg1;
 - (struct __CFString *)dataConnectionServiceTypeOverride;
 - (void)scheduleImmediateSynchronizeRetryOverCellular;

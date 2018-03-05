@@ -6,13 +6,16 @@
 
 #import "NSObject.h"
 
+#import "CBCentralManagerDelegate.h"
 #import "CBPeripheralManagerDelegate.h"
 
-@class CBPeripheralManager, NSData, NSObject<OS_dispatch_queue>, NSString;
+@class CBCentralManager, CBPeripheralManager, NSData, NSObject<OS_dispatch_queue>, NSString;
 
-@interface CUBluetoothClient : NSObject <CBPeripheralManagerDelegate>
+@interface CUBluetoothClient : NSObject <CBCentralManagerDelegate, CBPeripheralManagerDelegate>
 {
     NSData *_btAdvertisingAddress;
+    CBCentralManager *_btCentralManager;
+    _Bool _btCentralManagerNeeded;
     CBPeripheralManager *_btPeripheralManager;
     _Bool _btPeripheralManagerNeeded;
     struct BTAccessoryManagerImpl *_btAccessoryManager;
@@ -34,6 +37,7 @@
     _Bool _btPairingAgentStarted;
     struct NSMutableDictionary *_btPairedDevices;
     _Bool _btPairedDevicesInitialized;
+    struct NSMutableArray *_findDeviceRequests;
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
     struct LogCategory *_ucat;
@@ -61,8 +65,11 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_handlePairingStatusChanged;
 - (void)_handleBluetoothAddressChanged;
+- (void)centralManagerDidUpdateState:(id)arg1;
 - (void)_btEnsureStopped;
 - (void)_btEnsureStarted;
+- (void)_findDeviceByAddress:(CDStruct_83abfce7)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)findDeviceByAddress:(CDStruct_83abfce7)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_invalidated;
 - (void)invalidate;
 - (void)_interrupted;

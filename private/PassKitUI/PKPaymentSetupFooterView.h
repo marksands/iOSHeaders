@@ -6,12 +6,13 @@
 
 #import <PassKitUI/PKTableFooterView.h>
 
-@class UIButton;
+@class UIButton, UILabel;
 
 @interface PKPaymentSetupFooterView : PKTableFooterView
 {
     UIButton *_continueButton;
     UIButton *_skipCardButton;
+    UILabel *_notificationText;
     _Bool _isBuddyiPad;
     _Bool _forceShowSetupLaterButton;
     long long _context;
@@ -29,7 +30,9 @@
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)_sizeForButton:(id)arg1 constrainedToSize:(struct CGSize)arg2;
+- (struct CGSize)_sizeForLabel:(id)arg1 maxText:(id)arg2 constrainedToSize:(struct CGSize)arg3;
 @property(retain, nonatomic) UIButton *skipCardButton;
+@property(retain, nonatomic) UILabel *notificationText;
 - (id)initWithFrame:(struct CGRect)arg1 context:(long long)arg2;
 
 @end

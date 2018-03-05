@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSObject<OS_dispatch_queue> *_workerQueue;
+    NSObject<OS_dispatch_queue> *_notificationQueue;
     CURunLoopThread *_runLoopThread;
     _Bool _wantsNowPlayingNotifications;
     _Bool _wantsNowPlayingArtworkNotifications;
@@ -27,7 +28,7 @@ __attribute__((visibility("hidden")))
     _Bool _forceReconnectOnConnectionFailure;
     _Bool _disconnecting;
     _Bool _isCallingClientCallback;
-    MRExternalClientConnection *_connection;
+    MRExternalClientConnection *_clientConnection;
     MRSupportedProtocolMessages *_supportedMessages;
     _MROriginProtobuf *_customOrigin;
     _MRDeviceInfoMessageProtobuf *_deviceInfo;
@@ -110,13 +111,13 @@ __attribute__((visibility("hidden")))
 - (void)_handleLegacyPlaybackQueueRequestWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_handlePlaybackQueueResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handlePlaybackQueueRequest:(void *)arg1 forPlayer:(void *)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_onQueue_registerOriginCallbacks;
-- (void)_cleanUpWithReason:(long long)arg1;
+- (void)_onSerialQueue_registerOriginCallbacks;
+- (void)_onWorkerQueue_cleanUpWithReason:(long long)arg1;
 - (void)_tearDownCustomOriginWithReason:(long long)arg1;
-- (id)_openSecuritySession;
-- (id)_loadDeviceInfo;
-- (id)_setupCustomOrigin;
-- (id)_initializeConnectionWithOptions:(unsigned int)arg1;
+- (id)_onWorkerQueue_openSecuritySession;
+- (id)_onWorkerQueue_loadDeviceInfo;
+- (id)_onWorkerQueue_setupCustomOrigin;
+- (id)_onWorkerQueue_initializeConnectionWithOptions:(unsigned int)arg1;
 - (void)_transportDeviceInfoDidChangeNotification:(id)arg1;
 - (void)_localDeviceInfoDidChangeNotification:(id)arg1;
 - (void)clientDidDisconnect:(id)arg1;
@@ -135,7 +136,7 @@ __attribute__((visibility("hidden")))
 - (void)unpair;
 - (void)disconnect:(id)arg1;
 - (void)connectWithOptions:(unsigned int)arg1;
-- (void)_onQueue_connectWithOptions:(unsigned int)arg1;
+- (void)_onSerialQueue_connectWithOptions:(unsigned int)arg1;
 - (void)_onWorkerQueue_connectWithOptions:(unsigned int)arg1 isRetry:(_Bool)arg2;
 - (void)setOutputContextCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setVolumeCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
@@ -153,7 +154,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) MRSupportedProtocolMessages *supportedMessages; // @synthesize supportedMessages=_supportedMessages;
 @property(retain, nonatomic) _MRDeviceInfoMessageProtobuf *deviceInfo; // @synthesize deviceInfo=_deviceInfo;
 @property(retain, nonatomic) _MROriginProtobuf *customOrigin; // @synthesize customOrigin=_customOrigin;
-@property(retain, nonatomic) MRExternalClientConnection *connection; // @synthesize connection=_connection;
+@property(retain, nonatomic) MRExternalClientConnection *clientConnection; // @synthesize clientConnection=_clientConnection;
 - (void)setName:(id)arg1;
 - (void)setWantsVolumeNotifications:(_Bool)arg1;
 - (_Bool)wantsVolumeNotifications;

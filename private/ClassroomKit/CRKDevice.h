@@ -115,6 +115,7 @@
 - (unsigned long long)hash;
 - (id)description;
 - (id)initWithIdentifier:(id)arg1;
+- (_Bool)isApplicationInstalled:(id)arg1;
 - (_Bool)isApplicationOpen:(id)arg1;
 
 @end

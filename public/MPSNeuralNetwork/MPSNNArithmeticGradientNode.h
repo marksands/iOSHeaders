@@ -19,8 +19,8 @@
     _Bool _isSecondarySourceFilter;
 }
 
-+ (id)nodeWithSourceGradient:(id)arg1 sourceImage:(id)arg2 gradientState:(id)arg3;
-@property(nonatomic) _Bool isSecondarySourceFilter; // @synthesize isSecondarySourceFilter=_isSecondarySourceFilter;
++ (id)nodeWithSourceGradient:(id)arg1 sourceImage:(id)arg2 gradientState:(id)arg3 isSecondarySourceFilter:(_Bool)arg4;
+@property(readonly, nonatomic) _Bool isSecondarySourceFilter; // @synthesize isSecondarySourceFilter=_isSecondarySourceFilter;
 @property(nonatomic) float maximumValue; // @synthesize maximumValue=_maximumValue;
 @property(nonatomic) float minimumValue; // @synthesize minimumValue=_minimumValue;
 @property(nonatomic) unsigned long long secondaryStrideInFeatureChannels; // @synthesize secondaryStrideInFeatureChannels=_secondaryStrideInFeatureChannels;
@@ -30,7 +30,7 @@
 @property(nonatomic) float secondaryScale; // @synthesize secondaryScale=_secondaryScale;
 @property(nonatomic) float primaryScale; // @synthesize primaryScale=_primaryScale;
 - (id)initWithGradientImages:(id)arg1 forwardFilter:(id)arg2 isSecondarySourceFilter:(_Bool)arg3;
-- (id)initWithSourceGradient:(id)arg1 sourceImage:(id)arg2 gradientState:(id)arg3;
+- (id)initWithSourceGradient:(id)arg1 sourceImage:(id)arg2 gradientState:(id)arg3 isSecondarySourceFilter:(_Bool)arg4;
 
 @end
 

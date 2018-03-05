@@ -26,6 +26,11 @@
 + (_Bool)supportKeywordDetector;
 + (_Bool)supportContinuousVoiceTrigger;
 + (_Bool)shouldRunVTOnCS;
++ (id)_contentsOfDirectoryAtURL:(id)arg1 matchingPattern:(id)arg2 includingPropertiesForKeys:(id)arg3 error:(id *)arg4;
++ (void)_sortedURLsInDirectory:(id)arg1 matchingPattern:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (void)_URLsInDirectory:(id)arg1 matchingPattern:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (void)clearLogFilesInDirectory:(id)arg1 matchingPattern:(id)arg2 exceedNumber:(unsigned long long)arg3;
++ (void)removeLogFilesInDirectory:(id)arg1 matchingPattern:(id)arg2 beforeDays:(float)arg3;
 + (id)getSiriLanguageWithFallback:(id)arg1;
 + (id)convertToShortLPCMBufFromFloatLPCMBuf:(id)arg1;
 + (id)convertToFloatLPCMBufFromShortLPCMBuf:(id)arg1;
@@ -55,9 +60,6 @@
 + (_Bool)isRecordContextAutoPrompt:(id)arg1;
 + (_Bool)isRecordContextVoiceTrigger:(id)arg1;
 + (id)assetHashInResourcePath:(id)arg1;
-- (id)_contentsOfDirectoryAtURL:(id)arg1 matchingPattern:(id)arg2 includingPropertiesForKeys:(id)arg3 error:(id *)arg4;
-- (void)_URLsInDirectory:(id)arg1 matchingPattern:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)removeLogFilesInDirectory:(id)arg1 matchingPattern:(id)arg2 beforeDays:(float)arg3;
 
 @end
 

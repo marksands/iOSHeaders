@@ -16,8 +16,6 @@
 + (id)controlObject:(id *)arg1;
 @property(retain) NSXPCConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
-- (void)scheduleCFUForFuture:(CDUnknownBlockType)arg1;
-- (void)doesThisDeviceHaveABottle:(CDUnknownBlockType)arg1;
 - (void)scrubBottledPeer:(id)arg1 bottleID:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)launchBottledPeer:(id)arg1 bottleID:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)preflightBottledPeer:(id)arg1 dsid:(id)arg2 reply:(CDUnknownBlockType)arg3;

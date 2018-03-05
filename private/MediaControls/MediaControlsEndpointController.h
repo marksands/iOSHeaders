@@ -36,6 +36,7 @@
 @property(readonly, copy, nonatomic) NSArray *routeNames; // @synthesize routeNames=_routeNames;
 @property(retain, nonatomic) MPMediaControlsConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
+- (void)_connectionDidConnect:(id)arg1;
 - (void)_connectionDidInvalidate:(id)arg1;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
 - (void)routingController:(id)arg1 pickedRouteDidChange:(id)arg2;

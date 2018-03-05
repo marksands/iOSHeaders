@@ -15,10 +15,12 @@
 {
     CATStateMachine *mFSM;
     CATRemoteTransport *mTransport;
+    double mCurrentBackoffInterval;
     _Bool _allowUntrustedConnections;
     _Bool _requiresBeacon;
     id <CRKSessionDelegate> _delegate;
     NSString *_ipAddress;
+    id <CRKGrowthFunction> _backoffGrowthFunction;
     double _lostBeaconTimeout;
     double _willLoseBeaconWarningTimeout;
     double _failedConnectionRetryInterval;
@@ -27,6 +29,7 @@
 @property(nonatomic) double failedConnectionRetryInterval; // @synthesize failedConnectionRetryInterval=_failedConnectionRetryInterval;
 @property(nonatomic) double willLoseBeaconWarningTimeout; // @synthesize willLoseBeaconWarningTimeout=_willLoseBeaconWarningTimeout;
 @property(nonatomic) double lostBeaconTimeout; // @synthesize lostBeaconTimeout=_lostBeaconTimeout;
+@property(readonly, nonatomic) id <CRKGrowthFunction> backoffGrowthFunction; // @synthesize backoffGrowthFunction=_backoffGrowthFunction;
 @property(nonatomic) _Bool requiresBeacon; // @synthesize requiresBeacon=_requiresBeacon;
 @property(readonly, nonatomic) _Bool allowUntrustedConnections; // @synthesize allowUntrustedConnections=_allowUntrustedConnections;
 @property(readonly, copy, nonatomic) NSString *ipAddress; // @synthesize ipAddress=_ipAddress;
@@ -38,6 +41,12 @@
 - (void)transportDidInvalidate:(id)arg1;
 - (void)transportDidConnect:(id)arg1;
 - (void)transport:(id)arg1 encounteredTrustDecisionWhileTryingToSecure:(id)arg2;
+- (void)resetBackoff;
+- (void)backoffDidFinish;
+- (void)exitBackoffCanConnect;
+- (void)enterBackoffCanConnect;
+- (void)enterNoNetwork;
+- (void)enterOutOfRange;
 - (void)delegateInvalidated;
 - (void)delegateDisconnected;
 - (void)delegateConnected;
@@ -52,8 +61,8 @@
 - (void)failedToConnect;
 - (void)didConnect;
 - (void)lostBeacon;
+- (void)rejected;
 - (void)invalidate;
-- (void)disconnect;
 - (void)connect;
 - (void)lostConnection;
 - (void)localWiFiBecameUnavailable;

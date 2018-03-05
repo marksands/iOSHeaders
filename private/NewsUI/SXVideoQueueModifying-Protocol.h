@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @protocol SXVideoQueueModifying <NSObject>
-- (id <SXVideoQueue>)modifyQueue:(id <SXVideoQueue>)arg1;
+- (id <SXVideoQueue>)modifyQueue:(id <SXVideoQueue>)arg1 inTransitionFromVideo:(id <SXVideo>)arg2;
 @end
 

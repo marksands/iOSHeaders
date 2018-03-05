@@ -41,6 +41,7 @@
 - (struct _NSRange)_rangeForSearchTerm:(id)arg1 inTarget:(id)arg2 tokenizedByCharacterSet:(id)arg3;
 - (void)finishedSearchingForAutocompleteResults;
 - (void)consumeAutocompleteSearchResults:(id)arg1 taskID:(id)arg2;
+- (id)_filterGroupResults:(id)arg1;
 - (id)_cullOldResults:(id)arg1;
 - (id)_sortResultsByDate:(id)arg1;
 - (id)_sortSearchResultsWithCoreRecentsResults:(id)arg1 displayNameMatches:(id)arg2 participantNameMatches:(id)arg3;

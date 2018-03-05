@@ -22,6 +22,7 @@
 @property(readonly, nonatomic) SXNowPlayingButton *nowPlayingButton; // @synthesize nowPlayingButton=_nowPlayingButton;
 @property(nonatomic) unsigned long long displayMode; // @synthesize displayMode=_displayMode;
 - (void).cxx_destruct;
+- (void)preferredContentSizeCategoryDidChange:(id)arg1;
 - (void)willTransitionToDisplayMode:(unsigned long long)arg1 withTransitionCoordinator:(id)arg2;
 - (void)willTransitionToVideo:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLoad;
@@ -33,6 +34,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) UIView *view;
+@property(readonly, nonatomic) UIViewController *viewController;
 
 @end
 

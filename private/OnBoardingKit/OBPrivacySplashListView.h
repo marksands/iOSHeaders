@@ -6,19 +6,22 @@
 
 #import "UIStackView.h"
 
-@class NSMutableArray;
+@class NSMutableArray, UITextView;
 
 @interface OBPrivacySplashListView : UIStackView
 {
     _Bool _darkMode;
+    UITextView *_footerTextView;
     NSMutableArray *_textViews;
     NSMutableArray *_stackedIconTextLists;
 }
 
 @property(retain, nonatomic) NSMutableArray *stackedIconTextLists; // @synthesize stackedIconTextLists=_stackedIconTextLists;
 @property(retain, nonatomic) NSMutableArray *textViews; // @synthesize textViews=_textViews;
+@property(readonly, nonatomic) UITextView *footerTextView; // @synthesize footerTextView=_footerTextView;
 @property(nonatomic, getter=isDarkMode) _Bool darkMode; // @synthesize darkMode=_darkMode;
 - (void).cxx_destruct;
+- (id)initWithContentList:(id)arg1 dataDetectorTypes:(unsigned long long)arg2 displayingPrivacyPane:(_Bool)arg3;
 - (id)initWithContentList:(id)arg1 dataDetectorTypes:(unsigned long long)arg2;
 
 @end

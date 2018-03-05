@@ -12,6 +12,7 @@
 
 @interface IMCloudKitEventNotificationTest : IMRuntimeTestCase <IMCloudKitEventHandler>
 {
+    double _previousInterval;
     IMCloudKitHookTestSingleton *_cloudKitHooks;
 }
 

@@ -10,10 +10,11 @@
 #import "SXAutomaticFullscreenVideoPlaybackBehaviorManagerDelegate.h"
 #import "SXVideoPlaybackObserver.h"
 
-@class AVPlayerViewController, NSString, SXAdPrivacyButton, SXAutomaticFullscreenVideoPlaybackBehaviorManager, SXKeyValueObserver, SXLearnMoreButton, SXPlaybackCoordinator, SXTouchForwardingView, SXVideoAdSkipButton, SXVideoPlaybackQueue, SXVideoPlayerViewControllerFullscreenObserver, SXVideoVolumeObserver, UIActivityIndicatorView;
+@class AVPlayerViewController, NSString, SXAdPrivacyButton, SXAutomaticFullscreenVideoPlaybackBehaviorManager, SXKeyValueObserver, SXLearnMoreButton, SXPlaybackCoordinator, SXTouchForwardingView, SXVideoAdSkipButton, SXVideoPlaybackQueue, SXVideoVolumeObserver, UIActivityIndicatorView;
 
 @interface SXVideoPlayerViewController : UIViewController <SXVideoPlaybackObserver, AVPlayerViewControllerDelegate_WebKitOnly, SXAutomaticFullscreenVideoPlaybackBehaviorManagerDelegate>
 {
+    _Bool _fullscreen;
     id <SXVideoPlayerViewControllerDelegate> _delegate;
     id <SXVideoPlayerViewControllerDataSource> _dataSource;
     unsigned long long _mode;
@@ -27,7 +28,6 @@
     UIActivityIndicatorView *_activityIndicatorView;
     SXKeyValueObserver *_videoBoundsObserver;
     SXAutomaticFullscreenVideoPlaybackBehaviorManager *_fullscreenBehaviorManager;
-    SXVideoPlayerViewControllerFullscreenObserver *_fullscreenObserver;
     SXTouchForwardingView *_touchForwardingView;
     id <SXVolumeReporting> _volumeReporter;
     SXVideoVolumeObserver *_volumeObserver;
@@ -36,7 +36,6 @@
 @property(retain, nonatomic) SXVideoVolumeObserver *volumeObserver; // @synthesize volumeObserver=_volumeObserver;
 @property(readonly, nonatomic) id <SXVolumeReporting> volumeReporter; // @synthesize volumeReporter=_volumeReporter;
 @property(readonly, nonatomic) SXTouchForwardingView *touchForwardingView; // @synthesize touchForwardingView=_touchForwardingView;
-@property(readonly, nonatomic) SXVideoPlayerViewControllerFullscreenObserver *fullscreenObserver; // @synthesize fullscreenObserver=_fullscreenObserver;
 @property(readonly, nonatomic) SXAutomaticFullscreenVideoPlaybackBehaviorManager *fullscreenBehaviorManager; // @synthesize fullscreenBehaviorManager=_fullscreenBehaviorManager;
 @property(retain, nonatomic) SXKeyValueObserver *videoBoundsObserver; // @synthesize videoBoundsObserver=_videoBoundsObserver;
 @property(retain, nonatomic) UIActivityIndicatorView *activityIndicatorView; // @synthesize activityIndicatorView=_activityIndicatorView;
@@ -47,6 +46,7 @@
 @property(retain, nonatomic) SXPlaybackCoordinator *coordinator; // @synthesize coordinator=_coordinator;
 @property(retain, nonatomic) SXVideoPlaybackQueue *queue; // @synthesize queue=_queue;
 @property(nonatomic) unsigned long long fullscreenBehavior; // @synthesize fullscreenBehavior=_fullscreenBehavior;
+@property(nonatomic, getter=isFullscreen) _Bool fullscreen; // @synthesize fullscreen=_fullscreen;
 @property(nonatomic) unsigned long long mode; // @synthesize mode=_mode;
 @property(nonatomic) __weak id <SXVideoPlayerViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <SXVideoPlayerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -69,9 +69,9 @@
 - (void)playbackCoordinatorResumedPlayback:(id)arg1;
 - (void)playbackCoordinatorPausedPlayback:(id)arg1;
 - (void)playbackCoordinatorStartedPlayback:(id)arg1;
+- (void)playerViewController:(id)arg1 metricsCollectionEventOccured:(long long)arg2;
 - (_Bool)playerViewController:(id)arg1 shouldExitFullScreenWithReason:(long long)arg2;
 - (void)fullscreenBehaviorManagerRequiresFullscreenPlayback:(id)arg1;
-@property(readonly, nonatomic, getter=isFullscreen) _Bool fullscreen;
 @property(readonly, nonatomic, getter=isPlaying) _Bool playing;
 - (void)exitFullscreenWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)enterFullscreenWithCompletionBlock:(CDUnknownBlockType)arg1;

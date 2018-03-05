@@ -42,6 +42,7 @@
     _Bool _supportsFaceTimeVideoRelayCalling;
     _Bool _supportsSimultaneousVoiceAndData;
     _Bool _emergencyCallbackModeEnabled;
+    _Bool _emergencyCallbackPossible;
     _Bool _supportsCarrierServices;
     int _relayCallingAvailability;
     TUCTCapabilityInfo *_wiFiCallingCapabilityInfo;
@@ -57,6 +58,7 @@
 + (_Bool)supportsSecureCoding;
 + (id)allowedCapabilityInformationClasses;
 @property(nonatomic) _Bool supportsCarrierServices; // @synthesize supportsCarrierServices=_supportsCarrierServices;
+@property(nonatomic, getter=isEmergencyCallbackPossible) _Bool emergencyCallbackPossible; // @synthesize emergencyCallbackPossible=_emergencyCallbackPossible;
 @property(nonatomic, getter=isEmergencyCallbackModeEnabled) _Bool emergencyCallbackModeEnabled; // @synthesize emergencyCallbackModeEnabled=_emergencyCallbackModeEnabled;
 @property(copy, nonatomic) NSArray *cloudCallingDevices; // @synthesize cloudCallingDevices=_cloudCallingDevices;
 @property(nonatomic) _Bool supportsSimultaneousVoiceAndData; // @synthesize supportsSimultaneousVoiceAndData=_supportsSimultaneousVoiceAndData;

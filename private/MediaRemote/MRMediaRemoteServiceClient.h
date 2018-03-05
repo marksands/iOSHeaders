@@ -44,7 +44,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *activePlayerPath;
 - (void)_onQueue_setActivePlayerPath:(id)arg1;
 @property(readonly, nonatomic) NSArray *registeredOrigins;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workerSerialQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workerQueue;
 - (void)dealloc;
 - (id)init;

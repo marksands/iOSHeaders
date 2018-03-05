@@ -104,6 +104,8 @@
 - (void).cxx_destruct;
 - (unsigned long long)interactionModeForPreparing;
 @property(readonly) _Bool isFilesApp;
+- (_Bool)isEqualToConfiguration:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

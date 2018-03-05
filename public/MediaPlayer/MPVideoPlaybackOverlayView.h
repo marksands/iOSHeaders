@@ -6,15 +6,15 @@
 
 #import "UIView.h"
 
-#import "MPAVRoutingControllerDelegate.h"
+#import "MPAVLightweightRoutingControllerDelegate.h"
 #import "MPDetailSliderDelegate.h"
 #import "MPVideoOverlay.h"
 #import "MPVolumeControllerDelegate.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 
-@class MPAVController, MPAVItem, MPAVRoutingController, MPAudioAndSubtitlesController, MPDetailSlider, MPKnockoutButton, MPVideoView, MPVolumeController, MPVolumeSlider, NSArray, NSLayoutConstraint, NSString, UIActivityIndicatorView, UIButton, UILabel, UINavigationBar, UIStatusBar, UIViewController, _UIBackdropView;
+@class MPAVController, MPAVItem, MPAVLightweightRoutingController, MPAudioAndSubtitlesController, MPDetailSlider, MPKnockoutButton, MPVideoView, MPVolumeController, MPVolumeSlider, NSArray, NSLayoutConstraint, NSString, UIActivityIndicatorView, UIButton, UILabel, UINavigationBar, UIStatusBar, UIViewController, _UIBackdropView;
 
-@interface MPVideoPlaybackOverlayView : UIView <UIPopoverPresentationControllerDelegate, MPAVRoutingControllerDelegate, MPVolumeControllerDelegate, MPVideoOverlay, MPDetailSliderDelegate>
+@interface MPVideoPlaybackOverlayView : UIView <UIPopoverPresentationControllerDelegate, MPAVLightweightRoutingControllerDelegate, MPVolumeControllerDelegate, MPVideoOverlay, MPDetailSliderDelegate>
 {
     MPDetailSlider *_scrubber;
     MPKnockoutButton *_playPauseButton;
@@ -32,7 +32,7 @@
     MPKnockoutButton *_leftButton;
     MPKnockoutButton *_rightButton;
     UIButton *_audioAndSubtitlesButton;
-    MPAVRoutingController *_airplayController;
+    MPAVLightweightRoutingController *_lightweightRoutingController;
     MPVolumeController *_volumeController;
     UIView *_topBarLayoutGuide;
     UIView *_topBarItemsGuide;
@@ -144,8 +144,10 @@
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 - (void)_alternateTracksAvailable:(id)arg1;
 - (void)_activeAudioRouteDidChange:(id)arg1;
+- (void)volumeController:(id)arg1 volumeControlAvailableDidChange:(_Bool)arg2;
 - (void)volumeController:(id)arg1 volumeValueDidChange:(float)arg2;
-- (void)routingControllerAvailableRoutesDidChange:(id)arg1;
+- (void)lightweightRoutingController:(id)arg1 didChangePickedRoutes:(id)arg2;
+- (void)lightweightRoutingController:(id)arg1 didChangeDevicePresenceDetected:(_Bool)arg2;
 - (void)_skipButtonTouchUpOutside:(id)arg1;
 - (void)_skipButtonTouchUpInside:(id)arg1;
 - (void)_skipButtonTouchCancel:(id)arg1;

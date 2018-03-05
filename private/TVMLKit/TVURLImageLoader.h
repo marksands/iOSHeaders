@@ -10,16 +10,18 @@
 #import "NSURLSessionTaskDelegate.h"
 #import "TVImageLoader.h"
 
-@class NSMapTable, NSString, NSURLSession;
+@class NSMapTable, NSObject<OS_dispatch_queue>, NSString, NSURLSession;
 
 @interface TVURLImageLoader : NSObject <NSURLSessionTaskDelegate, NSURLSessionDataDelegate, TVImageLoader>
 {
     _Bool _imageRotationEnabled;
     NSURLSession *_session;
     NSMapTable *_dataTaskMap;
+    NSObject<OS_dispatch_queue> *_processingQueue;
 }
 
 + (id)sharedInstance;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *processingQueue; // @synthesize processingQueue=_processingQueue;
 @property(readonly, nonatomic) NSMapTable *dataTaskMap; // @synthesize dataTaskMap=_dataTaskMap;
 @property(readonly, nonatomic) NSURLSession *session; // @synthesize session=_session;
 @property(nonatomic, getter=isImageRotationEnabled) _Bool imageRotationEnabled; // @synthesize imageRotationEnabled=_imageRotationEnabled;
@@ -33,6 +35,7 @@
 - (id)loadImageForObject:(id)arg1 scaleToSize:(struct CGSize)arg2 cropToFit:(_Bool)arg3 imageDirection:(long long)arg4 requestLoader:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (id)imageKeyForObject:(id)arg1;
 - (id)URLForObject:(id)arg1;
+- (void)_executeOnProcessingQueue:(CDUnknownBlockType)arg1;
 - (id)init;
 
 // Remaining properties

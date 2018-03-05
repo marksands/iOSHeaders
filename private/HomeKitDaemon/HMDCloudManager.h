@@ -16,7 +16,7 @@
     _Bool _cloudHomeDataRecordExists;
     _Bool _keychainSyncEnabled;
     _Bool _firstV3Fetch;
-    int _whaProxSetupNotificationToken;
+    int _proxSetupNotificationToken;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     CKContainer *_container;
     CKDatabase *_database;
@@ -47,7 +47,7 @@
 @property(nonatomic, getter=isFirstV3Fetch) _Bool firstV3Fetch; // @synthesize firstV3Fetch=_firstV3Fetch;
 @property(copy, nonatomic) CDUnknownBlockType accountActiveUpdateHandler; // @synthesize accountActiveUpdateHandler=_accountActiveUpdateHandler;
 @property(copy, nonatomic) CDUnknownBlockType dataDecryptionFailedHandler; // @synthesize dataDecryptionFailedHandler=_dataDecryptionFailedHandler;
-@property(nonatomic) int whaProxSetupNotificationToken; // @synthesize whaProxSetupNotificationToken=_whaProxSetupNotificationToken;
+@property(nonatomic) int proxSetupNotificationToken; // @synthesize proxSetupNotificationToken=_proxSetupNotificationToken;
 @property(retain, nonatomic) NSMutableArray *currentBackoffTimerValuesInMinutes; // @synthesize currentBackoffTimerValuesInMinutes=_currentBackoffTimerValuesInMinutes;
 @property(nonatomic) __weak HMDHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
@@ -82,9 +82,9 @@
 - (void)_scheduleZoneFetch:(id)arg1;
 - (void)_registerForPushNotifications;
 - (void)_setupSubscriptionForZone:(id)arg1;
-- (void)_registerForWHAProxSetupNotifications;
-- (void)_auditWHAProxSetupNotification;
-- (_Bool)_isWHAProxSetupRunning;
+- (void)_registerForProxSetupNotifications;
+- (void)_auditProxSetupNotification;
+- (_Bool)_isProxSetupRunning;
 - (void)_stopControllerKeyPollTimer;
 - (void)_startControllerKeyPollTimerWithValue:(long long)arg1;
 - (void)_startControllerKeyPollTimerWithBackoff;

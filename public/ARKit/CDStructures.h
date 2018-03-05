@@ -307,8 +307,9 @@ typedef struct {
     long long state;
     long long reason;
     _Bool relocalized;
+    _Bool poseGraphUpdated;
     int vioTrackingState;
-} CDStruct_6cb448e8;
+} CDStruct_ca3abd1f;
 
 typedef struct CDStruct_183601bc;
 

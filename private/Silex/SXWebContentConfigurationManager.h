@@ -14,14 +14,16 @@
 {
     SXWebContentConfiguration *_configuration;
     id <SXWebContentScriptsManager> _webContentScriptsManager;
+    id <SXWebContentLogger> _logger;
     id <SXWebContentScript> _configurationScript;
 }
 
 @property(retain, nonatomic) id <SXWebContentScript> configurationScript; // @synthesize configurationScript=_configurationScript;
+@property(readonly, nonatomic) id <SXWebContentLogger> logger; // @synthesize logger=_logger;
 @property(readonly, nonatomic) id <SXWebContentScriptsManager> webContentScriptsManager; // @synthesize webContentScriptsManager=_webContentScriptsManager;
 @property(copy, nonatomic) SXWebContentConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
-- (id)initWithWebContentScriptsManager:(id)arg1;
+- (id)initWithWebContentScriptsManager:(id)arg1 logger:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

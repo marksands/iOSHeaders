@@ -33,7 +33,7 @@
 - (void).cxx_destruct;
 - (void)scheduleUnlockActionWithThreshold:(double)arg1;
 - (void)scheduleCountdownActionsWithThreshold:(double)arg1;
-- (_Bool)initialLockStateForThresholdObserver:(id)arg1 onTimeline:(id)arg2;
+- (_Bool)lockStateForThresholdObserver:(id)arg1 onTimeline:(id)arg2;
 - (void)dealloc;
 - (id)initWithTimeline:(id)arg1 thresholdObserver:(id)arg2;
 

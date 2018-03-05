@@ -25,6 +25,7 @@
     _Bool _showsPhoneticName;
     _Bool _editingUser;
     _Bool _isObserving;
+    _Bool _isPresentingFullScreenView;
     UIViewController *_presentingViewController;
     id <CRKUserTableViewCellDelegate> _delegate;
     CRKUser *_user;
@@ -54,6 +55,7 @@
 @property(retain, nonatomic) CNAvatarViewController *avatarViewController; // @synthesize avatarViewController=_avatarViewController;
 @property(retain, nonatomic) UIImageView *userImageView; // @synthesize userImageView=_userImageView;
 @property(retain, nonatomic) CNMutableContact *contact; // @synthesize contact=_contact;
+@property(nonatomic) _Bool isPresentingFullScreenView; // @synthesize isPresentingFullScreenView=_isPresentingFullScreenView;
 @property(nonatomic) _Bool isObserving; // @synthesize isObserving=_isObserving;
 @property(nonatomic) _Bool editingUser; // @synthesize editingUser=_editingUser;
 @property(nonatomic) _Bool showsPhoneticName; // @synthesize showsPhoneticName=_showsPhoneticName;

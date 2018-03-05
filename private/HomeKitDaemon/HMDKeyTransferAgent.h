@@ -9,7 +9,7 @@
 #import "HMFLogging.h"
 #import "HMFMessageReceiver.h"
 
-@class HMDHomeManager, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMDHomeManager, HMFMessageDestination, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
 @interface HMDKeyTransferAgent : HMFObject <HMFLogging, HMFMessageReceiver>
 {
@@ -30,6 +30,7 @@
 - (id)logIdentifier;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
+@property(readonly, copy) HMFMessageDestination *messageDestination;
 - (void)resetConfig;
 - (void)beginPairingWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)initWithHomeManager:(id)arg1;

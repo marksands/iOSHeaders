@@ -10,13 +10,11 @@
 {
     int _count;
     int _counter;
-    unsigned long long _syncState;
-    unsigned long long _syncType;
 }
 
 - (void)startTest;
-- (void)next;
-- (id)initWithSyncState:(unsigned long long)arg1 syncType:(unsigned long long)arg2;
+- (void)updateMockStateForProgressPolling;
+- (void)updateSyncState:(id)arg1;
 
 @end
 

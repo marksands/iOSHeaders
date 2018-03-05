@@ -10,7 +10,7 @@
 #import "NSFastEnumeration.h"
 #import "NSSecureCoding.h"
 
-@class NRMutableDeviceCollection, NSMutableArray, NSMutableDictionary, NSMutableOrderedSet;
+@class NRMutableDeviceCollection, NRSwitchRecordCollection, NSMutableArray, NSMutableDictionary, NSMutableOrderedSet;
 
 @interface NRDeviceCollectionHistory : NSObject <NRMutableStateParentDelegate, NSSecureCoding, NSFastEnumeration>
 {
@@ -19,6 +19,7 @@
     NRMutableDeviceCollection *_deviceCollection;
     unsigned long long _startIndex;
     NSMutableArray *_history;
+    NRSwitchRecordCollection *_switchRecords;
     NSMutableDictionary *_historyStateCache;
     NSMutableArray *_historyStateCacheMRU;
     NSMutableArray *_historyStateCacheIndex;
@@ -28,6 +29,7 @@
 @property(retain, nonatomic) NSMutableArray *historyStateCacheIndex; // @synthesize historyStateCacheIndex=_historyStateCacheIndex;
 @property(retain, nonatomic) NSMutableArray *historyStateCacheMRU; // @synthesize historyStateCacheMRU=_historyStateCacheMRU;
 @property(retain, nonatomic) NSMutableDictionary *historyStateCache; // @synthesize historyStateCache=_historyStateCache;
+@property(retain, nonatomic) NRSwitchRecordCollection *switchRecords; // @synthesize switchRecords=_switchRecords;
 @property(retain, nonatomic) NSMutableArray *history; // @synthesize history=_history;
 @property(nonatomic) unsigned long long startIndex; // @synthesize startIndex=_startIndex;
 @property(readonly, nonatomic) NRMutableDeviceCollection *deviceCollection; // @synthesize deviceCollection=_deviceCollection;

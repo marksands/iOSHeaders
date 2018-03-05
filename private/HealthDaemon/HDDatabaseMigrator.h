@@ -117,6 +117,7 @@
 - (long long)_emet_removeTigrisClinicalHealthRecordsTablesWithError:(out id *)arg1;
 - (long long)_emet_updateMedicationSamplesTablesWithError:(out id *)arg1;
 - (long long)_emet_updateFHIRResourcesAndLastSeenTable:(out id *)arg1;
+- (long long)_emet_addPatientHashtoClinicalAccountsTable:(out id *)arg1;
 - (long long)_emet_updateDiagnosticTestResultSamplesTable:(out id *)arg1;
 - (long long)_emet_updateProcedureTableWithError:(out id *)arg1;
 - (long long)_emet_updateFHIRIdentifierNullabilityAddQuantityDispensedWithError:(out id *)arg1;

@@ -36,6 +36,7 @@
 - (id)createDictionaryForNotDeletingAnyAttachments:(id)arg1 urgency:(int)arg2;
 - (id)deleteAttachmentsAndReturnBytesDeleted:(id)arg1 urgency:(int)arg2;
 - (id)reportAvailableSpaceToBeDeleted:(id)arg1 urgency:(int)arg2;
+- (_Bool)shouldDownloadAssetsOfSize:(unsigned long long)arg1 refreshCachedValue:(_Bool)arg2;
 - (_Bool)canWriteFileOfEstimatedSize:(unsigned long long)arg1 refreshCachedValue:(_Bool)arg2;
 - (id)_cacheDeleteRequestCacheableSpaceGuidanceWithID:(id)arg1 diskVolume:(id)arg2 urgency:(int)arg3 requestedSize:(unsigned long long)arg4;
 - (void)_cacheDeleteSetUp;

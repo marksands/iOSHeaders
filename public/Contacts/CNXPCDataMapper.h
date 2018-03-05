@@ -18,6 +18,7 @@
 }
 
 + (id)serviceProtocolInterface;
++ (id)cursorProtocolInterface;
 + (id)contactBuffersDecoderForFetchRequest:(id)arg1;
 @property(retain, nonatomic) id <CNXPCDataMapperService> serviceProxy; // @synthesize serviceProxy=_serviceProxy;
 @property(retain, nonatomic) id <CNContactsLogger> logger; // @synthesize logger=_logger;

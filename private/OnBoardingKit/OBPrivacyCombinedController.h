@@ -6,17 +6,22 @@
 
 #import "UIViewController.h"
 
+@class NSString;
+
 @interface OBPrivacyCombinedController : UIViewController
 {
     _Bool _darkMode;
     _Bool _allowsOpeningSafari;
     _Bool _presentedFromPrivacyPane;
+    NSString *_displayLanguage;
 }
 
 + (void)presentPrivacyCombinedControllerOverController:(id)arg1 dismissHandler:(CDUnknownBlockType)arg2;
+@property(retain) NSString *displayLanguage; // @synthesize displayLanguage=_displayLanguage;
 @property _Bool presentedFromPrivacyPane; // @synthesize presentedFromPrivacyPane=_presentedFromPrivacyPane;
 @property _Bool allowsOpeningSafari; // @synthesize allowsOpeningSafari=_allowsOpeningSafari;
 @property(nonatomic, getter=isDarkMode) _Bool darkMode; // @synthesize darkMode=_darkMode;
+- (void).cxx_destruct;
 - (void)viewDidAppear:(_Bool)arg1;
 - (id)initWithIdentifiers:(id)arg1;
 - (id)init;

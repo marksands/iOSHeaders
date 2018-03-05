@@ -33,6 +33,7 @@
 + (id)predicateForEventsWithStringValue:(id)arg1;
 + (id)predicateForEventsWithDoubleValueBetween:(double)arg1 and:(double)arg2;
 + (id)predicateForEventsWithDoubleValue:(double)arg1;
++ (id)predicateForEventsExcludingIntegerValue:(long long)arg1;
 + (id)predicateForEventsWithIntegerValue:(long long)arg1;
 + (id)predicateForEventsWithQuantityValue:(id)arg1;
 + (id)predicateForEventsWithIdentifierValue:(id)arg1;

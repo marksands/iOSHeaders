@@ -10,6 +10,7 @@
 {
 }
 
++ (id)logHandle;
 + (id)sharedInstance;
 + (void)__setSingleton__im:(id)arg1;
 + (id)__singleton__im;
@@ -80,6 +81,7 @@
 - (void)createChatZone;
 - (void)setupIMCloudKitHooks;
 - (id)init;
+- (id)logHandle;
 
 @end
 

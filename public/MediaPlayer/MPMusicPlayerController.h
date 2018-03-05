@@ -11,7 +11,7 @@
 #import "MPSystemMusicPlayerController.h"
 #import "MPVolumeControllerDelegate.h"
 
-@class MPMediaItem, MPMusicPlayerQueueDescriptor, MPRequestResponseController, MPVolumeController, NSMutableDictionary, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString;
+@class MPArtworkCatalog, MPMediaItem, MPMusicPlayerQueueDescriptor, MPRequestResponseController, MPVolumeController, NSMutableDictionary, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MPMusicPlayerController : NSObject <MPVolumeControllerDelegate, MPSystemMusicPlayerController, MPRequestResponseControllerDelegate, MPMediaPlayback>
 {
@@ -19,10 +19,11 @@
     NSObject<OS_dispatch_group> *_pendingRequestGroup;
     MPMusicPlayerQueueDescriptor *_pendingQueueDescriptor;
     CDUnknownBlockType _pendingPrepareCompletion;
+    NSMutableDictionary *_responseValidators;
+    MPArtworkCatalog *_previousArtworkCatalog;
     _Bool _hasPreparedToPlay;
     MPMediaItem *_pendingNowPlayingItem;
     NSObject<OS_dispatch_queue> *_pendingPrepareCalloutQueue;
-    NSMutableDictionary *_responseValidators;
     MPMusicPlayerQueueDescriptor *_queueDescriptor;
     MPVolumeController *_volumeController;
     MPRequestResponseController *_requestController;

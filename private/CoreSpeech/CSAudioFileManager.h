@@ -10,7 +10,8 @@
 {
 }
 
-+ (void)_removeOldLoggingFilesIfNeededAtDirectory:(id)arg1;
++ (void)pruneNumberOfLogFilesTo:(unsigned long long)arg1;
++ (void)removeLogFilesOlderThanNDays:(float)arg1;
 + (id)_getDateLabel;
 + (id)_createAudioFileWriterWithLoggingDir:(id)arg1 inputFormat:(struct AudioStreamBasicDescription)arg2 outputFormat:(struct AudioStreamBasicDescription)arg3;
 + (id)_createTempAudioFileWriterWithInputFormat:(struct AudioStreamBasicDescription)arg1 outputFormat:(struct AudioStreamBasicDescription)arg2;

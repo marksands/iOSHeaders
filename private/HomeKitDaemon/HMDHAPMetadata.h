@@ -109,6 +109,7 @@
 - (_Bool)shouldHomeAppShowTileForServiceType:(id)arg1;
 - (_Bool)shouldAllowHomeNotificationForCharacteristicType:(id)arg1 serviceType:(id)arg2;
 - (_Bool)shouldAutoEnableNotificationForCharacteristic:(id)arg1 ofService:(id)arg2;
+- (_Bool)isSecondsDownCounterCharacteristicType:(id)arg1;
 - (_Bool)shouldNotCacheCharacteristicOfType:(id)arg1;
 - (_Bool)shouldFilterCharacteristicOfTypeFromApp:(id)arg1;
 - (_Bool)shouldFilterServiceOfTypeFromApp:(id)arg1;

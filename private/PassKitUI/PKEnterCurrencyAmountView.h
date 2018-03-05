@@ -51,6 +51,8 @@
 - (void)_createAmountFormatter;
 - (unsigned long long)_numberOfDecimalPlacesInString:(id)arg1 decimalSeperator:(id)arg2;
 - (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
+- (id)viewForLastBaselineLayout;
+- (id)viewForFirstBaselineLayout;
 - (struct CGSize)intrinsicContentSize;
 - (void)layoutSubviews;
 - (void)showKeyboard;

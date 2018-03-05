@@ -8,10 +8,11 @@
 
 #import "WKNavigationDelegate.h"
 
-@class AKServerRequestConfiguration, NSString;
+@class AKServerRequestConfiguration, AKURLRequestApprover, NSString;
 
 @interface AKIDPHandler : NSObject <WKNavigationDelegate>
 {
+    AKURLRequestApprover *_redirectApprover;
     AKServerRequestConfiguration *_configuration;
     id <AKIDPHandlerDelegate> _delegate;
     CDUnknownBlockType _completion;

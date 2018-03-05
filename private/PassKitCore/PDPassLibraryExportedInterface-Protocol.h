@@ -13,6 +13,7 @@
 - (void)migrateDataWithHandler:(void (^)(_Bool))arg1;
 - (void)passWithDPANIdentifier:(NSString *)arg1 handler:(void (^)(PKPaymentPass *))arg2;
 - (void)passWithFPANIdentifier:(NSString *)arg1 handler:(void (^)(PKPaymentPass *))arg2;
+- (void)supportedTransitPartnersForDigitalIssuance:(void (^)(NSArray *))arg1;
 - (void)sortedTransitPassesForAppletDataFormat:(NSString *)arg1 handler:(void (^)(NSArray *))arg2;
 - (void)expressFelicaTransitPassWithHandler:(void (^)(PKPass *))arg1;
 - (void)canAddFelicaPassWithHandler:(void (^)(_Bool))arg1;

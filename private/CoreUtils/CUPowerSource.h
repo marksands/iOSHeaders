@@ -88,6 +88,7 @@
 - (unsigned int)updateWithPowerSourceDescription:(id)arg1;
 - (unsigned int)updateWithPowerAdapterDetails:(id)arg1;
 - (_Bool)isAggregateComponent;
+- (void)handleSubComponentsUpdatedWithBaseSource:(id)arg1;
 - (void)handleSubComponentsUpdated;
 - (void)invalidate;
 - (int)publish;

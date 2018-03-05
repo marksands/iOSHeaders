@@ -85,6 +85,7 @@
 - (void)clientStateChanged;
 - (void)_queue_updateDataCollectionAssertions;
 - (void)_queue_stopDataCollection;
+- (void)_queue_startDataCollection;
 - (void)_queue_startDataCollectionIfNecessary;
 - (id)_queue_sampleTypesForObservation;
 - (void)_queue_setQueryState:(long long)arg1;

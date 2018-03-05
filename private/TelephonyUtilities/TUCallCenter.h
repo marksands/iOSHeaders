@@ -153,7 +153,7 @@
 @property(readonly, copy, nonatomic) NSArray *currentVideoCalls;
 @property(readonly, copy, nonatomic) NSArray *currentCalls;
 - (id)_allCalls;
-- (_Bool)_shouldPreferRelayOverDirectSecondaryCallingForRelayingCallingAvailability:(int)arg1 isRelayCallingSupported:(_Bool)arg2;
+- (_Bool)_shouldPreferRelayOverDirectSecondaryCallingForRelayingCallingAvailability:(int)arg1 isRelayCallingSupported:(_Bool)arg2 isEmergencyCallbackPossible:(_Bool)arg3;
 - (_Bool)shouldPreferRelayOverDirectSecondaryCallingForProvider:(id)arg1 isVideo:(_Bool)arg2;
 - (_Bool)isDirectCallingCurrentlyAvailableForProvider:(id)arg1 isVideo:(_Bool)arg2;
 - (_Bool)isRelayCallingSupportedForProvider:(id)arg1 isVideo:(_Bool)arg2;

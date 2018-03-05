@@ -10,6 +10,7 @@
 {
 }
 
++ (unsigned long long)maxNumLoggingFiles;
 + (float)daysBeforeRemovingLogFiles;
 + (int)csAudioProcessingQueuePriority;
 + (unsigned short)zeroFilterApproxAbsSpeechThreshold;

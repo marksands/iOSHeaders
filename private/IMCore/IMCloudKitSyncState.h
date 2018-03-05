@@ -20,6 +20,7 @@
     NSArray *_errors;
 }
 
++ (id)logHandle;
 @property(readonly, nonatomic) _Bool accountIsEnabled; // @synthesize accountIsEnabled=_accountIsEnabled;
 @property(readonly, nonatomic) NSArray *errors; // @synthesize errors=_errors;
 @property(readonly, nonatomic) NSDate *lastSyncDate; // @synthesize lastSyncDate=_lastSyncDate;
@@ -39,6 +40,7 @@
 @property(readonly, nonatomic) _Bool isSyncingEnabled;
 @property(readonly, nonatomic) _Bool isSyncing;
 - (id)initWithAccountEnabled:(_Bool)arg1 stateDictionary:(id)arg2;
+- (id)logHandle;
 
 @end
 

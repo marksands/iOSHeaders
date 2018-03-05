@@ -7,17 +7,18 @@
 #import "NSObject.h"
 
 #import "BSSettingDescriptionProvider.h"
-#import "NSCoding.h"
 #import "NSCopying.h"
 #import "NSMutableCopying.h"
+#import "NSSecureCoding.h"
 
 @class BSMutableSettings, NSString;
 
-@interface XBStatusBarSettings : NSObject <BSSettingDescriptionProvider, NSCopying, NSMutableCopying, NSCoding>
+@interface XBStatusBarSettings : NSObject <BSSettingDescriptionProvider, NSCopying, NSMutableCopying, NSSecureCoding>
 {
     BSMutableSettings *_settings;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -25,6 +26,8 @@
 - (id)keyDescriptionForSetting:(unsigned long long)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly) unsigned long long hash;
+- (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic, getter=isBackgroundActivityEnabled) _Bool backgroundActivityEnabled;
 @property(readonly, nonatomic) long long style;
 @property(readonly, nonatomic, getter=isHidden) _Bool hidden;
@@ -35,7 +38,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

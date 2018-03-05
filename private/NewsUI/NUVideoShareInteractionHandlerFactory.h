@@ -14,13 +14,15 @@
 {
     NUVideoViewController *_videoViewController;
     id <NUVideoActivityViewControllerFactory> _activityViewControllerFactory;
+    id <NUURLHandling> _URLHandler;
 }
 
+@property(readonly, nonatomic) id <NUURLHandling> URLHandler; // @synthesize URLHandler=_URLHandler;
 @property(readonly, nonatomic) id <NUVideoActivityViewControllerFactory> activityViewControllerFactory; // @synthesize activityViewControllerFactory=_activityViewControllerFactory;
 @property(readonly, nonatomic) __weak NUVideoViewController *videoViewController; // @synthesize videoViewController=_videoViewController;
 - (void).cxx_destruct;
 - (id)createInteractionHandlerForVideo:(id)arg1;
-- (id)initWithVideoViewController:(id)arg1 activityViewControllerFactory:(id)arg2;
+- (id)initWithVideoViewController:(id)arg1 activityViewControllerFactory:(id)arg2 URLHandler:(id)arg3;
 - (id)init;
 
 // Remaining properties

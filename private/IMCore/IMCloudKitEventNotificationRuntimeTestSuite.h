@@ -10,6 +10,8 @@
 {
 }
 
++ (void)runTestsIfNeededWithRepeat:(_Bool)arg1;
++ (void)runTestSuiteWithRepeat:(_Bool)arg1;
 - (id)init;
 
 @end

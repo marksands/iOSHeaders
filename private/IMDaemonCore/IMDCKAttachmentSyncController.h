@@ -87,10 +87,15 @@
 - (_Bool)_deviceConditionsAllowsMessageSync;
 - (id)_ckUtilitiesInstance;
 - (id)__databaseRequestForAttachmentsWithAssets;
+- (void)__databaseRequestResetAllAttachmentsInFaiedCloudDownloadState;
+- (void)downloadAttachmentAssetsWithActivity:(id)arg1 restoringAttachments:(_Bool)arg2;
 - (void)downloadAttachmentAssetsWithActivity:(id)arg1 restoringAttachments:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_downloadAttachmentAssetsWithActivity:(id)arg1 restoringAttachments:(_Bool)arg2 retryCount:(unsigned long long)arg3 numAttachmentsDownloaded:(unsigned long long)arg4 completion:(CDUnknownBlockType)arg5;
+- (_Bool)_attachmentDownloadCanStart:(_Bool)arg1 withActivity:(id)arg2;
 - (void)acceptFileTransfer:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAttachmentDataForTransfers:(id)arg1 highQuality:(_Bool)arg2 perTransferProgress:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)syncAttachmentsWithSyncType:(long long)arg1 shouldCheckDeviceConditions:(_Bool)arg2 activity:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (long long)_numberOfBatchesOfAttachmentsToFetchInInitialSync;
 - (void)_updateAllAttachmentsAsNotNeedingReUpload;
 - (_Bool)_shouldMarkAllAttachmentsAsNeedingSync;
 - (id)init;

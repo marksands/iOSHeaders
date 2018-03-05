@@ -61,6 +61,7 @@
     NSObject<OS_dispatch_queue> *_loadAllSpecifiersQueue;
     _Bool _skipSelectingGeneralOnLaunch;
     NSString *_bluetoothString;
+    NSArray *_followupSpecifiers;
     PSKeyboardNavigationSearchController *_spotlightSearchController;
     PSSpotlightSearchResultsController *_spotlightResultsController;
     CSSearchQuery *_searchQuery;
@@ -74,6 +75,7 @@
 @property(retain, nonatomic) CSSearchQuery *searchQuery; // @synthesize searchQuery=_searchQuery;
 @property(retain, nonatomic) PSSpotlightSearchResultsController *spotlightResultsController; // @synthesize spotlightResultsController=_spotlightResultsController;
 @property(retain, nonatomic) PSKeyboardNavigationSearchController *spotlightSearchController; // @synthesize spotlightSearchController=_spotlightSearchController;
+@property(retain, nonatomic) NSArray *followupSpecifiers; // @synthesize followupSpecifiers=_followupSpecifiers;
 @property(copy, nonatomic) NSString *bluetoothString; // @synthesize bluetoothString=_bluetoothString;
 @property(nonatomic) _Bool skipSelectingGeneralOnLaunch; // @synthesize skipSelectingGeneralOnLaunch=_skipSelectingGeneralOnLaunch;
 - (void).cxx_destruct;
@@ -130,7 +132,6 @@
 - (void)_setupAppleAccountSpecifierForLogin:(id)arg1;
 - (void)_setupAppleAccountSpecifier:(id)arg1;
 - (void)setupPrimaryAppleAccountGroup:(id)arg1;
-- (void)saveAppleAccountIcon:(id)arg1 toCacheWithKey:(id)arg2;
 - (id)appleAccountIconLocalCacheURLForKey:(id)arg1;
 - (id)getTetheringStatus:(id)arg1;
 - (void)updateEthernet;
@@ -188,8 +189,11 @@
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (id)specifiersToAddFromList:(id)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)testSpecifierCountAfterBlock:(CDUnknownBlockType)arg1;
+- (void)reloadAsyncSpecifiers;
+- (void)updateFollowupSpecifiers;
+- (void)setupDaemonsIfNeeded;
 - (id)identifierForSelectedIndex;
 - (id)generalViewController;
 - (void)selectGeneralCategoryForced:(_Bool)arg1 showController:(_Bool)arg2;

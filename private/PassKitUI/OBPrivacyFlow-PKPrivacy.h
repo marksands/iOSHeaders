@@ -7,6 +7,6 @@
 #import "OBPrivacyFlow.h"
 
 @interface OBPrivacyFlow (PKPrivacy)
-+ (id)pk_privacyFlowForCurrentContext;
++ (id)pk_privacyFlowForContext:(unsigned long long)arg1;
 @end
 

@@ -21,11 +21,13 @@
     _Bool _forceLargeMargins;
     _Bool _useModalStyle;
     _Bool _isCombined;
+    NSString *_displayLanguage;
 }
 
 + (id)splashPageWithBundleIdentifier:(id)arg1;
 @property(nonatomic) _Bool isCombined; // @synthesize isCombined=_isCombined;
 @property _Bool useModalStyle; // @synthesize useModalStyle=_useModalStyle;
+@property(retain) NSString *displayLanguage; // @synthesize displayLanguage=_displayLanguage;
 @property _Bool forceLargeMargins; // @synthesize forceLargeMargins=_forceLargeMargins;
 @property _Bool useSmallTitle; // @synthesize useSmallTitle=_useSmallTitle;
 @property _Bool showsLinkToUnifiedAbout; // @synthesize showsLinkToUnifiedAbout=_showsLinkToUnifiedAbout;
@@ -33,11 +35,13 @@
 @property _Bool allowsOpeningSafari; // @synthesize allowsOpeningSafari=_allowsOpeningSafari;
 @property _Bool suppressPerPageAnalyticsLogging; // @synthesize suppressPerPageAnalyticsLogging=_suppressPerPageAnalyticsLogging;
 - (void).cxx_destruct;
+- (_Bool)shouldUseTiledTextViews;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)updateNavigationBarAnimated:(_Bool)arg1;
 - (void)setDarkMode:(_Bool)arg1;
 - (void)setDismissHandlerForDefaultButton:(CDUnknownBlockType)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidLayoutSubviews;
 - (void)viewWillLayoutSubviews;
 - (void)_initializeFromBundle;
 - (void)viewDidLoad;

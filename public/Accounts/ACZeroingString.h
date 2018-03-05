@@ -13,6 +13,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)_emptyString;
 @property(readonly) unsigned short *characters; // @synthesize characters=_characters;
 - (id)_compatibleCopy;
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;

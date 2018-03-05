@@ -6,14 +6,21 @@
 
 #import "NSObject.h"
 
+@class CLSCurrentUser;
+
 @interface CLSSettingsVisibilityController : NSObject
 {
+    CLSCurrentUser *_currentUser;
 }
 
 + (id)shared;
+- (void).cxx_destruct;
 - (_Bool)settingsUIVisible;
 - (_Bool)hasSupportedRole;
 - (_Bool)hasCapableAccount;
+- (id)currentUser;
+- (void)currentUserChanged;
+- (void)dealloc;
 - (id)init;
 
 @end

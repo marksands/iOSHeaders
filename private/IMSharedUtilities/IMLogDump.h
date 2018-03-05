@@ -17,6 +17,7 @@
 + (id)sharedInstance;
 @property(readonly, nonatomic) _Bool shouldCollectStats; // @synthesize shouldCollectStats=_shouldCollectStats;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *logDumpQueue; // @synthesize logDumpQueue=_logDumpQueue;
+- (void).cxx_destruct;
 - (void)disconnectFromResourceForTotalDurationKey:(id)arg1 dateKey:(id)arg2 powerWifiDict:(id)arg3;
 - (void)reconnectToResourceForTotalDurationKey:(id)arg1 dateKey:(id)arg2 powerWifiDict:(id)arg3;
 - (id)getPowerAndWifiDictionaryForKey:(id)arg1;

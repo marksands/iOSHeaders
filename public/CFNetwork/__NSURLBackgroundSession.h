@@ -9,7 +9,7 @@
 #import "NDBackgroundSessionClient.h"
 #import "NSURLSessionSubclass.h"
 
-@class NSError, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSURL, NSXPCConnection;
+@class NSError, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSURL, NSXPCConnection;
 
 __attribute__((visibility("hidden")))
 @interface __NSURLBackgroundSession : __NSCFURLSession <NDBackgroundSessionClient, NSURLSessionSubclass>
@@ -19,8 +19,10 @@ __attribute__((visibility("hidden")))
     NSXPCConnection *_xpcConn;
     NSMutableDictionary *_tasks;
     NSMutableArray *_taskIDsToFailOnReconnection;
+    NSMutableSet *_taskIDsGettingAuthHeaders;
     NSObject<OS_dispatch_queue> *_invalidateQueue;
     CDUnknownBlockType _invalidateCallback;
+    SmartBlockWithArgs_7064a8fd _backgroundSessionDidFinishAppWakeBlock;
     NSString *_appWakeUUID;
     NSURL *_downloadDirectory;
     NSURL *_assetDownloadDirectory;
@@ -36,6 +38,8 @@ __attribute__((visibility("hidden")))
 
 @property(copy) NSString *appWakeUUID; // @synthesize appWakeUUID=_appWakeUUID;
 @property(getter=isCompanionAvailable) _Bool companionAvailable; // @synthesize companionAvailable=_companionAvailable;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)_onqueue_getTasksWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_onqueue_completeInvalidation:(_Bool)arg1;
 - (void)credStorage_setDefaultCredential:(id)arg1 forProtectionSpace:(id)arg2;

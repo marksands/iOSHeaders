@@ -69,6 +69,7 @@
 + (struct CGPoint)convertPoint:(struct CGPoint)arg1 toView:(id)arg2;
 + (id)__displayConfigurationsIncludingMain:(_Bool)arg1;
 + (_Bool)_shouldDisableJail;
++ (_Bool)_isProbablyBeingRecorded;
 + (void)_FBSDisplayIdentityDisconnected:(id)arg1;
 + (void)_FBSDisplayDidPossiblyDisconnect:(id)arg1 forSceneDestruction:(id)arg2;
 + (void)_FBSDisplayDidPossiblyDisconnect:(id)arg1;

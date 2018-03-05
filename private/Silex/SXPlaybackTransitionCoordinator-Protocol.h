@@ -8,6 +8,5 @@
 
 @protocol SXPlaybackTransitionCoordinator <NSObject>
 - (void)transitionAlongside:(void (^)(double))arg1 withCompletionBlock:(void (^)(_Bool))arg2;
-- (void)animateAlongside:(void (^)(void))arg1 withCompletionBlock:(void (^)(_Bool))arg2;
 @end
 

@@ -176,6 +176,8 @@
 @property(retain, nonatomic) PDFAnnotationPopup *popup;
 @property(copy, nonatomic) NSString *userName;
 @property(copy, nonatomic) NSDate *modificationDate;
+- (void)_restorePropertiesAfterSetBounds;
+- (void)_savePropertiesBeforeSetBounds;
 @property(nonatomic) struct CGRect bounds;
 @property(copy, nonatomic) NSString *type;
 @property(nonatomic) __weak PDFPage *page;

@@ -14,18 +14,18 @@
     _Bool _managedAppsOnly;
     _Bool _advanceTransientStates;
     NSArray *_bundleIdentifiers;
-    NSArray *_storeItemIdentifiers;
     NSNumber *_storeItemIdentifier;
     NSURL *_manifestURL;
+    NSArray *_propertyKeys;
 }
 
 + (_Bool)supportsSecureCoding;
 + (Class)whitelistedClassForResultObject;
+@property(copy, nonatomic) NSArray *propertyKeys; // @synthesize propertyKeys=_propertyKeys;
 @property(nonatomic) _Bool advanceTransientStates; // @synthesize advanceTransientStates=_advanceTransientStates;
 @property(nonatomic) _Bool managedAppsOnly; // @synthesize managedAppsOnly=_managedAppsOnly;
 @property(copy, nonatomic) NSURL *manifestURL; // @synthesize manifestURL=_manifestURL;
 @property(copy, nonatomic) NSNumber *storeItemIdentifier; // @synthesize storeItemIdentifier=_storeItemIdentifier;
-@property(copy, nonatomic) NSArray *storeItemIdentifiers; // @synthesize storeItemIdentifiers=_storeItemIdentifiers;
 @property(nonatomic) _Bool deleteFeedback; // @synthesize deleteFeedback=_deleteFeedback;
 @property(copy, nonatomic) NSArray *bundleIdentifiers; // @synthesize bundleIdentifiers=_bundleIdentifiers;
 - (void).cxx_destruct;

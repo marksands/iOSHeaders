@@ -7,6 +7,6 @@
 #import "OBPrivacyLinkController.h"
 
 @interface OBPrivacyLinkController (PKPrivacy)
-+ (id)pk_privacyLinkForCurrentContext;
++ (id)pk_privacyLinkForContext:(unsigned long long)arg1;
 @end
 

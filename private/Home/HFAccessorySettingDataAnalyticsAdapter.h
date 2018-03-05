@@ -14,6 +14,7 @@
 {
 }
 
+- (id)customizeSections:(id)arg1 forEntity:(id)arg2;
 - (void)configureSection:(id)arg1 forEntity:(id)arg2;
 - (_Bool)shouldShowSettingsEntity:(id)arg1;
 - (id)initWithMediaProfileContainer:(id)arg1 mode:(unsigned long long)arg2;

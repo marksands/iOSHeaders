@@ -33,6 +33,8 @@
 }
 
 + (id)PPTBlankFace;
++ (_Bool)isRestricted;
++ (_Bool)isFaceStyleRestricted:(long long)arg1;
 + (_Bool)isFaceStyleAvailableInternal:(long long)arg1;
 + (id)availableInternalFaceStyles;
 + (long long)_convertFaceStyleToValidFaceStyleForCurrentDevice:(long long)arg1;

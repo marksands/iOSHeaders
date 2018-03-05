@@ -10,6 +10,7 @@
 
 @interface DMFScheduleOSUpdateRequest : CATTaskRequest
 {
+    _Bool _useDelay;
     unsigned long long _action;
     NSString *_productKey;
     NSString *_productVersion;
@@ -19,6 +20,7 @@
 + (Class)whitelistedClassForResultObject;
 + (id)_descriptionForAction:(unsigned long long)arg1;
 + (_Bool)_action:(unsigned long long *)arg1 fromString:(id)arg2;
+@property(nonatomic) _Bool useDelay; // @synthesize useDelay=_useDelay;
 @property(copy, nonatomic) NSString *productVersion; // @synthesize productVersion=_productVersion;
 @property(copy, nonatomic) NSString *productKey; // @synthesize productKey=_productKey;
 @property(nonatomic) unsigned long long action; // @synthesize action=_action;

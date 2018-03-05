@@ -176,6 +176,7 @@
 @property(readonly, nonatomic) long long mediaType; // @synthesize mediaType=_mediaType;
 @property(readonly, nonatomic) long long playbackStyle; // @synthesize playbackStyle=_playbackStyle;
 - (void).cxx_destruct;
+- (void)_reportUsage;
 @property(readonly, nonatomic) NSString *variationSuggestionStatesDetails;
 @property(readonly, nonatomic) NSString *metadataDebugDescription;
 - (id)detailedDebugDescriptionInLibrary:(id)arg1;

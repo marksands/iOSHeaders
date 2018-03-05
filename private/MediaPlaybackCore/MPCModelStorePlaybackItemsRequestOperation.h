@@ -6,12 +6,13 @@
 
 #import "MPAsyncOperation.h"
 
-@class MPCModelStorePlaybackItemsRequest, NSOperationQueue, NSProgress;
+@class MPCModelStorePlaybackItemsRequest, NSObject<OS_dispatch_queue>, NSOperationQueue, NSProgress;
 
 @interface MPCModelStorePlaybackItemsRequestOperation : MPAsyncOperation
 {
     NSProgress *_activeProgress;
     NSOperationQueue *_operationQueue;
+    NSObject<OS_dispatch_queue> *_activeProgressQueue;
     MPCModelStorePlaybackItemsRequest *_request;
     CDUnknownBlockType _responseHandler;
 }

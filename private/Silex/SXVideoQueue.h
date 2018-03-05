@@ -23,10 +23,14 @@
 - (unsigned long long)indexOfVideo:(id)arg1;
 - (id)videoAtIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfVideos;
-@property(readonly, nonatomic) id <SXVideo> previousVideo;
 - (id)previousVideoOfType:(unsigned long long)arg1;
 - (id)nextVideoOfType:(unsigned long long)arg1;
+- (id)videoBeforeVideo:(id)arg1;
+@property(readonly, nonatomic) id <SXVideo> previousVideo;
+- (id)videoAfterVideo:(id)arg1;
 @property(readonly, nonatomic) id <SXVideo> nextVideo;
+@property(readonly, nonatomic) id <SXVideo> lastVideo;
+@property(readonly, nonatomic) id <SXVideo> firstVideo;
 - (id)diffWithQueue:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly) unsigned long long hash;

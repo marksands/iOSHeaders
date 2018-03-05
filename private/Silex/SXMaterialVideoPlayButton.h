@@ -15,6 +15,7 @@
 
 @property(readonly, nonatomic) AVBackgroundView *backgroundView; // @synthesize backgroundView=_backgroundView;
 - (void).cxx_destruct;
+- (unsigned long long)accessibilityTraits;
 - (void)updateBackgroundColor;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

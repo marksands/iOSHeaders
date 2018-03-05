@@ -10,7 +10,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
+@class NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CKDOperationMetrics : NSObject <MMCSOperationMetric, NSCopying, NSSecureCoding>
@@ -30,17 +30,19 @@ __attribute__((visibility("hidden")))
     unsigned long long _assetsUploadedFileSize;
     unsigned long long _assetsDownloaded;
     unsigned long long _assetsDownloadedFileSize;
+    unsigned long long _requestCount;
     unsigned long long _retries;
     NSMutableSet *_requestUUIDs;
-    NSMutableDictionary *_requestOperationCountsByOperationTypeByRequestUUID;
+    NSMutableDictionary *_requestOperationCountsByType;
     NSMutableArray *_ranges;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSMutableArray *ranges; // @synthesize ranges=_ranges;
-@property(retain, nonatomic) NSMutableDictionary *requestOperationCountsByOperationTypeByRequestUUID; // @synthesize requestOperationCountsByOperationTypeByRequestUUID=_requestOperationCountsByOperationTypeByRequestUUID;
-@property(retain, nonatomic) NSMutableSet *requestUUIDs; // @synthesize requestUUIDs=_requestUUIDs;
+@property(retain, nonatomic) NSMutableDictionary *requestOperationCountsByType; // @synthesize requestOperationCountsByType=_requestOperationCountsByType;
+@property(readonly) NSMutableSet *requestUUIDs; // @synthesize requestUUIDs=_requestUUIDs;
 @property unsigned long long retries; // @synthesize retries=_retries;
+@property unsigned long long requestCount; // @synthesize requestCount=_requestCount;
 @property unsigned long long assetsDownloadedFileSize; // @synthesize assetsDownloadedFileSize=_assetsDownloadedFileSize;
 @property unsigned long long assetsDownloaded; // @synthesize assetsDownloaded=_assetsDownloaded;
 @property unsigned long long assetsUploadedFileSize; // @synthesize assetsUploadedFileSize=_assetsUploadedFileSize;
@@ -61,6 +63,7 @@ __attribute__((visibility("hidden")))
 - (void)encodeWithCoder:(id)arg1;
 - (void)addCKSpecificMetricsFromMetrics:(id)arg1;
 - (id)newRangeWithOperationState:(unsigned long long)arg1 startDate:(id)arg2 duration:(double)arg3;
+- (void)addRequestOperationCountsByOperationType:(id)arg1;
 - (void)addRange:(id)arg1;
 @property(readonly) NSArray *rangesCopy;
 @property(readonly, copy) NSString *description;
@@ -68,7 +71,6 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_initWithStartDate:(id)arg1;
 - (id)init;
-@property(readonly, nonatomic) NSDictionary *requestOperationCountsByType;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

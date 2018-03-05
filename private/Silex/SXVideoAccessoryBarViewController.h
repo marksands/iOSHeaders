@@ -43,6 +43,9 @@
 @property(retain, nonatomic) id <SXVideoAccessoryItem> trailingItem; // @synthesize trailingItem=_trailingItem;
 @property(retain, nonatomic) id <SXVideoAccessoryItem> leadingItem; // @synthesize leadingItem=_leadingItem;
 - (void).cxx_destruct;
+- (void)preferredContentSizeCategoryDidChange:(id)arg1;
+- (void)_uninstallItem:(id)arg1;
+- (void)_installItem:(id)arg1 inBackgroundView:(id)arg2 withMaterialSyle:(long long)arg3 tintEffectStyle:(long long)arg4;
 - (void)performPendingTransitions;
 - (void)schedulePerformPendingTransitions;
 - (void)transitionLeadingItemToDisplayMode:(unsigned long long)arg1 trailingItemToDisplayMode:(unsigned long long)arg2 animated:(_Bool)arg3;

@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDateInterval, _HKAchievementPredicateMonthlyAggregatesEnvironment;
+@class NSDate, _HKAchievementPredicateMonthlyAggregatesEnvironment;
 
 @protocol _HKActivitySummaryHistoryEnvironmentDataSource <NSObject>
+- (NSDate *)currentDateForMonthlyAggregatesEnvironment;
 - (_HKAchievementPredicateMonthlyAggregatesEnvironment *)aggregateEnvironmentForMonthOffsetFromNow:(long long)arg1;
-- (NSArray *)dayEnvironmentsInDateInterval:(NSDateInterval *)arg1;
 @end
 

@@ -6,7 +6,7 @@
 
 #import "UIViewController.h"
 
-@class SXPlayButtonViewController, SXTopVideoControlsViewController, SXVideoAccessoryBarViewController, SXVideoPlaybackControlsManager, UIButton;
+@class NSLayoutConstraint, SXPlayButtonViewController, SXTopVideoControlsViewController, SXVideoAccessoryBarViewController, SXVideoPlaybackControlsManager, UIButton;
 
 @interface SXVideoControlsViewController : UIViewController
 {
@@ -14,21 +14,28 @@
     SXPlayButtonViewController *_playButtonViewController;
     SXVideoPlaybackControlsManager *_playbackControlsManager;
     SXVideoAccessoryBarViewController *_accessoryBarViewController;
+    id <SXVideoAccessoryBarSizing> _videoAccessoryBarSizer;
     UIButton *_skipToPreviousButton;
     UIButton *_skipToNextButton;
+    NSLayoutConstraint *_accessoryBarHeightConstraint;
+    NSLayoutConstraint *_accessoryBarMaxWidthConstraint;
 }
 
+@property(retain, nonatomic) NSLayoutConstraint *accessoryBarMaxWidthConstraint; // @synthesize accessoryBarMaxWidthConstraint=_accessoryBarMaxWidthConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *accessoryBarHeightConstraint; // @synthesize accessoryBarHeightConstraint=_accessoryBarHeightConstraint;
 @property(readonly, nonatomic) UIButton *skipToNextButton; // @synthesize skipToNextButton=_skipToNextButton;
 @property(readonly, nonatomic) UIButton *skipToPreviousButton; // @synthesize skipToPreviousButton=_skipToPreviousButton;
+@property(readonly, nonatomic) id <SXVideoAccessoryBarSizing> videoAccessoryBarSizer; // @synthesize videoAccessoryBarSizer=_videoAccessoryBarSizer;
 @property(readonly, nonatomic) SXVideoAccessoryBarViewController *accessoryBarViewController; // @synthesize accessoryBarViewController=_accessoryBarViewController;
 @property(readonly, nonatomic) SXVideoPlaybackControlsManager *playbackControlsManager; // @synthesize playbackControlsManager=_playbackControlsManager;
 @property(readonly, nonatomic) SXPlayButtonViewController *playButtonViewController; // @synthesize playButtonViewController=_playButtonViewController;
 @property(readonly, nonatomic) SXTopVideoControlsViewController *topControlsViewController; // @synthesize topControlsViewController=_topControlsViewController;
 - (void).cxx_destruct;
+- (void)preferredContentSizeCategoryDidChange:(id)arg1;
 - (void)viewSafeAreaInsetsDidChange;
 - (void)updateViewConstraints;
 - (void)viewDidLoad;
-- (id)initWithPlaybackControlsManager:(id)arg1 topVideoControlsViewController:(id)arg2 playButtonViewController:(id)arg3 videoAccessoryBar:(id)arg4 skipToPreviousButton:(id)arg5 skipToNextButton:(id)arg6;
+- (id)initWithPlaybackControlsManager:(id)arg1 topVideoControlsViewController:(id)arg2 playButtonViewController:(id)arg3 videoAccessoryBar:(id)arg4 videoAccessoryBarSizer:(id)arg5 skipToPreviousButton:(id)arg6 skipToNextButton:(id)arg7;
 
 @end
 

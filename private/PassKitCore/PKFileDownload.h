@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSURLSessionDataTask;
+@class NSMutableSet, NSURLSessionDataTask;
 
 @interface PKFileDownload : NSObject
 {
-    CDUnknownBlockType _handler;
+    NSMutableSet *_completionHandlers;
     NSURLSessionDataTask *_task;
 }
 
 @property(copy, nonatomic) NSURLSessionDataTask *task; // @synthesize task=_task;
-@property(copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
+@property(retain, nonatomic) NSMutableSet *completionHandlers; // @synthesize completionHandlers=_completionHandlers;
 - (void).cxx_destruct;
+- (id)init;
 
 @end
 

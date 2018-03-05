@@ -4,34 +4,29 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MPSState.h"
+#import <MPSNeuralNetwork/MPSNNGradientState.h>
 
-@class MPSCNNBatchNormalization, MPSCNNNormalizationGammaAndBetaState;
+@class MPSCNNBatchNormalization;
 
-@interface MPSCNNBatchNormalizationState : MPSState
+@interface MPSCNNBatchNormalizationState : MPSNNGradientState
 {
     MPSCNNBatchNormalization *_batchNormalization;
-    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _mean
-    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _var
-    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _sumGrad
-    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _dotGrad
     unsigned long long _accumulationCount;
     unsigned long long _numberOfFeatureChannels;
     float _epsilon;
-    MPSCNNNormalizationGammaAndBetaState *_gammaAndBetaState;
 }
 
-@property(readonly, retain, nonatomic) MPSCNNNormalizationGammaAndBetaState *gammaAndBetaState; // @synthesize gammaAndBetaState=_gammaAndBetaState;
++ (id)temporaryStateWithCommandBuffer:(id)arg1 numberOfFeatureChannels:(unsigned long long)arg2 epsilon:(float)arg3 batchNormalization:(id)arg4;
 @property(readonly, retain, nonatomic) MPSCNNBatchNormalization *batchNormalization; // @synthesize batchNormalization=_batchNormalization;
 - (void)dealloc;
 - (id)gradientForBeta;
 - (id)gradientForGamma;
 - (id)variance;
 - (id)mean;
-- (void)synchronizeOnCommandBuffer:(id)arg1;
+- (id)beta;
+- (id)gamma;
 - (void)reset;
 - (id)initDeferredWithDevice:(id)arg1 numberOfFeatureChannels:(unsigned long long)arg2 epsilon:(float)arg3 batchNormalization:(id)arg4;
-- (unsigned long long)resourceSize;
 
 @end
 

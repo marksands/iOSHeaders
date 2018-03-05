@@ -69,6 +69,7 @@
 - (id)_defaultExpressTransitPassDescription;
 - (id)_defaultExpressTransitSpecifier;
 - (id)_transitDefaultsGroupSpecifiers;
+- (_Bool)_useAlternateExpressTitle;
 - (void)switchSpinnerCell:(id)arg1 hasToggledSwitch:(_Bool)arg2;
 - (id)_peerPaymentSwitchSpecifier;
 - (id)_peerPaymentGroupSpecifiers;

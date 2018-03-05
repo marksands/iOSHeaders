@@ -79,6 +79,7 @@
 - (void)invitationSessionWithIPAddressInvalidated:(id)arg1;
 - (_Bool)hasConnectionToClassWithIdentifier:(id)arg1;
 - (void)lostConnectionToClassSession:(id)arg1;
+- (void)classSessionRejected:(id)arg1;
 - (void)classSessionInvalidated:(id)arg1;
 - (void)connectToClassSessionWithIdentifier:(id)arg1;
 - (id)init;

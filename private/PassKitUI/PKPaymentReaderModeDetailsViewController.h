@@ -6,7 +6,7 @@
 
 #import <PassKitUI/PKPaymentSetupProvisioningFieldsViewController.h>
 
-@class NSObject<OS_dispatch_group>, NSString, PKPaymentReaderModeProvisioningViewController, PKPaymentSetupProduct;
+@class NSObject<OS_dispatch_group>, NSString, PKPaymentSetupProduct;
 
 @interface PKPaymentReaderModeDetailsViewController : PKPaymentSetupProvisioningFieldsViewController
 {
@@ -14,7 +14,6 @@
     NSObject<OS_dispatch_group> *_nextScreenGroup;
     NSString *_titleText;
     NSString *_subtitleText;
-    PKPaymentReaderModeProvisioningViewController *_provisioningViewController;
     PKPaymentSetupProduct *_product;
 }
 
@@ -26,8 +25,9 @@
 - (id)defaultHeaderViewTitle;
 - (id)visibleFieldIdentifiers;
 - (id)defaultFields;
+- (void)_downloadCardArtIfNecessary:(CDUnknownBlockType)arg1;
 - (void)_pushReaderModeProvisioningWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_initalizeProvisioningViewController;
+- (void)_prepareForProvisioningViewController;
 - (void)_showTerms;
 - (void)_registerLocalDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)handleNextButtonTapped:(id)arg1;

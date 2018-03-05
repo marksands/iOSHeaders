@@ -30,6 +30,7 @@
 @property(retain, nonatomic) _MDIndexExtensionLoader *extensionLoader; // @synthesize extensionLoader=_extensionLoader;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *notifyQueue; // @synthesize notifyQueue=_notifyQueue;
 - (void).cxx_destruct;
+- (id)fetchFileProviderBundleMap;
 - (void)findExtensionsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)indexRequestsPerformDataJob:(id)arg1 forBundle:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)indexRequestsPerformJob:(id)arg1 extensions:(id)arg2 perExtensionCompletionHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;

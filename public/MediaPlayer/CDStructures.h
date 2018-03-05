@@ -463,14 +463,6 @@ typedef struct {
 // Ambiguous groups
 typedef struct {
     unsigned int identifiers:1;
-    unsigned int title:1;
-    unsigned int releaseDate:1;
-    unsigned int year:1;
-    unsigned int artist:1;
-} CDStruct_0f043e9e;
-
-typedef struct {
-    unsigned int identifiers:1;
     unsigned int text:1;
     unsigned int hasStoreLyrics:1;
 } CDStruct_99cfb959;

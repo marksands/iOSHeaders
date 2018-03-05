@@ -48,6 +48,7 @@
 + (id)deviceIsPluggedInStream;
 + (id)keybagIsLockedStream;
 + (id)deviceIsLockedStream;
++ (id)deviceActivityLevelStream;
 + (id)appViewedInDockStream;
 + (id)glanceLaunchStream;
 + (id)spotlightActivityStream;

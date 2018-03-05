@@ -14,7 +14,7 @@
 #import "SXVideoPlayerViewControllerDelegate.h"
 #import "SXViewportChangeListener.h"
 
-@class NSString, SXAdController, SXPosterFrameView, SXVideoAnalyticsRouter, SXVideoComponentAnalyticsReporting, SXVideoPlayerViewController, SXVideoPlayerViewControllerManager, SXVolumeProvider;
+@class ADBannerView, NSString, SXAdController, SXPosterFrameView, SXVideoAnalyticsRouter, SXVideoComponentAnalyticsReporting, SXVideoPlayerViewController, SXVideoPlayerViewControllerManager, SXVolumeProvider;
 
 @interface SXVideoComponentView : SXMediaComponentView <SXViewportChangeListener, SXMediaPlaybackDelegate, SXVideoPlayerViewControllerDelegate, SXVideoPlayerViewControllerDataSource, SXVideoAdProviderDataSource, SXReachabilityObserver, SXFullscreenVideoPlaybackCandidate>
 {
@@ -31,8 +31,10 @@
     id <SXScrollObserverManager> _scrollObserverManager;
     SXVolumeProvider *_volumeProvider;
     SXVideoPlayerViewControllerManager *_videoPlayerViewControllerManager;
+    ADBannerView *_bannerView;
 }
 
+@property(nonatomic) __weak ADBannerView *bannerView; // @synthesize bannerView=_bannerView;
 @property(readonly, nonatomic) SXVideoPlayerViewControllerManager *videoPlayerViewControllerManager; // @synthesize videoPlayerViewControllerManager=_videoPlayerViewControllerManager;
 @property(readonly, nonatomic) SXVolumeProvider *volumeProvider; // @synthesize volumeProvider=_volumeProvider;
 @property(readonly, nonatomic) id <SXScrollObserverManager> scrollObserverManager; // @synthesize scrollObserverManager=_scrollObserverManager;
@@ -75,6 +77,7 @@
 - (id)videoAdForVideoPlayerViewController:(id)arg1;
 - (id)videoForVideoPlayerViewController:(id)arg1;
 - (void)setupVideoPlayerViewController:(id)arg1;
+- (void)unloadVideoPlayerIfShowingAd;
 - (void)playButtonTapped;
 - (void)loadPosterFrameImage;
 - (void)discardContents;

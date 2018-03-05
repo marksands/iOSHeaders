@@ -8,13 +8,18 @@
 
 #import "SXWebContentLogger.h"
 
-@class NSString;
+@class NSMutableDictionary, NSString;
 
 @interface SXWebContentLogger : NSObject <SXWebContentLogger>
 {
+    NSMutableDictionary *_values;
 }
 
+@property(readonly, nonatomic) NSMutableDictionary *values; // @synthesize values=_values;
+- (void).cxx_destruct;
 - (void)log:(id)arg1;
+- (void)bindValue:(id)arg1 forKey:(id)arg2;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

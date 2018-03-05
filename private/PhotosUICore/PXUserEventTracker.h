@@ -24,6 +24,16 @@
 - (void)_aggdJumpCountLoggingDryrun:(unsigned long long)arg1 totalJumpCount:(unsigned long long)arg2;
 - (void)_aggdDurationLoggingDryrun:(unsigned long long)arg1 duration:(double)arg2;
 - (void)_aggdDurationLoggingDryrunForSubState:(unsigned long long)arg1 duration:(double)arg2;
+- (void)livePhotoEffectShared;
+- (void)livePhotoEffectSuggestionApplied;
+- (void)livePhotoEffectSuggested:(long long)arg1;
+- (void)livePhotoEffectReverted;
+- (void)livePhotoEffectSavingFinished:(double)arg1;
+- (void)livePhotoEffectSavingFailed;
+- (void)livePhotoEffectSelected:(long long)arg1;
+- (void)livePhotoEffectPreviewFinishedRendering:(double)arg1;
+- (void)livePhotoEffectRenderingFailed;
+- (void)livePhotoEffectOptionsAppeared;
 - (void)logPeopleDetailShowFaces;
 - (void)logPeopleDetailNotThisPerson;
 - (void)logPeopleDetailKeyPhotoChanged;

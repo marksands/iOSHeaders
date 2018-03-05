@@ -6,29 +6,23 @@
 
 #import <MPSNeuralNetwork/MPSNNGradientState.h>
 
-@class MPSCNNInstanceNormalization, MPSCNNNormalizationGammaAndBetaState;
+@class MPSCNNInstanceNormalization;
 
 @interface MPSCNNInstanceNormalizationGradientState : MPSNNGradientState
 {
-    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _meanVarBuf
-    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _gradientGammaBuf
-    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _gradientBetaBuf
     MPSCNNInstanceNormalization *_instanceNormalization;
     unsigned long long _numberOfFeatureChannels;
-    float _epsilon;
-    MPSCNNNormalizationGammaAndBetaState *_gammaAndBetaState;
 }
 
-+ (id)temporaryStateWithCommandBuffer:(id)arg1 instanceNormalization:(id)arg2;
-+ (id)temporaryStateWithCommandBuffer:(id)arg1 bufferSize:(unsigned long long)arg2 instanceNormalization:(id)arg3;
-@property(readonly, retain, nonatomic) MPSCNNNormalizationGammaAndBetaState *gammaAndBetaState; // @synthesize gammaAndBetaState=_gammaAndBetaState;
++ (id)temporaryStateWithCommandBuffer:(id)arg1 numberOfFeatureChannels:(unsigned long long)arg2 instanceNormalization:(id)arg3;
 @property(readonly, retain, nonatomic) MPSCNNInstanceNormalization *instanceNormalization; // @synthesize instanceNormalization=_instanceNormalization;
 - (id)debugDescription;
 - (void)dealloc;
-- (void)synchronizeOnCommandBuffer:(id)arg1;
-- (id)initWithDevice:(id)arg1 bufferSize:(unsigned long long)arg2 instanceNormalization:(id)arg3;
+- (id)initWithDevice:(id)arg1 numberOfFeatureChannels:(unsigned long long)arg2 instanceNormalization:(id)arg3;
 @property(readonly, nonatomic) id <MTLBuffer> gradientForBeta;
 @property(readonly, nonatomic) id <MTLBuffer> gradientForGamma;
+@property(readonly, nonatomic) id <MTLBuffer> beta;
+@property(readonly, nonatomic) id <MTLBuffer> gamma;
 
 @end
 

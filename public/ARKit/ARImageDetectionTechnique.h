@@ -20,9 +20,12 @@
     NSObject<OS_dispatch_semaphore> *_dataSemaphore;
     NSObject<OS_dispatch_semaphore> *_detectionSemaphore;
     ARImageDetectionResultData *_referenceImageData;
-    double _lastTimestamp;
+    unsigned long long _numberOfSkippedFrames;
+    unsigned long long _numberOfFramesBetweenDetectionCalls;
+    _Bool _finishedLoadingImages;
     _Bool _continousDetection;
     _Bool _estimateScale;
+    _Bool _redetectOnSignificantEvent;
     unsigned long long _estimateScaleCount;
     ARImageDetectionResultData *_currentDetectionResultData;
     NSDictionary *_referenceImageMap;
@@ -32,6 +35,7 @@
 @property(readonly, copy, nonatomic) ARImageDetectionResultData *currentDetectionResultData; // @synthesize currentDetectionResultData=_currentDetectionResultData;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
+@property(readonly, nonatomic) _Bool finishedLoadingImages;
 - (unsigned long long)requiredSensorDataTypes;
 - (id)initWithReferenceImages:(id)arg1;
 

@@ -31,6 +31,7 @@
 + (id)messagesBundle;
 + (id)notesBundle;
 + (id)mailBundle;
++ (void)setDockApps:(id)arg1;
 + (CDUnknownBlockType)shouldUpdateFuncForSnippetFeature:(unsigned long long)arg1;
 + (id)contactsBundle;
 + (id)sortedUniqueBundleFeatureValuesFromBundleFeatures:(id)arg1;

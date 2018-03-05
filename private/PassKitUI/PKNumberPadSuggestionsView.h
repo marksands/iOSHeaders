@@ -15,6 +15,7 @@
     UIColor *_buttonTextColor;
 }
 
++ (struct CGSize)defaultSize;
 @property(copy, nonatomic) UIColor *buttonTextColor; // @synthesize buttonTextColor=_buttonTextColor;
 @property(copy, nonatomic) NSArray *suggestions; // @synthesize suggestions=_suggestions;
 @property(nonatomic) __weak id <PKNumberPadSuggestionsViewDelegate> delegate; // @synthesize delegate=_delegate;

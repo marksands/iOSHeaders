@@ -14,7 +14,7 @@
 #import "PKPaymentSetupViewControllerDelegate.h"
 #import "RemoteUIControllerDelegate.h"
 
-@class NSDecimalNumber, NSString, PKFileDownloader, PKPaymentAuthorizationCoordinator, PKPaymentProvisioningController, PKPaymentProvisioningMethodMetadata, PKPaymentSetupProduct, PKPaymentSetupPurchaseAmoutView, PKPaymentSetupPurchaseController, PKServiceProviderPurchase, RemoteUIController, UIImage, UIImageView;
+@class NSDecimalNumber, NSString, PKPaymentAuthorizationCoordinator, PKPaymentProvisioningController, PKPaymentProvisioningMethodMetadata, PKPaymentSetupProduct, PKPaymentSetupPurchaseAmountView, PKPaymentSetupPurchaseController, PKServiceProviderPurchase, RemoteUIController, UIImage, UIImageView, UILabel;
 
 @interface PKPaymentSetupPurchaseViewController : UIViewController <PKPaymentSetupPurchaseAmountViewDelegate, PKPaymentAuthorizationCoordinatorDelegate, PKPaymentAuthorizationCoordinatorPrivateDelegate, PKPaymentSetupViewControllerDelegate, RemoteUIControllerDelegate, PKPaymentSetupDelegate, PKPaymentSetupRequiresPreflightProtocol>
 {
@@ -27,24 +27,24 @@
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
     PKPaymentProvisioningMethodMetadata *_provisioningMethodMetadata;
     UIImageView *_passView;
-    PKPaymentSetupPurchaseAmoutView *_amountView;
+    UILabel *_titleLabel;
+    PKPaymentSetupPurchaseAmountView *_amountView;
     NSDecimalNumber *_currentAmount;
     PKPaymentAuthorizationCoordinator *_authorizationCoordinator;
     PKServiceProviderPurchase *_purchase;
     RemoteUIController *_termsController;
-    PKFileDownloader *_fileDownloader;
     UIImage *_cardImage;
 }
 
 @property(retain, nonatomic) UIImage *cardImage; // @synthesize cardImage=_cardImage;
-@property(retain, nonatomic) PKFileDownloader *fileDownloader; // @synthesize fileDownloader=_fileDownloader;
 @property(nonatomic) _Bool acceptedTerms; // @synthesize acceptedTerms=_acceptedTerms;
 @property(retain, nonatomic) RemoteUIController *termsController; // @synthesize termsController=_termsController;
 @property(nonatomic) _Bool fieldsVerified; // @synthesize fieldsVerified=_fieldsVerified;
 @property(retain, nonatomic) PKServiceProviderPurchase *purchase; // @synthesize purchase=_purchase;
 @property(retain, nonatomic) PKPaymentAuthorizationCoordinator *authorizationCoordinator; // @synthesize authorizationCoordinator=_authorizationCoordinator;
 @property(copy, nonatomic) NSDecimalNumber *currentAmount; // @synthesize currentAmount=_currentAmount;
-@property(retain, nonatomic) PKPaymentSetupPurchaseAmoutView *amountView; // @synthesize amountView=_amountView;
+@property(retain, nonatomic) PKPaymentSetupPurchaseAmountView *amountView; // @synthesize amountView=_amountView;
+@property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) UIImageView *passView; // @synthesize passView=_passView;
 @property(retain, nonatomic) PKPaymentProvisioningMethodMetadata *provisioningMethodMetadata; // @synthesize provisioningMethodMetadata=_provisioningMethodMetadata;
 @property(nonatomic) __weak id <PKPaymentSetupViewControllerDelegate> setupDelegate; // @synthesize setupDelegate=_setupDelegate;
@@ -53,6 +53,7 @@
 @property(readonly, nonatomic) PKPaymentSetupPurchaseController *purchaseController; // @synthesize purchaseController=_purchaseController;
 @property(readonly, nonatomic) PKPaymentSetupProduct *product; // @synthesize product=_product;
 - (void).cxx_destruct;
+- (struct CGSize)_imageSizeForScreenType:(unsigned long long)arg1 showingTransferButton:(_Bool)arg2;
 - (void)_presentTermsAndConditionsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_paymentRequestForAmount:(id)arg1;
 - (void)_presetPaymentRequest:(id)arg1 forResultType:(long long)arg2;
@@ -61,7 +62,10 @@
 - (void)_showSpinner:(_Bool)arg1;
 - (id)_spinnerBarButton;
 - (id)_rightBarButton;
+- (void)_createConstraints;
 - (void)_createSubviews;
+- (_Bool)_shouldHideImage;
+- (_Bool)_shouldShowTransferButton;
 - (void)paymentSetupDidFinish:(id)arg1;
 - (void)remoteUIController:(id)arg1 didReceiveObjectModel:(id)arg2 actionSignal:(unsigned long long *)arg3;
 - (void)viewControllerDidTerminateSetupFlow:(id)arg1;
@@ -72,7 +76,6 @@
 - (void)didUpdateAmount:(id)arg1 isValid:(_Bool)arg2;
 - (void)shakeCard;
 - (void)preflightWithCompletion:(CDUnknownBlockType)arg1;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;

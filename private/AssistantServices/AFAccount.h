@@ -24,6 +24,7 @@
     NSString *_peerSpeechIdentifier;
     NSString *_peerUserAgentString;
     NSString *_peerLanguageCode;
+    NSString *_peerHostname;
     NSString *_predefinedServer;
     NSString *_aceHost;
     NSDictionary *_connectionPolicy;
@@ -46,6 +47,7 @@
 @property(copy, nonatomic) NSDictionary *connectionPolicy; // @synthesize connectionPolicy=_connectionPolicy;
 @property(copy, nonatomic) NSString *aceHost; // @synthesize aceHost=_aceHost;
 @property(copy, nonatomic) NSString *predefinedServer; // @synthesize predefinedServer=_predefinedServer;
+@property(copy, nonatomic) NSString *peerHostname; // @synthesize peerHostname=_peerHostname;
 @property(nonatomic) _Bool peerSiriEnabled; // @synthesize peerSiriEnabled=_peerSiriEnabled;
 @property(copy, nonatomic) NSString *peerLanguageCode; // @synthesize peerLanguageCode=_peerLanguageCode;
 @property(copy, nonatomic) NSString *peerUserAgentString; // @synthesize peerUserAgentString=_peerUserAgentString;

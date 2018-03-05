@@ -18,6 +18,7 @@
     _Bool _returnPCSMetadata;
     _Bool _useMMCSEncryptionV2;
     _Bool _bypassPCSEncryption;
+    _Bool _forceEnableReadOnlyManatee;
     _Bool _isSiloedContext;
     _Bool _sandboxed;
     _Bool _finishedAppProxySetup;
@@ -116,6 +117,7 @@
 @property(retain) CKDMMCS *MMCS; // @synthesize MMCS=_MMCS;
 @property(nonatomic) _Bool isSiloedContext; // @synthesize isSiloedContext=_isSiloedContext;
 @property(nonatomic) unsigned int clientSDKVersion; // @synthesize clientSDKVersion=_clientSDKVersion;
+@property(nonatomic) _Bool forceEnableReadOnlyManatee; // @synthesize forceEnableReadOnlyManatee=_forceEnableReadOnlyManatee;
 @property(nonatomic) _Bool bypassPCSEncryption; // @synthesize bypassPCSEncryption=_bypassPCSEncryption;
 @property(nonatomic) _Bool useMMCSEncryptionV2; // @synthesize useMMCSEncryptionV2=_useMMCSEncryptionV2;
 @property(nonatomic) _Bool returnPCSMetadata; // @synthesize returnPCSMetadata=_returnPCSMetadata;

@@ -18,6 +18,7 @@
     NSObject<OS_dispatch_queue> *_persistenceQueue;
     unsigned long long _assetQuality;
     _Bool _didDeferLeaseStart;
+    _Bool _externalDisplay;
     _Bool _hasEverPrioritizedPlayerItem;
     _Bool _hasPrioritizedPlayWhileDownloadSession;
     _Bool _hasPrioritizedStreamingDownloadSession;
@@ -34,6 +35,8 @@
     double _playbackStartTime;
     AVAssetResourceLoadingRequest *_loadingRequest;
     NSData *_serverPlaybackContextDataForStoppingLease;
+    AVAssetResourceLoadingRequest *_externalLoadingRequest;
+    NSData *_externalServerPlaybackContextDataForStoppingLease;
     _Bool _rentalCheckoutRequired;
     _Bool _ignoreHLSOfflinePlaybackKeys;
     unsigned long long _options;
@@ -64,6 +67,7 @@
 - (void).cxx_destruct;
 - (void)_updateBookmarkTimeIfNecessary:(double)arg1 isCheckpoint:(_Bool)arg2;
 - (id)_storeUbiquitousIdentifier;
+- (void)_stopLease:(id)arg1 withContextData:(id)arg2;
 - (_Bool)_shouldRememberBookmarkTime;
 - (void)_prioritizeDownloadSessionsIfNeeded;
 - (void)_persistPlaybackStartTime:(double)arg1;
@@ -73,6 +77,7 @@
 - (_Bool)_handledLoadingRequestWithOfflinePersistantKey:(id)arg1;
 - (void)_handlePlaybackFinishedTime:(double)arg1 finishedByHittingEnd:(_Bool)arg2;
 - (_Bool)_getAssetURL:(id *)arg1 playWhileDownloadSession:(id *)arg2 assetQuality:(unsigned long long *)arg3 error:(id *)arg4 usingStoreDownload:(id)arg5 assetOptions:(id)arg6 shouldStartDownload:(_Bool)arg7;
+- (void)_checkInExternalPlaybackLease;
 - (id)_chapterTitleForTime:(double)arg1;
 - (id)_bookmarkTime;
 - (void)_applyLoudnessInfo;
@@ -174,6 +179,8 @@
 - (long long)storePlaybackEndpointType;
 @property(readonly, copy) NSString *description;
 @property(retain, nonatomic) NSData *serverPlaybackContextDataForStoppingLease; // @synthesize serverPlaybackContextDataForStoppingLease=_serverPlaybackContextDataForStoppingLease;
+@property(retain, nonatomic) NSData *externalServerPlaybackContextDataForStoppingLease; // @synthesize externalServerPlaybackContextDataForStoppingLease=_externalServerPlaybackContextDataForStoppingLease;
+- (void)setExternalDisplay:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithPlaybackItemMetadata:(id)arg1 options:(unsigned long long)arg2;
 - (id)init;

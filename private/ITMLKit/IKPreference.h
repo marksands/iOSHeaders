@@ -11,7 +11,6 @@
 }
 
 + (void)setupJSCoreConsoleLogging;
-+ (unsigned long long)logLevel;
 + (_Bool)logDocumentXML;
 + (_Bool)ignoreHTTPCache;
 

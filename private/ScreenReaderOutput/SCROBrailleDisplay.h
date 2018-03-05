@@ -104,6 +104,7 @@
 - (void)_translateBrailleStringAndPostEventAppendingKeys:(id)arg1;
 - (void)_translateBrailleStringAndPostEvent;
 - (void)_startEditingText;
+- (_Bool)_currentChordShouldExecuteEvenDuringTyping;
 - (void)_keyboardHelpHandler:(id)arg1;
 - (void)_configurationChangeHandler;
 - (void)_updateDisplay;

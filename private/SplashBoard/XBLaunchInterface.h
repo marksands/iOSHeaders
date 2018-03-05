@@ -7,11 +7,11 @@
 #import "NSObject.h"
 
 #import "BSXPCCoding.h"
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSArray, NSString;
 
-@interface XBLaunchInterface : NSObject <BSXPCCoding, NSCoding>
+@interface XBLaunchInterface : NSObject <BSXPCCoding, NSSecureCoding>
 {
     _Bool _default;
     unsigned long long _type;
@@ -20,6 +20,7 @@
     NSArray *_urlSchemes;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSArray *urlSchemes; // @synthesize urlSchemes=_urlSchemes;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;

@@ -18,6 +18,10 @@ struct IMFileLocation_t {
     int _field5;
 };
 
+struct NSDictionary {
+    Class _field1;
+};
+
 struct NSString {
     Class _field1;
 };

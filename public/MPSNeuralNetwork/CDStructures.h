@@ -155,7 +155,8 @@ struct ResourceGraphNode {
     _Bool _field9;
     _Bool _field10;
     _Bool _field11;
-    unsigned long long _field12;
+    _Bool _field12;
+    unsigned long long _field13;
 };
 
 struct SrcProperties {

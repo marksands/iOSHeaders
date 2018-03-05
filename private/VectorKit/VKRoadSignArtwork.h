@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     struct RoadSignGeneratedMetrics _generatedMetrics;
     struct RoadSignColoring _signColoring;
     struct CGImage *_glyph;
+    struct mutex _imageLock;
 }
 
 - (id).cxx_construct;

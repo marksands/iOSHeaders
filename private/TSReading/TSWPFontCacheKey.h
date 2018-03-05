@@ -12,18 +12,16 @@
 {
     NSString *_fontName;
     double _fontSize;
-    double _fontWeight;
     unsigned long long _hash;
 }
 
-+ (id)cacheKeyWithFontName:(id)arg1 size:(double)arg2 weight:(double)arg3;
-@property(readonly, nonatomic) double fontWeight; // @synthesize fontWeight=_fontWeight;
++ (id)cacheKeyWithFontName:(id)arg1 size:(double)arg2;
 @property(readonly, nonatomic) double fontSize; // @synthesize fontSize=_fontSize;
 @property(readonly, nonatomic) NSString *fontName; // @synthesize fontName=_fontName;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (void)dealloc;
-- (id)initWithFontName:(id)arg1 size:(double)arg2 weight:(double)arg3;
+- (id)initWithFontName:(id)arg1 size:(double)arg2;
 
 @end
 

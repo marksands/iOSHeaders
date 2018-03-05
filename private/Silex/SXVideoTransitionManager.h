@@ -6,27 +6,27 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, SXPlaybackTransition, SXVideoItemViewController;
+@class NSMutableArray, SXPlaybackTransition;
 
 @interface SXVideoTransitionManager : NSObject
 {
     id <SXVisibilityMonitoring> _visibilityMonitor;
     id <SXPlaybackTransitionCoordinatorFactory> _transitionCoordinatorFactory;
     NSMutableArray *_transitionObservers;
-    SXVideoItemViewController *_visibleVideoItemViewController;
+    id <SXVideo> _visibleVideo;
     SXPlaybackTransition *_activeTransition;
 }
 
 @property(retain, nonatomic) SXPlaybackTransition *activeTransition; // @synthesize activeTransition=_activeTransition;
-@property(retain, nonatomic) SXVideoItemViewController *visibleVideoItemViewController; // @synthesize visibleVideoItemViewController=_visibleVideoItemViewController;
+@property(retain, nonatomic) id <SXVideo> visibleVideo; // @synthesize visibleVideo=_visibleVideo;
 @property(readonly, nonatomic) NSMutableArray *transitionObservers; // @synthesize transitionObservers=_transitionObservers;
 @property(readonly, nonatomic) id <SXPlaybackTransitionCoordinatorFactory> transitionCoordinatorFactory; // @synthesize transitionCoordinatorFactory=_transitionCoordinatorFactory;
 @property(readonly, nonatomic) id <SXVisibilityMonitoring> visibilityMonitor; // @synthesize visibilityMonitor=_visibilityMonitor;
 - (void).cxx_destruct;
 - (void)removeTransitionObserver:(id)arg1;
 - (void)addTransitionObserver:(id)arg1;
-- (void)transitionToVideoItemViewController:(id)arg1 withVisibilityMonitor:(id)arg2;
-- (id)initWithTransitionCoordinatorFactory:(id)arg1 videoQueueManager:(id)arg2;
+- (void)transitionToVideo:(id)arg1 withVisibilityMonitor:(id)arg2;
+- (id)initWithTransitionCoordinatorFactory:(id)arg1 videoQueueManager:(id)arg2 timelineManager:(id)arg3;
 
 @end
 

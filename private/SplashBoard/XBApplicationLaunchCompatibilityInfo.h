@@ -7,11 +7,11 @@
 #import "NSObject.h"
 
 #import "BSXPCCoding.h"
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSArray, NSString, XBLaunchInterface;
 
-@interface XBApplicationLaunchCompatibilityInfo : NSObject <BSXPCCoding, NSCoding>
+@interface XBApplicationLaunchCompatibilityInfo : NSObject <BSXPCCoding, NSSecureCoding>
 {
     XBLaunchInterface *_defaultInterface;
     _Bool _launchesOpaque;
@@ -22,6 +22,7 @@
     NSString *_bundleContainerPath;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)compatibilityInfoForAppInfo:(id)arg1;
 @property(copy, nonatomic) NSString *bundleContainerPath; // @synthesize bundleContainerPath=_bundleContainerPath;
 @property(nonatomic) _Bool launchesOpaque; // @synthesize launchesOpaque=_launchesOpaque;
@@ -36,6 +37,7 @@
 @property(readonly, nonatomic) _Bool allowsSavingLaunchImages;
 @property(readonly, copy) NSString *description;
 - (id)initWithBundle:(id)arg1;
+- (void)set_launchInterfaces:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithXPCDictionary:(id)arg1;

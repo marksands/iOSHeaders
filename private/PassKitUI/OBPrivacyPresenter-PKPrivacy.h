@@ -7,6 +7,6 @@
 #import "OBPrivacyPresenter.h"
 
 @interface OBPrivacyPresenter (PKPrivacy)
-+ (id)pk_presenterForCurrentContext;
++ (id)pk_presenterForContext:(unsigned long long)arg1;
 @end
 

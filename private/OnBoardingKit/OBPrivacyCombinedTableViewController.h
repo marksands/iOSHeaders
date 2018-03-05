@@ -18,8 +18,10 @@ __attribute__((visibility("hidden")))
     _Bool _darkMode;
     UITableView *_tableView;
     NSArray *_privacyFlows;
+    NSString *_displayLanguage;
 }
 
+@property(retain) NSString *displayLanguage; // @synthesize displayLanguage=_displayLanguage;
 @property(nonatomic, getter=isDarkMode) _Bool darkMode; // @synthesize darkMode=_darkMode;
 @property _Bool suppressPerPageAnalyticsLogging; // @synthesize suppressPerPageAnalyticsLogging=_suppressPerPageAnalyticsLogging;
 @property(retain) NSArray *privacyFlows; // @synthesize privacyFlows=_privacyFlows;

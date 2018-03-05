@@ -12,6 +12,7 @@
 
 @interface ARReplaySensor : NSObject <ARSensor>
 {
+    _Bool _manualCommandLineMode;
     AVAsset *_asset;
     NSMutableArray *_arImageData;
     NSMutableArray *_arAccelerometerData;
@@ -21,8 +22,11 @@
     NSObject<OS_dispatch_queue> *_replayQueue;
     NSObject<OS_dispatch_source> *_timer;
     double _startTime;
+    long long _tick;
+    double _frameRateScale;
+    double _timestampWhenFramerateChanged;
+    double _imageTimestampWhenFramerateChanged;
     int _imageIndexForPreloading;
-    int _imageIndex;
     int _accelDataIndex;
     int _gyroDataIndex;
     int _deviceOrientationDataIndex;
@@ -43,15 +47,25 @@
     NSDictionary *_recordedResultAdaptors;
     unsigned long long _sensorDataTypes;
     _Bool _isReplayingManually;
+    float _advanceFramesPerSecondMultiplier;
+    int _imageIndex;
     id <ARSensorDelegate> _delegate;
     id <ARReplaySensorDelegate> _replaySensorDelegate;
     NSString *_deviceModel;
     unsigned long long _recordedSensorTypes;
     NSSet *_recordedResultClasses;
+    unsigned long long _forcePlaybackFramesPerSecond;
+    long long _nextFrameIndex;
+    long long _targetFrameIndex;
     struct CGSize _imageResolution;
 }
 
+@property long long targetFrameIndex; // @synthesize targetFrameIndex=_targetFrameIndex;
+@property(nonatomic) int imageIndex; // @synthesize imageIndex=_imageIndex;
 @property(readonly, nonatomic) _Bool interrupted; // @synthesize interrupted=_interrupted;
+@property float advanceFramesPerSecondMultiplier; // @synthesize advanceFramesPerSecondMultiplier=_advanceFramesPerSecondMultiplier;
+@property long long nextFrameIndex; // @synthesize nextFrameIndex=_nextFrameIndex;
+@property(nonatomic) unsigned long long forcePlaybackFramesPerSecond; // @synthesize forcePlaybackFramesPerSecond=_forcePlaybackFramesPerSecond;
 @property(readonly, nonatomic) _Bool isReplayingManually; // @synthesize isReplayingManually=_isReplayingManually;
 @property(readonly, nonatomic) NSSet *recordedResultClasses; // @synthesize recordedResultClasses=_recordedResultClasses;
 @property(readonly, nonatomic) unsigned long long recordedSensorTypes; // @synthesize recordedSensorTypes=_recordedSensorTypes;
@@ -76,7 +90,7 @@
 - (_Bool)hasGyroDataForTime:(double)arg1;
 - (_Bool)hasAccelerometerDataForTime:(double)arg1;
 - (void)fastForwardIndexesToTime:(double)arg1;
-- (_Bool)hasImageDataForTime:(double)arg1;
+- (_Bool)hasImageDataForTimestamp:(double)arg1;
 - (_Bool)hasMoreData;
 - (void)_didOutputSensorData:(id)arg1;
 - (void)advance;
@@ -88,7 +102,9 @@
 - (_Bool)track:(id)arg1 hasMetadataIdentifier:(id)arg2;
 - (void)failWithError:(id)arg1;
 - (void)initializeAssetReaderWithAsset:(id)arg1 buffersOnly:(_Bool)arg2;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)replayTechniqueForResultDataClasses:(id)arg1;
+- (void)advanceToFrameIndex:(long long)arg1;
 - (void)advanceFrame;
 - (void)endReplay;
 - (void)prepareForReplay;

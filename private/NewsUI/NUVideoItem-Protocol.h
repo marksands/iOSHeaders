@@ -9,6 +9,7 @@
 @class FCAssetHandle, NSString, NSURL;
 
 @protocol NUVideoItem <NFCopying>
+@property(readonly, nonatomic, getter=isPaid) _Bool paid;
 @property(readonly, nonatomic, getter=isBoundToContext) _Bool boundToContext;
 @property(readonly, nonatomic, getter=isHiddenFromFeeds) _Bool hiddenFromFeeds;
 @property(readonly, copy, nonatomic) NSString *sourceTagID;

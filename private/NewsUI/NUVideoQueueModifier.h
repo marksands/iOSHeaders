@@ -14,7 +14,7 @@
 {
 }
 
-- (id)modifyQueue:(id)arg1;
+- (id)modifyQueue:(id)arg1 inTransitionFromVideo:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

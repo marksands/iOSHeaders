@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class UIView;
+@class UIView, UIViewController;
 
 @protocol SXVideoAccessoryItem <NSObject>
 @property(readonly, nonatomic) UIView *view;
 @property(nonatomic) unsigned long long displayMode;
 
 @optional
+@property(readonly, nonatomic) UIViewController *viewController;
 - (void)willTransitionToDisplayMode:(unsigned long long)arg1 withTransitionCoordinator:(id <SXVideoAccessoryItemDisplayModeTransitioning>)arg2;
 @end
 

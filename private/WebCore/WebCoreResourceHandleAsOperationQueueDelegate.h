@@ -17,7 +17,9 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_semaphore> *m_semaphore;
     // Error parsing type: ^{MessageQueue<WTF::Function<void ()> >={Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}{Condition={Atomic<bool>={atomic<bool>=AB}}}{Deque<std::__1::unique_ptr<WTF::Function<void ()>, std::__1::default_delete<WTF::Function<void ()> > >, 0>=QQ{VectorBuffer<std::__1::unique_ptr<WTF::Function<void ()>, std::__1::default_delete<WTF::Function<void ()> > >, 0, WTF::FastMalloc>=^{unique_ptr<WTF::Function<void ()>, std::__1::default_delete<WTF::Function<void ()> > >}III}}B}, name: m_messageQueue
     struct RetainPtr<NSURLRequest> m_requestResult;
+    // Error parsing type: {Lock="m_byte"{Atomic<unsigned char>="value"{atomic<unsigned char>="__a_"AC}}}, name: m_mutex
     struct RetainPtr<NSCachedURLResponse> m_cachedResponseResult;
+    struct optional<WTF::HashSet<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>, WTF::SchedulePairHash, WTF::HashTraits<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>>>> m_scheduledPairs;
     _Bool m_boolResult;
 }
 

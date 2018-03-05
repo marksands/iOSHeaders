@@ -18,8 +18,10 @@
     FCSubscriptionList *_subscriptionList;
     id <NUURLHandling> _URLHandler;
     id <NUReportConcernViewPresenter> _reportConcernViewPresenter;
+    id <NUURLModifying> _URLModifier;
 }
 
+@property(readonly, nonatomic) id <NUURLModifying> URLModifier; // @synthesize URLModifier=_URLModifier;
 @property(readonly, nonatomic) id <NUReportConcernViewPresenter> reportConcernViewPresenter; // @synthesize reportConcernViewPresenter=_reportConcernViewPresenter;
 @property(readonly, nonatomic) id <NUURLHandling> URLHandler; // @synthesize URLHandler=_URLHandler;
 @property(readonly, nonatomic) FCSubscriptionList *subscriptionList; // @synthesize subscriptionList=_subscriptionList;
@@ -42,7 +44,7 @@
 - (id)supportedActivities;
 - (id)activities;
 - (id)activityItemSources;
-- (id)initWithHeadline:(id)arg1 readingHistory:(id)arg2 readingList:(id)arg3 subscriptionList:(id)arg4 URLHandler:(id)arg5 reportConcernViewPresenter:(id)arg6;
+- (id)initWithHeadline:(id)arg1 readingHistory:(id)arg2 readingList:(id)arg3 subscriptionList:(id)arg4 URLHandler:(id)arg5 reportConcernViewPresenter:(id)arg6 URLModifier:(id)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

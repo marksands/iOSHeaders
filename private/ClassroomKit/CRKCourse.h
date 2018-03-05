@@ -8,11 +8,12 @@
 
 #import "NSSecureCoding.h"
 
-@class CRKUser, DMFControlGroupIdentifier, NSDate, NSDictionary, NSString;
+@class CRKUser, DMFControlGroupIdentifier, NSDate, NSDictionary, NSSet, NSString;
 
 @interface CRKCourse : NSObject <NSSecureCoding>
 {
     _Bool _requestingUnenroll;
+    _Bool _studentCredentialsAreValid;
     _Bool _expired;
     DMFControlGroupIdentifier *_courseIdentifier;
     NSString *_courseName;
@@ -21,12 +22,17 @@
     NSDictionary *_instructorsByIdentifier;
     unsigned long long _type;
     NSDate *_automaticRemovalDate;
+    NSSet *_trustedCertificatePersistentIds;
+    NSSet *_validTrustedCertificatePersistentIds;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)stringForType:(unsigned long long)arg1;
 + (id)new;
 @property(nonatomic, getter=isExpired) _Bool expired; // @synthesize expired=_expired;
+@property(retain, nonatomic) NSSet *validTrustedCertificatePersistentIds; // @synthesize validTrustedCertificatePersistentIds=_validTrustedCertificatePersistentIds;
+@property(retain, nonatomic) NSSet *trustedCertificatePersistentIds; // @synthesize trustedCertificatePersistentIds=_trustedCertificatePersistentIds;
+@property(nonatomic) _Bool studentCredentialsAreValid; // @synthesize studentCredentialsAreValid=_studentCredentialsAreValid;
 @property(retain, nonatomic) NSDate *automaticRemovalDate; // @synthesize automaticRemovalDate=_automaticRemovalDate;
 @property(nonatomic, getter=isRequestingUnenroll) _Bool requestingUnenroll; // @synthesize requestingUnenroll=_requestingUnenroll;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
@@ -38,6 +44,7 @@
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)isDeeplyEqual:(id)arg1;
 - (_Bool)isEqualToCourse:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

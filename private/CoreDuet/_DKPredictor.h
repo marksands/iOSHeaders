@@ -26,6 +26,7 @@
 - (id)predictionForStreamWithName:(id)arg1 withPredicate:(id)arg2 withPredictionType:(unsigned long long)arg3 asOfDate:(id)arg4;
 - (id)predictionForStreamWithName:(id)arg1 withPredicate:(id)arg2 withPredictionType:(unsigned long long)arg3;
 - (id)deviceActivityLikelihood;
+- (id)displayOnLikelihood;
 - (id)pluginLikelihood;
 - (id)launchLikelihoodForTopNApplications:(long long)arg1 withLikelihoodGreaterThan:(double)arg2 withTemporalResolution:(int)arg3;
 - (id)launchLikelihoodPredictionForApp:(id)arg1;

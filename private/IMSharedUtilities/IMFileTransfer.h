@@ -20,6 +20,8 @@
     _Bool _isAuxVideo;
     _Bool _isSticker;
     _Bool _hideAttachment;
+    _Bool _isLocation;
+    _Bool _isContact;
     _Bool _appMessageFallbackImage;
     unsigned short _hfsFlags;
     unsigned int _hfsType;
@@ -75,6 +77,8 @@
 @property(retain, nonatomic) NSString *cloudKitRecordID; // @synthesize cloudKitRecordID=_cloudKitRecordID;
 @property(retain, nonatomic) NSData *cloudKitServerChangeTokenBlob; // @synthesize cloudKitServerChangeTokenBlob=_cloudKitServerChangeTokenBlob;
 @property(nonatomic) long long cloudKitSyncState; // @synthesize cloudKitSyncState=_cloudKitSyncState;
+@property(nonatomic) _Bool isContact; // @synthesize isContact=_isContact;
+@property(nonatomic) _Bool isLocation; // @synthesize isLocation=_isLocation;
 @property(retain, nonatomic) NSArray *attachmentSendContexts; // @synthesize attachmentSendContexts=_attachmentSendContexts;
 @property(nonatomic) _Bool hideAttachment; // @synthesize hideAttachment=_hideAttachment;
 @property(retain, nonatomic) NSDictionary *stickerUserInfo; // @synthesize stickerUserInfo=_stickerUserInfo;

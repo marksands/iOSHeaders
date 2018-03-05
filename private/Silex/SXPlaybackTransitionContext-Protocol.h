@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-@class SXVideoItemViewController;
-
 @protocol SXPlaybackTransitionContext <NSObject>
-@property(readonly, nonatomic) SXVideoItemViewController *toViewController;
-@property(readonly, nonatomic) SXVideoItemViewController *fromViewController;
+@property(readonly, nonatomic) id <SXVideo> toVideo;
+@property(readonly, nonatomic) id <SXVideo> fromVideo;
 - (void)completeTransition:(_Bool)arg1;
 @end
 

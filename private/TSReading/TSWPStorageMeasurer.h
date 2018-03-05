@@ -95,7 +95,6 @@
 @property(readonly, nonatomic) struct CGRect maskRect;
 @property(readonly, nonatomic) TSDLayout *parentLayoutForInlineAttachments;
 @property(readonly, nonatomic) _Bool pushAscendersIntoColumn;
-@property(readonly, nonatomic) double reservedWidthWhenTruncating;
 @property(readonly, nonatomic) _Bool shouldHyphenate;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) double textScaleFactor;

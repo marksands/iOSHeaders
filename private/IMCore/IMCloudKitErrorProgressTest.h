@@ -16,7 +16,6 @@
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 - (void).cxx_destruct;
 - (void)startTest;
-- (id)_createSyncNotEnabledError;
 - (id)initWithErrorCode:(long long)arg1;
 
 @end

@@ -19,7 +19,7 @@
 - (id)marketingPageLink;
 - (id)activityViewController:(id)arg1 itemForActivityType:(id)arg2;
 - (id)activityViewControllerPlaceholderItem:(id)arg1;
-- (id)initWithHeadline:(id)arg1;
+- (id)initWithHeadline:(id)arg1 URLModifier:(id)arg2;
 
 @end
 

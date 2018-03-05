@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSLock, NSMutableDictionary, NSString, NSUUID, PDFAKAnnotationAdaptor, PDFAccessibilityNode, PDFAnnotation, PDFPage, UIColor;
+@class NSArray, NSDictionary, NSLock, NSMutableDictionary, NSString, NSUUID, PDFAKAnnotationAdaptor, PDFAccessibilityNode, PDFAnnotation, PDFPage, UIColor;
 
 __attribute__((visibility("hidden")))
 @interface PDFAnnotationPrivateVars : NSObject
@@ -41,6 +41,11 @@ __attribute__((visibility("hidden")))
     NSString *widgetOnStateString;
     id control;
     UIColor *mouseHoverBackgroundColor;
+    _Bool restoreLinePoints;
+    _Bool restoreQuadPoints;
+    struct CGPoint startPoint;
+    struct CGPoint endPoint;
+    NSArray *quadPoints;
     PDFAccessibilityNode *accessibilityNode;
     double scaleFactor;
     _Bool isFullyConstructed;

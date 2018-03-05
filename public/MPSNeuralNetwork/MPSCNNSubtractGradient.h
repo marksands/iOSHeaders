@@ -10,7 +10,7 @@
 {
 }
 
-- (id)initWithDevice:(id)arg1;
+- (id)initWithDevice:(id)arg1 isSecondarySourceFilter:(_Bool)arg2;
 
 @end
 

@@ -112,8 +112,11 @@
 @property(readonly, retain, nonatomic) NSDictionary *extraProperties; // @synthesize extraProperties=_extraProps;
 @property(readonly, retain, nonatomic) NSString *originalID; // @synthesize originalID=_uncanonicalID;
 - (void).cxx_destruct;
+- (void)_mapItemBannerImageDataFetchedWithResponse:(id)arg1 statusCode:(long long)arg2 resultData:(id)arg3 remoteURLConnectionError:(id)arg4;
 - (void)_fetchMapItemBannerImageDataForMapItem:(id)arg1;
+- (void)_mapItemImageDataFetchedWithResponse:(id)arg1 statusCode:(long long)arg2 resultData:(id)arg3 remoteURLConnectionError:(id)arg4;
 - (void)_fetchMapItemImageDataForMapItem:(id)arg1;
+- (void)_mapItemFetchedWithMapItems:(id)arg1 error:(id)arg2;
 - (void)_fetchBusinessInfo;
 - (void)sendNotificationABPersonChanged;
 - (id)description;

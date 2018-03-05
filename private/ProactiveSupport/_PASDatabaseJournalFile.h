@@ -12,6 +12,7 @@
 {
     NSString *_path;
     unsigned long long _len;
+    unsigned long long _readCursor;
     int _fd;
     _Bool _written;
     _Bool _dead;
@@ -22,6 +23,9 @@
 - (void)unlink;
 - (void)clear;
 - (id)read;
+@property(readonly, nonatomic) unsigned long long length;
+@property(readonly, nonatomic) _Bool isAlive;
+@property(readonly, nonatomic) _Bool isFullyRead;
 - (void)write:(id)arg1;
 - (void)dealloc;
 - (void)destroyAndUnlinkIfEmpty;

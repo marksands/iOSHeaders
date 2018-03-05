@@ -27,6 +27,7 @@
 - (_Bool)canCopySourceIsManaged:(_Bool)arg1;
 - (_Bool)canCopyItems:(id)arg1;
 - (_Bool)canCopyfromContainingBundleIdentifer:(id)arg1;
+@property(readonly, nonatomic) _Bool hasAnyEffectiveRestrictions;
 @property(readonly, nonatomic) _Bool hasOpenInRestrictions;
 - (id)queueFileDataForAcceptance:(id)arg1 originalFileName:(id)arg2 forBundleID:(id)arg3 outError:(id *)arg4;
 - (unsigned long long)dataOwnerStateForBundleIdentifier:(id)arg1;

@@ -45,7 +45,7 @@
 - (void)_transitionToPosterView:(id)arg1;
 - (void)_endScrubbingAnimated:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_startScrubbingAnimated:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)_complicationFlickerWorkgroundAnimationWithDuration:(double)arg1 applier:(CDUnknownBlockType)arg2;
+- (void)_complicationFlickerWorkaroundAnimationWithDuration:(double)arg1 applier:(CDUnknownBlockType)arg2;
 - (void)_unpauseFromSwitcher;
 - (void)_playVideoForScreenWake:(id)arg1;
 - (void)_playVideo;

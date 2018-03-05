@@ -10,14 +10,15 @@
 
 @interface PKExplanationViewController : PKViewController
 {
-    OBPrivacyLinkController *_privacyLinkController;
     _Bool _showCancelButton;
     _Bool _showDoneButton;
     id <PKExplanationViewControllerDelegate> _explanationViewControllerDelegate;
     long long _context;
     PKExplanationView *_explanationView;
+    OBPrivacyLinkController *_privacyLinkController;
 }
 
+@property(retain, nonatomic) OBPrivacyLinkController *privacyLinkController; // @synthesize privacyLinkController=_privacyLinkController;
 @property(readonly, nonatomic) PKExplanationView *explanationView; // @synthesize explanationView=_explanationView;
 @property(nonatomic) _Bool showDoneButton; // @synthesize showDoneButton=_showDoneButton;
 @property(nonatomic) _Bool showCancelButton; // @synthesize showCancelButton=_showCancelButton;

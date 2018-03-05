@@ -50,7 +50,7 @@
 - (id)_managedApplicationAttributes:(id)arg1;
 - (id)_managedApplicationConfiguration:(id)arg1;
 - (id)_managedApplicationList:(id)arg1;
-- (id)_handleFetchAppsRequest:(id)arg1 managedOnly:(_Bool)arg2 deleteFeedback:(_Bool)arg3 advanceTransientStates:(_Bool)arg4 block:(CDUnknownBlockType)arg5;
+- (id)_handleFetchAppsRequest:(id)arg1 managedOnly:(_Bool)arg2 deleteFeedback:(_Bool)arg3 advanceTransientStates:(_Bool)arg4 propertyKeys:(id)arg5 block:(CDUnknownBlockType)arg6;
 - (id)_applyRedemptionCode:(id)arg1 assertion:(id)arg2;
 - (id)_validateApplications:(id)arg1;
 - (void)_installApplication:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;

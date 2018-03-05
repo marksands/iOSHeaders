@@ -40,6 +40,7 @@
 @property(readonly, nonatomic) double externalDeviceTimeoutDuration;
 @property(readonly, nonatomic) long long externalDeviceSocketQOSLevel;
 @property(readonly, nonatomic) _Bool hasExternalDeviceSocketQOSLevelSet;
+@property(readonly, nonatomic) _Bool shouldLogArtwork;
 @property(readonly, nonatomic) _Bool shouldLogPairingSetupCode;
 @property(readonly, nonatomic) _Bool shouldInitializeGenericBonjourService;
 @property(readonly, nonatomic) _Bool shouldInitializeTelevisionBonjourService;

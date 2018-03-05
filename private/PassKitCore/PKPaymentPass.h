@@ -85,6 +85,7 @@
 - (id)felicaProperties;
 @property(readonly, copy, nonatomic) PKTransitPassProperties *transitProperties;
 - (id)notificationCenterTitle;
+@property(readonly, nonatomic) _Bool supportsOnlyTransit;
 - (id)_localizedSuspendedReasonForAID:(id)arg1;
 - (_Bool)supportsWebPaymentMode:(long long)arg1 withExclusionList:(id)arg2 clientOSVersion:(id)arg3;
 - (_Bool)supportsWebPaymentMode:(long long)arg1 withExclusionList:(id)arg2;

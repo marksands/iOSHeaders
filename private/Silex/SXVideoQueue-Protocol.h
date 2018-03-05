@@ -11,12 +11,16 @@
 
 @protocol SXVideoQueue <SXVideoQueueDiffing, NSCopying>
 @property(readonly, nonatomic) NSOrderedSet *videos;
+@property(readonly, nonatomic) id <SXVideo> lastVideo;
+@property(readonly, nonatomic) id <SXVideo> firstVideo;
 @property(readonly, nonatomic) id <SXVideo> previousVideo;
 @property(readonly, nonatomic) id <SXVideo> nextVideo;
 @property(retain, nonatomic) id <SXVideo> video;
 - (unsigned long long)indexOfVideo:(id <SXVideo>)arg1;
 - (id <SXVideo>)videoAtIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfVideos;
+- (id <SXVideo>)videoAfterVideo:(id <SXVideo>)arg1;
+- (id <SXVideo>)videoBeforeVideo:(id <SXVideo>)arg1;
 - (id <SXVideo>)previousVideoOfType:(unsigned long long)arg1;
 - (id <SXVideo>)nextVideoOfType:(unsigned long long)arg1;
 @end

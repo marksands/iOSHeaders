@@ -13,13 +13,13 @@
 + (id)bs_objectFromData:(id)arg1;
 + (id)bs_secureDataFromObject:(id)arg1;
 + (id)bs_dataFromObject:(id)arg1;
++ (id)bs_decodedFromData:(id)arg1;
 + (id)bs_secureDecodedFromData:(id)arg1 withAdditionalClasses:(id)arg2;
 + (id)bs_secureDecodedFromData:(id)arg1;
-+ (id)bs_decodedFromData:(id)arg1;
+- (id)bs_encoded;
 - (_Bool)bs_performSynchronously:(CDUnknownBlockType)arg1 timeout:(double)arg2;
 - (_Bool)bs_performSynchronously:(CDUnknownBlockType)arg1;
 - (id)bs_secureEncoded;
-- (id)bs_encoded;
 - (_Bool)bs_isPlistableType;
 @end
 

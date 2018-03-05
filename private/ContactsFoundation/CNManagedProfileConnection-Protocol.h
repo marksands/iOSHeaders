@@ -9,6 +9,7 @@
 @class NSArray, NSString;
 
 @protocol CNManagedProfileConnection <NSObject>
+- (NSArray *)filteredOpenInOriginatingAccounts:(NSArray *)arg1 targetAppBundleID:(NSString *)arg2 targetAccountManagement:(long long)arg3;
 - (NSArray *)filteredOpenInAccounts:(NSArray *)arg1 originatingAppBundleID:(NSString *)arg2 sourceAccountManagement:(long long)arg3;
 - (_Bool)mayShowLocalAccountsForBundleID:(NSString *)arg1 sourceAccountManagement:(long long)arg2;
 - (_Bool)isOpenInRestrictionInEffect;

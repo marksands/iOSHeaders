@@ -18,6 +18,7 @@
     NSMutableDictionary *_promiseInstances;
 }
 
++ (id)retrySynchronousIPC:(CDUnknownBlockType)arg1;
 + (id)sharedConnection;
 @property(readonly, nonatomic) NSMutableDictionary *promiseInstances; // @synthesize promiseInstances=_promiseInstances;
 @property(readonly, nonatomic) NSMutableDictionary *coordinatorInstances; // @synthesize coordinatorInstances=_coordinatorInstances;

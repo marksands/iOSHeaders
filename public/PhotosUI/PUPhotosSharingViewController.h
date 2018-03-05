@@ -53,6 +53,7 @@
     struct __CFString *_aggregateKey;
     PHPerson *_person;
     id <PUPhotosSharingViewControllerDelegate> _delegate;
+    CDUnknownBlockType _didAppearCompletion;
     PUPhotosSharingViewControllerSpec *_spec;
     UICollectionView *_mainCollectionView;
     UIView *_embeddedActivityView;
@@ -96,6 +97,7 @@
 @property(retain, nonatomic, setter=_setEmbeddedActivityView:) UIView *embeddedActivityView; // @synthesize embeddedActivityView=_embeddedActivityView;
 @property(retain, nonatomic, setter=_setMainCollectionView:) UICollectionView *mainCollectionView; // @synthesize mainCollectionView=_mainCollectionView;
 @property(retain, nonatomic) PUPhotosSharingViewControllerSpec *spec; // @synthesize spec=_spec;
+@property(copy, nonatomic) CDUnknownBlockType didAppearCompletion; // @synthesize didAppearCompletion=_didAppearCompletion;
 @property(nonatomic) __weak id <PUPhotosSharingViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) PHPerson *person; // @synthesize person=_person;
 @property(nonatomic) struct __CFString *aggregateKey; // @synthesize aggregateKey=_aggregateKey;

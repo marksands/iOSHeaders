@@ -24,6 +24,7 @@
     NSString *_name;
     NSData *_externalTransitStationCode;
     NSArray *_completeOperatingHoursCache;
+    double _cacheLastChecked;
     _Bool _isTransitDisplayFeature;
 }
 
@@ -89,6 +90,7 @@
 - (id)_attributionInfoForAttribution:(id)arg1 requirement:(int)arg2;
 @property(readonly, nonatomic, getter=_encyclopedicInfo) id <GEOEncyclopedicInfo> encyclopedicInfo;
 @property(readonly, nonatomic, getter=_hasEncyclopedicInfo) _Bool hasEncyclopedicInfo;
+- (_Bool)_completeOperatingHoursCacheIsStale;
 @property(readonly, nonatomic, getter=_openingHoursOptions) unsigned long long openingHoursOptions;
 @property(readonly, nonatomic, getter=_completeOperatingHours) NSArray *completeOperatingHours;
 @property(readonly, nonatomic, getter=_operatingHours) NSArray *operatingHours;

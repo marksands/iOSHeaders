@@ -20,6 +20,7 @@
     IMCloudKitSyncState *_pendingSyncStateForProgress;
 }
 
++ (id)logHandle;
 + (id)sharedInstance;
 + (void)__setSingleton__im:(id)arg1;
 + (id)__singleton__im;
@@ -33,7 +34,6 @@
 @property __weak id <IMCloudKitEventHandlerAccountInfoProvider> accountInfoProvider; // @synthesize accountInfoProvider=_accountInfoProvider;
 - (void).cxx_destruct;
 - (void)fetchSyncDebuggingInfo:(id)arg1;
-- (_Bool)canEnableCloudKitSync;
 - (void)_updateProgressWithState:(id)arg1;
 - (void)_cancelDeferredHiddenProgress;
 - (void)_sendHiddenProgress;
@@ -64,6 +64,7 @@
 - (void)addEventHandler:(id)arg1;
 - (id)_createSyncNotEnabledError;
 - (id)cloudKitHooks;
+- (id)logHandle;
 - (id)init;
 
 @end

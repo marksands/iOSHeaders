@@ -49,6 +49,7 @@
 - (void)_applyOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (id)_viewForEditOption:(id)arg1;
 - (id)_editingComplicationColor;
+- (void)_updateComplicationWithColor:(id)arg1 animated:(_Bool)arg2 useComplicationFlickerWorkaround:(_Bool)arg3;
 - (void)_updateComplicationWithColor:(id)arg1 animated:(_Bool)arg2;
 - (long long)_legacyLayoutOverrideforComplicationType:(unsigned long long)arg1 slot:(id)arg2;
 - (void)_configureComplicationView:(id)arg1 forSlot:(id)arg2;

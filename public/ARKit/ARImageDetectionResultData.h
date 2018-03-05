@@ -10,10 +10,11 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSString;
+@class ARCamera, NSArray, NSString;
 
 @interface ARImageDetectionResultData : NSObject <ARResultData, NSCopying, NSSecureCoding>
 {
+    ARCamera *_currentCamera;
     NSArray *_detectedImages;
     // Error parsing type: {?="columns"[4]}, name: _cameraTransformAtDetection
 }
@@ -23,6 +24,7 @@
 // Error parsing type for property cameraTransformAtDetection:
 // Property attributes: T{?=[4]},N,V_cameraTransformAtDetection
 
+@property(copy, nonatomic) ARCamera *currentCamera; // @synthesize currentCamera=_currentCamera;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithCoder:(id)arg1;

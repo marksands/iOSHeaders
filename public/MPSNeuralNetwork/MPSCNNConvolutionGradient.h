@@ -26,6 +26,7 @@
 @property(readonly, nonatomic) unsigned long long groups; // @synthesize groups=_groups;
 @property(readonly, nonatomic) unsigned long long sourceImageFeatureChannels; // @synthesize sourceImageFeatureChannels=_outputFeatureChannels;
 @property(readonly, nonatomic) unsigned long long sourceGradientFeatureChannels; // @synthesize sourceGradientFeatureChannels=_inputFeatureChannels;
+- (id)destinationImageDescriptorForSourceImages:(id)arg1 sourceStates:(id)arg2 paddingMethod:(unsigned long long)arg3 primaryOffset:(CDStruct_d6af7fc0 *)arg4 secondaryOffset:(CDStruct_d6af7fc0 *)arg5 kernelOffset:(CDStruct_d6af7fc0 *)arg6;
 - (_Bool)isResultStateReusedAcrossBatch;
 - (id)biases;
 - (id)weights;

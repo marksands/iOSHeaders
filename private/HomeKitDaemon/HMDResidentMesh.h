@@ -77,6 +77,7 @@
 - (id)initWithHomeManager:(id)arg1 residentEnabled:(_Bool)arg2;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
+- (id)messageDestination;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -36,8 +36,11 @@
 - (void).cxx_destruct;
 - (_Bool)faultProcessor:(id)arg1 shouldFaultRelation:(id)arg2 fromObject:(struct NSObject *)arg3;
 - (void)deregisterDataObserver:(id)arg1;
+- (void)_registerDataObserver:(id)arg1;
 - (void)registerDataObserver:(id)arg1;
+- (void)currentUserWithServer:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)currentUserWithCompletion:(CDUnknownBlockType)arg1;
+- (id)currentUser;
 - (void)applicationDidBecomeActive:(id)arg1;
 - (void)applicationWillResignActive:(id)arg1;
 - (void)reset;
@@ -49,6 +52,7 @@
 - (_Bool)isAppClient;
 @property(readonly, nonatomic) CLSActivity *runningActivity;
 @property(readonly, nonatomic) CLSContext *activeContext;
+- (id)syncDataServer:(CDUnknownBlockType)arg1;
 - (id)dataServer:(CDUnknownBlockType)arg1;
 - (void)contextsMatchingIdentifierPath:(id)arg1 parentContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)contextsMatchingIdentifierPath:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -72,6 +76,7 @@
 - (void)_createMainAppContext;
 - (id)cachedMainAppContext;
 - (void)awaitExecuteQuery:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)dataServer:(id)arg1 executeQuery:(id)arg2;
 - (void)executeQuery:(id)arg1;
 @property(retain, nonatomic) CLSCurrentUser *cachedCurrentUser;
 - (void)_reconnect;

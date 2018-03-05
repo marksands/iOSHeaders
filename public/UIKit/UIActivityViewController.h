@@ -23,6 +23,9 @@
     _Bool _willDismissActivityViewController;
     _Bool _performActivityForStateRestoration;
     _Bool _shouldMatchOnlyUserElectedExtensions;
+    _Bool _hasPerformedInitialPresentation;
+    _Bool _isPerformingPresentation;
+    _Bool _presentationWasDelayed;
     _Bool _allowsEmbedding;
     _Bool _showKeyboardAutomatically;
     _Bool _sourceIsManaged;
@@ -50,6 +53,8 @@
     long long _completedProviderCount;
     unsigned long long _backgroundTaskIdentifier;
     NSString *_subject;
+    unsigned long long _beginShareUIConnectionTimestamp;
+    unsigned long long _beginPerformingActivityTimestamp;
     NSArray *_activityTypesToCreateInShareService;
     NSArray *_resolvedActivityItemsForCurrentActivity;
     CDUnknownBlockType _preCompletionHandler;
@@ -76,6 +81,11 @@
 @property(copy, nonatomic) CDUnknownBlockType preCompletionHandler; // @synthesize preCompletionHandler=_preCompletionHandler;
 @property(readonly, nonatomic) NSArray *resolvedActivityItemsForCurrentActivity; // @synthesize resolvedActivityItemsForCurrentActivity=_resolvedActivityItemsForCurrentActivity;
 @property(retain, nonatomic) NSArray *activityTypesToCreateInShareService; // @synthesize activityTypesToCreateInShareService=_activityTypesToCreateInShareService;
+@property(nonatomic, getter=_beginPerformingActivityTimestamp, setter=_setBeginPerformingActivityTimestamp:) unsigned long long beginPerformingActivityTimestamp; // @synthesize beginPerformingActivityTimestamp=_beginPerformingActivityTimestamp;
+@property(nonatomic, getter=_presentationWasDelayed, setter=_setPresentationWasDelayed:) _Bool presentationWasDelayed; // @synthesize presentationWasDelayed=_presentationWasDelayed;
+@property(nonatomic, getter=_isPerformingPresentation, setter=_setIsPerformingPresentation:) _Bool isPerformingPresentation; // @synthesize isPerformingPresentation=_isPerformingPresentation;
+@property(nonatomic, getter=_hasPerformedInitialPresentation, setter=_setHasPerformedInitialPresentation:) _Bool hasPerformedInitialPresentation; // @synthesize hasPerformedInitialPresentation=_hasPerformedInitialPresentation;
+@property(nonatomic, getter=_beginShareUIConnectionTimestamp, setter=_setBeginShareUIConnectionTimestamp:) unsigned long long beginShareUIConnectionTimestamp; // @synthesize beginShareUIConnectionTimestamp=_beginShareUIConnectionTimestamp;
 @property(nonatomic) _Bool shouldMatchOnlyUserElectedExtensions; // @synthesize shouldMatchOnlyUserElectedExtensions=_shouldMatchOnlyUserElectedExtensions;
 @property(nonatomic) _Bool performActivityForStateRestoration; // @synthesize performActivityForStateRestoration=_performActivityForStateRestoration;
 @property(copy, nonatomic) NSString *subject; // @synthesize subject=_subject;

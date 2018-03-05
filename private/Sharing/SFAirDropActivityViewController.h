@@ -12,7 +12,7 @@
 #import "SFWirelessSettingsControllerDelegate.h"
 #import "UICollectionViewDataSource.h"
 
-@class NSArray, NSCache, NSLayoutConstraint, NSMutableArray, NSMutableDictionary, NSMutableOrderedSet, NSObject<SFAirDropActivityViewControllerDelegate>, NSOperationQueue, NSString, SFAirDropActiveIconView, SFAirDropBrowser, SFAirDropIconView, SFCollectionViewLayout, SFPersonCollectionViewCell, SFWirelessSettingsController, UIButton, UICollectionView, UIFocusContainerGuide, UILabel, UITextView, UIVisualEffectView;
+@class NSArray, NSCache, NSLayoutConstraint, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableOrderedSet, NSObject<SFAirDropActivityViewControllerDelegate>, NSOperationQueue, NSString, SFAirDropActiveIconView, SFAirDropBrowser, SFAirDropIconView, SFCollectionViewLayout, SFPersonCollectionViewCell, SFWirelessSettingsController, UIButton, UICollectionView, UIFocusContainerGuide, UILabel, UITextView, UIVisualEffectView;
 
 @interface SFAirDropActivityViewController : UIViewController <UICollectionViewDataSource, SFCollectionViewDelegateLayout, SFAirDropBrowserDelegate, SFPersonCollectionViewCellDelegate, SFWirelessSettingsControllerDelegate>
 {
@@ -70,6 +70,8 @@
     UIFocusContainerGuide *_fcg;
     struct __SFOperation *_logger;
     struct CGSize _minimumPreferredContentSize;
+    NSMapTable *_realNameToFirstSeenTimestamp;
+    unsigned long long _peopleStartTimestamp;
     _Bool _sharedItemsAvailable;
     _Bool _otherActivityViewPresented;
     _Bool _darkStyleOnLegacyApp;
@@ -93,6 +95,10 @@
 @property(nonatomic) __weak NSObject<SFAirDropActivityViewControllerDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) CDStruct_4c969caf sendingApplicationAuditToken; // @synthesize sendingApplicationAuditToken=_sendingApplicationAuditToken;
 - (void).cxx_destruct;
+- (void)_emitTelemetryForPerson:(id)arg1;
+- (void)_collectTelemetryForPeople:(id)arg1;
+- (void)_stopTelemetry;
+- (void)_startTelemetry;
 - (void)cleanupWithSelectedActivityType:(id)arg1;
 - (void)handleOperationCallback:(struct __SFOperation *)arg1 event:(long long)arg2 withResults:(id)arg3;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;

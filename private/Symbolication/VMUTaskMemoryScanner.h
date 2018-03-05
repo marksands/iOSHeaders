@@ -43,11 +43,13 @@
     unsigned int _scanningMask;
     VMUDebugTimer *_debugTimer;
     _Bool _showRawClassNames;
+    _Bool _javaScriptCoreUsingPoisoning;
     NSString *_processName;
     NSString *_processDescriptionString;
     NSString *_binaryImagesDescription;
     unsigned long long _physicalFootprint;
     unsigned long long _physicalFootprintPeak;
+    unsigned long long _regionDescriptionOptions;
     CDUnknownBlockType _referenceLogger;
     CDUnknownBlockType _nodeLogger;
     _Bool _abandonedMarkingEnabled;

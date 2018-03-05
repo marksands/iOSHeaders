@@ -14,6 +14,7 @@
 + (void)_sendNotificationsAfterRunningBlock:(CDUnknownBlockType)arg1;
 + (id)client;
 + (_Bool)supportsCarrierServices;
++ (_Bool)isEmergencyCallbackPossible;
 + (void)endEmergencyCallbackMode;
 + (_Bool)isEmergencyCallbackModeEnabled;
 + (void)cancelPinRequestFromPrimaryDevice;

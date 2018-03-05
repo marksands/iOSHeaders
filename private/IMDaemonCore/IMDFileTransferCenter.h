@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSString *contextStamp; // @synthesize contextStamp=_contextStamp;
 - (_Bool)populateLocalURLsForTransfer:(id)arg1 fromCKRecord:(id)arg2;
 - (void)resetSyncStateForRecord:(id)arg1 toState:(long long)arg2;
+- (void)markTransferAsNotSyncSuccessfullyDownloadedFromCloud:(id)arg1;
 - (void)markTransferAsNotSyncSuccessFullyUsingCKRecord:(id)arg1;
 - (id)updateTransfersWithCKRecord:(id)arg1 recordWasFetched:(_Bool)arg2 downloadAsset:(_Bool *)arg3;
 - (_Bool)_usingStingRay;

@@ -114,6 +114,7 @@
 @property(retain, nonatomic) GEOABSecondPartyPlaceRequestClientMetaData *abClientMetadata;
 @property(readonly, nonatomic) _Bool hasAbClientMetadata;
 - (id)initWithTraits:(id)arg1;
+- (void)clearLocations;
 
 @end
 

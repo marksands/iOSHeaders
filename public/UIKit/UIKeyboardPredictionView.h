@@ -86,6 +86,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isTextSuggestion;
 - (double)heightBeforeStateChangeForInterfaceOrientation:(long long)arg1;
 - (double)heightForInterfaceOrientation:(long long)arg1;
+- (double)heightForInterfaceOrientation:(long long)arg1 state:(int)arg2;
 - (void)setPredictionViewState:(int)arg1 animate:(_Bool)arg2 notify:(_Bool)arg3;
 - (void)setPredictionViewState:(int)arg1 animate:(_Bool)arg2;
 - (void)suppressLayoutSubviewsForCellLabels:(_Bool)arg1;

@@ -19,6 +19,7 @@
 - (id)_nss_valueForQueryParameterWithKey:(id)arg1;
 - (id)_nss_URLByAppendingQueryItem:(id)arg1;
 - (id)nss_campaignID;
+- (id)nss_URLWithVideoTarget:(_Bool)arg1;
 - (id)nss_URLWithCampaignID:(id)arg1;
 - (_Bool)nss_isNewsTagURL;
 - (_Bool)nss_isNewsArticleVideoURL;

@@ -52,6 +52,7 @@
 @property(nonatomic) _Bool hasWaypointType;
 @property(nonatomic) int waypointType; // @synthesize waypointType=_waypointType;
 - (id)locationForWaypoint;
+- (void)clearLocations;
 
 @end
 

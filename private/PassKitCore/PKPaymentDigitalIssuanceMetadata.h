@@ -11,6 +11,7 @@
 @interface PKPaymentDigitalIssuanceMetadata : NSObject
 {
     NSString *_serviceProviderIdentifier;
+    NSString *_serviceProviderCountryCode;
     NSArray *_serviceProviderSupportedNetworks;
     NSArray *_serviceProviderCapabilities;
     NSDictionary *_serviceProviderDict;
@@ -23,6 +24,7 @@
 @property(readonly, copy, nonatomic) NSDictionary *serviceProviderDict; // @synthesize serviceProviderDict=_serviceProviderDict;
 @property(readonly, copy, nonatomic) NSArray *serviceProviderCapabilities; // @synthesize serviceProviderCapabilities=_serviceProviderCapabilities;
 @property(readonly, copy, nonatomic) NSArray *serviceProviderSupportedNetworks; // @synthesize serviceProviderSupportedNetworks=_serviceProviderSupportedNetworks;
+@property(readonly, copy, nonatomic) NSString *serviceProviderCountryCode; // @synthesize serviceProviderCountryCode=_serviceProviderCountryCode;
 @property(readonly, copy, nonatomic) NSString *serviceProviderIdentifier; // @synthesize serviceProviderIdentifier=_serviceProviderIdentifier;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;

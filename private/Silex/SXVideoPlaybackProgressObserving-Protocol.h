@@ -9,6 +9,7 @@
 @protocol SXVideoPlaybackProgressObserving <NSObject>
 @property(copy, nonatomic, setter=onReset:) CDUnknownBlockType resetBlock;
 @property(copy, nonatomic, setter=onProgressChanged:) CDUnknownBlockType progressChangedBlock;
+@property(readonly, nonatomic) double progress;
 @property(readonly, nonatomic) double duration;
 @property(readonly, nonatomic) double time;
 @end

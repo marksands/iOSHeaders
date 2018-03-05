@@ -26,6 +26,7 @@
     VMURangeToStringMap *_regionSymbolNameRanges;
     _Bool _gotObjcClassStructureRanges;
     _Bool _showRawClassNames;
+    _Bool _javaScriptCoreUsingPoisoning;
     NSDictionary *_pthreadOffsets;
     VMUNodeToStringMap *_nodeLabels;
     void *_userMarked;
@@ -33,8 +34,11 @@
     VMUDebugTimer *_debugTimer;
     unsigned long long _physicalFootprint;
     unsigned long long _physicalFootprintPeak;
+    _Bool _showsPhysFootprint;
 }
 
+@property(nonatomic) _Bool showsPhysFootprint; // @synthesize showsPhysFootprint=_showsPhysFootprint;
+@property(nonatomic) _Bool javaScriptCoreUsingPoisoning; // @synthesize javaScriptCoreUsingPoisoning=_javaScriptCoreUsingPoisoning;
 @property(nonatomic) unsigned long long physicalFootprintPeak; // @synthesize physicalFootprintPeak=_physicalFootprintPeak;
 @property(nonatomic) unsigned long long physicalFootprint; // @synthesize physicalFootprint=_physicalFootprint;
 @property(nonatomic) _Bool showRawClassNames; // @synthesize showRawClassNames=_showRawClassNames;

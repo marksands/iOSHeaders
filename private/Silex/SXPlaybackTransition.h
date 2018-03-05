@@ -6,24 +6,24 @@
 
 #import "NSObject.h"
 
-@class SXPlaybackTransitionContext, SXVideoItemViewController;
+@class SXPlaybackTransitionContext;
 
 @interface SXPlaybackTransition : NSObject
 {
-    SXVideoItemViewController *_fromVideoItemViewController;
-    SXVideoItemViewController *_toVideoItemViewController;
+    id <SXVideo> _fromVideo;
+    id <SXVideo> _toVideo;
     id <SXInteractivePlaybackTransitioning> _transitionCoordinator;
     SXPlaybackTransitionContext *_context;
 }
 
 @property(retain, nonatomic) SXPlaybackTransitionContext *context; // @synthesize context=_context;
 @property(readonly, nonatomic) id <SXInteractivePlaybackTransitioning> transitionCoordinator; // @synthesize transitionCoordinator=_transitionCoordinator;
-@property(readonly, nonatomic) SXVideoItemViewController *toVideoItemViewController; // @synthesize toVideoItemViewController=_toVideoItemViewController;
-@property(readonly, nonatomic) SXVideoItemViewController *fromVideoItemViewController; // @synthesize fromVideoItemViewController=_fromVideoItemViewController;
+@property(readonly, nonatomic) id <SXVideo> toVideo; // @synthesize toVideo=_toVideo;
+@property(readonly, nonatomic) id <SXVideo> fromVideo; // @synthesize fromVideo=_fromVideo;
 - (void).cxx_destruct;
 - (void)performTransitionWithVisibilityMonitor:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)cancel;
-- (id)initWithFromVideoItemViewController:(id)arg1 toVideoItemViewController:(id)arg2 transitionCoordinator:(id)arg3;
+- (id)initWithFromVideo:(id)arg1 toVideo:(id)arg2 transitionCoordinator:(id)arg3;
 
 @end
 

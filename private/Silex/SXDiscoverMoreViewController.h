@@ -33,6 +33,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) UIView *view;
+@property(readonly, nonatomic) UIViewController *viewController;
 
 @end
 

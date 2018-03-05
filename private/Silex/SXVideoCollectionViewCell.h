@@ -6,16 +6,20 @@
 
 #import "UICollectionViewCell.h"
 
-@class SXVideoItemViewController;
+@class SXPlaybackCoordinator, SXVideoView;
 
 @interface SXVideoCollectionViewCell : UICollectionViewCell
 {
-    SXVideoItemViewController *_viewController;
+    SXVideoView *_videoView;
+    SXPlaybackCoordinator *_playbackCoordinator;
 }
 
-@property(retain, nonatomic) SXVideoItemViewController *viewController; // @synthesize viewController=_viewController;
+@property(retain, nonatomic) SXPlaybackCoordinator *playbackCoordinator; // @synthesize playbackCoordinator=_playbackCoordinator;
+@property(readonly, nonatomic) SXVideoView *videoView; // @synthesize videoView=_videoView;
 - (void).cxx_destruct;
+- (void)prepareForReuse;
 - (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

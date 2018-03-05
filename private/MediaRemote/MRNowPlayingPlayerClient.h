@@ -69,7 +69,6 @@
 @property(copy, nonatomic) NSArray *supportedCommands;
 @property(retain, nonatomic) MRNowPlayingArtwork *nowPlayingArtwork;
 @property(copy, nonatomic) NSDictionary *nowPlayingInfo;
-- (void)dealloc;
 - (id)initWithPlayerPath:(id)arg1;
 
 @end

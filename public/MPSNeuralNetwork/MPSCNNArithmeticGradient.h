@@ -24,7 +24,7 @@
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
-@property(nonatomic) _Bool isSecondarySourceFilter; // @synthesize isSecondarySourceFilter=_isSecondarySourceFilter;
+@property(readonly, nonatomic) _Bool isSecondarySourceFilter; // @synthesize isSecondarySourceFilter=_isSecondarySourceFilter;
 @property(nonatomic) unsigned long long secondaryStrideInFeatureChannels; // @synthesize secondaryStrideInFeatureChannels=_secondaryStrideInFeatureChannels;
 @property(nonatomic) float maximumValue; // @synthesize maximumValue=_maximumValue;
 @property(nonatomic) float minimumValue; // @synthesize minimumValue=_minimumValue;
@@ -37,7 +37,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
-- (id)initWithDevice:(id)arg1 arithmeticType:(int)arg2;
+- (id)initWithDevice:(id)arg1 arithmeticType:(int)arg2 isSecondarySourceFilter:(_Bool)arg3;
 - (id)initWithDevice:(id)arg1;
 - (void)setSecondaryStrideInPixelsY:(unsigned long long)arg1;
 - (void)setSecondaryStrideInPixelsX:(unsigned long long)arg1;

@@ -18,6 +18,9 @@
 - (struct FilterGraphNode *)newFilterNode;
 - (void)dealloc;
 - (id)initWithSource:(id)arg1 dataSource:(id)arg2;
+- (id)resultStates;
+- (id)sourceStates;
+- (_Bool)calculateStatistics;
 
 @end
 

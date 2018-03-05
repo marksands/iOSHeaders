@@ -13,6 +13,8 @@
 }
 
 + (id)temporaryStateWithCommandBuffer:(id)arg1;
+- (void)dealloc;
+- (id)debugDescription;
 - (id)destinationImageDescriptorForSourceImages:(id)arg1 sourceStates:(id)arg2 forKernel:(id)arg3 suggestedDescriptor:(id)arg4;
 - (id)initWithResource:(id)arg1;
 

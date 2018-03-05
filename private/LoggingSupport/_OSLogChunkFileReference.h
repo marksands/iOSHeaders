@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-- (id)map:(id *)arg1;
+- (id)copyMappedChunkFile:(id *)arg1;
 - (void)dealloc;
 - (id)initWithCollection:(id)arg1 subpath:(const char *)arg2;
 

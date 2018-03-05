@@ -223,6 +223,7 @@
 @property(readonly, nonatomic) unsigned int maxRecordCountInModifyRecordsOperation;
 @property(readonly, nonatomic) unsigned int maxRecordCountInFetchRecordsOperation;
 @property(readonly, nonatomic) _Bool shouldFetchAllChanges;
+@property(readonly, nonatomic) unsigned long long maxPreservedXattrBlobSize;
 @property(readonly, nonatomic) unsigned long long maxXattrBlobSize;
 - (id)xpcActivityDictionaryForKey:(id)arg1 byDefault:(id)arg2;
 - (_Bool)boolForKey:(id)arg1 inheritFromGlobal:(_Bool)arg2 byDefault:(_Bool)arg3;

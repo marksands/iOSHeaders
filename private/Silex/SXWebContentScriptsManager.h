@@ -14,11 +14,13 @@
 {
     _Bool _readyToExecuteScripts;
     WKWebView *_webView;
+    id <SXWebContentLogger> _logger;
     NSMutableArray *_queuedExecutableScripts;
 }
 
 @property(nonatomic) _Bool readyToExecuteScripts; // @synthesize readyToExecuteScripts=_readyToExecuteScripts;
 @property(readonly, nonatomic) NSMutableArray *queuedExecutableScripts; // @synthesize queuedExecutableScripts=_queuedExecutableScripts;
+@property(readonly, nonatomic) id <SXWebContentLogger> logger; // @synthesize logger=_logger;
 @property(readonly, nonatomic) WKWebView *webView; // @synthesize webView=_webView;
 - (void).cxx_destruct;
 - (void)executeQueuedScripts;
@@ -27,7 +29,7 @@
 - (void)removeScript:(id)arg1;
 - (void)removeAllScripts;
 - (void)addScript:(id)arg1;
-- (id)initWithWebView:(id)arg1 documentStateProvider:(id)arg2;
+- (id)initWithWebView:(id)arg1 documentStateProvider:(id)arg2 logger:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

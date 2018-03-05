@@ -18,6 +18,7 @@
 }
 
 + (id)sharedInstance;
++ (id)logHandle;
 + (id)im_AKSecurityLevelKey;
 @property(nonatomic) _Bool useDeprecatedApi; // @synthesize useDeprecatedApi=_useDeprecatedApi;
 @property(retain, nonatomic) IMDefaults *imDefaults; // @synthesize imDefaults=_imDefaults;
@@ -53,9 +54,9 @@
 - (id)_personIdFromAccount:(id)arg1;
 - (void)fetchiCloudAccountPersonID:(CDUnknownBlockType)arg1;
 - (void)_fetchPrimaryAccountWithCompletion:(CDUnknownBlockType)arg1;
-- (void)setiCloudSettingsSwitchEnabled:(_Bool)arg1;
+- (void)_setiCloudSettingsSwitchEnabled:(_Bool)arg1;
+- (void)evalToggleiCloudSettingsSwitch;
 - (void)checkCloudkitEnabledStatusAndToggleiCloudSwitchIfNeeded;
-- (void)toggleiCloudSettingsSwitchForExitDate:(id)arg1 exitError:(id)arg2;
 - (id)_accountStore;
 - (void)resetLastSyncDate;
 - (_Bool)errorIndicatesUserDeletedZone:(id)arg1;
@@ -100,8 +101,13 @@
 - (_Bool)_serverAllowsCacheDelete;
 - (void)_resetKeepMessagesSettingandBroadcastToAllDevices;
 - (void)setCloudKitSyncingEnabled:(_Bool)arg1;
+- (_Bool)cloudKitSyncDownloadAssetsOnly;
 - (_Bool)cloudKitSyncingEnabled;
 - (long long)_mininimumServerBagClientValue;
+- (_Bool)_shouldiCloudSwitchBeEnabled;
+- (_Bool)_mocFeatureEnabled;
+- (_Bool)_isInExitState;
+- (_Bool)_serverAllowsSync;
 - (void)checkiCloudQuota:(CDUnknownBlockType)arg1;
 - (unsigned long long)messageDatabaseSize;
 - (void)isFirstSyncWithCompletion:(CDUnknownBlockType)arg1;
@@ -115,8 +121,7 @@
 - (id)initWithServerBag:(id)arg1 lockDownmanager:(id)arg2 deviceSupport:(id)arg3 imDefaults:(id)arg4;
 - (id)_truthDatabase;
 - (id)_truthContainer;
-- (void)account:(id)arg1 fetchCloudKitAccountStatusWithCompletion:(CDUnknownBlockType)arg2;
-- (_Bool)securityLevelIsEligibleForTruthZone:(unsigned long long)arg1;
+- (id)logHandle;
 - (void)fetchSecurityLevelForAccount:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (id)accountWithDSID:(id)arg1;
 - (id)accountDSID:(id)arg1;

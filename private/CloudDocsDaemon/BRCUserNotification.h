@@ -23,11 +23,11 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)showErrorDocumentsAppNotVisibleForShareURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)showErrorParticipantLimitReachedForShareURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)showErrorItemUnavailableOrAccessRestrictedForShareURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)showErrorServerNotReachableForShareURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)showErrorDeviceOfflineForShareURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)showErrorReasonUnknownForShareURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)showErrorParticipantLimitReachedForShareMetadata:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)showErrorItemUnavailableOrAccessRestrictedForShareMetadata:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)showErrorServerNotReachableForShareMetadata:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)showErrorDeviceOfflineForShareMetadata:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)showErrorReasonUnknownForShareMetadata:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)showErrorNativeAppDisabledByProfileForShareMetadata:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)showErrorInstallNativeAppForShareMetadata:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)showErrorTurnOniCloudDriveForShareMetadata:(id)arg1 reply:(CDUnknownBlockType)arg2;
@@ -35,9 +35,9 @@ __attribute__((visibility("hidden")))
 - (void)showJoinDialogForShareMetadata:(id)arg1 session:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)close;
 - (void)moveToFront;
-- (id)_localizationKey:(id)arg1 forOSAndDocumentKindOfApplication:(id)arg2;
+- (id)_localizationKey:(id)arg1 forOSAndTypeOfShare:(id)arg2;
 - (id)_localizationKeyForOS:(id)arg1;
-- (id)_localizationKey:(id)arg1 forDocumentKindOfApplication:(id)arg2;
+- (id)_localizationKey:(id)arg1 forTypeOfShare:(id)arg2;
 - (void)_updateDialogWithType:(unsigned long long)arg1 dict:(id)arg2 userReplyBlock:(CDUnknownBlockType)arg3;
 - (void)_updateDialogWithType:(unsigned long long)arg1 dict:(id)arg2;
 - (void)_displayDialogWithType:(unsigned long long)arg1 dict:(id)arg2 options:(id)arg3 userReplyBlock:(CDUnknownBlockType)arg4;

@@ -7,8 +7,10 @@
 #import "NSData.h"
 
 @interface NSData (NRUtils)
++ (id)fromUUID:(id)arg1;
 + (id)dataWithRandomBytesOfSize:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSData *NRSHA256;
 - (void)NRSHA256:(unsigned char [32])arg1;
+- (id)toUUID;
 @end
 

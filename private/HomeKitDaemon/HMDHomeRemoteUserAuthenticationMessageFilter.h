@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 - (id)logIdentifier;
 - (_Bool)acceptMessage:(id)arg1 target:(id)arg2 errorReason:(id *)arg3;
+- (_Bool)__shouldCheckMessage:(id)arg1;
 - (id)initWithHome:(id)arg1;
 
 // Remaining properties

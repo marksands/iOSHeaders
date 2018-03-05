@@ -21,7 +21,7 @@
 }
 
 @property(readonly, nonatomic) SXTimeline *timeline; // @synthesize timeline=_timeline;
-@property(readonly, nonatomic) id <NUVideoEventTracker> eventTracker; // @synthesize eventTracker=_eventTracker;
+@property(readonly, nonatomic) __weak id <NUVideoEventTracker> eventTracker; // @synthesize eventTracker=_eventTracker;
 @property(nonatomic) __weak id <SXVideoMetadataProviding> metadata; // @synthesize metadata=_metadata;
 @property(readonly, copy, nonatomic) id <NUVideoItem> videoItem; // @synthesize videoItem=_videoItem;
 @property(nonatomic) _Bool playbackHasStarted; // @synthesize playbackHasStarted=_playbackHasStarted;

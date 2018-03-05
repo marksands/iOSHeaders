@@ -13,7 +13,7 @@
 
 @interface PRSL2FeatureVector : NSObject <NSSecureCoding, NSCopying>
 {
-    float _features[1144];
+    float _features[1145];
     float *_expanded_floating_point_features;
     unsigned long long _expanded_floating_point_features_count;
     float _originalL2Score;

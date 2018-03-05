@@ -6,30 +6,24 @@
 
 #import "NSObject.h"
 
-#import "BBRemoteDataProvider.h"
 #import "HDDiagnosticObject.h"
 
-@class BBDataProviderConnection, BBDataProviderProxy, HDProfile, NSDate, NSHashTable, NSObject<OS_dispatch_queue>, NSString, UNUserNotificationCenter;
+@class HDProfile, NSDate, NSHashTable, NSObject<OS_dispatch_queue>, NSString, UNUserNotificationCenter;
 
-@interface HDNotificationManager : NSObject <BBRemoteDataProvider, HDDiagnosticObject>
+@interface HDNotificationManager : NSObject <HDDiagnosticObject>
 {
     HDProfile *_profile;
     NSHashTable *_observers;
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_observerQueue;
     NSObject<OS_dispatch_queue> *_resourceQueue;
-    BBDataProviderConnection *_dataProviderConnection;
-    UNUserNotificationCenter *_userNotificationCenter;
     NSDate *_lastNotificationDate;
-    BBDataProviderProxy *_providerProxy;
+    UNUserNotificationCenter *_userNotificationCenter;
 }
 
-@property(retain, nonatomic) BBDataProviderProxy *providerProxy; // @synthesize providerProxy=_providerProxy;
+@property(retain, nonatomic) UNUserNotificationCenter *userNotificationCenter; // @synthesize userNotificationCenter=_userNotificationCenter;
 - (void).cxx_destruct;
 - (id)diagnosticDescription;
-- (id)defaultSectionInfo;
-- (id)sectionIdentifier;
-- (id)sortDescriptors;
 - (void)_postBadgesDidUpdateNotification;
 - (CDUnknownBlockType)_objectCompletionOnClientQueue:(CDUnknownBlockType)arg1;
 - (CDUnknownBlockType)_actionCompletionOnClientQueue:(CDUnknownBlockType)arg1;
@@ -49,7 +43,7 @@
 - (void)setBadge:(id)arg1 forDomain:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)incrementBadgeForDomain:(long long)arg1 count:(long long)arg2 error:(out id *)arg3;
 - (void)badgeForDomain:(long long)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)setupBulletinBoardSettings;
+- (void)registerWithUserNotificationCenter;
 - (void)dealloc;
 - (id)initWithProfile:(id)arg1;
 

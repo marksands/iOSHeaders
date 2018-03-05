@@ -24,10 +24,12 @@
     CNManagedConfiguration *_managedConfiguration;
     NSArray *_keysToFetch;
     CNContact *_meContact;
+    struct CGRect _screenFrame;
 }
 
 + (id)keyPathsForValuesAffectingEffectiveFilter;
 + (_Bool)isErrorPossiblyRelatedToExtraStores:(id)arg1;
+@property(readonly, nonatomic) struct CGRect screenFrame; // @synthesize screenFrame=_screenFrame;
 @property(copy, nonatomic) CNContact *meContact; // @synthesize meContact=_meContact;
 @property(nonatomic) _Bool fetchUnified; // @synthesize fetchUnified=_fetchUnified;
 @property(retain, nonatomic) NSArray *keysToFetch; // @synthesize keysToFetch=_keysToFetch;

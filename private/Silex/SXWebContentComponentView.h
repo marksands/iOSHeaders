@@ -9,7 +9,7 @@
 #import "SXReachabilityObserver.h"
 #import "SXViewportChangeListener.h"
 
-@class NFPendingPromise, NFStateMachine, NSString, SXComponentExposureMonitor, SXWebContentComponentExposureEvent, SXWebContentComponentInteractionManager, SXWebContentContainerViewController, UIActivityIndicatorView, UILabel;
+@class NFPendingPromise, NFStateMachine, NSString, SXComponentExposureMonitor, SXWebContentComponentExposureEvent, SXWebContentComponentInteractionManager, SXWebContentContainerViewController, UIActivityIndicatorView, UILabel, UITapGestureRecognizer;
 
 @interface SXWebContentComponentView : SXComponentView <SXViewportChangeListener, SXReachabilityObserver>
 {
@@ -20,6 +20,7 @@
     id <SXReachabilityProvider> _reachabilityProvider;
     NFStateMachine *_stateMachine;
     UIActivityIndicatorView *_loadingIndicator;
+    UITapGestureRecognizer *_tapGestureRecognizer;
     UILabel *_errorLabel;
     NFPendingPromise *_invalidationPromise;
     SXComponentExposureMonitor *_componentExposureMonitor;
@@ -32,6 +33,7 @@
 @property(readonly, nonatomic) SXComponentExposureMonitor *componentExposureMonitor; // @synthesize componentExposureMonitor=_componentExposureMonitor;
 @property(retain, nonatomic) NFPendingPromise *invalidationPromise; // @synthesize invalidationPromise=_invalidationPromise;
 @property(retain, nonatomic) UILabel *errorLabel; // @synthesize errorLabel=_errorLabel;
+@property(readonly, nonatomic) UITapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
 @property(readonly, nonatomic) UIActivityIndicatorView *loadingIndicator; // @synthesize loadingIndicator=_loadingIndicator;
 @property(readonly, nonatomic) NFStateMachine *stateMachine; // @synthesize stateMachine=_stateMachine;
 @property(readonly, nonatomic) id <SXReachabilityProvider> reachabilityProvider; // @synthesize reachabilityProvider=_reachabilityProvider;
@@ -60,6 +62,7 @@
 - (void)submitExposureEvent;
 - (void)configureComponentExposureMonitor;
 - (void)configure;
+- (void)handleTap:(id)arg1;
 - (void)layoutSubviews;
 - (id)initWithDocumentController:(id)arg1 viewport:(id)arg2 presentationDelegate:(id)arg3 analyticsReporting:(id)arg4 componentStyleRendererFactory:(id)arg5 containerViewController:(id)arg6 configurationProvider:(id)arg7 navigationManager:(id)arg8 componentExposureMonitor:(id)arg9 interactionManagerFactory:(id)arg10 reachabilityProvider:(id)arg11;
 

@@ -18,6 +18,7 @@
     double _modificationDate;
     NSString *_accountIdentifier;
     NSString *_gatewayExternalID;
+    NSString *_patientHash;
     NSData *_syncIdentifier;
     _Bool _userEnabled;
     struct {
@@ -29,6 +30,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *patientHash; // @synthesize patientHash=_patientHash;
 @property(retain, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
 @property(nonatomic) double lastFullFetchDate; // @synthesize lastFullFetchDate=_lastFullFetchDate;
 @property(retain, nonatomic) NSData *syncIdentifier; // @synthesize syncIdentifier=_syncIdentifier;
@@ -47,6 +49,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasPatientHash;
 @property(readonly, nonatomic) _Bool hasAccountIdentifier;
 @property(nonatomic) _Bool hasLastFullFetchDate;
 @property(readonly, nonatomic) _Bool hasSyncIdentifier;

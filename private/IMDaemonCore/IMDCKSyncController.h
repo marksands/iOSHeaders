@@ -50,6 +50,7 @@
 - (void)_beginPeriodicSyncWithActivity:(id)arg1 shouldCheckDeviceConditions:(_Bool)arg2 attemptCount:(unsigned long long)arg3 useStingRay:(_Bool)arg4 syncChatsCompletionBlock:(CDUnknownBlockType)arg5;
 - (void)_beginPeriodicSyncWithActivity:(id)arg1 shouldCheckDeviceConditions:(_Bool)arg2 attemptCount:(unsigned long long)arg3;
 - (id)_recordManager;
+- (void)_reloadChatRegistryOnMainThread;
 - (void)_nukeCKData;
 - (void)_dealWithEncryptionKeyLostErrorIfApplicable:(id)arg1;
 - (_Bool)_errorIndicatesDeviceNotGoodForSync:(id)arg1;
@@ -84,7 +85,6 @@
 - (double)_IMAHDAgentFallbackIntervalInSeconds;
 - (void)_dispatchNotification:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)_dateForNext24LogDumpAtHour:(long long)arg1 timeNow:(id)arg2 dumpNow:(_Bool *)arg3;
-- (void)setupNoSyncTimer;
 - (void)registerForAccountNotifications;
 - (void)_accountDidChange:(id)arg1;
 - (void)registerForSyncStateChanges;

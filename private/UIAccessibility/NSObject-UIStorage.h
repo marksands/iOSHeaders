@@ -66,6 +66,8 @@
 - (_Bool)_accessibilityHandleMagicTapForPronunciation;
 - (void)_setAccessibilityIsRealtimeElementBlock:(CDUnknownBlockType)arg1;
 - (void)_setAccessibilityActivateBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityIncrementBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityDecrementBlock:(CDUnknownBlockType)arg1;
 - (void)_setAccessibilityGuideElementHeaderTextBlock:(CDUnknownBlockType)arg1;
 - (void)_setAccessibilityLinkedUIElementsBlock:(CDUnknownBlockType)arg1;
 - (void)_setAccessibilityElementsBlock:(CDUnknownBlockType)arg1;

@@ -7,11 +7,10 @@
 #import "UIViewController.h"
 
 #import "PKContactlessCardIngesterDelegate.h"
-#import "PKPaymentSetupRequiresPreflightProtocol.h"
 
-@class NSMutableDictionary, NSString, NSTimer, PKContactlessCardIngester, PKFileDownloader, PKPaymentContactlessProductCredential, PKPaymentPass, PKPaymentProvisioningController, PKPaymentSetupFieldsModel, PKPaymentSetupProduct, PKPaymentWebService, PKReaderModeProvisioningView, UIImage, UILabel, UIScrollView;
+@class NSMutableDictionary, NSString, NSTimer, PKContactlessCardIngester, PKPaymentContactlessProductCredential, PKPaymentPass, PKPaymentProvisioningController, PKPaymentSetupFieldsModel, PKPaymentSetupProduct, PKPaymentWebService, PKReaderModeProvisioningView, UILabel, UIScrollView;
 
-@interface PKPaymentReaderModeProvisioningViewController : UIViewController <PKContactlessCardIngesterDelegate, PKPaymentSetupRequiresPreflightProtocol>
+@interface PKPaymentReaderModeProvisioningViewController : UIViewController <PKContactlessCardIngesterDelegate>
 {
     PKReaderModeProvisioningView *_provisioningView;
     UIScrollView *_scrollView;
@@ -29,9 +28,6 @@
     NSString *_lastProvisioningStateName;
     _Bool _isGoodState;
     _Bool _idleTimerDisabled;
-    PKFileDownloader *_fileDownloader;
-    UIImage *_plasticCardImage;
-    UIImage *_digitalCardImage;
     PKPaymentProvisioningController *_provisioningController;
     long long _context;
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
@@ -85,10 +81,6 @@
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (id)getCardImageUrlFromMetadata:(id)arg1 forScale:(double)arg2;
-- (void)downloadCardImageFromMetaData:(id)arg1 forScale:(double)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)downloadDigitalCardImageWithCompletion:(CDUnknownBlockType)arg1;
-- (void)preflightWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithProvisioningController:(id)arg1 context:(long long)arg2 setupDelegate:(id)arg3 fieldsModel:(id)arg4 product:(id)arg5;
 

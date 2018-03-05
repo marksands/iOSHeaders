@@ -7,11 +7,11 @@
 #import <SplashBoard/XBApplicationSnapshotManifest.h>
 
 #import "BSDescriptionProviding.h"
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class BSAtomicSignal, BSTimer, NSFileManager, NSMutableArray, NSMutableDictionary, NSString, XBSnapshotContainerIdentity, XBSnapshotManifestIdentity;
 
-@interface XBApplicationSnapshotManifestImpl : XBApplicationSnapshotManifest <NSCoding, BSDescriptionProviding>
+@interface XBApplicationSnapshotManifestImpl : XBApplicationSnapshotManifest <NSSecureCoding, BSDescriptionProviding>
 {
     XBSnapshotContainerIdentity *_containerIdentity;
     XBSnapshotManifestIdentity *_identity;
@@ -27,6 +27,7 @@
     _Bool _archiveSchedulingQueue_scheduled;
 }
 
++ (_Bool)supportsSecureCoding;
 + (long long)_defaultOutputFormat;
 + (void)_configureSnapshot:(id)arg1 withCompatibilityInfo:(id)arg2 forLaunchRequest:(id)arg3;
 + (id)_snapshotPredicateForRequest:(id)arg1;
@@ -67,6 +68,8 @@
 - (id)_createSnapshotWithGroupID:(id)arg1 newSnapshotCreator:(CDUnknownBlockType)arg2;
 - (id)_createSnapshotWithGroupID:(id)arg1 generationContext:(id)arg2;
 - (id)_generatableSnapshotForGroupID:(id)arg1 generationContext:(id)arg2;
+- (_Bool)_invalidate;
+- (id)_snapshotGroupsByID;
 - (void)_queue_handleMemoryPressure;
 - (void)beginSnapshotAccessTransaction:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)deleteAllSnapshots;

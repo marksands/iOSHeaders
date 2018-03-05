@@ -58,6 +58,7 @@
 - (void)elementCoordinator:(id)arg1 didRemoveElement:(id)arg2 atIndexPath:(id)arg3;
 - (void)elementCoordinator:(id)arg1 didReloadElement:(id)arg2 atIndexPath:(id)arg3;
 - (void)elementCoordinator:(id)arg1 performBatchUpdateBlock:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_updateMetrics;
 - (void)_performOperations:(id)arg1 toSection:(unsigned long long)arg2;
 - (void)_performBatchUpdateUpdatingNoContent:(_Bool)arg1 usingBlock:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_performOrEnqueueOperation:(id)arg1;

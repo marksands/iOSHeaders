@@ -43,6 +43,7 @@ __attribute__((visibility("hidden")))
 
 + (void)removeObservationConnectionsForIdentifier:(unsigned long long)arg1;
 - (void)dealloc;
+- (void)cleanUpAfterAcceptingMessage:(id)arg1;
 - (id)acceptMessage:(id)arg1;
 - (void)attachSizeWarningsToReply:(id)arg1 forByteCount:(unsigned long long)arg2;
 - (void)handleNoPlistFound;

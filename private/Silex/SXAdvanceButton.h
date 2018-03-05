@@ -10,6 +10,7 @@
 {
 }
 
+- (id)accessibilityLabel;
 - (struct CGSize)intrinsicContentSize;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -6,13 +6,17 @@
 
 #import <PassKitUI/PKTableViewCell.h>
 
-@class UIImageView;
+@class UIImageView, UILabel;
 
 @interface PKPaymentSetupTableViewCell : PKTableViewCell
 {
+    UILabel *_betaLabel;
+    _Bool _showBetaBadge;
     UIImageView *_thumbnailImageView;
 }
 
++ (struct CGSize)defaultImageViewSize;
+@property(nonatomic) _Bool showBetaBadge; // @synthesize showBetaBadge=_showBetaBadge;
 @property(readonly, nonatomic) UIImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
 - (void).cxx_destruct;
 - (void)prepareForReuse;

@@ -13,6 +13,7 @@
     // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _meanDS
     // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _varDS
     id <MPSCNNBatchNormalizationDataSource> _dataSource;
+    _Bool _stateNeedsToLoad;
     float _epsilon;
     unsigned long long _numberOfFeatureChannels;
 }
@@ -21,13 +22,14 @@
 @property(readonly, retain, nonatomic) id <MPSCNNBatchNormalizationDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) float epsilon; // @synthesize epsilon=_epsilon;
 @property(readonly, nonatomic) unsigned long long numberOfFeatureChannels; // @synthesize numberOfFeatureChannels=_numberOfFeatureChannels;
+- (_Bool)isResultStateReusedAcrossBatch;
 - (id)debugDescription;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
 - (void)reloadGammaAndBetaWithCommandBuffer:(id)arg1 gammaAndBetaState:(id)arg2;
 - (void)reloadDataSource:(id)arg1;
-- (id)temporaryResultStateForCommandBuffer:(id)arg1 sourceImages:(struct NSArray *)arg2;
-- (id)resultStateForSourceImages:(struct NSArray *)arg1;
+- (id)temporaryResultStateForCommandBuffer:(id)arg1 sourceImage:(id)arg2 sourceStates:(id)arg3 destinationImage:(id)arg4;
+- (id)resultStateForSourceImage:(id)arg1 sourceStates:(id)arg2 destinationImage:(id)arg3;
 - (void)dealloc;
 - (struct NSArray *)encodeBatchToCommandBuffer:(id)arg1 sourceImages:(struct NSArray *)arg2 batchNormalizationState:(id)arg3;
 - (id)encodeToCommandBuffer:(id)arg1 sourceImage:(id)arg2 batchNormalizationState:(id)arg3;

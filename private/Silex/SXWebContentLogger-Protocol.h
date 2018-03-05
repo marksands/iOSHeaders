@@ -10,5 +10,6 @@
 
 @protocol SXWebContentLogger <NSObject>
 - (void)log:(NSString *)arg1;
+- (void)bindValue:(NSString *)arg1 forKey:(NSString *)arg2;
 @end
 

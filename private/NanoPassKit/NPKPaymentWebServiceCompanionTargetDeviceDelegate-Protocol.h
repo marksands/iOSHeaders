@@ -25,6 +25,6 @@
 - (void)handlePreferredAID:(NSString *)arg1 forPassWithUniqueID:(NSString *)arg2;
 - (void)handleUpdatePaymentPassWithTypeIdentifier:(NSString *)arg1;
 - (void)handlePushToken:(NSString *)arg1;
-- (void)handlePreconditionNotMetWithUniqueIDs:(NSArray *)arg1 shouldUnregister:(_Bool)arg2;
+- (void)handlePreconditionNotMetWithUniqueIDs:(NSArray *)arg1 preconditionDescription:(NSString *)arg2 shouldUnregister:(_Bool)arg3;
 @end
 

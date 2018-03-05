@@ -31,12 +31,14 @@
     UIView *_buttonTray;
     UIScrollView *_scrollView;
     NSArray *_onBoardingBundleIdentifiers;
+    long long _privacyLinkPosition;
     UIColor *_bleedColor;
     struct UIEdgeInsets _additionalInsets;
 }
 
 @property(nonatomic) _Bool usesTwoButtonLayout; // @synthesize usesTwoButtonLayout=_usesTwoButtonLayout;
 @property(retain, nonatomic) UIColor *bleedColor; // @synthesize bleedColor=_bleedColor;
+@property(nonatomic) long long privacyLinkPosition; // @synthesize privacyLinkPosition=_privacyLinkPosition;
 @property(copy, nonatomic) NSArray *onBoardingBundleIdentifiers; // @synthesize onBoardingBundleIdentifiers=_onBoardingBundleIdentifiers;
 @property(nonatomic) _Bool fullWidthContent; // @synthesize fullWidthContent=_fullWidthContent;
 @property(nonatomic, getter=isDarkMode) _Bool darkMode; // @synthesize darkMode=_darkMode;

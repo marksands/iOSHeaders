@@ -48,6 +48,7 @@
 + (id)keyNameForHighWaterMark;
 + (id)keyNameForReadingLocation;
 + (id)keyNameForRating;
++ (id)keyNameForCollectionID;
 + (id)keyNameForFirstOpened;
 + (id)keyNameForLastOpened;
 + (id)keyNameForYear;

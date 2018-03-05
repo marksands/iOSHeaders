@@ -17,6 +17,7 @@
 
 @property(retain, nonatomic) NUAdBannerView *mostRecentBannerView; // @synthesize mostRecentBannerView=_mostRecentBannerView;
 - (void).cxx_destruct;
+- (void)clearHistory;
 - (void)playbackStartedWithVideoItem:(id)arg1 metadata:(id)arg2;
 - (void)loadingFinishedForVideoAdWithMetadata:(id)arg1;
 

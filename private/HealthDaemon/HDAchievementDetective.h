@@ -117,7 +117,7 @@
 - (id)_runQueue_fetchAchievementsWithError:(id *)arg1;
 - (id)_runQueue_fetchWorkoutsSortedByEndDateFromStartDate:(id)arg1 toEndDate:(id)arg2 error:(id *)arg3;
 - (id)_fetchActivitySummariesOrderedByCacheIndexFromIndex:(long long)arg1 toIndex:(long long)arg2 error:(id *)arg3;
-- (id)dayEnvironmentsInDateInterval:(id)arg1;
+- (id)currentDateForMonthlyAggregatesEnvironment;
 - (id)aggregateEnvironmentForMonthOffsetFromNow:(long long)arg1;
 - (id)_gizmo_workoutsInDateRangeStart:(id)arg1 end:(id)arg2;
 - (id)_gizmo_workoutsOfType:(id)arg1;

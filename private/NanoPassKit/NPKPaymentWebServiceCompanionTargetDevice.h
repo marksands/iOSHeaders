@@ -53,6 +53,7 @@
 - (void)sendWebServiceContextToWatch:(id)arg1;
 - (void)sendPaymentOptionsDefaultsToWatch;
 - (void)paymentWebService:(id)arg1 handlePotentialExpressPass:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (_Bool)supportsCredentialType:(long long)arg1;
 - (_Bool)supportsExpressModeForExpressPassType:(long long)arg1;
 - (_Bool)felicaSecureElementIsAvailable;
 - (void)checkCompanionPeerPaymentRegistrationState:(id)arg1;

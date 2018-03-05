@@ -22,9 +22,12 @@
 @property(readonly, copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (void).cxx_destruct;
 - (id)accountForIdentifier:(id)arg1;
-- (id)permittedAccountsFromAccounts:(id)arg1;
-- (id)permittedAccountIdentifiersFromAccountIdentifiers:(id)arg1;
-- (_Bool)accountIsPermittedForIdentifier:(id)arg1;
+- (id)readableAccountsFromAccounts:(id)arg1;
+- (id)writableAccountsFromAccounts:(id)arg1;
+- (id)writableAccountIdentifiersFromIdentifiers:(id)arg1;
+- (id)readableAccountIdentifiersFromIdentifiers:(id)arg1;
+- (_Bool)canWriteToAccountWithIdentifier:(id)arg1;
+- (_Bool)canReadFromAccountWithIdentifier:(id)arg1;
 - (_Bool)accountIsManagedForIdentifier:(id)arg1;
 - (_Bool)accountIsManaged:(id)arg1;
 - (_Bool)allowsLocalAccount;

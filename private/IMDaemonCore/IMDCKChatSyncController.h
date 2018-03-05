@@ -43,10 +43,10 @@
 - (_Bool)_shouldMarkAllChatsAsNeedingReUpload;
 - (id)_recordKeyManagerSharedInstance;
 - (_Bool)_eligibleForTruthZone;
-- (id)_CKUtilitiesSharedInstance;
 - (void)deletChatSyncToken;
 - (void)deleteChatZone;
 - (void)anyChatExistsOnServerWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_anyChatExistsOnServerWithResultsLimit:(int)arg1 changeToken:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_syncChatsWithCloudKitWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_resetSyncToken;
 - (void)_processFetchRecordChangesCompleted:(id)arg1 completion:(CDUnknownBlockType)arg2 isUsingStingRay:(_Bool)arg3;

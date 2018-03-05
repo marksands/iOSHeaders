@@ -22,6 +22,7 @@
 @property(nonatomic) long long lastTrackedTouch; // @synthesize lastTrackedTouch=_lastTrackedTouch;
 @property(readonly, nonatomic) struct CGPoint mostRecentTapLocation; // @synthesize mostRecentTapLocation=_mostRecentTapLocation;
 @property(readonly, nonatomic) _Bool shouldBlockNavigation; // @synthesize shouldBlockNavigation=_shouldBlockNavigation;
+- (_Bool)canPreventGestureRecognizer:(id)arg1;
 - (_Bool)canBePreventedByGestureRecognizer:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 @property(readonly, nonatomic) _Bool wasViewTappedRecently;

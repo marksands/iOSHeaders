@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
     _Bool _fullScreen;
     _Bool _isEditing;
     _Bool _isTransitioningPage;
+    _Bool _hasTriggeredInteractiveTransitionAnimation;
     QLPageViewController *_pageViewController;
     id <QLPreviewControllerStateProtocol> _stateManager;
     UIPanGestureRecognizer *_slideGesture;
@@ -51,6 +52,7 @@ __attribute__((visibility("hidden")))
 + (void)previewCollectionUsingRemoteViewController:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)remotePreviewCollectionWithCompletionHandler:(CDUnknownBlockType)arg1;
 + (id)quickLookExtension;
+@property _Bool hasTriggeredInteractiveTransitionAnimation; // @synthesize hasTriggeredInteractiveTransitionAnimation=_hasTriggeredInteractiveTransitionAnimation;
 @property(retain) QLTransitionDriver *transitionDriver; // @synthesize transitionDriver=_transitionDriver;
 @property(retain) id <QLTransitionControllerProtocol> transitionController; // @synthesize transitionController=_transitionController;
 @property(retain) QLTransitionContext *transitionContext; // @synthesize transitionContext=_transitionContext;
@@ -107,7 +109,8 @@ __attribute__((visibility("hidden")))
 - (void)setSourceIsManaged:(_Bool)arg1;
 - (void)setLoadingString:(id)arg1;
 - (void)tearDownTransition:(_Bool)arg1;
-- (void)startTransitionWithSourceViewProvider:(id)arg1 transitionController:(id)arg2 presenting:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)startTransitionWithSourceViewProvider:(id)arg1 transitionController:(id)arg2 presenting:(_Bool)arg3 useInteractiveTransition:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)triggerInteractiveTransitionAnimationIfNeeded;
 - (void)keyCommandWasPerformed:(id)arg1;
 - (void)keyCommandsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)hostApplicationDidBecomeActive;

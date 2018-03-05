@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     _Bool _useZoneWidePCS;
     _Bool _useMMCSEncryptionV2;
     _Bool _bypassPCSEncryption;
+    _Bool _forceEnableReadOnlyManatee;
     _Bool _wantsSiloedContext;
     NSString *_applicationBundleID;
     NSString *_sourceApplicationBundleID;
@@ -26,6 +27,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) _Bool wantsSiloedContext; // @synthesize wantsSiloedContext=_wantsSiloedContext;
 @property(retain, nonatomic) NSString *containerEncryptionServiceName; // @synthesize containerEncryptionServiceName=_containerEncryptionServiceName;
+@property(nonatomic) _Bool forceEnableReadOnlyManatee; // @synthesize forceEnableReadOnlyManatee=_forceEnableReadOnlyManatee;
 @property(nonatomic) _Bool bypassPCSEncryption; // @synthesize bypassPCSEncryption=_bypassPCSEncryption;
 @property(nonatomic) _Bool useMMCSEncryptionV2; // @synthesize useMMCSEncryptionV2=_useMMCSEncryptionV2;
 @property(nonatomic) _Bool useZoneWidePCS; // @synthesize useZoneWidePCS=_useZoneWidePCS;

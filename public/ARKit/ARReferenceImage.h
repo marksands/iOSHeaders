@@ -11,7 +11,7 @@
 
 @class NSString, NSUUID;
 
-@interface ARReferenceImage : NSObject <NSCopying, NSSecureCoding>
+@interface ARReferenceImage : NSObject <NSSecureCoding, NSCopying>
 {
     NSString *_name;
     struct __CVBuffer *_pixelBuffer;

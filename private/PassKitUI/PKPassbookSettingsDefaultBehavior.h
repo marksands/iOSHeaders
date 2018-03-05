@@ -21,6 +21,7 @@
 - (void).cxx_destruct;
 - (_Bool)secureElementIsProductionSigned;
 - (id)deviceName;
+- (_Bool)supportsCredentialType:(long long)arg1;
 - (_Bool)hasFelicaSecureElement;
 - (id)peerPaymentDataSource;
 - (id)peerPaymentDelegate;

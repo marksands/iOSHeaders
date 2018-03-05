@@ -18,8 +18,10 @@
     id <SXVideoQueue> _queue;
     NSMutableArray *_updateBlocks;
     NSMutableArray *_modifiers;
+    id <SXVideo> _video;
 }
 
+@property(retain, nonatomic) id <SXVideo> video; // @synthesize video=_video;
 @property(readonly, nonatomic) NSMutableArray *modifiers; // @synthesize modifiers=_modifiers;
 @property(readonly, nonatomic) NSMutableArray *updateBlocks; // @synthesize updateBlocks=_updateBlocks;
 @property(copy, nonatomic) id <SXVideoQueue> queue; // @synthesize queue=_queue;

@@ -63,6 +63,7 @@
     _Bool _hasFinishedDownloading;
     _Bool _hasPerformedErrorResolution;
     _Bool _activeItem;
+    _Bool _externalDisplay;
     float _currentPlaybackRate;
     float _loudnessInfoVolumeNormalization;
     NSError *_itemError;
@@ -90,6 +91,7 @@
 + (void)setDefaultScaleMode:(long long)arg1;
 + (long long)defaultScaleMode;
 @property(copy, nonatomic) NSString *contentItemID; // @synthesize contentItemID=_contentItemID;
+@property(nonatomic, getter=hasExternalDisplay) _Bool externalDisplay; // @synthesize externalDisplay=_externalDisplay;
 @property(readonly, copy, nonatomic) NSString *storeFrontIdentifier; // @synthesize storeFrontIdentifier=_storeFrontIdentifier;
 @property(nonatomic, getter=isActiveItem) _Bool activeItem; // @synthesize activeItem=_activeItem;
 @property(copy, nonatomic) NSString *playerIdentifier; // @synthesize playerIdentifier=_playerIdentifier;

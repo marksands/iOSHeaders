@@ -8,6 +8,7 @@
 
 @interface NSString (SafariCoreExtras)
 + (void)safari_reverseEnumerateComponents:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (id)safari_stringByRedactingBookmarkDAVServerID;
 @property(readonly, copy, nonatomic) NSString *safari_userVisibleSafariBundleVersionFromFullVersion;
 @property(readonly, copy, nonatomic) NSString *safari_stringByNormalizingVersionString;
 @property(readonly, copy, nonatomic) NSString *safari_stringByReplacingHomoglyphForSpaceWithSpace;

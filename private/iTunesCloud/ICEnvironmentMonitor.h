@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSHashTable, NSObject<OS_dispatch_queue>, NSString, NWPathEvaluator;
+@class NSMapTable, NSObject<OS_dispatch_queue>, NSString, NWPathEvaluator;
 
 @interface ICEnvironmentMonitor : NSObject
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSObject<OS_dispatch_queue> *_calloutQueue;
-    NSHashTable *_observers;
+    NSMapTable *_observers;
     struct __CTServerConnection *_telephonyServerConnectionRef;
     NWPathEvaluator *_networkPathEvaluator;
     _Bool _isCharging;

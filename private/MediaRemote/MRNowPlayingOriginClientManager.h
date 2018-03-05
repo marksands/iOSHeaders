@@ -21,6 +21,7 @@
 - (void).cxx_destruct;
 - (void)removePlayer:(id)arg1;
 - (void)removeClient:(id)arg1;
+- (void)removeOriginRequests:(id)arg1;
 - (void)removeOrigin:(id)arg1;
 - (void)restoreNowPlayingClientState;
 - (id)existingPlayerClientRequestsForPlayerPath:(id)arg1;
@@ -31,7 +32,9 @@
 - (id)originClientRequestsForPlayerPath:(id)arg1;
 - (id)playerClientForPlayerPath:(id)arg1;
 - (id)clientForPlayerPath:(id)arg1;
+- (id)existingClientForPlayerPath:(id)arg1;
 - (id)originClientForPlayerPath:(id)arg1;
+- (id)existingOriginClientForPlayerPath:(id)arg1;
 - (id)originClientForOrigin:(id)arg1;
 - (id)localOriginClient;
 - (id)debugDescription;

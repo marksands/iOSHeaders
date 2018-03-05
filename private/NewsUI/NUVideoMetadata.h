@@ -18,7 +18,7 @@
     NSError *_error;
 }
 
-@property(retain, nonatomic) NSError *error; // @synthesize error=_error;
+@property(copy, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) double volume; // @synthesize volume=_volume;
 @property(nonatomic) _Bool muted; // @synthesize muted=_muted;
 @property(nonatomic) double duration; // @synthesize duration=_duration;

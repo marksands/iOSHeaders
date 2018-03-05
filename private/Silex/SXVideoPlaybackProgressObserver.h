@@ -15,12 +15,14 @@
 {
     double time;
     double duration;
+    double progress;
     CDUnknownBlockType resetBlock;
     CDUnknownBlockType progressChangedBlock;
 }
 
 @property(copy, nonatomic, setter=onProgressChanged:) CDUnknownBlockType progressChangedBlock; // @synthesize progressChangedBlock;
 @property(copy, nonatomic, setter=onReset:) CDUnknownBlockType resetBlock; // @synthesize resetBlock;
+@property(nonatomic) double progress; // @synthesize progress;
 @property(nonatomic) double duration; // @synthesize duration;
 @property(nonatomic) double time; // @synthesize time;
 - (void).cxx_destruct;

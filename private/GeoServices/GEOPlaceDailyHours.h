@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) struct _NSRange dayOfWeekRange; // @synthesize dayOfWeekRange=_dayOfWeekRange;
 - (void).cxx_destruct;
 - (id)_intervalContainingDate:(id)arg1 intervals:(id)arg2;
+- (_Bool)containsWeekday:(unsigned long long)arg1;
 - (id)dateIntervalInOpenIntervalsContainingDate:(id)arg1 withOpeningThreshold:(double)arg2;
 - (id)description;
 

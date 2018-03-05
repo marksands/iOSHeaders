@@ -14,8 +14,7 @@
     NSString *_name;
 }
 
-+ (id)gPTP1HopAvnu;
-+ (id)gPTP1HopApple;
++ (id)gPTP1Hop;
 + (id)gPTP7Hop;
 + (id)gPTPMask3;
 + (id)gPTPMask2;

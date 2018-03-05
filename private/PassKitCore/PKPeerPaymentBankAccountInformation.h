@@ -25,6 +25,7 @@
 - (void)_deleteBankAccountKeychainData;
 - (id)_bankAccountInformationInKeychain;
 - (void)_writeBankAccountInformationToKeychain;
+- (id)_wrapperWithType:(unsigned long long)arg1;
 - (id)description;
 - (void)updateToLatestKeychainData;
 - (_Bool)isValid;

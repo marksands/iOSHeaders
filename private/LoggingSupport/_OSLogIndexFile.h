@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long endTime; // @synthesize endTime=_et;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) const char *bootUUID;
-- (id)map:(id *)arg1;
+- (id)copyMappedChunkStore:(id *)arg1;
 - (_Bool)_loadCatalogMetadata;
 - (_Bool)_loadHeaderMetadata:(id)arg1;
 - (id)initWithChunkStore:(id)arg1 error:(id *)arg2;

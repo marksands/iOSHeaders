@@ -43,7 +43,7 @@
 - (void)handleRemoveTransactionsWithIdentifiers:(id)arg1;
 - (void)handleAppletState:(id)arg1 forUniqueID:(id)arg2;
 - (void)handlePaymentTransactions:(id)arg1 appletStates:(id)arg2 forUniqueIDs:(id)arg3;
-- (void)handlePreconditionNotMetWithUniqueIDs:(id)arg1 shouldUnregister:(_Bool)arg2;
+- (void)handlePreconditionNotMetWithUniqueIDs:(id)arg1 preconditionDescription:(id)arg2 shouldUnregister:(_Bool)arg3;
 - (void)handlePushToken:(id)arg1;
 - (void)_deviceFailedToPair:(id)arg1;
 - (id)_peerPaymentAccount;

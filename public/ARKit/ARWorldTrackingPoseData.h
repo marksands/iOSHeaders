@@ -15,7 +15,7 @@
 {
     double _timestamp;
     NSArray *_synchronizedResultData;
-    CDStruct_6cb448e8 _trackingState;
+    CDStruct_ca3abd1f _trackingState;
     // Error parsing type: {?="columns"[4]}, name: _visionCameraTransform
     // Error parsing type: {?="columns"[4]}, name: _cameraTransform
 }
@@ -25,7 +25,7 @@
 // Error parsing type for property cameraTransform:
 // Property attributes: T{?=[4]},N,V_cameraTransform
 
-@property(nonatomic) CDStruct_6cb448e8 trackingState; // @synthesize trackingState=_trackingState;
+@property(nonatomic) CDStruct_ca3abd1f trackingState; // @synthesize trackingState=_trackingState;
 // Error parsing type for property visionCameraTransform:
 // Property attributes: T{?=[4]},N,V_visionCameraTransform
 

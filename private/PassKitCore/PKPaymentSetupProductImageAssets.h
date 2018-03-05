@@ -6,25 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSURL;
+#import "NSCopying.h"
 
-@interface PKPaymentSetupProductImageAssets : NSObject
+@interface PKPaymentSetupProductImageAssets : NSObject <NSCopying>
 {
-    NSURL *_digitalCardImageUrl;
-    NSURL *_plasticCardImageUrl;
-    NSURL *_thumbnailImageUrl;
-    NSURL *_logoImageUrl;
+    struct CGImage *_digitalCardImage;
+    struct CGImage *_plasticCardImage;
+    struct CGImage *_thumbnailImage;
+    struct CGImage *_logoImage;
 }
 
-+ (_Bool)supportsSecureCoding;
-@property(readonly, nonatomic) NSURL *logoImageUrl; // @synthesize logoImageUrl=_logoImageUrl;
-@property(readonly, nonatomic) NSURL *thumbnailImageUrl; // @synthesize thumbnailImageUrl=_thumbnailImageUrl;
-@property(readonly, nonatomic) NSURL *plasticCardImageUrl; // @synthesize plasticCardImageUrl=_plasticCardImageUrl;
-@property(readonly, nonatomic) NSURL *digitalCardImageUrl; // @synthesize digitalCardImageUrl=_digitalCardImageUrl;
-- (void).cxx_destruct;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithImageAssetsDictionary:(id)arg1;
+@property(nonatomic) struct CGImage *logoImage; // @synthesize logoImage=_logoImage;
+@property(nonatomic) struct CGImage *thumbnailImage; // @synthesize thumbnailImage=_thumbnailImage;
+@property(nonatomic) struct CGImage *plasticCardImage; // @synthesize plasticCardImage=_plasticCardImage;
+@property(nonatomic) struct CGImage *digitalCardImage; // @synthesize digitalCardImage=_digitalCardImage;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

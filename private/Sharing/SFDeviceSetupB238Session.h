@@ -192,7 +192,8 @@
 - (void)_runSiriPasscodeInitResponse:(id)arg1 error:(id)arg2;
 - (void)_runSiriPasscodeInitRequest;
 - (int)_runSiriPasscode;
-- (int)_runAuthKitTrust;
+- (int)_runAuthKitTrustFinish;
+- (void)_runAuthKitTrustStartIfNeeded;
 - (int)_runShareSettings;
 - (int)_runTerms;
 - (int)_runPersonalRequests;
@@ -219,6 +220,7 @@
 - (void)siriLanguagePicked:(long long)arg1;
 - (void)siriEnable;
 - (void)shareSettingsAgreed;
+@property(readonly, nonatomic) NSString *selectedSiriLanguage;
 @property(readonly, nonatomic) HMHome *selectedHome;
 - (void)_preflightAppleMusicCompleted:(int)arg1;
 - (void)_preflightAppleMusic;

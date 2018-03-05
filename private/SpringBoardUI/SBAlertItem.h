@@ -24,6 +24,7 @@
     _Bool _allowInCar;
     _Bool _allowMessageInCar;
     _Bool _presented;
+    _Bool _ignoresQuietMode;
     NSString *_iconImagePath;
     NSString *_attachmentImagePath;
 }
@@ -33,6 +34,7 @@
 @property(retain, nonatomic, getter=_attachmentImagePath) NSString *attachmentImagePath; // @synthesize attachmentImagePath=_attachmentImagePath;
 @property(retain, nonatomic, getter=_iconImagePath) NSString *iconImagePath; // @synthesize iconImagePath=_iconImagePath;
 @property(nonatomic, getter=_isPresented, setter=_setPresented:) _Bool presented; // @synthesize presented=_presented;
+@property(nonatomic, setter=_setIgnoresQuietMode:) _Bool _ignoresQuietMode; // @synthesize _ignoresQuietMode;
 @property(nonatomic) _Bool allowMessageInCar; // @synthesize allowMessageInCar=_allowMessageInCar;
 @property(nonatomic) _Bool allowInCar; // @synthesize allowInCar=_allowInCar;
 @property(retain, nonatomic) NSArray *allowedBundleIDs; // @synthesize allowedBundleIDs=_allowedBundleIDs;

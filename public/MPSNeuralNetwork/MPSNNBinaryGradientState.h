@@ -36,7 +36,9 @@
     unsigned long long _primaryEdgeMode;
     unsigned long long _secondaryEdgeMode;
     CDStruct_da2e99ad _primarySrcSize;
+    unsigned long long _primarySourceFeatureChannels;
     CDStruct_da2e99ad _secondarySrcSize;
+    unsigned long long _secondarySourceFeatureChannels;
     _Bool _initOnce;
     unsigned int _provenance;
 }

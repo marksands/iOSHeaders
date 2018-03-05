@@ -18,7 +18,6 @@
 @property(readonly, nonatomic) NSObject<OS_os_log> *log; // @synthesize log=_log;
 - (void).cxx_destruct;
 - (void)XPCConnectionWasInvalidated;
-- (void)errorWhenRetrievingProxyForInterface:(id)arg1;
 - (void)XPCConnectionWasInterrupted;
 - (void)internalError:(id)arg1;
 - (void)SPIUsageLackingEntitlementRejectedForPID:(int)arg1;

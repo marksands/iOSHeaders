@@ -19,6 +19,7 @@
     _Bool _returnPCSMetadata;
     _Bool _useMMCSEncryptionV2;
     _Bool _bypassPCSEncryption;
+    _Bool _forceEnableReadOnlyManatee;
     _Bool _masqueradeAsThirdPartyApp;
     unsigned int _clientSDKVersion;
     CKContainerID *_containerID;
@@ -31,6 +32,7 @@
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool masqueradeAsThirdPartyApp; // @synthesize masqueradeAsThirdPartyApp=_masqueradeAsThirdPartyApp;
 @property(nonatomic) unsigned int clientSDKVersion; // @synthesize clientSDKVersion=_clientSDKVersion;
+@property(nonatomic) _Bool forceEnableReadOnlyManatee; // @synthesize forceEnableReadOnlyManatee=_forceEnableReadOnlyManatee;
 @property(nonatomic) _Bool bypassPCSEncryption; // @synthesize bypassPCSEncryption=_bypassPCSEncryption;
 @property(retain, nonatomic) NSString *containerEncryptionServiceName; // @synthesize containerEncryptionServiceName=_containerEncryptionServiceName;
 @property(nonatomic) _Bool useMMCSEncryptionV2; // @synthesize useMMCSEncryptionV2=_useMMCSEncryptionV2;

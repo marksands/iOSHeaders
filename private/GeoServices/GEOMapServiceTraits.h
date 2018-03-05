@@ -268,6 +268,8 @@
 @property(nonatomic) _Bool hasSessionId;
 - (void)dealloc;
 - (int)uiActionType;
+- (void)clearLocations;
+- (void)clearSessionId;
 
 @end
 

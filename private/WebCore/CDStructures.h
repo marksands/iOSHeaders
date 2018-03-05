@@ -234,10 +234,6 @@ struct Color {
     } _field1;
 };
 
-struct CompletionHandler<void (WebCore::ResourceRequest &&)> {
-    struct Function<void (WebCore::ResourceRequest &&)> _field1;
-};
-
 struct ContainerNode;
 
 struct CurrentFramePainter {
@@ -424,10 +420,6 @@ struct Frame;
 
 struct Function<void ()> {
     struct unique_ptr<WTF::Function<void ()>::CallableWrapperBase, std::__1::default_delete<WTF::Function<void ()>::CallableWrapperBase>> m_callableWrapper;
-};
-
-struct Function<void (WebCore::ResourceRequest &&)> {
-    struct unique_ptr<WTF::Function<void (WebCore::ResourceRequest &&)>::CallableWrapperBase, std::__1::default_delete<WTF::Function<void (WebCore::ResourceRequest &&)>::CallableWrapperBase>> _field1;
 };
 
 struct Function<void (bool)> {
@@ -772,6 +764,10 @@ struct HashSet<JSC::Bindings::RootObject::InvalidationCallback *, WTF::PtrHash<J
     struct HashTable<JSC::Bindings::RootObject::InvalidationCallback *, JSC::Bindings::RootObject::InvalidationCallback *, WTF::IdentityExtractor, WTF::PtrHash<JSC::Bindings::RootObject::InvalidationCallback *>, WTF::HashTraits<JSC::Bindings::RootObject::InvalidationCallback *>, WTF::HashTraits<JSC::Bindings::RootObject::InvalidationCallback *>> _field1;
 };
 
+struct HashSet<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>, WTF::SchedulePairHash, WTF::HashTraits<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>>> {
+    struct HashTable<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>, WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>, WTF::IdentityExtractor, WTF::SchedulePairHash, WTF::HashTraits<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>>, WTF::HashTraits<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>>> m_impl;
+};
+
 struct HashSet<WTF::RetainPtr<WebCoreNSURLSessionDataTask>, WTF::PtrHash<WTF::RetainPtr<WebCoreNSURLSessionDataTask>>, WTF::HashTraits<WTF::RetainPtr<WebCoreNSURLSessionDataTask>>> {
     struct HashTable<WTF::RetainPtr<WebCoreNSURLSessionDataTask>, WTF::RetainPtr<WebCoreNSURLSessionDataTask>, WTF::IdentityExtractor, WTF::PtrHash<WTF::RetainPtr<WebCoreNSURLSessionDataTask>>, WTF::HashTraits<WTF::RetainPtr<WebCoreNSURLSessionDataTask>>, WTF::HashTraits<WTF::RetainPtr<WebCoreNSURLSessionDataTask>>> m_impl;
 };
@@ -846,6 +842,14 @@ struct HashTable<WTF::ListHashSetNode<unsigned int>*, WTF::ListHashSetNode<unsig
     unsigned int _field3;
     unsigned int _field4;
     unsigned int _field5;
+};
+
+struct HashTable<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>, WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>, WTF::IdentityExtractor, WTF::SchedulePairHash, WTF::HashTraits<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>>, WTF::HashTraits<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>>> {
+    struct RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>> *m_table;
+    unsigned int m_tableSize;
+    unsigned int m_tableSizeMask;
+    unsigned int m_keyCount;
+    unsigned int m_deletedCount;
 };
 
 struct HashTable<WTF::RetainPtr<WebCoreNSURLSessionDataTask>, WTF::RetainPtr<WebCoreNSURLSessionDataTask>, WTF::IdentityExtractor, WTF::PtrHash<WTF::RetainPtr<WebCoreNSURLSessionDataTask>>, WTF::HashTraits<WTF::RetainPtr<WebCoreNSURLSessionDataTask>>, WTF::HashTraits<WTF::RetainPtr<WebCoreNSURLSessionDataTask>>> {
@@ -1331,13 +1335,7 @@ struct PlatformCALayer {
 
 struct PlatformCALayerClient;
 
-struct PlatformMediaResource {
-    CDUnknownFunctionPointerType *_field1;
-    unsigned int _field2;
-    struct unique_ptr<WebCore::PlatformMediaResourceClient, std::__1::default_delete<WebCore::PlatformMediaResourceClient>> _field3;
-};
-
-struct PlatformMediaResourceClient;
+struct PlatformMediaResource;
 
 struct PlatformMediaResourceLoader;
 
@@ -1432,6 +1430,8 @@ struct RefPtr<VideoFullscreenControllerContext, WTF::DumbPtrTraits<VideoFullscre
 struct RefPtr<WTF::Logger, WTF::DumbPtrTraits<WTF::Logger>> {
     struct Logger *_field1;
 };
+
+struct RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>;
 
 struct RefPtr<WTF::StringImpl, WTF::DumbPtrTraits<WTF::StringImpl>> {
     struct StringImpl *m_ptr;
@@ -1639,16 +1639,6 @@ struct RemoteCommandListener;
 
 struct RenderObject;
 
-struct ResourceError {
-    struct String _field1;
-    struct URL _field2;
-    struct String _field3;
-    int _field4;
-    int _field5;
-    _Bool _field6;
-    struct RetainPtr<NSError> _field7;
-};
-
 struct ResourceHandle {
     CDUnknownFunctionPointerType *_field1;
     unsigned int _field2;
@@ -1675,9 +1665,11 @@ struct ResourceLoader {
     int _field15;
     _Bool _field16;
     _Bool _field17;
-    struct ResourceRequest _field18;
-    struct ResourceLoaderOptions _field19;
-    unsigned short _field20;
+    _Bool _field18;
+    _Bool _field19;
+    struct ResourceRequest _field20;
+    struct ResourceLoaderOptions _field21;
+    unsigned short _field22;
 };
 
 struct ResourceLoaderOptions {
@@ -1816,10 +1808,6 @@ struct RetainPtr<NSCachedURLResponse> {
 
 struct RetainPtr<NSData> {
     void *m_ptr;
-};
-
-struct RetainPtr<NSError> {
-    void *_field1;
 };
 
 struct RetainPtr<NSItemProvider> {
@@ -2434,6 +2422,11 @@ struct array<unsigned char, 20> {
     unsigned char __elems_[20];
 };
 
+struct optional<WTF::HashSet<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>, WTF::SchedulePairHash, WTF::HashTraits<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>>>> {
+    _Bool init_;
+    union storage_t<WTF::HashSet<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>, WTF::SchedulePairHash, WTF::HashTraits<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>>>> storage_;
+};
+
 struct optional<WTF::MediaTime> {
     _Bool _field1;
     union storage_t<WTF::MediaTime> _field2;
@@ -2534,12 +2527,6 @@ struct unique_ptr<WTF::Function<void ()>::CallableWrapperBase, std::__1::default
     } __ptr_;
 };
 
-struct unique_ptr<WTF::Function<void (WebCore::ResourceRequest &&)>::CallableWrapperBase, std::__1::default_delete<WTF::Function<void (WebCore::ResourceRequest &&)>::CallableWrapperBase>> {
-    struct __compressed_pair<WTF::Function<void (WebCore::ResourceRequest &&)>::CallableWrapperBase *, std::__1::default_delete<WTF::Function<void (WebCore::ResourceRequest &&)>::CallableWrapperBase>> {
-        struct CallableWrapperBase *_field1;
-    } _field1;
-};
-
 struct unique_ptr<WTF::Function<void (bool)>::CallableWrapperBase, std::__1::default_delete<WTF::Function<void (bool)>::CallableWrapperBase>> {
     struct __compressed_pair<WTF::Function<void (bool)>::CallableWrapperBase *, std::__1::default_delete<WTF::Function<void (bool)>::CallableWrapperBase>> {
         struct CallableWrapperBase *_field1;
@@ -2591,12 +2578,6 @@ struct unique_ptr<WebCore::MediaElementSession, std::__1::default_delete<WebCore
 struct unique_ptr<WebCore::PixelBufferConformerCV, std::__1::default_delete<WebCore::PixelBufferConformerCV>> {
     struct __compressed_pair<WebCore::PixelBufferConformerCV *, std::__1::default_delete<WebCore::PixelBufferConformerCV>> {
         struct PixelBufferConformerCV *_field1;
-    } _field1;
-};
-
-struct unique_ptr<WebCore::PlatformMediaResourceClient, std::__1::default_delete<WebCore::PlatformMediaResourceClient>> {
-    struct __compressed_pair<WebCore::PlatformMediaResourceClient *, std::__1::default_delete<WebCore::PlatformMediaResourceClient>> {
-        struct PlatformMediaResourceClient *_field1;
     } _field1;
 };
 
@@ -2658,10 +2639,6 @@ typedef struct {
 } CDStruct_198678f7;
 
 // Template types
-typedef struct CompletionHandler<void (WebCore::ResourceRequest &&)> {
-    struct Function<void (WebCore::ResourceRequest &&)> _field1;
-} CompletionHandler_1797e72a;
-
 typedef struct Function<void ()> {
     struct unique_ptr<WTF::Function<void ()>::CallableWrapperBase, std::__1::default_delete<WTF::Function<void ()>::CallableWrapperBase>> m_callableWrapper;
 } Function_89d21b48;
@@ -2748,6 +2725,11 @@ union constexpr_storage_t<unsigned int> {
 union constexpr_storage_t<unsigned long long> {
     unsigned char dummy_;
     unsigned long long value_;
+};
+
+union storage_t<WTF::HashSet<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>, WTF::SchedulePairHash, WTF::HashTraits<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>>>> {
+    unsigned char dummy_;
+    struct HashSet<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>, WTF::SchedulePairHash, WTF::HashTraits<WTF::RefPtr<WTF::SchedulePair, WTF::DumbPtrTraits<WTF::SchedulePair>>>> value_;
 };
 
 union storage_t<WTF::MediaTime> {

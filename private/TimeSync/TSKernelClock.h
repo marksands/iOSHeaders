@@ -22,6 +22,7 @@
 + (id)diagnosticDescriptionForService:(unsigned int)arg1 withIndent:(id)arg2;
 + (id)iokitMatchingDictionaryForClockIdentifier:(unsigned long long)arg1;
 + (id)availableKernelClockIdentifiers;
+- (id)diagnosticDescriptionWithIndent:(id)arg1;
 - (void)dealloc;
 - (id)clockName;
 - (void)_handleInterestNotification:(unsigned int)arg1 withArgument:(void *)arg2;

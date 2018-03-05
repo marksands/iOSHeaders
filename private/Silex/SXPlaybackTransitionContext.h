@@ -8,21 +8,21 @@
 
 #import "SXPlaybackTransitionContext.h"
 
-@class NSString, SXVideoItemViewController;
+@class NSString;
 
 @interface SXPlaybackTransitionContext : NSObject <SXPlaybackTransitionContext>
 {
-    SXVideoItemViewController *_fromViewController;
-    SXVideoItemViewController *_toViewController;
+    id <SXVideo> _fromVideo;
+    id <SXVideo> _toVideo;
     CDUnknownBlockType _completionBlock;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
-@property(readonly, nonatomic) SXVideoItemViewController *toViewController; // @synthesize toViewController=_toViewController;
-@property(readonly, nonatomic) SXVideoItemViewController *fromViewController; // @synthesize fromViewController=_fromViewController;
+@property(readonly, nonatomic) id <SXVideo> toVideo; // @synthesize toVideo=_toVideo;
+@property(readonly, nonatomic) id <SXVideo> fromVideo; // @synthesize fromVideo=_fromVideo;
 - (void).cxx_destruct;
 - (void)completeTransition:(_Bool)arg1;
-- (id)initWithFromViewController:(id)arg1 toViewController:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (id)initWithFromVideo:(id)arg1 toVideo:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

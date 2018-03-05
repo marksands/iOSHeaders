@@ -158,6 +158,7 @@
 - (_Bool)_isAccessoryServerTombstoned:(id)arg1;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
+- (id)messageDestination;
 - (void)_sendPairingCompletionStatusForServer:(id)arg1 error:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_updatePairingRetryTimerForAccessory:(id)arg1 delay:(long long)arg2;
 - (void)_promptForPairingPasswordForServer:(id)arg1 reason:(id)arg2;

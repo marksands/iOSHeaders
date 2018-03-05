@@ -7,11 +7,11 @@
 #import "NSObject.h"
 
 #import "BSDescriptionProviding.h"
-#import "NSCoding.h"
+#import "NSSecureCoding.h"
 
 @class NSDate, NSDictionary, NSMutableDictionary, NSString, UIImage, XBApplicationSnapshotGenerationContext, XBSnapshotContainerIdentity, XBStatusBarSettings;
 
-@interface XBApplicationSnapshot : NSObject <NSCoding, BSDescriptionProviding>
+@interface XBApplicationSnapshot : NSObject <NSSecureCoding, BSDescriptionProviding>
 {
     XBSnapshotContainerIdentity *_containerIdentity;
     id <XBSnapshotManifestStore> _store;
@@ -55,9 +55,12 @@
     struct CGAffineTransform _imageTransform;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)dataForImage:(id)arg1 withFormat:(long long)arg2;
 + (id)normalizeSnapshotName:(id)arg1;
 @property(nonatomic) struct CGAffineTransform imageTransform; // @synthesize imageTransform=_imageTransform;
+@property(nonatomic) long long fileLocation; // @synthesize fileLocation=_fileLocation;
+@property(copy, nonatomic, getter=_relativePath, setter=_setRelativePath:) NSString *relativePath; // @synthesize relativePath=_relativePath;
 @property(nonatomic) long long imageOrientation; // @synthesize imageOrientation=_imageOrientation;
 @property(nonatomic, getter=isImageOpaque) _Bool imageOpaque; // @synthesize imageOpaque=_imageOpaque;
 @property(nonatomic) double imageScale; // @synthesize imageScale=_imageScale;
@@ -77,7 +80,8 @@
 @property(retain, nonatomic) NSDate *lastUsedDate; // @synthesize lastUsedDate=_lastUsedDate;
 @property(readonly, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(readonly, nonatomic) long long fileFormat; // @synthesize fileFormat=_fileFormat;
-@property(nonatomic) long long fileLocation; // @synthesize fileLocation=_fileLocation;
+@property(copy, nonatomic, getter=filename, setter=_setFilename:) NSString *filename; // @synthesize filename=_filename;
+@property(copy, nonatomic, setter=_setPath:) NSString *path; // @synthesize path=_path;
 @property(copy, nonatomic) NSString *requiredOSVersion; // @synthesize requiredOSVersion=_requiredOSVersion;
 @property(copy, nonatomic) NSString *scheme; // @synthesize scheme=_scheme;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
@@ -130,9 +134,9 @@
 @property(readonly, nonatomic) _Bool hasProtectedContent;
 @property(readonly, nonatomic, getter=isExpired) _Bool expired;
 @property(readonly, nonatomic) _Bool fileExists;
-@property(readonly, copy, nonatomic) NSString *filename; // @synthesize filename=_filename;
-@property(readonly, copy, nonatomic) NSString *path; // @synthesize path=_path;
 @property(retain, nonatomic) NSDate *expirationDate; // @dynamic expirationDate;
+- (void)_setFileLocation:(long long)arg1;
+- (long long)_fileLocation;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 @property(readonly, copy) NSString *description;

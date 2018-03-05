@@ -15,7 +15,7 @@
     id <NUVideoViewControllerCloseAnimatorDataSource> _dataSource;
 }
 
-@property(readonly, nonatomic) __weak id <NUVideoViewControllerCloseAnimatorDataSource> dataSource; // @synthesize dataSource=_dataSource;
+@property(readonly, nonatomic) id <NUVideoViewControllerCloseAnimatorDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (void)animateTransition:(id)arg1;
 - (double)transitionDuration:(id)arg1;

@@ -6,8 +6,12 @@
 
 #import "NSSet.h"
 
+@class NSString;
+
 @interface NSSet (CRKAdditions)
 - (id)crk_mapUsingBlock:(CDUnknownBlockType)arg1;
+- (id)crk_setByAddingSet:(id)arg1;
 - (id)crk_setBySubtractingSet:(id)arg1;
+@property(readonly, copy, nonatomic) NSString *crk_stableDescription;
 @end
 

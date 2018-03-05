@@ -11,6 +11,7 @@
 @interface ADAdSheetConnection : NSObject
 {
     id <ADAdSheetConnectionDelegate> _delegate;
+    id <NSObject> _sheetLaunchedNotificationObserver;
     NSMutableArray *_performWhenConnectedBlocks;
     NSObject<OS_dispatch_queue> *_connectionQueue;
     NSXPCConnection *_adSheetConnection;

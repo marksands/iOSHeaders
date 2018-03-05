@@ -11,7 +11,7 @@
 #import "MPAVPlaylistManagerDelegate.h"
 #import "MPAVRoutingControllerDelegate.h"
 
-@class AVAudioSessionMediaPlayerOnly, AVPictureInPictureController, AVPlayerLayer, MPAVItem, MPAVPlaylistManager, MPAVQueueCoordinator, MPAVRoute, MPAVRoutingController, MPMediaItem, MPMediaQuery, MPQueueFeeder, MPQueuePlayer, MPVideoView, NSArray, NSDate, NSMapTable, NSMutableArray, NSMutableSet, NSNotification, NSObject<OS_dispatch_source>, NSString;
+@class AVAudioSessionMediaPlayerOnly, AVPictureInPictureController, AVPlayerLayer, MPAVItem, MPAVPlaylistManager, MPAVPolicyEnforcer, MPAVQueueCoordinator, MPAVRoute, MPAVRoutingController, MPMediaItem, MPMediaQuery, MPQueueFeeder, MPQueuePlayer, MPVideoView, NSArray, NSDate, NSMapTable, NSMutableArray, NSMutableSet, NSNotification, NSObject<OS_dispatch_source>, NSString;
 
 @interface MPAVController : NSObject <AVAudioSessionDelegateMediaPlayerOnly, ICEnvironmentMonitorObserver, MPAVPlaylistManagerDelegate, MPAVRoutingControllerDelegate>
 {
@@ -121,6 +121,8 @@
     _Bool _useAirPlayMusicMode;
     _Bool _managesAirPlayBehaviors;
     _Bool _wantsPictureInPicture;
+    _Bool _automaticallyHidesVideoLayersForMusicVideosWhenApplicationBackgrounds;
+    MPAVPolicyEnforcer *_policyEnforcer;
     MPQueuePlayer *_queuePlayer;
     MPAVQueueCoordinator *_queueCoordinator;
     NSString *_identifier;
@@ -137,6 +139,7 @@
 + (_Bool)isNetworkSupportedPath:(id)arg1;
 + (void)initialize;
 @property(nonatomic) _Bool shouldEnforceHDCP; // @synthesize shouldEnforceHDCP=_shouldEnforceHDCP;
+@property(nonatomic) _Bool automaticallyHidesVideoLayersForMusicVideosWhenApplicationBackgrounds; // @synthesize automaticallyHidesVideoLayersForMusicVideosWhenApplicationBackgrounds=_automaticallyHidesVideoLayersForMusicVideosWhenApplicationBackgrounds;
 @property(readonly, nonatomic) AVPictureInPictureController *pictureInPictureController; // @synthesize pictureInPictureController=_pictureInPictureController;
 @property(nonatomic) _Bool wantsPictureInPicture; // @synthesize wantsPictureInPicture=_wantsPictureInPicture;
 @property(nonatomic) _Bool managesAirPlayBehaviors; // @synthesize managesAirPlayBehaviors=_managesAirPlayBehaviors;
@@ -147,6 +150,7 @@
 @property(nonatomic) double nextFadeOutDuration; // @synthesize nextFadeOutDuration=_nextFadeOutDuration;
 @property(retain, nonatomic) MPAVQueueCoordinator *queueCoordinator; // @synthesize queueCoordinator=_queueCoordinator;
 @property(retain, nonatomic) MPQueuePlayer *queuePlayer; // @synthesize queuePlayer=_queuePlayer;
+@property(retain, nonatomic) MPAVPolicyEnforcer *policyEnforcer; // @synthesize policyEnforcer=_policyEnforcer;
 @property(nonatomic) long long state; // @synthesize state=_state;
 @property(nonatomic) long long playbackMode; // @synthesize playbackMode=_playbackMode;
 @property(readonly, nonatomic) unsigned long long bufferingState; // @synthesize bufferingState=_bufferingState;
@@ -179,6 +183,7 @@
 - (void)_updateCurrentItemHasFinishedDownloading;
 - (void)_unregisterForAVItemNotifications:(id)arg1;
 - (void)_setValid:(_Bool)arg1;
+- (void)_setVideoLayersEnabledForCurrentPlayerItemIfNeeded:(_Bool)arg1;
 - (void)_setVideoLayerAttachedToPlayer:(_Bool)arg1 force:(_Bool)arg2 pauseIfNecessary:(_Bool)arg3;
 - (_Bool)_isVideoLayerAttachedToPlayer;
 - (void)_setState:(long long)arg1;
@@ -238,6 +243,7 @@
 - (void)_canPlayFastReverseDidChange:(id)arg1;
 - (void)_canPlayFastForwardDidChange:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)_delegateAuthorizationForItem:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_contentsChanged;
 - (void)_networkChangedNotification:(id)arg1;
 - (void)_streamLimitExceeded:(long long)arg1;

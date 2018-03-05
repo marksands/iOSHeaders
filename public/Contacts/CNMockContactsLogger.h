@@ -20,7 +20,6 @@ __attribute__((visibility("hidden")))
 - (void)internalError:(id)arg1;
 - (void)SPIUsageLackingEntitlementRejectedForPID:(int)arg1;
 - (void)SPIUsageLackingEntitlementGrantedForPID:(int)arg1;
-- (void)errorWhenRetrievingProxyForInterface:(id)arg1;
 - (void)serviceError:(id)arg1;
 - (void)updatingContact:(id)arg1;
 - (void)deletingContact:(id)arg1;

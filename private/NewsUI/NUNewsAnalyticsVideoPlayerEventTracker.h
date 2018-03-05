@@ -22,12 +22,14 @@
     id <NSSNewsAnalyticsSessionManager> _sessionManager;
     NSArray *_videoItems;
     NSData *_leadingVideoItemSessionID;
+    id <NUVideoItem> _currentVideo;
     NTPBEvent *_articleHostViewExposureEvent;
 }
 
 @property(nonatomic, getter=isVideoPlayerVisible) _Bool videoPlayerIsVisible; // @synthesize videoPlayerIsVisible=_videoPlayerIsVisible;
 @property(retain, nonatomic) NTPBEvent *articleHostViewExposureEvent; // @synthesize articleHostViewExposureEvent=_articleHostViewExposureEvent;
 @property(nonatomic) int currentVideoPlayMethod; // @synthesize currentVideoPlayMethod=_currentVideoPlayMethod;
+@property(copy, nonatomic) id <NUVideoItem> currentVideo; // @synthesize currentVideo=_currentVideo;
 @property(nonatomic) _Bool playbackFinishedForLastVideo; // @synthesize playbackFinishedForLastVideo=_playbackFinishedForLastVideo;
 @property(readonly, copy, nonatomic) NSData *leadingVideoItemSessionID; // @synthesize leadingVideoItemSessionID=_leadingVideoItemSessionID;
 @property(readonly, copy, nonatomic) NSArray *videoItems; // @synthesize videoItems=_videoItems;

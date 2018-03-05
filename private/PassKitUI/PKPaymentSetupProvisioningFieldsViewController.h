@@ -27,10 +27,10 @@
     NSString *_activatingPaymentPassUniqueID;
     _Bool _hideSetupLaterButton;
     PKPaymentProvisioningController *_paymentProvisioningController;
-    CDUnknownBlockType _tryAgainHandler;
+    CDUnknownBlockType _continueActionHandler;
 }
 
-@property(copy, nonatomic) CDUnknownBlockType tryAgainHandler; // @synthesize tryAgainHandler=_tryAgainHandler;
+@property(copy, nonatomic) CDUnknownBlockType continueActionHandler; // @synthesize continueActionHandler=_continueActionHandler;
 @property(nonatomic) _Bool hideSetupLaterButton; // @synthesize hideSetupLaterButton=_hideSetupLaterButton;
 @property(retain, nonatomic) PKPaymentProvisioningController *paymentProvisioningController; // @synthesize paymentProvisioningController=_paymentProvisioningController;
 - (void).cxx_destruct;
@@ -78,8 +78,10 @@
 - (void)handleNextActionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)handleNextActionError:(id)arg1 shouldContinue:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)handleNextButtonTapped:(id)arg1;
+- (void)setNotificationTextInFooterView:(id)arg1;
 - (void)suppressFooterViewManualEntryButton;
 - (void)suppressFooterViewSetupLaterButton;
+- (void)suppressFooterViewSkipCardButton;
 - (id)_cardDetailsFooterView;
 - (id)footerView;
 - (void)viewDidDisappear:(_Bool)arg1;

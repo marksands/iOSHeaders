@@ -44,6 +44,7 @@
 - (void)_avSessionMediaServicesResetNotification:(id)arg1;
 - (void)removeClient:(id)arg1;
 - (id)nowPlayingClientForPlayerPath:(id)arg1;
+- (id)existingNowPlayingClientForPlayerPath:(id)arg1;
 @property(retain, nonatomic) _MRNowPlayingClientProtobuf *activeNowPlayingClient; // @synthesize activeNowPlayingClient=_activeNowPlayingClient;
 @property(nonatomic) _Bool canBeNowPlayingApp;
 @property(readonly, nonatomic) _MRDeviceInfoMessageProtobuf *deviceInfo;

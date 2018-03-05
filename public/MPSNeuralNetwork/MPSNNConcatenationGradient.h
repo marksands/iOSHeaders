@@ -8,7 +8,6 @@
 
 @interface MPSNNConcatenationGradient : MPSCNNGradientKernel
 {
-    unsigned long long _featureChannelsInSlice;
     unsigned long long _sourceIndex;
 }
 

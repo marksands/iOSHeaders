@@ -53,7 +53,7 @@
 @property(readonly, nonatomic) _Bool hasAnalyticMetadata;
 @property(readonly, nonatomic) _Bool hasUserCredentials;
 @property(readonly, nonatomic) _Bool hasProblem;
-- (id)initWithProblem:(id)arg1 pushToken:(id)arg2 allowContactBackAtEmailAddress:(id)arg3 traits:(id)arg4;
+- (id)initWithProblem:(id)arg1 userCredentials:(id)arg2 pushToken:(id)arg3 allowContactBackAtEmailAddress:(id)arg4 traits:(id)arg5;
 
 @end
 

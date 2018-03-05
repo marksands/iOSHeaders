@@ -23,6 +23,7 @@
     _Bool _allowsCanceling;
     _Bool _allowsDone;
     _Bool _allowsContactBlocking;
+    _Bool _hasPendingShowCard;
     _Bool _ignoresMapsData;
     CNContactStyle *_contactStyle;
     CNContactStore *_contactStore;
@@ -39,6 +40,7 @@
 
 + (id)newContactFormatter;
 @property(nonatomic) _Bool ignoresMapsData; // @synthesize ignoresMapsData=_ignoresMapsData;
+@property(nonatomic) _Bool hasPendingShowCard; // @synthesize hasPendingShowCard=_hasPendingShowCard;
 @property(retain, nonatomic) id <CNScheduler> backgroundScheduler; // @synthesize backgroundScheduler=_backgroundScheduler;
 @property(nonatomic) __weak UIAlertController *facebookContactsAlertController; // @synthesize facebookContactsAlertController=_facebookContactsAlertController;
 @property(retain, nonatomic) UIKeyCommand *addKeyCommand; // @synthesize addKeyCommand=_addKeyCommand;
