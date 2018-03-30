@@ -101,6 +101,7 @@
 + (id)mediaFilesDirectoryURL;
 + (_Bool)isDataMigratorFinished;
 + (void)setDataMigratorFinished:(_Bool)arg1;
++ (id)_dataMigratorFinishedMarkerQueue;
 + (_Bool)isDataProtectionComplete;
 + (void)setDataProtectionComplete:(_Bool)arg1;
 + (_Bool)isStreamsLibraryUpdatingExpired;
@@ -139,6 +140,7 @@
 + (void)repairSingletonObjects;
 + (void)postGlobalPhotoLibraryAvailableNotification;
 + (_Bool)isRunningInStoreDemoMode;
++ (void)recordDataMigrationInfo:(id)arg1;
 + (id)pathToAssetsToAlbumsMapping;
 + (_Bool)photoLibraryIsObtainable;
 + (id)crashRecoveryIndicatorFilePaths:(_Bool)arg1;
@@ -174,6 +176,7 @@
 + (id)photoStreamsDataDirectory;
 + (void)setCloudAlbumSharingEnabled:(_Bool)arg1;
 + (void)setPhotoStreamEnabled:(_Bool)arg1;
++ (_Bool)hasITunesSyncedContent;
 + (void)_doFilesystemImportIfNeededWithMOC:(id)arg1 reason:(id)arg2;
 + (void)updateUnverifiedFaceCountThreshold;
 + (void)setUnverifiedFaceCountThreshold:(unsigned long long)arg1;
@@ -208,7 +211,7 @@
 - (_Bool)hasCompletedMomentAnalysis;
 - (id)incompleteRestoreProcesses;
 - (_Bool)isReadyForCloudPhotoLibrary;
-- (_Bool)_isOTARestoreFinished;
+- (_Bool)_isOTARestoreInProgress;
 - (_Bool)hasCompletedRestorePostProcessing;
 - (_Bool)_hasPendingAssetsIgnoreiTunes:(_Bool)arg1;
 - (id)syncProgressAlbumsIgnoreiTunes:(_Bool)arg1;
@@ -266,7 +269,9 @@
 - (_Bool)_shouldCreateDatabase;
 - (void)_linkAsideAlbumMetadataForOTARestore;
 - (void)cleanupForStoreDemoMode;
+- (void)cleanupIncompleteAssetsAfterOTARestore;
 - (void)cleanupModelForDataMigrationPurgeMissingSharedAndSynced;
+- (id)_dataMigrationInfo;
 - (void)prepareDatabaseForOTAAssetsPhase;
 - (id)_allAssetsForDeletion:(id)arg1;
 - (id)_fetchCompleteAssetIDsWithSavedAssetType:(short)arg1 context:(id)arg2;
@@ -329,7 +334,6 @@
 - (void)addCompletionHandlerToCurrentTransaction:(CDUnknownBlockType)arg1;
 - (void)deleteITunesSyncedContentWithReason:(id)arg1;
 - (id)iTunesSyncedContentInfo;
-- (_Bool)hasITunesSyncedContent;
 - (_Bool)_hasIncompleteAsset;
 - (void)deleteAllImages;
 - (void)deleteFailedInMemoryCameraAsset:(id)arg1;

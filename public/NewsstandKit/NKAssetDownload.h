@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class NKIssue, NSData, NSDictionary, NSString, NSURLConnection, NSURLRequest;
 
-@interface NKAssetDownload : NSObject
+@interface NKAssetDownload : NSObject <NSSecureCoding>
 {
     NKIssue *_issue;
     NSString *_identifier;
@@ -19,6 +21,7 @@
     _Bool _isDecodingValid;
 }
 
++ (_Bool)supportsSecureCoding;
 @property _Bool attemptedConnection; // @synthesize attemptedConnection=_attemptedConnection;
 @property(retain) NSURLConnection *connection; // @synthesize connection=_connection;
 @property(retain) NSData *userInfoData; // @synthesize userInfoData=_userInfoData;

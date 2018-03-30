@@ -180,6 +180,7 @@
 - (void)_replaceImages;
 - (void)_ensureQuotedImagesHaveAttachmentStyleForElement:(id)arg1;
 - (void)setLayoutInterval:(int)arg1;
+@property(readonly, nonatomic) _Bool shouldShowInsertPhotosButton;
 @property(readonly, nonatomic) _Bool shouldShowMarkupButton;
 - (id)_selectedAttachmentURLForMarkup;
 - (void)setCaretPosition:(unsigned long long)arg1;

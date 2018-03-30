@@ -24,6 +24,7 @@
     UIView *_contentView;
     UITableView *_detailTableView;
     PKPaymentAuthorizationSummaryItemsView *_summaryItemsView;
+    NSLayoutConstraint *_summaryHeightConstraint;
     PKPaymentAuthorizationTotalView *_totalView;
     PKPaymentAuthorizationFooterView *_footerView;
     PKPaymentAuthorizationPasswordButtonView *_passwordButtonView;

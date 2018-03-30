@@ -13,7 +13,6 @@
 @interface CLSActivity : CLSObject <CLSRelationable>
 {
     double _duration;
-    NSArray *_additionalItems;
     _Bool _started;
     _Bool _paused;
     NSDate *_activityStartDate;
@@ -37,6 +36,7 @@
 @property(retain, nonatomic) CLSActivityItem *primaryActivityItem;
 @property(copy, nonatomic) NSString *primaryActivityItemIdentifier;
 - (void)_generateTimeInterval;
+- (long long)effectiveAuthorizationStatus;
 - (void)resume;
 - (void)pause;
 - (void)stop;

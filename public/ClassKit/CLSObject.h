@@ -40,6 +40,8 @@
 @property(retain, nonatomic) NSDate *dateLastModified; // @synthesize dateLastModified=_dateLastModified;
 @property(retain, nonatomic) NSDate *dateCreated; // @synthesize dateCreated=_dateCreated;
 - (void).cxx_destruct;
+- (id)ancestorOfClass:(Class)arg1;
+- (long long)effectiveAuthorizationStatus;
 - (void)sync;
 - (id)dictionaryRepresentation;
 - (void)removeMetaProperty:(id)arg1;

@@ -77,6 +77,7 @@
 - (id)_messageRecordSalt;
 - (id)_recordKeyManagerSharedInstance;
 - (id)_messageZoneID;
+- (long long)syncControllerRecordType;
 - (id)_chatRegistry;
 - (void)dealloc;
 - (id)init;

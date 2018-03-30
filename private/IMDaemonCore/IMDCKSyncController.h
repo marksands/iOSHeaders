@@ -6,9 +6,11 @@
 
 #import <IMDaemonCore/IMDCKAbstractSyncController.h>
 
-@class CKFetchRecordZonesOperation, IMTimer, NSDate, NSTimer;
+#import "IMDXPCEventStreamHandlerDelegate.h"
 
-@interface IMDCKSyncController : IMDCKAbstractSyncController
+@class CKFetchRecordZonesOperation, IMTimer, NSDate, NSString, NSTimer;
+
+@interface IMDCKSyncController : IMDCKAbstractSyncController <IMDXPCEventStreamHandlerDelegate>
 {
     NSDate *_syncStartDate;
     NSTimer *_longRunningSyncTimer;
@@ -26,6 +28,8 @@
 @property(retain, nonatomic) NSTimer *longRunningSyncTimer; // @synthesize longRunningSyncTimer=_longRunningSyncTimer;
 @property(retain, nonatomic) NSDate *syncStartDate; // @synthesize syncStartDate=_syncStartDate;
 - (void).cxx_destruct;
+- (void)handleAKUserInfoChangedNotification:(id)arg1;
+- (void)eventStreamHandler:(id)arg1 didReceiveEventWithName:(id)arg2 userInfo:(id)arg3;
 - (id)syncStateDebuggingInfo:(id)arg1;
 - (_Bool)isSyncing;
 - (void)updateAllCachedSyncStateFlags;
@@ -40,7 +44,7 @@
 - (void)_noteMetricsForSyncStartFrom:(id)arg1 fullSync:(_Bool)arg2;
 - (void)_noteDownSyncStartedWithIsPeriodicSync:(_Bool)arg1;
 - (void)_autoBugCaptureWithSubType:(id)arg1 debugDescription:(id)arg2;
-- (void)_beginExitStateCleanupIfNeededWithActivity:(id)arg1;
+- (void)_beginExitStateCleanupIfNeededWithActivity:(id)arg1 useNonHSA2ManateeDatabase:(_Bool)arg2;
 - (void)_ifCloudKitAbleToSyncIsFullSync:(_Bool)arg1 callBlock:(CDUnknownBlockType)arg2 activity:(id)arg3;
 - (void)_callSyncWithCompletion:(CDUnknownBlockType)arg1 activity:(id)arg2;
 - (void)_syncChatsWithActivity:(id)arg1;
@@ -100,11 +104,18 @@
 - (void)setStartingInitialSync:(_Bool)arg1;
 - (void)setStartingPeriodicSync:(_Bool)arg1;
 - (void)resetAllSyncStates;
+- (long long)syncControllerRecordType;
 - (id)rampManager;
 - (id)attachmentSyncController;
 - (id)exitManager;
 - (id)chatSyncController;
 - (id)messageSyncController;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

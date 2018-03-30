@@ -16,12 +16,12 @@
     _Bool _isDisablingDevices;
     long long _isChangingEnabledState;
     unsigned long long _syncControllerSyncState;
-    unsigned long long _syncType;
+    long long _syncType;
     NSDictionary *_syncStats;
 }
 
 @property(retain, nonatomic) NSDictionary *syncStats; // @synthesize syncStats=_syncStats;
-@property(nonatomic) unsigned long long syncType; // @synthesize syncType=_syncType;
+@property(nonatomic) long long syncType; // @synthesize syncType=_syncType;
 @property(nonatomic) unsigned long long syncControllerSyncState; // @synthesize syncControllerSyncState=_syncControllerSyncState;
 @property(nonatomic) _Bool isDisablingDevices; // @synthesize isDisablingDevices=_isDisablingDevices;
 @property(nonatomic) _Bool isStartingSync; // @synthesize isStartingSync=_isStartingSync;
@@ -31,6 +31,7 @@
 - (void).cxx_destruct;
 - (void)updateCloudKitSyncingState;
 @property(retain, nonatomic) NSArray *IMCloudKitSyncErrors;
+- (void)setControllerSyncType:(long long)arg1;
 - (void)setControllerSyncState:(unsigned long long)arg1;
 - (void)setIsInExitState:(_Bool)arg1;
 - (_Bool)isInExitState;

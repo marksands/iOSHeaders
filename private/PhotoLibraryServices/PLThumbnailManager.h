@@ -50,6 +50,9 @@
 + (_Bool)hasExceededRebuildThumbnailRequestLimit;
 + (_Bool)isRebuildingThumbnails;
 + (void)rebuildAllMissingThumbnails;
++ (id)_rebuildThumbnailsQueue;
++ (_Bool)hasMissingThumbnailsInLibrary:(id)arg1;
++ (id)_missingThumbnailPredicate;
 + (void)_recordRebuildThumbnailsAttempt;
 + (void)removeRebuildThumbnailsRequest:(const char *)arg1;
 + (_Bool)hasRebuildThumbnailsRequest;

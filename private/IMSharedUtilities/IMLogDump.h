@@ -6,9 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>;
+#import "CUTPowerMonitorDelegate.h"
+#import "CUTWiFiManagerDelegate.h"
 
-@interface IMLogDump : NSObject
+@class NSObject<OS_dispatch_queue>, NSString;
+
+@interface IMLogDump : NSObject <CUTPowerMonitorDelegate, CUTWiFiManagerDelegate>
 {
     _Bool _shouldCollectStats;
     NSObject<OS_dispatch_queue> *_logDumpQueue;
@@ -18,6 +21,8 @@
 @property(readonly, nonatomic) _Bool shouldCollectStats; // @synthesize shouldCollectStats=_shouldCollectStats;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *logDumpQueue; // @synthesize logDumpQueue=_logDumpQueue;
 - (void).cxx_destruct;
+- (void)cutWiFiManagerLinkDidChange:(id)arg1 context:(id)arg2;
+- (void)cutPowerMonitorBatteryConnectedStateDidChange:(id)arg1;
 - (void)disconnectFromResourceForTotalDurationKey:(id)arg1 dateKey:(id)arg2 powerWifiDict:(id)arg3;
 - (void)reconnectToResourceForTotalDurationKey:(id)arg1 dateKey:(id)arg2 powerWifiDict:(id)arg3;
 - (id)getPowerAndWifiDictionaryForKey:(id)arg1;
@@ -49,6 +54,12 @@
 - (id)_predicateToAppend:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

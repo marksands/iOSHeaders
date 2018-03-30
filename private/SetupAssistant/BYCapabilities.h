@@ -23,7 +23,6 @@
 - (id)_paymentScreenRequirements;
 - (_Bool)canShowPaymentScreen;
 - (_Bool)canShowSiriScreen;
-- (_Bool)isMesaEnrolled;
 - (_Bool)isPearlEnrolled;
 - (_Bool)supportsPearl;
 

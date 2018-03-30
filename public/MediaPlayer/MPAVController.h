@@ -212,6 +212,7 @@
 - (id)embeddedDataTimesForItem:(id)arg1;
 - (void)_prepareToPlayItem:(id)arg1;
 - (void)_endSeekAndChangeRate:(_Bool)arg1;
+- (_Bool)_isVideosOrTVApp;
 - (void)_unregisterForPlaylistManager:(id)arg1;
 - (void)_unregisterForPlayer:(id)arg1;
 - (void)_registerForPlaylistManager:(id)arg1;

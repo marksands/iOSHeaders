@@ -25,7 +25,7 @@
 - (void)_geocodeLocation:(id)arg1 currentCity:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_updateWeatherForLocation:(id)arg1 city:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)updateWeatherForLocation:(id)arg1 city:(id)arg2;
-- (void)updateWeatherForLocation:(id)arg1 city:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)updateWeatherForLocation:(id)arg1 city:(id)arg2 isFromFrameworkClient:(_Bool)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
 - (void)updateWeatherForCity:(id)arg1;
 - (void)enableProgressIndicator:(_Bool)arg1;
 - (void)parsedResultCity:(id)arg1;

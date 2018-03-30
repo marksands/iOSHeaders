@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 - (void)_scrollToTopFromTouchAtScreenLocation:(struct CGPoint)arg1 resultHandler:(CDUnknownBlockType)arg2;
 - (_Bool)isScrollEnabled;
 - (void)_geometryChanges:(id)arg1 forAncestor:(id)arg2;
+- (_Bool)_fencingEffectsAreVisible;
 - (long long)_interfaceOrientationForScene:(id)arg1;
 - (void)_updateSceneGeometries:(id)arg1 forOrientation:(long long)arg2;
 - (void)_updateTextEffectsGeometries:(struct CGRect)arg1;

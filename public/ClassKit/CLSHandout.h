@@ -12,8 +12,6 @@
 
 @interface CLSHandout : CLSObject <CLSRelationable>
 {
-    NSArray *_recipients;
-    NSArray *_attachments;
     _Bool __reviewed;
     NSDate *_dateOfPublication;
     NSDate *_dateLastReviewed;
@@ -44,7 +42,6 @@
 - (void)addHandoutRecipient:(id)arg1;
 - (void)removeHandoutAttachment:(id)arg1;
 - (void)addHandoutAttachment:(id)arg1;
-- (void)willChangeValueForKey:(id)arg1;
 - (void)mergeWithObject:(id)arg1;
 @property(nonatomic, getter=isReviewed) _Bool reviewed;
 @property(retain, nonatomic) NSDate *dueDate;

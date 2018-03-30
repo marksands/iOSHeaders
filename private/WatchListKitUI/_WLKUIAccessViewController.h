@@ -27,6 +27,7 @@
 + (_Bool)_isHostedInRemoteViewService;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 - (void).cxx_destruct;
+- (id)cappedTraitCollection;
 - (id)_watchListAppIcon;
 - (void)_fetchRemoteAppInfo;
 - (id)_imageForBundleID:(id)arg1;

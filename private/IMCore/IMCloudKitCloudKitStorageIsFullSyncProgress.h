@@ -6,12 +6,11 @@
 
 #import <IMCore/IMCloudKitSyncProgress.h>
 
-@interface IMCloudKitSyncProgressErrorOccurred : IMCloudKitSyncProgress
+@interface IMCloudKitCloudKitStorageIsFullSyncProgress : IMCloudKitSyncProgress
 {
 }
 
-- (void)updateState;
-- (_Bool)_setLabelsIfKnownError:(id)arg1;
+- (void)configureSelf;
 
 @end
 

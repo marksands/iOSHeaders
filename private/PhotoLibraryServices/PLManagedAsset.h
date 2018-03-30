@@ -96,7 +96,6 @@
 + (id)newImagePropertiesFromImageSource:(struct CGImageSource *)arg1;
 + (id)assetWithObjectID:(id)arg1 inManagedObjectContext:(id)arg2;
 + (id)assetWithUUID:(id)arg1 inManagedObjectContext:(id)arg2;
-+ (id)incompleteAssetsInManagedObjectContext:(id)arg1;
 + (id)assetsWithSavedAssetType:(short)arg1 inManagedObjectContext:(id)arg2;
 + (unsigned long long)countUsedAssetsWithKind:(short)arg1 excludeTrashed:(_Bool)arg2 excludeInvisible:(_Bool)arg3 excludeCloudShared:(_Bool)arg4 inManagedObjectContext:(id)arg5;
 + (id)totalSizeOnDiskInManagedObjectContext:(id)arg1;

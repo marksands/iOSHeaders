@@ -205,7 +205,7 @@
 - (void)_deactivateCPLLibrary;
 - (void)cplHasBackgroundDownloadOperationsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)endsSignificantWork;
-- (void)beginsSignificantWorkWithResourcesSize:(unsigned long long)arg1 initialOrResetSync:(_Bool)arg2;
+- (void)beginsSignificantWorkWithResourcesSize:(unsigned long long)arg1;
 - (void)_runOneTimeMigrationStepsIfNecessary;
 - (void)_initializeMasterAndSizeCalculation;
 - (void)_promptForCameraCaptureSettingChangeWithReason:(int)arg1;

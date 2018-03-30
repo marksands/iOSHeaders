@@ -566,6 +566,7 @@
 - (id)filteredMailSheetAccountsForBundleID:(id)arg1 sourceAccountManagement:(int)arg2;
 - (_Bool)hasAnyMailAccountIgnoringFiltering;
 - (_Bool)canSendMail:(id)arg1 sourceAccountManagement:(int)arg2;
+- (_Bool)mayShowLocalAccountsForTargetBundleID:(id)arg1 targetAccountManagement:(int)arg2;
 - (_Bool)mayShowLocalAccountsForBundleID:(id)arg1 sourceAccountManagement:(int)arg2;
 - (long long)dragDropTargetManagementStateForBundleID:(id)arg1;
 - (long long)dragDropSourceManagementStateForBundleID:(id)arg1;

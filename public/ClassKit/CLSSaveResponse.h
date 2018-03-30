@@ -12,7 +12,6 @@
 
 @interface CLSSaveResponse : NSObject <CLSSaveResponse>
 {
-    NSMutableDictionary *_authStatusMap;
     NSMutableDictionary *_objectsByID;
     NSObject<OS_dispatch_queue> *_queue;
     CDUnknownBlockType _completion;
@@ -22,11 +21,8 @@
 - (void).cxx_destruct;
 - (oneway void)clientRemote_saveDone:(id)arg1;
 - (oneway void)clientRemote_invalidate;
-- (oneway void)clientRemote_setAuthStatus:(long long)arg1 forContextWithObjectID:(id)arg2;
 - (oneway void)clientRemote_deliverObject:(id)arg1;
 - (id)savedObjectWithObjectID:(id)arg1;
-- (long long)authStatusForContextWithObjectID:(id)arg1;
-- (_Bool)hasStatusForContextWithObjectID:(id)arg1;
 - (id)init;
 
 // Remaining properties

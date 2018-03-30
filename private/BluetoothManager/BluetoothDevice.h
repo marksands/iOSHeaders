@@ -38,6 +38,8 @@
 - (_Bool)isAccessory;
 - (_Bool)magicPairedDeviceNameUpdated;
 - (int)accessorySettingFeatureBitMask;
+- (_Bool)setListeningMode:(unsigned int)arg1;
+- (unsigned int)listeningMode;
 - (_Bool)setDoubleTapActionEx:(unsigned int)arg1 rightAction:(unsigned int)arg2;
 - (unsigned int)doubleTapActionEx:(unsigned int *)arg1 rightAction:(unsigned int *)arg2;
 - (unsigned int)doubleTapCapability;

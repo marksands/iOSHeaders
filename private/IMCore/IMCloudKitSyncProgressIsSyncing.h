@@ -10,7 +10,7 @@
 {
 }
 
-- (void)updateState;
+- (void)configureSelf;
 
 @end
 

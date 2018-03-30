@@ -6,16 +6,14 @@
 
 #import "UIView.h"
 
-@class NSLayoutConstraint, NSMutableArray, NSString, PKPaymentAuthorizationLayout, UILabel;
+@class NSMutableArray, NSString, PKPaymentAuthorizationLayout, UILabel;
 
 @interface PKPaymentAuthorizationSummaryItemsView : UIView
 {
     NSMutableArray *_labelViews;
     NSMutableArray *_valueViews;
     NSMutableArray *_hasBottomPadding;
-    NSMutableArray *_constraints;
     UILabel *_titleLabel;
-    NSLayoutConstraint *_emptyConstraint;
     PKPaymentAuthorizationLayout *_layout;
     NSString *_title;
 }
@@ -25,9 +23,10 @@
 - (void).cxx_destruct;
 - (id)_valueAttributedStringWithString:(id)arg1 type:(unsigned long long)arg2;
 - (id)_labelAttributedStringWithString:(id)arg1 withDarkColor:(_Bool)arg2;
-- (void)updateConstraints;
-- (void)addLabel:(id)arg1 value:(id)arg2 itemType:(unsigned long long)arg3 maxLabelLines:(long long)arg4 hasBottomPadding:(_Bool)arg5 useDarkColor:(_Bool)arg6;
-- (void)removeAllConstraints;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1 andLayout:(_Bool)arg2;
+- (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)addLabel:(id)arg1 value:(id)arg2 itemType:(unsigned long long)arg3 maxLabelLines:(long long)arg4 maxValueLines:(long long)arg5 hasBottomPadding:(_Bool)arg6 useDarkColor:(_Bool)arg7;
 - (void)removeLabelsAndValues;
 - (id)titleLabel;
 - (void)dealloc;

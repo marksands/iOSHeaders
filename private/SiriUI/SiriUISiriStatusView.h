@@ -49,6 +49,7 @@
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
 - (void).cxx_destruct;
 - (void)_createLooperIfNeeded;
+- (void)_createQueuePlayerIfNeeded;
 - (void)_configureGlyph;
 - (float)audioLevelForFlamesView:(id)arg1;
 - (void)_handleKeyboardWillHideNotification:(id)arg1;

@@ -53,6 +53,7 @@
 - (id)_handleFetchAppsRequest:(id)arg1 managedOnly:(_Bool)arg2 deleteFeedback:(_Bool)arg3 advanceTransientStates:(_Bool)arg4 propertyKeys:(id)arg5 block:(CDUnknownBlockType)arg6;
 - (id)_applyRedemptionCode:(id)arg1 assertion:(id)arg2;
 - (id)_validateApplications:(id)arg1;
+- (void)_performInstallApplicationRequestWithManifestURL:(id)arg1 iTunesStoreIDObj:(id)arg2 bundleId:(id)arg3 flagsObj:(id)arg4 attributes:(id)arg5 configuration:(id)arg6 manageChangeStr:(id)arg7 purchaseMethodValue:(int)arg8 completionBlock:(CDUnknownBlockType)arg9;
 - (void)_installApplication:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (id)_invalidManifestErrorWithURL:(id)arg1 underlyingError:(id)arg2;
 - (id)_cannotValidateAppIDErrorUnderlyingError:(id)arg1;

@@ -72,6 +72,7 @@
 - (id)filterTransformationWithFilterOptions:(long long)arg1 ignoringCurrentPageOutputFrom:(id)arg2;
 - (id)filterTransformationWithFilterOptions:(long long)arg1 additionalArticleIDs:(id)arg2;
 - (id)filterTransformationWithFilterOptions:(long long)arg1;
+- (id)creationDateOfGroupWithType:(long long)arg1;
 - (id)creationDateOfFollowingGroupWithType:(long long)arg1;
 - (id)precedingNewFavoriteTagIDs;
 - (_Bool)pageHasPrecedingGroupWithSourceIdentifier:(id)arg1;

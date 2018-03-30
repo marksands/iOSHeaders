@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDictionary, NSString;
+@class NSArray, NSDate, NSDictionary, NSString;
 
 @interface CRKDevice : NSObject <NSSecureCoding, NSCopying>
 {
@@ -35,6 +35,8 @@
     unsigned long long _availableBytes;
     unsigned long long _deviceOrientation;
     unsigned long long _interfaceOrientation;
+    NSDate *_internetDateAndTime;
+    double _uptimeAtInternetDateAndTimeFetch;
     NSString *_primaryOpenApplication;
     NSString *_secondaryOpenApplication;
     NSString *_pipOpenApplication;
@@ -85,6 +87,8 @@
 @property(copy, nonatomic) NSString *pipOpenApplication; // @synthesize pipOpenApplication=_pipOpenApplication;
 @property(copy, nonatomic) NSString *secondaryOpenApplication; // @synthesize secondaryOpenApplication=_secondaryOpenApplication;
 @property(copy, nonatomic) NSString *primaryOpenApplication; // @synthesize primaryOpenApplication=_primaryOpenApplication;
+@property(nonatomic) double uptimeAtInternetDateAndTimeFetch; // @synthesize uptimeAtInternetDateAndTimeFetch=_uptimeAtInternetDateAndTimeFetch;
+@property(retain, nonatomic) NSDate *internetDateAndTime; // @synthesize internetDateAndTime=_internetDateAndTime;
 @property(nonatomic, getter=isOrientationLocked) _Bool orientationLocked; // @synthesize orientationLocked=_orientationLocked;
 @property(nonatomic) unsigned long long interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
 @property(nonatomic) unsigned long long deviceOrientation; // @synthesize deviceOrientation=_deviceOrientation;

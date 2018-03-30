@@ -18,6 +18,7 @@
 @property(readonly, nonatomic) MPAVRoutingController *routingController; // @synthesize routingController=_routingController;
 - (void).cxx_destruct;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
+- (void)setAutomaticResponseLoading:(_Bool)arg1;
 - (id)initWithEndpoint:(id)arg1;
 
 // Remaining properties

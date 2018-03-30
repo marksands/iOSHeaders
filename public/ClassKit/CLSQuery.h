@@ -15,6 +15,8 @@
     NSMutableArray *_results;
     NSObject<OS_dispatch_queue> *_queue;
     _Bool _executing;
+    _Bool _shouldAddResultsToDataStore;
+    _Bool _shouldFaultResults;
     long long _fetchLimit;
     CDUnknownBlockType _completion;
     NSDate *_startDate;
@@ -25,6 +27,8 @@
 + (id)queryWithObjectType:(Class)arg1 predicate:(id)arg2;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(retain) NSDate *startDate; // @synthesize startDate=_startDate;
+@property(nonatomic) _Bool shouldFaultResults; // @synthesize shouldFaultResults=_shouldFaultResults;
+@property(nonatomic) _Bool shouldAddResultsToDataStore; // @synthesize shouldAddResultsToDataStore=_shouldAddResultsToDataStore;
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 @property(nonatomic) long long fetchLimit; // @synthesize fetchLimit=_fetchLimit;
 @property(getter=isExecuting) _Bool executing; // @synthesize executing=_executing;

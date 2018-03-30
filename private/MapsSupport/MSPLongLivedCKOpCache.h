@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 
 + (id)sharedCache;
 @property(retain, nonatomic) NSMutableSet *currentOpIDs; // @synthesize currentOpIDs=_currentOpIDs;
-@property(copy, nonatomic) NSUserDefaults *defaults; // @synthesize defaults=_defaults;
+@property(retain, nonatomic) NSUserDefaults *defaults; // @synthesize defaults=_defaults;
 - (void).cxx_destruct;
 - (_Bool)isCurrentOperationID:(id)arg1;
 - (_Bool)isAwareOfOperationID:(id)arg1;

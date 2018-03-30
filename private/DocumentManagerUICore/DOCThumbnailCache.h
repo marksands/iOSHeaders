@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSCache, NSMapTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSOperationQueue;
+@class NSCache, NSMapTable, NSObject<OS_dispatch_queue>, NSOperationQueue;
 
 @interface DOCThumbnailCache : NSObject
 {
@@ -14,7 +14,7 @@
     NSOperationQueue *_operationQueue;
     NSMapTable *_cachedThumbnailItems;
     NSMapTable *_cachedIconItems;
-    NSMutableDictionary *_cachedGenericItems;
+    NSCache *_cachedGenericItems;
     NSCache *_recentlyUsedItems;
     long long _thumnailFetchingPriority;
 }
@@ -29,7 +29,7 @@
 + (id)sharedCache;
 @property(nonatomic) long long thumnailFetchingPriority; // @synthesize thumnailFetchingPriority=_thumnailFetchingPriority;
 @property(readonly, nonatomic) NSCache *recentlyUsedItems; // @synthesize recentlyUsedItems=_recentlyUsedItems;
-@property(readonly, nonatomic) NSMutableDictionary *cachedGenericItems; // @synthesize cachedGenericItems=_cachedGenericItems;
+@property(readonly, nonatomic) NSCache *cachedGenericItems; // @synthesize cachedGenericItems=_cachedGenericItems;
 @property(readonly, nonatomic) NSMapTable *cachedIconItems; // @synthesize cachedIconItems=_cachedIconItems;
 @property(readonly, nonatomic) NSMapTable *cachedThumbnailItems; // @synthesize cachedThumbnailItems=_cachedThumbnailItems;
 @property(readonly, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;

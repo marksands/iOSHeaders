@@ -38,6 +38,7 @@
 @property(copy, nonatomic) NSArray *courses; // @synthesize courses=_courses;
 - (void).cxx_destruct;
 - (void)taskOperation:(id)arg1 didPostNotificationWithName:(id)arg2 userInfo:(id)arg3;
+- (_Bool)isEphemeralMultiUser;
 - (void)cloudEnrollmentStatusDidChange:(long long)arg1;
 - (void)fetchCloudEnrollmentStatusDidFinish:(id)arg1;
 - (void)fetchCloudEnrollmentStatus;

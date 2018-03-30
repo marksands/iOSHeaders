@@ -6,17 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>;
+@class NSObject<OS_dispatch_queue>, NSTimer;
 
 @interface IMDCKRampManager : NSObject
 {
     NSObject<OS_dispatch_queue> *_ckQueue;
+    NSTimer *_retryTimer;
 }
 
 + (id)sharedInstance;
+@property(retain, nonatomic) NSTimer *retryTimer; // @synthesize retryTimer=_retryTimer;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *ckQueue; // @synthesize ckQueue=_ckQueue;
 - (void)cachedRampState:(CDUnknownBlockType)arg1;
 - (void)fetchLatestRampStateFromCK:(CDUnknownBlockType)arg1;
+- (void)_performRampCheckWithRetryAfter:(double)arg1;
 - (void)_persistRampFetchServerError:(_Bool)arg1;
 - (void)_writeRampStateAllowed:(_Bool)arg1 promoted:(_Bool)arg2 visible:(_Bool)arg3 fetchHadServerError:(_Bool)arg4;
 - (void)_fetchLatestRampStateFromCK:(CDUnknownBlockType)arg1;

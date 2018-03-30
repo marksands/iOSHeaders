@@ -12,6 +12,7 @@
 {
     id <SiriUIAudioRoutePickerControllerDelegate> _delegate;
     NSString *_audioCategory;
+    NSString *_audioMode;
     UIWindow *_window;
     _Bool _hasRoutesToPick;
     _Bool _bluetoothIsPicked;
@@ -34,8 +35,8 @@
 - (void)showPickerFromViewController:(id)arg1 animated:(_Bool)arg2;
 - (_Bool)bluetoothIsPicked;
 - (_Bool)hasRoutesToPick;
-- (void)_fetchPickableRoutesForCategory:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (id)initWithCategory:(id)arg1 delegate:(id)arg2;
+- (void)_fetchPickableRoutesWithCompletion:(CDUnknownBlockType)arg1;
+- (id)initWithCategory:(id)arg1 mode:(id)arg2 delegate:(id)arg3;
 - (void)dealloc;
 
 @end

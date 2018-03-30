@@ -21,7 +21,7 @@
 + (id)percentStringFromTotal:(double)arg1 count:(double)arg2;
 + (id)percentStringFromDouble:(double)arg1;
 + (double)calculatePercentageOfTotal:(double)arg1 count:(double)arg2;
-+ (id)_createSyncStatisticsDictionaryForSyncControllerSyncState:(unsigned long long)arg1 syncType:(unsigned long long)arg2 count:(double)arg3 max:(double)arg4;
++ (id)_createSyncStatisticsDictionaryForSyncControllerSyncState:(unsigned long long)arg1 syncType:(long long)arg2 count:(double)arg3 max:(double)arg4;
 + (id)_createSyncStatisticsDictionary:(long long)arg1 messageSyncCount:(long long)arg2 chatCount:(long long)arg3 chatSyncCount:(long long)arg4 attachmentCount:(long long)arg5 attachmentSyncCount:(long long)arg6;
 @property(nonatomic) unsigned long long syncedRecordCount; // @synthesize syncedRecordCount=_syncedRecordCount;
 @property(nonatomic) unsigned long long totalRecordCount; // @synthesize totalRecordCount=_totalRecordCount;

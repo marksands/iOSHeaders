@@ -15,8 +15,8 @@
 {
     _Bool _allowsAutomaticResponseLoading;
     _Bool _hasEverReceivedResponse;
-    _Bool _automaticResponseLoading;
     _Bool _attemptingConnection;
+    _Bool _automaticResponseLoading;
     MPMediaControlsConfiguration *_configuration;
     NSArray *_routeNames;
     long long _state;
@@ -25,9 +25,9 @@
     MPAVRoutingController *_routingController;
 }
 
+@property(nonatomic, getter=isAutomaticResponseLoading) _Bool automaticResponseLoading; // @synthesize automaticResponseLoading=_automaticResponseLoading;
 @property(retain, nonatomic) MPAVRoutingController *routingController; // @synthesize routingController=_routingController;
 @property(nonatomic, getter=isAttemptingConnection) _Bool attemptingConnection; // @synthesize attemptingConnection=_attemptingConnection;
-@property(nonatomic, getter=isAutomaticResponseLoading) _Bool automaticResponseLoading; // @synthesize automaticResponseLoading=_automaticResponseLoading;
 @property(nonatomic) _Bool hasEverReceivedResponse; // @synthesize hasEverReceivedResponse=_hasEverReceivedResponse;
 @property(readonly, nonatomic) MPRequestResponseController *requestController; // @synthesize requestController=_requestController;
 @property(nonatomic) __weak id <MediaControlsEndpointControllerDelegate> delegate; // @synthesize delegate=_delegate;

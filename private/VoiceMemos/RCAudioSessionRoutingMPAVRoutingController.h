@@ -29,7 +29,7 @@
 - (void)audioSessionRouteChangeNotification:(id)arg1;
 - (void)audioSessionInterruptionNotification:(id)arg1;
 - (_Bool)routeOtherThanHandsetAndSpeakerAvailable;
-- (void)fetchAvailableRoutesWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)fetchAvailableRoutesWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)_rcDelegate;
 - (void)setDelegate:(id)arg1;
 - (long long)outputRouteTypeForNavigationIcon;

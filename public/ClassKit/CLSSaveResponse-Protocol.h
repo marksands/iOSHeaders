@@ -6,10 +6,9 @@
 
 #import "CLSClientRemoteObject.h"
 
-@class NSError, NSString;
+@class NSError;
 
 @protocol CLSSaveResponse <CLSClientRemoteObject>
 - (oneway void)clientRemote_saveDone:(NSError *)arg1;
-- (oneway void)clientRemote_setAuthStatus:(long long)arg1 forContextWithObjectID:(NSString *)arg2;
 @end
 

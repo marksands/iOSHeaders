@@ -41,6 +41,7 @@
 + (id)__explicitSong_KEY;
 + (id)__discNumber_KEY;
 + (id)__trackNumber_KEY;
++ (id)__trackCount_KEY;
 + (id)__duration_KEY;
 + (id)__copyrightText_KEY;
 + (id)__grouping_KEY;
@@ -102,6 +103,7 @@
 @property(nonatomic) _Bool shouldShowComposer; // @dynamic shouldShowComposer;
 @property(retain, nonatomic) MPModelStoreAsset *storeAsset; // @dynamic storeAsset;
 @property(copy, nonatomic) NSString *title; // @dynamic title;
+@property(nonatomic) long long trackCount; // @dynamic trackCount;
 @property(nonatomic) long long trackNumber; // @dynamic trackNumber;
 @property(nonatomic) float userRating; // @dynamic userRating;
 @property(nonatomic) float volumeAdjustment; // @dynamic volumeAdjustment;

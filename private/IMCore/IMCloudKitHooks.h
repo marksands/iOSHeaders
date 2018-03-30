@@ -14,10 +14,10 @@
 + (id)sharedInstance;
 + (void)__setSingleton__im:(id)arg1;
 + (id)__singleton__im;
+- (void)broadcastCloudKitState;
 - (void)tryToAutoCollectLogsWithErrorString:(id)arg1 sendLogsTo:(id)arg2;
 - (void)fetchCloudKitSyncStateDebuggingInfo:(id)arg1;
 - (id)syncStateDictionary;
-- (id)lastSyncErrors;
 - (void)syncDeletesToCloudKit;
 - (void)printCachedRampState;
 - (void)fetchLatestRampState;

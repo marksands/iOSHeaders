@@ -151,7 +151,6 @@
 - (void)_initiateNewSequenceIfNecessary;
 - (_Bool)_isActiveSequence:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
-- (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
 - (void)setPreferredContentSize:(struct CGSize)arg1;
 - (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (void)viewDidLoad;

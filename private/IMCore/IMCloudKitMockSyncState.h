@@ -20,14 +20,16 @@
     _Bool _IMCloudKitStartingDisableDevices;
     NSDate *_IMCloudKitSyncDate;
     long long _IMCloudKitStartingEnabledSettingChange;
-    unsigned long long _IMCKSyncControllerSyncState;
-    unsigned long long _IMCKSyncControllerSyncType;
+    unsigned long long _IMCloudKitSyncControllerSyncState;
+    long long _IMCloudKitSyncControllerSyncType;
+    long long _IMCloudKitSyncControllerSyncRecordType;
     NSArray *_IMCloudKitSyncErrors;
 }
 
 @property(retain) NSArray *IMCloudKitSyncErrors; // @synthesize IMCloudKitSyncErrors=_IMCloudKitSyncErrors;
-@property unsigned long long IMCKSyncControllerSyncType; // @synthesize IMCKSyncControllerSyncType=_IMCKSyncControllerSyncType;
-@property unsigned long long IMCKSyncControllerSyncState; // @synthesize IMCKSyncControllerSyncState=_IMCKSyncControllerSyncState;
+@property long long IMCloudKitSyncControllerSyncRecordType; // @synthesize IMCloudKitSyncControllerSyncRecordType=_IMCloudKitSyncControllerSyncRecordType;
+@property long long IMCloudKitSyncControllerSyncType; // @synthesize IMCloudKitSyncControllerSyncType=_IMCloudKitSyncControllerSyncType;
+@property unsigned long long IMCloudKitSyncControllerSyncState; // @synthesize IMCloudKitSyncControllerSyncState=_IMCloudKitSyncControllerSyncState;
 @property _Bool IMCloudKitStartingDisableDevices; // @synthesize IMCloudKitStartingDisableDevices=_IMCloudKitStartingDisableDevices;
 @property long long IMCloudKitStartingEnabledSettingChange; // @synthesize IMCloudKitStartingEnabledSettingChange=_IMCloudKitStartingEnabledSettingChange;
 @property _Bool IMCloudKitStartingInitialSync; // @synthesize IMCloudKitStartingInitialSync=_IMCloudKitStartingInitialSync;

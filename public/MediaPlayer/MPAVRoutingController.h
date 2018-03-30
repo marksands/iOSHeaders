@@ -68,7 +68,6 @@
 - (void)_refreshPendingRoutes;
 - (void)_removePendingRoute:(id)arg1;
 - (void)_addPendingRoute:(id)arg1;
-- (void)_fetchAvailableRoutesWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)logCurrentRoutes;
 - (void)_onQueueClearCachedRoutes;
 - (void)clearCachedRoutes;
@@ -101,6 +100,7 @@
 - (_Bool)pickRoute:(id)arg1;
 - (id)videoRouteForRoute:(id)arg1;
 - (void)fetchAvailableRoutesWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)fetchAvailableRoutesWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) MPAVRoute *pendingPickedRoute;
 @property(readonly, nonatomic) _Bool volumeControlIsAvailable;
 @property(readonly, nonatomic) _Bool hasPendingPickedRoutes;

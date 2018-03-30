@@ -9,7 +9,7 @@
 #import "NCNotificationCustomContent.h"
 #import "_UNNotificationExtensionHostDelegate.h"
 
-@class NCMediaPlayPauseButton, NCNotificationAction, NCNotificationRequest, NSMutableArray, NSString, UIView, _UNNotificationExtensionHostViewController;
+@class NCMediaPlayPauseButton, NCNotificationAction, NCNotificationRequest, NSExtension, NSMutableArray, NSString, UIView, _UNNotificationExtensionHostViewController;
 
 @interface NCNotificationExtensionContainerViewController : UIViewController <_UNNotificationExtensionHostDelegate, NCNotificationCustomContent>
 {
@@ -18,8 +18,7 @@
     _Bool _defaultContentHidden;
     _Bool _overridesDefaultTitle;
     id <NCNotificationCustomContentDelegate> _delegate;
-    NSString *_extensionIdentifier;
-    double _contentSizeRatio;
+    NSExtension *_extension;
     NCNotificationRequest *_notificationRequest;
     _UNNotificationExtensionHostViewController *_extensionViewController;
     id <_UNNotificationExtensionRemoteInterface> _remoteService;
@@ -37,13 +36,12 @@
 @property(retain, nonatomic) id <_UNNotificationExtensionRemoteInterface> remoteService; // @synthesize remoteService=_remoteService;
 @property(retain, nonatomic) _UNNotificationExtensionHostViewController *extensionViewController; // @synthesize extensionViewController=_extensionViewController;
 @property(retain, nonatomic) NCNotificationRequest *notificationRequest; // @synthesize notificationRequest=_notificationRequest;
-@property(nonatomic) double contentSizeRatio; // @synthesize contentSizeRatio=_contentSizeRatio;
-@property(retain, nonatomic) NSString *extensionIdentifier; // @synthesize extensionIdentifier=_extensionIdentifier;
+@property(retain, nonatomic) NSExtension *extension; // @synthesize extension=_extension;
 @property(nonatomic, getter=isUserInteractionEnabled) _Bool userInteractionEnabled; // @synthesize userInteractionEnabled=_userInteractionEnabled;
 @property(nonatomic) __weak id <NCNotificationCustomContentDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (double)_contentHeightForWidth:(double)arg1;
-- (void)_loadExtensionViewControllerWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_loadViewControllerForExtension:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_setupRemoteServiceInterface:(id)arg1;
 - (void)_addExtensionViewFromViewController:(id)arg1;
 - (id)_responseForAction:(id)arg1 notification:(id)arg2 response:(id)arg3;

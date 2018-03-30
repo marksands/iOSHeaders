@@ -64,7 +64,9 @@
 - (void)removeObjectWithObjectID:(id)arg1 class:(Class)arg2;
 - (id)_addObject:(id)arg1;
 - (id)addObject:(id)arg1;
+- (void)_saveObjects:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)saveObjects:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)updateAuthStatusesForContexts:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)saveWithCompletion:(CDUnknownBlockType)arg1;
 - (void)contextsMatchingPredicate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)contextsMatchingIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;

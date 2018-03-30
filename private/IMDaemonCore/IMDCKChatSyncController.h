@@ -80,6 +80,7 @@
 - (void)setLockRecord:(id)arg1 isUsingStingRay:(_Bool)arg2;
 - (id)lockRecordForStingRay:(_Bool)arg1;
 - (id)_generateLockRecord;
+- (long long)syncControllerRecordType;
 - (void)dealloc;
 - (id)init;
 - (id)initWithSyncTokenStore:(id)arg1;

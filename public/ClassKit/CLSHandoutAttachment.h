@@ -12,7 +12,6 @@
 
 @interface CLSHandoutAttachment : CLSObject <CLSRelationable>
 {
-    NSArray *_assets;
     _Bool _locked;
     int _type;
     int __completionStatus;
@@ -58,7 +57,6 @@
 @property(copy, nonatomic) NSArray *contextPath;
 @property(copy, nonatomic) NSURL *URL;
 @property(copy, nonatomic) NSString *title;
-- (void)willChangeValueForKey:(id)arg1;
 - (void)removeAsset:(id)arg1;
 - (void)addAsset:(id)arg1;
 @property(readonly, nonatomic) NSArray *assets;

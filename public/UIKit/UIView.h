@@ -806,6 +806,7 @@
 - (void)setPresentationValue:(id)arg1 forKey:(id)arg2 updateIfExists:(_Bool)arg3;
 - (void)_setPresentationValue:(id)arg1 forKey:(id)arg2;
 - (id)animationEntryForKey:(id)arg1;
+- (id)animationInfoCreateIfNecessary:(_Bool)arg1;
 @property(retain, nonatomic) UIViewAnimationInfo *animationInfo;
 @property(readonly, nonatomic) _Bool _isInLayoutSubviews; // @dynamic _isInLayoutSubviews;
 - (void)layoutSubviews;

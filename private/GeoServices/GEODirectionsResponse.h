@@ -178,6 +178,7 @@
 @property(readonly, nonatomic) _Bool hasClientMetrics;
 - (id)_destinationMapItem;
 - (id)initWithDictionaryRepresentation:(id)arg1;
+- (void)clearLocations;
 
 @end
 

@@ -48,6 +48,7 @@
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) NSArray *_path; // @synthesize _path;
 - (void).cxx_destruct;
+- (long long)effectiveAuthorizationStatus;
 - (id)dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
 - (void)setPathAndGenerateObjectID:(id)arg1;

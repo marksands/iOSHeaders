@@ -175,6 +175,7 @@
 - (void)notifyDidSendMessageID:(id)arg1 account:(id)arg2 shouldNotify:(_Bool)arg3;
 - (void)notifyDidSendMessageID:(id)arg1 shouldNotify:(_Bool)arg2;
 - (void)notifyDidSendMessageID:(id)arg1;
+- (void)didSendMessage:(id)arg1 forChat:(id)arg2 style:(unsigned char)arg3 account:(id)arg4 forceDate:(id)arg5 itemIsComingFromStorage:(_Bool)arg6;
 - (void)didSendMessage:(id)arg1 forChat:(id)arg2 style:(unsigned char)arg3 account:(id)arg4 forceDate:(id)arg5;
 - (void)didSendMessage:(id)arg1 forChat:(id)arg2 style:(unsigned char)arg3 forceDate:(id)arg4;
 - (void)didSendMessage:(id)arg1 forChat:(id)arg2 style:(unsigned char)arg3;

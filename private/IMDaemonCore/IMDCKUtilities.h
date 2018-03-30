@@ -6,28 +6,38 @@
 
 #import "NSObject.h"
 
-@class FTDeviceSupport, IDSServerBag, IMDefaults, IMLockdownManager;
+#import "IMDCKSyncStateDelegate.h"
 
-@interface IMDCKUtilities : NSObject
+@class FTDeviceSupport, IDSServerBag, IMDCKSyncState, IMDefaults, IMLockdownManager, NSString;
+
+@interface IMDCKUtilities : NSObject <IMDCKSyncStateDelegate>
 {
     _Bool _useDeprecatedApi;
+    IMDCKSyncState *_syncState;
     IMLockdownManager *_lockdownManager;
     IDSServerBag *_serverBag;
     FTDeviceSupport *_deviceSupport;
     IMDefaults *_imDefaults;
 }
 
++ (id)im_AKSecurityLevelKey;
 + (id)sharedInstance;
 + (id)logHandle;
-+ (id)im_AKSecurityLevelKey;
 @property(nonatomic) _Bool useDeprecatedApi; // @synthesize useDeprecatedApi=_useDeprecatedApi;
 @property(retain, nonatomic) IMDefaults *imDefaults; // @synthesize imDefaults=_imDefaults;
 @property(retain, nonatomic) FTDeviceSupport *deviceSupport; // @synthesize deviceSupport=_deviceSupport;
 @property(retain, nonatomic) IDSServerBag *serverBag; // @synthesize serverBag=_serverBag;
 @property(retain, nonatomic) IMLockdownManager *lockdownManager; // @synthesize lockdownManager=_lockdownManager;
 - (void).cxx_destruct;
+- (void)fetchSecurityLevelForAccount:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (id)accountWithDSID:(id)arg1;
+- (id)accountDSID:(id)arg1;
+- (void)disableAllDevicesWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)isInCloudKitDemoMode;
 - (void)eligibleForTruthZoneWithCompletion:(CDUnknownBlockType)arg1;
+- (void)downgradingFromHSA2AndDisablingMOC;
 - (void)enableMOCIfNeeded;
+- (unsigned long long)_primaryiCloudAccountSecurityLevel;
 - (_Bool)_allowDestructiveMOCFeatureForDSID:(id)arg1;
 - (_Bool)_allowDestructiveMOCFeaturesBasedOnDSID;
 - (id)dsid;
@@ -50,6 +60,10 @@
 - (id)newfilteredArrayRemovingCKRecordDupes:(id)arg1;
 - (_Bool)deviceConditionsAllowPeriodicSync;
 - (id)deviceConditions;
+@property(readonly, nonatomic) _Bool isSyncingPaused;
+@property(readonly, nonatomic, getter=isDeviceOnWifi) _Bool deviceOnWifi;
+@property(readonly, nonatomic, getter=isDeviceCharging) _Bool deviceCharging;
+- (_Bool)_isSyncingPausedOverride;
 - (void)primaryAccountHasiCloudBackupEnabledWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_personIdFromAccount:(id)arg1;
 - (void)fetchiCloudAccountPersonID:(CDUnknownBlockType)arg1;
@@ -87,6 +101,10 @@
 - (_Bool)_checkIfBuildVersionIsNewEnoughToLogDump;
 - (id)_dumpLogsForTrainPrefix;
 - (_Bool)_checkIfEnabledByServerBagOrDefault:(id)arg1;
+- (void)fetchCloudKitAccountStatusAndCheckForAccountNeedsRepairWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)shouldRepairAccountWithDeviceAccountSecurityLevel:(unsigned long long)arg1 serverAccountStatus:(long long)arg2;
+- (void)fetchLocalAccountSecurityLevel:(CDUnknownBlockType)arg1;
+- (_Bool)_accountNeedsRepairOverride;
 - (void)fetchCloudKitAccountStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_createAccountError:(id)arg1;
 - (void)_checkEligibilityWithLoggedInAccountWithCompletion:(CDUnknownBlockType)arg1;
@@ -117,14 +135,19 @@
 - (_Bool)shouldForceArchivedMessagesSync;
 - (_Bool)shouldUseDevContainer;
 - (void)broadcastInstantStateChangeNotification;
+- (void)syncStateWillUpdate:(id)arg1;
+@property(readonly, nonatomic) IMDCKSyncState *syncState; // @synthesize syncState=_syncState;
 - (id)init;
 - (id)initWithServerBag:(id)arg1 lockDownmanager:(id)arg2 deviceSupport:(id)arg3 imDefaults:(id)arg4;
 - (id)_truthDatabase;
 - (id)_truthContainer;
 - (id)logHandle;
-- (void)fetchSecurityLevelForAccount:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (id)accountWithDSID:(id)arg1;
-- (id)accountDSID:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

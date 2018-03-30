@@ -17,9 +17,8 @@
 @property(retain, nonatomic) NSMutableDictionary *loadedHostViewControllerCache; // @synthesize loadedHostViewControllerCache=_loadedHostViewControllerCache;
 - (void).cxx_destruct;
 - (void)_loadViewControllerForExtension:(id)arg1 notificationRequest:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
-- (void)_loadViewControllerForNotificationRequest:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)clearCacheForNotificationRequest:(id)arg1;
-- (void)loadViewControllerForNotificationRequest:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)loadViewControllerForExtension:(id)arg1 notificationRequest:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (id)init;
 
 @end

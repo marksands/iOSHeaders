@@ -17,6 +17,7 @@
         unsigned int initialized:1;
         unsigned int title:1;
         unsigned int duration:1;
+        unsigned int trackCount:1;
         unsigned int trackNumber:1;
         unsigned int discNumber:1;
         unsigned int grouping:1;

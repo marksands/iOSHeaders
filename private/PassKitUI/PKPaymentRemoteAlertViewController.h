@@ -28,6 +28,7 @@
     _Bool _backlightActive;
     _Bool _deviceUILocked;
     _Bool _processHomeButtonEvents;
+    _Bool _brightnessRampingAllowed;
     PKFieldDetectEducationViewController *_educationVC;
     _Bool _appearedOnce;
     _Bool _insertedGroupsVC;
