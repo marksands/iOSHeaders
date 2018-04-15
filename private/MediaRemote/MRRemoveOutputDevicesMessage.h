@@ -6,13 +6,15 @@
 
 #import <MediaRemote/MRProtocolMessage.h>
 
-@interface MRVolumeControlAvailabilityMessage : MRProtocolMessage
+@class NSArray;
+
+@interface MRRemoveOutputDevicesMessage : MRProtocolMessage
 {
 }
 
 - (unsigned long long)type;
-@property(readonly, nonatomic) unsigned int capabilities;
-- (id)initWithCapabilities:(unsigned int)arg1;
+@property(readonly, nonatomic) NSArray *outputDeviceUIDs;
+- (id)initWithOutputDeviceUIDs:(id)arg1;
 
 @end
 

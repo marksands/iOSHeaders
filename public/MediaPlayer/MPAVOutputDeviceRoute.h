@@ -35,6 +35,7 @@
 - (_Bool)isPickedOnPairedDevice;
 - (_Bool)isVolumeControlAvailable;
 @property(readonly, nonatomic, getter=isGroupLeader) _Bool groupLeader;
+- (_Bool)isProxyGroupPlayer;
 - (_Bool)isDeviceSpeakerRoute;
 - (_Bool)isDeviceRoute;
 - (_Bool)isHomePodRoute;

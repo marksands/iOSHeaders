@@ -14,11 +14,16 @@
     MRAVOutputDeviceSourceInfo *_outputDeviceSourceInfo;
     NSMutableArray *_pendingModifications;
     NSObject<OS_dispatch_queue> *_serialQueue;
+    _Bool _isVolumeControlAvailable;
+    _Bool _outputContextDevicesDidChangeNotificationScheduled;
     unsigned int _type;
     NSString *_uniqueIdentifier;
     AVOutputContext *_avOutputContext;
 }
 
++ (void)_initializeAVFNotificationForwarding;
++ (id)_sharedOutputContextFromType:(unsigned int)arg1;
++ (id)_notificationOperationQueue;
 + (id)createOutputContextWithUniqueIdentifier:(id)arg1;
 + (id)sharedSystemScreenContext;
 + (id)sharedSystemAudioContext;
@@ -27,19 +32,22 @@
 @property(readonly, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(readonly, nonatomic) unsigned int type; // @synthesize type=_type;
 - (void).cxx_destruct;
+- (void)_scheduleOutputContextDevicesDidChangeNotification;
 - (_Bool)_contextSupportsMultipleDevices;
 - (void)_clearAnyCompletedModifications;
 - (void)_commitModification:(id)arg1;
 - (id)_pendingModifications;
 - (void)_reloadOutputDevices;
 - (void)_unregisterNotifications;
+- (void)_handleOutputDeviceSupportsVolumeDidChangeNotification:(id)arg1;
+- (void)_handleOutputDeviceCanSetVolumeDidChangeNotification:(id)arg1;
 - (void)_handleOutputDeviceVolumeDidChangeNotification:(id)arg1;
-- (void)_handleOutputContextVolumeDidChangeNotification:(id)arg1;
 - (void)_registerNotifications;
 - (void)_outputContextChangeInitiatedNotification:(id)arg1;
 - (void)_outputDevicesDidChangeNotification:(id)arg1;
 @property(nonatomic) float volume;
 @property(readonly, nonatomic, getter=isVolumeControlAvailable) _Bool volumeControlAvailable;
+@property(readonly, nonatomic) _Bool supportsVolumeControl;
 - (void)removeAllOutputDevicesWithCallbackQueue:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)removeOutputDevices:(id)arg1 withCallbackQueue:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (void)addOutputDevices:(id)arg1 withCallbackQueue:(id)arg2 block:(CDUnknownBlockType)arg3;

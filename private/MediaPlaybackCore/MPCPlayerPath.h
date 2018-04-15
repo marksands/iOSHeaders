@@ -22,6 +22,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)pathWithRoute:(id)arg1 mediaRemotePlayerPath:(void *)arg2;
++ (id)unresolvablePathWithRoute:(id)arg1 bundleID:(id)arg2 playerID:(id)arg3;
 + (id)pathWithRoute:(id)arg1 bundleID:(id)arg2 playerID:(id)arg3;
 + (id)systemMusicPathWithRoute:(id)arg1 playerID:(id)arg2;
 + (id)deviceActivePlayerPath;
@@ -30,7 +31,6 @@
 @property(readonly, copy, nonatomic) NSString *playerID; // @synthesize playerID=_playerID;
 @property(readonly, copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 - (void).cxx_destruct;
-- (void *)_createMediaRemotePlayerPathWithOrigin:(void *)arg1;
 - (void)resolveWithRouteResolvedHandler:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)resolveWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSString *representedBundleID;

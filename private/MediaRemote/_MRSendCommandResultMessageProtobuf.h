@@ -8,19 +8,22 @@
 
 #import "NSCopying.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 
 @interface _MRSendCommandResultMessageProtobuf : PBCodable <NSCopying>
 {
-    CDStruct_9f2792e4 _handlerReturnStatus;
-    unsigned int _errorCode;
+    CDStruct_95bda58d _handlerReturnStatus;
+    NSString *_commandID;
     NSMutableArray *_handlerReturnStatusDatas;
-    CDStruct_70a7dc3e _has;
+    int _sendError;
+    struct {
+        unsigned int sendError:1;
+    } _has;
 }
 
 + (Class)handlerReturnStatusDataType;
+@property(retain, nonatomic) NSString *commandID; // @synthesize commandID=_commandID;
 @property(retain, nonatomic) NSMutableArray *handlerReturnStatusDatas; // @synthesize handlerReturnStatusDatas=_handlerReturnStatusDatas;
-@property(nonatomic) unsigned int errorCode; // @synthesize errorCode=_errorCode;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -31,17 +34,23 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasCommandID;
 - (id)handlerReturnStatusDataAtIndex:(unsigned long long)arg1;
 - (unsigned long long)handlerReturnStatusDatasCount;
 - (void)addHandlerReturnStatusData:(id)arg1;
 - (void)clearHandlerReturnStatusDatas;
-- (void)setHandlerReturnStatus:(unsigned int *)arg1 count:(unsigned long long)arg2;
-- (unsigned int)handlerReturnStatusAtIndex:(unsigned long long)arg1;
-- (void)addHandlerReturnStatus:(unsigned int)arg1;
+- (int)StringAsHandlerReturnStatus:(id)arg1;
+- (id)handlerReturnStatusAsString:(int)arg1;
+- (void)setHandlerReturnStatus:(int *)arg1 count:(unsigned long long)arg2;
+- (int)handlerReturnStatusAtIndex:(unsigned long long)arg1;
+- (void)addHandlerReturnStatus:(int)arg1;
 - (void)clearHandlerReturnStatus;
-@property(readonly, nonatomic) unsigned int *handlerReturnStatus;
+@property(readonly, nonatomic) int *handlerReturnStatus;
 @property(readonly, nonatomic) unsigned long long handlerReturnStatusCount;
-@property(nonatomic) _Bool hasErrorCode;
+- (int)StringAsSendError:(id)arg1;
+- (id)sendErrorAsString:(int)arg1;
+@property(nonatomic) _Bool hasSendError;
+@property(nonatomic) int sendError; // @synthesize sendError=_sendError;
 - (void)dealloc;
 
 @end

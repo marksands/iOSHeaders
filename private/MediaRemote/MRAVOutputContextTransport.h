@@ -19,9 +19,11 @@ __attribute__((visibility("hidden")))
     MRAVInputStream *_inputStream;
     MRAVOutputStream *_outputStream;
     _Bool _useSystemAuthenticationPrompt;
+    _Bool _allowsRelayConnection;
     NSArray *_outputDevices;
 }
 
+@property(nonatomic) _Bool allowsRelayConnection; // @synthesize allowsRelayConnection=_allowsRelayConnection;
 @property(readonly, nonatomic) NSArray *outputDevices; // @synthesize outputDevices=_outputDevices;
 - (void).cxx_destruct;
 - (id)_onQueue_createRemoteControlContextWithID:(id)arg1;

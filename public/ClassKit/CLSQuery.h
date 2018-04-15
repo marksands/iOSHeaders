@@ -39,7 +39,6 @@
 - (oneway void)clientRemote_finishWithState:(unsigned long long)arg1 error:(id)arg2;
 - (oneway void)clientRemote_deliverObject:(id)arg1;
 - (oneway void)clientRemote_invalidate;
-- (void)withQuery:(CDUnknownBlockType)arg1;
 - (void)reset;
 @property(readonly, copy) NSString *description;
 - (id)initWithObjectType:(Class)arg1 predicate:(id)arg2 sortDescriptors:(id)arg3 error:(id *)arg4;

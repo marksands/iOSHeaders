@@ -30,8 +30,8 @@ __attribute__((visibility("hidden")))
 - (id)_securityTaskForCurrentConnection;
 - (id)_fetchRequest;
 - (id)_subscriptionEntity;
-- (long long)_saveChangesToContext:(id)arg1 withDate:(id)arg2 error:(id *)arg3;
-- (_Bool)_saveChangesToContext:(id)arg1 error:(id *)arg2;
+- (long long)_saveChangesToContext:(id)arg1 withDate:(id)arg2;
+- (_Bool)_saveChangesToContext:(id)arg1;
 - (void)_performBlockAndWait:(CDUnknownBlockType)arg1;
 - (void)_installedAppsDidChange:(id)arg1;
 - (void)_sendRemoteNotification;

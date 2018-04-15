@@ -34,6 +34,7 @@
     NSMutableDictionary *_participantProperties;
     NSArray *_frequentReplies;
     NSArray *_attachments;
+    NSNumber *_countOfAttachmentsNotCachedLocally;
     NSNumber *_countOfMessagesMarkedAsSpam;
     IMTimingCollection *_timingCollection;
     id <IMChatItemRules> _chatItemRules;
@@ -61,6 +62,7 @@
     NSString *_currentUnreadHistoryQuery;
     _Bool _hasEarlierMessagesToLoad;
     _Bool _hasMoreRecentMessagesToLoad;
+    _Bool _isCurrentlyDownloadingPurgedAssets;
     _Bool _hasSurfRequest;
     NSString *_personCentricID;
     NSDictionary *_bizIntent;
@@ -96,6 +98,7 @@
 @property(readonly, nonatomic) NSString *lastAddressedHandleID; // @synthesize lastAddressedHandleID=_lastAddressedHandleID;
 @property(retain, nonatomic) NSArray *frequentReplies; // @synthesize frequentReplies=_frequentReplies;
 - (void).cxx_destruct;
+- (void)downloadPurgedAttachments;
 - (void)sendProgress:(id)arg1 progressDidChange:(float)arg2 sendingMessages:(id)arg3 sendCount:(unsigned long long)arg4 totalCount:(unsigned long long)arg5 finished:(_Bool)arg6;
 - (id)sendProgressDelegate;
 - (void)setSendProgressDelegate:(id)arg1;
@@ -297,7 +300,11 @@
 - (id)_privateInitWithAccount:(id)arg1 style:(unsigned char)arg2 roomName:(id)arg3 messages:(id)arg4 participants:(id)arg5 isFiltered:(_Bool)arg6 hasHadSuccessfulQuery:(_Bool)arg7;
 - (void)deleteTransfers:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *attachments;
+@property(readonly, nonatomic) _Bool isCurrentlyDownloadingPurgedAttachments;
+@property(readonly, copy, nonatomic) NSNumber *countOfAttachmentsNotCachedLocally;
 - (void)loadAttachments:(CDUnknownBlockType)arg1;
+- (void)_setIsDownloadingPurgedAssets:(_Bool)arg1;
+- (void)_setCountOfAttachmentsNotCachedLocally:(id)arg1;
 - (void)_setCountOfMessagesMarkedAsSpam:(id)arg1;
 - (void)_setAttachments:(id)arg1;
 - (id)loadUnreadMessagesWithLimit:(unsigned long long)arg1 fallbackToMessagesUpToGUID:(id)arg2;

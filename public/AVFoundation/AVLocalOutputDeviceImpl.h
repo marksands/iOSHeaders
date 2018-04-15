@@ -8,7 +8,7 @@
 
 #import "AVOutputDeviceImpl.h"
 
-@class AVOutputDevice, NSArray, NSData, NSNumber, NSString;
+@class AVOutputDevice, NSArray, NSData, NSDictionary, NSNumber, NSString;
 
 @interface AVLocalOutputDeviceImpl : NSObject <AVOutputDeviceImpl>
 {
@@ -17,8 +17,10 @@
 
 @property __weak AVOutputDevice *parentOutputDevice; // @synthesize parentOutputDevice=_parentDevice;
 - (void).cxx_destruct;
-- (void)configureUsingBlock:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)configureUsingBlock:(CDUnknownBlockType)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) _Bool canRelayCommunicationChannel;
+@property(readonly, nonatomic) _Bool canCommunicateWithAllLogicalDeviceMembers;
+@property(readonly, nonatomic) _Bool isLogicalDeviceLeader;
 @property(readonly, nonatomic) NSString *logicalDeviceID;
 @property(readonly, nonatomic) _Bool groupContainsGroupLeader;
 @property(readonly, nonatomic) _Bool participatesInGroupPlayback;
@@ -30,11 +32,15 @@
 @property(readonly) _Bool canSetVolume;
 @property(readonly) float volume;
 - (void)setSecondDisplayEnabled:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool supportsBufferedAirPlay;
+@property(readonly, nonatomic) _Bool canAccessiCloudMusicLibrary;
+@property(readonly, nonatomic) _Bool canAccessAppleMusic;
 @property(readonly, nonatomic) _Bool canAccessRemoteAssets;
 @property(readonly, nonatomic) _Bool requiresAuthorization;
 @property(readonly, nonatomic) unsigned long long deviceFeatures;
 @property(readonly, copy, nonatomic) NSArray *connectedPairedDevices;
 @property(readonly, nonatomic, getter=isInUseByPairedDevice) _Bool inUseByPairedDevice;
+@property(readonly, nonatomic) NSDictionary *airPlayProperties;
 @property(readonly, nonatomic) NSNumber *rightBatteryLevel;
 @property(readonly, nonatomic) NSNumber *leftBatteryLevel;
 @property(readonly, nonatomic) NSNumber *caseBatteryLevel;

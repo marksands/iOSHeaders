@@ -10,14 +10,15 @@
 {
 }
 
++ (unsigned long long)_deviceCategoryForDeviceProductType:(id)arg1;
++ (id)deviceCategoryStringRepresentationForCategoryType:(unsigned long long)arg1;
++ (_Bool)isCurrentDeviceCompatibleWithVoiceProfileAt:(id)arg1;
 + (id)sharedPreferences;
 - (_Bool)myriadFileLoggingEnabled;
 - (id)interstitialAbsoluteDirForLevel:(long long)arg1;
 - (id)interstitialRelativeDirForLevel:(long long)arg1;
 - (double)remoteVoiceTriggerEndpointTimeoutWithDefault:(double)arg1;
 - (double)remoteVoiceTriggerDelayTime;
-- (id)_deviceCategoryMap;
-- (_Bool)isCurrentDeviceCompatibleWithVoiceProfileAt:(id)arg1;
 - (_Bool)_markSATEnrollmentWithMarker:(id)arg1 forLanguage:(id)arg2;
 - (_Bool)_markSATEnrollmentMigratedForLanguageCode:(id)arg1;
 - (_Bool)_markSATEnrollmentSuccessForLanguageCode:(id)arg1;

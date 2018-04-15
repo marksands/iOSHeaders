@@ -40,6 +40,7 @@
 @property(readonly, nonatomic) float EUVolumeLimit;
 @property(readonly, nonatomic) long long volumeWarningState;
 @property(readonly, nonatomic) _Bool volumeWarningEnabled;
+- (void)getVolumeValueWithCompletion:(CDUnknownBlockType)arg1;
 - (void)adjustVolumeValue:(float)arg1;
 - (void)updateVolumeValue;
 @property(nonatomic, getter=isMuted) _Bool muted;

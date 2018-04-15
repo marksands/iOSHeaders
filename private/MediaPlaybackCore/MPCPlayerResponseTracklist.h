@@ -22,6 +22,8 @@
     long long _globalItemCount;
 }
 
++ (id)insertCommandForPlayerPath:(id)arg1 devices:(id)arg2;
++ (id)resetCommandForPlayerPath:(id)arg1 devices:(id)arg2;
 @property(readonly, nonatomic) long long globalItemCount; // @synthesize globalItemCount=_globalItemCount;
 @property(readonly, nonatomic) long long playingItemGlobalIndex; // @synthesize playingItemGlobalIndex=_playingItemGlobalIndex;
 @property(readonly, copy, nonatomic) NSIndexPath *playingItemIndexPath; // @synthesize playingItemIndexPath=_playingItemIndexPath;

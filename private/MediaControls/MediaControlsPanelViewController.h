@@ -12,7 +12,7 @@
 #import "MediaControlsEndpointControllerDelegate.h"
 #import "MediaControlsRatingActionSheet.h"
 
-@class MPAVRoutingViewController, MPArtworkCatalog, MPMediaControlsViewController, MediaControlsEndpointController, MediaControlsHeaderView, MediaControlsParentContainerView, MediaControlsRoutingCornerView, MediaControlsVolumeContainerView, NSMutableArray, NSString, UIView;
+@class MPAVRoutingViewController, MPArtworkCatalog, MPMediaControlsViewController, MPVolumeGroupSliderCoordinator, MediaControlsEndpointController, MediaControlsHeaderView, MediaControlsParentContainerView, MediaControlsRoutingCornerView, MediaControlsVolumeContainerView, NSMutableArray, NSString, UIView;
 
 @interface MediaControlsPanelViewController : UIViewController <MediaControlsEndpointControllerDelegate, MediaControlsRatingActionSheet, MPAVRoutingViewControllerThemeDelegate, MPMediaControlsViewControllerDelegate, MediaControlsCollectionItemViewController>
 {
@@ -36,6 +36,8 @@
     NSMutableArray *_secondaryStringComponents;
     MPMediaControlsViewController *_coverSheetRoutingViewController;
     MPArtworkCatalog *_artworkCatalog;
+    MPVolumeGroupSliderCoordinator *_groupSliderCoordinator;
+    NSString *_label;
     unsigned long long _supportedModes;
     long long _selectedMode;
     MediaControlsEndpointController *_endpointController;
@@ -47,6 +49,8 @@
 @property(retain, nonatomic) MediaControlsEndpointController *endpointController; // @synthesize endpointController=_endpointController;
 @property(nonatomic) long long selectedMode; // @synthesize selectedMode=_selectedMode;
 @property(nonatomic) unsigned long long supportedModes; // @synthesize supportedModes=_supportedModes;
+@property(copy, nonatomic) NSString *label; // @synthesize label=_label;
+@property(retain, nonatomic) MPVolumeGroupSliderCoordinator *groupSliderCoordinator; // @synthesize groupSliderCoordinator=_groupSliderCoordinator;
 @property(nonatomic) _Bool isListeningForResponse; // @synthesize isListeningForResponse=_isListeningForResponse;
 @property(nonatomic, getter=isOnScreen) _Bool onScreen; // @synthesize onScreen=_onScreen;
 @property(retain, nonatomic) MPArtworkCatalog *artworkCatalog; // @synthesize artworkCatalog=_artworkCatalog;
@@ -95,13 +99,13 @@
 - (void)_updateOnScreenForStyle:(long long)arg1;
 - (void)_updateStyle;
 - (id)_route;
-@property(copy, nonatomic) NSString *label;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
+- (id)initWithStyle:(long long)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties

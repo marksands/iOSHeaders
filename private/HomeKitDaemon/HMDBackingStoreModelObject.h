@@ -36,6 +36,7 @@
 + (Class)genericRepresentation;
 + (id)readonlyBefore;
 + (id)bsoSchemaHash;
++ (id)schemaHashRoot;
 + (id)properties;
 @property _Bool bsoDataVersionOverride; // @synthesize bsoDataVersionOverride=_bsoDataVersionOverride;
 @property(readonly, nonatomic) CKRecord *bsoRecord; // @synthesize bsoRecord=_bsoRecord;

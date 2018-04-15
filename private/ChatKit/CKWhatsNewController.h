@@ -6,27 +6,21 @@
 
 #import "NSObject.h"
 
-#import "CKAAUIDeviceToDeviceEncryptionHelperDelegate.h"
 #import "CKWhatsNewViewControllerDelegate.h"
+#import "IMCloudKitEventHandler.h"
 
-@class CKDeviceToDeviceEncryptionHelper, CKWhatsNewViewController, IMCloudKitHooks, NSString, NSUserDefaults, UIViewController;
+@class CKWhatsNewViewController, IMCloudKitSyncState, NSString, NSUserDefaults, UIViewController;
 
-@interface CKWhatsNewController : NSObject <CKWhatsNewViewControllerDelegate, CKAAUIDeviceToDeviceEncryptionHelperDelegate>
+@interface CKWhatsNewController : NSObject <CKWhatsNewViewControllerDelegate, IMCloudKitEventHandler>
 {
-    _Bool _waitingForMOCState;
     id <CKWhatsNewControllerDelegate> _delegate;
     UIViewController *_controllerToPresentFrom;
     NSUserDefaults *_userDefaults;
     CKWhatsNewViewController *_presentedViewController;
-    CKDeviceToDeviceEncryptionHelper *_presentedViewControllerEncryptionHelper;
-    unsigned long long _cachedMOCEnabledState;
-    IMCloudKitHooks *_cloudKitHooks;
+    IMCloudKitSyncState *_syncState;
 }
 
-@property(retain, nonatomic) IMCloudKitHooks *cloudKitHooks; // @synthesize cloudKitHooks=_cloudKitHooks;
-@property(nonatomic) unsigned long long cachedMOCEnabledState; // @synthesize cachedMOCEnabledState=_cachedMOCEnabledState;
-@property(nonatomic) _Bool waitingForMOCState; // @synthesize waitingForMOCState=_waitingForMOCState;
-@property(retain, nonatomic) CKDeviceToDeviceEncryptionHelper *presentedViewControllerEncryptionHelper; // @synthesize presentedViewControllerEncryptionHelper=_presentedViewControllerEncryptionHelper;
+@property(retain, nonatomic) IMCloudKitSyncState *syncState; // @synthesize syncState=_syncState;
 @property(retain, nonatomic) CKWhatsNewViewController *presentedViewController; // @synthesize presentedViewController=_presentedViewController;
 @property(readonly, nonatomic) NSUserDefaults *userDefaults; // @synthesize userDefaults=_userDefaults;
 @property(readonly, nonatomic) UIViewController *controllerToPresentFrom; // @synthesize controllerToPresentFrom=_controllerToPresentFrom;
@@ -34,19 +28,17 @@
 - (void).cxx_destruct;
 - (void)whatsNewNotNowButtonPressed;
 - (void)whatsNewConfirmPressed;
-- (void)cloudKitHooksReturnedWithMOCState:(id)arg1;
 - (void)_beginSurfWhatsNew;
 - (_Bool)_shouldPresentSurf;
 - (void)_tryToEnableHSA2;
 - (void)_tryToEnableMOC;
-- (void)_beginMOCFlowForState:(unsigned long long)arg1;
+- (void)_beginMOCFlowForState:(id)arg1;
 - (void)_beginMOCWhatsNew;
 - (_Bool)_shouldPresentMOC;
 - (void)_writeDefaultWhatsNewDidShow;
 - (void)_dismissPresentedViewControllerIfNeeded;
 - (void)_presentViewController:(id)arg1;
 - (void)presentViewControllerIfNeeded;
-- (void)dealloc;
 - (id)initWithPresentationViewController:(id)arg1 userDefaults:(id)arg2 cloudKitHooks:(id)arg3;
 - (id)initWithPresentationViewController:(id)arg1;
 - (id)init;

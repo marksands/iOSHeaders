@@ -120,7 +120,7 @@
 - (void)setLockState:(_Bool)arg1 screenLocked:(_Bool)arg2;
 - (void)didDismissUI;
 - (void)willPresentUI;
-- (void)forceAudioSessionInactiveWithCompletion:(CDUnknownBlockType)arg1;
+- (void)forceAudioSessionInactiveWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)forceAudioSessionInactive;
 - (void)forceAudioSessionActiveWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)forceAudioSessionActive;

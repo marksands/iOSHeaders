@@ -24,6 +24,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)hasMessageReceiverChildren;
++ (id)__deviceMediaRouteIdentifier;
 + (_Bool)shouldAcceptMessage:(id)arg1 home:(id)arg2 privilege:(unsigned long long)arg3;
 @property(readonly) HMDAccessorySymptomHandler *symptomsHandler; // @synthesize symptomsHandler=_symptomsHandler;
 @property(readonly) HMDRemoteLoginHandler *remoteLoginHandler; // @synthesize remoteLoginHandler=_remoteLoginHandler;

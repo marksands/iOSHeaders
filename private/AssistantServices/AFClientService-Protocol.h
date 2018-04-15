@@ -66,10 +66,8 @@
 - (oneway void)setCarDNDActive:(_Bool)arg1;
 - (oneway void)setIsStark:(_Bool)arg1;
 - (oneway void)setLockState:(_Bool)arg1 showingLockScreen:(_Bool)arg2;
-- (oneway void)forceAudioSessionInactiveWithCompletion:(void (^)(void))arg1;
-- (oneway void)forceAudioSessionInactive;
+- (oneway void)forceAudioSessionInactiveWithOptions:(unsigned long long)arg1 completion:(void (^)(void))arg2;
 - (oneway void)forceAudioSessionActiveWithOptions:(unsigned long long)arg1 completion:(void (^)(unsigned int, NSError *))arg2;
-- (oneway void)forceAudioSessionActive;
 - (oneway void)boostedPreheatWithStyle:(long long)arg1 completion:(void (^)(void))arg2;
 - (oneway void)preheatWithStyle:(long long)arg1 forOptions:(AFSpeechRequestOptions *)arg2;
 @end

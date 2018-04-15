@@ -67,6 +67,16 @@
 - (_Bool)siriDebugUIEnabled;
 - (void)setLimitedAudioLoggingEnabled:(_Bool)arg1;
 - (_Bool)limitedAudioLoggingEnabled;
+- (void)setMyriadDeviceTrumpDelay:(double)arg1;
+- (double)myriadDeviceTrumpDelay;
+- (void)setMyriadDeviceDelay:(double)arg1;
+- (double)myriadDeviceDelay;
+- (void)setMyriadDeviceAdjust:(float)arg1;
+- (float)myriadDeviceAdjust;
+- (void)setMyriadDeviceClass:(unsigned char)arg1;
+- (unsigned char)myriadDeviceClass;
+- (void)setMyriadServerHasProvisioned:(_Bool)arg1;
+- (_Bool)myriadServerHasProvisioned;
 - (void)setMyriadDeviceGroup:(id)arg1;
 - (id)myriadDeviceGroup;
 - (void)setMyriadDuckingEnabled:(_Bool)arg1;

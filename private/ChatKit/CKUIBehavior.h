@@ -135,6 +135,8 @@
 @property(readonly, nonatomic) double avatarNameWidth;
 @property(readonly, nonatomic) double avatarSpacingMargin;
 @property(readonly, nonatomic) struct CGSize avatarSize;
+@property(readonly, nonatomic) UIFont *iCloudTextFont;
+@property(readonly, nonatomic) UIFont *downloadButtonFont;
 @property(readonly, nonatomic) UIFont *headerFont;
 @property(readonly, nonatomic) UIFont *locationSubtitleFont;
 @property(readonly, nonatomic) UIFont *recipientNameFont;

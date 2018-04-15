@@ -96,6 +96,7 @@
 - (id)_itemsWithAssociatedGUID:(id)arg1;
 - (_Bool)_hasMessagesWithGUIDs:(id)arg1;
 - (void)updateUnformattedID:(id)arg1 forBuddyID:(id)arg2 onService:(id)arg3;
+- (id)storeMessage:(id)arg1 forceReplace:(_Bool)arg2 modifyError:(_Bool)arg3 modifyFlags:(_Bool)arg4 flagMask:(unsigned long long)arg5 updateMessageCache:(_Bool)arg6;
 - (id)storeMessage:(id)arg1 forceReplace:(_Bool)arg2 modifyError:(_Bool)arg3 modifyFlags:(_Bool)arg4 flagMask:(unsigned long long)arg5;
 - (id)storeItem:(id)arg1 forceReplace:(_Bool)arg2;
 - (void)updateFileTransfer:(id)arg1;

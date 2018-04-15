@@ -16,7 +16,7 @@
     MRTransportExternalDevice *_externalDevice;
     MRAVConcreteOutputDevice *_designatedGroupLeader;
     NSString *_instanceIdentifier;
-    id _outputContextDidChangeNotificationToken;
+    _Bool _allowsRelayConnection;
     NSDictionary *_outsourcedExternalDeviceCache;
 }
 
@@ -24,6 +24,7 @@
 - (void).cxx_destruct;
 - (void)_updateOutputContextInfo;
 - (void)_onQueue_reloadExternalDevice;
+- (void)_handleOutputContextDidChangeNotification:(id)arg1;
 - (_Bool)isProxyGroupPlayer;
 - (id)instanceIdentifier;
 - (void)_onQueue_setDesignatedGroupLeader:(id)arg1;
@@ -34,6 +35,7 @@
 - (id)uniqueIdentifier;
 - (id)outputDeviceForDistantDevice:(id)arg1;
 - (void)dealloc;
+- (id)initWithOutputDevices:(id)arg1 allowsRelayConnection:(_Bool)arg2;
 - (id)initWithOutputDevices:(id)arg1;
 
 @end

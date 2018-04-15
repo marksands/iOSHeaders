@@ -4,14 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+@class NSString;
 
-@interface CKAKAccountManager : NSObject
-{
-}
-
-+ (id)ck_sharedInstance;
-+ (Class)ck_AKAccountManagerClass;
-
+@protocol HMDWACAccessoryAssociation
+- (_Bool)matchesWACDeviceID:(NSString *)arg1;
 @end
 

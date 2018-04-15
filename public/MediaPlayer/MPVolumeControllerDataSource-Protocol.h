@@ -18,6 +18,7 @@
 @property(readonly, copy, nonatomic) NSString *volumeControlLabel;
 @property(readonly, nonatomic) _Bool applicationShouldOverrideHardwareVolumeBehavior;
 @property(nonatomic) __weak id <MPVolumeControllerDataSourceDelegate> delegate;
+- (void)getVolumeValueWithCompletion:(void (^)(float))arg1;
 - (void)reloadWarning;
 - (void)reload;
 - (void)adjustVolumeValue:(float)arg1;

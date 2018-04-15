@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "MPAVRoutingViewController.h"
 
-@interface CKACAccountStore : NSObject
+@interface MediaControlsRoutingViewController : MPAVRoutingViewController
 {
 }
 
-+ (id)ck_accountStore;
-+ (Class)ck_ACAccountStoreClass;
+- (id)_createVolumeSlider;
 
 @end
 

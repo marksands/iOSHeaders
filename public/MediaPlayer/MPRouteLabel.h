@@ -41,6 +41,7 @@
 @property(nonatomic) long long minimumEndCharacterCount; // @synthesize minimumEndCharacterCount=_minimumEndCharacterCount;
 - (void).cxx_destruct;
 - (long long)_compareLength:(id)arg1 with:(id)arg2;
+- (void)_routeDidChangeNotification:(id)arg1;
 - (void)_updateTitleIfNeeded;
 - (id)_truncateText:(id)arg1 by:(long long)arg2;
 - (void)_updateRouteLabel;

@@ -41,6 +41,10 @@
 }
 
 + (_Bool)_shouldRegisterForNotifications;
++ (void)_sendRemoteCommand:(unsigned int)arg1 playbackIntent:(id)arg2 options:(id)arg3 toPlayerPath:(id)arg4 completion:(CDUnknownBlockType)arg5;
++ (void)_sendLocalCommand:(unsigned int)arg1 playbackIntent:(id)arg2 options:(id)arg3 toPlayerPath:(id)arg4 completion:(CDUnknownBlockType)arg5;
++ (void)_sendCommand:(unsigned int)arg1 options:(id)arg2 appOptions:(unsigned int)arg3 toPlayerPath:(id)arg4 completion:(CDUnknownBlockType)arg5;
++ (void)sendCommand:(unsigned int)arg1 options:(id)arg2 toPlayerPath:(id)arg3 completion:(CDUnknownBlockType)arg4;
 + (id)controllerForPlayerPath:(id)arg1;
 @property(retain, nonatomic) id invalidationToken; // @synthesize invalidationToken=_invalidationToken;
 @property(readonly, nonatomic) id <MPArtworkDataSource> remotePlayerArtworkDataSource; // @synthesize remotePlayerArtworkDataSource=_remotePlayerArtworkDataSource;
@@ -80,9 +84,7 @@
 @property(readonly, nonatomic) MPCFuture *playingIdentifier;
 - (id)playQueueIdentifiersForRange:(struct _MSVSignedRange)arg1;
 - (id)playQueueIdentifiersForRequest:(void *)arg1;
-- (void)_sendRemoteCommand:(unsigned int)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (long long)playQueueIdentifiersCacheStateForRange:(struct _MSVSignedRange)arg1;
-- (void)_sendLocalCommand:(unsigned int)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)sendCommand:(unsigned int)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) MPCFuture *supportedCommands;
 @property(readonly, nonatomic) MPCFuture *playbackState;

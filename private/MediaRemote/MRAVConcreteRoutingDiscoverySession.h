@@ -27,13 +27,13 @@
     struct NSMapTable *_groupIDsToWeakEndpointsTable;
     struct NSMapTable *_deviceIDsToWeakOutputDevicesTable;
     _Bool _scheduledAvailableEndpointsAndOutputDevicesReload;
+    int _airplayActiveNotificationToken;
+    _Bool _isLocalDeviceBeingAirplayedTo;
 }
 
 - (void).cxx_destruct;
 - (void)_scheduleAvailableEndpointsAndOutputDevicesReload;
-- (void)_onQueue_reloadAvailableEndpointsAndOutputDevices;
-- (void)_unregisterNotifications;
-- (void)_registerNotifications;
+- (void)_onQueue_reloadAvailableEndpointsAndOutputDevicesAllowingBlocking:(_Bool)arg1;
 - (void)_availableOutputDevicesDidChangeNotification:(id)arg1;
 - (void)externalDeviceController:(id)arg1 didRemoveDevice:(id)arg2;
 - (void)externalDeviceController:(id)arg1 didDiscoverDevice:(id)arg2;

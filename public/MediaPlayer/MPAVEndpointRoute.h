@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) void *endpoint; // @synthesize endpoint=_endpoint;
 - (void).cxx_destruct;
 - (unsigned long long)_outputDevicesComposition;
+- (_Bool)_groupLeaderIsOfDeviceSubtype:(unsigned int)arg1;
 - (void)_endpointOutputDevicesDidChange:(id)arg1;
 - (_Bool)supportsRemoteControl;
 - (_Bool)supportsGrouping;

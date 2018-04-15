@@ -11,9 +11,13 @@
 @interface MRAVOutputDevice : NSObject
 {
     _Bool _canAccessRemoteAssets;
+    _Bool _canAccessAppleMusic;
+    _Bool _canAccessiCloudMusicLibrary;
     _Bool _remoteControllable;
     _Bool _groupLeader;
+    _Bool _groupContainsGroupLeader;
     _Bool _groupable;
+    _Bool _proxyGroupPlayer;
     _Bool _canRelayCommunicationChannel;
     _Bool _deviceGroupable;
     _Bool _pickedOnPairedDevice;
@@ -29,6 +33,7 @@
     NSString *_name;
     NSString *_uid;
     NSString *_modelID;
+    NSString *_firmwareVersion;
     NSString *_groupID;
     NSString *_logicalDeviceID;
     NSData *_MACAddress;
@@ -53,15 +58,20 @@
 @property(readonly, nonatomic, getter=isPickedOnPairedDevice) _Bool pickedOnPairedDevice; // @synthesize pickedOnPairedDevice=_pickedOnPairedDevice;
 @property(readonly, nonatomic, getter=isDeviceGroupable) _Bool deviceGroupable; // @synthesize deviceGroupable=_deviceGroupable;
 @property(readonly, nonatomic) _Bool canRelayCommunicationChannel; // @synthesize canRelayCommunicationChannel=_canRelayCommunicationChannel;
+@property(readonly, nonatomic, getter=isProxyGroupPlayer) _Bool proxyGroupPlayer; // @synthesize proxyGroupPlayer=_proxyGroupPlayer;
 @property(readonly, nonatomic, getter=isGroupable) _Bool groupable; // @synthesize groupable=_groupable;
+@property(readonly, nonatomic) _Bool groupContainsGroupLeader; // @synthesize groupContainsGroupLeader=_groupContainsGroupLeader;
 @property(readonly, nonatomic, getter=isGroupLeader) _Bool groupLeader; // @synthesize groupLeader=_groupLeader;
 @property(readonly, nonatomic, getter=isRemoteControllable) _Bool remoteControllable; // @synthesize remoteControllable=_remoteControllable;
+@property(readonly, nonatomic) _Bool canAccessiCloudMusicLibrary; // @synthesize canAccessiCloudMusicLibrary=_canAccessiCloudMusicLibrary;
+@property(readonly, nonatomic) _Bool canAccessAppleMusic; // @synthesize canAccessAppleMusic=_canAccessAppleMusic;
 @property(readonly, nonatomic) _Bool canAccessRemoteAssets; // @synthesize canAccessRemoteAssets=_canAccessRemoteAssets;
 @property(readonly, nonatomic) NSString *playingPairedDeviceName; // @synthesize playingPairedDeviceName=_playingPairedDeviceName;
 @property(readonly, nonatomic) NSDictionary *modelSpecificInfo; // @synthesize modelSpecificInfo=_modelSpecificInfo;
 @property(readonly, nonatomic) NSData *MACAddress; // @synthesize MACAddress=_MACAddress;
 @property(readonly, nonatomic) NSString *logicalDeviceID; // @synthesize logicalDeviceID=_logicalDeviceID;
-@property(readonly, nonatomic) NSString *groupID; // @synthesize groupID=_groupID;
+@property(copy, nonatomic) NSString *groupID; // @synthesize groupID=_groupID;
+@property(readonly, nonatomic) NSString *firmwareVersion; // @synthesize firmwareVersion=_firmwareVersion;
 @property(readonly, nonatomic) NSString *modelID; // @synthesize modelID=_modelID;
 @property(readonly, nonatomic) NSString *uid; // @synthesize uid=_uid;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;

@@ -20,7 +20,10 @@
 - (double)frecencyScore;
 - (void)updateFrecencyScore;
 - (void)configureUsingBlock:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)configureUsingBlock:(CDUnknownBlockType)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)canRelayCommunicationChannel;
+- (_Bool)canCommunicateWithAllLogicalDeviceMembers;
+- (_Bool)isLogicalDeviceLeader;
 - (id)logicalDeviceID;
 - (_Bool)groupContainsGroupLeader;
 - (_Bool)participatesInGroupPlayback;
@@ -34,11 +37,15 @@
 - (void)outputDeviceImplDidChangeVolume:(id)arg1;
 - (float)volume;
 - (void)setSecondDisplayEnabled:(_Bool)arg1;
+- (_Bool)supportsBufferedAirPlay;
+- (_Bool)canAccessiCloudMusicLibrary;
+- (_Bool)canAccessAppleMusic;
 - (_Bool)canAccessRemoteAssets;
 - (_Bool)requiresAuthorization;
 - (unsigned long long)deviceFeatures;
 - (id)connectedPairedDevices;
 - (_Bool)isInUseByPairedDevice;
+- (id)airPlayProperties;
 - (id)modelSpecificInformation;
 - (float)batteryLevel;
 - (_Bool)hasBatteryLevel;

@@ -6,26 +6,30 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSArray, UITableView;
 
 @interface MPAVRoutingViewControllerUpdateDisplayedRoutesState : NSObject
 {
     NSArray *_pickedRoutes;
     NSArray *_pendingPickedRoutes;
+    NSArray *_visibleIndexPaths;
     NSArray *_displayableAvailableRoutes;
     NSArray *_displayAsPickedRoutes;
     NSArray *_cachedRoutes;
     NSArray *_cachedPickedRoutes;
     NSArray *_cachedPendingPickedRoutes;
     NSArray *_cachedDisplayAsPickedRoutes;
+    UITableView *_tableView;
 }
 
+@property(retain, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 @property(copy, nonatomic) NSArray *cachedDisplayAsPickedRoutes; // @synthesize cachedDisplayAsPickedRoutes=_cachedDisplayAsPickedRoutes;
 @property(copy, nonatomic) NSArray *cachedPendingPickedRoutes; // @synthesize cachedPendingPickedRoutes=_cachedPendingPickedRoutes;
 @property(copy, nonatomic) NSArray *cachedPickedRoutes; // @synthesize cachedPickedRoutes=_cachedPickedRoutes;
 @property(copy, nonatomic) NSArray *cachedRoutes; // @synthesize cachedRoutes=_cachedRoutes;
 @property(copy, nonatomic) NSArray *displayAsPickedRoutes; // @synthesize displayAsPickedRoutes=_displayAsPickedRoutes;
 @property(copy, nonatomic) NSArray *displayableAvailableRoutes; // @synthesize displayableAvailableRoutes=_displayableAvailableRoutes;
+@property(copy, nonatomic) NSArray *visibleIndexPaths; // @synthesize visibleIndexPaths=_visibleIndexPaths;
 @property(copy, nonatomic) NSArray *pendingPickedRoutes; // @synthesize pendingPickedRoutes=_pendingPickedRoutes;
 @property(copy, nonatomic) NSArray *pickedRoutes; // @synthesize pickedRoutes=_pickedRoutes;
 - (void).cxx_destruct;

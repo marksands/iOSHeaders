@@ -6,27 +6,18 @@
 
 #import "NSObject.h"
 
-#import "CUTPowerMonitorDelegate.h"
-#import "CUTWiFiManagerDelegate.h"
+@class NSObject<OS_dispatch_queue>;
 
-@class NSObject<OS_dispatch_queue>, NSString;
-
-@interface IMLogDump : NSObject <CUTPowerMonitorDelegate, CUTWiFiManagerDelegate>
+@interface IMLogDump : NSObject
 {
-    _Bool _shouldCollectStats;
+    _Bool _shouldCollectPowerWifiStats;
     NSObject<OS_dispatch_queue> *_logDumpQueue;
 }
 
 + (id)sharedInstance;
-@property(readonly, nonatomic) _Bool shouldCollectStats; // @synthesize shouldCollectStats=_shouldCollectStats;
+@property(readonly, nonatomic) _Bool shouldCollectPowerWifiStats; // @synthesize shouldCollectPowerWifiStats=_shouldCollectPowerWifiStats;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *logDumpQueue; // @synthesize logDumpQueue=_logDumpQueue;
 - (void).cxx_destruct;
-- (void)cutWiFiManagerLinkDidChange:(id)arg1 context:(id)arg2;
-- (void)cutPowerMonitorBatteryConnectedStateDidChange:(id)arg1;
-- (void)disconnectFromResourceForTotalDurationKey:(id)arg1 dateKey:(id)arg2 powerWifiDict:(id)arg3;
-- (void)reconnectToResourceForTotalDurationKey:(id)arg1 dateKey:(id)arg2 powerWifiDict:(id)arg3;
-- (id)getPowerAndWifiDictionaryForKey:(id)arg1;
-- (id)todaysKey;
 - (id)createTodaysStatisticDictionaryIfNeeded;
 - (void)_noteSyncEndedForDurationKey:(id)arg1 dateKey:(id)arg2;
 - (void)noteAHDASyncEnded;
@@ -52,14 +43,7 @@
 - (void)dumpMOCLoggingMetaData;
 - (id)_lastHoursToAppend:(int)arg1;
 - (id)_predicateToAppend:(id)arg1;
-- (void)dealloc;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

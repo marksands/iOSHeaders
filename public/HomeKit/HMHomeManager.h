@@ -18,6 +18,7 @@
     _Bool _thisDeviceResidentCapable;
     _Bool _residentEnabledForThisDevice;
     _Bool _accessAllowedWhenLocked;
+    _Bool _mediaAccessoryControlRequested;
     _Bool _didUpdateHomes;
     _Bool _frameworkMergeComplete;
     _Bool _fetchInProgress;
@@ -68,6 +69,7 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 - (void).cxx_destruct;
+- (void)_registerForMediaAccessoryControl:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)registerForMediaAccessoryControl:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handleResidentProvisioningStatusChanged:(id)arg1;
 - (void)_handleAccessAllowedWhenLockedUpdatedNotification:(id)arg1;
@@ -157,6 +159,7 @@
 - (void)updatePrimaryHome:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
+@property(nonatomic) _Bool mediaAccessoryControlRequested; // @synthesize mediaAccessoryControlRequested=_mediaAccessoryControlRequested;
 - (void)_notifyResidentProvisioningStatus:(unsigned long long)arg1;
 - (void)setResidentProvisioningStatus:(unsigned long long)arg1;
 - (void)_setResidentProvisioningStatus:(unsigned long long)arg1;

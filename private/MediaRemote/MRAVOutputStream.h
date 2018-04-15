@@ -30,7 +30,7 @@
 - (id)initToBuffer:(char *)arg1 capacity:(unsigned long long)arg2;
 - (id)initToMemory;
 - (id)initWithCommunicationChannel:(id)arg1;
-- (id)initWithOutputContext:(id)arg1;
+- (id)initWithOutputContext:(id)arg1 allowsRelayConnection:(_Bool)arg2;
 
 @end
 

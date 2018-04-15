@@ -10,6 +10,7 @@
 #import "CKConversationListCellDelegate.h"
 #import "CKConversationResultsControllerDelegate.h"
 #import "CKTranscriptPreviewControllerDelegate.h"
+#import "IMCloudKitEventHandler.h"
 #import "UIActionSheetDelegate.h"
 #import "UISearchBarDelegate.h"
 #import "UISearchControllerDelegate.h"
@@ -21,7 +22,7 @@
 
 @class CKCloudKitSyncProgressViewController, CKConversation, CKConversationList, CKConversationSearchResultsController, CKMessagesController, CKScheduledUpdater, NSArray, NSIndexPath, NSString, UIBarButtonItem, UISearchController, UITableView, UIView;
 
-@interface CKConversationListController : UITableViewController <UISearchControllerDelegate, UISearchBarDelegate, CKCloudKitSyncProgressViewControllerDelegate, CKConversationResultsControllerDelegate, CKConversationListCellDelegate, UITableViewDragDestinationDelegate, CKTranscriptPreviewControllerDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
+@interface CKConversationListController : UITableViewController <UISearchControllerDelegate, UISearchBarDelegate, CKCloudKitSyncProgressViewControllerDelegate, IMCloudKitEventHandler, CKConversationResultsControllerDelegate, CKConversationListCellDelegate, UITableViewDragDestinationDelegate, CKTranscriptPreviewControllerDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 {
     UITableView *_table;
     NSIndexPath *_previouslySelectedIndexPath;
@@ -66,12 +67,19 @@
 @property(retain, nonatomic) CKScheduledUpdater *updater; // @synthesize updater=_updater;
 @property(nonatomic) _Bool isShowingSwipeDeleteConfirmation; // @synthesize isShowingSwipeDeleteConfirmation=_isShowingSwipeDeleteConfirmation;
 @property(retain, nonatomic) UIBarButtonItem *currentEditButtonItem; // @synthesize currentEditButtonItem=_currentEditButtonItem;
+@property(retain, nonatomic) CKCloudKitSyncProgressViewController *syncProgressViewController; // @synthesize syncProgressViewController=_syncProgressViewController;
 @property(retain, nonatomic) NSIndexPath *previouslySelectedIndexPath; // @synthesize previouslySelectedIndexPath=_previouslySelectedIndexPath;
 @property(nonatomic) __weak CKMessagesController *messagesController; // @synthesize messagesController=_messagesController;
 @property(nonatomic) __weak CKConversationList *conversationList; // @synthesize conversationList=_conversationList;
 - (void).cxx_destruct;
-- (void)cloudKitSyncProgressViewControllerDidChangeVisibility:(id)arg1;
+- (void)cloudKitSyncProgressViewController:(id)arg1 actionButtonWasPressed:(long long)arg2 errors:(id)arg3;
+- (void)_beginAccountRepairIfNeeded;
+- (void)cloudKitEventNotificationManager:(id)arg1 syncProgressDidUpdate:(id)arg2;
+- (void)unregisterForCloudKitEvents;
+- (void)registerForCloudKitEventsImmediately;
+- (void)registerForCloudKitEventsWithDelayedRegistration:(_Bool)arg1;
 - (void)_updateSyncProgressIfNeeded;
+- (void)_updateSyncProgressIfNeededWithProgressController:(id)arg1;
 @property(readonly, nonatomic) _Bool shouldShowPendingCell;
 - (void)selectConversationClosestToDeletedIndex:(unsigned long long)arg1;
 - (void)selectNextSequentialConversation:(_Bool)arg1;
@@ -146,7 +154,6 @@
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
-@property(readonly, nonatomic) CKCloudKitSyncProgressViewController *syncProgressViewController; // @synthesize syncProgressViewController=_syncProgressViewController;
 - (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)loadView;

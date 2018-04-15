@@ -28,11 +28,15 @@
     double _originalMinTrackViewAlphaOverride;
     double _originalMinValueViewAlphaOverride;
     double _originalMaxValueViewAlphaOverride;
+    _Bool _optimisticState;
+    float _optimisticValue;
     UILayoutGuide *_trackLayoutGuide;
     MPVolumeController *_volumeController;
     struct UIEdgeInsets _hitRectInsets;
 }
 
+@property(nonatomic) float optimisticValue; // @synthesize optimisticValue=_optimisticValue;
+@property(nonatomic, getter=isInOptimisticState) _Bool optimisticState; // @synthesize optimisticState=_optimisticState;
 @property(readonly, nonatomic) MPVolumeController *volumeController; // @synthesize volumeController=_volumeController;
 @property(readonly, nonatomic) UILayoutGuide *trackLayoutGuide; // @synthesize trackLayoutGuide=_trackLayoutGuide;
 @property(nonatomic) struct UIEdgeInsets hitRectInsets; // @synthesize hitRectInsets=_hitRectInsets;

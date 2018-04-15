@@ -10,16 +10,24 @@
 
 @class IMCloudKitHookTestSingleton, NSString;
 
-@interface IMCloudKitEventNotificationTest : IMRuntimeTestCase <IMCloudKitEventHandler>
+@interface IMCloudKitEventNotificationManagerRuntimeTest : IMRuntimeTestCase <IMCloudKitEventHandler>
 {
     double _previousInterval;
+    double _defaultTestDuration;
     IMCloudKitHookTestSingleton *_cloudKitHooks;
 }
 
 @property(retain, nonatomic) IMCloudKitHookTestSingleton *cloudKitHooks; // @synthesize cloudKitHooks=_cloudKitHooks;
+@property double defaultTestDuration; // @synthesize defaultTestDuration=_defaultTestDuration;
 - (void).cxx_destruct;
+- (void)startTest;
 - (void)cloudKitEventNotificationManager:(id)arg1 syncProgressDidUpdate:(id)arg2;
 - (void)cloudKitEventNotificationManager:(id)arg1 syncStateDidChange:(id)arg2;
+- (void)sendSyncStateChangedEvent;
+- (void)willUpdateSyncState:(id)arg1;
+- (void)willSendSyncState:(id)arg1 withSyncStatistics:(id)arg2;
+- (void)updateMockSyncState;
+- (id)createSyncStatisticsForMockSyncState:(id)arg1;
 - (void)tearDown;
 - (void)setUp;
 

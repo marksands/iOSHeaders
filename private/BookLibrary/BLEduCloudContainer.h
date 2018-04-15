@@ -23,7 +23,7 @@
 - (void).cxx_destruct;
 - (id)bookItemsForPermlinks:(id)arg1;
 - (id)bookItemForPermlink:(id)arg1;
-- (id)bookItemForPath:(id)arg1;
+- (id)bookItemForURL:(id)arg1;
 - (id)performMetadataActionOnCloudURL:(id)arg1 action:(CDUnknownBlockType)arg2;
 - (id)allBookItems;
 - (_Bool)updateBookItem:(id)arg1 error:(id *)arg2;

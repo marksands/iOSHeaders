@@ -11,7 +11,7 @@
 @protocol HFMediaValueSource <NSObject>
 @property(readonly, nonatomic) NSError *cachedPlaybackStateWriteError;
 @property(readonly, nonatomic) _Bool hasPendingWrites;
-@property(readonly, nonatomic) id <HFMediaProfileContainer> mediaProfile;
+@property(readonly, nonatomic) id <HFMediaProfileContainer> mediaProfileContainer;
 - (NAFuture *)writePlaybackState:(long long)arg1;
 - (long long)lastPlaybackStateForProfile;
 @end

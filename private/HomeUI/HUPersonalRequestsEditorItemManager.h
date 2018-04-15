@@ -6,17 +6,21 @@
 
 #import "HFItemManager.h"
 
-@class HFStaticItemProvider, HFUserItem, HMAssistantAccessControl, HMHome, HMUser, HUPersonalRequestsDevicesItemModule;
+@class HFItem, HFStaticItemProvider, HFUserItem, HMAssistantAccessControl, HMHome, HMUser, HUPersonalRequestsDevicesItemModule;
 
 @interface HUPersonalRequestsEditorItemManager : HFItemManager
 {
     HUPersonalRequestsDevicesItemModule *_prDevicesModule;
+    HFItem *_requireAuthenticationForSecureRequestsItem;
+    HFItem *_neverRequireAuthenticationItem;
     HMHome *_homeForUser;
     HFStaticItemProvider *_staticItemProvider;
 }
 
 @property(readonly, nonatomic) HFStaticItemProvider *staticItemProvider; // @synthesize staticItemProvider=_staticItemProvider;
 @property(readonly, nonatomic) HMHome *homeForUser; // @synthesize homeForUser=_homeForUser;
+@property(readonly, nonatomic) HFItem *neverRequireAuthenticationItem; // @synthesize neverRequireAuthenticationItem=_neverRequireAuthenticationItem;
+@property(readonly, nonatomic) HFItem *requireAuthenticationForSecureRequestsItem; // @synthesize requireAuthenticationForSecureRequestsItem=_requireAuthenticationForSecureRequestsItem;
 @property(retain, nonatomic) HUPersonalRequestsDevicesItemModule *prDevicesModule; // @synthesize prDevicesModule=_prDevicesModule;
 - (void).cxx_destruct;
 - (id)_commitUpdateToAccessControl:(id)arg1;

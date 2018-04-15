@@ -45,6 +45,8 @@
 - (void)_flush;
 - (void)_sendMessage:(id)arg1 queue:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (id)messageQueue:(id)arg1 dataForMessage:(id)arg2;
+- (void)messageQueue:(id)arg1 didPurgeMessage:(id)arg2;
+- (void)messageQueue:(id)arg1 didSendMessage:(id)arg2;
 - (unsigned long long)messageQueue:(id)arg1 processData:(id)arg2 atReadPosition:(long long)arg3;
 - (void)parser:(id)arg1 didParseMessage:(id)arg2;
 - (void)_stream:(id)arg1 handleEvent:(unsigned long long)arg2;

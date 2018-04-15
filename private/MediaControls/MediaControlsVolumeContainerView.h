@@ -25,9 +25,11 @@
 - (void).cxx_destruct;
 - (void)_updateVolumeStyle;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)didMoveToWindow;
 - (void)didMoveToSuperview;
 - (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect)arg1 slider:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

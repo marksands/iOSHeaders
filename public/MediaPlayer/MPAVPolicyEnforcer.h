@@ -17,7 +17,9 @@
 
 @property(readonly, nonatomic) __weak MPAVController *controller; // @synthesize controller=_controller;
 - (void).cxx_destruct;
+- (void)_unregisterForScreenRecordingNotifications;
 - (void)_updateScreenRecordingState;
+- (void)_registerForScreenRecordingNotifications;
 - (void)_isScreenRecordingDidChange:(_Bool)arg1;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)dealloc;

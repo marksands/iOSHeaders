@@ -26,10 +26,14 @@
     _Bool _scanning;
     CAShapeLayer *_viewfinderBorderLayer;
     CAShapeLayer *_viewfinderRevealLayer;
+    long long _autoFocusRangeRestriction;
+    long long _focusMode;
     CDUnknownBlockType _scannedCodeHandler;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType scannedCodeHandler; // @synthesize scannedCodeHandler=_scannedCodeHandler;
+@property(nonatomic) long long focusMode; // @synthesize focusMode=_focusMode;
+@property(nonatomic) long long autoFocusRangeRestriction; // @synthesize autoFocusRangeRestriction=_autoFocusRangeRestriction;
 - (void).cxx_destruct;
 - (void)captureOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
 - (void)_handleCaptureSessionInterruptionEnded:(id)arg1;

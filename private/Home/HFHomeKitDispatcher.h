@@ -148,6 +148,10 @@
 - (void)accessory:(id)arg1 didUpdateAssociatedServiceTypeForService:(id)arg2;
 - (void)accessory:(id)arg1 didUpdateNameForService:(id)arg2;
 - (void)accessoryDidUpdateName:(id)arg1;
+- (void)mediaSystem:(id)arg1 didUpdateComponents:(id)arg2;
+- (void)mediaSystem:(id)arg1 didUpdateName:(id)arg2;
+- (void)home:(id)arg1 didRemoveMediaSystem:(id)arg2;
+- (void)home:(id)arg1 didAddMediaSystem:(id)arg2;
 - (void)home:(id)arg1 didUpdateMediaPassword:(id)arg2;
 - (void)home:(id)arg1 didUpdateMediaPeerToPeerEnabled:(_Bool)arg2;
 - (void)home:(id)arg1 didUpdateMinimumMediaUserPrivilege:(long long)arg2;

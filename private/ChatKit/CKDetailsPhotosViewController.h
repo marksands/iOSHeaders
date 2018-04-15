@@ -107,6 +107,7 @@
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (_Bool)isDisplayingAttachmentContent;
 - (void)updateAttachmentItems:(id)arg1;
 - (void)parentScrollViewDidScroll:(struct CGPoint)arg1;
 - (struct CGSize)contentSizeThatFits:(struct CGSize)arg1;

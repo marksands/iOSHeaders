@@ -17,35 +17,35 @@
     NSMutableDictionary *_endpointControllersMap;
     _Bool _didLoadHomeUIDsOnce;
     _Bool _isRequestingActiveRoute;
-    MPAVEndpointRoute *_activeSystemRoute;
     MPMediaControlsConfiguration *_configuration;
     long long _discoveryMode;
     NSArray *_routes;
     id <MediaControlsEndpointsManagerDelegate> _delegate;
     MediaControlsHomeObserver *_homeObserver;
     MPAVRoutingController *_routingController;
+    NSString *_activeSystemRouteUID;
 }
 
+@property(readonly, copy, nonatomic) NSString *activeSystemRouteUID; // @synthesize activeSystemRouteUID=_activeSystemRouteUID;
 @property(readonly, nonatomic) MPAVRoutingController *routingController; // @synthesize routingController=_routingController;
 @property(readonly, nonatomic) MediaControlsHomeObserver *homeObserver; // @synthesize homeObserver=_homeObserver;
 @property(nonatomic) __weak id <MediaControlsEndpointsManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, copy, nonatomic) NSArray *routes; // @synthesize routes=_routes;
 @property(nonatomic) long long discoveryMode; // @synthesize discoveryMode=_discoveryMode;
 @property(readonly, copy, nonatomic) MPMediaControlsConfiguration *configuration; // @synthesize configuration=_configuration;
-@property(retain, nonatomic) MPAVEndpointRoute *activeSystemRoute; // @synthesize activeSystemRoute=_activeSystemRoute;
 - (void).cxx_destruct;
 - (void)_updateWithRoutes:(id)arg1;
 - (void)_updateActiveRoute;
 - (void)_setRoutes:(id)arg1 withChangeDetails:(id)arg2;
 - (_Bool)_homeHasRoute:(id)arg1;
 - (id)_endpointControllerContainingOutputDevice:(id)arg1 externalDeviceRef:(void **)arg2;
-- (long long)_indexOfRoute:(id)arg1;
-- (long long)_indexOfActiveRoute;
+- (long long)_indexOfRouteWithUID:(id)arg1;
 - (void)_activeSystemRouteDidChange:(id)arg1;
 - (void)homeObserverDidUpdateKnownUIDs:(id)arg1;
 - (void)getOutputDeviceIsPlaying:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
 - (id)endpointControllerForRoute:(id)arg1;
+@property(retain, nonatomic) MPAVEndpointRoute *activeSystemRoute;
 - (void)dealloc;
 - (id)initWithConfiguration:(id)arg1;
 

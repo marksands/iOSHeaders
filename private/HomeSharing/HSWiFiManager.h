@@ -6,9 +6,12 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>;
+
 @interface HSWiFiManager : NSObject
 {
     struct __SCPreferences *_wifiPreferences;
+    NSObject<OS_dispatch_queue> *_accessQueue;
     _Bool _wiFiEnabled;
     _Bool _wiFiAssociated;
 }
@@ -16,6 +19,7 @@
 + (id)sharedWiFiManager;
 @property(nonatomic, getter=isWiFiAssociated) _Bool wiFiAssociated; // @synthesize wiFiAssociated=_wiFiAssociated;
 @property(nonatomic, getter=isWiFiEnabled) _Bool wiFiEnabled; // @synthesize wiFiEnabled=_wiFiEnabled;
+- (void).cxx_destruct;
 - (void)_wifiCallBack:(unsigned int)arg1;
 - (_Bool)_getWiFiAssociated;
 - (_Bool)_getWiFiEnabledFromPrefs;

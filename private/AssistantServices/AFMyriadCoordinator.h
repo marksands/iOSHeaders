@@ -23,6 +23,7 @@
     unsigned char _deviceClass;
     int _deviceAdjust;
     double _deviceDelay;
+    double _deviceTrumpDelay;
     unsigned char _deviceGroup;
     NSObject<OS_dispatch_queue> *_myriadWorkQueue;
     NSObject<OS_dispatch_queue> *_myriadWaitWiProxQueue;
@@ -66,6 +67,7 @@
 }
 
 + (void)clearCurrentCoordinator;
++ (void)didChangeDefaults;
 + (id)currentCoordinator;
 - (void).cxx_destruct;
 - (void)_signalEmergencyCallHandled;
@@ -144,6 +146,8 @@
 - (void)_startAdvertisingFromVoiceTrigger;
 - (void)startAdvertisingFromVoiceTrigger;
 - (void)_initDeviceClassAndAdjustments;
+- (void)_readDefaults;
+- (void)readDefaults;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
 

@@ -14,6 +14,7 @@
 {
     _Bool _isWarmStart;
     _Bool _isServerTTS;
+    _Bool _isServerTimeout;
     _Bool _isSpeechRequest;
     _Bool _isCacheHitFromDisk;
     _Bool _isCacheHitFromMemory;
@@ -37,6 +38,7 @@
 @property unsigned long long waitForSynthesisToFinishTimeDelay; // @synthesize waitForSynthesisToFinishTimeDelay=_waitForSynthesisToFinishTimeDelay;
 @property unsigned long long synthesisToSpeechTimeGap; // @synthesize synthesisToSpeechTimeGap=_synthesisToSpeechTimeGap;
 @property _Bool isSpeechRequest; // @synthesize isSpeechRequest=_isSpeechRequest;
+@property _Bool isServerTimeout; // @synthesize isServerTimeout=_isServerTimeout;
 @property _Bool isServerTTS; // @synthesize isServerTTS=_isServerTTS;
 @property _Bool isWarmStart; // @synthesize isWarmStart=_isWarmStart;
 @property double audioDuration; // @synthesize audioDuration=_audioDuration;

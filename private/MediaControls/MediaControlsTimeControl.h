@@ -23,6 +23,7 @@
     double _currentTimeInTrack;
     NSString *_elapsedTime;
     NSString *_remainingTime;
+    _Bool _debugPreviousDisplayLinkPaused;
     _Bool _transitioning;
     _Bool _empty;
     _Bool _timeControlOnScreen;

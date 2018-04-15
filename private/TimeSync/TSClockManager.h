@@ -23,6 +23,7 @@
 + (id)sharedClockManagerSyncWithTimeout:(unsigned long long)arg1;
 + (id)sharedClockManager;
 + (id)timeSyncAudioClockDeviceUIDForClockIdentifier:(unsigned long long)arg1;
++ (void)notifyWhenClockManagerIsAvailable:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) unsigned long long machAbsoluteNanosecondClockIdentifier; // @synthesize machAbsoluteNanosecondClockIdentifier=_machAbsoluteNanosecondClockIdentifier;
 - (void)dealloc;
 - (unsigned long long)nanosecondsToMachAbsolute:(unsigned long long)arg1;

@@ -133,6 +133,9 @@
 - (void)enumerateAllChatsAndIncludingSyncedAttachmentSizes:(_Bool)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)_IMChatGetIdentifiersAndServicesTestHook:(id)arg1 identifiers:(id *)arg2 services:(id *)arg3 personCentricEnabled:(_Bool)arg4;
 - (void)_chat_closeSession:(id)arg1;
+- (void)_chat_isDownloadingPurgedAssetsForChat:(id)arg1 queryID:(id)arg2;
+- (void)_chat_downloadPurgedAttachmentsForChat:(id)arg1;
+- (void)_chat_loadUncachedAttachmentsCount:(id)arg1 queryID:(id)arg2;
 - (void)_chat_loadAttachments:(id)arg1 queryID:(id)arg2;
 - (void)_chat_loadUnreadMessages:(id)arg1 limit:(unsigned long long)arg2 fallbackGUID:(id)arg3 queryId:(id)arg4;
 - (void)_chat_loadFrequentReplies:(id)arg1 limit:(unsigned long long)arg2 queryID:(id)arg3;
@@ -176,6 +179,10 @@
 - (void)frequentRepliesQuery:(id)arg1 finishedWithResult:(id)arg2 limit:(unsigned long long)arg3;
 - (void)frequentRepliesQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4 limit:(unsigned long long)arg5;
 - (void)markAsSpamQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4;
+- (void)isDownloadingQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(_Bool)arg4;
+- (void)downloadedPurgedAssetBatchForChatID:(id)arg1 completedTransferGUIDs:(id)arg2;
+- (void)finishedDownloadingPurgedAssetsForChatID:(id)arg1;
+- (void)uncachedAttachmentCountQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4;
 - (void)attachmentQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4;
 - (void)pagedHistoryQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 numberOfMessagesBefore:(unsigned long long)arg4 numberOfMessagesAfter:(unsigned long long)arg5 finishedWithResult:(id)arg6;
 - (void)historyQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4 limit:(unsigned long long)arg5;

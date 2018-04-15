@@ -75,6 +75,7 @@
 - (id)avatarView:(id)arg1 orderedPropertiesForProperties:(id)arg2 category:(id)arg3;
 - (id)presentingViewControllerForAvatarView:(id)arg1;
 - (id)selectedAttachmentIndexes;
+- (_Bool)isDisplayingAttachmentContent;
 - (void)parentScrollViewDidScroll:(struct CGPoint)arg1;
 - (void)updateAttachmentItems:(id)arg1;
 - (struct CGSize)contentSizeThatFits:(struct CGSize)arg1;

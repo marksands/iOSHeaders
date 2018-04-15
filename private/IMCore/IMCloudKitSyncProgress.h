@@ -22,8 +22,10 @@
     long long _actionType;
     IMCloudKitSyncState *_syncState;
     IMCloudKitSyncStatistics *_syncStatistics;
+    double _broadcastDeferralOverride;
 }
 
+@property(nonatomic) double broadcastDeferralOverride; // @synthesize broadcastDeferralOverride=_broadcastDeferralOverride;
 @property(readonly, nonatomic) IMCloudKitSyncStatistics *syncStatistics; // @synthesize syncStatistics=_syncStatistics;
 @property(readonly, nonatomic) IMCloudKitSyncState *syncState; // @synthesize syncState=_syncState;
 @property(nonatomic) long long actionType; // @synthesize actionType=_actionType;

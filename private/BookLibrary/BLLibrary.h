@@ -51,6 +51,8 @@
 - (id)bookIdentifierFromURL:(id)arg1 error:(id *)arg2;
 - (_Bool)_removeBookFromLibraryWithPath:(id)arg1 error:(id *)arg2;
 - (_Bool)removeBookFromLibraryWithIdentifier:(id)arg1 error:(id *)arg2;
+- (_Bool)_addBookItemToEduContainer:(id)arg1 error:(id *)arg2;
+- (id)_lookupBookItemExhaustiveFromPermlink:(id)arg1 error:(id *)arg2;
 - (void)addITunesUBookToLibraryWithPermlink:(id)arg1 title:(id)arg2 result:(CDUnknownBlockType)arg3;
 - (id)allBookItems;
 - (id)_bookItemsFromPlist:(id)arg1;

@@ -21,10 +21,7 @@
 @property(retain, nonatomic) id <NAScheduler> scheduler; // @synthesize scheduler=_scheduler;
 @property(copy, nonatomic) CDUnknownBlockType block; // @synthesize block=_block;
 - (void).cxx_destruct;
-- (id)addCompletionBlock:(CDUnknownBlockType)arg1;
-- (id)addFailureBlock:(CDUnknownBlockType)arg1;
-- (id)addSuccessBlock:(CDUnknownBlockType)arg1;
-- (void)_runIfNecessary;
+- (void)willAddCompletionBlock;
 - (id)initWithBlock:(CDUnknownBlockType)arg1 scheduler:(id)arg2;
 
 @end

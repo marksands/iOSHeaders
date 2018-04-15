@@ -41,7 +41,7 @@
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) HMSymptomsHandler *symptomsHandler; // @synthesize symptomsHandler=_symptomsHandler;
-@property(readonly, nonatomic) __weak HMHome *home; // @synthesize home=_home;
+@property(nonatomic) __weak HMHome *home; // @synthesize home=_home;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -73,7 +73,7 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (void)_registerNotificationHandlers;
-- (void)_configureWithContext:(id)arg1;
+- (void)_configureWithHome:(id)arg1 context:(id)arg2;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)_updateAccessoryReference;

@@ -4008,6 +4008,7 @@ struct WebPageProxy {
     struct WeakPtrFactory<WebKit::WebPageProxy> _field210;
     struct HashMap<WTF::String, WTF::Ref<WebKit::WebURLSchemeHandler, WTF::DumbPtrTraits<WebKit::WebURLSchemeHandler>>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::Ref<WebKit::WebURLSchemeHandler, WTF::DumbPtrTraits<WebKit::WebURLSchemeHandler>>>> _field211;
     struct HashMap<unsigned long long, WTF::Ref<WebKit::WebURLSchemeHandler, WTF::DumbPtrTraits<WebKit::WebURLSchemeHandler>>, WTF::IntHash<unsigned long long>, WTF::HashTraits<unsigned long long>, WTF::HashTraits<WTF::Ref<WebKit::WebURLSchemeHandler, WTF::DumbPtrTraits<WebKit::WebURLSchemeHandler>>>> _field212;
+    struct optional<WTF::MonotonicTime> _field213;
 };
 
 struct WebPaymentCoordinatorProxy {
@@ -4167,6 +4168,11 @@ struct array<unsigned char, 20> {
 struct optional<CGRect> {
     _Bool init_;
     union constexpr_storage_t<CGRect> storage_;
+};
+
+struct optional<WTF::MonotonicTime> {
+    _Bool _field1;
+    union constexpr_storage_t<WTF::MonotonicTime> _field2;
 };
 
 struct optional<WTF::Seconds> {
@@ -4805,6 +4811,11 @@ union DataUnion {
 union constexpr_storage_t<CGRect> {
     unsigned char dummy_;
     struct CGRect value_;
+};
+
+union constexpr_storage_t<WTF::MonotonicTime> {
+    unsigned char _field1;
+    struct MonotonicTime _field2;
 };
 
 union constexpr_storage_t<WTF::Seconds> {

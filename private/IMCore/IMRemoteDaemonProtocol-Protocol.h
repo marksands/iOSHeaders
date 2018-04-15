@@ -27,12 +27,14 @@
 - (void)deleteSalt;
 - (void)printCachedSalt;
 - (void)fetchLatestSalt;
+- (void)fetchSecurityLevelAndUpdateMiCSwitchEligibility;
+- (void)broadcastCloudKitStateAfterClearingErrors;
 - (void)broadcastCloudKitState;
-- (void)updateCloudKitSyncingState;
 - (void)initiateSync;
 - (void)tryToDisableAllDevices;
 - (void)performAdditionalStorageRequiredCheck;
 - (void)setCloudKitEnabled:(_Bool)arg1;
+- (void)sendRestoreFailuresLogDumps;
 - (void)clearDataFromCloudKit;
 - (void)clearLocalCloudKitSyncState;
 - (void)deleteExitRecord;
@@ -137,6 +139,9 @@
 - (void)chat:(NSString *)arg1 updateDisplayName:(NSString *)arg2;
 - (void)chat:(NSString *)arg1 updateProperties:(NSDictionary *)arg2;
 - (void)cleanupAttachments;
+- (void)loadIsDownloadingPurgedAttachmentsForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 chatID:(NSString *)arg4 queryID:(NSString *)arg5;
+- (void)downloadPurgedAttachmentsForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 chatID:(NSString *)arg4;
+- (unsigned long long)loadUncachedAttachmentCountForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 chatID:(NSString *)arg4 queryID:(NSString *)arg5;
 - (void)loadAttachmentsForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 chatID:(NSString *)arg4 queryID:(NSString *)arg5;
 - (void)loadUnreadForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 limit:(unsigned long long)arg4 fallbackGUID:(NSString *)arg5 chatId:(NSString *)arg6 queryID:(NSString *)arg7;
 - (void)loadFrequentRepliesForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 limit:(unsigned long long)arg4 chatID:(NSString *)arg5 queryID:(NSString *)arg6;

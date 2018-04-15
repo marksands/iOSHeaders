@@ -32,6 +32,7 @@
 - (void)_configureAudioSession;
 - (void)_networkPolicyItemCellularRestrictedNotification:(id)arg1;
 - (void)_playbackErrorNotification:(id)arg1;
+- (void)updateAudioSession;
 - (void)addPlaybackContext:(id)arg1 toQueueWithInsertionType:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) long long upNextItemCount;
 - (void)setShuffleType:(long long)arg1;

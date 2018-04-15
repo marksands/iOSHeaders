@@ -27,7 +27,7 @@
 - (void).cxx_destruct;
 - (void)_setInitialFrameForRoutingView:(id)arg1;
 - (void)_toggleRoutingPickerAnimated:(_Bool)arg1;
-- (void)_updateTimeControlVisibility;
+- (void)_updateTimeControlVisibility:(id)arg1;
 - (void)_updateRoutingPickerVisibility;
 - (void)setSelectedMode:(long long)arg1 animated:(_Bool)arg2;
 - (void)didMoveToWindow;

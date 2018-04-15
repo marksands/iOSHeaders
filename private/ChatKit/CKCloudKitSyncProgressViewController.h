@@ -6,60 +6,41 @@
 
 #import "UIViewController.h"
 
-#import "IMCloudKitEventHandler.h"
+@class IMCloudKitSyncProgress, UIButton, UIColor, UILabel, UIProgressView, UIStackView;
 
-@class CKDeviceToDeviceEncryptionHelper, IMCloudKitHooks, IMCloudKitSyncProgress, NSString, UIButton, UILabel, UIProgressView, UIStackView;
-
-@interface CKCloudKitSyncProgressViewController : UIViewController <IMCloudKitEventHandler>
+@interface CKCloudKitSyncProgressViewController : UIViewController
 {
     _Bool _hidden;
-    id <CKAKAccountManager> _accountManager;
-    id <CKAKAppleIDAuthenticationContext> _authenticationContext;
-    CKDeviceToDeviceEncryptionHelper *_deviceToDeviceEncryptionHelper;
     id <CKCloudKitSyncProgressViewControllerDelegate> _delegate;
     UILabel *_progressLabel;
     UILabel *_userMessageLabel;
     UIButton *_actionButton;
     UIProgressView *_progressBar;
+    IMCloudKitSyncProgress *_lastProgress;
     UIStackView *_verticalStackView;
     UIStackView *_horizontalStackView;
-    IMCloudKitHooks *_cloudKitHooks;
-    IMCloudKitSyncProgress *_lastProgress;
+    UIColor *_originalProgressTintColor;
 }
 
-@property(retain, nonatomic) IMCloudKitSyncProgress *lastProgress; // @synthesize lastProgress=_lastProgress;
-@property(readonly, nonatomic) IMCloudKitHooks *cloudKitHooks; // @synthesize cloudKitHooks=_cloudKitHooks;
+@property(copy, nonatomic) UIColor *originalProgressTintColor; // @synthesize originalProgressTintColor=_originalProgressTintColor;
 @property(retain, nonatomic) UIStackView *horizontalStackView; // @synthesize horizontalStackView=_horizontalStackView;
 @property(retain, nonatomic) UIStackView *verticalStackView; // @synthesize verticalStackView=_verticalStackView;
+@property(retain, nonatomic) IMCloudKitSyncProgress *lastProgress; // @synthesize lastProgress=_lastProgress;
 @property(readonly, nonatomic) UIProgressView *progressBar; // @synthesize progressBar=_progressBar;
 @property(readonly, nonatomic) UIButton *actionButton; // @synthesize actionButton=_actionButton;
 @property(readonly, nonatomic) UILabel *userMessageLabel; // @synthesize userMessageLabel=_userMessageLabel;
 @property(readonly, nonatomic) UILabel *progressLabel; // @synthesize progressLabel=_progressLabel;
 @property(nonatomic, getter=isHidden) _Bool hidden; // @synthesize hidden=_hidden;
 @property(nonatomic) __weak id <CKCloudKitSyncProgressViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) CKDeviceToDeviceEncryptionHelper *deviceToDeviceEncryptionHelper; // @synthesize deviceToDeviceEncryptionHelper=_deviceToDeviceEncryptionHelper;
 - (void).cxx_destruct;
-- (void)cloudKitEventNotificationManager:(id)arg1 syncProgressDidUpdate:(id)arg2;
-- (void)_actionButtonWasPressed:(id)arg1;
-- (void)handleDeviceToDeviceEncryptionStateRepairCompleted:(_Bool)arg1 error:(id)arg2;
-- (void)performDeviceToDeviceEncryptionStateRepair;
-@property(readonly, nonatomic) _Bool accountNeedsRepair;
-@property(readonly, nonatomic) id <CKAKAppleIDAuthenticationContext> authenticationContext; // @synthesize authenticationContext=_authenticationContext;
-@property(readonly, nonatomic) id <CKAKAccountManager> accountManager; // @synthesize accountManager=_accountManager;
+@property(nonatomic) _Bool actionButtonEnabled; // @dynamic actionButtonEnabled;
 - (void)addToToolbar:(id)arg1;
-- (void)updateViewIfNeeded;
+- (void)updateWithCloudKitProgress:(id)arg1;
 - (void)viewWillLayoutSubviews;
-- (void)viewDidLoad;
 - (void)loadView;
+- (void)_actionButtonWasPressed:(id)arg1;
 - (id)_createLabel;
-- (id)initWithCloudKitHooks:(id)arg1;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

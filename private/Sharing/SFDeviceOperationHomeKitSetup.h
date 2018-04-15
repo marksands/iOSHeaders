@@ -10,7 +10,7 @@
 #import "HMHomeManagerDelegate.h"
 #import "HMHomeManagerDelegatePrivate.h"
 
-@class HMAccessory, HMAccessoryBrowser, HMDeviceSetupOperation, HMHome, HMHomeManager, HMRoom, NSDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, TROperationQueue, TRSession;
+@class ACAccount, HMAccessory, HMAccessoryBrowser, HMDeviceSetupOperation, HMHome, HMHomeManager, HMRoom, NSDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, TROperationQueue, TRSession;
 
 @interface SFDeviceOperationHomeKitSetup : NSObject <HMAccessoryBrowserDelegate, HMHomeManagerDelegate, HMHomeManagerDelegatePrivate>
 {
@@ -43,6 +43,7 @@
     HMHome *_homeKitSelectedHome;
     NSString *_homeKitSelectedRoomName;
     NSString *_iTunesAccountID;
+    ACAccount *_iTunesAccount;
     double _metricNonUserSeconds;
     double _metricUserSeconds;
     CDUnknownBlockType _pauseHandler;
@@ -65,6 +66,7 @@
 @property(readonly, nonatomic) double metricUserSeconds; // @synthesize metricUserSeconds=_metricUserSeconds;
 @property(readonly, nonatomic) double metricNonUserSeconds; // @synthesize metricNonUserSeconds=_metricNonUserSeconds;
 @property(nonatomic) _Bool keyExchangeOnly; // @synthesize keyExchangeOnly=_keyExchangeOnly;
+@property(retain, nonatomic) ACAccount *iTunesAccount; // @synthesize iTunesAccount=_iTunesAccount;
 @property(copy, nonatomic) NSString *iTunesAccountID; // @synthesize iTunesAccountID=_iTunesAccountID;
 @property(readonly, copy, nonatomic) NSString *homeKitSelectedRoomName; // @synthesize homeKitSelectedRoomName=_homeKitSelectedRoomName;
 @property(readonly, nonatomic) HMHome *homeKitSelectedHome; // @synthesize homeKitSelectedHome=_homeKitSelectedHome;
@@ -73,6 +75,7 @@
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(copy, nonatomic) NSDictionary *appDataSelf; // @synthesize appDataSelf=_appDataSelf;
 - (void).cxx_destruct;
+- (void)_updateAccount;
 - (void)_updateHomeHasHomePod;
 - (void)_restoreHomeApp;
 - (void)_removeSimilarRoomNames:(id)arg1 home:(id)arg2;

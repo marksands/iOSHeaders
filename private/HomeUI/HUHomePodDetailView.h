@@ -6,7 +6,7 @@
 
 #import "UIButton.h"
 
-@class UIImageView, UILabel, UIView;
+@class HUMonogramView, UILabel, UIView;
 
 @interface HUHomePodDetailView : UIButton
 {
@@ -14,13 +14,13 @@
     unsigned long long _role;
     UILabel *_unitNameLabel;
     UIView *_unitImageView;
-    UIImageView *_unitBadge;
+    HUMonogramView *_unitBadgeLabel;
     id <HUHomePodDetailViewDelegate> _delegate;
 }
 
 @property(nonatomic) _Bool isAnimatingPop; // @synthesize isAnimatingPop=_isAnimatingPop;
 @property(nonatomic) __weak id <HUHomePodDetailViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) UIImageView *unitBadge; // @synthesize unitBadge=_unitBadge;
+@property(readonly, nonatomic) HUMonogramView *unitBadgeLabel; // @synthesize unitBadgeLabel=_unitBadgeLabel;
 @property(readonly, nonatomic) UIView *unitImageView; // @synthesize unitImageView=_unitImageView;
 @property(readonly, nonatomic) UILabel *unitNameLabel; // @synthesize unitNameLabel=_unitNameLabel;
 @property(readonly, nonatomic) unsigned long long role; // @synthesize role=_role;

@@ -67,7 +67,7 @@
 - (void)_registerNotifications;
 - (void)_refreshPendingRoutes;
 - (void)_removePendingRoute:(id)arg1;
-- (void)_addPendingRoute:(id)arg1;
+- (id)_addPendingRoute:(id)arg1;
 - (void)logCurrentRoutes;
 - (void)_onQueueClearCachedRoutes;
 - (void)clearCachedRoutes;

@@ -66,12 +66,6 @@ typedef struct {
 } CDStruct_212a8bf9;
 
 typedef struct {
-    unsigned int *list;
-    unsigned long long count;
-    unsigned long long size;
-} CDStruct_9f2792e4;
-
-typedef struct {
     double *list;
     unsigned long long count;
     unsigned long long size;
@@ -109,10 +103,6 @@ typedef struct {
 typedef struct {
     unsigned int controllerID:1;
 } CDStruct_669c4a63;
-
-typedef struct {
-    unsigned int errorCode:1;
-} CDStruct_70a7dc3e;
 
 typedef struct {
     unsigned int state:1;

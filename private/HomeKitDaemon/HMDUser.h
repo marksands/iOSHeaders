@@ -12,7 +12,7 @@
 #import "HMFLogging.h"
 #import "NSSecureCoding.h"
 
-@class HAPPairingIdentity, HMDAccount, HMDAssistantAccessControl, HMDHome, HMUserPresenceAuthorization, NSMutableArray, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
+@class AVOutputDeviceAuthorizedPeer, HAPPairingIdentity, HMDAccount, HMDAssistantAccessControl, HMDHome, HMUserPresenceAuthorization, NSMutableArray, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
 @interface HMDUser : HMFObject <HMFLogging, HMFDumpState, HMDBackingStoreObjectProtocol, HMDHomeMessageReceiver, NSSecureCoding>
 {
@@ -106,6 +106,7 @@
 - (id)initWithUserID:(id)arg1 displayName:(id)arg2 forHomeIdentifier:(id)arg3 uuid:(id)arg4 pairingIdentity:(id)arg5 privilege:(unsigned long long)arg6;
 - (id)initWithUserID:(id)arg1 forHomeIdentifier:(id)arg2 uuid:(id)arg3 pairingIdentity:(id)arg4 privilege:(unsigned long long)arg5;
 - (id)initWithModelObject:(id)arg1;
+@property(readonly, copy) AVOutputDeviceAuthorizedPeer *av_authorizedPeer;
 
 // Remaining properties
 @property(readonly, copy) NSSet *messageReceiverChildren;

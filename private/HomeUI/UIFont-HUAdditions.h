@@ -8,6 +8,7 @@
 
 @interface UIFont (HUAdditions)
 + (id)hu_preferredFontForTextStyle:(id)arg1 traits:(unsigned int)arg2;
++ (id)hu_staticPreferredFontForTextStyle:(id)arg1 traits:(unsigned int)arg2;
 + (id)hu_staticPreferredFontForTextStyle:(id)arg1;
 @end
 

@@ -321,6 +321,7 @@
 - (void)setUsesAudioOnlyModeForExternalPlayback:(_Bool)arg1;
 - (void)setCurrentTime:(double)arg1 options:(long long)arg2;
 @property(copy, nonatomic) NSString *externalPlaybackVideoGravity;
+- (_Bool)becomeActiveWithError:(id *)arg1;
 - (void)setActive:(_Bool)arg1;
 @property(readonly, nonatomic) AVAudioSessionMediaPlayerOnly *_playerAVAudioSession;
 - (id)preferredLanguages;

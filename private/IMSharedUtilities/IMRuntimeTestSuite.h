@@ -11,16 +11,20 @@
 @interface IMRuntimeTestSuite : IMRuntimeTest
 {
     NSMutableArray *_tests;
+    double _testSuiteStartDelay;
     double _testStartDelay;
     NSMutableArray *_runningTests;
     IMRuntimeTest *_currentTest;
     NSTimer *_timer;
 }
 
++ (void)runTestsIfNeededWithRepeatCount:(long long)arg1;
++ (void)runTestsIfNeededWithRepeatCount:(long long)arg1 withCount:(long long)arg2;
 @property __weak NSTimer *timer; // @synthesize timer=_timer;
 @property(retain) IMRuntimeTest *currentTest; // @synthesize currentTest=_currentTest;
 @property(retain) NSMutableArray *runningTests; // @synthesize runningTests=_runningTests;
 @property double testStartDelay; // @synthesize testStartDelay=_testStartDelay;
+@property double testSuiteStartDelay; // @synthesize testSuiteStartDelay=_testSuiteStartDelay;
 @property(retain) NSArray *tests; // @synthesize tests=_tests;
 - (void).cxx_destruct;
 - (void)currentTestDidFinish;

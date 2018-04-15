@@ -20,6 +20,8 @@
 + (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 - (id)sourceInfo;
+- (_Bool)isVolumeControlAvailable;
+- (float)volume;
 - (_Bool)requiresAuthorization;
 - (_Bool)supportsExternalScreen;
 - (_Bool)isLocalDevice;
@@ -29,14 +31,19 @@
 - (unsigned int)deviceSubtype;
 - (unsigned int)deviceType;
 - (_Bool)isDeviceGroupable;
+- (_Bool)isProxyGroupPlayer;
 - (_Bool)isGroupable;
+- (_Bool)groupContainsGroupLeader;
 - (_Bool)isGroupLeader;
 - (_Bool)canRelayCommunicationChannel;
 - (_Bool)isRemoteControllable;
+- (_Bool)canAccessiCloudMusicLibrary;
+- (_Bool)canAccessAppleMusic;
 - (_Bool)canAccessRemoteAssets;
 - (id)MACAddress;
 - (id)logicalDeviceID;
 - (id)groupID;
+- (id)firmwareVersion;
 - (id)modelID;
 - (id)uid;
 - (id)name;

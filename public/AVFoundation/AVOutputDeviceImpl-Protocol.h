@@ -6,10 +6,12 @@
 
 #import "NSObject.h"
 
-@class AVOutputDevice, NSArray, NSData, NSNumber, NSString;
+@class AVOutputDevice, NSArray, NSData, NSDictionary, NSNumber, NSString;
 
 @protocol AVOutputDeviceImpl <NSObject>
 @property(readonly, nonatomic) _Bool canRelayCommunicationChannel;
+@property(readonly, nonatomic) _Bool canCommunicateWithAllLogicalDeviceMembers;
+@property(readonly, nonatomic) _Bool isLogicalDeviceLeader;
 @property(readonly, nonatomic) NSString *logicalDeviceID;
 @property(readonly, nonatomic) _Bool groupContainsGroupLeader;
 @property(readonly, nonatomic) _Bool participatesInGroupPlayback;
@@ -19,11 +21,15 @@
 @property(readonly, nonatomic) _Bool canBeGrouped;
 @property(readonly) _Bool canSetVolume;
 @property(readonly) float volume;
+@property(readonly, nonatomic) _Bool supportsBufferedAirPlay;
+@property(readonly, nonatomic) _Bool canAccessiCloudMusicLibrary;
+@property(readonly, nonatomic) _Bool canAccessAppleMusic;
 @property(readonly, nonatomic) _Bool canAccessRemoteAssets;
 @property(readonly, nonatomic) _Bool requiresAuthorization;
 @property(readonly, nonatomic) unsigned long long deviceFeatures;
 @property(readonly, copy, nonatomic) NSArray *connectedPairedDevices;
 @property(readonly, nonatomic, getter=isInUseByPairedDevice) _Bool inUseByPairedDevice;
+@property(readonly, nonatomic) NSDictionary *airPlayProperties;
 @property(readonly, nonatomic) NSNumber *rightBatteryLevel;
 @property(readonly, nonatomic) NSNumber *leftBatteryLevel;
 @property(readonly, nonatomic) NSNumber *caseBatteryLevel;
@@ -38,7 +44,7 @@
 @property(readonly, copy, nonatomic) NSString *ID;
 @property(readonly, copy, nonatomic) NSString *name;
 @property __weak AVOutputDevice *parentOutputDevice;
-- (void)configureUsingBlock:(void (^)(id <AVOutputDeviceConfigurationModification>))arg1 completionHandler:(void (^)(id <AVOutputDeviceConfigurationRetrieval>, NSError *))arg2;
+- (void)configureUsingBlock:(void (^)(id <AVOutputDeviceConfigurationModification>))arg1 options:(NSDictionary *)arg2 completionHandler:(void (^)(int, id <AVOutputDeviceConfigurationRetrieval>, NSString *, NSError *))arg3;
 - (void)setVolume:(float)arg1;
 - (void)setSecondDisplayEnabled:(_Bool)arg1;
 @end

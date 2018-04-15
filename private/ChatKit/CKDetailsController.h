@@ -12,6 +12,7 @@
 #import "CKDetailsAddGroupNameViewDelegate.h"
 #import "CKDetailsContactsManagerDelegate.h"
 #import "CKDetailsContactsTableViewCellDelegate.h"
+#import "CKDetailsDownloadAttachmentsHeaderFooterViewDelegate.h"
 #import "CKSharedAssetsControllerDelegate.h"
 #import "CNAvatarViewDelegate.h"
 #import "FMFMapViewControllerDelegate.h"
@@ -23,13 +24,16 @@
 #import "UITextViewDelegate.h"
 #import "UIViewControllerPreviewingDelegate.h"
 
-@class CKAttachmentCollectionManager, CKAvatarPickerViewController, CKBusinessInfoView, CKConversation, CKDetailsContactsManager, CKDetailsGroupNameCell, CKDetailsLocationShareCell, CKDetailsMapViewCell, CKDetailsTableView, CKEntity, CKGroupRecipientSelectionController, CKTranscriptDetailsResizableCell, CNContactStore, FMFMapViewController, NSString, NSTimer, UITextView, UIViewController<CKSharedAssetsControllerProtocol>, UIVisualEffectView;
+@class CKAvatarPickerViewController, CKBusinessInfoView, CKConversation, CKDetailsContactsManager, CKDetailsDownloadAttachmentsHeaderFooterView, CKDetailsGroupNameCell, CKDetailsLocationShareCell, CKDetailsMapViewCell, CKDetailsTableView, CKEntity, CKGroupRecipientSelectionController, CKTranscriptDetailsResizableCell, CNContactStore, FMFMapViewController, NSMutableArray, NSString, NSTimer, UITextView, UIVisualEffectView;
 
-@interface CKDetailsController : CKScrollViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UIViewControllerPreviewingDelegate, CKSharedAssetsControllerDelegate, CKDetailsAddGroupNameViewDelegate, FMFMapViewControllerDelegate, UITextViewDelegate, CKAttachmentCollectionManagerDelegate, CKAvatarPickerViewControllerDelegate, UIAlertViewDelegate, CKDetailsContactsManagerDelegate, CNAvatarViewDelegate, CKDetailsContactsTableViewCellDelegate, CKBusinessInfoViewDelegate, UINavigationControllerDelegate>
+@interface CKDetailsController : CKScrollViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UIViewControllerPreviewingDelegate, CKSharedAssetsControllerDelegate, CKDetailsAddGroupNameViewDelegate, FMFMapViewControllerDelegate, UITextViewDelegate, CKAttachmentCollectionManagerDelegate, CKAvatarPickerViewControllerDelegate, UIAlertViewDelegate, CKDetailsContactsManagerDelegate, CNAvatarViewDelegate, CKDetailsContactsTableViewCellDelegate, CKBusinessInfoViewDelegate, CKDetailsDownloadAttachmentsHeaderFooterViewDelegate, UINavigationControllerDelegate>
 {
     _Bool _fmfEnabled;
     _Bool _fmfRestricted;
     _Bool _isContactsSectionCollapsed;
+    _Bool _shouldShowDownloadMoreCell;
+    _Bool _didPerformPurgedAttachmentsCheck;
+    _Bool _isDisplayingPhotos;
     id <CKDetailsControllerDelegate> _detailsControllerDelegate;
     CKConversation *_conversation;
     CKDetailsTableView *_tableView;
@@ -42,33 +46,44 @@
     CKAvatarPickerViewController *_avatarPickerViewController;
     CKGroupRecipientSelectionController *_addRecipientsController;
     unsigned long long _currentAssetType;
-    UIViewController<CKSharedAssetsControllerProtocol> *_currentSharedAssetsViewController;
+    NSMutableArray *_currentSharedAssetsViewControllerArray;
     CKDetailsContactsManager *_contactsManager;
     FMFMapViewController *_mapViewController;
     UITextView *_locationSharingTextView;
+    CKDetailsDownloadAttachmentsHeaderFooterView *_downloadAttachmentsFooterView;
     CKBusinessInfoView *_businessInfoView;
     NSTimer *_fmfUpdateTimer;
     CNContactStore *_suggestionsEnabledContactStore;
     CKEntity *_presentedEntity;
-    CKAttachmentCollectionManager *_attachmentCollectionManager;
+    NSMutableArray *_attachmentCollectionManagerArray;
     double _contentOffsetYShiftAfterKeyboardNotification;
     id _selfWeakWrapper;
+    unsigned long long _undownloadedPhotoAttachmentCount;
+    unsigned long long _downloadButtonState;
+    unsigned long long _countOfPhotoAttachmentSections;
 }
 
+@property(nonatomic) _Bool isDisplayingPhotos; // @synthesize isDisplayingPhotos=_isDisplayingPhotos;
+@property(nonatomic) unsigned long long countOfPhotoAttachmentSections; // @synthesize countOfPhotoAttachmentSections=_countOfPhotoAttachmentSections;
+@property(nonatomic) unsigned long long downloadButtonState; // @synthesize downloadButtonState=_downloadButtonState;
+@property(nonatomic) unsigned long long undownloadedPhotoAttachmentCount; // @synthesize undownloadedPhotoAttachmentCount=_undownloadedPhotoAttachmentCount;
+@property(nonatomic) _Bool didPerformPurgedAttachmentsCheck; // @synthesize didPerformPurgedAttachmentsCheck=_didPerformPurgedAttachmentsCheck;
+@property(nonatomic) _Bool shouldShowDownloadMoreCell; // @synthesize shouldShowDownloadMoreCell=_shouldShowDownloadMoreCell;
 @property(retain, nonatomic) id selfWeakWrapper; // @synthesize selfWeakWrapper=_selfWeakWrapper;
 @property(nonatomic) double contentOffsetYShiftAfterKeyboardNotification; // @synthesize contentOffsetYShiftAfterKeyboardNotification=_contentOffsetYShiftAfterKeyboardNotification;
 @property(nonatomic) _Bool isContactsSectionCollapsed; // @synthesize isContactsSectionCollapsed=_isContactsSectionCollapsed;
-@property(retain, nonatomic) CKAttachmentCollectionManager *attachmentCollectionManager; // @synthesize attachmentCollectionManager=_attachmentCollectionManager;
+@property(retain, nonatomic) NSMutableArray *attachmentCollectionManagerArray; // @synthesize attachmentCollectionManagerArray=_attachmentCollectionManagerArray;
 @property(retain, nonatomic) CKEntity *presentedEntity; // @synthesize presentedEntity=_presentedEntity;
 @property(retain, nonatomic) CNContactStore *suggestionsEnabledContactStore; // @synthesize suggestionsEnabledContactStore=_suggestionsEnabledContactStore;
 @property(retain, nonatomic) NSTimer *fmfUpdateTimer; // @synthesize fmfUpdateTimer=_fmfUpdateTimer;
 @property(retain, nonatomic) CKBusinessInfoView *businessInfoView; // @synthesize businessInfoView=_businessInfoView;
+@property(retain, nonatomic) CKDetailsDownloadAttachmentsHeaderFooterView *downloadAttachmentsFooterView; // @synthesize downloadAttachmentsFooterView=_downloadAttachmentsFooterView;
 @property(retain, nonatomic) UITextView *locationSharingTextView; // @synthesize locationSharingTextView=_locationSharingTextView;
 @property(retain, nonatomic) FMFMapViewController *mapViewController; // @synthesize mapViewController=_mapViewController;
 @property(nonatomic) _Bool fmfRestricted; // @synthesize fmfRestricted=_fmfRestricted;
 @property(nonatomic) _Bool fmfEnabled; // @synthesize fmfEnabled=_fmfEnabled;
 @property(retain, nonatomic) CKDetailsContactsManager *contactsManager; // @synthesize contactsManager=_contactsManager;
-@property(retain, nonatomic) UIViewController<CKSharedAssetsControllerProtocol> *currentSharedAssetsViewController; // @synthesize currentSharedAssetsViewController=_currentSharedAssetsViewController;
+@property(retain, nonatomic) NSMutableArray *currentSharedAssetsViewControllerArray; // @synthesize currentSharedAssetsViewControllerArray=_currentSharedAssetsViewControllerArray;
 @property(nonatomic) unsigned long long currentAssetType; // @synthesize currentAssetType=_currentAssetType;
 @property(retain, nonatomic) CKGroupRecipientSelectionController *addRecipientsController; // @synthesize addRecipientsController=_addRecipientsController;
 @property(retain, nonatomic) CKAvatarPickerViewController *avatarPickerViewController; // @synthesize avatarPickerViewController=_avatarPickerViewController;
@@ -82,7 +97,12 @@
 @property(retain, nonatomic) CKConversation *conversation; // @synthesize conversation=_conversation;
 @property(nonatomic) __weak id <CKDetailsControllerDelegate> detailsControllerDelegate; // @synthesize detailsControllerDelegate=_detailsControllerDelegate;
 - (void).cxx_destruct;
+- (void)_insertRowForNewlyDownloadedAttachmentsWithTransferGUIDs:(id)arg1;
+- (void)_handlePurgedAttachmentDownloadNotification:(id)arg1;
+- (void)userDidTapDownloadForAttachmentsFooterView:(id)arg1;
 - (void)businessInfoView:(id)arg1 infoButtonTapped:(id)arg2;
+- (id)downloadButtonText;
+- (id)downloadAttachmentsText;
 - (void *)annotationABRecordForHandle:(id)arg1;
 - (id)annotationImageForHandle:(id)arg1;
 - (id)fmfHandlesFromIMHandles:(id)arg1;
@@ -149,12 +169,14 @@
 - (long long)rowForAddMemberCell;
 - (long long)rowForShowMoreContactsCell;
 - (id)contactsManagerCellForIndexPath:(id)arg1;
-- (void)initializeSharedAssetsViewControllerIfNecessary;
+- (void)initializeSharedAssetsViewControllerIfNecessaryForIndex:(unsigned long long)arg1;
 - (void)initializeBusinessInfoViewIfNecessary;
 - (void)initializeLocationSharingTextViewIfNecessary;
 - (id)fmfViewControllerCellForIndexPath:(id)arg1;
 - (id)groupNameCellForIndexPath:(id)arg1;
 - (id)leaveCellForIndexPath:(id)arg1;
+- (void)_updateDownloadFooterView;
+- (id)downloadAttachmentsFooterViewForSection:(long long)arg1;
 - (id)businessInfoFooterViewForSection:(long long)arg1;
 - (id)locationFooterViewForSection:(long long)arg1;
 - (void)showMapkitBusinessData;

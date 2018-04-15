@@ -47,6 +47,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *objectChanges;
 - (id)replayTransaction:(id)arg1 stagedTransaction:(id)arg2;
+- (void)loadObjectChanges;
 - (id)changeWithRecordName:(id)arg1;
 - (id)changeWithObjectID:(id)arg1;
 @property(readonly, nonatomic, getter=isHomeTransaction) _Bool homeTransaction;
@@ -70,7 +71,6 @@
 - (void)addChangeWithDeletedRecordID:(id)arg1;
 - (void)addChangeWithRecord:(id)arg1;
 - (void)addChangeWithObjectChange:(id)arg1;
-- (id)transactionStoreRowIDsForObjectID:(id)arg1;
 @property(readonly, nonatomic) NSArray *processedTransactionStoreRowIDs;
 @property(readonly, nonatomic) NSArray *allTransactionStoreRowIDs;
 @property(readonly, nonatomic) CKRecordID *privateZoneRootRecordID;

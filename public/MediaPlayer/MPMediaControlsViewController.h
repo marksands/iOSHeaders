@@ -16,6 +16,7 @@
 {
     _UIAsyncInvocation *_cancelRequest;
     _Bool _hasPresented;
+    _Bool _shouldObserveRoutingContextUIDChanges;
     CDUnknownBlockType _didDismissHandler;
     id <MPMediaControlsViewControllerDelegate> _delegate;
     MPMediaControlsRemoteViewController *_remoteViewController;
@@ -29,7 +30,9 @@
 @property(nonatomic) __weak id <MPMediaControlsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) CDUnknownBlockType didDismissHandler; // @synthesize didDismissHandler=_didDismissHandler;
 - (void).cxx_destruct;
+- (void)_updateRemoteViewControllerRoutingContextUID;
 - (void)_requestRemoteViewController;
+- (void)_audioSessionRoutingContextDidChange:(id)arg1;
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_applicationWillAddDeactivationReason:(id)arg1;
 - (void)_addRemoteView;
@@ -49,6 +52,7 @@
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithConfiguration:(id)arg1;

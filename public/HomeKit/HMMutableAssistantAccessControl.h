@@ -16,7 +16,9 @@
 - (void)removeAccessory:(id)arg1;
 - (void)addAccessory:(id)arg1;
 @property(copy) NSArray *accessories;
-@property unsigned long long options;
+@property _Bool allowUnauthenticatedRequests;
+- (void)setOptions:(unsigned long long)arg1;
+- (unsigned long long)options;
 @property(getter=isEnabled) _Bool enabled;
 
 @end

@@ -10,19 +10,19 @@
 
 @interface IMDCKMessageSyncController : IMDCKAbstractSyncController
 {
-    _Bool _shouldCheckDeviceConditions;
     CKServerChangeToken *_archivedRecordSyncToken;
     NSObject<OS_dispatch_queue> *_ckQueue;
     IMDRecordZoneManager *_recordZoneManager;
     id <IMDCKSyncTokenStore> _syncTokenStore;
     IMDCKMessageSyncCKOperationFactory *_CKOperationFactory;
     NSObject<OS_xpc_object> *_activity;
+    unsigned long long _deviceConditionsToCheck;
     NSMutableDictionary *_visitedChats;
 }
 
 + (id)sharedInstance;
 @property(retain, nonatomic) NSMutableDictionary *visitedChats; // @synthesize visitedChats=_visitedChats;
-@property(nonatomic) _Bool shouldCheckDeviceConditions; // @synthesize shouldCheckDeviceConditions=_shouldCheckDeviceConditions;
+@property(nonatomic) unsigned long long deviceConditionsToCheck; // @synthesize deviceConditionsToCheck=_deviceConditionsToCheck;
 @property NSObject<OS_xpc_object> *activity; // @synthesize activity=_activity;
 @property(retain, nonatomic) IMDCKMessageSyncCKOperationFactory *CKOperationFactory; // @synthesize CKOperationFactory=_CKOperationFactory;
 @property(retain, nonatomic) id <IMDCKSyncTokenStore> syncTokenStore; // @synthesize syncTokenStore=_syncTokenStore;
@@ -37,7 +37,7 @@
 - (void)clearLocalSyncState;
 - (void)deleteMessagesZone;
 - (void)deleteMessageSyncToken;
-- (void)syncMessagesWithSyncType:(long long)arg1 shouldCheckDeviceConditions:(_Bool)arg2 activity:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (void)syncMessagesWithSyncType:(long long)arg1 deviceConditionsToCheck:(unsigned long long)arg2 activity:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)_updateAllMessagesAsNotNeedingReUpload;
 - (void)_markAllUnsuccessFullSyncMessagesAsNeedingSync;
 - (_Bool)_shouldMarkAllMessagesAsNeedingSync;

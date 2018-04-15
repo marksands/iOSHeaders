@@ -15,10 +15,13 @@ __attribute__((visibility("hidden")))
     NSOperationQueue *_connectionHandlerOperationQueue;
     _Bool _registeredForConnectionStateDidChangeNotifications;
     NSTimer *_connectionTimeoutTimer;
+    _Bool _outputDevicesDidChangeNotificationScheduled;
     NSString *_localizedName;
     NSString *_uniqueIdentifier;
 }
 
++ (void)_modifyOutputDevices:(id)arg1 inGroup:(id)arg2 queue:(id)arg3 modifyDevices:(CDUnknownBlockType)arg4 completion:(CDUnknownBlockType)arg5;
++ (id)_notificationSerialQueue;
 + (id)sharedLocalEndpointForRoutingContextWithUID:(id)arg1;
 @property(retain, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(retain, nonatomic) NSString *localizedName; // @synthesize localizedName=_localizedName;
@@ -27,13 +30,10 @@ __attribute__((visibility("hidden")))
 - (void)_externalDeviceConnectionStateDidChangeNotification:(id)arg1;
 - (void)_connectToExternalDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_requestSharedAudioPresentationOutputContextModificationWithAddingDevices:(id)arg1 removingDevices:(id)arg2 settingDevices:(id)arg3 replyQueue:(id)arg4 completion:(CDUnknownBlockType)arg5;
-- (unsigned long long)_volumeControlMode;
-- (void)setOutputDeviceVolume:(float)arg1 outputDevice:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)outputDeviceVolume:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)scheduleEndpointOutputDevicesDidChangeNotification;
 - (void)volumeControlCapabilitiesForOutputDevice:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)setVolume:(float)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)volumeWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)volumeControlCapabilitiesWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)outputDeviceVolume:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)setOutputDeviceVolume:(float)arg1 outputDevice:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)setOutputDevices:(id)arg1 withReplyQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)removeOutputDevices:(id)arg1 withReplyQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)addOutputDevices:(id)arg1 withReplyQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;

@@ -26,6 +26,7 @@
     unsigned int _sharedQueueVersion;
     NSString *_systemBuildVersion;
     NSString *_systemMediaApplication;
+    NSString *_tightSyncUID;
     NSString *_uniqueIdentifier;
     _Bool _allowsPairing;
     _Bool _connected;
@@ -52,10 +53,10 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *tightSyncUID; // @synthesize tightSyncUID=_tightSyncUID;
 @property(nonatomic) _Bool isProxyGroupPlayer; // @synthesize isProxyGroupPlayer=_isProxyGroupPlayer;
 @property(nonatomic) _Bool tightlySyncedGroup; // @synthesize tightlySyncedGroup=_tightlySyncedGroup;
 @property(nonatomic) unsigned int groupedDeviceCount; // @synthesize groupedDeviceCount=_groupedDeviceCount;
-@property(nonatomic) int deviceClass; // @synthesize deviceClass=_deviceClass;
 @property(retain, nonatomic) NSString *managedConfigDeviceID; // @synthesize managedConfigDeviceID=_managedConfigDeviceID;
 @property(retain, nonatomic) NSString *localReceiverPairingIdentity; // @synthesize localReceiverPairingIdentity=_localReceiverPairingIdentity;
 @property(nonatomic) unsigned int sharedQueueVersion; // @synthesize sharedQueueVersion=_sharedQueueVersion;
@@ -85,10 +86,14 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasTightSyncUID;
 @property(nonatomic) _Bool hasIsProxyGroupPlayer;
 @property(nonatomic) _Bool hasTightlySyncedGroup;
 @property(nonatomic) _Bool hasGroupedDeviceCount;
+- (int)StringAsDeviceClass:(id)arg1;
+- (id)deviceClassAsString:(int)arg1;
 @property(nonatomic) _Bool hasDeviceClass;
+@property(nonatomic) int deviceClass; // @synthesize deviceClass=_deviceClass;
 @property(readonly, nonatomic) _Bool hasManagedConfigDeviceID;
 @property(readonly, nonatomic) _Bool hasLocalReceiverPairingIdentity;
 @property(nonatomic) _Bool hasSharedQueueVersion;

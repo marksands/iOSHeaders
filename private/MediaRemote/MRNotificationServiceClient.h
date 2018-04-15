@@ -15,7 +15,7 @@
 
 - (void).cxx_destruct;
 - (void)registerCallbacks;
-- (void)_dispatchAsychWithPriority:(CDUnknownBlockType)arg1;
+- (void)_dispatchAsyncWithDonatedPriority:(CDUnknownBlockType)arg1;
 - (void)_handleActiveSystemEndpointDidChangeNotification:(id)arg1;
 - (void)_handleDeviceInfoDidChangeNotification:(id)arg1;
 - (void)_handlePlayerStateDidChangeNotification:(id)arg1;

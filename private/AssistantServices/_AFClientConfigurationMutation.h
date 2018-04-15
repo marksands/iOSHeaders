@@ -15,12 +15,14 @@
     AFClientConfiguration *_baseModel;
     _Bool _isDeviceInSetupFlow;
     _Bool _isDeviceInCarDNDMode;
+    float _outputVolume;
     AFAudioPlaybackRequest *_tapToSiriAudioPlaybackRequest;
     AFAudioPlaybackRequest *_twoShotAudioPlaybackRequest;
     struct _mutationFlags {
         unsigned int isDirty:1;
         unsigned int hasIsDeviceInSetupFlow:1;
         unsigned int hasIsDeviceInCarDNDMode:1;
+        unsigned int hasOutputVolume:1;
         unsigned int hasTapToSiriAudioPlaybackRequest:1;
         unsigned int hasTwoShotAudioPlaybackRequest:1;
     } _mutationFlags;
@@ -30,6 +32,7 @@
 - (id)generate;
 - (void)setTwoShotAudioPlaybackRequest:(id)arg1;
 - (void)setTapToSiriAudioPlaybackRequest:(id)arg1;
+- (void)setOutputVolume:(float)arg1;
 - (void)setIsDeviceInCarDNDMode:(_Bool)arg1;
 - (void)setIsDeviceInSetupFlow:(_Bool)arg1;
 - (id)initWithBaseModel:(id)arg1;

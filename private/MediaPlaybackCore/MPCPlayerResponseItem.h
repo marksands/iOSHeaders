@@ -10,6 +10,7 @@
 
 @interface MPCPlayerResponseItem : NSObject
 {
+    _Bool _placeholder;
     NSString *_contentItemIdentifier;
     long long _revision;
     MPCPlayerResponse *_response;
@@ -18,6 +19,7 @@
     CDStruct_fce57115 _duration;
 }
 
+@property(readonly, nonatomic, getter=isPlaceholder) _Bool placeholder; // @synthesize placeholder=_placeholder;
 @property(readonly, nonatomic) MPModelGenericObject *metadataObject; // @synthesize metadataObject=_metadataObject;
 @property(readonly, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
 @property(readonly, nonatomic) __weak MPCPlayerResponse *response; // @synthesize response=_response;

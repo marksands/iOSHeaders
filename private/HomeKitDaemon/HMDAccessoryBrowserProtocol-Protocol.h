@@ -10,6 +10,7 @@
 @property(readonly, nonatomic) HMDMediaBrowser *mediaBrowser;
 @property(readonly, nonatomic) HAPAccessoryServerBrowserRelay *relayAccessoryServerBrowser;
 @property(readonly, copy) NSArray *unassociatedAccessories;
+- (void)removeUnassociatedAccessoryWithIdentifier:(NSString *)arg1;
 - (void)removeUnassociatedAccessory:(HMDUnassociatedAccessory *)arg1;
 - (void)addUnassociatedAccessory:(HMDUnassociatedAccessory *)arg1 forDeviceSetup:(_Bool)arg2;
 - (id <HMDAccessoryBrowserHapProtocol>)acessoryBrowserHapProtocol;

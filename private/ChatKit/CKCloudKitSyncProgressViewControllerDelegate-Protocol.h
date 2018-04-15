@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-@class CKCloudKitSyncProgressViewController;
+@class CKCloudKitSyncProgressViewController, NSArray;
 
 @protocol CKCloudKitSyncProgressViewControllerDelegate <NSObject>
-- (void)cloudKitSyncProgressViewControllerDidChangeVisibility:(CKCloudKitSyncProgressViewController *)arg1;
+- (void)cloudKitSyncProgressViewController:(CKCloudKitSyncProgressViewController *)arg1 actionButtonWasPressed:(long long)arg2 errors:(NSArray *)arg3;
 @end
 

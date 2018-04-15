@@ -33,6 +33,11 @@
 - (id)messagesToUploadToCloudKitWithLimit:(unsigned long long)arg1;
 - (void)__removeChatFromGroupIDChatIndex:(id)arg1;
 - (void)__addChatToGroupIDChatIndex:(id)arg1;
+- (void)_updateSyncStatisticsForMessage:(id)arg1 incrementTotalCount:(unsigned long long)arg2;
+- (void)_updateSyncStatisticsForChat:(id)arg1 incrementTotalCount:(unsigned long long)arg2;
+- (_Bool)_shouldUpdateSyncStatsForMessage:(id)arg1 originalSyncState:(long long)arg2;
+- (_Bool)_shouldUpdateSyncStatsForChat:(id)arg1 originalSyncState:(long long)arg2;
+- (id)_statsCollector;
 - (void)resetChatSyncStateForRecord:(id)arg1;
 - (void)markDefferredChatsAsNeedingSync;
 - (void)markChatAsDeferredForSyncingUsingCKRecord:(id)arg1;
