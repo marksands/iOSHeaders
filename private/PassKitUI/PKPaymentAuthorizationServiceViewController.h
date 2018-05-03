@@ -29,6 +29,7 @@
     PKPaymentAuthorizationFooterView *_footerView;
     PKPaymentAuthorizationPasswordButtonView *_passwordButtonView;
     NSLayoutConstraint *_passphraseBottomConstraint;
+    _Bool _needsToAccommodateKeyboard;
     UIBarButtonItem *_cancelBarButtonItem;
     UIView *_passphraseSeparatorView;
     NSLayoutConstraint *_contentViewRightConstraint;

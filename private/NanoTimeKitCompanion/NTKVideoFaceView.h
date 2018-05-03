@@ -29,7 +29,6 @@
 - (void)didAddSubview:(id)arg1;
 - (id)_onDeckPosterImageView;
 - (id)_posterImageView;
-- (void)_applyComplicationContentSpecificAttributesWithColor:(id)arg1 animated:(_Bool)arg2 useComplicationFlickerWorkaround:(_Bool)arg3;
 - (void)_applyComplicationContentSpecificAttributesWithColor:(id)arg1 animated:(_Bool)arg2;
 - (void)_configureComplicationView:(id)arg1 forSlot:(id)arg2;
 - (id)_overlayColor;

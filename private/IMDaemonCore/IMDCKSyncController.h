@@ -30,6 +30,7 @@
 @property(retain, nonatomic) NSTimer *longRunningSyncTimer; // @synthesize longRunningSyncTimer=_longRunningSyncTimer;
 @property(retain, nonatomic) NSDate *syncStartDate; // @synthesize syncStartDate=_syncStartDate;
 - (void).cxx_destruct;
+- (void)performOneTimeAccountUpgradeCheckIfNeeded;
 - (_Bool)enforceAccountsMatchForMocAndShowDialogIfNeeded;
 - (void)handleAKUserInfoChangedNotification:(id)arg1;
 - (void)updateSecurityLevelDowngradedIfNeeded:(CDUnknownBlockType)arg1;
@@ -86,6 +87,7 @@
 - (void)performInitialSyncOnFirstConnectionOfImagentIfNeeded;
 - (void)dealloc;
 - (id)init;
+- (void)kickOffEagerSyncIfApplicable;
 - (void)_nightlySyncTimerFired;
 - (void)_kickOffNightlyPeriodicSyncIfApplicable;
 - (void)_logIMAutomaticHistorySyncDidNotOccurMetricsUnderFirstUnlock:(_Bool)arg1 isSyncing:(_Bool)arg2 deviceConditionsAllowSync:(_Bool)arg3 syncNotCompletedRecently:(_Bool)arg4;

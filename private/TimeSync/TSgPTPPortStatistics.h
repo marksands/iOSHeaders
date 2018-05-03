@@ -27,6 +27,8 @@
     unsigned int _attemptedFollowUpCounter;
     unsigned int _attemptedAnnounceCounter;
     unsigned int _attemptedSignalCounter;
+    unsigned int _rawDelayExceededCounter;
+    unsigned int _rawDelayMeasurementCounter;
     unsigned int _receivedPDelayRequestCounter;
     unsigned int _transmittedPDelayResponseCounter;
     unsigned int _transmittedPDelayResponseFollowUpCounter;
@@ -62,6 +64,8 @@
 @property(readonly, nonatomic) unsigned int transmittedPDelayResponseFollowUpCounter; // @synthesize transmittedPDelayResponseFollowUpCounter=_transmittedPDelayResponseFollowUpCounter;
 @property(readonly, nonatomic) unsigned int transmittedPDelayResponseCounter; // @synthesize transmittedPDelayResponseCounter=_transmittedPDelayResponseCounter;
 @property(readonly, nonatomic) unsigned int receivedPDelayRequestCounter; // @synthesize receivedPDelayRequestCounter=_receivedPDelayRequestCounter;
+@property(readonly, nonatomic) unsigned int rawDelayMeasurementCounter; // @synthesize rawDelayMeasurementCounter=_rawDelayMeasurementCounter;
+@property(readonly, nonatomic) unsigned int rawDelayExceededCounter; // @synthesize rawDelayExceededCounter=_rawDelayExceededCounter;
 @property(readonly, nonatomic) unsigned int attemptedSignalCounter; // @synthesize attemptedSignalCounter=_attemptedSignalCounter;
 @property(readonly, nonatomic) unsigned int attemptedAnnounceCounter; // @synthesize attemptedAnnounceCounter=_attemptedAnnounceCounter;
 @property(readonly, nonatomic) unsigned int attemptedFollowUpCounter; // @synthesize attemptedFollowUpCounter=_attemptedFollowUpCounter;

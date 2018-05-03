@@ -6,6 +6,13 @@
 
 #import "NSObject.h"
 
-@protocol CLSMetaPropertyValue <NSObject>
+@interface IMDeviceConditions : NSObject
+{
+}
+
++ (id)sharedInstance;
+@property(readonly) _Bool isDeviceCharging;
+@property(readonly) _Bool isDeviceOnWifi;
+
 @end
 

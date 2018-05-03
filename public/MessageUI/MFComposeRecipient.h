@@ -43,10 +43,10 @@
 + (id)recipientWithRecord:(void *)arg1 recordID:(int)arg2 property:(int)arg3 identifier:(int)arg4;
 + (_Bool)supportsSecureCoding;
 + (id)composeRecipientWithAutocompleteResult:(id)arg1;
-+ (id)mf_recipientWithGALResult:(id)arg1;
 + (id)writableTypeIdentifiersForItemProvider;
 + (id)objectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 + (id)readableTypeIdentifiersForItemProvider;
++ (id)mf_recipientWithGALResult:(id)arg1;
 @property(readonly, nonatomic) unsigned long long kind; // @synthesize kind=_kind;
 @property(retain, nonatomic) CNAutocompleteResult *autocompleteResult; // @synthesize autocompleteResult=_autocompleteResult;
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;

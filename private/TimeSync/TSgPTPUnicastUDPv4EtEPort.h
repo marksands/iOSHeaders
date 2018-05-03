@@ -14,8 +14,8 @@
 + (id)iokitMatchingDictionaryForInterfaceName:(id)arg1 andIPv4Address:(unsigned int)arg2;
 - (void)dealloc;
 - (long long)portType;
-- (id)destinationAddressString;
-- (id)sourceAddressString;
+- (id)_destinationAddressString;
+- (id)_sourceAddressString;
 - (id)initWithInterfaceName:(id)arg1 andIPv4Address:(unsigned int)arg2;
 - (id)initWithMatchingDictionary:(id)arg1;
 - (id)initWithService:(unsigned int)arg1;

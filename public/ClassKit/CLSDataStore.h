@@ -8,7 +8,7 @@
 
 #import "CLSFaultProcessorDelegate.h"
 
-@class CLSActivity, CLSContext, CLSCurrentUser, CLSEndpointConnection, CLSGraph, NSMutableDictionary, NSMutableSet, NSString;
+@class CLSActivity, CLSContext, CLSCurrentUser, CLSEndpointConnection, CLSGraph, NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
 
 @interface CLSDataStore : NSObject <CLSFaultProcessorDelegate>
 {
@@ -17,6 +17,7 @@
     NSMutableDictionary *_objectGenerationsByID;
     CLSCurrentUser *_cachedCurrentUser;
     int _accountChangeToken;
+    NSMutableArray *_runningActivities;
     id <CLSDataStoreDelegate> _delegate;
     CLSContext *_mainAppContext;
     CLSEndpointConnection *_endpointConnection;
@@ -50,6 +51,9 @@
 - (void)fetchTransparencyMessageInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)triggerProgressTransparencyMessageIfNeeded;
 - (_Bool)isAppClient;
+- (void)removeRunningActivitiesObject:(id)arg1;
+- (void)addRunningActivitiesObject:(id)arg1;
+@property(readonly, copy, nonatomic) NSArray *runningActivities;
 @property(readonly, nonatomic) CLSActivity *runningActivity;
 @property(readonly, nonatomic) CLSContext *activeContext;
 - (id)syncDataServer:(CDUnknownBlockType)arg1;

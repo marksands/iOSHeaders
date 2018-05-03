@@ -13,14 +13,11 @@
 @interface MPVolumeController : NSObject <MPVolumeControllerDataSourceDelegate>
 {
     id <MPVolumeControllerDataSource> _dataSource;
-    _Bool _shouldForceVolumeControlDisabled;
-    _Bool _dataSourceVolumeControlAvailable;
-    _Bool _volumeControlAvailable;
+    int _userRecentlyChangedVolumeCount;
     id <MPVolumeControllerDelegate> _delegate;
     MPAVController *_player;
 }
 
-@property(nonatomic) _Bool shouldForceVolumeControlDisabled; // @synthesize shouldForceVolumeControlDisabled=_shouldForceVolumeControlDisabled;
 @property(retain, nonatomic) MPAVController *player; // @synthesize player=_player;
 @property(retain, nonatomic) id <MPVolumeControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <MPVolumeControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -40,6 +37,7 @@
 @property(readonly, nonatomic) float EUVolumeLimit;
 @property(readonly, nonatomic) long long volumeWarningState;
 @property(readonly, nonatomic) _Bool volumeWarningEnabled;
+- (void)_userChangedVolume;
 - (void)getVolumeValueWithCompletion:(CDUnknownBlockType)arg1;
 - (void)adjustVolumeValue:(float)arg1;
 - (void)updateVolumeValue;

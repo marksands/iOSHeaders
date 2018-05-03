@@ -8,7 +8,7 @@
 
 #import "MRAVDistantRoutingDiscoveryClientProtocol.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
+@class NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
 
 @interface MRAVDistantRoutingDiscoverySession : MRAVRoutingDiscoverySession <MRAVDistantRoutingDiscoveryClientProtocol>
 {
@@ -21,10 +21,12 @@
     int _serviceResetNotifyToken;
     _Bool _hostedRoutingConnectionDidInitialize;
     NSXPCConnection *_hostedRoutingSessionConnection;
+    NSMutableDictionary *_distantExternalDevices;
 }
 
 + (id)clientInterface;
 + (id)serviceInterface;
+@property(retain, nonatomic) NSMutableDictionary *distantExternalDevices; // @synthesize distantExternalDevices=_distantExternalDevices;
 @property(retain, nonatomic) NSXPCConnection *hostedRoutingSessionConnection; // @synthesize hostedRoutingSessionConnection=_hostedRoutingSessionConnection;
 - (void).cxx_destruct;
 - (void)_reloadAvailableDistantOutputDevices;
@@ -42,7 +44,7 @@
 - (id)routingContextUID;
 - (id)availableOutputDevices;
 - (id)availableEndpoints;
-- (_Bool)hasAvailableEndpoints;
+- (_Bool)devicePresenceDetected;
 - (void)setDiscoveryMode:(unsigned int)arg1;
 - (unsigned int)discoveryMode;
 - (unsigned int)endpointFeatures;

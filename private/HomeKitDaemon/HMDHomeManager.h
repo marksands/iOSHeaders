@@ -419,7 +419,7 @@
 - (void)_handleRequestSetPrimaryHome:(id)arg1;
 - (void)processHomeModelRemoved:(id)arg1 message:(id)arg2;
 - (void)_handleRequestRemoveHome:(id)arg1;
-- (void)_removeHome:(id)arg1 withMessage:(id)arg2 saveToStore:(_Bool)arg3 notifyUsers:(_Bool)arg4;
+- (void)_removeHome:(id)arg1 withMessage:(id)arg2 saveToStore:(_Bool)arg3 notifyUsers:(_Bool)arg4 shouldRemovePairings:(_Bool)arg5;
 - (void)processHomeModelAdd:(id)arg1 message:(id)arg2;
 - (void)_handleRequestAddHome:(id)arg1;
 - (id)_findHomeConfigurationModelChange:(id)arg1;
@@ -513,6 +513,7 @@
 - (id)_homeWithZoneID:(id)arg1;
 - (id)_homeWithUUID:(id)arg1;
 - (id)_homeWithName:(id)arg1;
+- (void)_handleQueryHomeNamespace:(id)arg1;
 - (void)_determineLegacyLocalChanges:(CDUnknownBlockType)arg1;
 - (void)_determineLocalChangesAndSchedulePush;
 - (void)determineLocalChangesAndSchedulePush;

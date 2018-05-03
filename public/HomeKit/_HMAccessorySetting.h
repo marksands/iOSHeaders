@@ -32,6 +32,9 @@
 + (id)supportedConstraintClasses;
 + (id)supportedValueClasses;
 + (id)logCategory;
++ (id)_replaceConstraintsPayloadWithAdditions:(id)arg1 removals:(id)arg2;
++ (id)_encodedConstraintsToAdd:(id)arg1;
++ (id)_encodedConstraintsToRemove:(id)arg1;
 + (id)shortDescription;
 @property(retain, nonatomic) _HMContext *context; // @synthesize context=_context;
 @property(retain, nonatomic) HMAccessorySettings *accessorySettings; // @synthesize accessorySettings=_accessorySettings;

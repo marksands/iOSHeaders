@@ -222,6 +222,8 @@
 @property(retain, nonatomic) NSArray *mediaSessionStates; // @synthesize mediaSessionStates=_mediaSessionStates;
 @property(retain, nonatomic) NSArray *mediaSessions; // @synthesize mediaSessions=_mediaSessions;
 - (void).cxx_destruct;
+- (void)removeAccessoriesFromAssistantAccessControl:(id)arg1 accessories:(id)arg2;
+- (void)userAssistantAccessControlDidUpdate:(id)arg1 accessories:(id)arg2;
 @property(readonly, nonatomic) NSArray *hapAccessories;
 - (void)_handleMediaPropertiesWrite:(id)arg1;
 - (void)_handleWriteMediaProperties:(struct NSDictionary *)arg1 source:(unsigned long long)arg2 requestMessage:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -450,7 +452,7 @@
 - (void)_addUser:(id)arg1 userPrivilege:(unsigned long long)arg2 confirm:(_Bool)arg3 message:(id)arg4;
 - (void)_cleanRemovedUsers:(id)arg1;
 - (void)_handleAddUser:(id)arg1;
-- (id)prepareUserManagementOperationForUser:(id)arg1 accessory:(id)arg2 type:(unsigned long long)arg3 error:(id *)arg4;
+- (id)prepareUserManagementOperationForUser:(id)arg1 accessory:(id)arg2 type:(unsigned long long)arg3 model:(id)arg4 error:(id *)arg5;
 - (id)prepareUserManagementOperationForUser:(id)arg1 accessories:(id)arg2 type:(unsigned long long)arg3 error:(id *)arg4;
 - (void)_addAllUsersToAccessory:(id)arg1;
 - (void)_removeAllUsersFromAccessory:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -535,7 +537,7 @@
 - (void)_reevaluateAccessoryInfoWithBadgeRefresh:(_Bool)arg1;
 - (void)_notifyClientsOfAccessoryInfoUpdatedForAccessories:(id)arg1 shouldRefreshBadge:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)notifyClientsOfAccessoryInfoUpdatedForAccessories:(id)arg1;
-- (void)_removeAllAccessoriesWithCompletionHandler:(CDUnknownBlockType)arg1 queue:(id)arg2;
+- (void)_removeAllAccessoriesAndPairings:(_Bool)arg1 queue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_removeAccessories:(id)arg1 bridgeAccessory:(id)arg2 message:(id)arg3;
 - (void)removeAccessoriesFromContainers:(id)arg1;
 - (id)_removeAccessoriesCommon:(id)arg1 message:(id)arg2;
@@ -626,7 +628,7 @@
 - (id)removeName:(id)arg1;
 - (id)addName:(id)arg1;
 - (id)validateName:(id)arg1;
-- (void)removeAllAccessoriesWithCompletionHandler:(CDUnknownBlockType)arg1 queue:(id)arg2;
+- (void)removeAllAccessoriesAndPairings:(_Bool)arg1 queue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)removeCharacteristic:(id)arg1;
 - (void)removeService:(id)arg1;
 - (void)reEvaluateTriggers;

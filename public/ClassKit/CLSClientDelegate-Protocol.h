@@ -6,9 +6,6 @@
 
 #import "NSObject.h"
 
-@class CLSClient;
-
 @protocol CLSClientDelegate <NSObject>
-- (void)client:(CLSClient *)arg1 recievedNewDevMode:(int)arg2;
 @end
 

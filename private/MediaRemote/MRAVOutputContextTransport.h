@@ -8,7 +8,6 @@
 
 @class AVOutputContext, MRAVInputStream, MRAVOutputStream, NSArray, NSError, NSObject<OS_dispatch_queue>, _MRDeviceInfoMessageProtobuf;
 
-__attribute__((visibility("hidden")))
 @interface MRAVOutputContextTransport : MRExternalDeviceTransport
 {
     unsigned long long _state;
@@ -19,11 +18,9 @@ __attribute__((visibility("hidden")))
     MRAVInputStream *_inputStream;
     MRAVOutputStream *_outputStream;
     _Bool _useSystemAuthenticationPrompt;
-    _Bool _allowsRelayConnection;
     NSArray *_outputDevices;
 }
 
-@property(nonatomic) _Bool allowsRelayConnection; // @synthesize allowsRelayConnection=_allowsRelayConnection;
 @property(readonly, nonatomic) NSArray *outputDevices; // @synthesize outputDevices=_outputDevices;
 - (void).cxx_destruct;
 - (id)_onQueue_createRemoteControlContextWithID:(id)arg1;
@@ -42,10 +39,11 @@ __attribute__((visibility("hidden")))
 - (long long)port;
 - (id)hostname;
 - (id)name;
+- (id)uid;
 - (id)deviceInfo;
 - (id)description;
 - (void)dealloc;
-- (id)initWithOutputDevices:(id)arg1;
+- (id)initWithOutputDevices:(id)arg1 connectionType:(long long)arg2;
 
 @end
 

@@ -46,6 +46,7 @@
 - (_Bool)isGroupable;
 - (_Bool)groupContainsGroupLeader;
 - (_Bool)isGroupLeader;
+- (_Bool)supportsBufferedAirPlay;
 - (_Bool)canRelayCommunicationChannel;
 - (_Bool)isRemoteControllable;
 - (_Bool)canAccessiCloudMusicLibrary;

@@ -41,6 +41,8 @@
 @property(readonly, nonatomic) _Bool canAccessiCloudMusicLibrary;
 @property(readonly, nonatomic) _Bool canAccessAppleMusic;
 @property(readonly, nonatomic) _Bool canAccessRemoteAssets;
+@property(readonly, nonatomic) _Bool onlyAllowsConnectionsFromPeersInHomeGroup;
+@property(readonly, nonatomic) _Bool automaticallyAllowsConnectionsFromPeersInHomeGroup;
 @property(readonly, nonatomic) _Bool requiresAuthorization;
 @property(readonly, nonatomic) unsigned long long deviceFeatures;
 @property(readonly, copy, nonatomic) NSArray *connectedPairedDevices;

@@ -8,13 +8,14 @@
 
 #import "NSCopying.h"
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, _MRNowPlayingPlayerPathProtobuf;
 
 @interface _MRSendCommandResultMessageProtobuf : PBCodable <NSCopying>
 {
     CDStruct_95bda58d _handlerReturnStatus;
     NSString *_commandID;
     NSMutableArray *_handlerReturnStatusDatas;
+    _MRNowPlayingPlayerPathProtobuf *_playerPath;
     int _sendError;
     struct {
         unsigned int sendError:1;
@@ -22,6 +23,7 @@
 }
 
 + (Class)handlerReturnStatusDataType;
+@property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath; // @synthesize playerPath=_playerPath;
 @property(retain, nonatomic) NSString *commandID; // @synthesize commandID=_commandID;
 @property(retain, nonatomic) NSMutableArray *handlerReturnStatusDatas; // @synthesize handlerReturnStatusDatas=_handlerReturnStatusDatas;
 - (void).cxx_destruct;
@@ -34,6 +36,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasPlayerPath;
 @property(readonly, nonatomic) _Bool hasCommandID;
 - (id)handlerReturnStatusDataAtIndex:(unsigned long long)arg1;
 - (unsigned long long)handlerReturnStatusDatasCount;

@@ -10,10 +10,17 @@
 
 @interface TSgPTPFDEtEPort : TSgPTPNetworkPort
 {
+    TSgPTPPortStatistics *_statistics;
 }
 
 + (id)diagnosticDescriptionForService:(unsigned int)arg1 withIndent:(id)arg2;
-@property(readonly, nonatomic) TSgPTPPortStatistics *statistics; // @dynamic statistics;
+@property(retain, nonatomic) TSgPTPPortStatistics *statistics; // @synthesize statistics=_statistics;
+- (void)dealloc;
+- (id)_statistics;
+- (void)updateProperties;
+- (_Bool)_commonInitWithService:(unsigned int)arg1;
+- (id)initWithMatchingDictionary:(id)arg1;
+- (id)initWithService:(unsigned int)arg1;
 
 @end
 

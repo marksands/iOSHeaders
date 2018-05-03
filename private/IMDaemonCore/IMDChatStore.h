@@ -23,6 +23,7 @@
 - (void)addMessageWithGUID:(id)arg1 toChat:(id)arg2 deferSpotlightIndexing:(_Bool)arg3;
 - (void)addMessageWithGUID:(id)arg1 toChat:(id)arg2;
 - (id)chatsGUIDsForMessageWithGUID:(id)arg1;
+- (id)newestChatWithOriginalGroupID:(id)arg1 onService:(id)arg2;
 - (id)chatsWithRoomname:(id)arg1 onService:(id)arg2;
 - (id)chatsWithHandle:(id)arg1 onService:(id)arg2;
 - (unsigned long long)unreadCountForChat:(id)arg1;

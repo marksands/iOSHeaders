@@ -21,6 +21,8 @@
 @property(readonly, nonatomic) void *logicalLeaderOutputDevice; // @synthesize logicalLeaderOutputDevice=_logicalLeaderOutputDevice;
 @property(readonly, nonatomic) NSArray *outputDevices; // @synthesize outputDevices=_outputDevices;
 - (void).cxx_destruct;
+- (_Bool)_anyOutputDevicePassesTest:(CDUnknownBlockType)arg1;
+- (_Bool)_anyOutputDevicePassesMRFunction:(CDUnknownFunctionPointerType)arg1;
 - (_Bool)supportsGrouping;
 - (_Bool)isStereoPair;
 - (_Bool)requiresPassword;

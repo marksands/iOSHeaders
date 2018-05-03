@@ -755,6 +755,7 @@
 - (void)clearAutofillGroup;
 - (_Bool)needAutofillCandidate:(id)arg1;
 - (_Bool)delegateAlreadyInAutofillGroup;
+- (void)updateAutofillContextForInputDelegate:(id)arg1;
 - (id)_autofillContextForInputDelegate:(id)arg1;
 - (long long)doTraits:(id)arg1 matchTextContentType:(id)arg2;
 - (void)setPendingAutofillIndex:(long long)arg1;

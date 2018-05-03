@@ -83,6 +83,7 @@
 @property(readonly) HMDDevice *device; // @synthesize device=_device;
 - (_Bool)requiresHomeAppForManagement;
 - (_Bool)isCurrentAccessory;
+- (void)reconfigureOnMediaSystemDisolve;
 - (void)configure:(id)arg1 msgDispatcher:(id)arg2 accessoryConfigureGroup:(id)arg3;
 - (void)_registerForMessages;
 @property(readonly, copy) NSString *description;

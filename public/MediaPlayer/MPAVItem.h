@@ -56,6 +56,7 @@
     _Bool _likedStateEnabled;
     _Bool _supportsLikedState;
     _Bool _prefersSeekOverSkip;
+    _Bool _startItem;
     _Bool _shouldPreventPlayback;
     _Bool _allowsAirPlayFromCloud;
     _Bool _allowsExternalPlayback;
@@ -104,6 +105,7 @@
 @property(readonly, nonatomic) _Bool allowsAirPlayFromCloud; // @synthesize allowsAirPlayFromCloud=_allowsAirPlayFromCloud;
 @property(readonly, nonatomic) MPModelGenericObject *modelGenericObject; // @synthesize modelGenericObject=_modelGenericObject;
 @property(readonly, nonatomic) _Bool shouldPreventPlayback; // @synthesize shouldPreventPlayback=_shouldPreventPlayback;
+@property(nonatomic, getter=isStartItem) _Bool startItem; // @synthesize startItem=_startItem;
 @property(readonly, nonatomic) _Bool prefersSeekOverSkip; // @synthesize prefersSeekOverSkip=_prefersSeekOverSkip;
 @property(nonatomic) float loudnessInfoVolumeNormalization; // @synthesize loudnessInfoVolumeNormalization=_loudnessInfoVolumeNormalization;
 @property(readonly, retain, nonatomic) MPMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;

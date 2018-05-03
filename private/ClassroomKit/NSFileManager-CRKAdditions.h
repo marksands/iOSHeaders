@@ -7,6 +7,7 @@
 #import "NSFileManager.h"
 
 @interface NSFileManager (CRKAdditions)
+- (id)crk_deepContentsOfDirectoryAtPath:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (_Bool)crk_safeRemoveItemAtURL:(id)arg1 error:(id *)arg2;
 @end
 

@@ -36,8 +36,8 @@
 + (id)operationWithDictionary:(id)arg1 home:(id)arg2;
 + (_Bool)supportsSecureCoding;
 + (id)shortDescription;
-+ (id)removeUserManagementOperationForUser:(id)arg1 accessory:(id)arg2;
-+ (id)addUserManagementOperationForUser:(id)arg1 accessory:(id)arg2;
++ (id)removeUserManagementOperationForUser:(id)arg1 accessory:(id)arg2 model:(id)arg3;
++ (id)addUserManagementOperationForUser:(id)arg1 accessory:(id)arg2 model:(id)arg3;
 @property(retain, nonatomic) HMFTimer *backoffTimer; // @synthesize backoffTimer=_backoffTimer;
 @property(readonly, nonatomic) double backoffInterval; // @synthesize backoffInterval=_backoffInterval;
 @property(readonly, nonatomic) HMFTimer *expirationTimer; // @synthesize expirationTimer=_expirationTimer;
@@ -85,7 +85,7 @@
 - (id)descriptionWithPointer:(_Bool)arg1;
 - (id)shortDescription;
 - (void)_setupExpirationTimer;
-- (id)initWithOperationType:(unsigned long long)arg1 user:(id)arg2 accessory:(id)arg3 expiration:(id)arg4;
+- (id)initWithOperationType:(unsigned long long)arg1 identifier:(id)arg2 user:(id)arg3 accessory:(id)arg4 expiration:(id)arg5;
 - (id)init;
 
 // Remaining properties

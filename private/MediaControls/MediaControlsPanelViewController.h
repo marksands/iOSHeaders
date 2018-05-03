@@ -89,7 +89,6 @@
 - (void)_updateRouteNameLabel;
 - (void)_updateControlCenterMetadata:(id)arg1;
 - (void)_updateHeaderUI;
-- (void)_updateShouldForceVolumeControlDisabled;
 - (void)endpointControllerRouteDidUpdate:(id)arg1;
 - (void)endpointControllerDidUpdateRoutingAvailability:(id)arg1;
 - (void)endpointControllerDidChangeState:(id)arg1;
@@ -99,6 +98,7 @@
 - (void)_updateOnScreenForStyle:(long long)arg1;
 - (void)_updateStyle;
 - (id)_route;
+- (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

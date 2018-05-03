@@ -30,14 +30,16 @@ __attribute__((visibility("hidden")))
 - (void)outputContextDataSource:(id)arg1 outputDevice:(id)arg2 didChangeVolume:(float)arg3;
 - (void)outputContextDataSource:(id)arg1 didRemoveOutputDevice:(id)arg2;
 - (void)outputContextDataSource:(id)arg1 didAddOutputDevice:(id)arg2;
+- (void)removeOutputDeviceFromParentGroup:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)volumeControlCapabilitiesForOutputDevice:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)outputDeviceVolume:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setOutputDeviceVolume:(float)arg1 outputDevice:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)setOutputDevices:(id)arg1 withReplyQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)removeOutputDevices:(id)arg1 withReplyQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)addOutputDevices:(id)arg1 withReplyQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (_Bool)isLocalEndpoint;
-- (id)instanceIdentifier;
+- (_Bool)canModifyGroupMembership;
+- (_Bool)isProxyGroupPlayer;
+- (long long)connectionType;
 - (id)uniqueIdentifier;
 @property(copy, nonatomic) NSArray *outputDevices;
 - (void)encodeWithCoder:(id)arg1;

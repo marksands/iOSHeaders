@@ -191,7 +191,9 @@
 - (void)_tearDownWAC;
 - (void)_continuePairingAfterWAC:(id)arg1;
 - (int)_continuePairingWithSetupCode:(id)arg1;
-- (void)_continuePairingAfterConfirmingLegacyWAC;
+- (void)_continuePairingUsingWAC;
+- (void)continuePairingUsingWAC;
+- (void)_continuePairingAfterConfirmingSecureWAC;
 - (void)_pairVerifyContinueWAC;
 - (void)_pairVerifyStartWAC;
 - (void)_pairSetupContinueWAC;

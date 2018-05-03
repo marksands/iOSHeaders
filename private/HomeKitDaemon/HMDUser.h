@@ -73,7 +73,10 @@
 - (_Bool)containsRelayAccessToken:(id)arg1;
 - (id)relayAccessTokens;
 @property(copy, nonatomic) NSString *relayIdentifier; // @synthesize relayIdentifier=_relayIdentifier;
+- (void)removeAccessoriesFromAssistantAccessControlList:(id)arg1;
 - (void)_handleAssistantAccessControlUpdate:(id)arg1;
+- (void)handleAssistantAccessControlUpdate:(id)arg1;
+- (_Bool)isCurrentUserAndOwner;
 @property(retain) HMDAssistantAccessControl *assistantAccessControl; // @synthesize assistantAccessControl=_assistantAccessControl;
 - (_Bool)updateAdministrator:(_Bool)arg1;
 @property(readonly, getter=isValid) _Bool valid;

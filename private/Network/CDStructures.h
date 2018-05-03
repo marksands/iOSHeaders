@@ -151,6 +151,7 @@ struct nw_connection_report_s {
     unsigned int data_stall_count;
     unsigned int ipv4_dns_server_count;
     unsigned int ipv6_dns_server_count;
+    unsigned int seconds_since_interface_change;
     int failure_reason;
     int connected_interface_type;
     int multipath_service_type;
@@ -181,8 +182,9 @@ struct nw_connection_report_s {
     unsigned int used_tfo:1;
     unsigned int tls_version_timeout:1;
     unsigned int first_party:1;
-    unsigned int __pad_bits:4;
-    unsigned char __pad[3];
+    unsigned int is_daemon:1;
+    unsigned int __pad_bits:3;
+    unsigned char __pad[7];
 };
 
 struct nw_protocol {

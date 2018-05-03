@@ -65,6 +65,8 @@
 - (_Bool)performTransactionWithBlock:(_Bool (^)(void))arg1;
 - (long long)itemPersistentIDForStoreID:(long long)arg1;
 - (_Bool)collectionExistsContainedWithinSyncIDs:(NSArray *)arg1 groupingType:(long long)arg2 existentPID:(unsigned long long *)arg3;
+- (_Bool)collectionExistsWithCloudUniversalLibraryID:(NSString *)arg1 groupingType:(long long)arg2 existentPID:(unsigned long long *)arg3;
+- (_Bool)collectionExistsWithSagaID:(long long)arg1 groupingType:(long long)arg2 existentPID:(unsigned long long *)arg3;
 - (_Bool)collectionExistsWithStoreID:(long long)arg1 groupingType:(long long)arg2 existentPID:(unsigned long long *)arg3;
 - (_Bool)collectionExistsWithName:(NSString *)arg1 groupingType:(long long)arg2 existentPID:(unsigned long long *)arg3;
 - (_Bool)collectionExistsContainedWithinPersistentIDs:(const unsigned long long *)arg1 count:(unsigned long long)arg2 groupingType:(long long)arg3 existentPID:(unsigned long long *)arg4;

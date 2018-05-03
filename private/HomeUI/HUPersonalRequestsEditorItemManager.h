@@ -24,7 +24,7 @@
 @property(retain, nonatomic) HUPersonalRequestsDevicesItemModule *prDevicesModule; // @synthesize prDevicesModule=_prDevicesModule;
 - (void).cxx_destruct;
 - (id)_commitUpdateToAccessControl:(id)arg1;
-@property(nonatomic) unsigned long long personalRequestsAuthenticationRequirement;
+@property(nonatomic) _Bool personalRequestsAuthenticationRequired;
 - (void)_unregisterForExternalUpdates;
 - (void)_registerForExternalUpdates;
 - (id)_buildSectionsWithDisplayedItems:(id)arg1;

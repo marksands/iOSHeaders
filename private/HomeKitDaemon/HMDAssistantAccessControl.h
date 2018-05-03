@@ -41,6 +41,7 @@
 @property(readonly, copy) HMDAssistantAccessControlModel *model;
 @property(readonly, copy) NSUUID *modelID;
 - (void)notifyClientOfUpdateWithMessage:(id)arg1;
+- (void)removeAccessoriesAddedByOldController:(id)arg1;
 - (void)handleRemovedAccessory:(id)arg1;
 - (void)removeAccessory:(id)arg1;
 - (void)addAccessory:(id)arg1;

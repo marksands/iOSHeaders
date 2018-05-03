@@ -22,6 +22,7 @@
 - (void)dealloc;
 - (id)init;
 - (void)addWallpaperURLsForModel:(id)arg1 toURLs:(id)arg2;
+- (id)_sortWallpaperFileKeys:(id)arg1;
 @property(readonly, retain, nonatomic) NSArray *allWallpaperURLs;
 - (id)allExistingWallpaperAssets;
 - (void)importAll;

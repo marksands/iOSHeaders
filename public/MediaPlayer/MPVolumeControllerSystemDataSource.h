@@ -39,7 +39,6 @@
 - (float)_volumeApplyingEUVolumePolicyToVolume:(float)arg1;
 - (void)_tearDown;
 - (void)_setup;
-- (void)_reloadVolume;
 - (void)_reloadEUVolumeLimits;
 - (void)_systemMuteDidChange:(id)arg1;
 - (void)_systemVolumeDidChange:(id)arg1;
@@ -57,12 +56,13 @@
 - (void)updateVolumeControlCapabilities:(unsigned int)arg1;
 - (void)updateVolume:(float)arg1;
 @property(readonly, nonatomic) _Bool applicationShouldOverrideHardwareVolumeBehavior;
+@property(readonly, copy) NSString *description;
+- (void)initializeVolume;
 - (void)dealloc;
 - (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

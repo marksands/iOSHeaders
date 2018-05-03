@@ -31,6 +31,7 @@
 @property(copy, nonatomic) CDUnknownBlockType didDismissHandler; // @synthesize didDismissHandler=_didDismissHandler;
 - (void).cxx_destruct;
 - (void)_updateRemoteViewControllerRoutingContextUID;
+- (void)_reloadAudioContextConfigurationOptions;
 - (void)_requestRemoteViewController;
 - (void)_audioSessionRoutingContextDidChange:(id)arg1;
 - (void)_applicationDidEnterBackground:(id)arg1;

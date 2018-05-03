@@ -10,10 +10,6 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
-struct NSMapTable {
-    Class _field1;
-};
-
 struct NSMutableDictionary {
     Class _field1;
 };
@@ -54,12 +50,6 @@ struct _MRTransactionKeyProtobuf {
 };
 
 #pragma mark Typedef'd Structures
-
-typedef struct {
-    unsigned int type;
-    _Bool isProxyGroupPlayer;
-    unsigned int reserved[2];
-} CDStruct_64424771;
 
 typedef struct {
     float _field1[4];

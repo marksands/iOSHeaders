@@ -19,7 +19,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <CLSClientDelegate> delagate; // @synthesize delagate=_delagate;
 - (void).cxx_destruct;
 - (oneway void)clientRemote_databaseRecreated;
-- (oneway void)clientRemote_devModeDidChange:(int)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

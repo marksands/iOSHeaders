@@ -16,7 +16,9 @@
 
 - (void).cxx_destruct;
 - (id)description;
+- (id)siriWHAMetricsInfo;
 - (id)siriRecommendationIdentifier;
+- (id)siriAssetInfo;
 - (void)setReplaceIntent:(long long)arg1;
 - (long long)replaceIntent;
 - (_Bool)isRequestingImmediatePlayback;

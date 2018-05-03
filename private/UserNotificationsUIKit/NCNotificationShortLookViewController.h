@@ -57,7 +57,6 @@
 - (void)_presentLongLookViaPreviewInteraction:(CDUnknownBlockType)arg1;
 - (void)_loadPresentationContainerViewIfNecessary;
 - (id)_notificationShortLookViewIfLoaded;
-- (id)_customContentProvidingViewControllerCreateIfNecessary;
 - (void)_loadExtensionIfNecessary;
 - (void)_setAudioAccessoryView:(id)arg1;
 - (void)removeAudioAccesoryViewObserver:(id)arg1;

@@ -14,6 +14,8 @@
 }
 
 - (void).cxx_destruct;
+- (unsigned long long)_lastSupportedMessageTypeBeforeSupportedMessagesWereAddedToDeviceInfo;
+- (unsigned long long)_lastSupportedMessageType;
 - (unsigned long long)type;
 - (unsigned long long)encryptionType;
 @property(readonly, nonatomic) MRSupportedProtocolMessages *supportedProtocolMessages;

@@ -24,12 +24,14 @@
 - (id)replaceName:(id)arg1 withNewName:(id)arg2 inNamespaces:(id)arg3;
 - (id)removeName:(id)arg1 namespace:(id)arg2;
 - (id)addName:(id)arg1 namespace:(id)arg2;
+- (id)validateName:(id)arg1 namespace:(id)arg2;
 - (id)validateName:(id)arg1;
 - (id)removeNamespace:(id)arg1;
 - (id)addNamespace:(id)arg1;
 - (id)_replaceName:(id)arg1 withNewName:(id)arg2 inNamespaces:(id)arg3;
 - (id)_removeName:(id)arg1 namespace:(id)arg2;
 - (id)_addName:(id)arg1 namespace:(id)arg2;
+- (id)_validateName:(id)arg1 namespace:(id)arg2;
 - (id)_validateName:(id)arg1;
 - (id)_despaceName:(id)arg1;
 - (id)_removeNamespace:(id)arg1;

@@ -23,7 +23,7 @@
     _Bool _isDisplayedAsPicked;
     _Bool _useSmartAudioCheckmarkStyle;
     _Bool _provideOwnSeparator;
-    _Bool _canShowVolumeSlider;
+    _Bool _showingVolumeSlider;
     id <MPAVRoutingTableViewCellDelegate> _delegate;
     unsigned long long _mirroringStyle;
     unsigned long long _iconStyle;
@@ -33,7 +33,7 @@
 }
 
 @property(retain, nonatomic) MPAVRoutingTableViewCellSubtitleTextState *subtitleTextState; // @synthesize subtitleTextState=_subtitleTextState;
-@property(nonatomic) _Bool canShowVolumeSlider; // @synthesize canShowVolumeSlider=_canShowVolumeSlider;
+@property(nonatomic, getter=isShowingVolumeSlider) _Bool showingVolumeSlider; // @synthesize showingVolumeSlider=_showingVolumeSlider;
 @property(retain, nonatomic) MPVolumeSlider *volumeSlider; // @synthesize volumeSlider=_volumeSlider;
 @property(nonatomic) double subtitleViewAlpha; // @synthesize subtitleViewAlpha=_subtitleViewAlpha;
 @property(nonatomic) _Bool provideOwnSeparator; // @synthesize provideOwnSeparator=_provideOwnSeparator;
@@ -57,7 +57,6 @@
 - (_Bool)_shouldShowSeparateBatteryPercentagesForBatteryLevel:(id)arg1;
 - (void)_configureDetailLabel:(id)arg1;
 - (void)_configureLabel:(id)arg1;
-- (void)_volumeSliderVolumeControlAvailabilityDidChangeNotification:(id)arg1;
 - (void)_handleContentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)setAccessoryType:(long long)arg1;
 - (void)setTintColor:(id)arg1;

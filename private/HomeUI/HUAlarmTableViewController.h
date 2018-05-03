@@ -65,6 +65,7 @@
 - (id)editViewControllerForAlarm:(id)arg1;
 - (void)alarmItemModuleController:(id)arg1 didSelectAlarm:(id)arg2;
 - (void)_showAddView:(id)arg1;
+- (_Bool)alwaysUseDeltaTableViewUpdatesAfterViewHasAppeared;
 - (_Bool)shouldHideHeaderAboveSection:(long long)arg1;
 - (void)viewDidLoad;
 - (void)viewDidLayoutSubviews;

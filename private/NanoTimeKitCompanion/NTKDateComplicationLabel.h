@@ -53,6 +53,7 @@
 @property(nonatomic, setter=_setFirstLineBaselineFrameOriginY:) double _firstLineBaselineFrameOriginY;
 - (double)_firstLineBaselineOffsetFromBoundsTop;
 @property(retain, nonatomic) UIColor *textColor;
+- (void)setContentsMultiplyColor:(id)arg1 animated:(_Bool)arg2 withDuration:(double)arg3;
 - (id)_attributedStringAccentingNumbersInString:(id)arg1;
 - (void)setDateComplicationText:(id)arg1 forDateStyle:(unsigned long long)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

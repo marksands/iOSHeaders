@@ -43,7 +43,6 @@
 - (unsigned long long)_primaryiCloudAccountSecurityLevel;
 - (void)fetchSecurityLevelAndUpdateMiCSwitchEligibilityIfNeededOnImagentLaunch;
 - (void)fetchSecurityLevelAndUpdateMiCSwitchEligibility;
-- (_Bool)_allowDestructiveMOCFeatureForDSID:(id)arg1;
 - (_Bool)_allowDestructiveMOCFeaturesBasedOnDSID;
 - (id)dsid;
 - (id)_primaryiCloudAccountAltDSID;

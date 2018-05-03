@@ -26,8 +26,10 @@
 - (id)_queue_region:(id)arg1;
 - (id)_queue_regions;
 - (_Bool)_queue_supportedForOSVersion:(id)arg1 inRegion:(id)arg2 deviceClass:(id)arg3 platform:(id)arg4;
-- (id)marketGeoRegionNoitificationHourForRegion:(id)arg1;
-- (id)marketGeoRegionNoitificationSendLimitForRegion:(id)arg1;
+- (id)marketGeoRegionNotificationNetworkThresholdsForRegion:(id)arg1;
+- (id)marketGeoRegionNotificationTimeRangeForRegion:(id)arg1;
+- (id)marketGeoRegionNotificationHourForRegion:(id)arg1;
+- (id)marketGeoRegionNotificationSendLimitForRegion:(id)arg1;
 - (id)marketGeoRegionNotificationDisabledNetworksForRegion:(id)arg1;
 - (_Bool)remotePaymentsRequiredForVoiceover;
 - (id)unsupportedWebPaymentConfigurations;

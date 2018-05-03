@@ -27,6 +27,7 @@
     _Bool mPublished;
     NSMutableSet *mConnectionCloseTimers;
     NSError *mStashedError;
+    NSMutableDictionary *mZipOperationsByDirectoryURL;
     id <CRKHostResourcesOperationDelegate> _delegate;
 }
 
@@ -37,6 +38,9 @@
 - (void)connection:(id)arg1 didFailToSendDataWithStream:(id)arg2 userInfo:(id)arg3 error:(id)arg4;
 - (void)connectionCloseDidTimeout:(id)arg1;
 - (void)connection:(id)arg1 didSendDataWithStream:(id)arg2 userInfo:(id)arg3;
+- (void)serveItemAtURL:(id)arg1 toConnection:(id)arg2 forRequestURL:(id)arg3 originalItemURL:(id)arg4;
+- (void)zipOperationDidFail:(id)arg1 directoryURL:(id)arg2;
+- (void)zipDirectoryAtURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)connection:(id)arg1 didReceiveDataRequestWithURL:(id)arg2;
 - (void)netServiceDidStop:(id)arg1;
 - (void)netService:(id)arg1 didNotPublish:(id)arg2;

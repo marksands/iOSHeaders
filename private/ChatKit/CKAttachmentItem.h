@@ -52,6 +52,7 @@
 - (id)UTIType;
 - (void)startDeferredSetup;
 - (id)cachedPreview;
+- (id)uncachedPreviewURL;
 - (void)_savePreview:(id)arg1;
 - (_Bool)canShareItem;
 - (void)generatePreviewWithCompletion:(CDUnknownBlockType)arg1;

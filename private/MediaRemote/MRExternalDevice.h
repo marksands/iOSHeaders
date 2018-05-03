@@ -14,11 +14,9 @@ __attribute__((visibility("hidden")))
     _Bool _valid;
     _Bool _usingSystemPairing;
     unsigned int _connectionState;
-    CDStruct_64424771 _systemMusicContextInfo;
 }
 
 @property(nonatomic, getter=isUsingSystemPairing) _Bool usingSystemPairing; // @synthesize usingSystemPairing=_usingSystemPairing;
-@property(readonly, nonatomic) CDStruct_64424771 systemMusicContextInfo; // @synthesize systemMusicContextInfo=_systemMusicContextInfo;
 @property(readonly, nonatomic) unsigned int connectionState; // @synthesize connectionState=_connectionState;
 @property(readonly, nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_valid;
 - (void)sendClientUpdatesConfigMessage;
@@ -31,7 +29,6 @@ __attribute__((visibility("hidden")))
 - (void)setOutputDeviceVolume:(float)arg1 outputDeviceUID:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)outputDeviceVolume:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setVolumeCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
-- (void)setOutputContextCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setCustomDataCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setPairingAllowedCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setNameCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;

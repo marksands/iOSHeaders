@@ -48,8 +48,12 @@
 - (void)handleUpdatedPassword:(id)arg1;
 - (void)handleUpdatedMinimumUserPrivilege:(long long)arg1;
 - (_Bool)supportsMinimumUserPrivilege;
+- (void)setReachable:(_Bool)arg1;
 - (void)handleUpdatedName:(id)arg1;
 - (void)handleUpdatedAdvertisement:(id)arg1;
+- (void)setAdvertisement:(id)arg1;
+- (id)advertisement;
+- (void)configure:(id)arg1 msgDispatcher:(id)arg2 accessoryConfigureGroup:(id)arg3;
 - (id)initWithTransaction:(id)arg1 home:(id)arg2;
 
 // Remaining properties

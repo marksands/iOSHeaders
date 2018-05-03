@@ -35,6 +35,7 @@
 - (_Bool)isGroupable;
 - (_Bool)groupContainsGroupLeader;
 - (_Bool)isGroupLeader;
+- (_Bool)supportsBufferedAirPlay;
 - (_Bool)canRelayCommunicationChannel;
 - (_Bool)isRemoteControllable;
 - (_Bool)canAccessiCloudMusicLibrary;
@@ -50,6 +51,7 @@
 - (id)descriptor;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithSkeleton:(id)arg1;
 - (id)initWithDescriptor:(id)arg1;
 
 @end

@@ -125,6 +125,7 @@
 - (void)_notifyObserversWithBlock:(CDUnknownBlockType)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
+- (id)_customContentProvidingViewControllerCreateIfNecessary;
 - (void)_setupCustomContentProvider;
 - (void)_setupStaticContentProvider;
 - (void)reloadStaticContentProvider;

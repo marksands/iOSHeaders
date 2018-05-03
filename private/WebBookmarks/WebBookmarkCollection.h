@@ -186,6 +186,7 @@
 - (int)_executeSQL:(id)arg1;
 - (id)_errorForMostRecentSQLiteErrorWithErrorCode:(long long)arg1;
 - (id)_errorForMostRecentSQLiteError;
+- (int)_sqliteStatementWithQuery:(id)arg1 runInBlock:(CDUnknownBlockType)arg2;
 - (int)_finalizeStatementIfNotNull:(struct sqlite3_stmt *)arg1;
 - (struct sqlite3_stmt *)_sqliteStatementWithQuery:(id)arg1;
 - (struct sqlite3_stmt *)_selectBookmarksWhere:(id)arg1 returnType:(long long)arg2;
@@ -264,6 +265,7 @@
 - (void)_enumerateBookmarksForMatchStatement:(id)arg1 normalizedQuery:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)bookmarksMatchingString:(id)arg1;
 - (struct sqlite3_stmt *)_prefixSearch:(id)arg1 usingColumns:(const char *)arg2 maxCount:(unsigned int)arg3;
+- (_Bool)fixCachedNumberOfChildrenIfNeeded;
 - (void)saveAndMoveBookmark:(id)arg1 toFolderID:(int)arg2;
 - (void)saveIconWithData:(id)arg1 urlString:(id)arg2 forBookmark:(id)arg3;
 - (void)deleteArchiveForReadingListBookmarkWithID:(int)arg1;

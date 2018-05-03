@@ -8,9 +8,8 @@
 
 #import "MRProtocolClientConnectionDelegate.h"
 
-@class CURunLoopThread, MRExternalClientConnection, MRExternalDeviceTransport, MRSupportedProtocolMessages, NSData, NSDate, NSDictionary, NSObject<OS_dispatch_queue>, NSString, _MRContentItemProtobuf, _MRDeviceInfoMessageProtobuf, _MRNowPlayingPlayerPathProtobuf, _MROriginProtobuf;
+@class CURunLoopThread, MRExternalClientConnection, MRExternalDeviceTransport, NSData, NSDate, NSDictionary, NSObject<OS_dispatch_queue>, NSString, _MRContentItemProtobuf, _MRDeviceInfoMessageProtobuf, _MRNowPlayingPlayerPathProtobuf, _MROriginProtobuf;
 
-__attribute__((visibility("hidden")))
 @interface MRTransportExternalDevice : MRExternalDevice <MRProtocolClientConnectionDelegate>
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
@@ -31,7 +30,6 @@ __attribute__((visibility("hidden")))
     _Bool _disconnecting;
     _Bool _isCallingClientCallback;
     MRExternalClientConnection *_clientConnection;
-    MRSupportedProtocolMessages *_supportedMessages;
     _MROriginProtobuf *_customOrigin;
     _MRDeviceInfoMessageProtobuf *_deviceInfo;
     _MRNowPlayingPlayerPathProtobuf *_playerPath;
@@ -58,12 +56,10 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_volumeCallbackQueue;
     CDUnknownBlockType _volumeControlCapabilitiesCallback;
     NSObject<OS_dispatch_queue> *_volumeControlCapabilitiesCallbackQueue;
-    CDUnknownBlockType _outputContextCallback;
     NSObject<OS_dispatch_queue> *_outputContextCallbackQueue;
 }
 
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *outputContextCallbackQueue; // @synthesize outputContextCallbackQueue=_outputContextCallbackQueue;
-@property(copy, nonatomic) CDUnknownBlockType outputContextCallback; // @synthesize outputContextCallback=_outputContextCallback;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *volumeControlCapabilitiesCallbackQueue; // @synthesize volumeControlCapabilitiesCallbackQueue=_volumeControlCapabilitiesCallbackQueue;
 @property(copy, nonatomic) CDUnknownBlockType volumeControlCapabilitiesCallback; // @synthesize volumeControlCapabilitiesCallback=_volumeControlCapabilitiesCallback;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *volumeCallbackQueue; // @synthesize volumeCallbackQueue=_volumeCallbackQueue;
@@ -118,7 +114,6 @@ __attribute__((visibility("hidden")))
 - (void)_handleSetStateMessage:(id)arg1;
 - (void)_handleCryptoPairingMessage:(id)arg1;
 - (void)_handleRemoteCommand:(unsigned int)arg1 withOptions:(id)arg2 playerPath:(void *)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_callClientOutputContextCallbackWithInfo:(CDStruct_64424771)arg1;
 - (void)_callVolumeControlCapabilitiesCallback:(unsigned int)arg1 outputDeviceUID:(id)arg2;
 - (void)_callVolumeCallback:(float)arg1 outputDeviceUID:(id)arg2;
 - (void)_callOutputDevicesRemovedCallbackWithOutputDeviceUIDs:(id)arg1;
@@ -134,6 +129,7 @@ __attribute__((visibility("hidden")))
 - (void)_onSerialQueue_registerOriginCallbacks;
 - (void)_onWorkerQueue_cleanUpWithReason:(long long)arg1;
 - (void)_tearDownCustomOriginWithReason:(long long)arg1;
+- (void)_onWorkerQueue_syncClientState;
 - (id)_onWorkerQueue_openSecuritySession;
 - (id)_onWorkerQueue_loadDeviceInfo;
 - (id)_onWorkerQueue_setupCustomOrigin;
@@ -142,6 +138,7 @@ __attribute__((visibility("hidden")))
 - (void)_localDeviceInfoDidChangeNotification:(id)arg1;
 - (void)clientDidDisconnect:(id)arg1;
 - (void)clientConnection:(id)arg1 didReceiveMessage:(id)arg2;
+- (void)removeFromParentGroup:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)modifyOutputContextOfType:(unsigned int)arg1 addingDeviceUIDs:(id)arg2 removingDeviceUIDs:(id)arg3 settingDeviceUIDs:(id)arg4 withReplyQueue:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)outputDeviceVolumeControlCapabilities:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)outputDeviceVolume:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -157,7 +154,6 @@ __attribute__((visibility("hidden")))
 - (void)connectWithOptions:(unsigned int)arg1;
 - (void)_onSerialQueue_connectWithOptions:(unsigned int)arg1;
 - (void)_onWorkerQueue_connectWithOptions:(unsigned int)arg1 isRetry:(_Bool)arg2;
-- (void)setOutputContextCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setVolumeControlCapabilitiesCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setVolumeCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
 - (void)setOutputDevicesRemovedCallback:(CDUnknownBlockType)arg1 withQueue:(id)arg2;
@@ -173,7 +169,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) _MRContentItemProtobuf *nowPlayingItem; // @synthesize nowPlayingItem=_nowPlayingItem;
 @property(retain, nonatomic) NSDictionary *nowPlayingInfo; // @synthesize nowPlayingInfo=_nowPlayingInfo;
 @property(retain, nonatomic) NSData *nowPlayingArtwork; // @synthesize nowPlayingArtwork=_nowPlayingArtwork;
-@property(retain, nonatomic) MRSupportedProtocolMessages *supportedMessages; // @synthesize supportedMessages=_supportedMessages;
+- (id)supportedMessages;
 @property(retain, nonatomic) _MRDeviceInfoMessageProtobuf *deviceInfo; // @synthesize deviceInfo=_deviceInfo;
 @property(retain, nonatomic) _MROriginProtobuf *customOrigin; // @synthesize customOrigin=_customOrigin;
 @property(retain, nonatomic) MRExternalClientConnection *clientConnection; // @synthesize clientConnection=_clientConnection;
@@ -188,7 +184,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)wantsNowPlayingNotifications;
 - (void)setUsingSystemPairing:(_Bool)arg1;
 - (_Bool)isUsingSystemPairing;
-- (CDStruct_64424771)systemMusicContextInfo;
 - (_Bool)isPaired;
 - (_Bool)isValid;
 - (long long)port;

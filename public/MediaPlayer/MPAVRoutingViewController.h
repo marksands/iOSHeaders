@@ -75,11 +75,13 @@
 - (unsigned long long)_tableViewNumberOfRows;
 - (void)_promptForHijackIfNeeded:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (_Bool)_pickOrGroupRoute:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (_Bool)_volumeSliderVisibility:(id)arg1;
 - (void)_applyUpdate:(id)arg1;
 - (void)_updateDisplayedRoutes;
 - (void)_reloadEmptyStateVisibility;
 - (id)_displayAsPickedRoutesInRoutes:(id)arg1;
 - (id)_displayableRoutesInRoutes:(id)arg1;
+- (void)_volumeSliderVolumeControlAvailabilityDidChangeNotification:(id)arg1;
 - (void)_setNeedsDisplayedRoutesUpdate;
 - (void)_setNeedsRouteDiscoveryModeUpdate;
 - (void)_setRouteDiscoveryMode:(long long)arg1;
@@ -89,7 +91,7 @@
 - (void)_beginRouteDiscovery;
 - (void)_unregisterNotifications;
 - (void)_registerNotifications;
-- (void)_configureCell:(id)arg1 forIndexPath:(id)arg2;
+- (void)_configureCell:(id)arg1 forIndexPath:(id)arg2 withDisplayedRoutes:(id)arg3;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 - (double)_tableViewHeightAccordingToDataSource;

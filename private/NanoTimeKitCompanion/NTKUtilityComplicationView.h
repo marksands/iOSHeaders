@@ -99,6 +99,8 @@
 - (void)_applyColorScheme:(id)arg1;
 - (void)applyTransitionFraction:(double)arg1 fromFaceColor:(unsigned long long)arg2 toFaceColor:(unsigned long long)arg3 units:(unsigned long long)arg4 brightenedUnits:(unsigned long long)arg5;
 - (void)applyFaceColor:(unsigned long long)arg1 units:(unsigned long long)arg2;
+- (void)setContentsMultiplyColor:(id)arg1 animated:(_Bool)arg2 withDuration:(double)arg3;
+- (void)setContentsMultiplyColor:(id)arg1;
 @property(nonatomic) double foregroundAlpha; // @synthesize foregroundAlpha=_foregroundAlpha;
 - (id)initWithFrame:(struct CGRect)arg1;
 

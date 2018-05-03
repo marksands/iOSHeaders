@@ -17,6 +17,8 @@
 @interface HUItemTableViewController : HUTableViewController <HFExecutionEnvironmentObserver, HFItemManagerDelegate, HUItemManagerContainer, HUItemPresentationContainer, HUPreloadableViewController>
 {
     _Bool _wantsPreferredContentSize;
+    _Bool _viewHasAppeared;
+    _Bool _hasForcedLoadingVisibleCells;
     _Bool _hasFinishedInitialLoad;
     _Bool _visibilityUpdatesEnabled;
     HFItemManager *_itemManager;
@@ -37,6 +39,8 @@
 @property(retain, nonatomic) NSMutableArray *foregroundUpdateFutures; // @synthesize foregroundUpdateFutures=_foregroundUpdateFutures;
 @property(nonatomic) _Bool hasFinishedInitialLoad; // @synthesize hasFinishedInitialLoad=_hasFinishedInitialLoad;
 @property(retain, nonatomic) HFItemManager *itemManager; // @synthesize itemManager=_itemManager;
+@property(nonatomic) _Bool hasForcedLoadingVisibleCells; // @synthesize hasForcedLoadingVisibleCells=_hasForcedLoadingVisibleCells;
+@property(nonatomic) _Bool viewHasAppeared; // @synthesize viewHasAppeared=_viewHasAppeared;
 @property(nonatomic) _Bool wantsPreferredContentSize; // @synthesize wantsPreferredContentSize=_wantsPreferredContentSize;
 - (void).cxx_destruct;
 - (void)recursivelyDisableItemUpdates:(_Bool)arg1 withReason:(id)arg2;
@@ -109,6 +113,7 @@
 - (void)setupCell:(id)arg1 forItem:(id)arg2 indexPath:(id)arg3;
 - (Class)cellClassForItem:(id)arg1 indexPath:(id)arg2;
 - (id)itemModuleControllers;
+- (_Bool)alwaysUseDeltaTableViewUpdatesAfterViewHasAppeared;
 - (_Bool)bypassInitialItemUpdateReload;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillLayoutSubviews;

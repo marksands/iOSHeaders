@@ -12,6 +12,7 @@
 {
     NSObject<OS_dispatch_queue> *_eventQueue;
     NSString *_lastSiriReferenceIdentifierForPlaybackStart;
+    NSString *_lastSiriReferenceIdentifierForWillReload;
     NSString *_lastSiriReferenceIdentifierWithLikelyToKeepUp;
     NSHashTable *_players;
     NSMapTable *_playerToObservedTimebase;
@@ -22,6 +23,7 @@
 - (void)_timebaseEffectiveRateChangedNotification;
 - (void)_attemptPlaybackStartReportingEventWithPlayer:(id)arg1;
 - (void)_attemptLikelyToKeepUpReportingEventWithPlayer:(id)arg1;
+- (void)_willReloadWithPlaybackContextNotification:(id)arg1;
 - (void)_itemTimebaseDidChangeNotification:(id)arg1;
 - (void)_itemDidChangeNotification:(id)arg1;
 - (void)_bufferingStateDidChangeNotification:(id)arg1;

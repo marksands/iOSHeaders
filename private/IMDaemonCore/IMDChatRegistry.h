@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class IMDCNPersonAliasResolver, IMDMessageHistorySyncController, IMDMessageProcessingController, NSArray, NSCache, NSMutableDictionary, NSRecursiveLock;
+@class IMDCKUtilities, IMDCNPersonAliasResolver, IMDChatStore, IMDMessageHistorySyncController, IMDMessageProcessingController, NSArray, NSCache, NSMutableDictionary, NSRecursiveLock;
 
 @interface IMDChatRegistry : NSObject
 {
@@ -16,6 +16,9 @@
     _Bool _doneLoadingAfterMerge;
     NSCache *_allChatsByIDCache;
     NSMutableDictionary *_chatsByGroupID;
+    _Bool _hasDumpedLogsForNoExisitingGroup;
+    IMDCKUtilities *_ckUtilities;
+    IMDChatStore *_chatStore;
     IMDMessageProcessingController *_messageProcessingController;
     IMDMessageHistorySyncController *_messageHistorySyncController;
 }
@@ -23,6 +26,9 @@
 + (id)sharedInstance;
 @property(readonly, nonatomic) IMDMessageHistorySyncController *messageHistorySyncController; // @synthesize messageHistorySyncController=_messageHistorySyncController;
 @property(readonly, nonatomic) IMDMessageProcessingController *messageProcessingController; // @synthesize messageProcessingController=_messageProcessingController;
+@property(nonatomic) _Bool hasDumpedLogsForNoExisitingGroup; // @synthesize hasDumpedLogsForNoExisitingGroup=_hasDumpedLogsForNoExisitingGroup;
+@property(retain, nonatomic) IMDChatStore *chatStore; // @synthesize chatStore=_chatStore;
+@property(retain, nonatomic) IMDCKUtilities *ckUtilities; // @synthesize ckUtilities=_ckUtilities;
 - (id)_existingiMessageChatForChatIdentifier:(id)arg1 style:(unsigned char)arg2;
 - (_Bool)isBeingSetup;
 - (void)clearPendingDeleteTable;
@@ -44,6 +50,7 @@
 - (void)updateChatUsingCKRecord:(id)arg1;
 - (void)_markForksAsSyncedForChat:(id)arg1;
 - (_Bool)_isUsingStingRay;
+- (_Bool)_ensureNoExistingGroupForCKRecord:(id)arg1;
 - (id)_existingChatForCKRecord:(id)arg1;
 - (id)_existingChatWithOriginalGroupID:(id)arg1 onService:(id)arg2;
 - (void)_insertChatUsingCKRecord:(id)arg1;

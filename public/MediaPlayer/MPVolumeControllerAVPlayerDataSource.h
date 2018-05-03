@@ -21,6 +21,7 @@
 - (void)_setup;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
+- (void)updateVolumeControlCapabilities:(unsigned int)arg1;
 - (void)reload;
 - (void)setMuted:(_Bool)arg1;
 - (void)setVolume:(float)arg1;

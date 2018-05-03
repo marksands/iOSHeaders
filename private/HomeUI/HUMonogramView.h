@@ -6,18 +6,30 @@
 
 #import "UIView.h"
 
-@class NSString, UIColor, UIFont, UILabel;
+@class NSArray, NSString, UIColor, UIFont, UILabel;
 
 @interface HUMonogramView : UIView
 {
+    _Bool _needsComputeLayoutMetrics;
     UILabel *_monogramLabel;
     UIView *_backgroundView;
+    unsigned long long _style;
+    NSArray *_labelLayoutConstraints;
+    struct UIEdgeInsets _bubbleEdgeOutsets;
 }
 
++ (unsigned long long)desiredStyleForString:(id)arg1;
+@property(copy, nonatomic) NSArray *labelLayoutConstraints; // @synthesize labelLayoutConstraints=_labelLayoutConstraints;
+@property(nonatomic) struct UIEdgeInsets bubbleEdgeOutsets; // @synthesize bubbleEdgeOutsets=_bubbleEdgeOutsets;
+@property(nonatomic) _Bool needsComputeLayoutMetrics; // @synthesize needsComputeLayoutMetrics=_needsComputeLayoutMetrics;
+@property(nonatomic) unsigned long long style; // @synthesize style=_style;
 @property(readonly, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(readonly, nonatomic) UILabel *monogramLabel; // @synthesize monogramLabel=_monogramLabel;
 - (void).cxx_destruct;
-- (void)_updateCornerRadius;
+- (void)_computeLayoutMetrics;
+- (void)setNeedsComputeLayoutMetrics;
+- (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
+- (struct CGSize)intrinsicContentSize;
 - (void)_setupMonogramLabel:(struct CGRect)arg1;
 - (void)_setupBackgroundView:(struct CGRect)arg1;
 @property(copy, nonatomic) NSString *monogramString; // @dynamic monogramString;

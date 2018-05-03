@@ -14,6 +14,7 @@
 + (id)deviceCategoryStringRepresentationForCategoryType:(unsigned long long)arg1;
 + (_Bool)isCurrentDeviceCompatibleWithVoiceProfileAt:(id)arg1;
 + (id)sharedPreferences;
+- (double)audioSessionActivationDelay;
 - (_Bool)myriadFileLoggingEnabled;
 - (id)interstitialAbsoluteDirForLevel:(long long)arg1;
 - (id)interstitialRelativeDirForLevel:(long long)arg1;

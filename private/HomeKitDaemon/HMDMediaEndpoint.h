@@ -13,7 +13,7 @@
 @interface HMDMediaEndpoint : HMFObject <HMFLogging>
 {
     unsigned int _connectionState;
-    void *_endpoint;
+    void *_retainedEndpoint;
     NSSet *_outputDeviceIdentifiers;
     NSString *_sessionIdentifier;
     NSString *_localizedName;
@@ -58,8 +58,9 @@
 @property(nonatomic) unsigned int connectionState; // @synthesize connectionState=_connectionState;
 - (void)updateEndpoint:(void *)arg1;
 - (void)_updateOutputDeviceIdentifiers;
-- (void)setEndpoint:(void *)arg1;
-@property(readonly) void *endpoint; // @synthesize endpoint=_endpoint;
+- (_Bool)isEqualToEndpoint:(void *)arg1;
+- (void)setRetainedEndpoint:(void *)arg1;
+@property(readonly) void *retainedEndpoint; // @synthesize retainedEndpoint=_retainedEndpoint;
 - (void)dealloc;
 - (id)initWithEndpoint:(void *)arg1 mediaBrowser:(id)arg2;
 

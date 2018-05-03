@@ -16,6 +16,7 @@
     _Bool _useWeakMatching;
     _Bool _searchInProgress;
     _Bool _shouldWaitForUnanimousEndpoints;
+    _Bool _returnPartialResults;
     unsigned int _endpointFeatures;
     MRAVRoutingDiscoverySession *_discoverySession;
     NSSet *_matchingOutputDeviceUIDsSet;
@@ -28,12 +29,19 @@
     MRAVEndpoint *_unanimousEndpoint;
     NSArray *_availableOutputDevices;
     NSArray *_availableEndpoints;
+    unsigned long long _updatesReceived;
+    NSArray *_lastProcessedOutputDevices;
+    NSArray *_lastProcessedEndpoints;
 }
 
+@property(retain, nonatomic) NSArray *lastProcessedEndpoints; // @synthesize lastProcessedEndpoints=_lastProcessedEndpoints;
+@property(retain, nonatomic) NSArray *lastProcessedOutputDevices; // @synthesize lastProcessedOutputDevices=_lastProcessedOutputDevices;
+@property(nonatomic) unsigned long long updatesReceived; // @synthesize updatesReceived=_updatesReceived;
 @property(retain, nonatomic) NSArray *availableEndpoints; // @synthesize availableEndpoints=_availableEndpoints;
 @property(retain, nonatomic) NSArray *availableOutputDevices; // @synthesize availableOutputDevices=_availableOutputDevices;
 @property(retain, nonatomic) MRAVEndpoint *unanimousEndpoint; // @synthesize unanimousEndpoint=_unanimousEndpoint;
 @property(retain, nonatomic) NSMutableSet *matchingDevicesFound; // @synthesize matchingDevicesFound=_matchingDevicesFound;
+@property(nonatomic) _Bool returnPartialResults; // @synthesize returnPartialResults=_returnPartialResults;
 @property(nonatomic) _Bool shouldWaitForUnanimousEndpoints; // @synthesize shouldWaitForUnanimousEndpoints=_shouldWaitForUnanimousEndpoints;
 @property(nonatomic) _Bool searchInProgress; // @synthesize searchInProgress=_searchInProgress;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *callbackSyncQueue; // @synthesize callbackSyncQueue=_callbackSyncQueue;

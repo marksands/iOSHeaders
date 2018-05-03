@@ -32,6 +32,7 @@
 @property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
 @property(nonatomic) double accessoryImageSpacing; // @synthesize accessoryImageSpacing=_accessoryImageSpacing;
 - (void).cxx_destruct;
+- (void)_intrinsicContentSizeInvalidatedForChildView:(id)arg1;
 @property(retain, nonatomic) UIImage *accessoryImage;
 - (void)tintColorDidChange;
 - (void)setAlpha:(double)arg1;

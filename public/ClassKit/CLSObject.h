@@ -44,9 +44,6 @@
 - (long long)effectiveAuthorizationStatus;
 - (void)sync;
 - (id)dictionaryRepresentation;
-- (void)removeMetaProperty:(id)arg1;
-- (void)addMetaProperty:(id)arg1;
-- (id)metaProperties;
 - (_Bool)validateObject:(id *)arg1;
 - (void)didSaveObject;
 - (void)willSaveObject;

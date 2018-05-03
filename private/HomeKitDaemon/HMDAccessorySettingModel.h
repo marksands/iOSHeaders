@@ -13,6 +13,7 @@
 }
 
 + (id)properties;
++ (id)schemaHashRoot;
 
 // Remaining properties
 @property(retain, nonatomic) NSNumber *configurationVersion; // @dynamic configurationVersion;

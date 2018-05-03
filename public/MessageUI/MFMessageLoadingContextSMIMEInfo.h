@@ -15,6 +15,7 @@
 
 + (id)smimeInfoForLoadEvent:(id)arg1;
 @property(readonly, nonatomic) MFMessageLoadingContextEvent *loadEvent; // @synthesize loadEvent=_loadEvent;
+- (void)reevaluateTrustWithNetworkAccessAllowed;
 @property(readonly, nonatomic, getter=isMessageEncrypted) _Bool messageEncrypted;
 @property(readonly, nonatomic, getter=isMessageSigned) _Bool messageSigned;
 @property(readonly, nonatomic) MFMessageSigner *firstSigner;

@@ -37,7 +37,7 @@
 - (void)_clearAnyCompletedModifications;
 - (void)_commitModification:(id)arg1;
 - (id)_pendingModifications;
-- (void)_reloadOutputDevices;
+- (void)_reloadOutputDevicesForInitialLoad:(_Bool)arg1;
 - (void)_unregisterNotifications;
 - (void)_handleOutputDeviceSupportsVolumeDidChangeNotification:(id)arg1;
 - (void)_handleOutputDeviceCanSetVolumeDidChangeNotification:(id)arg1;

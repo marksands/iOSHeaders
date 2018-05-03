@@ -21,6 +21,8 @@
 @interface CSSpeechManager : NSObject <CSAudioRecorderDelegate, CSStateMachineDelegate, CSVoiceTriggerDelegate, CSSiriEnabledMonitorDelegate, CSVolumeMonitorDelegate, CSAlarmMonitorDelegate, CSTimerMonitorDelegate, CSAssetManagerDelegate, CSLanguageCodeUpdateMonitorDelegate>
 {
     _Bool _isSiriEnabled;
+    _Bool _deviceRoleIsStereo;
+    _Bool _isAudioSessionActive;
     CSAudioRecorder *_audioRecorder;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_assetQueryQueue;
@@ -40,8 +42,12 @@
     long long _clearLoggingFileTimerCount;
     NSUUID *_pendingSetRecordModeToRecordingToken;
     CDUnknownBlockType _pendingSetRecordModeToRecordingCompletion;
+    double _audioSessionActivationDelay;
 }
 
+@property(nonatomic) double audioSessionActivationDelay; // @synthesize audioSessionActivationDelay=_audioSessionActivationDelay;
+@property(nonatomic) _Bool isAudioSessionActive; // @synthesize isAudioSessionActive=_isAudioSessionActive;
+@property(nonatomic) _Bool deviceRoleIsStereo; // @synthesize deviceRoleIsStereo=_deviceRoleIsStereo;
 @property(nonatomic) _Bool isSiriEnabled; // @synthesize isSiriEnabled=_isSiriEnabled;
 @property(copy, nonatomic) CDUnknownBlockType pendingSetRecordModeToRecordingCompletion; // @synthesize pendingSetRecordModeToRecordingCompletion=_pendingSetRecordModeToRecordingCompletion;
 @property(retain, nonatomic) NSUUID *pendingSetRecordModeToRecordingToken; // @synthesize pendingSetRecordModeToRecordingToken=_pendingSetRecordModeToRecordingToken;
@@ -113,6 +119,7 @@
 - (void)_performPendingSetRecordModeToRecordingForReason:(id)arg1;
 - (void)_cancelPendingSetRecordModeToRecordingForReason:(id)arg1;
 - (void)_scheduleSetRecordModeToRecordingWithDelay:(double)arg1 forReason:(id)arg2 validator:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
+- (_Bool)_setRecordMode:(long long)arg1 withDelay:(double)arg2 error:(id *)arg3;
 - (_Bool)_setRecordMode:(long long)arg1 error:(id *)arg2;
 - (_Bool)_startListening:(id *)arg1;
 - (_Bool)_startRecordingWithSettings:(id)arg1 error:(id *)arg2;

@@ -18,6 +18,7 @@
 - (void)sendData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithDictionary:(id)arg1;
 @property(readonly, nonatomic) NSString *uuid;
+- (id)objectID;
 
 @end
 

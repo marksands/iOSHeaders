@@ -16,6 +16,7 @@
     NSMapTable *_optimisticValues;
     NSMapTable *_optimisticScales;
     int _inFlightDisableOptimisticStateRequests;
+    _Bool _shouldOverrideTracking;
     MPVolumeSlider *_masterVolumeSlider;
 }
 
@@ -31,6 +32,7 @@
 - (float)_maxOptimisticValue;
 - (void)volumeSliderDidEndTracking:(id)arg1;
 - (void)volumeSliderValueChanged:(id)arg1;
+- (void)removeAllIndividualVolumeSliders;
 - (void)removeIndividualVolumeSlider:(id)arg1;
 - (void)addIndividualVolumeSlider:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *individualVolumeSliders;

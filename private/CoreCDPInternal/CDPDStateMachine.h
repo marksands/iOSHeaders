@@ -47,7 +47,9 @@
 - (_Bool)shouldAllowCDPEnrollment;
 - (void)_authenticatedRepairCloudDataProtectionStateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_refreshAndAuthenticateWithContext:(id)arg1;
+- (void)_renewAndRepairWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_performInteractivelyAuthenticatedRepair:(CDUnknownBlockType)arg1;
+- (void)_repairCloudDataProtectionStateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)repairCloudDataProtectionStateWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_predicateForRecordUpgradeCheck;
 - (id)_predicateForRecordUpgradeCheckIgnoringBottled;

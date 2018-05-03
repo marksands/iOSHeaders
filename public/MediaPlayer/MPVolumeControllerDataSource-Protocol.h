@@ -21,6 +21,7 @@
 - (void)getVolumeValueWithCompletion:(void (^)(float))arg1;
 - (void)reloadWarning;
 - (void)reload;
+- (void)initializeVolume;
 - (void)adjustVolumeValue:(float)arg1;
 @end
 

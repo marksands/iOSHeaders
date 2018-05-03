@@ -6,20 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class ECSecureMIMETrustEvaluation, NSString;
 
 @interface MFCertificateTrustInfo : NSObject
 {
+    struct __SecTrust *_unevaluatedTrust;
+    ECSecureMIMETrustEvaluation *_trustEvaluation;
+    _Bool _forceNetworkAccessAllowed;
     NSString *_uncommentedSender;
     unsigned long long _certificateType;
     NSString *_sender;
-    struct __SecTrust *_trust;
 }
 
-@property(readonly, nonatomic) struct __SecTrust *trust; // @synthesize trust=_trust;
 @property(readonly, copy, nonatomic) NSString *sender; // @synthesize sender=_sender;
 @property(readonly, nonatomic) unsigned long long certificateType; // @synthesize certificateType=_certificateType;
 - (void).cxx_destruct;
+- (void)reevaluateTrustWithNetworkAccessAllowed;
 - (void)removeCertificateFromKeychain;
 - (void)saveCertificateToKeychain;
 @property(readonly, nonatomic) unsigned long long keychainStatus;
@@ -31,6 +33,8 @@
 @property(readonly, copy, nonatomic) NSString *commonName;
 @property(readonly, nonatomic) int action;
 @property(readonly, nonatomic) struct __SecCertificate *certificate;
+@property(readonly, nonatomic) struct __SecTrust *trust;
+@property(readonly, nonatomic) ECSecureMIMETrustEvaluation *trustEvaluation;
 - (void)dealloc;
 - (id)initWithCertificateType:(unsigned long long)arg1 trust:(struct __SecTrust *)arg2 sender:(id)arg3;
 

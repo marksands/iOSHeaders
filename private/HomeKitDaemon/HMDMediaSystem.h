@@ -91,6 +91,7 @@
 - (void)_auditRootSettingsGroup:(unsigned long long)arg1;
 - (void)auditRootSettingsGroup:(unsigned long long)arg1;
 - (void)unconfigureMediaSystemComponents:(id)arg1;
+- (void)unconfigureMediaSystemComponents;
 - (void)configureMediaSystemComponents:(id)arg1;
 - (void)configureQueue:(id)arg1 messageDispatcher:(id)arg2;
 - (_Bool)isValid;

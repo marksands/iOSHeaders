@@ -15,9 +15,11 @@
     MFCancelationToken *_cancelable;
     MFObservable<MFObserver> *_inputObservable;
     MFObservable *_contentObservable;
-    MFObservable *_smimeObservable;
     MFObservable *_analysisSuggestionsObservable;
     id <MFScheduler> _analysisScheduler;
+    id <MFScheduler> _trustReevaluationScheduler;
+    MFObservable<MFObserver> *_trustReevaluationObservable;
+    MFObservable *_smimeObservable;
     _Bool _shouldAnalyzeMessage;
     NSString *_eventUniqueID;
     NSString *_meetingName;
@@ -56,6 +58,7 @@
 - (void)assignAttachmentManagerToContent:(id)arg1;
 - (id)_reallyLoad:(long long)arg1 shouldDownload:(_Bool)arg2;
 - (void)_load:(long long)arg1;
+- (void)reevaluateSMIMETrustWithNetworkAccessAllowed;
 - (void)load:(long long)arg1 scheduler:(id)arg2;
 - (void)load:(long long)arg1;
 - (id)addSMIMEObserver:(CDUnknownBlockType)arg1;

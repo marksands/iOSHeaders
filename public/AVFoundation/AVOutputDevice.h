@@ -41,6 +41,8 @@
 - (_Bool)canAccessiCloudMusicLibrary;
 - (_Bool)canAccessAppleMusic;
 - (_Bool)canAccessRemoteAssets;
+- (_Bool)onlyAllowsConnectionsFromPeersInHomeGroup;
+- (_Bool)automaticallyAllowsConnectionsFromPeersInHomeGroup;
 - (_Bool)requiresAuthorization;
 - (unsigned long long)deviceFeatures;
 - (id)connectedPairedDevices;

@@ -18,6 +18,7 @@
     _Bool _connectionBorked;
     _Bool _interrupted;
     int _progressdAvailableToken;
+    int _devModeChangedToken;
     NSString *_overrideBundleIdentifier;
     CDUnknownBlockType _onInterupt;
     CDUnknownBlockType _onConnect;
@@ -33,7 +34,7 @@
 @property(copy, nonatomic) CDUnknownBlockType onInterupt; // @synthesize onInterupt=_onInterupt;
 @property(retain, nonatomic) NSString *overrideBundleIdentifier; // @synthesize overrideBundleIdentifier=_overrideBundleIdentifier;
 - (void).cxx_destruct;
-- (void)client:(id)arg1 recievedNewDevMode:(int)arg2;
+- (void)devModeChanged;
 - (void)accountChanged;
 - (void)addBarrierBlock:(CDUnknownBlockType)arg1;
 - (void)connect;

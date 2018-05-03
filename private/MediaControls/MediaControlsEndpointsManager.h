@@ -38,7 +38,7 @@
 - (void)_updateActiveRoute;
 - (void)_setRoutes:(id)arg1 withChangeDetails:(id)arg2;
 - (_Bool)_homeHasRoute:(id)arg1;
-- (id)_endpointControllerContainingOutputDevice:(id)arg1 externalDeviceRef:(void **)arg2;
+- (id)_endpointControllerContainingOutputDevice:(id)arg1 endpointWrapper:(id *)arg2;
 - (long long)_indexOfRouteWithUID:(id)arg1;
 - (void)_activeSystemRouteDidChange:(id)arg1;
 - (void)homeObserverDidUpdateKnownUIDs:(id)arg1;

@@ -43,7 +43,6 @@
 @property(copy, nonatomic) NSString *storeTeamID; // @synthesize storeTeamID=_storeTeamID;
 @property(copy, nonatomic) NSString *storeIdentifier; // @synthesize storeIdentifier=_storeIdentifier;
 @property(nonatomic) long long _authorizationStatus; // @synthesize _authorizationStatus=__authorizationStatus;
-@property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
 @property(nonatomic) long long type; // @synthesize type=_type;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) NSArray *_path; // @synthesize _path;
@@ -55,6 +54,7 @@
 @property(readonly, nonatomic) NSArray *path; // @dynamic path;
 - (void)resignActive;
 - (void)becomeActive;
+@property(readonly, nonatomic, getter=isActive) _Bool active;
 @property(copy, nonatomic) NSString *contentStoreIdentifier;
 @property(nonatomic) long long displayOrder;
 @property(retain, nonatomic) NSURL *universalLinkURL;

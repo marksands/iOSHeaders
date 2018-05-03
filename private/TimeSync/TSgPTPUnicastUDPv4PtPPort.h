@@ -12,8 +12,8 @@
 
 + (id)diagnosticDescriptionForService:(unsigned int)arg1 withIndent:(id)arg2;
 + (id)iokitMatchingDictionaryForInterfaceName:(id)arg1 andIPv4Address:(unsigned int)arg2;
-- (id)destinationAddressString;
-- (id)sourceAddressString;
+- (id)_destinationAddressString;
+- (id)_sourceAddressString;
 - (void)dealloc;
 - (long long)portType;
 - (id)initWithInterfaceName:(id)arg1 andIPv4Address:(unsigned int)arg2;

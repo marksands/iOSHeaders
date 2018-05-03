@@ -10,6 +10,8 @@
 
 @interface TSgPTPClock : TSKernelClock
 {
+    NSArray *_gptpPath;
+    unsigned long long _grandmasterIdentity;
 }
 
 + (id)clockNameForClockIdentifier:(unsigned long long)arg1;
@@ -20,6 +22,8 @@
 + (id)iokitMatchingDictionaryForInterfaceName:(id)arg1;
 + (id)iokitInterfaceMatchingDictionaryForInterfaceName:(id)arg1;
 + (id)availablegPTPClockIdentifiers;
+@property(nonatomic) unsigned long long grandmasterIdentity; // @synthesize grandmasterIdentity=_grandmasterIdentity;
+@property(copy, nonatomic) NSArray *gptpPath; // @synthesize gptpPath=_gptpPath;
 - (void)dealloc;
 @property(readonly, copy, nonatomic) NSArray *ports; // @dynamic ports;
 - (id)clockName;
@@ -50,8 +54,10 @@
 @property(nonatomic) unsigned char clockPriority2; // @dynamic clockPriority2;
 @property(nonatomic) unsigned char clockPriority1; // @dynamic clockPriority1;
 @property(readonly, nonatomic) unsigned long long clockIdentity; // @dynamic clockIdentity;
-@property(readonly, copy, nonatomic) NSArray *gptpPath; // @dynamic gptpPath;
-@property(readonly, nonatomic) unsigned long long grandmasterIdentity; // @dynamic grandmasterIdentity;
+- (id)_gptpPath;
+- (unsigned long long)_grandmasterIdentity;
+- (void)_handleNotification:(unsigned int)arg1 withArg1:(unsigned long long)arg2 andArg2:(unsigned long long)arg3;
+- (void)_handleInterestNotification:(unsigned int)arg1 withArgument:(void *)arg2;
 - (_Bool)getRateRatioNumerator:(unsigned long long *)arg1 denominator:(unsigned long long *)arg2 machAnchor:(unsigned long long *)arg3 andDomainAnchor:(unsigned long long *)arg4 forGrandmasterIdentity:(unsigned long long *)arg5 withError:(id *)arg6;
 - (unsigned long long)convertFromDomainToMachAbsoluteTime:(unsigned long long)arg1 grandmasterUsed:(unsigned long long *)arg2;
 - (unsigned long long)convertFromMachAbsoluteToDomainTime:(unsigned long long)arg1 grandmasterUsed:(unsigned long long *)arg2;

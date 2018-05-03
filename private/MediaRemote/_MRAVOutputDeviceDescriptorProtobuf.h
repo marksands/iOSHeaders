@@ -39,6 +39,7 @@
     _Bool _isVolumeControlAvailable;
     _Bool _requiresAuthorization;
     _Bool _shouldForceRemoteControlabillity;
+    _Bool _supportsBufferedAirPlay;
     _Bool _supportsExternalScreen;
     struct {
         unsigned int batteryLevel:1;
@@ -59,10 +60,12 @@
         unsigned int isVolumeControlAvailable:1;
         unsigned int requiresAuthorization:1;
         unsigned int shouldForceRemoteControlabillity:1;
+        unsigned int supportsBufferedAirPlay:1;
         unsigned int supportsExternalScreen:1;
     } _has;
 }
 
+@property(nonatomic) _Bool supportsBufferedAirPlay; // @synthesize supportsBufferedAirPlay=_supportsBufferedAirPlay;
 @property(nonatomic) _Bool groupContainsGroupLeader; // @synthesize groupContainsGroupLeader=_groupContainsGroupLeader;
 @property(nonatomic) _Bool canAccessiCloudMusicLibrary; // @synthesize canAccessiCloudMusicLibrary=_canAccessiCloudMusicLibrary;
 @property(nonatomic) _Bool canAccessAppleMusic; // @synthesize canAccessAppleMusic=_canAccessAppleMusic;
@@ -80,8 +83,6 @@
 @property(nonatomic) _Bool isLocalDevice; // @synthesize isLocalDevice=_isLocalDevice;
 @property(nonatomic) float batteryLevel; // @synthesize batteryLevel=_batteryLevel;
 @property(retain, nonatomic) NSData *modelSpecificInfoData; // @synthesize modelSpecificInfoData=_modelSpecificInfoData;
-@property(nonatomic) int deviceSubType; // @synthesize deviceSubType=_deviceSubType;
-@property(nonatomic) int deviceType; // @synthesize deviceType=_deviceType;
 @property(nonatomic) _Bool isGroupable; // @synthesize isGroupable=_isGroupable;
 @property(nonatomic) _Bool isGroupLeader; // @synthesize isGroupLeader=_isGroupLeader;
 @property(nonatomic) _Bool isRemoteControllable; // @synthesize isRemoteControllable=_isRemoteControllable;
@@ -101,6 +102,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSupportsBufferedAirPlay;
 @property(nonatomic) _Bool hasGroupContainsGroupLeader;
 @property(nonatomic) _Bool hasCanAccessiCloudMusicLibrary;
 @property(nonatomic) _Bool hasCanAccessAppleMusic;
@@ -118,8 +120,14 @@
 @property(nonatomic) _Bool hasIsLocalDevice;
 @property(nonatomic) _Bool hasBatteryLevel;
 @property(readonly, nonatomic) _Bool hasModelSpecificInfoData;
+- (int)StringAsDeviceSubType:(id)arg1;
+- (id)deviceSubTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasDeviceSubType;
+@property(nonatomic) int deviceSubType; // @synthesize deviceSubType=_deviceSubType;
+- (int)StringAsDeviceType:(id)arg1;
+- (id)deviceTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasDeviceType;
+@property(nonatomic) int deviceType; // @synthesize deviceType=_deviceType;
 @property(nonatomic) _Bool hasIsGroupable;
 @property(nonatomic) _Bool hasIsGroupLeader;
 @property(nonatomic) _Bool hasIsRemoteControllable;

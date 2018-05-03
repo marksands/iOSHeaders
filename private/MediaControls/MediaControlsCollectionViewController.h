@@ -27,6 +27,7 @@
     _Bool _isPerformingBatchUpdates;
     _Bool _needsReloadData;
     MediaControlsCollectionViewCountData *_countData;
+    _Bool _appeared;
     id <MediaControlsCollectionViewDataSource> _dataSource;
     id <MediaControlsCollectionViewDelegate> _delegate;
     CDUnknownBlockType _dismissalBlock;
@@ -61,6 +62,10 @@
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
+- (void)_endAppearanceTransitionForChildViewControllers;
+- (void)_beginAppearanceTransitionForChildViewControllers:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)_endAppearanceTransitionForChildViewControllerIfNeeded:(id)arg1;
+- (void)_beginAppearanceTransitionIfNeeded:(_Bool)arg1 forChildViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)_setHighlighted:(_Bool)arg1 forViewControllerAtIndex:(long long)arg2;
 - (void)_removeViewController:(id)arg1;
 - (void)_removeInactiveViewControllersFromHierarchy;
@@ -117,6 +122,11 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLayoutSubviews;
+- (_Bool)shouldAutomaticallyForwardAppearanceMethods;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_commonInit;

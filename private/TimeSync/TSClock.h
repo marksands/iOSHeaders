@@ -12,17 +12,20 @@
 {
     NSMutableArray *_clients;
     NSObject<OS_dispatch_queue> *_notificationsQueue;
+    int _lockState;
     unsigned long long _clockIdentifier;
+    NSObject<OS_dispatch_queue> *_propertyUpdateQueue;
 }
 
 + (id)clockNameForClockIdentifier:(unsigned long long)arg1;
 + (id)diagnosticInfoForClockIdentifier:(unsigned long long)arg1;
 + (unsigned long long)_mach_absolute_time;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *propertyUpdateQueue; // @synthesize propertyUpdateQueue=_propertyUpdateQueue;
+@property(nonatomic) int lockState; // @synthesize lockState=_lockState;
 @property(nonatomic) unsigned long long clockIdentifier; // @synthesize clockIdentifier=_clockIdentifier;
 - (void)dealloc;
 @property(readonly, copy, nonatomic) NSString *clockName; // @dynamic clockName;
 @property(readonly, nonatomic) double hostRateRatio; // @dynamic hostRateRatio;
-@property(readonly, nonatomic) int lockState; // @dynamic lockState;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *notificationQueue; // @dynamic notificationQueue;
 @property(readonly, retain, nonatomic) NSMutableArray *clients; // @dynamic clients;
 - (void)removeClient:(id)arg1;

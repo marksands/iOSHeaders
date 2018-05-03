@@ -10,15 +10,17 @@
 
 @interface HMDAccessorySettingTarget : HMFObject
 {
-    HMDAccessory *_primary;
+    HMDAccessory *_systemOwnerAccessory;
+    HMDAccessory *_settingOwnerAccessory;
     NSArray *_others;
 }
 
 @property(readonly, nonatomic) NSArray *others; // @synthesize others=_others;
-@property(readonly, nonatomic) HMDAccessory *primary; // @synthesize primary=_primary;
+@property(readonly, nonatomic) HMDAccessory *settingOwnerAccessory; // @synthesize settingOwnerAccessory=_settingOwnerAccessory;
+@property(readonly, nonatomic) HMDAccessory *systemOwnerAccessory; // @synthesize systemOwnerAccessory=_systemOwnerAccessory;
 - (void).cxx_destruct;
-- (id)initWithAccessory:(id)arg1;
 - (id)initWithMediaSystem:(id)arg1;
+- (id)initWithMediaSystem:(id)arg1 accessory:(id)arg2;
 
 @end
 
