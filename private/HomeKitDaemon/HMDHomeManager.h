@@ -435,6 +435,7 @@
 - (void)notifyPrimaryHomeUpdated;
 - (void)_extractVendorIdentifierFor:(id)arg1 andRun:(CDUnknownBlockType)arg2;
 - (void)_handleRequestMediaAccessoryControl:(id)arg1;
+- (void)_handlePairingIdentityRequest:(id)arg1;
 - (void)_handleRequestRuntimeStateUpdate:(id)arg1;
 - (void)_getRuntimeStateUpdateForMediaAccessories:(_Bool)arg1 includeHAPAccessoryState:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_handleRequestFetchHomeConfiguration:(id)arg1;
@@ -607,6 +608,8 @@
 - (void)handleEducationAccountEnabled:(id)arg1;
 - (void)_setAccountAvailabilityChanged;
 - (void)accountAvailabilityChanged:(id)arg1;
+- (void)kickAccountAvailabilityCheck;
+- (void)_accountAvailabilityChanged:(_Bool)arg1;
 - (void)startWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)migrateModelObjectsToCloud:(long long)arg1 schemaVersion:(long long)arg2;
 - (void)_reloadHomeDataFromLocalStore:(_Bool)arg1;

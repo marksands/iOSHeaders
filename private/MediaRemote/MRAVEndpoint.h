@@ -33,6 +33,8 @@ __attribute__((visibility("hidden")))
 - (void)_callAllCompletionHandlersWithError:(id)arg1;
 - (void)_externalDeviceConnectionStateDidChangeNotification:(id)arg1;
 - (void)_requestSharedAudioPresentationOutputContextModificationWithAddingDevices:(id)arg1 removingDevices:(id)arg2 settingDevices:(id)arg3 replyQueue:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (id)outputDeviceUIDsMatchingPredicate:(CDUnknownBlockType)arg1;
+- (id)outputDevicesMatchingPredicate:(CDUnknownBlockType)arg1;
 - (void)removeOutputDeviceFromParentGroup:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)scheduleEndpointOutputDevicesDidChangeNotification;
 - (void)volumeControlCapabilitiesForOutputDevice:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -48,6 +50,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool canModifyGroupMembership;
 @property(readonly, nonatomic) MRAVOutputDevice *designatedGroupLeader;
 @property(readonly, nonatomic) MRExternalDevice *externalDevice;
+@property(readonly, nonatomic) unsigned long long logicalOutputDeviceCount;
+@property(readonly, nonatomic) NSArray *outputDeviceUIDs;
 @property(readonly, nonatomic) NSArray *outputDevices;
 @property(readonly, nonatomic) _MRAVEndpointDescriptorProtobuf *descriptor;
 - (_Bool)isEqual:(id)arg1;

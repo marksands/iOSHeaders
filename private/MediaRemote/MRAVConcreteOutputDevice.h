@@ -13,7 +13,6 @@
     NSObject<OS_dispatch_queue> *_accessSerialQueue;
     AVOutputDevice *_avOutputDevice;
     MRAVOutputDeviceSourceInfo *_sourceInfo;
-    NSString *_name;
     NSString *_uid;
     NSString *_modelID;
     NSString *_firmwareVersion;
@@ -44,6 +43,7 @@
 - (_Bool)isDeviceGroupable;
 - (_Bool)isProxyGroupPlayer;
 - (_Bool)isGroupable;
+- (_Bool)isAirPlayReceiverSessionActive;
 - (_Bool)groupContainsGroupLeader;
 - (_Bool)isGroupLeader;
 - (_Bool)supportsBufferedAirPlay;

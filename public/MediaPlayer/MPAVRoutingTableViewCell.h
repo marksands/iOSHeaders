@@ -45,6 +45,7 @@
 @property(nonatomic) _Bool mirroringSwitchVisible; // @synthesize mirroringSwitchVisible=_mirroringSwitchVisible;
 @property(nonatomic) __weak id <MPAVRoutingTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_removeVolumeSlider;
 - (void)_animateSubtitleLabelToNextAvailableText;
 - (void)_updateSpinnerStyle;
 - (void)_updateSubtitleTextLabelForRoute:(id)arg1;

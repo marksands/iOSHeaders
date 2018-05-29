@@ -149,6 +149,7 @@
 - (void)accessory:(id)arg1 didUpdateNameForService:(id)arg2;
 - (void)accessoryDidUpdateName:(id)arg1;
 - (void)mediaSystem:(id)arg1 didUpdateComponents:(id)arg2;
+- (void)mediaSystem:(id)arg1 didUpdateConfiguredName:(id)arg2;
 - (void)mediaSystem:(id)arg1 didUpdateName:(id)arg2;
 - (void)home:(id)arg1 didRemoveMediaSystem:(id)arg2;
 - (void)home:(id)arg1 didAddMediaSystem:(id)arg2;

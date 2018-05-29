@@ -27,6 +27,7 @@
     _Bool _isPerformingBatchUpdates;
     _Bool _needsReloadData;
     MediaControlsCollectionViewCountData *_countData;
+    long long _highlightedItemIndex;
     _Bool _appeared;
     id <MediaControlsCollectionViewDataSource> _dataSource;
     id <MediaControlsCollectionViewDelegate> _delegate;
@@ -66,6 +67,7 @@
 - (void)_beginAppearanceTransitionForChildViewControllers:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_endAppearanceTransitionForChildViewControllerIfNeeded:(id)arg1;
 - (void)_beginAppearanceTransitionIfNeeded:(_Bool)arg1 forChildViewController:(id)arg2 animated:(_Bool)arg3;
+- (void)_setHighlighted:(_Bool)arg1 forViewController:(id)arg2;
 - (void)_setHighlighted:(_Bool)arg1 forViewControllerAtIndex:(long long)arg2;
 - (void)_removeViewController:(id)arg1;
 - (void)_removeInactiveViewControllersFromHierarchy;

@@ -24,7 +24,6 @@
     NSString *_primaryString;
     NSString *_secondaryString;
     NSString *_tertiaryString;
-    NSAttributedString *_transactionValueAttributedText;
     NSString *_transactionIdentifier;
     CNAvatarView *_avatarView;
 }
@@ -36,7 +35,6 @@
 @property(readonly, nonatomic) CNAvatarView *avatarView; // @synthesize avatarView=_avatarView;
 @property(nonatomic) _Bool showsAvatarView; // @synthesize showsAvatarView=_showsAvatarView;
 @property(retain, nonatomic) NSString *transactionIdentifier; // @synthesize transactionIdentifier=_transactionIdentifier;
-@property(retain, nonatomic) NSAttributedString *transactionValueAttributedText; // @synthesize transactionValueAttributedText=_transactionValueAttributedText;
 @property(retain, nonatomic) NSString *tertiaryString; // @synthesize tertiaryString=_tertiaryString;
 @property(retain, nonatomic) NSString *secondaryString; // @synthesize secondaryString=_secondaryString;
 @property(retain, nonatomic) NSString *primaryString; // @synthesize primaryString=_primaryString;
@@ -50,6 +48,7 @@
 - (void)layoutSubviews;
 - (_Bool)shouldShowTransactionPreviewForTouchAtPoint:(struct CGPoint)arg1 inView:(id)arg2;
 - (void)_updateAvatarView;
+@property(retain, nonatomic) NSAttributedString *transactionValueAttributedText; // @dynamic transactionValueAttributedText;
 - (id)defaultTertiaryColor;
 - (id)defaultSecondaryColor;
 - (id)defaultPrimaryColor;

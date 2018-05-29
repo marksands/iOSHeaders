@@ -37,7 +37,7 @@
 
 @property(nonatomic) float optimisticValue; // @synthesize optimisticValue=_optimisticValue;
 @property(nonatomic, getter=isInOptimisticState) _Bool optimisticState; // @synthesize optimisticState=_optimisticState;
-@property(readonly, nonatomic) MPVolumeController *volumeController; // @synthesize volumeController=_volumeController;
+@property(retain, nonatomic) MPVolumeController *volumeController; // @synthesize volumeController=_volumeController;
 @property(readonly, nonatomic) UILayoutGuide *trackLayoutGuide; // @synthesize trackLayoutGuide=_trackLayoutGuide;
 @property(nonatomic) struct UIEdgeInsets hitRectInsets; // @synthesize hitRectInsets=_hitRectInsets;
 @property(retain, nonatomic) UIImage *volumeWarningTrackImage; // @synthesize volumeWarningTrackImage=_volumeWarningTrackImage;
@@ -91,6 +91,7 @@
 - (id)createThumbView;
 - (void)dealloc;
 @property(readonly, copy) NSString *description;
+- (id)initWithoutDataSource:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 

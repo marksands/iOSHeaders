@@ -15,12 +15,13 @@
 #import "HMObjectMerge.h"
 #import "NSSecureCoding.h"
 
-@class HMAccessorySettings, HMApplicationData, HMHome, HMMediaSession, HMSymptomsHandler, HMThreadSafeMutableArrayCollection, NSArray, NSObject<OS_dispatch_queue>, NSString, NSUUID, _HMContext;
+@class HMAccessoryCategory, HMAccessorySettings, HMApplicationData, HMHome, HMMediaSession, HMSymptomsHandler, HMThreadSafeMutableArrayCollection, NSArray, NSObject<OS_dispatch_queue>, NSString, NSUUID, _HMContext;
 
 @interface HMMediaSystem : NSObject <HMFLogging, NSSecureCoding, HMObjectMerge, HMFMessageReceiver, HMControllable, HMMediaObject, HMApplicationData, HMAccessorySettingsContainer>
 {
     _Bool _compatible;
     NSString *_name;
+    NSString *_configuredName;
     NSUUID *_uniqueIdentifier;
     HMAccessorySettings *_settings;
     id <HMMediaSystemDelegate> _delegate;
@@ -49,6 +50,7 @@
 - (void)notifyDelegateOfUpdatedSettings:(id)arg1;
 - (void)notifyDelegateOfUpdatedApplicationData:(id)arg1;
 - (void)notifyDelegateOfUpdatedComponents:(id)arg1;
+- (void)notifyDelegateOfUpdatedConfiguredName:(id)arg1;
 - (void)notifyDelegateOfUpdatedName:(id)arg1;
 - (void)updateMediaSession:(id)arg1 forMediaProfile:(id)arg2;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2 includeSettingsAndAppData:(_Bool)arg3;
@@ -64,9 +66,12 @@
 - (void)setSettings:(id)arg1;
 @property(readonly) HMAccessorySettings *settings; // @synthesize settings=_settings;
 @property(readonly, copy) HMMediaSession *mediaSession;
+@property(readonly, nonatomic) HMAccessoryCategory *category;
 @property(readonly, nonatomic) NSArray *components;
 @property(readonly, nonatomic, getter=isCompatible) _Bool compatible; // @synthesize compatible=_compatible;
 @property(readonly, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+- (void)setConfiguredName:(id)arg1;
+@property(readonly, nonatomic) NSString *configuredName; // @synthesize configuredName=_configuredName;
 - (void)setName:(id)arg1;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property __weak id <HMMediaSystemDelegate> delegate; // @synthesize delegate=_delegate;
@@ -81,7 +86,7 @@
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)logIdentifier;
-- (id)initWithHome:(id)arg1 uuid:(id)arg2 name:(id)arg3 compatible:(_Bool)arg4 components:(id)arg5 settings:(id)arg6 symptomHandler:(id)arg7;
+- (id)initWithHome:(id)arg1 uuid:(id)arg2 name:(id)arg3 configuredName:(id)arg4 compatible:(_Bool)arg5 components:(id)arg6 settings:(id)arg7 symptomHandler:(id)arg8;
 - (id)init;
 
 // Remaining properties

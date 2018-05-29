@@ -33,6 +33,7 @@
 - (_Bool)isDeviceGroupable;
 - (_Bool)isProxyGroupPlayer;
 - (_Bool)isGroupable;
+- (_Bool)isAirPlayReceiverSessionActive;
 - (_Bool)groupContainsGroupLeader;
 - (_Bool)isGroupLeader;
 - (_Bool)supportsBufferedAirPlay;

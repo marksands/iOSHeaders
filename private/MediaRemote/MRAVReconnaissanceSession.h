@@ -19,6 +19,7 @@
     _Bool _returnPartialResults;
     unsigned int _endpointFeatures;
     MRAVRoutingDiscoverySession *_discoverySession;
+    NSArray *_matchingLogicalDeviceIDs;
     NSSet *_matchingOutputDeviceUIDsSet;
     NSString *_matchingOutputDeviceGroupID;
     id _discoverySessionCallbackToken;
@@ -50,8 +51,9 @@
 @property(retain, nonatomic) id discoverySessionCallbackToken; // @synthesize discoverySessionCallbackToken=_discoverySessionCallbackToken;
 @property(retain, nonatomic) NSString *matchingOutputDeviceGroupID; // @synthesize matchingOutputDeviceGroupID=_matchingOutputDeviceGroupID;
 @property(retain, nonatomic) NSSet *matchingOutputDeviceUIDsSet; // @synthesize matchingOutputDeviceUIDsSet=_matchingOutputDeviceUIDsSet;
-@property(retain, nonatomic) MRAVRoutingDiscoverySession *discoverySession; // @synthesize discoverySession=_discoverySession;
+@property(copy, nonatomic) NSArray *matchingLogicalDeviceIDs; // @synthesize matchingLogicalDeviceIDs=_matchingLogicalDeviceIDs;
 @property(nonatomic) _Bool useWeakMatching; // @synthesize useWeakMatching=_useWeakMatching;
+@property(retain, nonatomic) MRAVRoutingDiscoverySession *discoverySession; // @synthesize discoverySession=_discoverySession;
 @property(readonly, nonatomic) unsigned int endpointFeatures; // @synthesize endpointFeatures=_endpointFeatures;
 - (void).cxx_destruct;
 - (void)_onQueue_endSearch;

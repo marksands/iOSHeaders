@@ -30,6 +30,7 @@
     _Bool _canAccessiCloudMusicLibrary;
     _Bool _canRelayCommunicationChannel;
     _Bool _groupContainsGroupLeader;
+    _Bool _isAirPlayReceiverSessionActive;
     _Bool _isDeviceGroupable;
     _Bool _isGroupLeader;
     _Bool _isGroupable;
@@ -51,6 +52,7 @@
         unsigned int canAccessiCloudMusicLibrary:1;
         unsigned int canRelayCommunicationChannel:1;
         unsigned int groupContainsGroupLeader:1;
+        unsigned int isAirPlayReceiverSessionActive:1;
         unsigned int isDeviceGroupable:1;
         unsigned int isGroupLeader:1;
         unsigned int isGroupable:1;
@@ -65,6 +67,7 @@
     } _has;
 }
 
+@property(nonatomic) _Bool isAirPlayReceiverSessionActive; // @synthesize isAirPlayReceiverSessionActive=_isAirPlayReceiverSessionActive;
 @property(nonatomic) _Bool supportsBufferedAirPlay; // @synthesize supportsBufferedAirPlay=_supportsBufferedAirPlay;
 @property(nonatomic) _Bool groupContainsGroupLeader; // @synthesize groupContainsGroupLeader=_groupContainsGroupLeader;
 @property(nonatomic) _Bool canAccessiCloudMusicLibrary; // @synthesize canAccessiCloudMusicLibrary=_canAccessiCloudMusicLibrary;
@@ -102,6 +105,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIsAirPlayReceiverSessionActive;
 @property(nonatomic) _Bool hasSupportsBufferedAirPlay;
 @property(nonatomic) _Bool hasGroupContainsGroupLeader;
 @property(nonatomic) _Bool hasCanAccessiCloudMusicLibrary;

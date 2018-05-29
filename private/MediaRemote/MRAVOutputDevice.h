@@ -16,6 +16,7 @@
     _Bool _remoteControllable;
     _Bool _groupLeader;
     _Bool _groupContainsGroupLeader;
+    _Bool _airPlayReceiverSessionActive;
     _Bool _groupable;
     _Bool _proxyGroupPlayer;
     _Bool _canRelayCommunicationChannel;
@@ -62,6 +63,7 @@
 @property(readonly, nonatomic) _Bool canRelayCommunicationChannel; // @synthesize canRelayCommunicationChannel=_canRelayCommunicationChannel;
 @property(readonly, nonatomic, getter=isProxyGroupPlayer) _Bool proxyGroupPlayer; // @synthesize proxyGroupPlayer=_proxyGroupPlayer;
 @property(readonly, nonatomic, getter=isGroupable) _Bool groupable; // @synthesize groupable=_groupable;
+@property(readonly, nonatomic, getter=isAirPlayReceiverSessionActive) _Bool airPlayReceiverSessionActive; // @synthesize airPlayReceiverSessionActive=_airPlayReceiverSessionActive;
 @property(readonly, nonatomic) _Bool groupContainsGroupLeader; // @synthesize groupContainsGroupLeader=_groupContainsGroupLeader;
 @property(readonly, nonatomic, getter=isGroupLeader) _Bool groupLeader; // @synthesize groupLeader=_groupLeader;
 @property(readonly, nonatomic, getter=isRemoteControllable) _Bool remoteControllable; // @synthesize remoteControllable=_remoteControllable;

@@ -12,12 +12,14 @@
 {
     _Bool _canGroup;
     _Bool _hasPendingPickedRoutes;
+    _Bool _shouldReload;
     NSArray *_pickedRoutes;
     NSArray *_pendingPickedRoutes;
     NSArray *_displayableAvailableRoutes;
     NSArray *_displayAsPickedRoutes;
 }
 
+@property(nonatomic) _Bool shouldReload; // @synthesize shouldReload=_shouldReload;
 @property(nonatomic) _Bool hasPendingPickedRoutes; // @synthesize hasPendingPickedRoutes=_hasPendingPickedRoutes;
 @property(nonatomic) _Bool canGroup; // @synthesize canGroup=_canGroup;
 @property(copy, nonatomic) NSArray *displayAsPickedRoutes; // @synthesize displayAsPickedRoutes=_displayAsPickedRoutes;

@@ -81,6 +81,7 @@
 @property(copy, nonatomic) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
 @property(nonatomic) unsigned long long passType; // @synthesize passType=_passType;
 - (void).cxx_destruct;
+- (_Bool)shouldSuppressNoChargeAmount;
 - (id)_changeMessageForFieldKey:(id)arg1;
 - (id)_localizationKeyForMultipleDiff;
 - (_Bool)availableForAutomaticPresentationUsingBeaconContext;

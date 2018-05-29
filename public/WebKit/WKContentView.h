@@ -221,7 +221,7 @@ __attribute__((visibility("hidden")))
 - (id)viewControllerForPresentingFileUploadPanel:(id)arg1;
 - (void)fileUploadPanelDidDismiss:(id)arg1;
 - (void)_showRunOpenPanel:(struct OpenPanelParameters *)arg1 resultListener:(struct WebOpenPanelResultListenerProxy *)arg2;
-- (void)_showPlaybackTargetPicker:(_Bool)arg1 fromRect:(const struct IntRect *)arg2;
+- (void)_showPlaybackTargetPicker:(_Bool)arg1 fromRect:(const struct IntRect *)arg2 routeSharingPolicy:(int)arg3 routingContextUID:(id)arg4;
 @property(nonatomic) _Bool suppressAssistantSelectionView;
 - (void)_updateChangedSelection:(_Bool)arg1;
 - (void)_updateChangedSelection;

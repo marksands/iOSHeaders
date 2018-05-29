@@ -14,6 +14,7 @@
 {
     NSArray *_components;
     NSString *_name;
+    NSString *_configuredName;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     _HMContext *_context;
     NSUUID *_uuid;
@@ -35,6 +36,7 @@
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) _HMContext *context; // @synthesize context=_context;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
+@property(retain, nonatomic) NSString *configuredName; // @synthesize configuredName=_configuredName;
 - (void).cxx_destruct;
 - (void)_callCompletion:(CDUnknownBlockType)arg1 builderSessionID:(id)arg2 error:(id)arg3 response:(id)arg4;
 - (void)_commitWithCompletionHandler:(CDUnknownBlockType)arg1;

@@ -1380,12 +1380,13 @@ struct NetworkDataTaskCocoa {
     struct ResourceRequest _field16;
     _Bool _field17;
     struct String _field18;
-    struct RefPtr<WebKit::SandboxExtension, WTF::DumbPtrTraits<WebKit::SandboxExtension>> _field19;
-    struct RetainPtr<NSURLSessionDataTask> _field20;
-    struct NetworkLoadMetrics _field21;
-    unsigned long long _field22;
+    _Bool _field19;
+    struct RefPtr<WebKit::SandboxExtension, WTF::DumbPtrTraits<WebKit::SandboxExtension>> _field20;
+    struct RetainPtr<NSURLSessionDataTask> _field21;
+    struct NetworkLoadMetrics _field22;
     unsigned long long _field23;
-    _Bool _field24;
+    unsigned long long _field24;
+    _Bool _field25;
 };
 
 struct NetworkLoadMetrics {

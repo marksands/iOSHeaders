@@ -11,7 +11,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MPAVEndpointRoute, MPAVRoutingController, MPAVRoutingEmptyStateView, MPAVRoutingTableHeaderView, MPAVRoutingViewControllerUpdate, MPVolumeGroupSliderCoordinator, MPWeakTimer, NSArray, NSMapTable, NSMutableSet, NSNumber, NSString, UIColor, UITableView, UIView;
+@class MPAVEndpointRoute, MPAVRoute, MPAVRoutingController, MPAVRoutingEmptyStateView, MPAVRoutingTableHeaderView, MPAVRoutingViewControllerUpdate, MPVolumeGroupSliderCoordinator, MPWeakTimer, NSArray, NSMapTable, NSMutableSet, NSNumber, NSString, UIColor, UITableView, UIView;
 
 @interface MPAVRoutingViewController : UIViewController <MPAVRoutingControllerDelegate, MPAVRoutingTableViewCellDelegate, UITableViewDataSource, UITableViewDelegate>
 {
@@ -21,6 +21,7 @@
     MPAVRoutingEmptyStateView *_emptyStateView;
     MPAVRoutingViewControllerUpdate *_pendingUpdate;
     _Bool _isAnimatingUpdate;
+    MPAVRoute *_displayedEndpointRoute;
     NSArray *_cachedRoutes;
     NSArray *_cachedPickedRoutes;
     NSArray *_cachedPendingPickedRoutes;
@@ -50,12 +51,12 @@
     MPAVEndpointRoute *_endpointRoute;
     id <MPAVOutputDevicePlaybackDataSource> _playbackDataSource;
     NSMapTable *_outputDeviceVolumeSliders;
-    NSMutableSet *_outputDeviceVolumeControllerRouteDataSources;
+    NSMutableSet *_outputDeviceVolumeControllers;
     MPVolumeGroupSliderCoordinator *_groupSliderCoordinator;
 }
 
 @property(retain, nonatomic) MPVolumeGroupSliderCoordinator *groupSliderCoordinator; // @synthesize groupSliderCoordinator=_groupSliderCoordinator;
-@property(retain, nonatomic) NSMutableSet *outputDeviceVolumeControllerRouteDataSources; // @synthesize outputDeviceVolumeControllerRouteDataSources=_outputDeviceVolumeControllerRouteDataSources;
+@property(retain, nonatomic) NSMutableSet *outputDeviceVolumeControllers; // @synthesize outputDeviceVolumeControllers=_outputDeviceVolumeControllers;
 @property(retain, nonatomic) NSMapTable *outputDeviceVolumeSliders; // @synthesize outputDeviceVolumeSliders=_outputDeviceVolumeSliders;
 @property(nonatomic) __weak id <MPAVOutputDevicePlaybackDataSource> playbackDataSource; // @synthesize playbackDataSource=_playbackDataSource;
 @property(retain, nonatomic) MPAVEndpointRoute *endpointRoute; // @synthesize endpointRoute=_endpointRoute;
@@ -77,6 +78,8 @@
 - (_Bool)_pickOrGroupRoute:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)_volumeSliderVisibility:(id)arg1;
 - (void)_applyUpdate:(id)arg1;
+- (id)_createReloadUpdate;
+- (void)_enqueueUpdate:(id)arg1;
 - (void)_updateDisplayedRoutes;
 - (void)_reloadEmptyStateVisibility;
 - (id)_displayAsPickedRoutesInRoutes:(id)arg1;
