@@ -6,53 +6,63 @@
 
 #import "HMFObject.h"
 
+#import "HMDAccessorySymptomsDelegate.h"
 #import "HMDHomeMessageReceiver.h"
 #import "HMFLogging.h"
 #import "NSSecureCoding.h"
 
-@class HMDAppleMediaAccessory, HMFMessageDispatcher, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
+@class HMDAppleMediaAccessory, HMDSymptomManager, HMFMessageDispatcher, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
-@interface HMDAccessorySymptomHandler : HMFObject <NSSecureCoding, HMFLogging, HMDHomeMessageReceiver>
+@interface HMDAccessorySymptomHandler : HMFObject <HMDAccessorySymptomsDelegate, NSSecureCoding, HMFLogging, HMDHomeMessageReceiver>
 {
     _Bool _canInitiateFix;
-    int _deviceProblemNotificationToken;
     NSUUID *_uuid;
     HMDAppleMediaAccessory *_accessory;
-    NSSet *_currentSymptoms;
+    NSSet *_syncedSymptoms;
     NSObject<OS_dispatch_queue> *_workQueue;
     HMFMessageDispatcher *_msgDispatcher;
     long long _fixState;
+    HMDSymptomManager *_symptomManager;
+    NSSet *_localSymptoms;
 }
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)hasMessageReceiverChildren;
 + (id)logCategory;
-@property(nonatomic) long long fixState; // @synthesize fixState=_fixState;
 @property(nonatomic) _Bool canInitiateFix; // @synthesize canInitiateFix=_canInitiateFix;
-@property(nonatomic) int deviceProblemNotificationToken; // @synthesize deviceProblemNotificationToken=_deviceProblemNotificationToken;
+@property(retain, nonatomic) NSSet *localSymptoms; // @synthesize localSymptoms=_localSymptoms;
+@property(readonly, nonatomic) HMDSymptomManager *symptomManager; // @synthesize symptomManager=_symptomManager;
+@property(nonatomic) long long fixState; // @synthesize fixState=_fixState;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
-@property(retain, nonatomic) NSSet *currentSymptoms; // @synthesize currentSymptoms=_currentSymptoms;
+@property(retain, nonatomic) NSSet *syncedSymptoms; // @synthesize syncedSymptoms=_syncedSymptoms;
 @property(readonly, nonatomic) __weak HMDAppleMediaAccessory *accessory; // @synthesize accessory=_accessory;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)symptomManager:(id)arg1 didChangeCanInitiateFix:(_Bool)arg2;
+- (void)symptomManager:(id)arg1 didChangeLocalSymptoms:(id)arg2;
+- (void)symptomManager:(id)arg1 didChangeBroadcastedSymptoms:(id)arg2;
+- (void)handleCurrentDeviceSymptomsChangedNotification:(id)arg1;
 - (void)_handleFixErrorMessage:(id)arg1;
-- (void)_updateStatus:(id)arg1;
-- (void)_handleAccessoryStatus:(id)arg1 message:(id)arg2;
-- (void)_handleNewProblemFlags:(unsigned long long)arg1;
-- (void)problemFlagsChangedTo:(unsigned long long)arg1;
-- (void)_auditAccessoryStatus;
-- (void)auditAccessoryStatus;
+- (id)_filteredAccessorySymptomsForSymptoms:(id)arg1;
+- (id)_filteredMediaSystemSymptomsForSymptoms:(id)arg1;
+- (void)_updateBackingStoreModelWithNewSymptoms:(id)arg1;
+- (void)handleNewSyncedSymptoms:(id)arg1 message:(id)arg2;
+- (void)_updateWithNewCanInitiateFix:(_Bool)arg1;
+- (void)_updateStateWithNewLocalSymptoms:(id)arg1;
+- (void)_updateStateWithNewBroadcastedSymptoms:(id)arg1;
+- (void)_refreshCurrentDeviceSymptoms;
+- (void)refreshCurrentDeviceSymptoms;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (void)_registerMessages;
+- (void)handleAccessoryDeviceUpdated;
 - (void)configureWithWorkQueue:(id)arg1 messageDispatcher:(id)arg2;
-- (_Bool)isValidToken;
 - (id)logIdentifier;
-- (void)dealloc;
-- (id)initWithAccessory:(id)arg1 symptoms:(id)arg2;
+- (id)initWithAccessory:(id)arg1 syncedSymptoms:(id)arg2 symptomManager:(id)arg3;
+- (id)initWithAccessory:(id)arg1 syncedSymptoms:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

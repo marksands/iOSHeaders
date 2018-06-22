@@ -27,7 +27,7 @@
 @property id <XCUIAXNotificationHandling> accessibilityClient; // @synthesize accessibilityClient=_accessibilityClient;
 @property id <XCTUIApplicationMonitor> applicationMonitor; // @synthesize applicationMonitor=_applicationMonitor;
 @property(retain) NSMutableDictionary *invalidationHandlers; // @synthesize invalidationHandlers=_invalidationHandlers;
-@property(retain) NSXPCConnection *connection; // @synthesize connection=_connection;
+@property(readonly) NSXPCConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
 - (void)requestBundleIDForPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)injectVoiceRecognitionAudioInputPaths:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -55,15 +55,16 @@
 @property(readonly) _Bool useLegacySnapshotPath;
 - (void)terminateApplicationWithBundleID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performAccessibilityAction:(int)arg1 onElement:(id)arg2 value:(id)arg3 reply:(CDUnknownBlockType)arg4;
-- (void)unregisterForAccessibilityNotification:(int)arg1 registrationToken:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (void)registerForAccessibilityNotification:(int)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)unregisterForAccessibilityNotification:(long long)arg1 registrationToken:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)registerForAccessibilityNotification:(long long)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)launchApplicationWithBundleID:(id)arg1 arguments:(id)arg2 environment:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)startMonitoringApplicationWithBundleID:(id)arg1;
 - (void)requestBackgroundAssertionForPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)requestSpindumpWithSpecification:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)requestScreenshotOfScreenWithID:(unsigned int)arg1 withRect:(struct CGRect)arg2 formatUTI:(id)arg3 compressionQuality:(double)arg4 imageFormatRespected:(_Bool *)arg5 withReply:(CDUnknownBlockType)arg6;
 - (void)requestAutomationSessionForTestTargetWithPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)requestIDEConnectionTransportForSessionIdentifier:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)_XCT_receivedAccessibilityNotification:(int)arg1 withPayload:(id)arg2;
+- (void)_XCT_receivedAccessibilityNotification:(long long)arg1 withPayload:(id)arg2;
 - (void)_XCT_applicationWithBundleID:(id)arg1 didUpdatePID:(int)arg2 andState:(unsigned long long)arg3;
 @property(readonly) _Bool useLegacyScreenshotPath;
 @property(readonly) _Bool usePointTransformationsForFrameConversions;

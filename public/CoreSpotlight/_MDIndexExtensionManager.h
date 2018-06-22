@@ -46,6 +46,7 @@
 - (void)_filterExtensionsWithBlock:(CDUnknownBlockType)arg1;
 - (void)_notifyForLoadedExtensions;
 - (void)loadExtensionsSynchronously;
+- (void)buildExtensionsCache;
 - (void)loadExtensions;
 - (void)_didUpdateMemoryStatus:(unsigned long long)arg1;
 - (void)dealloc;

@@ -6,29 +6,36 @@
 
 #import "WBUFormAutoCompleteState.h"
 
-@class NSDictionary, NSString, SFFormAutoFillFrameHandle, UIView, WBSFormAutoFillMetadataCorrector, WBSFormMetadata, _SFFormAutoFillController, _SFFormAutoFillInputSession;
+#import "WBSOneTimeCodeMonitorObserver.h"
+
+@class NSArray, NSString, SFFormAutoFillFrameHandle, UIView, WBSFormAutoFillMetadataCorrector, WBSFormControlMetadata, WBSFormMetadata, _SFFormAutoFillController, _SFFormAutoFillInputSession;
 
 __attribute__((visibility("hidden")))
-@interface SFFormAutocompleteState : WBUFormAutoCompleteState
+@interface SFFormAutocompleteState : WBUFormAutoCompleteState <WBSOneTimeCodeMonitorObserver>
 {
     SFFormAutoFillFrameHandle *_frame;
     WBSFormMetadata *_formMetadata;
-    NSDictionary *_textFieldMetadata;
+    WBSFormControlMetadata *_textFieldMetadata;
     NSString *_textFieldValue;
     _SFFormAutoFillController *_autoFillController;
     _SFFormAutoFillInputSession *_inputSession;
+    _Bool _fetchingLoginCredentialSuggestions;
     UIView *_emptyInputView;
     WBSFormAutoFillMetadataCorrector *_metadataCorrector;
+    NSArray *_cachedExternalCredentialIdentities;
     NSString *_prefixForSuggestions;
 }
 
+@property(readonly, nonatomic) _SFFormAutoFillInputSession *inputSession; // @synthesize inputSession=_inputSession;
 - (void).cxx_destruct;
 - (id)_bestTextFieldMetadataForMetadata:(id)arg1;
 - (id)_correctedFormMetadata:(id)arg1;
+- (_Bool)shouldShowIconsInPasswordPicker;
 - (_Bool)shouldOfferActionAutoFillCredentials;
 - (id)frame;
 - (id)webView;
 - (void)setFormControls:(id)arg1 areAutoFilled:(_Bool)arg2 clearField:(id)arg3;
+- (void)_autoFillOneTimeCodeFieldsWithValue:(id)arg1;
 - (void)fillGeneratedPassword:(id)arg1 inField:(id)arg2;
 - (void)annotateForm:(long long)arg1 withValues:(id)arg2;
 - (void)autoFillGeneratedPassword:(id)arg1 inForm:(long long)arg2;
@@ -42,7 +49,18 @@ __attribute__((visibility("hidden")))
 - (void)setPrefixForSuggestions:(id)arg1;
 - (id)_suggestionsForAutoFillDisplayData:(id)arg1;
 - (void)_gatherAndShowAddressBookAutoFillSuggestions;
+- (_Bool)_suggestUsernamesForRegistrationIfPossible:(unsigned long long)arg1;
+- (void)updateInputSession:(id)arg1;
+- (void)_updateSuggestions:(unsigned long long)arg1;
 - (void)updateSuggestions;
+- (id)_textSuggestionForCredentialDisplayData:(id)arg1;
+- (id)suggestKeychainCredentials;
+- (id)_matchingKeychainCredentials;
+- (void)_suggestLoginCredentialsShowingQuickTypeKey:(_Bool)arg1;
+- (void)_getExternalLoginCredentialSuggestionsForDomains:(id)arg1 pageURL:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)codesUpdatedForOneTimeCodeMonitor:(id)arg1;
+- (id)externalCredentialIdentities;
+- (Class)_passwordPickerViewControllerClass;
 - (void)autoFillFormWithCreditCardDataAfterAuthenticationIfNeeded:(id)arg1;
 - (void)autoFillValuesAfterAuthenticationIfNeeded:(id)arg1;
 - (void)fillCredentialAfterAuthenticationIfNeeded:(id)arg1 setAsDefaultCredential:(_Bool)arg2;
@@ -50,6 +68,12 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)invalidate;
 - (id)initWithFrame:(id)arg1 form:(id)arg2 textField:(id)arg3 inputSession:(id)arg4 autoFillController:(id)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

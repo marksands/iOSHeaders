@@ -27,6 +27,7 @@
 - (void)setEnable:(id)arg1;
 @property(readonly, copy, nonatomic) NSNumber *enable;
 - (id)initWithEnable:(id)arg1 defroster:(long long)arg2;
+- (void)_setMetadata:(id)arg1;
 - (id)_metadata;
 - (id)_typedBackingStore;
 

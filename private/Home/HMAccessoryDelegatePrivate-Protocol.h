@@ -11,6 +11,9 @@
 @protocol HMAccessoryDelegatePrivate <HMAccessoryDelegate>
 
 @optional
+- (void)accessory:(HMAccessory *)arg1 didRemoveControlTarget:(HMAccessory *)arg2;
+- (void)accessory:(HMAccessory *)arg1 didAddControlTarget:(HMAccessory *)arg2;
+- (void)accessoryDidUpdateTargetControlSupport:(HMAccessory *)arg1;
 - (void)accessory:(HMAccessory *)arg1 didUpdateConfigurationStateForService:(HMService *)arg2;
 - (void)accessory:(HMAccessory *)arg1 didUpdateServiceSubtypeForService:(HMService *)arg2;
 - (void)accessory:(HMAccessory *)arg1 didUpdateDefaultNameForService:(HMService *)arg2;

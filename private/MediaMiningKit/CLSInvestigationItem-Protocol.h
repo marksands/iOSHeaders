@@ -5,24 +5,32 @@
 //
 
 #import "NSObject.h"
+#import "PLRegionsClusteringItem.h"
 
-@class CLLocation, NSArray, NSData, NSDate, NSDateComponents, NSDictionary, NSSet;
+@class CLLocation, NSArray, NSData, NSDate, NSDateComponents, NSDictionary, NSSet, NSString;
 
-@protocol CLSInvestigationItem <NSObject>
+@protocol CLSInvestigationItem <NSObject, PLRegionsClusteringItem>
 + (NSDictionary *)contextForItems:(NSArray *)arg1;
 @property(readonly, nonatomic) NSDate *localDate;
 @property(readonly, nonatomic) NSDate *universalDate;
 @property(readonly, nonatomic) NSDateComponents *dateComponents;
 @property(readonly, nonatomic) NSData *clsDistanceIdentity;
 @property(readonly, copy, nonatomic) NSSet *clsSceneClassifications;
-@property(readonly, nonatomic) _Bool clsIsHDR;
-@property(readonly, nonatomic) _Bool clsIsSDOF;
+@property(readonly, nonatomic) long long clsBlinkCount;
+@property(readonly, nonatomic) long long clsSmileCount;
+@property(readonly, nonatomic) _Bool clsIsInterestingHDR;
+@property(readonly, nonatomic) _Bool clsIsInterestingSDOF;
+@property(readonly, nonatomic) _Bool clsIsInterestingPanorama;
+@property(readonly, nonatomic) _Bool clsIsInterestingLivePhoto;
+@property(readonly, nonatomic) _Bool clsIsInterestingVideo;
 @property(readonly, nonatomic) _Bool isBlurry;
+@property(readonly, nonatomic) _Bool clsIsAestheticallyPrettyGood;
 @property(readonly, nonatomic) _Bool isFavorite;
 @property(readonly, nonatomic) _Bool isScreenshot;
 @property(readonly, nonatomic) _Bool isUtility;
-@property(readonly, nonatomic) float clsSharpnessScore;
-@property(readonly, nonatomic) float clsExposureScore;
+@property(readonly, nonatomic) double clsAestheticScore;
+@property(readonly, nonatomic) double clsSharpnessScore;
+@property(readonly, nonatomic) double clsExposureScore;
 @property(readonly, nonatomic) double clsContentScore;
 @property(readonly, nonatomic) long long clsShareCount;
 @property(readonly, nonatomic) long long clsPlayCount;
@@ -30,6 +38,7 @@
 @property(readonly, nonatomic) NSArray *peopleNames;
 @property(readonly, nonatomic) CLLocation *location;
 @property(readonly, nonatomic) NSDate *date;
+@property(readonly, nonatomic) NSString *clsIdentifier;
 @property(readonly, nonatomic) unsigned long long clsPeopleCount;
 @property(readonly, nonatomic) NSArray *clsUnprefetchedPeopleNames;
 @property(readonly, nonatomic) NSArray *clsPeopleNames;

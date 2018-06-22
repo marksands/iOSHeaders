@@ -21,6 +21,12 @@ struct _SYSTEMTIME {
     short _field8;
 };
 
+struct _opaque_pthread_t {
+    long long _field1;
+    struct __darwin_pthread_handler_rec *_field2;
+    char _field3[8176];
+};
+
 struct _xmlNode {
     void *_field1;
     int _field2;

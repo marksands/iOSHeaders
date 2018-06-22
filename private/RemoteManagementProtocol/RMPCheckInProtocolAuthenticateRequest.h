@@ -21,17 +21,21 @@
     NSString *_MEID;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)request;
-@property(retain, nonatomic) NSString *MEID; // @synthesize MEID=_MEID;
-@property(retain, nonatomic) NSString *IMEI; // @synthesize IMEI=_IMEI;
-@property(retain, nonatomic) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
-@property(retain, nonatomic) NSString *productName; // @synthesize productName=_productName;
-@property(retain, nonatomic) NSString *buildVersion; // @synthesize buildVersion=_buildVersion;
-@property(retain, nonatomic) NSString *osVersion; // @synthesize osVersion=_osVersion;
-@property(retain, nonatomic) NSString *UDID; // @synthesize UDID=_UDID;
-@property(retain, nonatomic) NSString *topic; // @synthesize topic=_topic;
-@property(retain, nonatomic) NSString *messageType; // @synthesize messageType=_messageType;
+@property(copy, nonatomic) NSString *MEID; // @synthesize MEID=_MEID;
+@property(copy, nonatomic) NSString *IMEI; // @synthesize IMEI=_IMEI;
+@property(copy, nonatomic) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
+@property(copy, nonatomic) NSString *productName; // @synthesize productName=_productName;
+@property(copy, nonatomic) NSString *buildVersion; // @synthesize buildVersion=_buildVersion;
+@property(copy, nonatomic) NSString *osVersion; // @synthesize osVersion=_osVersion;
+@property(copy, nonatomic) NSString *UDID; // @synthesize UDID=_UDID;
+@property(copy, nonatomic) NSString *topic; // @synthesize topic=_topic;
+@property(copy, nonatomic) NSString *messageType; // @synthesize messageType=_messageType;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)serialize;
 - (_Bool)loadFromDictionary:(id)arg1 error:(id *)arg2;
 

@@ -36,6 +36,7 @@
 - (void)setOutputSettings:(id)arg1 forConnection:(id)arg2;
 - (void)setBravoCameraSelectionBehaviorForRecording:(id)arg1;
 - (id)bravoCameraSelectionBehaviorForRecording;
+- (id)supportedOutputSettingsKeysForConnection:(id)arg1;
 @property(readonly, nonatomic) NSArray *availableVideoCodecTypes;
 - (_Bool)sendsLastVideoPreviewFrame;
 - (void)setSendsLastVideoPreviewFrame:(_Bool)arg1;

@@ -44,6 +44,7 @@
 - (id)initWithDevice:(id)arg1 weights:(id)arg2;
 - (id)initWithDevice:(id)arg1 convolutionDescriptor:(id)arg2 kernelWeights:(const float *)arg3 biasTerms:(const float *)arg4 flags:(unsigned long long)arg5;
 @property(nonatomic) unsigned long long accumulatorPrecisionOption;
+@property(readonly, nonatomic) unsigned long long weightsBufferLength;
 
 @end
 

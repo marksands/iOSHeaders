@@ -8,11 +8,12 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDictionary, NSSet, NSString, NSURL, NSUUID;
+@class NSArray, NSDictionary, NSSet, NSString, NSURL, NSUUID, XCTAggregateSuiteRunStatistics;
 
 @interface XCTestConfiguration : NSObject <NSSecureCoding>
 {
     _Bool _reportResultsToIDE;
+    _Bool _testsDrivenByIDE;
     _Bool _disablePerformanceMetrics;
     _Bool _treatMissingBaselinesAsFailures;
     _Bool _reportActivities;
@@ -26,7 +27,6 @@
     NSSet *_testsToRun;
     NSSet *_testsToSkip;
     NSUUID *_sessionIdentifier;
-    NSString *_pathToXcodeReportingSocket;
     NSURL *_baselineFileURL;
     NSString *_baselineFileRelativePath;
     NSString *_targetApplicationPath;
@@ -36,7 +36,7 @@
     NSString *_productModuleName;
     NSDictionary *_targetApplicationEnvironment;
     NSArray *_targetApplicationArguments;
-    NSDictionary *_aggregateStatisticsBeforeCrash;
+    XCTAggregateSuiteRunStatistics *_aggregateStatisticsBeforeCrash;
     NSString *_automationFrameworkPath;
     long long _systemAttachmentLifetime;
     long long _userAttachmentLifetime;
@@ -50,7 +50,7 @@
 @property long long systemAttachmentLifetime; // @synthesize systemAttachmentLifetime=_systemAttachmentLifetime;
 @property _Bool emitOSLogs; // @synthesize emitOSLogs=_emitOSLogs;
 @property(copy) NSString *automationFrameworkPath; // @synthesize automationFrameworkPath=_automationFrameworkPath;
-@property(copy) NSDictionary *aggregateStatisticsBeforeCrash; // @synthesize aggregateStatisticsBeforeCrash=_aggregateStatisticsBeforeCrash;
+@property(copy) XCTAggregateSuiteRunStatistics *aggregateStatisticsBeforeCrash; // @synthesize aggregateStatisticsBeforeCrash=_aggregateStatisticsBeforeCrash;
 @property(copy) NSArray *targetApplicationArguments; // @synthesize targetApplicationArguments=_targetApplicationArguments;
 @property(copy) NSDictionary *targetApplicationEnvironment; // @synthesize targetApplicationEnvironment=_targetApplicationEnvironment;
 @property _Bool gatherLocalizableStringsData; // @synthesize gatherLocalizableStringsData=_gatherLocalizableStringsData;
@@ -64,10 +64,10 @@
 @property(copy) NSString *targetApplicationPath; // @synthesize targetApplicationPath=_targetApplicationPath;
 @property _Bool treatMissingBaselinesAsFailures; // @synthesize treatMissingBaselinesAsFailures=_treatMissingBaselinesAsFailures;
 @property _Bool disablePerformanceMetrics; // @synthesize disablePerformanceMetrics=_disablePerformanceMetrics;
+@property _Bool testsDrivenByIDE; // @synthesize testsDrivenByIDE=_testsDrivenByIDE;
 @property _Bool reportResultsToIDE; // @synthesize reportResultsToIDE=_reportResultsToIDE;
 @property(copy) NSString *baselineFileRelativePath; // @synthesize baselineFileRelativePath=_baselineFileRelativePath;
 @property(copy, nonatomic) NSURL *baselineFileURL; // @synthesize baselineFileURL=_baselineFileURL;
-@property(copy) NSString *pathToXcodeReportingSocket; // @synthesize pathToXcodeReportingSocket=_pathToXcodeReportingSocket;
 @property(copy) NSUUID *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(copy) NSSet *testsToSkip; // @synthesize testsToSkip=_testsToSkip;
 @property(copy) NSSet *testsToRun; // @synthesize testsToRun=_testsToRun;

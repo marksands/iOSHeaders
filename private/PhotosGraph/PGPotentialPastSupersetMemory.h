@@ -6,11 +6,11 @@
 
 #import <PhotosGraph/PGPotentialMemory.h>
 
-@class NSArray, NSDateInterval, NSSet, PGGraphNode;
+@class NSArray, NSDateInterval, NSSet, PGGraphLocationNode;
 
 @interface PGPotentialPastSupersetMemory : PGPotentialMemory
 {
-    PGGraphNode *_supersetLocationNode;
+    PGGraphLocationNode *_supersetLocationNode;
     NSDateInterval *_supersetDateInterval;
     NSSet *_interestingMomentNodes;
     NSArray *_interestingAssetsInSuperset;
@@ -23,7 +23,7 @@
 @property(retain) NSArray *interestingAssetsInSuperset; // @synthesize interestingAssetsInSuperset=_interestingAssetsInSuperset;
 @property(readonly) NSSet *interestingMomentNodes; // @synthesize interestingMomentNodes=_interestingMomentNodes;
 @property(readonly) NSDateInterval *supersetDateInterval; // @synthesize supersetDateInterval=_supersetDateInterval;
-@property(readonly) PGGraphNode *supersetLocationNode; // @synthesize supersetLocationNode=_supersetLocationNode;
+@property(readonly) PGGraphLocationNode *supersetLocationNode; // @synthesize supersetLocationNode=_supersetLocationNode;
 - (void).cxx_destruct;
 - (id)initWithSupersetLocationNode:(id)arg1 supersetDateInterval:(id)arg2 interestingMomentNodes:(id)arg3 momentNodes:(id)arg4;
 

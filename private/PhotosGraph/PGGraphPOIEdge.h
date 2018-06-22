@@ -6,19 +6,12 @@
 
 #import <PhotosGraph/PGGraphEdge.h>
 
-#import "PGGraphPOIEdge.h"
-
-@class NSString;
-
-@interface PGGraphPOIEdge : PGGraphEdge <PGGraphPOIEdge>
+@interface PGGraphPOIEdge : PGGraphEdge
 {
 }
 
+- (_Bool)poiIsSpecial;
+- (_Bool)poiIsImproved;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 @end
 

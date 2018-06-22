@@ -53,8 +53,10 @@ __attribute__((visibility("hidden")))
 - (void)prepareWithActivityItems:(id)arg1;
 - (id)_selectedVideo;
 - (_Bool)canPerformWithActivityItems:(id)arg1;
+- (id)_activitySettingsBundleImageConfiguration;
 - (id)_activitySettingsImage;
-- (id)_activityImage;
+- (id)_activityBundleImageConfiguration;
+- (id)activityImage;
 - (id)activityTitle;
 - (id)activityType;
 - (id)init;

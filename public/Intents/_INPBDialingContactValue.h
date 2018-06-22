@@ -6,29 +6,41 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBDialingContactValue.h"
 
-@class PBUnknownFields, _INPBContactValue;
+@class INCodableAttribute, NSString, _INPBContactValue, _INPBStringValue;
 
-@interface _INPBDialingContactValue : PBCodable <NSCopying>
+@interface _INPBDialingContactValue : PBCodable <_INPBDialingContactValue, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
+    struct _has;
     _INPBContactValue *_dialingContact;
+    _INPBStringValue *_dialingPhoneLabel;
+    _INPBStringValue *_dialingPhoneNumber;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
-+ (id)options;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
+@property(retain, nonatomic) _INPBStringValue *dialingPhoneNumber; // @synthesize dialingPhoneNumber=_dialingPhoneNumber;
+@property(retain, nonatomic) _INPBStringValue *dialingPhoneLabel; // @synthesize dialingPhoneLabel=_dialingPhoneLabel;
 @property(retain, nonatomic) _INPBContactValue *dialingContact; // @synthesize dialingContact=_dialingContact;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
+@property(readonly, nonatomic) _Bool hasDialingPhoneNumber;
+@property(readonly, nonatomic) _Bool hasDialingPhoneLabel;
 @property(readonly, nonatomic) _Bool hasDialingContact;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

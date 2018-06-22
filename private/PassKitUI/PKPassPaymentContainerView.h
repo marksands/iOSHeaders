@@ -27,6 +27,7 @@
     PKPeerPaymentService *_peerPaymentService;
     PKPeerPaymentContactResolver *_transactionFooterContactResolver;
     PKPeerPaymentAccountResolutionController *_peerPaymentAccountResolutionController;
+    _Bool _fieldDetectShouldEmulateExpress;
     id <UICoordinateSpace> _fixedScreenCoordinateSpace;
     PKPhysicalButtonView *_physicalButtonView;
     PKFooterTransactionView *_transactionView;
@@ -75,7 +76,6 @@
     double _lastFingerOnTime;
     double _lastTransactionTime;
     NSObject<OS_dispatch_source> *_summaryAuthenticationTimer;
-    long long _style;
     _Bool _encounteredTerminalFailure;
     NSMutableArray *_valueAddedPasses;
 }
@@ -104,6 +104,7 @@
 - (_Bool)_showTransactionViewDuringPayment;
 - (_Bool)_shouldDisplayTransactionView;
 - (_Bool)_showPeerPaymentAccountResolutionView;
+- (_Bool)_maintainAuthorizationAfterTransaction;
 - (_Bool)_showSummaryState;
 - (_Bool)_showPhysicalButtonView;
 - (void)_stopBiometricRecognitionAnimationWithSuccess:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
@@ -226,11 +227,10 @@
 - (void)didBecomeVisibleAnimated:(_Bool)arg1;
 - (void)willBecomeVisibleAnimated:(_Bool)arg1;
 - (_Bool)isPassAuthorized;
-- (void)_layoutValueAddedServiceSubviews;
-- (void)_layoutPaymentSubviews;
+- (double)_topMargin;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1 pass:(id)arg2 context:(id)arg3 paymentSession:(id)arg4 paymentService:(id)arg5;
+- (id)initWithPass:(id)arg1 context:(id)arg2 paymentSession:(id)arg3 paymentService:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

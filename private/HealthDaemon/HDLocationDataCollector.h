@@ -8,45 +8,53 @@
 
 #import "CLLocationManagerDelegate.h"
 
-@class CLInUseAssertion, CLLocationManager, CMElevation, HDHealthStoreServer, HDProfile, HKLocationSeriesSample, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class CLInUseAssertion, CLLocationManager, CMElevation, HDProfile, HKWorkoutRoute, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
 @interface HDLocationDataCollector : NSObject <CLLocationManagerDelegate>
 {
     NSObject<OS_dispatch_queue> *_queue;
     HDProfile *_profile;
-    CLLocationManager *_locationManager;
+    long long _state;
+    id <HDSampleSaving> _sampleSavingDelegate;
     CLInUseAssertion *_inUseAssertion;
-    CMElevation *_elevation;
     int _lastStatus;
-    HKLocationSeriesSample *_seriesSample;
+    HKWorkoutRoute *_route;
     _Bool _didSaveLocationData;
     double _lastPausedTime;
     unsigned long long _elevationGain;
     unsigned long long _activityType;
     NSUUID *_workoutUUID;
     id <HDLocationEventDelegate> _delegate;
-    HDHealthStoreServer *_server;
+    CLLocationManager *_locationManager;
+    CMElevation *_elevation;
 }
 
-@property(retain, nonatomic) HDHealthStoreServer *server; // @synthesize server=_server;
+@property(retain, nonatomic) CMElevation *elevation; // @synthesize elevation=_elevation;
+@property(retain, nonatomic) CLLocationManager *locationManager; // @synthesize locationManager=_locationManager;
 @property(nonatomic) __weak id <HDLocationEventDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
+- (void)_queue_savedLocationData;
 - (void)_queue_createSeriesSample;
 - (void)_handleElevationData:(id)arg1 error:(id)arg2;
 - (void)_queue_resumeWorkout;
-- (void)resumeWorkout;
+- (void)resumeUpdates;
 - (void)_queue_stopGPSUpdates;
-- (void)_pauseLocationUpdates;
-- (void)pauseWorkout;
-- (void)_queue_start;
-- (void)startWorkout;
-- (void)endWorkout;
+- (void)_queue_pauseLocationUpdates;
+- (void)pauseUpdates;
+- (void)_queue_setupLocationUpdates;
+- (void)startUpdates;
+- (void)stopUpdates;
 - (void)_queue_deleteCurrentRoute;
-- (void)_queue_freezeCurrentLocationSeriesSample;
+- (void)_queue_freezeCurrentWorkoutRoute;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
-- (id)initWithProfile:(id)arg1 server:(id)arg2 activityType:(unsigned long long)arg3 workoutUUID:(id)arg4;
+- (_Bool)isElevationAvailable;
+- (id)createCMElevation;
+- (_Bool)locationServicesEnabled;
+- (int)authorizationStatus;
+- (id)mainQueue_createLocationManager;
+- (id)initWithProfile:(id)arg1 sampleSavingDelegate:(id)arg2 activityType:(unsigned long long)arg3 workoutUUID:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

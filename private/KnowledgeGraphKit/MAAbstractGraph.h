@@ -10,13 +10,15 @@
 {
 }
 
++ (Class)edgeClassForLabel:(id)arg1 domain:(unsigned short)arg2;
 + (Class)edgeClass;
++ (Class)nodeClassForLabel:(id)arg1 domain:(unsigned short)arg2;
 + (Class)nodeClass;
 - (id)_keyForLabelString:(id)arg1;
 - (id)_labelStrings;
 - (void)_setLabelStrings:(id)arg1;
 - (unsigned short)_labelForString:(id)arg1 createIfNeeded:(_Bool)arg2;
-- (id)_stringForLabel:(unsigned short)arg1;
+- (id)stringForLabel:(unsigned short)arg1;
 - (id)addEdgeWithLabel:(id)arg1 sourceNode:(id)arg2 targetNode:(id)arg3 domain:(unsigned short)arg4 weight:(float)arg5 properties:(id)arg6;
 - (id)addNodeWithLabel:(id)arg1 domain:(unsigned short)arg2 weight:(float)arg3 properties:(id)arg4;
 - (id)initWithPersistentStoreURL:(id)arg1;

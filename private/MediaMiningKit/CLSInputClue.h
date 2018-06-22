@@ -11,9 +11,8 @@
     _Bool _needsPreparation;
 }
 
-+ (_Bool)needsRunloop;
 @property _Bool needsPreparation; // @synthesize needsPreparation=_needsPreparation;
-- (id)_prepareOperation;
+- (void)_prepareWithProgressBlock:(CDUnknownBlockType)arg1;
 - (void)prepareIfNeeded;
 - (id)init;
 

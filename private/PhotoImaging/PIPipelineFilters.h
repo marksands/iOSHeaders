@@ -11,14 +11,15 @@
 }
 
 + (id)applyOrientationFilter;
++ (id)stopAtTagIncludeOrientationFilter:(id)arg1;
 + (id)stopAtTagIncludeGeometryFilter:(id)arg1;
 + (id)postGeometryFilter;
 + (id)preGeometryFilter;
++ (id)noGeometryFilter;
 + (id)noCropFilter;
 + (id)noMuteFilter;
 + (id)noTrimFilter;
 + (id)noRedEyeFilter;
-+ (id)originalWithGeometry;
 + (id)sushiLevel1Filter;
 + (id)sourceFilterIncludingOrientation:(_Bool)arg1;
 + (id)autoCropFilter;

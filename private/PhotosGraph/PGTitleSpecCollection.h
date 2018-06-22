@@ -10,17 +10,15 @@
 
 @interface PGTitleSpecCollection : NSObject
 {
-    NSArray *_specs;
-    NSArray *_fallbackSpecs;
+    NSArray *_specPools;
 }
 
-+ (id)collectionWithSpecs:(id)arg1 fallbackSpecs:(id)arg2;
-@property(readonly) NSArray *fallbackSpecs; // @synthesize fallbackSpecs=_fallbackSpecs;
-@property(readonly) NSArray *specs; // @synthesize specs=_specs;
++ (id)collectionWithSpecPools:(id)arg1;
+@property(readonly, nonatomic) NSArray *specPools; // @synthesize specPools=_specPools;
 - (void).cxx_destruct;
 - (id)description;
 - (id)allPossibleTitlesWithMomentNodes:(id)arg1;
-- (id)initWithSpecs:(id)arg1 fallbackSpecs:(id)arg2;
+- (id)initWithSpecPools:(id)arg1;
 
 @end
 

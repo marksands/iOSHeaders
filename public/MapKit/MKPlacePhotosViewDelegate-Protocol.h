@@ -6,14 +6,13 @@
 
 #import "NSObject.h"
 
-@class MKMapItem, MKPlacePhotosView, UIImageView;
+@class MKMapItemPhoto, MKPlacePhotosView, UIImageView;
 
 @protocol MKPlacePhotosViewDelegate <NSObject>
-- (MKMapItem *)placePhotoViewerGetDelegatesMapItem;
-- (void)placePhotoViewerAttributionTappedForPhotoAtIndex:(unsigned long long)arg1 photo:(id <GEOMapItemPhoto>)arg2;
+- (void)placePhotoViewerAttributionTappedForPhotoAtIndex:(unsigned long long)arg1 photo:(MKMapItemPhoto *)arg2;
 - (UIImageView *)placePhotoViewerViewForPhotoAtIndex:(unsigned long long)arg1;
 
 @optional
-- (void)placePhotoViewerWillClose:(MKPlacePhotosView *)arg1 photo:(id <GEOMapItemPhoto>)arg2 onIndex:(unsigned long long)arg3;
+- (void)placePhotoViewerWillClose:(MKPlacePhotosView *)arg1 photo:(MKMapItemPhoto *)arg2 onIndex:(unsigned long long)arg3;
 @end
 

@@ -34,6 +34,7 @@
     _Bool isInstant;
     _Bool isHistorical;
     long long pollingPeriod;
+    NSString *knowledgeBaseMetadataClass;
     NSString *_keyPathString;
 }
 
@@ -61,6 +62,7 @@
 @property(readonly, nonatomic) _Bool futureEvent; // @synthesize futureEvent;
 @property(readonly, nonatomic) long long valueType; // @synthesize valueType;
 @property(readonly, nonatomic) NSString *descriptionString; // @synthesize descriptionString;
+@property(readonly, nonatomic) NSString *knowledgeBaseMetadataClass; // @synthesize knowledgeBaseMetadataClass;
 @property(readonly, nonatomic) NSString *knowledgeBaseName; // @synthesize knowledgeBaseName;
 @property(readonly, nonatomic) NSString *name; // @synthesize name;
 - (void).cxx_destruct;

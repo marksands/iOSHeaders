@@ -33,6 +33,9 @@
 - (double)_titleBaselineToBottom;
 - (double)_titleBaselineToTop;
 - (_Bool)_shouldCenterText;
+- (double)_textHeightForLabel:(id)arg1 width:(double)arg2;
+- (double)_separatorHeight;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)_setContinuousCornerRadius:(double)arg1;
 - (void)setEnabled:(_Bool)arg1;
 - (void)setSelected:(_Bool)arg1;

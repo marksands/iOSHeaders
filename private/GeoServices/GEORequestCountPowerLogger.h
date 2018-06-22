@@ -8,7 +8,6 @@
 
 @class NSDate, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
-__attribute__((visibility("hidden")))
 @interface GEORequestCountPowerLogger : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;

@@ -12,11 +12,11 @@
 {
     NSCountedSet *_minimumIntervalScheduledActions;
     NSCountedSet *_delayScheduledActions;
-    id <_DKThrottledActivityStore> _store;
+    id <_DKSimpleKeyValueStore> _store;
 }
 
 + (id)standardInstance;
-@property(retain, nonatomic) id <_DKThrottledActivityStore> store; // @synthesize store=_store;
+@property(retain, nonatomic) id <_DKSimpleKeyValueStore> store; // @synthesize store=_store;
 - (void).cxx_destruct;
 - (void)clearDateForKey:(id)arg1;
 - (id)dateForKey:(id)arg1;

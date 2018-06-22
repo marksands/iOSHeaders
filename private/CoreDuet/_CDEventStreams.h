@@ -14,9 +14,10 @@
     NSDictionary *_allEventStreams;
 }
 
-+ (id)privacyPolicy;
-+ (id)rateLimitPolicy;
++ (id)privacyPolicyForEventStreamName:(id)arg1;
++ (id)rateLimiterForEventStreamName:(id)arg1;
 + (id)ephemeralitySchedule;
++ (id)eventStreamPropertiesForEventStream:(id)arg1;
 + (id)eventStreamPropertiesForKBName:(id)arg1;
 + (id)eventStreamPropertiesForName:(id)arg1;
 + (id)eventStreamForName:(id)arg1;

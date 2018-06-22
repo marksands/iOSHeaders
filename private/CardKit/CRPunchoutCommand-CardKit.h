@@ -8,6 +8,5 @@
 
 @interface CRPunchoutCommand (CardKit)
 - (id)crk_backingPunchout;
-- (unsigned long long)crk_intrinsicInteractiveBehavior;
 @end
 

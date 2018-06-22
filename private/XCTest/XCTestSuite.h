@@ -13,6 +13,7 @@
     id _internalImplementation;
 }
 
++ (id)testClassSuitesForTestIdentifiers:(id)arg1 skippingTestIdentifiers:(id)arg2;
 + (id)testSuiteForTestConfiguration:(id)arg1;
 + (id)defaultTestSuite;
 + (id)allTests;
@@ -27,7 +28,8 @@
 + (id)testCaseNamesForScopeNames:(id)arg1;
 - (void).cxx_destruct;
 - (id)_initWithTestConfiguration:(id)arg1;
-- (void)_sortTestsUsingComparator:(CDUnknownBlockType)arg1;
+- (void)_sortTestsUsingDefaultExecutionOrdering;
+- (long long)defaultExecutionOrderCompare:(id)arg1;
 @property(readonly) NSDictionary *activityAggregateStatistics;
 - (void)_mergeActivityStatistics:(id)arg1;
 - (void)performTest:(id)arg1;

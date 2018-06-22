@@ -41,7 +41,7 @@
 - (long long)_queue_errorCount;
 - (double)_queue_currentInterval;
 - (void)_queue_unitTest_activityFiredButRunDeclined;
-- (void)_queue_activityFinishedWithResult:(long long)arg1 minimumRetryInterval:(double)arg2 error:(id)arg3;
+- (void)_queue_activityFinishedWithResult:(long long)arg1 minimumRetryInterval:(double)arg2 activityStartDate:(id)arg3 error:(id)arg4;
 - (void)_queue_performActivityWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_queue_performActivityIfPossibleWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_queue_performActivityIfWaitingWithCompletion:(CDUnknownBlockType)arg1;
@@ -56,7 +56,7 @@
 - (void)synthesizeActivityFire;
 - (void)reset;
 @property(readonly, nonatomic) long long errorCount;
-- (void)didPerformActivityWithResult:(long long)arg1 minimumRetryInterval:(double)arg2 error:(id)arg3;
+- (void)didPerformActivityWithResult:(long long)arg1 minimumRetryInterval:(double)arg2 activityStartDate:(id)arg3 error:(id)arg4;
 - (id)lastSuccessfulRunDate;
 - (void)dealloc;
 - (id)initWithProfile:(id)arg1 name:(id)arg2 interval:(double)arg3 delegate:(id)arg4 loggingCategory:(id)arg5;

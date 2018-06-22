@@ -73,6 +73,9 @@
 - (id)hashRouteID;
 - (_Bool)providesHashRouteID;
 - (void)encodeWithCoder:(id)arg1;
+@property(readonly, nonatomic) _Bool supportsTargetControl;
+@property(readonly, nonatomic) _Bool supportsTargetController;
+- (void)autoConfigureTargetControllers;
 - (id)initWithCoder:(id)arg1;
 @property(readonly, copy) NSSet *messageReceiverChildren;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;

@@ -8,6 +8,8 @@
 
 @interface MPSImageEuclideanDistanceTransform : MPSUnaryImageKernel
 {
+    unsigned long long _width;
+    unsigned long long _height;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;

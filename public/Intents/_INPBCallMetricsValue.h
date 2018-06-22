@@ -6,36 +6,41 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBCallMetricsValue.h"
 
-@class PBUnknownFields;
+@class INCodableAttribute, NSString;
 
-@interface _INPBCallMetricsValue : PBCodable <NSCopying>
+@interface _INPBCallMetricsValue : PBCodable <_INPBCallMetricsValue, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
-    double _callDuration;
-    double _timeToEstablish;
     struct {
         unsigned int callDuration:1;
         unsigned int timeToEstablish:1;
     } _has;
+    double _callDuration;
+    double _timeToEstablish;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
-+ (id)options;
-@property(nonatomic) double callDuration; // @synthesize callDuration=_callDuration;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(nonatomic) double timeToEstablish; // @synthesize timeToEstablish=_timeToEstablish;
+@property(nonatomic) double callDuration; // @synthesize callDuration=_callDuration;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(nonatomic) _Bool hasCallDuration;
 @property(nonatomic) _Bool hasTimeToEstablish;
+@property(nonatomic) _Bool hasCallDuration;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

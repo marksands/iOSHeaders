@@ -31,6 +31,8 @@
 @property(nonatomic) __weak id <AXSpringBoardServerInstanceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_activateSOSMode:(id)arg1;
+- (id)_canSetDockIconActivationMode:(id)arg1;
+- (id)_setDockIconActivationMode:(id)arg1;
 - (id)_medusaApps:(id)arg1;
 - (id)_performMedusaGesture:(id)arg1;
 - (id)_allowedMedusaGestures:(id)arg1;

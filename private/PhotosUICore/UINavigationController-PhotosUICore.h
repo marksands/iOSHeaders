@@ -7,6 +7,7 @@
 #import "UINavigationController.h"
 
 @interface UINavigationController (PhotosUICore)
+- (id)px_popToViewControllerPreceedingViewController:(id)arg1 animated:(_Bool)arg2;
 - (_Bool)px_preparePopToViewController:(id)arg1 forced:(_Bool)arg2;
 @end
 

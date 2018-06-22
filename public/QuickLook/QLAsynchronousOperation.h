@@ -6,7 +6,6 @@
 
 #import "NSOperation.h"
 
-__attribute__((visibility("hidden")))
 @interface QLAsynchronousOperation : NSOperation
 {
     _Bool _finished;

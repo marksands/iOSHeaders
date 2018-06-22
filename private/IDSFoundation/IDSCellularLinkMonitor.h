@@ -32,14 +32,10 @@
 @property(readonly) unsigned long long radioAccessTechnology; // @synthesize radioAccessTechnology=_radioAccessTechnology;
 @property(readonly) NSString *cellularDataInterfaceName; // @synthesize cellularDataInterfaceName=_cellularDataInterfaceName;
 - (void)reset;
-- (void)_processCTServerNotification:(id)arg1 info:(id)arg2;
-- (void)_unregisterCTNotification:(id)arg1;
-- (void)_registerCTNotification:(id)arg1;
 - (void)_updateDataStatus;
-- (_Bool)_dataContextUsable:(id)arg1;
-- (void)_updateCellularMTU;
+- (_Bool)_updateCellularMTU;
 - (_Bool)_updateRadioAccessTechnology;
-- (void)_updateCellularDataInterface;
+- (_Bool)_updateCellularDataInterface;
 - (void)_setupCTServerConnection;
 - (void)removeCellularLinkDelegate:(id)arg1;
 - (void)addCellularLinkDelegate:(id)arg1;

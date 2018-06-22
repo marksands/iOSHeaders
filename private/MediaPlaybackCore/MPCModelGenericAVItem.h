@@ -203,6 +203,8 @@
 - (id)artist;
 - (void)applyVolumeNormalizationWithSoundCheckEnabled:(_Bool)arg1;
 - (_Bool)allowsEQ;
+- (unsigned long long)albumTrackCount;
+- (unsigned long long)albumTrackNumber;
 - (long long)artistStoreID;
 - (long long)albumStoreID;
 - (id)albumArtist;

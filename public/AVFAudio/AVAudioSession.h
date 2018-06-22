@@ -75,6 +75,7 @@
 - (_Bool)overrideOutputAudioPort:(unsigned long long)arg1 error:(id *)arg2;
 - (_Bool)selectIndependentRoutingContext:(id *)arg1;
 - (id)routingContextUID;
+- (_Bool)privateNeedsTranslationForNoSpeakerCategory:(id)arg1;
 - (_Bool)privateSetRoutingContextUID:(id)arg1 error:(id *)arg2;
 - (_Bool)privateSetRouteSharingPolicy:(unsigned long long)arg1 error:(id *)arg2;
 - (_Bool)setMode:(id)arg1 error:(id *)arg2;
@@ -136,9 +137,10 @@
 - (_Bool)setPreferredIOBufferDuration:(double)arg1 error:(id *)arg2;
 - (_Bool)setPreferredSampleRate:(double)arg1 error:(id *)arg2;
 - (void)requestRecordPermission:(CDUnknownBlockType)arg1;
-- (unsigned long long)recordPermission;
+@property(readonly) unsigned long long recordPermission;
 - (_Bool)setActive:(_Bool)arg1 withFlags:(long long)arg2 error:(id *)arg3;
 - (_Bool)deactivateAndSetInterruptionPriority:(long long)arg1 error:(id *)arg2;
+- (void)activateWithOptions:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)setActive:(_Bool)arg1 withOptions:(unsigned long long)arg2 error:(id *)arg3;
 - (_Bool)setActive:(_Bool)arg1 error:(id *)arg2;
 - (_Bool)setCategory:(id)arg1 mode:(id)arg2 routeSharingPolicy:(unsigned long long)arg3 options:(unsigned long long)arg4 error:(id *)arg5;

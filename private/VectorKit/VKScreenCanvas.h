@@ -54,7 +54,6 @@ __attribute__((visibility("hidden")))
 - (shared_ptr_a3c46825)styleManager;
 - (shared_ptr_664b6d77)stylesheet;
 - (shared_ptr_144c31f6)styleForFeature:(const shared_ptr_430519ce *)arg1;
-- (vector_8bf6b0e5)roadMarkersForSelectionAtScreenPoint:(struct CGPoint)arg1;
 - (shared_ptr_430519ce)featureMarkerAtScreenPoint:(struct CGPoint)arg1;
 - (shared_ptr_430519ce)buildingMarkerAtScreenPoint:(struct CGPoint)arg1;
 - (void)cameraControllerDidReturnToDefaultZoom:(id)arg1;

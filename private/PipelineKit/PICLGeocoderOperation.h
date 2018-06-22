@@ -16,6 +16,8 @@
 + (id)operationForceGeocoderWithLocation:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 + (id)operationWithLocation:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void).cxx_destruct;
+- (void)_stopTimeOut;
+- (void)_setupTimeOutForGeocoder:(id)arg1 finishBlock:(CDUnknownBlockType)arg2;
 
 @end
 

@@ -8,11 +8,11 @@
 
 #import "PVFaceClusteringProtocol.h"
 
-@class CVMLRequestHandler, NSDate, NSLock, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNumber, NSSet, NSString, NSURL, PVCanceler, PVContext, PVDataAccessor, PVEventManager, PVQueue, PVSuggestionRequest;
+@class NSDate, NSLock, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNumber, NSSet, NSString, NSURL, PVCanceler, PVContext, PVDataAccessor, PVEventManager, PVQueue, PVSuggestionRequest, VNCanceller, VNClustererBuilder;
 
 @interface PVClusterer : NSObject <PVFaceClusteringProtocol>
 {
-    id <PVCVMLIntegrating> _cvmlIntegration;
+    id <PVVisionIntegrating> _visionIntegration;
     PVQueue *_processingQueue;
     PVContext *_context;
     PVDataAccessor *_dataAccessor;
@@ -20,7 +20,6 @@
     NSURL *_cacheFileUrl;
     NSString *_clusteringType;
     NSNumber *_threshold;
-    CVMLRequestHandler *_requestHandler;
     NSSet *_faceCSNsInClusterCache;
     unsigned long long _nextSeqNum;
     NSMutableSet *_faceIdStrsToAdd;
@@ -28,6 +27,8 @@
     unsigned long long _accumulatedChangesCount;
     unsigned long long _nextClusterTriggeringAccumulatedChangesCount;
     PVCanceler *_clusteringCanceler;
+    VNCanceller *_visionCanceler;
+    VNClustererBuilder *_clusterBuilder;
     _Bool _rebuildClusterer;
     NSMutableArray *_outstandingSuggestionRequests;
     PVSuggestionRequest *_currentSuggestionRequest;
@@ -57,14 +58,12 @@
 - (void)_setPropertyDictionaryValue:(id)arg1 forKey:(id)arg2;
 - (void)_readPropertyDictionary;
 - (id)_propertyDictionaryFileURL;
-- (id)clusterFaceIdsArrayForClusterid:(unsigned long long)arg1 error:(id *)arg2;
 - (_Bool)getClusters:(id *)arg1 threshold:(double *)arg2 utilizingGPU:(_Bool *)arg3 error:(id *)arg4;
 - (id)differencesBetweenClustersInClusterCacheAndLibrary:(id *)arg1;
-- (_Bool)_processingQueueGetCVMLClusters:(id)arg1 minimumClusterSize:(unsigned long long)arg2 returnClusterAsCountedSet:(_Bool)arg3 error:(id *)arg4;
-- (void)_appendToClusterLog:(id)arg1;
+- (_Bool)_processingQueueGetVisionClusters:(id)arg1 minimumClusterSize:(unsigned long long)arg2 returnClusterAsCountedSet:(_Bool)arg3 error:(id *)arg4;
 - (_Bool)isReadyToReturnSuggestions;
-- (_Bool)cancelAllSuggestionRequests;
-- (_Bool)cancelSuggestionRequest:(id)arg1;
+- (void)cancelAllSuggestionRequests;
+- (void)cancelSuggestionRequest:(id)arg1;
 - (id)requestSuggestionsForFaceClusterSequenceNumbers:(id)arg1 withClusteringFlags:(id)arg2 updateHandler:(CDUnknownBlockType)arg3 error:(id *)arg4;
 - (id)suggestedFaceClusterSequenceNumbersForFaceClusterSequenceNumbersRepresentingClusters:(id)arg1 error:(id *)arg2;
 - (long long)restoreClusterCacheAndSyncWithLibrary:(_Bool)arg1;
@@ -78,7 +77,7 @@
 - (_Bool)_processingQueueSaveClusterCache:(id *)arg1;
 - (_Bool)_processingQueueGetFaceClusterSequenceNumbersInClusterCache:(id *)arg1 lastClusterSequenceNumber:(unsigned long long *)arg2 error:(id *)arg3;
 - (void)_processingQueueSyncClustererWithPhotoLibraryUsingFacesInClusterCache:(id)arg1 withCanceler:(id)arg2;
-- (void)_processingQueueQuickSyncClustererWithPhotoLibraryUsingFacesInClusterCache:(id)arg1 cvmlClusters:(id *)arg2 withCanceler:(id)arg3;
+- (void)_processingQueueQuickSyncClustererWithPhotoLibraryUsingFacesInClusterCache:(id)arg1 visionClusters:(id *)arg2 withCanceler:(id)arg3;
 - (void)_removeEmptyGroups;
 - (id)_faceObservationsFromFaces:(id)arg1 assignClusterSeqNumberIfNeeded:(_Bool)arg2 updatedFaces:(id)arg3;
 - (id)_faceObservationsFromFaceIdStrs:(id)arg1 assignClusterSeqNumberIfNeeded:(_Bool)arg2 updatedFaces:(id)arg3 excludeClustered:(_Bool)arg4;
@@ -99,10 +98,9 @@
 - (_Bool)_processingQueuePerformForcedFaceClustering:(_Bool)arg1 withCanceler:(id)arg2;
 - (void)scheduleClusteringAfterRemovingFaceCSNs:(id)arg1 addingFaceIdStrs:(id)arg2;
 - (void)_processingQueueDetermineNextClusterTriggeringAccumulatedChangesCountIfNecessary;
-- (id)_newCVMLRequestOptions;
 - (void)terminate;
 - (id)_persistenceDelegate;
-- (id)initWithContext:(id)arg1 dataAccessor:(id)arg2 cacheDirectoryUrl:(id)arg3 cvmlIntegration:(id)arg4;
+- (id)initWithContext:(id)arg1 dataAccessor:(id)arg2 cacheDirectoryURL:(id)arg3 visionIntegration:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

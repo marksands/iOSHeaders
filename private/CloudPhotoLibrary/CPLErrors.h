@@ -25,6 +25,10 @@
 + (id)invalidClientCacheErrorWithReason:(id)arg1;
 + (id)libraryClosedError;
 + (id)transportErrorFromTransportError:(id)arg1;
++ (id)unknownPrimaryScope;
++ (id)invalidScopeErrorWithScopeIndex:(long long)arg1;
++ (id)invalidScopeErrorWithScopeIdentifier:(id)arg1;
++ (id)invalidScopeErrorWithScopedIdentifier:(id)arg1;
 + (id)unknownError;
 + (id)notImplementedError;
 + (id)versionMismatchError;

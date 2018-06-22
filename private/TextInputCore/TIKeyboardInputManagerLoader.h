@@ -21,6 +21,7 @@
 + (id)sharedLoader;
 @property(retain, nonatomic) TIKeyboardInputManagerBase *mostRecentlyRequested; // @synthesize mostRecentlyRequested=_mostRecentlyRequested;
 @property(nonatomic) NSXPCConnection *interactingConnection; // @synthesize interactingConnection=_interactingConnection;
+- (void).cxx_destruct;
 - (id)activeInputModeIdentifiers;
 - (_Bool)hasActiveInputManagers;
 - (id)resourceInputModes;

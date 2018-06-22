@@ -9,7 +9,7 @@
 #import "NULoadingDelegate.h"
 #import "NUPageable.h"
 
-@class FCArticle, NSString, NUMultiDelegate, UIView<NULoadingViewProviding>;
+@class FCArticle, NFMultiDelegate, NSHashTable, NSString, UIView<NULoadingViewProviding>;
 
 @interface NUArticleHostViewController : UIViewController <NULoadingDelegate, NUPageable>
 {
@@ -20,12 +20,12 @@
     id <NUSettings> _settings;
     UIViewController *_contentTypeViewController;
     UIView<NULoadingViewProviding> *_loadingView;
-    NUMultiDelegate *_multiLoadingDelegate;
+    NFMultiDelegate *_multiLoadingDelegate;
     id <NUErrorMessageFactory> _errorMessageFactory;
 }
 
 @property(readonly, nonatomic) id <NUErrorMessageFactory> errorMessageFactory; // @synthesize errorMessageFactory=_errorMessageFactory;
-@property(readonly, nonatomic) NUMultiDelegate *multiLoadingDelegate; // @synthesize multiLoadingDelegate=_multiLoadingDelegate;
+@property(readonly, nonatomic) NFMultiDelegate *multiLoadingDelegate; // @synthesize multiLoadingDelegate=_multiLoadingDelegate;
 @property(retain, nonatomic) UIView<NULoadingViewProviding> *loadingView; // @synthesize loadingView=_loadingView;
 @property(retain, nonatomic) UIViewController *contentTypeViewController; // @synthesize contentTypeViewController=_contentTypeViewController;
 @property(readonly, copy, nonatomic) id <NUSettings> settings; // @synthesize settings=_settings;
@@ -42,6 +42,7 @@
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
+@property(readonly, nonatomic) NSHashTable *loadingListeners;
 - (id)initWithArticle:(id)arg1 articleViewControllerFactory:(id)arg2 settings:(id)arg3 errorMessageFactory:(id)arg4;
 
 // Remaining properties

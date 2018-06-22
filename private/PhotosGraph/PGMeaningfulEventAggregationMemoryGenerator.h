@@ -6,13 +6,13 @@
 
 #import <PhotosGraph/PGFeaturedMemoryGenerator.h>
 
-@class NSArray, NSDate;
+@class NSDate, NSDictionary;
 
 @interface PGMeaningfulEventAggregationMemoryGenerator : PGFeaturedMemoryGenerator
 {
     unsigned long long _numberOfUntimelyRejects;
     unsigned long long _extendedMeaning;
-    NSArray *_graphRequiredTraitsArray;
+    NSDictionary *_graphRequiredCriteriaByIdentifier;
     NSDate *_lowerBoundLocalDate;
     unsigned long long _eventType;
     unsigned long long _meaning;

@@ -6,19 +6,34 @@
 
 #import <PhotosGraph/PGGraphNode.h>
 
-#import "PGGraphMeaningNode.h"
+#import "PGGraphLocalizable.h"
+#import "PGGraphSynonymSupport.h"
 
-@class NSString;
+@class NSArray, NSString;
 
-@interface PGGraphMeaningNode : PGGraphNode <PGGraphMeaningNode>
+@interface PGGraphMeaningNode : PGGraphNode <PGGraphLocalizable, PGGraphSynonymSupport>
 {
+    long long _isVeryMeaningfulCachedValue;
 }
 
++ (id)meaningLabelsForMeaningNodes:(id)arg1;
+@property(nonatomic) long long isVeryMeaningfulCachedValue; // @synthesize isVeryMeaningfulCachedValue=_isVeryMeaningfulCachedValue;
+@property(readonly, nonatomic) NSArray *localizedSynonyms;
+- (id)_localizationKeyForMeaningLabel:(id)arg1;
+@property(readonly, nonatomic) NSString *localizedName;
+@property(readonly, nonatomic, getter=isVeryMeaningful) _Bool veryMeaningful;
+- (id)momentNodes;
+@property(readonly) PGGraphMeaningNode *parentMeaningNode;
+- (void)traverseParentMeaningHierarchyUsingBlock:(CDUnknownBlockType)arg1;
+- (void)traverseSubmeaningHierarchyUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateSubmeaningsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateCollectionNodesUsingBlock:(CDUnknownBlockType)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
+
 @end
 

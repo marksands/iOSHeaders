@@ -8,14 +8,15 @@
 
 #import "NSCoding.h"
 
-@class NSISEngine, NSMutableSet;
+@class NSArray, NSISEngine, NSMapTable;
 
 @interface NSISVariable : NSObject <NSCoding>
 {
     id <NSISVariableDelegate> _delegate;
     unsigned int _ident;
-    NSISEngine *_crossIndexEngine;
-    NSMutableSet *_crossIndexSet;
+    NSISEngine *_engines[3];
+    CDStruct_fcd6c539 _engineVarIndexes[3];
+    NSMapTable *_overflowEngines;
 }
 
 + (id)variableWithName:(id)arg1 valueRestriction:(int)arg2 shouldBeMinimized:(_Bool)arg3 valueIsUserObservable:(_Bool)arg4;
@@ -31,9 +32,15 @@
 - (double)allowedMagnitudeForIntegralizationAdjustmentOfMarkedConstraint;
 - (_Bool)shouldBeIntegral;
 - (id)description;
+- (id)descriptionInEngine:(id)arg1;
+- (id)_delegateDescription;
+- (CDStruct_fcd6c539)overflowEngineVarIndexForEngine:(id)arg1;
+- (void)_enumerateEngines:(CDUnknownBlockType)arg1;
+@property(readonly) NSArray *engines;
 - (unsigned long long)hash;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)dealloc;
 - (id)init;
 
 @end

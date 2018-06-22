@@ -12,6 +12,7 @@
 @class NSArray, NSDictionary, NSString, XCAccessibilityElement, XCElementSnapshot, XCUIApplicationProcess;
 
 @protocol XCUIAccessibilityInterface <NSObject, XCUIAXNotificationHandling, XCTElementSnapshotAttributeDataSource, XCTElementSnapshotProvider>
+@property(readonly) _Bool supportsAnimationsInactiveNotifications;
 @property double AXTimeout;
 - (void)removeObserver:(id)arg1 forAXNotification:(NSString *)arg2;
 - (id)addObserverForAXNotification:(NSString *)arg1 handler:(void (^)(XCAccessibilityElement *, NSDictionary *))arg2;

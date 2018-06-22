@@ -6,22 +6,28 @@
 
 #import "NSObject.h"
 
-#import "SXDiscoverMoreInteractionHandler.h"
+#import "SVDiscoverMoreInteractionHandling.h"
 
-@class NUDiscoverMoreVideosInfo, NUVideoViewController;
+@class NSString, NUDiscoverMoreVideosInfo;
 
-@interface NUDiscoverMoreInteractionHandler : NSObject <SXDiscoverMoreInteractionHandler>
+@interface NUDiscoverMoreInteractionHandler : NSObject <SVDiscoverMoreInteractionHandling>
 {
-    NUVideoViewController *_videoViewController;
+    id <NUURLHandling> _URLHandler;
     NUDiscoverMoreVideosInfo *_discoverMoreVideosInfo;
 }
 
 @property(readonly, copy, nonatomic) NUDiscoverMoreVideosInfo *discoverMoreVideosInfo; // @synthesize discoverMoreVideosInfo=_discoverMoreVideosInfo;
-@property(readonly, nonatomic) __weak NUVideoViewController *videoViewController; // @synthesize videoViewController=_videoViewController;
+@property(readonly, nonatomic) id <NUURLHandling> URLHandler; // @synthesize URLHandler=_URLHandler;
 - (void).cxx_destruct;
-- (void)handleInteractionWithDiscoverMoreControl;
-- (id)initWithVideoViewController:(id)arg1 discoverMoreVideosInfo:(id)arg2;
+- (void)handleInteraction;
+- (id)initWithURLHandler:(id)arg1 discoverMoreVideosInfo:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

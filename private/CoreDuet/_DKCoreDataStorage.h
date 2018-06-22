@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSCloudKitMirroringDelegate, NSFileManager, NSManagedObjectModel, NSMapTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSURL, _DKDataProtectionStateMonitor;
+@class NSCloudKitMirroringDelegate, NSFileManager, NSManagedObjectModel, NSMapTable, NSMutableDictionary, NSString, NSURL, _DKDataProtectionStateMonitor;
 
 @interface _DKCoreDataStorage : NSObject
 {
@@ -14,8 +14,6 @@
     NSMutableDictionary *_paths;
     NSMapTable *_managedObjectContexts;
     NSMutableDictionary *_persistentStoreCoordinators;
-    NSObject<OS_dispatch_queue> *_queueMOC;
-    NSObject<OS_dispatch_queue> *_queuePSC;
     _DKDataProtectionStateMonitor *_dataProtectionMonitor;
     NSFileManager *_fm;
     NSCloudKitMirroringDelegate *_mirroringDelegate;

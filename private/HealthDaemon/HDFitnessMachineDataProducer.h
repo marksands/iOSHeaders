@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class HDEurotasData, HDHealthServiceManager, HDProfile, HKQuantity, NSObject<OS_dispatch_queue>, _HDFTMProducerMetricTracker;
+#import "HDWorkoutDataAccumulatorObserver.h"
 
-@interface HDFitnessMachineDataProducer : NSObject
+@class HDEurotasData, HDHealthServiceManager, HDProfile, HKQuantity, NSObject<OS_dispatch_queue>, NSString, _HDFTMProducerMetricTracker;
+
+@interface HDFitnessMachineDataProducer : NSObject <HDWorkoutDataAccumulatorObserver>
 {
     NSObject<OS_dispatch_queue> *_queue;
     unsigned long long _sessionIdentifier;
@@ -28,13 +30,10 @@
 - (id)_queue_generateEurotasData;
 - (void)_queue_updateFitnessMachineWithCompletion:(CDUnknownBlockType)arg1 forcing:(_Bool)arg2;
 - (void)_queue_updateFitnessMachine;
-- (void)_queue_metricsAddedToWorkout:(id)arg1;
-- (void)_queue_quantitiesAddedToWorkout:(id)arg1;
+- (void)_queue_workoutDataAccumulator:(id)arg1 didUpdateStatistics:(id)arg2;
 - (void)_readHeartRateEnabledPreference;
+- (void)workoutDataAccumulator:(id)arg1 didUpdateStatistics:(id)arg2;
 @property(readonly, nonatomic) _Bool connected;
-- (void)quantitiesResetForWorkout:(id)arg1;
-- (void)metricsAddedToWorkout:(id)arg1;
-- (void)quantitiesAddedToWorkout:(id)arg1;
 - (void)resumeCurrentSession;
 - (void)pauseCurrentSession;
 - (void)disconnectHealthServiceSession;
@@ -44,6 +43,12 @@
 @property(readonly, nonatomic) HDHealthServiceManager *healthServiceManager;
 - (void)dealloc;
 - (id)initWithProfile:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

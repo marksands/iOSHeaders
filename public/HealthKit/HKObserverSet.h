@@ -18,6 +18,7 @@
 
 - (void).cxx_destruct;
 - (void)_notifyObserver:(id)arg1 handler:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) unsigned long long count;
 - (void)notifyObservers:(CDUnknownBlockType)arg1;
 - (void)unregisterObserver:(id)arg1;
 - (void)registerObserver:(id)arg1;

@@ -11,7 +11,6 @@
 
 @class MNCommuteDestinationUpdater, MNLocation, MNLocationHistory, MNNavigationTraceManager, MNObserverHashTable<MNCommuteSessionObserver>, MNSuggestionsManager, NSArray, NSMutableDictionary, NSString, NSTimer;
 
-__attribute__((visibility("hidden")))
 @interface MNCommuteSession : NSObject <MNCommuteDestinationUpdaterDelegate, MNCommuteDestinationObserver>
 {
     MNObserverHashTable<MNCommuteSessionObserver> *_observers;

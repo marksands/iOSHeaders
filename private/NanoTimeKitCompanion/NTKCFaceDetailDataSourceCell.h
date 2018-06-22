@@ -19,7 +19,7 @@
 @property(readonly, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-- (id)initWithIdentifier:(id)arg1 andLabel:(id)arg2;
+- (id)initWithIdentifier:(id)arg1 andLabel:(id)arg2 showIcon:(_Bool)arg3 isDonation:(_Bool)arg4;
 
 @end
 

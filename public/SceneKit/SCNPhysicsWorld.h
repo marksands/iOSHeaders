@@ -49,6 +49,7 @@
 - (struct btDynamicsWorld *)_handle;
 - (struct btVehicleRaycaster *)_defaultVehicleRayCaster;
 - (void)_step:(double)arg1;
+- (void)_updatePhysicsFieldsTrasforms;
 - (struct c3dAether *)_aetherHandle;
 - (void)_removeFieldFromWorld:(id)arg1;
 - (void)_addFieldToWorld:(id)arg1;

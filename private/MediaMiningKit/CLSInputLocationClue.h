@@ -13,12 +13,11 @@
     CLSPlace *_place;
 }
 
-+ (_Bool)needsRunloop;
 + (id)cluesWithLocations:(id)arg1;
 + (id)clueWithLocation:(id)arg1;
 - (void).cxx_destruct;
 - (_Bool)isEqualToClue:(id)arg1;
-- (id)_prepareOperation;
+- (void)_prepareWithProgressBlock:(CDUnknownBlockType)arg1;
 - (id)description;
 - (_Bool)isDefinite;
 - (struct CLLocationCoordinate2D)closestCoordinates;
@@ -27,7 +26,6 @@
 - (id)regionInPlacemark;
 - (id)region;
 - (id)placemark;
-- (id)address;
 - (void)setPlace:(id)arg1;
 - (id)place;
 

@@ -28,7 +28,7 @@
 - (void)_setFloatValue:(double)arg1 forFilterOfType:(id)arg2 valueKey:(id)arg3 configurationBlock:(CDUnknownBlockType)arg4;
 - (void)_setValue:(id)arg1 forFilterOfType:(id)arg2 valueKey:(id)arg3 configurationBlock:(CDUnknownBlockType)arg4;
 - (void)_removeFilterOfTypeIfNecessary:(id)arg1;
-- (void)_configureFilterOfTypeIfNecessary:(id)arg1;
+- (void)_configureFilterOfTypeIfNecessary:(id)arg1 withConfigurationBlock:(CDUnknownBlockType)arg2;
 - (void)_setLuminanceColorMapName:(id)arg1;
 - (id)_luminanceColorMapName;
 @property(copy, nonatomic) NSString *groupName;
@@ -36,6 +36,7 @@
 @property(nonatomic) double brightness;
 @property(nonatomic) double saturation;
 @property(nonatomic) double luminanceAlpha;
+@property(copy, nonatomic) NSString *blurInputQuality;
 @property(nonatomic) double blurRadius;
 
 @end

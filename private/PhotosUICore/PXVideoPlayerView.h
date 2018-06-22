@@ -28,7 +28,7 @@
 
 @property(nonatomic) _Bool allowsEdgeAntialiasing; // @synthesize allowsEdgeAntialiasing=_allowsEdgeAntialiasing;
 @property(nonatomic) long long videoViewContentMode; // @synthesize videoViewContentMode=_videoViewContentMode;
-@property(nonatomic, getter=isDisplayingPlaceHolder, setter=_setDisplayingPlaceholder:) _Bool displayingPlaceholder; // @synthesize displayingPlaceholder=_displayingPlaceholder;
+@property(readonly, nonatomic, getter=isDisplayingPlaceHolder) _Bool displayingPlaceholder; // @synthesize displayingPlaceholder=_displayingPlaceholder;
 @property(nonatomic) long long placeholderDisplayMode; // @synthesize placeholderDisplayMode=_placeholderDisplayMode;
 @property(nonatomic) struct CGRect placeholderImageContentsRect; // @synthesize placeholderImageContentsRect=_placeholderImageContentsRect;
 @property(nonatomic) double videoAppearanceCrossfadeDuration; // @synthesize videoAppearanceCrossfadeDuration=_videoAppearanceCrossfadeDuration;
@@ -39,7 +39,7 @@
 - (id)generateSnapshotImage;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
-- (void)_setPlaceholderVisible:(_Bool)arg1 requestID:(long long)arg2;
+- (void)_setDisplayingPlaceholder:(_Bool)arg1 requestID:(long long)arg2;
 - (void)_updateSubviewsVisibility;
 - (void)_updateEdgeAntialiasing;
 - (void)_updateContentMode;

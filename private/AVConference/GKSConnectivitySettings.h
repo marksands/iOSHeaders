@@ -24,6 +24,7 @@
 + (int)getLongTermHistoryLength;
 + (int)getShortTermHistoryLength;
 + (int)getAdaptiveLearningState;
++ (int)getRateControllerType;
 + (_Bool)supportiRATRecommendation;
 + (_Bool)isRedStateA;
 + (_Bool)supportsRedAudio;

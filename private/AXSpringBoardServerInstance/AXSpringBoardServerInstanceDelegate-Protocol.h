@@ -31,6 +31,8 @@
 - (void)setDashBoardSystemGesturesEnabled:(_Bool)arg1 withServerInstance:(_AXSpringBoardServerInstance *)arg2;
 - (void)revealSpotlightWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (NSDictionary *)medusaAppsWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
+- (_Bool)canSetDockIconActivationModeForServerInstance:(_AXSpringBoardServerInstance *)arg1;
+- (void)serverInstance:(_AXSpringBoardServerInstance *)arg1 setDockIconActivationMode:(unsigned long long)arg2;
 - (_Bool)serverInstance:(_AXSpringBoardServerInstance *)arg1 performMedusaGesture:(unsigned long long)arg2;
 - (NSArray *)allowedMedusaGesturesWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)setSiriIsTalking:(_Bool)arg1 withServerInstance:(_AXSpringBoardServerInstance *)arg2;

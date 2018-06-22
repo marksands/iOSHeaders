@@ -35,6 +35,7 @@
 - (void)setEnableHeating:(id)arg1;
 @property(readonly, copy, nonatomic) NSNumber *enableHeating;
 - (id)initWithEnableHeating:(id)arg1 enableCooling:(id)arg2 enableMassage:(id)arg3 seat:(long long)arg4 level:(id)arg5 relativeLevelSetting:(long long)arg6;
+- (void)_setMetadata:(id)arg1;
 - (id)_metadata;
 - (id)_typedBackingStore;
 

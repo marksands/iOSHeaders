@@ -11,5 +11,6 @@
 @optional
 - (void)activityObservingApplicationDidEnterBackground;
 - (void)activityObservingApplicationDidBecomeActive;
+- (void)activityObservingApplicationDidFinishLaunching;
 @end
 

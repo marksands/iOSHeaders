@@ -64,9 +64,9 @@
 - (void)interstitialAdDidLoad:(id)arg1;
 - (void)finishedPresentingSharedInterstitialAd;
 - (_Bool)canPresentSharedInterstitialAdWithResultMessage:(id *)arg1;
-- (void)_adSheetConnectionBootstrapped;
-- (void)_performWhenAdSheetConnectionEstablished:(CDUnknownBlockType)arg1;
-- (void)adSheetDidIdleDisablePolicyEngine;
+- (void)_adServingDaemonConnectionBootstrapped;
+- (void)_performWhenAdServingDaemonConnectionEstablished:(CDUnknownBlockType)arg1;
+- (void)adServingDaemonDidIdleDisablePolicyEngine;
 - (void)disablePolicyEngine;
 - (void)enablePolicyEngine;
 - (void)_enablePolicyEngineWithReason:(id)arg1;

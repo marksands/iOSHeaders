@@ -36,7 +36,9 @@
 + (id)allTestMethodInvocations;
 + (void)_allTestMethodInvocations:(id)arg1;
 + (id)testMethodInvocations;
++ (id)allSubclassesOutsideXCTest;
 + (id)allSubclasses;
++ (id)_allSubclasses;
 @property(retain) _XCTestCaseImplementation *internalImplementation; // @synthesize internalImplementation=_internalImplementation;
 - (void).cxx_destruct;
 - (void)removeUIInterruptionMonitor:(id)arg1;
@@ -96,6 +98,7 @@
 - (void)dealloc;
 @property(readonly, copy) NSString *description;
 - (_Bool)isEqual:(id)arg1;
+- (long long)defaultExecutionOrderCompare:(id)arg1;
 - (id)nameForLegacyLogging;
 @property(readonly, copy) NSString *name;
 - (id)languageAgnosticTestMethodName;

@@ -20,16 +20,20 @@
     NSNumber *_awaitingConfiguration;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)request;
-@property(retain, nonatomic) NSNumber *awaitingConfiguration; // @synthesize awaitingConfiguration=_awaitingConfiguration;
-@property(retain, nonatomic) NSData *unlockToken; // @synthesize unlockToken=_unlockToken;
-@property(retain, nonatomic) NSString *pushMagic; // @synthesize pushMagic=_pushMagic;
-@property(retain, nonatomic) NSData *token; // @synthesize token=_token;
-@property(retain, nonatomic) NSString *userShortName; // @synthesize userShortName=_userShortName;
-@property(retain, nonatomic) NSString *UDID; // @synthesize UDID=_UDID;
-@property(retain, nonatomic) NSString *topic; // @synthesize topic=_topic;
-@property(retain, nonatomic) NSString *messageType; // @synthesize messageType=_messageType;
+@property(copy, nonatomic) NSNumber *awaitingConfiguration; // @synthesize awaitingConfiguration=_awaitingConfiguration;
+@property(copy, nonatomic) NSData *unlockToken; // @synthesize unlockToken=_unlockToken;
+@property(copy, nonatomic) NSString *pushMagic; // @synthesize pushMagic=_pushMagic;
+@property(copy, nonatomic) NSData *token; // @synthesize token=_token;
+@property(copy, nonatomic) NSString *userShortName; // @synthesize userShortName=_userShortName;
+@property(copy, nonatomic) NSString *UDID; // @synthesize UDID=_UDID;
+@property(copy, nonatomic) NSString *topic; // @synthesize topic=_topic;
+@property(copy, nonatomic) NSString *messageType; // @synthesize messageType=_messageType;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)serialize;
 - (_Bool)loadFromDictionary:(id)arg1 error:(id *)arg2;
 

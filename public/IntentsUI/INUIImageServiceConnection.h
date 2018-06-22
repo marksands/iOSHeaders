@@ -6,19 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSXPCConnection;
-
 @interface INUIImageServiceConnection : NSObject
 {
-    NSXPCConnection *_underlyingConnection;
 }
 
 + (id)sharedConnection;
-- (void).cxx_destruct;
 - (void)loadUIImageForINImage:(id)arg1 traitCollection:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (id)_init;
-- (void)dealloc;
-- (id)init;
 
 @end
 

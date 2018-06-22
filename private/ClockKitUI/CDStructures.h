@@ -49,6 +49,11 @@ struct CLKUIGLUniforms {
     int secondaryTextureRect;
 };
 
+struct CLKUIQuadSize {
+    int _field1;
+    int _field2;
+};
+
 struct NSNumber {
     Class _field1;
 };

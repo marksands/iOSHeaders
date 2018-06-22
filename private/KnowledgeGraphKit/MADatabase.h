@@ -13,6 +13,7 @@
     NSURL *_fileURL;
     unsigned long long _batchCounter;
     unsigned long long _markerCounter;
+    long long _options;
     NSManagedObjectModel *_managedObjectModel;
     NSManagedObjectContext *_managedObjectContext;
     NSPersistentStoreCoordinator *_persistentStoreCoordinator;
@@ -46,10 +47,22 @@
 - (void)setModelNodePropertyValue:(id)arg1 forKey:(id)arg2 andIdentifier:(long long)arg3;
 - (void)setModelEdgeProperties:(id)arg1 forIdentifier:(long long)arg2 requiresTesting:(_Bool)arg3;
 - (void)setModelNodeProperties:(id)arg1 forIdentifier:(long long)arg2 requiresTesting:(_Bool)arg3;
+- (void)loadProperties:(id)arg1 forEdges:(id)arg2;
+- (void)loadProperties:(id)arg1 forNodes:(id)arg2;
+- (void)loadProperties:(id)arg1 forElements:(id)arg2 forNodes:(_Bool)arg3;
+- (id)modelEdgePropertyForIdentifier:(long long)arg1 propertyKey:(id)arg2;
+- (id)modelEdgePropertiesForIdentifier:(long long)arg1 exceptPropertyKeys:(id)arg2;
+- (id)modelEdgePropertiesForIdentifier:(long long)arg1 propertyKeys:(id)arg2;
 - (id)modelEdgePropertiesForIdentifier:(long long)arg1;
+- (id)modelEdgePropertiesForPredicate:(id)arg1;
+- (id)modelNodePropertyForIdentifier:(long long)arg1 propertyKey:(id)arg2;
+- (id)modelNodePropertiesForIdentifier:(long long)arg1 exceptPropertyKeys:(id)arg2;
+- (id)modelNodePropertiesForIdentifier:(long long)arg1 propertyKeys:(id)arg2;
 - (id)modelNodePropertiesForIdentifier:(long long)arg1;
+- (id)modelNodePropertiesForPredicate:(id)arg1;
 - (_Bool)_setValue:(id)arg1 onProperty:(id)arg2;
 - (_Bool)_addProperty:(id)arg1 toProperties:(id)arg2;
+- (id)valueForModelProperty:(id)arg1;
 - (void)removeModelEdgeForIdentifier:(long long)arg1;
 - (void)removeModelEdgesForIdentifiers:(id)arg1;
 - (void)updateEdge:(id)arg1;
@@ -78,7 +91,7 @@
 - (void)save:(CDUnknownBlockType)arg1;
 - (void)_save:(CDUnknownBlockType)arg1 force:(_Bool)arg2;
 - (void)dealloc;
-- (id)initWithFileURL:(id)arg1;
+- (id)initWithFileURL:(id)arg1 options:(long long)arg2;
 - (id)init;
 
 @end

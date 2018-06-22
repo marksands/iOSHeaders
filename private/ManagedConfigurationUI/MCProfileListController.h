@@ -10,6 +10,7 @@
 
 @class MCProfileInfo, NSArray, NSMutableArray, NSSManager, NSString, UIImage;
 
+__attribute__((visibility("hidden")))
 @interface MCProfileListController : MCURLListenerListController <UITableViewDelegate>
 {
     _Bool _hasFetchedProfilesInfo;

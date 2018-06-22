@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "WBSHistoryServiceProtocol.h"
+#import "WBSHistoryConnectionProtocol.h"
 
 @class WBSHistoryService;
 
-@interface WBSHistoryConnection : NSObject <WBSHistoryServiceProtocol>
+@interface WBSHistoryConnection : NSObject <WBSHistoryConnectionProtocol>
 {
     WBSHistoryService *_historyService;
 }
@@ -18,8 +18,6 @@
 - (void).cxx_destruct;
 - (void)debugGetDatabaseURLWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)queryMemoryFootprint:(CDUnknownBlockType)arg1;
-- (void)unregisterForRemoteHistoryNotifications;
-- (void)registerForRemoteHistoryNotifications;
 - (void)groupVisitsIntoSessionsBetweenStartDate:(id)arg1 endDate:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)getVisitedLinksWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)beginHistoryAccessSession:(CDUnknownBlockType)arg1;

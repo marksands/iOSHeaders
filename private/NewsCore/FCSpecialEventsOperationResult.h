@@ -57,6 +57,7 @@
 @property(copy, nonatomic) NSString *titleText; // @synthesize titleText=_titleText;
 @property(nonatomic) long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
+- (id)specialEventsConfig;
 - (id)initWithType:(long long)arg1 specialEventsGroupConfig:(id)arg2 specialEventItems:(id)arg3 specialEventHeadlinesByArticleID:(id)arg4;
 
 @end

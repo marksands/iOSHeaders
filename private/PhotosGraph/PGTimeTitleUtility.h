@@ -31,6 +31,7 @@
 + (id)splitTimeTitleWithOptions:(id)arg1;
 + (id)timeTitleWithDateInterval:(id)arg1 allowedFormats:(unsigned long long)arg2;
 + (id)timeTitleWithOptions:(id)arg1;
++ (id)_loadRequirementForEventNodes:(id)arg1;
 
 @end
 

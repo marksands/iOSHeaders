@@ -12,7 +12,6 @@
 
 + (id)sharedHelper;
 - (void)animateForReachability:(CDUnknownBlockType)arg1 payload:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)_animationFactoryWithPayload:(id)arg1;
 - (double)reachabilityOffsetForPayload:(id)arg1;
 
 @end

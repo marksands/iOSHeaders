@@ -13,20 +13,11 @@
 
 @interface _CPSearchResultForFeedback : PBCodable <_CPSearchResultForFeedback, NSSecureCoding>
 {
-    struct {
-        unsigned int topHit:1;
-        unsigned int type:1;
-        unsigned int rankingScore:1;
-        unsigned int isStaticCorrection:1;
-        unsigned int queryId:1;
-        unsigned int isLocalApplicationResult:1;
-        unsigned int publiclyIndexable:1;
-        unsigned int isFuzzyMatch:1;
-    } _has;
     _Bool _isStaticCorrection;
     _Bool _isLocalApplicationResult;
     _Bool _publiclyIndexable;
     _Bool _isFuzzyMatch;
+    _Bool _doNotFold;
     int _topHit;
     int _type;
     NSString *_identifier;
@@ -45,8 +36,11 @@
     NSString *_completedQuery;
     NSString *_fbr;
     NSString *_userInput;
+    unsigned long long _blockId;
 }
 
+@property(nonatomic) unsigned long long blockId; // @synthesize blockId=_blockId;
+@property(nonatomic) _Bool doNotFold; // @synthesize doNotFold=_doNotFold;
 @property(nonatomic) _Bool isFuzzyMatch; // @synthesize isFuzzyMatch=_isFuzzyMatch;
 @property(copy, nonatomic) NSString *userInput; // @synthesize userInput=_userInput;
 @property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
@@ -78,28 +72,6 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-@property(readonly, nonatomic) _Bool hasIsFuzzyMatch;
-@property(readonly, nonatomic) _Bool hasUserInput;
-@property(readonly, nonatomic) _Bool hasFbr;
-@property(readonly, nonatomic) _Bool hasPubliclyIndexable;
-@property(readonly, nonatomic) _Bool hasIsLocalApplicationResult;
-@property(readonly, nonatomic) _Bool hasCompletedQuery;
-@property(readonly, nonatomic) _Bool hasCorrectedQuery;
-@property(readonly, nonatomic) _Bool hasIntendedQuery;
-@property(readonly, nonatomic) _Bool hasQueryId;
-@property(readonly, nonatomic) _Bool hasIsStaticCorrection;
-@property(readonly, nonatomic) _Bool hasRankingScore;
-@property(readonly, nonatomic) _Bool hasResultType;
-@property(readonly, nonatomic) _Bool hasSectionBundleIdentifier;
-@property(readonly, nonatomic) _Bool hasApplicationBundleIdentifier;
-@property(readonly, nonatomic) _Bool hasResultBundleId;
-@property(readonly, nonatomic) _Bool hasLocalFeatures;
-@property(readonly, nonatomic) _Bool hasSrf;
-@property(readonly, nonatomic) _Bool hasType;
-@property(readonly, nonatomic) _Bool hasPunchout;
-@property(readonly, nonatomic) _Bool hasAction;
-@property(readonly, nonatomic) _Bool hasTopHit;
-@property(readonly, nonatomic) _Bool hasIdentifier;
 - (id)initWithFacade:(id)arg1;
 - (id)feedbackJSON;
 

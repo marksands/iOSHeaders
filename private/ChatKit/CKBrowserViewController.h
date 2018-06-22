@@ -52,7 +52,9 @@
 - (void)viewDidTransitionToExpandedPresentation;
 - (void)viewWillTransitionToExpandedPresentation;
 @property(readonly, nonatomic) _Bool wasExpandedPresentation;
+@property(readonly, nonatomic) _Bool inFullScreenModalPresentation;
 @property(readonly, nonatomic) _Bool inExpandedPresentation;
+- (_Bool)inCompactPresentation;
 - (_Bool)isLoaded;
 - (void)dismiss;
 - (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;

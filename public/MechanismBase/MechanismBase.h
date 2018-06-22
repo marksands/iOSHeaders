@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "LAUIDelegate.h"
+
 @class MechanismContext, NSDictionary, NSError, NSMutableDictionary;
 
-@interface MechanismBase : NSObject
+@interface MechanismBase : NSObject <LAUIDelegate>
 {
     CDUnknownBlockType _replyToRun;
     MechanismContext *_mechanismContext;

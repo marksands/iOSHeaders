@@ -13,6 +13,9 @@
     _Bool _canAccessRemoteAssets;
     _Bool _canAccessAppleMusic;
     _Bool _canAccessiCloudMusicLibrary;
+    _Bool _canPlayEncryptedProgressiveDownloadAssets;
+    _Bool _canFetchMediaDataFromSender;
+    _Bool _presentsOptimizedUserInterfaceWhenPlayingFetchedAudioOnlyAssets;
     _Bool _remoteControllable;
     _Bool _groupLeader;
     _Bool _groupContainsGroupLeader;
@@ -67,6 +70,9 @@
 @property(readonly, nonatomic) _Bool groupContainsGroupLeader; // @synthesize groupContainsGroupLeader=_groupContainsGroupLeader;
 @property(readonly, nonatomic, getter=isGroupLeader) _Bool groupLeader; // @synthesize groupLeader=_groupLeader;
 @property(readonly, nonatomic, getter=isRemoteControllable) _Bool remoteControllable; // @synthesize remoteControllable=_remoteControllable;
+@property(readonly, nonatomic) _Bool presentsOptimizedUserInterfaceWhenPlayingFetchedAudioOnlyAssets; // @synthesize presentsOptimizedUserInterfaceWhenPlayingFetchedAudioOnlyAssets=_presentsOptimizedUserInterfaceWhenPlayingFetchedAudioOnlyAssets;
+@property(readonly, nonatomic) _Bool canFetchMediaDataFromSender; // @synthesize canFetchMediaDataFromSender=_canFetchMediaDataFromSender;
+@property(readonly, nonatomic) _Bool canPlayEncryptedProgressiveDownloadAssets; // @synthesize canPlayEncryptedProgressiveDownloadAssets=_canPlayEncryptedProgressiveDownloadAssets;
 @property(readonly, nonatomic) _Bool canAccessiCloudMusicLibrary; // @synthesize canAccessiCloudMusicLibrary=_canAccessiCloudMusicLibrary;
 @property(readonly, nonatomic) _Bool canAccessAppleMusic; // @synthesize canAccessAppleMusic=_canAccessAppleMusic;
 @property(readonly, nonatomic) _Bool canAccessRemoteAssets; // @synthesize canAccessRemoteAssets=_canAccessRemoteAssets;
@@ -80,6 +86,10 @@
 @property(readonly, nonatomic) NSString *uid; // @synthesize uid=_uid;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSDictionary *jsonEncodableDictionaryRepresentation;
+@property(readonly, nonatomic) NSString *roleDescription;
+@property(readonly, nonatomic) NSString *composedTypeDescription;
+@property(readonly, nonatomic) NSString *capabilitiesDescription;
 @property(readonly, nonatomic) _MRAVOutputDeviceDescriptorProtobuf *descriptor;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

@@ -7,6 +7,8 @@
 #import "UIViewController.h"
 
 @interface UIViewController (SafariServicesExtras)
+@property(readonly, nonatomic) _Bool _sf_isPKAddPassesViewController;
+@property(readonly, nonatomic) _Bool _sf_isMFMailComposeViewController;
 - (void)_sf_animateAlongsideTransitionOrPerform:(CDUnknownBlockType)arg1;
 - (void)_sf_presentViewControllerOnTopOfPresentedViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) struct CGRect _sf_bottomUnsafeAreaFrame;

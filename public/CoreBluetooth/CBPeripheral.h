@@ -37,8 +37,10 @@
     long long _state;
     NSArray *_services;
     NSHashTable *_l2capChannels;
+    NSString *_BDAddress;
 }
 
+@property(retain) NSString *BDAddress; // @synthesize BDAddress=_BDAddress;
 @property(readonly, retain, nonatomic) NSHashTable *l2capChannels; // @synthesize l2capChannels=_l2capChannels;
 @property(readonly, nonatomic) _Bool isConnectedToSystem; // @synthesize isConnectedToSystem=_isConnectedToSystem;
 @property unsigned int writesPending; // @synthesize writesPending=_writesPending;
@@ -72,7 +74,9 @@
 - (id)l2capChannelForPeer:(id)arg1 withPsm:(unsigned short)arg2;
 - (void)openL2CAPChannel:(unsigned short)arg1 options:(id)arg2;
 - (void)openL2CAPChannel:(unsigned short)arg1;
+- (void)setHighPriorityStream:(_Bool)arg1 duration:(id)arg2;
 - (void)getTimeSyncData;
+- (void)setPeripheralName:(id)arg1;
 - (_Bool)hasTag:(id)arg1;
 - (void)untag:(id)arg1;
 - (void)tag:(id)arg1;

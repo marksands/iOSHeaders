@@ -10,6 +10,10 @@
 {
 }
 
++ (id)_publicEventSpecCategoryNameInCity;
++ (id)_publicEventSpecCategoryNameAtBusiness;
++ (id)_publicEventSpecPerformerNames;
++ (id)_publicEventSpecEventName;
 + (id)_specForThrowbackThursday;
 + (id)_specForPeopleVisiting;
 + (id)_specForEarlyMoments;
@@ -33,7 +37,7 @@
 + (id)_specForWedding;
 + (id)_specForCelebration;
 + (id)specCollectionForMeaningLabel:(id)arg1;
-+ (id)specCollectionForMemoryCategory:(long long)arg1 subcategory:(long long)arg2;
++ (id)specCollectionForMemoryCategory:(unsigned long long)arg1 subcategory:(unsigned long long)arg2;
 
 @end
 

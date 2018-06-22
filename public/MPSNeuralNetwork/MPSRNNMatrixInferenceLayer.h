@@ -36,8 +36,8 @@
 @property(nonatomic) _Bool recurrentOutputIsTemporary; // @synthesize recurrentOutputIsTemporary=_recurrentOutputIsTemporary;
 @property(readonly, nonatomic) unsigned long long numberOfLayers; // @synthesize numberOfLayers=_numberOfLayers;
 - (void)encodeBidirectionalSequenceToCommandBuffer:(id)arg1 sourceSequence:(id)arg2 destinationForwardMatrices:(id)arg3 destinationBackwardMatrices:(id)arg4;
+- (void)encodeSequenceToCommandBuffer:(id)arg1 sourceMatrices:(id)arg2 sourceOffsets:(unsigned long long *)arg3 destinationMatrices:(id)arg4 destinationOffsets:(unsigned long long *)arg5 recurrentInputState:(id)arg6 recurrentOutputStates:(id)arg7;
 - (void)encodeSequenceToCommandBuffer:(id)arg1 sourceMatrices:(id)arg2 destinationMatrices:(id)arg3 recurrentInputState:(id)arg4 recurrentOutputStates:(id)arg5;
-- (void)encodeToCommandBuffer:(id)arg1 sourceMatrix:(id)arg2 destinationMatrix:(id)arg3 recurrentInputState:(id)arg4 recurrentOutputState:(id *)arg5;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;

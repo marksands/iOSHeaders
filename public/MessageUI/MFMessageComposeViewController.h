@@ -29,6 +29,7 @@
 + (double)maxTrimDurationForVideo;
 + (double)maxTrimDurationForAudio;
 + (id)_chatKitBundle;
++ (void)_preloadDependencies;
 + (_Bool)canSendText;
 + (void)_startListeningForAvailabilityNotifications;
 + (void)_serviceAvailabilityChanged:(id)arg1;

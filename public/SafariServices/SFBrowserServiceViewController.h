@@ -9,7 +9,7 @@
 #import "SFServiceViewControllerProtocol.h"
 #import "_SFActivityDelegate.h"
 
-@class NSDate, NSString, SFBrowserPersonaAnalyticsHelper, SFUserNotification, WKProcessPool, _SFWebViewUsageMonitor;
+@class NSDate, NSString, NSTimer, SFBrowserPersonaAnalyticsHelper, SFUserNotification, WKProcessPool, _SFWebViewUsageMonitor;
 
 __attribute__((visibility("hidden")))
 @interface SFBrowserServiceViewController : _SFBrowserContentViewController <_SFActivityDelegate, SFServiceViewControllerProtocol>
@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     _Bool _isExpectingClientRedirect;
     _Bool _hasBegunFirstNavigation;
     SFBrowserPersonaAnalyticsHelper *_cachedAnalyticsHelper;
+    NSTimer *_redirectNotificationTimer;
     SFUserNotification *_userNotification;
     NSString *_hostApplicationCallbackURLScheme;
 }
@@ -31,6 +32,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *hostApplicationCallbackURLScheme; // @synthesize hostApplicationCallbackURLScheme=_hostApplicationCallbackURLScheme;
 @property(retain, nonatomic) SFUserNotification *userNotification; // @synthesize userNotification=_userNotification;
 - (void).cxx_destruct;
+- (void)browserViewDidReceiveFirstTouchEvent:(id)arg1;
 - (void)safariActivity:(id)arg1 didFinish:(_Bool)arg2;
 - (void)webViewController:(id)arg1 didFinishDocumentLoadForNavigation:(id)arg2;
 - (void)webViewController:(id)arg1 didStartProvisionalNavigation:(id)arg2;

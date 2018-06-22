@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MRAVOutputDevice, MRExternalDevice, NSArray, NSMutableArray, NSOperationQueue, NSString, NSTimer, _MRAVEndpointDescriptorProtobuf;
+@class MRAVOutputDevice, MRExternalDevice, NSArray, NSDictionary, NSMutableArray, NSOperationQueue, NSString, NSTimer, _MRAVEndpointDescriptorProtobuf;
 
 __attribute__((visibility("hidden")))
 @interface MRAVEndpoint : NSObject
@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (void)addOutputDevices:(id)arg1 withReplyQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)containsOutputDevice:(id)arg1;
 - (void)connectToExternalDeviceWithCompletion:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) NSDictionary *jsonEncodableDictionaryRepresentation;
 @property(readonly, nonatomic) NSString *shortDescription;
 - (_Bool)isVolumeControlAvailable;
 @property(readonly, nonatomic) _Bool canModifyGroupMembership;

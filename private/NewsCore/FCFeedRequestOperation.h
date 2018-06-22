@@ -6,7 +6,7 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class FCFeedDatabase, FCHeldRecords, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary;
+@class FCEdgeCacheHint, FCFeedDatabase, FCHeldRecords, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary;
 
 @interface FCFeedRequestOperation : FCOperation
 {
@@ -16,6 +16,7 @@
     unsigned long long _maxCount;
     long long _options;
     NSArray *_feedTransformations;
+    FCEdgeCacheHint *_edgeCacheHint;
     unsigned long long _expectedNetworkEventCount;
     CDUnknownBlockType _requestCompletionHandler;
     CDUnknownBlockType _requestCompletionHandlerWithInterestToken;
@@ -39,6 +40,7 @@
 @property(copy, nonatomic) CDUnknownBlockType requestCompletionHandlerWithInterestToken; // @synthesize requestCompletionHandlerWithInterestToken=_requestCompletionHandlerWithInterestToken;
 @property(copy, nonatomic) CDUnknownBlockType requestCompletionHandler; // @synthesize requestCompletionHandler=_requestCompletionHandler;
 @property(nonatomic) unsigned long long expectedNetworkEventCount; // @synthesize expectedNetworkEventCount=_expectedNetworkEventCount;
+@property(copy, nonatomic) FCEdgeCacheHint *edgeCacheHint; // @synthesize edgeCacheHint=_edgeCacheHint;
 @property(copy, nonatomic) NSArray *feedTransformations; // @synthesize feedTransformations=_feedTransformations;
 @property(nonatomic) long long options; // @synthesize options=_options;
 @property(nonatomic) unsigned long long maxCount; // @synthesize maxCount=_maxCount;
@@ -50,6 +52,8 @@
 - (unsigned long long)_orderFeedTopKFromBin:(long long)arg1 timeInterval:(double)arg2;
 - (id)_orderFeedIDFromFeedID:(id)arg1;
 - (id)_failureResponseForRequest:(id)arg1 error:(id)arg2;
+- (id)_normalizedFeedRange:(id)arg1;
+- (void)_gatherEdgeCachedFeedResponsesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_gatherAllOrderFeedResponsesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_gatherAllFeedResponsesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (unsigned long long)_networkEventCount;

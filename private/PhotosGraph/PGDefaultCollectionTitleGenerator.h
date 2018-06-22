@@ -6,19 +6,23 @@
 
 #import <PhotosGraph/PGTitleGenerator.h>
 
-@class PGGraphCollectionNode;
+@class PHAsset, PHAssetCollection;
 
 @interface PGDefaultCollectionTitleGenerator : PGTitleGenerator
 {
     _Bool _debug;
-    PGGraphCollectionNode *_collectionNode;
+    id <PGEventEnrichment> _collection;
+    PHAsset *_keyAsset;
+    PHAssetCollection *_curatedAssetCollection;
 }
 
+@property(readonly, nonatomic) PHAssetCollection *curatedAssetCollection; // @synthesize curatedAssetCollection=_curatedAssetCollection;
+@property(readonly, nonatomic) PHAsset *keyAsset; // @synthesize keyAsset=_keyAsset;
 @property(nonatomic, getter=isDebug) _Bool debug; // @synthesize debug=_debug;
-@property(readonly, nonatomic) PGGraphCollectionNode *collectionNode; // @synthesize collectionNode=_collectionNode;
+@property(readonly, nonatomic) id <PGEventEnrichment> collection; // @synthesize collection=_collection;
 - (void).cxx_destruct;
 - (void)_generateTitleAndSubtitleWithResult:(CDUnknownBlockType)arg1;
-- (id)initWithCollectionNode:(id)arg1;
+- (id)initWithCollection:(id)arg1 keyAsset:(id)arg2 curatedAssetCollection:(id)arg3;
 
 @end
 

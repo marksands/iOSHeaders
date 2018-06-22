@@ -11,6 +11,7 @@
 #import "CKConversationResultsControllerDelegate.h"
 #import "CKTranscriptPreviewControllerDelegate.h"
 #import "IMCloudKitEventHandler.h"
+#import "TUConversationManagerDelegate.h"
 #import "UIActionSheetDelegate.h"
 #import "UISearchBarDelegate.h"
 #import "UISearchControllerDelegate.h"
@@ -20,9 +21,9 @@
 #import "UIViewControllerPreviewingDelegate.h"
 #import "UIViewControllerPreviewingDelegate_Private.h"
 
-@class CKCloudKitSyncProgressViewController, CKConversation, CKConversationList, CKConversationSearchResultsController, CKMessagesController, CKScheduledUpdater, NSArray, NSIndexPath, NSString, UIBarButtonItem, UISearchController, UITableView, UIView;
+@class CKCloudKitSyncProgressViewController, CKConversation, CKConversationList, CKConversationSearchResultsController, CKMessagesController, CKScheduledUpdater, NSArray, NSIndexPath, NSString, TUConversationManager, UIBarButtonItem, UISearchController, UITableView, UIView;
 
-@interface CKConversationListController : UITableViewController <UISearchControllerDelegate, UISearchBarDelegate, CKCloudKitSyncProgressViewControllerDelegate, IMCloudKitEventHandler, CKConversationResultsControllerDelegate, CKConversationListCellDelegate, UITableViewDragDestinationDelegate, CKTranscriptPreviewControllerDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
+@interface CKConversationListController : UITableViewController <UISearchControllerDelegate, UISearchBarDelegate, CKCloudKitSyncProgressViewControllerDelegate, IMCloudKitEventHandler, CKConversationResultsControllerDelegate, CKConversationListCellDelegate, UITableViewDragDestinationDelegate, TUConversationManagerDelegate, CKTranscriptPreviewControllerDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 {
     UITableView *_table;
     NSIndexPath *_previouslySelectedIndexPath;
@@ -47,12 +48,14 @@
     double _conversationCellHeight;
     UISearchController *_searchController;
     CKConversationSearchResultsController *_searchResultsController;
+    TUConversationManager *_liveConversationManager;
     UIBarButtonItem *_composeButton;
     CDUnknownBlockType _searchCompletion;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType searchCompletion; // @synthesize searchCompletion=_searchCompletion;
 @property(retain, nonatomic) UIBarButtonItem *composeButton; // @synthesize composeButton=_composeButton;
+@property(retain, nonatomic) TUConversationManager *liveConversationManager; // @synthesize liveConversationManager=_liveConversationManager;
 @property(retain, nonatomic) CKConversationSearchResultsController *searchResultsController; // @synthesize searchResultsController=_searchResultsController;
 @property(retain, nonatomic) UISearchController *searchController; // @synthesize searchController=_searchController;
 @property(nonatomic) double conversationCellHeight; // @synthesize conversationCellHeight=_conversationCellHeight;
@@ -94,6 +97,7 @@
 - (id)_tableView:(id)arg1 dropSessionDidUpdate:(id)arg2 withDestinationIndexPath:(id)arg3;
 - (_Bool)_tableView:(id)arg1 canHandleDropSession:(id)arg2;
 - (void)_tableView:(id)arg1 performDropWithCoordinator:(id)arg2;
+- (void)conversationsChangedForConversationManager:(id)arg1;
 - (void)searcherDidComplete:(id)arg1;
 - (void)searcher:(id)arg1 userDidDeleteChatGUID:(id)arg2;
 - (void)searcher:(id)arg1 userDidSelectChatGUID:(id)arg2 messageGUID:(id)arg3;
@@ -157,6 +161,7 @@
 - (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)loadView;
+- (_Bool)hasLiveRemoteConversationParticipantsForConversation:(id)arg1;
 - (id)_mergeUnsentComposition:(id)arg1 withDroppedComposition:(id)arg2;
 - (void)_showConversationWithComposition:(id)arg1 atIndexPath:(id)arg2;
 - (void)performSearch:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -166,6 +171,7 @@
 - (void)updateNoMessagesDialog;
 - (void)updateMarginWidth;
 - (void)updateConversationList;
+- (void)_reloadVisibleConversationList;
 - (void)updateSMSSpamConversationsDisplayName;
 - (void)endHoldingConversationListUpdatesForKey:(id)arg1;
 - (void)beginHoldingConversationListUpdatesForKey:(id)arg1;
@@ -184,6 +190,7 @@
 - (void)_conversationListDidChange:(id)arg1;
 - (void)_conversationListDidFinishLoadingConversations:(id)arg1;
 - (void)_chatWatermarkDidChange:(id)arg1;
+- (void)_multiWayCallStateChanged:(id)arg1;
 - (void)_chatItemsDidChange:(id)arg1;
 - (void)_conversationPinStateChangedNotification:(id)arg1;
 - (void)_conversationContactPhotosEnabledChangedNotification:(id)arg1;
@@ -192,6 +199,7 @@
 - (void)_conversationMuteDidChangeNotification:(id)arg1;
 - (void)_conversationDisplayNameChangedNotification:(id)arg1;
 - (void)_conversationIsFilteredChangedNotification:(id)arg1;
+- (void)_chatRegistryLastMessageLoadedNotification:(id)arg1;
 - (void)_chatParticipantsChangedNotification:(id)arg1;
 - (void)_chatUnreadCountDidChange:(id)arg1;
 - (void)accessibilityLargeTextDidChange;

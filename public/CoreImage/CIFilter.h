@@ -23,7 +23,7 @@
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 + (id)_filterArrayFromProperties:(id)arg1;
 + (id)_filterArrayFromImageMetadata:(struct CGImageMetadata *)arg1 inputImageExtent:(struct CGRect)arg2;
-+ (struct CGImageMetadata *)_imageMetadataFromFilters:(id)arg1 inputImageExtent:(struct CGRect)arg2;
++ (const struct CGImageMetadata *)_imageMetadataFromFilters:(id)arg1 inputImageExtent:(struct CGRect)arg2;
 + (id)_filterArrayFromProperties:(id)arg1 inputImageExtent:(struct CGRect)arg2;
 + (id)_propertyArrayFromFilters:(id)arg1 inputImageExtent:(struct CGRect)arg2;
 + (id)filterWithString:(id)arg1;
@@ -45,6 +45,8 @@
 + (id)filterWithCVPixelBuffer:(struct __CVBuffer *)arg1 properties:(id)arg2 options:(id)arg3;
 + (id)filterWithImageData:(id)arg1 options:(id)arg2;
 + (id)filterWithImageURL:(id)arg1 options:(id)arg2;
++ (id)metalFilterWithName:(id)arg1;
++ (id)metalFilterWithName:(id)arg1 withInputParameters:(id)arg2;
 @property(getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(copy, nonatomic) NSString *name;
 - (id)apply:(id)arg1;

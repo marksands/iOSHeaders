@@ -10,8 +10,13 @@
 {
 }
 
-+ (double)minimumRatioOfFocusedPersonFacesPerAssetForMultipleFocusedPersonsFacedAssetsWithDefaultValue:(double)arg1;
-+ (unsigned long long)maximumNumberOfFacesPerAssetForSingleFocusedPersonFacedAssetsWithDefaultValue:(unsigned long long)arg1;
++ (_Bool)isPublicEventsEnabled;
++ (_Bool)boundTextFeaturesPerEvent;
++ (unsigned long long)maximumNumberOfTextFeaturesPerEvent;
++ (_Bool)enableIdentifyingProperties;
++ (_Bool)enablePropertyLoadManagement;
++ (double)minimumRatioOfFocusedPersonFacesPerAssetForMultipleFocusedPersonsFacedAssets;
++ (unsigned long long)maximumNumberOfFacesPerAssetForSingleFocusedPersonFacedAssets;
 + (_Bool)isMemoriesLivingOnFeedbackEnabled;
 + (_Bool)isMemoriesNotificationDisabled;
 + (unsigned long long)minimumNumberOfCuratedAssetsForInterestingMoments;

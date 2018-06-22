@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NTPBAdCtaEngagement, NTPBAdEngagement, NTPBAdExposureIneligible, NTPBAdExposureOpportunity, NTPBAdImpression, NTPBAlreadySubscriberSignIn, NTPBAnfComponentExposure, NTPBAppSessionEnd, NTPBAppSessionEndWatch, NTPBAppSessionStart, NTPBAppSessionStartWatch, NTPBArticleEngagement, NTPBArticleHostViewExposure, NTPBArticleLikeDislike, NTPBArticleScroll, NTPBArticleScrollNotw, NTPBArticleViewNotw, NTPBArticleViewWatch, NTPBBackgroundSubscriptionValidation, NTPBBundleIdMappingMiss, NTPBChannelMuteUnmute, NTPBComscoreEventSend, NTPBCoverArticleWidgetExposure, NTPBCoverArticleWidgetView, NTPBDiscoverMoreInterstitialExposure, NTPBEmailOptInInvite, NTPBEndOfArticleExposure, NTPBExternalAnalyticsEventSend, NTPBFeedCellExposure, NTPBFeedCellHostViewExposure, NTPBFeedEngagementMenuExposure, NTPBFeedSubscribeUnsubscribe, NTPBFeedViewExposure, NTPBGroupViewExposure, NTPBInAppWebEmbedExposure, NTPBLinkTap, NTPBLinkTapArticle, NTPBLocalNotificationReceived, NTPBLocalNotificationReturn, NTPBMediaEngage, NTPBMediaEngageComplete, NTPBMediaExposure, NTPBMediaView, NTPBNoUserAction, NTPBNotificationSettingsScreenView, NTPBNotificationSubscribeUnsubscribe, NTPBOptInButtonExposure, NTPBPaidSubscriptionConversionPointExposure, NTPBPaidSubscriptionResult, NTPBPaidSubscriptionSheetIapFail, NTPBPaidSubscriptionSheetView, NTPBPullToRefresh, NTPBReadingListAddRemove, NTPBReadingListShow, NTPBRecommendationBrickExposure, NTPBReportConcernSubmission, NTPBRestorePaidSubscription, NTPBSearchBegin, NTPBSearchExecute, NTPBSearchResultSelect, NTPBSearchViewExposure, NTPBShareInformationScreenView, NTPBShareResult, NTPBShareSheetExposure, NTPBShareSheetIapFail, NTPBSubscriptionDetectionScreenView, NTPBSuggestionsFeedback, NTPBTodayWidgetExposure, NTPBTodayWidgetHeadlineExposure, NTPBTodayWidgetSession, NTPBTopOfFeedModuleExposure, NTPBUrlMappingMiss, NTPBUserIgnoreFavoritesSuggestion, NTPBUserOnboardingBegin, NTPBUserOnboardingChannelPickerComplete, NTPBUserOnboardingResult, NTPBUserOnboardingResume, NTPBUserOnboardingScreenView, NTPBWebAccessScreenView, NTPBWidgetEngagement;
+@class NTPBAdCtaEngagement, NTPBAdEngagement, NTPBAdExposureIneligible, NTPBAdExposureOpportunity, NTPBAdImpression, NTPBAlreadySubscriberSignIn, NTPBAnfComponentExposure, NTPBAppSessionEnd, NTPBAppSessionEndWatch, NTPBAppSessionStart, NTPBAppSessionStartWatch, NTPBArticleEngagement, NTPBArticleHostViewExposure, NTPBArticleLikeDislike, NTPBArticleScroll, NTPBArticleScrollNotw, NTPBArticleViewNotw, NTPBArticleViewWatch, NTPBBackgroundSubscriptionValidation, NTPBBundleIdMappingMiss, NTPBChannelMuteUnmute, NTPBComscoreEventSend, NTPBCoverArticleWidgetExposure, NTPBCoverArticleWidgetView, NTPBDiscoverMoreInterstitialExposure, NTPBEmailOptInInvite, NTPBEndOfArticleExposure, NTPBExternalAnalyticsEventSend, NTPBFeedCellExposure, NTPBFeedCellHostViewExposure, NTPBFeedEngagementMenuExposure, NTPBFeedSubscribeUnsubscribe, NTPBFeedViewExposure, NTPBGroupViewExposure, NTPBInAppWebEmbedExposure, NTPBLinkTap, NTPBLinkTapArticle, NTPBLocalNotificationReceived, NTPBLocalNotificationReturn, NTPBMediaEngage, NTPBMediaEngageComplete, NTPBMediaExposure, NTPBMediaView, NTPBNoUserAction, NTPBNotificationSettingsScreenView, NTPBNotificationSubscribeUnsubscribe, NTPBOptInButtonExposure, NTPBPaidSubscriptionConversionPointExposure, NTPBPaidSubscriptionResult, NTPBPaidSubscriptionSheetIapFail, NTPBPaidSubscriptionSheetView, NTPBPullToRefresh, NTPBReadingListAddRemove, NTPBReadingListShow, NTPBRecommendationBrickExposure, NTPBReportConcernSubmission, NTPBRestorePaidSubscription, NTPBSearchBegin, NTPBSearchExecute, NTPBSearchResultSelect, NTPBSearchViewExposure, NTPBShareInformationScreenView, NTPBShareResult, NTPBShareSheetExposure, NTPBShareSheetIapFail, NTPBSubscriptionDetectionScreenView, NTPBSuggestionsFeedback, NTPBTOCCardDrag, NTPBTOCCellExposure, NTPBTOCExposure, NTPBTOCHandleTap, NTPBTOCReorder, NTPBTOCToggleTap, NTPBTodayWidgetExposure, NTPBTodayWidgetHeadlineExposure, NTPBTodayWidgetSession, NTPBTopOfFeedModuleExposure, NTPBUrlMappingMiss, NTPBUserIgnoreFavoritesSuggestion, NTPBUserOnboardingBegin, NTPBUserOnboardingChannelPickerComplete, NTPBUserOnboardingResult, NTPBUserOnboardingResume, NTPBUserOnboardingScreenView, NTPBWebAccessScreenView, NTPBWidgetEngagement;
 
 @interface NTPBEventObject : PBCodable <NSCopying>
 {
@@ -79,6 +79,12 @@
     NTPBShareSheetIapFail *_shareSheetIapFail;
     NTPBSubscriptionDetectionScreenView *_subscriptionDetectionScreenView;
     NTPBSuggestionsFeedback *_suggestionsFeedback;
+    NTPBTOCCardDrag *_tocCardDrag;
+    NTPBTOCCellExposure *_tocCellExposure;
+    NTPBTOCExposure *_tocExposure;
+    NTPBTOCHandleTap *_tocHandleTap;
+    NTPBTOCReorder *_tocReorder;
+    NTPBTOCToggleTap *_tocToggleTap;
     NTPBTodayWidgetExposure *_todayWidgetExposure;
     NTPBTodayWidgetHeadlineExposure *_todayWidgetHeadlineExposure;
     NTPBTodayWidgetSession *_todayWidgetSession;
@@ -94,6 +100,12 @@
     NTPBWidgetEngagement *_widgetEngagement;
 }
 
+@property(retain, nonatomic) NTPBTOCCellExposure *tocCellExposure; // @synthesize tocCellExposure=_tocCellExposure;
+@property(retain, nonatomic) NTPBTOCToggleTap *tocToggleTap; // @synthesize tocToggleTap=_tocToggleTap;
+@property(retain, nonatomic) NTPBTOCCardDrag *tocCardDrag; // @synthesize tocCardDrag=_tocCardDrag;
+@property(retain, nonatomic) NTPBTOCHandleTap *tocHandleTap; // @synthesize tocHandleTap=_tocHandleTap;
+@property(retain, nonatomic) NTPBTOCReorder *tocReorder; // @synthesize tocReorder=_tocReorder;
+@property(retain, nonatomic) NTPBTOCExposure *tocExposure; // @synthesize tocExposure=_tocExposure;
 @property(retain, nonatomic) NTPBInAppWebEmbedExposure *inAppWebEmbedExposure; // @synthesize inAppWebEmbedExposure=_inAppWebEmbedExposure;
 @property(retain, nonatomic) NTPBTopOfFeedModuleExposure *topOfFeedModuleExposure; // @synthesize topOfFeedModuleExposure=_topOfFeedModuleExposure;
 @property(retain, nonatomic) NTPBLinkTap *linkTap; // @synthesize linkTap=_linkTap;
@@ -183,6 +195,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasTocCellExposure;
+@property(readonly, nonatomic) _Bool hasTocToggleTap;
+@property(readonly, nonatomic) _Bool hasTocCardDrag;
+@property(readonly, nonatomic) _Bool hasTocHandleTap;
+@property(readonly, nonatomic) _Bool hasTocReorder;
+@property(readonly, nonatomic) _Bool hasTocExposure;
 @property(readonly, nonatomic) _Bool hasInAppWebEmbedExposure;
 @property(readonly, nonatomic) _Bool hasTopOfFeedModuleExposure;
 @property(readonly, nonatomic) _Bool hasLinkTap;

@@ -6,16 +6,18 @@
 
 #import "NSObject.h"
 
+#import "HDAssertionObserver.h"
 #import "HDDiagnosticObject.h"
 #import "HDHealthDaemonReadyObserver.h"
 
-@class HDBTLEHeartRateDataCollector, HDDemoManager, HDProfile, NSDate, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class HDBTLEHeartRateDataCollector, HDDatabaseCoalescedWritePool, HDDemoManager, HDProfile, NSDate, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
-@interface HDDataCollectionManager : NSObject <HDDiagnosticObject, HDHealthDaemonReadyObserver>
+@interface HDDataCollectionManager : NSObject <HDDiagnosticObject, HDHealthDaemonReadyObserver, HDAssertionObserver>
 {
     NSDate *_lastLaunchUpdate;
     NSMutableDictionary *_dataAggregatorsByType;
     NSMutableArray *_builtinCollectors;
+    HDDatabaseCoalescedWritePool *_pendingSavePool;
     HDProfile *_profile;
     NSMutableDictionary *_dataCollectorsByType;
     NSMutableDictionary *_observersByType;
@@ -34,7 +36,11 @@
 - (id)diagnosticDescription;
 - (id)_dataCollectorsDiagnosticDescription;
 - (id)_observersDescription;
+- (void)unitTest_setAggregator:(id)arg1 forType:(id)arg2;
 - (void)addDataCollector:(id)arg1;
+- (void)stopDataCollectionForType:(id)arg1 observer:(id)arg2;
+- (void)startDataCollectionForType:(id)arg1 observer:(id)arg2 collectionInterval:(double)arg3;
+- (id)takeCollectionAssertionWithOwnerIdentifier:(id)arg1 sampleTypes:(id)arg2 observer:(id)arg3 observerState:(id)arg4 collectionInterval:(double)arg5;
 - (void)generateFakeDataForActivityType:(long long)arg1 minutes:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)stopFakingData;
 - (void)startFakingWithHKWorkoutActivityType:(unsigned long long)arg1;
@@ -49,28 +55,34 @@
 - (void)daemonReady:(id)arg1;
 - (void)_queue_addDataCollector:(id)arg1;
 - (void)_queue_alertCollectorsOfTypesWithObservers;
-- (void)stopDataCollectionForType:(id)arg1 observer:(id)arg2;
-- (void)startDataCollectionForType:(id)arg1 observer:(id)arg2 collectionInterval:(double)arg3;
 - (double)_queue_defaultCollectionIntervalForType:(id)arg1;
 - (void)_queue_adjustDataCollectionForType:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (CDStruct_0714bc26)_queue_collectionStateForType:(id)arg1;
 - (id)_queue_observerMapForType:(id)arg1;
-- (void)immediateUpdateForType:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)assertionManager:(id)arg1 assertionInvalidated:(id)arg2;
+- (void)assertionManager:(id)arg1 assertionTaken:(id)arg2;
+- (id)takeCollectionAssertionWithOwnerIdentifier:(id)arg1 sampleTypes:(id)arg2 observerState:(id)arg3 collectionInterval:(double)arg4;
+- (void)_requestAggregationThroughDate:(id)arg1 type:(id)arg2 mode:(long long)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_requestAggregationThroughDate:(id)arg1 types:(id)arg2 mode:(long long)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)requestAggregationForAllTypesThroughDate:(id)arg1 mode:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)requestAggregationThroughDate:(id)arg1 types:(id)arg2 mode:(long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (double)defaultCollectionIntervalForType:(id)arg1;
-- (void)updateCollectionInterval:(double)arg1 type:(id)arg2 observer:(id)arg3;
 - (void)dataCollectionObserver:(id)arg1 didChangeState:(id)arg2;
 - (void)removeDataCollectionObserver:(id)arg1;
 - (void)removeDataCollectionObserver:(id)arg1 type:(id)arg2;
 - (void)addDataCollectionObserver:(id)arg1 type:(id)arg2 collectionInterval:(double)arg3 state:(id)arg4;
+- (void)performSaveWithMaximumLatency:(double)arg1 block:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)performSaveWithBlock:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)btleHeartRateDataCollector;
 - (void)_queue_createBuiltinCollectors;
 - (id)_queue_aggregatorForType:(id)arg1;
-- (Class)_aggregatorClassForObjectType:(id)arg1;
+- (id)_newAggregatorForObjectType:(id)arg1;
 - (id)aggregatorForType:(id)arg1;
 - (void)_demoObjectsReceived:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)periodicUpdate;
 - (void)dealloc;
 - (id)initWithProfile:(id)arg1;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -20,6 +20,7 @@
     unsigned long long _suggestionID;
     _UILegibilitySettings *_legibilitySettings;
     SPSearchEntity *_searchEntity;
+    double _blurProgress;
     SPUITextField *_searchField;
     UIButton *_cancelButton;
     NSLayoutConstraint *_searchFieldTrailingConstraint;
@@ -34,12 +35,14 @@
 @property(retain) NSLayoutConstraint *searchFieldTrailingConstraint; // @synthesize searchFieldTrailingConstraint=_searchFieldTrailingConstraint;
 @property(retain) UIButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(retain) SPUITextField *searchField; // @synthesize searchField=_searchField;
+@property(nonatomic) double blurProgress; // @synthesize blurProgress=_blurProgress;
 @property _Bool offersCompletions; // @synthesize offersCompletions=_offersCompletions;
 @property(retain, nonatomic) SPSearchEntity *searchEntity; // @synthesize searchEntity=_searchEntity;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property unsigned long long suggestionID; // @synthesize suggestionID=_suggestionID;
 @property __weak id <SPUISearchHeaderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+@property(nonatomic) _Bool useInPlaceFilteredBlur;
 - (double)topPadding;
 - (void)performTestSearchWithQuery:(id)arg1 event:(unsigned long long)arg2 sourcePreference:(long long)arg3;
 - (void)searchForQuery:(id)arg1 forSuggestions:(_Bool)arg2;
@@ -51,6 +54,7 @@
 - (void)clearSearchFieldWhyQuery:(unsigned long long)arg1 allowZKW:(_Bool)arg2;
 - (_Bool)searchFieldIsFocused;
 - (void)unfocusSearchField;
+- (_Bool)isFirstResponder;
 - (void)focusSearchFieldAndBeginDictation:(_Bool)arg1;
 - (void)beginDictation;
 - (void)focusSearchField;
@@ -74,11 +78,12 @@
 - (void)setupKeyboardSupportForResultViewController:(id)arg1;
 - (void)enableDictationIfRequired;
 - (id)backdropVisualEffectView;
-- (void)updateBlurProgress:(double)arg1;
+- (void)updateBlurProgress;
 - (void)_updateClearButtonVisibility;
 @property(retain) NSArray *representedObjects;
 - (void)dictationButtonPressed;
 - (void)changeOrientation:(id)arg1;
+- (void)didMoveToSuperview;
 - (id)init;
 
 // Remaining properties

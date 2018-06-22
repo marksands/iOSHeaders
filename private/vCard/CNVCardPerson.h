@@ -56,12 +56,14 @@
     NSArray *_unknownProperties;
     NSString *_preferredLikenessSource;
     NSString *_preferredApplePersonaIdentifier;
+    NSString *_preferredChannel;
 }
 
-@property(retain) NSString *phonemeData; // @synthesize phonemeData=_phonemeData;
 @property(retain) NSArray *unknownProperties; // @synthesize unknownProperties=_unknownProperties;
+@property(retain) NSString *preferredChannel; // @synthesize preferredChannel=_preferredChannel;
 @property(retain) NSString *preferredApplePersonaIdentifier; // @synthesize preferredApplePersonaIdentifier=_preferredApplePersonaIdentifier;
 @property(retain) NSString *preferredLikenessSource; // @synthesize preferredLikenessSource=_preferredLikenessSource;
+@property(retain) NSString *phonemeData; // @synthesize phonemeData=_phonemeData;
 @property(retain) NSString *uid; // @synthesize uid=_uid;
 @property(retain) NSString *cardDAVUID; // @synthesize cardDAVUID=_cardDAVUID;
 @property(retain) NSArray *namesOfParentGroups; // @synthesize namesOfParentGroups=_namesOfParentGroups;

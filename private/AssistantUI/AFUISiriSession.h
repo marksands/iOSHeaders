@@ -12,7 +12,7 @@
 #import "AFUISpeechSynthesisLocalDelegate.h"
 #import "AFUIStateMachineDelegate.h"
 
-@class AFConnection, AFConnectionUserInteractionAssertion, AFSettingsConnection, AFUIAppIntentDeliverer, AFUISiriSessionInfo, AFUISpeechSynthesis, AFUIStateMachine, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString;
+@class AFConnection, AFConnectionUserInteractionAssertion, AFSettingsConnection, AFUISiriSessionInfo, AFUISpeechSynthesis, AFUIStateMachine, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AFUISiriSession : NSObject <AFAssistantUIService, AFSpeechDelegate, AFUIStateMachineDelegate, AFUISpeechSynthesisLocalDelegate, AFUISiriSession>
 {
@@ -23,7 +23,6 @@
     NSMutableSet *_speechRequestGroupGraveyard;
     CDUnknownBlockType _continuePendingRequest;
     _Bool _sendContextBeforeContinuingSpeechRequest;
-    AFUIAppIntentDeliverer *_currentAppIntentDeliverer;
     AFSettingsConnection *_settingsConnection;
     AFConnectionUserInteractionAssertion *_userInteractionAssertion;
     _Bool _eyesFree;
@@ -48,6 +47,7 @@
 @property(nonatomic) __weak id <AFUISiriSessionLocalDataSource> localDataSource; // @synthesize localDataSource=_localDataSource;
 @property(retain, nonatomic) id <AFUISiriSessionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_updateActiveAccount:(id)arg1 withNumberOfActiveAccounts:(unsigned long long)arg2;
 - (void)_updateActiveAccount:(id)arg1;
 - (void)settingsConnectionDidChangeActiveAccount:(id)arg1;
 - (void)_authenticationUIDismissed;
@@ -94,6 +94,7 @@
 - (void)stopRecordingSpeech;
 - (void)_startSpeechPronunciationRequestWithContext:(id)arg1 options:(id)arg2;
 - (void)_startSpeechRequestWithSpeechFileAtURL:(id)arg1;
+- (void)_startSpeechRequestWithSpeechRequestOptions:(id)arg1 isInitialBringUp:(_Bool)arg2;
 - (void)_startSpeechRequestWithOptions:(id)arg1;
 - (void)_requestContextWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_preparedSpeechRequestWithRequestOptions:(id)arg1;
@@ -114,7 +115,6 @@
 - (void)assistantConnectionSpeechRecordingWillBegin:(id)arg1;
 - (void)_updateAssistantVersion:(id)arg1;
 - (void)assistantConnection:(id)arg1 didLoadAssistant:(id)arg2;
-- (void)assistantConnection:(id)arg1 handleIntent:(id)arg2 inBackgroundAppWithBundleId:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)assistantConnection:(id)arg1 extensionRequestFinishedForApplication:(id)arg2 error:(id)arg3;
 - (void)assistantConnection:(id)arg1 extensionRequestWillStartForApplication:(id)arg2;
 - (void)assistantConnection:(id)arg1 wantsToCacheImage:(id)arg2;
@@ -143,6 +143,7 @@
 - (void)startRequestWithOptions:(id)arg1;
 - (void)_startRequestWithFinalOptions:(id)arg1;
 - (void)_didChangeDialogPhase:(id)arg1;
+- (void)resumeInterruptedAudioPlaybackIfNeeded;
 - (void)forceAudioSessionInactive;
 - (void)forceAudioSessionActive;
 - (void)preheat;

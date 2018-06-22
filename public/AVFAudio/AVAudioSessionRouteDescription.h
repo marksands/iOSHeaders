@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface AVAudioSessionRouteDescription : NSObject
 {
@@ -24,6 +24,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;
+@property(readonly) NSString *siriRemoteInputIdentifier;
 
 @end
 

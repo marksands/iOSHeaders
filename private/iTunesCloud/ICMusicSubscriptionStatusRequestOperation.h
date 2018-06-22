@@ -14,6 +14,7 @@
     CDUnknownBlockType _responseHandler;
 }
 
++ (_Bool)_shouldDisplayPrivacyLink;
 @property(copy, nonatomic) CDUnknownBlockType responseHandler; // @synthesize responseHandler=_responseHandler;
 @property(readonly, copy, nonatomic) ICMusicSubscriptionStatusRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;

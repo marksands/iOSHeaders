@@ -6,7 +6,7 @@
 
 #import "MCTunnelParser.h"
 
-@class MCMDMServer, NSString;
+@class CATOperationQueue, MCMDMServer, NSString;
 
 @interface MCMDMParser : MCTunnelParser
 {
@@ -14,12 +14,14 @@
     _Bool _isMDM;
     MCMDMServer *_server;
     NSString *_managingProfileIdentifier;
+    CATOperationQueue *_operationQueue;
 }
 
 + (id)_stringForAppState:(unsigned long long)arg1;
 + (id)_MCKeysToDMFKeys;
 + (id)errorChainFromError:(id)arg1;
 + (id)malformedRequestErrorResult;
+@property(retain, nonatomic) CATOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(retain, nonatomic) NSString *managingProfileIdentifier; // @synthesize managingProfileIdentifier=_managingProfileIdentifier;
 @property(nonatomic) _Bool isMDM; // @synthesize isMDM=_isMDM;
 @property(readonly, nonatomic) _Bool isChaperoned; // @synthesize isChaperoned=_isChaperoned;
@@ -103,6 +105,7 @@
 - (id)_certificateList:(id)arg1;
 - (id)_allowedDeviceQueriesForAccessRights:(int)arg1;
 - (id)_deviceInformationWithRequest:(id)arg1 accessRights:(int)arg2;
+- (id)_refreshCellularPlans:(id)arg1;
 - (id)_deleteUser:(id)arg1;
 - (id)_logOutUser:(id)arg1;
 - (id)_userList:(id)arg1;

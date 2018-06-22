@@ -17,7 +17,7 @@
     NSMutableDictionary *_sessionBySessionUUID;
 }
 
-+ (void)extensionForBundleIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
++ (void)extensionForNotificationSourceDescription:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void).cxx_destruct;
 - (void)_setSession:(id)arg1 forSessionUUID:(id)arg2;
 - (id)_takeSessionForSessionUUID:(id)arg1;

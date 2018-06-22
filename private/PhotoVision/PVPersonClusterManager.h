@@ -8,17 +8,17 @@
 
 #import "PVPhotoLibraryProtocol.h"
 
-@class NSMutableDictionary, NSSet, NSString, PVCVMLHelper;
+@class NSMutableDictionary, NSSet, NSString, PVVisionHelper;
 
 @interface PVPersonClusterManager : NSObject <PVPhotoLibraryProtocol>
 {
     NSMutableDictionary *_representativeFaceObservationForPersonIdentifier;
     NSMutableDictionary *_distancesForPersonLocalIdentifier;
     NSMutableDictionary *_distancesInCommonMomentsForPersonLocalIdentifier;
-    NSSet *_assetsToIgnore;
     id <PVPhotoLibraryProtocol> _photoLibrary;
-    PVCVMLHelper *_cvmlHelper;
+    PVVisionHelper *_visionHelper;
     NSMutableDictionary *_personClusters;
+    NSSet *_assetsToIgnore;
 }
 
 + (id)nodeSortDescriptors;
@@ -28,8 +28,9 @@
 + (id)assetSortDescriptors;
 + (id)momentSortDescriptors;
 + (id)personProcessingSortDescriptors;
+@property(retain, nonatomic) NSSet *assetsToIgnore; // @synthesize assetsToIgnore=_assetsToIgnore;
 @property(retain, nonatomic) NSMutableDictionary *personClusters; // @synthesize personClusters=_personClusters;
-@property(retain, nonatomic) PVCVMLHelper *cvmlHelper; // @synthesize cvmlHelper=_cvmlHelper;
+@property(retain, nonatomic) PVVisionHelper *visionHelper; // @synthesize visionHelper=_visionHelper;
 @property(retain, nonatomic) id <PVPhotoLibraryProtocol> photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 - (void).cxx_destruct;
 - (id)pv_lastAssetDate;
@@ -52,7 +53,7 @@
 - (id)pv_fetchFacesForPerson:(id)arg1 inMoment:(id)arg2;
 - (id)pv_fetchFacesForPerson:(id)arg1;
 - (id)pv_fetchFacesWithLocalIdentifiers:(id)arg1;
-- (id)pv_fetchFaces;
+- (unsigned long long)pv_numberOfFacesWithFaceprints;
 - (id)pv_fetchPersonsGroupedByAssetLocalIdentifierForAssets:(id)arg1;
 - (id)pv_fetchInvalidCandidatePersonsForPerson:(id)arg1;
 - (id)pv_fetchCandidatePersonsForPerson:(id)arg1;

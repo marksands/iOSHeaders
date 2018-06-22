@@ -10,6 +10,7 @@
 
 @class NSString, QLThumbnailProvider;
 
+__attribute__((visibility("hidden")))
 @interface QLThumbnailServiceContext : NSExtensionContext <QLThumbnailHost>
 {
     QLThumbnailProvider *_thumbnailProvider;
@@ -20,8 +21,8 @@
 @property(retain, nonatomic) QLThumbnailProvider *thumbnailProvider; // @synthesize thumbnailProvider=_thumbnailProvider;
 - (void).cxx_destruct;
 - (id)_thumbnailGenerationQueue;
-- (void)generateThumbnailOfSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 withFileURLHandler:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
-- (void)generateThumbnailOfSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 withContents:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)generateThumbnailOfSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 badgeType:(unsigned long long)arg4 withFileURLHandler:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
+- (void)generateThumbnailOfSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 badgeType:(unsigned long long)arg4 withContents:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (id)protocolHost;
 
 // Remaining properties

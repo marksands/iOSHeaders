@@ -26,7 +26,7 @@
 - (void)setPendingTaskWithTransferTask:(id)arg1 withTaskIdentifier:(id)arg2;
 - (void)reset;
 - (void)removeTaskIdentifiersForResource:(id)arg1 highPriority:(_Bool)arg2;
-- (void)setTaskIdentifiers:(id)arg1 forResource:(id)arg2 highPriority:(_Bool)arg3;
+- (void)_setTaskIdentifiers:(id)arg1 forResource:(id)arg2 highPriority:(_Bool)arg3;
 - (id)taskIdentifiersForResource:(id)arg1 highPriority:(_Bool)arg2;
 - (id)taskForResource:(id)arg1 highPriority:(_Bool)arg2;
 - (id)firstTaskIdentifierForResource:(id)arg1 highPriority:(_Bool)arg2;

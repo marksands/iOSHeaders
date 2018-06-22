@@ -6,6 +6,6 @@
 
 @protocol BCSNotificationServiceProtocol
 - (void)cancelNotifications;
-- (void)notifyParsedBarcodeWithData:(id <BCSParsedData>)arg1 codePayload:(id <BCSCodePayload>)arg2 reply:(void (^)(NSError *, AWDBarcodeSupportCodeDetectedEvent *))arg3;
+- (void)notifyParsedCodeWithData:(id <BCSParsedData>)arg1 codePayload:(id <BCSCodePayload>)arg2 reply:(void (^)(NSError *, AWDBarcodeSupportCodeDetectedEvent *))arg3;
 @end
 

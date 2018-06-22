@@ -24,6 +24,7 @@
 - (void).cxx_destruct;
 - (struct CGSize)_preferredContentSizeForContainerSize:(struct CGSize)arg1 contentSize:(struct CGSize)arg2;
 - (unsigned long long)customContentLocation;
+- (_Bool)userInteractionEnabled;
 - (_Bool)allowManualDismiss;
 - (_Bool)defaultContentHidden;
 - (_Bool)performAction:(id)arg1 forNotification:(id)arg2;

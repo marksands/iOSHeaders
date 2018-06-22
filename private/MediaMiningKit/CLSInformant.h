@@ -20,8 +20,7 @@
 + (id)familyIdentifier;
 @property(readonly, copy, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
-- (id)_gatherCluesForInvestigation:(id)arg1;
-- (id)gatherCluesOperationForInvestigation:(id)arg1;
+- (id)gatherCluesForInvestigation:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)uniqueIdentifier;
 - (id)init;
 

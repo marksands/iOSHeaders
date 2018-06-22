@@ -31,6 +31,7 @@
 - (id)fc_subarrayWithPercentToEnd:(double)arg1;
 - (id)fc_subarrayWithPercentFromBeginning:(double)arg1;
 - (void)fc_subarrayWithCount:(unsigned long long)arg1 result:(CDUnknownBlockType)arg2;
+- (id)fc_safeObjectAtIndex:(unsigned long long)arg1;
 - (id)fc_safeSubarrayWithCountFromBack:(unsigned long long)arg1;
 - (id)fc_safeSubarrayWithCountFromFront:(unsigned long long)arg1;
 - (id)fc_arrayByMergingAdjacentObjectsWithMergePolicy:(CDUnknownBlockType)arg1 mergeBlock:(CDUnknownBlockType)arg2;

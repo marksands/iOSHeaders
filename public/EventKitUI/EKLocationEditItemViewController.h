@@ -11,13 +11,12 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class EKCalendarItem, EKStructuredLocation, EKUIConferenceRoom, EKUILocationSearchModel, NSString, UISearchBar, UITableView, _UINavigationControllerPalette;
+@class EKCalendarItem, EKStructuredLocation, EKUIConferenceRoom, EKUILocationSearchModel, NSString, UISearchBar, UITableView;
 
 @interface EKLocationEditItemViewController : EKEditItemViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, EKUILocationSearchModelDelegate>
 {
     UISearchBar *_searchBar;
     UITableView *_tableView;
-    _UINavigationControllerPalette *_palette;
     EKUILocationSearchModel *_searchModel;
     EKCalendarItem *_calendarItem;
     struct CGSize _preferredContentSize;

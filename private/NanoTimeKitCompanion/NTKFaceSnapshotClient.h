@@ -18,6 +18,7 @@
 - (void).cxx_destruct;
 - (void)_handleConnectionInterrupted;
 - (void)_registerIfNeeded;
+- (void)_handleActiveDeviceChangedNotification;
 - (void)_handleSignificantLocationChangeNotification;
 - (void)_handleCustomMonogramChangedNotification;
 - (void)_updateAllSnapshots;

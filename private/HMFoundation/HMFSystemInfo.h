@@ -6,35 +6,40 @@
 
 #import <HMFoundation/HMFObject.h>
 
-@class NSObject<OS_dispatch_queue>, NSString;
+@class HMFSoftwareVersion, NSObject<OS_dispatch_queue>, NSString;
 
 @interface HMFSystemInfo : HMFObject
 {
+    _Bool _supportsBLE;
     NSString *_name;
     NSString *_model;
     NSString *_serialNumber;
     NSString *_regionInfo;
+    long long _productPlatform;
+    long long _productClass;
+    long long _productVariant;
+    HMFSoftwareVersion *_softwareVersion;
+    NSString *_wifiInterfaceMACAddress;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
-    struct MGNotificationTokenStruct *_notificationToken;
 }
 
 + (id)systemInfo;
-@property(readonly) struct MGNotificationTokenStruct *notificationToken; // @synthesize notificationToken=_notificationToken;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(copy) NSString *wifiInterfaceMACAddress; // @synthesize wifiInterfaceMACAddress=_wifiInterfaceMACAddress;
 - (void).cxx_destruct;
-- (void)setSerialNumber:(id)arg1;
-@property(readonly, copy) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
-- (void)setRegionInfo:(id)arg1;
-@property(readonly, copy) NSString *regionInfo; // @synthesize regionInfo=_regionInfo;
-- (void)setModel:(id)arg1;
-@property(readonly, copy) NSString *model; // @synthesize model=_model;
+@property _Bool supportsBLE; // @synthesize supportsBLE=_supportsBLE;
+@property(copy) HMFSoftwareVersion *softwareVersion; // @synthesize softwareVersion=_softwareVersion;
+@property long long productVariant; // @synthesize productVariant=_productVariant;
+@property long long productClass; // @synthesize productClass=_productClass;
+@property long long productPlatform; // @synthesize productPlatform=_productPlatform;
+@property(copy) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
+@property(copy) NSString *regionInfo; // @synthesize regionInfo=_regionInfo;
+@property(copy) NSString *model; // @synthesize model=_model;
 - (void)notifyNameUpdated:(id)arg1;
-- (void)updateName;
 @property(copy) NSString *name; // @synthesize name=_name;
 - (void)startMonitoringSystemChanges;
-- (void)dealloc;
 - (void)__initialize;
 - (id)init;
 

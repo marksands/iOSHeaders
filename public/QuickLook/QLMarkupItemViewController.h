@@ -44,7 +44,7 @@ __attribute__((visibility("hidden")))
 - (void)_updateToolbarVisibilityAnimated:(_Bool)arg1;
 - (void)documentDidUnlock:(id)arg1;
 - (void)enableMarkupMode:(_Bool)arg1;
-- (void)updateMarkupEdgeInsets:(_Bool)arg1;
+- (void)updateMarkupEdgeInsets:(_Bool)arg1 resetScrollViewZoomScaleToMinimum:(_Bool)arg2;
 - (void)_saveChangesWithHostCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_saveChanges;
 - (_Bool)needsToSaveChanges;

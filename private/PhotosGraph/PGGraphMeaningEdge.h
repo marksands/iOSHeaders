@@ -6,21 +6,14 @@
 
 #import <PhotosGraph/PGGraphEdge.h>
 
-#import "PGGraphMeaningEdge.h"
-
 @class NSString;
 
-@interface PGGraphMeaningEdge : PGGraphEdge <PGGraphMeaningEdge>
+@interface PGGraphMeaningEdge : PGGraphEdge
 {
 }
 
+@property(readonly, nonatomic) NSString *meaningLabel;
+@property(readonly, nonatomic) _Bool isReliable;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) _Bool isReliable; // @dynamic isReliable;
-@property(readonly, nonatomic) NSString *meaningLabel; // @dynamic meaningLabel;
-@property(readonly) Class superclass;
 @end
 

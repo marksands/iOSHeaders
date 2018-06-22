@@ -23,6 +23,8 @@
 @property(readonly, nonatomic) NSDictionary *autoFillInputSessionUserObject; // @synthesize autoFillInputSessionUserObject=_autoFillInputSessionUserObject;
 @property(readonly, nonatomic) id <_WKFocusedElementInfo> focusedElementInfo; // @synthesize focusedElementInfo=_focusedElementInfo;
 - (void).cxx_destruct;
+- (id)autoFillInputSessionByReplacingInputSessionUserObject:(id)arg1;
+- (void)_updateAutoFillInputSessionUserObject:(id)arg1;
 - (id)_initWithFormInputSession:(id)arg1 focusedElement:(id)arg2;
 - (id)initWithFocusedElement:(id)arg1;
 - (id)initWithFormInputSession:(id)arg1;

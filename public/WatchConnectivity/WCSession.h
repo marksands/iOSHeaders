@@ -127,6 +127,13 @@
 - (void)onqueue_sendMessageData:(id)arg1 replyHandler:(CDUnknownBlockType)arg2 errorHandler:(CDUnknownBlockType)arg3 dictionaryMessage:(_Bool)arg4;
 - (void)sendMessageData:(id)arg1 replyHandler:(CDUnknownBlockType)arg2 errorHandler:(CDUnknownBlockType)arg3;
 - (void)sendMessage:(id)arg1 replyHandler:(CDUnknownBlockType)arg2 errorHandler:(CDUnknownBlockType)arg3;
+- (void)onqueue_handleProgressFinishedForFileTransfer:(id)arg1;
+- (void)onqueue_updateClientProgressForFileTransfer:(id)arg1;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)onqueue_removeProgressForFileTransfer:(id)arg1;
+- (void)onqueue_updateProgressForFileTransfer:(id)arg1 progress:(id)arg2;
+- (void)onqueue_createProgressForFileTransfer:(id)arg1;
+- (void)onqueue_loadFileTransferProgress;
 - (void)onqueue_removeOutstandingFileTransfer:(id)arg1;
 - (void)onqueue_addOutstandingFileTransfer:(id)arg1;
 - (void)onqueue_loadOutstandingFileTransfers;

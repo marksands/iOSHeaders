@@ -6,33 +6,39 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBSearchForBillsIntentResponse.h"
 
-@class NSMutableArray, PBUnknownFields;
+@class INCodableAttribute, NSArray, NSString;
 
-@interface _INPBSearchForBillsIntentResponse : PBCodable <NSCopying>
+@interface _INPBSearchForBillsIntentResponse : PBCodable <_INPBSearchForBillsIntentResponse, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
-    NSMutableArray *_bills;
+    struct _has;
+    NSArray *_bills;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
 + (Class)billsType;
-+ (id)options;
-@property(retain, nonatomic) NSMutableArray *bills; // @synthesize bills=_bills;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
+@property(copy, nonatomic) NSArray *bills; // @synthesize bills=_bills;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
 - (id)billsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)billsCount;
+@property(readonly, nonatomic) unsigned long long billsCount;
 - (void)addBills:(id)arg1;
 - (void)clearBills;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,7 +10,6 @@
 
 @class NSString, NSURL;
 
-__attribute__((visibility("hidden")))
 @interface QLURLHandler : NSObject <NSSecureCoding>
 {
     const char *_sandboxType;

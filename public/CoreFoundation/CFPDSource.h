@@ -33,7 +33,6 @@ __attribute__((visibility("hidden")))
     _Bool _managedUsesContainer;
     _Bool _neverCache;
     _Bool _checkedForNonPrefsPlist;
-    _Bool _hasDrainedPendingChangesSinceLastReplyToOwner;
     _Bool _restrictedReadability;
     _Bool _waitingForDeviceUnlock;
     _Bool _watchingParentDirectory;
@@ -41,7 +40,6 @@ __attribute__((visibility("hidden")))
     _Bool _hasPreviouslyBeenUnableToDetermineSandboxAccess;
 }
 
-+ (void)removeObservationConnectionsForIdentifier:(unsigned long long)arg1;
 - (void)dealloc;
 - (void)cleanUpAfterAcceptingMessage:(id)arg1;
 - (id)acceptMessage:(id)arg1;
@@ -51,7 +49,6 @@ __attribute__((visibility("hidden")))
 - (void)handleEUIDorEGIDMismatch;
 - (void)handleNeverCache;
 - (void)handleAvoidCache;
-- (id)copyCachedObservationConnectionForMessage:(id)arg1;
 - (void)setObserved:(_Bool)arg1 bySenderOfMessage:(id)arg2;
 - (void)stopNotifyingObserver:(id)arg1;
 - (int)validateMessage:(id)arg1 withNewKey:(id)arg2 newValue:(id)arg3 currentPlistData:(id)arg4 containerPath:(const char *)arg5 diagnosticMessage:(const char **)arg6;
@@ -68,6 +65,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)enqueueNewKey:(id)arg1 value:(id)arg2 size:(unsigned long long)arg3 encoding:(int)arg4;
 - (_Bool)hasObservers;
 - (void)drainPendingChanges;
+- (void)observingConnectionWasInvalidated:(unsigned long long)arg1;
 - (void)asyncNotifyObserversOfWriteFromConnection:(id)arg1;
 - (id)copyPropertyListValidatingPlist:(_Bool)arg1;
 - (id)copyPropertyListWithoutDrainingPendingChangesValidatingPlist:(_Bool)arg1;
@@ -81,14 +79,9 @@ __attribute__((visibility("hidden")))
 - (void)handleOpenForWritingFailureWithErrno:(int)arg1;
 - (void)setDirty:(_Bool)arg1;
 - (void)updateShmemEntry;
-- (_Bool)hasEverHadMultipleOwners;
-- (int)owner;
 - (short)shmemIndex;
 - (id)description;
 - (_Bool)byHost;
-- (void)removeOwner;
-- (void)addOwner:(id)arg1;
-- (void)transitionToMultiOwner;
 - (void)respondToFileWrittenToBehindOurBack;
 - (struct __CFString *)cloudConfigurationPath;
 - (struct __CFString *)container;

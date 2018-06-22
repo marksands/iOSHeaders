@@ -22,13 +22,16 @@
 + (_Bool)areAnyAccessoriesConfigured;
 + (id)siriHomeIdentifier;
 + (_Bool)areHomesConfigured;
++ (id)sharedInstance;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
 @property(retain, nonatomic) HMXpcClient *xpcClient; // @synthesize xpcClient=_xpcClient;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 - (void).cxx_destruct;
+- (void)_reportIntentResultTohandler:(CDUnknownBlockType)arg1;
 - (void)_reportResultsTohandler:(CDUnknownBlockType)arg1;
 - (void)requestSiriSyncDataWithValidity:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)sendIntentCommand:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)sendSiriCommand:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_registerToDaemon;
 - (void)_start;

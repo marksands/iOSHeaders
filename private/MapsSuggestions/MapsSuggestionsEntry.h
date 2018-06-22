@@ -29,18 +29,19 @@
     NSString *_undecoratedSubtitleWhenLocked;
     double _weight;
     NSDate *_expires;
-    id _geoMapItem;
+    id <GEOMapItem> _geoMapItem;
     struct NSString *_originatingSourceName;
 }
 
 + (id)entryFromSerializedString:(id)arg1;
 + (id)entryFromSerializedBase64String:(id)arg1 hasPrefix:(_Bool)arg2;
 + (id)entryFromSerializedHexString:(id)arg1 hasPrefix:(_Bool)arg2;
++ (id)entryWithData:(id)arg1;
 + (_Bool)supportsSecureCoding;
 + (int)defaultDirectionsTransportType;
 + (id)entryWithType:(unsigned long long)arg1 title:(id)arg2 subtitle:(id)arg3 weight:(double)arg4 expires:(id)arg5 sourceSpecificInfo:(id)arg6;
 @property(retain, nonatomic) NSString *originatingSourceName; // @synthesize originatingSourceName=_originatingSourceName;
-@property(retain, nonatomic) id geoMapItem; // @synthesize geoMapItem=_geoMapItem;
+@property(retain, nonatomic) id <GEOMapItem> geoMapItem; // @synthesize geoMapItem=_geoMapItem;
 @property(nonatomic) _Bool deleted; // @synthesize deleted=_deleted;
 @property(retain, nonatomic) NSDate *expires; // @synthesize expires=_expires;
 @property(nonatomic) double weight; // @synthesize weight=_weight;
@@ -60,23 +61,30 @@
 - (void)_overrideType:(unsigned long long)arg1;
 - (id)serializedBase64String;
 - (id)serializedHexString;
+- (void)resetAvailableRemovalBehavior:(long long)arg1;
+- (void)setAvailableRemovalBehavior:(long long)arg1;
+- (long long)availableRemovalBehaviors;
 - (_Bool)hasExpired;
 - (id)fullDescription;
 - (id)shortDescription;
 @property(readonly, copy) NSString *description;
+- (id)ETAForKey:(id)arg1;
 - (id)UUIDForKey:(id)arg1;
 - (id)URLForKey:(id)arg1;
 - (id)dateForKey:(id)arg1;
 - (_Bool)booleanForKey:(id)arg1;
+- (long long)integerForKey:(id)arg1;
 - (id)numberForKey:(id)arg1;
 - (struct NSArray *)stringArrayForKey:(id)arg1;
 - (id)stringForKey:(id)arg1;
 - (id)_valueForKey:(id)arg1 class:(Class)arg2;
 - (_Bool)containsKey:(id)arg1;
+- (void)setETA:(id)arg1 forKey:(id)arg2;
 - (void)setUUID:(id)arg1 forKey:(id)arg2;
 - (void)setURL:(id)arg1 forKey:(id)arg2;
 - (void)setDate:(id)arg1 forKey:(id)arg2;
 - (void)setBoolean:(_Bool)arg1 forKey:(id)arg2;
+- (void)setInteger:(long long)arg1 forKey:(id)arg2;
 - (void)setNumber:(id)arg1 forKey:(id)arg2;
 - (void)setStringArray:(struct NSArray *)arg1 forKey:(id)arg2;
 - (void)setString:(id)arg1 forKey:(id)arg2;
@@ -94,14 +102,20 @@
 - (id)initWithType:(unsigned long long)arg1 title:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)data;
+- (id)endTime;
+- (id)startTime;
+- (_Bool)hasStartAndEndTime;
+- (_Bool)hasEndTime;
+- (_Bool)hasStartTime;
 - (void)replaceByEntry:(id)arg1;
 - (void)mergeSpecificsFromSuggestionEntry:(id)arg1 behavior:(unsigned long long)arg2;
 - (void)mergeFromSuggestionEntry:(id)arg1 behavior:(unsigned long long)arg2 protectTitles:(_Bool)arg3 protectTitleDecorations:(_Bool)arg4 protectMapItem:(_Bool)arg5 protectWeight:(_Bool)arg6 protectExpiration:(_Bool)arg7 protectIcon:(_Bool)arg8;
 - (void)mergeFromSuggestionEntry:(id)arg1 behavior:(unsigned long long)arg2;
 - (_Bool)expiresBeforeEntry:(id)arg1;
+- (_Bool)startsBeforeEntry:(id)arg1;
 - (_Bool)wasEverOneOfTypes:(id)arg1;
 - (_Bool)wasEverOfType:(unsigned long long)arg1;
-- (int)proactiveItemType;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

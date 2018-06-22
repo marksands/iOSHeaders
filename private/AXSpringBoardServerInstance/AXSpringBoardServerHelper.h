@@ -7,17 +7,18 @@
 #import "NSObject.h"
 
 #import "AXSpringBoardServerInstanceDelegate.h"
+#import "AXSpringBoardServerSideAppManagerDelegate.h"
 
 @class AXAssertion, AXSpringBoardServerAlertManager, AXSpringBoardServerSideAppManager, NSMutableArray, NSString, UIAlertController, UIWindow;
 
-@interface AXSpringBoardServerHelper : NSObject <AXSpringBoardServerInstanceDelegate>
+@interface AXSpringBoardServerHelper : NSObject <AXSpringBoardServerSideAppManagerDelegate, AXSpringBoardServerInstanceDelegate>
 {
     CDUnknownBlockType _alertHandler;
     UIWindow *_presentationWindow;
     NSMutableArray *_visibleTripleClickItems;
     _Bool _shouldOverrideInterfaceOrientation;
     NSMutableArray *_notificationObservers;
-    AXSpringBoardServerSideAppManager *_sideAppManager;
+    _Bool _hearingShortcutSupported;
     AXSpringBoardServerAlertManager *_alertManager;
     UIAlertController *_alertControllerToDismissAfterPresentation;
     AXAssertion *_disableSystemGesturesAssertionForAlert;
@@ -56,10 +57,12 @@
 @property(retain, nonatomic) AXAssertion *disableSystemGesturesAssertionForAlert; // @synthesize disableSystemGesturesAssertionForAlert=_disableSystemGesturesAssertionForAlert;
 @property(retain, nonatomic) UIAlertController *alertControllerToDismissAfterPresentation; // @synthesize alertControllerToDismissAfterPresentation=_alertControllerToDismissAfterPresentation;
 @property(retain, nonatomic) AXSpringBoardServerAlertManager *alertManager; // @synthesize alertManager=_alertManager;
-@property(retain, nonatomic) AXSpringBoardServerSideAppManager *sideAppManager; // @synthesize sideAppManager=_sideAppManager;
 - (void).cxx_destruct;
 - (void)activeInterfaceOrientationDidChangeToOrientation:(long long)arg1 willAnimateWithDuration:(double)arg2 fromOrientation:(long long)arg3;
 - (void)activeInterfaceOrientationWillChangeToOrientation:(long long)arg1;
+- (void)didFailToPinAppForSideAppManager:(id)arg1;
+- (void)didFailToFloatAppForSideAppManager:(id)arg1;
+- (void)_updateHearingShortcutSupport;
 - (_Bool)_accessibilityHandleHomeOrLockButtonPress;
 - (void)_handleConfirmRebootDevice;
 - (void)_handleZoomInBuddyAlert;
@@ -67,6 +70,8 @@
 - (void)_handleTouchAccommodationsUsageConfirmed;
 - (void)_handleDisableSwitchControlConfirmation;
 - (void)_handleSwitchUsageConfirmed;
+- (void)_handleDisallowUSBRestrictedModeSC;
+- (void)_handleDisallowUSBRestrictedModeVO;
 - (void)_handleVONoHomeButtonGestureAlert;
 - (void)_handleVoiceOverUsageConfirmation;
 - (id)_handleUsageConfirmationDialogWithMessage:(id)arg1 dismissBlock:(CDUnknownBlockType)arg2;
@@ -100,7 +105,6 @@
 - (id)focusedAppPIDWithServerInstance:(id)arg1;
 - (_Bool)isSystemAppShowingAnAlertWithServerInstance:(id)arg1;
 - (_Bool)accessibilityShowControlCenter:(_Bool)arg1;
-- (_Bool)_accessibilityShowNewControlCenter:(_Bool)arg1;
 - (_Bool)_accessibilityAllowShowNotificationGestureOverride;
 - (void)_accessibilitySetAllowShowNotificationGestureOverride:(_Bool)arg1;
 - (id)_accessibilityCoverSheetPresentationManagerSharedInstance;
@@ -108,6 +112,12 @@
 - (_Bool)_accessibilityShowCoverSheet:(_Bool)arg1 serverInstance:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)accessibilityIsNotificationVisible;
 - (_Bool)_accessibilityIsUILocked;
+- (unsigned long long)_accessibilityNotificationCount;
+- (id)_accessibilityNotificationSummary:(unsigned long long)arg1;
+- (id)appForLayoutRole:(long long)arg1;
+- (id)sceneLayoutState;
+- (_Bool)canLaunchAsFloatingApplicationForIconView:(id)arg1;
+- (_Bool)canLaunchAsPinnedApplicationForIconView:(id)arg1;
 - (void)launchFloatingApplication:(id)arg1;
 - (void)launchPinnedApplication:(id)arg1 onLeft:(_Bool)arg2;
 - (void)launchApplicationWithFullConfiguration:(id)arg1;
@@ -124,6 +134,8 @@
 - (void)forceLoadGAXBundleWithServerInstance:(id)arg1;
 - (void)revealSpotlightWithServerInstance:(id)arg1;
 - (id)medusaBundleIDsToLayoutRoles;
+- (_Bool)canSetDockIconActivationModeForServerInstance:(id)arg1;
+- (void)serverInstance:(id)arg1 setDockIconActivationMode:(unsigned long long)arg2;
 - (id)medusaAppsWithServerInstance:(id)arg1;
 - (_Bool)serverInstance:(id)arg1 performMedusaGesture:(unsigned long long)arg2;
 - (id)allowedMedusaGesturesWithServerInstance:(id)arg1;
@@ -180,6 +192,7 @@
 - (_Bool)isRingerMutedWithServerInstance:(id)arg1;
 - (_Bool)isSideSwitchUsedForOrientationWithServerInstance:(id)arg1;
 - (void)setReachabilityActive:(_Bool)arg1;
+- (_Bool)isReachabilityActive;
 - (double)volumeLevelWithServerInstance:(id)arg1;
 - (_Bool)isVoiceControlRunningWithServerInstance:(id)arg1;
 - (_Bool)handleToggleIncomingCallWithServerInstance:(id)arg1;
@@ -187,6 +200,7 @@
 - (void)serverInstance:(id)arg1 showRemoteViewType:(long long)arg2 withData:(id)arg3;
 - (void)hideAlertWithServerInstance:(id)arg1;
 - (void)serverInstance:(id)arg1 showAlertType:(long long)arg2 withHandler:(CDUnknownBlockType)arg3 withData:(id)arg4;
+@property(readonly, nonatomic) AXSpringBoardServerSideAppManager *sideAppManager;
 - (void)dealloc;
 - (id)init;
 - (void)_performValidation;

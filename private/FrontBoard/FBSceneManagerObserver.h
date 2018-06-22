@@ -58,7 +58,7 @@
 - (void)sceneManagerDidEndSceneUpdateSynchronization:(id)arg1;
 - (void)sceneManagerWillBeginSceneUpdateSynchronization:(id)arg1;
 - (id)delegate;
-@property(readonly, nonatomic) id observer;
+@property(readonly, nonatomic) __weak id observer;
 - (id)initWithObject:(id)arg1;
 - (id)initWithDelegate:(id)arg1;
 - (id)initWithObserver:(id)arg1;

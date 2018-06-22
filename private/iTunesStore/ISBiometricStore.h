@@ -22,6 +22,7 @@
 - (id)signData:(id)arg1 context:(id)arg2 error:(id *)arg3;
 - (id)publicKeyDataForAccountIdentifier:(id)arg1 purpose:(long long)arg2 error:(id *)arg3;
 - (_Bool)deleteKeychainTokensForAccountIdentifier:(id)arg1 error:(id *)arg2;
+- (id)createX509CertChainDataForAccountIdentifier:(id)arg1 purpose:(long long)arg2 error:(id *)arg3;
 - (id)createAttestationDataForAccountIdentifier:(id)arg1 purpose:(long long)arg2 error:(id *)arg3;
 @property long long biometricState;
 - (void)saveIdentityMapForAccountIdentifier:(id)arg1;

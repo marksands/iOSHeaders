@@ -6,20 +6,11 @@
 
 #import <PhotosGraph/PGGraphNode.h>
 
-#import "PGGraphMobilityNode.h"
-
-@class NSString;
-
-@interface PGGraphMobilityNode : PGGraphNode <PGGraphMobilityNode>
+@interface PGGraphMobilityNode : PGGraphNode
 {
 }
 
+@property(readonly, nonatomic) unsigned long long mobilityType;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) unsigned long long mobilityType; // @dynamic mobilityType;
-@property(readonly) Class superclass;
 @end
 

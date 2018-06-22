@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 + (id)requestWithBookmark:(id)arg1 iconGenerationEnabled:(_Bool)arg2;
 @property(readonly, nonatomic) WebBookmark *bookmark; // @synthesize bookmark=_bookmark;
 - (void).cxx_destruct;
+- (id)uniqueIdentifier;
 - (id)initWithBookmark:(id)arg1 iconGenerationEnabled:(_Bool)arg2;
 - (id)initWithBookmark:(id)arg1;
 

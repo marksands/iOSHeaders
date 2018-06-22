@@ -28,6 +28,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+@property(readonly, nonatomic) _Bool fadeWhenTransitioning;
 - (id)init;
 
 @end

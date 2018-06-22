@@ -70,6 +70,7 @@
 - (id)shortDescription;
 - (void)dealloc;
 - (id)initWithNetService:(id)arg1;
+- (id)initWithDomain:(id)arg1 type:(id)arg2 name:(id)arg3;
 - (id)init;
 
 // Remaining properties

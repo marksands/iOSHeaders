@@ -8,7 +8,6 @@
 
 #import "GEOLogContextDelegate.h"
 #import "GEOResourceManifestTileGroupObserver.h"
-#import "MKAnnotationContainerViewDelegate.h"
 #import "MKAnnotationManagerDelegate.h"
 #import "MKAnnotationMarkerContainer.h"
 #import "MKMapGestureControllerDelegate.h"
@@ -18,13 +17,13 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "VKMapViewDelegate.h"
 
-@class CLLocation, GEOMapRegion, GEOResourceManifestConfiguration, MKAnnotationContainerView, MKAnnotationView, MKAttributionLabel, MKBasicMapView, MKCompassView, MKDebugLocationConsole, MKMapAnnotationManager, MKMapCamera, MKMapGestureController, MKMapViewInternal, MKMapViewLabelMarkerState, MKOverlayContainerView, MKScaleView, MKUserLocation, NSArray, NSDictionary, NSLayoutConstraint, NSString, NSTimer, UIGestureRecognizer, UIImageView, UILayoutGuide, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIPopoverController, UIRotationGestureRecognizer, UITapGestureRecognizer, UITextView, VKLabelMarker, VKMapView, VKNavContext, VKRouteContext, VKVenueBuildingFeatureMarker, VKVenueFeatureMarker, _MKCustomFeatureStore, _MKEnvironmentLabel;
+@class CLLocation, GEOMapRegion, GEOResourceManifestConfiguration, MKAnnotationContainerView, MKAnnotationManager, MKAnnotationView, MKAttributionLabel, MKBasicMapView, MKCompassView, MKDebugLocationConsole, MKMapCamera, MKMapGestureController, MKMapViewInternal, MKMapViewLabelMarkerState, MKOverlayContainerView, MKScaleView, MKUserLocation, NSArray, NSDictionary, NSLayoutConstraint, NSString, NSTimer, UIGestureRecognizer, UIImageView, UILayoutGuide, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, UITapGestureRecognizer, UITextView, VKLabelMarker, VKMapView, VKNavContext, VKRouteContext, VKVenueBuildingFeatureMarker, VKVenueFeatureMarker, _MKCustomFeatureStore, _MKEnvironmentLabel;
 
-@interface MKMapView : UIView <MKOverlayContainerViewDelegate, MKAnnotationContainerViewDelegate, VKMapViewDelegate, MKMapGestureControllerDelegate, MKAnnotationMarkerContainer, MKAnnotationManagerDelegate, GEOLogContextDelegate, UIGestureRecognizerDelegate, MKVariableDelayTapRecognizerDelegate, GEOResourceManifestTileGroupObserver, NSCoding>
+@interface MKMapView : UIView <MKOverlayContainerViewDelegate, VKMapViewDelegate, MKMapGestureControllerDelegate, MKAnnotationMarkerContainer, MKAnnotationManagerDelegate, GEOLogContextDelegate, UIGestureRecognizerDelegate, MKVariableDelayTapRecognizerDelegate, GEOResourceManifestTileGroupObserver, NSCoding>
 {
     MKMapViewInternal *_internal;
     UIView *_contentView;
-    MKMapAnnotationManager *_annotationManager;
+    MKAnnotationManager *_annotationManager;
     MKAnnotationContainerView *_annotationContainer;
     MKAttributionLabel *_attributionLabel;
     CDUnknownBlockType _annotationRectTest;
@@ -102,7 +101,6 @@
         unsigned int showsAttribution:1;
         unsigned int showsAttributionBadge:1;
         unsigned int showsVenues:1;
-        unsigned int useOld2DAnnotationContainer:1;
         unsigned int rotating:1;
         unsigned int pitching:1;
         unsigned int rotateEnabled:1;
@@ -141,7 +139,6 @@
         unsigned int delegateDidChangeUserTrackingMode:1;
         unsigned int delegateDidChangeUserTrackingModeButton:1;
         unsigned int useSafeAreaInsets:1;
-        unsigned int useLayoutGuideInsets:1;
         unsigned int useLayoutMargins:1;
     } _flags;
     _Bool _hasSetLayoutMargins;
@@ -150,6 +147,7 @@
     NSLayoutConstraint *_edgeInsetsLeftConstraint;
     NSLayoutConstraint *_edgeInsetsRightConstraint;
     NSLayoutConstraint *_edgeInsetsBottomConstraint;
+    unsigned long long _suspendPropagatingEdgeInsetsCount;
     _Bool _automaticallySnapsToNorth;
     _Bool _forceLayoutOnBoundsChange;
     _Bool _hasPendingEdgeInsetsChange;
@@ -159,7 +157,6 @@
     struct UIEdgeInsets _compassInsets;
     unsigned long long _compassInsetEdges;
     _Bool _explicitCompassInsetEdges;
-    _Bool _useBalloonCalloutsForLabels;
     _MKCustomFeatureStore *_annotationsCustomFeatureStore;
     double _lastYaw;
     _Bool _lastPossiblyVisible;
@@ -189,7 +186,6 @@
 @property(nonatomic, getter=_isCompassSuppressedForFloorPicker, setter=_setCompassSuppressedForFloorPicker:) _Bool compassSuppressedForFloorPicker; // @synthesize compassSuppressedForFloorPicker=_compassSuppressedForFloorPicker;
 @property(nonatomic) int attributionCorner; // @synthesize attributionCorner=_attributionCorner;
 @property(nonatomic, getter=_currentFlyoverAnimationID, setter=_setCurrentFlyoverAnimationID:) unsigned long long currentFlyoverAnimationID; // @synthesize currentFlyoverAnimationID=_currentFlyoverAnimationID;
-@property(nonatomic, getter=_useBalloonCalloutsForLabels, setter=_setUseBalloonCalloutsForLabels:) _Bool useBalloonCalloutsForLabels; // @synthesize useBalloonCalloutsForLabels=_useBalloonCalloutsForLabels;
 @property(nonatomic, getter=_interactionMode, setter=_setInteractionMode:) long long interactionMode; // @synthesize interactionMode=_interactionMode;
 @property(nonatomic, getter=_compassVisibleRotationThreshold, setter=_setCompassVisibleRotationThreshold:) double compassVisibleRotationThreshold; // @synthesize compassVisibleRotationThreshold=_compassVisibleRotationThreshold;
 @property(nonatomic, getter=_compassInsets, setter=_setCompassInsets:) struct UIEdgeInsets compassInsets; // @synthesize compassInsets=_compassInsets;
@@ -229,7 +225,7 @@
 - (CDStruct_02837cd9)_mapRectWithFraction:(double)arg1 ofVisible:(CDStruct_02837cd9)arg2;
 - (void)moveAnnotationRepresentation:(id)arg1 fromCoordinate:(struct CLLocationCoordinate2D)arg2 animated:(_Bool)arg3 duration:(double)arg4;
 - (void)deselectAnnotationRepresentation:(id)arg1 animated:(_Bool)arg2;
-- (void)selectAnnotationRepresentation:(id)arg1 animated:(_Bool)arg2 avoid:(struct CGRect)arg3;
+- (void)selectAnnotationRepresentation:(id)arg1 animated:(_Bool)arg2;
 - (void)removeAnnotationRepresentation:(id)arg1;
 - (void)addAnnotationRepresentation:(id)arg1 allowAnimation:(_Bool)arg2;
 - (void)_addAnnotationsCustomFeatureStoreIfNeeded;
@@ -262,6 +258,8 @@
 @property(readonly, nonatomic) VKVenueFeatureMarker *venueWithFocus;
 @property(nonatomic, getter=_edgeInsets, setter=_setEdgeInsets:) struct UIEdgeInsets edgeInsets;
 - (void)_setEdgeInsets:(struct UIEdgeInsets)arg1 explicit:(_Bool)arg2;
+- (void)_resumePropagatingEdgeInsets;
+- (void)_suspendPropagatingEdgeInsets;
 @property(readonly, nonatomic, getter=_edgeInsetsLayoutGuide) UILayoutGuide *edgeInsetsLayoutGuide;
 @property(nonatomic, getter=_labelEdgeInsets, setter=_setLabelEdgeInsets:) struct UIEdgeInsets labelEdgeInsets;
 - (void)updateLayoutGuides;
@@ -274,7 +272,6 @@
 - (void)_updateInsetsWithForce:(_Bool)arg1;
 - (id)_findLayoutGuideVC;
 - (void)setCenterCoordinate:(struct CLLocationCoordinate2D)arg1 zoomLevel:(double)arg2 animated:(_Bool)arg3;
-- (_Bool)_shouldCalculateAnimationDuration;
 - (double)_goToCenterCoordinate:(struct CLLocationCoordinate2D)arg1 zoomLevel:(double)arg2 animated:(_Bool)arg3;
 - (double)_zoomScaleForMapRegion:(id)arg1;
 - (id)_mapRegionWithCenterCoordinate:(struct CLLocationCoordinate2D)arg1 zoomScale:(double)arg2;
@@ -349,12 +346,12 @@
 - (void)_addAnnotation:(id)arg1 allowAnimation:(_Bool)arg2;
 - (void)deselectAnnotation:(id)arg1 animated:(_Bool)arg2;
 - (void)selectAnnotation:(id)arg1 animated:(_Bool)arg2;
+- (void)_selectAnnotation:(id)arg1 animated:(_Bool)arg2;
 - (void)_selectAnnotation:(id)arg1 animated:(_Bool)arg2 avoid:(struct CGRect)arg3;
 - (void)navigationCameraReturnToPuck;
 - (id)_labelMarkerForCustomFeatureAnnotation:(id)arg1;
 - (id)_labelMarkerAtPoint:(struct CGPoint)arg1;
 - (void)_selectLabelMarker:(id)arg1 animated:(_Bool)arg2;
-- (void)_selectLabelMarker:(id)arg1 animated:(_Bool)arg2 avoid:(struct CGRect)arg3;
 - (void)_deselectLabelMarkerAnimated:(_Bool)arg1;
 @property(readonly, nonatomic, getter=_selectedLabelMarker) VKLabelMarker *selectedLabelMarker;
 @property(nonatomic, getter=_canSelectAllLabels, setter=_setCanSelectAllLabels:) _Bool canSelectAllLabels;
@@ -465,7 +462,6 @@
 - (void)_updateScale;
 - (_Bool)_shouldDisplayScaleForCurrentRegion;
 - (id)scaleView;
-- (_Bool)drawsBlackOnWhiteScale;
 @property(nonatomic, getter=_showsScaleDuringZoom, setter=_setShowsScaleDuringZoom:) _Bool showsScaleDuringZoom;
 @property(nonatomic) _Bool showsScale;
 - (void)_forceFrame;
@@ -523,10 +519,6 @@
 - (void)_handleTapToDeselect:(id)arg1;
 - (void)_handleSelectionAtPoint:(struct CGPoint)arg1;
 - (void)_handleTapToSelect:(id)arg1;
-@property(readonly, nonatomic, getter=_calloutPopoverTargetRect) struct CGRect calloutPopoverTargetRect;
-@property(readonly, nonatomic, getter=_calloutContentRect) struct CGRect calloutContentRect;
-- (_Bool)_isCalloutExpanded;
-@property(readonly, nonatomic, getter=_calloutPopoverController) UIPopoverController *calloutPopoverController;
 - (_Bool)calloutViewContainsPoint:(struct CGPoint)arg1;
 - (void)handleLongPress:(id)arg1;
 - (void)_dropDraggingAnnotationView:(_Bool)arg1;
@@ -643,6 +635,7 @@
 - (id)_initWithFrame:(struct CGRect)arg1 gestureRecognizerHostView:(id)arg2 showsAttribution:(_Bool)arg3;
 - (id)_commonInitFromIB:(_Bool)arg1 gestureRecognizerHostView:(id)arg2 showsAttribution:(_Bool)arg3;
 - (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
+@property(nonatomic, getter=_useBalloonCalloutsForLabels, setter=_setUseBalloonCalloutsForLabels:) _Bool useBalloonCalloutsForLabels;
 @property(nonatomic, getter=_selectedFeatureID, setter=_setSelectedFeatureID:) unsigned long long selectedFeatureID;
 @property(nonatomic, getter=isScaleEnabled) _Bool scaleEnabled;
 - (void)_setShowsTraffic:(_Bool)arg1;
@@ -704,6 +697,7 @@
 - (void)_setCamera:(id)arg1;
 - (id)_camera;
 - (id)_selectedTransitLineIDs;
+- (_Bool)_hasSelectedTransitLines;
 - (void)_deselectTransitLineMarker;
 - (void)_selectTransitLineMarkerWithIdentifier:(id)arg1;
 - (void)_selectTransitLineMarker:(id)arg1;

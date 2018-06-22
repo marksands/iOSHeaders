@@ -41,6 +41,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 -     // Error parsing type: {?=[4]}24@0:8q16, name: viewMatrixForOrientation:
 -     // Error parsing type: {?=[4]}56@0:8q16{CGSize=dd}24d40d48, name: projectionMatrixForOrientation:viewportSize:zNear:zFar:
+-     // Error parsing type: 120@0:8{CGPoint=dd}16{?=[4]}32q96{CGSize=dd}104, name: unprojectPoint:ontoPlaneWithTransform:orientation:viewportSize:
 - (struct CGPoint)projectPoint:(long long)arg1 orientation:(struct CGSize)arg2 viewportSize: /* Error: Ran out of types for this method. */;
 - (_Bool)isEqual:(id)arg1;
 - (id)debugQuickLookObject;

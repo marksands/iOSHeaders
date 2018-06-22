@@ -69,7 +69,7 @@
     unsigned int preferredCodec;
     int upstreamBandwidth;
     int downstreamBandwidth;
-    _Bool useAFRC;
+    _Bool useRateControl;
     _Bool isGKVoiceChat;
     _Bool isUsingSuppression;
     _Bool shouldTimeoutPackets;
@@ -78,9 +78,7 @@
     NSDictionary *natTypeDictionary;
     struct _opaque_pthread_mutex_t natMutex;
     unsigned int lastSentAudioSampleTime;
-    double lastReceivedAudioTimestamp;
     VCAudioPowerLevelMonitor *_remoteAudioPowerLevelMonitor;
-    int audioTimeStampDelta;
     GKNATObserver *natObserver;
     unsigned int mostRecentStartedCall;
     unsigned int lastActiveCall;
@@ -173,6 +171,7 @@
 - (_Bool)shouldReinitializeCallWithDuration:(double)arg1 forCallID:(unsigned int)arg2;
 - (void)updateCapabilities:(id)arg1 forCallID:(unsigned int)arg2;
 - (void)updateCapabilities:(id)arg1 forSession:(id)arg2;
+- (void)setPeerReportingID:(id)arg1 sessionID:(id)arg2 callID:(unsigned int)arg3;
 - (void)setSessionID:(id)arg1 callID:(unsigned int)arg2;
 - (void)setPeerCN:(id)arg1 callID:(unsigned int)arg2;
 - (_Bool)setPauseVideo:(_Bool)arg1 callID:(unsigned int)arg2 error:(id *)arg3;

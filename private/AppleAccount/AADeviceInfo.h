@@ -6,18 +6,14 @@
 
 #import "NSObject.h"
 
-@class APSConnection, NSData, NSObject<OS_dispatch_semaphore>;
-
 @interface AADeviceInfo : NSObject
 {
-    APSConnection *_apsConnection;
-    _Bool _tokenDone;
-    NSData *_token;
-    NSObject<OS_dispatch_semaphore> *_tokenSema;
 }
 
++ (_Bool)hasiCloudSignOutRestriction;
 + (_Bool)isMultiUserMode;
 + (_Bool)isInternalBuild;
++ (id)currentInfo;
 + (id)productVersion;
 + (id)userAgentHeader;
 + (id)clientInfoHeader;
@@ -27,10 +23,11 @@
 + (id)osVersion;
 + (id)udid;
 + (id)infoDictionary;
-- (void).cxx_destruct;
 - (id)userAgentHeader;
 - (id)clientInfoHeader;
 - (id)appleIDClientIdentifier;
+- (id)uniqueChipIdentifier;
+- (id)chipIdentifier;
 - (id)modelNumber;
 - (id)deviceClass;
 - (id)apnsToken;
@@ -49,6 +46,7 @@
 - (id)deviceName;
 - (id)productType;
 - (id)productVersion;
+- (id)bluetoothMacAddress;
 - (id)wifiMacAddress;
 - (id)serialNumber;
 - (id)udid;

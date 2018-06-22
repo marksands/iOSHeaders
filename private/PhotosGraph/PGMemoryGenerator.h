@@ -16,7 +16,7 @@
     PGMemoryController *_controller;
 }
 
-+ (long long)titleDateMatchingTypeForMemoryCategory:(long long)arg1;
++ (long long)titleDateMatchingTypeForMemoryCategory:(unsigned long long)arg1;
 + (id)assetPropertySetsForMemories;
 @property _Bool isDebug; // @synthesize isDebug=_isDebug;
 @property(readonly) __weak PGMemoryController *controller; // @synthesize controller=_controller;
@@ -27,7 +27,7 @@
 - (void)_mergeCurationSetsIfNeededForMemory:(id)arg1;
 - (id)_additionalInfoKeywordsForPotentialMemory:(id)arg1;
 - (id)_createMemoryDebugWithPotentialMemory:(id)arg1;
-- (unsigned long long)_numberOfIndependentMomentNodesInMomentNodes:(id)arg1 aggregations:(id)arg2;
+- (unsigned long long)_numberOfIndependentMomentNodesInMomentNodes:(id)arg1;
 - (void)_enumerateBestScoringPotentialMemoriesInPotentialMemories:(id)arg1 attemptUpgradesBeforeSorting:(_Bool)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (_Bool)canProceedAfterAttemptingUpgradesForPotentialMemory:(id)arg1;
 - (_Bool)canProceedAfterAttemptingMeaningfulEventUpgradeForPotentialMemory:(id)arg1 didUpgradeToWeekend:(_Bool)arg2 upgradedToMeaningfulEvent:(_Bool *)arg3;

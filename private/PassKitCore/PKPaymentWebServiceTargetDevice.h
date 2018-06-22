@@ -24,8 +24,7 @@
 - (void).cxx_destruct;
 - (_Bool)paymentWebServiceSupportsPeerPaymentRegistration:(id)arg1;
 - (_Bool)supportsCredentialType:(long long)arg1;
-- (_Bool)supportsExpressMode:(id)arg1;
-- (_Bool)supportsExpressModeForExpressPassType:(long long)arg1;
+- (_Bool)supportsExpressForAutomaticSelectionTechnologyType:(long long)arg1;
 - (_Bool)secureElementIsAvailable;
 - (_Bool)felicaSecureElementIsAvailable;
 - (void)paymentWebService:(id)arg1 validateTransferPreconditionsWithCompletion:(CDUnknownBlockType)arg2;

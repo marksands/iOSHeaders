@@ -11,6 +11,7 @@
 @class AFUIRequestOptions, NSDictionary, NSNumber, NSString, NSValue;
 
 @protocol SVSSiriViewControllerServing <NSObject, AFUISiriSessionDelegate, AFUISpeechSynthesisDelegate>
+- (void)setRunningPPT:(_Bool)arg1 withTestName:(NSString *)arg2 testOptions:(NSDictionary *)arg3;
 - (void)hostApplicationDidBecomeActive;
 - (void)hostApplicationWillEnterForeground;
 - (void)hostApplicationWillResignActive;

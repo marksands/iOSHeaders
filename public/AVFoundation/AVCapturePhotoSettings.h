@@ -55,6 +55,8 @@
 - (id)livePhotoMovieFileURLForOriginalPhoto;
 @property(copy, nonatomic) NSURL *livePhotoMovieFileURL;
 @property(copy, nonatomic) NSDictionary *metadata;
+@property(nonatomic) _Bool embedsPortraitEffectsMatteInPhoto;
+@property(nonatomic, getter=isPortraitEffectsMatteDeliveryEnabled) _Bool portraitEffectsMatteDeliveryEnabled;
 @property(nonatomic, getter=isCameraCalibrationDataDeliveryEnabled) _Bool cameraCalibrationDataDeliveryEnabled;
 @property(nonatomic, getter=isDepthDataFiltered) _Bool depthDataFiltered;
 @property(nonatomic) _Bool embedsDepthDataInPhoto;

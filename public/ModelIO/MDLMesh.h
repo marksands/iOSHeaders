@@ -17,6 +17,7 @@
     NSArray *_controlNodes;
     id <MDLMeshBufferAllocator> _allocator;
     unsigned long long _vertexCount;
+    unsigned long long _subdivisionScheme;
 }
 
 + (id)newEllipticalConeWithHeight:(float)arg1 radii:(unsigned long long)arg2 radialSegments:(unsigned long long)arg3 verticalSegments:(long long)arg4 geometryType:(_Bool)arg5 inwardNormals:(id)arg6 allocator: /* Error: Ran out of types for this method. */;
@@ -28,6 +29,7 @@
 + (id)newCapsuleWithHeight:(float)arg1 radii:(unsigned long long)arg2 radialSegments:(unsigned long long)arg3 verticalSegments:(unsigned long long)arg4 hemisphereSegments:(long long)arg5 geometryType:(_Bool)arg6 inwardNormals:(id)arg7 allocator: /* Error: Ran out of types for this method. */;
 + (id)newPlaneWithDimensions:(long long)arg1 segments:(id)arg2 geometryType:allocator: /* Error: Ran out of types for this method. */;
 + (id)newCylinderWithHeight:(float)arg1 radii:(unsigned long long)arg2 radialSegments:(unsigned long long)arg3 verticalSegments:(long long)arg4 geometryType:(_Bool)arg5 inwardNormals:(id)arg6 allocator: /* Error: Ran out of types for this method. */;
+@property(nonatomic) unsigned long long subdivisionScheme; // @synthesize subdivisionScheme=_subdivisionScheme;
 @property(nonatomic) unsigned long long vertexCount; // @synthesize vertexCount=_vertexCount;
 @property(readonly, retain, nonatomic) id <MDLMeshBufferAllocator> allocator; // @synthesize allocator=_allocator;
 - (id).cxx_construct;
@@ -54,6 +56,7 @@
 - (id)initCapsuleWithExtent:(unsigned long long)arg1 cylinderSegments:(_Bool)arg2 hemisphereSegments:(long long)arg3 inwardNormals:(id)arg4 geometryType:allocator: /* Error: Ran out of types for this method. */;
 - (id)initPlaneWithExtent:(long long)arg1 segments:(id)arg2 geometryType:allocator: /* Error: Ran out of types for this method. */;
 - (_Bool)makeVerticesUniqueAndReturnError:(id *)arg1;
+- (id)description;
 - (void)makeVerticesUnique;
 - (void)flipTextureCoordinatesInAttributeNamed:(id)arg1;
 - (void)addUnwrappedTextureCoordinatesForAttributeNamed:(id)arg1;

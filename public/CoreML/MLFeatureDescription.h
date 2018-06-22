@@ -27,6 +27,7 @@
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)allowsValuesWithDescription:(id)arg1;
+- (id)sequenceConstraint;
 - (id)dictionaryConstraint;
 - (id)imageConstraint;
 - (id)multiArrayConstraint;

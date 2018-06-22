@@ -8,7 +8,7 @@
 
 #import "SFCompanionAdvertiserDelegate.h"
 
-@class CSSearchableItemAttributeSet, NSData, NSDate, NSDictionary, NSError, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, NSURL, NSUUID, NSUserActivity, SFCompanionAdvertiser, UAUserActivityManager;
+@class CSSearchableItemAttributeSet, NSData, NSDate, NSDictionary, NSError, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSSet, NSString, NSURL, NSUUID, NSUserActivity, SFCompanionAdvertiser, UAUserActivityManager;
 
 @interface UAUserActivity : NSObject <SFCompanionAdvertiserDelegate>
 {
@@ -17,6 +17,7 @@
     NSURL *_webpageURL;
     NSURL *_referrerURL;
     SFCompanionAdvertiser *_advertiser;
+    NSObject<OS_dispatch_group> *_advertiserCompletedGroup;
     SFCompanionAdvertiser *_resumerAdvertiser;
     NSMutableSet *_dirtyPayloadIdentifiers;
     double _lastSaveTime;
@@ -44,6 +45,8 @@
     _Bool _eligibleForSearch;
     _Bool _eligibleForReminders;
     _Bool _eligibleForPublicIndexing;
+    _Bool _eligibleForPrediction;
+    NSString *_persistentIdentifier;
     _Bool _invalidated;
     _Bool _userInfoContainsFileURLs;
     _Bool _canCreateStreams;
@@ -89,6 +92,9 @@
 + (id)_decodeFromScanner:(id)arg1;
 + (id)_encodeKeyAndValueIntoString:(id)arg1 value:(id)arg2;
 + (id)_encodeToString:(id)arg1;
++ (_Bool)registerAsProxyForApplication:(int)arg1 options:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
++ (void)deleteAllSavedUserActivitiesWithCompletionHandler:(CDUnknownBlockType)arg1;
++ (void)deleteSavedUserActivitiesWithPersistentIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, retain) NSObject<OS_dispatch_queue> *willCallSaveSerializationQueue; // @synthesize willCallSaveSerializationQueue=_willCallSaveSerializationQueue;
 @property(retain) NSMutableSet *dirtyPayloadIdentifiers; // @synthesize dirtyPayloadIdentifiers=_dirtyPayloadIdentifiers;
 @property(retain) NSMutableDictionary *payloadDataCache; // @synthesize payloadDataCache=_payloadDataCache;
@@ -107,7 +113,6 @@
 @property(copy) NSSet *keywords; // @synthesize keywords=_keywords;
 @property _Bool userInfoContainsFileURLs; // @synthesize userInfoContainsFileURLs=_userInfoContainsFileURLs;
 @property(readonly) unsigned long long os_state_handler; // @synthesize os_state_handler=_os_state_handler;
-@property(readonly, getter=isInvalidated) _Bool invalidated; // @synthesize invalidated=_invalidated;
 @property(copy) NSData *cachedEncodedUserInfo; // @synthesize cachedEncodedUserInfo=_cachedEncodedUserInfo;
 @property(readonly) _Bool activityHasBeenSentToServer; // @synthesize activityHasBeenSentToServer=_activityHasBeenSentToServer;
 @property _Bool encodedContainsUnsynchronizedCloudDocument; // @synthesize encodedContainsUnsynchronizedCloudDocument=_encodedContainsUnsynchronizedCloudDocument;
@@ -135,6 +140,7 @@
 - (id)unarchiveURL:(id)arg1 error:(id *)arg2;
 - (_Bool)archiveURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)invalidate;
+@property(readonly, getter=isInvalidated) _Bool invalidated; // @synthesize invalidated=_invalidated;
 - (void)resignCurrent;
 - (void)_resignCurrent;
 - (void)becomeCurrent;
@@ -197,6 +203,8 @@
 - (void)updateForwardToCoreSpotlightIndexer:(BOOL)arg1;
 @property(readonly) _Bool forwardToCoreSpotlightIndexer;
 @property(copy) CSSearchableItemAttributeSet *contentAttributeSet; // @dynamic contentAttributeSet;
+@property(copy) NSString *persistentIdentifier;
+@property(getter=isEligibleForPrediction) _Bool eligibleForPrediction; // @dynamic eligibleForPrediction;
 - (void)setDirty:(_Bool)arg1 identifier:(id)arg2;
 - (_Bool)isPayloadDirty:(id)arg1;
 - (CDUnknownBlockType)payloadUpdateBlockForIdentifier:(id)arg1;

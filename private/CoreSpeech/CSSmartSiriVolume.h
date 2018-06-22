@@ -29,6 +29,7 @@
     _Bool _shouldPauseLKFSProcess;
     _Bool _alarmSoundIsFiring;
     _Bool _timerSoundIsFiring;
+    _Bool _mediaIsPlaying;
     CSAsset *_currentAsset;
     float _musicVolumeDB;
     float _alarmVolume;
@@ -57,6 +58,7 @@
     float _userOffsetOutputRangeHigh;
     float _TTSVolumeLowerLimitDB;
     float _TTSVolumeUpperLimitDB;
+    float _noiseWeight;
 }
 
 - (id).cxx_construct;

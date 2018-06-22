@@ -33,7 +33,9 @@
 - (void)imageSetForType:(long long)arg1 screenScale:(double)arg2 suffix:(id)arg3 displayProfile:(id)arg4 preheat:(_Bool)arg5 withCompletion:(CDUnknownBlockType)arg6;
 - (id)imageSetForType:(long long)arg1 screenScale:(double)arg2 suffix:(id)arg3 displayProfile:(id)arg4 preheat:(_Bool)arg5;
 - (void)contentWithCompletion:(CDUnknownBlockType)arg1;
+- (id)content;
 - (void)dictionaryWithCompletion:(CDUnknownBlockType)arg1;
+- (id)dictionary;
 - (void)revocationStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (id)initWithFileURL:(id)arg1 error:(id *)arg2 processingQueue:(id)arg3;
 - (id)initWithFileURL:(id)arg1 error:(id *)arg2;

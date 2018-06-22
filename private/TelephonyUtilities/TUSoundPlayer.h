@@ -8,6 +8,7 @@
 
 @class NSObject<OS_dispatch_queue>, TURepeatingActor;
 
+__attribute__((visibility("hidden")))
 @interface TUSoundPlayer : NSObject
 {
     unsigned int _soundID;

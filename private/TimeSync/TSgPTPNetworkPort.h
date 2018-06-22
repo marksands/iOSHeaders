@@ -11,6 +11,7 @@
 @interface TSgPTPNetworkPort : TSgPTPPort
 {
     unsigned int _connection;
+    _Bool _remoteIsSameDevice;
     _Bool _asCapable;
     BOOL _localSyncLogMeanInterval;
     BOOL _remoteSyncLogMeanInterval;
@@ -68,6 +69,7 @@
 @property(nonatomic) unsigned int maximumPropagationDelay; // @synthesize maximumPropagationDelay=_maximumPropagationDelay;
 @property(nonatomic) unsigned int propagationDelay; // @synthesize propagationDelay=_propagationDelay;
 @property(nonatomic, getter=isASCapable) _Bool asCapable; // @synthesize asCapable=_asCapable;
+@property(nonatomic) _Bool remoteIsSameDevice; // @synthesize remoteIsSameDevice=_remoteIsSameDevice;
 @property(nonatomic) unsigned short remotePortNumber; // @synthesize remotePortNumber=_remotePortNumber;
 @property(nonatomic) unsigned long long remoteClockIdentity; // @synthesize remoteClockIdentity=_remoteClockIdentity;
 - (void)dealloc;
@@ -97,6 +99,7 @@
 - (unsigned int)_maximumPropagationDelay;
 - (unsigned int)_propagationDelay;
 - (_Bool)_isASCapable;
+- (_Bool)_remoteIsSameDevice;
 - (unsigned short)_remotePortNumber;
 - (unsigned long long)_remoteClockIdentity;
 @property(readonly, nonatomic) unsigned int connection;

@@ -11,9 +11,11 @@
     unsigned long long _filterType;
     double _scaleFactorX;
     double _scaleFactorY;
+    _Bool _alignCorners;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
+@property(readonly, nonatomic) _Bool alignCorners; // @synthesize alignCorners=_alignCorners;
 @property(readonly, nonatomic) double scaleFactorY; // @synthesize scaleFactorY=_scaleFactorY;
 @property(readonly, nonatomic) double scaleFactorX; // @synthesize scaleFactorX=_scaleFactorX;
 - (id)destinationImageDescriptorForSourceImages:(id)arg1 sourceStates:(id)arg2 paddingMethod:(unsigned long long)arg3 sourceOffset:(CDStruct_d6af7fc0 *)arg4;
@@ -21,7 +23,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
-- (id)initWithDevice:(id)arg1 filterType:(unsigned long long)arg2 integerScaleFactorX:(unsigned long long)arg3 integerScaleFactorY:(unsigned long long)arg4;
+- (id)initWithDevice:(id)arg1 filterType:(unsigned long long)arg2 integerScaleFactorX:(unsigned long long)arg3 integerScaleFactorY:(unsigned long long)arg4 alignCorners:(_Bool)arg5;
 - (id)initWithDevice:(id)arg1;
 
 @end

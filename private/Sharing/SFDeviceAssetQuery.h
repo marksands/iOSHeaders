@@ -16,6 +16,7 @@
     NSString *_productType;
     NSString *_mappedProductType;
     NSString *_marketingProductNumber;
+    NSString *_mappedMarketingProductNumber;
     NSString *_color;
     NSString *_colorHousing;
     NSString *_colorCoverGlass;
@@ -29,6 +30,7 @@
 @property(readonly, nonatomic) NSString *colorCoverGlass; // @synthesize colorCoverGlass=_colorCoverGlass;
 @property(readonly, nonatomic) NSString *colorHousing; // @synthesize colorHousing=_colorHousing;
 @property(readonly, nonatomic) NSString *color; // @synthesize color=_color;
+@property(retain, nonatomic) NSString *mappedMarketingProductNumber; // @synthesize mappedMarketingProductNumber=_mappedMarketingProductNumber;
 @property(readonly, nonatomic) NSString *marketingProductNumber; // @synthesize marketingProductNumber=_marketingProductNumber;
 @property(retain, nonatomic) NSString *mappedProductType; // @synthesize mappedProductType=_mappedProductType;
 @property(readonly, nonatomic) NSString *productType; // @synthesize productType=_productType;
@@ -39,8 +41,11 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
-@property(readonly, nonatomic) NSString *stringIdentifier;
+- (id)loggingMarketingProductNumber;
+- (id)effectiveMarketingProductNumber;
 - (id)loggingProductType;
+- (id)effectiveProductType;
+@property(readonly, nonatomic) NSString *stringIdentifier;
 - (id)initWithProductType:(id)arg1 additionalQueryParameters:(id)arg2;
 - (id)initWithBluetoothProductIdentifier:(unsigned long long)arg1 color:(unsigned long long)arg2 engagement:(_Bool)arg3;
 - (id)initWithHomePodColor:(unsigned long long)arg1;

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+#import "PHPhotoLibraryChangeObserver.h"
 #import "PLCameraPreviewWellImageChangeObserver.h"
 #import "PUBrowsingViewModelChangeObserver.h"
 #import "PUOneUpPresentationHelperAssetDisplayDelegate.h"
@@ -15,9 +16,9 @@
 #import "UIViewControllerPreviewingDelegate.h"
 #import "UIViewControllerPreviewingDelegate_Private.h"
 
-@class CAMTransientDataSource, CAMTransientImageManager, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_source>, NSString, PUOneUpPresentationHelper, PUPhotoKitDataSourceManager, PXPhotosDataSource, UIGestureRecognizer;
+@class CAMTransientDataSource, CAMTransientImageManager, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, PUOneUpPresentationHelper, PUPhotoKitDataSourceManager, PXPhotosDataSource, UIGestureRecognizer;
 
-@interface CAMCameraRollController : NSObject <PXPhotosDataSourceChangeObserver, PUOneUpPresentationHelperDelegate, PUOneUpPresentationHelperAssetDisplayDelegate, PLCameraPreviewWellImageChangeObserver, PUBrowsingViewModelChangeObserver, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UIInteractionProgressObserver>
+@interface CAMCameraRollController : NSObject <PXPhotosDataSourceChangeObserver, PUOneUpPresentationHelperDelegate, PUOneUpPresentationHelperAssetDisplayDelegate, PLCameraPreviewWellImageChangeObserver, PUBrowsingViewModelChangeObserver, PHPhotoLibraryChangeObserver, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UIInteractionProgressObserver>
 {
     struct {
         _Bool respondsToSourceAssetRect;
@@ -56,8 +57,10 @@
     PXPhotosDataSource *__photosDataSource;
     PXPhotosDataSource *__stagedDataSource;
     NSObject<OS_dispatch_source> *__memoryWarningSource;
+    NSObject<OS_dispatch_queue> *__photosFrameworksPreheatQueue;
 }
 
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *_photosFrameworksPreheatQueue; // @synthesize _photosFrameworksPreheatQueue=__photosFrameworksPreheatQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_source> *_memoryWarningSource; // @synthesize _memoryWarningSource=__memoryWarningSource;
 @property(nonatomic, getter=_isDeferringStagedMediaLoading, setter=_setDeferringStagedMediaLoading:) _Bool _deferringStagedMediaLoading; // @synthesize _deferringStagedMediaLoading=__deferringStagedMediaLoading;
 @property(nonatomic, setter=_setDidStopCaptureSession:) _Bool _didStopCaptureSession; // @synthesize _didStopCaptureSession=__didStopCaptureSession;
@@ -147,6 +150,7 @@
 - (void)_performPreload;
 - (void)ppt_preload;
 - (void)preload;
+- (void)photoLibraryDidChange:(id)arg1;
 - (void)_scheduleUpdateIfOneUpIsActive;
 - (void)didPersistAssetWithUUID:(id)arg1 captureSession:(unsigned short)arg2;
 - (void)willPersistAssetWithUUID:(id)arg1 captureSession:(unsigned short)arg2;

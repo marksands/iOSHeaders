@@ -36,6 +36,8 @@
 - (_Bool)safari_hasSameOriginAsURL:(id)arg1;
 @property(readonly, nonatomic) _Bool safari_isEligibleToShowNotSecureWarning;
 @property(readonly, nonatomic) _Bool safari_isLocalOrPrivateNetworkURL;
+@property(readonly, nonatomic) _Bool safari_isSafariResourceURL;
+@property(readonly, nonatomic) _Bool safari_isBlobURL;
 - (_Bool)safari_isDataURL;
 - (_Bool)safari_isHTTPURL;
 - (_Bool)safari_isHTTPFamilyURL;

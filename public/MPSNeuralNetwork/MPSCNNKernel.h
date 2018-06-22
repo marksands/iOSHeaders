@@ -30,6 +30,7 @@
     CDUnknownFunctionPointerType _batchEncode;
     void *_encodeData;
     MPSExternalCNNUnary *_plugin;
+    unsigned long long _pluginOptions;
     id <MPSImageAllocator> _destinationImageAllocator;
 }
 
@@ -48,6 +49,7 @@
 @property(nonatomic) unsigned long long edgeMode; // @synthesize edgeMode=_edgeMode;
 @property(nonatomic) CDStruct_1e3be3a8 clipRect; // @synthesize clipRect=_clipRect;
 @property(nonatomic) CDStruct_d6af7fc0 offset; // @synthesize offset=_offset;
+- (unsigned long long)maxBatchSize;
 -     // Error parsing type: 16@0:8, name: sourcePositionOfTopLeftCornerOfFilterWindow
 - (id)destinationImageDescriptorForSourceImages:(id)arg1 sourceStates:(id)arg2 paddingMethod:(unsigned long long)arg3 sourceOffset:(CDStruct_d6af7fc0 *)arg4;
 - (id)destinationImageDescriptorForSourceImages:(id)arg1 sourceStates:(id)arg2;

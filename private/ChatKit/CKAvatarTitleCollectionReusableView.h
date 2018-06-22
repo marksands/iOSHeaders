@@ -6,20 +6,28 @@
 
 #import "UICollectionReusableView.h"
 
-@class CKLabel, NSMutableArray;
+@class CKLabel, NSMutableArray, UIImageView;
 
 @interface CKAvatarTitleCollectionReusableView : UICollectionReusableView
 {
     long long _style;
     long long _avatarTitleAccessoryImageType;
+    long long _chevronMode;
+    long long _statusIndicatorType;
     CKLabel *_titleLabel;
+    UIImageView *_chevronImageView;
+    UIImageView *_statusIndicatorImageView;
     NSMutableArray *_pendingTitles;
 }
 
 + (id)supplementaryViewKind;
 + (id)reuseIdentifier;
 @property(retain, nonatomic) NSMutableArray *pendingTitles; // @synthesize pendingTitles=_pendingTitles;
+@property(retain, nonatomic) UIImageView *statusIndicatorImageView; // @synthesize statusIndicatorImageView=_statusIndicatorImageView;
+@property(retain, nonatomic) UIImageView *chevronImageView; // @synthesize chevronImageView=_chevronImageView;
 @property(retain, nonatomic) CKLabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(nonatomic) long long statusIndicatorType; // @synthesize statusIndicatorType=_statusIndicatorType;
+@property(nonatomic) long long chevronMode; // @synthesize chevronMode=_chevronMode;
 @property(nonatomic) long long avatarTitleAccessoryImageType; // @synthesize avatarTitleAccessoryImageType=_avatarTitleAccessoryImageType;
 @property(nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
@@ -28,6 +36,7 @@
 - (void)configureWithTitle:(id)arg1;
 - (void)_animateFromQueue;
 - (void)setTitle:(id)arg1 animated:(_Bool)arg2;
+- (void)_rotateChevronImageView;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

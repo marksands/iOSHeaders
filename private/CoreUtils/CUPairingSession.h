@@ -36,8 +36,12 @@
     CDUnknownBlockType _showPINHandler;
     CDUnknownBlockType _hidePINHandler;
     CDUnknownBlockType _sendDataHandler;
+    CDUnknownBlockType _signDataHandler;
+    CDUnknownBlockType _verifySignatureHandler;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType verifySignatureHandler; // @synthesize verifySignatureHandler=_verifySignatureHandler;
+@property(copy, nonatomic) CDUnknownBlockType signDataHandler; // @synthesize signDataHandler=_signDataHandler;
 @property(copy, nonatomic) CDUnknownBlockType sendDataHandler; // @synthesize sendDataHandler=_sendDataHandler;
 @property(copy, nonatomic) CDUnknownBlockType hidePINHandler; // @synthesize hidePINHandler=_hidePINHandler;
 @property(copy, nonatomic) CDUnknownBlockType showPINHandler; // @synthesize showPINHandler=_showPINHandler;

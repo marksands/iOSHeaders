@@ -8,13 +8,14 @@
 
 #import "HUWallpaperEditingViewControllerDelegate.h"
 #import "HUWallpaperPickerViewControllerDelegate.h"
+#import "HUWallpaperThumbnailCellDelegate.h"
 #import "UIImagePickerControllerDelegate.h"
 #import "UINavigationControllerDelegate.h"
 #import "UITextFieldDelegate.h"
 
 @class HFRoomBuilder, HUEditRoomItemManager, HUEditableTextCell, HUZoneModuleController, NSString, UIBarButtonItem;
 
-@interface HUEditRoomViewController : HUItemTableViewController <UITextFieldDelegate, HUWallpaperPickerViewControllerDelegate, HUWallpaperEditingViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface HUEditRoomViewController : HUItemTableViewController <UITextFieldDelegate, HUWallpaperPickerViewControllerDelegate, HUWallpaperEditingViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HUWallpaperThumbnailCellDelegate>
 {
     HFRoomBuilder *_roomBuilder;
     id <HUEditRoomViewControllerPresentationDelegate> _presentationDelegate;
@@ -38,6 +39,7 @@
 - (void)updateWallpaper:(id)arg1 image:(id)arg2;
 - (void)wallpaperEditingDidCancel:(id)arg1;
 - (void)wallpaperEditing:(id)arg1 didFinishWithWallpaper:(id)arg2 image:(id)arg3;
+- (void)wallpaperThumbnailCell:(id)arg1 didReceiveDroppedImage:(id)arg2;
 - (void)wallpaperPickerDidFinish:(id)arg1 wallpaper:(id)arg2 image:(id)arg3;
 - (void)imagePickerController:(id)arg1 didFinishPickingMediaWithInfo:(id)arg2;
 - (_Bool)textFieldShouldReturn:(id)arg1;

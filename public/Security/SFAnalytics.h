@@ -19,6 +19,7 @@
 
 + (void)addOSVersionToEvent:(id)arg1;
 + (long long)fuzzyDaysSinceDate:(id)arg1;
++ (id)defaultAnalyticsDatabasePath:(id)arg1;
 + (id)databasePath;
 + (id)logger;
 @property(retain, nonatomic) SFAnalyticsSQLiteStore *database; // @synthesize database=_database;

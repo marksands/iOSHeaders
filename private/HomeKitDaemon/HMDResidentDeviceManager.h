@@ -86,6 +86,7 @@
 - (id)_orderedDevicesForElection;
 - (void)_electResidentDevice;
 - (void)electResidentDevice;
+- (void)__currentDeviceUpdated:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)handleCurrentDeviceUpdated:(id)arg1;
 - (void)handleCurrentDeviceChanged:(id)arg1;
 - (void)_handleResidentDeviceUpdateEnabled:(id)arg1;

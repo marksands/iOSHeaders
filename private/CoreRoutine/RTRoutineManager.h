@@ -42,7 +42,6 @@
 @property(copy, nonatomic) CDUnknownBlockType visitHandler; // @synthesize visitHandler=_visitHandler;
 @property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 - (void).cxx_destruct;
-- (void)fetchPredictedContentForBundleWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)sortRoutes:(id)arg1 toLocationOfInterestWithIdentifier:(id)arg2 fromLocation:(id)arg3 handler:(CDUnknownBlockType)arg4;
 - (void)fetchPredictedRoutesToLocationOfInterestWithIdentifier:(id)arg1 fromLocation:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)userInteractionWithPredictedLocationOfInterest:(id)arg1 interaction:(unsigned long long)arg2 feedback:(id)arg3 geoMapItem:(id)arg4 handler:(CDUnknownBlockType)arg5;
@@ -124,9 +123,11 @@
 - (void)clearRoutineWithHandler:(CDUnknownBlockType)arg1;
 - (void)setRoutineEnabled:(_Bool)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)setRoutineEnabled:(_Bool)arg1;
+- (void)fetchRoutineStateWithHandler:(CDUnknownBlockType)arg1;
 - (void)fetchRoutineEnabledWithHandler:(CDUnknownBlockType)arg1;
 - (void)fetchNextPredictedLocationsOfInterestFromLocation:(id)arg1 startDate:(id)arg2 timeInterval:(double)arg3 withHandler:(CDUnknownBlockType)arg4;
 - (void)fetchNextPredictedLocationsOfInterestWithHandler:(CDUnknownBlockType)arg1;
+- (void)fetchTransitionsBetweenStartDate:(id)arg1 endDate:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)fetchLocationsOfInterestVisitedBetweenStartDate:(id)arg1 endDate:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
 - (void)fetchLocationsOfInterestVisitedSinceDate:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)fetchAllLocationsOfInterestWithHandler:(CDUnknownBlockType)arg1;

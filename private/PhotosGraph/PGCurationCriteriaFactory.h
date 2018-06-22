@@ -20,17 +20,20 @@
 + (id)_breakfastCriteriaWithGraph:(id)arg1;
 + (id)_nightOutCriteriaWithGraph:(id)arg1;
 + (id)_sportEventCriteriaWithGraph:(id)arg1;
-+ (id)_performanceWithGraph:(id)arg1;
-+ (id)_entertainmnentWithGraph:(id)arg1;
++ (id)_museumCriteriaWithGraph:(id)arg1;
++ (id)_performanceCriteriaWithGraph:(id)arg1;
++ (id)_festivalCriteriaWithGraph:(id)arg1;
++ (id)_concertCriteriaWithGraph:(id)arg1;
++ (id)_entertainmentCriteriaWithGraph:(id)arg1;
 + (id)_beachingCriteriaWithGraph:(id)arg1;
 + (id)_winterSportCriteriaWithGraph:(id)arg1;
 + (id)_divingCriteriaWithGraph:(id)arg1;
 + (id)_hikingCriteriaWithGraph:(id)arg1;
 + (id)_holidayEventCriteriaWithGraph:(id)arg1;
-+ (id)_anniversaryCriteriaWithCollectionNode:(id)arg1;
-+ (id)_birthdayCriteriaWithCollectionNode:(id)arg1;
++ (id)_anniversaryCriteriaWithCollection:(id)arg1;
++ (id)_birthdayCriteriaWithCollection:(id)arg1;
 + (id)_weddingCriteriaWithGraph:(id)arg1;
-+ (id)curationCriteriaWithCollectionNode:(id)arg1 meaningLabel:(id)arg2;
++ (id)curationCriteriaWithCollection:(id)arg1 meaningLabel:(id)arg2;
 
 @end
 

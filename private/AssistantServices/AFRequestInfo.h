@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSData, NSDictionary, NSNumber, NSString, SAStartLocalRequest, SAStartRequest;
+@class AFSpeechRequestOptions, NSData, NSDictionary, NSNumber, NSString, SAStartLocalRequest, SAStartRequest;
 
 @interface AFRequestInfo : NSObject <NSSecureCoding>
 {
@@ -26,6 +26,7 @@
     SAStartRequest *_startRequest;
     SAStartLocalRequest *_startLocalRequest;
     long long _activationEvent;
+    AFSpeechRequestOptions *_speechRequestOptions;
     NSNumber *_combinedRank;
     NSNumber *_combinedScore;
     NSString *_interactionId;
@@ -47,6 +48,7 @@
 @property(copy, nonatomic) NSString *interactionId; // @synthesize interactionId=_interactionId;
 @property(copy, nonatomic) NSNumber *combinedScore; // @synthesize combinedScore=_combinedScore;
 @property(copy, nonatomic) NSNumber *combinedRank; // @synthesize combinedRank=_combinedRank;
+@property(copy, nonatomic) AFSpeechRequestOptions *speechRequestOptions; // @synthesize speechRequestOptions=_speechRequestOptions;
 @property(nonatomic) long long activationEvent; // @synthesize activationEvent=_activationEvent;
 @property(nonatomic) _Bool suppressAlert; // @synthesize suppressAlert=_suppressAlert;
 @property(copy, nonatomic) SAStartLocalRequest *startLocalRequest; // @synthesize startLocalRequest=_startLocalRequest;

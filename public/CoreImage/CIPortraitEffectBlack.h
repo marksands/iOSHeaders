@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     CIImage *inputDepthMap;
     CIImage *inputDisparity;
     CIImage *inputFullSizeImage;
+    CIImage *inputMatte;
     NSNumber *inputKickLight;
     NSNumber *inputFaceLight;
     NSNumber *inputMaxNumVertices;
@@ -75,6 +76,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSNumber *inputGrainAmount; // @synthesize inputGrainAmount;
 @property(retain, nonatomic) NSNumber *inputSharpenRadius; // @synthesize inputSharpenRadius;
 @property(retain, nonatomic) NSNumber *inputUseAbsoluteDisparity; // @synthesize inputUseAbsoluteDisparity;
+@property(retain, nonatomic) CIImage *inputMatte; // @synthesize inputMatte;
 @property(retain, nonatomic) CIImage *inputFullSizeImage; // @synthesize inputFullSizeImage;
 @property(retain, nonatomic) CIImage *inputDisparity; // @synthesize inputDisparity;
 @property(retain, nonatomic) CIImage *inputDepthMap; // @synthesize inputDepthMap;
@@ -84,6 +86,8 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)_maxNumVerticesForImage:(id)arg1 sigmaLuma:(id)arg2 sigmaSpace:(id)arg3;
 - (id)_offsetImage:(id)arg1 inputDisparity:(id)arg2 thresholdImage:(id)arg3;
 - (id)_getFocusRect:(id)arg1;
+- (id)thresholdAndApplyMatte;
+- (id)thresholdMatte;
 - (id)blendDepth;
 - (id)invertRed;
 - (id)adaptiveNormalizationAbsolute;

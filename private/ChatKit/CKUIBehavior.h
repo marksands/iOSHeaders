@@ -32,6 +32,9 @@
 @property(readonly, nonatomic) UIImage *emojiReplyImage; // @synthesize emojiReplyImage=_emojiReplyImage;
 @property(nonatomic) long long HUDStyle; // @synthesize HUDStyle=_HUDStyle;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) double callButtonLongPressDuration;
+@property(readonly, nonatomic) struct UIEdgeInsets callButtonImageInsets;
+@property(readonly, nonatomic) double callButtonSize;
 @property(readonly, nonatomic) UIFont *syncProgressLabelFont;
 @property(readonly, nonatomic) UIFont *businessDescriptionVCTextViewFont;
 @property(readonly, nonatomic) UIFont *businessInfoViewTitleLabelFont;
@@ -56,12 +59,12 @@
 @property(readonly, nonatomic) double browserSwitcherScrollerHeight;
 @property(readonly, nonatomic) double chatMagnifiedChromeBottomInset;
 @property(readonly, nonatomic) double chatChromeBottomInset;
+@property(readonly, nonatomic) double browserSwitcherEdgeGestureWidth;
 @property(readonly, nonatomic) double browserSwitcherGutterWidth;
 @property(readonly, nonatomic) double browserSwitcherExpandThreshold;
 @property(readonly, nonatomic) double browserSwitcherExpandedGrabberHeaderHeight;
 @property(readonly, nonatomic) double browserSwitcherCompactGrabberVisibleHeight;
 @property(readonly, nonatomic) double browserSwitcherCompactGrabberHeaderHeight;
-@property(readonly, nonatomic) double appStripToEntryViewBottomSpace;
 @property(readonly, nonatomic) unsigned long long suggestedMinimumRecentsCount;
 @property(readonly, nonatomic) unsigned long long suggestedAppStripLimit;
 @property(readonly, nonatomic) unsigned long long appIconPrefetchLimit;
@@ -98,6 +101,9 @@
 @property(readonly, nonatomic) Class acknowledgementPickerBarClass;
 @property(readonly, nonatomic) unsigned long long messageAcknowledgmentVotingStackSize;
 @property(readonly, nonatomic) struct CGSize businessBannerSize;
+@property(readonly, nonatomic) UIImage *navBarHeaderAudioImage;
+@property(readonly, nonatomic) UIImage *navBarHeaderVideoImage;
+@property(readonly, nonatomic) UIImage *navBarHeaderChevronImage;
 @property(readonly, nonatomic) UIImage *businessVerifiedImageSmall;
 @property(readonly, nonatomic) UIImage *businessVerifiedImageLarge;
 @property(readonly, nonatomic) UIImage *whiteA2AckImage;
@@ -127,9 +133,11 @@
 - (void)prewarmAcknowledgementsImage;
 @property(readonly, nonatomic) double bannerAdditionalOffset;
 @property(readonly, nonatomic) struct CGSize bannerCellSize;
+@property(readonly, nonatomic) UIFont *navigationHeaderJoinLabelFont;
 @property(readonly, nonatomic) UIFont *avatarNameFont;
 @property(readonly, nonatomic) UIFont *avatarStackTitleFont;
-@property(readonly, nonatomic) double avatarPancakeOffset;
+@property(readonly, nonatomic) double avatarPancakeMaxOffset;
+@property(readonly, nonatomic) double avatarPancakeGroupOffset;
 @property(readonly, nonatomic) struct CGSize avatarCutoutSize;
 @property(readonly, nonatomic) double avatarContactImageNameMargin;
 @property(readonly, nonatomic) double avatarNameWidth;
@@ -188,6 +196,7 @@
 @property(readonly, nonatomic) double entryViewCoverMinHeight;
 @property(readonly, nonatomic) double entryFieldCoverLineWidth;
 @property(readonly, nonatomic) _Bool entryFieldShouldUseNewPhotoUI;
+@property(readonly, nonatomic) _Bool isAppStripInKeyboard;
 @property(readonly, nonatomic) _Bool entryFieldShouldUseBackdropView;
 @property(readonly, nonatomic) double maxAudioRecordingDuration;
 @property(readonly, nonatomic) double minAudioRecordingDuration;
@@ -258,6 +267,7 @@
 - (id)imageNameForBalloonDescriptor:(struct CKBalloonDescriptor_t)arg1;
 - (id)imageNameForBalloonDescriptorWithStrokedStyle:(struct CKBalloonDescriptor_t)arg1;
 - (id)imageNameForBalloonDescriptorWithFilledStyle:(struct CKBalloonDescriptor_t)arg1;
+- (id)multiway_chevronImage;
 - (id)business_chevronImage;
 - (id)black_chevronImage;
 - (id)white_chevronImage;
@@ -267,6 +277,7 @@
 - (id)green_chevronImage;
 - (id)gray_chevronImage;
 - (id)chevronImageForColorType:(BOOL)arg1;
+- (id)multiwayGrayChevronImage;
 - (id)systemGrayChevronImage;
 - (id)whiteChevronImage;
 - (id)roundBalloonName;
@@ -336,6 +347,8 @@
 @property(readonly, nonatomic) _Bool hyphenatesTextContent;
 @property(readonly, nonatomic) _Bool shouldUseDynamicGradient;
 @property(readonly, nonatomic) UIImage *replayImage;
+@property(readonly, nonatomic) UIImage *facetimeAudioIcon;
+@property(readonly, nonatomic) UIImage *conversationListFacetimeVideoIcon;
 @property(readonly, nonatomic) UIImage *locationShareActionIcon;
 @property(readonly, nonatomic) UIFont *transcriptJunkHeaderButtonFont;
 @property(readonly, nonatomic) UIFont *transcriptJunkHeaderTitleFont;
@@ -350,6 +363,8 @@
 - (id)statusTranscriptBoldTextAttributesForOrientation:(BOOL)arg1;
 - (id)statusTranscriptTextAttributesForOrientation:(BOOL)arg1;
 - (id)_rightStatusTranscriptBoldTextAttributes;
+@property(readonly, nonatomic) NSDictionary *conversationCellSummaryPreviewTextAttributes;
+@property(readonly, nonatomic) NSDictionary *conversationCellSummaryBoldIconTextAttributes;
 - (id)_leftStatusTranscriptBoldTextAttributes;
 - (id)_rightStatusTranscriptTextAttributes;
 - (id)_leftStatusTranscriptTextAttributes;
@@ -428,6 +443,7 @@
 @property(readonly, nonatomic) _Bool shouldBackfillTranscript;
 @property(readonly, nonatomic) Class businessChatControllerClass;
 @property(readonly, nonatomic) Class chatControllerClass;
+@property(readonly, nonatomic) UIImage *liveConversationIndicatorImage;
 @property(readonly, nonatomic) UIImage *defaultWaveformImage;
 @property(readonly, nonatomic) UIImage *trashImage;
 @property(readonly, nonatomic) UIImage *detailsImage;
@@ -483,7 +499,6 @@
 - (double)maxPrimaryColumnWidthForInterfaceOrientation:(long long)arg1;
 @property(readonly, nonatomic) double maxPrimaryColumnWidth;
 @property(readonly, nonatomic) _Bool showMMSSetup;
-@property(readonly, nonatomic) double maxHorizontalDragVelocityToStartReorderingDrawerPlugins;
 @property(readonly, nonatomic) struct CGSize appIconSize;
 @property(readonly, nonatomic) unsigned long long maxNumberOfItemsPerAppDrawerPage;
 @property(readonly, nonatomic) unsigned long long maxNumLiveBrowserViewsToKeepInViewHierarchy;
@@ -494,6 +509,7 @@
 @property(readonly, nonatomic) _Bool faceTimeAudioIsWhitelisted;
 @property(readonly, nonatomic) _Bool faceTimeVideoIsWhitelisted;
 @property(readonly, nonatomic) _Bool phoneIsWhitelisted;
+@property(readonly, nonatomic) _Bool isN56Device;
 @property(readonly, nonatomic) double actionMenuWindowLevel;
 @property(readonly, nonatomic) double videoControllerWindowLevel;
 @property(readonly, nonatomic) double presentationControllerWindowLevel;
@@ -513,7 +529,13 @@
 @property(readonly, nonatomic) unsigned long long supportedInterfaceOrientations;
 @property(readonly, nonatomic) double transcriptHeaderViewMaxRows;
 @property(readonly, nonatomic) _Bool isAccessibilityPreferredContentSizeCategory;
+- (double)navigationBarExpandedHeightValue;
+- (double)navigationBarCollapsedHeightValue;
 @property(readonly, nonatomic) double navigationBarMaxHeight;
+@property(readonly, nonatomic) double maxNavigationBarExpandedHeightValue;
+@property(readonly, nonatomic) double maxNavigationBarCollapsedHeightValue;
+@property(readonly, nonatomic) double maxNavigationBarNoContactPhotoExpandedHeightValue;
+@property(readonly, nonatomic) double maxNavigationBarNoContactPhotoCollapsedHeightValue;
 @property(readonly, nonatomic) double minNavigationBarHeightValue;
 @property(readonly, nonatomic) double maxNavigationBarHeightValue;
 @property(readonly, nonatomic) double navigationBarMinHeight;

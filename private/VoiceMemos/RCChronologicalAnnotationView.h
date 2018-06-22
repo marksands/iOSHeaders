@@ -14,6 +14,7 @@
     double _majorTickTimeUnit;
     double _majorTickMinimumSpacing;
     UIFont *_timeLabelFont;
+    _Bool _isPlayback;
     double _contentDuration;
     unsigned long long _maximumMajorUnitsInVisibleDuration;
     RCUIConfiguration *_UIConfiguration;
@@ -26,6 +27,7 @@
 + (long long)_determineWidestTimeLabelDigit;
 @property(retain, nonatomic) UIColor *backgroundDebugColor; // @synthesize backgroundDebugColor=_backgroundDebugColor;
 @property(copy, nonatomic) RCUIConfiguration *UIConfiguration; // @synthesize UIConfiguration=_UIConfiguration;
+@property(nonatomic) _Bool isPlayback; // @synthesize isPlayback=_isPlayback;
 @property(nonatomic) CDStruct_73a5d3ca markerClippingRange; // @synthesize markerClippingRange=_markerClippingRange;
 @property(nonatomic) unsigned long long maximumMajorUnitsInVisibleDuration; // @synthesize maximumMajorUnitsInVisibleDuration=_maximumMajorUnitsInVisibleDuration;
 @property(nonatomic) double contentDuration; // @synthesize contentDuration=_contentDuration;

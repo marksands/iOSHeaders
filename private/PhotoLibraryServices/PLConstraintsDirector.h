@@ -8,13 +8,15 @@
 
 #import "PLForegroundObserver.h"
 
-@class NSObject<OS_dispatch_source>, NSString;
+@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSURL;
 
 @interface PLConstraintsDirector : NSObject <PLForegroundObserver>
 {
     _Bool _didTransitionToOpportunisticDisallowed;
     _Bool _photosAppInForeground;
+    NSObject<OS_dispatch_queue> *_isolationQueue;
     NSObject<OS_dispatch_source> *_bonusTimer;
+    NSURL *_photoLibraryURL;
 }
 
 + (id)sharedConstraintsDirector;
@@ -23,7 +25,7 @@
 - (void)informCameraAppCameraViewControllerVisibilityChanged:(_Bool)arg1;
 - (void)informOpportunisticTasksAllowed:(_Bool)arg1;
 - (void)dealloc;
-- (id)init;
+- (id)initWithPhotoLibraryURL:(id)arg1;
 - (void)_addBonusTime;
 - (void)_disableAutoFGAndUserFGConstraints;
 

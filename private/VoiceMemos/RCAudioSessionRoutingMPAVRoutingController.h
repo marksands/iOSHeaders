@@ -6,15 +6,17 @@
 
 #import "MPAVRoutingController.h"
 
-@class AVAudioSession, AVAudioSessionPortDescription, MPAVRoute, NSArray, NSString;
+@class AVAudioSession, AVAudioSessionPortDescription, MPAVRoute, NSArray, NSString, RCAudioSessionRoutingAssertion;
 
 @interface RCAudioSessionRoutingMPAVRoutingController : MPAVRoutingController
 {
     AVAudioSession *_audioSession;
     NSString *_audioSessionCategory;
+    RCAudioSessionRoutingAssertion *_audioSessionAssertion;
     unsigned long long _audioSessionCategoryOptions;
     _Bool _hasCategoryEverBeenActive;
     AVAudioSessionPortDescription *_cachedPickedInputRoutePortDescription;
+    AVAudioSessionPortDescription *_cachedPickedOutputRoutePortDescription;
     MPAVRoute *_cachedPickedOutputRoute;
     NSArray *_cachedPickableOutputRoutes;
 }
@@ -22,6 +24,7 @@
 @property(readonly, nonatomic) _Bool hasCategoryEverBeenActive; // @synthesize hasCategoryEverBeenActive=_hasCategoryEverBeenActive;
 @property(readonly, nonatomic) NSArray *cachedPickableOutputRoutes; // @synthesize cachedPickableOutputRoutes=_cachedPickableOutputRoutes;
 @property(readonly, nonatomic) MPAVRoute *cachedPickedOutputRoute; // @synthesize cachedPickedOutputRoute=_cachedPickedOutputRoute;
+@property(readonly, nonatomic) AVAudioSessionPortDescription *cachedPickedOutputRoutePortDescription; // @synthesize cachedPickedOutputRoutePortDescription=_cachedPickedOutputRoutePortDescription;
 @property(readonly, nonatomic) AVAudioSessionPortDescription *cachedPickedInputRoutePortDescription; // @synthesize cachedPickedInputRoutePortDescription=_cachedPickedInputRoutePortDescription;
 - (void).cxx_destruct;
 - (long long)_outputRouteFromAudioSession;
@@ -32,10 +35,8 @@
 - (void)fetchAvailableRoutesWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)_rcDelegate;
 - (void)setDelegate:(id)arg1;
-- (void)disableDetailedDiscoveryMode;
-- (void)enableDetailedDiscoveryMode;
 - (long long)outputRouteTypeForNavigationIcon;
-- (_Bool)makeAudioSessionCategoryActive:(_Bool)arg1;
+- (_Bool)makeAudioSessionCategoryActive:(id)arg1;
 @property(readonly, nonatomic) _Bool isRoutingToPhoneCall;
 @property(readonly, nonatomic) _Bool isRoutingToAirPlayMirrorDestination;
 @property(readonly, nonatomic) _Bool isAudioSessionAppropriateForQueryingRoutes;

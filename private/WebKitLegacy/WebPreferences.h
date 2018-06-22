@@ -84,6 +84,7 @@
 @property(nonatomic) _Bool accessibilityObjectModelEnabled;
 @property(nonatomic) _Bool inspectorAdditionsEnabled;
 @property(nonatomic) _Bool allowMediaContentTypesRequiringHardwareSupportAsFallback;
+@property(nonatomic) _Bool colorFilterEnabled;
 @property(nonatomic) _Bool constantPropertiesEnabled;
 @property(nonatomic) _Bool viewportFitEnabled;
 @property(nonatomic) _Bool encryptedMediaAPIEnabled;
@@ -98,6 +99,8 @@
 @property(nonatomic) _Bool displayContentsEnabled;
 @property(nonatomic) _Bool menuItemElementEnabled;
 @property(nonatomic) _Bool intersectionObserverEnabled;
+- (void)setCSSAnimationsAndCSSTransitionsBackedByWebAnimationsEnabled:(_Bool)arg1;
+- (_Bool)cssAnimationsAndCSSTransitionsBackedByWebAnimationsEnabled;
 - (void)setModernMediaControlsEnabled:(_Bool)arg1;
 - (_Bool)modernMediaControlsEnabled;
 - (void)setFetchAPIKeepAliveEnabled:(_Bool)arg1;
@@ -106,8 +109,6 @@
 - (_Bool)webAnimationsEnabled;
 @property(nonatomic) _Bool visualViewportAPIEnabled;
 @property(nonatomic) _Bool visualViewportEnabled;
-- (void)setCSSGridLayoutEnabled:(_Bool)arg1;
-- (_Bool)isCSSGridLayoutEnabled;
 - (_Bool)directoryUploadEnabled;
 - (void)setDirectoryUploadEnabled:(_Bool)arg1;
 - (void)setDownloadAttributeEnabled:(_Bool)arg1;
@@ -118,6 +119,8 @@
 - (_Bool)readableByteStreamAPIEnabled;
 - (void)setFetchAPIEnabled:(_Bool)arg1;
 - (_Bool)fetchAPIEnabled;
+- (void)setCrossOriginOptionsSupportEnabled:(_Bool)arg1;
+- (_Bool)crossOriginOptionsSupportEnabled;
 - (void)setCacheAPIEnabled:(_Bool)arg1;
 - (_Bool)cacheAPIEnabled;
 - (void)setCustomPasteboardDataEnabled:(_Bool)arg1;
@@ -245,8 +248,6 @@
 - (void)setHixie76WebSocketProtocolEnabled:(_Bool)arg1;
 - (_Bool)isVideoPluginProxyEnabled;
 - (void)setVideoPluginProxyEnabled:(_Bool)arg1;
-- (_Bool)isQTKitEnabled;
-- (void)setQTKitEnabled:(_Bool)arg1;
 - (_Bool)isAVFoundationNSURLSessionEnabled;
 - (void)setAVFoundationNSURLSessionEnabled:(_Bool)arg1;
 - (_Bool)isAVFoundationEnabled;
@@ -366,6 +367,7 @@
 - (double)_backForwardCacheExpirationInterval;
 - (void)setNeedsStorageAccessFromFileURLsQuirk:(_Bool)arg1;
 - (_Bool)needsStorageAccessFromFileURLsQuirk;
+@property(nonatomic) _Bool allowCrossOriginSubresourcesToAskForCredentials;
 - (void)setAllowFileAccessFromFileURLs:(_Bool)arg1;
 - (_Bool)allowFileAccessFromFileURLs;
 - (void)setAllowUniversalAccessFromFileURLs:(_Bool)arg1;

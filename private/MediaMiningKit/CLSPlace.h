@@ -6,13 +6,13 @@
 
 #import <MediaMiningKit/CLSPrimitive.h>
 
-@class CLCircularRegion, CLPlacemark, CLSBusinessItem, NSArray, NSString;
+@class CLCircularRegion, CLSBusinessItem, CLSLitePlacemark, NSArray, NSString;
 
 @interface CLSPlace : CLSPrimitive
 {
     NSString *_name;
     CLCircularRegion *_region;
-    CLPlacemark *_placemark;
+    CLSLitePlacemark *_placemark;
     NSArray *_categories;
     CLSBusinessItem *_businessItem;
 }
@@ -22,16 +22,14 @@
 + (id)placeWithBusinessItem:(id)arg1;
 @property(readonly, nonatomic) CLSBusinessItem *businessItem; // @synthesize businessItem=_businessItem;
 @property(retain, nonatomic) NSArray *categories; // @synthesize categories=_categories;
-@property(readonly, nonatomic) CLPlacemark *placemark; // @synthesize placemark=_placemark;
+@property(readonly, nonatomic) CLSLitePlacemark *placemark; // @synthesize placemark=_placemark;
 @property(readonly, nonatomic) CLCircularRegion *region; // @synthesize region=_region;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (id)description;
-- (id)presentationString;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (_Bool)isEqualToPlace:(id)arg1;
-@property(readonly, nonatomic) NSString *address;
 @property(readonly, nonatomic) struct CLLocationCoordinate2D coordinate;
 
 @end

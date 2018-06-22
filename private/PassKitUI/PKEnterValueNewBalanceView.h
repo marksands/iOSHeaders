@@ -6,16 +6,20 @@
 
 #import "UIView.h"
 
-@class NSDecimalNumber, NSNumberFormatter, NSString, UIActivityIndicatorView, UILabel;
+#import "UIGestureRecognizerDelegate.h"
 
-@interface PKEnterValueNewBalanceView : UIView
+@class NSDecimalNumber, NSNumberFormatter, NSString, UIActivityIndicatorView, UIColor, UILabel, UITapGestureRecognizer;
+
+@interface PKEnterValueNewBalanceView : UIView <UIGestureRecognizerDelegate>
 {
     NSDecimalNumber *_additionalAmount;
     _Bool _subtractAdditionalAmountFromCurrentAmount;
     _Bool _showSpinner;
     NSNumberFormatter *_currentAmountFormatter;
     UILabel *_label;
+    UIColor *_overrideTextColor;
     UIActivityIndicatorView *_spinner;
+    UITapGestureRecognizer *_tapRecognizer;
     NSString *_promptText;
     NSString *_updatedBalancePromptText;
     NSString *_maxLoadAmountText;
@@ -25,8 +29,10 @@
     NSDecimalNumber *_minBalance;
     NSDecimalNumber *_maxLoadAmount;
     NSDecimalNumber *_minLoadAmount;
+    id <PKEnterValueNewBalanceViewDelegate> _delegate;
 }
 
+@property(nonatomic) __weak id <PKEnterValueNewBalanceViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSDecimalNumber *minLoadAmount; // @synthesize minLoadAmount=_minLoadAmount;
 @property(copy, nonatomic) NSDecimalNumber *maxLoadAmount; // @synthesize maxLoadAmount=_maxLoadAmount;
 @property(copy, nonatomic) NSDecimalNumber *minBalance; // @synthesize minBalance=_minBalance;
@@ -39,9 +45,11 @@
 - (void).cxx_destruct;
 - (void)_addSubviews;
 - (void)_createAmountFormatter;
+- (void)currentBalanceTapRecognized;
 - (void)_updateBalanceText;
 - (id)_textForPrompt:(id)arg1 amount:(id)arg2;
 - (id)_minimalFormattedStringForAmount:(id)arg1;
+@property(retain, nonatomic) UIColor *labelTextColor;
 - (void)_updateAdditionalAmount:(id)arg1 subtractAdditionalAmountFromCurrentAmount:(_Bool)arg2;
 - (void)subtractAmountFromBalance:(id)arg1;
 - (void)addAmountToBalance:(id)arg1;
@@ -50,6 +58,12 @@
 - (void)layoutSubviews;
 - (id)initWithCurrencyCode:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

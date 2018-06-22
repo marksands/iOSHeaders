@@ -25,6 +25,7 @@
 }
 
 @property(nonatomic) _Bool lockOnRead; // @synthesize lockOnRead=_lockOnRead;
+- (void).cxx_destruct;
 - (void)_setCacheVersion:(int)arg1;
 - (int)_cacheVersion;
 - (id)_versionPath;

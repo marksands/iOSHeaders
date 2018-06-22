@@ -47,6 +47,7 @@
 - (_Bool)supportsCredentialType:(long long)arg1;
 - (_Bool)supportsExpressMode:(NSString *)arg1;
 - (_Bool)supportsExpressModeForExpressPassType:(long long)arg1;
+- (_Bool)supportsExpressForAutomaticSelectionTechnologyType:(long long)arg1;
 - (_Bool)secureElementIsAvailable;
 - (_Bool)felicaSecureElementIsAvailable;
 - (void)paymentWebService:(PKPaymentWebService *)arg1 handlePotentialExpressPass:(PKPaymentPass *)arg2 withCompletionHandler:(void (^)(NSSet *))arg3;

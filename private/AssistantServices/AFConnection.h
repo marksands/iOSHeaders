@@ -9,7 +9,7 @@
 #import "AFAudioPowerUpdaterDelegate.h"
 #import "NSXPCListenerDelegate.h"
 
-@class AFAudioPowerUpdater, AFClientConfiguration, AFOneArgumentSafetyBlock, NSArray, NSError, NSMutableDictionary, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSUUID, NSXPCConnection;
+@class AFAudioPowerUpdater, AFClientConfiguration, AFClockAlarmSnapshot, AFClockTimerSnapshot, AFOneArgumentSafetyBlock, NSArray, NSError, NSMutableDictionary, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSUUID, NSXPCConnection;
 
 @interface AFConnection : NSObject <NSXPCListenerDelegate, AFAudioPowerUpdaterDelegate>
 {
@@ -17,6 +17,8 @@
     NSObject<OS_dispatch_queue> *_targetQueue;
     NSString *_outstandingRequestClass;
     NSArray *_cachedBulletins;
+    AFClockAlarmSnapshot *_cachedClockAlarmSnapshot;
+    AFClockTimerSnapshot *_cachedClockTimerSnapshot;
     NSUUID *_activeRequestUUID;
     long long _activeRequestType;
     long long _activeRequestUsefulUserResultType;
@@ -69,6 +71,8 @@
 - (void)usefulUserResultWillPresent;
 - (void)telephonyRequestCompleted;
 - (void)prepareForPhoneCall;
+- (void)setAlertContextWithClockTimerSnapshot:(id)arg1;
+- (void)setAlertContextWithClockAlarmSnapshot:(id)arg1;
 - (void)setAlertContextWithBulletins:(id)arg1;
 - (void)setOverriddenApplicationContext:(id)arg1 withContext:(id)arg2;
 - (void)setApplicationContextForApplicationInfos:(id)arg1;
@@ -120,6 +124,7 @@
 - (void)setLockState:(_Bool)arg1 screenLocked:(_Bool)arg2;
 - (void)didDismissUI;
 - (void)willPresentUI;
+- (void)resumeInterruptedAudioPlaybackIfNeeded;
 - (void)forceAudioSessionInactiveWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)forceAudioSessionInactive;
 - (void)forceAudioSessionActiveWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
@@ -173,7 +178,6 @@
 - (void)_tellDelegateAudioPlaybackRequestWillStart:(id)arg1;
 - (void)_tellDelegateAudioSessionDidEndInterruption:(_Bool)arg1;
 - (void)_tellDelegateAudioSessionDidBeginInterruption;
-- (void)_tellDelegateHandleIntent:(id)arg1 inBackgroundAppWithBundleId:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)_tellDelegateExtensionRequestFinishedForApplication:(id)arg1 error:(id)arg2;
 - (void)_tellDelegateExtensionRequestWillStartForApplication:(id)arg1;
 - (void)_tellDelegateCacheImage:(id)arg1;
@@ -205,6 +209,8 @@
 - (void)startSpeechRequestWithSpeechFileAtURL:(id)arg1 isNarrowBand:(_Bool)arg2;
 - (void)startSpeechRequestWithSpeechFileAtURL:(id)arg1;
 - (void)startUIRequest;
+- (id)_cachedClockTimerSnapshot;
+- (id)_cachedClockAlarmSnapshot;
 - (id)_cachedBulletins;
 - (id)_clientServiceWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)_clientService;

@@ -28,9 +28,9 @@
     double _score;
     long long _sourceType;
     unsigned long long _duration;
-    long long _category;
-    long long _subcategory;
-    long long _originalSubcategory;
+    unsigned long long _category;
+    unsigned long long _subcategory;
+    unsigned long long _originalSubcategory;
     unsigned long long _matchedTypes;
     NSDate *_matchedLocalDate;
     CLLocation *_matchedLocation;
@@ -68,9 +68,9 @@
 @property(retain, nonatomic) CLLocation *matchedLocation; // @synthesize matchedLocation=_matchedLocation;
 @property(retain, nonatomic) NSDate *matchedLocalDate; // @synthesize matchedLocalDate=_matchedLocalDate;
 @property(nonatomic) unsigned long long matchedTypes; // @synthesize matchedTypes=_matchedTypes;
-@property(nonatomic) long long originalSubcategory; // @synthesize originalSubcategory=_originalSubcategory;
-@property(nonatomic) long long subcategory; // @synthesize subcategory=_subcategory;
-@property(nonatomic) long long category; // @synthesize category=_category;
+@property(nonatomic) unsigned long long originalSubcategory; // @synthesize originalSubcategory=_originalSubcategory;
+@property(nonatomic) unsigned long long subcategory; // @synthesize subcategory=_subcategory;
+@property(nonatomic) unsigned long long category; // @synthesize category=_category;
 @property(nonatomic) unsigned long long duration; // @synthesize duration=_duration;
 @property(nonatomic) long long sourceType; // @synthesize sourceType=_sourceType;
 @property(nonatomic) double score; // @synthesize score=_score;

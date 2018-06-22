@@ -14,7 +14,7 @@
     NSATSGlyphStorage *_glyphStorage;
     unsigned long long _lastGlyphIndex;
     unsigned long long _lastContainerIndex;
-    CDStruct_9b8416ed *_typesetterAuxiliary;
+    CDStruct_3fda14a5 *_typesetterAuxiliary;
     CDUnion_09a75e3c *_lineFragmentRectArgs;
     char *_bidiLevels;
     double _defaultTighteningFactor;

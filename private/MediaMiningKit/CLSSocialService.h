@@ -19,7 +19,6 @@
 @property(readonly) unsigned long long intent; // @synthesize intent=_intent;
 - (void).cxx_destruct;
 - (float)_confidenceInPersonRecord:(id)arg1 forName:(id)arg2 components:(id)arg3;
-- (void)_fetchPersonRecordsForName:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (float)_fuzzyMatchingScoreBetweenNameComponents:(id)arg1 andNameComponents:(id)arg2;
 - (void)invalidateMemoryCaches;
 - (id)_maidenNameForPersonRecord:(id)arg1;
@@ -31,11 +30,10 @@
 - (id)_meRecords;
 - (id)_allPersons;
 - (id)_allPersonRecords;
-- (id)personsOperationForName:(id)arg1 inInvestigation:(id)arg2 inPhotoLibrary:(id)arg3;
-- (id)eventsOperationForClueCollection:(id)arg1;
+- (id)personResultsForName:(id)arg1 inPhotoLibrary:(id)arg2;
+- (id)eventsForClueCollection:(id)arg1;
 - (id)mePerson;
-- (id)personsOperationForLocations:(id)arg1 inInvestigation:(id)arg2;
-- (id)eventsOperationForDates:(id)arg1 inInvestigation:(id)arg2;
+- (id)eventsForDates:(id)arg1;
 - (void)flushProxy;
 - (void)setProxiedValue:(id)arg1 forKey:(id)arg2;
 - (id)proxiedValueForKey:(id)arg1;

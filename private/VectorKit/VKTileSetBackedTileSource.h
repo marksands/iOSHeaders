@@ -38,7 +38,7 @@ __attribute__((visibility("hidden")))
 - (void)didFailToLoadTileKey:(const struct _GEOTileKey *)arg1 error:(id)arg2;
 - (void)fetchedTile:(id)arg1 forKey:(const struct VKTileKey *)arg2;
 - (id)tileForKey:(const struct VKTileKey *)arg1;
-- (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
+- (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3 userInfo:(id)arg4;
 - (struct VKTileKey)sourceKeyForRenderKey:(const struct VKTileKey *)arg1;
 - (_Bool)canFetchTileForKey:(const struct VKTileKey *)arg1;
 - (struct _GEOTileKey)downloadKeyAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;

@@ -6,15 +6,16 @@
 
 #import "UIViewController.h"
 
-#import "CKAvatarPickerViewControllerDelegate.h"
+#import "UIGestureRecognizerDelegate.h"
 
 @class CKAvatarPickerViewController, CKCanvasBackButtonView, CKConversation, CKLabel, CKNavigationBarCanvasView, CNContactStore, NSString, UIButton, UINavigationController;
 
-@interface CKNavbarCanvasViewController : UIViewController <CKAvatarPickerViewControllerDelegate>
+@interface CKNavbarCanvasViewController : UIViewController <UIGestureRecognizerDelegate>
 {
     _Bool _canShowBackButtonView;
     _Bool _editing;
     id <CKNavbarCanvasViewControllerDelegate> _delegate;
+    UIButton *_callButton;
     CKNavigationBarCanvasView *_canvasView;
     NSString *_navbarTitle;
     CKConversation *_conversation;
@@ -25,10 +26,12 @@
     UIButton *_clearAllButtonView;
     UIButton *_editCancelButtonView;
     UINavigationController *_proxyNavigationController;
+    long long _indicatorType;
     CNContactStore *_suggestionsEnabledContactStore;
 }
 
 @property(retain, nonatomic) CNContactStore *suggestionsEnabledContactStore; // @synthesize suggestionsEnabledContactStore=_suggestionsEnabledContactStore;
+@property(nonatomic) long long indicatorType; // @synthesize indicatorType=_indicatorType;
 @property(nonatomic) _Bool editing; // @synthesize editing=_editing;
 @property(nonatomic) __weak UINavigationController *proxyNavigationController; // @synthesize proxyNavigationController=_proxyNavigationController;
 @property(retain, nonatomic) UIButton *editCancelButtonView; // @synthesize editCancelButtonView=_editCancelButtonView;
@@ -41,6 +44,7 @@
 @property(retain, nonatomic) NSString *navbarTitle; // @synthesize navbarTitle=_navbarTitle;
 @property(nonatomic) _Bool canShowBackButtonView; // @synthesize canShowBackButtonView=_canShowBackButtonView;
 @property(retain, nonatomic) CKNavigationBarCanvasView *canvasView; // @synthesize canvasView=_canvasView;
+@property(retain, nonatomic) UIButton *callButton; // @synthesize callButton=_callButton;
 @property(nonatomic) __weak id <CKNavbarCanvasViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_buttonPressed:(id)arg1;
@@ -52,20 +56,26 @@
 - (void)_showContactCardForEntity:(id)arg1;
 - (void)dismissModal;
 - (void)showMapkitBusinessData;
-- (void)avatarPickerViewControllerDidSelectEntity:(id)arg1;
 - (void)_configureForDefaultMode;
 - (void)_configureForEditMode;
 - (id)_titleItemViewForTraitCollection:(id)arg1;
+- (id)_secondaryRightItemViewForTraitCollection:(id)arg1;
 - (id)_rightItemViewForTraitCollection:(id)arg1;
 - (id)_leftItemViewForTraitCollection:(id)arg1;
 - (void)_initializeForTraitCollection:(id)arg1;
 - (void)updateTitle:(id)arg1 animated:(_Bool)arg2;
 - (void)configureForEditing:(_Bool)arg1;
+- (_Bool)isMultiwayFaceTimeAudioSupported;
 - (void)_notifyDelegateThatViewControllerWantsResize;
+- (void)_updateMultiwayButtonStateWithConversation:(id)arg1;
+- (void)multiwayStateChanged:(id)arg1;
 - (void)accessibilitySizeCategoryDidChange:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)viewDidLoad;
 - (void)viewDidLayoutSubviews;
+- (void)handleCloseNavBarAnimationCompleteNotification:(id)arg1;
+- (void)_userDidTapNavigationBar:(id)arg1;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)loadView;
 - (id)navigationItem;
 - (_Bool)_canShowAvatarView;

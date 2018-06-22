@@ -13,7 +13,7 @@
 + (id)informantDependenciesIdentifiers;
 + (id)classIdentifier;
 + (id)familyIdentifier;
-- (id)gatherCluesOperationForInvestigation:(id)arg1;
+- (id)gatherCluesForInvestigation:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 
 @end
 

@@ -42,6 +42,7 @@
 - (void)setSecondaryStrideInPixelsX:(unsigned long long)arg1;
 - (void)setPrimaryStrideInPixelsY:(unsigned long long)arg1;
 - (void)setPrimaryStrideInPixelsX:(unsigned long long)arg1;
+- (unsigned long long)maxBatchSize;
 
 @end
 

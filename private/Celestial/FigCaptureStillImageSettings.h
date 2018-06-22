@@ -46,6 +46,8 @@
     _Bool _embedsDepthDataInImage;
     _Bool _depthDataFiltered;
     _Bool _cameraCalibrationDataDeliveryEnabled;
+    _Bool _portraitEffectsMatteDeliveryEnabled;
+    _Bool _embedsPortraitEffectsMatteInImage;
     NSDictionary *_metadata;
     NSArray *_originalImageFilters;
     NSArray *_processedImageFilters;
@@ -92,6 +94,8 @@
 @property(copy, nonatomic) NSArray *processedImageFilters; // @synthesize processedImageFilters=_processedImageFilters;
 @property(copy, nonatomic) NSArray *originalImageFilters; // @synthesize originalImageFilters=_originalImageFilters;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
+@property(nonatomic) _Bool embedsPortraitEffectsMatteInImage; // @synthesize embedsPortraitEffectsMatteInImage=_embedsPortraitEffectsMatteInImage;
+@property(nonatomic) _Bool portraitEffectsMatteDeliveryEnabled; // @synthesize portraitEffectsMatteDeliveryEnabled=_portraitEffectsMatteDeliveryEnabled;
 @property(nonatomic) _Bool cameraCalibrationDataDeliveryEnabled; // @synthesize cameraCalibrationDataDeliveryEnabled=_cameraCalibrationDataDeliveryEnabled;
 @property(nonatomic) _Bool depthDataFiltered; // @synthesize depthDataFiltered=_depthDataFiltered;
 @property(nonatomic) _Bool embedsDepthDataInImage; // @synthesize embedsDepthDataInImage=_embedsDepthDataInImage;

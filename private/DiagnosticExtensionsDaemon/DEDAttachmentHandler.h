@@ -21,6 +21,7 @@
 - (id)directoryForBugSession:(id)arg1 extension:(id)arg2 rootDirectory:(id)arg3 createIfNeeded:(_Bool)arg4;
 - (id)directoryForBugSession:(id)arg1 rootDirectory:(id)arg2 createIfNeeded:(_Bool)arg3;
 - (id)dedDirectory;
+- (id)identifierForAdoptingFile:(id)arg1;
 - (unsigned long long)directorySizeForBugSession:(id)arg1;
 - (void)removeDirectoryForBugSession:(id)arg1;
 - (id)directoryForBugSession:(id)arg1;

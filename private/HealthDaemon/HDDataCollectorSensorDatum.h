@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCopying.h"
-#import "NSSecureCoding.h"
+#import "HDCollectedSensorDatum.h"
 
-@class NSData, NSDateInterval, NSUUID;
+@class NSData, NSDateInterval, NSString, NSUUID;
 
-@interface HDDataCollectorSensorDatum : NSObject <NSCopying, NSSecureCoding>
+@interface HDDataCollectorSensorDatum : NSObject <HDCollectedSensorDatum>
 {
     NSUUID *_datumIdentifier;
     NSDateInterval *_dateInterval;
@@ -19,16 +18,21 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, copy, nonatomic) NSData *resumeContext; // @synthesize resumeContext=_resumeContext;
-@property(readonly, copy, nonatomic) NSDateInterval *dateInterval; // @synthesize dateInterval=_dateInterval;
-@property(readonly, copy, nonatomic) NSUUID *datumIdentifier; // @synthesize datumIdentifier=_datumIdentifier;
 - (void).cxx_destruct;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithIdentifier:(id)arg1 dateInterval:(id)arg2 resumeContext:(id)arg3;
+@property(readonly, copy, nonatomic) NSData *resumeContext;
+@property(readonly, copy, nonatomic) NSDateInterval *dateInterval;
+@property(readonly, copy, nonatomic) NSUUID *datumIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

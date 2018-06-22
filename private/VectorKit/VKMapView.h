@@ -298,7 +298,6 @@
 - (id)detailedDescription;
 @property(nonatomic) _Bool shouldLoadMapMargin;
 @property(nonatomic) _Bool shouldLoadFallbackTiles;
-- (id)closestRoadMarkerForSelectionAtPoint:(struct CGPoint)arg1;
 - (id)debugLabelString:(_Bool)arg1;
 - (void)debugHighlightLabelAtPoint:(struct CGPoint)arg1;
 @property(readonly, nonatomic) _Bool enableDebugLabelHighlighting;
@@ -351,7 +350,6 @@
 - (void)setApplicationState:(unsigned char)arg1 displayedSearchResultsType:(unsigned char)arg2;
 - (void)populateDebugNode:(shared_ptr_eafb90f9)arg1;
 - (long long)currentMapMode;
-- (id)roadMarkersForSelectionAtPoint:(struct CGPoint)arg1;
 - (shared_ptr_430519ce)buildingMarkerAtPoint:(struct CGPoint)arg1;
 - (shared_ptr_430519ce)featureMarkerAtPoint:(struct CGPoint)arg1;
 - (void)performStylesheetDidChange;

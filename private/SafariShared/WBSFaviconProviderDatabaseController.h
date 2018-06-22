@@ -19,14 +19,13 @@
 - (void)_deletePageURLs:(id)arg1;
 - (void)_deletePageURL:(id)arg1;
 - (id)_setTimestampToNowForIconUUID:(id)arg1;
-- (id)_setIconUUID:(id)arg1 forIconURLString:(id)arg2 size:(struct CGSize)arg3;
+- (id)_setIconUUID:(id)arg1 forIconURLString:(id)arg2 size:(struct CGSize)arg3 hasGeneratedResolutions:(_Bool)arg4;
 - (void)_setPageURL:(id)arg1 toIconUUID:(id)arg2;
 - (id)_findOrphansFromIconUUIDs:(id)arg1;
 - (id)_fetchPageURLStringsWithPredicate:(id)arg1;
 - (id)_fetchAllPageURLStrings;
-- (id)_fetchDateAddedAndURLForIconWithUUID:(id)arg1;
-- (id)_fetchDateAddedForIconWithURLString:(id)arg1;
-- (id)_fetchIconUUIDAndDateAddedForIconURLString:(id)arg1;
+- (id)_fetchIconInfoForIconUUID:(id)arg1;
+- (id)_fetchIconInfoForIconURLString:(id)arg1;
 - (id)_fetchIconUUIDsForPageURLStrings:(id)arg1;
 - (id)_fetchIconUUIDForPageURLString:(id)arg1;
 - (void)fetchPageURLStringsWithPrefixesIn:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -42,7 +41,8 @@
 - (void)removePageURLStrings:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removePageURLString:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)linkPageURLString:(id)arg1 toExistingIconURLString:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)linkAndUpdateTimestampForIconWithPageURLString:(id)arg1 iconURLString:(id)arg2 iconSize:(struct CGSize)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)linkAndUpdateTimestampForIconWithPageURLString:(id)arg1 iconURLString:(id)arg2 iconSize:(struct CGSize)arg3 iconHasGeneratedResolutions:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (int)_migrateToSchemaVersion_3;
 - (int)_migrateToSchemaVersion_2;
 - (int)_migrateToSchemaVersion:(int)arg1;
 - (int)_createFreshDatabaseSchema;

@@ -6,23 +6,18 @@
 
 #import <HMFoundation/HMFTimer.h>
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface HMFExponentialBackoffTimer : HMFTimer
 {
     _Bool _increasing;
     double _minimumTimeInterval;
     double _maximumTimeInterval;
     long long _exponentialFactor;
-    NSObject<OS_dispatch_queue> *_propertyQueue;
 }
 
 @property(readonly, nonatomic, getter=isIncreasing) _Bool increasing; // @synthesize increasing=_increasing;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) long long exponentialFactor; // @synthesize exponentialFactor=_exponentialFactor;
 @property(readonly, nonatomic) double maximumTimeInterval; // @synthesize maximumTimeInterval=_maximumTimeInterval;
 @property(readonly, nonatomic) double minimumTimeInterval; // @synthesize minimumTimeInterval=_minimumTimeInterval;
-- (void).cxx_destruct;
 - (void)reset;
 - (void)_fire;
 @property(nonatomic) double timeInterval;

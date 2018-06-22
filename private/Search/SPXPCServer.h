@@ -10,18 +10,21 @@
 
 @interface SPXPCServer : NSObject
 {
+    double _idleTimerInterval;
+    _Bool _shutdown;
     NSObject<OS_xpc_object> *_conn;
     NSMutableSet *_connections;
     NSMutableDictionary *_handlerMap;
     NSObject<OS_dispatch_queue> *_connectionsQueue;
     NSObject<OS_dispatch_queue> *_eventQueue;
     NSObject<OS_dispatch_queue> *_timerQueue;
-    double _idleTimerInterval;
-    _Bool _shutdown;
+    _Bool hadConnection;
     CDUnknownBlockType _disconnectHandler;
     CDUnknownBlockType _defaultMessageHandler;
+    CDUnknownBlockType _firstConnectionBlock;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType firstConnectionBlock; // @synthesize firstConnectionBlock=_firstConnectionBlock;
 @property(copy, nonatomic) CDUnknownBlockType defaultMessageHandler; // @synthesize defaultMessageHandler=_defaultMessageHandler;
 @property(copy, nonatomic) CDUnknownBlockType disconnectHandler; // @synthesize disconnectHandler=_disconnectHandler;
 - (void).cxx_destruct;

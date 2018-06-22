@@ -11,6 +11,7 @@
 
 @class LACachedExternalizedContext, NSData, NSError, NSMutableArray, NSObject<OS_dispatch_queue>, NSXPCConnection;
 
+__attribute__((visibility("hidden")))
 @interface LAClient : NSObject <LAContextXPC, LAContextCallbackXPC>
 {
     id <LAContextXPC> _remoteContext;

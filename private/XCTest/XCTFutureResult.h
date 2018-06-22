@@ -30,7 +30,7 @@
 - (void)setError:(id)arg1;
 - (id)error;
 - (void)_waitForFulfillment;
-- (id)initWithTimeout:(double)arg1 description:(id)arg2;
+- (id)initWithTimeout:(double)arg1 promise:(id)arg2;
 
 @end
 

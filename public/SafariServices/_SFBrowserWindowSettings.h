@@ -11,6 +11,7 @@
 @interface _SFBrowserWindowSettings : NSObject
 {
     NSMutableDictionary *_settingsDictionary;
+    _Bool _synchronizeScheduled;
     _Bool _invalidatesClosedWindows;
 }
 
@@ -18,6 +19,7 @@
 + (id)settings;
 @property(nonatomic) _Bool invalidatesClosedWindows; // @synthesize invalidatesClosedWindows=_invalidatesClosedWindows;
 - (void).cxx_destruct;
+- (void)_synchronizeNow;
 - (void)synchronize;
 @property(readonly, nonatomic) _Bool hasPrivateBrowsingWindow;
 - (void)removeWindowWithUUID:(id)arg1;

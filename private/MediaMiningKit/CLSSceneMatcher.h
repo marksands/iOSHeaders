@@ -10,14 +10,14 @@
 
 @interface CLSSceneMatcher : NSObject
 {
-    NSMutableDictionary *_sceneIdentifiersByConfidenceBySceneLabel;
+    NSMutableDictionary *_confidenceThresholdBySceneIdentifierBySceneLabel;
 }
 
-+ (id)sceneNamesByConfidenceBySceneLabels;
-+ (id)junkSceneNamesByConfidence;
++ (id)sceneNameBySceneLabel;
++ (id)junkSceneNames;
 + (id)sharedSceneMatcher;
 - (void).cxx_destruct;
-- (id)sceneIdentifiersByConfidenceWithSceneLabel:(id)arg1;
+- (id)confidenceThresholdBySceneIdentifierForSceneLabel:(id)arg1;
 
 @end
 

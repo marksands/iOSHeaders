@@ -58,6 +58,8 @@
 - (void)_occurrenceCacheChanged;
 - (void)_eventStoreChanged:(id)arg1;
 - (void)calendarEventLoader:(id)arg1 occurrencesDidUpdateBetweenStart:(double)arg2 end:(double)arg3;
+- (void)_finishedFirstLoad;
+- (void)simulateFirstLoadFinished;
 - (long long)countSourcesWithErrors;
 @property(readonly, nonatomic) long long displayableAccountErrorsCount;
 - (void)_processReloadForCacheOnly:(_Bool)arg1 includingCalendars:(_Bool)arg2 checkCalendarsValid:(_Bool)arg3 checkSources:(_Bool)arg4;

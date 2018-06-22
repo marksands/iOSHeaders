@@ -21,6 +21,7 @@
     NSArray *_formats;
     AVCaptureDeviceFormat *_activeFormat;
     AVCaptureDeviceFormat *_activeDepthDataFormat;
+    CDStruct_1b6d18a9 _activeDepthDataMinFrameDuration;
     CDStruct_1b6d18a9 _activeMinFrameDuration;
     _Bool _activeMinFrameDurationSetByClient;
     CDStruct_1b6d18a9 _activeMaxFrameDuration;
@@ -42,6 +43,8 @@
     float _exposureTargetBias;
     float _exposureTargetOffsetKVO;
     struct CGPoint _exposurePointOfInterest;
+    CDStruct_1b6d18a9 _activeMaxExposureDuration;
+    CDStruct_1b6d18a9 _activeMaxExposureDurationClientOverride;
     _Bool _adjustingExposure;
     _Bool _waitingForExposureAdjustmentBeforeLocking;
     long long _wbMode;
@@ -108,6 +111,7 @@
     NSArray *_availableBoxedMetadataFormatDescriptions;
     NSDictionary *_sessionPresetCompressionSettings;
     NSDictionary *_h264EncoderLimitations;
+    NSDictionary *_hevcEncoderSettings;
     NSObject<OS_dispatch_queue> *_observedHighFrequencyPropertiesQueue;
     NSMutableDictionary *_observedHighFrequencyPropertyCounts;
     NSMutableDictionary *_propertyToFigCaptureSourcePropertyMap;
@@ -138,6 +142,7 @@
 - (_Bool)isHEIFSupported;
 - (_Bool)isHEVCPreferred;
 - (_Bool)isHEVCSupported;
+- (int)hevcTurboModeVersion;
 - (_Bool)usesQuantizationScalingMatrix_H264_Steep_16_48;
 - (int)minMacroblocksForHighProfileAbove30fps;
 - (int)minMacroblocksForHighProfileUpTo30fps;
@@ -166,11 +171,6 @@
 - (long long)shallowDepthOfFieldEffectStatus;
 - (id)_recommendedFrameRateRangeForVideoFormat:(id)arg1 depthFormat:(id)arg2 systemPressureLevel:(id)arg3;
 - (id)systemPressureState;
-- (void)setAutomaticallyEnablesLowLightBoostWhenAvailable:(_Bool)arg1;
-- (_Bool)automaticallyEnablesLowLightBoostWhenAvailable;
-- (void)_setLowLightBoostEnabled:(_Bool)arg1;
-- (_Bool)isLowLightBoostEnabled;
-- (_Bool)isLowLightBoostSupported;
 - (_Bool)isCameraIntrinsicMatrixDeliverySupported;
 - (_Bool)isVideoStabilizationSupported;
 - (_Bool)isRawStillImageCaptureSupported;
@@ -283,6 +283,8 @@
 - (_Bool)isWhiteBalanceModeSupported:(long long)arg1;
 - (void)_setAdjustingWhiteBalance:(_Bool)arg1;
 - (_Bool)isAdjustingWhiteBalance;
+- (void)setActiveMaxExposureDuration:(CDStruct_1b6d18a9)arg1;
+- (CDStruct_1b6d18a9)activeMaxExposureDuration;
 - (void)setExposurePointOfInterest:(struct CGPoint)arg1;
 - (struct CGPoint)exposurePointOfInterest;
 - (_Bool)isExposurePointOfInterestSupported;
@@ -302,6 +304,7 @@
 - (void)_setAdjustingExposure:(_Bool)arg1;
 - (_Bool)isAdjustingExposure;
 - (float)lensAperture;
+- (float)focalLength;
 - (void)setSmoothAutoFocusEnabled:(_Bool)arg1;
 - (_Bool)isSmoothAutoFocusEnabled;
 - (_Bool)isSmoothAutoFocusSupported;
@@ -326,6 +329,8 @@
 - (long long)deviceSourceOrigin;
 - (_Bool)cachesFigCaptureSourceConfigurationChanges;
 - (void)setCachesFigCaptureSourceConfigurationChanges:(_Bool)arg1;
+- (_Bool)appliesSessionPresetMaxIntegrationTimeOverrideToActiveFormat;
+- (CDStruct_1b6d18a9)activeMaxExposureDurationClientOverride;
 - (_Bool)isActiveVideoMaxFrameDurationSet;
 - (_Bool)isActiveVideoMinFrameDurationSet;
 - (void)_setActiveVideoMaxFrameDuration:(CDStruct_1b6d18a9)arg1;
@@ -336,6 +341,8 @@
 - (void)setActiveVideoMinFrameDuration:(CDStruct_1b6d18a9)arg1;
 - (int)_setActiveVideoMinFrameDurationInternal:(CDStruct_1b6d18a9)arg1;
 - (CDStruct_1b6d18a9)activeVideoMinFrameDuration;
+- (void)setActiveDepthDataMinFrameDuration:(CDStruct_1b6d18a9)arg1;
+- (CDStruct_1b6d18a9)activeDepthDataMinFrameDuration;
 - (void)setActiveDepthDataFormat:(id)arg1;
 - (id)activeDepthDataFormat;
 - (void)_setActiveFormat:(id)arg1 resetVideoZoomFactorAndMinMaxFrameDurations:(_Bool)arg2;

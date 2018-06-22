@@ -13,7 +13,9 @@ __attribute__((visibility("hidden")))
 
 - (id)publishingBundle;
 - (_Bool)canPerformWithActivityItems:(id)arg1;
+- (id)_activitySettingsBundleImageConfiguration;
 - (id)_activitySettingsImage;
+- (id)_activityBundleImageConfiguration;
 - (id)_activityImage;
 - (id)activityTitle;
 - (id)activityType;

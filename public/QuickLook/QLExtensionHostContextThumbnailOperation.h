@@ -17,20 +17,22 @@ __attribute__((visibility("hidden")))
     QLItem *_item;
     double _minimumSize;
     double _scale;
+    unsigned long long _badgeType;
     struct CGSize _size;
 }
 
+@property(nonatomic) unsigned long long badgeType; // @synthesize badgeType=_badgeType;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(nonatomic) double minimumSize; // @synthesize minimumSize=_minimumSize;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
-@property(nonatomic) QLItem *item; // @synthesize item=_item;
+@property(retain, nonatomic) QLItem *item; // @synthesize item=_item;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(copy, nonatomic) CDUnknownBlockType serviceErrorHandler; // @synthesize serviceErrorHandler=_serviceErrorHandler;
 @property(retain, nonatomic) QLThumbnailHostContext *hostContext; // @synthesize hostContext=_hostContext;
 - (void).cxx_destruct;
 - (void)finish;
 - (void)main;
-- (id)initWithThumbnailHostContext:(id)arg1 item:(id)arg2 size:(struct CGSize)arg3 minimumSize:(double)arg4 scale:(double)arg5 completionHandler:(CDUnknownBlockType)arg6 serviceErrorHandler:(CDUnknownBlockType)arg7;
+- (id)initWithThumbnailHostContext:(id)arg1 item:(id)arg2 size:(struct CGSize)arg3 minimumSize:(double)arg4 scale:(double)arg5 badgeType:(unsigned long long)arg6 completionHandler:(CDUnknownBlockType)arg7 serviceErrorHandler:(CDUnknownBlockType)arg8;
 
 @end
 

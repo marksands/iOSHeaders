@@ -22,8 +22,6 @@
     unsigned long long _basicHashCount;
     unsigned long long _basicHashValueStoreCount;
     unsigned long long _graphSize;
-    unsigned long long _basicNodeSize;
-    unsigned long long _basicEdgeSize;
     unsigned long long _nodeCount;
     unsigned long long _edgeCount;
     unsigned long long _maximumEdgeCountInNode;
@@ -33,9 +31,7 @@
 @property(readonly, nonatomic) unsigned long long countOfNodesWithAtMostEightEdges; // @synthesize countOfNodesWithAtMostEightEdges=_countOfNodesWithAtMostEightEdges;
 @property(readonly, nonatomic) unsigned long long maximumEdgeCountInNode; // @synthesize maximumEdgeCountInNode=_maximumEdgeCountInNode;
 @property(readonly, nonatomic) unsigned long long nodeCount; // @synthesize nodeCount=_nodeCount;
-@property(readonly, nonatomic) unsigned long long basicEdgeSize; // @synthesize basicEdgeSize=_basicEdgeSize;
 @property(readonly, nonatomic) unsigned long long allEdgesSize; // @synthesize allEdgesSize=_allEdgesSize;
-@property(readonly, nonatomic) unsigned long long basicNodeSize; // @synthesize basicNodeSize=_basicNodeSize;
 @property(readonly, nonatomic) unsigned long long allNodesSize; // @synthesize allNodesSize=_allNodesSize;
 @property(readonly, nonatomic) unsigned long long graphSize; // @synthesize graphSize=_graphSize;
 - (void).cxx_destruct;

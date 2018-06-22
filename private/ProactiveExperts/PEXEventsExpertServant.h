@@ -55,7 +55,6 @@
 - (unsigned char)_entitiesForDeletedEvent:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (unsigned char)loadNamesWithNamedEntityHandler:(CDUnknownBlockType)arg1 contactNameItemHandler:(CDUnknownBlockType)arg2 detectedSince:(id)arg3;
 - (unsigned char)loadRecentNamesWithNamedEntityHandler:(CDUnknownBlockType)arg1 contactNameItemHandler:(CDUnknownBlockType)arg2 source:(unsigned char)arg3 objects:(id)arg4;
-- (id)nameItemsWithLimit:(unsigned long long)arg1;
 - (id)quickTypeItemsForCriteria:(id)arg1 limit:(unsigned long long)arg2;
 - (void)askForEKAccess;
 - (void)setAccessGranted:(_Bool)arg1;

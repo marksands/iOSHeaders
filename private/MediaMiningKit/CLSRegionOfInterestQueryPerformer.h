@@ -10,8 +10,8 @@
 {
 }
 
++ (id)categories;
 + (double)defaultPrecision;
-- (id)initWithRegions:(id)arg1 precision:(double)arg2;
 
 @end
 

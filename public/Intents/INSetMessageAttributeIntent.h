@@ -27,6 +27,7 @@
 - (void)setIdentifiers:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *identifiers;
 - (id)initWithIdentifiers:(id)arg1 attribute:(long long)arg2;
+- (void)_setMetadata:(id)arg1;
 - (id)_metadata;
 - (id)_typedBackingStore;
 

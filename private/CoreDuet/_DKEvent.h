@@ -38,7 +38,11 @@
 + (id)eventWithStream:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 value:(id)arg4 confidence:(double)arg5 metadata:(id)arg6;
 + (id)eventWithStream:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 value:(id)arg4 metadata:(id)arg5;
 + (id)eventWithStream:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 value:(id)arg4;
++ (id)eventRepresentingUserActivityWithSearchableItem:(id)arg1 bundleIdentifier:(id)arg2;
++ (_Bool)isValidURL:(id)arg1;
++ (id)allowedWebpageURLSchemes;
 + (id)eventWithSearchableItem:(id)arg1 bundleIdentifier:(id)arg2;
++ (id)eventWithRelevantShortcut:(id)arg1 bundleID:(id)arg2;
 + (id)fromPBCodable:(id)arg1;
 + (id)interactionWithEvent:(id)arg1;
 + (id)eventWithInteraction:(id)arg1 bundleIdentifier:(id)arg2;
@@ -50,6 +54,8 @@
 + (id)eventStreamFromManagedObject:(id)arg1 forValue:(id)arg2 cache:(id)arg3;
 + (id)objectFromManagedObject:(id)arg1 readMetadata:(_Bool)arg2 cache:(id)arg3;
 + (id)entityName;
++ (id)keyPathForMOKeyPath:(id)arg1;
++ (id)moKeyPathForKeyPath:(id)arg1;
 @property _Bool shouldSync; // @synthesize shouldSync=_shouldSync;
 @property double confidence; // @synthesize confidence=_confidence;
 @property(copy) NSDictionary *metadata; // @synthesize metadata=_metadata;
@@ -70,6 +76,9 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithStream:(id)arg1 source:(id)arg2 startDate:(id)arg3 endDate:(id)arg4 value:(id)arg5 confidence:(double)arg6 metadata:(id)arg7;
+- (id)relevantAction;
+- (unsigned long long)sizeWithoutMetadata;
+- (id)relevantShortcut;
 - (id)toPBCodable;
 - (id)asInteraction;
 - (_Bool)copyToManagedObject:(id)arg1;

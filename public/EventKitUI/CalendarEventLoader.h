@@ -45,6 +45,7 @@
 - (void)_reload;
 - (void)cancelAllLoads;
 - (void)_enqueueLoadForRangeStart:(double)arg1 end:(double)arg2;
+- (_Bool)firstLoadBegan;
 - (id)_uniqueEventsFromArray:(id)arg1;
 - (void)_loadIfNeededBetweenStart:(double)arg1 end:(double)arg2 loadPaddingNow:(_Bool)arg3;
 - (void)loadIfNeeded;

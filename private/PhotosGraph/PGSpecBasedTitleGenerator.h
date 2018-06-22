@@ -31,7 +31,7 @@
 - (id)initWithMoments:(id)arg1 features:(id)arg2 specCollection:(id)arg3;
 - (id)initWithMoments:(id)arg1 features:(id)arg2 meaningLabel:(id)arg3 isAggregation:(_Bool)arg4;
 - (id)initWithMoments:(id)arg1 meaningLabel:(id)arg2;
-- (id)initWithMoments:(id)arg1 memoryCategory:(long long)arg2 subcategory:(long long)arg3;
+- (id)initWithMoments:(id)arg1 memoryCategory:(unsigned long long)arg2 subcategory:(unsigned long long)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

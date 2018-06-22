@@ -6,14 +6,16 @@
 
 #import <CoreImage/CIFilter.h>
 
-@class CIImage;
+@class CIImage, NSDictionary;
 
 __attribute__((visibility("hidden")))
 @interface CIBlurmapSmoothing : CIFilter
 {
     CIImage *inputImage;
+    NSDictionary *inputTuningParameters;
 }
 
+@property(retain) NSDictionary *inputTuningParameters; // @synthesize inputTuningParameters;
 @property(retain) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (id)performPass:(id)arg1 reference:(id)arg2 values:(id)arg3 rect:(struct CGRect)arg4;

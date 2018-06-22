@@ -30,6 +30,7 @@
 - (struct VtValue)defaultVtValue;
 @property(readonly, nonatomic) unsigned long long precision;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)resetWithAnimatedValue:(id)arg1;
 - (id)init;
 
 @end

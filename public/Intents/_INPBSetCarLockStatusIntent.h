@@ -6,36 +6,41 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBSetCarLockStatusIntent.h"
 
-@class PBUnknownFields, _INPBDataString, _INPBIntentMetadata;
+@class INCodableAttribute, NSString, _INPBDataString, _INPBIntentMetadata;
 
-@interface _INPBSetCarLockStatusIntent : PBCodable <NSCopying>
+@interface _INPBSetCarLockStatusIntent : PBCodable <_INPBSetCarLockStatusIntent, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
+    CDStruct_b1e20226 _has;
+    _Bool _locked;
     _INPBDataString *_carName;
     _INPBIntentMetadata *_intentMetadata;
-    _Bool _locked;
-    CDStruct_b1e20226 _has;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
-+ (id)options;
-@property(retain, nonatomic) _INPBDataString *carName; // @synthesize carName=_carName;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(nonatomic) _Bool locked; // @synthesize locked=_locked;
 @property(retain, nonatomic) _INPBIntentMetadata *intentMetadata; // @synthesize intentMetadata=_intentMetadata;
+@property(retain, nonatomic) _INPBDataString *carName; // @synthesize carName=_carName;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(readonly, nonatomic) _Bool hasCarName;
 @property(nonatomic) _Bool hasLocked;
 @property(readonly, nonatomic) _Bool hasIntentMetadata;
+@property(readonly, nonatomic) _Bool hasCarName;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

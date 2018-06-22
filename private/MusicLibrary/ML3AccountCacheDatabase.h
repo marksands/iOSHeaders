@@ -6,22 +6,20 @@
 
 #import "NSObject.h"
 
-@class ML3DatabaseConnection, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class ML3MusicLibrary, NSMutableDictionary, NSOperationQueue;
 
 @interface ML3AccountCacheDatabase : NSObject
 {
-    ML3DatabaseConnection *_databaseConnection;
-    NSObject<OS_dispatch_queue> *_accessQueue;
-    NSMutableDictionary *_appleIdCache;
+    NSMutableDictionary *_propertiesCache;
+    NSOperationQueue *_operationQueue;
+    ML3MusicLibrary *_library;
 }
 
 - (void).cxx_destruct;
-- (_Bool)_clearCacheDatabase;
-- (_Bool)_internalSetAppleID:(id)arg1 forDSID:(unsigned long long)arg2;
-- (_Bool)_closeDatabase;
-- (_Bool)_openDatabaseIsRetry:(_Bool)arg1;
-- (_Bool)_openDatabase;
-- (id)_databasePath;
+- (void)_lookupAltDSIDForDSID:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_setAppleID:(id)arg1 altDSID:(id)arg2 forDSID:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)getPropertiesForDSID:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)setAppleID:(id)arg1 altDSID:(id)arg2 forDSID:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)appleIDForDSID:(unsigned long long)arg1;
 - (_Bool)setAppleID:(id)arg1 forDSID:(unsigned long long)arg2;
 - (id)init;

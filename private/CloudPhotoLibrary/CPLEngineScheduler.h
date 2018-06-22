@@ -20,6 +20,8 @@
     double _intervalForRetry;
     NSObject<OS_dispatch_queue> *_queue;
     unsigned long long _currentSyncState;
+    _Bool _needsToUpdateScopeList;
+    _Bool _shouldNoteServerHasChanges;
     _Bool _opened;
     NSDate *_unavailabilityLimitDate;
     unsigned long long _foregroundCalls;
@@ -35,7 +37,6 @@
     _Bool _didStartFirstSync;
     _Bool _didWriteFirstSyncMarker;
     _Bool _delayedFirstSyncBecauseOfRapidLaunch;
-    _Bool _needsPrePush;
     CPLPlatformObject *_platformObject;
     CPLEngineLibrary *_engineLibrary;
     CDUnknownBlockType _requiredStateObserverBlock;
@@ -44,13 +45,12 @@
 
 + (id)validElements;
 + (id)platformImplementationProtocol;
-@property(readonly) _Bool needsPrePush; // @synthesize needsPrePush=_needsPrePush;
 @property(copy, nonatomic) CDUnknownBlockType shouldBackOffOnErrorBlock; // @synthesize shouldBackOffOnErrorBlock=_shouldBackOffOnErrorBlock;
 @property(copy, nonatomic) CDUnknownBlockType requiredStateObserverBlock; // @synthesize requiredStateObserverBlock=_requiredStateObserverBlock;
 @property(readonly, nonatomic) __weak CPLEngineLibrary *engineLibrary; // @synthesize engineLibrary=_engineLibrary;
 @property(readonly, nonatomic) CPLPlatformObject *platformObject; // @synthesize platformObject=_platformObject;
 - (void).cxx_destruct;
-- (_Bool)needsPrepush;
+@property(readonly, nonatomic) unsigned long long requiredState;
 - (void)_resetFirstSynchronizationMarker;
 - (id)_minimalDateForFirstSync;
 - (void)_writeFirstSynchronizationMarker;
@@ -91,11 +91,18 @@
 - (void)noteClientIsInForeground;
 - (void)noteResourceDownloadQueueIsFull;
 - (void)noteServerHasChanges;
+- (void)_reallyNoteServerHasChangesLocked;
 - (void)noteClientIsNotInSyncWithClientCache;
 - (void)noteClientIsInSyncWithClientCache;
-- (void)notePullQueueIsFull;
-- (void)notePushQueueIsFull;
-- (void)notePushQueueIsEmpty;
+- (void)noteClientNeedsToPull;
+- (void)noteScopeNeedsToPullFromTransport;
+- (void)noteScopeNeedsToPushToTransport;
+- (void)noteScopeNeedsToPushHighPriorityToTransport;
+- (void)noteScopeNeedsUpdate;
+- (void)noteScopeListNeedsUpdate;
+- (void)noteTransportNeedsUpdate;
+- (void)noteStoreNeedsCleanup;
+- (void)noteStoreNeedsSetup;
 - (void)kickOffSyncSession;
 - (void)startRequiredSyncSessionNow;
 - (void)_backOff;

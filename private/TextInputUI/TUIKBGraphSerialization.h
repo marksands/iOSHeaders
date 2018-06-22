@@ -40,6 +40,7 @@
 - (unsigned char)flagsForOffset:(int)arg1 length:(int *)arg2;
 - (id)keyboardForName:(id)arg1;
 @property(retain, nonatomic) NSData *serializedData;
+- (unsigned long long)serializedObjectCount;
 - (void)serializeObject:(id)arg1;
 - (id)_objectAtSerializedOffset:(int)arg1;
 - (int)_serializedOffsetForObject:(id)arg1;

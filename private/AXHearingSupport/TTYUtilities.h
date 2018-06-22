@@ -19,10 +19,12 @@
 + (void)displayCallPromptForContact:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 + (_Bool)ttyShouldBeRealtimeForCall:(id)arg1;
 + (id)phoneNumberStringFromString:(id)arg1;
++ (id)ASCIINumericStringFromString:(struct __CFString *)arg1;
 + (id)relayPhoneNumber;
 + (_Bool)relayIsSupported;
 + (_Bool)softwareTTYIsSupported;
 + (_Bool)shouldUseRTT;
++ (_Bool)isOnlyRTTSupported;
 + (_Bool)isRTTSupported;
 + (_Bool)hardwareTTYIsSupported;
 + (void)contactIsTTYContact:(id)arg1 resultBlock:(CDUnknownBlockType)arg2;

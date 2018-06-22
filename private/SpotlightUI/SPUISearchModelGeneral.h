@@ -16,7 +16,7 @@
 @property(retain) SPClientSession *session; // @synthesize session=_session;
 - (void).cxx_destruct;
 - (void)clear;
-- (void)setQueryContext:(id)arg1 allowInternet:(_Bool)arg2;
+- (void)updateWithQueryContext:(id)arg1;
 - (void)deactivate;
 - (void)activate;
 - (void)updatesEnabled;

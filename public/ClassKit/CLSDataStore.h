@@ -7,16 +7,21 @@
 #import "NSObject.h"
 
 #import "CLSFaultProcessorDelegate.h"
+#import "NSLocking.h"
 
-@class CLSActivity, CLSContext, CLSCurrentUser, CLSEndpointConnection, CLSGraph, NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
+@class CLSActivity, CLSAuthTree, CLSContext, CLSCurrentUser, CLSEndpointConnection, CLSGraph, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
 
-@interface CLSDataStore : NSObject <CLSFaultProcessorDelegate>
+@interface CLSDataStore : NSObject <CLSFaultProcessorDelegate, NSLocking>
 {
     NSMutableSet *_dataObservers;
     struct NSMutableDictionary *_deletedObjectsByID;
     NSMutableDictionary *_objectGenerationsByID;
     CLSCurrentUser *_cachedCurrentUser;
     int _accountChangeToken;
+    struct os_unfair_recursive_lock_s _lock;
+    NSMutableArray *_pendingSaves;
+    _Bool _saveInProgress;
+    CLSAuthTree *_authTree;
     NSMutableArray *_runningActivities;
     id <CLSDataStoreDelegate> _delegate;
     CLSContext *_mainAppContext;
@@ -37,7 +42,6 @@
 - (void).cxx_destruct;
 - (_Bool)faultProcessor:(id)arg1 shouldFaultRelation:(id)arg2 fromObject:(struct NSObject *)arg3;
 - (void)deregisterDataObserver:(id)arg1;
-- (void)_registerDataObserver:(id)arg1;
 - (void)registerDataObserver:(id)arg1;
 - (void)currentUserWithServer:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)currentUserWithCompletion:(CDUnknownBlockType)arg1;
@@ -53,7 +57,7 @@
 - (_Bool)isAppClient;
 - (void)removeRunningActivitiesObject:(id)arg1;
 - (void)addRunningActivitiesObject:(id)arg1;
-@property(readonly, copy, nonatomic) NSArray *runningActivities;
+- (id)runningActivities;
 @property(readonly, nonatomic) CLSActivity *runningActivity;
 @property(readonly, nonatomic) CLSContext *activeContext;
 - (id)syncDataServer:(CDUnknownBlockType)arg1;
@@ -68,9 +72,15 @@
 - (void)removeObjectWithObjectID:(id)arg1 class:(Class)arg2;
 - (id)_addObject:(id)arg1;
 - (id)addObject:(id)arg1;
+- (id)objectWithObjectID:(id)arg1;
+- (id)_validateObjects:(id)arg1;
+- (id)_modifiedObjects;
+- (id)_filterObjectsBeingSavedFromObjects:(id)arg1;
 - (void)_saveObjects:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)saveObjects:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)updateAuthStatusesForContexts:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)refreshAuthTreeWithCompletion:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) CLSAuthTree *authTree;
+- (void)_save;
 - (void)saveWithCompletion:(CDUnknownBlockType)arg1;
 - (void)contextsMatchingPredicate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)contextsMatchingIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -90,6 +100,8 @@
 - (void)_registerForDarwinNotifications;
 - (void)_connectionConnected;
 - (void)_connectionInterupted;
+- (void)unlock;
+- (void)lock;
 - (void)dealloc;
 - (id)initWithEndpoint:(id)arg1;
 - (id)init;

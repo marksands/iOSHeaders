@@ -6,21 +6,23 @@
 
 #import <RemoteManagementProtocol/RMPRemoteManagementRequest.h>
 
-#import "CEMRegisteredTypeProtocol.h"
+#import "RMPRegisteredTypeProtocol.h"
 
 @class NSArray, NSString;
 
-@interface RMPSetRequest : RMPRemoteManagementRequest <CEMRegisteredTypeProtocol>
+@interface RMPSetRequest : RMPRemoteManagementRequest <RMPRegisteredTypeProtocol>
 {
     NSString *_syncToken;
     NSArray *_declarations;
 }
 
-+ (id)registeredType;
-+ (id)registeredClass;
-@property(retain, nonatomic) NSArray *declarations; // @synthesize declarations=_declarations;
-@property(retain, nonatomic) NSString *syncToken; // @synthesize syncToken=_syncToken;
++ (id)requestWithUUID:(id)arg1 withSyncToken:(id)arg2 withDeclarations:(id)arg3;
++ (id)registeredIdentifier;
++ (id)registeredClassName;
+@property(copy, nonatomic) NSArray *declarations; // @synthesize declarations=_declarations;
+@property(copy, nonatomic) NSString *syncToken; // @synthesize syncToken=_syncToken;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)serialize;
 - (_Bool)loadRequestFromDictionary:(id)arg1 error:(id *)arg2;
 

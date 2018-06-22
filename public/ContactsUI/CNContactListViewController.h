@@ -150,6 +150,7 @@
 - (void)_applicationEnteringForeground:(id)arg1;
 - (void)contactStoreDidChangeWithNotification:(id)arg1;
 - (void)_updateCountStringNow:(_Bool)arg1;
+- (void)_contactCountTelemetry:(unsigned long long)arg1;
 - (void)reloadContacts;
 - (void)selectRowAtIndexPath:(id)arg1 animated:(_Bool)arg2 scrollPosition:(long long)arg3;
 - (_Bool)selectContact:(id)arg1 animated:(_Bool)arg2 scrollPosition:(long long)arg3;

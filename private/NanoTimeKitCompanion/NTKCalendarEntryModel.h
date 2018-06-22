@@ -6,7 +6,7 @@
 
 #import <NanoTimeKitCompanion/NTKTimelineEntryModel.h>
 
-@class NSDate, NSString, NSURL;
+@class NSDate, NSString, NSURL, UIColor;
 
 @interface NTKCalendarEntryModel : NTKTimelineEntryModel
 {
@@ -23,6 +23,8 @@
     unsigned long long _overlappingEventCount;
     unsigned long long _eventsInDayCount;
     NSURL *_launchURL;
+    UIColor *_primaryEventCalendarColor;
+    UIColor *_secondaryEventCalendarColor;
 }
 
 + (id)_entryForTemplateDescription:(id)arg1 family:(long long)arg2;
@@ -39,7 +41,10 @@
 + (id)_modularSmallCalendarImageProvider;
 + (id)smallUtility:(id)arg1;
 + (id)_swapPlaceholderString:(id)arg1 withTimeStringForDate:(id)arg2 inString:(id)arg3 usingBaseFont:(id)arg4 smallCapsBaseFont:(id)arg5 timeZone:(id)arg6 options:(unsigned long long)arg7;
++ (id)contentForLargeModular:(id)arg1;
 + (id)largeModular:(id)arg1;
+@property(retain, nonatomic) UIColor *secondaryEventCalendarColor; // @synthesize secondaryEventCalendarColor=_secondaryEventCalendarColor;
+@property(retain, nonatomic) UIColor *primaryEventCalendarColor; // @synthesize primaryEventCalendarColor=_primaryEventCalendarColor;
 @property(retain, nonatomic) NSURL *launchURL; // @synthesize launchURL=_launchURL;
 @property(nonatomic) unsigned long long eventsInDayCount; // @synthesize eventsInDayCount=_eventsInDayCount;
 @property(nonatomic) unsigned long long overlappingEventCount; // @synthesize overlappingEventCount=_overlappingEventCount;

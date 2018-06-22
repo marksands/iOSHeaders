@@ -10,17 +10,17 @@
 #import "AXHARemoteUpdateProtocol.h"
 #import "NSNetServiceDelegate.h"
 
-@class AXHADispatchTimer, AXRemoteHearingAidDevice, NSString;
+@class AXDispatchTimer, AXRemoteHearingAidDevice, NSString;
 
 @interface AXHearingSlaveController : AXIDCSlaveController <NSNetServiceDelegate, AXHARemoteUpdateProtocol, AXHARemoteControllerProtocol>
 {
     _Bool didValidateHIID;
-    AXHADispatchTimer *_communicationTimer;
+    AXDispatchTimer *_communicationTimer;
     AXRemoteHearingAidDevice *_localDevice;
 }
 
 @property(retain, nonatomic) AXRemoteHearingAidDevice *localDevice; // @synthesize localDevice=_localDevice;
-@property(retain, nonatomic) AXHADispatchTimer *communicationTimer; // @synthesize communicationTimer=_communicationTimer;
+@property(retain, nonatomic) AXDispatchTimer *communicationTimer; // @synthesize communicationTimer=_communicationTimer;
 @property(nonatomic) _Bool didValidateHIID; // @synthesize didValidateHIID;
 - (void).cxx_destruct;
 - (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;

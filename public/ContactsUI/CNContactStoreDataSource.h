@@ -71,6 +71,7 @@
 @property(readonly, nonatomic) NSString *displayName;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithStore:(id)arg1 screenFrame:(struct CGRect)arg2;
 - (id)initWithStore:(id)arg1;
 
 // Remaining properties

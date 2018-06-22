@@ -26,6 +26,7 @@
 - (void)_resourcesWithPredicate:(id)arg1 limit:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)_predicatesForNonThumbnails;
 - (id)_predicateForKeyFacePrefetching;
+- (id)_predicateToPrefetchSuggestions:(id)arg1;
 - (id)_predicateToPrefetchMemories:(id)arg1;
 - (id)_resourcesToPrefetchForAsset:(id)arg1;
 - (id)_prefetchResourceForAsset:(id)arg1 inResourceTypes:(id)arg2;
@@ -63,6 +64,8 @@
 - (void)dealloc;
 - (id)initWithCPLManager:(id)arg1 pruneManager:(id)arg2;
 - (id)init;
+- (id)_nrm_assetPredicateForCPLResourceType:(unsigned long long)arg1 additionalAssetConditions:(id)arg2 additionalResourcePredicates:(id)arg3;
+- (id)_nrm_masterPredicateForCPLResourceType:(unsigned long long)arg1 additionalAssetConditions:(id)arg2 additionalResourcePredicates:(id)arg3;
 
 @end
 

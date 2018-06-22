@@ -65,6 +65,7 @@
 - (void)_transferRestoredNotification:(id)arg1;
 - (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_transferFinishedNotification:(id)arg1;
+- (void)_chatRegistryDidReloadNotification:(id)arg1;
 - (void)_localeDidChangeNotification:(id)arg1;
 - (void)_displayNameUpdatedNotification:(id)arg1;
 - (void)_downgradeStateChangedNotification:(id)arg1;

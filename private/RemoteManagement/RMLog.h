@@ -10,15 +10,41 @@
 {
 }
 
++ (id)usage;
++ (id)transport;
++ (id)transaction;
 + (id)tool;
 + (id)test;
++ (id)serverConduit;
++ (id)persistence;
++ (id)personalTransport;
++ (id)personalServerConduit;
++ (id)personalOrganizationController;
++ (id)personalClientConduit;
++ (id)personal;
++ (id)payloadQueue;
++ (id)payload;
++ (id)organizationController;
 + (id)metadata;
++ (id)userNotifications;
++ (id)idsTransport;
 + (id)http;
-+ (id)dmf;
++ (id)familyUsage;
++ (id)familyServerConduit;
++ (id)familyOrganizationController;
++ (id)familyClientConduit;
++ (id)familyCheckinManager;
++ (id)family;
++ (id)declarationTransactionManager;
++ (id)requestManager;
 + (id)daemon;
 + (id)configuration;
++ (id)conduit;
++ (id)cloudkit;
++ (id)clientConduit;
 + (id)capabilities;
 + (id)apns;
++ (id)ask;
 + (id)logCategories;
 
 @end

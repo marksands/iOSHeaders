@@ -32,6 +32,7 @@
     NSMutableArray *_deviceTraits;
     struct _renditionkeyfmt *_keyFormat;
     TDCatalogGlobals *_catalogGlobals;
+    NSMutableArray *_cachedAppearances;
     id <TDAssetManagementDelegate> _assetManagementDelegate;
     id <TDCustomAssetProvider> _customAssetProvider;
 }
@@ -55,6 +56,8 @@
 + (id)createConfiguredDocumentAtURL:(id)arg1 error:(id *)arg2;
 + (void)_addThemeDocument:(id)arg1;
 + (id)_sharedDocumentList;
++ (_Bool)deepmapCompressionEnabled;
++ (_Bool)HEVCCompressionEnabled;
 + (int)maximumAreaOfPackableImageForScale:(unsigned long long)arg1;
 + (void)initialize;
 @property(nonatomic) id <TDCustomAssetProvider> customAssetProvider; // @synthesize customAssetProvider=_customAssetProvider;
@@ -109,7 +112,7 @@
 - (int)renditionKeySemantics;
 - (const struct _renditionkeyfmt *)renditionKeyFormat;
 - (const struct _renditionkeyfmt *)untrimmedRenditionKeyFormat;
-- (void)_updateKeyFormat;
+- (void)_updateKeyFormatWithContext:(id)arg1;
 - (_Bool)_canremoveKeyAttribte:(unsigned short)arg1;
 - (void)convertColorsFromColorSpaceWithIdentifier:(unsigned long long)arg1 toIdentifier:(unsigned long long)arg2;
 - (unsigned long long)colorSpaceID;
@@ -119,8 +122,7 @@
 - (void)primeArrayControllers;
 - (void)resetThemeConstants;
 - (void)buildModel;
-- (long long)targetPlatform;
-- (void)setTargetPlatform:(long long)arg1;
+@property long long targetPlatform;
 - (void)setArtworkFormat:(id)arg1;
 - (id)artworkFormat;
 - (unsigned int)checksum;
@@ -154,6 +156,8 @@
 - (_Bool)canImportNamedAssetImportInfo:(id)arg1;
 - (void)importNamedAssetsFromFileURLs:(id)arg1 referenceFiles:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_backwardsCompatibilityPatchForLayoutDirection;
+- (void)_generateWatchImages;
+- (_Bool)_production:(id)arg1 containsScale:(unsigned int)arg2 andIdiom:(unsigned int)arg3 andSubtype:(unsigned int)arg4;
 - (void)createNamedRenditionGroupProductionsForImportInfos:(id)arg1 error:(id *)arg2;
 - (void)_tidyUpRecognitionImages;
 - (void)_tidyUpLayerStacks;
@@ -161,9 +165,15 @@
 - (void)_addResolvedLayerReferenceToFlattenedImageRendition:(id)arg1 usingArtworkRendition:(id)arg2 andLayerReference:(id)arg3;
 - (long long)_compareFlattenedKeySpec1:(id)arg1 toKeySpec2:(id)arg2;
 - (id)updateAutomaticTexturesForCustomInfos:(id)arg1 allTextureInfos:(id)arg2;
+- (void)createNamedRecognitionObjectsForAssets:(id)arg1 customInfos:(id)arg2 error:(id *)arg3;
 - (void)createNamedModelsForCustomInfos:(id)arg1 referenceFiles:(_Bool)arg2 bitSource:(id)arg3 error:(id *)arg4;
 - (void)createNamedTexturesForCustomInfos:(id)arg1 referenceFiles:(_Bool)arg2 bitSource:(id)arg3 error:(id *)arg4;
 - (id)createNamedArtworkProductionsForAssets:(id)arg1 customInfos:(id)arg2 error:(id *)arg3;
+- (void)_createBackstopRenditions;
+- (void)createBackstop:(id)arg1 withDeploymentTarget:(long long)arg2;
+- (_Bool)needToCreateBackstopFor2018DeploymentVariant:(id)arg1;
+- (_Bool)isArtworkRenditionEligibleForBackdrop:(id)arg1;
+- (_Bool)needToCreateBackstopForPlatform;
 - (id)_sizeIndexesByNameFromNamedAssetImportInfos:(id)arg1;
 - (id)createNamedColorProductionsForImportInfos:(id)arg1 error:(id *)arg2;
 - (id)slicesComputedForImageSize:(struct CGSize)arg1 usingSliceInsets:(CDStruct_3c058996)arg2 resizableSliceSize:(struct CGSize)arg3 withRenditionType:(long long)arg4;
@@ -206,6 +216,8 @@
 - (id)allObjectsForEntity:(id)arg1 withSortDescriptors:(id)arg2 error:(id *)arg3;
 - (id)allObjectsForEntity:(id)arg1 withSortDescriptors:(id)arg2;
 - (id)mappingForPhotoshopLayerIndex:(long long)arg1 themeDrawingLayerIdentifier:(long long)arg2;
+- (id)appearanceWithIdentifier:(long long)arg1 name:(id)arg2 createIfNeeded:(_Bool)arg3;
+- (id)appearanceWithIdentifier:(long long)arg1;
 - (id)artworkDraftTypeWithIdentifier:(long long)arg1;
 - (id)zeroCodeArtworkInfoWithIdentifier:(long long)arg1;
 - (id)psdImageRefForAsset:(id)arg1;
@@ -255,6 +267,15 @@
 - (void)_getFilename:(id *)arg1 scaleFactor:(unsigned int *)arg2 category:(id *)arg3 bitSource:(id *)arg4 forFileURL:(id)arg5;
 - (id)_predicateForRenditionKeySpec:(id)arg1;
 - (void)changedObjectsNotification:(id)arg1;
+- (_Bool)shouldCreateBackstopForLossless;
+- (_Bool)shouldCreateBackstopForLossy;
+- (_Bool)shouldAllowDeepmapCompressionForDeploymentTarget:(unsigned int)arg1;
+- (_Bool)shouldAllowDeepmapCompression;
+- (_Bool)shouldAllowHevcCompressionForDeploymentTarget:(unsigned int)arg1;
+- (_Bool)shouldAllowHevcCompression;
+- (_Bool)shouldPerformHistogramBasedPacking;
+- (_Bool)shouldAllowPaletteImageCompressionForDeploymentTarget:(unsigned int)arg1;
+- (_Bool)shouldAllowPaletteImageCompression;
 - (_Bool)shouldSupportCompactCompression;
 - (void)updateRenditionSpec:(id)arg1;
 - (id)deviceTraitsUsedForOptimization;

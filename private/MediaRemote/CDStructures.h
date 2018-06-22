@@ -68,18 +68,6 @@ typedef struct {
 } CDStruct_95bda58d;
 
 typedef struct {
-    void *context;
-    CDUnknownFunctionPointerType showSetupCode_f;
-    CDUnknownFunctionPointerType hideSetupCode_f;
-    CDUnknownFunctionPointerType promptForSetupCode_f;
-    CDUnknownFunctionPointerType copyIdentity_f;
-    CDUnknownFunctionPointerType findPeer_f;
-    CDUnknownFunctionPointerType savePeer_f;
-    CDUnknownFunctionPointerType resumeRequest_f;
-    CDUnknownFunctionPointerType resumeResponse_f;
-} CDStruct_1af33fde;
-
-typedef struct {
     double timestamp;
     double sampleRate;
 } CDStruct_ace97b7a;

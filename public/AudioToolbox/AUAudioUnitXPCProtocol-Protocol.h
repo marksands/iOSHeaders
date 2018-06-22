@@ -6,9 +6,12 @@
 
 #import "_AURemoteParameterSynchronization.h"
 
-@class AUAudioUnitProperty, AUAudioUnitViewConfiguration, AVAudioFormat, CAXPCObject, NSArray, NSData, NSString;
+@class AUAudioUnitProperty, AUAudioUnitViewConfiguration, AVAudioFormat, CAXPCObject, MIDICIProfile, NSArray, NSData, NSString;
 
 @protocol AUAudioUnitXPCProtocol <_AURemoteParameterSynchronization>
+- (void)disableProfile:(MIDICIProfile *)arg1 cable:(unsigned char)arg2 onChannel:(unsigned char)arg3 reply:(void (^)(NSError *))arg4;
+- (void)enableProfile:(MIDICIProfile *)arg1 cable:(unsigned char)arg2 onChannel:(unsigned char)arg3 reply:(void (^)(NSError *))arg4;
+- (void)profileStateForCable:(unsigned char)arg1 channel:(unsigned char)arg2 reply:(void (^)(MIDICIProfileState *))arg3;
 - (void)selectViewConfiguration:(AUAudioUnitViewConfiguration *)arg1;
 - (void)supportedViewConfigurations:(NSArray *)arg1 reply:(void (^)(NSIndexSet *))arg2;
 - (void)parametersForOverviewWithCount:(long long)arg1 reply:(void (^)(NSArray *))arg2;

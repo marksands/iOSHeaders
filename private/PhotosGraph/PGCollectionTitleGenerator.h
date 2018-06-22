@@ -6,21 +6,26 @@
 
 #import "NSObject.h"
 
-@class PGGraphCollectionNode, PGTitleTuple;
+@class PGTitleTuple, PHAsset, PHAssetCollection;
 
 @interface PGCollectionTitleGenerator : NSObject
 {
-    PGGraphCollectionNode *_collectionNode;
+    id <PGEventEnrichment> _collection;
     PGTitleTuple *_titleTuple;
+    PHAsset *_keyAsset;
+    PHAssetCollection *_curatedAssetCollection;
 }
 
+@property(retain, nonatomic) PHAssetCollection *curatedAssetCollection; // @synthesize curatedAssetCollection=_curatedAssetCollection;
+@property(retain, nonatomic) PHAsset *keyAsset; // @synthesize keyAsset=_keyAsset;
 @property(retain, nonatomic) PGTitleTuple *titleTuple; // @synthesize titleTuple=_titleTuple;
-@property(retain, nonatomic) PGGraphCollectionNode *collectionNode; // @synthesize collectionNode=_collectionNode;
+@property(retain, nonatomic) id <PGEventEnrichment> collection; // @synthesize collection=_collection;
 - (void).cxx_destruct;
 - (id)_sortedMeaningLabels;
 - (id)_meaningLabelForTitle;
 - (void)_generateTitleTuples;
-- (id)initWithCollectionNode:(id)arg1;
+- (id)initWithCollection:(id)arg1 keyAsset:(id)arg2 curatedAssetCollection:(id)arg3;
+- (id)initWithCollection:(id)arg1;
 
 @end
 

@@ -6,22 +6,35 @@
 
 #import "NSObject.h"
 
-@class XCTestConfiguration;
+#import "XCTTestWorker.h"
 
-@interface XCTTestRunSession : NSObject
+@class NSString, XCTBlockingQueue, XCTestConfiguration;
+
+@interface XCTTestRunSession : NSObject <XCTTestWorker>
 {
     XCTestConfiguration *_testConfiguration;
     id <XCTTestRunSessionDelegate> _delegate;
+    XCTBlockingQueue *_workQueue;
 }
 
-@property id <XCTTestRunSessionDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain) XCTBlockingQueue *workQueue; // @synthesize workQueue=_workQueue;
+@property __weak id <XCTTestRunSessionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain) XCTestConfiguration *testConfiguration; // @synthesize testConfiguration=_testConfiguration;
 - (void).cxx_destruct;
+- (void)shutdown;
+- (void)executeTestIdentifiers:(id)arg1 skippingTestIdentifiers:(id)arg2 completionHandler:(CDUnknownBlockType)arg3 completionQueue:(id)arg4;
+- (void)fetchDiscoveredTestClasses:(CDUnknownBlockType)arg1;
 - (_Bool)runTestsAndReturnError:(id *)arg1;
 - (_Bool)_preTestingInitialization;
 - (void)resumeAppSleep:(id)arg1;
 - (id)suspendAppSleep;
-- (id)initWithTestConfiguration:(id)arg1 delegate:(id)arg2;
+- (id)initWithTestConfiguration:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

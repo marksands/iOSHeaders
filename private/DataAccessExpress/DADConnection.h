@@ -88,6 +88,7 @@
 - (void)_requestDaemonChangeAgentMonitoringStatus:(_Bool)arg1 waitForReply:(_Bool)arg2;
 - (id)currentPolicyKeyForAccountID:(id)arg1;
 - (_Bool)requestPolicyUpdateForAccountID:(id)arg1;
+- (_Bool)_validateXPCReply:(id)arg1;
 - (_Bool)stopWatchingFoldersWithKeys:(id)arg1 forAccountID:(id)arg2;
 - (_Bool)suspendWatchingFoldersWithKeys:(id)arg1 forAccountID:(id)arg2;
 - (_Bool)resumeWatchingFoldersWithKeys:(id)arg1 forAccountID:(id)arg2;

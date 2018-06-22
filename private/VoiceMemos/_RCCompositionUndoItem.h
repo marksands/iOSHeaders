@@ -8,6 +8,7 @@
 
 @class NSString, RCComposition;
 
+__attribute__((visibility("hidden")))
 @interface _RCCompositionUndoItem : NSObject
 {
     RCComposition *_composition;

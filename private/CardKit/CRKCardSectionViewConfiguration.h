@@ -6,21 +6,30 @@
 
 #import "NSObject.h"
 
-@class NSString, UIView<CRKCardSectionView>;
+@class CRKCardSectionViewController, NSString, UIView<CRKCardSectionView>, UIViewController<CRKCardSectionViewControlling>, _CRKDebugOverlayView;
 
 @interface CRKCardSectionViewConfiguration : NSObject
 {
+    _Bool _debugModeEnabled;
     id <CRCardSection> _cardSection;
     UIView<CRKCardSectionView> *_cardSectionView;
     id <CRKFeedbackDelegateProxying> _feedbackDelegateProxy;
+    UIViewController<CRKCardSectionViewControlling> *_cardSectionViewController;
     NSString *_providerIdentifier;
+    _CRKDebugOverlayView *_debugOverlayView;
+    CRKCardSectionViewController *_cardKitCardSectionViewController;
 }
 
+@property(retain, nonatomic, getter=_cardKitCardSectionViewController, setter=_setCardKitCardSectionViewController:) CRKCardSectionViewController *cardKitCardSectionViewController; // @synthesize cardKitCardSectionViewController=_cardKitCardSectionViewController;
+@property(nonatomic, getter=_debugModeEnabled, setter=_setDebugModeEnabled:) _Bool debugModeEnabled; // @synthesize debugModeEnabled=_debugModeEnabled;
+@property(retain, nonatomic, getter=_debugOverlayView, setter=_setDebugOverlayView:) _CRKDebugOverlayView *debugOverlayView; // @synthesize debugOverlayView=_debugOverlayView;
 @property(copy, nonatomic, getter=_providerIdentifier, setter=_setProviderIdentifier:) NSString *providerIdentifier; // @synthesize providerIdentifier=_providerIdentifier;
+@property(retain, nonatomic) UIViewController<CRKCardSectionViewControlling> *cardSectionViewController; // @synthesize cardSectionViewController=_cardSectionViewController;
 @property(retain, nonatomic) id <CRKFeedbackDelegateProxying> feedbackDelegateProxy; // @synthesize feedbackDelegateProxy=_feedbackDelegateProxy;
 @property(retain, nonatomic) UIView<CRKCardSectionView> *cardSectionView; // @synthesize cardSectionView=_cardSectionView;
 @property(retain, nonatomic) id <CRCardSection> cardSection; // @synthesize cardSection=_cardSection;
 - (void).cxx_destruct;
+- (void)_updateDebugOverlayViewText:(id)arg1;
 
 @end
 

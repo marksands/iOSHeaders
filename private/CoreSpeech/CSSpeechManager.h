@@ -9,6 +9,7 @@
 #import "CSAlarmMonitorDelegate.h"
 #import "CSAssetManagerDelegate.h"
 #import "CSAudioRecorderDelegate.h"
+#import "CSAudioServerCrashMonitorGibraltarDelegate.h"
 #import "CSLanguageCodeUpdateMonitorDelegate.h"
 #import "CSSiriEnabledMonitorDelegate.h"
 #import "CSStateMachineDelegate.h"
@@ -18,7 +19,7 @@
 
 @class CSAudioCircularBuffer, CSAudioRecorder, CSSmartSiriVolume, CSStateMachine, NSDictionary, NSHashTable, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSUUID;
 
-@interface CSSpeechManager : NSObject <CSAudioRecorderDelegate, CSStateMachineDelegate, CSVoiceTriggerDelegate, CSSiriEnabledMonitorDelegate, CSVolumeMonitorDelegate, CSAlarmMonitorDelegate, CSTimerMonitorDelegate, CSAssetManagerDelegate, CSLanguageCodeUpdateMonitorDelegate>
+@interface CSSpeechManager : NSObject <CSAudioRecorderDelegate, CSStateMachineDelegate, CSVoiceTriggerDelegate, CSSiriEnabledMonitorDelegate, CSVolumeMonitorDelegate, CSAlarmMonitorDelegate, CSTimerMonitorDelegate, CSAudioServerCrashMonitorGibraltarDelegate, CSAssetManagerDelegate, CSLanguageCodeUpdateMonitorDelegate>
 {
     _Bool _isSiriEnabled;
     _Bool _deviceRoleIsStereo;
@@ -69,6 +70,8 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) CSAudioRecorder *audioRecorder; // @synthesize audioRecorder=_audioRecorder;
 - (void).cxx_destruct;
+- (void)handleServerDidRestart;
+- (void)handleLostServerConnection;
 - (void)_startClearLoggingFilesTimer;
 - (void)_createClearLoggingFileTimer;
 - (void)CSTimerMonitor:(id)arg1 didReceiveTimerChanged:(long long)arg2;
@@ -81,10 +84,8 @@
 - (void)_reinitializeSmartSiriVolumeWithAsset:(id)arg1;
 - (void)CSLanguageCodeUpdateMonitor:(id)arg1 didReceiveLanguageCodeChanged:(id)arg2;
 - (void)CSAssetManagerDidDownloadNewAsset:(id)arg1;
-- (unsigned long long)hostTimeFromSampleCount:(unsigned long long)arg1;
 - (void)voiceTriggerDidDetectTwoShotAtTime:(double)arg1;
 - (void)voiceTriggerDidDetectKeyword:(id)arg1;
-- (void)voiceTriggerDetectedOnAOP:(id)arg1;
 - (void)audioRecorderDisconnected:(id)arg1;
 - (void)audioRecorder:(id)arg1 didSetAudioSessionActive:(_Bool)arg2;
 - (void)audioRecorder:(id)arg1 willSetAudioSessionActive:(_Bool)arg2;
@@ -110,7 +111,9 @@
 - (void)audioRecorderLostMediaserverd:(id)arg1;
 - (void)stopRecordingWithEvent:(unsigned long long)arg1;
 - (void)_startRecordingForClient:(id)arg1 error:(id *)arg2;
+- (_Bool)_startRecordingForAOPFirstPassTriggerWithSettings:(id)arg1 error:(id *)arg2;
 - (_Bool)startRecordingWithSetting:(id)arg1 event:(unsigned long long)arg2 error:(id *)arg3;
+- (_Bool)_handleAOPFirstPassTriggerEvent:(unsigned long long)arg1 settings:(id)arg2 error:(id *)arg3;
 - (_Bool)_releaseAudioSessionForListening:(unsigned long long)arg1 error:(id *)arg2;
 - (void)_releaseClientAudioSession:(unsigned long long)arg1;
 - (void)releaseClientAudioSession:(unsigned long long)arg1;
@@ -138,9 +141,9 @@
 - (long long)getCurrentState;
 - (void)_setupStateMachine;
 - (void)registerSpeechController:(id)arg1;
-- (void)setupSmartSiriVolume;
 - (void)_setupCircularBuffer;
-- (id)_getSmartSiriVolumeAsset;
+- (void)_getVoiceTriggerAsset:(CDUnknownBlockType)arg1;
+- (void)_getVoiceTriggerAssetForMac:(CDUnknownBlockType)arg1;
 - (void)_reset;
 - (void)reset;
 - (void)startManager;

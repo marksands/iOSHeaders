@@ -13,10 +13,8 @@
     float *_scores;
     NSString *_l2Version;
     NSString *_l2ShadowVersion;
-    NSString *_l3Version;
 }
 
-@property(retain, nonatomic) NSString *l3Version; // @synthesize l3Version=_l3Version;
 @property(retain, nonatomic) NSString *l2ShadowVersion; // @synthesize l2ShadowVersion=_l2ShadowVersion;
 @property(retain, nonatomic) NSString *l2Version; // @synthesize l2Version=_l2Version;
 @property(nonatomic) float *scores; // @synthesize scores=_scores;

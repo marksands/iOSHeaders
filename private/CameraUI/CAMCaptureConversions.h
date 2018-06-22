@@ -10,6 +10,8 @@
 {
 }
 
++ (long long)CAMDevicePositionForAVDevicePosition:(long long)arg1;
++ (long long)AVDevicePositionForCAMDevicePosition:(long long)arg1;
 + (long long)captureShallowDepthOfFieldStatusForStatus:(long long)arg1;
 + (long long)viewContentModeForPreviewViewAspectMode:(long long)arg1;
 + (id)previewLayerVideoGravityForPreviewViewAspectMode:(long long)arg1;

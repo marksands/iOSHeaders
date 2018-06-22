@@ -4,46 +4,35 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIControl.h"
+#import "PLDismissControl.h"
 
+#import "NCMaterialsAdjusting.h"
 #import "SBUIIconForceTouchControllerDataSource.h"
 #import "SBUIIconForceTouchControllerDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class MTMaterialView, NSMutableArray, NSString, SBUIForceTouchGestureRecognizer, SBUIIconForceTouchController, UIImageView, UIView;
+@class NSMutableArray, NSString, SBUIForceTouchGestureRecognizer, SBUIIconForceTouchController;
 
-@interface NCNotificationListClearButton : UIControl <UIGestureRecognizerDelegate, SBUIIconForceTouchControllerDelegate, SBUIIconForceTouchControllerDataSource>
+@interface NCNotificationListClearButton : PLDismissControl <UIGestureRecognizerDelegate, SBUIIconForceTouchControllerDelegate, SBUIIconForceTouchControllerDataSource, NCMaterialsAdjusting>
 {
     NSString *_title;
-    MTMaterialView *_circleMaterialView;
-    UIImageView *_xImageView;
-    UIView *_highlightView;
     NSMutableArray *_glyphImageViews;
     unsigned long long _animatingTransitionCount;
-    long long _graphicsQuality;
     SBUIIconForceTouchController *_iconForceTouchController;
     SBUIForceTouchGestureRecognizer *_forceTouchGestureRecognizer;
     long long _clearButtonState;
     CDUnknownBlockType _clearAllHandler;
-    NSString *_backgroundGroupName;
     id <NCNotificationListClearButtonDelegate> _delegate;
 }
 
-+ (struct CGSize)_circleBoundingSize;
 + (double)_circleHorizontalPadding;
-+ (double)_xCrossLength;
-+ (double)_circleRadius;
-+ (id)_textColor;
-+ (id)_xImageWithGraphicsQuality:(long long)arg1;
-+ (id)_circleImageWithGraphicsQuality:(long long)arg1;
 + (double)_screenScale;
-+ (void)_clearImageCache;
-+ (void)_observeContentSizeChange;
++ (void)_contentSizeCategoryDidChange:(id)arg1;
 @property(nonatomic) __weak id <NCNotificationListClearButtonDelegate> delegate; // @synthesize delegate=_delegate;
-@property(copy, nonatomic) NSString *backgroundGroupName; // @synthesize backgroundGroupName=_backgroundGroupName;
 @property(copy, nonatomic) CDUnknownBlockType clearAllHandler; // @synthesize clearAllHandler=_clearAllHandler;
 @property(readonly, nonatomic) long long clearButtonState; // @synthesize clearButtonState=_clearButtonState;
 - (void).cxx_destruct;
+- (void)adjustForChangeInMaterialRecipe:(long long)arg1 backgroundMaterialOptions:(unsigned long long)arg2 overlayMaterialOptions:(unsigned long long)arg3;
 - (_Bool)_shouldLayoutOnTheLeft;
 - (_Bool)iconForceTouchController:(id)arg1 shouldUseSecureWindowForGestureRecognizer:(id)arg2;
 - (double)iconForceTouchController:(id)arg1 iconImageCornerRadiusForGestureRecognizer:(id)arg2;
@@ -55,22 +44,21 @@
 - (void)_layoutSubviewsForState:(long long)arg1;
 - (id)_glyphFramesWithCircleFrame:(struct CGRect)arg1 forState:(long long)arg2;
 - (struct CGRect)_xFrameWithCircleFrame:(struct CGRect)arg1 forState:(long long)arg2;
-- (struct CGRect)_circleFrameForState:(long long)arg1;
+- (struct CGRect)_circleFrameWithBounds:(struct CGRect)arg1;
+- (struct CGRect)_circleFrameWithBounds:(struct CGRect)arg1 forState:(long long)arg2;
 - (struct CGRect)_circleBoundsForState:(long long)arg1;
 - (struct CGRect)_unrolledCircleBounds;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (id)_glyphImagesFromAttributedString:(id)arg1;
-- (id)_xImage;
-- (id)_circleImage;
 - (_Bool)dismissModalFullScreenIfNeeded;
-- (void)setHighlighted:(_Bool)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setState:(long long)arg1 animated:(_Bool)arg2;
 - (void)iconForceTouchController:(id)arg1 didDismissForGestureRecognizer:(id)arg2;
 - (void)iconForceTouchController:(id)arg1 didPresentForGestureRecognizer:(id)arg2;
-- (id)initWithTitle:(id)arg1 graphicsQuality:(long long)arg2;
+- (id)initWithTitle:(id)arg1 materialRecipe:(long long)arg2 backgroundMaterialOptions:(unsigned long long)arg3 overlayMaterialOptions:(unsigned long long)arg4;
+- (void)_configureGlyphImagesIfNecessaryWithRecipe:(long long)arg1;
 - (void)willMoveToSuperview:(id)arg1;
 
 // Remaining properties

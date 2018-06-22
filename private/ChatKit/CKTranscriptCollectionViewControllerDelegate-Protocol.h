@@ -22,6 +22,7 @@
 - (_Bool)transcriptCollectionViewControllerPlaybackForOutgoingEffectsIsAllowed:(CKTranscriptCollectionViewController *)arg1;
 - (void)transcriptCollectionViewControllerDidInsertAssociatedChatItem:(CKTranscriptCollectionViewController *)arg1;
 - (void)transcriptCollectionViewControllerWillDisplayLastBalloon:(CKTranscriptCollectionViewController *)arg1;
+- (void)transcriptCollectionViewControllerDisplaySMSSpamReporting:(CKTranscriptCollectionViewController *)arg1;
 - (void)transcriptCollectionViewControllerReportSpamButtonTapped:(CKTranscriptCollectionViewController *)arg1;
 - (void)transcriptCollectionViewControllerWillScrollToBottom:(CKTranscriptCollectionViewController *)arg1;
 - (void)transcriptCollectionViewController:(CKTranscriptCollectionViewController *)arg1 collectionViewContentSizeDidChange:(struct CGSize)arg2;

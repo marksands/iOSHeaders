@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CKAsset, CKDMMCSItemCommandWriter, CKPackage, CKRecordID, NSData, NSDictionary, NSError, NSFileHandle, NSMutableArray, NSNumber, NSString, NSURL;
+@class CKAsset, CKAssetDownloadPreauthorization, CKDMMCSItemCommandWriter, CKPackage, CKRecordID, NSData, NSDictionary, NSError, NSFileHandle, NSMutableArray, NSNumber, NSString, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface CKDMMCSItem : NSObject
@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     _Bool _shouldReadRawEncryptedData;
     _Bool _isAlreadyRegistered;
     _Bool _isReaderReadFrom;
+    _Bool _isRereferencedAssetUpload;
     unsigned int _chunkCount;
     NSURL *_fileURL;
     NSNumber *_deviceID;
@@ -44,7 +45,7 @@ __attribute__((visibility("hidden")))
     NSString *_owner;
     NSString *_requestor;
     NSString *_authToken;
-    NSData *_authRequest;
+    CKAssetDownloadPreauthorization *_downloadPreauthorization;
     NSString *_uploadReceipt;
     double _uploadReceiptExpiration;
     NSMutableArray *_sectionItems;
@@ -61,6 +62,7 @@ __attribute__((visibility("hidden")))
     NSString *_trackingUUID;
 }
 
+@property(nonatomic) _Bool isRereferencedAssetUpload; // @synthesize isRereferencedAssetUpload=_isRereferencedAssetUpload;
 @property(nonatomic) _Bool isReaderReadFrom; // @synthesize isReaderReadFrom=_isReaderReadFrom;
 @property(nonatomic) _Bool isAlreadyRegistered; // @synthesize isAlreadyRegistered=_isAlreadyRegistered;
 @property(nonatomic) _Bool shouldReadRawEncryptedData; // @synthesize shouldReadRawEncryptedData=_shouldReadRawEncryptedData;
@@ -83,7 +85,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *sectionItems; // @synthesize sectionItems=_sectionItems;
 @property(nonatomic) double uploadReceiptExpiration; // @synthesize uploadReceiptExpiration=_uploadReceiptExpiration;
 @property(retain, nonatomic) NSString *uploadReceipt; // @synthesize uploadReceipt=_uploadReceipt;
-@property(retain, nonatomic) NSData *authRequest; // @synthesize authRequest=_authRequest;
+@property(retain, nonatomic) CKAssetDownloadPreauthorization *downloadPreauthorization; // @synthesize downloadPreauthorization=_downloadPreauthorization;
 @property(retain, nonatomic) NSString *authToken; // @synthesize authToken=_authToken;
 @property(retain, nonatomic) NSString *requestor; // @synthesize requestor=_requestor;
 @property(retain, nonatomic) NSString *owner; // @synthesize owner=_owner;
@@ -122,6 +124,7 @@ __attribute__((visibility("hidden")))
 - (void)clearFileSize;
 - (_Bool)canBeRegistered;
 - (id)initWithPackage:(id)arg1;
+- (void)setupForGetChunkKeysWithAsset:(id)arg1;
 - (id)initWithAsset:(id)arg1;
 - (id)init;
 

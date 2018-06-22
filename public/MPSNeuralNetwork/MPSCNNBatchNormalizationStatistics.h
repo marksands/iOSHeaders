@@ -8,11 +8,10 @@
 
 @interface MPSCNNBatchNormalizationStatistics : MPSCNNKernel
 {
-    unsigned long long _numberOfFeatureChannels;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
-@property(nonatomic) unsigned long long numberOfFeatureChannels; // @synthesize numberOfFeatureChannels=_numberOfFeatureChannels;
+- (unsigned long long)maxBatchSize;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
 - (void)encodeBatchToCommandBuffer:(id)arg1 sourceImages:(struct NSArray *)arg2 batchNormalizationState:(id)arg3;
 - (_Bool)appendBatchBarrier;

@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary, NSURL, RCCaptureSession, RCComposition;
+#import "UIActivityItemSource.h"
 
-@interface RCCompositionController : NSObject
+@class NSMutableArray, NSMutableDictionary, NSString, RCCaptureSession, RCComposition;
+
+@interface RCCompositionController : NSObject <UIActivityItemSource>
 {
     _Bool _hasStartedRecording;
     NSMutableDictionary *_accessTokensByName;
@@ -30,7 +32,7 @@
 - (void)_eaccess_saveCompositionAndRecordingDuration:(_Bool)arg1;
 - (void)_reloadComposition;
 - (id)_nextCaptureWaveformDataSourceWithDestinationTimeRange:(CDStruct_73a5d3ca)arg1 isOverdub:(_Bool)arg2;
-- (void)_endAccessSessionWithToken:(id)arg1;
+- (void)_endAccessSessionWithToken:(id)arg1 forKey:(id)arg2;
 - (void)rcs_repairDecomposedFragmentMetadataIfNecessary;
 - (void)rcs_composeToFinalDestinationAndDeleteDecomposedFragments:(_Bool)arg1 composeWaveform:(_Bool)arg2 canGenerateWaveformByProcessingAVURL:(_Bool)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)deleteCompositionFromFileSystem;
@@ -52,7 +54,7 @@
 - (void)endPreviewAccessSession;
 - (void)endEditing;
 - (void)prepareToBeginEditingWithReadyBlock:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) NSURL *savedRecordingURI;
+@property(readonly, nonatomic) NSString *savedRecordingUUID;
 - (id)init;
 - (id)initWithComposition:(id)arg1;
 - (id)activityViewController:(id)arg1 thumbnailImageForActivityType:(id)arg2 suggestedSize:(struct CGSize)arg3;
@@ -60,6 +62,12 @@
 - (id)activityViewControllerPlaceholderItem:(id)arg1;
 - (id)activityViewController:(id)arg1 itemForActivityType:(id)arg2;
 - (id)_activitySourceRecording;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

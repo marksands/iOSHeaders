@@ -27,7 +27,6 @@
 - (void)_recentNamesFromSource:(unsigned char)arg1;
 - (void)deregisterNameDelegate;
 - (void)registerNameDelegate:(id)arg1;
-- (id)nameItemsWithLimit:(unsigned long long)arg1 timeout:(long long)arg2;
 - (id)quickTypeItemsForCriteria:(id)arg1 limit:(unsigned long long)arg2 timeout:(long long)arg3;
 - (void)_registerForNotifications;
 - (id)init;

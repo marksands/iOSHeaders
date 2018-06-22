@@ -13,6 +13,7 @@
 + (id)sharedHacks;
 - (_Bool)isSetupBuddyDone;
 - (_Bool)isGreenTea;
+- (_Bool)sanitizedProfileSignerCertificateChainIsAllowedToInstallSupervisedRestrictionsOnUnsupervisedDevices:(id)arg1;
 - (_Bool)sanitizedProfileSignerCertificateChainIsAllowedToWriteDefaults:(id)arg1;
 - (_Bool)sanitizedProfileSignerCertificateChainIsAllowedToInstallUnsupportedPayload:(id)arg1;
 - (id)profileTrustEvaluators;

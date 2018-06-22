@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class GEOURLExtraStorage, GEOUserSessionEntity, NSString, _GEOMapURLParser;
+@class GEOMapURLParser, GEOURLExtraStorage, GEOUserSessionEntity, NSString;
 
 @interface _MKURLParser : NSObject
 {
-    _GEOMapURLParser *parser;
+    GEOMapURLParser *parser;
 }
 
 + (_Bool)isValidMapURL:(id)arg1;
@@ -44,6 +44,7 @@
 @property(readonly) struct CLLocationCoordinate2D centerCoordinate;
 @property(readonly) _Bool exactPositionSpecified;
 @property(readonly) long long trackingMode;
+@property(readonly) _Bool trackingModeSpecified;
 @property(readonly) unsigned long long transportType;
 @property(readonly) unsigned long long mapType;
 - (_Bool)parseIncludingCustomParameters:(_Bool)arg1;

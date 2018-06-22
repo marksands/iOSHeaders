@@ -10,11 +10,13 @@
 
 @interface AXUISettingsEditableTableCellWithStepper : AXUISettingsEditableTextCell
 {
+    _Bool _testingUseNoPreferencesDelegate;
     UIStepper *_stepper;
     id <AXUISettingsEditableTableCellWithStepperDelegate> _delegate;
     UILabel *_secondsLabel;
 }
 
+@property(nonatomic) _Bool testingUseNoPreferencesDelegate; // @synthesize testingUseNoPreferencesDelegate=_testingUseNoPreferencesDelegate;
 @property(retain, nonatomic) UILabel *secondsLabel; // @synthesize secondsLabel=_secondsLabel;
 @property(nonatomic) __weak id <AXUISettingsEditableTableCellWithStepperDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) UIStepper *stepper; // @synthesize stepper=_stepper;
@@ -30,6 +32,14 @@
 - (void)textFieldDidEndEditing:(id)arg1;
 - (id)_stepperValueFormatString;
 - (void)_updateAccessibilityLabelForTextField;
+- (id)_axStepperStringValue;
+- (void)_axStepperSetValue:(double)arg1;
+- (double)_axStepperStepValue;
+- (double)_axStepperValue;
+- (id)_axStepperUnitString;
+- (long long)_axStepperKeyboardType;
+- (double)_axStepperMinimumValue;
+- (double)_axStepperMaximumValue;
 - (void)initializeView;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;

@@ -267,6 +267,7 @@
 @property(nonatomic) _Bool hasSequenceNumber;
 @property(nonatomic) _Bool hasSessionId;
 - (void)dealloc;
+- (void)updateAnalyticsShortSession;
 - (int)uiActionType;
 - (void)clearLocations;
 - (void)clearSessionId;

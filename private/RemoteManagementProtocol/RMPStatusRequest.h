@@ -16,24 +16,16 @@
     NSArray *_messages;
 }
 
-+ (id)request;
-+ (id)MessagesItem_StatesItem_ReasonItem_allowedKeys;
-+ (id)MessagesItem_StatesItem_AssetsUsedItem_allowedKeys;
-+ (id)MessagesItem_StatesItem_allowedKeys;
-+ (id)MessagesItem_allowedKeys;
-@property(retain, nonatomic) NSArray *messages; // @synthesize messages=_messages;
-@property(retain, nonatomic) NSString *userShortName; // @synthesize userShortName=_userShortName;
-@property(retain, nonatomic) NSString *UDID; // @synthesize UDID=_UDID;
-@property(retain, nonatomic) NSString *requestType; // @synthesize requestType=_requestType;
++ (_Bool)supportsSecureCoding;
++ (id)requestWithUDID:(id)arg1 withUserShortName:(id)arg2 withMessages:(id)arg3;
+@property(copy, nonatomic) NSArray *messages; // @synthesize messages=_messages;
+@property(copy, nonatomic) NSString *userShortName; // @synthesize userShortName=_userShortName;
+@property(copy, nonatomic) NSString *UDID; // @synthesize UDID=_UDID;
+@property(copy, nonatomic) NSString *requestType; // @synthesize requestType=_requestType;
 - (void).cxx_destruct;
-- (id)serializeMessagesItem_StatesItem_ReasonItem:(id)arg1 withAssetProviders:(id)arg2;
-- (id)serializeMessagesItem_StatesItem_AssetsUsedItem:(id)arg1 withAssetProviders:(id)arg2;
-- (id)serializeMessagesItem_StatesItem:(id)arg1 withAssetProviders:(id)arg2;
-- (id)serializeMessagesItem:(id)arg1 withAssetProviders:(id)arg2;
-- (_Bool)validMessagesItem_StatesItem_ReasonItem_Dictionary:(id)arg1 parentKeyPath:(id)arg2 error:(id *)arg3;
-- (_Bool)validMessagesItem_StatesItem_AssetsUsedItem_Dictionary:(id)arg1 parentKeyPath:(id)arg2 error:(id *)arg3;
-- (_Bool)validMessagesItem_StatesItem_Dictionary:(id)arg1 parentKeyPath:(id)arg2 error:(id *)arg3;
-- (_Bool)validMessagesItem_Dictionary:(id)arg1 parentKeyPath:(id)arg2 error:(id *)arg3;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)serialize;
 - (_Bool)loadStatusFromDictionary:(id)arg1 error:(id *)arg2;
 

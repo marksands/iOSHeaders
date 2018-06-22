@@ -6,39 +6,46 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBIntentSupport.h"
 
-@class NSMutableArray, PBUnknownFields;
+@class INCodableAttribute, NSArray, NSString;
 
-@interface _INPBIntentSupport : PBCodable <NSCopying>
+@interface _INPBIntentSupport : PBCodable <_INPBIntentSupport, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
-    NSMutableArray *_intentsRestrictedWhileLockeds;
-    NSMutableArray *_intentsSupporteds;
+    struct _has;
+    NSArray *_intentsRestrictedWhileLockeds;
+    NSArray *_intentsSupporteds;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
-+ (Class)intentsRestrictedWhileLockedType;
 + (Class)intentsSupportedType;
-@property(retain, nonatomic) NSMutableArray *intentsRestrictedWhileLockeds; // @synthesize intentsRestrictedWhileLockeds=_intentsRestrictedWhileLockeds;
-@property(retain, nonatomic) NSMutableArray *intentsSupporteds; // @synthesize intentsSupporteds=_intentsSupporteds;
++ (Class)intentsRestrictedWhileLockedType;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
+@property(copy, nonatomic) NSArray *intentsSupporteds; // @synthesize intentsSupporteds=_intentsSupporteds;
+@property(copy, nonatomic) NSArray *intentsRestrictedWhileLockeds; // @synthesize intentsRestrictedWhileLockeds=_intentsRestrictedWhileLockeds;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-- (id)intentsRestrictedWhileLockedAtIndex:(unsigned long long)arg1;
-- (unsigned long long)intentsRestrictedWhileLockedsCount;
-- (void)addIntentsRestrictedWhileLocked:(id)arg1;
-- (void)clearIntentsRestrictedWhileLockeds;
 - (id)intentsSupportedAtIndex:(unsigned long long)arg1;
-- (unsigned long long)intentsSupportedsCount;
+@property(readonly, nonatomic) unsigned long long intentsSupportedsCount;
 - (void)addIntentsSupported:(id)arg1;
 - (void)clearIntentsSupporteds;
+- (id)intentsRestrictedWhileLockedAtIndex:(unsigned long long)arg1;
+@property(readonly, nonatomic) unsigned long long intentsRestrictedWhileLockedsCount;
+- (void)addIntentsRestrictedWhileLocked:(id)arg1;
+- (void)clearIntentsRestrictedWhileLockeds;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

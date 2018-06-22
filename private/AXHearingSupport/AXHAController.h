@@ -8,22 +8,22 @@
 
 #import "AXIDCControllerBrowserDelegateProtocol.h"
 
-@class AXHADispatchTimer, NSDictionary, NSString;
+@class AXDispatchTimer, AXHAXPCMessage, NSDictionary, NSString;
 
 @interface AXHAController : NSObject <AXIDCControllerBrowserDelegateProtocol>
 {
     _Bool _isListening;
-    AXHADispatchTimer *_liveListenLevelsTimer;
+    AXDispatchTimer *_liveListenLevelsTimer;
     NSString *_pairedDeviceUUID;
     NSDictionary *_availableDevicesDescription;
+    AXHAXPCMessage *_liveListenMessage;
 }
 
 + (id)sharedController;
+@property(retain, nonatomic) AXHAXPCMessage *liveListenMessage; // @synthesize liveListenMessage=_liveListenMessage;
 @property(retain, nonatomic) NSDictionary *availableDevicesDescription; // @synthesize availableDevicesDescription=_availableDevicesDescription;
 @property(retain, nonatomic) NSString *pairedDeviceUUID; // @synthesize pairedDeviceUUID=_pairedDeviceUUID;
 - (void).cxx_destruct;
-- (id)registerForLiveListenUpdates:(id)arg1;
-- (id)toggleLiveListen:(id)arg1;
 - (id)disconnectAndForceSlave:(id)arg1;
 - (id)connectToControllerWithID:(id)arg1;
 - (id)readAvailableControllers:(id)arg1;
@@ -38,8 +38,6 @@
 - (void)connectToPairedDevice;
 - (void)trustChainAvailabilityDidChange:(id)arg1;
 - (void)startSearchCycle;
-- (id)liveListenController;
-- (void)readLiveListenLevels;
 - (void)setPairedHearingAid:(id)arg1;
 - (void)setListenForAvailableDeviceUpdates:(_Bool)arg1;
 - (_Bool)hearingAidsPaired;

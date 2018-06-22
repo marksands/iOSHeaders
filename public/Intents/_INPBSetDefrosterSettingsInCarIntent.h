@@ -6,41 +6,46 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBSetDefrosterSettingsInCarIntent.h"
 
-@class PBUnknownFields, _INPBIntentMetadata;
+@class INCodableAttribute, NSString, _INPBIntentMetadata;
 
-@interface _INPBSetDefrosterSettingsInCarIntent : PBCodable <NSCopying>
+@interface _INPBSetDefrosterSettingsInCarIntent : PBCodable <_INPBSetDefrosterSettingsInCarIntent, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
-    int _defroster;
-    _INPBIntentMetadata *_intentMetadata;
-    _Bool _enable;
     struct {
         unsigned int defroster:1;
         unsigned int enable:1;
     } _has;
+    _Bool _enable;
+    int _defroster;
+    _INPBIntentMetadata *_intentMetadata;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
-+ (id)options;
-@property(nonatomic) _Bool enable; // @synthesize enable=_enable;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(retain, nonatomic) _INPBIntentMetadata *intentMetadata; // @synthesize intentMetadata=_intentMetadata;
+@property(nonatomic) _Bool enable; // @synthesize enable=_enable;
+@property(nonatomic) int defroster; // @synthesize defroster=_defroster;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
+@property(readonly, nonatomic) _Bool hasIntentMetadata;
+@property(nonatomic) _Bool hasEnable;
 - (int)StringAsDefroster:(id)arg1;
 - (id)defrosterAsString:(int)arg1;
 @property(nonatomic) _Bool hasDefroster;
-@property(nonatomic) int defroster; // @synthesize defroster=_defroster;
-@property(nonatomic) _Bool hasEnable;
-@property(readonly, nonatomic) _Bool hasIntentMetadata;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

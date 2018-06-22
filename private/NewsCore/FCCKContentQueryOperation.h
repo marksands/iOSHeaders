@@ -6,7 +6,7 @@
 
 #import <NewsCore/FCNetworkOperation.h>
 
-@class CKQuery, CKQueryCursor, FCCKContentDatabase, NSArray;
+@class CKQuery, CKQueryCursor, FCCKContentDatabase, FCEdgeCacheHint, NSArray;
 
 @interface FCCKContentQueryOperation : FCNetworkOperation
 {
@@ -19,14 +19,14 @@
     CDUnknownBlockType _queryCompletionBlock;
     NSArray *_requestUUIDs;
     long long _networkEventType;
-    long long _requestTypeOverride;
+    FCEdgeCacheHint *_edgeCacheHint;
     NSArray *_networkEvents;
     CKQueryCursor *_resultCursor;
 }
 
 @property(retain, nonatomic) CKQueryCursor *resultCursor; // @synthesize resultCursor=_resultCursor;
 @property(copy, nonatomic) NSArray *networkEvents; // @synthesize networkEvents=_networkEvents;
-@property(nonatomic) long long requestTypeOverride; // @synthesize requestTypeOverride=_requestTypeOverride;
+@property(copy, nonatomic) FCEdgeCacheHint *edgeCacheHint; // @synthesize edgeCacheHint=_edgeCacheHint;
 @property(nonatomic) long long networkEventType; // @synthesize networkEventType=_networkEventType;
 @property(copy, nonatomic) NSArray *requestUUIDs; // @synthesize requestUUIDs=_requestUUIDs;
 @property(copy, nonatomic) CDUnknownBlockType queryCompletionBlock; // @synthesize queryCompletionBlock=_queryCompletionBlock;

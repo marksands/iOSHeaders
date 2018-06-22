@@ -13,7 +13,7 @@
     AVCaptureResolvedPhotoSettingsInternal *_internal;
 }
 
-+ (id)resolvedSettingsWithUniqueID:(long long)arg1 photoDimensions:(CDStruct_79c71658)arg2 rawPhotoDimensions:(CDStruct_79c71658)arg3 previewDimensions:(CDStruct_79c71658)arg4 embeddedThumbnailDimensions:(CDStruct_79c71658)arg5 livePhotoMovieEnabled:(_Bool)arg6 livePhotoMovieDimensions:(CDStruct_79c71658)arg7 turboModeEnabled:(_Bool)arg8 flashEnabled:(_Bool)arg9 HDREnabled:(_Bool)arg10 adjustedPhotoFiltersEnabled:(_Bool)arg11 EV0PhotoDeliveryEnabled:(_Bool)arg12 stillImageStabilizationEnabled:(_Bool)arg13 dualCameraFusionEnabled:(_Bool)arg14 squareCropEnabled:(_Bool)arg15 photoManifest:(id)arg16;
++ (id)resolvedSettingsWithUniqueID:(long long)arg1 photoDimensions:(CDStruct_79c71658)arg2 rawPhotoDimensions:(CDStruct_79c71658)arg3 previewDimensions:(CDStruct_79c71658)arg4 embeddedThumbnailDimensions:(CDStruct_79c71658)arg5 livePhotoMovieEnabled:(_Bool)arg6 livePhotoMovieDimensions:(CDStruct_79c71658)arg7 portraitEffectsMatteDimensions:(CDStruct_79c71658)arg8 turboModeEnabled:(_Bool)arg9 flashEnabled:(_Bool)arg10 HDREnabled:(_Bool)arg11 adjustedPhotoFiltersEnabled:(_Bool)arg12 EV0PhotoDeliveryEnabled:(_Bool)arg13 stillImageStabilizationEnabled:(_Bool)arg14 dualCameraFusionEnabled:(_Bool)arg15 squareCropEnabled:(_Bool)arg16 photoManifest:(id)arg17;
 - (id)photoManifest;
 @property(readonly) unsigned long long expectedPhotoCount;
 @property(readonly, getter=isDualCameraFusionEnabled) _Bool dualCameraFusionEnabled;
@@ -25,6 +25,7 @@
 - (_Bool)isHDREnabled;
 @property(readonly, getter=isFlashEnabled) _Bool flashEnabled;
 - (_Bool)isTurboModeEnabled;
+@property(readonly) CDStruct_79c71658 portraitEffectsMatteDimensions;
 @property(readonly) CDStruct_79c71658 livePhotoMovieDimensions;
 @property(readonly) CDStruct_79c71658 rawPhotoDimensions;
 @property(readonly) CDStruct_79c71658 embeddedThumbnailDimensions;
@@ -34,7 +35,7 @@
 - (id)description;
 - (id)debugDescription;
 - (void)dealloc;
-- (id)_initWithUniqueID:(long long)arg1 photoDimensions:(CDStruct_79c71658)arg2 rawPhotoDimensions:(CDStruct_79c71658)arg3 previewDimensions:(CDStruct_79c71658)arg4 embeddedThumbnailDimensions:(CDStruct_79c71658)arg5 livePhotoMovieEnabled:(_Bool)arg6 livePhotoMovieDimensions:(CDStruct_79c71658)arg7 turboModeEnabled:(_Bool)arg8 flashEnabled:(_Bool)arg9 HDREnabled:(_Bool)arg10 adjustedPhotoFiltersEnabled:(_Bool)arg11 EV0PhotoDeliveryEnabled:(_Bool)arg12 stillImageStabilizationEnabled:(_Bool)arg13 dualCameraFusionEnabled:(_Bool)arg14 squareCropEnabled:(_Bool)arg15 photoManifest:(id)arg16;
+- (id)_initWithUniqueID:(long long)arg1 photoDimensions:(CDStruct_79c71658)arg2 rawPhotoDimensions:(CDStruct_79c71658)arg3 previewDimensions:(CDStruct_79c71658)arg4 embeddedThumbnailDimensions:(CDStruct_79c71658)arg5 livePhotoMovieEnabled:(_Bool)arg6 livePhotoMovieDimensions:(CDStruct_79c71658)arg7 portraitEffectsMatteDimensions:(CDStruct_79c71658)arg8 turboModeEnabled:(_Bool)arg9 flashEnabled:(_Bool)arg10 HDREnabled:(_Bool)arg11 adjustedPhotoFiltersEnabled:(_Bool)arg12 EV0PhotoDeliveryEnabled:(_Bool)arg13 stillImageStabilizationEnabled:(_Bool)arg14 dualCameraFusionEnabled:(_Bool)arg15 squareCropEnabled:(_Bool)arg16 photoManifest:(id)arg17;
 
 @end
 

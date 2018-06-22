@@ -71,7 +71,7 @@
 - (void)_clearReaderControllerInterface;
 - (void)_setUpReaderControllerInterface;
 - (void)_setUpReaderActivityListenerProxy;
-- (void)readerTextWasExtracted:(id)arg1;
+- (void)readerTextWasExtracted:(id)arg1 withMetadata:(id)arg2 wasDeterminingAvailability:(_Bool)arg3;
 - (void)didDetermineReaderAvailability:(_Bool)arg1 dueToSameDocumentNavigation:(_Bool)arg2;
 - (void)willDestroyBrowserContextController:(id)arg1;
 - (id)initWithPlugIn:(id)arg1 contextController:(id)arg2;

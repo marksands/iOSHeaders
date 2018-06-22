@@ -48,7 +48,7 @@
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)_generateTitleWithMomentNodes:(id)arg1 keyAsset:(id)arg2 curatedAssetCollection:(id)arg3 referenceDateInterval:(id)arg4;
 - (id)initWithMoment:(id)arg1 needsDebugInfo:(_Bool)arg2;
-- (id)initWithGraphMatchingResult:(id)arg1 moments:(id)arg2 tripMemoryTitleType:(unsigned long long)arg3 tripNodes:(id)arg4 needsDebugInfo:(_Bool)arg5;
+- (id)initWithGraphMatchingResult:(id)arg1 moments:(id)arg2 tripMemoryTitleType:(unsigned long long)arg3 tripMomentNodes:(id)arg4 needsDebugInfo:(_Bool)arg5;
 - (id)initWithGraphMatchingResult:(id)arg1 moment:(id)arg2 needsDebugInfo:(_Bool)arg3;
 - (id)_initWithGraphMatchingResult:(id)arg1 moments:(id)arg2 needsDebugInfo:(_Bool)arg3;
 

@@ -7,12 +7,15 @@
 #import "SearchUIResultViewController.h"
 
 #import "SPSearchAgentDelegate.h"
+#import "SPUIResultsViewTestingDelegate.h"
 
 @class NSArray, SFResultSection, SFSearchResult;
 
-@interface SPUIResultViewController : SearchUIResultViewController <SPSearchAgentDelegate>
+@interface SPUIResultViewController : SearchUIResultViewController <SPSearchAgentDelegate, SPUIResultsViewTestingDelegate>
 {
+    unsigned long long _startTime;
     _Bool _hasResultsWaitingToUpdate;
+    CDUnknownBlockType didFinishGettingAllResultsHandler;
     NSArray *_resultSections;
     SFResultSection *_suggestionsSection;
     SFResultSection *_searchThroughSection;
@@ -23,13 +26,13 @@
 @property _Bool hasResultsWaitingToUpdate; // @synthesize hasResultsWaitingToUpdate=_hasResultsWaitingToUpdate;
 @property(retain) SFResultSection *suggestionsSection; // @synthesize suggestionsSection=_suggestionsSection;
 @property(retain) NSArray *resultSections; // @synthesize resultSections=_resultSections;
+@property(copy, nonatomic) CDUnknownBlockType didFinishGettingAllResultsHandler; // @synthesize didFinishGettingAllResultsHandler;
 - (void).cxx_destruct;
 - (void)_pushSectionsUpdate;
 - (_Bool)_hasRealSuggestions;
 - (void)_updateCombinedSections;
 - (void)clearSuggestionSection;
 - (void)searchStringUpdated:(id)arg1 wantsCompletions:(_Bool)arg2;
-- (id)_newSuggestionSection;
 @property(readonly) SFSearchResult *actualSearchSuggestionResult;
 - (void)searchAgentClearedResults:(id)arg1;
 - (void)_truncateResultsSectionToFit;

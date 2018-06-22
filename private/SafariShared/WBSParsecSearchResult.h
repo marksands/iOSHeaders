@@ -11,10 +11,11 @@
 #import "WBSParsecSearchMapsResult.h"
 #import "WBSParsecSearchResult.h"
 #import "WBSParsecSearchSimpleResult.h"
+#import "WBSParsecSearchSportsResult.h"
 
-@class MKMapItem, NSArray, NSNumber, NSString, NSURL, SFSearchResult, WBSParsecActionButton, WBSParsecAuxiliaryInfo, WBSParsecImageRepresentation, WBSParsecLegacySearchResult, WBSParsecSearchMapsResultFeedbackSender, WBSQuerySuggestion;
+@class MKMapItem, NSArray, NSNumber, NSString, NSURL, SFSearchResult, WBSParsecActionButton, WBSParsecAuxiliaryInfo, WBSParsecImageRepresentation, WBSParsecLegacySearchResult, WBSParsecSearchMapsResultFeedbackSender, WBSParsecSearchSportsAttributionExtraCompletionItem, WBSQuerySuggestion;
 
-@interface WBSParsecSearchResult : NSObject <WBSParsecSearchResult, WBSCompletionListItem, WBSParsecSearchGenericResult, WBSParsecSearchMapsResult, WBSParsecSearchSimpleResult>
+@interface WBSParsecSearchResult : NSObject <WBSParsecSearchResult, WBSCompletionListItem, WBSParsecSearchGenericResult, WBSParsecSearchMapsResult, WBSParsecSearchSimpleResult, WBSParsecSearchSportsResult>
 {
     WBSParsecLegacySearchResult *_legacySearchResult;
 }
@@ -22,10 +23,15 @@
 @property(readonly, nonatomic) WBSParsecLegacySearchResult *legacySearchResult; // @synthesize legacySearchResult=_legacySearchResult;
 - (void).cxx_destruct;
 - (id)_resultPresentedInCard;
+- (id)_sportsResult;
 - (id)_simpleResult;
 - (id)_mapsResult;
 - (id)_genericResult;
 - (id)_result;
+@property(readonly, nonatomic) WBSParsecSearchSportsAttributionExtraCompletionItem *extraCompletionItem;
+@property(readonly, copy, nonatomic) NSString *subtitle;
+@property(readonly, copy, nonatomic) NSArray *individualScores;
+@property(readonly, copy, nonatomic) NSArray *images;
 - (id)titleGlyphWithSession:(id)arg1;
 @property(readonly, nonatomic) _Bool hasSingleLineDescriptionAndTitle;
 @property(readonly, nonatomic) _Bool descriptionTextCanWrap;

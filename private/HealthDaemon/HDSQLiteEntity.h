@@ -21,6 +21,7 @@
 + (id)joinClausesForProperty:(id)arg1;
 + (id)disambiguatedSQLForProperty:(id)arg1;
 + (id)_generateDisambiguatedDatabaseTableName;
++ (Class)entityClassForEnumeration;
 + (Class)entityForProperty:(id)arg1;
 + (id)allDatabaseColumnNames;
 + (id)privateSubEntities;
@@ -64,8 +65,10 @@
 - (id)dateForProperty:(id)arg1 database:(id)arg2;
 - (_Bool)booleanForProperty:(id)arg1 database:(id)arg2;
 - (id)valueForProperty:(id)arg1 database:(id)arg2;
+- (_Bool)getValuesForProperties:(id)arg1 database:(id)arg2 error:(id *)arg3 handler:(CDUnknownBlockType)arg4;
 - (_Bool)getValuesForProperties:(id)arg1 database:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (_Bool)existsInDatabase:(id)arg1;
+- (void)willDeleteFromDatabase:(id)arg1;
 - (_Bool)deleteFromDatabase:(id)arg1 error:(id *)arg2;
 - (_Bool)updateProperties:(id)arg1 database:(id)arg2 error:(id *)arg3 bindingHandler:(CDUnknownBlockType)arg4;
 - (id)initWithPersistentID:(long long)arg1;

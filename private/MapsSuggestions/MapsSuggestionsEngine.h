@@ -29,6 +29,8 @@
 - (id)fakeSource;
 - (id)strategy;
 - (id)manager;
+- (_Bool)removeEntry:(id)arg1 behavior:(long long)arg2 handler:(CDUnknownBlockType)arg3;
+- (_Bool)loadStorageFromFile:(id)arg1 callback:(CDUnknownBlockType)arg2 callbackQueue:(id)arg3;
 - (_Bool)loadStorageFromFile:(id)arg1;
 - (_Bool)saveStorageToFile:(id)arg1;
 - (void)hintRefreshOfType:(unsigned long long)arg1;

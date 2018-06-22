@@ -10,12 +10,14 @@
 {
     id _location;
     double _accuracy;
+    _Bool _forceQuery;
 }
 
 + (double)recommendedAccuracy;
 + (id)operationWithLocation:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 + (id)operationWithLocation:(id)arg1 withAccuracy:(double)arg2;
 + (id)operationWithLocation:(id)arg1;
+@property _Bool forceQuery; // @synthesize forceQuery=_forceQuery;
 - (void).cxx_destruct;
 - (void)cancel;
 - (void)execute;

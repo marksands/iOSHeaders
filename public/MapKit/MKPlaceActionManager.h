@@ -10,7 +10,6 @@
 
 @class MKPlaceCardActionItem, NSString, TUCallProvider;
 
-__attribute__((visibility("hidden")))
 @interface MKPlaceActionManager : NSObject <MKPlaceActionManagerProtocol>
 {
     MKPlaceCardActionItem *_favoriteActionItem;

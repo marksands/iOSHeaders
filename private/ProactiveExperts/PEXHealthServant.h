@@ -18,7 +18,6 @@
 - (void).cxx_destruct;
 - (unsigned char)loadRecentNamesWithNamedEntityHandler:(CDUnknownBlockType)arg1 contactNameItemHandler:(CDUnknownBlockType)arg2 source:(unsigned char)arg3 objects:(id)arg4;
 - (unsigned char)loadNamesWithNamedEntityHandler:(CDUnknownBlockType)arg1 contactNameItemHandler:(CDUnknownBlockType)arg2 detectedSince:(id)arg3;
-- (id)nameItemsWithLimit:(unsigned long long)arg1;
 - (_Bool)_scaleUnitsForType:(id)arg1;
 - (_Bool)_allowDecimalForType:(id)arg1;
 - (id)_supportedQuantityTypes;

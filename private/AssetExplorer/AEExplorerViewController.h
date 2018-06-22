@@ -15,6 +15,7 @@
 #import "PUAssetExplorerReviewScreenViewControllerDelegate.h"
 #import "PXAssetsSceneDelegate.h"
 #import "PXChangeObserver.h"
+#import "PXPhotoLibraryPresenting.h"
 #import "PXPhotoLibraryUIChangeObserver.h"
 #import "PXReusableObjectPoolDelegate.h"
 #import "PXTileSource.h"
@@ -28,10 +29,11 @@
 
 @class AECameraAssetPackageGenerator, AECameraTileController, AEPackageTransport, AEProgressViewModel, CAMCameraReviewAdapter, NSArray, NSIndexSet, NSMutableIndexSet, NSMutableSet, NSString, PUAssetExplorerReviewScreenViewController, PXAssetsScene, PXBasicUIViewTileAnimator, PXMediaProvider, PXPhotoKitAssetsDataSourceManager, PXTilingController, PXUIScrollViewController, UIPopoverPresentationController, UIView;
 
-@interface AEExplorerViewController : UIViewController <PXChangeObserver, PXTileSource, AECameraTileSource, PXReusableObjectPoolDelegate, PXAssetsSceneDelegate, PXTilingControllerScrollDelegate, PXTilingControllerTransitionDelegate, PXPhotoLibraryUIChangeObserver, UIGestureRecognizerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIViewControllerPreviewingDelegate, CAMCameraConfigurationDelegate, CAMCameraCaptureDelegate, CAMCameraReviewDelegate, CAMCameraViewControllerPresentationDelegate, PUAssetExplorerReviewScreenViewControllerDelegate, UIPopoverPresentationControllerDelegate, AEBrowserLayoutDelegate>
+@interface AEExplorerViewController : UIViewController <PXChangeObserver, PXTileSource, AECameraTileSource, PXReusableObjectPoolDelegate, PXAssetsSceneDelegate, PXTilingControllerScrollDelegate, PXTilingControllerTransitionDelegate, PXPhotoLibraryUIChangeObserver, UIGestureRecognizerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIViewControllerPreviewingDelegate, CAMCameraConfigurationDelegate, CAMCameraCaptureDelegate, CAMCameraReviewDelegate, CAMCameraViewControllerPresentationDelegate, PUAssetExplorerReviewScreenViewControllerDelegate, UIPopoverPresentationControllerDelegate, AEBrowserLayoutDelegate, PXPhotoLibraryPresenting>
 {
     _Bool __fakeAllCloudAndVideo;
     _Bool __didPresentPhotoLibrary;
+    id <AEExplorerViewControllerDelegate> _delegate;
     AEPackageTransport *__packageTransport;
     PXPhotoKitAssetsDataSourceManager *__dataSourceManager;
     PXMediaProvider *__mediaProvider;
@@ -82,6 +84,7 @@
 @property(readonly, nonatomic) PXMediaProvider *_mediaProvider; // @synthesize _mediaProvider=__mediaProvider;
 @property(readonly, nonatomic) PXPhotoKitAssetsDataSourceManager *_dataSourceManager; // @synthesize _dataSourceManager=__dataSourceManager;
 @property(readonly, nonatomic) AEPackageTransport *_packageTransport; // @synthesize _packageTransport=__packageTransport;
+@property(nonatomic) __weak id <AEExplorerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) UIViewController *cameraParentViewController;
 - (void)ensureSubviewForTile:(id)arg1;
@@ -137,13 +140,18 @@
 - (void)_updatePhotoLibraryPresentationIfNeeded;
 - (void)_dismissPhotoLibraryIfNeeded;
 - (void)imagePickerControllerDidCancel:(id)arg1;
+- (void)_handleImagePickerMediaWithInfo:(id)arg1;
+- (void)imagePickerController:(id)arg1 didFinishPickingMultipleMediaWithInfo:(id)arg2;
 - (void)imagePickerController:(id)arg1 didFinishPickingMediaWithInfo:(id)arg2;
-- (void)_presentFullScreenPhotoLibrary:(id)arg1;
+- (void)showPhotoLibraryPicker:(id)arg1;
+- (void)_dismissViewControllerAboveKeyboardAnimated:(_Bool)arg1;
+- (id)_presentViewControllerAboveKeyboard:(id)arg1 animated:(_Bool)arg2;
+- (void)dismissPresentedViewController:(id)arg1;
 - (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
 - (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
 - (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
 - (void)_dismissReviewScreenViewController;
-- (void)assetExplorerReviewScreenViewController:(id)arg1 didPressDoneWithSelectedAssetUUIDs:(id)arg2 livePhotoDisabledAssetUUIDs:(id)arg3 substituteAssetsByUUID:(id)arg4;
+- (void)assetExplorerReviewScreenViewController:(id)arg1 didPerformCompletionAction:(unsigned long long)arg2 withSelectedAssetUUIDs:(id)arg3 livePhotoDisabledAssetUUIDs:(id)arg4 substituteAssetsByUUID:(id)arg5;
 - (void)assetExplorerReviewScreenViewControllerDidPressRetake:(id)arg1;
 - (void)assetExplorerReviewScreenViewControllerDidPressCancel:(id)arg1;
 - (_Bool)assetExplorerReviewScreenViewController:(id)arg1 canPerformActionType:(unsigned long long)arg2 onAsset:(id)arg3 inAssetCollection:(id)arg4;

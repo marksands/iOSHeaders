@@ -8,7 +8,7 @@
 
 #import "ADAdRecipient.h"
 
-@class ADAdSpace, ADInterstitialAdPresentationViewController, ADInterstitialView, NSString, UIView, UIViewController;
+@class ADAdSpace, ADInterstitialAdPresentationViewController, ADInterstitialView, ADLayoutOptions, NSString, UIView, UIViewController;
 
 @interface ADInterstitialAd : NSObject <ADAdRecipient>
 {
@@ -30,14 +30,14 @@
     NSString *_adResponseId;
     long long _lastErrorCode;
     ADInterstitialAdPresentationViewController *_presentationViewController;
-    ADInterstitialView *_interstitialView;
     ADAdSpace *_adSpace;
+    ADInterstitialView *_interstitialView;
 }
 
 @property(nonatomic) _Bool hasLoadedFirstAd; // @synthesize hasLoadedFirstAd=_hasLoadedFirstAd;
 @property(nonatomic) _Bool canLoadMoreThanOnce; // @synthesize canLoadMoreThanOnce=_canLoadMoreThanOnce;
-@property(retain, nonatomic) ADAdSpace *adSpace; // @synthesize adSpace=_adSpace;
 @property(retain, nonatomic) ADInterstitialView *interstitialView; // @synthesize interstitialView=_interstitialView;
+@property(retain, nonatomic) ADAdSpace *adSpace; // @synthesize adSpace=_adSpace;
 @property(nonatomic) _Bool requestCalledbackError; // @synthesize requestCalledbackError=_requestCalledbackError;
 @property(retain, nonatomic) ADInterstitialAdPresentationViewController *presentationViewController; // @synthesize presentationViewController=_presentationViewController;
 @property(nonatomic) int creativeType; // @synthesize creativeType=_creativeType;
@@ -96,6 +96,7 @@
 @property(readonly, nonatomic) UIViewController *presentingViewController;
 @property(nonatomic) __weak UIViewController *internalPresentingViewController;
 @property(readonly, nonatomic) UIView *adSpaceView;
+- (id)_initWithInternalAdType:(int)arg1 layoutOptions:(id)arg2 options:(long long)arg3;
 - (id)initWithCreativeType:(int)arg1 options:(long long)arg2;
 - (id)init;
 - (void)dealloc;
@@ -104,6 +105,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(retain, nonatomic) ADLayoutOptions *layoutOptions;
 @property(readonly) Class superclass;
 
 @end

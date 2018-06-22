@@ -32,6 +32,8 @@
     NSString *_dsid;
 }
 
+@property(retain) NSString *dsid; // @synthesize dsid=_dsid;
+@property(retain) NSObject<OS_os_log> *oslog; // @synthesize oslog=_oslog;
 @property struct sqlite3_stmt *queryWatches; // @synthesize queryWatches=_queryWatches;
 @property struct sqlite3_stmt *queryMissingKeys; // @synthesize queryMissingKeys=_queryMissingKeys;
 @property struct sqlite3_stmt *insertWatchKey; // @synthesize insertWatchKey=_insertWatchKey;
@@ -46,12 +48,10 @@
 @property struct sqlite3_stmt *insertMirrorKey; // @synthesize insertMirrorKey=_insertMirrorKey;
 @property struct sqlite3_stmt *updateWatch; // @synthesize updateWatch=_updateWatch;
 @property struct sqlite3_stmt *insertWatch; // @synthesize insertWatch=_insertWatch;
-@property(retain) NSString *dsid; // @synthesize dsid=_dsid;
-@property(retain) NSObject<OS_os_log> *oslog; // @synthesize oslog=_oslog;
-@property struct sqlite3 *sqliteHandle; // @synthesize sqliteHandle=_sqliteHandle;
 @property struct sqlite3_stmt *deleteStatment; // @synthesize deleteStatment=_deleteStatment;
 @property struct sqlite3_stmt *replaceStatment; // @synthesize replaceStatment=_replaceStatment;
 @property struct sqlite3_stmt *recordIDStatment; // @synthesize recordIDStatment=_recordIDStatment;
+@property struct sqlite3 *sqliteHandle; // @synthesize sqliteHandle=_sqliteHandle;
 - (void).cxx_destruct;
 - (id)missingKeysFromDevice:(id)arg1 type:(int)arg2;
 - (id)syncDevices;

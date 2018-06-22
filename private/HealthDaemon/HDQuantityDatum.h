@@ -15,6 +15,8 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)quantityDataForDifferencesInData:(id)arg1 baseDatum:(id)arg2 unit:(id)arg3 differenceHandler:(CDUnknownBlockType)arg4 intervalHandler:(CDUnknownBlockType)arg5;
++ (id)hdt_quantityDatumForType:(id)arg1 startTime:(double)arg2 endTime:(double)arg3 value:(double)arg4;
 @property(readonly, nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(readonly, nonatomic) HKQuantity *quantity; // @synthesize quantity=_quantity;
 - (void).cxx_destruct;

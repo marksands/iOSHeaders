@@ -12,7 +12,7 @@
 
 @interface CRKContainerCardSectionView : UIView <CRKCardSectionView>
 {
-    UIView *_touchInterceptView;
+    UIView *_userInputEventInterceptView;
     UIView<CRKComposableView> *_composedSuperview;
     NSString *_cardSectionViewIdentifier;
     UIView *_contentView;

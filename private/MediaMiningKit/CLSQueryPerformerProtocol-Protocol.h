@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CLCircularRegion, NSArray;
+@class CLCircularRegion, NSArray, NSNumber;
 
 @protocol CLSQueryPerformerProtocol <NSObject>
 + (double)defaultPrecision;
@@ -14,7 +14,9 @@
 + (id)queryWithTemplate:(id <CLSQueryPerformerProtocol>)arg1 forRegions:(NSArray *)arg2;
 @property(nonatomic) double precision;
 @property(nonatomic) CDStruct_dd9df0da statistics;
-@property(readonly) _Bool isCancelled;
+@property(readonly, nonatomic) _Bool isCancelled;
+- (void)logAggdGeoLookupFailureResult;
+- (void)logAggdGeoLookupCounterAndDurationWithLookupDuration:(NSNumber *)arg1;
 - (void)cancel;
 - (unsigned long long)cacheItems:(NSArray *)arg1;
 - (NSArray *)regions;

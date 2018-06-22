@@ -9,6 +9,7 @@
 @class CKBrowserDragManager, IMBalloonPlugin, IMBalloonPluginDataSource, NSArray, NSData, NSNumber, NSObject<CKBrowserViewControllerSendDelegate>, NSString, NSURL, UIViewController;
 
 @protocol CKBrowserViewControllerProtocol <NSObject>
+@property(readonly, nonatomic) _Bool inFullScreenModalPresentation;
 @property(readonly, nonatomic) _Bool inExpandedPresentation;
 @property(readonly, nonatomic) _Bool shouldShowChatChrome;
 @property(readonly, nonatomic) long long browserPresentationStyle;
@@ -43,6 +44,7 @@
 @property(retain, nonatomic) NSString *sender;
 @property(retain, nonatomic) NSArray *recipients;
 - (void)killExtensionProcess;
+- (void)dropAssertion;
 - (void)setStoreLaunchURL:(NSURL *)arg1 sourceApplication:(NSString *)arg2;
 - (void)messageAddedWithDataSource:(IMBalloonPluginDataSource *)arg1;
 - (void)viewDidTransitionToCompactPresentation;

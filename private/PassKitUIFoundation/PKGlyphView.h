@@ -42,6 +42,7 @@
     struct UIEdgeInsets _customImageAlignmentEdgeInsets;
 }
 
++ (id)sharedStaticResources;
 + (_Bool)automaticallyNotifiesObserversOfState;
 @property(nonatomic) __weak id <PKGlyphViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) long long state; // @synthesize state=_state;

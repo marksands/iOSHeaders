@@ -25,6 +25,11 @@ struct CGSize {
     double _field2;
 };
 
+struct CLKUIQuadSize {
+    int _field1;
+    int _field2;
+};
+
 struct CLLocationCoordinate2D {
     double latitude;
     double longitude;
@@ -32,25 +37,30 @@ struct CLLocationCoordinate2D {
 
 struct NUProgram {
     unsigned int program;
-    int uniforms[11];
+    int uniforms[13];
 };
 
 struct NURendererResources {
-    struct NUProgram programs[7];
+    struct NUProgram programs[3];
     unsigned int vertexBuffer;
     unsigned int indexBuffer;
     unsigned int atlasTexture;
     unsigned long long loadedTexturesSet;
-    unsigned int priTextures[29];
-    unsigned int secTextures[29];
+    unsigned int priTextures[23];
+    unsigned int secTextures[23];
     unsigned int dummyCubeTexture;
     unsigned int dummy2dTexture;
 };
 
 struct NUViewport {
-    int x;
-    int y;
-    unsigned int width;
-    unsigned int height;
+    int _field1;
+    int _field2;
+    int _field3;
+    int _field4;
+};
+
+struct _NUGeometryRange {
+    int start;
+    int count;
 };
 

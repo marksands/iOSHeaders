@@ -6,10 +6,12 @@
 
 #import <MapKit/MKAnnotationView.h>
 
-@class MKMapView, UIColor, UIImage, UIView;
+#import "_MKBalloonCalloutViewConfiguring.h"
+
+@class MKMapView, NSString, UIColor, UIImage, UIView;
 
 __attribute__((visibility("hidden")))
-@interface MKLabelMarkerView : MKAnnotationView
+@interface MKLabelMarkerView : MKAnnotationView <_MKBalloonCalloutViewConfiguring>
 {
     UIView *_anchorDotView;
     _Bool _needsToResolveBalloonAttributes;
@@ -23,30 +25,36 @@ __attribute__((visibility("hidden")))
     MKMapView *_mapView;
 }
 
++ (Class)calloutViewClass;
 + (_Bool)_followsTerrain;
 @property(nonatomic) __weak MKMapView *mapView; // @synthesize mapView=_mapView;
 - (void).cxx_destruct;
 - (void)_configureBalloonForDataIconImageKeys:(id)arg1 scale:(double)arg2;
-- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
+- (_Bool)updateCalloutViewIfNeededAnimated:(_Bool)arg1;
 - (void)_addAnchorDotViewIfNeeded;
-- (void)_didHideBalloonCalloutView:(id)arg1;
-- (void)_addBalloonCalloutView:(id)arg1;
+- (void)_updateAnchorOffset;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (_Bool)_useBalloonCallouts;
-- (_Bool)_shouldShowCallout;
+- (_Bool)shouldShowCallout;
 - (void)dealloc;
 - (void)setAnnotation:(id)arg1;
 - (void)_deregisterObserver;
 - (void)_registerObserver;
-- (id)_balloonContentView;
-- (id)_balloonImage;
-- (id)_balloonStrokeColor;
-- (id)_balloonTintColor;
+@property(readonly, nonatomic, getter=_balloonContentView) UIView *balloonContentView;
+@property(readonly, nonatomic, getter=_balloonImage) UIImage *balloonImage;
+@property(readonly, nonatomic, getter=_balloonInnerStrokeColor) UIColor *balloonInnerStrokeColor;
+@property(readonly, nonatomic, getter=_balloonStrokeColor) UIColor *balloonStrokeColor;
+@property(readonly, nonatomic, getter=_balloonTintColor) UIColor *balloonTintColor;
 - (_Bool)_balloonCalloutShouldOriginateFromSmallSize:(double *)arg1;
-- (long long)_balloonCalloutStyle;
+@property(readonly, nonatomic, getter=_balloonCalloutStyle) long long balloonCalloutStyle;
 - (void)_resolveBalloonAttributesIfNecessary;
 - (void)prepareForReuse;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

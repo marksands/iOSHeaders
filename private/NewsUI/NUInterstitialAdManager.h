@@ -6,18 +6,16 @@
 
 #import "NSObject.h"
 
-@class FCAppConfigurationManager;
-
 @interface NUInterstitialAdManager : NSObject
 {
     _Bool _enabled;
     id <NUInterstitialAdManagerDelegate> _delegate;
     id <NUPage> _activePage;
     id <NUAdProvider> _adProvider;
-    FCAppConfigurationManager *_appConfigurationManager;
+    id <FCNewsAppConfigurationManager> _appConfigurationManager;
 }
 
-@property(readonly, nonatomic) FCAppConfigurationManager *appConfigurationManager; // @synthesize appConfigurationManager=_appConfigurationManager;
+@property(readonly, nonatomic) id <FCNewsAppConfigurationManager> appConfigurationManager; // @synthesize appConfigurationManager=_appConfigurationManager;
 @property(readonly, nonatomic) id <NUAdProvider> adProvider; // @synthesize adProvider=_adProvider;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(retain, nonatomic) id <NUPage> activePage; // @synthesize activePage=_activePage;

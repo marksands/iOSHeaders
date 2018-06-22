@@ -44,7 +44,6 @@
     MFDAMailbox *_temporaryInbox;
     _Bool _loadedInitialMailboxList;
     _Bool _receivedInitialMailboxUpdate;
-    _Bool _doneInitialInboxCheck;
     _Bool _observingPushedFoldersPrefsChanged;
     int _supportsServerSearch;
     int _supportsMessageFlagging;
@@ -70,7 +69,7 @@
 + (id)folderIDForRelativePath:(id)arg1 accountID:(id *)arg2;
 + (Class)_accountConduitClass;
 @property(retain, nonatomic) MFMailboxUid *virtualAllSearchMailbox; // @synthesize virtualAllSearchMailbox=_virtualAllSearchMailbox;
-- (id)unsupportedContinuationTypes;
+- (id)unsupportedHandoffTypes;
 - (id)fetchLimits;
 - (_Bool)supportsMailDrop;
 - (_Bool)isManaged;
@@ -108,6 +107,7 @@
 - (id)syncAnchorForFolderID:(id)arg1 mailbox:(id *)arg2;
 - (void)stopListeningForNotifications;
 - (void)startListeningForNotifications;
+- (_Bool)shouldListenForPushNotificationsAtLaunch;
 - (id)_updateWatchedFolderIdsAndNotify:(_Bool)arg1;
 - (id)_inboxFolderID;
 - (id)meetingStorePersistentID;

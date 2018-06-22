@@ -56,6 +56,8 @@
 - (id)initWithStringOrAttributedString:(id)arg1;
 - (id)initWithCFAttributedString:(struct __CFAttributedString *)arg1;
 - (id)initWithString:(id)arg1;
+- (id)_axRecursivelyReconstitutedRepresentationFromPropertyListWithError:(id *)arg1;
+- (id)_axRecursivelyPropertyListCoercedRepresentationWithError:(id *)arg1;
 
 @end
 

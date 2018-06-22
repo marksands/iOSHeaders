@@ -10,14 +10,16 @@
 
 @interface PKPhysicalButtonView : UIView
 {
+    id <UICoordinateSpace> _fixedCoordinateSpace;
+    id <UICoordinateSpace> _coordinateSpace;
+    unsigned int _edge;
+    _Bool _onScreen;
     UIView *_containerView;
     UILabel *_instructionLabel;
     UIView *_buttonView;
-    _Bool _animateSlide;
     _Bool _animating;
-    double _animationWidth;
+    double _animationLength;
     NSString *_periodicAnimationKey;
-    NSString *_presentationAnimationKey;
     long long _style;
     NSString *_instruction;
 }
@@ -26,15 +28,17 @@
 @property(nonatomic) _Bool animating; // @synthesize animating=_animating;
 @property(readonly, nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
+- (void)_setOnScreen:(_Bool)arg1;
 - (void)_removePeriodicAnimationForKey:(id)arg1 fromLayer:(id)arg2;
 - (void)_endAnimationIfNecessary;
-- (void)_animateWithWidth:(double)arg1 delay:(double)arg2;
-- (void)_animateWithWidth:(double)arg1;
+- (void)_animateWithLength:(double)arg1 delay:(double)arg2;
+- (void)_animateWithLength:(double)arg1;
 - (void)_beginAnimationIfNecessaryWithDelay:(double)arg1;
 - (void)_beginAnimationIfNecessary;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
+- (void)updateFrame;
 - (void)didMoveToWindow;
 - (id)initWithStyle:(long long)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

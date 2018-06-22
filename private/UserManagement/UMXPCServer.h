@@ -12,6 +12,7 @@
 
 @class NSData, NSDictionary, NSMutableArray, NSString, NSXPCConnection, NSXPCListener;
 
+__attribute__((visibility("hidden")))
 @interface UMXPCServer : NSObject <NSXPCListenerDelegate, UMUserSwitchManagement, UMUserSwitchManagement_Private>
 {
     _Bool _currentlyBroadcastingWillSwitchToUser;

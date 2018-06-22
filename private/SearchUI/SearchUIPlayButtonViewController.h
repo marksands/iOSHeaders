@@ -9,12 +9,12 @@
 #import "MPUNowPlayingDelegate.h"
 #import "NUIContainerStackViewDelegate.h"
 
-@class MPMediaItem, NSArray, NSString, SFPunchout, SKUIPlayButton, UILabel;
+@class MPMediaItem, NSArray, NSString, SFPunchout, SearchUIButton, UILabel;
 
 @interface SearchUIPlayButtonViewController : SearchUIAccessoryViewController <NUIContainerStackViewDelegate, MPUNowPlayingDelegate>
 {
     UILabel *_captionLabel;
-    SKUIPlayButton *_playButton;
+    SearchUIButton *_playButton;
     SFPunchout *_punchout;
     NSArray *_adamIDs;
     MPMediaItem *_localMediaItem;
@@ -32,7 +32,7 @@
 @property(retain) MPMediaItem *localMediaItem; // @synthesize localMediaItem=_localMediaItem;
 @property(retain) NSArray *adamIDs; // @synthesize adamIDs=_adamIDs;
 @property(retain) SFPunchout *punchout; // @synthesize punchout=_punchout;
-@property(retain) SKUIPlayButton *playButton; // @synthesize playButton=_playButton;
+@property(retain) SearchUIButton *playButton; // @synthesize playButton=_playButton;
 @property(retain) UILabel *captionLabel; // @synthesize captionLabel=_captionLabel;
 - (void).cxx_destruct;
 - (struct CGRect)containerView:(id)arg1 layoutFrameForArrangedSubview:(id)arg2 withProposedFrame:(struct CGRect)arg3;

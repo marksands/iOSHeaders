@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
     } __wait_cond;
     char *__nameBuffer;
     id __activity;
+    CDUnknownBlockType __schedule;
     // Error parsing type: AC, name: __isExecutingObserverCount
     // Error parsing type: AC, name: __isFinishedObserverCount
     // Error parsing type: AC, name: __isReadyObserverCount

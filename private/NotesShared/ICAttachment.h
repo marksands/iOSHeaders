@@ -90,6 +90,7 @@
 - (void)setIsBeingEditedLocallyOnDevice:(_Bool)arg1;
 @property(retain, nonatomic) NSString *additionalIndexableText; // @dynamic additionalIndexableText;
 @property(retain, nonatomic) NSString *summary; // @dynamic summary;
+- (_Bool)hasMetadata;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) NSURL *remoteFileURL; // @synthesize remoteFileURL=_remoteFileURL;
 - (id)unsupportedAttachmentSubtitle;
@@ -139,6 +140,7 @@
 - (void)willTurnIntoFault;
 - (void)awakeFromFetch;
 - (void)prepareForDeletion;
+- (void)dealloc;
 - (unsigned long long)approximateArchiveSizeIncludingPreviews:(_Bool)arg1;
 - (void)savePreview:(id)arg1 toArchive:(struct PreviewImage *)arg2 previewDataIdentifier:(id)arg3 dataPersister:(id)arg4;
 - (void)saveToArchive:(struct Attachment *)arg1 dataPersister:(id)arg2 stripImageMarkupMetadata:(_Bool)arg3;

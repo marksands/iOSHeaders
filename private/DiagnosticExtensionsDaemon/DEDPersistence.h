@@ -27,6 +27,7 @@
 - (id)loadSavedBugSessions;
 - (id)loadSavedSessionsFromPlist:(id)arg1;
 - (id)init;
+- (_Bool)canProceedWithDevice:(id)arg1;
 
 @end
 

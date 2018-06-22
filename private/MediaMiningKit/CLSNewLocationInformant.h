@@ -10,6 +10,8 @@
 {
 }
 
++ (_Bool)location:(struct CLLocationCoordinate2D)arg1 isFarFromLocation:(struct CLLocationCoordinate2D)arg2;
++ (_Bool)location:(struct CLLocationCoordinate2D)arg1 isCloseToLocation:(struct CLLocationCoordinate2D)arg2;
 + (id)natureCategories;
 + (id)regionOfInterestCategories;
 + (id)areaOfInterestCategories;
@@ -18,7 +20,6 @@
 + (struct CLLocationCoordinate2D)shiftedCoordinatesFromOriginalCoordinates:(struct CLLocationCoordinate2D)arg1;
 + (id)shiftedLocationFromOriginalLocation:(id)arg1;
 + (id)businessItemsForRegion:(id)arg1;
-+ (id)createPlacesForBusinessItems:(id)arg1;
 + (id)createPlaceForBusinessItem:(id)arg1;
 + (id)_categoriesDescriptionFromCategories:(id)arg1;
 + (id)filterBusinessItems:(id)arg1 forCategories:(id)arg2 subCategories:(id)arg3 blacklistCategories:(id)arg4;
@@ -27,7 +28,7 @@
 + (id)informantDependenciesIdentifiers;
 + (id)classIdentifier;
 + (id)familyIdentifier;
-- (id)gatherCluesOperationForInvestigation:(id)arg1;
+- (id)gatherCluesForInvestigation:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)locationRegionOfInterestCluesForInputClue:(id)arg1;
 - (id)locationPointOfInterestCluesForInputClue:(id)arg1;
 - (id)locationAreaOfInterestCluesForInputClue:(id)arg1;

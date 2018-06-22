@@ -12,11 +12,15 @@
 {
     HDProfile *_profile;
     _Bool _shouldIncludePrivateProperties;
+    _Bool _shouldIncludeStatistics;
 }
 
+@property(nonatomic) _Bool shouldIncludeStatistics; // @synthesize shouldIncludeStatistics=_shouldIncludeStatistics;
 @property(nonatomic) _Bool shouldIncludePrivateProperties; // @synthesize shouldIncludePrivateProperties=_shouldIncludePrivateProperties;
 - (void).cxx_destruct;
 - (void)activitySummariesWithPredicate:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (id)activitySummariesWithPredicate:(id)arg1 error:(id *)arg2;
+- (_Bool)enumerateActivitySummariesWithPredicate:(id)arg1 error:(id *)arg2 handler:(CDUnknownBlockType)arg3;
 - (id)initWithProfile:(id)arg1;
 - (id)init;
 

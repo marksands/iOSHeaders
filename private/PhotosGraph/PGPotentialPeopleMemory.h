@@ -21,7 +21,7 @@
 @property(retain) PGGraphNode *peopleNode; // @synthesize peopleNode=_peopleNode;
 - (void).cxx_destruct;
 - (void)addMomentNode:(id)arg1;
-- (id)initWithSubcategory:(long long)arg1 peopleNode:(id)arg2 year:(long long)arg3;
+- (id)initWithSubcategory:(unsigned long long)arg1 peopleNode:(id)arg2 year:(long long)arg3;
 
 @end
 

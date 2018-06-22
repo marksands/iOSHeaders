@@ -10,14 +10,13 @@
 
 @interface CLSRegionItemCacheCreator : NSObject
 {
-    NSArray *_queryPerformers;
     _Bool _simulatesTimeout;
     NSObject<OS_os_log> *_loggingConnection;
     double _timeoutInterval;
     unsigned long long _numberOfRetries;
+    NSArray *_queryPerformers;
 }
 
-+ (id)createPlacesForBusinessItems:(id)arg1;
 + (id)businessItemsForRegion:(id)arg1;
 @property(readonly, nonatomic) NSArray *queryPerformers; // @synthesize queryPerformers=_queryPerformers;
 @property(nonatomic) unsigned long long numberOfRetries; // @synthesize numberOfRetries=_numberOfRetries;
@@ -28,8 +27,6 @@
 - (_Bool)createCacheForRegions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2 error:(id *)arg3;
 - (void)logRequestCounterValuesFromLookupTable:(id)arg1;
 - (id)incrementRequestCounterForQueryPerformer:(id)arg1 counterTable:(id)arg2;
-- (void)logAggdGeoLookupFailureResultForQueryPerformer:(id)arg1;
-- (void)logAggdGeoLookupCounterAndDurationForQueryPerformer:(id)arg1 lookupDuration:(id)arg2;
 - (id)initWithQueryPerformers:(id)arg1;
 
 @end

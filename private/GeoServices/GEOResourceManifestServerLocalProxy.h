@@ -13,7 +13,6 @@
 
 @class GEOActiveTileGroup, GEOResourceFiltersManager, GEOResourceManifestConfiguration, GEOResourceManifestDownload, NSArray, NSError, NSLock, NSMutableArray, NSMutableData, NSProgress, NSString, NSTimer, NSURLSession, NSURLSessionTask, NSURLSessionTaskMetrics, _GEOResourceManifestServerLocalProxyMigrationState;
 
-__attribute__((visibility("hidden")))
 @interface GEOResourceManifestServerLocalProxy : NSObject <NSURLSessionDataDelegate, GEOResourceFiltersManagerDelegate, GEODataStateCapturing, GEOResourceManifestServerProxy>
 {
     id <GEOResourceManifestServerProxyDelegate> _delegate;
@@ -102,8 +101,8 @@ __attribute__((visibility("hidden")))
 - (void)closeConnection;
 - (void)openConnection;
 - (void)dealloc;
-- (void)createMigratorsWithAdditionalMigrationTaskClasses:(id)arg1;
-- (id)initWithDelegate:(id)arg1 configuration:(id)arg2 additionalMigrationTaskClasses:(id)arg3;
+- (void)_createMigrators;
+- (id)initWithDelegate:(id)arg1 configuration:(id)arg2;
 - (id)serverOperationQueue;
 - (id)serverQueue;
 

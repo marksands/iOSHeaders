@@ -12,12 +12,14 @@
     _Bool _enableGenericService;
     _Bool _enableMemoriesRelatedService;
     _Bool _enableTitleFontService;
+    _Bool _enableCompleteMyMomentService;
     _Bool _simulateLaunchedToTest;
 }
 
 + (id)sharedInstance;
 + (id)settingsControllerModule;
 @property(nonatomic) _Bool simulateLaunchedToTest; // @synthesize simulateLaunchedToTest=_simulateLaunchedToTest;
+@property(nonatomic) _Bool enableCompleteMyMomentService; // @synthesize enableCompleteMyMomentService=_enableCompleteMyMomentService;
 @property(nonatomic) _Bool enableTitleFontService; // @synthesize enableTitleFontService=_enableTitleFontService;
 @property(nonatomic) _Bool enableMemoriesRelatedService; // @synthesize enableMemoriesRelatedService=_enableMemoriesRelatedService;
 @property(nonatomic) _Bool enableGenericService; // @synthesize enableGenericService=_enableGenericService;

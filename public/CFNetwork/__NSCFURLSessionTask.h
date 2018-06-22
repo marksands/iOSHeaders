@@ -6,7 +6,7 @@
 
 #import <CFNetwork/NSURLSessionTask.h>
 
-@class NSArray, NSData, NSDate, NSDictionary, NSError, NSMutableArray, NSObject<OS_dispatch_queue>, NSProgress, NSString, NSURL, NSURLRequest, NSURLResponse, NSURLSession, NSURLSessionConfiguration, NSURLSessionTaskDependency, NSURLSessionTaskDependencyTree, NSURLSessionTaskHTTPAuthenticator, NSURLSessionTaskMetrics;
+@class NSArray, NSData, NSDate, NSDictionary, NSError, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_nw_activity>, NSProgress, NSString, NSURL, NSURLRequest, NSURLResponse, NSURLSession, NSURLSessionConfiguration, NSURLSessionTaskDependency, NSURLSessionTaskDependencyTree, NSURLSessionTaskHTTPAuthenticator, NSURLSessionTaskMetrics, __NSCFTaskPerformanceTiming;
 
 __attribute__((visibility("hidden")))
 @interface __NSCFURLSessionTask : NSURLSessionTask
@@ -44,6 +44,7 @@ __attribute__((visibility("hidden")))
     _Bool _shouldSkipPreferredClientCertificateLookup;
     _Bool _cacheOnly;
     _Bool _preventsSystemHTTPProxyAuthentication;
+    _Bool _requiresSecureHTTPSProxyConnection;
     NSDictionary *_legacySocketStreamProperties;
     struct _CFHSTSPolicy *_cfHSTS;
     struct _CFURLCache *_cfCache;
@@ -63,6 +64,7 @@ __attribute__((visibility("hidden")))
     NSArray *_contentDispositionFallbackArray;
     _Bool _allowsCellular;
     int _networkServiceType;
+    unsigned int _qos;
     _Bool _prohibitAuthUI;
     _Bool _strictContentLength;
     long long _suspensionThreshhold;
@@ -83,6 +85,9 @@ __attribute__((visibility("hidden")))
     NSURLSessionTaskHTTPAuthenticator *_authenticator;
     _Bool _shouldReportTimingDataToAWD;
     NSString *_storagePartitionIdentifier;
+    NSURL *_parentDocumentURL;
+    NSURL *_siteForCookies;
+    _Bool _isTopLevelNavigation;
     NSDictionary *_dependencyInfo;
     NSDictionary *_DuetActivityProperties;
     NSURLSessionTaskDependencyTree *_dependencyTree;
@@ -90,8 +95,11 @@ __attribute__((visibility("hidden")))
     NSString *_pathToDownloadTaskFile;
     NSMutableArray *_transactionMetrics;
     NSURLSessionTaskMetrics *_incompleteTaskMetrics;
+    NSObject<OS_nw_activity> *_nw_activity;
+    __NSCFTaskPerformanceTiming *_taskPerformanceTiming;
     NSDictionary *_trailers;
     _Bool _allowsQUIC;
+    long long _discretionaryOverride;
     id <SZExtractor> _extractor;
     _Bool _extractorFinishedDecoding;
     _Bool _hasSZExtractor;
@@ -114,8 +122,16 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)supportsSecureCoding;
+- (void)set_isTopLevelNavigation:(_Bool)arg1;
+- (_Bool)_isTopLevelNavigation;
+- (void)set_siteForCookies:(id)arg1;
+- (id)_siteForCookies;
 - (void)set_APSRelayTopic:(id)arg1;
 - (id)_APSRelayTopic;
+- (void)set_taskPerformanceTiming:(id)arg1;
+- (id)_taskPerformanceTiming;
+- (void)set_nw_activity:(id)arg1;
+- (id)_nw_activity;
 - (void)set_incompleteTaskMetrics:(id)arg1;
 - (id)_incompleteTaskMetrics;
 - (void)set_backgroundPublishingURL:(id)arg1;
@@ -134,6 +150,8 @@ __attribute__((visibility("hidden")))
 - (void)set_extractorFinishedDecoding:(_Bool)arg1;
 - (_Bool)_extractorFinishedDecoding;
 - (id)_extractor;
+- (void)set_discretionaryOverride:(long long)arg1;
+- (long long)_discretionaryOverride;
 - (void)set_allowsQUIC:(_Bool)arg1;
 - (_Bool)_allowsQUIC;
 - (void)set_trailers:(id)arg1;
@@ -171,6 +189,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)_strictContentLength;
 - (void)set_prohibitAuthUI:(_Bool)arg1;
 - (_Bool)_prohibitAuthUI;
+- (void)set_qos:(unsigned int)arg1;
+- (unsigned int)_qos;
 - (void)set_allowsCellular:(_Bool)arg1;
 - (_Bool)_allowsCellular;
 - (void)set_contentDispositionFallbackArray:(id)arg1;
@@ -207,6 +227,8 @@ __attribute__((visibility("hidden")))
 - (struct _CFHSTSPolicy *)_cfHSTS;
 - (void)set_pathToDownloadTaskFile:(id)arg1;
 - (id)_pathToDownloadTaskFile;
+- (void)set_requiresSecureHTTPSProxyConnection:(_Bool)arg1;
+- (_Bool)_requiresSecureHTTPSProxyConnection;
 - (void)set_preventsSystemHTTPProxyAuthentication:(_Bool)arg1;
 - (_Bool)_preventsSystemHTTPProxyAuthentication;
 - (void)set_cacheOnly:(_Bool)arg1;
@@ -291,7 +313,7 @@ __attribute__((visibility("hidden")))
 - (void)_setSocketProperties:(struct __CFDictionary *)arg1 connectionProperties:(struct __CFDictionary *)arg2;
 - (const struct XCredentialStorage *)_createXCredentialStorage;
 - (const struct XCookieStorage *)_createXCookieStorage;
-- (const struct XURLCache *)_createXURLCache;
+- (void)_withXURLCache:(CDUnknownBlockType)arg1;
 - (struct _CFHSTSPolicy *)_copyHSTSPolicy;
 - (void)_onqueue_releasePowerAsssertion;
 - (void)_releasePreventIdleSleepAssertionIfAppropriate;

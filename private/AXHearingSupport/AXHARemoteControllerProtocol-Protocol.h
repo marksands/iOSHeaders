@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class AXHADispatchTimer;
+@class AXDispatchTimer;
 
 @protocol AXHARemoteControllerProtocol <NSObject>
-@property(retain, nonatomic) AXHADispatchTimer *communicationTimer;
+@property(retain, nonatomic) AXDispatchTimer *communicationTimer;
 @property(nonatomic) _Bool didValidateHIID;
 @end
 

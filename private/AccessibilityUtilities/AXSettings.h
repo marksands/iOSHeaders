@@ -13,6 +13,7 @@
     NSLock *_synchronizeDomainsLock;
     NSMutableSet *_migratedSwitchControlMenuItemsPreferenceKeys;
     NSMutableDictionary *_unarchivedVoiceCache;
+    _Bool _assistiveTouchInternalOnlyHiddenNubbitModeEnabled;
     _Bool _writeAXLogsToFile;
     _Bool _voiceOverVerbositySpeakCustomActionsHint;
     float _reduceWhitePointLevel;
@@ -39,6 +40,7 @@
 @property(nonatomic) float reduceWhitePointLevel; // @synthesize reduceWhitePointLevel=_reduceWhitePointLevel;
 @property(nonatomic) _Bool voiceOverVerbositySpeakCustomActionsHint; // @synthesize voiceOverVerbositySpeakCustomActionsHint=_voiceOverVerbositySpeakCustomActionsHint;
 @property(nonatomic) _Bool writeAXLogsToFile; // @synthesize writeAXLogsToFile=_writeAXLogsToFile;
+@property(nonatomic) _Bool assistiveTouchInternalOnlyHiddenNubbitModeEnabled; // @synthesize assistiveTouchInternalOnlyHiddenNubbitModeEnabled=_assistiveTouchInternalOnlyHiddenNubbitModeEnabled;
 - (void).cxx_destruct;
 @property(nonatomic) _Bool callAudioRoutingAutoAnswerEnabled;
 @property(nonatomic) double callAudioRoutingAutoAnswerDelay;
@@ -133,6 +135,8 @@
 - (void)clearVoicePrefersCompactSettings;
 - (void)configureZoomForLoginSession;
 - (void)addRotorOptionsForLoginSession;
+@property(nonatomic) _Bool switchControlUserDidReadUSBRestrictedModeAlert;
+@property(nonatomic) _Bool voiceOverUserDidReadUSBRestrictedModeAlert;
 @property(nonatomic) _Bool switchControlShouldDisallowUSBRestrictedMode;
 @property(nonatomic) _Bool voiceOverShouldDisallowUSBRestrictedMode;
 @property(nonatomic) long long voiceOverDescribedMedia;
@@ -196,7 +200,9 @@
 - (id)_voiceOverDefaultDialect;
 - (void)_clearWhitetailMigrationSettings;
 - (id)selectedSpeechVoiceIdentifiers;
+- (void)setUserDidSelectVoiceForLanguage:(id)arg1 source:(long long)arg2;
 - (void)setSpeechVoiceIdentifier:(id)arg1 forLanguage:(id)arg2 source:(long long)arg3;
+- (_Bool)userDidSelectVoiceForLanguage:(id)arg1 source:(long long)arg2;
 - (id)speechVoiceIdentifierForLanguage:(id)arg1 source:(long long)arg2 exists:(_Bool *)arg3;
 @property(nonatomic) unsigned long long quickSpeakHighlightOption;
 @property(nonatomic) long long quickSpeakSentenceHighlightColor;
@@ -224,6 +230,7 @@
 @property(retain, nonatomic) NSArray *currentVoices;
 @property(readonly, nonatomic) _Bool extantVoicesExist;
 @property(retain, nonatomic) NSArray *extantVoices;
+- (id)testingExtantVoices;
 - (void)setTestingExtantVoices:(id)arg1;
 - (id)_retrieveVoices:(id)arg1;
 - (void)_setVoiceArray:(id)arg1 forKey:(id)arg2;
@@ -232,12 +239,14 @@
 @property(nonatomic) _Bool syncPronunciationsWithCloudKit;
 @property(nonatomic) _Bool enableVoiceOverCaptions;
 @property(nonatomic) long long internalLoggingColorTheme;
+@property(nonatomic) _Bool shouldPerformValidationsAtRuntime;
+@property(nonatomic) _Bool useNewAXBundleLoader;
 @property(nonatomic) _Bool logAXNotificationPosting;
 @property(nonatomic) _Bool ignoreAXServerEntitlements;
 @property(nonatomic) _Bool ignoreAXAsserts;
 @property(nonatomic) _Bool includeBacktraceInLogs;
 @property(nonatomic) _Bool validateSecondPartyApps;
-@property(nonatomic) _Bool assistiveTouchHeadlessModeEnabled;
+- (_Bool)assistiveTouchInternalOnlyHiddenNubbitMode;
 @property(nonatomic) _Bool assistiveTouchCameraSwitchPreviewEnabled;
 @property(retain, nonatomic) NSDate *gaxInternalSettingsLastPasscodeSetDate;
 @property(retain, nonatomic) NSDate *gaxInternalSettingsLastActivationDate;
@@ -377,11 +386,13 @@
 - (void)_registerForNotification:(id)arg1;
 - (void)_handlePreferenceChanged:(id)arg1;
 - (void)_handleVoiceUnarchivedCache:(id)arg1;
+- (void)nukeAll;
 - (void)dealloc;
 - (id)init;
 - (void)_synchronizeIfNecessary:(id)arg1 domain:(int)arg2;
 - (_Bool)_switchFromRootUserIfNecessary:(CDUnknownBlockType)arg1;
 - (id)_valueForPreferenceKey:(id)arg1;
+- (void)_postNotificationForPreferenceKey:(id)arg1;
 - (void)_setValue:(id)arg1 forPreferenceKey:(id)arg2;
 - (id)_notificationForPreferenceKey:(id)arg1;
 - (id)_migratePreferenceIfNecessary:(id)arg1;

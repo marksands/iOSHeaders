@@ -25,10 +25,10 @@
 @property(nonatomic) _Bool reportCharacterBoxes; // @synthesize reportCharacterBoxes=_reportCharacterBoxes;
 @property(nonatomic) unsigned long long minimumCharacterPixelHeight; // @synthesize minimumCharacterPixelHeight=_minimumCharacterPixelHeight;
 - (void).cxx_destruct;
-- (_Bool)internalPerformInContext:(id)arg1 error:(id *)arg2;
+- (_Bool)internalPerformRevision:(unsigned long long)arg1 inContext:(id)arg2 error:(id *)arg3;
 - (void)applyConfigurationOfRequest:(id)arg1;
-- (_Bool)_detectTextWithRequestPerformingContext:(id)arg1 error:(id *)arg2;
-- (_Bool)_detectCreditCardTextWithRequestPerformingContext:(id)arg1 error:(id *)arg2;
+- (_Bool)_detectTextWithRequestPerformingContext:(id)arg1 requestRevision:(unsigned long long)arg2 error:(id *)arg3;
+- (_Bool)_detectCreditCardTextWithRequestPerformingContext:(id)arg1 requestRevision:(unsigned long long)arg2 error:(id *)arg3;
 @property(copy, nonatomic) NSString *textRecognition; // @synthesize textRecognition=_textRecognition;
 @property(nonatomic) unsigned long long algorithm; // @synthesize algorithm=_algorithm;
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

@@ -6,19 +6,20 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class CLPlacemark;
 
-@interface INSpatialEventTrigger : NSObject <NSSecureCoding>
+@interface INSpatialEventTrigger : NSObject <NSCopying, NSSecureCoding>
 {
     CLPlacemark *_placemark;
     long long _event;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly) long long event; // @synthesize event=_event;
-@property(readonly) CLPlacemark *placemark; // @synthesize placemark=_placemark;
+@property(readonly, nonatomic) long long event; // @synthesize event=_event;
+@property(readonly, copy, nonatomic) CLPlacemark *placemark; // @synthesize placemark=_placemark;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
 - (id)descriptionAtIndent:(unsigned long long)arg1;

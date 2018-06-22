@@ -41,6 +41,7 @@ struct G2P;
 
 struct HybridClientConfigs {
     struct map<int, std::__1::map<std::__1::basic_string<char>, double, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, double>>>, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, std::__1::map<std::__1::basic_string<char>, double, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, double>>>>>> hybridEndpointerThresholds;
+    struct map<std::__1::basic_string<char>, int, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, int>>> hybridEndpointerExtraDelayFrequency;
 };
 
 struct HybridEndpointer;
@@ -87,6 +88,7 @@ struct SpeechModelInfo {
     basic_string_23d93216 version;
     struct set<int, std::__1::less<int>, std::__1::allocator<int>> samplingRates;
     struct set<std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::basic_string<char>>> tasks;
+    struct set<std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::basic_string<char>>> osTypes;
     basic_string_23d93216 language;
     basic_string_23d93216 phoneSetVersion;
     basic_string_23d93216 acousticProfileVersion;
@@ -114,6 +116,7 @@ struct SystemConfig {
     struct TranslationModelInfo translationModelInfo;
     struct shared_ptr<quasar::ModelLoader> modelLoader;
     struct HybridClientConfigs hybridClientConfigs;
+    basic_string_23d93216 mainModelVersion;
     struct map<std::__1::basic_string<char>, bool *, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, bool *>>> boolMap;
     struct map<std::__1::basic_string<char>, int *, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, int *>>> intMap;
     struct map<std::__1::basic_string<char>, unsigned int *, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, unsigned int *>>> uintMap;
@@ -138,6 +141,7 @@ struct Token {
     _Bool hasSpaceAfter;
     _Bool hasSpaceBefore;
     basic_string_23d93216 phoneSeq;
+    basic_string_23d93216 ipaPhoneSeq;
 };
 
 struct TokenProns {
@@ -253,6 +257,18 @@ struct map<std::__1::basic_string<char>, int *, std::__1::less<std::__1::basic_s
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __value_;
         } __pair1_;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, int *>, std::__1::less<std::__1::basic_string<char>>, true>> {
+            unsigned long long __value_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<std::__1::basic_string<char>, int, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, int>>> {
+    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, int>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, int>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, int>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, int>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __value_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, int>, std::__1::less<std::__1::basic_string<char>>, true>> {
             unsigned long long __value_;
         } __pair3_;
     } __tree_;

@@ -177,6 +177,7 @@
 - (void)_delayedSetCurrentTime;
 - (void)_updateTypeForItem:(id)arg1;
 - (void)_updateScanningRate;
+- (void)_updateHasProtectedContentForItem:(id)arg1;
 - (void)_updatePlaybackModeForItem:(id)arg1;
 - (void)setRateForScanning:(float)arg1;
 - (void)_updateProgress:(struct __CFRunLoopTimer *)arg1;
@@ -248,6 +249,7 @@
 - (void)_contentsChanged;
 - (void)_networkChangedNotification:(id)arg1;
 - (void)_streamLimitExceeded:(long long)arg1;
+- (void)_airPlayFailedUnsupportedVideoFormatForDeviceWithError:(id)arg1;
 - (void)airPlayFailedRentalDownloadRequired;
 - (void)airPlayVideoEnded;
 - (void)_volumeDidChangeNotification:(id)arg1;

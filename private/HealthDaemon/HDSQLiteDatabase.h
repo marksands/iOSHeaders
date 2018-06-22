@@ -49,9 +49,10 @@
 - (_Bool)isDatabaseWithNameAttached:(id)arg1;
 - (_Bool)detachDatabaseWithName:(id)arg1 error:(id *)arg2;
 - (_Bool)attachDatabaseWithName:(id)arg1 fileURL:(id)arg2 error:(id *)arg3;
+- (id)queryPlanForSQL:(id)arg1 error:(id *)arg2;
 - (_Bool)performIntegrityCheckWithError:(id *)arg1 integrityErrorHandler:(CDUnknownBlockType)arg2;
 - (_Bool)incrementalVacuumDatabaseIfNeeded:(id)arg1 error:(id *)arg2;
-- (_Bool)enableIncrementalAutovacuumWithError:(id *)arg1;
+- (_Bool)enableIncrementalAutovacuumForDatabaseWithName:(id)arg1 error:(id *)arg2;
 - (_Bool)columnIsNullable:(id)arg1 inTable:(id)arg2 error:(id *)arg3;
 - (id)typeOfColumn:(id)arg1 inTable:(id)arg2 error:(id *)arg3;
 - (_Bool)foreignKeyExistsFromTable:(id)arg1 column:(id)arg2 toTable:(id)arg3 column:(id)arg4 error:(id *)arg5;

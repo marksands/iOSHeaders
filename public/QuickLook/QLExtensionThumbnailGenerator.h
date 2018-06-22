@@ -6,28 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSExtension, QLExtensionManager, QLThumbnailHostContext;
+@class QLExtensionManager;
 
 __attribute__((visibility("hidden")))
 @interface QLExtensionThumbnailGenerator : NSObject
 {
-    NSExtension *_extension;
-    id _request;
-    _Bool _isRequestingExtension;
-    unsigned long long _extensionRequestsCount;
-    QLThumbnailHostContext *_hostContext;
     QLExtensionManager *_extensionManager;
 }
 
 @property(retain, nonatomic) QLExtensionManager *extensionManager; // @synthesize extensionManager=_extensionManager;
-@property(retain, nonatomic) QLThumbnailHostContext *hostContext; // @synthesize hostContext=_hostContext;
 - (void).cxx_destruct;
-- (void)dealloc;
-- (void)generateThumbnailWithItem:(id)arg1 ofSize:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 completionBlock:(CDUnknownBlockType)arg5;
-- (void)_failedToGenerateThumbnailWithItem:(id)arg1 ofSize:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 completionBlock:(CDUnknownBlockType)arg5 error:(id)arg6;
+- (void)generateThumbnailWithItem:(id)arg1 ofSize:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 badgeType:(unsigned long long)arg5 completionBlock:(CDUnknownBlockType)arg6;
 - (id)_generateImageFromURL:(id)arg1 withSize:(struct CGSize)arg2 scale:(double)arg3;
 - (id)_generateImageFromRawData:(id)arg1 withContextSize:(struct CGSize)arg2 scale:(double)arg3;
-- (void)_didFinishExtensionRequestWithExtension:(id)arg1 request:(id)arg2 context:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)init;
 
 @end

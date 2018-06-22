@@ -6,16 +6,20 @@
 
 #import "NSObject.h"
 
-@class BSAnimationSettings, NCNotificationAction, NCNotificationViewController, NSDictionary, UIView;
+@class BSAnimationSettings, NCNotificationAction, NCNotificationRequest, NCNotificationViewController, NSDictionary, UIView, UIWindow, _UILegibilitySettings;
 
 @protocol NCNotificationViewControllerDelegate <NSObject>
 - (void)notificationViewController:(NCNotificationViewController *)arg1 executeAction:(NCNotificationAction *)arg2 withParameters:(NSDictionary *)arg3 completion:(void (^)(_Bool))arg4;
 - (void)notificationViewController:(NCNotificationViewController *)arg1 requestPermissionToExecuteAction:(NCNotificationAction *)arg2 withParameters:(NSDictionary *)arg3 completion:(void (^)(_Bool))arg4;
 
 @optional
+- (_Bool)notificationViewController:(NCNotificationViewController *)arg1 shouldPerformNotificationCoalescingForNotificationRequest:(NCNotificationRequest *)arg2;
+- (void)notificationViewController:(NCNotificationViewController *)arg1 requestsExpandingCoalescedBundleForNotificationRequest:(NCNotificationRequest *)arg2;
+- (_UILegibilitySettings *)legibilitySettingsForNotificationViewController:(NCNotificationViewController *)arg1;
 - (id <UIViewSpringAnimationBehaviorDescribing>)settleHomeAffordanceAnimationBehaviorDescriptionForNotificationViewController:(NCNotificationViewController *)arg1;
 - (BSAnimationSettings *)unhideHomeAffordanceAnimationSettingsForNotificationViewController:(NCNotificationViewController *)arg1;
 - (BSAnimationSettings *)hideHomeAffordanceAnimationSettingsForNotificationViewController:(NCNotificationViewController *)arg1;
+- (id <PLKeyboardHomeAffordanceAssertion>)notificationViewController:(NCNotificationViewController *)arg1 keyboardAssertionForGestureWindow:(UIWindow *)arg2;
 - (NSDictionary *)notificationUsageTrackingStateForNotificationViewController:(NCNotificationViewController *)arg1;
 - (void)notificationViewControllerIsReadyToBePresented:(NCNotificationViewController *)arg1;
 - (_Bool)shouldLoadAudioAccessoryViewForNotificationViewController:(NCNotificationViewController *)arg1;

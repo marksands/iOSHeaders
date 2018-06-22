@@ -15,6 +15,7 @@
     MTAlarmStorage *_storage;
 }
 
++ (_Bool)shouldScheduleSnapshotForAlarms:(id)arg1;
 @property(readonly, nonatomic) MTAlarmStorage *storage; // @synthesize storage=_storage;
 - (void).cxx_destruct;
 - (void)source:(id)arg1 didChangeNextAlarm:(id)arg2;

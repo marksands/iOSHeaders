@@ -6,22 +6,24 @@
 
 #import "NSObject.h"
 
-@class CLLocation, NSDate, NSDictionary, NSSet, NSString, PGGraphNode, PGMemoryGenerator, PHAssetCollection;
+@class CLLocation, NSDate, NSDictionary, NSSet, NSString, PGGraphMomentNode, PGMemoryGenerator, PHAssetCollection;
 
 @interface PGPotentialMemory : NSObject
 {
     PHAssetCollection *_assetCollection;
-    PGGraphNode *_momentNode;
+    PGGraphMomentNode *_momentNode;
     NSSet *_momentNodes;
     long long _sourceType;
-    long long _category;
-    long long _subcategory;
+    unsigned long long _category;
+    unsigned long long _subcategory;
     double _score;
     NSDate *_localDate;
     CLLocation *_location;
     NSSet *_peopleUUIDs;
     NSString *_eventName;
     double _contentScore;
+    NSDate *_localStartDate;
+    NSDate *_localEndDate;
     NSDate *_universalStartDate;
     NSDate *_universalEndDate;
     NSSet *_features;
@@ -42,11 +44,11 @@
 @property(retain) CLLocation *location; // @synthesize location=_location;
 @property(retain) NSDate *localDate; // @synthesize localDate=_localDate;
 @property double score; // @synthesize score=_score;
-@property long long subcategory; // @synthesize subcategory=_subcategory;
-@property long long category; // @synthesize category=_category;
+@property unsigned long long subcategory; // @synthesize subcategory=_subcategory;
+@property unsigned long long category; // @synthesize category=_category;
 @property long long sourceType; // @synthesize sourceType=_sourceType;
 @property(retain) NSSet *momentNodes; // @synthesize momentNodes=_momentNodes;
-@property(retain) PGGraphNode *momentNode; // @synthesize momentNode=_momentNode;
+@property(retain) PGGraphMomentNode *momentNode; // @synthesize momentNode=_momentNode;
 @property(retain) PHAssetCollection *assetCollection; // @synthesize assetCollection=_assetCollection;
 - (void).cxx_destruct;
 - (id)buildAssetCollectionUsingMemoryController:(id)arg1 withMinimumNumberOfAssets:(unsigned long long)arg2;
@@ -55,11 +57,11 @@
 - (void)_prepareForOverlapCheck;
 @property(readonly) NSDate *universalEndDate; // @synthesize universalEndDate=_universalEndDate;
 @property(readonly) NSDate *universalStartDate; // @synthesize universalStartDate=_universalStartDate;
-@property(readonly) NSDate *localEndDate;
-@property(readonly) NSDate *localStartDate;
-- (id)initWithCategory:(long long)arg1 subcategory:(long long)arg2 momentNodes:(id)arg3 sourceType:(long long)arg4;
-- (id)initWithCategory:(long long)arg1 subcategory:(long long)arg2 momentNode:(id)arg3;
-- (id)initWithCategory:(long long)arg1 subcategory:(long long)arg2;
+@property(readonly) NSDate *localEndDate; // @synthesize localEndDate=_localEndDate;
+@property(readonly) NSDate *localStartDate; // @synthesize localStartDate=_localStartDate;
+- (id)initWithCategory:(unsigned long long)arg1 subcategory:(unsigned long long)arg2 momentNodes:(id)arg3 sourceType:(long long)arg4;
+- (id)initWithCategory:(unsigned long long)arg1 subcategory:(unsigned long long)arg2 momentNode:(id)arg3;
+- (id)initWithCategory:(unsigned long long)arg1 subcategory:(unsigned long long)arg2;
 
 @end
 

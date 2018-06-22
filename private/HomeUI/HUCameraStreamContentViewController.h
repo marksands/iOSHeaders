@@ -54,6 +54,7 @@
 @property(nonatomic) struct UIOffset cameraBadgeOffset;
 @property(readonly, nonatomic) UIView *cameraOverlaySnapshot;
 @property(readonly, nonatomic) UIView *cameraViewSnapshot;
+@property(readonly, nonatomic) struct CGRect derivedCameraViewFrame;
 @property(readonly, nonatomic) struct CGRect cameraViewFrame;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

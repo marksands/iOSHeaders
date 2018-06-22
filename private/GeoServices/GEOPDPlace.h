@@ -66,8 +66,6 @@
 @property(nonatomic) _Bool hasStatus;
 @property(nonatomic) int status; // @synthesize status=_status;
 @property(nonatomic) _Bool hasMuid;
-- (id)compactDebugDescription;
-- (_Bool)isCacheable;
 - (id)cacheKey;
 - (_Bool)statusCodeIsValid;
 - (void)setFirstSeenTimestamp:(double)arg1;

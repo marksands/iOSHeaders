@@ -12,6 +12,7 @@
 
 + (id)sharedInstance;
 @property(readonly, nonatomic) _Bool _nonWifiFaceTimeEntitled;
+@property(nonatomic) long long selectedPhoneNumberRegistrationSubscriptionNumber;
 @property(nonatomic) _Bool allowAnyNetwork;
 @property(nonatomic) _Bool cellularFaceTimeEnabled;
 - (_Bool)nonBluetoothAllowedForBundleId:(id)arg1;

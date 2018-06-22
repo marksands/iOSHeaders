@@ -34,8 +34,9 @@
 @property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 @property(nonatomic) _Bool systemAppControlsFocusOnMainDisplay; // @synthesize systemAppControlsFocusOnMainDisplay=_systemAppControlsFocusOnMainDisplay;
 @property(nonatomic) _Bool needsFlush; // @synthesize needsFlush=_needsFlush;
-@property(readonly, retain, nonatomic) NSMutableDictionary *pendingStatesByPriority; // @synthesize pendingStatesByPriority=_pendingStatesByPriority;
-@property(readonly, retain, nonatomic) NSMutableSet *currentState; // @synthesize currentState=_currentState;
+@property(readonly, nonatomic) NSMutableDictionary *pendingStatesByPriority; // @synthesize pendingStatesByPriority=_pendingStatesByPriority;
+@property(readonly, nonatomic) NSMutableSet *currentState; // @synthesize currentState=_currentState;
+- (void).cxx_destruct;
 - (void)reallyFlushWithSet:(id)arg1;
 - (void)flush;
 - (void)_rebuildPendingStatesByPriority;

@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
     UILabel *_auxSubtitleLabel;
+    UIView *_imageContentView;
     PXRoundedCornerOverlayView *_cornerOverlayView;
     NSAttributedString *_title;
     NSString *_subtitle;

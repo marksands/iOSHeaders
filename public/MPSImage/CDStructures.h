@@ -4,6 +4,8 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+@class NSData, NSDictionary;
+
 #pragma mark Function Pointers and Blocks
 
 typedef void (*CDUnknownFunctionPointerType)(void); // return type and parameters are unknown
@@ -11,6 +13,14 @@ typedef void (*CDUnknownFunctionPointerType)(void); // return type and parameter
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
 
 #pragma mark Named Structures
+
+struct AutotuningState {
+    _Bool enabled;
+    NSDictionary *copyConfigs;
+    NSDictionary *upsampleConfigs;
+    unsigned long long copyConfigID;
+    unsigned long long upsampleConfigID;
+};
 
 struct ConversionInfoPtrs_s {
     struct StageData_s *stages;
@@ -33,6 +43,15 @@ struct ConversionInfo_s {
     int nCHIn;
     int nCHOut;
     int containsATableTRC;
+};
+
+struct HighlevelState {
+    unsigned long long filterHeight;
+    unsigned long long filterWidth;
+    NSData *weights;
+    _Bool isPyramidAdd;
+    float laplacianBias;
+    float laplacianScale;
 };
 
 struct MPSDeviceSpecificInfo {

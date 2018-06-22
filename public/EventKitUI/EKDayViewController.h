@@ -14,7 +14,7 @@
 #import "UIScrollViewDelegate.h"
 #import "UIViewControllerPreviewingDelegate.h"
 
-@class CalendarOccurrencesCollection, EKDayOccurrenceView, EKDayView, EKDayViewWithGutters, EKEventEditViewController, EKEventGestureController, NSCalendar, NSDateComponents, NSString, NSTimer, ScrollSpringFactory, UIScrollView, UIView;
+@class CalendarOccurrencesCollection, EKDayOccurrenceView, EKDayView, EKDayViewWithGutters, EKEventEditViewController, EKEventGestureController, NSCalendar, NSDateComponents, NSObject<OS_dispatch_queue>, NSString, NSTimer, ScrollSpringFactory, UIScrollView, UIView;
 
 @interface EKDayViewController : UIViewController <BlockableScrollViewDelegate, UIViewControllerPreviewingDelegate, EKDayOccurrenceViewDelegate, EKDayViewDataSource, EKDayViewDelegate, EKEventGestureControllerDelegate, UIScrollViewDelegate>
 {
@@ -52,6 +52,7 @@
     NSDateComponents *_targetDateComponents;
     _Bool _needToCompleteScrollingAnimation;
     _Bool _needToCompleteDeceleration;
+    NSObject<OS_dispatch_queue> *_reloadQueue;
     id <UIViewControllerPreviewing> _viewControllerPreviewingRegistration;
     _Bool _showsBanner;
     _Bool _allowsDaySwitching;
@@ -97,6 +98,11 @@
 @property(nonatomic) __weak id <EKDayViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <EKDayViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)__cutLongTailCallbackForScrollAnimationFromExternalSource;
+- (void)__cutLongCallbackTailForDecelerationFromUserInput;
+- (void)_cancelAllLongTailCuttingCallbacks;
+- (void)_cutAnimationTailAfterDelayForScrollAnimationFromExternalSource;
+- (void)_cutAnimationTailAfterDelayForDecelerationFromUserInput;
 - (void)_completeScrollingAnimationIfNeeded;
 - (void)_setHorizontalContentOffsetUsingSpringAnimation:(struct CGPoint)arg1;
 - (void)applicationWillResignActive;
@@ -125,6 +131,7 @@
 - (void)_updateAllDayAreaHeight;
 - (void)scrollViewDidScroll:(id)arg1;
 - (_Bool)_isViewInVisibleRect:(id)arg1;
+- (id)verticalScrollView;
 - (id)horizontalScrollView;
 - (void)_setDayView:(id)arg1 toDate:(id)arg2;
 - (void)_relayoutDaysDuringScrollingAndPerformDayChanges:(_Bool)arg1;
@@ -216,7 +223,6 @@
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
-- (void)viewWillAppear:(_Bool)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)_scrollDayViewAfterRelayoutDays;
 - (void)scrollDayViewAppropriatelyWithAnimation:(_Bool)arg1;

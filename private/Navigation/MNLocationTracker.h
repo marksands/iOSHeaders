@@ -8,7 +8,6 @@
 
 @class GEOApplicationAuditToken, MNLocation, MNNavigationSession, MNObserverHashTable;
 
-__attribute__((visibility("hidden")))
 @interface MNLocationTracker : NSObject
 {
     MNObserverHashTable *_safeDelegate;

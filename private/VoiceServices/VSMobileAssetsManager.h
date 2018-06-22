@@ -40,6 +40,7 @@
 - (id)_localVoiceForLanguage:(id)arg1 gender:(long long)arg2;
 - (id)_builtInVoiceForLanguage:(id)arg1;
 - (id)legacyLocalVocalizerVoiceAssetForLanguage:(id)arg1;
+- (_Bool)_purgeAsset:(id)arg1;
 - (_Bool)purgeAsset:(id)arg1;
 - (void)_downloadAsset:(id)arg1 withOptions:(id)arg2 progressHandler:(CDUnknownBlockType)arg3;
 - (void)_downloadAsset:(id)arg1 withOptions:(id)arg2 completion:(CDUnknownBlockType)arg3;

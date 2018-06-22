@@ -10,6 +10,10 @@
 {
 }
 
+- (id)temporaryResultStateForCommandBuffer:(id)arg1 sourceImage:(id)arg2 sourceStates:(id)arg3 destinationImage:(id)arg4;
+- (id)resultStateForSourceImage:(id)arg1 sourceStates:(id)arg2 destinationImage:(id)arg3;
+- (unsigned long long)maxBatchSize;
+- (_Bool)isResultStateReusedAcrossBatch;
 - (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
 - (id)newPlugin;

@@ -29,5 +29,6 @@
 + (id)deviceLanguage;
 - (id)displayNameForRegion:(id)arg1 displayLanguage:(id)arg2 context:(long long)arg3 short:(_Bool)arg4;
 - (id)displayNameForLanguage:(id)arg1 displayLanguage:(id)arg2 context:(long long)arg3;
+- (_Bool)isEquivalentTo:(id)arg1;
 @end
 

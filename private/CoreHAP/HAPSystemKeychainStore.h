@@ -50,25 +50,26 @@
 - (int)_createMetadataSecretKey:(id *)arg1;
 - (int)_getMetadataSecretKey:(id *)arg1;
 - (_Bool)getMetadataSecretKey:(id *)arg1 error:(id *)arg2;
-- (int)_removeControllerKeyPairForViewHint:(id)arg1 identifier:(id)arg2 leaveTombstone:(_Bool)arg3;
+- (int)_removeControllerKeyPairForKeyType:(id)arg1 viewHint:(id)arg2 identifier:(id)arg3 leaveTombstone:(_Bool)arg4;
 - (int)_removeControllerKeyPairForIdentifier:(id)arg1 leaveTombstone:(_Bool)arg2;
 - (_Bool)removeControllerKeyPairForIdentifier:(id)arg1 leaveTombstone:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)getCurrentiCloudIdentifier:(id *)arg1 controllerPairingIdentifier:(id *)arg2 error:(id *)arg3;
 - (int)_updateCurrentiCloudIdentifier:(id)arg1 controllerPairingIdentifier:(id)arg2;
 - (_Bool)updateCurrentiCloudIdentifier:(id)arg1 controllerPairingIdentifier:(id)arg2 error:(id *)arg3;
-- (int)_removeControllerKeyPairForViewHint:(id)arg1;
-- (int)_removeControllerKeyPair;
+- (int)_removeControllerKeyPairForKeyType:(id)arg1 viewHint:(id)arg2 leaveTombstone:(_Bool)arg3;
+- (int)_removeControllerKeyPairLeaveTombstone:(_Bool)arg1;
+- (_Bool)removeControllerKeyPairLeaveTombstone:(_Bool)arg1 error:(id *)arg2;
 - (_Bool)removeControllerKeyPairWithError:(id *)arg1;
 @property(readonly, nonatomic) NSString *activeControllerPairingIdentifier;
 - (_Bool)updateActiveControllerPairingIdentifier:(id)arg1;
 - (int)_getAllAvailableControllerPublicKeys:(id *)arg1 secretKeys:(id *)arg2 userNames:(id *)arg3;
 - (_Bool)getAllAvailableControllerPublicKeys:(id *)arg1 secretKeys:(id *)arg2 userNames:(id *)arg3 error:(id *)arg4;
 - (_Bool)deserializeKeyPair:(id)arg1 publicKey:(id *)arg2 secretKey:(id *)arg3 error:(id *)arg4;
-- (int)_saveKeyPair:(id)arg1 username:(id)arg2 syncable:(_Bool)arg3 viewHint:(id)arg4;
+- (int)_saveKeyPair:(id)arg1 username:(id)arg2 syncable:(_Bool)arg3 keyType:(id)arg4 viewHint:(id)arg5;
 - (_Bool)saveKeyPair:(id)arg1 username:(id)arg2 syncable:(_Bool)arg3 error:(id *)arg4;
 - (int)_createControllerPublicKey:(id *)arg1 secretKey:(id *)arg2 keyPair:(id *)arg3 username:(id *)arg4;
 - (_Bool)saveLocalPairingIdentity:(id)arg1 syncable:(_Bool)arg2 error:(id *)arg3;
-- (id)_getControllerKeychainItemForViewHint:(id)arg1 error:(int *)arg2;
+- (id)_getControllerKeychainItemForKeyType:(id)arg1 viewHint:(id)arg2 error:(int *)arg3;
 - (id)_getControllerKeychainItemError:(int *)arg1;
 - (int)_getControllerPublicKey:(id *)arg1 secretKey:(id *)arg2 keyPair:(id *)arg3 username:(id *)arg4;
 - (_Bool)getControllerPublicKey:(id *)arg1 secretKey:(id *)arg2 keyPair:(id *)arg3 username:(id *)arg4 allowCreation:(_Bool)arg5 error:(id *)arg6;
@@ -76,7 +77,7 @@
 - (id)_getLocalPairingIdentityAllowingCreation:(_Bool)arg1 error:(id *)arg2;
 - (id)getOrCreateLocalPairingIdentity:(id *)arg1;
 - (id)getLocalPairingIdentity:(id *)arg1;
-- (void)ensureV0ControllerKeyExists;
+- (void)ensureControllerKeyExistsForAllViews;
 - (id)dumpState;
 
 // Remaining properties

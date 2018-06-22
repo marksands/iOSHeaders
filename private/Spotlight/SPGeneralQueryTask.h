@@ -28,7 +28,7 @@
 - (id)unsafeSections;
 - (void)searchDaemonRankingLog:(id)arg1;
 - (void)searchDaemonQuery:(id)arg1 encounteredError:(id)arg2;
-- (void)searchDaemonLocalSuggestionsData:(id)arg1;
+- (void)searchDaemonLocalSuggestionsData:(id)arg1 lexicon:(struct _LXLexicon *)arg2 tokenizer:(struct __CFStringTokenizer *)arg3 currentLocaleRef:(struct __CFLocale *)arg4;
 - (void)searchDaemonSuggestionsArray:(id)arg1;
 - (void)searchDaemonQuery:(id)arg1 gotResultSet:(id)arg2 replace:(_Bool)arg3 complete:(_Bool)arg4 finished:(_Bool)arg5 blendingDuration:(double)arg6 geoEntityString:(id)arg7;
 - (id)defaultSearchThroughSection;
@@ -39,7 +39,6 @@
 - (void)addSections:(id)arg1;
 - (void)handleOptionsForNewSections:(id)arg1;
 - (void)mergeSections;
-- (_Bool)itemInLibrary:(id)arg1;
 - (void)handleHiddenResult:(id)arg1 shownResult:(id)arg2 inSection:(id)arg3;
 - (id)searchString;
 - (void)cancel;

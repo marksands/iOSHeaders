@@ -6,34 +6,32 @@
 
 #import "NSObject.h"
 
-#import "SXVideo.h"
-#import "SXVideoProviding.h"
+#import "SVVideo.h"
+#import "SVVideoProviding.h"
 
-@class NSString, SXTimeline;
+@class NSString;
 
-@interface NUVideoProvider : NSObject <SXVideo, SXVideoProviding>
+@interface NUVideoProvider : NSObject <SVVideo, SVVideoProviding>
 {
     _Bool _playbackHasStarted;
+    NSString *_identifier;
     id <NUVideoItem> _videoItem;
-    id <SXVideoMetadataProviding> _metadata;
+    id <SVVideoMetadataProviding> _metadata;
     id <NUVideoEventTracker> _eventTracker;
-    SXTimeline *_timeline;
 }
 
-@property(readonly, nonatomic) SXTimeline *timeline; // @synthesize timeline=_timeline;
-@property(readonly, nonatomic) __weak id <NUVideoEventTracker> eventTracker; // @synthesize eventTracker=_eventTracker;
-@property(nonatomic) __weak id <SXVideoMetadataProviding> metadata; // @synthesize metadata=_metadata;
-@property(readonly, copy, nonatomic) id <NUVideoItem> videoItem; // @synthesize videoItem=_videoItem;
+@property(retain, nonatomic) id <NUVideoEventTracker> eventTracker; // @synthesize eventTracker=_eventTracker;
 @property(nonatomic) _Bool playbackHasStarted; // @synthesize playbackHasStarted=_playbackHasStarted;
+@property(nonatomic) __weak id <SVVideoMetadataProviding> metadata; // @synthesize metadata=_metadata;
+@property(readonly, copy, nonatomic) id <NUVideoItem> videoItem; // @synthesize videoItem=_videoItem;
+@property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (void)tappedNowPlaying;
 - (void)tappedDiscoverMore;
 - (void)tappedAdvance;
 - (void)tappedReplay;
 - (void)tappedCallToAction;
-- (void)configureTimelineForQuartileReporting;
 - (id)videoMetadataForCurrentState;
-- (void)timeElapsed:(double)arg1 duration:(double)arg2;
 - (void)muteStateChanged:(_Bool)arg1;
 - (void)playbackFailedWithError:(id)arg1;
 - (void)playbackFinished;

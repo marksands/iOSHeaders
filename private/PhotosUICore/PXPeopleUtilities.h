@@ -30,6 +30,7 @@
 + (id)bootstrapViewControllerForContext:(id)arg1 delegate:(id)arg2;
 + (_Bool)shouldShowBootstrapForPerson:(id)arg1;
 + (id)createDetailsForPerson:(id)arg1;
++ (id)bootstrapContextForPersonSuggestion:(id)arg1 type:(unsigned long long)arg2;
 + (id)identifiersForPeople:(id)arg1;
 + (void)mergePersons:(id)arg1 withPerson:(id)arg2;
 + (id)_peopleHomeFetchResultForPersonType:(long long)arg1;

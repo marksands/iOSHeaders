@@ -24,8 +24,6 @@
 - (void).cxx_destruct;
 - (void)statusInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)requestWithInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)appleIDListWithCompletion:(CDUnknownBlockType)arg1;
-- (void)addAppleID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_personInfoWithEmailOrPhone:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)personInfoWithEmailOrPhone:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_myAccountWithCompletion:(CDUnknownBlockType)arg1;

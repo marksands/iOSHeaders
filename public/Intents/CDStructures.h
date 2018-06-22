@@ -15,6 +15,13 @@ struct _NSRange {
     unsigned long long length;
 };
 
+struct __va_list_tag {
+    unsigned int _field1;
+    unsigned int _field2;
+    void *_field3;
+    void *_field4;
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {
@@ -55,9 +62,13 @@ typedef struct {
 } CDStruct_74078a21;
 
 typedef struct {
-    unsigned int seconds:1;
     unsigned int nanos:1;
-} CDStruct_fd810184;
+    unsigned int seconds:1;
+} CDStruct_85a1ec51;
+
+typedef struct {
+    unsigned int audioRoute:1;
+} CDStruct_fbf2c6cd;
 
 typedef struct {
     unsigned int entityType:1;

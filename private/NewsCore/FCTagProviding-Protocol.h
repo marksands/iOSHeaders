@@ -40,6 +40,7 @@
 @property(readonly, copy, nonatomic) FCColor *groupTitleColor;
 @property(readonly, copy, nonatomic) id <FCFeedTheming> theme;
 @property(readonly, copy, nonatomic) NSString *coverArticleListID;
+@property(readonly, nonatomic) FCAssetHandle *feedNavImageAssetHandle;
 @property(readonly, nonatomic) FCAssetHandle *coverImageAssetHandle;
 @property(readonly, nonatomic) _Bool isSubscribable;
 @property(readonly, nonatomic) NSArray *relatedChannelIDsForOnboarding;

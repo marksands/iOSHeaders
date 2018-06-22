@@ -18,14 +18,18 @@
     struct __CFRunLoopTimer *fLocationRequestTimer;
     double fLocationRequestTimeout;
     struct __CFRunLoopTimer *fRangingRequestTimer;
-    double fRangingRequestTimeout;
+    double fLastRangingRequestTimeout;
+    unsigned long long fLastRangingRequestMachTime;
     int fHeadingOrientation;
     NSMutableSet *fRangedRegions;
 }
 
+@property(nonatomic) __weak id <CLLocationManagerDelegate> delegate; // @synthesize delegate=fDelegate;
 @property(readonly, nonatomic) NSMutableSet *rangedRegions; // @synthesize rangedRegions=fRangedRegions;
 - (void)dealloc;
 - (void)performCourtesyPromptIfNeeded;
+- (void)cancelLingeringRangingRequest;
+- (_Bool)hasLingeringRangingRequest;
 - (void)cancelRangingRequest;
 - (void)cancelLocationRequest;
 - (void)stopUpdatingLocationAutoPaused;

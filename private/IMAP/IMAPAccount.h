@@ -43,6 +43,8 @@
     unsigned int _didRequestPushRegistration:1;
     unsigned int _listeningForDeviceTokenChanges:1;
     unsigned int _didUpdateSeparatorAndNamespace:1;
+    int _apsVersion;
+    NSString *_apsSenderArgument;
 }
 
 + (void)_deleteQueuedMailboxes:(id)arg1;
@@ -53,6 +55,8 @@
 + (unsigned int)defaultSecurePortNumber;
 + (unsigned int)defaultPortNumber;
 + (id)accountTypeIdentifier;
+@property(nonatomic) int apsVersion; // @synthesize apsVersion=_apsVersion;
+@property(copy, nonatomic) NSString *apsSenderArgument; // @synthesize apsSenderArgument=_apsSenderArgument;
 - (id)copyDiagnosticInformation;
 - (void)transferNotificationSessionToAccount:(id)arg1;
 - (void)stopListeningForNotifications;
@@ -60,7 +64,7 @@
 - (void)_unregisterForDeviceTokenChanges;
 - (void)_registerForDeviceTokenChanges;
 - (void)_apsDeviceTokenChanged:(id)arg1;
-- (void)handlePushNotificationOnMailboxes:(id)arg1 missedNotifications:(_Bool)arg2;
+- (void)handlePushNotificationOnMailboxes:(id)arg1 missedNotifications:(_Bool)arg2 notificationPayload:(id)arg3;
 - (void)_mailboxListingChanged;
 - (id)mailboxNamesForPushRegistration;
 - (id)_externalMailboxUids;

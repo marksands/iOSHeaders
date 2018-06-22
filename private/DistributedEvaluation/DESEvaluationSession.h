@@ -21,6 +21,8 @@
     id <DESRecipeEvaluation> _evaluator;
     CDUnknownBlockType _dataFetchBlock;
     _Bool _skipPolicy;
+    _Bool _enableOriginReturnRoute;
+    _Bool _enableParsecReturnRoute;
     NSURLSession *_session;
 }
 
@@ -40,6 +42,9 @@
 - (void)_runJSONPOSTRequest:(id)arg1 URL:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_runJSONPOSTRequest:(id)arg1 path:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_runJSONGETRequestWithPath:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (_Bool)_parsecReturnRouteEnabled;
+- (_Bool)_originReturnRouteEnabled;
+- (id)initWithBaseURL:(id)arg1 records:(id)arg2 recordType:(id)arg3 localeIdentifier:(id)arg4 deviceIdentifier:(id)arg5 evaluator:(id)arg6 protocolClass:(Class)arg7 dataFetchBlock:(CDUnknownBlockType)arg8;
 - (id)initWithBaseURL:(id)arg1 records:(id)arg2 recordType:(id)arg3 localeIdentifier:(id)arg4 evaluator:(id)arg5 protocolClass:(Class)arg6 dataFetchBlock:(CDUnknownBlockType)arg7;
 - (id)initWithBaseURL:(id)arg1 records:(id)arg2 recordType:(id)arg3 localeIdentifier:(id)arg4 evaluator:(id)arg5 dataFetchBlock:(CDUnknownBlockType)arg6;
 

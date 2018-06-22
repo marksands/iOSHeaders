@@ -8,6 +8,7 @@
 
 @class NSError, NSMapTable, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString, NSXPCListenerEndpoint, TKToken;
 
+__attribute__((visibility("hidden")))
 @interface TKTokenEndpoint : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;

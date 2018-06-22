@@ -23,7 +23,10 @@
 @property(readonly, nonatomic) NSString *assetType; // @synthesize assetType=_assetType;
 @property(readonly, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
 - (_Bool)refreshState;
+- (_Bool)spaceCheck:(long long *)arg1;
+- (long long)cancelDownloadSync;
 - (void)cancelDownload:(CDUnknownBlockType)arg1;
+- (long long)purgeSync;
 - (void)purge:(CDUnknownBlockType)arg1;
 - (void)commonAssetDownload:(id)arg1 options:(id)arg2 then:(CDUnknownBlockType)arg3;
 - (long long)calculateTimeout;
@@ -37,6 +40,7 @@
 - (id)getLocalUrl;
 - (id)getLocalFileUrl;
 - (void)attachProgressCallBack:(CDUnknownBlockType)arg1;
+- (id)assetServerUrl;
 - (void)dealloc;
 - (id)initWithAttributes:(id)arg1;
 

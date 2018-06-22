@@ -16,12 +16,14 @@
         _Bool image;
     } _needsUpdateFlags;
     double _cornerRadius;
+    unsigned long long _cornersToRound;
     UIColor *_overlayColor;
     double _displayScale;
 }
 
 @property(readonly, nonatomic) double displayScale; // @synthesize displayScale=_displayScale;
 @property(readonly, nonatomic) UIColor *overlayColor; // @synthesize overlayColor=_overlayColor;
+@property(readonly, nonatomic) unsigned long long cornersToRound; // @synthesize cornersToRound=_cornersToRound;
 @property(readonly, nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 - (void).cxx_destruct;
 - (void)_updateImageIfNeeded;
@@ -33,7 +35,9 @@
 - (id)mutableChangeObject;
 - (void)setDisplayScale:(double)arg1;
 - (void)setOverlayColor:(id)arg1;
+- (void)setCornersToRound:(unsigned long long)arg1;
 - (void)setCornerRadius:(double)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

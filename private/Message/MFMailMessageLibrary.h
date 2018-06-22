@@ -10,7 +10,7 @@
 #import "MFLibrarySearchableIndexDataSource.h"
 #import "MFSQLiteConnectionPoolDelegate.h"
 
-@class MFFileCompressionQueue, MFLibrarySearchableIndex, MFMailMessageLibraryMigrator, MFSQLiteConnectionPool, MFWeakObjectCache, MFWeakSet, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, _MFMailMessageLibraryStatistics;
+@class MFFileCompressionQueue, MFLibrarySearchableIndex, MFMailMessageLibraryMigrator, MFSQLiteConnectionPool, MFSearchableIndexBudgetConfiguration, MFSearchableIndexScheduler, MFWeakObjectCache, MFWeakSet, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, _MFMailMessageLibraryStatistics;
 
 @interface MFMailMessageLibrary : MFMessageLibrary <MFLibrarySearchableIndexDataSource, MFSQLiteConnectionPoolDelegate, MFContentProtectionObserver>
 {
@@ -29,11 +29,14 @@
     NSObject<OS_dispatch_queue> *_keyBagQueue;
     NSMutableSet *_messagesToThreadAtUnlock;
     MFWeakSet *_middleware;
-    NSObject<OS_dispatch_source> *_suspendTimer;
     _MFMailMessageLibraryStatistics *_lastStats;
     MFFileCompressionQueue *_compressionQueue;
+    _Bool _migrationHasRun;
     id <MFMailMessageLibraryDelegate> _delegate;
     MFLibrarySearchableIndex *_searchableIndex;
+    MFSearchableIndexScheduler *_searchableIndexScheduler;
+    MFSearchableIndexBudgetConfiguration *_searchableIndexBudgetConfiguration;
+    id _migrationLock;
 }
 
 + (void)_removeLibrary:(_Bool)arg1 atPath:(id)arg2;
@@ -42,8 +45,13 @@
 + (id)defaultPath;
 + (void)setDefaultInstance:(id)arg1;
 + (id)defaultInstance;
+@property(readonly, nonatomic) id migrationLock; // @synthesize migrationLock=_migrationLock;
+@property(nonatomic) _Bool migrationHasRun; // @synthesize migrationHasRun=_migrationHasRun;
+@property(retain, nonatomic) MFSearchableIndexBudgetConfiguration *searchableIndexBudgetConfiguration; // @synthesize searchableIndexBudgetConfiguration=_searchableIndexBudgetConfiguration;
+@property(retain, nonatomic) MFSearchableIndexScheduler *searchableIndexScheduler; // @synthesize searchableIndexScheduler=_searchableIndexScheduler;
 @property(retain, nonatomic) MFLibrarySearchableIndex *searchableIndex; // @synthesize searchableIndex=_searchableIndex;
 @property(nonatomic) id <MFMailMessageLibraryDelegate> delegate; // @synthesize delegate=_delegate;
+- (id)firstMessageMatchingCriterion:(id)arg1;
 - (id)_messageForStatement:(struct sqlite3_stmt *)arg1 options:(unsigned int)arg2 timestamp:(unsigned long long)arg3 isProtectedDataAvailable:(_Bool)arg4;
 - (id)_libraryMessageWithLibraryID:(unsigned int)arg1 wasCached:(_Bool *)arg2;
 - (id)_libraryMessageCache;
@@ -123,6 +131,7 @@
 - (long long)_reconcileJournal;
 - (void)_schedulePeriodicStatisticsLogging;
 - (void)_logStatistics;
+- (_Bool)_shouldLogDatabaseStats;
 - (unsigned long long)_deleteJournaledEntries;
 - (void)_collectStatistics_nts;
 - (_Bool)checkDatabaseConsistency;
@@ -194,6 +203,7 @@
 - (long long)deleteAttachmentsForMessage:(id)arg1 inMailboxFileURL:(id)arg2;
 - (id)attachmentsDirectoryURLForMessage:(id)arg1 inMailboxFileURL:(id)arg2;
 - (id)attachmentsDirectoryURLForMessage:(id)arg1;
+- (id)fileAttributesForMessage:(id)arg1;
 - (id)dataPathForMessage:(id)arg1 part:(id)arg2;
 - (id)dataPathForMessage:(id)arg1;
 - (id)dataPathForMessage:(id)arg1 type:(int)arg2;
@@ -331,8 +341,6 @@
 @property(readonly, nonatomic) unsigned long long pendingIndexItemsCount;
 - (void)applicationWillResume;
 - (void)applicationWillSuspend;
-- (void)startSuspendTimer;
-- (void)cancelSuspendTimer;
 - (void)invalidateAndWait;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import <HomeKitDaemon/HMDBackingStoreModelObject.h>
 
-@class HMDDevice, NSNumber, NSString;
+@class HMDDevice, HMDDeviceHandle, NSNumber, NSString;
 
 @interface HMDResidentDeviceModel : HMDBackingStoreModelObject
 {
@@ -17,6 +17,7 @@
 // Remaining properties
 @property(retain, nonatomic) NSNumber *confirmed; // @dynamic confirmed;
 @property(retain, nonatomic) HMDDevice *device; // @dynamic device;
+@property(retain, nonatomic) HMDDeviceHandle *deviceHandle; // @dynamic deviceHandle;
 @property(retain, nonatomic) NSString *deviceUUID; // @dynamic deviceUUID;
 @property(retain, nonatomic) NSNumber *enabled; // @dynamic enabled;
 

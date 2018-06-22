@@ -6,20 +6,11 @@
 
 #import <PhotosGraph/PGGraphEdge.h>
 
-#import "PGGraphPresentEdge.h"
-
-@class NSString;
-
-@interface PGGraphPresentEdge : PGGraphEdge <PGGraphPresentEdge>
+@interface PGGraphPresentEdge : PGGraphEdge
 {
 }
 
+@property(readonly, nonatomic) unsigned long long numberOfAssets;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) unsigned long long numberOfAssets; // @dynamic numberOfAssets;
-@property(readonly) Class superclass;
 @end
 

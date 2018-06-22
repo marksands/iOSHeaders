@@ -8,12 +8,14 @@
 
 @class NSMutableArray, PHResourceDownloadRequest, PUEditableMediaProvider, PUPhotoEditResourceLoadRequest;
 
+__attribute__((visibility("hidden")))
 @interface PUPhotoEditResourceLoader : NSObject
 {
     _Bool _loadingMedia;
     id <PUEditableAsset> _asset;
     PUEditableMediaProvider *_mediaProvider;
     long long _resourcesAvailability;
+    long long _assetRawPropertyCheckState;
     PUPhotoEditResourceLoadRequest *__currentRequest;
     NSMutableArray *__enqueuedRequests;
     PHResourceDownloadRequest *__downloadRequest;
@@ -22,6 +24,7 @@
 @property(retain, nonatomic, setter=_setDownloadRequest:) PHResourceDownloadRequest *_downloadRequest; // @synthesize _downloadRequest=__downloadRequest;
 @property(retain, nonatomic, setter=_setEnqueuedRequests:) NSMutableArray *_enqueuedRequests; // @synthesize _enqueuedRequests=__enqueuedRequests;
 @property(retain, nonatomic, setter=_setCurrentRequest:) PUPhotoEditResourceLoadRequest *_currentRequest; // @synthesize _currentRequest=__currentRequest;
+@property(readonly, nonatomic) long long assetRawPropertyCheckState; // @synthesize assetRawPropertyCheckState=_assetRawPropertyCheckState;
 @property(nonatomic, getter=isLoadingMedia, setter=_setLoadingMedia:) _Bool loadingMedia; // @synthesize loadingMedia=_loadingMedia;
 @property(nonatomic, setter=_setResourcesAvailability:) long long resourcesAvailability; // @synthesize resourcesAvailability=_resourcesAvailability;
 @property(readonly, nonatomic) PUEditableMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
@@ -40,6 +43,7 @@
 - (void)_handleDownloadCompletedWithRequest:(id)arg1 success:(_Bool)arg2 canceled:(_Bool)arg3 error:(id)arg4;
 - (void)_handleDownloadRequired:(_Bool)arg1 withRequest:(id)arg2 downloadRequest:(id)arg3;
 - (void)_checkIfDownloadRequiredWithRequest:(id)arg1;
+- (void)_checkIfShouldUseRawWithRequest:(id)arg1;
 - (void)_initiateRequest:(id)arg1;
 - (_Bool)_assetNeedsVideoLoaded;
 - (_Bool)_assetNeedsImageURLLoaded;

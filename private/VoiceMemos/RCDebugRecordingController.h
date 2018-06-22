@@ -9,6 +9,7 @@
 }
 
 + (id)sharedInstance;
+- (void)promptUserAndCreateDebugRecordingWithSource:(id)arg1;
 - (void)startCreatingDebugContentIfRequested;
 
 @end

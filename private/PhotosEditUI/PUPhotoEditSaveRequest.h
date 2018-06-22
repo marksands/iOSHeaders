@@ -10,6 +10,7 @@
 
 @class NSArray, NSString, PHAsset, PHContentEditingOutput, PLPhotoEditModel, PUPhotoEditIrisModel, PUPhotoKitAdjustmentSaveNode, PUVideoExportNode;
 
+__attribute__((visibility("hidden")))
 @interface PUPhotoEditSaveRequest : NSObject <PXRunNodeDelegate>
 {
     CDUnknownBlockType _completionHandler;

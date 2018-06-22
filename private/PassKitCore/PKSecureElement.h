@@ -24,9 +24,13 @@
 
 + (id)secureElementIdentifiers;
 + (id)primarySecureElementIdentifier;
++ (_Bool)isInFailForward;
 + (_Bool)hardwareSupportsExpressMode:(id)arg1;
 + (_Bool)supportsExpressMode:(id)arg1 byHardware:(_Bool *)arg2;
 + (_Bool)supportsExpressMode:(id)arg1;
++ (_Bool)hardwareSupportsExpressForAutomaticSelectionTechnologyType:(long long)arg1;
++ (_Bool)supportsExpressForAutomaticSelectionTechnologyType:(long long)arg1;
++ (_Bool)supportsExpressForAutomaticSelectionTechnologyType:(long long)arg1 byHardware:(_Bool *)arg2;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSUUID *ownerUserUUID;
 @property(readonly, nonatomic) NSArray *secureElementIdentifiers;

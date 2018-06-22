@@ -17,9 +17,9 @@
 - (void)_enumerateBestPotentialMemoriesInLifeTimePotentialMemories:(id)arg1 andYearPotentialMemories:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)_randomEnumerateOverLifeTimePotentialMemories:(id)arg1 andYearPotentialMemories:(id)arg2 rejectedNumbers:(CDStruct_e4f06a70 *)arg3 enumerationBlock:(CDUnknownBlockType)arg4;
 - (void)_potentialPetMemoryForPet:(id)arg1 results:(CDUnknownBlockType)arg2;
-- (id)blacklistPetSceneInformation;
-- (id)petSceneInformation;
-- (id)_listOfSceneInformation:(id)arg1;
+- (id)confidenceThresholdByBlacklistedSceneIdentifier;
+- (id)confidenceThresholdByWhitelistedSceneIdentifier;
+- (id)_confidenceThresholdBySceneIdentifierForSceneNames:(id)arg1 blacklisted:(_Bool)arg2;
 
 @end
 

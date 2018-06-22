@@ -32,6 +32,7 @@
         _Bool respondsToPreventRevealInMomentAction;
         _Bool respondsToPreferredPresentationOrientation;
         _Bool respondsToEnableFreezeLayoutOnOrientationChange;
+        _Bool respondsToAdditionalOptions;
     } _delegateFlags;
     struct {
         _Bool respondsToCurrentImageForAssetReference;

@@ -6,7 +6,11 @@
 
 #import <Vision/VNImageBasedRequest.h>
 
-@interface VNDetectRectanglesRequest : VNImageBasedRequest
+#import "VNImageIdealImageSizeProviding.h"
+
+@class NSArray, NSString;
+
+@interface VNDetectRectanglesRequest : VNImageBasedRequest <VNImageIdealImageSizeProviding>
 {
     float _minimumAspectRatio;
     float _maximumAspectRatio;
@@ -25,11 +29,19 @@
 @property(nonatomic) float quadratureTolerance;
 @property(nonatomic) float maximumAspectRatio;
 @property(nonatomic) float minimumAspectRatio;
-- (_Bool)internalPerformInContext:(id)arg1 error:(id *)arg2;
+- (_Bool)internalPerformRevision:(unsigned long long)arg1 inContext:(id)arg2 error:(id *)arg3;
+- (id)_detectorOptions;
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)sequencedRequestPreviousObservationsKey;
 - (id)observationsCacheKey;
+@property(readonly) NSArray *supportedImageSizeSet;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

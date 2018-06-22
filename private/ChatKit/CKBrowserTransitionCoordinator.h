@@ -8,7 +8,7 @@
 
 #import "CKFullScreenAppViewControllerDelegate.h"
 
-@class CKConversation, CKFullScreenAppViewController, CKPresentationControllerWindow, NSString, UIViewController, UIViewController<CKBrowserViewControllerProtocol>, UIWindow;
+@class CKConversation, CKFullScreenAppViewController, NSString, UINavigationController, UIViewController, UIViewController<CKBrowserViewControllerProtocol>, UIWindow;
 
 @interface CKBrowserTransitionCoordinator : NSObject <CKFullScreenAppViewControllerDelegate>
 {
@@ -21,16 +21,22 @@
     CKConversation *_conversation;
     id <CKBrowserViewControllerSendDelegate> _sendDelegate;
     UIViewController<CKBrowserViewControllerProtocol> *_currentBrowser;
-    CKPresentationControllerWindow *_appWindow;
+    UIWindow *_appWindow;
     UIWindow *_previousKeyWindow;
     long long _lastTransitionReason;
+    UIWindow *_modalAppWindow;
+    UINavigationController *_presentedModalBrowserNavigationController;
+    UIViewController<CKBrowserViewControllerProtocol> *_currentModalBrowser;
     struct CGRect _cachedCompactFrame;
 }
 
+@property(retain, nonatomic) UIViewController<CKBrowserViewControllerProtocol> *currentModalBrowser; // @synthesize currentModalBrowser=_currentModalBrowser;
+@property(retain, nonatomic) UINavigationController *presentedModalBrowserNavigationController; // @synthesize presentedModalBrowserNavigationController=_presentedModalBrowserNavigationController;
+@property(retain, nonatomic) UIWindow *modalAppWindow; // @synthesize modalAppWindow=_modalAppWindow;
 @property(nonatomic) long long lastTransitionReason; // @synthesize lastTransitionReason=_lastTransitionReason;
 @property(nonatomic) struct CGRect cachedCompactFrame; // @synthesize cachedCompactFrame=_cachedCompactFrame;
 @property(nonatomic) __weak UIWindow *previousKeyWindow; // @synthesize previousKeyWindow=_previousKeyWindow;
-@property(retain, nonatomic) CKPresentationControllerWindow *appWindow; // @synthesize appWindow=_appWindow;
+@property(retain, nonatomic) UIWindow *appWindow; // @synthesize appWindow=_appWindow;
 @property(retain, nonatomic) UIViewController<CKBrowserViewControllerProtocol> *currentBrowser; // @synthesize currentBrowser=_currentBrowser;
 @property(nonatomic) _Bool underTest; // @synthesize underTest=_underTest;
 @property(nonatomic) __weak id <CKBrowserViewControllerSendDelegate> sendDelegate; // @synthesize sendDelegate=_sendDelegate;
@@ -42,12 +48,17 @@
 @property(nonatomic) __weak id <CKBrowserTransitionCoordinatorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)setExpanded:(_Bool)arg1 withReason:(long long)arg2;
+- (_Bool)shouldAlwaysShowAppTitle;
+- (double)fullscreenAppViewControllerCollapsedContentHeight:(id)arg1;
 - (void)fullscreenAppViewControllerDidTransitionFromOrientation:(long long)arg1 toOrientation:(long long)arg2;
 - (void)fullscreenAppViewControllerSwitcherDidSelectAppManager:(id)arg1;
 - (void)fullscreenAppViewControllerSwitcherDidSelectAppStore:(id)arg1;
 - (void)fullscreenAppViewController:(id)arg1 hasUpdatedLastTouchDate:(id)arg2;
 - (void)fullscreenAppViewController:(id)arg1 wantsToSwitchToPlugin:(id)arg2 datasource:(id)arg3;
 - (void)fullscreenAppViewControllerWantsToCollapse:(id)arg1;
+- (void)dismissCurrentFullScreenModalAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic, getter=isPresentingFullScreenModal) _Bool presentingFullScreenModal;
+- (void)presentCurrentPluginFullScreenModalAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dismissCurrentFullscreenBrowserAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)presentCurrentBrowserFullscreenAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)transitionCurrentBrowserToCollapsedPresentationAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
@@ -55,6 +66,8 @@
 - (void)releaseOwnershipOfBrowserForConsumer:(long long)arg1;
 - (id)requestOwnershipOfBrowserForConsumer:(long long)arg1;
 - (_Bool)updateBrowserSessionForPlugin:(id)arg1 datasource:(id)arg2;
+- (id)transitionViewController;
+- (_Bool)usePresentationWindowDuringTransition;
 - (_Bool)isHostingRemoteKeyboardView;
 @property(readonly, nonatomic) _Bool wasCurrentBrowserExpanded;
 

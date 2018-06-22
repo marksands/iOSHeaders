@@ -13,21 +13,22 @@ __attribute__((visibility("hidden")))
 {
     id <VKTileSourceClient> _client;
     VKTilePool *_tilePool;
+    VKTilePool *_preliminaryTilePool;
     VKTileKeyMap *_pendingLoads;
     VKTileKeyList *_decoding;
+    VKTileKeyList *_decodingPreliminary;
     VKTileKeyList *_failedTiles;
     shared_ptr_a3c46825 _styleManager;
     double _contentScale;
     VKSharedResources *_sharedResources;
-    int loadingTiles;
+    int _loadingTiles;
     NSError *_recentError;
     GEOResourceManifestConfiguration *_manifestConfiguration;
     NSLocale *_locale;
     NSString *_tileLoaderClientIdentifier;
     _Bool _preloadOnly;
     _Bool _requireWiFi;
-    _Bool _originOverridden;
-    unsigned char _originRequested;
+    _Bool _allowPreliminary;
     long long _mapType;
     unsigned char _targetDisplay;
     shared_ptr_e963992e _taskContext;
@@ -35,8 +36,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) unsigned char targetDisplay; // @synthesize targetDisplay=_targetDisplay;
 @property(nonatomic) long long mapType; // @synthesize mapType=_mapType;
-@property(readonly, nonatomic) _Bool originOverridden; // @synthesize originOverridden=_originOverridden;
-@property(readonly, nonatomic) unsigned char originRequested; // @synthesize originRequested=_originRequested;
+@property(nonatomic) _Bool allowPreliminary; // @synthesize allowPreliminary=_allowPreliminary;
 @property(nonatomic) _Bool requireWiFi; // @synthesize requireWiFi=_requireWiFi;
 @property(nonatomic) _Bool preloadOnly; // @synthesize preloadOnly=_preloadOnly;
 @property(nonatomic) double contentScale; // @synthesize contentScale=_contentScale;
@@ -45,16 +45,15 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) id <VKTileSourceClient> client; // @synthesize client=_client;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)requestOrigin:(unsigned char)arg1;
 - (void)forceDownload;
 - (void)didFailToLoadTileKey:(const struct _GEOTileKey *)arg1 error:(id)arg2;
 - (void)didFinishWithNetwork;
 - (void)willGoToNetwork;
-- (void)didFetchData:(id)arg1 forKey:(const struct _GEOTileKey *)arg2 info:(id)arg3;
+- (void)didFetchData:(id)arg1 forKey:(const struct _GEOTileKey *)arg2 isPreliminary:(_Bool)arg3 userInfo:(id)arg4;
 - (void)_failedToLoadSourceKey:(const struct VKTileKey *)arg1 downloadKey:(const struct _GEOTileKey *)arg2 error:(id)arg3;
 - (void)tileAvailabilityChanged:(id)arg1;
 - (void)populateVisibleTileSets:(id)arg1 withTiles:(id)arg2;
-- (void)decodeData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3 origin:(unsigned char)arg4;
+- (void)decodeData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3 isPreliminary:(_Bool)arg4 userInfo:(id)arg5;
 - (void)didLoadTile:(id)arg1 forKey:(const struct VKTileKey *)arg2;
 - (void)fetchedTile:(id)arg1 forKey:(const struct VKTileKey *)arg2;
 - (void)failedToDecodeSourceKey:(const struct VKTileKey *)arg1;
@@ -71,7 +70,7 @@ __attribute__((visibility("hidden")))
 - (id)tileForKey:(const struct VKTileKey *)arg1;
 - (id)tileForSourceKey:(const struct VKTileKey *)arg1 renderKey:(const struct VKTileKey *)arg2;
 - (_Bool)canFetchTileForKey:(const struct VKTileKey *)arg1;
-- (void)_fetchedTile:(id)arg1;
+- (void)_fetchedTile:(id)arg1 isPreliminary:(_Bool)arg2;
 - (struct VKTileKey)sourceKeyForDownloadKey:(const struct _GEOTileKey *)arg1;
 - (struct _GEOTileKey)downloadKeyForSourceKey:(const struct VKTileKey *)arg1;
 - (struct VKTileKey)sourceKeyForRenderKey:(const struct VKTileKey *)arg1;
@@ -83,7 +82,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool minimumZoomLevelBoundsCamera;
 @property(readonly, nonatomic) long long zEquivalenceClass;
 - (struct _GEOTileKey)downloadKeyAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;
-- (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
+- (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3 userInfo:(id)arg4;
 @property(readonly, nonatomic) unsigned int maximumDownloadZoomLevel;
 @property(readonly, nonatomic) unsigned int minimumDownloadZoomLevel;
 @property(readonly, nonatomic) long long tileSize;

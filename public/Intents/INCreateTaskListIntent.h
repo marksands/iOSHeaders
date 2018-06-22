@@ -29,6 +29,7 @@
 - (void)setTitle:(id)arg1;
 @property(readonly, copy, nonatomic) INSpeakableString *title;
 - (id)initWithTitle:(id)arg1 taskTitles:(id)arg2 groupName:(id)arg3;
+- (void)_setMetadata:(id)arg1;
 - (id)_metadata;
 - (id)_typedBackingStore;
 

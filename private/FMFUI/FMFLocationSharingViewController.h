@@ -21,7 +21,6 @@
     NSArray *_familySpecifiers;
     NSMutableDictionary *_dsidToFamilyPhoto;
     NSArray *_hashedFamilyDsids;
-    void *_addressBook;
     FMFHandle *_lastSelectedHandle;
     NSArray *_familyMembers;
     UIAlertController *_genericErrorAlert;
@@ -33,7 +32,6 @@
 @property(retain, nonatomic) NSArray *familyMembers; // @synthesize familyMembers=_familyMembers;
 @property(nonatomic) _Bool isMyLocationEnabled; // @synthesize isMyLocationEnabled=_isMyLocationEnabled;
 @property(retain, nonatomic) FMFHandle *lastSelectedHandle; // @synthesize lastSelectedHandle=_lastSelectedHandle;
-@property(nonatomic) void *addressBook; // @synthesize addressBook=_addressBook;
 @property(retain, nonatomic) NSArray *hashedFamilyDsids; // @synthesize hashedFamilyDsids=_hashedFamilyDsids;
 @property(retain, nonatomic) NSMutableDictionary *dsidToFamilyPhoto; // @synthesize dsidToFamilyPhoto=_dsidToFamilyPhoto;
 @property(retain, nonatomic) NSArray *familySpecifiers; // @synthesize familySpecifiers=_familySpecifiers;
@@ -56,7 +54,7 @@
 - (void)removeFollower:(id)arg1;
 - (void)addShareActionToContactViewController:(id)arg1;
 - (void)addRemoveActionToContactViewController:(id)arg1;
-- (void *)recordForHandle:(id)arg1;
+- (id)identifierForHandle:(id)arg1;
 - (id)reverseString:(id)arg1;
 - (id)stringByKeepingCharacterSet:(id)arg1 inString:(id)arg2;
 - (_Bool)phoneNumberMatches:(id)arg1 phone2:(id)arg2;
@@ -78,7 +76,7 @@
 - (void)_loadFamilyMemberPhotos;
 - (void)_loadFamilyMembers:(_Bool)arg1;
 - (id)specifiers;
-- (void)abChanged:(id)arg1;
+- (void)contactStoreDidChange:(id)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

@@ -13,6 +13,9 @@
 @interface SFCard (CRCard) <CRCard>
 + (id)_interactionsByIntentDataHashes;
 - (id)_interactionDataKey;
+- (id)underlyingInteraction;
+@property(readonly, nonatomic) unsigned long long cardFormat;
+@property(readonly, copy, nonatomic) NSString *cardIdentifier;
 - (id)interaction;
 @property(readonly, nonatomic) NSSet *interactions;
 @property(readonly, nonatomic) SFCard *backingCard;

@@ -27,7 +27,6 @@
     NSArray *_bodyWithNoImageConstraints;
 }
 
-+ (void)initialize;
 - (void).cxx_destruct;
 - (void)configureWithContent:(id)arg1;
 - (void)updateConstraints;

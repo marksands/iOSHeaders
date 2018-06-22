@@ -27,8 +27,11 @@ __attribute__((visibility("hidden")))
 @property(readonly) NSString *localInterfaceTypeString;
 - (_Bool)matchesSourceDestinationInfo:(struct tagVCSourceDestinationInfo *)arg1;
 - (void)getSourceDestinationInfo:(struct tagVCSourceDestinationInfo *)arg1;
+@property unsigned int uplinkBitrateCap;
+@property unsigned int downlinkBitrateCap;
 @property(readonly) NSUUID *connectionUUID;
-@property int cellularMTU;
+@property int connectionMTU;
+- (int)cellularMTU;
 @property int remoteCellTech;
 @property int localCellTech;
 @property(readonly) int remoteConnectionType;

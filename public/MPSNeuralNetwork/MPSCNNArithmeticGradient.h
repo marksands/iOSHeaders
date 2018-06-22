@@ -41,6 +41,7 @@
 - (id)initWithDevice:(id)arg1;
 - (void)setSecondaryStrideInPixelsY:(unsigned long long)arg1;
 - (void)setSecondaryStrideInPixelsX:(unsigned long long)arg1;
+- (unsigned long long)maxBatchSize;
 
 @end
 

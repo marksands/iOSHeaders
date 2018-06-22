@@ -34,7 +34,9 @@
 - (id)sendSyncMsg:(unsigned short)arg1 args:(id)arg2;
 - (void)closeL2CAPChannelForPeerUUID:(id)arg1 withPsm:(unsigned short)arg2;
 - (_Bool)sendMsg:(unsigned short)arg1 args:(id)arg2;
+- (id)sendDebugSyncMsg:(unsigned short)arg1 args:(id)arg2;
 - (_Bool)sendDebugMsg:(unsigned short)arg1 args:(id)arg2;
+- (_Bool)sendRawCommand:(unsigned short)arg1 data:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)startWithQueue:(id)arg1 options:(id)arg2 sessionType:(int)arg3;
 - (void)setConnectionTargetQueue:(id)arg1;
 @property(readonly, retain, nonatomic) CBPairingAgent *sharedPairingAgent; // @dynamic sharedPairingAgent;

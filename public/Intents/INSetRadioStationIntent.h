@@ -33,6 +33,7 @@
 - (void)setRadioType:(long long)arg1;
 @property(readonly, nonatomic) long long radioType;
 - (id)initWithRadioType:(long long)arg1 frequency:(id)arg2 stationName:(id)arg3 channel:(id)arg4 presetNumber:(id)arg5;
+- (void)_setMetadata:(id)arg1;
 - (id)_metadata;
 - (id)_typedBackingStore;
 

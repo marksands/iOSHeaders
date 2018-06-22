@@ -25,7 +25,7 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithDaemonName:(id)arg1;
-- (void)sendSFFeedbackMessage:(SEL)arg1 withFeedback:(id)arg2;
+- (void)sendSFFeedback:(id)arg1 type:(long long)arg2 queryId:(unsigned long long)arg3;
 - (void)requestParsecParametersWithReply:(CDUnknownBlockType)arg1;
 - (void)retrieveFirstTimeExperienceTextWithReply:(CDUnknownBlockType)arg1;
 - (void)preheat;

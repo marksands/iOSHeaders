@@ -6,10 +6,11 @@
 
 #import "UICollectionViewFlowLayout.h"
 
-@class NSDictionary, NSIndexPath, NSSet, NTKUpNextCollectionViewFlowLayoutAttributes;
+@class CLKDevice, NSDictionary, NSIndexPath, NSSet, NTKUpNextCollectionViewFlowLayoutAttributes;
 
 @interface NTKUpNextCollectionViewFlowLayout : UICollectionViewFlowLayout
 {
+    CLKDevice *_device;
     NSDictionary *_layoutInfo;
     NSDictionary *_headerLayoutInfo;
     NTKUpNextCollectionViewFlowLayoutAttributes *_decorationLayoutInfo;
@@ -19,6 +20,7 @@
     _Bool _needsInsetsUpdate;
     _Bool _useFixedLowTransitionLayout;
     _Bool _snappingEnabled;
+    _Bool _showingAllAttributes;
     double _topItemsAlpha;
     double _headerAlpha;
     double _topItemsShift;
@@ -28,6 +30,7 @@
     double _topOffsetForSnapping;
     double _topOffsetForScrolling;
     double _lowTransitionScale;
+    double _lowTransitionShift;
     double _highTransitionScale;
     double _highTransitionShift;
     double _highTransitionBottomOffset;
@@ -38,11 +41,13 @@
 + (Class)layoutAttributesClass;
 @property(nonatomic) double snappingOffset; // @synthesize snappingOffset=_snappingOffset;
 @property(retain, nonatomic) NSIndexPath *indexPathToSnapTo; // @synthesize indexPathToSnapTo=_indexPathToSnapTo;
+@property(nonatomic, getter=isShowingAllAttributes) _Bool showingAllAttributes; // @synthesize showingAllAttributes=_showingAllAttributes;
 @property(nonatomic, getter=isSnappingEnabled) _Bool snappingEnabled; // @synthesize snappingEnabled=_snappingEnabled;
 @property(nonatomic) double highTransitionBottomOffset; // @synthesize highTransitionBottomOffset=_highTransitionBottomOffset;
 @property(nonatomic) _Bool useFixedLowTransitionLayout; // @synthesize useFixedLowTransitionLayout=_useFixedLowTransitionLayout;
 @property(nonatomic) double highTransitionShift; // @synthesize highTransitionShift=_highTransitionShift;
 @property(nonatomic) double highTransitionScale; // @synthesize highTransitionScale=_highTransitionScale;
+@property(nonatomic) double lowTransitionShift; // @synthesize lowTransitionShift=_lowTransitionShift;
 @property(nonatomic) double lowTransitionScale; // @synthesize lowTransitionScale=_lowTransitionScale;
 @property(nonatomic) double topOffsetForScrolling; // @synthesize topOffsetForScrolling=_topOffsetForScrolling;
 @property(nonatomic) double topOffsetForSnapping; // @synthesize topOffsetForSnapping=_topOffsetForSnapping;

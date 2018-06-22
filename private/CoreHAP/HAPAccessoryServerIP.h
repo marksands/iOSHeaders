@@ -12,7 +12,7 @@
 #import "HMFNetMonitorDelegate.h"
 #import "HMFTimerDelegate.h"
 
-@class HAPAccessory, HAPAccessoryProtocolInfo, HAPAccessoryServerBrowserIP, HAPAuthSession, HAPHTTPClient, HAPWACClient, HMFBlockOperation, HMFNetMonitor, HMFTimer, NSArray, NSData, NSDictionary, NSMutableArray, NSOperationQueue, NSString;
+@class HAPAccessory, HAPAccessoryProtocolInfo, HAPAccessoryServerBrowserIP, HAPAuthSession, HAPHTTPClient, HAPWACClient, HMFBlockOperation, HMFNetMonitor, HMFTimer, NSArray, NSData, NSDictionary, NSMutableArray, NSMutableSet, NSOperationQueue, NSString;
 
 @interface HAPAccessoryServerIP : HAPAccessoryServer <HAPHTTPClientDelegate, HAPHTTPClientDebugDelegate, HMFTimerDelegate, HAPAuthSessionDelegate, HMFNetMonitorDelegate>
 {
@@ -48,6 +48,7 @@
     CDUnknownBlockType _pairVerifyCompletionBlock;
     NSString *_controllerUsername;
     CDUnknownBlockType _netServiceResolveCompletionBlock;
+    NSMutableSet *_resolvers;
     HMFBlockOperation *_pairOperation;
     NSOperationQueue *_clientOperationQueue;
     NSDictionary *_wacDeviceInfo;
@@ -69,6 +70,7 @@
 @property(readonly, copy, nonatomic) NSDictionary *wacDeviceInfo; // @synthesize wacDeviceInfo=_wacDeviceInfo;
 @property(readonly, nonatomic) NSOperationQueue *clientOperationQueue; // @synthesize clientOperationQueue=_clientOperationQueue;
 @property(retain, nonatomic) HMFBlockOperation *pairOperation; // @synthesize pairOperation=_pairOperation;
+@property(retain, nonatomic) NSMutableSet *resolvers; // @synthesize resolvers=_resolvers;
 @property(nonatomic) _Bool econnresetRetryInProgress; // @synthesize econnresetRetryInProgress=_econnresetRetryInProgress;
 @property(nonatomic) _Bool hasTunnelService; // @synthesize hasTunnelService=_hasTunnelService;
 @property _Bool establishingSecureConnection; // @synthesize establishingSecureConnection=_establishingSecureConnection;
@@ -157,10 +159,12 @@
 - (void)_performExecuteWriteValues:(id)arg1 prepareIdentifier:(id)arg2 timeout:(double)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)_performTimedWriteValues:(id)arg1 timeout:(double)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_performWriteValues:(id)arg1 timeout:(double)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_handleWriteECONNResetError:(id)arg1 writeRequests:(id)arg2 responses:(id)arg3 timeout:(double)arg4 queue:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (void)_writeCharacteristicValues:(id)arg1 timeout:(double)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)writeCharacteristicValues:(id)arg1 timeout:(double)arg2 completionQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_handleReadResponseObject:(id)arg1 type:(unsigned long long)arg2 httpStatus:(int)arg3 error:(id)arg4 characteristics:(id)arg5 queue:(id)arg6 completion:(CDUnknownBlockType)arg7;
 - (void)_readCharacteristicValues:(id)arg1 timeout:(double)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_handleReadECONNRESETError:(id)arg1 readCharacteristics:(id)arg2 responses:(id)arg3 timeout:(double)arg4 queue:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (void)readCharacteristicValues:(id)arg1 timeout:(double)arg2 completionQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_processQueuedOperationsWithError:(id)arg1;
 - (void)_queueEnableEvents:(_Bool)arg1 forCharacteristics:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3 queue:(id)arg4;
@@ -186,6 +190,8 @@
 - (long long)linkType;
 - (id)primaryAccessory;
 - (id)services;
+- (void)createKeysForDataStreamWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)resolveLocalHostnameWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)pairSetupStartSoftAuthWAC;
 - (void)_continuePairingAfterConfirmingSoftAuthWAC;
 - (void)_tearDownWAC;

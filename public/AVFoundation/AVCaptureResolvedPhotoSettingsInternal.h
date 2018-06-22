@@ -17,6 +17,7 @@
     CDStruct_79c71658 embeddedThumbnailDimensions;
     _Bool livePhotoMovieEnabled;
     CDStruct_79c71658 livePhotoMovieDimensions;
+    CDStruct_79c71658 portraitEffectsMatteDimensions;
     _Bool turboModeEnabled;
     _Bool flashEnabled;
     _Bool HDREnabled;

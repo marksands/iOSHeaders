@@ -31,8 +31,10 @@
     id <MKLocationManagerOperation> _singleLocationUpdate;
     GEOMapServiceTraits *_traits;
     _Bool _shouldDisplayNoResults;
+    _Bool _shouldPreloadTransitInfo;
 }
 
+@property(nonatomic, getter=_shouldPreloadTransitInfo, setter=_setShouldPreloadTransitInfo:) _Bool shouldPreloadTransitInfo; // @synthesize shouldPreloadTransitInfo=_shouldPreloadTransitInfo;
 @property(readonly, nonatomic, getter=_shouldDisplayNoResults) _Bool shouldDisplayNoResults; // @synthesize shouldDisplayNoResults=_shouldDisplayNoResults;
 @property(retain, nonatomic) GEOMapServiceTraits *traits; // @synthesize traits=_traits;
 @property(nonatomic) unsigned long long mapType; // @synthesize mapType=_mapType;
@@ -64,6 +66,7 @@
 - (void)_schedulePendingRequest;
 - (void)_fireRequest;
 - (void)_handleError:(id)arg1 forTicket:(id)arg2;
+- (void)_notifyDelegatesWithResults:(id)arg1 shouldDisplayNoResults:(_Bool)arg2 ticket:(id)arg3;
 - (void)_handleCompletion:(id)arg1 shouldDisplayNoResults:(_Bool)arg2 forTicket:(id)arg3;
 - (void)dealloc;
 - (id)init;

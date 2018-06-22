@@ -8,7 +8,7 @@
 
 #import "VNImageBufferProviding.h"
 
-@class NSCache, VNImageBuffer, VNObservationsCache, VNRequestPerformer;
+@class VNImageBuffer, VNObservationsCache, VNRequestPerformer;
 
 __attribute__((visibility("hidden")))
 @interface VNRequestPerformingContext : NSObject <VNImageBufferProviding>
@@ -16,16 +16,15 @@ __attribute__((visibility("hidden")))
     unsigned int _qosClass;
     VNRequestPerformer *_requestPerformer_DO_NOT_DIRECTLY_ACCESS;
     VNImageBuffer *_imageBuffer_DO_NOT_DIRECTLY_ACCESS;
-    NSCache *_requestToObservationCacheKeyMap;
     VNObservationsCache *_observationsCache;
 }
 
 - (void).cxx_destruct;
 - (id)previousSequencedObservationsForRequest:(id)arg1;
 - (void)recordSequencedObservationsForRequest:(id)arg1;
+- (id)cachedObservationsForRequest:(id)arg1 beingPerformedOnBehalfOfRequest:(id)arg2;
 - (id)cachedObservationsForRequest:(id)arg1;
 - (void)cacheObservationsForRequest:(id)arg1;
-- (id)_observationCacheKeyForRequest:(id)arg1;
 - (id)imageBufferAndReturnError:(id *)arg1;
 - (unsigned int)qosClass;
 - (id)requestPerformerAndReturnError:(id *)arg1;

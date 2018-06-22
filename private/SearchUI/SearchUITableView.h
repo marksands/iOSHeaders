@@ -14,7 +14,7 @@
 @property(nonatomic) unsigned long long searchUIStyle; // @synthesize searchUIStyle=_searchUIStyle;
 - (_Bool)allowsHeaderViewsToFloat;
 - (void)updateSeparatorsForStyle;
-- (void)setContentOffset:(struct CGPoint)arg1;
+- (void)safeAreaInsetsDidChange;
 - (id)init;
 
 @end

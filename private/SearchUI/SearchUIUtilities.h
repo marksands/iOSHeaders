@@ -10,6 +10,7 @@
 {
 }
 
++ (_Bool)appIsValidForBundleIdentifier:(id)arg1;
 + (id)stringForSFRichTextArray:(id)arg1;
 + (id)stringForSFRichText:(id)arg1;
 + (id)localizedStringForKey:(id)arg1;
@@ -34,6 +35,7 @@
 + (id)addAspectRatioConstraintForImageView:(id)arg1;
 + (id)imageWithColor:(id)arg1 size:(struct CGSize)arg2 cornersToRound:(unsigned long long)arg3 cornerRadius:(double)arg4;
 + (id)imageWithColor:(id)arg1 size:(struct CGSize)arg2;
++ (id)horizontalAppNameFont;
 + (id)footnoteFont;
 + (id)captionFont;
 + (id)shortFontForFontStyle:(id)arg1;

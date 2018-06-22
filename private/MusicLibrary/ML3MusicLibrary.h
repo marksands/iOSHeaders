@@ -251,6 +251,7 @@
 - (id)_purgeableTrackPredicateWithUrgency:(unsigned long long)arg1 includeAutoFilledTracks:(_Bool)arg2 includeCloudAssets:(_Bool)arg3;
 - (void)_enumeratePurgeableTracksForUrgency:(unsigned long long)arg1 includeAutoFilledTracks:(_Bool)arg2 includeCloudAssets:(_Bool)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (long long)_purgeableTracksTotalSizeWithUrgency:(unsigned long long)arg1 includeAutoFilledTracks:(_Bool)arg2;
+- (void)_enumeratePurgeablePodcastEpisodesForUrgency:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)_enumeratePurgeableAlbumTracksForUrgency:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)_enumeratePurgeableStreamedTracksForUrgency:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (unsigned long long)_totalSizeForAllNonCacheTracks;

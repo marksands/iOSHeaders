@@ -86,7 +86,7 @@ __attribute__((visibility("hidden")))
 - (const struct XCredentialStorage *)_createXCredentialStorage0;
 - (const struct XCookieStorage *)_createXCookieStorage;
 - (const struct XCookieStorage *)_createXCookieStorage0;
-- (const struct XURLCache *)_createXURLCache;
+- (void)_withXURLCache:(CDUnknownBlockType)arg1;
 - (const struct XURLCache *)_createXURLCache0;
 - (struct _CFHSTSPolicy *)_copyHSTSPolicy;
 - (void)_onqueue_completeInvalidation:(_Bool)arg1;
@@ -117,7 +117,7 @@ __attribute__((visibility("hidden")))
 - (void)addConnectionlessTask:(id)arg1;
 - (id)copyTasks;
 - (void)replaceTask:(id)arg1 withTask:(id)arg2;
-- (Class)sessionConnectionClass;
+- (Class)sessionConnectionClass:(id)arg1;
 - (id)connToTask:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

@@ -7,10 +7,12 @@
 #import <MaterialKit/MTSystemMaterialSettings.h>
 
 #import "MTMaterialOverlaySettings.h"
+#import "MTMaterialSettings_v2.h"
+#import "_MTMaterialPerformanceConfiguring.h"
 
-@class NSString, UIColor;
+@class MTVibrantStylingProvider, NSString, UIColor;
 
-@interface MTSystemPlatterMaterialSettings : MTSystemMaterialSettings <MTMaterialOverlaySettings>
+@interface MTSystemPlatterMaterialSettings : MTSystemMaterialSettings <MTMaterialOverlaySettings, MTMaterialSettings_v2, _MTMaterialPerformanceConfiguring>
 {
     double _primaryOverlayTintAlpha;
     double _secondaryOverlayTintAlpha;
@@ -19,15 +21,25 @@
 + (id)sharedMaterialSettings;
 @property(nonatomic) double secondaryOverlayTintAlpha; // @synthesize secondaryOverlayTintAlpha=_secondaryOverlayTintAlpha;
 @property(nonatomic) double primaryOverlayTintAlpha; // @synthesize primaryOverlayTintAlpha=_primaryOverlayTintAlpha;
+- (id)_blurInputQualityForOptions:(unsigned long long)arg1;
+- (double)_backdropScaleForOptions:(unsigned long long)arg1;
+@property(readonly, copy, nonatomic) UIColor *tintColor;
 @property(readonly, copy, nonatomic) UIColor *secondaryOverlayTintColor;
 @property(readonly, copy, nonatomic) UIColor *primaryOverlayTintColor;
 - (Class)vibrantStylingProviderClass;
 
 // Remaining properties
+@property(nonatomic) double blurRadius;
+@property(nonatomic) double brightness;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(nonatomic) double luminanceAlpha;
+@property(nonatomic) double saturation;
 @property(readonly) Class superclass;
+@property(nonatomic) double tintAlpha;
+@property(nonatomic) _Bool usesLuminanceMap;
+@property(readonly, nonatomic) __weak MTVibrantStylingProvider *vibrantStylingProvider;
 
 @end
 

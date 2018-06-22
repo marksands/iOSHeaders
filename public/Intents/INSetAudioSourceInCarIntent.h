@@ -27,6 +27,7 @@
 - (void)setAudioSource:(long long)arg1;
 @property(readonly, nonatomic) long long audioSource;
 - (id)initWithAudioSource:(long long)arg1 relativeAudioSourceReference:(long long)arg2;
+- (void)_setMetadata:(id)arg1;
 - (id)_metadata;
 - (id)_typedBackingStore;
 

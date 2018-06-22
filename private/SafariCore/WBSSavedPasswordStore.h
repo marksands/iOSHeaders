@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableDictionary, WBSKeychainCredentialNotificationMonitor;
+@class NSArray, NSDictionary, NSMutableDictionary, WBSAutoFillQuirksManager, WBSKeychainCredentialNotificationMonitor;
 
 @interface WBSSavedPasswordStore : NSObject
 {
@@ -14,14 +14,17 @@
     NSArray *_savedPasswords;
     WBSKeychainCredentialNotificationMonitor *_keychainMonitor;
     id _keychainNotificationRegistrationToken;
+    NSDictionary *_domainToSavedPasswords;
+    WBSAutoFillQuirksManager *_autoFillQuirksManager;
     _Bool _hasPasswordsEligibleForAutoFill;
 }
 
 + (void)removePassword:(id)arg1;
-+ (id)savedPasswordForURL:(id)arg1 user:(id)arg2 password:(id)arg3;
 + (id)sharedStore;
 @property(readonly, nonatomic) _Bool hasPasswordsEligibleForAutoFill; // @synthesize hasPasswordsEligibleForAutoFill=_hasPasswordsEligibleForAutoFill;
 - (void).cxx_destruct;
+- (void)_ensureDomainsToUsersExists;
+- (void)_cleanUpRedundantCredentialsWithoutUsernames;
 - (void)reset;
 - (void)_postSavedPasswordStoreDidChangeNotification;
 - (id)saveUser:(id)arg1 password:(id)arg2 forProtectionSpace:(id)arg3 highLevelDomain:(id)arg4;
@@ -31,10 +34,15 @@
 - (void)removeSite:(id)arg1 fromPassword:(id)arg2;
 - (void)removePassword:(id)arg1;
 - (void)_removePassword:(id)arg1;
+@property(readonly, copy, nonatomic) NSDictionary *domainToSavedPasswords;
 @property(readonly, nonatomic) NSArray *savedPasswords;
 - (id)_allInternetPasswordEntriesFromKeychain;
+- (id)savedPasswordForURL:(id)arg1 user:(id)arg2 password:(id)arg3;
 - (void)dealloc;
 - (id)init;
+@property(readonly, nonatomic) _Bool hasDuplicatedPasswords;
+- (_Bool)savedPasswordHasReusedPassword:(id)arg1;
+- (id)savedPasswordsWithDuplicatedPassword:(id)arg1;
 
 @end
 

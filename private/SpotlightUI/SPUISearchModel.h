@@ -40,6 +40,7 @@
 @property _Bool infinitePatience; // @synthesize infinitePatience=_infinitePatience;
 @property _Bool springBoardIsActive; // @synthesize springBoardIsActive=_springBoardIsActive;
 - (void).cxx_destruct;
+- (void)updateWithQueryContext:(id)arg1;
 - (void)invalidate;
 - (void)resultsDidBecomeInvalid:(id)arg1;
 - (void)invalidateQuery:(id)arg1;

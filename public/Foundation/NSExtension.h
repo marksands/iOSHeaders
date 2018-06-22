@@ -24,6 +24,8 @@
     id __stashedPlugInConnection;
     id <PKPlugIn> __plugIn;
     NSBundle *__extensionBundle;
+    NSString *__localizedName;
+    NSString *__localizedShortName;
     CDUnknownBlockType __requestPostCompletionBlock;
     CDUnknownBlockType __requestPostCompletionBlockWithItems;
     NSMutableDictionary *__extensionExpirationIdentifiers;
@@ -56,6 +58,8 @@
 @property(retain, nonatomic, setter=_setExtensionExpirationsIdentifiers:) NSMutableDictionary *_extensionExpirationIdentifiers; // @synthesize _extensionExpirationIdentifiers=__extensionExpirationIdentifiers;
 @property(copy, nonatomic) CDUnknownBlockType _requestPostCompletionBlockWithItems; // @synthesize _requestPostCompletionBlockWithItems=__requestPostCompletionBlockWithItems;
 @property(copy, nonatomic) CDUnknownBlockType _requestPostCompletionBlock; // @synthesize _requestPostCompletionBlock=__requestPostCompletionBlock;
+@property(copy, nonatomic) NSString *_localizedShortName; // @synthesize _localizedShortName=__localizedShortName;
+@property(copy, nonatomic) NSString *_localizedName; // @synthesize _localizedName=__localizedName;
 @property(retain, nonatomic, setter=_setExtensionBundle:) NSBundle *_extensionBundle; // @synthesize _extensionBundle=__extensionBundle;
 @property(retain, nonatomic, setter=_setPlugIn:) id <PKPlugIn> _plugIn; // @synthesize _plugIn=__plugIn;
 @property(retain) id _stashedPlugInConnection; // @synthesize _stashedPlugInConnection=__stashedPlugInConnection;

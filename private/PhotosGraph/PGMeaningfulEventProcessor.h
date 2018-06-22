@@ -10,9 +10,11 @@
 {
 }
 
++ (void)prepareLoadRequirement:(id)arg1 forMomentNodes:(id)arg2;
 + (id)_postProcessBirthdaysWithResults:(id)arg1 forMoment:(id)arg2;
++ (id)_legacyMeaningResultForResult:(id)arg1 requiredCriteriaByIdentifier:(id)arg2;
 + (id)_postProcessResults:(id)arg1 forMoment:(id)arg2;
-+ (id)processRequiredTraits:(id)arg1 forMoment:(id)arg2;
++ (id)processRequiredCriteria:(id)arg1 forMoment:(id)arg2;
 
 @end
 

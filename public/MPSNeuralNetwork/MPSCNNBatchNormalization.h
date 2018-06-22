@@ -6,6 +6,8 @@
 
 #import <MPSNeuralNetwork/MPSCNNKernel.h>
 
+@class MPSNNNeuronDescriptor;
+
 @interface MPSCNNBatchNormalization : MPSCNNKernel
 {
     // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _gamma
@@ -14,6 +16,7 @@
     // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _varDS
     id <MPSCNNBatchNormalizationDataSource> _dataSource;
     _Bool _stateNeedsToLoad;
+    MPSNNNeuronDescriptor *_fusedNeuronDescriptor;
     float _epsilon;
     unsigned long long _numberOfFeatureChannels;
 }
@@ -26,8 +29,12 @@
 - (id)debugDescription;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
+- (void)reloadMeanAndVarianceWithCommandBuffer:(id)arg1 meanAndVarianceState:(id)arg2;
 - (void)reloadGammaAndBetaWithCommandBuffer:(id)arg1 gammaAndBetaState:(id)arg2;
+- (void)reloadMeanAndVarianceFromDataSource;
+- (void)reloadGammaAndBetaFromDataSource;
 - (void)reloadDataSource:(id)arg1;
+- (void)reloadDataSourceDeprecated:(id)arg1 doReloadWeights:(_Bool)arg2 doReloadStats:(_Bool)arg3;
 - (id)temporaryResultStateForCommandBuffer:(id)arg1 sourceImage:(id)arg2 sourceStates:(id)arg3 destinationImage:(id)arg4;
 - (id)resultStateForSourceImage:(id)arg1 sourceStates:(id)arg2 destinationImage:(id)arg3;
 - (void)dealloc;

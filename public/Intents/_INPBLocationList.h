@@ -6,36 +6,42 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBLocationList.h"
 
-@class NSMutableArray, PBUnknownFields, _INPBCondition;
+@class INCodableAttribute, NSArray, NSString, _INPBCondition;
 
-@interface _INPBLocationList : PBCodable <NSCopying>
+@interface _INPBLocationList : PBCodable <_INPBLocationList, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
+    struct _has;
     _INPBCondition *_condition;
-    NSMutableArray *_locations;
+    NSArray *_locations;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
 + (Class)locationType;
-+ (id)options;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
+@property(copy, nonatomic) NSArray *locations; // @synthesize locations=_locations;
 @property(retain, nonatomic) _INPBCondition *condition; // @synthesize condition=_condition;
-@property(retain, nonatomic) NSMutableArray *locations; // @synthesize locations=_locations;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(readonly, nonatomic) _Bool hasCondition;
 - (id)locationAtIndex:(unsigned long long)arg1;
-- (unsigned long long)locationsCount;
+@property(readonly, nonatomic) unsigned long long locationsCount;
 - (void)addLocation:(id)arg1;
 - (void)clearLocations;
+@property(readonly, nonatomic) _Bool hasCondition;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

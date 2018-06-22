@@ -6,20 +6,47 @@
 
 #import <PhotosGraph/PGGraphNode.h>
 
-#import "PGGraphPersonNode.h"
+#import "PGPersonResult.h"
 
-@class NSString;
+@class NSDate, NSString;
 
-@interface PGGraphPersonNode : PGGraphNode <PGGraphPersonNode>
+@interface PGGraphPersonNode : PGGraphNode <PGPersonResult>
 {
 }
 
+- (id)stringDescription;
+- (void)personEnumerateFriendsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)personEnumerateCoworkersUsingBlock:(CDUnknownBlockType)arg1;
+- (void)personEnumerateParentsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)personEnumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)personEnumeratePartnersUsingBlock:(CDUnknownBlockType)arg1;
+- (void)personEnumerateFamilyMembersUsingBlock:(CDUnknownBlockType)arg1;
+- (void)_personEnumerateNeighborNodesThroughEdgeWithLabel:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (_Bool)isFriend;
+- (_Bool)isCoworker;
+- (_Bool)isChild;
+- (_Bool)isPartner;
+- (_Bool)isFamilyMember;
+- (_Bool)_isLinkedWithEdgeLabel:(id)arg1 withMinimumConfidence:(float)arg2;
+@property(readonly) NSString *contactIdentifier;
+- (void)personEnumerateHomeOrWorkAddressNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)personEnumerateSocialGroupNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)personEnumerateMomentNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (id)personSocialGroupNodes;
+- (id)personMomentNodes;
+@property(readonly) NSDate *birthdayDate;
+- (_Bool)belongsToBestSocialGroups;
+@property(readonly) _Bool personIsUserCreated;
+- (_Bool)isMeNode;
+@property(readonly) NSString *localIdentifier;
+- (long long)compareToPerson:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly) _Bool personIsUserCreated; // @dynamic personIsUserCreated;
+@property(readonly, nonatomic) NSString *keywordDescription;
 @property(readonly) Class superclass;
+
 @end
 

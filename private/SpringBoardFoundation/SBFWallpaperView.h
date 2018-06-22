@@ -62,9 +62,6 @@
 @property(nonatomic) __weak id <SBFLegibilitySettingsProviderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)legibilitySettingsDidChange;
-@property(readonly, nonatomic) _Bool contrastRequiresGradient;
-- (_Bool)contrastRequiresTreatments;
-- (_Bool)luminanceInRectRequiresTreatments:(struct CGRect)arg1;
 - (void)_updateContentViewScale;
 - (void)_updateScaleFactor;
 - (void)_removeParallax;
@@ -90,7 +87,7 @@
 - (_Bool)_needsFallbackImageForBackdropGeneratedImage:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *variantCacheIdentifier;
 @property(readonly, copy, nonatomic) NSString *cacheGroup;
-- (id)_cacheKeyForParameters:(CDStruct_83077358)arg1 includingTint:(_Bool)arg2;
+- (id)_cacheKeyForParameters:(CDStruct_83077358)arg1 includingTint:(_Bool)arg2 downsampleFactor:(double)arg3;
 - (id)_imageForBackdropParameters:(CDStruct_83077358)arg1 includeTint:(_Bool)arg2;
 - (id)_blurredImage;
 - (void)_stopGeneratingBlurredImages;

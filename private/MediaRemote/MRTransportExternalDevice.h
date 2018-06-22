@@ -24,7 +24,7 @@
     NSDate *_connectionStateTimestamp;
     unsigned int _connectionState;
     unsigned int _connectionOptions;
-    unsigned int _cachedServerDisconnectError;
+    long long _cachedServerDisconnectError;
     unsigned long long _reconnectionAttemptCount;
     _Bool _forceReconnectOnConnectionFailure;
     _Bool _disconnecting;

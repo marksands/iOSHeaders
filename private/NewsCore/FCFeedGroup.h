@@ -9,7 +9,7 @@
 #import "FCFeedElement.h"
 #import "FCFeedGroupOutlining.h"
 
-@class FCColor, FCColorGradient, FCFeedDescriptor, FCFeedEdition, NSArray, NSDate, NSString, NTPBDiscoverMoreVideosInfo;
+@class FCColor, FCColorGradient, FCFeedDescriptor, FCFeedEdition, NSArray, NSDate, NSString, NTPBDiscoverMoreVideosInfo, NTPBSpecialEventsConfig;
 
 @interface FCFeedGroup : NSObject <FCFeedElement, FCFeedGroupOutlining>
 {
@@ -30,11 +30,13 @@
     NSArray *_videoPlaylistHeadlines;
     FCFeedDescriptor *_L2FeedDescriptor;
     FCFeedEdition *_edition;
+    NTPBSpecialEventsConfig *_specialEventsConfig;
 }
 
 + (id)_pbHeadlinesFromHeadlines:(id)arg1 sharedStringIndex:(id)arg2;
 + (id)pbGroupFromGroup:(id)arg1 sharedStringIndex:(id)arg2;
 @property(readonly, nonatomic) _Bool isFirstFromEdition; // @synthesize isFirstFromEdition=_isFirstFromEdition;
+@property(readonly, copy, nonatomic) NTPBSpecialEventsConfig *specialEventsConfig; // @synthesize specialEventsConfig=_specialEventsConfig;
 @property(readonly, copy, nonatomic) FCFeedEdition *edition; // @synthesize edition=_edition;
 @property(readonly, copy, nonatomic) FCFeedDescriptor *L2FeedDescriptor; // @synthesize L2FeedDescriptor=_L2FeedDescriptor;
 @property(readonly, copy, nonatomic) NSArray *videoPlaylistHeadlines; // @synthesize videoPlaylistHeadlines=_videoPlaylistHeadlines;
@@ -65,9 +67,10 @@
 - (id)copyWithEdition:(id)arg1 isFirst:(_Bool)arg2;
 - (id)copyWithMergeID:(unsigned long long)arg1;
 - (id)copyWithElements:(id)arg1;
+- (id)initWithGroupType:(long long)arg1 sourceIdentifier:(id)arg2 specialEventsConfig:(id)arg3 elements:(id)arg4 options:(unsigned long long)arg5;
 - (id)initWithGroupType:(long long)arg1 sourceIdentifier:(id)arg2 title:(id)arg3 subtitle:(id)arg4 titleColor:(id)arg5 backgroundGradient:(id)arg6 discoverMoreVideosInfo:(id)arg7 videoPlaylistHeadlines:(id)arg8 L2FeedDescriptor:(id)arg9 elements:(id)arg10 options:(unsigned long long)arg11;
 - (id)initWithIdentifier:(id)arg1 groupType:(long long)arg2 sourceIdentifier:(id)arg3 title:(id)arg4 subtitle:(id)arg5 titleColor:(id)arg6 backgroundGradient:(id)arg7 discoverMoreVideosInfo:(id)arg8 videoPlaylistHeadlines:(id)arg9 L2FeedDescriptor:(id)arg10 elements:(id)arg11 options:(unsigned long long)arg12;
-- (id)initWithIdentifier:(id)arg1 groupType:(long long)arg2 sourceIdentifier:(id)arg3 creationDate:(id)arg4 title:(id)arg5 subtitle:(id)arg6 titleColor:(id)arg7 backgroundGradient:(id)arg8 discoverMoreVideosInfo:(id)arg9 videoPlaylistHeadlines:(id)arg10 L2FeedDescriptor:(id)arg11 edition:(id)arg12 isFirstFromEdition:(_Bool)arg13 elements:(id)arg14 options:(unsigned long long)arg15 mergeID:(unsigned long long)arg16;
+- (id)initWithIdentifier:(id)arg1 groupType:(long long)arg2 sourceIdentifier:(id)arg3 creationDate:(id)arg4 title:(id)arg5 subtitle:(id)arg6 titleColor:(id)arg7 backgroundGradient:(id)arg8 discoverMoreVideosInfo:(id)arg9 videoPlaylistHeadlines:(id)arg10 L2FeedDescriptor:(id)arg11 specialEventsConfig:(id)arg12 edition:(id)arg13 isFirstFromEdition:(_Bool)arg14 elements:(id)arg15 options:(unsigned long long)arg16 mergeID:(unsigned long long)arg17;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

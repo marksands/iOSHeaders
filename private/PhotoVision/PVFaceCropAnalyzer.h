@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)analyzeFaceCrop:(id)arg1 withCVMLIntegration:(id)arg2 error:(id *)arg3;
++ (id)faceFromFaceCrop:(id)arg1 visionIntegration:(id)arg2 faceAlgorithmUmbrellaVersion:(unsigned int)arg3 createFaceTorsoprint:(_Bool)arg4 error:(id *)arg5;
 
 @end
 

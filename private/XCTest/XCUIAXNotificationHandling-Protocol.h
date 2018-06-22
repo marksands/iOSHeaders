@@ -9,6 +9,6 @@
 @class NSData;
 
 @protocol XCUIAXNotificationHandling <NSObject>
-- (void)handleAccessibilityNotification:(int)arg1 withPayload:(NSData *)arg2;
+- (void)handleAccessibilityNotification:(long long)arg1 withPayload:(NSData *)arg2;
 @end
 

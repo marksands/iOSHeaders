@@ -24,9 +24,11 @@
     UILabel *__simulatorLabel;
     NSMutableDictionary *__internalTrackedSubjectIndicatorsByIdentifier;
     NSMutableDictionary *__faceIndicators;
+    NSMutableDictionary *__internalMRCIndicatorViews;
 }
 
 + (Class)layerClass;
+@property(readonly, nonatomic) NSMutableDictionary *_internalMRCIndicatorViews; // @synthesize _internalMRCIndicatorViews=__internalMRCIndicatorViews;
 @property(readonly, nonatomic) NSMutableDictionary *_faceIndicators; // @synthesize _faceIndicators=__faceIndicators;
 @property(readonly, nonatomic) NSMutableDictionary *_internalTrackedSubjectIndicatorsByIdentifier; // @synthesize _internalTrackedSubjectIndicatorsByIdentifier=__internalTrackedSubjectIndicatorsByIdentifier;
 @property(nonatomic) int _exposureBiasSide; // @synthesize _exposureBiasSide=__exposureBiasSide;
@@ -50,6 +52,10 @@
 @property(readonly, nonatomic) NSDictionary *faceIndicatorsByIdentifier;
 - (struct CGPoint)pointForCaptureDevicePointOfInterest:(struct CGPoint)arg1;
 - (struct CGPoint)captureDevicePointOfInterestForPoint:(struct CGPoint)arg1;
+- (struct CGRect)mrcIndicatorFrameForMRCResult:(id)arg1;
+- (void)removeMRCIndicatorForIdentifier:(id)arg1;
+- (void)addMRCIndicator:(id)arg1 forIdentifier:(id)arg2;
+@property(readonly, nonatomic) NSDictionary *mrcIndicatorViews;
 - (struct CGRect)frameForSubjectIndicator:(id)arg1 andFaceResult:(id)arg2 useNominalSize:(_Bool)arg3;
 - (void)removeTrackedSubjectIndicatorForIdentifier:(long long)arg1;
 - (void)addTrackedSubjectIndicator:(id)arg1 forIdentifier:(long long)arg2;

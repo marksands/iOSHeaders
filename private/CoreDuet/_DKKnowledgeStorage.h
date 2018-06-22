@@ -12,7 +12,7 @@
 #import "_DKKnowledgeQuerying.h"
 #import "_DKKnowledgeSaving.h"
 
-@class NSHashTable, NSObject<OS_dispatch_queue>, NSString, NSURL, NSUUID, _DKCoreDataStorage, _DKPreferences;
+@class NSHashTable, NSObject<OS_dispatch_queue>, NSString, NSURL, NSUUID, _DKCoreDataStorage, _DKPreferences, _DKTombstonePolicy;
 
 @interface _DKKnowledgeStorage : NSObject <_DKCoreDataStorageDelegate, _DKKnowledgeEventStreamDeleting, _DKKnowledgeSaving, _DKKnowledgeDeleting, _DKKnowledgeQuerying>
 {
@@ -25,6 +25,7 @@
     NSUUID *_deviceUUID;
     _Bool _localOnly;
     _DKCoreDataStorage *_syncStorage;
+    _DKTombstonePolicy *_tombstonePolicy;
     _DKCoreDataStorage *_storage;
     _DKPreferences *_defaults;
 }
@@ -35,8 +36,14 @@
 @property(readonly, nonatomic) _DKPreferences *defaults; // @synthesize defaults=_defaults;
 @property(readonly, nonatomic) _DKCoreDataStorage *storage; // @synthesize storage=_storage;
 @property(readonly, nonatomic) _Bool localOnly; // @synthesize localOnly=_localOnly;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *executionQueue; // @synthesize executionQueue=_executionQueue;
+@property(retain) _DKTombstonePolicy *tombstonePolicy; // @synthesize tombstonePolicy=_tombstonePolicy;
 - (void).cxx_destruct;
 - (id)syncStorageAssertion;
+- (id)sourceDeviceIdentity;
+- (id)sourceDeviceIdentityFromObject:(id)arg1;
+- (id)_sourceDeviceIdentityFromDeviceID:(id)arg1;
+- (void)configureDeviceUUID;
 - (id)deviceUUID;
 - (void)decrementInsertsAndDeletesObserverCount;
 - (void)incrementInsertsAndDeletesObserverCount;
@@ -56,28 +63,36 @@
 - (_Bool)coreDataStorage:(id)arg1 shouldCallDelegateAfterAutoMigrationToManagedObjectModelHavingVersion:(unsigned long long)arg2;
 - (void)closeSyncStorage;
 - (void)closeStorage;
-- (unsigned long long)deleteAllEventsMatchingPredicate:(id)arg1 error:(id *)arg2;
-- (unsigned long long)deleteAllEventsInEventStream:(id)arg1 error:(id *)arg2;
 - (unsigned long long)deleteObjectsInEventStream:(id)arg1 ifNeededToLimitEventCount:(unsigned long long)arg2 batchLimit:(unsigned long long)arg3;
 - (unsigned long long)deleteObjectsInEventStreams:(id)arg1 olderThanDate:(id)arg2 limit:(unsigned long long)arg3;
 - (id)eventCountPerStreamName;
 - (unsigned long long)eventCount;
 - (unsigned long long)deleteOrphanedEntities;
-- (unsigned long long)deleteOldObjectsIfNeededToLimitTotalNumber:(unsigned long long)arg1 limit:(unsigned long long)arg2;
+- (unsigned long long)deleteOldObjectsIfNeededToLimitTotalNumber:(unsigned long long)arg1 excludingPredicate:(id)arg2 limit:(unsigned long long)arg3;
 - (unsigned long long)deleteEventsMatchingPredicate:(id)arg1 limit:(unsigned long long)arg2;
 - (unsigned long long)deleteEventsStartingEarlierThanDate:(id)arg1 limit:(unsigned long long)arg2;
-- (unsigned long long)deleteObjectsOlderThanDate:(id)arg1 limit:(unsigned long long)arg2;
+- (unsigned long long)deleteObjectsOlderThanDate:(id)arg1 excludingPredicate:(id)arg2 limit:(unsigned long long)arg3;
+- (id)_executeQuery:(id)arg1 error:(id *)arg2;
 - (id)executeQuery:(id)arg1 error:(id *)arg2;
 - (void)executeQuery:(id)arg1 responseQueue:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)executeQuery:(id)arg1 responseQueue:(id)arg2;
+- (unsigned long long)_deleteAllEventsMatchingPredicate:(id)arg1 error:(id *)arg2;
+- (unsigned long long)deleteAllEventsMatchingPredicate:(id)arg1 error:(id *)arg2;
+- (unsigned long long)deleteAllEventsInEventStream:(id)arg1 error:(id *)arg2;
+- (void)_tombstoneObjects:(id)arg1 error:(id *)arg2;
+- (void)_tombstoneObjectsMatchingPredicate:(id)arg1 batchSize:(unsigned long long)arg2 error:(id *)arg3;
+- (_Bool)_deleteObjects:(id)arg1 error:(id *)arg2;
 - (_Bool)deleteObjects:(id)arg1 error:(id *)arg2;
 - (void)deleteObjects:(id)arg1 responseQueue:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (_Bool)_saveObjects:(id)arg1 error:(id *)arg2;
 - (_Bool)saveObjects:(id)arg1 error:(id *)arg2;
 - (void)saveObjects:(id)arg1 responseQueue:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (void)_sendTombstoneNotificationsForRequirementIdentifiers:(id)arg1;
+- (void)_sendTombstoneNotificationsWithStreamNameCounts:(id)arg1;
 - (void)_sendEventsNotificationName:(id)arg1 withObjects:(id)arg2;
 - (void)_sendInsertEventsNotificationWithObjects:(id)arg1;
 - (id)errorForException:(id)arg1;
-- (void)handleNilArrayError:(CDUnknownBlockType)arg1 queue:(id)arg2;
+- (id)nilArrayError;
 - (id)removeBadObjects:(id)arg1;
 - (void)removeKnowledgeStorageEventNotificationDelegate:(id)arg1;
 - (void)addKnowledgeStorageEventNotificationDelegate:(id)arg1;
@@ -86,8 +101,16 @@
 @property(readonly, nonatomic) _DKCoreDataStorage *syncStorage; // @synthesize syncStorage=_syncStorage;
 - (id)syncStorageIfAvailable;
 - (id)initWithDirectory:(id)arg1 readOnly:(_Bool)arg2 localOnly:(_Bool)arg3;
+- (void)removeSyncPeer:(id)arg1;
+- (_Bool)saveSyncPeer:(id)arg1 error:(id *)arg2;
+- (id)syncPeersWithError:(id *)arg1;
+- (void)removeKeyValueObjectForKey:(id)arg1 domain:(id)arg2;
+- (void)setKeyValueObject:(id)arg1 forKey:(id)arg2 domain:(id)arg3;
+- (id)keyValueObjectForKey:(id)arg1 domain:(id)arg2;
+- (id)keyValueStoreForDomain:(id)arg1;
 - (_Bool)copyValueToManagedObject:(id)arg1;
-- (_Bool)updateDataAfterAutoMigrationToFinalVersionInPersistentStore:(id)arg1 error:(id *)arg2;
+- (_Bool)updateDataAfterAutoMigrationToVersion:(unsigned long long)arg1 inPersistentStore:(id)arg2 error:(id *)arg3;
+- (id)versionsRequiringManualMigration;
 @property(readonly, nonatomic) unsigned long long finalMigrationVersion;
 - (void)updateToFinalMetadata:(id)arg1;
 

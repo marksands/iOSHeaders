@@ -6,7 +6,7 @@
 
 #import <MapKit/MKAnnotationView.h>
 
-@class NSString, UIColor, UIImage, UIImageView, UILabel, _MKBezierPathView;
+@class NSString, UIColor, UIImage, UIImageView, UILabel, UIView, _MKBezierPathView;
 
 @interface MKMarkerAnnotationView : MKAnnotationView
 {
@@ -18,6 +18,7 @@
     UIImageView *_selectedGlyphImageView;
     UILabel *_selectedGlyphLabel;
     _MKBezierPathView *_selectedDotView;
+    UIView *_contentMaskView;
     _Bool _animatesWhenAdded;
     long long _titleVisibility;
     long long _subtitleVisibility;
@@ -48,7 +49,7 @@
 - (id)_effectiveTitleIsCollidable:(_Bool *)arg1;
 - (_Bool)isProvidingCustomFeature;
 - (_Bool)_shouldDeselectWhenDragged;
-- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)_setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setDragState:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (void)_configureAnimated:(_Bool)arg1 fromState:(long long)arg2 toState:(long long)arg3;
 - (void)_setupSelectedViewsIfNeededUsesCallout:(_Bool)arg1;
@@ -74,6 +75,7 @@
 - (id)_effectiveGlyphTintColorForState:(long long)arg1;
 - (id)_effectiveMarkerStrokeTintColorForState:(long long)arg1;
 - (double)_effectiveMarkerStrokeWidthForState:(long long)arg1;
+@property(retain, nonatomic) UIView *selectedContentView;
 - (double)_effectiveShadowAlphaForState:(long long)arg1;
 - (id)_effectiveMarkerTintColorForState:(long long)arg1;
 - (_Bool)canShowCallout;

@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class PKBarcodePassDetailViewController, PKPass, PKPassView;
+@class PKPass, PKPassView, UIViewController;
 
 @protocol WLCardViewDelegate <NSObject>
 
 @optional
-- (void)passView:(PKPassView *)arg1 didPresentPassDetailsViewController:(PKBarcodePassDetailViewController *)arg2;
-- (void)passView:(PKPassView *)arg1 willPresentPassDetailsViewController:(PKBarcodePassDetailViewController *)arg2;
+- (void)passView:(PKPassView *)arg1 didPresentPassDetailsViewController:(UIViewController *)arg2;
+- (void)passView:(PKPassView *)arg1 willPresentPassDetailsViewController:(UIViewController *)arg2;
 - (void)passViewDidEndAuthenticating:(PKPassView *)arg1;
 - (void)passViewDidBeginAuthenticating:(PKPassView *)arg1;
 - (void)passViewDidResize:(PKPassView *)arg1 animated:(_Bool)arg2;

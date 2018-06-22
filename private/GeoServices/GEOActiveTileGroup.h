@@ -16,7 +16,6 @@
     struct GEOTileSetRegion *_hybridUnavailableRegions;
     unsigned long long _hybridUnavailableRegionsCount;
     unsigned long long _hybridUnavailableRegionsSpace;
-    struct GEOMapLayersMetadata _mapLayersMetadata;
     CDStruct_95bda58d _activeScales;
     CDStruct_95bda58d _activeScenarios;
     NSString *_abExperimentURL;
@@ -26,6 +25,7 @@
     NSMutableArray *_announcementsSupportedLanguages;
     NSString *_announcementsURL;
     NSMutableArray *_attributions;
+    NSString *_authProxyURL;
     NSString *_backgroundDispatcherURL;
     NSString *_backgroundRevGeoURL;
     NSString *_batchReverseGeocoderURL;
@@ -36,6 +36,7 @@
     NSString *_directionsURL;
     NSString *_dispatcherURL;
     NSString *_etaURL;
+    NSData *_flyoverRegionVersions;
     NSMutableArray *_fontChecksums;
     NSMutableArray *_fonts;
     NSMutableArray *_iconChecksums;
@@ -45,9 +46,7 @@
     unsigned int _locationShiftVersion;
     NSString *_logMessageUsageURL;
     NSString *_logMessageUsageV3URL;
-    NSMutableArray *_mapLayers;
     unsigned int _modelVersion;
-    int _operationMode;
     NSString *_polyLocationShiftURL;
     NSString *_proactiveRoutingURL;
     NSString *_problemCategoriesURL;
@@ -79,14 +78,11 @@
     NSMutableArray *_xmlChecksums;
     NSMutableArray *_xmls;
     struct {
-        unsigned int mapLayersMetadata:1;
         unsigned int locationShiftVersion:1;
         unsigned int modelVersion:1;
-        unsigned int operationMode:1;
     } _has;
 }
 
-+ (Class)mapLayerType;
 + (Class)staleResourceType;
 + (Class)regionalResourceType;
 + (Class)activeResourceType;
@@ -107,16 +103,16 @@
 + (Class)attributionType;
 + (Class)resourceType;
 + (Class)tileSetType;
+@property(retain, nonatomic) NSData *flyoverRegionVersions; // @synthesize flyoverRegionVersions=_flyoverRegionVersions;
+@property(retain, nonatomic) NSString *authProxyURL; // @synthesize authProxyURL=_authProxyURL;
 @property(retain, nonatomic) NSString *wifiConnectionQualityProbeURL; // @synthesize wifiConnectionQualityProbeURL=_wifiConnectionQualityProbeURL;
 @property(retain, nonatomic) NSString *backgroundRevGeoURL; // @synthesize backgroundRevGeoURL=_backgroundRevGeoURL;
 @property(retain, nonatomic) NSString *bluePOIURL; // @synthesize bluePOIURL=_bluePOIURL;
 @property(retain, nonatomic) NSString *backgroundDispatcherURL; // @synthesize backgroundDispatcherURL=_backgroundDispatcherURL;
-@property(nonatomic) struct GEOMapLayersMetadata mapLayersMetadata; // @synthesize mapLayersMetadata=_mapLayersMetadata;
 @property(retain, nonatomic) NSString *proactiveRoutingURL; // @synthesize proactiveRoutingURL=_proactiveRoutingURL;
 @property(retain, nonatomic) NSString *logMessageUsageV3URL; // @synthesize logMessageUsageV3URL=_logMessageUsageV3URL;
 @property(retain, nonatomic) NSString *batchTrafficProbeURL; // @synthesize batchTrafficProbeURL=_batchTrafficProbeURL;
 @property(retain, nonatomic) NSString *realtimeTrafficProbeURL; // @synthesize realtimeTrafficProbeURL=_realtimeTrafficProbeURL;
-@property(retain, nonatomic) NSMutableArray *mapLayers; // @synthesize mapLayers=_mapLayers;
 @property(retain, nonatomic) GEODataSetDescription *dataSet; // @synthesize dataSet=_dataSet;
 @property(retain, nonatomic) NSMutableArray *staleResources; // @synthesize staleResources=_staleResources;
 @property(nonatomic) unsigned int modelVersion; // @synthesize modelVersion=_modelVersion;
@@ -177,23 +173,16 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasFlyoverRegionVersions;
+@property(readonly, nonatomic) _Bool hasAuthProxyURL;
 @property(readonly, nonatomic) _Bool hasWifiConnectionQualityProbeURL;
 @property(readonly, nonatomic) _Bool hasBackgroundRevGeoURL;
 @property(readonly, nonatomic) _Bool hasBluePOIURL;
 @property(readonly, nonatomic) _Bool hasBackgroundDispatcherURL;
-@property(nonatomic) _Bool hasMapLayersMetadata;
 @property(readonly, nonatomic) _Bool hasProactiveRoutingURL;
 @property(readonly, nonatomic) _Bool hasLogMessageUsageV3URL;
 @property(readonly, nonatomic) _Bool hasBatchTrafficProbeURL;
 @property(readonly, nonatomic) _Bool hasRealtimeTrafficProbeURL;
-- (int)StringAsOperationMode:(id)arg1;
-- (id)operationModeAsString:(int)arg1;
-@property(nonatomic) _Bool hasOperationMode;
-@property(nonatomic) int operationMode; // @synthesize operationMode=_operationMode;
-- (id)mapLayerAtIndex:(unsigned long long)arg1;
-- (unsigned long long)mapLayersCount;
-- (void)addMapLayer:(id)arg1;
-- (void)clearMapLayers;
 @property(readonly, nonatomic) _Bool hasDataSet;
 - (id)staleResourceAtIndex:(unsigned long long)arg1;
 - (unsigned long long)staleResourcesCount;
@@ -325,7 +314,13 @@
 - (void)addTileSet:(id)arg1;
 - (void)clearTileSets;
 - (void)dealloc;
-- (void)iterateActiveTileSetsWithAltitudeManifest:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (void)enumerateFlyoverRegions:(CDUnknownBlockType)arg1;
+- (unsigned int)dataVersionForFlyoverRegion:(unsigned int)arg1;
+- (_Bool)hasDataVersionForFlyoverRegion:(unsigned int)arg1;
+- (unsigned int)versionForFlyoverRegion:(unsigned int)arg1;
+- (id)_decodedFlyoverRegionVersions;
+- (void)_setDecodedFlyoverRegionVersions:(id)arg1;
+- (void)iterateActiveTileSets:(CDUnknownBlockType)arg1;
 - (id)regionalResourcesForMapRect:(CDStruct_90e2a262)arg1;
 - (unsigned int)largestRegionalResourceZoomLevelContainingTileKey:(const struct _GEOTileKey *)arg1;
 - (id)regionalResourceKeysForTileKey:(const struct _GEOTileKey *)arg1 scale:(int)arg2 scenarios:(id)arg3;

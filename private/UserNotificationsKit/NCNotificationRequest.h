@@ -19,8 +19,10 @@
     NSString *_threadIdentifier;
     NSString *_categoryIdentifier;
     NSSet *_subSectionIdentifiers;
+    NSString *_highestPrioritySubSectionIdentifier;
     NSArray *_peopleIdentifiers;
     NSString *_parentSectionIdentifier;
+    _Bool _uniqueThreadIdentifier;
     NSDate *_timestamp;
     NSSet *_requestDestinations;
     NCNotificationContent *_content;
@@ -84,8 +86,10 @@
 @property(readonly, nonatomic) NCNotificationContent *content; // @synthesize content=_content;
 @property(readonly, copy, nonatomic) NSSet *requestDestinations; // @synthesize requestDestinations=_requestDestinations;
 @property(readonly, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
+@property(readonly, nonatomic, getter=isUniqueThreadIdentifier) _Bool uniqueThreadIdentifier; // @synthesize uniqueThreadIdentifier=_uniqueThreadIdentifier;
 @property(readonly, copy, nonatomic) NSString *parentSectionIdentifier; // @synthesize parentSectionIdentifier=_parentSectionIdentifier;
 @property(readonly, copy, nonatomic) NSArray *peopleIdentifiers; // @synthesize peopleIdentifiers=_peopleIdentifiers;
+@property(readonly, copy, nonatomic) NSString *highestPrioritySubSectionIdentifier; // @synthesize highestPrioritySubSectionIdentifier=_highestPrioritySubSectionIdentifier;
 @property(readonly, copy, nonatomic) NSSet *subSectionIdentifiers; // @synthesize subSectionIdentifiers=_subSectionIdentifiers;
 @property(readonly, copy, nonatomic) NSString *categoryIdentifier; // @synthesize categoryIdentifier=_categoryIdentifier;
 @property(readonly, copy, nonatomic) NSString *threadIdentifier; // @synthesize threadIdentifier=_threadIdentifier;
@@ -101,6 +105,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+- (_Bool)matchesThreadForRequest:(id)arg1;
 - (_Bool)matchesRequest:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithNotificationRequest:(id)arg1;

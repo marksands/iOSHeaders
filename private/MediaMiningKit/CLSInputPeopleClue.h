@@ -23,7 +23,7 @@
 @property(nonatomic) __weak PHPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 - (void).cxx_destruct;
 - (_Bool)isEqualToClue:(id)arg1;
-- (id)_prepareOperation;
+- (void)_prepareWithProgressBlock:(CDUnknownBlockType)arg1;
 - (id)description;
 @property(retain, nonatomic) CLSPerson *person; // @synthesize person=_person;
 - (id)name;

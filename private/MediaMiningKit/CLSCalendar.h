@@ -11,6 +11,7 @@
 }
 
 + (id)localStartSeasonDateForLocalDate:(id)arg1;
++ (_Bool)supportsSeasonsWithLocale:(id)arg1;
 + (_Bool)currentLocaleSupportsSeasons;
 + (_Bool)isLastMonthOfSeasonForLocalDate:(id)arg1;
 + (_Bool)isMiddleMonthOfSeasonForLocalDate:(id)arg1;
@@ -43,9 +44,14 @@
 + (long long)yearForWeekOfYearFromDate:(id)arg1;
 + (long long)yearFromDate:(id)arg1;
 + (id)components:(unsigned long long)arg1 fromDate:(id)arg2;
++ (id)endOfWeekForDate:(id)arg1;
++ (id)startOfWeekForDate:(id)arg1;
++ (id)endOfDayForDate:(id)arg1;
 + (id)startOfDayForDate:(id)arg1;
 + (id)dateBySettingYear:(long long)arg1 ofDate:(id)arg2;
++ (id)localDateFromUniversalDate:(id)arg1;
 + (id)localDateFromUniversalDate:(id)arg1 inTimeZone:(id)arg2;
++ (id)universalDateFromLocalDate:(id)arg1;
 + (id)universalDateFromLocalDate:(id)arg1 inTimeZone:(id)arg2;
 + (id)localDateFromUniversalDate:(id)arg1 atLocation:(id)arg2;
 + (id)universalDateFromLocalDate:(id)arg1 atLocation:(id)arg2;

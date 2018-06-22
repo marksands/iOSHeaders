@@ -29,6 +29,8 @@ __attribute__((visibility("hidden")))
     VCAudioRelay *_relay;
     struct AudioStreamBasicDescription _format;
     unsigned int _samplesPerFrame;
+    struct _VCAudioIOControllerIOState _sinkData;
+    struct _VCAudioIOControllerIOState _sourceData;
 }
 
 + (id)sharedInstanceSafeViewClientFacing;
@@ -49,6 +51,7 @@ __attribute__((visibility("hidden")))
 - (void)addStartingClient:(id)arg1 controllerFormat:(struct AudioStreamBasicDescription *)arg2;
 - (_Bool)statePrepareWithNegotiatedFormat:(struct AudioStreamBasicDescription *)arg1 client:(id)arg2 newState:(unsigned int *)arg3;
 - (_Bool)stateIdleWithNegotiatedFormat:(struct AudioStreamBasicDescription *)arg1 client:(id)arg2 newState:(unsigned int *)arg3;
+- (void)resetAudioTimestamps;
 - (id)newRelayIOWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)startRelayIO:(id)arg1;
 - (void)computeFormat:(struct AudioStreamBasicDescription *)arg1 newClient:(id)arg2;

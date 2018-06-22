@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSObject<OS_os_log>, PGGeoServiceThread;
+@class CLSGeoServiceThread, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSObject<OS_os_log>;
 
 @interface CLSQueryHandler : NSObject
 {
@@ -22,7 +22,7 @@
     _Bool _simulatesTimeout;
     CDUnknownBlockType _progressBlock;
     CDUnknownBlockType _completionBlock;
-    PGGeoServiceThread *_geoServiceThread;
+    CLSGeoServiceThread *_geoServiceThread;
     double _timeoutInterval;
     double _numberOfRetries;
 }
@@ -30,7 +30,7 @@
 @property(nonatomic) double numberOfRetries; // @synthesize numberOfRetries=_numberOfRetries;
 @property(nonatomic) double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
 @property(nonatomic, getter=isSimulatingTimeout) _Bool simulatesTimeout; // @synthesize simulatesTimeout=_simulatesTimeout;
-@property(retain, nonatomic) PGGeoServiceThread *geoServiceThread; // @synthesize geoServiceThread=_geoServiceThread;
+@property(retain, nonatomic) CLSGeoServiceThread *geoServiceThread; // @synthesize geoServiceThread=_geoServiceThread;
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
 @property(copy, nonatomic) CDUnknownBlockType progressBlock; // @synthesize progressBlock=_progressBlock;
 - (void).cxx_destruct;

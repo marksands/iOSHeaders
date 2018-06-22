@@ -77,6 +77,7 @@
 - (void)_repairCloudAccountWithAuthenticationResults:(id)arg1;
 - (void)_attemptAuthenticationWithContext:(id)arg1;
 - (void)_attemptAuthentication;
+- (void)_prewarmSignInFlowIfApplicable;
 - (void)_presentForgotAppleIDPane;
 - (void)_presentCreateAppleIDPane;
 - (void)_actionButtonSelected:(id)arg1;

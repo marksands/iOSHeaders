@@ -10,7 +10,9 @@
 {
 }
 
-+ (id)pipelineFiltersForShowingOriginal;
++ (id)pipelineFiltersForRAWShowingOriginalWithGeometry;
++ (id)pipelineFiltersForShowingOriginalWithGeometry;
++ (id)pipelineFiltersForOriginalGeometry;
 + (id)pipelineFiltersForCropping;
 + (id)filterNameForEffectName:(id)arg1;
 + (id)effectNameForFilterName:(id)arg1;
@@ -20,6 +22,7 @@
 + (void)removeAssetIdentifierFromMetadataArray:(id)arg1;
 + (void)addAssetIdentifier:(id)arg1 toMetadataArray:(id)arg2;
 + (void)addAssetIdentifier:(id)arg1 toMetadataDictionary:(id)arg2;
++ (id)portraitEffectsMatteRenderRequestWithComposition:(id)arg1;
 + (id)depthDataRenderRequestWithComposition:(id)arg1;
 + (id)imageExportRequestWithComposition:(id)arg1 format:(id)arg2 wideGamut:(_Bool)arg3;
 + (id)newJPEGExportFormatWithCompressionQuality:(double)arg1;

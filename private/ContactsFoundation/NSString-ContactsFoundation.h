@@ -7,7 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (ContactsFoundation)
-+ (id)_cn_LTRControlCharacters;
 + (_Bool)_cn_isBlank:(id)arg1;
 - (id)_cn_resultWithAllCharacters:(CDUnknownBlockType)arg1;
 - (id)_cn_take:(unsigned long long)arg1;

@@ -6,11 +6,10 @@
 
 #import "UITableViewCell.h"
 
-@class HLPHelpItem, HLPURLSession, NSLayoutConstraint, UIImageView, UILabel;
+@class HLPHelpItem, NSLayoutConstraint, TPSURLSessionItem, UIImageView, UILabel;
 
 @interface HLPHelpTableOfContentCell : UITableViewCell
 {
-    HLPURLSession *_sectionImageURLSession;
     NSLayoutConstraint *_arrowImageViewLeadingConstraint;
     NSLayoutConstraint *_arrowImageViewWidthConstraint;
     NSLayoutConstraint *_sectionImageWidthConstraint;
@@ -23,8 +22,10 @@
     UILabel *_nameLabel;
     UIImageView *_arrowImageView;
     UIImageView *_sectionImageView;
+    TPSURLSessionItem *_sectionImageURLSessionItem;
 }
 
+@property(retain, nonatomic) TPSURLSessionItem *sectionImageURLSessionItem; // @synthesize sectionImageURLSessionItem=_sectionImageURLSessionItem;
 @property(retain, nonatomic) UIImageView *sectionImageView; // @synthesize sectionImageView=_sectionImageView;
 @property(retain, nonatomic) UIImageView *arrowImageView; // @synthesize arrowImageView=_arrowImageView;
 @property(retain, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
@@ -36,10 +37,12 @@
 - (void).cxx_destruct;
 - (id)accessibilityLabel;
 - (void)updateToggleImageAnimated:(_Bool)arg1;
+- (struct CGAffineTransform)arrowTransform;
 - (void)toggle;
 - (long long)itemLevel;
 - (void)updateConstraints;
 - (void)layoutSubviews;
+- (void)cancelIconRequest;
 - (void)prepareForReuse;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 - (void)dealloc;

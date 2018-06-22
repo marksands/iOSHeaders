@@ -12,12 +12,16 @@ __attribute__((visibility("hidden")))
     struct CPUColorCube _colorCube;
     struct CPUColorCube _tempColorCube;
     // Error parsing type: {MetalFaceMaskCubeInputScaling_t="offset""scale"}, name: _inputScalingForCube
-    int _dilateRadius;
-    int _erodeRadius;
+    int _lumaDilateRadius;
+    int _lumaErodeRadius;
+    int _chromaDilateRadius;
+    int _chromaErodeRadius;
 }
 
-@property(nonatomic) int erodeRadius; // @synthesize erodeRadius=_erodeRadius;
-@property(nonatomic) int dilateRadius; // @synthesize dilateRadius=_dilateRadius;
+@property(nonatomic) int chromaErodeRadius; // @synthesize chromaErodeRadius=_chromaErodeRadius;
+@property(nonatomic) int chromaDilateRadius; // @synthesize chromaDilateRadius=_chromaDilateRadius;
+@property(nonatomic) int lumaErodeRadius; // @synthesize lumaErodeRadius=_lumaErodeRadius;
+@property(nonatomic) int lumaDilateRadius; // @synthesize lumaDilateRadius=_lumaDilateRadius;
 - (int)drawEyeMaskUsingQuads:(struct MetalFaceMaskEyeQuads_t *)arg1 OutputMask:(char *)arg2 OutputBytesPerRow:(unsigned long long)arg3 OutputRegion:(struct CGRect)arg4;
 - (int)findToothMaskUsingInputImage:(const char *)arg1 InputBytesPerRow:(unsigned long long)arg2 InputRegion:(struct CGRect)arg3 OutputMask:(char *)arg4 OutputBytesPerRow:(unsigned long long)arg5 OutputRegion:(struct CGRect)arg6 TeethBounds:(struct CGRect)arg7 SeedPoints:(struct CGPoint *)arg8 NumberOfSeedPoints:(unsigned long long)arg9 FillValue:(unsigned char)arg10;
 - (int)findSkinMaskUsingInputImage:(const char *)arg1 InputBytesPerRow:(unsigned long long)arg2 InputRegion:(struct CGRect)arg3 OutputMask:(char *)arg4 OutputBytesPerRow:(unsigned long long)arg5 OutputRegion:(struct CGRect)arg6 FaceBounds:(struct CGRect)arg7 SeedPoints:(struct CGPoint *)arg8 NumberOfSeedPoints:(unsigned long long)arg9 FillValue:(unsigned char)arg10;

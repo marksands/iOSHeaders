@@ -10,7 +10,7 @@
 #import "SUScriptModalDialogDelegate.h"
 #import "SUScriptXMLHTTPRequestDelegate.h"
 
-@class NSArray, NSMutableDictionary, NSMutableSet, NSNumber, NSObject<OS_dispatch_queue>, NSString, SFSafariViewController, SSAuthenticationContext, SUClientInterface, SUScriptAccount, SUScriptAccountManager, SUScriptAppleAccountStore, SUScriptApplication, SUScriptCarrierBundlingController, SUScriptDevice, SUScriptDictionary, SUScriptFairPlayContext, SUScriptKeyValueStore, SUScriptMediaLibrary, SUScriptMetricsController, SUScriptNavigationBar, SUScriptNotificationObserver, SUScriptOperationDelegate, SUScriptPassbookLibrary, SUScriptPreviewOverlay, SUScriptProtocol, SUScriptPurchaseManager, SUScriptSectionsController, SUScriptStoreBagLoader, SUScriptSubscriptionStatusCoordinator, SUScriptTelephony, SUScriptViewController, SUScriptWindow, SUScriptWindowContext, WebFrame;
+@class NSArray, NSMutableDictionary, NSMutableSet, NSNumber, NSObject<OS_dispatch_queue>, NSString, SFSafariViewController, SSAuthenticationContext, SUClientInterface, SUScriptAccount, SUScriptAccountManager, SUScriptAppleAccountStore, SUScriptApplication, SUScriptCarrierBundlingController, SUScriptDevice, SUScriptDictionary, SUScriptFairPlayContext, SUScriptKeyValueStore, SUScriptMediaLibrary, SUScriptMetricsController, SUScriptNavigationBar, SUScriptNavigationSimulator, SUScriptNotificationObserver, SUScriptOperationDelegate, SUScriptPassbookLibrary, SUScriptPreviewOverlay, SUScriptProtocol, SUScriptPurchaseManager, SUScriptSectionsController, SUScriptStoreBagLoader, SUScriptSubscriptionStatusCoordinator, SUScriptTelephony, SUScriptViewController, SUScriptWindow, SUScriptWindowContext, WebFrame;
 
 @interface SUScriptInterface : SUScriptObject <SUScriptModalDialogDelegate, SUScriptXMLHTTPRequestDelegate, SFSafariViewControllerDelegate>
 {
@@ -36,6 +36,7 @@
     id _threadSafeDelegate;
     NSObject<OS_dispatch_queue> *_hsaTokenQueue;
     struct __CFString *_hsaCurrentIdentifier;
+    SUScriptNavigationSimulator *_navigationSimulator;
     NSString *_safariViewControllerIdentifier;
     NSNumber *_safariDismissButtonStyle;
     SFSafariViewController *_safariViewController;
@@ -84,18 +85,22 @@
 @property(readonly) long long storeSheetTypeDefault;
 @property(readonly) NSString *safariViewControllerIdentifierQueryParameterName;
 @property(readonly) NSString *userAgent;
+@property(readonly) NSString *tidState;
 @property(readonly) SUScriptDictionary *tidHeaders;
 @property(readonly) long long storeSheetType;
 @property(readonly) NSString *storeFrontIdentifier;
 - (void)setUserAgent:(id)arg1;
+- (void)setTidState:(id)arg1;
 - (void)setTidHeaders:(id)arg1;
 - (void)setStoreFrontIdentifier:(id)arg1;
+- (void)setNavigationSimulator:(id)arg1;
 - (void)setNavigationBar:(id)arg1;
 - (void)setSafariViewControllerDismissButtonStyle:(id)arg1;
 - (void)setReferringUserAgent:(id)arg1;
 - (void)setReferrerURL:(id)arg1;
 - (void)setOrientation:(id)arg1;
 - (void)setLoggingEnabled:(id)arg1;
+- (void)setGsToken:(id)arg1;
 - (void)setGlobalRootObject:(id)arg1;
 - (void)setCookieForDefaultURL:(id)arg1;
 - (void)setCookieDefaultURL:(id)arg1;
@@ -107,11 +112,14 @@
 @property(readonly) NSString *referringUserAgent;
 @property(readonly) NSString *referrerURL;
 @property(readonly) NSNumber *orientation;
+@property(readonly) SUScriptNavigationSimulator *navigationSimulator;
 @property(readonly) SUScriptNavigationBar *navigationBar;
 - (id)makeXMLHTTPRequest;
 @property(readonly) id loggingEnabled;
+@property(readonly) NSString *gsToken;
 @property(readonly) id globalRootObject;
 @property(readonly) NSString *deviceSerialNumber;
+@property(readonly) NSArray *deviceOffers;
 @property(readonly) id creditCardReaderAvailable;
 @property(readonly) NSString *cookieForDefaultURL;
 @property(readonly) NSString *cookieDefaultURL;
@@ -142,6 +150,7 @@
 - (id)machineGUID;
 - (void)log:(id)arg1;
 - (void)handleDialogPropertyListString:(id)arg1;
+- (void)financeInterruptionResolved:(id)arg1;
 - (void)dispatchXEvent:(id)arg1;
 - (void)dispatchGlobalEventWithName:(id)arg1 payload:(id)arg2;
 - (void)openFamilyCircleSetupWithClientName:(id)arg1 completionFunction:(id)arg2;

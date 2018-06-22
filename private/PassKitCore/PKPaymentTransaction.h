@@ -64,6 +64,7 @@
     NSString *_secondaryFundingSourceDescription;
     NSUUID *_requestDeviceScoreIdentifier;
     NSUUID *_sendDeviceScoreIdentifier;
+    NSString *_merchantProvidedDescription;
     NSDictionary *_metadata;
     long long _transactionStatus;
     long long _transactionType;
@@ -91,6 +92,7 @@
 @property(nonatomic) _Bool processedForLocation; // @synthesize processedForLocation=_processedForLocation;
 @property(nonatomic) _Bool isCloudKitArchived; // @synthesize isCloudKitArchived=_isCloudKitArchived;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
+@property(copy, nonatomic) NSString *merchantProvidedDescription; // @synthesize merchantProvidedDescription=_merchantProvidedDescription;
 @property(nonatomic) _Bool deviceScoreIdentifiersSubmitted; // @synthesize deviceScoreIdentifiersSubmitted=_deviceScoreIdentifiersSubmitted;
 @property(nonatomic) _Bool deviceScoreIdentifiersRequired; // @synthesize deviceScoreIdentifiersRequired=_deviceScoreIdentifiersRequired;
 @property(copy, nonatomic) NSUUID *sendDeviceScoreIdentifier; // @synthesize sendDeviceScoreIdentifier=_sendDeviceScoreIdentifier;
@@ -155,7 +157,9 @@
 @property(nonatomic) long long peerPaymentStatus;
 @property(retain, nonatomic) CLLocation *location;
 @property(readonly, nonatomic) __weak NSString *displayLocation;
+- (unsigned long long)itemType;
 - (id)recordTypesAndNames;
+- (void)encodeServerAndDeviceDataWithCloudStoreCoder:(id)arg1;
 - (void)encodeWithCloudStoreCoder:(id)arg1;
 - (id)initWithCloudStoreCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

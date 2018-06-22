@@ -6,16 +6,19 @@
 
 #import <PhotosGraph/PGCurationTrait.h>
 
-@class NSIndexSet;
+@class NSDictionary, NSIndexSet;
 
 @interface PGCurationIndexSetTrait : PGCurationTrait
 {
     NSIndexSet *_indexSet;
+    NSDictionary *_thresholdByIdentifier;
 }
 
+@property(retain, nonatomic) NSDictionary *thresholdByIdentifier; // @synthesize thresholdByIdentifier=_thresholdByIdentifier;
 @property(readonly, nonatomic) NSIndexSet *indexSet; // @synthesize indexSet=_indexSet;
 - (void).cxx_destruct;
 - (id)debugDescription;
+- (double)thresholdForSceneIdentifier:(unsigned int)arg1;
 - (_Bool)isActive;
 - (id)initWithIndexSet:(id)arg1;
 

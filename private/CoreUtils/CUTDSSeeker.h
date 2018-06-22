@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, NSString;
+@class NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CUTDSSeeker : NSObject
 {
-    struct NSMutableSet *_endpoints;
     _Bool _invalidateCalled;
     struct LogCategory *_ucat;
     _Bool _passive;
@@ -22,10 +21,12 @@
     CDUnknownBlockType _invalidationHandler;
     NSString *_label;
     NSString *_serviceType;
+    struct NSMutableSet *_endpoints;
     unsigned long long _tdsHashSeek;
 }
 
 @property(nonatomic) unsigned long long tdsHashSeek; // @synthesize tdsHashSeek=_tdsHashSeek;
+@property(retain, nonatomic) NSMutableSet *endpoints; // @synthesize endpoints=_endpoints;
 @property(copy, nonatomic) NSString *serviceType; // @synthesize serviceType=_serviceType;
 @property(nonatomic) _Bool passive; // @synthesize passive=_passive;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;

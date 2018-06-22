@@ -30,10 +30,13 @@ __attribute__((visibility("hidden")))
 - (_Bool)prepareForPerformingRequestsOfClass:(id)arg1 error:(id *)arg2;
 - (id)previousSequencedObservationsForRequest:(id)arg1;
 - (void)recordSequencedObservationsForRequest:(id)arg1;
+- (_Bool)performDependentRequests:(id)arg1 inContext:(id)arg2 error:(id *)arg3;
 - (_Bool)performRequests:(id)arg1 inContext:(id)arg2 error:(id *)arg3;
+- (_Bool)_performOrderedRequests:(id)arg1 inContext:(id)arg2 error:(id *)arg3;
 - (void)dealloc;
 - (id)init;
 - (id)_orderedRequestsForRequests:(id)arg1;
+- (id)_dependancyAnalyzedRequestsForRequests:(id)arg1;
 - (_Bool)_validateAndPrepareRequests:(id)arg1 error:(id *)arg2;
 
 @end

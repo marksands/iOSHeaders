@@ -28,7 +28,6 @@
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)middlewareClasses;
-- (id)performWithCompletion:(CDUnknownBlockType)arg1;
 - (id)description;
 - (id)init;
 

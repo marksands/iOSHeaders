@@ -168,7 +168,7 @@
 - (_Bool)isOpenForClient:(id)arg1;
 - (void)closeForClient:(id)arg1;
 - (void)openForClient:(id)arg1;
-- (id)init;
+- (id)initPrivate;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

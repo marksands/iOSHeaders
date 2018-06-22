@@ -8,6 +8,7 @@
 
 @class PUImageDataRenderNode, PUPhotoEditIrisModel, PUPhotoKitImageDataNode;
 
+__attribute__((visibility("hidden")))
 @interface PUPhotoKitAdjustmentSaveNode : PXRunNode
 {
     _Bool _success;

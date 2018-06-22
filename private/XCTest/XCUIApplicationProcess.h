@@ -17,9 +17,7 @@
     id _token;
     int _exitCode;
     _Bool _eventLoopHasIdled;
-    _Bool _hasReceivedEventLoopHasIdled;
     _Bool _animationsHaveFinished;
-    _Bool _hasReceivedAnimationsHaveFinished;
     _Bool _hasExitCode;
     _Bool _hasCrashReport;
     XCUIApplicationImpl *_applicationImplementation;
@@ -46,9 +44,10 @@
 - (void)acquireBackgroundAssertion;
 - (void)waitForAutomationSession;
 - (void)waitForQuiescenceIncludingAnimationsIdle:(_Bool)arg1;
-@property _Bool hasReceivedAnimationsHaveFinished;
+- (void)_notifyWhenAnimationsAreIdle:(CDUnknownBlockType)arg1;
+- (_Bool)_supportsAnimationsIdleNotifications;
+- (void)_notifyWhenMainRunLoopIsIdle:(CDUnknownBlockType)arg1;
 @property _Bool animationsHaveFinished;
-@property _Bool hasReceivedEventLoopHasIdled;
 @property _Bool eventLoopHasIdled;
 @property int exitCode;
 @property(retain) id token;

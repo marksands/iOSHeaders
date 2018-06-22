@@ -20,8 +20,9 @@
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) double temperature; // @synthesize temperature=_temperature;
-@property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(nonatomic) CDStruct_31142d93 acceleration; // @synthesize acceleration=_acceleration;
+@property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

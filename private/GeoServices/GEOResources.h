@@ -10,7 +10,6 @@
 
 @class GEOVersionManifest, NSMutableArray, NSString, PBUnknownFields;
 
-__attribute__((visibility("hidden")))
 @interface GEOResources : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
@@ -20,6 +19,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_announcementsSupportedLanguages;
     NSString *_announcementsURL;
     NSMutableArray *_attributions;
+    NSString *_authProxyURL;
     NSString *_authToken;
     NSString *_backgroundDispatcherURL;
     NSString *_backgroundRevGeoURL;
@@ -89,6 +89,7 @@ __attribute__((visibility("hidden")))
 + (Class)styleSheetType;
 + (Class)tileSetType;
 + (Class)tileGroupType;
+@property(retain, nonatomic) NSString *authProxyURL; // @synthesize authProxyURL=_authProxyURL;
 @property(retain, nonatomic) NSString *wifiConnectionQualityProbeURL; // @synthesize wifiConnectionQualityProbeURL=_wifiConnectionQualityProbeURL;
 @property(retain, nonatomic) NSString *backgroundRevGeoURL; // @synthesize backgroundRevGeoURL=_backgroundRevGeoURL;
 @property(retain, nonatomic) NSString *bluePOIDispatcherURL; // @synthesize bluePOIDispatcherURL=_bluePOIDispatcherURL;
@@ -150,6 +151,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasAuthProxyURL;
 @property(readonly, nonatomic) _Bool hasWifiConnectionQualityProbeURL;
 @property(readonly, nonatomic) _Bool hasBackgroundRevGeoURL;
 @property(readonly, nonatomic) _Bool hasBluePOIDispatcherURL;

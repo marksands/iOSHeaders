@@ -11,6 +11,7 @@
 
 @class AEGridOverlayConfiguration, NSString;
 
+__attribute__((visibility("hidden")))
 @interface AEGridOverlayView : UIView <PXUIViewBasicTile, PXReusableObject>
 {
     AEGridOverlayConfiguration *_overlayConfiguration;

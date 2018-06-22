@@ -16,10 +16,13 @@
     _Bool _isBlurry;
     _Bool _isScreenshot;
     _Bool _isFavorite;
-    _Bool _clsIsSDOF;
-    _Bool _clsIsHDR;
-    float _clsSharpnessScore;
-    float _clsExposureScore;
+    _Bool _clsIsAnInterestingVideo;
+    _Bool _clsIsAnInterestingPhoto;
+    _Bool _clsIsAnInterestingPanorama;
+    _Bool _clsIsAnInterestingSDOF;
+    _Bool _clsIsAnInterestingHDR;
+    _Bool _clsIsAestheticallyPrettyGood;
+    NSString *_clsIdentifier;
     NSDate *_clsDate;
     CLLocation *_clsLocation;
     NSArray *_clsPeopleNames;
@@ -30,15 +33,27 @@
     NSData *_clsDistanceIdentity;
     NSSet *_clsSceneClassifications;
     NSArray *_clsUnprefetchedPeopleNames;
+    double _clsSharpnessScore;
+    double _clsExposureScore;
+    double _clsAestheticScore;
+    long long _clsSmileCount;
+    long long _clsBlinkCount;
 }
 
 + (id)contextForItems:(id)arg1;
 + (id)itemWithUniversalDate:(id)arg1 sceneClassifications:(id)arg2;
 + (id)itemWithPeopleNames:(id)arg1 universalDate:(id)arg2 coordinate:(struct CLLocationCoordinate2D)arg3;
-@property(readonly, nonatomic) float clsExposureScore; // @synthesize clsExposureScore=_clsExposureScore;
-@property(readonly, nonatomic) float clsSharpnessScore; // @synthesize clsSharpnessScore=_clsSharpnessScore;
-@property(readonly, nonatomic) _Bool clsIsHDR; // @synthesize clsIsHDR=_clsIsHDR;
-@property(readonly, nonatomic) _Bool clsIsSDOF; // @synthesize clsIsSDOF=_clsIsSDOF;
+@property(readonly, nonatomic) long long clsBlinkCount; // @synthesize clsBlinkCount=_clsBlinkCount;
+@property(readonly, nonatomic) long long clsSmileCount; // @synthesize clsSmileCount=_clsSmileCount;
+@property(readonly, nonatomic) _Bool clsIsAestheticallyPrettyGood; // @synthesize clsIsAestheticallyPrettyGood=_clsIsAestheticallyPrettyGood;
+@property(readonly, nonatomic) double clsAestheticScore; // @synthesize clsAestheticScore=_clsAestheticScore;
+@property(readonly, nonatomic) double clsExposureScore; // @synthesize clsExposureScore=_clsExposureScore;
+@property(readonly, nonatomic) double clsSharpnessScore; // @synthesize clsSharpnessScore=_clsSharpnessScore;
+@property(readonly, nonatomic) _Bool clsIsInterestingHDR; // @synthesize clsIsInterestingHDR=_clsIsAnInterestingHDR;
+@property(readonly, nonatomic) _Bool clsIsInterestingSDOF; // @synthesize clsIsInterestingSDOF=_clsIsAnInterestingSDOF;
+@property(readonly, nonatomic) _Bool clsIsInterestingPanorama; // @synthesize clsIsInterestingPanorama=_clsIsAnInterestingPanorama;
+@property(readonly, nonatomic) _Bool clsIsInterestingLivePhoto; // @synthesize clsIsInterestingLivePhoto=_clsIsAnInterestingPhoto;
+@property(readonly, nonatomic) _Bool clsIsInterestingVideo; // @synthesize clsIsInterestingVideo=_clsIsAnInterestingVideo;
 @property(readonly, nonatomic) NSArray *clsUnprefetchedPeopleNames; // @synthesize clsUnprefetchedPeopleNames=_clsUnprefetchedPeopleNames;
 @property(copy, nonatomic) NSSet *clsSceneClassifications; // @synthesize clsSceneClassifications=_clsSceneClassifications;
 @property(readonly, nonatomic) NSData *clsDistanceIdentity; // @synthesize clsDistanceIdentity=_clsDistanceIdentity;
@@ -53,7 +68,10 @@
 @property(retain, nonatomic) NSArray *clsPeopleNames; // @synthesize clsPeopleNames=_clsPeopleNames;
 @property(retain, nonatomic) CLLocation *clsLocation; // @synthesize clsLocation=_clsLocation;
 @property(retain, nonatomic) NSDate *clsDate; // @synthesize clsDate=_clsDate;
+@property(readonly, nonatomic) NSString *clsIdentifier; // @synthesize clsIdentifier=_clsIdentifier;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) CLLocation *pl_location;
+@property(readonly, nonatomic) NSDate *pl_date;
 - (double)scoreWithContext:(id)arg1;
 - (struct CGImage *)createThumbnailWithResolution:(unsigned long long)arg1 fillMode:(_Bool)arg2 networkAllowed:(_Bool)arg3;
 @property(readonly, nonatomic) NSDateComponents *dateComponents;
@@ -63,6 +81,7 @@
 @property(readonly, nonatomic) NSArray *peopleNames;
 @property(readonly, nonatomic) CLLocation *location;
 @property(readonly, nonatomic) NSDate *date;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

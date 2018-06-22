@@ -25,6 +25,7 @@
 - (void)setVisualCodeType:(long long)arg1;
 @property(readonly, nonatomic) long long visualCodeType;
 - (id)initWithVisualCodeType:(long long)arg1;
+- (void)_setMetadata:(id)arg1;
 - (id)_metadata;
 - (id)_typedBackingStore;
 

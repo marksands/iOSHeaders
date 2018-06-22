@@ -47,8 +47,10 @@
     long long _activeSectionIndex;
     SUPageSectionGroup *_sectionsGroup;
     SUSegmentedControl *_segmentedControl;
+    _Bool _didPageViewLoad;
 }
 
+@property(nonatomic) _Bool didPageViewLoad; // @synthesize didPageViewLoad=_didPageViewLoad;
 @property(nonatomic) _Bool canMoveToOverlay; // @synthesize canMoveToOverlay=_canMoveToOverlay;
 @property(readonly, nonatomic) SUSegmentedControl *sectionSegmentedControl; // @synthesize sectionSegmentedControl=_segmentedControl;
 @property(readonly, nonatomic) SUPageSectionGroup *sectionGroup; // @synthesize sectionGroup=_sectionsGroup;
@@ -63,7 +65,6 @@
 - (void)setShouldAdjustContentOffsets:(_Bool)arg1;
 - (_Bool)shouldAdjustContentOffsets;
 @property(readonly, nonatomic) SUViewController *activeChildViewController; // @synthesize activeChildViewController=_activeChildViewController;
-- (void)_reloadContentInsets;
 - (void)_verifyStorePageProtocol:(id)arg1;
 - (void)_tearDownNavigationMenu;
 - (void)_showPlaceholderViewControllerWithTearDown:(_Bool)arg1;
@@ -137,7 +138,6 @@
 - (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
-- (void)viewWillLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (_Bool)viewIsReady;

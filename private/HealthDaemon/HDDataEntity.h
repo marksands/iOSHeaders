@@ -24,7 +24,6 @@
 + (_Bool)acceptsObject:(id)arg1;
 + (id)entityEncoderForProfile:(id)arg1 database:(id)arg2 purpose:(long long)arg3 encodingOptions:(id)arg4 authorizationFilter:(CDUnknownBlockType)arg5;
 + (CDUnknownBlockType)objectInsertionFilterForProfile:(id)arg1;
-+ (void)didDeleteEntityWithPersistentID:(long long)arg1 database:(id)arg2;
 + (_Bool)participatesInInsertion;
 + (_Bool)isBackedByTable;
 + (long long)preferredEntityType;
@@ -50,6 +49,7 @@
 + (id)_objectWithPredicate:(id)arg1 encodingOptions:(id)arg2 profile:(id)arg3 error:(id *)arg4;
 + (id)objectWithID:(id)arg1 encodingOptions:(id)arg2 profile:(id)arg3 error:(id *)arg4;
 + (id)objectWithUUID:(id)arg1 encodingOptions:(id)arg2 profile:(id)arg3 error:(id *)arg4;
++ (id)predicateForObjectsFromLocalSourceWithBundleIdentifier:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (id)predicateForObjectsFromAppleWatchSources:(_Bool)arg1 profile:(id)arg2 error:(id *)arg3;
 + (id)sourceIDForObjectID:(id)arg1 type:(long long)arg2 profile:(id)arg3 errorOut:(id *)arg4;
 + (id)sourceIDsForObjectsOfType:(long long)arg1 profile:(id)arg2 predicate:(id)arg3 error:(id *)arg4;

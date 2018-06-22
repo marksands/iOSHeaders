@@ -21,8 +21,8 @@
 - (void)requestSnapshotForElement:(XCAccessibilityElement *)arg1 attributes:(NSArray *)arg2 parameters:(NSDictionary *)arg3 reply:(void (^)(XCElementSnapshot *, NSError *))arg4;
 - (void)snapshotForElement:(XCAccessibilityElement *)arg1 attributes:(NSArray *)arg2 parameters:(NSDictionary *)arg3 reply:(void (^)(XCElementSnapshot *, NSError *))arg4;
 - (void)performAccessibilityAction:(int)arg1 onElement:(XCAccessibilityElement *)arg2 value:(id)arg3 reply:(void (^)(NSError *))arg4;
-- (void)unregisterForAccessibilityNotification:(int)arg1 registrationToken:(NSNumber *)arg2 reply:(void (^)(NSError *))arg3;
-- (void)registerForAccessibilityNotification:(int)arg1 reply:(void (^)(NSNumber *, NSError *))arg2;
+- (void)unregisterForAccessibilityNotification:(long long)arg1 registrationToken:(NSNumber *)arg2 reply:(void (^)(NSError *))arg3;
+- (void)registerForAccessibilityNotification:(long long)arg1 reply:(void (^)(NSNumber *, NSError *))arg2;
 - (void)loadAccessibilityWithTimeout:(double)arg1 reply:(void (^)(_Bool, NSError *))arg2;
 @end
 

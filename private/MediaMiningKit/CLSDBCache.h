@@ -10,15 +10,15 @@
 
 @interface CLSDBCache : NSObject
 {
+    _Bool _supportsVersioning;
     NSURL *_diskCacheURL;
     NSString *_dataModelName;
     NSManagedObjectModel *_managedObjectModel;
     NSManagedObjectContext *_managedObjectContext;
-    NSManagedObjectContext *_parentManagedObjectContext;
     NSPersistentStoreCoordinator *_persistentStoreCoordinator;
-    _Bool _supportsVersioning;
 }
 
++ (id)urlForGraphApplicationData;
 + (id)diskCacheWithName:(id)arg1;
 @property(nonatomic) _Bool supportsVersioning; // @synthesize supportsVersioning=_supportsVersioning;
 @property(readonly, copy, nonatomic) NSURL *diskCacheURL; // @synthesize diskCacheURL=_diskCacheURL;
@@ -32,12 +32,9 @@
 - (_Bool)_save;
 @property(readonly, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator; // @synthesize persistentStoreCoordinator=_persistentStoreCoordinator;
 @property(readonly, nonatomic) NSManagedObjectModel *managedObjectModel; // @synthesize managedObjectModel=_managedObjectModel;
-@property(readonly, nonatomic) NSManagedObjectContext *parentManagedObjectContext; // @synthesize parentManagedObjectContext=_parentManagedObjectContext;
 @property(readonly, nonatomic) NSManagedObjectContext *managedObjectContext; // @synthesize managedObjectContext=_managedObjectContext;
 - (id)formatVersion;
-- (id)init;
 - (id)initWithDiskCacheName:(id)arg1;
-- (id)urlForGraphApplicationData;
 - (id)initWithDiskCacheName:(id)arg1 dataModelName:(id)arg2;
 
 @end

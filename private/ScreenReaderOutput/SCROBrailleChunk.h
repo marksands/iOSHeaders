@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSMutableAttributedString, NSString;
+@class NSAttributedString, NSMutableAttributedString, NSString;
 
 @interface SCROBrailleChunk : NSObject <NSCopying>
 {
@@ -29,11 +29,13 @@
     NSMutableAttributedString *_brailleString;
     NSMutableAttributedString *_pendingBraille;
     NSString *_originalText;
+    NSAttributedString *_originalBraille;
     struct _NSRange _brailleFocus;
     struct _NSRange __textFocus;
 }
 
 + (void)initialize;
+@property(copy, nonatomic) NSAttributedString *originalBraille; // @synthesize originalBraille=_originalBraille;
 @property(nonatomic) struct _NSRange _textFocus; // @synthesize _textFocus=__textFocus;
 @property(copy, nonatomic) NSString *originalText; // @synthesize originalText=_originalText;
 @property(retain, nonatomic) NSMutableAttributedString *pendingBraille; // @synthesize pendingBraille=_pendingBraille;

@@ -35,6 +35,7 @@
 @property(nonatomic) __weak UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
 - (void).cxx_destruct;
 - (void)signInOperationManager:(id)arg1 didSaveAccount:(id)arg2 error:(id)arg3;
+- (void)prewarmOperationsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_appleAccountType;
 - (id)_titleForError:(id)arg1 account:(id)arg2;
 - (void)_presentExistingAccountAlert:(id)arg1;

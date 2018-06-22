@@ -9,7 +9,7 @@
 #import "CXCallObserverDelegate.h"
 #import "FMFSessionDelegate.h"
 
-@class CUBluetoothClient, CUWiFiManager, CXCallObserver, NSData, NSObject<OS_dispatch_queue>, NSString;
+@class CUBluetoothClient, CUWiFiManager, CXCallObserver, NSArray, NSData, NSObject<OS_dispatch_queue>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CUSystemMonitorImp : NSObject <FMFSessionDelegate, CXCallObserverDelegate>
@@ -21,6 +21,9 @@ __attribute__((visibility("hidden")))
     CUBluetoothClient *_bluetoothClient;
     CXCallObserver *_callObserver;
     int _activeCallCount;
+    NSArray *_familyMembers;
+    _Bool _familyObserving;
+    int _familyUpdatedToken;
     int _fmfDevicesChangedToken;
     int _meDeviceChangedToken;
     int _meDeviceRetryToken;
@@ -46,6 +49,8 @@ __attribute__((visibility("hidden")))
 - (void)_wifiMonitorStateChanged:(_Bool)arg1;
 - (void)_wifiMonitorStop;
 - (void)_wifiMonitorStart;
+- (void)_firstUnlockMonitorStop;
+- (void)_firstUnlockMonitorStart;
 - (void)_screenSaverMonitorStop;
 - (void)_screenSaverMonitorStart;
 - (void)_screenChanged:(_Bool)arg1;
@@ -63,6 +68,10 @@ __attribute__((visibility("hidden")))
 - (void)_meDeviceCheckStart:(_Bool)arg1;
 - (void)_meDeviceMonitorStop;
 - (void)_meDeviceMonitorStart;
+- (void)_familyUpdated:(id)arg1;
+- (void)_familyGetMembers:(_Bool)arg1;
+- (void)_familyMonitorStop;
+- (void)_familyMonitorStart;
 - (int)_activeCallCountUnached;
 - (void)callObserver:(id)arg1 callChanged:(id)arg2;
 - (void)_callMonitorStop;

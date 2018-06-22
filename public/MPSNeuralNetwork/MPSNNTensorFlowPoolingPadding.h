@@ -14,6 +14,7 @@
 {
 }
 
++ (_Bool)supportsSecureCoding;
 - (id)initWithCoder:(id)arg1;
 - (id)label;
 - (id)init;

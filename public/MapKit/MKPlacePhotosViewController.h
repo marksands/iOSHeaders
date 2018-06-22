@@ -12,11 +12,12 @@
 #import "UIScrollViewDelegate.h"
 #import "_MKInfoCardChildViewControllerAnalyticsDelegate.h"
 
-@class MKMapItem, MKPhotoSmallAttributionView, MKPlaceAttributionCell, NSArray, NSLayoutConstraint, NSString, UIScrollView, UIView, _MKPlaceViewController;
+@class MKMapItem, MKPhotoSmallAttributionView, MKPlaceAttributionCell, MKPlacePhotosView, NSArray, NSLayoutConstraint, NSString, UIScrollView, UIView, _MKPlaceViewController;
 
 __attribute__((visibility("hidden")))
 @interface MKPlacePhotosViewController : UIViewController <MKPlaceAttributionCellDelegate, MKPlacePhotosViewDelegate, UIScrollViewDelegate, _MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol>
 {
+    MKPlacePhotosView *_currentPhotoViewer;
     NSArray *_photoViews;
     UIScrollView *_photosContainerScrollView;
     UIView *_photosContainer;
@@ -47,7 +48,6 @@ __attribute__((visibility("hidden")))
 - (void)viewDidLayoutSubviews;
 - (void)viewLayoutMarginsDidChange;
 - (id)infoCardChildPossibleActions;
-- (id)placePhotoViewerGetDelegatesMapItem;
 - (void)placePhotoViewerWillClose:(id)arg1 photo:(id)arg2 onIndex:(unsigned long long)arg3;
 - (void)placePhotoViewerAttributionTappedForPhotoAtIndex:(unsigned long long)arg1 photo:(id)arg2;
 - (id)placePhotoViewerViewForPhotoAtIndex:(unsigned long long)arg1;

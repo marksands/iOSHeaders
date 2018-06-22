@@ -16,7 +16,7 @@
 @property(readonly, nonatomic) NSString *aggregationLabel; // @synthesize aggregationLabel=_aggregationLabel;
 - (void).cxx_destruct;
 - (void)_generateTitleAndSubtitleWithResult:(CDUnknownBlockType)arg1;
-- (id)initWithCollectionNode:(id)arg1 aggregationLabel:(id)arg2;
+- (id)initWithCollection:(id)arg1 aggregationLabel:(id)arg2;
 
 @end
 

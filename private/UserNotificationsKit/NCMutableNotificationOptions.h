@@ -22,6 +22,7 @@
 @property(nonatomic) _Bool suppressesTitleWhenLocked; // @dynamic suppressesTitleWhenLocked;
 @property(nonatomic) _Bool revealsAdditionalContentOnPresentation; // @dynamic revealsAdditionalContentOnPresentation;
 @property(nonatomic) _Bool preemptsPresentedNotification; // @dynamic preemptsPresentedNotification;
+@property(nonatomic) _Bool prefersDarkAppearance; // @dynamic prefersDarkAppearance;
 @property(nonatomic) unsigned long long messageNumberOfLines; // @dynamic messageNumberOfLines;
 @property(nonatomic) _Bool hideClearActionInList; // @dynamic hideClearActionInList;
 @property(nonatomic) _Bool requestsFullScreenPresentation; // @dynamic requestsFullScreenPresentation;

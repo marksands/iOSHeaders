@@ -18,9 +18,7 @@
     NSDictionary *_interactionSenderDisplayNames;
     NSDictionary *_searchEventValues;
     NSArray *_locationOfInterestNames;
-    NSArray *_locationOfInterestSpokenNames;
     NSArray *_spatialLocationOfInterestNames;
-    NSArray *_spatialLocationOfInterestSpokenNames;
     NSArray *_eventTitles;
     NSArray *_eventLocationNames;
     NSDictionary *_keyboardLMDynamicVocabularyItems;
@@ -36,9 +34,7 @@
 @property(readonly, copy, nonatomic) NSDictionary *keyboardLMDynamicVocabularyItems; // @synthesize keyboardLMDynamicVocabularyItems=_keyboardLMDynamicVocabularyItems;
 @property(readonly, copy, nonatomic) NSArray *eventLocationNames; // @synthesize eventLocationNames=_eventLocationNames;
 @property(readonly, copy, nonatomic) NSArray *eventTitles; // @synthesize eventTitles=_eventTitles;
-@property(readonly, copy, nonatomic) NSArray *spatialLocationOfInterestSpokenNames; // @synthesize spatialLocationOfInterestSpokenNames=_spatialLocationOfInterestSpokenNames;
 @property(readonly, copy, nonatomic) NSArray *spatialLocationOfInterestNames; // @synthesize spatialLocationOfInterestNames=_spatialLocationOfInterestNames;
-@property(readonly, copy, nonatomic) NSArray *locationOfInterestSpokenNames; // @synthesize locationOfInterestSpokenNames=_locationOfInterestSpokenNames;
 @property(readonly, copy, nonatomic) NSArray *locationOfInterestNames; // @synthesize locationOfInterestNames=_locationOfInterestNames;
 @property(readonly, copy, nonatomic) NSDictionary *searchEventValues; // @synthesize searchEventValues=_searchEventValues;
 @property(readonly, copy, nonatomic) NSDictionary *interactionSenderDisplayNames; // @synthesize interactionSenderDisplayNames=_interactionSenderDisplayNames;

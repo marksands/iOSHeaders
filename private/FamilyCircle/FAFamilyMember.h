@@ -25,12 +25,14 @@
 @property(readonly, copy, nonatomic) NSString *iTunesAccountUsername;
 @property(readonly, nonatomic) NSNumber *iTunesAccountDSID;
 @property(readonly, nonatomic) _Bool hasAskToBuyEnabled;
+@property(readonly, nonatomic) _Bool isOrganizer;
 @property(readonly, nonatomic) _Bool isParent;
 @property(readonly, nonatomic) _Bool hasParentalControlsEnabled;
 @property(readonly, nonatomic) _Bool isChildAccount;
 @property(readonly, copy, nonatomic) NSString *inviteEmail;
 @property(readonly, copy, nonatomic) NSString *statusString;
 @property(readonly, copy, nonatomic) NSDate *joinedDate;
+@property(readonly, nonatomic) long long memberType;
 @property(readonly, copy, nonatomic) NSString *memberTypeString;
 @property(readonly, copy, nonatomic) NSString *memberTypeDisplayString;
 @property(readonly, nonatomic) unsigned long long age;

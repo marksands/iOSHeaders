@@ -24,6 +24,7 @@
     id <MTPersistence> _persistence;
 }
 
++ (id)_diagnosticDictionaryForTimer:(id)arg1;
 @property(retain, nonatomic) id <MTPersistence> persistence; // @synthesize persistence=_persistence;
 @property(retain, nonatomic) NSPointerArray *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) id <NAScheduler> serializer; // @synthesize serializer=_serializer;
@@ -35,6 +36,8 @@
 - (void).cxx_destruct;
 - (void)scheduler:(id)arg1 didFireTimer:(id)arg2;
 - (void)scheduler:(id)arg1 didChangeNextTimer:(id)arg2;
+- (id)_diagnosticTimerDictionary;
+- (id)gatherDiagnostics;
 - (void)printDiagnostics;
 - (void)handleF5Reset;
 - (void)_queue_sortTimers;
@@ -68,6 +71,7 @@
 - (void)registerObserver:(id)arg1;
 @property(readonly, nonatomic) MTTimer *nextTimer;
 @property(readonly, nonatomic) NSArray *timers;
+- (void)_createDefaultTimerIfNeededWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_loadTimersWithCompletion:(CDUnknownBlockType)arg1;
 - (void)loadTimersSync;
 - (void)loadTimers;

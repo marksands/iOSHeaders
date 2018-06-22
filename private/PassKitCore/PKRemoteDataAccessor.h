@@ -23,6 +23,7 @@
 - (void)imageSetForType:(long long)arg1 screenScale:(double)arg2 suffix:(id)arg3 displayProfile:(id)arg4 preheat:(_Bool)arg5 withCompletion:(CDUnknownBlockType)arg6;
 - (id)imageSetForType:(long long)arg1 screenScale:(double)arg2 suffix:(id)arg3 displayProfile:(id)arg4 preheat:(_Bool)arg5;
 - (void)contentWithCompletion:(CDUnknownBlockType)arg1;
+- (id)content;
 - (void)requestUpdateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateSettings:(unsigned long long)arg1;
 - (void)noteShared;

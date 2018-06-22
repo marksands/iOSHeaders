@@ -10,7 +10,7 @@
 #import "SXAutomaticFullscreenVideoPlaybackBehaviorManagerDelegate.h"
 #import "SXVideoPlaybackObserver.h"
 
-@class AVPlayerViewController, NSString, SXAdPrivacyButton, SXAutomaticFullscreenVideoPlaybackBehaviorManager, SXKeyValueObserver, SXLearnMoreButton, SXPlaybackCoordinator, SXTouchForwardingView, SXVideoAdSkipButton, SXVideoPlaybackQueue, SXVideoVolumeObserver, UIActivityIndicatorView;
+@class AVPlayerViewController, NSString, SVAdPrivacyButton, SVKeyValueObserver, SVLearnMoreButton, SXAutomaticFullscreenVideoPlaybackBehaviorManager, SXPlaybackCoordinator, SXTouchForwardingView, SXVideoAdSkipButton, SXVideoPlaybackQueue, SXVideoVolumeObserver, UIActivityIndicatorView;
 
 @interface SXVideoPlayerViewController : UIViewController <SXVideoPlaybackObserver, AVPlayerViewControllerDelegate_WebKitOnly, SXAutomaticFullscreenVideoPlaybackBehaviorManagerDelegate>
 {
@@ -22,26 +22,26 @@
     SXVideoPlaybackQueue *_queue;
     SXPlaybackCoordinator *_coordinator;
     AVPlayerViewController *_playerViewController;
-    SXLearnMoreButton *_learnMoreButton;
+    SVLearnMoreButton *_learnMoreButton;
     SXVideoAdSkipButton *_skipButton;
-    SXAdPrivacyButton *_adPrivacyButton;
+    SVAdPrivacyButton *_adPrivacyButton;
     UIActivityIndicatorView *_activityIndicatorView;
-    SXKeyValueObserver *_videoBoundsObserver;
+    SVKeyValueObserver *_videoBoundsObserver;
     SXAutomaticFullscreenVideoPlaybackBehaviorManager *_fullscreenBehaviorManager;
     SXTouchForwardingView *_touchForwardingView;
-    id <SXVolumeReporting> _volumeReporter;
+    id <SVVolumeReporting> _volumeReporter;
     SXVideoVolumeObserver *_volumeObserver;
 }
 
 @property(retain, nonatomic) SXVideoVolumeObserver *volumeObserver; // @synthesize volumeObserver=_volumeObserver;
-@property(readonly, nonatomic) id <SXVolumeReporting> volumeReporter; // @synthesize volumeReporter=_volumeReporter;
+@property(readonly, nonatomic) id <SVVolumeReporting> volumeReporter; // @synthesize volumeReporter=_volumeReporter;
 @property(readonly, nonatomic) SXTouchForwardingView *touchForwardingView; // @synthesize touchForwardingView=_touchForwardingView;
 @property(readonly, nonatomic) SXAutomaticFullscreenVideoPlaybackBehaviorManager *fullscreenBehaviorManager; // @synthesize fullscreenBehaviorManager=_fullscreenBehaviorManager;
-@property(retain, nonatomic) SXKeyValueObserver *videoBoundsObserver; // @synthesize videoBoundsObserver=_videoBoundsObserver;
+@property(retain, nonatomic) SVKeyValueObserver *videoBoundsObserver; // @synthesize videoBoundsObserver=_videoBoundsObserver;
 @property(retain, nonatomic) UIActivityIndicatorView *activityIndicatorView; // @synthesize activityIndicatorView=_activityIndicatorView;
-@property(retain, nonatomic) SXAdPrivacyButton *adPrivacyButton; // @synthesize adPrivacyButton=_adPrivacyButton;
+@property(retain, nonatomic) SVAdPrivacyButton *adPrivacyButton; // @synthesize adPrivacyButton=_adPrivacyButton;
 @property(retain, nonatomic) SXVideoAdSkipButton *skipButton; // @synthesize skipButton=_skipButton;
-@property(retain, nonatomic) SXLearnMoreButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
+@property(retain, nonatomic) SVLearnMoreButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
 @property(retain, nonatomic) AVPlayerViewController *playerViewController; // @synthesize playerViewController=_playerViewController;
 @property(retain, nonatomic) SXPlaybackCoordinator *coordinator; // @synthesize coordinator=_coordinator;
 @property(retain, nonatomic) SXVideoPlaybackQueue *queue; // @synthesize queue=_queue;

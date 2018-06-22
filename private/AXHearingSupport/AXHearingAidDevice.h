@@ -9,7 +9,7 @@
 #import "AXHADeviceProtocol.h"
 #import "CBPeripheralDelegate.h"
 
-@class AXHADispatchTimer, AXHearingAidMode, CBPeripheral, NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSString;
+@class AXDispatchTimer, AXHearingAidMode, CBPeripheral, NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSString;
 
 @interface AXHearingAidDevice : NSObject <CBPeripheralDelegate, AXHADeviceProtocol>
 {
@@ -26,7 +26,7 @@
     _Bool _keepInSync;
     _Bool _finishedLoading;
     long long initialLoadToken;
-    AXHADispatchTimer *_propertyWriteTimer;
+    AXDispatchTimer *_propertyWriteTimer;
     _Bool _isListeningForStreamingChanges;
     struct OpaqueIOPSPowerSourceID *_leftPowerSouceID;
     struct OpaqueIOPSPowerSourceID *_rightPowerSourceID;

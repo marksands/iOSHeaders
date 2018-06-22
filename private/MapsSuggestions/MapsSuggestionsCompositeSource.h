@@ -9,7 +9,7 @@
 #import "MapsSuggestionsSource.h"
 #import "MapsSuggestionsSourceDelegate.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
+@class MapsSuggestionsSuppressor, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
 
 @interface MapsSuggestionsCompositeSource : MapsSuggestionsBaseSource <MapsSuggestionsSource, MapsSuggestionsSourceDelegate>
 {
@@ -17,6 +17,7 @@
     NSMutableDictionary *_nextUpdateTimes;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_source> *_updateTimer;
+    MapsSuggestionsSuppressor *_suppressor;
     _Bool _running;
 }
 
@@ -31,6 +32,11 @@
 - (id)currentBestLocation;
 - (unsigned long long)deleteEntries:(struct NSArray *)arg1 source:(struct NSString *)arg2;
 - (unsigned long long)addOrUpdateSuggestionEntries:(struct NSArray *)arg1 source:(struct NSString *)arg2 deleteMissing:(_Bool)arg3;
+- (_Bool)_suppressEntry:(id)arg1 withTime:(double)arg2;
+- (_Bool)removeEntry:(id)arg1 behavior:(long long)arg2 handler:(CDUnknownBlockType)arg3;
+- (double)_suppressionTimeForEntry:(id)arg1 behavior:(long long)arg2;
+- (double)_hideTimeForEntry:(id)arg1;
+- (double)_snoozeTimeForEntry:(id)arg1;
 - (_Bool)canProduceEntriesOfType:(unsigned long long)arg1;
 - (double)updateSuggestionEntries;
 - (void)stop;

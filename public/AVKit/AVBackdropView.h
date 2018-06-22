@@ -49,7 +49,7 @@
 - (void)updateConstraints;
 - (void)didMoveToWindow;
 - (void)setSemanticContentAttribute:(long long)arg1;
-- (void)setBounds:(struct CGRect)arg1;
+- (void)layoutSubviews;
 @property(nonatomic) struct NSDirectionalEdgeInsets contentLayoutMargins;
 - (void)setCustomSpacing:(double)arg1 afterViews:(id)arg2;
 - (void)setCustomSpacing:(double)arg1 afterView:(id)arg2;

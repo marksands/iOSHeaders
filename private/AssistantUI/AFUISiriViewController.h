@@ -36,10 +36,13 @@
     _Bool _unlockScreenVisible;
     _Bool _remoteViewControllerIsPresenting;
     NSDictionary *_dismissalUserInfo;
+    _Bool _recordingStartedOnRoute;
     _Bool _visible;
     _Bool _eyesFree;
     _Bool _isStark;
     _Bool _carDNDActive;
+    _Bool _receivedIncomingPhoneCall;
+    _Bool _turnsOnScreenOnAppearance;
     _Bool _showsStatusBar;
     _Bool _statusBarEnabled;
     _Bool _mapsGatekeeperEnabled;
@@ -48,6 +51,7 @@
     _Bool _inHoldToTalkMode;
     _Bool _viewDisappearing;
     _Bool _userUtteranceTapToEditInProgress;
+    _Bool _punchingOut;
     id <AFUISiriViewControllerDataSource> _dataSource;
     id <AFUISiriViewControllerDelegate> _delegate;
     AFUISiriSession *_session;
@@ -60,6 +64,7 @@
     double _viewDidAppearTime;
 }
 
+@property(nonatomic, getter=_isPunchingOut, setter=_setPunchingOut:) _Bool punchingOut; // @synthesize punchingOut=_punchingOut;
 @property(nonatomic, getter=_isUserUtteranceTapToEditInProgress, setter=_setUserUtteranceTapToEditInProgress:) _Bool userUtteranceTapToEditInProgress; // @synthesize userUtteranceTapToEditInProgress=_userUtteranceTapToEditInProgress;
 @property(nonatomic, getter=isViewDisappearing) _Bool viewDisappearing; // @synthesize viewDisappearing=_viewDisappearing;
 @property(nonatomic, getter=_viewDidAppearTime, setter=_setViewDidAppearTime:) double viewDidAppearTime; // @synthesize viewDidAppearTime=_viewDidAppearTime;
@@ -76,6 +81,8 @@
 @property(nonatomic) _Bool mapsGatekeeperEnabled; // @synthesize mapsGatekeeperEnabled=_mapsGatekeeperEnabled;
 @property(nonatomic) _Bool statusBarEnabled; // @synthesize statusBarEnabled=_statusBarEnabled;
 @property(nonatomic) _Bool showsStatusBar; // @synthesize showsStatusBar=_showsStatusBar;
+@property(nonatomic) _Bool turnsOnScreenOnAppearance; // @synthesize turnsOnScreenOnAppearance=_turnsOnScreenOnAppearance;
+@property(nonatomic) _Bool receivedIncomingPhoneCall; // @synthesize receivedIncomingPhoneCall=_receivedIncomingPhoneCall;
 @property(nonatomic) _Bool carDNDActive; // @synthesize carDNDActive=_carDNDActive;
 @property(nonatomic) _Bool isStark; // @synthesize isStark=_isStark;
 @property(nonatomic, getter=isEyesFree) _Bool eyesFree; // @synthesize eyesFree=_eyesFree;
@@ -83,6 +90,8 @@
 @property(nonatomic) __weak id <AFUISiriViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <AFUISiriViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (void)_setRecordingStartedOnRoute:(_Bool)arg1;
+- (_Bool)_recordingStartedOnRoute;
 - (void)siriSession:(id)arg1 speechRecordingDidBeginOnAVRecordRoute:(id)arg2;
 - (void)siriSessionDidUpdateSessionInfo:(id)arg1;
 - (void)siriSessionDidEnd:(id)arg1;
@@ -132,6 +141,7 @@
 - (_Bool)hasQueuedTTS;
 - (_Bool)isListening;
 - (_Bool)isPreventingActivationGesture;
+- (void)_stopRequestWithOptions:(id)arg1 afterDelay:(double)arg2;
 - (void)startRequestWithActivationTrigger:(id)arg1;
 - (void)_activationTriggerDidRelease:(id)arg1;
 - (double)_manualEndpointingThreshold;
@@ -146,11 +156,11 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (unsigned long long)supportedInterfaceOrientations;
 - (_Bool)shouldAutorotate;
+- (_Bool)_shouldPauseFlamesViewForSpeechRequest:(_Bool)arg1 isInitialBringUp:(_Bool)arg2 deviceSupportsZLL:(_Bool)arg3 isEyesFree:(_Bool)arg4;
 - (id)viewServiceApplicationInfo;
 - (void)shortTapAction;
 - (void)handleViewFullyRevealed;
 - (void)updateViewForPercentageRevealed:(double)arg1;
-- (void)userInteractionDidOccur;
 - (void)setLockState:(unsigned long long)arg1;
 - (void)showPresentationWithIdentifier:(id)arg1 properties:(id)arg2 lockState:(unsigned long long)arg3;
 - (void)preloadPresentationBundleWithIdentifier:(id)arg1;
@@ -181,6 +191,7 @@
 - (void)keyboardViewDidReceiveHelpButtonAction:(id)arg1;
 - (void)keyboardViewDidReceiveReportBugAction:(id)arg1;
 - (void)keyboardView:(id)arg1 didReceiveText:(id)arg2;
+- (void)siriRemoteViewController:(id)arg1 didChangeUserAttentionStatus:(_Bool)arg2;
 - (void)_setShowKeyboardIfTextInputEnabled:(_Bool)arg1 minimized:(_Bool)arg2;
 - (void)_setShowKeyboardIfTextInputEnabled:(_Bool)arg1;
 - (void)_setStatusViewHidden:(_Bool)arg1;
@@ -202,6 +213,7 @@
 - (void)siriRemoteViewControllerDidPresentUserInterface:(id)arg1;
 - (void)siriRemoteViewControllerDidExitUITrackingMode:(id)arg1;
 - (void)siriRemoteViewControllerDidEnterUITrackingMode:(id)arg1;
+- (void)siriRemoteViewController:(id)arg1 failTest:(id)arg2 withReason:(id)arg3;
 - (void)siriRemoteViewController:(id)arg1 didFinishTest:(id)arg2;
 - (void)siriRemoteViewController:(id)arg1 willStartTest:(id)arg2;
 - (void)siriRemoteViewController:(id)arg1 handlePasscodeUnlockWithCompletion:(CDUnknownBlockType)arg2;

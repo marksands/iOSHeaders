@@ -9,12 +9,12 @@
 #import "FBApplicationProcessDelegate.h"
 #import "FBUIProcessManagerInternal.h"
 
-@class BKSProcessAssertion, FBApplicationLibrary, FBApplicationProcess, FBApplicationProcessWatchdogPolicy, NSHashTable, NSMapTable, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
+@class BKSProcessAssertion, FBApplicationProcess, FBApplicationProcessWatchdogPolicy, NSHashTable, NSMapTable, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
 @interface FBProcessManager : NSObject <FBApplicationProcessDelegate, FBUIProcessManagerInternal>
 {
     NSObject<OS_dispatch_queue> *_queue;
-    FBApplicationLibrary *_appLibrary;
+    id <FBApplicationInfoProvider> _appInfoProvider;
     NSObject<OS_dispatch_queue> *_callOutQueue;
     NSHashTable *_observers;
     NSMapTable *_processesByPID;
@@ -30,7 +30,8 @@
 }
 
 + (id)sharedInstance;
-@property(readonly, retain, nonatomic) FBApplicationProcess *systemApplicationProcess; // @synthesize systemApplicationProcess=_systemAppProcess;
+@property(readonly, nonatomic) FBApplicationProcess *systemApplicationProcess; // @synthesize systemApplicationProcess=_systemAppProcess;
+- (void).cxx_destruct;
 - (void)_queue_evaluateForegroundEventRouting;
 - (void)_queue_notifyObserversUsingBlock:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_processesQueue_processForPID:(int)arg1;

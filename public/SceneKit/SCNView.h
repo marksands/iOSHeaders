@@ -9,7 +9,7 @@
 #import "SCNSceneRenderer.h"
 #import "SCNTechniqueSupport.h"
 
-@class AVAudioEngine, AVAudioEnvironmentNode, CALayer, EAGLContext, NSArray, NSRecursiveLock, NSString, SCNCameraController, SCNDisplayLink, SCNJitterer, SCNNode, SCNRenderer, SCNScene, SCNSpriteKitEventHandler, SCNTechnique, SKScene, UIColor;
+@class AVAudioEngine, AVAudioEnvironmentNode, CALayer, EAGLContext, NSArray, NSRecursiveLock, NSString, NSThread, SCNCameraController, SCNDisplayLink, SCNJitterer, SCNNode, SCNRenderer, SCNScene, SCNSpriteKitEventHandler, SCNTechnique, SKScene, UIColor;
 
 @interface SCNView : UIView <SCNSceneRenderer, SCNTechniqueSupport>
 {
@@ -33,17 +33,20 @@
     id _delegate;
     SCNRenderer *_renderer;
     SCNScene *_scene;
+    _Bool _displayLinkCreationRequested;
     SCNDisplayLink *_displayLink;
     long long _preferredFramePerSeconds;
     CALayer *_backingLayer;
     SCNJitterer *_jitterer;
     NSRecursiveLock *_lock;
     UIColor *_backgroundColor;
+    struct CGSize _boundsSize;
     char *_snapshotImageData;
     unsigned long long _snapshotImageDataLength;
     id <SCNEventHandler> _navigationCameraController;
     SCNSpriteKitEventHandler *_spriteKitEventHandler;
     NSArray *_controllerGestureRecognizers;
+    NSThread *_rendererThread;
 }
 
 + (id)currentUIFocusEnvironment;
@@ -118,6 +121,8 @@
 - (void)_setNeedsDisplay;
 @property(nonatomic) long long preferredFramesPerSecond;
 - (_Bool)_checkAndUpdateDisplayLinkStateIfNeeded;
+- (void)_createDisplayLinkIfNeeded;
+- (double)_renderThreadPriority;
 - (id)displayLink;
 - (void)set_wantsSceneRendererDelegationMessages:(_Bool)arg1;
 - (_Bool)_wantsSceneRendererDelegationMessages;
@@ -146,6 +151,7 @@
 - (_Bool)isNodeInsideFrustum:(id)arg1 withPointOfView:(id)arg2;
 - (id)hitTestWithSegmentFromPoint:(struct SCNVector3)arg1 toPoint:(struct SCNVector3)arg2 options:(id)arg3;
 - (id)hitTest:(struct CGPoint)arg1 options:(id)arg2;
+- (struct SCNVector4)_viewport;
 - (double)_flipY:(double)arg1;
 - (void)stop:(id)arg1;
 - (void)pause:(id)arg1;
@@ -169,6 +175,7 @@
 - (struct CGSize)_updateBackingSize;
 - (void)_updateContentsScaleFactor;
 - (void)_resetContentsScaleFactor;
+- (void)updateAtTime:(double)arg1;
 - (void)SCN_displayLinkCallback:(double)arg1;
 - (id)_renderingQueue;
 - (_Bool)scn_inLiveResize;
@@ -179,6 +186,8 @@
 - (void)scn_setBackingLayer:(id)arg1;
 - (id)scn_backingLayer;
 - (id)renderer;
+- (unsigned long long)_renderOptions;
+- (void)set_renderOptions:(unsigned long long)arg1;
 - (struct SCNMatrix4)_screenTransform;
 - (void)set_screenTransform:(struct SCNMatrix4)arg1;
 - (double)_superSamplingFactor;
@@ -186,6 +195,7 @@
 @property(retain, nonatomic) SCNScene *scene;
 - (void)presentScene:(id)arg1 withTransition:(id)arg2 incomingPointOfView:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)dealloc;
+- (void)_cancelRendererThread:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)_selectRenderingAPIWithOptions:(id)arg1;

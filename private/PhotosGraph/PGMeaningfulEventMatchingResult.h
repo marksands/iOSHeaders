@@ -6,23 +6,23 @@
 
 #import "NSObject.h"
 
-@class PGMeaningfulEventRequiredTraits;
+@class PGMeaningfulEventRequiredCriteria;
 
 @interface PGMeaningfulEventMatchingResult : NSObject
 {
     _Bool _isMatching;
     _Bool _isReliable;
     double _score;
-    PGMeaningfulEventRequiredTraits *_requiredTraits;
+    PGMeaningfulEventRequiredCriteria *_requiredCriteria;
 }
 
-@property(readonly, nonatomic) PGMeaningfulEventRequiredTraits *requiredTraits; // @synthesize requiredTraits=_requiredTraits;
+@property(readonly, nonatomic) PGMeaningfulEventRequiredCriteria *requiredCriteria; // @synthesize requiredCriteria=_requiredCriteria;
 @property(readonly, nonatomic) _Bool isReliable; // @synthesize isReliable=_isReliable;
 @property(readonly, nonatomic) double score; // @synthesize score=_score;
 @property(readonly, nonatomic) _Bool isMatching; // @synthesize isMatching=_isMatching;
 - (void).cxx_destruct;
 - (id)description;
-- (id)initWithIsMatching:(_Bool)arg1 score:(double)arg2 isReliable:(_Bool)arg3 requiredTraits:(id)arg4;
+- (id)initWithIsMatching:(_Bool)arg1 score:(double)arg2 isReliable:(_Bool)arg3 requiredCriteria:(id)arg4;
 
 @end
 

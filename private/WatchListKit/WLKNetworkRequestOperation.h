@@ -50,7 +50,7 @@
 @property(readonly, copy, nonatomic) NSDictionary *queryParameters; // @synthesize queryParameters=_queryParameters;
 @property(readonly, copy, nonatomic) NSDictionary *serverRouteReplacements; // @synthesize serverRouteReplacements=_serverRouteReplacements;
 @property(readonly, copy, nonatomic) NSString *serverRouteKey; // @synthesize serverRouteKey=_serverRouteKey;
-@property(retain, nonatomic) NSDictionary *additionalHeaderFields; // @synthesize additionalHeaderFields=_additionalHeaderFields;
+@property(copy, nonatomic) NSDictionary *additionalHeaderFields; // @synthesize additionalHeaderFields=_additionalHeaderFields;
 @property(nonatomic) _Bool encodeQueryParams; // @synthesize encodeQueryParams=_encodeQueryParams;
 @property(nonatomic) _Bool requiresMescal; // @synthesize requiresMescal=_requiresMescal;
 @property(nonatomic) _Bool allowAuthentication; // @synthesize allowAuthentication=_allowAuthentication;

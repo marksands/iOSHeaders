@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (void)noteFailedProtocolRequest;
 - (void)noteFailedNetworkRequest;
 - (void)noteSuccessfulRequestWithNumDownloadedElements:(long long)arg1;
+- (id)displayedHostname;
 - (id)regionCode;
 - (id)languageCode;
 - (_Bool)shouldFailAllTasks;
@@ -71,7 +72,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *description;
 - (id)serverPreferredPushEnvironment;
 - (id)trafficContainerIdentifier;
-- (id)applicationBundle;
 - (id)bundleID;
 - (id)containerID;
 @property(readonly, nonatomic) NSString *accountID;

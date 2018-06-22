@@ -15,12 +15,14 @@ __attribute__((visibility("hidden")))
     struct __CFDictionary *_readPermissionsCache;
     struct __CFDictionary *_writePermissionsCache;
     struct __CFDictionary *_suiteCache;
-    struct __CFArray *_ownedSources;
+    struct __CFSet *_observedSources;
     NSObject<OS_xpc_object> *_entitlements;
     struct __CFBoolean *_sandboxed;
-    struct os_unfair_lock_s _lock;
     unsigned long long _token;
+    struct os_unfair_lock_s _lock;
     BOOL _isPlatformBinary;
+    _Bool _hasKVONotificationInFlight;
+    _Bool _impersonatingAnotherProcess;
 }
 
 @end

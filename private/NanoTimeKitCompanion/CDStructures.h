@@ -89,12 +89,6 @@ struct CharacterStateSpecs {
     float hourElbowBend;
 };
 
-struct LabelPosition {
-    struct CGPoint _field1;
-    long long _field2;
-    long long _field3;
-};
-
 struct NSArray {
     Class _field1;
 };
@@ -132,9 +126,15 @@ struct NTKKaleidoscopePathfinderPoint {
     double _field1[4];
 };
 
+struct NTKLabelPosition {
+    struct CGPoint _field1;
+    long long _field2;
+    long long _field3;
+};
+
 struct NUProgram {
     unsigned int program;
-    int uniforms[11];
+    int uniforms[13];
 };
 
 struct RingLayout {

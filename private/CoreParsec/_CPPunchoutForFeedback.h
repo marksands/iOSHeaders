@@ -36,9 +36,6 @@
 - (unsigned long long)urlsCount;
 - (void)addUrls:(id)arg1;
 - (void)clearUrls;
-@property(readonly, nonatomic) _Bool hasLabel;
-@property(readonly, nonatomic) _Bool hasBundleIdentifier;
-@property(readonly, nonatomic) _Bool hasName;
 - (id)initWithFacade:(id)arg1;
 
 // Remaining properties

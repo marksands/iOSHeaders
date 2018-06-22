@@ -35,6 +35,7 @@
 @property(readonly, copy, nonatomic) NSString *surfacedBySectionID;
 @property(readonly, nonatomic, getter=isHiddenFromFeeds) _Bool hiddenFromFeeds;
 @property(readonly, nonatomic, getter=isBoundToContext) _Bool boundToContext;
+@property(readonly, nonatomic, getter=isPressRelease) _Bool pressRelease;
 @property(readonly, nonatomic) _Bool showMinimalChrome;
 @property(readonly, nonatomic) _Bool needsRapidUpdates;
 @property(readonly, copy, nonatomic) NSURL *videoCallToActionURL;
@@ -92,6 +93,7 @@
 
 @optional
 @property(readonly, nonatomic) NSData *backingArticleRecordData;
+@property(readonly, nonatomic) id <FCHeadlineStocksFields> stocksFields;
 - (FCArticleContentManifest *)contentManifestWithContext:(id <FCContentContext>)arg1;
 @end
 

@@ -6,23 +6,30 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class CLSLocationOfInterest, NSDateInterval, NSUUID;
 
-@interface CLSLocationOfInterestVisit : NSObject
+@interface CLSLocationOfInterestVisit : NSObject <NSSecureCoding>
 {
     NSUUID *_identifier;
     NSDateInterval *_visitInterval;
+    double _confidence;
     CLSLocationOfInterest *_locationOfInterest;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) __weak CLSLocationOfInterest *locationOfInterest; // @synthesize locationOfInterest=_locationOfInterest;
+@property(readonly, nonatomic) double confidence; // @synthesize confidence=_confidence;
 @property(readonly, nonatomic) NSDateInterval *visitInterval; // @synthesize visitInterval=_visitInterval;
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)initWithIdentifier:(id)arg1 visitInterval:(id)arg2;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithIdentifier:(id)arg1 visitInterval:(id)arg2 confidence:(double)arg3;
 
 @end
 

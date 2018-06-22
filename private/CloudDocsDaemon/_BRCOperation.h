@@ -6,7 +6,7 @@
 
 #import "NSOperation.h"
 
-@class BRCSyncContext, BRCThrottle, CKOperationGroup, NSDate, NSError, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSObject<OS_os_activity>, NSObject<OS_os_transaction>, NSUUID;
+@class BRCSyncContext, BRCThrottle, CKOperationGroup, NSDate, NSError, NSMutableArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSObject<OS_os_activity>, NSObject<OS_os_transaction>, NSUUID;
 
 __attribute__((visibility("hidden")))
 @interface _BRCOperation : NSOperation
@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_source> *_retryTimer;
     NSObject<OS_dispatch_group> *_group;
     NSObject<OS_os_activity> *_Activity;
+    NSMutableArray *_associatedEventMetrics;
     _Bool _finished;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     BRCThrottle *_operationThrottle;
@@ -45,6 +46,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_callbackQueue;
 @property(nonatomic, getter=isFinished) _Bool finished; // @synthesize finished=_finished;
 - (void).cxx_destruct;
+- (void)associateCKOperationsToEventMetric:(id)arg1;
 - (void)addSubOperation:(id)arg1;
 - (void)addSubOperation:(id)arg1 overrideContext:(id)arg2 allowsCellularAccess:(id)arg3;
 - (void)completedWithResult:(id)arg1 error:(id)arg2;

@@ -22,7 +22,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)_sourceForClinicalAccountIdentifier:(id)arg1;
++ (id)_sourceForClinicalAccountIdentifier:(id)arg1 name:(id)arg2;
 + (id)_sourceWithBundleIdentifier:(id)arg1 name:(id)arg2 productType:(id)arg3 options:(unsigned long long)arg4;
 + (_Bool)_isPlaceholderBundleIdentifier:(id)arg1;
 + (id)_generateIdentifierForAppleDeviceWithUUID:(id)arg1;

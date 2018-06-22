@@ -6,12 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, PIPipeline;
+@class NSArray, NSMutableDictionary;
 
 @interface CLSInspector : NSObject
 {
-    PIPipeline *_pipeline;
-    NSMutableArray *_performingInvestigations;
     NSArray *_profileClasses;
     NSMutableDictionary *_profileClassesByIdentifier;
     NSArray *_informantClasses;
@@ -24,12 +22,9 @@
 + (void)invalidateAllSharedCaches;
 + (id)sharedInspector;
 - (void).cxx_destruct;
-- (void)cancelAllInvestigations;
-- (void)waitUntilFinished;
-- (_Bool)performInvestigation:(id)arg1 withPriority:(unsigned long long)arg2 andOptions:(unsigned long long)arg3;
-- (_Bool)performInvestigation:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
-- (_Bool)performInvestigation:(id)arg1;
-- (id)performingInvestigations;
+- (void)performInvestigation:(id)arg1 options:(unsigned long long)arg2 progressBlock:(CDUnknownBlockType)arg3;
+- (void)performInvestigation:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
+- (void)performInvestigation:(id)arg1;
 - (id)profileIdentifierForHash:(unsigned long long)arg1;
 - (Class)profileClassForIdentifier:(id)arg1;
 - (id)informantIdentifierForHash:(unsigned long long)arg1;

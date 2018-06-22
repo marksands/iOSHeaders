@@ -44,11 +44,15 @@
 @property(readonly, nonatomic) NSArray *accessoryInvitationsInformation;
 - (void)cancel;
 @property(readonly, nonatomic, getter=isComplete) _Bool complete;
-- (id)description;
-- (id)debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, copy) NSString *debugDescription;
 - (id)shortDescription;
 - (id)initWithUUID:(id)arg1 invitee:(id)arg2 invitationState:(long long)arg3 forHome:(id)arg4 expiryDate:(id)arg5 messageIdentifier:(id)arg6;
 - (id)initWithInvitee:(id)arg1 invitationState:(long long)arg2 forHome:(id)arg3 expiryDate:(id)arg4 messageIdentifier:(id)arg5;
+
+// Remaining properties
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -18,8 +18,9 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(nonatomic) CDStruct_31142d93 rotationRate; // @synthesize rotationRate=_rotationRate;
+@property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

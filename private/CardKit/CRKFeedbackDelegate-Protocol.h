@@ -9,6 +9,8 @@
 @class UIViewController;
 
 @protocol CRKFeedbackDelegate <CRFeedbackListener>
+
+@optional
 - (void)presentViewController:(UIViewController *)arg1;
 @end
 

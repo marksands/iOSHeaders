@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSIndexSet, NSObject;
+@class NSISEngine, NSIndexSet, NSObject;
 
 #pragma mark Function Pointers and Blocks
 
@@ -407,6 +407,13 @@ typedef struct {
 
 typedef struct {
     id _field1;
+    unsigned int _field2;
+    unsigned int :1;
+    unsigned int :2;
+} CDStruct_7661fe95;
+
+typedef struct {
+    id _field1;
     void *_field2;
 } CDStruct_c69bce23;
 
@@ -439,6 +446,10 @@ typedef struct {
 } CDStruct_bd2f613f;
 
 typedef struct {
+    unsigned int value;
+} CDStruct_fcd6c539;
+
+typedef struct {
     unsigned long long kind;
     NSObject *oldValue;
     NSObject *newValue;
@@ -464,8 +475,8 @@ typedef struct {
 } CDStruct_1b1be194;
 
 typedef struct {
-    unsigned int _field1[8];
-} CDStruct_6ad76789;
+    unsigned int val[8];
+} CDStruct_4c969caf;
 
 typedef struct {
     unsigned int :8;
@@ -488,7 +499,8 @@ typedef struct {
 typedef struct {
     long long _field1;
     id _field2;
-} CDStruct_6db0658e;
+    id _field3;
+} CDStruct_1b4a36b4;
 
 typedef struct {
     long long _field1;
@@ -508,6 +520,22 @@ typedef struct {
     long long _field2;
     long long _field3;
 } CDStruct_2ec95fd7;
+
+typedef struct {
+    NSISEngine *engine;
+    CDStruct_fcd6c539 index;
+} CDStruct_5cfd13ef;
+
+typedef struct {
+    CDStruct_fcd6c539 _field1;
+    id _field2;
+} CDStruct_c9e4ae99;
+
+typedef struct {
+    CDStruct_fcd6c539 _field1;
+    unsigned int :1;
+    id _field2;
+} CDStruct_319c8348;
 
 typedef struct {
     id objects;

@@ -15,10 +15,12 @@
 
 - (void).cxx_destruct;
 - (void)registerCallbacks;
-- (void)_dispatchAsyncWithDonatedPriority:(CDUnknownBlockType)arg1;
 - (void)_handleActiveSystemEndpointDidChangeNotification:(id)arg1;
+- (void)_handleVolumeDidChangeNotification:(id)arg1;
+- (void)_handleVolumeControlCapabilitiesDidChangeNotification:(id)arg1;
 - (void)_handleDeviceInfoDidChangeNotification:(id)arg1;
 - (void)_handlePlayerStateDidChangeNotification:(id)arg1;
+- (void)_handlePlayerPlaybackDidTimeout:(id)arg1;
 - (void)_handlePlayerIsPlayingDidChangeNotification:(id)arg1;
 - (void)_handlePlayerPlaybackStateDidChangeNotification:(id)arg1;
 - (void)_handlePlayerNowPlayingInfoDidChangeNotification:(id)arg1;

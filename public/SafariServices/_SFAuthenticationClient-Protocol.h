@@ -9,6 +9,8 @@
 @class NSString, _SFAuthenticationContext;
 
 @protocol _SFAuthenticationClient <NSObject>
+- (_Bool)displayMessageAsTitleForContext:(_SFAuthenticationContext *)arg1;
+- (NSString *)passcodePromptForContext:(_SFAuthenticationContext *)arg1;
 - (NSString *)authenticationMessageForContext:(_SFAuthenticationContext *)arg1;
 - (id <_SFAuthenticationCustomUIProgressObserver>)authenticationCustomUIProgressObserverForContext:(_SFAuthenticationContext *)arg1;
 @end

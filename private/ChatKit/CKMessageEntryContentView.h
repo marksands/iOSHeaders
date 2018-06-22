@@ -76,7 +76,7 @@
 - (void)invalidateComposition;
 - (void)ensureTextViewVisibleIfNeeded;
 - (void)ensureSelectionVisibleIfNeeded;
-- (double)_calcuateIdealMaxPluginHeight;
+- (double)_calcuateIdealMaxPluginHeight:(_Bool)arg1;
 - (void)plugingPayloadDidLoad:(id)arg1;
 - (void)plugingPayloadWantsResize:(id)arg1;
 - (void)messageEntryRichTextViewDidTapHandwritingKey:(id)arg1;

@@ -29,17 +29,15 @@
     long long _energyStringMetricWidth;
     long long _briskStringMetricWidth;
     long long _standStringMetricWidth;
-    _Bool _useTimeTravelStyleForTimeLabel;
     _Bool _showSeconds;
     double _rightTimeViewInset;
 }
 
 + (id)_newRingsView;
-+ (id)_swatchColorForColorOption:(id)arg1;
-+ (void)_prewarm;
++ (id)_swatchColorForColorOption:(id)arg1 forDevice:(id)arg2;
++ (void)_prewarmForDevice:(id)arg1;
 @property(nonatomic) _Bool showSeconds; // @synthesize showSeconds=_showSeconds;
 @property(nonatomic) double rightTimeViewInset; // @synthesize rightTimeViewInset=_rightTimeViewInset;
-@property(nonatomic) _Bool useTimeTravelStyleForTimeLabel; // @synthesize useTimeTravelStyleForTimeLabel=_useTimeTravelStyleForTimeLabel;
 - (void).cxx_destruct;
 - (id)_additionalPrelaunchApplicationIdentifiers;
 - (id)_ringGroupController;
@@ -61,13 +59,7 @@
 - (void)_applyShowsLockedUI;
 - (void)_prepareForEditing;
 - (void)_cleanupAfterEditing;
-- (void)_layoutTimeTravelCaptionView:(id)arg1;
-- (void)_layoutTimeTravelStatusModule:(id)arg1;
-- (_Bool)_wantsTimeTravelStatusModule;
-- (_Bool)_supportsTimeScrubbing;
-- (void)_endScrubbingAnimated:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)_startScrubbingAnimated:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)_scrubToDate:(id)arg1 animated:(_Bool)arg2;
+- (long long)_complicationPickerStyleForSlot:(id)arg1;
 - (void)_applyBreathingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)_applyRubberBandingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (long long)_polygonIndexForAccuracy:(unsigned long long)arg1;
@@ -85,6 +77,8 @@
 - (struct CGRect)_timeViewBackgroundRect;
 - (struct CGRect)_keylineFrameForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (_Bool)_keylineLabelShouldShowIndividualOptionNamesForCustomEditMode:(long long)arg1;
+- (struct UIEdgeInsets)_keylineLabelActiveAreaInsetsForCustomEditMode:(long long)arg1 slot:(id)arg2;
+- (long long)_keylineStyleForComplicationSlot:(id)arg1;
 - (unsigned long long)_keylineLabelAlignmentForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (id)_keylineViewForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (unsigned long long)_keylineLabelAlignmentForComplicationSlot:(id)arg1;
@@ -103,7 +97,7 @@
 - (void)_unloadSnapshotContentViews;
 - (void)_loadSnapshotContentViews;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFaceStyle:(long long)arg1 forDevice:(id)arg2 clientIdentifier:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

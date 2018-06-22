@@ -6,35 +6,41 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBCurrencyAmountValue.h"
 
-@class NSString, PBUnknownFields, _INPBDecimalNumberValue, _INPBValueMetadata;
+@class INCodableAttribute, NSString, _INPBDecimalNumberValue, _INPBValueMetadata;
 
-@interface _INPBCurrencyAmountValue : PBCodable <NSCopying>
+@interface _INPBCurrencyAmountValue : PBCodable <_INPBCurrencyAmountValue, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
+    struct _has;
     _INPBDecimalNumberValue *_amount;
     NSString *_currencyCode;
     _INPBValueMetadata *_valueMetadata;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
-+ (id)options;
-@property(retain, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
-@property(retain, nonatomic) _INPBDecimalNumberValue *amount; // @synthesize amount=_amount;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(retain, nonatomic) _INPBValueMetadata *valueMetadata; // @synthesize valueMetadata=_valueMetadata;
+@property(copy, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
+@property(retain, nonatomic) _INPBDecimalNumberValue *amount; // @synthesize amount=_amount;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
+@property(readonly, nonatomic) _Bool hasValueMetadata;
 @property(readonly, nonatomic) _Bool hasCurrencyCode;
 @property(readonly, nonatomic) _Bool hasAmount;
-@property(readonly, nonatomic) _Bool hasValueMetadata;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

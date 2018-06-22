@@ -16,8 +16,10 @@
     PKPaymentApplication *_paymentApplication;
     NSString *_displayName;
     NSString *_availabilityString;
+    CDUnknownBlockType _actionBlock;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType actionBlock; // @synthesize actionBlock=_actionBlock;
 @property(nonatomic) _Bool isSelectable; // @synthesize isSelectable=_isSelectable;
 @property(nonatomic) _Bool shouldShowCardUI; // @synthesize shouldShowCardUI=_shouldShowCardUI;
 @property(copy, nonatomic) NSString *availabilityString; // @synthesize availabilityString=_availabilityString;

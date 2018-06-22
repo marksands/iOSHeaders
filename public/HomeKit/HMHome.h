@@ -22,6 +22,7 @@
     NSString *_mediaPassword;
     _Bool _primary;
     _Bool _notificationsEnabled;
+    _Bool _notificationEnableRequested;
     _Bool _ownerUser;
     _Bool _adminUser;
     int _locationAuthorization;
@@ -92,6 +93,7 @@
 @property(nonatomic) __weak HMSetupViewController *setupViewController; // @synthesize setupViewController=_setupViewController;
 @property(nonatomic) __weak HMHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 @property(readonly, nonatomic) unsigned long long homeHubState; // @synthesize homeHubState=_homeHubState;
+@property(nonatomic) _Bool notificationEnableRequested; // @synthesize notificationEnableRequested=_notificationEnableRequested;
 @property(copy, nonatomic) NSDate *notificationsUpdatedTime; // @synthesize notificationsUpdatedTime=_notificationsUpdatedTime;
 @property(nonatomic) _Bool notificationsEnabled; // @synthesize notificationsEnabled=_notificationsEnabled;
 - (void).cxx_destruct;
@@ -144,6 +146,8 @@
 - (void)_enableNotification:(_Bool)arg1 forCharacteristics:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)enableNotification:(_Bool)arg1 forCharacteristics:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)reEnableNotifications;
+- (void)_enableNotifications:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)enableNotifications:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_updateInvitation:(id)arg1 invitationState:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_acceptInvitation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_cancelInvitation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -245,6 +249,8 @@
 - (id)initWithName:(id)arg1 uuid:(id)arg2 homeAsRoomUUID:(id)arg3 homeAsRoomName:(id)arg4 actionSets:(id)arg5;
 - (id)initWithName:(id)arg1 uuid:(id)arg2;
 - (id)init;
+- (id)targetControllers;
+- (id)controlTargets;
 - (id)mediaSystems;
 - (void)setApplicationData:(id)arg1;
 @property(readonly, nonatomic) HMApplicationData *applicationData;
@@ -255,8 +261,6 @@
 @property(retain, nonatomic) HMPendingRequests *pendingRequests; // @synthesize pendingRequests=_pendingRequests;
 @property(nonatomic) __weak id <HMHomeDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
-- (void)_enableNotifications:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)enableNotifications:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_performBatchCharacteristicRequest:(id)arg1;
 - (void)performBatchCharacteristicRequest:(id)arg1;
 - (void)_unblockAccessory:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -272,6 +276,8 @@
 - (void)_startPairingWithAccessoryDescription:(id)arg1 setupRemoteViewController:(id)arg2 progressHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)startPairingWithAccessoryDescription:(id)arg1 setupRemoteViewController:(id)arg2 progress:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)startPairingWithAccessoryDescription:(id)arg1 setupRemoteViewController:(id)arg2 progressHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)stopDiscoveringSymptomsForNearbyDevices;
+- (void)startDiscoveringSymptomsForNearbyDevices;
 - (void)_addAndSetupAccessoriesWithSetupPayload:(id)arg1 browseRequest:(id)arg2 suggestedRoomName:(id)arg3 legacyAPI:(_Bool)arg4 trustedOrigin:(_Bool)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (void)addAndSetupAccessoriesWithSetupPayload:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)addAccessoryWithSetupPayload:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

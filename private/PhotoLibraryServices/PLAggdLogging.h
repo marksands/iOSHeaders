@@ -10,7 +10,7 @@
 {
 }
 
-+ (void)performLibraryStatisticsLogging;
++ (void)performLibraryStatisticsLogging:(CDUnknownBlockType)arg1;
 + (void)performLibrarySummaryLogging:(id)arg1;
 + (void)performHyperionLocalResourcesLogging:(id)arg1;
 + (void)performAnalysisStateLogging:(id)arg1;

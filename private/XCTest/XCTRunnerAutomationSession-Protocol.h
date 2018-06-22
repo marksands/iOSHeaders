@@ -9,6 +9,10 @@
 @class XCTElementQuery, XCTElementQueryResults;
 
 @protocol XCTRunnerAutomationSession <NSObject>
+@property(readonly) _Bool supportsAnimationsIdleNotifications;
+@property(readonly) _Bool supportsMainRunLoopIdleNotifications;
+- (void)notifyWhenAnimationsAreIdle:(void (^)(NSError *))arg1;
+- (void)notifyWhenMainRunLoopIsIdle:(void (^)(NSError *))arg1;
 - (XCTElementQueryResults *)matchesForQuery:(XCTElementQuery *)arg1 error:(id *)arg2;
 @end
 

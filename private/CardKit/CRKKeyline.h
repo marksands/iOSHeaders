@@ -19,6 +19,7 @@
 @property(readonly) long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
+- (double)defaultKeylineInsetForCurrentDevice;
 - (struct CGSize)intrinsicContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (double)_roundedKeylineThickness;

@@ -30,9 +30,13 @@
     HFItem *_sourceItem;
     HMHome *_home;
     NSArray *_itemProviders;
+    NSArray *_itemModules;
+    NSString *_identifier;
     id <HFCharacteristicReadPolicy> _readPolicy;
     unsigned long long _overallLoadingState;
     NAFuture *_firstFastUpdateFuture;
+    NSSet *_subclassItemProviderSet;
+    NSSet *_moduleItemProviderSet;
     HMHome *_lastUpdatedHome;
     NSArray *_sections;
     NSMapTable *_childItemsByParentItem;
@@ -53,16 +57,20 @@
 @property(retain, nonatomic) NSMapTable *childItemsByParentItem; // @synthesize childItemsByParentItem=_childItemsByParentItem;
 @property(retain, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 @property(retain, nonatomic) HMHome *lastUpdatedHome; // @synthesize lastUpdatedHome=_lastUpdatedHome;
+@property(retain, nonatomic) NSSet *moduleItemProviderSet; // @synthesize moduleItemProviderSet=_moduleItemProviderSet;
+@property(retain, nonatomic) NSSet *subclassItemProviderSet; // @synthesize subclassItemProviderSet=_subclassItemProviderSet;
 @property(readonly, nonatomic) NAFuture *firstFastUpdateFuture; // @synthesize firstFastUpdateFuture=_firstFastUpdateFuture;
 @property(nonatomic) unsigned long long overallLoadingState; // @synthesize overallLoadingState=_overallLoadingState;
 @property(retain, nonatomic) id <HFCharacteristicReadPolicy> readPolicy; // @synthesize readPolicy=_readPolicy;
+@property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(retain, nonatomic) NSArray *itemModules; // @synthesize itemModules=_itemModules;
 @property(retain, nonatomic) NSArray *itemProviders; // @synthesize itemProviders=_itemProviders;
 @property(retain, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(retain, nonatomic) HFItem *sourceItem; // @synthesize sourceItem=_sourceItem;
 @property(nonatomic) __weak id <HFItemManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_debug_itemManagerDescription;
-- (void)notificationSettingsInvalidatedForManager:(id)arg1;
+- (void)settingsInvalidatedForNotificationCenter:(id)arg1;
 - (void)temperatureUnitObserver:(id)arg1 didChangeTemperatureUnit:(_Bool)arg2;
 - (id)_indexPathForItem:(id)arg1 inDisplayedItemsArray:(id)arg2;
 - (id)_allDisplayedItemsIncludingInternalItems;
@@ -106,6 +114,7 @@
 - (unsigned long long)_sectionForItem:(id)arg1;
 - (id)_serviceGroupItemForServiceGroup:(id)arg1 inItems:(id)arg2;
 - (id)_itemsOfClass:(Class)arg1 inItems:(id)arg2 allowTransformedItems:(_Bool)arg3;
+- (_Bool)_isUsingOnlyItemModules;
 - (id)_allSuppressedCharacteristics;
 - (_Bool)_shouldHideServiceItem:(id)arg1 containedInServiceGroupItem:(id)arg2;
 - (id)_serviceItemsToHideInSet:(id)arg1 allServiceGroupItems:(id)arg2;
@@ -113,6 +122,7 @@
 - (void)_notifyDelegateOfItemOperations:(id)arg1 logger:(id)arg2;
 - (void)_notifyDelegateOfSectionOperations:(id)arg1 logger:(id)arg2;
 - (void)_notifyDelegateOfChangesFromDiff:(id)arg1 logger:(id)arg2;
+- (id)_legacy_buildSectionsWithDisplayedItems:(id)arg1;
 - (id)_buildSectionsWithDisplayedItems:(id)arg1;
 - (void)_updateRepresentationForExternalItemsWithUpdatedOrAddedItems:(id)arg1 logger:(id)arg2;
 - (void)_updateRepresentationForInternalItemsWithUpdatedItems:(id)arg1;
@@ -121,7 +131,7 @@
 - (void)_batchItemUpdateFutureWrappers:(id)arg1 removedItems:(id)arg2 batchingIntervals:(id)arg3 logger:(id)arg4;
 - (id)_updateResultsForItems:(id)arg1 removedItems:(id)arg2 context:(id)arg3 allowDelaying:(_Bool)arg4;
 - (id)_updateResultsForItems:(id)arg1 context:(id)arg2;
-- (void)resetItemProviders;
+- (void)resetItemProvidersAndModules;
 - (id)updateResultsForItems:(id)arg1 senderSelector:(SEL)arg2;
 - (void)_updateOverallLoadingStateAndNotifyDelegate;
 - (unsigned long long)_loadingStateForItem:(id)arg1;
@@ -151,6 +161,7 @@
 - (unsigned long long)_numberOfSections;
 - (void)_willUpdateSections;
 - (id)_buildItemProvidersForHome:(id)arg1;
+- (id)_buildItemModulesForHome:(id)arg1;
 - (void)endSuppressingUpdatesForCharacteristicsWithReason:(id)arg1 updateAffectedItems:(_Bool)arg2;
 - (void)beginSuppressingUpdatesForCharacteristics:(id)arg1 withReason:(id)arg2;
 - (void)endDisableExternalUpdatesWithReason:(id)arg1;
@@ -163,6 +174,7 @@
 - (id)displayedItemAtIndexPath:(id)arg1;
 - (id)displayedSectionIdentifierForSectionIndex:(unsigned long long)arg1;
 - (unsigned long long)sectionIndexForDisplayedSectionIdentifier:(id)arg1;
+- (id)displayedItemsInSectionWithIdentifier:(id)arg1;
 - (id)displayedItemsInSection:(unsigned long long)arg1;
 - (id)attributedFooterTitleForSection:(unsigned long long)arg1;
 - (id)footerTitleForSection:(unsigned long long)arg1;

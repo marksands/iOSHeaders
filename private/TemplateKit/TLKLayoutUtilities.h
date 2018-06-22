@@ -10,6 +10,9 @@
 {
 }
 
++ (struct CGSize)maxThumbnailSize;
++ (_Bool)isWideScreen;
++ (void)applyRowBoundedSizingToImageView:(id)arg1;
 + (struct CGSize)idealImageSizeWithSize:(struct CGSize)arg1 fittingSize:(struct CGSize)arg2;
 + (void)setDynamicBaslineAlignmentsForLabel:(id)arg1 top:(double)arg2 bottom:(double)arg3;
 + (double)scaledValueForValue:(double)arg1 withFont:(id)arg2;

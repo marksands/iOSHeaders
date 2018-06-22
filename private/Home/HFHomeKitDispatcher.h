@@ -10,6 +10,7 @@
 #import "HFLocationSensingCoordinatorDelegate.h"
 #import "HFMediaObjectObserver.h"
 #import "HFMediaSessionObserver.h"
+#import "HFStateRestorationSettingsObserver.h"
 #import "HMAccessoryDelegatePrivate.h"
 #import "HMAccessorySettingsDelegate.h"
 #import "HMCameraSnapshotControlDelegate.h"
@@ -26,7 +27,7 @@
 
 @class HFLocationSensingCoordinator, HMHome, HMHomeManager, NAFuture, NSHashTable, NSMutableArray, NSMutableDictionary, NSString, NSTimer;
 
-@interface HFHomeKitDispatcher : NSObject <HMResidentDeviceDelegate, HMCameraSnapshotControlDelegate, HMCameraStreamControlDelegate, HMMediaProfileDelegate, HFLocationSensingCoordinatorDelegate, HFHomeAppInstallStateArbiterObserver, HMSoftwareUpdateControllerDelegate, HMAccessorySettingsDelegate, HMSoftwareUpdateDelegate, _HFSettingsObserverTupleOwning, HMSymptomsHandlerDelegate, HMUserDelegatePrivate, HMHomeManagerDelegatePrivate, HMHomeDelegatePrivate, HMAccessoryDelegatePrivate, HFMediaObjectObserver, HFMediaSessionObserver>
+@interface HFHomeKitDispatcher : NSObject <HFLocationSensingCoordinatorDelegate, HFHomeAppInstallStateArbiterObserver, _HFSettingsObserverTupleOwning, HFStateRestorationSettingsObserver, HMResidentDeviceDelegate, HMCameraSnapshotControlDelegate, HMCameraStreamControlDelegate, HMMediaProfileDelegate, HMSoftwareUpdateControllerDelegate, HMAccessorySettingsDelegate, HMSoftwareUpdateDelegate, HMSymptomsHandlerDelegate, HMUserDelegatePrivate, HMHomeManagerDelegatePrivate, HMHomeDelegatePrivate, HMAccessoryDelegatePrivate, HFMediaObjectObserver, HFMediaSessionObserver>
 {
     _Bool _hasLoadedHomes;
     int _homeKitPreferencesChangedNotifyToken;
@@ -85,6 +86,7 @@
 @property(retain, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(retain, nonatomic) HMHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 - (void).cxx_destruct;
+- (void)stateRestorationSettings:(id)arg1 selectedHomeIdentifierDidUpdateExternally:(id)arg2;
 - (void)installStateArbiter:(id)arg1 installStateDidChange:(_Bool)arg2;
 - (void)settingsObserverTupleWasInvalidated:(id)arg1;
 - (_Bool)_shouldPersistSelectedHomeToDefaults;
@@ -220,6 +222,7 @@
 @property(readonly, nonatomic) NAFuture *firstHomeAddedFuture;
 @property(readonly, nonatomic) NAFuture *homeFuture;
 - (void)_requestSelectedHome:(id)arg1 notifyAndSaveIfNecessary:(_Bool)arg2;
+- (_Bool)setSelectedHomeWithName:(id)arg1;
 - (void)updateHome;
 - (void)warmup;
 - (void)dispatchUserObserverMessage:(CDUnknownBlockType)arg1 sender:(id)arg2;

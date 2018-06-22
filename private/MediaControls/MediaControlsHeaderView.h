@@ -59,6 +59,7 @@
 @property(retain, nonatomic) UIImageView *artworkView; // @synthesize artworkView=_artworkView;
 @property(copy, nonatomic) MPCPlayerPath *playerPath; // @synthesize playerPath=_playerPath;
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)_handleContentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_updateRTL;
 - (void)clearOverrideSize;

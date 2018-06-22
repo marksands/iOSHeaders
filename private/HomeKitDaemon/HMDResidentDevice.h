@@ -9,12 +9,11 @@
 #import "HMDBackingStoreObjectProtocol.h"
 #import "HMFDumpState.h"
 #import "HMFLogging.h"
-#import "HMFMerging.h"
 #import "NSSecureCoding.h"
 
-@class HMDDevice, HMDHome, HMDResidentDeviceManager, NSString, NSUUID;
+@class HMDDevice, HMDDeviceHandle, HMDHome, HMDResidentDeviceManager, NSString, NSUUID;
 
-@interface HMDResidentDevice : HMFObject <HMFDumpState, HMFLogging, HMFMerging, NSSecureCoding, HMDBackingStoreObjectProtocol>
+@interface HMDResidentDevice : HMFObject <HMFDumpState, HMFLogging, NSSecureCoding, HMDBackingStoreObjectProtocol>
 {
     _Bool _enabled;
     _Bool _confirmed;
@@ -24,6 +23,7 @@
     HMDDevice *_device;
     long long _batteryState;
     HMDHome *_home;
+    HMDDeviceHandle *_deviceHandle;
     HMDResidentDeviceManager *_residentDeviceManager;
 }
 
@@ -32,6 +32,7 @@
 + (id)batteryStateAsString:(long long)arg1;
 + (id)shortDescription;
 @property(nonatomic) __weak HMDResidentDeviceManager *residentDeviceManager; // @synthesize residentDeviceManager=_residentDeviceManager;
+@property(retain, nonatomic) HMDDeviceHandle *deviceHandle; // @synthesize deviceHandle=_deviceHandle;
 @property(nonatomic) __weak HMDHome *home; // @synthesize home=_home;
 @property(nonatomic, getter=isLowBattery) _Bool lowBattery; // @synthesize lowBattery=_lowBattery;
 @property(nonatomic) long long batteryState; // @synthesize batteryState=_batteryState;
@@ -45,13 +46,14 @@
 - (void)_handleResidentDeviceUpdateConfirmed:(_Bool)arg1;
 - (void)_handleResidentDeviceUpdateEnabled:(_Bool)arg1;
 - (_Bool)_handleResidentDeviceUpdateDeviceWithUUID:(id)arg1;
+- (void)__accountAddedDevice:(id)arg1;
+- (void)__accountRemovedDevice:(id)arg1;
 - (void)_residentDeviceModelUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)dumpState;
-- (_Bool)mergeObject:(id)arg1;
 - (_Bool)_updateDevice:(id)arg1;
 @property(readonly, nonatomic) _Bool supportsMediaSystem;
 @property(readonly, nonatomic) _Bool supportsSharedEventTriggerActivation;
@@ -63,6 +65,7 @@
 - (id)descriptionWithPointer:(_Bool)arg1;
 - (id)shortDescription;
 @property(readonly, nonatomic) unsigned long long capabilities;
+- (void)configureWithHome:(id)arg1;
 - (id)initWithDevice:(id)arg1 home:(id)arg2;
 - (id)initWithModel:(id)arg1 residentDeviceManager:(id)arg2;
 - (id)init;

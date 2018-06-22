@@ -14,6 +14,7 @@
 @interface CTCellularPlan : NSObject <NSCopying, NSSecureCoding>
 {
     _Bool _isHomePlan;
+    _Bool _requiresUserConsent;
     NSString *_phoneNumber;
     CTCellularPlanProfile *_profile;
     CTCellularPlanSubscription *_subscription;
@@ -21,6 +22,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool requiresUserConsent; // @synthesize requiresUserConsent=_requiresUserConsent;
 @property(retain, nonatomic) NSNumber *subscriptionStatusOverride; // @synthesize subscriptionStatusOverride=_subscriptionStatusOverride;
 @property(retain, nonatomic) CTCellularPlanSubscription *subscription; // @synthesize subscription=_subscription;
 @property(retain, nonatomic) CTCellularPlanProfile *profile; // @synthesize profile=_profile;

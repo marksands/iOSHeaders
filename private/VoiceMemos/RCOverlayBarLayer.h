@@ -8,21 +8,28 @@
 
 @class UIColor;
 
+__attribute__((visibility("hidden")))
 @interface RCOverlayBarLayer : CALayer
 {
     CALayer *_topKnob;
     CALayer *_bar;
     CALayer *_bottomKnob;
     UIColor *_color;
+    _Bool _barWidthMatchesKnobs;
+    double _widthMultiplier;
 }
 
 + (double)selectionKnobRadius;
 + (double)selectionBarWidth;
+@property(nonatomic) _Bool barWidthMatchesKnobs; // @synthesize barWidthMatchesKnobs=_barWidthMatchesKnobs;
+@property(nonatomic) double widthMultiplier; // @synthesize widthMultiplier=_widthMultiplier;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
 - (void)_loadWithColor:(id)arg1 selectionExtentIncludingKnobs:(double)arg2 topKnob:(_Bool)arg3 bottomKnob:(_Bool)arg4;
 - (id)barComponents;
-- (id)initWithColor:(id)arg1 selectionExtentIncludingKnobs:(double)arg2 topKnob:(_Bool)arg3 bottomKnob:(_Bool)arg4;
+- (double)selectionBarWidth;
+- (double)selectionKnobRadius;
+- (id)initWithColor:(id)arg1 selectionExtentIncludingKnobs:(double)arg2 topKnob:(_Bool)arg3 bottomKnob:(_Bool)arg4 widthMultiplier:(double)arg5 barWidthMatchesKnobs:(_Bool)arg6;
 
 @end
 

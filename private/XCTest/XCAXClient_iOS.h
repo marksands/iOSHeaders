@@ -43,9 +43,10 @@
 - (void)notifyWhenViewControllerViewDidDisappearReply:(CDUnknownBlockType)arg1;
 - (void)notifyWhenViewControllerViewDidAppearReply:(CDUnknownBlockType)arg1;
 - (void)notifyWhenNoAnimationsAreActiveForApplication:(id)arg1 reply:(CDUnknownBlockType)arg2;
+@property(readonly) _Bool supportsAnimationsInactiveNotifications;
 - (void)notifyWhenEventLoopIsIdleForApplication:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (id)interruptingUIElementsAffectingSnapshot:(id)arg1;
-- (void)handleAccessibilityNotification:(int)arg1 withPayload:(id)arg2;
+- (void)handleAccessibilityNotification:(long long)arg1 withPayload:(id)arg2;
 - (void)notifyOnNextOccurrenceOfUserTestingEvent:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)handleUserTestingNotification:(id)arg1;
 - (id)hitTestElement:(id)arg1 withPoint:(struct CGPoint)arg2 error:(id *)arg3;
@@ -54,7 +55,7 @@
 - (id)systemApplication;
 - (_Bool)enableFauxCollectionViewCells:(id *)arg1;
 - (_Bool)loadAccessibility:(id *)arg1;
-- (_Bool)_registerForAXNotification:(int)arg1 error:(id *)arg2;
+- (_Bool)_registerForAXNotification:(long long)arg1 error:(id *)arg2;
 - (_Bool)_loadAccessibility:(id *)arg1;
 @property(readonly) id <XCUIRemoteAXInterface> remoteAXInterface; // @synthesize remoteAXInterface=_remoteAXInterface;
 @property(readonly) id <XCUIApplicationProcessTracker> applicationProcessTracker; // @synthesize applicationProcessTracker=_applicationProcessTracker;

@@ -27,6 +27,7 @@
 - (_Bool)needsReply;
 - (void)sendReply:(id)arg1;
 - (id)_createXPCMessage;
+@property(readonly, nonatomic) NSObject<OS_xpc_object> *feedbackData;
 - (void)setRootObjectForFeedback:(id)arg1;
 - (id)rootObjectOfClassesForFeedback:(id)arg1;
 - (void)setRootObject:(id)arg1;

@@ -30,6 +30,7 @@
 - (id)destinationOfSymbolicLinkAtURL:(id)arg1 error:(id *)arg2;
 - (_Bool)createSymbolicLinkAtURL:(id)arg1 withDestinationURL:(id)arg2 error:(id *)arg3;
 - (id)urlsForItemsInDirectoryAtURL:(id)arg1 ignoringSymlinks:(_Bool)arg2 error:(id *)arg3;
+- (id)enumerateURLsForItemsInDirectoryAtURL:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (_Bool)standardizeOwnershipAtURL:(id)arg1 toUID:(unsigned int)arg2 GID:(unsigned int)arg3 validateSymlinks:(_Bool)arg4 removeACLs:(_Bool)arg5 setProtectionClass:(_Bool)arg6 error:(id *)arg7;
 - (_Bool)_removeACLAtPath:(const char *)arg1 isDir:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)_traverseDirectory:(id)arg1 error:(id *)arg2 withBlock:(CDUnknownBlockType)arg3;

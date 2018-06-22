@@ -8,19 +8,19 @@
 
 #import "NSCopying.h"
 
-@class CLLocation, NSData, NSString, RTPredictedLocationOfInterest;
+@class CLLocation, EKPredictedLocationOfInterest, NSData, NSString;
 
 @interface EKStructuredLocation : EKObject <NSCopying>
 {
     _Bool _imprecise;
-    RTPredictedLocationOfInterest *_predictedLOI;
+    EKPredictedLocationOfInterest *_predictedLOI;
 }
 
 + (id)locationWithMapItem:(id)arg1;
 + (id)_stringByStrippingControlCharactersFromString:(id)arg1;
 + (id)locationWithTitle:(id)arg1;
 + (Class)frozenClass;
-@property(retain, nonatomic) RTPredictedLocationOfInterest *predictedLOI; // @synthesize predictedLOI=_predictedLOI;
+@property(retain, nonatomic) EKPredictedLocationOfInterest *predictedLOI; // @synthesize predictedLOI=_predictedLOI;
 @property(nonatomic, getter=isImprecise) _Bool imprecise; // @synthesize imprecise=_imprecise;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSString *derivedFrom;

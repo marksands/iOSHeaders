@@ -4,22 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "PSTableCell.h"
+#import <PreferencesUI/PSUICellularPlanOptionTableCell.h>
 
-@interface PSUICellularPlanTableCell : PSTableCell
+@class UILabel;
+
+@interface PSUICellularPlanTableCell : PSUICellularPlanOptionTableCell
 {
+    UILabel *_badgeLabel;
+    UILabel *_statusLabel;
 }
 
-+ (id)spacerIcon;
-+ (id)checkIcon;
++ (long long)cellStyle;
+@property(retain, nonatomic) UILabel *statusLabel; // @synthesize statusLabel=_statusLabel;
+@property(retain, nonatomic) UILabel *badgeLabel; // @synthesize badgeLabel=_badgeLabel;
+- (void).cxx_destruct;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
-- (void)setChecked:(_Bool)arg1;
-- (id)accessoryText;
-- (id)detailText;
-- (id)primaryText;
 - (_Bool)canBeChecked;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (_Bool)canReload;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

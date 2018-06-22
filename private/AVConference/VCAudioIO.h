@@ -7,17 +7,18 @@
 #import "NSObject.h"
 
 #import "VCAudioIOControllerDelegate.h"
-#import "VCAudioIOSink.h"
-#import "VCAudioIOSource.h"
+#import "VCAudioIOControllerSink.h"
+#import "VCAudioIOControllerSource.h"
 
 @class NSString, VCAudioIOControllerClient;
 
 __attribute__((visibility("hidden")))
-@interface VCAudioIO : NSObject <VCAudioIOSource, VCAudioIOSink, VCAudioIOControllerDelegate>
+@interface VCAudioIO : NSObject <VCAudioIOControllerSource, VCAudioIOControllerSink, VCAudioIOControllerDelegate>
 {
     id <VCAudioIOControllerControl> _audioIOController;
     VCAudioIOControllerClient *_controllerClient;
     id _delegate;
+    id <VCAudioIODelegate><VCAudioIOSource><VCAudioIOSink> _loadedDelegate;
     struct AudioStreamBasicDescription _clientFormat;
     unsigned int _clientSamplesPerFrame;
     _Bool _isMuted;
@@ -36,13 +37,14 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)controllerForDeviceRole:(int)arg1;
+@property(readonly, nonatomic) struct AudioStreamBasicDescription controllerFormat; // @synthesize controllerFormat=_controllerFormat;
 @property(readonly, nonatomic) unsigned int state; // @synthesize state=_state;
 @property(nonatomic) _Bool isGKVoiceChat; // @synthesize isGKVoiceChat=_isGKVoiceChat;
 @property(nonatomic, getter=isMuted) _Bool muted; // @synthesize muted=_isMuted;
 @property(readonly, nonatomic) struct AudioStreamBasicDescription clientAudioFormat; // @synthesize clientAudioFormat=_clientFormat;
 @property(readonly, nonatomic) unsigned int samplesPerFrame; // @synthesize samplesPerFrame=_clientSamplesPerFrame;
-- (void)pullAudioSamples:(struct opaqueVCAudioBufferList *)arg1;
-- (void)pushAudioSamples:(struct opaqueVCAudioBufferList *)arg1;
+- (void)pullAudioSamples:(struct opaqueVCAudioBufferList *)arg1 controllerTime:(const struct _VCAudioIOControllerTime *)arg2;
+- (void)pushAudioSamples:(struct opaqueVCAudioBufferList *)arg1 controllerTime:(const struct _VCAudioIOControllerTime *)arg2;
 - (void)stopWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)startWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)didResume;

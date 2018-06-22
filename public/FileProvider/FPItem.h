@@ -16,6 +16,7 @@
 @interface FPItem : NSObject <NSFileProviderItem_Private, NSFileProviderItem, NSCopying, NSSecureCoding>
 {
     NSProgress *_progress;
+    NSArray *_tags;
     _Bool _downloading;
     _Bool _mostRecentVersionDownloaded;
     _Bool _uploaded;
@@ -60,7 +61,6 @@
     NSString *_displayName;
     NSNumber *_favoriteRank;
     NSDate *_lastUsedDate;
-    NSData *_tagData;
     NSString *_providerIdentifier;
 }
 
@@ -75,7 +75,6 @@
 @property(nonatomic, getter=isPending) _Bool pending; // @synthesize pending=_pending;
 @property(retain, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 @property(nonatomic, getter=isDownloaded) _Bool downloaded; // @synthesize downloaded=_downloaded;
-@property(copy, nonatomic) NSData *tagData; // @synthesize tagData=_tagData;
 @property(copy, nonatomic) NSDate *lastUsedDate; // @synthesize lastUsedDate=_lastUsedDate;
 @property(copy, nonatomic) NSNumber *favoriteRank; // @synthesize favoriteRank=_favoriteRank;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
@@ -88,6 +87,7 @@
 @property(readonly, nonatomic) NSNumber *hasUnresolvedConflicts; // @synthesize hasUnresolvedConflicts=_hasUnresolvedConflicts;
 @property(retain, nonatomic) NSString *formerIdentifier; // @synthesize formerIdentifier=_formerIdentifier;
 @property(copy, nonatomic) NSString *appContainerBundleIdentifier; // @synthesize appContainerBundleIdentifier=_appContainerBundleIdentifier;
+@property(copy, nonatomic) NSArray *tags; // @synthesize tags=_tags;
 @property(copy, nonatomic) NSString *filename; // @synthesize filename=_filename;
 @property(readonly, nonatomic) _Bool isContainer; // @synthesize isContainer=_isContainer;
 @property(nonatomic, getter=isUbiquitous) _Bool ubiquitous; // @synthesize ubiquitous=_isUbiquitous;
@@ -129,8 +129,8 @@
 @property(readonly, nonatomic) NSProgress *downloadingProgress;
 - (void)setFp_SpotlightDomainIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSString *fp_spotlightDomainIdentifier;
-@property(copy, nonatomic) NSArray *tags;
 - (long long)localizedStandardTagsCompare:(id)arg1;
+@property(readonly, copy, nonatomic) NSData *tagData;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqualToItem:(id)arg1;

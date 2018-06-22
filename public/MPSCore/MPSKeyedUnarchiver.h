@@ -16,10 +16,12 @@
 + (id)unarchiveObjectWithFile:(id)arg1 device:(id)arg2;
 + (id)unarchiveTopLevelObjectWithData:(id)arg1 device:(id)arg2 error:(id *)arg3;
 + (id)unarchiveObjectWithData:(id)arg1 device:(id)arg2;
++ (id)unarchivedObjectOfClass:(Class)arg1 fromData:(id)arg2 device:(id)arg3 error:(id *)arg4;
++ (id)unarchivedObjectOfClasses:(id)arg1 fromData:(id)arg2 device:(id)arg3 error:(id *)arg4;
+- (id)initForReadingWithData:(id)arg1 device:(id)arg2;
 - (void)dealloc;
 - (id)mpsMTLDevice;
-- (id)initForReadingWithData:(id)arg1 device:(id)arg2;
-- (id)initWithDevice:(id)arg1;
+- (id)initForReadingFromData:(id)arg1 device:(id)arg2 error:(id *)arg3;
 
 @end
 

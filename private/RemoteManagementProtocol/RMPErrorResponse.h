@@ -14,10 +14,14 @@
     NSString *_errorReason;
 }
 
-+ (id)errorWithCode:(id)arg1 reason:(id)arg2;
-@property(retain, nonatomic) NSString *errorReason; // @synthesize errorReason=_errorReason;
-@property(retain, nonatomic) NSString *errorCode; // @synthesize errorCode=_errorCode;
++ (_Bool)supportsSecureCoding;
++ (id)errorWithErrorCode:(id)arg1 withErrorReason:(id)arg2;
+@property(copy, nonatomic) NSString *errorReason; // @synthesize errorReason=_errorReason;
+@property(copy, nonatomic) NSString *errorCode; // @synthesize errorCode=_errorCode;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)serialize;
 - (_Bool)loadFromDictionary:(id)arg1 error:(id *)arg2;
 

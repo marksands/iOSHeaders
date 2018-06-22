@@ -27,7 +27,6 @@
 - (void).cxx_destruct;
 - (unsigned char)loadNamesWithNamedEntityHandler:(CDUnknownBlockType)arg1 contactNameItemHandler:(CDUnknownBlockType)arg2 detectedSince:(id)arg3;
 - (unsigned char)loadRecentNamesWithNamedEntityHandler:(CDUnknownBlockType)arg1 contactNameItemHandler:(CDUnknownBlockType)arg2 source:(unsigned char)arg3 objects:(id)arg4;
-- (id)nameItemsWithLimit:(unsigned long long)arg1;
 - (void)navigationListener:(id)arg1 didUpdatePositionFromDestination:(CDStruct_c3b9c2ee)arg2;
 - (void)navigationListener:(id)arg1 didUpdateGuidanceState:(id)arg2;
 - (void)navigationListener:(id)arg1 didUpdateCurrentRoadName:(id)arg2;

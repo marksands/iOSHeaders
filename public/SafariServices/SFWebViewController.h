@@ -15,7 +15,7 @@
 #import "_SFWebViewDelegate.h"
 #import "_WKInputDelegate.h"
 
-@class NSString, WKWebView, WKWebViewConfiguration, _SFAuthenticationContext, _SFDialogController, _SFFormAutoFillController;
+@class NSString, WBSOneTimeCodeMonitor, WKWebView, WKWebViewConfiguration, _SFAuthenticationContext, _SFDialogController, _SFFormAutoFillController;
 
 __attribute__((visibility("hidden")))
 @interface SFWebViewController : UIViewController <SFFormAutoFillControllerDelegate, WKNavigationDelegatePrivate, WKUIDelegatePrivate, _SFDialogControllerDelegate, _SFDialogViewControllerPresenting, _SFWebViewDelegate, _WKInputDelegate, _SFDialogPresenting>
@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     _Bool _didFirstLayout;
     _Bool _didFinishDocumentLoad;
     _Bool _shouldSuppressDialogsThatBlockWebProcess;
+    WBSOneTimeCodeMonitor *_oneTimeCodeMonitor;
     _Bool _loading;
     _Bool _didFirstVisuallyNonEmptyLayout;
     id <SFWebViewControllerDelegate> _delegate;
@@ -55,15 +56,22 @@ __attribute__((visibility("hidden")))
 - (_Bool)_webView:(id)arg1 shouldIncludeAppLinkActionsForElement:(id)arg2;
 - (void)_webView:(id)arg1 createWebViewWithConfiguration:(id)arg2 forNavigationAction:(id)arg3 windowFeatures:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)webViewDidClose:(id)arg1;
+- (void)_webView:(id)arg1 requestStorageAccessPanelForDomain:(id)arg2 underCurrentDomain:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)webView:(id)arg1 runJavaScriptTextInputPanelWithPrompt:(id)arg2 defaultText:(id)arg3 initiatedByFrame:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)webView:(id)arg1 runJavaScriptConfirmPanelWithMessage:(id)arg2 initiatedByFrame:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)webView:(id)arg1 runJavaScriptAlertPanelWithMessage:(id)arg2 initiatedByFrame:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_webView:(id)arg1 insertTextSuggestion:(id)arg2 inInputSession:(id)arg3;
 - (void)_webView:(id)arg1 accessoryViewCustomButtonTappedInFormInputSession:(id)arg2;
 - (void)_webView:(id)arg1 willSubmitFormValues:(id)arg2 userObject:(id)arg3 submissionHandler:(CDUnknownBlockType)arg4;
+- (_Bool)_webView:(id)arg1 focusRequiresStrongPasswordAssistance:(id)arg2;
 - (void)_webView:(id)arg1 didStartInputSession:(id)arg2;
+- (void)_webView:(id)arg1 willStartInputSession:(id)arg2;
+- (void)_automaticPasswordInputViewNotification:(id)arg1;
+- (_Bool)formAutoFillControllerShouldShowIconsInPasswordPicker:(id)arg1;
 - (void)formAutoFillControllerGetAuthenticationForAutoFill:(id)arg1 onPageLoad:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)formAutoFillControllerGetAuthenticationForAutoFillOnPageLoad:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)formAutoFillControllerOneTimeCodeMonitor:(id)arg1;
+- (void)_beginOneTimeCodeMonitoringIfNecessary;
 - (_Bool)formAutoFillControllerShouldDisableAutoFill:(id)arg1;
 - (id)formAutoFillControllerURLForFormAutoFill:(id)arg1;
 - (_Bool)formAutoFillControllerCanPrefillForm:(id)arg1;

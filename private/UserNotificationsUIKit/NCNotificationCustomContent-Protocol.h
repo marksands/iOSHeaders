@@ -11,6 +11,7 @@
 @protocol NCNotificationCustomContent <NSObject>
 @property(nonatomic) __weak id <NCNotificationCustomContentDelegate> delegate;
 @property(readonly, copy, nonatomic) NSString *title;
+- (_Bool)userInteractionEnabled;
 - (unsigned long long)customContentLocation;
 - (_Bool)allowManualDismiss;
 - (_Bool)defaultContentHidden;
@@ -23,8 +24,8 @@
 @property(readonly, nonatomic) NSString *contentExtensionIdentifier;
 - (_Bool)restoreInputViews;
 - (void)preserveInputViews;
+- (id)cancelTouches;
 - (void)playAudioMessage;
 - (void)loadAudioAccessoryView;
-- (void)loadExtension;
 @end
 

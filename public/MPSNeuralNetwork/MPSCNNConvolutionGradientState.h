@@ -14,6 +14,9 @@
 {
     _Bool _initialized;
     MPSCNNConvolution *_convolution;
+    id <MTLBuffer> _tempWeights;
+    id <MTLBuffer> _tempBiases;
+    unsigned long long _dimSizeN;
 }
 
 + (id)temporaryStateWithCommandBuffer:(id)arg1 resourceList:(id)arg2 convolution:(id)arg3;

@@ -25,6 +25,7 @@
 @property(readonly, nonatomic) MTXPCConnectionListenerProvider *connectionListenerProvider; // @synthesize connectionListenerProvider=_connectionListenerProvider;
 @property(readonly, nonatomic) MTAlarmStorage *storage; // @synthesize storage=_storage;
 - (void).cxx_destruct;
+- (id)gatherDiagnostics;
 - (void)printDiagnostics;
 - (void)source:(id)arg1 didChangeNextAlarm:(id)arg2;
 - (void)source:(id)arg1 didFireAlarm:(id)arg2;

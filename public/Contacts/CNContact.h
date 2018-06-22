@@ -79,6 +79,7 @@
     NSString *_searchIndex;
     NSString *_preferredLikenessSource;
     NSString *_preferredApplePersonaIdentifier;
+    NSString *_preferredChannel;
 }
 
 + (id)unifyContacts:(id)arg1;
@@ -148,6 +149,7 @@
 + (id)contactIdentifierFromSuggestionID:(id)arg1;
 + (id)contactFromSuggestion:(id)arg1;
 + (id)predicateForSuggestionIdentifier:(unsigned long long)arg1;
+@property(readonly, copy, nonatomic) NSString *preferredChannel; // @synthesize preferredChannel=_preferredChannel;
 @property(readonly, nonatomic) long long displayNameOrder; // @synthesize displayNameOrder=_displayNameOrder;
 @property(readonly, copy, nonatomic) NSString *sortingFamilyName; // @synthesize sortingFamilyName=_sortingFamilyName;
 @property(readonly, copy, nonatomic) NSString *sortingGivenName; // @synthesize sortingGivenName=_sortingGivenName;

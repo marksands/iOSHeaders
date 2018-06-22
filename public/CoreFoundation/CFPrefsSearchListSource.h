@@ -18,11 +18,11 @@ __attribute__((visibility("hidden")))
     struct __CFArray *_cloudPrefixKeys;
     CFPrefsPlistSource *_standardSetTarget;
     CFPrefsCloudSource *_cloudSetTarget;
-    struct _opaque_pthread_mutex_t *_searchListLock;
     _Bool initialized;
     // Error parsing type: AB, name: _isRebuildingCache
 }
 
++ (void)preloadDomainsForIdentifiers:(const struct __CFString **)arg1 containers:(const struct __CFString **)arg2 cloudConfigurationURLs:(const struct __CFURL **)arg3 count:(long long)arg4 containingPreferences:(id)arg5;
 - (void)dealloc;
 - (struct __CFString *)copyOSLogDescription;
 - (id)description;
@@ -35,10 +35,11 @@ __attribute__((visibility("hidden")))
 - (void)freeze;
 - (struct __CFDictionary *)alreadylocked_copyManagedDictionary;
 - (void *)alreadylocked_copyManagedValueForKey:(struct __CFString *)arg1;
-- (void)_deferredNotify:(id)arg1 ofChangesFromDictionary:(struct __CFDictionary *)arg2 toDictionary:(struct __CFDictionary *)arg3;
 - (void)deferredNotifyCausedByLoadingOfChangesFromDictionary:(struct __CFDictionary *)arg1 toDictionary:(struct __CFDictionary *)arg2;
-- (void)deferredNotifyCausedByLocalWriteOfChangesFromDictionary:(struct __CFDictionary *)arg1 toDictionary:(struct __CFDictionary *)arg2;
+- (void)deferredNotifyCausedByLocalWriteOfChangesToKey:(struct __CFString *)arg1 fromValue:(void *)arg2 toValue:(void *)arg3;
+- (struct __CFArray *)_getPendingNotifications;
 - (struct __CFDictionary *)alreadylocked_copyDictionary;
+- (void)alreadylocked_reloadCacheIfStale;
 - (long long)generationCount;
 - (void)handleRemoteChangeNotificationForDomainIdentifier:(struct __CFString *)arg1;
 - (long long)alreadylocked_generationCountFromListOfSources:(id *)arg1 count:(long long)arg2;
@@ -63,8 +64,6 @@ __attribute__((visibility("hidden")))
 - (void)unlock;
 - (void)lock;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)unlockObservers;
-- (void)lockObservers;
 - (void)removePreferencesObserver:(id)arg1;
 - (void)addPreferencesObserver:(id)arg1;
 - (void)alreadylocked_setObservingContents:(_Bool)arg1;

@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
     struct WeakPtr<WebCore::FontCascade> _font;
     int _character;
     unsigned long long _count;
-    struct Vector<WTF::RetainPtr<const __CTFontDescriptor *>, 16, WTF::CrashOnOverflow, 16, WTF::FastMalloc> _fontDescriptors;
+    struct Vector<WTF::RetainPtr<const __CTFontDescriptor *>, 16, WTF::CrashOnOverflow, 16> _fontDescriptors;
 }
 
 - (id).cxx_construct;

@@ -68,16 +68,6 @@
 + (id)retrieveDatabaseIdentifierFromProfile:(id)arg1 error:(id *)arg2;
 + (_Bool)persistDatabaseIdentifier:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (id)generateNewDatabaseIdentifier;
-+ (id)definitionIdentifierFromCompanionAvailabilityStateKey:(id)arg1;
-+ (id)definitionIdentifierFromCompanionAlertedStateKey:(id)arg1;
-+ (id)definitionIdentifierFromWatchAvailabilityStateKey:(id)arg1;
-+ (id)definitionIdentifierFromWatchAlertedStateKey:(id)arg1;
-+ (id)companionAvailabilityStateKeyFromDefinitionIdentifier:(id)arg1;
-+ (id)companionAlertedStateKeyFromDefinitionIdentifier:(id)arg1;
-+ (id)companionAvailabilityStateKeySuffix;
-+ (id)watchAvailabilityStateKeyFromDefinitionIdentifier:(id)arg1;
-+ (id)watchAlertedStateKeyFromDefinitionIdentifier:(id)arg1;
-+ (id)watchAvailabilityStateKeySuffix;
 
 @end
 

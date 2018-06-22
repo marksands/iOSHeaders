@@ -15,6 +15,7 @@
 }
 
 - (unsigned long long)encodeWithFilter:(id)arg1 encoder:(id)arg2 commandBuffer:(id)arg3 callInfo:(const CDStruct_53a8ffcf *)arg4;
+- (unsigned long long)encodeToCommandBuffer:(id)arg1 computeCommandEncoder:(id)arg2 options:(unsigned long long)arg3 pluginOptions:(unsigned long long)arg4 sourceTexture:(id)arg5 sourceInfo:(const CDStruct_15cf940b *)arg6 destinationTexture:(id)arg7 destinationInfo:(const CDStruct_3d604284 *)arg8;
 - (unsigned long long)encodeToCommandBuffer:(id)arg1 computeCommandEncoder:(id)arg2 options:(unsigned long long)arg3 sourceTexture:(id)arg4 sourceInfo:(const CDStruct_15cf940b *)arg5 destinationTexture:(id)arg6 destinationInfo:(const CDStruct_3d604284 *)arg7;
 
 // Remaining properties

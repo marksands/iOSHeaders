@@ -6,27 +6,27 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSObject<OS_dispatch_queue>, NSURL, PHAAssetResourceDataLoader, PHAJobCoordinator, PHALibraryChangeListener, PHAMonitoring, PHPhotoLibrary;
+#import "PHAServiceOperationHandling.h"
 
-@interface PHAManager : NSObject
+@class NSDictionary, NSURL, PHAAssetResourceDataLoader, PHAExecutive, PHAGraphManager, PHAJobCoordinator, PHAMonitoring, PHPhotoLibrary;
+
+@interface PHAManager : NSObject <PHAServiceOperationHandling>
 {
     PHAMonitoring *_monitoring;
-    id <PHAManagerDelegate> _delegate;
+    PHAExecutive *_executive;
     PHAAssetResourceDataLoader *_dataLoader;
+    PHAGraphManager *_graphManager;
     NSURL *_libraryURL;
     PHPhotoLibrary *_photoLibrary;
-    NSObject<OS_dispatch_queue> *_executiveStateQueue;
     PHAJobCoordinator *_jobCoordinator;
-    PHALibraryChangeListener *_changeListener;
     NSDictionary *_photoAnalysisWorkersByType;
 }
 
 + (id)allWorkerClasses;
 + (void)enumerateWorkerClassesUsingBlock:(CDUnknownBlockType)arg1;
 @property(retain) NSDictionary *photoAnalysisWorkersByType; // @synthesize photoAnalysisWorkersByType=_photoAnalysisWorkersByType;
-@property(retain) PHALibraryChangeListener *changeListener; // @synthesize changeListener=_changeListener;
+@property(readonly) PHAGraphManager *graphManager; // @synthesize graphManager=_graphManager;
 @property(readonly) PHAJobCoordinator *jobCoordinator; // @synthesize jobCoordinator=_jobCoordinator;
-@property(retain) NSObject<OS_dispatch_queue> *executiveStateQueue; // @synthesize executiveStateQueue=_executiveStateQueue;
 @property(retain) PHPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 @property(retain) NSURL *libraryURL; // @synthesize libraryURL=_libraryURL;
 - (void).cxx_destruct;
@@ -35,19 +35,24 @@
 - (id)faceProcessingServiceWorker;
 - (id)sceneClassificationServiceWorker;
 - (id)taxonomyServiceWorker;
+- (id)faceClassificationServiceWorker;
 - (id)autoloopServiceWorker;
 - (id)graphServiceWorker;
 - (void)dumpAnalysisStatusWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)handleOperation:(id)arg1;
 - (void)backgroundActivityDidBegin;
 - (void)stopBackgroundActivity;
 - (void)triggerBackgroundActivity;
 - (void)checkForQuiescence;
 - (id)statusAsDictionary;
 - (void)shutdown;
-@property(readonly, getter=isTurboMode) _Bool turboMode;
+- (_Bool)isInitialSyncActive;
+- (_Bool)photosIsConnected;
+- (void)setTurboMode;
+- (_Bool)isTurboMode;
 @property(readonly, getter=isQuiescent) _Bool quiescent;
 - (id)description;
-- (id)initWithPhotoLibraryURL:(id)arg1 executiveStateQueue:(id)arg2 delegate:(id)arg3;
+- (id)initWithPhotoLibraryURL:(id)arg1 executive:(id)arg2;
 - (id)init;
 
 @end

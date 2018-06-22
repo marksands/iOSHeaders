@@ -10,13 +10,40 @@
 {
 }
 
++ (id)partOfDayNight;
++ (id)partOfDayEvening;
++ (id)partOfDayAfternoon;
++ (id)partOfDayNoon;
++ (id)partOfDayMorning;
++ (id)roiMoutain;
++ (id)roiWater;
++ (id)roiNature;
++ (id)roiBeach;
++ (id)roiUrban;
++ (id)poiHospital;
++ (id)poiFitness;
++ (id)poiHiking;
++ (id)poiDiving;
++ (id)poiActivity;
++ (id)poiStadium;
++ (id)poiPerformance;
++ (id)poiPark;
++ (id)poiAmusementPark;
++ (id)poiEntertainment;
++ (id)poiMuseum;
++ (id)poiCulture;
++ (id)poiTravel;
++ (id)poiShopping;
++ (id)poiNightlife;
++ (id)poiRestaurant;
 + (_Bool)isBlacklistedNode:(id)arg1;
-+ (id)blacklistedBaseNames;
++ (id)blacklistedNames;
++ (id)blacklistedNamesToTraverse;
 + (id)supportedMeaningClueKeys;
 + (id)profileDependenciesIdentifiers;
 + (id)informantDependenciesIdentifiers;
 + (id)classIdentifier;
-- (id)processResultsOperationForInvestigation:(id)arg1;
+- (void)processResultsSynchronouslyForInvestigation:(id)arg1 withProgressBlock:(CDUnknownBlockType)arg2;
 - (void)_insertSceneForClueCollection:(id)arg1;
 - (void)_insertPlacesForClueCollection:(id)arg1;
 - (void)_insertEventCluesForClueCollection:(id)arg1;

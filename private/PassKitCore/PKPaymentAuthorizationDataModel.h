@@ -48,6 +48,7 @@
     PKPassLibrary *_library;
     PKPaymentWebService *_paymentWebService;
     PKPeerPaymentService *_peerPaymentService;
+    PKPaymentPass *_peerPaymentPass;
     NSArray *_pendingTransactions;
     CDUnknownBlockType _updateHandler;
     PKPeerPaymentQuote *_peerPaymentQuote;
@@ -72,6 +73,7 @@
 @property(readonly, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(copy, nonatomic) CDUnknownBlockType updateHandler; // @synthesize updateHandler=_updateHandler;
 @property(retain, nonatomic) NSArray *pendingTransactions; // @synthesize pendingTransactions=_pendingTransactions;
+@property(retain, nonatomic) PKPaymentPass *peerPaymentPass; // @synthesize peerPaymentPass=_peerPaymentPass;
 @property(retain, nonatomic) PKPeerPaymentService *peerPaymentService; // @synthesize peerPaymentService=_peerPaymentService;
 @property(retain, nonatomic) PKPaymentWebService *paymentWebService; // @synthesize paymentWebService=_paymentWebService;
 @property(retain, nonatomic) PKPassLibrary *library; // @synthesize library=_library;
@@ -123,6 +125,7 @@
 - (void)_ensurePlaceholderItems;
 - (void)_ensurePaymentContentItems;
 - (void)_ensureItemForClass:(Class)arg1;
+- (void)_updatePeerPaymentPromotionAvailability;
 - (void)_ensureItems;
 @property(readonly, nonatomic) NSString *defaultPaymentPassUniqueIdentifier;
 - (unsigned long long)_insertionIndexForItem:(id)arg1;

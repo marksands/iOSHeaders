@@ -9,11 +9,10 @@
 #import "MTMaterialOverlaySettings.h"
 #import "MTMaterialSettings.h"
 #import "MTZooming.h"
-#import "_MTMaterialVersioning.h"
 
 @class MTVibrantStylingProvider, NSString, UIColor;
 
-@interface MTPreviewBackgroundMaterialSettings : NSObject <MTMaterialSettings, MTMaterialOverlaySettings, _MTMaterialVersioning, MTZooming>
+@interface MTPreviewBackgroundMaterialSettings : NSObject <MTMaterialSettings, MTMaterialOverlaySettings, MTZooming>
 {
 }
 
@@ -31,7 +30,6 @@
 @property(nonatomic) double brightness;
 @property(nonatomic) double saturation;
 @property(nonatomic) double luminanceAlpha;
-@property(readonly, nonatomic) long long materialVersion;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

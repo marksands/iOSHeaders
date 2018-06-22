@@ -50,7 +50,7 @@
 - (void)_webView:(id)arg1 getAlternateURLFromImage:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
 - (void)owningWebViewDidCommitNavigation;
-- (void)readerTextWasExtracted:(id)arg1;
+- (void)readerTextWasExtracted:(id)arg1 withMetadata:(id)arg2 wasDeterminingAvailabilility:(_Bool)arg3;
 - (void)contentDidBecomeReadyWithDetectedLanguage:(id)arg1;
 - (void)didPrepareReaderContentForPrinting:(id)arg1;
 - (void)didCollectReaderContentForMail:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSHashTable, NSObject<OS_dispatch_queue>, NSObject<OS_nw_path_evaluator>, SiriCoreWiFiManagerClient;
+@class NSHashTable, NSNumber, NSObject<OS_dispatch_queue>, NSObject<OS_nw_path_evaluator>, SiriCoreWiFiManagerClient;
 
 @interface SiriCoreNetworkManager : NSObject
 {
@@ -26,6 +26,7 @@
     _Bool _symptomsBasedHistoricalWiFiQualityIsGood;
     _Bool _lastFetchInProgress;
     double _lastSuccessfulSymptomsFetch;
+    NSNumber *_lastSignalStrength;
 }
 
 + (void)releaseDormancySuspendAssertion:(void *)arg1;
@@ -38,9 +39,10 @@
 + (id)sharedInstance;
 - (void).cxx_destruct;
 - (_Bool)_getConnectionSuccessRate:(id)arg1 hasMetric:(_Bool *)arg2;
-- (void)disableWiFiTimeout;
-- (void)enableWiFiTimeout;
+- (void)acquireWiFiAssertion;
+- (void)releaseWiFiAssertion;
 - (void)forceFastDormancy;
+- (id)_signalStrength;
 - (long long)_reportWiFiHistoricalQuality;
 - (long long)_reportWiFiInstantQuality;
 - (long long)_reportCellularHistoricalQuality;

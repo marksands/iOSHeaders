@@ -43,6 +43,7 @@
 + (struct CGSize)referenceSizeForState:(unsigned long long)arg1 andAction:(unsigned long long)arg2;
 + (struct CGSize)referenceSizeForState:(unsigned long long)arg1;
 + (struct CGSize)referenceSize;
++ (id)applePayLogo;
 @property(nonatomic, getter=isLiveRenderingEnabled) _Bool liveRenderingEnabled; // @synthesize liveRenderingEnabled=_liveRenderingEnabled;
 @property(nonatomic) _Bool displaysApplePayLogo; // @synthesize displaysApplePayLogo=_displaysApplePayLogo;
 @property(nonatomic) _Bool hasRoundedCorners; // @synthesize hasRoundedCorners=_hasRoundedCorners;
@@ -82,6 +83,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithAmount:(id)arg1 currency:(id)arg2 state:(unsigned long long)arg3;
+- (id)initWithCurrencyAmount:(id)arg1 state:(unsigned long long)arg2;
 - (id)init;
 - (id)interactiveViews;
 

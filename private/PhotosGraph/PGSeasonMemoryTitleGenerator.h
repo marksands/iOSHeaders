@@ -11,15 +11,14 @@
 @interface PGSeasonMemoryTitleGenerator : PGTitleGenerator
 {
     NSString *_season;
-    long long _category;
+    unsigned long long _category;
 }
 
-@property(nonatomic) long long category; // @synthesize category=_category;
+@property(nonatomic) unsigned long long category; // @synthesize category=_category;
 @property(retain, nonatomic) NSString *season; // @synthesize season=_season;
 - (void).cxx_destruct;
-- (id)firstAndLastMomentNodes;
 - (void)_generateTitleAndSubtitleWithResult:(CDUnknownBlockType)arg1;
-- (id)initWithMomentNodes:(id)arg1 seasonName:(id)arg2 category:(long long)arg3;
+- (id)initWithMomentNodes:(id)arg1 seasonName:(id)arg2 category:(unsigned long long)arg3;
 
 @end
 

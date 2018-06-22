@@ -11,10 +11,10 @@
 @interface PGPeopleMemoryTitleGenerator : PGTitleGenerator
 {
     unsigned long long _type;
-    NSSet *_peopleNodes;
+    NSSet *_personNodes;
 }
 
-@property(readonly, nonatomic) NSSet *peopleNodes; // @synthesize peopleNodes=_peopleNodes;
+@property(readonly, nonatomic) NSSet *personNodes; // @synthesize personNodes=_personNodes;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
 - (_Bool)_useSplitTimeTitlesIfNeeded;
@@ -26,7 +26,7 @@
 - (id)_titleForSocialGroup;
 - (id)_titleForPeople;
 - (void)_generateTitleAndSubtitleWithResult:(CDUnknownBlockType)arg1;
-- (id)initWithMomentNodes:(id)arg1 peopleNodes:(id)arg2 type:(unsigned long long)arg3;
+- (id)initWithMomentNodes:(id)arg1 personNodes:(id)arg2 type:(unsigned long long)arg3;
 
 @end
 

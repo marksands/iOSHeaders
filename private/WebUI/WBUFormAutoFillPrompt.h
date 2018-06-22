@@ -10,7 +10,7 @@
 {
 }
 
-+ (void)showAutoFillPromptInWebView:(id)arg1 title:(id)arg2 message:(id)arg3 cancelButtonTitle:(id)arg4 otherButtonTitles:(id)arg5 numberOfRows:(unsigned long long)arg6 cancelWhenAppEntersBackground:(_Bool)arg7 completionHandler:(CDUnknownBlockType)arg8;
++ (void)showAutoFillPromptInWebView:(id)arg1 title:(id)arg2 message:(id)arg3 cancelButtonTitle:(id)arg4 otherButtonTitles:(id)arg5 cancelWhenAppEntersBackground:(_Bool)arg6 completionHandler:(CDUnknownBlockType)arg7;
 + (void)showAutoFillPromptInWebView:(id)arg1 title:(id)arg2 message:(id)arg3 cancelButtonTitle:(id)arg4 otherButtonTitles:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 
 @end

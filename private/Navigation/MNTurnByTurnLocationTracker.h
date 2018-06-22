@@ -8,7 +8,6 @@
 
 @class GEONavigationMapMatcher, MNLocation, NSData, NSTimer;
 
-__attribute__((visibility("hidden")))
 @interface MNTurnByTurnLocationTracker : MNLocationTracker
 {
     GEONavigationMapMatcher *_mapMatcher;
@@ -26,7 +25,7 @@ __attribute__((visibility("hidden")))
     MNLocation *_lastKnownGoodLocationOnRoute;
 }
 
-@property(retain, nonatomic) NSData *serverSessionState; // @synthesize serverSessionState=_serverSessionState;
+@property(copy, nonatomic) NSData *serverSessionState; // @synthesize serverSessionState=_serverSessionState;
 - (void).cxx_destruct;
 - (void)forceOnRoute:(id)arg1 atLocation:(id)arg2;
 - (id)_alternateRouteForOffRouteLocation:(id)arg1;
@@ -54,6 +53,7 @@ __attribute__((visibility("hidden")))
 - (id)_rerouteTicketForLocation:(id)arg1 transportType:(int)arg2 stepIndex:(unsigned long long)arg3;
 - (_Bool)_isCameraTestMode;
 - (_Bool)_isRerouting;
+- (_Bool)_isRoadFeatureInOppositeDirection:(CDStruct_c707fdd0 *)arg1 ofCoordinate:(CDStruct_2c43369c)arg2 course:(double)arg3;
 - (id)_matchedLocationForMatchResult:(id)arg1 originalLocation:(id)arg2;
 - (_Bool)_shouldAdvanceGuidanceToRouteMatch:(id)arg1;
 - (void)_updateSwitchTransportTypeForLocation:(id)arg1;

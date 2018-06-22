@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     CIImage *inputImage;
     NSNumber *inputStrength;
     CIVector *inputScale;
+    NSNumber *inputBlur;
 }
 
 + (id)customAttributes;

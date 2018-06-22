@@ -6,9 +6,11 @@
 
 #import <NewsCore/FCHeadline.h>
 
+#import "FCHeadlineStocksFields.h"
+
 @class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCHeadlineThumbnail, FCInterestToken, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSString, NSURL, NTPBArticleRecord;
 
-@interface FCArticleHeadline : FCHeadline
+@interface FCArticleHeadline : FCHeadline <FCHeadlineStocksFields>
 {
     _Bool _hasThumbnail;
     _Bool _sponsored;
@@ -19,6 +21,7 @@
     _Bool _showMinimalChrome;
     _Bool _boundToContext;
     _Bool _hiddenFromFeeds;
+    _Bool _pressRelease;
     _Bool _paid;
     _Bool _canBePurchased;
     NSString *_versionIdentifier;
@@ -85,6 +88,7 @@
 - (void)setPaid:(_Bool)arg1;
 - (_Bool)isPaid;
 - (long long)minimumNewsVersion;
+- (_Bool)isPressRelease;
 - (_Bool)isHiddenFromFeeds;
 - (_Bool)isBoundToContext;
 - (_Bool)showMinimalChrome;
@@ -159,6 +163,11 @@
 - (id)versionIdentifier;
 - (void).cxx_destruct;
 - (id)publisherID;
+@property(readonly, copy, nonatomic) NSString *stocksScoresJSON;
+@property(readonly, copy, nonatomic) NSString *stocksMetadataJSON;
+@property(readonly, copy, nonatomic) NSString *stocksClusterID;
+- (id)stocksFields;
+- (id)publisherSpecifiedArticleIDs;
 - (id)articleRecirculationConfigJSON;
 - (id)backingArticleRecordData;
 - (id)endOfArticleTopicIDs;

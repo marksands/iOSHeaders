@@ -18,7 +18,7 @@
 + (id)featureVectorWithLocalDate:(id)arg1 impreciseLocation:(id)arg2 peopleNames:(id)arg3;
 + (id)featureVectorWithLocalDate:(id)arg1 location:(id)arg2 peopleNames:(id)arg3;
 + (id)_personForName:(id)arg1;
-+ (id)_impreciseAddressDictionaryFromPlacemark:(id)arg1;
++ (id)_imprecisePostalAddressFromPlacemark:(id)arg1;
 
 @end
 

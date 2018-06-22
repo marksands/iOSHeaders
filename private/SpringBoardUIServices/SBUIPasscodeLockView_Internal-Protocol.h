@@ -9,6 +9,10 @@
 @class NSString;
 
 @protocol SBUIPasscodeLockView_Internal <SBUIPasscodeLockView>
+- (void)didEndTransitionToState:(long long)arg1;
+- (void)willEndTransitionToState:(long long)arg1;
+- (void)updateTransitionWithProgress:(double)arg1;
+- (void)beginTransitionToState:(long long)arg1;
 - (void)_resumeBiometricMatchingAdvisory:(_Bool)arg1;
 - (void)_overrideBiometricMatchingEnabled:(_Bool)arg1 forReason:(NSString *)arg2;
 

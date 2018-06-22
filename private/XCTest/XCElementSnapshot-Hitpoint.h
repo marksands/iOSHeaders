@@ -7,8 +7,8 @@
 #import "XCElementSnapshot.h"
 
 @interface XCElementSnapshot (Hitpoint)
-@property(readonly) struct CGPoint hitPointForScrolling;
-@property(readonly) struct CGPoint hitPoint;
+- (id)hitPointForScrolling:(id *)arg1;
+- (id)hitPoint:(id *)arg1;
 - (struct CGRect)_transformRect:(struct CGRect)arg1 windowContextID:(id)arg2 windowDisplayID:(id)arg3;
 - (struct CGRect)hostingAndOrientationTransformedRect:(struct CGRect)arg1;
 - (struct CGPoint)hostingAndOrientationTransformedPoint:(struct CGPoint)arg1;

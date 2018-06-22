@@ -26,7 +26,6 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)contactNameItemWithFirstName:(id)arg1 phoneticFirstName:(id)arg2 middleName:(id)arg3 phoneticMiddleName:(id)arg4 lastName:(id)arg5 phoneticLastName:(id)arg6 organizationName:(id)arg7 jobTitle:(id)arg8 nickname:(id)arg9 relatedNames:(id)arg10 streetNames:(id)arg11 cityNames:(id)arg12 score:(double)arg13 source:(unsigned char)arg14 sourceIdentifier:(id)arg15 changeType:(unsigned char)arg16;
-+ (id)contactNameItemWithNameItem:(id)arg1;
 @property(retain, nonatomic) NSArray *cityNames; // @synthesize cityNames=_cityNames;
 @property(retain, nonatomic) NSArray *streetNames; // @synthesize streetNames=_streetNames;
 @property(retain, nonatomic) NSDictionary *relatedNames; // @synthesize relatedNames=_relatedNames;

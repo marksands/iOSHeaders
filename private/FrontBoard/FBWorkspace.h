@@ -25,6 +25,7 @@
     _Bool _invalidated;
 }
 
+- (void).cxx_destruct;
 - (void)server:(id)arg1 handleDestroySceneRequest:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)server:(id)arg1 handleCreateSceneRequest:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)server:(id)arg1 handleConnectEvent:(id)arg2;
@@ -45,9 +46,9 @@
 - (void)_queue_willInvalidateAllScenes;
 - (void)_queue_fireInvalidationAction;
 - (void)sendActions:(id)arg1;
-@property(readonly, retain, nonatomic) BSAuditToken *auditToken;
-@property(readonly, nonatomic) FBProcess *process;
-@property(nonatomic) id <FBWorkspaceDelegate> delegate;
+@property(readonly, nonatomic) BSAuditToken *auditToken;
+@property(readonly, nonatomic) __weak FBProcess *process;
+@property(nonatomic) __weak id <FBWorkspaceDelegate> delegate;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithParentProcess:(id)arg1 queue:(id)arg2 callOutQueue:(id)arg3;

@@ -9,7 +9,7 @@
 #import "RTCReportingMessageSentNotifier.h"
 #import "VCAggregatorDelegate.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>, NSString, RTCReporting, VCAggregator;
+@class NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, RTCReporting, VCAggregator;
 
 __attribute__((visibility("hidden")))
 @interface RTCReportingAgent : NSObject <VCAggregatorDelegate, RTCReportingMessageSentNotifier>
@@ -21,14 +21,20 @@ __attribute__((visibility("hidden")))
     NSArray *_backends;
     VCAggregator *_aggregator;
     int _clientType;
+    int _nextUnassignedReportingModuleID;
+    NSMutableDictionary *_userInfoMap;
+    _Bool _forceDisableABC;
 }
 
+@property(getter=isABCForceDisabled) _Bool forceDisableABC; // @synthesize forceDisableABC=_forceDisableABC;
+@property(readonly) NSMutableDictionary *userInfoMap; // @synthesize userInfoMap=_userInfoMap;
 @property int clientType; // @synthesize clientType=_clientType;
 @property(retain) VCAggregator *aggregator; // @synthesize aggregator=_aggregator;
 @property(copy) NSArray *backends; // @synthesize backends=_backends;
 @property(readonly) NSObject<OS_dispatch_queue> *reportingQueue; // @synthesize reportingQueue=_reportingQueue;
 @property(retain) RTCReporting *reportingObject; // @synthesize reportingObject=_reportingObject;
 - (int)learntBitrateForSegment:(id)arg1 defaultValue:(int)arg2;
+- (void)reportingSetReportCallback:(CDUnknownFunctionPointerType)arg1 withContext:(void *)arg2;
 - (void)reportingSymptom:(unsigned int)arg1 withOptionalDict:(struct __CFDictionary *)arg2;
 - (void)sendAggregatedReport;
 - (void)releaseReportingObject;
@@ -37,7 +43,9 @@ __attribute__((visibility("hidden")))
 - (void)report:(id)arg1;
 - (void)dealloc;
 - (void)initAdaptiveLearningWithParameters:(id)arg1;
-- (id)initWithCallID:(unsigned int)arg1 clientType:(int)arg2;
+- (id)initWithCallID:(unsigned int)arg1 clientType:(int)arg2 parentHierarchyToken:(id)arg3;
+- (id)deriveFromParentHierarchyToken:(id)arg1;
+@property(readonly) int nextUnassignedReportingModuleID;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

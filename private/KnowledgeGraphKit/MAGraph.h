@@ -8,15 +8,14 @@
 
 #import "NSXMLParserDelegate.h"
 
-@class MADatabase, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class MADatabase, MALoadRegistry, MAPropertyAccessReporter, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
 @interface MAGraph : NSObject <NSXMLParserDelegate>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     MADatabase *_persistentStore;
-    NSMutableArray *_keepsLoadedDomains;
-    NSUUID *_identifier;
-    unsigned long long _version;
+    MALoadRegistry *_loadRegistry;
+    MAPropertyAccessReporter *_propertyAccessReporter;
     NSMutableDictionary *_nodesByIdentifier;
     NSMutableDictionary *_nodesByLabel;
     NSMutableDictionary *_nodesByDomain;
@@ -28,12 +27,18 @@
     unsigned int _lastEdgeIdentifier;
     NSMutableArray *_labelStrings;
     NSMutableDictionary *_labelsForStrings;
+    _Bool _usesIdentifyingProperties;
+    NSUUID *_identifier;
+    unsigned long long _version;
+    long long _persistenceOptions;
 }
 
 + (id)graphWithMergedGraphs:(id)arg1 strictNodes:(_Bool)arg2 strictEdges:(_Bool)arg3;
 + (id)graph;
 + (void)initialize;
++ (Class)edgeClassForLabel:(id)arg1 domain:(unsigned short)arg2;
 + (Class)edgeClass;
++ (Class)nodeClassForLabel:(id)arg1 domain:(unsigned short)arg2;
 + (Class)nodeClass;
 + (id)graphJSONURLWithPath:(id)arg1 andName:(id)arg2;
 + (id)graphMLURLWithPath:(id)arg1 andName:(id)arg2;
@@ -52,15 +57,17 @@
 + (_Bool)scanGraphElementOptionsString:(id)arg1 minimum:(unsigned long long *)arg2 maximum:(unsigned long long *)arg3 error:(id *)arg4;
 + (id)scanGraphConstraintString:(id)arg1 error:(id *)arg2;
 + (_Bool)scanGraphElementString:(id)arg1 type:(unsigned long long *)arg2 optionalName:(id *)arg3 label:(id *)arg4 optionalDomains:(id *)arg5 optionalProperties:(id *)arg6 error:(id *)arg7;
+@property(nonatomic) _Bool usesIdentifyingProperties; // @synthesize usesIdentifyingProperties=_usesIdentifyingProperties;
 @property(readonly, nonatomic) MADatabase *persistentStore; // @synthesize persistentStore=_persistentStore;
+@property(readonly, nonatomic) long long persistenceOptions; // @synthesize persistenceOptions=_persistenceOptions;
+@property(readonly, nonatomic) MAPropertyAccessReporter *propertyAccessReporter; // @synthesize propertyAccessReporter=_propertyAccessReporter;
+@property(readonly, nonatomic) MALoadRegistry *loadRegistry; // @synthesize loadRegistry=_loadRegistry;
 @property(retain, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)envelopGraphForNodes:(id)arg1 throughEdgesWithLabels:(id)arg2 copyProperties:(_Bool)arg3;
 - (unsigned long long)_memoryFootprint:(id)arg1;
-- (void)performSynchronousConcurrentReadUsingBlock:(CDUnknownBlockType)arg1;
-- (void)performAsynchronousBarrierWriteUsingBlock:(CDUnknownBlockType)arg1;
 - (id)_edgesForLabel:(id)arg1;
 - (id)_allEdges;
 - (void)enumerateEdgesWithBlock:(CDUnknownBlockType)arg1;
@@ -77,6 +84,7 @@
 - (id)edgesForLabel:(id)arg1 domain:(unsigned short)arg2 properties:(id)arg3;
 - (id)edgesForLabel:(id)arg1 domain:(unsigned short)arg2;
 - (id)edgesForLabel:(id)arg1;
+- (id)edgesForIdentifiers:(id)arg1;
 - (id)edgeForIdentifier:(unsigned int)arg1;
 - (void)_removeMemoryEdge:(id)arg1;
 - (void)removeEdges:(id)arg1;
@@ -86,7 +94,10 @@
 - (id)_addEdgeWithLabel:(id)arg1 sourceNode:(id)arg2 targetNode:(id)arg3 domain:(unsigned short)arg4 weight:(float)arg5 properties:(id)arg6 saveToDatabase:(_Bool)arg7;
 - (id)addEdgeWithLabel:(id)arg1 sourceNode:(id)arg2 targetNode:(id)arg3 domain:(unsigned short)arg4 weight:(float)arg5 properties:(id)arg6;
 - (id)addEdgeWithLabel:(id)arg1 sourceNode:(id)arg2 targetNode:(id)arg3;
-- (void)_addEdge:(id)arg1 withIdentifier:(unsigned int)arg2 saveToDatabase:(_Bool)arg3;
+- (id)identifyingPropertyKeysForEdge:(id)arg1;
+- (id)identifyingPropertyKeysForEdgeDomain:(unsigned short)arg1 label:(id)arg2;
+- (id)identifyingPropertyKeysForNode:(id)arg1;
+- (id)identifyingPropertyKeysForNodeDomain:(unsigned short)arg1 label:(id)arg2;
 - (id)_nodesForDomain:(unsigned long long)arg1;
 - (id)_nodesForLabel:(id)arg1;
 - (id)_allNodes;
@@ -98,15 +109,18 @@
 - (id)nodesLabels;
 - (unsigned long long)nodesCount;
 - (id)addUniqueNodeWithLabel:(id)arg1 domain:(unsigned short)arg2 weight:(float)arg3 properties:(id)arg4 didCreate:(_Bool *)arg5;
+- (id)propertiesToTestUniquenessForLabel:(id)arg1 domain:(unsigned short)arg2 fromProperties:(id)arg3 forNode:(_Bool)arg4;
 - (id)nodesForDomains:(id)arg1;
 - (unsigned long long)nodesCountForDomain:(unsigned short)arg1;
 - (id)nodesForDomain:(unsigned short)arg1;
 - (unsigned long long)nodesCountForLabel:(id)arg1 domain:(unsigned short)arg2 properties:(id)arg3;
 - (id)nodesForLabel:(id)arg1 domain:(unsigned short)arg2 properties:(id)arg3;
+- (id)anyNodeForLabel:(id)arg1 domain:(unsigned short)arg2 properties:(id)arg3;
 - (unsigned long long)nodesCountForLabel:(id)arg1 domain:(unsigned short)arg2;
 - (id)nodesForLabel:(id)arg1 domain:(unsigned short)arg2;
 - (unsigned long long)nodesCountForLabel:(id)arg1;
 - (id)nodesForLabel:(id)arg1;
+- (id)nodesForIdentifiers:(id)arg1;
 - (id)nodeForIdentifier:(unsigned int)arg1;
 - (void)_removeMemoryNode:(id)arg1;
 - (void)removeNodes:(id)arg1;
@@ -118,6 +132,7 @@
 - (id)addNodeWithLabel:(id)arg1 domain:(unsigned short)arg2 weight:(float)arg3 properties:(id)arg4;
 - (id)addNodeWithLabel:(id)arg1;
 - (void)_addNode:(id)arg1 withIdentifier:(unsigned int)arg2 saveToDatabase:(_Bool)arg3;
+- (void)dumpPropertyAccessReport;
 - (void)removeAllObjects;
 - (void)invalidateMemoryCaches;
 - (void)mergeCopyWithGraph:(id)arg1;
@@ -126,19 +141,22 @@
 - (void)mergeWithGraph:(id)arg1 strictNodes:(_Bool)arg2 strictEdges:(_Bool)arg3;
 - (void)leaveBatch;
 - (void)enterBatch;
+- (void)endPropertyTransaction;
+- (void)beginPropertyTransaction;
 @property(nonatomic) unsigned long long version; // @synthesize version=_version;
 - (void)_setVersion:(unsigned long long)arg1;
 - (id)_keyForLabelString:(id)arg1;
 - (id)_labelStrings;
 - (void)_setLabelStrings:(id)arg1;
 - (unsigned short)_labelForString:(id)arg1 createIfNeeded:(_Bool)arg2;
-- (id)_stringForLabel:(unsigned short)arg1;
+- (id)stringForLabel:(unsigned short)arg1;
 - (unsigned int)_nextEdgeIdentifier;
 - (unsigned int)_nextNodeIdentifier;
 - (void)_prepareFragmentedIdentifiers;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
+@property(readonly, nonatomic, getter=isPropertyLoadingEnabled) _Bool propertyLoadingEnabled;
 - (id)init;
+- (id)initWithPersistenceOptions:(long long)arg1;
 - (_Bool)writeGraphJSONToURL:(id)arg1 error:(id *)arg2;
 - (id)_graphJSONDictionary;
 - (id)initWithGraphJSONURL:(id)arg1;
@@ -153,21 +171,14 @@
 - (id)_graphDictionary;
 - (id)initWithDataURL:(id)arg1;
 - (void)_loadWithGraphDictionary:(id)arg1;
+- (void)_addEdge:(id)arg1 withIdentifier:(unsigned int)arg2 saveToDatabase:(_Bool)arg3;
 - (void)deleteMarker;
 - (void)setMarker;
 - (_Bool)hasMarker;
-- (void)prefetchAllDomains;
-- (void)prefetchDomains:(id)arg1;
-- (void)prefetchDomain:(unsigned short)arg1;
-- (void)prefetchNodesWithLabels:(id)arg1;
-- (void)prefetchEdgesWithLabels:(id)arg1;
-- (void)_prefetchPropertiesForElements:(id)arg1 forType:(id)arg2;
-- (void)unregisterForPrefetchDomains:(unsigned short)arg1;
-- (void)registerForPrefetchDomains:(unsigned short)arg1;
 - (_Bool)migratePersistentStoreToURL:(id)arg1 error:(id *)arg2;
 - (_Bool)savePersistentStore;
 - (void)savePersistentStoreWithCompletion:(CDUnknownBlockType)arg1;
-- (id)initWithPersistentStoreURL:(id)arg1;
+- (id)initWithPersistentStoreURL:(id)arg1 options:(long long)arg2;
 - (id)matchWithVisualString:(id)arg1 error:(id *)arg2;
 - (id)matchWithVisualFormat:(id)arg1 elements:(id)arg2 error:(id *)arg3;
 - (id)matchWithDefinitions:(id)arg1 constraints:(id)arg2 error:(id *)arg3;

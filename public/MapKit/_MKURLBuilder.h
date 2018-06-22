@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class _GEOMapURLBuilder;
+@class GEOMapURLBuilder;
 
 @interface _MKURLBuilder : NSObject
 {
-    _GEOMapURLBuilder *_realBuilder;
+    GEOMapURLBuilder *_realBuilder;
 }
 
 + (id)URLForExternalBusiness:(id)arg1 id:(id)arg2 ofContentProvider:(id)arg3;

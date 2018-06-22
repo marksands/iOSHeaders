@@ -8,13 +8,13 @@
 
 #import "PKLinkedApplicationObserver.h"
 
-@class NSArray, NSString, NSURL, PKLinkedAppUserRatingView, PKLinkedApplication, UIActivityIndicatorView, UIButton, UIColor, UIImageView, UILabel;
+@class NSArray, NSString, NSURL, PKContinuousButton, PKLinkedAppUserRatingView, PKLinkedApplication, UIActivityIndicatorView, UIColor, UIImageView, UILabel;
 
 @interface PKLinkedAppView : PKTableViewCell <PKLinkedApplicationObserver>
 {
     UIImageView *_iconView;
     UILabel *_appName;
-    UIButton *_viewButton;
+    PKContinuousButton *_viewButton;
     UILabel *_appPublisher;
     PKLinkedAppUserRatingView *_userRatingView;
     UILabel *_price;

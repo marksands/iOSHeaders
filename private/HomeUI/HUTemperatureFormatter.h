@@ -4,26 +4,36 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "WFTemperatureFormatter.h"
+#import "NSMeasurementFormatter.h"
 
 #import "HFTemperatureFormatter.h"
 #import "WFTemperatureUnitObserver.h"
 
-@class NSString;
+@class NSNumber, NSString;
 
-@interface HUTemperatureFormatter : WFTemperatureFormatter <WFTemperatureUnitObserver, HFTemperatureFormatter>
+@interface HUTemperatureFormatter : NSMeasurementFormatter <WFTemperatureUnitObserver, HFTemperatureFormatter>
 {
+    _Bool _inputIsCelsius;
+    _Bool _outputIsCelsius;
+    NSString *_fallbackTemperatureString;
+    NSNumber *_stepValue;
 }
 
+@property(retain, nonatomic) NSNumber *stepValue; // @synthesize stepValue=_stepValue;
+@property(nonatomic) _Bool outputIsCelsius; // @synthesize outputIsCelsius=_outputIsCelsius;
+@property(nonatomic) _Bool inputIsCelsius; // @synthesize inputIsCelsius=_inputIsCelsius;
+@property(copy, nonatomic) NSString *fallbackTemperatureString; // @synthesize fallbackTemperatureString=_fallbackTemperatureString;
+- (void).cxx_destruct;
 - (void)temperatureUnitObserver:(id)arg1 didChangeTemperatureUnitTo:(int)arg2;
-@property(nonatomic) _Bool inputIsCelsius;
+- (id)stringForObjectValue:(id)arg1;
+@property(nonatomic) unsigned long long minimumFractionDigits;
+@property(nonatomic) unsigned long long maximumFractionDigits;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(copy, nonatomic) NSString *fallbackTemperatureString;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

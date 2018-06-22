@@ -35,7 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)addStyle:(id)arg1 toElement:(id)arg2 inComponent:(id)arg3;
 - (id)buildStyleSheet;
 - (id)components;
-- (id)ruleDictionaryForStyle:(id)arg1 forComponentClass:(Class)arg2;
+- (id)ruleDictionaryForStyle:(id)arg1 forComponentClass:(Class)arg2 withDarkInterface:(_Bool)arg3;
 - (void)buildPendingVariableSetForRuleDictionary:(id)arg1;
 - (id)buildInlineStyleForRuleDictionary:(id)arg1;
 - (void)buildCSSDeclarationsFromRuleDictionary:(id)arg1 withPrefix:(id)arg2 suffix:(id)arg3 spacer:(id)arg4 forBuffer:(id)arg5;

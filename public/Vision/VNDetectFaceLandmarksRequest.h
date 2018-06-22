@@ -19,13 +19,15 @@
     _Bool _performBlinkDetection;
 }
 
++ (const CDStruct_d47b9615 *)dependentRequestCompatability;
++ (const CDStruct_7d93034e *)revisionAvailability;
 @property(nonatomic) _Bool performBlinkDetection; // @synthesize performBlinkDetection=_performBlinkDetection;
 @property(nonatomic) _Bool refineRightEyeRegion; // @synthesize refineRightEyeRegion=_refineRightEyeRegion;
 @property(nonatomic) _Bool refineLeftEyeRegion; // @synthesize refineLeftEyeRegion=_refineLeftEyeRegion;
 @property(nonatomic) _Bool refineMouthRegion; // @synthesize refineMouthRegion=_refineMouthRegion;
 @property(retain, nonatomic) NSNumber *cascadeStepCount; // @synthesize cascadeStepCount=_cascadeStepCount;
 - (void).cxx_destruct;
-- (_Bool)internalPerformInContext:(id)arg1 error:(id *)arg2;
+- (_Bool)internalPerformRevision:(unsigned long long)arg1 inContext:(id)arg2 error:(id *)arg3;
 - (void)applyConfigurationOfRequest:(id)arg1;
 - (void)_determineFacesToProcessFrom:(id)arg1 outputFacesThatNeedNoProcessing:(id)arg2 outputFacesThatNeedAlignment:(id)arg3 outputFacesThatNeedLandmarks:(id)arg4;
 - (long long)dependencyProcessingOrdinality;

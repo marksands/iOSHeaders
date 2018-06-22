@@ -15,6 +15,7 @@
 @property(copy, nonatomic) NSDictionary *userInfo; // @dynamic userInfo;
 
 // Remaining properties
+@property(nonatomic) unsigned long long commandDirection;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

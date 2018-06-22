@@ -51,6 +51,8 @@
 - (id)focusedAppPID;
 - (_Bool)isSystemAppShowingAnAlert;
 - (void)systemAppInfoWithQuery:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (_Bool)canSetDockIconActivationMode;
+- (void)setDockIconActivationMode:(unsigned long long)arg1;
 - (id)medusaApps;
 - (_Bool)performMedusaGesture:(unsigned long long)arg1;
 - (id)allowedMedusaGestures;

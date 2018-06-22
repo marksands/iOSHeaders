@@ -24,6 +24,7 @@ struct CLSRoutineServiceStatisticsStruct {
     _Bool routineAvailable;
     unsigned long long numberOfLocationsOfInterest;
     unsigned long long numberOfVisits;
+    unsigned long long numberOfTransitions;
     unsigned long long numberOfTimeMatches;
     unsigned long long numberOfCloseByLocationMatches;
     unsigned long long numberOfRemoteLocationMatches;
@@ -50,6 +51,15 @@ struct _NSRange {
 
 struct in_addr {
     unsigned int _field1;
+};
+
+struct os_unfair_lock_s {
+    unsigned int _os_unfair_lock_opaque;
+};
+
+struct os_unfair_recursive_lock_s {
+    struct os_unfair_lock_s ourl_lock;
+    unsigned int ourl_count;
 };
 
 struct sockaddr_in {

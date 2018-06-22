@@ -6,35 +6,41 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBSelectionItem.h"
 
-@class NSString, PBUnknownFields, _INPBIntentSlotValue;
+@class INCodableAttribute, NSString, _INPBIntentSlotValue;
 
-@interface _INPBSelectionItem : PBCodable <NSCopying>
+@interface _INPBSelectionItem : PBCodable <_INPBSelectionItem, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
+    struct _has;
     NSString *_uuid;
     _INPBIntentSlotValue *_value;
     NSString *_vocabularyValue;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
-+ (id)options;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
+@property(copy, nonatomic) NSString *vocabularyValue; // @synthesize vocabularyValue=_vocabularyValue;
 @property(retain, nonatomic) _INPBIntentSlotValue *value; // @synthesize value=_value;
-@property(retain, nonatomic) NSString *vocabularyValue; // @synthesize vocabularyValue=_vocabularyValue;
-@property(retain, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
+@property(copy, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(readonly, nonatomic) _Bool hasValue;
 @property(readonly, nonatomic) _Bool hasVocabularyValue;
+@property(readonly, nonatomic) _Bool hasValue;
 @property(readonly, nonatomic) _Bool hasUuid;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

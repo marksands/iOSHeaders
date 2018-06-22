@@ -6,36 +6,42 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBConflictingParameter.h"
 
-@class NSMutableArray, NSString, PBUnknownFields;
+@class INCodableAttribute, NSArray, NSString;
 
-@interface _INPBConflictingParameter : PBCodable <NSCopying>
+@interface _INPBConflictingParameter : PBCodable <_INPBConflictingParameter, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
-    NSMutableArray *_alternateItems;
+    struct _has;
+    NSArray *_alternateItems;
     NSString *_keyPath;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
 + (Class)alternateItemsType;
-+ (id)options;
-@property(retain, nonatomic) NSMutableArray *alternateItems; // @synthesize alternateItems=_alternateItems;
-@property(retain, nonatomic) NSString *keyPath; // @synthesize keyPath=_keyPath;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
+@property(copy, nonatomic) NSString *keyPath; // @synthesize keyPath=_keyPath;
+@property(copy, nonatomic) NSArray *alternateItems; // @synthesize alternateItems=_alternateItems;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
+@property(readonly, nonatomic) _Bool hasKeyPath;
 - (id)alternateItemsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)alternateItemsCount;
+@property(readonly, nonatomic) unsigned long long alternateItemsCount;
 - (void)addAlternateItems:(id)arg1;
 - (void)clearAlternateItems;
-@property(readonly, nonatomic) _Bool hasKeyPath;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

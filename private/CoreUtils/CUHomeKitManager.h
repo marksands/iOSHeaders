@@ -18,6 +18,7 @@
 
 @interface CUHomeKitManager : NSObject <HMAccessoryDelegatePrivate, HMHomeDelegate, HMHomeDelegatePrivate, HMHomeManagerDelegate, HMHomeManagerDelegatePrivate, HMMediaSystemDelegate, HMUserDelegatePrivate>
 {
+    int _homeKitPrefsNotifyToken;
     HMHomeManager *_homeManager;
     _Bool _homeManagerDidUpdateHomes;
     struct NSMutableDictionary *_homes;
@@ -116,7 +117,7 @@
 - (void)_invalidated;
 - (void)invalidate;
 - (void)_interrupted;
-- (void)_activate;
+- (void)_activateIfNeeded;
 - (void)activate;
 - (void)dealloc;
 - (id)init;

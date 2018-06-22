@@ -8,7 +8,7 @@
 
 #import "UIScrollViewDelegate.h"
 
-@class NSString, OBPrivacyLinkController, PKPaymentSetupDockView, UIActivityIndicatorView, UIFont, UIImage, UIImageView, UILabel, UIScrollView, _UIBackdropView;
+@class NSString, OBPrivacyLinkController, PKCheckGlyphLayer, PKPaymentSetupDockView, UIActivityIndicatorView, UIFont, UIImage, UIImageView, UILabel, UIScrollView, _UIBackdropView;
 
 @interface PKExplanationView : UIView <UIScrollViewDelegate>
 {
@@ -21,13 +21,16 @@
     UILabel *_titleLabel;
     UILabel *_bodyTextLabel;
     UIActivityIndicatorView *_activityIndicator;
-    UIImageView *_checkmarkView;
+    PKCheckGlyphLayer *_checkmarkLayer;
     _UIBackdropView *_backdropView;
     long long _backdropStyle;
     double _backdropWeight;
     _Bool _updatingBackdropSettings;
     _Bool _showPrivacyView;
     double _topMargin;
+    struct CGRect _titleLabelFrame;
+    struct CGRect _titleLabelLastLineBounds;
+    double _titleLabelLastLineDescent;
     _Bool _forceShowSetupLaterButton;
     _Bool _hideTitleText;
     _Bool _bodyTextIsLeftAlgined;
@@ -41,7 +44,7 @@
 }
 
 @property(retain, nonatomic) UIImageView *logoImageView; // @synthesize logoImageView=_logoImageView;
-@property(readonly, nonatomic) UIImageView *checkmarkView; // @synthesize checkmarkView=_checkmarkView;
+@property(readonly, nonatomic) PKCheckGlyphLayer *checkmarkLayer; // @synthesize checkmarkLayer=_checkmarkLayer;
 @property(readonly, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
 @property(readonly, nonatomic) PKPaymentSetupDockView *dockView; // @synthesize dockView=_dockView;
 @property(retain, nonatomic) OBPrivacyLinkController *privacyLink; // @synthesize privacyLink=_privacyLink;
@@ -60,6 +63,7 @@
 - (void)_accessibilitySettingsDidChange:(id)arg1;
 - (_Bool)_isBuddyiPad;
 - (_Bool)_showApplePayLogo;
+- (void)_updateCachedTitleLabelLastLine;
 - (void)_updateTitleLabel;
 - (void)_createSubviews;
 - (void)_calculateBlur;

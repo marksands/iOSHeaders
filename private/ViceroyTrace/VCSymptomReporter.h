@@ -15,12 +15,27 @@ __attribute__((visibility("hidden")))
     NSString *_loggingDirectory;
     NSObject<OS_os_log> *_osLogNetworkingHandle;
     NSObject<OS_dispatch_queue> *_reportingQueue;
+    CDUnknownFunctionPointerType _symptomReporterCallback;
+    void *_symptomReporterContext;
 }
 
 @property(copy, nonatomic) NSString *loggingDirectory; // @synthesize loggingDirectory=_loggingDirectory;
 - (id)symptomNameWithDomain:(id)arg1 subtypeContext:(id)arg2;
+- (int)reportSymptomWithOptions:(id)arg1 type:(id)arg2 subType:(id)arg3 context:(id)arg4;
 - (int)reportSymptomWithDictionary:(id)arg1;
-- (int)reportSymptomWithType:(id)arg1 subType:(id)arg2 context:(id)arg3;
+- (int)reportSymptomWithIDSDestination:(id)arg1 sessionID:(id)arg2 type:(id)arg3 subType:(id)arg4 context:(id)arg5;
+- (int)reportSymptomWithType:(id)arg1 subType:(id)arg2 context:(id)arg3 actions:(id)arg4;
+- (int)reportMediaQueueFlushingTooFrequent;
+- (int)reportMediaQueueOvershoot;
+- (int)reportKeyFrameNotSpreading;
+- (int)reportReceiveMKIDuplicateKeys;
+- (int)reportUnexpectedLowTargetBitrate;
+- (int)reportTargetBitrateOvershoot;
+- (int)reportMediaQueuePoolEmpty;
+- (int)reportKeyIndexNotReceived;
+- (int)reportSessionInfoErrorResponse;
+- (int)reportCCReliableDataNotReceived;
+- (int)reportReceiveSessionStatsFailed;
 - (int)reportQRATKNTokenError;
 - (int)reportIDSDataChannelEventUsageError;
 - (int)reportAUIOTimestampJumped;
@@ -28,8 +43,8 @@ __attribute__((visibility("hidden")))
 - (int)reportAudioErasures;
 - (int)reportVideoStall;
 - (int)reportAudioStall;
-- (int)reportNoPackets;
-- (int)reportNoFirstFrame;
+- (int)reportNoPacketsWithOptionalDictionary:(id)arg1;
+- (int)reportNoFirstFrameWithOptionalDictionary:(id)arg1;
 - (int)reportFailedToStartVideo;
 - (int)reportFailedToStartAudio;
 - (int)reportNoSNATMAPResponseWithOptionalDictionary:(id)arg1;
@@ -41,6 +56,7 @@ __attribute__((visibility("hidden")))
 - (int)reportRateTargetMismatch;
 - (void)reportSymptomInternal:(unsigned int)arg1 optionalDictionary:(id)arg2;
 - (void)dealloc;
+- (void)VCSymptomReporterSetCallback:(CDUnknownFunctionPointerType)arg1 context:(void *)arg2;
 - (void)reportSymptom:(unsigned int)arg1 optionalDictionary:(id)arg2;
 - (id)initWithCallID:(unsigned int)arg1;
 

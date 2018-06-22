@@ -9,12 +9,13 @@
 #import "NSSecureCoding.h"
 #import "_DKProtobufConverting.h"
 
-@class NSString, NSUUID, _DKSource;
+@class NSDate, NSString, NSUUID, _DKSource;
 
 @interface _DKObject : NSObject <_DKProtobufConverting, NSSecureCoding>
 {
     NSUUID *_UUID;
     _DKSource *_source;
+    NSDate *_creationDate;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -22,6 +23,7 @@
 + (id)objectFromManagedObject:(id)arg1 readMetadata:(_Bool)arg2 cache:(id)arg3;
 + (id)fetchObjectWithUUID:(id)arg1 context:(id)arg2;
 + (id)entityName;
+@property(retain) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(retain) _DKSource *source; // @synthesize source=_source;
 @property(retain) NSUUID *UUID; // @synthesize UUID=_UUID;
 - (void).cxx_destruct;

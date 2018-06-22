@@ -12,7 +12,7 @@
 #import "HUPresentationDelegateHost.h"
 #import "PGPictureInPictureProxyDelegate.h"
 
-@class HFCameraAudioManager, HFCameraItem, HFItem, HFItemManager, HUCameraMicrophoneButton, HUCameraStreamContentViewController, MPVolumeSlider, NSLayoutConstraint, NSString, PGPictureInPictureProxy, UIBarButtonItem;
+@class AVPlayerLayer, HFCameraAudioManager, HFCameraItem, HFItem, HFItemManager, HUCameraMicrophoneButton, HUCameraStreamContentViewController, MPVolumeSlider, NSLayoutConstraint, NSString, PGPictureInPictureProxy, UIBarButtonItem, UIView;
 
 @interface HUCameraStreamViewController : UIViewController <HFItemManagerDelegate, HUPresentationDelegate, PGPictureInPictureProxyDelegate, HUItemPresentationContainer, HUPresentationDelegateHost>
 {
@@ -34,9 +34,13 @@
     UIBarButtonItem *_volumeBarButtonItem;
     HUCameraMicrophoneButton *_microphoneButton;
     UIBarButtonItem *_microphoneBarButtonItem;
+    AVPlayerLayer *_demoPlayerLayer;
+    UIView *_playerLayerContainerView;
     struct UIOffset _defaultCameraBadgeOffset;
 }
 
+@property(retain, nonatomic) UIView *playerLayerContainerView; // @synthesize playerLayerContainerView=_playerLayerContainerView;
+@property(retain, nonatomic) AVPlayerLayer *demoPlayerLayer; // @synthesize demoPlayerLayer=_demoPlayerLayer;
 @property(nonatomic) _Bool didSetupVolumeSliderConstraints; // @synthesize didSetupVolumeSliderConstraints=_didSetupVolumeSliderConstraints;
 @property(nonatomic) _Bool didSetupMicrophoneButtonConstraints; // @synthesize didSetupMicrophoneButtonConstraints=_didSetupMicrophoneButtonConstraints;
 @property(nonatomic, getter=areBarsHidden) _Bool barsHidden; // @synthesize barsHidden=_barsHidden;
@@ -64,6 +68,7 @@
 - (unsigned long long)_streamState;
 - (id)_cameraProfile;
 - (void)_attachCameraStreamViewController;
+- (void)_updatePIPViewFrame;
 @property(readonly, nonatomic) HFItem *hu_presentedItem;
 - (id)finishPresentation:(id)arg1 animated:(_Bool)arg2;
 - (void)_presentCameraDetailsWithViewController:(id)arg1;
@@ -82,6 +87,7 @@
 - (void)pictureInPictureProxy:(id)arg1 willStartPictureInPictureWithAnimationType:(long long)arg2;
 - (struct CGRect)pictureInPictureProxyViewFrameForTransitionAnimation:(id)arg1;
 - (void)itemManager:(id)arg1 didUpdateResultsForSourceItem:(id)arg2;
+@property(readonly, nonatomic) UIView *cameraViewSnapshot;
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
 - (long long)preferredStatusBarUpdateAnimation;
 - (_Bool)prefersStatusBarHidden;
@@ -92,6 +98,7 @@
 - (void)_updateVolumeSliderConstraintsIfNeeded;
 - (void)viewWillLayoutSubviews;
 - (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidLayoutSubviews;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;

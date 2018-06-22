@@ -11,6 +11,7 @@
 @interface CKConversationListStandardCell : CKConversationListCell
 {
     UIImageView *_unreadIndicatorImageView;
+    UIImageView *_liveConversationIndicatorImageView;
     CKAvatarView *_avatarView;
 }
 
@@ -25,6 +26,7 @@
 - (id)avatarView;
 - (void)layoutSubviews;
 - (void)updateForEditing:(_Bool)arg1;
+- (void)updateLiveConversationIndicatorWithImage:(id)arg1;
 - (void)updateUnreadIndicatorWithImage:(id)arg1;
 - (void)updateFromLabelWithText:(id)arg1;
 - (void)updateContentsForConversation:(id)arg1;

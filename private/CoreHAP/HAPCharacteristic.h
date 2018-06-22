@@ -40,6 +40,7 @@
 - (_Bool)mergeObject:(id)arg1;
 - (_Bool)shouldMergeObject:(id)arg1;
 @property(readonly, nonatomic) _Bool supportsAdditionalAuthorizationData;
+- (void)setStateNumber:(id)arg1;
 - (id)propertiesDescription;
 @property(readonly, copy) NSString *description;
 - (_Bool)isEqualToCharacteristic:(id)arg1;

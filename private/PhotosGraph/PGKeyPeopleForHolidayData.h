@@ -6,18 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet, NSString, PGGraphNode;
+@class NSMutableSet, NSString, PGGraphNode, PGGraphPersonNode;
 
 @interface PGKeyPeopleForHolidayData : NSObject
 {
     NSMutableSet *_holidayRules;
     PGGraphNode *_socialGroupNode;
-    PGGraphNode *_personNode;
+    PGGraphPersonNode *_personNode;
     NSMutableSet *_momentNodes;
 }
 
 @property(retain, nonatomic) NSMutableSet *momentNodes; // @synthesize momentNodes=_momentNodes;
-@property(retain, nonatomic) PGGraphNode *personNode; // @synthesize personNode=_personNode;
+@property(retain, nonatomic) PGGraphPersonNode *personNode; // @synthesize personNode=_personNode;
 @property(retain, nonatomic) PGGraphNode *socialGroupNode; // @synthesize socialGroupNode=_socialGroupNode;
 @property(retain, nonatomic) NSMutableSet *holidayRules; // @synthesize holidayRules=_holidayRules;
 - (void).cxx_destruct;

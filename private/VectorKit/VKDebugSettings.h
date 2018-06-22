@@ -22,6 +22,7 @@
     _Bool _paintJunctions;
     _Bool _paintCoastlines;
     _Bool _paintBuildingNormals;
+    _Bool _paintLoadReason;
     _Bool _disableRoute;
     _Bool _labelHighlighting;
     _Bool _transitHighlighting;
@@ -280,6 +281,7 @@
 @property(nonatomic) _Bool transitHighlighting; // @synthesize transitHighlighting=_transitHighlighting;
 @property(nonatomic) _Bool labelHighlighting; // @synthesize labelHighlighting=_labelHighlighting;
 @property(nonatomic) _Bool disableRoute; // @synthesize disableRoute=_disableRoute;
+@property(nonatomic) _Bool paintLoadReason; // @synthesize paintLoadReason=_paintLoadReason;
 @property(nonatomic) _Bool paintBuildingNormals; // @synthesize paintBuildingNormals=_paintBuildingNormals;
 @property(nonatomic) _Bool paintCoastlines; // @synthesize paintCoastlines=_paintCoastlines;
 @property(nonatomic) _Bool paintJunctions; // @synthesize paintJunctions=_paintJunctions;

@@ -6,9 +6,11 @@
 
 #import "UISlider.h"
 
-@class NSArray, NSMutableArray, NSString, NSTimer, UIImageView, UISelectionFeedbackGenerator, UIView;
+#import "UIScrollViewDelegate.h"
 
-@interface AVScrubber : UISlider
+@class NSArray, NSMutableArray, NSString, NSTimer, UIImageView, UIScrollView, UISelectionFeedbackGenerator, UIView;
+
+@interface AVScrubber : UISlider <UIScrollViewDelegate>
 {
     struct CGPoint _previousTouchLocationInView;
     double _trackingStartTime;
@@ -16,6 +18,7 @@
     double _previousValueChangeTime;
     double _currentValueChangedTime;
     _Bool _didHaveLessThanFullScrubbingSpeedSinceTrackingBegin;
+    _Bool _scrollScrubbing;
     _Bool _slowKnobMovementDetected;
     _Bool _shouldRecoverFromPrecisionScrubbingIfNeeded;
     _Bool _collapsed;
@@ -31,6 +34,7 @@
     NSArray *_loadedTimeRanges;
     long long _scrubbingSpeed;
     double _resolution;
+    UIScrollView *_scrollView;
     UIImageView *_currentThumbView;
     NSTimer *_updateSlowKnobMovementDetectedTimer;
     double _timestampWhenTrackingEnded;
@@ -49,6 +53,8 @@
 @property(nonatomic) __weak UIImageView *currentThumbView; // @synthesize currentThumbView=_currentThumbView;
 @property(nonatomic) _Bool shouldRecoverFromPrecisionScrubbingIfNeeded; // @synthesize shouldRecoverFromPrecisionScrubbingIfNeeded=_shouldRecoverFromPrecisionScrubbingIfNeeded;
 @property(nonatomic) _Bool slowKnobMovementDetected; // @synthesize slowKnobMovementDetected=_slowKnobMovementDetected;
+@property(nonatomic, getter=isScrollScrubbing) _Bool scrollScrubbing; // @synthesize scrollScrubbing=_scrollScrubbing;
+@property(retain, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(nonatomic) float rate; // @synthesize rate=_rate;
 @property(nonatomic) struct NSDirectionalEdgeInsets hitRectInsets; // @synthesize hitRectInsets=_hitRectInsets;
 @property(nonatomic) double resolution; // @synthesize resolution=_resolution;
@@ -60,22 +66,29 @@
 - (void).cxx_destruct;
 - (void)_updateSlowKnobMovementDetectedForTargetValue:(float)arg1;
 - (void)_updateSlowKnobMovementDetected;
+- (struct CGPoint)contentOffsetFromValue;
+- (float)valueFromScrollView;
+- (double)normalizedScrollOffset;
+- (float)normalizedPosition;
+- (float)duration;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGRect)hitRect;
 - (void)layoutSubviews;
+- (void)updateScrollViewContentSizeAndOffsetIfNeeded;
 - (struct UIEdgeInsets)alignmentRectInsets;
 - (void)endOrCancelTracking;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)isTracking;
 - (void)setEnabled:(_Bool)arg1;
 - (id)createThumbView;
 - (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)thumbRectForBounds:(struct CGRect)arg1 trackRect:(struct CGRect)arg2 value:(float)arg3;
 - (struct CGRect)maximumValueImageRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)minimumValueImageRectForBounds:(struct CGRect)arg1;
-- (void)willMoveToWindow:(id)arg1;
+- (void)setValue:(float)arg1;
 - (struct CGSize)intrinsicContentSize;
 @property(readonly, nonatomic, getter=isCollapsedOrExcluded) _Bool collapsedOrExcluded;
 @property(readonly, nonatomic) double timeIntervalSinceTrackingEnded;
@@ -84,6 +97,12 @@
 @property(readonly, nonatomic) UIView *loadedTrackOverlayView; // @synthesize loadedTrackOverlayView=_loadedTrackOverlayView;
 @property(readonly, nonatomic) UISelectionFeedbackGenerator *feedbackGenerator; // @synthesize feedbackGenerator=_feedbackGenerator;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

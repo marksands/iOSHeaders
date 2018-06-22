@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+#import "LSApplicationWorkspaceObserverProtocol.h"
 #import "WGWidgetDataSourceObserver.h"
 #import "WGWidgetListEditViewControllerDataSource.h"
 #import "WGWidgetListEditViewControllerDelegate.h"
@@ -13,7 +14,7 @@
 
 @class NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSPointerArray, NSString, WGWidgetListEditViewController, WGWidgetPersistentStateController;
 
-@interface WGWidgetDiscoveryController : NSObject <WGWidgetViewControllerDelegate, WGWidgetDataSourceObserver, WGWidgetListEditViewControllerDataSource, WGWidgetListEditViewControllerDelegate>
+@interface WGWidgetDiscoveryController : NSObject <WGWidgetViewControllerDelegate, WGWidgetDataSourceObserver, WGWidgetListEditViewControllerDataSource, WGWidgetListEditViewControllerDelegate, LSApplicationWorkspaceObserverProtocol>
 {
     struct NSMutableDictionary *_archive;
     NSObject<OS_dispatch_queue> *_archiveWriteQueue;
@@ -50,11 +51,12 @@
 @property(nonatomic) __weak id <WGWidgetDiscoveryControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)debugWidgetWithBundleID:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)deviceManagementPolicyDidChange:(id)arg1;
 - (void)remoteViewControllerViewDidAppearForWidgetViewController:(id)arg1;
 - (void)remoteViewControllerDidConnectForWidgetViewController:(id)arg1;
 - (long long)layoutModeForWidgetListEditViewController:(id)arg1;
 - (_Bool)widgetListEditViewControllerShouldIncludeInternalWidgets:(id)arg1;
-- (id)widgetListEditViewController:(id)arg1 iconForItemWithIdentifier:(id)arg2;
+- (void)widgetListEditViewController:(id)arg1 requestsIconForItemWithIdentifier:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
 - (id)widgetListEditViewController:(id)arg1 displayNameForItemWithIdentifier:(id)arg2;
 - (void)widgetListEditViewController:(id)arg1 acknowledgeInterfaceItemsWithIdentifiers:(id)arg2;
 - (void)widgetListEditViewController:(id)arg1 setEnabled:(_Bool)arg2 forItemsWithIdentifiers:(id)arg3;
@@ -122,6 +124,9 @@
 - (id)_orderedEnabledIdentifiersForGroup:(id)arg1;
 - (id)widgetWithIdentifier:(id)arg1 delegate:(id)arg2 forRequesterWithIdentifier:(id)arg3;
 - (id)_newWidgetWithIdentifier:(id)arg1 delegate:(id)arg2;
+- (void)_updateLockedOutStateForWidget:(id)arg1;
+- (void)_updateLockedOutStateForWidget:(id)arg1 withContainingAppProxy:(id)arg2;
+- (_Bool)_isApplicationLockedOutWithProxy:(id)arg1;
 - (void)removeDiscoveryObserver:(id)arg1;
 - (void)addDiscoveryObserver:(id)arg1;
 - (void)setWidgetSnapshotTimestampsEnabled:(_Bool)arg1;

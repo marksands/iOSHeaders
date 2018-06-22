@@ -6,39 +6,45 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBDataString.h"
 
-@class NSMutableArray, NSString, PBUnknownFields;
+@class INCodableAttribute, NSArray, NSString;
 
-@interface _INPBDataString : PBCodable <NSCopying>
+@interface _INPBDataString : PBCodable <_INPBDataString, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
-    NSMutableArray *_alternatives;
+    struct _has;
+    NSArray *_alternatives;
     NSString *_localizedValue;
     NSString *_vocabularyIdentifier;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
 + (Class)alternativesType;
-+ (id)options;
-@property(retain, nonatomic) NSMutableArray *alternatives; // @synthesize alternatives=_alternatives;
-@property(retain, nonatomic) NSString *vocabularyIdentifier; // @synthesize vocabularyIdentifier=_vocabularyIdentifier;
-@property(retain, nonatomic) NSString *localizedValue; // @synthesize localizedValue=_localizedValue;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
+@property(copy, nonatomic) NSString *vocabularyIdentifier; // @synthesize vocabularyIdentifier=_vocabularyIdentifier;
+@property(copy, nonatomic) NSString *localizedValue; // @synthesize localizedValue=_localizedValue;
+@property(copy, nonatomic) NSArray *alternatives; // @synthesize alternatives=_alternatives;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-- (id)alternativesAtIndex:(unsigned long long)arg1;
-- (unsigned long long)alternativesCount;
-- (void)addAlternatives:(id)arg1;
-- (void)clearAlternatives;
 @property(readonly, nonatomic) _Bool hasVocabularyIdentifier;
 @property(readonly, nonatomic) _Bool hasLocalizedValue;
+- (id)alternativesAtIndex:(unsigned long long)arg1;
+@property(readonly, nonatomic) unsigned long long alternativesCount;
+- (void)addAlternatives:(id)arg1;
+- (void)clearAlternatives;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

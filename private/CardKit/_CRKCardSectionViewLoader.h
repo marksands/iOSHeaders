@@ -6,22 +6,28 @@
 
 #import "NSObject.h"
 
-#import "CRKCardSectionViewProviderManaging.h"
+#import "CRKCardSectionViewSourcing.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSMutableSet, NSString;
 
-@interface _CRKCardSectionViewLoader : NSObject <CRKCardSectionViewProviderManaging>
+@interface _CRKCardSectionViewLoader : NSObject <CRKCardSectionViewSourcing>
 {
     NSMutableDictionary *_cardSectionViewConfigurationsByCardSectionIdentifiersByProviderIdentifiers;
-    NSMutableArray *_loadedCards;
-    NSArray *_providers;
+    NSMutableDictionary *_vetoingProviderIdentifiersByVetoedCardSectionIdentifiers;
+    NSMutableSet *_identifiedCardSectionViewProviders;
+    id <_CRKCardSectionViewLoaderDelegate> _delegate;
+    id <CRCard> _loadedCard;
 }
 
-@property(retain, nonatomic) NSArray *providers; // @synthesize providers=_providers;
+@property(retain, nonatomic) id <CRCard> loadedCard; // @synthesize loadedCard=_loadedCard;
+@property(nonatomic) __weak id <_CRKCardSectionViewLoaderDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) NSMutableSet *identifiedCardSectionViewProviders; // @synthesize identifiedCardSectionViewProviders=_identifiedCardSectionViewProviders;
 - (void).cxx_destruct;
+- (id)_viewConfigurationForCardSection:(id)arg1 providerIdentifier:(id)arg2;
+- (id)_allViewConfigurations;
+- (_Bool)cardSectionShouldBeDisplayed:(id)arg1;
 - (id)viewConfigurationForCardSection:(id)arg1;
-@property(readonly, nonatomic) NSArray *loadedCards;
-- (void)loadCardSectionViewsFromCard:(id)arg1 providerHelper:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_loadIdentifiedCardSectionViewProvidersFromCard:(id)arg1 identifiedProviders:(id)arg2 delegate:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)init;
 
 // Remaining properties

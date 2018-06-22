@@ -16,6 +16,10 @@
 
 + (id)nodeWithSource:(id)arg1 filterSize:(unsigned long long)arg2 stride:(unsigned long long)arg3;
 + (id)nodeWithSource:(id)arg1 filterSize:(unsigned long long)arg2;
+@property(readonly, nonatomic) unsigned long long strideInPixelsY; // @synthesize strideInPixelsY=_strideInPixelsY;
+@property(readonly, nonatomic) unsigned long long strideInPixelsX; // @synthesize strideInPixelsX=_strideInPixelsX;
+@property(readonly, nonatomic) unsigned long long kernelHeight; // @synthesize kernelHeight=_kernelHeight;
+@property(readonly, nonatomic) unsigned long long kernelWidth; // @synthesize kernelWidth=_kernelWidth;
 - (struct FilterGraphNode *)newFilterNode;
 - (id)initWithSource:(id)arg1 filterSize:(unsigned long long)arg2;
 - (id)initWithSource:(id)arg1 filterSize:(unsigned long long)arg2 stride:(unsigned long long)arg3;

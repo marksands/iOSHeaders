@@ -15,11 +15,15 @@
     NSString *_UDID;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)request;
-@property(retain, nonatomic) NSString *UDID; // @synthesize UDID=_UDID;
-@property(retain, nonatomic) NSString *topic; // @synthesize topic=_topic;
-@property(retain, nonatomic) NSString *messageType; // @synthesize messageType=_messageType;
+@property(copy, nonatomic) NSString *UDID; // @synthesize UDID=_UDID;
+@property(copy, nonatomic) NSString *topic; // @synthesize topic=_topic;
+@property(copy, nonatomic) NSString *messageType; // @synthesize messageType=_messageType;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)serialize;
 - (_Bool)loadFromDictionary:(id)arg1 error:(id *)arg2;
 

@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @protocol QLThumbnailService <NSObject>
-- (void)generateThumbnailOfSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 withContents:(id)arg4 completionHandler:(void (^)(NSData *, QLURLHandler *, struct CGSize, _Bool, NSError *))arg5;
+- (void)generateThumbnailOfSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 badgeType:(unsigned long long)arg4 withContents:(id)arg5 completionHandler:(void (^)(NSData *, QLURLHandler *, struct CGSize, _Bool, NSError *))arg6;
 @end
 

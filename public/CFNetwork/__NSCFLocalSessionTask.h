@@ -123,7 +123,6 @@ __attribute__((visibility("hidden")))
 - (void)_finishBecomeDownload:(id)arg1;
 - (void)_finishAllow;
 - (id)_onqueue_strippedMutableRequest;
-@property(readonly, copy) NSString *description;
 - (void)_onqueue_didReceiveResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)initWithTask:(id)arg1;
@@ -131,6 +130,7 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

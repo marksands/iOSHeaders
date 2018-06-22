@@ -6,6 +6,7 @@
 
 #import <VoiceMemos/RCFileInputWaveformDataSource.h>
 
+__attribute__((visibility("hidden")))
 @interface _RCTimeRangeFileInputWaveformDataSource : RCFileInputWaveformDataSource
 {
     _Bool _isDecomposedFragment;

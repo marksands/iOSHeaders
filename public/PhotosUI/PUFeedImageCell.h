@@ -6,7 +6,7 @@
 
 #import <PhotosUI/PUFeedCell.h>
 
-@class PUImageViewExtraction, PXUIAssetBadgeView, UIButton, UIImage, UIImageView, UIView<PXVideoOverlayButton>;
+@class PUImageViewExtraction, PXRoundedCornerOverlayView, PXUIAssetBadgeView, UIButton, UIImage, UIImageView, UIView<PXVideoOverlayButton>;
 
 __attribute__((visibility("hidden")))
 @interface PUFeedImageCell : PUFeedCell
@@ -16,11 +16,13 @@ __attribute__((visibility("hidden")))
     _Bool __shouldHideOverlayPlayButton;
     _Bool __shouldHideCenterOverlayImageView;
     _Bool __shouldHideCommentButton;
+    _Bool _shouldHideLikeBadge;
     UIImage *_image;
     long long _imageContentMode;
     long long _imageAlignment;
     long long _overlayOptions;
     long long _commentCount;
+    double _cornerRadius;
     UIImageView *__imageView;
     long long __imageTag;
     UIView<PXVideoOverlayButton> *__overlayPlayButton;
@@ -29,6 +31,8 @@ __attribute__((visibility("hidden")))
     UIImageView *__centerOverlayImageView;
     UIButton *__commentButton;
     PXUIAssetBadgeView *__photoIrisBadgeView;
+    PXRoundedCornerOverlayView *_roundedCornerOverlayView;
+    UIImageView *_likeBadgeView;
     struct CGSize _maximumImageSize;
     struct CGRect __imageFrame;
 }
@@ -37,7 +41,10 @@ __attribute__((visibility("hidden")))
 + (long long)_videoOverlayButtonStyle;
 + (_Bool)_allowHighQualityVideoOverlayButton;
 + (void)preloadResources;
+@property(retain, nonatomic) UIImageView *likeBadgeView; // @synthesize likeBadgeView=_likeBadgeView;
+@property(retain, nonatomic) PXRoundedCornerOverlayView *roundedCornerOverlayView; // @synthesize roundedCornerOverlayView=_roundedCornerOverlayView;
 @property(retain, nonatomic, setter=_setPhotoIrisBadgeView:) PXUIAssetBadgeView *_photoIrisBadgeView; // @synthesize _photoIrisBadgeView=__photoIrisBadgeView;
+@property(nonatomic, setter=setShouldHideLikeBadge:) _Bool shouldHideLikeBadge; // @synthesize shouldHideLikeBadge=_shouldHideLikeBadge;
 @property(nonatomic, setter=_setShouldHideCommentButton:) _Bool _shouldHideCommentButton; // @synthesize _shouldHideCommentButton=__shouldHideCommentButton;
 @property(retain, nonatomic, setter=_setCommentButton:) UIButton *_commentButton; // @synthesize _commentButton=__commentButton;
 @property(nonatomic, setter=_setShouldHideCenterOverlayImageView:) _Bool _shouldHideCenterOverlayImageView; // @synthesize _shouldHideCenterOverlayImageView=__shouldHideCenterOverlayImageView;
@@ -50,6 +57,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, setter=_setImageFrame:) struct CGRect _imageFrame; // @synthesize _imageFrame=__imageFrame;
 @property(nonatomic, setter=_setImageTag:) long long _imageTag; // @synthesize _imageTag=__imageTag;
 @property(retain, nonatomic, setter=_setImageView:) UIImageView *_imageView; // @synthesize _imageView=__imageView;
+@property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(nonatomic) long long commentCount; // @synthesize commentCount=_commentCount;
 @property(nonatomic) long long overlayOptions; // @synthesize overlayOptions=_overlayOptions;
 @property(nonatomic) long long imageAlignment; // @synthesize imageAlignment=_imageAlignment;
@@ -61,6 +69,7 @@ __attribute__((visibility("hidden")))
 - (void)_handleCommentButton:(id)arg1;
 - (void)_handlePlayButton:(id)arg1;
 - (id)_imageCellDelegate;
+- (void)_updateRoundedCornersOverlayView;
 - (void)_invalidateOverlayPlayButtonBackground;
 - (void)_updateCommentButton;
 - (void)_updateOverlays;

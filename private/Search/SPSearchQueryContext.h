@@ -55,6 +55,7 @@
 @property(readonly, nonatomic) NSString *displayedText;
 @property(readonly, nonatomic) _Bool hasMarkedText;
 - (id)initWithSearchString:(id)arg1;
+- (id)init;
 
 @end
 

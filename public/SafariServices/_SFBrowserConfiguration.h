@@ -11,7 +11,6 @@
     long long _configuration;
 }
 
-@property(readonly, nonatomic) _Bool usesExtraBarGradients;
 @property(readonly, nonatomic) _Bool usesDarkTheme;
 @property(readonly, nonatomic) unsigned long long toolbarTintStyle;
 @property(readonly, nonatomic) unsigned long long navigationBarTintStyle;

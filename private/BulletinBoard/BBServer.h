@@ -78,7 +78,6 @@
     NSXPCListener *_settingsListener;
     NSMutableSet *_suspendedConnections;
     BBDismissalSyncCache *_dismissalSyncCache;
-    long long _behaviorManualOverrideStatus;
     long long _behaviorOverrideStatus;
     NSMutableArray *_quietModeOverrideAssertions;
     unsigned long long _activeQuietModeAssertionCount;
@@ -156,7 +155,6 @@
 - (void)_setClearedInfo:(id)arg1 forSectionID:(id)arg2;
 - (id)_clearedInfoForSectionID:(id)arg1;
 - (unsigned long long)_filtersForSectionID:(id)arg1;
-- (void)_publishBulletinRequest:(id)arg1 forSectionID:(id)arg2 forDestinations:(unsigned long long)arg3 alwaysToLockScreen:(_Bool)arg4;
 - (void)_publishBulletinRequest:(id)arg1 forSectionID:(id)arg2 forDestinations:(unsigned long long)arg3;
 - (void)_reloadReloadSectionInfoForSectionID:(id)arg1;
 - (void)_updateSectionParametersForDataProvider:(id)arg1;
@@ -312,9 +310,8 @@
 - (id)_defaultSectionOrders;
 - (id)_allBulletinsForSectionID:(id)arg1;
 - (id)_bulletinsForIDs:(id)arg1;
-- (unsigned long long)_feedsForBulletin:(id)arg1 destinations:(unsigned long long)arg2 alwaysToLockScreen:(_Bool)arg3;
-- (id)_applicableSectionInfosForBulletin:(id)arg1 inSection:(id)arg2;
 - (unsigned long long)_feedsForBulletin:(id)arg1 destinations:(unsigned long long)arg2;
+- (id)_applicableSectionInfosForBulletin:(id)arg1 inSection:(id)arg2;
 - (void)_removeSection:(id)arg1;
 - (void)_clearSection:(id)arg1;
 - (void)_clearBulletinsFromDate:(id)arg1 toDate:(id)arg2 forSection:(id)arg3;
@@ -353,7 +350,7 @@
 - (void)removeBulletinID:(id)arg1 fromSection:(id)arg2 inFeed:(unsigned long long)arg3;
 - (id)_mapForFeed:(unsigned long long)arg1;
 - (void)withdrawBulletinID:(id)arg1;
-- (void)publishBulletin:(id)arg1 destinations:(unsigned long long)arg2 alwaysToLockScreen:(_Bool)arg3;
+- (void)publishBulletin:(id)arg1 destinations:(unsigned long long)arg2;
 - (void)_removeUtilityConnection:(id)arg1;
 - (void)_addUtilityConnection:(id)arg1;
 - (void)_removeSystemStateConnection:(id)arg1;
@@ -368,7 +365,6 @@
 - (void)withdrawBulletinRequestsWithPublisherBulletinID:(id)arg1 forSectionID:(id)arg2;
 - (void)withdrawBulletinRequestsWithRecordID:(id)arg1 forSectionID:(id)arg2;
 - (void)updateSection:(id)arg1 inFeed:(unsigned long long)arg2 withBulletinRequests:(id)arg3;
-- (void)publishBulletinRequest:(id)arg1 destinations:(unsigned long long)arg2 alwaysToLockScreen:(_Bool)arg3;
 - (void)publishBulletinRequest:(id)arg1 destinations:(unsigned long long)arg2;
 - (_Bool)_sectionFiltersAllowBulletin:(id)arg1;
 - (id)_effectiveSectionFiltersForBulletin:(id)arg1;

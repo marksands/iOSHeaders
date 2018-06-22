@@ -14,5 +14,6 @@
 
 @optional
 - (void)avConferenceScreenCaptureError:(NSString *)arg1;
+- (void)frameRateIsBeingThrottled:(int)arg1 thermalLevelDidChange:(_Bool)arg2 powerLevelDidChange:(_Bool)arg3;
 @end
 

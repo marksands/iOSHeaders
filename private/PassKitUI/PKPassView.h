@@ -77,6 +77,7 @@
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)dealloc;
+- (id)initWithPass:(id)arg1 content:(long long)arg2 suppressedContent:(unsigned long long)arg3;
 - (id)initWithPass:(id)arg1 content:(long long)arg2;
 - (id)initWithPass:(id)arg1;
 

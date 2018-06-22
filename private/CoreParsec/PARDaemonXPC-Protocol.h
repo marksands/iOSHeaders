@@ -15,10 +15,9 @@
 - (void)fileHandleAndAttributesForResource:(NSString *)arg1 completion:(void (^)(NSFileHandle *, NSDictionary *, NSError *))arg2;
 - (void)listSessions:(void (^)(NSArray *))arg1;
 - (void)listenToFlusher:(void (^)(NSXPCListenerEndpoint *))arg1;
-- (void)feedback:(NSString *)arg1 reply:(void (^)(NSArray *, NSError *))arg2;
-- (void)reportFeedbackPayloadData:(NSData *)arg1 queryId:(unsigned long long)arg2;
-- (void)request:(PARRequest *)arg1 reply:(void (^)(unsigned long long, PARReply *, NSError *))arg2;
-- (void)bag:(void (^)(PARBag *, NSError *))arg1;
+- (void)reportFeedbackPayloadData:(PARSessionConfiguration *)arg1 payloadData:(NSData *)arg2 queryId:(unsigned long long)arg3;
+- (void)request:(PARSessionConfiguration *)arg1 request:(PARRequest *)arg2 reply:(void (^)(unsigned long long, PARReply *, NSError *))arg3;
+- (void)bag:(PARSessionConfiguration *)arg1 reply:(void (^)(PARBag *, NSError *))arg2;
 - (void)configure:(PARSessionConfiguration *)arg1 reply:(void (^)(NSXPCListenerEndpoint *))arg2;
 @end
 

@@ -6,7 +6,7 @@
 
 #import "CRFeedbackListener.h"
 
-@class CRKCardSectionViewController, INIntent, INInteraction, NSSet, UIViewController;
+@class CRKCardSectionViewController, INIntent, UIViewController;
 
 @protocol CRKCardSectionViewControllerDelegate <CRFeedbackListener>
 
@@ -14,7 +14,6 @@
 - (long long)preferredPunchoutIndexForCardSectionViewController:(CRKCardSectionViewController *)arg1;
 - (void)cardSectionViewController:(CRKCardSectionViewController *)arg1 didSelectPreferredPunchoutIndex:(long long)arg2;
 - (void)presentViewController:(UIViewController *)arg1 forCardSectionViewController:(CRKCardSectionViewController *)arg2;
-- (void)cardSectionViewController:(CRKCardSectionViewController *)arg1 didHandleParameters:(NSSet *)arg2 forInteraction:(INInteraction *)arg3;
 - (struct CGSize)boundingSizeForCardSectionViewController:(CRKCardSectionViewController *)arg1;
 - (void)cardSectionViewController:(CRKCardSectionViewController *)arg1 requestsHandlingOfIntent:(INIntent *)arg2;
 - (void)cardSectionViewControllerBoundsDidChange:(CRKCardSectionViewController *)arg1;

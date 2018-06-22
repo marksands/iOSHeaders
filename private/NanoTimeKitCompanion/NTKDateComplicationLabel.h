@@ -9,7 +9,7 @@
 #import "NTKControl.h"
 #import "NTKDateComplicationDisplay.h"
 
-@class CLKFont, NSString, UIColor, UILabel, UIView;
+@class CLKDevice, CLKFont, NSString, UIColor, UILabel, UIView;
 
 @interface NTKDateComplicationLabel : UIControl <NTKDateComplicationDisplay, NTKControl>
 {
@@ -23,6 +23,7 @@
     _Bool _legibilityHidden;
     id <NTKComplicationDisplayObserver> displayObserver;
     long long _sizeStyle;
+    CLKDevice *_device;
     CLKFont *_font;
     UIColor *_numberColor;
     unsigned long long _overrideDateStyle;
@@ -35,6 +36,7 @@
 @property(nonatomic) _Bool usesLegibility; // @synthesize usesLegibility=_usesLegibility;
 @property(retain, nonatomic) UIColor *numberColor; // @synthesize numberColor=_numberColor;
 @property(retain, nonatomic) CLKFont *font; // @synthesize font=_font;
+@property(readonly, nonatomic) CLKDevice *device; // @synthesize device=_device;
 @property(readonly, nonatomic) long long sizeStyle; // @synthesize sizeStyle=_sizeStyle;
 @property(nonatomic) __weak id <NTKComplicationDisplayObserver> displayObserver; // @synthesize displayObserver;
 - (void).cxx_destruct;
@@ -53,12 +55,11 @@
 @property(nonatomic, setter=_setFirstLineBaselineFrameOriginY:) double _firstLineBaselineFrameOriginY;
 - (double)_firstLineBaselineOffsetFromBoundsTop;
 @property(retain, nonatomic) UIColor *textColor;
-- (void)setContentsMultiplyColor:(id)arg1 animated:(_Bool)arg2 withDuration:(double)arg3;
 - (id)_attributedStringAccentingNumbersInString:(id)arg1;
 - (void)setDateComplicationText:(id)arg1 forDateStyle:(unsigned long long)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (id)initWithSizeStyle:(long long)arg1;
+- (id)initWithSizeStyle:(long long)arg1 forDevice:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

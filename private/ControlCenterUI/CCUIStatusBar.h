@@ -6,13 +6,13 @@
 
 #import "UIView.h"
 
-@class UIStatusBar, UIStatusBarStyleRequest;
+@class UIStatusBarStyleRequest, UIStatusBar_Modern;
 
 @interface CCUIStatusBar : UIView
 {
-    UIStatusBar *_compactTrailingStatusBar;
-    UIStatusBar *_extendedLeadingStatusBar;
-    UIStatusBar *_extendedTrailingStatusBar;
+    UIStatusBar_Modern *_compactTrailingStatusBar;
+    UIStatusBar_Modern *_extendedLeadingStatusBar;
+    UIStatusBar_Modern *_extendedTrailingStatusBar;
     id <CCUIStatusBarDelegate> _delegate;
     unsigned long long _leadingState;
     unsigned long long _trailingState;
@@ -32,6 +32,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
+@property(nonatomic) long long orientation; // @dynamic orientation;
 @property(nonatomic) double expandedTrailingAlpha; // @dynamic expandedTrailingAlpha;
 @property(nonatomic) double compactTrailingAlpha; // @dynamic compactTrailingAlpha;
 @property(nonatomic) double leadingAlpha; // @dynamic leadingAlpha;

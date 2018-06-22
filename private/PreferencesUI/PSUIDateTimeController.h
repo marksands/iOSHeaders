@@ -40,6 +40,7 @@
 - (id)useAutomaticTime:(id)arg1;
 - (id)valueForTime:(id)arg1;
 - (_Bool)shouldDisplayTimezoneSpinner;
+- (void)effectiveSettingsChanged:(id)arg1;
 - (void)localeChanged:(id)arg1;
 - (void)significantTimeChange:(id)arg1;
 - (void)newCarrierNotification;

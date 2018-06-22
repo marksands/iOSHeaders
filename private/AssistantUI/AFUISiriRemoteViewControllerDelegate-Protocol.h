@@ -9,6 +9,7 @@
 @class AFUIRequestOptions, AFUISiriRemoteViewController, NSDictionary, NSError, NSString, NSURL;
 
 @protocol AFUISiriRemoteViewControllerDelegate <NSObject>
+- (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 didChangeUserAttentionStatus:(_Bool)arg2;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 didRequestCurrentTextInputWithReplyHandler:(void (^)(NSString *))arg2;
 - (void)siriRemoteViewControllerDidEndTapToEdit:(AFUISiriRemoteViewController *)arg1;
 - (void)siriRemoteViewControllerWillBeginTapToEdit:(AFUISiriRemoteViewController *)arg1;
@@ -30,6 +31,7 @@
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 didReadBulletinWithIdentifier:(NSString *)arg2;
 - (void)siriRemoteViewControllerPulseHelpButton:(AFUISiriRemoteViewController *)arg1;
 - (void)siriRemoteViewControllerDidPresentUserInterface:(AFUISiriRemoteViewController *)arg1;
+- (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 failTest:(NSString *)arg2 withReason:(NSString *)arg3;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 didFinishTest:(NSString *)arg2;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 willStartTest:(NSString *)arg2;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 handlePasscodeUnlockWithCompletion:(void (^)(long long))arg2;

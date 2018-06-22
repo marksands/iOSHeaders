@@ -8,14 +8,15 @@
 
 #import "CLSSocialServiceContactsDelegate.h"
 
-@class CLSLRUMemoryCache, CLSPerson, CLSRoutineService, CLSSocialServiceCalendar, CLSSocialServiceContacts, NSDateInterval, NSString;
+@class CLSLRUMemoryCache, CLSPerson, CLSRoutineService, CLSSocialServiceCalendar, CLSSocialServiceContacts, CLSSocialServiceCoreDuet, NSDateInterval, NSString;
 
 @interface CLSServiceManager : NSObject <CLSSocialServiceContactsDelegate>
 {
-    CLSLRUMemoryCache *_cache;
+    CLSLRUMemoryCache *_personsCache;
+    CLSRoutineService *_routineService;
     CLSSocialServiceContacts *_contactsService;
     CLSSocialServiceCalendar *_calendarService;
-    CLSRoutineService *_routineService;
+    CLSSocialServiceCoreDuet *_coreDuetService;
     CLSPerson *_mePerson;
     NSObject *_routineServiceLockObject;
     NSDateInterval *_validDateInterval;
@@ -28,29 +29,31 @@
 - (void).cxx_destruct;
 - (id)mePersonAddressesOfType:(unsigned long long)arg1;
 - (_Bool)hasAddressesForMePerson;
+- (id)personForIdentifier:(id)arg1;
 - (void)enumeratePersonsForIdentifiers:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (void)enumeratePersonsUsingBlock:(CDUnknownBlockType)arg1;
-- (id)eventsOperationForClueCollection:(id)arg1;
+- (id)eventsForClueCollection:(id)arg1;
 - (void)prefetchEventsFromUniversalDate:(id)arg1 toUniversalDate:(id)arg2 forAssetCollectionsSortedByStartDate:(id)arg3 usingBlock:(CDUnknownBlockType)arg4;
-@property(readonly, copy) NSString *description;
-- (id)tracesDescription;
-- (void)addTraceFromObject:(id)arg1 feature:(id)arg2 type:(unsigned long long)arg3 context:(id)arg4 withDescriptionFormat:(id)arg5;
+- (void)enumerateEventsFromUniversalDate:(id)arg1 toUniversalDate:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)_traceStringForType:(unsigned long long)arg1;
 - (void)postProcessLocationsOfInterest;
-- (_Bool)shouldFetchPointsOfInterestAtLocation:(id)arg1;
+- (id)predominantLocationMobilityForDateInterval:(id)arg1 confidence:(double *)arg2;
+- (id)fetchLocationOfInterestVisitsAtLocation:(id)arg1 inDateInterval:(id)arg2;
+- (id)locationOfInterestAtLocation:(id)arg1;
 - (_Bool)isRemoteLocation:(id)arg1 inDateInterval:(id)arg2;
 - (id)locationOfInterestPlacemarkCloseToLocation:(id)arg1 inDateInterval:(id)arg2;
-- (id)mePersonName;
-- (id)personResultsOperationForName:(id)arg1 inPhotoLibrary:(id)arg2;
-- (id)personsOperationNearLocations:(id)arg1;
-- (id)personResultOperationForName:(id)arg1 inPhotoLibrary:(id)arg2;
-- (id)personOperationForName:(id)arg1 inPhotoLibrary:(id)arg2;
-- (id)eventsOperationForDates:(id)arg1;
-- (id)mePersonOperation;
+- (id)personForPersonHandle:(id)arg1;
+- (void)enumeratePersonsAndBirthdayDateUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumeratePersonsAndHomeAddressUsingBlock:(CDUnknownBlockType)arg1;
+- (id)coreDuetPersonSuggestionsOnDate:(id)arg1;
+- (id)personResultsForName:(id)arg1 inPhotoLibrary:(id)arg2;
+- (id)personResultForName:(id)arg1 inPhotoLibrary:(id)arg2;
+- (id)eventsForDates:(id)arg1;
+- (void)invalidatePersonsCacheForPersonsWithNames:(id)arg1;
 - (void)invalidateMomentaryMemoryCaches;
 - (void)invalidatePermanentMemoryCaches;
 @property(readonly, nonatomic) CLSRoutineService *routineService; // @synthesize routineService=_routineService;
 @property(readonly, nonatomic) CLSSocialServiceCalendar *calendarService; // @synthesize calendarService=_calendarService;
+@property(readonly, nonatomic) CLSSocialServiceCoreDuet *coreDuetService; // @synthesize coreDuetService=_coreDuetService;
 @property(readonly, nonatomic) CLSSocialServiceContacts *contactsService; // @synthesize contactsService=_contactsService;
 - (id)init;
 - (double)pinningVisitsRatio;
@@ -64,6 +67,7 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

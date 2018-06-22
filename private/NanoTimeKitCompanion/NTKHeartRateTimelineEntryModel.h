@@ -21,7 +21,6 @@
 @property(nonatomic) long long BPM; // @synthesize BPM=_BPM;
 @property(retain, nonatomic) NSDate *measurementDate; // @synthesize measurementDate=_measurementDate;
 - (void).cxx_destruct;
-- (id)_heartrateTintColor;
 - (id)_bpmString;
 - (id)_heartrateString;
 - (id)_newExtraLargeTemplate;

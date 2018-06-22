@@ -6,19 +6,23 @@
 
 #import "_UISettings.h"
 
-@class NSMutableSet;
+@class NSMutableSet, NSSet;
 
 @interface PXSettings : _UISettings
 {
     NSMutableSet *_archivedSettings;
+    NSSet *_cachedTransientProperties;
     long long _version;
 }
 
 + (id)_signatureDictionaryWithDefaultSettings:(id *)arg1;
 + (id)_defaultsKey;
 + (id)_userDefaults;
++ (id)transientProperties;
 + (id)createSharedInstance;
 + (id)sharedInstance;
++ (void)setSuiteName:(id)arg1;
++ (id)suiteName;
 @property(nonatomic) long long version; // @synthesize version=_version;
 - (void).cxx_destruct;
 - (void)removeKeyPathObserver:(id)arg1;
@@ -27,9 +31,12 @@
 - (void)addKeyObserver:(id)arg1;
 - (void)defaultValueDidChangeForKey:(id)arg1;
 - (void)performPostSaveActions;
+- (void)applyArchiveValue:(id)arg1 forKey:(id)arg2;
 - (id)archiveValueForKey:(id)arg1;
+- (void)_validateArchivableValue:(id)arg1 forKey:(id)arg2;
 - (void)save;
 - (void)_resetValuesThatChangedBetweenCurrentDefaultValues:(id)arg1 andArchivedDefaultValues:(id)arg2 defaultSettings:(id)arg3;
+- (_Bool)_isTransientKey:(id)arg1;
 - (id)parentSettings;
 
 @end

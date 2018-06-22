@@ -10,8 +10,11 @@
 {
 }
 
-+ (id)_localizedNameForValue:(unsigned long long)arg1;
-+ (id)_orderedValues;
++ (id)_localizedNameForValue:(unsigned long long)arg1 forDevice:(id)arg2;
++ (id)__orderedValuesForDevice:(id)arg1;
++ (id)_orderedValuesForDevice:(id)arg1;
++ (id)_orderedValuesRestrictedByDevice:(id)arg1;
+- (id)_valueToFaceBundleStringDict;
 
 @end
 

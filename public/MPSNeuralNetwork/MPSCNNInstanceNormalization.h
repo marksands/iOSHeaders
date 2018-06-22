@@ -20,7 +20,9 @@
 @property(readonly, retain, nonatomic) id <MPSCNNInstanceNormalizationDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void)reloadGammaAndBetaWithCommandBuffer:(id)arg1 gammaAndBetaState:(id)arg2;
 - (id)debugDescription;
+- (void)reloadGammaAndBetaFromDataSource;
 - (void)reloadDataSource:(id)arg1;
+- (void)reloadDataSourceDeprecated:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
 - (id)temporaryResultStateForCommandBuffer:(id)arg1 sourceImage:(id)arg2 sourceStates:(id)arg3 destinationImage:(id)arg4;

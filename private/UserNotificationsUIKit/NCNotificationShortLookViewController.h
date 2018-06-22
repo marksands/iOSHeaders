@@ -7,13 +7,15 @@
 #import <UserNotificationsUIKit/NCNotificationViewController.h>
 
 #import "NCBannerPresentationTransitioningDelegateObserver.h"
-#import "NCLongLookPresentationControllerDelegate.h"
-#import "NCNotificationPreviewInteractionManagerDelegate.h"
+#import "NCLongLookDefaultPresentationControllerDelegate.h"
 #import "NCNotificationViewControllerObserving.h"
+#import "PLExpandedPlatterPresentationControllerDelegate.h"
+#import "PLPreviewInteractionManagerDelegate.h"
+#import "PLPreviewInteractionPresenting.h"
 
-@class NCBannerPresentationTransitionDelegate, NCNotificationPreviewInteractionManager, NSDate, NSHashTable, NSString, UITapGestureRecognizer, UIView, UIViewController;
+@class NCBannerPresentationTransitionDelegate, NSDate, NSHashTable, NSString, PLPreviewInteractionManager, UIScrollView, UITapGestureRecognizer, UIView, UIViewController;
 
-@interface NCNotificationShortLookViewController : NCNotificationViewController <NCNotificationViewControllerObserving, NCNotificationPreviewInteractionManagerDelegate, NCBannerPresentationTransitioningDelegateObserver, NCLongLookPresentationControllerDelegate>
+@interface NCNotificationShortLookViewController : NCNotificationViewController <NCNotificationViewControllerObserving, PLPreviewInteractionManagerDelegate, NCBannerPresentationTransitioningDelegateObserver, PLExpandedPlatterPresentationControllerDelegate, NCLongLookDefaultPresentationControllerDelegate, PLPreviewInteractionPresenting>
 {
     NCBannerPresentationTransitionDelegate *_bannerPresentationTransitionDelegate;
     NCNotificationViewController *_longLookNotificationViewController;
@@ -24,34 +26,44 @@
     UIView *_audioAccessoryView;
     NSHashTable *_audioAccessoryViewObservers;
     _Bool _didScrollPresentLongLookViewController;
-    NCNotificationPreviewInteractionManager *_previewInteractionManager;
+    PLPreviewInteractionManager *_previewInteractionManager;
+    UIScrollView *_scrollView;
 }
 
++ (unsigned long long)overlayMaterialOptionsForRecipe:(long long)arg1;
++ (long long)materialRecipeForLegibilitySettings:(id)arg1;
 @property(nonatomic, getter=_didScrollPresentLongLookViewController, setter=_setDidScrollPresentLongLookViewController:) _Bool didScrollPresentLongLookViewController; // @synthesize didScrollPresentLongLookViewController=_didScrollPresentLongLookViewController;
-@property(retain, nonatomic, getter=_previewInteractionManager) NCNotificationPreviewInteractionManager *previewInteractionManager; // @synthesize previewInteractionManager=_previewInteractionManager;
+@property(retain, nonatomic, getter=_scrollView) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 - (void).cxx_destruct;
+- (void)adjustForLegibilitySettingsChange:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
-- (id)unhideHomeAffordanceAnimationSettingsForLongLookPresentationController:(id)arg1;
-- (id)hideHomeAffordanceAnimationSettingsForLongLookPresentationController:(id)arg1;
-- (struct CGRect)longLookPresentationController:(id)arg1 frameForTransitionViewInPresentationSuperview:(id)arg2;
+- (struct CGRect)expandedPlatterPresentationController:(id)arg1 frameForTransitionViewInPresentationSuperview:(id)arg2;
 - (struct CGRect)_frameForTransitionViewInScrollView;
 - (_Bool)wantsUseableContainerBoundsForTransitionWithDelegate:(id)arg1;
 - (void)notificationViewControllerDidDismiss:(id)arg1;
 - (void)notificationViewControllerWillDismiss:(id)arg1;
 - (void)notificationViewControllerDidPresent:(id)arg1;
 - (void)notificationViewControllerWillPresent:(id)arg1;
+@property(readonly, nonatomic) PLPreviewInteractionManager *previewInteractionManager; // @synthesize previewInteractionManager=_previewInteractionManager;
+@property(readonly, nonatomic) UIView *viewForPreview;
+- (void)previewInteractionManager:(id)arg1 declinedDismissingPresentedContentWithTrigger:(long long)arg2;
+- (void)previewInteractionManager:(id)arg1 willDismissPresentedContentWithTrigger:(long long)arg2;
+- (void)_handlePresentedContentDismissalWithTrigger:(long long)arg1;
+- (_Bool)previewInteractionManagerShouldAutomaticallyTransitionToPreviewAfterDelay:(id)arg1;
 - (void)previewInteractionManager:(id)arg1 shouldFinishInteractionWithCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)previewInteractionManagerDidEndUserInteraction:(id)arg1;
 - (void)previewInteractionManagerWillBeginUserInteraction:(id)arg1;
 - (_Bool)previewInteractionManagerShouldBeginInteraction:(id)arg1;
-- (id)longLookViewControllerForPreviewInteractionManager:(id)arg1;
-- (id)_longLookNotificationViewController;
 - (id)containerViewForPreviewInteractionManager:(id)arg1;
+- (id)transitioningDelegateForPreviewInteractionManager:(id)arg1;
+- (id)presentedViewControllerForPreviewInteractionManager:(id)arg1;
+- (id)_longLookNotificationViewController;
 - (void)customContentDidLoadExtension:(id)arg1;
 - (void)customContent:(id)arg1 didLoadAudioAccessoryView:(id)arg2;
+- (id)_legibilitySettings;
 - (void)_presentLongLookForScrollAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_presentLongLookAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_presentLongLookViaPreviewInteraction:(CDUnknownBlockType)arg1;
@@ -61,20 +73,27 @@
 - (void)_setAudioAccessoryView:(id)arg1;
 - (void)removeAudioAccesoryViewObserver:(id)arg1;
 - (void)addAudioAccessoryViewObserver:(id)arg1;
+- (_Bool)_shouldPerformNotificationCoalescing;
+- (void)_expandCoalescedNotificationBundle;
+- (_Bool)isCoalescedNotificationBundle;
+- (void)_updateWithProvidedAuxiliaryOptionsContent;
 - (void)_updateWithProvidedStaticContent;
 - (_Bool)_tryDismissingShortLookInScrollView:(id)arg1;
 - (void)_handleTapOnView:(id)arg1;
 - (void)_notificationViewControllerViewDidLoad;
+- (id)_effectiveGroupName;
 - (void)_loadLookView;
 - (void)_updateScrollViewContentSize;
 - (_Bool)_shouldPadScrollViewContentSizeHeight;
 - (void)_configureScrollViewIfNecessary;
-- (Class)_scrollViewClass;
 - (_Bool)_isPresentingCustomContentProvidingViewController;
 @property(readonly, nonatomic, getter=_presentedLongLookViewController) NCNotificationViewController *presentedLongLookViewController;
 - (id)_newPreviewInteractionManager;
 - (_Bool)_setNotificationRequest:(id)arg1;
 - (_Bool)_setDelegate:(id)arg1;
+- (unsigned long long)overlayMaterialOptions;
+- (unsigned long long)backgroundMaterialOptions;
+- (long long)materialRecipe;
 - (void)setInteractionEnabled:(_Bool)arg1;
 - (_Bool)shouldRestorePresentingShortLookOnDismiss;
 - (void)expandAndPlayAudioMessage;

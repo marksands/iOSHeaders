@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, VCRateControlBandwidthEstimator, VCRateControlOWRDEstimator, VCStatisticsHistory;
+@class NSMutableDictionary, VCRateControlBandwidthEstimatorMap, VCRateControlOWRDEstimator, VCStatisticsCollectorQueue, VCStatisticsHistory;
 
 __attribute__((visibility("hidden")))
 @interface AVCStatisticsCollector : NSObject
@@ -14,32 +14,42 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_statistics;
     struct tagVCStatisticsCollection *_statisticsCollection;
     NSMutableDictionary *_statisticChangeHandlerDictionary;
-    VCRateControlBandwidthEstimator *_bandwidthEstimator;
+    VCRateControlBandwidthEstimatorMap *_bandwidthEstimatorMap;
     VCRateControlOWRDEstimator *_owrdEstimator;
     VCStatisticsHistory *_history;
-    NSObject<OS_dispatch_queue> *_statisticsCollectorQueue;
+    VCStatisticsCollectorQueue *_queue;
     unsigned int _radioAccessTechnology;
     unsigned int _mode;
     unsigned int _sharedEstimatedBandwidth;
     unsigned int _sharedRemoteEstimatedBandwidth;
+    unsigned int _estimatedBandwidthCap;
+    unsigned int _expectedBitrate;
+    struct _opaque_pthread_rwlock_t _statisticsCollectionLock;
 }
 
+@property(nonatomic) unsigned int expectedBitrate; // @synthesize expectedBitrate=_expectedBitrate;
+@property(nonatomic) unsigned int estimatedBandwidthCap; // @synthesize estimatedBandwidthCap=_estimatedBandwidthCap;
 @property(readonly, nonatomic) unsigned int sharedRemoteEstimatedBandwidth; // @synthesize sharedRemoteEstimatedBandwidth=_sharedRemoteEstimatedBandwidth;
 @property(readonly, nonatomic) unsigned int sharedEstimatedBandwidth; // @synthesize sharedEstimatedBandwidth=_sharedEstimatedBandwidth;
 @property(nonatomic) unsigned int radioAccessTechnology; // @synthesize radioAccessTechnology=_radioAccessTechnology;
 @property(nonatomic) unsigned int mode; // @synthesize mode=_mode;
-- (void)addPacketLossInfo:(CDStruct_5cb394a5 *)arg1;
-- (void)computeOWRDEstimation:(CDStruct_5cb394a5 *)arg1;
-- (void)computeBWEstimation:(CDStruct_5cb394a5 *)arg1;
-- (void)recordRemoteEstimatedBandwidthForLargeFrameInfo:(CDStruct_5cb394a5 *)arg1;
-- (void)computeOtherStatistics:(CDStruct_5cb394a5 *)arg1;
-- (_Bool)addStatisticsHistory:(CDStruct_5cb394a5)arg1;
-- (void)addEntriesFromStatistics:(CDStruct_5cb394a5)arg1;
-- (void)setVCStatistics:(CDStruct_5cb394a5)arg1;
+- (void)addActualBitrateInfo:(CDStruct_dd06a755 *)arg1;
+- (void)addPacketLossInfo:(CDStruct_dd06a755 *)arg1;
+- (void)computeOWRDEstimation:(CDStruct_dd06a755 *)arg1;
+- (void)computeBWEstimation:(CDStruct_dd06a755 *)arg1;
+- (void)updateLocalEstimatedBandwidth;
+- (void)recordRemoteEstimatedBandwidthForLargeFrameInfo:(CDStruct_dd06a755 *)arg1;
+- (void)computeOtherStatistics:(CDStruct_dd06a755 *)arg1;
+- (void)addStatisticsHistory:(CDStruct_dd06a755)arg1;
+- (void)addEntriesFromStatistics:(CDStruct_dd06a755)arg1;
+- (void)processVCStatistics:(CDStruct_dd06a755)arg1;
+- (CDStruct_dd06a755)getVCStatisticsWithType:(int)arg1 time:(double)arg2;
+- (void)setVCStatistics:(CDStruct_dd06a755)arg1;
 - (void)registerStatisticsChangeHandlerWithType:(int)arg1 handler:(CDUnknownBlockType)arg2;
 - (id)getStatistics:(id)arg1;
 - (void)setStatistics:(id)arg1;
 - (void)dealloc;
+- (id)initForSimulation:(_Bool)arg1;
 - (id)init;
 
 @end

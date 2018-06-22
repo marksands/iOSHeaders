@@ -6,33 +6,38 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBDuration.h"
 
-@class PBUnknownFields;
+@class INCodableAttribute, NSString;
 
-@interface _INPBDuration : PBCodable <NSCopying>
+@interface _INPBDuration : PBCodable <_INPBDuration, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
-    long long _seconds;
+    CDStruct_85a1ec51 _has;
     int _nanos;
-    CDStruct_fd810184 _has;
+    long long _seconds;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
-+ (id)options;
-@property(nonatomic) int nanos; // @synthesize nanos=_nanos;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(nonatomic) long long seconds; // @synthesize seconds=_seconds;
+@property(nonatomic) int nanos; // @synthesize nanos=_nanos;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(nonatomic) _Bool hasNanos;
 @property(nonatomic) _Bool hasSeconds;
+@property(nonatomic) _Bool hasNanos;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

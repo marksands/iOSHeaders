@@ -24,6 +24,7 @@
 
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
+- (Class)sensorDatumClassForAggregator:(id)arg1;
 - (id)identifierForDataAggregator:(id)arg1;
 - (id)sourceForDataAggregator:(id)arg1;
 - (id)deviceForDataAggregator:(id)arg1;

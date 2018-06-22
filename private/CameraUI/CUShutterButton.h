@@ -13,6 +13,7 @@
     _Bool _spinning;
     _Bool _showDisabled;
     long long _mode;
+    id <CAMShutterButtonDelegate> _delegate;
     UIColor *_contentColor;
     UIColor *_stopModeBackgroundColor;
     CAMShutterButtonRingView *__outerView;
@@ -44,6 +45,7 @@
 @property(nonatomic) _Bool showDisabled; // @synthesize showDisabled=_showDisabled;
 @property(nonatomic, getter=isSpinning) _Bool spinning; // @synthesize spinning=_spinning;
 @property(nonatomic) struct CAMShutterButtonSpec spec; // @synthesize spec=_spec;
+@property(nonatomic) __weak id <CAMShutterButtonDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
 - (void).cxx_destruct;
 - (void)_updateSpinningAnimations;
@@ -68,6 +70,7 @@
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 layoutStyle:(long long)arg2 spec:(struct CAMShutterButtonSpec)arg3;

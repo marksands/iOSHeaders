@@ -15,10 +15,10 @@
     unsigned long long _eventType;
     unsigned long long _meaning;
     NSString *_collectionNodeUUID;
-    long long _memoryCategory;
+    unsigned long long _memoryCategory;
 }
 
-@property(nonatomic) long long memoryCategory; // @synthesize memoryCategory=_memoryCategory;
+@property(nonatomic) unsigned long long memoryCategory; // @synthesize memoryCategory=_memoryCategory;
 @property(nonatomic) _Bool skipsCollectionTitle; // @synthesize skipsCollectionTitle=_skipsCollectionTitle;
 @property(retain, nonatomic) NSString *collectionNodeUUID; // @synthesize collectionNodeUUID=_collectionNodeUUID;
 @property(nonatomic) unsigned long long meaning; // @synthesize meaning=_meaning;

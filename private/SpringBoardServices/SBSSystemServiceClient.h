@@ -20,6 +20,7 @@
 - (void)setButtonEventServiceIsWaitingForServerMessages:(_Bool)arg1;
 - (void)acquireAssertionOfType:(long long)arg1 forReason:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)fetchUnlockCredentialSetWithCompletion:(CDUnknownBlockType)arg1;
+- (void)requestPasscodeUnlockUIWithOptions:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 
 @end
 

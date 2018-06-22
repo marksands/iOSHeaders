@@ -7,6 +7,7 @@
 #import "UIColor.h"
 
 @interface UIColor (SFGraphicsUtilities)
++ (id)_sf_defaultMonogramBackgroundColor;
 + (id)_sf_defaultWebContentBackgroundColor;
 + (id)ss_browserSystemColor;
 @end

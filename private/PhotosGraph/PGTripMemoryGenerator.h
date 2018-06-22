@@ -6,19 +6,26 @@
 
 #import <PhotosGraph/PGFeaturedMemoryGenerator.h>
 
-@class NSDate;
+@class NSDate, PGGraphCollectionNode;
 
 @interface PGTripMemoryGenerator : PGFeaturedMemoryGenerator
 {
+    unsigned long long _numberOfUntimelyRejects;
     NSDate *_lowerBoundLocalDate;
+    struct PGGraphCollectionNode *_tripNode;
+    unsigned long long _subcategory;
 }
 
+@property(readonly) unsigned long long subcategory; // @synthesize subcategory=_subcategory;
+@property(retain, nonatomic) PGGraphCollectionNode *tripNode; // @synthesize tripNode=_tripNode;
 @property(retain, nonatomic) NSDate *lowerBoundLocalDate; // @synthesize lowerBoundLocalDate=_lowerBoundLocalDate;
 - (void).cxx_destruct;
 - (id)_potentialMemoriesForDryTesting;
-- (id)_collectionNodeForPotentialMemory:(id)arg1;
+- (struct PGGraphCollectionNode *)_tripNodeForPotentialMemory:(id)arg1;
 - (void)_postProcessMemory:(id)arg1 withPotentialMemory:(id)arg2;
 - (void)_enumeratePotentialMemoriesUsingBlock:(CDUnknownBlockType)arg1;
+- (id)potentialMemoryWithTripNode:(struct PGGraphCollectionNode *)arg1;
+- (id)initWithSubcategory:(unsigned long long)arg1 controller:(id)arg2;
 
 @end
 

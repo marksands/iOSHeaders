@@ -8,16 +8,16 @@
 
 #import "AXHARemoteControllerProtocol.h"
 
-@class AXHADispatchTimer, NSObject<OS_dispatch_queue>, NSString;
+@class AXDispatchTimer, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AXHARemoteController : AXIDCRemoteController <AXHARemoteControllerProtocol>
 {
     NSObject<OS_dispatch_queue> *_receivedPacketQueue;
     _Bool didValidateHIID;
-    AXHADispatchTimer *_communicationTimer;
+    AXDispatchTimer *_communicationTimer;
 }
 
-@property(retain, nonatomic) AXHADispatchTimer *communicationTimer; // @synthesize communicationTimer=_communicationTimer;
+@property(retain, nonatomic) AXDispatchTimer *communicationTimer; // @synthesize communicationTimer=_communicationTimer;
 @property(nonatomic) _Bool didValidateHIID; // @synthesize didValidateHIID;
 - (void).cxx_destruct;
 - (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;

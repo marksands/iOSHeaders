@@ -11,6 +11,7 @@
 
 @class NSArray, NSData, NSString, NSURL, PUEditableMediaProvider;
 
+__attribute__((visibility("hidden")))
 @interface PUEditableMediaProviderImageDataNode : PXRunNode <PUImageDataNode, PUImageInfoNode>
 {
     int _requestID;

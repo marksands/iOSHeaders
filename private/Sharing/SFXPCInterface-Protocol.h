@@ -27,9 +27,12 @@
 - (void)remoteInteractionSessionTextSessionDidChange:(SFRemoteTextSessionInfo *)arg1;
 - (void)remoteInteractionSessionTextSessionDidEnd:(SFRemoteTextSessionInfo *)arg1;
 - (void)remoteInteractionSessionTextSessionDidBegin:(SFRemoteTextSessionInfo *)arg1;
+- (void)remoteInteractionSessionRemoteTextEvent:(NSData *)arg1;
 - (void)deviceDiscoveryScanStateChanged:(long long)arg1;
 - (void)deviceDiscoveryDeviceChanged:(SFDevice *)arg1 changes:(unsigned int)arg2;
 - (void)deviceDiscoveryLostDevice:(SFDevice *)arg1;
 - (void)deviceDiscoveryFoundDevice:(SFDevice *)arg1;
+- (void)autoFillPromptForPIN:(unsigned int)arg1 throttleSeconds:(int)arg2;
+- (void)autoFillPairingSucceeded:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
 @end
 

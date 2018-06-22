@@ -45,11 +45,17 @@
 - (void)_runAssetQuery:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_assetQueryForAssetType:(unsigned long long)arg1 withPredicate:(id)arg2 localOnly:(_Bool)arg3;
 - (id)_findLatestInstalledAsset:(id)arg1;
+- (void)_installedAssetOfType:(unsigned long long)arg1 withPredicate:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_installedAssetOfType:(unsigned long long)arg1 withPredicate:(id)arg2;
+- (void)installedAssetOfType:(unsigned long long)arg1 withPredicate:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)installedAssetOfType:(unsigned long long)arg1 withPredicate:(id)arg2;
+- (void)installedAssetOfType:(unsigned long long)arg1 language:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)installedAssetOfType:(unsigned long long)arg1 language:(id)arg2;
+- (void)assetOfType:(unsigned long long)arg1 language:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)assetOfType:(unsigned long long)arg1 language:(id)arg2;
+- (void)installedAssetForCurrentLanguageOfType:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)installedAssetForCurrentLanguageOfType:(unsigned long long)arg1;
+- (void)assetForCurrentLanguageOfType:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)assetForCurrentLanguageOfType:(unsigned long long)arg1;
 - (id)init;
 

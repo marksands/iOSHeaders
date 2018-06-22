@@ -16,7 +16,7 @@
 @property(readonly, copy, nonatomic) NSArray *inputFaceObservations; // @synthesize inputFaceObservations=_inputFaceObservations;
 - (void).cxx_destruct;
 - (_Bool)warmUpRequestPerformer:(id)arg1 error:(id *)arg2;
-- (_Bool)internalPerformInContext:(id)arg1 error:(id *)arg2;
+- (_Bool)internalPerformRevision:(unsigned long long)arg1 inContext:(id)arg2 error:(id *)arg3;
 - (void)_determineFacesToProcessFrom:(id)arg1 outputFacesThatNeedNoProcessing:(id)arg2 outputFacesThatNeedProcessing:(id)arg3;
 - (id)observationsCacheKey;
 - (id)newDefaultRequestInstance;

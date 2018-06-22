@@ -18,6 +18,7 @@
     _Bool _contentModuleProvidesOwnPlatter;
     NSString *_moduleIdentifier;
     id <CCUIContentModuleContainerViewControllerDelegate> _delegate;
+    NSString *_materialGroupName;
     NSArray *_topLevelBlockingGestureRecognizers;
     id <CCUIContentModule> _contentModule;
     UIViewController<CCUIContentModuleContentViewController> *_contentViewController;
@@ -45,6 +46,7 @@
 @property(retain, nonatomic) id <CCUIContentModule> contentModule; // @synthesize contentModule=_contentModule;
 @property(readonly, nonatomic) NSArray *topLevelBlockingGestureRecognizers; // @synthesize topLevelBlockingGestureRecognizers=_topLevelBlockingGestureRecognizers;
 @property(nonatomic, getter=isExpanded) _Bool expanded; // @synthesize expanded=_expanded;
+@property(copy, nonatomic) NSString *materialGroupName; // @synthesize materialGroupName=_materialGroupName;
 @property(nonatomic) __weak id <CCUIContentModuleContainerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) struct UIEdgeInsets expandedContentEdgeInsets; // @synthesize expandedContentEdgeInsets=_expandedContentEdgeInsets;
 @property(copy, nonatomic) NSString *moduleIdentifier; // @synthesize moduleIdentifier=_moduleIdentifier;

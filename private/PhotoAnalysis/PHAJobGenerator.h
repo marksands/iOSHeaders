@@ -10,6 +10,7 @@
 
 @interface PHAJobGenerator : NSObject
 {
+    _Bool _skippedSomeWorker;
     PHPhotoLibrary *_library;
     PHAWorkerHealthMonitor *_healthMonitor;
     NSMutableDictionary *_workInfoReadersByMode;

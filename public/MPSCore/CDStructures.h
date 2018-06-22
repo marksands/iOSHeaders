@@ -8,15 +8,11 @@
 
 struct CacheFrame {
     struct CacheFrame *_field1;
-    struct HeapNode *_field2;
-    struct ResourceNode *_field3;
+    struct ResourceNode *_field2;
+    struct HeapNodeBlock *_field3;
 };
 
-struct HeapNode {
-    struct HeapNode *_field1;
-    id _field2;
-    unsigned long long _field3;
-};
+struct HeapNodeBlock;
 
 struct MPSAutoCache {
     id _field1;

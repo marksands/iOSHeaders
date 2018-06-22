@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>;
+@class NSDictionary, NSMapTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>;
 
 __attribute__((visibility("hidden")))
 @interface QLExtensionManagerCache : NSObject
@@ -18,12 +18,10 @@ __attribute__((visibility("hidden")))
     NSDictionary *_matchingAttributes;
     id _matchingContext;
     NSMutableDictionary *_matchingExtensions;
-    NSMutableArray *_loadedNonUIExtensions;
-    NSMutableArray *_loadedUIExtensions;
+    NSMapTable *_qlExtensions;
 }
 
-@property(retain, nonatomic) NSMutableArray *loadedUIExtensions; // @synthesize loadedUIExtensions=_loadedUIExtensions;
-@property(retain, nonatomic) NSMutableArray *loadedNonUIExtensions; // @synthesize loadedNonUIExtensions=_loadedNonUIExtensions;
+@property(retain, nonatomic) NSMapTable *qlExtensions; // @synthesize qlExtensions=_qlExtensions;
 @property(retain, nonatomic) NSMutableDictionary *matchingExtensions; // @synthesize matchingExtensions=_matchingExtensions;
 @property(retain, nonatomic) id matchingContext; // @synthesize matchingContext=_matchingContext;
 @property(retain, nonatomic) NSDictionary *matchingAttributes; // @synthesize matchingAttributes=_matchingAttributes;

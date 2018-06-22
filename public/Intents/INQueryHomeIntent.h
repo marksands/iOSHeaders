@@ -25,6 +25,7 @@
 - (void)setEntities:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *entities;
 - (id)initWithEntities:(id)arg1;
+- (void)_setMetadata:(id)arg1;
 - (id)_metadata;
 - (id)_typedBackingStore;
 

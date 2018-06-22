@@ -22,8 +22,6 @@
 + (id)defaultShadowColor;
 + (id)shadow;
 + (void)initialize;
-@property(nonatomic) double shadowBlurRadius; // @synthesize shadowBlurRadius=_shadowBlurRadius;
-@property(nonatomic) struct CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
 - (id)description;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
@@ -33,6 +31,9 @@
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithShadow:(id)arg1;
+- (void)_applyToCGContext:(struct CGContext *)arg1 graphicsContext:(id)arg2;
+@property(nonatomic) double shadowBlurRadius;
+@property(nonatomic) struct CGSize shadowOffset;
 - (id)init;
 
 @end

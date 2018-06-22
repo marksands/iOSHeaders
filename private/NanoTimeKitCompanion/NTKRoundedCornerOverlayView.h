@@ -19,7 +19,8 @@
 
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-- (id)initWithFrame:(struct CGRect)arg1 cornerRadius:(double)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 forDeviceCornerRadius:(id)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 forDevice:(id)arg2 cornerRadius:(double)arg3;
 
 @end
 

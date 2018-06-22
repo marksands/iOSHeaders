@@ -10,6 +10,7 @@
 
 @class DeviceManagerThread, NSDictionary, NSMutableDictionary, NSString;
 
+__attribute__((visibility("hidden")))
 @interface DeviceManager : NSObject <ICDeviceManagerProtocol>
 {
     DeviceManagerThread *_thread;
@@ -29,21 +30,23 @@
 - (void)getThumbnailOfFileImp:(id)arg1;
 - (void)syncClockImp:(id)arg1;
 - (void)closeSessionImp:(id)arg1;
+- (void)getDataOfFileImp:(id)arg1;
 - (void)openSessionImp:(id)arg1;
 - (void)closeDeviceImp:(id)arg1;
 - (void)openDeviceImp:(id)arg1;
-- (int)eject:(id)arg1;
-- (int)downloadFile:(id)arg1 fromDevice:(id)arg2 options:(id)arg3 contextInfo:(void *)arg4;
-- (int)deleteFile:(id)arg1 fromDevice:(id)arg2 contextInfo:(void *)arg3;
-- (int)getMetadataOfFile:(id)arg1 fromDevice:(id)arg2 contextInfo:(void *)arg3;
-- (int)getThumbnailOfFile:(id)arg1 fromDevice:(id)arg2 contextInfo:(void *)arg3;
-- (int)aptpRetrieveDataForFiles:(id)arg1 contextInfo:(void *)arg2;
-- (int)aptpRequestDataForFiles:(id)arg1 fromDevice:(id)arg2 contextInfo:(void *)arg3;
-- (int)syncClock:(id)arg1 contextInfo:(void *)arg2;
-- (int)closeSession:(id)arg1 contextInfo:(void *)arg2;
-- (int)openSession:(id)arg1 contextInfo:(void *)arg2;
-- (int)closeDevice:(id)arg1 contextInfo:(void *)arg2;
-- (int)openDevice:(id)arg1 contextInfo:(void *)arg2;
+- (long long)eject:(id)arg1;
+- (long long)downloadFile:(id)arg1 fromDevice:(id)arg2 options:(id)arg3 contextInfo:(void *)arg4;
+- (long long)deleteFile:(id)arg1 fromDevice:(id)arg2 contextInfo:(void *)arg3;
+- (long long)getDataOfFile:(id)arg1 fromDevice:(id)arg2 withOptions:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (long long)getMetadataOfFile:(id)arg1 fromDevice:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (long long)getThumbnailOfFile:(id)arg1 fromDevice:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (long long)aptpRetrieveDataForFiles:(id)arg1 contextInfo:(void *)arg2;
+- (long long)aptpRequestDataForFiles:(id)arg1 fromDevice:(id)arg2 contextInfo:(void *)arg3;
+- (long long)syncClock:(id)arg1 contextInfo:(void *)arg2;
+- (long long)closeSession:(id)arg1 contextInfo:(void *)arg2;
+- (long long)openSession:(id)arg1 contextInfo:(void *)arg2;
+- (long long)closeDevice:(id)arg1 contextInfo:(void *)arg2;
+- (long long)openDevice:(id)arg1 contextInfo:(void *)arg2;
 - (void)stopRunning;
 - (void)startRunning;
 - (void)dealloc;

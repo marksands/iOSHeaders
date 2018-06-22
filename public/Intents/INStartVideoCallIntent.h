@@ -14,6 +14,7 @@
 {
 }
 
+- (_Bool)configureAttributeSet:(id)arg1;
 - (void)setParametersByName:(id)arg1;
 - (id)parametersByName;
 - (void)setVerb:(id)arg1;
@@ -26,6 +27,8 @@
 @property(readonly, copy, nonatomic) NSArray *contacts;
 @property(nonatomic) long long audioRoute;
 - (id)initWithContacts:(id)arg1;
+- (id)_categoryVerb;
+- (void)_setMetadata:(id)arg1;
 - (id)_metadata;
 - (id)_typedBackingStore;
 

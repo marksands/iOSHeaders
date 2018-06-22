@@ -51,6 +51,7 @@
 + (id)sceneWithMDLAsset:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)_prettifyForPreview;
 - (void)_didEncodeSCNScene:(id)arg1;
 - (void)_didDecodeSCNScene:(id)arg1;
 - (void)_customDecodingOfSCNScene:(id)arg1;
@@ -74,6 +75,7 @@
 - (id)copyAnimationChannelForKeyPath:(id)arg1 animation:(id)arg2;
 - (void)unlock;
 - (void)lock;
+- (void)_dumpToDisk;
 - (_Bool)writeToURL:(id)arg1 options:(id)arg2 delegate:(id)arg3 progressHandler:(CDUnknownBlockType)arg4;
 @property(nonatomic) double fogStartDistance;
 @property(nonatomic) double fogDensityExponent;
@@ -110,6 +112,7 @@
 - (void)dealloc;
 - (void)setUpAxis:(struct SCNVector3)arg1;
 - (struct SCNVector3)upAxis;
+- (void)_clearSceneRef;
 - (void)_syncObjCModel;
 - (id)initWithSceneRef:(struct __C3DScene *)arg1;
 - (id)init;

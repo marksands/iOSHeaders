@@ -15,12 +15,14 @@ __attribute__((visibility("hidden")))
     NSDictionary *_valueTextAttributes;
     _Bool _labelViewNeedsHuggingContent;
     _Bool _valueViewNeedsHuggingContent;
+    _Bool _valueViewNeedsLeadingPriority;
     UIImageView *_chevron;
 }
 
 + (_Bool)wantsHorizontalLayout;
 + (_Bool)wantsStandardConstraints;
 + (_Bool)wantsChevron;
+@property(nonatomic) _Bool valueViewNeedsLeadingPriority; // @synthesize valueViewNeedsLeadingPriority=_valueViewNeedsLeadingPriority;
 @property(nonatomic) _Bool valueViewNeedsHuggingContent; // @synthesize valueViewNeedsHuggingContent=_valueViewNeedsHuggingContent;
 @property(nonatomic) _Bool labelViewNeedsHuggingContent; // @synthesize labelViewNeedsHuggingContent=_labelViewNeedsHuggingContent;
 @property(readonly, nonatomic) UIImageView *chevron; // @synthesize chevron=_chevron;
@@ -46,6 +48,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double chevronWidth;
 - (double)minCellHeight;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (_Bool)allowsCellSelection;
 
 @end
 

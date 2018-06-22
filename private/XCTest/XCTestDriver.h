@@ -8,10 +8,11 @@
 
 #import "XCDebugLogDelegate.h"
 #import "XCTASDebugLogDelegate.h"
+#import "XCTRunnerIDESessionDelegate.h"
 
 @class NSMutableArray, NSObject<OS_dispatch_queue>, NSString, XCTestConfiguration;
 
-@interface XCTestDriver : NSObject <XCDebugLogDelegate, XCTASDebugLogDelegate>
+@interface XCTestDriver : NSObject <XCTRunnerIDESessionDelegate, XCDebugLogDelegate, XCTASDebugLogDelegate>
 {
     XCTestConfiguration *_testConfiguration;
     NSObject<OS_dispatch_queue> *_queue;
@@ -31,13 +32,14 @@
 - (void)runTestSuite:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)reportStallOnMainThreadInTestCase:(id)arg1 method:(id)arg2 file:(id)arg3 line:(unsigned long long)arg4;
 - (_Bool)runTestsAndReturnError:(id *)arg1;
-- (id)_readyIDESession:(id *)arg1;
+- (id)_readyIDESession:(id *)arg1 forTestRunSession:(id)arg2;
 - (id)_transportForIDESession:(id *)arg1;
 - (void)_queue_flushDebugMessageBufferWithBlock:(CDUnknownBlockType)arg1;
 - (void)logDebugMessage:(id)arg1;
 - (void)printBufferedDebugMessages;
 - (void)logStartupInfo;
 - (id)initWithTestConfiguration:(id)arg1;
+- (void)IDESessionDidDisconnect:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

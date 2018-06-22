@@ -63,15 +63,17 @@
 @property(readonly, nonatomic) unsigned char deviceModelCode; // @synthesize deviceModelCode=_deviceModelCode;
 @property(nonatomic) unsigned int deviceFlags; // @synthesize deviceFlags=_deviceFlags;
 @property(nonatomic) unsigned char deviceClassCode; // @synthesize deviceClassCode=_deviceClassCode;
-@property(readonly, nonatomic) unsigned char deviceActionType; // @synthesize deviceActionType=_deviceActionType;
+@property(nonatomic) unsigned char deviceActionType; // @synthesize deviceActionType=_deviceActionType;
 @property(copy, nonatomic) NSString *contactIdentifier; // @synthesize contactIdentifier=_contactIdentifier;
 @property(retain, nonatomic) SFBLEDevice *bleDevice; // @synthesize bleDevice=_bleDevice;
 @property(copy, nonatomic) NSArray *batteryInfo; // @synthesize batteryInfo=_batteryInfo;
 @property(nonatomic) _Bool autoUnlockWatch; // @synthesize autoUnlockWatch=_autoUnlockWatch;
 @property(nonatomic) _Bool autoUnlockEnabled; // @synthesize autoUnlockEnabled=_autoUnlockEnabled;
 - (void).cxx_destruct;
+- (void)updateWithRPIdentity:(id)arg1;
 - (void)updateWithPairedPeer:(id)arg1;
 - (void)updateWithBLEDevice:(id)arg1;
+@property(readonly, nonatomic) _Bool needsKeyboardOnly;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

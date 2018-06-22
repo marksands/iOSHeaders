@@ -44,8 +44,6 @@
 - (void)_setModifiedDate:(id)arg1;
 - (void)_setEnteredInError:(_Bool)arg1;
 - (void)_setNote:(id)arg1;
-- (void)_setEndDate:(id)arg1;
-- (void)_setStartDate:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEquivalent:(id)arg1;
 - (_Bool)isEqual:(id)arg1;

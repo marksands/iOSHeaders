@@ -39,9 +39,7 @@
 - (void)updateValidity;
 - (void)createBodyContentViews;
 - (void)createHeaderContentViews;
-- (id)tallFaceTemplate;
-- (id)shortFaceTemplate;
-- (id)shortScrunchedFaceTemplate;
+- (id)templateForLayoutMode:(long long)arg1;
 - (id)passFaceTemplate;
 - (void)setClipsContent:(_Bool)arg1;
 - (struct CGSize)contentSize;

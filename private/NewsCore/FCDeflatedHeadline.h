@@ -43,6 +43,7 @@
 @property(readonly, nonatomic) double globalUserFeedback;
 @property(readonly, copy, nonatomic) NSString *publisherID;
 @property(readonly, copy, nonatomic) NSString *sourceFeedID;
+@property(readonly, nonatomic, getter=isPressRelease) _Bool pressRelease;
 @property(readonly, nonatomic, getter=isHiddenFromFeeds) _Bool hiddenFromFeeds;
 @property(readonly, nonatomic, getter=isBoundToContext) _Bool boundToContext;
 @property(readonly, nonatomic) _Bool showMinimalChrome;
@@ -127,6 +128,7 @@
 @property(readonly, nonatomic) NSData *backingArticleRecordData;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) id <FCHeadlineStocksFields> stocksFields;
 @property(readonly) Class superclass;
 
 @end

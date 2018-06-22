@@ -22,6 +22,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)topNPredictionQueryForStream:(id)arg1 withPredicate:(id)arg2 withTopN:(long long)arg3 withMinLikelihood:(double)arg4;
++ (id)predictionQueryForStreams:(id)arg1 withPredicate:(id)arg2 withPredictionType:(unsigned long long)arg3;
 + (id)predictionQueryForStream:(id)arg1 withPredicate:(id)arg2 withPredictionType:(unsigned long long)arg3;
 @property(nonatomic) double minLikelihood; // @synthesize minLikelihood=_minLikelihood;
 @property(nonatomic) long long topN; // @synthesize topN=_topN;

@@ -8,7 +8,7 @@
 
 #import "CLSInvestigationInterviewDelegate.h"
 
-@class NSMutableSet, NSSet, NSString;
+@class NSDate, NSMutableSet, NSSet, NSString;
 
 @interface CLSInvestigationFeeder : NSObject <CLSInvestigationInterviewDelegate>
 {
@@ -23,14 +23,12 @@
 @property(nonatomic) _Bool allowsInterview; // @synthesize allowsInterview=_allowsInterview;
 @property(nonatomic) unsigned long long locationClusteringAlgorithm; // @synthesize locationClusteringAlgorithm=_locationClusteringAlgorithm;
 - (void).cxx_destruct;
-- (id)itemMetadataInInvestigation:(id)arg1 withKeys:(id)arg2 atIndex:(unsigned long long)arg3;
 - (struct CGImage *)itemThumbnailInInvestigation:(id)arg1 atIndex:(unsigned long long)arg2 withResolution:(unsigned long long)arg3;
 - (unsigned long long)numberOfItemsInInvestigation:(id)arg1;
-- (id)prepareOperationWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (id)_prepareFeederWithOperation:(id)arg1;
-- (void)enumeratePeopleNamesWithGaussians:(id)arg1 enumerationBlock:(CDUnknownBlockType)arg2;
+- (id)prepareWithProgressBlock:(CDUnknownBlockType)arg1;
+- (id)_prepareFeederWithProgressBlock:(CDUnknownBlockType)arg1;
+- (void)enumeratePersonNames:(id)arg1 withGaussiansUsingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateLocationClustersWithGaussians:(id)arg1 enumerationBlock:(CDUnknownBlockType)arg2;
-- (id)itemMetadataAtIndex:(unsigned long long)arg1 withKeys:(id)arg2;
 - (struct CGImage *)itemThumbnailAtIndex:(unsigned long long)arg1 withResolution:(unsigned long long)arg2;
 - (void)enumerateItemsWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateItemsUsingBlock:(CDUnknownBlockType)arg1;
@@ -39,6 +37,8 @@
 - (id)approximateLocation;
 - (id)endDateComponents;
 - (id)startDateComponents;
+@property(readonly, nonatomic) NSDate *universalEndDate;
+@property(readonly, nonatomic) NSDate *universalStartDate;
 - (unsigned long long)numberOfItems;
 - (id)init;
 

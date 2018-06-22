@@ -17,10 +17,12 @@
     struct CGRect _senderFrame;
     struct CGRect _chevronFrame;
     struct CGRect _unreadFrame;
+    struct CGRect _liveConversationIndicatorFrame;
 }
 
 + (id)sharedInstance;
 @property(nonatomic) double summaryLabelCapFrameYOrigin; // @synthesize summaryLabelCapFrameYOrigin=_summaryLabelCapFrameYOrigin;
+@property(nonatomic) struct CGRect liveConversationIndicatorFrame; // @synthesize liveConversationIndicatorFrame=_liveConversationIndicatorFrame;
 @property(nonatomic) struct CGRect unreadFrame; // @synthesize unreadFrame=_unreadFrame;
 @property(nonatomic) struct CGRect chevronFrame; // @synthesize chevronFrame=_chevronFrame;
 @property(nonatomic) struct CGRect senderFrame; // @synthesize senderFrame=_senderFrame;

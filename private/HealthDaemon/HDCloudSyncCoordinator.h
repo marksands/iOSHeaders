@@ -35,9 +35,11 @@
 
 - (void).cxx_destruct;
 - (id)diagnosticDescription;
+- (void)unitTest_performPeriodicSyncWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)periodicActivityRequiresProtectedData:(id)arg1;
 - (void)_updateAggdKeysForPeriodicSyncError:(id)arg1;
 - (void)performPeriodicActivity:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_prepareAllProfilesForSyncWithCompletion:(CDUnknownBlockType)arg1;
 - (void)periodicActivity:(id)arg1 configureXPCActivityCriteria:(id)arg2;
 - (void)_mergeCloudSyncJournalsForProfile:(id)arg1 progress:(id)arg2 taskTree:(id)arg3;
 - (void)_mergeCloudSyncJournalsWithTaskTree:(id)arg1 progress:(id)arg2;

@@ -32,10 +32,12 @@ typedef struct {
     unsigned int personalizationTreatmentId:1;
     unsigned int previousArticlePublisherArticleVersion:1;
     unsigned int publisherArticleVersionInt64:1;
+    unsigned int subscribedChannelCtr:1;
     unsigned int userFeedbackScore:1;
     unsigned int activeTimeSpent:1;
     unsigned int articleDisplayRankInGroup:1;
     unsigned int articleHostViewType:1;
+    unsigned int articleSuggestionOrigin:1;
     unsigned int articleType:1;
     unsigned int articleViewPresentationReason:1;
     unsigned int backendArticleVersion:1;
@@ -53,6 +55,7 @@ typedef struct {
     unsigned int groupArticleCountInForYou:1;
     unsigned int groupDisplayRankInForYou:1;
     unsigned int groupFormationReason:1;
+    unsigned int groupLocation:1;
     unsigned int groupPresentationReason:1;
     unsigned int groupType:1;
     unsigned int loadFailureReason:1;
@@ -78,6 +81,7 @@ typedef struct {
     unsigned int articleLoaded:1;
     unsigned int badgeExposure:1;
     unsigned int didBounce:1;
+    unsigned int didExpandDuringView:1;
     unsigned int didOpenInSafari:1;
     unsigned int isBreakingNewsArticle:1;
     unsigned int isCoverArticle:1;
@@ -97,7 +101,7 @@ typedef struct {
     unsigned int isVideoInFeed:1;
     unsigned int subscriptionOnlyArticle:1;
     unsigned int viewFromNotificationDirectOpen:1;
-} CDStruct_23675145;
+} CDStruct_19501b32;
 
 // Ambiguous groups
 typedef struct {

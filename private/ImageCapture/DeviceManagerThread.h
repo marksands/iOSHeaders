@@ -6,6 +6,7 @@
 
 #import "NSThread.h"
 
+__attribute__((visibility("hidden")))
 @interface DeviceManagerThread : NSThread
 {
 }

@@ -56,8 +56,9 @@
 - (void)_makeExtraVars;
 - (void)_removeFromEngine:(id)arg1;
 - (void)_addToEngine:(id)arg1;
+- (_Bool)_addToEngine:(id)arg1 mutuallyExclusiveConstraints:(id *)arg2;
 - (_Bool)_addToEngine:(id)arg1 integralizationAdjustment:(double)arg2 mutuallyExclusiveConstraints:(id *)arg3;
-- (_Bool)_addLoweredExpression:(id)arg1 toEngine:(id)arg2 integralizationAdjustment:(double)arg3 lastLoweredConstantWasRounded:(_Bool)arg4 mutuallyExclusiveConstraints:(id *)arg5;
+- (_Bool)_addLoweredExpression:(id)arg1 toEngine:(id)arg2 lastLoweredConstantWasRounded:(_Bool)arg3 mutuallyExclusiveConstraints:(id *)arg4;
 - (double)priorityForVariable:(id)arg1;
 - (id)_constraintValueCopy;
 - (void)_setMutablePropertiesFromConstraint:(id)arg1;
@@ -104,9 +105,7 @@
 - (void)_setMarkerAndPositiveErrorVar:(id)arg1;
 - (id)_markerAndPositiveExtraVar;
 - (_Bool)nsis_valueOfVariableIsUserObservable:(id)arg1;
-- (_Bool)nsis_shouldIntegralizeVariable:(id)arg1;
 - (void)nsis_valueOfVariable:(id)arg1 didChangeInEngine:(id)arg2;
-- (double)nsis_allowedMagnitudeForIntegralizationAdjustmentOfConstraintWithMarker:(id)arg1;
 - (double)_allowedMagnitudeForIntegralizationAdjustmentOfConstraintWithMarkerScaling:(double *)arg1;
 - (double)_allowedMagnitudeForIntegralizationAdjustment;
 - (double)_fudgeIncrement;

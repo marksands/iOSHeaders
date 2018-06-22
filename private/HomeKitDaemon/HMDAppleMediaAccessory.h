@@ -8,7 +8,7 @@
 
 #import "HMFLogging.h"
 
-@class HMDAccessorySettingGroup, HMDAccessorySymptomHandler, HMDDevice, HMDRemoteLoginHandler, HMDSoftwareUpdate, HMFPairingIdentity, HMFSoftwareVersion, NSString;
+@class HMDAccessorySettingGroup, HMDAccessorySymptomHandler, HMDDevice, HMDRemoteLoginHandler, HMDSoftwareUpdate, HMDTargetControlManager, HMFPairingIdentity, HMFSoftwareVersion, HMFWiFiNetworkInfo, NSString;
 
 @interface HMDAppleMediaAccessory : HMDMediaAccessory <HMFLogging>
 {
@@ -20,12 +20,15 @@
     HMDAccessorySymptomHandler *_symptomsHandler;
     HMFSoftwareVersion *_softwareVersion;
     HMDSoftwareUpdate *_softwareUpdate;
+    HMFWiFiNetworkInfo *_wifiNetworkInfo;
+    HMDTargetControlManager *_targetControlManager;
 }
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)hasMessageReceiverChildren;
 + (id)__deviceMediaRouteIdentifier;
 + (_Bool)shouldAcceptMessage:(id)arg1 home:(id)arg2 privilege:(unsigned long long)arg3;
+@property(retain, nonatomic) HMDTargetControlManager *targetControlManager; // @synthesize targetControlManager=_targetControlManager;
 @property(readonly) HMDAccessorySymptomHandler *symptomsHandler; // @synthesize symptomsHandler=_symptomsHandler;
 @property(readonly) HMDRemoteLoginHandler *remoteLoginHandler; // @synthesize remoteLoginHandler=_remoteLoginHandler;
 - (void).cxx_destruct;
@@ -45,6 +48,10 @@
 - (id)transactionWithObjectChangeType:(unsigned long long)arg1;
 - (id)remoteMessageDestination;
 - (void)_relayRequestMessage:(id)arg1 responseHandler:(CDUnknownBlockType)arg2;
+- (void)handleCurrentNetworkChangedNotification:(id)arg1;
+- (void)updateWiFiNetworkInfo;
+- (void)setWifiNetworkInfo:(id)arg1;
+@property(readonly) HMFWiFiNetworkInfo *wifiNetworkInfo; // @synthesize wifiNetworkInfo=_wifiNetworkInfo;
 - (void)_startUpdate:(id)arg1;
 - (void)_fetchAvailableUpdate:(id)arg1;
 - (void)updateSoftwareUpdate:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -78,12 +85,14 @@
 - (_Bool)shouldUpdateWithDevice:(id)arg1;
 - (void)__updateDeviceWithDeviceIdentifier:(id)arg1;
 - (void)updateWithDevice:(id)arg1;
-- (void)handleDeviceUpdated:(id)arg1;
+- (void)handleDeviceUpdated;
 - (void)setDevice:(id)arg1;
 @property(readonly) HMDDevice *device; // @synthesize device=_device;
 - (_Bool)requiresHomeAppForManagement;
+- (_Bool)supportsTargetControl;
 - (_Bool)isCurrentAccessory;
 - (void)reconfigureOnMediaSystemDisolve;
+- (void)autoConfigureTargetControllers;
 - (void)configure:(id)arg1 msgDispatcher:(id)arg2 accessoryConfigureGroup:(id)arg3;
 - (void)_registerForMessages;
 @property(readonly, copy) NSString *description;

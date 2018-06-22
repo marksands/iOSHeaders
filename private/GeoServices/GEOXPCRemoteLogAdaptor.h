@@ -65,7 +65,6 @@
 - (void)_requesterStartSendRequest:(id)arg1;
 - (void)_sendLogMessageRequest:(id)arg1;
 - (void)_sendNextLogMessageChunk;
-- (_Bool)_isLogMessageCollectionRequesterPending;
 - (void)_queueNextLogMessagesChunkForSending;
 - (void)_beginSendingLogMessageChunks;
 - (void)_cleanupLogMessageCollectionRequester;
@@ -77,6 +76,7 @@
 - (void)queueLogMessage:(id)arg1;
 - (void)dealloc;
 - (void)_setupXPCActivity;
+- (void)tearDown;
 - (void)_setupLogMessageCache;
 - (_Bool)_useInMemoryLogMessageCache;
 @property(readonly) int supportedLogMessageType;

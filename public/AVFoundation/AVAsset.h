@@ -22,11 +22,9 @@
 + (id)assetWithURL:(id)arg1 figPlaybackItem:(struct OpaqueFigPlaybackItem *)arg2 trackIDs:(id)arg3 dynamicBehavior:(_Bool)arg4;
 + (id)assetWithURL:(id)arg1;
 + (id)assetProxyWithPropertyList:(id)arg1;
++ (id)makeAssetLoggingIdentifier;
 - (id)_assetAnalysisMessages;
 - (_Bool)supportsAnalysisReporting;
-- (id)_URLSessionDataDelegate;
-- (id)_URLSessionOperationQueue;
-- (id)_resourceLoaderURLSession;
 - (void)_handleURLRequest:(id)arg1;
 - (_Bool)_hasResourceLoaderDelegate;
 - (CDStruct_1b6d18a9)overallDurationHint;
@@ -102,6 +100,8 @@
 - (id)_assetInspectorLoader;
 - (id)_assetInspector;
 - (id)_weakReference;
+- (id)_nameForLogging;
+- (void)_setLoggingIdentifier:(id)arg1;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
@@ -126,6 +126,7 @@
 - (_Bool)_containsAtLeastOnePlayableAudioTrack;
 - (id)_chapterTracks;
 @property(readonly, nonatomic) long long moovAtomSize;
+@property(readonly, retain, nonatomic) id <AVLoggingIdentifier> loggingIdentifier;
 - (int)unusedTrackID;
 
 @end

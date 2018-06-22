@@ -7,6 +7,7 @@
 #import "UIView.h"
 
 #import "PKEnterCurrencyAmountViewDelegate.h"
+#import "PKEnterValueNewBalanceViewDelegate.h"
 #import "PKPeerPaymentAddBankAcountInformationViewControllerDelegate.h"
 #import "PKPeerPaymentPerformActionView.h"
 #import "UITableViewDataSource.h"
@@ -14,7 +15,7 @@
 
 @class NSDecimalNumber, NSNumberFormatter, NSString, PKContinuousButton, PKEnterCurrencyAmountView, PKEnterValueNewBalanceView, PKPeerPaymentAccount, PKPeerPaymentBankAccountInformation, PKPeerPaymentService, UIImageView, UILabel, UITableView, UITextField;
 
-@interface PKPerformPeerPaymentTransferToBankActionView : UIView <PKEnterCurrencyAmountViewDelegate, PKPeerPaymentAddBankAcountInformationViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, PKPeerPaymentPerformActionView>
+@interface PKPerformPeerPaymentTransferToBankActionView : UIView <PKEnterCurrencyAmountViewDelegate, PKPeerPaymentAddBankAcountInformationViewControllerDelegate, PKEnterValueNewBalanceViewDelegate, UITableViewDelegate, UITableViewDataSource, PKPeerPaymentPerformActionView>
 {
     PKPeerPaymentBankAccountInformation *_bankInformation;
     PKPeerPaymentService *_peerPaymentService;
@@ -51,6 +52,8 @@
 - (id)_addAccountDetailLabel;
 - (id)_addAccountButton;
 - (void)_createSubviews;
+- (void)_updateMaxBalanceTransferButtonIfNecessary;
+- (_Bool)_shouldEnableMaxBalanceTransferButton;
 - (id)_tranferMessageLabel;
 - (id)_tranferTitleLabel;
 - (id)_checkmarkImageView;
@@ -78,6 +81,7 @@
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (void)didTapNewBalanceView;
 - (void)bankAccountInformationViewControllerChangedBankAccountInformation:(id)arg1;
 - (void)layoutSubviews;
 - (void)willMoveToWindow:(id)arg1;

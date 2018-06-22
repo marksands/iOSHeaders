@@ -9,6 +9,7 @@
 @class PKPassFooterView;
 
 @protocol PKPassFooterViewDelegate <NSObject>
+- (_Bool)isPassFooterViewInGroup:(PKPassFooterView *)arg1;
 - (void)passFooterViewDidChangeUserIntentRequirement:(PKPassFooterView *)arg1;
 @end
 

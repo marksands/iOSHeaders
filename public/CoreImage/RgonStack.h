@@ -20,9 +20,11 @@ __attribute__((visibility("hidden")))
     double zMax;
     int zMinindex;
     int zMaxindex;
+    int zDarkThr;
     NSMutableArray *stack;
 }
 
+@property int zDarkThr; // @synthesize zDarkThr;
 @property double binSize; // @synthesize binSize;
 @property int zMaxindex; // @synthesize zMaxindex;
 @property int zMinindex; // @synthesize zMinindex;

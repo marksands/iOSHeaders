@@ -27,9 +27,9 @@
 @property(retain) TLKVibrantLabel *bottomLabel; // @synthesize bottomLabel=_bottomLabel;
 @property(retain) TLKVibrantLabel *middleLabel; // @synthesize middleLabel=_middleLabel;
 @property(retain) TLKVibrantLabel *topLabel; // @synthesize topLabel=_topLabel;
-@property(retain) TLKFormattedText *bottomText; // @synthesize bottomText=_bottomText;
-@property(retain) TLKFormattedText *middleText; // @synthesize middleText=_middleText;
-@property(retain) TLKFormattedText *topText; // @synthesize topText=_topText;
+@property(retain, nonatomic) TLKFormattedText *bottomText; // @synthesize bottomText=_bottomText;
+@property(retain, nonatomic) TLKFormattedText *middleText; // @synthesize middleText=_middleText;
+@property(retain, nonatomic) TLKFormattedText *topText; // @synthesize topText=_topText;
 - (void).cxx_destruct;
 - (id)bottomLabelString;
 - (id)middleLabelString;
@@ -40,7 +40,6 @@
 - (struct UIEdgeInsets)containerStackView:(id)arg1 minimumSpacingAdjecentToArrangedSubview:(id)arg2;
 - (void)observedPropertiesChanged;
 - (void)styleDidChange:(unsigned long long)arg1;
-- (id)observableProperties;
 - (id)init;
 
 // Remaining properties

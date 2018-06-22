@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray;
+@class ExFATCameraDeviceManager, MSCameraDeviceManager, NSMutableArray, PTPCameraDeviceManager;
 
+__attribute__((visibility("hidden")))
 @interface ICMasterDeviceBrowser : NSObject
 {
     NSMutableArray *_devices;
     NSMutableArray *_browsers;
     long long _numberOfBrowsingBrowsers;
-    id _msDevManager;
-    id _ptpDevManager;
-    id _exFATManager;
+    MSCameraDeviceManager *_msDevManager;
+    PTPCameraDeviceManager *_ptpDevManager;
+    ExFATCameraDeviceManager *_exFATManager;
 }
 
 + (_Bool)exists;
@@ -35,7 +36,6 @@
 - (int)addPTPCamera:(id)arg1;
 - (void)removeBrowser:(id)arg1;
 - (void)addBrowser:(id)arg1;
-- (void)finalize;
 - (void)dealloc;
 - (id)init;
 

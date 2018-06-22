@@ -92,6 +92,7 @@
 @property(copy, nonatomic) NSString *displayName;
 - (struct dqblk)_diskQuota;
 @property(readonly, nonatomic) double passcodeBackOffInterval;
+- (_Bool)inFirstLoginSession;
 - (void)fetchAttributesIfNeeded;
 - (_Bool)fetchAttributesWithOutError:(id *)arg1;
 - (id)init;

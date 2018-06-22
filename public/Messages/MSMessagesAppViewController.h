@@ -22,10 +22,13 @@
 @property(nonatomic) _Bool isReadyForDisplay; // @synthesize isReadyForDisplay=_isReadyForDisplay;
 @property(retain, nonatomic) MSConversation *activeConversation; // @synthesize activeConversation=_activeConversation;
 - (void).cxx_destruct;
+- (void)_prepareForPresentationWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_didRemoveAssetArchiveWithIdentifier:(id)arg1;
 - (_Bool)_handleTextInputPayload:(id)arg1 withPayloadID:(id)arg2;
 - (void)_validateMessageForSending:(id)arg1 conversation:(id)arg2 associatedText:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_validateMessageForSending:(id)arg1 conversation:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) struct UIEdgeInsets _balloonMaskEdgeInsets;
+- (void)contentDidLoad;
 - (void)requestResize;
 - (void)setReadyForDisplay;
 - (_Bool)displaysAfterAppearance;
@@ -36,6 +39,7 @@
 - (void)willResignActiveWithConversation:(id)arg1;
 - (void)didBecomeActiveWithConversation:(id)arg1;
 - (void)willBecomeActiveWithConversation:(id)arg1;
+@property(readonly, nonatomic) unsigned long long presentationContext;
 @property(readonly, nonatomic) unsigned long long presentationStyle;
 - (void)requestPresentationStyle:(unsigned long long)arg1;
 - (void)_conversation:(id)arg1 didSelectMessage:(id)arg2;

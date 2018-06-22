@@ -22,6 +22,19 @@ struct in_addr {
     unsigned int _field1;
 };
 
+struct os_activity_scope_state_s {
+    unsigned long long _field1[2];
+};
+
+struct os_unfair_lock_s {
+    unsigned int _os_unfair_lock_opaque;
+};
+
+struct os_unfair_recursive_lock_s {
+    struct os_unfair_lock_s ourl_lock;
+    unsigned int ourl_count;
+};
+
 struct sockaddr {
     unsigned char _field1;
     unsigned char _field2;

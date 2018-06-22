@@ -15,6 +15,10 @@ struct CLLocationCoordinate2D {
     double longitude;
 };
 
+struct PGGraphCollectionNode {
+    Class _field1;
+};
+
 struct PGRoutineInfoStruct {
     _Bool routineAvailable;
     unsigned long long numberOfLocationsOfInterest;

@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class NCNotificationListSectionHeaderView, NSString;
+@class NCNotificationListSectionHeaderView, NSString, _UILegibilitySettings;
 
 @protocol NCNotificationListSectionHeaderViewDelegate <NSObject>
+- (_UILegibilitySettings *)legibilitySettingsForSectionHeaderView:(NCNotificationListSectionHeaderView *)arg1;
 - (void)sectionHeaderViewDidDismissForceTouchView:(NCNotificationListSectionHeaderView *)arg1;
 - (void)sectionHeaderViewDidPresentForceTouchView:(NCNotificationListSectionHeaderView *)arg1;
 - (void)sectionHeaderViewDidReceiveClearAllAction:(NCNotificationListSectionHeaderView *)arg1;

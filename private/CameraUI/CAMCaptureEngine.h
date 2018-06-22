@@ -173,11 +173,14 @@
 - (void)_handleSessionRuntimeError:(id)arg1;
 - (void)_handleSessionDidStopRunning:(id)arg1;
 - (void)_handleSessionDidStartRunning:(id)arg1;
-- (void)stop;
-- (void)start;
+- (void)stopWithCompletion:(CDUnknownBlockType)arg1;
+- (void)startWithRetryCount:(unsigned long long)arg1 retryInterval:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)_shouldStartSessionOnConfigurationChanges;
 - (void)dealloc;
 - (id)initWithPowerController:(id)arg1 options:(long long)arg2;
+- (id)prewarmedAudioDeviceInput:(id)arg1 device:(id)arg2;
+- (id)prewarmedVideoDeviceInput:(id)arg1 position:(long long)arg2 device:(id)arg3;
+- (id)prewarmedCaptureSession;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

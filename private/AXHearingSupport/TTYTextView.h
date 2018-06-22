@@ -22,6 +22,7 @@
     UIView *_rightBackgroundColorEdge;
     UIView *_middleBackgroundColorEdge;
     UIView *_inputAccessoryPlaceholderView;
+    UIView *_iPadBufferView;
     _Bool _showTTYPredictions;
     _Bool _isHandlingKeyboardFrameChanged;
     UICollectionView *_predictionsCollectionView;
@@ -37,6 +38,7 @@
 - (id)accessibilityIdentifier;
 - (int)_predictionsPerPage;
 - (float)_predictionsCellHeight;
+- (float)_predictionsCellBuffer;
 - (void)_loadTTYAbbreviations;
 - (void)_insertWhitespaceIfNeeded;
 - (void)_tapTTYBarCell:(id)arg1;

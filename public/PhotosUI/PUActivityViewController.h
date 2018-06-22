@@ -21,6 +21,7 @@
     double _currentAssetPreparationProgress;
     PUProgressIndicatorView *_preparationProgressView;
     _Bool _isDismissed;
+    _Bool _readyForInteraction;
     NSArray *_photosActivities;
     id <PUActivityViewControllerDelegate> _delegate;
 }
@@ -29,6 +30,7 @@
 + (id)photosApplicationActivities;
 + (id)defaultActivityTypeOrder;
 + (_Bool)_isOutboundShareActivity:(id)arg1;
+@property(nonatomic, getter=isReadyForInteraction) _Bool readyForInteraction; // @synthesize readyForInteraction=_readyForInteraction;
 @property(nonatomic) __weak id <PUActivityViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSArray *photosActivities; // @synthesize photosActivities=_photosActivities;
 - (void).cxx_destruct;
@@ -40,7 +42,7 @@
 - (void)_performActivity:(id)arg1;
 - (_Bool)_shouldShowSystemActivityType:(id)arg1;
 - (void)setCompletionWithItemsHandler:(CDUnknownBlockType)arg1;
-- (void)updateVisibleShareActions;
+- (void)updateVisibileShareActionsIfNeeded;
 - (void)setAssetItems:(id)arg1;
 - (void)removeAssetItem:(id)arg1;
 - (void)addAssetItem:(id)arg1;

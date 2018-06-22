@@ -11,6 +11,7 @@
 @interface PGCurationCriteria : NSObject
 {
     _Bool _requiresPeople;
+    _Bool _filterUtilityAssets;
     double _minimumAssetsRatio;
     PGCurationIndexSetTrait *_scenesTrait;
     PGCurationPartOfDayTrait *_partOfDayTrait;
@@ -18,6 +19,7 @@
     PGCurationSetTrait *_peopleTrait;
 }
 
+@property(nonatomic) _Bool filterUtilityAssets; // @synthesize filterUtilityAssets=_filterUtilityAssets;
 @property(retain, nonatomic) PGCurationSetTrait *peopleTrait; // @synthesize peopleTrait=_peopleTrait;
 @property(nonatomic) _Bool requiresPeople; // @synthesize requiresPeople=_requiresPeople;
 @property(readonly, nonatomic) PGGraph *graph; // @synthesize graph=_graph;

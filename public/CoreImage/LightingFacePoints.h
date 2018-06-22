@@ -9,6 +9,20 @@
 __attribute__((visibility("hidden")))
 @interface LightingFacePoints : NSObject
 {
+    struct CGPoint rightKickLights[3];
+    struct CGPoint leftKickLights[3];
+    struct CGPoint rightContour[5];
+    struct CGPoint leftContour[5];
+    struct CGPoint leftEye;
+    struct CGPoint rightEye;
+    float faceHeight;
+    float faceWidth;
+    struct CGPoint centerNose;
+    struct CGPoint bottomShadow;
+    struct CGPoint centerChin;
+    struct CGPoint leftNose[3];
+    struct CGPoint rightNose[3];
+    struct CGPoint noseStrobe[2];
     struct CGRect faceRect;
 }
 

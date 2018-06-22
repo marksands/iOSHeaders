@@ -28,14 +28,19 @@ __attribute__((visibility("hidden")))
     struct IPCAURenderingClient _renderClient;
     AUParameterTree *_cachedParameterTree;
     NSObject<OS_dispatch_queue> *_viewControllerRequestQueue;
+    AUAudioUnit_XH *_strongInstance;
     id <AUAudioUnitXPCProtocol> _remote;
 }
 
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (void)instantiateWithExtension:(id)arg1 componentDescription:(struct AudioComponentDescription)arg2 instance:(struct OpaqueAudioComponentInstance *)arg3 options:(unsigned int)arg4 completionHandler:(CDUnknownBlockType)arg5;
+@property(retain, nonatomic) AUAudioUnit_XH *strongInstance; // @synthesize strongInstance=_strongInstance;
 @property(readonly, nonatomic) id <AUAudioUnitXPCProtocol> remote; // @synthesize remote=_remote;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (_Bool)disableProfile:(id)arg1 cable:(unsigned char)arg2 onChannel:(unsigned char)arg3 error:(id *)arg4;
+- (_Bool)enableProfile:(id)arg1 cable:(unsigned char)arg2 onChannel:(unsigned char)arg3 error:(id *)arg4;
+- (id)profileStateForCable:(unsigned char)arg1 channel:(unsigned char)arg2;
 - (_Bool)providesUserInterface;
 - (void)selectViewConfiguration:(id)arg1;
 - (id)supportedViewConfigurations:(id)arg1;

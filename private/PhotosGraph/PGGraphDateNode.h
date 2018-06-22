@@ -6,19 +6,19 @@
 
 #import <PhotosGraph/PGGraphNode.h>
 
-#import "PGGraphDateNode.h"
+@class PGGraphSeasonNode;
 
-@class NSString;
-
-@interface PGGraphDateNode : PGGraphNode <PGGraphDateNode>
+@interface PGGraphDateNode : PGGraphNode
 {
+    PGGraphSeasonNode *_seasonNode;
 }
 
++ (id)dateNodeForDayNode:(id)arg1 monthNode:(id)arg2 yearNode:(id)arg3;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PGGraphSeasonNode *seasonNode; // @synthesize seasonNode=_seasonNode;
+- (void)enumerateMomentNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateHolidayNodesUsingBlock:(CDUnknownBlockType)arg1;
+@property(readonly) long long year;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 @end
 

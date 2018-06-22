@@ -6,36 +6,46 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDate, NSString;
+#import "NSSecureCoding.h"
 
-@interface CLSPublicEvent : NSObject
+@class NSArray, NSDateInterval, NSString, NSTimeZone;
+
+@interface CLSPublicEvent : NSObject <NSSecureCoding>
 {
-    NSString *_title;
-    NSString *_description;
-    NSString *_venue;
-    NSDate *_startDate;
-    NSDate *_endDate;
-    unsigned long long _eventType;
+    unsigned long long _muid;
+    NSString *_name;
+    NSDateInterval *_localDateInterval;
+    double _localStartTime;
+    double _localEndTime;
+    NSTimeZone *_timeZone;
     NSArray *_performers;
-    double _distance;
-    unsigned long long _popularity;
-    struct CLLocationCoordinate2D _location;
+    NSArray *_categories;
+    unsigned long long _businessItemMuid;
+    long long _expectedAttendance;
+    struct CLLocationCoordinate2D _businessItemCoordinates;
 }
 
-+ (id)stringByEventType:(unsigned long long)arg1;
-+ (id)publicEventWithDictionary:(id)arg1 withLocationContext:(struct CLLocationCoordinate2D)arg2 andEventType:(unsigned long long)arg3;
-@property(readonly) unsigned long long popularity; // @synthesize popularity=_popularity;
-@property(readonly) double distance; // @synthesize distance=_distance;
-@property(readonly) struct CLLocationCoordinate2D location; // @synthesize location=_location;
-@property(readonly) NSArray *performers; // @synthesize performers=_performers;
-@property(readonly) unsigned long long eventType; // @synthesize eventType=_eventType;
-@property(readonly) NSDate *endDate; // @synthesize endDate=_endDate;
-@property(readonly) NSDate *startDate; // @synthesize startDate=_startDate;
-@property(readonly) NSString *venue; // @synthesize venue=_venue;
-@property(readonly) NSString *title; // @synthesize title=_title;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) long long expectedAttendance; // @synthesize expectedAttendance=_expectedAttendance;
+@property(nonatomic) struct CLLocationCoordinate2D businessItemCoordinates; // @synthesize businessItemCoordinates=_businessItemCoordinates;
+@property(nonatomic) unsigned long long businessItemMuid; // @synthesize businessItemMuid=_businessItemMuid;
+@property(retain, nonatomic) NSArray *categories; // @synthesize categories=_categories;
+@property(retain, nonatomic) NSArray *performers; // @synthesize performers=_performers;
+@property(retain, nonatomic) NSTimeZone *timeZone; // @synthesize timeZone=_timeZone;
+@property(nonatomic) double localEndTime; // @synthesize localEndTime=_localEndTime;
+@property(nonatomic) double localStartTime; // @synthesize localStartTime=_localStartTime;
+@property(retain, nonatomic) NSDateInterval *localDateInterval; // @synthesize localDateInterval=_localDateInterval;
+@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(nonatomic) unsigned long long muid; // @synthesize muid=_muid;
 - (void).cxx_destruct;
-@property(readonly) NSString *description; // @synthesize description=_description;
-- (id)initWithDictionary:(id)arg1 withLocationContext:(struct CLLocationCoordinate2D)arg2 andEventType:(unsigned long long)arg3;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)_calculateUniversalDateFromLocalDate:(id)arg1 includingTimeZone:(id)arg2 localStartTime:(double)arg3;
+@property(readonly, nonatomic) NSDateInterval *universalDateIntervalIncludingTime;
+- (id)debugDescription;
+- (id)description;
+@property(readonly, nonatomic) _Bool isEnriched;
+- (id)init;
 
 @end
 

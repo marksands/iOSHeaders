@@ -26,12 +26,17 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long loadDeferringReasons; // @synthesize loadDeferringReasons=_loadDeferringReasons;
 @property(retain, nonatomic) _SFFormMetadataController *formMetadataController; // @synthesize formMetadataController=_formMetadataController;
 - (void).cxx_destruct;
+- (void)automaticPasswordSheetDimissedInFrame:(id)arg1 focusedPasswordControlUniqueID:(id)arg2;
+- (void)removeAutomaticPasswordElementsInFrame:(id)arg1 focusedPasswordControlUniqueID:(id)arg2 passwordControlUniqueIDs:(id)arg3;
+- (void)substitutePasswordElementsWithAutomaticPasswordElementsInFrame:(id)arg1 formID:(long long)arg2 focusedPasswordControlUniqueID:(id)arg3 passwordControlUniqueIDs:(id)arg4 automaticPassword:(id)arg5 blurAfterSubstitution:(_Bool)arg6;
 - (void)resumeLoadingAfterSavingFormData;
 - (void)clearAutoFillMetadata;
 - (void)collectMetadataForTextField:(id)arg1 inFrame:(id)arg2 atURL:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)collectFormMetadataForPrefillingAtURL:(id)arg1;
 - (void)collectURLsForPrefillingAtURL:(id)arg1;
 - (void)setFormControls:(id)arg1 areAutoFilled:(_Bool)arg2 andClearField:(id)arg3 inFrame:(id)arg4;
+- (void)focusFormForStreamlinedLogin:(long long)arg1 inFrame:(id)arg2;
+- (void)autoFillOneTimeCodeFieldsInFrame:(id)arg1 withValue:(id)arg2;
 - (void)fillTextField:(id)arg1 inFrame:(id)arg2 withGeneratedPassword:(id)arg3;
 - (void)annotateForm:(long long)arg1 inFrame:(id)arg2 withValues:(id)arg3;
 - (void)autoFillForm:(long long)arg1 inFrame:(id)arg2 withGeneratedPassword:(id)arg3;

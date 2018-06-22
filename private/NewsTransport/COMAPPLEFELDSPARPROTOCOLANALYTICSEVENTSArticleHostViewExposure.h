@@ -25,6 +25,7 @@
     long long _personalizationTreatmentId;
     long long _previousArticlePublisherArticleVersion;
     long long _publisherArticleVersionInt64;
+    double _subscribedChannelCtr;
     double _userFeedbackScore;
     int _activeTimeSpent;
     NSString *_anfComponentId;
@@ -32,6 +33,7 @@
     int _articleHostViewType;
     NSString *_articleId;
     NSData *_articleSessionId;
+    int _articleSuggestionOrigin;
     int _articleType;
     int _articleViewPresentationReason;
     NSData *_articleViewingSessionId;
@@ -46,6 +48,8 @@
     NSString *_creativeId;
     int _curatedContentType;
     int _displayRank;
+    NSString *_exposedGroupSourceChannelId;
+    NSString *_exposedInLocationId;
     int _feedAutoSubscribeType;
     int _feedCellHostType;
     int _feedPresentationReason;
@@ -57,8 +61,10 @@
     int _groupDisplayRankInForYou;
     NSString *_groupFeedId;
     int _groupFormationReason;
+    int _groupLocation;
     int _groupPresentationReason;
     int _groupType;
+    NSData *_groupViewExposureId;
     NSString *_iadNativeAd;
     NSString *_iadNativeCampaign;
     NSString *_iadNativeCampaignAd;
@@ -110,6 +116,7 @@
     _Bool _articleLoaded;
     _Bool _badgeExposure;
     _Bool _didBounce;
+    _Bool _didExpandDuringView;
     _Bool _didOpenInSafari;
     _Bool _isBreakingNewsArticle;
     _Bool _isCoverArticle;
@@ -129,12 +136,17 @@
     _Bool _isVideoInFeed;
     _Bool _subscriptionOnlyArticle;
     _Bool _viewFromNotificationDirectOpen;
-    CDStruct_23675145 _has;
+    CDStruct_19501b32 _has;
 }
 
 + (Class)surfacedByTagIdsType;
 + (Class)fractionalCohortMembershipType;
 + (Class)namedEntitiesType;
+@property(nonatomic) double subscribedChannelCtr; // @synthesize subscribedChannelCtr=_subscribedChannelCtr;
+@property(nonatomic) _Bool didExpandDuringView; // @synthesize didExpandDuringView=_didExpandDuringView;
+@property(retain, nonatomic) NSString *exposedGroupSourceChannelId; // @synthesize exposedGroupSourceChannelId=_exposedGroupSourceChannelId;
+@property(retain, nonatomic) NSData *groupViewExposureId; // @synthesize groupViewExposureId=_groupViewExposureId;
+@property(retain, nonatomic) NSString *exposedInLocationId; // @synthesize exposedInLocationId=_exposedInLocationId;
 @property(retain, nonatomic) NSString *iadNativeCampaignAd; // @synthesize iadNativeCampaignAd=_iadNativeCampaignAd;
 @property(retain, nonatomic) NSMutableArray *surfacedByTagIds; // @synthesize surfacedByTagIds=_surfacedByTagIds;
 @property(retain, nonatomic) NSString *previousWebEmbedId; // @synthesize previousWebEmbedId=_previousWebEmbedId;
@@ -240,6 +252,19 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSubscribedChannelCtr;
+@property(nonatomic) _Bool hasDidExpandDuringView;
+- (int)StringAsArticleSuggestionOrigin:(id)arg1;
+- (id)articleSuggestionOriginAsString:(int)arg1;
+@property(nonatomic) _Bool hasArticleSuggestionOrigin;
+@property(nonatomic) int articleSuggestionOrigin; // @synthesize articleSuggestionOrigin=_articleSuggestionOrigin;
+@property(readonly, nonatomic) _Bool hasExposedGroupSourceChannelId;
+@property(readonly, nonatomic) _Bool hasGroupViewExposureId;
+@property(readonly, nonatomic) _Bool hasExposedInLocationId;
+- (int)StringAsGroupLocation:(id)arg1;
+- (id)groupLocationAsString:(int)arg1;
+@property(nonatomic) _Bool hasGroupLocation;
+@property(nonatomic) int groupLocation; // @synthesize groupLocation=_groupLocation;
 - (int)StringAsCuratedContentType:(id)arg1;
 - (id)curatedContentTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasCuratedContentType;

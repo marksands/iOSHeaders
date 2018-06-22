@@ -7,56 +7,51 @@
 #import "PHAsset.h"
 
 #import "CLSInvestigationItem.h"
-#import "CLSSnapshotSupportProtocol.h"
+#import "CLSPHAssetSupportProtocol.h"
 
 @class CLLocation, NSArray, NSData, NSDate, NSDateComponents, NSSet, NSString;
 
-@interface PHAsset (Clouseau) <CLSInvestigationItem, CLSSnapshotSupportProtocol>
+@interface PHAsset (Clouseau) <CLSInvestigationItem, CLSPHAssetSupportProtocol>
 + (id)clsAllAssetsFromFetchResult:(id)arg1 prefetchOptions:(unsigned long long)arg2;
 + (void)_populateAsset:(id)arg1 withPersonsByUUIDs:(id)arg2;
 + (id)_personsByUUIDsForFetchedAssets:(id)arg1 orFetchResult:(id)arg2;
++ (unsigned long long)clsPrefetchOptionsForIsUtility;
 + (_Bool)isUtilityForAsset:(id)arg1;
 + (id)contextForItems:(id)arg1;
 + (double)scoreForAsset:(id)arg1 withContext:(id)arg2;
-+ (float)clsSharpnessScoreThresholdToNotBeBlurry;
++ (double)clsSharpnessScoreThresholdToNotBeBlurry;
 - (struct CGImage *)createThumbnailWithResolution:(unsigned long long)arg1 fillMode:(_Bool)arg2 networkAllowed:(_Bool)arg3;
 - (id)_256SpecificAssetResource;
 - (id)_imageDataForAssetResource:(id)arg1 networkAccessAllowed:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)clsFaceInformationArePrefetched;
-- (_Bool)clsMediaAnalysisIsPrefetched;
 - (_Bool)clsSceneClassificationsArePrefetched;
 - (_Bool)clsPeopleCountIsPrefetched;
 - (_Bool)clsPeopleNamesArePrefetched;
+@property(readonly, nonatomic) _Bool clsIsInterestingHDR;
+@property(readonly, nonatomic) _Bool clsIsInterestingSDOF;
+@property(readonly, nonatomic) _Bool clsIsInterestingPanorama;
+@property(readonly, nonatomic) _Bool clsIsInterestingLivePhoto;
+@property(readonly, nonatomic) _Bool clsIsInterestingVideo;
 - (double)scoreWithContext:(id)arg1;
+- (void)setCacheCurationScore:(double)arg1;
 @property(readonly, nonatomic) double clsContentScore;
-- (_Bool)isBlurryForcingAnalysisIfNeeded;
 @property(readonly, nonatomic) _Bool isBlurry;
 - (id)clsUnprefetchedSceneClassifications;
 - (void)clsSetSceneClassifications:(id)arg1;
 @property(readonly, copy, nonatomic) NSSet *clsSceneClassifications;
 @property(readonly, nonatomic) NSData *clsDistanceIdentity;
-- (void)_clsSetVideoFaceCount:(unsigned long long)arg1;
-- (unsigned long long)_clsUnprefetchedVideoFaceCount;
 - (unsigned long long)clsVideoFaceCount;
-- (void)_clsSetActivityLevel:(float)arg1;
-- (float)_clsUnprefetchedActivityLevel;
-- (float)clsActivityLevel;
-- (void)_clsSetVideoScore:(float)arg1;
-- (float)_clsUnprefetchedVideoScore;
-- (float)clsVideoScore;
-- (_Bool)hasSharpnessScore;
-- (void)_clsSetSharpnessScore:(float)arg1;
-- (float)_clsUnprefetchedSharpnessScore:(_Bool)arg1;
-- (float)_clsSharpnessScore:(_Bool)arg1;
-@property(readonly, nonatomic) float clsSharpnessScore;
-- (void)clsSetExposureScore:(float)arg1;
-@property(readonly, nonatomic) float clsExposureScore;
+- (double)clsActivityScore;
+- (double)clsVideoScore;
+@property(readonly, nonatomic) double clsAestheticScore;
+@property(readonly, nonatomic) double clsSharpnessScore;
+@property(readonly, nonatomic) double clsExposureScore;
 - (void)clsSetBlinkCount:(id)arg1;
 - (long long)_clsBlinkCount:(_Bool)arg1;
-- (long long)clsBlinkCount;
+@property(readonly, nonatomic) long long clsBlinkCount;
 - (void)clsSetSmileCount:(id)arg1;
 - (long long)_clsSmileCount:(_Bool)arg1;
-- (long long)clsSmileCount;
+@property(readonly, nonatomic) long long clsSmileCount;
 - (void)clsSetPeopleCount:(id)arg1;
 @property(readonly, nonatomic) unsigned long long clsPeopleCount;
 @property(readonly, nonatomic) NSArray *clsUnprefetchedPeopleNames;
@@ -64,11 +59,12 @@
 @property(readonly, nonatomic) NSArray *clsPeopleNames;
 @property(readonly, nonatomic) NSArray *peopleNames;
 - (unsigned long long)facesCount;
+@property(readonly, nonatomic) CLLocation *pl_location;
+@property(readonly, nonatomic) NSDate *pl_date;
+@property(readonly, nonatomic) _Bool clsIsAestheticallyPrettyGood;
 @property(readonly, nonatomic) _Bool isScreenshot;
 @property(readonly, nonatomic) _Bool isUtility;
 - (_Bool)isSubtype:(unsigned long long)arg1;
-@property(readonly, nonatomic) _Bool clsIsHDR;
-@property(readonly, nonatomic) _Bool clsIsSDOF;
 @property(readonly, nonatomic) long long clsShareCount;
 @property(readonly, nonatomic) long long clsPlayCount;
 @property(readonly, nonatomic) long long clsViewCount;
@@ -78,6 +74,7 @@
 @property(readonly, nonatomic) NSDate *date;
 @property(readonly, nonatomic) CLLocation *clsLocation;
 @property(readonly, nonatomic) NSDate *clsDate;
+@property(readonly, nonatomic) NSString *clsIdentifier;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

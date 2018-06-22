@@ -47,6 +47,7 @@
     UIImage *_placeHolderImage;
     PUPhotoDecoration *_photoDecoration;
     double _cornerRadius;
+    unsigned long long _cornersToRound;
     UIColor *_overlayColor;
     double _contentAlpha;
     UIColor *_backgroundColor;
@@ -110,6 +111,7 @@
 @property(nonatomic) double contentAlpha; // @synthesize contentAlpha=_contentAlpha;
 @property(retain, nonatomic) UIColor *overlayColor; // @synthesize overlayColor=_overlayColor;
 @property(nonatomic) _Bool useOverlay; // @synthesize useOverlay=_useOverlay;
+@property(readonly, nonatomic) unsigned long long cornersToRound; // @synthesize cornersToRound=_cornersToRound;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(nonatomic, getter=isAnimatingRoundedCorners) _Bool animatingRoundedCorners; // @synthesize animatingRoundedCorners=_animatingRoundedCorners;
 @property(nonatomic) _Bool avoidsPhotoDecoration; // @synthesize avoidsPhotoDecoration=_avoidsPhotoDecoration;
@@ -155,7 +157,8 @@
 - (void)_updateLivePhotoViewVisibility;
 - (void)stopPlayback;
 - (void)startPlaybackWithStyle:(long long)arg1;
-- (void)setCornerRadius:(double)arg1 useOverlay:(_Bool)arg2 overlayColor:(id)arg3;
+- (void)setCornerRadius:(double)arg1 cornersToRound:(unsigned long long)arg2 useOverlay:(_Bool)arg3 overlayColor:(id)arg4;
+- (void)setCornersToRound:(unsigned long long)arg1;
 @property(readonly, nonatomic) _Bool providesVisualFeedbackOnPress;
 @property(readonly, nonatomic) UIView *badgeContainerView;
 - (void)updatePhotoImageWithoutReconfiguring:(id)arg1;

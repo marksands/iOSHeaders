@@ -16,7 +16,6 @@
 }
 
 + (_Bool)_hasWritableCharacteristicsOfType:(id)arg1 valueSource:(id)arg2;
-+ (id)numberValueFormatter;
 + (id)readOnlyCharacteristicTypes;
 + (Class)valueClass;
 @property(readonly, copy, nonatomic) NSString *maximumCharacteristicType; // @synthesize maximumCharacteristicType=_maximumCharacteristicType;
@@ -28,6 +27,7 @@
 - (id)_minimumCharacteristicTypeMetadata;
 - (id)targetCharacteristicTypeWithCharacteristicValuesKeyedByType:(id)arg1;
 - (unsigned long long)rangeModeWithCharacteristicValuesKeyedByType:(id)arg1;
+- (id)numberValueFormatter;
 @property(readonly, copy, nonatomic) NSNumber *minimumCharacteristicTypeStepValue;
 @property(readonly, copy, nonatomic) NSNumber *maximumCharacteristicTypeStepValue;
 @property(readonly, copy, nonatomic) NSNumber *stepValue;

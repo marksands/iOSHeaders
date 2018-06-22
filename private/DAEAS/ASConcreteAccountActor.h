@@ -16,11 +16,12 @@
 }
 
 + (_Bool)_actorRunLoopInitialized;
++ (void)_initializeActorRunLoop;
++ (struct _opaque_pthread_t *)_actorPThread;
 + (struct __CFRunLoop *)_actorRunLoop;
 + (void)_runActorThreadWithStartupLock:(id)arg1;
 @property(retain, nonatomic) ASClientAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
-- (id)initWithDAAccount:(id)arg1;
 - (oneway void)_foldersThatExternalClientsCareAboutChanged;
 - (oneway void)_folderHierarchyChanged;
 - (oneway void)_newASPolicyKeyNotification:(id)arg1;
@@ -29,6 +30,7 @@
 - (void)disable;
 - (oneway void)shutdown;
 - (oneway void)startup;
+- (id)initWithDAAccount:(id)arg1;
 - (id)draftsFolder;
 - (id)deletedItemsFolder;
 - (id)sentItemsFolder;

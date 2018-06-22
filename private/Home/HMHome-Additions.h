@@ -47,6 +47,7 @@
 - (id)hf_serviceGroupsForService:(id)arg1;
 - (id)hf_actionSetWithUUID:(id)arg1;
 - (id)hf_primaryResidentDevice;
+- (id)hf_allTargetControlAccessories;
 - (id)hf_allProgrammableSwitchAccessories;
 - (id)hf_allBridgeAccessories;
 - (id)hf_accessoriesMatchingCategoryType:(id)arg1;

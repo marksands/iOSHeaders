@@ -6,12 +6,9 @@
 
 #import <CoreFoundation/CFPrefsSource.h>
 
-@class NSObject<OS_dispatch_group>;
-
 __attribute__((visibility("hidden")))
 @interface CFPrefsPlistSource : CFPrefsSource
 {
-    NSObject<OS_dispatch_group> *_synchGroup;
     struct __CFString *userIdentifier;
     struct __CFString *domainIdentifier;
     struct __CFString *container;

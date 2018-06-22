@@ -60,6 +60,7 @@
 - (_Bool)shouldSyncPreviewImageToCloud:(id)arg1;
 - (short)sectionForSubAttachments;
 - (void)updateAttachmentSize;
+- (void)attachmentIsDeallocating:(id)arg1;
 - (void)attachmentDidRefresh:(_Bool)arg1;
 - (void)attachmentWillRefresh:(_Bool)arg1;
 - (void)attachmentWillTurnIntoFault;

@@ -13,9 +13,11 @@
     CLKComplicationTemplate *_complicationTemplate;
 }
 
-+ (_Bool)acceptsComplicationType:(unsigned long long)arg1 withFamily:(long long)arg2;
++ (_Bool)acceptsComplicationType:(unsigned long long)arg1 withFamily:(long long)arg2 forDevice:(id)arg3;
 - (void).cxx_destruct;
 - (void)_localeDidChange:(id)arg1;
+- (id)_astronomyTemplate;
+- (id)_solarTemplate;
 - (id)_siriTemplate;
 - (id)_newsTemplate;
 - (id)_messagesTemplate;
@@ -24,6 +26,7 @@
 - (id)_reminderTemplate;
 - (id)_workoutTemplate;
 - (id)_nowPlayingTemplate;
+- (id)_podcastTemplate;
 - (id)_radioTemplate;
 - (id)_musicTemplate;
 - (id)_worldClockTemplate;
@@ -42,7 +45,7 @@
 - (id)_dateTemplate;
 - (id)currentSwitcherTemplate;
 - (void)dealloc;
-- (id)initWithComplication:(id)arg1 family:(long long)arg2;
+- (id)initWithComplication:(id)arg1 family:(long long)arg2 forDevice:(id)arg3;
 
 @end
 

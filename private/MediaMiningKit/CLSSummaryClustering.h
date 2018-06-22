@@ -26,9 +26,9 @@
     _Bool _enableConcurency;
 }
 
-+ (double)maxScoreForDataset:(id)arg1;
-+ (double)meanScoreForDataset:(id)arg1;
-+ (double)scoreForDataset:(id)arg1;
++ (double)maximumScoreForItems:(id)arg1;
++ (double)meanScoreForItems:(id)arg1;
++ (double)scoreForItems:(id)arg1;
 + (id)clustering;
 @property(nonatomic) unsigned long long adaptiveElectionSmootherMinimumLimit; // @synthesize adaptiveElectionSmootherMinimumLimit=_adaptiveElectionSmootherMinimumLimit;
 @property(nonatomic) unsigned long long adaptiveElectionSmootherMaximumLimit; // @synthesize adaptiveElectionSmootherMaximumLimit=_adaptiveElectionSmootherMaximumLimit;
@@ -45,10 +45,11 @@
 @property(nonatomic) unsigned long long timeSpanDensityAverageNumberOfObjects; // @synthesize timeSpanDensityAverageNumberOfObjects=_timeSpanDensityAverageNumberOfObjects;
 @property(nonatomic) double optimalDayDistributionThreshold; // @synthesize optimalDayDistributionThreshold=_optimalDayDistributionThreshold;
 @property(nonatomic) _Bool enableConcurency; // @synthesize enableConcurency=_enableConcurency;
-- (id)_adaptiveElection:(id)arg1 maximumNumberOfItems:(unsigned long long)arg2 progressBlock:(CDUnknownBlockType)arg3;
-- (id)performWithDataset:(id)arg1 maximumNumberOfItems:(unsigned long long)arg2 progressBlock:(CDUnknownBlockType)arg3;
-- (id)_densityClustersWithDataset:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
-- (id)densityClustersWithDataset:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
+- (id)_adaptiveElection:(id)arg1 maximumNumberOfItemsToElect:(unsigned long long)arg2 debugInfo:(id)arg3 progressBlock:(CDUnknownBlockType)arg4;
+- (id)performWithItems:(id)arg1 maximumNumberOfItemsToElect:(unsigned long long)arg2 debugInfo:(id)arg3 progressBlock:(CDUnknownBlockType)arg4;
+- (id)performWithItems:(id)arg1 maximumNumberOfItemsToElect:(unsigned long long)arg2 progressBlock:(CDUnknownBlockType)arg3;
+- (id)_densityClustersWithItems:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
+- (id)densityClustersWithItems:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)init;
 - (CDUnknownBlockType)densityClusteringDistanceBlock;
 

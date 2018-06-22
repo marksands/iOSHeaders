@@ -8,7 +8,7 @@
 
 #import "AVCVirtualTTYDeviceDelegate.h"
 
-@class AVCVirtualTTYDevice, NSObject<OS_dispatch_queue>, NSString, TTYConversation, TUCall;
+@class AVCVirtualTTYDevice, NSDictionary, NSObject<OS_dispatch_queue>, NSString, TTYConversation, TUCall;
 
 @interface TTYCall : NSObject <AVCVirtualTTYDeviceDelegate>
 {
@@ -17,8 +17,10 @@
     TTYConversation *_conversation;
     TUCall *_call;
     AVCVirtualTTYDevice *_ttyDevice;
+    NSDictionary *_substitutions;
 }
 
+@property(retain, nonatomic) NSDictionary *substitutions; // @synthesize substitutions=_substitutions;
 @property(retain, nonatomic) AVCVirtualTTYDevice *ttyDevice; // @synthesize ttyDevice=_ttyDevice;
 @property(retain, nonatomic) TUCall *call; // @synthesize call=_call;
 @property(retain, nonatomic) TTYConversation *conversation; // @synthesize conversation=_conversation;

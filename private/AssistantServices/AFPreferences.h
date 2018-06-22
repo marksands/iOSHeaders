@@ -17,6 +17,7 @@
     NSObject<OS_dispatch_queue> *_navTokenQueue;
     _Bool _navTokenIsValid;
     int _navToken;
+    long long _tlsSessionTicketFlushRequestPending;
 }
 
 + (id)sharedPreferences;
@@ -27,6 +28,8 @@
 - (_Bool)fileLoggingIsEnabled;
 - (void)setFileLoggingIsEnabled:(_Bool)arg1;
 - (void)_setLoggingDefaultValue:(id)arg1 forKey:(id)arg2;
+- (_Bool)tlsSessionTicketsFlushPending;
+- (void)setTLSSessionTicketsFlushPending:(_Bool)arg1;
 - (void)setCurrentNavigationState:(unsigned long long)arg1;
 - (unsigned long long)currentNavigationState;
 - (void)setValue:(id)arg1 forSessionContextKey:(id)arg2;
@@ -61,14 +64,28 @@
 - (_Bool)siriKitEnabledForNativeNotes;
 - (void)setSiriKitEnabledForNativeCalling:(_Bool)arg1;
 - (_Bool)siriKitEnabledForNativeCalling;
+- (void)setShouldLoadNativeMessagesExtensionAsBundle:(_Bool)arg1;
+- (_Bool)shouldLoadNativeMessagesExtensionAsBundle;
 - (void)setSiriKitEnabledForNativeMessages:(_Bool)arg1;
 - (_Bool)siriKitEnabledForNativeMessages;
+- (void)setSiriSpeakerGradingDebugUIEnabled:(_Bool)arg1;
+- (_Bool)siriSpeakerGradingDebugUIEnabled;
 - (void)setSiriDebugUIEnabled:(_Bool)arg1;
 - (_Bool)siriDebugUIEnabled;
+- (void)setAutoDismissalMaxAttentionSamplingTime:(double)arg1;
+- (double)autoDismissalMaxAttentionSamplingTime;
+- (void)setAutoDismissalExtendedIdleTimeout:(double)arg1;
+- (double)autoDismissalExtendedIdleTimeout;
+- (void)setAutoDismissalIdleTimeout:(double)arg1;
+- (double)autoDismissalIdleTimeout;
 - (void)setLimitedAudioLoggingEnabled:(_Bool)arg1;
 - (_Bool)limitedAudioLoggingEnabled;
+- (void)setMyriadLastWin;
+- (id)myriadLastWin;
 - (void)setMyriadDeviceTrumpDelay:(double)arg1;
 - (double)myriadDeviceTrumpDelay;
+- (void)setMyriadDeviceSlowdown:(double)arg1;
+- (double)myriadDeviceSlowdown;
 - (void)setMyriadDeviceDelay:(double)arg1;
 - (double)myriadDeviceDelay;
 - (void)setMyriadDeviceAdjust:(float)arg1;
@@ -99,6 +116,8 @@
 - (id)supplementalLanguageDictionaryForProduct:(id)arg1;
 - (void)_setSupplementalLanguages:(id)arg1 forProduct:(id)arg2 forBuildVersion:(id)arg3;
 - (void)_setSupplementalLanguageDictionary:(id)arg1 forProduct:(id)arg2;
+- (unsigned long long)internalUserClassification;
+- (void)setInternalUserClassification:(unsigned long long)arg1;
 - (id)cloudSyncEnabledModificationDate;
 - (void)setCloudSyncEnabled:(_Bool)arg1;
 - (_Bool)cloudSyncEnabled;

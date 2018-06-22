@@ -10,7 +10,7 @@
 
 @interface PXPlacesSnapshotOptions : NSObject
 {
-    _Bool _shouldSkipSyncCachedImage;
+    _Bool _shouldSkipPlaceholder;
     PKExtendedTraitCollection *_extendedTraitCollection;
     id <PXPlacesMapGeotaggableInfoDelegate> _geotaggableInformationDelegate;
     NSObject<OS_dispatch_queue> *_queue;
@@ -20,7 +20,7 @@
     struct CGSize _viewSize;
 }
 
-@property(nonatomic) _Bool shouldSkipSyncCachedImage; // @synthesize shouldSkipSyncCachedImage=_shouldSkipSyncCachedImage;
+@property(nonatomic) _Bool shouldSkipPlaceholder; // @synthesize shouldSkipPlaceholder=_shouldSkipPlaceholder;
 @property(nonatomic) struct CGSize viewSize; // @synthesize viewSize=_viewSize;
 @property(nonatomic) unsigned long long snapshotMapType; // @synthesize snapshotMapType=_snapshotMapType;
 @property(nonatomic) double visibleDistance; // @synthesize visibleDistance=_visibleDistance;

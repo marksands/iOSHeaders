@@ -8,7 +8,7 @@
 
 #import "CKDSystemAvailabilityWatcher.h"
 
-@class CKDClientContext, CKWatchdog, NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, NSXPCConnection;
+@class CKDClientContext, NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, NSXPCConnection;
 
 @interface CKDClientProxy : NSObject <CKDSystemAvailabilityWatcher>
 {
@@ -32,7 +32,6 @@
     NSArray *_cachedSandboxExtensions;
     NSMutableArray *_pendingContexts;
     NSMutableSet *_pendingOperationIDs;
-    CKWatchdog *_watchdog;
     NSDate *_connectionDate;
     long long _hasTCCAuthorizationTernary;
     NSDictionary *_connectionEntitlements;
@@ -51,7 +50,6 @@
 @property(retain, nonatomic) NSDictionary *connectionEntitlements; // @synthesize connectionEntitlements=_connectionEntitlements;
 @property(nonatomic) long long hasTCCAuthorizationTernary; // @synthesize hasTCCAuthorizationTernary=_hasTCCAuthorizationTernary;
 @property(retain, nonatomic) NSDate *connectionDate; // @synthesize connectionDate=_connectionDate;
-@property(retain, nonatomic) CKWatchdog *watchdog; // @synthesize watchdog=_watchdog;
 @property(retain, nonatomic) NSMutableSet *pendingOperationIDs; // @synthesize pendingOperationIDs=_pendingOperationIDs;
 @property(nonatomic) _Bool holdAllOperations; // @synthesize holdAllOperations=_holdAllOperations;
 @property(nonatomic) _Bool canOpenByID; // @synthesize canOpenByID=_canOpenByID;
@@ -72,6 +70,7 @@
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 - (void).cxx_destruct;
 - (_Bool)canUsePackagesWithError:(id *)arg1;
+- (void)submitClientEventMetric:(id)arg1 withSetupInfo:(id)arg2;
 - (void)triggerAutoBugCaptureSnapshot;
 - (void)dataclassEnabled:(id)arg1 withSetupInfo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)flushOperationMetricsToPowerLog;
@@ -84,6 +83,7 @@
 - (void)repairZonePCSWithOperationInfo:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)getRecordPCSDiagnosticsForZonesWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)getPCSDiagnosticsForZonesWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)clearPCSCachesForKnownContextsWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)wipeAllCachedLongLivedProxiesWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)clearCachesForZoneWithSetupInfo:(id)arg1 zoneID:(id)arg2 databaseScope:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)clearCachesForRecordWithSetupInfo:(id)arg1 recordID:(id)arg2 databaseScope:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;

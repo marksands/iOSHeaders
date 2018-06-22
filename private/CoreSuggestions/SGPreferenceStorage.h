@@ -50,14 +50,12 @@
 + (long long)messagesToProcessImmediately;
 + (id)defaults;
 + (void)removeDeprecatedDefaults;
-+ (void)registerBlockOnSuggestionsSettingsChange:(CDUnknownBlockType)arg1;
++ (int)registerBlockOnSuggestionsSettingsChange:(CDUnknownBlockType)arg1;
 + (_Bool)showSuggestionsCalendar;
 + (void)setHashedSessionsLogging:(int)arg1;
 + (long long)hashedSessionsLogging;
 + (_Bool)showEventsFoundInMail;
 + (_Bool)showContactsFoundInMail;
-+ (void)setHarvestNLEvents:(_Bool)arg1;
-+ (_Bool)harvestNLEvents;
 + (void)setOnlyShowSignificantNLEvents:(_Bool)arg1;
 + (_Bool)onlyShowSignificantNLEvents;
 + (void)setOnlyShowSignificantPseudoContacts:(_Bool)arg1;

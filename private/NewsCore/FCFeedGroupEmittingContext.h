@@ -87,7 +87,7 @@
 @property(readonly, nonatomic) long long precedingGroupType;
 - (id)groupFromPageWithType:(long long)arg1;
 - (id)copyWithRefreshSession:(id)arg1;
-- (id)initWithCoreConfiguration:(id)arg1 cloudContext:(id)arg2 refreshSession:(id)arg3 refreshDateRange:(id)arg4 currentEdition:(id)arg5 followingEdition:(id)arg6 precedingGroups:(id)arg7 followingGroups:(id)arg8 pendingGroupsFromOtherSessions:(id)arg9 feedDescriptor:(id)arg10 emitters:(id)arg11 desiredHeadlineCount:(unsigned long long)arg12 preferSpeedOverQuality:(_Bool)arg13 forYouCatchUpOperation:(id)arg14;
+- (id)initWithConfiguration:(id)arg1 cloudContext:(id)arg2 refreshSession:(id)arg3 refreshDateRange:(id)arg4 currentEdition:(id)arg5 followingEdition:(id)arg6 precedingGroups:(id)arg7 followingGroups:(id)arg8 pendingGroupsFromOtherSessions:(id)arg9 feedDescriptor:(id)arg10 emitters:(id)arg11 desiredHeadlineCount:(unsigned long long)arg12 preferSpeedOverQuality:(_Bool)arg13 forYouCatchUpOperation:(id)arg14;
 
 @end
 

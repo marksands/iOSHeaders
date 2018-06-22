@@ -8,16 +8,18 @@
 
 #import "HAPRelayAccessoryDelegate.h"
 #import "HMDAccessoryIdentify.h"
+#import "HMDAccessoryMinimumUserPrivilegeCapable.h"
 #import "HMDTimeInformationMonitorDelegate.h"
 #import "HMFTimerDelegate.h"
 
-@class HAPPairingIdentity, HMDCharacteristic, HMFTimer, NSArray, NSData, NSDate, NSMapTable, NSMutableArray, NSMutableSet, NSNumber, NSSet, NSString;
+@class HAPPairingIdentity, HMDCharacteristic, HMDDataStreamController, HMDTargetControllerManager, HMFTimer, NSArray, NSData, NSDate, NSMapTable, NSMutableArray, NSMutableSet, NSNumber, NSSet, NSString;
 
-@interface HMDHAPAccessory : HMDAccessory <HAPRelayAccessoryDelegate, HMDTimeInformationMonitorDelegate, HMFTimerDelegate, HMDAccessoryIdentify>
+@interface HMDHAPAccessory : HMDAccessory <HMDAccessoryMinimumUserPrivilegeCapable, HAPRelayAccessoryDelegate, HMDTimeInformationMonitorDelegate, HMFTimerDelegate, HMDAccessoryIdentify>
 {
     NSMutableArray *_transportInformationInstances;
     _Bool _relayEnabled;
     _Bool _timeInformationServiceExists;
+    _Bool _supportsTargetController;
     _Bool _keyGenerationInProgress;
     _Bool _supportsRelay;
     unsigned char _keyGenerationType;
@@ -32,6 +34,8 @@
     NSData *_broadcastKey;
     NSNumber *_keyUpdatedStateNumber;
     NSDate *_keyUpdatedTime;
+    NSArray *_targetUUIDs;
+    HMDTargetControllerManager *_targetControllerManager;
     NSString *_uniqueIdentifier;
     long long _certificationStatus;
     unsigned long long _activationAttempts;
@@ -47,6 +51,7 @@
     HMFTimer *_timeInformationTimer;
     HMFTimer *_systemTimeInformationTimer;
     NSSet *_cameraProfiles;
+    HMDDataStreamController *_dataStreamController;
     NSMapTable *_serverIDToHAPAccessoryTable;
 }
 
@@ -55,6 +60,7 @@
 + (unsigned long long)getAWDTransportTypeWithLinkType:(long long)arg1;
 + (Class)transactionClass;
 @property(retain, nonatomic) NSMapTable *serverIDToHAPAccessoryTable; // @synthesize serverIDToHAPAccessoryTable=_serverIDToHAPAccessoryTable;
+@property(retain, nonatomic) HMDDataStreamController *dataStreamController; // @synthesize dataStreamController=_dataStreamController;
 @property(retain, nonatomic) NSSet *cameraProfiles; // @synthesize cameraProfiles=_cameraProfiles;
 @property(nonatomic) _Bool systemTimeNeedsUpdate; // @synthesize systemTimeNeedsUpdate=_systemTimeNeedsUpdate;
 @property(retain, nonatomic) HMFTimer *systemTimeInformationTimer; // @synthesize systemTimeInformationTimer=_systemTimeInformationTimer;
@@ -93,6 +99,7 @@
 - (void)readInitialRequiredCharacteristicsForBTLEAccessory:(CDUnknownBlockType)arg1;
 - (id)getOrCreateServiceUpdateTransactionForKey:(id)arg1 fromDictionary:(id)arg2;
 - (void)requestResource:(id)arg1 queue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)primaryIPServer;
 - (id)dumpSimpleState;
 - (id)dumpState;
 - (_Bool)isNotificationEnabled;
@@ -108,6 +115,7 @@
 - (void)handleMultipleCharacteristicsUpdated:(id)arg1 message:(id)arg2 completionQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)accessoryDidBecomeUnreachable:(id)arg1;
 - (void)accessoryDidBecomeReachable:(id)arg1;
+- (void)_handleConfigureTargets:(id)arg1;
 - (void)_handleKeyRefreshTimerFired;
 - (void)_removeBackedoffAccessoryForStateNumber:(id)arg1;
 - (void)backOffAccessoryForStateNumber:(id)arg1;
@@ -125,7 +133,9 @@
 - (id)findCharacteristic:(id)arg1;
 - (id)findCharacteristic:(id)arg1 forService:(id)arg2;
 - (id)findService:(id)arg1;
+- (void)_evaluateLocalOperationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_updateStateForTrackedAccessory:(id)arg1 stateNumber:(id)arg2;
+- (void)updateTrackedAccessoryStateNumber:(id)arg1;
 - (void)_retrieveStateForTrackedAccessory:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (_Bool)_containsSecureCharacteristic;
 - (_Bool)_shouldTrackAccessoryWithPriority:(_Bool *)arg1;
@@ -221,6 +231,19 @@
 - (id)transportInformationInstances;
 - (void)removeBridgedAccessory:(id)arg1;
 - (void)addBridgedAccessory:(id)arg1;
+- (void)updateButtonConfigurationForTarget:(id)arg1;
+- (void)acknowledgeTargetControlService:(id)arg1 active:(_Bool)arg2;
+- (void)autoConfigureTargetController;
+- (void)_autoConfigureTargetController;
+- (void)_configureTargetControllerWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_notifyClientsOfTargetControlSupportUpdate;
+- (unsigned long long)targetControllerTicksPerSecond;
+- (id)targetControllerButtonConfiguration;
+- (void)updateTarget:(id)arg1 name:(id)arg2 buttonConfiguration:(id)arg3;
+- (void)removeTarget:(id)arg1;
+- (void)addTarget:(id)arg1 buttonConfiguration:(id)arg2;
+- (_Bool)supportsTargetController;
+- (_Bool)_supportsMediaAccessControl;
 - (void)_handleServiceRemovedTransaction:(id)arg1 message:(id)arg2;
 - (void)_handleAddServiceTransaction:(id)arg1 message:(id)arg2;
 - (id)serviceWithUUID:(id)arg1;
@@ -271,6 +294,16 @@
 - (void)setCurrentTimeCharacteristic:(id)arg1;
 - (id)_currentTimeCharacteristic;
 @property(readonly, nonatomic) __weak HMDCharacteristic *currentTimeCharacteristic; // @synthesize currentTimeCharacteristic=_currentTimeCharacteristic;
+- (void)handleUpdatedPassword:(id)arg1;
+- (void)handleUpdatedMinimumUserPrivilege:(long long)arg1;
+- (_Bool)supportsMinimumUserPrivilege;
+- (_Bool)providesHashRouteID;
+- (void)updateTargetUUIDs:(id)arg1;
+- (void)_saveTargetUUIDs:(id)arg1;
+- (void)saveTargetUUIDs:(id)arg1;
+@property(retain, nonatomic) HMDTargetControllerManager *targetControllerManager; // @synthesize targetControllerManager=_targetControllerManager;
+@property(retain, nonatomic) NSArray *targetUUIDs; // @synthesize targetUUIDs=_targetUUIDs;
+- (_Bool)_doesAccessoryProvideServiceOfType:(id)arg1;
 @property(copy, nonatomic) NSData *setupHash; // @synthesize setupHash=_setupHash;
 - (void)setBroadcastKey:(id)arg1 keyUpdatedStateNumber:(id)arg2 keyUpdatedTime:(id)arg3;
 - (void)_updateBroadcastKey:(id)arg1 keyUpdatedStateNumber:(id)arg2 keyUpdatedTime:(double)arg3;
@@ -288,6 +321,9 @@
 - (void)dealloc;
 - (id)initWithTransaction:(id)arg1 home:(id)arg2;
 - (id)init;
+- (void)addDataStreamBulkSendListener:(id)arg1;
+- (void)_removeDataStreamController:(id)arg1;
+- (void)_createDataStreamController:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

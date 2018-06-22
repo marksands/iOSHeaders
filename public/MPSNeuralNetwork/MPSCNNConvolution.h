@@ -35,7 +35,6 @@
 
 + (const struct MPSLibraryInfo *)libraryInfo;
 @property(readonly, retain, nonatomic) id <MPSCNNConvolutionDataSource> dataSource; // @synthesize dataSource=_dataSource;
-@property(nonatomic) unsigned long long accumulatorPrecisionOption; // @synthesize accumulatorPrecisionOption=_accumulatorPrecisionOption;
 @property(readonly, nonatomic) unsigned long long channelMultiplier; // @synthesize channelMultiplier=_channelMultiplier;
 @property(readonly, nonatomic) unsigned long long subPixelScaleFactor; // @synthesize subPixelScaleFactor=_scaleFactor;
 @property(readonly, nonatomic) unsigned long long groups; // @synthesize groups=_groups;
@@ -47,6 +46,7 @@
 - (_Bool)isResultStateReusedAcrossBatch;
 - (id)exportWeightsAndBiasesWithCommandBuffer:(id)arg1 resultStateCanBeTemporary:(_Bool)arg2;
 - (void)reloadWeightsAndBiasesWithCommandBuffer:(id)arg1 state:(id)arg2;
+- (void)reloadWeightsAndBiasesFromDataSource;
 - (void)reloadWeightsAndBiasesWithDataSource:(id)arg1;
 - (struct NSArray *)temporaryResultStateBatchForCommandBuffer:(id)arg1 sourceImage:(struct NSArray *)arg2 sourceStates:(id)arg3 destinationImage:(struct NSArray *)arg4;
 - (id)temporaryResultStateForCommandBuffer:(id)arg1 sourceImage:(id)arg2 sourceStates:(id)arg3 destinationImage:(id)arg4;
@@ -66,13 +66,17 @@
 - (id)initWithDevice:(id)arg1 convolutionDescriptor:(id)arg2 kernelWeights:(const float *)arg3 biasTerms:(const float *)arg4 flags:(unsigned long long)arg5;
 - (id)initWithDevice:(id)arg1 convolutionDescriptor:(id)arg2 kernelWeights:(const float *)arg3 biasTerms:(const float *)arg4 flags:(unsigned long long)arg5 fullyConnected:(_Bool)arg6;
 -     // Error parsing type: B84@0:8@16@24r^v32I40r^44r^f52i60r^f64Q72B80, name: initialize:convolutionDescriptor:kernelWeights:dataType:range:lookUpTable:qType:biasTerms:flags:fullyConnected:
+-     // Error parsing type: B64@0:8@16I24r^v28r^f36i44r^48r^f56, name: PrepareAndLoadData:dataType:weights:biases:quantizationType:ranges:lookUpTable:
 - (id)initWithDevice:(id)arg1;
+@property(readonly, nonatomic) unsigned long long weightsBufferLength;
 - (id)biases;
 - (id)weights;
 @property(readonly, nonatomic) float neuronParameterC;
 @property(readonly, nonatomic) float neuronParameterB;
 @property(readonly, nonatomic) float neuronParameterA;
 @property(readonly, nonatomic) int neuronType;
+@property(nonatomic) unsigned long long accumulatorPrecisionOption;
+- (unsigned long long)maxBatchSize;
 
 @end
 

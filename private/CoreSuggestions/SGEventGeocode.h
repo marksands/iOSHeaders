@@ -18,6 +18,7 @@
 + (_Bool)isGeocodeCandidateLocation:(id)arg1 forEvent:(id)arg2;
 + (_Bool)locationIsGeocoded:(id)arg1;
 + (_Bool)locationIsAirport:(id)arg1;
++ (id)_serialQueue;
 
 @end
 

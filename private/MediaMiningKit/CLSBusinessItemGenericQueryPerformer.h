@@ -12,28 +12,31 @@
 
 @interface CLSBusinessItemGenericQueryPerformer : NSObject <CLSQueryPerformerProtocol>
 {
+    _Bool _isCancelled;
     NSArray *_locationGeoParameters;
     id <GEOMapServiceBatchSpatialLookupTicket> _businessGenericTicket;
     NSArray *_regions;
-    _Bool _isCancelled;
     double _precision;
     CDStruct_dd9df0da _statistics;
 }
 
++ (id)categories;
 + (double)defaultPrecision;
 + (unsigned long long)numberOfRegionsPerBatch;
-+ (double)defaultRadiusForCategories:(id)arg1;
 + (id)queryWithTemplate:(id)arg1 forRegions:(id)arg2;
 @property(nonatomic) double precision; // @synthesize precision=_precision;
 @property(nonatomic) CDStruct_dd9df0da statistics; // @synthesize statistics=_statistics;
+@property(readonly, nonatomic) _Bool isCancelled; // @synthesize isCancelled=_isCancelled;
+@property(readonly, copy, nonatomic) NSArray *regions; // @synthesize regions=_regions;
+@property(readonly, nonatomic) id <GEOMapServiceBatchSpatialLookupTicket> businessGenericTicket; // @synthesize businessGenericTicket=_businessGenericTicket;
+@property(readonly, nonatomic) NSArray *locationGeoParameters; // @synthesize locationGeoParameters=_locationGeoParameters;
 - (void).cxx_destruct;
+- (void)logAggdGeoLookupFailureResult;
+- (void)logAggdGeoLookupCounterAndDurationWithLookupDuration:(id)arg1;
 - (unsigned long long)cacheItems:(id)arg1;
-- (id)regionFromMapItem:(id)arg1;
 - (_Bool)shouldQueryItemsForRegion:(id)arg1 selectedRegions:(id)arg2;
-@property(readonly) _Bool isCancelled; // @synthesize isCancelled=_isCancelled;
 - (void)cancel;
 - (void)submitWithHandler:(CDUnknownBlockType)arg1;
-- (id)regions;
 - (id)initWithRegions:(id)arg1 categories:(id)arg2 precision:(double)arg3;
 - (id)init;
 

@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class AWDServerConnection, NSMutableDictionary;
+@class AWDServerConnection, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface WBSAnalyticsLogger : NSObject
 {
+    NSObject<OS_dispatch_queue> *_analyticsSynchronizationQueue;
     NSMutableDictionary *_pageLoadStartTimes;
     AWDServerConnection *_awdServer;
 }
@@ -29,6 +30,7 @@
 - (void)_didSelectFavoritesGridItemOfSection:(int)arg1 type:(int)arg2 atIndex:(unsigned long long)arg3 itemsPerRow:(unsigned long long)arg4 isNewTabPage:(_Bool)arg5;
 - (void)didSelectFavoritesGridFrequentlyVisitedItemAtIndex:(unsigned long long)arg1 itemsPerRow:(unsigned long long)arg2 isNewTabPage:(_Bool)arg3;
 - (void)didSelectFavoritesGridItemOfType:(int)arg1 atIndex:(unsigned long long)arg2 itemsPerRow:(unsigned long long)arg3 isNewTabPage:(_Bool)arg4;
+- (void)userInteractedWithGeneratedPasswordWithInteractionType:(int)arg1;
 - (void)userDidParticipateInPasswordAutoFillWithInteraction:(int)arg1;
 - (void)userTappedAutoFillQuickTypeSuggestionWithCategory:(int)arg1 formProperty:(id)arg2;
 - (void)showedAutoFillQuickTypeSuggestionWithCategory:(int)arg1 formProperty:(id)arg2;
@@ -41,8 +43,8 @@
 - (void)pageLoadCompleted:(unsigned long long)arg1 withErrorCode:(long long)arg2;
 - (void)pageLoadStarted:(unsigned long long)arg1;
 - (void)pageLoadCompleted:(unsigned long long)arg1;
-- (_Bool)registerQueriableMetric:(unsigned int)arg1 callback:(CDUnknownBlockType)arg2;
-- (id)init;
+- (void)registerQueriableMetric:(unsigned int)arg1 callback:(CDUnknownBlockType)arg2;
+- (id)initWithQueue:(id)arg1;
 
 @end
 

@@ -10,9 +10,6 @@
 {
 }
 
-+ (id)classifyImage:(id)arg1;
-+ (id)classifyItem:(id)arg1 resolution:(unsigned long long)arg2 networkAllowed:(_Bool)arg3;
-+ (id)rankSimilarItems:(id)arg1 resolution:(unsigned long long)arg2 networkAllowed:(_Bool)arg3;
 + (id)stackSimilarItems:(id)arg1 withThreshold:(double)arg2 timestampSupport:(_Bool)arg3 resolution:(unsigned long long)arg4 networkAllowed:(_Bool)arg5 allowsCache:(_Bool)arg6 allowsVision:(_Bool)arg7;
 + (id)processImage:(id)arg1 withRequestTypes:(unsigned long long)arg2;
 + (id)processItem:(id)arg1 withRequestTypes:(unsigned long long)arg2 resolution:(unsigned long long)arg3 networkAllowed:(_Bool)arg4 allowsCache:(_Bool)arg5 allowsVision:(_Bool)arg6;

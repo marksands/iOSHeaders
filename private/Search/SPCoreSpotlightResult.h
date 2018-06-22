@@ -11,6 +11,7 @@
 @interface SPCoreSpotlightResult : SFSearchResult_Compatibility
 {
     _Bool _completed;
+    _Bool _hasAssociatedUserActivity;
     NSString *_relatedUniqueIdentifier;
     NSString *_itemIdentifier;
     NSDate *_interestingDate;
@@ -18,9 +19,18 @@
     long long _incomingCount;
     long long _outgoingCount;
     NSString *_relatedBundleID;
+    NSString *_mailConversationIdentifier;
+    NSArray *_launchDates;
+    NSDate *_contentCreationDate;
+    NSString *_bundleID;
     struct ranking_index_score_t _buddyScore;
 }
 
+@property(retain, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
+@property(retain, nonatomic) NSDate *contentCreationDate; // @synthesize contentCreationDate=_contentCreationDate;
+@property(retain, nonatomic) NSArray *launchDates; // @synthesize launchDates=_launchDates;
+@property(nonatomic) _Bool hasAssociatedUserActivity; // @synthesize hasAssociatedUserActivity=_hasAssociatedUserActivity;
+@property(retain) NSString *mailConversationIdentifier; // @synthesize mailConversationIdentifier=_mailConversationIdentifier;
 @property(retain) NSString *relatedBundleID; // @synthesize relatedBundleID=_relatedBundleID;
 @property long long outgoingCount; // @synthesize outgoingCount=_outgoingCount;
 @property long long incomingCount; // @synthesize incomingCount=_incomingCount;
@@ -33,6 +43,7 @@
 - (void).cxx_destruct;
 - (id)debugDescription;
 - (Class)classForCoder;
+@property int title_maxlines;
 - (_Bool)hasDetail;
 @property(retain) NSArray *compatibilityDescriptions;
 - (id)init;

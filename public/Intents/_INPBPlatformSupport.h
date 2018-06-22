@@ -6,36 +6,42 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBPlatformSupport.h"
 
-@class NSString, PBUnknownFields;
+@class INCodableAttribute, NSString;
 
-@interface _INPBPlatformSupport : PBCodable <NSCopying>
+@interface _INPBPlatformSupport : PBCodable <_INPBPlatformSupport, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
-    NSString *_minimumOsVersion;
-    int _supportedPlatform;
     struct {
         unsigned int supportedPlatform:1;
     } _has;
+    int _supportedPlatform;
+    NSString *_minimumOsVersion;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
-@property(retain, nonatomic) NSString *minimumOsVersion; // @synthesize minimumOsVersion=_minimumOsVersion;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
+@property(nonatomic) int supportedPlatform; // @synthesize supportedPlatform=_supportedPlatform;
+@property(copy, nonatomic) NSString *minimumOsVersion; // @synthesize minimumOsVersion=_minimumOsVersion;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(readonly, nonatomic) _Bool hasMinimumOsVersion;
 - (int)StringAsSupportedPlatform:(id)arg1;
 - (id)supportedPlatformAsString:(int)arg1;
 @property(nonatomic) _Bool hasSupportedPlatform;
-@property(nonatomic) int supportedPlatform; // @synthesize supportedPlatform=_supportedPlatform;
+@property(readonly, nonatomic) _Bool hasMinimumOsVersion;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

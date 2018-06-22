@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class SXImageRequest;
+@class NSURL, SXImageRequest;
 
 @protocol SXResourceDataSource <NSObject>
+- (void)fileURLForURL:(NSURL *)arg1 onCompletion:(void (^)(NSURL *))arg2 onError:(void (^)(NSError *))arg3;
 - (void (^)(void))loadImagesForImageRequest:(SXImageRequest *)arg1 completionBlock:(void (^)(NSArray *))arg2;
 @end
 

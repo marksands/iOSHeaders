@@ -17,6 +17,7 @@
     NSArray *_existingMemories;
     NSArray *_blacklistedMemories;
     NSSet *_blacklistedFeatures;
+    NSArray *_existingSuggestions;
     unsigned long long _precision;
     NSDate *_lastMemoryCreationUniversalDate;
     NSDate *_baseMemoryCreationUniversalDate;
@@ -32,6 +33,7 @@
 @property(retain, nonatomic) NSDate *baseMemoryCreationUniversalDate; // @synthesize baseMemoryCreationUniversalDate=_baseMemoryCreationUniversalDate;
 @property(retain, nonatomic) NSDate *lastMemoryCreationUniversalDate; // @synthesize lastMemoryCreationUniversalDate=_lastMemoryCreationUniversalDate;
 @property(nonatomic) unsigned long long precision; // @synthesize precision=_precision;
+@property(retain, nonatomic) NSArray *existingSuggestions; // @synthesize existingSuggestions=_existingSuggestions;
 @property(retain, nonatomic) NSSet *blacklistedFeatures; // @synthesize blacklistedFeatures=_blacklistedFeatures;
 @property(retain, nonatomic) NSArray *blacklistedMemories; // @synthesize blacklistedMemories=_blacklistedMemories;
 @property(retain, nonatomic) NSArray *existingMemories; // @synthesize existingMemories=_existingMemories;

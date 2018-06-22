@@ -6,18 +6,18 @@
 
 #import "UIView.h"
 
-@class LAUIPearlGlyphView, NSSet, SBUICAPackageView, _UILegibilitySettings;
+@class LAUIPearlGlyphView, NSSet, SBUICAPackageView, UIColor;
 
 @interface SBUIProudLockIconView : UIView
 {
     long long _state;
-    _UILegibilitySettings *_legibilitySettings;
     SBUICAPackageView *_lockView;
     NSSet *_imageLayers;
     LAUIPearlGlyphView *_lazy_pearlGlyphView;
+    UIColor *_contentColor;
 }
 
-@property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
+@property(retain, nonatomic) UIColor *contentColor; // @synthesize contentColor=_contentColor;
 @property(nonatomic) long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
 - (id)_pearlGlyphView;

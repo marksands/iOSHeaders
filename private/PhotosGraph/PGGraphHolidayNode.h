@@ -6,19 +6,23 @@
 
 #import <PhotosGraph/PGGraphNode.h>
 
-#import "PGGraphHolidayNode.h"
+#import "PGGraphLocalizable.h"
 
 @class NSString;
 
-@interface PGGraphHolidayNode : PGGraphNode <PGGraphHolidayNode>
+@interface PGGraphHolidayNode : PGGraphNode <PGGraphLocalizable>
 {
 }
 
+@property(readonly, nonatomic) NSString *localizedName;
+- (void)enumerateCelebratingMomentNodesUsingBlock:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) unsigned long long category;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
+
 @end
 

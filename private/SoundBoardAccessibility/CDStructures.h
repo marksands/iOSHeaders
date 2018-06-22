@@ -4,32 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#pragma mark Blocks
-
-typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
-
 #pragma mark Named Structures
 
-struct SBUIState {
-    unsigned long long ttsuState;
-    _Bool timerFiring;
-    _Bool alarmFiring;
-    long long siriState;
-    unsigned long long playState;
-    _Bool isInThermalTrap;
-    unsigned long long volumeRamp;
-    _Bool inAppleCareMode;
-    _Bool inDemoMode;
-    _Bool isInterruptionActive;
-    _Bool ttsuAudioPlaying;
-    _Bool displaySiriUI;
-    _Bool isDeviceIdentify;
-    unsigned long long resetState;
-    long long siriToneTriggered;
-    _Bool callIncoming;
-    _Bool callActive;
-    _Bool callHeld;
-    _Bool callMuted;
-    _Bool callOutgoing;
+struct SBCallState {
+    _Bool incoming;
+    _Bool outgoing;
+    _Bool active;
+    _Bool held;
+    _Bool muted;
 };
 

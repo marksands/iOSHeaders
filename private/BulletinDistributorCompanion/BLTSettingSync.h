@@ -9,10 +9,11 @@
 #import "BBObserverDelegate.h"
 #import "BLTSectionConfigurationDelegate.h"
 #import "BLTSectionInfoListDelegate.h"
+#import "BLTSiriActionAppListDelegate.h"
 
-@class BBObserver, BLTSectionInfoList, BLTSectionInfoListBridgeProvider, BLTSectionInfoSyncCoordinator, BLTSettingSyncSendQueue, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class BBObserver, BLTSectionInfoList, BLTSectionInfoListBridgeProvider, BLTSectionInfoSyncCoordinator, BLTSettingSyncSendQueue, BLTSiriActionAppList, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
-@interface BLTSettingSync : BLTSettingSyncInternal <BBObserverDelegate, BLTSectionInfoListDelegate, BLTSectionConfigurationDelegate>
+@interface BLTSettingSync : BLTSettingSyncInternal <BBObserverDelegate, BLTSectionInfoListDelegate, BLTSectionConfigurationDelegate, BLTSiriActionAppListDelegate>
 {
     BLTSectionInfoList *_sectionInfoList;
     BLTSettingSyncSendQueue *_settingSendQueue;
@@ -23,6 +24,7 @@
     BLTSectionInfoListBridgeProvider *_bridgeProvider;
     NSMutableDictionary *_reloadBBCompletions;
     unsigned long long _stateHandler;
+    BLTSiriActionAppList *_siriActionAppList;
     BBObserver *_observer;
 }
 
@@ -36,7 +38,7 @@
 - (void)sectionInfoList:(id)arg1 receivedRemoveSectionWithSectionID:(id)arg2;
 - (void)sectionInfoList:(id)arg1 receivedUpdatedSectionInfoForSectionID:(id)arg2;
 - (void)observer:(id)arg1 noteSectionParametersChanged:(id)arg2 forSectionID:(id)arg3;
-- (void)enableNotifications:(_Bool)arg1 sectionID:(id)arg2 mirror:(_Bool)arg3 fromRemote:(_Bool)arg4;
+- (void)setNotificationsLevel:(unsigned long long)arg1 sectionID:(id)arg2 mirror:(_Bool)arg3 fromRemote:(_Bool)arg4;
 - (void)setSectionInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)_willSectionIDAlert:(id)arg1;
 - (id)overriddenSettings;
@@ -53,6 +55,9 @@
 - (void)clearSectionInfoSentCache;
 - (_Bool)isSectionInfoSentCacheEmpty;
 - (void)dealloc;
+- (void)siriActionAppList:(id)arg1 installed:(struct NSDictionary *)arg2 removed:(struct NSDictionary *)arg3;
+- (void)handleAllSyncComplete;
+- (void)_sendSiriAppList:(struct NSDictionary *)arg1;
 - (void)_sendSpooledSyncWithCompletion:(CDUnknownBlockType)arg1 withProgress:(CDUnknownBlockType)arg2;
 - (void)_logNotificationSettings;
 - (void)_spoolInitialSync;

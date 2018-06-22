@@ -54,12 +54,12 @@
 - (void)setPrefersWWAN:(_Bool)arg1;
 - (void)setProviderConnectionPolicy:(id)arg1;
 - (void)setPolicyRoute:(id)arg1;
+- (void)setScopeIsWiFiOnly;
 - (_Bool)isCanceled;
 - (_Bool)isReady;
 - (_Bool)isEstablishing;
 - (_Bool)isMultipath;
 - (_Bool)shouldFallbackFromError:(id)arg1;
-- (_Bool)isNetworkDownError:(id)arg1;
 - (_Bool)isPeerNotNearbyError:(id)arg1;
 - (_Bool)isPeerConnectionError:(id)arg1;
 - (void)_closeWithError:(id)arg1;

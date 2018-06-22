@@ -51,6 +51,9 @@
     NSString *_shortExcerpt;
     COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *_sourceChannelCohort;
     NSString *_sourceChannelTagID;
+    NSString *_stocksClusterID;
+    NSString *_stocksMetadata;
+    NSString *_stocksScores;
     int _storyType;
     NSString *_subtitle;
     NSString *_thumbnailHQURL;
@@ -108,6 +111,9 @@
 + (Class)iAdKeywordsType;
 + (Class)iAdCategoriesType;
 + (Class)flintFontResourceIDsType;
+@property(retain, nonatomic) NSString *stocksScores; // @synthesize stocksScores=_stocksScores;
+@property(retain, nonatomic) NSString *stocksMetadata; // @synthesize stocksMetadata=_stocksMetadata;
+@property(retain, nonatomic) NSString *stocksClusterID; // @synthesize stocksClusterID=_stocksClusterID;
 @property(retain, nonatomic) NSMutableArray *publisherSpecifiedArticleIds; // @synthesize publisherSpecifiedArticleIds=_publisherSpecifiedArticleIds;
 @property(retain, nonatomic) NSData *articleRecirculationConfiguration; // @synthesize articleRecirculationConfiguration=_articleRecirculationConfiguration;
 @property(retain, nonatomic) NSString *videoCallToActionURL; // @synthesize videoCallToActionURL=_videoCallToActionURL;
@@ -176,6 +182,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasStocksScores;
+@property(readonly, nonatomic) _Bool hasStocksMetadata;
+@property(readonly, nonatomic) _Bool hasStocksClusterID;
 - (id)publisherSpecifiedArticleIdsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)publisherSpecifiedArticleIdsCount;
 - (void)addPublisherSpecifiedArticleIds:(id)arg1;

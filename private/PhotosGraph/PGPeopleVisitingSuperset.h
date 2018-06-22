@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSCountedSet, NSDateInterval, NSMutableArray, PGGraphNode, PGPeopleVisitingVisit;
+@class NSArray, NSCountedSet, NSDateInterval, NSMutableArray, PGGraphAddressNode, PGPeopleVisitingVisit;
 
 @interface PGPeopleVisitingSuperset : NSObject
 {
     NSCountedSet *_numberOfMomentsByDistance;
     NSMutableArray *_visits;
     PGPeopleVisitingVisit *_currentVisit;
-    PGGraphNode *_addressNode;
+    PGGraphAddressNode *_addressNode;
     NSDateInterval *_localDateInterval;
     unsigned long long _numberOfMatchingMoments;
     unsigned long long _totalNumberOfMoments;
@@ -25,7 +25,7 @@
 @property(readonly) unsigned long long numberOfMatchingMoments; // @synthesize numberOfMatchingMoments=_numberOfMatchingMoments;
 @property(readonly) NSDateInterval *localDateInterval; // @synthesize localDateInterval=_localDateInterval;
 @property(readonly) struct CLLocationCoordinate2D coordinates; // @synthesize coordinates=_coordinates;
-@property(readonly) PGGraphNode *addressNode; // @synthesize addressNode=_addressNode;
+@property(readonly) PGGraphAddressNode *addressNode; // @synthesize addressNode=_addressNode;
 - (void).cxx_destruct;
 - (id)description;
 - (void)resetVisitFindingSession;

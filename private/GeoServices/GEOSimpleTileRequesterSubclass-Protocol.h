@@ -17,6 +17,7 @@
 - (NSString *)editionHeader;
 - (NSObject<OS_xpc_object> *)newXPCDataRequestForTileKey:(const struct _GEOTileKey *)arg1;
 - (int)checksumMethodForIncomingTileDataWithKey:(const struct _GEOTileKey *)arg1;
+- (_Bool)needsLocalizationForKey:(const struct _GEOTileKey *)arg1;
 - (GEOURLWithHeaders *)localizationURLForTileKey:(const struct _GEOTileKey *)arg1;
 @end
 

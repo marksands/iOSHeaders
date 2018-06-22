@@ -8,7 +8,6 @@
 
 @class NSDictionary, NSMapTable, NSString, PVPersonClusterManager, PVPersonDeduperProfile;
 
-__attribute__((visibility("hidden")))
 @interface PVPersonDeduperStep : NSObject
 {
     _Bool _shouldStop;

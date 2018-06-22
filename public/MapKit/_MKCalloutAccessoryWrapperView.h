@@ -4,27 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIView.h"
+#import "NUIContainerBoxView.h"
 
-#import "_MKCalloutAccessoryView.h"
+#import "NUIContainerBoxViewDelegate.h"
 
-@class NSString, UIView<_MKCalloutAccessoryView>;
+@class NSString;
 
 __attribute__((visibility("hidden")))
-@interface _MKCalloutAccessoryWrapperView : UIView <_MKCalloutAccessoryView>
+@interface _MKCalloutAccessoryWrapperView : NUIContainerBoxView <NUIContainerBoxViewDelegate>
 {
-    UIView<_MKCalloutAccessoryView> *_view;
 }
 
-- (void).cxx_destruct;
-- (double)_mapkit_minimumCalloutWidthMultiplier;
-- (double)_mapkit_calloutCustomRightMargin;
-- (double)_mapkit_calloutCustomLeftMargin;
-- (void)_mapkit_setCalloutTextColor:(id)arg1;
-- (void)_mapkit_setCalloutBackgroundColor:(id)arg1;
-- (id)_mapkit_accessoryControlToExtendWithCallout;
-- (struct CGSize)intrinsicContentSize;
-- (id)initWithView:(id)arg1;
++ (id)wrappedAccessoryViewIfNeeded:(id)arg1 fillingPosition:(long long)arg2;
+- (id)forwardingTargetForSelector:(SEL)arg1;
+- (_Bool)respondsToSelector:(SEL)arg1;
+- (struct CGSize)containerView:(id)arg1 systemLayoutSizeFittingSize:(struct CGSize)arg2 forArrangedSubview:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

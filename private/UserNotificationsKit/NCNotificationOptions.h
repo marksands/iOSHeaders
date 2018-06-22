@@ -31,6 +31,7 @@
     _Bool _requestsFullScreenPresentation;
     _Bool _hideClearActionInList;
     unsigned long long _messageNumberOfLines;
+    _Bool _prefersDarkAppearance;
     _Bool _preemptsPresentedNotification;
     _Bool _revealsAdditionalContentOnPresentation;
     _Bool _suppressesTitleWhenLocked;
@@ -51,6 +52,7 @@
 @property(readonly, nonatomic) _Bool suppressesTitleWhenLocked; // @synthesize suppressesTitleWhenLocked=_suppressesTitleWhenLocked;
 @property(readonly, nonatomic) _Bool revealsAdditionalContentOnPresentation; // @synthesize revealsAdditionalContentOnPresentation=_revealsAdditionalContentOnPresentation;
 @property(readonly, nonatomic) _Bool preemptsPresentedNotification; // @synthesize preemptsPresentedNotification=_preemptsPresentedNotification;
+@property(readonly, nonatomic) _Bool prefersDarkAppearance; // @synthesize prefersDarkAppearance=_prefersDarkAppearance;
 @property(readonly, nonatomic) unsigned long long messageNumberOfLines; // @synthesize messageNumberOfLines=_messageNumberOfLines;
 @property(readonly, nonatomic) _Bool hideClearActionInList; // @synthesize hideClearActionInList=_hideClearActionInList;
 @property(readonly, nonatomic) _Bool overridesPocketMode; // @synthesize overridesPocketMode=_overridesPocketMode;

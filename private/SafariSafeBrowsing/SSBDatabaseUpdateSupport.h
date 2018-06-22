@@ -17,7 +17,9 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) _Bool onHighCellularDataPlan; // @synthesize onHighCellularDataPlan=_onHighCellularDataPlan;
 - (void).cxx_destruct;
-- (void)_fetchCellularDataPlanInfo;
+- (id)fetchCellularDataPlanSynchronously;
+- (void)_fetchCellularDataPlan;
+- (void)_fetchCellularDataPlanWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)init;
 
 @end

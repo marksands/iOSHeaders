@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     int _faceIndex;
     int _skinSeedPointCount;
     float _eyeTiltAngle;
+    float _faceOrientationIndex;
     struct CGPoint *_skinSeedPoints;
     struct CGPoint *_teethSeedPoints;
     struct CGPoint *_rightIrisSeedPoints;
@@ -41,6 +42,7 @@ __attribute__((visibility("hidden")))
     struct CGRect _faceBounds;
 }
 
+@property float faceOrientationIndex; // @synthesize faceOrientationIndex=_faceOrientationIndex;
 @property(retain, nonatomic) Rgon *skinSampleRgon; // @synthesize skinSampleRgon=_skinSampleRgon;
 @property float eyeTiltAngle; // @synthesize eyeTiltAngle=_eyeTiltAngle;
 @property struct CGPoint leftRightVec; // @synthesize leftRightVec=_leftRightVec;

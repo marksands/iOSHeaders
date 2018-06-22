@@ -20,23 +20,35 @@
     RCTextLayer *_endTimeLayer;
     _Bool _beginTimeLayerOffsetForThumb;
     _Bool _endTimeLayerOffsetForThumb;
+    _Bool _isRecording;
     NSMutableDictionary *_trackedTouches;
     double _requestedAnimatedLayoutDuration;
     _Bool _requestedNonAnimatedLayout;
     _Bool _sublayersCreated;
     _Bool _editingEnabled;
     _Bool _displayingSelectionTimes;
+    _Bool _enablePlayBarTracking;
+    _Bool _enableTimeTrackingInView;
+    _Bool _barMatchesKnobRadius;
+    _Bool _playBarOnly;
     id <RCWaveformSelectionOverlayDelegate> _delegate;
     double _selectedTimeRangeMinimumDuration;
     double _selectedTimeRangeMaximumDuration;
     double _assetCurrentTime;
     double _assetDuration;
     RCUIConfiguration *_UIConfiguration;
+    double _knobWidthMultiplier;
     double _trackedAssetCurrentTime;
     CDStruct_73a5d3ca _selectedTimeRange;
 }
 
 @property(nonatomic) double trackedAssetCurrentTime; // @synthesize trackedAssetCurrentTime=_trackedAssetCurrentTime;
+@property(nonatomic) _Bool playBarOnly; // @synthesize playBarOnly=_playBarOnly;
+@property(nonatomic) double knobWidthMultiplier; // @synthesize knobWidthMultiplier=_knobWidthMultiplier;
+@property(nonatomic) _Bool barMatchesKnobRadius; // @synthesize barMatchesKnobRadius=_barMatchesKnobRadius;
+@property(nonatomic) _Bool enableTimeTrackingInView; // @synthesize enableTimeTrackingInView=_enableTimeTrackingInView;
+@property(nonatomic) _Bool enablePlayBarTracking; // @synthesize enablePlayBarTracking=_enablePlayBarTracking;
+@property(nonatomic) _Bool isRecording; // @synthesize isRecording=_isRecording;
 @property(nonatomic, getter=isDisplayingSelectionTimes) _Bool displayingSelectionTimes; // @synthesize displayingSelectionTimes=_displayingSelectionTimes;
 @property(nonatomic, getter=isEditingEnabled) _Bool editingEnabled; // @synthesize editingEnabled=_editingEnabled;
 @property(readonly, nonatomic) struct CGRect selectionRect; // @synthesize selectionRect=_selectionRect;
@@ -65,6 +77,7 @@
 - (struct CGRect)_selectionRectForSelectedTimeRange:(CDStruct_73a5d3ca)arg1;
 - (struct CGRect)_selectionHighlightBounds;
 - (struct CGRect)_selectionBoundsIncludingKnobs;
+- (double)_xAdjustmentAmount;
 - (double)_effectiveSelectionWidth;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;

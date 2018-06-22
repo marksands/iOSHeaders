@@ -97,6 +97,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)hasSeekableLiveStreamingContent;
 - (void)updateMinMaxTiming;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)volumeChanged:(double)arg1;
+@property double volume;
 - (void)toggleMuted:(id)arg1;
 @property(getter=isMuted) _Bool muted;
 @property(getter=isPictureInPictureInterrupted) _Bool pictureInPictureInterrupted;

@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet, PEXName, PEXNameItem;
+@class NSMutableSet, PEXContactNameItem, PEXName;
 
 @interface PEXMergedNameItem : NSObject
 {
     PEXName *_mergedName;
-    PEXNameItem *_originalNameItem;
+    PEXContactNameItem *_originalNameItem;
     unsigned long long _fodMerges;
     NSMutableSet *_mergedStreetNames;
     NSMutableSet *_mergedCityNames;
@@ -20,7 +20,7 @@
 @property(retain, nonatomic) NSMutableSet *mergedCityNames; // @synthesize mergedCityNames=_mergedCityNames;
 @property(retain, nonatomic) NSMutableSet *mergedStreetNames; // @synthesize mergedStreetNames=_mergedStreetNames;
 @property(nonatomic) unsigned long long fodMerges; // @synthesize fodMerges=_fodMerges;
-@property(retain, nonatomic) PEXNameItem *originalNameItem; // @synthesize originalNameItem=_originalNameItem;
+@property(retain, nonatomic) PEXContactNameItem *originalNameItem; // @synthesize originalNameItem=_originalNameItem;
 @property(retain, nonatomic) PEXName *mergedName; // @synthesize mergedName=_mergedName;
 - (void).cxx_destruct;
 

@@ -12,8 +12,8 @@
 {
     NSSet *_featureVectors;
     unsigned long long _relatedType;
-    long long _memoryCategory;
-    long long _memorySubcategory;
+    unsigned long long _memoryCategory;
+    unsigned long long _memorySubcategory;
     double _minimumPeopleMatchingScore;
     double _maximumLocationMatchingDistance;
     double _minimumLocationMatchingScore;
@@ -22,8 +22,8 @@
 @property(nonatomic) double minimumLocationMatchingScore; // @synthesize minimumLocationMatchingScore=_minimumLocationMatchingScore;
 @property(nonatomic) double maximumLocationMatchingDistance; // @synthesize maximumLocationMatchingDistance=_maximumLocationMatchingDistance;
 @property(nonatomic) double minimumPeopleMatchingScore; // @synthesize minimumPeopleMatchingScore=_minimumPeopleMatchingScore;
-@property(nonatomic) long long memorySubcategory; // @synthesize memorySubcategory=_memorySubcategory;
-@property(nonatomic) long long memoryCategory; // @synthesize memoryCategory=_memoryCategory;
+@property(nonatomic) unsigned long long memorySubcategory; // @synthesize memorySubcategory=_memorySubcategory;
+@property(nonatomic) unsigned long long memoryCategory; // @synthesize memoryCategory=_memoryCategory;
 @property(nonatomic) unsigned long long relatedType; // @synthesize relatedType=_relatedType;
 @property(retain, nonatomic) NSSet *featureVectors; // @synthesize featureVectors=_featureVectors;
 - (void).cxx_destruct;

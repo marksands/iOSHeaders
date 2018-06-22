@@ -16,6 +16,8 @@
 
 + (id)homeKitObjectURLForDestination:(unsigned long long)arg1 secondaryDestination:(unsigned long long)arg2 UUID:(id)arg3;
 + (id)_URLComponentsForDestination:(unsigned long long)arg1;
++ (id)symptomFromURL:(id)arg1 accessory:(id)arg2;
++ (id)fixSymptomURLForAccessory:(id)arg1 symptom:(id)arg2;
 + (id)musicLoginURL;
 + (id)locationPrivacyURL;
 + (id)musicPrivacyURL;

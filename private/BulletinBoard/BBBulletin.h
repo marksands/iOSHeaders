@@ -13,6 +13,7 @@
 
 @interface BBBulletin : NSObject <NSCopying, NSSecureCoding>
 {
+    _Bool _hasCriticalIcon;
     _Bool _hasEventDate;
     _Bool _dateIsAllDay;
     _Bool _clearable;
@@ -22,6 +23,7 @@
     _Bool _expiresOnPublisherDeath;
     _Bool _usesExternalSync;
     _Bool _loading;
+    _Bool _preventAutomaticRemovalFromLockScreen;
     NSString *_sectionID;
     NSSet *_subsectionIDs;
     NSString *_publisherRecordID;
@@ -37,6 +39,8 @@
     BBContent *_content;
     BBContent *_modalAlertContent;
     BBContent *_starkBannerContent;
+    NSString *_summaryArgument;
+    unsigned long long _summaryArgumentCount;
     BBSectionIcon *_icon;
     NSDate *_date;
     NSDate *_endDate;
@@ -62,6 +66,9 @@
     NSString *_parentSectionID;
     NSString *_universalSectionID;
     long long _contentPreviewSetting;
+    long long _lockScreenPriority;
+    long long _backgroundStyle;
+    NSString *_header;
     unsigned long long realertCount_deprecated;
     NSSet *alertSuppressionAppIDs_deprecated;
 }
@@ -75,6 +82,10 @@
 + (id)_lifeAssertionAssociationSet;
 @property(copy, nonatomic) NSSet *alertSuppressionAppIDs_deprecated; // @synthesize alertSuppressionAppIDs_deprecated;
 @property(nonatomic) unsigned long long realertCount_deprecated; // @synthesize realertCount_deprecated;
+@property(copy, nonatomic) NSString *header; // @synthesize header=_header;
+@property(nonatomic) long long backgroundStyle; // @synthesize backgroundStyle=_backgroundStyle;
+@property(nonatomic) long long lockScreenPriority; // @synthesize lockScreenPriority=_lockScreenPriority;
+@property(nonatomic) _Bool preventAutomaticRemovalFromLockScreen; // @synthesize preventAutomaticRemovalFromLockScreen=_preventAutomaticRemovalFromLockScreen;
 @property(nonatomic) long long contentPreviewSetting; // @synthesize contentPreviewSetting=_contentPreviewSetting;
 @property(copy, nonatomic) NSString *universalSectionID; // @synthesize universalSectionID=_universalSectionID;
 @property(copy, nonatomic) NSString *parentSectionID; // @synthesize parentSectionID=_parentSectionID;
@@ -108,7 +119,10 @@
 @property(retain, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
 @property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(nonatomic) _Bool hasEventDate; // @synthesize hasEventDate=_hasEventDate;
+@property(nonatomic) _Bool hasCriticalIcon; // @synthesize hasCriticalIcon=_hasCriticalIcon;
 @property(retain, nonatomic) BBSectionIcon *icon; // @synthesize icon=_icon;
+@property(nonatomic) unsigned long long summaryArgumentCount; // @synthesize summaryArgumentCount=_summaryArgumentCount;
+@property(copy, nonatomic) NSString *summaryArgument; // @synthesize summaryArgument=_summaryArgument;
 @property(retain, nonatomic) BBContent *starkBannerContent; // @synthesize starkBannerContent=_starkBannerContent;
 @property(retain, nonatomic) BBContent *modalAlertContent; // @synthesize modalAlertContent=_modalAlertContent;
 @property(retain, nonatomic) BBContent *content; // @synthesize content=_content;
@@ -180,6 +194,7 @@
 - (id)firstValidObserver;
 - (void)addLifeAssertion:(id)arg1;
 - (id)lifeAssertions;
+@property(readonly, nonatomic) _Bool shouldDismissBulletinWhenClosed;
 @property(readonly, nonatomic) unsigned long long privacySettings;
 @property(readonly, nonatomic) _Bool revealsAdditionalContentOnPresentation;
 @property(readonly, nonatomic) _Bool preemptsPresentedAlert;
@@ -215,6 +230,7 @@
 @property(readonly, nonatomic) NSString *fullUnlockActionLabel;
 @property(readonly, nonatomic) NSString *missedBannerDescriptionFormat;
 @property(readonly, nonatomic) NSString *topic;
+@property(readonly, nonatomic) NSString *subtypeSummaryFormat;
 @property(readonly, nonatomic) NSString *hiddenPreviewsBodyPlaceholder;
 @property(readonly, nonatomic) _Bool showsDateInFloatingLockScreenAlert;
 @property(readonly, nonatomic) _Bool orderSectionUsingRecencyDate;

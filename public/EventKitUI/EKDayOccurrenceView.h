@@ -30,6 +30,7 @@
     struct CGRect _unpinnedEventBackgroundFrame;
     struct CGRect _unpinnedTravelBackgroundFrame;
     UIView *_pinFadeView;
+    _Bool _isVibrant;
     _Bool _visibleHeightLocked;
     _Bool _selected;
     _Bool _dimmed;
@@ -56,6 +57,7 @@
     double _travelTime;
     double _bottomPinningProximity;
     double _topYBoundaryForText;
+    NSString *_originalEventLocation;
     struct UIEdgeInsets _margin;
 }
 
@@ -85,6 +87,7 @@
 + (void)clearCaches;
 + (void)_clearViewCache;
 + (id)_viewCache;
+@property(copy, nonatomic) NSString *originalEventLocation; // @synthesize originalEventLocation=_originalEventLocation;
 @property(nonatomic) _Bool touchesAreBeingTracked; // @synthesize touchesAreBeingTracked=_touchesAreBeingTracked;
 @property(nonatomic) double topYBoundaryForText; // @synthesize topYBoundaryForText=_topYBoundaryForText;
 @property(nonatomic) double bottomPinningProximity; // @synthesize bottomPinningProximity=_bottomPinningProximity;
@@ -110,6 +113,7 @@
 @property(nonatomic) _Bool selected; // @synthesize selected=_selected;
 @property(retain, nonatomic) EKEvent *occurrence; // @synthesize occurrence=_occurrence;
 @property(readonly, nonatomic) _Bool visibleHeightLocked; // @synthesize visibleHeightLocked=_visibleHeightLocked;
+@property(nonatomic) _Bool isVibrant; // @synthesize isVibrant=_isVibrant;
 @property(nonatomic) __weak EKDayOccurrenceView *selectedCopy; // @synthesize selectedCopy=_selectedCopy;
 @property(nonatomic) __weak NSObject<EKDayOccurrenceViewDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;

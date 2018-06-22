@@ -6,20 +6,17 @@
 
 #import <PhotosGraph/PGGraphNode.h>
 
-#import "PGGraphAreaNode.h"
+#import "PGGraphLocationNaming.h"
 
 @class NSString;
 
-@interface PGGraphAreaNode : PGGraphNode <PGGraphAreaNode>
+@interface PGGraphAreaNode : PGGraphNode <PGGraphLocationNaming>
 {
 }
 
+- (_Bool)diameterIsLargerThanDiameter:(double)arg1;
+@property(readonly) NSString *fullname;
+@property(readonly) _Bool isBlacklisted;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) _Bool isBlacklisted; // @dynamic isBlacklisted;
-@property(readonly) Class superclass;
 @end
 

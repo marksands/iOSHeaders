@@ -149,7 +149,9 @@
 - (void)attemptToEndInterruptions;
 @property(readonly, nonatomic, getter=isInterrupted) _Bool interrupted;
 - (void)stopCaptureSession;
+- (void)stopCaptureSessionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)startCaptureSession;
+- (void)startCaptureSessionWithRetryCount:(unsigned long long)arg1 retryInterval:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)willPerformRecoveryFromRuntimeError:(id)arg1;
 - (void)queryTimelapseDimensionsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)queryVideoDimensionsWithCompletionBlock:(CDUnknownBlockType)arg1;
@@ -266,6 +268,7 @@
 - (void)pauseCapturingStillImagePairedVideo;
 - (_Bool)captureStillImageWithRequest:(id)arg1 error:(id *)arg2;
 - (id)_sanitizeStillImageRequest:(id)arg1;
+@property(readonly, nonatomic, getter=isCapturingStillImage) _Bool capturingStillImage;
 - (id)_thumbnailImageFromStillImageCaptureResult:(id)arg1 imageOrientation:(long long)arg2;
 @property(readonly, nonatomic) CAMPanoramaPreviewView *panoramaPreviewView;
 @property(readonly, nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;

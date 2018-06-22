@@ -54,7 +54,6 @@
 - (void)checkAndRemoveExistingThenEnableSecureBackupRecordWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)upgradeICSCRecordsThenEnableSecureBackupWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)enableSecureBackupWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)cdpBackupRecordsArePresentWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_dateWithSecureBackupDateString:(id)arg1;
 - (void)_getBackupRecordDevicesIncludingUnrecoverableRecords:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)getBackupRecordDevicesWithCompletion:(CDUnknownBlockType)arg1;

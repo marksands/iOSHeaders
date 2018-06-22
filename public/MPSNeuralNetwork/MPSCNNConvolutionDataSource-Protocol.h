@@ -20,6 +20,7 @@
 @optional
 - (_Bool)updateWithGradientState:(MPSCNNConvolutionGradientState *)arg1 sourceState:(MPSCNNConvolutionWeightsAndBiasesState *)arg2;
 - (MPSCNNConvolutionWeightsAndBiasesState *)updateWithCommandBuffer:(id <MTLCommandBuffer>)arg1 gradientState:(MPSCNNConvolutionGradientState *)arg2 sourceState:(MPSCNNConvolutionWeightsAndBiasesState *)arg3;
+- (unsigned int)weightsQuantizationType;
 - (float *)lookupTableForUInt8Kernel;
 -     // Error parsing type: ^16@0:8, name: rangesForUInt8Kernel
 @end

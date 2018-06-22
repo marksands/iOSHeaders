@@ -15,6 +15,7 @@
 + (id)ak_timeZoneHeader;
 + (id)ak_localeHeader;
 + (id)ak_clientTimeHeader;
+- (void)ak_addCFUHeader:(id)arg1;
 - (void)ak_addDeviceModel;
 - (void)ak_addShowWarranty;
 - (void)ak_addProxyApp:(id)arg1;
@@ -35,7 +36,7 @@
 - (void)ak_addContinutationKeyHeader:(id)arg1;
 - (void)ak_addContextHeaderForServiceType:(long long)arg1;
 - (void)ak_addLoggedInServicesHeaderForServices:(id)arg1;
-- (void)ak_addAbsintheHeader;
+- (void)ak_addAbsintheHeaderWithValue:(id)arg1;
 - (void)ak_setJSONBodyWithParameters:(id)arg1;
 - (void)ak_setBodyWithParameters:(id)arg1;
 - (void)_setAuthorizationHeaderWithToken:(id)arg1 altDSID:(id)arg2 key:(id)arg3;

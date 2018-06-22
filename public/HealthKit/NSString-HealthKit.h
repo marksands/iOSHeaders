@@ -19,6 +19,7 @@
 - (long long)hk_compareBuildVersionWithString:(id)arg1;
 - (_Bool)hk_isBase64;
 - (id)hk_stringByAppendingKeyPathComponent:(id)arg1;
+- (id)hk_stringByUnescapingJSONCharactersForDisplay;
 - (id)hk_stringByRemovingCharactersInSet:(id)arg1;
 - (id)hk_trimWhitespaceAndNewlines;
 - (id)hk_stripLeadingTrailingWhitespace;

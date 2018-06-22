@@ -10,8 +10,8 @@
 
 @interface PGMoodGeneratorOptions : NSObject
 {
-    long long _memoryCategory;
-    long long _memorySubcategory;
+    unsigned long long _memoryCategory;
+    unsigned long long _memorySubcategory;
     NSArray *_moodHistory;
     NSSet *_momentIDs;
     NSDate *_referenceDate;
@@ -23,9 +23,9 @@
 @property(retain) NSArray *prefetchedAssets; // @synthesize prefetchedAssets=_prefetchedAssets;
 @property(retain) NSDate *referenceDate; // @synthesize referenceDate=_referenceDate;
 @property(retain) NSSet *momentIDs; // @synthesize momentIDs=_momentIDs;
-@property(retain) NSArray *moodHistory; // @synthesize moodHistory=_moodHistory;
-@property long long memorySubcategory; // @synthesize memorySubcategory=_memorySubcategory;
-@property long long memoryCategory; // @synthesize memoryCategory=_memoryCategory;
+@property(retain, nonatomic) NSArray *moodHistory; // @synthesize moodHistory=_moodHistory;
+@property(nonatomic) unsigned long long memorySubcategory; // @synthesize memorySubcategory=_memorySubcategory;
+@property(nonatomic) unsigned long long memoryCategory; // @synthesize memoryCategory=_memoryCategory;
 - (void).cxx_destruct;
 
 @end

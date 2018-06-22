@@ -12,6 +12,7 @@
 - (id)hf_setOrderedHomes:(id)arg1;
 - (id)hf_orderedHomes;
 - (id)hf_orderedHomesList;
+- (id)hf_mutableOrderedHomesList;
 - (id)hf_homeWithIdentifier:(id)arg1;
 @end
 

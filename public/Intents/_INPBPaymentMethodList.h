@@ -6,36 +6,42 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBPaymentMethodList.h"
 
-@class NSMutableArray, PBUnknownFields, _INPBCondition;
+@class INCodableAttribute, NSArray, NSString, _INPBCondition;
 
-@interface _INPBPaymentMethodList : PBCodable <NSCopying>
+@interface _INPBPaymentMethodList : PBCodable <_INPBPaymentMethodList, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
+    struct _has;
     _INPBCondition *_condition;
-    NSMutableArray *_paymentMethods;
+    NSArray *_paymentMethods;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
 + (Class)paymentMethodsType;
-+ (id)options;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
+@property(copy, nonatomic) NSArray *paymentMethods; // @synthesize paymentMethods=_paymentMethods;
 @property(retain, nonatomic) _INPBCondition *condition; // @synthesize condition=_condition;
-@property(retain, nonatomic) NSMutableArray *paymentMethods; // @synthesize paymentMethods=_paymentMethods;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(readonly, nonatomic) _Bool hasCondition;
 - (id)paymentMethodsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)paymentMethodsCount;
+@property(readonly, nonatomic) unsigned long long paymentMethodsCount;
 - (void)addPaymentMethods:(id)arg1;
 - (void)clearPaymentMethods;
+@property(readonly, nonatomic) _Bool hasCondition;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

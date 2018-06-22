@@ -12,12 +12,11 @@
 #import "PKPassGroupViewDelegate.h"
 #import "PKPaymentServiceDelegate.h"
 
-@class NSMutableArray, NSMutableDictionary, NSString, NSTimer, PKGroup, PKPGSVSectionHeaderContext, PKPass, PKPassDeleteAnimationController, PKPassFooterView, PKPassGroupView, PKPassthroughView, PKPaymentService, PKReusablePassViewQueue, PKSecureElement, UIColor, UIImageView, UIView;
+@class NSMutableArray, NSMutableDictionary, NSNumber, NSString, NSTimer, PKPGSVSectionHeaderContext, PKPass, PKPassDeleteAnimationController, PKPassFooterView, PKPassGroupView, PKPassthroughView, PKPaymentService, PKReusablePassViewQueue, PKSecureElement, UIColor, UIImageView, UIView;
 
 @interface PKPassGroupStackView : UIScrollView <PKPassGroupViewDelegate, PKPassDeleteAnimationControllerDelegate, PKPaymentServiceDelegate, PKPassFooterViewDelegate, PKPassDeleteHandler>
 {
     PKPassGroupView *_modallyPresentedGroupView;
-    PKGroup *_modallyPresentedGroup;
     NSMutableArray *_passPileViews;
     unsigned long long _modalGroupIndex;
     long long _scrollingTestState;
@@ -94,6 +93,7 @@
     _Bool _delegateWantsTopContentSeparation;
     _Bool _delegateWantsBottomContentSeparation;
     _Bool _wantsBacklightRamping;
+    NSNumber *_featuredGroupID;
     _Bool _footerSuppressed;
     _Bool _staggerPileAnimations;
     id <PKPassGroupStackViewDatasource> _datasource;
@@ -121,6 +121,7 @@
 - (_Bool)handleDeletePassRequestWithPass:(id)arg1 forViewController:(id)arg2;
 - (void)deleteAnimationController:(id)arg1 didComplete:(_Bool)arg2;
 - (void)deleteAnimationControllerWillBeginDeleteAnimation:(id)arg1;
+- (_Bool)isPassFooterViewInGroup:(id)arg1;
 - (void)passFooterViewDidChangeUserIntentRequirement:(id)arg1 withContext:(id)arg2;
 - (void)passFooterViewDidChangeUserIntentRequirement:(id)arg1;
 - (void)groupViewDidUpdatePageControlVisibility:(id)arg1;

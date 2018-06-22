@@ -28,6 +28,7 @@
 + (id)tokenForCurrentProcess;
 @property(readonly, nonatomic) CDStruct_4c969caf realToken; // @synthesize realToken=_auditToken;
 @property(copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
@@ -42,7 +43,6 @@
 - (id)valueForEntitlement:(id)arg1;
 - (_Bool)hasEntitlement:(id)arg1;
 @property(readonly, nonatomic) int pid; // @dynamic pid;
-- (void)dealloc;
 - (id)initWithXPCMessage:(id)arg1;
 - (id)initWithAuditToken:(CDStruct_4c969caf)arg1;
 

@@ -35,6 +35,7 @@
     SFProximityEstimator *_infoProximityEstimator;
     double _lastSeen;
     double _pairCheckTime;
+    SFProximityEstimator *_proxPairProximityEstimator;
     SFProximityEstimator *_setupProximityEstimator;
 }
 
@@ -42,6 +43,7 @@
 + (void)setRSSIEstimatorInfo:(id)arg1;
 @property(nonatomic) _Bool triggered; // @synthesize triggered=_triggered;
 @property(retain, nonatomic) SFProximityEstimator *setupProximityEstimator; // @synthesize setupProximityEstimator=_setupProximityEstimator;
+@property(retain, nonatomic) SFProximityEstimator *proxPairProximityEstimator; // @synthesize proxPairProximityEstimator=_proxPairProximityEstimator;
 @property(nonatomic) _Bool paired; // @synthesize paired=_paired;
 @property(nonatomic) double pairCheckTime; // @synthesize pairCheckTime=_pairCheckTime;
 @property(nonatomic) double lastSeen; // @synthesize lastSeen=_lastSeen;

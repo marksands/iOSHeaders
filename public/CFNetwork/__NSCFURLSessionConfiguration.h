@@ -78,6 +78,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _customReadBufferSize;
     double _customReadBufferTimeout;
     _Bool _preventsSystemHTTPProxyAuthentication;
+    _Bool _requiresSecureHTTPSProxyConnection;
     _Bool _duetPreauthorized;
     _Bool _requiresSustainedDataDelivery;
     _Bool _ignoreDidReceiveResponseDisposition;
@@ -101,6 +102,7 @@ __attribute__((visibility("hidden")))
     NSString *_tcpConnectionPoolName;
     _Bool _forcesNewConnections;
     NSDictionary *_socketStreamProperties;
+    NSString *_tlsCachePrefix;
     _Bool _supportsAVAssetDownloads;
     _Bool _proxySession;
     NSSet *_authenticatorStatusCodes;
@@ -117,9 +119,12 @@ __attribute__((visibility("hidden")))
     unsigned long long _forcedNetworkServiceType;
     NSDictionary *_overriddenDelegateOptions;
     NSSet *_suppressedAutoAddedHTTPHeaders;
+    long long _expiredDNSBehavior;
 }
 
 + (_Bool)supportsSecureCoding;
+- (void)set_expiredDNSBehavior:(long long)arg1;
+- (long long)_expiredDNSBehavior;
 - (void)set_suppressedAutoAddedHTTPHeaders:(id)arg1;
 - (id)_suppressedAutoAddedHTTPHeaders;
 - (void)set_overriddenDelegateOptions:(id)arg1;
@@ -152,6 +157,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)_isProxySession;
 - (void)set_supportsAVAssetDownloads:(_Bool)arg1;
 - (_Bool)_supportsAVAssetDownloads;
+- (void)set_tlsCachePrefix:(id)arg1;
+- (id)_tlsCachePrefix;
 - (void)set_socketStreamProperties:(id)arg1;
 - (id)_socketStreamProperties;
 - (void)set_forcesNewConnections:(_Bool)arg1;
@@ -198,6 +205,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)_requiresSustainedDataDelivery;
 - (void)set_duetPreauthorized:(_Bool)arg1;
 - (_Bool)_duetPreauthorized;
+- (void)set_requiresSecureHTTPSProxyConnection:(_Bool)arg1;
+- (_Bool)_requiresSecureHTTPSProxyConnection;
 - (void)set_preventsSystemHTTPProxyAuthentication:(_Bool)arg1;
 - (_Bool)_preventsSystemHTTPProxyAuthentication;
 - (void)set_customReadBufferTimeout:(double)arg1;

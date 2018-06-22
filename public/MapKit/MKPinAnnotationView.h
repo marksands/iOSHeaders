@@ -48,7 +48,6 @@
 - (void)_liftForDraggingAfterBounceAnimated:(_Bool)arg1;
 - (void)_liftForDraggingAnimated:(_Bool)arg1;
 - (void)setDragState:(unsigned long long)arg1 animated:(_Bool)arg2;
-- (void)setDragState:(unsigned long long)arg1;
 - (void)_dropAfterDraggingAndRevertPosition:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_dropFromDistance:(double)arg1 maxDistance:(double)arg2 withDelay:(double)arg3;
 - (id)_bounceAnimation:(_Bool)arg1 withDelay:(double)arg2 addToLayer:(_Bool)arg3;

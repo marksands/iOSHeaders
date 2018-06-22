@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (id)CKPropertiesDescription;
 - (void)addMMCSSectionItem:(id)arg1;
+- (void)addRereferencedMMCSItem:(id)arg1;
 - (void)addMMCSItem:(id)arg1;
 - (id)initWithZoneID:(id)arg1;
 

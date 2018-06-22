@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) NSDictionary *wisdomParams; // @synthesize wisdomParams=_wisdomParams;
 @property(readonly) id <MTLDevice> metalDevice; // @synthesize metalDevice=_metalDevice;
 - (void).cxx_destruct;
-- (void)initWisdomParams;
+- (void)_initWisdomParams;
 - (void)setMetalDevice:(id)arg1;
 - (id)initWithMetalDevice:(id)arg1;
 

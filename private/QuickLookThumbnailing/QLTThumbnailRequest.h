@@ -18,6 +18,7 @@
     QLCacheVersionedFileIdentifier *_fileIdentifier;
     double _scale;
     double _minimumSize;
+    unsigned long long _badgeType;
     long long _sequenceNumber;
     struct CGSize _size;
 }
@@ -30,6 +31,7 @@
 @property long long sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 @property _Bool cancelled; // @synthesize cancelled=_cancelled;
 @property(readonly) _Bool iconMode; // @synthesize iconMode=_iconMode;
+@property(nonatomic) unsigned long long badgeType; // @synthesize badgeType=_badgeType;
 @property(readonly) double minimumSize; // @synthesize minimumSize=_minimumSize;
 @property(readonly) double scale; // @synthesize scale=_scale;
 @property struct CGSize size; // @synthesize size=_size;

@@ -10,7 +10,7 @@
 #import "MapsSuggestionsObject.h"
 #import "MapsSuggestionsSourceDelegate.h"
 
-@class CLLocation, GEOAutomobileOptions, MapsSuggestionsFakeSource, MapsSuggestionsTracker, NSDate, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
+@class CLLocation, GEOAutomobileOptions, MapsSuggestionsFakeSource, MapsSuggestionsTracker, NSDate, NSHashTable, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
 
 @interface MapsSuggestionsManager : NSObject <MapsSuggestionsObject, MapsSuggestionsSourceDelegate, MapsSuggestionsLocationUpdaterDelegate>
 {
@@ -20,7 +20,7 @@
     MapsSuggestionsTracker *_tracker;
     NSDate *_etaValidUntil;
     struct NSMutableSet *_sources;
-    struct NSMutableSet *_sinks;
+    NSHashTable *_sinks;
     struct NSMutableDictionary *_storage;
     struct NSArray *_latestResults;
     NSObject<OS_dispatch_queue> *_gatheringQueue;
@@ -57,6 +57,7 @@
 - (struct NSArray *)storageForSource:(id)arg1;
 - (id)dumpStorage;
 - (struct NSDictionary *)storage;
+- (_Bool)removeEntry:(id)arg1 behavior:(long long)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)setTitleFormatter:(id)arg1 forType:(unsigned long long)arg2;
 - (void)trackerRefreshedETAsUntil:(id)arg1;
 - (unsigned long long)clearAllEntriesFromSource:(struct NSString *)arg1;
@@ -67,6 +68,8 @@
 - (unsigned long long)_addOrUpdateSuggestionEntries:(struct NSArray *)arg1 source:(struct NSString *)arg2;
 - (unsigned long long)addOrUpdateSuggestionEntries:(struct NSArray *)arg1 source:(struct NSString *)arg2;
 - (id)currentBestLocation;
+- (_Bool)_loadStorageFromFile:(id)arg1;
+- (_Bool)loadStorageFromFile:(id)arg1 callback:(CDUnknownBlockType)arg2 callbackQueue:(id)arg3;
 - (_Bool)loadStorageFromFile:(id)arg1;
 - (_Bool)saveStorageToFile:(id)arg1;
 - (struct NSArray *)_filteredEntries:(struct NSArray *)arg1 forSink:(struct NSString *)arg2 limit:(unsigned long long)arg3;
@@ -97,7 +100,7 @@
 @property(readonly, nonatomic) NSString *uniqueName;
 - (void)updateLocation:(id)arg1;
 - (void)dealloc;
-- (id)initWithStrategy:(id)arg1 locationUpdater:(id)arg2 fetchETA:(_Bool)arg3;
+- (id)initWithStrategy:(id)arg1 locationUpdater:(id)arg2 ETARequirements:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

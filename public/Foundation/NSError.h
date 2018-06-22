@@ -25,6 +25,7 @@
 + (id)errorWithDomain:(id)arg1 code:(long long)arg2 userInfo:(id)arg3;
 + (void)_registerFormatter:(CDUnknownFunctionPointerType)arg1 forErrorKey:(id)arg2 parameters:(const char *)arg3;
 + (void)_registerBuiltInFormatters;
++ (id)_readCorruptErrorWithFormat:(id)arg1;
 + (id)_web_errorWithDomain:(id)arg1 code:(long long)arg2 URL:(id)arg3;
 + (id)_web_errorWithDomain:(id)arg1 code:(long long)arg2 failingURL:(id)arg3;
 + (void)_web_addErrorsWithCodesAndDescriptions:(id)arg1 inDomain:(id)arg2;

@@ -8,12 +8,12 @@
 
 #import "CLSClueCollectionJSExports.h"
 
-@class CLSInputPeopleClue, CLSMeaningClue, NSMapTable, NSObject<OS_dispatch_queue>;
+@class CLSInputPeopleClue, CLSMeaningClue, NSMapTable;
 
 @interface CLSClueCollection : NSObject <CLSClueCollectionJSExports>
 {
     unsigned long long _versionCount;
-    NSObject<OS_dispatch_queue> *_accessQueue;
+    struct os_unfair_recursive_lock_s _recursiveLock;
     CLSInputPeopleClue *_mePersonClue;
     NSMapTable *_inputCluesByKey;
     NSMapTable *_outputCluesByKey;
@@ -23,15 +23,13 @@
 @property(retain, nonatomic) CLSInputPeopleClue *mePersonClue; // @synthesize mePersonClue=_mePersonClue;
 @property(readonly) unsigned long long versionCount; // @synthesize versionCount=_versionCount;
 - (void).cxx_destruct;
-- (id)locationDescription;
-- (id)detailedLocationDescription;
 - (id)peopleDescriptionWithoutPeople:(id)arg1;
 - (id)peopleDescription;
 - (void)mergeClues:(id)arg1;
 - (void)_mergeMeaningClue:(id)arg1;
 - (void)_mergeOutputClue:(id)arg1;
 - (void)_mergeInputClue:(id)arg1;
-- (id)prepareOperations;
+- (void)prepareWithProgressBlock:(CDUnknownBlockType)arg1;
 - (id)mePerson;
 @property(readonly) unsigned long long numberOfPeoples;
 - (id)peopleNames;
@@ -41,7 +39,6 @@
 - (id)locationRegionsInPlacemarks;
 - (id)locationRegions;
 - (id)locationPlacemarks;
-- (id)locationAddresses;
 - (void)enumerateLocationClues:(CDUnknownBlockType)arg1;
 - (unsigned long long)numberOfTimes;
 - (id)localDates;
@@ -81,50 +78,6 @@
 - (void)_incrementVersionCount;
 - (id)description;
 - (id)init;
-- (id)_healthDynamismString;
-- (id)_healthSpeedString;
-- (id)_healthHeartBeatString;
-- (id)_weatherString;
-- (id)_activityString;
-- (id)_petString;
-- (id)_peopleString;
-- (id)_locationMobilityString;
-- (id)_locationString;
-- (id)_timeEventString;
-- (id)_timeSeasonString;
-- (id)_timeDurationString;
-- (id)_timeOfWeekString;
-- (id)_timeOfDayString;
-- (unsigned long long)clueMeaningBeatsSentenceActivity;
-- (unsigned long long)clueMeaningBeatsSentenceLocation;
-- (unsigned long long)clueMeaningBeatsSentenceTimeEvent;
-- (id)matchingFullDescription;
-- (id)matchingDescription;
-- (unsigned long long)clueHealthDynamism;
-- (unsigned long long)clueHealthSpeed;
-- (unsigned long long)clueHealthHeartBeat;
-- (unsigned long long)clueWeather;
-- (id)activityEventNames;
-- (unsigned long long)clueActivity;
-- (unsigned long long)cluePet;
-- (id)peopleTypeForPeopleName:(id)arg1;
-- (unsigned long long)cluePeople;
-- (id)distanceFromWork;
-- (id)distanceFromHome;
-- (id)locationNames;
-- (id)locationCountries;
-- (id)locationStates;
-- (id)locationCounties;
-- (id)locationCities;
-- (id)locationNeighbourhoods;
-- (unsigned long long)clueLocationMobility;
-- (unsigned long long)clueLocation;
-- (id)timeEventNames;
-- (unsigned long long)clueTimeEvent;
-- (unsigned long long)clueTimeSeason;
-- (unsigned long long)clueTimeDuration;
-- (unsigned long long)clueTimeOfWeek;
-- (unsigned long long)clueTimeOfDay;
 
 @end
 

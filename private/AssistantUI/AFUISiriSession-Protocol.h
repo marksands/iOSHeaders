@@ -34,6 +34,7 @@
 - (void)rollbackClearContext;
 - (void)resetContextTypes:(long long)arg1;
 - (void)clearContext;
+- (void)resumeInterruptedAudioPlaybackIfNeeded;
 - (void)forceAudioSessionInactive;
 - (void)forceAudioSessionActive;
 - (void)preheat;

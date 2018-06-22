@@ -27,6 +27,7 @@
 - (void)_removeControlEventsForVolumeSlider:(id)arg1;
 - (void)_addControlEventsForVolumeSliders:(id)arg1;
 - (void)_addControlEventsForVolumeSlider:(id)arg1;
+- (void)_resetMasterVolumeSlider;
 - (void)_updateOptimisticValueCache;
 - (void)_resetOptimisticScales;
 - (float)_maxOptimisticValue;

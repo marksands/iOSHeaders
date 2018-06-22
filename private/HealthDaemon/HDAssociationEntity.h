@@ -25,6 +25,7 @@
 + (_Bool)copyAssociationsFromObject:(id)arg1 toObject:(id)arg2 profile:(id)arg3 error:(id *)arg4;
 + (_Bool)insertEntriesWithAssociationUUID:(id)arg1 objectUUIDsData:(id)arg2 profile:(id)arg3 error:(id *)arg4;
 + (_Bool)insertEntriesWithAssociation:(id)arg1 objects:(id)arg2 enforceSameSource:(_Bool)arg3 profile:(id)arg4 database:(id)arg5 error:(id *)arg6;
++ (_Bool)associateSampleUUIDData:(id)arg1 withSampleUUID:(id)arg2 profile:(id)arg3 error:(id *)arg4;
 + (_Bool)associateSampleUUIDs:(id)arg1 withSampleUUID:(id)arg2 profile:(id)arg3 error:(id *)arg4;
 + (id)privateSubEntities;
 + (id)joinClausesForProperty:(id)arg1;

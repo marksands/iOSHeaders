@@ -6,15 +6,17 @@
 
 #import "UICollectionReusableView.h"
 
-@class CAGradientLayer;
+@class UIView;
 
 @interface NTKUpNextStatusBarUnderlay : UICollectionReusableView
 {
-    CAGradientLayer *_gradientLayer;
+    UIView *_overlayView;
 }
 
 - (void).cxx_destruct;
 - (void)layoutSubviews;
+- (void)updateBackgroundColor;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

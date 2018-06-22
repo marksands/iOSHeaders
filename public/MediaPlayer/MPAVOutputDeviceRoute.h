@@ -43,6 +43,9 @@
 - (_Bool)isHomePodRoute;
 - (_Bool)isCarplayRoute;
 - (_Bool)isAppleTVRoute;
+- (_Bool)presentsOptimizedUserInterfaceWhenPlayingFetchedAudioOnlyAssets;
+- (_Bool)canFetchMediaDataFromSender;
+- (_Bool)canPlayEncryptedProgressiveDownloadAssets;
 - (_Bool)canAccessRemoteAssets;
 - (id)description;
 - (id)routeName;

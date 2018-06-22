@@ -16,20 +16,18 @@
     NSMutableSet *_prefetchedDateIntervals;
 }
 
-+ (id)eventResultFromEvent:(id)arg1;
 + (_Bool)eventAtLocation:(id)arg1 withAttendeeNames:(id)arg2 matchesClueCollection:(id)arg3;
 + (_Bool)shouldKeepEvent:(id)arg1 withClueCollection:(id)arg2;
 - (void).cxx_destruct;
-- (id)eventsOperationForClueCollection:(id)arg1;
+- (id)eventsForClueCollection:(id)arg1;
 - (void)_enumerateEventsFromDate:(id)arg1 toDate:(id)arg2 fetchIfNeeded:(_Bool)arg3 usingBlock:(CDUnknownBlockType)arg4;
+- (void)enumerateEventsFromUniversalDate:(id)arg1 toUniversalDate:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)prefetchEventsFromUniversalDate:(id)arg1 toUniversalDate:(id)arg2 forAssetCollectionsSortedByStartDate:(id)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (_Bool)_hasAlreadyPrefetchedEventsFromUniversalDate:(id)arg1 toUniversalDate:(id)arg2;
 - (_Bool)_sortedAssetCollections:(id)arg1 containsEvent:(id)arg2;
 - (void)invalidateMemoryCaches;
-- (id)eventsOperationForDates:(id)arg1 inInvestigation:(id)arg2;
+- (id)eventsForDates:(id)arg1;
 - (_Bool)_isCalendarRelevant:(id)arg1;
-- (id)relevantEventsOperationWithStartDate:(id)arg1 endDate:(id)arg2 calendars:(id)arg3;
-- (id)relevantCalendarsOperation;
 - (id)eventFromProxyEvent:(id)arg1;
 - (id)_fullNameWithContact:(id)arg1;
 - (id)meContact;

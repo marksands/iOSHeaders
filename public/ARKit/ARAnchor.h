@@ -9,11 +9,12 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSUUID;
+@class NSString, NSUUID;
 
 @interface ARAnchor : NSObject <NSCopying, NSSecureCoding>
 {
     NSUUID *_identifier;
+    NSString *_name;
     double _lastUpdateTimestamp;
     // Error parsing type: {?="columns"[4]}, name: _transform
     // Error parsing type: {?="columns"[4]}, name: _referenceTransform
@@ -27,6 +28,7 @@
 // Error parsing type for property transform:
 // Property attributes: T{?=[4]},N,V_transform
 
+@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
@@ -38,7 +40,9 @@
 - (_Bool)isEqualToAnchor:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+-     // Error parsing type: @96@0:8@16@24{?=[4]}32, name: initWithIdentifier:name:transform:
 -     // Error parsing type: @88@0:8@16{?=[4]}24, name: initWithIdentifier:transform:
+-     // Error parsing type: @88@0:8@16{?=[4]}24, name: initWithName:transform:
 -     // Error parsing type: @80@0:8{?=[4]}16, name: initWithTransform:
 
 @end

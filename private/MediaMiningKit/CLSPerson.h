@@ -31,9 +31,16 @@
     NSArray *_sourceURLs;
 }
 
++ (_Bool)isFamilyRelationship:(unsigned long long)arg1;
++ (_Bool)isParentRelationship:(unsigned long long)arg1;
++ (unsigned long long)_personRelationshipFromString:(id)arg1;
++ (id)descriptionForPersonRelationship:(unsigned long long)arg1;
++ (id)relationshipRegularExpressionForRelationship:(unsigned long long)arg1 locale:(id)arg2;
++ (id)_personRelationshipVocabularyByLocaleDictionary;
 + (id)presentationStringForPeople:(id)arg1 withScores:(id)arg2;
 + (id)presentationStringForPeople:(id)arg1;
 + (_Bool)supportsSecureCoding;
++ (id)personWithPHPerson:(id)arg1;
 + (id)personWithPHIdentifier:(id)arg1;
 + (id)personWithCNIdentifier:(id)arg1;
 + (id)person;
@@ -55,9 +62,10 @@
 @property(retain, nonatomic) NSString *CNIdentifier; // @synthesize CNIdentifier=_CNIdentifier;
 @property(retain, nonatomic) NSString *PHIdentifier; // @synthesize PHIdentifier=_PHIdentifier;
 - (void).cxx_destruct;
-- (id)presentationStringForAddressType:(unsigned long long)arg1 inRegion:(id)arg2;
-- (id)_workPlaceSentence:(id)arg1;
-- (id)_homePlaceSentence:(id)arg1;
+- (_Bool)isOrganization;
+- (_Bool)hasSameFamilyNameAsPerson:(id)arg1;
+- (id)_motherAndFatherRelationships;
+- (unsigned long long)relationshipHintFromNameUsingLocales:(id)arg1;
 - (_Bool)isLocationCoordinate:(struct CLLocationCoordinate2D)arg1 farAwayFromAddressesOfType:(unsigned long long)arg2;
 - (_Bool)isLocationCoordinate:(struct CLLocationCoordinate2D)arg1 closeToAddressesOfType:(unsigned long long)arg2;
 - (_Bool)isEqualToPerson:(id)arg1;
@@ -69,11 +77,9 @@
 - (id)description;
 - (void)sanitize;
 - (void)enumerateAddressesOfType:(unsigned long long)arg1 asPlacemarkWithBlock:(CDUnknownBlockType)arg2;
-- (void)enumerateAddressesOfType:(unsigned long long)arg1 asStringsWithBlock:(CDUnknownBlockType)arg2;
-- (void)enumerateAddressesOfType:(unsigned long long)arg1 asDictionariesWithBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateAddressesOfType:(unsigned long long)arg1 asCLLocationsWithBlock:(CDUnknownBlockType)arg2;
 - (unsigned long long)countOfAddressesOfType:(unsigned long long)arg1;
-- (void)prefetchPersonAddressesIfNeededInOperation:(id)arg1;
+- (void)prefetchPersonAddressesIfNeeded;
 - (void)_enumerateAddresses:(id)arg1 as:(id)arg2 withBlock:(CDUnknownBlockType)arg3;
 - (void)addAddresses:(id)arg1 ofType:(unsigned long long)arg2;
 - (id)_addressArrayFromAddressType:(unsigned long long)arg1;

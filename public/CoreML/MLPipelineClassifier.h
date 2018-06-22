@@ -6,15 +6,13 @@
 
 #import <CoreML/MLClassifier.h>
 
-@class MLPipeline, NSArray;
+@class MLPipeline;
 
 @interface MLPipelineClassifier : MLClassifier
 {
     MLPipeline *_engine;
-    NSArray *_classLabels;
 }
 
-@property(retain, nonatomic) NSArray *classLabels; // @synthesize classLabels=_classLabels;
 @property(retain) MLPipeline *engine; // @synthesize engine=_engine;
 - (void).cxx_destruct;
 - (id)classify:(id)arg1 options:(id)arg2 error:(id *)arg3;

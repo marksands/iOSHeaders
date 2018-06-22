@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDateInterval, NSMutableArray, NSMutableSet, PGGraphNode;
+@class NSDateInterval, NSMutableArray, NSMutableSet, PGGraphLocationNode;
 
 @interface PGPastSupersetGroup : NSObject
 {
@@ -14,11 +14,11 @@
     NSDateInterval *_dateInterval;
     NSMutableSet *_supersetCityNodes;
     NSMutableSet *_densestCloseLocationNodes;
-    PGGraphNode *_stateNode;
+    PGGraphLocationNode *_stateNode;
 }
 
 + (id)pastSupersetGroupWithMoments:(id)arg1 dateInterval:(id)arg2 supersetCityNode:(id)arg3 densestCloseLocationNode:(id)arg4;
-@property(retain) PGGraphNode *stateNode; // @synthesize stateNode=_stateNode;
+@property(retain) PGGraphLocationNode *stateNode; // @synthesize stateNode=_stateNode;
 @property(retain) NSMutableSet *densestCloseLocationNodes; // @synthesize densestCloseLocationNodes=_densestCloseLocationNodes;
 @property(retain) NSMutableSet *supersetCityNodes; // @synthesize supersetCityNodes=_supersetCityNodes;
 @property(retain) NSDateInterval *dateInterval; // @synthesize dateInterval=_dateInterval;

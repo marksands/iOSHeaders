@@ -6,14 +6,19 @@
 
 #import "MPSState.h"
 
+@class NSData;
+
 @interface MPSCNNLossLabels : MPSState
 {
     CDStruct_da2e99ad _lossImageSize;
     _Bool _isScalarLoss;
     unsigned long long _numNonZeroWeights;
+    NSData *_userData;
 }
 
 - (void)dealloc;
+- (id)weightsImage;
+- (id)labelsImage;
 - (id)lossImage;
 - (id)initWithDevice:(id)arg1 lossImageSize:(CDStruct_14f26992)arg2 labelsDescriptor:(id)arg3 weightsDescriptor:(id)arg4;
 - (id)initWithDevice:(id)arg1 labelsDescriptor:(id)arg2;

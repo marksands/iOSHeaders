@@ -11,12 +11,16 @@
 @interface IKConcurrentEvaluator : NSObject
 {
     NSMutableDictionary *_getters;
+    id <_IKConcurrentlyEvaluating> _evaluator;
 }
 
+@property(readonly, nonatomic) id <_IKConcurrentlyEvaluating> evaluator; // @synthesize evaluator=_evaluator;
 @property(retain, nonatomic) NSMutableDictionary *getters; // @synthesize getters=_getters;
 - (void).cxx_destruct;
 - (id)objectForKey:(id)arg1;
 - (void)addEvaluationBlock:(CDUnknownBlockType)arg1 forKey:(id)arg2;
+- (id)initWithQueue:(id)arg1;
+- (id)initWithRunLoop:(id)arg1;
 
 @end
 

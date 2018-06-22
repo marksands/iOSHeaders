@@ -8,14 +8,16 @@
 
 #import "MCProfileConnectionObserver.h"
 
-@class NSString;
+@class LAContext, NSString;
 
 @interface _SFManagedFeatureObserver : NSObject <MCProfileConnectionObserver>
 {
     _Bool _cachedAuthenticationRequiredToAutoFill;
+    LAContext *_context;
 }
 
 + (id)sharedObserver;
+- (void).cxx_destruct;
 - (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
 @property(readonly, nonatomic) _Bool authenticationRequiredToAutoFill;
 - (void)dealloc;

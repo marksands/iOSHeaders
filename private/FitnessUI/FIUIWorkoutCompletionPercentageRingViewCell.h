@@ -6,7 +6,7 @@
 
 #import "UITableViewCell.h"
 
-@class HKRingsView, HKWorkout, UIImageView, UILabel, UIView;
+@class FIUIDividerView, HKRingsView, HKWorkout, UIImageView, UILabel;
 
 @interface FIUIWorkoutCompletionPercentageRingViewCell : UITableViewCell
 {
@@ -16,7 +16,7 @@
     UIImageView *_iconImageView;
     UILabel *_typeLabel;
     UILabel *_secondaryLabel;
-    UIView *_separatorView;
+    FIUIDividerView *_separatorView;
 }
 
 + (double)rowHeightForWorkout:(id)arg1 width:(double)arg2;
@@ -25,7 +25,7 @@
 + (double)_ringToTypeSpacing;
 + (double)_ringDiameter;
 + (double)_ringTopPadding;
-@property(retain, nonatomic) UIView *separatorView; // @synthesize separatorView=_separatorView;
+@property(retain, nonatomic) FIUIDividerView *separatorView; // @synthesize separatorView=_separatorView;
 @property(retain, nonatomic) UILabel *secondaryLabel; // @synthesize secondaryLabel=_secondaryLabel;
 @property(retain, nonatomic) UILabel *typeLabel; // @synthesize typeLabel=_typeLabel;
 @property(retain, nonatomic) UIImageView *iconImageView; // @synthesize iconImageView=_iconImageView;

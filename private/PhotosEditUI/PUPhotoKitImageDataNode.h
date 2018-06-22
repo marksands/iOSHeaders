@@ -11,6 +11,7 @@
 
 @class NSArray, NSData, NSString, NSURL, PHAsset;
 
+__attribute__((visibility("hidden")))
 @interface PUPhotoKitImageDataNode : PXRunNode <PUImageDataNode, PUImageInfoNode>
 {
     int _requestID;

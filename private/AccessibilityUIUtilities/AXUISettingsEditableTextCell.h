@@ -12,11 +12,13 @@
 
 @interface AXUISettingsEditableTextCell : PSTableCell <UITextFieldDelegate>
 {
+    _Bool _shouldDisableTextFieldWhenNotEditing;
     _Bool _shouldAllowSelection;
     UITextField *_nameTextField;
 }
 
 @property(nonatomic) _Bool shouldAllowSelection; // @synthesize shouldAllowSelection=_shouldAllowSelection;
+@property(nonatomic) _Bool shouldDisableTextFieldWhenNotEditing; // @synthesize shouldDisableTextFieldWhenNotEditing=_shouldDisableTextFieldWhenNotEditing;
 @property(retain, nonatomic) UITextField *nameTextField; // @synthesize nameTextField=_nameTextField;
 - (void).cxx_destruct;
 - (void)textFieldDidEndEditing:(id)arg1;

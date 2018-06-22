@@ -14,7 +14,7 @@
 + (id)classIdentifier;
 + (id)familyIdentifier;
 - (id)_locationMobilityClueForInvestigation:(id)arg1;
-- (id)gatherCluesOperationForInvestigation:(id)arg1;
+- (id)gatherCluesForInvestigation:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 
 @end
 

@@ -113,10 +113,10 @@
 - (_Bool)_accessibilityHandwritingAttributeShouldPlayKeyboardSecureClickSound;
 - (_Bool)_accessibilityHandwritingAttributeShouldEchoCharacter;
 - (_Bool)_accessibilityHandwritingAttributeCanDeleteCharacter;
-- (int)_accessibilityHandwritingAttributeAllowedCharacterSets;
-- (int)_accessibilityHandwritingAttributeAllowedCharacterSetsForKeyboardType:(long long)arg1;
-- (int)_accessibilityHandwritingAttributePreferredCharacterSet;
-- (int)_accessibilityHandwritingAttributePreferredCharacterSetForKeyboardType:(long long)arg1;
+- (unsigned long long)_accessibilityHandwritingAttributeAllowedCharacterSets;
+- (unsigned long long)_accessibilityHandwritingAttributeAllowedCharacterSetsForKeyboardType:(long long)arg1;
+- (unsigned long long)_accessibilityHandwritingAttributePreferredCharacterSet;
+- (unsigned long long)_accessibilityHandwritingAttributePreferredCharacterSetForKeyboardType:(long long)arg1;
 - (id)_accessibilityHandwritingAttributes;
 - (_Bool)_accessibilitySupportsHandwriting;
 - (id)_accessibilityHandwritingAncestor;
@@ -233,8 +233,8 @@
 - (id)_accessibilityTextViewTextOperationResponder;
 - (_Bool)accessibilityEditOperationAction:(id)arg1;
 - (id)accessibilityMenuActions;
-- (void)_accessibilitySetApplicationOrientation:(int)arg1;
-- (int)_accessibilityApplicationOrientation;
+- (void)_accessibilitySetApplicationOrientation:(long long)arg1;
+- (long long)_accessibilityApplicationOrientation;
 - (_Bool)_accessibilityIsFrameOutOfBoundsConsideringScrollParents:(_Bool)arg1;
 - (struct CGRect)_axFrameForBoundsCheck:(_Bool)arg1;
 - (id)_axOutermostScrollParent;
@@ -377,6 +377,8 @@
 - (_Bool)_accessibilityCanDeleteTableViewCell;
 - (_Bool)_accessibilityContainedByTableLogicIsEnabledOutsideOfWebContext;
 - (_Bool)_accessibilityCanDismissPopoverController:(id)arg1;
+- (id)_accessibilityNotificationSummary:(unsigned long long)arg1;
+- (unsigned long long)_accessibilityNotificationCount;
 - (_Bool)_accessibilityIsAwayAlertElementNew;
 - (id)_accessibilityAwayAlertElements;
 - (_Bool)_accessibilityIsAwayAlertElement;
@@ -430,6 +432,12 @@
 - (struct CGRect)_accessibilityFocusableFrameForZoom;
 - (id)__accessibilityRetrieveFrameOrPathDelegate;
 - (id)accessibilityAttributeValue:(long long)arg1 forParameter:(id)arg2;
+- (id)_accessibilityProcessElementsInDirection:(long long)arg1 forParameter:(id)arg2;
+- (id)_accessibilityProcessChildrenForParameter:(id)arg1;
+- (id)_accessibilityGroupedParent;
+- (id)_accessibilityElementHelp;
+- (void)_accessibilitySetElementHelp:(id)arg1;
+- (_Bool)_accessibilityIsGroupedParent;
 - (id)_accessibilityAXAttributedHint;
 - (id)_accessibilityAXAttributedValue;
 - (id)_accessibilityAXAttributedLabel;
@@ -457,6 +465,8 @@
 - (id)_accessibilityRoleDescription;
 - (id)_accessibilityEquivalenceTag;
 - (id)_accessibilityBriefLabel;
+- (_Bool)_accessibilityIsStrongPasswordField;
+- (_Bool)_accessibilityUseElementAtPositionAfterActivation;
 - (_Bool)_accessibilityUpdatesOnActivationAfterDelay;
 - (double)_accessibilityDelayBeforeUpdatingOnActivation;
 - (void)_setAccessibilityUpdatesOnActivationAfterDelay:(_Bool)arg1;
@@ -475,6 +485,7 @@
 - (long long)_accessibilityCustomRotorTypeForString:(id)arg1;
 - (id)_accessibilityRotorTypeStringForCustomRotor:(long long)arg1;
 - (id)_accessibilityPerformPublicCustomRotorSearch:(id)arg1 searchDirection:(long long)arg2 currentItem:(id)arg3;
+- (id)_accessibilityFirstElement;
 - (id)_accessibilityFirstElementForFocus;
 - (void)_setAccessibilityIsNotFirstElement:(_Bool)arg1;
 - (_Bool)_accessibilityIsNotFirstElement;
@@ -484,6 +495,7 @@
 - (_Bool)_accessibilityIsVisibleByCompleteHitTest;
 - (struct CGPoint)_accessibilityVisiblePointHitTestingAnyElement:(_Bool)arg1;
 - (struct CGPoint)_accessibilityVisiblePoint;
+- (struct CGRect)accessibilityVisibleContentRect;
 - (_Bool)_accessibilityVisiblePointHonorsScreenBounds;
 - (_Bool)_accessibilityTouchContainerShouldOutputBraille;
 - (id)_accessibilityTouchContainer;
@@ -560,6 +572,10 @@
 - (id)accessibilityLinkedElement;
 - (id)accessibilityPlaceholderValue;
 - (_Bool)_accessibilitySupportsDirectioOrbManipulation;
+- (id)_accessibilityHorizontalScrollBarElement;
+- (_Bool)_accessibilityIsScrollBarIndicator;
+- (long long)_accessibilityOrientation;
+- (id)_accessibilityVerticalScrollBarElement;
 - (id)_accessibilityUserDefinedGuideElementHeaderText;
 - (void)_setAccessibilityGuideElementHeaderText:(id)arg1;
 - (id)_accessibilityRetieveHeaderElementText;
@@ -632,6 +648,7 @@
 - (_Bool)_accessibilityIsEscapable;
 - (_Bool)_accessibilityIterateParentsForTestBlock:(CDUnknownBlockType)arg1;
 - (id)_accessibilityScrollAncestorForSelector:(SEL)arg1 alwaysAllowRefreshAction:(_Bool)arg2;
+- (_Bool)_accessibilityUpdatesSwitchMenu;
 - (double)_accessibilityVisibleItemDenominator;
 - (id)_accessibilityScrollAncestorForSelector:(SEL)arg1;
 - (id)_accessibilityScrollStatus;

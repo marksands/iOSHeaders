@@ -6,38 +6,43 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBTemperatureValue.h"
 
-@class PBUnknownFields, _INPBValueMetadata;
+@class INCodableAttribute, NSString, _INPBValueMetadata;
 
-@interface _INPBTemperatureValue : PBCodable <NSCopying>
+@interface _INPBTemperatureValue : PBCodable <_INPBTemperatureValue, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
-    double _magnitude;
-    int _unit;
-    _INPBValueMetadata *_valueMetadata;
     CDStruct_74078a21 _has;
+    int _unit;
+    double _magnitude;
+    _INPBValueMetadata *_valueMetadata;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
-+ (id)options;
-@property(nonatomic) double magnitude; // @synthesize magnitude=_magnitude;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(retain, nonatomic) _INPBValueMetadata *valueMetadata; // @synthesize valueMetadata=_valueMetadata;
+@property(nonatomic) int unit; // @synthesize unit=_unit;
+@property(nonatomic) double magnitude; // @synthesize magnitude=_magnitude;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
+@property(readonly, nonatomic) _Bool hasValueMetadata;
 - (int)StringAsUnit:(id)arg1;
 - (id)unitAsString:(int)arg1;
 @property(nonatomic) _Bool hasUnit;
-@property(nonatomic) int unit; // @synthesize unit=_unit;
 @property(nonatomic) _Bool hasMagnitude;
-@property(readonly, nonatomic) _Bool hasValueMetadata;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

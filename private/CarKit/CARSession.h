@@ -23,12 +23,13 @@
 - (void).cxx_destruct;
 - (void)sendCommand:(id)arg1 withParameters:(id)arg2;
 @property(readonly, copy) NSString *description;
-- (id)requestTurnByTurnNavigationOwnership;
 - (void)takeScreenForConnection;
 - (void)takeScreenForClient:(id)arg1 reason:(id)arg2;
 - (id)borrowScreenForClient:(id)arg1 reason:(id)arg2;
 - (_Bool)recognizingSpeech;
-- (_Bool)ownsTurnByTurnNavigation;
+- (void)releaseTurnByTurnOwnership;
+- (void)requestTurnByTurnOwnership;
+- (unsigned long long)navigationOwner;
 - (_Bool)ownsScreen;
 - (void)requestCarUIForURL:(id)arg1;
 - (void)requestCarUI;

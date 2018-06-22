@@ -8,7 +8,7 @@
 
 #import "VNObservationsCacheKeyProviding.h"
 
-@class MLModel, NSString;
+@class MLModel, MLObjectBoundingBoxOutputDescription, NSString;
 
 @interface VNCoreMLModel : NSObject <VNObservationsCacheKeyProviding>
 {
@@ -19,6 +19,7 @@
     NSString *_inputImageKey;
     NSString *_predictedFeatureKey;
     NSString *_predictedProbabilitiesKey;
+    MLObjectBoundingBoxOutputDescription *_boundingBoxOutputDescription;
     unsigned long long _inputImageWidth;
     unsigned long long _inputImageHeight;
 }
@@ -27,6 +28,7 @@
 @property(readonly) unsigned int inputImageFormat; // @synthesize inputImageFormat=_inputImageFormat;
 @property(readonly) unsigned long long inputImageHeight; // @synthesize inputImageHeight=_inputImageHeight;
 @property(readonly) unsigned long long inputImageWidth; // @synthesize inputImageWidth=_inputImageWidth;
+@property(readonly) MLObjectBoundingBoxOutputDescription *boundingBoxOutputDescription; // @synthesize boundingBoxOutputDescription=_boundingBoxOutputDescription;
 @property(readonly) NSString *predictedProbabilitiesKey; // @synthesize predictedProbabilitiesKey=_predictedProbabilitiesKey;
 @property(retain) NSString *predictedFeatureKey; // @synthesize predictedFeatureKey=_predictedFeatureKey;
 @property(retain) NSString *inputImageKey; // @synthesize inputImageKey=_inputImageKey;

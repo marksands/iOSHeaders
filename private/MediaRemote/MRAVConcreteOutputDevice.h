@@ -49,6 +49,9 @@
 - (_Bool)supportsBufferedAirPlay;
 - (_Bool)canRelayCommunicationChannel;
 - (_Bool)isRemoteControllable;
+- (_Bool)presentsOptimizedUserInterfaceWhenPlayingFetchedAudioOnlyAssets;
+- (_Bool)canFetchMediaDataFromSender;
+- (_Bool)canPlayEncryptedProgressiveDownloadAssets;
 - (_Bool)canAccessiCloudMusicLibrary;
 - (_Bool)canAccessAppleMusic;
 - (_Bool)canAccessRemoteAssets;

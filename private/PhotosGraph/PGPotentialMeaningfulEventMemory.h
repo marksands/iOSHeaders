@@ -17,7 +17,7 @@
 @property(readonly) unsigned long long meaning; // @synthesize meaning=_meaning;
 @property(readonly) PGGraphCollectionNode *collectionNode; // @synthesize collectionNode=_collectionNode;
 - (void).cxx_destruct;
-- (id)initWithCategory:(long long)arg1 collectionNode:(id)arg2 meaning:(unsigned long long)arg3 controller:(id)arg4;
+- (id)initWithCategory:(unsigned long long)arg1 collectionNode:(id)arg2 meaning:(unsigned long long)arg3 controller:(id)arg4;
 
 @end
 

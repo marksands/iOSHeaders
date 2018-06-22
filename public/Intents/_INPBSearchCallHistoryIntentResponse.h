@@ -6,33 +6,48 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBSearchCallHistoryIntentResponse.h"
 
-@class NSMutableArray, PBUnknownFields;
+@class INCodableAttribute, NSArray, NSString;
 
-@interface _INPBSearchCallHistoryIntentResponse : PBCodable <NSCopying>
+@interface _INPBSearchCallHistoryIntentResponse : PBCodable <_INPBSearchCallHistoryIntentResponse, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
-    NSMutableArray *_callRecords;
+    struct _has;
+    NSArray *_callRecords;
+    NSString *_dateCreated;
+    NSString *_status;
+    NSString *_targetContact;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
 + (Class)callRecordsType;
-+ (id)options;
-@property(retain, nonatomic) NSMutableArray *callRecords; // @synthesize callRecords=_callRecords;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
+@property(copy, nonatomic) NSString *targetContact; // @synthesize targetContact=_targetContact;
+@property(copy, nonatomic) NSString *status; // @synthesize status=_status;
+@property(copy, nonatomic) NSString *dateCreated; // @synthesize dateCreated=_dateCreated;
+@property(copy, nonatomic) NSArray *callRecords; // @synthesize callRecords=_callRecords;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
+@property(readonly, nonatomic) _Bool hasTargetContact;
+@property(readonly, nonatomic) _Bool hasStatus;
+@property(readonly, nonatomic) _Bool hasDateCreated;
 - (id)callRecordsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)callRecordsCount;
+@property(readonly, nonatomic) unsigned long long callRecordsCount;
 - (void)addCallRecords:(id)arg1;
 - (void)clearCallRecords;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

@@ -16,6 +16,8 @@
 + (id)executableQueryForQuery:(id)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)predicateForEventsWithNoSource;
++ (id)predicateForEventsWithNullSourceDeviceID;
++ (id)predicateForEventsWithSourceDeviceID:(id)arg1 userID:(id)arg2;
 + (id)predicateForEventsWithSourceDeviceIDs:(id)arg1;
 + (id)predicateForEventsWithSourceID:(id)arg1 bundleID:(id)arg2 itemIDs:(id)arg3;
 + (id)predicateForEventsWithSourceID:(id)arg1 bundleID:(id)arg2 groupIDs:(id)arg3;
@@ -27,6 +29,8 @@
 + (id)predicateForObjectsWithMetadataKey:(id)arg1 andDoubleValue:(double)arg2;
 + (id)predicateForObjectsWithMetadataKey:(id)arg1 andIntegerValue:(long long)arg2;
 + (id)predicateForObjectsWithMetadataKey:(id)arg1 andStringValue:(id)arg2;
++ (id)predicateForObjectsWithMetadataKey:(id)arg1 inValues:(id)arg2;
++ (id)predicateForObjectsWithMetadataKey:(id)arg1 andValue:(id)arg2;
 + (id)predicateForObjectsWithStructuredMetadataKey:(id)arg1 andValue:(id)arg2;
 + (id)predicateForObjectsWithMetadataKey:(id)arg1;
 + (id)structuredMetadataKeyPathForMetadataKey:(id)arg1;
@@ -40,10 +44,14 @@
 + (id)predicateForEventsWithCategoryValue:(id)arg1;
 + (id)predicateForEventsWithStreamNames:(id)arg1;
 + (id)predicateForEventsWithStreamName:(id)arg1;
++ (id)predicateForEventsWithCreationInDateRangeFromAfter:(id)arg1 to:(id)arg2;
++ (id)predicateForEventsWithCreationInDateRangeFrom:(id)arg1 toBefore:(id)arg2;
++ (id)predicateForEventsWithMinumumDuration:(double)arg1;
 + (id)predicateForEventsBetweenStartSecondOfDay:(unsigned long long)arg1 endSecondOfDay:(unsigned long long)arg2;
 + (id)predicateForEventsWithDayOfWeek:(unsigned long long)arg1;
 + (id)predicateForEventsIntersectingDateRangeFrom:(id)arg1 to:(id)arg2;
 + (id)predicateForEventsContainingDateRangeFrom:(id)arg1 to:(id)arg2;
++ (id)predicateForEventsWithStartDateOrCreationDateBefore:(id)arg1;
 + (id)predicateForEventsWithStartAndEndInDateRangeFrom:(id)arg1 to:(id)arg2;
 + (id)predicateForEventsWithStartOrEndInDateRangeWithFrom:(id)arg1 to:(id)arg2;
 + (id)predicateForEventsWithEndInDateRangeFrom:(id)arg1 to:(id)arg2;

@@ -6,24 +6,24 @@
 
 #import <RemoteManagementProtocol/RMPRemoteManagementRequest.h>
 
-#import "CEMRegisteredTypeProtocol.h"
+#import "RMPRegisteredTypeProtocol.h"
 
 @class NSArray, NSString;
 
-@interface RMPCommandsRequest : RMPRemoteManagementRequest <CEMRegisteredTypeProtocol>
+@interface RMPCommandsRequest : RMPRemoteManagementRequest <RMPRegisteredTypeProtocol>
 {
     NSArray *_addCommands;
     NSArray *_removeCommands;
 }
 
-+ (id)RemoveCommandsItem_allowedKeys;
-+ (id)registeredType;
-+ (id)registeredClass;
-@property(retain, nonatomic) NSArray *removeCommands; // @synthesize removeCommands=_removeCommands;
-@property(retain, nonatomic) NSArray *addCommands; // @synthesize addCommands=_addCommands;
++ (id)requestWithUUID:(id)arg1 withAddCommands:(id)arg2 withRemoveCommands:(id)arg3;
++ (id)registeredIdentifier;
++ (id)registeredClassName;
+@property(copy, nonatomic) NSArray *removeCommands; // @synthesize removeCommands=_removeCommands;
+@property(copy, nonatomic) NSArray *addCommands; // @synthesize addCommands=_addCommands;
 - (void).cxx_destruct;
-- (id)serializeRemoveCommandsItem:(id)arg1 withAssetProviders:(id)arg2;
-- (_Bool)validRemoveCommandsItem_Dictionary:(id)arg1 parentKeyPath:(id)arg2 error:(id *)arg3;
+- (id)removeDMFCommands;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)serialize;
 - (_Bool)loadRequestFromDictionary:(id)arg1 error:(id *)arg2;
 

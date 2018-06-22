@@ -6,7 +6,7 @@
 
 #import <Vision/VNObservation.h>
 
-@class NSData, NSString, NSUUID, VNImageprint;
+@class NSData, NSString, VNImageprint;
 
 @interface VNImageprintObservation : VNObservation
 {
@@ -21,11 +21,11 @@
 @property(readonly, nonatomic) _Bool imageprintValid; // @synthesize imageprintValid=_imageprintValid;
 @property(retain, nonatomic) VNImageprint *imageprint; // @synthesize imageprint=_imageprint;
 - (void).cxx_destruct;
+- (id)observationsCacheKey;
 @property(readonly, nonatomic) NSData *rawImageprintDescriptor;
 - (id)initWithRawImageprintDescriptor:(id)arg1;
 - (_Bool)isImageprintValid;
 - (float)calculateDistanceFromImageprintObservation:(id)arg1;
-@property(copy, nonatomic) NSUUID *identifier;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -25,6 +25,7 @@
 - (void)setMessageIdentifier:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *messageIdentifier;
 - (id)initWithMessageIdentifier:(id)arg1;
+- (void)_setMetadata:(id)arg1;
 - (id)_metadata;
 - (id)_typedBackingStore;
 

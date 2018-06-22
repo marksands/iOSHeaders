@@ -19,7 +19,7 @@
 - (id)_meaningLabelForTitle;
 - (id)_title;
 - (void)_generateTitleAndSubtitleWithResult:(CDUnknownBlockType)arg1;
-- (id)initWithCollectionNode:(id)arg1 meaningEdge:(id)arg2;
+- (id)initWithCollection:(id)arg1 meaningEdge:(id)arg2;
 
 @end
 

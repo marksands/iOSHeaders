@@ -9,7 +9,7 @@
 #import "RCCaptureOutputWriterDelegate.h"
 #import "RCWaveformDataSourceObserver.h"
 
-@class NSDate, NSHashTable, NSObject<OS_dispatch_group>, NSString, RCAVState, RCAudioSessionRoutingAssertion, RCCaptureInputDevice, RCCaptureInputWaveformDataSource, RCCaptureOutputWriter, SBSSecureAppAssertion;
+@class NSDate, NSMutableOrderedSet, NSObject<OS_dispatch_group>, NSString, RCAVState, RCAudioSessionRoutingAssertion, RCCaptureInputDevice, RCCaptureInputWaveformDataSource, RCCaptureOutputWriter, SBSSecureAppAssertion;
 
 @interface RCCaptureSession : NSObject <RCCaptureOutputWriterDelegate, RCWaveformDataSourceObserver>
 {
@@ -26,7 +26,7 @@
     _Bool _destinationShouldBeDeleted;
     _Bool _captureBeginSoundEffectDisabled;
     _Bool _captureEndSoundEffectDisabled;
-    NSHashTable *_weakObservers;
+    NSMutableOrderedSet *_weakObservers;
     RCCaptureInputDevice *_inputDevice;
     RCCaptureInputWaveformDataSource *_captureWaveformDataSource;
     SBSSecureAppAssertion *_assertion;
@@ -40,7 +40,7 @@
 - (void).cxx_destruct;
 - (void)_takeSBSecureAppAssertion:(_Bool)arg1;
 - (_Bool)_openAVCaptureSessionAndWaitUntilRunning;
-- (_Bool)_attachInputToCaptureSession:(id)arg1;
+- (_Bool)_attachInputToCaptureSession:(id)arg1 withAudioDevice:(id)arg2;
 - (void)_closeCaptureSession;
 - (void)_deleteCaptureDestinationAndPostDidEndNotification:(id)arg1;
 - (void)_onMainQueueHandleCaptureDidFinishCapturingAfterCompletionSound;

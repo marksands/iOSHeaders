@@ -10,14 +10,15 @@
 
 @interface CABackdropLayer : CALayer
 {
+    _Bool _disablesOccludedBackdropBlurs;
 }
 
 + (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
 + (_Bool)_hasRenderLayerSubclass;
 + (id)defaultValueForKey:(id)arg1;
+@property _Bool disablesOccludedBackdropBlurs; // @synthesize disablesOccludedBackdropBlurs=_disablesOccludedBackdropBlurs;
 @property double statisticsInterval;
 @property(copy) NSString *statisticsType;
-@property _Bool disablesOccludedBackdropBlurs;
 @property _Bool allowsInPlaceFiltering;
 @property _Bool captureOnly;
 @property double marginWidth;

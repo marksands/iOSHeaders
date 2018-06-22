@@ -10,21 +10,17 @@
 
 @interface ARBuiltInLatency : ARTechnique
 {
-    NSObject<OS_dispatch_semaphore> *_resultsAvailableSemaphore;
-    long long _resultsAvailableSemaphoreWaitResult;
     NSMutableArray *_results;
-    double _resultTimeoutInterval;
     NSObject<OS_dispatch_semaphore> *_resultsSemaphore;
     NSObject<OS_dispatch_queue> *_requestsQueue;
-    long long _latencyResultsNeeded;
-    long long _latencyResultCount;
+    double _latency;
 }
 
-@property(readonly, nonatomic) long long latencyResultCount; // @synthesize latencyResultCount=_latencyResultCount;
+@property(readonly, nonatomic) double latency; // @synthesize latency=_latency;
 - (void).cxx_destruct;
 - (void)requestResultDataAtTimestamp:(double)arg1 context:(id)arg2;
 - (id)processData:(id)arg1;
-- (id)initWithResultLatency:(long long)arg1 timeoutInterval:(double)arg2;
+- (id)initWithLatency:(double)arg1;
 
 @end
 

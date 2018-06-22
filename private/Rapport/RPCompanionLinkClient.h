@@ -10,7 +10,7 @@
 #import "RPCompanionLinkXPCClientInterface.h"
 #import "RPMessageable.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection, RPCompanionLinkDevice;
+@class NSArray, NSMutableOrderedSet, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection, RPCompanionLinkDevice;
 
 @interface RPCompanionLinkClient : NSObject <NSSecureCoding, RPCompanionLinkXPCClientInterface, RPMessageable>
 {
@@ -20,9 +20,12 @@
     struct NSMutableDictionary *_eventRegistrations;
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
+    NSMutableOrderedSet *_registeredProfileIDs;
     struct NSMutableDictionary *_requestRegistrations;
     NSXPCConnection *_xpcCnx;
+    _Bool _reportBTPipe;
     unsigned int _flags;
+    unsigned long long _controlFlags;
     RPCompanionLinkDevice *_destinationDevice;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     CDUnknownBlockType _interruptionHandler;
@@ -37,6 +40,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool reportBTPipe; // @synthesize reportBTPipe=_reportBTPipe;
 @property(copy, nonatomic) CDUnknownBlockType localDeviceUpdatedHandler; // @synthesize localDeviceUpdatedHandler=_localDeviceUpdatedHandler;
 @property(retain) RPCompanionLinkDevice *localDevice; // @synthesize localDevice=_localDevice;
 @property(copy, nonatomic) CDUnknownBlockType deviceChangedHandler; // @synthesize deviceChangedHandler=_deviceChangedHandler;
@@ -49,6 +53,7 @@
 @property(nonatomic) unsigned int flags; // @synthesize flags=_flags;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(retain, nonatomic) RPCompanionLinkDevice *destinationDevice; // @synthesize destinationDevice=_destinationDevice;
+@property(nonatomic) unsigned long long controlFlags; // @synthesize controlFlags=_controlFlags;
 - (void).cxx_destruct;
 - (void)companionLinkReceivedRequestID:(id)arg1 request:(id)arg2 options:(id)arg3 responseHandler:(CDUnknownBlockType)arg4;
 - (void)sendRequestID:(id)arg1 request:(id)arg2 destinationID:(id)arg3 options:(id)arg4 responseHandler:(CDUnknownBlockType)arg5;
@@ -56,6 +61,10 @@
 - (void)_reregisterRequests;
 - (void)_registerRequestID:(id)arg1 options:(id)arg2 reregister:(_Bool)arg3;
 - (void)registerRequestID:(id)arg1 options:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (void)deregisterProfileID:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_reregisterProfileIDs;
+- (void)_registerProfileID:(id)arg1 reregister:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)registerProfileID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)companionLinkReceivedEventID:(id)arg1 event:(id)arg2 options:(id)arg3;
 - (void)sendEventID:(id)arg1 event:(id)arg2 destinationID:(id)arg3 options:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)deregisterEventID:(id)arg1;

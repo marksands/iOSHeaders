@@ -20,16 +20,24 @@
     _Bool _isSimStateValid;
     _Bool _shouldDisplay;
     _Bool _shouldAppearDisabled;
+    _Bool _isActiveDataPlan;
+    _Bool _isDefaultVoice;
     _Bool _isSelectable;
     CTCellularPlan *_plan;
     long long _type;
     long long _lockState;
+    NSString *_phoneNumber;
+    NSString *_label;
     NSNumber *_isSelectedOverride;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool isSelectable; // @synthesize isSelectable=_isSelectable;
 @property(retain, nonatomic) NSNumber *isSelectedOverride; // @synthesize isSelectedOverride=_isSelectedOverride;
+@property(nonatomic) NSString *label; // @synthesize label=_label;
+@property(nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
+@property(nonatomic) _Bool isDefaultVoice; // @synthesize isDefaultVoice=_isDefaultVoice;
+@property(nonatomic) _Bool isActiveDataPlan; // @synthesize isActiveDataPlan=_isActiveDataPlan;
 @property(nonatomic) _Bool shouldAppearDisabled; // @synthesize shouldAppearDisabled=_shouldAppearDisabled;
 @property(readonly, nonatomic) _Bool shouldDisplay; // @synthesize shouldDisplay=_shouldDisplay;
 @property(nonatomic) _Bool isSimStateValid; // @synthesize isSimStateValid=_isSimStateValid;
@@ -40,18 +48,20 @@
 @property(readonly, nonatomic) CTCellularPlan *plan; // @synthesize plan=_plan;
 - (void)dealloc;
 - (id)description;
+@property(readonly, nonatomic) NSString *carrierName;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) NSString *identifier;
 @property(readonly, nonatomic) NSString *iccid;
+@property(readonly, nonatomic) _Bool isInstalling;
 @property(readonly, nonatomic) _Bool isSelected;
 @property(readonly, nonatomic) _Bool isBackedByCellularPlan;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithIccid:(id)arg1 name:(id)arg2;
-- (id)initWithCellularPlan:(id)arg1 type:(long long)arg2;
+- (id)initWithIccid:(id)arg1 name:(id)arg2 phoneNumber:(id)arg3 label:(id)arg4;
+- (id)initWithCellularPlan:(id)arg1 type:(long long)arg2 phoneNumber:(id)arg3 label:(id)arg4;
 - (id)initWithCellularPlan:(id)arg1;
-- (id)initWithCellularPlan:(id)arg1 iccid:(id)arg2 name:(id)arg3 type:(long long)arg4;
+- (id)initWithCellularPlan:(id)arg1 iccid:(id)arg2 name:(id)arg3 type:(long long)arg4 phoneNumber:(id)arg5 label:(id)arg6;
 
 @end
 

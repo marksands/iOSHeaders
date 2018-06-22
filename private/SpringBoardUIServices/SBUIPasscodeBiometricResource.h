@@ -20,6 +20,7 @@
 - (void)resumeMatchingAdvisory:(_Bool)arg1;
 - (void)resumeMatchingForAssertion:(id)arg1 advisory:(_Bool)arg2;
 - (void)refreshMatchMode;
+- (id)acquireSimulatedLockoutAssertionWithLockoutState:(unsigned long long)arg1 forReason:(id)arg2;
 - (id)acquireMatchingAssertionWithMode:(unsigned long long)arg1 reason:(id)arg2;
 - (id)acquireFingerDetectionWantedAssertionForReason:(id)arg1;
 - (void)removeObserver:(id)arg1;

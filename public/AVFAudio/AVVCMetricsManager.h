@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary;
 
+__attribute__((visibility("hidden")))
 @interface AVVCMetricsManager : NSObject
 {
     unsigned long long _voiceTriggerStartHostTime;

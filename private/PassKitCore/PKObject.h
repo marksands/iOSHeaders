@@ -9,14 +9,14 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSData, NSLock, NSString, NSURL, PKContent, PKDataAccessor, PKDisplayProfile, PKImageSet;
+@class NSData, NSString, NSURL, PKContent, PKDataAccessor, PKDisplayProfile, PKImageSet;
 
 @interface PKObject : NSObject <NSCopying, NSSecureCoding>
 {
-    PKImageSet *_imageSets[7];
-    NSLock *_imageSetLock;
-    _Bool _initializedViaInitWithCoder;
     PKContent *_content;
+    PKImageSet *_imageSets[7];
+    struct os_unfair_lock_s _lock;
+    _Bool _initializedViaInitWithCoder;
     NSString *_uniqueID;
     NSData *_manifestHash;
     PKDataAccessor *_dataAccessor;
@@ -43,7 +43,6 @@
 @property(retain, nonatomic) PKDataAccessor *dataAccessor; // @synthesize dataAccessor=_dataAccessor;
 @property(copy, nonatomic) NSData *manifestHash; // @synthesize manifestHash=_manifestHash;
 @property(copy, nonatomic) NSString *uniqueID; // @synthesize uniqueID=_uniqueID;
-@property(retain, nonatomic) PKContent *content; // @synthesize content=_content;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -68,14 +67,18 @@
 - (void)flushLoadedImageSets;
 - (void)loadImageSetAsync:(long long)arg1 preheat:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)loadImageSetSync:(long long)arg1 preheat:(_Bool)arg2;
+- (void)setImageSet:(id)arg1 forImageSetType:(long long)arg2;
 - (_Bool)isImageSetLoaded:(long long)arg1;
 - (void)flushFormattedFieldValues;
 - (void)flushLoadedContent;
 - (void)loadContentAsyncWithCompletion:(CDUnknownBlockType)arg1;
 - (void)loadContentSync;
 - (_Bool)isContentLoaded;
+- (void)setContent:(id)arg1;
+- (id)content;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1 bundle:(id)arg2;
+- (id)init;
 - (id)initWithFileDataAccessor:(id)arg1;
 - (id)initWithFileURL:(id)arg1 warnings:(id *)arg2 orError:(id *)arg3;
 - (id)initWithFileURL:(id)arg1 error:(id *)arg2;

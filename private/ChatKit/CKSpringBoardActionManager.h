@@ -18,6 +18,7 @@
 + (id)sharedInstance;
 @property(retain, nonatomic) CKContactsSearchManager *contactsSearchManager; // @synthesize contactsSearchManager=_contactsSearchManager;
 - (void).cxx_destruct;
+- (id)conversationCacheForCcontactsSearchManager:(id)arg1;
 - (void)contactsSearchManager:(id)arg1 finishedSearchingWithResults:(id)arg2;
 - (void)updateShortcutItems;
 - (void)dealloc;

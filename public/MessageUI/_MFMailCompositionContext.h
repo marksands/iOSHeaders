@@ -79,6 +79,7 @@
 - (id)messageBody;
 - (void)switchToReplyAllWithDelegate:(id)arg1;
 - (void)dealloc;
+- (id)initWithHandoffActivityPayload:(id)arg1;
 - (id)initOutboxRestoreOfMessage:(id)arg1;
 - (id)initSendAgainDraftOfMessage:(id)arg1;
 - (id)initDraftRestoreOfMessage:(id)arg1;

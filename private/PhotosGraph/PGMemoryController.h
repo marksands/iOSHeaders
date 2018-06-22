@@ -16,6 +16,7 @@
     long long _numberOfDaysSinceLastMemory;
     NSMutableIndexSet *_matchedCategories;
     NSMutableIndexSet *_excludedFeaturedSubcategories;
+    NSArray *_existingSuggestions;
     NSMutableDictionary *_numberOfAssetsByMomentIDs;
     NSMutableDictionary *_momentsByMomentIDs;
     NSMutableDictionary *_backingMomentIDsByPHMemoryIDs;
@@ -95,7 +96,7 @@
 - (id)_doDirectModeWithLocalDate:(id)arg1 location:(id)arg2 peopleNames:(id)arg3 parameters:(id)arg4 progress:(CDUnknownBlockType)arg5;
 - (id)createMemoriesWithOptions:(id)arg1 progress:(CDUnknownBlockType)arg2;
 - (unsigned long long)_meaningFromString:(id)arg1;
-- (long long)subcategoryForString:(id)arg1;
+- (unsigned long long)subcategoryForString:(id)arg1;
 - (id)_createFirstTimesAfterUpgradeMemoriesWithLocalDate:(id)arg1 location:(id)arg2 peopleNames:(id)arg3 progress:(CDUnknownBlockType)arg4;
 - (id)_createThirdEverMemoriesWithLocalDate:(id)arg1 location:(id)arg2 peopleNames:(id)arg3 progress:(CDUnknownBlockType)arg4;
 - (id)_createSecondEverMemoriesWithLocalDate:(id)arg1 location:(id)arg2 peopleNames:(id)arg3 progress:(CDUnknownBlockType)arg4;
@@ -104,13 +105,13 @@
 - (id)_createPeriodicMemoriesWithLocalDate:(id)arg1 location:(id)arg2 peopleNames:(id)arg3 progress:(CDUnknownBlockType)arg4;
 - (double)updatedBeta:(double)arg1 forNumberOfDaysSinceLastMemory:(long long)arg2;
 - (id)_createMoreMemoriesWithLocalDate:(id)arg1 location:(id)arg2 peopleNames:(id)arg3 progress:(CDUnknownBlockType)arg4;
-- (id)_createOneMemoryWithCategory:(long long)arg1 subcategory:(long long)arg2 localDate:(id)arg3 location:(id)arg4 peopleNames:(id)arg5;
+- (id)_createOneMemoryWithCategory:(unsigned long long)arg1 subcategory:(unsigned long long)arg2 localDate:(id)arg3 location:(id)arg4 peopleNames:(id)arg5;
 - (_Bool)_doOneFeaturedWithLocalDate:(id)arg1 reason:(unsigned long long)arg2 usingLowRequirements:(_Bool)arg3 hasExhaustedFeatured:(_Bool *)arg4;
 - (_Bool)_doFeaturedForType:(unsigned long long)arg1 beforeLocalDate:(id)arg2 usingLowRequirements:(_Bool)arg3 oldMemory:(_Bool)arg4;
 - (_Bool)_wantsFeaturedForType:(unsigned long long)arg1 reason:(unsigned long long)arg2 usingLowRequirements:(_Bool)arg3;
 - (_Bool)_hasExhaustedFeatured:(_Bool *)arg1;
-- (long long)_featuredSubcategoryForGeneratorType:(unsigned long long)arg1;
-- (unsigned long long)_generatorTypeForFeaturedSubcategory:(long long)arg1;
+- (unsigned long long)_featuredSubcategoryForGeneratorType:(unsigned long long)arg1;
+- (unsigned long long)_generatorTypeForFeaturedSubcategory:(unsigned long long)arg1;
 - (_Bool)_doFeaturedRecurrentTripBeforeLocalDate:(id)arg1 usingLowRequirements:(_Bool)arg2 oldMemory:(_Bool)arg3;
 - (_Bool)_wantsFeaturedRecurrentTripWithReason:(unsigned long long)arg1 usingLowRequirements:(_Bool)arg2;
 - (_Bool)_doContextualTodayWidgetWithLocalDate:(id)arg1 location:(id)arg2 peopleNames:(id)arg3;
@@ -201,8 +202,7 @@
 - (_Bool)_assetCollection:(id)arg1 matchesAssetCollection:(id)arg2;
 - (_Bool)_memories:(id)arg1 containAssetCollection:(id)arg2;
 - (_Bool)_memories:(id)arg1 containMemory:(id)arg2;
-- (_Bool)collectionIsTimely:(id)arg1;
-- (_Bool)momentIsTimely:(id)arg1;
+- (_Bool)eventIsTimely:(id)arg1;
 - (id)momentForMomentID:(id)arg1;
 - (_Bool)probabilityPassWithThreshold:(double)arg1;
 - (unsigned int)randomNumberLessThan:(unsigned long long)arg1;

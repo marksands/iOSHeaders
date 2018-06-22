@@ -25,6 +25,7 @@
     CDUnknownBlockType _currentDateProvider;
 }
 
++ (id)_diagnosticDictionaryForAlarm:(id)arg1;
 + (id)_alarmsByMergingAlarms:(id)arg1 withAlarms:(id)arg2 addedAlarms:(id)arg3 updatedAlarms:(id)arg4;
 + (id)alarmsByMergingAlarms:(id)arg1 withAlarms:(id)arg2;
 @property(readonly, copy, nonatomic) CDUnknownBlockType currentDateProvider; // @synthesize currentDateProvider=_currentDateProvider;
@@ -38,6 +39,8 @@
 @property(nonatomic) __weak MTSleepMonitor *sleepMonitor; // @synthesize sleepMonitor=_sleepMonitor;
 @property(nonatomic) __weak MTAlarmScheduler *scheduler; // @synthesize scheduler=_scheduler;
 - (void).cxx_destruct;
+- (id)_diagnosticAlarmDictionary;
+- (id)gatherDiagnostics;
 - (void)printDiagnostics;
 - (void)handleF5Reset;
 - (void)_queue_persistAlarms;
@@ -89,6 +92,7 @@
 - (void)_loadAlarmsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)loadAlarmsSync;
 - (void)loadAlarms;
+- (id)_cleanUpForInternalBuild:(id)arg1;
 - (id)initWithPersistence:(id)arg1 migrator:(id)arg2 scheduler:(id)arg3 currentDateProvider:(CDUnknownBlockType)arg4;
 - (id)initWithPersistence:(id)arg1;
 - (id)init;

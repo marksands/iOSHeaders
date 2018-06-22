@@ -39,6 +39,7 @@
 - (id)callForUUID:(id)arg1;
 - (void)handleUpdatedCalls:(id)arg1;
 - (void)callDidConnect:(id)arg1;
+- (void)telephonySupportDidChange:(id)arg1;
 - (id)init;
 
 // Remaining properties

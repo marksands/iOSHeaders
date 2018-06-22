@@ -9,12 +9,15 @@
 @class NSData, PKBarcode;
 
 @interface PKPass (NanoPassKit)
+@property(readonly) _Bool npkHasValidNFCPayload;
+@property(readonly) _Bool npkHasTransitBalance;
+@property(readonly) _Bool npkIsEnroute;
 @property(readonly) _Bool hasLogoImageSet;
 - (id)npkCompleteHashForWatchOSVersion:(unsigned long long)arg1;
 @property(readonly) NSData *npkCompleteHash;
 @property(readonly) _Bool npkExpired;
-@property(readonly) _Bool npkSupportsHidingBarcode;
+@property(readonly) _Bool npkSupportsHidingAccessory;
 @property(readonly) PKBarcode *npkWatchBarcode;
-@property(readonly) _Bool npkHasBarcode;
+- (long long)npkAccessoryType;
 @end
 

@@ -7,16 +7,19 @@
 #import "NSObject.h"
 
 #import "CNContactPickerDelegate.h"
+#import "SFCredentialProviderExtensionManagerObserver.h"
 #import "WBUContactAutoFillViewControllerFiller.h"
 #import "WBUCreditCardCaptureViewControllerDelegate.h"
+#import "_ASCredentialProviderExtensionViewControllerDelegate.h"
+#import "_ASPasswordCredentialAuthenticationViewControllerDelegate.h"
 
-@class NSArray, NSDictionary, NSMutableDictionary, NSString, UIView<WBUFormAutoFillWebView>, WBSFormMetadata, WBSMultiRoundAutoFillManager, WBUFormDataController;
+@class NSArray, NSDictionary, NSMutableDictionary, NSString, UIView<WBUFormAutoFillWebView>, WBSFormControlMetadata, WBSFormMetadata, WBSMultiRoundAutoFillManager, WBUFormDataController, _ASPasswordCredentialAuthenticationViewController;
 
-@interface WBUFormAutoCompleteState : NSObject <WBUCreditCardCaptureViewControllerDelegate, WBUContactAutoFillViewControllerFiller, CNContactPickerDelegate>
+@interface WBUFormAutoCompleteState : NSObject <SFCredentialProviderExtensionManagerObserver, _ASCredentialProviderExtensionViewControllerDelegate, _ASPasswordCredentialAuthenticationViewControllerDelegate, WBUCreditCardCaptureViewControllerDelegate, WBUContactAutoFillViewControllerFiller, CNContactPickerDelegate>
 {
     CDUnknownBlockType _creditCardCaptureCompletionHandler;
     WBSFormMetadata *_formMetadata;
-    NSDictionary *_textFieldMetadata;
+    WBSFormControlMetadata *_textFieldMetadata;
     unsigned long long _formType;
     long long _action;
     _Bool _gatheringFormValues;
@@ -32,13 +35,20 @@
     CDUnknownBlockType _displayOtherContactsCompletionHandler;
     CDUnknownBlockType _customAutoFillContactCompletionHandler;
     _Bool _hasNotedThatTextDidChangeInPasswordField;
+    _ASPasswordCredentialAuthenticationViewController *_externalCredentialViewController;
+    _Bool _invalidated;
     WBUFormDataController *_dataController;
 }
 
 + (void)getMatchesFromFormProtectionSpace:(id)arg1 matchesFromOtherProtectionSpaces:(id)arg2 withFormURL:(id)arg3 credentialMatches:(id)arg4 lastGeneratedPassword:(id)arg5 currentUser:(id)arg6 currentPassword:(id)arg7 forUserNamesOnly:(_Bool)arg8;
 + (_Bool)_shouldSaveCredentialsInProtectionSpace:(id)arg1;
+@property(readonly, nonatomic) _Bool invalidated; // @synthesize invalidated=_invalidated;
 @property(nonatomic) __weak WBUFormDataController *dataController; // @synthesize dataController=_dataController;
 - (void).cxx_destruct;
+- (void)passwordCredentialAuthenticationViewController:(id)arg1 didFinishWithCredential:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)presentUIForPasswordCredentialAuthenticationViewController:(id)arg1;
+- (void)credentialProviderExtensionViewController:(id)arg1 didFinishWithCredential:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)credentialProviderExtensionManagerExtensionListDidChange:(id)arg1;
 - (void)contactPicker:(id)arg1 didSelectContact:(id)arg2;
 - (void)contactPickerDidCancel:(id)arg1;
 - (id)_bestTextFieldMetadataForMetadata:(id)arg1;
@@ -53,8 +63,10 @@
 - (void)_autoFillWithSet:(id)arg1;
 - (void)creditCardCaptureViewController:(id)arg1 didCaptureCreditCard:(id)arg2;
 - (void)creditCardCaptureViewControllerDidCancel:(id)arg1;
+@property(readonly, nonatomic) NSArray *externalCredentialIdentities;
 - (void)_offerToAutoFillFromPotentialCredentialMatches;
-- (void)fillCredential:(id)arg1 setAutoFilled:(_Bool)arg2 setAsDefaultCredential:(_Bool)arg3;
+- (Class)_passwordPickerViewControllerClass;
+- (void)fillCredential:(id)arg1 setAutoFilled:(_Bool)arg2 setAsDefaultCredential:(_Bool)arg3 focusFieldAfterFilling:(_Bool)arg4;
 - (_Bool)hasPotentialLoginCredentialsForLoginForm;
 - (id)potentialCredentialMatches;
 - (void)getLoginFormUser:(id *)arg1 password:(id *)arg2 userIsAutoFilled:(_Bool *)arg3 passwordIsAutoFilled:(_Bool *)arg4;
@@ -69,6 +81,8 @@
 - (_Bool)_shouldUsePasswordGenerationAssistanceForTextField;
 - (void)_autoFillCreditCardData;
 - (void)autoFillFormWithCreditCardDataAfterAuthenticationIfNeeded:(id)arg1;
+- (void)_fillASPasswordCredential:(id)arg1 needsAuthentication:(_Bool)arg2 setAutoFilled:(_Bool)arg3;
+- (void)fillPasswordCredentialIdentity:(id)arg1;
 - (void)fillCredentialAfterAuthenticationIfNeeded:(id)arg1 setAsDefaultCredential:(_Bool)arg2;
 - (void)autoFillValuesAfterAuthenticationIfNeeded:(id)arg1;
 - (void)_captureCreditCardDataWithCameraAndFill;
@@ -87,6 +101,7 @@
 - (_Bool)hasCurrentSuggestions;
 @property(readonly, nonatomic) NSString *textFieldValue;
 - (void)_performAutoFill;
+- (void)showAllPasswordsButtonTapped;
 - (void)updateCachedFormMetadataAfterFilling:(id)arg1;
 - (void)_setUpMultiRoundAutoFillManagerIfNecessary;
 - (void)_setUserAndPasswordFieldsAutoFilled:(_Bool)arg1 clearPasswordField:(_Bool)arg2;
@@ -97,14 +112,17 @@
 - (void)autoFillValues:(id)arg1 setAutoFilled:(_Bool)arg2 andFocusField:(id)arg3;
 - (void)fetchFormMetadataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)textDidChangeInForm:(id)arg1 textField:(id)arg2;
-- (long long)_action;
+@property(readonly, nonatomic) long long action;
 @property(readonly, nonatomic) _Bool shouldOfferToAutoFillCreditCardData;
 - (_Bool)_textFieldIsEmptyPasswordField;
 - (id)titleOfAutoFillButton;
 - (void)_updateAutoFillButton;
 - (void)setAutoFillButtonTitle:(id)arg1;
+@property(readonly, nonatomic) _Bool shouldShowIconsInPasswordPicker;
+@property(readonly, nonatomic) _Bool shouldShowPasswordsListOption;
 - (void)_gatherFormValuesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (long long)_actionForLoginForm;
+- (_Bool)shouldAllowExternalPasswordAutoFillOnURL:(id)arg1;
 - (_Bool)_shouldAllowGeneratedPassword;
 - (void)_getShouldOfferForgetPassword:(_Bool *)arg1 savePassword:(_Bool *)arg2;
 - (void)_presentViewController:(id)arg1 presentingViewController:(id)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;

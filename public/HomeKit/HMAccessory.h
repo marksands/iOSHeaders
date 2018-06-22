@@ -14,7 +14,7 @@
 #import "HMObjectMerge.h"
 #import "NSSecureCoding.h"
 
-@class HMAccessoryCategory, HMAccessorySettings, HMApplicationData, HMDelegateCaller, HMDevice, HMFMessageDispatcher, HMFPairingIdentity, HMFSoftwareVersion, HMHome, HMRemoteLoginHandler, HMRoom, HMSoftwareUpdateController, HMSymptomsHandler, HMThreadSafeMutableArrayCollection, NSArray, NSNumber, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HMAccessoryCategory, HMAccessorySettings, HMApplicationData, HMDelegateCaller, HMDevice, HMFMessageDispatcher, HMFPairingIdentity, HMFSoftwareVersion, HMFWiFiNetworkInfo, HMHome, HMRemoteLoginHandler, HMRoom, HMSoftwareUpdateController, HMSymptomsHandler, HMThreadSafeMutableArrayCollection, NSArray, NSNumber, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
 @interface HMAccessory : NSObject <HMFLogging, NSSecureCoding, HMFMessageReceiver, HMObjectMerge, HMMutableApplicationData, HMAccessorySettingsContainer, HMControllable>
 {
@@ -28,6 +28,8 @@
     _Bool _blocked;
     _Bool _controllable;
     _Bool _supportsMediaAccessControl;
+    _Bool _supportsTargetControl;
+    _Bool _supportsTargetController;
     _Bool _paired;
     _Bool _needsReprovisioning;
     NSUUID *_uniqueIdentifier;
@@ -55,6 +57,8 @@
     NSUUID *_accountIdentifier;
     HMAccessorySettings *_settings;
     HMFPairingIdentity *_pairingIdentity;
+    HMFWiFiNetworkInfo *_wifiNetworkInfo;
+    NSArray *_controlTargetUUIDs;
     HMFMessageDispatcher *_msgDispatcher;
     long long _reachableTransports;
     HMThreadSafeMutableArrayCollection *_currentServices;
@@ -91,6 +95,14 @@
 @property(nonatomic) unsigned long long transportTypes; // @synthesize transportTypes=_transportTypes;
 @property(nonatomic) _Bool firmwareUpdateAvailable; // @synthesize firmwareUpdateAvailable=_firmwareUpdateAvailable;
 - (void).cxx_destruct;
+- (void)_handleTargetControlSupportUpdatedMessage:(id)arg1;
+- (void)_handleControlTargetsUpdatedMessage:(id)arg1;
+- (void)resetControlTargetsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)removeControlTarget:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)addControlTarget:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_notifyDelegateOfRemovedControlTarget:(id)arg1;
+- (void)_notifyDelegateOfAddedControlTarget:(id)arg1;
+- (void)_notifyClientsOfTargetControlSupportUpdate;
 - (id)_privateDelegate;
 - (void)_notifyDelegatesOfUpdatedControllable;
 - (void)_notifyDelegatesOfAdditionalSetupRequiredChange;
@@ -134,6 +146,8 @@
 - (id)logIdentifier;
 - (void)_mergeProfileObjects:(id)arg1 currentOperations:(id)arg2;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
+- (_Bool)_mergeControlTargets:(id)arg1 operations:(id)arg2;
+- (_Bool)_mergeServices:(id)arg1 operations:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)_handleMultipleCharacteristicsUpdated:(id)arg1 informDelegate:(_Bool)arg2;
@@ -183,6 +197,15 @@
 - (void)_handleRootSettingsUpdated:(id)arg1;
 - (void)setSettings:(id)arg1;
 @property(readonly) HMAccessorySettings *settings; // @synthesize settings=_settings;
+@property(retain, nonatomic) HMFWiFiNetworkInfo *wifiNetworkInfo; // @synthesize wifiNetworkInfo=_wifiNetworkInfo;
+- (id)targetControllers;
+- (id)controlTargets;
+- (void)resetControlTargetUUIDs;
+- (void)removeControlTargetUUIDs:(id)arg1;
+- (void)addControlTargetUUIDs:(id)arg1;
+@property(copy, nonatomic) NSArray *controlTargetUUIDs; // @synthesize controlTargetUUIDs=_controlTargetUUIDs;
+@property(nonatomic) _Bool supportsTargetController; // @synthesize supportsTargetController=_supportsTargetController;
+@property(nonatomic) _Bool supportsTargetControl; // @synthesize supportsTargetControl=_supportsTargetControl;
 @property(nonatomic) _Bool supportsMediaAccessControl; // @synthesize supportsMediaAccessControl=_supportsMediaAccessControl;
 @property(copy) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
 @property(copy, nonatomic) NSString *firmwareVersion; // @synthesize firmwareVersion=_firmwareVersion;

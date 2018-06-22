@@ -27,10 +27,9 @@
 - (id)initWithController:(id)arg1;
 - (id)_seasonInHistoryPotentialMemories;
 - (id)_lastSeasonPotentialMemory;
-- (id)_potentialMemoryForMomentNodes:(id)arg1 seasonNode:(id)arg2 category:(long long)arg3;
+- (id)_potentialMemoryForMomentNodes:(id)arg1 seasonNode:(id)arg2 category:(unsigned long long)arg3;
 - (void)seasonInHistoryMomentNodesForLocalDate:(id)arg1 resultBlock:(CDUnknownBlockType)arg2;
 - (void)lastSeasonMomentNodesForLocalDate:(id)arg1 resultBlock:(CDUnknownBlockType)arg2;
-- (id)_previousSeasonForSeason:(id)arg1;
 
 @end
 

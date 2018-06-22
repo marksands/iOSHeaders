@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _advertiserCount;
     unsigned long long _advertiseProviderCount;
     unsigned long long _advertiseSeekerCount;
+    unsigned long long _advertiseTriggerCount;
     _Bool _advertisingStartCalled;
     CDStruct_83abfce7 _bleAddress48;
     _Bool _bleAddressValid;

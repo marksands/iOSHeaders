@@ -6,24 +6,87 @@
 
 #import <PhotosGraph/PGGraphNode.h>
 
-#import "PGGraphMomentNode.h"
+#import "PGGraphPhotoEvent.h"
+#import "PLMomentProtocol.h"
 
-@class NSString;
+@class CLLocation, NSDate, NSSet, NSString;
 
-@interface PGGraphMomentNode : PGGraphNode <PGGraphMomentNode>
+@interface PGGraphMomentNode : PGGraphNode <PLMomentProtocol, PGGraphPhotoEvent>
 {
 }
 
++ (id)collectionNodesForMomentNodes:(id)arg1;
++ (id)sceneEdgesForMomentNodes:(id)arg1;
++ (id)addressEdgesForMomentNodes:(id)arg1;
++ (id)addressNodesForMomentNodes:(id)arg1;
++ (id)firstAndLastMomentNodesInMomentNodes:(id)arg1;
++ (id)contentScoreSortDescriptors;
++ (id)scoreSortDescriptors;
+- (id)naturalLanguageFeatures;
+- (id)keywordsForRelatedType:(unsigned long long)arg1 focusOnNodes:(id)arg2;
+- (long long)_compareToMomentNode:(id)arg1 withSortDescriptors:(id)arg2;
+- (id)laterMomentNode:(id)arg1;
+- (id)earlierMomentNode:(id)arg1;
+- (id)meaningNodes;
+- (id)publicEventNodes;
+- (id)businessNodes;
+- (id)addressNodes;
+- (id)searchConfidenceSceneNodes;
+- (id)highConfidenceSceneNodes;
+- (id)sceneNodes;
+- (id)roiNodes;
+- (id)poiNodes;
+- (id)celebratedHolidayNodes;
+- (id)holidayNodes;
+- (id)seasonNodes;
+- (id)dateNodes;
+- (id)socialGroupNodes;
+- (id)personNodes;
+- (id)momentNodes;
+- (void)enumerateMeaningNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumeratePublicEventNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateBusinessesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateBusinessNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)momentEnumerateSceneNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)momentEnumerateROINodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)momentEnumeratePOINodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)momentEnumerateSocialGroupNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)momentEnumerateMeaningNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateCollectionNodesUsingBlock:(CDUnknownBlockType)arg1;
+@property(readonly) NSSet *collectionNodes;
+- (void)momentEnumeratePersonNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (id)remoteAddressEdges;
+- (void)enumerateConsolidatedAddressEdgesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)momentEnumerateRemoteAddressNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateAddressNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (id)addressEdges;
+- (void)momentEnumerateCelebratedHolidayNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)momentEnumerateDateNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (_Bool)endsBeforeLocalDate:(id)arg1;
+- (_Bool)startsAfterLocalDate:(id)arg1;
+@property(readonly) NSDate *universalEndDate;
+@property(readonly) NSDate *universalStartDate;
+@property(readonly) NSDate *localEndDate;
+@property(readonly) NSDate *localStartDate;
+@property(readonly, nonatomic) unsigned long long locationMobilityType;
+@property(readonly) _Bool isInterestingForMemories;
+@property(readonly) _Bool isHighlyInteresting;
+@property(readonly) _Bool happensPartiallyAtMyHomeOrWork;
+@property(readonly) _Bool happensPartiallyAtMyWork;
+@property(readonly) _Bool happensPartiallyAtMyHome;
+@property(readonly) unsigned long long numberOfAssetsWithPeople;
+- (id)meaningLabels;
+@property(readonly) NSString *localIdentifier;
+@property(readonly, nonatomic) unsigned long long pl_numberOfAssets;
+@property(readonly, nonatomic) CLLocation *pl_location;
+@property(readonly, nonatomic) NSDate *pl_endDate;
+@property(readonly, nonatomic) NSDate *pl_startDate;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) _Bool happensPartiallyAtHome; // @dynamic happensPartiallyAtHome;
-@property(readonly) _Bool happensPartiallyAtMyHomeOrWork; // @dynamic happensPartiallyAtMyHomeOrWork;
 @property(readonly) unsigned long long hash;
-@property(readonly) _Bool isInterestingForMemories; // @dynamic isInterestingForMemories;
-@property(readonly, nonatomic) unsigned long long locationMobilityType; // @dynamic locationMobilityType;
-@property(readonly) unsigned long long numberOfAssetsWithPeople; // @dynamic numberOfAssetsWithPeople;
 @property(readonly) Class superclass;
+
 @end
 

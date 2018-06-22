@@ -10,9 +10,14 @@
 {
 }
 
++ (unsigned long long)faceIDModelRebuildPeriod;
++ (_Bool)faceIDModelAlwaysRebuild;
++ (unsigned int)sceneAlgorithmUmbrellaVersion;
++ (unsigned int)faceAlgorithmUmbrellaVersion;
 + (unsigned long long)minimumFaceGroupSizeForCreatingMergeCandidates;
 + (_Bool)personBuilderMergeCandidatesDisabled;
 + (_Bool)personBuildingDisabled;
++ (_Bool)faceClusteringDisabled;
 + (_Bool)suggestionsLogEnabled;
 + (unsigned long long)maxFaceCountForClustering;
 + (unsigned long long)minFaceCountToTriggerClustering;

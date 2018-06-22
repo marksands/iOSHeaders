@@ -9,8 +9,10 @@
 @class IMItem, IMMessageItem, NSArray, NSData, NSDictionary, NSError, NSNumber, NSString;
 
 @protocol IMDaemonListenerProtocol <NSObject>
+- (void)lastMessageForAllChats:(NSDictionary *)arg1;
 - (void)didFetchCloudKitSyncDebuggingInfo:(NSDictionary *)arg1;
 - (void)receivedUrgentRequestForMessages:(NSArray *)arg1;
+- (void)oneTimeCodesDidChange:(NSArray *)arg1;
 - (void)didAttemptToDisableiCloudBackups:(long long)arg1 error:(NSError *)arg2;
 - (void)didFetchSyncStateStats:(NSDictionary *)arg1;
 - (void)didAttemptToDisableAllDevicesResult:(_Bool)arg1;
@@ -86,6 +88,7 @@
 - (void)leftChat:(NSString *)arg1;
 - (void)chat:(NSString *)arg1 engramIDUpdated:(NSString *)arg2;
 - (void)chat:(NSString *)arg1 isFilteredUpdated:(_Bool)arg2;
+- (void)chat:(NSString *)arg1 lastAddressedHandleUpdated:(NSString *)arg2;
 - (void)chat:(NSString *)arg1 displayNameUpdated:(NSString *)arg2;
 - (void)chat:(NSString *)arg1 propertiesUpdated:(NSDictionary *)arg2;
 - (void)chat:(NSString *)arg1 updated:(NSDictionary *)arg2;

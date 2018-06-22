@@ -8,7 +8,7 @@
 
 #import "UIScrollViewDelegate.h"
 
-@class HMCameraSource, HMCameraView, HUCameraBadgeView, HUCameraErrorContent, HUCameraErrorView, HUCenteringScrollView, HURemoteContextHostingView, NADecayingTimer, NSArray, NSLayoutConstraint, NSLayoutYAxisAnchor, NSString, UITapGestureRecognizer;
+@class HMCameraSource, HMCameraView, HUCameraBadgeView, HUCameraErrorContent, HUCameraErrorView, HUCenteringScrollView, HURemoteContextHostingView, NADecayingTimer, NSArray, NSLayoutConstraint, NSLayoutYAxisAnchor, NSString, UIImageView, UITapGestureRecognizer;
 
 @interface HUCameraView : UIView <UIScrollViewDelegate>
 {
@@ -16,6 +16,7 @@
     unsigned long long _maskedCameraCorners;
     NSLayoutYAxisAnchor *_badgeTopAnchor;
     HUCameraErrorContent *_errorContent;
+    UIImageView *_demoSnapshotImageView;
     HURemoteContextHostingView *_cameraContainerView;
     HUCameraBadgeView *_badgeView;
     UIView *_cameraOverlayView;
@@ -47,6 +48,7 @@
 @property(readonly, nonatomic) HUCameraBadgeView *badgeView; // @synthesize badgeView=_badgeView;
 @property(readonly, nonatomic) HURemoteContextHostingView *cameraContainerView; // @synthesize cameraContainerView=_cameraContainerView;
 @property(nonatomic) _Bool allowDigitalZoom; // @synthesize allowDigitalZoom=_allowDigitalZoom;
+@property(retain, nonatomic) UIImageView *demoSnapshotImageView; // @synthesize demoSnapshotImageView=_demoSnapshotImageView;
 @property(retain, nonatomic) HUCameraErrorContent *errorContent; // @synthesize errorContent=_errorContent;
 @property(retain, nonatomic) NSLayoutYAxisAnchor *badgeTopAnchor; // @synthesize badgeTopAnchor=_badgeTopAnchor;
 @property(nonatomic) struct UIOffset badgeOffset; // @synthesize badgeOffset=_badgeOffset;
@@ -63,11 +65,13 @@
 - (id)viewForZoomingInScrollView:(id)arg1;
 @property(readonly, nonatomic) UIView *cameraOverlaySnapshot;
 @property(readonly, nonatomic) UIView *cameraContentSnapshot;
+@property(readonly, nonatomic) struct CGRect derivedCameraContentFrame;
 @property(readonly, nonatomic) struct CGRect cameraContentFrame;
 @property(nonatomic, getter=isBadgeHidden) _Bool badgeHidden;
 - (void)setErrorContent:(id)arg1 animated:(_Bool)arg2;
 @property(retain, nonatomic) HMCameraSource *cameraSource;
 - (void)setCameraSource:(id)arg1 animated:(_Bool)arg2;
+- (void)setCameraSource:(id)arg1 withDemoSnapshotURL:(id)arg2 animated:(_Bool)arg3;
 @property(nonatomic) long long cameraContentMode;
 - (void)layoutSubviews;
 - (void)updateConstraints;

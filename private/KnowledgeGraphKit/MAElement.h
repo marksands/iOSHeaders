@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class MAGraph, NSMutableDictionary, NSString;
+@class MAGraph, NSMutableDictionary, NSMutableSet, NSString;
 
 @interface MAElement : NSObject <NSCopying>
 {
@@ -16,12 +16,17 @@
     unsigned short _domain;
     unsigned short _label;
     NSMutableDictionary *_properties;
+    NSMutableSet *_keysOfNullProperties;
     MAGraph *_graph;
     float _weight;
-    _Bool _needsPropertiesLoading;
+    _Bool _hasFetchedAllProperties;
 }
 
-@property(nonatomic) _Bool needsPropertiesLoading; // @synthesize needsPropertiesLoading=_needsPropertiesLoading;
++ (_Bool)areProperties:(id)arg1 similarToOtherProperties:(id)arg2;
++ (long long)recordPropertyFault:(id)arg1;
++ (void)reportPropertyFaultsWithTriggeringPropertyKey:(id)arg1;
++ (id)faultCountDictionary;
++ (void)initialize;
 @property(readonly, nonatomic) unsigned short _label; // @synthesize _label;
 @property(nonatomic) __weak MAGraph *graph; // @synthesize graph=_graph;
 @property(nonatomic) float weight; // @synthesize weight=_weight;
@@ -36,16 +41,25 @@
 - (void)invalidateMemoryCaches;
 - (void)setProperties:(id)arg1;
 - (void)_setPersistentStoreProperties:(id)arg1;
+- (void)mergeLocalProperty:(id)arg1 key:(id)arg2;
+- (void)mergeLocalPropertiesFrom:(id)arg1;
 - (void)_setLocalProperties:(id)arg1;
+- (void)setNullPropertyForKeys:(id)arg1;
+- (void)setNullPropertyForKey:(id)arg1;
 - (void)setPropertyValue:(id)arg1 forKey:(id)arg2;
 - (void)_setPersistentStorePropertyValue:(id)arg1 forKey:(id)arg2;
+- (void)purgeLocalPropertiesForKeys:(id)arg1;
 - (void)removeAllProperties;
 - (void)_removeAllLocalProperties;
 - (void)_removeAllPersistentStoreProperties;
 - (void)removePropertyForKey:(id)arg1;
 - (void)_removePersistentStorePropertyForKey:(id)arg1;
+- (id)fetchPropertiesExceptPropertyKeys:(id)arg1;
+- (id)loadPropertyForKey:(id)arg1;
 - (void)enumeratePropertiesUsingBlock:(CDUnknownBlockType)arg1;
-- (id)propertiesDictionary;
+- (id)propertiesToTestForUniqueness;
+- (id)identifyingPropertyKeys;
+- (id)propertyDictionary;
 - (id)propertiesKeys;
 - (unsigned long long)propertiesCount;
 - (_Bool)hasProperties:(id)arg1;
@@ -54,15 +68,17 @@
 - (_Bool)hasPropertyForKey:(id)arg1;
 - (id)propertyForKey:(id)arg1 kindOfClass:(Class)arg2;
 - (id)propertyForKey:(id)arg1;
-- (void)_loadPropertiesIfNeeded;
 - (void)_loadPersistentStoreProperties;
 - (void)_updatePersistentStoreElement;
 - (void)_setLabelString:(id)arg1;
+- (unsigned short)labelAsInteger;
 @property(readonly, nonatomic) id _labelKey;
 @property(readonly, copy, nonatomic) NSString *label;
+- (_Bool)isNode;
 @property(readonly) _Bool isAbstract;
 - (_Bool)matchesElement:(id)arg1 includingProperties:(_Bool)arg2;
-- (_Bool)isEqualToElementProperties:(id)arg1;
+- (_Bool)hasEqualPropertiesToElement:(id)arg1;
+- (void)fetchMissingPropertiesIfNeeded;
 - (_Bool)isEqualToElement:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

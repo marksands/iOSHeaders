@@ -12,13 +12,21 @@
 
 @interface XCTRunnerAutomationSession : NSObject <XCTRunnerAutomationSession>
 {
+    int _connectionPid;
     NSXPCConnection *_connection;
+    id <XCUICapabilities> _capabilities;
 }
 
-@property(retain) NSXPCConnection *connection; // @synthesize connection=_connection;
+@property(readonly) id <XCUICapabilities> capabilities; // @synthesize capabilities=_capabilities;
+@property(readonly) int connectionPid; // @synthesize connectionPid=_connectionPid;
+@property(readonly) NSXPCConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
+- (void)notifyWhenAnimationsAreIdle:(CDUnknownBlockType)arg1;
+@property(readonly) _Bool supportsAnimationsIdleNotifications;
+- (void)notifyWhenMainRunLoopIsIdle:(CDUnknownBlockType)arg1;
+@property(readonly) _Bool supportsMainRunLoopIdleNotifications;
 - (id)matchesForQuery:(id)arg1 error:(id *)arg2;
-- (id)initWithEndpoint:(id)arg1;
+- (id)initWithEndpoint:(id)arg1 pid:(int)arg2 capabilities:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

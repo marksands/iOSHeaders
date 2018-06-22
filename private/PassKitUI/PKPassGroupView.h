@@ -11,7 +11,7 @@
 #import "UIScrollViewDelegate.h"
 #import "WLCardViewDelegate.h"
 
-@class NSMutableDictionary, NSString, PKBarcodePassDetailViewController, PKGroup, PKPassView, PKReusablePassViewQueue, UILongPressGestureRecognizer, UIMotionEffectGroup, UIPageControl, UIPanGestureRecognizer, UIScrollView;
+@class NSMutableDictionary, NSString, PKGroup, PKPassView, PKReusablePassViewQueue, UILongPressGestureRecognizer, UIMotionEffectGroup, UIPageControl, UIPanGestureRecognizer, UIScrollView, UIViewController;
 
 @interface PKPassGroupView : UIView <WLCardViewDelegate, PKGroupDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate>
 {
@@ -44,7 +44,7 @@
     UIMotionEffectGroup *_motionEffectGroup;
     _Bool _isAuthenticating;
     id <PKPassGroupViewDelegate> _delegate;
-    PKBarcodePassDetailViewController *_detailsVC;
+    UIViewController *_detailsVC;
     NSString *_passBeingPresented;
     _Bool _groupWasMarkedDeleted;
     _Bool _passBeingPresentedWasDeleted;
@@ -98,6 +98,7 @@
 - (void)_updatePageControlWithDisplayIndex;
 - (void)updatePageControlFrame;
 - (void)_pageControlChanged:(id)arg1;
+- (id)passViewForIndex:(unsigned long long)arg1;
 - (long long)_defaultContentModeForIndex:(unsigned long long)arg1;
 - (id)_loadCardViewForIndex:(unsigned long long)arg1 contentMode:(long long)arg2;
 - (void)_updateLoadedViews:(_Bool)arg1;

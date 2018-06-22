@@ -28,6 +28,7 @@
 - (void).cxx_destruct;
 - (void)_requestTouristInfoFromRoutineIfNeededForLocation:(id)arg1;
 - (void)_setFrequentLocationsAreAvailable:(_Bool)arg1;
+- (_Bool)removeEntry:(id)arg1 behavior:(long long)arg2 handler:(CDUnknownBlockType)arg3;
 - (_Bool)canProduceEntriesOfType:(unsigned long long)arg1;
 - (double)updateSuggestionEntries;
 - (void)stop;

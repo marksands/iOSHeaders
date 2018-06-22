@@ -35,6 +35,7 @@
     NSHashTable *_observers;
     NSMutableOrderedSet *_matchAssertions;
     NSMutableOrderedSet *_fingerDetectAssertions;
+    NSMutableOrderedSet *_simulatedLockoutAssertions;
     Class _bkMatchPearlOperationClass;
     id <SBUIBiometricAuthenticationPolicy> _authenticationPolicy;
 }
@@ -54,10 +55,13 @@
 - (void)_reevaluateMatching;
 - (void)_matchingAllowedStateMayHaveChangedForReason:(id)arg1;
 - (void)_fingerDetectAllowedStateMayHaveChangedForReason:(id)arg1;
+- (void)_removeSimulatedLockoutAssertion:(id)arg1;
+- (void)_addSimulatedLockoutAssertion:(id)arg1;
 - (void)_removeFingerDetectionWantedAssertion:(id)arg1;
 - (void)_addFingerDetectionWantedAssertion:(id)arg1;
 - (void)_removeMatchingAssertion:(id)arg1;
 - (void)_addMatchingAssertion:(id)arg1;
+- (void)_deactivateAllPearlAssertions;
 - (void)_deactivateAssertion:(id)arg1;
 - (void)_activateFingerDetectAssertion:(id)arg1;
 - (void)_activateMatchAssertion:(id)arg1;
@@ -75,6 +79,7 @@
 - (void)noteScreenDidTurnOff;
 - (void)noteScreenWillTurnOff;
 - (void)_setAuthenticated:(_Bool)arg1;
+- (id)acquireSimulatedLockoutAssertionWithLockoutState:(unsigned long long)arg1 forReason:(id)arg2;
 - (void)refreshMatchMode;
 - (id)acquireFingerDetectionWantedAssertionForReason:(id)arg1;
 - (void)resumeMatchingAdvisory:(_Bool)arg1;

@@ -24,7 +24,7 @@
 @property(nonatomic) double backgroundTimeWindow; // @dynamic backgroundTimeWindow;
 @property(nonatomic) double initialRequestDelay; // @dynamic initialRequestDelay;
 @property(nonatomic) double etaRequestInterval; // @dynamic etaRequestInterval;
-@property(retain, nonatomic) NSString *voiceLanguage; // @dynamic voiceLanguage;
+@property(copy, nonatomic) NSString *voiceLanguage; // @dynamic voiceLanguage;
 @property(nonatomic) _Bool beepBeforeInstruction; // @dynamic beepBeforeInstruction;
 @property(nonatomic) _Bool walkingVoiceGuidance; // @dynamic walkingVoiceGuidance;
 @property(nonatomic) _Bool drivingVoiceGuidance; // @dynamic drivingVoiceGuidance;

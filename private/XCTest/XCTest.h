@@ -15,6 +15,7 @@
 
 + (id)languageAgnosticTestClassNameForTestClass:(Class)arg1;
 - (void).cxx_destruct;
+- (long long)defaultExecutionOrderCompare:(id)arg1;
 @property(readonly) NSString *nameForLegacyLogging;
 @property(readonly) NSString *languageAgnosticTestMethodName;
 @property(readonly) NSString *languageAgnosticTestClassName;

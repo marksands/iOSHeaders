@@ -43,6 +43,10 @@ struct CGSize {
     double height;
 };
 
+struct NSDictionary {
+    Class _field1;
+};
+
 struct NSNumber {
     Class _field1;
 };
@@ -109,12 +113,11 @@ typedef struct {
     double hDeltaAdditionalInsetFromWaveformEdge;
     double hDeltaControlButtonsSpacing;
     double hDeltaTrimProgressInset;
-    double hDeltaAcousticAnnotationLabelToWaveformRight;
     double hTrimModeInset;
     double hDetailNavigationBarInset;
     double hPresentedRecordMemoHeight;
     double vDeltaLockAbsoluteTopToWaveformTop;
-} CDStruct_76b83881;
+} CDStruct_a8723754;
 
 // Template types
 typedef struct vector<float, std::__1::allocator<float>> {

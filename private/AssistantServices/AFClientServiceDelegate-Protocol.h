@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AFAudioPlaybackRequest, AFSpeechInterpretation, AFXPCWrapper, AceObject<SAAceCommand>, INImage, INIntent, NSArray, NSDictionary, NSError, NSString, NSURL, SASSpeechPartialResult, SASSpeechRecognized;
+@class AFAudioPlaybackRequest, AFSpeechInterpretation, AFXPCWrapper, AceObject<SAAceCommand>, INImage, NSArray, NSDictionary, NSError, NSString, NSURL, SASSpeechPartialResult, SASSpeechRecognized;
 
 @protocol AFClientServiceDelegate <NSObject>
 - (oneway void)audioSessionDidBecomeActive:(_Bool)arg1;
@@ -36,9 +36,9 @@
 - (oneway void)speechRecordingDidChangeAVRecordRoute:(NSString *)arg1;
 - (oneway void)speechRecordingDidBeginOnAVRecordRoute:(NSString *)arg1 audioSessionID:(unsigned int)arg2;
 - (oneway void)speechRecordingWillBeginWithInputAudioPowerXPCWrapper:(AFXPCWrapper *)arg1;
+- (oneway void)getClockContext:(void (^)(AFClockAlarmSnapshot *, AFClockTimerSnapshot *))arg1;
 - (oneway void)getBulletinContext:(void (^)(NSArray *))arg1;
 - (oneway void)startUIRequestWithText:(NSString *)arg1 completion:(void (^)(_Bool))arg2;
-- (oneway void)handleIntent:(INIntent *)arg1 inBackgroundAppWithBundleId:(NSString *)arg2 reply:(void (^)(INIntentResponse *, NSError *))arg3;
 - (oneway void)extensionRequestFinishedForApplication:(NSString *)arg1 error:(NSError *)arg2;
 - (oneway void)extensionRequestWillStartForApplication:(NSString *)arg1;
 - (oneway void)cacheImage:(INImage *)arg1;

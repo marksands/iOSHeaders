@@ -25,9 +25,11 @@
 + (id)entityEnumeratorWithType:(id)arg1 profile:(id)arg2;
 + (id)samplesWithType:(id)arg1 profile:(id)arg2 encodingOptions:(id)arg3 predicate:(id)arg4 limit:(unsigned long long)arg5 anchor:(id *)arg6 error:(id *)arg7;
 + (_Bool)enumerateAssociatedObjectsForIdentifier:(long long)arg1 inDatabase:(id)arg2 error:(id *)arg3 associatedObjectHandler:(CDUnknownBlockType)arg4;
++ (void)deleteSamplesWithPredicate:(id)arg1 limit:(unsigned long long)arg2 deletionContext:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 + (void)deleteSamplesWithPredicate:(id)arg1 limit:(unsigned long long)arg2 generateDeletedObjects:(_Bool)arg3 database:(id)arg4 profile:(id)arg5 recursiveDeleteAuthorizationBlock:(CDUnknownBlockType)arg6 completionHandler:(CDUnknownBlockType)arg7;
 + (void)deleteSamplesWithPredicate:(id)arg1 limit:(unsigned long long)arg2 generateDeletedObjects:(_Bool)arg3 profile:(id)arg4 recursiveDeleteAuthorizationBlock:(CDUnknownBlockType)arg5 completionHandler:(CDUnknownBlockType)arg6;
 + (void)deleteSamplesWithTypes:(id)arg1 sourceEntities:(id)arg2 profile:(id)arg3 recursiveDeleteAuthorizationBlock:(CDUnknownBlockType)arg4 completionHandler:(CDUnknownBlockType)arg5;
++ (id)maxAnchorForSamplesWithType:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (id)oldestSampleWithType:(id)arg1 profile:(id)arg2 encodingOptions:(id)arg3 predicate:(id)arg4 error:(id *)arg5;
 + (id)mostRecentSampleWithType:(id)arg1 profile:(id)arg2 encodingOptions:(id)arg3 predicate:(id)arg4 anchor:(id *)arg5 error:(id *)arg6;
 + (id)columnNameForSortIdentifier:(id)arg1;

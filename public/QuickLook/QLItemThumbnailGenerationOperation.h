@@ -8,7 +8,6 @@
 
 @class QLItem, UIImage;
 
-__attribute__((visibility("hidden")))
 @interface QLItemThumbnailGenerationOperation : QLAsynchronousOperation
 {
     UIImage *_thumbnail;

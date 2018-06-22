@@ -16,8 +16,10 @@
     id <MPSCNNConvolutionDataSource> _outputTransform;
     id <MPSCNNConvolutionDataSource> _recurrentOutputTransform;
     unsigned long long _layerSequenceDirection;
+    unsigned long long _internalKernelSelector;
 }
 
+@property(nonatomic) unsigned long long internalKernelSelector; // @synthesize internalKernelSelector=_internalKernelSelector;
 @property(nonatomic) _Bool useFloat32Weights; // @synthesize useFloat32Weights=_useFloat32Weights;
 @property(nonatomic) unsigned long long layerSequenceDirection; // @synthesize layerSequenceDirection=_layerSequenceDirection;
 @property(nonatomic) _Bool useLayerInputUnitTransformMode; // @synthesize useLayerInputUnitTransformMode=_useLayerInputUnitTransformMode;

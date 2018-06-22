@@ -91,6 +91,7 @@
 - (void)_stopMonitoringFolders:(id)arg1;
 - (void)beginMonitoringPersistentFolders:(id)arg1 forAccount:(id)arg2;
 - (void)_beginMonitoringFolders:(id)arg1;
+- (void)_addPersistentMonitoringForAccountID:(id)arg1 folderIDs:(id)arg2;
 - (id)_createReplyToRequest:(id)arg1 withProperties:(id)arg2;
 - (void)unregisterForInterrogation;
 - (void)registerForInterrogation;

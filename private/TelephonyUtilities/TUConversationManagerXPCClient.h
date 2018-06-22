@@ -16,6 +16,7 @@
     _Bool _hasRequestedInitialState;
     int _token;
     id <TUConversationManagerDataSourceDelegate> _delegate;
+    id <TUConversationMediaControllerDataSourceDelegate> _mediaDelegate;
     NSObject<OS_dispatch_queue> *_queue;
     NSXPCConnection *_xpcConnection;
     NSDictionary *_conversationsByGroupUUID;
@@ -33,16 +34,22 @@
 @property(nonatomic) int token; // @synthesize token=_token;
 @property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(nonatomic) __weak id <TUConversationMediaControllerDataSourceDelegate> mediaDelegate; // @synthesize mediaDelegate=_mediaDelegate;
 @property(nonatomic) __weak id <TUConversationManagerDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (oneway void)mediaPrioritiesChangedForConversation:(id)arg1;
 - (oneway void)updateConversationsByGroupUUID:(id)arg1;
 - (id)synchronousServerWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)serverWithErrorHandler:(CDUnknownBlockType)arg1;
+- (void)handleServerDisconnect;
 - (void)_invokeCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_requestInitialStateWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_requestInitialStateIfNecessary;
+- (void)updateConversationWithUUID:(id)arg1 participantPresentationContexts:(id)arg2;
 - (void)invalidate;
 - (void)registerWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)buzzMember:(id)arg1 conversation:(id)arg2;
+- (void)addRemoteMembers:(id)arg1 toConversation:(id)arg2;
 - (void)dealloc;
 - (id)init;
 

@@ -6,19 +6,24 @@
 
 #import "NSObject.h"
 
-@class CLLocation, CLPlacemark, NSArray, NSMutableArray, NSUUID;
+#import "NSSecureCoding.h"
 
-@interface CLSLocationOfInterest : NSObject
+@class CLLocation, CLSLitePlacemark, NSArray, NSMutableArray, NSUUID;
+
+@interface CLSLocationOfInterest : NSObject <NSSecureCoding>
 {
     NSMutableArray *_visits;
     NSUUID *_identifier;
     long long _type;
     CLLocation *_location;
-    CLPlacemark *_placemark;
+    CLSLitePlacemark *_placemark;
     CLLocation *_placemarkLocation;
     double _radius;
+    unsigned long long _businessItemMuid;
 }
 
++ (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) unsigned long long businessItemMuid; // @synthesize businessItemMuid=_businessItemMuid;
 @property(readonly, nonatomic) NSArray *visits; // @synthesize visits=_visits;
 @property(readonly, nonatomic) double radius; // @synthesize radius=_radius;
 @property(retain, nonatomic) CLLocation *placemarkLocation; // @synthesize placemarkLocation=_placemarkLocation;
@@ -31,8 +36,10 @@
 - (id)description;
 - (void)removeVisit:(id)arg1;
 - (void)addVisit:(id)arg1;
-@property(readonly, nonatomic) CLPlacemark *placemark; // @synthesize placemark=_placemark;
-- (id)initWithIdentifier:(id)arg1 locationOfInterestType:(long long)arg2 location:(id)arg3 placemark:(id)arg4 radius:(double)arg5;
+@property(readonly, nonatomic) CLSLitePlacemark *placemark; // @synthesize placemark=_placemark;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithIdentifier:(id)arg1 locationOfInterestType:(long long)arg2 location:(id)arg3 placemark:(id)arg4 businessItemMuid:(unsigned long long)arg5 radius:(double)arg6;
 
 @end
 

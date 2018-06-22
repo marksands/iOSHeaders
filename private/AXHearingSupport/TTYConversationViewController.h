@@ -11,17 +11,17 @@
 #import "UITableViewDelegate.h"
 #import "UITextViewDelegate.h"
 
-@class AXHADispatchTimer, CAShapeLayer, DDParsecCollectionViewController, NSDictionary, NSLock, NSMutableArray, NSMutableCharacterSet, NSMutableString, NSObject<OS_dispatch_queue>, NSString, TTYConversation, TTYTextView, TUCall, UIButton, UITableView;
+@class AXDispatchTimer, CAShapeLayer, DDParsecCollectionViewController, NSDictionary, NSLock, NSMutableArray, NSMutableCharacterSet, NSMutableString, NSObject<OS_dispatch_queue>, NSString, TTYConversation, TTYTextView, TTYUtterance, TUCall, UIButton, UITableView;
 
 @interface TTYConversationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TTYUtteranceCellDelegate, UITextViewDelegate>
 {
     TTYTextView *_textView;
     CAShapeLayer *_bubbleLayer;
     UIButton *_gaButton;
-    AXHADispatchTimer *_ttyPredictionsTimer;
+    AXDispatchTimer *_ttyPredictionsTimer;
     NSMutableCharacterSet *_unsupportedCharacterSet;
     NSDictionary *_asciiSubstitutions;
-    AXHADispatchTimer *_voAnnouncementTimer;
+    AXDispatchTimer *_voAnnouncementTimer;
     NSMutableString *_voAnnouncementBuffer;
     NSLock *_realtimeSendLock;
     NSObject<OS_dispatch_queue> *_utteranceRequestQueue;
@@ -29,6 +29,7 @@
     TTYConversation *_conversation;
     DDParsecCollectionViewController *_lookupController;
     UITableView *_tableView;
+    TTYUtterance *_currentUtterance;
     TUCall *_call;
     NSMutableArray *_utteranceBuffer;
 }
@@ -38,6 +39,7 @@
 @property(nonatomic) _Bool processingUtteranceBuffer; // @synthesize processingUtteranceBuffer=_processingUtteranceBuffer;
 @property(retain, nonatomic) NSMutableArray *utteranceBuffer; // @synthesize utteranceBuffer=_utteranceBuffer;
 @property(retain, nonatomic) TUCall *call; // @synthesize call=_call;
+@property(retain, nonatomic) TTYUtterance *currentUtterance; // @synthesize currentUtterance=_currentUtterance;
 @property(retain, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 @property(retain, nonatomic) DDParsecCollectionViewController *lookupController; // @synthesize lookupController=_lookupController;
 @property(retain, nonatomic) TTYConversation *conversation; // @synthesize conversation=_conversation;
@@ -47,7 +49,9 @@
 - (_Bool)utteranceIsSelected;
 - (void)textViewDidChange:(id)arg1;
 - (_Bool)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
+- (void)textViewDidChangeSelection:(id)arg1;
 - (void)utteranceCellDidUpdateContent:(id)arg1;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
@@ -55,10 +59,12 @@
 - (void)shareCallInfo:(id)arg1;
 - (void)setupTableView;
 - (void)updateTableViewSizeAnimated:(_Bool)arg1;
+- (void)replyCellActionDidActivate:(id)arg1;
 - (void)updateVoiceOverAnnouncement:(unsigned short)arg1;
 - (void)realtimeTextDidChange;
 - (void)gaButtonPressed:(id)arg1;
 - (void)deviceDidReceiveCharacter:(unsigned short)arg1 forUtterance:(id)arg2;
+- (id)cannedResponses;
 - (id)cellAtIndexPath:(id)arg1;
 - (void)setTextViewUtterance:(id)arg1;
 - (id)textViewUtterance;

@@ -8,7 +8,7 @@
 
 #import "CBCentralManagerDelegate.h"
 
-@class CBCentralManager, CURetrier, NSArray, NSData, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
+@class CBCentralManager, CURetrier, NSArray, NSData, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSSet, NSString;
 
 @interface SFBLEScanner : NSObject <CBCentralManagerDelegate>
 {
@@ -47,6 +47,7 @@
     CURetrier *_startRetrier;
     _Bool _timeoutFired;
     NSObject<OS_dispatch_source> *_timeoutTimer;
+    NSSet *_trackedPeersApplied;
     _Bool _updating;
     struct LogCategory *_ucat;
     _Bool _rssiLog;
@@ -71,8 +72,10 @@
     long long _scanWindow;
     double _timeout;
     CDUnknownBlockType _timeoutHandler;
+    NSSet *_trackedPeers;
 }
 
+@property(copy, nonatomic) NSSet *trackedPeers; // @synthesize trackedPeers=_trackedPeers;
 @property(copy, nonatomic) CDUnknownBlockType timeoutHandler; // @synthesize timeoutHandler=_timeoutHandler;
 @property(nonatomic) double timeout; // @synthesize timeout=_timeout;
 @property(nonatomic) long long scanWindow; // @synthesize scanWindow=_scanWindow;

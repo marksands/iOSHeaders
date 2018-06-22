@@ -8,6 +8,6 @@
 
 @interface IMChatRegistry (CKAdditions)
 - (id)_ck_chatForHandles:(id)arg1 createIfNecessary:(_Bool)arg2;
-- (id)_ck_chatForHandles:(id)arg1 displayName:(id)arg2 ignoresDisplayName:(_Bool)arg3 joinedChatsOnly:(_Bool)arg4 createIfNecessary:(_Bool)arg5;
+- (id)_ck_chatForHandles:(id)arg1 displayName:(id)arg2 lastAddressedHandle:(id)arg3 ignoresDisplayName:(_Bool)arg4 joinedChatsOnly:(_Bool)arg5 createIfNecessary:(_Bool)arg6;
 @end
 

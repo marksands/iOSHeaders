@@ -8,25 +8,23 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDictionary, NSNumber, NSString, NSURL;
+@class NSArray, NSData, NSDictionary, NSNumber, NSString, NSURL;
 
 @interface PARBag : NSObject <NSSecureCoding>
 {
+    NSData *_bagData;
     NSString *_userAgent;
     NSString *_clientName;
-    NSDictionary *_rawBag;
-    NSDictionary *_maximumCustomFeedbackSizes;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, nonatomic) NSDictionary *maximumCustomFeedbackSizes; // @synthesize maximumCustomFeedbackSizes=_maximumCustomFeedbackSizes;
-@property(readonly, copy, nonatomic) NSDictionary *rawBag; // @synthesize rawBag=_rawBag;
 @property(readonly, copy, nonatomic) NSString *clientName; // @synthesize clientName=_clientName;
 @property(readonly, copy, nonatomic) NSString *userAgent; // @synthesize userAgent=_userAgent;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
+@property(readonly, copy, nonatomic) NSDictionary *rawBag;
 - (id)urlForIdentifier:(id)arg1;
 - (id)bag_URLForKey:(id)arg1;
 - (id)bag_dictionaryForKey:(id)arg1;
@@ -34,9 +32,9 @@
 - (id)bag_numberForKey:(id)arg1;
 - (id)bag_stringForKey:(id)arg1;
 - (_Bool)bag_boolForKey:(id)arg1;
-- (id)_bag_objectOfClass:(Class)arg1 forKey:(id)arg2 override:(_Bool)arg3;
 - (id)_bag_objectOfClass:(Class)arg1 forKey:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *tuscanyConfiguration;
+@property(readonly, nonatomic) _Bool sendProtobuf;
 @property(readonly, nonatomic) _Bool disableAsTypedSuggestion;
 @property(readonly, nonatomic) NSArray *suggestionRankerModel;
 @property(readonly, nonatomic) _Bool use2LayerRanking;
@@ -60,7 +58,10 @@
 @property(readonly, nonatomic) double safariLast1day;
 @property(readonly, nonatomic) double safariLast1hour;
 @property(readonly, nonatomic) double timeoutIntervalForRequest;
+@property(readonly, nonatomic) NSNumber *feedbackMaxAgeInDays;
+@property(readonly, nonatomic) NSNumber *eagerFeedbackSamplingPercentage;
 - (unsigned long long)maximumSizeForFeedbackType:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *maximumCustomFeedbackSizes;
 @property(readonly, copy, nonatomic) NSString *firstUseContinueText;
 @property(readonly, copy, nonatomic) NSString *firstUseLearnMoreURL;
 @property(readonly, copy, nonatomic) NSString *firstUseLearnMoreText;
@@ -85,13 +86,23 @@
 @property(readonly, nonatomic) _Bool sendGeoEnvironmentHeader;
 @property(readonly, nonatomic) NSArray *downloadResourcesList;
 @property(readonly, nonatomic) NSArray *supportedGeoLocationSources;
+@property(readonly, nonatomic) NSNumber *minSuggestionRenderTimeout;
 @property(readonly, nonatomic) NSNumber *otherRenderTimeout;
 @property(readonly, nonatomic) NSNumber *minSearchRenderTimeout;
 @property(readonly, nonatomic) NSNumber *searchRenderTimeout;
 @property(readonly, copy, nonatomic) NSDictionary *resources;
 @property(readonly, copy, nonatomic) NSString *version;
 @property(readonly, nonatomic, getter=isEnabled) _Bool enabled;
-- (id)initWithDictionary:(id)arg1 userAgent:(id)arg2;
+- (double)expirationDate;
+- (id)bagURL;
+- (_Bool)isRefreshDisabled;
+- (id)_bag_objectOfClass:(Class)arg1 forKey:(id)arg2 override:(_Bool)arg3;
+- (id)valueForKey:(id)arg1 override:(_Bool)arg2;
+- (id)valueForKey:(id)arg1;
+- (id)initWithBag:(id)arg1 userAgent:(id)arg2;
+- (id)initWithData:(id)arg1;
+- (id)initWithData:(id)arg1 userAgent:(id)arg2;
+- (id)initWithURL:(id)arg1 userAgent:(id)arg2;
 
 @end
 

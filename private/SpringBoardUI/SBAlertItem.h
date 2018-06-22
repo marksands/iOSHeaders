@@ -25,6 +25,8 @@
     _Bool _allowMessageInCar;
     _Bool _presented;
     _Bool _ignoresQuietMode;
+    _Bool _suppressForKeynote;
+    NSString *_headerImagePath;
     NSString *_iconImagePath;
     NSString *_attachmentImagePath;
 }
@@ -33,6 +35,7 @@
 + (id)_alertItemsController;
 @property(retain, nonatomic, getter=_attachmentImagePath) NSString *attachmentImagePath; // @synthesize attachmentImagePath=_attachmentImagePath;
 @property(retain, nonatomic, getter=_iconImagePath) NSString *iconImagePath; // @synthesize iconImagePath=_iconImagePath;
+@property(retain, nonatomic, getter=_headerImagePath) NSString *headerImagePath; // @synthesize headerImagePath=_headerImagePath;
 @property(nonatomic, getter=_isPresented, setter=_setPresented:) _Bool presented; // @synthesize presented=_presented;
 @property(nonatomic, setter=_setIgnoresQuietMode:) _Bool _ignoresQuietMode; // @synthesize _ignoresQuietMode;
 @property(nonatomic) _Bool allowMessageInCar; // @synthesize allowMessageInCar=_allowMessageInCar;
@@ -40,6 +43,7 @@
 @property(retain, nonatomic) NSArray *allowedBundleIDs; // @synthesize allowedBundleIDs=_allowedBundleIDs;
 @property(nonatomic) _Bool pendWhileKeyBagLocked; // @synthesize pendWhileKeyBagLocked=_pendWhileKeyBagLocked;
 @property(nonatomic) _Bool pendInSetupIfNotAllowed; // @synthesize pendInSetupIfNotAllowed=_pendInSetupIfNotAllowed;
+@property(nonatomic) _Bool suppressForKeynote; // @synthesize suppressForKeynote=_suppressForKeynote;
 @property(nonatomic) _Bool allowInSetup; // @synthesize allowInSetup=_allowInSetup;
 @property(nonatomic) _Bool ignoreIfAlreadyDisplaying; // @synthesize ignoreIfAlreadyDisplaying=_ignoreIfAlreadyDisplaying;
 - (void).cxx_destruct;
@@ -59,6 +63,7 @@
 - (void)_noteVolumeOrLockPressed;
 - (id)_attachmentImage;
 - (id)_iconImage;
+- (id)_headerImage;
 - (id)_prepareNewAlertControllerWithLockedState:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 - (void)_clearAlertController;
 - (id)_alertController;

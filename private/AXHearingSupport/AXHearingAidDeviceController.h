@@ -9,7 +9,7 @@
 #import "AXHADeviceControllerProtocol.h"
 #import "CBCentralManagerDelegate.h"
 
-@class AXHADispatchTimer, CBCentralManager, NSLock, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class AXDispatchTimer, CBCentralManager, NSLock, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AXHearingAidDeviceController : NSObject <CBCentralManagerDelegate, AXHADeviceControllerProtocol>
 {
@@ -23,9 +23,9 @@
     NSMutableArray *_updateDeviceBlocks;
     NSObject<OS_dispatch_queue> *_deviceUpdatesQueue;
     NSMutableDictionary *_deviceUpdatesDescription;
-    AXHADispatchTimer *_advertisingTimeoutTimer;
+    AXDispatchTimer *_advertisingTimeoutTimer;
     NSMutableDictionary *_advertisingTimestamps;
-    AXHADispatchTimer *_availableDeviceTimer;
+    AXDispatchTimer *_availableDeviceTimer;
     _Bool _shouldActiveScan;
     NSMutableArray *_availablePeripherals;
     NSMutableArray *_loadedDevices;
@@ -51,6 +51,9 @@
 - (void)pairedHearingAidsDidChange;
 - (void)unpairPeripheralWithUUID:(id)arg1;
 - (_Bool)peripheralIsPaired:(id)arg1;
+- (void)pairingAgent:(id)arg1 peerDidUnpair:(id)arg2;
+- (void)pairingAgent:(id)arg1 peerDidFailToCompletePairing:(id)arg2 error:(id)arg3;
+- (void)pairingAgent:(id)arg1 peerDidCompletePairing:(id)arg2;
 - (void)centralManager:(id)arg1 didDisconnectPeripheral:(id)arg2 error:(id)arg3;
 - (void)centralManager:(id)arg1 didFailToConnectPeripheral:(id)arg2 error:(id)arg3;
 - (void)centralManager:(id)arg1 didConnectPeripheral:(id)arg2;

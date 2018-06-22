@@ -16,7 +16,6 @@
 - (void).cxx_destruct;
 - (void)enumerateItemsWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateItemsUsingBlock:(CDUnknownBlockType)arg1;
-- (id)itemMetadataAtIndex:(unsigned long long)arg1 withKeys:(id)arg2;
 - (id)itemAtIndex:(unsigned long long)arg1;
 - (id)allItems;
 - (id)approximateLocation;

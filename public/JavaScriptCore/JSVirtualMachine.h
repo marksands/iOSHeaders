@@ -26,6 +26,7 @@
 - (void)dealloc;
 - (id)initWithContextGroupRef:(struct OpaqueJSContextGroup *)arg1;
 - (id)init;
+- (void)shrinkFootprint;
 - (id)externalRememberedSet;
 - (id)externalObjectGraph;
 -     // Error parsing type: ^{Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}16@0:8, name: externalDataMutex

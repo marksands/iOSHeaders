@@ -25,8 +25,8 @@ struct CGPoint {
 };
 
 struct CGRect {
-    struct CGPoint origin;
-    struct CGSize size;
+    struct CGPoint _field1;
+    struct CGSize _field2;
 };
 
 struct CGSize {
@@ -55,6 +55,44 @@ struct _NSRange {
 };
 
 #pragma mark Typedef'd Structures
+
+typedef struct {
+    unsigned int shouldAllowRecentNotificationsReveal:1;
+    unsigned int shouldAttemptToFinishLongLookTransition:1;
+    unsigned int shouldFinishLongLookTransitionForNotification:1;
+    unsigned int staticContentProviderForNotificationRequest:1;
+    unsigned int isPresentingNotificationManagementSuggestionForNotificationRequest:1;
+    unsigned int auxiliaryOptionsContentProviderForNotificationRequest:1;
+    unsigned int didEndDisplayingCellForNotificationRequest:1;
+    unsigned int shouldAllowInteractionsForNotificationRequest:1;
+    unsigned int willPresentInitialContentWithTransitionCoordinator:1;
+    unsigned int isUpdatingContent:1;
+    unsigned int willDismissRemainingContentWithTransitionCoordinator:1;
+    unsigned int setRaiseGestureDetectionEnabled:1;
+    unsigned int didRemoveNotificationRequestInLongLook:1;
+    unsigned int requestsClearingNotificationRequestsInSections:1;
+    unsigned int requestsClearingNotificationRequestsFromDateToDate:1;
+    unsigned int willPresentLongLookForNotificationViewController:1;
+    unsigned int willDismissLongLookForNotificationViewController:1;
+    unsigned int notificationUsageTrackingState:1;
+    unsigned int isPerformingRevealHinting:1;
+    unsigned int shouldHorizontallyPanNotificationCell:1;
+    unsigned int shouldSuppressContentForNotificationRequest:1;
+    unsigned int keyboardAssertionForGestureWindow:1;
+    unsigned int hideHomeAffordanceAnimationSettings:1;
+    unsigned int unhideHomeAffordanceAnimationSettings:1;
+    unsigned int settleHomeAffordanceAnimationBehaviorDescription:1;
+    unsigned int requestsExpandingCoalescedBundleForNotificationRequest:1;
+    unsigned int requestsCoalescingExpandedBundleForCoalescingIdentifier:1;
+    unsigned int requestsClearingNotificationRequestsForCoalescingIdentifier:1;
+    unsigned int isExpandedCoalescedBundleForNotificationRequest:1;
+    unsigned int leadingNotificationRequestForCoalescingIdentifier:1;
+    unsigned int coalescingIdentifierForNotificationRequest:1;
+    unsigned int sectionSettingsForSectionId:1;
+    unsigned int setAllowsNotifications:1;
+    unsigned int setDeliverQuietly:1;
+    unsigned int shouldMakeQuietingSuggestionForRequest:1;
+} CDStruct_bbbec371;
 
 typedef struct {
     unsigned int significantUserInteraction:1;

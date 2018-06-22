@@ -9,7 +9,7 @@
 #import "NSCoding.h"
 #import "NSTextAttachmentContainer.h"
 
-@class NSData, NSFileWrapper, NSString, UIImage, UITextAttachmentView, UIView;
+@class NSData, NSFileWrapper, NSString, NSTextAttachmentView, UIImage, UIView;
 
 @interface NSTextAttachment : NSObject <NSTextAttachmentContainer, NSCoding>
 {
@@ -25,7 +25,7 @@
     } _taFlags;
     NSFileWrapper *_fileWrapper;
     UIImage *_image;
-    UITextAttachmentView *_wrapperView;
+    NSTextAttachmentView *_wrapperView;
 }
 
 + (void)registerTextAttachmentClass:(Class)arg1 forFileType:(id)arg2;

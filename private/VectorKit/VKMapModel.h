@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
     VKTileProvider *_additionalManifestTileProvider;
     VKTileProvider *_rasterOverlayProvider[2];
     _Bool _activeMapLayers[33];
+    VKTrafficTileSource *_trafficSource;
     GEOResourceManifestConfiguration *_additionalManifestConfiguration;
     long long _mapMode;
     long long _desiredMapMode;
@@ -76,7 +77,6 @@ __attribute__((visibility("hidden")))
     struct CartographicRenderer *_renderer;
     struct mutex _rendererMutex;
     struct LogicManager *_logicManager;
-    VKTrafficTileSource *_trafficSource[1];
     struct unique_ptr<md::TrafficSharedResources, std::__1::default_delete<md::TrafficSharedResources>> _trafficSharedResources;
     shared_ptr_887a193f _dataOverrideManager;
     float _navigationPuckSize;
@@ -230,8 +230,7 @@ __attribute__((visibility("hidden")))
 - (void)experimentConfigurationDidChange:(id)arg1;
 - (void)resourceManifestManager:(id)arg1 didChangeActiveTileGroup:(id)arg2 fromOldTileGroup:(id)arg3;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
-- (void)_createTrafficTileSourceAtIndex:(unsigned int)arg1 roadTileSource:(id)arg2 origin:(unsigned char)arg3 sharedResources:(id)arg4;
-- (void)_createTrafficTileSourcesIfNecessary:(id)arg1 sharedResources:(id)arg2;
+- (void)createTrafficTileSourceIfNecessary:(id)arg1;
 @property(nonatomic) unsigned char applicationUILayout;
 @property(nonatomic) unsigned char emphasis;
 @property(nonatomic) struct VehicleState vehicleState;

@@ -47,6 +47,7 @@
 @property(readonly) _Bool isBirthday; // @synthesize isBirthday=_isBirthday;
 @property(readonly) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+- (id)description;
 @property(readonly) CLLocation *geoLocation;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

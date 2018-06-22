@@ -9,6 +9,7 @@
 @class PKPassFooterContentView;
 
 @protocol PKPassFooterContentViewDelegate <NSObject>
+- (_Bool)isPassFooterContentViewInGroup:(PKPassFooterContentView *)arg1;
 - (void)passFooterContentViewDidEndAuthenticating:(PKPassFooterContentView *)arg1;
 - (void)passFooterContentViewDidBeginAuthenticating:(PKPassFooterContentView *)arg1;
 - (void)passFooterContentViewDidChangeUserIntentRequirement:(PKPassFooterContentView *)arg1;

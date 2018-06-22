@@ -16,6 +16,7 @@
     NSString *_identifier;
     UIColor *_color;
     unsigned long long _sizeState;
+    unsigned long long _attributeSet;
     UIImageView *_toolDockMaskImageView;
     UIImageView *_toolBaseImageView;
     UIImageView *_nibImageView;
@@ -31,6 +32,7 @@
 @property(retain, nonatomic) UIImageView *nibImageView; // @synthesize nibImageView=_nibImageView;
 @property(retain, nonatomic) UIImageView *toolBaseImageView; // @synthesize toolBaseImageView=_toolBaseImageView;
 @property(retain, nonatomic) UIImageView *toolDockMaskImageView; // @synthesize toolDockMaskImageView=_toolDockMaskImageView;
+@property(nonatomic) unsigned long long attributeSet; // @synthesize attributeSet=_attributeSet;
 @property(nonatomic) _Bool isUsedOnDarkBackground; // @synthesize isUsedOnDarkBackground=_isUsedOnDarkBackground;
 @property(nonatomic) unsigned long long sizeState; // @synthesize sizeState=_sizeState;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;

@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSArray, NSData, NSDate, NSDictionary, NSMutableArray, NSNumber, NSString, NSURL;
+@class APSOutgoingMessageCheckpointTrace, NSArray, NSData, NSDate, NSDictionary, NSMutableArray, NSNumber, NSString, NSURL;
 
 @interface IDSBaseMessage : NSObject <NSCopying>
 {
@@ -49,6 +49,7 @@
     NSURL *_URLOverride;
     unsigned long long _sentByteCount;
     unsigned long long _receivedByteCount;
+    APSOutgoingMessageCheckpointTrace *_apsdCheckpointTrace;
     NSDate *_requestStart;
     NSDate *_requestEnd;
     NSDate *_responseReceived;
@@ -58,6 +59,7 @@
 @property(retain, nonatomic) NSDate *requestEnd; // @synthesize requestEnd=_requestEnd;
 @property(retain, nonatomic) NSDate *requestStart; // @synthesize requestStart=_requestStart;
 @property _Bool alwaysForceCellular; // @synthesize alwaysForceCellular=_alwaysForceCellular;
+@property(retain) APSOutgoingMessageCheckpointTrace *apsdCheckpointTrace; // @synthesize apsdCheckpointTrace=_apsdCheckpointTrace;
 @property _Bool httpDoNotDecodeData; // @synthesize httpDoNotDecodeData=_httpDoNotDecodeData;
 @property(nonatomic) unsigned long long receivedByteCount; // @synthesize receivedByteCount=_receivedByteCount;
 @property(nonatomic) unsigned long long sentByteCount; // @synthesize sentByteCount=_sentByteCount;

@@ -76,7 +76,7 @@
 - (id)zoneNameForIndex:(unsigned int)arg1;
 @property(readonly, nonatomic) unsigned int zoneCount;
 @property(readonly, nonatomic) VMUClassInfoMap *realizedClasses;
-- (id)shortLabelForMallocNode:(unsigned int)arg1;
+- (id)shortLabelForNode:(unsigned int)arg1;
 - (void *)contentForNode:(unsigned int)arg1;
 - (_Bool)hasLabelsForNodes;
 - (id)labelForNode:(unsigned int)arg1;

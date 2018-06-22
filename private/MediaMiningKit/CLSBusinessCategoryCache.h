@@ -10,26 +10,34 @@
 
 @interface CLSBusinessCategoryCache : CLSDBCache
 {
-    NSPredicate *_predicateBusinessItemTemplate;
-    NSPredicate *_predicateEntryWithUpdateDate;
+    NSPredicate *_predicateEntryWithUpdateTimestamp;
 }
 
 + (id)deserializeCategories:(unsigned int)arg1;
 + (unsigned int)serializeCategories:(id)arg1;
 + (_Bool)cachedRegion:(id)arg1 isMatchingOtherRegion:(id)arg2;
 + (id)defaultCache;
+@property(readonly, nonatomic) NSPredicate *predicateEntryWithUpdateTimestamp; // @synthesize predicateEntryWithUpdateTimestamp=_predicateEntryWithUpdateTimestamp;
 - (void).cxx_destruct;
+- (id)updateBusinessItems:(id)arg1;
+- (void)_updateManagedBusinessItem:(id)arg1 withBusinessItem:(id)arg2;
+- (id)_fetchBusinessItemsForMUIDs:(id)arg1;
 - (unsigned long long)numberOfBusinessItemsForRegion:(id)arg1;
 - (_Bool)hasRegion:(id)arg1;
+- (id)businessItemFromManagedObject:(id)arg1;
+- (id)businessItemsForMuids:(id)arg1;
+- (id)businessItemsForMuid:(unsigned long long)arg1;
+- (id)_businessItemInRegion:(id)arg1 matchingCategories:(id)arg2 forBusinessItems:(id)arg3;
+- (id)businessItemsInRegion:(id)arg1 categories:(id)arg2;
 - (id)businessItemsForRegion:(id)arg1;
 - (id)nearestItemForRegion:(id)arg1 inItems:(id)arg2;
-- (void)setBusinessItems:(id)arg1 forRegion:(id)arg2;
 - (void)insertBatchesOfBusinessItems:(id)arg1 forRegions:(id)arg2;
+- (id)_fetchedBusinessItemByMUIDForBusinessItems:(id)arg1;
 - (id)predicateForRegion:(id)arg1;
+- (id)predicateForEntryNearbyRegion:(id)arg1;
 - (void)invalidateCacheItemsBeforeDateWithTimestamp:(double)arg1;
-- (void)invalidateCacheForRegion:(id)arg1;
 - (id)dataModelName;
-- (id)init;
+- (id)initWithDiskCacheName:(id)arg1;
 
 @end
 

@@ -6,9 +6,8 @@
 
 #import <VectorKit/VKFeatureMarker.h>
 
-@class NSArray;
+@class GEOMapItemIdentifier, NSArray;
 
-__attribute__((visibility("hidden")))
 @interface VKVenueFeatureMarker : VKFeatureMarker
 {
     _Bool _localize;
@@ -16,6 +15,7 @@ __attribute__((visibility("hidden")))
 
 - (id)name;
 @property(readonly, nonatomic) NSArray *buildings;
+@property(readonly, nonatomic) GEOMapItemIdentifier *mapIdentifier;
 @property(readonly, nonatomic) unsigned long long businessID;
 - (const shared_ptr_c500bfa8 *)venueFeatureMarker;
 - (id)initWithVenue:(const struct Venue *)arg1 localize:(_Bool)arg2;

@@ -10,13 +10,9 @@
 
 @protocol _CPResultSectionForFeedback <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
-@property(readonly, nonatomic) _Bool hasFallbackResultSection;
 @property(copy, nonatomic) NSData *fallbackResultSection;
-@property(readonly, nonatomic) _Bool hasRankingScore;
 @property(nonatomic) double rankingScore;
-@property(readonly, nonatomic) _Bool hasBundleIdentifier;
 @property(copy, nonatomic) NSString *bundleIdentifier;
-@property(readonly, nonatomic) _Bool hasIdentifier;
 @property(copy, nonatomic) NSString *identifier;
 @property(copy, nonatomic) NSArray *results;
 - (id)initWithDictionary:(NSDictionary *)arg1;

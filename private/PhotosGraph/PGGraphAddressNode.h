@@ -4,21 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <PhotosGraph/PGGraphNode.h>
+#import <PhotosGraph/PGGraphLocationNode.h>
 
-#import "PGGraphAddressNode.h"
-
-@class NSString;
-
-@interface PGGraphAddressNode : PGGraphNode <PGGraphAddressNode>
+@interface PGGraphAddressNode : PGGraphLocationNode
 {
 }
 
+- (void)enumeratePersonHomeOrWorkNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (_Bool)isPersonHomeOrWorkAddress;
+- (id)location;
+- (struct CLLocationCoordinate2D)coordinate;
+- (_Bool)isOcean;
+- (_Bool)locationIsImproved;
+- (void)addressEnumerateMomentNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateAreaNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (id)countryNode;
+- (id)stateNode;
+- (id)cityNode;
+- (id)districtNode;
+- (id)streetNode;
+- (id)areaNodes;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 @end
 

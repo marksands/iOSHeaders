@@ -12,15 +12,15 @@
 {
 }
 
-+ (_Bool)performPostJournalMergeCleanupForDatabase:(id)arg1 error:(id *)arg2;
++ (_Bool)performPostJournalMergeCleanupWithTransaction:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (_Bool)updateProperties:(id)arg1 predicate:(id)arg2 healthDatabase:(id)arg3 error:(id *)arg4 bindingHandler:(CDUnknownBlockType)arg5;
 + (id)insertOrReplaceEntity:(_Bool)arg1 healthDatabase:(id)arg2 properties:(id)arg3 error:(id *)arg4 bindingHandler:(CDUnknownBlockType)arg5;
 + (id)entityEncoderForProfile:(id)arg1 database:(id)arg2 purpose:(long long)arg3 encodingOptions:(id)arg4 authorizationFilter:(CDUnknownBlockType)arg5;
-+ (unsigned long long)_transactionOptionsForWriting:(_Bool)arg1 highPriority:(_Bool)arg2;
-+ (_Bool)performWriteTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3 inaccessibilityHandler:(CDUnknownBlockType)arg4;
-+ (_Bool)performWriteTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
-+ (_Bool)performHighPriorityReadTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
-+ (_Bool)performReadTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
++ (unsigned long long)_transactionOptionsForWriting:(_Bool)arg1;
++ (_Bool)performWriteTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 block:(CDUnknownBlockType)arg3 inaccessibilityHandler:(CDUnknownBlockType)arg4;
++ (_Bool)performWriteTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 block:(CDUnknownBlockType)arg3;
++ (_Bool)performHighPriorityReadTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 block:(CDUnknownBlockType)arg3;
++ (_Bool)performReadTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 block:(CDUnknownBlockType)arg3;
 + (_Bool)_isNilDatabase:(id)arg1 error:(id *)arg2;
 + (id)uniquedColumns;
 + (id)createTableSQL;
@@ -43,9 +43,19 @@
 + (_Bool)deleteEntitiesWithPredicate:(id)arg1 healthDatabase:(id)arg2 error:(id *)arg3;
 + (_Bool)enumerateProperties:(id)arg1 withPredicate:(id)arg2 healthDatabase:(id)arg3 error:(id *)arg4 enumerationHandler:(CDUnknownBlockType)arg5;
 + (long long)countOfObjectsWithPredicate:(id)arg1 healthDatabase:(id)arg2 error:(id *)arg3;
++ (_Bool)performWriteTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3 inaccessibilityHandler:(CDUnknownBlockType)arg4;
++ (_Bool)performWriteTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
++ (_Bool)performHighPriorityReadTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
++ (_Bool)performReadTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
 + (id)columnNamesForTimeOffset;
 + (id)updateSQLForTimeOffsetWithBindingCount:(unsigned long long *)arg1;
 - (_Bool)updateProperties:(id)arg1 healthDatabase:(id)arg2 error:(id *)arg3 bindingHandler:(CDUnknownBlockType)arg4;
+- (_Bool)setForeignKeyEntity:(id)arg1 forProperty:(id)arg2 transaction:(id)arg3 error:(id *)arg4;
+- (id)foreignKeyEntity:(Class)arg1 forProperty:(id)arg2 transaction:(id)arg3 error:(id *)arg4;
+- (_Bool)setString:(id)arg1 forProperty:(id)arg2 transaction:(id)arg3 error:(id *)arg4;
+- (id)stringForProperty:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
+- (_Bool)setDate:(id)arg1 forProperty:(id)arg2 transaction:(id)arg3 error:(id *)arg4;
+- (id)dateForProperty:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (id)stringForProperty:(id)arg1 healthDatabase:(id)arg2 error:(out id *)arg3;
 - (id)valueForProperty:(id)arg1 healthDatabase:(id)arg2 error:(id *)arg3;
 - (_Bool)getValuesForProperties:(id)arg1 healthDatabase:(id)arg2 error:(id *)arg3 handler:(CDUnknownBlockType)arg4;

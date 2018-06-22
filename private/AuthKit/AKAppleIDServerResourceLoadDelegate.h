@@ -31,6 +31,7 @@
     NSString *_clientAppName;
     NSNumber *_hasEmptyPasswordOverride;
     NSString *_securityUpgradeContext;
+    NSString *_followupItems;
     AKAnisetteData *_proxiedDeviceAnisetteData;
 }
 
@@ -39,6 +40,7 @@
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool shouldSendAbsintheHeader; // @synthesize shouldSendAbsintheHeader=_shouldSendAbsintheHeader;
 @property(retain, nonatomic) AKAnisetteData *proxiedDeviceAnisetteData; // @synthesize proxiedDeviceAnisetteData=_proxiedDeviceAnisetteData;
+@property(copy, nonatomic) NSString *followupItems; // @synthesize followupItems=_followupItems;
 @property(copy, nonatomic) NSString *securityUpgradeContext; // @synthesize securityUpgradeContext=_securityUpgradeContext;
 @property(retain, nonatomic) NSNumber *hasEmptyPasswordOverride; // @synthesize hasEmptyPasswordOverride=_hasEmptyPasswordOverride;
 @property(copy, nonatomic) NSString *clientAppName; // @synthesize clientAppName=_clientAppName;
@@ -64,7 +66,9 @@
 - (_Bool)isResponseFinal:(id)arg1;
 - (void)_signWithFeatureOptInHeaders:(id)arg1;
 - (void)signRequestWithCommonHeaders:(id)arg1;
+- (void)_signRequest:(id)arg1;
 - (void)signRequest:(id)arg1;
+- (void)signRequest:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithAltDSID:(id)arg1 identityToken:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

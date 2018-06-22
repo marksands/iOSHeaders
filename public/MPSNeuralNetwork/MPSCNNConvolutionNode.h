@@ -11,9 +11,11 @@
 @interface MPSCNNConvolutionNode : MPSNNFilterNode
 {
     id <MPSCNNConvolutionDataSource> _weights;
+    unsigned long long _accumulatorPrecision;
 }
 
 + (id)nodeWithSource:(id)arg1 weights:(id)arg2;
+@property(nonatomic) unsigned long long accumulatorPrecision; // @synthesize accumulatorPrecision=_accumulatorPrecision;
 - (Class)gradientClass;
 - (id)resultState;
 @property(readonly, nonatomic) MPSCNNConvolutionStateNode *convolutionState;

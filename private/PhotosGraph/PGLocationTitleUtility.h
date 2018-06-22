@@ -11,7 +11,6 @@
 }
 
 + (id)_peopleLocationFromAddressNode:(id)arg1;
-+ (id)_removeParenthesesInLocationName:(id)arg1;
 + (id)beautifiedLocationNodeStringWithLocationNode:(id)arg1;
 + (id)_twoPartLocationTitleWithFirstPartTitle:(id)arg1 withDimension:(unsigned long long)arg2 usedFirstPartLocationNode:(id)arg3 addressNode:(id)arg4;
 + (id)_sortedComponentsFromComponents:(id)arg1;

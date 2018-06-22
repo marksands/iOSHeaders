@@ -6,38 +6,44 @@
 
 #import "PBCodable.h"
 
+#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
+#import "_INPBIntentSlotVocabularyValue.h"
 
-@class NSMutableArray, NSString, PBUnknownFields;
+@class INCodableAttribute, NSArray, NSString;
 
-@interface _INPBIntentSlotVocabularyValue : PBCodable <NSCopying>
+@interface _INPBIntentSlotVocabularyValue : PBCodable <_INPBIntentSlotVocabularyValue, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
-    PBUnknownFields *_unknownFields;
-    NSMutableArray *_examples;
+    struct _has;
+    NSArray *_examples;
     NSString *_phrase;
     NSString *_pronunciation;
+    INCodableAttribute *_associatedCodableAttribute;
 }
 
-+ (Class)examplesType;
-@property(retain, nonatomic) NSMutableArray *examples; // @synthesize examples=_examples;
-@property(retain, nonatomic) NSString *pronunciation; // @synthesize pronunciation=_pronunciation;
-@property(retain, nonatomic) NSString *phrase; // @synthesize phrase=_phrase;
+@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
+@property(copy, nonatomic) NSString *pronunciation; // @synthesize pronunciation=_pronunciation;
+@property(copy, nonatomic) NSString *phrase; // @synthesize phrase=_phrase;
+@property(copy, nonatomic) NSArray *examples; // @synthesize examples=_examples;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) PBUnknownFields *unknownFields;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-- (id)examplesAtIndex:(unsigned long long)arg1;
-- (unsigned long long)examplesCount;
-- (void)addExamples:(id)arg1;
-- (void)clearExamples;
 @property(readonly, nonatomic) _Bool hasPronunciation;
 @property(readonly, nonatomic) _Bool hasPhrase;
+- (id)examplesAtIndex:(unsigned long long)arg1;
+@property(readonly, nonatomic) unsigned long long examplesCount;
+- (void)addExamples:(id)arg1;
+- (void)clearExamples;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

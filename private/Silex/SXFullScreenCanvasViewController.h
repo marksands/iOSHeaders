@@ -6,16 +6,16 @@
 
 #import "UIViewController.h"
 
-@class SXKeyValueObserver;
+@class SVKeyValueObserver;
 
 @interface SXFullscreenCanvasViewController : UIViewController
 {
     _Bool _visible;
-    SXKeyValueObserver *_navigationBarObserver;
+    SVKeyValueObserver *_navigationBarObserver;
 }
 
 @property(nonatomic) _Bool visible; // @synthesize visible=_visible;
-@property(retain, nonatomic) SXKeyValueObserver *navigationBarObserver; // @synthesize navigationBarObserver=_navigationBarObserver;
+@property(retain, nonatomic) SVKeyValueObserver *navigationBarObserver; // @synthesize navigationBarObserver=_navigationBarObserver;
 - (void).cxx_destruct;
 - (long long)preferredStatusBarStyle;
 - (long long)preferredStatusBarUpdateAnimation;

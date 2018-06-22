@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 {
     BRCAccountSession *_session;
     _Bool _isClosed;
+    _Bool _computingPurgable;
     br_pacer *_purgePacer;
     NSObject<OS_dispatch_queue> *_queue;
 }
@@ -51,8 +52,7 @@ __attribute__((visibility("hidden")))
 - (long long)_fullVacuumIfPossible:(id)arg1;
 - (long long)_dbAutovacuumableSpaceInBytes:(id)arg1;
 - (long long)_dbSizeInBytes:(id)arg1;
-- (long long)computePurgableSpaceWithUrgency:(int)arg1;
-- (id)computePurgeableSpaceForAllUrgencies;
+- (void)computePurgeableSpaceForAllUrgenciesWithReply:(CDUnknownBlockType)arg1;
 - (void)close;
 - (id)initWithAccountSession:(id)arg1;
 

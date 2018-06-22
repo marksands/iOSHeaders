@@ -8,14 +8,16 @@
 
 #import "UIActivityItemApplicationExtensionSource.h"
 #import "UIActivityItemDeferredSource.h"
+#import "UIActivityItemImageDataProvider.h"
 #import "UIActivityItemSource.h"
 
-@class NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSProgress, NSString, NSURL, PFSharingRemaker, PHAsset, PHAssetExportRequest, PLVideoRemaker, _PUActivityItemSourceOperation;
+@class NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_group>, NSProgress, NSString, NSURL, PFSharingRemaker, PHAsset, PHAssetExportRequest, PLVideoRemaker, _PUActivityItemSourceOperation;
 
-@interface PUActivityItemSource : NSObject <UIActivityItemDeferredSource, UIActivityItemApplicationExtensionSource, UIActivityItemSource>
+@interface PUActivityItemSource : NSObject <UIActivityItemDeferredSource, UIActivityItemApplicationExtensionSource, UIActivityItemImageDataProvider, UIActivityItemSource>
 {
     PHAsset *_asset;
     NSDictionary *_cachedSharingVariants;
+    NSObject<OS_dispatch_group> *_cachedSharingVariantsDisptachGroup;
     NSMutableSet *_onDemandExports;
     NSMutableDictionary *_sharingURLs;
     NSString *_sharingUUID;
@@ -39,7 +41,9 @@
     NSURL *__assetsLibraryURL;
 }
 
++ (id)activityItemSourceLog;
 + (id)_photosInternalActivities;
++ (void)initialize;
 + (id)_sharingErrorWithCode:(long long)arg1 underlyingError:(id)arg2 localizedDescription:(id)arg3 additionalInfo:(id)arg4;
 + (_Bool)supportsAssetLocalIdentifierForActivityType:(id)arg1;
 + (_Bool)supportsPhotoIrisBundleForActivityType:(id)arg1;
@@ -77,7 +81,7 @@
 - (id)activityViewControllerOperation:(id)arg1;
 - (id)activityViewControllerApplicationExtensionItem:(id)arg1;
 - (void)_runOnDemandExportForAsset:(id)arg1 withOptions:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (id)activityViewController:(id)arg1 thumbnailImageForActivityType:(id)arg2 suggestedSize:(struct CGSize)arg3;
+- (id)activityViewController:(id)arg1 thumbnailImageDataForActivityType:(id)arg2 suggestedSize:(struct CGSize)arg3;
 - (id)activityViewController:(id)arg1 dataTypeIdentifierForActivityType:(id)arg2;
 - (id)activityViewController:(id)arg1 itemForActivityType:(id)arg2;
 - (id)activityViewControllerPlaceholderItem:(id)arg1;
@@ -108,6 +112,7 @@
 - (_Bool)_wantsLocalAssetsForActivityType:(id)arg1;
 - (void)cancelRemaking;
 - (void)cancel;
+- (void)_fetchSharingVariants;
 - (id)_sharingVariants;
 - (void)runWithActivityType:(id)arg1;
 - (id)_activityOperationQueue;

@@ -6,20 +6,16 @@
 
 #import <PhotosGraph/PGGraphNode.h>
 
-#import "PGGraphSocialGroupNode.h"
-
-@class NSString;
-
-@interface PGGraphSocialGroupNode : PGGraphNode <PGGraphSocialGroupNode>
+@interface PGGraphSocialGroupNode : PGGraphNode
 {
 }
 
++ (id)sortedSocialGroupNodeForMomentNodes:(id)arg1;
+- (void)enumeratePersonNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateMomentNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (id)personNodes;
+- (id)momentNodes;
+@property(readonly, nonatomic) unsigned long long rank;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) unsigned long long rank; // @dynamic rank;
-@property(readonly) Class superclass;
 @end
 

@@ -47,7 +47,6 @@
 - (id)viewForLastBaselineLayout;
 - (id)viewForFirstBaselineLayout;
 - (void)didMoveToWindow;
-@property(nonatomic) _Bool useColorFilters; // @dynamic useColorFilters;
 @property(readonly, nonatomic) double lastBaselineOffsetFromBottom;
 @property(readonly, nonatomic) double firstBaselineOffsetFromBottom;
 @property(readonly, nonatomic) struct UIEdgeInsets characterOverflowInsets;

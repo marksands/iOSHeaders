@@ -13,9 +13,6 @@
 
 @interface _CPResultSectionForFeedback : PBCodable <_CPResultSectionForFeedback, NSSecureCoding>
 {
-    struct {
-        unsigned int rankingScore:1;
-    } _has;
     NSArray *_results;
     NSString *_identifier;
     NSString *_bundleIdentifier;
@@ -37,10 +34,6 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-@property(readonly, nonatomic) _Bool hasFallbackResultSection;
-@property(readonly, nonatomic) _Bool hasRankingScore;
-@property(readonly, nonatomic) _Bool hasBundleIdentifier;
-@property(readonly, nonatomic) _Bool hasIdentifier;
 - (id)resultsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)resultsCount;
 - (void)addResults:(id)arg1;

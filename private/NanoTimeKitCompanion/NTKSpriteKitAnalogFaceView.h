@@ -17,7 +17,7 @@
     double _maxZoomingIconDiameter;
 }
 
-+ (void)_prewarm;
++ (void)_prewarmForDevice:(id)arg1;
 @property(nonatomic) double maxZoomingIconDiameter; // @synthesize maxZoomingIconDiameter=_maxZoomingIconDiameter;
 @property(nonatomic) __weak UIView *handsView; // @synthesize handsView=_handsView;
 @property(nonatomic) __weak UIView *circleView; // @synthesize circleView=_circleView;

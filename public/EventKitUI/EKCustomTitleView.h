@@ -27,6 +27,10 @@
 @property(retain) UILabel *title; // @synthesize title=_title;
 @property(retain) UILabel *originalTitle; // @synthesize originalTitle=_originalTitle;
 - (void).cxx_destruct;
+- (long long)indexOfAccessibilityElement:(id)arg1;
+- (id)accessibilityElementAtIndex:(long long)arg1;
+- (long long)accessibilityElementCount;
+- (_Bool)isAccessibilityElement;
 - (void)animateOutWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)animateInWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)display;

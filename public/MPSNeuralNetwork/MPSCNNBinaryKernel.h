@@ -68,6 +68,7 @@
 @property(nonatomic) CDStruct_1e3be3a8 clipRect; // @synthesize clipRect=_clipRect;
 @property(nonatomic) CDStruct_d6af7fc0 secondaryOffset; // @synthesize secondaryOffset=_secondaryOffset;
 @property(nonatomic) CDStruct_d6af7fc0 primaryOffset; // @synthesize primaryOffset=_primaryOffset;
+- (unsigned long long)maxBatchSize;
 - (void)copyToBinaryGradientState:(id)arg1 primaryImage:(id)arg2 secondaryImage:(id)arg3 sourceStates:(id)arg4 destinationImage:(id)arg5;
 - (struct NSArray *)temporaryResultStateBatchForCommandBuffer:(id)arg1 primaryImage:(struct NSArray *)arg2 secondaryImage:(struct NSArray *)arg3 sourceStates:(id)arg4 destinationImage:(struct NSArray *)arg5;
 - (id)temporaryResultStateForCommandBuffer:(id)arg1 primaryImage:(id)arg2 secondaryImage:(id)arg3 sourceStates:(id)arg4 destinationImage:(id)arg5;

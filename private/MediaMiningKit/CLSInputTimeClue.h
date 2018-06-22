@@ -24,7 +24,7 @@
 - (void).cxx_destruct;
 - (_Bool)isEqualToClue:(id)arg1;
 - (void)_computeDateProperties;
-- (id)_prepareOperation;
+- (void)_prepareWithProgressBlock:(CDUnknownBlockType)arg1;
 - (id)description;
 @property(copy, nonatomic) NSArray *events; // @synthesize events=_events;
 - (unsigned long long)numberOfDays;

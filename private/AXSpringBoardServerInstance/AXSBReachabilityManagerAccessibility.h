@@ -19,7 +19,7 @@
 - (id)_axDictionaryOfAnimationProperties;
 - (void)_axAddReachabilityProperty:(id)arg1 toDictionary:(id)arg2;
 - (id)_axReachabilitySettings;
-- (void)_notifyObserversReachabilityModeActive:(_Bool)arg1 excludingObserver:(id)arg2;
+- (void)_notifyObserversReachabilityModeActive:(_Bool)arg1;
 
 @end
 

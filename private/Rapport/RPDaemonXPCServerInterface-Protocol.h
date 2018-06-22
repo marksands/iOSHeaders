@@ -7,6 +7,7 @@
 @class NSDictionary, NSString;
 
 @protocol RPDaemonXPCServerInterface
+- (void)getIdentitiesWithCompletion:(void (^)(NSArray *, NSError *))arg1;
 - (void)diagnosticShow:(NSString *)arg1 level:(int)arg2 completion:(void (^)(NSString *))arg3;
 - (void)diagnosticLogControl:(NSString *)arg1 completion:(void (^)(NSString *))arg2;
 - (void)diagnosticCommand:(NSString *)arg1 params:(NSDictionary *)arg2 completion:(void (^)(NSDictionary *, NSError *))arg3;

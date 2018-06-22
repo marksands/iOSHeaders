@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class GEOActiveTileGroup, GEOResourceManifestConfiguration, NSArray, NSNumber, NSObject<OS_dispatch_queue>, NSProgress, NSString;
+@class GEOActiveTileGroup, GEOResourceManifestConfiguration, NSNumber, NSObject<OS_dispatch_queue>, NSProgress, NSString;
 
 @protocol GEOResourceManifestServerProxy <NSObject>
 @property(readonly, nonatomic) GEOActiveTileGroup *activeTileGroup;
@@ -29,6 +29,6 @@
 - (void)closeConnection;
 - (void)openConnection;
 - (NSObject<OS_dispatch_queue> *)serverQueue;
-- (id)initWithDelegate:(id <GEOResourceManifestServerProxyDelegate>)arg1 configuration:(GEOResourceManifestConfiguration *)arg2 additionalMigrationTaskClasses:(NSArray *)arg3;
+- (id)initWithDelegate:(id <GEOResourceManifestServerProxyDelegate>)arg1 configuration:(GEOResourceManifestConfiguration *)arg2;
 @end
 

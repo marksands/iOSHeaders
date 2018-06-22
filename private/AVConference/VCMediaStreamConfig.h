@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDictionary, NSMutableDictionary, NSString, VCNetworkAddress;
+@class NSData, NSDictionary, NSMutableDictionary, NSString, VCMediaStreamMultiwayConfig, VCNetworkAddress;
 
 __attribute__((visibility("hidden")))
 @interface VCMediaStreamConfig : NSObject
@@ -31,10 +31,10 @@ __attribute__((visibility("hidden")))
     double _rtcpTimeOutInterval;
     unsigned short _rtcpRemotePort;
     _Bool _rateAdaptationEnabled;
-    unsigned int _datagramChannelToken;
+    VCMediaStreamMultiwayConfig *_multiwayConfig;
 }
 
-@property(nonatomic) unsigned int datagramChannelToken; // @synthesize datagramChannelToken=_datagramChannelToken;
+@property(retain, nonatomic) VCMediaStreamMultiwayConfig *multiwayConfig; // @synthesize multiwayConfig=_multiwayConfig;
 @property(nonatomic, getter=isRateAdaptationEnabled) _Bool rateAdaptationEnabled; // @synthesize rateAdaptationEnabled=_rateAdaptationEnabled;
 @property(readonly, nonatomic) NSDictionary *txPayloadMap; // @synthesize txPayloadMap=_txPayloadMap;
 @property(readonly, nonatomic) NSDictionary *rxPayloadMap; // @synthesize rxPayloadMap=_rxPayloadMap;

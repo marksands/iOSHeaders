@@ -6,9 +6,11 @@
 
 #import "DAAccount.h"
 
+#import "CDBAccountInfo.h"
+
 @class CalDAVPrincipalSearchPropertySet, CalDAVRefreshContext, CalDAVServerVersion, CoreDAVDiscoveryTaskGroup, DACoreDAVLogger, DACoreDAVTaskManager, MobileCalDAVAccountRefreshActor, MobileCalDAVPrincipal, NSArray, NSDate, NSDictionary, NSMutableDictionary, NSMutableSet, NSSet, NSString, NSTimeZone, NSURL;
 
-@interface MobileCalDAVAccount : DAAccount
+@interface MobileCalDAVAccount : DAAccount <CDBAccountInfo>
 {
     int _wasMigrated;
     NSMutableDictionary *_principals;
@@ -52,6 +54,7 @@
 @property(retain, nonatomic) NSMutableDictionary *mItemIDsToMoveActions; // @synthesize mItemIDsToMoveActions=_itemIDsToMoveActions;
 @property(retain, nonatomic) NSMutableDictionary *mPrincipals; // @synthesize mPrincipals=_principals;
 - (void).cxx_destruct;
+- (_Bool)addressIsAccountOwner:(id)arg1;
 - (void)coreDAVTransmittedDataFinished;
 - (void)coreDAVLogTransmittedDataPartial:(id)arg1;
 - (_Bool)shouldLogTransmittedData;
@@ -142,6 +145,12 @@
 - (id)init;
 - (id)initWithBackingAccountInfo:(id)arg1;
 - (void)ingestBackingAccountInfoProperties;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

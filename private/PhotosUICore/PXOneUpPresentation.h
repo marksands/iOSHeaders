@@ -19,6 +19,9 @@
         _Bool respondsToSetHiddenAssetReferences;
         _Bool respondsToShouldAutoPlay;
         _Bool respondsToActionManager;
+        _Bool respondsToActionManagerForPreviewing;
+        _Bool respondsToActionContext;
+        _Bool respondsToGestureProvider;
     } _delegateFlags;
     struct {
         _Bool respondsToPresentingViewControllerViewWillAppear;
@@ -49,9 +52,12 @@
 - (id)regionOfInterestForAssetReference:(id)arg1 inCoordinateSpace:(id)arg2;
 - (id)currentImageForAssetReference:(id)arg1;
 @property(readonly, nonatomic) _Bool shouldAutoPlay;
+- (long long)actionContext;
+- (id)actionManagerForPreviewing;
 - (id)actionManager;
 - (id)initialAssetReference;
 - (id)photosDetailsContext;
+- (id)gestureProvider;
 - (id)mediaProvider;
 - (id)dataSourceManager;
 - (_Bool)handlePresentingPinchGestureRecognizer:(id)arg1;

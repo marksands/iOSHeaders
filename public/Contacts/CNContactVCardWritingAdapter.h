@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 + (id)adapterWithContact:(id)arg1;
 - (void).cxx_destruct;
 @property(readonly) NSArray *unknownProperties;
+@property(readonly) NSString *preferredChannel;
 @property(readonly) NSString *preferredApplePersonaIdentifier;
 @property(readonly) NSString *preferredLikenessSource;
 @property(readonly) NSString *phonemeData;

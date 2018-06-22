@@ -34,9 +34,8 @@
     NSMapTable *_contentItemIDsFutures;
     NSMapTable *_contentItemFutures;
     NSMutableDictionary *_contentItemArtworkFutures;
-    MPCPlayerPath *_resolvedPlayerPath;
     id <MPArtworkDataSource> _mediaRemoteArtworkDataSource;
-    id <MPArtworkDataSource> _remotePlayerArtworkDataSource;
+    MPCPlayerPath *_resolvedPlayerPath;
     id _invalidationToken;
 }
 
@@ -47,8 +46,6 @@
 + (void)sendCommand:(unsigned int)arg1 options:(id)arg2 toPlayerPath:(id)arg3 completion:(CDUnknownBlockType)arg4;
 + (id)controllerForPlayerPath:(id)arg1;
 @property(retain, nonatomic) id invalidationToken; // @synthesize invalidationToken=_invalidationToken;
-@property(readonly, nonatomic) id <MPArtworkDataSource> remotePlayerArtworkDataSource; // @synthesize remotePlayerArtworkDataSource=_remotePlayerArtworkDataSource;
-@property(readonly, nonatomic) id <MPArtworkDataSource> mediaRemoteArtworkDataSource; // @synthesize mediaRemoteArtworkDataSource=_mediaRemoteArtworkDataSource;
 @property(readonly, nonatomic) long long queueIdentifierCacheState; // @synthesize queueIdentifierCacheState=_queueIdentifierCacheState;
 @property(retain, nonatomic) MPCPlayerPath *resolvedPlayerPath; // @synthesize resolvedPlayerPath=_resolvedPlayerPath;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *calloutQueue; // @synthesize calloutQueue=_calloutQueue;
@@ -87,6 +84,8 @@
 - (long long)playQueueIdentifiersCacheStateForRange:(struct _MSVSignedRange)arg1;
 - (void)sendCommand:(unsigned int)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) MPCFuture *supportedCommands;
+@property(readonly, nonatomic) id <MPArtworkDataSource> mediaRemoteArtworkDataSource; // @synthesize mediaRemoteArtworkDataSource=_mediaRemoteArtworkDataSource;
+@property(readonly, nonatomic) id <MPArtworkDataSource> remotePlayerArtworkDataSource;
 @property(readonly, nonatomic) MPCFuture *playbackState;
 - (void)dealloc;
 - (id)_init;

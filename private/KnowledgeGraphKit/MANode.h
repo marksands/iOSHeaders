@@ -59,6 +59,7 @@
 - (id)anyEdgeWithLabel:(id)arg1;
 - (unsigned long long)countOfEdgesWithLabel:(id)arg1 domain:(unsigned short)arg2;
 - (unsigned long long)countOfEdgesWithLabel:(id)arg1;
+- (id)edgesForLabel:(id)arg1 domain:(unsigned short)arg2;
 - (id)edgesForLabel:(id)arg1;
 - (id)anyEdgeFromNode:(id)arg1;
 - (id)anyEdgeTowardNode:(id)arg1;
@@ -69,6 +70,7 @@
 - (unsigned long long)outEdgesCount;
 - (unsigned long long)inEdgesCount;
 - (unsigned long long)edgesCount;
+- (_Bool)isNode;
 - (_Bool)isUnique;
 - (_Bool)isOrphan;
 - (void)_updatePersistentStoreElement;
@@ -76,6 +78,10 @@
 - (void)_setPersistentStorePropertyValue:(id)arg1 forKey:(id)arg2;
 - (void)_removeAllPersistentStoreProperties;
 - (void)_removePersistentStorePropertyForKey:(id)arg1;
+- (id)propertiesToTestForUniqueness;
+- (id)identifyingPropertyKeys;
+- (id)fetchPropertiesExceptPropertyKeys:(id)arg1;
+- (id)loadPropertyForKey:(id)arg1;
 - (void)_loadPersistentStoreProperties;
 - (_Bool)isEqualToNode:(id)arg1;
 - (id)shortDescription;

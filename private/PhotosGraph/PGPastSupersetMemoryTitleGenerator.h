@@ -6,16 +6,16 @@
 
 #import <PhotosGraph/PGTitleGenerator.h>
 
-@class NSDateInterval, PGGraphNode;
+@class NSDateInterval, PGGraphLocationNode;
 
 @interface PGPastSupersetMemoryTitleGenerator : PGTitleGenerator
 {
-    PGGraphNode *_supersetLocationNode;
+    PGGraphLocationNode *_supersetLocationNode;
     NSDateInterval *_supersetDateInterval;
 }
 
 @property(readonly) NSDateInterval *supersetDateInterval; // @synthesize supersetDateInterval=_supersetDateInterval;
-@property(readonly) PGGraphNode *supersetLocationNode; // @synthesize supersetLocationNode=_supersetLocationNode;
+@property(readonly) PGGraphLocationNode *supersetLocationNode; // @synthesize supersetLocationNode=_supersetLocationNode;
 - (void).cxx_destruct;
 - (id)_timeTitle;
 - (id)_locationTitle;

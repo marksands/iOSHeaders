@@ -310,6 +310,7 @@
 - (void)setRemoteAppPairingAllowed:(_Bool)arg1;
 - (_Bool)isRemoteAppPairingAllowed;
 - (_Bool)isWiFiWhitelistingEnforced;
+- (_Bool)isAutomaticDateAndTimeEnforced;
 - (unsigned long long)enforcedSoftwareUpdateDelayInDays;
 - (_Bool)isSoftwareUpdateResisted;
 - (void)setTVAllowed:(_Bool)arg1;
@@ -420,6 +421,9 @@
 - (void)validateAppBundleIDs:(id)arg1;
 - (void)setTrustedCodeSigningIdentities:(id)arg1;
 - (id)trustedCodeSigningIdentities;
+- (_Bool)isPasswordProximityAutoFillRequestingAllowed;
+- (_Bool)isPasswordSharingAllowed;
+- (_Bool)isPasswordAutoFillAllowed;
 - (_Bool)isAuthenticationBeforeAutoFillRequired;
 - (_Bool)isSafariPasswordAutoFillAllowedForURL:(id)arg1;
 - (id)managedMedia;
@@ -516,8 +520,10 @@
 - (id)restrictedAppBundleIDsExcludingRemovedSystemApps;
 - (id)restrictedAppBundleIDs;
 - (id)restrictionEnforcedHomeScreenLayout;
+- (_Bool)isHomeScreenLayoutApplied;
 - (id)knownAirPrintIPPURLStrings;
 - (_Bool)isTeslaCloudConfigurationAvailable;
+- (id)deviceOrganizationVendorID;
 - (id)deviceOrganizationCountry;
 - (id)deviceOrganizationZipCode;
 - (id)deviceOrganizationRegion;

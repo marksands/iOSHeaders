@@ -35,6 +35,7 @@
 + (id)hk_clinicalRecordShowMoreBackgroundColor;
 + (id)hk_clinicalRecordValueColor;
 + (id)hk_clinicalRecordSeparatorColor;
++ (id)hk_hearingHealthKeyColor;
 + (id)hk_activityStandGoalMissedGradientBottomColor;
 + (id)hk_activityStandGoalMissedGradientTopColor;
 + (id)hk_activityStandGoalMetGradientBottomColor;
@@ -50,6 +51,8 @@
 + (id)hk_activityMoveGoalMetGradientBottomColor;
 + (id)hk_activityMoveGoalMetGradientTopColor;
 + (id)hk_activityMoveGoalLineColor;
++ (id)hk_activityCardGradientBottomColor;
++ (id)hk_activityCardGradientTopColor;
 + (id)hk_chartLightGrayGraphColor;
 + (id)hk_chartLightGrayTextColor;
 + (id)hk_chartDefaultCurrentValueColor;
@@ -76,6 +79,7 @@
 + (id)hk_sleepGradientBottomColor;
 + (id)hk_sleepGradientTopColor;
 + (id)hk_sleepKeyColor;
++ (id)hk_reproductiveHealthStartOfCycleColor;
 + (id)hk_reproductiveHealthGradientBottomColor;
 + (id)hk_reproductiveHealthGradientTopColor;
 + (id)hk_reproductiveHealthKeyColor;
@@ -94,6 +98,7 @@
 + (id)hk_vitalsGradientBottomColor;
 + (id)hk_vitalsGradientTopColor;
 + (id)hk_vitalsKeyColor;
++ (id)hk_appInteractionDisabledColor;
 + (id)hk_appErrorColor;
 + (id)hk_appKeyColor;
 @end
