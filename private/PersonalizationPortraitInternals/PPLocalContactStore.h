@@ -19,11 +19,11 @@
 + (id)defaultStore;
 - (void).cxx_destruct;
 - (id)_allCNNameRecordsFromDiskCache:(id)arg1;
-- (_Bool)_writeCNNameRecords:(id)arg1 history:(id)arg2 diskCache:(id)arg3;
+- (_Bool)_writeCNNameRecords:(id)arg1 history:(id)arg2 diskCache:(id)arg3 fullLoadFromSource:(_Bool)arg4;
 - (id)_nameRecordKeysToFetch;
-- (void)_registerContactsChangeHistoryForClient:(id)arg1;
-- (_Bool)_clearChangeHistoryForClient:(id)arg1 history:(id)arg2;
-- (id)_contactsChangeHistoryForClient:(id)arg1 error:(id *)arg2;
+- (void)registerContactsChangeHistoryForClient:(id)arg1;
+- (_Bool)clearChangeHistoryForClient:(id)arg1 history:(id)arg2;
+- (id)contactsChangeHistoryForClient:(id)arg1 error:(id *)arg2;
 - (id)_changeHistoryIdentifierForClient:(id)arg1;
 - (void)_namesRecordsForAllFoundInAppsContactsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_cnNameRecordsForAllContactsFromSource;

@@ -25,9 +25,8 @@
 - (_Bool)removeDataSourceWithIdentifier:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 - (_Bool)setArchivedState:(id)arg1 forDataSourceIdentifier:(id)arg2 profile:(id)arg3 error:(id *)arg4;
 - (_Bool)enumerateStatisticsInTransaction:(id)arg1 error:(id *)arg2 block:(CDUnknownBlockType)arg3;
-- (_Bool)storeStatistics:(id)arg1 anchor:(id)arg2 calculator:(id)arg3 transaction:(id)arg4 error:(id *)arg5;
+- (_Bool)storeStatisticsCalculator:(id)arg1 anchor:(id)arg2 transaction:(id)arg3 error:(id *)arg4;
 - (_Bool)deleteStatisticsForType:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
-- (id)statisticsForType:(id)arg1 anchor:(id *)arg2 calculator:(id *)arg3 transaction:(id)arg4 error:(id *)arg5;
 - (id)workoutEventsInTransaction:(id)arg1 error:(id *)arg2;
 - (_Bool)insertWorkoutEvent:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (_Bool)pruneAssociatedSamplesToDateInterval:(id)arg1 transaction:(id)arg2 error:(id *)arg3;

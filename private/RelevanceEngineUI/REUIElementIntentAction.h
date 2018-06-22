@@ -10,16 +10,12 @@
 
 @interface REUIElementIntentAction : REUIElementDonatedActionAction
 {
-    INIntent *_intent;
 }
 
-@property(readonly, nonatomic) INIntent *intent; // @synthesize intent=_intent;
-- (void).cxx_destruct;
 - (id)_newPerformer;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithIntent:(id)arg1 bundleIdentifier:(id)arg2 appName:(id)arg3 appIcon:(id)arg4;
+@property(readonly, nonatomic) INIntent *intent;
 
 @end
 

@@ -25,10 +25,12 @@
 + (Class)classForPreparingExtensionItemData;
 + (id)preparedActivityExtensionItemDataForActivityItemValues:(id)arg1 extensionItemDataRequest:(id)arg2;
 + (id)_activityExtensionItemsForActivityItemValues:(id)arg1 extensionItemDataRequest:(id)arg2;
-+ (id)_activitySettingsImageForApplication:(id)arg1;
 + (id)_defaultFallbackActivityType;
 + (unsigned long long)_xpcAttributes;
 + (long long)activityCategory;
++ (id)_activitySettingsImageForBundleImageConfiguration:(id)arg1;
++ (id)_activityImageForBundleImageConfiguration:(id)arg1;
++ (id)_activitySettingsImageForApplicationBundleIdentifier:(id)arg1;
 + (id)_activityImageForApplicationBundleIdentifier:(id)arg1;
 + (id)_imageByApplyingDefaultEffectsToImage:(id)arg1 activityCategory:(long long)arg2;
 + (id)_activityImageForActionRepresentationImage:(id)arg1;
@@ -58,6 +60,7 @@
 - (id)_activityTypeUsingFallbackActivityTypeIfNecessary;
 - (void)activityDidFinish:(_Bool)arg1;
 - (void)performActivity;
+- (void)_willBePerformedOrPresented;
 @property(readonly, nonatomic) UIViewController *activityViewController;
 - (void)prepareWithActivityItems:(id)arg1;
 - (_Bool)canPerformWithActivityItems:(id)arg1;

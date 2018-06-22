@@ -15,6 +15,7 @@
 
 // Remaining properties
 @property(copy, nonatomic) NSString *label; // @dynamic label;
+@property(nonatomic) long long requiresAppLaunch; // @dynamic requiresAppLaunch;
 @property(copy, nonatomic) NSDateComponents *time; // @dynamic time;
 @end
 

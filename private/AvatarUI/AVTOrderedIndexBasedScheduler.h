@@ -27,7 +27,7 @@
 - (void).cxx_destruct;
 - (void)cancelTask:(CDUnknownBlockType)arg1;
 - (void)cancelAllTasks;
-- (void)taskReadyForIndex:(unsigned long long)arg1;
+- (void)taskReady:(CDUnknownBlockType)arg1 forIndex:(unsigned long long)arg2;
 - (void)scheduleTask:(CDUnknownBlockType)arg1 forIndex:(unsigned long long)arg2;
 - (void)performStateWork:(CDUnknownBlockType)arg1;
 - (id)initWithEnvironment:(id)arg1;

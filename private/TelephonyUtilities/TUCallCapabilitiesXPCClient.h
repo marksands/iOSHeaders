@@ -40,7 +40,7 @@
 - (oneway void)requestPinFromPrimaryDevice;
 - (oneway void)invalidateAndRefreshThumperCallingProvisioningURLForSenderIdentityWithUUID:(id)arg1;
 - (oneway void)invalidateAndRefreshWiFiCallingProvisioningURLForSenderIdentityWithUUID:(id)arg1;
-- (oneway void)endEmergencyCallbackModeForSenderIdentityWithUUID:(id)arg1;
+- (oneway void)endEmergencyCallbackMode;
 - (oneway void)setThumperCallingAllowedOnDefaultPairedDevice:(_Bool)arg1 forSenderIdentityWithUUID:(id)arg2;
 - (oneway void)setThumperCallingAllowed:(_Bool)arg1 onSecondaryDeviceWithID:(id)arg2 forSenderIdentityWithUUID:(id)arg3;
 - (oneway void)setThumperCallingEnabled:(_Bool)arg1 forSenderIdentityWithUUID:(id)arg2;

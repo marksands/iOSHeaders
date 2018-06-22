@@ -14,6 +14,7 @@
 + (_Bool)isSupported;
 @property _Bool isFaceTracked; // @synthesize isFaceTracked=_isFaceTracked;
 - (id)processData:(id)arg1;
+- (id)resultDataClasses;
 - (unsigned long long)requiredSensorDataTypes;
 - (id)init;
 

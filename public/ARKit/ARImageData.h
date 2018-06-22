@@ -19,6 +19,7 @@
     float _temperature;
     double _timestamp;
     NSDate *_captureDate;
+    double _currentCaptureTimestamp;
     struct __CVBuffer *_pixelBuffer;
     unsigned long long _lensType;
     double _exposureDuration;
@@ -34,7 +35,6 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+     // Error parsing type: {?=[3]}24@0:8@16, name: intrinsicsFromDeviceFormat:
 + (id)captureDateFromPresentationTimestamp:(CDStruct_1b6d18a9)arg1 session:(id)arg2;
 @property(nonatomic) long long captureFramesPerSecond; // @synthesize captureFramesPerSecond=_captureFramesPerSecond;
 @property(nonatomic) long long cameraPosition; // @synthesize cameraPosition=_cameraPosition;
@@ -57,6 +57,7 @@
 // Error parsing type for property cameraIntrinsics:
 // Property attributes: T{?=[3]},N,V_cameraIntrinsics
 
+@property(nonatomic) double currentCaptureTimestamp; // @synthesize currentCaptureTimestamp=_currentCaptureTimestamp;
 @property(copy, nonatomic) NSDate *captureDate; // @synthesize captureDate=_captureDate;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;

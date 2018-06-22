@@ -30,6 +30,7 @@
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
 + (id)insertIntoPhotoLibrary:(id)arg1 withUUID:(id)arg2 title:(id)arg3 subtitle:(id)arg4 creationDate:(id)arg5;
++ (_Bool)indexTitleForMemoryCategory:(unsigned long long)arg1;
 + (id)baseSearchIndexPredicate;
 @property(nonatomic) _Bool needsPersistenceUpdate; // @synthesize needsPersistenceUpdate=_needsPersistenceUpdate;
 - (void)removePersistedFileSystemData;

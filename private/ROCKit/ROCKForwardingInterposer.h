@@ -19,6 +19,7 @@
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
+- (_Bool)conformsToProtocol:(id)arg1;
 - (id)rockEncodeWithSessionManager:(id)arg1 error:(id *)arg2;
 
 @end

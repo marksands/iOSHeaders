@@ -21,6 +21,8 @@
 + (id)cloudUUIDKeyForDeletion;
 + (long long)_cloudDeletionTypeForStatus:(short)arg1;
 + (long long)cloudDeletionTypeForTombstone:(id)arg1;
++ (id)predicateToExcludeExpiredMomentShares;
++ (id)predicateToExcludeTrashedMomentShares;
 + (id)_momentSharesWithPredicate:(id)arg1 fetchLimit:(unsigned long long)arg2 inManagedObjectContext:(id)arg3;
 + (id)momentShareWithShareURL:(id)arg1 includeTrashed:(_Bool)arg2 inManagedObjectContext:(id)arg3;
 + (id)momentShareWithScopeIdentifier:(id)arg1 includeTrashed:(_Bool)arg2 inManagedObjectContext:(id)arg3;

@@ -28,7 +28,7 @@
 - (id)presentingViewControllerForCloudQuotaController:(id)arg1;
 - (void)cloudQuotaController:(id)arg1 presentInformationBanner:(id)arg2;
 - (_Bool)serviceUI:(id)arg1 performAction:(long long)arg2;
-- (void)serviceUI:(id)arg1 progressDidChange:(double)arg2;
+- (void)serviceUI:(id)arg1 progressDidChange:(float)arg2;
 - (void)serviceUI:(id)arg1 statusDidChange:(id)arg2;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)_updateServiceUI;

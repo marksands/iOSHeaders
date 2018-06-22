@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class INTimer, NSDate, NSObject<MTTimerIntentSupport>, NSString, NSUUID;
+@class NSDate, NSString, NSUUID;
 
 @protocol MTTimerIntentSupport <NSObject>
 @property(readonly, nonatomic) NSString *title;
@@ -15,9 +15,5 @@
 @property(readonly, nonatomic) double duration;
 @property(readonly, nonatomic) unsigned long long state;
 @property(readonly, nonatomic) NSUUID *timerID;
-- (long long)intentsTimerState;
-- (INTimer *)intentsTimer;
-- (_Bool)matchesIntentsTimer:(INTimer *)arg1 ignoreRemainingTime:(_Bool)arg2;
-- (_Bool)conflictsWithTimer:(NSObject<MTTimerIntentSupport> *)arg1;
 @end
 

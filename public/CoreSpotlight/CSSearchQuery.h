@@ -76,12 +76,14 @@
 - (void)userEngagedWithResult:(id)arg1 interactionType:(int)arg2;
 @property(readonly) unsigned long long foundItemCount;
 - (void)cancel;
+- (_Bool)isFinished;
 @property(readonly, getter=isCancelled) _Bool cancelled;
 - (void)start;
 - (void)_finishWithError:(id)arg1;
 - (id)debugDescription;
 - (id)description;
 - (id)connection;
+- (double)currentTime;
 - (_Bool)attribute;
 - (_Bool)counting;
 - (_Bool)live;

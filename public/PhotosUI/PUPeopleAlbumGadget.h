@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 - (void)_setSubtitleForPeopleCount:(long long)arg1 onAlbumListCellContentView:(id)arg2;
 - (void)_configureSubtitleForAlbumListCellContentView:(id)arg1;
 - (void)_peopleAlbumChanged:(id)arg1;
+- (void)contentViewWillAppear;
 - (id)albumListCellContentView;
 - (void)reconfigure;
 - (void)loadContentData;

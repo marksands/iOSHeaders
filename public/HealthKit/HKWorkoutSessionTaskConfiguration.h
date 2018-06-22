@@ -11,11 +11,13 @@
 @interface HKWorkoutSessionTaskConfiguration : HKTaskConfiguration
 {
     _Bool _requiresCoreLocationAssertion;
+    _Bool _requiresRecovery;
     HKWorkoutConfiguration *_workoutConfiguration;
     NSUUID *_sessionUUID;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool requiresRecovery; // @synthesize requiresRecovery=_requiresRecovery;
 @property(nonatomic) _Bool requiresCoreLocationAssertion; // @synthesize requiresCoreLocationAssertion=_requiresCoreLocationAssertion;
 @property(copy, nonatomic) NSUUID *sessionUUID; // @synthesize sessionUUID=_sessionUUID;
 @property(copy, nonatomic) HKWorkoutConfiguration *workoutConfiguration; // @synthesize workoutConfiguration=_workoutConfiguration;

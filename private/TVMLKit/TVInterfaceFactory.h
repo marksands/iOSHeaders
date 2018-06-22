@@ -41,6 +41,7 @@
 @property(readonly, nonatomic) TVStyleSheetRegistry *styleSheetRegistry; // @synthesize styleSheetRegistry=_styleSheetRegistry;
 @property(retain, nonatomic) id <TVInterfaceCreating> extendedInterfaceCreator; // @synthesize extendedInterfaceCreator=_extendedInterfaceCreator;
 - (void).cxx_destruct;
+- (Class)_extendedCollectionViewCellClassForElement:(id)arg1;
 - (void)_willParseAppDocument:(id)arg1;
 - (id)_getImageFromURLorBundle:(id)arg1;
 - (id)_resourceImageNamed:(id)arg1;

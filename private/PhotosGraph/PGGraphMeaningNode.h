@@ -18,6 +18,7 @@
 
 + (id)meaningLabelsForMeaningNodes:(id)arg1;
 @property(nonatomic) long long isVeryMeaningfulCachedValue; // @synthesize isVeryMeaningfulCachedValue=_isVeryMeaningfulCachedValue;
+- (id)associatedNodesForRemoval;
 @property(readonly, nonatomic) NSArray *localizedSynonyms;
 - (id)_localizationKeyForMeaningLabel:(id)arg1;
 @property(readonly, nonatomic) NSString *localizedName;

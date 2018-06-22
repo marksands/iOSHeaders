@@ -18,6 +18,8 @@ __attribute__((visibility("hidden")))
     struct TVCornerRadii _borderRadii;
 }
 
++ (int)_textBlendMode;
++ (id)_textColor:(long long)arg1;
 + (id)scoreboardCLayoutWithInnerMargin:(double)arg1;
 + (id)scoreboardBLayout;
 + (id)scoreboardALayout;

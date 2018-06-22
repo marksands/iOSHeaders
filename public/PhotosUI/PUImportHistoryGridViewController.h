@@ -37,6 +37,7 @@
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
+- (_Bool)shouldPerformAutomaticContentOffsetAdjustment;
 - (_Bool)initiallyScrolledToBottom;
 - (_Bool)allowSlideshowButton;
 - (void)dealloc;

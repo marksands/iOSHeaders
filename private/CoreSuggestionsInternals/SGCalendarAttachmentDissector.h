@@ -23,7 +23,7 @@
 - (id)enrichmentsFromData:(id)arg1 inDocument:(id)arg2 withParentEntity:(id)arg3;
 - (struct SGMEventICSSourceType_)accountTypeFor:(id)arg1;
 - (_Bool)hasCalendarAccountForOneOf:(id)arg1;
-- (_Bool)hasCalendarSourceForRequestFrom:(id)arg1 withEvent:(id)arg2;
+- (_Bool)isRequestFromSharedCalendarProvider:(id)arg1;
 - (_Bool)shouldIgnoreEntity:(id)arg1;
 - (id)downloadedCalendarAttachmentsFrom:(id)arg1;
 - (id)init;

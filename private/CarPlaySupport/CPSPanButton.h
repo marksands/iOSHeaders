@@ -12,19 +12,19 @@
 
 @interface CPSPanButton : UIButton <UIGestureRecognizerDelegate>
 {
-    unsigned long long _direction;
+    long long _direction;
     CALayer *_backgroundLayer;
 }
 
 + (id)_focusedBackgroundColor;
 + (id)_backgroundColor;
 @property(retain, nonatomic) CALayer *backgroundLayer; // @synthesize backgroundLayer=_backgroundLayer;
-@property(readonly, nonatomic) unsigned long long direction; // @synthesize direction=_direction;
+@property(readonly, nonatomic) long long direction; // @synthesize direction=_direction;
 - (void).cxx_destruct;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (void)layoutSubviews;
-- (id)initWithDirection:(unsigned long long)arg1;
+- (id)initWithDirection:(long long)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -13,7 +13,7 @@
 #import "UIItemProviderReading.h"
 #import "UIItemProviderWriting.h"
 
-@class CIImage, NSArray, NSString, UIGraphicsImageRendererFormat, UIImageAsset, UITraitCollection, _UIImageVectorImageSupport;
+@class CIImage, NSArray, NSMapTable, NSString, UIGraphicsImageRendererFormat, UIImageAsset, UITraitCollection, _UIImageVectorImageSupport;
 
 @interface UIImage : NSObject <NSItemProviderReading, NSItemProviderWriting, UIItemProviderPresentationSizeProviding, UIItemProviderReading, UIItemProviderWriting, NSSecureCoding>
 {
@@ -29,6 +29,7 @@
         unsigned int suppressesAccessibilityHairlineThickening:1;
         unsigned int hasDecompressionInfo:1;
     } _imageFlags;
+    NSMapTable *_siblingImages;
     _Bool _flipsForRightToLeftLayoutDirection;
     UITraitCollection *_traitCollection;
     _UIImageVectorImageSupport *_vectorImageSupport;

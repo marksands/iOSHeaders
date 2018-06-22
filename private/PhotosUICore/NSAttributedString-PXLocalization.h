@@ -19,7 +19,7 @@
 + (id)px_localizedAttributedStringForUserCreatingSharedAlbumWithName:(id)arg1 defaultTextAttributes:(id)arg2 posterTextAttributes:(id)arg3 albumTextAttributes:(id)arg4;
 + (id)px_localizedAttributedStringForUserCreatingStreamWithName:(id)arg1 defaultTextAttributes:(id)arg2 emphasizedTextAttributes:(id)arg3;
 + (id)px_localizedAttributedStringForInvitationResponseReceivedWithInviteeFullName:(id)arg1 sharedAlbumName:(id)arg2 accepted:(_Bool)arg3 defaultTextAttributes:(id)arg4 posterTextAttributes:(id)arg5 albumTextAttributes:(id)arg6;
-+ (id)px_localizedAttributedStringForInvitationResponseReceivedWithInviteeFullName:(id)arg1 streamName:(id)arg2 accepted:(_Bool)arg3 defaultTextAttributes:(id)arg4 emphasizedTextAttributes:(id)arg5;
++ (id)px_localizedAttributedStringForInvitationResponseReceivedWithInviteeFullName:(id)arg1 streamName:(id)arg2 accepted:(_Bool)arg3 defaultTextAttributes:(id)arg4 emphasizedTextAttributes:(id)arg5 streamNameAttributes:(id)arg6;
 + (id)px_localizedAttributedStringForUserJoiningSharedAlbumWithName:(id)arg1 defaultTextAttributes:(id)arg2 posterTextAttributes:(id)arg3 albumTextAttributes:(id)arg4;
 + (id)px_localizedAttributedStringForUserJoiningStreamWithName:(id)arg1 defaultTextAttributes:(id)arg2 emphasizedTextAttributes:(id)arg3;
 + (id)px_localizedAttributedStringForLikesWithLikerCount:(long long)arg1 isVideo:(_Bool)arg2 defaultTextAttributes:(id)arg3 emphasizedTextAttributes:(id)arg4;

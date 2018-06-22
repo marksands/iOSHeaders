@@ -10,6 +10,7 @@
 {
 }
 
+- (id)cloudGUID;
 - (id)cloudOwnerLastName;
 - (id)cloudOwnerFirstName;
 - (id)cloudOwnerEmail;

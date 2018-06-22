@@ -6,10 +6,11 @@
 
 #import "PSListController.h"
 
-@class PSSpecifier;
+@class NSArray, PSSpecifier;
 
 @interface STAllowanceSetupListController : PSListController
 {
+    NSArray *_initialSelectedIdentifiers;
     id <STAllowanceSetupListControllerDelegate> _delegate;
     PSSpecifier *_categoriesGroupSpecifier;
     PSSpecifier *_allAppsAndCategoriesSpecifier;
@@ -18,18 +19,16 @@
 @property(retain, nonatomic) PSSpecifier *allAppsAndCategoriesSpecifier; // @synthesize allAppsAndCategoriesSpecifier=_allAppsAndCategoriesSpecifier;
 @property(retain, nonatomic) PSSpecifier *categoriesGroupSpecifier; // @synthesize categoriesGroupSpecifier=_categoriesGroupSpecifier;
 @property __weak id <STAllowanceSetupListControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, copy, nonatomic) NSArray *initialSelectedIdentifiers; // @synthesize initialSelectedIdentifiers=_initialSelectedIdentifiers;
 - (void).cxx_destruct;
-- (void)tableView:(id)arg1 didDeselectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)addButtonTapped:(id)arg1;
 - (void)cancelButtonTapped:(id)arg1;
-- (id)categorySpecifiers;
-- (id)specifiers;
-- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
+- (id)initWithSelectedIdentifiers:(id)arg1;
 - (id)init;
 
 @end

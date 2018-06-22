@@ -6,20 +6,21 @@
 
 #import "NSObject.h"
 
-#import "ACHTemplateStoreObserving.h"
+#import "ACHAchievementStoreObserving.h"
 #import "HDDatabaseProtectedDataObserver.h"
 #import "HDHealthDaemonReadyObserver.h"
 
-@class ACHTemplateStore, HDProfile, NSCalendar, NSDate, NSDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString;
+@class ACHAchievementStore, ACHTemplateStore, HDProfile, NSCalendar, NSDate, NSDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString;
 
-@interface ACHTemplateSourceScheduler : NSObject <HDHealthDaemonReadyObserver, HDDatabaseProtectedDataObserver, ACHTemplateStoreObserving>
+@interface ACHTemplateSourceScheduler : NSObject <HDHealthDaemonReadyObserver, HDDatabaseProtectedDataObserver, ACHAchievementStoreObserving>
 {
     int _significantTimeChangeToken;
     _Bool _initialRunComplete;
-    _Bool _templateStoreDidFinishInitialFetch;
+    _Bool _achievementStoreDidFinishInitialFetch;
     _Bool _shouldScheduleAfterInitialFetch;
     HDProfile *_profile;
     ACHTemplateStore *_templateStore;
+    ACHAchievementStore *_achievementStore;
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSSet *_templateSources;
     NSDictionary *_lastRunDateByTemplateSourceIdentifier;
@@ -29,21 +30,23 @@
 
 @property(retain, nonatomic) NSDate *currentDateOverride; // @synthesize currentDateOverride=_currentDateOverride;
 @property(nonatomic) _Bool shouldScheduleAfterInitialFetch; // @synthesize shouldScheduleAfterInitialFetch=_shouldScheduleAfterInitialFetch;
-@property(nonatomic) _Bool templateStoreDidFinishInitialFetch; // @synthesize templateStoreDidFinishInitialFetch=_templateStoreDidFinishInitialFetch;
+@property(nonatomic) _Bool achievementStoreDidFinishInitialFetch; // @synthesize achievementStoreDidFinishInitialFetch=_achievementStoreDidFinishInitialFetch;
 @property(retain, nonatomic) NSCalendar *gregorianCalendar; // @synthesize gregorianCalendar=_gregorianCalendar;
 @property(retain, nonatomic) NSDictionary *lastRunDateByTemplateSourceIdentifier; // @synthesize lastRunDateByTemplateSourceIdentifier=_lastRunDateByTemplateSourceIdentifier;
 @property(retain, nonatomic) NSSet *templateSources; // @synthesize templateSources=_templateSources;
 @property(nonatomic) _Bool initialRunComplete; // @synthesize initialRunComplete=_initialRunComplete;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *serialQueue; // @synthesize serialQueue=_serialQueue;
+@property(retain, nonatomic) ACHAchievementStore *achievementStore; // @synthesize achievementStore=_achievementStore;
 @property(retain, nonatomic) ACHTemplateStore *templateStore; // @synthesize templateStore=_templateStore;
 @property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (void)_runSynchronously;
 - (id)_currentDate;
 @property(readonly, nonatomic) unsigned long long _sourceCount;
-- (void)templateStore:(id)arg1 didRemoveTemplates:(id)arg2;
-- (void)templateStore:(id)arg1 didAddNewTemplates:(id)arg2;
-- (void)templateStoreDidFinishInitialFetch:(id)arg1;
+- (void)achievementStore:(id)arg1 didUpdateAchievements:(id)arg2;
+- (void)achievementStore:(id)arg1 didAddAchievements:(id)arg2;
+- (void)achievementStore:(id)arg1 didRemoveAchievements:(id)arg2;
+- (void)achievementStoreDidFinishInitialFetch:(id)arg1;
 - (void)_queue_runTemplateSources:(id)arg1 requiringRunnnableForDate:(_Bool)arg2;
 - (void)_runAllTemplateSources;
 - (id)_runnableSourcesInSources:(id)arg1 forDate:(id)arg2 calendar:(id)arg3;
@@ -52,7 +55,7 @@
 - (void)runImmediatelyForTemplateSource:(id)arg1;
 - (void)deregisterTemplateSource:(id)arg1;
 - (void)registerTemplateSource:(id)arg1;
-- (id)initWithProfile:(id)arg1 templateStore:(id)arg2;
+- (id)initWithProfile:(id)arg1 templateStore:(id)arg2 achievementStore:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

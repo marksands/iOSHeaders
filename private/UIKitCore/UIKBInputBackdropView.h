@@ -41,6 +41,8 @@ __attribute__((visibility("hidden")))
 - (void)_setFrame:(struct CGRect)arg1 leftOffset:(double)arg2 gapWidth:(double)arg3 progress:(double)arg4;
 - (void)layoutInputBackdropToFullWithRect:(struct CGRect)arg1;
 - (void)layoutInputBackdropToSplitWithLeftViewRect:(struct CGRect)arg1 andRightViewRect:(struct CGRect)arg2 innerCorners:(int)arg3;
+- (void)restoreFromSnapshotting;
+- (void)prepareForSnapshotting;
 - (void)transitionToStyle:(long long)arg1 isSplit:(_Bool)arg2;
 - (void)_setRenderConfig:(id)arg1;
 - (int)textEffectsVisibilityLevel;

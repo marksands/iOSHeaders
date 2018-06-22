@@ -15,8 +15,6 @@
 {
     PXCMMInvitationView *_invitationView;
     PXGadgetSpec *_gadgetSpec;
-    _Bool _didLoadContentData;
-    id <PXCMMInvitation> _pendingInvitation;
     id <PXGadgetDelegate> _delegate;
     NSManagedObjectID *_objectID;
     id <PXCMMInvitation> _invitation;
@@ -27,7 +25,7 @@
 
 @property(retain, nonatomic) PXCMMAssetsProgressListener *assetsProgressListener; // @synthesize assetsProgressListener=_assetsProgressListener;
 @property(nonatomic) __weak id <PXCMMInvitationGadgetDelegate> invitationGadgetDelegate; // @synthesize invitationGadgetDelegate=_invitationGadgetDelegate;
-@property(copy, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(retain, nonatomic) id <PXCMMInvitation> invitation; // @synthesize invitation=_invitation;
 @property(retain, nonatomic) NSManagedObjectID *objectID; // @synthesize objectID=_objectID;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
@@ -37,13 +35,13 @@
 - (void)_tapGesture:(id)arg1;
 - (void)_updateStatusString;
 - (void)_registerAssetsProgressListener;
+- (void)_calendarDayChangedNotification:(id)arg1;
+- (void)_updateIsNewStatus;
 - (void)_loadInvitation:(id)arg1;
 - (id)uniqueGadgetIdentifier;
 @property(readonly, nonatomic) _Bool supportsSelection;
 @property(readonly, nonatomic) _Bool supportsHighlighting;
 - (struct NSObject *)contentView;
-- (_Bool)hasLoadedContentData;
-- (void)loadContentData;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) _Bool hasContentToDisplay;
 @property(readonly, nonatomic) unsigned long long gadgetType;

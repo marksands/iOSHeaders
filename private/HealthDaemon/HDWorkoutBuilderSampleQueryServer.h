@@ -26,7 +26,7 @@
 - (void)workoutBuilderServer:(id)arg1 addedSamples:(id)arg2;
 - (void)didInvalidateTaskServer:(id)arg1;
 - (void)didCreateTaskServer:(id)arg1;
-- (void)_scheduleHistoricalQuery;
+- (void)_queue_scheduleHistoricalQuery;
 - (void)_queue_performHistoricalQuery;
 - (void)_queue_start;
 - (_Bool)_shouldObserveDatabaseProtectedDataAvailability;

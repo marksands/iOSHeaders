@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface UITextChecker : NSObject
 {
     id _reserved;
     long long _usdt;
+    NSString *_checkerWarmingLanguage;
 }
 
 + (void)queryLocalUpdateAssets:(CDUnknownBlockType)arg1;

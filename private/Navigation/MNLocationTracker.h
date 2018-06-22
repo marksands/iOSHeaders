@@ -31,6 +31,7 @@
 - (void)_roadFeaturesForFeature:(CDStruct_c707fdd0 *)arg1 outRoadName:(id *)arg2 outShieldText:(id *)arg3 outShieldType:(long long *)arg4;
 - (void)_updateMatchedLocation:(id)arg1;
 - (id)_matchedLocationForLocation:(id)arg1;
+- (void)_setIsNavigatingInLowGuidance:(_Bool)arg1;
 - (_Bool)paused;
 - (void)resume;
 - (void)pause;

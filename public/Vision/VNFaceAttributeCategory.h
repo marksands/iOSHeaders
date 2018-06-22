@@ -8,12 +8,11 @@
 
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
-#import "VNObservationsCacheKeyProviding.h"
 #import "VNRequestRevisionProviding.h"
 
 @class NSArray, VNClassificationObservation;
 
-@interface VNFaceAttributeCategory : NSObject <VNObservationsCacheKeyProviding, NSSecureCoding, NSCopying, VNRequestRevisionProviding>
+@interface VNFaceAttributeCategory : NSObject <NSSecureCoding, NSCopying, VNRequestRevisionProviding>
 {
     VNClassificationObservation *_mostLikelyLabel;
     NSArray *_allLabelsWithConfidences;
@@ -26,7 +25,6 @@
 @property(copy, nonatomic) VNClassificationObservation *label; // @synthesize label=_mostLikelyLabel;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
-- (id)observationsCacheKey;
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

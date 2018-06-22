@@ -8,17 +8,17 @@
 
 #import "PSHeaderFooterView.h"
 
-@class PSSpecifier, STSingleLineHeaderView, UILabel, UISegmentedControl;
+@class PSSpecifier, STSingleLineDetailTextHeaderView, UILabel, UISegmentedControl;
 
 @interface STUsageSummaryHeaderView : UITableViewHeaderFooterView <PSHeaderFooterView>
 {
     PSSpecifier *_specifier;
     UISegmentedControl *_segmentedControl;
     UILabel *_deviceNameLabel;
-    STSingleLineHeaderView *_singleLineHeaderView;
+    STSingleLineDetailTextHeaderView *_singleLineHeaderView;
 }
 
-@property(readonly, nonatomic) STSingleLineHeaderView *singleLineHeaderView; // @synthesize singleLineHeaderView=_singleLineHeaderView;
+@property(readonly, nonatomic) STSingleLineDetailTextHeaderView *singleLineHeaderView; // @synthesize singleLineHeaderView=_singleLineHeaderView;
 @property(readonly, nonatomic) UILabel *deviceNameLabel; // @synthesize deviceNameLabel=_deviceNameLabel;
 @property(readonly, nonatomic) UISegmentedControl *segmentedControl; // @synthesize segmentedControl=_segmentedControl;
 @property(retain, nonatomic) PSSpecifier *specifier; // @synthesize specifier=_specifier;

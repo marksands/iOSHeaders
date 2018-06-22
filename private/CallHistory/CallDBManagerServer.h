@@ -27,7 +27,6 @@
 - (void)prepareDatabaseForNextStepInMigration:(id)arg1 dbVersion:(long long)arg2 isEncrypted:(_Bool)arg3;
 - (void)populateHandleType:(id)arg1 dbVersion:(long long)arg2 isEncrypted:(_Bool)arg3;
 - (void)populateRecentCallRemoteParticipantHandles:(id)arg1 dbVersion:(long long)arg2 isEncrypted:(_Bool)arg3;
-- (void)populateRecentCallLocalParticipantHandle:(id)arg1 dbVersion:(long long)arg2 isEncrypted:(_Bool)arg3;
 - (void)populateServiceProviderAndCallCategory:(id)arg1 dbVersion:(long long)arg2 isEncrypted:(_Bool)arg3;
 - (void)modifyCallRecordForDBAtLocation:(id)arg1 dbVersion:(long long)arg2 isEncrypted:(_Bool)arg3 modifyCallRecord:(CDUnknownBlockType)arg4;
 - (_Bool)removeDuplicatesFromDBAtLocation:(id)arg1 dbVersion:(long long)arg2 isEncrypted:(_Bool)arg3;

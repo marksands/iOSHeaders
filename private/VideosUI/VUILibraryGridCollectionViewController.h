@@ -22,7 +22,6 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_cellMetrics;
     VUILibraryCollectionHeaderView *_sizingHeaderView;
     _Bool _forceBackButton;
-    _Bool _onlyShowLocalContent;
     long long _gridFilter;
     UIBarButtonItem *_libraryBarButton;
     VUIMediaEntityFetchRequest *_fetchRequest;
@@ -41,7 +40,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSArray *totalResults; // @synthesize totalResults=_totalResults;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(retain, nonatomic) VUIMediaEntityFetchRequest *fetchRequest; // @synthesize fetchRequest=_fetchRequest;
-@property(nonatomic) _Bool onlyShowLocalContent; // @synthesize onlyShowLocalContent=_onlyShowLocalContent;
 @property(nonatomic) _Bool forceBackButton; // @synthesize forceBackButton=_forceBackButton;
 @property(retain, nonatomic) UIBarButtonItem *libraryBarButton; // @synthesize libraryBarButton=_libraryBarButton;
 @property(nonatomic) long long gridFilter; // @synthesize gridFilter=_gridFilter;
@@ -80,6 +78,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(nonatomic) _Bool onlyShowLocalContent;
 @property(readonly) Class superclass;
 
 @end

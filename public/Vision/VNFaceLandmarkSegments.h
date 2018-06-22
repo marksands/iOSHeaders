@@ -8,12 +8,11 @@
 
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
-#import "VNObservationsCacheKeyProviding.h"
 #import "VNRequestRevisionProviding.h"
 
 @class NSData;
 
-@interface VNFaceLandmarkSegments : NSObject <VNObservationsCacheKeyProviding, NSSecureCoding, NSCopying, VNRequestRevisionProviding>
+@interface VNFaceLandmarkSegments : NSObject <NSSecureCoding, NSCopying, VNRequestRevisionProviding>
 {
     unsigned long long _requestRevision;
     unsigned long long _espressoOutputBufferWidth;
@@ -33,7 +32,6 @@
 - (void).cxx_destruct;
 - (struct __CVBuffer *)createImageOfFaceLandmarkSegments:(unsigned long long)arg1 error:(id *)arg2;
 - (_Bool)isEqual:(id)arg1;
-- (id)observationsCacheKey;
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

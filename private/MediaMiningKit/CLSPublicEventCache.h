@@ -24,7 +24,7 @@
 - (id)publicEventsForMuid:(unsigned long long)arg1;
 - (void)_updateManagedEvent:(id)arg1 withEvent:(id)arg2 inContext:(id)arg3;
 - (void)updatePublicEvents:(id)arg1;
-- (void)insertBatchesOfPublicEventsByTimeLocationIdentifier:(id)arg1 forTimeLocationTuples:(id)arg2;
+- (_Bool)insertBatchesOfPublicEventsByTimeLocationIdentifier:(id)arg1 forTimeLocationTuples:(id)arg2;
 - (id)predicateForTimeLocationTuple:(id)arg1;
 - (void)invalidateCacheItemsBeforeDateWithTimestamp:(double)arg1;
 - (id)dataModelName;

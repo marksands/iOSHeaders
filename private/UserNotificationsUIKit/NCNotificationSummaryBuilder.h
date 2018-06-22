@@ -25,6 +25,7 @@
 - (void).cxx_destruct;
 - (void)_insertString:(id)arg1 intoSequence:(id)arg2 withCounters:(id)arg3;
 - (id)_filteredArgumentsArrayWithArguments:(id)arg1;
+- (id)_formatListWithArguments:(id)arg1 truncated:(_Bool)arg2 truncatedArgumentsCount:(unsigned long long *)arg3;
 - (id)_formatListWithArguments:(id)arg1;
 - (id)_localizedSummaryWithFormat:(id)arg1 notificationsCount:(unsigned long long)arg2 arguments:(id)arg3;
 - (id)_localizedSummaryWithFormats:(id)arg1 andCounts:(id)arg2;

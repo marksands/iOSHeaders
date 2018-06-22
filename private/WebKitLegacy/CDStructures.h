@@ -644,6 +644,8 @@ struct HTMLVideoElement {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
     int _field89;
     struct optional<WTF::MediaTime> _field90;
     struct String _field91;
@@ -1397,23 +1399,38 @@ struct MonotonicTime {
     double _field1;
 };
 
+struct MouseEventData {
+    _Bool _field1;
+    _Bool _field2;
+    _Bool _field3;
+    _Bool _field4;
+    _Bool _field5;
+    struct LayoutPoint _field6;
+    struct FloatPoint _field7;
+    unsigned short _field8;
+    unsigned short _field9;
+    _Bool _field10;
+};
+
 struct Navigation {
     struct String _field1;
     int _field2;
 };
 
 struct NavigationAction {
-    struct RefPtr<WebCore::Document, WTF::DumbPtrTraits<WebCore::Document>> _field1;
+    struct optional<WebCore::NavigationAction::Requester> _field1;
     struct ResourceRequest _field2;
     int _field3;
     int _field4;
     int _field5;
-    struct RefPtr<WebCore::Event, WTF::DumbPtrTraits<WebCore::Event>> _field6;
-    struct RefPtr<WebCore::UserGestureToken, WTF::DumbPtrTraits<WebCore::UserGestureToken>> _field7;
-    struct AtomicString _field8;
-    _Bool _field9;
+    struct optional<WebCore::NavigationAction::UIEventWithKeyStateData> _field6;
+    struct optional<WebCore::NavigationAction::MouseEventData> _field7;
+    struct RefPtr<WebCore::UserGestureToken, WTF::DumbPtrTraits<WebCore::UserGestureToken>> _field8;
+    struct AtomicString _field9;
     _Bool _field10;
-    struct optional<std::__1::pair<unsigned long long, unsigned long long>> _field11;
+    _Bool _field11;
+    struct optional<std::__1::pair<unsigned long long, unsigned long long>> _field12;
+    struct optional<WebCore::BackForwardItemIdentifier> _field13;
 };
 
 struct NetworkLoadMetrics {
@@ -1916,10 +1933,6 @@ struct RefPtr<WebCore::DeviceOrientationData, WTF::DumbPtrTraits<WebCore::Device
     struct DeviceOrientationData *m_ptr;
 };
 
-struct RefPtr<WebCore::Document, WTF::DumbPtrTraits<WebCore::Document>> {
-    struct Document *_field1;
-};
-
 struct RefPtr<WebCore::DocumentParser, WTF::DumbPtrTraits<WebCore::DocumentParser>> {
     struct DocumentParser *_field1;
 };
@@ -2038,6 +2051,10 @@ struct RefPtr<WebCore::ScrollingCoordinator, WTF::DumbPtrTraits<WebCore::Scrolli
     struct ScrollingCoordinator *_field1;
 };
 
+struct RefPtr<WebCore::SecurityOrigin, WTF::DumbPtrTraits<WebCore::SecurityOrigin>> {
+    struct SecurityOrigin *_field1;
+};
+
 struct RefPtr<WebCore::SerializedScriptValue, WTF::DumbPtrTraits<WebCore::SerializedScriptValue>> {
     struct SerializedScriptValue *_field1;
 };
@@ -2106,6 +2123,26 @@ struct Region {
 };
 
 struct RenderObject;
+
+struct Requester {
+    struct URL {
+        struct String _field1;
+        unsigned int :1;
+        unsigned int :1;
+        unsigned int :1;
+        unsigned int _field2;
+        unsigned int _field3;
+        unsigned int _field4;
+        unsigned int _field5;
+        unsigned int _field6;
+        unsigned int _field7;
+        unsigned int _field8;
+        unsigned int _field9;
+        unsigned int _field10;
+    } _field1;
+    struct RefPtr<WebCore::SecurityOrigin, WTF::DumbPtrTraits<WebCore::SecurityOrigin>> _field2;
+    struct pair<unsigned long long, unsigned long long> _field3;
+};
 
 struct ResourceError {
     struct String _field1;
@@ -2343,6 +2380,8 @@ struct Seconds {
     double _field1;
 };
 
+struct SecurityOrigin;
+
 struct SecurityOriginData {
     struct String _field1;
     struct String _field2;
@@ -2517,6 +2556,14 @@ struct Timer {
 };
 
 struct TreeScope;
+
+struct UIEventWithKeyStateData {
+    _Bool _field1;
+    _Bool _field2;
+    _Bool _field3;
+    _Bool _field4;
+    _Bool _field5;
+};
 
 struct UndoStep {
     CDUnknownFunctionPointerType *_field1;
@@ -2997,6 +3044,11 @@ struct optional<WebCore::ApplicationManifest> {
     union storage_t<WebCore::ApplicationManifest> _field2;
 };
 
+struct optional<WebCore::BackForwardItemIdentifier> {
+    _Bool _field1;
+    union constexpr_storage_t<WebCore::BackForwardItemIdentifier> _field2;
+};
+
 struct optional<WebCore::CaptionUserPreferences::CaptionDisplayMode> {
     _Bool _field1;
     union constexpr_storage_t<WebCore::CaptionUserPreferences::CaptionDisplayMode> _field2;
@@ -3015,6 +3067,21 @@ struct optional<WebCore::EventThrottlingBehavior> {
 struct optional<WebCore::HTTPHeaderMap> {
     _Bool _field1;
     union storage_t<WebCore::HTTPHeaderMap> _field2;
+};
+
+struct optional<WebCore::NavigationAction::MouseEventData> {
+    _Bool _field1;
+    union constexpr_storage_t<WebCore::NavigationAction::MouseEventData> _field2;
+};
+
+struct optional<WebCore::NavigationAction::Requester> {
+    _Bool _field1;
+    union storage_t<WebCore::NavigationAction::Requester> _field2;
+};
+
+struct optional<WebCore::NavigationAction::UIEventWithKeyStateData> {
+    _Bool _field1;
+    union constexpr_storage_t<WebCore::NavigationAction::UIEventWithKeyStateData> _field2;
 };
 
 struct optional<WebCore::NetworkLoadPriority> {
@@ -3498,6 +3565,11 @@ union constexpr_storage_t<WTF::WallTime> {
     struct WallTime _field2;
 };
 
+union constexpr_storage_t<WebCore::BackForwardItemIdentifier> {
+    unsigned char _field1;
+    struct BackForwardItemIdentifier _field2;
+};
+
 union constexpr_storage_t<WebCore::CaptionUserPreferences::CaptionDisplayMode> {
     unsigned char _field1;
     int _field2;
@@ -3506,6 +3578,16 @@ union constexpr_storage_t<WebCore::CaptionUserPreferences::CaptionDisplayMode> {
 union constexpr_storage_t<WebCore::EventThrottlingBehavior> {
     unsigned char _field1;
     int _field2;
+};
+
+union constexpr_storage_t<WebCore::NavigationAction::MouseEventData> {
+    unsigned char _field1;
+    struct MouseEventData _field2;
+};
+
+union constexpr_storage_t<WebCore::NavigationAction::UIEventWithKeyStateData> {
+    unsigned char _field1;
+    struct UIEventWithKeyStateData _field2;
 };
 
 union constexpr_storage_t<WebCore::NetworkLoadPriority> {
@@ -3576,6 +3658,11 @@ union storage_t<WebCore::CertificateInfo> {
 union storage_t<WebCore::HTTPHeaderMap> {
     unsigned char _field1;
     struct HTTPHeaderMap _field2;
+};
+
+union storage_t<WebCore::NavigationAction::Requester> {
+    unsigned char _field1;
+    struct Requester _field2;
 };
 
 union storage_t<WebCore::Page::Navigation> {

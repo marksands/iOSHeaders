@@ -4,6 +4,8 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+@class NSString;
+
 #pragma mark Blocks
 
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
@@ -63,6 +65,13 @@ struct CIKernelReflection {
     _Bool _field12;
 };
 
+struct CIPredictionModelImageFeatures {
+    NSString *name;
+    long long width;
+    long long height;
+    unsigned int format;
+};
+
 struct CIRenderDestinationInternal {
     struct RenderDestination *_field1;
     unsigned long long _field2;
@@ -76,10 +85,6 @@ struct CIRenderDestinationInternal {
     _Bool _field10;
     _Bool _field11;
     id _field12;
-};
-
-struct CPUColorCube {
-    unsigned char data[32768];
 };
 
 struct FastRegistration_Signatures {
@@ -112,15 +117,6 @@ struct ISize {
     unsigned long long _field1;
     unsigned long long _field2;
 };
-
-struct MetalFaceMaskEyeQuads_t {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned char _field3;
-    struct MetalFaceMaskQuad_t _field4[16];
-};
-
-struct MetalFaceMaskQuad_t;
 
 struct Projections_meanStdTable {
     float *sumTable;
@@ -343,11 +339,6 @@ typedef struct {
 
 typedef struct {
     float _field1;
-    float _field2;
-} CDStruct_b2fbf00d;
-
-typedef struct {
-    float _field1;
     int _field2;
     int _field3;
     int _field4;
@@ -405,8 +396,8 @@ typedef struct {
 
 typedef struct {
     int _field1;
-    CDStruct_1ef3fb1f _field2[1000];
-} CDStruct_b7c6dbbe;
+    CDStruct_1ef3fb1f _field2[2000];
+} CDStruct_b1bd45e0;
 
 typedef struct {
     int _field1;
@@ -498,39 +489,61 @@ typedef struct {
     float _field6;
     float _field7;
     float _field8;
-    float _field9;
-    CDStruct_818bb265 _field10[32];
-    float _field11;
-    int _field12;
-    _Bool _field13;
-    struct CGPoint _field14;
-    float _field15;
+    int _field9;
+    float _field10;
+    CDStruct_818bb265 _field11[32];
+    float _field12;
+    int _field13;
+    _Bool _field14;
+    struct CGPoint _field15;
     float _field16;
     float _field17;
     float _field18;
     float _field19;
     float _field20;
     int _field21;
-    int _field22;
+    float _field22;
+    _Bool _field23;
+    _Bool _field24;
+    _Bool _field25;
+    _Bool _field26;
+    struct CGPoint _field27;
+    struct CGPoint _field28;
+    struct CGPoint _field29;
+    struct CGPoint _field30;
+    struct CGPoint _field31;
+    struct CGPoint _field32;
+    float _field33;
+    int _field34;
+    int _field35;
     struct {
         int _field1;
         int _field2;
         int _field3;
         int _field4;
-    } _field23;
-    int _field24;
+    } _field36;
+    int _field37;
     struct {
         int _field1;
         int _field2;
         int _field3;
         int _field4;
-    } _field25;
-    int _field26;
-    int _field27;
-    int _field28;
-    int _field29;
-    int _field30;
-} CDStruct_8cc170eb;
+    } _field38;
+    int _field39;
+    int _field40;
+    int _field41;
+    int _field42;
+    int _field43;
+    int _field44;
+    _Bool _field45;
+    float _field46;
+    float _field47;
+    float _field48;
+    float _field49;
+    float _field50;
+    float _field51;
+    float _field52;
+} CDStruct_1c419292;
 
 typedef struct {
     CDStruct_5973fb4f FR;
@@ -546,11 +559,6 @@ typedef struct {
     CDStruct_c3faddef A;
     CDStruct_c3faddef M;
 } CDStruct_caa69dec;
-
-typedef struct {
-    struct CGPoint _field1;
-    struct CGPoint _field2;
-} CDStruct_e3b9714e;
 
 typedef struct {
     int _field1;

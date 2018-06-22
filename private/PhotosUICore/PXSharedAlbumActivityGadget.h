@@ -9,7 +9,7 @@
 #import "PXGadget.h"
 #import "PXOneUpPresentationDelegate.h"
 
-@class NSArray, NSAttributedString, NSString, PXAssetCollageView, PXAssetReference, PXFeedAssetsSectionInfo, PXGadgetSpec, PXPhotoKitAssetsDataSourceManager, PXPhotoKitUIMediaProvider, PXSharedAlbumHeaderView, UILabel, _PXSharedAlbumActivityGadgetContentView;
+@class NSArray, NSAttributedString, NSSet, NSString, PXAssetCollageView, PXAssetReference, PXFeedAssetsSectionInfo, PXGadgetSpec, PXPhotoKitAssetsDataSourceManager, PXPhotoKitUIMediaProvider, PXSharedAlbumHeaderView, UILabel, _PXSharedAlbumActivityGadgetContentView;
 
 @interface PXSharedAlbumActivityGadget : NSObject <PXOneUpPresentationDelegate, PXGadget>
 {
@@ -27,9 +27,11 @@
     PXAssetReference *_currentAssetReference;
     NSArray *_assets;
     NSAttributedString *_caption;
+    NSSet *_oneUpHiddenAssetReferences;
 }
 
 + (void)preloadResources;
+@property(copy, nonatomic) NSSet *oneUpHiddenAssetReferences; // @synthesize oneUpHiddenAssetReferences=_oneUpHiddenAssetReferences;
 @property(copy, nonatomic) NSAttributedString *caption; // @synthesize caption=_caption;
 @property(retain, nonatomic) NSArray *assets; // @synthesize assets=_assets;
 @property(retain, nonatomic) PXAssetReference *currentAssetReference; // @synthesize currentAssetReference=_currentAssetReference;
@@ -46,17 +48,20 @@
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
 - (void)_handleCollageViewTap:(id)arg1;
-- (void)_setUserCloudSharedLiked:(_Bool)arg1;
 - (void)_handleActionTap:(id)arg1;
 - (_Bool)_navigateToActivityFeed:(CDUnknownBlockType)arg1;
 - (struct CGSize)_performLayoutInRect:(struct CGRect)arg1 updateSubviewFrames:(_Bool)arg2;
 - (void)_loadCaption;
 - (void)_loadAssets;
+- (unsigned long long)_numberOfLinesForCaption;
 - (void)_updateCollageView;
 - (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_layoutContentView;
 @property(readonly, nonatomic) _Bool isContentViewLoaded;
 - (void)_loadContentFromSectionInfo;
+- (void)_updateCollageViewHiddenAssets;
+- (void)oneUpPresentation:(id)arg1 setHiddenAssetReferences:(id)arg2;
+- (id)oneUpPresentation:(id)arg1 currentImageForAssetReference:(id)arg2;
 - (id)oneUpPresentation:(id)arg1 regionOfInterestForAssetReference:(id)arg2 inCoordinateSpace:(id)arg3;
 - (id)oneUpPresentationInitialAssetReference:(id)arg1;
 - (id)oneUpPresentationMediaProvider:(id)arg1;

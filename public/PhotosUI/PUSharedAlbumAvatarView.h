@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CNMonogrammer *monogrammer; // @synthesize monogrammer=_monogrammer;
 @property(retain, nonatomic) PHAssetCollection *sharedAlbumCollection; // @synthesize sharedAlbumCollection=_sharedAlbumCollection;
 - (void).cxx_destruct;
+- (void)accessibilityInvertColorsStatusDidChange:(id)arg1;
 - (void)_renderAvatarsForAlbumCollection:(id)arg1;
 - (void)_requestPersonPhoto:(id)arg1 resultHandler:(CDUnknownBlockType)arg2;
 - (id)_getPersonOrPhotoOrInitialsForSubscriber:(id)arg1 contact:(id)arg2 outAvatarType:(unsigned long long *)arg3;

@@ -38,9 +38,9 @@
 - (_Bool)isInteresting;
 - (void)_enumeratePartOfDayWithThreshold:(float)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (unsigned long long)_partOfDayWithThreshold:(float)arg1;
-- (void)enumerateSignificantPartOfDayUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateSignificantPartsOfDayUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumeratePartOfDayUsingBlock:(CDUnknownBlockType)arg1;
-- (unsigned long long)significantPartOfDay;
+- (unsigned long long)significantPartsOfDay;
 - (unsigned long long)partOfDay;
 - (struct CLLocationCoordinate2D)bestLocationCoordinate;
 - (id)bestAddressNode;

@@ -26,6 +26,7 @@
 - (void)dealloc;
 - (id)initWithContextGroupRef:(struct OpaqueJSContextGroup *)arg1;
 - (id)init;
+- (void)shrinkFootprintWhenIdle;
 - (void)shrinkFootprint;
 - (id)externalRememberedSet;
 - (id)externalObjectGraph;

@@ -6,27 +6,29 @@
 
 #import "NSObject.h"
 
-@class ARRunLoop, CADisplayLink, NSObject<OS_dispatch_queue>;
+@class ARRunLoop, CADisplayLink;
 
 @interface ARDisplayLink : NSObject
 {
-    ARRunLoop *_runloop;
     CADisplayLink *_displayLink;
-    NSObject<OS_dispatch_queue> *_dispatchQueue;
     CDUnknownBlockType _callback;
     struct os_unfair_lock_s _lock;
     double _actualVsyncOffset;
     long long _preferredFramesPerSecond;
     double _vsyncOffset;
+    ARRunLoop *_runloop;
 }
 
+@property(readonly, nonatomic) ARRunLoop *runloop; // @synthesize runloop=_runloop;
 - (void).cxx_destruct;
-- (void)displayLinkCallback:(id)arg1;
+- (void)displayLinkCallback;
 - (void)_recomputeActualVsyncOffsetWithVsyncOffset:(double)arg1 preferredFramesPerSecond:(long long)arg2;
 - (void)invalidate;
 @property long long preferredFramesPerSecond; // @synthesize preferredFramesPerSecond=_preferredFramesPerSecond;
 @property double vsyncOffset; // @synthesize vsyncOffset=_vsyncOffset;
-- (id)initWithDispatchQueue:(id)arg1 preferredFramesPerSecond:(long long)arg2 callback:(CDUnknownBlockType)arg3;
+- (void)dealloc;
+- (id)init;
+- (id)initWithPreferredFramesPerSecond:(long long)arg1 callback:(CDUnknownBlockType)arg2;
 
 @end
 

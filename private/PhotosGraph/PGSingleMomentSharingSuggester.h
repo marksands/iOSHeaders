@@ -14,6 +14,7 @@
 {
 }
 
++ (_Bool)canSuggestMomentNodeWithoutPeople:(id)arg1;
 + (_Bool)shouldSuggestMomentNode:(id)arg1;
 + (id)suggestionSubtypes;
 + (id)suggestionTypes;

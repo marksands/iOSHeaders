@@ -21,14 +21,12 @@
     NSDictionary *_resourceVersions;
     double _sessionStart;
     double _firstUseDate;
-    NSString *_version;
     NSString *_parsecDeveloperID;
     NSArray *_feedbacks;
 }
 
 @property(copy, nonatomic) NSArray *feedbacks; // @synthesize feedbacks=_feedbacks;
 @property(copy, nonatomic) NSString *parsecDeveloperID; // @synthesize parsecDeveloperID=_parsecDeveloperID;
-@property(copy, nonatomic) NSString *version; // @synthesize version=_version;
 @property(nonatomic) _Bool removeTimestamps; // @synthesize removeTimestamps=_removeTimestamps;
 @property(nonatomic) double firstUseDate; // @synthesize firstUseDate=_firstUseDate;
 @property(nonatomic) _Bool firstUseOfTheDay; // @synthesize firstUseOfTheDay=_firstUseOfTheDay;

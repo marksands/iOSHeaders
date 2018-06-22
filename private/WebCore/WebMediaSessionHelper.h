@@ -10,8 +10,7 @@ __attribute__((visibility("hidden")))
 @interface WebMediaSessionHelper : NSObject
 {
     struct MediaSessionManageriOS *_callback;
-    struct RetainPtr<MPVolumeView> _volumeView;
-    struct RetainPtr<MPAVRoutingController> _airPlayPresenceRoutingController;
+    struct RetainPtr<AVRouteDetector> _routeDetector;
     _Bool _monitoringAirPlayRoutes;
     _Bool _startMonitoringAirPlayRoutesPending;
 }

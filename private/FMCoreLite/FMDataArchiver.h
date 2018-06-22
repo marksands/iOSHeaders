@@ -26,7 +26,6 @@
 - (void).cxx_destruct;
 - (id)readData:(id *)arg1 class:(Class)arg2;
 - (unsigned long long)dataWritingOptionForDataProtectionClass:(long long)arg1;
-- (id)excludeDirectoryAndFileFromBackups;
 - (id)saveObject:(id)arg1;
 - (_Bool)saveDictionary:(id)arg1 error:(id *)arg2;
 - (_Bool)saveArray:(id)arg1 error:(id *)arg2;

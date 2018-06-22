@@ -14,6 +14,7 @@
 
 + (id)_minionConnection;
 + (void)_createVideoResourcesFromInputURL:(id)arg1 withItemScopedIdentifier:(id)arg2 videoAdjustments:(id)arg3 resourceType:(unsigned long long)arg4 forIris:(_Bool)arg5 destinationDirectory:(id)arg6 outputResources:(id)arg7;
++ (unsigned int)videoCodecFourCharCodeNumberForAVAsset:(id)arg1;
 + (_Bool)_shouldGenerateLargeVideoDerivativeForAVAsset:(id)arg1;
 + (_Bool)shouldGenerateVideoDerivativeForAVAsset:(id)arg1 forResourceType:(unsigned long long)arg2 adjusted:(_Bool)arg3;
 + (void)_generateVideoDerivativeResourcesFromInputResource:(id)arg1 withCPLAdjustments:(id)arg2 destinationDirectory:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;

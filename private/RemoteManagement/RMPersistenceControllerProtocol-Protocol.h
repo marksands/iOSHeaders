@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSManagedObjectContext;
 
 @protocol RMPersistenceControllerProtocol <NSObject>
-- (void)clearUsageDataForOrganization:(NSString *)arg1 withCompletionHandler:(void (^)(NSError *))arg2;
-- (void)refreshUsageDataForOrganization:(NSString *)arg1 withCompletionHandler:(void (^)(NSError *))arg2;
+- (NSManagedObjectContext *)newBackgroundContext;
+- (void)performBackgroundTaskAndWait:(void (^)(NSManagedObjectContext *))arg1;
 - (void)performBackgroundTask:(void (^)(NSManagedObjectContext *))arg1;
 @end
 

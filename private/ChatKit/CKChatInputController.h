@@ -112,8 +112,9 @@
 - (void)startEditingPayload:(id)arg1 dismiss:(_Bool)arg2;
 - (void)startEditingPayload:(id)arg1;
 - (void)startEditingPayloadBypassingValidation:(id)arg1 forPlugin:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_deferredRequestPresentationStyleFullScreenModal;
+- (void)_deferredRequestPresentationStyleFullScreenModalForPlugin:(id)arg1;
 - (void)_deferredRequestPresentationStyleExpanded:(id)arg1;
+- (void)requestPresentationStyleFullScreenModalForPlugin:(id)arg1 skipValidation:(_Bool)arg2;
 - (void)requestPresentationStyleFullScreenModalForPlugin:(id)arg1;
 - (void)requestPresentationStyleExpanded:(_Bool)arg1 forPlugin:(id)arg2;
 - (void)requestPresentationStyleExpanded:(_Bool)arg1;
@@ -167,7 +168,7 @@
 - (void)showKeyboard;
 - (void)_dismissBrowserViewControllerAndReloadInputViews:(_Bool)arg1;
 - (void)dismissBrowserViewController;
-- (void)showBrowserForPlugin:(id)arg1 dataSource:(id)arg2 expanded:(_Bool)arg3;
+- (void)showBrowserForPlugin:(id)arg1 dataSource:(id)arg2 style:(unsigned long long)arg3;
 - (void)_setupObserverForLaunchAppExtensionForDebugging;
 - (void)_launchAppExtensionForDebugging;
 - (void)switcherViewController:(id)arg1 hasUpdatedLastTouchDate:(id)arg2;
@@ -179,6 +180,8 @@
 - (void)switcherViewControllerDidCollapse:(id)arg1;
 - (void)switcherViewControllerDidFinishSwitching:(id)arg1 toViewController:(id)arg2;
 - (void)switcherViewControllerDidStartSwitching:(id)arg1;
+- (id)appIconOverride;
+- (id)appTitleOverride;
 - (void)browserTransitionCoordinatorDidCollapseOrDismiss:(id)arg1 withReason:(long long)arg2;
 - (void)_reconfigurePluginDataSourceWithBalloonControllerIfNecessary;
 - (void)browserTransitionCoordinatorWillCollapseOrDismiss:(id)arg1 withReason:(long long)arg2;
@@ -200,7 +203,7 @@
 - (void)presentAppStoreForURL:(id)arg1 fromSourceApplication:(id)arg2;
 - (void)presentAppStoreForURL:(id)arg1;
 - (void)presentAppStoreForAdamID:(id)arg1;
-- (void)presentViewControllerWithPluginChatItem:(id)arg1 expanded:(_Bool)arg2;
+- (void)presentViewControllerWithPluginChatItem:(id)arg1 presentationStyle:(unsigned long long)arg2;
 - (id)_adamIDFromPluginPayloadData:(id)arg1;
 - (void)swipeDismissBrowser;
 - (void)showHandwritingBrowser;
@@ -221,7 +224,7 @@
 - (id)_entryViewSnapshotWithFrame:(struct CGRect)arg1;
 - (void)_dismissCompactSwitcherOverKeyboardWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_presentCompactSwitcherOverKeyboardWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_presentPluginWithBundleID:(id)arg1 sendingTextInputPayload:(id)arg2 withPayloadID:(id)arg3 expanded:(_Bool)arg4;
+- (void)_presentPluginWithBundleID:(id)arg1 sendingTextInputPayload:(id)arg2 withPayloadID:(id)arg3 style:(unsigned long long)arg4;
 - (void)_presentPluginWithBundleID:(id)arg1 sendingTextInputPayload:(id)arg2 withPayloadID:(id)arg3;
 - (id)_formattedPayload:(id)arg1 forPayloadID:(id)arg2;
 - (void)handlePayload:(id)arg1 withPayloadId:(id)arg2;

@@ -8,10 +8,11 @@
 
 #import "STUIDateTimePickerCellDelegate.h"
 
-@class PSSpecifier, STDeviceBedtime;
+@class NSString, PSSpecifier, STDeviceBedtime;
 
 @interface STDeviceBedtimeListController : PSListController <STUIDateTimePickerCellDelegate>
 {
+    _Bool _canAskForMoreTime;
     id <STDeviceBedtimeListControllerDelegate> _delegate;
     STDeviceBedtime *_bedtime;
     PSSpecifier *_deviceBedtimeSpecifier;
@@ -22,8 +23,12 @@
     PSSpecifier *_startTimePickerSpecifier;
     PSSpecifier *_endTimePickerSpecifier;
     PSSpecifier *_selectedTimeSpecifier;
+    PSSpecifier *_atBedtimeGroupSpecifier;
+    PSSpecifier *_atBedtimeSpecifier;
 }
 
+@property(retain, nonatomic) PSSpecifier *atBedtimeSpecifier; // @synthesize atBedtimeSpecifier=_atBedtimeSpecifier;
+@property(retain, nonatomic) PSSpecifier *atBedtimeGroupSpecifier; // @synthesize atBedtimeGroupSpecifier=_atBedtimeGroupSpecifier;
 @property(retain, nonatomic) PSSpecifier *selectedTimeSpecifier; // @synthesize selectedTimeSpecifier=_selectedTimeSpecifier;
 @property(retain, nonatomic) PSSpecifier *endTimePickerSpecifier; // @synthesize endTimePickerSpecifier=_endTimePickerSpecifier;
 @property(retain, nonatomic) PSSpecifier *startTimePickerSpecifier; // @synthesize startTimePickerSpecifier=_startTimePickerSpecifier;
@@ -32,12 +37,15 @@
 @property(retain, nonatomic) PSSpecifier *timeGroupSpecifier; // @synthesize timeGroupSpecifier=_timeGroupSpecifier;
 @property(retain, nonatomic) PSSpecifier *informativeTextGroupSpecifier; // @synthesize informativeTextGroupSpecifier=_informativeTextGroupSpecifier;
 @property(retain, nonatomic) PSSpecifier *deviceBedtimeSpecifier; // @synthesize deviceBedtimeSpecifier=_deviceBedtimeSpecifier;
+@property(nonatomic) _Bool canAskForMoreTime; // @synthesize canAskForMoreTime=_canAskForMoreTime;
 @property(copy, nonatomic) STDeviceBedtime *bedtime; // @synthesize bedtime=_bedtime;
 @property(nonatomic) __weak id <STDeviceBedtimeListControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)datePickerForSpecifier:(id)arg1;
 - (void)datePickerChanged:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)askForMoreTime:(id)arg1;
+- (void)setAskForMoreTime:(id)arg1 specifier:(id)arg2;
 - (id)endTime;
 - (id)startTime;
 - (void)showPickerSpecifierForSpecifier:(id)arg1;
@@ -48,6 +56,12 @@
 - (void)willResignActive;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

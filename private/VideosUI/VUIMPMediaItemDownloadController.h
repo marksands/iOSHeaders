@@ -6,58 +6,45 @@
 
 #import "NSObject.h"
 
-@class MPMediaItem, NSMutableArray, NSObject<OS_dispatch_queue>;
+@class MPMediaItem, NSMutableArray, NSObject<OS_dispatch_queue>, VUIMPMediaItemDownloadControllerState;
 
 __attribute__((visibility("hidden")))
 @interface VUIMPMediaItemDownloadController : NSObject
 {
-    _Bool _downloadSucceeded;
     NSObject<OS_dispatch_queue> *_observerDispatchQueue;
     MPMediaItem *_mediaItem;
-    double _bytesToDownload;
-    double _bytesDownloaded;
-    unsigned long long _state;
-    double _downloadProgress;
+    VUIMPMediaItemDownloadControllerState *_state;
     NSObject<OS_dispatch_queue> *_serialProcessingDispatchQueue;
     NSMutableArray *_observers;
 }
 
-+ (id)mediaItemDownloadControllerWithMediaItem:(id)arg1;
 @property(retain, nonatomic) NSMutableArray *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *serialProcessingDispatchQueue; // @synthesize serialProcessingDispatchQueue=_serialProcessingDispatchQueue;
-@property(nonatomic) _Bool downloadSucceeded; // @synthesize downloadSucceeded=_downloadSucceeded;
-@property(nonatomic) double downloadProgress; // @synthesize downloadProgress=_downloadProgress;
-@property(nonatomic) unsigned long long state; // @synthesize state=_state;
-@property(readonly, nonatomic) double bytesDownloaded; // @synthesize bytesDownloaded=_bytesDownloaded;
-@property(readonly, nonatomic) double bytesToDownload; // @synthesize bytesToDownload=_bytesToDownload;
+@property(copy, nonatomic) VUIMPMediaItemDownloadControllerState *state; // @synthesize state=_state;
 @property(retain, nonatomic) MPMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *observerDispatchQueue; // @synthesize observerDispatchQueue=_observerDispatchQueue;
 - (void).cxx_destruct;
-- (void)_notifyObservers:(id)arg1 downloadDidFinishWithSuccess:(_Bool)arg2;
-- (void)_notifyObservers:(id)arg1 stateDidChange:(unsigned long long)arg2 downloadProgress:(double)arg3;
-- (void)_onProcessingQueue_setState:(unsigned long long)arg1 downloadProgress:(double)arg2 downloadSucceeded:(_Bool)arg3;
+- (void)_notifyObservers:(id)arg1 stateDidChange:(id)arg2;
+- (void)_onProcessingQueue_setState:(id)arg1;
 - (void)_enqueueObserverQueueBlock:(CDUnknownBlockType)arg1;
-- (void)_enqueueSyncProcessingQueueBlock:(CDUnknownBlockType)arg1;
 - (void)_enqueueAsyncProcessingQueueBlock:(CDUnknownBlockType)arg1;
-- (void)_enqueueSyncStrongSelfProcessingQueueBlock:(CDUnknownBlockType)arg1;
 - (void)_enqueueAsyncStrongSelfProcessingQueueBlock:(CDUnknownBlockType)arg1;
 - (void)_onProcessingQueue_resumeDownload;
 - (void)_onProcessingQueue_pauseDownload;
 - (void)_onProcessingQueue_cancelDownload;
 - (void)_onProcessingQueue_invalidate;
-- (void)_setState:(unsigned long long)arg1 downloadProgress:(double)arg2 downloadSucceeded:(_Bool)arg3;
+- (void)_setState:(id)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (void)resumeDownload;
 - (void)pauseDownload;
 - (void)cancelDownload;
 - (void)invalidate;
-@property(readonly, nonatomic, getter=isDownloadInProgress) _Bool downloadInProgress;
 @property(readonly, nonatomic, getter=isRestoreDownload) _Bool restoreDownload;
 @property(readonly, nonatomic) _Bool supportsCancellation;
 @property(readonly, nonatomic) _Bool supportsPausing;
 - (id)init;
-- (id)initWithMediaItem:(id)arg1 state:(unsigned long long)arg2 downloadProgress:(double)arg3 downloadSucceeded:(_Bool)arg4;
+- (id)initWithMediaItem:(id)arg1 state:(id)arg2 serialProcessingDispatchQueue:(id)arg3;
 
 @end
 

@@ -16,7 +16,7 @@
     double _timestamp;
     NSDictionary *_vioStateDetails;
     long long _worldMappingStatus;
-    CDStruct_88f337de _trackingState;
+    CDStruct_fad22f05 _trackingState;
     // Error parsing type: {?="columns"[4]}, name: _visionCameraTransform
     // Error parsing type: {?="columns"[4]}, name: _cameraTransform
 }
@@ -27,7 +27,7 @@
 
 @property(nonatomic) long long worldMappingStatus; // @synthesize worldMappingStatus=_worldMappingStatus;
 @property(copy, nonatomic) NSDictionary *vioStateDetails; // @synthesize vioStateDetails=_vioStateDetails;
-@property(nonatomic) CDStruct_88f337de trackingState; // @synthesize trackingState=_trackingState;
+@property(nonatomic) CDStruct_fad22f05 trackingState; // @synthesize trackingState=_trackingState;
 // Error parsing type for property visionCameraTransform:
 // Property attributes: T{?=[4]},N,V_visionCameraTransform
 

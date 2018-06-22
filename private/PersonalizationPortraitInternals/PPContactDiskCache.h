@@ -8,11 +8,12 @@
 
 @interface PPContactDiskCache : NSObject
 {
+    double _lastCreatedAt;
 }
 
 + (id)sharedInstance;
 - (_Bool)deleteNameRecordCache;
-- (_Bool)writeNameRecordCache:(id)arg1;
+- (_Bool)writeNameRecordCache:(id)arg1 fullLoadFromSource:(_Bool)arg2;
 - (id)loadNameRecordCache;
 - (id)init;
 

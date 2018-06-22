@@ -14,6 +14,7 @@
 {
 }
 
++ (id)isDeveloperDonationFeature;
 + (id)isSiriActionFeature;
 + (id)itemIdentifierFeature;
 + (id)motionFeature;
@@ -23,6 +24,8 @@
 + (id)locationOfInterestFeature;
 + (id)relevanceThresholdFeature;
 + (id)portraitFeature;
++ (id)sentimentAnalysisCertaintyFeature;
++ (id)negativeSentimentAnalysisFeature;
 + (id)sentimentAnalysisFeature;
 + (id)recentSiriActionFeature;
 + (id)groupFeature;

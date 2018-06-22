@@ -14,6 +14,7 @@
 {
 }
 
+- (id)associatedNodesForRemoval;
 - (id)stringDescription;
 - (void)personEnumerateFriendsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)personEnumerateCoworkersUsingBlock:(CDUnknownBlockType)arg1;

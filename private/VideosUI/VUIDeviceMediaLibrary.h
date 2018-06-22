@@ -11,7 +11,7 @@
 }
 
 - (void)updateProgressWithCompletionHandler:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic, getter=isInitialUpdate) _Bool initialUpdate;
+@property(readonly, nonatomic, getter=isInitialUpdateInProgress) _Bool initialUpdateInProgress;
 @property(readonly, nonatomic, getter=isUpdating) _Bool updating;
 
 @end

@@ -39,9 +39,6 @@
 - (void)updateTotalUsage:(id)arg1;
 - (id)getAppSpecifiersForVisibleApps:(id)arg1 hiddenApps:(id)arg2 unknownApps:(id)arg3 internalProcesses:(id)arg4 wifiAssist:(id)arg5;
 - (void)calculateUsage;
-- (id)specifierForAppInNestedList:(id)arg1 app:(id)arg2;
-- (id)specifierForSpecialCategory:(id)arg1 app:(id)arg2;
-- (id)specifierForApp:(id)arg1 enabled:(_Bool)arg2;
 - (id)appCellularUsagePolicyForSpecifier:(id)arg1;
 - (void)setAppCellularUsagePolicy:(id)arg1 forSpecifier:(id)arg2;
 - (void)prefetchResourcesFor:(id)arg1;

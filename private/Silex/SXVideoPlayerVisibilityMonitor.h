@@ -35,6 +35,7 @@
 @property(readonly, nonatomic) double visiblePercentage;
 @property(readonly, nonatomic) __weak id object;
 @property(readonly, nonatomic) _Bool appeared;
+@property(readonly, nonatomic) unsigned long long state;
 - (void)configureVisibilityMonitor:(id)arg1;
 - (id)initWithVisibilityMonitor:(id)arg1;
 
@@ -42,7 +43,6 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) unsigned long long state;
 @property(readonly) Class superclass;
 
 @end

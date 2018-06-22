@@ -13,7 +13,6 @@
 __attribute__((visibility("hidden")))
 @interface PUImportOneUpCell : PUPhotosSharingGridCell <PXChangeObserver>
 {
-    _Bool _refreshesThumbnailAutomatically;
     id <PUImportOneUpCellDisplayDelegate> _displayDelegate;
     PUImportItemViewModel *_importItem;
     UITextField *_debugTextField;
@@ -22,7 +21,6 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) long long thumbnailRequestID; // @synthesize thumbnailRequestID=_thumbnailRequestID;
 @property(retain, nonatomic) UITextField *debugTextField; // @synthesize debugTextField=_debugTextField;
-@property(nonatomic) _Bool refreshesThumbnailAutomatically; // @synthesize refreshesThumbnailAutomatically=_refreshesThumbnailAutomatically;
 @property(retain, nonatomic) PUImportItemViewModel *importItem; // @synthesize importItem=_importItem;
 @property(nonatomic) __weak id <PUImportOneUpCellDisplayDelegate> displayDelegate; // @synthesize displayDelegate=_displayDelegate;
 - (void).cxx_destruct;

@@ -14,16 +14,16 @@
     NSMutableSet *_hiddenElements;
     NSArray *_comparators;
     long long _maximumRelevantElementsCount;
-    id <REElementQueueDelegate> _delegate;
 }
 
-@property(nonatomic) __weak id <REElementQueueDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long maximumRelevantElementsCount; // @synthesize maximumRelevantElementsCount=_maximumRelevantElementsCount;
 @property(readonly, copy, nonatomic) NSArray *comparators; // @synthesize comparators=_comparators;
 - (void).cxx_destruct;
+- (void)updateAllElements;
 - (void)updatePositionForElement:(id)arg1 hidden:(_Bool)arg2;
 - (void)removeElement:(id)arg1;
 - (void)addElement:(id)arg1 hidden:(_Bool)arg2;
+- (void)performBatchUpdates:(CDUnknownBlockType)arg1;
 - (long long)indexOfElement:(id)arg1;
 - (id)elementAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSArray *allElements;

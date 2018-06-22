@@ -183,7 +183,8 @@
 - (id)_occurrencesForDayView:(id)arg1;
 - (void)dayView:(id)arg1 didUpdateScrollPosition:(struct CGPoint)arg2;
 - (void)significantTimeChangeOccurred;
-- (void)reloadDataBetweenStart:(id)arg1 end:(id)arg2;
+- (void)reloadDataBetweenStart:(id)arg1 end:(id)arg2 completionForCurrentDayReload:(CDUnknownBlockType)arg3;
+- (void)reloadDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)reloadData;
 - (id)_eventsForDay:(id)arg1;
 - (id)eventsForStartDate:(id)arg1 endDate:(id)arg2;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CNChangeHistoryAnchor, CNChangeHistoryFetchRequest, CNChangeHistoryResult, CNContact, CNContactFetchRequest, CNContactStore, CNContactsEnvironment, CNContainer, CNManagedConfiguration, CNObservable, CNPolicy, CNSaveRequest, NSArray, NSDictionary, NSNumber, NSPredicate, NSString, NSURL;
+@class CNChangeHistoryAnchor, CNChangeHistoryFetchRequest, CNChangeHistoryResult, CNContact, CNContactFetchRequest, CNContactStore, CNContactsEnvironment, CNContainer, CNManagedConfiguration, CNObservable, CNPolicy, CNSaveRequest, NSArray, NSData, NSDictionary, NSNumber, NSPredicate, NSString, NSURL;
 
 @protocol CNDataMapper <NSObject>
 - (NSString *)defaultContainerIdentifier;
@@ -35,6 +35,8 @@
 - (NSArray *)_customPropertyValuesForRecordWithIdentifier:(NSString *)arg1 error:(id *)arg2;
 - (id)_createInfo;
 - (NSArray *)_allCustomProperties;
+- (_Bool)writeFavoritesPropertyListData:(NSData *)arg1 toPath:(NSString *)arg2 error:(id *)arg3;
+- (NSArray *)favoritesEntryDictionariesAtPath:(NSString *)arg1 error:(id *)arg2;
 - (_Bool)clearChangeHistoryForClientIdentifier:(NSString *)arg1 toChangeAnchor:(CNChangeHistoryAnchor *)arg2 error:(id *)arg3;
 - (CNChangeHistoryResult *)changeHistoryWithFetchRequest:(CNChangeHistoryFetchRequest *)arg1 error:(id *)arg2;
 - (_Bool)unregisterChangeHistoryClientIdentifier:(NSString *)arg1 error:(id *)arg2;

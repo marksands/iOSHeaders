@@ -15,6 +15,7 @@
 
 - (void).cxx_destruct;
 - (id)_loadConfigurations;
+- (id)watchVersionThatUsesUserInfoForContextForSectionID:(id)arg1;
 - (unsigned long long)legacyMapLocationForSectionID:(id)arg1;
 - (_Bool)applyWhitelistToChildSections:(id)arg1;
 - (_Bool)hasSectionIDOptedOutOfNotificationTuning:(id)arg1;

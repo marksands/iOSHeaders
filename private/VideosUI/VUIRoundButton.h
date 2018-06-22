@@ -8,7 +8,6 @@
 
 @class NSArray, UIButton, UIImage, UIStackView;
 
-__attribute__((visibility("hidden")))
 @interface VUIRoundButton : UIView
 {
     UIImage *_buttonImage;

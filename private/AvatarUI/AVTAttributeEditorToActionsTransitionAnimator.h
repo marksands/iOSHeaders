@@ -8,15 +8,21 @@
 
 #import "UIViewControllerAnimatedTransitioning.h"
 
-@class NSString;
+@class AVTUIEnvironment, NSString;
 
 @interface AVTAttributeEditorToActionsTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 {
+    AVTUIEnvironment *_environment;
+    id <AVTViewLayoutInfo> _avtViewLayoutInfo;
 }
 
 + (struct UIEdgeInsets)adjustedSafeAreaInsetsForView:(id)arg1;
+@property(readonly, nonatomic) id <AVTViewLayoutInfo> avtViewLayoutInfo; // @synthesize avtViewLayoutInfo=_avtViewLayoutInfo;
+@property(readonly, nonatomic) AVTUIEnvironment *environment; // @synthesize environment=_environment;
+- (void).cxx_destruct;
 - (double)transitionDuration:(id)arg1;
 - (void)animateTransition:(id)arg1;
+- (id)initWithAVTViewLayoutInfo:(id)arg1 environment:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

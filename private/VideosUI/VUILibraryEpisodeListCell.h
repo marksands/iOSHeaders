@@ -8,7 +8,7 @@
 
 #import "VUIDownloadButtonDelegate.h"
 
-@class NSString, UIStackView, VUIDownloadButton, VUILabel, VUISeparatorView, _TVImageView;
+@class NSString, UIStackView, VUIDownloadButton, VUILabel, VUILibraryEpisodeFrameView, VUISeparatorView;
 
 __attribute__((visibility("hidden")))
 @interface VUILibraryEpisodeListCell : VUIListCollectionViewCell <VUIDownloadButtonDelegate>
@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
     NSString *_duration;
     long long _downloadProgressType;
     double _downloadProgress;
-    _TVImageView *_imageView;
+    VUILibraryEpisodeFrameView *_imageFrameView;
     VUISeparatorView *_separatorView;
     UIStackView *_episodeInfoStackView;
     VUILabel *_titleLabel;
@@ -30,7 +30,6 @@ __attribute__((visibility("hidden")))
     VUILabel *_dotSeparatorLabel;
 }
 
-+ (id)_episodePlaceholderImage;
 + (id)_metadataLabelWithString:(id)arg1 existingLabel:(id)arg2;
 + (void)configureVUILibraryEpisodeListCell:(id)arg1 withMedia:(id)arg2;
 @property(retain, nonatomic) VUILabel *dotSeparatorLabel; // @synthesize dotSeparatorLabel=_dotSeparatorLabel;
@@ -40,7 +39,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) VUILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) UIStackView *episodeInfoStackView; // @synthesize episodeInfoStackView=_episodeInfoStackView;
 @property(retain, nonatomic) VUISeparatorView *separatorView; // @synthesize separatorView=_separatorView;
-@property(retain, nonatomic) _TVImageView *imageView; // @synthesize imageView=_imageView;
+@property(retain, nonatomic) VUILibraryEpisodeFrameView *imageFrameView; // @synthesize imageFrameView=_imageFrameView;
 @property(nonatomic) double downloadProgress; // @synthesize downloadProgress=_downloadProgress;
 @property(nonatomic) long long downloadProgressType; // @synthesize downloadProgressType=_downloadProgressType;
 @property(nonatomic) _Bool supportsStartingDownload; // @synthesize supportsStartingDownload=_supportsStartingDownload;

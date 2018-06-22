@@ -23,6 +23,7 @@
     id <HDWorkoutDataAccumulator> _accumulator;
 }
 
++ (void)willFinishSessionWithRecoveryData:(id)arg1 profile:(id)arg2;
 + (id)recoveryIdentifier;
 - (void).cxx_destruct;
 - (void)_queue_sessionFinished;

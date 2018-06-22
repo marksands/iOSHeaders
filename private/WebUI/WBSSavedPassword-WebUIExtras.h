@@ -8,5 +8,6 @@
 
 @interface WBSSavedPassword (WebUIExtras)
 - (void)webui_getTitle:(id *)arg1 detail:(id *)arg2 forTableViewCell:(id)arg3 withSearchPattern:(id)arg4 warningImage:(id)arg5 leftToRight:(_Bool)arg6;
+- (id)_firstSiteMatchingSearchPattern:(id)arg1 withTokenizer:(struct __CFStringTokenizer *)arg2;
 @end
 

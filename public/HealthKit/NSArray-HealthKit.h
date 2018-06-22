@@ -23,7 +23,7 @@
 - (id)hk_firstObjectPassingTest:(CDUnknownBlockType)arg1;
 - (id)hk_foldRightFrom:(id)arg1 with:(CDUnknownBlockType)arg2;
 - (id)hk_filter:(CDUnknownBlockType)arg1;
-- (id)hk_map:(CDUnknownBlockType)arg1 error:(out id *)arg2;
+- (id)hk_map:(CDUnknownBlockType)arg1 error:(id *)arg2;
 - (id)hk_map:(CDUnknownBlockType)arg1;
 @end
 

@@ -92,6 +92,7 @@
 @property(readonly, nonatomic) HDDatabaseJournal *journal; // @synthesize journal=_journal;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (id)unitTest_currentTransaction;
 - (void)obliterateWithReason:(id)arg1 preserveCopy:(_Bool)arg2;
 - (void)invalidateAndWait;
 @property(readonly) _Bool invalidated;
@@ -116,6 +117,7 @@
 - (id)takeAccessibilityAssertionWithOwnerIdentifier:(id)arg1 shouldPerformTransaction:(_Bool)arg2 timeout:(double)arg3 error:(id *)arg4;
 - (id)takeAccessibilityAssertionWithOwnerIdentifier:(id)arg1 timeout:(double)arg2 error:(id *)arg3;
 - (void)removeProtectedDataObserver:(id)arg1;
+- (void)addProtectedDataObserver:(id)arg1 queue:(id)arg2;
 - (void)addProtectedDataObserver:(id)arg1;
 - (void)contentProtectionStateChanged:(long long)arg1 previousState:(long long)arg2;
 - (void)_protectedDatabaseDidBecomeAvailable;

@@ -8,12 +8,14 @@
 
 #import "MFContactsSearchConsumer.h"
 
-@class MFContactsSearchManager, NSArray, NSDictionary, NSMutableArray, NSNumber, NSString, PXIDSAddressQueryController, PXMFRecipientSearchDataSource;
+@class MFContactsSearchManager, NSArray, NSDictionary, NSMutableArray, NSNumber, NSObject<OS_dispatch_queue>, NSString, PXIDSAddressQueryController, PXMFRecipientSearchDataSource;
 
 @interface PXMFRecipientSearchDataSourceManager : PXRecipientSearchDataSourceManager <MFContactsSearchConsumer>
 {
+    NSObject<OS_dispatch_queue> *_creationQueue;
     MFContactsSearchManager *_searchManager;
     NSNumber *_currentSearchTaskID;
+    // Error parsing type: AI, name: _currentAtomicSearchTaskID
     NSMutableArray *_autocompleteSearchResults;
     NSDictionary *_searchResultsByDestination;
     PXIDSAddressQueryController *_addressQueryController;
@@ -22,6 +24,8 @@
 
 @property(retain, nonatomic, setter=_setSearchResults:) NSArray *_searchResults; // @synthesize _searchResults=__searchResults;
 - (void).cxx_destruct;
+- (void)_finishedCreatingRecipientSearchResults:(id)arg1 forSearchTaskID:(id)arg2;
+- (void)_creationQueue_creatingRecipientSearchResultsForResults:(id)arg1 forSearchTaskID:(id)arg2;
 - (void)finishedSearchingForAutocompleteResults;
 - (void)consumeAutocompleteSearchResults:(id)arg1 taskID:(id)arg2;
 - (void)_handleAddressQueryResults:(id)arg1 error:(id)arg2;

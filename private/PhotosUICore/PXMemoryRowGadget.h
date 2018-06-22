@@ -15,6 +15,8 @@
 
 @interface PXMemoryRowGadget : UIViewController <PXSectionedDataSourceManagerObserver, PXForYouMemoriesViewControllerDelegate, PXUIViewControllerZoomTransitionEndPoint, PXGadget>
 {
+    CDStruct_d97c9657 _updateFlags;
+    _Bool _hasAppeared;
     PXGadgetSpec *_gadgetSpec;
     unsigned long long _priority;
     id <PXGadgetDelegate> _delegate;
@@ -22,10 +24,14 @@
     NSMutableDictionary *_viewControllerEntries;
     unsigned long long _currentVisibility;
     id <PXUIViewControllerZoomTransitionEndPoint> _currentTransitionEndPoint;
+    unsigned long long _currentNumberOfColumns;
 }
 
-+ (unsigned long long)visibilityForTraitCollection:(id)arg1 numberOfMemories:(unsigned long long)arg2;
++ (unsigned long long)numberOfColumnsForCurrentVisibility:(unsigned long long)arg1 rowType:(unsigned long long)arg2 numberOfMemories:(unsigned long long)arg3;
++ (unsigned long long)visibilityForGadgetSpec:(id)arg1 numberOfMemories:(unsigned long long)arg2;
 + (struct _NSRange)dataSourceRangeForRowType:(unsigned long long)arg1 currentVisibility:(unsigned long long)arg2;
+@property(nonatomic) _Bool hasAppeared; // @synthesize hasAppeared=_hasAppeared;
+@property(nonatomic) unsigned long long currentNumberOfColumns; // @synthesize currentNumberOfColumns=_currentNumberOfColumns;
 @property(retain, nonatomic) id <PXUIViewControllerZoomTransitionEndPoint> currentTransitionEndPoint; // @synthesize currentTransitionEndPoint=_currentTransitionEndPoint;
 @property(nonatomic) unsigned long long currentVisibility; // @synthesize currentVisibility=_currentVisibility;
 @property(retain, nonatomic) NSMutableDictionary *viewControllerEntries; // @synthesize viewControllerEntries=_viewControllerEntries;
@@ -49,13 +55,18 @@
 - (void)forYouMemoriesViewController:(id)arg1 transitionToViewController:(id)arg2 animated:(_Bool)arg3;
 - (id)showAllMemoriesFeedAnimated:(_Bool)arg1;
 - (void)userDidSelectAccessoryButton:(id)arg1;
+- (void)gadgetControllerHasDisappeared;
+- (void)gadgetControllerHasAppeared;
 - (struct NSObject *)contentViewController;
 @property(readonly, nonatomic) NSString *localizedTitle;
 @property(readonly, nonatomic) unsigned long long gadgetType;
 @property(readonly, nonatomic) unsigned long long accessoryButtonType;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) _Bool hasContentToDisplay;
-- (void)traitCollectionDidChange:(id)arg1;
+- (void)_updateNumberOfColumnsIfNeeded;
+- (void)_updateVisibilityIfNeeded;
+- (void)_dismissIfNeeded;
+- (void)_updateIfNeeded;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
 - (id)initWithDataSourceManager:(id)arg1;

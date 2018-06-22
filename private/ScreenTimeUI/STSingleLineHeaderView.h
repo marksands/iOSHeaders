@@ -12,17 +12,15 @@
 
 @interface STSingleLineHeaderView : UITableViewHeaderFooterView <PSHeaderFooterView>
 {
-    PSSpecifier *_specifier;
     UILabel *_titleLabel;
-    UILabel *_detailLabel;
+    PSSpecifier *_specifier;
 }
 
-@property(retain, nonatomic) UILabel *detailLabel; // @synthesize detailLabel=_detailLabel;
-@property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) PSSpecifier *specifier; // @synthesize specifier=_specifier;
+@property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void).cxx_destruct;
 - (double)preferredHeightForWidth:(double)arg1;
-- (void)reloadSpecifier;
+- (void)reloadFromSpecifier;
 - (id)initWithSpecifier:(id)arg1;
 
 @end

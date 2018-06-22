@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) VKTrafficDynamicTileSource *dynamicTileSource; // @synthesize dynamicTileSource=_dynamicTileSource;
 @property(nonatomic) VKRoadTileSource *roadTileSource; // @synthesize roadTileSource=_roadTileSource;
+- (id)stateDescriptionForRenderKey:(const struct VKTileKey *)arg1;
 - (long long)tileSource:(id)arg1 overrideForMaximumZoomLevel:(long long)arg2;
 - (_Bool)minimumZoomLevelBoundsCamera;
 - (void)setSharedResources:(id)arg1;

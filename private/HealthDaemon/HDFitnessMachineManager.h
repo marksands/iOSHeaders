@@ -37,6 +37,7 @@
 @property(readonly, nonatomic) NSDate *machinePreferredUntilDate; // @synthesize machinePreferredUntilDate=_machinePreferredUntilDate;
 @property(readonly, nonatomic) HDFitnessMachineDataProducer *fitnessMachineDataProducer; // @synthesize fitnessMachineDataProducer=_fitnessMachineDataProducer;
 - (void).cxx_destruct;
+- (void)unitTest_fakeSession:(id)arg1;
 - (void)unitTest_fakeMachineDiscoveryForType:(unsigned long long)arg1;
 - (void)hktest_setMachinePreferredUntilDate:(id)arg1;
 - (void)_queue_simulateDisconnect;
@@ -98,7 +99,8 @@
 - (unsigned long long)connectionOptionsForSession:(id)arg1 isReconnect:(_Bool)arg2;
 - (void)_queue_connectFitnessMachineIsReconnect:(_Bool)arg1;
 - (void)removeFitnessMachineSessionObserver:(id)arg1;
-- (void)addFitnessMachineSessionObserver:(id)arg1;
+- (void)addFitnessMachineSessionObserver:(id)arg1 queue:(id)arg2;
+- (void)finishSessionWithConfiguration:(id)arg1;
 - (void)recoverSessionWithConfiguration:(id)arg1;
 - (id)currentSessionRecoveryConfiguration;
 - (void)clientInvalidatedWithConnectionUUID:(id)arg1;

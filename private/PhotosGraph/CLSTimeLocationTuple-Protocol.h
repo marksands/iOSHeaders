@@ -9,6 +9,8 @@
 @class NSDate, NSString;
 
 @protocol CLSTimeLocationTuple <NSObject>
+@property(readonly, nonatomic) NSDate *expandedEndDate;
+@property(readonly, nonatomic) NSDate *expandedStartDate;
 @property(readonly, nonatomic) struct CLLocationCoordinate2D coordinates;
 @property(readonly, nonatomic) NSDate *endDate;
 @property(readonly, nonatomic) NSDate *startDate;

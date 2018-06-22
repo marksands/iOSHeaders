@@ -15,6 +15,7 @@
 {
 }
 
+- (void)clearCache;
 - (id)resourceForItem:(id)arg1 scope:(id)arg2 cacheMissHandler:(CDUnknownBlockType)arg3;
 - (id)resourceForItem:(id)arg1 scope:(id)arg2;
 - (id)imageForItem:(id)arg1 scope:(id)arg2 cacheMissHandler:(CDUnknownBlockType)arg3;

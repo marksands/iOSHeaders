@@ -61,6 +61,7 @@
     int _utcOffset;
     NSString *_watchSessionId;
     int _widgetDisplayMode;
+    int _widgetDisplayModeSessionEnd;
     int _widgetModeType;
     NSData *_widgetSessionId;
     NSString *_widgetUserId;
@@ -105,6 +106,7 @@
         unsigned int textSize:1;
         unsigned int utcOffset:1;
         unsigned int widgetDisplayMode:1;
+        unsigned int widgetDisplayModeSessionEnd:1;
         unsigned int widgetModeType:1;
         unsigned int iosSettingsNotificationsBadgeAppIconEnabled:1;
         unsigned int iosSettingsNotificationsEnabled:1;
@@ -199,6 +201,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsWidgetDisplayModeSessionEnd:(id)arg1;
+- (id)widgetDisplayModeSessionEndAsString:(int)arg1;
+@property(nonatomic) _Bool hasWidgetDisplayModeSessionEnd;
+@property(nonatomic) int widgetDisplayModeSessionEnd; // @synthesize widgetDisplayModeSessionEnd=_widgetDisplayModeSessionEnd;
 @property(nonatomic) _Bool hasIosSettingsNotificationsShowAsBannersEnabled;
 @property(nonatomic) _Bool hasIosSettingsNotificationsShowInHistoryEnabled;
 @property(nonatomic) _Bool hasIosSettingsNotificationsShowOnLockScreenEnabled;

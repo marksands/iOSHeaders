@@ -33,7 +33,11 @@
 - (id)specifiersAtIndexes:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *specifiers;
 - (id)mutableSpecifiers;
+- (void)presentViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)popToViewControllerAnimated:(_Bool)arg1;
 - (void)showConfirmationViewForSpecifier:(id)arg1;
+- (void)dismissViewControllerAnimated:(_Bool)arg1;
+- (void)presentViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)showController:(id)arg1 animated:(_Bool)arg2;
 - (void)reloadSpecifier:(id)arg1 animated:(_Bool)arg2;
 - (void)invalidate;

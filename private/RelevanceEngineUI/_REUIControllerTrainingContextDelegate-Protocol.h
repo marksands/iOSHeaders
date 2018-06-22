@@ -7,6 +7,7 @@
 @class NSArray, NSString;
 
 @protocol _REUIControllerTrainingContextDelegate
+- (NSString *)interactionTypeForElement:(NSString *)arg1;
 - (_Bool)elementIsAvailable:(NSString *)arg1;
 - (NSArray *)elementsOrdered:(unsigned long long)arg1 relativeToElement:(NSString *)arg2;
 @end

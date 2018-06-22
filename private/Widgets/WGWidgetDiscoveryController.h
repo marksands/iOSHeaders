@@ -23,7 +23,6 @@
     NSMutableDictionary *_identifiersToDatums;
     NSMutableDictionary *_dataSourceIdentifiersToDatumIdentifiers;
     NSMutableDictionary *_identifiersToWidgetInfos;
-    NSMutableDictionary *_widgetIDsToWidgets;
     NSMutableArray *_orderedEnabledTodayIdentifiers;
     NSArray *_orderedVisibleTodayIdentifiers;
     NSMutableArray *_orderedEnabledWidgetsIdentifiers;
@@ -36,6 +35,7 @@
     id <WGWidgetDiscoveryControllerDelegate> _delegate;
     NSMutableDictionary *_widgetIDsToPendingTestCompletions;
     NSMutableDictionary *_widgetIDsToPendingTestTearDowns;
+    NSMutableDictionary *_widgetIDsToWidgets;
     id <WGWidgetDebugging> _debuggingHandler;
     WGWidgetListEditViewController *_presentedEditViewController;
     id _presentedEditViewControllerStatusBarAssertion;
@@ -46,6 +46,7 @@
 @property(retain, nonatomic, getter=_presentedEditViewControllerStatusBarAssertion, setter=_setPresentedEditViewControllerStatusBarAssertion:) id presentedEditViewControllerStatusBarAssertion; // @synthesize presentedEditViewControllerStatusBarAssertion=_presentedEditViewControllerStatusBarAssertion;
 @property(nonatomic, setter=_setPresentedEditViewController:) __weak WGWidgetListEditViewController *presentedEditViewController; // @synthesize presentedEditViewController=_presentedEditViewController;
 @property(nonatomic) __weak id <WGWidgetDebugging> debuggingHandler; // @synthesize debuggingHandler=_debuggingHandler;
+@property(readonly, nonatomic, getter=_widgetIDsToWidgets) NSMutableDictionary *widgetIDsToWidgets; // @synthesize widgetIDsToWidgets=_widgetIDsToWidgets;
 @property(retain, nonatomic) NSMutableDictionary *widgetIDsToPendingTestTearDowns; // @synthesize widgetIDsToPendingTestTearDowns=_widgetIDsToPendingTestTearDowns;
 @property(retain, nonatomic) NSMutableDictionary *widgetIDsToPendingTestCompletions; // @synthesize widgetIDsToPendingTestCompletions=_widgetIDsToPendingTestCompletions;
 @property(nonatomic) __weak id <WGWidgetDiscoveryControllerDelegate> delegate; // @synthesize delegate=_delegate;

@@ -116,13 +116,10 @@
 - (id)init;
 
 // Remaining properties
-@property(copy, nonatomic) NSArray *additionalSegmentSetIDs;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, copy, nonatomic) NSString *feldsparID;
 @property(readonly) unsigned long long hash;
-@property(nonatomic) _Bool overrideDisableABTesting;
-@property(copy, nonatomic) NSArray *overrideSegmentSetIDs;
 @property(readonly) Class superclass;
 
 @end

@@ -10,10 +10,10 @@
 
 @interface PXCMMPeopleSuggestionsDataSourceManager : PXSectionedDataSourceManager
 {
-    long long _loadingStatus;
 }
 
-@property(nonatomic) long long loadingStatus; // @synthesize loadingStatus=_loadingStatus;
+- (_Bool)isLoading;
+- (void)boostLoading;
 - (void)cancelLoading;
 - (void)startLoading;
 

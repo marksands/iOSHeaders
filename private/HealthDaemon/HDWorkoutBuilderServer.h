@@ -12,14 +12,14 @@
 #import "HKDataFlowLinkProcessor.h"
 #import "HKWorkoutBuilderServerInterface.h"
 
-@class HDWorkoutBuilderEntity, HKDataFlowLink, HKObserverSet, HKWorkoutBuilderConfiguration, NSArray, NSDate, NSDateInterval, NSError, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID, _HKDelayedOperation;
+@class HDWorkoutBuilderEntity, HKDataFlowLink, HKObserverSet, HKWorkoutBuilderConfiguration, NSArray, NSDate, NSDateInterval, NSError, NSMutableDictionary, NSMutableSet, NSSet, NSString, NSUUID;
 
 @interface HDWorkoutBuilderServer : HDStandardTaskServer <HDWorkoutDataAccumulator, HKWorkoutBuilderServerInterface, HKDataFlowLinkProcessor, HDWorkoutDataDestination, HDTaskServerObserver>
 {
+    struct os_unfair_lock_s _lock;
     unsigned long long _state;
     HDWorkoutBuilderEntity *_persistentEntity;
     NSError *_error;
-    _HKDelayedOperation *_delayedPersistenceOperation;
     HKObserverSet *_dataAccumulatorObservers;
     HKObserverSet *_sampleObservers;
     NSSet *_quantityTypesIncludedWhilePaused;
@@ -30,7 +30,6 @@
     HKDataFlowLink *_workoutDataFlowLink;
     NSSet *_expectedDataSourceUUIDs;
     HKWorkoutBuilderConfiguration *_configuration;
-    NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_metadata;
     NSArray *_workoutEvents;
     NSDate *_workoutStartDate;
@@ -51,19 +50,18 @@
 @property(copy, nonatomic) NSDate *workoutStartDate; // @synthesize workoutStartDate=_workoutStartDate;
 @property(retain, nonatomic) NSArray *workoutEvents; // @synthesize workoutEvents=_workoutEvents;
 @property(retain, nonatomic) NSMutableDictionary *metadata; // @synthesize metadata=_metadata;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) HKWorkoutBuilderConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
-- (void)_activateIfNeededAndPerformOnQueue:(CDUnknownBlockType)arg1 errorHandler:(CDUnknownBlockType)arg2;
-- (void)_queue_setState:(unsigned long long)arg1;
-- (unsigned long long)queue_state;
-- (void)_queue_addQuantityTypesIncludedWhilePausedFromSource:(id)arg1;
+- (void)_setState:(unsigned long long)arg1;
+- (void)_notifySourcesOfTransitionFromState:(unsigned long long)arg1 toState:(unsigned long long)arg2;
+- (void)_lock_primitiveSetState:(unsigned long long)arg1;
+- (void)_lock_addQuantityTypesIncludedWhilePausedFromSource:(id)arg1 transaction:(id)arg2;
 - (void)_setupDataSource:(id)arg1 identifier:(id)arg2;
 - (void)didInvalidateTaskServer:(id)arg1;
 - (void)didCreateTaskServer:(id)arg1;
-- (void)_performIfAuthorizedToSaveWorkoutOnQueue:(CDUnknownBlockType)arg1 errorHandler:(CDUnknownBlockType)arg2;
-- (void)_performOnQueueIfState:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2 errorHandler:(CDUnknownBlockType)arg3;
-- (void)_performIfActiveOrReadyOnQueue:(CDUnknownBlockType)arg1 errorHandler:(CDUnknownBlockType)arg2;
+- (_Bool)_expectState:(unsigned long long)arg1 error:(id *)arg2;
+- (_Bool)_canAddDataWithError:(id *)arg1;
+- (_Bool)_validateAuthorizationToSaveWorkoutWithError:(id *)arg1;
 - (void)_discardWorkout;
 - (void)connectionInvalidated;
 - (id)remoteInterface;
@@ -72,26 +70,25 @@
 - (void)removeSampleObserver:(id)arg1;
 - (void)addSampleObserver:(id)arg1;
 - (id)currentMetadata;
-- (void)_queue_updateStatisticsPauseResumeMask;
-- (id)_queue_maskedIntervalsForStatisticsOfType:(id)arg1;
-- (void)_queue_didUpdateStatistics:(id)arg1;
-- (id)_queue_statisticsDataSourceForQuantityType:(id)arg1;
-- (id)_queue_sourceOrderProviderForQuantityType:(id)arg1;
-- (id)_queue_statisticsCalculatorForQuantityType:(id)arg1;
-- (id)_queue_updateStatisticsWithQuantitySamples:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
-- (void)_queue_attemptRequeryForInvalidatedStatisticsCalculators;
-- (id)_queue_associateSamples:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
+- (void)_updateStatisticsPauseResumeMask;
+- (id)_lock_maskedIntervalsForStatisticsOfType:(id)arg1;
+- (void)_didUpdateStatistics:(id)arg1;
+- (id)_lock_statisticsDataSourceForQuantityType:(id)arg1;
+- (id)_lock_sourceOrderProviderForQuantityType:(id)arg1;
+- (id)_lock_statisticsCalculatorForQuantityType:(id)arg1;
+- (id)_lock_updateStatisticsWithSamples:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
+- (void)_attemptRequeryForInvalidatedStatisticsCalculators;
+- (id)_lock_associateSamples:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (void)_saveSamples:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)_queue_didUpdateEvents:(id)arg1;
-- (_Bool)_queue_insertWorkoutEvents:(id)arg1 error:(id *)arg2;
-- (void)_queue_didChangeElapsedTimeBasis;
-- (void)_queue_updateCachedStateWithWorkoutEvents:(id)arg1;
-- (_Bool)_queue_persistWorkoutEvents:(id)arg1 error:(id *)arg2;
-- (void)_queue_failWithError:(id)arg1;
-- (void)_queue_finishWorkoutWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_queue_endCollectionWithEndDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_queue_didUpdateMetadata:(id)arg1;
-- (_Bool)_queue_addMetadata:(id)arg1 error:(id *)arg2;
+- (void)_didUpdateEvents:(id)arg1;
+- (_Bool)_insertWorkoutEvents:(id)arg1 error:(id *)arg2;
+- (void)_didChangeElapsedTimeBasis;
+- (void)_updateCachedStateForAddedWorkoutEvents:(id)arg1;
+- (void)_failWithError:(id)arg1;
+- (id)_finishWorkoutWithError:(id *)arg1;
+- (_Bool)_endCollectionWithEndDate:(id)arg1 error:(id *)arg2;
+- (void)_didUpdateMetadata:(id)arg1;
+- (_Bool)_addMetadata:(id)arg1 error:(id *)arg2;
 - (void)remote_updateDevice:(id)arg1;
 - (void)remote_recoverWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_discardWorkout;
@@ -113,13 +110,16 @@
 @property(readonly) unsigned long long workoutDataDestinationState;
 @property(readonly, copy) NSUUID *workoutDataProcessorUUID;
 @property(readonly) HKDataFlowLink *workoutDataFlowLink;
-- (void)_queue_recoverAssociatedSeriesBuilders;
-- (void)_queue_recoverPersistedData;
-- (void)_queue_loadOrCreatePersistentEntity;
-- (id)_queue_configurationForPersistenceWithError:(id *)arg1;
-- (_Bool)_queue_persistDataSourceRecoveryDataInTransaction:(id)arg1 error:(id *)arg2;
-- (void)_queue_persistRecoveryData;
+- (void)_recoverAssociatedSeriesBuilders;
+- (_Bool)_lock_recoverPersistedDataWithTransaction:(id)arg1 error:(id *)arg2;
+- (void)_loadOrCreatePersistentEntity;
+- (_Bool)_lock_loadOrCreatePersistentEntityInTransaction:(id)arg1 error:(id *)arg2;
+- (_Bool)_lock_createPersistentEntityForConfiguration:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
+- (id)_lock_configurationForPersistenceWithTransaction:(id)arg1 error:(id *)arg2;
+- (_Bool)_lock_persistDataSourceRecoveryDataInTransaction:(id)arg1 error:(id *)arg2;
+- (void)_persistRecoveryData;
 @property(readonly, copy) NSString *description;
+- (void)connectionConfigured;
 - (id)initWithUUID:(id)arg1 configuration:(id)arg2 client:(id)arg3 profile:(id)arg4 delegate:(id)arg5;
 
 // Remaining properties

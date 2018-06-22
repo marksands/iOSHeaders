@@ -13,6 +13,11 @@
 
 + (id)serviceFacilityIdentifier;
 - (void)handleMessage:(id)arg1 withType:(long long)arg2;
+- (void)setOrientationLockEnabled:(_Bool)arg1;
+- (void)setIdleTimerEnabled:(_Bool)arg1;
+- (void)setAlertsEnabled:(_Bool)arg1;
+- (void)resetToHomeScreen;
+- (void)suspendAllDisplays;
 - (void)fetchHapticTypeForButtonKind:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setHapticType:(long long)arg1 forButtonKind:(long long)arg2;
 - (void)_handleButtonEventConsumePressMessage:(id)arg1;

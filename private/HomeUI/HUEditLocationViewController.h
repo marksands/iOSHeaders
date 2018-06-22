@@ -10,6 +10,7 @@
 #import "HUAddPeopleViewControllerDelegate.h"
 #import "HUPresentationDelegateHost.h"
 #import "HUWallpaperEditingViewControllerDelegate.h"
+#import "HUWallpaperPickerInlineViewControllerDelegate.h"
 #import "HUWallpaperPickerViewControllerDelegate.h"
 #import "HUWallpaperThumbnailCellDelegate.h"
 #import "UIImagePickerControllerDelegate.h"
@@ -17,9 +18,9 @@
 #import "UITextFieldDelegate.h"
 #import "UITextViewDelegate.h"
 
-@class HFHomeBuilder, HUEditLocationItemManager, HUEditableTextCell, HUEditableTextViewCell, HUHomeUsersCollectionViewController, HUUserNotificationTopicListModuleController, NSString, UIBarButtonItem;
+@class HFHomeBuilder, HUEditLocationItemManager, HUEditableTextCell, HUEditableTextViewCell, HUHomeUsersCollectionViewController, HUUserNotificationTopicListModuleController, HUWallpaperPickerInlineViewController, NSString, UIBarButtonItem;
 
-@interface HUEditLocationViewController : HUItemTableViewController <UITextFieldDelegate, UITextViewDelegate, HUWallpaperPickerViewControllerDelegate, HUWallpaperEditingViewControllerDelegate, HUAddPeopleViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HFHomeManagerObserver, HUWallpaperThumbnailCellDelegate, HUPresentationDelegateHost>
+@interface HUEditLocationViewController : HUItemTableViewController <UITextFieldDelegate, UITextViewDelegate, HUWallpaperPickerViewControllerDelegate, HUWallpaperEditingViewControllerDelegate, HUAddPeopleViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HFHomeManagerObserver, HUWallpaperThumbnailCellDelegate, HUWallpaperPickerInlineViewControllerDelegate, HUPresentationDelegateHost>
 {
     id <HUPresentationDelegate> _presentationDelegate;
     HUHomeUsersCollectionViewController *_usersViewController;
@@ -32,10 +33,12 @@
     NSString *_editedName;
     HUEditableTextViewCell *_detailNotesCell;
     NSString *_editedNotes;
+    HUWallpaperPickerInlineViewController *_wallpaperPickerViewController;
     UIBarButtonItem *_savedButtonBarItem;
 }
 
 @property(retain, nonatomic) UIBarButtonItem *savedButtonBarItem; // @synthesize savedButtonBarItem=_savedButtonBarItem;
+@property(readonly, nonatomic) HUWallpaperPickerInlineViewController *wallpaperPickerViewController; // @synthesize wallpaperPickerViewController=_wallpaperPickerViewController;
 @property(retain, nonatomic) NSString *editedNotes; // @synthesize editedNotes=_editedNotes;
 @property(nonatomic) __weak HUEditableTextViewCell *detailNotesCell; // @synthesize detailNotesCell=_detailNotesCell;
 @property(retain, nonatomic) NSString *editedName; // @synthesize editedName=_editedName;
@@ -52,6 +55,9 @@
 - (void)addPeopleViewControllerDidCancel:(id)arg1;
 - (void)wallpaperEditingDidCancel:(id)arg1;
 - (void)wallpaperEditing:(id)arg1 didFinishWithWallpaper:(id)arg2 image:(id)arg3;
+- (void)wallpaperPickerRequestOpenWallpaperEditor:(id)arg1;
+- (void)wallpaperPicker:(id)arg1 didSelectWallpaper:(id)arg2 withImage:(id)arg3;
+- (void)wallpaperPicker:(id)arg1 didReceiveDroppedImage:(id)arg2;
 - (void)wallpaperThumbnailCell:(id)arg1 didReceiveDroppedImage:(id)arg2;
 - (void)wallpaperPickerDidFinish:(id)arg1 wallpaper:(id)arg2 image:(id)arg3;
 - (void)imagePickerController:(id)arg1 didFinishPickingMediaWithInfo:(id)arg2;

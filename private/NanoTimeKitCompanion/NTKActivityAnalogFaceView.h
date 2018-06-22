@@ -8,7 +8,7 @@
 
 #import "NTKActivityFaceViewFactoryDelegate.h"
 
-@class HKRingsView, NSMutableDictionary, NSString, NTKActivityDateComplicationLabel, NTKActivityDialView, NTKActivityFaceControl, NTKActivityFaceViewFactory, NTKDateComplicationController, UILabel, UIView;
+@class HKRingsView, NSMutableDictionary, NSString, NTKActivityDateComplicationLabel, NTKActivityDialView, NTKActivityFaceViewFactory, NTKDateComplicationController, NTKFaceViewTapControl, UILabel, UIView;
 
 @interface NTKActivityAnalogFaceView : NTKAnalogFaceView <NTKActivityFaceViewFactoryDelegate>
 {
@@ -21,7 +21,7 @@
     UILabel *_briskMinutesLabel;
     UILabel *_standHoursLabel;
     NTKActivityDialView *_dialView;
-    NTKActivityFaceControl *_tapToLaunchButton;
+    NTKFaceViewTapControl *_tapToLaunchButton;
     NSMutableDictionary *_faceColorsToSchemes;
     _Bool _isDetailedDensity;
     double _contentScale;

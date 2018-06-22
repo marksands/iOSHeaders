@@ -12,7 +12,6 @@
 {
     NSMutableArray *_activeAgents;
     NSMutableArray *_agentsAwaitingShutdown;
-    int _disableMonitoringRequests;
     NSMutableDictionary *_watchedIDs;
     unsigned int _pmNotifier;
     struct IONotificationPort *_pmPort;
@@ -22,9 +21,13 @@
     struct __CTServerConnection *_ctServerConnection;
     int _pendingAccountSetupCount;
     NSMutableArray *_subCalHandlers;
+    unsigned long long _nextDisableMonitoringAgentsToken;
+    NSMutableDictionary *_disableMonitoringAgentsTokens;
 }
 
 + (id)sharedManager;
+@property(readonly, nonatomic) NSMutableDictionary *disableMonitoringAgentsTokens; // @synthesize disableMonitoringAgentsTokens=_disableMonitoringAgentsTokens;
+@property(nonatomic) unsigned long long nextDisableMonitoringAgentsToken; // @synthesize nextDisableMonitoringAgentsToken=_nextDisableMonitoringAgentsToken;
 @property(retain, nonatomic) NSMutableArray *subCalHandlers; // @synthesize subCalHandlers=_subCalHandlers;
 @property(retain, nonatomic) NSMutableArray *activeAgents; // @synthesize activeAgents=_activeAgents;
 - (void).cxx_destruct;
@@ -52,9 +55,8 @@
 - (_Bool)updateContentsOfAllFoldersForAccountID:(id)arg1 andDataclasses:(long long)arg2 isUserRequested:(_Bool)arg3;
 - (_Bool)updateContentsOfFolders:(id)arg1 forAccountID:(id)arg2 andDataclasses:(long long)arg3 isUserRequested:(_Bool)arg4;
 - (_Bool)updateFolderListForAccountID:(id)arg1 andDataclasses:(long long)arg2 requireChangedFolders:(_Bool)arg3 isUserRequested:(_Bool)arg4;
-- (int)numDisableMonitoringRequests;
-- (void)disableMonitoringAgents;
-- (void)enableMonitoringAgents;
+- (unsigned long long)disableMonitoringAgents;
+- (void)enableMonitoringAgentsWithToken:(unsigned long long)arg1;
 - (void)_addAccountAggdEntries;
 - (void)_stopMonitoringAndSaveAgents;
 - (void)agentHasStoppedMonitoring:(id)arg1;

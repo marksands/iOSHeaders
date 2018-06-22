@@ -93,6 +93,7 @@
 - (id)_aliasForToneIdentifier:(id)arg1;
 - (void)_loadToneIdentifierAliasMap;
 - (void)_loadAlertToneInfo;
+- (id)_systemWatchSoundDirectory;
 - (id)_systemNewSoundDirectory;
 - (id)_systemSoundDirectory;
 - (id)_systemEmbeddedModernSoundDirectory;

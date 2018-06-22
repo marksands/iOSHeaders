@@ -6,14 +6,18 @@
 
 #import <Photos/PHImportExceptionRecorder.h>
 
-@class NSDate, NSDateFormatter, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSProgress, NSString, PHImportDuplicateChecker, PHImportOptions;
+@class NSDateFormatter, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSProgress, NSString, PHImportDuplicateChecker, PHImportOptions;
 
 @interface PHImportSource : PHImportExceptionRecorder
 {
+    _Bool _rampBatchInterval;
     _Bool _open;
     _Bool _canShowProgress;
     _Bool _deleteContentAllowed;
+    unsigned char _sourceAccessState;
     NSString *_uuid;
+    unsigned long long _batchSize;
+    double _batchInterval;
     id <PHImportSourceDelegate> _delegate;
     unsigned long long _currentItemIndex;
     unsigned long long _nextItemIndex;
@@ -34,19 +38,19 @@
     NSDateFormatter *_dupeDateFormatter;
     PHImportDuplicateChecker *_duplicateChecker;
     NSMutableArray *_processed;
-    double _batchInterval;
-    double _batchDuration;
-    NSDate *_batchStart;
-    unsigned long long _batchSize;
+    double _batchStart;
     unsigned long long _batchCount;
     NSMutableArray *_items;
     NSMutableArray *_errors;
     PHImportOptions *_options;
     NSMutableArray *_assets;
     NSProgress *_progress;
+    long long _assetLoadOrder;
 }
 
 + (id)baseFileNameByRemovingRenderMarkerInFileName:(id)arg1;
+@property(nonatomic) unsigned char sourceAccessState; // @synthesize sourceAccessState=_sourceAccessState;
+@property(nonatomic) long long assetLoadOrder; // @synthesize assetLoadOrder=_assetLoadOrder;
 @property(retain, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 @property(retain, nonatomic) NSMutableArray *assets; // @synthesize assets=_assets;
 @property(retain, nonatomic) PHImportOptions *options; // @synthesize options=_options;
@@ -55,11 +59,9 @@
 @property(nonatomic) _Bool open; // @synthesize open=_open;
 @property(retain) NSMutableArray *errors; // @synthesize errors=_errors;
 @property(retain, nonatomic) NSMutableArray *items; // @synthesize items=_items;
+@property(nonatomic) _Bool rampBatchInterval; // @synthesize rampBatchInterval=_rampBatchInterval;
 @property(nonatomic) unsigned long long batchCount; // @synthesize batchCount=_batchCount;
-@property(nonatomic) unsigned long long batchSize; // @synthesize batchSize=_batchSize;
-@property(retain, nonatomic) NSDate *batchStart; // @synthesize batchStart=_batchStart;
-@property(nonatomic) double batchDuration; // @synthesize batchDuration=_batchDuration;
-@property(nonatomic) double batchInterval; // @synthesize batchInterval=_batchInterval;
+@property(nonatomic) double batchStart; // @synthesize batchStart=_batchStart;
 @property(retain, nonatomic) NSMutableArray *processed; // @synthesize processed=_processed;
 @property(retain, nonatomic) PHImportDuplicateChecker *duplicateChecker; // @synthesize duplicateChecker=_duplicateChecker;
 @property(retain, nonatomic) NSDateFormatter *dupeDateFormatter; // @synthesize dupeDateFormatter=_dupeDateFormatter;
@@ -101,6 +103,8 @@
 - (void)addItems:(id)arg1;
 @property(readonly, nonatomic) _Bool stalled;
 - (_Bool)batchComplete;
+@property(nonatomic) double batchInterval; // @synthesize batchInterval=_batchInterval;
+@property(nonatomic) unsigned long long batchSize; // @synthesize batchSize=_batchSize;
 - (void)decrementInFlight;
 - (void)incrementInFlight;
 - (void)endWork;
@@ -108,8 +112,10 @@
 - (id)processItem:(id)arg1 applyingBlock:(CDUnknownBlockType)arg2;
 - (void)processNextItems;
 - (void)beginWork;
-- (id)loadAssetsForLibrary:(id)arg1 allowDuplicates:(_Bool)arg2 order:(id)arg3 batchSize:(unsigned long long)arg4 atEnd:(CDUnknownBlockType)arg5;
-- (id)loadAssetsForLibrary:(id)arg1 allowDuplicates:(_Bool)arg2 order:(id)arg3 atEnd:(CDUnknownBlockType)arg4;
+- (id)loadAssetsForLibrary:(id)arg1 allowDuplicates:(_Bool)arg2 order:(long long)arg3 batchSize:(unsigned long long)arg4 batchInterval:(double)arg5 atEnd:(CDUnknownBlockType)arg6;
+- (id)loadAssetsForLibrary:(id)arg1 allowDuplicates:(_Bool)arg2 order:(long long)arg3 batchInterval:(double)arg4 atEnd:(CDUnknownBlockType)arg5;
+- (id)loadAssetsForLibrary:(id)arg1 allowDuplicates:(_Bool)arg2 order:(long long)arg3 batchSize:(unsigned long long)arg4 atEnd:(CDUnknownBlockType)arg5;
+- (id)loadAssetsForLibrary:(id)arg1 allowDuplicates:(_Bool)arg2 order:(long long)arg3 atEnd:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic) _Bool canDeleteContent;
 - (id)requestDeleteAssetsForRecords:(id)arg1;
 - (void)eject;

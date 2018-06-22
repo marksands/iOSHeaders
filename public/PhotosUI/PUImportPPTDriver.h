@@ -6,20 +6,26 @@
 
 #import "NSObject.h"
 
+#import "PUImportActionCoordinatorDelegate.h"
 #import "PUImportAssetsDataSourceManagerObserver.h"
 #import "PUImportMediaProviderNotificationsReceiver.h"
 
-@class NSDictionary, NSMutableDictionary, NSString, PUImportAssetsDataSourceManager, PUImportController, PUImportMediaProvider, PUImportPPTImportSource, PUTabbedLibraryViewController;
+@class NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSString, PUImportActionCoordinator, PUImportAssetsDataSourceManager, PUImportController, PUImportMediaProvider, PUImportPPTImportSource, PUTabbedLibraryViewController;
 
-@interface PUImportPPTDriver : NSObject <PUImportAssetsDataSourceManagerObserver, PUImportMediaProviderNotificationsReceiver>
+@interface PUImportPPTDriver : NSObject <PUImportAssetsDataSourceManagerObserver, PUImportMediaProviderNotificationsReceiver, PUImportActionCoordinatorDelegate>
 {
     CDUnknownBlockType _insertDatasourceReply;
     CDUnknownBlockType _thumbnailTestReply;
+    CDUnknownBlockType _importToLibraryTestReply;
     NSMutableDictionary *_extraResults;
     PUImportAssetsDataSourceManager *_dataSourceManager;
     PUImportController *_importController;
     PUImportPPTImportSource *_currentImportSource;
     PUImportMediaProvider *_mediaProvider;
+    PUImportActionCoordinator *_actionCoordinator;
+    NSObject<OS_dispatch_semaphore> *_importSemaphore;
+    _Bool _importComplete;
+    long long _iteration;
     double _startTime;
     double _endTime;
     _Bool _loadingContentStarted;
@@ -34,15 +40,26 @@
 @property(copy) NSDictionary *testOptions; // @synthesize testOptions=_testOptions;
 @property __weak PUTabbedLibraryViewController *tabbedLibraryViewController; // @synthesize tabbedLibraryViewController=_tabbedLibraryViewController;
 - (void).cxx_destruct;
+- (void)actionCoordinatorDidEndDelete:(id)arg1;
+- (void)actionCoordinatorDidBeginDelete:(id)arg1;
+- (void)actionCoordinatorWillBeginDelete:(id)arg1;
+- (id)importDestinationForActionCoordinator:(id)arg1;
+- (void)actionCoordinator:(id)arg1 didCompleteWithImportSession:(id)arg2 results:(id)arg3;
+- (void)actionCoordinatorDidCancelImport:(id)arg1;
+- (void)actionCoordinatorDidBeginImport:(id)arg1;
+- (void)actionCoordinatorWillBeginImport:(id)arg1;
 - (void)ppt_mediaProviderDidProcessAsset:(id)arg1;
+- (void)signalImportToLibraryTestReply:(_Bool)arg1;
 - (void)signalThumbnailTestReply:(_Bool)arg1;
 - (void)signalInsertDatasourceReply:(_Bool)arg1;
 - (double)_contentLoadingCheckInterval;
 - (void)_updateLoadingContentState;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
+- (id)modelBatchesForOptions:(id)arg1;
 - (id)mediaProvider;
 - (id)importController;
 - (id)importViewController;
+- (void)ppt_performImportToLibraryWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)ppt_performThumbnailWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)ppt_performDeleteWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_removeCurrentImportSourceIfNecessary;

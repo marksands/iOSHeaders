@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class ARDisplayLink, ARRollingNumberSeries, NSMutableArray, NSObject<OS_dispatch_queue>;
+@class ARDisplayLink, ARRollingNumberSeries, NSMutableArray;
 
 @interface ARRenderSyncScheduler : NSObject
 {
-    NSObject<OS_dispatch_queue> *_dispatch_queue;
     ARDisplayLink *_displayLink;
     ARRollingNumberSeries *_latencies;
     NSMutableArray *_blocks;
@@ -32,8 +31,7 @@
 @property _Bool schedulingActive; // @synthesize schedulingActive=_schedulingActive;
 @property long long expectedFramesPerSecond;
 @property double vsyncOffset;
-- (void)dealloc;
-- (id)initWithDispatchQueue:(id)arg1 expectedFramesPerSecond:(long long)arg2;
+- (id)initWithExpectedFramesPerSecond:(long long)arg1;
 - (id)init;
 
 @end

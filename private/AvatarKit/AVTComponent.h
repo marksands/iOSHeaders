@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class AVTMaterial, AVTPersonalAnimoji, NSArray;
+@class AVTMaterial, AVTMemoji, NSArray;
 
 @interface AVTComponent : NSObject
 {
     long long _type;
     NSArray *_assets;
-    AVTPersonalAnimoji *_personalAnimoji;
+    AVTMemoji *_memoji;
     AVTMaterial *_materials[3];
     double _intensity;
 }
@@ -30,8 +30,8 @@
 - (id)materialAtIndex:(unsigned long long)arg1;
 - (void)setMaterial:(id)arg1 atIndex:(unsigned long long)arg2;
 @property(readonly) long long type;
-- (void)setPersonalAnimoji:(id)arg1;
-- (id)personalAnimoji;
+- (void)setMemoji:(id)arg1;
+- (id)memoji;
 
 @end
 

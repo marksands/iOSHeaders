@@ -15,11 +15,11 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)ASPCoverViewColor;
-+ (id)ASPCoverView:(_Bool)arg1 withFrame:(struct CGRect)arg2 isRightToLeft:(_Bool)arg3;
++ (id)ASPCoverView:(_Bool)arg1 withFrame:(struct CGRect)arg2 isRightToLeft:(_Bool)arg3 withTextWidth:(double)arg4;
 @property(retain, nonatomic) CAGradientLayer *gradientLayer; // @synthesize gradientLayer=_gradientLayer;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-- (id)initCoverViewWithFrame:(struct CGRect)arg1 isRightToLeft:(_Bool)arg2;
+- (id)initCoverViewWithFrame:(struct CGRect)arg1 isRightToLeft:(_Bool)arg2 withTextWidth:(double)arg3;
 - (id)initCoverBackgroundViewWithFrame:(struct CGRect)arg1 isRightToLeft:(_Bool)arg2;
 
 @end

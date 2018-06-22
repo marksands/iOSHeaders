@@ -15,9 +15,12 @@
 
 @property(nonatomic) __weak UIView *cardView; // @synthesize cardView=_cardView;
 - (void).cxx_destruct;
+- (_Bool)_donationHasSubtitle:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)prepareForReuse;
+- (void)configureWithDonation:(id)arg1 metadata:(id)arg2 showingAppName:(_Bool)arg3 dimmingIneligibleForPrediction:(_Bool)arg4;
 - (void)configureWithDonation:(id)arg1 showingAppName:(_Bool)arg2 dimmingIneligibleForPrediction:(_Bool)arg3;
+- (void)configureWithDonation:(id)arg1 metadata:(id)arg2 showingAppName:(_Bool)arg3;
 - (void)configureWithDonation:(id)arg1 showingAppName:(_Bool)arg2;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 

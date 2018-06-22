@@ -6,17 +6,17 @@
 
 #import <HMFoundation/HMFObject.h>
 
-@class HMFNetAddress, NSObject<OS_dispatch_queue>;
+@class HMFNetAddress, HMFUnfairLock, NSObject<OS_dispatch_queue>;
 
 @interface HMFNetMonitor : HMFObject
 {
+    HMFUnfairLock *_lock;
     _Bool _reachable;
     _Bool _monitoring;
     unsigned int _currentNetworkFlags;
     id <HMFNetMonitorDelegate> _delegate;
     HMFNetAddress *_netAddress;
     NSObject<OS_dispatch_queue> *_clientQueue;
-    NSObject<OS_dispatch_queue> *_propertyQueue;
     struct __SCNetworkReachability *_networkReachabilityRef;
 }
 
@@ -24,7 +24,6 @@
 @property(nonatomic) unsigned int currentNetworkFlags; // @synthesize currentNetworkFlags=_currentNetworkFlags;
 @property(nonatomic, getter=isMonitoring) _Bool monitoring; // @synthesize monitoring=_monitoring;
 @property(readonly, nonatomic) struct __SCNetworkReachability *networkReachabilityRef; // @synthesize networkReachabilityRef=_networkReachabilityRef;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(readonly, copy, nonatomic) HMFNetAddress *netAddress; // @synthesize netAddress=_netAddress;
 @property __weak id <HMFNetMonitorDelegate> delegate; // @synthesize delegate=_delegate;

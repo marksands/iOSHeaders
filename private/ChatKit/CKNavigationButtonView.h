@@ -6,13 +6,12 @@
 
 #import "UIView.h"
 
-@class CKEntity, CNContactInlineActionsViewController, NSString, UIButton, UIImage, UILabel;
+@class CNContactInlineActionsViewController, NSString, UIButton, UIImage, UILabel;
 
 @interface CKNavigationButtonView : UIView
 {
     CDUnknownBlockType _buttonTappedCallback;
     long long _joinButtonStyle;
-    CKEntity *_entity;
     UIImage *_image;
     UIImage *_defaultImage;
     UIButton *_imageButton;
@@ -27,7 +26,6 @@
 @property(retain, nonatomic) UIButton *imageButton; // @synthesize imageButton=_imageButton;
 @property(retain, nonatomic) UIImage *defaultImage; // @synthesize defaultImage=_defaultImage;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
-@property(retain, nonatomic) CKEntity *entity; // @synthesize entity=_entity;
 @property(nonatomic) long long joinButtonStyle; // @synthesize joinButtonStyle=_joinButtonStyle;
 @property(copy, nonatomic) CDUnknownBlockType buttonTappedCallback; // @synthesize buttonTappedCallback=_buttonTappedCallback;
 - (void).cxx_destruct;

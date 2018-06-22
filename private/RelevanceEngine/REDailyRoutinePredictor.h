@@ -8,12 +8,11 @@
 
 #import "REPeriodOfDayPredictorDelegate.h"
 
-@class NSDateInterval, NSLock, NSObject<OS_dispatch_queue>, NSString, REPeriodOfDayPredictor, REUpNextTimer;
+@class NSDateInterval, NSLock, NSNumber, NSObject<OS_dispatch_queue>, NSString, REPeriodOfDayPredictor, REUpNextTimer;
 
 @interface REDailyRoutinePredictor : REObservableSingleton <REPeriodOfDayPredictorDelegate>
 {
     REPeriodOfDayPredictor *_periodOfDayPredictor;
-    REUpNextTimer *_beginMorningRoutineTimer;
     REUpNextTimer *_endMorningRoutineTimer;
     REUpNextTimer *_beginEveningRoutineTimer;
     REUpNextTimer *_endEveningRoutineTimer;
@@ -21,6 +20,7 @@
     unsigned long long _currentRoutine;
     NSDateInterval *_currentRoutineInterval;
     NSLock *_routineLock;
+    NSNumber *_overrideRoutineType;
 }
 
 - (void).cxx_destruct;
@@ -41,6 +41,7 @@
 @property(readonly, nonatomic) unsigned long long currentRoutineType;
 - (void)dealloc;
 - (id)init;
+- (void)_setOverrideRoutineType:(unsigned long long)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

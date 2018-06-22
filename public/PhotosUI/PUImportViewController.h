@@ -10,6 +10,7 @@
 #import "PUImportAlbumPickerDelegate.h"
 #import "PUImportAssetsDataSourceManagerObserver.h"
 #import "PUImportControllerImportCompletionDelegate.h"
+#import "PUImportControllerNotificationsReceiver.h"
 #import "PUImportDisplayDelegate.h"
 #import "PUImportHistorySectionHeaderViewDelegate.h"
 #import "PUImportOneUpTransitioning.h"
@@ -21,9 +22,9 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 
-@class NSLayoutConstraint, NSMutableDictionary, NSMutableSet, NSProgress, NSString, NSTimer, PHImportSource, PUImportActionCoordinator, PUImportAddToAlbumsBarItem, PUImportAddToAlbumsPickerViewController, PUImportAssetsDataSource, PUImportAssetsDataSourceManager, PUImportChangeDetailsCollectionViewHelper, PUImportController, PUImportCustomViewBarButton, PUImportFakePhotosDataSource, PUImportFloatingToolbarView, PUImportHistorySectionHeaderView, PUImportProgressBarItem, PUImportSessionInfo, PUPhotosGridViewControllerSpec, PXNavigationTitleView, PXSwipeSelectionManager, UIBarButtonItem, UILabel, UITapGestureRecognizer;
+@class NSLayoutConstraint, NSMutableDictionary, NSMutableSet, NSProgress, NSString, NSTimer, PHImportSource, PLRoundProgressView, PUImportActionCoordinator, PUImportAddToAlbumsBarItem, PUImportAddToAlbumsPickerViewController, PUImportAssetsDataSource, PUImportAssetsDataSourceManager, PUImportChangeDetailsCollectionViewHelper, PUImportController, PUImportCustomViewBarButton, PUImportFakePhotosDataSource, PUImportFloatingToolbarView, PUImportHistorySectionHeaderView, PUImportProgressDetailViewController, PUImportSessionInfo, PUPhotosGridViewControllerSpec, PXNavigationTitleView, PXSwipeSelectionManager, UIBarButtonItem, UILabel, UITapGestureRecognizer;
 
-@interface PUImportViewController : PUPhotosGridViewController <PUSectionedGridLayoutDelegate, PUImportActionCoordinatorDelegate, PUImportAlbumPickerDelegate, PUImportAssetsDataSourceManagerObserver, PUImportControllerImportCompletionDelegate, PUImportHistorySectionHeaderViewDelegate, PUImportOneUpTransitioning, PUImportSectionedGridLayoutDelegate, PXSettingsKeyObserver, PUImportDisplayDelegate, PXChangeObserver, PXSwipeSelectionManagerDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate>
+@interface PUImportViewController : PUPhotosGridViewController <PUSectionedGridLayoutDelegate, PUImportActionCoordinatorDelegate, PUImportAlbumPickerDelegate, PUImportAssetsDataSourceManagerObserver, PUImportControllerImportCompletionDelegate, PUImportControllerNotificationsReceiver, PUImportHistorySectionHeaderViewDelegate, PUImportOneUpTransitioning, PUImportSectionedGridLayoutDelegate, PXSettingsKeyObserver, PUImportDisplayDelegate, PXChangeObserver, PXSwipeSelectionManagerDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate>
 {
     _Bool _readingImportItems;
     _Bool _completedAnImport;
@@ -33,12 +34,15 @@
     UIBarButtonItem *_deleteButtonItemIcon;
     UIBarButtonItem *_deleteButtonItem;
     UIBarButtonItem *_stopBarItem;
-    PUImportProgressBarItem *_progressButtonItem;
+    UIBarButtonItem *_progressButtonItem;
     UIBarButtonItem *_progressLabel;
     PUImportAddToAlbumsBarItem *_albumPickerBarItem;
     UIBarButtonItem *_contentInfoBarButton;
     UIBarButtonItem *_albumPickerCompactWidthBarButton;
-    NSTimer *_deletedItemsTimer;
+    UIBarButtonItem *_compactContentInfoButton;
+    UIBarButtonItem *_compactSpacer1;
+    UIBarButtonItem *_compactImportDestinationButton;
+    UIBarButtonItem *_compactSpacer2;
     unsigned long long _busyCount;
     _Bool _canSkipDupCheckOnDelete;
     _Bool _skipDupCheckOnDelete;
@@ -49,9 +53,12 @@
     UITapGestureRecognizer *_tapGestureRecognizer;
     _Bool _performingDataSourceChange;
     _Bool _needsDataReloadAfterAnimatingDataSourceChange;
+    _Bool _transitioningToNewSize;
+    _Bool _viewAppearing;
     _Bool _hasLoadedInitialBatchOfAssets;
     _Bool _isLoadingInitialBatchOfAssets;
     _Bool _collapseAlreadyImportedSection;
+    _Bool _userHasScrolled;
     _Bool _shouldStayScrolledToBottom;
     _Bool _animateHeaderActionButtonChanges;
     _Bool _needsContentInsetUpdateForCompactWidthToolbar;
@@ -73,6 +80,9 @@
     UILabel *_navigationLargeTitleAccessoryLabel;
     PXSwipeSelectionManager *_swipeSelectionManager;
     PUImportAddToAlbumsPickerViewController *_albumsPickerViewController;
+    PLRoundProgressView *_roundProgressView;
+    PUImportProgressDetailViewController *_importProgressDetailViewController;
+    NSString *_localizedProgressText;
     NSMutableSet *_itemsBeingTransitioned;
     PUImportFloatingToolbarView *_compactWidthToolbar;
     NSLayoutConstraint *_compactWidthToolbarTopConstraint;
@@ -100,7 +110,11 @@
 @property(retain, nonatomic) PUImportFloatingToolbarView *compactWidthToolbar; // @synthesize compactWidthToolbar=_compactWidthToolbar;
 @property(nonatomic) _Bool animateHeaderActionButtonChanges; // @synthesize animateHeaderActionButtonChanges=_animateHeaderActionButtonChanges;
 @property(retain, nonatomic) NSMutableSet *itemsBeingTransitioned; // @synthesize itemsBeingTransitioned=_itemsBeingTransitioned;
+@property(copy, nonatomic) NSString *localizedProgressText; // @synthesize localizedProgressText=_localizedProgressText;
+@property(retain, nonatomic) PUImportProgressDetailViewController *importProgressDetailViewController; // @synthesize importProgressDetailViewController=_importProgressDetailViewController;
+@property(retain, nonatomic) PLRoundProgressView *roundProgressView; // @synthesize roundProgressView=_roundProgressView;
 @property(nonatomic) _Bool shouldStayScrolledToBottom; // @synthesize shouldStayScrolledToBottom=_shouldStayScrolledToBottom;
+@property(nonatomic) _Bool userHasScrolled; // @synthesize userHasScrolled=_userHasScrolled;
 @property(nonatomic) _Bool collapseAlreadyImportedSection; // @synthesize collapseAlreadyImportedSection=_collapseAlreadyImportedSection;
 @property(retain, nonatomic) PUImportAddToAlbumsPickerViewController *albumsPickerViewController; // @synthesize albumsPickerViewController=_albumsPickerViewController;
 @property(retain, nonatomic) PXSwipeSelectionManager *swipeSelectionManager; // @synthesize swipeSelectionManager=_swipeSelectionManager;
@@ -111,6 +125,8 @@
 @property(retain, nonatomic) NSTimer *initialBatchOfAssetsTimer; // @synthesize initialBatchOfAssetsTimer=_initialBatchOfAssetsTimer;
 @property(nonatomic) _Bool isLoadingInitialBatchOfAssets; // @synthesize isLoadingInitialBatchOfAssets=_isLoadingInitialBatchOfAssets;
 @property(nonatomic) _Bool hasLoadedInitialBatchOfAssets; // @synthesize hasLoadedInitialBatchOfAssets=_hasLoadedInitialBatchOfAssets;
+@property(nonatomic, getter=isViewAppearing) _Bool viewAppearing; // @synthesize viewAppearing=_viewAppearing;
+@property(nonatomic, getter=isTransitioningToNewSize) _Bool transitioningToNewSize; // @synthesize transitioningToNewSize=_transitioningToNewSize;
 @property(retain, nonatomic) PUImportChangeDetailsCollectionViewHelper *changeDetailsHelper; // @synthesize changeDetailsHelper=_changeDetailsHelper;
 @property(retain, nonatomic) PUImportAssetsDataSource *pendingDataSource; // @synthesize pendingDataSource=_pendingDataSource;
 @property(nonatomic) _Bool needsDataReloadAfterAnimatingDataSourceChange; // @synthesize needsDataReloadAfterAnimatingDataSourceChange=_needsDataReloadAfterAnimatingDataSourceChange;
@@ -125,6 +141,8 @@
 @property(nonatomic, setter=_setCollectionViewLayoutReferenceWidth:) double _collectionViewLayoutReferenceWidth; // @synthesize _collectionViewLayoutReferenceWidth=__collectionViewLayoutReferenceWidth;
 @property(retain, nonatomic, setter=_setSpec:) PUPhotosGridViewControllerSpec *_spec; // @synthesize _spec=__spec;
 - (void).cxx_destruct;
+- (id)ppt_importButton;
+- (void)_importContentSizeCategoryDidChangeNotification:(id)arg1;
 - (id)previewPresentationTransitioningDelegateForPosition:(struct CGPoint)arg1 inSourceView:(id)arg2;
 - (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
 - (void)didDismissPreviewViewController:(id)arg1 committing:(_Bool)arg2;
@@ -142,7 +160,8 @@
 - (struct PXSimpleIndexPath)swipeSelectionManager:(id)arg1 itemIndexPathAtLocation:(struct CGPoint)arg2;
 - (void)endSwipeSelection;
 - (void)beginSwipeSelection;
-- (void)stayScrolledToBottomIfAtBottom:(id)arg1;
+- (void)stayScrolledToBottomIfAtBottomAfterDrag:(id)arg1;
+- (void)navigateToBottomAnimated:(_Bool)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
 - (_Bool)scrollViewShouldScrollToTop:(id)arg1;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
@@ -202,13 +221,17 @@
 - (void)actionCoordinatorWillBeginImport:(id)arg1;
 - (id)_navigationViewControllerForViewController:(id)arg1;
 - (id)presentationController:(id)arg1 viewControllerForAdaptivePresentationStyle:(long long)arg2;
+- (long long)adaptivePresentationStyleForPresentationController:(id)arg1 traitCollection:(id)arg2;
 - (void)collectionSelected:(id)arg1;
 - (id)accessibilityLabelForAlbumPickerControlWithDestination:(id)arg1;
 - (id)titleForDestinationCollection:(id)arg1;
 - (void)cancelAlbumPickerPopover:(id)arg1;
 - (void)presentAlbumPickerFromView:(id)arg1 orBarItem:(id)arg2;
 - (void)showAlbumPicker:(id)arg1;
+- (void)dismissImportProgressPopover;
+- (void)presentImportProgressPopover;
 - (void)showProgress:(id)arg1;
+- (void)importControllerProgressDidChange:(id)arg1 descriptiveText:(id)arg2 context:(id)arg3;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)stopMonitoringImportProgress:(id)arg1;
 - (void)startMonitoringImportProgress:(id)arg1;
@@ -255,6 +278,7 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
@@ -266,6 +290,7 @@
 - (void)setNeedsContentInsetUpdateForCompactWidthToolbar;
 - (void)updateCompactWidthToolbarVisibilityForTraitCollection:(id)arg1;
 - (void)setUpCompactWidthToolbar;
+- (void)_updateCompactToolbar;
 - (void)updateNavigationTitleViewVisibilityAnimated:(_Bool)arg1;
 - (id)deleteButtonItem;
 - (_Bool)compactLayoutMode;

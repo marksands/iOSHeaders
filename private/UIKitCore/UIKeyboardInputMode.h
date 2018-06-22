@@ -14,7 +14,7 @@
 {
     _Bool isDisplayed;
     _Bool _extensionInputModeHasDictation;
-    NSString *primaryLanguage;
+    NSString *_primaryLanguage;
     NSString *_languageWithRegion;
     NSString *identifier;
     NSString *normalizedIdentifier;
@@ -40,7 +40,7 @@
 @property(retain, nonatomic) NSString *normalizedIdentifier; // @synthesize normalizedIdentifier;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier;
 @property(retain, nonatomic) NSString *languageWithRegion; // @synthesize languageWithRegion=_languageWithRegion;
-@property(retain, nonatomic) NSString *primaryLanguage; // @synthesize primaryLanguage;
+@property(retain, nonatomic) NSString *primaryLanguage; // @synthesize primaryLanguage=_primaryLanguage;
 - (void)setLastUsedDictationLanguage;
 @property(retain, nonatomic) NSString *dictationLanguage;
 @property(readonly, nonatomic) NSString *dictationDisplayName;

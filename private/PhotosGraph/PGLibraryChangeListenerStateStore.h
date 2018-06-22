@@ -14,7 +14,8 @@
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) PHPersistentChangeToken *changeToken; // @dynamic changeToken;
+@property(readonly, nonatomic) PHPersistentChangeToken *changeToken; // @dynamic changeToken;
+- (void)setChangeToken:(id)arg1;
 - (id)initWithPhotoLibrary:(id)arg1;
 
 @end

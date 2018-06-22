@@ -10,6 +10,7 @@
 
 @protocol GEOBatchOpportunisticTileDownloaderDelegate <NSObject>
 - (void)batchOpportunisticTileDownloaderDidFinish:(GEOBatchOpportunisticTileDownloader *)arg1;
+- (_Bool)batchOpportunisticTileDownloaderShouldPause:(GEOBatchOpportunisticTileDownloader *)arg1;
 - (void)batchOpportunisticTileDownloader:(GEOBatchOpportunisticTileDownloader *)arg1 receivedData:(NSData *)arg2 tileEdition:(unsigned int)arg3 tileSet:(unsigned int)arg4 etag:(NSString *)arg5 forKey:(struct _GEOTileKey)arg6 userInfo:(NSDictionary *)arg7;
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class GEOResourceManifestConfiguration, NSError, NSLocale, NSString, VKSharedResources, VKTileKeyList, VKTileKeyMap, VKTilePool;
+@class GEOResourceManifestConfiguration, GEOTileKeyList, NSError, NSLocale, NSString, VKSharedResources, VKTileKeyList, VKTileKeyMap, VKTilePool;
 
 __attribute__((visibility("hidden")))
 @interface VKTileSource : NSObject
@@ -15,13 +15,14 @@ __attribute__((visibility("hidden")))
     VKTilePool *_tilePool;
     VKTilePool *_preliminaryTilePool;
     VKTileKeyMap *_pendingLoads;
+    GEOTileKeyList *_pendingDownloadRequests;
     VKTileKeyList *_decoding;
     VKTileKeyList *_decodingPreliminary;
     VKTileKeyList *_failedTiles;
     shared_ptr_a3c46825 _styleManager;
     double _contentScale;
     VKSharedResources *_sharedResources;
-    int _loadingTiles;
+    int _loadingTilesFromNetwork;
     NSError *_recentError;
     GEOResourceManifestConfiguration *_manifestConfiguration;
     NSLocale *_locale;
@@ -45,6 +46,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) id <VKTileSourceClient> client; // @synthesize client=_client;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (id)stateDescriptionForRenderKey:(const struct VKTileKey *)arg1;
+- (_Bool)tileHasLoadingIssue:(const struct VKTileKey *)arg1;
 - (void)forceDownload;
 - (void)didFailToLoadTileKey:(const struct _GEOTileKey *)arg1 error:(id)arg2;
 - (void)didFinishWithNetwork;
@@ -90,6 +93,7 @@ __attribute__((visibility("hidden")))
 - (id)detailedDescription;
 - (void)foreachTileInPool:(CDUnknownBlockType)arg1;
 - (void)clearCaches;
+- (struct TaskQueue *)tileDecodeQueue;
 - (void)dealloc;
 - (id)initWithTaskContext:(shared_ptr_e963992e)arg1;
 - (id)initWithResourceManifestConfiguration:(id)arg1 locale:(id)arg2 sharedResources:(id)arg3 taskContext:(shared_ptr_e963992e)arg4;

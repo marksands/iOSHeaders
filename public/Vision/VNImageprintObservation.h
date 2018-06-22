@@ -21,7 +21,6 @@
 @property(readonly, nonatomic) _Bool imageprintValid; // @synthesize imageprintValid=_imageprintValid;
 @property(retain, nonatomic) VNImageprint *imageprint; // @synthesize imageprint=_imageprint;
 - (void).cxx_destruct;
-- (id)observationsCacheKey;
 @property(readonly, nonatomic) NSData *rawImageprintDescriptor;
 - (id)initWithRawImageprintDescriptor:(id)arg1;
 - (_Bool)isImageprintValid;

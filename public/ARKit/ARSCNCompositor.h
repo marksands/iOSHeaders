@@ -17,7 +17,7 @@
 
 @property(nonatomic) _Bool showOcclusionGeometry; // @synthesize showOcclusionGeometry=_showOcclusionGeometry;
 @property(nonatomic) long long currentOrientation; // @synthesize currentOrientation=_currentOrientation;
-@property(nonatomic) __weak ARFrame *currentFrame; // @synthesize currentFrame=_currentFrame;
+@property(retain, nonatomic) ARFrame *currentFrame; // @synthesize currentFrame=_currentFrame;
 - (void).cxx_destruct;
 - (id)initWithView:(id)arg1;
 

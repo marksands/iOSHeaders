@@ -40,8 +40,7 @@
     _Bool _statusViewHidden;
     _Bool _keepStatusViewHidden;
     _Bool _flamesViewDeferred;
-    _Bool _flamesViewPaused;
-    _Bool _buttonViewsDeferred;
+    _Bool _helpButtonDeferred;
     _Bool _carDisplaySnippetVisible;
     _Bool _inFluidDismissal;
     UIView *_remoteContentView;
@@ -62,8 +61,7 @@
 @property(nonatomic) long long siriSessionState; // @synthesize siriSessionState=_siriSessionState;
 @property(nonatomic, getter=isInFluidDismissal) _Bool inFluidDismissal; // @synthesize inFluidDismissal=_inFluidDismissal;
 @property(nonatomic) _Bool carDisplaySnippetVisible; // @synthesize carDisplaySnippetVisible=_carDisplaySnippetVisible;
-@property(nonatomic) _Bool buttonViewsDeferred; // @synthesize buttonViewsDeferred=_buttonViewsDeferred;
-@property(nonatomic) _Bool flamesViewPaused; // @synthesize flamesViewPaused=_flamesViewPaused;
+@property(nonatomic) _Bool helpButtonDeferred; // @synthesize helpButtonDeferred=_helpButtonDeferred;
 @property(nonatomic) _Bool flamesViewDeferred; // @synthesize flamesViewDeferred=_flamesViewDeferred;
 @property(nonatomic) _Bool keepStatusViewHidden; // @synthesize keepStatusViewHidden=_keepStatusViewHidden;
 @property(nonatomic) _Bool statusViewHidden; // @synthesize statusViewHidden=_statusViewHidden;
@@ -117,6 +115,7 @@
 - (void)setupOrbIfNeeded;
 @property(nonatomic, getter=isInUITrackingMode) _Bool inUITrackingMode;
 - (void)teardownStatusView;
+@property(nonatomic) _Bool flamesViewPaused;
 - (void)setStatusViewUserInteractionEnabled:(_Bool)arg1;
 - (void)_animateButtonsHidden:(_Bool)arg1;
 - (void)_updateControlsAppearance;

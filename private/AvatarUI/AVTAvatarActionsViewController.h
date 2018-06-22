@@ -9,7 +9,7 @@
 #import "AVTAvatarActionsModelDelegate.h"
 #import "UINavigationControllerDelegate.h"
 
-@class AVTAvatarActionButton, AVTAvatarActionsModel, AVTViewSession, AVTViewSessionProvider, NSString, UIImageView, UIStackView, UITapGestureRecognizer;
+@class AVTAvatarActionButton, AVTAvatarActionsModel, AVTImageTransitioningContainerView, AVTUIEnvironment, AVTViewSession, AVTViewSessionProvider, NSString, UIImageView, UIStackView, UITapGestureRecognizer;
 
 @interface AVTAvatarActionsViewController : UIViewController <AVTAvatarActionsModelDelegate, UINavigationControllerDelegate>
 {
@@ -17,6 +17,7 @@
     id <AVTAvatarActionsViewControllerDelegate> _delegate;
     id <AVTAvatarActionsViewControllerLayout> _currentLayout;
     UIStackView *_buttonsView;
+    AVTImageTransitioningContainerView *_avatarContainer;
     AVTAvatarActionButton *_editButton;
     AVTAvatarActionButton *_duplicateButton;
     AVTAvatarActionButton *_deleteButton;
@@ -26,8 +27,10 @@
     CDUnknownBlockType _postSessionDidBecomeActiveHandler;
     UIImageView *_transitionImageView;
     UITapGestureRecognizer *_tapGestureRecognizer;
+    AVTUIEnvironment *_environment;
 }
 
+@property(readonly, nonatomic) AVTUIEnvironment *environment; // @synthesize environment=_environment;
 @property(nonatomic) _Bool isAnimating; // @synthesize isAnimating=_isAnimating;
 @property(retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
 @property(retain, nonatomic) UIImageView *transitionImageView; // @synthesize transitionImageView=_transitionImageView;
@@ -38,6 +41,7 @@
 @property(retain, nonatomic) AVTAvatarActionButton *deleteButton; // @synthesize deleteButton=_deleteButton;
 @property(retain, nonatomic) AVTAvatarActionButton *duplicateButton; // @synthesize duplicateButton=_duplicateButton;
 @property(retain, nonatomic) AVTAvatarActionButton *editButton; // @synthesize editButton=_editButton;
+@property(retain, nonatomic) AVTImageTransitioningContainerView *avatarContainer; // @synthesize avatarContainer=_avatarContainer;
 @property(retain, nonatomic) UIStackView *buttonsView; // @synthesize buttonsView=_buttonsView;
 @property(retain, nonatomic) id <AVTAvatarActionsViewControllerLayout> currentLayout; // @synthesize currentLayout=_currentLayout;
 @property(nonatomic) __weak id <AVTAvatarActionsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -75,7 +79,7 @@
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)configureAVTViewSession:(id)arg1 withAvatarRecord:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (id)initWithAVTViewSessionProvider:(id)arg1 actionsModel:(id)arg2;
+- (id)initWithAVTViewSessionProvider:(id)arg1 actionsModel:(id)arg2 environment:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

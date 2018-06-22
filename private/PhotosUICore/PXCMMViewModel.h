@@ -6,17 +6,21 @@
 
 #import <PhotosUICore/PXObservable.h>
 
+#import "PXCMMMutableViewModel.h"
 #import "PXChangeObserver.h"
 #import "PXMediaTypeAggregating.h"
 
 @class NSArray, NSDate, NSSet, NSString, NSURL, PXPhotosGlobalFooterViewModel, PXRecipient, PXSectionedSelectionManager;
 
-@interface PXCMMViewModel : PXObservable <PXMediaTypeAggregating, PXChangeObserver>
+@interface PXCMMViewModel : PXObservable <PXMediaTypeAggregating, PXChangeObserver, PXCMMMutableViewModel>
 {
     _Bool _selecting;
+    _Bool _selectionEnabled;
     _Bool _shouldShowPlaceholder;
     _Bool _loadingPeopleSuggestions;
+    NSString *_originalTitle;
     NSString *_title;
+    NSString *_subtitle;
     PXSectionedSelectionManager *_selectionManager;
     NSArray *_recipients;
     NSURL *_shareURL;
@@ -52,11 +56,14 @@
 @property(readonly, nonatomic) id <PXDisplayAsset> posterAsset; // @synthesize posterAsset=_posterAsset;
 @property(readonly, nonatomic) unsigned long long numberOfReceivedAssets; // @synthesize numberOfReceivedAssets=_numberOfReceivedAssets;
 @property(readonly, copy, nonatomic) PXRecipient *originatorRecipient; // @synthesize originatorRecipient=_originatorRecipient;
+@property(readonly, nonatomic) _Bool selectionEnabled; // @synthesize selectionEnabled=_selectionEnabled;
 @property(readonly, nonatomic, getter=isSelecting) _Bool selecting; // @synthesize selecting=_selecting;
 @property(readonly, copy, nonatomic) NSURL *shareURL; // @synthesize shareURL=_shareURL;
 @property(readonly, copy, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
 @property(readonly, nonatomic) PXSectionedSelectionManager *selectionManager; // @synthesize selectionManager=_selectionManager;
+@property(readonly, copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(readonly, copy, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, copy, nonatomic) NSString *originalTitle; // @synthesize originalTitle=_originalTitle;
 - (void).cxx_destruct;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)setDisabledActionTypes:(id)arg1;
@@ -75,9 +82,12 @@
 - (void)setNumberOfReceivedAssets:(unsigned long long)arg1;
 - (void)setOriginatorRecipient:(id)arg1;
 - (void)setRecipients:(id)arg1;
+- (void)setSelectionEnabled:(_Bool)arg1;
 - (void)setSelecting:(_Bool)arg1;
 - (void)setSelectionManager:(id)arg1;
+- (void)setSubtitle:(id)arg1;
 - (void)setTitle:(id)arg1;
+- (void)setOriginalTitle:(id)arg1;
 - (void)performChanges:(CDUnknownBlockType)arg1;
 - (id)mutableChangeObject;
 @property(readonly, nonatomic) long long aggregateMediaTypeForSelection;

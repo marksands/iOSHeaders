@@ -44,6 +44,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setAvatarNode:(id)arg1;
 - (id)description;
+- (void)update;
 - (id)avatarNode;
 - (void)_load;
 

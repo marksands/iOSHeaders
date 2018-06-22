@@ -27,6 +27,10 @@
 - (struct CGRect)frameForPartWithIdentifier:(id)arg1;
 - (id)enabledPartIdentifiers;
 - (void)setEnabledPartIdentifiers:(id)arg1;
+- (double)alphaForPartWithIdentifier:(id)arg1;
+- (void)setAlpha:(double)arg1 forPartWithIdentifier:(id)arg2;
+- (struct UIOffset)offsetForPartWithIdentifier:(id)arg1;
+- (void)setOffset:(struct UIOffset)arg1 forPartWithIdentifier:(id)arg2;
 - (id)actionForPartWithIdentifier:(id)arg1;
 - (void)setAction:(id)arg1 forPartWithIdentifier:(id)arg2;
 - (void)jiggleLockIcon;

@@ -35,7 +35,7 @@
 - (id)iCloudAccountForAppleID:(id)arg1;
 - (_Bool)hasPrimaryiCloudAccountForAltDSID:(id)arg1;
 - (_Bool)hasPrimaryiCloudAccountForAppleID:(id)arg1;
-- (void)removeUnusedAuthKitAccounts;
+- (void)removeUnusedAndDuplicateAuthKitAccountsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)activeServiceNamesForAccount:(id)arg1;
 - (id)servicesUsingAccount:(id)arg1;
 - (void)setAccount:(id)arg1 inUse:(_Bool)arg2 byService:(long long)arg3;

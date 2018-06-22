@@ -31,7 +31,6 @@ __attribute__((visibility("hidden")))
     double _bottomSpacingForSpinner;
 }
 
-+ (id)statusGlyphs;
 @property(nonatomic) double bottomSpacingForSpinner; // @synthesize bottomSpacingForSpinner=_bottomSpacingForSpinner;
 @property(nonatomic) __weak UIViewController *viewController; // @synthesize viewController=_viewController;
 @property(nonatomic) _Bool groupsNames; // @synthesize groupsNames=_groupsNames;

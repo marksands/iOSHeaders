@@ -66,6 +66,8 @@
 @property(nonatomic) _Bool isLATEnabled;
 @property(readonly, nonatomic) _Bool limitAdTrackingRestrictionEnabledBySpringboard;
 - (void)reloadStorefront:(CDUnknownBlockType)arg1;
+- (_Bool)deviceUnlockedOnce;
+- (_Bool)purpleBuddyWillRun;
 - (int)deviceRunStateForBundleIdentifier:(id)arg1;
 - (id)deviceDescription;
 @property(readonly, nonatomic) _Bool isManagediCloudAccount;

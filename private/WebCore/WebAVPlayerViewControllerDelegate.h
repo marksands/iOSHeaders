@@ -21,9 +21,10 @@ __attribute__((visibility("hidden")))
 - (_Bool)playerViewControllerShouldStartPictureInPictureFromInlineWhenEnteringBackground:(id)arg1;
 - (void)playerViewController:(id)arg1 restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)playerViewController:(id)arg1 shouldExitFullScreenWithReason:(long long)arg2;
+- (_Bool)playerViewControllerShouldAutomaticallyDismissAtPictureInPictureStart:(id)arg1;
 - (void)playerViewControllerDidStopPictureInPicture:(id)arg1;
 - (void)playerViewControllerWillStopPictureInPicture:(id)arg1;
-- (void)playerViewControllerFailedToStartPictureInPicture:(id)arg1 withError:(id)arg2;
+- (void)playerViewController:(id)arg1 failedToStartPictureInPictureWithError:(id)arg2;
 - (void)playerViewControllerDidStartPictureInPicture:(id)arg1;
 - (void)playerViewControllerWillStartPictureInPicture:(id)arg1;
 // Error parsing type for property fullscreenInterface:

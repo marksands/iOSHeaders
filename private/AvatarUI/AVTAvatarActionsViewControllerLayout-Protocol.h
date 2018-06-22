@@ -5,6 +5,7 @@
 //
 
 @protocol AVTAvatarActionsViewControllerLayout
+@property(readonly, nonatomic) id <AVTViewLayoutInfo> avtViewLayout;
 @property(readonly, nonatomic) struct CGRect userInfoFrame;
 @property(readonly, nonatomic) struct CGRect avatarContainerViewFrame;
 @property(readonly, nonatomic) struct CGRect actionButtonsViewFrame;
@@ -12,6 +13,5 @@
 @property(readonly, nonatomic) long long buttonCount;
 @property(readonly, nonatomic) struct UIEdgeInsets edgeInsets;
 @property(readonly, nonatomic) struct CGSize containerSize;
-- (id)initWithContainerSize:(struct CGSize)arg1 insets:(struct UIEdgeInsets)arg2 buttonCount:(long long)arg3;
 @end
 

@@ -24,8 +24,10 @@
     _Bool _requireWiFi;
     _Bool _requirePowerPluggedIn;
     NSString *_backgroundSessionIdentifier;
+    _Bool _shouldParticipateInBalancer;
 }
 
+@property(readonly, nonatomic) _Bool shouldParticipateInBalancer; // @synthesize shouldParticipateInBalancer=_shouldParticipateInBalancer;
 @property(readonly, nonatomic) NSString *backgroundSessionIdentifier; // @synthesize backgroundSessionIdentifier=_backgroundSessionIdentifier;
 @property(readonly, nonatomic) _Bool requirePowerPluggedIn; // @synthesize requirePowerPluggedIn=_requirePowerPluggedIn;
 @property(readonly, nonatomic) _Bool requireWiFi; // @synthesize requireWiFi=_requireWiFi;
@@ -43,7 +45,7 @@
 - (void).cxx_destruct;
 - (id)description;
 - (id)initWithKeyList:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3;
-- (id)initWithKeyList:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3 cachedEtags:(id)arg4 cachedData:(id)arg5 priorities:(id)arg6 signpostIDs:(id)arg7 additionalInfos:(id)arg8 bundleIdentifier:(id)arg9 bundleVersion:(id)arg10 auditToken:(id)arg11 requireWiFi:(_Bool)arg12 requirePowerPluggedIn:(_Bool)arg13 backgroundSessionIdentifier:(id)arg14;
+- (id)initWithKeyList:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3 cachedEtags:(id)arg4 cachedData:(id)arg5 priorities:(id)arg6 signpostIDs:(id)arg7 additionalInfos:(id)arg8 bundleIdentifier:(id)arg9 bundleVersion:(id)arg10 auditToken:(id)arg11 requireWiFi:(_Bool)arg12 requirePowerPluggedIn:(_Bool)arg13 backgroundSessionIdentifier:(id)arg14 shouldParticipateInBalancer:(_Bool)arg15;
 - (id)init;
 
 @end

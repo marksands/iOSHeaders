@@ -8,14 +8,13 @@
 
 #import "AVTFaceTrackerDelegate.h"
 
-@class AVAssetWriter, AVAssetWriterInput, AVCaptureMovieFileOutput, AVPlayer, CAAnimation, CAAnimationGroup, NSLock, NSMutableArray, NSMutableData, NSObject<OS_dispatch_queue>, NSString;
+@class AVAssetWriter, AVAssetWriterInput, AVCaptureMovieFileOutput, AVPlayer, CAAnimation, CAAnimationGroup, CALayer, NSLock, NSMutableArray, NSMutableData, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVTRecordView : AVTView <AVTFaceTrackerDelegate>
 {
     id <AVTRecordViewDelegate> _recordDelegate;
     _Bool _exportingMovie;
     _Bool _recording;
-    _Bool _waitMetalAndReplay;
     int _isFading;
     NSObject<OS_dispatch_queue> *_preloadQueue;
     CAAnimation *_backedAnimation;
@@ -53,6 +52,7 @@
     NSMutableArray *_droppedDoubleBufferFrames;
     long long _preferredFramesPerSecond_user;
     long long _preferredFramesPerSecond_thermal;
+    CALayer *_backingLayer;
     _Bool _captureImageIsTooDark;
 }
 
@@ -111,7 +111,6 @@
 - (void)setPuppetState:(id)arg1;
 - (id)puppetState;
 - (double)_renderer:(id)arg1 inputTimeForCurrentFrameWithTime:(double)arg2;
-- (void)renderer:(id)arg1 didRenderScene:(id)arg2 atTime:(double)arg3;
 - (void)renderer:(id)arg1 updateAtTime:(double)arg2;
 - (void)_didUpdateAtTime:(double)arg1;
 - (void)willUpdateAvatarWithNewFaceTrackingData:(double)arg1;

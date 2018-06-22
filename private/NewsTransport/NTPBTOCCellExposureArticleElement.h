@@ -10,7 +10,7 @@
 
 @class NSString;
 
-@interface NTPBTOCCellExposureArticleElement : PBCodable <NSCopying>
+@interface NTPBTocCellExposureArticleElement : PBCodable <NSCopying>
 {
     long long _publisherArticleVersionInt64;
     NSString *_articleId;

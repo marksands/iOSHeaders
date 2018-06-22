@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
     NSString *_countryCode;
     NSString *_regionCode;
     _Bool _canceled;
-    struct GEOOnce_s _started;
+    _Bool _paused;
     struct GEOOnce_s _finished;
     GEOTileRequester *_activeRequester;
     GEOTileKeyList *_remainingKeysForActiveRequester;
@@ -34,14 +34,17 @@ __attribute__((visibility("hidden")))
 - (void)tileRequesterFinished:(id)arg1;
 - (void)tileRequester:(id)arg1 receivedError:(id)arg2;
 - (void)tileRequester:(id)arg1 receivedData:(id)arg2 tileEdition:(unsigned int)arg3 tileSet:(unsigned int)arg4 etag:(id)arg5 forKey:(struct _GEOTileKey)arg6 userInfo:(id)arg7;
+- (void)_pauseOrRequestNextBatch;
 - (void)_startRequesterForKeys:(id)arg1 staleCachedETags:(id)arg2 staleCachedData:(id)arg3;
 - (void)_requestNextBatch;
 - (_Bool)cancelKey:(const struct _GEOTileKey *)arg1;
 - (void)_finish;
 - (void)cancel;
-- (void)start;
+- (void)pause;
+- (void)resume;
 - (id)initWithDelegate:(id)arg1 delegateQueue:(id)arg2 countryCode:(id)arg3 region:(id)arg4 log:(id)arg5 logPrefix:(id)arg6 tileRequesterCreationBlock:(CDUnknownBlockType)arg7;
 - (id)init;
+- (void)downloadDidFailForTile:(struct _GEOTileKey *)arg1 error:(id)arg2;
 - (void)downloadDidSucceedForTile:(struct _GEOTileKey *)arg1 downloadSize:(unsigned long long)arg2;
 - (void)determineNextBatchWithQueue:(id)arg1 callback:(CDUnknownBlockType)arg2;
 

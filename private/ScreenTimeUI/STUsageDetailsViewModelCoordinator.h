@@ -8,15 +8,16 @@
 
 #import "STUsageDetailsViewModelCoordinator.h"
 
-@class NSDate, NSNumber, NSString, NSTimer, STUsageDetailsViewModel;
+@class NSArray, NSDate, NSNumber, NSString, NSTimer, STUsageDetailsViewModel;
 
 @interface STUsageDetailsViewModelCoordinator : NSObject <STUsageDetailsViewModelCoordinator>
 {
     STUsageDetailsViewModel *_viewModel;
+    NSArray *_devices;
+    NSString *_selectedDeviceIdentifier;
     NSString *_organizationIdentifier;
     NSNumber *_userDSID;
-    NSString *_deviceIdentifier;
-    id <RMPersistenceControllerProtocol> _persistence;
+    id <RMPersistenceControllerProtocol> _persistenceController;
     NSDate *_lastUsageDataRefreshTime;
     NSTimer *_usageDataRefreshTimer;
     unsigned long long _usageDataRefreshReferenceCount;
@@ -25,10 +26,11 @@
 @property(nonatomic) unsigned long long usageDataRefreshReferenceCount; // @synthesize usageDataRefreshReferenceCount=_usageDataRefreshReferenceCount;
 @property(retain, nonatomic) NSTimer *usageDataRefreshTimer; // @synthesize usageDataRefreshTimer=_usageDataRefreshTimer;
 @property(retain, nonatomic) NSDate *lastUsageDataRefreshTime; // @synthesize lastUsageDataRefreshTime=_lastUsageDataRefreshTime;
-@property(retain, nonatomic) id <RMPersistenceControllerProtocol> persistence; // @synthesize persistence=_persistence;
-@property(copy, nonatomic) NSString *deviceIdentifier; // @synthesize deviceIdentifier=_deviceIdentifier;
+@property(retain, nonatomic) id <RMPersistenceControllerProtocol> persistenceController; // @synthesize persistenceController=_persistenceController;
 @property(copy, nonatomic) NSNumber *userDSID; // @synthesize userDSID=_userDSID;
 @property(copy, nonatomic) NSString *organizationIdentifier; // @synthesize organizationIdentifier=_organizationIdentifier;
+@property(copy, nonatomic) NSString *selectedDeviceIdentifier; // @synthesize selectedDeviceIdentifier=_selectedDeviceIdentifier;
+@property(copy, nonatomic) NSArray *devices; // @synthesize devices=_devices;
 @property(readonly, nonatomic) STUsageDetailsViewModel *viewModel; // @synthesize viewModel=_viewModel;
 - (void).cxx_destruct;
 - (void)updateWithUserDevicePairRecord:(id)arg1;
@@ -42,7 +44,7 @@
 - (void)stopRefreshingUsageData;
 - (void)startRefreshingUsageData;
 - (void)dealloc;
-- (id)initWithPersistenceController:(id)arg1 organizationIdentifier:(id)arg2 userDSID:(id)arg3 deviceIdentifier:(id)arg4;
+- (id)initWithPersistenceController:(id)arg1 organizationIdentifier:(id)arg2 userDSID:(id)arg3 devices:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

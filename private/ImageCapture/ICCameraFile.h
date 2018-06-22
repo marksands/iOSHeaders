@@ -6,7 +6,7 @@
 
 #import <ImageCapture/ICCameraItem.h>
 
-@class NSArray, NSDate, NSMutableDictionary, NSString;
+@class NSArray, NSDate, NSString;
 
 @interface ICCameraFile : ICCameraItem
 {
@@ -14,13 +14,11 @@
     _Bool _retrievedMetadata;
     _Bool _retrievedThumbnail;
     unsigned int _ptpObjectHandle;
-    NSMutableDictionary *_subImages;
 }
 
 @property(readonly) unsigned int ptpObjectHandle; // @synthesize ptpObjectHandle=_ptpObjectHandle;
 @property(readonly) _Bool retrievedThumbnail; // @synthesize retrievedThumbnail=_retrievedThumbnail;
 @property(readonly) _Bool retrievedMetadata; // @synthesize retrievedMetadata=_retrievedMetadata;
-@property(retain) NSMutableDictionary *subImages; // @synthesize subImages=_subImages;
 - (id)mediaData;
 - (_Bool)isJPEG;
 - (_Bool)isData;
@@ -70,6 +68,7 @@
 - (_Bool)setThumbnailData:(struct __CFData *)arg1 withOrientation:(id)arg2;
 - (void)handleCommandCompletionNotification:(id)arg1;
 - (void)overrideOrientation:(unsigned long long)arg1;
+@property(retain) ICCameraFile *pairedRawImage;
 - (void)setRelatedUUID:(id)arg1;
 - (void)setCreatedFilename:(id)arg1;
 - (void)setUTime:(unsigned long long)arg1;
@@ -117,6 +116,7 @@
 @property(readonly) NSArray *sidecarFiles;
 - (id)subImageDictForPixelWidth:(id)arg1;
 - (void)addSubImageDict:(id)arg1 forPixelWidth:(id)arg2;
+- (id)subImages;
 - (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3;
 
 @end

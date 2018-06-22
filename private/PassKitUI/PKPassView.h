@@ -49,6 +49,8 @@
 - (void)passFaceDeleteButtonPressed:(id)arg1;
 - (void)_updateResizeIfNecessary;
 - (void)passcodeLockManager:(id)arg1 didReceivePasscodeSet:(_Bool)arg2;
+- (void)_updateHighEndLayerShadowAnimated:(_Bool)arg1 withDelay:(double)arg2;
+- (void)_updateLowEndLayerShadowAnimated:(_Bool)arg1 withDelay:(double)arg2;
 - (void)_updateLayerShadowAnimated:(_Bool)arg1 withDelay:(double)arg2;
 - (void)resizePassAnimated:(_Bool)arg1 notify:(_Bool)arg2;
 - (void)updateValidityDisplay;

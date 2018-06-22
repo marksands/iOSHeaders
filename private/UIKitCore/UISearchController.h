@@ -130,6 +130,7 @@
 @property(nonatomic, getter=_showsSearchResultsController, setter=_setShowsSearchResultsController:) _Bool showsSearchResultsController; // @synthesize showsSearchResultsController=_showsSearchResultsController;
 @property(nonatomic, getter=isActive) _Bool active;
 - (void)setModalPresentationStyle:(long long)arg1;
+- (void)_preferredContentSizeDidChangeForChildViewController:(id)arg1;
 - (struct CGSize)preferredContentSize;
 - (void)_didDismissSearchController;
 - (void)_willDismissSearchController;

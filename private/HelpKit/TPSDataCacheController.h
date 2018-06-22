@@ -41,9 +41,6 @@
 - (_Bool)isURLValid:(id)arg1;
 - (id)formattedDataForPath:(id)arg1 identifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)formattedDataForRequest:(id)arg1 identifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (id)saveFileURL:(id)arg1 identifier:(id)arg2 fileSize:(unsigned long long)arg3 data:(id)arg4 lastModified:(id)arg5 dataCache:(id)arg6;
-- (id)saveFileURL:(id)arg1 fileSize:(unsigned long long)arg2 data:(id)arg3 lastModified:(id)arg4 dataCache:(id)arg5;
-- (id)saveData:(id)arg1 identifier:(id)arg2 lastModified:(id)arg3 dataCache:(id)arg4;
 - (id)saveFileURL:(id)arg1 identifier:(id)arg2 fileSize:(unsigned long long)arg3 lastModified:(id)arg4 dataCache:(id)arg5;
 - (id)newDataCache;
 - (void)removeDataCache:(id)arg1 updateCache:(_Bool)arg2;

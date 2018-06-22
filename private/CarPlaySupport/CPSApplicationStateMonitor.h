@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class BKSApplicationStateMonitor, NSHashTable, NSString;
+@class BKSApplicationStateMonitor, NSHashTable, NSObject<OS_dispatch_queue>, NSString;
 
 @interface CPSApplicationStateMonitor : NSObject
 {
+    NSObject<OS_dispatch_queue> *_stateObserverQueue;
     NSString *_bundleIdentifier;
     BKSApplicationStateMonitor *_stateMonitor;
     NSHashTable *_stateObservers;
@@ -24,6 +25,7 @@
 - (void)addApplicationStateObserver:(id)arg1;
 - (void)removeAllObservers;
 - (void)dealloc;
+- (void)_handleStateChange:(id)arg1;
 - (id)initWithBundleIdentifier:(id)arg1;
 
 @end

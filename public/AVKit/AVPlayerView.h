@@ -23,8 +23,7 @@
 - (void)setClipsToBounds:(_Bool)arg1;
 - (void)willMoveToWindow:(id)arg1;
 - (void)beginManagingContentView;
-- (void)dealloc;
-- (id)initWithContentView:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 contentView:(id)arg2;
 
 @end
 

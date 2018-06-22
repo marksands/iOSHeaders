@@ -28,6 +28,7 @@
     NSNumber *_personContextNumber;
     NSNumber *_includeTrashedAssetsNumber;
     NSNumber *_includeTrashedMomentSharesNumber;
+    NSNumber *_includeExpiredMomentSharesNumber;
     NSNumber *_includeFavoriteMemoriesCollectionListNumber;
     NSNumber *_includePlacesSmartAlbumNumber;
     NSNumber *_excludeMontageAssetsNumber;
@@ -79,6 +80,7 @@
 @property(nonatomic) _Bool excludeMontageAssets;
 @property(nonatomic) _Bool includePlacesSmartAlbum;
 @property(nonatomic) _Bool includeFavoriteMemoriesCollectionList;
+@property(nonatomic) _Bool includeExpiredMomentShares;
 @property(nonatomic) _Bool includeTrashedMomentShares;
 @property(nonatomic) _Bool includeTrashedAssets;
 @property(nonatomic) long long personContext;

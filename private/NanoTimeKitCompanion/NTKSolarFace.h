@@ -11,6 +11,7 @@
 }
 
 + (id)_defaultSelectedComplicationSlotForDevice:(id)arg1;
+- (id)_faceDescriptionForLibrary;
 - (_Bool)_snapshotContext:(id)arg1 isStaleRelativeToContext:(id)arg2;
 - (id)_localizedNameForComplicationSlot:(id)arg1;
 - (id)_orderedComplicationSlots;

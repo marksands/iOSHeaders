@@ -42,10 +42,13 @@
     _Bool _cloudkitAccountStatusDetermined;
     _Bool _needToCleanUpKeys;
     unsigned short _nextRequestTransactionIdentifier;
+    int _generationCounterToken;
     HMDKeyTransferAgent *_keyTransferAgent;
     HMDSoftwareUpdateManager *_softwareUpdateManager;
     unsigned long long _status;
     HMDHomeManagerObjectLookup *_lookup;
+    HMFTimer *_debounceHomesUpdateTimer;
+    unsigned long long _generationCounter;
     HMDCompanionManager *_companionManager;
     long long _residentEnabledState;
     NSMutableDictionary *_userPushCacheMap;
@@ -71,7 +74,6 @@
     NSMutableDictionary *_associatedWatchPeers;
     NSMutableDictionary *_watchSyncStateMap;
     HMDPairedSync *_pairedSync;
-    unsigned long long _generationCounter;
     unsigned long long _assistantGenerationCounter;
     HMDNameValidator *_nameValidator;
     NSObject<OS_dispatch_source> *_accessoryFinderTimer;
@@ -106,11 +108,11 @@
     HMFTimer *_remoteAccessHealthMonitorTimer;
     NSMutableDictionary *_pendingFragmentationStream;
     HMFTimer *_watchPushDelayTimer;
+    HMFTimer *_sharedHomesPushDelayTimer;
     HMDTimeInformationMonitor *_timeInformationMonitor;
     HMDApplicationData *_appData;
     HMDResidentMesh *_residentMesh;
     unsigned long long _stateHandle;
-    HMFTimer *_debouceHomesUpdateTimer;
     HMDSyncOperationManager *_syncManager;
     HMDCloudAccount *_cloudAccount;
     HMDAWDLogEventObserver *_awdLogEventObserver;
@@ -140,7 +142,6 @@
 @property(retain, nonatomic) HMDAWDLogEventObserver *awdLogEventObserver; // @synthesize awdLogEventObserver=_awdLogEventObserver;
 @property(readonly, nonatomic) HMDCloudAccount *cloudAccount; // @synthesize cloudAccount=_cloudAccount;
 @property(readonly, nonatomic) HMDSyncOperationManager *syncManager; // @synthesize syncManager=_syncManager;
-@property(retain, nonatomic) HMFTimer *debouceHomesUpdateTimer; // @synthesize debouceHomesUpdateTimer=_debouceHomesUpdateTimer;
 @property(nonatomic) unsigned long long stateHandle; // @synthesize stateHandle=_stateHandle;
 @property(retain, nonatomic) HMDResidentMesh *residentMesh; // @synthesize residentMesh=_residentMesh;
 @property(retain, nonatomic) HMDApplicationData *appData; // @synthesize appData=_appData;
@@ -148,6 +149,7 @@
 @property(retain, nonatomic) HMDTimeInformationMonitor *timeInformationMonitor; // @synthesize timeInformationMonitor=_timeInformationMonitor;
 @property(nonatomic) _Bool cloudkitAccountStatusDetermined; // @synthesize cloudkitAccountStatusDetermined=_cloudkitAccountStatusDetermined;
 @property(nonatomic) _Bool watchPerformVersionCheck; // @synthesize watchPerformVersionCheck=_watchPerformVersionCheck;
+@property(readonly, nonatomic) HMFTimer *sharedHomesPushDelayTimer; // @synthesize sharedHomesPushDelayTimer=_sharedHomesPushDelayTimer;
 @property(readonly, nonatomic) HMFTimer *watchPushDelayTimer; // @synthesize watchPushDelayTimer=_watchPushDelayTimer;
 @property(nonatomic) _Bool homeDataLoadedFromArchive; // @synthesize homeDataLoadedFromArchive=_homeDataLoadedFromArchive;
 @property(retain, nonatomic) NSMutableDictionary *pendingFragmentationStream; // @synthesize pendingFragmentationStream=_pendingFragmentationStream;
@@ -195,7 +197,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *accessoryFinderTimer; // @synthesize accessoryFinderTimer=_accessoryFinderTimer;
 @property(retain, nonatomic) HMDNameValidator *nameValidator; // @synthesize nameValidator=_nameValidator;
 @property(nonatomic) unsigned long long assistantGenerationCounter; // @synthesize assistantGenerationCounter=_assistantGenerationCounter;
-@property(nonatomic) unsigned long long generationCounter; // @synthesize generationCounter=_generationCounter;
+@property(nonatomic) int generationCounterToken; // @synthesize generationCounterToken=_generationCounterToken;
 @property(readonly, nonatomic) HMDPairedSync *pairedSync; // @synthesize pairedSync=_pairedSync;
 @property(retain, nonatomic) NSMutableDictionary *watchSyncStateMap; // @synthesize watchSyncStateMap=_watchSyncStateMap;
 @property(retain, nonatomic) NSMutableDictionary *associatedWatchPeers; // @synthesize associatedWatchPeers=_associatedWatchPeers;
@@ -224,6 +226,8 @@
 @property(nonatomic) _Bool cacheUseAllowed; // @synthesize cacheUseAllowed=_cacheUseAllowed;
 @property(nonatomic) long long residentEnabledState; // @synthesize residentEnabledState=_residentEnabledState;
 @property(readonly, nonatomic) HMDCompanionManager *companionManager; // @synthesize companionManager=_companionManager;
+@property(nonatomic) unsigned long long generationCounter; // @synthesize generationCounter=_generationCounter;
+@property(retain, nonatomic) HMFTimer *debounceHomesUpdateTimer; // @synthesize debounceHomesUpdateTimer=_debounceHomesUpdateTimer;
 @property(nonatomic, getter=isAccessAllowedWhenLocked) _Bool accessAllowedWhenLocked; // @synthesize accessAllowedWhenLocked=_accessAllowedWhenLocked;
 @property(nonatomic, getter=isDeviceLost) _Bool deviceLost; // @synthesize deviceLost=_deviceLost;
 @property(readonly, nonatomic) HMDHomeManagerObjectLookup *lookup; // @synthesize lookup=_lookup;
@@ -231,6 +235,7 @@
 @property(readonly, nonatomic) HMDSoftwareUpdateManager *softwareUpdateManager; // @synthesize softwareUpdateManager=_softwareUpdateManager;
 @property(readonly, nonatomic) HMDKeyTransferAgent *keyTransferAgent; // @synthesize keyTransferAgent=_keyTransferAgent;
 - (void).cxx_destruct;
+- (void)_cleanChangesIfNoAddChangeObjectID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)emptyModelObjectWithChangeType:(unsigned long long)arg1;
 - (id)modelObjectWithChangeType:(unsigned long long)arg1 version:(long long)arg2;
 - (id)modelObjectWithChangeType:(unsigned long long)arg1;
@@ -405,7 +410,6 @@
 - (void)_cancelAccessoryFinderTimer;
 - (void)_startAccessoryFinderTimerExpired;
 - (void)_startAccessoryFinderTimer;
-- (void)_sendInviteRequestToUser:(id)arg1 inviteIdentifier:(id)arg2 forHome:(id)arg3 confirm:(_Bool)arg4 expiryDate:(id)arg5 queue:(id)arg6 completionHandler:(CDUnknownBlockType)arg7;
 - (void)userManagementOperationDidFinish:(id)arg1;
 - (void)cleanupOperationsForAccessory:(id)arg1 user:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)operationsWithIdentifiers:(id)arg1 outOperations:(id *)arg2;
@@ -431,6 +435,7 @@
 - (void)processHomeModelAdd:(id)arg1 message:(id)arg2;
 - (void)_handleRequestAddHome:(id)arg1;
 - (id)_findHomeConfigurationModelChange:(id)arg1;
+- (id)_findHomeModel:(id)arg1;
 - (id)_findHomeModelChange:(id)arg1;
 - (void)_handleCurrentHomeChanged:(id)arg1;
 - (void)_handleAssistantTeamIdentifierChanged:(id)arg1;
@@ -491,7 +496,8 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 - (id)messageDestination;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
-- (void)updateGenerationCounter;
+- (void)updateGenerationCounterWithReason:(id)arg1 source:(id)arg2;
+- (void)_updateGenerationCounterWithReason:(id)arg1 source:(id)arg2;
 - (void)handleBackgroundTaskAgentJob:(const char *)arg1 forHomeWithUUID:(id)arg2;
 - (void)accessoriesAreLocallyReachableOnTransientDevice:(_Bool)arg1 forHome:(id)arg2;
 - (void)resetSiriSyncNotification;
@@ -511,9 +517,11 @@
 - (_Bool)_updateIncomingInvitesPresent;
 - (_Bool)_updateHomesConfigured;
 - (void)_setHomeConfigurationKey:(id)arg1 value:(void *)arg2;
+- (void)_setHomeConfigurationKey:(id)arg1 value:(void *)arg2 applicationIdentifier:(struct __CFString *)arg3;
 - (void)_setAssistantTeamIdentifierKey:(id)arg1;
 - (void)_saveAssistantTeamIdentifierKey:(id)arg1;
 - (id)_getAssistantTeamIdentifierForKey;
+- (void)_migrateUniqueIdentifierPrefsIfNeeded;
 - (id)_generateAssistantTeamIdentifier;
 - (void)generateAssistantTeamIdentifierWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)replaceName:(id)arg1 withNewName:(id)arg2 inNamespaces:(id)arg3;
@@ -524,6 +532,7 @@
 - (id)_homeWithZoneID:(id)arg1;
 - (id)_homeWithUUID:(id)arg1;
 - (id)_homeWithName:(id)arg1;
+- (id)checkConflictInHomeNamespaceWithName:(id)arg1 options:(unsigned long long)arg2 namespaceUUID:(id)arg3;
 - (void)_handleQueryHomeNamespace:(id)arg1;
 - (void)_determineLegacyLocalChanges:(CDUnknownBlockType)arg1;
 - (void)_determineLocalChangesAndSchedulePush;
@@ -537,6 +546,7 @@
 - (void)fetchAllZones;
 - (void)_runUploadHomeToCloud:(id)arg1 objectChange:(id)arg2 syncCompletion:(CDUnknownBlockType)arg3;
 - (void)_uploadTransaction:(id)arg1 home:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_pushZoneInfromationForHome:(id)arg1;
 - (void)_updateModelChangesAsPushed:(id)arg1 home:(id)arg2 pushMask:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_loadHomeModelChanges:(id)arg1 mustReplay:(id)arg2 legacyPush:(_Bool)arg3 home:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)_loadHomeManagerHomeModelChanges:(id)arg1 mustReplay:(id)arg2 legacyPush:(_Bool)arg3 home:(id)arg4 completion:(CDUnknownBlockType)arg5;
@@ -559,7 +569,6 @@
 - (void)electDeviceForUser:(id)arg1 destination:(id)arg2 deviceCapabilities:(id)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)sendUserRemoved:(id)arg1 fromHome:(id)arg2 pairingUsername:(id)arg3 pushToCloud:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)sendUserAdded:(id)arg1 destination:(id)arg2 toHome:(id)arg3;
-- (void)sendInviteRequestToUser:(id)arg1 inviteIdentifier:(id)arg2 forHome:(id)arg3 confirm:(_Bool)arg4 expiryDate:(id)arg5 queue:(id)arg6 completionHandler:(CDUnknownBlockType)arg7;
 - (void)_postCloudSyncNotificationWithSuccess:(_Bool)arg1;
 - (void)_handleAccountStatusDeterminedWithError:(id)arg1 homeDataRecordExists:(_Bool)arg2 metadataRecordExists:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)forcePushLocalDataToCloud:(id)arg1;
@@ -589,6 +598,7 @@
 - (void)_pushChangesToUsers:(id)arg1 forHome:(id)arg2;
 - (void)_pushChangesToUsersThatHaveNotAcknowledged;
 - (void)_pushChangesToAllUsersOfAllHomes;
+- (void)_schedulePushChangesToAllUsersOfAllHomes;
 - (id)_userPushCachedGetDeviceForUser:(id)arg1;
 - (void)_updateUserPushCachedForUser:(id)arg1 device:(id)arg2;
 - (void)updateUserPushCachedForUser:(id)arg1 device:(id)arg2;
@@ -609,7 +619,7 @@
 - (void)relayMessage:(id)arg1;
 - (void)redispatchMessage:(id)arg1 target:(id)arg2 responseQueue:(id)arg3 toResidentForHome:(id)arg4;
 - (id)_getHomeConfigurationLogEvent;
-- (void)_saveToPersistentStore:(_Bool)arg1;
+- (void)_saveToPersistentStore:(_Bool)arg1 reason:(id)arg2;
 - (id)pairedAccessories;
 - (void)__registerIncomingInvitations:(id)arg1;
 - (void)dealloc;

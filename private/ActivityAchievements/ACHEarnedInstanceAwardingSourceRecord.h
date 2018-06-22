@@ -30,7 +30,7 @@
 @property(retain, nonatomic) NSDictionary *dataStoreProperties;
 @property(readonly, nonatomic) NSArray *dataStorePropertyKeys;
 @property(readonly, nonatomic) NSString *uniqueName;
-- (void)addEvaluationOperationWithDateInterval:(id)arg1 evaluationBlock:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)addEvaluationOperationWithDateInterval:(id)arg1 databaseContext:(id)arg2 evaluationBlock:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic) NSDateInterval *lastScheduledEvaluationInterval;
 @property(readonly, nonatomic) NSDateInterval *lastCompletedEvaluationInterval;
 - (void)cancelAllEvaluationOperations;

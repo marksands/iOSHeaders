@@ -11,6 +11,8 @@
 @interface PUImportActionCoordinator : NSObject
 {
     _Bool _presentsAdditionalDeleteAllConfirmation;
+    _Bool _ppt_alwaysImportDuplicatesNoPrompt;
+    _Bool _ppt_alwaysPreferSelected;
     id <PUImportActionCoordinatorDelegate> _delegate;
     UIViewController *_viewController;
     PUImportController *_importController;
@@ -21,6 +23,8 @@
 + (long long)importBehaviorForBatteryState:(long long)arg1 batteryLevel:(float)arg2;
 + (void)retrieveBatteryState:(long long *)arg1 batteryLevel:(float *)arg2;
 + (float)lowBatteryLevelThresholdForDevice;
+@property(nonatomic) _Bool ppt_alwaysPreferSelected; // @synthesize ppt_alwaysPreferSelected=_ppt_alwaysPreferSelected;
+@property(nonatomic) _Bool ppt_alwaysImportDuplicatesNoPrompt; // @synthesize ppt_alwaysImportDuplicatesNoPrompt=_ppt_alwaysImportDuplicatesNoPrompt;
 @property(retain, nonatomic) NSNumberFormatter *percentageNumberFormatter; // @synthesize percentageNumberFormatter=_percentageNumberFormatter;
 @property(retain, nonatomic) PUImportController *importController; // @synthesize importController=_importController;
 @property(nonatomic) __weak UIViewController *viewController; // @synthesize viewController=_viewController;

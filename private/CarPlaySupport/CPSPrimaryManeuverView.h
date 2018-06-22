@@ -17,7 +17,7 @@
 - (void).cxx_destruct;
 - (void)setCurrentTravelEstimates:(id)arg1;
 - (id)_formattedDistance;
-- (id)initWithManeuver:(id)arg1 minimalMode:(_Bool)arg2;
+- (id)initWithManeuver:(id)arg1 minimalMode:(_Bool)arg2 style:(long long)arg3 backgroundColor:(id)arg4;
 
 @end
 

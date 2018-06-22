@@ -8,7 +8,7 @@
 
 #import "NUIContainerStackViewDelegate.h"
 
-@class NSString, TLKFormattedText, TLKStackView, TLKVibrantLabel;
+@class NSString, TLKFormattedText, TLKStackView, TLKTextAreaView, TLKVibrantLabel;
 
 @interface TLKAuxilliaryTextView : TLKView <NUIContainerStackViewDelegate>
 {
@@ -19,10 +19,12 @@
     TLKVibrantLabel *_middleLabel;
     TLKVibrantLabel *_bottomLabel;
     TLKStackView *_stackView;
+    TLKTextAreaView *_textAreaViewForAlignment;
 }
 
 + (_Bool)formattedTextHasTextContent:(id)arg1;
 + (id)largeMiddleTextFont;
+@property(retain) TLKTextAreaView *textAreaViewForAlignment; // @synthesize textAreaViewForAlignment=_textAreaViewForAlignment;
 @property(retain) TLKStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain) TLKVibrantLabel *bottomLabel; // @synthesize bottomLabel=_bottomLabel;
 @property(retain) TLKVibrantLabel *middleLabel; // @synthesize middleLabel=_middleLabel;
@@ -36,8 +38,10 @@
 - (id)topLabelString;
 - (id)bottomLabelFont;
 - (id)middleLabelFont;
-- (struct CGRect)containerView:(id)arg1 layoutFrameForArrangedSubview:(id)arg2 withProposedFrame:(struct CGRect)arg3;
 - (struct UIEdgeInsets)containerStackView:(id)arg1 minimumSpacingAdjecentToArrangedSubview:(id)arg2;
+- (void)generateAndSizeTextAreaViewIfNeeded;
+- (void)matchBaselineOfLabel:(id)arg1 toView:(id)arg2;
+- (void)containerViewDidLayoutArrangedSubviews:(id)arg1;
 - (void)observedPropertiesChanged;
 - (void)styleDidChange:(unsigned long long)arg1;
 - (id)init;

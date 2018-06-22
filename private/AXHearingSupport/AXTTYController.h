@@ -8,10 +8,11 @@
 
 #import "AXUIClientDelegate.h"
 #import "TTYCallDelegate.h"
+#import "TUCallCapabilitiesDelegate.h"
 
 @class AXUIClient, NSMutableArray, NSString;
 
-@interface AXTTYController : NSObject <AXUIClientDelegate, TTYCallDelegate>
+@interface AXTTYController : NSObject <AXUIClientDelegate, TTYCallDelegate, TUCallCapabilitiesDelegate>
 {
     AXUIClient *_actionUIClient;
     _Bool _shouldSuppressIncomingNotification;
@@ -40,6 +41,9 @@
 - (void)handleUpdatedCalls:(id)arg1;
 - (void)callDidConnect:(id)arg1;
 - (void)telephonySupportDidChange:(id)arg1;
+- (void)didChangeFaceTimeVideoCallingSupport;
+- (void)didChangeFaceTimeAudioCallingSupport;
+- (void)didChangeTelephonyCallingSupport;
 - (id)init;
 
 // Remaining properties

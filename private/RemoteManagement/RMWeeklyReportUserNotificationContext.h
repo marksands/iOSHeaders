@@ -18,10 +18,7 @@
 @property(retain, nonatomic) NSString *notificationBodyKey; // @synthesize notificationBodyKey=_notificationBodyKey;
 @property(retain, nonatomic) NSData *weeklyReportData; // @synthesize weeklyReportData=_weeklyReportData;
 - (void).cxx_destruct;
-- (id)userInfo;
-- (id)categoryIdentifier;
-- (id)localizedUserNotificationBodyKey;
-- (id)localizedUserNotificationTitleKey;
+- (void)customizeNotificationContent:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)setDeltaScreenTimeUsage:(double)arg1 totalUsage:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

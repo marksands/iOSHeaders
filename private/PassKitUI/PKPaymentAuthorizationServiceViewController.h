@@ -15,7 +15,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSLayoutConstraint, NSMutableSet, NSString, PKAuthenticator, PKPaymentAuthorizationFooterView, PKPaymentAuthorizationLayout, PKPaymentAuthorizationPasswordButtonView, PKPaymentAuthorizationStateMachine, PKPaymentAuthorizationSummaryItemsView, PKPaymentAuthorizationTotalView, PKPaymentPreferencesViewController, PKPeerPaymentAccount, PKPhysicalButtonView, UIBarButtonItem, UITableView, UIView;
+@class LAUIPhysicalButtonView, NSLayoutConstraint, NSMutableSet, NSString, PKAuthenticator, PKPaymentAuthorizationFooterView, PKPaymentAuthorizationLayout, PKPaymentAuthorizationPasswordButtonView, PKPaymentAuthorizationStateMachine, PKPaymentAuthorizationSummaryItemsView, PKPaymentAuthorizationTotalView, PKPaymentPreferencesViewController, PKPeerPaymentAccount, UIBarButtonItem, UITableView, UIView;
 
 @interface PKPaymentAuthorizationServiceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, PKPaymentAuthorizationFooterViewDelegate, PKAuthenticatorDelegate, PKPaymentAuthorizationStateMachineDelegate, AKAppleIDAuthenticationInAppContextDelegate, PKPaymentAuthorizationServiceProtocol>
 {
@@ -62,13 +62,13 @@
     _Bool _blockingHardwareCancels;
     PKPaymentAuthorizationStateMachine *_stateMachine;
     PKAuthenticator *_authenticator;
-    PKPhysicalButtonView *_physicalButtonView;
+    LAUIPhysicalButtonView *_physicalButtonView;
     id <PKPaymentAuthorizationServiceViewControllerDelegate><PKPaymentAuthorizationHostProtocol> _delegate;
 }
 
 @property(readonly, nonatomic) _Bool blockingHardwareCancels; // @synthesize blockingHardwareCancels=_blockingHardwareCancels;
 @property(nonatomic) __weak id <PKPaymentAuthorizationServiceViewControllerDelegate><PKPaymentAuthorizationHostProtocol> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) PKPhysicalButtonView *physicalButtonView; // @synthesize physicalButtonView=_physicalButtonView;
+@property(retain, nonatomic) LAUIPhysicalButtonView *physicalButtonView; // @synthesize physicalButtonView=_physicalButtonView;
 @property(readonly, nonatomic) _Bool shouldIgnorePhysicalButton; // @synthesize shouldIgnorePhysicalButton=_shouldIgnorePhysicalButton;
 @property(readonly, nonatomic, getter=isUserIntentRequired) _Bool userIntentRequired; // @synthesize userIntentRequired=_userIntentRequired;
 @property(retain, nonatomic) PKAuthenticator *authenticator; // @synthesize authenticator=_authenticator;

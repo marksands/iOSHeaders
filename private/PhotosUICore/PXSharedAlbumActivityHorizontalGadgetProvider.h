@@ -11,16 +11,18 @@
 #import "PXSectionedDataSourceManagerObserver.h"
 #import "PXSettingsKeyObserver.h"
 
-@class NSString, PXFeedSectionInfosManager, PXInboxAggregateDataSourceManager;
+@class NSString, PXFeedSectionInfosManager, PXForYouBadgeManager, PXInboxAggregateDataSourceManager;
 
 @interface PXSharedAlbumActivityHorizontalGadgetProvider : PXGadgetProvider <PXFeedSectionInfosManagerDelegate, PXSettingsKeyObserver, PXChangeObserver, PXSectionedDataSourceManagerObserver>
 {
+    PXForYouBadgeManager *_badgeManager;
     PXFeedSectionInfosManager *_feedSectionInfosManager;
     PXInboxAggregateDataSourceManager *_inboxDataSourceManager;
 }
 
 @property(retain, nonatomic) PXInboxAggregateDataSourceManager *inboxDataSourceManager; // @synthesize inboxDataSourceManager=_inboxDataSourceManager;
 @property(retain, nonatomic) PXFeedSectionInfosManager *feedSectionInfosManager; // @synthesize feedSectionInfosManager=_feedSectionInfosManager;
+@property(retain, nonatomic) PXForYouBadgeManager *badgeManager; // @synthesize badgeManager=_badgeManager;
 - (void).cxx_destruct;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
@@ -34,6 +36,8 @@
 - (void)feedSectionInfosManager:(id)arg1 sectionInfosDidChange:(id)arg2;
 - (void)generateGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
+- (void)loadDataForPriority;
+- (unsigned long long)loadingPriority;
 - (void)dealloc;
 - (id)init;
 

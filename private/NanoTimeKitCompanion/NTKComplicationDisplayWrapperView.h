@@ -24,7 +24,7 @@
     NSDate *_timeTravelDate;
     _Bool _didChangeLayoutOverride;
     _Bool _isAnimating;
-    _Bool _hasTemplateDisplay;
+    _Bool _isDetachedDisplay;
     _Bool _paused;
     _Bool _editing;
     _Bool _tapEnabled;
@@ -86,9 +86,10 @@
 - (void)setDimmed:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_didSetDisplayFromDisplay:(id)arg1 withComplicationAnimation:(unsigned long long)arg2;
 - (void)_prepareToSetDisplay:(id)arg1 withComplicationAnimation:(inout unsigned long long *)arg2;
-- (void)setComplicationTemplate:(id)arg1 withComplicationAnimation:(unsigned long long)arg2;
+- (void)_replaceDisplayWithDisplayClass:(Class)arg1 template:(id)arg2 reason:(long long)arg3 animation:(unsigned long long)arg4;
+- (void)setComplicationTemplate:(id)arg1 reason:(long long)arg2 animation:(unsigned long long)arg3;
 - (void)dealloc;
-- (id)initWithCustomTemplateDisplay:(id)arg1 hasTemplateDisplay:(_Bool)arg2 family:(long long)arg3;
+- (id)initWithCustomTemplateDisplay:(id)arg1 isDetachedDisplay:(_Bool)arg2 family:(long long)arg3;
 - (id)initWithLegacyDisplay:(id)arg1;
 - (id)initWithLegacyDisplay:(id)arg1 layoutOverride:(long long)arg2;
 - (id)initWithFamily:(long long)arg1;

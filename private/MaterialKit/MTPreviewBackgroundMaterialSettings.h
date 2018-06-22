@@ -23,6 +23,8 @@
 @property(readonly, copy, nonatomic) UIColor *secondaryOverlayTintColor;
 @property(nonatomic) double primaryOverlayTintAlpha;
 @property(readonly, copy, nonatomic) UIColor *primaryOverlayTintColor;
+@property(nonatomic) double baseOverlayTintAlpha;
+@property(readonly, copy, nonatomic) UIColor *baseOverlayColor;
 @property(readonly, nonatomic) double zoom;
 @property(nonatomic) double blurRadius;
 @property(nonatomic) _Bool usesLuminanceMap;

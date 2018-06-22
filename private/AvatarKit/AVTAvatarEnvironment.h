@@ -14,7 +14,6 @@
     _Bool _trackingLostIndicatorVisible;
     SCNMaterial *_shadowPlaneMaterial;
     SCNNode *_whitePlane;
-    SCNNode *_dropShadow;
     SCNNode *_specializedLighting;
     SCNNode *_defaultLighting;
 }
@@ -30,7 +29,6 @@
 - (void)hideReticle;
 @property(nonatomic) _Bool showReticle;
 - (void)installCustomLighting:(id)arg1 intoScene:(id)arg2;
-@property(nonatomic) _Bool showDropShadow;
 @property(nonatomic) float fadeFactor;
 - (void)setupWithSceneRenderer:(id)arg1;
 

@@ -35,9 +35,11 @@
     NSLock *_updateLock;
     NSNumber *_multipleAdvertisingSupported;
     NSHashTable *_l2capChannels;
+    unsigned long long _attributeIDGenerator;
 }
 
 + (long long)authorizationStatus;
+@property unsigned long long attributeIDGenerator; // @synthesize attributeIDGenerator=_attributeIDGenerator;
 @property(readonly, retain, nonatomic) NSHashTable *l2capChannels; // @synthesize l2capChannels=_l2capChannels;
 @property(retain, nonatomic) NSNumber *multipleAdvertisingSupported; // @synthesize multipleAdvertisingSupported=_multipleAdvertisingSupported;
 @property(readonly, nonatomic) _Bool waitingForReady; // @synthesize waitingForReady=_waitingForReady;

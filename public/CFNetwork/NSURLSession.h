@@ -12,6 +12,7 @@
 {
 }
 
++ (id)_errorFromError:(id)arg1 forTask:(id)arg2;
 + (id)sessionWithConfiguration:(id)arg1 delegate:(id)arg2 delegateQueue:(id)arg3;
 + (id)sessionWithConfiguration:(id)arg1;
 + (void)_obliterateAllBackgroundSessionsWithCompletionHandler:(CDUnknownBlockType)arg1;

@@ -6,34 +6,19 @@
 
 #import <NanoTimeKitCompanion/NTKUpNextBaseCell.h>
 
-@class CLKFont, NSArray, NTKColoringLabel, UIImageView, UILayoutGuide;
+@class NTKUpNextMatchupScoreView, NTKUpNextMatchupUpcomingView, UILayoutGuide;
 
 @interface NTKUpNextMatchupCell : NTKUpNextBaseCell
 {
-    UIImageView *_homeLogoImageView;
-    NTKColoringLabel *_homeNameLabel;
-    NTKColoringLabel *_homeDescriptionLabel;
-    UIImageView *_awayLogoIamgeView;
-    NTKColoringLabel *_awayNameLabel;
-    NTKColoringLabel *_awayDescriptionLabel;
-    NTKColoringLabel *_statusLabel;
-    NTKColoringLabel *_timeLabel;
-    NTKColoringLabel *_dateLabel;
-    CLKFont *_boldMatchupFont;
-    CLKFont *_regularMatchupFont;
-    CLKFont *_statusFont;
-    UILayoutGuide *_contentLayoutGuide;
-    UILayoutGuide *_logoLayoutGuide;
-    NSArray *_withLogoLayoutConstraints;
-    NSArray *_withoutLogoLayoutConstraints;
-    NSArray *_withDateLayoutConstraints;
-    NSArray *_withoutDateLayoutConstraints;
-    _Bool _logosEnabled;
-    _Bool _dateEnabled;
+    NTKUpNextMatchupScoreView *_scoreView;
+    NTKUpNextMatchupUpcomingView *_upcomingView;
+    UILayoutGuide *_scoreLayoutGuide;
+    UILayoutGuide *_upcomingLayoutGuide;
 }
 
-+ (id)_timeStringForFetchDate:(id)arg1;
 - (void).cxx_destruct;
+- (void)setPaused:(_Bool)arg1;
+- (void)updateTimeLabel;
 - (void)configureWithContent:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

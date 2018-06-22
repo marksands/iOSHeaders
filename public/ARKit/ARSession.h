@@ -13,7 +13,6 @@
 
 @interface ARSession : NSObject <ARSensorDelegate, ARTechniqueDelegate>
 {
-    ARParentTechnique *_technique;
     ARTechnique *_renderingTechnique;
     ARWorldTrackingTechnique *_worldTrackingTechnique;
     _Bool _configuredForWorldTracking;
@@ -21,7 +20,6 @@
     NSObject<OS_dispatch_semaphore> *_lastProcessedFrameSemaphore;
     ARFrameContext *_nextFrameContext;
     NSObject<OS_dispatch_semaphore> *_nextFrameContextSemaphore;
-    // Error parsing type: {?="columns"[4]}, name: _rearCameraToDisplayTransform
     NSObject<OS_dispatch_queue> *_stateQueue;
     NSHashTable *_observers;
     NSObject<OS_dispatch_semaphore> *_observersSemaphore;
@@ -38,6 +36,7 @@
     NSObject<OS_dispatch_queue> *_prepareTechniquesQueue;
     ARImageSensor *_imageSensor;
     _Bool _relocalizing;
+    ARParentTechnique *_dontUseDirectlyTechnique;
     id <ARSessionDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_delegateQueue;
     unsigned long long _state;
@@ -61,6 +60,7 @@
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 @property(nonatomic) __weak id <ARSessionDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain) ARParentTechnique *technique; // @synthesize technique=_dontUseDirectlyTechnique;
 - (void).cxx_destruct;
 - (void)_sessionDidOutputAudioData:(id)arg1;
 - (void)_sessionShouldAttemptRelocalization;
@@ -89,7 +89,6 @@
 - (void)_updateSessionStateWithConfiguration:(id)arg1 options:(unsigned long long)arg2;
 - (void)_updateSessionWithConfiguration:(id)arg1 options:(unsigned long long)arg2;
 - (void)_setTechnique:(id)arg1;
-- (id)technique;
 - (id)_getObservers;
 - (void)_removeObserver:(id)arg1;
 - (void)_addObserver:(id)arg1;

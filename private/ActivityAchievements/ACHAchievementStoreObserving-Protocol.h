@@ -12,6 +12,8 @@
 - (void)achievementStore:(ACHAchievementStore *)arg1 didRemoveAchievements:(NSSet *)arg2;
 - (void)achievementStore:(ACHAchievementStore *)arg1 didUpdateAchievements:(NSSet *)arg2;
 - (void)achievementStore:(ACHAchievementStore *)arg1 didAddAchievements:(NSSet *)arg2;
+
+@optional
 - (void)achievementStoreDidFinishInitialFetch:(ACHAchievementStore *)arg1;
 @end
 

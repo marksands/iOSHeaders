@@ -15,14 +15,33 @@ __attribute__((visibility("hidden")))
     int _adjustedDuration;
     int _interval;
     int _frequency;
+    double _averageTargetBitrateSum;
+    unsigned int _averageTargetBitrateReportCounter;
+    double _roundTripTimeSum;
+    unsigned int _roundTripTimeReportCounter;
+    unsigned int _totalPacketsReceived;
+    unsigned int _totalPacketsLost;
+    unsigned int _totalPacketsSent;
+    unsigned long long _totalBytesSent;
+    unsigned long long _totalBytesReceived;
     NSString *_segmentName;
     NSString *_previousSegmentName;
 }
 
+@property unsigned long long totalBytesReceived; // @synthesize totalBytesReceived=_totalBytesReceived;
+@property unsigned long long totalBytesSent; // @synthesize totalBytesSent=_totalBytesSent;
+@property unsigned int totalPacketsSent; // @synthesize totalPacketsSent=_totalPacketsSent;
+@property unsigned int totalPacketsLost; // @synthesize totalPacketsLost=_totalPacketsLost;
+@property unsigned int totalPacketsReceived; // @synthesize totalPacketsReceived=_totalPacketsReceived;
 @property int adjustedDuration; // @synthesize adjustedDuration=_adjustedDuration;
 @property int duration; // @synthesize duration=_duration;
 @property(readonly) NSString *previousSegmentName; // @synthesize previousSegmentName=_previousSegmentName;
 @property(readonly) NSString *segmentName; // @synthesize segmentName=_segmentName;
+- (double)packetLossRate;
+- (double)averageRoundTripTime;
+- (void)processRoundTripTime:(unsigned int)arg1;
+- (void)processTargetBitrate:(unsigned int)arg1;
+@property(readonly) double averageTargetBitrate;
 - (id)segmentReport;
 - (unsigned int)RTPeriod;
 - (void)dealloc;

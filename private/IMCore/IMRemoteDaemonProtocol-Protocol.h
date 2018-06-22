@@ -164,6 +164,7 @@
 - (void)markReadForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 messages:(NSArray *)arg4 clientUnreadCount:(unsigned long long)arg5;
 - (void)markReadForMessageGUID:(NSString *)arg1 callerOrigin:(long long)arg2;
 - (void)markReadForMessageGUID:(NSString *)arg1;
+- (void)markMessageAsCorrupt:(NSString *)arg1 setCorrupt:(_Bool)arg2;
 - (void)updateMessage:(IMMessageItem *)arg1;
 - (void)markAsSpamForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 chatID:(NSString *)arg4 queryID:(NSString *)arg5 autoReport:(_Bool)arg6;
 - (void)clearHistoryForIDs:(NSArray *)arg1 style:(unsigned char)arg2 onServices:(NSArray *)arg3 beforeGUID:(NSString *)arg4 afterGUID:(NSString *)arg5 chatID:(NSString *)arg6 queryID:(NSString *)arg7;

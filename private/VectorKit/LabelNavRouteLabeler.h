@@ -58,6 +58,7 @@ __attribute__((visibility("hidden")))
     shared_ptr_a3c46825 _styleManager;
     _Bool _shouldLabelOppositeCarriageways;
     vector_83fb13fb _externalCollisionLabelsForLayout;
+    _Bool _hasPendingTilesInSnappingRegion;
 }
 
 @property(nonatomic) struct VKLabelNavArtworkCache *artworkCache; // @synthesize artworkCache=_artworkCache;

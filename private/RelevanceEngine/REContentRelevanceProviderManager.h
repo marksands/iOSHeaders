@@ -6,12 +6,12 @@
 
 #import <RelevanceEngine/RERelevanceProviderManager.h>
 
+#import "REMLModelManagerObserver.h"
 #import "REPredictorObserver.h"
-#import "REUpNextMLModelManagerObserver.h"
 
 @class NSString, REMLSentimentAnalyzer;
 
-@interface REContentRelevanceProviderManager : RERelevanceProviderManager <REPredictorObserver, REUpNextMLModelManagerObserver>
+@interface REContentRelevanceProviderManager : RERelevanceProviderManager <REPredictorObserver, REMLModelManagerObserver>
 {
     REMLSentimentAnalyzer *_sentimentAnalyzer;
 }

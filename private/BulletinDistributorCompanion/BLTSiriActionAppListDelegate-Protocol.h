@@ -9,6 +9,6 @@
 @class BLTSiriActionAppList;
 
 @protocol BLTSiriActionAppListDelegate <NSObject>
-- (void)siriActionAppList:(BLTSiriActionAppList *)arg1 installed:(struct NSDictionary *)arg2 removed:(struct NSDictionary *)arg3;
+- (void)siriActionAppListUpdated:(BLTSiriActionAppList *)arg1;
 @end
 

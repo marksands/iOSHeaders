@@ -90,9 +90,11 @@
 - (id)allResourceNames;
 - (void)_purgeCachedResourceInfo;
 - (void)_scheduleCachedResourceInfoPurgeTimer;
+- (unsigned long long)_fromgeod_maximumZoomLevelForStyle:(int)arg1 scale:(int)arg2;
 - (_Bool)supportsTileStyle:(int)arg1 size:(int)arg2 scale:(int)arg3;
 - (id)disputedBordersQueryItemsForTileKey:(const struct _GEOTileKey *)arg1 country:(id)arg2 region:(id)arg3;
 - (_Bool)isDisputedBordersWhitelistedForTileKey:(const struct _GEOTileKey *)arg1 country:(id)arg2 region:(id)arg3;
+- (_Bool)useProxyAuthForTileKey:(const struct _GEOTileKey *)arg1;
 - (id)languageForTileKey:(const struct _GEOTileKey *)arg1 overrideLocale:(id)arg2;
 - (id)languageForTileKey:(const struct _GEOTileKey *)arg1;
 - (_Bool)isAvailableForTileKey:(const struct _GEOTileKey *)arg1;

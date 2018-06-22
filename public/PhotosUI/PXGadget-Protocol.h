@@ -28,6 +28,7 @@
 - (void)commitPreviewViewController:(UIViewController *)arg1;
 - (void)didDismissPreviewViewController:(UIViewController *)arg1 committing:(_Bool)arg2;
 - (struct NSObject *)previewViewControllerAtLocation:(struct CGPoint)arg1 fromSourceView:(struct NSObject *)arg2 outSourceRect:(out struct CGRect *)arg3;
+- (void)gadgetControllerHasDisappeared;
 - (void)gadgetControllerHasAppeared;
 - (void)contentHasBeenSeen;
 - (NSString *)uniqueGadgetIdentifier;

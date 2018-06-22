@@ -25,6 +25,7 @@
 - (_Bool)respectCachingForRequest:(id)arg1;
 - (void)sessionTask:(id)arg1 didReceiveResponse:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)sessionTask:(id)arg1 didFinishDownloadingToURL:(id)arg2;
+- (id)processJSONFormattedDataForCDSError:(id)arg1;
 - (_Bool)shouldCacheToDiskForSessionTask:(id)arg1;
 - (void)sessionTask:(id)arg1 willCacheResponse:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)didReceiveChallenge:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

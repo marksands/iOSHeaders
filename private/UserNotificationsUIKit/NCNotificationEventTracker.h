@@ -25,7 +25,7 @@
 + (id)sharedInstance;
 - (void).cxx_destruct;
 - (void)realTimeTuningTrigger:(long long)arg1;
-- (void)realTimeTuningOutcome:(long long)arg1;
+- (void)realTimeTuningOutcome:(long long)arg1 withBundleId:(id)arg2;
 - (void)tappedCoalescedNotification:(id)arg1 inBundle:(id)arg2;
 - (void)removedNotificationFromAllFeeds:(id)arg1;
 - (void)removedNotificationFromLockScreen:(id)arg1;

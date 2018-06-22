@@ -11,17 +11,23 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSString, PXNavigationListDataSource, PXNavigationListDataSourceManager, UITableView;
+@class NSString, NSUserActivity, PXNavigationListDataSource, PXNavigationListDataSourceManager, UITableView;
 
 @interface PXNavigationListController : UIViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, PXNavigationListDataSourceManagerObserver>
 {
+    _Bool __needsUpdateRowHeight;
     UITableView *_tableView;
     PXNavigationListDataSourceManager *_dataSourceManager;
     id <PXNavigationListContainer> _container;
     PXNavigationListDataSource *_dataSource;
+    NSUserActivity *_siriActionActivity;
+    double _rowHeight;
 }
 
 + (id)navigateToListItem:(id)arg1 sourceViewController:(id)arg2 animated:(_Bool)arg3;
+@property(nonatomic, setter=_setNeedsUpdateRowHeight:) _Bool _needsUpdateRowHeight; // @synthesize _needsUpdateRowHeight=__needsUpdateRowHeight;
+@property(nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
+@property(retain, nonatomic) NSUserActivity *siriActionActivity; // @synthesize siriActionActivity=_siriActionActivity;
 @property(retain, nonatomic) PXNavigationListDataSource *dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <PXNavigationListContainer> container; // @synthesize container=_container;
 @property(readonly, nonatomic) PXNavigationListDataSourceManager *dataSourceManager; // @synthesize dataSourceManager=_dataSourceManager;
@@ -33,6 +39,8 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)_preferredContentSizeChanged:(id)arg1;
+- (double)_rowHeightForCurrentFont;
 @property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 - (void)_setDataSource:(id)arg1 changeDetails:(id)arg2;
 @property(nonatomic) _Bool allowsNavigation;

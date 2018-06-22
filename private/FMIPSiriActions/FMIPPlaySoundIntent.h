@@ -8,18 +8,19 @@
 
 #import "FMIPIdentifiable.h"
 
-@class INIdentifierString, NSString;
+@class INObject;
 
 @interface FMIPPlaySoundIntent : INIntent <FMIPIdentifiable>
 {
 }
 
++ (long long)playSoundDeviceClassForDeviceType:(long long)arg1;
 + (id)identityTag;
-+ (id)playSoundIntentWithDeviceId:(id)arg1 deviceClass:(id)arg2 deviceDisplayName:(id)arg3;
++ (id)playSoundIntentWithDeviceId:(id)arg1 deviceType:(long long)arg2 deviceDisplayName:(id)arg3;
 
 // Remaining properties
-@property(copy, nonatomic) NSString *deviceClass; // @dynamic deviceClass;
-@property(copy, nonatomic) INIdentifierString *deviceId; // @dynamic deviceId;
+@property(copy, nonatomic) INObject *deviceId; // @dynamic deviceId;
+@property(nonatomic) long long playSoundDeviceClass; // @dynamic playSoundDeviceClass;
 
 @end
 

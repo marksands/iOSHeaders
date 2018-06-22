@@ -6,22 +6,18 @@
 
 #import "UIView.h"
 
-@class CAShapeLayer, RCNoAnimateLayerHelper, RCWaveformDataSource;
+@class CALayer, RCWaveformDataSource;
 
 __attribute__((visibility("hidden")))
 @interface RCView : UIView
 {
     _Bool _isCreatingSnapshot;
-    RCNoAnimateLayerHelper *_noAnimationHelper;
-    CAShapeLayer *_waveformLayer;
-    CAShapeLayer *_whiteWaveformLayer;
+    CALayer *_waveformLayer;
     RCWaveformDataSource *_delegate;
 }
 
 @property(nonatomic) __weak RCWaveformDataSource *delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) CAShapeLayer *whiteWaveformLayer; // @synthesize whiteWaveformLayer=_whiteWaveformLayer;
-@property(readonly, nonatomic) CAShapeLayer *waveformLayer; // @synthesize waveformLayer=_waveformLayer;
-@property(retain, nonatomic) RCNoAnimateLayerHelper *noAnimationHelper; // @synthesize noAnimationHelper=_noAnimationHelper;
+@property(readonly, nonatomic) CALayer *waveformLayer; // @synthesize waveformLayer=_waveformLayer;
 @property(readonly, nonatomic) _Bool isCreatingSnapshot; // @synthesize isCreatingSnapshot=_isCreatingSnapshot;
 - (void).cxx_destruct;
 - (void)setFrame:(struct CGRect)arg1;

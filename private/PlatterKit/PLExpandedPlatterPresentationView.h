@@ -6,11 +6,12 @@
 
 #import "UIView.h"
 
+#import "PLContentSizeManaging.h"
 #import "UIScrollViewDelegate.h"
 
 @class NSString, UIScrollView, UIView<PLExpandedPlatter><PLContentSizeCategoryAdjusting>, UIViewController<PLPreviewInteractionPresentable>;
 
-@interface PLExpandedPlatterPresentationView : UIView <UIScrollViewDelegate>
+@interface PLExpandedPlatterPresentationView : UIView <UIScrollViewDelegate, PLContentSizeManaging>
 {
     UIView<PLExpandedPlatter><PLContentSizeCategoryAdjusting> *_expandedPlatterView;
     UIScrollView *_scrollView;
@@ -30,6 +31,8 @@
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (_Bool)respondsToSelector:(SEL)arg1;
+- (struct CGSize)contentSizeForSize:(struct CGSize)arg1;
+- (struct CGSize)sizeThatFitsContentWithSize:(struct CGSize)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

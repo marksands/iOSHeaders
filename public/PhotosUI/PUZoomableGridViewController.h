@@ -78,7 +78,7 @@
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)_accountStoreDidChange:(id)arg1;
 - (_Bool)serviceUI:(id)arg1 performAction:(long long)arg2;
-- (void)serviceUI:(id)arg1 progressDidChange:(double)arg2;
+- (void)serviceUI:(id)arg1 progressDidChange:(float)arg2;
 - (void)serviceUI:(id)arg1 statusDidChange:(id)arg2;
 - (id)presentingViewControllerForViewModel:(id)arg1;
 - (void)collectionView:(id)arg1 didEndDisplayingSupplementaryView:(id)arg2 forElementOfKind:(id)arg3 atIndexPath:(id)arg4;

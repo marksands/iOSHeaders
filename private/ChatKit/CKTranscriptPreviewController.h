@@ -25,7 +25,7 @@
 @property(nonatomic) __weak NSObject<CKTranscriptPreviewControllerDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) CKConversation *conversation; // @synthesize conversation=_conversation;
 - (void).cxx_destruct;
-- (void)transcriptCollectionViewController:(id)arg1 balloonViewDidRequestPresentationStyleExpanded:(_Bool)arg2 forChatItem:(id)arg3;
+- (void)transcriptCollectionViewController:(id)arg1 balloonViewDidRequestPresentationStyle:(unsigned long long)arg2 forChatItem:(id)arg3 allowAllStyles:(_Bool)arg4;
 - (id)transcriptCollectionViewControllerAdditionalFullscreenEffectViews:(id)arg1;
 - (_Bool)transcriptCollectionViewController:(id)arg1 shouldCleanupFullscreenEffectUI:(id)arg2;
 - (_Bool)transcriptCollectionViewControllerShouldLayoutFullscreenEffects:(id)arg1;

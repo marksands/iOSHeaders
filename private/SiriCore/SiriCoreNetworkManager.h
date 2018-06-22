@@ -39,7 +39,7 @@
 + (id)sharedInstance;
 - (void).cxx_destruct;
 - (_Bool)_getConnectionSuccessRate:(id)arg1 hasMetric:(_Bool *)arg2;
-- (void)acquireWiFiAssertion;
+- (void)acquireWiFiAssertion:(long long)arg1;
 - (void)releaseWiFiAssertion;
 - (void)forceFastDormancy;
 - (id)_signalStrength;

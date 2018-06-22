@@ -56,6 +56,7 @@
 - (id)insertBulletinForIncomingInvitation:(id)arg1;
 - (void)insertBulletinsForChangedCharacteristics:(id)arg1 changedByThisDevice:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)insertImageBulletinsForChangedCharacteristics:(id)arg1 snapshotData:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_migrateBulletins:(id)arg1 requests:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)refreshHomeBadgeNumber;

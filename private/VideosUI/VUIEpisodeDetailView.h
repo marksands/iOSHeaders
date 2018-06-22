@@ -6,14 +6,15 @@
 
 #import "UIScrollView.h"
 
-@class TVFocusableTextView, UIFont, UIImageView, VUILabel, VUIMediaItem, _TVButton, _TVImageView, _TVProgressView;
+#import "VUILibraryEpisodeFrameViewDelegate.h"
+
+@class NSString, TVFocusableTextView, UIFont, UIImageView, VUILabel, VUILibraryEpisodeFrameView, VUIMediaItem;
 
 __attribute__((visibility("hidden")))
-@interface VUIEpisodeDetailView : UIScrollView
+@interface VUIEpisodeDetailView : UIScrollView <VUILibraryEpisodeFrameViewDelegate>
 {
     id <VUIEpisodeDetailViewDelegate> _episodeViewDelegate;
-    _TVImageView *_imageView;
-    UIImageView *_backgroundImageView;
+    VUILibraryEpisodeFrameView *_imageFrameView;
     VUILabel *_episodeTitleLabel;
     VUILabel *_seasonNumberLabel;
     VUILabel *_episodeNumberLabel;
@@ -21,8 +22,6 @@ __attribute__((visibility("hidden")))
     VUILabel *_dotSeparatorLabel;
     TVFocusableTextView *_contentDescriptionView;
     UIFont *_contentDescriptionFont;
-    _TVProgressView *_progressView;
-    _TVButton *_playButton;
     VUIMediaItem *_mediaItem;
     UIImageView *_contentRatingImageView;
 }
@@ -30,8 +29,6 @@ __attribute__((visibility("hidden")))
 + (void)configureEpisodeDetailView:(id)arg1 withMedia:(id)arg2;
 @property(retain, nonatomic) UIImageView *contentRatingImageView; // @synthesize contentRatingImageView=_contentRatingImageView;
 @property(retain, nonatomic) VUIMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
-@property(retain, nonatomic) _TVButton *playButton; // @synthesize playButton=_playButton;
-@property(retain, nonatomic) _TVProgressView *progressView; // @synthesize progressView=_progressView;
 @property(retain, nonatomic) UIFont *contentDescriptionFont; // @synthesize contentDescriptionFont=_contentDescriptionFont;
 @property(retain, nonatomic) TVFocusableTextView *contentDescriptionView; // @synthesize contentDescriptionView=_contentDescriptionView;
 @property(retain, nonatomic) VUILabel *dotSeparatorLabel; // @synthesize dotSeparatorLabel=_dotSeparatorLabel;
@@ -39,17 +36,22 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) VUILabel *episodeNumberLabel; // @synthesize episodeNumberLabel=_episodeNumberLabel;
 @property(retain, nonatomic) VUILabel *seasonNumberLabel; // @synthesize seasonNumberLabel=_seasonNumberLabel;
 @property(retain, nonatomic) VUILabel *episodeTitleLabel; // @synthesize episodeTitleLabel=_episodeTitleLabel;
-@property(retain, nonatomic) UIImageView *backgroundImageView; // @synthesize backgroundImageView=_backgroundImageView;
-@property(retain, nonatomic) _TVImageView *imageView; // @synthesize imageView=_imageView;
+@property(retain, nonatomic) VUILibraryEpisodeFrameView *imageFrameView; // @synthesize imageFrameView=_imageFrameView;
 @property(nonatomic) __weak id <VUIEpisodeDetailViewDelegate> episodeViewDelegate; // @synthesize episodeViewDelegate=_episodeViewDelegate;
 - (void).cxx_destruct;
-- (void)_playButtonPressed;
+- (void)didTapButtonForEpisodeFrameView:(id)arg1;
 - (double)_descriptionBottomMarginWithBaselineMargin:(double)arg1;
 - (double)_descriptionTopMarginWithBaselineMargin:(double)arg1 otherFont:(id)arg2;
 - (void)_configureDotSeparator;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -7,6 +7,7 @@
 #import <VideosUI/VUILibraryStackViewController.h>
 
 #import "UICollectionViewDataSource.h"
+#import "UIGestureRecognizerDelegate.h"
 #import "VUILibraryPopoverDataSource.h"
 #import "VUILibraryPopoverDelegate.h"
 #import "VUILibraryShelfCollectionViewControllerDelegate.h"
@@ -17,12 +18,13 @@
 @class NSArray, NSDictionary, NSString, UIBarButtonItem, VUILibraryBannerCollectionViewCell, VUILibraryDownloadViewController, VUILibraryListPopoverViewCell, VUILibraryMediaEntityShelvesViewModel, VUILibraryMenuItemViewCell, VUILibraryPopoverViewController, VUIMediaLibrary, _VUILibrarySeeAllController;
 
 __attribute__((visibility("hidden")))
-@interface VUILibraryViewController : VUILibraryStackViewController <UICollectionViewDataSource, VUILibraryShelfCollectionViewControllerDelegate, VUIMediaItemEntityTypesFetchControllerDelegate, VUIMediaEntitiesFetchControllerDelegate, VUIMediaLibraryFetchControllerQueueDelegate, VUILibraryPopoverDataSource, VUILibraryPopoverDelegate>
+@interface VUILibraryViewController : VUILibraryStackViewController <UICollectionViewDataSource, VUILibraryShelfCollectionViewControllerDelegate, VUIMediaItemEntityTypesFetchControllerDelegate, VUIMediaEntitiesFetchControllerDelegate, VUIMediaLibraryFetchControllerQueueDelegate, VUILibraryPopoverDataSource, VUILibraryPopoverDelegate, UIGestureRecognizerDelegate>
 {
     id _isNetworkTypeChangedToken;
     id _networkReachabilityChangedToken;
     _Bool _lastNetworkReachableStatus;
     VUILibraryDownloadViewController *_presentedDownloadViewController;
+    _Bool _ppt_isLoaded;
     _Bool _appliedNavigationItem;
     _Bool _hasMenuItemFetchCompleted;
     _Bool _areLocalMediaItemsAvailable;
@@ -38,7 +40,7 @@ __attribute__((visibility("hidden")))
     VUILibraryListPopoverViewCell *_sizingPopoverCell;
     long long _currentlySelectedPopoverCell;
     NSArray *_homeShares;
-    VUIMediaLibrary *_presentedMediaLibrary;
+    VUIMediaLibrary *_currentHomeShareMediaLibrary;
     VUILibraryBannerCollectionViewCell *_bannerViewSizingCell;
     VUILibraryMediaEntityShelvesViewModel *_shelvesViewModel;
     NSDictionary *_shelfTypeByFetchRequestIdentifier;
@@ -54,7 +56,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool hasMediaEntitiesFetchCompleted; // @synthesize hasMediaEntitiesFetchCompleted=_hasMediaEntitiesFetchCompleted;
 @property(retain, nonatomic) VUILibraryMediaEntityShelvesViewModel *shelvesViewModel; // @synthesize shelvesViewModel=_shelvesViewModel;
 @property(retain, nonatomic) VUILibraryBannerCollectionViewCell *bannerViewSizingCell; // @synthesize bannerViewSizingCell=_bannerViewSizingCell;
-@property(retain, nonatomic) VUIMediaLibrary *presentedMediaLibrary; // @synthesize presentedMediaLibrary=_presentedMediaLibrary;
+@property(retain, nonatomic) VUIMediaLibrary *currentHomeShareMediaLibrary; // @synthesize currentHomeShareMediaLibrary=_currentHomeShareMediaLibrary;
 @property(retain, nonatomic) NSArray *homeShares; // @synthesize homeShares=_homeShares;
 @property(nonatomic) long long currentlySelectedPopoverCell; // @synthesize currentlySelectedPopoverCell=_currentlySelectedPopoverCell;
 @property(retain, nonatomic) VUILibraryListPopoverViewCell *sizingPopoverCell; // @synthesize sizingPopoverCell=_sizingPopoverCell;
@@ -68,23 +70,39 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIBarButtonItem *libraryBarButton; // @synthesize libraryBarButton=_libraryBarButton;
 @property(nonatomic) _Bool appliedNavigationItem; // @synthesize appliedNavigationItem=_appliedNavigationItem;
 - (void).cxx_destruct;
+- (_Bool)ppt_isLoading;
 - (id)_localizedTitleForCellType:(long long)arg1;
-- (_Bool)_haveAllInitialFetchesCompleted;
 - (void)_configureShelfViewController:(id)arg1 withShelfType:(long long)arg2;
+- (void)_removeNotificationObserversWithDeviceLibrary:(id)arg1;
+- (void)_removeMediaLibraryNotificationObservers;
+- (void)_addNotificationObserversWithDeviceLibrary:(id)arg1;
+- (void)_addMediaLibraryNotificationObservers;
+- (void)_deviceMediaLibraryUpdateStateDidChange:(id)arg1;
+- (void)_stopMonitoringDeviceMediaLibraryInitialUpdate;
+- (void)_startMonitoringDeviceMediaLibraryInitialUpdate;
+- (_Bool)_isDeviceMediaLibraryInitialUpdateInProgress;
+- (id)_deviceMediaLibrary;
 - (_Bool)_isNetworkReachable;
 - (void)_networkStatusChanged;
-- (void)_initializeNetworkReachability;
 - (void)_homeShareMediaLibrariesDidChange:(id)arg1;
+- (void)_reloadPopoverViewController;
+- (void)_updatePopoverSelectedItem;
+- (void)_updatePopoverStateWithCellType:(long long)arg1;
 - (id)_popoverTitleForIndexPath:(id)arg1;
 - (void)_libraryPopoverPressed;
+- (id)_viewControllerWithCellType:(long long)arg1 forPopover:(_Bool)arg2;
+- (void)_selectLibraryCellType:(long long)arg1 fromPopover:(_Bool)arg2;
 - (id)_leftNavigationButtonWithTitle:(id)arg1;
 - (void)_reparentNavigationItem:(id)arg1;
 - (void)_updateNavigationTitle;
-- (void)_updateCurrentViewAndReloadStackCollectionView:(_Bool)arg1;
+- (void)_showHomeVideosIfNoRecentlyAddedContent;
+- (_Bool)_shouldAutomaticallySelectHomeVideos;
+- (void)_showContentOrNoContentView;
 - (_Bool)_shouldShowContentView;
 - (void)_constructLibraryDataSourceAndUpdateActiveView;
 - (id)_menuItemsAndPopoverMenuItems:(id *)arg1;
 - (void)_updateViewIfFetchComplete;
+- (_Bool)_haveAllInitialFetchesCompleted;
 - (void)_startFetchControllers;
 - (id)_fetchRequestsWithMediaLibrary:(id)arg1 shelfTypeMap:(id *)arg2;
 - (void)fetchDidCompleteForMediaLibraryFetchControllerQueue:(id)arg1;
@@ -97,8 +115,6 @@ __attribute__((visibility("hidden")))
 - (void)controller:(id)arg1 fetchRequests:(id)arg2 didCompleteWithResult:(id)arg3;
 - (void)controller:(id)arg1 fetchDidFailWithError:(id)arg2;
 - (void)controller:(id)arg1 fetchDidCompleteWithResult:(id)arg2;
-- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
-- (void)traitCollectionDidChange:(id)arg1;
 - (void)shelfCollectionViewController:(id)arg1 collectionView:(id)arg2 didSelectMediaEntity:(id)arg3 atIndexPath:(id)arg4;
 - (void)seeAllButtonPressed:(id)arg1;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
@@ -108,6 +124,11 @@ __attribute__((visibility("hidden")))
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (void)start;
 - (void)configureWithCollectionView:(id)arg1;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (void)traitCollectionDidChange:(id)arg1;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (void)viewDidLoad;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;

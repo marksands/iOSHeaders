@@ -12,10 +12,9 @@
 
 + (id)dateIntervalsFromString:(id)arg1;
 + (id)ngramsFromTokens:(id)arg1 ofSize:(unsigned long long)arg2 usingSeparator:(id)arg3;
-+ (id)tokensFromString:(id)arg1 lemmatize:(_Bool)arg2;
-+ (id)lemmasForToken:(id)arg1 locale:(id)arg2;
-+ (id)lemmasFromString:(id)arg1;
-+ (id)tokensFromString:(id)arg1;
++ (id)stringWithoutDiacriticsFromString:(id)arg1;
++ (id)tokensFromString:(id)arg1 options:(long long)arg2;
++ (id)lemmasForToken:(id)arg1 locale:(id)arg2 options:(long long)arg3;
 
 @end
 

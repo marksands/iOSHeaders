@@ -6,36 +6,38 @@
 
 #import "UICollectionViewCell.h"
 
-@class NSDate, NSTimer, VUILabel, _TVImageView;
+#import "VUIRentalExpirationLabelDelegate.h"
+
+@class NSString, VUILabel, VUIRentalExpirationLabel, _TVImageView;
 
 __attribute__((visibility("hidden")))
-@interface VUILibraryLockupViewCell : UICollectionViewCell
+@interface VUILibraryLockupViewCell : UICollectionViewCell <VUIRentalExpirationLabelDelegate>
 {
     _TVImageView *_imageView;
     double _imageAspectRatio;
     VUILabel *_titleLabel;
-    VUILabel *_subtitleLabel;
-    NSDate *_expirationDate;
-    NSTimer *_expiryUpdateTimer;
+    VUIRentalExpirationLabel *_expirationLabel;
 }
 
 + (void)configureLockupCell:(id)arg1 withMedia:(id)arg2 width:(double)arg3 forMetrics:(_Bool)arg4;
-@property(retain, nonatomic) NSTimer *expiryUpdateTimer; // @synthesize expiryUpdateTimer=_expiryUpdateTimer;
-@property(retain, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
-@property(retain, nonatomic) VUILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
+@property(retain, nonatomic) VUIRentalExpirationLabel *expirationLabel; // @synthesize expirationLabel=_expirationLabel;
 @property(retain, nonatomic) VUILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(nonatomic) double imageAspectRatio; // @synthesize imageAspectRatio=_imageAspectRatio;
 @property(retain, nonatomic) _TVImageView *imageView; // @synthesize imageView=_imageView;
 - (void).cxx_destruct;
-- (void)_computeExpirationLabel:(id)arg1;
+- (void)rentalExpirationLabelNeedsRelayout:(id)arg1;
 - (double)bottomMarginWithBaselineMargin:(double)arg1;
 - (void)setHighlighted:(_Bool)arg1;
-- (void)prepareForReuse;
-- (void)willMoveToWindow:(id)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)dealloc;
+- (void)prepareForReuse;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

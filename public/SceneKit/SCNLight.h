@@ -51,6 +51,8 @@
     _Bool _parallaxCorrectionEnabled;
     // Error parsing type: , name: _probeExtents
     // Error parsing type: , name: _probeOffset
+    // Error parsing type: , name: _parallaxExtentsFactor
+    // Error parsing type: , name: _parallaxCenterOffset
     float _attenuationStartDistance;
     float _attenuationEndDistance;
     float _attenuationFalloffExponent;
@@ -82,6 +84,10 @@
 -     // Error parsing type: 16@0:8, name: probeOffset
 - (void)setProbeExtents: /* Error: Ran out of types for this method. */;
 -     // Error parsing type: 16@0:8, name: probeExtents
+- (void)setParallaxExtentsFactor: /* Error: Ran out of types for this method. */;
+-     // Error parsing type: 16@0:8, name: parallaxExtentsFactor
+- (void)setParallaxCenterOffset: /* Error: Ran out of types for this method. */;
+-     // Error parsing type: 16@0:8, name: parallaxCenterOffset
 - (void)setParallaxCorrectionEnabled:(_Bool)arg1;
 - (_Bool)parallaxCorrectionEnabled;
 - (void)setProbeUpdateType:(long long)arg1;

@@ -19,6 +19,7 @@
 }
 
 + (_Bool)_isSystemWindow;
++ (_Bool)_statusBarNeedsFrameUpdateOnRotation;
 + (struct CGRect)statusBarWindowFrame;
 + (struct CGRect)_defaultStatusBarSceneReferenceBoundsForOrientation:(long long)arg1;
 + (struct CGRect)_defaultStatusBarSceneBounds;
@@ -39,6 +40,7 @@
 - (long long)orientation;
 - (struct UIEdgeInsets)safeAreaInsets;
 - (void)_rotate;
+- (struct CGRect)_statusBarFrameForOrientation:(long long)arg1;
 - (void)setOrientation:(long long)arg1 animationParameters:(id)arg2;
 - (void)setStatusBar:(id)arg1;
 - (void)dealloc;

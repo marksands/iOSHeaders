@@ -54,6 +54,7 @@
 - (id)description;
 @property(readonly, nonatomic) NSDictionary *featuresProperties; // @synthesize featuresProperties=_featuresProperties;
 @property(readonly, nonatomic) NSDictionary *actionProperties; // @synthesize actionProperties=_actionProperties;
+- (id)predicateForAllMomentsFromRepresentativeAssets;
 - (id)predicateForAllAssets;
 - (id)initWithFetchDictionary:(id)arg1 propertyHint:(unsigned long long)arg2 photoLibrary:(id)arg3;
 - (unsigned long long)estimatedAssetCount;

@@ -18,6 +18,7 @@
 @property(readonly, nonatomic) unsigned long long variants; // @synthesize variants=_variants;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)humanDescription;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (shared_ptr_cf7b8a22)predicateWithBaseProperty:(struct ModelPropertyBase *)arg1;

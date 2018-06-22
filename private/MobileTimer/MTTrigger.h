@@ -24,6 +24,7 @@
 @property(copy, nonatomic) NSDate *triggerDate; // @synthesize triggerDate=_triggerDate;
 @property(nonatomic) unsigned long long triggerType; // @synthesize triggerType=_triggerType;
 - (void).cxx_destruct;
+- (_Bool)isEvent;
 @property(readonly, nonatomic) _Bool isScheduled;
 @property(readonly, nonatomic) _Bool isForAlert;
 @property(readonly, nonatomic) _Bool isForGoToBed;

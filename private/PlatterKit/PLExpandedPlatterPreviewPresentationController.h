@@ -17,7 +17,7 @@
 }
 
 + (_Bool)_shouldInterdictServiceViewTouches;
-+ (struct CGRect)useableContainerViewBoundsInContainerViewWithBounds:(struct CGRect)arg1;
++ (struct CGRect)useableContainerViewBoundsForExpandedPlatter:(id)arg1 inContainerViewWithBounds:(struct CGRect)arg2;
 @property(nonatomic) __weak id <PLExpandedPlatterPresentationControllerDelegate> presentationControllerDelegate; // @synthesize presentationControllerDelegate=_presentationControllerDelegate;
 - (void).cxx_destruct;
 - (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
@@ -31,6 +31,9 @@
 - (_Bool)_shouldMakePresentedViewControllerFirstResponder;
 - (void)viewControllerAnimatorDidFinishFirstResponderChanges:(id)arg1;
 - (void)viewControllerAnimator:(id)arg1 willBeginPresentationAnimationWithTransitionContext:(id)arg2;
+- (struct CGRect)initialFrameOfPresentingViewInContainerView;
+- (struct CGRect)initialFrameOfPresentedViewInContainerView;
+- (struct CGRect)finalFrameOfPresentingViewInContainerView;
 @property(nonatomic) double additionalHomeAffordanceSpacing;
 @property(nonatomic) __weak UIPanGestureRecognizer *homeAffordancePanGesture;
 @property(nonatomic, getter=isHomeAffordanceVisible) _Bool homeAffordanceVisible;

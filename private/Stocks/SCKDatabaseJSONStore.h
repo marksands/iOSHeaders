@@ -11,7 +11,7 @@
 #import "SCKDatabaseStoreCoordinator.h"
 #import "SCKOperationThrottlerDelegate.h"
 
-@class CKServerChangeToken, NSDate, NSFileCoordinator, NSHashTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSOperationQueue, NSSet, NSString, NSURL, SCKDatabaseSchema, SCKTimedOperationThrottler;
+@class CKServerChangeToken, NSDate, NSFileCoordinator, NSHashTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSOperationQueue, NSSet, NSString, NSURL, SCKDatabaseSchema;
 
 @interface SCKDatabaseJSONStore : NSObject <SCKOperationThrottlerDelegate, NSFilePresenter, SCKDatabaseStoreCoordinator, SCKDatabaseStore>
 {
@@ -28,7 +28,9 @@
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSHashTable *_observers;
     NSMutableDictionary *_zoneStoresByName;
-    SCKTimedOperationThrottler *_saveThrottler;
+    NSObject<OS_dispatch_queue> *_workQueue;
+    id <SCKOperationThrottler> _saveThrottler;
+    NSObject<OS_dispatch_source> *_changeListenerSource;
     NSURL *_storeURL;
     unsigned long long _diskReadCount;
     unsigned long long _diskWriteCount;
@@ -37,7 +39,9 @@
 @property(readonly, nonatomic) unsigned long long diskWriteCount; // @synthesize diskWriteCount=_diskWriteCount;
 @property(readonly, nonatomic) unsigned long long diskReadCount; // @synthesize diskReadCount=_diskReadCount;
 @property(readonly, copy, nonatomic) NSURL *storeURL; // @synthesize storeURL=_storeURL;
-@property(retain, nonatomic) SCKTimedOperationThrottler *saveThrottler; // @synthesize saveThrottler=_saveThrottler;
+@property(retain, nonatomic) NSObject<OS_dispatch_source> *changeListenerSource; // @synthesize changeListenerSource=_changeListenerSource;
+@property(retain, nonatomic) id <SCKOperationThrottler> saveThrottler; // @synthesize saveThrottler=_saveThrottler;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(nonatomic) _Bool havePendingChanges; // @synthesize havePendingChanges=_havePendingChanges;
 @property(retain, nonatomic) NSMutableDictionary *zoneStoresByName; // @synthesize zoneStoresByName=_zoneStoresByName;
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
@@ -56,12 +60,12 @@
 - (id)_encodeDate:(id)arg1;
 - (id)_decodeCodableObjectOfClass:(Class)arg1 from:(id)arg2 error:(id *)arg3;
 - (id)_encodeCodableObject:(id)arg1;
+- (void)_listenForChangesToFileURL:(id)arg1;
 - (void)_reloadIfNeededFromFileURL:(id)arg1;
 - (void)_loadFromFileURL:(id)arg1;
 - (void)_saveIfNeededToFileURL:(id)arg1;
 - (void)_saveToFileURL:(id)arg1;
 - (_Bool)flushToDiskWithTimeout:(double)arg1;
-- (void)relinquishPresentedItemToWriter:(CDUnknownBlockType)arg1;
 - (void)savePresentedItemChangesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)operationThrottlerPerformOperation:(id)arg1;
 - (void)removeObserver:(id)arg1;

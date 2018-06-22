@@ -17,7 +17,7 @@
     HDProfile *_profile;
     NSObject<OS_dispatch_queue> *_queue;
     NSString *_lastSuccessfulRunDateUserDefaultsKey;
-    _Bool _isWaitingToRun;
+    CDUnknownBlockType _waitingActivityCompletion;
     NSString *_errorCountUserDefaultsKey;
     NSString *_minimumIntervalDefaultsKey;
     NSString *_name;
@@ -44,7 +44,7 @@
 - (void)_queue_activityFinishedWithResult:(long long)arg1 minimumRetryInterval:(double)arg2 activityStartDate:(id)arg3 error:(id)arg4;
 - (void)_queue_performActivityWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_queue_performActivityIfPossibleWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_queue_performActivityIfWaitingWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_queue_performActivityIfWaiting;
 - (void)_queue_updateCriteriaForActivity:(id)arg1;
 - (void)_performActivity:(id)arg1;
 - (void)_handleXPCActivityCallback:(id)arg1;

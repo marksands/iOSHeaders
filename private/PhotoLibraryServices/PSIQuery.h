@@ -30,6 +30,7 @@
     NSArray *_nextKeywordSuggestions;
 }
 
++ (void)bootstrap;
 @property(readonly, nonatomic) _Bool useWildcardText; // @synthesize useWildcardText=_useWildcardText;
 @property(retain, nonatomic) NSArray *nextKeywordSuggestions; // @synthesize nextKeywordSuggestions=_nextKeywordSuggestions;
 @property(nonatomic) unsigned long long numberOfNextKeywordSuggestionToProcess; // @synthesize numberOfNextKeywordSuggestionToProcess=_numberOfNextKeywordSuggestionToProcess;

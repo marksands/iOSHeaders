@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSString;
+@class NSData, NSDictionary, NSString;
 
 @interface CUKeychainItem : NSObject
 {
@@ -17,6 +17,7 @@
     NSString *_identifier;
     NSDictionary *_metadata;
     NSString *_name;
+    NSData *_persistentRef;
     NSDictionary *_secrets;
     NSString *_type;
     NSString *_userDescription;
@@ -28,6 +29,7 @@
 @property(copy, nonatomic) NSString *type; // @synthesize type=_type;
 @property(nonatomic) int syncType; // @synthesize syncType=_syncType;
 @property(copy, nonatomic) NSDictionary *secrets; // @synthesize secrets=_secrets;
+@property(copy, nonatomic) NSData *persistentRef; // @synthesize persistentRef=_persistentRef;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) _Bool legacy; // @synthesize legacy=_legacy;

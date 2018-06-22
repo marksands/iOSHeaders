@@ -189,7 +189,6 @@
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)_initWithFaceStyle:(long long)arg1 forDevice:(id)arg2;
-- (id)init;
 - (void)_commonInit;
 - (id)_complicationMigrationPaths;
 - (long long)_editModeForOldEncodingIndex:(long long)arg1;

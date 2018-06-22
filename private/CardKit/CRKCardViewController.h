@@ -89,7 +89,7 @@
 - (id)_initWithCard:(id)arg1;
 - (id)_initWithCard:(id)arg1 delegate:(id)arg2 loadProvidersImmediately:(_Bool)arg3;
 @property(readonly, nonatomic, getter=isLoading) _Bool loading;
-- (void)eventDidOccur:(unsigned long long)arg1 withIdentifier:(id)arg2 userInfo:(id)arg3;
+- (void)cardEventDidOccur:(unsigned long long)arg1 withIdentifier:(id)arg2 userInfo:(id)arg3;
 - (id)initWithCard:(id)arg1 delegate:(id)arg2;
 
 // Remaining properties

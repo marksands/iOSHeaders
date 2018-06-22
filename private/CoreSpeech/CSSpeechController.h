@@ -112,6 +112,7 @@
 - (void)speechManagerEndRecordInterruption:(id)arg1;
 - (void)speechManagerBeginRecordInterruption:(id)arg1 withContext:(id)arg2;
 - (void)speechManagerBeginRecordInterruption:(id)arg1;
+- (void)speechManagerDidFinishAlertPlayback:(id)arg1 ofType:(long long)arg2 error:(id)arg3;
 - (void)speechManagerDetectedSystemVolumeChange:(id)arg1 withVolume:(float)arg2 forReason:(unsigned long long)arg3;
 - (void)speechManagerRecordHardwareConfigurationDidChange:(id)arg1 toConfiguration:(long long)arg2;
 - (id)speechManagerRecordingContext;
@@ -119,6 +120,7 @@
 - (void)speechManagerDidStartForwarding:(id)arg1 successfully:(_Bool)arg2 error:(id)arg3;
 - (void)speechManagerRecordBufferAvailable:(id)arg1 buffer:(id)arg2;
 - (void)speechManagerLPCMRecordBufferAvailable:(id)arg1 chunk:(id)arg2;
+- (_Bool)_private_PacketEncodingUsed;
 - (_Bool)_private_PacketDecodingUsed;
 - (_Bool)_isSpeakerIdTrainingTriggered;
 - (_Bool)_isAutoPrompted;

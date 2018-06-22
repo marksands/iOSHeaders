@@ -7,11 +7,11 @@
 #import "NSMeasurementFormatter.h"
 
 #import "HFTemperatureFormatter.h"
-#import "WFTemperatureUnitObserver.h"
+#import "HFTemperatureUnitObserver.h"
 
 @class NSNumber, NSString;
 
-@interface HUTemperatureFormatter : NSMeasurementFormatter <WFTemperatureUnitObserver, HFTemperatureFormatter>
+@interface HUTemperatureFormatter : NSMeasurementFormatter <HFTemperatureUnitObserver, HFTemperatureFormatter>
 {
     _Bool _inputIsCelsius;
     _Bool _outputIsCelsius;
@@ -24,7 +24,7 @@
 @property(nonatomic) _Bool inputIsCelsius; // @synthesize inputIsCelsius=_inputIsCelsius;
 @property(copy, nonatomic) NSString *fallbackTemperatureString; // @synthesize fallbackTemperatureString=_fallbackTemperatureString;
 - (void).cxx_destruct;
-- (void)temperatureUnitObserver:(id)arg1 didChangeTemperatureUnitTo:(int)arg2;
+- (void)temperatureUnitObserver:(id)arg1 didChangeTemperatureUnit:(_Bool)arg2;
 - (id)stringForObjectValue:(id)arg1;
 @property(nonatomic) unsigned long long minimumFractionDigits;
 @property(nonatomic) unsigned long long maximumFractionDigits;

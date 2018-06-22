@@ -18,6 +18,7 @@
 + (_Bool)featureAvailability:(const char *)arg1;
 + (void)tccServiceMotionAccessWithBlock:(CDUnknownBlockType)arg1;
 + (void)tccServiceMotionAccessWithLabel:(id)arg1;
++ (_Bool)hasEntitlement:(id)arg1;
 + (_Bool)isMotionActivityEntitled;
 + (_Bool)sendMessageSync:(shared_ptr_bdcc6d0f)arg1 onConnection:(struct CLConnectionClient *)arg2 timeoutAfter:(double)arg3 withReplyHandler:(CDUnknownBlockType)arg4;
 + (id)sendMessageWithReplySync:(shared_ptr_bdcc6d0f)arg1;

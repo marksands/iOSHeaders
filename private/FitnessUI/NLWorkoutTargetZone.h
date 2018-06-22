@@ -14,14 +14,15 @@
     double _currentValue;
 }
 
++ (id)metadataForTargetZone:(id)arg1;
++ (id)targetZoneFromMetadata:(id)arg1;
 + (id)mapTargetZoneTypeEnumToString:(long long)arg1;
 + (long long)mapTargetZoneTypeStringToEnum:(id)arg1;
 + (void)saveTargetZone:(id)arg1 forActivityType:(id)arg2;
 + (id)serializeTargetZone:(id)arg1;
 + (id)restoreFromDictionary:(id)arg1;
 + (id)restoreFromDictionary:(id)arg1 activityType:(id)arg2;
-+ (id)overrideMaxSpeedToZero:(id)arg1;
-+ (id)readTargetZoneForActivityType:(id)arg1;
++ (id)targetZoneForActivityType:(id)arg1;
 + (unsigned long long)stateForZone:(id)arg1 distanceUnit:(id)arg2;
 @property(readonly, nonatomic) double currentValue; // @synthesize currentValue=_currentValue;
 @property(readonly, nonatomic) double max; // @synthesize max=_max;

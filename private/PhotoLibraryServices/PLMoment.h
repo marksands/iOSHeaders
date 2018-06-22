@@ -86,7 +86,6 @@
 - (void)awakeFromFetch;
 - (void)awakeFromInsert;
 - (unsigned long long)countForAssetsOfKind:(short)arg1;
-- (void)_appendSeasons:(id)arg1 withSynonyms:(id)arg2 toCollection:(id)arg3;
 - (void)_appendLocationsInfo:(id)arg1 toCollection:(id)arg2;
 - (void)_appendWorkText:(id)arg1 toCollection:(id)arg2;
 - (void)_appendHomeToCollection:(id)arg1;
@@ -98,11 +97,11 @@
 - (void)_appendPOIs:(id)arg1 withSynonyms:(id)arg2 toCollection:(id)arg3;
 - (void)_appendHolidays:(id)arg1 toCollection:(id)arg2;
 - (void)_appendMeanings:(id)arg1 withSynonyms:(id)arg2 toCollection:(id)arg3;
-- (void)_appendScenesWithIdentifiers:(id)arg1 toCollection:(id)arg2;
-- (void)_appendDates:(id)arg1 withDateFormatter:(id)arg2 toCollection:(id)arg3;
+- (void)_appendScenesWithIdentifiers:(id)arg1 toCollection:(id)arg2 sceneTaxonomyProxy:(id)arg3;
+- (void)_appendDates:(id)arg1 withDateFormatter:(id)arg2 withSynonyms:(id)arg3 toCollection:(id)arg4;
 - (void)_appendSocialGroupIdentifiers:(id)arg1 toCollection:(id)arg2;
 - (void)_appendPersonsWithUUIDs:(id)arg1 toCollection:(id)arg2;
-- (void)getSearchIndexContentsForCollection:(id)arg1 fromDictionary:(id)arg2 withDateFormatter:(id)arg3 synonymsDictionaries:(id)arg4;
+- (void)getSearchIndexContentsForCollection:(id)arg1 fromDictionary:(id)arg2 withDateFormatter:(id)arg3 synonymsDictionaries:(id)arg4 sceneTaxonomyProxy:(id)arg5;
 - (id)assetUUIDsForPreviewWithCount:(unsigned long long)arg1;
 - (id)displayTitleWithDateFormatter:(id)arg1;
 - (id)bestAsset;

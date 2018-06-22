@@ -8,19 +8,21 @@
 
 #import "SVURLAssetLoading.h"
 
-@class NSString;
+@class NSDictionary, NSString;
 
 @interface SVURLAssetLoader : NSObject <SVURLAssetLoading>
 {
     id <SVURLAssetFactory> _URLAssetFactory;
     id <SVVideoURLProviding> _URLProvider;
+    NSDictionary *_options;
 }
 
+@property(readonly, copy, nonatomic) NSDictionary *options; // @synthesize options=_options;
 @property(readonly, nonatomic) id <SVVideoURLProviding> URLProvider; // @synthesize URLProvider=_URLProvider;
 @property(readonly, nonatomic) id <SVURLAssetFactory> URLAssetFactory; // @synthesize URLAssetFactory=_URLAssetFactory;
 - (void).cxx_destruct;
 - (CDUnknownBlockType)URLAssetWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (id)initWithURLAssetFactory:(id)arg1 URLProvider:(id)arg2;
+- (id)initWithURLAssetFactory:(id)arg1 URLProvider:(id)arg2 options:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

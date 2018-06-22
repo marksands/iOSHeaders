@@ -74,6 +74,7 @@
 - (_Bool)_selectionAtDocumentEnd;
 - (_Bool)_selectionAtDocumentStart;
 - (_Bool)_selectionAtWordStart;
+- (void)_setSelectionToPosition:(UITextPosition *)arg1;
 - (NSString *)_wordContainingCaretSelection;
 - (unsigned int)_characterInRelationToPosition:(UITextPosition *)arg1 amount:(int)arg2;
 - (unsigned int)_characterInRelationToRangedSelection:(int)arg1;

@@ -6,6 +6,9 @@
 
 #import "CPBaseTemplateProviding.h"
 
+@class NSString;
+
 @protocol CPVoiceTemplateProviding <CPBaseTemplateProviding>
+- (void)_activateStateWithIdentifier:(NSString *)arg1;
 @end
 

@@ -50,6 +50,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
+- (struct CGSize)constrainedSizeForImageSize:(struct CGSize)arg1;
 - (void)observedPropertiesChanged;
 - (id)boxArrangement:(id)arg1 itemAtIndex:(long long)arg2 horizontalAlignment:(long long *)arg3 verticalAlignment:(long long *)arg4;
 - (long long)numberOfItemsInBoxArrangement:(id)arg1;

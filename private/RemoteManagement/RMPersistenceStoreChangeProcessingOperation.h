@@ -6,27 +6,23 @@
 
 #import "CATOperation.h"
 
-@class NSPersistentHistoryToken, NSPersistentStore, NSString;
+@class NSPersistentStore;
 
 @interface RMPersistenceStoreChangeProcessingOperation : CATOperation
 {
-    NSPersistentHistoryToken *_token;
     NSPersistentStore *_store;
-    NSString *_storeIdentifier;
     id <RMPersistenceStoreChangeProcessingOperationDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <RMPersistenceStoreChangeProcessingOperationDelegate> delegate; // @synthesize delegate=_delegate;
-@property(copy, nonatomic) NSString *storeIdentifier; // @synthesize storeIdentifier=_storeIdentifier;
 @property(retain, nonatomic) NSPersistentStore *store; // @synthesize store=_store;
-@property(retain, nonatomic) NSPersistentHistoryToken *token; // @synthesize token=_token;
 - (void).cxx_destruct;
 - (id)_transactionsAfterToken:(id)arg1 store:(id)arg2 context:(id)arg3;
 - (id)_changeTypeForChange:(id)arg1;
 - (id)_entityGroupForChange:(id)arg1;
 - (void)main;
 - (_Bool)isAsynchronous;
-- (id)initWithStore:(id)arg1 storeIdentifier:(id)arg2 token:(id)arg3;
+- (id)initWithStore:(id)arg1;
 
 @end
 

@@ -13,12 +13,10 @@ __attribute__((visibility("hidden")))
 {
     CIImage *inputImage;
     CIImage *inputPreprocImage;
-    CIImage *inputLensModelImage;
     NSDictionary *inputTuningParameters;
 }
 
 @property(retain) NSDictionary *inputTuningParameters; // @synthesize inputTuningParameters;
-@property(retain) CIImage *inputLensModelImage; // @synthesize inputLensModelImage;
 @property(retain) CIImage *inputPreprocImage; // @synthesize inputPreprocImage;
 @property(retain) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;

@@ -10,7 +10,7 @@
 {
 }
 
-+ (CDUnknownBlockType)resourceFromCache:(id)arg1 forItem:(id)arg2 scope:(id)arg3 cacheMissHandler:(CDUnknownBlockType)arg4 cacheMissQueue:(id)arg5 scheduler:(id)arg6 callbackQueue:(id)arg7 resourceHandler:(CDUnknownBlockType)arg8;
++ (CDUnknownBlockType)resourceFromCache:(id)arg1 forItem:(id)arg2 scope:(id)arg3 preflightCacheMissHandler:(CDUnknownBlockType)arg4 cacheMissHandler:(CDUnknownBlockType)arg5 cacheMissQueue:(id)arg6 scheduler:(id)arg7 callbackQueue:(id)arg8 resourceHandler:(CDUnknownBlockType)arg9;
 
 @end
 

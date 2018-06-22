@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSArray, NSNumber;
 
 @interface BLTSectionConfigurationItem : NSObject
 {
@@ -21,8 +21,10 @@
     _Bool _hasLegacyMapInContext;
     NSArray *_whitelistedSubtypes;
     NSArray *_blacklistedCategories;
+    NSNumber *_watchVersionThatUsesUserInfoForContext;
 }
 
+@property(retain, nonatomic) NSNumber *watchVersionThatUsesUserInfoForContext; // @synthesize watchVersionThatUsesUserInfoForContext=_watchVersionThatUsesUserInfoForContext;
 @property(nonatomic) _Bool hasLegacyMapInContext; // @synthesize hasLegacyMapInContext=_hasLegacyMapInContext;
 @property(nonatomic) _Bool hasLegacyMapInUserInfo; // @synthesize hasLegacyMapInUserInfo=_hasLegacyMapInUserInfo;
 @property(nonatomic) _Bool optOutOfNotificationTuning; // @synthesize optOutOfNotificationTuning=_optOutOfNotificationTuning;

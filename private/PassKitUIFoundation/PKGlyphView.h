@@ -15,6 +15,7 @@
     long long _style;
     unsigned long long _transitionIndex;
     _Bool _transitioning;
+    _Bool _transitioningAnimated;
     long long _priorState;
     NSMutableArray *_transitionCompletionHandlers;
     double _lastAnimationWillFinish;

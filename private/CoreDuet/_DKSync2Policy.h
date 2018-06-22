@@ -70,7 +70,7 @@
 - (double)hoursBetweenSyncsWhenIsSingleDevice:(_Bool)arg1;
 - (id)queryStartDateWithSyncType:(id)arg1 lastSyncDate:(id)arg2 lastDaySyncCount:(unsigned long long)arg3 isSingleDevice:(_Bool)arg4 previousHighWaterMark:(id)arg5;
 - (id)queryStartDateWithSyncType:(id)arg1 lastSyncDate:(id)arg2 lastDaySyncCount:(unsigned long long)arg3 isSingleDevice:(_Bool)arg4;
-- (_Bool)highPriorityForSyncType:(id)arg1;
+- (_Bool)highPriorityForSyncType:(id)arg1 lastSyncDate:(id)arg2;
 - (_Bool)canPerformSyncOperationWithSyncType:(id)arg1 lastSyncDate:(id)arg2 lastDaySyncCount:(unsigned long long)arg3 isSingleDevice:(_Bool)arg4 isCharging:(_Bool)arg5;
 - (id)streamNamesToSyncWithSyncType:(id)arg1;
 - (id)_streamNamesToSyncExceptDisabledFeatures:(id)arg1;

@@ -26,6 +26,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
+- (id)initWithDictionary:(id)arg1 imageDictionary:(id)arg2;
 
 @end
 

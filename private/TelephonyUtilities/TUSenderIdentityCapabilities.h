@@ -10,7 +10,6 @@
 
 @interface TUSenderIdentityCapabilities : NSObject
 {
-    _Bool _emergencyCallbackModeEnabled;
     NSUUID *_senderIdentityUUID;
     NSString *_thumperCallingLocalDeviceID;
     TUSenderIdentityCapabilitiesState *_state;
@@ -20,7 +19,6 @@
 @property(readonly, nonatomic) TUCallCapabilitiesXPCClient *client; // @synthesize client=_client;
 @property(readonly, copy, nonatomic) TUSenderIdentityCapabilitiesState *state; // @synthesize state=_state;
 @property(copy, nonatomic) NSString *thumperCallingLocalDeviceID; // @synthesize thumperCallingLocalDeviceID=_thumperCallingLocalDeviceID;
-@property(nonatomic, getter=isEmergencyCallbackModeEnabled) _Bool emergencyCallbackModeEnabled; // @synthesize emergencyCallbackModeEnabled=_emergencyCallbackModeEnabled;
 @property(readonly, copy, nonatomic) NSUUID *senderIdentityUUID; // @synthesize senderIdentityUUID=_senderIdentityUUID;
 - (void).cxx_destruct;
 - (id)debugDescription;
@@ -35,7 +33,6 @@
 - (void)setWiFiCallingRoamingEnabled:(_Bool)arg1;
 - (void)setWiFiCallingEnabled:(_Bool)arg1;
 - (void)setVoLTECallingEnabled:(_Bool)arg1;
-- (void)endEmergencyCallbackMode;
 @property(readonly, nonatomic, getter=isThumperCallingAllowedOnDefaultPairedSecondaryDevice) _Bool thumperCallingAllowedOnDefaultPairedSecondaryDevice;
 - (_Bool)isThumperCallingAllowedOnSecondaryDeviceWithID:(id)arg1;
 @property(readonly, copy, nonatomic) NSData *thumperCallingProvisioningPostData;
@@ -65,7 +62,6 @@
 @property(readonly, nonatomic, getter=isVoLTECallingEnabled) _Bool voLTECallingEnabled;
 @property(readonly, nonatomic) _Bool supportsVoLTECalling;
 @property(readonly, nonatomic, getter=isCSCallingCurrentlyAvailable) _Bool csCallingCurrentlyAvailable;
-@property(readonly, nonatomic, getter=isValid) _Bool valid;
 @property(readonly, nonatomic) _Bool supportsSimultaneousVoiceAndData;
 - (id)initWithSenderIdentityUUID:(id)arg1 state:(id)arg2 client:(id)arg3;
 

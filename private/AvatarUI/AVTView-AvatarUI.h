@@ -7,7 +7,6 @@
 #import "AVTView.h"
 
 @interface AVTView (AvatarUI)
-+ (double)expectedHeightGivenWidth:(double)arg1;
-+ (double)expectedWidthGivenHeight:(double)arg1;
++ (id)snapshotAVTView:(id)arg1 matchingViewSize:(id)arg2;
 @end
 

@@ -12,6 +12,7 @@
 }
 
 @property(readonly, nonatomic) struct CGRect sourceFrameInPresentingView; // @synthesize sourceFrameInPresentingView=_sourceFrameInPresentingView;
+- (struct CGRect)_adjustPresentedViewFrame:(struct CGRect)arg1 forTransitionContext:(id)arg2;
 - (struct CGRect)_toViewFinalFrame:(id)arg1;
 - (double)transitionDuration:(id)arg1;
 - (id)initWithSourceFrameInPresentingView:(struct CGRect)arg1;

@@ -11,7 +11,6 @@
 @interface DADClient : DADisableableObject
 {
     _Bool _persistent;
-    int _numOutstandingAgentDisables;
     int _numOutstandingBlockingClientCalls;
     int _numOutstandingRefreshPriorityClientCalls;
     NSString *_clientBundleID;
@@ -23,15 +22,16 @@
     NSMutableDictionary *_accountTimers;
     NSMutableDictionary *_actionDelegatesById;
     NSString *_clientName;
+    NSMutableDictionary *_agentMonitoringTokens;
 }
 
 + (id)clientsToInterrogate;
+@property(retain, nonatomic) NSMutableDictionary *agentMonitoringTokens; // @synthesize agentMonitoringTokens=_agentMonitoringTokens;
 @property(retain, nonatomic) NSString *clientName; // @synthesize clientName=_clientName;
 @property(retain, nonatomic) NSMutableDictionary *actionDelegatesById; // @synthesize actionDelegatesById=_actionDelegatesById;
 @property(retain, nonatomic) NSMutableDictionary *accountTimers; // @synthesize accountTimers=_accountTimers;
 @property(nonatomic) int numOutstandingRefreshPriorityClientCalls; // @synthesize numOutstandingRefreshPriorityClientCalls=_numOutstandingRefreshPriorityClientCalls;
 @property(nonatomic) int numOutstandingBlockingClientCalls; // @synthesize numOutstandingBlockingClientCalls=_numOutstandingBlockingClientCalls;
-@property(nonatomic) int numOutstandingAgentDisables; // @synthesize numOutstandingAgentDisables=_numOutstandingAgentDisables;
 @property(retain, nonatomic) NSMutableDictionary *updatedIDs; // @synthesize updatedIDs=_updatedIDs;
 @property(retain, nonatomic) NSMutableDictionary *busyIDs; // @synthesize busyIDs=_busyIDs;
 @property(retain, nonatomic) NSMutableDictionary *watchedIDs; // @synthesize watchedIDs=_watchedIDs;
@@ -86,6 +86,10 @@
 - (void)_removeStoresForAccountWithID:(id)arg1;
 - (void)_stopMonitoringAgents:(id)arg1;
 - (void)_startMonitoringAgents:(id)arg1;
+- (void)_clearAllStopMonitoringAgentsTokens;
+- (void)_startMonitoringAgentsWithServerToken:(unsigned long long)arg1;
+- (void)_startMonitoringAgentsWithClientToken:(unsigned long long)arg1;
+- (void)_stopMonitoringAgentsWithClientToken:(unsigned long long)arg1;
 - (void)_suspendMonitoringFolders:(id)arg1;
 - (void)_resumeMonitoringFolders:(id)arg1;
 - (void)_stopMonitoringFolders:(id)arg1;

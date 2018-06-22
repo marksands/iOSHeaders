@@ -6,20 +6,23 @@
 
 #import "NSObject.h"
 
-@class HAPSecuritySessionEncryption, HMFNetAddress;
+@class HAPSecuritySessionEncryption, HMFNetAddress, NSMutableArray;
 
 @interface HMDDataStreamSetup : NSObject
 {
     HMFNetAddress *_remoteNetAddress;
     long long _remoteTcpPort;
     HAPSecuritySessionEncryption *_sessionEncryption;
+    NSMutableArray *_pendingBulkSendListeners;
 }
 
+@property(retain, nonatomic) NSMutableArray *pendingBulkSendListeners; // @synthesize pendingBulkSendListeners=_pendingBulkSendListeners;
 @property(retain, nonatomic) HAPSecuritySessionEncryption *sessionEncryption; // @synthesize sessionEncryption=_sessionEncryption;
 @property(nonatomic) long long remoteTcpPort; // @synthesize remoteTcpPort=_remoteTcpPort;
 @property(retain, nonatomic) HMFNetAddress *remoteNetAddress; // @synthesize remoteNetAddress=_remoteNetAddress;
 - (void).cxx_destruct;
 - (_Bool)isComplete;
+- (id)init;
 
 @end
 

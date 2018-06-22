@@ -33,7 +33,6 @@
 - (void)_configureHeaderContentViewIfNecessary;
 - (void)_configureHeaderOverlayViewIfNecessary;
 - (void)_configureHeaderContainerViewIfNecessary;
-- (struct CGSize)contentSizeForSize:(struct CGSize)arg1;
 - (struct CGSize)sizeThatFitsContentWithSize:(struct CGSize)arg1;
 - (void)setHeaderHeedsHorizontalLayoutMargins:(_Bool)arg1;
 - (_Bool)headerHeedsHorizontalLayoutMargins;

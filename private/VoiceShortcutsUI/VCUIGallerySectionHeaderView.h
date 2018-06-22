@@ -6,19 +6,17 @@
 
 #import "UITableViewHeaderFooterView.h"
 
-@class NSString, UIButton, UIImageView, UILabel;
+@class NSString, UIButton, UILabel;
 
 @interface VCUIGallerySectionHeaderView : UITableViewHeaderFooterView
 {
     id <VCUIGallerySectionHeaderViewDelegate> _delegate;
     UIButton *_seeAllButton;
     UILabel *_titleLabel;
-    UIImageView *_iconImageView;
     NSString *_applicationBundleIdentifier;
 }
 
 @property(copy, nonatomic) NSString *applicationBundleIdentifier; // @synthesize applicationBundleIdentifier=_applicationBundleIdentifier;
-@property(retain, nonatomic) UIImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
 @property(copy, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(nonatomic) __weak UIButton *seeAllButton; // @synthesize seeAllButton=_seeAllButton;
 @property(nonatomic) __weak id <VCUIGallerySectionHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;

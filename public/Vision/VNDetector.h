@@ -7,13 +7,12 @@
 #import "NSObject.h"
 
 #import "VNDetectorKeyProviding.h"
-#import "VNObservationsCacheKeyProviding.h"
 #import "VNRequestRevisionProviding.h"
 
 @class NSDictionary, NSObject<OS_dispatch_queue>, NSString, VNMetalContext;
 
 __attribute__((visibility("hidden")))
-@interface VNDetector : NSObject <VNDetectorKeyProviding, VNObservationsCacheKeyProviding, VNRequestRevisionProviding>
+@interface VNDetector : NSObject <VNDetectorKeyProviding, VNRequestRevisionProviding>
 {
     NSDictionary *_configurationOptions;
     NSObject<OS_dispatch_queue> *_processingQueue;
@@ -27,7 +26,7 @@ __attribute__((visibility("hidden")))
 + (id)keyForDetectorWithConfigurationOptions:(id)arg1;
 + (id)configurationOptionKeysForDetectorKey;
 + (id)detectorWithConfigurationOptions:(id)arg1 error:(id *)arg2;
-+ (Class)detectorClassForConfigurationOptions:(id)arg1;
++ (Class)detectorClassForConfigurationOptions:(id)arg1 error:(id *)arg2;
 + (void)fullyPopulateConfigurationOptions:(id)arg1;
 + (void)recordDefaultConfigurationOptionsInDictionary:(id)arg1;
 + (id)detectorName;
@@ -49,7 +48,6 @@ __attribute__((visibility("hidden")))
 - (id)processWithOptions:(id)arg1 regionOfInterest:(struct CGRect)arg2 warningRecorder:(id)arg3 error:(id *)arg4;
 - (_Bool)currentQueueIsSynchronizationQueue;
 - (id)processInSynchronizationQueueUsingQualityOfServiceClass:(unsigned int)arg1 options:(id)arg2 regionOfInterest:(struct CGRect)arg3 warningRecorder:(id)arg4 error:(id *)arg5;
-- (id)observationsCacheKey;
 - (_Bool)useGPU;
 - (_Bool)completeInitializationAndReturnError:(id *)arg1;
 - (id)initWithConfigurationOptions:(id)arg1;

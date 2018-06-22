@@ -52,6 +52,7 @@
 @property(nonatomic) CDStruct_02837cd9 mapRect; // @synthesize mapRect=_mapRect;
 @property(copy, nonatomic) MKMapCamera *camera; // @synthesize camera=_camera;
 - (void).cxx_destruct;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

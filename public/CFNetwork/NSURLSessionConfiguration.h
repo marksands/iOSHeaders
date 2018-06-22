@@ -60,6 +60,7 @@
 @property _Bool _allowsTCPFastOpen; // @dynamic _allowsTCPFastOpen;
 @property _Bool _allowsTLSSessionResumption; // @dynamic _allowsTLSSessionResumption;
 @property _Bool _allowsTLSSessionTickets; // @dynamic _allowsTLSSessionTickets;
+@property _Bool _alwaysPerformDefaultTrustEvaluation; // @dynamic _alwaysPerformDefaultTrustEvaluation;
 @property(copy) id <NSURLSessionAppleIDContext> _appleIDContext; // @dynamic _appleIDContext;
 @property(copy) NSData *_atsContext; // @dynamic _atsContext;
 @property(copy) NSSet *_authenticatorStatusCodes; // @dynamic _authenticatorStatusCodes;

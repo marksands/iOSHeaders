@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
     struct VKCameraState _lastCameraState;
     struct CGSize _lastCanvasSize;
     _Bool _tilesChanged;
+    _Bool _tileProviderHasBadTiles;
     VKMapRasterizer *_rasterizer;
     id <VKMapLayer> _debugLayer;
     GEOTileKeyList *_debugLayerKeys;
@@ -62,6 +63,8 @@ __attribute__((visibility("hidden")))
     GEOResourceManifestConfiguration *_manifestConfiguration;
     NSLocale *_locale;
     shared_ptr_e963992e _taskContext;
+    double _minTimeInLoadingState;
+    double _maxTimeInLoadingState;
 }
 
 @property(readonly, nonatomic) _Bool hasFailedTile; // @synthesize hasFailedTile=_hasFailedTile;
@@ -148,6 +151,8 @@ __attribute__((visibility("hidden")))
 - (void)populateDebugNode:(shared_ptr_eafb90f9)arg1;
 - (id)detailedDescriptionDictionaryRepresentation;
 - (id)detailedDescription;
+- (void)logIntegrityCheck;
+- (id)checkMapTileIntegrity:(id)arg1;
 - (void)describeTilesFromList:(id)arg1 outputtoDict:(id)arg2;
 - (void)describeTilesFromList:(id)arg1 output:(id)arg2;
 - (void)tileStatusFromList:(id)arg1 canRender:(out id *)arg2 canNotRender:(out id *)arg3;

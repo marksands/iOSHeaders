@@ -9,6 +9,7 @@
 @class PXCMMEngineDrivenLayout;
 
 @protocol PXCMMEngineDrivenLayoutDelegate <PXEngineDrivenAssetsTilingLayoutDelegate>
+- (void)sendBackBannerViewVisibilityDidChangeForeEngineDrivenLayout:(PXCMMEngineDrivenLayout *)arg1;
 - (long long)engineDrivenLayout:(PXCMMEngineDrivenLayout *)arg1 assetStatusAtIndexPath:(struct PXSimpleIndexPath)arg2;
 - (_Bool)engineDrivenLayout:(PXCMMEngineDrivenLayout *)arg1 shouldShowStatusBadgeAtIndexPath:(struct PXSimpleIndexPath)arg2;
 - (_Bool)engineDrivenLayout:(PXCMMEngineDrivenLayout *)arg1 shouldShowDimmingOverlayAtIndexPath:(struct PXSimpleIndexPath)arg2;

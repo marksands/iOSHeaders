@@ -13,6 +13,7 @@
 }
 
 + (id)momentNodesForPublicEventNodes:(id)arg1;
+- (id)associatedNodesForRemoval;
 - (id)keywordDescription;
 - (void)enumeratePublicEventCategoryNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumeratePerformerNodesUsingBlock:(CDUnknownBlockType)arg1;

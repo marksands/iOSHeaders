@@ -71,7 +71,7 @@
 - (id)currentGoalQuantityForTemplate:(id)arg1;
 - (id)currentProgressQuantityForTemplate:(id)arg1;
 - (_Bool)providesProgressForTemplate:(id)arg1;
-- (id)earnedInstancesForHistoricalInterval:(id)arg1;
+- (id)earnedInstancesForHistoricalInterval:(id)arg1 databaseContext:(id)arg2;
 - (void)_queue_updateDataProvider:(id)arg1 forDateInterval:(id)arg2 awardingBlock:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) NSString *uniqueName;
 - (unsigned char)_creatorDevice;

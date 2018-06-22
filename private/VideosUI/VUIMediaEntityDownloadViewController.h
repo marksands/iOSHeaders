@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)downloadViewDidRequestRemoveDownload:(id)arg1;
 - (void)downloadViewDidRequestCancelDownload:(id)arg1;
 - (void)downloadViewDidRequestStartDownload:(id)arg1;
-- (void)mediaEntityAssetController:(id)arg1 stateDidChange:(unsigned long long)arg2 downloadProgress:(double)arg3;
+- (void)mediaEntityAssetController:(id)arg1 stateDidChange:(id)arg2;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;

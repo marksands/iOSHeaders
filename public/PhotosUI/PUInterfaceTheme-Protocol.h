@@ -168,6 +168,8 @@
 @property(readonly, nonatomic) NSDictionary *textBlockBelowArtTitleEmphasizedTextAttributes;
 @property(readonly, nonatomic) NSDictionary *textBlockBelowArtTitleTextAttributes;
 @property(readonly, nonatomic) NSDictionary *sectionHeaderNotTappableTextAttributes;
+- (void)configureImportHeaderSubtitleLabel:(UILabel *)arg1;
+- (void)configureImportHeaderTitleLabel:(UILabel *)arg1;
 - (void)configureSlideshowMusicHeaderTitleLabel:(UILabel *)arg1;
 - (UIFont *)cloudWelcomeViewTitleLabelFontForSize:(double)arg1;
 - (NSDictionary *)searchDimmedAttributes;

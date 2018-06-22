@@ -34,6 +34,7 @@
 - (id)defaultTimeByDay;
 - (id)defaultBudgetTime;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) double timeToday;
 - (void)_stAllowanceInitByParsingFamilyBudgetAllPredicate:(id)arg1;
 - (void)_stAllowanceInitByParsingPersonalBudgetPredicate:(id)arg1;
 - (id)initWithBudget:(id)arg1;

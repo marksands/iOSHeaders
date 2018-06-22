@@ -8,8 +8,8 @@
 
 @interface MPSCNNInstanceNormalization : MPSCNNKernel
 {
-    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _gamma
-    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@Q}, name: _beta
+    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@{?=QQ}}, name: _gamma
+    // Error parsing type: ^{MPSAutoBuffer={atomic<void *>=A^v}Q@@{?=QQ}}, name: _beta
     id <MPSCNNInstanceNormalizationDataSource> _dataSource;
     unsigned long long _numberOfFeatureChannels;
     float _epsilon;
@@ -23,6 +23,7 @@
 - (void)reloadGammaAndBetaFromDataSource;
 - (void)reloadDataSource:(id)arg1;
 - (void)reloadDataSourceDeprecated:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
 - (id)temporaryResultStateForCommandBuffer:(id)arg1 sourceImage:(id)arg2 sourceStates:(id)arg3 destinationImage:(id)arg4;

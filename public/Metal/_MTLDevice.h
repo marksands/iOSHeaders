@@ -157,6 +157,7 @@
 - (id)familyName;
 - (id)vendorName;
 - (void)compilerPropagatesThreadPriority:(_Bool)arg1;
+- (id)_deviceWrapper;
 - (void)_setDeviceWrapper:(id)arg1;
 @property(readonly) NSString *name;
 - (_Bool)isQuadDataSharingSupported;

@@ -93,6 +93,10 @@
 - (id)actionForRegionWithIdentifier:(id)arg1;
 - (void)setAction:(id)arg1 forRegionWithIdentifier:(id)arg2;
 - (struct CGRect)frameForPartWithIdentifier:(id)arg1;
+- (double)alphaForPartWithIdentifier:(id)arg1;
+- (void)setAlpha:(double)arg1 forPartWithIdentifier:(id)arg2;
+- (struct UIOffset)offsetForPartWithIdentifier:(id)arg1;
+- (void)setOffset:(struct UIOffset)arg1 forPartWithIdentifier:(id)arg2;
 - (id)actionForPartWithIdentifier:(id)arg1;
 - (void)setAction:(id)arg1 forPartWithIdentifier:(id)arg2;
 - (void)setStyleRequest:(id)arg1 animationParameters:(id)arg2;
@@ -118,6 +122,7 @@
 - (void)setAlpha:(double)arg1;
 - (_Bool)isHidden;
 - (void)setHidden:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)_setHidden:(_Bool)arg1 animationParameters:(id)arg2;
 - (void)setHidden:(_Bool)arg1 animationParameters:(id)arg2;
 - (_Bool)_canShowInOrientation:(long long)arg1;
 - (void)setTintColor:(id)arg1 withDuration:(double)arg2;

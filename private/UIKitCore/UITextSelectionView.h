@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
     struct __CFRunLoopObserver *m_observer;
     _Bool m_activeCaret;
     _Bool m_isSuspended;
+    int m_showingCommandsCounterForRotate;
     _Bool m_forceRangeView;
 }
 

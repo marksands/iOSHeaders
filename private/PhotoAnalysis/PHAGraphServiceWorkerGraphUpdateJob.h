@@ -34,8 +34,11 @@
 @property(nonatomic) float completionScore; // @synthesize completionScore=_completionScore;
 @property(nonatomic) _Bool finished; // @synthesize finished=_finished;
 - (void).cxx_destruct;
-- (void)photoAnalysisGraphManager:(id)arg1 graphIsConsistent:(_Bool)arg2;
-- (void)photoAnalysisGraphManager:(id)arg1 graphUpdateMadeProgress:(double)arg2;
+- (void)onGraphUpdateComplete;
+- (void)graphUpdateDidStop;
+- (void)graphUpdateIsConsistent;
+- (void)graphUpdateMadeProgress:(double)arg1;
+- (_Bool)wantsGraphUpdateNotifications;
 - (_Bool)wantsLiveGraphUpdates;
 - (void)updateCompletionScore:(float)arg1;
 - (void)markAsFinishedWithCompletionScore:(float)arg1;

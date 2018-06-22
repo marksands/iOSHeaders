@@ -64,7 +64,9 @@
 - (void)viewAccountPressed:(id)arg1;
 - (_Bool)shouldShowViewAccount;
 - (id)tableView:(id)arg1 trailingSwipeActionsConfigurationForRowAtIndexPath:(id)arg2;
-- (id)localizedRemovePlanConfirmation:(id)arg1;
+- (id)removePlanConfirmationTitle:(id)arg1;
+- (id)removePlanConfirmationMessage:(id)arg1;
+- (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
 - (void)NETRBStateChangedNotification:(id)arg1;
 - (id)getTetheringStatus:(id)arg1;
 - (id)cellularDataOptionsDetailText:(id)arg1;

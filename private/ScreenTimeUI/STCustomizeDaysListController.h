@@ -8,7 +8,7 @@
 
 #import "STUIDateTimePickerCellDelegate.h"
 
-@class NSArray, NSDictionary, PSSpecifier;
+@class NSArray, NSDictionary, NSString, PSSpecifier;
 
 @interface STCustomizeDaysListController : PSListController <STUIDateTimePickerCellDelegate>
 {
@@ -33,6 +33,12 @@
 - (id)specifiers;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

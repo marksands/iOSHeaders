@@ -16,12 +16,14 @@
     double _dateLastModified;
     NSString *_associatedAppBundleIdentifier;
     NSString *_identifier;
+    NSData *_keyImageData;
     NSString *_phrase;
     NSData *_serializedWorkflowData;
     NSString *_shortcutDescription;
     NSString *_shortcutName;
 }
 
+@property(retain, nonatomic) NSData *keyImageData; // @synthesize keyImageData=_keyImageData;
 @property(retain, nonatomic) NSData *serializedWorkflowData; // @synthesize serializedWorkflowData=_serializedWorkflowData;
 @property(nonatomic) double dateLastModified; // @synthesize dateLastModified=_dateLastModified;
 @property(nonatomic) double dateCreated; // @synthesize dateCreated=_dateCreated;
@@ -40,6 +42,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasKeyImageData;
 @property(readonly, nonatomic) _Bool hasShortcutDescription;
 
 @end

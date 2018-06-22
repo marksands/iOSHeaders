@@ -61,6 +61,7 @@
 - (void)flipTextureCoordinatesInAttributeNamed:(id)arg1;
 - (void)addUnwrappedTextureCoordinatesForAttributeNamed:(id)arg1;
 - (void)addNormalsWithAttributeNamed:(id)arg1 creaseThreshold:(float)arg2;
+- (_Bool)triangulate;
 - (void)_calculateFaceNormalsFromPositions:(float *)arg1 positionStride:(long long)arg2 normals:(float *)arg3 normalStride:(long long)arg4 creaseThreshold:(float)arg5;
 - (void)addOrthTanBasisForTextureCoordinateAttributeNamed:(id)arg1 normalAttributeNamed:(id)arg2 tangentAttributeNamed:(id)arg3;
 - (void)addTangentBasisForTextureCoordinateAttributeNamed:(id)arg1 normalAttributeNamed:(id)arg2 tangentAttributeNamed:(id)arg3;

@@ -7,11 +7,12 @@
 #import "NSObject.h"
 
 #import "NSCoding.h"
+#import "NSSecureCoding.h"
 #import "NSTextAttachmentContainer.h"
 
 @class NSData, NSFileWrapper, NSString, NSTextAttachmentView, UIImage, UIView;
 
-@interface NSTextAttachment : NSObject <NSTextAttachmentContainer, NSCoding>
+@interface NSTextAttachment : NSObject <NSSecureCoding, NSTextAttachmentContainer, NSCoding>
 {
     NSData *_data;
     NSString *_uti;
@@ -33,6 +34,7 @@
 + (void)registerTextAttachmentViewProviderClass:(Class)arg1 forFileType:(id)arg2;
 + (Class)textAttachmentViewProviderClassForFileType:(id)arg1;
 + (id)imageCache;
++ (_Bool)supportsSecureCoding;
 + (void)initialize;
 @property(readonly, copy) NSString *description;
 - (void)detachView:(id)arg1 fromParentView:(id)arg2;

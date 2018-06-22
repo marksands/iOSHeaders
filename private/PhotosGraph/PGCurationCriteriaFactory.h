@@ -12,28 +12,36 @@
 
 + (id)_indexSetFromBaseSceneNames:(id)arg1 leafSceneNames:(id)arg2;
 + (id)_tripScenesTrait;
-+ (id)_restaurantScenesTrait;
-+ (id)_longTripCriteriaWithGraph:(id)arg1;
-+ (id)_shortTripCriteriaWithGraph:(id)arg1;
-+ (id)_dinnerCriteriaWithGraph:(id)arg1;
-+ (id)_lunchCriteriaWithGraph:(id)arg1;
-+ (id)_breakfastCriteriaWithGraph:(id)arg1;
-+ (id)_nightOutCriteriaWithGraph:(id)arg1;
-+ (id)_sportEventCriteriaWithGraph:(id)arg1;
-+ (id)_museumCriteriaWithGraph:(id)arg1;
-+ (id)_performanceCriteriaWithGraph:(id)arg1;
-+ (id)_festivalCriteriaWithGraph:(id)arg1;
-+ (id)_concertCriteriaWithGraph:(id)arg1;
-+ (id)_entertainmentCriteriaWithGraph:(id)arg1;
-+ (id)_beachingCriteriaWithGraph:(id)arg1;
-+ (id)_winterSportCriteriaWithGraph:(id)arg1;
-+ (id)_divingCriteriaWithGraph:(id)arg1;
-+ (id)_hikingCriteriaWithGraph:(id)arg1;
-+ (id)_holidayEventCriteriaWithGraph:(id)arg1;
-+ (id)_anniversaryCriteriaWithCollection:(id)arg1;
-+ (id)_birthdayCriteriaWithCollection:(id)arg1;
-+ (id)_weddingCriteriaWithGraph:(id)arg1;
-+ (id)curationCriteriaWithCollection:(id)arg1 meaningLabel:(id)arg2;
++ (id)_searchRestaurantCompulsoryScenesTrait;
++ (id)_searchRestaurantScenesTrait;
++ (id)_memoriesRestaurantScenesTrait;
++ (id)_searchFallCriteriaWithGraph:(id)arg1;
++ (id)_searchSummerCriteriaWithGraph:(id)arg1;
++ (id)_searchSpringCriteriaWithGraph:(id)arg1;
++ (id)_searchWinterCriteriaWithGraph:(id)arg1;
++ (id)_compulsaryRequiredTraitsFromBaseSceneNames:(id)arg1 leafSceneNames:(id)arg2;
++ (id)_longTripCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_shortTripCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_dinnerCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_lunchCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_breakfastCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_nightOutCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_sportEventCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_museumCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_performanceCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_festivalCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_concertCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_entertainmentCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_beachingCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_winterSportCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_divingCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_hikingCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_holidayEventCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)_anniversaryCriteriaWithCollection:(id)arg1 client:(unsigned long long)arg2;
++ (id)_birthdayCriteriaWithCollection:(id)arg1 client:(unsigned long long)arg2;
++ (id)_weddingCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
++ (id)curationCriteriaWithGraph:(id)arg1 seasonName:(id)arg2 client:(unsigned long long)arg3;
++ (id)curationCriteriaWithCollection:(id)arg1 meaningLabel:(id)arg2 client:(unsigned long long)arg3;
 
 @end
 

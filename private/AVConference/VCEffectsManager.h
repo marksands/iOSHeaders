@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 + (id)sharedManager;
 @property(retain) NSMutableArray *effectsArray; // @synthesize effectsArray=_effectsArray;
 - (void)effectsRegistered:(_Bool)arg1;
-- (void)encodeProcessedPixelBuffer:(struct __CVBuffer *)arg1 time:(CDStruct_1b6d18a9)arg2 imageData:(id)arg3;
+- (void)encodeProcessedPixelBuffer:(struct __CVBuffer *)arg1 time:(CDStruct_1b6d18a9)arg2 imageData:(id)arg3 processTime:(id)arg4;
 - (void)printEffectsLogging;
 - (_Bool)checkHealthForEffect:(id)arg1;
 - (void)capturedPixelBuffer:(struct __CVBuffer *)arg1 time:(CDStruct_1b6d18a9)arg2 imageData:(id)arg3 toClient:(id)arg4;

@@ -14,7 +14,7 @@
 {
 }
 
-- (_Bool)canCreateAvatar;
+- (_Bool)canCreateAvatarWithError:(id *)arg1;
 - (id)duplicateAvatarRecord:(id)arg1 error:(id *)arg2;
 - (_Bool)deleteAvatarWithIdentifier:(id)arg1 error:(id *)arg2;
 - (_Bool)saveAvatar:(id)arg1 error:(id *)arg2;

@@ -12,6 +12,7 @@
 
 - (void)generateGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
+- (unsigned long long)loadingPriority;
 
 @end
 

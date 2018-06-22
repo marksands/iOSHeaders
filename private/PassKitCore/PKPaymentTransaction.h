@@ -14,6 +14,7 @@
 @interface PKPaymentTransaction : NSObject <NSSecureCoding, PKCloudStoreCoding>
 {
     _Bool _enRoute;
+    _Bool _shouldSuppressDate;
     _Bool _deviceScoreIdentifiersRequired;
     _Bool _deviceScoreIdentifiersSubmitted;
     _Bool _isCloudKitArchived;
@@ -112,6 +113,7 @@
 @property(copy, nonatomic) NSString *peerPaymentCounterpartHandle; // @synthesize peerPaymentCounterpartHandle=_peerPaymentCounterpartHandle;
 @property(nonatomic) long long peerPaymentType; // @synthesize peerPaymentType=_peerPaymentType;
 @property(nonatomic) long long adjustmentType; // @synthesize adjustmentType=_adjustmentType;
+@property(nonatomic) _Bool shouldSuppressDate; // @synthesize shouldSuppressDate=_shouldSuppressDate;
 @property(copy, nonatomic) NSString *endStation; // @synthesize endStation=_endStation;
 @property(copy, nonatomic) NSData *endStationCode; // @synthesize endStationCode=_endStationCode;
 @property(copy, nonatomic) NSString *startStation; // @synthesize startStation=_startStation;
@@ -171,7 +173,6 @@
 - (unsigned long long)hash;
 - (id)dictionaryRepresentation;
 - (id)init;
-- (void)updateTransactionTypeFromDetailString:(id)arg1;
 
 @end
 

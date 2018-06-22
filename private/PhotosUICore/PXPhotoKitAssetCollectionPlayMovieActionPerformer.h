@@ -12,7 +12,6 @@
 
 + (id)localizedTitleForUseCase:(unsigned long long)arg1 assetCollection:(id)arg2 person:(id)arg3;
 + (_Bool)canPerformOnAssetCollection:(id)arg1 people:(id)arg2;
-- (void)performUserInteractionTask;
 
 @end
 

@@ -15,7 +15,6 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-- (void)finishSetup;
 - (void)finishInit;
 - (id)initWithView:(id)arg1;
 

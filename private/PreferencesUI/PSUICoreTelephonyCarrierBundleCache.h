@@ -8,30 +8,35 @@
 
 #import "CoreTelephonyClientCarrierBundleDelegate.h"
 
-@class CoreTelephonyClient, NSMutableDictionary, NSObject<OS_dispatch_group>, NSString;
+@class CoreTelephonyClient, NSMutableDictionary, NSString;
 
 @interface PSUICoreTelephonyCarrierBundleCache : NSObject <CoreTelephonyClientCarrierBundleDelegate>
 {
-    _Bool _carrierBundleVersionInitialized;
     CoreTelephonyClient *_client;
     NSMutableDictionary *_carrierNameDict;
     NSMutableDictionary *_carrierBundleVersionDict;
-    NSObject<OS_dispatch_group> *_carrierBundleVersionGroup;
+    NSMutableDictionary *_volteCustomerCarePhoneNumberDict;
+    NSMutableDictionary *_volteCustomerCareWebsiteDict;
 }
 
 + (id)sharedInstance;
-@property _Bool carrierBundleVersionInitialized; // @synthesize carrierBundleVersionInitialized=_carrierBundleVersionInitialized;
-@property(retain) NSObject<OS_dispatch_group> *carrierBundleVersionGroup; // @synthesize carrierBundleVersionGroup=_carrierBundleVersionGroup;
+@property(retain) NSMutableDictionary *volteCustomerCareWebsiteDict; // @synthesize volteCustomerCareWebsiteDict=_volteCustomerCareWebsiteDict;
+@property(retain) NSMutableDictionary *volteCustomerCarePhoneNumberDict; // @synthesize volteCustomerCarePhoneNumberDict=_volteCustomerCarePhoneNumberDict;
 @property(retain) NSMutableDictionary *carrierBundleVersionDict; // @synthesize carrierBundleVersionDict=_carrierBundleVersionDict;
 @property(retain) NSMutableDictionary *carrierNameDict; // @synthesize carrierNameDict=_carrierNameDict;
 @property(retain, nonatomic) CoreTelephonyClient *client; // @synthesize client=_client;
 - (void).cxx_destruct;
 - (void)carrierBundleChange:(id)arg1;
+- (id)volteCustomerCareWebsite:(id)arg1;
+- (void)fetchVolteCustomerCareWebsite;
+- (id)volteCustomerCarePhoneNumber:(id)arg1;
+- (void)fetchVolteCustomerCarePhoneNumber;
 - (id)carrierBundleVersion:(id)arg1;
-- (void)beginPrefetchingCarrierBundleVersion;
+- (void)fetchCarrierBundleVersion;
 - (id)activeDataCarrierName;
 - (id)carrierName:(id)arg1;
 - (void)fetchCarrierName;
+- (void)willEnterForeground;
 - (id)init;
 - (id)initPrivate;
 

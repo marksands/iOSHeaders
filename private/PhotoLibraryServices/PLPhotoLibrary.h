@@ -105,8 +105,6 @@
 + (_Bool)_canSetPauseMarkerWithUnpauseTime:(id)arg1 onPauseData:(id)arg2;
 + (_Bool)clearPauseMarkerForReason:(short)arg1;
 + (void)updateICloudPhotosMarkerForEnable:(_Bool)arg1;
-+ (void)removeICloudPhotosEnableMarker;
-+ (void)removeICloudPhotosDisableMarker;
 + (void)setCameraRollCountedInQuota:(_Bool)arg1;
 + (void)setICloudPhotosEnabled:(_Bool)arg1;
 + (void)setEnableICloudPhotos;

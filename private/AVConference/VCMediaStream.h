@@ -33,6 +33,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_source> *_timeoutHeartbeat;
     double _lastRTPTimeoutReportTime;
     double _lastRTCPTimeoutReportTime;
+    double _firstMediaPacketReceiveTime;
     unsigned int _localSSRC;
     unsigned int _transportSessionID;
     VCWeakObjectHolder *_notificationDelegate;
@@ -47,6 +48,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)isSameSRTPKey:(id)arg1 newKey:(id)arg2;
+@property(nonatomic) double firstMediaPacketReceiveTime; // @synthesize firstMediaPacketReceiveTime=_firstMediaPacketReceiveTime;
 @property(nonatomic) int operatingMode; // @synthesize operatingMode=_operatingMode;
 @property(nonatomic) struct tagVCMediaQueue *mediaQueue; // @synthesize mediaQueue=_mediaQueue;
 @property(retain, nonatomic) AVCBasebandCongestionDetector *basebandCongestionDetector; // @synthesize basebandCongestionDetector=_basebandCongestionDetector;

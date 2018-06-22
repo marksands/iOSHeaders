@@ -12,7 +12,7 @@
 
 @interface _SBFKeyWindowStack : NSObject <BSDescriptionProviding>
 {
-    SBFWindow *_currentKeyWindow;
+    SBFWindow *_expectedKeyWindow;
     NSMutableOrderedSet *_windowStack;
 }
 

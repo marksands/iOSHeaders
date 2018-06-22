@@ -8,12 +8,14 @@
 
 #import "PLViewControllerAnimatorObserving.h"
 
-@class MTLumaDodgePillView, NSString, UILabel, UINotificationFeedbackGenerator, UIPanGestureRecognizer, UIPresentationController<PLExpandedPlatterPresentationController>, UIView, _UIStatesFeedbackGenerator;
+@class MTLumaDodgePillView, NSString, UILabel, UINotificationFeedbackGenerator, UIPanGestureRecognizer, UIPresentationController<PLExpandedPlatterPresentationController>, UIView, UIView<PLExpandedPlatter>, _UIStatesFeedbackGenerator;
 
 @interface PLExpandedPlatterPresentationControllerHelper : NSObject <PLViewControllerAnimatorObserving>
 {
     UIView *_sourceView;
+    UIView<PLExpandedPlatter> *_presentedExpandedPlatter;
     struct CGRect _sourceViewInitialFrame;
+    struct CGAffineTransform _sourceViewInitialTransform;
     id <UIViewControllerTransitionCoordinator> _activeTransitionCoordinator;
     UIView *_dismissLabelContainerView;
     UILabel *_dismissLabel;
@@ -22,6 +24,10 @@
     _Bool _didPlayDismissHaptic;
     struct CGSize _childPreferredContentSize;
     MTLumaDodgePillView *_homeAffordanceView;
+    struct {
+        unsigned int didPerformPresentedExpandedPlatterCheck:1;
+        unsigned int didSetSourceViewInitialFrame:1;
+    } _expandedPlatterPresentationControllerHelperFlags;
     _Bool _listenToKeyboardEvents;
     _Bool _homeAffordanceVisible;
     UIPresentationController<PLExpandedPlatterPresentationController> *_presentationController;
@@ -31,8 +37,8 @@
     struct CGRect _keyboardFrame;
 }
 
-+ (struct CGSize)_sizeOfViewWithPreferredContentSize:(struct CGSize)arg1 inContainerViewWithBounds:(struct CGRect)arg2;
-+ (struct CGRect)useableContainerViewBoundsInContainerViewWithBounds:(struct CGRect)arg1;
++ (struct CGSize)_sizeOfExpandedPlatter:(id)arg1 withPreferredContentSize:(struct CGSize)arg2 inContainerViewWithBounds:(struct CGRect)arg3;
++ (struct CGRect)useableContainerViewBoundsForExpandedPlatter:(id)arg1 inContainerViewWithBounds:(struct CGRect)arg2;
 + (struct CGSize)_sizeOfViewWithPreferredContentSize:(struct CGSize)arg1 inUseableContainerViewBounds:(struct CGRect)arg2;
 @property(retain, nonatomic, getter=_keyboardHomeAffordance, setter=_setKeyboardHomeAffordance:) id <PLKeyboardHomeAffordanceAssertion> keyboardHomeAffordance; // @synthesize keyboardHomeAffordance=_keyboardHomeAffordance;
 @property(nonatomic, getter=_keyboardFrame, setter=_setKeyboardFrame:) struct CGRect keyboardFrame; // @synthesize keyboardFrame=_keyboardFrame;
@@ -55,6 +61,10 @@
 - (void)containerViewWillLayoutSubviews;
 - (void)dismissalTransitionWillBegin;
 - (void)presentationTransitionWillBegin;
+- (struct CGRect)finalFrameOfPresentingViewInContainerView;
+- (struct CGRect)initialFrameOfPresentedViewInContainerView;
+- (struct CGRect)initialFrameOfPresentingViewInContainerView;
+- (struct CGRect)_sourceViewInitialFrame;
 @property(readonly, nonatomic) struct CGRect frameOfPresentedViewInContainerView;
 - (id)presentedViewController;
 - (id)presentingViewController;
@@ -82,7 +92,7 @@
 - (struct UIEdgeInsets)_contentInsetWithPresentedFrame:(struct CGRect)arg1 inContainerViewWithBounds:(struct CGRect)arg2;
 - (struct CGRect)_frameOfPresentedViewInContainerViewWithBounds:(struct CGRect)arg1;
 - (id)_previewInteractionManager;
-- (id)_expandedPlatterView;
+- (id)_presentedExpandedPlatter;
 - (id)_previewInteractionPresentableViewController;
 - (id)initWithExpandedPlatterPresentationController:(id)arg1 andSourceView:(id)arg2;
 

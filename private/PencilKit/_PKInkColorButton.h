@@ -18,7 +18,7 @@
 
 + (id)strokeColorForStrokeShapeLayerWithColor:(id)arg1 isUsedOnDarkBackground:(_Bool)arg2;
 + (id)pathForStrokeShapeLayerWithSwatchRect:(struct CGRect)arg1 selected:(_Bool)arg2 color:(id)arg3 isUsedOnDarkBackground:(_Bool)arg4;
-+ (id)pathForSelectedColorShapeLayerWithSwatchRect:(struct CGRect)arg1 selected:(_Bool)arg2 embossed:(_Bool)arg3;
++ (id)pathForSelectedColorShapeLayerWithSwatchRect:(struct CGRect)arg1 selected:(_Bool)arg2 embossed:(_Bool)arg3 isCompact:(_Bool)arg4;
 + (id)pathForFillShapeLayerWithSwatchRect:(struct CGRect)arg1 selected:(_Bool)arg2;
 + (id)embossOverlayImageForColor:(id)arg1 selected:(_Bool)arg2 isCompact:(_Bool)arg3;
 + (double)swatchInsetForIsCompact:(_Bool)arg1;

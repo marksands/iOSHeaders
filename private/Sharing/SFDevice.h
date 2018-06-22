@@ -20,7 +20,6 @@
     _Bool _hasProblem;
     _Bool _needsAWDL;
     _Bool _needsKeyboard;
-    _Bool _needsNAN;
     _Bool _needsSetup;
     _Bool _wakeDevice;
     _Bool _watchLocked;
@@ -50,7 +49,6 @@
 @property(copy, nonatomic) NSString *requestSSID; // @synthesize requestSSID=_requestSSID;
 @property(readonly, nonatomic) unsigned long long problemFlags; // @synthesize problemFlags=_problemFlags;
 @property(nonatomic) _Bool needsSetup; // @synthesize needsSetup=_needsSetup;
-@property(readonly, nonatomic) _Bool needsNAN; // @synthesize needsNAN=_needsNAN;
 @property(readonly, nonatomic) _Bool needsKeyboard; // @synthesize needsKeyboard=_needsKeyboard;
 @property(readonly, nonatomic) _Bool needsAWDL; // @synthesize needsAWDL=_needsAWDL;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;

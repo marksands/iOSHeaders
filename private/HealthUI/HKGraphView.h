@@ -276,8 +276,10 @@
 - (id)_actualVisibleRangeFromEffectiveVisibleRange:(id)arg1 dataAreaRect:(struct CGRect)arg2;
 - (void)setEffectiveAxisRange:(id)arg1 effectiveVisibleRangeCadence:(id)arg2 effectiveVisibleRangeActive:(id)arg3;
 - (void)_updateEffectiveAxisRange:(id)arg1 effectiveVisibleRangeCadence:(id)arg2 effectiveVisibleRangeActive:(id)arg3 virtualLeftMarginWidth:(double)arg4 virtualRightMarginWidth:(double)arg5;
+- (_Bool)_compareRange:(id)arg1 toRange:(id)arg2;
+- (_Bool)_compareChartDate:(id)arg1 toDate:(id)arg2;
 - (void)setEffectiveVisibleRangeActive:(id)arg1 animated:(_Bool)arg2;
-- (void)_setRangesForActiveVisibleRange:(id)arg1;
+- (_Bool)_setRangesForActiveVisibleRange:(id)arg1;
 - (id)_rangeFromRange:(id)arg1 withStartOfRange:(id)arg2;
 - (void)setVirtualRightMargin:(double)arg1;
 - (void)setVirtualLeftMargin:(double)arg1;

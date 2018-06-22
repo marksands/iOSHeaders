@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     double _beginTimestamp;
     PUPhotoKitAdjustmentSaveNode *_outputNode;
     PUVideoExportNode *_videoExportNode;
+    _Bool _useRawIfAvailable;
     int _identifier;
     PHAsset *_photo;
     PLPhotoEditModel *_editModel;
@@ -51,9 +52,9 @@ __attribute__((visibility("hidden")))
 - (long long)_videoRequestVersion;
 - (long long)_imageRequestVersion;
 - (void)beginSaveOperationWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (id)initWithPhoto:(id)arg1 editModel:(id)arg2 contentEditingOutput:(id)arg3 workImageVersion:(long long)arg4 irisEditModel:(id)arg5;
-- (id)initWithPhoto:(id)arg1 contentEditingOutput:(id)arg2 workImageVersion:(long long)arg3 irisEditModel:(id)arg4;
-- (id)initWithPhoto:(id)arg1 editModel:(id)arg2 workImageVersion:(long long)arg3 irisEditModel:(id)arg4;
+- (id)initWithPhoto:(id)arg1 editModel:(id)arg2 contentEditingOutput:(id)arg3 workImageVersion:(long long)arg4 irisEditModel:(id)arg5 useRawIfAvailable:(_Bool)arg6;
+- (id)initWithPhoto:(id)arg1 contentEditingOutput:(id)arg2 workImageVersion:(long long)arg3 irisEditModel:(id)arg4 useRawIfAvailable:(_Bool)arg5;
+- (id)initWithPhoto:(id)arg1 editModel:(id)arg2 workImageVersion:(long long)arg3 irisEditModel:(id)arg4 useRawIfAvailable:(_Bool)arg5;
 - (id)initWithPhotoToRevertToOriginal:(id)arg1;
 - (id)init;
 

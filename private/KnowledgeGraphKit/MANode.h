@@ -15,6 +15,7 @@
 
 - (void).cxx_destruct;
 - (unsigned long long)_memoryFootprint:(id)arg1;
+- (id)associatedNodesForRemoval;
 - (void)_enumerateEdgesOfType:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)_enumerateEdgesWithDomains:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)_enumerateEdgesWithLabel:(id)arg1 domain:(unsigned short)arg2 usingBlock:(CDUnknownBlockType)arg3;

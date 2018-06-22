@@ -16,9 +16,13 @@
     id <UICollectionViewDelegate> _delegate;
     UISelectionFeedbackGenerator *_feedbackGenerator;
     NSIndexPath *_lastHapticOnScrollIndexPath;
+    id <AVTUILogger> _logger;
+    struct CGPoint _previousOffset;
 }
 
+@property(retain, nonatomic) id <AVTUILogger> logger; // @synthesize logger=_logger;
 @property(retain, nonatomic) NSIndexPath *lastHapticOnScrollIndexPath; // @synthesize lastHapticOnScrollIndexPath=_lastHapticOnScrollIndexPath;
+@property(nonatomic) struct CGPoint previousOffset; // @synthesize previousOffset=_previousOffset;
 @property(retain, nonatomic) UISelectionFeedbackGenerator *feedbackGenerator; // @synthesize feedbackGenerator=_feedbackGenerator;
 @property(readonly, nonatomic) __weak id <UICollectionViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
@@ -30,7 +34,7 @@
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (_Bool)respondsToSelector:(SEL)arg1;
-- (id)initWithCollectionView:(id)arg1 delegate:(id)arg2;
+- (id)initWithCollectionView:(id)arg1 delegate:(id)arg2 environment:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

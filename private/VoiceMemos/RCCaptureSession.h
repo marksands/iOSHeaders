@@ -9,7 +9,7 @@
 #import "RCCaptureOutputWriterDelegate.h"
 #import "RCWaveformDataSourceObserver.h"
 
-@class NSDate, NSMutableOrderedSet, NSObject<OS_dispatch_group>, NSString, RCAVState, RCAudioSessionRoutingAssertion, RCCaptureInputDevice, RCCaptureInputWaveformDataSource, RCCaptureOutputWriter, SBSSecureAppAssertion;
+@class NSDate, NSMutableOrderedSet, NSObject<OS_dispatch_group>, NSString, RCAVState, RCAudioSessionRoutingAssertion, RCCaptureInputDevice, RCCaptureInputWaveformDataSource, RCCaptureOutputWriter, SBSLockScreenContentAssertion;
 
 @interface RCCaptureSession : NSObject <RCCaptureOutputWriterDelegate, RCWaveformDataSourceObserver>
 {
@@ -29,12 +29,12 @@
     NSMutableOrderedSet *_weakObservers;
     RCCaptureInputDevice *_inputDevice;
     RCCaptureInputWaveformDataSource *_captureWaveformDataSource;
-    SBSSecureAppAssertion *_assertion;
+    SBSLockScreenContentAssertion *_assertion;
 }
 
 + (void)playCaptureDidFinishSoundEffectWithCompletionBlock:(CDUnknownBlockType)arg1;
 + (void)playCaptureWillStartSoundEffectWithCompletionBlock:(CDUnknownBlockType)arg1;
-@property(retain, nonatomic) SBSSecureAppAssertion *assertion; // @synthesize assertion=_assertion;
+@property(retain, nonatomic) SBSLockScreenContentAssertion *assertion; // @synthesize assertion=_assertion;
 @property(readonly, nonatomic) RCCaptureInputWaveformDataSource *captureWaveformDataSource; // @synthesize captureWaveformDataSource=_captureWaveformDataSource;
 @property(readonly, nonatomic) RCCaptureInputDevice *inputDevice; // @synthesize inputDevice=_inputDevice;
 - (void).cxx_destruct;

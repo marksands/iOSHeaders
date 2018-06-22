@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (long long)compareLeftOrder:(id)arg1;
 - (long long)comparePriority:(id)arg1;
 - (_Bool)appearsInRegion:(int)arg1;
+- (_Bool)appearsOnCenter;
 - (_Bool)appearsOnRight;
 - (_Bool)appearsOnLeft;
 @property(readonly, nonatomic) NSString *indicatorName;

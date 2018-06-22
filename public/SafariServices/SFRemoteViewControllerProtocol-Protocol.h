@@ -9,6 +9,7 @@
 @class NSNumber, NSString, NSURL;
 
 @protocol SFRemoteViewControllerProtocol <NSObject>
+- (void)didChangeFullScreen:(_Bool)arg1;
 - (void)initialLoadDidRedirectToURL:(NSURL *)arg1;
 - (void)didDecideCookieSharingForURL:(NSURL *)arg1 shouldCancel:(_Bool)arg2;
 - (void)willOpenURLInHostApplication:(NSURL *)arg1;

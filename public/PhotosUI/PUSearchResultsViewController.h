@@ -47,6 +47,7 @@
 }
 
 + (id)preQuerySearchResultsLog;
++ (_Bool)_wantsFewerSuggestions;
 + (id)gridViewControllerSpec;
 @property(copy, nonatomic) CDUnknownBlockType ppt_searchTestCompletionHandler; // @synthesize ppt_searchTestCompletionHandler=_ppt_searchTestCompletionHandler;
 @property(nonatomic) _Bool aggdSearchSucceeded; // @synthesize aggdSearchSucceeded=_aggdSearchSucceeded;
@@ -83,11 +84,11 @@
 - (void)viewWillLayoutSubviews;
 - (void)_preferredContentSizeChanged:(id)arg1;
 - (double)_rowHeightForCurrentFont;
+- (id)_noResultsSearchedString;
+- (void)_updateSearchResultsTable;
 - (void)searchResultsDataSource:(id)arg1 didChangeThumbnailAssetsForSearchResult:(id)arg2;
 - (void)searchResultsDataSource:(id)arg1 didFetchAssetsForSearchResult:(id)arg2 indexPath:(id)arg3;
 - (void)searchResultsDataSourceHasPendingChanges:(id)arg1;
-- (void)_updateIndexingProgressViewVisibility;
-- (void)_updateSearchResultsTable;
 - (void)_saveSearch;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
@@ -97,11 +98,10 @@
 - (void)_selectSuggestionAtIndexPath:(id)arg1;
 - (_Bool)_rowShouldAllowTapForIndexPath:(id)arg1;
 - (_Bool)_isWordEmbeddingsForIndexPath:(id)arg1;
-- (id)_suggestionAttributedStringForIndexPath:(id)arg1;
 - (id)_suggestionForIndexPath:(id)arg1;
 - (unsigned long long)_numberOfSuggestions;
-- (long long)_rowForRelatedToRow;
-- (_Bool)_shouldShowRelatedToRow;
+- (long long)_rowForSuggestedSearchesRow;
+- (_Bool)_shouldShowSuggestedSearchesRow;
 - (_Bool)_shouldShowStringLiteralRow;
 - (_Bool)_hasSuggestions;
 - (_Bool)_shouldShowSuggestionSection;
@@ -140,11 +140,12 @@
 - (void)_pushViewForCollectionWithUUID:(id)arg1;
 - (void)_pushGridForPhotosWithUUIDs:(id)arg1 title:(id)arg2 searchCategories:(unsigned long long)arg3 headerViewTitle:(id)arg4;
 - (void)_pushGridForAlbumWithUUID:(id)arg1;
-- (void)_selectResultAtIndexPath:(id)arg1;
+- (void)_selectSearchResult:(id)arg1;
 - (void)didSelectTapToRadarButton:(id)arg1;
 - (void)wordEmbeddingTapped:(id)arg1;
 - (void)updateTableFooterViewFrame;
-@property(readonly, copy) NSString *description;
+- (void)_updateIndexingProgressViewVisibility;
+@property(readonly, copy) NSString *debugDescription;
 - (id)_axDummyCell;
 - (void)dealloc;
 - (void)viewDidLoad;
@@ -152,7 +153,7 @@
 - (id)newSearchResultsControllerWithSpec:(id)arg1 searchResults:(id)arg2 orAlbum:(struct NSObject *)arg3 title:(id)arg4 headerViewTitle:(id)arg5;
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

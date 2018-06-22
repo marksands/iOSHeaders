@@ -101,9 +101,11 @@
 - (id)_selfAccessoryUncached;
 - (_Bool)_isOwnerOfHome:(id)arg1;
 - (id)_cuPairingIdentityWithHMFPairingIdentity:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
+- (id)_bestUserAndLabel:(id *)arg1;
 - (id)_bestPairingIdentityAndLabel:(id *)arg1;
 - (void)_findPairedPeer:(id)arg1 options:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)findPairedPeer:(id)arg1 options:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_getPairingIdentityForUserCompleted:(id)arg1 options:(unsigned long long)arg2 error:(id)arg3 label:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)_getPairingIdentityForUserWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_getPairingIdentityForAccessoryWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)getPairingIdentityWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;

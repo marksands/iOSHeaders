@@ -9,7 +9,7 @@
 #import "CPTemplateDelegate.h"
 #import "CPTemplateServiceClientInterface.h"
 
-@class CPTemplate, NSArray, NSMutableArray, NSString, NSXPCConnection, UIWindow;
+@class CPMapContentWindow, CPTemplate, NSArray, NSMutableArray, NSString, NSXPCConnection;
 
 @interface CPInterfaceController : NSObject <CPTemplateDelegate, CPTemplateServiceClientInterface>
 {
@@ -17,13 +17,13 @@
     CPTemplate *_rootTemplate;
     NSXPCConnection *_connection;
     id <CPTemplateProviding> _templateProvider;
-    UIWindow *_carWindow;
+    CPMapContentWindow *_carWindow;
     NSMutableArray *_templateStack;
 }
 
 + (void)load;
 @property(retain, nonatomic) NSMutableArray *templateStack; // @synthesize templateStack=_templateStack;
-@property(retain, nonatomic) UIWindow *carWindow; // @synthesize carWindow=_carWindow;
+@property(retain, nonatomic) CPMapContentWindow *carWindow; // @synthesize carWindow=_carWindow;
 @property(retain, nonatomic) id <CPTemplateProviding> templateProvider; // @synthesize templateProvider=_templateProvider;
 @property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 @property(retain, nonatomic) CPTemplate *rootTemplate; // @synthesize rootTemplate=_rootTemplate;
@@ -35,6 +35,7 @@
 - (id)_activeMapTemplate;
 - (void)templateIdentifierDidPop:(id)arg1;
 - (void)clientExceededHierarchyDepthLimit;
+- (void)updateInterestingLayoutGuideWithInsets:(struct UIEdgeInsets)arg1;
 - (void)templateDidDisappear:(id)arg1 animated:(_Bool)arg2;
 - (void)templateWillDisappear:(id)arg1 animated:(_Bool)arg2;
 - (void)templateDidAppear:(id)arg1 animated:(_Bool)arg2;

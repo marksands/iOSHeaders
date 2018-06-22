@@ -44,8 +44,10 @@ __attribute__((visibility("hidden")))
     unsigned int _tierNetworkBitrate;
     NSArray *_supportedNumRedundantPayload;
     _Bool _sendActiveVoiceOnly;
+    _Bool _currentDTXEnable;
 }
 
+@property(nonatomic, getter=isCurrentDTXEnabled) _Bool currentDTXEnable; // @synthesize currentDTXEnable=_currentDTXEnable;
 @property(nonatomic) int reportingParentID; // @synthesize reportingParentID=_reportingParentID;
 @property(nonatomic) _Bool sendActiveVoiceOnly; // @synthesize sendActiveVoiceOnly=_sendActiveVoiceOnly;
 @property(retain, nonatomic) NSArray *supportedNumRedundantPayload; // @synthesize supportedNumRedundantPayload=_supportedNumRedundantPayload;

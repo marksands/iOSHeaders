@@ -11,8 +11,8 @@
 }
 
 + (id)_predicateForRecoveryIdentifier:(id)arg1 workoutSession:(id)arg2;
-+ (_Bool)sessionControllerEntityForRecoveryIdentifier:(id)arg1 workoutSession:(id)arg2 transaction:(id)arg3 error:(id *)arg4 block:(CDUnknownBlockType)arg5;
-+ (_Bool)storeSessionControllerEntityWithIdentifier:(id)arg1 archivedState:(id)arg2 workoutSession:(id)arg3 transaction:(id)arg4 error:(id *)arg5;
++ (_Bool)retrieveArchivedStateFromRecoveryIdentifier:(id)arg1 workoutSession:(id)arg2 transaction:(id)arg3 error:(id *)arg4 block:(CDUnknownBlockType)arg5;
++ (_Bool)storeArchivedStateWithRecoveryIdentifier:(id)arg1 archivedState:(id)arg2 workoutSession:(id)arg3 transaction:(id)arg4 error:(id *)arg5;
 + (long long)protectionClass;
 + (id)columnsDefinition;
 + (id)databaseTable;

@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)layoutForWidth:(double)arg1 position:(int)arg2;
 - (id)_attendeesListView;
 - (void)_setAttendees:(id)arg1;
+- (void)_attendeesDidFinishLoadingForTest;
 - (id)_attendeesWithoutOrganizerAndLocations;
 - (_Bool)update;
 - (double)displayHeight;

@@ -21,7 +21,7 @@
     PXCloudPhotoWelcomeView *_welcomeView;
 }
 
-+ (_Bool)shouldPresentCloudPhotoWelcomeViewController;
++ (_Bool)shouldPresentCloudPhotoWelcomeViewController:(_Bool *)arg1;
 @property(retain, nonatomic) PXCloudPhotoWelcomeView *welcomeView; // @synthesize welcomeView=_welcomeView;
 - (void).cxx_destruct;
 - (void)_handleEnableError:(id)arg1;

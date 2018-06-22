@@ -9,7 +9,7 @@
 #import "AVTAvatarTransitionModel.h"
 #import "AVTEngagementRatioSupport.h"
 
-@class AVTImageTransitioningContainerView, AVTView, NSString, UIImageView, UIView;
+@class AVTImageTransitioningContainerView, AVTView, NSString, UIImage, UIView;
 
 @interface AVTAvatarListCell : UICollectionViewCell <AVTAvatarTransitionModel, AVTEngagementRatioSupport>
 {
@@ -32,11 +32,14 @@
 - (void)applyBaseAlpha;
 - (void)transitionLiveViewToFront;
 - (void)transitionStaticViewToFront;
+- (void)setImageViewVisible:(_Bool)arg1;
+- (void)prepareForReuse;
 - (void)layoutSubviews;
 - (void)endUsingAVTView;
 - (void)beginUsingAVTViewFromSession:(id)arg1;
 @property(readonly, nonatomic) UIView *avtViewContainer;
-@property(readonly, nonatomic) UIImageView *imageView;
+- (void)setImage:(id)arg1 animated:(_Bool)arg2;
+@property(retain, nonatomic) UIImage *image;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)downcastWithCellHandler:(CDUnknownBlockType)arg1 listCellHandler:(CDUnknownBlockType)arg2;
 

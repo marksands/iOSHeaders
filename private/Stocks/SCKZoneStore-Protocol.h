@@ -12,7 +12,7 @@
 @property(copy, nonatomic) CKServerChangeToken *serverChangeToken;
 @property(copy, nonatomic) NSDate *lastDirtyDate;
 @property(copy, nonatomic) NSDate *lastSyncDate;
-- (void)clearPendingCommands;
+- (void)clearPendingCommandsUpToCount:(unsigned long long)arg1;
 - (void)addPendingCommands:(NSArray *)arg1;
 - (void)applyServerRecordsDiff:(SCKZoneDiff *)arg1;
 @end

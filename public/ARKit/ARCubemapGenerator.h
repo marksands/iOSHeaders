@@ -6,20 +6,20 @@
 
 #import "NSObject.h"
 
-@class ARCameraToCubeMap, ARCubemapCompletion, ARGPUCubemapProjector;
+@class ARCubemapCompletion, ARGPUCubemapProjector, ARGPUWarper, NSObject<OS_dispatch_queue>;
 
 @interface ARCubemapGenerator : NSObject
 {
     ARGPUCubemapProjector *_cubemapProjector;
     ARCubemapCompletion *_cubemapCompletion;
-    ARCameraToCubeMap *_cameraToCubeMap;
-    float _gaussianBlurSigmaCameraToCubeMap;
+    ARGPUWarper *_gpuWarper;
+    NSObject<OS_dispatch_queue> *_cubemapQueue;
 }
 
 - (void).cxx_destruct;
 -     // Error parsing type: f96@0:816{?=[4]}32, name: distanceToViewFrustrumAtPosition:withCameraViewProjection:
-- (float)approxCoveredSolidAngleByPlanes:(vector_4cb10df0)arg1 atPosition: /* Error: Ran out of types for this method. */;
--     // Error parsing type: @280@0:8{?=[4]}1680{vector<ARTexturedPlane, std::__1::allocator<ARTexturedPlane> >=^{?}^{?}{__compressed_pair<ARTexturedPlane *, std::__1::allocator<ARTexturedPlane> >=^{?}}}96^{__CVBuffer=}120{?=[4]}128{?=[4]}192d256q264^@272, name: cubemapWithTransform:extent:fromPlanes:cameraImage:cameraTransform:cameraProjection:cameraExposure:texturingMode:error:
+- (float)approxCoveredSolidAngleByPlanes:(vector_478e3a44)arg1 atPosition: /* Error: Ran out of types for this method. */;
+-     // Error parsing type: v260@0:8{?=[4]}1680{vector<ARTexturedPlane, std::__1::allocator<ARTexturedPlane> >=^{?}^{?}{__compressed_pair<ARTexturedPlane *, std::__1::allocator<ARTexturedPlane> >=^{?}}}96^{__CVBuffer=}120{?=[4]}128{?=[3]}192d240f248@?252, name: cubemapWithTransform:extent:fromPlanes:cameraImage:cameraTransform:cameraIntrinsics:cameraExposure:cameraExposureOffset:completionHandler:
 - (id)init;
 
 @end

@@ -20,11 +20,13 @@
     CDUnknownBlockType cellWillDisplayHandler;
     SearchUIResultTableViewController *_resultTableViewController;
     SearchUIReplicatorView *_replicatorView;
+    NSString *_previousSearchString;
     id <SearchUIResultViewDelegate> _delegate;
 }
 
 @property(nonatomic) _Bool shouldMonitorScrollingPastBottomOfContent; // @synthesize shouldMonitorScrollingPastBottomOfContent=_shouldMonitorScrollingPastBottomOfContent;
 @property(nonatomic) __weak id <SearchUIResultViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain) NSString *previousSearchString; // @synthesize previousSearchString=_previousSearchString;
 @property(retain) SearchUIReplicatorView *replicatorView; // @synthesize replicatorView=_replicatorView;
 @property(retain) SearchUIResultTableViewController *resultTableViewController; // @synthesize resultTableViewController=_resultTableViewController;
 @property(copy, nonatomic) CDUnknownBlockType cellWillDisplayHandler; // @synthesize cellWillDisplayHandler;

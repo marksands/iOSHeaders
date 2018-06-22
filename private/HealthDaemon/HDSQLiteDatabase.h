@@ -18,6 +18,7 @@
     NSMutableDictionary *_attachedDatabaseURLsByName;
     struct unordered_set<sqlite3_stmt *, std::__1::hash<sqlite3_stmt *>, std::__1::equal_to<sqlite3_stmt *>, std::__1::allocator<sqlite3_stmt *>> _activeStatements;
     _Bool _isHandlingTransactionEnd;
+    NSMutableArray *_beforeCommitBlocks;
     NSMutableArray *_onCommitBlocks;
     NSMutableArray *_onRollbackBlocks;
     _Bool _writer;
@@ -59,6 +60,7 @@
 - (_Bool)table:(id)arg1 hasColumnWithName:(id)arg2 error:(id *)arg3;
 - (long long)validateForeignKeysForTable:(id)arg1 databaseName:(id)arg2 error:(id *)arg3;
 - (void)requireRollback;
+- (void)beforeCommit:(CDUnknownBlockType)arg1;
 - (void)onCommit:(CDUnknownBlockType)arg1 orRollback:(CDUnknownBlockType)arg2;
 - (_Bool)_integerValueForPragma:(id)arg1 databaseName:(id)arg2 value:(long long *)arg3 error:(id *)arg4;
 - (_Bool)_setPragma:(id)arg1 integerValue:(long long)arg2 withDatabaseName:(id)arg3 error:(id *)arg4;

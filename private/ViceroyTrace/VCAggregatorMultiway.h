@@ -6,29 +6,60 @@
 
 #import <ViceroyTrace/VCAggregator.h>
 
-@class DownlinkSegment, NSString, UplinkSegment;
+#import "DownlinkSegmentDelegate.h"
+
+@class DownlinkSegment, NSMutableDictionary, NSString, UplinkSegment;
 
 __attribute__((visibility("hidden")))
-@interface VCAggregatorMultiway : VCAggregator
+@interface VCAggregatorMultiway : VCAggregator <DownlinkSegmentDelegate>
 {
     NSString *_currentUplinkSegmentKey;
     UplinkSegment *_currentUplinkSegment;
     NSString *_currentDownlinkSegmentKey;
     DownlinkSegment *_currentDownlinkSegment;
+    NSMutableDictionary *_calls;
     unsigned int _participantCounter;
+    double _lastParticipantNumberChangeTime;
+    double _numberOfParticipantsDuration[40];
+    double _totalParticipantMeasuredTime;
     unsigned int _numberOfUplinkSegments;
     unsigned int _numberOfDownlinkSegments;
     unsigned int _sessionTotalDurationTicks;
     unsigned int _sessionAggregatedDurationTicks;
+    unsigned int _sessionUplinkTargetBitrateSwitchCount;
+    unsigned long long _sessionUplinkBWEstimationSum;
+    unsigned long long _sessionDownlinkBWEstimationSum;
+    unsigned long long _sessionUplinkTargetBitrateSum;
+    unsigned long long _sessionUplinkActualBitrateSum;
+    unsigned long long _sessionRoundTripTimeSum;
+    unsigned long long _sessionTotalReceivedSum;
+    unsigned long long _sessionTotalLostSum;
     unsigned int _sessionEndReason;
+    unsigned int _lastReportedDownlinkPacketsReceived;
+    unsigned int _lastReportedDownlinkBytesReceived;
+    unsigned int _lastReportedUplinkPacketsReceived;
+    unsigned int _lastReportedUplinkPacketsSent;
+    unsigned int _lastReportedUplinkBytesSent;
     _Bool _isFullsizeUI;
 }
 
+- (double)audioErasureTotalTime;
+- (unsigned int)audioErasureCount;
+- (double)significantVideoStallTotalTime;
+- (unsigned int)significantVideoStallCount;
 - (int)learntBitrateForSegment:(id)arg1 defaultValue:(int)arg2;
 - (void)updateTargetBitrateForSegment:(id)arg1 newValue:(int)arg2;
 - (int)adaptiveLearningState;
 - (void)processEventWithCategory:(unsigned short)arg1 type:(unsigned short)arg2 payload:(id)arg3;
+- (void)processParticipantTimingInfo:(id)arg1;
+- (void)processNumberOfParticipants:(unsigned int)arg1;
 - (void)processRTEvent:(id)arg1;
+- (void)processVideoStreamSwitch:(id)arg1;
+- (void)processAudioStreamSwitch:(id)arg1;
+- (void)processActualBitrateChange:(id)arg1;
+- (void)processDownlinkRateChange:(id)arg1;
+- (void)finalizeCall:(id)arg1;
+- (void)addNewCall:(id)arg1;
 - (void)startDownlinkSegment;
 - (void)resetDownlinkSegment;
 - (void)flushCurrentDownlinkSegment;
@@ -39,7 +70,8 @@ __attribute__((visibility("hidden")))
 - (id)aggregatedUplinkSegmentReport;
 - (id)interfaceTypeIndicator;
 - (void)saveCallSegmentHistory;
-- (id)aggregatedCallReport;
+- (id)aggregatedSessionReport;
+- (id)aggregatedCallReports;
 - (id)aggregatedSegmentQRReport;
 - (id)aggregatedSegmentReport:(int)arg1;
 - (void)initAdaptiveLearningWithParameters:(id)arg1;
@@ -48,6 +80,12 @@ __attribute__((visibility("hidden")))
 - (_Bool)isWhitelistedEvent:(unsigned short)arg1;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -17,6 +17,7 @@
 }
 
 + (_Bool)shouldIgnoreRequestType:(unsigned char)arg1 fromClientWithId:(id)arg2;
++ (void)cancelOldActivities;
 + (id)sharedInstance;
 - (void).cxx_destruct;
 - (void)_cancelXpcActivity;

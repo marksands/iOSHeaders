@@ -32,6 +32,7 @@
 - (id)currentTimeString;
 - (void)_createDateTimeFormatters;
 - (void)_updateCurrentTime;
+- (void)loadTimeZoneController:(id)arg1;
 - (void)setTimeZoneValue:(id)arg1 specifier:(id)arg2;
 - (id)timeZoneValue:(id)arg1;
 - (void)set24HourTime:(id)arg1 specifier:(id)arg2;

@@ -23,6 +23,7 @@
 - (_Bool)setUsagePoliciesForBundle:(id)arg1 cellular:(_Bool)arg2 wifi:(_Bool)arg3;
 - (_Bool)setCellularUsagePolicy:(id)arg1 forBundle:(id)arg2;
 - (id)usagePolicyFor:(id)arg1;
+- (void)flushPrefetchingQueue;
 - (void)prefetchUsagePolicyFor:(id)arg1;
 - (id)fetchUsagePolicyFor:(id)arg1;
 - (id)init;

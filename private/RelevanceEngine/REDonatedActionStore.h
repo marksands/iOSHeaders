@@ -16,12 +16,13 @@
 }
 
 - (void).cxx_destruct;
+- (void)_queue_distributeRecentDonatedActions;
+- (void)_queue_distributeAllDonatedActions;
 - (void)_queue_distributeDonatedActionsWithQuery:(id)arg1 prefKey:(struct __CFString *)arg2 actionBlock:(CDUnknownBlockType)arg3;
+- (void)_removeThenDistributeAllActions;
 - (void)_queue_distributeRecentDeletedActions;
 - (void)_distributeRecentDeletedActions;
-- (void)_queue_distributeRecentDonatedActions;
 - (void)_distributeRecentDonatedActions;
-- (void)_queue_distributeAllDonatedActions;
 - (void)_distributeAllDonatedActions;
 - (void)_subscribeToNotifications;
 - (void)triggerDistributeAllDonatedActions;

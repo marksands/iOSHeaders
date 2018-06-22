@@ -23,6 +23,9 @@
     _Bool _collapseInteractionDidMove;
     struct CGPoint _collapseGestureStartingLocation;
     UILongPressGestureRecognizer *_touchTracker;
+    _Bool _addsVerticalPaddingForStatusBar;
+    _Bool _fadesOutDuringStickerDrag;
+    _Bool _usesDimmingView;
     _Bool _inTransition;
     _Bool _inDragAndDrop;
     UIViewController<CKBrowserViewControllerProtocol> *_contentViewController;
@@ -47,6 +50,9 @@
 @property(nonatomic) _Bool inTransition; // @synthesize inTransition=_inTransition;
 @property(retain, nonatomic) CKDismissView *dismissView; // @synthesize dismissView=_dismissView;
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
+@property(nonatomic) _Bool usesDimmingView; // @synthesize usesDimmingView=_usesDimmingView;
+@property(nonatomic) _Bool fadesOutDuringStickerDrag; // @synthesize fadesOutDuringStickerDrag=_fadesOutDuringStickerDrag;
+@property(nonatomic) _Bool addsVerticalPaddingForStatusBar; // @synthesize addsVerticalPaddingForStatusBar=_addsVerticalPaddingForStatusBar;
 @property(nonatomic) __weak id <CKFullScreenAppViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) UIViewController<CKBrowserViewControllerProtocol> *contentViewController; // @synthesize contentViewController=_contentViewController;
 - (void).cxx_destruct;
@@ -84,6 +90,7 @@
 - (void)animateBrowserViewFromSourceRect:(struct CGRect)arg1 interactive:(_Bool)arg2 grabberView:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (struct CGRect)finalContentViewFrame;
 - (double)topAreaHeight;
+- (void)addNewGrabberView;
 - (void)viewDidLayoutSubviews;
 - (void)loadView;
 - (id)initWithConversation:(id)arg1 plugin:(id)arg2;

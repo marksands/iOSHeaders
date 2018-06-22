@@ -10,13 +10,13 @@
 
 @interface ASVButton : UIControl
 {
+    UIFont *_regularFont;
+    UIFont *_boldFont;
     long long _controlStyle;
     ASVWrappedButton *_button;
     ASVBlurredBackgroundView *_blurredBackgroundView;
     long long _buttonStyle;
     long long _textStyle;
-    UIFont *_regularFont;
-    UIFont *_boldFont;
     UIColor *_white35PercentColor;
     UIColor *_white100PercentColor;
     UIColor *_white70PercentColor;
@@ -24,6 +24,7 @@
     UIColor *_black70PercentColor;
     UIColor *_blue100PercentColor;
     UIColor *_blue50PercentColor;
+    struct UIEdgeInsets _largeImageInsets;
 }
 
 @property(retain, nonatomic) UIColor *blue50PercentColor; // @synthesize blue50PercentColor=_blue50PercentColor;
@@ -39,8 +40,10 @@
 @property(nonatomic) long long buttonStyle; // @synthesize buttonStyle=_buttonStyle;
 @property(retain, nonatomic) ASVBlurredBackgroundView *blurredBackgroundView; // @synthesize blurredBackgroundView=_blurredBackgroundView;
 @property(retain, nonatomic) ASVWrappedButton *button; // @synthesize button=_button;
+@property(nonatomic) struct UIEdgeInsets largeImageInsets; // @synthesize largeImageInsets=_largeImageInsets;
 @property(nonatomic) long long controlStyle; // @synthesize controlStyle=_controlStyle;
 - (void).cxx_destruct;
+- (void)_didUpdateContentSizeCategory:(id)arg1;
 - (void)_didUpdateDarkenColorsSetting:(id)arg1;
 - (void)_updateTitleStyleForButton:(id)arg1 withControlStyle:(long long)arg2;
 - (id)_colorDarkenedIfNeededForColor:(id)arg1;
@@ -51,9 +54,10 @@
 - (void)addTarget:(id)arg1 action:(SEL)arg2 forControlEvents:(unsigned long long)arg3;
 - (id)initWithImage:(id)arg1 controlStyle:(long long)arg2;
 - (id)initWithTitle:(id)arg1 controlStyle:(long long)arg2;
+- (id)initWithImage:(id)arg1 buttonStyle:(long long)arg2 textStyle:(long long)arg3 controlStyle:(long long)arg4 largeImageInsets:(struct UIEdgeInsets)arg5;
 - (id)initWithImage:(id)arg1 buttonStyle:(long long)arg2 textStyle:(long long)arg3 controlStyle:(long long)arg4;
 - (id)initWithTitle:(id)arg1 buttonStyle:(long long)arg2 textStyle:(long long)arg3 controlStyle:(long long)arg4;
-- (id)initWithButton:(id)arg1 buttonStyle:(long long)arg2 textStyle:(long long)arg3 controlStyle:(long long)arg4;
+- (id)initWithButton:(id)arg1 buttonStyle:(long long)arg2 textStyle:(long long)arg3 controlStyle:(long long)arg4 largeImageInsets:(struct UIEdgeInsets)arg5;
 
 @end
 

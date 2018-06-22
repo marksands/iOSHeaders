@@ -39,6 +39,7 @@
 - (id)viewControllerForStoryboardPresentationFromBannerView:(id)arg1;
 - (void)reportEngagementEventWithType:(unsigned long long)arg1;
 - (void)configureTimelineForImpressionReporting;
+- (void)nextVideoStartPlaying;
 - (void)presentPrivacyStatement;
 - (void)presentAction;
 @property(readonly, nonatomic) _Bool hasAction;

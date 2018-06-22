@@ -23,7 +23,7 @@
 - (_Bool)removeAllEarnedInstancesWithError:(id *)arg1;
 - (id)allEarnedInstancesWithError:(id *)arg1;
 - (_Bool)removeEarnedInstances:(id)arg1 error:(id *)arg2;
-- (id)insertEarnedInstances:(id)arg1 provenance:(long long)arg2 error:(id *)arg3;
+- (id)insertEarnedInstances:(id)arg1 provenance:(long long)arg2 databaseContext:(id)arg3 error:(id *)arg4;
 - (id)initWithProfile:(id)arg1;
 
 // Remaining properties

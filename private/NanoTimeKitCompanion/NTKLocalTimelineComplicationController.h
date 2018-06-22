@@ -61,9 +61,9 @@
 - (void)setTimelineStartDate:(id)arg1;
 - (void)invalidateEntries;
 - (double)minimumIntervalBetweenTimelineEntries;
-- (void)setCurrentTemplate:(id)arg1 withAnimation:(unsigned long long)arg2;
+- (void)setCurrentTemplate:(id)arg1 reason:(long long)arg2 animation:(unsigned long long)arg3;
 - (void)_queueAnimationForNextUpdate:(unsigned long long)arg1;
-- (void)_updateCurrentTemplate;
+- (void)_updateCurrentTemplateWithReason:(long long)arg1;
 - (void)_updateTimeTravelBoundaries;
 - (void)setTimeTravelDate:(id)arg1 animated:(_Bool)arg2;
 - (void)addDisplayWrapper:(id)arg1;

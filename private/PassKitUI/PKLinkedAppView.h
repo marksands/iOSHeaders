@@ -23,10 +23,14 @@
     PKLinkedApplication *_linkedApplication;
     UIColor *_mainLabelColor;
     UIColor *_subTextLabelColor;
+    UIColor *_buttonBackgroundColor;
+    UIColor *_buttonTintColor;
 }
 
-@property(nonatomic) UIColor *subTextLabelColor; // @synthesize subTextLabelColor=_subTextLabelColor;
-@property(nonatomic) UIColor *mainLabelColor; // @synthesize mainLabelColor=_mainLabelColor;
+@property(retain, nonatomic) UIColor *buttonTintColor; // @synthesize buttonTintColor=_buttonTintColor;
+@property(retain, nonatomic) UIColor *buttonBackgroundColor; // @synthesize buttonBackgroundColor=_buttonBackgroundColor;
+@property(retain, nonatomic) UIColor *subTextLabelColor; // @synthesize subTextLabelColor=_subTextLabelColor;
+@property(retain, nonatomic) UIColor *mainLabelColor; // @synthesize mainLabelColor=_mainLabelColor;
 @property(readonly, nonatomic) PKLinkedApplication *linkedApplication; // @synthesize linkedApplication=_linkedApplication;
 - (void).cxx_destruct;
 - (void)_buttonPressed:(id)arg1;

@@ -53,6 +53,7 @@
     int _currentPositionIndex;
     int _accelOverThresholdCount;
     int _currentAccelerationIndex;
+    _Bool _allowRotateAutoDismiss;
     _Bool _showAllAnimationStatesBeforeHiding;
     _Bool _showAnimatedUI;
     _Bool _interceptARKitSensorData;
@@ -70,6 +71,7 @@
 @property(nonatomic) float moveDistanceThreshold; // @synthesize moveDistanceThreshold=_moveDistanceThreshold;
 @property(nonatomic) double minimumAnimationTime; // @synthesize minimumAnimationTime=_minimumAnimationTime;
 @property(nonatomic) double inactiveTimeBeforeShowUI; // @synthesize inactiveTimeBeforeShowUI=_inactiveTimeBeforeShowUI;
+@property(nonatomic) _Bool allowRotateAutoDismiss; // @synthesize allowRotateAutoDismiss=_allowRotateAutoDismiss;
 @property(nonatomic) float resetButtonPortraitVerticalOffset; // @synthesize resetButtonPortraitVerticalOffset=_resetButtonPortraitVerticalOffset;
 @property(nonatomic) float resetButtonLandscapeVerticalOffset; // @synthesize resetButtonLandscapeVerticalOffset=_resetButtonLandscapeVerticalOffset;
 @property(nonatomic) __weak id <ASVAROnboardingUIViewDelegate> delegate; // @synthesize delegate=_delegate;
@@ -107,6 +109,7 @@
 - (void)activate;
 - (void)prepare;
 - (void)hide;
+- (void)orientationChanged;
 - (void)updateConstraints;
 - (void)createConstraintsForCurrentDeviceOrientation;
 - (void)layoutSubviews;

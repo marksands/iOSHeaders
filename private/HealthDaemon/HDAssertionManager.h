@@ -26,7 +26,7 @@
 - (void)invalidate;
 - (void)removeObserver:(id)arg1;
 - (void)removeObserver:(id)arg1 forAssertionIdentifier:(id)arg2;
-- (void)addObserver:(id)arg1 forAssertionIdentifier:(id)arg2;
+- (void)addObserver:(id)arg1 forAssertionIdentifier:(id)arg2 queue:(id)arg3;
 - (_Bool)takeAssertion:(id)arg1;
 - (id)ownerIdentifiersForAssertionIdentifier:(id)arg1;
 - (id)activeAssertionsForIdentifier:(id)arg1;

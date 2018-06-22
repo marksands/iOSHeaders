@@ -11,6 +11,7 @@
 }
 
 + (id)sortedSocialGroupNodeForMomentNodes:(id)arg1;
++ (id)weightSortDescriptors;
 - (void)enumeratePersonNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateMomentNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)personNodes;

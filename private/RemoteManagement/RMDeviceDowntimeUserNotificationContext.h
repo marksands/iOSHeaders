@@ -10,10 +10,9 @@
 {
 }
 
++ (_Bool)supportsSecureCoding;
 - (id)destinations;
-- (id)categoryIdentifier;
-- (id)localizedUserNotificationBodyKey;
-- (id)localizedUserNotificationTitleKey;
+- (void)customizeNotificationContent:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)setEndDateComponents:(id)arg1;
 - (id)init;
 

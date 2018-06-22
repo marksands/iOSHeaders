@@ -17,9 +17,9 @@ __attribute__((visibility("hidden")))
     id <VUIScorecardViewDelegate> _delegate;
     VUIScoreboardLayout *_scoreboardLayout;
     double _interitemSpacing;
-    double _rowSpacing;
     NSArray *_rowElementSizes;
     NSArray *_columnWidths;
+    NSArray *_rowHeights;
     UIImage *_darkMaterialImage;
     struct CGSize _scorecardSize;
 }
@@ -27,9 +27,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool delegateRespondsToBackgroundBlendModeForElementInRowAtIndex; // @synthesize delegateRespondsToBackgroundBlendModeForElementInRowAtIndex=_delegateRespondsToBackgroundBlendModeForElementInRowAtIndex;
 @property(nonatomic) _Bool delegateRespondsToBackgroundImageForScorecardViewMaterial; // @synthesize delegateRespondsToBackgroundImageForScorecardViewMaterial=_delegateRespondsToBackgroundImageForScorecardViewMaterial;
 @property(retain, nonatomic) UIImage *darkMaterialImage; // @synthesize darkMaterialImage=_darkMaterialImage;
+@property(retain, nonatomic) NSArray *rowHeights; // @synthesize rowHeights=_rowHeights;
 @property(retain, nonatomic) NSArray *columnWidths; // @synthesize columnWidths=_columnWidths;
 @property(retain, nonatomic) NSArray *rowElementSizes; // @synthesize rowElementSizes=_rowElementSizes;
-@property(nonatomic) double rowSpacing; // @synthesize rowSpacing=_rowSpacing;
 @property(nonatomic) double interitemSpacing; // @synthesize interitemSpacing=_interitemSpacing;
 @property(nonatomic) struct CGSize scorecardSize; // @synthesize scorecardSize=_scorecardSize;
 @property(nonatomic) _Bool didCalculatedSize; // @synthesize didCalculatedSize=_didCalculatedSize;
@@ -39,8 +39,6 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)_calculateMetricsOfScorecard;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)_calculateColumnSpacing;
-- (id)_darkMaterialImage;
-- (id)_darkMaterialColor;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)invalidateData;
 

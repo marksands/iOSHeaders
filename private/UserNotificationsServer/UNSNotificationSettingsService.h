@@ -17,17 +17,13 @@
 }
 
 - (void).cxx_destruct;
-- (void)_queue_getAuthorizedBundleIdentifiersForBundleIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_queue_getNotificationSettingsForBundleIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)_queue_isCarPlayAvailableForApplication:(id)arg1;
 - (void)_queue_requestCriticalAlertAuthorizationForNotificationSourceDescription:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_queue_requestAuthorizationWithOptions:(unsigned long long)arg1 topics:(id)arg2 forNotificationSourceDescription:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_queue_requestAuthorizationWithTopics:(id)arg1 forNotificationSourceDescription:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_queue_requestAuthorizationWithOptions:(unsigned long long)arg1 forNotificationSourceDescription:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)getAuthorizedBundleIdentifiersForBundleIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)authorizedBundleIdentifiersForBundleIdentifiers:(id)arg1;
 - (id)notificationSettingsForBundleIdentifier:(id)arg1;
-- (void)getNotificationSettingsForBundleIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)requestCriticalAlertAuthorizationForNotificationSourceDescription:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)requestAuthorizationWithTopics:(id)arg1 forNotificationSourceDescription:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)requestAuthorizationWithOptions:(unsigned long long)arg1 forNotificationSourceDescription:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

@@ -308,7 +308,6 @@
 - (id)_encodableSubviews;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)invalidateIntrinsicContentSize;
 - (void)_invalidateContentConstraints;
 - (struct UIEdgeInsets)_combinedContentPaddingInsets;
 - (id)_layoutDebuggingTitle;

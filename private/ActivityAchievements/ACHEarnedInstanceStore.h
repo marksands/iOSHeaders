@@ -39,14 +39,16 @@
 - (void)addObserver:(id)arg1;
 - (void)_notifyObserversOfRemovedEarnedInstances:(id)arg1;
 - (void)_notifyObserversOfAddedEarnedInstances:(id)arg1;
+- (void)_notifyInitialFetchComplete;
 - (void)_fetchAllEarnedInstancesFromEntity;
 - (_Bool)removeAllEarnedInstancesWithError:(id *)arg1;
 - (_Bool)_queue_removeEarnedInstances:(id)arg1 error:(id *)arg2;
 - (_Bool)removeEarnedInstances:(id)arg1 error:(id *)arg2;
-- (id)_queue_addEarnedInstancesWithSingleTemplate:(id)arg1 provenance:(long long)arg2 error:(id *)arg3;
-- (_Bool)_queue_addEarnedInstances:(id)arg1 provenance:(long long)arg2 error:(id *)arg3;
+- (id)_queue_addEarnedInstancesWithSingleTemplate:(id)arg1 provenance:(long long)arg2 databaseContext:(id)arg3 error:(id *)arg4;
+- (_Bool)_queue_addEarnedInstances:(id)arg1 provenance:(long long)arg2 databaseContext:(id)arg3 error:(id *)arg4;
 - (void)_queue_appendOrInsertEarnedInstanceToInMemoryStore:(id)arg1;
 - (_Bool)addEarnedInstances:(id)arg1 error:(id *)arg2;
+- (_Bool)addEarnedInstances:(id)arg1 databaseContext:(id)arg2 error:(id *)arg3;
 - (id)earnedInstancesForTemplateUniqueName:(id)arg1;
 @property(readonly, nonatomic) NSArray *earnedInstances;
 - (id)_queue_earnedInstancesArray;

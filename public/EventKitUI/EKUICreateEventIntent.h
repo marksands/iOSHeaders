@@ -6,7 +6,7 @@
 
 #import "INIntent.h"
 
-@class CLPlacemark, INIdentifierString, NSString;
+@class CLPlacemark, INObject, NSString;
 
 @interface EKUICreateEventIntent : INIntent
 {
@@ -14,11 +14,11 @@
 
 
 // Remaining properties
-@property(copy, nonatomic) INIdentifierString *endDate; // @dynamic endDate;
+@property(copy, nonatomic) INObject *endDate; // @dynamic endDate;
 @property(copy, nonatomic) CLPlacemark *geolocation; // @dynamic geolocation;
 @property(copy, nonatomic) NSString *locationAddress; // @dynamic locationAddress;
 @property(copy, nonatomic) NSString *locationName; // @dynamic locationName;
-@property(copy, nonatomic) INIdentifierString *startDate; // @dynamic startDate;
+@property(copy, nonatomic) INObject *startDate; // @dynamic startDate;
 @property(copy, nonatomic) NSString *title; // @dynamic title;
 @end
 

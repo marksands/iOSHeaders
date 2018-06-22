@@ -36,7 +36,8 @@
 - (void)handleConnection:(id)arg1;
 - (void)handleServerEvent:(id)arg1;
 - (void)invalidate;
-- (id)sessionWithIdentifier:(id)arg1;
+- (void)deregisterSiriSession:(id)arg1;
+- (_Bool)registerSiriSession:(id)arg1;
 - (void)dealloc;
 - (id)initWithQueue:(id)arg1;
 

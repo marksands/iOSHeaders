@@ -79,29 +79,35 @@
 @property(readonly, nonatomic) NSUUID *UUID;
 - (id)initWithActivitySnapshots:(id)arg1 friendAchievements:(id)arg2 friendWorkouts:(id)arg3 contact:(id)arg4 competitions:(id)arg5;
 - (id)codableFriendIncludingCloudKitFields:(_Bool)arg1;
-- (id)_competitionStartMessage:(id)arg1 replacingNameAndDatePlaceholdersForCompetition:(id)arg2;
+- (id)as_competitionLearnMoreAction;
+- (id)as_competitionLearnMoreReceivedNotificationMessage;
+- (id)as_competitionLearnMoreSendConfirmationMessage;
+- (id)as_competitionLearnMoreTitle;
+- (id)_competitionStartMessage:(id)arg1 replacingNameAndDatePlaceholdersForCompetitionStartDate:(id)arg2;
 - (id)as_competitionAcceptConfirmationMessageForCompetition:(id)arg1;
 - (id)as_competitionAcceptConfirmationTitle;
 - (id)as_competitionAcceptedNotificationMessageForCompetition:(id)arg1;
 - (id)as_competitionAcceptedNotificationTitle;
 - (id)as_competitionAcceptErrorMessage;
-- (id)as_competitionReceivedNotificationRulesFootnoteForFirstCompetition:(_Bool)arg1;
+- (id)as_competitionReceivedHidingAcceptAction;
 - (id)as_competitionReceivedNotificationAcceptAction;
-- (id)as_competitionReceivedNotificationMessageForFirstCompetition:(_Bool)arg1;
+- (id)as_competitionReceivedHidingWarningMessage;
+- (id)as_competitionReceivedNotificationMessage;
 - (id)as_competitionReceivedNotificationTitle;
 - (id)as_competitionSendErrorMessage;
-- (id)as_competitionSendConfirmationRulesFootnoteForFirstCompetition:(_Bool)arg1;
 - (id)as_competitionSendConfirmationSendAction;
-- (id)as_competitionSendConfirmationMessageForFirstCompetition:(_Bool)arg1;
-- (id)as_competitionSendConfirmationTitleForFirstCompetition:(_Bool)arg1;
+- (id)as_competitionSendConfirmationMessage;
+- (id)as_competitionSendConfirmationTitle;
 - (id)as_opponentCompetitionScoreStringWithContext:(id)arg1 color:(id)arg2;
 - (id)as_myCompetitionScoreStringWithContext:(id)arg1 color:(id)arg2;
 - (id)as_competitionStageString;
 - (id)as_competitionRequestDurationRemainingString;
+- (id)as_competitionSentBreadcrumbString;
 - (id)as_invitedDurationString;
 - (id)as_simpleHiddenFromString;
 - (id)as_simpleSharingDurationString;
 - (id)as_detailedSharingDurationString;
+- (id)as_friendListNameStringWithDotPrefix:(id)arg1 keyColor:(id)arg2;
 
 @end
 

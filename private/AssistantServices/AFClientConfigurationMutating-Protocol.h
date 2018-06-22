@@ -12,7 +12,10 @@
 - (void)setTwoShotAudioPlaybackRequest:(AFAudioPlaybackRequest *)arg1;
 - (void)setTapToSiriAudioPlaybackRequest:(AFAudioPlaybackRequest *)arg1;
 - (void)setOutputVolume:(float)arg1;
+- (void)setIsAccessibilityVibrationDisabled:(_Bool)arg1;
+- (void)setIsAccessibilityVoiceOverTouchEnabled:(_Bool)arg1;
 - (void)setIsDeviceInCarDNDMode:(_Bool)arg1;
 - (void)setIsDeviceInSetupFlow:(_Bool)arg1;
+- (void)setDeviceRingerSwitchState:(long long)arg1;
 @end
 

@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSIndexPath *zoomingCellIndexPath; // @synthesize zoomingCellIndexPath=_zoomingCellIndexPath;
 @property(nonatomic) struct UIOffset sharingBadgeOffset; // @synthesize sharingBadgeOffset=_sharingBadgeOffset;
 - (void).cxx_destruct;
+- (_Bool)flipsHorizontallyInOppositeLayoutDirection;
 - (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;

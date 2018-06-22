@@ -16,7 +16,6 @@
 - (void)enteredFullscreen;
 - (void)tappedDiscoverMore;
 - (void)tappedAdvance;
-- (void)tappedReplay;
 - (void)tappedNowPlaying;
 - (void)tappedCallToAction;
 - (void)muteStateChanged:(_Bool)arg1;
@@ -28,5 +27,7 @@
 - (void)playbackPaused;
 - (void)playbackStarted;
 - (void)playbackInitiated;
+- (void)didDisappear;
+- (void)didAppear;
 @end
 

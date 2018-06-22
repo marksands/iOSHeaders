@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString, _UIActivityHelper, _UIActivityMatchingContext, _UIActivityMatchingResults;
+@class NSArray, NSString, _UIActivityHelper, _UIActivityMatchingContext;
 
 @protocol _UIActivityHelperDelegate <NSObject>
 - (_Bool)activityHelper:(_UIActivityHelper *)arg1 matchingWithContext:(_UIActivityMatchingContext *)arg2 shouldIncludeSystemActivityType:(NSString *)arg3;
-- (void)activityHelper:(_UIActivityHelper *)arg1 didUpdateActivityMatchingResults:(_UIActivityMatchingResults *)arg2;
 
 @optional
 - (NSArray *)activityHelper:(_UIActivityHelper *)arg1 activitiesForActivityType:(NSString *)arg2 matchingContext:(_UIActivityMatchingContext *)arg3;

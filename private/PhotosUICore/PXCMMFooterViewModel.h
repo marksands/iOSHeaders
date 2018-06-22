@@ -20,7 +20,6 @@
 - (void).cxx_destruct;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)_updateAllProperties;
-- (void)_trashMomentShare;
 - (id)initWithProgressListener:(id)arg1;
 - (id)init;
 

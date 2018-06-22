@@ -20,15 +20,17 @@
     long long _maximumNumberOfTrackedImages;
     NSSet *_detectionObjects;
     NSString *_slamConfiguration;
+    double _minVergenceAngle;
 }
 
 + (id)supportedVideoFormats;
 + (id)new;
 + (_Bool)isObjectDetectionSupported;
 + (_Bool)isSupported;
-@property(copy, nonatomic) NSString *slamConfiguration; // @synthesize slamConfiguration=_slamConfiguration;
 @property(nonatomic) _Bool deliverRawSceneUnderstandingResults; // @synthesize deliverRawSceneUnderstandingResults=_deliverRawSceneUnderstandingResults;
 @property(nonatomic, getter=isMLModelEnabled) _Bool mlModelEnabled; // @synthesize mlModelEnabled=_mlModelEnabled;
+@property(nonatomic) double minVergenceAngle; // @synthesize minVergenceAngle=_minVergenceAngle;
+@property(copy, nonatomic) NSString *slamConfiguration; // @synthesize slamConfiguration=_slamConfiguration;
 @property(nonatomic) _Bool relocalizationEnabled; // @synthesize relocalizationEnabled=_relocalizationEnabled;
 @property(copy, nonatomic) NSSet *detectionObjects; // @synthesize detectionObjects=_detectionObjects;
 @property(nonatomic) long long maximumNumberOfTrackedImages; // @synthesize maximumNumberOfTrackedImages=_maximumNumberOfTrackedImages;
@@ -40,7 +42,7 @@
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
-- (id)techniques;
+- (void)createTechniquesWithParallelTechniques:(id)arg1 serialTechniques:(id)arg2;
 - (id)imageSensorSettings;
 - (id)init;
 

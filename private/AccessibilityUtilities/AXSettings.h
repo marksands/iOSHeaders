@@ -98,6 +98,8 @@
 @property(nonatomic) long long touchAccommodationsTapActivationMethod;
 @property(nonatomic) double touchAccommodationsIgnoreRepeatDuration;
 @property(nonatomic) _Bool touchAccommodationsIgnoreRepeatEnabled;
+@property(nonatomic) long long touchAccommodationsHoldDurationSwipeGestureSensitivity;
+@property(nonatomic) _Bool touchAccommodationsHoldDurationAllowsSwipeGesturesToBypass;
 @property(nonatomic) double touchAccommodationsHoldDuration;
 @property(nonatomic) _Bool touchAccommodationsHoldDurationEnabled;
 @property(nonatomic) _Bool touchAccommodationsUsageConfirmed;
@@ -158,6 +160,7 @@
 @property(nonatomic) _Bool voiceOverVerbosityEmojiSuffixEnabled;
 @property(nonatomic) _Bool voiceOverPitchChangeEnabled;
 @property(nonatomic) double voiceOverPitch;
+@property(nonatomic) _Bool voiceOverAudioFollowsHDMIAudio;
 @property(nonatomic) _Bool voiceOverAudioDuckingEnabled;
 @property(nonatomic) _Bool voiceOverHintsEnabled;
 @property(nonatomic) _Bool voiceOverBrailleWordWrapEnabled;
@@ -301,7 +304,7 @@
 @property(nonatomic) long long switchControlTapBehavior;
 @property(nonatomic) double switchControlDwellTime;
 @property(nonatomic) long long switchControlScanningStyle;
-@property(nonatomic) _Bool switchControlPointPickerHighPrecisionEnabled;
+@property(nonatomic) long long switchControlPointPickerSelectionStyle;
 @property(nonatomic) _Bool switchControlRestartScanningAtCurrentKey;
 @property(nonatomic) _Bool switchControlShouldUseExtendedKeyboardPredictions;
 @property(retain, nonatomic) NSArray *switchControlMediaControlsTopLevelMenuItems;
@@ -363,7 +366,6 @@
 @property(nonatomic) _Bool assistiveTouchScannerMenuLabelsEnabled;
 @property(nonatomic) _Bool assistiveTouchScannerCompactMenuEnabled;
 @property(nonatomic) _Bool assistiveTouchGroupElementsEnabled;
-@property(nonatomic) _Bool assistiveTouchScannerPointPickerDefaultsToRescan;
 - (_Bool)assistiveTouchAutoScanningEnabled;
 @property(nonatomic) long long assistiveTouchScanningMode;
 @property(nonatomic) _Bool assistiveTouchScannerCursorHighVisibilityEnabled;
@@ -386,6 +388,7 @@
 - (void)_registerForNotification:(id)arg1;
 - (void)_handlePreferenceChanged:(id)arg1;
 - (void)_handleVoiceUnarchivedCache:(id)arg1;
+- (void)_listenForAccessibilitySupportPassthroughs;
 - (void)nukeAll;
 - (void)dealloc;
 - (id)init;

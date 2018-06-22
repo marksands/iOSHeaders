@@ -9,7 +9,7 @@
 #import "FCFeedElement.h"
 #import "FCFeedGroupOutlining.h"
 
-@class FCColor, FCColorGradient, FCFeedEdition, FCSharedStringIndex, NSArray, NSDate, NSString, NTPBDiscoverMoreVideosInfo, NTPBFeedViewportGroup, NTPBSpecialEventsConfig;
+@class FCColor, FCColorGradient, FCFeedEdition, FCSharedStringIndex, NSArray, NSDate, NSString, NTPBDiscoverMoreVideosInfo, NTPBFeedViewportGroup;
 
 @interface FCDeflatedFeedGroup : NSObject <FCFeedElement, FCFeedGroupOutlining>
 {
@@ -29,7 +29,6 @@
 @property(readonly, nonatomic) unsigned long long options;
 @property(readonly, copy, nonatomic) FCFeedEdition *edition;
 @property(readonly, nonatomic) NSDate *creationDate;
-@property(readonly, copy, nonatomic) NTPBSpecialEventsConfig *specialEventsConfig;
 @property(readonly, copy, nonatomic) NTPBDiscoverMoreVideosInfo *discoverMoreVideosInfo;
 @property(readonly, copy, nonatomic) FCColorGradient *backgroundGradient;
 @property(readonly, copy, nonatomic) FCColor *titleColor;

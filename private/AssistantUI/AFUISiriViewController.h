@@ -136,6 +136,7 @@
 - (void)_resumeRemoteViewControllerDispatchQueue;
 - (void)_suspendRemoteViewControllerDispatchQueue;
 - (void)telephonyRequestCompleted;
+- (void)setWaitingForTelephonyToStart:(_Bool)arg1;
 - (void)endSession;
 - (void)cancelTTS;
 - (_Bool)hasQueuedTTS;
@@ -156,13 +157,13 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (unsigned long long)supportedInterfaceOrientations;
 - (_Bool)shouldAutorotate;
-- (_Bool)_shouldPauseFlamesViewForSpeechRequest:(_Bool)arg1 isInitialBringUp:(_Bool)arg2 deviceSupportsZLL:(_Bool)arg3 isEyesFree:(_Bool)arg4;
 - (id)viewServiceApplicationInfo;
 - (void)shortTapAction;
 - (void)handleViewFullyRevealed;
 - (void)updateViewForPercentageRevealed:(double)arg1;
 - (void)setLockState:(unsigned long long)arg1;
 - (void)showPresentationWithIdentifier:(id)arg1 properties:(id)arg2 lockState:(unsigned long long)arg3;
+- (void)preloadPluginBundles;
 - (void)preloadPresentationBundleWithIdentifier:(id)arg1;
 - (id)currentRequestOptions;
 - (void)updateRequestOptions:(id)arg1;

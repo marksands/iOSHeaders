@@ -6,8 +6,6 @@
 
 #import "MTMaterialOverlaySettings.h"
 
-@class UIColor;
-
 @protocol MTMaterialLuminanceOverlaySettings <MTMaterialOverlaySettings>
 @property(nonatomic) double auxiliaryOverlayBlurRadius;
 @property(nonatomic) double secondaryOverlayBrightness;
@@ -17,7 +15,5 @@
 @property(nonatomic) double baseOverlayBlurRadius;
 @property(nonatomic) double baseOverlayBrightness;
 @property(nonatomic) double baseOverlaySaturation;
-@property(nonatomic) double baseOverlayTintAlpha;
-@property(readonly, copy, nonatomic) UIColor *baseOverlayColor;
 @end
 

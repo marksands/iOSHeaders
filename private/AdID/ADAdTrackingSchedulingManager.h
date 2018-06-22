@@ -26,8 +26,6 @@
 - (void).cxx_destruct;
 - (void)runOnFirstUnlock:(CDUnknownBlockType)arg1;
 - (void)registerForLockStateNotification;
-- (_Bool)deviceUnlockedOnce;
-- (_Bool)purpleBuddyWillRun;
 - (void)handleAccountChange;
 - (void)pushDisable;
 - (void)pushEnable;

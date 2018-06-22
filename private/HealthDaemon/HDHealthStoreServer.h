@@ -159,6 +159,7 @@
 - (id)sampleSavingDelegate;
 - (id)taskServerWithUUID:(id)arg1;
 - (void)taskServerDidInvalidate:(id)arg1;
+- (void)taskServerDidFailToInitializeForUUID:(id)arg1;
 - (void)taskServerDidFinishInitialization:(id)arg1;
 - (void)remote_createTaskServerForIdentifier:(id)arg1 taskUUID:(id)arg2 configuration:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)remote_proxyForQueryControlServerWithCompletion:(CDUnknownBlockType)arg1;

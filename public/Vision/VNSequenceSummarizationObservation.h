@@ -18,7 +18,6 @@
 @property(readonly, nonatomic) NSArray *lstmScores; // @synthesize lstmScores=_lstmScores;
 @property(retain, nonatomic) NSNumber *frameRate; // @synthesize frameRate=_frameRate;
 - (void).cxx_destruct;
-- (id)observationsCacheKey;
 - (void)setLstmScores:(id)arg1;
 - (id)generateSequenceSummaryWithMinClipDuration:(id)arg1 maxClipDuration:(id)arg2 maxSequenceSummaryDuration:(id)arg3 error:(id *)arg4;
 - (id)copyWithZone:(struct _NSZone *)arg1;

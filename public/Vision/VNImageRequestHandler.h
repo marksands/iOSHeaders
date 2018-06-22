@@ -24,6 +24,7 @@
 + (void)requestForcedCleanup;
 - (void).cxx_destruct;
 - (void)cancelAllRequests;
+- (_Bool)performRequests:(id)arg1 gatheredForensics:(id *)arg2 error:(id *)arg3;
 - (_Bool)performRequests:(id)arg1 error:(id *)arg2;
 - (id)imageBufferAndReturnError:(id *)arg1;
 - (_Bool)prepareForPerformingRequests:(id)arg1 error:(id *)arg2;

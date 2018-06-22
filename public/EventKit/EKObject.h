@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 + (id)propertiesUnavailableForPartialObjects;
 + (Class)frozenClass;
 + (Class)meltedClass;
++ (_Bool)_isWeakRelationMeltedObject:(id)arg1 forKey:(id)arg2;
 + (_Bool)isMeltedAndNotWeakRelationshipObject:(id)arg1 forKey:(id)arg2;
 + (id)knownImmutableKeys;
 + (id)knownDerivedRelationshipKeys;

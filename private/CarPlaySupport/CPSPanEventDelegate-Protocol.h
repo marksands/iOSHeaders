@@ -7,8 +7,8 @@
 #import "NSObject.h"
 
 @protocol CPSPanEventDelegate <NSObject>
-- (void)panWithDirection:(unsigned long long)arg1;
-- (void)panEndedWithDirection:(unsigned long long)arg1;
-- (void)panBeganWithDirection:(unsigned long long)arg1;
+- (void)panWithDirection:(long long)arg1;
+- (void)panEndedWithDirection:(long long)arg1;
+- (void)panBeganWithDirection:(long long)arg1;
 @end
 

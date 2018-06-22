@@ -9,7 +9,7 @@
 @class CKContactsSearchManager, NSArray;
 
 @protocol CKContactsSearchManagerDelegate <NSObject>
-- (NSArray *)conversationCacheForCcontactsSearchManager:(CKContactsSearchManager *)arg1;
+- (NSArray *)conversationCacheForContactsSearchManager:(CKContactsSearchManager *)arg1;
 - (void)contactsSearchManager:(CKContactsSearchManager *)arg1 finishedSearchingWithResults:(NSArray *)arg2;
 @end
 

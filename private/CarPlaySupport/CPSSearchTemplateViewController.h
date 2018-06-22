@@ -7,15 +7,16 @@
 #import "UISearchContainerViewController.h"
 
 #import "CPListTemplateDelegate.h"
+#import "CPSearchTemplateProviding.h"
 #import "UISearchBarDelegate.h"
 #import "UISearchControllerDelegate.h"
 #import "UISearchResultsUpdating.h"
 
-@class CPTemplate, NSArray, NSString;
+@class CPSearchTemplate, CPTemplate, NSArray, NSString;
 
-@interface CPSSearchTemplateViewController : UISearchContainerViewController <UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate, CPListTemplateDelegate>
+@interface CPSSearchTemplateViewController : UISearchContainerViewController <UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate, CPListTemplateDelegate, CPSearchTemplateProviding>
 {
-    CPTemplate *_template;
+    CPTemplate *_associatedTemplate;
     id <CPTemplateDelegate> _templateDelegate;
     id <CPSTemplateViewControllerDelegate> _viewControllerDelegate;
     NSArray *_searchResults;
@@ -24,12 +25,14 @@
 @property(retain, nonatomic) NSArray *searchResults; // @synthesize searchResults=_searchResults;
 @property(nonatomic) __weak id <CPSTemplateViewControllerDelegate> viewControllerDelegate; // @synthesize viewControllerDelegate=_viewControllerDelegate;
 @property(readonly, nonatomic) id <CPTemplateDelegate> templateDelegate; // @synthesize templateDelegate=_templateDelegate;
-@property(readonly, nonatomic) CPTemplate *template; // @synthesize template=_template;
+@property(readonly, nonatomic) CPTemplate *associatedTemplate; // @synthesize associatedTemplate=_associatedTemplate;
 - (void).cxx_destruct;
 - (void)updateSearchResultsForSearchController:(id)arg1;
 - (void)didDismissSearchController:(id)arg1;
 - (void)searchBarSearchButtonClicked:(id)arg1;
 - (void)listTemplate:(id)arg1 didSelectListItem:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) __weak id <CPSearchClientTemplateDelegate> searchTemplateDelegate;
+@property(readonly, nonatomic) CPSearchTemplate *searchTemplate;
 - (void)viewDidLoad;
 - (id)initWithSearchController:(id)arg1 searchTemplate:(id)arg2 templateDelegate:(id)arg3;
 

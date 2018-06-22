@@ -6,12 +6,14 @@
 
 #import "NSObject.h"
 
+#import "AFAccessibilityListening.h"
 #import "AFAudioPowerUpdaterDelegate.h"
+#import "AFDeviceRingerSwitchListening.h"
 #import "NSXPCListenerDelegate.h"
 
-@class AFAudioPowerUpdater, AFClientConfiguration, AFClockAlarmSnapshot, AFClockTimerSnapshot, AFOneArgumentSafetyBlock, NSArray, NSError, NSMutableDictionary, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSUUID, NSXPCConnection;
+@class AFAudioPowerUpdater, AFClientConfiguration, AFClockAlarmSnapshot, AFClockTimerSnapshot, AFConnectionLocationManager, AFOneArgumentSafetyBlock, NSArray, NSError, NSMutableDictionary, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSUUID, NSXPCConnection;
 
-@interface AFConnection : NSObject <NSXPCListenerDelegate, AFAudioPowerUpdaterDelegate>
+@interface AFConnection : NSObject <NSXPCListenerDelegate, AFAudioPowerUpdaterDelegate, AFAccessibilityListening, AFDeviceRingerSwitchListening>
 {
     NSXPCConnection *_connection;
     NSObject<OS_dispatch_queue> *_targetQueue;
@@ -32,11 +34,12 @@
     unsigned int _audioSessionID;
     AFAudioPowerUpdater *_inputAudioPowerUpdater;
     AFClientConfiguration *_clientConfiguration;
-    unsigned int _clientStateIsInSync:1;
+    unsigned int _clientConfigurationIsInSync:1;
     unsigned int _voiceOverIsActive:1;
     NSError *_lastRetryError;
     unsigned long long _pendingSpeechRequestCounter;
     NSObject<OS_dispatch_group> *_speechCallbackGroup;
+    AFConnectionLocationManager *_locationManager;
     id <AFAssistantUIService> _delegate;
     id <AFSpeechDelegate> _speechDelegate;
 }
@@ -119,6 +122,9 @@
 - (void)setVoiceOverIsActive:(_Bool)arg1;
 - (void)setMyriadDecisionResult:(_Bool)arg1;
 - (void)setShouldWaitForMyriad:(_Bool)arg1;
+- (void)setDeviceRingerSwitchState:(long long)arg1;
+- (void)setIsAccessibilityVibrationDisabled:(_Bool)arg1;
+- (void)setIsAccessibilityVoiceOverTouchEnabled:(_Bool)arg1;
 - (void)setCarDNDActive:(_Bool)arg1;
 - (void)setIsStark:(_Bool)arg1;
 - (void)setLockState:(_Bool)arg1 screenLocked:(_Bool)arg2;
@@ -140,8 +146,9 @@
 - (void)_willCancelRequest;
 - (void)_willEndSession;
 - (void)_willStartRequestWithSpeech:(_Bool)arg1 analyticsEventProvider:(CDUnknownBlockType)arg2;
-- (void)_updateClientState;
+- (void)_updateClientConfiguration;
 - (void)_updateState;
+- (void)_updateStateIfNotInSync;
 - (void)_extendExistingRequestTimeout;
 - (void)_extendRequestTimeout;
 - (void)_cancelRequestTimeout;
@@ -150,6 +157,9 @@
 - (id)_connection;
 - (void)_clearConnection;
 - (void)_connectionFailedWithError:(id)arg1;
+- (void)deviceRingerObserver:(id)arg1 didChangeState:(long long)arg2;
+- (void)accessibilityObserver:(id)arg1 didChangeVibrationDisabledPreference:(_Bool)arg2;
+- (void)accessibilityObserver:(id)arg1 didChangeVoiceOverTouchEnabledPreference:(_Bool)arg2;
 - (void)audioPowerUpdaterDidUpdate:(id)arg1 averagePower:(float)arg2 peakPower:(float)arg3;
 - (void)_tellSpeechDelegateRecognitionDidFail:(id)arg1;
 - (void)_tellSpeechDelegateSpeechRecognizedPartialResult:(id)arg1;
@@ -209,6 +219,7 @@
 - (void)startSpeechRequestWithSpeechFileAtURL:(id)arg1 isNarrowBand:(_Bool)arg2;
 - (void)startSpeechRequestWithSpeechFileAtURL:(id)arg1;
 - (void)startUIRequest;
+- (id)_clientConfiguration;
 - (id)_cachedClockTimerSnapshot;
 - (id)_cachedClockAlarmSnapshot;
 - (id)_cachedBulletins;

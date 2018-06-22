@@ -6,7 +6,7 @@
 
 #import "VUIAsynchronousOperation.h"
 
-@class MPMediaPredicate, NSArray, NSDictionary, NSError, NSMutableSet, NSPredicate, VUIMPMediaLibrary, VUIMediaEntityFetchRequest, VUIMediaEntityFetchResponse, VUIMediaEntityKind;
+@class MPMediaPredicate, NSArray, NSDictionary, NSError, NSMutableSet, VUIMPMediaLibrary, VUIMediaEntityFetchRequest, VUIMediaEntityFetchResponse, VUIMediaEntityKind;
 
 __attribute__((visibility("hidden")))
 @interface VUIMPMediaEntitiesSingleFetchOperation : VUIAsynchronousOperation
@@ -19,7 +19,6 @@ __attribute__((visibility("hidden")))
     VUIMPMediaLibrary *_mediaLibrary;
     VUIMediaEntityKind *_mediaEntityKind;
     NSMutableSet *_prefetchProperties;
-    NSPredicate *_predicate;
     MPMediaPredicate *_mediaQueryPredicate;
     NSArray *_mediaQuerySortOrderingProperties;
     NSDictionary *_mediaQuerySortOrderingDirectionMappings;
@@ -33,7 +32,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSDictionary *mediaQuerySortOrderingDirectionMappings; // @synthesize mediaQuerySortOrderingDirectionMappings=_mediaQuerySortOrderingDirectionMappings;
 @property(retain, nonatomic) NSArray *mediaQuerySortOrderingProperties; // @synthesize mediaQuerySortOrderingProperties=_mediaQuerySortOrderingProperties;
 @property(retain, nonatomic) MPMediaPredicate *mediaQueryPredicate; // @synthesize mediaQueryPredicate=_mediaQueryPredicate;
-@property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate=_predicate;
 @property(retain, nonatomic) NSMutableSet *prefetchProperties; // @synthesize prefetchProperties=_prefetchProperties;
 @property(retain, nonatomic) VUIMediaEntityKind *mediaEntityKind; // @synthesize mediaEntityKind=_mediaEntityKind;
 @property(retain, nonatomic) VUIMPMediaLibrary *mediaLibrary; // @synthesize mediaLibrary=_mediaLibrary;
@@ -48,16 +46,18 @@ __attribute__((visibility("hidden")))
 - (id)_processFetchedMediaEntities:(id)arg1;
 - (void)_addPrefetchPropertiesToMediaQuery:(id)arg1;
 - (void)_addSortingPropertiesToMediaQuery:(id)arg1;
-- (void)_addPredicatesToMediaQuery:(id)arg1;
+- (void)_addPredicateToMediaQuery:(id)arg1;
 - (void)_addEntityLimitToMediaQuery:(id)arg1;
 - (id)_baseMediaQuery;
 - (id)_mediaQuery;
 - (void)_populatePrefetchProperties;
 - (id)_mediaEntityKind;
+- (id)_mediaEntityPropertyDescriptorForFilteringWithKeyPath:(id)arg1;
+- (id)_bitTestMediaQueryPropertyPredicateWithKeyPathBitTestExpression:(id)arg1 operatorType:(unsigned long long)arg2 constantExpression:(id)arg3;
+- (id)_keyPathMediaQueryPropertyPredicateWithKeyPathExpression:(id)arg1 operatorType:(unsigned long long)arg2 constantExpression:(id)arg3;
 - (id)_mediaQueryPropertyPredicateForComparisonPredicate:(id)arg1;
 - (id)_mediaQueryPredicateForCompoundPredicate:(id)arg1;
 - (id)_mediaQueryPredicateForPredicate:(id)arg1;
-- (id)_restrictionsPredicate;
 - (void)_processPredicate;
 - (_Bool)_isSortingBeingPerformedByMediaQuery;
 - (void)_processSortDescriptors;

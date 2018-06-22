@@ -22,6 +22,7 @@
 @property(copy, nonatomic) NSDate *dateLastModified; // @dynamic dateLastModified;
 @property(copy, nonatomic) NSUUID *identifier; // @dynamic identifier;
 @property(nonatomic) _Bool isMarkedAsDeleted; // @dynamic isMarkedAsDeleted;
+@property(retain, nonatomic) NSData *keyImageData; // @dynamic keyImageData;
 @property(copy, nonatomic) NSString *phrase; // @dynamic phrase;
 @property(retain, nonatomic) NSData *serializedWorkflowData; // @dynamic serializedWorkflowData;
 @property(copy, nonatomic) NSString *shortcutDescription; // @dynamic shortcutDescription;

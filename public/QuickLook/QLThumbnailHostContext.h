@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 + (id)_extensionAuxiliaryVendorProtocol;
 @property(retain, nonatomic) NSOperationQueue *thumbnailGenerationConcurrenQueue; // @synthesize thumbnailGenerationConcurrenQueue=_thumbnailGenerationConcurrenQueue;
 - (void).cxx_destruct;
-- (void)generateThumbnailOfSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 badgeType:(unsigned long long)arg4 withItem:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
+- (void)generateThumbnailOfSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 badgeType:(unsigned long long)arg4 withItem:(id)arg5 ioSurfaceGenerator:(id)arg6 completionHandler:(CDUnknownBlockType)arg7;
 - (id)protocolServiceWithErrorHandler:(CDUnknownBlockType)arg1;
 
 @end

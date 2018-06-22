@@ -17,13 +17,12 @@ __attribute__((visibility("hidden")))
     _Bool _dirty;
 }
 
-+ (id)sharedMetadataForStore:(id)arg1;
 @property(readonly) _Bool dirty; // @synthesize dirty=_dirty;
 - (void).cxx_destruct;
 - (void)save;
 - (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
 - (id)objectForKeyedSubscript:(id)arg1;
-- (id)initWithStoreURL:(id)arg1;
+- (id)initWithPersistentStore:(id)arg1;
 
 @end
 

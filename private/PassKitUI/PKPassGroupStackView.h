@@ -62,7 +62,6 @@
     _Bool _hasSuspendedTransition;
     long long _suspendedNextState;
     NSMutableArray *_suspendedTransitionCompletionHandlers;
-    _Bool _inPassthroughHitTest;
     PKReusablePassViewQueue *_reusableCardViewQueue;
     PKPassGroupView *_reorderedGroupView;
     unsigned long long _initialIndexOfReorderedGroup;
@@ -88,7 +87,6 @@
     PKPassthroughView *_headerContainerView;
     PKPassthroughView *_subheaderContainerView;
     PKPassthroughView *_passContainerView;
-    NSMutableArray *_passthroughViews;
     PKSecureElement *_secureElement;
     _Bool _delegateWantsTopContentSeparation;
     _Bool _delegateWantsBottomContentSeparation;
@@ -127,7 +125,7 @@
 - (void)groupViewDidUpdatePageControlVisibility:(id)arg1;
 - (_Bool)groupView:(id)arg1 deleteButtonEnabledForPass:(id)arg2;
 - (void)groupView:(id)arg1 deleteButtonPressedForPass:(id)arg2;
-- (void)groupView:(id)arg1 frontmostPassViewDidChange:(id)arg2;
+- (void)groupView:(id)arg1 frontmostPassViewDidChange:(id)arg2 withContext:(id)arg3;
 - (void)groupView:(id)arg1 resizeButtonPressedForPass:(id)arg2 withBarcode:(_Bool)arg3;
 - (struct CGRect)groupView:(id)arg1 targetPageControlFrameForProposedFrame:(struct CGRect)arg2;
 - (long long)groupViewContentModeForFrontmostPassWhenPiled:(id)arg1 withDefaultContentMode:(long long)arg2;
@@ -290,6 +288,7 @@
 - (void)updateHeaderAndSubheaderViewsIfNecessary;
 - (void)tilePassesEagerly:(_Bool)arg1;
 - (void)presentDiff:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)presentPassWithUniqueID:(id)arg1 withContext:(id)arg2;
 - (void)presentPassWithUniqueID:(id)arg1;
 - (void)moveGroup:(id)arg1 fromIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;
 - (void)deleteGroup:(id)arg1 atIndex:(unsigned long long)arg2;

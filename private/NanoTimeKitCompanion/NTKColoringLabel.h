@@ -24,6 +24,7 @@
     CLKFont *_preTimeTravelFont;
     _Bool _inTimeTravel;
     _Bool _uppercase;
+    _Bool _usesTextProviderTintColoring;
     _Bool _cachedSizeIsValid;
     _Bool _usesTextProviderSize;
     UIColor *_overrideColor;
@@ -44,6 +45,7 @@
 @property(copy, nonatomic) CDUnknownBlockType needsResizeHandler; // @synthesize needsResizeHandler=_needsResizeHandler;
 @property(copy, nonatomic) CDUnknownBlockType nowProvider; // @synthesize nowProvider=_nowProvider;
 @property(copy, nonatomic) NSParagraphStyle *paragraphStyle; // @synthesize paragraphStyle=_paragraphStyle;
+@property(nonatomic) _Bool usesTextProviderTintColoring; // @synthesize usesTextProviderTintColoring=_usesTextProviderTintColoring;
 @property(nonatomic) _Bool uppercase; // @synthesize uppercase=_uppercase;
 @property(nonatomic) double maxWidth; // @synthesize maxWidth=_maxWidth;
 @property(retain, nonatomic) CLKFont *textProviderSmallCapsBaseFont; // @synthesize textProviderSmallCapsBaseFont=_textProviderSmallCapsBaseFont;
@@ -72,6 +74,7 @@
 - (double)widthForMaxWidth:(double)arg1;
 - (void)_requeryTextProviderAndNotify:(_Bool)arg1;
 - (void)setNumberOfLines:(long long)arg1;
+- (void)setusesTextProviderTintColoring:(_Bool)arg1;
 @property(nonatomic) _Bool usesLegibility; // @dynamic usesLegibility;
 - (_Bool)usesLegibility:(_Bool)arg1;
 - (void)setBounds:(struct CGRect)arg1;

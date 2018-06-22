@@ -19,6 +19,7 @@
 @property _Bool disablesOccludedBackdropBlurs; // @synthesize disablesOccludedBackdropBlurs=_disablesOccludedBackdropBlurs;
 @property double statisticsInterval;
 @property(copy) NSString *statisticsType;
+@property _Bool reducesCaptureBitDepth;
 @property _Bool allowsInPlaceFiltering;
 @property _Bool captureOnly;
 @property double marginWidth;

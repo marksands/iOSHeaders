@@ -47,6 +47,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)_shouldSubscribeToKeyboardNotifications;
 - (_Bool)_shouldRespectDefinesPresentationContext;
 - (struct CGRect)_frameOfPresentedViewControllerViewInSuperview;
+- (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
+- (void)containerViewWillLayoutSubviews;
 - (struct CGRect)frameOfPresentedViewInContainerView;
 - (id)presentedView;
 - (void)dismissalTransitionDidEnd:(_Bool)arg1;

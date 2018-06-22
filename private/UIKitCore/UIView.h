@@ -786,6 +786,7 @@
 @property(readonly, nonatomic) _Bool _areLayoutMarginsDirectional;
 - (void)reduceWidth:(double)arg1;
 - (_Bool)_shouldUseKeyboardBackground;
+- (double)_findAutolayoutHeightConstraint;
 - (_Bool)_hasAutolayoutHeightConstraint;
 - (void)_removeAutolayoutSizingConstraints;
 - (void)_convertToAutolayoutSizingIfNecessary;
@@ -941,6 +942,7 @@
 - (_Bool)nsli_lowerAttribute:(int)arg1 intoExpression:(id)arg2 withCoefficient:(double)arg3 forConstraint:(id)arg4 onBehalfOfLayoutGuide:(id)arg5;
 - (_Bool)nsli_lowerAttribute:(int)arg1 intoExpression:(id)arg2 withCoefficient:(double)arg3 forConstraint:(id)arg4;
 - (_Bool)nsli_lowerAttribute:(int)arg1 intoExpression:(id)arg2 withCoefficient:(double)arg3 container:(id)arg4;
+- (void)_snipDangliesWithForce:(_Bool)arg1;
 - (struct CGSize)_preferredLayoutEngineToUserScalingCoefficients;
 - (struct CGSize)nsli_engineToUserScalingCoefficients;
 - (struct CGSize)nsli_engineToUserScalingCoefficientsInEngine:(id)arg1;

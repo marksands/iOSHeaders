@@ -9,8 +9,8 @@
 @class CPSPanView;
 
 @protocol CPSPanViewDelegate <NSObject>
-- (void)panView:(CPSPanView *)arg1 panWithDirection:(unsigned long long)arg2;
-- (void)panView:(CPSPanView *)arg1 panEndedWithDirection:(unsigned long long)arg2;
-- (void)panView:(CPSPanView *)arg1 panBeganWithDirection:(unsigned long long)arg2;
+- (void)panView:(CPSPanView *)arg1 panWithDirection:(long long)arg2;
+- (void)panView:(CPSPanView *)arg1 panEndedWithDirection:(long long)arg2;
+- (void)panView:(CPSPanView *)arg1 panBeganWithDirection:(long long)arg2;
 @end
 

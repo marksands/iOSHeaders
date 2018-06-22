@@ -10,9 +10,5 @@
 {
 }
 
-- (void)dealloc;
-- (_Bool)isAsynchronous;
-- (void)main;
-
 @end
 

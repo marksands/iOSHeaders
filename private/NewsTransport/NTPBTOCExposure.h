@@ -10,7 +10,7 @@
 
 @class NSData;
 
-@interface NTPBTOCExposure : PBCodable <NSCopying>
+@interface NTPBTocExposure : PBCodable <NSCopying>
 {
     int _precedingLocation;
     NSData *_tocExposureId;

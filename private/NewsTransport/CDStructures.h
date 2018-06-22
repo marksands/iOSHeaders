@@ -116,6 +116,11 @@ typedef struct {
 } CDStruct_de6d94e7;
 
 typedef struct {
+    unsigned int articleHeadlineTreatmentId:1;
+    unsigned int articleHeadlineTreatmentState:1;
+} CDStruct_762d0caf;
+
+typedef struct {
     unsigned int coverArticleWidgetArticleCount:1;
 } CDStruct_bb0d9f0d;
 

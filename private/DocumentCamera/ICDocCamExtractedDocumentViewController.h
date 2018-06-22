@@ -282,6 +282,7 @@
 - (double)thumbnailToolbarHeight;
 - (void)updateTitleView;
 - (void)updateFilterViewLayoutIfNeeded;
+- (void)updateStatusBarFromWindowLevel;
 - (void)updateLayout;
 - (void)prepareForDismissal;
 - (void)contentSizeCategoryDidChange:(id)arg1;

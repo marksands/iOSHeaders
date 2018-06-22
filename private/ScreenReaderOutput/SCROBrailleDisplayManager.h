@@ -150,7 +150,7 @@
 - (void)_setLineDescriptorCallbackEnabledHandler:(id)arg1;
 - (void)_displayModeHandler:(id)arg1;
 - (void)_exitCurrentDisplayMode;
-- (void)_wordWrapEnabledHandler:(id)arg1;
+- (void)wordWrapEnabledHandler:(id)arg1;
 - (void)automaticBrailleTranslationHandler:(id)arg1;
 - (void)_persistentKeyModifiersHandler:(id)arg1;
 - (void)inputContractionModeHandler:(id)arg1;

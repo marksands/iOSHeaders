@@ -33,7 +33,7 @@
 - (void)_startOrPauseDisplayLinkIfNeeded;
 - (void)scrollViewObserverValuesDidChange:(id)arg1;
 - (void)_observeScrollViewDidScroll:(id)arg1;
-- (void)teardown;
+- (void)invalidate;
 - (void)validateHierarchyAndFindAdditionalScrollViews;
 @property(readonly, nonatomic) double contentViewFractionVisible;
 @property(readonly, nonatomic) _Bool isScrollViewScrolling;

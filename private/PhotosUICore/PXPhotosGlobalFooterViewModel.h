@@ -11,10 +11,10 @@
 @interface PXPhotosGlobalFooterViewModel : PXObservable
 {
     _Bool _isPaused;
+    float _progress;
     NSString *_title;
     NSString *_subtitle1;
     NSString *_subtitle2;
-    double _progress;
     long long _actionStyle;
     NSString *_actionTitle;
     NSString *_actionConfirmationAlertTitle;
@@ -31,7 +31,7 @@
 @property(readonly, nonatomic) NSString *actionConfirmationAlertTitle; // @synthesize actionConfirmationAlertTitle=_actionConfirmationAlertTitle;
 @property(readonly, nonatomic) NSString *actionTitle; // @synthesize actionTitle=_actionTitle;
 @property(readonly, nonatomic) long long actionStyle; // @synthesize actionStyle=_actionStyle;
-@property(readonly, nonatomic) double progress; // @synthesize progress=_progress;
+@property(readonly, nonatomic) float progress; // @synthesize progress=_progress;
 @property(readonly, nonatomic) _Bool isPaused; // @synthesize isPaused=_isPaused;
 @property(readonly, nonatomic) NSString *subtitle2; // @synthesize subtitle2=_subtitle2;
 @property(readonly, nonatomic) NSString *subtitle1; // @synthesize subtitle1=_subtitle1;
@@ -43,7 +43,7 @@
 - (void)setActionConfirmationAlertTitle:(id)arg1;
 - (void)setActionTitle:(id)arg1;
 - (void)setActionStyle:(long long)arg1;
-- (void)setProgress:(double)arg1;
+- (void)setProgress:(float)arg1;
 - (void)setIsPaused:(_Bool)arg1;
 - (void)setSubtitle2:(id)arg1;
 - (void)setSubtitle1:(id)arg1;

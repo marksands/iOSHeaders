@@ -57,6 +57,7 @@
 @property(readonly, nonatomic) double safariLast1week;
 @property(readonly, nonatomic) double safariLast1day;
 @property(readonly, nonatomic) double safariLast1hour;
+@property(readonly, nonatomic) NSNumber *duetExpertCustomFeedbackSamplingPercentage;
 @property(readonly, nonatomic) double timeoutIntervalForRequest;
 @property(readonly, nonatomic) NSNumber *feedbackMaxAgeInDays;
 @property(readonly, nonatomic) NSNumber *eagerFeedbackSamplingPercentage;

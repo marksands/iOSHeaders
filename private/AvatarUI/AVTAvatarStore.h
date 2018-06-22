@@ -46,6 +46,7 @@
 - (void)performPuppetStoreWork:(CDUnknownBlockType)arg1;
 - (void)performBackendWork:(CDUnknownBlockType)arg1;
 - (id)avatarsForFetchRequest:(id)arg1 error:(id *)arg2;
+- (_Bool)canCreateAvatarWithError:(id *)arg1;
 - (_Bool)canCreateAvatar;
 - (id)initWithDomainIdentifier:(id)arg1 backend:(id)arg2 puppetStore:(id)arg3 imageGenerator:(id)arg4 environment:(id)arg5;
 - (id)initWithDomainIdentifier:(id)arg1;

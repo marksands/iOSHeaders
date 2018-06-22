@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-#import "REElementQueueDelegate.h"
 #import "RESectionDelegate.h"
 
-@class NSArray, NSMutableDictionary, NSMutableSet, NSString, REElementQueue, REMLElementComparator, _RESectionDescriptor;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, REElementQueue, REMLElementComparator, _RESectionDescriptor;
 
-@interface RESection : NSObject <REElementQueueDelegate, RESectionDelegate>
+@interface RESection : NSObject <RESectionDelegate>
 {
     _RESectionDescriptor *_descriptor;
     REElementQueue *_queue;
@@ -19,6 +18,8 @@
     NSMutableDictionary *_elements;
     _Bool _allowsSubsections;
     NSMutableDictionary *_subsections;
+    _Bool _performingBatch;
+    NSMutableArray *_batchBlocks;
     REMLElementComparator *_comparator;
     id <RESectionDelegate> _delegate;
 }
@@ -27,18 +28,18 @@
 @property(copy, nonatomic) REMLElementComparator *comparator; // @synthesize comparator=_comparator;
 - (void).cxx_destruct;
 - (id)section:(id)arg1 groupForIdentifier:(id)arg2;
-- (void)section:(id)arg1 didMoveElement:(id)arg2 fromIndex:(long long)arg3 toIndex:(long long)arg4 wantsSubsectionPositionUpdate:(_Bool)arg5;
-- (void)section:(id)arg1 didRemoveElement:(id)arg2 atIndex:(long long)arg3 wantsSubsectionPositionUpdate:(_Bool)arg4;
-- (void)section:(id)arg1 didInsertElement:(id)arg2 atIndex:(long long)arg3 wantsSubsectionPositionUpdate:(_Bool)arg4;
-- (void)elementQueue:(id)arg1 didMoveElement:(id)arg2 fromIndex:(long long)arg3 toIndex:(long long)arg4 wantsSubsectionPositionUpdate:(_Bool)arg5;
-- (void)elementQueue:(id)arg1 didRemoveElement:(id)arg2 atIndex:(long long)arg3 wantsSubsectionPositionUpdate:(_Bool)arg4;
-- (void)elementQueue:(id)arg1 didInsertElement:(id)arg2 atIndex:(long long)arg3 wantsSubsectionPositionUpdate:(_Bool)arg4;
+- (void)sectionDidUpdateContentOrder:(id)arg1;
 - (long long)_mappedIndexFromIndex:(long long)arg1;
 - (id)elementIdAtIndex:(unsigned long long)arg1;
 - (long long)indexOfElementWithId:(id)arg1;
 - (_Bool)containsElementWithId:(id)arg1;
+- (void)performBatchUpdates:(CDUnknownBlockType)arg1;
+- (void)_performOrEnqueueBlock:(CDUnknownBlockType)arg1;
+- (void)_updateElementWithId:(id)arg1 withNewFeatureSet:(id)arg2 forceHidden:(_Bool)arg3;
 - (void)updateElementWithId:(id)arg1 withNewFeatureSet:(id)arg2 forceHidden:(_Bool)arg3;
+- (void)_removeElementWithId:(id)arg1;
 - (void)removeElementWithId:(id)arg1;
+- (void)_addElement:(id)arg1 forceHidden:(_Bool)arg2;
 - (void)addElement:(id)arg1 forceHidden:(_Bool)arg2;
 @property(readonly, nonatomic) NSArray *allElements;
 @property(nonatomic) long long maximumElements;

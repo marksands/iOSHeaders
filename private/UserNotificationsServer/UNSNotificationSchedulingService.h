@@ -44,7 +44,7 @@
 - (void)applicationsDidDenyNotificationSettings:(id)arg1;
 - (void)applicationsDidAuthorizeNotificationSettings:(id)arg1;
 - (void)getUndeliveredNotificationRecordsForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)getPendingNotificationRecordsForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)pendingNotificationRecordsForBundleIdentifier:(id)arg1;
 - (void)removeAllPendingNotificationRecordsForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)removeSimilarPendingNotificationRecords:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)removePendingNotificationRecordsWithIdentifiers:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;

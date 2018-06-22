@@ -15,10 +15,11 @@
 
 - (void).cxx_destruct;
 - (id)_duetDonationsStreams;
-- (id)_queryForDonatedActionsAfterDate:(id)arg1 onStreams:(id)arg2 predicate:(id)arg3;
+- (id)_queryForDonatedActionsWithOffset:(long long)arg1 limit:(long long)arg2 afterDate:(id)arg3 onStreams:(id)arg4 predicate:(id)arg5;
 - (id)queryForDeletedActionsAfterDate:(id)arg1;
-- (id)queryForDonatedActionsAfterDate:(id)arg1;
-- (id)queryForAllDonatedActions;
+- (id)queryForAllRelevantShortcutsWithOffset:(long long)arg1;
+- (id)queryForDonatedActionsWithOffset:(long long)arg1 afterDate:(id)arg2;
+- (id)queryForAllDonatedActionsWithOffset:(long long)arg1;
 - (id)queryForHistoricChargingEventsWithMinimumDuration:(double)arg1 inThePastDays:(unsigned long long)arg2;
 - (id)queryForPredictedChargingEventsWithMinimumDuration:(double)arg1;
 - (id)_duetChargingEventStream;
@@ -29,7 +30,7 @@
 - (_Bool)_isTombstonesArray:(id)arg1;
 - (id)_createDonationsFromDuetEvents:(id)arg1;
 - (_Bool)_isDonationsArray:(id)arg1;
-- (id)_createTimelineFromPredictionTimeline:(id)arg1;
+- (id)_createTimelineFromPredictionTimeline:(id)arg1 filterEmptyData:(_Bool)arg2;
 - (_Bool)_isPredictionTimeline:(id)arg1;
 - (void)_executeQuery:(id)arg1 responseQueue:(id)arg2 synchronously:(_Bool)arg3 withCompletion:(CDUnknownBlockType)arg4;
 - (void)executeQuerySynchronously:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

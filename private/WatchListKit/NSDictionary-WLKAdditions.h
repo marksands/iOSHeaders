@@ -7,6 +7,7 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (WLKAdditions)
+- (id)wlk_caseInsensitiveValueForKey:(id)arg1;
 - (id)_lookupValueForKey:(id)arg1 expectedClass:(Class)arg2;
 - (id)wlk_dataForKey:(id)arg1;
 - (id)wlk_arrayForKey:(id)arg1;

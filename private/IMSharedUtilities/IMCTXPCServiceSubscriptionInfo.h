@@ -32,6 +32,7 @@
 - (id)allSubscriptions;
 - (id)__im_subscriptionsWithMMSSupport;
 - (id)initWithSubscriptionInfo:(id)arg1;
+- (id)description;
 
 @end
 

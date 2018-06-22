@@ -10,17 +10,20 @@
 
 @interface PXGadgetSpec : NSObject
 {
-    double _layoutReferenceWidth;
     _Bool _shouldInsetAllContent;
     long long _scrollDirection;
     double _interItemSpacing;
     long long _layoutSizeClass;
+    long long _layoutOrientation;
+    double _layoutReferenceWidth;
     struct UIEdgeInsets _contentInsets;
     struct UIEdgeInsets _accessoryViewInset;
 }
 
 + (void)initialize;
 @property(readonly, nonatomic) struct UIEdgeInsets accessoryViewInset; // @synthesize accessoryViewInset=_accessoryViewInset;
+@property(readonly, nonatomic) double layoutReferenceWidth; // @synthesize layoutReferenceWidth=_layoutReferenceWidth;
+@property(readonly, nonatomic) long long layoutOrientation; // @synthesize layoutOrientation=_layoutOrientation;
 @property(readonly, nonatomic) long long layoutSizeClass; // @synthesize layoutSizeClass=_layoutSizeClass;
 @property(readonly, nonatomic) double interItemSpacing; // @synthesize interItemSpacing=_interItemSpacing;
 @property(readonly, nonatomic) _Bool shouldInsetAllContent; // @synthesize shouldInsetAllContent=_shouldInsetAllContent;

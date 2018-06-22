@@ -45,6 +45,11 @@ __attribute__((visibility("hidden")))
 - (void)_showProgressIndicator;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (id)_adjustCell:(id)arg1 forAppSigner:(id)arg2;
+- (int)_resolveIndexPathForTableSection:(id)arg1;
+- (_Bool)_isUIProfileInstallationRestricted;
+- (id)_isUIProfileInstallationEnabled:(id)arg1;
+- (void)_toggleUIProfileInstallationStatus:(id)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (id)specifiers;
 - (id)specifiersForMDMProfileInfo:(id)arg1 configurationProfilesInfo:(id)arg2 enterpriseAppSigners:(id)arg3 developerAppSigners:(id)arg4 blockedApps:(id)arg5;

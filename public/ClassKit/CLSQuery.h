@@ -9,12 +9,11 @@
 #import "CLSQuery.h"
 #import "NSLocking.h"
 
-@class NSDate, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+@class NSDate, NSMutableArray, NSString;
 
 @interface CLSQuery : CLSDataObserver <NSLocking, CLSQuery>
 {
     NSMutableArray *_results;
-    NSObject<OS_dispatch_queue> *_queue;
     struct os_unfair_lock_s _lock;
     _Bool _executing;
     _Bool _shouldAddResultsToDataStore;

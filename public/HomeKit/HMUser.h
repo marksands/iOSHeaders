@@ -11,7 +11,7 @@
 #import "HMObjectMerge.h"
 #import "NSSecureCoding.h"
 
-@class HMAssistantAccessControl, HMFPairingIdentity, HMHome, HMHomeAccessControl, HMThreadSafeMutableArrayCollection, NSObject<OS_dispatch_queue>, NSString, NSUUID, _HMContext;
+@class HMAssistantAccessControl, HMHome, HMHomeAccessControl, HMThreadSafeMutableArrayCollection, NSObject<OS_dispatch_queue>, NSString, NSUUID, _HMContext;
 
 @interface HMUser : NSObject <HMFLogging, HMFMessageReceiver, NSSecureCoding, HMObjectMerge>
 {
@@ -24,7 +24,6 @@
     HMAssistantAccessControl *_assistantAccessControl;
     NSString *_userID;
     HMHome *_home;
-    HMFPairingIdentity *_pairingIdentity;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     id <HMUserDelegatePrivate> _delegate;
     NSUUID *_uuid;
@@ -44,7 +43,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)logIdentifier;
-@property(copy) HMFPairingIdentity *pairingIdentity; // @synthesize pairingIdentity=_pairingIdentity;
+- (void)pairingIdentityWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_updatePresenceAuthorizationStatus:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updatePresenceAuthorizationStatus:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)mergePendingAccessoryInvitationsWithOutgoingInvitation:(id)arg1 operations:(id)arg2;
@@ -58,6 +57,7 @@
 - (void)_handleUpdatedAssistantAccessControl:(id)arg1;
 - (void)updateAssistantAccessControl:(id)arg1 forHome:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(copy) HMAssistantAccessControl *assistantAccessControl; // @synthesize assistantAccessControl=_assistantAccessControl;
+- (id)pairingIdentity;
 - (void)updateHomeAccessControl:(_Bool)arg1 remoteAccess:(_Bool)arg2;
 @property(retain, nonatomic) HMHomeAccessControl *homeAccessControl; // @synthesize homeAccessControl=_homeAccessControl;
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;

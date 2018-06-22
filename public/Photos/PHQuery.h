@@ -100,6 +100,7 @@
 + (id)queryForMomentsForPersonsWithLocalIdentifiers:(id)arg1 options:(id)arg2;
 + (id)queryForMomentsForFacesWithLocalIdentifiers:(id)arg1 options:(id)arg2;
 + (id)queryForMomentsInMomentList:(id)arg1 options:(id)arg2;
++ (id)queryForMomentsBackingSuggestion:(id)arg1;
 + (id)queryForMomentsBackingMemory:(id)arg1;
 + (id)queryForMomentsWithOptions:(id)arg1;
 + (id)queryForAssetCollectionsWithObjectIDs:(id)arg1;
@@ -125,6 +126,7 @@
 + (id)queryForAssetsWithMediaType:(long long)arg1 options:(id)arg2;
 + (id)queryForMovieCuratedAssetsInMemory:(id)arg1 options:(id)arg2;
 + (id)queryForAssetsInAssetCollection:(id)arg1 options:(id)arg2;
++ (id)queryForAssetsInImportSessions:(id)arg1 options:(id)arg2;
 + (id)queryForAssetsInBoundingBoxWithTopLeftLocation:(id)arg1 bottomRightLocation:(id)arg2 options:(id)arg3;
 + (id)queryForRepresentativeAssetsInMemory:(id)arg1 options:(id)arg2;
 + (id)queryForRepresentativeAssetsInSuggestion:(id)arg1 options:(id)arg2;
@@ -133,6 +135,7 @@
 + (id)queryForExtendedCuratedAssetsInMemory:(id)arg1 options:(id)arg2;
 + (id)queryForCuratedAssetsInMemory:(id)arg1 options:(id)arg2;
 + (id)_fetchOptionsForFetchingAssetsFromAssetCollection:(id)arg1 options:(id)arg2;
++ (id)_fetchOptionsForFetchingAssetsFromImportSessions:(id)arg1 options:(id)arg2;
 + (id)combinedFetchRequestForQueries:(id)arg1;
 + (id)_filterPredicateFromFetchOptionsPredicate:(id)arg1 options:(id)arg2 phClass:(Class)arg3;
 + (id)_containerIdentifierForFetchType:(id)arg1 predicate:(id)arg2 outRelationship:(id *)arg3;

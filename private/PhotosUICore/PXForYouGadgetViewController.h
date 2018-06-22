@@ -28,6 +28,7 @@
 - (void)ppt_navigateToFirstSuggestedCMMWithCompleteHandler:(CDUnknownBlockType)arg1;
 - (void)navigateToSharedActivityMode:(long long)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)presentWelcomeCloudPhotosViewController;
+- (void)navigateToGadgetForCMMSuggestions;
 - (void)navigateToGadgetForCMMInvitations;
 - (void)navigateToInvitationCMMWithUUID:(id)arg1 animated:(_Bool)arg2;
 - (void)navigateToSuggestedCMMWithUUID:(id)arg1 animated:(_Bool)arg2;

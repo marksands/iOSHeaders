@@ -7,7 +7,6 @@
 #import "NSObject.h"
 
 #import "CNContactPickerDelegate.h"
-#import "SFCredentialProviderExtensionManagerObserver.h"
 #import "WBUContactAutoFillViewControllerFiller.h"
 #import "WBUCreditCardCaptureViewControllerDelegate.h"
 #import "_ASCredentialProviderExtensionViewControllerDelegate.h"
@@ -15,7 +14,7 @@
 
 @class NSArray, NSDictionary, NSMutableDictionary, NSString, UIView<WBUFormAutoFillWebView>, WBSFormControlMetadata, WBSFormMetadata, WBSMultiRoundAutoFillManager, WBUFormDataController, _ASPasswordCredentialAuthenticationViewController;
 
-@interface WBUFormAutoCompleteState : NSObject <SFCredentialProviderExtensionManagerObserver, _ASCredentialProviderExtensionViewControllerDelegate, _ASPasswordCredentialAuthenticationViewControllerDelegate, WBUCreditCardCaptureViewControllerDelegate, WBUContactAutoFillViewControllerFiller, CNContactPickerDelegate>
+@interface WBUFormAutoCompleteState : NSObject <_ASCredentialProviderExtensionViewControllerDelegate, _ASPasswordCredentialAuthenticationViewControllerDelegate, WBUCreditCardCaptureViewControllerDelegate, WBUContactAutoFillViewControllerFiller, CNContactPickerDelegate>
 {
     CDUnknownBlockType _creditCardCaptureCompletionHandler;
     WBSFormMetadata *_formMetadata;
@@ -36,6 +35,7 @@
     CDUnknownBlockType _customAutoFillContactCompletionHandler;
     _Bool _hasNotedThatTextDidChangeInPasswordField;
     _ASPasswordCredentialAuthenticationViewController *_externalCredentialViewController;
+    CDUnknownBlockType _externalCredentialListCompletionHandler;
     _Bool _invalidated;
     WBUFormDataController *_dataController;
 }
@@ -48,7 +48,6 @@
 - (void)passwordCredentialAuthenticationViewController:(id)arg1 didFinishWithCredential:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)presentUIForPasswordCredentialAuthenticationViewController:(id)arg1;
 - (void)credentialProviderExtensionViewController:(id)arg1 didFinishWithCredential:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)credentialProviderExtensionManagerExtensionListDidChange:(id)arg1;
 - (void)contactPicker:(id)arg1 didSelectContact:(id)arg2;
 - (void)contactPickerDidCancel:(id)arg1;
 - (id)_bestTextFieldMetadataForMetadata:(id)arg1;
@@ -63,9 +62,12 @@
 - (void)_autoFillWithSet:(id)arg1;
 - (void)creditCardCaptureViewController:(id)arg1 didCaptureCreditCard:(id)arg2;
 - (void)creditCardCaptureViewControllerDidCancel:(id)arg1;
+- (void)_presentCredentialListForExtension:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)_actionForPresentingPasswordManagerExtension:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSArray *externalCredentialIdentities;
 - (void)_offerToAutoFillFromPotentialCredentialMatches;
 - (Class)_passwordPickerViewControllerClass;
+- (void)fillCredential:(id)arg1 setAutoFilled:(_Bool)arg2 setAsDefaultCredential:(_Bool)arg3 focusFieldAfterFilling:(_Bool)arg4 submitForm:(_Bool)arg5;
 - (void)fillCredential:(id)arg1 setAutoFilled:(_Bool)arg2 setAsDefaultCredential:(_Bool)arg3 focusFieldAfterFilling:(_Bool)arg4;
 - (_Bool)hasPotentialLoginCredentialsForLoginForm;
 - (id)potentialCredentialMatches;
@@ -83,6 +85,7 @@
 - (void)autoFillFormWithCreditCardDataAfterAuthenticationIfNeeded:(id)arg1;
 - (void)_fillASPasswordCredential:(id)arg1 needsAuthentication:(_Bool)arg2 setAutoFilled:(_Bool)arg3;
 - (void)fillPasswordCredentialIdentity:(id)arg1;
+- (void)fillCredentialAfterAuthenticationIfNeeded:(id)arg1 setAsDefaultCredential:(_Bool)arg2 submitForm:(_Bool)arg3;
 - (void)fillCredentialAfterAuthenticationIfNeeded:(id)arg1 setAsDefaultCredential:(_Bool)arg2;
 - (void)autoFillValuesAfterAuthenticationIfNeeded:(id)arg1;
 - (void)_captureCreditCardDataWithCameraAndFill;
@@ -108,6 +111,7 @@
 - (void)setFormControls:(id)arg1 areAutoFilled:(_Bool)arg2 clearField:(id)arg3;
 - (void)autoFill;
 - (void)_autoFillValues:(id)arg1 setAutoFilled:(_Bool)arg2;
+- (void)autoFillValues:(id)arg1 setAutoFilled:(_Bool)arg2 andFocusFieldAfterFilling:(_Bool)arg3 fieldToFocus:(id)arg4 submitForm:(_Bool)arg5;
 - (void)autoFillValues:(id)arg1 setAutoFilled:(_Bool)arg2 andFocusFieldAfterFilling:(_Bool)arg3 fieldToFocus:(id)arg4;
 - (void)autoFillValues:(id)arg1 setAutoFilled:(_Bool)arg2 andFocusField:(id)arg3;
 - (void)fetchFormMetadataWithCompletion:(CDUnknownBlockType)arg1;

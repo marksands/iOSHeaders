@@ -63,7 +63,7 @@
 - (void)renderer:(id)arg1 didSimulatePhysicsAtTime:(double)arg2;
 - (struct UIImage *)snapshotWithSize:(struct CGSize)arg1;
 - (id)transitionTexture;
-- (void)warmupPersonalAnimoji;
+- (void)warmupMemoji;
 - (void)setDirectRetargetingMode:(_Bool)arg1;
 - (_Bool)directRetargetingMode;
 @property(nonatomic) _Bool enableFaceTracking;

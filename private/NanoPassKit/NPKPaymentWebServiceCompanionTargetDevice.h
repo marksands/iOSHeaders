@@ -67,6 +67,8 @@
 - (void)initializeCloudStoreIfNecessaryWithHandlerResponse:(id)arg1;
 - (void)initializeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)initializeCloudStoreIfNecessaryResponse:(id)arg1;
+- (void)updatePeerPaymentAccountWithCompletion:(CDUnknownBlockType)arg1;
+- (void)updatePeerPaymentAccountResponse:(id)arg1;
 - (void)provisionPeerPaymentPassWithCompletion:(CDUnknownBlockType)arg1;
 - (void)provisionPeerPaymentPassResponse:(id)arg1;
 - (void)peerPaymentUnregisterWithCompletion:(CDUnknownBlockType)arg1;

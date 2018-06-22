@@ -32,7 +32,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 
-@class NSIndexPath, NSIndexSet, NSMutableDictionary, NSString, PHAsset, PHAssetCollection, PHCachingImageManager, PHFetchResult, PLDateRangeFormatter, PUAlbumListTransitionContext, PUAlbumPickerViewController, PUDeletePhotosActionController, PUDuplicateActionController, PUOneUpPresentationHelper, PUPhotoBrowserOneUpPresentationAdaptor, PUPhotoPinchGestureRecognizer, PUPhotoSelectionManager, PUPhotosGridBarsHelper, PUPhotosGridViewControllerSpec, PUPhotosSharingViewController, PUScrollViewSpeedometer, PUSessionInfo, PUSlideshowViewController, PUSwipeSelectionManager, PXAssetBadgeManager, PXPhotosDataSource, PXPhotosGlobalFooterView, UIActivityViewController, UIBarButtonItem, UICollectionViewLayout, UICollectionViewLayout<PUGridLayoutProtocol>, UILongPressGestureRecognizer, UINavigationButton, UIPanGestureRecognizer, UIPopoverPresentationController, UIView, UIViewController;
+@class NSIndexPath, NSIndexSet, NSMutableDictionary, NSString, PHAsset, PHAssetCollection, PHCachingImageManager, PHFetchResult, PLDateRangeFormatter, PUAlbumListTransitionContext, PUAlbumPickerViewController, PUDeletePhotosActionController, PUDuplicateActionController, PUOneUpPresentationHelper, PUPhotoBrowserOneUpPresentationAdaptor, PUPhotoPinchGestureRecognizer, PUPhotoSelectionManager, PUPhotosGridBarsHelper, PUPhotosGridViewControllerSpec, PUPhotosSharingViewController, PUScrollViewSpeedometer, PUSessionInfo, PUSlideshowViewController, PUSwipeSelectionManager, PXAssetBadgeManager, PXPhotosDataSource, UIActivityViewController, UIBarButtonItem, UICollectionViewLayout, UICollectionViewLayout<PUGridLayoutProtocol>, UILongPressGestureRecognizer, UINavigationButton, UIPanGestureRecognizer, UIPopoverPresentationController, UIView, UIViewController;
 
 @interface PUPhotosGridViewController : UICollectionViewController <UIPopoverPresentationControllerDelegate, PUCollectionViewSelectionDelegate, PUSessionInfoObserver, PHAssetCollectionDataSource, PXSettingsKeyObserver, PXPhotosDataSourceChangeObserver, PUDeletePhotosActionControllerDelegate, PUPhotosSharingViewControllerDelegate, PUSlideshowViewControllerDelegate, PUSwipeSelectionManagerDelegate, PUSwipeSelectionManagerDataSource, PXAutoScrollerDelegate, PUOneUpPresentationHelperDelegate, PXPhotosGlobalFooterViewDelegate, PXPhotosGlobalFooterViewLayoutDelegate, PUPhotosGridBarsHelperDelegate, UICollectionViewDragSource, UICollectionViewDragDestination, UIDropInteractionDelegate, PXCMMActionPerformerDelegate, UIGestureRecognizerDelegate, PLNavigableAssetContainerViewController, PLDismissableViewController, PUStackedAlbumControllerTransition, PUScrollViewSpeedometerDelegate>
 {
@@ -64,7 +64,6 @@
     NSMutableDictionary *_progressInfosByCachedIndexPath;
     CDUnknownBlockType _pendingNavigationBlock;
     unsigned long long _suppressesColorSettingsCount;
-    PXPhotosGlobalFooterView *_measuringGlobalFooterView;
     double _lastUserScrollTime;
     _Bool _initiallyScrolledToBottom;
     _Bool _alwaysHideTabBar;

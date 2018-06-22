@@ -22,6 +22,7 @@
 @property(readonly, nonatomic) NSString *assetId; // @synthesize assetId=_assetId;
 @property(readonly, nonatomic) NSString *assetType; // @synthesize assetType=_assetType;
 @property(readonly, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
+- (_Bool)isEqual:(id)arg1;
 - (_Bool)refreshState;
 - (_Bool)spaceCheck:(long long *)arg1;
 - (long long)cancelDownloadSync;

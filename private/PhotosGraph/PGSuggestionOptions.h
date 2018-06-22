@@ -11,6 +11,7 @@
 @interface PGSuggestionOptions : NSObject
 {
     _Bool _allowNotification;
+    _Bool _shouldPerformChanges;
     NSDate *_localToday;
     NSDate *_universalStartDate;
     NSDate *_universalEndDate;
@@ -25,6 +26,7 @@
 @property(retain, nonatomic) NSIndexSet *suggestionTypeBlacklist; // @synthesize suggestionTypeBlacklist=_suggestionTypeBlacklist;
 @property(retain, nonatomic) NSIndexSet *suggestionSubtypeWhitelist; // @synthesize suggestionSubtypeWhitelist=_suggestionSubtypeWhitelist;
 @property(retain, nonatomic) NSIndexSet *suggestionTypeWhitelist; // @synthesize suggestionTypeWhitelist=_suggestionTypeWhitelist;
+@property(nonatomic) _Bool shouldPerformChanges; // @synthesize shouldPerformChanges=_shouldPerformChanges;
 @property(nonatomic) _Bool allowNotification; // @synthesize allowNotification=_allowNotification;
 @property(nonatomic) unsigned long long maximumNumberOfSuggestions; // @synthesize maximumNumberOfSuggestions=_maximumNumberOfSuggestions;
 @property(retain, nonatomic) NSDate *universalEndDate; // @synthesize universalEndDate=_universalEndDate;

@@ -10,11 +10,18 @@
 {
     _Bool _deviceZoomed;
     _Bool _largeFormatPhone;
+    _Bool _deviceShouldUseFrozenBackdropSnapshot;
+    _Bool _deviceShouldFreezeAura;
+    _Bool _deviceShouldDeferFlamesView;
 }
 
 + (id)sharedInstance;
+@property(readonly, nonatomic) _Bool deviceShouldDeferFlamesView; // @synthesize deviceShouldDeferFlamesView=_deviceShouldDeferFlamesView;
+@property(readonly, nonatomic) _Bool deviceShouldFreezeAura; // @synthesize deviceShouldFreezeAura=_deviceShouldFreezeAura;
+@property(readonly, nonatomic) _Bool deviceShouldUseFrozenBackdropSnapshot; // @synthesize deviceShouldUseFrozenBackdropSnapshot=_deviceShouldUseFrozenBackdropSnapshot;
 @property(readonly, nonatomic, getter=isLargeFormatPhone) _Bool largeFormatPhone; // @synthesize largeFormatPhone=_largeFormatPhone;
 @property(readonly, nonatomic, getter=isDeviceZoomed) _Bool deviceZoomed; // @synthesize deviceZoomed=_deviceZoomed;
+- (void)_updateProductTypeDerivedProperties;
 - (void)_updateDeviceZoomed;
 - (void)_updateLargeFormatPhone;
 - (id)init;

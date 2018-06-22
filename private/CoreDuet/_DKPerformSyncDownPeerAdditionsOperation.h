@@ -6,7 +6,7 @@
 
 #import <CoreDuet/_DKSyncCompositeOperation.h>
 
-@class NSDate, NSMutableDictionary, _DKSync2Policy, _DKSyncPeer, _DKSyncType;
+@class NSArray, NSDate, _CDMutablePerfMetric, _DKSync2Policy, _DKSyncHistory, _DKSyncPeer, _DKSyncType;
 
 @interface _DKPerformSyncDownPeerAdditionsOperation : _DKSyncCompositeOperation
 {
@@ -15,14 +15,21 @@
     _DKSyncPeer *_peer;
     _DKSync2Policy *_policy;
     _DKSyncType *_type;
+    _CDMutablePerfMetric *_perfMetric;
+    struct _CDPerfEvent _perfEvent;
+    _Bool _highPriority;
+    _DKSyncHistory *_history;
     NSDate *_highWaterMark;
     unsigned long long _batchNumber;
-    NSMutableDictionary *_events;
+    NSArray *_overlappingWindows;
 }
 
-@property(retain, nonatomic) NSMutableDictionary *events; // @synthesize events=_events;
 - (void).cxx_destruct;
+- (void)endPerfMetrics;
+- (void)startPerfMetrics;
+- (void)endOperation;
 - (void)updateEvents:(id)arg1 withSourceDeviceID:(id)arg2;
+- (void)coalesceRedundantOverlappingWindows;
 - (void)handleFetchedEvents:(id)arg1 windowStartDate:(id)arg2 windowEndDate:(id)arg3 window:(id)arg4;
 - (void)performSyncDownPeerAdditionsWithPreviousWindow:(id)arg1;
 - (void)performSyncDownPeerAdditionsWithHighWaterMark:(id)arg1 orError:(id)arg2;

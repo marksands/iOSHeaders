@@ -28,8 +28,12 @@
 }
 
 + (id)fetchMomentSharesOverlappingAssetCollection:(id)arg1 options:(id)arg2;
++ (id)_fetchLocalMomentShareWithUUID:(id)arg1 error:(id *)arg2;
 + (void)fetchMomentShareFromShareURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (id)fetchLocalMomentShareFromShareURL:(id)arg1 error:(id *)arg2;
 + (id)_phErrorFromError:(id)arg1;
++ (_Bool)managedObjectSupportsMomentShareExpiredState;
++ (_Bool)managedObjectSupportsMomentShareTrashedState;
 + (_Bool)managedObjectSupportsTrashedState;
 + (id)localIdentifierWithUUID:(id)arg1;
 + (id)transformValueExpression:(id)arg1 forKeyPath:(id)arg2;

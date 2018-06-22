@@ -37,6 +37,8 @@
 - (void)setDeselectedKeylineFrame:(struct CGRect)arg1 forKey:(id)arg2 editMode:(long long)arg3;
 - (void)setSelectedKeylineFrame:(struct CGRect)arg1 forKey:(id)arg2 editMode:(long long)arg3;
 - (void)addKeyline:(id)arg1 forKey:(id)arg2 tappable:(_Bool)arg3 editMode:(long long)arg4;
+- (void)setInfoText:(id)arg1 forEditMode:(long long)arg2;
+- (void)setBackgroundFillAlpha:(double)arg1;
 - (void)deactivateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)willDeactivate;
 - (void)activate;

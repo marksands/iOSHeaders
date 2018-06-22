@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class CPRouteChoice, CPSTripCardView;
+@class CPRouteChoice, CPSTripCardView, CPTrip;
 
 @protocol CPSTripInitiating <NSObject>
-- (void)tripView:(CPSTripCardView *)arg1 startedRouteChoice:(CPRouteChoice *)arg2;
-- (void)tripView:(CPSTripCardView *)arg1 selectedRouteChoice:(CPRouteChoice *)arg2;
+- (void)tripView:(CPSTripCardView *)arg1 startedTrip:(CPTrip *)arg2 routeChoice:(CPRouteChoice *)arg3;
+- (void)tripView:(CPSTripCardView *)arg1 selectedTrip:(CPTrip *)arg2 routeChoice:(CPRouteChoice *)arg3;
 @end
 

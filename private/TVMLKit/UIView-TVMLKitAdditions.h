@@ -8,6 +8,7 @@
 
 @interface UIView (TVMLKitAdditions)
 + (void)tv_performByPreventingAdditiveAnimations:(CDUnknownBlockType)arg1;
+- (_Bool)tv_shouldAnimatePropertyWithKey:(id)arg1;
 - (id)tv_AccessibilityText;
 - (void)tv_setAccessibilityText:(id)arg1;
 - (void)tv_setSiriData:(id)arg1;
@@ -38,6 +39,8 @@
 - (struct CGSize)tv_sizeThatFits:(struct CGSize)arg1 withSizeCalculation:(CDUnknownBlockType)arg2;
 - (struct CGSize)tv_sizeThatFits:(struct CGSize)arg1;
 - (void)transferLayoutStylesFromElement:(id)arg1;
+- (_Bool)tv_isAnimationDisabledForProperty:(id)arg1;
+- (void)tv_disableAnimation:(_Bool)arg1 forProperty:(id)arg2;
 - (id)tv_valueForTVViewTag:(id)arg1;
 - (void)tv_setValue:(id)arg1 forTVViewTag:(id)arg2;
 - (id)valueForTVViewStyle:(id)arg1;

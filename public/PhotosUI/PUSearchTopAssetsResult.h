@@ -26,6 +26,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *assetUUIDs; // @synthesize assetUUIDs=_assetUUIDs;
 - (void).cxx_destruct;
 - (id)init;
+@property(readonly, copy) NSString *debugDescription;
+- (id)debugDictionary;
 - (id)_rangeSampledUUIDs:(id)arg1;
 - (void)_curateThumbnailAssets;
 @property(readonly, nonatomic) unsigned long long itemType;
@@ -34,7 +36,6 @@ __attribute__((visibility("hidden")))
 - (id)initWithAssetUUIDs:(id)arg1;
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;

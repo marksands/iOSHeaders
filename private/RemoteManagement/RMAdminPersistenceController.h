@@ -11,8 +11,6 @@
 }
 
 + (id)sharedController;
-- (id)_storeConfigurations;
-- (void)clearUsageDataForOrganization:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)refreshUsageDataForOrganization:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)init;
 

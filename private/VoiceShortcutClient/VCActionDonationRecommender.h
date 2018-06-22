@@ -10,6 +10,7 @@
 {
 }
 
++ (id)getDonationsFromActionResponse:(id)arg1;
 + (id)filterDonationsForTitleLength:(id)arg1;
 + (id)filteredActionDonations:(id)arg1 byApplicationAppIdentifier:(id)arg2;
 + (_Bool)actionDonation:(id)arg1 matchesQuery:(id)arg2;

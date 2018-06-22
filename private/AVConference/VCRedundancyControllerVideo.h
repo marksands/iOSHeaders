@@ -18,10 +18,13 @@ __attribute__((visibility("hidden")))
     unsigned int _mode;
     id <VCRedundancyControlAlgorithm> _algorithm;
     unsigned int _currentRedundancyPercentage;
+    int _type;
+    unsigned long long _statisticsID;
 }
 
+@property(nonatomic) unsigned long long statisticsID; // @synthesize statisticsID=_statisticsID;
 - (void)reportRedundancyPercentage:(unsigned int)arg1 redundancyInterval:(double)arg2;
-- (void)updateRedundancyStrategyWithNetworkStatistics:(CDStruct_dd06a755)arg1;
+- (void)updateRedundancyStrategyWithNetworkStatistics:(CDStruct_e9907a6b)arg1;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 statisticsCollector:(id)arg2 mode:(unsigned int)arg3;
 

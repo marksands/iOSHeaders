@@ -15,14 +15,17 @@
     UIImageView *_guidanceImageView;
     CPSAbridgableLabel *_guidanceTextLabel;
     CPSAbridgableLabel *_guidanceDetailTextLabel;
+    long long _currentInterfaceStyle;
 }
 
+@property(nonatomic) long long currentInterfaceStyle; // @synthesize currentInterfaceStyle=_currentInterfaceStyle;
 @property(retain, nonatomic) CPSAbridgableLabel *guidanceDetailTextLabel; // @synthesize guidanceDetailTextLabel=_guidanceDetailTextLabel;
 @property(retain, nonatomic) CPSAbridgableLabel *guidanceTextLabel; // @synthesize guidanceTextLabel=_guidanceTextLabel;
 @property(retain, nonatomic) UIImageView *guidanceImageView; // @synthesize guidanceImageView=_guidanceImageView;
 @property(retain, nonatomic) UIImageView *applicationIconImageView; // @synthesize applicationIconImageView=_applicationIconImageView;
 @property(retain, nonatomic) SBUIStarkBannerViewButton *actionButton; // @synthesize actionButton=_actionButton;
 - (void).cxx_destruct;
+- (void)_setGuidanceImageViewForImageSet:(id)arg1;
 - (void)updateBannerWithBannerItem:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
 - (id)initWithContext:(id)arg1;

@@ -20,6 +20,7 @@
     double _iconScale;
     UIFont *_font;
     UIFont *_emphasizedFont;
+    UIFont *_smallFont;
     UIColor *_textColor;
     UIColor *_imageTintColor;
     UIColor *_imageDimmedTintColor;
@@ -32,6 +33,7 @@
 @property(copy, nonatomic) UIColor *imageDimmedTintColor; // @synthesize imageDimmedTintColor=_imageDimmedTintColor;
 @property(copy, nonatomic) UIColor *imageTintColor; // @synthesize imageTintColor=_imageTintColor;
 @property(copy, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
+@property(copy, nonatomic) UIFont *smallFont; // @synthesize smallFont=_smallFont;
 @property(copy, nonatomic) UIFont *emphasizedFont; // @synthesize emphasizedFont=_emphasizedFont;
 @property(copy, nonatomic) UIFont *font; // @synthesize font=_font;
 @property(nonatomic) double iconScale; // @synthesize iconScale=_iconScale;

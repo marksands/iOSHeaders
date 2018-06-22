@@ -63,7 +63,7 @@
 - (_Bool)_mapItemShouldDisplayDistance:(id)arg1;
 - (void)ETAProviderUpdated:(id)arg1;
 - (void)_loadLogo;
-- (_Bool)_willShowDistance;
+- (_Bool)_isLikelyToShowDistance;
 - (void)_setupDatas;
 - (id)_localizedHours;
 - (id)_openStateString;

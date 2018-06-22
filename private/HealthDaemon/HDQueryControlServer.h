@@ -34,6 +34,7 @@
 - (void)removeObserver:(id)arg1 forTaskServerUUID:(id)arg2;
 - (void)addObserver:(id)arg1 forTaskServerUUID:(id)arg2;
 - (void)taskServerDidInvalidate:(id)arg1;
+- (void)taskServerDidFailToInitializeForUUID:(id)arg1;
 - (void)taskServerDidFinishInitialization:(id)arg1;
 - (id)taskServerWithUUID:(id)arg1;
 - (void)remote_createQueryServerForIdentifier:(id)arg1 queryUUID:(id)arg2 configuration:(id)arg3 completion:(CDUnknownBlockType)arg4;

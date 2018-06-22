@@ -10,6 +10,7 @@
 {
 }
 
++ (_Bool)supportsCollectionForProfile:(id)arg1;
 + (_Bool)isNatalimeterAvailable;
 - (id)persistentIdentifier;
 - (double)queue_differenceFromDatum:(id)arg1 toDatum:(id)arg2 type:(id)arg3;

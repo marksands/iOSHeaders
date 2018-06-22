@@ -10,8 +10,6 @@
 
 @protocol RESectionDelegate <NSObject>
 - (REElementGroup *)section:(RESection *)arg1 groupForIdentifier:(NSString *)arg2;
-- (void)section:(RESection *)arg1 didMoveElement:(NSString *)arg2 fromIndex:(long long)arg3 toIndex:(long long)arg4 wantsSubsectionPositionUpdate:(_Bool)arg5;
-- (void)section:(RESection *)arg1 didRemoveElement:(NSString *)arg2 atIndex:(long long)arg3 wantsSubsectionPositionUpdate:(_Bool)arg4;
-- (void)section:(RESection *)arg1 didInsertElement:(NSString *)arg2 atIndex:(long long)arg3 wantsSubsectionPositionUpdate:(_Bool)arg4;
+- (void)sectionDidUpdateContentOrder:(RESection *)arg1;
 @end
 

@@ -24,6 +24,7 @@
 - (void)presentationRequestForWelcomeCloudViewController:(id)arg1;
 - (void)generateGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
+- (unsigned long long)loadingPriority;
 - (id)initWithSourceType:(unsigned long long)arg1;
 - (id)init;
 

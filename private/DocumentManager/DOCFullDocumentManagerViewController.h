@@ -168,6 +168,7 @@
 - (id)createSearchBar;
 - (void)dealloc;
 - (void)_commonInit;
+- (void)_loadCurrentBrowserView:(id)arg1;
 - (id)recoverAllFromTrashActionBarButton;
 - (id)recoverFromTrashActionBarButton;
 - (id)deleteAllFromTrashActionBarButton;

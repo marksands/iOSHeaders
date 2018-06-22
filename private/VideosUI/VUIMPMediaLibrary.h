@@ -25,7 +25,8 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_enqueueProcessingBlock:(CDUnknownBlockType)arg1;
 - (void)_handleMediaLibraryStatusDidChangeNotification:(id)arg1;
-- (void)_handleMediaLibraryDidChangeNotification:(id)arg1;
+- (void)_handleMediaLibraryDynamicPropertiesDidChangeNotification:(id)arg1;
+- (void)_handleMediaLibraryContentsDidChangeNotification:(id)arg1;
 - (id)_imageLoadOperationWithParams:(id)arg1 scaleToSize:(struct CGSize)arg2 cropToFit:(_Bool)arg3;
 - (id)_imageLoadParamsForImageLoaderObject:(id)arg1;
 - (id)_imageLoaderIdentifier;

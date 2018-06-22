@@ -127,8 +127,10 @@
 - (id)keySet;
 - (void)updateMoreAndInternationalKeysWithOptions:(int)arg1;
 - (void)shiftRowAndResizeLeadingControlKey:(id)arg1 toSize:(struct CGSize)arg2 scale:(double)arg3;
+- (void)replaceKey:(id)arg1 withKey:(id)arg2;
 - (void)removeKey:(id)arg1 andShiftKeys:(id)arg2 scale:(double)arg3;
 - (void)insertKey:(id)arg1 withFrame:(struct CGRect)arg2 andShiftKeys:(id)arg3 scale:(double)arg4;
+- (void)removeKey:(id)arg1;
 - (void)scaleKeys:(id)arg1 withFactor:(struct CGSize)arg2 scale:(double)arg3;
 - (void)repositionKeys:(id)arg1 withOffset:(struct CGPoint)arg2 scale:(double)arg3;
 - (void)centerKeys:(id)arg1 inRect:(struct CGRect)arg2 scale:(double)arg3;
@@ -186,6 +188,7 @@
 - (void)clearTransientCaches;
 - (id)keyAttributes;
 - (id)geometries;
+- (void)removeKeyFromAllCachedLists:(id)arg1;
 - (void)removeKeyFromCachedKeyList:(id)arg1;
 - (void)addkeyToCachedKeyList:(id)arg1;
 - (id)keys;
@@ -197,6 +200,7 @@
 - (id)layoutName;
 - (void)cacheKey:(id)arg1;
 - (id)_cacheRootNameForKey:(id)arg1;
+- (unsigned long long)numberOfRows;
 - (id)scriptSwitchKey;
 - (id)firstKeyplaneSwitchKey;
 - (id)firstCachedKeyWithName:(id)arg1;

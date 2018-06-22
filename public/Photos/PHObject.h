@@ -41,6 +41,8 @@
 + (_Bool)managedObjectSupportsPendingState;
 + (_Bool)managedObjectSupportsVisibilityState;
 + (_Bool)managedObjectSupportsHiddenState;
++ (_Bool)managedObjectSupportsMomentShareExpiredState;
++ (_Bool)managedObjectSupportsMomentShareTrashedState;
 + (_Bool)managedObjectSupportsTrashedState;
 + (id)fetchType;
 + (id)managedEntityName;

@@ -10,6 +10,7 @@
 @class NSString;
 
 @protocol AVTCarouselController <AVTObjectViewController, AVTARFrameConsumer>
+@property(nonatomic) _Bool allowsCreate;
 @property(nonatomic) _Bool singleAvatarMode;
 @property(nonatomic) double decelerationRate;
 @property(readonly, nonatomic) id <AVTAvatarRecord> focusedRecord;
@@ -19,6 +20,7 @@
 - (void)unlockFromFocusedViewAnimated:(_Bool)arg1;
 - (void)lockOnFocusedViewAnimated:(_Bool)arg1;
 - (void)setSingleAvatarMode:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setAllowsCreate:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)displayAvatarRecordWithIdentifier:(NSString *)arg1 animated:(_Bool)arg2;
 - (void)reloadData;
 @end

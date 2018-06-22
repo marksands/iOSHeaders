@@ -36,9 +36,12 @@
 - (id)data;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (_Bool)isBetterThanETA:(id)arg1 requirements:(id)arg2;
 - (_Bool)isValidForLocation:(id)arg1 requirements:(id)arg2;
 - (id)trafficString;
 @property(readonly, nonatomic) double age;
+- (_Bool)isEqualToETA:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithSeconds:(double)arg1 trafficString:(id)arg2 transportType:(int)arg3 location:(id)arg4;
 - (id)initWithSeconds:(double)arg1 shortTrafficString:(id)arg2 longTrafficString:(id)arg3 transportType:(int)arg4 location:(id)arg5 time:(id)arg6;

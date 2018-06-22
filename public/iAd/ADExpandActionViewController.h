@@ -63,6 +63,7 @@
 - (void)_updateWebViewFrame;
 - (void)_homeButtonTapped:(id)arg1;
 - (void)_dismissButtonTapped;
+- (void)dismiss;
 @property(readonly, nonatomic) struct CGRect webViewFrame;
 - (void)didSetAdSpace;
 - (void)clientApplicationDidEnterBackground;

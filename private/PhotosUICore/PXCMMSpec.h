@@ -23,12 +23,14 @@
     double _composeTableViewCellHeight;
     double _composeTableViewCellInset;
     double _composeCornerRadius;
+    double _composePrivacyMessageInset;
     double _composeHeaderHeight;
     double _bubbleStatusIconCornerRadius;
     struct CGSize _reviewGridInterItemSpacing;
     struct CGSize _reviewGridItemSize;
     struct CGSize _composeTableViewCellImageViewSize;
     struct UIEdgeInsets _reviewContentInsets;
+    struct UIEdgeInsets _reviewSafeAreaInsets;
     struct UIEdgeInsets _reviewGridContentInsets;
     struct UIEdgeInsets _composeHeaderLabelMargins;
     struct UIEdgeInsets _composeFooterInsets;
@@ -40,6 +42,7 @@
 @property(readonly, nonatomic) struct UIEdgeInsets composeFooterInsets; // @synthesize composeFooterInsets=_composeFooterInsets;
 @property(readonly, nonatomic) double composeHeaderHeight; // @synthesize composeHeaderHeight=_composeHeaderHeight;
 @property(readonly, nonatomic) struct UIEdgeInsets composeHeaderLabelMargins; // @synthesize composeHeaderLabelMargins=_composeHeaderLabelMargins;
+@property(readonly, nonatomic) double composePrivacyMessageInset; // @synthesize composePrivacyMessageInset=_composePrivacyMessageInset;
 @property(readonly, nonatomic) double composeCornerRadius; // @synthesize composeCornerRadius=_composeCornerRadius;
 @property(readonly, nonatomic) struct CGSize composeTableViewCellImageViewSize; // @synthesize composeTableViewCellImageViewSize=_composeTableViewCellImageViewSize;
 @property(readonly, nonatomic) double composeTableViewCellInset; // @synthesize composeTableViewCellInset=_composeTableViewCellInset;
@@ -53,6 +56,7 @@
 @property(readonly, nonatomic) double reviewHeaderTopInset; // @synthesize reviewHeaderTopInset=_reviewHeaderTopInset;
 @property(readonly, nonatomic) long long reviewGridContentMode; // @synthesize reviewGridContentMode=_reviewGridContentMode;
 @property(readonly, nonatomic) struct UIEdgeInsets reviewGridContentInsets; // @synthesize reviewGridContentInsets=_reviewGridContentInsets;
+@property(readonly, nonatomic) struct UIEdgeInsets reviewSafeAreaInsets; // @synthesize reviewSafeAreaInsets=_reviewSafeAreaInsets;
 @property(readonly, nonatomic) struct CGSize reviewGridItemSize; // @synthesize reviewGridItemSize=_reviewGridItemSize;
 @property(readonly, nonatomic) struct CGSize reviewGridInterItemSpacing; // @synthesize reviewGridInterItemSpacing=_reviewGridInterItemSpacing;
 @property(readonly, nonatomic) struct UIEdgeInsets reviewContentInsets; // @synthesize reviewContentInsets=_reviewContentInsets;

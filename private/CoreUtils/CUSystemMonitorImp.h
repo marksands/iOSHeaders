@@ -9,7 +9,7 @@
 #import "CXCallObserverDelegate.h"
 #import "FMFSessionDelegate.h"
 
-@class CUBluetoothClient, CUWiFiManager, CXCallObserver, NSArray, NSData, NSObject<OS_dispatch_queue>, NSString;
+@class CUBluetoothClient, CUSystemMonitor, CUWiFiManager, CXCallObserver, NSArray, NSData, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CUSystemMonitorImp : NSObject <FMFSessionDelegate, CXCallObserverDelegate>
@@ -35,6 +35,10 @@ __attribute__((visibility("hidden")))
     _Bool _powerUnlimited;
     _Bool _primaryAppleIDIsHSA2;
     _Bool _primaryAppleIDObserving;
+    CDStruct_83abfce7 _rotatingIdentifier48;
+    NSData *_rotatingIdentifierData;
+    CUSystemMonitor *_rotatingIdentifierBluetoothAddressMonitor;
+    NSObject<OS_dispatch_source> *_rotatingIdentifierTimer;
     _Bool _screenLocked;
     int _screenLockedToken;
     _Bool _screenOn;
@@ -59,6 +63,11 @@ __attribute__((visibility("hidden")))
 - (void)_screenLockedChanged;
 - (void)_screenLockedMonitorStop;
 - (void)_screenLockedMonitorStart;
+- (void)_rotatingIdentifierTimerReset:(_Bool)arg1;
+- (void)_rotatingIdentifierTimerFired;
+- (void)_rotatingIdentifierBTUpdated;
+- (void)_rotatingIdentifierMonitorStop;
+- (void)_rotatingIdentifierMonitorStart;
 - (void)_primaryAppleIDChanged:(id)arg1;
 - (void)_primaryAppleIDMonitorStop;
 - (void)_primaryAppleIDMonitorStart;

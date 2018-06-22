@@ -19,6 +19,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)setPaused:(_Bool)arg1;
 - (void)configureWithContent:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

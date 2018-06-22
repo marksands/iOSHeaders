@@ -18,8 +18,10 @@
     CAShapeLayer *_thumbBorderLayer;
     UIImageView *_thumbView;
     UIImpactFeedbackGenerator *_impactFeedbackGenerator;
+    long long _layoutDirection;
 }
 
+@property(nonatomic) long long layoutDirection; // @synthesize layoutDirection=_layoutDirection;
 @property(nonatomic) _Bool shouldTriggerFeedback; // @synthesize shouldTriggerFeedback=_shouldTriggerFeedback;
 @property(retain, nonatomic) UIImpactFeedbackGenerator *impactFeedbackGenerator; // @synthesize impactFeedbackGenerator=_impactFeedbackGenerator;
 @property(retain, nonatomic) UIImageView *thumbView; // @synthesize thumbView=_thumbView;
@@ -38,7 +40,7 @@
 - (void)removeTrackLayer:(id)arg1 animated:(_Bool)arg2;
 @property(readonly, nonatomic) CALayer *thumbLayer;
 - (void)layoutSubviews;
-- (id)init;
+- (id)initWithUserInterfaceLayoutDirection:(long long)arg1;
 
 @end
 

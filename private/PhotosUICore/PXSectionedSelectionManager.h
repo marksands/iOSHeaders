@@ -43,6 +43,7 @@
 - (id)mutableChangeObject;
 - (id)init;
 - (id)initWithDataSourceManager:(id)arg1;
+- (_Bool)areAllUnsavedAssetsSelected;
 - (void)selectNonCopiedAssets;
 
 // Remaining properties

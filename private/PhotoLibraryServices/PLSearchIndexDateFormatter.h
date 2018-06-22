@@ -27,7 +27,7 @@
 - (id)_inqNewLocalizedStringFromDate:(id)arg1;
 - (id)newLocalizedComponentsFromDate:(id)arg1 includeMonth:(_Bool)arg2;
 - (id)localizedMonthStringsFromDate:(id)arg1;
-- (id)localizedSeasonStringFromDate:(id)arg1;
+- (id)localizedSeasonNameFromDate:(id)arg1;
 - (void)_localeDidChange:(id)arg1;
 - (void)_inqUpdateDateFormat:(id)arg1;
 - (void)_inqSetupDateFormatter;

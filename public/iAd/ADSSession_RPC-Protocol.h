@@ -30,7 +30,7 @@
 - (void)_remote_reportContentImpressionForAdSpaceWithIdenfier:(NSString *)arg1;
 - (void)_remote_actionCompletedWithSystemEvent:(int)arg1 forAdSpaceWithIdentifier:(NSString *)arg2 completionHandler:(void (^)(void))arg3;
 - (void)_remote_reportSystemEvent:(int)arg1 forAdSpaceWithIdentifier:(NSString *)arg2;
-- (void)_remote_bannerBeginActionForAdSpaceWithIdentifier:(NSString *)arg1 FromFrame:(ADSInternalRect *)arg2 tapLocation:(ADSInternalPoint *)arg3 completionHandler:(void (^)(_Bool))arg4;
+- (void)_remote_bannerBeginActionForAdSpaceWithIdentifier:(NSString *)arg1 fromFrame:(ADSInternalRect *)arg2 tapLocation:(ADSInternalPoint *)arg3;
 - (void)_remote_determineActionForAdSpaceWithIdentifier:(NSString *)arg1 ForTapAtLocation:(ADSInternalPoint *)arg2 inFrame:(ADSInternalRect *)arg3 withMRAIDAction:(ADMRAIDAction *)arg4 completeHandler:(void (^)(ADAdActionPublicAttributes *))arg5;
 - (void)_priv_adSpaceDidDisappearForAdSpaceIdentifier:(NSString *)arg1;
 - (void)_priv_adSpaceDidAppearForAdSpaceIdentifier:(NSString *)arg1;

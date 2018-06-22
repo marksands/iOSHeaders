@@ -24,6 +24,7 @@
 + (long long)photosGridSizeSubclassForScreenSize:(struct CGSize)arg1;
 + (id)allLayoutMetricConfigurationSizes;
 + (id)layoutMarginWidthInterpolator;
++ (id)legacyLayoutMarginWidthInterpolator;
 + (id)albumsGridItemWidthInterpolator;
 + (id)albumsGridEdgeInsetsInterpolator;
 + (id)memoriesItemWidthInterpolator;

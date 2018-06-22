@@ -8,6 +8,7 @@
 
 #import "PUImportActionCoordinatorDelegate.h"
 #import "PUImportAssetsDataSourceManagerObserver.h"
+#import "PUImportControllerNotificationsReceiver.h"
 #import "PUImportOneUpCellDisplayDelegate.h"
 #import "PUImportOneUpScrubberCellDisplayDelegate.h"
 #import "PUImportOneUpTransitioning.h"
@@ -19,11 +20,12 @@
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
+#import "UIPopoverPresentationControllerDelegate.h"
 
-@class NSIndexPath, NSMutableArray, NSMutableSet, NSString, PFCoalescer, PLDateRangeFormatter, PUImportActionCoordinator, PUImportAssetsDataSource, PUImportAssetsDataSourceManager, PUImportChangeDetailsCollectionViewHelper, PUImportController, PUImportOneUpViewControllerSpecManager, PUImportProgressBarItem, PUOneUpAssetTransitionInfo, PUPhotoPinchGestureRecognizer, PUPhotosSharingTransitionContext, PUPhotosZoomingSharingGridCell, PUReviewScrubber, PUSelectableAssetCollectionViewLayout, PUTransitionViewAnimator, PXAssetReference, PXMediaProvider, PXNavigationTitleView, UIBarButtonItem, UICollectionView, UICollectionViewLayout, UITapGestureRecognizer;
+@class NSIndexPath, NSMutableArray, NSMutableSet, NSString, PFCoalescer, PLDateRangeFormatter, PLRoundProgressView, PUImportActionCoordinator, PUImportAssetsDataSource, PUImportAssetsDataSourceManager, PUImportChangeDetailsCollectionViewHelper, PUImportController, PUImportOneUpViewControllerSpecManager, PUImportProgressDetailViewController, PUOneUpAssetTransitionInfo, PUPhotoPinchGestureRecognizer, PUPhotosSharingTransitionContext, PUPhotosZoomingSharingGridCell, PUReviewScrubber, PUSelectableAssetCollectionViewLayout, PUTransitionViewAnimator, PXAssetReference, PXMediaProvider, PXNavigationTitleView, UIBarButtonItem, UICollectionView, UICollectionViewLayout, UITapGestureRecognizer;
 
 __attribute__((visibility("hidden")))
-@interface PUImportOneUpViewController : UIViewController <PUImportActionCoordinatorDelegate, PUImportAssetsDataSourceManagerObserver, PUImportOneUpCellDisplayDelegate, PUImportOneUpScrubberCellDisplayDelegate, PUSelectableAssetCollectionViewLayoutDelegate, PUTransitionViewAnimatorDelegate, PUReviewScrubberDataSource, PUReviewScrubberDelegate, PXChangeObserver, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate, PUImportOneUpTransitioning>
+@interface PUImportOneUpViewController : UIViewController <PUImportActionCoordinatorDelegate, PUImportAssetsDataSourceManagerObserver, PUImportControllerNotificationsReceiver, PUImportOneUpCellDisplayDelegate, PUImportOneUpScrubberCellDisplayDelegate, PUSelectableAssetCollectionViewLayoutDelegate, PUTransitionViewAnimatorDelegate, PUReviewScrubberDataSource, PUReviewScrubberDelegate, PXChangeObserver, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate, PUImportOneUpTransitioning>
 {
     _Bool _isCommitingPreview;
     _Bool _performingDataSourceChange;
@@ -48,7 +50,10 @@ __attribute__((visibility("hidden")))
     UIBarButtonItem *_importBarButtonItem;
     UIBarButtonItem *_stopImportBarButtonItem;
     UIBarButtonItem *_deleteBarButtonItem;
-    PUImportProgressBarItem *_progressButtonItem;
+    UIBarButtonItem *_progressButtonItem;
+    PLRoundProgressView *_roundProgressView;
+    PUImportProgressDetailViewController *_importProgressDetailViewController;
+    NSString *_localizedProgressText;
     UIBarButtonItem *_bottomSpacerBarButtonItem;
     PUImportActionCoordinator *_actionCoordinator;
     PXNavigationTitleView *_navigationTitleView;
@@ -90,7 +95,10 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool allowsSelection; // @synthesize allowsSelection=_allowsSelection;
 @property(retain, nonatomic) PUImportActionCoordinator *actionCoordinator; // @synthesize actionCoordinator=_actionCoordinator;
 @property(readonly, nonatomic) UIBarButtonItem *bottomSpacerBarButtonItem; // @synthesize bottomSpacerBarButtonItem=_bottomSpacerBarButtonItem;
-@property(readonly, nonatomic) PUImportProgressBarItem *progressButtonItem; // @synthesize progressButtonItem=_progressButtonItem;
+@property(copy, nonatomic) NSString *localizedProgressText; // @synthesize localizedProgressText=_localizedProgressText;
+@property(retain, nonatomic) PUImportProgressDetailViewController *importProgressDetailViewController; // @synthesize importProgressDetailViewController=_importProgressDetailViewController;
+@property(retain, nonatomic) PLRoundProgressView *roundProgressView; // @synthesize roundProgressView=_roundProgressView;
+@property(readonly, nonatomic) UIBarButtonItem *progressButtonItem; // @synthesize progressButtonItem=_progressButtonItem;
 @property(readonly, nonatomic) UIBarButtonItem *deleteBarButtonItem; // @synthesize deleteBarButtonItem=_deleteBarButtonItem;
 @property(readonly, nonatomic) UIBarButtonItem *stopImportBarButtonItem; // @synthesize stopImportBarButtonItem=_stopImportBarButtonItem;
 @property(readonly, nonatomic) UIBarButtonItem *importBarButtonItem; // @synthesize importBarButtonItem=_importBarButtonItem;
@@ -157,7 +165,11 @@ __attribute__((visibility("hidden")))
 - (void)actionCoordinatorDidBeginImport:(id)arg1;
 - (void)actionCoordinatorWillBeginImport:(id)arg1;
 - (void)deleteItems:(id)arg1;
+- (long long)adaptivePresentationStyleForPresentationController:(id)arg1 traitCollection:(id)arg2;
+- (void)dismissImportProgressPopover;
+- (void)presentImportProgressPopover;
 - (void)showProgress:(id)arg1;
+- (void)importControllerProgressDidChange:(id)arg1 descriptiveText:(id)arg2 context:(id)arg3;
 - (void)_stopImportAction:(id)arg1;
 - (void)_deleteAction:(id)arg1;
 - (void)_importAction:(id)arg1;

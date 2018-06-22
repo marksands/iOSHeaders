@@ -13,11 +13,13 @@
 @interface BLTPBSectionInfo : PBCodable <NSCopying>
 {
     unsigned int _alertType;
+    int _authorizationStatus;
     NSString *_displayName;
     NSString *_factorySectionID;
     int _groupingSetting;
     BLTPBSectionIcon *_icon;
     unsigned int _notificationCenterLimit;
+    int _phoneAuthorizationStatus;
     unsigned int _pushSettings;
     int _sectionCategory;
     NSString *_sectionID;
@@ -41,8 +43,10 @@
     _Bool _suppressFromSettings;
     struct {
         unsigned int alertType:1;
+        unsigned int authorizationStatus:1;
         unsigned int groupingSetting:1;
         unsigned int notificationCenterLimit:1;
+        unsigned int phoneAuthorizationStatus:1;
         unsigned int pushSettings:1;
         unsigned int sectionCategory:1;
         unsigned int sectionType:1;
@@ -64,6 +68,8 @@
 }
 
 + (Class)subsectionsType;
+@property(nonatomic) int phoneAuthorizationStatus; // @synthesize phoneAuthorizationStatus=_phoneAuthorizationStatus;
+@property(nonatomic) int authorizationStatus; // @synthesize authorizationStatus=_authorizationStatus;
 @property(nonatomic) _Bool excludeFromBulletinBoard; // @synthesize excludeFromBulletinBoard=_excludeFromBulletinBoard;
 @property(nonatomic) _Bool criticalAlertSetting; // @synthesize criticalAlertSetting=_criticalAlertSetting;
 @property(nonatomic) _Bool phoneAllowsNotifications; // @synthesize phoneAllowsNotifications=_phoneAllowsNotifications;
@@ -100,6 +106,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasPhoneAuthorizationStatus;
+@property(nonatomic) _Bool hasAuthorizationStatus;
 @property(nonatomic) _Bool hasExcludeFromBulletinBoard;
 - (int)StringAsGroupingSetting:(id)arg1;
 - (id)groupingSettingAsString:(int)arg1;

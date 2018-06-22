@@ -43,8 +43,10 @@
 @property(nonatomic) _Bool personBuilderMergeCandidatesEnabled; // @synthesize personBuilderMergeCandidatesEnabled=_personBuilderMergeCandidatesEnabled;
 @property(nonatomic) unsigned long long incrementalPersonProcessingStage; // @synthesize incrementalPersonProcessingStage=_incrementalPersonProcessingStage;
 - (void).cxx_destruct;
-- (void)generateFaceIDModelShouldForce:(_Bool)arg1 progress:(id)arg2;
+- (void)generateFaceIDModelShouldForce:(_Bool)arg1 progress:(id)arg2 extendTimeoutBlock:(CDUnknownBlockType)arg3;
+- (_Bool)deletePersonModel;
 - (_Bool)persistPersonModel:(id)arg1;
+- (id)personModelPath;
 - (void)markLastBackgroundFaceIDModelRebuildJobDate;
 - (_Bool)faceIDModelLastGenerationDidExceedTimeInterval;
 - (_Bool)shouldRebuildFaceIDModel;
@@ -66,6 +68,7 @@
 - (_Bool)_clusterFacesWithPhotoVision:(id)arg1 incrementally:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)_deleteAllVerifiedPersonsWithError:(id *)arg1;
 - (void)reclusterFacesWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)resetFaceClassificationModelWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)resetPeopleWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)resetFaceClusteringStateWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)updateKeyFacesOfPersonsWithLocalIdentifiers:(id)arg1 forceUpdate:(_Bool)arg2 context:(id)arg3 reply:(CDUnknownBlockType)arg4;

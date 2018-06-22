@@ -18,7 +18,7 @@
 #import "CPSTripInitiating.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class CARSessionStatus, CPSApplicationStateMonitor, CPSEventObserver, CPSNavigationAlertQueue, CPSNavigationCardView, CPSNavigationETAView, CPSNavigator, CPSPanViewController, CPSTripCardView, NSArray, NSLayoutConstraint, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSTimer, UIStackView, UITapGestureRecognizer, UIView;
+@class CARSessionStatus, CPMapTemplate, CPSApplicationStateMonitor, CPSEventObserver, CPSNavigationAlertQueue, CPSNavigationCardView, CPSNavigationETAView, CPSNavigator, CPSPanViewController, CPSTripCardView, CPTripPreviewTextConfiguration, NSArray, NSLayoutConstraint, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSTimer, UIPanGestureRecognizer, UIStackView, UITapGestureRecognizer, UIView;
 
 @interface CPSMapTemplateViewController : CPSBaseTemplateViewController <CARSessionObserving, CPSButtonDelegate, CPSTripInitiating, UIGestureRecognizerDelegate, CPSPanEventDelegate, CPSNavigationAlertQueueDelegate, CPSNavigationDisplaying, CARNavigationOwnershipManagerDelegate, CPSEventObserverDelegate, CPSApplicationStateObserving, CPMapTemplateProviding>
 {
@@ -37,21 +37,28 @@
     CPSNavigator *_navigator;
     UITapGestureRecognizer *_hideTapGestureRecognizer;
     UITapGestureRecognizer *_navBarHideTapGestureRecognizer;
+    UIPanGestureRecognizer *_panGestureRecognizer;
     NSTimer *_autoHideTimer;
     NSMutableSet *_autoHideDisabledReasons;
     NSArray *_tripPreviews;
+    CPTripPreviewTextConfiguration *_tripPreviewTextConfiguration;
     CPSPanViewController *_panViewController;
     UIView *_panContainerView;
     CPSNavigationAlertQueue *_navigationAlertQueue;
     NSLayoutConstraint *_navigationAlertBottomConstraint;
+    NSLayoutConstraint *_navigationAlertHeightConstraint;
     CPSApplicationStateMonitor *_applicationStateMonitor;
     CPSNavigationETAView *_navigationETAView;
     NSLayoutConstraint *_navigationETABottomConstraint;
     NSMutableDictionary *_lastTravelEstimatesByTrip;
     id <CPSSafeAreaDelegate> _safeAreaDelegate;
     CPSEventObserver *_eventObserver;
+    id <UIFocusItem> _lastFocusedItem;
+    struct CGPoint _lastPanGesturePoint;
 }
 
+@property(nonatomic) struct CGPoint lastPanGesturePoint; // @synthesize lastPanGesturePoint=_lastPanGesturePoint;
+@property(nonatomic) __weak id <UIFocusItem> lastFocusedItem; // @synthesize lastFocusedItem=_lastFocusedItem;
 @property(retain, nonatomic) CPSEventObserver *eventObserver; // @synthesize eventObserver=_eventObserver;
 @property(nonatomic) __weak id <CPSSafeAreaDelegate> safeAreaDelegate; // @synthesize safeAreaDelegate=_safeAreaDelegate;
 @property(nonatomic) _Bool rightHandDrive; // @synthesize rightHandDrive=_rightHandDrive;
@@ -60,16 +67,19 @@
 @property(retain, nonatomic) CPSNavigationETAView *navigationETAView; // @synthesize navigationETAView=_navigationETAView;
 @property(nonatomic) __weak CPSApplicationStateMonitor *applicationStateMonitor; // @synthesize applicationStateMonitor=_applicationStateMonitor;
 @property(nonatomic) _Bool applicationIsFrontmost; // @synthesize applicationIsFrontmost=_applicationIsFrontmost;
+@property(retain, nonatomic) NSLayoutConstraint *navigationAlertHeightConstraint; // @synthesize navigationAlertHeightConstraint=_navigationAlertHeightConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *navigationAlertBottomConstraint; // @synthesize navigationAlertBottomConstraint=_navigationAlertBottomConstraint;
 @property(retain, nonatomic) CPSNavigationAlertQueue *navigationAlertQueue; // @synthesize navigationAlertQueue=_navigationAlertQueue;
 @property(nonatomic) _Bool demoAutoHideTimerDisabled; // @synthesize demoAutoHideTimerDisabled=_demoAutoHideTimerDisabled;
 @property(retain, nonatomic) UIView *panContainerView; // @synthesize panContainerView=_panContainerView;
 @property(retain, nonatomic) CPSPanViewController *panViewController; // @synthesize panViewController=_panViewController;
+@property(retain, nonatomic) CPTripPreviewTextConfiguration *tripPreviewTextConfiguration; // @synthesize tripPreviewTextConfiguration=_tripPreviewTextConfiguration;
 @property(copy, nonatomic) NSArray *tripPreviews; // @synthesize tripPreviews=_tripPreviews;
 @property(retain, nonatomic) NSMutableSet *autoHideDisabledReasons; // @synthesize autoHideDisabledReasons=_autoHideDisabledReasons;
 @property(nonatomic) _Bool hidesButtonsWithNavigationBar; // @synthesize hidesButtonsWithNavigationBar=_hidesButtonsWithNavigationBar;
 @property(nonatomic) _Bool autoHidesNavigationBar; // @synthesize autoHidesNavigationBar=_autoHidesNavigationBar;
 @property(retain, nonatomic) NSTimer *autoHideTimer; // @synthesize autoHideTimer=_autoHideTimer;
+@property(retain, nonatomic) UIPanGestureRecognizer *panGestureRecognizer; // @synthesize panGestureRecognizer=_panGestureRecognizer;
 @property(retain, nonatomic) UITapGestureRecognizer *navBarHideTapGestureRecognizer; // @synthesize navBarHideTapGestureRecognizer=_navBarHideTapGestureRecognizer;
 @property(retain, nonatomic) UITapGestureRecognizer *hideTapGestureRecognizer; // @synthesize hideTapGestureRecognizer=_hideTapGestureRecognizer;
 @property(retain, nonatomic) CPSNavigator *navigator; // @synthesize navigator=_navigator;
@@ -83,6 +93,8 @@
 - (void).cxx_destruct;
 - (void)applicationStateMonitor:(id)arg1 didBecomeActive:(_Bool)arg2;
 - (void)eventObserver:(id)arg1 observedEvent:(unsigned long long)arg2;
+- (id)preferredFocusEnvironments;
+- (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (_Bool)shouldUpdateFocusInContext:(id)arg1;
 - (struct UIEdgeInsets)_navigationAlertInsets;
 - (struct UIEdgeInsets)_navBarInsets;
@@ -90,16 +102,18 @@
 - (struct UIEdgeInsets)_cardViewEdgeInsets;
 - (struct UIEdgeInsets)_mapButtonsEdgeInsets;
 - (void)_updateSafeArea;
+- (void)_updateInterestingArea;
 - (void)navigationOwnershipChangedToOwner:(unsigned long long)arg1;
-- (id)mapTemplateDelegate;
-- (void)panEndedWithDirection:(unsigned long long)arg1;
-- (void)panBeganWithDirection:(unsigned long long)arg1;
-- (void)panWithDirection:(unsigned long long)arg1;
+@property(readonly, nonatomic) __weak id <CPMapClientTemplateDelegate> mapTemplateDelegate;
+- (void)panEndedWithDirection:(long long)arg1;
+- (void)panBeganWithDirection:(long long)arg1;
+- (void)panWithDirection:(long long)arg1;
 - (void)_removePanController;
 - (void)_addPanControllerAsChild;
 - (void)_setPanInterfaceVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (void)_handlePanGesture:(id)arg1;
 - (void)_gestureNoOp:(id)arg1;
 - (void)_hideBar:(id)arg1;
 - (void)_showBar;
@@ -107,6 +121,7 @@
 - (void)_resetAutoHideTimer;
 - (void)_setAutoHideDisabled:(_Bool)arg1 forRequester:(id)arg2;
 - (_Bool)_isAutoHideEnabled;
+- (void)hostPanInterfaceVisible:(CDUnknownBlockType)arg1;
 - (void)hostSetMapButtons:(id)arg1;
 - (void)hostSetPanInterfaceVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setMapButton:(id)arg1 focusedImage:(id)arg2;
@@ -114,14 +129,14 @@
 - (void)setMapButton:(id)arg1 hidden:(_Bool)arg2;
 - (void)hostStartNavigationSessionForTrip:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)hostUpdateTravelEstimates:(id)arg1 forTripIdentifier:(id)arg2;
-- (void)setHostTripPreviews:(id)arg1;
+- (void)setHostTripPreviews:(id)arg1 textConfiguration:(id)arg2;
 - (void)setHostHidesButtonsWithNavigationBar:(_Bool)arg1;
 - (void)setHostAutoHidesNavigationBar:(_Bool)arg1;
 - (void)setControl:(id)arg1 enabled:(_Bool)arg2;
 - (void)_nightModeChanged:(id)arg1;
 - (void)sessionDidConnect:(id)arg1;
-- (void)tripView:(id)arg1 startedRouteChoice:(id)arg2;
-- (void)tripView:(id)arg1 selectedRouteChoice:(id)arg2;
+- (void)tripView:(id)arg1 startedTrip:(id)arg2 routeChoice:(id)arg3;
+- (void)tripView:(id)arg1 selectedTrip:(id)arg2 routeChoice:(id)arg3;
 - (id)_buttonForIdentifier:(id)arg1;
 - (id)_buttons;
 - (void)didSelectButton:(id)arg1;
@@ -131,16 +146,16 @@
 - (void)navigationAlertQueue:(id)arg1 shouldRemoveAlertView:(id)arg2 animated:(_Bool)arg3 dismissalContext:(unsigned long long)arg4;
 - (void)navigationAlertQueue:(id)arg1 shouldDisplayAlertView:(id)arg2 animated:(_Bool)arg3;
 - (void)_setNavigationAlertView:(id)arg1 visible:(_Bool)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)updateNavigationAlert:(id)arg1;
 - (void)dismissNavigationAlertAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)showNavigationAlert:(id)arg1 animated:(_Bool)arg2;
 - (struct CGRect)_rectForNavigationAlert:(id)arg1;
-- (id)_tripOverviewCardForTrip:(id)arg1;
 - (void)_reloadPreviewsView;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)_updateMapButtonsWithButtons:(id)arg1;
 - (void)viewDidLoad;
-- (id)mapTemplate;
+@property(readonly, nonatomic) CPMapTemplate *mapTemplate;
 - (void)dealloc;
 - (id)initWithMapTemplate:(id)arg1 templateDelegate:(id)arg2 safeAreaDelegate:(id)arg3 applicationStateMonitor:(id)arg4;
 

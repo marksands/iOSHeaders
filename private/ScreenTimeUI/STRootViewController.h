@@ -33,6 +33,7 @@
 - (void)didCancelEnteringPIN;
 - (void)didAcceptEnteredPIN:(id)arg1;
 - (_Bool)validatePIN:(id)arg1;
+- (_Bool)prepareHandlingURLForSpecifierID:(id)arg1 resourceDictionary:(id)arg2 animatePush:(_Bool *)arg3;
 - (void)showPINSheet:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

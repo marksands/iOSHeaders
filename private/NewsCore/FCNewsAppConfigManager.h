@@ -14,10 +14,7 @@
 
 @interface FCNewsAppConfigManager : NSObject <FCFeldsparIDProviderObserving, FCNewsAppConfigurationManager, FCCoreConfigurationManager>
 {
-    _Bool _overrideDisableABTesting;
     _Bool _shouldIgnoreCache;
-    NSArray *_overrideSegmentSetIDs;
-    NSArray *_additionalSegmentSetIDs;
     RCConfigurationManager *_remoteConfigurationManager;
     FCContextConfiguration *_contextConfiguration;
     id <FCFeldsparIDProvider> _feldsparIDProvider;
@@ -25,13 +22,14 @@
     FCAsyncSerialQueue *_requestSerialQueue;
     FCKeyValueStore *_localStore;
     RCConfigurationSettings *_currentSettings;
-    id <FCNewsAppConfiguration> _currentConfiguration;
+    id <FCNewsAppConfiguration> _currentAppConfiguration;
     NSArray *_treatmentIDs;
     NSArray *_segmentSetIDs;
     NSHashTable *_appConfigObservers;
     NSHashTable *_coreConfigObservers;
 }
 
++ (id)overrideAppConfigID;
 + (id)internalOverrideAdditionalSegmentSetIDs;
 + (id)internalOverrideSegmentSetIDs;
 @property(retain, nonatomic) NSHashTable *coreConfigObservers; // @synthesize coreConfigObservers=_coreConfigObservers;
@@ -39,7 +37,7 @@
 @property(nonatomic) _Bool shouldIgnoreCache; // @synthesize shouldIgnoreCache=_shouldIgnoreCache;
 @property(copy, nonatomic) NSArray *segmentSetIDs; // @synthesize segmentSetIDs=_segmentSetIDs;
 @property(copy, nonatomic) NSArray *treatmentIDs; // @synthesize treatmentIDs=_treatmentIDs;
-@property(copy, nonatomic) id <FCNewsAppConfiguration> currentConfiguration; // @synthesize currentConfiguration=_currentConfiguration;
+@property(copy, nonatomic) id <FCNewsAppConfiguration> currentAppConfiguration; // @synthesize currentAppConfiguration=_currentAppConfiguration;
 @property(copy, nonatomic) RCConfigurationSettings *currentSettings; // @synthesize currentSettings=_currentSettings;
 @property(retain, nonatomic) FCKeyValueStore *localStore; // @synthesize localStore=_localStore;
 @property(readonly, nonatomic) FCAsyncSerialQueue *requestSerialQueue; // @synthesize requestSerialQueue=_requestSerialQueue;
@@ -47,21 +45,20 @@
 @property(readonly, nonatomic) id <FCFeldsparIDProvider> feldsparIDProvider; // @synthesize feldsparIDProvider=_feldsparIDProvider;
 @property(readonly, nonatomic) FCContextConfiguration *contextConfiguration; // @synthesize contextConfiguration=_contextConfiguration;
 @property(readonly, nonatomic) RCConfigurationManager *remoteConfigurationManager; // @synthesize remoteConfigurationManager=_remoteConfigurationManager;
-@property(nonatomic) _Bool overrideDisableABTesting; // @synthesize overrideDisableABTesting=_overrideDisableABTesting;
-@property(copy, nonatomic) NSArray *additionalSegmentSetIDs; // @synthesize additionalSegmentSetIDs=_additionalSegmentSetIDs;
-@property(copy, nonatomic) NSArray *overrideSegmentSetIDs; // @synthesize overrideSegmentSetIDs=_overrideSegmentSetIDs;
 - (void).cxx_destruct;
 - (unsigned long long)_configurationSourceForSourceName:(id)arg1;
-- (id)_recordIDPrefixForRequestKey:(id)arg1;
+- (id)_recordIDForRequestKey:(id)arg1 storefrontID:(id)arg2;
 - (id)_permanentURLForRequestKey:(id)arg1 storefrontID:(id)arg2;
 - (unsigned long long)_remoteConfigurationEnvironmentForContextIdentifier:(long long)arg1;
 - (id)_responseKeyForRequestKey:(id)arg1;
-- (id)_configurationSettingsWithRequestKey:(id)arg1 feldsparID:(id)arg2 storefrontID:(id)arg3 contextConfiguration:(id)arg4;
+- (id)_configurationSettingsWithRequestInfos:(id)arg1 feldsparID:(id)arg2 storefrontID:(id)arg3 contextConfiguration:(id)arg4;
+- (id)_requestInfoForRequestKey:(id)arg1 storefrontID:(id)arg2 additionalChangeTags:(id)arg3;
 - (void)feldsparIDProviderDidChangeFeldsparID:(id)arg1;
 - (_Bool)_checkIfShouldIgnoreCache;
 - (void)_loadConfigurationFromStore:(id)arg1;
 - (void)_configurationDidChange;
 - (id)_storefrontID;
+- (void)_fetchAppWidgetConfigurationIfNeededWithCompletionQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_fetchAppConfigurationIfNeededWithCompletionQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
@@ -72,6 +69,7 @@
 - (void)removeAppConfigObserver:(id)arg1;
 - (void)addAppConfigObserver:(id)arg1;
 - (void)fetchTrendingSearchesIfNeededWithCompletion:(CDUnknownBlockType)arg1;
+- (void)fetchAppWidgetConfigurationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)refreshAppConfigurationIfNeededWithCompletionQueue:(id)arg1 refreshCompletion:(CDUnknownBlockType)arg2;
 - (void)fetchAppConfigurationIfNeededWithCompletionQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAppConfigurationIfNeededWithCompletion:(CDUnknownBlockType)arg1;

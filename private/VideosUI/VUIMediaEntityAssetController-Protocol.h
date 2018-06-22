@@ -6,16 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, NSObject<VUIMediaEntityIdentifier>, VUIMediaEntityType;
+@class NSObject<OS_dispatch_queue>, NSObject<VUIMediaEntityIdentifier>, VUIMediaEntityAssetControllerState, VUIMediaEntityType;
 
 @protocol VUIMediaEntityAssetController <NSObject>
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *completionDispatchQueue;
-@property(readonly, nonatomic, getter=isDownloadInProgress) _Bool downloadInProgress;
-@property(readonly, nonatomic) _Bool supportsPausing;
-@property(readonly, nonatomic) _Bool supportsCancellation;
+@property(readonly, copy, nonatomic) VUIMediaEntityAssetControllerState *state;
 @property(readonly, nonatomic) _Bool supportsStartingDownload;
-@property(readonly, nonatomic) double downloadProgress;
-@property(readonly, nonatomic) unsigned long long state;
 @property(retain, nonatomic) id <VUIMediaEntityAssetControllerDelegate> delegate;
 @property(readonly, copy, nonatomic) VUIMediaEntityType *mediaEntityType;
 @property(readonly, copy, nonatomic) NSObject<VUIMediaEntityIdentifier> *mediaEntityIdentifier;

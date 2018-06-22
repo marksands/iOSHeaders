@@ -15,10 +15,6 @@ struct CLLocationCoordinate2D {
     double _field2;
 };
 
-struct NSObject {
-    Class _field1;
-};
-
 struct PFDirectMessagingMulticaster {
     Class _field1;
 };

@@ -28,6 +28,8 @@
 + (_Bool)shouldHarvestEvents;
 + (void)setFirstPartyMailAppIsInstalled:(_Bool)arg1;
 + (void)setFirstPartyCalendarAppIsInstalled:(_Bool)arg1;
++ (void)setParsecFlightCachingAPIBaseURL:(id)arg1;
++ (id)parsecFlightCachingAPIBaseURL;
 + (void)setDetectContacts:(_Bool)arg1;
 + (void)setDetectNLEvents:(_Bool)arg1;
 + (void)setDetectStructuredEvents:(_Bool)arg1;

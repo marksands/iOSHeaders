@@ -23,6 +23,7 @@
         float scale;
         _Bool network_wants_bgr;
     } _espresso_processing_params;
+    _Bool _espressoInitialized;
     struct vector<unsigned char, std::__1::allocator<unsigned char>> _randomNumbers;
     struct vImage_Buffer _vImageBuffer;
     ARGPUCubemapConverter *_cubemapConverter;
@@ -47,7 +48,7 @@
 - (id)toCIImage:(CDStruct_cf098810)arg1;
 - (struct vImage_Buffer)toVImageBuffer:(id)arg1;
 - (id)completeLatLongImage:(id)arg1;
-- (id)completeCubemap:(id)arg1 cameraExposure:(double)arg2;
+-     // Error parsing type: @80@0:8@16d24{?=[3]}32, name: completeCubemap:cameraExposure:rotationWorldFromCube:
 - (void)dealloc;
 - (id)init;
 

@@ -27,6 +27,7 @@
     _Bool _useMockData;
     _Bool _forceDisplayReportJunk;
     _Bool _navigateToActivityPost;
+    _Bool _forcePortraitBias;
     _Bool _showInboxLastSeenDate;
     _Bool _delayEditRenders;
     _Bool _useCachedEditRenders;
@@ -45,6 +46,7 @@
 @property(nonatomic) _Bool useCachedEditRenders; // @synthesize useCachedEditRenders=_useCachedEditRenders;
 @property(nonatomic) _Bool delayEditRenders; // @synthesize delayEditRenders=_delayEditRenders;
 @property(nonatomic) _Bool showInboxLastSeenDate; // @synthesize showInboxLastSeenDate=_showInboxLastSeenDate;
+@property(nonatomic) _Bool forcePortraitBias; // @synthesize forcePortraitBias=_forcePortraitBias;
 @property(nonatomic) _Bool navigateToActivityPost; // @synthesize navigateToActivityPost=_navigateToActivityPost;
 @property(nonatomic) _Bool forceDisplayReportJunk; // @synthesize forceDisplayReportJunk=_forceDisplayReportJunk;
 @property(nonatomic) _Bool useMockData; // @synthesize useMockData=_useMockData;

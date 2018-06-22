@@ -6,7 +6,7 @@
 
 #import "SBUIBannerItem.h"
 
-@class NSArray, NSString, NSUUID, UIImage;
+@class CPImageSet, NSArray, NSString, NSUUID;
 
 @interface CPSBannerItem : SBUIBannerItem
 {
@@ -14,12 +14,12 @@
     NSString *_bundleIdentifier;
     NSArray *_textVariants;
     NSArray *_detailTextVariants;
-    UIImage *_image;
+    CPImageSet *_imageSet;
     id <CPBannerDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <CPBannerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) UIImage *image; // @synthesize image=_image;
+@property(readonly, nonatomic) CPImageSet *imageSet; // @synthesize imageSet=_imageSet;
 @property(readonly, nonatomic) NSArray *detailTextVariants; // @synthesize detailTextVariants=_detailTextVariants;
 @property(readonly, nonatomic) NSArray *textVariants; // @synthesize textVariants=_textVariants;
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
@@ -30,7 +30,7 @@
 - (_Bool)isEqualToBannerItem:(id)arg1;
 - (CDUnknownBlockType)action;
 - (_Bool)isSticky;
-- (id)initWithIdentifier:(id)arg1 bundleIdentifier:(id)arg2 textVariants:(id)arg3 detailTextVariants:(id)arg4 image:(id)arg5 delegate:(id)arg6;
+- (id)initWithIdentifier:(id)arg1 bundleIdentifier:(id)arg2 textVariants:(id)arg3 detailTextVariants:(id)arg4 imageSet:(id)arg5 delegate:(id)arg6;
 
 @end
 

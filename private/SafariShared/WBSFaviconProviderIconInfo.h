@@ -11,6 +11,7 @@
 @interface WBSFaviconProviderIconInfo : NSObject
 {
     _Bool _hasGeneratedResolutions;
+    _Bool _isRejectedResource;
     NSString *_pageURLString;
     NSString *_iconURLString;
     NSString *_UUIDString;
@@ -18,6 +19,7 @@
     struct CGSize _size;
 }
 
+@property(readonly, nonatomic) _Bool isRejectedResource; // @synthesize isRejectedResource=_isRejectedResource;
 @property(readonly, nonatomic) _Bool hasGeneratedResolutions; // @synthesize hasGeneratedResolutions=_hasGeneratedResolutions;
 @property(readonly, nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(readonly, nonatomic) NSDate *dateAdded; // @synthesize dateAdded=_dateAdded;
@@ -25,7 +27,7 @@
 @property(readonly, copy, nonatomic) NSString *iconURLString; // @synthesize iconURLString=_iconURLString;
 @property(readonly, copy, nonatomic) NSString *pageURLString; // @synthesize pageURLString=_pageURLString;
 - (void).cxx_destruct;
-- (id)initWithPageURLString:(id)arg1 iconURLString:(id)arg2 UUIDString:(id)arg3 dateAdded:(id)arg4 size:(struct CGSize)arg5 hasGeneratedResolutions:(_Bool)arg6;
+- (id)initWithPageURLString:(id)arg1 iconURLString:(id)arg2 UUIDString:(id)arg3 dateAdded:(id)arg4 size:(struct CGSize)arg5 hasGeneratedResolutions:(_Bool)arg6 isRejectedResource:(_Bool)arg7;
 - (id)init;
 
 @end

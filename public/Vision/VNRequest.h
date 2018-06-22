@@ -7,30 +7,24 @@
 #import "NSObject.h"
 
 #import "NSCopying.h"
-#import "VNObservationsCacheKeyProviding.h"
 #import "VNSequencedRequestSupporting.h"
 #import "VNWarningRecorder.h"
 
-@class NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, VNProcessingDevice, VNWarningRecorder;
+@class NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, VNProcessingDevice, VNRequestConfiguration, VNWarningRecorder;
 
-@interface VNRequest : NSObject <VNWarningRecorder, VNObservationsCacheKeyProviding, VNSequencedRequestSupporting, NSCopying>
+@interface VNRequest : NSObject <VNWarningRecorder, VNSequencedRequestSupporting, NSCopying>
 {
     NSString *_requestName;
     CDUnknownBlockType _completionHandler;
+    VNRequestConfiguration *_configuration;
     NSDictionary *_options;
     VNWarningRecorder *_warningRecorder;
     NSObject<OS_dispatch_semaphore> *_cancellationSemaphore;
     NSObject<OS_dispatch_queue> *_cancellationQueue;
     unsigned long long _revision;
-    unsigned long long _cachedResolvedRevision;
-    unsigned long long _detectionLevel;
-    VNProcessingDevice *_processingDevice;
-    unsigned long long _metalContextPriority;
-    _Bool _preferBackgroundProcessing;
     _Bool _dumpIntermediateImages;
     _Bool _cancellationTriggered;
     NSArray *_results;
-    unsigned long long _modelFileBackingStore;
 }
 
 + (unsigned long long)compatibleRevisionForDependentRequestOfClass:(Class)arg1 beingPerformedByRevision:(unsigned long long)arg2;
@@ -54,11 +48,12 @@
 + (_Bool)warmUpRequestPerformer:(id)arg1 error:(id *)arg2;
 + (id)requestWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (id)requestWithName:(id)arg1 options:(id)arg2;
++ (id)newConfigurationInstance;
++ (Class)configurationClass;
 + (void)recordDefaultOptionsInDictionary:(id)arg1;
 + (void)initialize;
 @property(readonly, copy, nonatomic) NSDictionary *options; // @synthesize options=_options;
 @property(readonly, copy, nonatomic) NSString *requestName; // @synthesize requestName=_requestName;
-@property(nonatomic) unsigned long long modelFileBackingStore; // @synthesize modelFileBackingStore=_modelFileBackingStore;
 @property _Bool cancellationTriggered; // @synthesize cancellationTriggered=_cancellationTriggered;
 @property(retain) NSObject<OS_dispatch_semaphore> *cancellationSemaphore; // @synthesize cancellationSemaphore=_cancellationSemaphore;
 @property(readonly, copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
@@ -70,17 +65,19 @@
 - (_Bool)validateImageBuffer:(id)arg1 ofNonZeroWidth:(unsigned long long *)arg2 andHeight:(unsigned long long *)arg3 error:(id *)arg4;
 @property(nonatomic) unsigned long long detectionLevel;
 @property(copy, nonatomic) VNProcessingDevice *processingDevice;
-@property(nonatomic) unsigned long long metalContextPriority; // @synthesize metalContextPriority=_metalContextPriority;
+@property(nonatomic) unsigned long long metalContextPriority;
 @property(nonatomic) _Bool usesCPUOnly;
 @property(nonatomic) _Bool disallowsGPUUse;
 @property(retain, nonatomic) id <MTLDevice> preferredMetalContext;
 @property(nonatomic) _Bool dumpIntermediateImages;
+@property(nonatomic) unsigned long long modelFileBackingStore;
 @property(nonatomic) _Bool preferBackgroundProcessing;
 - (void)cancel;
 - (id)warnings;
 - (id)valueForWarning:(id)arg1;
 - (void)recordWarning:(id)arg1 value:(id)arg2;
 - (CDUnknownBlockType)resultsSortingComparator;
+- (void)setSortedResults:(id)arg1;
 - (void)setResults:(id)arg1;
 - (_Bool)internalCancelInContext:(id)arg1 error:(id *)arg2;
 - (_Bool)internalPerformInContext:(id)arg1 error:(id *)arg2;
@@ -101,7 +98,9 @@
 - (id)init;
 - (id)sequencedRequestPreviousObservationsKey;
 - (_Bool)wantsSequencedRequestObservationsRecording;
-- (id)observationsCacheKey;
+- (_Bool)willAcceptCachedResultsFromRequestWithConfiguration:(id)arg1;
+- (_Bool)allowsCachingOfResults;
+- (id)configuration;
 - (long long)dependencyProcessingOrdinality;
 
 // Remaining properties

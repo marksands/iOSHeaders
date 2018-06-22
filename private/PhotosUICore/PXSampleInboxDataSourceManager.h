@@ -20,8 +20,9 @@
 @property(retain, nonatomic) PXSampleInboxMediaProvider *sampleMediaProvider; // @synthesize sampleMediaProvider=_sampleMediaProvider;
 @property(retain, nonatomic) NSArray *mockedModels; // @synthesize mockedModels=_mockedModels;
 - (void).cxx_destruct;
-- (id)subtitleForModel:(id)arg1 withTraitCollection:(id)arg2;
-- (id)titleForModel:(id)arg1 withTraitCollection:(id)arg2;
+- (void)requestTitleAndSubtitleForModel:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)subtitleForModel:(id)arg1;
+- (id)titleForModel:(id)arg1;
 @property(readonly, nonatomic) id <PXInboxModelTitleProvider> titleProvider;
 @property(readonly, nonatomic) id <PXInboxModelMediaProvider> mediaProvider;
 @property(readonly, nonatomic) id <PXInboxModelDetailViewControllerProvider> detailViewControllerProvider;

@@ -21,12 +21,12 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) VUIMediaItemEntityTypesFetchResponse *response; // @synthesize response=_response;
 - (void).cxx_destruct;
 - (_Bool)_mediaLibraryHasMediaItemsWithQuery:(id)arg1;
+- (_Bool)_canUseCheapEntityCheckWithMediaEntityType:(id)arg1;
 - (_Bool)_mediaLibraryHasLocalMediaItems;
 - (_Bool)_mediaLibraryHasHasHomeVideos;
 - (_Bool)_mediaLibraryHasEpisodes;
 - (_Bool)_mediaLibraryHasMovieRentals;
 - (_Bool)_mediaLibraryHasMovies;
-- (_Bool)_mediaLibraryIsDeviceMediaLibrary;
 - (void)executionDidBegin;
 - (id)initWithMPMediaLibrary:(id)arg1;
 - (id)init;

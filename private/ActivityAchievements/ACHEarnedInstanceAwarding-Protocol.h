@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSDateInterval, NSSet, NSString;
+@class HDDatabaseTransactionContext, NSDateInterval, NSSet, NSString;
 
 @protocol ACHEarnedInstanceAwarding <NSObject>
 @property(readonly, nonatomic) NSString *uniqueName;
-- (NSSet *)earnedInstancesForHistoricalInterval:(NSDateInterval *)arg1;
+- (NSSet *)earnedInstancesForHistoricalInterval:(NSDateInterval *)arg1 databaseContext:(HDDatabaseTransactionContext *)arg2;
 @end
 

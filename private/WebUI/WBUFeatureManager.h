@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class ACAccount, ACAccountStore, NSObject<OS_dispatch_queue>;
+@class ACAccount, ACAccountStore, NSObject<OS_dispatch_queue>, RMManagementState;
 
 @interface WBUFeatureManager : NSObject
 {
     NSObject<OS_dispatch_queue> *_internalQueue;
     ACAccountStore *_accountStore;
     ACAccount *_account;
+    RMManagementState *_managementState;
     _Bool _autoFillAvailable;
     _Bool _bookmarksAvailable;
     _Bool _readingListAvailable;
@@ -31,8 +32,8 @@
 @property(readonly, nonatomic, getter=isAutoFillAvailable) _Bool autoFillAvailable; // @synthesize autoFillAvailable=_autoFillAvailable;
 - (void).cxx_destruct;
 @property(readonly, nonatomic, getter=isAirDropPasswordsAvailable) _Bool airDropPasswordsAvailable;
+@property(readonly, nonatomic, getter=isUserRemotelyManagedOrLocallyRestricted) _Bool userRemotelyManagedOrLocallyRestricted;
 @property(readonly, nonatomic, getter=isPrivateBrowsingAvailable) _Bool privateBrowsingAvailable;
-@property(readonly, nonatomic, getter=isParsecITunesResultsAvailable) _Bool parsecITunesResultsAvailable;
 @property(readonly, nonatomic, getter=isCloudTabsAvailable) _Bool cloudTabsAvailable;
 @property(readonly, nonatomic, getter=isCloudHistorySyncAvailable) _Bool cloudHistorySyncAvailable;
 @property(readonly, nonatomic, getter=isCloudKitBookmarksAvailable) _Bool cloudKitBookmarksAvailable;

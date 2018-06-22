@@ -8,10 +8,11 @@
 
 #import "UIScrollViewDelegate.h"
 
-@class HMCameraSource, HMCameraView, HUCameraBadgeView, HUCameraErrorContent, HUCameraErrorView, HUCenteringScrollView, HURemoteContextHostingView, NADecayingTimer, NSArray, NSLayoutConstraint, NSLayoutYAxisAnchor, NSString, UIImageView, UITapGestureRecognizer;
+@class HMCameraSource, HMCameraView, HUCameraBadgeView, HUCameraErrorContent, HUCameraErrorView, HUCenteringScrollView, HURemoteContextHostingView, NADecayingTimer, NSArray, NSLayoutConstraint, NSLayoutYAxisAnchor, NSString, UIActivityIndicatorView, UIImageView, UITapGestureRecognizer;
 
 @interface HUCameraView : UIView <UIScrollViewDelegate>
 {
+    _Bool _showActivityIndicator;
     _Bool _allowDigitalZoom;
     unsigned long long _maskedCameraCorners;
     NSLayoutYAxisAnchor *_badgeTopAnchor;
@@ -24,6 +25,7 @@
     UIView *_cameraDimmingView;
     UIView *_backgroundView;
     HUCameraErrorView *_errorView;
+    UIActivityIndicatorView *_activityIndicatorView;
     NADecayingTimer *_snapshotAgeUpdateTimer;
     UITapGestureRecognizer *_doubleTapRecognizer;
     NSArray *_staticConstraints;
@@ -40,6 +42,7 @@
 @property(retain, nonatomic) NSArray *staticConstraints; // @synthesize staticConstraints=_staticConstraints;
 @property(retain, nonatomic) UITapGestureRecognizer *doubleTapRecognizer; // @synthesize doubleTapRecognizer=_doubleTapRecognizer;
 @property(retain, nonatomic) NADecayingTimer *snapshotAgeUpdateTimer; // @synthesize snapshotAgeUpdateTimer=_snapshotAgeUpdateTimer;
+@property(retain, nonatomic) UIActivityIndicatorView *activityIndicatorView; // @synthesize activityIndicatorView=_activityIndicatorView;
 @property(retain, nonatomic) HUCameraErrorView *errorView; // @synthesize errorView=_errorView;
 @property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) UIView *cameraDimmingView; // @synthesize cameraDimmingView=_cameraDimmingView;
@@ -49,6 +52,7 @@
 @property(readonly, nonatomic) HURemoteContextHostingView *cameraContainerView; // @synthesize cameraContainerView=_cameraContainerView;
 @property(nonatomic) _Bool allowDigitalZoom; // @synthesize allowDigitalZoom=_allowDigitalZoom;
 @property(retain, nonatomic) UIImageView *demoSnapshotImageView; // @synthesize demoSnapshotImageView=_demoSnapshotImageView;
+@property(nonatomic) _Bool showActivityIndicator; // @synthesize showActivityIndicator=_showActivityIndicator;
 @property(retain, nonatomic) HUCameraErrorContent *errorContent; // @synthesize errorContent=_errorContent;
 @property(retain, nonatomic) NSLayoutYAxisAnchor *badgeTopAnchor; // @synthesize badgeTopAnchor=_badgeTopAnchor;
 @property(nonatomic) struct UIOffset badgeOffset; // @synthesize badgeOffset=_badgeOffset;
@@ -60,7 +64,7 @@
 - (void)_scheduleNextSnapshotAgeUpdateForCaptureDate:(id)arg1;
 - (void)_updateBadgeViewReschedulingTimerIfNecessary:(_Bool)arg1;
 - (void)_updateBadgeView;
-- (void)_updateErrorVisibilityStateAnimated:(_Bool)arg1;
+- (void)_updateErrorAndActivityIndicatorVisibilityAnimated:(_Bool)arg1;
 - (void)_updateMaskedCameraCorners;
 - (id)viewForZoomingInScrollView:(id)arg1;
 @property(readonly, nonatomic) UIView *cameraOverlaySnapshot;
@@ -68,6 +72,7 @@
 @property(readonly, nonatomic) struct CGRect derivedCameraContentFrame;
 @property(readonly, nonatomic) struct CGRect cameraContentFrame;
 @property(nonatomic, getter=isBadgeHidden) _Bool badgeHidden;
+- (void)setShowActivityIndicator:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setErrorContent:(id)arg1 animated:(_Bool)arg2;
 @property(retain, nonatomic) HMCameraSource *cameraSource;
 - (void)setCameraSource:(id)arg1 animated:(_Bool)arg2;

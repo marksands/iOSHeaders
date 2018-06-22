@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     QLThumbnailHostContext *_hostContext;
     CDUnknownBlockType _serviceErrorHandler;
     CDUnknownBlockType _completionHandler;
+    id <QLThumbnailSurfaceGeneratorProtocol> _ioSurfaceGenerator;
     QLItem *_item;
     double _minimumSize;
     double _scale;
@@ -26,13 +27,14 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double minimumSize; // @synthesize minimumSize=_minimumSize;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(retain, nonatomic) QLItem *item; // @synthesize item=_item;
+@property(retain, nonatomic) id <QLThumbnailSurfaceGeneratorProtocol> ioSurfaceGenerator; // @synthesize ioSurfaceGenerator=_ioSurfaceGenerator;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(copy, nonatomic) CDUnknownBlockType serviceErrorHandler; // @synthesize serviceErrorHandler=_serviceErrorHandler;
 @property(retain, nonatomic) QLThumbnailHostContext *hostContext; // @synthesize hostContext=_hostContext;
 - (void).cxx_destruct;
 - (void)finish;
 - (void)main;
-- (id)initWithThumbnailHostContext:(id)arg1 item:(id)arg2 size:(struct CGSize)arg3 minimumSize:(double)arg4 scale:(double)arg5 badgeType:(unsigned long long)arg6 completionHandler:(CDUnknownBlockType)arg7 serviceErrorHandler:(CDUnknownBlockType)arg8;
+- (id)initWithThumbnailHostContext:(id)arg1 item:(id)arg2 size:(struct CGSize)arg3 minimumSize:(double)arg4 scale:(double)arg5 badgeType:(unsigned long long)arg6 ioSurfaceGenerator:(id)arg7 completionHandler:(CDUnknownBlockType)arg8 serviceErrorHandler:(CDUnknownBlockType)arg9;
 
 @end
 

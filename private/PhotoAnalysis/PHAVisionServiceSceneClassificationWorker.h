@@ -32,7 +32,6 @@
 - (_Bool)isEnabled;
 - (id)newAssetFetchOptions;
 - (void)cooldown;
-- (void)startup;
 - (id)sceneTaxonomyHash;
 - (void)performSceneClassificationOnAssetWithLocalIdentifier:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)localizedLabelForSceneIdentifier:(unsigned int)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;

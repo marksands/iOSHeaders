@@ -11,11 +11,12 @@
 @interface AVBackdropView : AVView
 {
     NSArray *_temporaryArrangedSubviews;
-    UIStackView *_stackView;
-    UIVisualEffectView *_visualEffectView;
+    _Bool _disablesAutoLayout;
     long long _axis;
     unsigned long long _shapeStyle;
     UIView *_targetViewForSecondaryMaterialOverlay;
+    UIStackView *_stackView;
+    UIVisualEffectView *_visualEffectView;
     UIVisualEffectView *_secondaryMaterialOverlayView;
     NSArray *_secondaryMaterialOverlayViewConstraints;
     NSString *_groupName;
@@ -33,10 +34,13 @@
 + (void)applyPrimaryGlyphTintToView:(id)arg1;
 + (void)removeAllFiltersFromView:(id)arg1;
 + (id)baseEffects;
+@property(nonatomic) _Bool disablesAutoLayout; // @synthesize disablesAutoLayout=_disablesAutoLayout;
 @property(nonatomic) __weak _UIVisualEffectBackdropView *captureView; // @synthesize captureView=_captureView;
 @property(copy, nonatomic) NSString *groupName; // @synthesize groupName=_groupName;
 @property(retain, nonatomic) NSArray *secondaryMaterialOverlayViewConstraints; // @synthesize secondaryMaterialOverlayViewConstraints=_secondaryMaterialOverlayViewConstraints;
 @property(retain, nonatomic) UIVisualEffectView *secondaryMaterialOverlayView; // @synthesize secondaryMaterialOverlayView=_secondaryMaterialOverlayView;
+@property(readonly, nonatomic) UIVisualEffectView *visualEffectView; // @synthesize visualEffectView=_visualEffectView;
+@property(readonly, nonatomic) UIStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain, nonatomic) UIView *targetViewForSecondaryMaterialOverlay; // @synthesize targetViewForSecondaryMaterialOverlay=_targetViewForSecondaryMaterialOverlay;
 @property(nonatomic) unsigned long long shapeStyle; // @synthesize shapeStyle=_shapeStyle;
 @property(readonly, nonatomic) long long axis; // @synthesize axis=_axis;
@@ -55,11 +59,10 @@
 - (void)setCustomSpacing:(double)arg1 afterView:(id)arg2;
 - (void)setArrangedSubviews:(id)arg1 axis:(long long)arg2;
 @property(readonly, nonatomic) UIView *contentView;
-@property(readonly, nonatomic) UIVisualEffectView *visualEffectView; // @synthesize visualEffectView=_visualEffectView;
-@property(readonly, nonatomic) UIStackView *stackView; // @synthesize stackView=_stackView;
 - (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 captureView:(id)arg2 disablingAutoLayout:(_Bool)arg3;
+- (id)initWithArrangedSubviews:(id)arg1 captureView:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithArrangedSubviews:(id)arg1;
 
 @end
 

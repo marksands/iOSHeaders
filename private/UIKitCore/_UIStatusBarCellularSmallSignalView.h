@@ -15,7 +15,6 @@ __attribute__((visibility("hidden")))
 + (double)_heightForNormalBarAtIndex:(long long)arg1 iconSize:(long long)arg2;
 + (double)_barWidthForIconSize:(long long)arg1;
 - (double)_barCornerRadius;
-- (double)_heightForBarAtIndex:(long long)arg1 mode:(long long)arg2;
 
 @end
 

@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     BOOL _isPlatformBinary;
     _Bool _hasKVONotificationInFlight;
     _Bool _impersonatingAnotherProcess;
+    _Bool _valid;
 }
 
 @end

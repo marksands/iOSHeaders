@@ -23,10 +23,10 @@
 @property(readonly) NSURL *componentsURL; // @synthesize componentsURL=_componentsURL;
 - (id)pathForAnimojiResource:(id)arg1 ofType:(id)arg2 inDirectory:(id)arg3;
 - (id)pathForAnimojiResource:(id)arg1 ofType:(id)arg2;
-- (id)pathForPersonalAnimojiResource:(id)arg1 ofType:(id)arg2 inDirectory:(id)arg3;
-- (id)pathForPersonalAnimojiResource:(id)arg1 ofType:(id)arg2;
+- (id)pathForMemojiResource:(id)arg1 ofType:(id)arg2 inDirectory:(id)arg3;
+- (id)pathForMemojiResource:(id)arg1 ofType:(id)arg2;
 @property(readonly) NSURL *animojiResourcesURL;
-@property(readonly) NSURL *personalAnimojiResourcesURL;
+@property(readonly) NSURL *memojiResourcesURL;
 @property(readonly) NSURL *resourcesURL; // @synthesize resourcesURL=_resourcesURL;
 
 @end

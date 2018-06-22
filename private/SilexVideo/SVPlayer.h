@@ -6,20 +6,12 @@
 
 #import "AVPlayer.h"
 
-@class SVKeyValueObserver;
-
 @interface SVPlayer : AVPlayer
 {
     int _audioMode;
-    SVKeyValueObserver *_timeControlStatusObserver;
-    SVKeyValueObserver *_currentItemObserver;
 }
 
-@property(retain, nonatomic) SVKeyValueObserver *currentItemObserver; // @synthesize currentItemObserver=_currentItemObserver;
-@property(retain, nonatomic) SVKeyValueObserver *timeControlStatusObserver; // @synthesize timeControlStatusObserver=_timeControlStatusObserver;
 @property(readonly, nonatomic) int audioMode; // @synthesize audioMode=_audioMode;
-- (void).cxx_destruct;
-- (void)timeControlStatusChanged;
 - (void)dealloc;
 - (id)initWithAudioMode:(int)arg1;
 

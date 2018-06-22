@@ -30,6 +30,7 @@
 - (id)currentRemoteCompetitionForContact:(id)arg1;
 - (id)archivedCompetitionListForFriendWithUUID:(id)arg1;
 - (id)currentCompetitionListForFriendWithUUID:(id)arg1;
+- (void)deleteCachedCompetitions;
 - (_Bool)loadCachedCompetitions;
 - (id)initWithProfile:(id)arg1;
 

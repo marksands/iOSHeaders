@@ -8,16 +8,18 @@
 
 #import "PXSharedAlbumInvitationViewDelegate.h"
 
-@class NSString, PXFeedInvitationSectionInfo, PXSharedAlbumInvitationView;
+@class NSString, PXFeedInvitationSectionInfo, PXSharedAlbumHeaderView, PXSharedAlbumInvitationView;
 
 __attribute__((visibility("hidden")))
 @interface PUFeedInvitationCell : PUFeedCell <PXSharedAlbumInvitationViewDelegate>
 {
     PXFeedInvitationSectionInfo *_invitationSectionInfo;
+    PXSharedAlbumHeaderView *_headerView;
     PXSharedAlbumInvitationView *_invitationView;
 }
 
 @property(retain, nonatomic) PXSharedAlbumInvitationView *invitationView; // @synthesize invitationView=_invitationView;
+@property(retain, nonatomic) PXSharedAlbumHeaderView *headerView; // @synthesize headerView=_headerView;
 @property(retain, nonatomic) PXFeedInvitationSectionInfo *invitationSectionInfo; // @synthesize invitationSectionInfo=_invitationSectionInfo;
 - (void).cxx_destruct;
 - (void)sharedAlbumInvitationView:(id)arg1 presentViewController:(id)arg2;

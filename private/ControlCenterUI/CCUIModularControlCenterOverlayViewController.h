@@ -76,6 +76,7 @@
 - (void)updatePresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
 - (void)beginPresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
 - (void)dismissControlCenterForContentModuleContext:(id)arg1;
+- (struct CGRect)compactAvoidanceFrameForStatusBar:(id)arg1;
 - (id)compactStyleRequestForStatusBar:(id)arg1;
 @property(readonly, nonatomic) double overlayReachabilityHeight;
 @property(readonly, copy, nonatomic) CCUIStatusBarStyleSnapshot *overlayStatusBarStyle;

@@ -88,7 +88,7 @@
 - (void)_performCommand:(id)arg1;
 - (id)_initWithCardSection:(id)arg1 dataSource:(id)arg2;
 - (id)_initWithCardSection:(id)arg1;
-- (void)eventDidOccur:(unsigned long long)arg1 withIdentifier:(id)arg2 userInfo:(id)arg3;
+- (void)cardEventDidOccur:(unsigned long long)arg1 withIdentifier:(id)arg2 userInfo:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

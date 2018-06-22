@@ -46,7 +46,9 @@
 - (void)updateLiveConversationIndicatorWithImage:(id)arg1;
 - (void)updateUnreadIndicatorWithImage:(id)arg1;
 - (_Bool)showingEditControl;
+- (void)increaseContrastDidChange;
 - (void)contentSizeCategoryDidChange;
+- (void)_increaseContrastDidChange:(id)arg1;
 - (void)_contentSizeCategoryDidChange:(id)arg1;
 - (void)prepareForReuse;
 @property(readonly, nonatomic) CKAvatarView *avatarView;

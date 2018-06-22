@@ -8,14 +8,14 @@
 
 #import "PGLibraryChangeConsumer.h"
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<PGGraphUpdateManagerDelegate>, NSString, PGGraphUpdateJetsamIndicator, PGLibraryChangeListener, PGManager, PGPhotoChangeToGraphChangeConverter, PHPersistentChangeToken;
+@class NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, PGGraphUpdateJetsamIndicator, PGGraphUpdateManagerTargetTokenState, PGLibraryChangeListener, PGManager, PGPhotoChangeToGraphChangeConverter;
 
 @interface PGGraphUpdateManager : NSObject <PGLibraryChangeConsumer>
 {
     unsigned char _processingState;
     _Bool _stopRequested;
     _Bool _listening;
-    NSObject<PGGraphUpdateManagerDelegate> *_delegate;
+    NSMutableSet *_listeners;
     PGLibraryChangeListener *_libraryChangeListener;
     NSObject<OS_dispatch_queue> *_processingQueue;
     NSObject<OS_dispatch_queue> *_stateQueue;
@@ -23,10 +23,10 @@
     PGManager *_manager;
     NSMutableArray *_pendingChanges;
     PGGraphUpdateJetsamIndicator *_jetsamIndicator;
-    PHPersistentChangeToken *_targetChangeToken;
+    PGGraphUpdateManagerTargetTokenState *_targetTokenState;
 }
 
-@property(copy, nonatomic) PHPersistentChangeToken *targetChangeToken; // @synthesize targetChangeToken=_targetChangeToken;
+@property(retain, nonatomic) PGGraphUpdateManagerTargetTokenState *targetTokenState; // @synthesize targetTokenState=_targetTokenState;
 @property(readonly, nonatomic) PGGraphUpdateJetsamIndicator *jetsamIndicator; // @synthesize jetsamIndicator=_jetsamIndicator;
 @property(retain, nonatomic) NSMutableArray *pendingChanges; // @synthesize pendingChanges=_pendingChanges;
 @property(nonatomic) unsigned char processingState; // @synthesize processingState=_processingState;
@@ -35,7 +35,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *stateQueue; // @synthesize stateQueue=_stateQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *processingQueue; // @synthesize processingQueue=_processingQueue;
 @property(retain, nonatomic) PGLibraryChangeListener *libraryChangeListener; // @synthesize libraryChangeListener=_libraryChangeListener;
-@property(nonatomic) __weak NSObject<PGGraphUpdateManagerDelegate> *delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) NSMutableSet *listeners; // @synthesize listeners=_listeners;
 - (void).cxx_destruct;
 - (id)_graphUpdateForPhotoChanges:(id)arg1;
 - (void)_triggerUpdateForGraphUpdate:(id)arg1;
@@ -45,19 +45,23 @@
 - (id)_tokensForChanges:(id)arg1;
 - (void)_processPendingChanges;
 - (_Bool)_pauseListening;
-- (void)setUpdateTarget;
 - (void)_startListening;
-- (void)_signalGraphIsConsistentWithTokens:(id)arg1 onStopped:(_Bool)arg2 shouldValidate:(_Bool)arg3;
+- (void)_notifyProgress:(double)arg1;
+- (void)_notifyListeners:(id)arg1 notificationType:(unsigned char)arg2;
+- (void)_onEncounteredTargetToken;
+- (void)_signalGraphIsConsistentWithTokens:(id)arg1;
 - (void)_onStopRequestedWasListening:(_Bool)arg1;
 - (void)performFullRebuildWithProgressBlock:(CDUnknownBlockType)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)incrementalChangeNotAvailable;
 - (void)libraryChangesAvailable:(id)arg1;
+- (void)removeListener:(id)arg1;
+- (void)addListener:(id)arg1;
 - (void)stopListening;
 - (void)startListening;
 @property(nonatomic) _Bool stopRequested; // @synthesize stopRequested=_stopRequested;
 @property(nonatomic, getter=isListening) _Bool listening; // @synthesize listening=_listening;
 @property(readonly, copy) NSString *description;
-- (id)initWithGraphManager:(id)arg1 delegate:(id)arg2;
+- (id)initWithGraphManager:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

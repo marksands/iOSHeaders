@@ -44,6 +44,7 @@
 @property(readonly, copy, nonatomic) NSString *publisherID;
 @property(readonly, copy, nonatomic) NSString *sourceFeedID;
 @property(readonly, nonatomic, getter=isPressRelease) _Bool pressRelease;
+@property(readonly, nonatomic, getter=isHiddenFromAutoFavorites) _Bool hiddenFromAutoFavorites;
 @property(readonly, nonatomic, getter=isHiddenFromFeeds) _Bool hiddenFromFeeds;
 @property(readonly, nonatomic, getter=isBoundToContext) _Bool boundToContext;
 @property(readonly, nonatomic) _Bool showMinimalChrome;

@@ -29,6 +29,7 @@
 - (_Bool)shouldSelectResponderOnAppearance;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)willResignActive;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)saveFilterItem;
 - (id)specifiers;
 - (id)init;

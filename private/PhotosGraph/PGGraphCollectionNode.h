@@ -15,6 +15,7 @@
 {
 }
 
+- (id)associatedNodesForRemoval;
 - (id)naturalLanguageFeatures;
 - (id)assetCollection;
 - (id)anniversaryPersonNode;

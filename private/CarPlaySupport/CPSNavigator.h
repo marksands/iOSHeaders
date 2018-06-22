@@ -28,10 +28,10 @@
 - (void).cxx_destruct;
 - (void)navigationOwnershipChangedToOwner:(unsigned long long)arg1;
 - (void)updateTravelEstimates:(id)arg1 forManeuver:(id)arg2;
-- (void)updateManeuvers:(id)arg1;
+- (void)showManeuvers:(id)arg1 usingDisplayStyles:(id)arg2;
 - (void)cancelTrip;
 - (void)finishTrip;
-- (void)pauseTripForReason:(unsigned long long)arg1;
+- (void)pauseTripForReason:(unsigned long long)arg1 description:(id)arg2;
 - (void)removeDisplayDelegate:(id)arg1;
 - (void)addDisplayDelegate:(id)arg1;
 - (void)dealloc;

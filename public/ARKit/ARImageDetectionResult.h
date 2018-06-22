@@ -14,11 +14,13 @@
 @interface ARImageDetectionResult : NSObject <NSCopying, NSSecureCoding>
 {
     ARReferenceImage *_referenceImage;
+    void *_imageContext;
     // Error parsing type: {?="columns"[4]}, name: _visionTransform
     // Error parsing type: {?="columns"[4]}, name: _worldTrackingCameraTransformAtDetection
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) void *imageContext; // @synthesize imageContext=_imageContext;
 // Error parsing type for property worldTrackingCameraTransformAtDetection:
 // Property attributes: T{?=[4]},N,V_worldTrackingCameraTransformAtDetection
 

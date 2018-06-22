@@ -57,7 +57,6 @@
 @property(readonly, copy, nonatomic) NSString *sectionBundleIdentifier;
 @property(readonly, nonatomic) SFSearchResult *sfSearchResultValue;
 - (_Bool)canBecomeTopHitForQuery:(id)arg1;
-@property(readonly, nonatomic) NSArray *additionalMapItems;
 @property(readonly, nonatomic) MKMapItem *mapItem;
 @property(readonly, nonatomic) WBSParsecActionButton *actionButton;
 @property(readonly, copy, nonatomic) NSString *referrerForLoadingResult;

@@ -41,7 +41,7 @@
 - (long long)unreadCount;
 - (void)unpendConversation;
 - (void)beginTrackingConversation:(id)arg1 forChat:(id)arg2;
-- (void)_postConversationListUpdateVisibleConversationsNotification;
+- (void)_postConversationListUpdateVisibleConversationsNotificationForUID:(id)arg1;
 - (void)_postConversationListChangedNotification;
 - (id)topMostConversation;
 - (void)resort;

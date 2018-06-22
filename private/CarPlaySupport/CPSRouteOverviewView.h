@@ -10,7 +10,7 @@
 
 @interface CPSRouteOverviewView : UIView
 {
-    CPTrip *_trip;
+    CPTrip *_representedTrip;
     UILabel *_destinationName;
     UILabel *_destinationAddress;
     UILabel *_routeNoteLabel;
@@ -21,17 +21,19 @@
 
 + (id)_nameForMapItem:(id)arg1;
 + (id)_shortenedAddressForAddress:(id)arg1;
-+ (id)_multilineLabelWithText:(id)arg1 fontSize:(double)arg2 color:(id)arg3;
-+ (id)_boldMultilineLabelWithText:(id)arg1 fontSize:(double)arg2 color:(id)arg3;
++ (void)_applyText:(id)arg1 fontSize:(double)arg2 color:(id)arg3 toLabel:(id)arg4;
++ (void)_applyBoldText:(id)arg1 fontSize:(double)arg2 color:(id)arg3 toLabel:(id)arg4;
++ (id)_multilineLabel;
 @property(readonly, nonatomic) CPSRouteEstimatesView *estimatesView; // @synthesize estimatesView=_estimatesView;
 @property(retain, nonatomic) CPTravelEstimates *currentTravelEstimates; // @synthesize currentTravelEstimates=_currentTravelEstimates;
 @property(copy, nonatomic) NSString *routeNote; // @synthesize routeNote=_routeNote;
 @property(readonly, nonatomic) UILabel *routeNoteLabel; // @synthesize routeNoteLabel=_routeNoteLabel;
 @property(readonly, nonatomic) UILabel *destinationAddress; // @synthesize destinationAddress=_destinationAddress;
 @property(readonly, nonatomic) UILabel *destinationName; // @synthesize destinationName=_destinationName;
-@property(readonly, nonatomic) CPTrip *trip; // @synthesize trip=_trip;
+@property(readonly, nonatomic) CPTrip *representedTrip; // @synthesize representedTrip=_representedTrip;
 - (void).cxx_destruct;
-- (id)initWithTrip:(id)arg1;
+- (void)setRepresentedTrip:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

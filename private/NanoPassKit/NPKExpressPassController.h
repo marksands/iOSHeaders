@@ -15,21 +15,22 @@
     int _expressPassChangedNotifyToken;
     unsigned long long _transactionStatus;
     PKPass *_currentTransactionPass;
-    NSDictionary *_expressPasses;
     NSSet *_expressPassesInformation;
     PKPaymentService *_queue_paymentService;
     PKPassLibrary *_passLibrary;
     NSDistributedNotificationCenter *_distributedNotificationCenter;
     id <NPKExpressPassControllerDelegate> _delegate;
+    NSDictionary *_expressPasses;
 }
 
+@property(retain) NSDictionary *expressPasses; // @synthesize expressPasses=_expressPasses;
 @property(retain) NSSet *expressPassesInformation; // @synthesize expressPassesInformation=_expressPassesInformation;
 @property(retain, nonatomic) PKPass *currentTransactionPass; // @synthesize currentTransactionPass=_currentTransactionPass;
 @property __weak id <NPKExpressPassControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_expressPassesInformationWithAutomaticSelectionTechnologyType:(long long)arg1;
 - (void)_queue_updateExpressPasses;
-- (void)_updateExpressPasses;
+- (void)updateExpressPasses;
 - (id)_queue_expressPassForTransactionApplicationIdentifier:(id)arg1;
 - (void)_handlePassesLibraryChangedNotification:(id)arg1;
 - (void)_handleExitNearFieldNotification:(id)arg1;

@@ -23,6 +23,7 @@
     long long _providerState;
     unsigned long long _privateDataRetentionCount;
     struct CGSize _scaledPreferredIconSize;
+    CDUnknownBlockType _shouldCheckIntegrityWhenOpeningDatabaseBlock;
     _Bool _isReadOnly;
     id <WBSSiteMetadataProviderDelegate> _providerDelegate;
     NSURL *_baseURL;
@@ -47,6 +48,7 @@
 - (void)_updateOutstandingRequestsAfterSuccessfulSetup;
 - (id)_requestsForHost:(id)arg1;
 - (void)_registerRequest:(id)arg1;
+- (id)_hostFromURL:(id)arg1;
 - (id)_hostFromRequest:(id)arg1;
 - (id)_responseCacheKeyForRequest:(id)arg1;
 - (id)_responseDictionaryKeyForRequest:(id)arg1;
@@ -56,6 +58,7 @@
 - (id)_cachedResponseForRequest:(id)arg1;
 - (void)savePendingChangesBeforeTermination;
 - (void)emptyCaches;
+@property(readonly, nonatomic) _Bool providesFavicons;
 - (void)stopWatchingUpdatesForRequest:(id)arg1;
 - (id)responseForRequest:(id)arg1 willProvideUpdates:(_Bool *)arg2;
 - (void)prepareResponseForRequest:(id)arg1 allowDelayedResponse:(_Bool)arg2;
@@ -70,7 +73,7 @@
 - (void)removeIconForURLString:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removeAllIconsForURLStringsNotIn:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_saveImageData:(id)arg1 iconURL:(id)arg2 pageURL:(id)arg3 originalPageURL:(id)arg4 size:(struct CGSize)arg5 isPrivate:(_Bool)arg6 completionHandler:(CDUnknownBlockType)arg7;
-- (void)_confirmImageDataShouldBeSaved:(id)arg1 size:(struct CGSize)arg2 pageURL:(id)arg3 includingPrivateData:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)_confirmImageDataShouldBeSaved:(id)arg1 size:(struct CGSize)arg2 pageURL:(id)arg3 iconURL:(id)arg4 includingPrivateData:(_Bool)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (void)_atomicallySaveImageData:(id)arg1 iconURL:(id)arg2 pageURL:(id)arg3 originalPageURL:(id)arg4 size:(struct CGSize)arg5 isPrivate:(_Bool)arg6 completionHandler:(CDUnknownBlockType)arg7;
 - (void)saveFaviconImageData:(id)arg1 iconURL:(id)arg2 pageURL:(id)arg3 originalPageURL:(id)arg4 size:(struct CGSize)arg5 isPrivate:(_Bool)arg6 completionHandler:(CDUnknownBlockType)arg7;
 - (_Bool)_isIconDateExpired:(id)arg1;
@@ -81,8 +84,8 @@
 - (long long)providerState;
 - (id)persistenceController;
 - (void)dealloc;
-- (id)initWithPersistenceBaseURL:(id)arg1 persistenceName:(id)arg2 preferredIconSize:(struct CGSize)arg3 atScale:(double)arg4 allScales:(id)arg5 isReadOnly:(_Bool)arg6;
-- (id)initWithPersistenceBaseURL:(id)arg1 persistenceName:(id)arg2 preferredIconSize:(struct CGSize)arg3 atScale:(double)arg4 allScales:(id)arg5;
+- (id)initWithPersistenceBaseURL:(id)arg1 persistenceName:(id)arg2 preferredIconSize:(struct CGSize)arg3 atScale:(double)arg4 allScales:(id)arg5 isReadOnly:(_Bool)arg6 shouldCheckIntegrityWhenOpeningDatabaseBlock:(CDUnknownBlockType)arg7;
+- (id)initWithPersistenceBaseURL:(id)arg1 persistenceName:(id)arg2 preferredIconSize:(struct CGSize)arg3 atScale:(double)arg4 allScales:(id)arg5 shouldCheckIntegrityWhenOpeningDatabaseBlock:(CDUnknownBlockType)arg6;
 - (id)init;
 
 // Remaining properties

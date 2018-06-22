@@ -14,11 +14,10 @@
 @interface RPPeopleDiscovery : NSObject <NSSecureCoding, RPPeopleXPCClientInterface>
 {
     _Bool _activateCalled;
-    unsigned long long _activateTicks;
-    NSObject<OS_dispatch_source> *_consoleUserTimer;
     struct NSMutableDictionary *_discoveredPeople;
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
+    NSObject<OS_dispatch_source> *_retryTimer;
     NSXPCConnection *_xpcCnx;
     _Bool _targetUserSession;
     unsigned int _changeFlags;
@@ -49,12 +48,12 @@
 - (void)xpcPersonFound:(id)arg1;
 - (void)_lostAllPeople;
 @property(readonly, copy, nonatomic) NSArray *discoveredPeople;
-- (void)_retryConsole;
+- (void)_scheduleRetry;
 - (void)_invalidated;
 - (void)invalidate;
 - (void)_interrupted;
 - (void)_invokeBlockActivateSafe:(CDUnknownBlockType)arg1;
-- (int)_ensureXPCStarted;
+- (_Bool)_ensureXPCStarted;
 - (void)_activateWithCompletion:(CDUnknownBlockType)arg1 reactivate:(_Bool)arg2;
 - (void)activateWithCompletion:(CDUnknownBlockType)arg1;
 - (id)descriptionWithLevel:(int)arg1;

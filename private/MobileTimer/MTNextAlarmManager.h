@@ -12,10 +12,12 @@
 {
     NSSet *_nextAlarms;
     CDUnknownBlockType _updateHandler;
+    id <NAScheduler> _serializer;
     MTAlarmManager *_alarmManager;
 }
 
 @property(retain, nonatomic) MTAlarmManager *alarmManager; // @synthesize alarmManager=_alarmManager;
+@property(retain, nonatomic) id <NAScheduler> serializer; // @synthesize serializer=_serializer;
 @property(copy, nonatomic) CDUnknownBlockType updateHandler; // @synthesize updateHandler=_updateHandler;
 @property(retain, nonatomic) NSSet *nextAlarms; // @synthesize nextAlarms=_nextAlarms;
 - (void).cxx_destruct;

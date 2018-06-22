@@ -6,12 +6,15 @@
 
 #import "NSObject.h"
 
-@interface ADLayoutOptions : NSObject
+#import "NSCopying.h"
+
+@interface ADLayoutOptions : NSObject <NSCopying>
 {
     struct CGSize _containerSize;
 }
 
 @property(nonatomic) struct CGSize containerSize; // @synthesize containerSize=_containerSize;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

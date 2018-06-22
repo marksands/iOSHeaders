@@ -14,11 +14,13 @@
     NSLock *_lock;
 }
 
++ (id)keychainLabelForCertWithAccountID:(id)arg1 purpose:(long long)arg2;
++ (id)keychainLabelForKeyWithAccountID:(id)arg1 purpose:(long long)arg2;
 + (id)keychainLabelForAccountID:(id)arg1 purpose:(long long)arg2;
-+ (id)keychainLabelForAccountID:(id)arg1;
 + (id)diskBasedPaymentSheet;
 + (id)sharedInstance;
 - (void).cxx_destruct;
+- (id)x509CertChainDataForAccountIdentifier:(id)arg1 purpose:(long long)arg2 regenerateCerts:(_Bool)arg3 error:(id *)arg4;
 - (id)signData:(id)arg1 context:(id)arg2 error:(id *)arg3;
 - (id)publicKeyDataForAccountIdentifier:(id)arg1 purpose:(long long)arg2 error:(id *)arg3;
 - (_Bool)deleteKeychainTokensForAccountIdentifier:(id)arg1 error:(id *)arg2;

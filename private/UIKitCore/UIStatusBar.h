@@ -113,7 +113,7 @@
 - (_Bool)_touchShouldProduceReturnEvent;
 - (id)_styleAttributesForRequest:(id)arg1;
 - (void)setSuppressesHiddenSideEffects:(_Bool)arg1;
-- (void)setHidden:(_Bool)arg1 animationParameters:(id)arg2;
+- (void)_setHidden:(_Bool)arg1 animationParameters:(id)arg2;
 - (void)_statusBarDidAnimateRotation;
 - (void)_statusBarWillAnimateRotation;
 - (void)setOrientation:(long long)arg1;

@@ -17,6 +17,7 @@
     id <AVTScheduler> _renderingScheduler;
 }
 
++ (unsigned long long)indexForCurrentCategoryGivenPreferredIdentifier:(id)arg1 categories:(id)arg2;
 + (id)sectionControllerForSection:(id)arg1 renderingScheduler:(id)arg2 environment:(id)arg3;
 @property(readonly, nonatomic) id <AVTScheduler> renderingScheduler; // @synthesize renderingScheduler=_renderingScheduler;
 @property(readonly, nonatomic) AVTUIEnvironment *environment; // @synthesize environment=_environment;
@@ -24,6 +25,7 @@
 @property(retain, nonatomic) NSArray *categories; // @synthesize categories=_categories;
 @property(nonatomic) unsigned long long currentCategoryIndex; // @synthesize currentCategoryIndex=_currentCategoryIndex;
 - (void).cxx_destruct;
+- (id)currentCategoryIdentifier;
 - (id)indexesForSectionsExcludingSectionsWithIdentifiers:(id)arg1 inCategoryAtIndex:(long long)arg2;
 - (long long)indexForSection:(id)arg1 inCategoryAtIndex:(long long)arg2;
 - (id)sectionForIndex:(long long)arg1 inCategoryAtIndex:(long long)arg2;
@@ -34,7 +36,7 @@
 - (long long)numberOfCategories;
 - (void)discardControllersForNonCurrentCategory;
 - (void)reloadWithCategories:(id)arg1 currentCategoryIndex:(unsigned long long)arg2;
-- (id)initWithCategories:(id)arg1 renderingScheduler:(id)arg2 environment:(id)arg3;
+- (id)initWithCategories:(id)arg1 currentCategoryIdentifier:(id)arg2 renderingScheduler:(id)arg3 environment:(id)arg4;
 
 @end
 

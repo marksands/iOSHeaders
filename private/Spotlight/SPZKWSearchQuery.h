@@ -14,10 +14,13 @@
     unsigned long long _queryID;
 }
 
++ (void)initialize;
 @property unsigned long long queryID; // @synthesize queryID=_queryID;
 - (void).cxx_destruct;
 - (id)unsafeSessionEntityString;
 - (id)unsafeSections;
+- (void)start;
+- (void)addApplicationResultsFromPredictionResponse:(id)arg1 toSection:(id)arg2 queryIdent:(unsigned long long)arg3;
 
 @end
 

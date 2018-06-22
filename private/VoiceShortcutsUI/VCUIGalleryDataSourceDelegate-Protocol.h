@@ -7,6 +7,6 @@
 @class VCUIGalleryDataSource;
 
 @protocol VCUIGalleryDataSourceDelegate
-- (void)galleryDataSourceDidUpdate:(VCUIGalleryDataSource *)arg1;
+- (void)galleryDataSourceDidUpdate:(VCUIGalleryDataSource *)arg1 resultsFound:(_Bool)arg2;
 @end
 

@@ -10,11 +10,11 @@
 
 @protocol HDNanoSyncEntity <HDSyncEntity>
 + (unsigned long long)supportedNanoSyncDirectionsForProtocolVersion:(int)arg1;
-+ (int)nanoSyncObjectType;
 
 @optional
 + (_Bool)companionDidChangeForProfile:(HDProfile *)arg1 error:(id *)arg2;
 + (_Bool)supportsSpeculativeNanoSyncChanges;
 + (HDSQLitePredicate *)nanoSyncPredicateForSession:(HDNanoSyncSession *)arg1;
++ (int)nanoSyncObjectType;
 @end
 

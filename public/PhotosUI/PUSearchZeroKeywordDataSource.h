@@ -36,7 +36,9 @@ __attribute__((visibility("hidden")))
 - (void)_fetchAssetsForAssetViewModels:(id)arg1;
 - (void)_fetchKeyAssetsForViewModels:(id)arg1;
 - (id)_personsForLocalIdentifiers:(id)arg1;
+- (id)_zeroKeywordsFromDefaultKeywordStore;
 - (id)predicateForPersonFetching;
+- (_Bool)hasZeroKeywords;
 - (void)fetchItems;
 - (id)viewModelForIndexPath:(id)arg1;
 - (id)titleForSection:(unsigned long long)arg1;

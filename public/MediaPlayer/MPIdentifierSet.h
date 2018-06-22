@@ -58,13 +58,14 @@
 @property(nonatomic) long long homeSharingLibraryID; // @synthesize homeSharingLibraryID=_homeSharingLibraryID;
 @property(nonatomic) long long deviceLibraryPersistentID; // @synthesize deviceLibraryPersistentID=_deviceLibraryPersistentID;
 - (void).cxx_destruct;
-- (void)appendIdentifiersToDescription:(id)arg1 withIdentifiersPrefix:(id)arg2;
+- (id)identifierDescriptions;
 - (_Bool)hasCommonIdentifierWithIdentifierSet:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+@property(readonly, nonatomic) NSString *humanDescription;
 - (id)description;
 - (id)copyWithBlock:(CDUnknownBlockType)arg1;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;

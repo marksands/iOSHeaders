@@ -11,7 +11,7 @@
 #import "_HKDeepBreathingSessionLifecycleDelegate.h"
 #import "_HKXPCExportable.h"
 
-@class HKHealthServicesManager, HKObserverSet, HKProfileIdentifier, NSHashTable, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, _HKXPCConnection;
+@class HKHealthServicesManager, HKProfileIdentifier, NSHashTable, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, _HKXPCConnection;
 
 @interface HKHealthStore : NSObject <HKHealthStoreClientInterface, _HKDeepBreathingSessionLifecycleDelegate, _HKXPCExportable, HKQueryDelegate>
 {
@@ -32,7 +32,6 @@
     NSMutableSet *_deepBreathingSessions;
     NSMutableDictionary *_waitForSyncStartHandlersByUUID;
     unsigned int _applicationSDKVersion;
-    HKObserverSet *_connectionObservers;
     NSObject<OS_dispatch_queue> *_clientQueue;
 }
 
@@ -73,8 +72,6 @@
 - (CDUnknownBlockType)_actionCompletionOnClientQueue:(CDUnknownBlockType)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;
 - (void)_applicationWillResignActive:(id)arg1;
-- (void)removeConnectionObserver:(id)arg1;
-- (void)addConnectionObserver:(id)arg1;
 - (void)connectionInterrupted;
 - (void)connectionInvalidated;
 - (id)exportedInterface;

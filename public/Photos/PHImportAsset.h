@@ -193,7 +193,7 @@
 - (id)sidecarAssetAtPath:(id)arg1;
 - (unsigned long long)relatedBytes;
 - (id)relatedAssets;
-@property(readonly, nonatomic) unsigned long long requiredBytesToImport;
+@property(readonly, nonatomic) unsigned long long approximateBytesRequiredToImport;
 @property(readonly, nonatomic) NSNumber *duration;
 - (id)mediaGroupId;
 - (int)burstPickType;

@@ -6,18 +6,18 @@
 
 #import "PSSpecifier.h"
 
-@class PSListController, PSUICellularPlanManagerUI;
+@class CTCellularPlanManager, PSListController;
 
 @interface PSUIFauxCardScannerSpecifier : PSSpecifier
 {
-    PSUICellularPlanManagerUI *_cellularPlanManagerUI;
+    CTCellularPlanManager *_planManager;
     PSListController *_hostController;
 }
 
 @property(nonatomic) __weak PSListController *hostController; // @synthesize hostController=_hostController;
 - (void).cxx_destruct;
 - (void)fauxCardScannerCellPressed:(id)arg1;
-- (id)initWithHostController:(id)arg1 isEmbeddedInCarrierList:(_Bool)arg2 planManagerUI:(id)arg3;
+- (id)initWithHostController:(id)arg1 isEmbeddedInCarrierList:(_Bool)arg2 planManager:(id)arg3;
 - (id)initWithHostController:(id)arg1 isEmbeddedInCarrierList:(_Bool)arg2;
 
 @end

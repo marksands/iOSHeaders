@@ -17,8 +17,8 @@
 
 @property(readonly, nonatomic, getter=isGPUFamilyAtleast4) _Bool gpuFamilyAtleast4; // @synthesize gpuFamilyAtleast4=_gpuFamilyAtleast4;
 - (void).cxx_destruct;
-- (id)cubemapTextureWithSize:(unsigned long long)arg1 forLatLong:(id)arg2;
-- (id)latlongTextureWithSize:(unsigned long long)arg1 forCubemap:(id)arg2;
+-     // Error parsing type: @80@0:8{?=[3]}16Q64@72, name: cubemapTextureWithRotation:size:forLatLong:
+-     // Error parsing type: @80@0:8{?=[3]}16Q64@72, name: latlongTextureWithRotation:size:forCubemap:
 - (id)init;
 
 @end

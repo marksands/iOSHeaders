@@ -35,6 +35,7 @@
 @property(nonatomic) float score; // @synthesize score=_score;
 @property(copy, nonatomic) NSString *transientToken; // @synthesize transientToken=_transientToken;
 - (void).cxx_destruct;
+- (void)resolveObjectsWithAssetCache:(id)arg1 collectionCache:(id)arg2 tripCache:(id)arg3;
 - (void)fetchNextAssetUUIDs:(_Bool)arg1 collectionResults:(_Bool)arg2 tripResults:(_Bool)arg3 assetCountLimit:(unsigned long long)arg4 collectionCountLimit:(unsigned long long)arg5 tripCountLimit:(unsigned long long)arg6 completionHandler:(CDUnknownBlockType)arg7;
 - (void)fetchNextAssetUUIDs:(_Bool)arg1 collectionResults:(_Bool)arg2 tripResults:(_Bool)arg3 count:(unsigned long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)fetchNextAssetUUIDs:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;

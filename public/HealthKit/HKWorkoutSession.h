@@ -67,8 +67,11 @@
 - (void)connectionInvalidated;
 - (id)remoteInterface;
 - (id)exportedInterface;
+- (_Bool)_queue_shouldAttemptRecovery;
+- (void)_queue_markRecoveryRequired;
 - (void)_recoverWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_setupWithHealthStore:(id)arg1;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)_initWithHealthStore:(id)arg1 taskConfiguration:(id)arg2 error:(id *)arg3;
 - (id)initWithHealthStore:(id)arg1 configuration:(id)arg2 error:(id *)arg3;
@@ -77,7 +80,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

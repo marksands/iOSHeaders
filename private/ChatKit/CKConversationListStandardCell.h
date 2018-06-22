@@ -23,6 +23,7 @@
 - (id)presentingViewControllerForAvatarView:(id)arg1;
 - (void)_calculateLayoutFrames;
 - (void)_updateAvatarView;
+- (void)increaseContrastDidChange;
 - (id)avatarView;
 - (void)layoutSubviews;
 - (void)updateForEditing:(_Bool)arg1;

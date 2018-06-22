@@ -13,7 +13,6 @@
 + (id)_assetCollectionsWithAlbumSubtypes:(id)arg1;
 + (id)px_otherAlbumsCollectionList;
 + (id)px_mediaTypesCollectionList;
-+ (id)px_importHistoryCollectionList;
 + (id)px_sharedAlbumsCollectionList;
 + (id)px_rootAlbumCollectionList;
 + (id)px_memoriesVirtualCollectionList;

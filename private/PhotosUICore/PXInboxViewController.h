@@ -85,6 +85,7 @@
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 @property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
+- (void)viewWillLayoutSubviews;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;

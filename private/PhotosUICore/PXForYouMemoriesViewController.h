@@ -30,7 +30,6 @@
 - (id)createNewLayoutGenerator;
 - (void)scrollViewControllerWillEndScrolling:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)pushViewController:(id)arg1 animated:(_Bool)arg2;
-- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithDataSourceManager:(id)arg1;
 

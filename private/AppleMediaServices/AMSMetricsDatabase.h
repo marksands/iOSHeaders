@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     long long _keepAliveCount;
 }
 
++ (id)_keepAliveForContainer:(id)arg1;
 @property(nonatomic) long long keepAliveCount; // @synthesize keepAliveCount=_keepAliveCount;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *internalQueue; // @synthesize internalQueue=_internalQueue;
 @property(retain, nonatomic) id <AMSMetricsBagContract> contract; // @synthesize contract=_contract;

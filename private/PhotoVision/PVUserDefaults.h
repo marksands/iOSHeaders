@@ -10,6 +10,7 @@
 {
 }
 
++ (_Bool)isBlacklistDisabled;
 + (unsigned long long)faceIDModelRebuildPeriod;
 + (_Bool)faceIDModelAlwaysRebuild;
 + (unsigned int)sceneAlgorithmUmbrellaVersion;

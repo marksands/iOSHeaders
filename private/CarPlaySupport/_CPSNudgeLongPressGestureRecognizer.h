@@ -8,10 +8,10 @@
 
 @interface _CPSNudgeLongPressGestureRecognizer : UILongPressGestureRecognizer
 {
-    unsigned long long _direction;
+    long long _direction;
 }
 
-@property(nonatomic) unsigned long long direction; // @synthesize direction=_direction;
+@property(nonatomic) long long direction; // @synthesize direction=_direction;
 
 @end
 

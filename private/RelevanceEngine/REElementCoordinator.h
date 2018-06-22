@@ -6,11 +6,9 @@
 
 #import <RelevanceEngine/RERelevanceEngineSubsystem.h>
 
-#import "RELoggable.h"
+@class NSMutableArray, NSMutableDictionary, REObserverStore;
 
-@class NSMutableArray, NSMutableDictionary, NSString, REObserverStore;
-
-@interface REElementCoordinator : RERelevanceEngineSubsystem <RELoggable>
+@interface REElementCoordinator : RERelevanceEngineSubsystem
 {
     NSMutableDictionary *_displayElements;
     REObserverStore *_observers;
@@ -30,7 +28,6 @@
 - (void)removeElement:(id)arg1 atPath:(id)arg2;
 - (void)insertElement:(id)arg1 atPath:(id)arg2;
 - (void)reloadElement:(id)arg1 atPath:(id)arg2;
-- (void)performBatchUpdateBlock:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2 informingObservers:(_Bool)arg3;
 - (void)performBatchUpdateBlock:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)pathForElement:(id)arg1;
 - (unsigned long long)numberOfElementsInSection:(id)arg1;
@@ -44,12 +41,6 @@
 - (void)addObserver:(id)arg1;
 - (void)dealloc;
 - (id)initWithRelevanceEngine:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

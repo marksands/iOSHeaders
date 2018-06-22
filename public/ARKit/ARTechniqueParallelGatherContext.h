@@ -12,20 +12,24 @@
 {
     ARTechniqueParallelGatherContext *_previousContext;
     NSIndexSet *_requiredTechniqueIndices;
+    NSIndexSet *_deterministicTechniqueIndices;
     unsigned long long _techniqueCount;
     NSMutableDictionary *_gatheredDataByTechniqueIndex;
     NSObject<OS_dispatch_semaphore> *_gatherSemaphore;
     NSMutableIndexSet *_lateResultTechniqueIndices;
     _Bool _resultsCaptured;
+    _Bool _requiredTimeIntervalComplete;
 }
 
+@property _Bool requiredTimeIntervalComplete; // @synthesize requiredTimeIntervalComplete=_requiredTimeIntervalComplete;
 - (void).cxx_destruct;
 - (id)lateResultDataForTechniqueAtIndex:(unsigned long long)arg1;
 - (id)addResultData:(id)arg1 forTechniqueAtIndex:(unsigned long long)arg2;
 - (id)captureGatheredData;
 - (id)_allGatheredDataByTechniqueIndex;
+- (_Bool)deterministicResultsCaptured;
 - (id)gatheredData;
-- (id)initWithParentContext:(id)arg1 previousContext:(id)arg2 requiredTechniqueIndices:(id)arg3 techniqueCount:(unsigned long long)arg4;
+- (id)initWithParentContext:(id)arg1 previousContext:(id)arg2 requiredTechniqueIndices:(id)arg3 deterministicTechniqueIndices:(id)arg4 techniqueCount:(unsigned long long)arg5;
 
 @end
 

@@ -16,13 +16,8 @@ __attribute__((visibility("hidden")))
 {
     CDUnknownBlockType _fileCompletion;
     __NSCFLocalDownloadFile *_downloadFile;
-    _Bool _canWrite;
-    _Bool _suppressProgress;
     NSObject<OS_dispatch_data> *_writeBuffer;
     unsigned long long _ioSuspend;
-    int _seqNo;
-    _Bool _needFinish;
-    _Bool _didIssueNeedFinish;
     unsigned long long _totalWrote;
     CDUnknownBlockType _resumeCallback;
     long long _initialResumeSize;
@@ -30,6 +25,11 @@ __attribute__((visibility("hidden")))
     unsigned long long _transientWriteProgress;
     CDUnknownBlockType _afterDidReportProgressOnQueue;
     CDUnknownBlockType _dataAckCompletion;
+    int _seqNo;
+    _Bool _canWrite;
+    _Bool _suppressProgress;
+    _Bool _needFinish;
+    _Bool _didIssueNeedFinish;
 }
 
 + (id)_requestFromResumeDataDictionary:(id)arg1;

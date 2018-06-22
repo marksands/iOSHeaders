@@ -6,22 +6,19 @@
 
 #import "UIView.h"
 
-@class NSString, PXRoundImageView, UIImage, UILabel, UIVisualEffectView;
+@class NSString, UILabel;
 
 @interface PXCMMInvitationBannerView : UIView
 {
-    UIVisualEffectView *_blurView;
     UILabel *_titleLabel;
     UILabel *_subtitle1Label;
     UILabel *_subtitle2Label;
-    PXRoundImageView *_avatarImageView;
 }
 
 - (void).cxx_destruct;
 - (struct CGSize)_performLayoutInWidth:(double)arg1 updateSubviewFrames:(_Bool)arg2;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-@property(retain, nonatomic) UIImage *avatarImage;
 @property(copy, nonatomic) NSString *subtitle2;
 @property(copy, nonatomic) NSString *subtitle1;
 @property(copy, nonatomic) NSString *title;

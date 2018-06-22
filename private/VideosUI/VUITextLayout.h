@@ -6,14 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSNumber, NSShadow, UIColor;
+#import "NSCopying.h"
 
-__attribute__((visibility("hidden")))
-@interface VUITextLayout : NSObject
+@class NSNumber, NSShadow, NSString, UIColor;
+
+@interface VUITextLayout : NSObject <NSCopying>
 {
     unsigned int _fontTraits;
     int _blendMode;
     long long _textStyle;
+    NSString *_maximumContentSizeCategory;
     long long _fontWeight;
     double _fontSize;
     UIColor *_color;
@@ -44,9 +46,11 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int fontTraits; // @synthesize fontTraits=_fontTraits;
 @property(nonatomic) double fontSize; // @synthesize fontSize=_fontSize;
 @property(nonatomic) long long fontWeight; // @synthesize fontWeight=_fontWeight;
+@property(retain, nonatomic) NSString *maximumContentSizeCategory; // @synthesize maximumContentSizeCategory=_maximumContentSizeCategory;
 @property(nonatomic) long long textStyle; // @synthesize textStyle=_textStyle;
 - (void).cxx_destruct;
 - (id)attributedStringWithString:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 
 @end

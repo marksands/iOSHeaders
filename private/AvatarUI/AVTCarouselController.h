@@ -13,7 +13,7 @@
 #import "AVTDisplayingCarouselController.h"
 #import "AVTRecordingCarouselController.h"
 
-@class AVTAvatarContainerViewController, AVTAvatarRecordDataSource, AVTMultiAvatarController, AVTRecordView, AVTSingleAvatarController, AVTUIEnvironment, AVTView, AVTViewLayout, AVTViewSession, AVTViewSessionProvider, NSString, UIView;
+@class AVTAvatarContainerViewController, AVTAvatarRecordDataSource, AVTMultiAvatarController, AVTRecordView, AVTSingleAvatarController, AVTUIEnvironment, AVTView, AVTViewCarouselLayout, AVTViewSession, AVTViewSessionProvider, NSString, UIView;
 
 @interface AVTCarouselController : NSObject <AVTAvatarActionsViewControllerDelegate, AVTAvatarEditorViewControllerDelegate, AVTAvatarDisplayingControllerDelegate, AVTAvatarRecordDataSourceObserver, AVTRecordingCarouselController, AVTDisplayingCarouselController>
 {
@@ -34,7 +34,7 @@
     AVTMultiAvatarController *_multiAvatarController;
     AVTSingleAvatarController *_singleAvatarController;
     id <AVTAvatarDisplayingController> _avatarDisplayingController;
-    AVTViewLayout *_avtViewLayout;
+    AVTViewCarouselLayout *_avtViewLayout;
     long long _mode;
 }
 
@@ -44,7 +44,7 @@
 + (id)displayingCarouselForRecordDataSource:(id)arg1;
 + (id)sessionProviderForMode:(long long)arg1 environment:(id)arg2;
 @property(readonly, nonatomic) long long mode; // @synthesize mode=_mode;
-@property(retain, nonatomic) AVTViewLayout *avtViewLayout; // @synthesize avtViewLayout=_avtViewLayout;
+@property(retain, nonatomic) AVTViewCarouselLayout *avtViewLayout; // @synthesize avtViewLayout=_avtViewLayout;
 @property(retain, nonatomic) id <AVTAvatarDisplayingController> avatarDisplayingController; // @synthesize avatarDisplayingController=_avatarDisplayingController;
 @property(retain, nonatomic) AVTSingleAvatarController *singleAvatarController; // @synthesize singleAvatarController=_singleAvatarController;
 @property(retain, nonatomic) AVTMultiAvatarController *multiAvatarController; // @synthesize multiAvatarController=_multiAvatarController;
@@ -90,6 +90,8 @@
 - (void)presentEditorForCreatingAvatar:(id)arg1;
 - (void)showSingleAvatarControllerAnimated:(_Bool)arg1;
 - (void)showMultiAvatarControllerAnimated:(_Bool)arg1;
+- (void)setAllowsCreate:(_Bool)arg1 animated:(_Bool)arg2;
+@property(nonatomic) _Bool allowsCreate;
 - (void)renderForARFrame:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)displayAvatarRecord:(id)arg1 animated:(_Bool)arg2;
 - (void)displayAvatarRecordWithIdentifier:(id)arg1 animated:(_Bool)arg2;

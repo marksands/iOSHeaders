@@ -16,12 +16,13 @@
     unsigned long long _clients;
     CLKUIMmapFile *_commonBankLatn;
     CLKUIMmapFile *_commonBankArab;
+    CLKUIMmapFile *_commonBankDeva;
     CLKUIMmapFile *_minnieBank;
     CLKUIMmapFile *_mickeyBank;
     struct NTKCharacterPrograms _programs;
     NSMutableDictionary *_mapping;
     NSMutableArray *_array;
-    NSMutableArray *_arrayByLocale[2];
+    NSMutableArray *_arrayByLocale[3];
 }
 
 + (void)_deallocInstanceForDevice:(id)arg1;

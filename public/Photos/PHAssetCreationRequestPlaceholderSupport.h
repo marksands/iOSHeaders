@@ -17,6 +17,7 @@
     PLAssetsdClientServiceSender *clientSender;
 }
 
++ (_Bool)_shouldBakeInAdjustmentsAndFlattenLivePhoto:(_Bool *)arg1 forSourceAsset:(id)arg2;
 @property(retain, nonatomic) PLAssetsdClientServiceSender *clientSender; // @synthesize clientSender;
 - (void).cxx_destruct;
 - (void)performTransactionCompletionHandlingInPhotoLibrary:(id)arg1;
@@ -24,7 +25,6 @@
 - (_Bool)validateInsertIntoPhotoLibrary:(id)arg1 error:(id *)arg2;
 - (id)_fetchOptionsForDuplicateAssetPhotoLibraryType;
 - (void)_updateManagedAssetAfterResourceDownload:(id)arg1;
-- (_Bool)_shouldBakeInAdjustmentsForSourceAsset:(id)arg1;
 - (id)_createPlaceholderManagedAssetFromSourceManagedAsset:(id)arg1 inPhotoLibrary:(id)arg2 error:(id *)arg3;
 - (void)changeFailedOnDaemonWithError:(id)arg1;
 - (void)changeFailedOnClientWithError:(id)arg1;

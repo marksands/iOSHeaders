@@ -30,6 +30,7 @@
 @property(nonatomic) __weak id <NPKPassSyncEngineDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) unsigned long long engineRole; // @synthesize engineRole=_engineRole;
 - (void).cxx_destruct;
+- (void)_finishedProcessingChange:(id)arg1;
 - (void)_receivedStateChangeProcessed:(id)arg1 changeAccepted:(_Bool)arg2;
 - (void)_engineStateChanged;
 - (void)_unexpectedEventOccurred;

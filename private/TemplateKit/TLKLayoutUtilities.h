@@ -10,6 +10,7 @@
 {
 }
 
++ (_Bool)isSuperLargeAccessibilitySize;
 + (struct CGSize)maxThumbnailSize;
 + (_Bool)isWideScreen;
 + (void)applyRowBoundedSizingToImageView:(id)arg1;

@@ -12,6 +12,7 @@
 
 @interface NSExtension : NSObject <_NSExtensionContextHosting>
 {
+    struct os_unfair_lock_s _unfairLock;
     _Bool _observingHostAppStateChanges;
     NSString *_identifier;
     NSString *_version;
@@ -42,6 +43,7 @@
 + (void)extensionWithUUID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (id)extensionWithIdentifier:(id)arg1 excludingDisabledExtensions:(_Bool)arg2 error:(id *)arg3;
 + (id)extensionWithIdentifier:(id)arg1 error:(id *)arg2;
++ (void)extensionsWithMatchingAttributes:(id)arg1 synchronously:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)extensionsWithMatchingAttributes:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (id)extensionsWithMatchingAttributes:(id)arg1 error:(id *)arg2;
 + (_Bool)_shouldLogExtensionDiscovery;
@@ -49,7 +51,7 @@
 + (id)predicateForActivationRule:(id)arg1;
 + (_Bool)evaluateActivationRule:(id)arg1 withExtensionItemsRepresentation:(id)arg2;
 + (void)initializeFiltering;
-@property(nonatomic) NSObject<OS_dispatch_queue> *_safePluginQueue; // @synthesize _safePluginQueue=__safePluginQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *_safePluginQueue; // @synthesize _safePluginQueue=__safePluginQueue;
 @property(copy, nonatomic) NSUUID *connectionUUID; // @synthesize connectionUUID=_connectionUUID;
 @property(nonatomic, getter=_isObservingHostAppStateChanges, setter=_setObservingHostAppStateChanges:) _Bool observingHostAppStateChanges; // @synthesize observingHostAppStateChanges=_observingHostAppStateChanges;
 @property(copy, nonatomic, setter=_setAllowedErrorClasses:) NSSet *_allowedErrorClasses; // @synthesize _allowedErrorClasses=__allowedErrorClasses;
@@ -76,11 +78,13 @@
 - (void)_hostDidEnterBackgroundNote:(id)arg1;
 - (void)_hostWillEnterForegroundNote:(id)arg1;
 - (void)_dropAssertion;
+- (id)extensionContexts;
 - (void)_kill:(int)arg1;
 - (void)_safelyEndUsingWithProcessAssertion:(id)arg1 continuation:(CDUnknownBlockType)arg2;
 - (void)_safelyEndUsing:(CDUnknownBlockType)arg1;
+- (id)newAssertionToBeginUsingPluginWithError:(id *)arg1;
 - (void)_safelyBeginUsing_withAssertion:(CDUnknownBlockType)arg1;
-- (void)_safelyBeginUsing_withAssertion_onSafeQueue:(CDUnknownBlockType)arg1;
+- (void)_safelyBeginUsingSynchronously:(_Bool)arg1 withAssertion_onSafeQueue:(CDUnknownBlockType)arg2;
 - (void)_safelyBeginUsing:(CDUnknownBlockType)arg1;
 - (int)_plugInProcessIdentifier;
 - (_Bool)_wantsProcessPerRequest;
@@ -98,8 +102,12 @@
 - (void)_didCreateExtensionContext:(id)arg1;
 - (int)pidForRequestIdentifier:(id)arg1;
 - (void)cancelExtensionRequestWithIdentifier:(id)arg1;
+- (id)beginExtensionRequestWithInputItems:(id)arg1 error:(id *)arg2;
 - (void)beginExtensionRequestWithInputItems:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)beginExtensionRequestWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 error:(id *)arg3;
 - (void)beginExtensionRequestWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_reallyBeginExtensionRequestWithContext:(id)arg1 extensionServiceConnection:(id)arg2 listenerEndpoint:(id)arg3 synchronously:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
+- (id)_newExtensionContextAndGetConnection:(id *)arg1 assertion:(id)arg2 inputItems:(id)arg3;
 - (void)_reallyBeginExtensionRequestWithInputItems:(id)arg1 processAssertion:(id)arg2 listenerEndpoint:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)_bareExtensionServiceConnection;
 - (_Bool)attemptOptOut:(id *)arg1;

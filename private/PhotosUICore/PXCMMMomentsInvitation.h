@@ -14,6 +14,8 @@
 @interface PXCMMMomentsInvitation : NSObject <PXCMMInvitation, NSCopying>
 {
     long long _shareType;
+    NSString *_title;
+    NSString *_subtitle;
     id <PXCMMInvitationParticipant> _owner;
     id <PXDisplayAsset> _posterAsset;
     id <PXUIImageProvider> _posterMediaProvider;
@@ -31,6 +33,8 @@
 @property(readonly, nonatomic) id <PXUIImageProvider> posterMediaProvider; // @synthesize posterMediaProvider=_posterMediaProvider;
 @property(readonly, nonatomic) id <PXDisplayAsset> posterAsset; // @synthesize posterAsset=_posterAsset;
 @property(readonly, nonatomic) id <PXCMMInvitationParticipant> owner; // @synthesize owner=_owner;
+@property(readonly, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
+@property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) long long shareType; // @synthesize shareType=_shareType;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -40,13 +44,11 @@
 - (id)contextForActivityType:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long count;
 @property(readonly, nonatomic) NSDate *expiryDate;
-@property(readonly, nonatomic) NSDate *endDate;
-@property(readonly, nonatomic) NSDate *startDate;
-@property(readonly, nonatomic) NSString *localizedTitle;
+@property(readonly, nonatomic) NSDate *creationDate;
 @property(readonly, nonatomic) NSString *identifier;
 - (id)invitationWithUpdatedParticipantsFetchResult:(id)arg1;
 - (id)invitationWithUpdatedPreviewAssetsFetchResult:(id)arg1;
-- (id)_init;
+- (id)initWithAssetCollection:(id)arg1;
 - (id)init;
 
 // Remaining properties

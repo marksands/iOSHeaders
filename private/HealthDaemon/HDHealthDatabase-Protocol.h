@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class HDAssertion, HDDatabaseTransactionContext, HDJournalEntry, NSArray, NSString;
+@class HDAssertion, HDDatabaseTransactionContext, HDJournalEntry, NSArray, NSObject<OS_dispatch_queue>, NSString;
 
 @protocol HDHealthDatabase <NSObject>
 @property(readonly, nonatomic, getter=isProtectedDataAvailable) _Bool protectedDataAvailable;
 @property(readonly, nonatomic, getter=isDataProtectedByFirstUnlockAvailable) _Bool dataProtectedByFirstUnlockAvailable;
 - (void)removeProtectedDataObserver:(id <HDDatabaseProtectedDataObserver>)arg1;
+- (void)addProtectedDataObserver:(id <HDDatabaseProtectedDataObserver>)arg1 queue:(NSObject<OS_dispatch_queue> *)arg2;
 - (void)addProtectedDataObserver:(id <HDDatabaseProtectedDataObserver>)arg1;
 - (_Bool)addJournalEntries:(NSArray *)arg1 error:(id *)arg2;
 - (_Bool)addJournalEntry:(HDJournalEntry *)arg1 error:(id *)arg2;

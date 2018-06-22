@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
     double _nowrdAcc;
     double _lastOWRDChangeTime;
     double _lastCongestionTime;
+    double _lastRampUpTime;
     double _rampUpFrozenTime;
     _Bool _isCongested;
     _Bool _isFirstTimestampArrived;
@@ -52,11 +53,20 @@ __attribute__((visibility("hidden")))
     _Bool _belowNoRampUpBandwidth;
     double _lastNoOvershootBWEstimationTime;
     double _firstBelowNoRampUpBandwidthTime;
+    int _recentTierWindow[256];
+    unsigned int _recentTierWindowSize;
+    unsigned int _recentTierWindowIndex;
+    unsigned int _totalTierNumbersInWindow;
+    double _recentAverageTier;
+    double _lastTimeDetectNoOscillation;
+    _Bool _isTargetBitrateOscillating;
+    int _deviationChangeCount;
     unsigned int _totalPacketReceived;
     unsigned int _totalPacketSent;
     unsigned int _mostBurstLoss;
     unsigned int _roundTripTimeTick;
     double _roundTripTime;
+    double _averageRoundTripTime;
     double _packetLossRate;
     double _previousPacketLossRate;
     double _basebandNotificationArrivalTime;
@@ -84,6 +94,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int localBandwidthEstimation; // @synthesize localBandwidthEstimation=_localBandwidthEstimation;
 @property(readonly, nonatomic) _Bool isNewRateSentOut; // @synthesize isNewRateSentOut=_isNewRateSentOut;
 @property(readonly, nonatomic) double roundTripTime; // @synthesize roundTripTime=_roundTripTime;
+@property(readonly, nonatomic) unsigned int totalPacketReceived; // @synthesize totalPacketReceived=_totalPacketReceived;
 @property(readonly, nonatomic) double packetLossRate; // @synthesize packetLossRate=_packetLossRate;
 @property(readonly, nonatomic) unsigned int mostBurstLoss; // @synthesize mostBurstLoss=_mostBurstLoss;
 @property(retain, nonatomic) VCRateControlMediaController *mediaController; // @synthesize mediaController=_mediaController;
@@ -95,6 +106,10 @@ __attribute__((visibility("hidden")))
 - (double)getDoubleTimeFromTimestamp:(unsigned int)arg1 timestampTick:(unsigned int)arg2 wrapAroundCounter:(unsigned int)arg3;
 - (void)logToDumpFilesWithString:(id)arg1;
 - (void)resetRampingStatus;
+- (void)resetOscillationDetection;
+- (int)countDeviationChangeInTierWindow;
+- (_Bool)updateRecentTierWindow;
+- (void)checkTargetBitrateOscillation;
 - (void)resetLossEventBuffer;
 - (int)lossEventCount;
 - (void)updateLossEvent:(double)arg1 time:(double)arg2;
@@ -118,8 +133,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldRampUp;
 - (void)checkPaused;
 - (void)checkCongestionStatus;
-- (void)doRateControlWithBasebandStatistics:(CDStruct_dd06a755)arg1;
-- (void)doRateControlWithStatistics:(CDStruct_dd06a755)arg1;
+- (void)doRateControlWithBasebandStatistics:(CDStruct_e9907a6b)arg1;
+- (void)doRateControlWithStatistics:(CDStruct_e9907a6b)arg1;
 - (void)enableBasebandDump:(void *)arg1;
 - (void)enableLogDump:(void *)arg1 enablePeriodicLogging:(_Bool)arg2;
 - (void)configure:(struct VCRateControlAlgorithmConfig)arg1 restartRequired:(_Bool)arg2;

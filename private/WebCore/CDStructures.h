@@ -377,81 +377,6 @@ struct FloatSize {
     float _field2;
 };
 
-struct FontCascade {
-    struct FontCascadeDescription _field1;
-    struct RefPtr<WebCore::FontCascadeFonts, WTF::DumbPtrTraits<WebCore::FontCascadeFonts>> _field2;
-    struct WeakPtrFactory<WebCore::FontCascade> _field3;
-    float _field4;
-    float _field5;
-    _Bool _field6;
-    _Bool _field7;
-    _Bool _field8;
-};
-
-struct FontCascadeDescription {
-    struct FontTaggedSettings<int> _field1;
-    struct FontTaggedSettings<float> _field2;
-    struct AtomicString _field3;
-    struct FontSelectionRequest _field4;
-    float _field5;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :2;
-    unsigned int :1;
-    unsigned int :2;
-    unsigned int :7;
-    unsigned int :3;
-    unsigned int :2;
-    unsigned int :2;
-    unsigned int :2;
-    unsigned int :2;
-    unsigned int :2;
-    unsigned int :3;
-    unsigned int :2;
-    unsigned int :2;
-    unsigned int :2;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :3;
-    unsigned int :2;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    struct RefCountedArray<WTF::AtomicString, WTF::DumbPtrTraits<WTF::AtomicString>> _field6;
-    float _field7;
-    unsigned int :1;
-    unsigned int :2;
-    unsigned int :4;
-    unsigned int :2;
-    unsigned int :1;
-};
-
-struct FontCascadeFonts;
-
-struct FontSelectionRequest {
-    struct FontSelectionValue _field1;
-    struct FontSelectionValue _field2;
-    struct FontSelectionValue _field3;
-};
-
-struct FontSelectionValue {
-    short _field1;
-};
-
-struct FontTaggedSetting<float>;
-
-struct FontTaggedSetting<int>;
-
-struct FontTaggedSettings<float> {
-    struct Vector<WebCore::FontTaggedSetting<float>, 0, WTF::CrashOnOverflow, 16> _field1;
-};
-
-struct FontTaggedSettings<int> {
-    struct Vector<WebCore::FontTaggedSetting<int>, 0, WTF::CrashOnOverflow, 16> _field1;
-};
-
 struct FormData;
 
 struct Frame;
@@ -647,6 +572,8 @@ struct HTMLVideoElement {
     int _field86;
     int _field87;
     int _field88;
+    unsigned int :1;
+    unsigned int :1;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -1486,10 +1413,6 @@ struct Ref<const WTF::Logger, WTF::DumbPtrTraits<const WTF::Logger>> {
     struct Logger *_field1;
 };
 
-struct RefCountedArray<WTF::AtomicString, WTF::DumbPtrTraits<WTF::AtomicString>> {
-    struct AtomicString *_field1;
-};
-
 struct RefPtr<JSC::Bindings::RootObject, WTF::DumbPtrTraits<JSC::Bindings::RootObject>> {
     struct RootObject *_field1;
 };
@@ -1514,10 +1437,6 @@ struct RefPtr<WTF::WeakReference<WebCore::AccessibilityRenderObject>, WTF::DumbP
 
 struct RefPtr<WTF::WeakReference<WebCore::CDMInstanceFairPlayStreamingAVFObjC>, WTF::DumbPtrTraits<WTF::WeakReference<WebCore::CDMInstanceFairPlayStreamingAVFObjC>>> {
     struct WeakReference<WebCore::CDMInstanceFairPlayStreamingAVFObjC> *_field1;
-};
-
-struct RefPtr<WTF::WeakReference<WebCore::FontCascade>, WTF::DumbPtrTraits<WTF::WeakReference<WebCore::FontCascade>>> {
-    struct WeakReference<WebCore::FontCascade> *m_ptr;
 };
 
 struct RefPtr<WTF::WeakReference<WebCore::GenericTaskQueue<WebCore::Timer>>, WTF::DumbPtrTraits<WTF::WeakReference<WebCore::GenericTaskQueue<WebCore::Timer>>>> {
@@ -1585,10 +1504,6 @@ struct RefPtr<WebCore::ElementData, WTF::DumbPtrTraits<WebCore::ElementData>> {
 };
 
 struct RefPtr<WebCore::Event, WTF::DumbPtrTraits<WebCore::Event>>;
-
-struct RefPtr<WebCore::FontCascadeFonts, WTF::DumbPtrTraits<WebCore::FontCascadeFonts>> {
-    struct FontCascadeFonts *_field1;
-};
 
 struct RefPtr<WebCore::FormData, WTF::DumbPtrTraits<WebCore::FormData>> {
     struct FormData *_field1;
@@ -1867,6 +1782,10 @@ struct RetainPtr<AVPlayerViewController> {
     void *m_ptr;
 };
 
+struct RetainPtr<AVRouteDetector> {
+    void *m_ptr;
+};
+
 struct RetainPtr<AVSampleBufferDisplayLayer> {
     void *_field1;
 };
@@ -1881,14 +1800,6 @@ struct RetainPtr<CALayer> {
 
 struct RetainPtr<CGImage *> {
     void *_field1;
-};
-
-struct RetainPtr<MPAVRoutingController> {
-    void *m_ptr;
-};
-
-struct RetainPtr<MPVolumeView> {
-    void *m_ptr;
 };
 
 struct RetainPtr<NSArray<NSString *>> {
@@ -2006,8 +1917,6 @@ struct RetainPtr<__SecTrust *> {
 struct RetainPtr<const __CFArray *> {
     void *m_ptr;
 };
-
-struct RetainPtr<const __CTFontDescriptor *>;
 
 struct RetainPtr<id<NSURLSessionDelegate>> {
     void *m_ptr;
@@ -2288,13 +2197,6 @@ struct Vector<WTF::RetainPtr<WebItemProviderLoadResult>, 0, WTF::CrashOnOverflow
     unsigned int m_size;
 };
 
-struct Vector<WTF::RetainPtr<const __CTFontDescriptor *>, 16, WTF::CrashOnOverflow, 16> {
-    struct RetainPtr<const __CTFontDescriptor *> *m_buffer;
-    unsigned int m_capacity;
-    unsigned int m_size;
-    struct type m_inlineBuffer[16];
-};
-
 struct Vector<WTF::String, 0, WTF::CrashOnOverflow, 16> {
     struct String *_field1;
     unsigned int _field2;
@@ -2315,18 +2217,6 @@ struct Vector<WebCore::CaptureDevice, 0, WTF::CrashOnOverflow, 16> {
 
 struct Vector<WebCore::DOMPromiseDeferred<void>, 0, WTF::CrashOnOverflow, 16> {
     struct DOMPromiseDeferred<void> *_field1;
-    unsigned int _field2;
-    unsigned int _field3;
-};
-
-struct Vector<WebCore::FontTaggedSetting<float>, 0, WTF::CrashOnOverflow, 16> {
-    struct FontTaggedSetting<float> *_field1;
-    unsigned int _field2;
-    unsigned int _field3;
-};
-
-struct Vector<WebCore::FontTaggedSetting<int>, 0, WTF::CrashOnOverflow, 16> {
-    struct FontTaggedSetting<int> *_field1;
     unsigned int _field2;
     unsigned int _field3;
 };
@@ -2419,10 +2309,6 @@ struct Weak<WebCore::JSDOMObject> {
 
 struct WeakImpl;
 
-struct WeakPtr<WebCore::FontCascade> {
-    struct RefPtr<WTF::WeakReference<WebCore::FontCascade>, WTF::DumbPtrTraits<WTF::WeakReference<WebCore::FontCascade>>> m_ref;
-};
-
 struct WeakPtr<WebCore::RenderObject> {
     struct RefPtr<WTF::WeakReference<WebCore::RenderObject>, WTF::DumbPtrTraits<WTF::WeakReference<WebCore::RenderObject>>> _field1;
 };
@@ -2437,10 +2323,6 @@ struct WeakPtrFactory<WebCore::AccessibilityRenderObject> {
 
 struct WeakPtrFactory<WebCore::CDMInstanceFairPlayStreamingAVFObjC> {
     struct RefPtr<WTF::WeakReference<WebCore::CDMInstanceFairPlayStreamingAVFObjC>, WTF::DumbPtrTraits<WTF::WeakReference<WebCore::CDMInstanceFairPlayStreamingAVFObjC>>> _field1;
-};
-
-struct WeakPtrFactory<WebCore::FontCascade> {
-    struct RefPtr<WTF::WeakReference<WebCore::FontCascade>, WTF::DumbPtrTraits<WTF::WeakReference<WebCore::FontCascade>>> _field1;
 };
 
 struct WeakPtrFactory<WebCore::GenericTaskQueue<WebCore::Timer>> {
@@ -2462,8 +2344,6 @@ struct WeakPtrFactory<WebCore::TaskDispatcher<WebCore::Timer>> {
 struct WeakReference<WebCore::AccessibilityRenderObject>;
 
 struct WeakReference<WebCore::CDMInstanceFairPlayStreamingAVFObjC>;
-
-struct WeakReference<WebCore::FontCascade>;
 
 struct WeakReference<WebCore::GenericTaskQueue<WebCore::Timer>>;
 
@@ -2628,7 +2508,7 @@ struct pair<WTF::String, WebCore::ContentSecurityPolicyHeaderType>;
 struct pair<WebCore::Node *, WebCore::Node *>;
 
 struct type {
-    unsigned char __lx[8];
+    unsigned char _field1[8];
 };
 
 struct unique_ptr<PAL::Clock, std::__1::default_delete<PAL::Clock>> {

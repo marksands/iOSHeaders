@@ -9,6 +9,11 @@
 @class NSString;
 
 @protocol AVTUILogger <NSObject>
+- (void)logCarouselDelegateDidUpdateRecord:(NSString *)arg1;
+- (void)logCarouselDelegateNearnessFactorDidChange:(double)arg1 towardRecord:(_Bool)arg2 editable:(_Bool)arg3;
+- (void)logCarouselDelegateWillEndFocusRecord:(NSString *)arg1;
+- (void)logCarouselDelegateDidFocusRecord:(NSString *)arg1;
+- (void)logCarouselErrorGettingFrameForElementAtIndex:(unsigned long long)arg1;
 - (void)logAVTViewCancelingRenderingAvatar:(NSString *)arg1;
 - (void)logAVTViewDidRenderCurrentAvatar:(NSString *)arg1;
 - (void)logAVTViewDidRenderAvatar:(NSString *)arg1 currentAvatar:(NSString *)arg2;
@@ -26,7 +31,8 @@
 - (void)logSingleModeControllerStopUsingLiveView:(NSString *)arg1;
 - (void)logSingleModeControllerStartUsingLiveView:(NSString *)arg1;
 - (void)logCarouselStopsFocusingOnCenterItem:(NSString *)arg1 withCell:(NSString *)arg2;
-- (void)logCarouselChangesCenterItemTo:(NSString *)arg1 withCell:(NSString *)arg2;
+- (void)logCarouselTransitionCenterItem:(NSString *)arg1 withCell:(NSString *)arg2;
+- (void)logCarouselChangesCenterItemTo:(NSString *)arg1;
 - (void)logCarouselChangingToMultiMode;
 - (void)logCarouselChangingToSingleMode;
 - (void)logAvatarPreloadEnd;
@@ -55,7 +61,7 @@
 - (void)logInMemoryCacheStorageForResource:(NSString *)arg1;
 - (void)logImageStoreDoneSavingImageForPath:(NSString *)arg1;
 - (void)logImageStoreBeginSavingImageForPath:(NSString *)arg1;
-- (void)logImageStoreSavingError:(NSString *)arg1;
+- (void)logImageStoreSavingError:(NSString *)arg1 code:(long long)arg2;
 - (void)logImageStoreCacheHitForItemDescription:(NSString *)arg1 sizeCost:(unsigned long long)arg2;
 - (void)logImageStoreCacheMiss:(NSString *)arg1;
 - (void)logCreatingImageStoreForPath:(NSString *)arg1;

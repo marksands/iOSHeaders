@@ -34,15 +34,15 @@
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (_Bool)_lookViewTapGestureRecognizerShouldReceiveTouch:(id)arg1;
 - (void)layoutSubviews;
-- (void)_layoutActionsKeyLineView;
 - (void)_layoutCustomContentViewInRelationToContentView;
+- (void)_layoutCustomContentView;
 - (void)_layoutNotificationContentView;
 - (void)_layoutMainContentView;
+- (struct CGRect)_actionsViewFrame;
 - (void)_configureLookViewTapGestureRecognizerIfNecessary;
 - (void)_configureNotificationContentViewIfNecessary;
 - (void)_configureCustomContentView;
 - (long long)lookStyle;
-- (struct CGSize)contentSizeForSize:(struct CGSize)arg1;
 - (struct CGSize)_contentSizeThatFitsContentWithSizeExcludingActions:(struct CGSize)arg1;
 @property(copy, nonatomic) NSString *secondaryText;
 @property(copy, nonatomic) NSString *primarySubtitleText;
@@ -53,6 +53,7 @@
 @property(retain, nonatomic) UIView *accessoryView;
 @property(nonatomic, getter=isActionsHidden) _Bool actionsHidden;
 @property(nonatomic, getter=isBackgroundBlurred) _Bool backgroundBlurred;
+@property(nonatomic) _Bool clipsVisibleContentToBounds;
 @property(nonatomic) struct CGSize customContentSize;
 @property(readonly, nonatomic) UIView *customContentView;
 @property(copy, nonatomic) NSDate *date;
@@ -61,6 +62,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) UIControl *dismissControl;
+@property(readonly, nonatomic) struct UIEdgeInsets dismissControlInsets;
 @property(nonatomic) _Bool hasShadow;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSArray *iconButtons;

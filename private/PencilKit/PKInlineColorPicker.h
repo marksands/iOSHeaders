@@ -54,15 +54,14 @@
 - (id)_representableColorForColor:(id)arg1;
 - (id)colorsForColorSet:(unsigned long long)arg1;
 - (void)showOverflowViewsIfNeeded;
-- (unsigned long long)colorIndexClosestToColor:(id)arg1 threshold:(double)arg2;
 - (unsigned long long)colorIndexMatchingColor:(id)arg1;
 - (id)createColorPickerButtonShouldEmboss:(_Bool)arg1;
 - (id)createColorButtonItemWithColor:(id)arg1 shouldEmboss:(_Bool)arg2;
 - (void)colorUnpressed:(id)arg1;
 - (void)colorPressed:(id)arg1;
-- (void)colorTappedInCompactChooseColorState:(id)arg1;
 - (void)colorTappedInCompactChooseToolState:(id)arg1;
-- (void)colorTappedInRegularState:(id)arg1;
+- (void)colorTappedInChooseColorState:(id)arg1;
+- (void)_setSelectedColorIndexAndNotifyDelegate:(unsigned long long)arg1 colorChanged:(_Bool)arg2;
 - (void)_colorPickerWillDismiss:(id)arg1;
 - (void)_showColorPickerFromButton:(id)arg1;
 - (void)_forceSetColorSet:(unsigned long long)arg1;

@@ -32,7 +32,7 @@
 - (_Bool)_shouldControlAutorotation;
 - (void)remoteViewControllerDisconnectedFromHostViewController:(id)arg1 withError:(id)arg2;
 - (void)remoteViewControllerOfHostViewControllerHasDismissedScreenshots:(id)arg1;
-- (void)_dismissAndHide;
+- (void)_dismiss;
 - (id)_hostViewControllerIfExists;
 - (void)_prepareRemoteViewControllerWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)activateRemoteViewControllerIfAppropriate;

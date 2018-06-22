@@ -13,5 +13,9 @@
 - (void)retrieveImageWithIdentifier:(NSString *)arg1 completion:(void (^)(INImage *, NSError *))arg2;
 - (void)storeImage:(INImage *)arg1 completion:(void (^)(NSString *, NSError *))arg2;
 - (_Bool)canStoreImage:(INImage *)arg1;
+
+@optional
+- (INImage *)retrieveImageSynchronouslyForIdentifier:(NSString *)arg1 error:(id *)arg2;
+- (NSString *)storeImageSynchronously:(INImage *)arg1 error:(id *)arg2;
 @end
 

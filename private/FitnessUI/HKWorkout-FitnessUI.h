@@ -28,6 +28,8 @@
 - (double)fiui_averagePower;
 - (double)fiui_averageCadence;
 - (double)fiui_totalStepCount;
+- (id)fiui_totalDistance;
+- (double)fiui_duration;
 - (id)fiui_elevation;
 - (_Bool)fiui_hasElevation;
 - (_Bool)fiui_hasWeatherData;

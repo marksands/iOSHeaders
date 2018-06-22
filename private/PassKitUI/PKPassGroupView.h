@@ -115,12 +115,15 @@
 - (void)_updateDelegateResponderCache;
 - (void)resizePassViewForPass:(id)arg1 animated:(_Bool)arg2;
 - (void)setDimmer:(double)arg1 animated:(_Bool)arg2;
+- (void)presentPassWithUniqueID:(id)arg1 withContext:(id)arg2;
 - (void)presentPassWithUniqueID:(id)arg1;
 - (void)presentDiff:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)endPinningFrontFaceContentMode;
 - (void)beginPinningFrontFaceContentMode;
 - (void)applyContentModesAnimated:(_Bool)arg1;
 - (void)setPresentationState:(long long)arg1 animated:(_Bool)arg2;
+- (void)setFrontmostPassView:(id)arg1 withContext:(id)arg2;
+- (void)setFrontmostPassViewFromPassIndex:(long long)arg1 withContext:(id)arg2;
 - (void)setFrontmostPassViewFromPassIndex:(long long)arg1;
 - (struct CGRect)_pagingFrameForCardView:(id)arg1 atIndex:(unsigned long long)arg2;
 - (struct CGPoint)_stackingPositionForPassViewLayer:(id)arg1 atStackIndex:(unsigned long long)arg2 withSeparation:(_Bool)arg3;

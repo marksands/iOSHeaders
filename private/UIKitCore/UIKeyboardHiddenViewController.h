@@ -44,6 +44,7 @@ __attribute__((visibility("hidden")))
 - (id)_deferredPropertiesForClientContext:(unsigned int)arg1;
 - (void)_applicationWillDeactivate:(id)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;
+- (void)_deviceWillLock:(id)arg1;
 - (void)passwordViewControllerDidFinish:(id)arg1;
 - (void)_localAuthenticationUIDismissed;
 - (void)_localAuthenticationUIPresented;

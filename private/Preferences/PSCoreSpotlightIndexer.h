@@ -6,17 +6,19 @@
 
 #import "NSObject.h"
 
-@class CSSearchableIndex, NSDate, NSObject<OS_dispatch_queue>;
+@class CSSearchableIndex, CSTopHitSearchQuery, NSDate, NSObject<OS_dispatch_queue>;
 
 @interface PSCoreSpotlightIndexer : NSObject
 {
     CSSearchableIndex *_prefsSearchableIndex;
     NSObject<OS_dispatch_queue> *_spotlightIndexQueue;
+    CSTopHitSearchQuery *_searchQuery;
 }
 
 + (id)sharedInstance;
 + (char *)spotlightIndexQueueIdentifier;
 + (id)searchIndexIdentifier;
+@property(retain, nonatomic) CSTopHitSearchQuery *searchQuery; // @synthesize searchQuery=_searchQuery;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *spotlightIndexQueue; // @synthesize spotlightIndexQueue=_spotlightIndexQueue;
 @property(retain, nonatomic) CSSearchableIndex *prefsSearchableIndex; // @synthesize prefsSearchableIndex=_prefsSearchableIndex;
 - (void).cxx_destruct;
@@ -44,6 +46,7 @@
 - (void)indexSpecifiers:(id)arg1 bundle:(id)arg2 withURLPrefix:(id)arg3 waitForCompletion:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)indexSpecifiersWithURLs:(id)arg1 topLevelSpecifiers:(id)arg2 bundle:(id)arg3 withURLPrefix:(id)arg4 waitForCompletion:(_Bool)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)reindexSpecifiersIfNeeded:(id)arg1 bundle:(id)arg2 withURLPrefix:(id)arg3 waitForCompletion:(_Bool)arg4 setHasIndexed:(_Bool)arg5 completion:(CDUnknownBlockType)arg6;
+- (void)topHitSearchForString:(id)arg1 keyboardLanguage:(id)arg2 foundItemsHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)searchableItemClassIdentifier;
 - (id)searchableItemAttributeSetClassIdenfitier;
 - (void)setLastIndexLanguage:(id)arg1;

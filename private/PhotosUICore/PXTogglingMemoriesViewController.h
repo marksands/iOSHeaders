@@ -6,24 +6,26 @@
 
 #import "UIViewController.h"
 
+#import "PXSectionedDataSourceManagerObserver.h"
 #import "PXUIViewControllerZoomTransitionEndPoint.h"
 
-@class NSString, PXFetchResultBasedMemoriesDataSourceManager, PXMemoriesFeedUIViewController, PXMemoriesUIViewController;
+@class NSString, PXFetchResultBasedMemoriesDataSourceManager, PXMemoriesFeedUIViewController, PXMemoriesUIViewController, UIBarButtonItem;
 
-@interface PXTogglingMemoriesViewController : UIViewController <PXUIViewControllerZoomTransitionEndPoint>
+@interface PXTogglingMemoriesViewController : UIViewController <PXSectionedDataSourceManagerObserver, PXUIViewControllerZoomTransitionEndPoint>
 {
     _Bool _onlyShowFavorites;
     PXFetchResultBasedMemoriesDataSourceManager *_favoriteMemoriesDataSourceManager;
     PXMemoriesUIViewController *_favoriteMemoriesViewController;
+    UIBarButtonItem *_toggleButton;
     PXMemoriesFeedUIViewController *_memoriesViewController;
 }
 
 @property(readonly, nonatomic) PXMemoriesFeedUIViewController *memoriesViewController; // @synthesize memoriesViewController=_memoriesViewController;
-@property(nonatomic, getter=shouldOnlyShowFavorites) _Bool onlyShowFavorites; // @synthesize onlyShowFavorites=_onlyShowFavorites;
+@property(readonly, nonatomic) UIBarButtonItem *toggleButton; // @synthesize toggleButton=_toggleButton;
+@property(nonatomic, setter=setShouldOnlyShowFavorites:) _Bool onlyShowFavorites; // @synthesize onlyShowFavorites=_onlyShowFavorites;
 @property(retain, nonatomic) PXMemoriesUIViewController *favoriteMemoriesViewController; // @synthesize favoriteMemoriesViewController=_favoriteMemoriesViewController;
 @property(retain, nonatomic) PXFetchResultBasedMemoriesDataSourceManager *favoriteMemoriesDataSourceManager; // @synthesize favoriteMemoriesDataSourceManager=_favoriteMemoriesDataSourceManager;
 - (void).cxx_destruct;
-- (void)_updateBarButton;
 - (void)_reloadCurrentViewController;
 - (void)_transitionFromViewController:(id)arg1 toViewController:(id)arg2;
 - (id)px_diagnosticsItemProvidersForPoint:(struct CGPoint)arg1 inCoordinateSpace:(id)arg2;
@@ -32,6 +34,8 @@
 - (id)regionOfInterestForTransition:(id)arg1;
 - (id)px_endPointForTransition:(id)arg1;
 - (_Bool)px_canPerformZoomTransitionWithDetailViewController:(id)arg1;
+- (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
+- (void)_configureTitle;
 - (void)_configureBarButton;
 - (void)_configureMemoryViewControllers;
 @property(readonly, nonatomic) NSString *currentBarButtonTitle;

@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (id)networkTypeView;
 - (id)_stringForCellularType:(long long)arg1;
 
 @end

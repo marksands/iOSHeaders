@@ -38,7 +38,6 @@ __attribute__((visibility("hidden")))
     NSString *_prefixTextForStart;
     NSString *_selectionTextForStart;
     NSString *_postfixTextForStart;
-    _Bool dictationStartedFromGesture;
     _Bool _performingStreamingEditingOperation;
     _Bool _discardNextHypothesis;
     _Bool _hasPreheated;
@@ -91,12 +90,8 @@ __attribute__((visibility("hidden")))
 + (_Bool)isTextViewOnStarkScreen:(id)arg1;
 + (void)didOneFingerTapInTextView:(id)arg1;
 + (void)keyboardDidUpdateOnScreenStatus;
-+ (void)keyboardDidSetInputMode;
 + (void)keyboardWillChangeFromDelegate:(id)arg1 toDelegate:(id)arg2;
-+ (_Bool)shouldEnableGestureHandler;
-+ (void)enableGestureHandlerIfNecessary;
 + (id)UIDictationStartStopReasonTypeDescription:(unsigned long long)arg1;
-+ (void)disableGestureHandler;
 + (void)logCorrectionStatisticsForDelegate:(id)arg1;
 + (_Bool)dictationIsFunctional;
 + (_Bool)fetchCurrentInputModeSupportsDictation;
@@ -124,7 +119,6 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *previousHypothesis; // @synthesize previousHypothesis=_previousHypothesis;
 @property(nonatomic) _Bool performingStreamingEditingOperation; // @synthesize performingStreamingEditingOperation=_performingStreamingEditingOperation;
 @property(retain, nonatomic) NSMutableArray *pendingEdits; // @synthesize pendingEdits=_pendingEdits;
-@property(nonatomic) _Bool dictationStartedFromGesture; // @synthesize dictationStartedFromGesture;
 @property(copy, nonatomic) NSString *activationIdentifier; // @synthesize activationIdentifier=_activationIdentifier;
 - (void)markKeyboardDidReset;
 - (void)markKeyboardDeleteMetricEvent;
@@ -242,11 +236,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_shouldInsertText:(id)arg1 inInputDelegate:(id)arg2;
 - (_Bool)_shouldDeleteBackwardInInputDelegate:(id)arg1;
 - (void)_restartDictation;
-- (void)enableProximity;
-- (void)proximityStateChanged:(id)arg1;
-- (void)disableAutorotation;
 - (void)setDictationInputMode:(id)arg1;
-- (void)reenableAutorotation;
 - (_Bool)disabledDueToTelephonyActivity;
 - (id)streamingOperations;
 - (id)init;

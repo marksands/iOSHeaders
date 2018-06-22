@@ -31,14 +31,15 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
 - (void).cxx_destruct;
+- (void)contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)prefetchThumbnailForKey:(id)arg1 itemType:(long long)arg2;
 - (void)collectionView:(id)arg1 prefetchItemsAtIndexPaths:(id)arg2;
+- (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
-- (id)_configurePeopleCell:(id)arg1 atIndexPath:(id)arg2;
 - (void)_configureCollectionView;
 - (id)debugURLsForDiagnostics;
 - (_Bool)hasLoadedContentData;

@@ -16,6 +16,7 @@
     UIView *_cornerView;
 }
 
++ (id)_swatchImageForColorOption:(id)arg1 forDevice:(id)arg2;
 + (id)_swatchColorForColorOption:(id)arg1 forDevice:(id)arg2;
 + (id)_swatchForEditModeDependsOnOptions:(long long)arg1 forDevice:(id)arg2;
 + (id)_supportedComplicationSlots;

@@ -6,7 +6,7 @@
 
 #import "NSPersistentContainer.h"
 
-@class NSArray, NSCloudKitMirroringDelegateOptions, NSDate, NSPersistentHistoryToken, NSPersistentStore, NSString, RCDatabaseMetadata;
+@class NSArray, NSCloudKitMirroringDelegateOptions, NSDate, NSMutableArray, NSPersistentHistoryToken, NSPersistentStore, NSString, RCDatabaseMetadata;
 
 __attribute__((visibility("hidden")))
 @interface RCPersistentContainer : NSPersistentContainer
@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     NSCloudKitMirroringDelegateOptions *_mirroringOptions;
     NSPersistentHistoryToken *_currentHistoryToken;
     NSPersistentHistoryToken *_latestHistoryToken;
+    NSMutableArray *_transactionsBuffer;
     NSArray *_contextsToNotify;
     id _changeNotificationObserver;
     NSDate *_changeNotificationDate;
@@ -44,7 +45,7 @@ __attribute__((visibility("hidden")))
 - (id)_nextTransactionAfterToken:(id)arg1 context:(id)arg2 error:(id *)arg3;
 - (id)newContextWithConcurrencyType:(unsigned long long)arg1;
 - (void)dealloc;
-- (id)_initWithMirroring:(_Bool)arg1;
+- (id)_initWithMirroring:(_Bool)arg1 useXPCStore:(_Bool)arg2;
 
 @end
 

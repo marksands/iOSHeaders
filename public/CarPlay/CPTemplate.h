@@ -12,7 +12,7 @@
 #import "CPTemplateDelegate.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSMutableArray, NSString, NSUUID;
+@class NSArray, NSMutableArray, NSOperationQueue, NSString, NSUUID;
 
 @interface CPTemplate : NSObject <CPBarButtonDelegate, CPBarButtonProviding, CPControlDelegate, CPTemplateDelegate, NSSecureCoding>
 {
@@ -21,9 +21,11 @@
     id <CPTemplateDelegate> _templateDelegate;
     NSMutableArray *_internalLeadingBarButtons;
     NSMutableArray *_internalTrailingBarButtons;
+    NSOperationQueue *_deferredOperationQueue;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSOperationQueue *deferredOperationQueue; // @synthesize deferredOperationQueue=_deferredOperationQueue;
 @property(retain, nonatomic) NSMutableArray *internalTrailingBarButtons; // @synthesize internalTrailingBarButtons=_internalTrailingBarButtons;
 @property(retain, nonatomic) NSMutableArray *internalLeadingBarButtons; // @synthesize internalLeadingBarButtons=_internalLeadingBarButtons;
 @property(nonatomic) __weak id <CPTemplateDelegate> templateDelegate; // @synthesize templateDelegate=_templateDelegate;
@@ -40,6 +42,7 @@
 - (void)handleActionForControlIdentifier:(id)arg1;
 @property(retain, nonatomic) NSArray *trailingNavigationBarButtons;
 @property(retain, nonatomic) NSArray *leadingNavigationBarButtons;
+- (void)dealloc;
 @property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

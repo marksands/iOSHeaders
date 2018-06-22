@@ -13,17 +13,18 @@
 @interface PXMemoriesFeedDataSourceManagerBase : PXSectionedDataSourceManager <PXPhotoLibraryUIChangeObserver>
 {
     PHPhotoLibrary *_photoLibrary;
+    _Bool _memoryGenerationHasStarted;
     _Bool __generatingAdditionalEntries;
-    unsigned long long __firstUngroupedMemoryIndex;
     PHFetchResult *_memoriesFetchResult;
+    unsigned long long _firstUngroupedMemoryIndex;
 }
 
 + (_Bool)shouldGroupTogetherMemoriesWithCreationDate:(id)arg1 andCreationDate:(id)arg2;
 + (id)generateEntriesFromMemories:(id)arg1 startingFromIndex:(unsigned long long)arg2 maximumNumberOfEntries:(unsigned long long)arg3 finalMemoryIndex:(out unsigned long long *)arg4;
 + (id)_updatedFetchResultsForMemoriesForDatasource:(id)arg1 changeDetails:(id)arg2 changeInstance:(id)arg3;
+@property(nonatomic) unsigned long long firstUngroupedMemoryIndex; // @synthesize firstUngroupedMemoryIndex=_firstUngroupedMemoryIndex;
 @property(retain, nonatomic) PHFetchResult *memoriesFetchResult; // @synthesize memoriesFetchResult=_memoriesFetchResult;
 @property(nonatomic, getter=_isGeneratingAdditionalEntries, setter=_setGeneratingAdditionalEntries:) _Bool _generatingAdditionalEntries; // @synthesize _generatingAdditionalEntries=__generatingAdditionalEntries;
-@property(nonatomic, setter=_setFirstUngroupedMemoryIndex:) unsigned long long _firstUngroupedMemoryIndex; // @synthesize _firstUngroupedMemoryIndex=__firstUngroupedMemoryIndex;
 - (void).cxx_destruct;
 - (void)updateCurrentMemoriesNonPendingAndNotificationStatus;
 - (void)_clearPendingNotificationForMemory:(id)arg1;

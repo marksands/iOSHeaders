@@ -45,6 +45,10 @@
 + (id)urlForMapItem:(id)arg1 options:(id)arg2;
 + (id)_mapItemBackedByURL:(id)arg1;
 + (id)mapItemsFromURL:(id)arg1 options:(id *)arg2;
++ (id)sanitizeDictionary:(id)arg1;
++ (id)sanitizeArray:(id)arg1 forKey:(id)arg2;
++ (id)sanitizeObject:(id)arg1 forKey:(id)arg2;
++ (_Bool)valueIsValid:(id)arg1 forKey:(id)arg2;
 + (id)launchOptionsFromURL:(id)arg1;
 + (id)_launchOptionsFromResourceOptionsDictionary:(id)arg1;
 + (id)_deserializeResourceOptionsFromURL:(id)arg1 error:(out id *)arg2;

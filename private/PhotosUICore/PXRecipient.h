@@ -9,14 +9,15 @@
 #import "NSCopying.h"
 #import "PXCMMInvitationParticipant.h"
 
-@class CNContact, NSArray, NSString, PXRecipientTransport;
+@class CNContact, NSSet, NSString, PXRecipientTransport;
 
 @interface PXRecipient : NSObject <PXCMMInvitationParticipant, NSCopying>
 {
     NSString *_firstName;
     NSString *_lastName;
-    NSArray *_allEmails;
-    NSArray *_allPhones;
+    NSSet *_allEmails;
+    NSSet *_allPhones;
+    NSSet *_unformattedAllPhones;
     NSString *_phoneNumberString;
     NSString *_emailAddressString;
     PXRecipientTransport *_suggestedTransport;
@@ -34,8 +35,9 @@
 @property(retain, nonatomic) PXRecipientTransport *suggestedTransport; // @synthesize suggestedTransport=_suggestedTransport;
 @property(readonly, copy, nonatomic) NSString *emailAddressString; // @synthesize emailAddressString=_emailAddressString;
 @property(readonly, copy, nonatomic) NSString *phoneNumberString; // @synthesize phoneNumberString=_phoneNumberString;
-@property(readonly, nonatomic) NSArray *allPhones; // @synthesize allPhones=_allPhones;
-@property(readonly, nonatomic) NSArray *allEmails; // @synthesize allEmails=_allEmails;
+@property(readonly, nonatomic) NSSet *unformattedAllPhones; // @synthesize unformattedAllPhones=_unformattedAllPhones;
+@property(readonly, nonatomic) NSSet *allPhones; // @synthesize allPhones=_allPhones;
+@property(readonly, nonatomic) NSSet *allEmails; // @synthesize allEmails=_allEmails;
 @property(readonly, copy, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
 @property(readonly, copy, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
 - (void).cxx_destruct;

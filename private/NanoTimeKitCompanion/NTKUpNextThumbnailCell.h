@@ -33,8 +33,9 @@
     _Bool _showingSmallThumbnail;
 }
 
-+ (struct CGSize)suggestedBodyImageSize;
++ (struct CGSize)suggestedBodyImageSizeForDevice:(id)arg1;
 - (void).cxx_destruct;
+- (void)setPaused:(_Bool)arg1;
 - (void)configureWithContent:(id)arg1;
 - (void)updateConstraints;
 - (id)initWithFrame:(struct CGRect)arg1;

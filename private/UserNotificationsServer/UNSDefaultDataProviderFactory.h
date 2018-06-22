@@ -44,10 +44,10 @@
 - (id)_queue_dataProviderForBundleIdentifier:(id)arg1;
 - (void)_queue_setCriticalAlertAuthorization:(_Bool)arg1 forBundleIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_queue_updateSettingsWithAuthorizationStatus:(long long)arg1 options:(unsigned long long)arg2 topics:(id)arg3 forBundleIdentifier:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
-- (void)_queue_getAuthorizedBundleIdentifiersForBundleIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_queue_getSectionInfoForBundleIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)_queue_authorizedBundleIdentifiersForBundleIdentifiers:(id)arg1;
+- (id)_queue_sectionInfoForBundleIdentifier:(id)arg1;
 - (void)_queue_setSectionInfo:(id)arg1 forBundleIdentifier:(id)arg2;
-- (void)_queue_getNotificationSettingsForBundleIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)_queue_notificationSettingsForBundleIdentifier:(id)arg1;
 - (void)_queue_removeObserver:(id)arg1;
 - (void)_queue_addObserver:(id)arg1;
 - (void)_queue_applicationDidDisableNotificationSettings:(id)arg1;
@@ -55,11 +55,11 @@
 - (void)_queue_sectionInfoDidChange:(id)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
-- (void)getAuthorizedBundleIdentifiersForBundleIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)authorizedBundleIdentifiersForBundleIdentifiers:(id)arg1;
 - (void)setCriticalAlertAuthorization:(_Bool)arg1 forBundleIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)updateAuthorizationWithOptions:(unsigned long long)arg1 topics:(id)arg2 forBundleIdentifier:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)requestAuthorizationStatus:(long long)arg1 withOptions:(unsigned long long)arg2 topics:(id)arg3 forBundleIdentifier:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
-- (void)getNotificationSettingsForBundleIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)notificationSettingsForBundleIdentifier:(id)arg1;
 - (void)dealloc;
 - (id)initWithApplicationLauncher:(id)arg1 daemonLauncher:(id)arg2 categoryRepository:(id)arg3 notificationRepository:(id)arg4 attachmentsService:(id)arg5 topicRepository:(id)arg6;
 

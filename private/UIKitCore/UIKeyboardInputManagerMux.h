@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)removeAllClients;
 - (void)removeClient:(id)arg1;
 - (void)addClient:(id)arg1;
-- (void)setSystemInputManagerFromKeyboardState:(id)arg1 devicePasscodeEntry:(_Bool)arg2;
+- (void)setSystemInputManagerFromTextInputTraits:(id)arg1 autofillMode:(long long)arg2;
 @property(readonly, nonatomic) _Bool hasSystemInputManager;
 - (_Bool)_systemHasKbd;
 - (void)dealloc;

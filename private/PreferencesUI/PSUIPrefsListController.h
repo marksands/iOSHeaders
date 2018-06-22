@@ -15,7 +15,7 @@
 #import "UISearchControllerDelegate.h"
 #import "UISearchResultsUpdating.h"
 
-@class AAUIProfilePictureStore, ACAccountStore, AIDAServiceOwnersManager, CSSearchQuery, CoreTelephonyClient, EAAccessory, HFHomeSettingsVisibilityArbitrator, NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, PSKeyboardNavigationSearchController, PSSpecifier, PSSpotlightSearchResultsController, PSUIClassKitVisibilityArbitrator, PSUIClassroomVisibilityArbitrator, UIViewController<PSController>, VSAccountStore;
+@class AAUIProfilePictureStore, ACAccountStore, AIDAServiceOwnersManager, CoreTelephonyClient, EAAccessory, HFHomeSettingsVisibilityArbitrator, NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, PSKeyboardNavigationSearchController, PSSpecifier, PSSpotlightSearchResultsController, PSUIClassKitVisibilityArbitrator, PSUIClassroomVisibilityArbitrator, UIViewController<PSController>, VSAccountStore;
 
 @interface PSUIPrefsListController : PSListController <AAUISignInControllerDelegate, UISearchResultsUpdating, PSSpotlightSearchResultsControllerDelegate, UISearchBarDelegate, UISearchControllerDelegate, CoreTelephonyClientSubscriberDelegate, RadiosPreferencesDelegate, DevicePINControllerDelegate>
 {
@@ -67,7 +67,6 @@
     NSArray *_followupSpecifiers;
     PSKeyboardNavigationSearchController *_spotlightSearchController;
     PSSpotlightSearchResultsController *_spotlightResultsController;
-    CSSearchQuery *_searchQuery;
     NSString *_wifiString;
 }
 
@@ -75,7 +74,6 @@
 + (_Bool)airplaneMode;
 + (id)radiosPreferences;
 @property(copy, nonatomic) NSString *wifiString; // @synthesize wifiString=_wifiString;
-@property(retain, nonatomic) CSSearchQuery *searchQuery; // @synthesize searchQuery=_searchQuery;
 @property(retain, nonatomic) PSSpotlightSearchResultsController *spotlightResultsController; // @synthesize spotlightResultsController=_spotlightResultsController;
 @property(retain, nonatomic) PSKeyboardNavigationSearchController *spotlightSearchController; // @synthesize spotlightSearchController=_spotlightSearchController;
 @property(retain, nonatomic) NSArray *followupSpecifiers; // @synthesize followupSpecifiers=_followupSpecifiers;
@@ -121,10 +119,12 @@
 - (void)confirmationSpecifierConfirmed:(id)arg1;
 - (void)_setAirplaneMode:(_Bool)arg1;
 - (void)setAirplaneMode:(id)arg1 specifier:(id)arg2;
+- (void)_beginObservingProfilePictureStoreDidChangeNotification;
 - (void)_beginObservingAccountStoreDidChangeNotification;
 - (id)_profilePictureStore;
 - (id)_accountStore;
 - (id)_serviceOwnersManager;
+- (void)profilePictureDidChange;
 - (void)appleAccountsDidChange;
 - (void)signInControllerDidCancel:(id)arg1;
 - (void)signInController:(id)arg1 didCompleteWithSuccess:(_Bool)arg2 error:(id)arg3;
@@ -136,7 +136,7 @@
 - (void)_setupAppleAccountSpecifierForLogin:(id)arg1;
 - (void)_setupAppleAccountSpecifier:(id)arg1;
 - (void)setupPrimaryAppleAccountGroup:(id)arg1;
-- (id)appleAccountIconLocalCacheURLForKey:(id)arg1;
+- (id)appleAccountIconLocalCacheURL;
 - (id)getTetheringStatus:(id)arg1;
 - (void)updateEthernet;
 - (_Bool)shouldShowEthernetSpecifier;

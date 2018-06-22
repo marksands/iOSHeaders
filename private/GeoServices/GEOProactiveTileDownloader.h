@@ -8,7 +8,7 @@
 
 #import "GEOBatchOpportunisticTileDownloaderDelegate.h"
 
-@class GEODataSaverTileLoaderManager, GEORequestCounter, GEOResourceManifestManager, GEOStaleTileUpdater, GEOTileDB, GEOTileRegionDownloader, NSObject<OS_dispatch_queue>, NSString;
+@class GEOBatchOpportunisticTileDownloader, GEODataSaverTileLoaderManager, GEORequestCounter, GEOResourceManifestManager, GEOStaleTileUpdater, GEOTileDB, GEOTileRegionDownloader, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GEOProactiveTileDownloader : NSObject <GEOBatchOpportunisticTileDownloaderDelegate>
@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_isolationQueue;
     id <GEOProactiveTileDownloaderDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_delegateQueue;
+    NSObject<OS_xpc_object> *_xpcActivity;
     GEOTileDB *_diskCache;
     NSString *_startCountry;
     NSString *_startRegion;
@@ -28,16 +29,23 @@ __attribute__((visibility("hidden")))
     GEOStaleTileUpdater *_testStaleUpdater;
     GEOTileRegionDownloader *_regionDownloader;
     GEOStaleTileUpdater *_staleUpdater;
+    GEOBatchOpportunisticTileDownloader *_currentDownloader;
     _Bool _shouldDownloadTilesInRegion;
     _Bool _shouldUpdateRecentlyUsedStaleTiles;
 }
 
 + (_Bool)shouldDownloadTileType:(int)arg1;
++ (_Bool)usesDiscretionaryDownloads;
++ (_Bool)_canUseXPCActivity;
++ (unsigned long long)maximumDownloadBatchSize;
 - (void).cxx_destruct;
 - (void)batchOpportunisticTileDownloaderDidFinish:(id)arg1;
 - (void)batchOpportunisticTileDownloader:(id)arg1 receivedData:(id)arg2 tileEdition:(unsigned int)arg3 tileSet:(unsigned int)arg4 etag:(id)arg5 forKey:(struct _GEOTileKey)arg6 userInfo:(id)arg7;
+- (_Bool)batchOpportunisticTileDownloaderShouldPause:(id)arg1;
 - (void)_finish;
 - (void)_start;
+- (void)_xpcActivityFired;
+- (void)_registerXPCActivity;
 - (void)cancel;
 - (void)start;
 - (id)initWithDelegate:(id)arg1 delegateQueue:(id)arg2 diskCache:(id)arg3 dataSaverManager:(id)arg4 manifestManager:(id)arg5 requestCounter:(id)arg6 regionDownloader:(id)arg7 staleUpdater:(id)arg8;

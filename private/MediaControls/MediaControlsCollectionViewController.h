@@ -9,14 +9,14 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class MediaControlsCollectionViewCountData, NSArray, NSIndexSet, NSMutableDictionary, NSMutableSet, NSString, UIScrollView, UIViewController<MediaControlsCollectionItemViewController>, _MediaControlsTapHoldGestureRecognizer;
+@class MediaControlsCollectionViewCountData, NSArray, NSIndexSet, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, UIScrollView, UIViewController<MediaControlsCollectionItemViewController>, _MediaControlsTapHoldGestureRecognizer;
 
 @interface MediaControlsCollectionViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 {
     NSMutableDictionary *_activeViewControllers;
     UIViewController<MediaControlsCollectionItemViewController> *_inactiveSelectedViewController;
     NSMutableSet *_inactiveViewControllers;
-    CDUnknownBlockType _pendingUpdates;
+    NSMutableArray *_pendingUpdates;
     struct UIEdgeInsets _controlCenterEdgeInsets;
     struct CGSize _lastKnownEnvironmentSize;
     long long _animatedSelectionCount;
@@ -101,6 +101,7 @@
 - (double)_regularItemHeight;
 - (long long)_closestItemAtPoint:(struct CGPoint)arg1;
 - (void)_dequeueAndPerformBatchUpdatesIfNeeded;
+- (_Bool)_canPerformBatchUpdates;
 - (void)scrollToSelectedItemAnimated:(_Bool)arg1;
 @property(readonly, nonatomic) NSIndexSet *visibleIndexes;
 - (long long)itemAtPoint:(struct CGPoint)arg1;

@@ -15,6 +15,8 @@
 + (const struct MPSLibraryInfo *)libraryInfo;
 @property(readonly, nonatomic) float epsilon; // @synthesize epsilon=_epsilon;
 @property(readonly, nonatomic) double decay; // @synthesize decay=_decay;
+- (void)encodeToCommandBuffer:(id)arg1 batchNormalizationGradientState:(id)arg2 batchNormalizationSourceState:(id)arg3 inputSumOfSquaresVectors:(id)arg4 resultState:(id)arg5;
+- (void)encodeToCommandBuffer:(id)arg1 convolutionGradientState:(id)arg2 convolutionSourceState:(id)arg3 inputSumOfSquaresVectors:(id)arg4 resultState:(id)arg5;
 - (void)encodeToCommandBuffer:(id)arg1 inputGradientVector:(id)arg2 inputValuesVector:(id)arg3 inputSumOfSquaresVector:(id)arg4 resultValuesVector:(id)arg5;
 - (id)debugDescription;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;

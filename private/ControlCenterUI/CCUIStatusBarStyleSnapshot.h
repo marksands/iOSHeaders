@@ -14,13 +14,15 @@
 {
     _Bool _hidden;
     UIStatusBarStyleRequest *_activeStyleRequest;
+    struct CGRect _avoidanceFrame;
 }
 
+@property(readonly, nonatomic) struct CGRect avoidanceFrame; // @synthesize avoidanceFrame=_avoidanceFrame;
 @property(readonly, copy, nonatomic) UIStatusBarStyleRequest *activeStyleRequest; // @synthesize activeStyleRequest=_activeStyleRequest;
 @property(readonly, nonatomic, getter=isHidden) _Bool hidden; // @synthesize hidden=_hidden;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithHidden:(_Bool)arg1 activeStyleRequest:(id)arg2;
+- (id)initWithHidden:(_Bool)arg1 activeStyleRequest:(id)arg2 avoidanceFrame:(struct CGRect)arg3;
 
 @end
 

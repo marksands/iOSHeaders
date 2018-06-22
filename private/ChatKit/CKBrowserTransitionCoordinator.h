@@ -48,7 +48,10 @@
 @property(nonatomic) __weak id <CKBrowserTransitionCoordinatorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)setExpanded:(_Bool)arg1 withReason:(long long)arg2;
+- (id)appIconOverride;
+- (id)appTitleOverride;
 - (_Bool)shouldAlwaysShowAppTitle;
+- (_Bool)fullscreenAppViewControllerShouldDismissOnDragSuccess:(id)arg1;
 - (double)fullscreenAppViewControllerCollapsedContentHeight:(id)arg1;
 - (void)fullscreenAppViewControllerDidTransitionFromOrientation:(long long)arg1 toOrientation:(long long)arg2;
 - (void)fullscreenAppViewControllerSwitcherDidSelectAppManager:(id)arg1;
@@ -58,7 +61,7 @@
 - (void)fullscreenAppViewControllerWantsToCollapse:(id)arg1;
 - (void)dismissCurrentFullScreenModalAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic, getter=isPresentingFullScreenModal) _Bool presentingFullScreenModal;
-- (void)presentCurrentPluginFullScreenModalAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)presentPluginFullScreenModal:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)dismissCurrentFullscreenBrowserAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)presentCurrentBrowserFullscreenAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)transitionCurrentBrowserToCollapsedPresentationAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;

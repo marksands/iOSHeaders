@@ -12,7 +12,7 @@
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
 
-@class AVTAvatarAttributeEditorSectionColorDataSource, AVTAvatarColorSliderContainerView, NSString, UICollectionView, UICollectionViewFlowLayout, UIView;
+@class AVTAvatarAttributeEditorSectionColorDataSource, AVTAvatarColorSliderContainerView, AVTUIEnvironment, NSString, UICollectionView, UICollectionViewFlowLayout, UIView;
 
 @interface AVTAvatarAttributeEditorSectionColorController : NSObject <UICollectionViewDataSource, UICollectionViewDelegate, AVTAvatarAttributeEditorSectionColorDataSourceDelegate, AVTAvatarColorSliderContainerViewDelegate, AVTAvatarAttributeEditorSectionController>
 {
@@ -25,11 +25,13 @@
     UICollectionView *_collectionView;
     UICollectionViewFlowLayout *_collectionViewLayout;
     AVTAvatarColorSliderContainerView *_sliderContainerView;
+    AVTUIEnvironment *_environment;
 }
 
 + (_Bool)updateCollectionViewLayout:(id)arg1 forExtended:(_Bool)arg2 withSlider:(_Bool)arg3 numberOfItems:(long long)arg4;
 + (_Bool)supportsSelection;
 @property(nonatomic) _Bool needsScrollToSelected; // @synthesize needsScrollToSelected=_needsScrollToSelected;
+@property(readonly, nonatomic) AVTUIEnvironment *environment; // @synthesize environment=_environment;
 @property(retain, nonatomic) AVTAvatarColorSliderContainerView *sliderContainerView; // @synthesize sliderContainerView=_sliderContainerView;
 @property(retain, nonatomic) UICollectionViewFlowLayout *collectionViewLayout; // @synthesize collectionViewLayout=_collectionViewLayout;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
@@ -76,8 +78,8 @@
 - (void)createCollectionView;
 - (struct UIEdgeInsets)edgeInsetsFittingSize:(struct CGSize)arg1;
 @property(readonly, nonatomic) UIView *sectionView;
-- (id)initWithDataSource:(id)arg1;
-- (id)init;
+- (id)initWithDataSource:(id)arg1 environment:(id)arg2;
+- (id)initWithEnvironment:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

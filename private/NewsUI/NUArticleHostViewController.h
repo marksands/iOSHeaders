@@ -8,10 +8,11 @@
 
 #import "NULoadingDelegate.h"
 #import "NUPageable.h"
+#import "SXAnalyticsReporting.h"
 
 @class FCArticle, NFMultiDelegate, NSHashTable, NSString, UIView<NULoadingViewProviding>;
 
-@interface NUArticleHostViewController : UIViewController <NULoadingDelegate, NUPageable>
+@interface NUArticleHostViewController : UIViewController <NULoadingDelegate, SXAnalyticsReporting, NUPageable>
 {
     NSString *_pageIdentifier;
     id <NULoadingDelegate> _loadingDelegate;
@@ -22,8 +23,10 @@
     UIView<NULoadingViewProviding> *_loadingView;
     NFMultiDelegate *_multiLoadingDelegate;
     id <NUErrorMessageFactory> _errorMessageFactory;
+    id <NUAnalyticsReporting> _analyticsReporting;
 }
 
+@property(readonly, nonatomic) id <NUAnalyticsReporting> analyticsReporting; // @synthesize analyticsReporting=_analyticsReporting;
 @property(readonly, nonatomic) id <NUErrorMessageFactory> errorMessageFactory; // @synthesize errorMessageFactory=_errorMessageFactory;
 @property(readonly, nonatomic) NFMultiDelegate *multiLoadingDelegate; // @synthesize multiLoadingDelegate=_multiLoadingDelegate;
 @property(retain, nonatomic) UIView<NULoadingViewProviding> *loadingView; // @synthesize loadingView=_loadingView;
@@ -35,6 +38,7 @@
 @property(readonly, copy, nonatomic) NSString *pageIdentifier; // @synthesize pageIdentifier=_pageIdentifier;
 - (void).cxx_destruct;
 - (void)loadArticleAndEmbedArticleViewController;
+- (void)reportEvent:(id)arg1;
 - (void)loadingDidUpdateProgress:(double)arg1;
 - (void)loadingDidFinishWithError:(id)arg1;
 - (void)loadingDidStart;
@@ -44,6 +48,7 @@
 - (void)viewDidLoad;
 @property(readonly, nonatomic) NSHashTable *loadingListeners;
 - (id)initWithArticle:(id)arg1 articleViewControllerFactory:(id)arg2 settings:(id)arg3 errorMessageFactory:(id)arg4;
+- (id)initWithArticle:(id)arg1 articleViewControllerFactory:(id)arg2 settings:(id)arg3 errorMessageFactory:(id)arg4 analyticsReporting:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

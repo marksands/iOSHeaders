@@ -14,17 +14,29 @@
 {
     UIView *_sourceView;
     NSPointerArray *_observers;
+    _Bool _didPrepareForTransition;
     _Bool _presenting;
+    _Bool _includePresentingViewInAnimation;
+    id <PLViewControllerAnimatorDelegate> _delegate;
 }
 
++ (_Bool)drivesAnimation;
+@property(nonatomic) _Bool includePresentingViewInAnimation; // @synthesize includePresentingViewInAnimation=_includePresentingViewInAnimation;
 @property(readonly, nonatomic, getter=isPresenting) _Bool presenting; // @synthesize presenting=_presenting;
+@property(nonatomic) __weak id <PLViewControllerAnimatorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)animateTransition:(id)arg1;
+- (void)_animateTransitionWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_performTransitionWithContext:(id)arg1;
 - (double)transitionDuration:(id)arg1;
-- (void)_animatePresentation:(_Bool)arg1 withTransitionContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)_presentedViewForPresentation:(_Bool)arg1 withTransitionContext:(id)arg2;
+- (void)performTransitionWithContext:(id)arg1;
+- (void)prepareForTransitionWithContext:(id)arg1;
+- (id)_presentedExpandedPlatterForPresentedView:(id)arg1;
+- (id)_previewInteractionPresentableViewControllerForPresentation:(_Bool)arg1 withTransitionContext:(id)arg2;
 - (id)_presentedViewControllerForPresentation:(_Bool)arg1 withTransitionContext:(id)arg2;
+- (id)_presentingViewControllerForPresentation:(_Bool)arg1 withTransitionContext:(id)arg2;
 - (id)_sourceViewForPresentation:(_Bool)arg1 withTransitionContext:(id)arg2;
+- (id)_presentedViewForPresentation:(_Bool)arg1 withTransitionContext:(id)arg2;
 - (id)_presentingViewForPresentation:(_Bool)arg1 withTransitionContext:(id)arg2;
 - (id)_animationFactoryForLongLookPresentation:(_Bool)arg1;
 - (_Bool)_isTransitionAnimated;

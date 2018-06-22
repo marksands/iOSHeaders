@@ -114,7 +114,7 @@
 - (void)_generateMemoriesForReason:(unsigned long long)arg1 contextualMemoriesSettings:(id)arg2;
 - (void)invalidateMetrics;
 - (void)feedViewControllerDidDisappear;
-- (void)feedViewControllerDidAppear;
+- (void)feedViewControllerDidAppear:(_Bool)arg1;
 - (void)feedViewControllerWillLayoutSubviews;
 @property(readonly, nonatomic) PXMemoriesFeedTilingLayout *targetLayout;
 @property(readonly, nonatomic) PXMemoriesFeedTilingLayout *currentLayout;

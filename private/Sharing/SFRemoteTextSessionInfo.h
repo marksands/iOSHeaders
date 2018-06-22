@@ -34,6 +34,7 @@
 - (void).cxx_destruct;
 - (id)description;
 - (id)dictionaryRepresentation;
+- (id)initWithRTIPayload:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -10,13 +10,15 @@
 #import "UICollectionViewDelegate.h"
 #import "UICollectionViewDelegateFlowLayout.h"
 
-@class AVTCenteringCollectionViewDelegate, AVTGroupDialMaskingView, NSArray, NSIndexPath, NSString, UICollectionView;
+@class AVTCenteringCollectionViewDelegate, AVTGroupDialMaskingView, AVTUIEnvironment, NSArray, NSIndexPath, NSString, UICollectionView;
 
 @interface AVTGroupDial : UIView <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
+    _Bool _isMoving;
     id <AVTGroupDialDelegate> _delegate;
+    AVTUIEnvironment *_environment;
     NSArray *_groupTitles;
-    NSArray *_cachedGroupTitleWidths;
+    NSArray *_cachedGroupTitleSizes;
     UICollectionView *_collectionView;
     AVTCenteringCollectionViewDelegate *_centeringCollectionViewDelegate;
     unsigned long long _currentScrollDirection;
@@ -25,16 +27,18 @@
     NSIndexPath *_shimmeringItemIndexPath;
 }
 
-+ (_Bool)shouldScrollGivenTitleWidths:(id)arg1 fittingWidth:(double)arg2;
-+ (double)estimatedContentWidthForTitleWidths:(id)arg1;
++ (_Bool)shouldScrollGivenTitleSizes:(id)arg1 fittingWidth:(double)arg2;
++ (double)estimatedContentWidthForTitleSizes:(id)arg1;
 @property(nonatomic) NSIndexPath *shimmeringItemIndexPath; // @synthesize shimmeringItemIndexPath=_shimmeringItemIndexPath;
 @property(retain, nonatomic) AVTGroupDialMaskingView *maskingView; // @synthesize maskingView=_maskingView;
+@property(nonatomic) _Bool isMoving; // @synthesize isMoving=_isMoving;
 @property(nonatomic) long long currentSelectedItemIndex; // @synthesize currentSelectedItemIndex=_currentSelectedItemIndex;
 @property(nonatomic) unsigned long long currentScrollDirection; // @synthesize currentScrollDirection=_currentScrollDirection;
 @property(readonly, nonatomic) AVTCenteringCollectionViewDelegate *centeringCollectionViewDelegate; // @synthesize centeringCollectionViewDelegate=_centeringCollectionViewDelegate;
 @property(readonly, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
-@property(readonly, nonatomic) NSArray *cachedGroupTitleWidths; // @synthesize cachedGroupTitleWidths=_cachedGroupTitleWidths;
+@property(readonly, nonatomic) NSArray *cachedGroupTitleSizes; // @synthesize cachedGroupTitleSizes=_cachedGroupTitleSizes;
 @property(readonly, nonatomic) NSArray *groupTitles; // @synthesize groupTitles=_groupTitles;
+@property(readonly, nonatomic) AVTUIEnvironment *environment; // @synthesize environment=_environment;
 @property(nonatomic) __weak id <AVTGroupDialDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
@@ -54,14 +58,14 @@
 - (void)startDiscoverability;
 @property(nonatomic) long long selectedGroupIndex;
 - (void)setSelectedGroupIndex:(long long)arg1 animated:(_Bool)arg2;
-- (void)didMoveToSuperview;
+- (void)didMoveToWindow;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (void)setupDial;
-- (void)cacheTitleWidths;
+- (void)cacheTitleSizes;
 - (void)setupMasking;
-- (id)initWithGroupTitles:(id)arg1;
+- (id)initWithGroupTitles:(id)arg1 environment:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

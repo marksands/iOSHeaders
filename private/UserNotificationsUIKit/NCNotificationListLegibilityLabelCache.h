@@ -19,7 +19,7 @@
 - (id)_stringDescriptorForFont:(id)arg1;
 - (id)_createLegibilityLabelWithTitle:(id)arg1 font:(id)arg2;
 - (void)clearAll;
-- (id)legibilityLabelForTitle:(id)arg1 font:(id)arg2;
+- (id)legibilityLabelForTitle:(id)arg1 forSuperview:(id)arg2 font:(id)arg3;
 - (id)init;
 
 @end

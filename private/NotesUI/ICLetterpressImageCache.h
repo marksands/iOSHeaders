@@ -20,6 +20,7 @@
 @property(retain, nonatomic) CPBitmapStore *serializedCache; // @synthesize serializedCache=_serializedCache;
 @property(retain, nonatomic) NSMutableDictionary *imageCache; // @synthesize imageCache=_imageCache;
 - (void).cxx_destruct;
+- (void)purge;
 - (id)imageNamed:(id)arg1 tintColor:(id)arg2 version:(unsigned long long)arg3;
 - (id)init;
 

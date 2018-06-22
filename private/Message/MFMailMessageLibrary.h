@@ -33,10 +33,10 @@
     MFFileCompressionQueue *_compressionQueue;
     _Bool _migrationHasRun;
     id <MFMailMessageLibraryDelegate> _delegate;
-    MFLibrarySearchableIndex *_searchableIndex;
     MFSearchableIndexScheduler *_searchableIndexScheduler;
-    MFSearchableIndexBudgetConfiguration *_searchableIndexBudgetConfiguration;
     id _migrationLock;
+    MFSearchableIndexBudgetConfiguration *_searchableIndexBudgetConfiguration;
+    MFLibrarySearchableIndex *_searchableIndex;
 }
 
 + (void)_removeLibrary:(_Bool)arg1 atPath:(id)arg2;
@@ -45,11 +45,11 @@
 + (id)defaultPath;
 + (void)setDefaultInstance:(id)arg1;
 + (id)defaultInstance;
+@property(retain, nonatomic) MFLibrarySearchableIndex *searchableIndex; // @synthesize searchableIndex=_searchableIndex;
+@property(retain, nonatomic) MFSearchableIndexBudgetConfiguration *searchableIndexBudgetConfiguration; // @synthesize searchableIndexBudgetConfiguration=_searchableIndexBudgetConfiguration;
 @property(readonly, nonatomic) id migrationLock; // @synthesize migrationLock=_migrationLock;
 @property(nonatomic) _Bool migrationHasRun; // @synthesize migrationHasRun=_migrationHasRun;
-@property(retain, nonatomic) MFSearchableIndexBudgetConfiguration *searchableIndexBudgetConfiguration; // @synthesize searchableIndexBudgetConfiguration=_searchableIndexBudgetConfiguration;
 @property(retain, nonatomic) MFSearchableIndexScheduler *searchableIndexScheduler; // @synthesize searchableIndexScheduler=_searchableIndexScheduler;
-@property(retain, nonatomic) MFLibrarySearchableIndex *searchableIndex; // @synthesize searchableIndex=_searchableIndex;
 @property(nonatomic) id <MFMailMessageLibraryDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)firstMessageMatchingCriterion:(id)arg1;
 - (id)_messageForStatement:(struct sqlite3_stmt *)arg1 options:(unsigned int)arg2 timestamp:(unsigned long long)arg3 isProtectedDataAvailable:(_Bool)arg4;
@@ -319,7 +319,7 @@
 - (void)updateAdditionalThreadingInfoForSentMessageWithHeaders:(id)arg1 externalConversationID:(long long)arg2;
 - (id)addMessages:(id)arg1 withMailbox:(id)arg2 fetchBodies:(_Bool)arg3 newMessagesByOldMessage:(id)arg4 remoteIDs:(id)arg5 setFlags:(unsigned long long)arg6 clearFlags:(unsigned long long)arg7 messageFlagsForMessages:(id)arg8 copyFiles:(_Bool)arg9 addPOPUIDs:(_Bool)arg10 dataSectionsByMessage:(id)arg11;
 - (void)_tellMiddleWareDidIndexMessages:(id)arg1;
-- (void)_tellMiddlewareDidAddMessages:(id)arg1;
+- (void)_tellMiddlewareDidAddMessages:(id)arg1 newMessagesByOldMessage:(id)arg2;
 - (id)_tellMiddlewareWillAddMessage:(id)arg1;
 - (void)removeMiddleware:(id)arg1;
 - (void)addMiddleware:(id)arg1;

@@ -6,19 +6,14 @@
 
 #import <ARKit/ARTechnique.h>
 
-#import "AREnvironmentTextureProvider.h"
-
 @class AREnvironmentProbeManager;
 
-@interface AREnvironmentTexturingTechnique : ARTechnique <AREnvironmentTextureProvider>
+@interface AREnvironmentTexturingTechnique : ARTechnique
 {
-    long long _texturingMode;
-    _Bool _isReady;
     AREnvironmentProbeManager *_probeManager;
 }
 
 @property(retain) AREnvironmentProbeManager *probeManager; // @synthesize probeManager=_probeManager;
-@property _Bool isReady; // @synthesize isReady=_isReady;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (void)requestResultDataAtTimestamp:(double)arg1 context:(id)arg2;
@@ -26,7 +21,6 @@
 - (void)reconfigureFrom:(id)arg1;
 - (_Bool)reconfigurableFrom:(id)arg1;
 - (unsigned long long)requiredSensorDataTypes;
--     // Error parsing type: v104@0:8{?=[4]}1680@?96, name: environmentTextureWithTransform:extent:completionHandler:
 - (id)initWithOptions:(long long)arg1;
 
 @end

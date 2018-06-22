@@ -9,20 +9,19 @@
 #import "PXDiagnosticsEnvironment.h"
 #import "PXGadget.h"
 
-@class NSString, PXCMMSuggestionView, PXGadgetSpec, UIColor;
+@class NSString, PXCMMSuggestionView, PXGadgetSpec, PXPersonFaceTileImageCombiner, UIColor;
 
 @interface PXCMMSuggestionGadget : NSObject <PXDiagnosticsEnvironment, PXGadget>
 {
     PXCMMSuggestionView *_suggestionView;
-    _Bool _didLoadContentData;
-    id <PXCMMSuggestion> _pendingSuggestion;
+    PXPersonFaceTileImageCombiner *_faceTileImageCombiner;
     PXGadgetSpec *_gadgetSpec;
     id <PXGadgetDelegate> _delegate;
     id <PXCMMSuggestion> _suggestion;
     UIColor *_backgroundColor;
 }
 
-@property(copy, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(retain, nonatomic) id <PXCMMSuggestion> suggestion; // @synthesize suggestion=_suggestion;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
@@ -30,6 +29,8 @@
 - (id)px_diagnosticsItemProvidersForPoint:(struct CGPoint)arg1 inCoordinateSpace:(id)arg2;
 - (void)_tapGesture:(id)arg1;
 - (void)_performPublishForSuggestion:(id)arg1 pptConfigurationBlock:(CDUnknownBlockType)arg2;
+- (void)_setCombinedFaceTileImage:(id)arg1;
+- (void)_updatePeopleSuggestionFaceTileImages;
 - (void)_loadSuggestion:(id)arg1;
 - (void)_updateSharePrompt;
 - (id)_sharePromptDisplayNames;
@@ -38,8 +39,6 @@
 @property(readonly, nonatomic) _Bool supportsHighlighting;
 - (void)gadgetControllerHasAppeared;
 - (struct NSObject *)contentView;
-- (_Bool)hasLoadedContentData;
-- (void)loadContentData;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) _Bool hasContentToDisplay;
 @property(readonly, nonatomic) unsigned long long gadgetType;

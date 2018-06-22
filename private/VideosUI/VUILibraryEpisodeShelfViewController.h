@@ -13,18 +13,20 @@
 #import "VUIEpisodeDetailViewControllerDelegate.h"
 #import "VUILibraryDownloadPopoverViewControllerDelegate.h"
 #import "VUILibraryEpisodeListCellDelegate.h"
+#import "VUILocalContentProtocol.h"
 #import "VUIMediaEntityAssetControllerDelegate.h"
 
-@class NSArray, NSDictionary, NSIndexPath, NSString, VUIDialogInteractionController, VUIEpisodeDetailViewController, VUILibraryEpisodeListCell;
+@class NSArray, NSIndexPath, NSString, VUIDialogInteractionController, VUIEpisodeDetailViewController, VUILibraryEpisodeListCell;
 
 __attribute__((visibility("hidden")))
-@interface VUILibraryEpisodeShelfViewController : VUIShelfViewController <UICollectionViewDataSource, UICollectionViewDelegate, TVShelfViewLayoutDelegate, VUIEpisodeDetailViewControllerDelegate, VUIMediaEntityAssetControllerDelegate, VUILibraryEpisodeListCellDelegate, VUIDialogInteractionControllerDelegate, VUILibraryDownloadPopoverViewControllerDelegate>
+@interface VUILibraryEpisodeShelfViewController : VUIShelfViewController <UICollectionViewDataSource, UICollectionViewDelegate, TVShelfViewLayoutDelegate, VUIEpisodeDetailViewControllerDelegate, VUIMediaEntityAssetControllerDelegate, VUILibraryEpisodeListCellDelegate, VUIDialogInteractionControllerDelegate, VUILibraryDownloadPopoverViewControllerDelegate, VUILocalContentProtocol>
 {
     VUILibraryEpisodeListCell *_sizingCell;
     VUIDialogInteractionController *_dialogInteractionController;
+    _Bool _onlyShowLocalContent;
     _Bool _shouldIgnoreSelectEvent;
-    NSArray *_episodes;
-    NSDictionary *_assetControllerForIdentifier;
+    id <VUILibraryEpisodeShelfViewControllerDelegate> _delegate;
+    NSArray *_episodeViewModels;
     VUIEpisodeDetailViewController *_episodeDetailViewController;
     NSIndexPath *_popoverIndexPath;
 }
@@ -32,16 +34,18 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool shouldIgnoreSelectEvent; // @synthesize shouldIgnoreSelectEvent=_shouldIgnoreSelectEvent;
 @property(retain, nonatomic) NSIndexPath *popoverIndexPath; // @synthesize popoverIndexPath=_popoverIndexPath;
 @property(retain, nonatomic) VUIEpisodeDetailViewController *episodeDetailViewController; // @synthesize episodeDetailViewController=_episodeDetailViewController;
-@property(retain, nonatomic) NSDictionary *assetControllerForIdentifier; // @synthesize assetControllerForIdentifier=_assetControllerForIdentifier;
-@property(copy, nonatomic) NSArray *episodes; // @synthesize episodes=_episodes;
+@property(copy, nonatomic) NSArray *episodeViewModels; // @synthesize episodeViewModels=_episodeViewModels;
+@property(nonatomic) __weak id <VUILibraryEpisodeShelfViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) _Bool onlyShowLocalContent; // @synthesize onlyShowLocalContent=_onlyShowLocalContent;
 - (void).cxx_destruct;
 - (void)_updateHeaderView;
 - (_Bool)_canRemoveEpisodeAtIndexPath:(id)arg1;
 - (void)_updateCell:(id)arg1 withAssetController:(id)arg2;
 - (id)_assetControllerForCell:(id)arg1;
-- (void)_updateAssetControllers;
 - (void)_configureShelfLayout:(id)arg1;
-- (void)_updateViewAfterReceivingEpisodes;
+- (id)_episodeWithIdentifier:(id)arg1;
+- (id)_episodeViewModelsWithFetchedEpisodes:(id)arg1;
+- (void)_updateViewWithFetchedEpisodes:(id)arg1 andChangeSet:(id)arg2;
 - (void)dialogInteractionController:(id)arg1 interactionDidEndForIndexPath:(id)arg2;
 - (void)dialogInteractionController:(id)arg1 interactionDidBeginForIndexPath:(id)arg2;
 - (_Bool)dialogInteractionController:(id)arg1 shouldBeginInteractionForIndexPath:(id)arg2;
@@ -53,7 +57,7 @@ __attribute__((visibility("hidden")))
 - (void)episodeDetailViewControllerWasDismissed:(id)arg1;
 - (void)episodeListCellDidRequestCancelDownload:(id)arg1;
 - (void)episodeListCellDidRequestStartDownload:(id)arg1;
-- (void)mediaEntityAssetController:(id)arg1 stateDidChange:(unsigned long long)arg2 downloadProgress:(double)arg3;
+- (void)mediaEntityAssetController:(id)arg1 stateDidChange:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;

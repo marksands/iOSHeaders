@@ -33,6 +33,7 @@
 
 + (id)_timerTimeForState:(unsigned long long)arg1 remainingTime:(double)arg2 currentDateProvider:(CDUnknownBlockType)arg3;
 + (_Bool)supportsSecureCoding;
++ (_Bool)stateChangeIsAllowableFromState:(unsigned long long)arg1 toState:(unsigned long long)arg2;
 + (id)descriptionForState:(unsigned long long)arg1;
 + (id)currentTimerFromTimers:(id)arg1;
 @property(copy, nonatomic) CDUnknownBlockType currentDateProvider; // @synthesize currentDateProvider=_currentDateProvider;
@@ -78,10 +79,6 @@
 - (_Bool)shouldBeScheduled;
 - (id)identifier;
 - (id)keyForIdentifier;
-- (long long)intentsTimerState;
-- (id)intentsTimer;
-- (_Bool)matchesIntentsTimer:(id)arg1 ignoreRemainingTime:(_Bool)arg2;
-- (_Bool)conflictsWithTimer:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_source>;
+@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
 
 @interface INWatchdogTimer : NSObject
 {
@@ -15,10 +15,16 @@
     _Bool _isStopped;
     double _remainingInterval;
     double _startTime;
+    NSObject<OS_dispatch_queue> *_internalQueue;
 }
 
 - (void).cxx_destruct;
-- (void)reset;
+- (void)_reset;
+- (_Bool)_isCanceled;
+- (_Bool)_cancelIfNotAlreadyCanceled;
+- (void)_cancel;
+- (void)_stop;
+- (void)_start;
 - (_Bool)isCanceled;
 - (_Bool)cancelIfNotAlreadyCanceled;
 - (void)cancel;

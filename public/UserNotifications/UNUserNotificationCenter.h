@@ -26,6 +26,7 @@
 - (void)setBadgeString:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)setBadgeNumber:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)getBadgeNumberWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)badgeNumber;
 - (void)removeAllDeliveredNotifications;
 - (void)removeDeliveredNotificationsWithIdentifiers:(id)arg1;
 - (void)getDeliveredNotificationsWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -37,9 +38,12 @@
 - (void)addNotificationRequest:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)addNotificationRequest:(id)arg1;
 - (void)getPendingNotificationRequestsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)pendingNotificationRequests;
 - (void)getNotificationCategoriesWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)notificationCategories;
 - (void)setNotificationCategories:(id)arg1;
 - (void)getNotificationSettingsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)notificationSettings;
 - (void)requestAuthorizationWithOptions:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)setWantsNotificationResponsesDelivered;
 @property(readonly, nonatomic) _Bool supportsContentExtensions;

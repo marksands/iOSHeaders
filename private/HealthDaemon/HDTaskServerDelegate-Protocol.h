@@ -14,6 +14,7 @@
 - (void)addObserver:(id <HDTaskServerObserver>)arg1 forTaskServerUUID:(NSUUID *)arg2;
 - (id <HDTaskServer>)taskServerWithUUID:(NSUUID *)arg1;
 - (void)taskServerDidInvalidate:(id <HDTaskServer>)arg1;
+- (void)taskServerDidFailToInitializeForUUID:(NSUUID *)arg1;
 - (void)taskServerDidFinishInitialization:(id <HDTaskServer>)arg1;
 
 @optional

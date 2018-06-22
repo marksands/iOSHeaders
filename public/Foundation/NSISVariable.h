@@ -13,10 +13,10 @@
 @interface NSISVariable : NSObject <NSCoding>
 {
     id <NSISVariableDelegate> _delegate;
-    unsigned int _ident;
+    NSMapTable *_overflowEngines;
     NSISEngine *_engines[3];
     CDStruct_fcd6c539 _engineVarIndexes[3];
-    NSMapTable *_overflowEngines;
+    unsigned int _ident;
 }
 
 + (id)variableWithName:(id)arg1 valueRestriction:(int)arg2 shouldBeMinimized:(_Bool)arg3 valueIsUserObservable:(_Bool)arg4;

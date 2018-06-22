@@ -32,10 +32,11 @@
 - (id)_createPluginsFromClasses:(id)arg1;
 - (id)_pluginClasses;
 - (id)_principalClassProtocols;
-- (id)_pluginPaths;
-- (id)_internalPluginsPath;
-- (id)_pluginsPath;
+- (id)_pluginDirectoryPaths;
+- (id)_internalPluginsDirectoryPath;
+- (id)_pluginsDirectoryPath;
 - (id)initWithDaemon:(id)arg1;
+- (id)_builtInPluginClasses;
 
 @end
 

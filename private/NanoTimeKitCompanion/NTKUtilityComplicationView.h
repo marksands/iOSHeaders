@@ -92,7 +92,7 @@
 - (void)_enumerateColoringStackedImagesViewsWithBlock:(CDUnknownBlockType)arg1;
 - (void)_enumerateColoringViewsWithBlock:(CDUnknownBlockType)arg1;
 - (void)setTimeTravelDate:(id)arg1 animated:(_Bool)arg2;
-- (void)setComplicationTemplate:(id)arg1;
+- (void)setComplicationTemplate:(id)arg1 reason:(long long)arg2;
 @property(nonatomic, getter=isHighlighted) _Bool highlighted;
 - (void)setEditing:(_Bool)arg1;
 - (void)setMaxSize:(struct CGSize)arg1;

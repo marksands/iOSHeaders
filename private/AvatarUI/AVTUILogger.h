@@ -19,6 +19,11 @@
 @property(readonly, nonatomic) NSObject<OS_os_log> *interactionLog; // @synthesize interactionLog=_interactionLog;
 @property(readonly, nonatomic) NSObject<OS_os_log> *generalLog; // @synthesize generalLog=_generalLog;
 - (void).cxx_destruct;
+- (void)logCarouselDelegateDidUpdateRecord:(id)arg1;
+- (void)logCarouselDelegateNearnessFactorDidChange:(double)arg1 towardRecord:(_Bool)arg2 editable:(_Bool)arg3;
+- (void)logCarouselDelegateWillEndFocusRecord:(id)arg1;
+- (void)logCarouselDelegateDidFocusRecord:(id)arg1;
+- (void)logCarouselErrorGettingFrameForElementAtIndex:(unsigned long long)arg1;
 - (void)logAVTViewCancelingRenderingAvatar:(id)arg1;
 - (void)logAVTViewDidRenderCurrentAvatar:(id)arg1;
 - (void)logAVTViewDidRenderAvatar:(id)arg1 currentAvatar:(id)arg2;
@@ -36,7 +41,8 @@
 - (void)logSingleModeControllerStopUsingLiveView:(id)arg1;
 - (void)logSingleModeControllerStartUsingLiveView:(id)arg1;
 - (void)logCarouselStopsFocusingOnCenterItem:(id)arg1 withCell:(id)arg2;
-- (void)logCarouselChangesCenterItemTo:(id)arg1 withCell:(id)arg2;
+- (void)logCarouselTransitionCenterItem:(id)arg1 withCell:(id)arg2;
+- (void)logCarouselChangesCenterItemTo:(id)arg1;
 - (void)logCarouselChangingToMultiMode;
 - (void)logCarouselChangingToSingleMode;
 - (void)logAvatarPreloadEnd;
@@ -63,7 +69,7 @@
 - (void)logInMemoryCacheStorageForResource:(id)arg1;
 - (void)logImageStoreDoneSavingImageForPath:(id)arg1;
 - (void)logImageStoreBeginSavingImageForPath:(id)arg1;
-- (void)logImageStoreSavingError:(id)arg1;
+- (void)logImageStoreSavingError:(id)arg1 code:(long long)arg2;
 - (void)logImageStoreCacheHitForItemDescription:(id)arg1 sizeCost:(unsigned long long)arg2;
 - (void)logImageStoreCacheMiss:(id)arg1;
 - (void)logCreatingImageStoreForPath:(id)arg1;

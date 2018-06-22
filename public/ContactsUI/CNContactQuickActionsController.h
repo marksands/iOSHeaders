@@ -11,7 +11,6 @@
 
 @class CNContact, CNContactActionsController, NSArray, NSDictionary, NSString, UIAlertController;
 
-__attribute__((visibility("hidden")))
 @interface CNContactQuickActionsController : NSObject <CNUIUserActionListConsumer, CNContactActionsControllerDelegate>
 {
     id <CNContactQuickActionViewContainer> _contactQuickActionViewContainer;

@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSString, PXCMMImageView, PXCMMPosterHeaderViewSpec, PXGradientView, UILabel;
+@class NSString, PXCMMImageView, PXCMMPosterHeaderViewSpec, PXGradientView, UIImageView, UILabel;
 
 @interface PXCMMPosterHeaderView : UIView
 {
@@ -17,12 +17,15 @@
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
     UILabel *_statusLabel;
+    UIImageView *_statusCheckmark;
+    _Bool _showStatusCheckmark;
     NSString *_title;
     NSString *_subtitle;
     NSString *_statusString;
 }
 
 + (double)preferredHeightForWidth:(double)arg1 traitCollection:(id)arg2 screen:(id)arg3;
+@property(nonatomic) _Bool showStatusCheckmark; // @synthesize showStatusCheckmark=_showStatusCheckmark;
 @property(copy, nonatomic) NSString *statusString; // @synthesize statusString=_statusString;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;

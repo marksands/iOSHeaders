@@ -15,6 +15,7 @@
 + (id)transaction;
 + (id)tool;
 + (id)test;
++ (id)screentime;
 + (id)serverConduit;
 + (id)persistence;
 + (id)personalTransport;
@@ -25,6 +26,7 @@
 + (id)payloadQueue;
 + (id)payload;
 + (id)organizationController;
++ (id)mirroring;
 + (id)metadata;
 + (id)userNotifications;
 + (id)idsTransport;
@@ -35,6 +37,7 @@
 + (id)familyClientConduit;
 + (id)familyCheckinManager;
 + (id)family;
++ (id)deviceOrganizationController;
 + (id)declarationTransactionManager;
 + (id)requestManager;
 + (id)daemon;

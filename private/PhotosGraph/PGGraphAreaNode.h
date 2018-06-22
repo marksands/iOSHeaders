@@ -6,15 +6,22 @@
 
 #import <PhotosGraph/PGGraphNode.h>
 
+#import "PGGraphLocationCoordinates.h"
 #import "PGGraphLocationNaming.h"
 
-@class NSString;
+@class NSString, PGGraphLocationNode;
 
-@interface PGGraphAreaNode : PGGraphNode <PGGraphLocationNaming>
+@interface PGGraphAreaNode : PGGraphNode <PGGraphLocationNaming, PGGraphLocationCoordinates>
 {
+    struct CLLocationCoordinate2D _centroidCoordinate;
 }
 
+@property(nonatomic) struct CLLocationCoordinate2D centroidCoordinate; // @synthesize centroidCoordinate=_centroidCoordinate;
+- (struct CLLocationCoordinate2D)coordinate;
+- (id)addressNodes;
+@property(readonly) NSString *shortenedName;
 - (_Bool)diameterIsLargerThanDiameter:(double)arg1;
+@property(readonly) PGGraphLocationNode *stateOrBiggerParentLocationNode;
 @property(readonly) NSString *fullname;
 @property(readonly) _Bool isBlacklisted;
 

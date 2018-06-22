@@ -25,6 +25,8 @@
 }
 
 + (struct CGSize)intrinsicContentSizeForOrientation:(long long)arg1;
++ (id)expandedFont;
++ (id)normalFont;
 + (struct NSDirectionalEdgeInsets)expandedEdgeInsets;
 + (struct NSDirectionalEdgeInsets)trailingEdgeInsets;
 + (struct NSDirectionalEdgeInsets)leadingEdgeInsets;

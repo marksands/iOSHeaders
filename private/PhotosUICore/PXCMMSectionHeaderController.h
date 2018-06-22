@@ -24,6 +24,7 @@
     long long _secondaryActionButtonType;
 }
 
++ (id)_buttonLabelFont;
 + (id)new;
 @property(nonatomic, setter=_setSecondaryActionButtonType:) long long secondaryActionButtonType; // @synthesize secondaryActionButtonType=_secondaryActionButtonType;
 @property(nonatomic, setter=_setActionButtonType:) long long actionButtonType; // @synthesize actionButtonType=_actionButtonType;

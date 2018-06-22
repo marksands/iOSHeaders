@@ -39,14 +39,10 @@
 + (id)_HLSResolutionPredicateWithResolution:(id)arg1;
 + (id)_resolutionPredicateWithResolution:(id)arg1;
 + (id)_anyHDRColorCapabilityPredicate;
-+ (id)_HLSColorCapabilityPredicateWithColorCapability:(id)arg1;
-+ (id)_colorCapabilityPredicateWithColorCapability:(id)arg1;
 + (id)_isLocalPredicate;
 + (id)_seasonIdentifierPredicateWithIdentifier:(id)arg1;
 + (id)_showIdentifierPredicateWithIdentifier:(id)arg1;
 + (id)_identifierPredicateWithIdentifier:(id)arg1;
-+ (id)_notEqualPredicateWithKeyPath:(id)arg1 value:(id)arg2;
-+ (id)_equalPredicateWithKeyPath:(id)arg1 value:(id)arg2;
 + (id)_episodesFetchRequestWithSeasonIdentifier:(id)arg1 showIdentifier:(id)arg2;
 + (id)_seasonsFetchRequestWithSeasonIdentifier:(id)arg1;
 + (id)_seasonsFetchRequestWithShowIdentifier:(id)arg1;

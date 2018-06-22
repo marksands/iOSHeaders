@@ -20,8 +20,10 @@
     NSLock *_inProgressLock;
     NSObject<OS_dispatch_queue> *_workQueue;
     GEOProactiveTileDownloader *_proactiveTileDownloader;
+    _Bool _updatingManifestForProactiveTileDownload;
 }
 
++ (void)enableCDSObserversIfNecessary;
 - (void).cxx_destruct;
 - (void)proactiveTileDownloaderDidFinish:(id)arg1;
 - (void)_initiateDataSaverPreloadIfPossible;

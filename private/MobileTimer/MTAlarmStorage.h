@@ -9,17 +9,16 @@
 #import "MTAlarmScheduleDelegate.h"
 #import "MTAlarmStorage.h"
 
-@class MTAlarm, MTAlarmMigrator, MTAlarmScheduler, MTSleepMonitor, NSArray, NSDate, NSMutableArray, NSPointerArray, NSString;
+@class MTAlarm, MTAlarmMigrator, MTAlarmScheduler, NSArray, NSDate, NSHashTable, NSMutableArray, NSString;
 
 @interface MTAlarmStorage : NSObject <MTAlarmScheduleDelegate, MTAlarmStorage>
 {
     MTAlarmScheduler *_scheduler;
-    MTSleepMonitor *_sleepMonitor;
     NSMutableArray *_orderedAlarms;
     MTAlarm *_sleepAlarm;
     NSDate *_lastModifiedDate;
     id <NAScheduler> _serializer;
-    NSPointerArray *_observers;
+    NSHashTable *_observers;
     MTAlarmMigrator *_migrator;
     id <MTPersistence> _persistence;
     CDUnknownBlockType _currentDateProvider;
@@ -31,12 +30,11 @@
 @property(readonly, copy, nonatomic) CDUnknownBlockType currentDateProvider; // @synthesize currentDateProvider=_currentDateProvider;
 @property(retain, nonatomic) id <MTPersistence> persistence; // @synthesize persistence=_persistence;
 @property(retain, nonatomic) MTAlarmMigrator *migrator; // @synthesize migrator=_migrator;
-@property(retain, nonatomic) NSPointerArray *observers; // @synthesize observers=_observers;
+@property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) id <NAScheduler> serializer; // @synthesize serializer=_serializer;
 @property(retain, nonatomic) NSDate *lastModifiedDate; // @synthesize lastModifiedDate=_lastModifiedDate;
 @property(retain, nonatomic) MTAlarm *sleepAlarm; // @synthesize sleepAlarm=_sleepAlarm;
 @property(retain, nonatomic) NSMutableArray *orderedAlarms; // @synthesize orderedAlarms=_orderedAlarms;
-@property(nonatomic) __weak MTSleepMonitor *sleepMonitor; // @synthesize sleepMonitor=_sleepMonitor;
 @property(nonatomic) __weak MTAlarmScheduler *scheduler; // @synthesize scheduler=_scheduler;
 - (void).cxx_destruct;
 - (id)_diagnosticAlarmDictionary;
@@ -50,7 +48,7 @@
 - (void)scheduler:(id)arg1 didFireAlarm:(id)arg2;
 - (void)scheduler:(id)arg1 didChangeNextAlarm:(id)arg2;
 - (void)_notifyObserversForNextAlarmChange:(id)arg1 source:(id)arg2;
-- (void)_notifyObserversForAlarmFire:(id)arg1 source:(id)arg2;
+- (void)_notifyObserversForAlarmFire:(id)arg1 triggerType:(unsigned long long)arg2 source:(id)arg3;
 - (void)_notifyObserversForAlarmDismiss:(id)arg1 dismissAction:(unsigned long long)arg2 source:(id)arg3;
 - (void)_notifyObserversForAlarmSnooze:(id)arg1 snoozeAction:(unsigned long long)arg2 source:(id)arg3;
 - (void)_notifyObserversForAlarmRemoval:(id)arg1 source:(id)arg2;

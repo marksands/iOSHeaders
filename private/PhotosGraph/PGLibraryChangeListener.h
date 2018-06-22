@@ -24,21 +24,24 @@
     unsigned long long _outstandingTokensHighWaterMark;
     unsigned long long _outstandingTokensLowWaterMark;
     unsigned long long _maximumNumberOfChangesToFetch;
+    unsigned long long _maximumNumberOfMutationsPerChange;
     unsigned long long _mode;
 }
 
 @property unsigned long long mode; // @synthesize mode=_mode;
+@property(readonly, nonatomic) unsigned long long maximumNumberOfMutationsPerChange; // @synthesize maximumNumberOfMutationsPerChange=_maximumNumberOfMutationsPerChange;
 @property(readonly, nonatomic) unsigned long long maximumNumberOfChangesToFetch; // @synthesize maximumNumberOfChangesToFetch=_maximumNumberOfChangesToFetch;
 @property(readonly, nonatomic) unsigned long long outstandingTokensLowWaterMark; // @synthesize outstandingTokensLowWaterMark=_outstandingTokensLowWaterMark;
 @property(readonly, nonatomic) unsigned long long outstandingTokensHighWaterMark; // @synthesize outstandingTokensHighWaterMark=_outstandingTokensHighWaterMark;
-@property(retain, nonatomic) NSCountedSet *outstandingChangeTokenCounts; // @synthesize outstandingChangeTokenCounts=_outstandingChangeTokenCounts;
-@property(retain, nonatomic) NSMapTable *outstandingChangeTokensByConsumer; // @synthesize outstandingChangeTokensByConsumer=_outstandingChangeTokensByConsumer;
-@property(retain, nonatomic) NSMutableOrderedSet *outstandingChangeTokens; // @synthesize outstandingChangeTokens=_outstandingChangeTokens;
-@property(retain, nonatomic) NSHashTable *changeConsumers; // @synthesize changeConsumers=_changeConsumers;
-@property(retain, nonatomic) PGLibraryChangeListenerStateStore *stateStore; // @synthesize stateStore=_stateStore;
-@property(nonatomic) __weak PHPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
+@property(readonly, nonatomic) NSCountedSet *outstandingChangeTokenCounts; // @synthesize outstandingChangeTokenCounts=_outstandingChangeTokenCounts;
+@property(readonly, nonatomic) NSMapTable *outstandingChangeTokensByConsumer; // @synthesize outstandingChangeTokensByConsumer=_outstandingChangeTokensByConsumer;
+@property(readonly, nonatomic) NSMutableOrderedSet *outstandingChangeTokens; // @synthesize outstandingChangeTokens=_outstandingChangeTokens;
+@property(readonly, nonatomic) NSHashTable *changeConsumers; // @synthesize changeConsumers=_changeConsumers;
+@property(readonly, nonatomic) PGLibraryChangeListenerStateStore *stateStore; // @synthesize stateStore=_stateStore;
+@property(readonly, nonatomic) __weak PHPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 @property(readonly, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 - (void).cxx_destruct;
+- (_Bool)_distributeChangesInFetchResult:(id)arg1;
 - (void)_clearConsumerTokenState;
 - (id)_consumer:(id)arg1 withChangeTokens:(id)arg2 processedChangeTokens:(id)arg3 consumedTokens:(_Bool)arg4;
 - (void)consumer:(id)arg1 didIgnoreChangeTokens:(id)arg2;

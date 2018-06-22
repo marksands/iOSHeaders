@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "AVTViewLayoutInfo.h"
 #import "AVTViewSessionDelegate.h"
 
 @class AVTFaceTrackingManager, AVTUIEnvironment, AVTView, AVTViewSession, AVTViewUpdater, NSNotificationCenter, NSString, UIView;
 
-@interface AVTViewSessionProvider : NSObject <AVTViewSessionDelegate>
+@interface AVTViewSessionProvider : NSObject <AVTViewSessionDelegate, AVTViewLayoutInfo>
 {
     id <AVTViewSessionProviderDelegate> _delegate;
     AVTFaceTrackingManager *_faceTrackingManager;
@@ -23,7 +24,7 @@
     AVTViewSession *_pausedTrackingSession;
     NSNotificationCenter *_notificationCenter;
     AVTUIEnvironment *_environment;
-    struct CGSize _backingSize;
+    struct CGSize _avtViewBackingSize;
 }
 
 + (struct CGSize)defaultBackingSize;
@@ -40,7 +41,7 @@
 @property(readonly, copy, nonatomic) CDUnknownBlockType viewCreator; // @synthesize viewCreator=_viewCreator;
 @property(retain, nonatomic) AVTFaceTrackingManager *faceTrackingManager; // @synthesize faceTrackingManager=_faceTrackingManager;
 @property(nonatomic) __weak id <AVTViewSessionProviderDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) struct CGSize backingSize; // @synthesize backingSize=_backingSize;
+@property(readonly, nonatomic) struct CGSize avtViewBackingSize; // @synthesize avtViewBackingSize=_avtViewBackingSize;
 - (void).cxx_destruct;
 - (void)sessionDidTearDown:(id)arg1;
 - (void)recoverPrimaryStatus;
@@ -51,7 +52,7 @@
 - (void)activateNextSession;
 - (id)sessionWithDidBecomeActiveHandler:(CDUnknownBlockType)arg1 tearDownHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
-- (id)initWithBackingSize:(struct CGSize)arg1 viewCreator:(CDUnknownBlockType)arg2 environment:(id)arg3;
+- (id)initWithAVTViewBackingSize:(struct CGSize)arg1 viewCreator:(CDUnknownBlockType)arg2 environment:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

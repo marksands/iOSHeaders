@@ -326,6 +326,7 @@
 - (_Bool)_restoreFirstResponder;
 - (id)interactionAssistant;
 - (id)selectionView;
+- (void)updateSelectionImmediately;
 - (void)updateSelection;
 - (void)endSelectionChange;
 - (void)beginSelectionChange;

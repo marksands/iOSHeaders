@@ -45,7 +45,7 @@
 - (void)_requestCLLocationUpdates:(CDUnknownBlockType)arg1;
 - (void)_requestRecentCLLocation:(CDUnknownBlockType)arg1;
 - (void)setLastKnownLocation:(id)arg1;
-- (double)_getLastKnownLocation:(id)arg1 distanceFromLocation:(id)arg2;
+- (double)_getDistanceOfLastKnownLocationDictionary:(id)arg1 fromLocation:(id)arg2;
 - (id)_createLocationObjFromLocationDictionary:(id)arg1;
 - (_Bool)isLastKnownLocation:(id)arg1 significantlyOlderThanNewLocation:(id)arg2;
 - (_Bool)_shouldLastKnownLocation:(id)arg1 beUpdatedTo:(id)arg2;

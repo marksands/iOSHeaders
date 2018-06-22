@@ -11,10 +11,13 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (void)_updateMaxBufferSize;
 + (_Bool)_disabled;
 + (void)_writeHTTPArchivesToDiskCompressed:(_Bool)arg1;
 + (void)addHTTPArchive:(id)arg1;
 + (void)setRemoveDisabled:(_Bool)arg1;
++ (void)setMaxBufferSizeOverride:(id)arg1;
++ (id)maxBufferSizeOverride;
 + (_Bool)isRemoveDisabled;
 + (id)buffer;
 + (void)initialize;

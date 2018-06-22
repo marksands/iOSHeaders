@@ -25,8 +25,7 @@
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)_updateStatusString;
 - (void)_updateContent;
-- (void)_updateDate;
-- (void)_udpateTitle;
+- (void)_udpateTitles;
 - (void)prepareForReuse;
 - (void)becomeReusable;
 - (void)didApplyGeometry:(struct PXTileGeometry)arg1 withUserData:(id)arg2;

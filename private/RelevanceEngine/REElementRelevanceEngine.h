@@ -6,14 +6,14 @@
 
 #import <RelevanceEngine/RERelevanceEngineSubsystem.h>
 
+#import "REMLModelManagerObserver.h"
 #import "REPredictorObserver.h"
 #import "RERelevanceProviderEnvironmentDelegate.h"
 #import "RESectionDelegate.h"
-#import "REUpNextMLModelManagerObserver.h"
 
-@class NSMapTable, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, REDataSourceManager, REFeatureTransmuter, REKeyMultiValueMap, REPredictorManager, RERelevanceProviderEnvironment, REUpNextScheduler;
+@class NSArray, NSMapTable, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, REDataSourceManager, REFeatureTransmuter, REKeyMultiValueMap, REPredictorManager, RERelevanceProviderEnvironment, REUpNextScheduler;
 
-@interface REElementRelevanceEngine : RERelevanceEngineSubsystem <RESectionDelegate, RERelevanceProviderEnvironmentDelegate, REUpNextMLModelManagerObserver, REPredictorObserver>
+@interface REElementRelevanceEngine : RERelevanceEngineSubsystem <RESectionDelegate, RERelevanceProviderEnvironmentDelegate, REMLModelManagerObserver, REPredictorObserver>
 {
     NSMutableSet *_elementsNeedingRelevanceUpdate;
     NSMutableDictionary *_sections;
@@ -37,10 +37,10 @@
 - (id)_queue_featureMapForElement:(id)arg1 trainingContext:(id)arg2;
 - (id)_queue_featureMapForElementWithId:(id)arg1 trainingContext:(id)arg2;
 - (id)section:(id)arg1 groupForIdentifier:(id)arg2;
-- (void)section:(id)arg1 didMoveElement:(id)arg2 fromIndex:(long long)arg3 toIndex:(long long)arg4 wantsSubsectionPositionUpdate:(_Bool)arg5;
-- (void)section:(id)arg1 didRemoveElement:(id)arg2 atIndex:(long long)arg3 wantsSubsectionPositionUpdate:(_Bool)arg4;
-- (void)section:(id)arg1 didInsertElement:(id)arg2 atIndex:(long long)arg3 wantsSubsectionPositionUpdate:(_Bool)arg4;
+- (void)sectionDidUpdateContentOrder:(id)arg1;
 - (void)_onqueue_async:(CDUnknownBlockType)arg1;
+- (id)_allCurrentElements;
+- (void)_performUpdatesToDelegate:(CDUnknownBlockType)arg1;
 - (void)_queue_updateElementRelevance;
 - (void)_queue_scheduleRelevanceUpdateForElement:(id)arg1;
 - (void)relevanceEnvironment:(id)arg1 didUpdateRelevanceProvider:(id)arg2;
@@ -54,11 +54,15 @@
 - (void)addElement:(id)arg1 section:(id)arg2;
 - (void)modelManagerDidUpdateModel:(id)arg1;
 - (void)_enumerateAndGenerateSectionComparators:(CDUnknownBlockType)arg1;
+- (id)elementAtPath:(id)arg1;
+- (unsigned long long)numberOfElementsInSection:(id)arg1;
+@property(readonly, nonatomic) NSArray *sections;
 - (void)dealloc;
 - (id)initWithRelevanceEngine:(id)arg1;
 - (id)_elementIdentifierForIdentifier:(id)arg1;
 - (id)_identifierForElementIdentifier:(id)arg1;
 - (id)relevanceProviderEnvironment;
+- (void)refreshContent;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

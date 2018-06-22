@@ -16,6 +16,7 @@
 {
     unsigned char _device;
     _Bool _initialFetchDidFail;
+    _Bool _initialFetchComplete;
     HDProfile *_profile;
     ACHTemplateEntityWrapper *_entityWrapper;
     NSMutableSet *_templates;
@@ -27,6 +28,7 @@
     NSObject<OS_dispatch_queue> *_synchronizationQueue;
 }
 
+@property(nonatomic) _Bool initialFetchComplete; // @synthesize initialFetchComplete=_initialFetchComplete;
 @property(nonatomic) _Bool initialFetchDidFail; // @synthesize initialFetchDidFail=_initialFetchDidFail;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *synchronizationQueue; // @synthesize synchronizationQueue=_synchronizationQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *notificationQueue; // @synthesize notificationQueue=_notificationQueue;

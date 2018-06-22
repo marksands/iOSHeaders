@@ -10,20 +10,18 @@
 
 @interface VNSequenceSummarizationRequest : VNImageBasedRequest
 {
-    VNSequenceSummarizationObservation *_inputObservation;
-    NSNumber *_frameTimeStamp;
-    NSNumber *_frameRate;
 }
 
 + (id)supportedFrameRates;
++ (Class)configurationClass;
 + (const CDStruct_d47b9615 *)dependentRequestCompatability;
-@property(retain, nonatomic) NSNumber *frameRate; // @synthesize frameRate=_frameRate;
-@property(retain, nonatomic) NSNumber *frameTimeStamp; // @synthesize frameTimeStamp=_frameTimeStamp;
-@property(retain, nonatomic) VNSequenceSummarizationObservation *inputObservation; // @synthesize inputObservation=_inputObservation;
-- (void).cxx_destruct;
 - (void)applyConfigurationOfRequest:(id)arg1;
-- (id)observationsCacheKey;
+- (_Bool)willAcceptCachedResultsFromRequestWithConfiguration:(id)arg1;
+- (_Bool)allowsCachingOfResults;
 - (_Bool)internalPerformRevision:(unsigned long long)arg1 inContext:(id)arg2 error:(id *)arg3;
+@property(retain, nonatomic) NSNumber *frameRate;
+@property(retain, nonatomic) NSNumber *frameTimeStamp;
+@property(retain, nonatomic) VNSequenceSummarizationObservation *inputObservation;
 - (id)initWithSequenceSummarizationObservation:(id)arg1 frameTimeStamp:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)initWithSequenceSummarizationObservation:(id)arg1 frameTimeStamp:(id)arg2;
 - (_Bool)warmUpRequestPerformer:(id)arg1 error:(id *)arg2;

@@ -37,7 +37,7 @@
 - (void)_queue_didCompleteInitialization;
 - (void)_queue_removeClientForBundleIdentifier:(id)arg1;
 - (void)_queue_invalidateTokenForBundleIdentifier:(id)arg1;
-- (void)allowsRemoteNotificationsForBundleIdentifier:(id)arg1 withResult:(CDUnknownBlockType)arg2;
+- (_Bool)allowsRemoteNotificationsForBundleIdentifier:(id)arg1;
 - (void)backgroundRefreshApplicationsDidChange;
 - (void)_queue_registerApplicationWithBundleIdentifier:(id)arg1 forEnvironment:(id)arg2;
 - (void)invalidateTokenForRemoteNotificationsForBundleIdentifier:(id)arg1;

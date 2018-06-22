@@ -7,12 +7,11 @@
 #import "NSObject.h"
 
 #import "BKSProcessDelegate.h"
-#import "NSCopying.h"
 
 @class BKSProcess, BKSProcessAssertion, NSCountedSet, NSObject<OS_os_transaction>, NSString;
 
 __attribute__((visibility("hidden")))
-@interface AMSKeepAliveSession : NSObject <NSCopying, BKSProcessDelegate>
+@interface AMSKeepAliveSession : NSObject <BKSProcessDelegate>
 {
     NSString *_assertionName;
     NSCountedSet *_activeNames;
@@ -39,7 +38,6 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_invalidate;
 - (void)processWillExpire:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -14,6 +14,7 @@
     NSString *_fileName;
     NSString *_pathExtension;
     long long _maxObjectsPerKey;
+    _Bool _shouldExcludeFromBackup;
 }
 
 - (void).cxx_destruct;
@@ -38,7 +39,7 @@
 - (id)directoryPath;
 - (id)_directoryForKey:(id)arg1;
 - (id)allKeys;
-- (id)initWithDirectory:(id)arg1 fileName:(id)arg2 pathExtension:(id)arg3 maxObjectsPerKey:(long long)arg4;
+- (id)initWithDirectory:(id)arg1 fileName:(id)arg2 pathExtension:(id)arg3 maxObjectsPerKey:(long long)arg4 shouldExcludeFromBackup:(_Bool)arg5;
 
 @end
 

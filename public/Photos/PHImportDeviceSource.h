@@ -90,6 +90,7 @@
 - (void)fetchDataForAsset:(id)arg1 withRequestType:(unsigned char)arg2 usingRequest:(id)arg3 withCompletion:(CDUnknownBlockType)arg4;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dispatchAssetDataRequestAsync:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (void)setupDeviceTimeoutHandler;
 - (id)initWithDevice:(id)arg1;
 
 // Remaining properties

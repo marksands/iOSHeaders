@@ -26,10 +26,8 @@
     NAFuture *_loadFuture;
     NSString *_license;
     NSFileManager *_fileManager;
-    double _webViewHeight;
 }
 
-@property(nonatomic) double webViewHeight; // @synthesize webViewHeight=_webViewHeight;
 @property(retain, nonatomic) NSFileManager *fileManager; // @synthesize fileManager=_fileManager;
 @property(readonly, nonatomic) NSString *license; // @synthesize license=_license;
 @property(readonly, nonatomic) NAFuture *loadFuture; // @synthesize loadFuture=_loadFuture;
@@ -41,6 +39,7 @@
 @property(readonly, copy, nonatomic) HMHTMLDocument *document; // @synthesize document=_document;
 @property(readonly, copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
+- (id)_evaluateHeight:(id)arg1;
 - (void)_saveToDesktop:(id)arg1;
 - (void)_emailTermsAndConditions:(id)arg1;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(long long)arg2 error:(id)arg3;

@@ -13,6 +13,7 @@
     PSIDatabase *_searchIndex;
 }
 
++ (id)searchProcessorLog;
 @property(readonly, nonatomic) PSIDatabase *searchIndex; // @synthesize searchIndex=_searchIndex;
 - (void).cxx_destruct;
 - (_Bool)_shouldOmitSectionForCategoryMask:(unsigned long long)arg1;
@@ -23,7 +24,7 @@
 - (id)_numberOfAssetsSortDescriptors;
 - (id)_dateSortDescriptors;
 - (id)_alphabeticalSortDescriptors;
-- (id)completionSuggestionsWithSearchSections:(id)arg1 numberOfSuggestions:(unsigned long long)arg2;
+- (id)completionSuggestionsForQuery:(id)arg1 withSearchSections:(id)arg2 numberOfSuggestions:(unsigned long long)arg3;
 - (id)searchResultSectionsWithAssetResults:(id)arg1 collectionResults:(id)arg2 tripResults:(id)arg3 combineAssetSections:(_Bool)arg4;
 - (void)performQuery:(id)arg1 withResultsHandler:(CDUnknownBlockType)arg2;
 - (id)initWithDatabase:(id)arg1;

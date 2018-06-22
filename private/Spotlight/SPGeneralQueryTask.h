@@ -30,7 +30,7 @@
 - (void)searchDaemonQuery:(id)arg1 encounteredError:(id)arg2;
 - (void)searchDaemonLocalSuggestionsData:(id)arg1 lexicon:(struct _LXLexicon *)arg2 tokenizer:(struct __CFStringTokenizer *)arg3 currentLocaleRef:(struct __CFLocale *)arg4;
 - (void)searchDaemonSuggestionsArray:(id)arg1;
-- (void)searchDaemonQuery:(id)arg1 gotResultSet:(id)arg2 replace:(_Bool)arg3 complete:(_Bool)arg4 finished:(_Bool)arg5 blendingDuration:(double)arg6 geoEntityString:(id)arg7;
+- (void)searchDaemonQuery:(id)arg1 gotResultSet:(id)arg2 replace:(_Bool)arg3 complete:(_Bool)arg4 finished:(_Bool)arg5 delayed:(_Bool)arg6 blendingDuration:(double)arg7 geoEntityString:(id)arg8;
 - (id)defaultSearchThroughSection;
 - (id)searchThroughSection;
 - (_Bool)_shouldPromptUserToOpenTTR;
@@ -42,6 +42,7 @@
 - (void)handleHiddenResult:(id)arg1 shownResult:(id)arg2 inSection:(id)arg3;
 - (id)searchString;
 - (void)cancel;
+- (void)clear;
 - (void)start;
 - (void)clearInternal:(int)arg1 invalidate:(_Bool)arg2;
 - (id)initForSession:(id)arg1 withQuery:(id)arg2;

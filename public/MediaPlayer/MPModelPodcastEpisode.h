@@ -35,6 +35,7 @@
 @property(copy, nonatomic) NSString *commentText; // @synthesize commentText=_commentText;
 - (void).cxx_destruct;
 - (id)artworkCatalog;
+- (id)humanDescription;
 
 // Remaining properties
 @property(copy, nonatomic) CDUnknownBlockType artworkCatalogBlock; // @dynamic artworkCatalogBlock;

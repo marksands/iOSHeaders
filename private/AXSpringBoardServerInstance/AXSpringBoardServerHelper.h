@@ -70,8 +70,8 @@
 - (void)_handleTouchAccommodationsUsageConfirmed;
 - (void)_handleDisableSwitchControlConfirmation;
 - (void)_handleSwitchUsageConfirmed;
-- (void)_handleDisallowUSBRestrictedModeSC;
-- (void)_handleDisallowUSBRestrictedModeVO;
+- (void)_handleDisallowUSBRestrictedModeSCInformativeOnly:(_Bool)arg1;
+- (void)_handleDisallowUSBRestrictedModeVOInformativeOnly:(_Bool)arg1;
 - (void)_handleVONoHomeButtonGestureAlert;
 - (void)_handleVoiceOverUsageConfirmation;
 - (id)_handleUsageConfirmationDialogWithMessage:(id)arg1 dismissBlock:(CDUnknownBlockType)arg2;
@@ -119,7 +119,7 @@
 - (_Bool)canLaunchAsFloatingApplicationForIconView:(id)arg1;
 - (_Bool)canLaunchAsPinnedApplicationForIconView:(id)arg1;
 - (void)launchFloatingApplication:(id)arg1;
-- (void)launchPinnedApplication:(id)arg1 onLeft:(_Bool)arg2;
+- (void)launchPinnedApplication:(id)arg1 onLeadingSide:(_Bool)arg2;
 - (void)launchApplicationWithFullConfiguration:(id)arg1;
 - (void)launchApplication:(id)arg1;
 - (void)rebootDeviceWithServerInstance:(id)arg1;

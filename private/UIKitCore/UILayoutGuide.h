@@ -85,6 +85,7 @@
 - (id)_uili_existingObservationEligibleLayoutVariables;
 - (id)_uili_existingBaseFrameVariables;
 - (void *)_referenceView;
+- (struct CGSize)nsli_engineToUserScalingCoefficients;
 - (_Bool)nsli_isRTL;
 - (_Bool)nsli_isLegalConstraintItem;
 - (_Bool)nsli_isCollectingConstraintChangesForLaterCoordinatedFlush:(id)arg1;

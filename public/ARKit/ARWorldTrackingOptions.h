@@ -14,12 +14,20 @@
 {
     _Bool _relocalizationEnabled;
     _Bool _deterministicMode;
+    _Bool _mlModelEnabled;
+    _Bool _deliverRawSceneUnderstandingResults;
     ARImageSensorSettings *_imageSensorSettings;
     NSString *_deviceModel;
     ARWorldMap *_initialWorldMap;
     NSString *_slamConfiguration;
+    unsigned long long _planeDetection;
+    double _minVergenceAngle;
 }
 
+@property(nonatomic) _Bool deliverRawSceneUnderstandingResults; // @synthesize deliverRawSceneUnderstandingResults=_deliverRawSceneUnderstandingResults;
+@property(nonatomic) _Bool mlModelEnabled; // @synthesize mlModelEnabled=_mlModelEnabled;
+@property(nonatomic) double minVergenceAngle; // @synthesize minVergenceAngle=_minVergenceAngle;
+@property(nonatomic) unsigned long long planeDetection; // @synthesize planeDetection=_planeDetection;
 @property(nonatomic) _Bool deterministicMode; // @synthesize deterministicMode=_deterministicMode;
 @property(copy, nonatomic) NSString *slamConfiguration; // @synthesize slamConfiguration=_slamConfiguration;
 @property(copy, nonatomic) ARWorldMap *initialWorldMap; // @synthesize initialWorldMap=_initialWorldMap;

@@ -12,6 +12,7 @@
 - (void)deleteAvatar:(id <AVTAvatarRecord>)arg1 completionHandler:(void (^)(_Bool, NSError *))arg2;
 - (void)fetchAvatarsForFetchRequest:(AVTAvatarFetchRequest *)arg1 completionHandler:(void (^)(NSArray *, NSError *))arg2;
 - (NSArray *)avatarsForFetchRequest:(AVTAvatarFetchRequest *)arg1 error:(id *)arg2;
+- (_Bool)canCreateAvatarWithError:(id *)arg1;
 - (_Bool)canCreateAvatar;
 @end
 

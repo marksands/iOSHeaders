@@ -36,6 +36,7 @@
 - (_Bool)reconfigurableFrom:(id)arg1;
 - (void)prepare;
 - (id)resultDataClasses;
+- (_Bool)deterministicMode;
 - (long long)captureBehavior;
 - (double)requiredTimeInterval;
 - (unsigned long long)requiredSensorDataTypes;

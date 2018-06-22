@@ -11,16 +11,18 @@
 @interface AVPlayerLayerAndContentOverlayContainerView : UIView
 {
     _Bool _canShowStatusBarBackgroundGradientWhenStatusBarVisible;
+    _Bool _observingStatusBarHidden;
     __AVPlayerLayerView *_playerLayerView;
     UIView *_contentOverlayView;
     AVStatusBarBackgroundGradientView *_statusBarBackgroundGradientView;
     struct CGRect _contentFrame;
 }
 
+@property(nonatomic, getter=isObservingStatusBarHidden) _Bool observingStatusBarHidden; // @synthesize observingStatusBarHidden=_observingStatusBarHidden;
 @property(readonly, nonatomic) AVStatusBarBackgroundGradientView *statusBarBackgroundGradientView; // @synthesize statusBarBackgroundGradientView=_statusBarBackgroundGradientView;
 @property(nonatomic) _Bool canShowStatusBarBackgroundGradientWhenStatusBarVisible; // @synthesize canShowStatusBarBackgroundGradientWhenStatusBarVisible=_canShowStatusBarBackgroundGradientWhenStatusBarVisible;
 @property(readonly, nonatomic) UIView *contentOverlayView; // @synthesize contentOverlayView=_contentOverlayView;
-@property(readonly, nonatomic) __AVPlayerLayerView *playerLayerView; // @synthesize playerLayerView=_playerLayerView;
+@property(retain, nonatomic) __AVPlayerLayerView *playerLayerView; // @synthesize playerLayerView=_playerLayerView;
 @property(nonatomic) struct CGRect contentFrame; // @synthesize contentFrame=_contentFrame;
 - (void).cxx_destruct;
 - (struct CGRect)_frameForStatusBarBackgroundGradientView;

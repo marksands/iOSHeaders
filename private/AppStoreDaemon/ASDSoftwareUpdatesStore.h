@@ -35,7 +35,7 @@
 - (void)reloadManagedUpdatesWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)reloadFromServerWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)reloadFromServerInBackgroundWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (void)refreshUpdatesWithCompletionBlock:(id)arg1 userInitiated:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (void)refreshUpdatesWithCompletionBlock:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)refreshUpdateCountWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)hideApplicationBadgeForPendingUpdates;
 - (_Bool)hasEntitlement;

@@ -23,6 +23,7 @@
 - (long long)getNumberOfCoordinates;
 - (void)_clearModel;
 - (void)clearModel;
+- (_Bool)_saveDebugModelToURL:(id)arg1 error:(id *)arg2;
 - (_Bool)_loadModelFromURL:(id)arg1 error:(id *)arg2;
 - (_Bool)loadModelFromURL:(id)arg1 error:(id *)arg2;
 - (_Bool)_saveModelToURL:(id)arg1 error:(id *)arg2;

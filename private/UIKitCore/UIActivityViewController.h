@@ -72,6 +72,7 @@
 }
 
 + (id)viewControllerWithRestorationIdentifierPath:(id)arg1 coder:(id)arg2;
++ (double)_asyncPresentationTimeout;
 + (_Bool)_popoverPresentationUsesModernPresentation;
 + (_Bool)_usesActionSheetPresentationController;
 @property(nonatomic) __weak id <UIActivityViewControllerDelegate> airDropDelegate; // @synthesize airDropDelegate=_airDropDelegate;
@@ -140,7 +141,6 @@
 - (void)_shareExtensionServicePreferredContentSizeUpdated:(struct CGSize)arg1;
 - (_Bool)_shouldShowSystemActivityType:(id)arg1;
 - (_Bool)activityHelper:(id)arg1 matchingWithContext:(id)arg2 shouldIncludeSystemActivityType:(id)arg3;
-- (void)activityHelper:(id)arg1 didUpdateActivityMatchingResults:(id)arg2;
 - (id)_configurationForActivity:(id)arg1;
 - (id)_activityConfigurationsForActivities:(id)arg1;
 - (id)_newShareUIConfigurationWithMatchingResults:(id)arg1;
@@ -201,7 +201,8 @@
 - (void)_createAndInstallPlaceholderViewControllerIfNeeded;
 - (_Bool)_isActionRowExcluded;
 - (_Bool)_isSharingRowExcluded;
-- (_Bool)_isAirDropExcluded;
+- (_Bool)_isAirDropExcludedWithActivityItemValues:(id)arg1;
+- (_Bool)_shouldIncludeTagsUIPlaceholderWithActivityItemValues:(id)arg1;
 - (id)_containedAlertController;
 - (void)_shareSheetReadyToInteractAfterCACommit:(_Bool)arg1;
 - (void)_removePlaceholderViewControllerIfNeeded;
@@ -221,6 +222,8 @@
 - (void)_preheatActivitiesIfNeeded;
 - (void)_shareServiceFinishedInitialPreferredContentSizeUpdate;
 - (void)_sendInitialShareServiceConfigurationAndUpdatePreferredContentSize;
+- (void)_retryRemoteViewServiceConnectionIfPossibleWithPriming:(_Bool)arg1 previousAttempts:(long long)arg2;
+- (void)_connectToRemoteViewServiceOnceWithPriming:(_Bool)arg1 previousAttempts:(long long)arg2;
 - (void)_connectToRemoteViewServiceOnceWithPriming:(_Bool)arg1;
 - (void)_preloadInitialConfigurationLocallyIfNeeded;
 - (id)initWithActivityItems:(id)arg1 applicationActivities:(id)arg2;

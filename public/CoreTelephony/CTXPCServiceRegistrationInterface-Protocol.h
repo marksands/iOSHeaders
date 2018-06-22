@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class CTNetwork, CTXPCServiceSubscriptionContext, NSDictionary, NSString;
+@class CTNetwork, CTServiceDescriptor, CTXPCServiceSubscriptionContext, NSDictionary, NSString;
 
 @protocol CTXPCServiceRegistrationInterface
+- (void)getDataMode:(CTServiceDescriptor *)arg1 completion:(void (^)(NSNumber *, NSError *))arg2;
 - (void)isNetworkReselectionNeeded:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)copyNetworkSelectionInfo:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(CTNetworkSelectionInfo *, NSError *))arg2;
 - (void)copyNetworkSelectionState:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(NSString *, NSError *))arg2;
@@ -21,6 +22,7 @@
 - (void)getMaxDataRate:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(long long, NSError *))arg2;
 - (void)setMaxDataRate:(CTXPCServiceSubscriptionContext *)arg1 rate:(long long)arg2 completion:(void (^)(NSError *))arg3;
 - (void)copyRegistrationIMSTransportInfo:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(CTIMSRegistrationTransportInfo *, NSError *))arg2;
+- (void)getIMSRegistrationStatus:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(CTIMSRegistrationStatus *, NSError *))arg2;
 - (void)copyRegistrationAgentStatus:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(_Bool, _Bool, NSError *))arg2;
 - (void)copyRejectCauseCode:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(NSNumber *, NSError *))arg2;
 - (void)getEnhancedVoiceLinkQualityMetric:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(CTEnhancedLinkQualityMetric *, NSError *))arg2;

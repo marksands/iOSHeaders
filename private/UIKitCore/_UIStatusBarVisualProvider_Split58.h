@@ -12,6 +12,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (struct NSDirectionalEdgeInsets)expandedEdgeInsets;
++ (id)expandedFont;
++ (id)normalFont;
 + (double)lowerExpandedBaselineOffset;
 + (double)baselineBottomInset;
 + (double)centeringEdgeInset;

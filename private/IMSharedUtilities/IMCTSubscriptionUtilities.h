@@ -25,6 +25,7 @@
 - (void).cxx_destruct;
 - (void)subscriptionInfoDidChange;
 - (void)_resetSubscriptionInfo;
+- (_Bool)deviceSupportsMultipleSubscriptions;
 - (void)carrierBundleChange:(id)arg1;
 @property(readonly, nonatomic) NSString *ctPhoneNumber;
 - (id)ctSubscriptionInfoWithError:(id)arg1;

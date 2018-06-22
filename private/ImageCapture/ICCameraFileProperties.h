@@ -6,11 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSString;
+@class ICCameraFile, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSString;
 
 __attribute__((visibility("hidden")))
 @interface ICCameraFileProperties : NSObject
 {
+    struct CGImage *_originalThumbnail;
+    struct CGImage *_thumbnail;
+    _Bool _hasThumbnail;
+    _Bool _hasMetadata;
+    _Bool _raw;
+    _Bool _fetchingThumbnail;
+    _Bool _fetchingMetadata;
+    _Bool _orientationOverridden;
+    _Bool _burstFavorite;
+    _Bool _burstPicked;
+    _Bool _highFramerate;
+    _Bool _timeLapse;
+    _Bool _retrievedThumbnail;
+    _Bool _retrievedMetadata;
+    _Bool _firstPicked;
     long long _width;
     long long _height;
     NSDate *_fileCreationDate;
@@ -18,65 +33,52 @@ __attribute__((visibility("hidden")))
     NSDate *_exifCreationDate;
     NSDate *_exifModificationDate;
     long long _fileSize;
-    _Bool _hasThumbnail;
-    struct CGImage *_originalThumbnail;
-    struct CGImage *_thumbnail;
-    _Bool _hasMetadata;
-    _Bool _raw;
-    _Bool _fetchingThumbnail;
-    _Bool _fetchingMetadata;
     NSMutableDictionary *_metadata;
     unsigned long long _orientation;
-    _Bool _orientationOverridden;
     double _duration;
-    NSString *_burstUUID;
-    _Bool _burstFavorite;
-    _Bool _burstPicked;
-    _Bool _highFramerate;
-    _Bool _timeLapse;
     NSMutableArray *_sidecarFiles;
-    NSString *_groupUUID;
-    NSString *_relatedUUID;
+    NSString *_burstUUID;
     NSString *_originatingAssetID;
     NSString *_originalFilename;
     NSString *_createdFilename;
     unsigned long long _oUUID;
+    NSString *_groupUUID;
+    NSString *_relatedUUID;
     unsigned long long _uTime;
     unsigned long long _mediaMetadata;
     NSString *_mediaBase;
     NSDictionary *_mediaData;
     NSMutableDictionary *_subImages;
-    _Bool _retrievedThumbnail;
-    _Bool _retrievedMetadata;
-    _Bool _firstPicked;
+    ICCameraFile *_pairedRawImage;
 }
 
-@property _Bool firstPicked; // @synthesize firstPicked=_firstPicked;
-@property _Bool retrievedMetadata; // @synthesize retrievedMetadata=_retrievedMetadata;
-@property _Bool retrievedThumbnail; // @synthesize retrievedThumbnail=_retrievedThumbnail;
-@property _Bool fetchingMetadata; // @synthesize fetchingMetadata=_fetchingMetadata;
-@property _Bool fetchingThumbnail; // @synthesize fetchingThumbnail=_fetchingThumbnail;
+@property(retain) ICCameraFile *pairedRawImage; // @synthesize pairedRawImage=_pairedRawImage;
 @property(retain) NSMutableDictionary *subImages; // @synthesize subImages=_subImages;
 @property(retain) NSDictionary *mediaData; // @synthesize mediaData=_mediaData;
 @property(copy) NSString *mediaBase; // @synthesize mediaBase=_mediaBase;
 @property unsigned long long mediaMetadata; // @synthesize mediaMetadata=_mediaMetadata;
 @property unsigned long long uTime; // @synthesize uTime=_uTime;
-@property unsigned long long oUUID; // @synthesize oUUID=_oUUID;
 @property(retain) NSString *relatedUUID; // @synthesize relatedUUID=_relatedUUID;
 @property(retain) NSString *groupUUID; // @synthesize groupUUID=_groupUUID;
+@property unsigned long long oUUID; // @synthesize oUUID=_oUUID;
+@property _Bool firstPicked; // @synthesize firstPicked=_firstPicked;
+@property _Bool retrievedMetadata; // @synthesize retrievedMetadata=_retrievedMetadata;
+@property _Bool retrievedThumbnail; // @synthesize retrievedThumbnail=_retrievedThumbnail;
 @property(retain) NSString *createdFilename; // @synthesize createdFilename=_createdFilename;
 @property(retain) NSString *originalFilename; // @synthesize originalFilename=_originalFilename;
 @property(retain) NSString *originatingAssetID; // @synthesize originatingAssetID=_originatingAssetID;
 @property _Bool timeLapse; // @synthesize timeLapse=_timeLapse;
 @property _Bool highFramerate; // @synthesize highFramerate=_highFramerate;
-@property _Bool burstFavorite; // @synthesize burstFavorite=_burstFavorite;
 @property _Bool burstPicked; // @synthesize burstPicked=_burstPicked;
+@property _Bool burstFavorite; // @synthesize burstFavorite=_burstFavorite;
 @property(retain) NSString *burstUUID; // @synthesize burstUUID=_burstUUID;
 @property(retain) NSMutableArray *sidecarFiles; // @synthesize sidecarFiles=_sidecarFiles;
 @property double duration; // @synthesize duration=_duration;
 @property _Bool orientationOverridden; // @synthesize orientationOverridden=_orientationOverridden;
 @property unsigned long long orientation; // @synthesize orientation=_orientation;
 @property(retain) NSMutableDictionary *metadata; // @synthesize metadata=_metadata;
+@property _Bool fetchingMetadata; // @synthesize fetchingMetadata=_fetchingMetadata;
+@property _Bool fetchingThumbnail; // @synthesize fetchingThumbnail=_fetchingThumbnail;
 @property(getter=isRaw) _Bool raw; // @synthesize raw=_raw;
 @property _Bool hasMetadata; // @synthesize hasMetadata=_hasMetadata;
 @property _Bool hasThumbnail; // @synthesize hasThumbnail=_hasThumbnail;

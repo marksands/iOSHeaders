@@ -30,13 +30,14 @@
 - (id)_labelAllowingEmptyString:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool isContentBeingModified;
 @property(readonly, copy, nonatomic) NSString *titleDisallowingEmptyString;
-- (void)setTitleDisallowingEmptyString:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *title;
 - (void)setTitle:(id)arg1;
 - (id)name;
 - (void)setName:(id)arg1;
 @property(readonly, copy, nonatomic) NSURL *URIRepresentation;
 @property(readonly, copy, nonatomic) NSURL *url;
+- (void)setManuallyRenamed:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool manuallyRenamed;
 - (void)setPlayable:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool playable;
 @property(nonatomic) _Bool evicted;

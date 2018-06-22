@@ -34,7 +34,7 @@
 - (struct NSArray *)topSuggestionsWithSourceEntries:(struct NSDictionary *)arg1 error:(id *)arg2;
 - (struct NSMutableArray *)_filteredPreviousResultsCrosscheckingStorage:(struct NSDictionary *)arg1;
 - (_Bool)_entry:(id)arg1 existsInStorage:(struct NSDictionary *)arg2;
-- (_Bool)_dedupeByEnrichingEntries:(struct NSArray *)arg1 withEntry:(id)arg2;
+- (_Bool)_dedupeByEnrichingEntries:(struct NSMutableArray *)arg1 withEntry:(id)arg2;
 - (_Bool)_improveEntry:(id)arg1;
 - (_Bool)postFiltersKept:(id)arg1;
 - (_Bool)preFiltersKept:(id)arg1;

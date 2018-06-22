@@ -33,8 +33,6 @@
 - (id)_distributionKeys;
 - (id)_registeredKeysLookupTable;
 - (id)_allRegisteredKeys;
-- (id)_noOpRegisteredKeysForOSXLibraryDomain;
-- (id)_registeredKeysForLibraryDomain;
 
 @end
 

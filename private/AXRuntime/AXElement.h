@@ -174,6 +174,7 @@
 @property(readonly, nonatomic) _Bool isAXUIServer;
 @property(readonly, nonatomic) _Bool isSystemApplication;
 @property(readonly, nonatomic) _Bool isSpringBoard;
+@property(readonly, nonatomic) NSString *processName;
 @property(readonly, nonatomic) NSString *bundleId;
 @property(readonly, nonatomic) AXElement *firstElementInApplicationForFocus;
 @property(readonly, nonatomic) AXElement *firstElementInApplication;

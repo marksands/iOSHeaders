@@ -30,8 +30,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double xpSamplingPercentageUsers; // @synthesize xpSamplingPercentageUsers=_xpSamplingPercentageUsers;
 @property(nonatomic) _Bool xpSamplingForced; // @synthesize xpSamplingForced=_xpSamplingForced;
 @property(nonatomic) double xpSessionDuration; // @synthesize xpSessionDuration=_xpSessionDuration;
-- (double)_timeIntervalFromMilliseconds:(id)arg1;
-- (id)_millisecondsFromTimeInterval:(double)arg1;
 - (void)setXPSamplingPercentageCachedResponses:(double)arg1;
 - (void)setXPSamplingPercentageUsers:(double)arg1;
 - (void)setXPSamplingForced:(_Bool)arg1;

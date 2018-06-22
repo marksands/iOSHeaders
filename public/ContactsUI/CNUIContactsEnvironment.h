@@ -29,12 +29,14 @@
     CNUICoreRecentsManager *_recentsManager;
     CNUIExternalComponentsFactory *_componentsFactory;
     CNUIUserActivityManager *_activityManager;
+    id _launchCheckinRegistrar;
     CNContactsEnvironment *_cnEnvironment;
 }
 
 + (id)makeCurrentEnvironment;
 + (id)currentEnvironment;
 @property(readonly, nonatomic) CNContactsEnvironment *cnEnvironment; // @synthesize cnEnvironment=_cnEnvironment;
+@property(retain, nonatomic) id launchCheckinRegistrar; // @synthesize launchCheckinRegistrar=_launchCheckinRegistrar;
 @property(retain, nonatomic) CNUIUserActivityManager *activityManager; // @synthesize activityManager=_activityManager;
 @property(retain, nonatomic) CNUIExternalComponentsFactory *componentsFactory; // @synthesize componentsFactory=_componentsFactory;
 @property(retain, nonatomic) CNUICoreRecentsManager *recentsManager; // @synthesize recentsManager=_recentsManager;
@@ -55,6 +57,7 @@
 @property(retain, nonatomic) CNUIFMFFacade *fmfFacade; // @synthesize fmfFacade=_fmfFacade;
 @property(retain, nonatomic) CNUIAccountsFacade *accountsFacade; // @synthesize accountsFacade=_accountsFacade;
 - (void).cxx_destruct;
+- (id)nts_launchCheckinRegistrar;
 - (id)nts_lazyActivityManager;
 - (id)nts_lazyComponentsFactory;
 - (id)nts_makeRecentsManager;

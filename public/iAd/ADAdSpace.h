@@ -30,6 +30,7 @@
     _Bool _fastVisibilityContextIsFeed;
     _Bool _shouldTearDownCreativeControllerAfterDismissingRemoteActionViewController;
     _Bool _privacyRequestInProgress;
+    _Bool _actionInProgress;
     float _lastPlayTime;
     float _lastVolume;
     float _totalDuration;
@@ -60,6 +61,7 @@
 }
 
 + (id)ADIdentifierNameForCreativeType:(int)arg1;
+@property(nonatomic) _Bool actionInProgress; // @synthesize actionInProgress=_actionInProgress;
 @property(nonatomic) _Bool privacyRequestInProgress; // @synthesize privacyRequestInProgress=_privacyRequestInProgress;
 @property(retain, nonatomic) NewsTransparencyViewController *newsViewController; // @synthesize newsViewController=_newsViewController;
 @property(retain, nonatomic) NSArray *prerollVideoAssets; // @synthesize prerollVideoAssets=_prerollVideoAssets;
@@ -132,6 +134,8 @@
 - (void)_remote_resumeBannerMedia;
 - (void)_remote_pauseBannerMedia;
 - (void)_openURLInBrowser:(id)arg1;
+- (void)actionCompletedWithSystemEvent:(int)arg1;
+- (void)openURL:(id)arg1 fromFrame:(id)arg2 tapLocation:(id)arg3;
 - (void)_remote_openURL:(id)arg1;
 - (void)_remote_creativeDidFailWithError:(id)arg1;
 - (void)impressionPublicAttributesDidLoad:(id)arg1;
@@ -156,6 +160,7 @@
 - (void)cancelBannerViewAction;
 - (void)refuseBannerViewAction;
 - (void)_handleMRAIDActionPresentation;
+- (void)beginActionFromFrame:(id)arg1 tapLocation:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)executeBannerViewActionFrom:(struct CGRect)arg1 withTapLocation:(struct CGPoint)arg2;
 - (void)determineActionForTapAtLocation:(struct CGPoint)arg1 inFrame:(struct CGRect)arg2 withMRAIDAction:(id)arg3 completeHandler:(CDUnknownBlockType)arg4;
 - (void)internalAdTypeDidChange;

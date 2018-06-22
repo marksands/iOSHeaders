@@ -6,18 +6,20 @@
 
 #import <RemoteManagement/RMUniquedManagedObject.h>
 
-@class NSData, NSString, RMActivation;
+@class NSData, NSString, RMActivation, RMBlueprint;
 
 @interface RMConfiguration : RMUniquedManagedObject
 {
 }
 
 + (id)fetchRequestForConfigurationsWithIdentifier:(id)arg1 organizationIdentifier:(id)arg2;
++ (id)fetchRequestForConfigurationsBelongingToOrganizationWithIdentifier:(id)arg1;
 - (id)computeUniqueIdentifier;
 - (void)didChangeValueForKey:(id)arg1;
 
 // Remaining properties
 @property(retain, nonatomic) RMActivation *activation; // @dynamic activation;
+@property(retain, nonatomic) RMBlueprint *blueprint; // @dynamic blueprint;
 @property(retain, nonatomic) NSData *configurationPlist; // @dynamic configurationPlist;
 @property(copy, nonatomic) NSString *identifier; // @dynamic identifier;
 

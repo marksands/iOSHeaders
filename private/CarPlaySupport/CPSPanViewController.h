@@ -24,9 +24,9 @@
 - (void).cxx_destruct;
 - (_Bool)shouldUpdateFocusInContext:(id)arg1;
 - (id)_linearFocusMovementSequences;
-- (void)panView:(id)arg1 panWithDirection:(unsigned long long)arg2;
-- (void)panView:(id)arg1 panEndedWithDirection:(unsigned long long)arg2;
-- (void)panView:(id)arg1 panBeganWithDirection:(unsigned long long)arg2;
+- (void)panView:(id)arg1 panWithDirection:(long long)arg2;
+- (void)panView:(id)arg1 panEndedWithDirection:(long long)arg2;
+- (void)panView:(id)arg1 panBeganWithDirection:(long long)arg2;
 - (void)_handleNudgeLongPress:(id)arg1;
 - (void)_handleNudgeTapped:(id)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;

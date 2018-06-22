@@ -15,10 +15,8 @@
 - (void)fetchFamilyStatus:(void (^)(NSDictionary *))arg1;
 - (void)requeryFamilyStatus:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)setScreenTimeEnabled:(_Bool)arg1 withCompletion:(void (^)(NSError *))arg2;
-- (void)gatherDataWithCompletion:(void (^)(id, NSError *))arg1;
+- (void)gatherDataWithFullDetails:(_Bool)arg1 withCompletion:(void (^)(id, NSError *))arg2;
 - (void)startMirroringSyncWithCompletion:(void (^)(id, NSError *))arg1;
-- (void)startMirroringExportWithCompletion:(void (^)(id, NSError *))arg1;
-- (void)startMirroringImportWithCompletion:(void (^)(id, NSError *))arg1;
 - (void)sendUsageRequestPayload:(NSDictionary *)arg1 withCompletion:(void (^)(_Bool, NSError *))arg2;
 - (void)setInstalledApps:(NSDictionary *)arg1 completion:(void (^)(id, NSError *))arg2;
 - (void)sendExtensionRequest:(RMExtensionRequest *)arg1 withCompletion:(void (^)(_Bool, NSError *))arg2;

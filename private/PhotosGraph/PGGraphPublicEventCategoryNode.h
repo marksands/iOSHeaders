@@ -15,6 +15,7 @@
 {
 }
 
+- (id)associatedNodesForRemoval;
 @property(readonly, nonatomic) NSArray *localizedSynonyms;
 @property(readonly, nonatomic) NSString *localizedName;
 @property(readonly, nonatomic) unsigned long long level;

@@ -15,7 +15,6 @@
 @property(readonly) NSObject<STUsageDetailsViewModelCoordinator> *usageDetailsCoordinator;
 @property(readonly) NSObject<STContentPrivacyViewModelCoordinator> *contentPrivacyCoordinator;
 @property(readonly, nonatomic) STRootViewModel *viewModel;
-- (void)clearUsageDataWithCompletionHandler:(void (^)(NSError *))arg1;
 - (void)setScreenTimeEnabled:(_Bool)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)setPIN:(NSString *)arg1 screenTimeEnabled:(_Bool)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)setPIN:(NSString *)arg1 completionHandler:(void (^)(NSError *))arg2;

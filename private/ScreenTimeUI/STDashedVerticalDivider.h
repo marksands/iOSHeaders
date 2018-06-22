@@ -15,11 +15,11 @@
     NSLayoutYAxisAnchor *_labelLastBaselineAnchor;
     UIImageView *_dashedLine;
     UILabel *_label;
-    NSLayoutConstraint *_labelLeadingConstraint;
+    NSLayoutConstraint *_labelLeftConstraint;
 }
 
 + (id)dashedLineImage;
-@property(retain, nonatomic) NSLayoutConstraint *labelLeadingConstraint; // @synthesize labelLeadingConstraint=_labelLeadingConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *labelLeftConstraint; // @synthesize labelLeftConstraint=_labelLeftConstraint;
 @property(retain, nonatomic) UILabel *label; // @synthesize label=_label;
 @property(retain, nonatomic) UIImageView *dashedLine; // @synthesize dashedLine=_dashedLine;
 @property(readonly, copy, nonatomic) NSLayoutYAxisAnchor *labelLastBaselineAnchor; // @synthesize labelLastBaselineAnchor=_labelLastBaselineAnchor;

@@ -8,7 +8,7 @@
 
 #import "APSConnectionDelegate.h"
 
-@class APSConnection, NSMutableArray, NSMutableSet, NSString, _CDPeriodicSchedulerJob, _DKDataProtectionStateMonitor, _DKKnowledgeStorage, _DKSync2State, _DKSyncPeerStatusTracker, _DKSyncToggle, _DKThrottledActivity;
+@class APSConnection, NSMutableArray, NSMutableSet, NSString, _CDMutablePerfMetric, _CDPeriodicSchedulerJob, _DKDataProtectionStateMonitor, _DKKnowledgeStorage, _DKSync2State, _DKSyncToggle, _DKThrottledActivity;
 
 @interface _DKSync2Coordinator : NSObject <APSConnectionDelegate>
 {
@@ -16,7 +16,6 @@
     _DKThrottledActivity *_activityThrottler;
     id <NSObject> _observerToken;
     NSMutableSet *_busyTransactions;
-    _DKSyncPeerStatusTracker *_tracker;
     NSMutableArray *_insertedSyncedEvents;
     NSMutableArray *_deletedSyncedEvents;
     NSMutableSet *_activatedPeers;
@@ -36,6 +35,8 @@
     APSConnection *_connection;
     NSMutableSet *_streamNamesObservedForAdditions;
     NSMutableSet *_streamNamesObservedForDeletions;
+    _CDMutablePerfMetric *_perfMetric;
+    struct _CDPerfEvent _perfEvent;
     _DKSyncToggle *_syncEnabledToggler;
     _DKSyncToggle *_someTransportIsAvailableToggler;
     _DKSyncToggle *_cloudIsAvailableToggler;
@@ -108,11 +109,10 @@
 - (void)syncWithReply:(CDUnknownBlockType)arg1;
 - (void)handleFetchedSourceDeviceID:(id)arg1 fromPeer:(id)arg2 error:(id)arg3;
 - (void)fetchSourceDeviceIDFromPeer:(id)arg1;
-- (id)deletedEventIDsSinceDate:(id)arg1 streamNames:(id)arg2 error:(id *)arg3;
+- (id)deletedEventIDsSinceDate:(id)arg1 streamNames:(id)arg2 limit:(unsigned long long)arg3 endDate:(id *)arg4 error:(id *)arg5;
 - (id)sortedEventsWithCreationDateBetweenDate:(id)arg1 andDate:(id)arg2 streamNames:(id)arg3 limit:(unsigned long long)arg4 fetchOrder:(long long)arg5 error:(id *)arg6;
 - (void)possiblyUpdateIsBusyProperty;
 - (void)handleStatusChangeForPeer:(id)arg1 previousTransports:(long long)arg2;
-- (id)policyForSyncTransport:(id)arg1;
 - (id)policyForSyncTransportType:(long long)arg1;
 - (void)start;
 - (void)setupStorage;

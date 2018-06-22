@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDate, NSDateInterval, NSString, STUsageItem;
+@class NSArray, NSDate, NSDateInterval, NSString, STUsageInsights, STUsageItem;
 
 @interface STUsageReport : NSObject <NSCopying, NSSecureCoding>
 {
@@ -21,8 +21,11 @@
     unsigned long long _higherResolutionUnit;
     unsigned long long _numberOfHigherResolutionUnitsInPeriod;
     STUsageItem *_screenTimeUsage;
+    STUsageInsights *_insights;
     double _deltaFromScreenTimeUsageAverage;
     NSArray *_usageItems;
+    NSArray *_appAndWebUsageItems;
+    NSArray *_categoryUsageItems;
     unsigned long long _totalNotifications;
     NSArray *_notificationUsageItems;
     unsigned long long _totalPickups;
@@ -38,8 +41,11 @@
 @property(readonly, nonatomic) unsigned long long totalPickups; // @synthesize totalPickups=_totalPickups;
 @property(readonly, copy, nonatomic) NSArray *notificationUsageItems; // @synthesize notificationUsageItems=_notificationUsageItems;
 @property(readonly, nonatomic) unsigned long long totalNotifications; // @synthesize totalNotifications=_totalNotifications;
+@property(readonly, copy, nonatomic) NSArray *categoryUsageItems; // @synthesize categoryUsageItems=_categoryUsageItems;
+@property(readonly, copy, nonatomic) NSArray *appAndWebUsageItems; // @synthesize appAndWebUsageItems=_appAndWebUsageItems;
 @property(readonly, copy, nonatomic) NSArray *usageItems; // @synthesize usageItems=_usageItems;
 @property(readonly, nonatomic) double deltaFromScreenTimeUsageAverage; // @synthesize deltaFromScreenTimeUsageAverage=_deltaFromScreenTimeUsageAverage;
+@property(readonly, nonatomic) STUsageInsights *insights; // @synthesize insights=_insights;
 @property(readonly, nonatomic) STUsageItem *screenTimeUsage; // @synthesize screenTimeUsage=_screenTimeUsage;
 @property(nonatomic) unsigned long long numberOfHigherResolutionUnitsInPeriod; // @synthesize numberOfHigherResolutionUnitsInPeriod=_numberOfHigherResolutionUnitsInPeriod;
 @property(nonatomic) unsigned long long higherResolutionUnit; // @synthesize higherResolutionUnit=_higherResolutionUnit;
@@ -50,12 +56,14 @@
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 - (void).cxx_destruct;
 - (id)getLocalizedPickupsDuringDeviceBedtime:(id)arg1;
+- (id)getLocalizedUsageDuringDeviceBedtime:(id)arg1 usageItem:(id)arg2;
 - (id)getLocalizedScreenTimeDuringDeviceBedtime:(id)arg1;
 - (id)getLocalizedPickupFrequencyUntilDate:(id)arg1;
 - (unsigned long long)getUsageRateForItems:(id)arg1 totalUsage:(unsigned long long)arg2 referenceDate:(id)arg3;
 - (unsigned long long)getPickupRateUntilDate:(id)arg1;
 - (unsigned long long)getNotificationRateUntilDate:(id)arg1;
-- (id)topUsageItemsWithMaxCount:(unsigned long long)arg1;
+- (unsigned long long)getNotificationsForUsageItem:(id)arg1;
+- (id)topUsageItemsWithMaxCount:(unsigned long long)arg1 type:(unsigned long long)arg2 includeAggregateItem:(_Bool)arg3 nonAggregateItems:(id *)arg4;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

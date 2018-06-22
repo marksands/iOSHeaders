@@ -15,6 +15,7 @@
     int _prefsToken;
     PARSession *_session;
     SPAppService *_appService;
+    long long _contentFilter;
     _Bool _infinitePatience;
 }
 

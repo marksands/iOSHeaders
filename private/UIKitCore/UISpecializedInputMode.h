@@ -12,7 +12,9 @@
 }
 
 @property(retain, nonatomic) Class viewControllerClass; // @synthesize viewControllerClass=_viewControllerClass;
+- (id)hardwareLayout;
 - (_Bool)includeBarHeight;
+- (void)dealloc;
 
 @end
 

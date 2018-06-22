@@ -19,12 +19,12 @@
 - (void).cxx_destruct;
 - (_Bool)internalPerformRevision:(unsigned long long)arg1 inContext:(id)arg2 error:(id *)arg3;
 - (void)applyConfigurationOfRequest:(id)arg1;
+- (id)sequencedRequestPreviousObservationsKey;
+- (_Bool)allowsCachingOfResults;
 - (id)newDefaultRequestInstance;
 - (id)initWithModel:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithModel:(id)arg1;
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (id)sequencedRequestPreviousObservationsKey;
-- (id)observationsCacheKey;
 
 @end
 

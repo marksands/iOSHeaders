@@ -6,19 +6,23 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSNumber, NSObject<VUIMediaEntityIdentifier>, NSObject<VUIMediaEntityIdentifierInternal>, NSSet, NSString, VUIContentRating, VUIMediaEntityKind, VUIMediaEntityType, VUIMediaLibrary;
+@class NSDate, NSMutableDictionary, NSNumber, NSObject<VUIMediaEntityIdentifier>, NSObject<VUIMediaEntityIdentifierInternal>, NSSet, NSString, VUIContentRating, VUIMediaEntityKind, VUIMediaEntityType, VUIMediaLibrary;
 
 @interface VUIMediaEntity : NSObject
 {
     _Bool _localChanges;
+    _Bool _cachesPropertiesOnFirstAccess;
     VUIMediaLibrary *_mediaLibrary;
     NSObject<VUIMediaEntityIdentifierInternal> *_identifierInternal;
+    NSMutableDictionary *_firstAccessPropertiesCache;
     VUIMediaEntityKind *_kind;
     NSSet *_requestedProperties;
 }
 
 @property(readonly, nonatomic) NSSet *requestedProperties; // @synthesize requestedProperties=_requestedProperties;
 @property(readonly, nonatomic) VUIMediaEntityKind *kind; // @synthesize kind=_kind;
+@property(nonatomic) _Bool cachesPropertiesOnFirstAccess; // @synthesize cachesPropertiesOnFirstAccess=_cachesPropertiesOnFirstAccess;
+@property(retain, nonatomic) NSMutableDictionary *firstAccessPropertiesCache; // @synthesize firstAccessPropertiesCache=_firstAccessPropertiesCache;
 @property(copy, nonatomic) NSObject<VUIMediaEntityIdentifierInternal> *identifierInternal; // @synthesize identifierInternal=_identifierInternal;
 @property(readonly, nonatomic, getter=hasLocalChanges) _Bool localChanges; // @synthesize localChanges=_localChanges;
 @property(retain, nonatomic) VUIMediaLibrary *mediaLibrary; // @synthesize mediaLibrary=_mediaLibrary;
@@ -32,7 +36,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)assetController;
-- (_Bool)isMetadataEqualToMediaEntity:(id)arg1;
+- (_Bool)isFetchedPropertiesEqualToFetchedMediaEntity:(id)arg1;
 - (void)populateMetadata;
 @property(readonly, copy, nonatomic) NSNumber *seasonNumber;
 @property(readonly, copy, nonatomic) NSString *showTitle;

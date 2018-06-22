@@ -23,6 +23,7 @@
     NSArray *_anchors;
     ARLightEstimate *_lightEstimate;
     long long _worldMappingStatus;
+    double _currentCaptureTimestamp;
     ARPointCloud *_featurePoints;
     ARPointCloud *_referenceFeaturePoints;
     NSArray *_cachedPointClouds;
@@ -34,7 +35,7 @@
     NSDate *_captureDate;
     ARRawSceneUnderstandingData *_rawSceneUnderstandingData;
     ARFaceData *_faceData;
-    CDStruct_88f337de _vioStateInformation;
+    CDStruct_fad22f05 _vioStateInformation;
     // Error parsing type: {?="columns"[4]}, name: _referenceOriginTransform
     // Error parsing type: {?="columns"[4]}, name: _referenceOriginDelta
     // Error parsing type: {?="columns"[4]}, name: _sessionOriginTransform
@@ -47,7 +48,7 @@
 @property(retain, nonatomic) NSDate *captureDate; // @synthesize captureDate=_captureDate;
 @property(nonatomic) _Bool shouldRestrictFrameRate; // @synthesize shouldRestrictFrameRate=_shouldRestrictFrameRate;
 @property(nonatomic) long long renderFramesPerSecond; // @synthesize renderFramesPerSecond=_renderFramesPerSecond;
-@property(nonatomic) CDStruct_88f337de vioStateInformation; // @synthesize vioStateInformation=_vioStateInformation;
+@property(nonatomic) CDStruct_fad22f05 vioStateInformation; // @synthesize vioStateInformation=_vioStateInformation;
 @property(copy, nonatomic) NSDictionary *worldTrackingStateDetails; // @synthesize worldTrackingStateDetails=_worldTrackingStateDetails;
 @property(retain, nonatomic) ARWorldTrackingErrorData *worldTrackingErrorData; // @synthesize worldTrackingErrorData=_worldTrackingErrorData;
 @property(retain, nonatomic) ARFrameTimingData *timingData; // @synthesize timingData=_timingData;
@@ -67,6 +68,7 @@
 @property(retain, nonatomic) NSArray *cachedPointClouds; // @synthesize cachedPointClouds=_cachedPointClouds;
 @property(retain, nonatomic) ARPointCloud *referenceFeaturePoints; // @synthesize referenceFeaturePoints=_referenceFeaturePoints;
 @property(retain, nonatomic) ARPointCloud *featurePoints; // @synthesize featurePoints=_featurePoints;
+@property(readonly, nonatomic) double currentCaptureTimestamp; // @synthesize currentCaptureTimestamp=_currentCaptureTimestamp;
 @property(nonatomic) long long worldMappingStatus; // @synthesize worldMappingStatus=_worldMappingStatus;
 @property(retain, nonatomic) ARLightEstimate *lightEstimate; // @synthesize lightEstimate=_lightEstimate;
 @property(copy, nonatomic) NSArray *anchors; // @synthesize anchors=_anchors;

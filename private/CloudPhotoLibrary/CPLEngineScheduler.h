@@ -34,7 +34,7 @@
     unsigned long long _significantWorkCalls;
     unsigned long long _disablingMinglingCount;
     NSDate *_lastSyncSessionDateCausedByForeground;
-    _Bool _didStartFirstSync;
+    _Bool _protectAgainstFastRelaunch;
     _Bool _didWriteFirstSyncMarker;
     _Bool _delayedFirstSyncBecauseOfRapidLaunch;
     CPLPlatformObject *_platformObject;
@@ -98,6 +98,7 @@
 - (void)noteScopeNeedsToPullFromTransport;
 - (void)noteScopeNeedsToPushToTransport;
 - (void)noteScopeNeedsToPushHighPriorityToTransport;
+- (void)_disableFastRelaunchProtection;
 - (void)noteScopeNeedsUpdate;
 - (void)noteScopeListNeedsUpdate;
 - (void)noteTransportNeedsUpdate;

@@ -11,34 +11,35 @@
 #import "PXSectionedDataSourceManagerObserver.h"
 #import "PXUIViewBasicTile.h"
 
-@class NSMutableArray, NSString, PXCMMAssetsProgressListener, PXCMMPeopleSuggestionsDataSourceManager, PXCMMPeopleSuggestionsMediaProvider, PXCMMPosterBannerView, PXCMMViewModel, UIView;
+@class NSArray, NSString, PXCMMAssetsProgressListener, PXCMMPeopleSuggestionsDataSourceManager, PXCMMPeopleSuggestionsMediaProvider, PXCMMPosterBannerView, PXCMMViewModel, UIView;
 
 @interface PXCMMBannerTileController : NSObject <PXChangeObserver, PXSectionedDataSourceManagerObserver, PXUIViewBasicTile, PXReusableObject>
 {
     unsigned long long _activityType;
     unsigned long long _sourceType;
     PXCMMViewModel *_viewModel;
+    NSArray *_displayNames;
     PXCMMAssetsProgressListener *_assetsProgressListener;
     id <PXCMMBannerTileControllerDelegate> _delegate;
     PXCMMPosterBannerView *_bannerView;
     PXCMMPeopleSuggestionsDataSourceManager *_peopleSuggestionsDataSourceManager;
     PXCMMPeopleSuggestionsMediaProvider *_peopleSuggestionsMediaProvider;
-    NSMutableArray *_peopleSuggestionForAvatars;
 }
 
 + (id)new;
-@property(retain, nonatomic) NSMutableArray *peopleSuggestionForAvatars; // @synthesize peopleSuggestionForAvatars=_peopleSuggestionForAvatars;
 @property(retain, nonatomic) PXCMMPeopleSuggestionsMediaProvider *peopleSuggestionsMediaProvider; // @synthesize peopleSuggestionsMediaProvider=_peopleSuggestionsMediaProvider;
 @property(retain, nonatomic) PXCMMPeopleSuggestionsDataSourceManager *peopleSuggestionsDataSourceManager; // @synthesize peopleSuggestionsDataSourceManager=_peopleSuggestionsDataSourceManager;
 @property(retain, nonatomic) PXCMMPosterBannerView *bannerView; // @synthesize bannerView=_bannerView;
 @property(nonatomic) __weak id <PXCMMBannerTileControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_updatePeopleSuggestionAvatars;
+- (void)_updateDisplayNamesByViewModel;
+- (void)_updatePeopleSuggestionNames;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)prepareForReuse;
 - (void)becomeReusable;
 - (void)didApplyGeometry:(struct PXTileGeometry)arg1 withUserData:(id)arg2;
 @property(readonly, nonatomic) UIView *view;
+- (void)_configureBannerViewActionButtonWithTitle:(id)arg1;
 - (void)_updateLoadingPeopleSuggestions;
 - (void)_updateBannerActionButton;
 - (void)_updateCounts;

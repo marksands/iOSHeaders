@@ -18,6 +18,7 @@
     NSObject<OS_dispatch_queue> *_connectionsQueue;
     NSObject<OS_dispatch_queue> *_eventQueue;
     NSObject<OS_dispatch_queue> *_timerQueue;
+    unsigned int _qos;
     _Bool hadConnection;
     CDUnknownBlockType _disconnectHandler;
     CDUnknownBlockType _defaultMessageHandler;
@@ -32,8 +33,8 @@
 - (void)dealloc;
 - (id)initListenerWithServiceName:(id)arg1;
 - (void)startListening;
-- (id)initListenerWithServiceName:(id)arg1 onQueue:(id)arg2;
-- (void)_handleNewConnection:(id)arg1;
+- (id)initListenerWithServiceName:(id)arg1 onQueue:(id)arg2 qos:(unsigned int)arg3;
+- (void)_handleNewConnection:(id)arg1 qos:(unsigned int)arg2;
 - (CDUnknownBlockType)_handlerForMessageName:(id)arg1;
 - (id)_highAvailabilityQueue;
 - (_Bool)shutdown;

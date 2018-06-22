@@ -14,8 +14,8 @@
 @interface ACHEarnedInstance : NSObject <NSCopying, NSSecureCoding>
 {
     CDStruct_1bc457c2 _smallEarnedDateComponents;
-    unsigned long long _uniqueNameIndex;
     unsigned char _creatorDevice;
+    unsigned long long _uniqueNameIndex;
     unsigned long long _key;
     HKQuantity *_value;
     NSDate *_createdDate;
@@ -23,10 +23,10 @@
 
 + (id)_allTemplateUniqueNames;
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) unsigned char creatorDevice; // @synthesize creatorDevice=_creatorDevice;
 @property(retain, nonatomic) NSDate *createdDate; // @synthesize createdDate=_createdDate;
 @property(retain, nonatomic) HKQuantity *value; // @synthesize value=_value;
 @property(nonatomic) unsigned long long key; // @synthesize key=_key;
+@property(nonatomic) unsigned char creatorDevice; // @synthesize creatorDevice=_creatorDevice;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSString *templateUniqueName;
 @property(retain, nonatomic) NSDateComponents *earnedDateComponents;

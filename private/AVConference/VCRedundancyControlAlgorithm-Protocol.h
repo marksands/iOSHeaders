@@ -9,6 +9,6 @@
 @protocol VCRedundancyControlAlgorithm <NSObject>
 @property(readonly, nonatomic) double redundancyInterval;
 @property(readonly, nonatomic) unsigned int redundancyPercentage;
-- (void)updateRedundancyStrategyWithNetworkStatistics:(CDStruct_dd06a755)arg1;
+- (void)updateRedundancyStrategyWithNetworkStatistics:(CDStruct_e9907a6b)arg1;
 @end
 

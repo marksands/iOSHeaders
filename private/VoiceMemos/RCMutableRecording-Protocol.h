@@ -9,13 +9,13 @@
 @class CLLocation, NSDate, NSString;
 
 @protocol RCMutableRecording <RCRecording>
+@property(nonatomic) _Bool manuallyRenamed;
 @property(nonatomic) _Bool playable;
 @property(nonatomic) _Bool pendingRestore;
 @property(nonatomic) _Bool synced;
 @property(nonatomic) long long iTunesPersistentID;
 @property(copy, nonatomic) NSString *uniqueID;
 @property(copy, nonatomic) NSString *customLabel;
-@property(copy, nonatomic) NSString *titleDisallowingEmptyString;
 @property(copy, nonatomic) NSString *title;
 @property(copy, nonatomic) CLLocation *location;
 @property(nonatomic) double duration;

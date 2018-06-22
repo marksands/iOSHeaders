@@ -9,7 +9,7 @@
 #import "PXGadget.h"
 #import "PXSharedAlbumInvitationViewDelegate.h"
 
-@class NSString, PXFeedInvitationSectionInfo, PXGadgetSpec, PXSharedAlbumInvitationView, UIView;
+@class NSString, PXFeedInvitationSectionInfo, PXGadgetSpec, PXSharedAlbumHeaderView, PXSharedAlbumInvitationView;
 
 @interface PXSharedAlbumInvitationGadget : UIViewController <PXSharedAlbumInvitationViewDelegate, PXGadget>
 {
@@ -18,13 +18,14 @@
     unsigned long long _priority;
     id <PXGadgetDelegate> _delegate;
     PXFeedInvitationSectionInfo *_invitationSectionInfo;
-    UIView *_divider;
+    PXSharedAlbumHeaderView *_headerView;
     PXSharedAlbumInvitationView *_invitationView;
 }
 
++ (void)preloadResources;
 @property(nonatomic) _Bool loadedContentData; // @synthesize loadedContentData=_loadedContentData;
 @property(retain, nonatomic) PXSharedAlbumInvitationView *invitationView; // @synthesize invitationView=_invitationView;
-@property(retain, nonatomic) UIView *divider; // @synthesize divider=_divider;
+@property(retain, nonatomic) PXSharedAlbumHeaderView *headerView; // @synthesize headerView=_headerView;
 @property(retain, nonatomic) PXFeedInvitationSectionInfo *invitationSectionInfo; // @synthesize invitationSectionInfo=_invitationSectionInfo;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;

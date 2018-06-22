@@ -26,8 +26,8 @@
 - (_Bool)addOrRemoveConnection:(id)arg1 add:(_Bool)arg2;
 - (id)connections;
 @property(nonatomic) unsigned long long connectionPolicy;
-@property(readonly, nonatomic) __weak NSString *localName;
-@property(readonly, nonatomic) __weak NSString *networkName;
+@property(readonly, nonatomic) NSString *localName;
+@property(readonly, nonatomic) NSString *networkName;
 @property(readonly, nonatomic) unsigned long long networkPort;
 @property(nonatomic, getter=isEnabled) _Bool enabled;
 - (void)dealloc;

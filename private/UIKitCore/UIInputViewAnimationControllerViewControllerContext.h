@@ -8,7 +8,7 @@
 
 #import "UIViewControllerKeyboardContextTransitioning.h"
 
-@class NSMapTable, NSString, UIView, _UIViewControllerTransitionContext;
+@class NSString, UIKBViewTreeSnapshotter, UIView, _UIViewControllerTransitionContext;
 
 __attribute__((visibility("hidden")))
 @interface UIInputViewAnimationControllerViewControllerContext : NSObject <UIViewControllerKeyboardContextTransitioning>
@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
     UIView *_to;
     struct CGRect _fromRect;
     struct CGRect _toRect;
-    NSMapTable *_transitioningBackdropViews;
+    UIKBViewTreeSnapshotter *_kbSnapshotter;
 }
 
 + (id)contextWithHost:(id)arg1 startPlacement:(id)arg2 endPlacement:(id)arg3 transitionContext:(id)arg4;
@@ -28,9 +28,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct CGRect fromKeyboardFrame;
 @property(readonly, nonatomic) UIView *fromKeyboard;
 @property(readonly, nonatomic) id <UIViewControllerContextTransitioning> mainContext;
-- (void)transitionBackdropViewsBack;
-- (void)transitionBackdropViewsToLowQuality;
-- (void)gatherTransitioningBackdropViews;
 - (void)dealloc;
 - (id)initWithHost:(id)arg1 startPlacement:(id)arg2 endPlacement:(id)arg3 transitionContext:(id)arg4;
 

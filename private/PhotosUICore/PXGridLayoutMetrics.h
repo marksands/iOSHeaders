@@ -14,12 +14,14 @@
     struct CGSize _itemSize;
     struct CGSize _interItemSpacing;
     struct CGSize _headerSize;
+    struct CGSize _headerSpacing;
     struct CGSize _footerSize;
     struct UIEdgeInsets _contentInsets;
 }
 
 @property(nonatomic) unsigned long long additionalTileCount; // @synthesize additionalTileCount=_additionalTileCount;
 @property(nonatomic) struct CGSize footerSize; // @synthesize footerSize=_footerSize;
+@property(nonatomic) struct CGSize headerSpacing; // @synthesize headerSpacing=_headerSpacing;
 @property(nonatomic) struct CGSize headerSize; // @synthesize headerSize=_headerSize;
 @property(nonatomic) _Bool displaysHeaderTile; // @synthesize displaysHeaderTile=_displaysHeaderTile;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;

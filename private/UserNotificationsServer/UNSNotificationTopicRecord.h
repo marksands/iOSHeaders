@@ -13,6 +13,8 @@
     _Bool _supportsAlerts;
     _Bool _supportsBadges;
     _Bool _supportsSounds;
+    _Bool _supportsLockScreen;
+    _Bool _supportsNotificationCenter;
     _Bool _supportsCarPlay;
     _Bool _supportsCriticalAlerts;
     _Bool _modalAlertStyle;
@@ -24,6 +26,8 @@
 @property(nonatomic) _Bool modalAlertStyle; // @synthesize modalAlertStyle=_modalAlertStyle;
 @property(nonatomic) _Bool supportsCriticalAlerts; // @synthesize supportsCriticalAlerts=_supportsCriticalAlerts;
 @property(nonatomic) _Bool supportsCarPlay; // @synthesize supportsCarPlay=_supportsCarPlay;
+@property(nonatomic) _Bool supportsNotificationCenter; // @synthesize supportsNotificationCenter=_supportsNotificationCenter;
+@property(nonatomic) _Bool supportsLockScreen; // @synthesize supportsLockScreen=_supportsLockScreen;
 @property(nonatomic) _Bool supportsSounds; // @synthesize supportsSounds=_supportsSounds;
 @property(nonatomic) _Bool supportsBadges; // @synthesize supportsBadges=_supportsBadges;
 @property(nonatomic) _Bool supportsAlerts; // @synthesize supportsAlerts=_supportsAlerts;

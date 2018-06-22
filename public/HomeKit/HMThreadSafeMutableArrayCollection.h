@@ -23,14 +23,14 @@
 - (_Bool)containsObject:(id)arg1;
 - (void)addObjectsFromArray:(id)arg1;
 - (void)setIfDifferent:(id)arg1;
-- (void)setArray:(id)arg1;
+@property(copy, nonatomic) NSArray *array;
 - (id)firstItemWithValue:(id)arg1 forKey:(id)arg2;
 - (id)itemsWithValue:(id)arg1 forKey:(id)arg2;
 - (id)filteredArrayUsingPredicate:(id)arg1;
-@property(readonly, copy, nonatomic) NSArray *array;
 @property(readonly, nonatomic) unsigned long long count;
 - (void)addObjectIfNotPresent:(id)arg1;
 - (void)addObject:(id)arg1;
+- (void)removeAllObjects;
 - (void)removeObjectsInArray:(id)arg1;
 - (void)removeObject:(id)arg1;
 - (void)replaceObject:(id)arg1;

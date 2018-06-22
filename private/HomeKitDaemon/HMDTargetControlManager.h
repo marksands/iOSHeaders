@@ -8,7 +8,7 @@
 
 #import "HMFLogging.h"
 
-@class HMDAccessory, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+@class HMDAccessory, HMDSiriServer, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface HMDTargetControlManager : HMFObject <HMFLogging>
 {
@@ -19,9 +19,11 @@
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     NSString *_logID;
+    HMDSiriServer *_siriServer;
 }
 
 + (id)logCategory;
+@property(retain, nonatomic) HMDSiriServer *siriServer; // @synthesize siriServer=_siriServer;
 @property(readonly, nonatomic) NSString *logID; // @synthesize logID=_logID;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
@@ -53,8 +55,8 @@
 - (void)removeControlService:(id)arg1;
 - (void)addControlService:(id)arg1;
 @property(readonly, nonatomic) NSMutableArray *activeControlServices; // @synthesize activeControlServices=_activeControlServices;
-- (void)removeController:(id)arg1;
-- (void)addController:(id)arg1;
+- (void)_removeController:(id)arg1;
+- (void)_addController:(id)arg1;
 @property(readonly, nonatomic) NSMutableArray *configuredControllers; // @synthesize configuredControllers=_configuredControllers;
 - (id)logIdentifier;
 - (void)invalidate;

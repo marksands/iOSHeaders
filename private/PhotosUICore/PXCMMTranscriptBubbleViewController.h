@@ -39,6 +39,8 @@
     NSError *_error;
 }
 
++ (_Bool)_isPermanentFailureURL:(id)arg1;
++ (void)_registerPermanentFailureURL:(id)arg1;
 @property(retain, nonatomic) PXCMMAssetsProgressListener *progressListener; // @synthesize progressListener=_progressListener;
 @property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_highlighted;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
@@ -68,13 +70,12 @@
 - (_Bool)_shouldNavigateToContent;
 - (void)_acceptMomentShareIfNeeded:(id)arg1;
 - (void)_autoAcceptMomentShareIfNeeded:(id)arg1;
+- (void)_momentShareURL:(id)arg1 didFailWithError:(id)arg2;
 - (void)_fetchMomentShareFromNetworkURL:(id)arg1;
 - (id)_fetchKeyAssetsFromBackingCollection;
 - (id)_fetchAssetsFromBackingCollection;
 - (_Bool)_canFetchAssetsFromMomentShare:(id)arg1;
 - (id)_debugStatusDescription;
-- (id)_momentShareSubtitle;
-- (id)_momentShareTitle;
 - (id)_secondaryDescription;
 - (id)_primaryDescription;
 - (struct CGSize)contentSizeThatFits:(struct CGSize)arg1;

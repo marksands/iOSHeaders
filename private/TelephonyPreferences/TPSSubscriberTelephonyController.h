@@ -37,6 +37,7 @@
 - (void)fetchSIMPasscodeLockEnabled;
 - (id)getSIMPasscodeLockEnabledValueWithError:(id *)arg1;
 - (id)getSIMPasscodeLockEnabledValue;
+- (void)presentSIMPasscodeAlert;
 - (void)setSIMLockEnabled:(_Bool)arg1 pin:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setSIMLockEnabled:(_Bool)arg1 pin:(id)arg2;
 - (void)changePIN:(id)arg1 newPin:(id)arg2 completion:(CDUnknownBlockType)arg3;

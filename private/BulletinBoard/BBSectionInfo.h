@@ -108,8 +108,12 @@
 @property(nonatomic) long long carPlaySetting;
 @property(nonatomic) unsigned long long pushSettings;
 @property(nonatomic) unsigned long long alertType;
-@property(nonatomic) _Bool showsInLockScreen;
-@property(nonatomic) _Bool showsInNotificationCenter;
+- (void)setShowsInLockScreen:(_Bool)arg1;
+- (_Bool)showsInLockScreen;
+@property(nonatomic) long long lockScreenSetting;
+- (void)setShowsInNotificationCenter:(_Bool)arg1;
+- (_Bool)showsInNotificationCenter;
+@property(nonatomic) long long notificationCenterSetting;
 @property(nonatomic) long long authorizationStatus;
 @property(nonatomic) _Bool allowsNotifications;
 

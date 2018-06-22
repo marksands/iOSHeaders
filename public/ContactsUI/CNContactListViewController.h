@@ -7,6 +7,7 @@
 #import "UITableViewController.h"
 
 #import "CNAvatarCardControllerDelegate.h"
+#import "CNAvatarViewControllerDelegate.h"
 #import "CNContactDataSourceDelegate.h"
 #import "CNContactListBannerViewDelegate.h"
 #import "CNContactViewControllerDelegate.h"
@@ -23,7 +24,7 @@
 
 @class CNAvatarCardController, CNAvatarViewController, CNContact, CNContactFormatter, CNContactListBannerView, CNUIContactsEnvironment, CNUIPeopleGroupsGridViewController, CNVCardImportController, NSArray, NSObject<CNContactDataSource>, NSString, UISearchBar, UISearchController, _UIContentUnavailableView;
 
-@interface CNContactListViewController : UITableViewController <CNAvatarCardControllerDelegate, CNContactDataSourceDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate, CNContactListBannerViewDelegate, CNContactViewControllerDelegate, UIGestureRecognizerDelegate, CNUIPeopleGroupsGridViewControllerDelegate, CNUIObjectViewControllerDelegate, UITableViewDragSourceDelegate, UITableViewDragDestinationDelegate, CNVCardImportControllerPresentationDelegate, CNVCardImportControllerDelegate>
+@interface CNContactListViewController : UITableViewController <CNAvatarCardControllerDelegate, CNContactDataSourceDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate, CNContactListBannerViewDelegate, CNContactViewControllerDelegate, UIGestureRecognizerDelegate, CNUIPeopleGroupsGridViewControllerDelegate, CNUIObjectViewControllerDelegate, UITableViewDragSourceDelegate, UITableViewDragDestinationDelegate, CNVCardImportControllerPresentationDelegate, CNVCardImportControllerDelegate, CNAvatarViewControllerDelegate>
 {
     CNContact *_preferredForNameMeContact;
     _Bool _shouldRefreshMeContact;
@@ -102,6 +103,7 @@
 - (void)beginSearch:(id)arg1;
 - (void)peopleGroupsGridViewControllerDidChange:(id)arg1;
 - (id)hostingViewControllerForController:(id)arg1;
+- (void)didUpdateContentForAvatarViewController:(id)arg1;
 - (void)bannerView:(id)arg1 wasSelectedToPresentMeContact:(id)arg2;
 @property(nonatomic) _Bool shouldDisplayMeContactBanner; // @synthesize shouldDisplayMeContactBanner=_shouldDisplayMeContactBanner;
 - (void)refreshTableViewHeader;
@@ -122,6 +124,7 @@
 - (id)sectionIndexTitlesForTableView:(id)arg1;
 - (_Bool)isContactWithIdentifierMeContactOrLinkedToMeContact:(id)arg1;
 - (_Bool)canSelectContactAtIndexPath:(id)arg1;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;

@@ -24,6 +24,7 @@
 @property(nonatomic) __weak id <AFUISiriRemoteViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <AFUISiriRemoteViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (void)setWaitingForTelephonyToStart:(_Bool)arg1;
 - (void)setRunningPPT:(_Bool)arg1 withTestName:(id)arg2 testOptions:(id)arg3;
 - (void)applicationDidBecomeActive;
 - (void)applicationWillEnterForeground;
@@ -44,6 +45,7 @@
 - (void)siriWillShowPasscodeUnlock;
 - (void)siriDidDeactivate;
 - (void)showPresentationWithIdentifier:(id)arg1 properties:(id)arg2 lockState:(unsigned long long)arg3;
+- (void)preloadPluginBundles;
 - (void)preloadPresentationBundleWithIdentifier:(id)arg1;
 - (void)setRequestOptions:(id)arg1;
 - (void)siriDidActivateFromSource:(long long)arg1;

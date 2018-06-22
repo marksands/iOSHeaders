@@ -8,7 +8,7 @@
 
 #import "_HDAWDAction.h"
 
-@class NSDate, NSObject<OS_dispatch_queue>, NSString;
+@class HDProfile, NSDate, NSObject<OS_dispatch_queue>, NSString;
 
 @interface _HDAWDPeriodicAction : NSObject <_HDAWDAction>
 {
@@ -23,6 +23,7 @@
     long long _intervalMultiple;
     long long _maximumAttemptCount;
     double _minimumDelayBetweenAttempts;
+    HDProfile *_profile;
     NSObject<OS_dispatch_queue> *_queue;
     CDUnknownBlockType _block;
     long long _waitingToRun;
@@ -35,6 +36,7 @@
 - (void).cxx_destruct;
 - (_Bool)doForced;
 - (void)doIfWaiting;
+- (void)doIfWaitingOnMaintenanceQueueWithCompletion:(CDUnknownBlockType)arg1;
 - (void)stop;
 - (void)start;
 - (void)_performActivity:(id)arg1;
@@ -52,7 +54,7 @@
 - (void)_beginWaitingToRun;
 - (void)_loadState;
 - (id)taskName;
-- (id)initWithTaskName:(char *)arg1 keyPrefix:(id)arg2 xpcInterval:(long long)arg3 xpcGraceInterval:(long long)arg4 requiresClassA:(_Bool)arg5 intervalMultiple:(long long)arg6 maximumAttemptCount:(long long)arg7 minimumDelayBetweenAttempts:(double)arg8 block:(CDUnknownBlockType)arg9;
+- (id)initWithTaskName:(char *)arg1 keyPrefix:(id)arg2 xpcInterval:(long long)arg3 xpcGraceInterval:(long long)arg4 requiresClassA:(_Bool)arg5 intervalMultiple:(long long)arg6 maximumAttemptCount:(long long)arg7 minimumDelayBetweenAttempts:(double)arg8 profile:(id)arg9 block:(CDUnknownBlockType)arg10;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -10,11 +10,11 @@
 #import "SiriUISiriStatusViewProtocol.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class AVAudioSession, AVPlayerItem, AVPlayerLayer, AVPlayerLooper, AVQueuePlayer, NSObject<OS_dispatch_queue>, NSString, SUICFlamesView, SiriUIConfiguration, UIButton, UILongPressGestureRecognizer, UIScreen;
+@class AVAudioSession, AVPlayerItem, AVPlayerLayer, AVPlayerLooper, AVQueuePlayer, NSObject<OS_dispatch_queue>, NSString, SUICFlamesView, SiriUIConfiguration, UILongPressGestureRecognizer, UIScreen;
 
 @interface SiriUISiriStatusView : UIView <SUICFlamesViewDelegate, UIGestureRecognizerDelegate, SiriUISiriStatusViewProtocol>
 {
-    UIButton *_button;
+    UIView *_touchInputView;
     UILongPressGestureRecognizer *_longPressRecognizer;
     UIView *_flamesContainerView;
     SUICFlamesView *_flamesView;
@@ -30,6 +30,7 @@
     int _deferredFlamesViewState;
     SiriUIConfiguration *_configuration;
     _Bool _textInputEnabled;
+    _Bool _siriGlyphHidden;
     _Bool _flamesViewDeferred;
     _Bool _inUITrackingMode;
     _Bool _paused;
@@ -50,6 +51,7 @@
 @property(nonatomic) double disabledMicOpacity; // @synthesize disabledMicOpacity=_disabledMicOpacity;
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
 - (void).cxx_destruct;
+- (void)flamesViewAuraDidDisplay:(id)arg1;
 - (float)audioLevelForFlamesView:(id)arg1;
 - (void)_handleKeyboardWillHideNotification:(id)arg1;
 - (void)_handleKeyboardDidShowNotification:(id)arg1;

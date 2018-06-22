@@ -17,7 +17,7 @@
 @property(readonly, nonatomic) UILabel *label; // @synthesize label=_label;
 @property(readonly, nonatomic) UILabel *valueText; // @synthesize valueText=_valueText;
 - (void).cxx_destruct;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithStyle:(unsigned long long)arg1;
 
 @end
 

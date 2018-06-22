@@ -20,7 +20,6 @@ __attribute__((visibility("hidden")))
 - (void)prepareWithActivityItems:(id)arg1;
 - (_Bool)canPerformWithActivityItems:(id)arg1;
 - (id)_activityBundleImageConfiguration;
-- (id)activityImage;
 - (id)activityTitle;
 - (id)activityType;
 

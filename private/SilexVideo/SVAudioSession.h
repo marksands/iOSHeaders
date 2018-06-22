@@ -6,34 +6,29 @@
 
 #import "NSObject.h"
 
-@class NSHashTable, NSObject<OS_dispatch_semaphore>, NSString, SVPlayer;
+@class NSMapTable, NSObject<OS_dispatch_semaphore>;
 
 @interface SVAudioSession : NSObject
 {
     _Bool _audioSessionActive;
-    NSHashTable *_players;
-    NSString *_desiredAudioSessionCategory;
-    SVPlayer *_foregroundPlayer;
     NSObject<OS_dispatch_semaphore> *_semaphore;
+    NSMapTable *_players;
 }
 
 + (id)sharedSession;
+@property(readonly, nonatomic) NSMapTable *players; // @synthesize players=_players;
 @property(readonly, nonatomic) NSObject<OS_dispatch_semaphore> *semaphore; // @synthesize semaphore=_semaphore;
-@property(nonatomic) __weak SVPlayer *foregroundPlayer; // @synthesize foregroundPlayer=_foregroundPlayer;
-@property(retain, nonatomic) NSString *desiredAudioSessionCategory; // @synthesize desiredAudioSessionCategory=_desiredAudioSessionCategory;
 @property(nonatomic, getter=isAudioSessionActive) _Bool audioSessionActive; // @synthesize audioSessionActive=_audioSessionActive;
-@property(readonly, nonatomic) NSHashTable *players; // @synthesize players=_players;
 - (void).cxx_destruct;
+- (id)desiredAudioSessionCategory;
 - (void)deactivateAudioSessionCategory;
 - (void)activateAudioSessionCategory;
 - (void)setupAudioSessionCategory;
 - (_Bool)needsToSetupAudioSessionCategory;
 - (_Bool)canDeactivateAudioSession;
 - (_Bool)shouldActivateAudioSession;
-- (void)deactivateForegroundAudioPlaybackForPlayer:(id)arg1;
-- (void)activateForegroundAudioPlaybackForPlayer:(id)arg1;
 - (void)removeInterestForPlayer:(id)arg1;
-- (void)addInterestForPlayer:(id)arg1;
+- (void)addInterestForPlayer:(id)arg1 withMode:(int)arg2;
 - (id)init;
 
 @end

@@ -23,8 +23,9 @@
 - (void)_queue_removeDonation:(id)arg1;
 - (void)_queue_storeDonation:(id)arg1;
 - (id)_keyForAction:(id)arg1;
-- (void)donationActionsStoreRemovedDonation:(id)arg1;
-- (void)donationActionsStoreReceivedDonation:(id)arg1 isNewDonation:(_Bool)arg2;
+- (void)donationActionStoreRemoveAllDonations;
+- (void)donationActionStoreRemovedDonation:(id)arg1;
+- (void)donationActionStoreReceivedDonation:(id)arg1 isNewDonation:(_Bool)arg2;
 - (void)reset;
 - (void)fetchDonationWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchCountForAction:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;

@@ -47,6 +47,7 @@
 @property(readonly, nonatomic) double timestamp;
 @property(readonly, nonatomic) _Bool autoRenew;
 @property(readonly, nonatomic) NSString *iccid;
+- (id)statusAsString:(id)arg1;
 @property(readonly, nonatomic) int status;
 @property(readonly, nonatomic) _Bool isSelectable;
 @property(readonly, nonatomic) _Bool isSelected;

@@ -14,22 +14,25 @@ __attribute__((visibility("hidden")))
     QLFileThumbnailRequest *_request;
     QLThumbnailReply *_reply;
     CDUnknownBlockType _completionHandler;
+    id <QLThumbnailSurfaceGeneratorProtocol> _surfaceGenerator;
 }
 
+@property(retain, nonatomic) id <QLThumbnailSurfaceGeneratorProtocol> surfaceGenerator; // @synthesize surfaceGenerator=_surfaceGenerator;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(retain, nonatomic) QLThumbnailReply *reply; // @synthesize reply=_reply;
 @property(retain, nonatomic) QLFileThumbnailRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
 - (id)_thumbnailDataDestructionConcurrenQueue;
 - (_Bool)_canCreateContextOfSize:(struct CGSize)arg1 forRequest:(id)arg2;
-- (void)_executeCompletionHandlerWithThumbnailData:(id)arg1 thumbnailURL:(id)arg2 drawingContextSize:(struct CGSize)arg3 didGenerateThumbnail:(_Bool)arg4 error:(id)arg5;
+- (void)_executeCompletionHandlerWithThumbnailData:(id)arg1 thumbnailURL:(id)arg2 ioSurface:(id)arg3 drawingContextSize:(struct CGSize)arg4 didGenerateThumbnail:(_Bool)arg5 error:(id)arg6;
+- (void)_didReceiveIOSurface;
 - (void)_didReceiveThumbnailURL:(id)arg1;
 - (void)_didGenerateThumbnailWithData:(id)arg1 drawingContextSize:(struct CGSize)arg2;
 - (void)_thumbnailGenerationDidFailWithError:(id)arg1;
 - (void)_drawInCurrentContextOfSize:(struct CGSize)arg1 drawingBlock:(CDUnknownBlockType)arg2;
 - (void)_drawInContextOfSize:(struct CGSize)arg1 drawingBlock:(CDUnknownBlockType)arg2;
 - (void)generateThumbnailAndPerformCompletionHandler;
-- (id)initWithRequest:(id)arg1 reply:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)initWithRequest:(id)arg1 reply:(id)arg2 completionHandler:(CDUnknownBlockType)arg3 surfaceGenerator:(id)arg4;
 
 @end
 

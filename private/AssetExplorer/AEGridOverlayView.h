@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)_videoRect;
 - (struct CGRect)_cloudRect;
 - (void)drawRect:(struct CGRect)arg1;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)init;
 
 // Remaining properties

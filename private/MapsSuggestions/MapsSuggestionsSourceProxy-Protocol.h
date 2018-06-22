@@ -9,9 +9,9 @@
 @class NSData;
 
 @protocol MapsSuggestionsSourceProxy <NSObject>
-- (void)removeEntryData:(NSData *)arg1 behavior:(unsigned long long)arg2 handler:(void (^)(void))arg3;
-- (void)forceEarlyUpdateWithCompletionBlock:(void (^)(void))arg1;
-- (void)stopMonitoringWithCompletionBlock:(void (^)(void))arg1;
-- (void)startMonitoringWithCompletionBlock:(void (^)(void))arg1;
+- (void)removeEntryData:(NSData *)arg1 behavior:(long long)arg2 handler:(void (^)(void))arg3;
+- (void)forceEarlyUpdateForType:(long long)arg1 handler:(void (^)(void))arg2;
+- (void)stopMonitoringWithHandler:(void (^)(void))arg1;
+- (void)startMonitoringWithHandler:(void (^)(void))arg1;
 @end
 

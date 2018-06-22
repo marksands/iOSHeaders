@@ -45,6 +45,7 @@
 - (id)_tokenRangesDescription;
 - (id)description;
 - (void)dealloc;
+- (id)initWithContentString:(id)arg1 lookIdentifier:(id)arg2 category:(short)arg3 owningGroupId:(long long)arg4;
 - (id)init;
 
 @end

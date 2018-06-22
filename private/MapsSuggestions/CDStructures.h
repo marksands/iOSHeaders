@@ -15,7 +15,24 @@ struct CGSize {
     double _field2;
 };
 
+struct GEOMapItemStorage {
+    Class _field1;
+    id _field2;
+    id _field3;
+    id _field4;
+    id _field5;
+    id _field6;
+    id _field7;
+    id _field8;
+    id _field9;
+    id _field10;
+};
+
 struct NSArray {
+    Class _field1;
+};
+
+struct NSData {
     Class _field1;
 };
 

@@ -13,6 +13,12 @@
     void *_impl;
 }
 
+- (void)disconnectMIDIOutput:(id)arg1;
+- (void)disconnectMIDIInput:(id)arg1;
+- (void)disconnectMIDI:(id)arg1 fromNodes:(id)arg2;
+- (void)disconnectMIDI:(id)arg1 from:(id)arg2;
+- (void)connectMIDI:(id)arg1 toNodes:(id)arg2 format:(id)arg3 block:(CDUnknownBlockType)arg4;
+- (void)connectMIDI:(id)arg1 to:(id)arg2 format:(id)arg3 block:(CDUnknownBlockType)arg4;
 - (long long)renderOffline:(unsigned int)arg1 toBuffer:(id)arg2 error:(id *)arg3;
 @property(readonly, nonatomic) CDUnknownBlockType manualRenderingBlock;
 - (void)disableManualRenderingMode;

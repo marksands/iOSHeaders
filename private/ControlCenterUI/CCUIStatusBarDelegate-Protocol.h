@@ -9,6 +9,7 @@
 @class CCUIStatusBar, UIStatusBarStyleRequest;
 
 @protocol CCUIStatusBarDelegate <NSObject>
+- (struct CGRect)compactAvoidanceFrameForStatusBar:(CCUIStatusBar *)arg1;
 - (UIStatusBarStyleRequest *)compactStyleRequestForStatusBar:(CCUIStatusBar *)arg1;
 @end
 

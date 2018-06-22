@@ -13,7 +13,7 @@
 
 - (struct CGRect)avatarContainerViewFrame;
 - (double)actionButtonsViewAlpha;
-- (id)initWithContainerSize:(struct CGSize)arg1 insets:(struct UIEdgeInsets)arg2 buttonCount:(long long)arg3 startingAvatarViewFrame:(struct CGRect)arg4;
+- (id)initWithContainerSize:(struct CGSize)arg1 insets:(struct UIEdgeInsets)arg2 buttonCount:(long long)arg3 avtViewLayoutInfo:(id)arg4 startingAvatarViewFrame:(struct CGRect)arg5;
 
 @end
 

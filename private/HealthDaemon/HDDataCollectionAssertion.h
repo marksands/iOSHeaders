@@ -10,6 +10,7 @@
 
 @interface HDDataCollectionAssertion : HDAssertion
 {
+    struct os_unfair_lock_s _lock;
     HDDataCollectionObserverState *_observerState;
     NSSet *_sampleTypes;
     double _collectionInterval;

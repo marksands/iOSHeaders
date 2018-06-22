@@ -19,6 +19,7 @@
 - (void)passSyncEngine:(NPKPassSyncEngine *)arg1 sendStateChange:(NPKPassSyncChange *)arg2;
 
 @optional
+- (void)passSyncEngine:(NPKPassSyncEngine *)arg1 finishedProcessingChange:(NPKPassSyncChange *)arg2;
 - (void)passSyncEngine:(NPKPassSyncEngine *)arg1 receivedStateChangeProcessed:(NPKPassSyncChange *)arg2 changeAccepted:(_Bool)arg3;
 - (void)passSyncEngineEncounteredUnexpectedEvent:(NPKPassSyncEngine *)arg1;
 - (void)passSyncEngineStateChanged:(NPKPassSyncEngine *)arg1;

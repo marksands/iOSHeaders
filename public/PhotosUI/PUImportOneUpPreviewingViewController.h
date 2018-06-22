@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)sizeForImportItemViewModel:(id)arg1;
 - (void)updatePreferredContentSize;
 - (void)viewDidLoad;
-- (id)initWithImportItemViewModel:(id)arg1 mediaProvider:(id)arg2;
+- (id)initWithImportItemViewModel:(id)arg1 startingImage:(id)arg2 mediaProvider:(id)arg3;
 
 @end
 

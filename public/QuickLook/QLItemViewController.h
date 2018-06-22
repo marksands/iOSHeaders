@@ -55,7 +55,7 @@
 - (void)_addDragInteractionIfNeeded;
 - (id)draggableView;
 - (void)notifyDelegatesDidFailWithError:(id)arg1;
-- (void)endPreviewHostAppearanceTransitionIfNeeded;
+- (void)endPreviewHostAppearanceTransitionIfNeeded:(_Bool)arg1;
 - (void)beginPreviewHostAppearanceTransitionIfNeeded:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)performFirstTimeAppearanceActions:(unsigned long long)arg1;
 - (_Bool)canPerformFirstTimeAppearanceActions:(unsigned long long)arg1;

@@ -9,7 +9,7 @@
 #import "CLLocationManagerDelegate.h"
 #import "MapsSuggestionsLocationUpdater.h"
 
-@class CLLocation, CLLocationManager, NSHashTable, NSObject<OS_dispatch_queue>, NSString;
+@class CLInUseAssertion, CLLocation, CLLocationManager, NSHashTable, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MapsSuggestionsLeechingLocationUpdater : NSObject <CLLocationManagerDelegate, MapsSuggestionsLocationUpdater>
 {
@@ -18,6 +18,7 @@
     CLLocationManager *_locationManagerForLeeching;
     NSHashTable *_locationObservers;
     NSHashTable *_visitObservers;
+    CLInUseAssertion *_inUseAssertion;
     CLLocation *_lastBestLocation;
 }
 
@@ -26,12 +27,13 @@
 - (void)locationManager:(id)arg1 didVisit:(id)arg2;
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
-- (void)restartLocationUpdatesForDelegate:(id)arg1;
+- (id)restartLocationUpdatesForDelegate:(id)arg1;
 - (void)stopLocationUpdatesForDelegate:(id)arg1;
-- (void)startLocationUpdatesForDelegate:(id)arg1;
+- (id)startLocationUpdatesForDelegate:(id)arg1;
 - (void)_stop;
 - (void)_start;
-- (void)_initLocationManagers;
+- (void)_deinitLocationManager;
+- (void)_initLocationManager;
 - (void)dealloc;
 - (id)init;
 @property(readonly, nonatomic) NSString *uniqueName;

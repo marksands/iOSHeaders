@@ -52,7 +52,7 @@
 - (void).cxx_destruct;
 - (id)withManagerStyle:(long long)arg1;
 - (id)build;
-- (id)withTitleFormatter:(id)arg1 forType:(unsigned long long)arg2;
+- (id)withTitleFormatter:(id)arg1 forType:(long long)arg2;
 - (id)withSourceClasses:(id)arg1;
 - (id)withoutDedupers:(id)arg1;
 - (id)withDedupers:(id)arg1;

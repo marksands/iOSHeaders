@@ -8,7 +8,7 @@
 
 #import "NTKActivityFaceViewFactoryDelegate.h"
 
-@class HKRingsView, NSDate, NSString, NTKActivityFaceControl, NTKActivityFaceViewFactory, NTKDigitalTimeLabel, NTKPolygonCylinderView, UILabel, UIView;
+@class HKRingsView, NSDate, NSString, NTKActivityFaceViewFactory, NTKDigitalTimeLabel, NTKFaceViewTapControl, NTKPolygonCylinderView, UILabel, UIView;
 
 @interface NTKActivityDigitalFaceView : NTKFaceView <NTKActivityFaceViewFactoryDelegate>
 {
@@ -17,7 +17,7 @@
     UILabel *_energyLabel;
     UILabel *_briskMinutesLabel;
     UILabel *_standHoursLabel;
-    NTKActivityFaceControl *_tapToLaunchButton;
+    NTKFaceViewTapControl *_tapToLaunchButton;
     UIView *_timeLabelBackgroundView;
     NTKPolygonCylinderView *_densityEditingPolygonView;
     NSDate *_timeDensityEditingOverrideDate;

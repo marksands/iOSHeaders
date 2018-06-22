@@ -38,6 +38,7 @@
 - (double)visualOriginYInView:(id)arg1;
 @property(readonly, nonatomic) double chevronMaxYOffset;
 @property(readonly, nonatomic) double visualOriginYOffset;
+@property(nonatomic) _Bool showsGrabberPill;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

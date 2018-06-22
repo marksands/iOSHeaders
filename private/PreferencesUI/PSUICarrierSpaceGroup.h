@@ -16,12 +16,14 @@
     RemoteUIController *_remoteUIController;
     PSListController *_listController;
     PSSpecifier *_groupSpecifier;
+    PSSpecifier *_parentSpecifier;
     CTCarrierSpaceCapabilities *_capabilities;
     PSUICarrierSpaceOptInSplashScreen *_optInSplashScreen;
 }
 
 @property(retain, nonatomic) PSUICarrierSpaceOptInSplashScreen *optInSplashScreen; // @synthesize optInSplashScreen=_optInSplashScreen;
 @property(retain, nonatomic) CTCarrierSpaceCapabilities *capabilities; // @synthesize capabilities=_capabilities;
+@property(nonatomic) __weak PSSpecifier *parentSpecifier; // @synthesize parentSpecifier=_parentSpecifier;
 @property(nonatomic) __weak PSSpecifier *groupSpecifier; // @synthesize groupSpecifier=_groupSpecifier;
 @property(nonatomic) __weak PSListController *listController; // @synthesize listController=_listController;
 @property(retain, nonatomic) RemoteUIController *remoteUIController; // @synthesize remoteUIController=_remoteUIController;
@@ -40,6 +42,7 @@
 - (id)carrierServicesSpecifier;
 - (id)specifiers;
 - (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2;
+- (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2 parentSpecifier:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

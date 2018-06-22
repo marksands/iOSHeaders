@@ -9,13 +9,14 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSMeasurement, NSSet, NSUUID, UIImage;
+@class CPImageSet, CPTravelEstimates, NSArray, NSMeasurement, NSSet, NSUUID;
 
 @interface CPManeuver : NSObject <NSCopying, NSSecureCoding>
 {
-    UIImage *_symbol;
+    CPImageSet *_symbolSet;
     NSArray *_instructionVariants;
-    NSMeasurement *_distanceFromPreviousManeuver;
+    CPTravelEstimates *_initialTravelEstimates;
+    NSArray *_attributedInstructionVariants;
     id _userInfo;
     NSUUID *_identifier;
     unsigned long long _maneuverType;
@@ -38,11 +39,13 @@
 @property(nonatomic) unsigned long long maneuverType; // @synthesize maneuverType=_maneuverType;
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) id userInfo; // @synthesize userInfo=_userInfo;
-@property(copy, nonatomic) NSMeasurement *distanceFromPreviousManeuver; // @synthesize distanceFromPreviousManeuver=_distanceFromPreviousManeuver;
+@property(copy, nonatomic) NSArray *attributedInstructionVariants; // @synthesize attributedInstructionVariants=_attributedInstructionVariants;
+@property(retain, nonatomic) CPTravelEstimates *initialTravelEstimates; // @synthesize initialTravelEstimates=_initialTravelEstimates;
 @property(copy, nonatomic) NSArray *instructionVariants; // @synthesize instructionVariants=_instructionVariants;
-@property(retain, nonatomic) UIImage *symbol; // @synthesize symbol=_symbol;
+@property(retain, nonatomic) CPImageSet *symbolSet; // @synthesize symbolSet=_symbolSet;
 - (void).cxx_destruct;
 - (id)description;
+@property(readonly) NSArray *stringInstructionVariants;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

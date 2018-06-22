@@ -47,8 +47,10 @@
     long long _targetFramesPerSecond;
     long long _developerPreferredFramesPerSecond;
     long long _frameToRemoveRotationSnapshotOn;
+    long long _rotationSnapshotState;
 }
 
+@property long long rotationSnapshotState; // @synthesize rotationSnapshotState=_rotationSnapshotState;
 @property long long frameToRemoveRotationSnapshotOn; // @synthesize frameToRemoveRotationSnapshotOn=_frameToRemoveRotationSnapshotOn;
 @property _Bool drawsCameraImage; // @synthesize drawsCameraImage=_drawsCameraImage;
 @property long long developerPreferredFramesPerSecond; // @synthesize developerPreferredFramesPerSecond=_developerPreferredFramesPerSecond;
@@ -59,9 +61,9 @@
 - (void).cxx_destruct;
 - (struct __CVBuffer *)_warpPixelBuffer:(struct __CVBuffer *)arg1 withCamera:(id)arg2;
 - (void)_loadWarpKernalForLensType:(unsigned long long)arg1;
+- (void)_updateBackingSize;
 - (void)cleanupLingeringRotationState;
 - (void)windowDidRotateNotification:(id)arg1;
-- (void)deviceOrientationDidChange:(id)arg1;
 - (void)windowWillAnimateRotateNotification:(id)arg1;
 - (void)windowWillRotateNotification:(id)arg1;
 - (void)didMoveToWindow;

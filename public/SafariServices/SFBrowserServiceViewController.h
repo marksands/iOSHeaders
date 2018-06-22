@@ -34,6 +34,8 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)browserViewDidReceiveFirstTouchEvent:(id)arg1;
 - (void)safariActivity:(id)arg1 didFinish:(_Bool)arg2;
+- (void)webViewControllerWebProcessDidCrash:(id)arg1;
+- (void)webViewController:(id)arg1 didChangeFullScreen:(_Bool)arg2;
 - (void)webViewController:(id)arg1 didFinishDocumentLoadForNavigation:(id)arg2;
 - (void)webViewController:(id)arg1 didStartProvisionalNavigation:(id)arg2;
 - (void)webViewController:(id)arg1 willPerformClientRedirectToURL:(id)arg2 withDelay:(double)arg3;

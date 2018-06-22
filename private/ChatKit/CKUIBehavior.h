@@ -17,6 +17,10 @@
     UIImage *_digitalTouchReplyImage;
     UIImage *_arouetReplyImage;
     UIImage *_surfReplyImage;
+    UIImage *_orbComposeImage;
+    UIImage *_orbReplyImage;
+    UIImage *_orbDetailsImage;
+    UIImage *_orbShareLocationImage;
     double _waveformMaxWidth;
 }
 
@@ -24,6 +28,10 @@
 + (id)orderedContentSizeCategories;
 + (id)sharedBehaviors;
 @property(readonly, nonatomic) double waveformMaxWidth; // @synthesize waveformMaxWidth=_waveformMaxWidth;
+@property(readonly, nonatomic) UIImage *orbShareLocationImage; // @synthesize orbShareLocationImage=_orbShareLocationImage;
+@property(readonly, nonatomic) UIImage *orbDetailsImage; // @synthesize orbDetailsImage=_orbDetailsImage;
+@property(readonly, nonatomic) UIImage *orbReplyImage; // @synthesize orbReplyImage=_orbReplyImage;
+@property(readonly, nonatomic) UIImage *orbComposeImage; // @synthesize orbComposeImage=_orbComposeImage;
 @property(readonly, nonatomic) UIImage *surfReplyImage; // @synthesize surfReplyImage=_surfReplyImage;
 @property(readonly, nonatomic) UIImage *arouetReplyImage; // @synthesize arouetReplyImage=_arouetReplyImage;
 @property(readonly, nonatomic) UIImage *digitalTouchReplyImage; // @synthesize digitalTouchReplyImage=_digitalTouchReplyImage;
@@ -368,6 +376,7 @@
 - (id)_leftStatusTranscriptBoldTextAttributes;
 - (id)_rightStatusTranscriptTextAttributes;
 - (id)_leftStatusTranscriptTextAttributes;
+@property(readonly, nonatomic) UIFont *browserCellFont;
 - (id)transcriptDrawerFont;
 @property(readonly, nonatomic) UIFont *transcriptBoldTextFont;
 @property(readonly, nonatomic) UIFont *transcriptDateTextFont;
@@ -445,6 +454,7 @@
 @property(readonly, nonatomic) Class chatControllerClass;
 @property(readonly, nonatomic) UIImage *liveConversationIndicatorImage;
 @property(readonly, nonatomic) UIImage *defaultWaveformImage;
+@property(readonly, nonatomic) UIImage *messageAcknowledgmentPickerBarBubbleImage;
 @property(readonly, nonatomic) UIImage *trashImage;
 @property(readonly, nonatomic) UIImage *detailsImage;
 @property(readonly, nonatomic) UIImage *readPinnedImage;

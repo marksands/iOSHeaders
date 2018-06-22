@@ -6,16 +6,20 @@
 
 #import "NSObject.h"
 
-@class CKContainer, NSDictionary, NSHashTable, NSOperation, _DKSyncPeerStatusTracker;
+@class CKContainer, NSData, NSHashTable, NSMutableDictionary, NSMutableSet, NSOperation, _DKSyncPeerStatusTracker, _DKThrottledActivity;
 
 @interface _DKSyncCloudKitKnowledgeStorage : NSObject
 {
     _Bool _started;
     id <_DKKeyValueStore> _keyValueStore;
+    _DKThrottledActivity *_activityThrottler;
     _DKSyncPeerStatusTracker *_tracker;
     _Bool _cloudSyncAvailablityObserverRegistered;
     CKContainer *_container;
-    NSDictionary *_zoneIDsBySourceDeviceID;
+    NSMutableDictionary *_zoneIDsBySourceDeviceID;
+    NSMutableSet *_zoneIDsWithAdditionChanges;
+    NSMutableSet *_zoneIDsWithDeletionChanges;
+    NSData *_fetchDatabaseChangesServerChangeTokenData;
     NSOperation *_previousDependentOperation;
     NSHashTable *_outstandingOperations;
     _Bool _isAvailable;
@@ -44,9 +48,16 @@
 - (id)_previousServerChangeTokenForRecordZoneID:(id)arg1;
 - (id)_previousServerChangeTokenKeyForRecordZoneID:(id)arg1;
 - (void)syncDownDeletionsFromCloudWithZoneID:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)fetchDeletedEventIDsFromPeer:(id)arg1 sinceDate:(id)arg2 streamNames:(id)arg3 highPriority:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)fetchDeletedEventIDsFromPeer:(id)arg1 sinceDate:(id)arg2 streamNames:(id)arg3 limit:(unsigned long long)arg4 highPriority:(_Bool)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)syncDownAdditionsFromCloudWithZoneID:(id)arg1 creationDateBetweenDate:(id)arg2 andDate:(id)arg3 streamNames:(id)arg4 limit:(unsigned long long)arg5 fetchOrder:(long long)arg6 completion:(CDUnknownBlockType)arg7;
 - (void)fetchEventsFromPeer:(id)arg1 creationDateBetweenDate:(id)arg2 andDate:(id)arg3 streamNames:(id)arg4 limit:(unsigned long long)arg5 fetchOrder:(long long)arg6 highPriority:(_Bool)arg7 completion:(CDUnknownBlockType)arg8;
+- (void)commitFetchDatabaseChangesServerChangeToken;
+- (void)prewarmFetchWithCompletion:(CDUnknownBlockType)arg1;
+- (void)removeSourceDeviceIdentifierWithRecordZoneID:(id)arg1;
+- (void)fastForwardPastDeletionsInZoneWithZoneID:(id)arg1;
+- (void)configurePeerWithSourceDeviceID:(id)arg1 zoneID:(id)arg2;
+- (void)addSourceDeviceIdentifierWithRecordZoneID:(id)arg1;
+- (void)fetchChangedZonesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_storeZoneIDFromRecords:(id)arg1 orError:(id)arg2;
 - (void)_createZoneWithZoneID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setZoneIDsBySourceDeviceID:(id)arg1;

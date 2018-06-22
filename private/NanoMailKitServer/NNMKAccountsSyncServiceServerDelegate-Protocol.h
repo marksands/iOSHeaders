@@ -9,7 +9,7 @@
 @class NNMKAccountsSyncServiceServer, NNMKProtoAccountSourceType, NSDictionary, NSString;
 
 @protocol NNMKAccountsSyncServiceServerDelegate <NSObject>
-- (void)accountsSyncServiceServer:(NNMKAccountsSyncServiceServer *)arg1 didReceivedWatchAccountsStatus:(NSDictionary *)arg2;
+- (void)accountsSyncServiceServer:(NNMKAccountsSyncServiceServer *)arg1 didReceivedAccountAuthenticationStatus:(NSDictionary *)arg2;
 - (void)accountsSyncServiceServer:(NNMKAccountsSyncServiceServer *)arg1 didChangeAccountSourceType:(NNMKProtoAccountSourceType *)arg2;
 - (void)accountsSyncServiceServer:(NNMKAccountsSyncServiceServer *)arg1 didSendProtobufSuccessfullyWithIDSIdentifier:(NSString *)arg2;
 - (void)accountsSyncServiceServer:(NNMKAccountsSyncServiceServer *)arg1 didFailSendingProtobufWithIDSIdentifier:(NSString *)arg2 errorCode:(long long)arg3;

@@ -8,7 +8,7 @@
 
 #import "VCSessionDownlinkBandwidthAllocatorClient.h"
 
-@class NSArray, NSNumber, NSString, VCSessionBandwidthAllocationTable, VCSessionParticipantMediaStreamInfo;
+@class NSArray, NSNumber, NSString, TimingCollection, VCSessionBandwidthAllocationTable, VCSessionParticipantMediaStreamInfo;
 
 __attribute__((visibility("hidden")))
 @interface VCSessionParticipantRemote : VCSessionParticipant <VCSessionDownlinkBandwidthAllocatorClient>
@@ -32,6 +32,10 @@ __attribute__((visibility("hidden")))
     _Bool _isRedundancyRequested;
     _Bool _isRemoteMediaStalled;
     struct _VCSessionParticipantProminenceInfo _prominenceInfo;
+    TimingCollection *_perfTimers;
+    _Bool _haveReportedPerfTimers;
+    _Bool _haveRecordedFirstOptinTime;
+    _Bool _haveRecordedFirstMKITime;
 }
 
 + (unsigned int)maxVideoNetworkBitrateForVideoQuality:(unsigned char)arg1 isLocalOnWiFi:(_Bool)arg2 isRedundancyRequested:(_Bool)arg3;
@@ -44,6 +48,8 @@ __attribute__((visibility("hidden")))
 @property(readonly) unsigned short activeDownlinkVideoStreamID; // @synthesize activeDownlinkVideoStreamID=_activeDownlinkVideoStreamID;
 @property(retain, nonatomic) NSNumber *optedInAudioStreamID; // @synthesize optedInAudioStreamID=_optedInAudioStreamID;
 @property(retain, nonatomic) NSNumber *optedInVideoStreamID; // @synthesize optedInVideoStreamID=_optedInVideoStreamID;
+- (void)sendTimings;
+- (void)logPerfTimings;
 - (void)pullAudioSamples:(struct opaqueVCAudioBufferList *)arg1;
 - (void)vcMediaStream:(id)arg1 remoteMediaStalled:(_Bool)arg2;
 - (void)vcMediaStream:(id)arg1 didSwitchFromStreamID:(unsigned short)arg2 toStreamID:(unsigned short)arg3;
@@ -72,6 +78,7 @@ __attribute__((visibility("hidden")))
 - (void)collectVideoChannelMetrics:(CDStruct_1c8e0384 *)arg1;
 - (void)redundancyController:(id)arg1 redundancyIntervalDidChange:(double)arg2;
 - (void)redundancyController:(id)arg1 redundancyPercentageDidChange:(unsigned int)arg2;
+- (void)logNewMKITime;
 @property(readonly, nonatomic) VCSessionParticipantMediaStreamInfo *videoStreamInfo;
 @property(readonly, nonatomic) VCSessionParticipantMediaStreamInfo *audioStreamInfo;
 - (_Bool)isVideoActive;

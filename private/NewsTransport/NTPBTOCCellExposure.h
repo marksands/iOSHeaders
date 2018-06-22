@@ -8,14 +8,14 @@
 
 #import "NSCopying.h"
 
-@class NSData, NTPBFeedCellExposure, NTPBTOCCellExposureArticleElement;
+@class NSData, NTPBFeedCellExposure, NTPBTocCellExposureArticleElement;
 
-@interface NTPBTOCCellExposure : PBCodable <NSCopying>
+@interface NTPBTocCellExposure : PBCodable <NSCopying>
 {
     int _displayRank;
     NTPBFeedCellExposure *_feedCellExposure;
     int _rankInSection;
-    NTPBTOCCellExposureArticleElement *_tocCellExposureArticleElement;
+    NTPBTocCellExposureArticleElement *_tocCellExposureArticleElement;
     NSData *_tocCellExposureId;
     int _tocCellSection;
     int _type;
@@ -29,7 +29,7 @@
     } _has;
 }
 
-@property(retain, nonatomic) NTPBTOCCellExposureArticleElement *tocCellExposureArticleElement; // @synthesize tocCellExposureArticleElement=_tocCellExposureArticleElement;
+@property(retain, nonatomic) NTPBTocCellExposureArticleElement *tocCellExposureArticleElement; // @synthesize tocCellExposureArticleElement=_tocCellExposureArticleElement;
 @property(retain, nonatomic) NTPBFeedCellExposure *feedCellExposure; // @synthesize feedCellExposure=_feedCellExposure;
 @property(nonatomic) int rankInSection; // @synthesize rankInSection=_rankInSection;
 @property(nonatomic) int displayRank; // @synthesize displayRank=_displayRank;

@@ -10,20 +10,24 @@
 #import "PXSectionedDataSourceManagerObserver.h"
 #import "PXSettingsKeyObserver.h"
 
-@class NSString, PXCMMInvitationsDataSourceManager;
+@class NSString, PXCMMInvitationsDataSourceManager, PXForYouBadgeManager;
 
 @interface PXCMMInvitationsHorizontalGadgetProvider : PXGadgetProvider <PXSettingsKeyObserver, PXChangeObserver, PXSectionedDataSourceManagerObserver>
 {
     PXCMMInvitationsDataSourceManager *_dataSourceManager;
     _Bool _didGenerateGadgets;
+    PXForYouBadgeManager *_badgeManager;
 }
 
+@property(retain, nonatomic) PXForYouBadgeManager *badgeManager; // @synthesize badgeManager=_badgeManager;
 - (void).cxx_destruct;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)generateGadgets;
 - (void)loadDataForGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
+- (void)loadDataForPriority;
+- (unsigned long long)loadingPriority;
 - (void)_updateGadgets;
 - (void)_configureDataSourceManager;
 - (void)navigateToCMMInvitationWithUUID:(id)arg1 animated:(_Bool)arg2 presentShareActionView:(_Bool)arg3;

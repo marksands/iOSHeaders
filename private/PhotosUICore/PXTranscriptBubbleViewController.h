@@ -30,6 +30,7 @@
 - (void)_resizeTimeoutForRequestID:(long long)arg1;
 - (void)_scheduleContentViewUpdate;
 - (void)transitionToContentView:(id)arg1;
+- (struct CGSize)_contentViewSizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)contentSizeThatFits:(struct CGSize)arg1;
 
 @end

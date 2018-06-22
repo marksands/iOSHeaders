@@ -29,10 +29,10 @@
     } _needToUpdate;
     _Bool _isPerformingChanges;
     _Bool _paused;
+    float _progress;
     NSString *_title;
     NSString *_subtitle1;
     NSString *_subtitle2;
-    double _progress;
     long long _actionStyle;
     NSString *_actionTitle;
     NSString *_actionConfirmationAlertTitle;
@@ -53,7 +53,7 @@
 @property(copy, nonatomic) NSString *actionConfirmationAlertTitle; // @synthesize actionConfirmationAlertTitle=_actionConfirmationAlertTitle;
 @property(copy, nonatomic) NSString *actionTitle; // @synthesize actionTitle=_actionTitle;
 @property(nonatomic) long long actionStyle; // @synthesize actionStyle=_actionStyle;
-@property(nonatomic) double progress; // @synthesize progress=_progress;
+@property(nonatomic) float progress; // @synthesize progress=_progress;
 @property(nonatomic, getter=isPaused) _Bool paused; // @synthesize paused=_paused;
 @property(copy, nonatomic) NSString *subtitle2; // @synthesize subtitle2=_subtitle2;
 @property(copy, nonatomic) NSString *subtitle1; // @synthesize subtitle1=_subtitle1;

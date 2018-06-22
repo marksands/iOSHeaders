@@ -28,6 +28,7 @@
 @property(nonatomic) _Bool beepBeforeInstruction; // @dynamic beepBeforeInstruction;
 @property(nonatomic) _Bool walkingVoiceGuidance; // @dynamic walkingVoiceGuidance;
 @property(nonatomic) _Bool drivingVoiceGuidance; // @dynamic drivingVoiceGuidance;
+@property(nonatomic) _Bool isConnectedToCarplay; // @dynamic isConnectedToCarplay;
 @property(nonatomic) unsigned long long maxAlternateRoutesCount; // @dynamic maxAlternateRoutesCount;
 @property(nonatomic) _Bool speechEnabled; // @dynamic speechEnabled;
 @property(nonatomic) _Bool muteSpeechOverride; // @dynamic muteSpeechOverride;

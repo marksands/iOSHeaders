@@ -212,6 +212,7 @@
 - (void)irisImageTileViewControllerDidBeginPlaying:(id)arg1;
 - (void)irisImageTileViewControllerDidBeginHinting:(id)arg1;
 - (void)oneUpAssetTransition:(id)arg1 animateTransitionWithContext:(id)arg2 duration:(double)arg3 completion:(CDUnknownBlockType)arg4;
+- (id)createAssetTransitionInfo;
 - (void)oneUpAssetTransition:(id)arg1 requestTransitionContextWithCompletion:(CDUnknownBlockType)arg2;
 - (void)oneUpAssetTransitionDidEnd:(id)arg1;
 - (void)oneUpAssetTransitionWillBegin:(id)arg1;

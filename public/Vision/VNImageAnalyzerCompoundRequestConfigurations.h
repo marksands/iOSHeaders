@@ -11,7 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface VNImageAnalyzerCompoundRequestConfigurations : NSObject
 {
-    NSMutableDictionary *_regionOfInterestConfigurations;
+    NSMutableDictionary *_uniqueConfigurations;
 }
 
 - (void).cxx_destruct;

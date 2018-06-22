@@ -35,18 +35,20 @@
     AVTUIEnvironment *_environment;
     id <AVTUILogger> _logger;
     _AVTAvatarRecordImageProvider *_imageProvider;
-    AVTRenderingScope *_renderingScope;
+    AVTRenderingScope *_editableRecordsListRenderingScope;
+    AVTRenderingScope *_gridRenderingScope;
 }
 
 + (id)funCamAvatarPickerControllerForStore:(id)arg1;
 + (id)createClippingViewForSize:(struct CGSize)arg1;
 + (id)sessionProviderWithEnvironment:(id)arg1 delegate:(id)arg2;
-+ (double)imageItemInsetsForListWithItemContentSize:(struct CGSize)arg1;
-+ (double)imageItemInsetsForGrid;
++ (CDUnknownBlockType)imageItemInsetsForList;
++ (CDUnknownBlockType)imageItemInsetsForGrid;
 + (id)newGridLayout;
 + (id)itemsFromRecords:(id)arg1;
-+ (double)edgeLengthFittingWidth:(double)arg1 interItemSpacing:(double)arg2 environment:(id)arg3;
-@property(readonly, nonatomic) AVTRenderingScope *renderingScope; // @synthesize renderingScope=_renderingScope;
++ (double)edgeLengthFittingWidth:(double)arg1 environment:(id)arg2;
+@property(readonly, nonatomic) AVTRenderingScope *gridRenderingScope; // @synthesize gridRenderingScope=_gridRenderingScope;
+@property(readonly, nonatomic) AVTRenderingScope *editableRecordsListRenderingScope; // @synthesize editableRecordsListRenderingScope=_editableRecordsListRenderingScope;
 @property(readonly, nonatomic) _AVTAvatarRecordImageProvider *imageProvider; // @synthesize imageProvider=_imageProvider;
 @property(readonly, nonatomic) id <AVTUILogger> logger; // @synthesize logger=_logger;
 @property(readonly, nonatomic) AVTUIEnvironment *environment; // @synthesize environment=_environment;
@@ -74,6 +76,7 @@
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
+- (struct CGSize)gridItemSize;
 - (long long)indexForRecord:(id)arg1;
 - (long long)indexForRecordIdentifier:(id)arg1;
 - (id)indexPathForNoneItem;

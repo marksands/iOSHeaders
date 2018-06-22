@@ -15,6 +15,7 @@
 
 @property(readonly, nonatomic) IMHandle *conversationInitiator; // @synthesize conversationInitiator=_conversationInitiator;
 - (void).cxx_destruct;
+- (_Bool)canDelete;
 @property(readonly, nonatomic) _Bool isFromMe;
 @property(readonly, nonatomic) __weak TUConversation *tuConversation;
 @property(readonly, nonatomic) NSUUID *tuConversationUUID;

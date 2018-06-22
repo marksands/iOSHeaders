@@ -18,6 +18,8 @@
     NSArray *__internalTechniques;
 }
 
++ (id)techniquesByForceReplacingTechniques:(id)arg1 withMatchingClassTechniques:(id)arg2;
++ (id)techniquesByReplacingOriginalTechniques:(id)arg1 withReplacementTechniques:(id)arg2 passingTest:(CDUnknownBlockType)arg3;
 + (id)techinqueInArray:(id)arg1 passingTest:(CDUnknownBlockType)arg2;
 @property(copy) NSArray *_internalTechniques; // @synthesize _internalTechniques=__internalTechniques;
 - (void).cxx_destruct;
@@ -26,10 +28,13 @@
 - (void)technique:(id)arg1 didOutputResultData:(id)arg2 timestamp:(double)arg3 context:(id)arg4;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;
+- (id)processResultData:(id)arg1 timestamp:(double)arg2 context:(id)arg3;
 - (void)prepare;
 - (void)setBonusLatency:(double)arg1;
 - (id)techniqueOfClass:(Class)arg1;
 - (void)siblingTechniquesDidChange:(id)arg1;
+- (void)reconfigureFrom:(id)arg1;
+- (_Bool)reconfigurableFrom:(id)arg1;
 - (id)resultDataClasses;
 - (double)requiredTimeInterval;
 - (unsigned long long)requiredSensorDataTypes;
@@ -38,7 +43,7 @@
 - (id)predictedResultDataAtTimestamp:(double)arg1 context:(id)arg2;
 - (void)requestResultDataAtTimestamp:(double)arg1 context:(id)arg2;
 - (id)processData:(id)arg1;
-- (void)replaceTechniques:(id)arg1;
+- (void)reuseTechniques:(id)arg1;
 - (id)initWithParallelTechniques:(id)arg1;
 - (id)initWithTechniques:(id)arg1;
 - (id)initWithTechniques:(id)arg1 delegate:(id)arg2;

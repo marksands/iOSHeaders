@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)imageLoadParamsWithImageType:(unsigned long long)arg1;
 - (id)_valueForPropertyDescriptor:(id)arg1;
+- (id)assetController;
 - (id)showIdentifier;
 - (id)playedState;
 - (id)coverArtImageIdentifier;

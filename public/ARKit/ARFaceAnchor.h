@@ -17,7 +17,6 @@
     ARFaceGeometry *_geometry;
     ARFaceTrackingData *_trackingData;
     NSError *_trackingError;
-    // Error parsing type: , name: _lookAtPoint
 }
 
 + (_Bool)supportsSecureCoding;
@@ -28,9 +27,6 @@
 @property(retain, nonatomic) NSError *trackingError; // @synthesize trackingError=_trackingError;
 @property(nonatomic) _Bool isTracked; // @synthesize isTracked=_isTracked;
 @property(retain, nonatomic) ARFaceTrackingData *trackingData; // @synthesize trackingData=_trackingData;
-// Error parsing type for property lookAtPoint:
-// Property attributes: T,R,N,V_lookAtPoint
-
 @property(readonly, nonatomic) ARFaceGeometry *geometry; // @synthesize geometry=_geometry;
 - (void).cxx_destruct;
 - (_Bool)isEqualToFaceAnchor:(id)arg1;
@@ -39,6 +35,9 @@
 @property(readonly, copy) NSString *debugDescription;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 -     // Error parsing type: 16@0:8, name: gazePoint
+// Error parsing type for property lookAtPoint:
+// Property attributes: T,R,N
+
 // Error parsing type for property rightEyeTransform:
 // Property attributes: T{?=[4]},R,N
 

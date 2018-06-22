@@ -29,6 +29,7 @@
 + (id)sharedManager;
 - (void).cxx_destruct;
 - (void)serviceBannerStoreDidChange;
+- (void)serviceUpdateBanner:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)serviceBannersForBundleIdentifier:(id)arg1 target:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)serviceAllBannersWithCompletion:(CDUnknownBlockType)arg1;
 - (void)serviceProcessSyncCommands:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -42,6 +43,8 @@
 - (void)_schedulePeriodicTasks;
 - (void)_handleUserIdentityStoreDidChangeNotification:(id)arg1;
 - (void)_processSyncCommands:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)updateBanner:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)updateBanner:(id)arg1 withIncrementedDisplayCount:(int)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)bannersForBundleIdentifier:(id)arg1 target:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)allBannersWithCompletion:(CDUnknownBlockType)arg1;
 - (void)processSyncCommands:(id)arg1 completion:(CDUnknownBlockType)arg2;

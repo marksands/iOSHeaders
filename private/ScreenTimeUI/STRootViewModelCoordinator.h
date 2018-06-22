@@ -8,7 +8,7 @@
 
 #import "STRootViewModelCoordinator.h"
 
-@class NSArray, NSMutableDictionary, NSNumber, NSObject<STContentPrivacyViewModelCoordinator>, NSObject<STTimeAllowancesViewModelCoordinator>, NSObject<STUsageDetailsViewModelCoordinator>, NSString, RMPersistenceController, STRootViewModel;
+@class NSArray, NSMutableDictionary, NSNumber, NSObject<STContentPrivacyViewModelCoordinator>, NSObject<STTimeAllowancesViewModelCoordinator>, NSObject<STUsageDetailsViewModelCoordinator>, NSString, STRootViewModel;
 
 @interface STRootViewModelCoordinator : NSObject <STRootViewModelCoordinator>
 {
@@ -16,7 +16,7 @@
     NSObject<STUsageDetailsViewModelCoordinator> *_usageDetailsCoordinator;
     NSObject<STTimeAllowancesViewModelCoordinator> *_timeAllowancesCoordinator;
     NSObject<STContentPrivacyViewModelCoordinator> *_contentPrivacyCoordinator;
-    RMPersistenceController *_persistenceController;
+    id <RMPersistenceControllerProtocol> _persistenceController;
     STRootViewModel *_viewModel;
     NSMutableDictionary *_coordinatorsByChildDSID;
     NSNumber *_userDSID;
@@ -33,14 +33,13 @@
 @property(copy, nonatomic) NSNumber *userDSID; // @synthesize userDSID=_userDSID;
 @property(retain, nonatomic) NSMutableDictionary *coordinatorsByChildDSID; // @synthesize coordinatorsByChildDSID=_coordinatorsByChildDSID;
 @property(retain, nonatomic) STRootViewModel *viewModel; // @synthesize viewModel=_viewModel;
-@property(retain, nonatomic) RMPersistenceController *persistenceController; // @synthesize persistenceController=_persistenceController;
+@property(retain, nonatomic) id <RMPersistenceControllerProtocol> persistenceController; // @synthesize persistenceController=_persistenceController;
 - (void).cxx_destruct;
 - (id)organizationIdentifierForManagement;
 - (id)organizationIdentifierForUsage;
 - (void)loadViewModelWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)loadViewModelRightNow;
 - (void)saveViewModel:(id)arg1;
-- (void)clearUsageDataWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)setPIN:(id)arg1 screenTimeEnabled:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setScreenTimeEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)setPIN:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -54,7 +53,7 @@
 - (void)_persistenceStoreDidChange:(id)arg1;
 - (void)_registerForPersistenceStoreNotifications;
 - (id)initWithPersistenceController:(id)arg1 userDSID:(id)arg2 selectedDevices:(id)arg3;
-- (id)initWithUserDSID:(id)arg1 selectedDevices:(id)arg2;
+- (id)initWithUserDSID:(id)arg1;
 - (id)initWithPersistenceController:(id)arg1;
 - (id)init;
 

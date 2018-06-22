@@ -35,6 +35,7 @@
 - (id)faceClusteringInformation:(unsigned long long)arg1 error:(id *)arg2;
 - (_Bool)processPersonsWithOptions:(id)arg1 error:(id *)arg2;
 - (_Bool)reclusterFacesWithOptions:(id)arg1 error:(id *)arg2;
+- (_Bool)resetFaceClassificationModel:(id *)arg1;
 - (_Bool)resetPeople:(id *)arg1;
 - (_Bool)resetFaceClusteringState:(id *)arg1;
 - (long long)updateKeyFacesOfPersonsWithLocalIdentifiers:(id)arg1 forceUpdate:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
@@ -104,6 +105,7 @@
 - (id)requestRelatedDebugInformationBetweenReferenceAssetCollectionForLocalIdentifier:(id)arg1 andRelatedAssetCollectionForLocalIdentifier:(id)arg2 options:(id)arg3 precision:(unsigned long long)arg4 relatedType:(unsigned long long)arg5 error:(id *)arg6;
 - (id)requestRelatedDebugInformationBetweenAssetForLocalIdentifier:(id)arg1 andRelatedAssetCollectionForLocalIdentifier:(id)arg2 options:(id)arg3 precision:(unsigned long long)arg4 relatedType:(unsigned long long)arg5 error:(id *)arg6;
 - (id)requestSearchInformationForTripUUIDs:(id)arg1 withOptions:(id)arg2 error:(id *)arg3;
+- (id)requestAssetSearchKeywordsForAssetCollectionUUIDs:(id)arg1 ofType:(unsigned long long)arg2 withOptions:(id)arg3 error:(id *)arg4;
 - (id)requestSearchIndexKeywordsForAssetCollectionUUIDs:(id)arg1 ofType:(unsigned long long)arg2 withOptions:(id)arg3 error:(id *)arg4;
 - (id)requestLocalizedSceneAncestryInformationWithError:(id *)arg1;
 - (id)requestGraphSearchMetadataWithOptions:(id)arg1 error:(id *)arg2;

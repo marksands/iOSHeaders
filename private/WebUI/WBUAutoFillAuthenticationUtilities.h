@@ -10,8 +10,10 @@
 {
 }
 
++ (id)customAuthenticationTitleForFillingCreditCard;
 + (id)customAuthenticationTitleForFillingSavedPassword;
 + (id)customAuthenticationTitleForViewingSavedPasswords;
++ (id)passcodePromptForFillingCreditCard;
 + (id)passcodePromptForFillingSavedPassword;
 + (id)passcodePromptForViewingSavedPasswords;
 

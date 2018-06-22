@@ -20,7 +20,6 @@
 - (void)_reportFirstPacketTimeForMKI:(id)arg1;
 - (void)reportFirstPacketTimeForMKI:(id)arg1;
 - (void)requestSessionInfoWithOptions:(id)arg1;
-- (void)requestStatsWithOptions:(id)arg1;
 - (void)setChannelPreferences:(id)arg1;
 - (void)sendMetadata;
 - (void)readyToRead;

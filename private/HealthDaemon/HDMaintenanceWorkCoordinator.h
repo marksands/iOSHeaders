@@ -8,12 +8,13 @@
 
 #import "HDAssertionObserver.h"
 
-@class HDAssertionManager, NSLock, NSOperationQueue, NSString;
+@class HDAssertionManager, NSLock, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString;
 
 @interface HDMaintenanceWorkCoordinator : NSObject <HDAssertionObserver>
 {
     NSOperationQueue *_maintenanceWorkQueue;
     HDAssertionManager *_assertionManager;
+    NSObject<OS_dispatch_queue> *_assertionQueue;
     NSLock *_lock;
 }
 

@@ -8,7 +8,7 @@
 
 #import "HACCContentModule.h"
 
-@class HACCBatteryGroupView, NSString, UILabel;
+@class BCBatteryDevice, HACCBatteryGroupView, NSString, UILabel;
 
 @interface HACCStatusView : UIControl <HACCContentModule>
 {
@@ -16,11 +16,13 @@
     id <HACCContentModuleDelegate> delegate;
     UILabel *_titleLabel;
     HACCBatteryGroupView *_batteryView;
+    BCBatteryDevice *_batteryDevice;
 }
 
+@property(retain, nonatomic) BCBatteryDevice *batteryDevice; // @synthesize batteryDevice=_batteryDevice;
 @property(retain, nonatomic) HACCBatteryGroupView *batteryView; // @synthesize batteryView=_batteryView;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
-@property(nonatomic) id <HACCContentModuleDelegate> delegate; // @synthesize delegate;
+@property(nonatomic) __weak id <HACCContentModuleDelegate> delegate; // @synthesize delegate;
 @property(nonatomic) unsigned long long module; // @synthesize module;
 - (void).cxx_destruct;
 - (id)accessibilityValue;

@@ -8,21 +8,27 @@
 
 #import "LSApplicationWorkspaceObserverProtocol.h"
 
-@class NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class NSDictionary, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, NSURL;
 
 @interface BLTSiriActionAppList : NSObject <LSApplicationWorkspaceObserverProtocol>
 {
-    NSMutableDictionary *_appList;
+    NSMutableDictionary *_installed;
+    NSMutableSet *_removed;
     NSObject<OS_dispatch_queue> *_appListQueue;
+    NSURL *_siriActionAppListStoreURL;
+    NSMutableSet *_appListStore;
     id <BLTSiriActionAppListDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <BLTSiriActionAppListDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)updateStoreWithInstalled:(id)arg1 removed:(id)arg2;
 - (void)applicationIconDidChange:(id)arg1;
 - (void)applicationsDidUninstall:(id)arg1;
 - (void)applicationsDidInstall:(id)arg1;
-@property(readonly, nonatomic) NSDictionary *appList;
+- (_Bool)_handleAppListInstalled:(struct NSDictionary *)arg1 removed:(id)arg2;
+@property(readonly, nonatomic) NSSet *removed;
+@property(readonly, nonatomic) NSDictionary *installed;
 - (void)dealloc;
 - (id)init;
 

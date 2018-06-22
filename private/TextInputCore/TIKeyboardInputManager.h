@@ -259,6 +259,7 @@
 - (void)syncToKeyboardState:(id)arg1;
 - (_Bool)documentState:(id)arg1 matchesDocumentState:(id)arg2;
 - (void)resume;
+- (void)releaseMRLBuffers;
 - (void)suspend;
 - (id)currentInputModeIdentifier;
 - (void)acceptCurrentCandidateIfSelectedWithContext:(id)arg1;

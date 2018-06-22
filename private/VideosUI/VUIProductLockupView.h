@@ -6,10 +6,12 @@
 
 #import "UIView.h"
 
-@class NSArray, NSNumber, NSString, TVFocusableTextView, TVImageProxy, UIImage, UIImageView, UIStackView, VUIContentRating, VUILabel, VUIRoundButton, VUISeparatorView, _TVImageView;
+#import "VUIRentalExpirationLabelDelegate.h"
+
+@class NSArray, NSNumber, NSString, TVFocusableTextView, TVImageProxy, UIImage, UIImageView, UIStackView, VUIContentRating, VUILabel, VUIRentalExpirationLabel, VUIRoundButton, VUISeparatorView, _TVImageView;
 
 __attribute__((visibility("hidden")))
-@interface VUIProductLockupView : UIView
+@interface VUIProductLockupView : UIView <VUIRentalExpirationLabelDelegate>
 {
     _Bool _contentDescriptionExpanded;
     _Bool _didSetUpViews;
@@ -41,9 +43,13 @@ __attribute__((visibility("hidden")))
     VUILabel *_availabilityLabel;
     VUILabel *_genreReleaseDotSeparator;
     UIStackView *_badgesStackView;
+    VUIRentalExpirationLabel *_expirationLabel;
+    UIImage *_contentRatingImage;
 }
 
 + (id)productLockupViewWithMedia:(id)arg1;
+@property(retain, nonatomic) UIImage *contentRatingImage; // @synthesize contentRatingImage=_contentRatingImage;
+@property(retain, nonatomic) VUIRentalExpirationLabel *expirationLabel; // @synthesize expirationLabel=_expirationLabel;
 @property(nonatomic) _Bool didSetUpViews; // @synthesize didSetUpViews=_didSetUpViews;
 @property(nonatomic) _Bool contentDescriptionExpanded; // @synthesize contentDescriptionExpanded=_contentDescriptionExpanded;
 @property(retain, nonatomic) UIStackView *badgesStackView; // @synthesize badgesStackView=_badgesStackView;
@@ -85,6 +91,7 @@ __attribute__((visibility("hidden")))
 - (double)_descriptionTopMarginWithBaselineMargin:(double)arg1 otherFont:(id)arg2;
 - (struct CGSize)_sizeOfDescriptionLabel:(double)arg1;
 - (id)_contentDescriptionAttributedString;
+- (void)rentalExpirationLabelNeedsRelayout:(id)arg1;
 - (void)_configureViewElementsForAX;
 - (void)traitCollectionDidChange:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
@@ -92,6 +99,12 @@ __attribute__((visibility("hidden")))
 - (void)setCoverArtImageProxy:(id)arg1 placeholderImage:(id)arg2;
 - (void)updateWithMediaEntity:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

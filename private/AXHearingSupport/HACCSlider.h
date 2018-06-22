@@ -33,7 +33,7 @@
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(nonatomic) double value; // @synthesize value=_value;
-@property(nonatomic) id <HACCContentModuleDelegate> delegate; // @synthesize delegate;
+@property(nonatomic) __weak id <HACCContentModuleDelegate> delegate; // @synthesize delegate;
 @property(nonatomic) unsigned long long module; // @synthesize module;
 - (void).cxx_destruct;
 - (void)accessibilityIncrement;

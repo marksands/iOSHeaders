@@ -34,6 +34,7 @@
 - (id)activityViewController;
 - (void)_prepareComposeViewController:(id)arg1 withActivityExtensionItems:(id)arg2;
 - (void)_prepareComposeViewController:(id)arg1 withInjectedExtensionItems:(id)arg2;
+- (void)_willBePerformedOrPresented;
 - (void)prepareWithActivityExtensionItemData:(id)arg1;
 - (_Bool)canPerformWithActivityItems:(id)arg1;
 - (_Bool)_canBeExcludeWhenMatchingWithContext:(id)arg1;

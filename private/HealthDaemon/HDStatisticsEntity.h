@@ -17,9 +17,11 @@
 + (Class)ownerEntityClass;
 + (id)databaseTable;
 + (_Bool)enumerateStatisticsForOwner:(id)arg1 transaction:(id)arg2 error:(id *)arg3 block:(CDUnknownBlockType)arg4;
-+ (_Bool)setStatistics:(id)arg1 forOwner:(id)arg2 anchor:(id)arg3 calculator:(id)arg4 transaction:(id)arg5 error:(id *)arg6;
 + (_Bool)deleteStatisticsForOwner:(id)arg1 type:(id)arg2 transaction:(id)arg3 error:(id *)arg4;
-+ (id)statisticsForOwner:(id)arg1 type:(id)arg2 anchor:(id *)arg3 calculator:(id *)arg4 transaction:(id)arg5 error:(id *)arg6;
++ (_Bool)setCalculator:(id)arg1 forOwner:(id)arg2 anchor:(id)arg3 transaction:(id)arg4 error:(id *)arg5;
++ (_Bool)setStatistics:(id)arg1 forOwner:(id)arg2 anchor:(id)arg3 transaction:(id)arg4 error:(id *)arg5;
++ (id)calculatorForOwner:(id)arg1 type:(id)arg2 anchor:(id *)arg3 transaction:(id)arg4 error:(id *)arg5;
++ (id)statisticsForOwner:(id)arg1 type:(id)arg2 anchor:(id *)arg3 transaction:(id)arg4 error:(id *)arg5;
 
 @end
 

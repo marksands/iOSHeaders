@@ -12,6 +12,7 @@
 
 @interface AVTImageStore : NSObject <AVTImageCache>
 {
+    _Bool _validateImages;
     NSFileManager *_fileManager;
     NSURL *_location;
     id <AVTImageEncoder> _imageEncoder;
@@ -21,6 +22,7 @@
 
 + (id)resourceURLForItem:(id)arg1 scope:(id)arg2 baseURL:(id)arg3 encoder:(id)arg4;
 + (void)clearContentAtLocation:(id)arg1 logger:(id)arg2;
+@property(readonly, nonatomic) _Bool validateImages; // @synthesize validateImages=_validateImages;
 @property(readonly, nonatomic) id <AVTUILogger> logger; // @synthesize logger=_logger;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *stateLock; // @synthesize stateLock=_stateLock;
 @property(readonly, nonatomic) id <AVTImageEncoder> imageEncoder; // @synthesize imageEncoder=_imageEncoder;
@@ -37,8 +39,8 @@
 - (_Bool)saveImage:(id)arg1 forItem:(id)arg2 scope:(id)arg3 error:(id *)arg4;
 - (_Bool)createDirectoryIfNeeded:(id *)arg1;
 - (void)performStateWork:(CDUnknownBlockType)arg1;
-- (id)initWithEnvironment:(id)arg1 location:(id)arg2 encoder:(id)arg3;
-- (id)initWithEnvironment:(id)arg1 location:(id)arg2;
+- (id)initWithEnvironment:(id)arg1 validateImages:(_Bool)arg2 location:(id)arg3 encoder:(id)arg4;
+- (id)initWithEnvironment:(id)arg1 validateImages:(_Bool)arg2 location:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

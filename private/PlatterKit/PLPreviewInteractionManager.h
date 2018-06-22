@@ -19,6 +19,7 @@
     _UIPreviewInteractionViewControllerPresentation *_previewInteractionPresentation;
     CDUnknownBlockType _presentationCompletion;
     CDUnknownBlockType _dismissalCompletion;
+    _Bool _didInteractionInitiateWithHint;
     _Bool _willPresent;
     id <PLPreviewInteractionManagerDelegate> _delegate;
     UIViewController<PLPreviewInteractionPresentable> *_presentedViewController;
@@ -26,6 +27,7 @@
 
 + (void)initialize;
 @property(nonatomic, getter=_willPresent, setter=_setWillPresent:) _Bool willPresent; // @synthesize willPresent=_willPresent;
+@property(nonatomic, setter=_setDidInteractionInitiateWithHint:) _Bool didInteractionInitiateWithHint; // @synthesize didInteractionInitiateWithHint=_didInteractionInitiateWithHint;
 @property(readonly, nonatomic) __weak UIViewController<PLPreviewInteractionPresentable> *presentedViewController; // @synthesize presentedViewController=_presentedViewController;
 @property(nonatomic) __weak id <PLPreviewInteractionManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;

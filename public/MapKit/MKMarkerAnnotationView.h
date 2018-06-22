@@ -6,7 +6,7 @@
 
 #import <MapKit/MKAnnotationView.h>
 
-@class NSString, UIColor, UIImage, UIImageView, UILabel, UIView, _MKBezierPathView;
+@class GEOFeatureStyleAttributes, NSString, UIColor, UIImage, UIImageView, UILabel, UIView, _MKBezierPathView;
 
 @interface MKMarkerAnnotationView : MKAnnotationView
 {
@@ -19,6 +19,7 @@
     UILabel *_selectedGlyphLabel;
     _MKBezierPathView *_selectedDotView;
     UIView *_contentMaskView;
+    GEOFeatureStyleAttributes *_customStyleAttributes;
     _Bool _animatesWhenAdded;
     long long _titleVisibility;
     long long _subtitleVisibility;
@@ -42,6 +43,7 @@
 @property(copy, nonatomic) UIColor *markerTintColor; // @synthesize markerTintColor=_markerTintColor;
 @property(nonatomic) long long subtitleVisibility; // @synthesize subtitleVisibility=_subtitleVisibility;
 @property(nonatomic) long long titleVisibility; // @synthesize titleVisibility=_titleVisibility;
+@property(retain, nonatomic, getter=_styleAttributes, setter=_setStyleAttributes:) GEOFeatureStyleAttributes *styleAttributes; // @synthesize styleAttributes=_customStyleAttributes;
 - (void).cxx_destruct;
 - (void)configureCustomFeature:(id)arg1;
 - (struct UIEdgeInsets)alignmentRectInsets;
@@ -60,6 +62,7 @@
 - (void)prepareForSnapshotting;
 - (void)_unhideForDisplay;
 - (void)prepareForDisplay;
+- (void)prepareForReuse;
 - (long long)_currentMarkerState;
 - (void)_updateContentForState:(long long)arg1 forceUpdate:(_Bool)arg2;
 - (void)_updateContentForState:(long long)arg1;

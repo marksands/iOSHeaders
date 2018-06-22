@@ -189,6 +189,7 @@ __attribute__((visibility("hidden")))
 - (void)finishScrollViewTransition;
 - (void)configureScrollDismissController:(_Bool)arg1;
 - (void)setInputViewsHidden:(_Bool)arg1;
+@property(readonly, nonatomic, getter=isInputViewsHidden) _Bool inputViewsHidden;
 - (void)updateToPlacement:(id)arg1 withNormalAnimationsAndNotifications:(_Bool)arg2;
 - (struct CGRect)transitioningFrame;
 - (id)transitioningView;

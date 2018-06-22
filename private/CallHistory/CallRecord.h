@@ -13,6 +13,16 @@
 }
 
 + (id)fetchRequest;
+@property(readonly, nonatomic) _Bool supportsServiceProvider;
+@property(readonly, nonatomic) _Bool supportsRemoteParticipantHandles;
+@property(readonly, nonatomic) _Bool supportsLocalParticipantHandle;
+@property(readonly, nonatomic) _Bool supportsHandleType;
+@property(readonly, nonatomic) _Bool supportsCallCategory;
+@property(readonly, copy, nonatomic) NSString *compositeServiceProvider;
+@property(readonly, nonatomic) NSSet *compositeRemoteParticipantHandles;
+@property(readonly, nonatomic) CHManagedHandle *compositeLocalParticipantHandle;
+@property(readonly, nonatomic) NSNumber *compositeHandleType;
+@property(readonly, nonatomic) NSNumber *compositeCallCategory;
 @property(readonly, copy, nonatomic) NSSet *chRemoteParticipantHandles;
 @property(readonly, nonatomic) CHHandle *chLocalParticipantHandle;
 

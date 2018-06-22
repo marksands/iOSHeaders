@@ -109,6 +109,10 @@ struct MPSSize {
     double _field3;
 };
 
+struct NSArray {
+    Class _field1;
+};
+
 struct RLERow {
     unsigned short _field1;
     unsigned short _field2;

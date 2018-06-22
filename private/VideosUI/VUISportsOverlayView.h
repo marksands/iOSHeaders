@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 @interface VUISportsOverlayView : UIView <VUIScorecardViewDelegate, VUIOverlayViewProtocol>
 {
     _Bool _textBadgeHasMaterial;
+    _Bool _backgroundImageHasChanged;
     UIImage *_backgroundImageForMaterialRendering;
     VUISportsOverlayLayout *_overlayLayout;
     TVViewElement *_viewElement;
@@ -30,6 +31,7 @@ __attribute__((visibility("hidden")))
 
 + (_Bool)_viewBackgroundImageNeedsUpdatingWithFrame:(struct CGRect)arg1 currentBackgroundImage:(id)arg2;
 + (id)sportsOverlayViewFromElement:(id)arg1 overlayLayout:(id)arg2 existingView:(id)arg3;
+@property(nonatomic) _Bool backgroundImageHasChanged; // @synthesize backgroundImageHasChanged=_backgroundImageHasChanged;
 @property(retain, nonatomic) UIImage *scorecardViewBackgroundImage; // @synthesize scorecardViewBackgroundImage=_scorecardViewBackgroundImage;
 @property(retain, nonatomic) NSOperationQueue *backgroundImageOperationQueue; // @synthesize backgroundImageOperationQueue=_backgroundImageOperationQueue;
 @property(retain, nonatomic) TVImageElement *logoElement; // @synthesize logoElement=_logoElement;

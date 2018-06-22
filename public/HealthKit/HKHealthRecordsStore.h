@@ -30,7 +30,7 @@
 - (void)_fetchHealthRecordsPluginServerProxyWithHandler:(CDUnknownBlockType)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (void)notifyForNewHealthRecordsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)badgeForNewHealthRecordsWithCompletion:(CDUnknownBlockType)arg1;
-- (void)createStaticAccountWithTitle:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)createStaticAccountWithTitle:(id)arg1 subtitle:(id)arg2 description:(id)arg3 onlyIfNeededForSimulatedGatewayID:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)addIngestionStateListener:(id)arg1;
 - (void)dispatchIngestionStateChange;
 - (void)clientRemote_updateIngestionState:(long long)arg1;

@@ -36,12 +36,9 @@
 - (void)didFinishAllXPCTransactions;
 - (void)willSwitchUser;
 - (void)addToOperationsQueueDisabledCheckAndGoBlock:(CDUnknownBlockType)arg1 wrappedBlock:(CDUnknownBlockType)arg2;
-- (void)shutdownDaemonIfNoAccountsExist;
 - (void)_forceShutdownDaemonOnLogoutInTimeInterval:(int)arg1;
 - (void)_forceShutdownTimerFired:(id)arg1;
-- (void)_shutdownDaemonIfNoAccountsExistInTimeInterval:(int)arg1;
-- (void)delayedShutdownTimerFired:(id)arg1;
-- (void)_shutdownDaemonCheckingForAccounts:(_Bool)arg1;
+- (void)_shutdownDaemon;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

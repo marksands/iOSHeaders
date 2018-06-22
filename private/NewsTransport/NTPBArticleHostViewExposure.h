@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSData, NSMutableArray, NSString, NTPBWidgetEngagement;
+@class NSData, NSMutableArray, NSString, NTPBAlternateHeadline, NTPBWidgetEngagement;
 
 @interface NTPBArticleHostViewExposure : PBCodable <NSCopying>
 {
@@ -28,6 +28,7 @@
     double _subscribedChannelCtr;
     double _userFeedbackScore;
     int _activeTimeSpent;
+    NTPBAlternateHeadline *_alternateHeadline;
     NSString *_anfComponentId;
     int _articleDisplayRankInGroup;
     int _articleHostViewType;
@@ -142,6 +143,7 @@
 + (Class)surfacedByTagIdsType;
 + (Class)fractionalCohortMembershipType;
 + (Class)namedEntitiesType;
+@property(retain, nonatomic) NTPBAlternateHeadline *alternateHeadline; // @synthesize alternateHeadline=_alternateHeadline;
 @property(nonatomic) double subscribedChannelCtr; // @synthesize subscribedChannelCtr=_subscribedChannelCtr;
 @property(nonatomic) _Bool didExpandDuringView; // @synthesize didExpandDuringView=_didExpandDuringView;
 @property(retain, nonatomic) NSString *exposedGroupSourceChannelId; // @synthesize exposedGroupSourceChannelId=_exposedGroupSourceChannelId;
@@ -251,6 +253,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasAlternateHeadline;
 @property(nonatomic) _Bool hasSubscribedChannelCtr;
 @property(nonatomic) _Bool hasDidExpandDuringView;
 @property(nonatomic) _Bool hasArticleSuggestionOrigin;

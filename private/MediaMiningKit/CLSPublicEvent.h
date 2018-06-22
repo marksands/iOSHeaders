@@ -40,6 +40,7 @@
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+@property(readonly, nonatomic) _Bool hasExpectedAttendance;
 - (id)_calculateUniversalDateFromLocalDate:(id)arg1 includingTimeZone:(id)arg2 localStartTime:(double)arg3;
 @property(readonly, nonatomic) NSDateInterval *universalDateIntervalIncludingTime;
 - (id)debugDescription;

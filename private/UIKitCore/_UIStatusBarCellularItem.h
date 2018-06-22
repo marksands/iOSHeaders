@@ -36,8 +36,6 @@ __attribute__((visibility("hidden")))
 - (id)viewForIdentifier:(id)arg1;
 - (void)prepareAnimation:(id)arg1 forDisplayItem:(id)arg2;
 - (id)_stringForCellularType:(long long)arg1;
-- (id)serviceStringForData:(id)arg1;
-@property(readonly, nonatomic) _Bool showsCustomServiceString;
 - (id)applyUpdate:(id)arg1 toDisplayItem:(id)arg2;
 - (id)entryForDisplayItemWithIdentifier:(id)arg1;
 - (_Bool)_updateSignalView:(id)arg1 withUpdate:(id)arg2 entry:(id)arg3;

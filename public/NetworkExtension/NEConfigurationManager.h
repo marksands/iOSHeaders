@@ -106,6 +106,7 @@
 - (id)errorWithCode:(long long)arg1 specifics:(id)arg2;
 - (id)description;
 - (void)dealloc;
+- (id)initForAllUsers;
 - (id)initWithPluginType:(id)arg1;
 - (id)init;
 - (id)initWithUserUUID:(id)arg1;

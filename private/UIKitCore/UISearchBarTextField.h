@@ -69,7 +69,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)editingRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)textRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)_adjustedTextOrEditingRect:(struct CGRect)arg1 forBounds:(struct CGRect)arg2;
-- (_Bool)_hasActionForEventMask:(unsigned long long)arg1;
+- (_Bool)_shouldResignOnEditingDidEndOnExit;
 @property(retain, nonatomic, setter=_setSearchTextOffetValue:) NSValue *_searchTextOffsetValue;
 - (id)_offsetValueForIcon:(long long)arg1;
 - (void)_setOffsetValue:(id)arg1 forIcon:(long long)arg2;

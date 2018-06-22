@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class ARReferenceImageManager, NSString, NSUUID;
 
-@interface ARReferenceImage : NSObject <NSSecureCoding, NSCopying>
+@interface ARReferenceImage : NSObject <NSSecureCoding>
 {
     NSString *_name;
     double _estimatedQuality;

@@ -6,14 +6,15 @@
 
 #import "UIView.h"
 
-@class PXFeedSectionInfo, UIImageView, UILabel;
+@class PXFeedSectionInfo, UIImage, UIImageView, UILabel;
 
 @interface PXSharedAlbumHeaderView : UIView
 {
     unsigned long long _textColorStyle;
     long long _tappableArea;
     PXFeedSectionInfo *_sectionInfo;
-    UIImageView *_avatarView;
+    UIImage *_headerImage;
+    UIImageView *_headerImageView;
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
     UIImageView *_chevronView;
@@ -23,7 +24,8 @@
 @property(retain, nonatomic) UIImageView *chevronView; // @synthesize chevronView=_chevronView;
 @property(retain, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
-@property(retain, nonatomic) UIImageView *avatarView; // @synthesize avatarView=_avatarView;
+@property(retain, nonatomic) UIImageView *headerImageView; // @synthesize headerImageView=_headerImageView;
+@property(retain, nonatomic) UIImage *headerImage; // @synthesize headerImage=_headerImage;
 @property(retain, nonatomic) PXFeedSectionInfo *sectionInfo; // @synthesize sectionInfo=_sectionInfo;
 @property(nonatomic) long long tappableArea; // @synthesize tappableArea=_tappableArea;
 @property(nonatomic) unsigned long long textColorStyle; // @synthesize textColorStyle=_textColorStyle;
@@ -34,7 +36,8 @@
 - (_Bool)_showSubtitle;
 - (void)_updateSubtitle;
 - (void)_updateTitle;
-- (void)_updateAvatarImage;
+- (void)_updateAvatar;
+- (void)_updateHeaderImage;
 - (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

@@ -8,15 +8,13 @@
 
 #import "CoreTelephonyClientRegistrationDelegate.h"
 
-@class CoreTelephonyClient, NSMutableDictionary, NSObject<OS_dispatch_group>, NSString;
+@class CoreTelephonyClient, NSMutableDictionary, NSString;
 
 @interface PSUICoreTelephonyRegistrationCache : NSObject <CoreTelephonyClientRegistrationDelegate>
 {
-    _Bool _imsStatusInitialized;
     CoreTelephonyClient *_client;
     NSMutableDictionary *_imsStatusVoiceDict;
     NSMutableDictionary *_imsStatusSMSDict;
-    NSObject<OS_dispatch_group> *_imsStatusGroup;
     NSMutableDictionary *_rejectCauseCodeDict;
     NSMutableDictionary *_supportedDataRatesDict;
     NSMutableDictionary *_maxDataRateDict;
@@ -28,8 +26,6 @@
 @property(retain) NSMutableDictionary *maxDataRateDict; // @synthesize maxDataRateDict=_maxDataRateDict;
 @property(retain) NSMutableDictionary *supportedDataRatesDict; // @synthesize supportedDataRatesDict=_supportedDataRatesDict;
 @property(retain) NSMutableDictionary *rejectCauseCodeDict; // @synthesize rejectCauseCodeDict=_rejectCauseCodeDict;
-@property _Bool imsStatusInitialized; // @synthesize imsStatusInitialized=_imsStatusInitialized;
-@property(retain) NSObject<OS_dispatch_group> *imsStatusGroup; // @synthesize imsStatusGroup=_imsStatusGroup;
 @property(retain) NSMutableDictionary *imsStatusSMSDict; // @synthesize imsStatusSMSDict=_imsStatusSMSDict;
 @property(retain) NSMutableDictionary *imsStatusVoiceDict; // @synthesize imsStatusVoiceDict=_imsStatusVoiceDict;
 @property(retain, nonatomic) CoreTelephonyClient *client; // @synthesize client=_client;
@@ -44,9 +40,10 @@
 - (void)fetchSupportedDataRates;
 - (id)rejectCauseCode:(id)arg1;
 - (void)fetchRejectCauseCode;
+- (void)imsRegistrationChanged:(id)arg1 info:(id)arg2;
 - (_Bool)IMSStatusSMS:(id)arg1;
 - (_Bool)IMSStatusVoice:(id)arg1;
-- (void)beginPrefetchingIMSStatus;
+- (void)fetchIMSStatus;
 - (void)willEnterForeground;
 - (id)init;
 - (id)initPrivate;

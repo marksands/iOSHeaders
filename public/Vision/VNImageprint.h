@@ -8,14 +8,13 @@
 
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
-#import "VNObservationsCacheKeyProviding.h"
 #import "VNRequestRevisionProviding.h"
 #import "VNSerializing.h"
 #import "VNSerializingInternal.h"
 
 @class VNMPImageDescriptor;
 
-@interface VNImageprint : NSObject <VNSerializingInternal, VNObservationsCacheKeyProviding, NSCopying, NSSecureCoding, VNSerializing, VNRequestRevisionProviding>
+@interface VNImageprint : NSObject <VNSerializingInternal, NSCopying, NSSecureCoding, VNSerializing, VNRequestRevisionProviding>
 {
     unsigned long long _requestRevision;
     unsigned long long _version;
@@ -30,7 +29,6 @@
 @property(retain, nonatomic) VNMPImageDescriptor *descriptor; // @synthesize descriptor=_descriptor;
 @property(readonly, nonatomic) unsigned long long version; // @synthesize version=_version;
 - (void).cxx_destruct;
-- (id)observationsCacheKey;
 - (id)serializeStateAndReturnError:(id *)arg1;
 - (unsigned long long)serializeStateIntoData:(id)arg1 startingAtByteOffset:(unsigned long long)arg2 error:(id *)arg3;
 @property(readonly, nonatomic) unsigned long long serializedLength;

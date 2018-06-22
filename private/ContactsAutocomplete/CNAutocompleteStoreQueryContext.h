@@ -13,6 +13,7 @@
     CNCache *_directoryServerReuseCache;
 }
 
++ (id)cacheBoundaryStrategies;
 @property(readonly) CNCache *directoryServerReuseCache; // @synthesize directoryServerReuseCache=_directoryServerReuseCache;
 - (void).cxx_destruct;
 - (id)init;

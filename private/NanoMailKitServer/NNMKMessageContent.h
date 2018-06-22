@@ -36,6 +36,7 @@
 @property(retain, nonatomic) NSString *messageId; // @synthesize messageId=_messageId;
 - (void).cxx_destruct;
 - (id)description;
+@property(readonly, nonatomic) _Bool isHTML;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

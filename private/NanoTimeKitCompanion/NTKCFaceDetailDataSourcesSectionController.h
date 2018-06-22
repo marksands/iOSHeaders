@@ -13,6 +13,7 @@
 
 @interface NTKCFaceDetailDataSourcesSectionController : NTKCFaceDetailSectionController <NTKCFaceDetailToggleCellDelegate, NTKCUpNextDataSourcesManagerIdentifiersDelegate>
 {
+    _Bool _showsTitleWhenEmpty;
     NTKCUpNextDataSourcesManager *_manager;
     NSString *_headerTitle;
     id <NTKCFaceDetailDataSourcesSectionDelegate> _delegate;
@@ -20,6 +21,7 @@
 
 + (_Bool)hasDataSourcesSectionForFace:(id)arg1 inGallery:(_Bool)arg2;
 @property(nonatomic) __weak id <NTKCFaceDetailDataSourcesSectionDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) _Bool showsTitleWhenEmpty; // @synthesize showsTitleWhenEmpty=_showsTitleWhenEmpty;
 @property(copy, nonatomic) NSString *headerTitle; // @synthesize headerTitle=_headerTitle;
 @property(retain, nonatomic) NTKCUpNextDataSourcesManager *manager; // @synthesize manager=_manager;
 - (void).cxx_destruct;
@@ -27,6 +29,7 @@
 - (void)_buildRowsWithDataSourceIdentifiers:(id)arg1 donatedAppIdentifiers:(id)arg2;
 - (void)manager:(id)arg1 didUpdateDataSourceIdentifiers:(id)arg2 donatedIdentifiers:(id)arg3;
 - (void)toggleCell:(id)arg1 didToggle:(_Bool)arg2;
+- (void)_updatedDisabledDataSources:(id)arg1;
 - (void)faceDidChange;
 - (id)titleForHeader;
 

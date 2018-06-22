@@ -33,6 +33,7 @@
 @property(nonatomic) _Bool hasDumpedLogsForNoExisitingGroup; // @synthesize hasDumpedLogsForNoExisitingGroup=_hasDumpedLogsForNoExisitingGroup;
 @property(retain, nonatomic) IMDChatStore *chatStore; // @synthesize chatStore=_chatStore;
 @property(retain, nonatomic) IMDCKUtilities *ckUtilities; // @synthesize ckUtilities=_ckUtilities;
+- (void)simulateMessageReceive:(id)arg1 serviceName:(id)arg2 handles:(id)arg3 sender:(id)arg4;
 - (id)_existingiMessageChatForChatIdentifier:(id)arg1 style:(unsigned char)arg2;
 - (_Bool)isBeingSetup;
 - (void)clearPendingDeleteTable;

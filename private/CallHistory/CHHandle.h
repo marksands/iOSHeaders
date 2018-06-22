@@ -27,7 +27,7 @@
 - (_Bool)isEqualToHandle:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)debugDescription;
+- (id)description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

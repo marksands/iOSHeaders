@@ -16,11 +16,12 @@
 #import "PXChangeObserver.h"
 #import "PXInfoProvider.h"
 #import "PXInfoUpdaterObserver.h"
+#import "UIGestureRecognizerDelegate.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 
-@class NSMutableIndexSet, NSString, PUAssetActionPerformer, PUBarButtonItemCollection, PUBrowsingSession, PUPhotoBrowserTitleViewController, PUPlayPauseBarItemsController, PUScrubberView, PXImageModulationManager, PXInfoUpdater, UITapGestureRecognizer, UITraitCollection, UIView;
+@class NSMutableIndexSet, NSString, PUAssetActionPerformer, PUBarButtonItemCollection, PUBrowsingSession, PUPhotoBrowserTitleViewController, PUPlayPauseBarItemsController, PUScrubberView, PXImageModulationManager, PXInfoUpdater, UITapGestureRecognizer, UIView;
 
-@interface PUOneUpBarsController : PUBarsController <PUBrowsingViewModelChangeObserver, PUAssetActionPerformerDelegate, UIPopoverPresentationControllerDelegate, PUPlayPauseBarItemsControllerChangeObserver, PUBarButtonItemCollectionDataSource, PUScrubberViewDelegate, PUPhotoBrowserTitleViewControllerDelegate, PXInfoUpdaterObserver, PXInfoProvider, PXChangeObserver, PUOverOneUpPresentationSessionBarsDelegate>
+@interface PUOneUpBarsController : PUBarsController <PUBrowsingViewModelChangeObserver, PUAssetActionPerformerDelegate, UIPopoverPresentationControllerDelegate, PUPlayPauseBarItemsControllerChangeObserver, PUBarButtonItemCollectionDataSource, PUScrubberViewDelegate, PUPhotoBrowserTitleViewControllerDelegate, PXInfoUpdaterObserver, PXInfoProvider, PXChangeObserver, UIGestureRecognizerDelegate, PUOverOneUpPresentationSessionBarsDelegate>
 {
     struct {
         _Bool respondsToDidChangeShowingPlayPauseButton;
@@ -57,7 +58,6 @@
     PUBrowsingSession *_browsingSession;
     double _maximumToolbarHeight;
     double _maximumAccessoryToolbarHeight;
-    UITraitCollection *_traitCollection;
     NSString *__scrubbingIdentifier;
     PUAssetActionPerformer *__activeActionPerformer;
     PUScrubberView *__scrubberView;
@@ -100,7 +100,6 @@
 @property(retain, nonatomic, setter=_setActiveActionPerformer:) PUAssetActionPerformer *_activeActionPerformer; // @synthesize _activeActionPerformer=__activeActionPerformer;
 @property(readonly, nonatomic) NSString *_scrubbingIdentifier; // @synthesize _scrubbingIdentifier=__scrubbingIdentifier;
 @property(nonatomic, setter=_setShowingPlayPauseButton:) _Bool isShowingPlayPauseButton; // @synthesize isShowingPlayPauseButton=_isShowingPlayPauseButton;
-@property(retain, nonatomic) UITraitCollection *traitCollection; // @synthesize traitCollection=_traitCollection;
 @property(nonatomic) _Bool shouldPlaceScrubberInScrubberBar; // @synthesize shouldPlaceScrubberInScrubberBar=_shouldPlaceScrubberInScrubberBar;
 @property(nonatomic) _Bool disableShowingNavigationBars; // @synthesize disableShowingNavigationBars=_disableShowingNavigationBars;
 @property(nonatomic) _Bool allowShowingPlayPauseButton; // @synthesize allowShowingPlayPauseButton=_allowShowingPlayPauseButton;
@@ -116,6 +115,7 @@
 @property(nonatomic) _Bool shouldPlaceButtonsInNavigationBar; // @synthesize shouldPlaceButtonsInNavigationBar=_shouldPlaceButtonsInNavigationBar;
 @property(retain, nonatomic) PUBrowsingSession *browsingSession; // @synthesize browsingSession=_browsingSession;
 - (void).cxx_destruct;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (id)requestInfoOfKind:(id)arg1 withResultHandler:(CDUnknownBlockType)arg2;
 - (void)infoUpdaterDidUpdate:(id)arg1;

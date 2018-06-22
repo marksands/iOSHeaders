@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSMutableDictionary, PXRoundedCornerOverlayView, PXUIMediaProvider, UIColor;
+@class NSMutableDictionary, NSMutableIndexSet, PXRoundedCornerOverlayView, PXUIMediaProvider, UIColor;
 
 @interface PXAssetCollageView : UIView
 {
@@ -19,9 +19,11 @@
     UIColor *_cornerBackgroundColor;
     NSMutableDictionary *_assets;
     PXRoundedCornerOverlayView *_roundedCornerOverlayView;
+    NSMutableIndexSet *_hiddenItemIndexes;
 }
 
 + (long long)maximumNumberOfItems;
+@property(readonly, nonatomic) NSMutableIndexSet *hiddenItemIndexes; // @synthesize hiddenItemIndexes=_hiddenItemIndexes;
 @property(readonly, nonatomic) PXRoundedCornerOverlayView *roundedCornerOverlayView; // @synthesize roundedCornerOverlayView=_roundedCornerOverlayView;
 @property(readonly, nonatomic) NSMutableDictionary *assets; // @synthesize assets=_assets;
 @property(nonatomic) _Bool allowAnimatedImagePlayback; // @synthesize allowAnimatedImagePlayback=_allowAnimatedImagePlayback;
@@ -39,9 +41,11 @@
 - (id)_displayAssetViewWithIndex:(long long)arg1;
 - (id)_displayAssetViews;
 - (id)_checkoutAndConfigureAssetViewForAsset:(id)arg1 withIndex:(long long)arg2;
+- (void)_updateHiddenViews;
 - (void)resetViewState;
 - (id)displayAssetViewAtPoint:(struct CGPoint)arg1;
 - (id)displayAssetViewWithAsset:(id)arg1;
+- (void)setHidden:(_Bool)arg1 forItemAtIndex:(long long)arg2;
 - (void)setAsset:(id)arg1 forItemAtIndex:(long long)arg2;
 @property(readonly, nonatomic) long long numberOfItems;
 - (void)layoutSubviews;

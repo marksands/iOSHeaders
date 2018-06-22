@@ -35,6 +35,7 @@
 + (id)_earlyWakeUpIdentifier:(id)arg1;
 + (id)_goToBedIdentifier:(id)arg1;
 + (id)requestIdentifierForScheduledAlarm:(id)arg1;
++ (id)_allIdentifiersForAlarm:(id)arg1;
 + (id)_bundleIDForPlatform;
 @property(retain, nonatomic) UNUserNotificationCenter *notificationCenter; // @synthesize notificationCenter=_notificationCenter;
 - (void).cxx_destruct;
@@ -44,7 +45,7 @@
 - (void)dismissNotificationsWithIdentifiers:(id)arg1;
 - (void)dismissNotificationsForAlarm:(id)arg1 dismissAction:(unsigned long long)arg2;
 - (void)dismissNotificationsForAlarm:(id)arg1;
-- (void)dismissPreviousNotificationsForScheduledAlarm:(id)arg1;
+- (void)dismissRelatedNotificationsForScheduledAlarm:(id)arg1;
 - (void)postNotificationForScheduledAlarm:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)registerResponseDelegate:(id)arg1;
 - (id)notificationCategories;

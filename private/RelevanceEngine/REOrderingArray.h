@@ -6,24 +6,30 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSArray, REDependencyGraph;
 
 @interface REOrderingArray : NSObject
 {
     NSArray *_orderedObjects;
+    REDependencyGraph *_dependencyGraph;
+    _Bool _needsUpdate;
+    unsigned long long _batchCount;
     NSArray *_comparators;
 }
 
 @property(readonly, nonatomic) NSArray *comparators; // @synthesize comparators=_comparators;
 - (void).cxx_destruct;
-- (unsigned long long)_indexForObject:(id)arg1 atLevel:(unsigned long long)arg2 suggestedIndex:(unsigned long long)arg3;
-- (unsigned long long)_insertionIndexForObject:(id)arg1 atLevel:(unsigned long long)arg2 suggestedIndex:(unsigned long long)arg3;
-- (void)updateObject:(id)arg1 originalIndex:(unsigned long long *)arg2 newIndex:(unsigned long long *)arg3;
-- (void)removeObject:(id)arg1 originalIndex:(unsigned long long *)arg2;
-- (void)addObject:(id)arg1 itemIndex:(unsigned long long *)arg2;
+- (void)_updateContentOrder;
+- (void)_performOrMarkUpdate;
+- (void)performBatchUpdates:(CDUnknownBlockType)arg1;
+- (void)sortAllObjects;
+- (void)updateObject:(id)arg1;
+- (void)removeObject:(id)arg1;
+- (void)addObject:(id)arg1;
 - (id)objectAtIndexedSubscript:(unsigned long long)arg1;
 - (id)objectAtIndex:(unsigned long long)arg1;
 - (unsigned long long)indexOfObject:(id)arg1;
+- (_Bool)containsObject:(id)arg1;
 @property(readonly, nonatomic) unsigned long long count;
 - (id)initWithComparators:(id)arg1;
 

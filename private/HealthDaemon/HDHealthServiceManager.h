@@ -83,6 +83,7 @@
 - (void)_queue_handleMFASuccessNotification;
 - (void)resetOOBState;
 - (id)retrieveOOBData:(id *)arg1;
+- (id)allServicesWithError:(id *)arg1;
 - (void)removeConnectingPeripheralsWithError:(id)arg1;
 - (void)removeAllDisconnectedPeripherals;
 - (void)_disconnectPeripheralWithDeviceIdentifier:(id)arg1 error:(id)arg2;

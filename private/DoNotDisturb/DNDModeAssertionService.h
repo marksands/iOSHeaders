@@ -13,6 +13,7 @@
 @interface DNDModeAssertionService : NSObject <DNDRemoteServiceConnectionEventListener>
 {
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_calloutQueue;
     NSString *_clientIdentifier;
     NSHashTable *_assertionUpdateListeners;
     NSMutableSet *_activeAssertions;
@@ -20,6 +21,7 @@
 }
 
 + (id)serviceForClientIdentifier:(id)arg1;
++ (void)initialize;
 @property(readonly, copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 - (void).cxx_destruct;
 - (void)_handleLostXPCConnection;
@@ -29,13 +31,15 @@
 - (void)remoteService:(id)arg1 didReceiveModeAssertionInvalidation:(id)arg2;
 - (void)didReceiveConnectionInvalidatedEventForRemoteService:(id)arg1;
 - (void)didReceiveConnectionInterruptedEventForRemoteService:(id)arg1;
-- (_Bool)removeAssertionUpdateListener:(id)arg1 error:(id *)arg2;
-- (_Bool)addAssertionUpdateListener:(id)arg1 error:(id *)arg2;
+- (void)removeAssertionUpdateListener:(id)arg1;
+- (void)addAssertionUpdateListener:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)invalidateAllActiveModeAssertionsWithError:(id *)arg1;
 - (id)activeModeAssertionWithError:(id *)arg1;
 - (id)invalidateActiveModeAssertionWithError:(id *)arg1;
 - (id)takeModeAssertionWithDetails:(id)arg1 error:(id *)arg2;
 - (id)_initWithClientIdentifier:(id)arg1;
+- (_Bool)removeAssertionUpdateListener:(id)arg1 error:(id *)arg2;
+- (_Bool)addAssertionUpdateListener:(id)arg1 error:(id *)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

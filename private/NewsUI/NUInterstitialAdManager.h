@@ -13,8 +13,10 @@
     id <NUPage> _activePage;
     id <NUAdProvider> _adProvider;
     id <FCNewsAppConfigurationManager> _appConfigurationManager;
+    id <NUAdLayoutOptionsFactory> _layoutOptionsFactory;
 }
 
+@property(readonly, nonatomic) id <NUAdLayoutOptionsFactory> layoutOptionsFactory; // @synthesize layoutOptionsFactory=_layoutOptionsFactory;
 @property(readonly, nonatomic) id <FCNewsAppConfigurationManager> appConfigurationManager; // @synthesize appConfigurationManager=_appConfigurationManager;
 @property(readonly, nonatomic) id <NUAdProvider> adProvider; // @synthesize adProvider=_adProvider;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
@@ -26,7 +28,7 @@
 - (void)cancelTimer;
 - (void)loadInterstitial;
 - (void)dealloc;
-- (id)initWithAdProvider:(id)arg1 appConfigurationManager:(id)arg2;
+- (id)initWithAdProvider:(id)arg1 appConfigurationManager:(id)arg2 layoutOptionsFactory:(id)arg3;
 
 @end
 

@@ -39,6 +39,7 @@
     _Bool _shouldAutomaticallyUpdateRoutesList;
     _Bool _shouldPickRouteOnSelection;
     _Bool _onScreen;
+    _Bool _hasUserSelections;
     unsigned long long _updatesSincePresentation;
     long long _discoveryModeBeforeEnteringBackground;
     unsigned long long _style;
@@ -122,6 +123,8 @@
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
+- (void)resetScrollPosition;
+- (void)resetDisplayedRoutes;
 @property(nonatomic) _Bool allowMirroring;
 - (void)dealloc;
 - (id)initWithStyle:(unsigned long long)arg1 routingController:(id)arg2;

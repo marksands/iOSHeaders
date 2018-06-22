@@ -44,6 +44,7 @@
     _Bool _clipTimeMarkersToDuration;
     _Bool _selectedTimeRangeEditingEnabled;
     _Bool _selectedTimeRangeScrubbingEnabled;
+    _Bool _selectionOverlayShouldUseInsertMode;
     id <RCWaveformViewDelegate> _delegate;
     RCUIConfiguration *_UIConfiguration;
     RCLayoutMetrics *_layoutMetrics;
@@ -56,6 +57,7 @@
     CDStruct_73a5d3ca _selectedTimeRange;
 }
 
+@property(nonatomic) _Bool selectionOverlayShouldUseInsertMode; // @synthesize selectionOverlayShouldUseInsertMode=_selectionOverlayShouldUseInsertMode;
 @property(nonatomic, getter=isSelectedTimeRangeEditingEnabled) _Bool selectedTimeRangeScrubbingEnabled; // @synthesize selectedTimeRangeScrubbingEnabled=_selectedTimeRangeScrubbingEnabled;
 @property(nonatomic) double maximumSelectionDuration; // @synthesize maximumSelectionDuration=_maximumSelectionDuration;
 @property(nonatomic) CDStruct_73a5d3ca selectedTimeRange; // @synthesize selectedTimeRange=_selectedTimeRange;

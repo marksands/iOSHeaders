@@ -21,13 +21,13 @@
 @property(retain, nonatomic) UIView *pausedView; // @synthesize pausedView=_pausedView;
 @property(readonly, nonatomic) CPSCardPlatterView *platterView; // @synthesize platterView=_platterView;
 - (void).cxx_destruct;
-- (void)navigator:(id)arg1 pausedTripForReason:(unsigned long long)arg2;
+- (void)navigator:(id)arg1 pausedTripForReason:(unsigned long long)arg2 description:(id)arg3;
 - (void)updateEstimates:(id)arg1 forManeuver:(id)arg2;
-- (void)showManeuvers:(id)arg1;
+- (void)showManeuvers:(id)arg1 usingDisplayStyles:(id)arg2;
 @property(nonatomic, getter=isMinimalMode) _Bool minimalMode;
-- (void)_showPausedViewForReason:(unsigned long long)arg1;
+- (void)_showPausedViewForReason:(unsigned long long)arg1 description:(id)arg2;
 - (void)_showManeuversView;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithBackgroundColor:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

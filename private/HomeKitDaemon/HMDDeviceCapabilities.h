@@ -21,6 +21,8 @@
 + (id)deviceCapabilitiesModelIdentifierWithParentIdentifier:(id)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)deviceCapabilities;
++ (_Bool)supportsSyncingToSharedUsers;
++ (_Bool)supportsAddingAccessory;
 + (_Bool)supportsReceivingRemoteCameraStream;
 + (_Bool)supportsDismissUserNotificationAndDialog;
 + (_Bool)supportsUserNotifications;

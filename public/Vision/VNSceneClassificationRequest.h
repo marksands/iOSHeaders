@@ -12,35 +12,34 @@
 
 @interface VNSceneClassificationRequest : VNImageBasedRequest <VNImageIdealImageSizeProviding>
 {
-    VNSceneObservation *_sceneObservation;
-    VNSceneClassificationCustomHierarchy *_customHierarchy;
-    unsigned long long _maximumLeafObservations;
-    unsigned long long _maximumHierarchicalObservations;
 }
 
 + (id)knownSceneClassificationsForRevision:(unsigned long long)arg1 error:(id *)arg2;
-+ (id)_knownVNImageAnalyzerMultiDetectorLabelsForRevision:(unsigned long long)arg1 error:(id *)arg2;
-+ (id)_knownVNSceneClassifierLabelsForRevision:(unsigned long long)arg1 error:(id *)arg2;
 + (id)knownSceneClassifications;
 + (const CDStruct_d47b9615 *)dependentRequestCompatability;
++ (Class)configurationClass;
++ (id)_knownVNImageAnalyzerMultiDetectorLabelsForRevision:(unsigned long long)arg1 error:(id *)arg2;
++ (id)_knownVNSceneClassifierLabelsForRevision:(unsigned long long)arg1 error:(id *)arg2;
++ (id)_imageAnalyzerMultiDetectorForRevision:(unsigned long long)arg1 detectionLevel:(unsigned long long)arg2 processingDevice:(id)arg3 error:(id *)arg4;
++ (id)_sceneClassifierForRevision:(unsigned long long)arg1 error:(id *)arg2;
 + (const CDStruct_7d93034e *)revisionAvailability;
-@property(nonatomic) unsigned long long maximumHierarchicalObservations; // @synthesize maximumHierarchicalObservations=_maximumHierarchicalObservations;
-@property(nonatomic) unsigned long long maximumLeafObservations; // @synthesize maximumLeafObservations=_maximumLeafObservations;
-@property(readonly, retain, nonatomic) VNSceneObservation *sceneObservation; // @synthesize sceneObservation=_sceneObservation;
-- (void).cxx_destruct;
-- (void)setSceneObservation:(id)arg1;
-@property(readonly, copy, nonatomic) VNSceneClassificationCustomHierarchy *customHierarchy;
 - (id)defineCustomHierarchyWithRelationships:(id)arg1 error:(id *)arg2;
 - (_Bool)defineCustomHierarchy:(id)arg1 error:(id *)arg2;
-- (id)observationsCacheKey;
+- (void)_setCustomHierarchy:(id)arg1;
+@property(readonly, copy, nonatomic) VNSceneClassificationCustomHierarchy *customHierarchy;
+@property(nonatomic) unsigned long long maximumHierarchicalObservations;
+@property(nonatomic) unsigned long long maximumLeafObservations;
+- (void)setSceneObservation:(id)arg1;
+@property(readonly, retain, nonatomic) VNSceneObservation *sceneObservation;
 - (CDUnknownBlockType)resultsSortingComparator;
 - (_Bool)internalPerformRevision:(unsigned long long)arg1 inContext:(id)arg2 error:(id *)arg3;
 - (void)applyConfigurationOfRequest:(id)arg1;
 - (_Bool)warmUpRequestPerformer:(id)arg1 error:(id *)arg2;
 - (void)setRevision:(unsigned long long)arg1;
+- (_Bool)willAcceptCachedResultsFromRequestWithConfiguration:(id)arg1;
+- (id)_applicableDetectorAndReturnError:(id *)arg1;
 - (id)initWithSceneObservation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithSceneObservation:(id)arg1;
-- (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(readonly) NSArray *supportedImageSizeSet;
 

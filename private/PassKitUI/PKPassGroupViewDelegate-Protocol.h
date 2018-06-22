@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class PKPass, PKPassGroupView, PKPassView, PKReusablePassViewQueue;
+@class PKPass, PKPassGroupView, PKPassPresentationContext, PKPassView, PKReusablePassViewQueue;
 
 @protocol PKPassGroupViewDelegate <NSObject>
 
@@ -16,7 +16,7 @@
 - (struct CGRect)groupView:(PKPassGroupView *)arg1 targetPageControlFrameForProposedFrame:(struct CGRect)arg2;
 - (PKReusablePassViewQueue *)groupViewReusablePassViewQueue:(PKPassGroupView *)arg1;
 - (unsigned long long)groupViewPassesSuppressedContent:(PKPassGroupView *)arg1;
-- (void)groupView:(PKPassGroupView *)arg1 frontmostPassViewDidChange:(PKPassView *)arg2;
+- (void)groupView:(PKPassGroupView *)arg1 frontmostPassViewDidChange:(PKPassView *)arg2 withContext:(PKPassPresentationContext *)arg3;
 - (void)groupView:(PKPassGroupView *)arg1 resizeButtonPressedForPass:(PKPass *)arg2 withBarcode:(_Bool)arg3;
 - (_Bool)groupView:(PKPassGroupView *)arg1 deleteButtonEnabledForPass:(PKPass *)arg2;
 - (void)groupView:(PKPassGroupView *)arg1 deleteButtonPressedForPass:(PKPass *)arg2;

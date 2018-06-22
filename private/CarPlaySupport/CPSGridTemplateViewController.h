@@ -9,7 +9,7 @@
 #import "CPGridTemplateProviding.h"
 #import "CPSButtonDelegate.h"
 
-@class NSArray, NSString;
+@class CPGridTemplate, NSArray, NSString;
 
 @interface CPSGridTemplateViewController : CPSBaseTemplateViewController <CPSButtonDelegate, CPGridTemplateProviding>
 {
@@ -22,7 +22,7 @@
 - (void)setControl:(id)arg1 enabled:(_Bool)arg2;
 - (id)_buttonForIdentifier:(id)arg1;
 - (void)viewDidLoad;
-- (id)gridTemplate;
+@property(readonly, nonatomic) CPGridTemplate *gridTemplate;
 - (id)initWithGridTemplate:(id)arg1 interfaceDelegate:(id)arg2;
 
 // Remaining properties

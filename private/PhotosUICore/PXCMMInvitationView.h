@@ -6,17 +6,19 @@
 
 #import "UIView.h"
 
-@class NSString, PXCMMPosterHeaderView, PXRoundedCornerOverlayView, UIColor, UIFont, UILabel;
+@class NSString, PXCMMNewBadge, PXCMMPosterHeaderView, PXRoundedCornerOverlayView, UIColor, UIFont, UILabel;
 
 @interface PXCMMInvitationView : UIView
 {
     UILabel *_titleLabel;
     UILabel *_subtitle1Label;
     UILabel *_subtitle2Label;
+    PXCMMNewBadge *_newBadge;
     PXRoundedCornerOverlayView *_roundedCornerOverlayView;
     UIFont *_titleFont;
     UIFont *_titleBoldFont;
     struct _NSRange _titleBoldRange;
+    _Bool _isNew;
     PXCMMPosterHeaderView *_headerView;
     NSString *_title;
     NSString *_subtitle1;
@@ -25,6 +27,7 @@
 }
 
 @property(copy, nonatomic) UIColor *opaqueAncestorBackgroundColor; // @synthesize opaqueAncestorBackgroundColor=_opaqueAncestorBackgroundColor;
+@property(nonatomic) _Bool isNew; // @synthesize isNew=_isNew;
 @property(copy, nonatomic) NSString *subtitle2; // @synthesize subtitle2=_subtitle2;
 @property(copy, nonatomic) NSString *subtitle1; // @synthesize subtitle1=_subtitle1;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;

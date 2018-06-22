@@ -8,28 +8,28 @@
 
 #import "AVCaptureViewConfiguring.h"
 #import "AVContentTransitioning.h"
-#import "AVPlaybackControlsViewDelegate.h"
 
 @class AVExternalPlaybackIndicatorView, AVPlaybackControlsView, AVPlayerContentTransitioningView, AVPlayerLayerAndContentOverlayContainerView, AVStyleSheet, AVTurboModePlaybackControlsPlaceholderView, NSMutableDictionary, NSString, UIImageView, UIPanGestureRecognizer, _UIVisualEffectBackdropView, __AVPlayerLayerView;
 
-@interface AVPlayerViewControllerContentView : UIView <AVPlaybackControlsViewDelegate, AVCaptureViewConfiguring, AVContentTransitioning>
+@interface AVPlayerViewControllerContentView : UIView <AVCaptureViewConfiguring, AVContentTransitioning>
 {
     _Bool _canAutomaticallyZoomLetterboxVideos;
     _Bool _styleSheetShouldUseCompactFullScreenItemSize;
     _Bool _needsInitialLayout;
     NSString *_automaticVideoGravity;
+    NSString *_captureGroupName;
     _UIVisualEffectBackdropView *_captureView;
     AVExternalPlaybackIndicatorView *_externalPlaybackIndicatorView;
     UIImageView *_unsupportedContentIndicatorView;
     UIImageView *_audioOnlyIndicatorView;
-    AVPlayerContentTransitioningView *_contentTransitioningView;
     UIView *_iAdPreRollView;
     id <AVPlayerViewControllerContentViewDelegate> _delegate;
+    UIView *_interactiveContentOverlayView;
     AVPlaybackControlsView *_playbackControlsView;
     AVTurboModePlaybackControlsPlaceholderView *_turboModePlaybackControlsPlaceholderView;
+    AVPlayerContentTransitioningView *_contentTransitioningView;
     __AVPlayerLayerView *_playerLayerView;
     NSMutableDictionary *_targetVideoGravities;
-    NSString *_captureGroupName;
     NSString *_externalPlaybackIndicatorTitle;
     NSString *_externalPlaybackIndicatorSubtitle;
     AVStyleSheet *_styleSheet;
@@ -41,13 +41,14 @@
 @property(nonatomic) struct CGRect boundsForLastLayoutSubviews; // @synthesize boundsForLastLayoutSubviews=_boundsForLastLayoutSubviews;
 @property(copy, nonatomic) NSString *externalPlaybackIndicatorSubtitle; // @synthesize externalPlaybackIndicatorSubtitle=_externalPlaybackIndicatorSubtitle;
 @property(copy, nonatomic) NSString *externalPlaybackIndicatorTitle; // @synthesize externalPlaybackIndicatorTitle=_externalPlaybackIndicatorTitle;
-@property(readonly, nonatomic) NSString *captureGroupName; // @synthesize captureGroupName=_captureGroupName;
 @property(readonly, nonatomic) NSMutableDictionary *targetVideoGravities; // @synthesize targetVideoGravities=_targetVideoGravities;
 @property(nonatomic) _Bool needsInitialLayout; // @synthesize needsInitialLayout=_needsInitialLayout;
 @property(retain, nonatomic) __AVPlayerLayerView *playerLayerView; // @synthesize playerLayerView=_playerLayerView;
+@property(readonly, nonatomic) AVPlayerContentTransitioningView *contentTransitioningView; // @synthesize contentTransitioningView=_contentTransitioningView;
 @property(nonatomic) _Bool styleSheetShouldUseCompactFullScreenItemSize; // @synthesize styleSheetShouldUseCompactFullScreenItemSize=_styleSheetShouldUseCompactFullScreenItemSize;
 @property(readonly, nonatomic) __weak AVTurboModePlaybackControlsPlaceholderView *turboModePlaybackControlsPlaceholderView; // @synthesize turboModePlaybackControlsPlaceholderView=_turboModePlaybackControlsPlaceholderView;
 @property(readonly, nonatomic) AVPlaybackControlsView *playbackControlsView; // @synthesize playbackControlsView=_playbackControlsView;
+@property(readonly, nonatomic) UIView *interactiveContentOverlayView; // @synthesize interactiveContentOverlayView=_interactiveContentOverlayView;
 @property(nonatomic) struct UIEdgeInsets edgeInsetsForLetterboxedContent; // @synthesize edgeInsetsForLetterboxedContent=_edgeInsetsForLetterboxedContent;
 @property(nonatomic) _Bool canAutomaticallyZoomLetterboxVideos; // @synthesize canAutomaticallyZoomLetterboxVideos=_canAutomaticallyZoomLetterboxVideos;
 @property(nonatomic) __weak id <AVPlayerViewControllerContentViewDelegate> delegate; // @synthesize delegate=_delegate;
@@ -60,7 +61,6 @@
 - (void)_updatePlayerLayerAndContentOverlayContainerViewLayoutMarginsForVideoGravity:(long long)arg1;
 - (void)_updateVideoGravityDuringLayoutSubviewsAndAssertThatIfYouBreakThisMethodYouOwnThisMethod;
 - (_Bool)_isBeingTransitionedToOrFromFullScreen;
-- (void)playbackControlsView:(id)arg1 interactiveContentOverlayViewLayoutMarginsDidChange:(struct UIEdgeInsets)arg2 shouldLayoutIfNeeded:(_Bool)arg3;
 - (void)layoutSubviews;
 - (void)didMoveToSuperview;
 - (void)didMoveToWindow;
@@ -86,13 +86,11 @@
 - (void)setShowsAudioOnlyIndicator:(_Bool)arg1;
 - (void)setShowsUnsupportedContentIndicator:(_Bool)arg1;
 - (_Bool)isViewDescendantOfPlaybackControlsSubview:(id)arg1;
-@property(readonly, nonatomic) UIView *interactiveContentOverlayView;
 - (void)addPlayerLayerAndContentOverlayContainerViewIfNeeded;
 @property(readonly, nonatomic) UIView *iAdPreRollViewIfLoaded;
 @property(readonly, nonatomic) UIView *iAdPreRollView; // @synthesize iAdPreRollView=_iAdPreRollView;
 @property(readonly, nonatomic) UIView *playerLayerAndContentOverlayContainerView;
 @property(readonly, nonatomic) UIPanGestureRecognizer *contentTransitioningViewGestureRecognizer;
-@property(readonly, nonatomic) AVPlayerContentTransitioningView *contentTransitioningView; // @synthesize contentTransitioningView=_contentTransitioningView;
 @property(readonly, nonatomic) UIImageView *audioOnlyIndicatorViewIfLoaded;
 @property(readonly, nonatomic) UIImageView *audioOnlyIndicatorView; // @synthesize audioOnlyIndicatorView=_audioOnlyIndicatorView;
 @property(readonly, nonatomic) UIImageView *unsupportedContentIndicatorViewIfLoaded;
@@ -100,9 +98,10 @@
 @property(readonly, nonatomic) AVExternalPlaybackIndicatorView *externalPlaybackIndicatorViewIfLoaded;
 @property(readonly, nonatomic) AVExternalPlaybackIndicatorView *externalPlaybackIndicatorView; // @synthesize externalPlaybackIndicatorView=_externalPlaybackIndicatorView;
 @property(readonly, nonatomic) _UIVisualEffectBackdropView *captureView; // @synthesize captureView=_captureView;
+@property(readonly, nonatomic) NSString *captureGroupName; // @synthesize captureGroupName=_captureGroupName;
 @property(copy, nonatomic) NSString *automaticVideoGravity; // @synthesize automaticVideoGravity=_automaticVideoGravity;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 playerLayerView:(id)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 playerLayerView:(id)arg2 targetVideoGravities:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

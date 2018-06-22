@@ -7,6 +7,7 @@
 @class HDProfile, HDWorkoutSessionConfiguration, NSData, NSString;
 
 @protocol HDWorkoutSessionController
++ (void)willFinishSessionWithRecoveryData:(NSData *)arg1 profile:(HDProfile *)arg2;
 + (NSString *)recoveryIdentifier;
 - (void)hktest_setStateTransitionCompletionHandler:(void (^)(long long, long long))arg1;
 - (void)workoutSessionServer:(id <HDWorkoutSessionStateController>)arg1 accumulatorDidChange:(id <HDWorkoutDataAccumulator>)arg2;

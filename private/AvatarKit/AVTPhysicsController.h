@@ -17,9 +17,9 @@
 
 - (void).cxx_destruct;
 - (void)_setupPhysicsChain:(id)arg1 scene:(id)arg2;
-- (void)setupWithAvatarNode:(id)arg1 scene:(id)arg2;
+- (void)setupWithAvatarNode:(id)arg1 scene:(id)arg2 downforceNodeCheck:(CDUnknownBlockType)arg3;
 -     // Error parsing type: 32@0:8@16@24, name: getPhysicsOffsetOfNode:relativeToNode:
-- (void)updateAtTime:(double)arg1 avatarNode:(id)arg2 scene:(id)arg3 forceMultiplier:(double)arg4;
+- (void)updateAtTime:(double)arg1 avatarNode:(id)arg2 scene:(id)arg3 forceMultiplier:(double)arg4 downforceNodeCheck:(CDUnknownBlockType)arg5;
 
 @end
 

@@ -8,25 +8,26 @@
 
 #import "CPVoiceControlTemplateDelegate.h"
 
-@class NSArray, NSString, UIImage;
+@class NSArray, NSString;
 
 @interface CPVoiceControlTemplate : CPTemplate <CPVoiceControlTemplateDelegate>
 {
-    NSArray *_titleVariants;
-    UIImage *_animatedImage;
+    NSArray *_voiceControlStates;
+    NSString *_activeStateIdentifier;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, nonatomic) UIImage *animatedImage; // @synthesize animatedImage=_animatedImage;
-@property(readonly, copy, nonatomic) NSArray *titleVariants; // @synthesize titleVariants=_titleVariants;
+@property(readonly, copy, nonatomic) NSString *activeStateIdentifier; // @synthesize activeStateIdentifier=_activeStateIdentifier;
+@property(readonly, copy, nonatomic) NSArray *voiceControlStates; // @synthesize voiceControlStates=_voiceControlStates;
 - (void).cxx_destruct;
 - (void)setTrailingNavigationBarButtons:(id)arg1;
 - (id)trailingNavigationBarButtons;
 - (void)setLeadingNavigationBarButtons:(id)arg1;
 - (id)leadingNavigationBarButtons;
+- (void)activateVoiceControlStateWithIdentifier:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithTitleVariants:(id)arg1 animatedImage:(id)arg2;
+- (id)initWithVoiceControlStates:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

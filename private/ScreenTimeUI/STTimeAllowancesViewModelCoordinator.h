@@ -8,23 +8,26 @@
 
 #import "STTimeAllowancesViewModelCoordinator.h"
 
-@class NSNumber, NSString, RMAdminPersistenceController, STTimeAllowancesViewModel;
+@class NSNumber, NSString, RMAskForTimeClient, STTimeAllowancesViewModel;
 
 @interface STTimeAllowancesViewModelCoordinator : NSObject <STTimeAllowancesViewModelCoordinator>
 {
     STTimeAllowancesViewModel *_viewModel;
     NSString *_organizationIdentifier;
     NSNumber *_userDSID;
-    RMAdminPersistenceController *_persistenceController;
+    id <RMPersistenceControllerProtocol> _persistenceController;
+    RMAskForTimeClient *_askForTimeClient;
 }
 
-@property(readonly, nonatomic) RMAdminPersistenceController *persistenceController; // @synthesize persistenceController=_persistenceController;
+@property(readonly, nonatomic) RMAskForTimeClient *askForTimeClient; // @synthesize askForTimeClient=_askForTimeClient;
+@property(readonly, nonatomic) id <RMPersistenceControllerProtocol> persistenceController; // @synthesize persistenceController=_persistenceController;
 @property(copy, nonatomic) NSNumber *userDSID; // @synthesize userDSID=_userDSID;
 @property(copy, nonatomic) NSString *organizationIdentifier; // @synthesize organizationIdentifier=_organizationIdentifier;
 @property(readonly) STTimeAllowancesViewModel *viewModel; // @synthesize viewModel=_viewModel;
 - (void).cxx_destruct;
 - (void)_deleteActivationWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_saveActivationDictionary:(id)arg1 configurationDictionaries:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)respondToAskForTime:(id)arg1 withApproval:(_Bool)arg2 timeApproved:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)saveAlwaysAllowList:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)deleteAllowance:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)saveAllowance:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

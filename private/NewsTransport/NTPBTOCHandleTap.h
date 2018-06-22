@@ -10,7 +10,7 @@
 
 @class NSData;
 
-@interface NTPBTOCHandleTap : PBCodable <NSCopying>
+@interface NTPBTocHandleTap : PBCodable <NSCopying>
 {
     NSData *_tocExposureId;
 }

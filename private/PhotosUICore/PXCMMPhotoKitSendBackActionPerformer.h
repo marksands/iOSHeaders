@@ -10,9 +10,7 @@
 {
 }
 
-- (void)_handleSendBackContextCompletionWithContext:(id)arg1;
 - (void)performBackgroundTask;
-- (void)performUserInteractionTask;
 
 @end
 

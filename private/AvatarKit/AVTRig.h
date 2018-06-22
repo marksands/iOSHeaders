@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVTPersonalAnimoji;
+@class AVTMemoji;
 
 @interface AVTRig : NSObject
 {
@@ -15,7 +15,7 @@
     double _elevation;
     double _spacing;
     double _rotation;
-    AVTPersonalAnimoji *_owner;
+    AVTMemoji *_owner;
 }
 
 - (void)_encode:(id)arg1;
@@ -30,7 +30,7 @@
 @property double scale;
 @property double rotation;
 @property(readonly) long long type;
-- (id)initWithType:(long long)arg1 personalAnimoji:(id)arg2;
+- (id)initWithType:(long long)arg1 memoji:(id)arg2;
 - (id)init;
 
 @end

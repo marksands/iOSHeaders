@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (void)_gatherAndShowPasswordsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_fillCredential:(id)arg1 needsAuthentication:(_Bool)arg2;
 - (void)authenticateToPresentInPopover:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_presentCredentialListForExtension:(id)arg1;
 - (id)_actionForPresentingPasswordManagerExtension:(id)arg1;
 - (void)_authenticateToViewOtherPasswordsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_dismiss;

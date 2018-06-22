@@ -7,18 +7,18 @@
 #import <ScreenTimeUI/STListViewController.h>
 
 #import "STAllowanceDetailListControllerDelegate.h"
-#import "STAppUsageGroupSpecifierProviderDelegate.h"
 
-@class NSObject<STTimeAllowancesViewModelCoordinator>, NSObject<STUsageDetailsViewModelCoordinator>, NSString, STAllowanceProgressSpecifierProvider, STAppUsageGroupSpecifierProvider, STDevicePickupsUsageGroupSpecifierProvider, STNoUsageDataView, STNotificationsUsageGroupSpecifierProvider, STScreenTimeUsageGroupSpecifierProvider, STTestGroupSpecifierProvider;
+@class NSObject<STTimeAllowancesViewModelCoordinator>, NSObject<STUsageDetailsViewModelCoordinator>, NSString, STAllowanceProgressGroupSpecifierProvider, STDevicePickupsUsageGroupSpecifierProvider, STMostUsedGroupSpecifierProvider, STNoUsageDataView, STNotificationsUsageGroupSpecifierProvider, STScreenTimeUsageGroupSpecifierProvider, STTestGroupSpecifierProvider;
 
-@interface STUsageDetailListController : STListViewController <STAppUsageGroupSpecifierProviderDelegate, STAllowanceDetailListControllerDelegate>
+@interface STUsageDetailListController : STListViewController <STAllowanceDetailListControllerDelegate>
 {
+    _Bool _canAskForMoreTime;
     NSObject<STUsageDetailsViewModelCoordinator> *_usageDetailsCoordinator;
     NSObject<STTimeAllowancesViewModelCoordinator> *_timeAllowancesCoordinator;
     STTestGroupSpecifierProvider *_testProvider;
     STScreenTimeUsageGroupSpecifierProvider *_screenTimeProvider;
-    STAllowanceProgressSpecifierProvider *_allowancesProvider;
-    STAppUsageGroupSpecifierProvider *_appUsageProvider;
+    STAllowanceProgressGroupSpecifierProvider *_allowancesProvider;
+    STMostUsedGroupSpecifierProvider *_mostUsedProvider;
     STNotificationsUsageGroupSpecifierProvider *_notificationsProvider;
     STDevicePickupsUsageGroupSpecifierProvider *_pickupsProvider;
     STNoUsageDataView *_noUsageDataView;
@@ -27,16 +27,18 @@
 @property(readonly, nonatomic) STNoUsageDataView *noUsageDataView; // @synthesize noUsageDataView=_noUsageDataView;
 @property(retain, nonatomic) STDevicePickupsUsageGroupSpecifierProvider *pickupsProvider; // @synthesize pickupsProvider=_pickupsProvider;
 @property(retain, nonatomic) STNotificationsUsageGroupSpecifierProvider *notificationsProvider; // @synthesize notificationsProvider=_notificationsProvider;
-@property(retain, nonatomic) STAppUsageGroupSpecifierProvider *appUsageProvider; // @synthesize appUsageProvider=_appUsageProvider;
-@property(retain, nonatomic) STAllowanceProgressSpecifierProvider *allowancesProvider; // @synthesize allowancesProvider=_allowancesProvider;
+@property(retain, nonatomic) STMostUsedGroupSpecifierProvider *mostUsedProvider; // @synthesize mostUsedProvider=_mostUsedProvider;
+@property(retain, nonatomic) STAllowanceProgressGroupSpecifierProvider *allowancesProvider; // @synthesize allowancesProvider=_allowancesProvider;
 @property(retain, nonatomic) STScreenTimeUsageGroupSpecifierProvider *screenTimeProvider; // @synthesize screenTimeProvider=_screenTimeProvider;
 @property(retain, nonatomic) STTestGroupSpecifierProvider *testProvider; // @synthesize testProvider=_testProvider;
+@property(nonatomic) _Bool canAskForMoreTime; // @synthesize canAskForMoreTime=_canAskForMoreTime;
 @property(retain, nonatomic) NSObject<STTimeAllowancesViewModelCoordinator> *timeAllowancesCoordinator; // @synthesize timeAllowancesCoordinator=_timeAllowancesCoordinator;
 @property(retain, nonatomic) NSObject<STUsageDetailsViewModelCoordinator> *usageDetailsCoordinator; // @synthesize usageDetailsCoordinator=_usageDetailsCoordinator;
 - (void).cxx_destruct;
 - (void)allowanceDetailControllerDidCancel:(id)arg1;
 - (void)allowanceDetailController:(id)arg1 didSaveAllowance:(id)arg2;
 - (void)appUsageProvider:(id)arg1 didSelectSpecifier:(id)arg2 forUsageItem:(id)arg3;
+- (void)showDeviceSelectionAlertController:(id)arg1;
 - (void)showNoUsageDataViewIfNeeded;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)viewWillDisappear:(_Bool)arg1;

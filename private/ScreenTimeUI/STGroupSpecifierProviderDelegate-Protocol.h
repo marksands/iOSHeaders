@@ -9,8 +9,12 @@
 @class PSConfirmationSpecifier, PSSpecifier, STGroupSpecifierProvider, UIViewController;
 
 @protocol STGroupSpecifierProviderDelegate <NSObject>
+- (void)specifierProvider:(STGroupSpecifierProvider *)arg1 presentViewController:(UIViewController *)arg2 animated:(_Bool)arg3 completion:(void (^)(void))arg4;
+- (void)specifierProvider:(STGroupSpecifierProvider *)arg1 popToViewControllerAnimated:(_Bool)arg2;
 - (void)specifierProvider:(STGroupSpecifierProvider *)arg1 showConfirmationViewForSpecifier:(PSConfirmationSpecifier *)arg2;
 - (void)specifierProvider:(STGroupSpecifierProvider *)arg1 reloadSpecifier:(PSSpecifier *)arg2 animated:(_Bool)arg3;
+- (void)specifierProvider:(STGroupSpecifierProvider *)arg1 dismissViewControllerAnimated:(_Bool)arg2;
+- (void)specifierProvider:(STGroupSpecifierProvider *)arg1 presentViewController:(UIViewController *)arg2 animated:(_Bool)arg3;
 - (void)specifierProvider:(STGroupSpecifierProvider *)arg1 showController:(UIViewController *)arg2 animated:(_Bool)arg3;
 @end
 

@@ -30,6 +30,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)initWithPlacemark:(id)arg1 event:(long long)arg2;
+- (id)_intents_readableDescriptionForLanguage:(id)arg1;
 
 @end
 

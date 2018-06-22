@@ -14,6 +14,7 @@
     _Bool _policyDisabled;
     _Bool _isCancelled;
     float _lastIsSpaceFeature;
+    NSString *_keyboardLanguage;
     NSString *_searchString;
     CSAttributeEvaluator *_fuzzyEvaluator;
     CSAttributeEvaluator *_evaluator;
@@ -51,6 +52,7 @@
 @property(retain, nonatomic) CSAttributeEvaluator *evaluator; // @synthesize evaluator=_evaluator;
 @property(retain, nonatomic) CSAttributeEvaluator *fuzzyEvaluator; // @synthesize fuzzyEvaluator=_fuzzyEvaluator;
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
+@property(retain, nonatomic) NSString *keyboardLanguage; // @synthesize keyboardLanguage=_keyboardLanguage;
 - (void).cxx_destruct;
 - (void)prepareItems:(id)arg1 inBundle:(id)arg2;
 - (void)setRenderEngagementFeaturesForItem:(id)arg1 counts:(id)arg2 isRender:(_Bool)arg3 bundleDict:(id)arg4;

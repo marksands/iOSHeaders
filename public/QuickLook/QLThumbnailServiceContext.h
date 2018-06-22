@@ -7,12 +7,14 @@
 #import "NSExtensionContext.h"
 
 #import "QLThumbnailHost.h"
+#import "QLThumbnailSurfaceGeneratorProtocol.h"
 
 @class NSString, QLThumbnailProvider;
 
 __attribute__((visibility("hidden")))
-@interface QLThumbnailServiceContext : NSExtensionContext <QLThumbnailHost>
+@interface QLThumbnailServiceContext : NSExtensionContext <QLThumbnailSurfaceGeneratorProtocol, QLThumbnailHost>
 {
+    id <QLThumbnailSurfaceGeneratorProtocol> _surfaceGenerator;
     QLThumbnailProvider *_thumbnailProvider;
 }
 
@@ -21,8 +23,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) QLThumbnailProvider *thumbnailProvider; // @synthesize thumbnailProvider=_thumbnailProvider;
 - (void).cxx_destruct;
 - (id)_thumbnailGenerationQueue;
-- (void)generateThumbnailOfSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 badgeType:(unsigned long long)arg4 withFileURLHandler:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
-- (void)generateThumbnailOfSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 badgeType:(unsigned long long)arg4 withContents:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
+- (void)generateThumbnailOfSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 badgeType:(unsigned long long)arg4 withFileURLHandler:(id)arg5 ioSurfaceGenerator:(id)arg6 completionHandler:(CDUnknownBlockType)arg7;
+- (void)generateThumbnailOfSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 badgeType:(unsigned long long)arg4 withContents:(id)arg5 ioSurfaceGenerator:(id)arg6 completionHandler:(CDUnknownBlockType)arg7;
+- (void)ioSurfaceWithSize:(struct CGSize)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)protocolHost;
 
 // Remaining properties

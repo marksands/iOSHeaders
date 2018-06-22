@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 - (void)_view:(id)arg1 willMoveToWindow:(id)arg2;
 - (void)_applyRequestedNodeEffect;
 - (void)_applyIdentityNodeEffect;
+- (void)_evaluateInPlaceFiltering;
 - (id)_cloneFilters:(id)arg1;
 - (void)_configureEffectNode:(id)arg1;
 - (id)_viewForEntry:(id)arg1 fromCapturePool:(id)arg2 imagePool:(id)arg3 otherPool:(id)arg4;

@@ -46,7 +46,7 @@
 - (id)settingOverrides;
 - (void)spoolSectionInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)sendAllSectionInfoWithSpool:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)sendRemoveSectionWithSectionID:(id)arg1;
+- (void)sendRemoveSectionWithSectionID:(id)arg1 sent:(CDUnknownBlockType)arg2;
 - (void)sendSectionInfoWithSectionID:(id)arg1 completion:(CDUnknownBlockType)arg2 spoolToFile:(_Bool)arg3;
 - (id)_overriddenSectionInfoForSectionID:(id)arg1;
 - (void)_updateAllBBSectionsWithCompletion:(CDUnknownBlockType)arg1 withProgress:(CDUnknownBlockType)arg2 spoolToFile:(_Bool)arg3;
@@ -55,9 +55,9 @@
 - (void)clearSectionInfoSentCache;
 - (_Bool)isSectionInfoSentCacheEmpty;
 - (void)dealloc;
-- (void)siriActionAppList:(id)arg1 installed:(struct NSDictionary *)arg2 removed:(struct NSDictionary *)arg3;
+- (void)siriActionAppListUpdated:(id)arg1;
 - (void)handleAllSyncComplete;
-- (void)_sendSiriAppList:(struct NSDictionary *)arg1;
+- (void)_sendSiriAppListWithInstalled:(struct NSDictionary *)arg1 removed:(id)arg2;
 - (void)_sendSpooledSyncWithCompletion:(CDUnknownBlockType)arg1 withProgress:(CDUnknownBlockType)arg2;
 - (void)_logNotificationSettings;
 - (void)_spoolInitialSync;

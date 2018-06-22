@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSObject<VUIMediaEntityAssetController>;
+@class NSObject<VUIMediaEntityAssetController>, VUIMediaEntityAssetControllerState;
 
 @protocol VUIMediaEntityAssetControllerDelegate <NSObject>
 
 @optional
-- (void)mediaEntityAssetController:(NSObject<VUIMediaEntityAssetController> *)arg1 stateDidChange:(unsigned long long)arg2 downloadProgress:(double)arg3;
+- (void)mediaEntityAssetController:(NSObject<VUIMediaEntityAssetController> *)arg1 stateDidChange:(VUIMediaEntityAssetControllerState *)arg2;
 @end
 

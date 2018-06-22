@@ -8,33 +8,34 @@
 
 #import "NSSecureCoding.h"
 
-@class CPAlertAction, NSArray, NSUUID, UIImage;
+@class CPAlertAction, CPImageSet, NSArray, NSUUID;
 
 @interface CPNavigationAlert : NSObject <NSSecureCoding>
 {
-    unsigned long long _alertPriority;
     NSArray *_titleVariants;
     NSArray *_subtitleVariants;
-    UIImage *_image;
+    CPImageSet *_imageSet;
     CPAlertAction *_primaryAction;
     CPAlertAction *_secondaryAction;
     double _duration;
     NSUUID *_identifier;
+    id <CPNavigationAlertUpdating> _navigationAlertUpdateTarget;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) __weak id <CPNavigationAlertUpdating> navigationAlertUpdateTarget; // @synthesize navigationAlertUpdateTarget=_navigationAlertUpdateTarget;
 @property(retain, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) double duration; // @synthesize duration=_duration;
 @property(readonly, nonatomic) CPAlertAction *secondaryAction; // @synthesize secondaryAction=_secondaryAction;
 @property(readonly, nonatomic) CPAlertAction *primaryAction; // @synthesize primaryAction=_primaryAction;
-@property(readonly, copy, nonatomic) UIImage *image; // @synthesize image=_image;
+@property(readonly, copy, nonatomic) CPImageSet *imageSet; // @synthesize imageSet=_imageSet;
 @property(readonly, copy, nonatomic) NSArray *subtitleVariants; // @synthesize subtitleVariants=_subtitleVariants;
 @property(readonly, copy, nonatomic) NSArray *titleVariants; // @synthesize titleVariants=_titleVariants;
-@property(readonly, nonatomic) unsigned long long alertPriority; // @synthesize alertPriority=_alertPriority;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithTitleVariants:(id)arg1 subtitleVariants:(id)arg2 image:(id)arg3 priority:(unsigned long long)arg4 primaryAction:(id)arg5 secondaryAction:(id)arg6 duration:(double)arg7;
+- (void)updateTitleVariants:(id)arg1 subtitleVariants:(id)arg2;
+- (id)initWithTitleVariants:(id)arg1 subtitleVariants:(id)arg2 imageSet:(id)arg3 primaryAction:(id)arg4 secondaryAction:(id)arg5 duration:(double)arg6;
 
 @end
 

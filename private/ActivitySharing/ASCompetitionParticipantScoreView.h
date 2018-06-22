@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class ASCompetitionScoreViewConfiguration, ASCompetitionWinCountView, NSAttributedString, NSNumber, NSString, UIFont, UIImage, UILabel;
+@class ASCompetitionScoreViewConfiguration, ASCompetitionWinCountView, NSNumber, NSString, UIColor, UIFont, UIImage, UILabel;
 
 @interface ASCompetitionParticipantScoreView : UIView
 {
@@ -16,17 +16,29 @@
     UILabel *_scoreLabel;
     NSNumber *_previousLayoutWidth;
     _Bool _scoreIsVisible;
+    NSString *_name;
+    UIFont *_nameFont;
+    unsigned long long _score;
+    UIFont *_scoreFont;
+    UIColor *_scoreColor;
+    unsigned long long _winCount;
+    UIFont *_winCountFont;
     UIImage *_badge;
 }
 
 @property(retain, nonatomic) UIImage *badge; // @synthesize badge=_badge;
+@property(nonatomic) UIFont *winCountFont; // @synthesize winCountFont=_winCountFont;
+@property(nonatomic) unsigned long long winCount; // @synthesize winCount=_winCount;
+@property(nonatomic) UIColor *scoreColor; // @synthesize scoreColor=_scoreColor;
+@property(nonatomic) UIFont *scoreFont; // @synthesize scoreFont=_scoreFont;
+@property(nonatomic) unsigned long long score; // @synthesize score=_score;
 @property(nonatomic) _Bool scoreIsVisible; // @synthesize scoreIsVisible=_scoreIsVisible;
+@property(retain, nonatomic) UIFont *nameFont; // @synthesize nameFont=_nameFont;
+@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
-- (id)_adjustedWinCountFont;
-@property(nonatomic) unsigned long long winCount;
-@property(retain, nonatomic) NSAttributedString *scoreString;
-@property(retain, nonatomic) UIFont *nameFont;
-@property(retain, nonatomic) NSString *name;
+- (double)adjustedWinCountFontSizeForMaximumWidth:(double)arg1 originalFont:(id)arg2;
+- (double)adjustedScoreFontSizeForMaximumWidth:(double)arg1 originalFont:(id)arg2;
+- (double)adjustedNameFontSizeForMaximumWidth:(double)arg1 originalFont:(id)arg2;
 - (void)layoutForWidth:(double)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

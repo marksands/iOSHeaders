@@ -33,6 +33,9 @@
 - (id)_activityURLCreateIfNecessary:(_Bool)arg1;
 - (void)_validatePath;
 @property(readonly, nonatomic) AVAsset *avAsset;
+@property(readonly, nonatomic) _Bool evicted;
+- (void)setManuallyRenamed:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool manuallyRenamed;
 - (void)setPlayable:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool playable;
 - (void)setEvictionDate:(id)arg1;

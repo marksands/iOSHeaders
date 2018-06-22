@@ -36,7 +36,9 @@
 - (void)setBadgeString:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)setBadgeNumber:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)getBadgeNumberForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)badgeNumberForBundleIdentifier:(id)arg1;
 - (void)getAllowsRemoteNotificationsForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)allowsRemoteNotificationsForBundleIdentifier:(id)arg1;
 - (void)invalidateTokenForRemoteNotificationsForBundleIdentifier:(id)arg1;
 - (void)requestTokenForRemoteNotificationsForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)removeAllDeliveredNotificationsForBundleIdentifier:(id)arg1;
@@ -46,12 +48,15 @@
 - (void)removeSimilarNotificationRequests:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)removePendingNotificationRequestsWithIdentifiers:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)getPendingNotificationRequestsForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)pendingNotificationRequestsForBundleIdentifier:(id)arg1;
 - (void)setNotificationRequests:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)replaceContentForRequestWithIdentifier:(id)arg1 bundleIdentifier:(id)arg2 replacementContent:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)addNotificationRequest:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)getNotificationCategoriesForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)notificationCategoriesForBundleIdentifier:(id)arg1;
 - (void)setNotificationCategories:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)getNotificationSettingsForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)notificationSettingsForBundleIdentifier:(id)arg1;
 - (void)requestAuthorizationWithOptions:(unsigned long long)arg1 forBundleIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setObservingUserNotifications:(_Bool)arg1 forBundleIdentifier:(id)arg2;
 - (void)removeObserver:(id)arg1 forBundleIdentifier:(id)arg2;

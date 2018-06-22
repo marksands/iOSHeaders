@@ -45,6 +45,7 @@
 - (void)transitionToOtherDisplayedRecord;
 - (void)updateImageViewWithAVTViewSnapshot;
 - (void)updateImageViewWithDisplayedRecord;
+- (void)prepareToTransitionToVisible:(_Bool)arg1 completionHandler:(CDUnknownBlockType *)arg2;
 - (void)displayAvatarForRecord:(id)arg1 animated:(_Bool)arg2;
 - (void)stopUsingAVTViewSessionSynchronously:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)useAVTViewFromSession:(id)arg1 withLayout:(id)arg2;

@@ -11,8 +11,9 @@
 @protocol AVTAvatarDisplayingController <AVTObjectViewController>
 @property(nonatomic) __weak id <AVTAvatarDisplayingControllerDelegate> delegate;
 - (void)displayAvatarForRecord:(id <AVTAvatarRecord>)arg1 animated:(_Bool)arg2;
+- (void)prepareToTransitionToVisible:(_Bool)arg1 completionHandler:(CDUnknownBlockType *)arg2;
 - (void)stopUsingAVTViewSessionSynchronously:(_Bool)arg1 completionHandler:(void (^)(_Bool))arg2;
-- (void)useAVTViewFromSession:(AVTViewSession *)arg1 withLayout:(id <AVTViewLayout>)arg2;
+- (void)useAVTViewFromSession:(AVTViewSession *)arg1 withLayout:(id <AVTViewCarouselLayout>)arg2;
 - (void)reloadData;
 - (id)initWithDataSource:(AVTAvatarRecordDataSource *)arg1 environment:(AVTUIEnvironment *)arg2;
 @end

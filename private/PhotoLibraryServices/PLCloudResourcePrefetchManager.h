@@ -38,6 +38,7 @@
 - (id)_predicateForImageResourcePixelsLessOrEqual:(long long)arg1;
 - (id)_irisConditionString;
 - (id)_missingLocalOriginalConditionString;
+- (id)_excludeMomentShareAssetsString;
 - (id)_missingThumbnailConditionString;
 - (id)_resourcePredicateForCPLResourceType:(unsigned long long)arg1 additionalResourcePredicates:(id)arg2;
 - (id)_assetPredicateForCPLResourceType:(unsigned long long)arg1 additionalAssetConditions:(id)arg2 additionalResourcePredicates:(id)arg3;

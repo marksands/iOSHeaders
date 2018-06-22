@@ -27,6 +27,7 @@
 - (id)simStatus:(id)arg1;
 - (void)fetchSimStatus;
 - (void)subscriptionInfoDidChange;
+- (id)subscriptionsInUse;
 - (id)subscriptionContexts;
 - (void)fetchSubscriptionContexts;
 - (void)willEnterForeground;

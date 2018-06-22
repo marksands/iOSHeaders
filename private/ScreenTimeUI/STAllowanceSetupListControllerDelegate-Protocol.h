@@ -10,6 +10,6 @@
 
 @protocol STAllowanceSetupListControllerDelegate <NSObject>
 - (void)allowanceSetupListControllerDidCancel:(STAllowanceSetupListController *)arg1;
-- (void)allowanceSetupListController:(STAllowanceSetupListController *)arg1 didSelectAllowanceCategories:(NSArray *)arg2;
+- (void)allowanceSetupListController:(STAllowanceSetupListController *)arg1 didSelectAllowanceIdentifiers:(NSArray *)arg2;
 @end
 

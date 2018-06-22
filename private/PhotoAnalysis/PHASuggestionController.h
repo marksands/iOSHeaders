@@ -26,7 +26,7 @@
 - (id)collidableSuggestionsWithReferenceDate:(id)arg1 andDelay:(double)arg2 sharingSuggestionsOnly:(_Bool)arg3;
 - (id)collidableMemoriesWithReferenceDate:(id)arg1 andDelay:(double)arg2;
 - (id)commitSuggestions:(id)arg1 options:(id)arg2;
-- (id)processExistingSuggestions:(id)arg1 atDate:(id)arg2;
+- (id)processExistingSuggestions:(id)arg1 atDate:(id)arg2 shouldPerformChanges:(_Bool)arg3;
 - (_Bool)shouldDeleteSuggestion:(id)arg1 atDate:(id)arg2;
 - (_Bool)shouldRetireSuggestion:(id)arg1 atDate:(id)arg2;
 - (void)processExistingSuggestionsWithOptions:(id)arg1;

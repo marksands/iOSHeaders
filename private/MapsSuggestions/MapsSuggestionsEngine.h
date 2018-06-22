@@ -33,7 +33,7 @@
 - (_Bool)loadStorageFromFile:(id)arg1 callback:(CDUnknownBlockType)arg2 callbackQueue:(id)arg3;
 - (_Bool)loadStorageFromFile:(id)arg1;
 - (_Bool)saveStorageToFile:(id)arg1;
-- (void)hintRefreshOfType:(unsigned long long)arg1;
+- (void)hintRefreshOfType:(long long)arg1;
 - (id)currentLocation;
 - (void)removeAdditionalFilter:(id)arg1 forSink:(id)arg2;
 - (void)addAdditionalFilter:(id)arg1 forSink:(id)arg2;

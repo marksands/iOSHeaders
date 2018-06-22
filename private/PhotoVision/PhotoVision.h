@@ -24,6 +24,7 @@
     unsigned int _sceneAlgorithmUmbrellaVersion;
 }
 
++ (_Bool)isAppleInternal;
 + (void)setAlgorithmRevisionForRequest:(id)arg1 algorithmUmbrellaVersion:(unsigned int)arg2 algorithmCollectionType:(unsigned long long)arg3;
 + (unsigned long long)faceprintAnalysisOptionsForFaceAlgorithmUmbrellaVersion:(unsigned int)arg1;
 + (unsigned long long)defaultFaceAnalysisOptionsForFaceAlgorithmUmbrellaVersion:(unsigned int)arg1;

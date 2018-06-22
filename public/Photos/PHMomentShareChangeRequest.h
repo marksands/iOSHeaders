@@ -25,7 +25,6 @@
 + (void)expungeMomentShares:(id)arg1;
 + (void)trashMomentShares:(id)arg1;
 + (id)validateMomentShareCreationDate:(id)arg1 error:(id *)arg2;
-+ (id)validateMomentShareTitle:(id)arg1 error:(id *)arg2;
 + (id)creationRequestForMomentShareWithTitle:(id)arg1 mode:(short)arg2 creationDate:(id)arg3 createMomentShareAssetsFromAssets:(id)arg4 assetCreationOptions:(id)arg5 preview:(id)arg6;
 + (id)changeRequestForMomentShare:(id)arg1;
 @property(readonly, nonatomic) PHRelationshipChangeRequestHelper *participantsHelper; // @synthesize participantsHelper=_participantsHelper;

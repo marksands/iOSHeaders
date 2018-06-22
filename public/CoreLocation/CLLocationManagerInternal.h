@@ -24,7 +24,6 @@
     NSMutableSet *fRangedRegions;
 }
 
-@property(nonatomic) __weak id <CLLocationManagerDelegate> delegate; // @synthesize delegate=fDelegate;
 @property(readonly, nonatomic) NSMutableSet *rangedRegions; // @synthesize rangedRegions=fRangedRegions;
 - (void)dealloc;
 - (void)performCourtesyPromptIfNeeded;

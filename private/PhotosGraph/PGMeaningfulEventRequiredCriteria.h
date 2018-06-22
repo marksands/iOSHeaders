@@ -6,7 +6,7 @@
 
 #import <PhotosGraph/PGMeaningfulEventCriteria.h>
 
-@class NSDictionary, NSString, PGMeaningfulEventLocationMobilityTrait, PGMeaningfulEventNumberTrait, PGMeaningfulEventPartOfDayTrait, PGMeaningfulEventSceneSetTrait, PGMeaningfulEventSetTrait;
+@class NSDictionary, NSString, PGMeaningfulEventLocationMobilityTrait, PGMeaningfulEventLocationSetTrait, PGMeaningfulEventNumberTrait, PGMeaningfulEventPartOfDayTrait, PGMeaningfulEventSceneSetTrait, PGMeaningfulEventSetTrait;
 
 @interface PGMeaningfulEventRequiredCriteria : PGMeaningfulEventCriteria
 {
@@ -23,23 +23,25 @@
 @property(readonly, nonatomic) double minimumScore; // @synthesize minimumScore=_minimumScore;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (id)debugDescription;
 - (id)description;
 @property(readonly, nonatomic) NSString *meaningNodeLabel;
 - (id)initWithIdentifier:(id)arg1 minimumScore:(double)arg2;
 
 // Remaining properties
+@property(retain, nonatomic) PGMeaningfulEventPartOfDayTrait *allPartsOfDayTrait; // @dynamic allPartsOfDayTrait;
 @property(retain, nonatomic) PGMeaningfulEventSetTrait *datesTrait; // @dynamic datesTrait;
 @property(retain, nonatomic) PGMeaningfulEventLocationMobilityTrait *locationMobilityTrait; // @dynamic locationMobilityTrait;
-@property(retain, nonatomic) PGMeaningfulEventSetTrait *locationsTrait; // @dynamic locationsTrait;
+@property(retain, nonatomic) PGMeaningfulEventLocationSetTrait *locationsTrait; // @dynamic locationsTrait;
 @property(retain, nonatomic) PGMeaningfulEventNumberTrait *maximumDurationTrait; // @dynamic maximumDurationTrait;
 @property(retain, nonatomic) PGMeaningfulEventNumberTrait *minimumDurationTrait; // @dynamic minimumDurationTrait;
 @property(retain, nonatomic) PGMeaningfulEventNumberTrait *numberOfPeopleTrait; // @dynamic numberOfPeopleTrait;
-@property(retain, nonatomic) PGMeaningfulEventPartOfDayTrait *partOfDayTrait; // @dynamic partOfDayTrait;
 @property(retain, nonatomic) PGMeaningfulEventSetTrait *peopleTrait; // @dynamic peopleTrait;
 @property(retain, nonatomic) PGMeaningfulEventSetTrait *poisTrait; // @dynamic poisTrait;
 @property(retain, nonatomic) PGMeaningfulEventSetTrait *publicEventCategoriesTrait; // @dynamic publicEventCategoriesTrait;
 @property(retain, nonatomic) PGMeaningfulEventSetTrait *roisTrait; // @dynamic roisTrait;
 @property(retain, nonatomic) PGMeaningfulEventSceneSetTrait *scenesTrait; // @dynamic scenesTrait;
+@property(retain, nonatomic) PGMeaningfulEventPartOfDayTrait *significantPartsOfDayTrait; // @dynamic significantPartsOfDayTrait;
 @property(retain, nonatomic) PGMeaningfulEventSetTrait *socialGroupsTrait; // @dynamic socialGroupsTrait;
 
 @end

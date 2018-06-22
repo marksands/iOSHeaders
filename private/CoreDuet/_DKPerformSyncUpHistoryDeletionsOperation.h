@@ -6,7 +6,7 @@
 
 #import <CoreDuet/_DKSyncCompositeOperation.h>
 
-@class NSDate, _DKSync2Policy, _DKSyncHistory, _DKSyncPeer, _DKSyncType;
+@class NSDate, _CDMutablePerfMetric, _DKSync2Policy, _DKSyncHistory, _DKSyncPeer, _DKSyncType;
 
 @interface _DKPerformSyncUpHistoryDeletionsOperation : _DKSyncCompositeOperation
 {
@@ -15,13 +15,18 @@
     _DKSyncPeer *_me;
     _DKSync2Policy *_policy;
     _DKSyncType *_type;
+    _CDMutablePerfMetric *_perfMetric;
+    struct _CDPerfEvent _perfEvent;
     NSDate *_now;
     _DKSyncHistory *_history;
     unsigned long long _batchNumber;
 }
 
 - (void).cxx_destruct;
-- (void)handleUpdateStorageWithFetchedWindow:(id)arg1 deletedEventIDsCount:(unsigned long long)arg2 error:(id)arg3;
+- (void)endPerfMetrics;
+- (void)startPerfMetrics;
+- (void)endOperation;
+- (void)handleUpdateStorageWithStartDate:(id)arg1 endDate:(id)arg2 deletedEventIDsCount:(unsigned long long)arg3 orError:(id)arg4;
 - (void)performSyncUpHistoryDeletionsWithPreviousHighWaterMark:(id)arg1;
 - (void)performSyncUpHistoryDeletionsWithDeletionsHighWaterMark:(id)arg1 orError:(id)arg2;
 - (void)performSyncUpHistoryDeletions;

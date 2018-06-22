@@ -50,6 +50,8 @@
     _Bool _hideServerPositionedRoadFeatures;
     _Bool _hideServerPositionedTransitFeatures;
     _Bool _keepTooCloseServerPositionedTransitFeatures;
+    _Bool _overrideNeworkDefaultsBaseSSLPMSwitch;
+    _Bool _labelBaseSSLPMEnabled;
     _Bool _labelHideLineFeatures;
     _Bool _labelHidePointFeatures;
     _Bool _paintTrafficSkeleton;
@@ -144,7 +146,6 @@
     _Bool _paintVenues;
     _Bool _labelCollideContinuously;
     _Bool _useStaticTrafficFeed;
-    _Bool _newRouteTraffic;
     _Bool _showNavCameraDebugConsoleProperties;
     _Bool _showNavCameraDebugOverlay;
     _Bool _disableStylesheetAnimations;
@@ -247,12 +248,13 @@
 @property(nonatomic) _Bool prioritizeTrafficSkeleton; // @synthesize prioritizeTrafficSkeleton=_prioritizeTrafficSkeleton;
 @property(nonatomic) _Bool texturedTrafficCasing; // @synthesize texturedTrafficCasing=_texturedTrafficCasing;
 @property(nonatomic) _Bool showTrafficCasing; // @synthesize showTrafficCasing=_showTrafficCasing;
-@property(nonatomic) _Bool newRouteTraffic; // @synthesize newRouteTraffic=_newRouteTraffic;
 @property(nonatomic) _Bool useStaticTrafficFeed; // @synthesize useStaticTrafficFeed=_useStaticTrafficFeed;
 @property(nonatomic) _Bool loadGreenTraffic; // @synthesize loadGreenTraffic=_loadGreenTraffic;
 @property(nonatomic) _Bool paintTrafficSkeleton; // @synthesize paintTrafficSkeleton=_paintTrafficSkeleton;
 @property(nonatomic) _Bool labelHidePointFeatures; // @synthesize labelHidePointFeatures=_labelHidePointFeatures;
 @property(nonatomic) _Bool labelHideLineFeatures; // @synthesize labelHideLineFeatures=_labelHideLineFeatures;
+@property(nonatomic) _Bool labelBaseSSLPMEnabled; // @synthesize labelBaseSSLPMEnabled=_labelBaseSSLPMEnabled;
+@property(nonatomic) _Bool overrideNeworkDefaultsBaseSSLPMSwitch; // @synthesize overrideNeworkDefaultsBaseSSLPMSwitch=_overrideNeworkDefaultsBaseSSLPMSwitch;
 @property(nonatomic) _Bool keepTooCloseServerPositionedTransitFeatures; // @synthesize keepTooCloseServerPositionedTransitFeatures=_keepTooCloseServerPositionedTransitFeatures;
 @property(nonatomic) _Bool hideServerPositionedTransitFeatures; // @synthesize hideServerPositionedTransitFeatures=_hideServerPositionedTransitFeatures;
 @property(nonatomic) _Bool hideServerPositionedRoadFeatures; // @synthesize hideServerPositionedRoadFeatures=_hideServerPositionedRoadFeatures;

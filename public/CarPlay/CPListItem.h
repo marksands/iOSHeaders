@@ -20,7 +20,6 @@
     NSUUID *_identifier;
 }
 
-+ (id)cp_imageByScalingImage:(id)arg1;
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) id userInfo; // @synthesize userInfo=_userInfo;

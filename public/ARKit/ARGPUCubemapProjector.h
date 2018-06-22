@@ -15,7 +15,7 @@
 }
 
 - (void).cxx_destruct;
--     // Error parsing type: @96@0:8Q16{?=[4]}24r^{vector<ARTexturedPlane, std::__1::allocator<ARTexturedPlane> >=^{?}^{?}{__compressed_pair<ARTexturedPlane *, std::__1::allocator<ARTexturedPlane> >=^{?}}}88, name: projectToCubeWithResolution:transformWorldFromCube:planes:
+-     // Error parsing type: v100@0:8@16{?=[4]}24r^{vector<ARTexturedPlane, std::__1::allocator<ARTexturedPlane> >=^{?}^{?}{__compressed_pair<ARTexturedPlane *, std::__1::allocator<ARTexturedPlane> >=^{?}}}88B96, name: projectToCube:transformWorldFromCube:planes:blend:
 - (id)init;
 
 @end

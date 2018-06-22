@@ -26,6 +26,8 @@
 - (void)showKeyboard;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewWillBeginDragging:(id)arg1;
+- (_Bool)cellsVisibleUnderKeyboard;
+- (double)contentHeight;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)hideCellsBelowKeyboardIfNecessary;
 - (void)viewDidLayoutSubviews;

@@ -10,11 +10,12 @@
 #import "CLKUIResourceProviderDelegate.h"
 #import "NTKColorCircularUtilitarianFaceViewComplicationFactoryDelegate.h"
 
-@class CLKUIQuadView, CLKUIResourceProviderKey, NSString, NTKColorCircularUtilitarianFaceViewComplicationFactory, NTKKaleidoscopePathfinder, UIColor;
+@class CLKUIQuadView, CLKUIResourceProviderKey, NSString, NTKColorCircularUtilitarianFaceViewComplicationFactory, NTKKaleidoscopePathfinder, NTKRoundedCornerOverlayView, UIColor;
 
 @interface NTKKaleidoscopeFaceView : NTKAnalogFaceView <NTKColorCircularUtilitarianFaceViewComplicationFactoryDelegate, CLKUIQuadViewDelegate, CLKUIResourceProviderDelegate>
 {
     CLKUIQuadView *_quadView;
+    NTKRoundedCornerOverlayView *_cornerView;
     NTKColorCircularUtilitarianFaceViewComplicationFactory *_faceViewComplicationFactory;
     double _crownOffset;
     unsigned int _frameCounter;
@@ -35,7 +36,7 @@
 @property(nonatomic) unsigned long long currentStyle; // @synthesize currentStyle=_currentStyle;
 @property(nonatomic) unsigned long long currentAsset; // @synthesize currentAsset=_currentAsset;
 - (void).cxx_destruct;
-- (id)_snapshotWithAsset:(unsigned long long)arg1 style:(unsigned long long)arg2;
+- (id)_snapshotWithAsset:(unsigned long long)arg1 style:(unsigned long long)arg2 size:(struct CGSize)arg3;
 - (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (id)_swatchForAsset:(unsigned long long)arg1;
 - (id)_quadWithStyle:(unsigned long long)arg1 asset:(unsigned long long)arg2;

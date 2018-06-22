@@ -251,6 +251,7 @@
 - (_Bool)_selectionAtDocumentEnd;
 - (_Bool)_selectionAtDocumentStart;
 - (_Bool)_selectionAtWordStart;
+- (void)_setSelectionToPosition:(id)arg1;
 - (id)_fullText;
 - (id)_wordContainingCaretSelection;
 - (unsigned int)_characterInRelationToPosition:(id)arg1 amount:(int)arg2;

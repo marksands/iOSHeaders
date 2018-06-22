@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class FCColor, FCColorGradient, FCFeedEdition, NSArray, NSDate, NSString, NTPBDiscoverMoreVideosInfo, NTPBSpecialEventsConfig;
+@class FCColor, FCColorGradient, FCFeedEdition, NSArray, NSDate, NSString, NTPBDiscoverMoreVideosInfo;
 
 @protocol FCFeedGroupOutlining <NSObject>
 @property(readonly, copy, nonatomic) NSString *backingTagID;
@@ -16,7 +16,6 @@
 @property(readonly, copy, nonatomic) FCFeedEdition *edition;
 @property(readonly, nonatomic) NSDate *creationDate;
 @property(readonly, copy, nonatomic) NSArray *videoPlaylistHeadlines;
-@property(readonly, copy, nonatomic) NTPBSpecialEventsConfig *specialEventsConfig;
 @property(readonly, copy, nonatomic) NTPBDiscoverMoreVideosInfo *discoverMoreVideosInfo;
 @property(readonly, copy, nonatomic) FCColorGradient *backgroundGradient;
 @property(readonly, copy, nonatomic) FCColor *titleColor;

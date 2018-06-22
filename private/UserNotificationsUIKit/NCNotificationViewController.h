@@ -12,7 +12,7 @@
 #import "PLExpandedPlatterPresentationControllerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NCNotificationAction, NCNotificationRequest, NCNotificationViewControllerView, NSPointerArray, NSString, UIPanGestureRecognizer, UIScrollView, UIView, UIViewController<NCNotificationCustomContent>;
+@class NCNotificationAction, NCNotificationRequest, NCNotificationViewControllerView, NSPointerArray, NSString, UIPanGestureRecognizer, UIScrollView, UIView, UIView<PLContentSizeManaging>, UIViewController<NCNotificationCustomContent>;
 
 @interface NCNotificationViewController : UIViewController <UIScrollViewDelegate, NCNotificationCustomContentDelegate, PLExpandedPlatterPresentationControllerDelegate, PLContentSizeCategoryAdjusting, NCLegibilitySettingsAdjusting>
 {
@@ -20,6 +20,7 @@
     _Bool _canPan;
     long long _ncTransitionAnimationState;
     NSPointerArray *_observers;
+    UIView<PLContentSizeManaging> *_contentSizeManagingView;
     struct UIView *_lookView;
     _Bool _revealAdditionalContentOnPresentation;
     _Bool _customContentHomeAffordanceVisible;
@@ -105,6 +106,7 @@
 - (struct CGSize)_preferredCustomContentSizeForSize:(struct CGSize)arg1 parentContentContainerBounds:(struct CGRect)arg2;
 - (void)_notificationViewControllerViewDidLoad;
 - (void)_loadLookView;
+- (id)_contentSizeManagingView;
 @property(readonly, nonatomic, getter=_notificationViewControllerView) NCNotificationViewControllerView *notificationViewControllerView;
 - (void)_updateWithProvidedAuxiliaryOptionsContent;
 - (void)_updateWithProvidedCustomContent;

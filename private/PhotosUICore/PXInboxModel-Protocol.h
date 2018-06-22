@@ -24,5 +24,6 @@
 @property(readonly, nonatomic) NSString *ownerLastName;
 @property(readonly, nonatomic) NSString *ownerFirstName;
 @property(readonly, nonatomic) NSArray *assetsForOneUp;
+- (void)fetchLeftPreviewItemsWithCompletion:(void (^)(NSArray *))arg1;
 @end
 

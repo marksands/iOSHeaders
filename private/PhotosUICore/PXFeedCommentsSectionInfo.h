@@ -20,6 +20,7 @@
 - (_Bool)containsAsset:(id)arg1;
 - (void)getCommentCount:(out unsigned long long *)arg1 likeCount:(out unsigned long long *)arg2;
 - (id)likesForItemAtIndex:(long long)arg1;
+- (id)commentTextForItemAtIndex:(long long)arg1;
 - (id)commentForItemAtIndex:(long long)arg1;
 - (id)assetsForItemAtIndex:(long long)arg1 maximumCount:(long long)arg2;
 - (_Bool)hasMultipleAssetsForItemAtIndex:(long long)arg1;

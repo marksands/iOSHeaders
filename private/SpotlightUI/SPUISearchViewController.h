@@ -6,6 +6,7 @@
 
 #import "UIViewController.h"
 
+#import "APUIShortLookViewControllerDelegate.h"
 #import "SFFeedbackListener.h"
 #import "SPUIResultViewDelegate.h"
 #import "SPUISearchHeaderDelegate.h"
@@ -15,7 +16,7 @@
 
 @class NSMutableSet, NSString, NSTimer, SPUILockScreenFooterView, SPUIResultViewController, SPUISearchFirstTimeViewController, SPUISearchHeader, SPUITestingHelper, UIView, _UILegibilitySettings;
 
-@interface SPUISearchViewController : UIViewController <SPUISearchHeaderDelegate, SearchUIFirstTimeExperienceDelegate, SPUIResultViewDelegate, UIGestureRecognizerDelegate, SFFeedbackListener, SearchUIResultViewDelegate>
+@interface SPUISearchViewController : UIViewController <SPUISearchHeaderDelegate, SearchUIFirstTimeExperienceDelegate, SPUIResultViewDelegate, UIGestureRecognizerDelegate, SFFeedbackListener, SearchUIResultViewDelegate, APUIShortLookViewControllerDelegate>
 {
     unsigned long long _queryStartTime;
     NSTimer *_queryUpdateTimer;
@@ -85,11 +86,21 @@
 - (void)searchViewWillDismissWithReason:(unsigned long long)arg1;
 - (void)searchViewDidPresentFromSource:(unsigned long long)arg1;
 @property(readonly, nonatomic) double distanceToTopOfAppIcons;
+- (id)homeScreenBringUpTestName;
+- (_Bool)isRunningHomeScreenBringUpTest;
 - (void)searchViewDidUpdatePresentationProgress:(double)arg1;
 - (void)searchViewWillPresentFromSource:(unsigned long long)arg1;
 - (void)performSearchWithSuggestion:(id)arg1;
 - (void)performTestSearchWithQuery:(id)arg1 event:(unsigned long long)arg2 sourcePreference:(long long)arg3;
 - (void)performSearchWithQuery:(id)arg1 forSuggestions:(_Bool)arg2;
+- (void)shortLookViewController:(id)arg1 didDismissLongLookWithReason:(long long)arg2 actionCompleted:(_Bool)arg3 shouldClearAction:(_Bool)arg4;
+- (void)sendActionFeedbackFromShortLookViewController:(id)arg1 isPunchout:(_Bool)arg2;
+- (void)shortLookViewController:(id)arg1 willDismissLongLookWithReason:(long long)arg2 actionCompleted:(_Bool)arg3 shouldClearAction:(_Bool)arg4;
+- (void)shortLookViewController:(id)arg1 didCompleteActionWithResult:(long long)arg2;
+- (void)shortLookViewController:(id)arg1 willDisplayLongLookWithReason:(long long)arg2;
+- (void)shortLookViewControllerWillBeginUserInteraction:(id)arg1;
+- (id)shortLookViewControllerForResult:(id)arg1;
+- (_Bool)hasShortLookViewControllerForResult:(id)arg1;
 - (id)userActivityFromIntent:(id)arg1;
 - (void)getUserActivityForResult:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;

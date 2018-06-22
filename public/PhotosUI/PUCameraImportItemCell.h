@@ -14,12 +14,12 @@ __attribute__((visibility("hidden")))
 @interface PUCameraImportItemCell : UICollectionViewCell <PXChangeObserver>
 {
     struct CGRect _badgeTapZone;
-    _Bool _selectable;
     _Bool _needsThumbnailRefresh;
+    _Bool _selectable;
     _Bool _needsBadgeUpdate;
-    long long _badgeType;
     id <PUImportDisplayDelegate> _displayDelegate;
     PUImportItemViewModel *_representedImportItem;
+    long long _badgeType;
     UIImageView *_badgeImageView;
     UIActivityIndicatorView *_spinner;
     PUPhotoView *_photoView;
@@ -35,11 +35,11 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) PUPhotoView *photoView; // @synthesize photoView=_photoView;
 @property(retain, nonatomic) UIActivityIndicatorView *spinner; // @synthesize spinner=_spinner;
 @property(retain, nonatomic) UIImageView *badgeImageView; // @synthesize badgeImageView=_badgeImageView;
+@property(nonatomic) _Bool selectable; // @synthesize selectable=_selectable;
+@property(nonatomic) long long badgeType; // @synthesize badgeType=_badgeType;
 @property(readonly, nonatomic) _Bool needsThumbnailRefresh; // @synthesize needsThumbnailRefresh=_needsThumbnailRefresh;
 @property(retain, nonatomic) PUImportItemViewModel *representedImportItem; // @synthesize representedImportItem=_representedImportItem;
 @property(nonatomic) __weak id <PUImportDisplayDelegate> displayDelegate; // @synthesize displayDelegate=_displayDelegate;
-@property(nonatomic) _Bool selectable; // @synthesize selectable=_selectable;
-@property(nonatomic) long long badgeType; // @synthesize badgeType=_badgeType;
 - (void).cxx_destruct;
 - (void)updateDebugLabel:(id)arg1;
 - (id)accessibilityCustomActions;
@@ -55,8 +55,8 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)_filledPhotosRectForImage:(id)arg1;
 - (void)clearImage;
 - (void)cancelThumbnailLoadIfActive;
-- (void)setPhotoImage:(id)arg1 withSize:(struct CGSize)arg2 fillMode:(long long)arg3 videoDuration:(double)arg4;
-- (void)setCachedImage:(id)arg1;
+- (void)setPhotoImage:(id)arg1 withSize:(struct CGSize)arg2 fillMode:(long long)arg3 videoDuration:(double)arg4 isPlaceholder:(_Bool)arg5;
+- (void)setCachedImage:(id)arg1 isPlaceholder:(_Bool)arg2;
 - (void)_fetchThumbnailReady;
 - (void)refreshThumbnail;
 - (void)updateBadgeUIIfNeeded;

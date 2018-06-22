@@ -9,37 +9,37 @@
 #import "VUIMediaEntityAssetController.h"
 #import "VUIMediaEntityAssetControllerDelegate.h"
 
-@class MPMediaItemCollection, NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<VUIMediaEntityIdentifier>, NSString, VUIMediaEntityType;
+@class MPMediaItemCollection, NSArray, NSObject<OS_dispatch_queue>, NSObject<VUIMediaEntityIdentifier>, NSString, VUIMediaEntityAssetControllerState, VUIMediaEntityType;
 
 __attribute__((visibility("hidden")))
 @interface VUIMPMediaItemCollectionAssetController : NSObject <VUIMediaEntityAssetControllerDelegate, VUIMediaEntityAssetController>
 {
+    _Bool _supportsStartingDownload;
     NSObject<OS_dispatch_queue> *_completionDispatchQueue;
     id <VUIMediaEntityAssetControllerDelegate> _delegate;
     NSObject<VUIMediaEntityIdentifier> *_mediaEntityIdentifier;
-    unsigned long long _state;
-    double _downloadProgress;
+    VUIMediaEntityAssetControllerState *_state;
     MPMediaItemCollection *_mediaItemCollection;
     NSObject<OS_dispatch_queue> *_serialProcessingDispatchQueue;
     NSArray *_assetControllers;
-    NSMutableDictionary *_downloadControllerForIdentifier;
+    unsigned long long _fullyDownloadedAssetBytes;
 }
 
-@property(retain, nonatomic) NSMutableDictionary *downloadControllerForIdentifier; // @synthesize downloadControllerForIdentifier=_downloadControllerForIdentifier;
++ (id)_downloadingAssetControllersWithAssetControllers:(id)arg1;
++ (id)_stateFromDownloadingAssetControllers:(id)arg1 fullyDownloadedAssetBytes:(unsigned long long)arg2;
+@property(nonatomic) unsigned long long fullyDownloadedAssetBytes; // @synthesize fullyDownloadedAssetBytes=_fullyDownloadedAssetBytes;
 @property(retain, nonatomic) NSArray *assetControllers; // @synthesize assetControllers=_assetControllers;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *serialProcessingDispatchQueue; // @synthesize serialProcessingDispatchQueue=_serialProcessingDispatchQueue;
 @property(retain, nonatomic) MPMediaItemCollection *mediaItemCollection; // @synthesize mediaItemCollection=_mediaItemCollection;
-@property(nonatomic) double downloadProgress; // @synthesize downloadProgress=_downloadProgress;
-@property(nonatomic) unsigned long long state; // @synthesize state=_state;
+@property(copy, nonatomic) VUIMediaEntityAssetControllerState *state; // @synthesize state=_state;
 @property(copy, nonatomic) NSObject<VUIMediaEntityIdentifier> *mediaEntityIdentifier; // @synthesize mediaEntityIdentifier=_mediaEntityIdentifier;
+@property(readonly, nonatomic) _Bool supportsStartingDownload; // @synthesize supportsStartingDownload=_supportsStartingDownload;
 - (void).cxx_destruct;
-- (void)_notifyDelegateStateDidChange:(unsigned long long)arg1 downloadProgress:(double)arg2;
+- (void)_notifyDelegateStateDidChange:(id)arg1;
 - (_Bool)_allAssetsDownloaded;
 - (void)_enqueueCompletionQueueBlock:(CDUnknownBlockType)arg1;
 - (void)_enqueueAsyncProcessingQueueStrongSelfBlock:(CDUnknownBlockType)arg1;
-- (void)_enqueueSyncProcessingQueueStrongSelfBlock:(CDUnknownBlockType)arg1;
-- (void)_onProcessingQueue_setState:(unsigned long long)arg1 downloadProgress:(double)arg2 notifyDelegate:(_Bool)arg3;
-- (unsigned long long)_onProcessingQueue_stateFromDownloadControllersAndDownloadProgress:(double *)arg1;
+- (void)_onProcessingQueue_setState:(id)arg1 andNotifyDelegate:(_Bool)arg2;
 - (void)_onProcessingQueue_updateStateAndNotifyDelegate:(_Bool)arg1;
 - (void)_onProcessingQueue_removeDownloadWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_onProcessingQueue_resumeDownload;
@@ -47,22 +47,18 @@ __attribute__((visibility("hidden")))
 - (void)_onProcessingQueue_cancelDownload;
 - (void)_onProcessingQueue_startDownloadWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_onProcessingQueue_invalidate;
-- (void)mediaEntityAssetController:(id)arg1 stateDidChange:(unsigned long long)arg2 downloadProgress:(double)arg3;
+- (void)mediaEntityAssetController:(id)arg1 stateDidChange:(id)arg2;
 - (void)removeDownloadWithCompletion:(CDUnknownBlockType)arg1;
 - (void)resumeDownload;
 - (void)pauseDownload;
 - (void)cancelDownload;
 - (void)startDownloadWithCompletion:(CDUnknownBlockType)arg1;
 - (void)invalidate;
-@property(readonly, nonatomic, getter=isDownloadInProgress) _Bool downloadInProgress;
-@property(readonly, nonatomic) _Bool supportsCancellation;
-@property(readonly, nonatomic) _Bool supportsPausing;
-@property(readonly, nonatomic) _Bool supportsStartingDownload;
 @property(readonly, copy, nonatomic) VUIMediaEntityType *mediaEntityType;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *completionDispatchQueue; // @synthesize completionDispatchQueue=_completionDispatchQueue;
 @property(retain, nonatomic) id <VUIMediaEntityAssetControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)init;
-- (id)initWithMediaItemCollection:(id)arg1 mediaEntityIdentifier:(id)arg2;
+- (id)initWithMediaItemCollection:(id)arg1 mediaEntityIdentifier:(id)arg2 serialProcessingDispatchQueue:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

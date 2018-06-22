@@ -8,7 +8,7 @@
 
 @protocol QLThumbnailsInterface
 - (void)removeCachedThumbnailsFromUninstalledFileProvidersWithRemainingFileProviderIdentifiers:(NSArray *)arg1 completionHandler:(void (^)(void))arg2;
-- (void)thumbnailForRequest:(QLTThumbnailRequest *)arg1 completionHandler:(void (^)(NSData *, QLTBitmapFormat *, NSError *))arg2;
+- (void)thumbnailForRequest:(QLTThumbnailRequest *)arg1 completionHandler:(void (^)(NSData *, QLTBitmapFormat *, _Bool, NSError *))arg2;
 - (void)requestThumbnailOfMaximumSize:(struct CGSize)arg1 scale:(double)arg2 forThumbnailItem:(QLThumbnailItem *)arg3 completionHandler:(void (^)(UIImage *))arg4;
 - (void)requestWritingThumbnailOfMaximumSize:(struct CGSize)arg1 forThumbnailItem:(QLThumbnailItem *)arg2 toFileHandle:(NSFileHandle *)arg3 atBackgroundPriority:(_Bool)arg4 completionHandler:(void (^)(id <QLThumbnailGenerationRequest>))arg5;
 - (void)requestWritingThumbnailOfMaximumSize:(struct CGSize)arg1 forDocumentAtURL:(NSURL *)arg2 sandboxExtension:(NSString *)arg3 toFileHandle:(NSFileHandle *)arg4 atBackgroundPriority:(_Bool)arg5 completionHandler:(void (^)(id <QLThumbnailGenerationRequest>))arg6;

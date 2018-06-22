@@ -12,6 +12,7 @@
 {
 }
 
++ (id)fetchRequestForUsersBelongingToOrganizationWithIdentifier:(id)arg1 userDSID:(id)arg2 deviceIdentifier:(id)arg3;
 + (id)fetchRequestForUserDevicePairRecordsWithURI:(id)arg1;
 + (id)fetchRequestForUserDevicePairRecordsFromOrganizationWithIdentifier:(id)arg1;
 + (id)fetchRequestMatchingUserDevicePairsForLocalUserAndDeviceFromOrganizationWithIdentifier:(id)arg1;

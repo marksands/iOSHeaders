@@ -57,7 +57,7 @@
 - (void)updateAfterAppResume;
 - (void)_occurrenceCacheChanged;
 - (void)_eventStoreChanged:(id)arg1;
-- (void)calendarEventLoader:(id)arg1 occurrencesDidUpdateBetweenStart:(double)arg2 end:(double)arg3;
+- (void)calendarEventLoader:(id)arg1 occurrencesDidUpdateBetweenStart:(double)arg2 end:(double)arg3 wasEmptyLoad:(_Bool)arg4;
 - (void)_finishedFirstLoad;
 - (void)simulateFirstLoadFinished;
 - (long long)countSourcesWithErrors;

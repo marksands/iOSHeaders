@@ -26,6 +26,7 @@
 + (struct __CFDictionary *)pixelBufferAttributes;
 - (void).cxx_destruct;
 - (_Bool)_useCoreImageForFormat:(unsigned int)arg1;
+- (id)_optionsWithOverridingOptions:(id)arg1;
 - (id)augmentedCroppedBuffersWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2 format:(unsigned int)arg3 cropRect:(struct CGRect)arg4 options:(id)arg5 augmentationOptions:(id)arg6 error:(id *)arg7;
 - (id)augmentedBuffersWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2 format:(unsigned int)arg3 options:(id)arg4 augmentationOptions:(id)arg5 error:(id *)arg6;
 - (struct __CVBuffer *)_baseCVPixelBuffer;

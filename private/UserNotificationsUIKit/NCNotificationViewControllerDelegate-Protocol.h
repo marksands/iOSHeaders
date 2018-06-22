@@ -13,7 +13,6 @@
 - (void)notificationViewController:(NCNotificationViewController *)arg1 requestPermissionToExecuteAction:(NCNotificationAction *)arg2 withParameters:(NSDictionary *)arg3 completion:(void (^)(_Bool))arg4;
 
 @optional
-- (_Bool)notificationViewController:(NCNotificationViewController *)arg1 shouldPerformNotificationCoalescingForNotificationRequest:(NCNotificationRequest *)arg2;
 - (void)notificationViewController:(NCNotificationViewController *)arg1 requestsExpandingCoalescedBundleForNotificationRequest:(NCNotificationRequest *)arg2;
 - (_UILegibilitySettings *)legibilitySettingsForNotificationViewController:(NCNotificationViewController *)arg1;
 - (id <UIViewSpringAnimationBehaviorDescribing>)settleHomeAffordanceAnimationBehaviorDescriptionForNotificationViewController:(NCNotificationViewController *)arg1;

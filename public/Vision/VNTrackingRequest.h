@@ -32,7 +32,8 @@
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)_newTrackerOptionsForRequestRevision:(unsigned long long)arg1 error:(id *)arg2;
 - (id)sequencedRequestPreviousObservationsKey;
-- (id)observationsCacheKey;
+- (_Bool)willAcceptCachedResultsFromRequestWithConfiguration:(id)arg1;
+- (_Bool)allowsCachingOfResults;
 - (_Bool)warmUpRequestPerformer:(id)arg1 error:(id *)arg2;
 - (id)_trackingLevelOptionFromTrackingLevelEnum;
 

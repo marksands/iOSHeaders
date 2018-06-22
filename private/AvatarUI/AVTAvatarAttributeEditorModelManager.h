@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class AVTAvatarConfiguration, AVTAvatarRecord, AVTCoreModel, AVTPersonalAnimoji, AVTPresetImageProvider, AVTPresetResourceLoader, NSMutableDictionary;
+@class AVTAvatarConfiguration, AVTAvatarRecord, AVTCoreModel, AVTMemoji, AVTPresetImageProvider, AVTPresetResourceLoader, NSMutableDictionary;
 
 @interface AVTAvatarAttributeEditorModelManager : NSObject
 {
-    AVTPersonalAnimoji *_avatar;
+    AVTMemoji *_avatar;
     AVTAvatarRecord *_avatarRecord;
     AVTAvatarConfiguration *_avatarConfiguration;
     AVTCoreModel *_coreModel;
@@ -27,7 +27,7 @@
 @property(readonly, nonatomic) AVTCoreModel *coreModel; // @synthesize coreModel=_coreModel;
 @property(readonly, nonatomic) AVTAvatarConfiguration *avatarConfiguration; // @synthesize avatarConfiguration=_avatarConfiguration;
 @property(readonly, copy, nonatomic) AVTAvatarRecord *avatarRecord; // @synthesize avatarRecord=_avatarRecord;
-@property(readonly, nonatomic) AVTPersonalAnimoji *avatar; // @synthesize avatar=_avatar;
+@property(readonly, nonatomic) AVTMemoji *avatar; // @synthesize avatar=_avatar;
 - (void).cxx_destruct;
 - (void)updateAvatarBySelectingSectionItem:(id)arg1 animated:(_Bool)arg2;
 - (void)preLoadCategory:(id)arg1;

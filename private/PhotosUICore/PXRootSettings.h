@@ -6,7 +6,7 @@
 
 #import <PhotosUICore/PXSettings.h>
 
-@class PXAssetVariationsSettings, PXAssetsSceneSettings, PXCompleteMyMomentSettings, PXDiagnosticsSettings, PXDragAndDropSettings, PXForYouSettings, PXImageModulationSettings, PXKitSettings, PXMemoriesFeedSettings, PXMemoriesRelatedSettings, PXModelSettings, PXPeopleDetailSettings, PXPeopleUISettings, PXPhotoPickerSettings, PXPhotosDataSourceSettings, PXPhotosDetailsHeaderTileSettings, PXPhotosDetailsSettings, PXPhotosLibrarySettings, PXRelatedSettings, PXSharingSettings, PXSnapBackSettings, PXTilingSettings, PXViewControllerTransitionSettings;
+@class PXAssetVariationsSettings, PXAssetsSceneSettings, PXCompleteMyMomentSettings, PXDiagnosticsSettings, PXDragAndDropSettings, PXForYouSettings, PXGridSettings, PXImageModulationSettings, PXKitSettings, PXMemoriesFeedSettings, PXMemoriesRelatedSettings, PXModelSettings, PXPeopleDetailSettings, PXPeopleUISettings, PXPhotoPickerSettings, PXPhotosDataSourceSettings, PXPhotosDetailsHeaderTileSettings, PXPhotosDetailsSettings, PXPhotosLibrarySettings, PXRelatedSettings, PXSharingSettings, PXSnapBackSettings, PXTilingSettings, PXViewControllerTransitionSettings;
 
 @interface PXRootSettings : PXSettings
 {
@@ -33,10 +33,12 @@
     PXAssetVariationsSettings *_variationsSettings;
     PXCompleteMyMomentSettings *_completeMyMoment;
     PXForYouSettings *_forYou;
+    PXGridSettings *_grid;
 }
 
 + (id)sharedInstance;
 + (id)settingsControllerModule;
+@property(retain, nonatomic) PXGridSettings *grid; // @synthesize grid=_grid;
 @property(retain, nonatomic) PXForYouSettings *forYou; // @synthesize forYou=_forYou;
 @property(retain, nonatomic) PXCompleteMyMomentSettings *completeMyMoment; // @synthesize completeMyMoment=_completeMyMoment;
 @property(retain, nonatomic) PXAssetVariationsSettings *variationsSettings; // @synthesize variationsSettings=_variationsSettings;

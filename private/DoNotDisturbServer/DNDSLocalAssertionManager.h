@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "DNDSObservableModeAssertionProvider.h"
+#import "DNDSSysdiagnoseDataProvider.h"
 
 @class NSDate, NSHashTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
-@interface DNDSLocalAssertionManager : NSObject <DNDSObservableModeAssertionProvider>
+@interface DNDSLocalAssertionManager : NSObject <DNDSSysdiagnoseDataProvider, DNDSObservableModeAssertionProvider>
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSHashTable *_observers;
@@ -29,6 +30,8 @@
 - (id)_queue_invalidateAllModeAssertionsTakenBeforeDate:(id)arg1 forReason:(unsigned long long)arg2 error:(id *)arg3;
 - (id)_queue_invalidateModeAssertionsWithUUIDs:(id)arg1 reason:(unsigned long long)arg2 error:(id *)arg3;
 - (id)_queue_takeModeAssertionWithDetails:(id)arg1 clientIdentifier:(id)arg2 error:(id *)arg3;
+- (id)sysdiagnoseDataForDate:(id)arg1;
+@property(readonly, copy, nonatomic) NSString *sysdiagnoseDataIdentifier; // @dynamic sysdiagnoseDataIdentifier;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (id)allModeAssertionsWithError:(id *)arg1;
@@ -39,6 +42,7 @@
 - (id)invalidateModeAssertionWithUUID:(id)arg1 reason:(unsigned long long)arg2 error:(id *)arg3;
 - (id)takeModeAssertionWithDetails:(id)arg1 clientIdentifier:(id)arg2 error:(id *)arg3;
 - (id)assertionWithClientIdentifier:(id)arg1 error:(id *)arg2;
+- (void)dealloc;
 - (id)initWithBackingStore:(id)arg1;
 
 // Remaining properties

@@ -23,6 +23,7 @@
 - (id)hk_stringByRemovingCharactersInSet:(id)arg1;
 - (id)hk_trimWhitespaceAndNewlines;
 - (id)hk_stripLeadingTrailingWhitespace;
+- (_Bool)hk_isValidPurposeString;
 - (id)hk_copyNonEmptyString;
 @end
 

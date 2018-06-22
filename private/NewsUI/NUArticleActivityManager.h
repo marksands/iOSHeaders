@@ -44,6 +44,7 @@
 - (id)activityTitleForHeadline:(id)arg1 withType:(unsigned long long)arg2;
 - (id)activityTypeForHeadline:(id)arg1 withType:(unsigned long long)arg2;
 - (id)supportedActivities;
+- (id)activityForType:(unsigned long long)arg1;
 - (id)activities;
 - (id)activityItemSources;
 - (id)initWithHeadline:(id)arg1 readingHistory:(id)arg2 readingList:(id)arg3 subscriptionList:(id)arg4 URLHandler:(id)arg5 reportConcernViewPresenter:(id)arg6 URLModifier:(id)arg7 optionsProvider:(id)arg8;

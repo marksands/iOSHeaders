@@ -8,25 +8,28 @@
 
 #import "_UIPreviewInteractionViewControllerTransition.h"
 
-@class NSString, PLViewControllerAnimator, _UIViewControllerOneToOneTransitionContext;
+@class NSString, PLViewControllerAnimator, _PLViewControllerOneToOneTransitionContext;
 
 @interface PLPreviewInteractionViewControllerTransition : NSObject <_UIPreviewInteractionViewControllerTransition>
 {
-    _Bool _presenting;
     id <UIViewControllerTransitioningDelegate> _transitionDelegate;
-    _UIViewControllerOneToOneTransitionContext *_transitionContext;
+    _PLViewControllerOneToOneTransitionContext *_transitionContext;
     PLViewControllerAnimator *_animator;
     CDUnknownBlockType _completion;
+    _Bool _propagatesPresentingViewTransform;
 }
 
+@property(nonatomic) _Bool propagatesPresentingViewTransform; // @synthesize propagatesPresentingViewTransform=_propagatesPresentingViewTransform;
 - (void).cxx_destruct;
 - (void)transitionDidEnd:(_Bool)arg1;
-- (void)performTransitionFromView:(id)arg1 toView:(id)arg2 containerView:(id)arg3;
 - (void)performWithCustomAnimator:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)performTransitionFromView:(id)arg1 toView:(id)arg2 containerView:(id)arg3;
 - (void)prepareTransitionFromView:(id)arg1 toView:(id)arg2 containerView:(id)arg3;
-- (id)initForDismissingViewController:(id)arg1 toViewController:(id)arg2 WithTransitionDelegate:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (id)initForPresentingViewController:(id)arg1 fromViewController:(id)arg2 withTransitionDelegate:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (id)_initForPresentation:(_Bool)arg1 presentingViewController:(id)arg2 presentedViewController:(id)arg3 transitionDelegate:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)_configureTransitionContextWithFromView:(id)arg1 toView:(id)arg2 containerView:(id)arg3;
+- (id)_animator;
+- (id)_newAnimator;
+- (_Bool)respondsToSelector:(SEL)arg1;
+- (id)initWithTransitionDelegate:(id)arg1 presentingViewController:(id)arg2 presentedViewController:(id)arg3 completion:(CDUnknownBlockType)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

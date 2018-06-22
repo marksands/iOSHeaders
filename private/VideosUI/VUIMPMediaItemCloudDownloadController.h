@@ -16,8 +16,7 @@ __attribute__((visibility("hidden")))
     MPStoreDownload *_storeDownload;
 }
 
-+ (_Bool)_storeDownloadSucceeded:(id)arg1;
-+ (unsigned long long)_stateFromStoreDownload:(id)arg1 downloadProgress:(double *)arg2 downloadSucceeded:(_Bool *)arg3;
++ (id)_stateFromStoreDownload:(id)arg1;
 @property(retain, nonatomic) MPStoreDownload *storeDownload; // @synthesize storeDownload=_storeDownload;
 - (void).cxx_destruct;
 - (void)_removeStoreObserver;
@@ -28,13 +27,11 @@ __attribute__((visibility("hidden")))
 - (void)_onProcessingQueue_pauseDownload;
 - (void)_onProcessingQueue_cancelDownload;
 - (void)_onProcessingQueue_invalidate;
-- (double)bytesToDownload;
-- (double)bytesDownloaded;
 - (_Bool)isRestoreDownload;
 - (_Bool)supportsPausing;
 - (void)dealloc;
-- (id)initWithMediaItem:(id)arg1 state:(unsigned long long)arg2 downloadProgress:(double)arg3 downloadSucceeded:(_Bool)arg4;
-- (id)initWithMediaItem:(id)arg1;
+- (id)initWithMediaItem:(id)arg1 state:(id)arg2 serialProcessingDispatchQueue:(id)arg3;
+- (id)initWithMediaItem:(id)arg1 serialProcessingDispatchQueue:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -11,7 +11,7 @@
 @protocol CNXPCDataMapperService <NSObject>
 - (void)verifyIndexWithReply:(void (^)(NSString *, NSError *))arg1;
 - (void)reindexSearchableItemsWithIdentifiers:(NSArray *)arg1 withReply:(void (^)(void))arg2;
-- (void)writeFavoritesPropertyListData:(NSData *)arg1 toPath:(NSString *)arg2 withReply:(void (^)(_Bool, NSError *))arg3;
+- (void)writeFavoritesPropertyListData:(NSData *)arg1 toPath:(NSString *)arg2 withReply:(void (^)(NSNumber *, NSError *))arg3;
 - (void)favoritesEntryDictionariesAtPath:(NSString *)arg1 withReply:(void (^)(NSArray *, NSError *))arg2;
 - (void)clearChangeHistoryForClientIdentifier:(NSString *)arg1 toChangeAnchor:(CNChangeHistoryAnchor *)arg2 withReply:(void (^)(NSNumber *, NSError *))arg3;
 - (void)changeHistoryWithFetchRequest:(CNChangeHistoryFetchRequest *)arg1 withReply:(void (^)(CNChangeHistoryResult *, NSError *))arg2;

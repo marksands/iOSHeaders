@@ -22,6 +22,7 @@
     // Error parsing type: {?="columns"[4]}, name: _modelTransform
 }
 
++ (id)sharedStaticResources;
 // Error parsing type for property modelTransform:
 // Property attributes: T{?=[4]},N,V_modelTransform
 

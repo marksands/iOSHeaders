@@ -13,7 +13,8 @@
 + (_Bool)isEnabled;
 @property(nonatomic) __weak id <MapsSuggestionsSourceDelegate> delegate;
 - (_Bool)removeEntry:(MapsSuggestionsEntry *)arg1 behavior:(long long)arg2 handler:(void (^)(void))arg3;
-- (_Bool)canProduceEntriesOfType:(unsigned long long)arg1;
+- (_Bool)canProduceEntriesOfType:(long long)arg1;
+- (_Bool)updateSuggestionEntriesOfType:(long long)arg1;
 - (double)updateSuggestionEntries;
 - (void)stop;
 - (void)start;

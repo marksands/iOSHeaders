@@ -16,9 +16,6 @@
     id <PXSharedAlbumInvitationViewDelegate> _delegate;
     PXFeedInvitationSectionInfo *_invitationSectionInfo;
     double _cornerRadius;
-    UIImageView *_invitationImageView;
-    UILabel *_invitationLabel;
-    UILabel *_dateLabel;
     PXRoundedCornerOverlayView *_roundedCornerOverlayView;
     UIImageView *_avatarView;
     UILabel *_infoLabel;
@@ -30,6 +27,7 @@
     struct UIEdgeInsets _contentInsets;
 }
 
++ (void)preloadResources;
 @property(retain, nonatomic) id <PLCloudSharedAlbumProtocol> sharedAlbum; // @synthesize sharedAlbum=_sharedAlbum;
 @property(retain, nonatomic) UILabel *reportJunkLabel; // @synthesize reportJunkLabel=_reportJunkLabel;
 @property(retain, nonatomic) PXCapsuleButton *declineButton; // @synthesize declineButton=_declineButton;
@@ -38,9 +36,6 @@
 @property(retain, nonatomic) UILabel *infoLabel; // @synthesize infoLabel=_infoLabel;
 @property(retain, nonatomic) UIImageView *avatarView; // @synthesize avatarView=_avatarView;
 @property(retain, nonatomic) PXRoundedCornerOverlayView *roundedCornerOverlayView; // @synthesize roundedCornerOverlayView=_roundedCornerOverlayView;
-@property(retain, nonatomic) UILabel *dateLabel; // @synthesize dateLabel=_dateLabel;
-@property(retain, nonatomic) UILabel *invitationLabel; // @synthesize invitationLabel=_invitationLabel;
-@property(retain, nonatomic) UIImageView *invitationImageView; // @synthesize invitationImageView=_invitationImageView;
 @property(nonatomic) _Bool usePopoverColors; // @synthesize usePopoverColors=_usePopoverColors;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
@@ -59,8 +54,6 @@
 - (void)_updateReportJunkLabel;
 - (void)_updateAlbumTitleLabel;
 - (void)_updateInfoLabel;
-- (void)_updateDateLabel;
-- (void)_updateInvitationLabel;
 - (void)_updateAvatarImage;
 - (void)_updateRoundedCornerOverlayView;
 - (void)_updateColors;

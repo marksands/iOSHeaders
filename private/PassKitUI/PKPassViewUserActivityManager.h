@@ -19,6 +19,7 @@
 
 + (id)sharedInstance;
 - (void).cxx_destruct;
+- (id)_templateNameForPass:(id)arg1;
 - (id)_displayNameForPass:(id)arg1;
 - (_Bool)_shouldDonateActivity:(id)arg1;
 - (id)_searchableItemAttributeSetForPass:(id)arg1;

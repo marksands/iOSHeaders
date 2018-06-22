@@ -10,11 +10,12 @@
 #import "UITextInput.h"
 #import "UITextInputPrivate.h"
 #import "UITextViewDelegate.h"
+#import "__UIAtomFieldEditorDelegate.h"
 
 @class NSArray, NSDictionary, NSIndexSet, NSLayoutConstraint, NSMutableArray, NSString, RTIInputSystemSourceSession, UIButton, UIColor, UIFont, UIImage, UIInputContextHistory, UILabel, UIScrollView, UITextInputPasswordRules, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UIView, _UITextFieldRoundedRectBackgroundViewNeue, __UIAtomFieldEditor, __UIAtomTextViewBaselineLayoutStrut;
 
 __attribute__((visibility("hidden")))
-@interface _UIAtomTextView : UIControl <NSLayoutManagerDelegate, UITextViewDelegate, UITextInputPrivate, UITextInput>
+@interface _UIAtomTextView : UIControl <NSLayoutManagerDelegate, UITextViewDelegate, UITextInputPrivate, __UIAtomFieldEditorDelegate, UITextInput>
 {
     id <_UIAtomTextViewDelegateInternal> _delegate;
     UITextInputTraits *_textInputTraits;
@@ -74,6 +75,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
 @property(nonatomic) __weak id <_UIAtomTextViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (id)_atomsForAtomFieldEditor:(id)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (_Bool)isFirstResponder;
 - (_Bool)resignFirstResponder;

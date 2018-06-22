@@ -24,21 +24,25 @@
 + (id)activityHeaderTextAttributesForTextColorStyle:(unsigned long long)arg1;
 + (id)invitationReportJunkLinkAttributes;
 + (id)invitationReportJunkTextAttributes;
-+ (id)invitationActionButtonTextAttributes;
 + (id)invitationAlbumTitleTextAttributes;
 + (id)invitationInfoTextAttributes;
-+ (id)invitationDateTextAttributes;
++ (id)invitationSubtitleTextAttributes;
 + (id)invitationTextAttributes;
++ (id)invitationHeaderImage;
 + (id)activityMiniChevronImage;
 + (double)activityCaptionCellTopToLikeButtonTopDynamicDistance;
 + (double)activityCaptionSubtitleBaselineToCellBottomDynamicDistance2;
 + (double)activityCaptionSubtitleBaselineToCellBottomDynamicDistance;
 + (double)activityCaptionTitleBaselineToSubtitleBaselineDynamicDistance;
 + (double)activityCaptionCellTopToTitleBaselineDynamicDistance;
++ (double)invitationJunkBottomDynamicDistance;
++ (double)invitationAlbumTitleBottomDynamicDistance;
++ (double)invitationTextToAlbumTitleBaselineDynamicDistance;
++ (double)invitationAvatarToTextBaselineDynamicDistance;
 + (double)captionDynamicDistance;
-+ (double)headerDynamicBottomDistance;
-+ (double)headerDynamicMiddleDistance;
-+ (double)headerDynamicTopDistance;
++ (double)headerDynamicBottomSubtitleToBottomDistance;
++ (double)headerDynamicBottomTitleToBottomSubtitleDistance;
++ (double)headerDynamicTopToBottomTitleDistance;
 
 @end
 

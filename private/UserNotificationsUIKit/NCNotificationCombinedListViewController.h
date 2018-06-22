@@ -17,8 +17,6 @@
 
 @interface NCNotificationCombinedListViewController : NCNotificationListViewController <NCNotificationSectionListDelegate, NCNotificationListSectionHeaderViewDelegate, UIGestureRecognizerDelegate, NCNotificationListSectionDelegate, NCNotificationListCoalescingControlsHandlerDelegate, NCLegibilitySettingsAdjusting>
 {
-    _Bool _shouldPerformNotificationCoalescing;
-    _Bool _shouldAllowNotificationManagement;
     _Bool _showingNotificationsHistory;
     _Bool _didPlayRevealHaptic;
     _Bool _shouldLimitTargetContentOffsetForNotificationListReveal;
@@ -81,8 +79,6 @@
 @property(retain, nonatomic) NCNotificationPriorityList *notificationMissedList; // @synthesize notificationMissedList=_notificationMissedList;
 @property(retain, nonatomic) NCNotificationPriorityList *notificationPriorityList; // @synthesize notificationPriorityList=_notificationPriorityList;
 @property(nonatomic) unsigned long long doNotDisturbReason; // @synthesize doNotDisturbReason=_doNotDisturbReason;
-@property(readonly, nonatomic) _Bool shouldAllowNotificationManagement; // @synthesize shouldAllowNotificationManagement=_shouldAllowNotificationManagement;
-@property(readonly, nonatomic) _Bool shouldPerformNotificationCoalescing; // @synthesize shouldPerformNotificationCoalescing=_shouldPerformNotificationCoalescing;
 - (void).cxx_destruct;
 - (id)_storedExpandedNotificationRequestsForCoalescingIdentifer:(id)arg1 inSection:(unsigned long long)arg2;
 - (id)_storedExpandedNotificationRequestsInGroupingSection:(unsigned long long)arg1;
@@ -177,8 +173,12 @@
 - (void)_insertNotificationRequestIntoMissedNotificationSection:(id)arg1;
 - (void)_insertNotificationRequestsIntoMissedNotificationSection:(id)arg1;
 - (id)_missedNotificationsSectionHeaderIdentifier;
+- (_Bool)_isMissedNotificationSectionAtIndex:(unsigned long long)arg1;
 - (id)_missedNotificationSectionHeaderTitle;
 - (_Bool)_isDisplayingMissedNotificationSection;
+- (_Bool)_isTopIndexPathForSectionWithHeader:(id)arg1;
+- (_Bool)_shouldHideSectionHeaderForSection:(unsigned long long)arg1;
+- (_Bool)_notificationHistoryHasContent;
 - (void)_enumerateAllNotificationListGroupingSectionsWithBlock:(CDUnknownBlockType)arg1;
 - (unsigned long long)_currentAnimationState;
 - (id)_sortNotificationRequests:(id)arg1 earliestFirst:(_Bool)arg2;
@@ -225,7 +225,6 @@
 - (void)longLookWillDismissForNotificationViewController:(id)arg1;
 - (void)longLookWillPresentForNotificationViewController:(id)arg1;
 - (id)notificationViewController:(id)arg1 staticContentProviderForNotificationRequest:(id)arg2;
-- (_Bool)notificationViewController:(id)arg1 shouldPerformNotificationCoalescingForNotificationRequest:(id)arg2;
 - (void)notificationViewController:(id)arg1 requestsExpandingCoalescedBundleForNotificationRequest:(id)arg2;
 - (id)legibilitySettingsForNotificationViewController:(id)arg1;
 - (_Bool)notificationViewControllerShouldInterpretTapAsDefaultAction:(id)arg1;

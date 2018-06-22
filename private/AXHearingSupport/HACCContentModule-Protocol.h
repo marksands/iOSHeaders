@@ -10,7 +10,7 @@
 
 @protocol HACCContentModule <NSObject>
 @property(nonatomic) unsigned long long module;
-@property(nonatomic) id <HACCContentModuleDelegate> delegate;
+@property(nonatomic) __weak id <HACCContentModuleDelegate> delegate;
 - (NSNumber *)contentValue;
 - (void)updateValue;
 @end

@@ -20,6 +20,7 @@
     _Bool _usingCPU;
     _Bool _isEspresoBiasPreprocessingShared;
     _Bool _hasBidirectionalLayer;
+    _Bool _has1DConvOptional;
     int _precision;
     int _engine;
     int _qos;
@@ -48,6 +49,7 @@
     map_72eb5488 _ks;
     map_72eb5488 _batches;
     map_72eb5488 _sequences;
+    map_7c549560 _optionalInputTypes;
     vector_553f084a _bufferAvailable;
 }
 
@@ -62,7 +64,9 @@
 @property(retain) NSObject<OS_dispatch_queue> *predictionsQueue; // @synthesize predictionsQueue=_predictionsQueue;
 @property(retain) NSObject<OS_dispatch_queue> *espressoQueue; // @synthesize espressoQueue=_espressoQueue;
 @property(retain) NSObject<OS_dispatch_semaphore> *bufferSemaphore; // @synthesize bufferSemaphore=_bufferSemaphore;
+@property(nonatomic) _Bool has1DConvOptional; // @synthesize has1DConvOptional=_has1DConvOptional;
 @property(nonatomic) _Bool hasBidirectionalLayer; // @synthesize hasBidirectionalLayer=_hasBidirectionalLayer;
+@property(nonatomic) map_7c549560 optionalInputTypes; // @synthesize optionalInputTypes=_optionalInputTypes;
 @property(retain, nonatomic) NSString *modelFilePath; // @synthesize modelFilePath=_modelFilePath;
 @property(retain, nonatomic) MLProbabilityDictionary *probDict; // @synthesize probDict=_probDict;
 @property(nonatomic) map_72eb5488 sequences; // @synthesize sequences=_sequences;

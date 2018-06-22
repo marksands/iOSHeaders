@@ -6,9 +6,11 @@
 
 #import "UIView.h"
 
-@class NSArray, PLPlatterView;
+#import "PLContentSizeManaging.h"
 
-@interface NCNotificationViewControllerView : UIView
+@class NSArray, NSString, PLPlatterView;
+
+@interface NCNotificationViewControllerView : UIView <PLContentSizeManaging>
 {
     NSArray *_stackedPlatters;
     PLPlatterView *_contentView;
@@ -23,10 +25,18 @@
 - (void)_configureStackedPlatters;
 - (unsigned long long)_stackedPlatterCount;
 - (unsigned long long)_stackedPlatterCountCoalescedNotificationCount:(unsigned long long)arg1;
+- (struct CGSize)contentSizeForSize:(struct CGSize)arg1;
+- (struct CGSize)sizeThatFitsContentWithSize:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

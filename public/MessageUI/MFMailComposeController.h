@@ -67,7 +67,7 @@
     MFMailboxUid *_lastDraftMailboxUid;
     NSString *_initialTitle;
     MFLock *_autosaveLock;
-    id _autosaveIdentifier;
+    NSString *_autosaveIdentifier;
     MFSecureMIMECompositionManager *_secureCompositionManager;
     NSDictionary *_certificatesByRecipient;
     NSDictionary *_errorsByRecipient;
@@ -336,7 +336,7 @@
 - (void)close:(id)arg1;
 - (void)_close;
 - (void)autosaveWithHandler:(CDUnknownBlockType)arg1;
-@property(retain, nonatomic) id <NSCoding> autosaveIdentifier;
+@property(retain, nonatomic) NSString *autosaveIdentifier;
 - (void)_autosaveTimerFired:(id)arg1;
 - (_Bool)_shouldAutosaveAfterTimerFiredWithInterval:(double)arg1;
 - (void)_setAutosaveIsValid:(_Bool)arg1;

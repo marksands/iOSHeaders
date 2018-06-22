@@ -25,10 +25,10 @@
 - (void)_queue_setBadgeValue:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_queue_setBadgeString:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_queue_setBadgeNumber:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
-- (void)_queue_getBadgeNumberForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)_queue_badgeNumberForBundleIdentifier:(id)arg1;
 - (void)setBadgeString:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)setBadgeNumber:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
-- (void)getBadgeNumberForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)badgeNumberForBundleIdentifier:(id)arg1;
 - (void)_queue_removeNotificationRecordsPassingTest:(CDUnknownBlockType)arg1 forBundleIdentifier:(id)arg2;
 - (void)_queue_removeAllNotificationRecordsForBundleIdentifier:(id)arg1;
 - (void)_queue_saveNotificationRecord:(id)arg1 shouldRepost:(_Bool)arg2 withOptions:(unsigned long long)arg3 forBundleIdentifier:(id)arg4;

@@ -45,9 +45,10 @@
 - (id)_textForState:(long long)arg1 textOverride:(id)arg2;
 - (_Bool)_canEmphasizeState:(long long)arg1;
 - (void)updateDebugLabel:(id)arg1 isErrorState:(_Bool)arg2;
-- (void)emphasizeStateIfPossible:(long long)arg1 withTextOverride:(id)arg2;
+- (void)emphasizeStateIfPossible:(long long)arg1 withOverrideText:(id)arg2;
+- (_Bool)labelWillChangeForState:(long long)arg1 withOverrideText:(id)arg2;
 - (void)_applyStatePreservingGlyphState:(_Bool)arg1 overridingText:(id)arg2 animated:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)setState:(long long)arg1 preservingGlyphState:(_Bool)arg2 overridingText:(id)arg3 animated:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)setState:(long long)arg1 animated:(_Bool)arg2 withOverrideText:(id)arg3 preserveGlyphState:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)setState:(long long)arg1 animated:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)_canPreserveGlyphForState:(long long)arg1;
 - (long long)_defaultGlyphStateForState:(long long)arg1;

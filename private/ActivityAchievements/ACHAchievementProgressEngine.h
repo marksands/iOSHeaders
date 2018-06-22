@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSHashTable, NSObject<OS_dispatch_queue>;
+@class NSHashTable, NSNumber, NSObject<OS_dispatch_queue>, _HKDelayedOperation;
 
 @interface ACHAchievementProgressEngine : NSObject
 {
@@ -14,8 +14,12 @@
     NSObject<OS_dispatch_queue> *_providerQueue;
     NSHashTable *_observers;
     NSObject<OS_dispatch_queue> *_observerQueue;
+    _HKDelayedOperation *_delayedOperation;
+    NSNumber *_overrideDelay;
 }
 
+@property(retain, nonatomic) NSNumber *overrideDelay; // @synthesize overrideDelay=_overrideDelay;
+@property(retain, nonatomic) _HKDelayedOperation *delayedOperation; // @synthesize delayedOperation=_delayedOperation;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *observerQueue; // @synthesize observerQueue=_observerQueue;
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *providerQueue; // @synthesize providerQueue=_providerQueue;

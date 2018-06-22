@@ -14,6 +14,7 @@
 @interface CPRouteChoice : NSObject <NSCopying, NSSecureCoding>
 {
     NSArray *_summaryVariants;
+    NSArray *_selectionSummaryVariants;
     NSArray *_additionalInformationVariants;
     id _userInfo;
     NSUUID *_identifier;
@@ -23,6 +24,7 @@
 @property(retain, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) id userInfo; // @synthesize userInfo=_userInfo;
 @property(copy, nonatomic) NSArray *additionalInformationVariants; // @synthesize additionalInformationVariants=_additionalInformationVariants;
+@property(copy, nonatomic) NSArray *selectionSummaryVariants; // @synthesize selectionSummaryVariants=_selectionSummaryVariants;
 @property(copy, nonatomic) NSArray *summaryVariants; // @synthesize summaryVariants=_summaryVariants;
 - (void).cxx_destruct;
 - (id)description;
@@ -30,7 +32,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithSummaryVariants:(id)arg1 additionalInformationVariants:(id)arg2;
+- (id)initWithSummaryVariants:(id)arg1 additionalInformationVariants:(id)arg2 selectionSummaryVariants:(id)arg3;
 - (id)init;
 
 @end

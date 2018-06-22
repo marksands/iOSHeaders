@@ -25,7 +25,7 @@
     struct CGSize _imageSizeRatio;
 }
 
-+ (struct CGRect)imageViewRectForBounds:(struct CGRect)arg1 imageSizeRatio:(struct CGSize)arg2;
++ (struct CGRect)imageViewRectForBounds:(struct CGRect)arg1 imageSizeRatio:(struct CGSize)arg2 scale:(double)arg3;
 @property(retain, nonatomic) UIView *highlightView; // @synthesize highlightView=_highlightView;
 @property(retain, nonatomic) CAShapeLayer *selectionLayer; // @synthesize selectionLayer=_selectionLayer;
 @property(retain, nonatomic) CAShapeLayer *clippingLayer; // @synthesize clippingLayer=_clippingLayer;
@@ -43,6 +43,7 @@
 - (id)fromView;
 - (void)prepareForTransitionToImage:(id)arg1;
 - (void)updateWithImage:(id)arg1;
+- (void)bringSelectionLayersToFront;
 - (void)updateSelectedState:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)updateHighlightedState:(_Bool)arg1 animated:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (id)clippingBezierPath;

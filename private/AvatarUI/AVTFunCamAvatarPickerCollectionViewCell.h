@@ -6,38 +6,41 @@
 
 #import "UICollectionViewCell.h"
 
-@class CAShapeLayer, NSUUID, UIButton, UIImageView, UILabel;
+@class AVTUIAnimatingImageView, CAShapeLayer, NSUUID, UIButton, UILabel;
 
 @interface AVTFunCamAvatarPickerCollectionViewCell : UICollectionViewCell
 {
     _Bool _selectionVisible;
+    _Bool _roundImageCorners;
     _Bool _showsTitle;
     NSUUID *_displaySessionUUID;
-    double _imageInset;
+    CDUnknownBlockType _imageInsetProvider;
     long long _imageContentMode;
-    UIImageView *_imageView;
+    AVTUIAnimatingImageView *_imageView;
     UILabel *_titleLabel;
     UIButton *_accessoryButton;
     CAShapeLayer *_selectionLayer;
 }
 
++ (CDUnknownBlockType)imageInsetProviderForConstant:(double)arg1;
 + (struct CGPath *)selectionPathInBounds:(struct CGRect)arg1;
 + (id)cellIdentifier;
 @property(readonly, nonatomic) CAShapeLayer *selectionLayer; // @synthesize selectionLayer=_selectionLayer;
 @property(retain, nonatomic) UIButton *accessoryButton; // @synthesize accessoryButton=_accessoryButton;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
-@property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
+@property(readonly, nonatomic) AVTUIAnimatingImageView *imageView; // @synthesize imageView=_imageView;
 @property(nonatomic) _Bool showsTitle; // @synthesize showsTitle=_showsTitle;
+@property(nonatomic) _Bool roundImageCorners; // @synthesize roundImageCorners=_roundImageCorners;
 @property(nonatomic) _Bool selectionVisible; // @synthesize selectionVisible=_selectionVisible;
 @property(nonatomic) long long imageContentMode; // @synthesize imageContentMode=_imageContentMode;
-@property(nonatomic) double imageInset; // @synthesize imageInset=_imageInset;
+@property(copy, nonatomic) CDUnknownBlockType imageInsetProvider; // @synthesize imageInsetProvider=_imageInsetProvider;
 @property(retain, nonatomic) NSUUID *displaySessionUUID; // @synthesize displaySessionUUID=_displaySessionUUID;
 - (void).cxx_destruct;
 - (void)prepareForReuse;
 - (void)updateSelectionLayer;
 - (void)setSelected:(_Bool)arg1;
 - (void)updateWithTitle:(id)arg1;
-- (void)updateWithImage:(id)arg1;
+- (void)updateWithImage:(id)arg1 animated:(_Bool)arg2;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -13,24 +13,25 @@
 @interface VNCreateSceneprintRequest : VNImageBasedRequest <VNImageIdealImageSizeProviding>
 {
     VNCanceller *_canceller;
-    _Bool _returnAllResults;
-    _Bool _useCenterTileOnly;
 }
 
 + (void)recordDefaultOptionsInDictionary:(id)arg1;
++ (Class)configurationClass;
++ (id)_imageAnalyzerMultiDetectorForRevision:(unsigned long long)arg1 detectionLevel:(unsigned long long)arg2 processingDevice:(id)arg3 error:(id *)arg4;
++ (id)_sceneClassifierForRevision:(unsigned long long)arg1 error:(id *)arg2;
 + (const CDStruct_7d93034e *)revisionAvailability;
-@property(nonatomic) _Bool useCenterTileOnly; // @synthesize useCenterTileOnly=_useCenterTileOnly;
-@property(nonatomic) _Bool returnAllResults; // @synthesize returnAllResults=_returnAllResults;
 - (void).cxx_destruct;
 - (_Bool)internalCancelInContext:(id)arg1 error:(id *)arg2;
 - (_Bool)internalPerformRevision:(unsigned long long)arg1 inContext:(id)arg2 error:(id *)arg3;
 - (void)applyConfigurationOfRequest:(id)arg1;
 - (_Bool)hasCancellationHook;
-- (id)sequencedRequestPreviousObservationsKey;
-- (id)observationsCacheKey;
+- (_Bool)willAcceptCachedResultsFromRequestWithConfiguration:(id)arg1;
+@property(nonatomic) _Bool useCenterTileOnly;
+@property(nonatomic) _Bool returnAllResults;
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)warmUpRequestPerformer:(id)arg1 error:(id *)arg2;
+- (id)_applicableDetectorAndReturnError:(id *)arg1;
 @property(readonly) NSArray *supportedImageSizeSet;
 
 // Remaining properties

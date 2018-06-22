@@ -36,7 +36,6 @@ __attribute__((visibility("hidden")))
 - (double)bluetoothBatteryExtraPadding;
 - (double)baselineOffsetForStyle:(long long)arg1;
 - (id)textColorForStyle:(long long)arg1;
-- (id)proportionalFontForFont:(id)arg1;
 - (id)makeTextFontForStyle:(long long)arg1;
 - (_Bool)_shouldUseBoldFontForStyle:(long long)arg1;
 - (id)textFontForStyle:(long long)arg1;

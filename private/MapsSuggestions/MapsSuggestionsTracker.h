@@ -8,7 +8,7 @@
 
 #import "MapsSuggestionsObject.h"
 
-@class CLLocation, GEOAutomobileOptions, GEOLocationShifter, MapsSuggestionsDonater, MapsSuggestionsETARequester, MapsSuggestionsETARequirements, MapsSuggestionsManager, MapsSuggestionsMutableWeakEntries, MapsSuggestionsNetworkRequester, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
+@class CLLocation, GEOAutomobileOptions, GEOLocationShifter, MapsSuggestionsCanKicker, MapsSuggestionsDonater, MapsSuggestionsETARequester, MapsSuggestionsETARequirements, MapsSuggestionsManager, MapsSuggestionsMutableWeakEntries, MapsSuggestionsNetworkRequester, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
 
 @interface MapsSuggestionsTracker : NSObject <MapsSuggestionsObject>
 {
@@ -24,6 +24,8 @@
     _Bool _shouldBeRunning;
     MapsSuggestionsETARequester *_etaRequester;
     MapsSuggestionsDonater *_donater;
+    MapsSuggestionsCanKicker *_currentLocationWiper;
+    NSMutableDictionary *_previousETAs;
     int _mapType;
     MapsSuggestionsETARequirements *_requirements;
     GEOAutomobileOptions *_automobileOptions;
@@ -56,10 +58,15 @@
 - (void)_requestDistances;
 - (void)_decorateEntry:(id)arg1 eta:(id)arg2;
 - (void)trackSuggestionEntries:(struct NSArray *)arg1 transportType:(int)arg2;
-- (id)_distanceTitleFormatterForType:(unsigned long long)arg1;
-- (id)_etaTitleFormatterForType:(unsigned long long)arg1;
-- (_Bool)_hasTitleFormatterForType:(unsigned long long)arg1;
-- (void)setTitleFormatter:(id)arg1 forType:(unsigned long long)arg2;
+- (id)_bestValidOfflineETAForEntry:(id)arg1 destinationKey:(id)arg2;
+- (_Bool)_isMatchingTransportType:(int)arg1;
+- (_Bool)_isUnusableETA:(id)arg1;
+- (void)_rememberETA:(id)arg1 forEntry:(id)arg2;
+- (void)_prunePreviousETAs;
+- (id)_distanceTitleFormatterForType:(long long)arg1;
+- (id)_etaTitleFormatterForType:(long long)arg1;
+- (_Bool)_hasTitleFormatterForType:(long long)arg1;
+- (void)setTitleFormatter:(id)arg1 forType:(long long)arg2;
 @property(readonly, nonatomic) NSString *uniqueName;
 - (void)dealloc;
 - (id)initWithManager:(id)arg1 requirements:(id)arg2;

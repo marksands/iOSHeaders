@@ -9,13 +9,12 @@
 #import "AKAppleIDAuthenticationInAppContextPasswordDelegate.h"
 #import "RemoteUIControllerDelegate.h"
 
-@class AKAppleIDAuthenticationController, CNMonogrammer, NSString, NSTimer, PSSpecifier, RemoteUIController, UIActivityIndicatorView, UIBarButtonItem, UIImageView;
+@class AKAppleIDAuthenticationController, CNMonogrammer, NSString, NSTimer, PSSpecifier, RemoteUIController, UIActivityIndicatorView, UIBarButtonItem;
 
 @interface PSAppleIDSplashViewController : PSListController <AKAppleIDAuthenticationInAppContextPasswordDelegate, RemoteUIControllerDelegate>
 {
     AKAppleIDAuthenticationController *_authController;
     CDUnknownBlockType _passwordHandler;
-    UIImageView *_silhouetteView;
     UIActivityIndicatorView *_spinner;
     UIBarButtonItem *_spinnerBarItem;
     UIBarButtonItem *_nextButtonBarItem;
@@ -79,7 +78,6 @@
 - (double)_heightForCreateNewAccountSpecifierWithWidth:(double)arg1;
 - (_Bool)_shouldAnchorCreateAccountButton;
 - (void)traitCollectionDidChange:(id)arg1;
-- (void)viewDidLayoutSubviews;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)_presentAppleIDPrivacyInformationPane;

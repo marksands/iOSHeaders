@@ -34,6 +34,7 @@
 @property __weak DEDBugSession *session; // @synthesize session=_session;
 - (void).cxx_destruct;
 - (void)localCleanup;
+- (void)compressFolders:(id)arg1;
 - (void)finishSession:(id)arg1 withConfiguration:(id)arg2;
 - (id)initWithConfiguration:(id)arg1 session:(id)arg2;
 - (id)initWithCoder:(id)arg1;

@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     GEOMapRegion *_region;
     NSString *_regionId;
     GEOTileDB *_diskCache;
+    unsigned long long _batchSize;
     GEOResourceManifestManager *_manifestManager;
     GEORequestCounter *_requestCounter;
     GEOActiveTileSet *_currentTileset;
@@ -30,6 +31,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (void)downloadDidFailForTile:(struct _GEOTileKey *)arg1 error:(id)arg2;
 - (void)downloadDidSucceedForTile:(struct _GEOTileKey *)arg1 downloadSize:(unsigned long long)arg2;
 - (void)_addMoreKeysToListIfNeeded:(id)arg1 staleCachedETags:(id)arg2 staleCachedData:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_popNextZoomLevel;

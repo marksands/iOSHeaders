@@ -6,15 +6,15 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet;
+@class NSHashTable;
 
 @interface REDependencyGraphNode : NSObject
 {
     id _item;
-    NSMutableSet *_dependencies;
+    NSHashTable *_connections;
 }
 
-@property(retain, nonatomic) NSMutableSet *dependencies; // @synthesize dependencies=_dependencies;
+@property(retain, nonatomic) NSHashTable *connections; // @synthesize connections=_connections;
 @property(readonly, nonatomic) id item; // @synthesize item=_item;
 - (void).cxx_destruct;
 - (unsigned long long)hash;

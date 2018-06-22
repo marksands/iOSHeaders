@@ -42,6 +42,7 @@
 @property(retain, nonatomic) CPSOverlayViewController *overlayViewController; // @synthesize overlayViewController=_overlayViewController;
 @property(readonly, nonatomic) NSString *sceneIdentifier; // @synthesize sceneIdentifier=_sceneIdentifier;
 - (void).cxx_destruct;
+- (void)updateInterestingInsets:(struct UIEdgeInsets)arg1;
 - (void)updateSafeAreaInsets:(struct UIEdgeInsets)arg1;
 - (void)templateViewControllerDidPop:(id)arg1;
 - (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;

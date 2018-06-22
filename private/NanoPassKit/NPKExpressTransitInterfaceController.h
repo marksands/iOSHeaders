@@ -14,6 +14,7 @@
 @interface NPKExpressTransitInterfaceController : NSObject <NPKTransitAppletHistoryFetcherDelegate, NPKExpressPassControllerDelegate>
 {
     id <NPKExpressTransitInterfaceControllerDelegate> _delegate;
+    id <NPKExpressTransitInterfaceControllerDataSource> _dataSource;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_source> *_dismissalTimer;
     NPKTransitAppletHistoryFetcher *_appletHistoryFetcher;
@@ -28,6 +29,7 @@
 @property(retain, nonatomic) NPKTransitAppletHistoryFetcher *appletHistoryFetcher; // @synthesize appletHistoryFetcher=_appletHistoryFetcher;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *dismissalTimer; // @synthesize dismissalTimer=_dismissalTimer;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(nonatomic) __weak id <NPKExpressTransitInterfaceControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <NPKExpressTransitInterfaceControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)getAppletStateForPassWithUniqueID:(id)arg1 completion:(CDUnknownBlockType)arg2;

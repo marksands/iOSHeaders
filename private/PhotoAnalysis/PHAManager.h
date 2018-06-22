@@ -38,6 +38,7 @@
 - (id)faceClassificationServiceWorker;
 - (id)autoloopServiceWorker;
 - (id)graphServiceWorker;
+- (void)requestLocalizedSceneAncestryInformationWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)dumpAnalysisStatusWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)handleOperation:(id)arg1;
 - (void)backgroundActivityDidBegin;

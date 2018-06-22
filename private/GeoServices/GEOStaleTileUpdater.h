@@ -20,9 +20,11 @@ __attribute__((visibility("hidden")))
     unsigned long long _numberOfTilesAttempted;
     struct GEOOnce_s _loggedStartRequestCounterAction;
     GEOTileKeyMap *_cacheMissType;
+    unsigned long long _batchSize;
 }
 
 - (void).cxx_destruct;
+- (void)downloadDidFailForTile:(struct _GEOTileKey *)arg1 error:(id)arg2;
 - (void)downloadDidSucceedForTile:(struct _GEOTileKey *)arg1 downloadSize:(unsigned long long)arg2;
 - (void)_addMoreKeysToListIfNeeded:(id)arg1 staleCachedETags:(id)arg2 staleCachedData:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)determineNextBatchWithQueue:(id)arg1 callback:(CDUnknownBlockType)arg2;

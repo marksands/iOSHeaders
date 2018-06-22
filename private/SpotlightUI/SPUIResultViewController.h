@@ -30,7 +30,6 @@
 - (void).cxx_destruct;
 - (void)_pushSectionsUpdate;
 - (_Bool)_hasRealSuggestions;
-- (void)_updateCombinedSections;
 - (void)clearSuggestionSection;
 - (void)searchStringUpdated:(id)arg1 wantsCompletions:(_Bool)arg2;
 @property(readonly) SFSearchResult *actualSearchSuggestionResult;

@@ -65,6 +65,7 @@
 - (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1 withScrollingVelocity:(struct CGPoint)arg2;
 - (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
+- (void)_updateVisibilityForLayoutAttributes:(id)arg1 inBounds:(struct CGRect)arg2;
 - (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;

@@ -170,8 +170,10 @@
 - (void)_updateConversationFilteredFlagsAndReportSpam;
 - (void)updateNoMessagesDialog;
 - (void)updateMarginWidth;
+- (void)_updateConversationListNeedsResort:(_Bool)arg1;
 - (void)updateConversationList;
-- (void)_reloadVisibleConversationList;
+- (id)_indexPaths:(id)arg1 containingHandleWithUID:(id)arg2;
+- (void)_reloadVisibleConversationList:(id)arg1;
 - (void)updateSMSSpamConversationsDisplayName;
 - (void)endHoldingConversationListUpdatesForKey:(id)arg1;
 - (void)beginHoldingConversationListUpdatesForKey:(id)arg1;
@@ -183,7 +185,6 @@
 - (void)updateCurrentEditButton;
 - (void)editButtonTapped:(id)arg1;
 - (void)updateNavigationItems;
-- (void)_updateTableViewRowHeights;
 - (_Bool)_shouldKeepSelection;
 - (void)_groupsChanged:(id)arg1;
 - (void)_conversationMessageWasSent:(id)arg1;
@@ -202,7 +203,7 @@
 - (void)_chatRegistryLastMessageLoadedNotification:(id)arg1;
 - (void)_chatParticipantsChangedNotification:(id)arg1;
 - (void)_chatUnreadCountDidChange:(id)arg1;
-- (void)accessibilityLargeTextDidChange;
+- (void)_increaseContrastDidChange:(id)arg1;
 - (void)_contentSizeCategoryDidChange:(id)arg1;
 - (_Bool)_shouldResizeNavigationBar;
 - (void)invalidateCellLayout;

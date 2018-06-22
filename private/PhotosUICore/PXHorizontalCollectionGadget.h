@@ -65,6 +65,7 @@
 - (void)commitPreviewViewController:(id)arg1;
 - (struct NSObject *)previewViewControllerAtLocation:(struct CGPoint)arg1 fromSourceView:(struct NSObject *)arg2 outSourceRect:(out struct CGRect *)arg3;
 - (void)gadgetControllerFinishedUpdatingDataSource;
+- (void)gadgetControllerHasDisappeared;
 - (void)gadgetControllerHasAppeared;
 - (id)gridPresentation;
 - (id)oneUpPresentation;

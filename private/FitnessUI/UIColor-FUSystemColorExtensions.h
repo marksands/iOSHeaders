@@ -17,7 +17,6 @@
 + (id)fu_platterOrangeColor;
 + (id)fu_platterGreenColor;
 + (id)fu_platterBlueColor;
-+ (id)fu_platterPaceBlueColor;
 + (id)fu_platterWhiteColor;
 + (id)fu_systemTextGreyColor;
 + (id)fu_systemTealBlueColor;

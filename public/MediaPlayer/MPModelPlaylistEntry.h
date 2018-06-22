@@ -27,6 +27,8 @@
 + (id)requiredKeepLocalStatusObservationProperties;
 + (id)requiredStoreLibraryPersonalizationProperties;
 - (long long)type;
+- (id)anyObject;
+- (id)humanDescription;
 - (id)mediaItemPropertyValues;
 - (struct MPLibraryAddStatusObserverConfiguration)libraryAddStatusObserverConfiguration;
 - (long long)libraryRemovalSupportedOptions;

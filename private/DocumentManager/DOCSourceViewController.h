@@ -20,6 +20,7 @@
     _Bool _inPopoverMode;
     _Bool _editing;
     UINavigationController *_internalNavigationController;
+    UIViewController *_currentParent;
     id <DOCSourceViewControllerDelegate> _sourceDelegate;
     NSArray *_additionalTrailingNavigationBarButtonItems;
     id <DOCServiceSourceViewControllerProxy> _serviceProxy;

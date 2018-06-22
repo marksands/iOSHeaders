@@ -10,11 +10,12 @@
 #import "NCMaterialsAdjusting.h"
 #import "PLContentSizeCategoryAdjusting.h"
 
-@class BSUIFontProvider, NSArray, NSString, NSStringDrawingContext, UILabel;
+@class BSUIFontProvider, MTMaterialView, NSArray, NSString, NSStringDrawingContext, UILabel;
 
 @interface NCAuxiliaryOptionsView : UIView <NCAuxiliaryOptionsSupporting, PLContentSizeCategoryAdjusting, NCMaterialsAdjusting>
 {
     UILabel *_optionsSummaryLabel;
+    MTMaterialView *_overlayView;
     double _widthForCachedLayoutInfo;
     unsigned long long _cachedSummaryLabelNumberOfLines;
     double _cachedSummaryLabelHeight;
@@ -40,6 +41,7 @@
 - (double)_summaryLabelHeightForBoundsSize:(struct CGSize)arg1;
 - (unsigned long long)_summaryLabelNumberOfLinesForBoundsSize:(struct CGSize)arg1;
 - (void)_calculateOptionsSummaryLabelLayoutInfoForBoundsSize:(struct CGSize)arg1;
+- (void)_configureOverlayIfNecessary;
 - (void)_configureOptionsButtonsWithCount:(unsigned long long)arg1;
 - (id)_newOptionsButton;
 - (void)_updateTextAttributesForOptionButton:(id)arg1;
@@ -52,6 +54,7 @@
 - (_Bool)adjustForContentSizeCategoryChange;
 @property(nonatomic) unsigned long long numberOfOptionButtons;
 @property(copy, nonatomic) NSString *optionsSummaryText;
+- (void)_setContinuousCornerRadius:(double)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

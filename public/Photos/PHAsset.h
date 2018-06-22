@@ -88,6 +88,7 @@
 + (id)fetchAssetsWithMediaType:(long long)arg1 options:(id)arg2;
 + (id)fetchAssetsWithoutOriginalsInAssetCollection:(id)arg1 options:(id)arg2;
 + (id)fetchAssetsInAssetCollection:(id)arg1 options:(id)arg2;
++ (id)fetchAssetsInImportSessions:(id)arg1 options:(id)arg2;
 + (id)fetchAssetsInBoundingBoxWithTopLeftLocation:(id)arg1 bottomRightLocation:(id)arg2 options:(id)arg3;
 + (id)fetchAssetsGroupedByFaceUUIDForFaces:(id)arg1;
 + (long long)countOfAssetsWithLocationFromUUIDs:(id)arg1;

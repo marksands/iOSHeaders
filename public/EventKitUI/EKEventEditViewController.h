@@ -34,6 +34,7 @@
 @property(nonatomic) double editorNavBarRightContentInset;
 @property(nonatomic) double editorNavBarLeftContentInset;
 @property(retain, nonatomic) UIColor *editorBackgroundColor;
+- (void)focusTitle;
 - (void)focusAndSelectStartDate;
 - (void)focusAndSelectTitle;
 - (_Bool)hasUnsavedChanges;

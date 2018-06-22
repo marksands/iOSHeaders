@@ -24,6 +24,8 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly) int adaptiveLearningState; // @synthesize adaptiveLearningState=_adaptiveLearningState;
+- (int)shortTermMLAverageForSegment:(id)arg1;
+- (int)longTermMLAverageForSegment:(id)arg1;
 - (void)updateTargetBitrateForSegment:(id)arg1 newValue:(int)arg2;
 - (int)learntBitrateForSegment:(id)arg1 defaultValue:(int)arg2;
 - (void)saveCallSegmentHistory;

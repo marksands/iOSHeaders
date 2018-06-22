@@ -29,6 +29,7 @@
 - (id)_colorAddColorWithSettings:(id)arg1 options:(unsigned long long)arg2 alpha:(double)arg3;
 - (id)_colorMatrixColorWithSettings:(id)arg1 options:(unsigned long long)arg2 alpha:(double)arg3;
 - (id)_zoomWithSettings:(id)arg1 wrappedOptions:(id)arg2;
+- (id)_backdropTintAlphaWithSettings:(id)arg1 wrappedOptions:(id)arg2;
 - (id)_tintAlphaWithSettings:(id)arg1 wrappedOptions:(id)arg2;
 - (id)_brightnessWithSettings:(id)arg1 wrappedOptions:(id)arg2;
 - (id)_saturationWithSettings:(id)arg1 wrappedOptions:(id)arg2;
@@ -37,7 +38,7 @@
 - (_Bool)_isBackdropRequiredWithSettings:(id)arg1 options:(unsigned long long)arg2;
 - (_Bool)_isBackdropRequiredForOverlayWithSettings:(id)arg1 options:(unsigned long long)arg2;
 - (_Bool)_isBackdropRequiredForMainMaterialWithSettings:(id)arg1 options:(unsigned long long)arg2;
-- (id)_colorWithGetterBlock:(CDUnknownBlockType)arg1;
+- (id)_colorForBackdrop:(_Bool)arg1 withGetterBlock:(CDUnknownBlockType)arg2;
 - (double)_propertyValueForProperty:(id)arg1;
 - (_Bool)_isPropertyEnabled:(id)arg1 consideringWeighting:(_Bool)arg2;
 - (id)_performanceConfiguringSettingsForSettings:(id)arg1;
@@ -61,7 +62,7 @@
 @property(readonly, nonatomic) double blurRadius;
 - (_Bool)isBackdropRequiredForOverlayOption:(unsigned long long)arg1;
 @property(readonly, nonatomic, getter=isZoomEnabled) _Bool zoomEnabled;
-@property(readonly, nonatomic, getter=isTintAlphaEnabled) _Bool tintAlphaEnabled;
+@property(readonly, nonatomic, getter=isBackdropTintEnabled) _Bool backdropTintEnabled;
 @property(readonly, nonatomic, getter=isBrightnessEnabled) _Bool brightnessEnabled;
 @property(readonly, nonatomic, getter=isSaturationEnabled) _Bool saturationEnabled;
 @property(readonly, nonatomic, getter=isLuminanceAlphaEnabled) _Bool luminanceAlphaEnabled;

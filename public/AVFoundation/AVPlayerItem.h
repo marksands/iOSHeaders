@@ -427,6 +427,8 @@
 - (void)_figPlaybackItem:(struct OpaqueFigPlaybackItem *)arg1 didOutputSampleBuffers:(id)arg2 fromTrackWithID:(int)arg3 forMetadataOutputWithDictionaryKey:(id)arg4;
 - (id)_metadataOutputForKey:(id)arg1;
 @property(retain, nonatomic) id <NSObject><NSCopying> AVKitData;
+- (void)setVideoEnhancementMode:(id)arg1;
+- (id)videoEnhancementMode;
 
 @end
 

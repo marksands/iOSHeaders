@@ -12,6 +12,7 @@
 {
     _Bool _transitioning;
     _Bool _marqueeEnabled;
+    _Bool _routing;
     _Bool _shouldUseOverrideSize;
     MPCPlayerPath *_playerPath;
     UIImageView *_artworkView;
@@ -44,6 +45,7 @@
 @property(retain, nonatomic) UIView *shadow; // @synthesize shadow=_shadow;
 @property(retain, nonatomic) UIView *artworkBackgroundView; // @synthesize artworkBackgroundView=_artworkBackgroundView;
 @property(nonatomic) struct CGSize overrideSize; // @synthesize overrideSize=_overrideSize;
+@property(nonatomic, getter=isRouting) _Bool routing; // @synthesize routing=_routing;
 @property(nonatomic) long long buttonType; // @synthesize buttonType=_buttonType;
 @property(nonatomic) _Bool marqueeEnabled; // @synthesize marqueeEnabled=_marqueeEnabled;
 @property(retain, nonatomic) UIButton *launchNowPlayingAppButton; // @synthesize launchNowPlayingAppButton=_launchNowPlayingAppButton;

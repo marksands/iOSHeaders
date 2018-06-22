@@ -12,8 +12,14 @@
 {
     SCNNode *rig;
     SCNNode *chainRoot;
+    double applyDownForce;
     // Error parsing type: , name: restPosition
+    // Error parsing type: , name: restDown
 }
+
+@property(nonatomic) double applyDownForce; // @synthesize applyDownForce;
+// Error parsing type for property restDown:
+// Property attributes: T,N,VrestDown
 
 // Error parsing type for property restPosition:
 // Property attributes: T,N,VrestPosition

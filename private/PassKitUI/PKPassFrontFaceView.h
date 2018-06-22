@@ -32,6 +32,7 @@
 - (void)_barcodeButtonPressed;
 - (void)_infoButtonPressed;
 - (id)_relevantBuckets;
+- (id)_rebucketAuxiliaryFields:(id)arg1;
 @property(readonly, nonatomic) PKBarcodeStickerView *barcodeView;
 - (struct CGRect)barcodeFrame;
 - (void)_positionBarcodeView;

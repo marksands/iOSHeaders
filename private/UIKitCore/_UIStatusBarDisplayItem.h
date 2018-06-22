@@ -24,6 +24,7 @@
     double _alpha;
     double _viewAlpha;
     double _baselineOffset;
+    long long _overriddenVerticalAlignment;
     _UIStatusBarRegion *_region;
     UIView *_containerView;
     id <UILayoutItem> _layoutItem;
@@ -39,6 +40,7 @@
 @property(nonatomic) _Bool floating; // @synthesize floating=_floating;
 @property(nonatomic) __weak UIView *containerView; // @synthesize containerView=_containerView;
 @property(nonatomic) __weak _UIStatusBarRegion *region; // @synthesize region=_region;
+@property(nonatomic) long long overriddenVerticalAlignment; // @synthesize overriddenVerticalAlignment=_overriddenVerticalAlignment;
 @property(nonatomic) double baselineOffset; // @synthesize baselineOffset=_baselineOffset;
 @property(nonatomic) struct CGAffineTransform viewTransform; // @synthesize viewTransform=_viewTransform;
 @property(nonatomic) struct CGAffineTransform transform; // @synthesize transform=_transform;

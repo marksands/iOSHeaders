@@ -24,6 +24,7 @@
 @property(readonly, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(readonly, nonatomic) NSNotificationCenter *notificationCenter; // @synthesize notificationCenter=_notificationCenter;
 - (void).cxx_destruct;
+- (void)activityObservingApplicationWillEnterForegroundNotification:(id)arg1;
 - (void)activityObservingApplicationDidFinishLaunchingNotification:(id)arg1;
 - (void)applicationDidEnterBackgroundNotification:(id)arg1;
 - (void)applicationDidBecomeActiveNotification:(id)arg1;

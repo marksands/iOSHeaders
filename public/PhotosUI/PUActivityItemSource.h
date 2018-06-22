@@ -11,7 +11,7 @@
 #import "UIActivityItemImageDataProvider.h"
 #import "UIActivityItemSource.h"
 
-@class NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_group>, NSProgress, NSString, NSURL, PFSharingRemaker, PHAsset, PHAssetExportRequest, PLVideoRemaker, _PUActivityItemSourceOperation;
+@class NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_group>, NSProgress, NSString, NSURL, PFSharingRemaker, PHAsset, PHAssetExportRequest, PLVideoRemaker, PUActivityItemSourceAnchorOperation, _PUActivityItemSourceOperation;
 
 @interface PUActivityItemSource : NSObject <UIActivityItemDeferredSource, UIActivityItemApplicationExtensionSource, UIActivityItemImageDataProvider, UIActivityItemSource>
 {
@@ -24,12 +24,15 @@
     NSString *_assetOriginalFilename;
     _Bool _hasRecognizedVideoAdjustments;
     _PUActivityItemSourceOperation *_currentOperation;
+    PUActivityItemSourceAnchorOperation *_anchorOperation;
     PLVideoRemaker *_remaker;
     CDUnknownBlockType _remakerCompletionHandler;
     id _strongSelf;
     PFSharingRemaker *_photoRemaker;
     NSArray *_nonLocalAssetsActivities;
     _Bool _useStillImage;
+    _Bool _shouldSkipPreparation;
+    _Bool _shouldAnchorPreparation;
     CDUnknownBlockType _progressHandler;
     CDUnknownBlockType _completionHandler;
     CDUnknownBlockType _postCompletionHandler;
@@ -53,6 +56,8 @@
 @property(retain, nonatomic, setter=_setExportProgress:) NSProgress *_exportProgress; // @synthesize _exportProgress=__exportProgress;
 @property(retain, nonatomic, setter=_setAssetExportRequest:) PHAssetExportRequest *_assetExportRequest; // @synthesize _assetExportRequest=__assetExportRequest;
 @property(setter=_setRemakerWasCancelled:) long long _remakerWasCancelled; // @synthesize _remakerWasCancelled=__remakerWasCancelled;
+@property(nonatomic) _Bool shouldAnchorPreparation; // @synthesize shouldAnchorPreparation=_shouldAnchorPreparation;
+@property(nonatomic) _Bool shouldSkipPreparation; // @synthesize shouldSkipPreparation=_shouldSkipPreparation;
 @property(copy) CDUnknownBlockType postCompletionHandler; // @synthesize postCompletionHandler=_postCompletionHandler;
 @property(copy) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(copy) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;
@@ -110,6 +115,7 @@
 - (_Bool)_wantsVideoRemakerForActivityType:(id)arg1;
 - (_Bool)_wantsAssetsLibraryURLForActivityType:(id)arg1;
 - (_Bool)_wantsLocalAssetsForActivityType:(id)arg1;
+- (void)signalAnchorCompletion;
 - (void)cancelRemaking;
 - (void)cancel;
 - (void)_fetchSharingVariants;

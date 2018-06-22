@@ -30,6 +30,8 @@
     PLBatterySaverWatcher *_batterySaverWatcher;
     _Bool _processingChange;
     unsigned long long _mode;
+    _Bool _checkEnableStateOnIdle;
+    _Bool _icplEnabled;
     _Bool _pushOnIdle;
     _Bool _pullOnIdle;
     _Bool _modeChangePending;
@@ -113,7 +115,6 @@
 - (_Bool)isPausedForDownloadRequestHighPriority:(_Bool)arg1;
 - (void)foregroundMonitor:(id)arg1 changedStateToForeground:(_Bool)arg2 forBundleIdentifier:(id)arg3 context:(id)arg4;
 - (_Bool)_isColorAwareResource:(unsigned long long)arg1 adjustedResource:(_Bool)arg2;
-- (void)_recoverFromPauseUnderDiskPressureIfNeeded;
 - (void)_updateAsset:(id)arg1 withImageFileURL:(id)arg2;
 - (void)_updateThumbnailDataForAsset:(id)arg1 withImageFileURL:(id)arg2;
 - (short)_placeHolderKindFromCPLResourceType:(unsigned long long)arg1;
@@ -158,7 +159,6 @@
 - (_Bool)isConnectedToChangeTracker;
 - (id)fetchEventsFromChangeTracker;
 - (void)_fetchNewEventsFromChangeTracker;
-- (void)_fetchDeletionEventsFromChangeTracker;
 - (void)dumpStatusIncludingDaemon:(_Bool)arg1;
 - (void)doSoftResetSync;
 - (void)resetSyncDueToMigrationMarker;
@@ -183,6 +183,7 @@
 - (void)saveLastKnownChangeTrackerTokenToDisk;
 - (void)_setupHubConnection;
 - (void)batterySaverModeDidChange;
+- (void)_checkEnableState;
 - (void)_processNextTransaction;
 - (void)_handleOptimizeSettingChange;
 - (void)reportDeviceData:(id)arg1;
@@ -193,7 +194,7 @@
 - (id)_calculateUnpauseTimeForPauseTime:(id)arg1;
 - (void)_stopUnpauseTimer;
 - (void)_transitionToState:(unsigned long long)arg1;
-- (_Bool)_canExternallyTransitionToNewLibraryModeIgnoringPause:(_Bool)arg1 ignoringBatterySaver:(_Bool)arg2 ignoringDiskPressure:(_Bool)arg3;
+- (_Bool)_canExternallyTransitionToNewLibraryModeIgnoringPause:(_Bool)arg1 ignoringBatterySaver:(_Bool)arg2;
 - (void)_runAsyncOnIsolationQueueWithTransaction:(id)arg1 afterDelay:(double)arg2 block:(CDUnknownBlockType)arg3;
 - (void)_runAsyncOnIsolationQueueWithTransaction:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)_runSyncOnIsolationQueueWithBlock:(CDUnknownBlockType)arg1;

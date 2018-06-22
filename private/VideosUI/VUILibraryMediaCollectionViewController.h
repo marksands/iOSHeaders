@@ -9,7 +9,8 @@
 #import "TVShelfViewLayoutDelegate.h"
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
-#import "VUILocalContentProtocol.h"
+#import "VUILibraryEpisodeFooterCellDelegate.h"
+#import "VUILibraryEpisodeShelfViewControllerDelegate.h"
 #import "VUIMediaEntitiesFetchControllerDelegate.h"
 #import "VUIMediaEntityDownloadViewControllerDelegate.h"
 #import "VUIProductLockupViewDelegate.h"
@@ -17,9 +18,8 @@
 @class NSArray, NSMutableDictionary, NSString, VUILibraryMediaCollectionViewModel, VUIMediaCollection;
 
 __attribute__((visibility("hidden")))
-@interface VUILibraryMediaCollectionViewController : VUILibraryStackViewController <UICollectionViewDataSource, UICollectionViewDelegate, VUIMediaEntityDownloadViewControllerDelegate, VUIMediaEntitiesFetchControllerDelegate, VUIProductLockupViewDelegate, TVShelfViewLayoutDelegate, VUILocalContentProtocol>
+@interface VUILibraryMediaCollectionViewController : VUILibraryStackViewController <UICollectionViewDataSource, UICollectionViewDelegate, VUIMediaEntityDownloadViewControllerDelegate, VUIMediaEntitiesFetchControllerDelegate, VUIProductLockupViewDelegate, TVShelfViewLayoutDelegate, VUILibraryEpisodeFooterCellDelegate, VUILibraryEpisodeShelfViewControllerDelegate>
 {
-    _Bool _onlyShowLocalContent;
     _Bool _canShowMultipleSeasons;
     VUIMediaCollection *_mediaCollection;
     NSArray *_seasons;
@@ -37,12 +37,12 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSArray *episodeGroups; // @synthesize episodeGroups=_episodeGroups;
 @property(retain, nonatomic) NSArray *episodes; // @synthesize episodes=_episodes;
 @property(retain, nonatomic) NSArray *seasons; // @synthesize seasons=_seasons;
-@property(nonatomic) _Bool onlyShowLocalContent; // @synthesize onlyShowLocalContent=_onlyShowLocalContent;
 @property(readonly, nonatomic) VUIMediaCollection *mediaCollection; // @synthesize mediaCollection=_mediaCollection;
 - (void).cxx_destruct;
 - (void)addDownloadViewControllerToProductLockupView:(id)arg1 forSeason:(id)arg2;
 - (id)_episodeShelfViewControllerWithSeason:(id)arg1 episodes:(id)arg2;
 - (void)_updateProductLockupView:(id)arg1 withSeason:(id)arg2;
+- (void)_updateProductLockupViewWithSeasonIdentifier:(id)arg1;
 - (id)_productLockupViewWithSeason:(id)arg1;
 - (id)_episodesChangeSetMapWithEpisodeGroups:(id)arg1 changeSet:(id)arg2;
 - (id)_seasonViewModelsWithSeasons:(id)arg1;
@@ -51,12 +51,13 @@ __attribute__((visibility("hidden")))
 - (_Bool)_usingEpisodesGroupFetch;
 - (id)_episodesBySeasonIdentifier;
 - (void)_updateDeletedContentErrorMessage;
+- (void)titleButtonPressedForStoreId:(id)arg1;
 - (void)downloadViewController:(id)arg1 didRemoveDownloadForAssetController:(id)arg2;
+- (void)libraryEpisodesShelfViewController:(id)arg1 didRemoveDownloadForAssetController:(id)arg2;
 - (void)contentDescriptionExpanded;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)controller:(id)arg1 fetchRequests:(id)arg2 didFailWithError:(id)arg3;
 - (void)controller:(id)arg1 fetchRequests:(id)arg2 didCompleteWithResult:(id)arg3;
-- (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;

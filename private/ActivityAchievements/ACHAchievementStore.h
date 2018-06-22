@@ -15,6 +15,8 @@
 
 @interface ACHAchievementStore : NSObject <ACHTemplateStoreObserving, ACHEarnedInstanceStoreObserving, ACHAchievementProgressEngineObserving, ACHTemplateAssetRegistryDelegate>
 {
+    _Bool _templateStoreDidFinishInitialFetch;
+    _Bool _earnedInstanceStoreDidFinishInitialFetch;
     ACHTemplateStore *_templateStore;
     ACHEarnedInstanceStore *_earnedInstanceStore;
     ACHTemplateAssetRegistry *_templateAssetRegistry;
@@ -25,6 +27,8 @@
     NSObject<OS_dispatch_queue> *_synchronizationQueue;
 }
 
+@property(nonatomic) _Bool earnedInstanceStoreDidFinishInitialFetch; // @synthesize earnedInstanceStoreDidFinishInitialFetch=_earnedInstanceStoreDidFinishInitialFetch;
+@property(nonatomic) _Bool templateStoreDidFinishInitialFetch; // @synthesize templateStoreDidFinishInitialFetch=_templateStoreDidFinishInitialFetch;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *synchronizationQueue; // @synthesize synchronizationQueue=_synchronizationQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *notificationQueue; // @synthesize notificationQueue=_notificationQueue;
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
@@ -44,6 +48,7 @@
 - (void)_queue_addTemplatesToLocalStore:(id)arg1;
 - (void)earnedInstanceStore:(id)arg1 didRemoveEarnedInstances:(id)arg2;
 - (void)earnedInstanceStore:(id)arg1 didAddNewEarnedInstances:(id)arg2;
+- (void)earnedInstanceStoreDidFinishInitialFetch:(id)arg1;
 - (void)templateStore:(id)arg1 didRemoveTemplates:(id)arg2;
 - (void)templateStore:(id)arg1 didAddNewTemplates:(id)arg2;
 - (void)templateStoreDidFinishInitialFetch:(id)arg1;

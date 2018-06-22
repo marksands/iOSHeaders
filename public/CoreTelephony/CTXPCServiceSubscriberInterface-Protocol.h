@@ -15,6 +15,7 @@
 - (void)getRemainingPUKAttemptCount:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(NSNumber *, NSError *))arg2;
 - (void)getRemainingPINAttemptCount:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(NSNumber *, NSError *))arg2;
 - (void)changePIN:(CTXPCServiceSubscriptionContext *)arg1 oldPin:(NSString *)arg2 newPin:(NSString *)arg3 completion:(void (^)(NSError *))arg4;
+- (void)promptForSIMUnlock:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)unlockPUK:(CTXPCServiceSubscriptionContext *)arg1 puk:(NSString *)arg2 newPin:(NSString *)arg3 completion:(void (^)(NSError *))arg4;
 - (void)unlockPIN:(CTXPCServiceSubscriptionContext *)arg1 pin:(NSString *)arg2 completion:(void (^)(NSError *))arg3;
 - (void)saveSIMLockValue:(CTXPCServiceSubscriptionContext *)arg1 enabled:(_Bool)arg2 pin:(NSString *)arg3 completion:(void (^)(NSError *))arg4;

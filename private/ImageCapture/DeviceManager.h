@@ -37,9 +37,8 @@ __attribute__((visibility("hidden")))
 - (long long)eject:(id)arg1;
 - (long long)downloadFile:(id)arg1 fromDevice:(id)arg2 options:(id)arg3 contextInfo:(void *)arg4;
 - (long long)deleteFile:(id)arg1 fromDevice:(id)arg2 contextInfo:(void *)arg3;
-- (long long)getDataOfFile:(id)arg1 fromDevice:(id)arg2 withOptions:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (long long)getMetadataOfFile:(id)arg1 fromDevice:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (long long)getThumbnailOfFile:(id)arg1 fromDevice:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (long long)getMetadataOfFile:(id)arg1 fromDevice:(id)arg2 withOptions:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (long long)getThumbnailOfFile:(id)arg1 fromDevice:(id)arg2 withOptions:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (long long)aptpRetrieveDataForFiles:(id)arg1 contextInfo:(void *)arg2;
 - (long long)aptpRequestDataForFiles:(id)arg1 fromDevice:(id)arg2 contextInfo:(void *)arg3;
 - (long long)syncClock:(id)arg1 contextInfo:(void *)arg2;

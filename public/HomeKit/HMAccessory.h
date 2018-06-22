@@ -59,6 +59,7 @@
     HMFPairingIdentity *_pairingIdentity;
     HMFWiFiNetworkInfo *_wifiNetworkInfo;
     NSArray *_controlTargetUUIDs;
+    HMSymptomsHandler *_symptomsHandler;
     HMFMessageDispatcher *_msgDispatcher;
     long long _reachableTransports;
     HMThreadSafeMutableArrayCollection *_currentServices;
@@ -67,7 +68,6 @@
     NSUUID *_uuid;
     unsigned long long _accessoryReprovisionState;
     HMRemoteLoginHandler *_remoteLoginHandler;
-    HMSymptomsHandler *_symptomsHandler;
     HMDelegateCaller *_delegateCaller;
     HMThreadSafeMutableArrayCollection *_accessoryProfiles;
 }
@@ -78,7 +78,6 @@
 + (id)_mediaProfilesForAccessoryProfiles:(id)arg1;
 @property(retain, nonatomic) HMThreadSafeMutableArrayCollection *accessoryProfiles; // @synthesize accessoryProfiles=_accessoryProfiles;
 @property(retain, nonatomic) HMDelegateCaller *delegateCaller; // @synthesize delegateCaller=_delegateCaller;
-@property(copy) HMSymptomsHandler *symptomsHandler; // @synthesize symptomsHandler=_symptomsHandler;
 @property(retain) HMRemoteLoginHandler *remoteLoginHandler; // @synthesize remoteLoginHandler=_remoteLoginHandler;
 @property(nonatomic) unsigned long long accessoryReprovisionState; // @synthesize accessoryReprovisionState=_accessoryReprovisionState;
 @property(nonatomic) _Bool needsReprovisioning; // @synthesize needsReprovisioning=_needsReprovisioning;
@@ -103,6 +102,9 @@
 - (void)_notifyDelegateOfRemovedControlTarget:(id)arg1;
 - (void)_notifyDelegateOfAddedControlTarget:(id)arg1;
 - (void)_notifyClientsOfTargetControlSupportUpdate;
+- (void)_handleSymptomsHandlerUpdatedMessage:(id)arg1;
+- (void)_notifyClientsOfSymptomsHandlerAdded:(_Bool)arg1;
+@property(copy) HMSymptomsHandler *symptomsHandler; // @synthesize symptomsHandler=_symptomsHandler;
 - (id)_privateDelegate;
 - (void)_notifyDelegatesOfUpdatedControllable;
 - (void)_notifyDelegatesOfAdditionalSetupRequiredChange;
@@ -192,7 +194,7 @@
 @property(copy) HMFSoftwareVersion *softwareVersion; // @synthesize softwareVersion=_softwareVersion;
 - (void)setDevice:(id)arg1;
 - (id)device;
-@property(copy) HMFPairingIdentity *pairingIdentity; // @synthesize pairingIdentity=_pairingIdentity;
+@property(readonly, copy) HMFPairingIdentity *pairingIdentity; // @synthesize pairingIdentity=_pairingIdentity;
 - (void)_notifyDelegateOfUpdatedSettings:(id)arg1;
 - (void)_handleRootSettingsUpdated:(id)arg1;
 - (void)setSettings:(id)arg1;

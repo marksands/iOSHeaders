@@ -47,6 +47,7 @@
     _Bool _showsTravelTime;
     _Bool _reduceLayoutProcessingForAnimation;
     _Bool _touchesAreBeingTracked;
+    _Bool _originalEventLocationIsPrediction;
     int _occurrenceBackgroundStyle;
     NSObject<EKDayOccurrenceViewDelegate> *_delegate;
     EKDayOccurrenceView *_selectedCopy;
@@ -88,6 +89,7 @@
 + (void)_clearViewCache;
 + (id)_viewCache;
 @property(copy, nonatomic) NSString *originalEventLocation; // @synthesize originalEventLocation=_originalEventLocation;
+@property(nonatomic) _Bool originalEventLocationIsPrediction; // @synthesize originalEventLocationIsPrediction=_originalEventLocationIsPrediction;
 @property(nonatomic) _Bool touchesAreBeingTracked; // @synthesize touchesAreBeingTracked=_touchesAreBeingTracked;
 @property(nonatomic) double topYBoundaryForText; // @synthesize topYBoundaryForText=_topYBoundaryForText;
 @property(nonatomic) double bottomPinningProximity; // @synthesize bottomPinningProximity=_bottomPinningProximity;

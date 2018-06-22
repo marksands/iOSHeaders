@@ -10,7 +10,6 @@
 {
 }
 
-+ (struct UIEdgeInsets)insetsToCenterFirstAndLastItemsGivenBounds:(struct CGRect)arg1 itemSize:(struct CGSize)arg2;
 + (struct CGPoint)contentOffsetForCenteringPoint:(struct CGPoint)arg1 collectionView:(id)arg2;
 + (id)indexPathForNearestItemToCenterWithOffset:(struct CGPoint)arg1 collectionView:(id)arg2;
 + (id)layoutAttributesForNearestItemToCenterWithOffset:(struct CGPoint)arg1 collectionView:(id)arg2;

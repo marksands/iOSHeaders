@@ -22,7 +22,7 @@
 + (_Bool)isVoiceEnabled:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (_Bool)presentOnCallAlertIfNeededForService:(unsigned long long)arg1 okayCompletion:(CDUnknownBlockType)arg2;
-- (void)presentCallCarrierAlert;
+- (void)presentCallCarrierAlert:(id)arg1;
 - (void)updateProvisioning;
 - (void)listItemSelected:(id)arg1;
 - (id)specifiers;

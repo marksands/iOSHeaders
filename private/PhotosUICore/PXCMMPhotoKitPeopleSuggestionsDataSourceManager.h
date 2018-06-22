@@ -43,7 +43,9 @@
 - (id)people;
 - (void)_handleFinishedLoadingFinalDataSourceFetchResult:(id)arg1;
 - (void)_loadFinalDataSource;
+- (_Bool)isLoading;
 - (void)cancelLoading;
+- (void)boostLoading;
 - (void)startLoading;
 - (id)_initWithAssetCollection:(id)arg1;
 - (id)initWithPeopleFetchResult:(id)arg1;

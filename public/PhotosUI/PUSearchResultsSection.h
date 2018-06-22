@@ -15,15 +15,19 @@ __attribute__((visibility("hidden")))
     _Bool _sorted;
     NSString *_title;
     NSArray *_sortDescriptors;
+    unsigned long long _sectionType;
     NSMutableArray *_mutableSearchResults;
     NSMutableSet *_mutableSearchResultUUIDs;
 }
 
++ (unsigned long long)_sectionTypeForCategory:(unsigned long long)arg1;
++ (unsigned long long)sectionTypeForCategoryMask:(unsigned long long)arg1 isMomentSection:(_Bool)arg2 isTopAssetSection:(_Bool)arg3;
 + (id)_stringForCategory:(unsigned long long)arg1;
 + (id)sectionTitleForCategoryMask:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSMutableSet *mutableSearchResultUUIDs; // @synthesize mutableSearchResultUUIDs=_mutableSearchResultUUIDs;
 @property(nonatomic, getter=isSorted) _Bool sorted; // @synthesize sorted=_sorted;
 @property(readonly, nonatomic) NSMutableArray *mutableSearchResults; // @synthesize mutableSearchResults=_mutableSearchResults;
+@property(readonly, nonatomic) unsigned long long sectionType; // @synthesize sectionType=_sectionType;
 @property(copy, nonatomic) NSArray *sortDescriptors; // @synthesize sortDescriptors=_sortDescriptors;
 @property(nonatomic, getter=isExpanded) _Bool expanded; // @synthesize expanded=_expanded;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
@@ -34,7 +38,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isExpandable) _Bool expandable;
 - (void)addSearchResult:(id)arg1;
 @property(readonly, nonatomic) NSArray *searchResults;
-- (id)initWithTitle:(id)arg1;
+- (id)initWithTitle:(id)arg1 withSectionType:(unsigned long long)arg2;
 - (id)init;
 
 @end

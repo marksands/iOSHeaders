@@ -31,7 +31,6 @@
 - (id)_defaultOrderingDescriptorForActivity:(id)arg1;
 - (id)_activitiesByApplyingDefaultOrdering:(id)arg1;
 - (id)activitiesByOrderingActivities:(id)arg1 applyDefaultOrdering:(_Bool)arg2 applyBeforeTypePinning:(_Bool)arg3 activityTypeOrdering:(id)arg4;
-- (void)cancelActivityMatchingUpdates;
 - (id)orderedAvailableActivitiesForMatchingContext:(id)arg1;
 - (void)preheatAvailableActivitiesForMatchingContext:(id)arg1;
 - (void)_enumerateAvailableActivitiesForMatchingContext:(id)arg1 intoMatchingResults:(id)arg2 matchingResultsUpdateBlock:(CDUnknownBlockType)arg3 enumerateActivityBlock:(CDUnknownBlockType)arg4;

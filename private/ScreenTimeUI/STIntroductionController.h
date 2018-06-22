@@ -12,17 +12,22 @@
 {
     _Bool _allowParentalControls;
     _Bool _forceParentalControls;
+    _Bool _skipWelcome;
+    _Bool _isModalPresentation;
     CDUnknownBlockType _completionBlock;
     STIntroductionModel *_introductionModel;
 }
 
-@property(retain) STIntroductionModel *introductionModel; // @synthesize introductionModel=_introductionModel;
+@property(nonatomic) _Bool isModalPresentation; // @synthesize isModalPresentation=_isModalPresentation;
+@property(retain, nonatomic) STIntroductionModel *introductionModel; // @synthesize introductionModel=_introductionModel;
 @property(copy) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
+@property _Bool skipWelcome; // @synthesize skipWelcome=_skipWelcome;
 @property _Bool forceParentalControls; // @synthesize forceParentalControls=_forceParentalControls;
 @property _Bool allowParentalControls; // @synthesize allowParentalControls=_allowParentalControls;
 - (void).cxx_destruct;
 - (id)viewControllerFollowingViewController:(id)arg1;
 - (void)viewControllerCompleted:(id)arg1 model:(id)arg2;
+- (id)initialViewController;
 - (void)presentOverViewController:(id)arg1;
 - (id)init;
 

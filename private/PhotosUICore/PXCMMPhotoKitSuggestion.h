@@ -10,10 +10,12 @@
 #import "PXCMMSuggestion.h"
 #import "PXMediaTypeAggregating.h"
 
-@class NSDate, NSString, PHAssetCollection, PHFetchResult;
+@class NSString, PHAssetCollection, PHFetchResult;
 
 @interface PXCMMPhotoKitSuggestion : NSObject <PXMediaTypeAggregating, PXCMMSuggestion, NSCopying>
 {
+    NSString *_title;
+    NSString *_subtitle;
     id <PXDisplayAsset> _posterAsset;
     id <PXUIImageProvider> _posterMediaProvider;
     PHAssetCollection *_assetCollection;
@@ -30,6 +32,8 @@
 @property(readonly, nonatomic) PHAssetCollection *assetCollection; // @synthesize assetCollection=_assetCollection;
 @property(readonly, nonatomic) id <PXUIImageProvider> posterMediaProvider; // @synthesize posterMediaProvider=_posterMediaProvider;
 @property(readonly, nonatomic) id <PXDisplayAsset> posterAsset; // @synthesize posterAsset=_posterAsset;
+@property(readonly, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
+@property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)diagnosticsItem;
@@ -38,13 +42,11 @@
 - (id)contextForActivityType:(unsigned long long)arg1 sourceType:(unsigned long long)arg2;
 @property(readonly, nonatomic) id <PXPeopleFetchResult> peopleFetchResult;
 @property(readonly, nonatomic) long long count;
-@property(readonly, nonatomic) NSDate *endDate;
-@property(readonly, nonatomic) NSDate *startDate;
-@property(readonly, nonatomic) NSString *localizedTitle;
 @property(readonly, nonatomic) NSString *identifier;
 - (id)suggestionWithUpdatedPeopleSuggestionsFetchResult:(id)arg1;
 - (id)suggestionWithUpdatedPreviewAssetsFetchResult:(id)arg1;
 @property(readonly, copy) NSString *description;
+- (id)initWithAssetCollection:(id)arg1;
 @property(readonly, nonatomic) long long aggregateMediaType; // @dynamic aggregateMediaType;
 
 // Remaining properties

@@ -18,5 +18,6 @@
 + (id)avt_splashContinueButtonFont;
 + (id)avt_splashSubTitleFont;
 + (id)avt_splashTitleFont;
++ (id)avt_appropriateContentSizeCategoryForCategory:(id)arg1 minCategory:(id)arg2 maxCategory:(id)arg3;
 @end
 

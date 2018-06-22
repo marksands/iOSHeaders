@@ -92,6 +92,7 @@
 - (void)__handleAddedAccount:(id)arg1;
 - (_Bool)requiresMakoSupport;
 - (id)account;
+- (void)_handlePairingIdentityRequest:(id)arg1;
 - (void)deregisterIdentity;
 - (void)registerIdentity;
 @property(copy) HAPPairingIdentity *pairingIdentity; // @synthesize pairingIdentity=_pairingIdentity;

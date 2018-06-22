@@ -10,7 +10,7 @@
 
 @interface NTKZeusColorPalette : NSObject
 {
-    unsigned long long _faceColor;
+    unsigned long long _color;
     UIColor *_dialColor;
     UIColor *_complicationColor;
     UIColor *_secondHandColor;
@@ -22,9 +22,11 @@
     unsigned long long _bleed;
 }
 
-+ (id)paletteForFaceColor:(unsigned long long)arg1;
-+ (id)silverColor;
-+ (id)orangeColor;
++ (id)swatchImageForColor:(unsigned long long)arg1;
++ (id)swatchColorForColor:(unsigned long long)arg1;
++ (id)paletteForColor:(unsigned long long)arg1;
++ (id)zeusSilverColor;
++ (id)zeusOrangeColor;
 @property(readonly, nonatomic) unsigned long long bleed; // @synthesize bleed=_bleed;
 @property(readonly, nonatomic) double secondHandAlpha; // @synthesize secondHandAlpha=_secondHandAlpha;
 @property(readonly, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
@@ -35,7 +37,7 @@
 @property(readonly, nonatomic) UIColor *complicationColor; // @synthesize complicationColor=_complicationColor;
 @property(readonly, nonatomic) UIColor *dialColor; // @synthesize dialColor=_dialColor;
 - (void).cxx_destruct;
-- (id)initWithFaceColor:(unsigned long long)arg1;
+- (id)initWithColor:(unsigned long long)arg1;
 
 @end
 

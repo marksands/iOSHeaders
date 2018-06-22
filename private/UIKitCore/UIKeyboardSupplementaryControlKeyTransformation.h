@@ -16,8 +16,14 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)transformKeyplane:(id)arg1 withTransformationContext:(id)arg2;
++ (void)transformLastRowKeysForKeyplane:(id)arg1 row:(unsigned long long)arg2 withTransformationContext:(id)arg3;
++ (void)transformKeysForHandwritingKeyplane:(id)arg1 withTransformationContext:(id)arg2;
++ (void)transformKeysForFiveRowKeyplane:(id)arg1 withTransformationContext:(id)arg2;
++ (void)transformKeysForFourRowKeyplane:(id)arg1 withTransformationContext:(id)arg2;
 + (id)cachedControlKeySetsForTransformationContext:(id)arg1;
 + (id)transformationIdentifier;
++ (id)_supplementaryShiftKeysWithContext:(id)arg1;
++ (id)_cachedUndoOrRedoKeyForKeyplane:(id)arg1;
 + (id)_supplementaryScriptSwitchKeyWithContext:(id)arg1;
 + (id)_supplementaryControlKeyWithName:(id)arg1 context:(id)arg2;
 + (id)_supplementaryControlKeySetForOrientation:(long long)arg1 context:(id)arg2;

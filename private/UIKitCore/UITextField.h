@@ -208,6 +208,7 @@
 - (struct _NSRange)insertFilteredText:(id)arg1;
 - (void)insertText:(id)arg1;
 @property(readonly, nonatomic) _Bool hasText;
+- (_Bool)_shouldResignOnEditingDidEndOnExit;
 - (id)rangeWithTextAlternatives:(id *)arg1 atPosition:(id)arg2;
 - (void)_setOverridePlaceholder:(id)arg1 alignment:(long long)arg2;
 - (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(_Bool)arg2;
@@ -550,6 +551,7 @@
 - (void)_updateBackgroundViewsAnimated:(_Bool)arg1;
 - (_Bool)_shouldEndEditing;
 - (void)layoutSubviews;
+- (void)setNeedsLayout;
 - (void)floatingContentView:(id)arg1 isTransitioningFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3;
 - (void)_layoutContent;
 - (void)_layoutLabels;

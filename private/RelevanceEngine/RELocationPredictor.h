@@ -8,12 +8,13 @@
 
 #import "REEngineLocationManagerObserver.h"
 
-@class NSLock, NSMutableDictionary, NSString, RTRoutineManager;
+@class NSLock, NSMapTable, NSMutableDictionary, NSString, RTRoutineManager;
 
 @interface RELocationPredictor : REPredictor <REEngineLocationManagerObserver>
 {
     RTRoutineManager *_manager;
-    NSMutableDictionary *_routineData;
+    NSMapTable *_routineData;
+    NSMutableDictionary *_overrideRoutineType;
     NSLock *_routineDataLock;
 }
 
@@ -22,6 +23,7 @@
 - (void).cxx_destruct;
 - (void)collectLoggableState:(CDUnknownBlockType)arg1;
 - (void)locationManagerDidUpdateLocation:(id)arg1;
+- (void)_setOverrideLocation:(long long)arg1 forEngine:(id)arg2;
 - (id)locationForEngine:(id)arg1 userLocation:(long long)arg2;
 - (void)removeRelevanceEngine:(id)arg1;
 - (void)addRelevanceEngine:(id)arg1;

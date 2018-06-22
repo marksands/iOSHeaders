@@ -12,6 +12,7 @@
 {
 }
 
+- (id)associatedNodesForRemoval;
 - (id)keywordDescription;
 @property(readonly, nonatomic) NSSet *publicEventNodes;
 - (void)enumerateMomentNodesUsingBlock:(CDUnknownBlockType)arg1;

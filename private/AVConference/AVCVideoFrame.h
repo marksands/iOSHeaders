@@ -14,9 +14,11 @@
     CDStruct_1b6d18a9 _time;
     NSData *_imageData;
     NSData *_effectsMetadata;
+    float _renderProcessTime;
     id _delegate;
 }
 
+@property float renderProcessTime; // @synthesize renderProcessTime=_renderProcessTime;
 @property(retain) NSData *effectsMetadata; // @synthesize effectsMetadata=_effectsMetadata;
 @property(retain) NSData *imageData; // @synthesize imageData=_imageData;
 @property CDStruct_1b6d18a9 time; // @synthesize time=_time;

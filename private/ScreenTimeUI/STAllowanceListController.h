@@ -13,15 +13,17 @@
 
 @interface STAllowanceListController : PSListController <STAllowanceDetailListControllerDelegate, STAllowanceSetupListControllerDelegate>
 {
+    _Bool _canAskForMoreTime;
     NSObject<STTimeAllowancesViewModelCoordinator> *_coordinator;
     PSSpecifier *_addAllowanceSpecifier;
 }
 
 @property(retain, nonatomic) PSSpecifier *addAllowanceSpecifier; // @synthesize addAllowanceSpecifier=_addAllowanceSpecifier;
+@property(nonatomic) _Bool canAskForMoreTime; // @synthesize canAskForMoreTime=_canAskForMoreTime;
 @property(retain, nonatomic) NSObject<STTimeAllowancesViewModelCoordinator> *coordinator; // @synthesize coordinator=_coordinator;
 - (void).cxx_destruct;
 - (void)allowanceSetupListControllerDidCancel:(id)arg1;
-- (void)allowanceSetupListController:(id)arg1 didSelectAllowanceCategories:(id)arg2;
+- (void)allowanceSetupListController:(id)arg1 didSelectAllowanceIdentifiers:(id)arg2;
 - (void)allowanceDetailController:(id)arg1 didDeleteAllowance:(id)arg2;
 - (void)allowanceDetailController:(id)arg1 didSaveAllowance:(id)arg2;
 - (void)addAllowance:(id)arg1;

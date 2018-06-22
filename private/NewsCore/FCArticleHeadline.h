@@ -22,6 +22,7 @@
     _Bool _boundToContext;
     _Bool _hiddenFromFeeds;
     _Bool _pressRelease;
+    _Bool _hiddenFromAutoFavorites;
     _Bool _paid;
     _Bool _canBePurchased;
     NSString *_versionIdentifier;
@@ -88,6 +89,7 @@
 - (void)setPaid:(_Bool)arg1;
 - (_Bool)isPaid;
 - (long long)minimumNewsVersion;
+- (_Bool)isHiddenFromAutoFavorites;
 - (_Bool)isPressRelease;
 - (_Bool)isHiddenFromFeeds;
 - (_Bool)isBoundToContext;
@@ -154,6 +156,7 @@
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void)setContentType:(unsigned long long)arg1;
 - (unsigned long long)contentType;
+- (void)setClusterID:(id)arg1;
 - (id)clusterID;
 - (id)referencedArticleID;
 - (void)setArticleID:(id)arg1;

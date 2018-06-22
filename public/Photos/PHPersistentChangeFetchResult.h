@@ -13,14 +13,15 @@
     NSPersistentHistoryToken *_initialToken;
     NSArray *_transactions;
     NSManagedObjectContext *_context;
+    unsigned long long _maximumChangeThreshold;
     unsigned long long _changeCount;
 }
 
-+ (id)fetchResultWithToken:(id)arg1 managedObjectObjectContext:(id)arg2 error:(id *)arg3;
++ (id)fetchResultWithToken:(id)arg1 maximumChangeThreshold:(unsigned long long)arg2 managedObjectObjectContext:(id)arg3 error:(id *)arg4;
 @property(readonly, nonatomic) unsigned long long changeCount; // @synthesize changeCount=_changeCount;
 - (void).cxx_destruct;
 - (void)enumerateChangesWithBlock:(CDUnknownBlockType)arg1;
-- (id)initWithInitialToken:(id)arg1 transactions:(id)arg2 managedObjectObjectContext:(id)arg3;
+- (id)initWithInitialToken:(id)arg1 transactions:(id)arg2 maximumChangeThreshold:(unsigned long long)arg3 managedObjectObjectContext:(id)arg4;
 
 @end
 

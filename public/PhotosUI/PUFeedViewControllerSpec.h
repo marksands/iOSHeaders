@@ -81,6 +81,7 @@ __attribute__((visibility("hidden")))
 - (struct UIEdgeInsets)contentInsetsForSectionType:(long long)arg1 collectionViewType:(long long)arg2;
 - (struct UIEdgeInsets)textInsetsForHeadersAndFootersInSectionType:(long long)arg1 collectionViewType:(long long)arg2;
 - (void)configureFeedCollectionViewLayout:(id)arg1 forCollectionViewType:(long long)arg2 collectionViewSize:(struct CGSize)arg3;
+- (void)setLayoutReferenceWidth:(double)arg1;
 - (void)getFastImageFormat:(out int *)arg1 qualityImageFormat:(out int *)arg2 forSourceSize:(struct CGSize)arg3 destinationSize:(struct CGSize)arg4 allowCrop:(_Bool)arg5;
 - (void)updateFormats;
 - (_Bool)canUseSimplePreheatManager;

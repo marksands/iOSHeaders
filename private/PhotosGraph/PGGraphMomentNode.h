@@ -6,12 +6,13 @@
 
 #import <PhotosGraph/PGGraphNode.h>
 
+#import "PGEventEnrichment.h"
 #import "PGGraphPhotoEvent.h"
 #import "PLMomentProtocol.h"
 
-@class CLLocation, NSDate, NSSet, NSString;
+@class CLLocation, NSDate, NSSet, NSString, PGGraph;
 
-@interface PGGraphMomentNode : PGGraphNode <PLMomentProtocol, PGGraphPhotoEvent>
+@interface PGGraphMomentNode : PGGraphNode <PLMomentProtocol, PGGraphPhotoEvent, PGEventEnrichment>
 {
 }
 
@@ -22,6 +23,12 @@
 + (id)firstAndLastMomentNodesInMomentNodes:(id)arg1;
 + (id)contentScoreSortDescriptors;
 + (id)scoreSortDescriptors;
+- (id)associatedNodesForRemoval;
+- (id)sortedMomentNodes;
+- (id)assetCollection;
+- (id)anniversaryPersonNode;
+- (id)birthdayPersonNode;
+@property(readonly, nonatomic) NSString *uuid;
 - (id)naturalLanguageFeatures;
 - (id)keywordsForRelatedType:(unsigned long long)arg1 focusOnNodes:(id)arg2;
 - (long long)_compareToMomentNode:(id)arg1 withSortDescriptors:(id)arg2;
@@ -42,6 +49,7 @@
 - (id)dateNodes;
 - (id)socialGroupNodes;
 - (id)personNodes;
+- (void)enumerateFrequentLocationNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)momentNodes;
 - (void)enumerateMeaningNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumeratePublicEventNodesUsingBlock:(CDUnknownBlockType)arg1;
@@ -85,6 +93,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) PGGraph *graph;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

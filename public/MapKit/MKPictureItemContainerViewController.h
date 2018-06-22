@@ -14,21 +14,27 @@
 __attribute__((visibility("hidden")))
 @interface MKPictureItemContainerViewController : UIViewController <UIScrollViewDelegate, MKPlacePhotosViewDelegate>
 {
+    id <MKPictureItemContainerAnalyticsDelegate> _analyticsDelegate;
     id <GEOPictureItemContainer> _pictureItemContainer;
     GEOMapItemAttribution *_attribution;
     UIScrollView *_scrollView;
     UIStackView *_stackView;
+    struct CGPoint _beginAnalyticsScrollingPoint;
 }
 
+@property(nonatomic) struct CGPoint beginAnalyticsScrollingPoint; // @synthesize beginAnalyticsScrollingPoint=_beginAnalyticsScrollingPoint;
 @property(retain, nonatomic) UIStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(readonly, nonatomic) GEOMapItemAttribution *attribution; // @synthesize attribution=_attribution;
 @property(readonly, nonatomic) id <GEOPictureItemContainer> pictureItemContainer; // @synthesize pictureItemContainer=_pictureItemContainer;
+@property(nonatomic) __weak id <MKPictureItemContainerAnalyticsDelegate> analyticsDelegate; // @synthesize analyticsDelegate=_analyticsDelegate;
 - (void).cxx_destruct;
 - (void)placePhotoViewerAttributionTappedForPhotoAtIndex:(unsigned long long)arg1 photo:(id)arg2;
 - (id)placePhotoViewerViewForPhotoAtIndex:(unsigned long long)arg1;
 - (void)updateUIForTheme:(id)arg1;
 - (void)infoCardThemeChanged:(id)arg1;
+- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
+- (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)didTapOnPictureItemView:(id)arg1;
 - (id)visiblePictureItemViews;
 - (void)downloadImageForVisiblePictureItemViews;

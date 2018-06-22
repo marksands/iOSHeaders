@@ -8,7 +8,7 @@
 
 @interface PUSearchSettings : PXSettings
 {
-    _Bool _showEventsSection;
+    _Bool _showMomentsSection;
     _Bool _showPeopleSection;
     _Bool _showGroupsSection;
     _Bool _showPlacesSection;
@@ -31,7 +31,7 @@
 @property(nonatomic) _Bool showPlacesSection; // @synthesize showPlacesSection=_showPlacesSection;
 @property(nonatomic) _Bool showGroupsSection; // @synthesize showGroupsSection=_showGroupsSection;
 @property(nonatomic) _Bool showPeopleSection; // @synthesize showPeopleSection=_showPeopleSection;
-@property(nonatomic) _Bool showEventsSection; // @synthesize showEventsSection=_showEventsSection;
+@property(nonatomic) _Bool showMomentsSection; // @synthesize showMomentsSection=_showMomentsSection;
 - (void)setDefaultValues;
 - (id)parentSettings;
 

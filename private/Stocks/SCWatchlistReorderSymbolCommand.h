@@ -13,17 +13,17 @@
 @interface SCWatchlistReorderSymbolCommand : NSObject <SCKZoneCommand>
 {
     NSString *_symbol;
-    unsigned long long _toIndex;
+    NSString *_precedingSymbol;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, nonatomic) unsigned long long toIndex; // @synthesize toIndex=_toIndex;
+@property(readonly, copy, nonatomic) NSString *precedingSymbol; // @synthesize precedingSymbol=_precedingSymbol;
 @property(readonly, copy, nonatomic) NSString *symbol; // @synthesize symbol=_symbol;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)executeWithZone:(id)arg1;
-- (id)initWithSymbol:(id)arg1 toIndex:(unsigned long long)arg2;
+- (id)initWithSymbol:(id)arg1 precedingSymbol:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

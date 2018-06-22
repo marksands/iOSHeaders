@@ -17,11 +17,11 @@ __attribute__((visibility("hidden")))
 {
     id <PUTopResultDelegate> _delegate;
     UICollectionView *_collectionView;
-    NSMutableDictionary *_images;
+    NSMutableDictionary *_items;
 }
 
 + (struct CGSize)contentSizeFittingSize:(struct CGSize)arg1 assetCount:(unsigned long long)arg2;
-@property(retain, nonatomic) NSMutableDictionary *images; // @synthesize images=_images;
+@property(retain, nonatomic) NSMutableDictionary *items; // @synthesize items=_items;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(nonatomic) __weak id <PUTopResultDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (void)layoutSubviews;
-- (void)setImage:(id)arg1 forIndex:(unsigned long long)arg2;
+- (void)setAsset:(id)arg1 image:(id)arg2 forIndex:(unsigned long long)arg3;
 - (void)resetImages;
 - (struct CGRect)frameForItemAtIndex:(unsigned long long)arg1;
 - (void)handleTap:(id)arg1;

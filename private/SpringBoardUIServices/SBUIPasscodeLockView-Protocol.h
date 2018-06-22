@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class BSAnimationSettings, NSString, SBUIProudLockContainerView, UIColor;
+@class BSAnimationSettings, NSString, UIColor;
 
 @protocol SBUIPasscodeLockView <NSObject>
 @property(nonatomic) double backgroundAlpha;
@@ -14,7 +14,6 @@
 @property(nonatomic, getter=isScreenOn) _Bool screenOn;
 @property(retain, nonatomic) id <SBFLegibilitySettingsProvider> backgroundLegibilitySettingsProvider;
 @property(retain, nonatomic) UIColor *customBackgroundColor;
-@property(retain, nonatomic) SBUIProudLockContainerView *overrideProudLockContainerView;
 @property(nonatomic) long long passcodeLockViewState;
 @property(nonatomic) _Bool proudLockShowsBiometricStates;
 @property(nonatomic) _Bool showsProudLock;

@@ -10,6 +10,10 @@
 {
 }
 
++ (id)_tintedInitialsImage:(id)arg1;
++ (id)_initialsImageGradientEndColor;
++ (id)_initialsImageGradientStartColor;
++ (id)textForDate:(id)arg1;
 + (void)requestPersonImageWithTargetSize:(struct CGSize)arg1 matchingEmail:(id)arg2 orPhone:(id)arg3 withFirstName:(id)arg4 lastName:(id)arg5 prefersPhotosImage:(_Bool)arg6 withCompletion:(CDUnknownBlockType)arg7;
 + (void)requestImageFromPeopleAlbumForPerson:(id)arg1 targetSize:(struct CGSize)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)requestContactMatchingEmail:(id)arg1 orPhone:(id)arg2 withFirstName:(id)arg3 lastName:(id)arg4 keysToFetch:(id)arg5 withCompletion:(CDUnknownBlockType)arg6;

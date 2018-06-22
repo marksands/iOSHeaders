@@ -64,6 +64,7 @@
 @property(nonatomic) _Bool undoRedoButtonsHidden; // @synthesize undoRedoButtonsHidden=_undoRedoButtonsHidden;
 @property(nonatomic) __weak AKController *annotationController; // @synthesize annotationController=_annotationController;
 - (void).cxx_destruct;
+- (id)inkPicker;
 - (void)setShadowImage:(id)arg1 forToolbarPosition:(long long)arg2;
 - (void)setBackgroundImage:(id)arg1 forToolbarPosition:(long long)arg2 barMetrics:(long long)arg3;
 - (void)_inkPicker:(id)arg1 didPickColor:(id)arg2;

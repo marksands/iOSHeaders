@@ -10,7 +10,7 @@
 #import "MapsSuggestionsObject.h"
 #import "MapsSuggestionsSourceDelegate.h"
 
-@class CLLocation, GEOAutomobileOptions, MapsSuggestionsFakeSource, MapsSuggestionsTracker, NSDate, NSHashTable, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
+@class CLLocation, GEOAutomobileOptions, MapsSuggestionsCanKicker, MapsSuggestionsFakeSource, MapsSuggestionsTracker, NSDate, NSHashTable, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MapsSuggestionsManager : NSObject <MapsSuggestionsObject, MapsSuggestionsSourceDelegate, MapsSuggestionsLocationUpdaterDelegate>
 {
@@ -27,10 +27,9 @@
     NSObject<OS_dispatch_queue> *_storageQueue;
     _Bool _dirtyFlag;
     int _defaultTansportType;
-    NSObject<OS_dispatch_source> *_invalidateSinksOnExpiredTimer;
-    NSObject<OS_dispatch_source> *_wipeStaleETATimer;
-    NSObject<OS_dispatch_source> *_updateAllSourcesDeferTimer;
-    double _updateAllSourcesDeferTime;
+    MapsSuggestionsCanKicker *_expiredEntryInvalidator;
+    MapsSuggestionsCanKicker *_wipeStaleETAWiper;
+    MapsSuggestionsCanKicker *_deferredSourcesUpdater;
     int _mapType;
     long long _style;
     GEOAutomobileOptions *_automobileOptions;
@@ -47,7 +46,7 @@
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(retain, nonatomic) id <MapsSuggestionsStrategy> strategy; // @synthesize strategy=_strategy;
 - (void).cxx_destruct;
-- (void)hintRefreshOfType:(unsigned long long)arg1;
+- (void)hintRefreshOfType:(long long)arg1;
 - (void)sendInvalidateToAllSinks;
 - (void)awaitStorageQueue;
 - (void)awaitGatheringQueue;
@@ -58,12 +57,13 @@
 - (id)dumpStorage;
 - (struct NSDictionary *)storage;
 - (_Bool)removeEntry:(id)arg1 behavior:(long long)arg2 handler:(CDUnknownBlockType)arg3;
-- (void)setTitleFormatter:(id)arg1 forType:(unsigned long long)arg2;
+- (void)setTitleFormatter:(id)arg1 forType:(long long)arg2;
 - (void)trackerRefreshedETAsUntil:(id)arg1;
 - (unsigned long long)clearAllEntriesFromSource:(struct NSString *)arg1;
 - (unsigned long long)_deleteEntries:(struct NSArray *)arg1 source:(struct NSString *)arg2;
 - (unsigned long long)deleteEntries:(struct NSArray *)arg1 source:(struct NSString *)arg2;
 - (_Bool)_removeEntry:(id)arg1 sourceName:(struct NSString *)arg2;
+- (_Bool)_removeEntry:(id)arg1;
 - (unsigned long long)addOrUpdateSuggestionEntries:(struct NSArray *)arg1 source:(struct NSString *)arg2 deleteMissing:(_Bool)arg3;
 - (unsigned long long)_addOrUpdateSuggestionEntries:(struct NSArray *)arg1 source:(struct NSString *)arg2;
 - (unsigned long long)addOrUpdateSuggestionEntries:(struct NSArray *)arg1 source:(struct NSString *)arg2;
@@ -94,6 +94,7 @@
 - (void)_startAllSources;
 - (void)scheduleUpdateAllSourcesOnce;
 - (void)_updateAllSourcesOnce;
+- (void)_updateSource:(id)arg1 forType:(long long)arg2 repeat:(_Bool)arg3;
 - (void)_updateSource:(id)arg1 repeat:(_Bool)arg2;
 - (void)_startSource:(id)arg1;
 - (void)_updateCurrentLocation:(id)arg1;

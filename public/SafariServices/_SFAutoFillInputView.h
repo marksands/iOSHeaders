@@ -6,17 +6,15 @@
 
 #import "UIInputView.h"
 
-@class NSMutableArray, UIButton, UIKBScreenTraits, UILabel, UILayoutGuide, _SFAutoFillQuickTypeBarView;
+@class NSMutableArray, UIButton, UILabel, _SFTextSuggestion;
 
 @interface _SFAutoFillInputView : UIInputView
 {
-    _SFAutoFillQuickTypeBarView *_quickTypeBarView;
+    _SFTextSuggestion *_suggestion;
     UILabel *_explanationLabel;
-    UILayoutGuide *_explanationLabelTopMarginLayoutGuide;
-    UILayoutGuide *_explanationLabelBottomMarginLayoutGuide;
     UIButton *_keyboardButton;
-    struct CGSize _intrinsicContentSize;
-    UIKBScreenTraits *_screenTraits;
+    UIButton *_otherPasswordsButton;
+    UIButton *_fillCredentialButton;
     NSMutableArray *_dynamicConstraints;
     id <_SFAutoFillInputViewDelegate> _delegate;
 }
@@ -26,12 +24,8 @@
 - (void)_showStandardKeyboard:(id)arg1;
 - (void)_showMorePasswords:(id)arg1;
 - (void)_fillCredential:(id)arg1;
-- (struct CGSize)intrinsicContentSize;
 - (void)traitCollectionDidChange:(id)arg1;
-- (id)_screenTraits;
 - (void)updateConstraints;
-- (void)_createQuickTypeBarViewIfNecessaryWithSuggestion:(id)arg1;
-- (_Bool)_showsOwnQuickTypeBar;
 - (id)initWithHostString:(id)arg1 suggestion:(id)arg2;
 
 @end

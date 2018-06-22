@@ -14,6 +14,7 @@
     HFItem *_nameItem;
     HFItem *_usersItem;
     HFItem *_inviteUsersItem;
+    HFItem *_wallpaperPickerItem;
     HFItem *_cameraItem;
     HFItem *_chooseWallpaperItem;
     HFItem *_wallpaperThumbnailItem;
@@ -37,6 +38,7 @@
 @property(retain, nonatomic) HFItem *wallpaperThumbnailItem; // @synthesize wallpaperThumbnailItem=_wallpaperThumbnailItem;
 @property(retain, nonatomic) HFItem *chooseWallpaperItem; // @synthesize chooseWallpaperItem=_chooseWallpaperItem;
 @property(retain, nonatomic) HFItem *cameraItem; // @synthesize cameraItem=_cameraItem;
+@property(retain, nonatomic) HFItem *wallpaperPickerItem; // @synthesize wallpaperPickerItem=_wallpaperPickerItem;
 @property(retain, nonatomic) HFItem *inviteUsersItem; // @synthesize inviteUsersItem=_inviteUsersItem;
 @property(retain, nonatomic) HFItem *usersItem; // @synthesize usersItem=_usersItem;
 @property(retain, nonatomic) HFItem *nameItem; // @synthesize nameItem=_nameItem;

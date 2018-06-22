@@ -9,7 +9,7 @@
 @protocol AVTIndexBasedScheduler <NSObject>
 - (void)cancelTask:(void (^)(void (^)(void)))arg1;
 - (void)cancelAllTasks;
-- (void)taskReadyForIndex:(unsigned long long)arg1;
+- (void)taskReady:(void (^)(void (^)(void)))arg1 forIndex:(unsigned long long)arg2;
 - (void)scheduleTask:(void (^)(void (^)(void)))arg1 forIndex:(unsigned long long)arg2;
 @end
 

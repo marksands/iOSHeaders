@@ -47,7 +47,7 @@
 - (void)searchWithText:(id)arg1;
 - (void)chatStateChanged:(id)arg1;
 - (void)idStatusUpdatedForDestinations:(id)arg1;
-- (id)conversationCacheForCcontactsSearchManager:(id)arg1;
+- (id)conversationCacheForContactsSearchManager:(id)arg1;
 - (void)contactsSearchManager:(id)arg1 finishedSearchingWithResults:(id)arg2;
 - (_Bool)scrollViewShouldScrollToTop:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;

@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)_onConnectionQueue_stopObservingIfIdle;
 - (void)_onConnectionQueue_startObservingIfIdle;
 - (void)removeAllObservers;
-- (void)removeObserver:(id)arg1 forAssetWithIdentifier:(id)arg2;
+- (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (id)init;
 

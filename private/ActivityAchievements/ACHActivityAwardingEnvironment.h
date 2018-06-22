@@ -10,12 +10,14 @@
 
 @interface ACHActivityAwardingEnvironment : NSObject
 {
+    _Bool _valueForKeyLoggingEnabled;
     ACHActivityAwardingDataProvider *_dataProvider;
     ACHActivityAwardingDateCache *_dateCache;
 }
 
 @property(retain, nonatomic) ACHActivityAwardingDateCache *dateCache; // @synthesize dateCache=_dateCache;
 @property(retain, nonatomic) ACHActivityAwardingDataProvider *dataProvider; // @synthesize dataProvider=_dataProvider;
+@property(nonatomic) _Bool valueForKeyLoggingEnabled; // @synthesize valueForKeyLoggingEnabled=_valueForKeyLoggingEnabled;
 - (void).cxx_destruct;
 - (id)requiredDaysOfActivityHistoryForStreaks;
 - (id)requiredDaysOfActivityHistoryForRecords;
@@ -63,6 +65,7 @@
 - (id)yesterdayMoveValue;
 - (id)todayMoveGoal;
 - (id)todayMoveValue;
+- (id)valueForKey:(id)arg1;
 - (void)setCurrentDateComponents:(id)arg1;
 - (id)initWithDataProvider:(id)arg1;
 

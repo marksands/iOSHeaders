@@ -11,25 +11,24 @@
 @interface FALockOutView : UIView
 {
     UIStackView *_middleStackView;
-    UIStackView *_bottomStackView;
     FACAPackageView *_backdropView;
     FACAPackageView *_hourglassView;
     _Bool _forSnapshot;
     id <FADigitalHealthDelegate> _delegate;
-    FAButtonSpecification *_bottomButtonSpecification;
+    FAButtonSpecification *_mainButtonSpecification;
     UILabel *_titleLabel;
     UILabel *_messageLabel;
-    UIButton *_bottomButton;
+    UIButton *_mainButton;
     NSString *_backdropState;
     NSString *_hourglassState;
 }
 
 @property(copy, nonatomic) NSString *hourglassState; // @synthesize hourglassState=_hourglassState;
 @property(copy, nonatomic) NSString *backdropState; // @synthesize backdropState=_backdropState;
-@property(readonly, nonatomic) UIButton *bottomButton; // @synthesize bottomButton=_bottomButton;
+@property(readonly, nonatomic) UIButton *mainButton; // @synthesize mainButton=_mainButton;
 @property(readonly, nonatomic) UILabel *messageLabel; // @synthesize messageLabel=_messageLabel;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
-@property(copy, nonatomic) FAButtonSpecification *bottomButtonSpecification; // @synthesize bottomButtonSpecification=_bottomButtonSpecification;
+@property(copy, nonatomic) FAButtonSpecification *mainButtonSpecification; // @synthesize mainButtonSpecification=_mainButtonSpecification;
 @property(readonly, nonatomic, getter=isForSnapshot) _Bool forSnapshot; // @synthesize forSnapshot=_forSnapshot;
 @property(nonatomic) __weak id <FADigitalHealthDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
@@ -40,15 +39,14 @@
 - (id)titleFont;
 - (id)defaultButtonColor;
 - (void)_sendDelegateAction:(long long)arg1 parameters:(id)arg2;
-- (void)_bottomButtonTapped:(id)arg1;
+- (void)_mainButtonTapped:(id)arg1;
 @property(copy, nonatomic) NSString *message;
 @property(copy, nonatomic) NSString *title;
-- (void)_addBottomButton;
+- (void)_addMainButton;
 - (void)_addMessageLabel;
 - (void)_addTitleLabel;
 - (void)_addHourglassView;
 - (id)_newStackView;
-- (void)_setupBottomStackView;
 - (void)_setupMiddleStackView;
 - (void)_setupBackdrops;
 - (void)_setupConstraints;

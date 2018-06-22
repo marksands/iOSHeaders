@@ -32,7 +32,7 @@
 @property(readonly, copy, nonatomic) NSString *domainIdentifier; // @synthesize domainIdentifier=_domainIdentifier;
 @property(readonly, copy, nonatomic) NSURL *storeLocation; // @synthesize storeLocation=_storeLocation;
 - (void).cxx_destruct;
-- (_Bool)canCreateAvatar;
+- (_Bool)canCreateAvatarWithError:(id *)arg1;
 - (_Bool)saveModel:(id)arg1 logger:(id)arg2 error:(id *)arg3;
 - (id)duplicateAvatarRecord:(id)arg1 error:(id *)arg2;
 - (_Bool)deleteAvatarWithIdentifier:(id)arg1 error:(id *)arg2;

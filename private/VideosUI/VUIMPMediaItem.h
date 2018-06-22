@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 - (id)isPlayable;
 - (id)assetType;
 - (id)_valueForPropertyDescriptor:(id)arg1;
+- (id)assetController;
 - (id)showIdentifier;
 - (id)playedState;
 - (id)coverArtImageIdentifier;

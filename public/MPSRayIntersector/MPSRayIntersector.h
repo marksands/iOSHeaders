@@ -13,7 +13,8 @@
 {
     unsigned long long _cullMode;
     unsigned long long _frontFacingWinding;
-    unsigned long long _intersectionTestType;
+    unsigned long long _triangleIntersectionTestType;
+    unsigned long long _boundingBoxIntersectionTestType;
     unsigned long long _rayMaskOptions;
     unsigned long long _rayDataType;
     unsigned long long _intersectionDataType;
@@ -47,7 +48,7 @@
 - (void)encodeIntersectionToCommandBuffer:(id)arg1 intersectionType:(unsigned long long)arg2 rayBuffer:(id)arg3 rayBufferOffset:(unsigned long long)arg4 intersectionBuffer:(id)arg5 intersectionBufferOffset:(unsigned long long)arg6 rayCountBuffer:(id)arg7 rayCountBufferOffset:(unsigned long long)arg8 accelerationStructure:(id)arg9;
 - (void)encodeIntersectionToCommandBuffer:(id)arg1 intersectionType:(unsigned long long)arg2 rayBuffer:(id)arg3 rayBufferOffset:(unsigned long long)arg4 intersectionBuffer:(id)arg5 intersectionBufferOffset:(unsigned long long)arg6 rayCount:(unsigned long long)arg7 accelerationStructure:(id)arg8;
 - (id)getPipelineForIntersectionType:(unsigned long long)arg1 accelerationStructure:(id)arg2 commandBuffer:(id)arg3;
-- (CDUnion_88725faa)getHashForIntersectionType:(unsigned long long)arg1 indexing:(_Bool)arg2 indexType:(unsigned int)arg3 instancing:(_Bool)arg4 vertexStride:(unsigned long long)arg5 transformType:(unsigned long long)arg6;
+- (CDUnion_8ae6be23)getHashForIntersectionType:(unsigned long long)arg1 indexing:(_Bool)arg2 indexType:(unsigned int)arg3 instancing:(_Bool)arg4 vertexStride:(unsigned long long)arg5 transformType:(unsigned long long)arg6;
 - (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
@@ -88,7 +89,8 @@
 - (id)shapeIndexBuffer;
 - (void)setProRenderOptions:(unsigned long long)arg1;
 - (unsigned long long)proRenderOptions;
-@property(nonatomic) unsigned long long intersectionTestType;
+@property(nonatomic) unsigned long long boundingBoxIntersectionTestType;
+@property(nonatomic) unsigned long long triangleIntersectionTestType;
 @property(nonatomic) unsigned long long intersectionDataType;
 @property(nonatomic) unsigned long long rayDataType;
 @property(nonatomic) unsigned long long rayMaskOptions;

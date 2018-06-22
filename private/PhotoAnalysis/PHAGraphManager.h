@@ -7,11 +7,10 @@
 #import "NSObject.h"
 
 #import "PFMulticasterDelegate.h"
-#import "PGGraphUpdateManagerDelegate.h"
 
 @class NSMutableSet, PFSerialQueue, PGGraphUpdateManager, PGManager, PHAManager;
 
-@interface PHAGraphManager : NSObject <PFMulticasterDelegate, PGGraphUpdateManagerDelegate>
+@interface PHAGraphManager : NSObject <PFMulticasterDelegate>
 {
     struct PFDirectMessagingMulticaster *_clientMulticaster;
     PGGraphUpdateManager *_updateManager;
@@ -24,10 +23,8 @@
 
 @property(retain, nonatomic) PHAManager *photoAnalysisManager; // @synthesize photoAnalysisManager=_photoAnalysisManager;
 - (void).cxx_destruct;
-- (void)_stopListeningWithClient:(struct NSObject *)arg1;
-- (void)_startListeningWithClient:(struct NSObject *)arg1;
-- (void)graphUpdateManager:(id)arg1 graphIsConsistent:(_Bool)arg2;
-- (void)graphUpdateManager:(id)arg1 graphUpdateMadeProgress:(double)arg2;
+- (void)_stopListeningWithClient:(id)arg1;
+- (void)_startListeningWithClient:(id)arg1;
 - (void)unloadGraph;
 - (void)performFullRebuildWithProgressBlock:(CDUnknownBlockType)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)loadGraph;

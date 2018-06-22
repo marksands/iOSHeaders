@@ -11,7 +11,6 @@
 @interface PSAppCellularUsageSpecifier : PSSpecifier
 {
     _Bool _shouldUseBillingCycleData;
-    _Bool _isManaged;
     _Bool _shouldShowUsage;
     _Bool _canEnable;
     int _selectedBillingCycle;
@@ -21,10 +20,10 @@
 }
 
 + (id)systemPolicySpecifierForAppName:(id)arg1 bundleID:(id)arg2 icon:(id)arg3 enabled:(_Bool)arg4;
-+ (id)specifierWithCellTitle:(id)arg1 appName:(id)arg2 bundleID:(id)arg3 canBeEnabled:(_Bool)arg4 shouldShowUsage:(_Bool)arg5 target:(id)arg6 set:(SEL)arg7 get:(SEL)arg8 icon:(id)arg9;
++ (id)appSpecifierWithUsage:(id)arg1 target:(id)arg2 set:(SEL)arg3 get:(SEL)arg4;
++ (id)_specifierWithCellTitle:(id)arg1 appName:(id)arg2 bundleID:(id)arg3 canBeEnabled:(_Bool)arg4 shouldShowUsage:(_Bool)arg5 target:(id)arg6 set:(SEL)arg7 get:(SEL)arg8 icon:(id)arg9;
 @property(nonatomic) _Bool canEnable; // @synthesize canEnable=_canEnable;
 @property(nonatomic) _Bool shouldShowUsage; // @synthesize shouldShowUsage=_shouldShowUsage;
-@property(nonatomic) _Bool isManaged; // @synthesize isManaged=_isManaged;
 @property(nonatomic) int selectedBillingCycle; // @synthesize selectedBillingCycle=_selectedBillingCycle;
 @property(nonatomic) _Bool shouldUseBillingCycleData; // @synthesize shouldUseBillingCycleData=_shouldUseBillingCycleData;
 @property(copy, nonatomic) PSCellularUsage *usage; // @synthesize usage=_usage;
@@ -37,6 +36,7 @@
 - (void)prefetchCellularUsagePolicy;
 - (id)dataUsageString;
 - (double)dataUsage;
+- (id)initWithName:(id)arg1 usage:(id)arg2;
 
 @end
 

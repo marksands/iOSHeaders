@@ -7,7 +7,7 @@
 #import "NSURL.h"
 
 @interface NSURL (FPAdditions)
-+ (id)fp_homeDirectory:(unsigned int)arg1;
++ (id)fp_homeDirectoryForUserID:(unsigned int)arg1;
 + (id)fp_homeDirectory;
 + (id)fp_supportDirectory;
 - (_Bool)fp_matchesFileProviderHeuristics:(unsigned int)arg1;

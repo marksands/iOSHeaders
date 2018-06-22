@@ -134,7 +134,9 @@
 @property(readonly, nonatomic) __weak NSString *identifier;
 - (void)_clearDirtyProperties;
 - (void)_markCredentialDirty;
+- (void)_unsafe_markDataclassPropertyDirty:(id)arg1;
 - (void)_markDataclassPropertyDirty:(id)arg1;
+- (void)_unsafe_markAccountPropertyDirty:(id)arg1;
 - (void)_markAccountPropertyDirty:(id)arg1;
 - (void)_unsafe_markPropertyDirty:(id)arg1;
 - (void)_markPropertyDirty:(id)arg1;

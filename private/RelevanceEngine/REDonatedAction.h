@@ -13,16 +13,22 @@
 
 @interface REDonatedAction : NSObject <NSSecureCoding, NSCopying>
 {
+    _Bool _localDonation;
     unsigned long long _type;
     NSDate *_creationDate;
     NSDate *_localSaveDate;
     REIdentifier *_donationIdentifier;
     id <REDonatedActionIdentifierProviding> _actionTypeIdentifier;
     unsigned long long _relevanceProvidersHash;
+    NSString *_intentTypeName;
+    NSString *_activityType;
 }
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)supportedActivityType:(id)arg1 forBundleID:(id)arg2;
+@property(readonly, nonatomic) NSString *activityType; // @synthesize activityType=_activityType;
+@property(readonly, nonatomic) NSString *intentTypeName; // @synthesize intentTypeName=_intentTypeName;
+@property(readonly, nonatomic, getter=isLocalDonation) _Bool localDonation; // @synthesize localDonation=_localDonation;
 @property(readonly, nonatomic) unsigned long long relevanceProvidersHash; // @synthesize relevanceProvidersHash=_relevanceProvidersHash;
 @property(readonly, nonatomic) id <REDonatedActionIdentifierProviding> actionTypeIdentifier; // @synthesize actionTypeIdentifier=_actionTypeIdentifier;
 @property(readonly, nonatomic) REIdentifier *donationIdentifier; // @synthesize donationIdentifier=_donationIdentifier;
@@ -41,6 +47,7 @@
 @property(readonly, nonatomic) NSString *identifier;
 - (id)initWithEvent:(id)arg1 filtered:(_Bool)arg2;
 - (unsigned long long)_hashRelevanceProviders:(id)arg1;
+- (id)description;
 - (id)_initRelevantShortcutWithEvent:(id)arg1 filtered:(_Bool)arg2;
 - (id)_initUserActivityWithEvent:(id)arg1 filtered:(_Bool)arg2;
 - (id)_initInteractionWithEvent:(id)arg1 filtered:(_Bool)arg2;

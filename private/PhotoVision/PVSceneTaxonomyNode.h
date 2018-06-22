@@ -39,6 +39,7 @@
 - (id)localizedSynonyms;
 - (id)localizedLabel;
 - (void)traverse:(long long)arg1 visitor:(CDUnknownBlockType)arg2;
+- (void)recursivelyReleaseParents;
 - (void)addChildNode:(id)arg1;
 @property(readonly, copy) NSSet *children;
 @property(readonly, copy) NSSet *parents;

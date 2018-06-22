@@ -23,6 +23,8 @@ __attribute__((visibility("hidden")))
     int _forceKeyFrameInterval;
 }
 
++ (_Bool)booleanValueForKey:(struct __CFString *)arg1 defaultValue:(_Bool)arg2;
++ (_Bool)booleanValueForKey:(struct __CFString *)arg1;
 + (long long)integerValueForKey:(struct __CFString *)arg1 defaultValue:(long long)arg2;
 + (long long)integerValueForKey:(struct __CFString *)arg1;
 + (double)getDoubleValueForKey:(struct __CFString *)arg1 defaultValue:(double)arg2;
@@ -50,6 +52,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) unsigned char audioPriorityDecayFast;
 @property(readonly) unsigned char audioPriorityDecaySlow;
 @property(readonly) _Bool forceDisableMediaPriority;
+@property(readonly) _Bool forceFECRepairStream;
 @property(readonly) unsigned int forceVisibilityIndex;
 @property(readonly) unsigned int minParticipantCountSendVoiceActiveOnly;
 @property(readonly) _Bool forceMuteAtStart;

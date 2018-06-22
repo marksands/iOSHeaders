@@ -10,8 +10,10 @@
 {
 }
 
-- (void)_animatePresentation:(_Bool)arg1 withTransitionContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_animateTransitionToEdge:(unsigned long long)arg1 withTransitionContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (_Bool)drivesAnimation;
+- (void)_animateTransitionWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_performTransitionWithContext:(id)arg1;
+- (void)_animateTransitionToEdge:(unsigned long long)arg1 withTransitionContext:(id)arg2;
 
 @end
 

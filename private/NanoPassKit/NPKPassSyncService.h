@@ -44,6 +44,7 @@
 - (void)passSyncEngine:(id)arg1 requestsRemovePassWithUniqueID:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)passSyncEngine:(id)arg1 requestsUpdatePassData:(id)arg2 forSyncStateItem:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)passSyncEngine:(id)arg1 requestsAddPassData:(id)arg2 forSyncStateItem:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)passSyncEngine:(id)arg1 finishedProcessingChange:(id)arg2;
 - (void)passSyncEngine:(id)arg1 receivedStateChangeProcessed:(id)arg2 changeAccepted:(_Bool)arg3;
 - (void)passSyncEngineStateChanged:(id)arg1;
 - (void)passSyncEngine:(id)arg1 sendReconciledStateAcceptedWithHash:(id)arg2;

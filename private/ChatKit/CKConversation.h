@@ -164,6 +164,7 @@
 - (void)_handleChatParticipantsDidChange:(id)arg1;
 - (void)acceptTransfer:(id)arg1;
 @property(readonly, nonatomic) CKEntity *recipient; // @dynamic recipient;
+- (_Bool)containsHandleWithUID:(id)arg1;
 @property(readonly, nonatomic) NSArray *handles; // @dynamic handles;
 @property(readonly, nonatomic) _Bool hasUnreadMessages; // @dynamic hasUnreadMessages;
 @property(readonly, nonatomic) unsigned long long unreadCount; // @dynamic unreadCount;

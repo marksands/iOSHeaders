@@ -17,6 +17,7 @@
 + (id)primarySession;
 + (id)retrieveSessionWithID:(unsigned int)arg1;
 + (id)sharedInstance;
+- (_Bool)isDolbyAtmosAvailable;
 - (void)privateUpdateOutputChannelCount:(id)arg1;
 - (void)privateUpdateInputChannelCount:(id)arg1;
 - (void)privateUpdateAudioFormat:(id)arg1;

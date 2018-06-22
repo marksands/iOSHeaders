@@ -11,7 +11,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "WKNavigationDelegate.h"
 
-@class HLPHelpBookController, HLPHelpLoadingView, HLPHelpLocale, HLPHelpTopicHistoryItem, HLPHelpUsageController, NSArray, NSCache, NSLayoutConstraint, NSMutableArray, NSString, NSURL, TPSURLSessionItem, UIBarButtonItem, UITapGestureRecognizer, WKWebView;
+@class HLPHelpBookController, HLPHelpLoadingView, HLPHelpLocale, HLPHelpTopicHistoryItem, HLPHelpUsageController, NSArray, NSCache, NSLayoutConstraint, NSMutableArray, NSString, NSURL, TPSURLSessionItem, UIBarButtonItem, WKWebView;
 
 @interface HLPHelpTopicViewController : UIViewController <UIGestureRecognizerDelegate, WKNavigationDelegate, HLPHelpTopicViewControllerDelegate, HLPHelpLoadingViewDelegate>
 {
@@ -24,7 +24,6 @@
     UIBarButtonItem *_tocBarButtonItem;
     UIBarButtonItem *_backBarButtonItem;
     UIBarButtonItem *_forwardBarButtonItem;
-    UITapGestureRecognizer *_tapGestureRecognizer;
     NSLayoutConstraint *_loadingViewTopConstraint;
     _Bool _displayHelpTopicsOnly;
     _Bool _hideDoneButton;
@@ -56,13 +55,14 @@
 @property(nonatomic) _Bool displayHelpTopicsOnly; // @synthesize displayHelpTopicsOnly=_displayHelpTopicsOnly;
 @property(nonatomic) __weak id <HLPHelpTopicViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)webView:(id)arg1 startURLSchemeTask:(id)arg2;
 - (void)showHelpBookInfo:(id)arg1;
 - (void)helpTopicViewControllerShowHelpBookInfo:(id)arg1;
 - (void)helpTopicViewController:(id)arg1 topicLoaded:(id)arg2;
 - (void)helpTopicViewController:(id)arg1 failToLoadWithError:(id)arg2;
 - (void)helpTopicViewControllerDoneButtonTapped:(id)arg1;
 - (void)helpTopicViewControllerCurrentTopicIsPassionPoint:(id)arg1;
-- (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
+- (void)_webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
 - (void)webView:(id)arg1 didFailNavigation:(id)arg2 withError:(id)arg3;
 - (void)webView:(id)arg1 didFailProvisionalNavigation:(id)arg2 withError:(id)arg3;
 - (void)webView:(id)arg1 didFinishNavigation:(id)arg2;
@@ -76,7 +76,6 @@
 - (void)saveCurrentTopicItem;
 - (void)dismiss;
 - (void)showTableOfContent;
-- (void)dismissWelcomeHelpTopic;
 - (void)updateNavigationButtons;
 - (void)updateScrollPositionForCurrentTopicItem;
 - (void)forwardButtonTapped;

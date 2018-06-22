@@ -10,8 +10,6 @@
 
 @interface PKPass (NanoPassKit)
 @property(readonly) _Bool npkHasValidNFCPayload;
-@property(readonly) _Bool npkHasTransitBalance;
-@property(readonly) _Bool npkIsEnroute;
 @property(readonly) _Bool hasLogoImageSet;
 - (id)npkCompleteHashForWatchOSVersion:(unsigned long long)arg1;
 @property(readonly) NSData *npkCompleteHash;

@@ -260,9 +260,7 @@
 - (id)_purgeableItemsPredicateSQLWithUrgency:(unsigned long long)arg1;
 - (unsigned long long)_managedClearPurgeableTracksOfAmount:(unsigned long long)arg1 urgency:(unsigned long long)arg2;
 - (unsigned long long)_managedPurgeableTracksTotalSizeWithUrgency:(unsigned long long)arg1;
-- (long long)_clearPurgeableDatabaseFilesOfAmount:(long long)arg1 withUrgency:(unsigned long long)arg2;
 - (long long)_clearPurgeableArtworkOfAmount:(long long)arg1 withUrgency:(unsigned long long)arg2;
-- (long long)_purgeableDatabaseFileSizeWithUrgency:(unsigned long long)arg1;
 - (long long)_purgeableArtworkTotalSizeWithUrgency:(unsigned long long)arg1;
 - (long long)_artworkTotalSize;
 - (long long)_cloudAssetsTotalSize;

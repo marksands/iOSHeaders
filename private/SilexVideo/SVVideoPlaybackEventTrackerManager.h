@@ -15,10 +15,12 @@
     id <SVVideoPlaybackEventTrackerFactory> _playbackEventTrackerFactory;
     id <SVVideoEventTrackerProviding> _videoEventTrackerProvider;
     id <SVVideoPlaybackEventTracking> _playbackEventTracker;
+    id <SVVideoEventTracker> _eventTracker;
     NSMutableSet *_playbackEventTrackers;
 }
 
 @property(readonly, nonatomic) NSMutableSet *playbackEventTrackers; // @synthesize playbackEventTrackers=_playbackEventTrackers;
+@property(retain, nonatomic) id <SVVideoEventTracker> eventTracker; // @synthesize eventTracker=_eventTracker;
 @property(retain, nonatomic) id <SVVideoPlaybackEventTracking> playbackEventTracker; // @synthesize playbackEventTracker=_playbackEventTracker;
 @property(readonly, nonatomic) id <SVVideoEventTrackerProviding> videoEventTrackerProvider; // @synthesize videoEventTrackerProvider=_videoEventTrackerProvider;
 @property(readonly, nonatomic) id <SVVideoPlaybackEventTrackerFactory> playbackEventTrackerFactory; // @synthesize playbackEventTrackerFactory=_playbackEventTrackerFactory;

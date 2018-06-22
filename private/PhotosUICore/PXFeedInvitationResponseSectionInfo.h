@@ -10,6 +10,7 @@
 {
 }
 
+- (id)assets;
 - (long long)typeForItemAtIndex:(long long)arg1;
 - (void)updateFromCloudFeedEntry;
 - (long long)sectionType;

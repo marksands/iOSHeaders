@@ -9,6 +9,7 @@
 @class NSUUID;
 
 @protocol CPTemplateServiceClientInterface <CPBannerDelegate>
+- (void)updateInterestingLayoutGuideWithInsets:(struct UIEdgeInsets)arg1;
 - (void)templateIdentifierDidPop:(NSUUID *)arg1;
 - (void)clientExceededHierarchyDepthLimit;
 @end

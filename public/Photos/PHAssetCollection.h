@@ -64,6 +64,7 @@
 + (id)transientAssetCollectionWithAssetFetchResult:(id)arg1 title:(id)arg2 subtitle:(id)arg3 titleFontName:(id)arg4;
 + (id)transientAssetCollectionWithAssetFetchResult:(id)arg1 title:(id)arg2;
 + (id)transientAssetCollectionWithAssets:(id)arg1 title:(id)arg2;
++ (id)fetchMomentsBackingSuggestion:(id)arg1 options:(id)arg2;
 + (id)fetchMomentsBackingMemory:(id)arg1 options:(id)arg2;
 + (id)fetchMomentsWithOptions:(id)arg1;
 + (id)fetchMomentsInMomentList:(id)arg1 options:(id)arg2;

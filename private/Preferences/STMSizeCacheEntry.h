@@ -6,21 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSNumber, NSOperation, NSString;
+@class NSNumber, NSString;
 
 @interface STMSizeCacheEntry : NSObject
 {
     NSString *_itemPath;
     NSNumber *_itemSize;
-    NSOperation *_sizeOperation;
     unsigned long long _status;
 }
 
 @property unsigned long long status; // @synthesize status=_status;
-@property(retain) NSOperation *sizeOperation; // @synthesize sizeOperation=_sizeOperation;
 @property(retain) NSNumber *itemSize; // @synthesize itemSize=_itemSize;
 @property(retain) NSString *itemPath; // @synthesize itemPath=_itemPath;
 - (void).cxx_destruct;
+- (id)sizeOperation;
 - (id)initWithPath:(id)arg1;
 
 @end

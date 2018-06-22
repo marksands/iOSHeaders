@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)viewWillAppear:(_Bool)arg1;
 - (long long)preferredStatusBarStyle;
 - (void)viewDidLoad;
+- (void)scrollToTop;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

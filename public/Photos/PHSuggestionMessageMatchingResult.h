@@ -20,7 +20,7 @@
 @property(retain, nonatomic) NSMutableDictionary *scoreByCMMSuggestionMatchingType; // @synthesize scoreByCMMSuggestionMatchingType=_scoreByCMMSuggestionMatchingType;
 - (void).cxx_destruct;
 - (double)scoreForSuggestionMatchingType:(long long)arg1;
-- (void)registerMatchingType:(long long)arg1;
+- (void)registerMatchingType:(long long)arg1 weight:(double)arg2;
 - (id)initWithSuggestion:(id)arg1 messageContext:(id)arg2;
 
 @end

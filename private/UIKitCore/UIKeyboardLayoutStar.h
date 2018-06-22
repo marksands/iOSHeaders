@@ -375,7 +375,6 @@ __attribute__((visibility("hidden")))
 - (void)_addExtraControlKeysIfNecessary;
 - (id)_currentKeyplaneTransformationContext;
 - (_Bool)_shouldAttemptToAddSupplementaryControlKeys;
-- (unsigned long long)_numberOfRowsForCurrentLayout;
 - (void)_updateSupplementaryKeys;
 - (void)mergeKeysIfNeeded;
 - (id)keylistContainingKey:(id)arg1;

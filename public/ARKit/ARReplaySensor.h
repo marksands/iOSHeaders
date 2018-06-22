@@ -11,7 +11,7 @@
 
 @class ARImageCroppingTechnique, AVAsset, AVAssetReader, AVAssetReaderOutputMetadataAdaptor, AVAssetReaderTrackOutput, NSArray, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSSet, NSString;
 
-@interface ARReplaySensor : NSObject <ARSensor, ARInternalSessionObserver>
+@interface ARReplaySensor : NSObject <ARInternalSessionObserver, ARSensor>
 {
     _Bool _manualCommandLineMode;
     AVAsset *_asset;
@@ -89,7 +89,6 @@
 @property(nonatomic) __weak id <ARReplaySensorDelegate> replaySensorDelegate; // @synthesize replaySensorDelegate=_replaySensorDelegate;
 @property(nonatomic) __weak id <ARSensorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)session:(id)arg1 didUpdateFrame:(id)arg2;
 - (void)readFileMetadataFromAsset:(id)arg1;
 - (struct __CVBuffer *)requestNextDepthPixelBufferForTimestamp:(double)arg1;
 - (struct __CVBuffer *)requestNextPixelBufferForTimestamp:(double)arg1;
@@ -111,7 +110,6 @@
 - (_Bool)hasMoreData;
 - (void)_didOutputSensorData:(id)arg1;
 - (void)advance;
-- (void)advanceSynchronously;
 - (void)tick;
 - (double)currentTime;
 - (void)startReplayIfNeeded;

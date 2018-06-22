@@ -6,11 +6,14 @@
 
 #import "NSObject.h"
 
-@class UIFont;
+@class UIFont, UITraitCollection;
 
 @interface AVStyleSheet : NSObject
 {
     _Bool _shouldUseCompactFullScreenSize;
+    UIFont *_scrubberTimeLabelFont;
+    UIFont *_scrubberInfoLabelFont;
+    UIFont *_infoLabelFont;
     double _standardPadding;
     double _standardInteritemPadding;
     double _additionalInlinePaddingForDodgingSafeArea;
@@ -32,19 +35,15 @@
     double _liveBroadcastLabelTopToBackdropTopDistance;
     double _scrubberInstructionsTopToBackdropTopDistance;
     double _scrubberInstructionsMinimumRequiredWidth;
-    UIFont *_infoLabelFont;
-    UIFont *_scrubberTimeLabelFont;
-    UIFont *_scrubberInfoLabelFont;
+    UITraitCollection *_traitCollection;
     struct CGSize _defaultItemInlineSize;
     struct CGSize _defaultItemFullScreenSize;
     struct CGSize _routePickerButtonInlineSize;
     struct CGSize _routePickerButtonFullScreenSize;
 }
 
+@property(retain, nonatomic) UITraitCollection *traitCollection; // @synthesize traitCollection=_traitCollection;
 @property(nonatomic) _Bool shouldUseCompactFullScreenSize; // @synthesize shouldUseCompactFullScreenSize=_shouldUseCompactFullScreenSize;
-@property(readonly, nonatomic) UIFont *scrubberInfoLabelFont; // @synthesize scrubberInfoLabelFont=_scrubberInfoLabelFont;
-@property(readonly, nonatomic) UIFont *scrubberTimeLabelFont; // @synthesize scrubberTimeLabelFont=_scrubberTimeLabelFont;
-@property(readonly, nonatomic) UIFont *infoLabelFont; // @synthesize infoLabelFont=_infoLabelFont;
 @property(readonly, nonatomic) double scrubberInstructionsMinimumRequiredWidth; // @synthesize scrubberInstructionsMinimumRequiredWidth=_scrubberInstructionsMinimumRequiredWidth;
 @property(readonly, nonatomic) double scrubberInstructionsTopToBackdropTopDistance; // @synthesize scrubberInstructionsTopToBackdropTopDistance=_scrubberInstructionsTopToBackdropTopDistance;
 @property(readonly, nonatomic) double liveBroadcastLabelTopToBackdropTopDistance; // @synthesize liveBroadcastLabelTopToBackdropTopDistance=_liveBroadcastLabelTopToBackdropTopDistance;
@@ -71,6 +70,10 @@
 @property(readonly, nonatomic) struct CGSize defaultItemFullScreenSize; // @synthesize defaultItemFullScreenSize=_defaultItemFullScreenSize;
 @property(readonly, nonatomic) struct CGSize defaultItemInlineSize; // @synthesize defaultItemInlineSize=_defaultItemInlineSize;
 - (void).cxx_destruct;
+- (void)_loadFontsIfNeeded;
+@property(readonly, nonatomic) UIFont *infoLabelFont; // @synthesize infoLabelFont=_infoLabelFont;
+@property(readonly, nonatomic) UIFont *scrubberTimeLabelFont; // @synthesize scrubberTimeLabelFont=_scrubberTimeLabelFont;
+@property(readonly, nonatomic) UIFont *scrubberInfoLabelFont; // @synthesize scrubberInfoLabelFont=_scrubberInfoLabelFont;
 - (struct UIEdgeInsets)playbackControlsViewLayoutMarginsForView:(id)arg1 isFullScreen:(_Bool)arg2;
 - (id)initWithTraitCollection:(id)arg1 shouldUseCompactFullScreenSize:(_Bool)arg2;
 

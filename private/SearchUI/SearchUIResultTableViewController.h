@@ -77,7 +77,7 @@
 - (void)replaceResult:(id)arg1 withResult:(id)arg2;
 - (_Bool)updateMustAccountForLayout;
 - (void)scrollTableToTop;
-- (void)updateWithResultSections:(id)arg1;
+- (void)updateWithResultSections:(id)arg1 scrollToTop:(_Bool)arg2;
 - (id)init;
 
 // Remaining properties

@@ -17,8 +17,10 @@
     unsigned long long _modifyZonesOperationCount;
     NSArray *_modifyZonesSavedZones;
     long long _zoneChangesErrorMode;
+    CDUnknownBlockType _willFinishZoneChanges;
     unsigned long long _zoneChangesOperationCount;
     long long _modifyRecordsErrorMode;
+    CDUnknownBlockType _willModifyRecords;
     unsigned long long _modifyRecordsOperationCount;
     NSArray *_modifyRecordsSavedRecords;
     unsigned long long _modifySubscriptionsOperationCount;
@@ -38,8 +40,10 @@
 @property(readonly, nonatomic) unsigned long long modifySubscriptionsOperationCount; // @synthesize modifySubscriptionsOperationCount=_modifySubscriptionsOperationCount;
 @property(readonly, copy, nonatomic) NSArray *modifyRecordsSavedRecords; // @synthesize modifyRecordsSavedRecords=_modifyRecordsSavedRecords;
 @property(readonly, nonatomic) unsigned long long modifyRecordsOperationCount; // @synthesize modifyRecordsOperationCount=_modifyRecordsOperationCount;
+@property(copy, nonatomic) CDUnknownBlockType willModifyRecords; // @synthesize willModifyRecords=_willModifyRecords;
 @property(nonatomic) long long modifyRecordsErrorMode; // @synthesize modifyRecordsErrorMode=_modifyRecordsErrorMode;
 @property(readonly, nonatomic) unsigned long long zoneChangesOperationCount; // @synthesize zoneChangesOperationCount=_zoneChangesOperationCount;
+@property(copy, nonatomic) CDUnknownBlockType willFinishZoneChanges; // @synthesize willFinishZoneChanges=_willFinishZoneChanges;
 @property(nonatomic) long long zoneChangesErrorMode; // @synthesize zoneChangesErrorMode=_zoneChangesErrorMode;
 @property(readonly, copy, nonatomic) NSArray *modifyZonesSavedZones; // @synthesize modifyZonesSavedZones=_modifyZonesSavedZones;
 @property(readonly, nonatomic) unsigned long long modifyZonesOperationCount; // @synthesize modifyZonesOperationCount=_modifyZonesOperationCount;

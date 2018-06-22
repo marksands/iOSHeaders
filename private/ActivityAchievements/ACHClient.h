@@ -28,7 +28,7 @@
 - (void)_addPluginProxyErrorHandler:(CDUnknownBlockType)arg1;
 - (void)_injectProxyProvider:(id)arg1;
 - (CDUnknownBlockType)_clientQueueCompletion:(CDUnknownBlockType)arg1;
-- (void)_remoteProxy:(CDUnknownBlockType)arg1;
+- (void)_remoteProxy:(CDUnknownBlockType)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (void)setActivityChallengeAssetsServerURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchActivityChallengeAssetsServerURLWithCompletion:(CDUnknownBlockType)arg1;
 - (void)forceAwardingSchedulerWithCompletion:(CDUnknownBlockType)arg1;

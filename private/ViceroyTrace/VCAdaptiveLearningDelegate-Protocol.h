@@ -9,6 +9,8 @@
 @class NSString;
 
 @protocol VCAdaptiveLearningDelegate <NSObject>
+- (int)shortTermMLAverageForSegment:(NSString *)arg1;
+- (int)longTermMLAverageForSegment:(NSString *)arg1;
 - (int)learntBitrateForSegment:(NSString *)arg1 defaultValue:(int)arg2;
 - (void)updateTargetBitrateForSegment:(NSString *)arg1 newValue:(int)arg2;
 - (int)adaptiveLearningState;

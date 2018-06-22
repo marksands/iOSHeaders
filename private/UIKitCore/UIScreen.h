@@ -175,6 +175,7 @@
 - (void)_setExternalDeviceShouldInputText:(_Bool)arg1;
 - (double)_displayCornerRadius;
 - (long long)_forceTouchCapability;
+- (_Bool)_isForceTouchCapable;
 - (void)_setCapability:(id)arg1 forKey:(id)arg2;
 - (id)_capabilityForKey:(id)arg1;
 - (id)_capabilities;

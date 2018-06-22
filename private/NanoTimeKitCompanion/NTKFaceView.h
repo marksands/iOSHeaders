@@ -195,14 +195,12 @@
 - (long long)_keylineStyleForComplicationSlot:(id)arg1;
 - (id)_keylineViewForComplicationSlot:(id)arg1;
 - (long long)_complicationPickerStyleForSlot:(id)arg1;
-- (void)_cleanupComplicationVisibilityAfterTransitionToOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
-- (void)_setComplicationAlphaForTransitionFraction:(double)arg1 fromOption:(id)arg2 toOption:(id)arg3 customEditMode:(long long)arg4 slot:(id)arg5;
 - (void)_teardownComplicationViewsIfNeeded;
 - (void)_setupComplicationViewsIfHidden;
 - (void)setComplicationHidden:(_Bool)arg1 atSlot:(id)arg2;
 - (_Bool)complicationIsHiddenAtSlot:(id)arg1;
 - (id)_editOptionThatHidesAllComplications;
-- (_Bool)_shouldHideComplicationsForEditOption:(id)arg1;
+- (_Bool)_isEditOptionThatHidesComplications:(id)arg1;
 - (void)_cleanupAfterTransitionComplicationSlot:(id)arg1 selectedComplication:(id)arg2;
 - (void)_applyRubberBandingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)_applyBreathingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;

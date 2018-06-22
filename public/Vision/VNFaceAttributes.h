@@ -8,12 +8,11 @@
 
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
-#import "VNObservationsCacheKeyProviding.h"
 #import "VNRequestRevisionProviding.h"
 
 @class VNFaceAttributeCategory;
 
-@interface VNFaceAttributes : NSObject <VNObservationsCacheKeyProviding, NSSecureCoding, NSCopying, VNRequestRevisionProviding>
+@interface VNFaceAttributes : NSObject <NSSecureCoding, NSCopying, VNRequestRevisionProviding>
 {
     VNFaceAttributeCategory *_ageCategory;
     VNFaceAttributeCategory *_genderCategory;
@@ -38,7 +37,6 @@
 @property(copy, nonatomic) VNFaceAttributeCategory *ageCategory; // @synthesize ageCategory=_ageCategory;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
-- (id)observationsCacheKey;
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

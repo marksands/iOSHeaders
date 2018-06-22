@@ -6,18 +6,30 @@
 
 #import "UICollectionView.h"
 
+#import "UIGestureRecognizerDelegate.h"
+
+@class NSString;
+
 __attribute__((visibility("hidden")))
-@interface VUICollectionView : UICollectionView
+@interface VUICollectionView : UICollectionView <UIGestureRecognizerDelegate>
 {
     struct {
         unsigned int layoutBelowDisabled:1;
     } _flags;
 }
 
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRequireFailureOfGestureRecognizer:(id)arg2;
 - (void)_performWithoutLayoutBelow:(CDUnknownBlockType)arg1;
 - (void)layoutBelowIfNeeded;
 - (void)setContentInset:(struct UIEdgeInsets)arg1;
 - (_Bool)_shouldFadeCellsForBoundChangeWhileRotating;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

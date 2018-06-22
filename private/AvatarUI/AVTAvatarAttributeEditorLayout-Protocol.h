@@ -21,6 +21,5 @@
 @property(readonly, nonatomic) double screenScale;
 @property(readonly, nonatomic) struct UIEdgeInsets edgeInsets;
 @property(readonly, nonatomic) struct CGSize containerSize;
-- (id)initWithContainerSize:(struct CGSize)arg1 insets:(struct UIEdgeInsets)arg2 screenScale:(double)arg3;
 @end
 

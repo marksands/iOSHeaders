@@ -30,7 +30,6 @@
 @property(nonatomic, getter=isUnseen) _Bool unseen; // @synthesize unseen=_unseen;
 @property(copy, nonatomic) id <PXInboxModel> model; // @synthesize model=_model;
 - (void).cxx_destruct;
-- (void)_updateBackgroundColor;
 @property(retain, nonatomic) NSAttributedString *subtitle;
 @property(retain, nonatomic) NSAttributedString *title;
 - (void)layoutSubviews;

@@ -10,13 +10,14 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "_MKUserInteractionGestureRecognizerTouchObserver.h"
 
-@class MKBasicMapView, MKTiltGestureRecognizer, MKTwoFingerPanGestureRecognizer, MKVariableDelayTapRecognizer, NSString, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, UITapGestureRecognizer, VKCompoundAnimation, VKDynamicAnimation, _MKUserInteractionGestureRecognizer;
+@class MKBasicMapView, MKScaleView, MKTiltGestureRecognizer, MKTwoFingerPanGestureRecognizer, MKVariableDelayTapRecognizer, NSString, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, UITapGestureRecognizer, VKCompoundAnimation, VKDynamicAnimation, _MKUserInteractionGestureRecognizer;
 
 __attribute__((visibility("hidden")))
 @interface MKMapGestureController : NSObject <MKVariableDelayTapRecognizerDelegate, _MKUserInteractionGestureRecognizerTouchObserver, UIGestureRecognizerDelegate>
 {
     MKBasicMapView *_mapView;
     id <MKMapGestureControllerDelegate> _delegate;
+    MKScaleView *_scaleView;
     MKVariableDelayTapRecognizer *_doubleTapGestureRecognizer;
     UITapGestureRecognizer *_twoFingerTapGestureRecognizer;
     UILongPressGestureRecognizer *_twoFingerLongPressGestureRecognizer;
@@ -42,6 +43,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) UIPanGestureRecognizer *twoFingerPanGestureRecognizer; // @synthesize twoFingerPanGestureRecognizer=_twoFingerPanGestureRecognizer;
 @property(readonly, nonatomic) UIPanGestureRecognizer *verticalPanGestureRecognizer; // @synthesize verticalPanGestureRecognizer=_verticalPanGestureRecognizer;
 @property(nonatomic) _Bool panWithMomentum; // @synthesize panWithMomentum=_panWithMomentum;
+@property(retain, nonatomic) MKScaleView *scaleView; // @synthesize scaleView=_scaleView;
 @property(readonly, nonatomic) MKBasicMapView *mapView; // @synthesize mapView=_mapView;
 @property(nonatomic) __weak id <MKMapGestureControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) UIRotationGestureRecognizer *rotationGestureRecognizer; // @synthesize rotationGestureRecognizer=_rotationGestureRecognizer;

@@ -53,6 +53,13 @@ struct _NSRange {
 #pragma mark Typedef'd Structures
 
 typedef struct {
+    _Bool showScanningState;
+    _Bool showScanningStateDuringFaceDetect;
+    double minimumDurationBeforeShowScanningState;
+    _Bool dimLockWhenNotLooking;
+} CDStruct_c68be025;
+
+typedef struct {
     long long fromState;
     long long toState;
     double progress;

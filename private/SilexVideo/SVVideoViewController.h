@@ -8,19 +8,21 @@
 
 #import "AVPlayerViewControllerDelegatePrivate.h"
 
-@class NSString, UIView;
+@class NSMutableArray, NSString, UIView;
 
 @interface SVVideoViewController : AVPlayerViewController <AVPlayerViewControllerDelegatePrivate>
 {
     id <SVVideoViewControllerFullscreenPresentationDelegate> _fullscreenPresentationDelegate;
     id <SVVideoViewControllerControlsVisibilityDelegate> _controlsVisibilityDelegate;
     id <SVVideoVisibilityManager> _visibilityManager;
+    NSMutableArray *_appearanceObservers;
     UIView *_sourceViewForPresentation;
     UIView *_targetViewForDismissal;
 }
 
 @property(nonatomic) __weak UIView *targetViewForDismissal; // @synthesize targetViewForDismissal=_targetViewForDismissal;
 @property(nonatomic) __weak UIView *sourceViewForPresentation; // @synthesize sourceViewForPresentation=_sourceViewForPresentation;
+@property(readonly, nonatomic) NSMutableArray *appearanceObservers; // @synthesize appearanceObservers=_appearanceObservers;
 @property(readonly, nonatomic) id <SVVideoVisibilityManager> visibilityManager; // @synthesize visibilityManager=_visibilityManager;
 @property(nonatomic) __weak id <SVVideoViewControllerControlsVisibilityDelegate> controlsVisibilityDelegate; // @synthesize controlsVisibilityDelegate=_controlsVisibilityDelegate;
 @property(nonatomic) __weak id <SVVideoViewControllerFullscreenPresentationDelegate> fullscreenPresentationDelegate; // @synthesize fullscreenPresentationDelegate=_fullscreenPresentationDelegate;
@@ -29,6 +31,12 @@
 - (id)playerViewController:(id)arg1 targetViewForDismissalAnimationWithProposedTargetView:(id)arg2;
 - (void)playerViewController:(id)arg1 willEndFullScreenPresentationWithAnimationCoordinator:(id)arg2;
 - (void)playerViewController:(id)arg1 willBeginFullScreenPresentationWithAnimationCoordinator:(id)arg2;
+- (void)removeAppearanceObserver:(id)arg1;
+- (void)addAppearanceObserver:(id)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dismissToTargetView:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)presentFromSourceView:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithVisiblityManager:(id)arg1;

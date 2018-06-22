@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class UIImageView, UILabel, UIVisualEffectView;
+@class NSString, UIImageView, UILabel, UIVisualEffectView;
 
 __attribute__((visibility("hidden")))
 @interface MKPictureItemView : UIView
@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     _Bool _didDownloadImage;
     id <GEOPictureItem> _pictureItem;
     UIImageView *_imageView;
+    NSString *_providerName;
     UIVisualEffectView *_effectView;
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
@@ -25,13 +26,14 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(readonly, nonatomic) UIVisualEffectView *effectView; // @synthesize effectView=_effectView;
+@property(copy, nonatomic) NSString *providerName; // @synthesize providerName=_providerName;
 @property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain, nonatomic) id <GEOPictureItem> pictureItem; // @synthesize pictureItem=_pictureItem;
 - (void).cxx_destruct;
 - (void)updateUIForTheme:(id)arg1;
 - (void)fetchImageIfNecessary;
 - (void)setupSubviews;
-- (void)setTitleLabelProviderName:(id)arg1;
+- (void)setTitleLabelProviderName;
 - (void)updateLabelsSettings;
 - (void)contentSizeCategoryDidChange:(id)arg1;
 - (id)initWithPictureItem:(id)arg1 providerName:(id)arg2;

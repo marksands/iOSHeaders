@@ -6,15 +6,19 @@
 
 #import "NSObject.h"
 
-@class CTCarrier, NSDictionary, NSLock, NSString;
+#import "CoreTelephonyClientDataDelegate.h"
 
-@interface CTTelephonyNetworkInfo : NSObject
+@class CTCarrier, CTServiceDescriptorContainer, CoreTelephonyClient, NSDictionary, NSLock, NSString;
+
+@interface CTTelephonyNetworkInfo : NSObject <CoreTelephonyClientDataDelegate>
 {
     struct queue _queue;
+    CoreTelephonyClient *_client;
     // Error parsing type: ^{__CTServerConnection={__CFRuntimeBase=QAQ}^{dispatch_queue_s}^{CTServerState}CCI^{_xpc_connection_s}}, name: server_connection
     NSLock *server_lock;
     CDUnknownBlockType _subscriberCellularProviderDidUpdateNotifier;
     _Bool _monitoringCellId;
+    CTServiceDescriptorContainer *_descriptors;
     CTCarrier *_subscriberCellularProvider;
     NSString *_cachedCurrentRadioAccessTechnology;
     NSDictionary *_cachedSignalStrength;
@@ -33,8 +37,10 @@
 - (id)signalStrength;
 @property(readonly, retain, nonatomic) NSString *currentRadioAccessTechnology;
 - (void)queryCellId;
-- (void)updateRadioAccessTechnology:(id)arg1;
-- (void)queryDataMode;
+- (void)updateLegacyRat:(id)arg1;
+- (void)updateRat:(id)arg1 descriptor:(id)arg2;
+- (void)queryRatForDescriptor:(id)arg1;
+- (void)queryRat;
 - (void)queryCTSignalStrengthNotification;
 - (void)updateSignalStrength:(id)arg1;
 - (void)handleCTRegistrationCellChangedNotification:(id)arg1;
@@ -42,6 +48,8 @@
 - (id)createSignalStrengthDictWithBars:(id)arg1;
 - (void)postCellularProviderUpdatesIfNecessary;
 - (void)handleNotificationFromConnection:(void *)arg1 ofType:(id)arg2 withInfo:(id)arg3;
+- (void)connectionStateChanged:(id)arg1 connection:(int)arg2 dataConnectionStatusInfo:(id)arg3;
+@property(readonly) CTServiceDescriptorContainer *descriptors; // @synthesize descriptors=_descriptors;
 - (_Bool)updateNetworkInfoAndShouldNotifyClient:(_Bool *)arg1;
 - (_Bool)getAllowsVOIP:(_Bool *)arg1 withCTError:(CDStruct_1ef3fb1f *)arg2;
 - (_Bool)getMobileNetworkCode:(id)arg1 withCTError:(CDStruct_1ef3fb1f *)arg2;
@@ -52,6 +60,12 @@
 - (id)init;
 - (void)cleanUpServerConnection;
 - (_Bool)setUpServerConnection;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

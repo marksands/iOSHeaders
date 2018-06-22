@@ -9,26 +9,27 @@
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
 #import "UICollectionViewDelegateFlowLayout.h"
-#import "VUILocalContentProtocol.h"
 #import "VUIMediaEntitiesFetchControllerDelegate.h"
 
 @class NSArray, NSObject<VUIMediaEntityIdentifier>, NSString, VUISeasonPickerCollectionViewCell, _VUISeasonPickerView;
 
 __attribute__((visibility("hidden")))
-@interface VUISeasonPickerViewController : VUILibraryFetchControllerViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, VUIMediaEntitiesFetchControllerDelegate, VUILocalContentProtocol>
+@interface VUISeasonPickerViewController : VUILibraryFetchControllerViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, VUIMediaEntitiesFetchControllerDelegate>
 {
     VUISeasonPickerCollectionViewCell *_sizingCell;
-    _Bool _onlyShowLocalContent;
+    _Bool _lastViewedSeasonWasManuallyDeleted;
     NSString *_pickerTitle;
     _VUISeasonPickerView *_seasonPickerView;
     NSArray *_seasons;
     NSObject<VUIMediaEntityIdentifier> *_collectionIdentifier;
+    VUILibraryFetchControllerViewController *_currentSeasonViewController;
 }
 
+@property(nonatomic) _Bool lastViewedSeasonWasManuallyDeleted; // @synthesize lastViewedSeasonWasManuallyDeleted=_lastViewedSeasonWasManuallyDeleted;
+@property(retain, nonatomic) VUILibraryFetchControllerViewController *currentSeasonViewController; // @synthesize currentSeasonViewController=_currentSeasonViewController;
 @property(retain, nonatomic) NSObject<VUIMediaEntityIdentifier> *collectionIdentifier; // @synthesize collectionIdentifier=_collectionIdentifier;
 @property(retain, nonatomic) NSArray *seasons; // @synthesize seasons=_seasons;
 @property(retain, nonatomic) _VUISeasonPickerView *seasonPickerView; // @synthesize seasonPickerView=_seasonPickerView;
-@property(nonatomic) _Bool onlyShowLocalContent; // @synthesize onlyShowLocalContent=_onlyShowLocalContent;
 @property(retain, nonatomic) NSString *pickerTitle; // @synthesize pickerTitle=_pickerTitle;
 - (void).cxx_destruct;
 - (void)controller:(id)arg1 fetchRequests:(id)arg2 didFailWithError:(id)arg3;
@@ -38,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithMediaLibrary:(id)arg1 title:(id)arg2 collectionIdentifier:(id)arg3;
 

@@ -20,7 +20,7 @@
     PXCMMSuggestionsDataSourceContext *_context;
 }
 
-+ (id)dataSourceManagerWithParticipants:(id)arg1 fetchLimit:(long long)arg2 message:(id)arg3 date:(id)arg4 matchingStrategy:(unsigned long long)arg5;
++ (id)dataSourceManagerWithParticipants:(id)arg1 fetchLimit:(long long)arg2 shouldShowAccepted:(_Bool)arg3 message:(id)arg4 date:(id)arg5 matchingStrategy:(unsigned long long)arg6;
 + (id)dataSourceManagerWithParticipants:(id)arg1;
 + (id)dataSourceManager;
 + (id)mockDataSourceManagerFromRecentLargeMoments:(unsigned long long)arg1;

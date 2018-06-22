@@ -24,6 +24,8 @@
 + (double)passcodeBackOffIntervalForUser:(id)arg1;
 + (id)personaSpecForUser:(id)arg1;
 + (_Bool)writeAttributesToDiskForUser:(id)arg1 outError:(id *)arg2;
++ (void)updateLoginSessionType;
++ (_Bool)isLoginSession;
 + (_Bool)fetchAttributesForUser:(id)arg1 outError:(id *)arg2;
 + (id)userFromAttributes:(id)arg1;
 + (id)deleteUser:(id)arg1;

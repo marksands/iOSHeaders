@@ -9,7 +9,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIInteraction.h"
 
-@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, UIResponder<UITextInput>, UIView;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, UIResponder<UITextInput>, UITextInteractionInputDelegate, UIView;
 
 @interface UITextInteraction : NSObject <UIGestureRecognizerDelegate, UIInteraction>
 {
@@ -22,11 +22,13 @@
     id <UITextInteractionDelegate> _delegate;
     UIResponder<UITextInput> *_textInput;
     UIView *_view;
+    UITextInteractionInputDelegate *_interactionInputDelegate;
     id <UITextInteraction_AssistantDelegate> _assistantDelegate;
 }
 
 + (id)textInteractionsForSet:(long long)arg1;
 @property(nonatomic) __weak id <UITextInteraction_AssistantDelegate> assistantDelegate; // @synthesize assistantDelegate=_assistantDelegate;
+@property(retain, nonatomic) UITextInteractionInputDelegate *interactionInputDelegate; // @synthesize interactionInputDelegate=_interactionInputDelegate;
 @property(nonatomic) __weak UIView *view; // @synthesize view=_view;
 @property(nonatomic) __weak UIResponder<UITextInput> *textInput; // @synthesize textInput=_textInput;
 @property(nonatomic) __weak id <UITextInteractionDelegate> delegate; // @synthesize delegate=_delegate;

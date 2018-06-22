@@ -13,25 +13,29 @@
 @interface PXCMMAssetsProgressListener : PXObservable <PXPhotoLibraryUIChangeObserver>
 {
     long long _presentationStyle;
+    float _activityProgress;
     PHMomentShare *_momentShare;
     long long _type;
     NSString *_assetsTitle;
     NSString *_expirationTitle;
     NSString *_activityTitle;
     NSString *_idleTitle;
-    double _activityProgress;
+    NSString *_byline;
     long long _state;
     PHFetchResult *_downloadingAssetsFetchResult;
     PHFetchResult *_copiedAssetsFetchResult;
-    PHFetchResult *_allAssetsFetchResult;
+    PHFetchResult *_allAssetsWithThumbnailFetchResult;
+    PHFetchResult *_participantsFetchResult;
 }
 
 + (id)new;
-@property(retain, nonatomic) PHFetchResult *allAssetsFetchResult; // @synthesize allAssetsFetchResult=_allAssetsFetchResult;
+@property(retain, nonatomic) PHFetchResult *participantsFetchResult; // @synthesize participantsFetchResult=_participantsFetchResult;
+@property(retain, nonatomic) PHFetchResult *allAssetsWithThumbnailFetchResult; // @synthesize allAssetsWithThumbnailFetchResult=_allAssetsWithThumbnailFetchResult;
 @property(retain, nonatomic) PHFetchResult *copiedAssetsFetchResult; // @synthesize copiedAssetsFetchResult=_copiedAssetsFetchResult;
 @property(retain, nonatomic) PHFetchResult *downloadingAssetsFetchResult; // @synthesize downloadingAssetsFetchResult=_downloadingAssetsFetchResult;
 @property(readonly, nonatomic) long long state; // @synthesize state=_state;
-@property(nonatomic) double activityProgress; // @synthesize activityProgress=_activityProgress;
+@property(nonatomic) float activityProgress; // @synthesize activityProgress=_activityProgress;
+@property(copy, nonatomic) NSString *byline; // @synthesize byline=_byline;
 @property(copy, nonatomic) NSString *idleTitle; // @synthesize idleTitle=_idleTitle;
 @property(copy, nonatomic) NSString *activityTitle; // @synthesize activityTitle=_activityTitle;
 @property(copy, nonatomic) NSString *expirationTitle; // @synthesize expirationTitle=_expirationTitle;
@@ -44,6 +48,7 @@
 - (_Bool)_showsUploadingStatus;
 - (void)_prepareFetchResultsForPhotoLibrary:(id)arg1;
 - (void)setState:(long long)arg1;
+- (void)setType:(long long)arg1;
 - (void)didPerformChanges;
 - (id)mutableChangeObject;
 - (id)initWithMomentShare:(id)arg1 presentationStyle:(long long)arg2;

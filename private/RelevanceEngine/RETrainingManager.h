@@ -9,7 +9,7 @@
 #import "RELoggable.h"
 #import "RERemoteTrainingClientListenerDelegate.h"
 
-@class NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSRecursiveLock, NSString, RELiveElementCoordinator, REMLModelManager, RERemoteTrainingClientListener, RETrainingContext, RETrainingScheduler;
+@class NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, RELiveElementCoordinator, REMLModelManager, RERemoteTrainingClientListener, RETrainingContext, RETrainingScheduler;
 
 @interface RETrainingManager : RERelevanceEngineSubsystem <RELoggable, RERemoteTrainingClientListenerDelegate>
 {
@@ -17,21 +17,20 @@
     REMLModelManager *_modelManager;
     RETrainingScheduler *_trainingScheduler;
     NSMutableSet *_trainingContexts;
-    RETrainingContext *_currentTrainingContext;
-    NSRecursiveLock *_trainingContextLock;
     NSObject<OS_dispatch_queue> *_queue;
     RERemoteTrainingClientListener *_remoteTrainingListener;
     NSMutableArray *_trainingFeatureMaps;
     NSMutableArray *_trainingContents;
     NSMutableArray *_trainingEvents;
     NSMutableArray *_interactionTypes;
+    RETrainingContext *_currentTrainingContext;
 }
 
+@property(retain) RETrainingContext *currentTrainingContext; // @synthesize currentTrainingContext=_currentTrainingContext;
 - (void).cxx_destruct;
 - (void)collectLoggableState:(CDUnknownBlockType)arg1;
 - (void)remoteTrainingClientListenerDidDisconnectContext:(id)arg1;
 - (void)remoteTrainingClientListenerDidConnectContext:(id)arg1;
-@property(readonly, nonatomic) RETrainingContext *currentTrainingContext;
 - (void)makeContextCurrent:(id)arg1;
 - (void)_performTraining;
 - (void)manuallyPerformTraining;

@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSObject<CLSChangeNotifiable>, NSObject<CLSQuery>, NSObject<CLSSaveResponse>, NSPredicate, NSString;
+@class NSArray, NSDate, NSObject<CLSChangeNotifiable>, NSObject<CLSQuery>, NSObject<CLSSaveResponse>, NSPredicate, NSString;
 
 @protocol CLSDataServerInterface <NSObject>
 - (oneway void)remote_publishHandoutGraph:(NSArray *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (oneway void)remote_authTreeWithCompletion:(void (^)(id, NSError *))arg1;
+- (oneway void)remote_fetchDeletedObjectIDsNewerThanDate:(NSDate *)arg1 completion:(void (^)(NSArray *))arg2;
 - (oneway void)remote_setShouldSyncTeacherBrowsedContexts:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
 - (oneway void)remote_shouldSyncTeacherBrowsedContextsWithCompletion:(void (^)(id, NSError *))arg1;
 - (oneway void)remote_fetchTransparencyMessageInfoWithCompletion:(void (^)(id, NSError *))arg1;

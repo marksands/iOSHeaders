@@ -24,12 +24,14 @@
 + (id)uniqueDeviceId;
 + (id)thinnedAppVariantId;
 + (id)serialNumber;
++ (id)screenScale;
 + (id)productVersion;
 + (id)productType;
 + (id)MLBSerialNumber;
 + (id)macAddressData;
 + (id)macAddress;
 + (id)localIPAddress;
++ (_Bool)isRunningInStoreDemoMode;
 + (id)hardwarePlatform;
 + (id)deviceGUID;
 + (id)buildVersion;

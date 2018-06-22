@@ -15,6 +15,7 @@
     AVTInMemoryImageCache *_inMemoryImageCache;
     id <AVTUILogger> _logger;
     double _mainScreenScale;
+    long long _userInterfaceLayoutDirection;
     CDUnknownBlockType _serialQueueProvider;
     CDUnknownBlockType _lockProvider;
     NSObject<OS_dispatch_queue> *_backgroundQueue;
@@ -32,6 +33,7 @@
 + (id)createEditorCoreModelWithLogger:(id)arg1;
 + (id)createQueueWithQoSClass:(unsigned int)arg1;
 + (CDUnknownBlockType)serialQueueProvider;
++ (id)createFunCamEnvironment;
 + (id)defaultEnvironment;
 @property(nonatomic) double actionAnimationsMultiplier; // @synthesize actionAnimationsMultiplier=_actionAnimationsMultiplier;
 @property(readonly, nonatomic) AVTDeviceResourceManager *deviceResourceManager; // @synthesize deviceResourceManager=_deviceResourceManager;
@@ -42,6 +44,7 @@
 @property(readonly, copy, nonatomic) NSObject<OS_dispatch_queue> *backgroundQueue; // @synthesize backgroundQueue=_backgroundQueue;
 @property(readonly, copy, nonatomic) CDUnknownBlockType lockProvider; // @synthesize lockProvider=_lockProvider;
 @property(readonly, copy, nonatomic) CDUnknownBlockType serialQueueProvider; // @synthesize serialQueueProvider=_serialQueueProvider;
+@property(readonly, nonatomic) long long userInterfaceLayoutDirection; // @synthesize userInterfaceLayoutDirection=_userInterfaceLayoutDirection;
 @property(readonly, nonatomic) double mainScreenScale; // @synthesize mainScreenScale=_mainScreenScale;
 @property(readonly, nonatomic) id <AVTUILogger> logger; // @synthesize logger=_logger;
 - (void).cxx_destruct;

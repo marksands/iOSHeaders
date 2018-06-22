@@ -15,6 +15,7 @@
 + (_Bool)currentLocaleSupportsSeasons;
 + (_Bool)isLastMonthOfSeasonForLocalDate:(id)arg1;
 + (_Bool)isMiddleMonthOfSeasonForLocalDate:(id)arg1;
++ (_Bool)isFirstTenDaysOfSeasonForLocalDate:(id)arg1;
 + (_Bool)isFirstMonthOfSeasonForLocalDate:(id)arg1;
 + (_Bool)isSecondHalfOfSeasonForLocalDate:(id)arg1;
 + (id)seasonNameForLocalDate:(id)arg1 locale:(id)arg2;

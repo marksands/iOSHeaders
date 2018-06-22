@@ -15,8 +15,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)supportsCancellation;
 - (_Bool)supportsPausing;
 - (void)dealloc;
-- (id)initWithMediaItem:(id)arg1 state:(unsigned long long)arg2 downloadProgress:(double)arg3 downloadSucceeded:(_Bool)arg4;
-- (id)initWithMediaItem:(id)arg1;
+- (id)initWithMediaItem:(id)arg1 state:(id)arg2 serialProcessingDispatchQueue:(id)arg3;
+- (id)initWithMediaItem:(id)arg1 serialProcessingDispatchQueue:(id)arg2;
 
 @end
 

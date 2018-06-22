@@ -54,6 +54,7 @@
 @property(readonly) unsigned long long hash;
 @property(retain, nonatomic) NSDate *importDate; // @dynamic importDate;
 @property(retain, nonatomic) NSString *importSessionID; // @dynamic importSessionID;
+@property(nonatomic) short importedBy; // @dynamic importedBy;
 @property(retain, nonatomic) NSManagedObject *mediaMetadata; // @dynamic mediaMetadata;
 @property(retain, nonatomic) NSString *mediaMetadataType; // @dynamic mediaMetadataType;
 @property(retain, nonatomic) NSSet *modernResources; // @dynamic modernResources;

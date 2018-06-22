@@ -151,8 +151,11 @@
 - (void)scrollPreventer:(id)arg1 scrolledToOffset:(struct CGPoint)arg2;
 - (void)scrollPreventerWillBeginDragging:(id)arg1;
 - (void)scrollPreventerDidLayoutSubviews:(id)arg1;
+- (id)appIconOverride;
+- (id)appTitleOverride;
 - (id)transitionsPresentationViewController;
 - (_Bool)shouldAlwaysShowAppTitle;
+- (_Bool)browserTransitionCoordinatorShouldDismissOnDragSuccess:(id)arg1;
 - (double)browserTransitionCoordinatorCollapsedContentHeight:(id)arg1;
 - (void)browserTransitionCoordinator:(id)arg1 hasUpdatedLastTouchDate:(id)arg2;
 - (void)browserTransitionCoordinator:(id)arg1 didSwitchToPlugin:(id)arg2;

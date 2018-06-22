@@ -31,7 +31,7 @@
 @property(readonly, nonatomic) NSString *fromBuild; // @synthesize fromBuild=_fromBuild;
 - (_Bool)_isPossibleSoftwareUpdate:(id)arg1;
 - (_Bool)_isDeviceEligibleForUpdate:(id)arg1;
-- (id)_fileterPatchesIfNecessary:(id)arg1;
+- (id)_filterPatchesIfNecessary:(id)arg1;
 - (id)_copyMatchingAssetsAfterSortingAndFiltering:(id)arg1;
 - (id)_createSortedAndFilteredAssetResults:(id)arg1 usingFirstKey:(id)arg2 secondKey:(id)arg3;
 - (unsigned long long)_getIndexOfHighestVersionedAsset:(id)arg1 usingFirstKey:(id)arg2 secondKey:(id)arg3;

@@ -9,7 +9,7 @@
 @class NSArray, NSData, NSError, NSString, SPDaemonQueryToken, SPResultSet;
 
 @protocol SPDaemonQueryDelegate <NSObject>
-- (void)searchDaemonQuery:(SPDaemonQueryToken *)arg1 gotResultSet:(SPResultSet *)arg2 replace:(_Bool)arg3 complete:(_Bool)arg4 finished:(_Bool)arg5 blendingDuration:(double)arg6 geoEntityString:(NSString *)arg7;
+- (void)searchDaemonQuery:(SPDaemonQueryToken *)arg1 gotResultSet:(SPResultSet *)arg2 replace:(_Bool)arg3 complete:(_Bool)arg4 finished:(_Bool)arg5 delayed:(_Bool)arg6 blendingDuration:(double)arg7 geoEntityString:(NSString *)arg8;
 - (void)searchDaemonLocalSuggestionsData:(NSData *)arg1;
 - (void)searchDaemonSuggestionsArray:(NSArray *)arg1;
 - (void)searchDaemonRankingLog:(NSString *)arg1;

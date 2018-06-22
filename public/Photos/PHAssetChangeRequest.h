@@ -55,6 +55,7 @@
     _Bool _didSetActivityScore;
     _Bool _didSetFaceCount;
     _Bool _didSetSceneprintData;
+    _Bool _didSetOriginalResourceChoice;
     _Bool _didChangeAdjustments;
     _Bool _duplicateAllowsPrivateMetadata;
     unsigned short _photoIrisVisibilityState;
@@ -65,6 +66,7 @@
     float _autoplaySuggestionScore;
     float _videoScore;
     float _activityScore;
+    unsigned long long _originalResourceChoice;
     PHContentEditingOutput *_contentEditingOutput;
     NSString *_editorBundleID;
     NSIndexSet *_supportedEditOperations;
@@ -115,6 +117,7 @@
 @property(readonly, copy, nonatomic) NSString *editorBundleID; // @synthesize editorBundleID=_editorBundleID;
 @property(readonly, nonatomic) _Bool didChangeAdjustments; // @synthesize didChangeAdjustments=_didChangeAdjustments;
 @property(retain, nonatomic) PHContentEditingOutput *contentEditingOutput; // @synthesize contentEditingOutput=_contentEditingOutput;
+@property(nonatomic) unsigned long long originalResourceChoice; // @synthesize originalResourceChoice=_originalResourceChoice;
 @property(nonatomic) unsigned short photoIrisVisibilityState; // @synthesize photoIrisVisibilityState=_photoIrisVisibilityState;
 @property(readonly, nonatomic) int clientProcessID; // @synthesize clientProcessID=_clientProcessID;
 @property(readonly, nonatomic) NSString *clientName; // @synthesize clientName=_clientName;

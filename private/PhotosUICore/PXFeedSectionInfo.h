@@ -10,7 +10,7 @@
 #import "PXInboxModel.h"
 #import "PXInboxPreviewItem.h"
 
-@class NSArray, NSCountedSet, NSDate, NSIndexSet, NSOrderedSet, NSString, PLCloudFeedEntry, PLCloudSharedAlbumInvitationRecord, PLManagedAsset;
+@class NSArray, NSCountedSet, NSDate, NSIndexSet, NSOrderedSet, NSString, PLCloudFeedEntry, PLCloudSharedAlbumInvitationRecord, PLManagedAsset, PLPhotoLibrary;
 
 @interface PXFeedSectionInfo : NSObject <PXInboxModel, PXInboxPreviewItem, PLAssetContainer>
 {
@@ -73,6 +73,7 @@
 - (void)getPhotoCount:(out unsigned long long *)arg1 videoCount:(out unsigned long long *)arg2;
 - (id)likesForItemAtIndex:(long long)arg1;
 - (id)commentsForItemAtIndex:(long long)arg1;
+- (id)commentTextForItemAtIndex:(long long)arg1;
 - (id)commentForItemAtIndex:(long long)arg1;
 - (id)batchIDForItemAtIndex:(long long)arg1;
 - (id)captionForItemAtIndex:(long long)arg1;
@@ -83,6 +84,7 @@
 - (long long)typeForItemAtIndex:(long long)arg1;
 - (void)updateFromCloudFeedEntry;
 - (void)reload;
+@property(readonly, nonatomic) PLPhotoLibrary *photoLibrary;
 - (id)initWithCloudFeedEntry:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_usersInvolvedForCoalescedEntry;
@@ -97,6 +99,7 @@
 @property(readonly, nonatomic) NSString *ownerLastName;
 @property(readonly, nonatomic) NSString *ownerFirstName;
 @property(readonly, nonatomic) NSArray *assetsForOneUp;
+- (void)fetchLeftPreviewItemsWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSArray *leftPreviewItems;
 @property(nonatomic, getter=isSeen) _Bool seen;
 @property(readonly, nonatomic) _Bool userIsSender;

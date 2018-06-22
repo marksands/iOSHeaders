@@ -54,8 +54,8 @@
 + (id)newInlineDrawing;
 + (_Bool)showDebugOutlines;
 @property(copy, nonatomic) PKDrawing *cachedDrawingForHiddenAdditionalStrokes; // @synthesize cachedDrawingForHiddenAdditionalStrokes=_cachedDrawingForHiddenAdditionalStrokes;
-@property(copy, nonatomic) NSMutableArray *cachedVisibleStrokesMinusHiddenStrokesForDirtyDrawing; // @synthesize cachedVisibleStrokesMinusHiddenStrokesForDirtyDrawing=_cachedVisibleStrokesMinusHiddenStrokesForDirtyDrawing;
-@property(copy, nonatomic) NSMutableArray *cachedVisibleStrokesForDirtyDrawing; // @synthesize cachedVisibleStrokesForDirtyDrawing=_cachedVisibleStrokesForDirtyDrawing;
+@property(retain, nonatomic) NSMutableArray *cachedVisibleStrokesMinusHiddenStrokesForDirtyDrawing; // @synthesize cachedVisibleStrokesMinusHiddenStrokesForDirtyDrawing=_cachedVisibleStrokesMinusHiddenStrokesForDirtyDrawing;
+@property(retain, nonatomic) NSMutableArray *cachedVisibleStrokesForDirtyDrawing; // @synthesize cachedVisibleStrokesForDirtyDrawing=_cachedVisibleStrokesForDirtyDrawing;
 @property(copy, nonatomic) NSArray *cachedHiddenAdditionalStrokes; // @synthesize cachedHiddenAdditionalStrokes=_cachedHiddenAdditionalStrokes;
 @property(readonly, nonatomic) NSArray *hideAdditionalStrokes; // @synthesize hideAdditionalStrokes=_hideAdditionalStrokes;
 @property(readonly, nonatomic) NSArray *additionalStrokes; // @synthesize additionalStrokes=_additionalStrokes;

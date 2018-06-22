@@ -11,28 +11,36 @@
 @interface CPSRouteEstimatesView : UIView
 {
     double _estimatedTimeRemaining;
-    CPSLabeledValueView *_arrivalTimeView;
+    unsigned long long _timeRemainingColor;
     CPSLabeledValueView *_timeRemainingView;
+    CPSLabeledValueView *_arrivalTimeView;
     CPSLabeledValueView *_distanceRemainingView;
     NSDateFormatter *_arrivalDateFormatter;
     NSDateComponentsFormatter *_remainingTimeFormatter;
     NSCalendar *_calendar;
+    unsigned long long _tripEstimateStyle;
 }
 
+@property(nonatomic) unsigned long long tripEstimateStyle; // @synthesize tripEstimateStyle=_tripEstimateStyle;
 @property(readonly, nonatomic) NSCalendar *calendar; // @synthesize calendar=_calendar;
 @property(readonly, nonatomic) NSDateComponentsFormatter *remainingTimeFormatter; // @synthesize remainingTimeFormatter=_remainingTimeFormatter;
 @property(readonly, nonatomic) NSDateFormatter *arrivalDateFormatter; // @synthesize arrivalDateFormatter=_arrivalDateFormatter;
 @property(readonly, nonatomic) CPSLabeledValueView *distanceRemainingView; // @synthesize distanceRemainingView=_distanceRemainingView;
-@property(readonly, nonatomic) CPSLabeledValueView *timeRemainingView; // @synthesize timeRemainingView=_timeRemainingView;
 @property(readonly, nonatomic) CPSLabeledValueView *arrivalTimeView; // @synthesize arrivalTimeView=_arrivalTimeView;
+@property(readonly, nonatomic) CPSLabeledValueView *timeRemainingView; // @synthesize timeRemainingView=_timeRemainingView;
+@property(nonatomic) unsigned long long timeRemainingColor; // @synthesize timeRemainingColor=_timeRemainingColor;
 @property(nonatomic) double estimatedTimeRemaining; // @synthesize estimatedTimeRemaining=_estimatedTimeRemaining;
 - (void).cxx_destruct;
 - (void)_setDistanceRemaining:(id)arg1 units:(id)arg2;
 - (void)_setTimeRemaining:(id)arg1 units:(id)arg2;
 - (void)_setArrivalTime:(id)arg1;
+- (id)_defaultColorForStyle:(unsigned long long)arg1;
+- (id)_orangeColorForStyle:(unsigned long long)arg1;
+- (id)_redColorForStyle:(unsigned long long)arg1;
+- (id)_greenColorForStyle:(unsigned long long)arg1;
 @property(copy, nonatomic) NSMeasurement *distanceRemaining; // @dynamic distanceRemaining;
 @property(copy, nonatomic) NSTimeZone *arrivalTimeZone; // @dynamic arrivalTimeZone;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithStyle:(unsigned long long)arg1;
 
 @end
 

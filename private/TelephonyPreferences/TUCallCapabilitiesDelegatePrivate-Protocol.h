@@ -14,7 +14,7 @@
 - (void)didChangeRelayCallingFeatures;
 - (void)didChangeCarrierSpaceCapabilities;
 - (void)didChangeEmergencyCallbackPossible;
-- (void)didChangeEmergencyCallbackModeForSenderIdentityWithUUID:(NSUUID *)arg1;
+- (void)didChangeEmergencyCallbackMode;
 - (void)didChangeThumperCallingProvisionalURLForSenderIdentityWithUUID:(NSUUID *)arg1;
 - (void)didChangeWiFiCallingProvisionalURLForSenderIdentityWithUUID:(NSUUID *)arg1;
 - (void)didChangeThumperCallingCapabilitiesForSenderIdentityWithUUID:(NSUUID *)arg1;

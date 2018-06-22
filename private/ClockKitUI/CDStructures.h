@@ -47,6 +47,7 @@ struct CLKUIGLUniforms {
     int primaryTextureRect;
     int secondaryTexture;
     int secondaryTextureRect;
+    int aspect;
 };
 
 struct CLKUIQuadSize {

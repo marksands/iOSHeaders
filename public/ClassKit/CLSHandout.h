@@ -32,6 +32,7 @@
 @property(retain, nonatomic) NSDate *dateOfPublication; // @synthesize dateOfPublication=_dateOfPublication;
 - (void).cxx_destruct;
 - (id)dictionaryRepresentation;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) NSArray *attachments;
 @property(readonly, nonatomic) NSArray *recipients;
 - (void)removeHandoutRecipient:(id)arg1;
@@ -52,7 +53,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

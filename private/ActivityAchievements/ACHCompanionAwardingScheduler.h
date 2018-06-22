@@ -53,13 +53,15 @@
 @property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 @property(retain, nonatomic) NSDate *lastSuccessfulRunDate; // @synthesize lastSuccessfulRunDate=_lastSuccessfulRunDate;
 - (void).cxx_destruct;
+- (void)_queue_callAwardingCompletionsWithSuccess:(_Bool)arg1 error:(id)arg2;
+- (void)_queue_addAwardingCompletion:(CDUnknownBlockType)arg1;
 - (void)addAwardingCompletion:(CDUnknownBlockType)arg1;
 - (void)overrideCoalescingDelay:(double)arg1;
 - (void)shouldForceActivityAppInstalled:(_Bool)arg1;
 - (_Bool)_shouldRunImmediatelyOnTemplateLoad;
 - (_Bool)_didRunToday;
-- (void)_requestAwardingEvaluation;
-- (void)_removeMaintenanceOperation;
+- (void)_queue_requestAwardingEvaluation;
+- (void)_queue_removeMaintenanceOperation;
 - (void)scheduleMaintenanceTaskForAwardingWithCompletion:(CDUnknownBlockType)arg1;
 - (void)requestAwardingEvaluationWithCompletion:(CDUnknownBlockType)arg1;
 - (id)diagnosticDescription;

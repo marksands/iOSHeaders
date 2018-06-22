@@ -25,7 +25,7 @@
 @property(copy, nonatomic) NSDate *lastDirtyDate; // @synthesize lastDirtyDate=_lastDirtyDate;
 @property(copy, nonatomic) NSDate *lastSyncDate; // @synthesize lastSyncDate=_lastSyncDate;
 - (void).cxx_destruct;
-- (void)clearPendingCommands;
+- (void)clearPendingCommandsUpToCount:(unsigned long long)arg1;
 - (void)addPendingCommands:(id)arg1;
 - (void)applyServerRecordsDiff:(id)arg1;
 - (id)init;

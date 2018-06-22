@@ -26,6 +26,7 @@
 @property(retain, nonatomic) CPSAbridgableLabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(readonly, nonatomic) CPNavigationAlert *navigationAlert; // @synthesize navigationAlert=_navigationAlert;
 - (void).cxx_destruct;
+- (void)updateNavigationAlert:(id)arg1;
 - (void)startAnimating;
 - (id)initWithFrame:(struct CGRect)arg1 navigationAlert:(id)arg2 templateDelegate:(id)arg3 buttonDelegate:(id)arg4;
 

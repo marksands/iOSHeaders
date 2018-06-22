@@ -12,20 +12,23 @@
 #import "UICollectionViewDelegate.h"
 #import "UICollectionViewDelegateFlowLayout.h"
 
-@class AVTAvatarListCell, AVTAvatarRecordDataSource, AVTCenteringCollectionViewDelegate, AVTRenderingScope, AVTTransitionCoordinator, AVTUIEnvironment, AVTViewSession, NSArray, NSString, UICollectionView, UIView, _AVTAvatarRecordImageProvider;
+@class AVTAvatarListCell, AVTAvatarRecordDataSource, AVTCenteringCollectionViewDelegate, AVTRenderingScope, AVTTransitionCoordinator, AVTUIEnvironment, AVTViewSession, AVTZIndexCollectionViewFlowLayout, NSArray, NSString, UICollectionView, UIView, _AVTAvatarRecordImageProvider;
 
 @interface AVTMultiAvatarController : NSObject <UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, AVTAvatarListContainerViewDelegate, AVTAvatarDisplayingController>
 {
+    _Bool _allowsCreate;
     id <AVTAvatarDisplayingControllerDelegate> delegate;
     id <AVTPresenterDelegate> presenterDelegate;
     double _decelerationRate;
     AVTRenderingScope *_renderingScope;
     UIView *_view;
     UICollectionView *_collectionView;
+    AVTZIndexCollectionViewFlowLayout *_collectionViewLayout;
     AVTCenteringCollectionViewDelegate *_centeringDelegate;
-    NSArray *_listItems;
+    NSArray *_recordListItems;
     AVTViewSession *_avtViewSession;
     UIView *_addItemView;
+    id <AVTAvatarListItem> _addListItem;
     id <AVTAvatarRecord> _displayedRecord;
     AVTAvatarListCell *_liveCell;
     AVTTransitionCoordinator *_transitionCoordinator;
@@ -33,15 +36,15 @@
     AVTUIEnvironment *_environment;
     id <AVTUILogger> _logger;
     _AVTAvatarRecordImageProvider *_thumbnailRenderer;
-    id <AVTViewLayout> _avtViewLayout;
+    id <AVTViewCarouselLayout> _avtViewLayout;
     struct CGPoint _lastContentOffset;
 }
 
-+ (id)listItemsForAvatarRecords:(id)arg1 firstItemView:(id)arg2;
++ (id)listItemsForAvatarRecords:(id)arg1;
 + (id)newLayout;
 + (id)snapshotProviderFocusedOnRecordWithIdentifier:(id)arg1 size:(struct CGSize)arg2 dataSource:(id)arg3 environment:(id)arg4;
 @property(nonatomic) struct CGPoint lastContentOffset; // @synthesize lastContentOffset=_lastContentOffset;
-@property(retain, nonatomic) id <AVTViewLayout> avtViewLayout; // @synthesize avtViewLayout=_avtViewLayout;
+@property(retain, nonatomic) id <AVTViewCarouselLayout> avtViewLayout; // @synthesize avtViewLayout=_avtViewLayout;
 @property(readonly, nonatomic) _AVTAvatarRecordImageProvider *thumbnailRenderer; // @synthesize thumbnailRenderer=_thumbnailRenderer;
 @property(readonly, nonatomic) id <AVTUILogger> logger; // @synthesize logger=_logger;
 @property(readonly, nonatomic) AVTUIEnvironment *environment; // @synthesize environment=_environment;
@@ -49,20 +52,23 @@
 @property(readonly, nonatomic) AVTTransitionCoordinator *transitionCoordinator; // @synthesize transitionCoordinator=_transitionCoordinator;
 @property(retain, nonatomic) AVTAvatarListCell *liveCell; // @synthesize liveCell=_liveCell;
 @property(retain, nonatomic) id <AVTAvatarRecord> displayedRecord; // @synthesize displayedRecord=_displayedRecord;
+@property(retain, nonatomic) id <AVTAvatarListItem> addListItem; // @synthesize addListItem=_addListItem;
 @property(retain, nonatomic) UIView *addItemView; // @synthesize addItemView=_addItemView;
 @property(retain, nonatomic) AVTViewSession *avtViewSession; // @synthesize avtViewSession=_avtViewSession;
-@property(retain, nonatomic) NSArray *listItems; // @synthesize listItems=_listItems;
+@property(retain, nonatomic) NSArray *recordListItems; // @synthesize recordListItems=_recordListItems;
 @property(retain, nonatomic) AVTCenteringCollectionViewDelegate *centeringDelegate; // @synthesize centeringDelegate=_centeringDelegate;
+@property(retain, nonatomic) AVTZIndexCollectionViewFlowLayout *collectionViewLayout; // @synthesize collectionViewLayout=_collectionViewLayout;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(retain, nonatomic) UIView *view; // @synthesize view=_view;
+@property(nonatomic) _Bool allowsCreate; // @synthesize allowsCreate=_allowsCreate;
 @property(readonly, nonatomic) AVTRenderingScope *renderingScope; // @synthesize renderingScope=_renderingScope;
 @property(nonatomic) double decelerationRate; // @synthesize decelerationRate=_decelerationRate;
 @property(nonatomic) __weak id <AVTPresenterDelegate> presenterDelegate; // @synthesize presenterDelegate;
 @property(nonatomic) __weak id <AVTAvatarDisplayingControllerDelegate> delegate; // @synthesize delegate;
 - (void).cxx_destruct;
 - (void)transitionCell:(id)arg1 toStopFocusingAnimated:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)transitionCell:(id)arg1 toStartFocusingAnimated:(_Bool)arg2 session:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)transitionCenterCellToStartFocusing:(id)arg1;
+- (void)transitionCell:(id)arg1 indexPath:(id)arg2 toStartFocusingAnimated:(_Bool)arg3 session:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)transitionCenterCellToStartFocusing:(id)arg1 indexPath:(id)arg2;
 - (void)transitionCenterCellIfPresentToStartFocusing;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
@@ -72,18 +78,23 @@
 - (void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
-- (struct CGSize)itemSize;
+- (struct CGSize)sizeForItemAtIndex:(unsigned long long)arg1;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (void)prepareToTransitionToVisible:(_Bool)arg1 completionHandler:(CDUnknownBlockType *)arg2;
 - (void)stopUsingAVTViewSessionSynchronously:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)useAVTViewFromSession:(id)arg1 withLayout:(id)arg2;
 - (void)reloadData;
+- (void)reloadRecordListItems;
+- (void)loadRecordsIfNeeded;
 - (void)displayAvatarForRecord:(id)arg1 animated:(_Bool)arg2;
 - (void)avatarListDidChangeSize:(struct CGSize)arg1;
 - (void)avatarListWillChangeSize:(struct CGSize)arg1;
+- (void)layoutDidChangeWhileMoving:(_Bool)arg1 offset:(struct CGPoint)arg2;
 - (void)notifyDelegateForScrollingTowardItem:(id)arg1 ratio:(double)arg2;
 - (void)notifyDelegateForScrollingTowardItemFromOffset:(struct CGPoint)arg1;
-- (void)updateCurrentDisplayedRecordAnimated:(_Bool)arg1;
+- (void)transitionCurrentDisplayedRecordAnimated:(_Bool)arg1;
+- (void)updateDisplayedRecordIfNeeded;
 - (_Bool)shouldCurrentlyDisplayedRecordTransitionToLive;
 - (double)engagementRatioForLayoutAttributes:(id)arg1;
 - (void)updateVisibleCellAttributes:(id)arg1 forIndexPath:(id)arg2;
@@ -100,9 +111,11 @@
 - (id)loadRecords;
 - (void)preloadAll;
 - (void)loadView;
+- (void)setAllowsCreate:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)createAddItemViewIfNeeded;
-- (id)getFirstItemView;
+- (id)getFirstItem;
 - (_Bool)isViewLoaded;
+- (id)listItemsForDisplay;
 - (id)initWithDataSource:(id)arg1 environment:(id)arg2 initialAVTViewLayout:(id)arg3;
 - (id)initWithDataSource:(id)arg1 environment:(id)arg2;
 - (id)viewForSnapshot;

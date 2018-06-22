@@ -59,6 +59,8 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
+- (id)_description;
+- (id)_descriptionWithPrivateTraits:(_Bool)arg1;
 - (long long)_compare:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

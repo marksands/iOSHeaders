@@ -9,7 +9,7 @@
 @class AVTAvatarFetchRequest, AVTAvatarRecord, NSArray, NSString;
 
 @protocol AVTStoreBackend <NSObject>
-- (_Bool)canCreateAvatar;
+- (_Bool)canCreateAvatarWithError:(id *)arg1;
 - (AVTAvatarRecord *)duplicateAvatarRecord:(AVTAvatarRecord *)arg1 error:(id *)arg2;
 - (_Bool)deleteAvatarWithIdentifier:(NSString *)arg1 error:(id *)arg2;
 - (_Bool)saveAvatar:(AVTAvatarRecord *)arg1 error:(id *)arg2;

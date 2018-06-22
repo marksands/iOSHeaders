@@ -83,6 +83,10 @@
 @property(readonly, nonatomic) UIView *containerView;
 - (struct CGRect)frameForPartWithIdentifier:(id)arg1;
 - (struct CGRect)frameForPartWithIdentifier:(id)arg1 includeInternalItems:(_Bool)arg2;
+- (double)alphaForPartWithIdentifier:(id)arg1;
+- (void)setAlpha:(double)arg1 forPartWithIdentifier:(id)arg2;
+- (struct UIOffset)offsetForPartWithIdentifier:(id)arg1;
+- (void)setOffset:(struct UIOffset)arg1 forPartWithIdentifier:(id)arg2;
 - (id)actionForPartWithIdentifier:(id)arg1;
 - (void)setAction:(id)arg1 forPartWithIdentifier:(id)arg2;
 - (id)_regionsForPartWithIdentifier:(id)arg1 includeInternalItems:(_Bool)arg2;

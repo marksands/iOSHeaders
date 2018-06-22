@@ -18,6 +18,7 @@
     NSMutableDictionary *_replyCounts;
     NSMutableDictionary *_previousTrumps;
     NSMutableDictionary *_incomingTrumps;
+    NSMutableDictionary *_multipleContinuations;
     id _delegate;
     NSString *_deviceClassName;
     unsigned char _deviceClass;
@@ -59,6 +60,7 @@
     _Bool _clientIsWatchTrumpPromote;
     _Bool _clientIsRespondingToSlowdown;
     _Bool _clientDoneRespondingToSlowdown;
+    int _constantGoodness;
     NSObject<OS_dispatch_source> *_timerSource;
     NSDateFormatter *_dateFormat;
     _DKKnowledgeStore *_coreDuetStore;

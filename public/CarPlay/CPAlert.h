@@ -8,11 +8,12 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSUUID;
+@class NSArray, NSString, NSUUID;
 
 @interface CPAlert : NSObject <NSSecureCoding>
 {
     NSArray *_titleVariants;
+    NSString *_message;
     unsigned long long _style;
     NSArray *_actions;
     NSUUID *_identifier;
@@ -24,6 +25,7 @@
 @property(retain, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) NSArray *actions; // @synthesize actions=_actions;
 @property(readonly, nonatomic) unsigned long long style; // @synthesize style=_style;
+@property(readonly, copy, nonatomic) NSString *message; // @synthesize message=_message;
 @property(readonly, copy, nonatomic) NSArray *titleVariants; // @synthesize titleVariants=_titleVariants;
 - (void).cxx_destruct;
 - (void)handleAlertActionForIdentifier:(id)arg1;
@@ -34,7 +36,7 @@
 - (void)_addAction:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithTitleVariants:(id)arg1 style:(unsigned long long)arg2 actions:(id)arg3;
+- (id)initWithTitleVariants:(id)arg1 message:(id)arg2 style:(unsigned long long)arg3 actions:(id)arg4;
 
 @end
 

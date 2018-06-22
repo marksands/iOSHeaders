@@ -39,6 +39,10 @@
     _Bool _isViable;
     _Bool _scopeToWiFiOnly;
     SiriCoreConnectionMetrics *_metrics;
+    double _keepaliveIdleTime;
+    double _keepaliveIntervalTime;
+    double _retransmissionBasedConnectionDropTime;
+    unsigned long long _keepaliveUnackedCount;
 }
 
 + (void)getMetricsContext:(CDUnknownBlockType)arg1;
@@ -47,6 +51,8 @@
 - (_Bool)providerStatsIndicatePoorLinkQuality;
 - (id)_setParametersForHost:(const char *)arg1 useTLS:(_Bool)arg2 initialPayload:(id)arg3;
 - (id)resolvedHost;
+- (void)setRetransmitConnectionDropTime:(double)arg1;
+- (void)setKeepAlive:(double)arg1 withInterval:(double)arg2 withCount:(unsigned long long)arg3;
 - (void)setScopeIsWiFiOnly;
 - (_Bool)shouldFallbackFromError:(id)arg1;
 - (_Bool)isCanceled;

@@ -24,14 +24,21 @@
     struct UIEdgeInsets _edgeInsets;
 }
 
++ (id)_accessoryButtonFont;
++ (id)_sizingButton;
++ (id)_sizingLabel;
 + (id)dismissImage;
 + (id)menuImage;
 + (id)shareImage;
 + (void)preloadResources;
++ (double)_preferredHeightOfButtonWithType:(unsigned long long)arg1 width:(double)arg2;
 + (double)_headerTopSpacingForStyle:(unsigned long long)arg1;
 + (double)_titleBottomSpacingForStyle:(unsigned long long)arg1;
 + (double)_titleHeightForStyle:(unsigned long long)arg1 dividerHidden:(_Bool)arg2;
++ (double)_preferredHeightForText:(id)arg1 fittingWidth:(double)arg2 style:(unsigned long long)arg3 dividerHidden:(_Bool)arg4;
++ (double)_heightThatFitsFirstToLastBaselineWithText:(id)arg1 width:(double)arg2 font:(id)arg3;
 + (id)_preferredBoldTitleFontForStyle:(unsigned long long)arg1;
++ (double)preferredHeightForText:(id)arg1 buttonType:(unsigned long long)arg2 fittingWidth:(double)arg3 style:(unsigned long long)arg4 dividerHidden:(_Bool)arg5;
 + (double)preferredHeightForStyle:(unsigned long long)arg1 dividerHidden:(_Bool)arg2;
 @property(retain, nonatomic) PXViewLayoutHelper *layoutHelper; // @synthesize layoutHelper=_layoutHelper;
 @property(retain, nonatomic) UIView *divider; // @synthesize divider=_divider;

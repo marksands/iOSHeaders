@@ -13,8 +13,6 @@
     _Bool _loadActualThumbnails;
     _Bool _lazyLoadAllAssets;
     _Bool _showNewestItemsInGridUntilScrolled;
-    _Bool _oneUpCellsShouldFadeWhenSelected;
-    _Bool _showSelectionButtonsInHeaders;
     _Bool _hide1UpToolbarAndMarginsForCollapsedAlreadyImportedItem;
     _Bool _longPressForOneUpInCompactMode;
     _Bool _longPressForOneUpInPadSpec;
@@ -28,8 +26,6 @@
 @property(nonatomic) _Bool longPressForOneUpInPadSpec; // @synthesize longPressForOneUpInPadSpec=_longPressForOneUpInPadSpec;
 @property(nonatomic) _Bool longPressForOneUpInCompactMode; // @synthesize longPressForOneUpInCompactMode=_longPressForOneUpInCompactMode;
 @property(nonatomic) _Bool hide1UpToolbarAndMarginsForCollapsedAlreadyImportedItem; // @synthesize hide1UpToolbarAndMarginsForCollapsedAlreadyImportedItem=_hide1UpToolbarAndMarginsForCollapsedAlreadyImportedItem;
-@property(nonatomic) _Bool showSelectionButtonsInHeaders; // @synthesize showSelectionButtonsInHeaders=_showSelectionButtonsInHeaders;
-@property(nonatomic) _Bool oneUpCellsShouldFadeWhenSelected; // @synthesize oneUpCellsShouldFadeWhenSelected=_oneUpCellsShouldFadeWhenSelected;
 @property(nonatomic) _Bool showNewestItemsInGridUntilScrolled; // @synthesize showNewestItemsInGridUntilScrolled=_showNewestItemsInGridUntilScrolled;
 @property(nonatomic) _Bool lazyLoadAllAssets; // @synthesize lazyLoadAllAssets=_lazyLoadAllAssets;
 @property(nonatomic) _Bool loadActualThumbnails; // @synthesize loadActualThumbnails=_loadActualThumbnails;

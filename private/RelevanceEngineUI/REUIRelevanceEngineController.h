@@ -45,6 +45,7 @@
 @property(readonly, nonatomic) NSArray *sectionOrder; // @synthesize sectionOrder=_sectionOrder;
 @property(readonly, nonatomic) RERelevanceEngine *engine; // @synthesize engine=_engine;
 - (void).cxx_destruct;
+- (id)interactionTypeForElement:(id)arg1;
 - (_Bool)elementIsAvailable:(id)arg1;
 - (id)elementsOrdered:(unsigned long long)arg1 relativeToElement:(id)arg2;
 - (_Bool)relevanceEngine:(id)arg1 isElementAtPathVisible:(id)arg2;
@@ -60,6 +61,8 @@
 - (void)_setElement:(id)arg1 atIndexPath:(id)arg2 hidden:(_Bool)arg3;
 - (void)_enumerateEngineElementsWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)_contentForElement:(id)arg1;
+- (_Bool)_sectionHasContent:(id)arg1;
+- (id)_sectionSupportingNoContentElements;
 - (void)_loadNewRelevanceEngine:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)resignCurrent;
 - (void)makeCurrent;

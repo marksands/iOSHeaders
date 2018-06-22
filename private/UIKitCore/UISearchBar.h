@@ -314,6 +314,8 @@
 - (void)_searchFieldBeginEditing;
 - (void)_resultsListButtonPressed;
 - (void)_bookmarkButtonPressed;
+- (void)_cancelOperation:(id)arg1;
+- (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)_cancelButtonPressed;
 - (void)_destroyCancelButton;
 - (void)_setupCancelButtonWithAppearance:(id)arg1;

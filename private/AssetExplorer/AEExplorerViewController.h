@@ -40,9 +40,11 @@
     id <AEHostStatisticsManager> __statisticsManager;
     NSArray *__clientGestureRecognizers;
     unsigned long long __options;
-    NSIndexSet *__cloudAssetIndexes;
+    NSIndexSet *__requiringDownloadAssetIndexes;
     NSIndexSet *__pendingCloudAssetIndexes;
     NSMutableIndexSet *__recentlyDownloadedAssetIndexes;
+    NSIndexSet *__missingThumbnailAssetIndexes;
+    NSIndexSet *__pendingMissingThumbnailAssetIndexes;
     PXBasicUIViewTileAnimator *__tileAnimator;
     PXUIScrollViewController *__scrollViewController;
     PXTilingController *__tilingController;
@@ -75,9 +77,11 @@
 @property(retain, nonatomic, setter=_setTilingController:) PXTilingController *_tilingController; // @synthesize _tilingController=__tilingController;
 @property(readonly, nonatomic) PXUIScrollViewController *_scrollViewController; // @synthesize _scrollViewController=__scrollViewController;
 @property(readonly, nonatomic) PXBasicUIViewTileAnimator *_tileAnimator; // @synthesize _tileAnimator=__tileAnimator;
+@property(retain, nonatomic, setter=_setPendingMissingThumbnailAssetIndexes:) NSIndexSet *_pendingMissingThumbnailAssetIndexes; // @synthesize _pendingMissingThumbnailAssetIndexes=__pendingMissingThumbnailAssetIndexes;
+@property(retain, nonatomic, setter=_setMissingThumbnailAssetIndexes:) NSIndexSet *_missingThumbnailAssetIndexes; // @synthesize _missingThumbnailAssetIndexes=__missingThumbnailAssetIndexes;
 @property(readonly, nonatomic) NSMutableIndexSet *_recentlyDownloadedAssetIndexes; // @synthesize _recentlyDownloadedAssetIndexes=__recentlyDownloadedAssetIndexes;
 @property(retain, nonatomic, setter=_setPendingCloudAssetIndexes:) NSIndexSet *_pendingCloudAssetIndexes; // @synthesize _pendingCloudAssetIndexes=__pendingCloudAssetIndexes;
-@property(retain, nonatomic, setter=_setCloudAssetIndexes:) NSIndexSet *_cloudAssetIndexes; // @synthesize _cloudAssetIndexes=__cloudAssetIndexes;
+@property(retain, nonatomic, setter=_setRequiringDownloadAssetIndexes:) NSIndexSet *_requiringDownloadAssetIndexes; // @synthesize _requiringDownloadAssetIndexes=__requiringDownloadAssetIndexes;
 @property(readonly, nonatomic) unsigned long long _options; // @synthesize _options=__options;
 @property(readonly) NSArray *_clientGestureRecognizers; // @synthesize _clientGestureRecognizers=__clientGestureRecognizers;
 @property(readonly, nonatomic) __weak id <AEHostStatisticsManager> _statisticsManager; // @synthesize _statisticsManager=__statisticsManager;
@@ -100,7 +104,9 @@
 - (_Bool)layout:(id)arg1 shouldShowLoopDecorationAtIndexPath:(struct PXSimpleIndexPath)arg2;
 - (_Bool)layout:(id)arg1 shouldShowVideoDecorationAtIndexPath:(struct PXSimpleIndexPath)arg2;
 - (void)_computeInitialResourcesIndexSetAsync;
+- (void)_addThumbnailIndexes:(id)arg1;
 - (void)_addCloudIndexes:(id)arg1;
+- (id)_thumbnailResourcesIndexSetForAssets:(id)arg1;
 - (id)_cloudResourcesIndexSetForAssets:(id)arg1;
 - (id)prepareForPhotoLibraryChange:(id)arg1;
 - (void)assetsScene:(id)arg1 didTransitionToDataSource:(id)arg2;

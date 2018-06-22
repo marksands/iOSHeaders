@@ -13,7 +13,7 @@
 #import "NSFastEnumeration.h"
 #import "NSSecureCoding.h"
 
-@class HMDAccountIdentifier, NSArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
+@class CNContact, HMDAccountIdentifier, NSArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
 @interface HMDAccount : HMFObject <HMFLogging, HMFMerging, HMDBackingStoreObjectProtocol, HMDBackingStoreModelBackedObjectProtocol, NSFastEnumeration, NSSecureCoding>
 {
@@ -54,12 +54,14 @@
 - (id)deviceWithModelIdentifier:(id)arg1;
 - (id)deviceForHandle:(id)arg1;
 @property(readonly, copy) NSArray *devices;
-- (id)destination;
+@property(readonly, copy) NSString *destination;
 - (id)accountHandleWithModelIdentifier:(id)arg1;
 - (void)removeHandle:(id)arg1;
 - (void)addHandle:(id)arg1;
 - (void)setHandles:(id)arg1;
 @property(readonly, copy) NSArray *handles;
+@property(readonly, copy) CNContact *contact;
+@property(readonly, copy) NSString *name;
 @property(readonly) _Bool shouldCache;
 @property(readonly, getter=isAuthenticated) _Bool authenticated;
 - (id)attributeDescriptions;
@@ -71,7 +73,6 @@
 - (id)initWithObjectModel:(id)arg1;
 - (id)initWithIdentifier:(id)arg1 handles:(id)arg2 devices:(id)arg3;
 - (id)init;
-@property(readonly, copy) NSString *contactName;
 - (id)locallySyncedModelsForCurrentAccountChange:(id)arg1;
 - (id)cloudSyncedModelsForCurrentAccountChange:(id)arg1;
 - (id)currentDevice;

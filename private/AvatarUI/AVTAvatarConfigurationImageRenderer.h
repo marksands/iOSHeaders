@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class AVTPersonalAnimoji, AVTSnapshotBuilder, NSObject<OS_dispatch_queue>;
+@class AVTMemoji, AVTSnapshotBuilder, NSObject<OS_dispatch_queue>;
 
 @interface AVTAvatarConfigurationImageRenderer : NSObject
 {
-    AVTPersonalAnimoji *_avatar;
+    AVTMemoji *_avatar;
     AVTSnapshotBuilder *_snapshotBuilder;
     id <AVTUILogger> _logger;
     NSObject<OS_dispatch_queue> *_snapshotBuilderQueue;
@@ -19,7 +19,7 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *snapshotBuilderQueue; // @synthesize snapshotBuilderQueue=_snapshotBuilderQueue;
 @property(readonly, nonatomic) id <AVTUILogger> logger; // @synthesize logger=_logger;
 @property(readonly, nonatomic) AVTSnapshotBuilder *snapshotBuilder; // @synthesize snapshotBuilder=_snapshotBuilder;
-@property(readonly, nonatomic) AVTPersonalAnimoji *avatar; // @synthesize avatar=_avatar;
+@property(readonly, nonatomic) AVTMemoji *avatar; // @synthesize avatar=_avatar;
 - (void).cxx_destruct;
 - (id)nts_imageForAvatarConfiguration:(id)arg1 scope:(id)arg2;
 - (id)imageForAvatarConfiguration:(id)arg1 scope:(id)arg2;

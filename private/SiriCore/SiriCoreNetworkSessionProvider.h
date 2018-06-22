@@ -54,6 +54,8 @@
 - (void)setPrefersWWAN:(_Bool)arg1;
 - (void)setProviderConnectionPolicy:(id)arg1;
 - (void)setPolicyRoute:(id)arg1;
+- (void)setRetransmitConnectionDropTime:(double)arg1;
+- (void)setKeepAlive:(double)arg1 withInterval:(double)arg2 withCount:(unsigned long long)arg3;
 - (void)setScopeIsWiFiOnly;
 - (_Bool)isCanceled;
 - (_Bool)isReady;

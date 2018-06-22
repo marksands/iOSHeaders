@@ -52,7 +52,7 @@
 - (id)_newLabelSubviewWithFont:(id)arg1;
 - (void)_enumerateForegroundColoringViewsWithBlock:(CDUnknownBlockType)arg1;
 - (void)setTimeTravelDate:(id)arg1 animated:(_Bool)arg2;
-- (void)setComplicationTemplate:(id)arg1;
+- (void)setComplicationTemplate:(id)arg1 reason:(long long)arg2;
 @property(nonatomic, getter=isHighlighted) _Bool highlighted;
 - (void)_updateLabelViewColor:(id)arg1;
 - (void)_updateImageViewColor:(id)arg1;

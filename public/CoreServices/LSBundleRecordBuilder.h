@@ -179,7 +179,6 @@ __attribute__((visibility("hidden")))
 - (void)parseDeviceFamilyFromDict:(id)arg1;
 - (void)parseIconFilenamesFromDict:(id)arg1;
 - (id)getIconsDictionaryFromDict:(id)arg1;
-- (void)parseCapabilityFlagsFromDict:(id)arg1;
 - (void)parseArchitecturesFromDict:(id)arg1;
 - (void)setCommonInfoPlistKeysFromDictionary:(id)arg1;
 - (void)setRaritiesFromDictionary:(id)arg1;

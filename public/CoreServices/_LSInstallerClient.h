@@ -8,7 +8,7 @@
 
 #import "LSInstallationServiceCallbackProtocol.h"
 
-@class NSDictionary, NSObject<OS_dispatch_queue>, NSString, NSURL, NSXPCConnection;
+@class NSDictionary, NSObject<OS_dispatch_group>, NSString, NSURL, NSXPCConnection;
 
 __attribute__((visibility("hidden")))
 @interface _LSInstallerClient : NSObject <LSInstallationServiceCallbackProtocol>
@@ -17,28 +17,19 @@ __attribute__((visibility("hidden")))
     unsigned long long _operationType;
     NSString *_operationTypeString;
     NSXPCConnection *_connection;
-    NSObject<OS_dispatch_queue> *_queue;
     CDUnknownBlockType _progressBlock;
     NSString *_bundleID;
     NSURL *_bundleURL;
     NSDictionary *_options;
-    struct _opaque_pthread_mutex_t {
-        long long __sig;
-        char __opaque[56];
-    } _callbacksCompleteCondMutex;
-    struct _opaque_pthread_cond_t {
-        long long __sig;
-        char __opaque[40];
-    } _callbacksCompleteCond;
+    NSObject<OS_dispatch_group> *_callbackDeliveryGroup;
+    struct os_unfair_lock_s _lock;
     _Bool _allCallbacksDeleviered;
 }
 
 + (id)installerWithBundleID:(id)arg1 bundleURL:(id)arg2 options:(id)arg3 callbackBlock:(CDUnknownBlockType)arg4;
 + (id)unInstallerWithBundleID:(id)arg1 options:(id)arg2 callbackBlock:(CDUnknownBlockType)arg3;
 + (id)installerWithBundleID:(id)arg1 options:(id)arg2 callbackBlock:(CDUnknownBlockType)arg3;
-@property(nonatomic) _Bool allCallbacksDeleviered; // @synthesize allCallbacksDeleviered=_allCallbacksDeleviered;
 @property(nonatomic) unsigned long long operationType; // @synthesize operationType=_operationType;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) NSDictionary *options; // @synthesize options=_options;
 @property(copy, nonatomic) CDUnknownBlockType progressBlock; // @synthesize progressBlock=_progressBlock;
 @property(retain, nonatomic) NSURL *bundleURL; // @synthesize bundleURL=_bundleURL;
@@ -48,6 +39,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *operationTypeString; // @dynamic operationTypeString;
 - (void)_invalidate;
 - (void)_waitForAllCallbackMessagesToExecute;
+- (void)_beginOperation;
+@property(readonly) _Bool allCallbacksDeleviered; // @synthesize allCallbacksDeleviered=_allCallbacksDeleviered;
 - (void)callbackDeliveryComplete;
 - (void)updateCallbackWithData:(id)arg1;
 - (void)dealloc;

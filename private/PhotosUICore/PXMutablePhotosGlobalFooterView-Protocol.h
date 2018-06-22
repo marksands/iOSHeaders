@@ -15,7 +15,7 @@
 @property(copy, nonatomic) NSString *actionConfirmationAlertTitle;
 @property(copy, nonatomic) NSString *actionTitle;
 @property(nonatomic) long long actionStyle;
-@property(nonatomic) double progress;
+@property(nonatomic) float progress;
 @property(nonatomic, getter=isPaused) _Bool paused;
 @property(copy, nonatomic) NSString *subtitle2;
 @property(copy, nonatomic) NSString *subtitle1;

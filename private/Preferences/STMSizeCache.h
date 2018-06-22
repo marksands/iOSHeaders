@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSLock, NSMutableDictionary, NSOperationQueue;
+@class NSArray, NSDictionary, NSLock, NSMutableDictionary;
 
 @interface STMSizeCache : NSObject
 {
     struct __CFString *_prefsKey;
-    NSOperationQueue *_sizingQueue;
     NSMutableDictionary *_itemsByPath;
     id <STMSizeCacheDelegate> _delegate;
     unsigned long long _cacheEventID;
@@ -44,6 +43,8 @@
 - (void)flushCacheToPref;
 - (void)_flushCache:(id)arg1;
 - (void)loadCacheFromPref;
+- (id)pathFromURLString:(id)arg1;
+- (id)urlStringFromPath:(id)arg1;
 - (void)dealloc;
 - (id)initWithPrefsKey:(id)arg1;
 

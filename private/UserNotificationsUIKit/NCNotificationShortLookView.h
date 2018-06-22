@@ -32,6 +32,8 @@
 - (void)_configureNotificationContentViewIfNecessary;
 - (void)_configureCustomContentView;
 - (void)_configureHeaderContentView;
+- (struct CGSize)_sizeThatFitsContentWithSize:(struct CGSize)arg1 withAuxiliaryOptionsViewVisible:(_Bool)arg2;
+- (void)nc_performDeferredActionsIfNeeded;
 - (_Bool)adjustForContentSizeCategoryChange;
 @property(nonatomic) _Bool adjustsFontForContentSizeCategory;
 @property(nonatomic) _Bool auxiliaryOptionsVisible;
@@ -47,7 +49,6 @@
 @property(copy, nonatomic) NSString *primarySubtitleText;
 @property(copy, nonatomic) NSString *primaryText;
 - (void)setBackgroundView:(id)arg1;
-- (struct CGSize)contentSizeForSize:(struct CGSize)arg1;
 - (struct CGSize)sizeThatFitsContentWithSize:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

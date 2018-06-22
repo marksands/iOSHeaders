@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSNumber, NSString;
+@class NSDictionary, NSNumber, NSString;
 
 @interface AMSFamilyMember : NSObject
 {
@@ -32,7 +32,8 @@
 @property(readonly, nonatomic, getter=isAskToBuyEnabled) _Bool askToBuyEnabled; // @synthesize askToBuyEnabled=_askToBuyEnabled;
 - (void).cxx_destruct;
 - (id)description;
-- (id)initWithServerResponse:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+- (id)initWithDictionaryRepresentation:(id)arg1;
 
 @end
 

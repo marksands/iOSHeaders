@@ -12,8 +12,8 @@
 
 @interface _UIStatusBarStringView : UILabel <_UIStatusBarDisplayable>
 {
-    _Bool _emphasized;
     _Bool _showsAlternateText;
+    long long _fontStyle;
     NSString *_alternateText;
     NSString *_originalText;
     NSTimer *_alternateTextTimer;
@@ -25,13 +25,14 @@
 @property(nonatomic) _Bool showsAlternateText; // @synthesize showsAlternateText=_showsAlternateText;
 @property(copy, nonatomic) NSString *alternateText; // @synthesize alternateText=_alternateText;
 @property(nonatomic) struct UIEdgeInsets alignmentRectInsets; // @synthesize alignmentRectInsets=_alignmentRectInsets;
-@property(nonatomic) _Bool emphasized; // @synthesize emphasized=_emphasized;
+@property(nonatomic) long long fontStyle; // @synthesize fontStyle=_fontStyle;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) UIAccessibilityHUDItem *accessibilityHUDRepresentation;
 - (void)didMoveToWindow;
 - (void)_updateAlternateTextTimer;
 - (void)setText:(id)arg1;
 - (void)applyStyleAttributes:(id)arg1;
+@property(readonly, nonatomic) long long overriddenVerticalAlignment;
 @property(readonly, nonatomic) _Bool wantsCrossfade;
 - (id)initWithFrame:(struct CGRect)arg1;
 

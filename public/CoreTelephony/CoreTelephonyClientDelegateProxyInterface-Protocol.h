@@ -4,6 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+#import "CoreTelephonyClientCallDelegate.h"
 #import "CoreTelephonyClientCapabilitiesDelegate.h"
 #import "CoreTelephonyClientCarrierBundleDelegate.h"
 #import "CoreTelephonyClientDataDelegate.h"
@@ -17,7 +18,7 @@
 #import "CoreTelephonyClientVoicemailDelegate.h"
 #import "NSObject.h"
 
-@protocol CoreTelephonyClientDelegateProxyInterface <NSObject, CoreTelephonyClientDelegate, CoreTelephonyClientRegistrationDelegate, CoreTelephonyClientDataDelegate, CoreTelephonyClientSubscriberDelegate, CoreTelephonyClientEmergencyDelegate, CoreTelephonyClientSMSDelegate, CoreTelephonyClientVoicemailDelegate, CoreTelephonyClientPNRDelegate, CoreTelephonyClientCarrierBundleDelegate, CoreTelephonyClientCapabilitiesDelegate, CoreTelephonyClientSuppServicesDelegate>
+@protocol CoreTelephonyClientDelegateProxyInterface <NSObject, CoreTelephonyClientDelegate, CoreTelephonyClientRegistrationDelegate, CoreTelephonyClientDataDelegate, CoreTelephonyClientSubscriberDelegate, CoreTelephonyClientEmergencyDelegate, CoreTelephonyClientSMSDelegate, CoreTelephonyClientVoicemailDelegate, CoreTelephonyClientPNRDelegate, CoreTelephonyClientCarrierBundleDelegate, CoreTelephonyClientCapabilitiesDelegate, CoreTelephonyClientSuppServicesDelegate, CoreTelephonyClientCallDelegate>
 - (void)remoteObjectRespondsToSelector:(SEL)arg1 completion:(void (^)(_Bool))arg2;
 @end
 

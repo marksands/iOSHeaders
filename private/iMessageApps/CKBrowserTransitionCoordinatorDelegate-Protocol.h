@@ -6,13 +6,16 @@
 
 #import "NSObject.h"
 
-@class CKAppGrabberView, CKBrowserTransitionCoordinator, IMBalloonPlugin, NSDate, UIViewController, UIViewController<CKBrowserViewControllerProtocol>;
+@class CKAppGrabberView, CKBrowserTransitionCoordinator, IMBalloonPlugin, NSDate, NSString, UIImage, UIViewController, UIViewController<CKBrowserViewControllerProtocol>;
 
 @protocol CKBrowserTransitionCoordinatorDelegate <NSObject>
 
 @optional
 - (UIViewController *)transitionsPresentationViewController;
+- (UIImage *)appIconOverride;
+- (NSString *)appTitleOverride;
 - (_Bool)shouldAlwaysShowAppTitle;
+- (_Bool)browserTransitionCoordinatorShouldDismissOnDragSuccess:(CKBrowserTransitionCoordinator *)arg1;
 - (double)browserTransitionCoordinatorCollapsedContentHeight:(CKBrowserTransitionCoordinator *)arg1;
 - (struct CGRect)cachedCompactFrameInWindowCoordsForBrowserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1;
 - (void)reinsertAppGrabberViewForBrowserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1;

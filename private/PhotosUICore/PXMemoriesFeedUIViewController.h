@@ -22,7 +22,7 @@
 #import "UIPopoverPresentationControllerDelegate.h"
 #import "UIViewControllerPreviewingDelegate.h"
 
-@class NSString, PXBasicUIViewTileAnimator, PXMemoriesFeedViewControllerHelper, PXMemoriesOnboardingUIViewController, PXMemoriesUITileSource, PXPhotoAnalysisStatusController, PXSectionedDataSource, PXTouchingUIGestureRecognizer, PXUIScrollViewController, PXUITapGestureRecognizer, UIBarButtonItem, UILongPressGestureRecognizer, UIScrollView, _UIContentUnavailableView;
+@class NSString, PXBasicUIViewTileAnimator, PXMemoriesFeedDataSourceManager, PXMemoriesFeedViewControllerHelper, PXMemoriesOnboardingUIViewController, PXMemoriesUITileSource, PXPhotoAnalysisStatusController, PXSectionedDataSource, PXTouchingUIGestureRecognizer, PXUIScrollViewController, PXUITapGestureRecognizer, UIBarButtonItem, UILongPressGestureRecognizer, UIScrollView, _UIContentUnavailableView;
 
 @interface PXMemoriesFeedUIViewController : UIViewController <PXReusableObjectPoolDelegate, PXChangeObserver, UIGestureRecognizerDelegate, PXActionPerformerDelegate, PXScrollViewControllerObserver, PXUIViewControllerZoomTransitionEndPoint, PXTilingControllerZoomAnimationCoordinatorDelegate, PXSectionedDataSourceManagerObserver, UIViewControllerPreviewingDelegate, UIPopoverPresentationControllerDelegate, PXMemoriesFeedViewControllerHelperDelegate, PXMemoriesOnboardingViewControllerDelegate, PXMemoriesUITileSourceDelegate, PXUserInterfaceFeatureViewController, PXSettingsKeyObserver>
 {
@@ -124,6 +124,7 @@
 - (void)_updateScrollViewControllerContentInset;
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_applicationWillEnterForeground:(id)arg1;
+@property(readonly, nonatomic) PXMemoriesFeedDataSourceManager *dataSourceManager;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

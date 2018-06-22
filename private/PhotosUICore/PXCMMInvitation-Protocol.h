@@ -15,9 +15,9 @@
 @property(readonly, nonatomic) id <PXCMMInvitationParticipant> owner;
 @property(readonly, nonatomic) unsigned long long count;
 @property(readonly, nonatomic) NSDate *expiryDate;
-@property(readonly, nonatomic) NSDate *endDate;
-@property(readonly, nonatomic) NSDate *startDate;
-@property(readonly, nonatomic) NSString *localizedTitle;
+@property(readonly, nonatomic) NSDate *creationDate;
+@property(readonly, nonatomic) NSString *subtitle;
+@property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) NSString *identifier;
 @property(readonly, nonatomic) long long shareType;
 - (void)notifyUserWhenReadyToViewIfNeeded;

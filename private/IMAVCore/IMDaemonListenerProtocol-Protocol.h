@@ -9,6 +9,7 @@
 @class IMItem, IMMessageItem, NSArray, NSData, NSDictionary, NSError, NSNumber, NSString;
 
 @protocol IMDaemonListenerProtocol <NSObject>
+- (void)lastMessageForAllChats:(NSDictionary *)arg1;
 - (void)didFetchCloudKitSyncDebuggingInfo:(NSDictionary *)arg1;
 - (void)receivedUrgentRequestForMessages:(NSArray *)arg1;
 - (void)oneTimeCodesDidChange:(NSArray *)arg1;

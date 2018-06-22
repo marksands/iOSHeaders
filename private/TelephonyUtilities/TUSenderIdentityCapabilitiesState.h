@@ -14,9 +14,7 @@
 
 @interface TUSenderIdentityCapabilitiesState : NSObject <NSSecureCoding, NSCopying, TUPubliclyAccessibleCopying>
 {
-    _Bool _valid;
     _Bool _supportsSimultaneousVoiceAndData;
-    _Bool _emergencyCallbackModeEnabled;
     NSUUID *_senderIdentityUUID;
     TUCTCapabilitiesState *_csCallingCapabilitiesState;
     TUCTCapabilitiesState *_voLTECallingCapabilitiesState;
@@ -29,9 +27,7 @@
 @property(copy, nonatomic) TUCTCapabilitiesState *wiFiCallingCapabilitiesState; // @synthesize wiFiCallingCapabilitiesState=_wiFiCallingCapabilitiesState;
 @property(copy, nonatomic) TUCTCapabilitiesState *voLTECallingCapabilitiesState; // @synthesize voLTECallingCapabilitiesState=_voLTECallingCapabilitiesState;
 @property(copy, nonatomic) TUCTCapabilitiesState *csCallingCapabilitiesState; // @synthesize csCallingCapabilitiesState=_csCallingCapabilitiesState;
-@property(nonatomic, getter=isEmergencyCallbackModeEnabled) _Bool emergencyCallbackModeEnabled; // @synthesize emergencyCallbackModeEnabled=_emergencyCallbackModeEnabled;
 @property(nonatomic) _Bool supportsSimultaneousVoiceAndData; // @synthesize supportsSimultaneousVoiceAndData=_supportsSimultaneousVoiceAndData;
-@property(nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_valid;
 @property(readonly, copy, nonatomic) NSUUID *senderIdentityUUID; // @synthesize senderIdentityUUID=_senderIdentityUUID;
 - (void).cxx_destruct;
 - (id)publiclyAccessibleCopyWithZone:(struct _NSZone *)arg1;

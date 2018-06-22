@@ -6,16 +6,17 @@
 
 #import "PSListController.h"
 
+@class NSObject<STContentPrivacyViewModelCoordinator>;
+
 @interface STContentPrivacyListController : PSListController
 {
-    id <STContentPrivacyViewModelCoordinator> _coordinator;
+    NSObject<STContentPrivacyViewModelCoordinator> *_coordinator;
 }
 
-@property(retain, nonatomic) id <STContentPrivacyViewModelCoordinator> coordinator; // @synthesize coordinator=_coordinator;
+@property(retain, nonatomic) NSObject<STContentPrivacyViewModelCoordinator> *coordinator; // @synthesize coordinator=_coordinator;
 - (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)viewDidDisappear:(_Bool)arg1;
-- (void)viewWillAppear:(_Bool)arg1;
+- (void)dealloc;
 - (id)radioGroupSpecifierWithName:(id)arg1 footerText:(id)arg2 item:(id)arg3;
 - (id)defaultLinkListSpecifierWithConfiguration:(id)arg1 key:(id)arg2;
 - (id)defaultLinkListSpecifierWithItem:(id)arg1;

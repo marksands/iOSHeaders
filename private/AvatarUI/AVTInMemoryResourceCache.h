@@ -30,6 +30,7 @@
 - (void)handleChangeForItemForKey:(id)arg1;
 - (id)observeChangesForItem:(id)arg1 key:(id)arg2;
 - (void)nts_evictObjectsToFreeUpCost:(unsigned long long)arg1;
+- (void)clearCache;
 - (id)_resourceForItem:(id)arg1 scope:(id)arg2 cacheMissHandler:(CDUnknownBlockType)arg3;
 - (id)resourceForItem:(id)arg1 scope:(id)arg2 cacheMissHandler:(CDUnknownBlockType)arg3;
 - (id)resourceForItem:(id)arg1 scope:(id)arg2;

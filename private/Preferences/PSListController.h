@@ -279,6 +279,7 @@
 - (id)indexPathForSpecifier:(id)arg1;
 - (id)indexPathForIndex:(long long)arg1;
 - (void)setSpecifiers:(id)arg1;
+- (void)setTitle:(id)arg1;
 - (void)setSpecifier:(id)arg1;
 - (void)_removeIdentifierForSpecifier:(id)arg1;
 - (void)_addIdentifierForSpecifier:(id)arg1;

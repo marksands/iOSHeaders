@@ -20,7 +20,6 @@
     id <SPCoreSpotlightIndexerDelegate> _indexerDelegate;
     SPCoreSpotlightInteractionHandler *_interactionHandler;
     NSDictionary *_concreteIndexers;
-    unsigned long long _dirty_time;
     NSObject<OS_dispatch_source> *_prefsChangeSource;
     id <NSObject> _dataMigrationStartObserver;
     id <NSObject> _dataMigrationFinishObserver;
@@ -30,7 +29,6 @@
     NSObject<OS_dispatch_source> *_reindexAllItemsWithIdentifiersSource;
     SPCoreSpotlightTask *_reindexAllItemsTask;
     NSDictionary *_fileProviderAppToExtensionBundleMap;
-    NSObject<OS_dispatch_source> *_idleTimer;
     NSObject<OS_dispatch_queue> *_indexQueue;
     NSObject<OS_dispatch_queue> *_firstUnlockQueue;
     NSObject<OS_dispatch_queue> *_reindexAllQueue;
@@ -39,7 +37,7 @@
 }
 
 + (id)_filterReindexAllExtensions:(id)arg1;
-+ (void)writeDiagnostic:(id)arg1 bundleID:(id)arg2 identifier:(id)arg3;
++ (_Bool)writeDiagnostic:(id)arg1 bundleID:(id)arg2 identifier:(id)arg3;
 + (id)sharedInstance;
 + (id)sharedInstanceWithDelegate:(id)arg1;
 + (void)setPrivate:(_Bool)arg1;
@@ -60,7 +58,6 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *reindexAllQueue; // @synthesize reindexAllQueue=_reindexAllQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *firstUnlockQueue; // @synthesize firstUnlockQueue=_firstUnlockQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *indexQueue; // @synthesize indexQueue=_indexQueue;
-@property(retain, nonatomic) NSObject<OS_dispatch_source> *idleTimer; // @synthesize idleTimer=_idleTimer;
 @property(retain) NSDictionary *fileProviderAppToExtensionBundleMap; // @synthesize fileProviderAppToExtensionBundleMap=_fileProviderAppToExtensionBundleMap;
 @property(retain) SPCoreSpotlightTask *reindexAllItemsTask; // @synthesize reindexAllItemsTask=_reindexAllItemsTask;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *reindexAllItemsWithIdentifiersSource; // @synthesize reindexAllItemsWithIdentifiersSource=_reindexAllItemsWithIdentifiersSource;
@@ -70,7 +67,6 @@
 @property(retain, nonatomic) id <NSObject> dataMigrationFinishObserver; // @synthesize dataMigrationFinishObserver=_dataMigrationFinishObserver;
 @property(retain, nonatomic) id <NSObject> dataMigrationStartObserver; // @synthesize dataMigrationStartObserver=_dataMigrationStartObserver;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *prefsChangeSource; // @synthesize prefsChangeSource=_prefsChangeSource;
-@property(nonatomic) unsigned long long dirty_time; // @synthesize dirty_time=_dirty_time;
 @property(retain) NSDictionary *concreteIndexers; // @synthesize concreteIndexers=_concreteIndexers;
 @property(retain, nonatomic) SPCoreSpotlightInteractionHandler *interactionHandler; // @synthesize interactionHandler=_interactionHandler;
 @property __weak id <SPCoreSpotlightIndexerDelegate> indexerDelegate; // @synthesize indexerDelegate=_indexerDelegate;
@@ -114,9 +110,10 @@
 - (void)indexSearchableItems:(id)arg1 deleteSearchableItemsWithIdentifiers:(id)arg2 clientState:(id)arg3 clientStateName:(id)arg4 protectionClass:(id)arg5 forBundleID:(id)arg6 options:(long long)arg7 completionHandler:(CDUnknownBlockType)arg8;
 - (void)indexSearchableItems:(id)arg1 deleteSearchableItemsWithIdentifiers:(id)arg2 clientState:(id)arg3 protectionClass:(id)arg4 forBundleID:(id)arg5 options:(long long)arg6 completionHandler:(CDUnknownBlockType)arg7;
 - (void)indexFromBundle:(id)arg1 protectionClass:(id)arg2 options:(long long)arg3 items:(id)arg4 itemsText:(id)arg5 itemsHTML:(id)arg6 clientState:(id)arg7 clientStateName:(id)arg8 deletes:(id)arg9 completionHandler:(CDUnknownBlockType)arg10;
+- (_Bool)writeData:(id)arg1 toFile:(id)arg2;
 - (int)openIndex:(_Bool)arg1;
 - (void)extensionsChanged:(id)arg1;
-- (void)extensionsLoaded;
+- (void)checkIfExtensionsNeedToBeLoaded;
 - (int)_openIndex:(_Bool)arg1;
 - (void)reindexAllItemsWithIndexers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)recordEngagementForBundleID:(id)arg1 uniqueIdentifier:(id)arg2 protectionClass:(id)arg3 userQuery:(id)arg4 date:(id)arg5;
@@ -129,7 +126,6 @@
 - (void)startQueryTask:(id)arg1;
 - (id)taskForQueryWithQueryString:(id)arg1 queryContext:(id)arg2 eventHandler:(CDUnknownBlockType)arg3 resultsHandler:(CDUnknownBlockType)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)_taskForQueryWithQueryString:(id)arg1 queryContext:(id)arg2 eventHandler:(CDUnknownBlockType)arg3 resultsHandler:(CDUnknownBlockType)arg4 completionHandler:(CDUnknownBlockType)arg5;
-- (void)dirty;
 - (void)shutdown;
 - (void)closeIndex;
 - (void)_closeIndexWithIndexers:(id)arg1;

@@ -13,7 +13,6 @@
 @interface MFAttachment : NSObject <MFCancelable>
 {
     MFAttachmentManager *_attachmentManager;
-    _Bool _isDataAvailableLocally;
     MFAttachmentPlaceholder *_placeholder;
     NSProgress *_downloadProgress;
     _Bool _isAutoArchive;

@@ -26,7 +26,7 @@
 @property(readonly, nonatomic) long long playbackStyle;
 @property(readonly, nonatomic) double duration;
 - (id <PXAssetdestinationAssetCopyProperties>)destinationAssetCopyProperties;
-- (struct CGRect)bestCropRectForAspectRatio:(double)arg1 useSaliency:(_Bool)arg2;
+- (struct CGRect)bestCropRectForAspectRatio:(double)arg1 verticalContentMode:(long long)arg2 cropMode:(long long)arg3;
 - (struct CGRect)bestCropRectForAspectRatio:(double)arg1;
 @end
 

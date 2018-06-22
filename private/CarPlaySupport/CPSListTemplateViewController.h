@@ -9,7 +9,7 @@
 #import "CPListTemplateProviding.h"
 #import "UITableViewDelegate.h"
 
-@class CPSSectionedDataSource, NSIndexPath, NSString, NSTimer, UIActivityIndicatorView;
+@class CPListTemplate, CPSSectionedDataSource, NSIndexPath, NSString, NSTimer, UIActivityIndicatorView;
 
 @interface CPSListTemplateViewController : CPSBaseTemplateViewController <UITableViewDelegate, CPListTemplateProviding>
 {
@@ -46,7 +46,7 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
-- (id)listTemplate;
+@property(readonly, nonatomic) CPListTemplate *listTemplate;
 - (id)initWithListTemplate:(id)arg1 templateDelegate:(id)arg2;
 
 // Remaining properties

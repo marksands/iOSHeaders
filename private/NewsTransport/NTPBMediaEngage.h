@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSData, NSMutableArray, NSString, NTPBWidgetEngagement;
+@class NSData, NSMutableArray, NSString, NTPBAlternateHeadline, NTPBWidgetEngagement;
 
 @interface NTPBMediaEngage : PBCodable <NSCopying>
 {
@@ -21,6 +21,7 @@
     long long _personalizationTreatmentId;
     long long _previousArticlePublisherArticleVersion;
     long long _publisherArticleVersionInt64;
+    NTPBAlternateHeadline *_alternateHeadline;
     NSString *_articleId;
     NSData *_articleSessionId;
     int _articleType;
@@ -111,6 +112,7 @@
 
 + (Class)fractionalCohortMembershipType;
 + (Class)namedEntitiesType;
+@property(retain, nonatomic) NTPBAlternateHeadline *alternateHeadline; // @synthesize alternateHeadline=_alternateHeadline;
 @property(retain, nonatomic) NSData *groupViewExposureId; // @synthesize groupViewExposureId=_groupViewExposureId;
 @property(retain, nonatomic) NSString *iadNativeCampaignAd; // @synthesize iadNativeCampaignAd=_iadNativeCampaignAd;
 @property(nonatomic) long long previousArticlePublisherArticleVersion; // @synthesize previousArticlePublisherArticleVersion=_previousArticlePublisherArticleVersion;
@@ -164,6 +166,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasAlternateHeadline;
 @property(readonly, nonatomic) _Bool hasGroupViewExposureId;
 @property(readonly, nonatomic) _Bool hasIadNativeCampaignAd;
 @property(nonatomic) _Bool hasPreviousArticlePublisherArticleVersion;

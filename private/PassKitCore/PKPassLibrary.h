@@ -20,11 +20,13 @@
     NSHashTable *_delegates;
     NSObject<OS_dispatch_queue> *_delegateQueue;
     NSObject<OS_dispatch_queue> *_asynchronousImageQueue;
+    _Bool _shouldSendRemovingPassesOfTypeDidFinish;
     id <PKPassLibraryDelegate> _delegate;
 }
 
 + (_Bool)contactlessInterfaceCanBePresentedFromSource:(long long)arg1;
 + (id)sharedInstance;
++ (id)sharedInstanceWithRemoteLibrary;
 + (_Bool)isSuppressingAutomaticPassPresentation;
 + (void)endAutomaticPassPresentationSuppressionWithRequestToken:(unsigned long long)arg1;
 + (unsigned long long)requestAutomaticPassPresentationSuppressionWithResponseHandler:(CDUnknownBlockType)arg1;
@@ -56,6 +58,7 @@
 - (void)noteAccountChanged;
 - (void)logDelayExitReasons;
 - (void)shuffleGroups:(int)arg1;
+- (void)removePassesOfType:(unsigned long long)arg1 withDiagnosticReason:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)removePassesOfType:(unsigned long long)arg1 withDiagnosticReason:(id)arg2;
 - (void)removePassesOfType:(unsigned long long)arg1;
 - (void)removePassesWithUniqueIDs:(id)arg1 diagnosticReason:(id)arg2;
@@ -80,7 +83,7 @@
 - (id)_sortedPaymentPassesForPaymentRequest:(id)arg1;
 - (void)sortedTransitPassesForAppletDataFormat:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)expressFelicaTransitPasses;
-- (id)defaultPaymentPasses;
+- (id)defaultPaymentPassesWithRemotePasses:(_Bool)arg1;
 - (_Bool)resetSettingsForPass:(id)arg1;
 - (_Bool)setSuppressNotificationsEnabled:(_Bool)arg1 forPass:(id)arg2;
 - (_Bool)setAutomaticPresentationEnabled:(_Bool)arg1 forPass:(id)arg2;
@@ -170,6 +173,7 @@
 - (id)_remoteObjectProxy;
 - (void)dealloc;
 - (id)initWithMachServiceName:(id)arg1 resumeNotificationName:(id)arg2 interfaceType:(unsigned long long)arg3;
+- (id)_initWithRemote:(id)arg1;
 - (id)init;
 
 // Remaining properties

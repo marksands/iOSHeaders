@@ -72,6 +72,7 @@
     _Bool _disableOverlays;
     float _contentScaleFactor;
     _Bool _isRunningInExtension;
+    _Bool _watchAppInForeground;
     SCNAuthoringEnvironment *_authoringEnvironment;
     unsigned long long _debugOptions;
     _Bool _showStatistics;

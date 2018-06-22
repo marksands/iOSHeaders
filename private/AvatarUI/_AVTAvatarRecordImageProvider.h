@@ -10,33 +10,33 @@
 
 @interface _AVTAvatarRecordImageProvider : NSObject
 {
+    _Bool _allowPreFlight;
     id <AVTImageCache> _cache;
     id <AVTUILogger> _logger;
     AVTUIEnvironment *_environment;
     AVTAvatarConfigurationImageRenderer *_configurationRenderer;
-    AVTAvatarImageRenderer *_puppetRenderer;
+    AVTAvatarImageRenderer *_avatarRenderer;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     id <AVTScheduler> _renderingScheduler;
 }
 
 + (id)recordImageCacheWithEnvironment:(id)arg1;
+@property(readonly, nonatomic) _Bool allowPreFlight; // @synthesize allowPreFlight=_allowPreFlight;
 @property(readonly, nonatomic) id <AVTScheduler> renderingScheduler; // @synthesize renderingScheduler=_renderingScheduler;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_callbackQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
-@property(readonly, nonatomic) AVTAvatarImageRenderer *puppetRenderer; // @synthesize puppetRenderer=_puppetRenderer;
+@property(readonly, nonatomic) AVTAvatarImageRenderer *avatarRenderer; // @synthesize avatarRenderer=_avatarRenderer;
 @property(readonly, nonatomic) AVTAvatarConfigurationImageRenderer *configurationRenderer; // @synthesize configurationRenderer=_configurationRenderer;
 @property(readonly, nonatomic) AVTUIEnvironment *environment; // @synthesize environment=_environment;
 @property(readonly, nonatomic) id <AVTUILogger> logger; // @synthesize logger=_logger;
 @property(readonly, nonatomic) id <AVTImageCache> cache; // @synthesize cache=_cache;
 - (void).cxx_destruct;
-- (CDUnknownBlockType)_providerForRenderingPuppetRecord:(id)arg1 scope:(id)arg2;
-- (CDUnknownBlockType)_providerForThumbnailForPuppetRecord:(id)arg1 scope:(id)arg2;
-- (CDUnknownBlockType)_providerForPuppetRecord:(id)arg1 scope:(id)arg2;
+- (CDUnknownBlockType)_providerForAvatar:(id)arg1 scope:(id)arg2;
 - (CDUnknownBlockType)_providerForRecord:(id)arg1 scope:(id)arg2;
 - (CDUnknownBlockType)providerForRecord:(id)arg1 scope:(id)arg2;
-- (id)initWithCache:(id)arg1 renderingQueueProvider:(CDUnknownBlockType)arg2 callbackQueue:(id)arg3 configurationRenderer:(id)arg4 puppetRenderer:(id)arg5 environment:(id)arg6;
-- (id)initWithRenderingPuppets:(_Bool)arg1 environment:(id)arg2;
+- (id)initWithCache:(id)arg1 renderingQueueProvider:(CDUnknownBlockType)arg2 callbackQueue:(id)arg3 configurationRenderer:(id)arg4 avatarRenderer:(id)arg5 allowPreFlight:(_Bool)arg6 environment:(id)arg7;
+- (id)initWithCache:(id)arg1 allowPreFlight:(_Bool)arg2 environment:(id)arg3;
 - (id)initWithEnvironment:(id)arg1;
 
 @end

@@ -10,7 +10,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "_UIActivityGroupViewDelegateFlowLayout.h"
 
-@class NSArray, NSIndexPath, NSString, UIActivityIndicatorView, UILongPressGestureRecognizer, _UIActivityUserDefaults, _UIPlaceholderActivity, _UIUserDefaultsActivity;
+@class NSArray, NSIndexPath, NSString, UILongPressGestureRecognizer, _UIActivityUserDefaults, _UIPlaceholderActivity, _UIUserDefaultsActivity;
 
 @interface UIActivityGroupViewController : UICollectionViewController <_UIActivityGroupViewDelegateFlowLayout, UICollectionViewDataSourcePrefetching, UIGestureRecognizerDelegate>
 {
@@ -25,7 +25,6 @@
     NSArray *_activities;
     NSArray *_visibleActivities;
     _UIPlaceholderActivity *_placeholderGroupActivity;
-    UIActivityIndicatorView *_placeholderSpinner;
     _UIActivityUserDefaults *_userDefaults;
     _UIUserDefaultsActivity *_userDefaultsActivity;
     UILongPressGestureRecognizer *_editingGestureRecognizer;
@@ -47,7 +46,6 @@
 @property(retain, nonatomic) UILongPressGestureRecognizer *editingGestureRecognizer; // @synthesize editingGestureRecognizer=_editingGestureRecognizer;
 @property(retain, nonatomic) _UIUserDefaultsActivity *userDefaultsActivity; // @synthesize userDefaultsActivity=_userDefaultsActivity;
 @property(retain, nonatomic) _UIActivityUserDefaults *userDefaults; // @synthesize userDefaults=_userDefaults;
-@property(retain, nonatomic) UIActivityIndicatorView *placeholderSpinner; // @synthesize placeholderSpinner=_placeholderSpinner;
 @property(retain, nonatomic) _UIPlaceholderActivity *placeholderGroupActivity; // @synthesize placeholderGroupActivity=_placeholderGroupActivity;
 @property(copy, nonatomic) NSArray *visibleActivities; // @synthesize visibleActivities=_visibleActivities;
 @property(nonatomic) _Bool hasActivities; // @synthesize hasActivities=_hasActivities;
@@ -90,7 +88,6 @@
 - (void)_setActivities:(id)arg1 animated:(_Bool)arg2;
 - (void)setActivities:(id)arg1 animated:(_Bool)arg2;
 @property(readonly, nonatomic) _Bool isPlaceholderGroup;
-- (void)_createDelayedSpinnerIfNeeded;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithActivityCategory:(long long)arg1 userDefaults:(id)arg2 userDefaultsIdentifier:(id)arg3;

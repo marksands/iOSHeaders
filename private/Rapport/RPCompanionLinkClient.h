@@ -10,7 +10,7 @@
 #import "RPCompanionLinkXPCClientInterface.h"
 #import "RPMessageable.h"
 
-@class NSArray, NSMutableOrderedSet, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection, RPCompanionLinkDevice;
+@class NSArray, NSDictionary, NSMutableOrderedSet, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection, RPCompanionLinkDevice;
 
 @interface RPCompanionLinkClient : NSObject <NSSecureCoding, RPCompanionLinkXPCClientInterface, RPMessageable>
 {
@@ -23,7 +23,6 @@
     NSMutableOrderedSet *_registeredProfileIDs;
     struct NSMutableDictionary *_requestRegistrations;
     NSXPCConnection *_xpcCnx;
-    _Bool _reportBTPipe;
     unsigned int _flags;
     unsigned long long _controlFlags;
     RPCompanionLinkDevice *_destinationDevice;
@@ -37,10 +36,11 @@
     CDUnknownBlockType _deviceChangedHandler;
     RPCompanionLinkDevice *_localDevice;
     CDUnknownBlockType _localDeviceUpdatedHandler;
+    NSDictionary *_siriInfo;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) _Bool reportBTPipe; // @synthesize reportBTPipe=_reportBTPipe;
+@property(copy, nonatomic) NSDictionary *siriInfo; // @synthesize siriInfo=_siriInfo;
 @property(copy, nonatomic) CDUnknownBlockType localDeviceUpdatedHandler; // @synthesize localDeviceUpdatedHandler=_localDeviceUpdatedHandler;
 @property(retain) RPCompanionLinkDevice *localDevice; // @synthesize localDevice=_localDevice;
 @property(copy, nonatomic) CDUnknownBlockType deviceChangedHandler; // @synthesize deviceChangedHandler=_deviceChangedHandler;
@@ -71,6 +71,7 @@
 - (void)_reregisterEvents;
 - (void)_registerEventID:(id)arg1 options:(id)arg2 reregister:(_Bool)arg3;
 - (void)registerEventID:(id)arg1 options:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (_Bool)shouldReportDevice:(id)arg1;
 - (void)_lostAllDevices;
 - (void)companionLinkLocalDeviceUpdated:(id)arg1;
 - (void)companionLinkChangedDevice:(id)arg1 changes:(unsigned int)arg2;
@@ -85,6 +86,7 @@
 - (void)_invalidated;
 - (void)invalidate;
 - (void)_interrupted;
+- (void)_invokeBlockActivateSafe:(CDUnknownBlockType)arg1;
 - (void)_ensureXPCStarted;
 - (void)_activateWithCompletion:(CDUnknownBlockType)arg1 reactivate:(_Bool)arg2;
 - (void)activateWithCompletion:(CDUnknownBlockType)arg1;

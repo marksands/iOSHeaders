@@ -23,6 +23,7 @@
 @property(nonatomic, getter=shouldShowLikeBadge) _Bool showBadge; // @synthesize showBadge=_showBadge;
 @property(retain, nonatomic) UIImage *badgeImage; // @synthesize badgeImage=_badgeImage;
 - (void).cxx_destruct;
+- (void)setImageHidden:(_Bool)arg1 forItemAtIndex:(unsigned long long)arg2;
 - (id)imageViewForItemAtIndex:(unsigned long long)arg1;
 - (void)setImage:(id)arg1 forItemAtIndex:(unsigned long long)arg2;
 - (_Bool)shouldShowBadge;

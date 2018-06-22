@@ -41,6 +41,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)updateWithRowModel:(id)arg1;
 - (void)setFeedbackDelegateForRowView:(id)arg1;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (id)initWithRowModel:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 
 @end

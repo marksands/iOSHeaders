@@ -47,8 +47,8 @@
 - (id)_queue_allPropertyProviderKeys;
 - (id)_queue_dictionaryRepresentationOfAllProviderProperties;
 - (_Bool)_queue_populateAllPropertiesFromDatabase;
-- (void)commitAllPropertiesToDatabaseWithCompletion:(CDUnknownBlockType)arg1;
-- (_Bool)clearAllPropertiesWithError:(id *)arg1;
+- (void)commitAllPropertiesToDatabaseWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (_Bool)clearAllPropertiesWithError:(id *)arg1 databaseContext:(id)arg2;
 @property(copy, nonatomic) NSString *databaseIdentifier; // @synthesize databaseIdentifier=_databaseIdentifier;
 - (void)database:(id)arg1 protectedDataDidBecomeAvailable:(_Bool)arg2;
 - (void)daemonReady:(id)arg1;

@@ -8,41 +8,41 @@
 
 #import "PSSpecifierGroup.h"
 
-@class CTCellularPlanItem, CTCellularPlanManager, CTXPCServiceSubscriptionContext, NSString, PSListController, PSSimStatusCache, PSSpecifier, PSUICallingSubgroup, PSUICarrierSpaceGroup, PSUICellularPlanManagerCache, PSUINetworkAndSIMSubgroup;
+@class CTCellularPlanManager, NSString, PSListController, PSSimStatusCache, PSSpecifier, PSUICallingSubgroup, PSUICarrierSpaceGroup, PSUICellularPlanManagerCache, PSUICoreTelephonyCarrierBundleCache, PSUINetworkSubgroup, PSUISIMSubgroup;
 
 @interface PSUISubscriptionContextMenusGroup : NSObject <PSSpecifierGroup>
 {
     _Bool _popViewControllerOnPlanDeletion;
-    PSListController *_listController;
     PSSpecifier *_groupSpecifier;
+    PSListController *_listController;
     PSSpecifier *_parentSpecifier;
-    CTXPCServiceSubscriptionContext *_subscriptionContext;
-    CTCellularPlanItem *_cellularPlanItem;
     PSUICallingSubgroup *_callingSubgroup;
     PSUICarrierSpaceGroup *_carrierSpaceSubgroup;
-    PSUINetworkAndSIMSubgroup *_networkAndSIMSubgroup;
+    PSUINetworkSubgroup *_networkSubgroup;
+    PSUISIMSubgroup *_simSubgroup;
     PSSimStatusCache *_simStatusCache;
+    PSUICoreTelephonyCarrierBundleCache *_carrierBundleCache;
     PSUICellularPlanManagerCache *_planManagerCache;
     CTCellularPlanManager *_cellularPlanManager;
 }
 
 @property(retain, nonatomic) CTCellularPlanManager *cellularPlanManager; // @synthesize cellularPlanManager=_cellularPlanManager;
 @property(retain, nonatomic) PSUICellularPlanManagerCache *planManagerCache; // @synthesize planManagerCache=_planManagerCache;
+@property(retain, nonatomic) PSUICoreTelephonyCarrierBundleCache *carrierBundleCache; // @synthesize carrierBundleCache=_carrierBundleCache;
 @property(retain, nonatomic) PSSimStatusCache *simStatusCache; // @synthesize simStatusCache=_simStatusCache;
-@property(retain, nonatomic) PSUINetworkAndSIMSubgroup *networkAndSIMSubgroup; // @synthesize networkAndSIMSubgroup=_networkAndSIMSubgroup;
+@property(retain, nonatomic) PSUISIMSubgroup *simSubgroup; // @synthesize simSubgroup=_simSubgroup;
+@property(retain, nonatomic) PSUINetworkSubgroup *networkSubgroup; // @synthesize networkSubgroup=_networkSubgroup;
 @property(retain, nonatomic) PSUICarrierSpaceGroup *carrierSpaceSubgroup; // @synthesize carrierSpaceSubgroup=_carrierSpaceSubgroup;
 @property(retain, nonatomic) PSUICallingSubgroup *callingSubgroup; // @synthesize callingSubgroup=_callingSubgroup;
-@property(retain, nonatomic) CTCellularPlanItem *cellularPlanItem; // @synthesize cellularPlanItem=_cellularPlanItem;
-@property(retain, nonatomic) CTXPCServiceSubscriptionContext *subscriptionContext; // @synthesize subscriptionContext=_subscriptionContext;
 @property(nonatomic) _Bool popViewControllerOnPlanDeletion; // @synthesize popViewControllerOnPlanDeletion=_popViewControllerOnPlanDeletion;
 @property(nonatomic) __weak PSSpecifier *parentSpecifier; // @synthesize parentSpecifier=_parentSpecifier;
-@property(nonatomic) __weak PSSpecifier *groupSpecifier; // @synthesize groupSpecifier=_groupSpecifier;
 @property(nonatomic) __weak PSListController *listController; // @synthesize listController=_listController;
+@property(nonatomic) __weak PSSpecifier *groupSpecifier; // @synthesize groupSpecifier=_groupSpecifier;
 - (void).cxx_destruct;
 - (id)specifiers;
 - (void)viewWillAppear;
 - (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2;
-- (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2 parentSpecifier:(id)arg3 callingSubgroup:(id)arg4 carrierSpaceSubgroup:(id)arg5 networkAndSIMSubgroup:(id)arg6 simStatusCache:(id)arg7 planManagerCache:(id)arg8 cellularPlanManager:(id)arg9 popViewControllerOnPlanDeletion:(_Bool)arg10;
+- (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2 parentSpecifier:(id)arg3 callingSubgroup:(id)arg4 carrierSpaceSubgroup:(id)arg5 networkSubgroup:(id)arg6 simSubgroup:(id)arg7 simStatusCache:(id)arg8 carrierBundleCache:(id)arg9 planManagerCache:(id)arg10 cellularPlanManager:(id)arg11 popViewControllerOnPlanDeletion:(_Bool)arg12;
 - (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2 parentSpecifier:(id)arg3 popViewControllerOnPlanDeletion:(_Bool)arg4;
 
 // Remaining properties

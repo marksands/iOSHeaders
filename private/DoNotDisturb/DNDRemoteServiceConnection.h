@@ -19,6 +19,7 @@
 }
 
 + (id)sharedInstance;
++ (void)initialize;
 - (void).cxx_destruct;
 - (void)_handleRemoteConnectionInvalidated;
 - (void)_handleRemoteConnectionInterrupted;

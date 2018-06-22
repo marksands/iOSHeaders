@@ -17,8 +17,10 @@ __attribute__((visibility("hidden")))
     UIColor *_separatorColor;
 }
 
-+ (id)darkLayoutForIdiom:(long long)arg1;
-+ (id)lightLayoutForIdiom:(long long)arg1;
++ (id)_bottomLayoutForIdiom:(long long)arg1;
++ (id)_topRowLayoutForIdiom:(long long)arg1;
++ (int)_backgroundColorBlendMode;
++ (id)_backgroundColorForIdiom:(long long)arg1;
 @property(retain, nonatomic) UIColor *separatorColor; // @synthesize separatorColor=_separatorColor;
 @property(nonatomic) int separatorBlendMode; // @synthesize separatorBlendMode=_separatorBlendMode;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;

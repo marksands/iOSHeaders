@@ -6,7 +6,7 @@
 
 #import <MPSNeuralNetwork/MPSCNNKernel.h>
 
-@class MPSCNNNeuron, NSData;
+@class MPSCNNNeuron, MPSNNNeuronDescriptor, NSData;
 
 @interface MPSCNNConvolution : MPSCNNKernel
 {
@@ -30,10 +30,12 @@
     unsigned long long _accumulatorPrecisionOption;
     id <MPSCNNConvolutionDataSource> _dataSource;
     NSData *_batchNormalizationData;
+    MPSNNNeuronDescriptor *_fusedNeuronDescriptor;
     unsigned long long _featureChannelsLayout;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
+@property(readonly, nonatomic) MPSNNNeuronDescriptor *fusedNeuronDescriptor; // @synthesize fusedNeuronDescriptor=_fusedNeuronDescriptor;
 @property(readonly, retain, nonatomic) id <MPSCNNConvolutionDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(readonly, nonatomic) unsigned long long channelMultiplier; // @synthesize channelMultiplier=_channelMultiplier;
 @property(readonly, nonatomic) unsigned long long subPixelScaleFactor; // @synthesize subPixelScaleFactor=_scaleFactor;
@@ -69,6 +71,10 @@
 -     // Error parsing type: B64@0:8@16I24r^v28r^f36i44r^48r^f56, name: PrepareAndLoadData:dataType:weights:biases:quantizationType:ranges:lookUpTable:
 - (id)initWithDevice:(id)arg1;
 @property(readonly, nonatomic) unsigned long long weightsBufferLength;
+- (struct NeuronInfo)neuronInfo;
+- (int)quantizationType;
+- (id)quantizationBuffer;
+- (id)neuronABuffer;
 - (id)biases;
 - (id)weights;
 @property(readonly, nonatomic) float neuronParameterC;

@@ -21,10 +21,10 @@
     CDUnknownBlockType _readerMailContentCompletionHandler;
     CDUnknownBlockType _readerPrintContentCompletionHandler;
     NSMutableDictionary *_bookmarkIdentifierToReadingListItemInfoCompletionMap;
-    _Bool _readerWebViewContentDidBecomeReady;
     CDUnknownBlockType _actionsDelayedUntilReaderWebViewIsReady;
     NSTimer *_actionsDelayedUntilReaderWebViewIsReadyTimer;
     _Bool _readerAvailable;
+    _Bool _contentIsReady;
     WKWebView *_webView;
     WKWebView *_readerWebView;
     id <_SFReaderControllerDelegate> _delegate;
@@ -34,6 +34,7 @@
 
 @property(readonly, nonatomic) NSString *articleText; // @synthesize articleText=_articleText;
 @property(nonatomic) __weak id <WKUIDelegatePrivate> webViewUIDelegate; // @synthesize webViewUIDelegate=_webViewUIDelegate;
+@property(nonatomic) _Bool contentIsReady; // @synthesize contentIsReady=_contentIsReady;
 @property(getter=isReaderAvailable) _Bool readerAvailable; // @synthesize readerAvailable=_readerAvailable;
 @property __weak id <_SFReaderControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly) __weak WKWebView *readerWebView; // @synthesize readerWebView=_readerWebView;

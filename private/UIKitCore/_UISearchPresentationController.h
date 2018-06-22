@@ -52,6 +52,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldPresentInFullscreen;
 - (_Bool)_shouldRespectDefinesPresentationContext;
 - (_Bool)shouldRemovePresentersView;
+- (_Bool)_shouldDisableInteractionDuringTransitions;
 - (double)_visibleRefreshControlHeightForTableView:(id)arg1;
 - (void)_placeSearchBarBackIntoOriginalContext;
 - (void)_exciseSearchBarFromCurrentContext;

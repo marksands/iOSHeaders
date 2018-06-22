@@ -15,6 +15,7 @@
 
 @property(retain, nonatomic) NSArray *subcategorySpecifiers; // @synthesize subcategorySpecifiers=_subcategorySpecifiers;
 - (void).cxx_destruct;
+- (id)initWithName:(id)arg1 totalUsage:(id)arg2 subSpecifiers:(id)arg3;
 
 @end
 

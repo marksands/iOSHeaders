@@ -12,21 +12,14 @@
 
 @interface RMAskForTimeClient : NSObject <RMAskForTimeInterface>
 {
-    _Bool _cachedShouldRequestMoreTime;
-    _Bool _cachedIsRestrictionsPasscodeSet;
     NSXPCConnection *_xpcConnection;
 }
 
 @property(readonly, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
-@property _Bool cachedIsRestrictionsPasscodeSet; // @synthesize cachedIsRestrictionsPasscodeSet=_cachedIsRestrictionsPasscodeSet;
-@property _Bool cachedShouldRequestMoreTime; // @synthesize cachedShouldRequestMoreTime=_cachedShouldRequestMoreTime;
 - (void).cxx_destruct;
 - (void)_asynchronousProxyWithHandler:(CDUnknownBlockType)arg1;
 - (void)_synchronousProxyWithHandler:(CDUnknownBlockType)arg1;
-- (void)isRestrictionsPasscodeSet:(CDUnknownBlockType)arg1;
-- (_Bool)isRestrictionsPasscodeSet;
-- (void)shouldRequestMoreTime:(CDUnknownBlockType)arg1;
-- (_Bool)shouldRequestMoreTime;
+- (void)handleAnswer:(long long)arg1 requestIdentifier:(id)arg2 timeApproved:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)fetchAskForTimeFromMeWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)sendAskForTimeRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;

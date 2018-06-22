@@ -19,7 +19,7 @@
     id <NCLongLookDefaultPresentationControllerDelegate> _presentationControllerDelegate;
 }
 
-+ (struct CGRect)useableContainerViewBoundsInContainerViewWithBounds:(struct CGRect)arg1;
++ (struct CGRect)useableContainerViewBoundsForExpandedPlatter:(id)arg1 inContainerViewWithBounds:(struct CGRect)arg2;
 @property(nonatomic, getter=isPresenting) _Bool presenting; // @synthesize presenting=_presenting;
 @property(nonatomic) __weak id <NCLongLookDefaultPresentationControllerDelegate> presentationControllerDelegate; // @synthesize presentationControllerDelegate=_presentationControllerDelegate;
 - (void).cxx_destruct;
@@ -30,6 +30,9 @@
 - (void)viewControllerAnimatorDidFinishFirstResponderChanges:(id)arg1;
 - (void)viewControllerAnimator:(id)arg1 willBeginDismissalAnimationWithTransitionContext:(id)arg2;
 - (void)viewControllerAnimator:(id)arg1 willBeginPresentationAnimationWithTransitionContext:(id)arg2;
+- (struct CGRect)initialFrameOfPresentingViewInContainerView;
+- (struct CGRect)initialFrameOfPresentedViewInContainerView;
+- (struct CGRect)finalFrameOfPresentingViewInContainerView;
 @property(nonatomic) double additionalHomeAffordanceSpacing;
 @property(nonatomic) __weak UIPanGestureRecognizer *homeAffordancePanGesture;
 @property(nonatomic, getter=isHomeAffordanceVisible) _Bool homeAffordanceVisible;

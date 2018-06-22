@@ -20,8 +20,10 @@
     CDStruct_81add385 _padding;
     CDStruct_81add385 _margin;
     CDStruct_81add385 _interitemSpacing;
+    CDStruct_81add385 _fontSize;
 }
 
+@property(nonatomic) CDStruct_81add385 fontSize; // @synthesize fontSize=_fontSize;
 @property(nonatomic) CDStruct_81add385 interitemSpacing; // @synthesize interitemSpacing=_interitemSpacing;
 @property(nonatomic) CDStruct_81add385 margin; // @synthesize margin=_margin;
 @property(nonatomic) CDStruct_81add385 padding; // @synthesize padding=_padding;

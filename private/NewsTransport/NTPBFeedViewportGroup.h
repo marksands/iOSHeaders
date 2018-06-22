@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSMutableArray, NSString, NTPBColor, NTPBColorGradient, NTPBDate, NTPBDiscoverMoreVideosInfo, NTPBSpecialEventsConfig;
+@class NSMutableArray, NSString, NTPBColor, NTPBColorGradient, NTPBDate, NTPBDiscoverMoreVideosInfo;
 
 @interface NTPBFeedViewportGroup : PBCodable <NSCopying>
 {
@@ -24,7 +24,6 @@
     NSString *_identifier;
     int _l2TagIDRef;
     int _sourceIdentifierRef;
-    NTPBSpecialEventsConfig *_specialEventsConfig;
     int _subtitleRef;
     NTPBColor *_titleColor;
     int _titleRef;
@@ -45,7 +44,6 @@
 
 + (Class)videoPlaylistHeadlinesType;
 + (Class)headlinesType;
-@property(retain, nonatomic) NTPBSpecialEventsConfig *specialEventsConfig; // @synthesize specialEventsConfig=_specialEventsConfig;
 @property(retain, nonatomic) NSMutableArray *videoPlaylistHeadlines; // @synthesize videoPlaylistHeadlines=_videoPlaylistHeadlines;
 @property(retain, nonatomic) NTPBDiscoverMoreVideosInfo *discoverMoreVideosInfo; // @synthesize discoverMoreVideosInfo=_discoverMoreVideosInfo;
 @property(nonatomic) _Bool isFirstFromEdition; // @synthesize isFirstFromEdition=_isFirstFromEdition;
@@ -71,7 +69,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasSpecialEventsConfig;
 - (id)videoPlaylistHeadlinesAtIndex:(unsigned long long)arg1;
 - (unsigned long long)videoPlaylistHeadlinesCount;
 - (void)addVideoPlaylistHeadlines:(id)arg1;

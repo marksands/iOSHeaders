@@ -8,10 +8,12 @@
 
 @interface PGMeaningfulEventSceneSetTrait : PGMeaningfulEventSetTrait
 {
+    _Bool _accumulateHighConfidenceAssetCounts;
     unsigned long long _minimumNumberOfHighConfidenceAssets;
     unsigned long long _minimumNumberOfNegativeHighConfidenceAssets;
 }
 
+@property(nonatomic) _Bool accumulateHighConfidenceAssetCounts; // @synthesize accumulateHighConfidenceAssetCounts=_accumulateHighConfidenceAssetCounts;
 @property(nonatomic) unsigned long long minimumNumberOfNegativeHighConfidenceAssets; // @synthesize minimumNumberOfNegativeHighConfidenceAssets=_minimumNumberOfNegativeHighConfidenceAssets;
 @property(nonatomic) unsigned long long minimumNumberOfHighConfidenceAssets; // @synthesize minimumNumberOfHighConfidenceAssets=_minimumNumberOfHighConfidenceAssets;
 - (id)debugDescriptionWithMomentNode:(id)arg1;

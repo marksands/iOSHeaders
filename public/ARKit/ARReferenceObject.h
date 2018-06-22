@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class ARPointCloud, NSData, NSString, NSUUID;
 
-@interface ARReferenceObject : NSObject <NSCopying, NSSecureCoding>
+@interface ARReferenceObject : NSObject <NSSecureCoding>
 {
     NSString *_name;
     ARPointCloud *_rawFeaturePoints;
@@ -45,7 +44,6 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;

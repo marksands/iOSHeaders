@@ -20,6 +20,7 @@
 - (void)personPromoterStatusWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)requestSuggestedMePersonIdentifierWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)faceProcessingStatusForUserInterfaceWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)resetFaceClassificationModelWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)resetPeopleWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)validateClusterCacheWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)faceClusteringInformation:(unsigned long long)arg1 withContext:(id)arg2 reply:(CDUnknownBlockType)arg3;
@@ -74,6 +75,7 @@
 - (void)requestDefaultsObjectForKey:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)requestSharingSuggestionsFromMessageStrings:(id)arg1 participantPHIdentifiers:(id)arg2 options:(id)arg3 context:(id)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)requestSearchInformationForTripUUIDs:(id)arg1 withOptions:(id)arg2 context:(id)arg3 reply:(CDUnknownBlockType)arg4;
+- (void)requestAssetSearchKeywordsForAssetCollectionUUIDs:(id)arg1 ofType:(unsigned long long)arg2 withOptions:(id)arg3 context:(id)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)requestSearchIndexKeywordsForAssetCollectionUUIDs:(id)arg1 ofType:(unsigned long long)arg2 withOptions:(id)arg3 context:(id)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)requestLocalizedSceneAncestryInformationWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)requestGraphSearchMetadataWithOptions:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;

@@ -82,6 +82,7 @@ __attribute__((visibility("hidden")))
     _Bool _duetPreauthorized;
     _Bool _requiresSustainedDataDelivery;
     _Bool _ignoreDidReceiveResponseDisposition;
+    _Bool _alwaysPerformDefaultTrustEvaluation;
     _Bool _backgroundSession;
     NSString *_disposition;
     NSURLCredentialStorage *_phskip_credStorage;
@@ -199,6 +200,8 @@ __attribute__((visibility("hidden")))
 - (id)disposition;
 - (void)setBackgroundSession:(_Bool)arg1;
 - (_Bool)isBackgroundSession;
+- (void)set_alwaysPerformDefaultTrustEvaluation:(_Bool)arg1;
+- (_Bool)_alwaysPerformDefaultTrustEvaluation;
 - (void)set_ignoreDidReceiveResponseDisposition:(_Bool)arg1;
 - (_Bool)_ignoreDidReceiveResponseDisposition;
 - (void)set_requiresSustainedDataDelivery:(_Bool)arg1;

@@ -6,18 +6,21 @@
 
 #import <PassKitUI/PKPaymentSetupTableViewController.h>
 
+#import "PKLinkedApplicationObserver.h"
 #import "PKPaymentSetupActivitySpinnerProtocol.h"
 #import "UITableViewDelegate.h"
 #import "UITextFieldDelegate.h"
 
-@class NSString, PKPaymentProvisioningController, PKPaymentSetupBrowseProductsModel, PKPaymentSetupProduct, PKSearchableTableHeaderView;
+@class NSString, PKLinkedApplication, PKPaymentProvisioningController, PKPaymentSetupBrowseProductsModel, PKPaymentSetupProduct, PKSearchableTableHeaderView;
 
-@interface PKPaymentSetupBrowseProductsViewController : PKPaymentSetupTableViewController <UITableViewDelegate, UITextFieldDelegate, PKPaymentSetupActivitySpinnerProtocol>
+@interface PKPaymentSetupBrowseProductsViewController : PKPaymentSetupTableViewController <UITableViewDelegate, UITextFieldDelegate, PKLinkedApplicationObserver, PKPaymentSetupActivitySpinnerProtocol>
 {
     PKPaymentSetupBrowseProductsModel *_model;
+    PKLinkedApplication *_loadingLinkedApplication;
     PKSearchableTableHeaderView *_headerView;
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
     PKPaymentProvisioningController *_provisioningController;
+    _Bool _isBridgeContext;
     _Bool _showScanCardButton;
     id <PKPaymentSetupBrowseProductsViewControllerDelegate> _delegate;
     PKPaymentSetupProduct *_selectedProduct;
@@ -31,6 +34,8 @@
 - (void)_setNavigationBarEnabled:(_Bool)arg1;
 - (void)hideActivitySpinner;
 - (void)showActivitySpinner;
+- (void)linkedApplicationDidChangeState:(id)arg1;
+- (void)_pushAppRequiredViewControllerForProduct:(id)arg1 linkedApplication:(id)arg2;
 - (void)_updateFilterString:(id)arg1 userInteraction:(_Bool)arg2;
 - (void)_nextStepInSetupFlowWithProduct:(id)arg1;
 - (void)_notifyDelegateDidSelectProduct:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
@@ -43,6 +48,7 @@
 - (void)clearSearchField;
 - (_Bool)_searchUIEnabled;
 - (void)_updateSelectedProduct:(id)arg1;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;

@@ -10,22 +10,29 @@
 #import "SVVideoQueueObserving.h"
 #import "SVVideoQueueProviding.h"
 #import "SVVideoTransitionObserver.h"
+#import "SVVideoViewControllerAppearanceObserver.h"
 
 @class NSMutableArray, NSString;
 
-@interface SVVideoQueueManager : NSObject <SVVideoTransitionObserver, SVVideoQueueProviding, SVVideoQueueObserving, SVVideoQueueManager>
+@interface SVVideoQueueManager : NSObject <SVVideoTransitionObserver, SVVideoQueueProviding, SVVideoQueueObserving, SVVideoQueueManager, SVVideoViewControllerAppearanceObserver>
 {
+    _Bool _locked;
     id <SVVideoQueue> _queue;
+    id <SVVideoQueue> _pendingQueue;
     NSMutableArray *_updateBlocks;
     NSMutableArray *_modifiers;
     id <SVVideo> _video;
 }
 
+@property(nonatomic) _Bool locked; // @synthesize locked=_locked;
 @property(retain, nonatomic) id <SVVideo> video; // @synthesize video=_video;
 @property(readonly, nonatomic) NSMutableArray *modifiers; // @synthesize modifiers=_modifiers;
 @property(readonly, nonatomic) NSMutableArray *updateBlocks; // @synthesize updateBlocks=_updateBlocks;
+@property(copy, nonatomic) id <SVVideoQueue> pendingQueue; // @synthesize pendingQueue=_pendingQueue;
 @property(copy, nonatomic) id <SVVideoQueue> queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
+- (void)videoViewControllerWillDisappear:(id)arg1;
+- (void)videoViewControllerDidAppear:(id)arg1;
 - (void)onUpdate:(CDUnknownBlockType)arg1;
 - (void)removeModifier:(id)arg1;
 - (void)addModifier:(id)arg1;

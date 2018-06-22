@@ -124,9 +124,9 @@
 - (void)cancelDiagnosticExtension:(id)arg1;
 - (void)removeAttachment:(id)arg1;
 - (void)startDiagnosticExtension:(id)arg1 parameters:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)startDiagnosticExtensionWithIdentifier:(id)arg1 parameters:(id)arg2 deferRunUntil:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (id)startDiagnosticExtensionWithIdentifier:(id)arg1 parameters:(id)arg2 deferRunUntil:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)startDiagnosticExtensionWithDEDIdentifier:(id)arg1 parameters:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)startDiagnosticExtensionWithIdentifier:(id)arg1 parameters:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)startDiagnosticExtensionWithIdentifier:(id)arg1 parameters:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)synchronizeSessionStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getSessionStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)listDiagnosticExtensionsWithCompletion:(CDUnknownBlockType)arg1;

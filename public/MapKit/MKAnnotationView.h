@@ -29,7 +29,6 @@
     struct CGPoint _realOffset;
     double _mapPitchRadians;
     CDStruct_80aa614a _mapDisplayStyle;
-    CALayer *_imageLayer;
     float _selectionPriority;
     _MKKVOProxy *_annotationObserver;
     _MKAnnotationViewCustomFeatureAnnotation *_customFeatureAnnotation;
@@ -37,6 +36,7 @@
     float _displayPriority;
     struct CGRect _collisionFrame;
     NSString *_clusteringIdentifier;
+    UIImage *_image;
     MKCalloutView *_calloutView;
     UIView *_leftCalloutAccessoryView;
     UIView *_rightCalloutAccessoryView;
@@ -44,7 +44,6 @@
     long long _collisionMode;
     NSString *_reuseIdentifier;
     MKAnnotationView *_clusterAnnotationView;
-    UIImage *_image;
     unsigned long long _mapType;
     unsigned long long _zIndex;
     struct CGPoint _centerOffset;
@@ -68,6 +67,7 @@
         unsigned int pendingHideAnimation:1;
         unsigned int setSelectState:2;
     } _flags;
+    CALayer *_imageLayer;
     _Bool _animatingToCoordinate;
     _Bool _tracking;
     _Bool _pendingSelectionAnimated;

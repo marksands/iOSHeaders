@@ -555,6 +555,7 @@ struct TSWPLineBalancingLayoutState {
     double _field9;
     double _field10;
     double _field11;
+    _Bool _field12;
 };
 
 struct TSWPLineBalancingRestoreLayoutInfo {

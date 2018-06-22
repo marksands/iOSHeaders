@@ -17,7 +17,7 @@
 - (void)remote_fetchRemoteSearchResultsPageForQuery:(NSString *)arg1 latitude:(NSNumber *)arg2 longitude:(NSNumber *)arg3 from:(long long)arg4 completion:(void (^)(HKClinicalProviderSearchResultsPage *, NSError *))arg5;
 - (void)remote_notifyForNewHealthRecordsWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)remote_badgeForNewHealthRecordsWithCompletion:(void (^)(_Bool, NSError *))arg1;
-- (void)remote_createStaticAccountWithTitle:(NSString *)arg1 completion:(void (^)(HKClinicalAccount *, NSError *))arg2;
+- (void)remote_createStaticAccountWithTitle:(NSString *)arg1 subtitle:(NSString *)arg2 description:(NSString *)arg3 onlyIfNeededForSimulatedGatewayID:(NSString *)arg4 completion:(void (^)(HKClinicalAccount *, NSError *))arg5;
 - (void)remote_resetClinicalContentAnalyticsAnchorsWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)remote_triggerClinicalContentAnalyticsForReason:(long long)arg1 options:(unsigned long long)arg2 completion:(void (^)(NSString *, NSError *))arg3;
 - (void)remote_fetchClinicalOptInDataCollectionFilePathsWithCompletion:(void (^)(NSArray *, NSError *))arg1;

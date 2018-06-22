@@ -84,6 +84,8 @@
 - (void).cxx_destruct;
 - (void)_notifiyPersistentChangeObservers;
 @property(readonly, nonatomic) PHPersistentChangeToken *currentToken;
+- (id)_fetchPersistentChangesSinceToken:(id)arg1 maximumChangeThreshold:(unsigned long long)arg2 error:(id *)arg3;
+- (id)fetchPersistentChangesWithRequest:(id)arg1 error:(id *)arg2;
 - (id)fetchPersistentChangesSinceToken:(id)arg1 error:(id *)arg2;
 - (void)_processPendingChanges;
 - (void)handleMergeNotification:(id)arg1;
@@ -163,6 +165,7 @@
 - (id)allSocialGroupsForPersonIdentifier:(id)arg1 error:(id *)arg2;
 - (id)sortedArrayOfPersonIdentifiers:(id)arg1 error:(id *)arg2;
 - (id)requestSearchInformationForTripUUIDs:(id)arg1 withOptions:(id)arg2 error:(id *)arg3;
+- (id)requestAssetSearchKeywordsForAssetCollectionUUIDs:(id)arg1 ofType:(unsigned long long)arg2 withOptions:(id)arg3 error:(id *)arg4;
 - (id)requestSearchIndexKeywordsForAssetCollectionUUIDs:(id)arg1 ofType:(unsigned long long)arg2 withOptions:(id)arg3 error:(id *)arg4;
 - (id)requestGraphSearchMetadataWithOptions:(id)arg1 error:(id *)arg2;
 - (id)requestSynonymsDictionariesWithError:(id *)arg1;

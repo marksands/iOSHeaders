@@ -104,6 +104,7 @@
 - (_Bool)_accessibilityDismissAlternativeKeyPicker;
 - (_Bool)_accessibilityDispatchKeyboardAction:(id)arg1;
 - (_Bool)_accessibilityHandwritingActivateKeyboardDeleteKey;
+- (_Bool)_accessibilityHandwritingSendCarriageReturn;
 - (_Bool)_accessibilityHandwritingActivateKeyboardReturnKey;
 - (void)_accessibilityInsertText:(id)arg1 atPosition:(long long)arg2;
 - (void)_accessibilityReplaceCharactersAtCursor:(unsigned long long)arg1 withString:(id)arg2;
@@ -666,6 +667,7 @@
 - (id)_accessibilityFirstResponderForKeyWindow;
 - (_Bool)_accessibilityRepresentsInfiniteCollection;
 - (long long)_accessibilityExpandedStatus;
+- (id)accessibilityLinkRelationshipType;
 - (_Bool)_accessibilityIsPressed;
 - (_Bool)_accessibilitySupportsPressedState;
 - (_Bool)_accessibilityIsWebDocumentView;

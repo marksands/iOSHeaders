@@ -9,7 +9,7 @@
 #import "CLSFaultProcessorDelegate.h"
 #import "NSLocking.h"
 
-@class CLSActivity, CLSAuthTree, CLSContext, CLSCurrentUser, CLSEndpointConnection, CLSGraph, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
+@class CLSActivity, CLSAuthTree, CLSContext, CLSCurrentUser, CLSEndpointConnection, CLSGraph, NSDate, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
 
 @interface CLSDataStore : NSObject <CLSFaultProcessorDelegate, NSLocking>
 {
@@ -23,6 +23,7 @@
     _Bool _saveInProgress;
     CLSAuthTree *_authTree;
     NSMutableArray *_runningActivities;
+    NSDate *_lastPruneDate;
     id <CLSDataStoreDelegate> _delegate;
     CLSContext *_mainAppContext;
     CLSEndpointConnection *_endpointConnection;
@@ -40,6 +41,7 @@
 @property(retain, nonatomic) CLSContext *mainAppContext; // @synthesize mainAppContext=_mainAppContext;
 @property(nonatomic) __weak id <CLSDataStoreDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)pruneDeletedObjectsWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)faultProcessor:(id)arg1 shouldFaultRelation:(id)arg2 fromObject:(struct NSObject *)arg3;
 - (void)deregisterDataObserver:(id)arg1;
 - (void)registerDataObserver:(id)arg1;

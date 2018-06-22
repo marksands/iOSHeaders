@@ -50,7 +50,7 @@
 - (void)_configureForValueAddedServiceWithContext:(id)arg1;
 - (void)_configureForPersonalizedPaymentApplicationWithContext:(id)arg1;
 - (void)_acquireContactlessInterfaceSessionWithSessionToken:(unsigned long long)arg1 handler:(CDUnknownBlockType)arg2;
-- (void)_startContactlessInterfaceSessionWithSessionAvailable:(CDUnknownBlockType)arg1 sessionUnavailable:(CDUnknownBlockType)arg2;
+- (void)_startContactlessInterfaceSessionWithContext:(id)arg1 sessionAvailable:(CDUnknownBlockType)arg2 sessionUnavailable:(CDUnknownBlockType)arg3;
 - (id)_contentViewForPaymentApplicationWithContext:(id)arg1;
 - (void)_configureForState:(long long)arg1 context:(id)arg2 passView:(id)arg3;
 - (void)_updateForNonForegroundActivePresentationAnimated:(_Bool)arg1;

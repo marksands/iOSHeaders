@@ -9,42 +9,32 @@
 #import "RMPersistenceControllerProtocol.h"
 #import "RMPersistenceStoreChangeProcessingOperationDelegate.h"
 
-@class CATSerialOperationQueue, NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSPersistentContainer, NSString;
+@class CATSerialOperationQueue, NSMutableDictionary, NSPersistentContainer, NSString;
 
 @interface RMPersistenceController : NSObject <RMPersistenceControllerProtocol, RMPersistenceStoreChangeProcessingOperationDelegate>
 {
+    NSObject *_lastPersistentHistoryTokenByStoreIdentifierLock;
+    _Bool _hasConfiguredViewContext;
     NSPersistentContainer *_persistentContainer;
-    _Bool _persistentContainerLoaded;
-    NSObject<OS_dispatch_queue> *_persistentContainerQueue;
-    NSArray *_storeConfigurations;
-    NSMutableDictionary *_storeByIdentifier;
-    NSMutableDictionary *_lastStoreTokenByIdentifier;
-    id _persistenceStoreNotificationObserver;
+    NSMutableDictionary *_lastPersistentHistoryTokenByStoreIdentifier;
     CATSerialOperationQueue *_operationQueue;
 }
 
 @property(readonly, nonatomic) CATSerialOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
-@property(retain, nonatomic) id persistenceStoreNotificationObserver; // @synthesize persistenceStoreNotificationObserver=_persistenceStoreNotificationObserver;
-@property(readonly, copy, nonatomic) NSMutableDictionary *lastStoreTokenByIdentifier; // @synthesize lastStoreTokenByIdentifier=_lastStoreTokenByIdentifier;
-@property(readonly, copy, nonatomic) NSMutableDictionary *storeByIdentifier; // @synthesize storeByIdentifier=_storeByIdentifier;
-@property(readonly, copy, nonatomic) NSArray *storeConfigurations; // @synthesize storeConfigurations=_storeConfigurations;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *persistentContainerQueue; // @synthesize persistentContainerQueue=_persistentContainerQueue;
-@property(nonatomic, getter=isPersistentContainerLoaded) _Bool persistentContainerLoaded; // @synthesize persistentContainerLoaded=_persistentContainerLoaded;
+@property(nonatomic) _Bool hasConfiguredViewContext; // @synthesize hasConfiguredViewContext=_hasConfiguredViewContext;
+@property(readonly, copy, nonatomic) NSMutableDictionary *lastPersistentHistoryTokenByStoreIdentifier; // @synthesize lastPersistentHistoryTokenByStoreIdentifier=_lastPersistentHistoryTokenByStoreIdentifier;
+@property(retain, nonatomic) NSPersistentContainer *persistentContainer; // @synthesize persistentContainer=_persistentContainer;
 - (void).cxx_destruct;
-- (void)_persistenceStoreChangedNotification:(id)arg1;
-- (void)_unregisterForPersistenceNotifications;
-- (void)_registerForPersistenceNotifications;
-- (id)_loadPersistentContainerWithError:(id *)arg1;
-- (id)_createStoreDescriptionWithConfigurationType:(id)arg1;
-- (id)_createPersistentContainer;
-- (void)handlePersistenceStoreChanges:(id)arg1 store:(id)arg2;
-- (void)savePersistentHistoryToken:(id)arg1 forStoreIdentifier:(id)arg2;
-- (id)persistentHistoryTokenForStoreIdentifier:(id)arg1;
-- (void)clearUsageDataForOrganization:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)refreshUsageDataForOrganization:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)_weAreGoingToStopTheWorldFromMovingForwardAndBlockEverythingWhileWeGetTheDataWeNeedWithHandler:(CDUnknownBlockType)arg1;
+- (void)_persistentStoreCoordinatorStoresDidChange:(id)arg1;
+- (void)_remotePersistentStoreDidChange:(id)arg1;
+- (id)descriptionForPersistentStore:(id)arg1;
+- (void)handlePersistenceStoreChanges:(id)arg1 forStore:(id)arg2;
+- (void)savePersistentHistoryToken:(id)arg1 forStore:(id)arg2;
+- (id)persistentHistoryTokenForStore:(id)arg1;
+- (id)newBackgroundContext;
+- (void)performBackgroundTaskAndWait:(CDUnknownBlockType)arg1;
 - (void)performBackgroundTask:(CDUnknownBlockType)arg1;
-- (id)initWithStoreConfigurations:(id)arg1;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

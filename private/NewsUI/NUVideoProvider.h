@@ -13,7 +13,6 @@
 
 @interface NUVideoProvider : NSObject <SVVideo, SVVideoProviding>
 {
-    _Bool _playbackHasStarted;
     NSString *_identifier;
     id <NUVideoItem> _videoItem;
     id <SVVideoMetadataProviding> _metadata;
@@ -21,7 +20,6 @@
 }
 
 @property(retain, nonatomic) id <NUVideoEventTracker> eventTracker; // @synthesize eventTracker=_eventTracker;
-@property(nonatomic) _Bool playbackHasStarted; // @synthesize playbackHasStarted=_playbackHasStarted;
 @property(nonatomic) __weak id <SVVideoMetadataProviding> metadata; // @synthesize metadata=_metadata;
 @property(readonly, copy, nonatomic) id <NUVideoItem> videoItem; // @synthesize videoItem=_videoItem;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
@@ -39,6 +37,8 @@
 - (void)playbackPaused;
 - (void)playbackStarted;
 - (void)playbackInitiated;
+- (void)didDisappear;
+- (void)didAppear;
 - (CDUnknownBlockType)loadWithCompletionBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) _Bool allowsCallToActionBar;
 @property(readonly, nonatomic) unsigned long long videoType;

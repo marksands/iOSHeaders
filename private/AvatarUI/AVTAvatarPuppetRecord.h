@@ -7,11 +7,10 @@
 #import "NSObject.h"
 
 #import "AVTAvatarRecordInternal.h"
-#import "AVTCacheableResource.h"
 
 @class NSString;
 
-@interface AVTAvatarPuppetRecord : NSObject <AVTCacheableResource, AVTAvatarRecordInternal>
+@interface AVTAvatarPuppetRecord : NSObject <AVTAvatarRecordInternal>
 {
     NSString *_puppetName;
 }
@@ -25,8 +24,6 @@
 @property(readonly, nonatomic, getter=isEditable) _Bool editable;
 @property(readonly, copy, nonatomic) NSString *identifier;
 - (id)initWithPuppetName:(id)arg1;
-- (unsigned long long)costForScope:(id)arg1;
-- (id)volatileIdentifierForScope:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

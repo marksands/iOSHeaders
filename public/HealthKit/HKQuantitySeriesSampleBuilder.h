@@ -8,16 +8,18 @@
 
 #import "_HKXPCExportable.h"
 
-@class HKDevice, HKHealthStore, HKQuantityType, HKTaskServerProxyProvider, NSDate, NSError, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HKCodableQuantitySeries, HKDevice, HKHealthStore, HKQuantityType, HKTaskServerProxyProvider, NSDate, NSError, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
 @interface HKQuantitySeriesSampleBuilder : NSObject <_HKXPCExportable>
 {
     HKQuantityType *_quantityType;
     NSDate *_startDate;
     HKDevice *_device;
+    long long _batchSize;
     NSObject<OS_dispatch_queue> *_queue;
     NSError *_fatalError;
     long long _state;
+    HKCodableQuantitySeries *_quantitySeries;
     HKHealthStore *_healthStore;
     NSUUID *_identifier;
     HKTaskServerProxyProvider *_proxyProvider;
@@ -29,14 +31,15 @@
 + (id)_clientErrorForFinishedSeries;
 @property(copy, nonatomic) CDUnknownBlockType unitTest_insertQuantityCompletion; // @synthesize unitTest_insertQuantityCompletion=_unitTest_insertQuantityCompletion;
 - (void).cxx_destruct;
+- (void)unitTest_setBatchSize:(long long)arg1;
 @property(readonly, nonatomic) long long unitTest_state;
 - (void)unitTest_discardWithCompletion:(CDUnknownBlockType)arg1;
 - (void)connectionInvalidated;
 - (id)remoteInterface;
 - (id)exportedInterface;
 - (void)_taskServer_discardWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_taskServer_finishSeriesWithMetadata:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_taskServer_insertQuantity:(id)arg1 date:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_taskServer_finishSeriesWithMetadata:(id)arg1 finalSeries:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_taskServer_insertQuantitySeries:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_queue_clientErrorForFatalError;
 - (void)_changeStateForFatalError:(id)arg1;
 - (_Bool)_changeStateForDiscardWithError:(out id *)arg1;
@@ -45,6 +48,8 @@
 - (_Bool)_validateDate:(id)arg1 error:(out id *)arg2;
 - (_Bool)_validateQuantity:(id)arg1 error:(out id *)arg2;
 - (void)_discardWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_finishSeriesWithMetadata:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (_Bool)_insertQuantity:(id)arg1 date:(id)arg2 error:(id *)arg3;
 @property(readonly, copy) HKDevice *device;
 @property(readonly, copy) NSDate *startDate;
 @property(readonly, copy) HKQuantityType *quantityType;

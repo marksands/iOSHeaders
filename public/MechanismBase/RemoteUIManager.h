@@ -15,6 +15,7 @@
     MechanismBase<LAUIMechanism><LARemoteUIHost> *_uiMechanism;
     CDUnknownBlockType _pendingShowUiReply;
     CDUnknownBlockType _pendingUiActivationBlock;
+    id _pendingUiMechanism;
     id _dismissingUi;
     _Bool _uiDismissedBeforeConnection;
 }

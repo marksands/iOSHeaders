@@ -23,8 +23,7 @@
     _HKExpiringCompletionTimer *_invalidationTimer;
     HDWorkoutSessionEntity *_persistentEntity;
     double _stopEventGenerationWaitInterval;
-    _Bool _startRequested;
-    _Bool _finalizeRequested;
+    long long _requestedTargetState;
     NSUUID *_identifier;
     HKWorkoutConfiguration *_workoutConfiguration;
     NSString *_applicationIdentifier;
@@ -36,8 +35,10 @@
     NSDate *_startDate;
 }
 
++ (Class)_sessionControllerClassFromWorkoutConfiguration:(id)arg1;
 + (void)unitTest_setDefaultStopEventGenerationWaitInterval:(double)arg1;
 + (_Bool)finishAllWorkoutsExcludingSessions:(id)arg1 profile:(id)arg2 error:(id *)arg3;
++ (_Bool)_finishSessionControllerForSessionEntity:(id)arg1 profile:(id)arg2 transaction:(id)arg3 error:(id *)arg4;
 + (_Bool)finishAllWorkoutSessionsForClient:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (id)postRestartRecoveredSessionServerWithProfile:(id)arg1 workoutManager:(id)arg2 error:(id *)arg3;
 + (id)recoveredSessionServerWithProfile:(id)arg1 sessionUUID:(id)arg2 workoutManager:(id)arg3 error:(id *)arg4;
@@ -88,7 +89,7 @@
 - (_Bool)startActivityWithError:(id *)arg1;
 - (_Bool)prepareWithError:(id *)arg1;
 - (void)removeObserver:(id)arg1;
-- (void)addObserver:(id)arg1;
+- (void)addObserver:(id)arg1 queue:(id)arg2;
 @property(readonly, nonatomic) _Bool isActive;
 - (void)workoutDataDestination:(id)arg1 didChangeFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3;
 - (void)workoutDataDestination:(id)arg1 requestsDataFrom:(id)arg2 to:(id)arg3;
@@ -102,10 +103,8 @@
 - (void)didResignCurrentWithError:(id)arg1;
 - (void)didBecomeCurrent;
 @property(readonly, copy) NSString *description;
-- (id)_predictionDescriptionComponent;
-- (id)_lapLengthDescriptionComponent;
-- (id)_swimmingDescriptionComponent;
-- (id)_fitnessMachineDescriptionComponent;
+- (id)_detailedDescriptionString;
+- (id)_detailedDescriptionComponents;
 - (id)initWithProfile:(id)arg1 configuration:(id)arg2 sessionUUID:(id)arg3 workoutManager:(id)arg4;
 
 // Remaining properties

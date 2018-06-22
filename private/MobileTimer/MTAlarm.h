@@ -87,12 +87,12 @@
 - (_Bool)isEqualIgnoringLastModifiedDate:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
-- (id)_nextDateHelperWithDateAllowPast:(id)arg1 hour:(long long)arg2 minute:(long long)arg3 calendar:(id)arg4;
 - (id)_nextDateHelperWithDate:(id)arg1 calendar:(id)arg2;
 - (id)_actualTriggerStartDateForDate:(id)arg1;
-- (id)nextTriggersAfterDateAllowPast:(id)arg1;
-- (id)_nextBedtimeTriggersHelperWithDate:(id)arg1 wakeUpDate:(id)arg2 calendar:(id)arg3;
+- (id)_nextBedtimeTriggersHelperWithDate:(id)arg1 wakeUpDate:(id)arg2 includeBedtimeNotification:(_Bool)arg3 includeBedtime:(_Bool)arg4 calendar:(id)arg5;
+- (id)nextTriggersAfterDate:(id)arg1 includeSnooze:(_Bool)arg2 includeBedtimeNotification:(_Bool)arg3 includeBedtime:(_Bool)arg4;
 - (id)nextTriggersAfterDate:(id)arg1 includeSnooze:(_Bool)arg2 includeBedtimeNotification:(_Bool)arg3;
+- (id)nextTriggersAfterDate:(id)arg1 includeBedtime:(_Bool)arg2;
 - (id)nextTriggersAfterDate:(id)arg1;
 - (id)nextTriggerAfterDate:(id)arg1 ofType:(unsigned long long)arg2;
 - (id)nextTriggerAfterDate:(id)arg1 includeSnooze:(_Bool)arg2 includeBedtimeNotification:(_Bool)arg3;

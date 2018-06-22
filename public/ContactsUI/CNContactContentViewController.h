@@ -92,6 +92,7 @@
     CNCardGroup *_cardMedicalIDGroup;
     CNCardGroup *_cardBlockContactGroup;
     CNCardLinkedCardsGroup *_cardLinkedCardsGroup;
+    NSArray *_customActions;
     CNPropertyNoteCell *_noteCell;
     CNPropertyAction *_sendMessageAction;
     CNPropertyFaceTimeAction *_faceTimeAction;
@@ -218,6 +219,7 @@
 @property(retain, nonatomic) CNPropertyFaceTimeAction *faceTimeAction; // @synthesize faceTimeAction=_faceTimeAction;
 @property(retain, nonatomic) CNPropertyAction *sendMessageAction; // @synthesize sendMessageAction=_sendMessageAction;
 @property(retain, nonatomic) CNPropertyNoteCell *noteCell; // @synthesize noteCell=_noteCell;
+@property(retain, nonatomic) NSArray *customActions; // @synthesize customActions=_customActions;
 @property(retain, nonatomic) CNCardLinkedCardsGroup *cardLinkedCardsGroup; // @synthesize cardLinkedCardsGroup=_cardLinkedCardsGroup;
 @property(retain, nonatomic) CNCardGroup *cardBlockContactGroup; // @synthesize cardBlockContactGroup=_cardBlockContactGroup;
 @property(retain, nonatomic) CNCardGroup *cardMedicalIDGroup; // @synthesize cardMedicalIDGroup=_cardMedicalIDGroup;

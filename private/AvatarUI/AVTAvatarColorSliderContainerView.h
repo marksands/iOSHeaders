@@ -28,7 +28,7 @@
 - (void)updateSliderWithColorPreset:(id)arg1;
 - (void)updateSliderTrackLayer;
 - (void)layoutSubviews;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 userInterfaceLayoutDirection:(long long)arg2;
 
 @end
 

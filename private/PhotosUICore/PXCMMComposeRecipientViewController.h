@@ -11,13 +11,12 @@
 #import "PXCMMComposeRecipientSelectionManagerDelegate.h"
 #import "PXCMMComposeRecipientValidationManagerDelegate.h"
 #import "PXPhotoRecipientViewControllerDelegate.h"
-#import "PXSectionedDataSourceManagerObserver.h"
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSMutableSet, NSProgress, NSString, PXCMMAddRecipientButton, PXCMMComposeRecipientDataSource, PXCMMComposeRecipientDataSourceManager, PXCMMComposeRecipientSelectionManager, PXCMMComposeRecipientValidationManager, PXCMMPeopleSuggestionsMediaProvider, PXCMMSession, PXCMMSpecManager, PXPhotoRecipientViewController, PXUpdater, UIButton, UITableView;
+@class NSMutableSet, NSProgress, NSString, PXCMMAddRecipientButton, PXCMMComposeRecipientDataSource, PXCMMComposeRecipientDataSourceManager, PXCMMComposeRecipientSelectionManager, PXCMMComposeRecipientValidationManager, PXCMMPeopleSuggestionsMediaProvider, PXCMMSession, PXCMMSpecManager, PXPhotoRecipientViewController, PXUpdater, UIButton, UILabel, UITableView;
 
-@interface PXCMMComposeRecipientViewController : UIViewController <PXSectionedDataSourceManagerObserver, UITableViewDataSource, UITableViewDelegate, PXPhotoRecipientViewControllerDelegate, PXCMMComposeRecipientDataSourceManagerDelegate, PXCMMComposeRecipientSelectionManagerDelegate, PXCMMComposeRecipientValidationManagerDelegate, CNContactViewControllerDelegate>
+@interface PXCMMComposeRecipientViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PXPhotoRecipientViewControllerDelegate, PXCMMComposeRecipientDataSourceManagerDelegate, PXCMMComposeRecipientSelectionManagerDelegate, PXCMMComposeRecipientValidationManagerDelegate, CNContactViewControllerDelegate>
 {
     PXCMMSession *_session;
     id <PXCMMComposeRecipientViewControllerDelegate> _delegate;
@@ -26,6 +25,7 @@
     PXUpdater *_updater;
     UITableView *_composeRecipientTableView;
     PXCMMAddRecipientButton *_addRecipientButton;
+    UILabel *_privacyMessageLabel;
     UIButton *_sendButton;
     NSProgress *_actionProgress;
     PXCMMComposeRecipientDataSourceManager *_recipientManager;
@@ -54,6 +54,7 @@
 @property(retain, nonatomic) PXCMMComposeRecipientDataSourceManager *recipientManager; // @synthesize recipientManager=_recipientManager;
 @property(retain, nonatomic) NSProgress *actionProgress; // @synthesize actionProgress=_actionProgress;
 @property(retain, nonatomic) UIButton *sendButton; // @synthesize sendButton=_sendButton;
+@property(retain, nonatomic) UILabel *privacyMessageLabel; // @synthesize privacyMessageLabel=_privacyMessageLabel;
 @property(retain, nonatomic) PXCMMAddRecipientButton *addRecipientButton; // @synthesize addRecipientButton=_addRecipientButton;
 @property(retain, nonatomic) UITableView *composeRecipientTableView; // @synthesize composeRecipientTableView=_composeRecipientTableView;
 @property(readonly, nonatomic) PXUpdater *updater; // @synthesize updater=_updater;
@@ -69,7 +70,6 @@
 - (void)_dismissRecipientViewController:(id)arg1;
 - (void)photoRecipientViewController:(id)arg1 didCompleteWithRecipients:(id)arg2;
 - (void)photoRecipientViewControllerDidCancel:(id)arg1;
-- (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)composeRecipientValidationManager:(id)arg1 didUpdateValidationWithChangedIndexes:(id)arg2;
 - (void)composeRecipientSelectionManager:(id)arg1 didUpdateSelectionSnapshotWithChangeDetails:(id)arg2;
 - (void)composeRecipientDataSourceManager:(id)arg1 didUpdateDataSourceWithChangeDetails:(id)arg2;
@@ -91,6 +91,7 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
+- (void)dealloc;
 - (id)initWithSession:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

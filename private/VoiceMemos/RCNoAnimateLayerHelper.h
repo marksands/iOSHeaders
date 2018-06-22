@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)sharedNoAnimationHelper;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2;
 
 // Remaining properties

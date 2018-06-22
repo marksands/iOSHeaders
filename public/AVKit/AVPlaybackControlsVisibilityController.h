@@ -31,7 +31,6 @@
     _Bool _transitionInProgress;
     _Bool _playbackWasPausedAndVisibilityNotToggledAfterPausing;
     _Bool _loadingIndicatorWasShownAndVisibilityNotToggledAfterLoadingIndicatorShown;
-    _Bool _inAutoplayPhase;
     _Bool _isFlashingControlsVisible;
     _Bool _statusBarAppearanceNeedsUpdate;
     id <AVPlaybackControlsVisibilityControllerDelegate> _delegate;
@@ -82,9 +81,6 @@
 - (void)endHidingItemsForTransition;
 - (void)beginHidingItemsForTransition;
 - (_Bool)isHidingItemsForTransition;
-- (void)flashAutoplayControls;
-- (void)exitAutoplayPhase;
-- (void)enterAutoplayPhase;
 @property(readonly, nonatomic) _Bool showsItemPreferingStatusBarVisible;
 - (void)stopHidingItemQuicklyWhenPlaybackBegins;
 - (void)startHidingItemQuicklyWhenPlaybackBegins;

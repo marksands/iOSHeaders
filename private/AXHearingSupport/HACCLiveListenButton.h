@@ -26,9 +26,10 @@
 @property(retain, nonatomic) HACCLiveListenLevelGroup *levelGroup; // @synthesize levelGroup=_levelGroup;
 @property(retain, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
-@property(nonatomic) id <HACCContentModuleDelegate> delegate; // @synthesize delegate;
+@property(nonatomic) __weak id <HACCContentModuleDelegate> delegate; // @synthesize delegate;
 @property(nonatomic) unsigned long long module; // @synthesize module;
 - (void).cxx_destruct;
+- (unsigned long long)accessibilityTraits;
 - (id)accessibilityValue;
 - (id)accessibilityLabel;
 - (_Bool)isAccessibilityElement;

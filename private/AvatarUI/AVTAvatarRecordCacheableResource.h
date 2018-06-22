@@ -8,17 +8,17 @@
 
 #import "AVTCacheableResource.h"
 
-@class AVTAvatarRecord, AVTUIEnvironment, NSString;
+@class AVTUIEnvironment, NSString;
 
 @interface AVTAvatarRecordCacheableResource : NSObject <AVTCacheableResource>
 {
-    AVTAvatarRecord *_record;
+    id <AVTAvatarRecord> _record;
     AVTUIEnvironment *_environment;
 }
 
 + (id)persistentIdentifierPrefixForRecordWithIdentifier:(id)arg1;
 @property(readonly, nonatomic) AVTUIEnvironment *environment; // @synthesize environment=_environment;
-@property(readonly, nonatomic) AVTAvatarRecord *record; // @synthesize record=_record;
+@property(readonly, nonatomic) id <AVTAvatarRecord> record; // @synthesize record=_record;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (id)tokenForObservingChangesWithHandler:(CDUnknownBlockType)arg1;

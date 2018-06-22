@@ -71,6 +71,7 @@
 - (void)_consolidate;
 - (void)_unregisterMomentsForMomentLocalIdentifiers:(id)arg1;
 - (void)_registerMoments:(id)arg1;
+- (void)prepareForPostProcessing;
 - (void)addChanges:(id)arg1;
 - (void)addChange:(id)arg1;
 @property(readonly, nonatomic) _Bool hasUpdatedMomentNodes;

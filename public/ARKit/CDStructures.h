@@ -64,6 +64,8 @@ struct FacialLightEstimation {
     struct vector<unsigned long, std::__1::allocator<unsigned long>> m_inliers;
 };
 
+struct KeyMapBuffer<const void *, std::__1::vector<unsigned char, std::__1::allocator<unsigned char>>>;
+
 struct Matrix<float, 0, 0> {
     float *m_data;
     unsigned long long m_capacity;
@@ -114,6 +116,11 @@ struct shared_ptr<arkit::FaceTrackingData> {
     struct __shared_weak_count *_field2;
 };
 
+struct shared_ptr<arkit::KeyMapBuffer<const void *, std::__1::vector<unsigned char, std::__1::allocator<unsigned char>>>> {
+    struct KeyMapBuffer<const void *, std::__1::vector<unsigned char, std::__1::allocator<unsigned char>>> *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
 struct shared_ptr<arkit::PrecomputedFaceData> {
     struct PrecomputedFaceData *__ptr_;
     struct __shared_weak_count *__cntrl_;
@@ -135,11 +142,11 @@ struct vector<ARPatch, std::__1::allocator<ARPatch>> {
 };
 
 struct vector<ARTexturedPlane, std::__1::allocator<ARTexturedPlane>> {
-    CDStruct_183601bc *_field1;
-    CDStruct_183601bc *_field2;
+    CDStruct_183601bc *__begin_;
+    CDStruct_183601bc *__end_;
     struct __compressed_pair<ARTexturedPlane *, std::__1::allocator<ARTexturedPlane>> {
-        CDStruct_183601bc *_field1;
-    } _field3;
+        CDStruct_183601bc *__value_;
+    } __end_cap_;
 };
 
 struct vector<float __attribute__((ext_vector_type(2))), std::__1::allocator<float __attribute__((ext_vector_type(2)))>> {
@@ -273,7 +280,8 @@ typedef struct {
     _Bool minorRelocalization;
     _Bool poseGraphUpdated;
     int vioTrackingState;
-} CDStruct_88f337de;
+    double lastMajorRelocalizationTimestamp;
+} CDStruct_fad22f05;
 
 typedef struct CDStruct_183601bc;
 
@@ -292,12 +300,12 @@ typedef struct vector<ARPatch, std::__1::allocator<ARPatch>> {
 } vector_f87b304d;
 
 typedef struct vector<ARTexturedPlane, std::__1::allocator<ARTexturedPlane>> {
-    CDStruct_183601bc *_field1;
-    CDStruct_183601bc *_field2;
+    CDStruct_183601bc *__begin_;
+    CDStruct_183601bc *__end_;
     struct __compressed_pair<ARTexturedPlane *, std::__1::allocator<ARTexturedPlane>> {
-        CDStruct_183601bc *_field1;
-    } _field3;
-} vector_4cb10df0;
+        CDStruct_183601bc *__value_;
+    } __end_cap_;
+} vector_478e3a44;
 
 typedef struct vector<float, std::__1::allocator<float>> {
     float *__begin_;

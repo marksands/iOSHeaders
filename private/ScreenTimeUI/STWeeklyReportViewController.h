@@ -6,15 +6,18 @@
 
 #import "UITableViewController.h"
 
-@class STUsageReport;
+@class NSArray, STUsageReport;
 
 @interface STWeeklyReportViewController : UITableViewController
 {
     STUsageReport *_report;
+    NSArray *_tableViewCells;
 }
 
+@property(retain, nonatomic) NSArray *tableViewCells; // @synthesize tableViewCells=_tableViewCells;
 @property(readonly, nonatomic) STUsageReport *report; // @synthesize report=_report;
 - (void).cxx_destruct;
+- (struct CGSize)preferredContentSize;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)viewDidLoad;

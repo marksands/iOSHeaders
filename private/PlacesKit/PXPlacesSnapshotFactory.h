@@ -52,6 +52,8 @@
 - (long long)assetCountWithForcedRefresh:(_Bool)arg1;
 - (void)_requestPlacesSnapshotWithSnapshotOptions:(id)arg1 visibleRegion:(CDStruct_26e8d939)arg2 andCompletion:(CDUnknownBlockType)arg3;
 - (void)requestMapSnapshotForQuery:(id)arg1 snapshotOptions:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_removeLocalSearch:(id)arg1;
+- (void)_addLocalSearch:(id)arg1;
 - (void)requestPlacesImageOfAsset:(id)arg1 withSnapshotOptions:(id)arg2 andCompletion:(CDUnknownBlockType)arg3;
 - (void)_fetchImageOfAsset:(id)arg1 withSnapshotOptions:(id)arg2 andCompletion:(CDUnknownBlockType)arg3;
 - (void)_handleAsyncPlacesLibraryAlbumSnapshotWithSnapshotOptions:(id)arg1 andCompletion:(CDUnknownBlockType)arg2;

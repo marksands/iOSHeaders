@@ -92,6 +92,7 @@ typedef union {
         unsigned int :2;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :1;
         unsigned int :2;
         unsigned int :1;
         unsigned int :2;
@@ -103,8 +104,8 @@ typedef union {
         unsigned int :3;
         unsigned int :2;
         unsigned int :8;
-        unsigned int :10;
+        unsigned int :9;
     } _field1;
     unsigned long long _field2;
-} CDUnion_88725faa;
+} CDUnion_8ae6be23;
 

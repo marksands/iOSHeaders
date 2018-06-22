@@ -19,15 +19,17 @@
     double _darkeningAmount;
     double _contentBrightness;
     REContent *_content;
+    _Bool _paused;
     CLKDevice *_device;
     UIImage *_contentImage;
     UIImage *_overrideContentImage;
     NSString *_representedElementIdentifier;
 }
 
-+ (struct CGSize)suggestedBodyImageSize;
-+ (struct CGSize)suggestedHeaderImageSize;
++ (struct CGSize)suggestedBodyImageSizeForDevice:(id)arg1;
++ (struct CGSize)suggestedHeaderImageSizeForDevice:(id)arg1;
 + (void)clearLabel:(id)arg1;
+@property(nonatomic, getter=isPaused) _Bool paused; // @synthesize paused=_paused;
 @property(readonly, nonatomic) CALayer *imageLayer; // @synthesize imageLayer=_imageLayer;
 @property(retain, nonatomic) NSString *representedElementIdentifier; // @synthesize representedElementIdentifier=_representedElementIdentifier;
 @property(readonly, nonatomic) REContent *content; // @synthesize content=_content;

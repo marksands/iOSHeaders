@@ -12,14 +12,16 @@
 {
     _Bool _minimalMode;
     CPManeuver *_representedManeuver;
+    long long _style;
     CPTravelEstimates *_currentTravelEstimates;
 }
 
 @property(retain, nonatomic) CPTravelEstimates *currentTravelEstimates; // @synthesize currentTravelEstimates=_currentTravelEstimates;
+@property(nonatomic) long long style; // @synthesize style=_style;
 @property(readonly, nonatomic) CPManeuver *representedManeuver; // @synthesize representedManeuver=_representedManeuver;
 @property(readonly, nonatomic, getter=isMinimalMode) _Bool minimalMode; // @synthesize minimalMode=_minimalMode;
 - (void).cxx_destruct;
-- (id)initWithManeuver:(id)arg1 minimalMode:(_Bool)arg2;
+- (id)initWithManeuver:(id)arg1 minimalMode:(_Bool)arg2 style:(long long)arg3 backgroundColor:(id)arg4;
 
 @end
 

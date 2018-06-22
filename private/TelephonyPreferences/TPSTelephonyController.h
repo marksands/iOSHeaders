@@ -8,13 +8,14 @@
 
 #import "CoreTelephonyClientDelegate.h"
 
-@class CoreTelephonyClient, NSMapTable, NSObject<OS_dispatch_queue>, NSOrderedSet, NSString;
+@class CoreTelephonyClient, NSDictionary, NSMapTable, NSObject<OS_dispatch_queue>, NSOrderedSet, NSString;
 
 @interface TPSTelephonyController : NSObject <CoreTelephonyClientDelegate>
 {
     struct os_unfair_lock_s _accessorLock;
     struct os_unfair_lock_s _delegateLock;
     NSOrderedSet *_subscriptions;
+    NSDictionary *_systemCapabilities;
     CoreTelephonyClient *_telephonyClient;
     NSMapTable *_delegateToQueue;
     NSObject<OS_dispatch_queue> *_serialDispatchQueue;
@@ -27,12 +28,21 @@
 @property(readonly, nonatomic) CoreTelephonyClient *telephonyClient; // @synthesize telephonyClient=_telephonyClient;
 - (void).cxx_destruct;
 - (void)subscriptionInfoDidChange;
+- (id)systemCapabilitiesForSubscriptionContext:(id)arg1 error:(id *)arg2;
+- (id)systemCapabilitiesForSubscriptionContext:(id)arg1;
+- (_Bool)supportsCellularNetworkSelectionForSubscriptionContext:(id)arg1;
+- (_Bool)supportsCallWaitingForSubscriptionContext:(id)arg1;
+- (_Bool)supportsCallForwardingForSubscriptionContext:(id)arg1;
+- (_Bool)supportsCallerIDForSubscriptionContext:(id)arg1;
+- (_Bool)supportsCapabilityWithName:(id)arg1 subscriptionContext:(id)arg2;
 - (void)performAtomicDelegateBlock:(CDUnknownBlockType)arg1;
 - (void)performAtomicAccessorBlock:(CDUnknownBlockType)arg1;
+- (id)fetchSystemCapabilitiesForSubscriptions:(id)arg1;
 - (id)fetchSubscriptions;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
-@property(retain, nonatomic) NSOrderedSet *subscriptions; // @synthesize subscriptions=_subscriptions;
+@property(copy, nonatomic) NSOrderedSet *subscriptions; // @synthesize subscriptions=_subscriptions;
+@property(copy, nonatomic) NSDictionary *systemCapabilities; // @synthesize systemCapabilities=_systemCapabilities;
 - (id)init;
 
 // Remaining properties

@@ -43,7 +43,6 @@
     PKSettingTableCell *_notificationsSwitch;
     PKSettingTableCell *_automaticPresentationSwitch;
     PKSettingTableCell *_expressAccessSwitch;
-    NSNumber *_paymentTransactionCellHeightCache;
     PKPaymentTransactionCellController *_transactionCellController;
     NSArray *_transactions;
     NSArray *_transactionCountAndYear;
@@ -66,6 +65,7 @@
     struct UIEdgeInsets _headerContentInset;
     double _tabBarHeight;
     _Bool _changingDefaultPaymentApplication;
+    NSNumber *_defaultTableViewCellHeightCache;
     double _previousLayoutTableViewWidth;
     struct CGSize _previousLayoutContentSize;
     NSMutableDictionary *_contextualActionHandlers;
@@ -131,7 +131,8 @@
 - (void)_automaticPresentationSwitchChanged:(id)arg1;
 - (void)_tabBarSegmentChanged:(id)arg1;
 - (void)_setTransitProperties:(id)arg1;
-- (double)_paymentTransactionCellHeight;
+- (double)_paymentTransactionCellHeightForIndexPath:(id)arg1 tableView:(id)arg2;
+- (double)_defaultTableViewCellHeight;
 - (double)_heightForPassStateSectionWithTableView:(id)arg1;
 - (id)_footerTextForPassStateSection;
 - (id)_footerViewForPassStateSection;
@@ -272,6 +273,7 @@
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithTransitPassProperties:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
 - (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;

@@ -5,6 +5,7 @@
 //
 
 #import "CTXPCServiceBaseInterface.h"
+#import "CTXPCServiceCallInterface.h"
 #import "CTXPCServiceCapabilitiesInterface.h"
 #import "CTXPCServiceCarrierBundleInterface.h"
 #import "CTXPCServiceCellMonitorInterface.h"
@@ -15,12 +16,13 @@
 #import "CTXPCServicePNRInterface.h"
 #import "CTXPCServicePhonebookInterface.h"
 #import "CTXPCServicePostponementInterface.h"
+#import "CTXPCServiceRadioInterface.h"
 #import "CTXPCServiceRegistrationInterface.h"
 #import "CTXPCServiceSubscriberInterface.h"
 #import "CTXPCServiceSuppServicesInterface.h"
 #import "CTXPCServiceVoicemailInterface.h"
 #import "NSObject.h"
 
-@protocol CTXPCServiceInterface <NSObject, CTXPCServiceBaseInterface, CTXPCServiceRegistrationInterface, CTXPCServiceDataInterface, CTXPCServiceSubscriberInterface, CTXPCServiceEmergencyInterface, CTXPCServiceCarrierBundleInterface, CTXPCServiceVoicemailInterface, CTXPCServiceCellMonitorInterface, CTXPCServicePostponementInterface, CTXPCServiceDeviceManagementInterface, CTXPCServicePNRInterface, CTXPCServiceSuppServicesInterface, CTXPCServiceCapabilitiesInterface, CTXPCServiceFTInterface, CTXPCServicePhonebookInterface>
+@protocol CTXPCServiceInterface <NSObject, CTXPCServiceBaseInterface, CTXPCServiceRegistrationInterface, CTXPCServiceDataInterface, CTXPCServiceSubscriberInterface, CTXPCServiceEmergencyInterface, CTXPCServiceCarrierBundleInterface, CTXPCServiceVoicemailInterface, CTXPCServiceCellMonitorInterface, CTXPCServicePostponementInterface, CTXPCServiceDeviceManagementInterface, CTXPCServicePNRInterface, CTXPCServiceSuppServicesInterface, CTXPCServiceCapabilitiesInterface, CTXPCServiceFTInterface, CTXPCServiceRadioInterface, CTXPCServiceCallInterface, CTXPCServicePhonebookInterface>
 @end
 

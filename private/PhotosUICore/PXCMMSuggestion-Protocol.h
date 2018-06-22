@@ -7,16 +7,15 @@
 #import "NSObject.h"
 #import "PXMediaTypeAggregating.h"
 
-@class NSDate, NSString, PXCMMContext;
+@class NSString, PXCMMContext;
 
 @protocol PXCMMSuggestion <NSObject, PXMediaTypeAggregating>
 @property(readonly, nonatomic) id <PXPeopleFetchResult> peopleFetchResult;
 @property(readonly, nonatomic) id <PXUIImageProvider> posterMediaProvider;
 @property(readonly, nonatomic) id <PXDisplayAsset> posterAsset;
 @property(readonly, nonatomic) long long count;
-@property(readonly, nonatomic) NSDate *endDate;
-@property(readonly, nonatomic) NSDate *startDate;
-@property(readonly, nonatomic) NSString *localizedTitle;
+@property(readonly, nonatomic) NSString *subtitle;
+@property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) NSString *identifier;
 - (id)diagnosticsItem;
 - (void)decline;

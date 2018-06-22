@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class BKSApplicationStateMonitor, NSDate, NSDictionary, NSLock, NSMutableArray, NSMutableSet, NSObject<TIKeyboardApplicationStateResponses>, NSString;
+@class BKSApplicationStateMonitor, NSCalendar, NSDate, NSDictionary, NSLock, NSMutableArray, NSMutableSet, NSObject<TIKeyboardApplicationStateResponses>, NSString;
 
 @interface TIKeyboardApplicationStateMonitor : NSObject
 {
@@ -20,12 +20,14 @@
     NSMutableSet *_imSuppressingBundleIDs;
     NSLock *_activeStateDataLock;
     NSLock *_databaseInUseLock;
+    NSCalendar *_utcCalendar;
     NSMutableArray *_keyboardUsageTimes;
     double _activeKeyboardStartTime;
 }
 
 @property(nonatomic) double activeKeyboardStartTime; // @synthesize activeKeyboardStartTime=_activeKeyboardStartTime;
 @property(retain, nonatomic) NSMutableArray *keyboardUsageTimes; // @synthesize keyboardUsageTimes=_keyboardUsageTimes;
+@property(retain, nonatomic) NSCalendar *utcCalendar; // @synthesize utcCalendar=_utcCalendar;
 @property(retain, nonatomic) NSLock *databaseInUseLock; // @synthesize databaseInUseLock=_databaseInUseLock;
 @property(retain, nonatomic) NSLock *activeStateDataLock; // @synthesize activeStateDataLock=_activeStateDataLock;
 @property(retain, nonatomic) NSMutableSet *imSuppressingBundleIDs; // @synthesize imSuppressingBundleIDs=_imSuppressingBundleIDs;

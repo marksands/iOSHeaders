@@ -64,7 +64,7 @@
 - (void).cxx_destruct;
 - (id)_selectionOverlay;
 - (void)_endShowingSelectionOverlayWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (void)_beginShowingSelectionOverlay;
+- (void)_beginShowingSelectionOverlayAndEnableInsertMode:(_Bool)arg1;
 - (void)_updateInterfaceForAVState;
 - (unsigned long long)_currentTimeDisplayOptionsIgnoringSelectionOverlayState:(_Bool)arg1;
 - (unsigned long long)_currentTimeDisplayOptions;
@@ -89,7 +89,7 @@
 @property(readonly, nonatomic) CDStruct_73a5d3ca selectedTimeRange;
 - (void)setSelectedTimeRange:(CDStruct_73a5d3ca)arg1 animationDuration:(double)arg2;
 - (void)hidSelectionOverlayWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (void)showSelectionOverlay;
+- (void)showSelectionOverlayAndEnableInsertMode:(_Bool)arg1;
 @property(readonly, nonatomic) double currentTimeIndicatorCoordinate;
 @property(readonly, nonatomic) double waveformBottomLineInset;
 - (struct CGRect)waveformRectForLayoutBounds:(struct CGRect)arg1;

@@ -33,8 +33,8 @@
     NSString *_carPlayIconFile;
     NSString *_watchQuickLookSmallIconFile;
     NSString *_watchQuickLookLargeIconFile;
-    NSString *_watchLongLookSmallIconFile;
-    NSString *_watchLongLookLargeIconFile;
+    NSString *_watchListSmallIconFile;
+    NSString *_watchListLargeIconFile;
     NSURL *_bundleURL;
     NSURL *_dataContainerURL;
     NSArray *_defaultCategories;
@@ -64,8 +64,8 @@
 @property(retain, nonatomic) NSArray *defaultCategories; // @synthesize defaultCategories=_defaultCategories;
 @property(copy, nonatomic) NSURL *dataContainerURL; // @synthesize dataContainerURL=_dataContainerURL;
 @property(copy, nonatomic) NSURL *bundleURL; // @synthesize bundleURL=_bundleURL;
-@property(copy, nonatomic) NSString *watchLongLookLargeIconFile; // @synthesize watchLongLookLargeIconFile=_watchLongLookLargeIconFile;
-@property(copy, nonatomic) NSString *watchLongLookSmallIconFile; // @synthesize watchLongLookSmallIconFile=_watchLongLookSmallIconFile;
+@property(copy, nonatomic) NSString *watchListLargeIconFile; // @synthesize watchListLargeIconFile=_watchListLargeIconFile;
+@property(copy, nonatomic) NSString *watchListSmallIconFile; // @synthesize watchListSmallIconFile=_watchListSmallIconFile;
 @property(copy, nonatomic) NSString *watchQuickLookLargeIconFile; // @synthesize watchQuickLookLargeIconFile=_watchQuickLookLargeIconFile;
 @property(copy, nonatomic) NSString *watchQuickLookSmallIconFile; // @synthesize watchQuickLookSmallIconFile=_watchQuickLookSmallIconFile;
 @property(copy, nonatomic) NSString *carPlayIconFile; // @synthesize carPlayIconFile=_carPlayIconFile;

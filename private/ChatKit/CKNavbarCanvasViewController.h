@@ -6,11 +6,12 @@
 
 #import "UIViewController.h"
 
+#import "CKDetailsContactsManagerDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class CKAvatarPickerViewController, CKCanvasBackButtonView, CKConversation, CKLabel, CKNavigationBarCanvasView, CNContactStore, NSString, UIButton, UINavigationController;
+@class CKAvatarPickerViewController, CKCanvasBackButtonView, CKConversation, CKDetailsContactsManager, CKLabel, CKNavigationBarCanvasView, CNContactStore, NSString, UIButton, UINavigationController;
 
-@interface CKNavbarCanvasViewController : UIViewController <UIGestureRecognizerDelegate>
+@interface CKNavbarCanvasViewController : UIViewController <UIGestureRecognizerDelegate, CKDetailsContactsManagerDelegate>
 {
     _Bool _canShowBackButtonView;
     _Bool _editing;
@@ -28,8 +29,10 @@
     UINavigationController *_proxyNavigationController;
     long long _indicatorType;
     CNContactStore *_suggestionsEnabledContactStore;
+    CKDetailsContactsManager *_contactsManager;
 }
 
+@property(retain, nonatomic) CKDetailsContactsManager *contactsManager; // @synthesize contactsManager=_contactsManager;
 @property(retain, nonatomic) CNContactStore *suggestionsEnabledContactStore; // @synthesize suggestionsEnabledContactStore=_suggestionsEnabledContactStore;
 @property(nonatomic) long long indicatorType; // @synthesize indicatorType=_indicatorType;
 @property(nonatomic) _Bool editing; // @synthesize editing=_editing;
@@ -47,6 +50,8 @@
 @property(retain, nonatomic) UIButton *callButton; // @synthesize callButton=_callButton;
 @property(nonatomic) __weak id <CKNavbarCanvasViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)contactsManager:(id)arg1 didRequestCallTypeForEntity:(id)arg2 addresses:(id)arg3 abLabels:(id)arg4 faceTimeAudioEnabled:(_Bool)arg5;
+- (void)contactsManagerViewModelsDidChange:(id)arg1;
 - (void)_buttonPressed:(id)arg1;
 - (void)_contactPhotosEnabledChangedNotification:(id)arg1;
 - (void)setUnreadCountTitleColor;
@@ -54,6 +59,7 @@
 - (void)_updateUnreadCountForBackbuttonView:(long long)arg1;
 - (long long)_unreadCount;
 - (void)_showContactCardForEntity:(id)arg1;
+- (void)_handleTranscriptScroll:(id)arg1;
 - (void)dismissModal;
 - (void)showMapkitBusinessData;
 - (void)_configureForDefaultMode;
@@ -75,12 +81,14 @@
 - (void)viewDidLayoutSubviews;
 - (void)handleCloseNavBarAnimationCompleteNotification:(id)arg1;
 - (void)_userDidTapNavigationBar:(id)arg1;
+- (void)toggleExpansionState;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)loadView;
 - (id)navigationItem;
 - (_Bool)_canShowAvatarView;
 - (double)_preferredHeightForTraitCollection:(id)arg1;
 - (id)_windowTraitCollection;
+- (void)startAudioCommunication;
 - (void)dealloc;
 - (id)initWithConversation:(id)arg1 navigationController:(id)arg2;
 - (id)initWithConversation:(id)arg1;

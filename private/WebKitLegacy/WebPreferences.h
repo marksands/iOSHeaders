@@ -80,6 +80,8 @@
 - (id)initWithIdentifier:(id)arg1 sendChangeNotification:(_Bool)arg2;
 - (id)initWithIdentifier:(id)arg1;
 - (id)init;
+- (void)setServerTimingEnabled:(_Bool)arg1;
+- (_Bool)serverTimingEnabled;
 @property(nonatomic) _Bool mediaCapabilitiesEnabled;
 @property(nonatomic) _Bool accessibilityObjectModelEnabled;
 @property(nonatomic) _Bool inspectorAdditionsEnabled;
@@ -99,8 +101,8 @@
 @property(nonatomic) _Bool displayContentsEnabled;
 @property(nonatomic) _Bool menuItemElementEnabled;
 @property(nonatomic) _Bool intersectionObserverEnabled;
-- (void)setCSSAnimationsAndCSSTransitionsBackedByWebAnimationsEnabled:(_Bool)arg1;
-- (_Bool)cssAnimationsAndCSSTransitionsBackedByWebAnimationsEnabled;
+- (void)setWebAnimationsCSSIntegrationEnabled:(_Bool)arg1;
+- (_Bool)webAnimationsCSSIntegrationEnabled;
 - (void)setModernMediaControlsEnabled:(_Bool)arg1;
 - (_Bool)modernMediaControlsEnabled;
 - (void)setFetchAPIKeepAliveEnabled:(_Bool)arg1;
@@ -119,8 +121,8 @@
 - (_Bool)readableByteStreamAPIEnabled;
 - (void)setFetchAPIEnabled:(_Bool)arg1;
 - (_Bool)fetchAPIEnabled;
-- (void)setCrossOriginOptionsSupportEnabled:(_Bool)arg1;
-- (_Bool)crossOriginOptionsSupportEnabled;
+- (void)setCrossOriginWindowPolicySupportEnabled:(_Bool)arg1;
+- (_Bool)crossOriginWindowPolicySupportEnabled;
 - (void)setCacheAPIEnabled:(_Bool)arg1;
 - (_Bool)cacheAPIEnabled;
 - (void)setCustomPasteboardDataEnabled:(_Bool)arg1;

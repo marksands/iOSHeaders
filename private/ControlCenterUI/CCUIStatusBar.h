@@ -11,8 +11,7 @@
 @interface CCUIStatusBar : UIView
 {
     UIStatusBar_Modern *_compactTrailingStatusBar;
-    UIStatusBar_Modern *_extendedLeadingStatusBar;
-    UIStatusBar_Modern *_extendedTrailingStatusBar;
+    UIStatusBar_Modern *_expandedStatusBar;
     id <CCUIStatusBarDelegate> _delegate;
     unsigned long long _leadingState;
     unsigned long long _trailingState;
@@ -26,8 +25,9 @@
 @property(nonatomic) unsigned long long leadingState; // @synthesize leadingState=_leadingState;
 @property(nonatomic) __weak id <CCUIStatusBarDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_updateCompactTrailingStatusBarStyleRequest;
+- (void)_updateCompactTrailingStatusBarStyleRequestAndAvoidanceFrame;
 - (void)controlCenterApplyPrimaryContentShadow;
+- (void)_updateShadow;
 - (struct CGSize)intrinsicContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
@@ -36,6 +36,7 @@
 @property(nonatomic) double expandedTrailingAlpha; // @dynamic expandedTrailingAlpha;
 @property(nonatomic) double compactTrailingAlpha; // @dynamic compactTrailingAlpha;
 @property(nonatomic) double leadingAlpha; // @dynamic leadingAlpha;
+- (struct CGRect)compactAvoidanceFrame;
 @property(readonly, copy, nonatomic) UIStatusBarStyleRequest *compactStyleRequest; // @dynamic compactStyleRequest;
 - (id)initWithFrame:(struct CGRect)arg1;
 

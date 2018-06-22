@@ -14,7 +14,6 @@
 @interface MNCommuteSession : NSObject <MNCommuteDestinationUpdaterDelegate, MNCommuteDestinationObserver>
 {
     MNObserverHashTable<MNCommuteSessionObserver> *_observers;
-    NSTimer *_stateChangeTimer;
     NSMutableDictionary *_suggestions;
     NSArray *_rankedDestinations;
     id _rankedDestinationsSync;
@@ -27,8 +26,10 @@
     MNSuggestionsManager *_suggestionsManager;
     unsigned long long _commuteSessionState;
     MNCommuteDestinationUpdater *_comparisonDestinationStartTime;
+    unsigned long long _requestedCommuteSessionState;
 }
 
+@property(nonatomic) unsigned long long requestedCommuteSessionState; // @synthesize requestedCommuteSessionState=_requestedCommuteSessionState;
 @property(nonatomic) __weak MNCommuteDestinationUpdater *comparisonDestinationStartTime; // @synthesize comparisonDestinationStartTime=_comparisonDestinationStartTime;
 @property(readonly, nonatomic) MNNavigationTraceManager *traceManager; // @synthesize traceManager=_traceManager;
 @property(nonatomic) unsigned long long commuteSessionState; // @synthesize commuteSessionState=_commuteSessionState;

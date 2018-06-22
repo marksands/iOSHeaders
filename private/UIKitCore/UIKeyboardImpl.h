@@ -14,7 +14,7 @@
 #import "_UIIVCResponseDelegateImpl.h"
 #import "_UIKeyboardTextSelectionGestureControllerDelegate.h"
 
-@class NSDictionary, NSMutableArray, NSMutableDictionary, NSString, RTIDocumentState, RTIDocumentTraits, RTIInputSystemClient, TICandidateRequestToken, TIKeyboardCandidateResultSet, TIKeyboardInputManagerState, TIKeyboardInputManagerStub, TIKeyboardLayout, TIKeyboardState, TIKeyboardTouchEvent, TISmartPunctuationController, UIAlertView, UIAutocorrectInlinePrompt, UIDelayedAction, UIKBAutofillController, UIKeyboardAutocorrectionController, UIKeyboardLayout, UIKeyboardScheduledTask, UIKeyboardTaskQueue, UILexicon, UIPhysicalKeyboardEvent, UIResponder, UIResponder<UIKeyInput>, UIResponder<UIKeyInputPrivate>, UIResponder<UITextInput>, UIResponder<UITextInputPrivate>, UIResponder<UIWKInteractionViewProtocol>, UITextInputArrowKeyHistory, UITextInputTraits, UITextSelectionView, _UIActionWhenIdle, _UIKeyboardFeedbackGenerator, _UIKeyboardTextSelectionController;
+@class NSDictionary, NSMutableArray, NSMutableDictionary, NSString, RTIDocumentState, RTIDocumentTraits, RTIInputSystemClient, TICandidateRequestToken, TIKeyboardCandidateResultSet, TIKeyboardInputManagerState, TIKeyboardInputManagerStub, TIKeyboardLayout, TIKeyboardState, TIKeyboardTouchEvent, TISmartPunctuationController, UIAlertView, UIAutocorrectInlinePrompt, UIDelayedAction, UIKBAutofillController, UIKeyboardAutocorrectionController, UIKeyboardLayout, UIKeyboardScheduledTask, UIKeyboardTaskQueue, UILexicon, UIPhysicalKeyboardEvent, UIResponder, UIResponder<UIKeyInput>, UIResponder<UIKeyInputPrivate>, UIResponder<UITextInput>, UIResponder<UITextInputPrivate>, UIResponder<UIWKInteractionViewProtocol>, UITextInputArrowKeyHistory, UITextInputTraits, UITextSelectionView, _UIActionWhenIdle, _UIKeyboardFeedbackGenerator, _UIKeyboardImplProxy, _UIKeyboardTextSelectionController;
 
 @interface UIKeyboardImpl : UIView <_UIIVCResponseDelegateImpl, _UIKeyboardTextSelectionGestureControllerDelegate, UITextInputSuggestionDelegate, TIKeyboardInputManagerToImplProtocol, RTIInputSystemClientDelegate, RTIInputSystemSessionDelegate, UIKeyboardCandidateListDelegate>
 {
@@ -54,6 +54,7 @@
     _Bool m_textInputChangingText;
     _Bool m_textInputChangingDirection;
     _Bool m_textInputChangesIgnored;
+    _Bool m_textInputUpdatingSelection;
     _Bool m_insideKeyInputDelegateCall;
     _Bool m_disableSyncTextChanged;
     UITextInputTraits *m_defaultTraits;
@@ -151,6 +152,8 @@
     long long m_pendingAutofillIndex;
     _Bool m_ignoreSelectionChange;
     NSDictionary *m_autofillCustomInfo;
+    unsigned long long m_numCPwords;
+    _UIKeyboardImplProxy *m_implProxy;
     _Bool m_showsCandidateBar;
     _Bool m_showsCandidateInline;
     _Bool committingCandidate;
@@ -215,6 +218,8 @@
 + (void)applicationDidReceiveMemoryWarning:(id)arg1;
 + (void)applicationWillEnterForeground:(id)arg1;
 + (void)applicationDidEnterBackground:(id)arg1;
++ (void)applicationDidRemoveDeactivationReason:(id)arg1;
++ (void)applicationWillAddDeactivationReason:(id)arg1;
 + (void)viewServiceHostDidBecomeActive:(id)arg1;
 + (void)viewServiceHostWillResignActive:(id)arg1;
 + (void)applicationDidBecomeActive:(id)arg1;
@@ -411,6 +416,7 @@
 - (void)updateCandidateDisplay;
 - (_Bool)needsToDeferUpdateTextCandidateView;
 - (void)updateCandidateDisplayAsyncWithCandidateSet:(id)arg1;
+- (void)_conditionallyNotifyPredictionsAreAvailableForCandidates:(id)arg1;
 - (_Bool)displaysCandidates;
 - (void)setCandidateList:(id)arg1;
 - (void)pushAutocorrections:(id)arg1 requestToken:(id)arg2;
@@ -624,6 +630,7 @@
 - (void)unmarkText:(id)arg1;
 - (void)unmarkText;
 - (void)clearInputForMarkedText;
+- (void)_setAttributedMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2 inputString:(id)arg3 searchString:(id)arg4 compareAttributes:(_Bool)arg5;
 - (void)setAttributedMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2 inputString:(id)arg3 searchString:(id)arg4;
 - (void)setMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2 inputString:(id)arg3 searchString:(id)arg4;
 - (struct CGSize)stretchFactor;
@@ -661,6 +668,7 @@
 - (_Bool)shouldRapidDeleteWithDelegate;
 - (_Bool)shouldRapidDelete;
 - (_Bool)usesAutoDeleteWord;
+- (_Bool)insertTextIfShould:(id)arg1;
 - (_Bool)callShouldReplaceExtendedRange:(long long)arg1 withText:(id)arg2 includeMarkedText:(_Bool)arg3;
 - (_Bool)callShouldInsertText:(id)arg1 onDelegate:(id)arg2;
 - (_Bool)callShouldInsertText:(id)arg1;
@@ -728,7 +736,6 @@
 - (void)showInternationalKeyInfoAlertIfNeededWithPreviousInputMode:(id)arg1;
 - (void)showInformationalAlertIfNeededForReason:(int)arg1 withPreviousInputMode:(id)arg2;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
-- (void)fadeAnimationDidStop:(id)arg1 finished:(id)arg2;
 - (void)updateInputModeIndicatorOnSingleKeyOnly:(_Bool)arg1;
 - (void)updateInputModeIndicatorOnSingleKeyOnly:(_Bool)arg1 preserveIfPossible:(_Bool)arg2;
 - (void)setKeyboardInputModeFromPreferences:(id)arg1;
@@ -829,6 +836,7 @@
 - (void)setCapsLockIfNeeded;
 - (void)setCapsLockSign;
 @property(nonatomic) _Bool hardwareKeyboardIsSeen;
+- (void)_setAutofillGroup:(id)arg1;
 - (void)_clearAutofillGroup;
 - (long long)_needAutofillCandidate:(id)arg1;
 - (void)logHandwritingData;
@@ -880,6 +888,7 @@
 - (void)_tagTouchForTypingMenu:(unsigned int)arg1;
 - (void)_requestInputManagerSync;
 - (void)_performInputViewControllerOutput:(id)arg1;
+- (id)implProxy;
 - (_Bool)_needsCandidates;
 - (void)_setNeedsCandidates:(_Bool)arg1;
 - (long long)_positionInCandidateList:(id)arg1;

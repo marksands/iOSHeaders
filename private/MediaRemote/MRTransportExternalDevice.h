@@ -28,6 +28,7 @@
     unsigned long long _reconnectionAttemptCount;
     _Bool _forceReconnectOnConnectionFailure;
     _Bool _disconnecting;
+    _Bool _startedXPCTransaction;
     _Bool _isCallingClientCallback;
     MRExternalClientConnection *_clientConnection;
     _MROriginProtobuf *_customOrigin;

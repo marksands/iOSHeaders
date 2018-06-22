@@ -19,7 +19,7 @@
     NSArray *_bccRecipients;
     NSString *_messageBody;
     int _composeType;
-    id _autosaveIdentifier;
+    NSString *_autosaveIdentifier;
     MFMailMessage *_originalMessage;
     NSString *_attachmentToMarkupContentID;
     id _originalContent;
@@ -50,7 +50,7 @@
 @property(retain, nonatomic) NSString *attachmentToMarkupContentID; // @synthesize attachmentToMarkupContentID=_attachmentToMarkupContentID;
 @property(readonly, nonatomic) MFAttachmentCompositionContext *attachmentContext; // @synthesize attachmentContext=_attachmentContext;
 @property(readonly, nonatomic) MFMailMessage *originalMessage; // @synthesize originalMessage=_originalMessage;
-@property(readonly, nonatomic) id autosaveIdentifier; // @synthesize autosaveIdentifier=_autosaveIdentifier;
+@property(readonly, nonatomic) NSString *autosaveIdentifier; // @synthesize autosaveIdentifier=_autosaveIdentifier;
 @property(readonly, nonatomic) int composeType; // @synthesize composeType=_composeType;
 @property(retain, nonatomic) id originalContent; // @synthesize originalContent=_originalContent;
 @property(nonatomic) _Bool showContentImmediately; // @synthesize showContentImmediately=_showContentImmediately;

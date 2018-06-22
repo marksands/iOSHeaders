@@ -13,19 +13,20 @@
     PGGraph *_graph;
 }
 
++ (id)zeroKeywordLog;
 @property(readonly) PGGraph *graph; // @synthesize graph=_graph;
 - (void).cxx_destruct;
-- (id)meaningNodeZeroKeywordForDisplayMeaningNode:(id)arg1;
+- (id)meaningNodeZeroKeywordForDisplayMeaningNode:(id)arg1 collectionUUIDsToAvoid:(id)arg2;
 - (id)_tripZeroKeywordWithScore:(out double *)arg1;
 - (id)tripRankedKeyword;
 - (id)tripZeroKeyword;
-- (id)seasonZeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
-- (id)holidayZeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)sceneZeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)eventZeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)locationZeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
+- (_Bool)_conflictBetweenLocationOrAreaNode:(id)arg1 andOtherLocationOrAreaNodes:(id)arg2;
 - (id)socialGroupKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)peopleZeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
+- (id)_zeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)zeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)initWithGraph:(id)arg1;
 - (id)_zeroKeywordDisplayMeaningNodeForMeaningNode:(id)arg1;
@@ -34,12 +35,11 @@
 - (id)contextualSceneZeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)contextualSeasonZeroKeywordsWithOptions:(id)arg1;
 - (id)contextualHolidayZeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
-- (id)_timeBasedContextualLocationZeroKeywordsWithDate:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
-- (id)_locationBasedContextualLocationZeroKeywordWithLocation:(id)arg1 date:(id)arg2 progressBlock:(CDUnknownBlockType)arg3;
-- (id)contextualLocationZeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
+- (id)_timeBasedContextualLocationNodeWithDate:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
+- (id)_locationBasedContextualLocationNodeWithLocation:(id)arg1 date:(id)arg2 progressBlock:(CDUnknownBlockType)arg3;
+- (id)contextualLocationNodesWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)contextualSocialGroupZeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)contextualPersonZeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
-- (id)contextualZeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 
 @end
 

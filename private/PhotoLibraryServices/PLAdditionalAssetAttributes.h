@@ -25,6 +25,7 @@
 @property(nonatomic) _Bool shiftedLocationIsValid; // @dynamic shiftedLocationIsValid;
 @property(retain, nonatomic) CLLocation *shiftedLocation;
 - (void)willSave;
+- (void)truncatedOriginalCheckChangedValues:(id)arg1;
 - (_Bool)isUserInterfaceChange;
 - (_Bool)isSyncableChange;
 - (_Bool)supportsCloudUpload;

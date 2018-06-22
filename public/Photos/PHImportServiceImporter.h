@@ -41,7 +41,6 @@
 - (void)importedBurstAsset:(id)arg1;
 - (void)endWork;
 - (id)beginWork:(id)arg1;
-- (unsigned long long)_approximateBytesRequiredToImportAsset:(id)arg1;
 - (void)_importWithRecord:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_downloadNextAssetWithRecordEnumerator:(id)arg1 forRecord:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_downloadAssetsForRecord:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

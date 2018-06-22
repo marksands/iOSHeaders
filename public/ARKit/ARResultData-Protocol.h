@@ -16,7 +16,7 @@
 - (ARLightEstimate *)lightEstimate;
 - (unsigned long long)worldAlignmentModifiers;
 -     // Error parsing type: {?=[4]}16@0:8, name: worldAlignmentTransform
-- (CDStruct_88f337de)trackingState;
+- (CDStruct_fad22f05)trackingState;
 -     // Error parsing type: {?=[4]}16@0:8, name: cameraTransform
 - (double)timestamp;
 @end

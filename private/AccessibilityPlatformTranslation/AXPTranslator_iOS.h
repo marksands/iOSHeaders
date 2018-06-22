@@ -6,12 +6,13 @@
 
 #import <AccessibilityPlatformTranslation/AXPTranslator.h>
 
-@class AXUIElement, NSMutableDictionary;
+@class AXUIElement, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface AXPTranslator_iOS : AXPTranslator
 {
     NSMutableDictionary *_translationCache;
     NSMutableDictionary *_backTranslationCache;
+    NSObject<OS_dispatch_queue> *_cacheQueue;
     struct __IOHIDEventSystemClient *_ioSystemPostBackClient;
     _Bool _accessibilityEnabled;
     struct __AXObserver *_axEventObserver;
@@ -37,11 +38,13 @@
 - (id)processCanSetAttribute:(id)arg1;
 - (id)_processAttributeSpecialCases:(unsigned long long)arg1 uiElement:(id)arg2 parameter:(id)arg3 error:(unsigned long long *)arg4;
 - (id)_processAttributeSpecialCases:(unsigned long long)arg1 uiElement:(id)arg2 error:(unsigned long long *)arg3;
+- (id)_processSubroleAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processRoleAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processingSmuggledMarzipanRequest:(id)arg1 parameter:(id)arg2 error:(unsigned long long *)arg3;
 - (id)_processChildrenAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processIsEnabledAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processIsSelectedAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
+- (id)_processStartsMediaSessionAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processDirectAttributeRequest:(id)arg1 attribute:(long long)arg2 parameter:(id)arg3 error:(unsigned long long *)arg4;
 - (id)_postProcessAttributeRequest:(id)arg1 attribute:(long long)arg2 result:(id)arg3;
 - (id)_processParameterizedAttributeRequest:(id)arg1 attribute:(long long)arg2 parameter:(id)arg3 error:(unsigned long long *)arg4;
@@ -62,6 +65,8 @@
 - (_Bool)_processPerformAction:(int)arg1 value:(id)arg2;
 - (id)_processAccessibilityAttributeValue:(long long)arg1;
 - (void)_initializeAccessibility;
+- (id)backTranslationCache;
+- (id)translationCache;
 - (id)init;
 
 @end

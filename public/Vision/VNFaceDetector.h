@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)shouldDumpDebugIntermediates;
-+ (Class)detectorClassForConfigurationOptions:(id)arg1;
++ (Class)detectorClassForConfigurationOptions:(id)arg1 error:(id *)arg2;
 + (void)fullyPopulateConfigurationOptions:(id)arg1;
 + (void)recordDefaultConfigurationOptionsInDictionary:(id)arg1;
 - (void)purgeIntermediates;

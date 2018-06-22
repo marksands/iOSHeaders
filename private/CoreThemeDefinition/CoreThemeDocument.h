@@ -169,11 +169,11 @@
 - (void)createNamedModelsForCustomInfos:(id)arg1 referenceFiles:(_Bool)arg2 bitSource:(id)arg3 error:(id *)arg4;
 - (void)createNamedTexturesForCustomInfos:(id)arg1 referenceFiles:(_Bool)arg2 bitSource:(id)arg3 error:(id *)arg4;
 - (id)createNamedArtworkProductionsForAssets:(id)arg1 customInfos:(id)arg2 error:(id *)arg3;
-- (void)_createBackstopRenditions;
-- (void)createBackstop:(id)arg1 withDeploymentTarget:(long long)arg2;
-- (_Bool)needToCreateBackstopFor2018DeploymentVariant:(id)arg1;
-- (_Bool)isArtworkRenditionEligibleForBackdrop:(id)arg1;
-- (_Bool)needToCreateBackstopForPlatform;
+- (void)_createForwardstopRenditions;
+- (void)createForwardstop:(id)arg1 withDeploymentTarget:(long long)arg2;
+- (_Bool)needToCreateForwardstopFor2018DeploymentVariant:(id)arg1;
+- (_Bool)isArtworkRenditionEligibleForForwardstop:(id)arg1;
+- (_Bool)needToCreateForwardstopForPlatform;
 - (id)_sizeIndexesByNameFromNamedAssetImportInfos:(id)arg1;
 - (id)createNamedColorProductionsForImportInfos:(id)arg1 error:(id *)arg2;
 - (id)slicesComputedForImageSize:(struct CGSize)arg1 usingSliceInsets:(CDStruct_3c058996)arg2 resizableSliceSize:(struct CGSize)arg3 withRenditionType:(long long)arg4;
@@ -267,8 +267,8 @@
 - (void)_getFilename:(id *)arg1 scaleFactor:(unsigned int *)arg2 category:(id *)arg3 bitSource:(id *)arg4 forFileURL:(id)arg5;
 - (id)_predicateForRenditionKeySpec:(id)arg1;
 - (void)changedObjectsNotification:(id)arg1;
-- (_Bool)shouldCreateBackstopForLossless;
-- (_Bool)shouldCreateBackstopForLossy;
+- (_Bool)shouldCreateForwardstopForLossless;
+- (_Bool)shouldCreateForwardstopForLossy;
 - (_Bool)shouldAllowDeepmapCompressionForDeploymentTarget:(unsigned int)arg1;
 - (_Bool)shouldAllowDeepmapCompression;
 - (_Bool)shouldAllowHevcCompressionForDeploymentTarget:(unsigned int)arg1;

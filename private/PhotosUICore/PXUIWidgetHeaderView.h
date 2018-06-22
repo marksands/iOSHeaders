@@ -88,6 +88,7 @@
 - (void)performChanges:(CDUnknownBlockType)arg1;
 - (void)_handleCaptionButton:(id)arg1;
 - (void)_handleSubtitleButton:(id)arg1;
+- (_Bool)_canComposeTitleWithSubtitle;
 - (_Bool)_hasSubtitle;
 @property(readonly, nonatomic) PXViewLayoutHelper *layoutHelper; // @synthesize layoutHelper=_layoutHelper;
 - (id)_captionButtonCreateIfNeeded:(_Bool)arg1;

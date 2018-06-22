@@ -16,6 +16,7 @@
 @property(readonly, nonatomic) struct UIEdgeInsets layoutInsets; // @synthesize layoutInsets=_layoutInsets;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToGadgetLayoutSpec:(id)arg1;
+- (double)sectionHeaderHeightForText:(id)arg1 buttonType:(unsigned long long)arg2 width:(double)arg3 style:(unsigned long long)arg4 dividerHidden:(_Bool)arg5;
 - (double)sectionHeaderHeightForStyle:(unsigned long long)arg1 dividerHidden:(_Bool)arg2;
 - (id)initWithTraitCollection:(id)arg1 scrollDirection:(long long)arg2;
 

@@ -30,6 +30,8 @@ __attribute__((visibility("hidden")))
     _Bool _readyToLoad;
     CDUnknownBlockType _readyToDisplay;
     CDUnknownBlockType _loadHandler;
+    _Bool _didBeginForwardingIsAppearingToHostRemoteViewController;
+    _Bool _didEndForwardingIsAppearingToHostRemoteViewController;
     QLRemotePreviewHostViewController *_remoteViewController;
 }
 
@@ -71,7 +73,7 @@ __attribute__((visibility("hidden")))
 - (id)init;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
-- (void)endPreviewHostAppearanceTransitionIfNeeded;
+- (void)endPreviewHostAppearanceTransitionIfNeeded:(_Bool)arg1;
 - (void)beginPreviewHostAppearanceTransitionIfNeeded:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 

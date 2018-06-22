@@ -29,6 +29,7 @@
 - (void)server:(id)arg1 handleDestroySceneRequest:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)server:(id)arg1 handleCreateSceneRequest:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)server:(id)arg1 handleConnectEvent:(id)arg2;
+- (void)serverDidInvalidateConnection:(id)arg1;
 - (void)endTransaction;
 - (void)beginTransaction;
 - (void)unregisterHost:(id)arg1;

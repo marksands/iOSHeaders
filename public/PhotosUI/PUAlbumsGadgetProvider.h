@@ -38,7 +38,10 @@
 - (void)generateGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
 - (void)loadDataForGadgets;
+- (id)gadgetForCollection:(id)arg1;
+- (id)gadgetForIndexPath:(id)arg1;
 - (void)initiateBackgroundFetchingIfNeeded;
+@property(readonly, nonatomic) _Bool shouldShowSeeAllAccessoryButton;
 - (id)initWithAlbumListType:(unsigned long long)arg1 dataSourceManager:(id)arg2;
 - (id)init;
 

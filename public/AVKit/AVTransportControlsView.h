@@ -8,7 +8,7 @@
 
 #import "AVScrubberDelegate.h"
 
-@class AVBackdropView, AVButton, AVLabel, AVPlaybackControlsRoutePickerView, AVScrubber, AVStyleSheet, AVTouchIgnoringView, NSArray, NSLayoutConstraint, NSString, NSTimer, UILabel, UIView;
+@class AVBackdropView, AVButton, AVLabel, AVPlaybackControlsRoutePickerView, AVScrubber, AVStyleSheet, AVTouchIgnoringView, NSArray, NSLayoutConstraint, NSString, NSTimer, UILabel, UIView, _UIVisualEffectBackdropView;
 
 @interface AVTransportControlsView : AVView <AVScrubberDelegate>
 {
@@ -47,10 +47,12 @@
     UILabel *_scrubInstructionsLabel;
     UILabel *_scrubInstructionsBackdropLabel;
     NSTimer *_scrubInstructionsTimer;
+    _UIVisualEffectBackdropView *_captureView;
     struct CGSize _extrinsicContentSize;
 }
 
 + (_Bool)requiresConstraintBasedLayout;
+@property(readonly, nonatomic) _UIVisualEffectBackdropView *captureView; // @synthesize captureView=_captureView;
 @property(nonatomic) _Bool backdropViewNeedsLayout; // @synthesize backdropViewNeedsLayout=_backdropViewNeedsLayout;
 @property(nonatomic) _Bool hasFullScreenAppearance; // @synthesize hasFullScreenAppearance=_hasFullScreenAppearance;
 @property(nonatomic) _Bool hasAlternateAppearance; // @synthesize hasAlternateAppearance=_hasAlternateAppearance;
@@ -104,8 +106,7 @@
 - (void)updateConstraints;
 - (void)traitCollectionDidChange:(id)arg1;
 - (struct CGSize)intrinsicContentSize;
-- (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 styleSheet:(id)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 styleSheet:(id)arg2 captureView:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

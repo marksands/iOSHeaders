@@ -24,6 +24,7 @@
     _Bool _active;
     UIAutoscroll *_autoscroll;
     NSAttributedString *_originalAttributedString;
+    struct UIEdgeInsets _contentInsetsFromFonts;
     UITextInputController *__textInputController;
     NSTextContainer *__textContainer;
     _UIFieldEditorLayoutManager *__layoutManager;
@@ -35,9 +36,9 @@
         unsigned int suppressScrollToSelection:1;
         unsigned int clearOnNextEdit:1;
         unsigned int needsInvalidationAfterObscuredRangeChange:1;
+        unsigned int contentInsetsFromFontsValid:1;
     } _feFlags;
     struct UIEdgeInsets _padding;
-    struct UIEdgeInsets _contentViewFontInsets;
     struct _NSRange _unobscuredSecureRange;
     unsigned long long _obscuredSecureLength;
     NSTimer *_obscureAllTextTimer;
@@ -214,6 +215,7 @@
 - (_Bool)keyboardInput:(id)arg1 shouldInsertText:(id)arg2 isMarkedText:(_Bool)arg3;
 - (void)layoutSubviews;
 - (struct UIEdgeInsets)_contentInsetsFromFonts;
+- (struct UIEdgeInsets)_fullContentInsetsFromFonts;
 - (void)_applyCorrectTextContainerSize:(id)arg1;
 - (void)_applyCorrectTextContainerSize;
 - (void)_textStorageDidProcessEditing:(id)arg1;

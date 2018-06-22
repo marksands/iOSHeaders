@@ -4,9 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+#import "PGGraphUpdateListener.h"
 #import "PHAGraphManagerClientMessagesReceiver.h"
 
-@protocol PHAGraphRegistration <PHAGraphManagerClientMessagesReceiver>
+@protocol PHAGraphRegistration <PHAGraphManagerClientMessagesReceiver, PGGraphUpdateListener>
+- (_Bool)wantsGraphUpdateNotifications;
 - (_Bool)wantsLiveGraphUpdates;
 @end
 

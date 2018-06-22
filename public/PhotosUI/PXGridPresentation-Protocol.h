@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString, PHAsset, PHAssetCollection, PHCollectionList, PHFetchResult, PXPhotoKitCollectionsDataSourceManagerConfiguration, UIViewController;
+@class NSArray, NSString, PHAsset, PHAssetCollection, PHCollection, PHFetchResult, PXPhotoKitCollectionsDataSourceManagerConfiguration, UIViewController;
 
 @protocol PXGridPresentation <NSObject>
 
 @optional
-- (UIViewController *)createImportHistoryGridViewControllerWithCollectionList:(PHCollectionList *)arg1;
+- (UIViewController *)createImportHistoryGridViewControllerWithCollection:(PHCollection *)arg1;
 - (UIViewController *)createPhotosPickerViewControllerWithSelectedAssets:(NSArray *)arg1 anchorAtAsset:(PHAsset *)arg2 inAssetCollection:(PHAssetCollection *)arg3 completionHandler:(void (^)(NSOrderedSet *))arg4;
 - (UIViewController *)createPanoramaViewController;
 - (UIViewController *)createPhotosAlbumViewControllerForAlbum:(PHAssetCollection *)arg1 withFetchResult:(PHFetchResult *)arg2;

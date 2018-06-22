@@ -20,6 +20,7 @@
 @property(nonatomic) struct CGSize preferredSize; // @synthesize preferredSize=_preferredSize;
 @property(nonatomic) unsigned long long winCount; // @synthesize winCount=_winCount;
 - (void).cxx_destruct;
+- (double)adjustedWinCountFontSizeForMaximumWidth:(double)arg1 originalFont:(id)arg2;
 @property(retain, nonatomic) UIColor *textColor;
 @property(retain, nonatomic) UIFont *font;
 @property(retain, nonatomic) UIImage *backgroundImage;

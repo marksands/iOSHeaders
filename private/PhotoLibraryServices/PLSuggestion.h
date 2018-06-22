@@ -22,6 +22,7 @@
 + (id)suggestionsToUploadInPhotoLibrary:(id)arg1 limit:(long long)arg2;
 + (_Bool)_shouldPrefetchSuggestionKeyAssetsInManagedObjectContext:(id)arg1;
 + (void)resetCloudStateInPhotoLibrary:(id)arg1 hardReset:(_Bool)arg2;
++ (id)predicateForAllMomentsFromRepresentativeAssetsInSuggestion:(id)arg1 managedObjectContext:(id)arg2;
 + (id)predicateForAllAssetsInSuggestion:(id)arg1 managedObjectContext:(id)arg2;
 + (id)_representativeAssetIDsInSuggestion:(id)arg1 managedObjectContext:(id)arg2;
 + (id)suggestionsWithUUIDs:(id)arg1 inPhotoLibrary:(id)arg2;

@@ -9,6 +9,7 @@
 @class CPNavigationAlert, NSUUID;
 
 @protocol CPMapClientTemplateDelegate <CPTemplateDelegate>
+- (void)clientTripAlreadyStartedException;
 - (void)clientTripCanceledByExternalNavigation;
 - (void)clientNavigationAlertDidDisappear:(CPNavigationAlert *)arg1 context:(unsigned long long)arg2;
 - (void)clientNavigationAlertWillDisappear:(CPNavigationAlert *)arg1 context:(unsigned long long)arg2;
@@ -17,9 +18,12 @@
 - (void)clientPanViewWillDisappear;
 - (void)clientPanViewDidDisappear;
 - (void)clientPanViewDidAppear;
-- (void)clientPanWithDirection:(unsigned long long)arg1;
-- (void)clientPanEndedWithDirection:(unsigned long long)arg1;
-- (void)clientPanBeganWithDirection:(unsigned long long)arg1;
+- (void)clientPanGestureEndedWithVelocity:(struct CGPoint)arg1;
+- (void)clientPanGestureWithDeltaPoint:(struct CGPoint)arg1 velocity:(struct CGPoint)arg2;
+- (void)clientPanGestureBegan;
+- (void)clientPanWithDirection:(long long)arg1;
+- (void)clientPanEndedWithDirection:(long long)arg1;
+- (void)clientPanBeganWithDirection:(long long)arg1;
 - (void)startTripIdentifier:(NSUUID *)arg1 usingRouteIdentifier:(NSUUID *)arg2;
 - (void)previewTripIdentifier:(NSUUID *)arg1 usingRouteIdentifier:(NSUUID *)arg2;
 @end

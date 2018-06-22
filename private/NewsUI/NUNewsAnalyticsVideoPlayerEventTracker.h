@@ -75,6 +75,8 @@
 - (void)playbackResumedWithVideoItem:(id)arg1 metadata:(id)arg2;
 - (void)playbackStartedWithVideoItem:(id)arg1 metadata:(id)arg2;
 - (void)playbackInitiatedWithVideoItem:(id)arg1 metadata:(id)arg2;
+- (void)videoDidDisappearWithVideoItem:(id)arg1;
+- (void)videoDidAppearWithVideoItem:(id)arg1;
 - (id)initWithConfiguration:(id)arg1 observer:(id)arg2 sessionManager:(id)arg3 userIDProvider:(id)arg4 videoItems:(id)arg5;
 
 // Remaining properties

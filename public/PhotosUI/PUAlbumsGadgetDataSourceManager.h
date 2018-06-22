@@ -6,15 +6,17 @@
 
 #import "PXGadgetDataSourceManager.h"
 
-@class PUSessionInfo, PXExtendedTraitCollection;
+@class NSArray, PUSessionInfo, PXExtendedTraitCollection;
 
 __attribute__((visibility("hidden")))
 @interface PUAlbumsGadgetDataSourceManager : PXGadgetDataSourceManager
 {
     PXExtendedTraitCollection *_traitCollection;
     PUSessionInfo *_sessionInfo;
+    NSArray *_providers;
 }
 
+@property(readonly, nonatomic) NSArray *providers; // @synthesize providers=_providers;
 @property(retain, nonatomic) PUSessionInfo *sessionInfo; // @synthesize sessionInfo=_sessionInfo;
 @property(readonly, nonatomic) PXExtendedTraitCollection *traitCollection; // @synthesize traitCollection=_traitCollection;
 - (void).cxx_destruct;

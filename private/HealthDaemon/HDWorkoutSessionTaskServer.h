@@ -47,6 +47,7 @@
 - (void)workoutSession:(id)arg1 didFailWithError:(id)arg2;
 - (void)workoutSession:(id)arg1 didGenerateEvent:(id)arg2;
 - (void)workoutSession:(id)arg1 didChangeToState:(long long)arg2 fromState:(long long)arg3 date:(id)arg4;
+- (void)observeWorkoutSessionServer:(id)arg1;
 - (void)remote_recoverWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_resumeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_pauseWithCompletion:(CDUnknownBlockType)arg1;

@@ -8,20 +8,22 @@
 
 #import "PUImportOneUpCellDisplayDelegate.h"
 
-@class PUImportMediaProvider;
+@class PUImportMediaProvider, UIImage;
 
 __attribute__((visibility("hidden")))
 @interface PUImportOneUpTransitionView : PUImportOneUpCell <PUImportOneUpCellDisplayDelegate>
 {
+    UIImage *_startingImage;
     PUImportMediaProvider *_mediaProvider;
 }
 
 @property(retain, nonatomic) PUImportMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
+@property(retain, nonatomic) UIImage *startingImage; // @synthesize startingImage=_startingImage;
 - (void).cxx_destruct;
 - (void)importOneUpCell:(id)arg1 didRequestCancellationOfThumbnailRequestWithID:(long long)arg2;
 - (long long)importOneUpCell:(id)arg1 requestedThumbnailForImportItem:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)importOneUpCell:(id)arg1 requestedBadgeUpdateForImportItem:(id)arg2;
-- (id)initWithImportItem:(id)arg1 mediaProvider:(id)arg2;
+- (id)initWithImportItem:(id)arg1 startingImage:(id)arg2 mediaProvider:(id)arg3;
 
 @end
 

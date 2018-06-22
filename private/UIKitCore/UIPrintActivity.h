@@ -35,7 +35,7 @@
 - (void)prepareWithActivityItems:(id)arg1;
 - (_Bool)canPerformWithActivityItems:(id)arg1;
 - (id)activityTitle;
-- (id)_activityImage;
+- (id)_activityBundleImageConfiguration;
 - (id)activityType;
 
 // Remaining properties

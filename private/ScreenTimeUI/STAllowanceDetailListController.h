@@ -6,14 +6,16 @@
 
 #import "PSListController.h"
 
+#import "STAllowanceSetupListControllerDelegate.h"
 #import "STCustomizeDaysListControllerDelegate.h"
 #import "STUIDateTimePickerCellDelegate.h"
 
-@class NSString, PSSpecifier, STAllowance;
+@class NSArray, NSString, PSSpecifier, STAllowance;
 
-@interface STAllowanceDetailListController : PSListController <STUIDateTimePickerCellDelegate, STCustomizeDaysListControllerDelegate>
+@interface STAllowanceDetailListController : PSListController <STUIDateTimePickerCellDelegate, STCustomizeDaysListControllerDelegate, STAllowanceSetupListControllerDelegate>
 {
     _Bool _isSetupController;
+    _Bool _canAskForMoreTime;
     _Bool _didDeleteAllowance;
     id <STAllowanceDetailListControllerDelegate> _delegate;
     STAllowance *_allowance;
@@ -23,26 +25,38 @@
     PSSpecifier *_customizeDaysSpecifier;
     PSSpecifier *_selectedTimeSpecifier;
     PSSpecifier *_appsCategoriesGroupSpecifier;
+    NSArray *_budgetedItemSpecifiers;
+    PSSpecifier *_atAllowanceGroupSpecifier;
+    PSSpecifier *_atAllowanceSpecifier;
 }
 
 @property _Bool didDeleteAllowance; // @synthesize didDeleteAllowance=_didDeleteAllowance;
+@property(retain, nonatomic) PSSpecifier *atAllowanceSpecifier; // @synthesize atAllowanceSpecifier=_atAllowanceSpecifier;
+@property(retain, nonatomic) PSSpecifier *atAllowanceGroupSpecifier; // @synthesize atAllowanceGroupSpecifier=_atAllowanceGroupSpecifier;
+@property(retain, nonatomic) NSArray *budgetedItemSpecifiers; // @synthesize budgetedItemSpecifiers=_budgetedItemSpecifiers;
 @property(retain, nonatomic) PSSpecifier *appsCategoriesGroupSpecifier; // @synthesize appsCategoriesGroupSpecifier=_appsCategoriesGroupSpecifier;
 @property(retain, nonatomic) PSSpecifier *selectedTimeSpecifier; // @synthesize selectedTimeSpecifier=_selectedTimeSpecifier;
 @property(retain, nonatomic) PSSpecifier *customizeDaysSpecifier; // @synthesize customizeDaysSpecifier=_customizeDaysSpecifier;
 @property(retain, nonatomic) PSSpecifier *timePickerSpecifier; // @synthesize timePickerSpecifier=_timePickerSpecifier;
 @property(retain, nonatomic) PSSpecifier *timeSpecifier; // @synthesize timeSpecifier=_timeSpecifier;
 @property(retain, nonatomic) PSSpecifier *timeGroupSpecifier; // @synthesize timeGroupSpecifier=_timeGroupSpecifier;
+@property(nonatomic) _Bool canAskForMoreTime; // @synthesize canAskForMoreTime=_canAskForMoreTime;
 @property(nonatomic) _Bool isSetupController; // @synthesize isSetupController=_isSetupController;
 @property(copy, nonatomic) STAllowance *allowance; // @synthesize allowance=_allowance;
 @property(nonatomic) __weak id <STAllowanceDetailListControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)allowanceSetupListControllerDidCancel:(id)arg1;
+- (void)allowanceSetupListController:(id)arg1 didSelectAllowanceIdentifiers:(id)arg2;
 - (void)customizeDaysListController:(id)arg1 didFinishEditingTimeByDay:(id)arg2;
 - (id)datePickerForSpecifier:(id)arg1;
 - (void)datePickerChanged:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (id)budgetedItemSpecifiers;
+- (id)askForMoreTime:(id)arg1;
+- (void)setAskForMoreTime:(id)arg1 specifier:(id)arg2;
+- (id)createBudgetedItemSpecifiers;
 - (void)deleteAllowance:(id)arg1;
 - (void)confirmDeletion:(id)arg1;
+- (void)editApps:(id)arg1;
 - (void)showCustomizeDaysController:(id)arg1;
 - (id)timeFooterText;
 - (id)budgetTime;

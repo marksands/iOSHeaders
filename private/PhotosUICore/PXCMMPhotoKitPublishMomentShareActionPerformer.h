@@ -6,11 +6,11 @@
 
 #import <PhotosUICore/PXCMMPublishActionPerformer.h>
 
-@class NSDate, PXSharingProgressController;
+@class NSDate, UIAlertController;
 
 @interface PXCMMPhotoKitPublishMomentShareActionPerformer : PXCMMPublishActionPerformer
 {
-    PXSharingProgressController *_sharingProgressController;
+    UIAlertController *_progressAlertController;
     int _thumbnailRequestID;
     int _previewRequestID;
     NSDate *_initialStartDate;
@@ -21,7 +21,7 @@
 }
 
 - (void).cxx_destruct;
-- (void)completeUserInteractionTaskWithSuccess:(_Bool)arg1 error:(id)arg2;
+- (void)_finalizePublishWithSuccess:(_Bool)arg1 error:(id)arg2;
 - (void)_acceptSuggestion:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_publishingMomentShareDidCompleteWithShareURL:(id)arg1 error:(id)arg2;
 - (void)_publishMomentShare:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

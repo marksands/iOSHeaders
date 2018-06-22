@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSString, NSURL, UIViewController;
+@class NSArray, NSDate, NSString, NSURL, UIViewController;
 
 @protocol PXMutableMessagesExtensionViewModel <NSObject>
 @property(nonatomic) _Bool drawerActive;
+@property(copy, nonatomic) NSArray *recipients;
 @property(retain, nonatomic) UIViewController *presentedViewController;
 @property(retain, nonatomic) NSDate *selectedMessageDate;
 @property(copy, nonatomic) NSString *selectedMessageText;

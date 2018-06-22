@@ -27,6 +27,7 @@
 - (void)generateGadgets;
 - (void)loadDataForGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
+- (unsigned long long)loadingPriority;
 - (void)_updateGadgets;
 - (void)_configureDataSourceManager;
 - (id)init;

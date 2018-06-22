@@ -45,7 +45,7 @@ __attribute__((visibility("hidden")))
 - (id)outputImage;
 - (id)transformPoints:(id)arg1 transform:(struct CGAffineTransform)arg2;
 - (id)blurMapV3:(id)arg1 shiftmap:(id)arg2 alphaImage:(id)arg3;
-- (id)refineShiftMapV3:(id)arg1 mainImage:(id)arg2 shiftmap:(id)arg3;
+- (id)refineShiftMapV3WithMainImage:(id)arg1 shiftmap:(id)arg2;
 - (id)blurMapV2:(id)arg1;
 - (id)smoothShiftMapV2:(id)arg1;
 - (id)faceMaskApply:(id)arg1 blurMap:(id)arg2;

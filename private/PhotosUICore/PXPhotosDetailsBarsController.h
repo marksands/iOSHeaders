@@ -12,7 +12,7 @@
 #import "PXPhotosDataSourceChangeObserver.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 
-@class NSMutableDictionary, NSString, PXActionMenuController, PXActionPerformer, PXAssetActionManager, PXAssetCollectionActionManager, PXBarAppearance, PXExtendedTraitCollection, PXPhotosDataSource, PXPhotosDetailsBarSpec, PXPhotosDetailsContext, PXPhotosDetailsViewModel, PXSectionedSelectionManager, UIView;
+@class NSMutableDictionary, NSString, PXActionMenuController, PXActionPerformer, PXAssetActionManager, PXAssetCollectionActionManager, PXBarAppearance, PXExtendedTraitCollection, PXPhotosDataSource, PXPhotosDetailsBarSpec, PXPhotosDetailsContext, PXPhotosDetailsUIViewController, PXPhotosDetailsViewModel, PXSectionedSelectionManager, UIView;
 
 @interface PXPhotosDetailsBarsController : PXBarsController <PXPhotosDataSourceChangeObserver, PXChangeObserver, PXActionPerformerDelegate, PXActionMenuDelegate, UIPopoverPresentationControllerDelegate>
 {
@@ -21,6 +21,7 @@
         _Bool assetCollectionActionManager;
     } _needsUpdateFlags;
     _Bool __showTitleView;
+    _Bool _shouldAddActionButton;
     PXAssetActionManager *__assetActionManager;
     PXAssetCollectionActionManager *__assetCollectionActionManager;
     PXBarAppearance *__barAppearance;
@@ -37,6 +38,7 @@
     NSMutableDictionary *__barButtonItemCacheByBarItemIdentifier;
 }
 
+@property(nonatomic) _Bool shouldAddActionButton; // @synthesize shouldAddActionButton=_shouldAddActionButton;
 @property(readonly, nonatomic) NSMutableDictionary *_barButtonItemCacheByBarItemIdentifier; // @synthesize _barButtonItemCacheByBarItemIdentifier=__barButtonItemCacheByBarItemIdentifier;
 @property(readonly, nonatomic) NSMutableDictionary *_barButtonItemByActionType; // @synthesize _barButtonItemByActionType=__barButtonItemByActionType;
 @property(readonly, nonatomic) PXExtendedTraitCollection *_extendedTraitCollection; // @synthesize _extendedTraitCollection=__extendedTraitCollection;
@@ -62,6 +64,7 @@
 - (void)actionPerformer:(id)arg1 didChangeState:(unsigned long long)arg2;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)photosDataSource:(id)arg1 didChange:(id)arg2;
+- (void)removeActionButton;
 - (void)actionMenuButtonItemTapped:(id)arg1;
 - (void)faceModeButtonItemTapped:(id)arg1;
 - (void)doneBarButtonItemTapped:(id)arg1;
@@ -94,6 +97,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
+@property(nonatomic) __weak PXPhotosDetailsUIViewController *viewController; // @dynamic viewController;
 
 @end
 

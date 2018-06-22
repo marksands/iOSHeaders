@@ -8,12 +8,12 @@
 
 #import "STContentPrivacyViewModelCoordinator.h"
 
-@class NSMutableDictionary, NSNumber, NSString, RMAdminPersistenceController, STContentPrivacyViewModel;
+@class NSMutableDictionary, NSNumber, NSString, STContentPrivacyViewModel;
 
 @interface STContentPrivacyViewModelCoordinator : NSObject <STContentPrivacyViewModelCoordinator>
 {
     STContentPrivacyViewModel *_viewModel;
-    RMAdminPersistenceController *_persistenceController;
+    id <RMPersistenceControllerProtocol> _persistenceController;
     NSString *_organizationIdentifier;
     NSNumber *_userDSID;
     NSString *_userName;
@@ -24,7 +24,7 @@
 @property(copy, nonatomic) NSString *userName; // @synthesize userName=_userName;
 @property(copy, nonatomic) NSNumber *userDSID; // @synthesize userDSID=_userDSID;
 @property(copy, nonatomic) NSString *organizationIdentifier; // @synthesize organizationIdentifier=_organizationIdentifier;
-@property(readonly, nonatomic) RMAdminPersistenceController *persistenceController; // @synthesize persistenceController=_persistenceController;
+@property(readonly, nonatomic) id <RMPersistenceControllerProtocol> persistenceController; // @synthesize persistenceController=_persistenceController;
 @property(retain, nonatomic) STContentPrivacyViewModel *viewModel; // @synthesize viewModel=_viewModel;
 - (void).cxx_destruct;
 - (void)saveRestrictionValue:(id)arg1 forItem:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

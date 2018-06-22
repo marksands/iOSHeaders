@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) CDUnknownBlockType didFinishPerformingActivityHandler; // @synthesize didFinishPerformingActivityHandler=_didFinishPerformingActivityHandler;
 @property(copy, nonatomic) CDUnknownBlockType didFinishPreparingForExecution; // @synthesize didFinishPreparingForExecution=_didFinishPreparingForExecution;
 - (void).cxx_destruct;
+- (void)_willBePerformedOrPresented;
 - (struct CGSize)_thumbnailSize;
 - (_Bool)_activitySupportsPromiseURLs;
 - (_Bool)_dismissActivityFromViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;

@@ -24,6 +24,7 @@
 @property(nonatomic) __weak id <STAlwaysAllowListControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)appSpecifiersForBundleIDs:(id)arg1;
+- (id)tableView:(id)arg1 titleForDeleteConfirmationButtonForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
 - (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;

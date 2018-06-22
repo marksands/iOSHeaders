@@ -10,12 +10,16 @@
 {
     int _formatIndex;
     CDStruct_79c71658 _fesDimensions;
-    CDStruct_79c71658 _cropDimensions;
+    CDStruct_79c71658 _fesInputCropDimensions;
+    CDStruct_79c71658 _outputCropDimensionsWhenFesIsEnabled;
+    CDStruct_79c71658 _sensorCropDimensions;
     _Bool _option2;
 }
 
 @property(readonly) _Bool option2; // @synthesize option2=_option2;
-@property(readonly) CDStruct_79c71658 cropDimensions; // @synthesize cropDimensions=_cropDimensions;
+@property(readonly) CDStruct_79c71658 sensorCropDimensions; // @synthesize sensorCropDimensions=_sensorCropDimensions;
+@property(readonly) CDStruct_79c71658 outputCropDimensionsWhenFesIsEnabled; // @synthesize outputCropDimensionsWhenFesIsEnabled=_outputCropDimensionsWhenFesIsEnabled;
+@property(readonly) CDStruct_79c71658 fesInputCropDimensions; // @synthesize fesInputCropDimensions=_fesInputCropDimensions;
 @property(readonly) CDStruct_79c71658 fesDimensions; // @synthesize fesDimensions=_fesDimensions;
 @property(readonly) int formatIndex; // @synthesize formatIndex=_formatIndex;
 - (id)description;

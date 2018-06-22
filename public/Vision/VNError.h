@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 + (id)errorForEspressoReturnStatus:(int)arg1 localizedDescription:(id)arg2;
 + (id)errorForUnsupportedRevision:(unsigned long long)arg1 ofRequestClass:(Class)arg2;
 + (id)errorForUnsupportedRevision:(unsigned long long)arg1 ofRequest:(id)arg2;
++ (id)errorForUnsupportedConfigurationOfRequest:(id)arg1;
 + (id)errorForUnsupportedProcessingDevice:(id)arg1;
 + (id)errorForGPURequiredByRequest:(id)arg1;
 + (id)errorForInvalidModelWithLocalizedDescription:(id)arg1 underlyingError:(id)arg2;

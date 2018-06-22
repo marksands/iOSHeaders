@@ -27,6 +27,7 @@
     _Bool _isTransitioning;
     _Bool _autocompleteResultsVisible;
     unsigned long long _focusOnAppearanceTarget;
+    _Bool _selectOnFocus;
     EKUIAutocompleteSearchResult *_selectedAutocompleteResult;
     unsigned long long _selectedAutocompleteResultIndex;
     EKUIAutocompleteSearchResult *_zeroKeywordResult;
@@ -66,7 +67,8 @@
 - (id)_viewForSheet;
 - (void)_revertEvent;
 - (void)_copyEventForPossibleRevert;
-- (void)focusAndSelect:(unsigned long long)arg1;
+- (void)focus:(unsigned long long)arg1 select:(_Bool)arg2;
+- (void)_focusAppearanceTarget;
 - (void)prepareEditItems;
 - (struct CGSize)preferredContentSize;
 - (unsigned long long)entityType;

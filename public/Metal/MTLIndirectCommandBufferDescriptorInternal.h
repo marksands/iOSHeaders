@@ -22,8 +22,6 @@
 - (unsigned long long)maxVertexBufferBindCount;
 - (void)setInheritBuffers:(_Bool)arg1;
 - (_Bool)inheritBuffers;
-- (void)setInheritPipelineState:(_Bool)arg1;
-- (_Bool)inheritPipelineState;
 - (void)setCommandTypes:(unsigned long long)arg1;
 - (unsigned long long)commandTypes;
 - (id)copyWithZone:(struct _NSZone *)arg1;

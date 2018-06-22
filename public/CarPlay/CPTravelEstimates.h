@@ -14,9 +14,11 @@
 {
     NSMeasurement *_distanceRemaining;
     double _timeRemaining;
+    unsigned long long _timeRemainingColor;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) unsigned long long timeRemainingColor; // @synthesize timeRemainingColor=_timeRemainingColor;
 @property(readonly, nonatomic) double timeRemaining; // @synthesize timeRemaining=_timeRemaining;
 @property(readonly, copy, nonatomic) NSMeasurement *distanceRemaining; // @synthesize distanceRemaining=_distanceRemaining;
 - (void).cxx_destruct;
@@ -24,7 +26,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDistanceRemaining:(id)arg1 timeRemaining:(double)arg2;
-- (id)init;
+- (id)_init;
 
 @end
 

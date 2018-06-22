@@ -30,7 +30,6 @@
 - (void)unitTest_setBaseLaunchDelay:(double)arg1 launchCountResetThreshold:(double)arg2 maxLaunchCount:(long long)arg3;
 - (void)processTerminated:(id)arg1;
 - (void)assertionManager:(id)arg1 assertionInvalidated:(id)arg2;
-- (void)assertionManager:(id)arg1 assertionTaken:(id)arg2;
 - (void)_queue_scheduleLaunchForClient:(id)arg1;
 - (void)_queue_launchClientIfNeeded:(id)arg1;
 - (_Bool)_queue_clientRequiresLaunch:(id)arg1 assertions:(id)arg2;

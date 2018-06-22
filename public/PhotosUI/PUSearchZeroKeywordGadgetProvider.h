@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (void)didUpdateSections:(id)arg1;
 - (void)generateGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
+- (_Bool)zeroKeywordsAvailable;
 - (void)loadDataForGadgets;
 - (void)refreshData;
 - (id)init;

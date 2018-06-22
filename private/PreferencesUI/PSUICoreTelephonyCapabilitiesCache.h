@@ -6,26 +6,25 @@
 
 #import "NSObject.h"
 
-@class CoreTelephonyClient, NSMutableDictionary, NSObject<OS_dispatch_group>;
+#import "CoreTelephonyClientCapabilitiesDelegate.h"
 
-@interface PSUICoreTelephonyCapabilitiesCache : NSObject
+@class CoreTelephonyClient, NSMutableDictionary, NSString;
+
+@interface PSUICoreTelephonyCapabilitiesCache : NSObject <CoreTelephonyClientCapabilitiesDelegate>
 {
-    _Bool _volteEnabledInitialized;
     CoreTelephonyClient *_client;
     NSMutableDictionary *_volteCapabilityDict;
     NSMutableDictionary *_volteCapabilityInfoDict;
     NSMutableDictionary *_volteEnabledDict;
-    NSObject<OS_dispatch_group> *_volteEnabledGroup;
 }
 
 + (id)sharedInstance;
-@property _Bool volteEnabledInitialized; // @synthesize volteEnabledInitialized=_volteEnabledInitialized;
-@property(retain) NSObject<OS_dispatch_group> *volteEnabledGroup; // @synthesize volteEnabledGroup=_volteEnabledGroup;
 @property(retain) NSMutableDictionary *volteEnabledDict; // @synthesize volteEnabledDict=_volteEnabledDict;
 @property(copy) NSMutableDictionary *volteCapabilityInfoDict; // @synthesize volteCapabilityInfoDict=_volteCapabilityInfoDict;
 @property(retain) NSMutableDictionary *volteCapabilityDict; // @synthesize volteCapabilityDict=_volteCapabilityDict;
 @property(retain, nonatomic) CoreTelephonyClient *client; // @synthesize client=_client;
 - (void).cxx_destruct;
+- (void)context:(id)arg1 capabilitiesChanged:(id)arg2;
 - (void)setCapabilityVoLTE:(id)arg1 enabled:(_Bool)arg2;
 - (_Bool)capabilityEnabledVoLTE:(id)arg1;
 - (void)fetchCapabilityEnabledVoLTE;
@@ -33,8 +32,15 @@
 - (_Bool)cannotChangeVoLTESettingCallCarrier:(id)arg1;
 - (_Bool)canSetCapabilityVoLTE:(id)arg1;
 - (void)fetchCanSetCapabilityVoLTE;
+- (void)willEnterForeground;
 - (id)init;
 - (id)initPrivate;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

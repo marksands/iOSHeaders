@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     _Bool _isEncodingSqaures;
 }
 
++ (void)computeMaxNetworkBitrate:(unsigned int *)arg1 maxMediaBitrate:(unsigned int *)arg2 maxPacketsPerSecond:(float *)arg3 audioStreamIndex:(unsigned int)arg4;
 @property(readonly, nonatomic) _Bool isEncodingSqaures; // @synthesize isEncodingSqaures=_isEncodingSqaures;
 @property(readonly, nonatomic) long long highestEncodingResolution; // @synthesize highestEncodingResolution=_highestEncodingResolution;
 @property(readonly, nonatomic) NSArray *audioStreamConfigurations; // @synthesize audioStreamConfigurations=_audioStreamConfigurations;

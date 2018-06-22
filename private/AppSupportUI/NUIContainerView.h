@@ -93,6 +93,7 @@
 - (void)setNeedsLayout;
 - (struct UIEdgeInsets)effectiveLayoutMargins;
 - (_Bool)isInBatchUpdate;
+- (struct CGRect)effectiveLayoutBounds;
 
 @end
 

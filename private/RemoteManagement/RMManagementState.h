@@ -6,20 +6,29 @@
 
 #import "NSObject.h"
 
-@class RMAskForTimeClient;
+@class NSXPCConnection;
 
 @interface RMManagementState : NSObject
 {
-    RMAskForTimeClient *_askForTimeClient;
+    _Bool _cachedShouldRequestMoreTime;
+    _Bool _cachedIsRestrictionsPasscodeSet;
+    NSXPCConnection *_connection;
 }
 
-@property(readonly, nonatomic) RMAskForTimeClient *askForTimeClient; // @synthesize askForTimeClient=_askForTimeClient;
+@property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
+@property _Bool cachedIsRestrictionsPasscodeSet; // @synthesize cachedIsRestrictionsPasscodeSet=_cachedIsRestrictionsPasscodeSet;
+@property _Bool cachedShouldRequestMoreTime; // @synthesize cachedShouldRequestMoreTime=_cachedShouldRequestMoreTime;
 - (void).cxx_destruct;
-- (void)shouldRequestMoreTime:(CDUnknownBlockType)arg1;
+- (void)screenTimeSyncStateWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)screenTimeStateCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)isRestrictionsPasscodeSetWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)isRestrictionsPasscodeSet:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) _Bool shouldRequestMoreTime;
 @property(readonly, nonatomic) _Bool isRestrictionsPasscodeSet;
+- (void)shouldRequestMoreTimeWithCompletion:(CDUnknownBlockType)arg1;
+- (void)shouldRequestMoreTime:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) _Bool shouldRequestMoreTime;
 - (id)init;
+- (void)dealloc;
 
 @end
 

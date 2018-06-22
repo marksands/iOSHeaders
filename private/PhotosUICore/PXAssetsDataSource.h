@@ -21,6 +21,9 @@
 - (id)assetAtItemIndexPath:(struct PXSimpleIndexPath)arg1;
 - (id)assetsInSectionIndexPath:(struct PXSimpleIndexPath)arg1;
 - (id)assetCollectionAtSectionIndexPath:(struct PXSimpleIndexPath)arg1;
+- (id)estimatedAssetsCountLocalizedString;
+- (long long)aggregateMediaType;
+- (long long)totalNumberOfItems;
 - (id)photosGraphSuggestedContributions;
 - (_Bool)isAssetAtIndexPathPartOfCuratedSet:(struct PXSimpleIndexPath)arg1;
 - (id)metadataAssetAtItemIndexPath:(struct PXSimpleIndexPath)arg1;

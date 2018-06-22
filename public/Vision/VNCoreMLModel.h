@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "VNObservationsCacheKeyProviding.h"
+#import "VNSequencedRequestSupporting.h"
 
 @class MLModel, MLObjectBoundingBoxOutputDescription, NSString;
 
-@interface VNCoreMLModel : NSObject <VNObservationsCacheKeyProviding>
+@interface VNCoreMLModel : NSObject <VNSequencedRequestSupporting>
 {
     NSString *_uuidStringForCacheIdentifier;
     int _modelType;
@@ -35,8 +35,10 @@
 @property int modelType; // @synthesize modelType=_modelType;
 @property(retain) MLModel *model; // @synthesize model=_model;
 - (void).cxx_destruct;
-- (id)observationsCacheKey;
+- (id)sequencedRequestPreviousObservationsKey;
+- (_Bool)wantsSequencedRequestObservationsRecording;
 - (id)predictWithCVPixelBuffer:(struct __CVBuffer *)arg1 options:(id)arg2 error:(id *)arg3;
+- (void)_updateModelWithFlexibleImageConstraintUsingWidth:(long long)arg1 height:(long long)arg2;
 - (_Bool)setupInputImageFromModelDescription:(id)arg1;
 - (id)initWithMLModel:(id)arg1 error:(id *)arg2;
 

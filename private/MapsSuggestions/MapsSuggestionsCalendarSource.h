@@ -8,7 +8,7 @@
 
 #import "MapsSuggestionsSource.h"
 
-@class EKEventStore, MapsSuggestionsNetworkRequester, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString;
+@class EKEventStore, MapsSuggestionsCanKicker, MapsSuggestionsNetworkRequester, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString;
 
 @interface MapsSuggestionsCalendarSource : MapsSuggestionsBaseSource <MapsSuggestionsSource>
 {
@@ -19,10 +19,12 @@
     NSString *_siriFoundThisString;
     MapsSuggestionsNetworkRequester *_requester;
     NSSet *_setOfEventReservationSubtypes;
+    MapsSuggestionsCanKicker *_changedNotificationCanKicker;
 }
 
 + (unsigned long long)disposition;
 + (_Bool)isEnabled;
+@property(retain, nonatomic) MapsSuggestionsCanKicker *changedNotificationCanKicker; // @synthesize changedNotificationCanKicker=_changedNotificationCanKicker;
 @property(retain, nonatomic) NSSet *setOfEventReservationSubtypes; // @synthesize setOfEventReservationSubtypes=_setOfEventReservationSubtypes;
 @property(retain, nonatomic) MapsSuggestionsNetworkRequester *requester; // @synthesize requester=_requester;
 @property(retain, nonatomic) NSString *siriFoundThisString; // @synthesize siriFoundThisString=_siriFoundThisString;
@@ -33,9 +35,9 @@
 - (void).cxx_destruct;
 - (void)dealloc;
 - (_Bool)removeEntry:(id)arg1 behavior:(long long)arg2 handler:(CDUnknownBlockType)arg3;
-- (_Bool)canProduceEntriesOfType:(unsigned long long)arg1;
+- (_Bool)canProduceEntriesOfType:(long long)arg1;
 - (id)_predicate;
-- (unsigned long long)_entryTypeFromSchema:(id)arg1;
+- (long long)_entryTypeFromSchema:(id)arg1;
 - (id)suggestionSubtitleForReservationStatus:(id)arg1 name:(id)arg2 event:(id)arg3;
 - (id)suggestionTitleForReservationStatus:(id)arg1 name:(id)arg2;
 - (_Bool)_addRestaurantReservationFieldsToEntry:(id)arg1 fromSchemaOrgDictionary:(id)arg2 event:(id)arg3;

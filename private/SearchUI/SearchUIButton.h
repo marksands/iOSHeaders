@@ -11,6 +11,7 @@
 @interface SearchUIButton : SKUIPlayButton
 {
     _Bool _toggled;
+    _Bool _smallSize;
     unsigned long long _type;
     UIView *_containerView;
     UIImage *_overlayImage;
@@ -18,6 +19,7 @@
 }
 
 @property(retain) CALayer *backgroundLayer; // @synthesize backgroundLayer=_backgroundLayer;
+@property(nonatomic) _Bool smallSize; // @synthesize smallSize=_smallSize;
 @property(retain, nonatomic) UIImage *overlayImage; // @synthesize overlayImage=_overlayImage;
 @property(retain, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
 @property(nonatomic, getter=isToggled) _Bool toggled; // @synthesize toggled=_toggled;

@@ -12,7 +12,7 @@
 #import "SXTextSelecting.h"
 #import "SXViewportChangeListener.h"
 
-@class NSMutableSet, NSObject<OS_dispatch_semaphore>, NSString, STScrollView, STTangierRepDirectLayerHostProvider, STTangierTextRenderCollector, STTextTangierCanvasViewController, STTextTangierDocumentRoot, STTextTangierInteractiveCanvasController, SXViewport, TSKDocumentRoot, TSWPSelection, UIView;
+@class NSMutableSet, NSObject<OS_dispatch_semaphore>, NSString, STScrollView, STTangierRepDirectLayerHostProvider, STTangierTextRenderCollector, STTextTangierCanvasViewController, STTextTangierDocumentRoot, STTextTangierInteractiveCanvasController, SXComponentController, SXViewport, TSKDocumentRoot, TSWPSelection, UIView;
 
 @interface SXTangierController : NSObject <STTextTangierInteractiveCanvasControllerDelegate, STTextTangierInteractiveCanvasControllerDataSource, SXViewportChangeListener, SXTextComponentLayoutHosting, SXTextSelecting>
 {
@@ -30,6 +30,7 @@
     STScrollView *_scrollView;
     id <SXComponentActionHandler> _componentActionHandler;
     id <SXTangierDragItemProvider> _dragItemProvider;
+    SXComponentController *_componentController;
     STTangierTextRenderCollector *_textRenderCollector;
     STTangierRepDirectLayerHostProvider *_directLayerHostProvider;
     UIView *_underRepsHost;
@@ -51,6 +52,7 @@
 @property(readonly, nonatomic) UIView *underRepsHost; // @synthesize underRepsHost=_underRepsHost;
 @property(readonly, nonatomic) STTangierRepDirectLayerHostProvider *directLayerHostProvider; // @synthesize directLayerHostProvider=_directLayerHostProvider;
 @property(readonly, nonatomic) STTangierTextRenderCollector *textRenderCollector; // @synthesize textRenderCollector=_textRenderCollector;
+@property(readonly, nonatomic) SXComponentController *componentController; // @synthesize componentController=_componentController;
 @property(readonly, nonatomic) id <SXTangierDragItemProvider> dragItemProvider; // @synthesize dragItemProvider=_dragItemProvider;
 @property(readonly, nonatomic) id <SXComponentActionHandler> componentActionHandler; // @synthesize componentActionHandler=_componentActionHandler;
 @property(retain, nonatomic) STScrollView *scrollView; // @synthesize scrollView=_scrollView;
@@ -77,6 +79,7 @@
 - (id)interactiveCanvasController:(id)arg1 infoForModel:(id)arg2 withSelection:(id)arg3;
 - (id)interactiveCanvasController:(id)arg1 dragItemForSmartField:(id)arg2 interaction:(id)arg3 session:(id)arg4;
 @property(readonly, nonatomic) _Bool isCanvasInteractive;
+- (_Bool)interactiveCanvasController:(id)arg1 shouldBeginInteraction:(id)arg2 atPoint:(struct CGPoint)arg3;
 - (void)interactiveCanvasControllerDidLayoutAndRenderOnBackgroundThread:(id)arg1;
 - (void)interactiveCanvasControllerWillStartInteraction:(id)arg1;
 - (struct CGRect)interactiveCanvasController:(id)arg1 expandVisibleBoundsForTiling:(struct CGRect)arg2;
@@ -104,7 +107,7 @@
 - (void)teardown;
 - (void)updatePresentationState;
 - (void)viewport:(id)arg1 appearStateChangedFromState:(unsigned long long)arg2;
-- (id)initWithViewport:(id)arg1 scrollView:(id)arg2 componentActionHandler:(id)arg3 dragItemProvider:(id)arg4;
+- (id)initWithViewport:(id)arg1 scrollView:(id)arg2 componentActionHandler:(id)arg3 dragItemProvider:(id)arg4 componentController:(id)arg5;
 
 // Remaining properties
 @property(readonly, nonatomic) _Bool allowEditMenuToAppear;

@@ -26,6 +26,7 @@
     id <PUActivityViewControllerDelegate> _delegate;
 }
 
++ (_Bool)_wantsMomentShareLinkForActivity:(id)arg1 assetCount:(long long)arg2;
 + (_Bool)needsConfidentialityCheckForActivityType:(id)arg1;
 + (id)photosApplicationActivities;
 + (id)defaultActivityTypeOrder;
@@ -51,7 +52,9 @@
 - (void)mailActivity:(id)arg1 displayVideoRemakerProgressView:(id)arg2;
 - (void)setAggregateKey:(struct __CFString *)arg1;
 - (void)_presentConfidentialityWarningWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)_prepareAssetProgressForActivity:(id)arg1;
+- (void)_performMomentShareLinkPreparationForActivity:(id)arg1;
+- (void)_performIndividualItemSourcePreparationForActivity:(id)arg1;
+- (void)_prepareAssetsForActivity:(id)arg1;
 - (void)_showSharingWasInterruptedForError:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_removePreparationProgressView;
 - (void)_showPreparationProgressView:(id)arg1 withCancelationHandler:(CDUnknownBlockType)arg2;

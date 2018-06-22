@@ -6,15 +6,15 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSSet;
 
 @interface PSAppCellularManagementCache : NSObject
 {
-    NSArray *_managedCellDataAppCache;
+    NSSet *_managedCellDataAppCache;
 }
 
 + (id)sharedInstance;
-@property(retain) NSArray *managedCellDataAppCache; // @synthesize managedCellDataAppCache=_managedCellDataAppCache;
+@property(retain) NSSet *managedCellDataAppCache; // @synthesize managedCellDataAppCache=_managedCellDataAppCache;
 - (void).cxx_destruct;
 - (_Bool)isManaged:(id)arg1;
 @property(readonly, nonatomic) _Bool hasManagedCellularData;

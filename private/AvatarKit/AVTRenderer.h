@@ -48,6 +48,7 @@
 - (void)faceTrackerDidUpdate:(id)arg1 trackingInfo:(id)arg2;
 @property(nonatomic) _Bool pauseSimulation;
 @property(nonatomic) _Bool arMode;
+- (void)setEnableDepthMask:(_Bool)arg1 withFlippedDepth:(_Bool)arg2;
 @property(nonatomic) _Bool enableDepthMask;
 - (void)_updateFocal;
 - (void)_updateAvatarForARMode;

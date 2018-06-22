@@ -99,7 +99,7 @@
 - (void)rampingRequestForResourceType:(unsigned long long)arg1 numRequested:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)publishResource:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)beginDownloadForResource:(id)arg1 clientBundleID:(id)arg2 highPriority:(_Bool)arg3 proposedTaskIdentifier:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
-- (void)_dispatchFailedDownloadTaskForResource:(id)arg1 highPriority:(_Bool)arg2 withError:(id)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
+- (void)_dispatchFailedDownloadTaskForResource:(id)arg1 highPriority:(_Bool)arg2 proposedTaskIdentifier:(id)arg3 withError:(id)arg4 withCompletionHandler:(CDUnknownBlockType)arg5;
 - (void)_invokeOutstandingInvocationsWithTaskIdentifier:(id)arg1;
 - (void)boostPriorityForScopeWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)disableMainScopeWithCompletionHandler:(CDUnknownBlockType)arg1;

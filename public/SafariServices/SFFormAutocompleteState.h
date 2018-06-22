@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (void)fillGeneratedPassword:(id)arg1 inField:(id)arg2;
 - (void)annotateForm:(long long)arg1 withValues:(id)arg2;
 - (void)autoFillGeneratedPassword:(id)arg1 inForm:(long long)arg2;
+- (void)autoFillValues:(id)arg1 setAutoFilled:(_Bool)arg2 andFocusFieldAfterFilling:(_Bool)arg3 fieldToFocus:(id)arg4 submitForm:(_Bool)arg5;
 - (void)autoFillValues:(id)arg1 setAutoFilled:(_Bool)arg2 andFocusFieldAfterFilling:(_Bool)arg3 fieldToFocus:(id)arg4;
 - (void)fetchFormMetadataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)textDidChangeInFrame:(id)arg1 form:(id)arg2 textField:(id)arg3;
@@ -50,10 +51,9 @@ __attribute__((visibility("hidden")))
 - (id)_suggestionsForAutoFillDisplayData:(id)arg1;
 - (void)_gatherAndShowAddressBookAutoFillSuggestions;
 - (_Bool)_suggestUsernamesForRegistrationIfPossible:(unsigned long long)arg1;
-- (void)updateInputSession:(id)arg1;
 - (void)_updateSuggestions:(unsigned long long)arg1;
 - (void)updateSuggestions;
-- (id)_textSuggestionForCredentialDisplayData:(id)arg1;
+- (id)_textSuggestionForCredentialDisplayData:(id)arg1 submitForm:(_Bool)arg2;
 - (id)suggestKeychainCredentials;
 - (id)_matchingKeychainCredentials;
 - (void)_suggestLoginCredentialsShowingQuickTypeKey:(_Bool)arg1;
@@ -63,6 +63,7 @@ __attribute__((visibility("hidden")))
 - (Class)_passwordPickerViewControllerClass;
 - (void)autoFillFormWithCreditCardDataAfterAuthenticationIfNeeded:(id)arg1;
 - (void)autoFillValuesAfterAuthenticationIfNeeded:(id)arg1;
+- (void)fillCredentialAfterAuthenticationIfNeeded:(id)arg1 setAsDefaultCredential:(_Bool)arg2 submitForm:(_Bool)arg3;
 - (void)fillCredentialAfterAuthenticationIfNeeded:(id)arg1 setAsDefaultCredential:(_Bool)arg2;
 - (void)setAutoFillButtonTitle:(id)arg1;
 - (void)dealloc;

@@ -70,6 +70,7 @@
 + (id)_findParentMeaningLabelForMeaningLabel:(id)arg1 inTree:(id)arg2 currentParent:(id)arg3;
 + (id)parentMeaningLabelForMeaningLabel:(id)arg1;
 + (void)traverseParentMeaningsForMeaningLabel:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
++ (id)ingestProcessingLog;
 + (id)defaultMatchingSortDescriptors;
 + (id)matchingBlasklistedSceneLabels;
 + (id)matchingWeightToDictionary;
@@ -99,6 +100,7 @@
 @property(retain, nonatomic) CLSFocusPeopleCache *focusPeopleIngestCache; // @synthesize focusPeopleIngestCache=_focusPeopleIngestCache;
 @property __weak PGManager *manager; // @synthesize manager=_manager;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSSet *momentNodeIdentifiers;
 @property(nonatomic) struct PGRoutineInfoStruct routineInfo; // @synthesize routineInfo=_routineInfo;
 @property(nonatomic) _Bool canUseLocationDomain;
 @property(retain, nonatomic) NSString *locale; // @synthesize locale=_locale;
@@ -216,7 +218,7 @@
 - (id)meNode;
 - (id)insertLocationMobilityNodeWithMobility:(id)arg1 fromEventNode:(id)arg2 edgeWeight:(float)arg3;
 - (id)insertLocationMobilityNodeWithClueCollection:(id)arg1 fromMomentNode:(id)arg2;
-- (id)insertAddressNodeWithPlacemark:(id)arg1 location:(id)arg2 duringDateInterval:(id)arg3 fromEventNode:(id)arg4;
+- (id)insertAddressNodeWithPlacemark:(id)arg1 location:(id)arg2 weight:(float)arg3 duringDateInterval:(id)arg4 fromEventNode:(id)arg5;
 - (id)insertLocationHierarchyWithClueCollection:(id)arg1 fromMomentNode:(id)arg2;
 - (id)insertAddressNodeWithProjectedPlacemark:(id)arg1 atEventLocation:(id)arg2 usingImprovedPlacemark:(_Bool)arg3;
 - (void)insertLocationHierarchyWithProjectedPlacemark:(id)arg1 fromAddressNode:(id)arg2;
@@ -226,6 +228,7 @@
 - (id)_momentNodesFromPersonNodes:(id)arg1;
 - (id)_feederForInsertingAssetCollection:(id)arg1;
 - (void)_insertRoutineInfo;
+- (void)_registerInsertedMomentNodes:(id)arg1 inGraphUpdate:(id)arg2;
 - (void)insertMomentsWithGraphUpdate:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (void)performChangeForGraphUpdate:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (void)deletePersonsWithGraphUpdate:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
@@ -256,6 +259,7 @@
 - (id)_personNodeIntersectingSocialGroups:(id)arg1;
 - (id)_socialGroupNodeForPersonNodes:(id)arg1 searchWithTolerance:(_Bool)arg2;
 - (id)socialGroupsIdentifiersFromSocialGroupNodes:(id)arg1 shouldIncludeMeNode:(_Bool)arg2;
+- (id)personLocalIdentifiersBySocialGroupUUIDWithSocialGroupNodes:(id)arg1 shouldIncludeMeNode:(_Bool)arg2;
 - (id)personNodeForPersonLocalIdentifier:(id)arg1;
 - (id)momentNodesForPersonNodes:(id)arg1;
 - (id)personNodesForSocialGroupNode:(id)arg1;

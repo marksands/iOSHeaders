@@ -15,6 +15,7 @@
     NSObject<OS_dispatch_queue> *_queue;
 }
 
++ (_Bool)shouldActivate;
 + (id)electedExtensionFromExtensions:(id)arg1;
 + (id)sharedInstance;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;

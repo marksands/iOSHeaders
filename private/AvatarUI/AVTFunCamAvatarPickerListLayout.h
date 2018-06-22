@@ -25,6 +25,7 @@
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
 - (struct CGSize)collectionViewContentSize;
 - (void)invalidateLayout;
+- (_Bool)flipsHorizontallyInOppositeLayoutDirection;
 - (_Bool)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
 - (id)initWithEngagementLayout:(id)arg1;
 

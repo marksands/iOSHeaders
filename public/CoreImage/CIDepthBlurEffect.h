@@ -27,6 +27,8 @@ __attribute__((visibility("hidden")))
     NSString *inputShape;
 }
 
++ (id)tuningParametersFromMetadata:(struct CGImageMetadata *)arg1;
++ (struct CGImageMetadata *)replaceRenderingParameters:(struct CGImageMetadata *)arg1 tuningParameters:(id)arg2;
 + (id)customAttributes;
 @property(retain, nonatomic) NSString *inputShape; // @synthesize inputShape;
 @property(retain, nonatomic) id inputAuxDataMetadata; // @synthesize inputAuxDataMetadata;

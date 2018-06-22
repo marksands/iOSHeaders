@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class STUsageDetailsViewModel;
+@class NSArray, NSString, STUsageDetailsViewModel;
 
 @protocol STUsageDetailsViewModelCoordinator <NSObject>
+@property(copy, nonatomic) NSString *selectedDeviceIdentifier;
+@property(readonly, copy, nonatomic) NSArray *devices;
 @property(readonly, nonatomic) STUsageDetailsViewModel *viewModel;
 - (void)stopRefreshingUsageData;
 - (void)startRefreshingUsageData;

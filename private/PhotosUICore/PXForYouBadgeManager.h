@@ -14,6 +14,7 @@
 
 @interface PXForYouBadgeManager : PXObservable <PXMutableForYouBadgeManager, PXFeedSectionInfosManagerDelegate, PHPhotoLibraryChangeObserver>
 {
+    _Bool _hasLoaded;
     unsigned long long _unreadBadgeCount;
     NSDate *_latestSharedAlbumActivityDate;
     NSDate *_latestCMMActivityDate;
@@ -23,6 +24,7 @@
     unsigned long long _cmmActivityUnreadCount;
 }
 
+@property(nonatomic) _Bool hasLoaded; // @synthesize hasLoaded=_hasLoaded;
 @property(nonatomic) unsigned long long cmmActivityUnreadCount; // @synthesize cmmActivityUnreadCount=_cmmActivityUnreadCount;
 @property(nonatomic) unsigned long long sharedAlbumActivityUnreadCount; // @synthesize sharedAlbumActivityUnreadCount=_sharedAlbumActivityUnreadCount;
 @property(retain, nonatomic) PHFetchResult *cmmInvitesFetchResult; // @synthesize cmmInvitesFetchResult=_cmmInvitesFetchResult;
@@ -45,8 +47,9 @@
 - (void)setUnreadBadgeCount:(unsigned long long)arg1;
 - (id)mutableChangeObject;
 - (void)performChanges:(CDUnknownBlockType)arg1;
+- (unsigned long long)loadingPriorityForGadgetType:(unsigned long long)arg1;
+- (void)loadData;
 - (void)dealloc;
-- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

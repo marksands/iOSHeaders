@@ -6,10 +6,12 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
+
 @class UIColor, VUITextLayout;
 
 __attribute__((visibility("hidden")))
-@interface VUITextBadgeLayout : NSObject
+@interface VUITextBadgeLayout : NSObject <NSCopying>
 {
     UIColor *_bgColor;
     double _cornerRadius;
@@ -24,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(retain, nonatomic) UIColor *bgColor; // @synthesize bgColor=_bgColor;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

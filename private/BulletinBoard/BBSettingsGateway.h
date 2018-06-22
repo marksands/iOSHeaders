@@ -74,11 +74,15 @@
 - (void)getBehaviorOverridesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getSectionOrderRuleWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getSectionInfoForActiveSectionsWithCompletion:(CDUnknownBlockType)arg1;
+- (id)activeSectionInfo;
 - (void)getEffectiveSectionInfoForSectionID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)getSectionInfoForSectionID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (id)sectionInfoForSectionID:(id)arg1;
 - (void)getEffectiveSectionInfoForSectionIDs:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)getSectionInfoForSectionIDs:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (id)sectionInfoForSectionIDs:(id)arg1;
 - (void)getSectionInfoWithCompletion:(CDUnknownBlockType)arg1;
+- (id)allSectionInfo;
 - (void)invalidate;
 - (void)dealloc;
 - (id)initWithQueue:(id)arg1;

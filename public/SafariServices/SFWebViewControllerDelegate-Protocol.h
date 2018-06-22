@@ -9,6 +9,7 @@
 @class NSArray, NSError, NSURL, NSURLAuthenticationChallenge, SFWebViewController, UIViewController, WKBackForwardListItem, WKNavigation, WKNavigationAction, WKNavigationResponse, WKWebView, WKWebViewConfiguration, _SFDialog, _WKActivatedElementInfo, _WKFrameHandle;
 
 @protocol SFWebViewControllerDelegate <NSObject>
+- (void)webViewController:(SFWebViewController *)arg1 didChangeFullScreen:(_Bool)arg2;
 - (long long)webViewController:(SFWebViewController *)arg1 presentationPolicyForDialog:(_SFDialog *)arg2;
 - (void)webViewControllerWillAuthenticateForAutoFill:(SFWebViewController *)arg1;
 - (_Bool)currentLoadIsEligibleForAutoFillAuthenticationForWebViewController:(SFWebViewController *)arg1;

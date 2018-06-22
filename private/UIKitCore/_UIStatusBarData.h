@@ -33,6 +33,7 @@
     _UIStatusBarDataEntry *_ttyEntry;
     _UIStatusBarDataEntry *_nikeEntry;
     _UIStatusBarDataEntry *_assistantEntry;
+    _UIStatusBarDataEntry *_studentEntry;
     _UIStatusBarDataEntry *_vpnEntry;
     _UIStatusBarDataEntry *_liquidDetectionEntry;
     _UIStatusBarDataEntry *_airPlayEntry;
@@ -55,6 +56,7 @@
 @property(copy, nonatomic) _UIStatusBarDataEntry *airPlayEntry; // @synthesize airPlayEntry=_airPlayEntry;
 @property(copy, nonatomic) _UIStatusBarDataEntry *liquidDetectionEntry; // @synthesize liquidDetectionEntry=_liquidDetectionEntry;
 @property(copy, nonatomic) _UIStatusBarDataEntry *vpnEntry; // @synthesize vpnEntry=_vpnEntry;
+@property(copy, nonatomic) _UIStatusBarDataEntry *studentEntry; // @synthesize studentEntry=_studentEntry;
 @property(copy, nonatomic) _UIStatusBarDataEntry *assistantEntry; // @synthesize assistantEntry=_assistantEntry;
 @property(copy, nonatomic) _UIStatusBarDataEntry *nikeEntry; // @synthesize nikeEntry=_nikeEntry;
 @property(copy, nonatomic) _UIStatusBarDataEntry *ttyEntry; // @synthesize ttyEntry=_ttyEntry;

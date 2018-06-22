@@ -22,6 +22,7 @@
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (_Bool)allowHierarchyRemoval;
+- (_Bool)userInteractable;
 - (id)dragManager:(id)arg1 dragableAtLocation:(struct CGPoint)arg2;
 - (id)viewForDragManager:(id)arg1;
 - (void)didApplyBehavior:(id)arg1;

@@ -8,7 +8,6 @@
 
 @class VUITextLayout;
 
-__attribute__((visibility("hidden")))
 @interface VUILabel : _TVLabel
 {
     _Bool _selected;

@@ -26,7 +26,6 @@
 + (id)irregularlyIrregularPulseType;
 + (id)heartStudyEventType;
 + (id)tachycardiaType;
-+ (id)stationaryDiscordanceType;
 + (id)heartRateType;
 + (id)watchActivationType;
 + (id)deepBreathingSessionType;

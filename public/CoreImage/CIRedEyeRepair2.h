@@ -11,6 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface CIRedEyeRepair2 : NSObject
 {
+    id <RedEyeInspector> inspector;
     CDStruct_c3faddef fullBitmap;
     CDStruct_5973fb4f subRectangle;
     float xf;
@@ -18,6 +19,9 @@ __attribute__((visibility("hidden")))
     float xfi;
     float yfi;
     float ify;
+    _Bool isIPhone;
+    int orientation;
+    int computeType;
     _Bool debugSyntheticPupils;
     _Bool showSpecularShine;
     int syntheticPupilChannel;
@@ -30,12 +34,28 @@ __attribute__((visibility("hidden")))
     float syntheticSpecularShineAlpha;
     float sharpeningEdgeExtractRadius;
     float sharpeningEdgeExtractThreshold;
+    _Bool syntheticEyelidOcclusion;
+    _Bool syntheticIrisInfill;
     struct CGRect inputImageExtent;
+    _Bool printPupilSummary;
+    _Bool printIODEtc;
+    _Bool printRepairsSaved;
+    _Bool printRepairsApplied;
+    _Bool printFaceStatistics;
+    _Bool printProminenceContainment;
+    _Bool printEyeOpenness;
+    _Bool printConfidenceLog;
+    int printImproveBitmaskLevel;
+    _Bool printImproveBitmaskConsistencyCheck;
+    int printIrisRingLevel;
+    _Bool printNeededOcclusions;
+    int printFaceArrayLevel;
     struct CGRect ROIRect;
     int faceIndex;
     float avgLuminance;
     float minLuminance;
     float maxLuminance;
+    float skinval;
     NSArray *faceArray;
     CDStruct_caa69dec FC;
     int ioffx;
@@ -46,6 +66,7 @@ __attribute__((visibility("hidden")))
     int erError;
     CDStruct_5973fb4f repairRect;
     CDStruct_c3faddef repairMap;
+    NSMutableArray *failureCauses;
 }
 
 + (struct CGRect)supportRectangleWithFaceArray:(id)arg1 options:(id)arg2;
@@ -56,12 +77,19 @@ __attribute__((visibility("hidden")))
 + (void)analyzeFineGrowBitmaskData:(CDStruct_32eeb3fa *)arg1 dataSize:(int)arg2 context:(CDStruct_69e56647 *)arg3;
 + (void)analyzeCoarseGrowBitmaskData:(CDStruct_32eeb3fa *)arg1 dataSize:(int)arg2 context:(CDStruct_69e56647 *)arg3;
 + (void)insertIntoProminenceVettingHopper:(CDStruct_e6988dbd *)arg1 measure:(float)arg2 max:(int)arg3 outside:(int)arg4 confidence:(float)arg5 distance:(float)arg6 area:(int)arg7 borderMax:(int)arg8 borderMin:(int)arg9 row:(int)arg10 column:(int)arg11;
-+ (CDStruct_0b15f989)improveBitmask:(CDStruct_94ca5ecd *)arg1 radius:(int)arg2 inChannel:(CDStruct_c3faddef *)arg3 rect:(CDStruct_a734b2e2)arg4;
 + (int)countOfAdjacentValues:(CDStruct_1ef3fb1f [4])arg1 in:(CDStruct_94ca5ecd *)arg2 ofValue:(int)arg3 atCol:(int)arg4 row:(int)arg5 radius:(int)arg6 addingTo:(int)arg7;
-+ (_Bool)computeBorderPoints:(CDStruct_94ca5ecd *)arg1 rect:(CDStruct_a734b2e2)arg2 inside:(CDStruct_b7c6dbbe *)arg3 outside:(CDStruct_b7c6dbbe *)arg4;
++ (_Bool)verifyBorderPoints:(CDStruct_94ca5ecd *)arg1 rect:(CDStruct_a734b2e2)arg2 inside:(CDStruct_b1bd45e0 *)arg3 outside:(CDStruct_b1bd45e0 *)arg4 error:(char [256])arg5;
++ (void)printBorder:(CDStruct_b1bd45e0 *)arg1 name:(char *)arg2;
++ (_Bool)computeBorderPoints:(CDStruct_94ca5ecd *)arg1 rect:(CDStruct_a734b2e2)arg2 inside:(CDStruct_b1bd45e0 *)arg3 outside:(CDStruct_b1bd45e0 *)arg4;
 + (double)averageDifferenceBetweenInsideSummary:(CDStruct_c0454aff *)arg1 andOutsideBorderSummary:(CDStruct_c0454aff *)arg2;
 + (void)summarizeBitmap:(CDStruct_c3faddef *)arg1 withBitmask:(CDStruct_94ca5ecd *)arg2 radius:(int)arg3 rect:(CDStruct_a734b2e2)arg4 returningInsideSummary:(CDStruct_c0454aff *)arg5 outsideBorderSummary:(CDStruct_c0454aff *)arg6;
 + (int)adjacencyScoreInBitmask:(CDStruct_94ca5ecd *)arg1 atColumn:(int)arg2 row:(int)arg3 radius:(int)arg4;
++ (double)applyFalloffFunction:(int)arg1 toAlpha:(double)arg2 discFactor:(double)arg3;
++ (double)next12BitRandom;
++ (void)start12BitRandom:(int)arg1;
++ (float)radiusOfEllipseInDirection:(struct CGPoint)arg1 a:(float)arg2 b:(float)arg3 angle:(float)arg4;
++ (_Bool)LHSpoint:(struct CGPoint)arg1 isToLeftOfLineFromPoint:(struct CGPoint)arg2 toPoint:(struct CGPoint)arg3;
++ (double)circleRadiusAndCenter:(struct CGPoint *)arg1 withPoint1:(struct CGPoint)arg2 point2:(struct CGPoint)arg3 andPoint3:(struct CGPoint)arg4;
 + (float)intersectRayOrigin:(struct CGPoint)arg1 unitVector:(struct CGPoint)arg2 withEllipseOrigin:(struct CGPoint)arg3 a:(float)arg4 b:(float)arg5 angle:(float)arg6;
 + (CDStruct_a734b2e2)ovalBoundsWithOC:(CDStruct_7a4a8b82 *)arg1;
 + (struct CGPoint)ovalOutlinePointWithT:(float)arg1 OC:(CDStruct_7a4a8b82 *)arg2;
@@ -82,11 +110,18 @@ __attribute__((visibility("hidden")))
 - (int)validateRepair:(id)arg1;
 - (void)printExecuteRepairError:(int)arg1;
 - (id)repairArray;
-- (id)packRepairDictionary:(CDStruct_8cc170eb *)arg1;
-- (CDStruct_8cc170eb)unpackRepairDictionary:(id)arg1;
+- (void)transformRepairArray:(struct CGAffineTransform)arg1;
+- (CDStruct_1c419292)transformGlobalRepairRecord:(CDStruct_1c419292 *)arg1 transform:(struct CGAffineTransform)arg2;
+- (struct CGPoint)leftHandedTransform:(struct CGAffineTransform)arg1 ofPoint:(struct CGPoint)arg2;
+- (id)packRepairDictionary:(CDStruct_1c419292 *)arg1;
+- (id)packGlobalRepairDictionary:(CDStruct_1c419292 *)arg1;
+- (CDStruct_1c419292)unpackRepairDictionary:(id)arg1;
+- (CDStruct_1c419292)unpackGlobalRepairDictionary:(id)arg1;
 - (id)mutableCopyOfArray:(id)arg1;
 - (id)repairWithSide:(int)arg1;
 - (void)autoRepairWithFaceArray:(id)arg1;
+- (void)printFaceArray;
+- (struct CGAffineTransform)inverseImageTransformForOrientation:(int)arg1;
 - (void)dealloc;
 - (id)initWithExternalBuffer:(char *)arg1 subRectangle:(struct CGRect)arg2 rowBytes:(unsigned long long)arg3 options:(id)arg4;
 - (CDStruct_a734b2e2)bitmapRectWithImageSubRectangle:(struct CGRect)arg1;
@@ -94,26 +129,46 @@ __attribute__((visibility("hidden")))
 - (id)dictionaryRectArrayWithBitmapRect:(CDStruct_a734b2e2)arg1;
 - (CDStruct_a734b2e2)globalBitmapRectWithDictionaryRectArray:(id)arg1;
 - (CDStruct_a734b2e2)bitmapRectWithDictionaryRectArray:(id)arg1;
+- (struct CGPoint)dictionaryPointWithGlobalBitmapPoint:(struct CGPoint)arg1;
 - (struct CGPoint)dictionaryPointWithBitmapPoint:(struct CGPoint)arg1;
+- (struct CGPoint)globalBitmapPointWithDictionaryPoint:(struct CGPoint)arg1;
 - (struct CGPoint)bitmapPointWithDictionaryPoint:(struct CGPoint)arg1;
+- (CDStruct_a734b2e2)repairRect;
+- (CDStruct_c3faddef *)repairMap;
 - (void)repairExternalBuffer;
 - (void)updateWithFaceIndex:(int)arg1;
 - (void)setUpWithOptions:(id)arg1;
+- (struct CGRect)extentOption:(id)arg1 in:(id)arg2 theDefault:(struct CGRect)arg3;
+- (id)stringOption:(id)arg1 in:(id)arg2 theDefault:(id)arg3;
+- (float)floatOption:(id)arg1 in:(id)arg2 theDefault:(float)arg3;
+- (int)intOption:(id)arg1 in:(id)arg2 theDefault:(int)arg3;
+- (_Bool)boolOption:(id)arg1 in:(id)arg2 theDefault:(_Bool)arg3;
+- (void)setInspector:(id)arg1;
+- (id)failureCauses;
 - (void)doRepairExtraction;
+- (_Bool)analyzeIrisColors:(CDStruct_1c419292 *)arg1 side:(int)arg2;
+- (_Bool)is2MImageWithBase:(char *)arg1;
+- (_Bool)hasBeautyMarkWithBase:(char *)arg1 side:(int)arg2;
+- (_Bool)needsEyelidOcclusionWithBase:(char *)arg1 side:(int)arg2 upper:(int)arg3;
+- (void)extractIrisColors:(CDStruct_1c419292 *)arg1;
 - (void)alignPupils;
 - (float)pupilAspectWithEyeIndex:(int)arg1 andPupilCenter:(struct CGPoint)arg2;
 - (float)facePoseYawAngle;
 - (float)pupilFractionWithEyeIndex:(int)arg1 andPupilCenter:(struct CGPoint)arg2;
+- (float)eyeOpennessWithEyeIndex:(int)arg1;
 - (void)characterizePupilAndSpecularShine;
 - (CDStruct_818bb265)averageColorUnderBitmask:(CDStruct_94ca5ecd *)arg1 rect:(CDStruct_a734b2e2)arg2 eye:(int)arg3 maxRed:(double *)arg4;
-- (void)gatherFaceStatistics;
+- (_Bool)gatherFaceStatistics;
 - (CDStruct_94ca5ecd *)bitmaskWithSharpeningEdgeInRect:(CDStruct_a734b2e2)arg1;
 - (_Bool)findProminenceWithSide:(int)arg1 eyeCase:(int)arg2 returningHopperElement:(CDStruct_7a0e83b0 *)arg3 maxData:(CDStruct_32eeb3fa *)arg4 bitmask:(struct **)arg5 specialScore:(CDStruct_0b15f989 *)arg6 isSpecular:(_Bool *)arg7 maxSpecularData:(CDStruct_32eeb3fa *)arg8 specularBitmask:(struct **)arg9;
 - (void)freeBitmaps;
 - (void)allocateAndPopulateBitmaps;
 - (CDStruct_94ca5ecd *)localComputeBitmaskWithChannel:(CDStruct_c3faddef *)arg1 x:(int)arg2 y:(int)arg3 options:(CDStruct_e5fcc3f9 *)arg4 eyeCase:(int)arg5 returningMaxData:(CDStruct_32eeb3fa *)arg6 isSpecularData:(_Bool *)arg7 maxSpecularData:(CDStruct_32eeb3fa *)arg8 specularBitmask:(struct **)arg9;
+- (CDStruct_0b15f989)improveBitmask:(CDStruct_94ca5ecd *)arg1 radius:(int)arg2 inChannel:(CDStruct_c3faddef *)arg3 rect:(CDStruct_a734b2e2)arg4;
 - (_Bool)computeFilteredPupilBitmapWithRepair:(id)arg1 returningBitmap:(CDStruct_c3faddef *)arg2 atImageLocation:(CDStruct_a734b2e2 *)arg3;
 - (_Bool)computeSyntheticPupilBitmapWithRepair:(id)arg1 returningBitmap:(CDStruct_c3faddef *)arg2 atImageLocation:(CDStruct_a734b2e2 *)arg3;
+- (void)printRepair:(CDStruct_1c419292)arg1;
+- (void)printFalloffFunction:(int)arg1;
 
 @end
 

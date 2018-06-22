@@ -153,7 +153,6 @@
 - (void)_setupEditViewForComplications;
 - (void)_updateFaceAndViewWithOption:(id)arg1 forMode:(long long)arg2 resourcePath:(id)arg3 slot:(id)arg4;
 - (void)_setFaceViewResourceDirectoryFromFace;
-- (void)_loadInitialComplicationVisibilityFromFace;
 - (void)_populateFaceViewEditOptionsFromFace;
 - (void)_endTransitionToValue:(long long)arg1 forEditMode:(long long)arg2;
 - (void)_transitionFraction:(double)arg1 fromValue:(long long)arg2 toValue:(long long)arg3 forEditMode:(long long)arg4;

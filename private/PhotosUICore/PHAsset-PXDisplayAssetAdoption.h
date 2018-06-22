@@ -15,7 +15,8 @@
 @property(readonly, nonatomic) PHAsset *photoKitAsset;
 @property(readonly, nonatomic) NSString *adjustedContentIdentifier;
 @property(readonly, nonatomic) _Bool wantsAdjustments;
-- (struct CGRect)bestCropRectForAspectRatio:(double)arg1 useSaliency:(_Bool)arg2;
+- (void)_adjustRectWithFaces:(struct CGRect *)arg1 forAssetRect:(struct CGRect)arg2 verticalContentMode:(long long)arg3;
+- (struct CGRect)bestCropRectForAspectRatio:(double)arg1 verticalContentMode:(long long)arg2 cropMode:(long long)arg3;
 - (struct CGRect)bestCropRectForAspectRatio:(double)arg1;
 - (long long)isContentEqualTo:(id)arg1;
 @property(readonly, nonatomic) NSString *localizedGeoDescription;

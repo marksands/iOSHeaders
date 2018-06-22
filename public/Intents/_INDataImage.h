@@ -6,11 +6,12 @@
 
 #import <Intents/INImage.h>
 
-@class NSData;
+@class NSData, NSUUID;
 
 __attribute__((visibility("hidden")))
 @interface _INDataImage : INImage
 {
+    NSUUID *_md5HashUUID;
     NSData *_imageData;
 }
 
@@ -19,6 +20,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)_md5HashUUID;
 - (id)_copyWithSubclass:(Class)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (id)_dictionaryRepresentation;

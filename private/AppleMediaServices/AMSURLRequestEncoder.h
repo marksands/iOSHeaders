@@ -14,6 +14,7 @@
 {
     _Bool _compressRequestBody;
     _Bool _urlKnownToBeTrusted;
+    _Bool _disableAccountMediaTypeComponent;
     ACAccount *_account;
     NSDictionary *_additionalMetrics;
     long long _anisetteType;
@@ -26,6 +27,7 @@
     id <AMSResponseDecoding> _responseDecoder;
 }
 
+@property(nonatomic) _Bool disableAccountMediaTypeComponent; // @synthesize disableAccountMediaTypeComponent=_disableAccountMediaTypeComponent;
 @property(nonatomic) _Bool urlKnownToBeTrusted; // @synthesize urlKnownToBeTrusted=_urlKnownToBeTrusted;
 @property(retain, nonatomic) id <AMSResponseDecoding> responseDecoder; // @synthesize responseDecoder=_responseDecoder;
 @property(nonatomic) long long mescalType; // @synthesize mescalType=_mescalType;

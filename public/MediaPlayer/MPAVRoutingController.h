@@ -65,12 +65,13 @@
 - (id)_pickedRouteInArray:(id)arg1;
 - (void)_unregisterNotifications;
 - (void)_registerNotifications;
+- (void)_onQueue_clearCachedRoutes;
 - (void)_refreshPendingRoutes;
-- (void)_removePendingRoute:(id)arg1;
 - (id)_addPendingRoute:(id)arg1;
+- (void)removePendingRoute:(id)arg1;
 - (void)logCurrentRoutes;
-- (void)_onQueueClearCachedRoutes;
 - (void)clearCachedRoutes;
+- (void)addPendingRoute:(id)arg1;
 - (void)_mediaServerDiedNotification:(id)arg1;
 - (void)_externalScreenTypeDidChangeNotification:(id)arg1;
 - (void)_volumeControlAvailabilityDidChangeNotification:(id)arg1;

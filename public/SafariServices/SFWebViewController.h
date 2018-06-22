@@ -48,6 +48,8 @@ __attribute__((visibility("hidden")))
 - (long long)_webView:(id)arg1 dataOwnerForDropSession:(id)arg2;
 - (void)_webView:(id)arg1 didChangeSafeAreaShouldAffectObscuredInsets:(_Bool)arg2;
 - (void)_webView:(id)arg1 requestGeolocationAuthorizationForURL:(id)arg2 frame:(id)arg3 decisionHandler:(CDUnknownBlockType)arg4;
+- (void)_webViewDidExitFullscreen:(id)arg1;
+- (void)_webViewDidEnterFullscreen:(id)arg1;
 - (void)_webView:(id)arg1 printFrame:(id)arg2;
 - (void)_webView:(id)arg1 commitPreviewedViewController:(id)arg2;
 - (id)_webView:(id)arg1 previewViewControllerForURL:(id)arg2 defaultActions:(id)arg3 elementInfo:(id)arg4;
@@ -64,6 +66,8 @@ __attribute__((visibility("hidden")))
 - (void)_webView:(id)arg1 accessoryViewCustomButtonTappedInFormInputSession:(id)arg2;
 - (void)_webView:(id)arg1 willSubmitFormValues:(id)arg2 userObject:(id)arg3 submissionHandler:(CDUnknownBlockType)arg4;
 - (_Bool)_webView:(id)arg1 focusRequiresStrongPasswordAssistance:(id)arg2;
+- (_Bool)_focusingElementForStreamlinedLogin:(id)arg1;
+- (long long)_webView:(id)arg1 decidePolicyForFocusedElement:(id)arg2;
 - (void)_webView:(id)arg1 didStartInputSession:(id)arg2;
 - (void)_webView:(id)arg1 willStartInputSession:(id)arg2;
 - (void)_automaticPasswordInputViewNotification:(id)arg1;

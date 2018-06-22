@@ -27,7 +27,7 @@
 - (id)studioLightRecipeWithAsset:(id)arg1;
 - (id)suggestedAssetsInAssets:(id)arg1 options:(id)arg2;
 - (id)suggestedAssetsInAssets:(id)arg1;
-- (id)editModelForAsset:(id)arg1;
+- (id)editModelForAsset:(id)arg1 baseVersion:(out long long *)arg2;
 - (id)portraitsBetweenStartDate:(id)arg1 andEndDate:(id)arg2;
 - (void)reset;
 - (id)nextSuggestion;

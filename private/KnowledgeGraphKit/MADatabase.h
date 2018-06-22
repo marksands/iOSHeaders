@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSManagedObjectContext, NSManagedObjectModel, NSPersistentStoreCoordinator, NSPredicate, NSURL;
+@class NSManagedObjectContext, NSManagedObjectModel, NSMutableSet, NSPersistentStoreCoordinator, NSPredicate, NSURL;
 
 @interface MADatabase : NSObject
 {
@@ -20,6 +20,8 @@
     NSPredicate *_predicateIdentifierTemplate;
     NSPredicate *_predicateIdentifiersTemplate;
     NSPredicate *_predicateIdentifierAndKeyTemplate;
+    NSMutableSet *_edgeIdentifiersToRemove;
+    NSMutableSet *_nodeIdentifiersToRemove;
 }
 
 + (_Bool)destroyAtURL:(id)arg1 error:(id *)arg2;
@@ -63,12 +65,13 @@
 - (_Bool)_setValue:(id)arg1 onProperty:(id)arg2;
 - (_Bool)_addProperty:(id)arg1 toProperties:(id)arg2;
 - (id)valueForModelProperty:(id)arg1;
-- (void)removeModelEdgeForIdentifier:(long long)arg1;
-- (void)removeModelEdgesForIdentifiers:(id)arg1;
 - (void)updateEdge:(id)arg1;
 - (void)addEdge:(id)arg1 requiresTesting:(_Bool)arg2;
 - (void)enumerateModelEdgesWithBlock:(CDUnknownBlockType)arg1;
-- (void)removeModelNodeForIdentifier:(long long)arg1;
+- (void)_cleanupIdentifiers:(id)arg1 forEntity:(id)arg2;
+- (void)removeModelEdgesForIdentifiers:(id)arg1;
+- (void)removeModelEdgeForIdentifier:(unsigned long long)arg1;
+- (void)removeModelNodeForIdentifier:(unsigned long long)arg1;
 - (void)removeModelNodesForIdentifiers:(id)arg1;
 - (void)updateNode:(id)arg1;
 - (void)addNode:(id)arg1 requiresTesting:(_Bool)arg2;

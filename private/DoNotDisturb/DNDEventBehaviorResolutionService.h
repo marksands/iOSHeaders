@@ -14,6 +14,7 @@
 }
 
 + (id)serviceForClientIdentifier:(id)arg1;
++ (void)initialize;
 - (void).cxx_destruct;
 - (id)resolveBehaviorForEventDetails:(id)arg1 error:(id *)arg2;
 - (id)_initWithClientIdentifier:(id)arg1;

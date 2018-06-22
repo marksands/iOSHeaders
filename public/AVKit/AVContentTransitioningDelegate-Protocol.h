@@ -13,5 +13,6 @@
 - (AVPlayerLayerAndContentOverlayContainerView *)contentTransitioningPlayerContentViewForTransition:(UIView<AVContentTransitioning> *)arg1;
 - (_Bool)contentTransitioningView:(UIView<AVContentTransitioning> *)arg1 shouldBeginTransitionWithDirection:(long long)arg2;
 - (_Bool)contentTransitioningViewShouldBeginDragging:(UIView<AVContentTransitioning> *)arg1 locationInView:(struct CGPoint)arg2;
+- (_Bool)contentTransitioningEnabled:(UIView<AVContentTransitioning> *)arg1;
 @end
 

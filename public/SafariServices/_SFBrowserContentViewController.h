@@ -222,6 +222,7 @@
 - (_Bool)printControllerCanPresentPrintUI:(id)arg1;
 - (_Bool)printControllerPageIsLoading:(id)arg1;
 - (_Bool)printControllerShouldPrintReader:(id)arg1;
+- (void)webViewController:(id)arg1 didChangeFullScreen:(_Bool)arg2;
 - (long long)webViewController:(id)arg1 presentationPolicyForDialog:(id)arg2;
 - (void)webViewControllerWillAuthenticateForAutoFill:(id)arg1;
 - (_Bool)currentLoadIsEligibleForAutoFillAuthenticationForWebViewController:(id)arg1;

@@ -15,7 +15,7 @@
 #import "PKPaymentServiceDelegate.h"
 #import "PKUIForegroundActiveArbiterDeactivationObserver.h"
 
-@class NSMutableArray, NSNumber, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, PKAuthenticator, PKContactlessInterfaceSession, PKFooterTransactionView, PKPassLibrary, PKPassPaymentApplicationView, PKPassPaymentPayStateView, PKPassPaymentSummaryView, PKPassPeerPaymentAccountResolutionView, PKPassValueAddedServiceInfoView, PKPaymentService, PKPeerPaymentAccountResolutionController, PKPeerPaymentContactResolver, PKPeerPaymentService, PKPhysicalButtonView, UIButton, UIView, UIViewController;
+@class LAUIPhysicalButtonView, NSMutableArray, NSNumber, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, PKAuthenticator, PKContactlessInterfaceSession, PKFooterTransactionView, PKPassLibrary, PKPassPaymentApplicationView, PKPassPaymentPayStateView, PKPassPaymentSummaryView, PKPassPeerPaymentAccountResolutionView, PKPassValueAddedServiceInfoView, PKPaymentService, PKPeerPaymentAccountResolutionController, PKPeerPaymentContactResolver, PKPeerPaymentService, UIButton, UIView, UIViewController;
 
 @interface PKPassPaymentContainerView : PKPassFooterContentView <PKPaymentServiceDelegate, PKAuthenticatorDelegate, PKPassPaymentSummaryViewDelegate, PKPassPaymentPayStateViewDelegate, PKPassPaymentApplicationViewDelegate, PKContactlessInterfaceSessionDelegate, PKForegroundActiveArbiterObserver, PKUIForegroundActiveArbiterDeactivationObserver>
 {
@@ -29,7 +29,7 @@
     PKPeerPaymentAccountResolutionController *_peerPaymentAccountResolutionController;
     _Bool _fieldDetectShouldEmulateExpress;
     id <UICoordinateSpace> _fixedScreenCoordinateSpace;
-    PKPhysicalButtonView *_physicalButtonView;
+    LAUIPhysicalButtonView *_physicalButtonView;
     PKFooterTransactionView *_transactionView;
     UIView *_summaryView;
     unsigned long long _transactionUpdateCounter;
@@ -72,6 +72,7 @@
     _Bool _waitingForPasses;
     double _lastFieldExitTime;
     _Bool _pendingAutomaticAuthorization;
+    _Bool _pendingPerformAuthorization;
     NSNumber *_pendingPresentationContextState;
     double _lastFingerOnTime;
     double _lastTransactionTime;
@@ -80,7 +81,8 @@
     NSMutableArray *_valueAddedPasses;
 }
 
-+ (_Bool)initialUserIntentAssumptionWithPaymentService:(id)arg1;
++ (_Bool)shouldAutomaticallyAuthorizeForPassType:(unsigned long long)arg1 withContext:(id)arg2;
++ (_Bool)initialUserIntentAssumptionForPass:(id)arg1 context:(id)arg2 paymentService:(id)arg3;
 - (void).cxx_destruct;
 - (void)_processValueAddedServiceTransactionsForContext:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_processPaymentTransactionForContext:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
@@ -106,7 +108,6 @@
 - (_Bool)_showPeerPaymentAccountResolutionView;
 - (_Bool)_maintainAuthorizationAfterTransaction;
 - (_Bool)_showSummaryState;
-- (_Bool)_showPhysicalButtonView;
 - (void)_stopBiometricRecognitionAnimationWithSuccess:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_startBiometricRecognitionAnimation;
 - (id)_filledButtonWithTitle:(id)arg1 alignment:(long long)arg2 action:(SEL)arg3;

@@ -10,6 +10,7 @@
 {
 }
 
++ (id)sharedSavingWorkerQueue;
 - (void)performBackgroundTask;
 - (_Bool)isCancellable;
 - (id)createActionProgress;

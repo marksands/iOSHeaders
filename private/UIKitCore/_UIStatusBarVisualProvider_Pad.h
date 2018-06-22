@@ -16,6 +16,8 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_leadingRegionTrailingAnchorConstraint;
 }
 
++ (id)expandedFont;
++ (id)normalFont;
 + (double)baselineOffset;
 + (struct NSDirectionalEdgeInsets)expandedEdgeInsets;
 + (struct NSDirectionalEdgeInsets)edgeInsets;

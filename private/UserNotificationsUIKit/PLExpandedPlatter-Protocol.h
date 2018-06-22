@@ -9,12 +9,16 @@
 @class NSArray, UIControl, UIScrollView;
 
 @protocol PLExpandedPlatter <PLPlatter>
+@property(nonatomic) _Bool clipsVisibleContentToBounds;
+@property(readonly, nonatomic) struct UIEdgeInsets dismissControlInsets;
 @property(readonly, nonatomic) UIControl *dismissControl;
 @property(nonatomic, getter=isActionsHidden) _Bool actionsHidden;
 @property(retain, nonatomic) NSArray *interfaceActions;
 @property(nonatomic) struct CGSize customContentSize;
 @property(readonly, nonatomic) UIScrollView *scrollView;
 - (struct CGRect)scrollViewFrame;
+- (struct CGRect)platterFrameForFrame:(struct CGRect)arg1;
+- (struct CGRect)frameForPlatterFrame:(struct CGRect)arg1;
 - (struct CGSize)actionsSizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)contentSizeExcludingActions;
 - (struct CGSize)sizeExcludingActions;

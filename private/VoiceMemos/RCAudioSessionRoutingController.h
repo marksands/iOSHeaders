@@ -61,6 +61,8 @@
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
 - (void)routingController:(id)arg1 didChangeAirPlayMirrorDestinationToActive:(_Bool)arg2;
 - (void)routingController:(id)arg1 willChangeCategoryActiveStateToActive:(_Bool)arg2;
+- (void)disableDetailedDiscoveryMode;
+- (void)enableDetailedDiscoveryMode;
 @property(readonly, nonatomic) _Bool isRoutingToPhoneCall;
 - (void)fetchActiveInputRouteWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSString *activeInputRouteName;

@@ -34,7 +34,16 @@
 - (double)_animationScaleForItemWithIndexDifference:(long long)arg1 frame:(struct CGRect)arg2 leadingNotificationFrame:(struct CGRect)arg3;
 - (void)_configureLayoutAttributesForCoalescingAnimation:(id)arg1;
 - (void)_configureLayoutAttributesForCoalescing:(id)arg1;
+- (_Bool)_isPerformingCoalescingCollapsingAnimation;
+- (_Bool)_isPerformingCoalescingExpandingAnimation;
+- (_Bool)_isPerformingCoalescingAnimation;
 - (CDUnknownBlockType)_animationForReusableView:(id)arg1 toLayoutAttributes:(id)arg2 type:(unsigned long long)arg3;
+- (void)_configureSectionHeaderViewLayoutAttributesForCoalescingAnimationIfNecessary:(id)arg1 atIndexPath:(id)arg2;
+- (id)finalLayoutAttributesForDisappearingSupplementaryElementOfKind:(id)arg1 atIndexPath:(id)arg2;
+- (id)initialLayoutAttributesForAppearingSupplementaryElementOfKind:(id)arg1 atIndexPath:(id)arg2;
+- (id)_indexPathForSectionHeaderIfPerformingCoalescingAnimationForTopNotificationRequest;
+- (id)indexPathsToInsertForSupplementaryViewOfKind:(id)arg1;
+- (id)indexPathsToDeleteForSupplementaryViewOfKind:(id)arg1;
 - (id)finalLayoutAttributesForDisappearingItemAtIndexPath:(id)arg1;
 - (id)initialLayoutAttributesForAppearingItemAtIndexPath:(id)arg1;
 - (void)finalizeCollectionViewUpdates;

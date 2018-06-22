@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)expirationStringWithDate:(id)arg1 displayWarningColor:(_Bool *)arg2 updateInterval:(long long *)arg3;
 + (unsigned long long)minimumNumberOfItemsToEnableSeeAllButton;
 + (id)createImageProxyForResourceObject:(id)arg1 imageSize:(struct CGSize)arg2;
 + (id)randomColor;

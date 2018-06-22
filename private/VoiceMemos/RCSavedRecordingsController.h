@@ -21,6 +21,7 @@
 @property(readonly, nonatomic) NSArray *fetchedRecordings;
 - (void)setDelegate:(id)arg1;
 - (void)setDefaultDelegate:(id)arg1;
+- (void)invalidate;
 - (id)initWithFetchRequest:(id)arg1 managedObjectContext:(id)arg2;
 
 @end

@@ -17,7 +17,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "VKMapViewDelegate.h"
 
-@class CLLocation, GEOMapRegion, GEOResourceManifestConfiguration, MKAnnotationContainerView, MKAnnotationManager, MKAnnotationView, MKAttributionLabel, MKBasicMapView, MKCompassView, MKDebugLocationConsole, MKMapCamera, MKMapGestureController, MKMapViewInternal, MKMapViewLabelMarkerState, MKOverlayContainerView, MKScaleView, MKUserLocation, NSArray, NSDictionary, NSLayoutConstraint, NSString, NSTimer, UIGestureRecognizer, UIImageView, UILayoutGuide, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, UITapGestureRecognizer, UITextView, VKLabelMarker, VKMapView, VKNavContext, VKRouteContext, VKVenueBuildingFeatureMarker, VKVenueFeatureMarker, _MKCustomFeatureStore, _MKEnvironmentLabel;
+@class CLLocation, GEOMapRegion, GEOResourceManifestConfiguration, MKAnnotationContainerView, MKAnnotationManager, MKAnnotationView, MKAttributionLabel, MKBasicMapView, MKCompassView, MKDebugLocationConsole, MKMapCamera, MKMapGestureController, MKMapViewInternal, MKMapViewLabelMarkerState, MKOverlayContainerView, MKScaleView, MKUserLocation, NSArray, NSDictionary, NSLayoutConstraint, NSObject<OS_dispatch_group>, NSString, NSTimer, UIGestureRecognizer, UIImageView, UILayoutGuide, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, UITapGestureRecognizer, UITextView, VKLabelMarker, VKMapView, VKNavContext, VKRouteContext, VKVenueBuildingFeatureMarker, VKVenueFeatureMarker, _MKCustomFeatureStore, _MKEnvironmentLabel;
 
 @interface MKMapView : UIView <MKOverlayContainerViewDelegate, VKMapViewDelegate, MKMapGestureControllerDelegate, MKAnnotationMarkerContainer, MKAnnotationManagerDelegate, GEOLogContextDelegate, UIGestureRecognizerDelegate, MKVariableDelayTapRecognizerDelegate, GEOResourceManifestTileGroupObserver, NSCoding>
 {
@@ -99,7 +99,7 @@
         unsigned int isChangingViewSize:1;
         unsigned int isChangingEdgeInsets:1;
         unsigned int showsAttribution:1;
-        unsigned int showsAttributionBadge:1;
+        unsigned int canShowAttributionBadge:1;
         unsigned int showsVenues:1;
         unsigned int rotating:1;
         unsigned int pitching:1;
@@ -138,7 +138,7 @@
         unsigned int delegateWillChangeRegion:1;
         unsigned int delegateDidChangeUserTrackingMode:1;
         unsigned int delegateDidChangeUserTrackingModeButton:1;
-        unsigned int useSafeAreaInsets:1;
+        unsigned int useTopBottomLayoutGuides:1;
         unsigned int useLayoutMargins:1;
     } _flags;
     _Bool _hasSetLayoutMargins;
@@ -153,6 +153,7 @@
     _Bool _hasPendingEdgeInsetsChange;
     long long _originalLoopRate;
     long long _preGesturingLoopRate;
+    NSObject<OS_dispatch_group> *_calloutShowAnimationGroup;
     struct UIEdgeInsets _attributionInsets;
     struct UIEdgeInsets _compassInsets;
     unsigned long long _compassInsetEdges;
@@ -191,6 +192,7 @@
 @property(nonatomic, getter=_compassInsets, setter=_setCompassInsets:) struct UIEdgeInsets compassInsets; // @synthesize compassInsets=_compassInsets;
 @property(nonatomic, getter=_attributionInsets, setter=_setAttributionInsets:) struct UIEdgeInsets attributionInsets; // @synthesize attributionInsets=_attributionInsets;
 @property(nonatomic, getter=_annotationTrackingZoomStyle, setter=_setAnnotationTrackingZoomStyle:) long long annotationTrackingZoomStyle; // @synthesize annotationTrackingZoomStyle=_annotationTrackingZoomStyle;
+@property(readonly, nonatomic, getter=_calloutShowAnimationGroup) NSObject<OS_dispatch_group> *calloutShowAnimationGroup; // @synthesize calloutShowAnimationGroup=_calloutShowAnimationGroup;
 - (void).cxx_destruct;
 - (id)logContextForLogMsgEvent:(id)arg1;
 - (int)currentMapViewTargetForAnalytics;
@@ -617,7 +619,8 @@
 @property(nonatomic, getter=_compassInsetEdges, setter=_setCompassInsetEdges:) unsigned long long compassInsetEdges;
 - (void)_setCompassViewSize:(long long)arg1 style:(long long)arg2;
 - (void)_layoutAttribution;
-@property(nonatomic) _Bool showsAttributionBadge;
+@property(readonly, nonatomic, getter=_isShowingAttributionBadge) _Bool showingAttributionBadge;
+@property(nonatomic) _Bool canShowAttributionBadge;
 @property(nonatomic) _Bool showsAttribution;
 - (void)_restoreViewportFromDictionary:(id)arg1;
 - (id)_viewportDictionary;
@@ -703,6 +706,7 @@
 - (void)_selectTransitLineMarker:(id)arg1;
 - (id)_transitLineMarkerForIdentifier:(id)arg1;
 @property(readonly, nonatomic, getter=_transitLineMarkersInCurrentViewport) NSArray *transitLineMarkersInCurrentViewport;
+- (void)_invalidateAllOverlayRenderers;
 - (id)vk_mapLayer;
 - (void)overlayContainerAddedDrawables:(id)arg1;
 - (id)createDrawableForOverlay:(id)arg1;

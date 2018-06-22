@@ -15,10 +15,12 @@ __attribute__((visibility("hidden")))
     NSDictionary *_detectorConfigurationOptions;
 }
 
++ (_Bool)warmUpRequestPerformer:(id)arg1 error:(id *)arg2;
 + (id)compoundRequestsForOriginalRequests:(id)arg1;
 + (void)_addCompoundRequestsToArray:(id)arg1 forModel:(unsigned long long)arg2 withConfigurations:(id)arg3;
 - (void).cxx_destruct;
 - (_Bool)internalPerformRevision:(unsigned long long)arg1 inContext:(id)arg2 error:(id *)arg3;
+- (id)_configuredDetectorForRequestRevision:(unsigned long long)arg1 appliedConfigurationOptions:(id *)arg2 error:(id *)arg3;
 - (id)initWithDetectorType:(id)arg1 configuration:(id)arg2;
 
 @end

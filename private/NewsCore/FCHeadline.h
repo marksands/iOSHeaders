@@ -24,6 +24,7 @@
     _Bool _boundToContext;
     _Bool _hiddenFromFeeds;
     _Bool _pressRelease;
+    _Bool _hiddenFromAutoFavorites;
     _Bool _paid;
     _Bool _showSubscriptionRequiredText;
     _Bool _canBePurchased;
@@ -117,6 +118,7 @@
 @property(readonly, nonatomic) FCCoverArt *coverArt; // @synthesize coverArt=_coverArt;
 @property(nonatomic, getter=isPaid) _Bool paid; // @synthesize paid=_paid;
 @property(readonly, nonatomic) long long minimumNewsVersion;
+@property(readonly, nonatomic, getter=isHiddenFromAutoFavorites) _Bool hiddenFromAutoFavorites;
 @property(readonly, nonatomic, getter=isPressRelease) _Bool pressRelease; // @synthesize pressRelease=_pressRelease;
 @property(readonly, nonatomic, getter=isHiddenFromFeeds) _Bool hiddenFromFeeds; // @synthesize hiddenFromFeeds=_hiddenFromFeeds;
 @property(readonly, nonatomic, getter=isBoundToContext) _Bool boundToContext; // @synthesize boundToContext=_boundToContext;
@@ -162,7 +164,7 @@
 @property(readonly, copy, nonatomic) NSArray *topics; // @synthesize topics=_topics;
 @property(copy, nonatomic) NSString *shortExcerpt; // @synthesize shortExcerpt=_shortExcerpt;
 @property(readonly, copy, nonatomic) NSString *primaryAudience; // @synthesize primaryAudience=_primaryAudience;
-@property(readonly, copy, nonatomic) NSString *clusterID;
+@property(copy, nonatomic) NSString *clusterID; // @synthesize clusterID=_clusterID;
 @property(readonly, copy, nonatomic) NSString *referencedArticleID; // @synthesize referencedArticleID=_referencedArticleID;
 @property(copy, nonatomic) NSString *articleID; // @synthesize articleID=_articleID;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;

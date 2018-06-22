@@ -6,22 +6,27 @@
 
 #import "UICollectionViewCell.h"
 
-@class NSString, VUILabel, VUISeparatorView;
+@class NSNumber, NSString, UIButton, VUISeparatorView;
 
 __attribute__((visibility("hidden")))
 @interface VUILibraryEpisodeFooterCell : UICollectionViewCell
 {
     NSString *_title;
+    NSNumber *_storeID;
+    id <VUILibraryEpisodeFooterCellDelegate> _delegate;
     VUISeparatorView *_topSeparatorView;
     VUISeparatorView *_bottomSeparatorView;
-    VUILabel *_titleLabel;
+    UIButton *_titleButton;
 }
 
-@property(retain, nonatomic) VUILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(retain, nonatomic) UIButton *titleButton; // @synthesize titleButton=_titleButton;
 @property(retain, nonatomic) VUISeparatorView *bottomSeparatorView; // @synthesize bottomSeparatorView=_bottomSeparatorView;
 @property(retain, nonatomic) VUISeparatorView *topSeparatorView; // @synthesize topSeparatorView=_topSeparatorView;
+@property(nonatomic) __weak id <VUILibraryEpisodeFooterCellDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) NSNumber *storeID; // @synthesize storeID=_storeID;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+- (void)_titleButtonPressed:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

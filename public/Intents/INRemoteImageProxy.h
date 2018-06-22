@@ -15,6 +15,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)proxyImageSynchronously:(id)arg1 usingService:(id)arg2 error:(id *)arg3;
 + (void)requestProxyByStoringImage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic, setter=_setProxyIdentifier:) NSString *_proxyIdentifier; // @synthesize _proxyIdentifier;
 @property(copy, nonatomic, setter=_setStorageServiceIdentifier:) NSString *_storageServiceIdentifier; // @synthesize _storageServiceIdentifier;
@@ -23,6 +24,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)_dictionaryRepresentation;
 - (void)_retrieveImageDataWithReply:(CDUnknownBlockType)arg1;
+- (id)retrieveProxiedImageSynchronouslyUsingService:(id)arg1 error:(id *)arg2;
 - (_Bool)isEqual:(id)arg1;
 - (id)_copyWithSubclass:(Class)arg1;
 @property(readonly, nonatomic) _Bool isValid;

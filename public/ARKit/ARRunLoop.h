@@ -25,6 +25,7 @@
 - (void)_startThread;
 - (void)start;
 - (id)initWithName:(id)arg1;
+- (id)init;
 
 @end
 

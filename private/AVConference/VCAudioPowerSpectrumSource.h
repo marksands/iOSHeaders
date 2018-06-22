@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 {
     NSMutableArray *_powerSpectrumSinks;
     long long _streamToken;
+    id _powerSpectrumSourceDelegate;
 }
 
 @property(readonly, nonatomic) long long streamToken; // @synthesize streamToken=_streamToken;
@@ -22,7 +23,7 @@ __attribute__((visibility("hidden")))
 - (void)registerAudioPowerSpectrumSink:(id)arg1;
 - (void)pushAudioSamples:(struct opaqueVCAudioBufferList *)arg1;
 - (void)dealloc;
-- (id)initWithStreamToken:(long long)arg1;
+- (id)initWithStreamToken:(long long)arg1 delegate:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

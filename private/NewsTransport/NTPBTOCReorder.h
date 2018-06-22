@@ -10,7 +10,7 @@
 
 @class NSData, NSString;
 
-@interface NTPBTOCReorder : PBCodable <NSCopying>
+@interface NTPBTocReorder : PBCodable <NSCopying>
 {
     NSString *_feedId;
     int _feedType;

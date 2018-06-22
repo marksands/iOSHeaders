@@ -17,6 +17,7 @@
     struct NSDirectionalEdgeInsets _textInsets;
 }
 
++ (double)textVerticalPadding;
 @property(retain, nonatomic) NSArray *activeConstraints; // @synthesize activeConstraints=_activeConstraints;
 @property(retain, nonatomic) UILabel *userInfoLabel; // @synthesize userInfoLabel=_userInfoLabel;
 @property(retain, nonatomic) _UIBackdropView *userInfoBackdropView; // @synthesize userInfoBackdropView=_userInfoBackdropView;
@@ -28,8 +29,7 @@
 @property(retain, nonatomic) NSString *text;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_configure;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithCoder:(id)arg1;
+- (void)didMoveToWindow;
 
 @end
 

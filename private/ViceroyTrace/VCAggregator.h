@@ -25,10 +25,13 @@ __attribute__((visibility("hidden")))
 
 - (_Bool)didUpdateStringFrom:(id *)arg1 toString:(id)arg2;
 - (_Bool)changeDuplication:(_Bool)arg1;
+- (int)shortTermMLAverageForSegment:(id)arg1;
+- (int)longTermMLAverageForSegment:(id)arg1;
 - (int)learntBitrateForSegment:(id)arg1 defaultValue:(int)arg2;
 - (void)updateTargetBitrateForSegment:(id)arg1 newValue:(int)arg2;
 - (int)adaptiveLearningState;
-- (id)aggregatedCallReport;
+- (id)aggregatedSessionReport;
+- (id)aggregatedCallReports;
 - (void)processEventWithCategory:(unsigned short)arg1 type:(unsigned short)arg2 payload:(id)arg3;
 - (void)saveCallSegmentHistory;
 - (id)aggregatedSegmentQRReport;

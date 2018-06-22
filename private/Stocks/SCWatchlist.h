@@ -32,11 +32,12 @@
 - (void)_enqueueStartupSequence;
 - (id)_sortedStocks:(id)arg1 withSymbolOrder:(id)arg2;
 - (void)database:(id)arg1 didChangeZone:(id)arg2 from:(id)arg3 to:(id)arg4;
+- (void)reorderStock:(id)arg1 toIndex:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)removeStock:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (void)replaceSymbol:(id)arg1 withSymbol:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)reorderStock:(id)arg1 toIndex:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)reorderSymbol:(id)arg1 afterSymbol:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)removeSymbol:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)addStock:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchStocksWithCompletion:(CDUnknownBlockType)arg1;

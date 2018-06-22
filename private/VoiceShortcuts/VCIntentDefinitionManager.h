@@ -8,7 +8,7 @@
 
 #import "VCSyncDataHandling.h"
 
-@class NSObject<OS_dispatch_queue>, NSURL, VCIntentDefinitionSyncStateModel;
+@class NSObject<OS_dispatch_queue>, NSTimer, NSURL, VCIntentDefinitionSyncStateModel;
 
 @interface VCIntentDefinitionManager : NSObject <VCSyncDataHandling>
 {
@@ -16,6 +16,7 @@
     NSURL *_intentsDirectory;
     id <VCVoiceShortcutSyncService> _syncService;
     NSObject<OS_dispatch_queue> *_callbackQueue;
+    NSTimer *_syncHoldoffTimer;
 }
 
 + (id)appInfoForBundleID:(id)arg1;

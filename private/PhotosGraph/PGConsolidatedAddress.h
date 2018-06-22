@@ -15,26 +15,31 @@
     PGGraphAddressNode *_addressNode;
     NSArray *_addressEdgesSortedByTime;
     NSDate *_startDate;
-    NSDate *_endDate;
+    double _duration;
+    NSDate *_expandedStartDate;
+    NSDate *_expandedEndDate;
     NSString *_timeLocationIdentifier;
     struct CLLocationCoordinate2D _centerCoordinates;
 }
 
 @property(readonly, nonatomic) NSString *timeLocationIdentifier; // @synthesize timeLocationIdentifier=_timeLocationIdentifier;
-@property(readonly, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
+@property(readonly, nonatomic) double duration; // @synthesize duration=_duration;
 @property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(readonly, nonatomic) struct CLLocationCoordinate2D centerCoordinates; // @synthesize centerCoordinates=_centerCoordinates;
 @property(readonly, nonatomic) NSArray *addressEdgesSortedByTime; // @synthesize addressEdgesSortedByTime=_addressEdgesSortedByTime;
 @property(readonly, nonatomic) PGGraphAddressNode *addressNode; // @synthesize addressNode=_addressNode;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) double duration;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) NSDate *expandedEndDate; // @synthesize expandedEndDate=_expandedEndDate;
+@property(readonly, nonatomic) NSDate *expandedStartDate; // @synthesize expandedStartDate=_expandedStartDate;
+@property(readonly, nonatomic) NSDate *endDate;
 @property(readonly, nonatomic) struct CLLocationCoordinate2D coordinates;
 - (id)initWithAddressNode:(id)arg1 addressEdgesSortedByTime:(id)arg2 centerCoordinates:(struct CLLocationCoordinate2D)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

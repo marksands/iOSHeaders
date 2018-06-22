@@ -22,6 +22,7 @@
 - (void)refreshMatchMode;
 - (id)acquireSimulatedLockoutAssertionWithLockoutState:(unsigned long long)arg1 forReason:(id)arg2;
 - (id)acquireMatchingAssertionWithMode:(unsigned long long)arg1 reason:(id)arg2;
+- (id)acquireFaceDetectionWantedAssertionForReason:(id)arg1;
 - (id)acquireFingerDetectionWantedAssertionForReason:(id)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;

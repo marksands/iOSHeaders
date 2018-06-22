@@ -12,6 +12,7 @@
     id <PXNavigationListItem> _listItem;
 }
 
++ (id)cellFont;
 @property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
 @property(retain, nonatomic) id <PXNavigationListItem> listItem; // @synthesize listItem=_listItem;
 - (void).cxx_destruct;

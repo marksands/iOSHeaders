@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDateInterval, NSMutableSet;
+@class NSArray, NSDateInterval, NSMutableDictionary;
 
 @interface PHSuggestionMessageContext : NSObject
 {
@@ -17,10 +17,10 @@
     NSArray *_resolvedParticipants;
     NSArray *_messageTokens;
     unsigned long long _numberOfParticipants;
-    NSMutableSet *_suggestionMatchingResults;
+    NSMutableDictionary *_suggestionMatchingResultsBySuggestionIdentifier;
 }
 
-@property(readonly, nonatomic) NSMutableSet *suggestionMatchingResults; // @synthesize suggestionMatchingResults=_suggestionMatchingResults;
+@property(readonly, nonatomic) NSMutableDictionary *suggestionMatchingResultsBySuggestionIdentifier; // @synthesize suggestionMatchingResultsBySuggestionIdentifier=_suggestionMatchingResultsBySuggestionIdentifier;
 @property(readonly, nonatomic) unsigned long long numberOfParticipants; // @synthesize numberOfParticipants=_numberOfParticipants;
 @property(readonly, nonatomic) NSDateInterval *dateInterval; // @synthesize dateInterval=_dateInterval;
 @property(readonly, nonatomic) NSArray *messages; // @synthesize messages=_messages;
@@ -29,17 +29,18 @@
 - (void).cxx_destruct;
 - (id)_mostRecentSuggestionFromSuggestions:(id)arg1;
 - (id)confidentMatchSuggestionUsingStrategy:(unsigned long long)arg1;
-- (void)matchWithSuggestion:(id)arg1;
+- (id)matchingResultWithSuggestion:(id)arg1;
+- (void)matchWithSuggestions:(id)arg1;
 - (id)_suggestionsMatchingType:(long long)arg1;
 - (id)detailedDescription;
 - (id)description;
 @property(readonly, nonatomic) NSArray *messageTokens; // @synthesize messageTokens=_messageTokens;
-- (void)setMessages:(id)arg1;
 @property(readonly, nonatomic) NSArray *resolvedParticipants; // @synthesize resolvedParticipants=_resolvedParticipants;
 - (void)setPhParticipants:(id)arg1;
 - (void)setCnParticipants:(id)arg1;
 - (id)initWithMessages:(id)arg1 participantsFromPersons:(id)arg2;
 - (id)initWithMessages:(id)arg1 participantsFromContacts:(id)arg2;
+- (id)initWithMessages:(id)arg1;
 
 @end
 

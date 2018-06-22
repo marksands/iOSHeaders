@@ -15,6 +15,7 @@
 
 + (id)dateNodeForDayNode:(id)arg1 monthNode:(id)arg2 yearNode:(id)arg3;
 - (void).cxx_destruct;
+- (id)associatedNodesForRemoval;
 @property(readonly, nonatomic) PGGraphSeasonNode *seasonNode; // @synthesize seasonNode=_seasonNode;
 - (void)enumerateMomentNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateHolidayNodesUsingBlock:(CDUnknownBlockType)arg1;

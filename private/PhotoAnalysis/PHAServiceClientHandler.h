@@ -46,8 +46,12 @@
 - (void)shutdown;
 - (void)unloadGraphWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)loadGraphWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)graphBecameReady:(id)arg1 forPHAGraphManager:(id)arg2;
+- (void)graphUpdateMadeProgress:(double)arg1;
+- (void)graphUpdateDidStop;
+- (void)graphUpdateIsConsistent;
+- (_Bool)wantsGraphUpdateNotifications;
 - (_Bool)wantsLiveGraphUpdates;
+- (void)graphBecameReady:(id)arg1 forPHAGraphManager:(id)arg2;
 - (void)handleOperation:(id)arg1;
 - (_Bool)isPhotos;
 - (_Bool)isplphotosctl;

@@ -15,12 +15,14 @@
     _Bool _hasStartedRecording;
     NSMutableDictionary *_accessTokensByName;
     NSMutableArray *_undoableCompositionItemStack;
+    NSMutableArray *_finalizeCompletionBlocks;
     _Bool _hasLoggedUsageStatisticRecordingEvent;
     unsigned long long _usageHistoryMask;
     RCComposition *_composition;
     RCCaptureSession *_activeCaptureSession;
 }
 
++ (id)compositionControllerForSavedRecording:(id)arg1;
 + (id)compositionControllerForComposedAVURL:(id)arg1;
 @property(readonly, nonatomic) RCCaptureSession *activeCaptureSession; // @synthesize activeCaptureSession=_activeCaptureSession;
 @property(retain, nonatomic) RCComposition *composition; // @synthesize composition=_composition;
@@ -44,6 +46,7 @@
 - (void)performCompositionUndoWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)sanitizeWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)finalizingComposedAssetWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_finalizeComposedAssetWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)endTrimAccessSession;
 - (void)beginAccessSessionToTrimAsCopy:(_Bool)arg1 assetReadyBlock:(CDUnknownBlockType)arg2;
 - (void)beginAccessSessionToExportWithAssetReadyBlock:(CDUnknownBlockType)arg1;
@@ -57,6 +60,7 @@
 @property(readonly, nonatomic) NSString *savedRecordingUUID;
 - (id)init;
 - (id)initWithComposition:(id)arg1;
+- (_Bool)compositionIsShareable;
 - (id)activityViewController:(id)arg1 thumbnailImageForActivityType:(id)arg2 suggestedSize:(struct CGSize)arg3;
 - (id)activityViewController:(id)arg1 subjectForActivityType:(id)arg2;
 - (id)activityViewControllerPlaceholderItem:(id)arg1;

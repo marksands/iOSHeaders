@@ -21,16 +21,15 @@
 + (double)preferredHeightForConfiguration:(id)arg1 scoreIsVisible:(_Bool)arg2;
 @property(retain, nonatomic) ASFriend *friend; // @synthesize friend=_friend;
 - (void).cxx_destruct;
-- (void)_updateNameFontSizeForOpponentScoreViewWidth:(double)arg1 myScoreViewWidth:(double)arg2;
-- (void)_updateScoreFontSizeForOpponentScoreViewWidth:(double)arg1 myScoreViewWidth:(double)arg2;
-- (id)_attributedScoreStringWithText:(id)arg1 font:(id)arg2 color:(id)arg3;
 - (id)_badgeForParticipant:(long long)arg1 friend:(id)arg2 scoreIsVisible:(_Bool)arg3;
-- (id)_scoreStringForParticipant:(long long)arg1;
 - (id)_scoreFontForParticipant:(long long)arg1;
+- (void)_updateWinCountFont;
+- (void)_updateNameFontForOpponentWidth:(double)arg1 myWidth:(double)arg2;
+- (void)_updateScoreFontForOpponentWidth:(double)arg1 myWidth:(double)arg2;
 - (void)layoutForWidth:(double)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (double)participantScoreViewWidthForParticipant:(long long)arg1 totalWidth:(double)arg2;
+- (double)participantScoreViewWidthForParticipant:(long long)arg1 maximumWidth:(double)arg2;
 - (id)initWithConfiguration:(id)arg1;
 
 @end

@@ -20,6 +20,7 @@
 - (id)appGrabberTitleColor;
 - (id)appGrabberBackgroundColor;
 - (id)browserAppStripSeperatorBackgroundColor;
+- (id)browserSwitcherBorderColor;
 - (id)browserSwitcherGutterDividerColor;
 - (id)browserSwitcherGutterColor;
 - (id)browserLabelColor;

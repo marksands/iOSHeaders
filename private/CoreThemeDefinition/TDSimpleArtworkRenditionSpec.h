@@ -11,10 +11,12 @@
 @interface TDSimpleArtworkRenditionSpec : TDRenditionSpec
 {
     struct CGRect _alignmentRect;
+    _Bool _isBackstop;
     TDImageColorHistogram *_histogram;
 }
 
 + (void)initialize;
+@property(nonatomic) _Bool isBackstop; // @synthesize isBackstop=_isBackstop;
 @property(retain, nonatomic) TDImageColorHistogram *histogram; // @synthesize histogram=_histogram;
 - (void)drawPackableRenditionInContext:(struct CGContext *)arg1 withDocument:(id)arg2;
 - (_Bool)updatePackingPropertiesWithDocument:(id)arg1;

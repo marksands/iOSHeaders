@@ -10,21 +10,22 @@
 
 @interface SCWatchlistDefaults : NSObject
 {
-    NSArray *_defaultStocks;
     NSArray *_defaultSymbols;
 }
 
-+ (id)_defaultStocksByCountryCode;
++ (id)_legacyDefaultSymbolsByCountryCode;
 + (id)_iOS7DefaultsForCurrentCountry;
 + (id)_iOS10DefaultsForCurrentCountry;
++ (id)_defaultSymbolsByCountryCode;
 + (id)defaultsHistoryForCurrentCountry;
 + (id)emptyDefaults;
-+ (id)defaultsWithDefaultStocks:(id)arg1;
++ (id)defaultsWithDefaultSymbols:(id)arg1;
++ (id)defaultsFromCarrierBundle;
 + (id)defaultsForCurrentCountry;
 @property(readonly, copy, nonatomic) NSArray *defaultSymbols; // @synthesize defaultSymbols=_defaultSymbols;
-@property(readonly, copy, nonatomic) NSArray *defaultStocks; // @synthesize defaultStocks=_defaultStocks;
 - (void).cxx_destruct;
-- (id)initWithDefaultStocks:(id)arg1;
+- (id)defaultsByAppendingDefaults:(id)arg1;
+- (id)initWithDefaultSymbols:(id)arg1;
 
 @end
 

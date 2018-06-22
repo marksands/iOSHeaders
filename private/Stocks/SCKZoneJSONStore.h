@@ -27,7 +27,7 @@
 @property(readonly, copy, nonatomic) NSArray *pendingCommands; // @synthesize pendingCommands=_pendingCommands;
 @property(readonly, copy, nonatomic) NSArray *serverRecords; // @synthesize serverRecords=_serverRecords;
 - (void).cxx_destruct;
-- (void)clearPendingCommands;
+- (void)clearPendingCommandsUpToCount:(unsigned long long)arg1;
 - (void)addPendingCommands:(id)arg1;
 - (void)applyServerRecordsDiff:(id)arg1;
 - (id)initWithSchema:(id)arg1 serverRecords:(id)arg2 lastSyncDate:(id)arg3 lastDirtyDate:(id)arg4 serverChangeToken:(id)arg5 pendingCommands:(id)arg6;

@@ -7,6 +7,7 @@
 #import "NSObject.h"
 
 @protocol CPSSafeAreaDelegate <NSObject>
+- (void)updateInterestingInsets:(struct UIEdgeInsets)arg1;
 - (void)updateSafeAreaInsets:(struct UIEdgeInsets)arg1;
 @end
 

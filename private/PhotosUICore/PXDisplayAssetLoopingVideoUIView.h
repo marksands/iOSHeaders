@@ -8,24 +8,30 @@
 
 #import "PXActivityCoordinatorItem.h"
 
-@class AVPlayerItem, NSString, PXVideoPlayerView;
+@class AVPlayerItem, ISWrappedAVAudioSession, ISWrappedAVPlayer, NSNumber, NSString, PXVideoPlayerView;
 
 @interface PXDisplayAssetLoopingVideoUIView : PXDisplayAssetUIView <PXActivityCoordinatorItem>
 {
     PXVideoPlayerView *_videoView;
     long long _requestID;
     _Bool _canLoadVideo;
-    unsigned long long _activityCoordinatorQueuePosition;
+    ISWrappedAVPlayer *_videoPlayer;
     AVPlayerItem *_videoPlayerItem;
+    NSNumber *_queuePosition;
+    ISWrappedAVAudioSession *_audioSession;
 }
 
+@property(retain, nonatomic) ISWrappedAVAudioSession *audioSession; // @synthesize audioSession=_audioSession;
+@property(retain, nonatomic) NSNumber *queuePosition; // @synthesize queuePosition=_queuePosition;
 @property(nonatomic) _Bool canLoadVideo; // @synthesize canLoadVideo=_canLoadVideo;
 @property(retain, nonatomic) AVPlayerItem *videoPlayerItem; // @synthesize videoPlayerItem=_videoPlayerItem;
-@property(nonatomic) unsigned long long activityCoordinatorQueuePosition; // @synthesize activityCoordinatorQueuePosition=_activityCoordinatorQueuePosition;
+@property(retain, nonatomic) ISWrappedAVPlayer *videoPlayer; // @synthesize videoPlayer=_videoPlayer;
 - (void).cxx_destruct;
+- (void)_updateVideoPlayerPlayerItem;
 - (void)_handlePlayerItemResult:(id)arg1 info:(id)arg2 requestID:(long long)arg3;
 - (void)_loadVideo;
 - (void)_unloadVideo;
+@property(nonatomic) unsigned long long activityCoordinatorQueuePosition;
 - (void)contentsRectDidChange;
 - (_Bool)isDisplayingFullQualityContent;
 - (void)placeholderImageFiltersDidChange;

@@ -29,7 +29,6 @@
 - (void).cxx_destruct;
 - (void)_updateAccountWithProvidedInformation:(id)arg1;
 - (_Bool)_shouldPerformInProcessAuthKitUpdateForAccount:(id)arg1;
-- (void)_logStackTrace;
 - (id)_createVerifyCredentialOptionsWithCredentialSource:(unsigned long long)arg1;
 - (id)_accountStoreForAuthentication;
 - (id)_updatedAccountForAuthenticationWithError:(id *)arg1;

@@ -8,7 +8,7 @@
 
 #import "PXMutableMessagesExtensionViewModel.h"
 
-@class NSDate, NSString, NSURL, UIViewController;
+@class NSArray, NSDate, NSString, NSURL, UIViewController;
 
 @interface PXMessagesExtensionViewModel : PXObservable <PXMutableMessagesExtensionViewModel>
 {
@@ -19,10 +19,12 @@
     NSString *_selectedMessageText;
     NSDate *_selectedMessageDate;
     UIViewController *_presentedViewController;
+    NSArray *_recipients;
 }
 
 + (id)sharedRootViewModel;
 @property(readonly, nonatomic, getter=isDrawerActive) _Bool drawerActive; // @synthesize drawerActive=_drawerActive;
+@property(readonly, copy, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
 @property(readonly, nonatomic) UIViewController *presentedViewController; // @synthesize presentedViewController=_presentedViewController;
 @property(readonly, nonatomic) NSDate *selectedMessageDate; // @synthesize selectedMessageDate=_selectedMessageDate;
 @property(readonly, copy, nonatomic) NSString *selectedMessageText; // @synthesize selectedMessageText=_selectedMessageText;
@@ -30,6 +32,7 @@
 @property(readonly, nonatomic) NSURL *selectedURL; // @synthesize selectedURL=_selectedURL;
 @property(readonly, nonatomic) id <PXCMMSuggestion> selectedSuggestion; // @synthesize selectedSuggestion=_selectedSuggestion;
 - (void).cxx_destruct;
+- (void)setRecipients:(id)arg1;
 - (void)clearSelection;
 - (void)setSelectedMessageDate:(id)arg1;
 - (void)setSelectedMessageText:(id)arg1;

@@ -8,7 +8,6 @@
 
 @class NSLayoutConstraint, UIImageView;
 
-__attribute__((visibility("hidden")))
 @interface STCandyBarViewItem : NSObject
 {
     UIImageView *_sectionView;

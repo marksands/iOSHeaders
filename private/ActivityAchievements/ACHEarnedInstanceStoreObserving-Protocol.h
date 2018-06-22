@@ -11,5 +11,8 @@
 @protocol ACHEarnedInstanceStoreObserving <NSObject>
 - (void)earnedInstanceStore:(ACHEarnedInstanceStore *)arg1 didRemoveEarnedInstances:(NSArray *)arg2;
 - (void)earnedInstanceStore:(ACHEarnedInstanceStore *)arg1 didAddNewEarnedInstances:(NSArray *)arg2;
+
+@optional
+- (void)earnedInstanceStoreDidFinishInitialFetch:(ACHEarnedInstanceStore *)arg1;
 @end
 

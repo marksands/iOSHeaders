@@ -27,7 +27,6 @@
 - (void)showContentPrivacyViewController:(id)arg1;
 - (id)contentPrivacyDetailText;
 - (void)alwaysAllowListController:(id)arg1 didFinishEditingAlwaysAllowList:(id)arg2;
-- (id)bundleIDsForType:(unsigned long long)arg1 excludingBundleIDs:(id)arg2;
 - (void)showAlwaysAllowedViewController:(id)arg1;
 - (id)alwaysAllowedDetailText;
 - (void)showAppLimitsViewController:(id)arg1;

@@ -17,7 +17,6 @@
     _Bool _usualLocation;
     _Bool _confirmed;
     _Bool _locationFinalized;
-    id <GEOMapItem> _geoMapItem;
     NSDate *_date;
     RTLocation *_location;
     NSString *_vehicleIdentifier;
@@ -47,7 +46,7 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) id <GEOMapItem> geoMapItem; // @synthesize geoMapItem=_geoMapItem;
+@property(readonly, nonatomic) id <GEOMapItem> geoMapItem;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;

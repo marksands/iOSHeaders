@@ -16,9 +16,11 @@
     NSString *_placeType;
     NSString *_placeSubType;
     NSArray *_placeDescriptors;
+    long long _personalPlaceType;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) long long personalPlaceType; // @synthesize personalPlaceType=_personalPlaceType;
 @property(readonly, copy, nonatomic) NSArray *placeDescriptors; // @synthesize placeDescriptors=_placeDescriptors;
 @property(readonly, copy, nonatomic) NSString *placeSubType; // @synthesize placeSubType=_placeSubType;
 @property(readonly, copy, nonatomic) NSString *placeType; // @synthesize placeType=_placeType;
@@ -31,7 +33,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)initWithPlaceType:(id)arg1 placeSubType:(id)arg2 placeDescriptors:(id)arg3;
+- (id)initWithPlaceType:(id)arg1 placeSubType:(id)arg2 placeDescriptors:(id)arg3 personalPlaceType:(long long)arg4;
 
 @end
 

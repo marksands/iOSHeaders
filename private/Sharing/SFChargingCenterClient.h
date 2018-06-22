@@ -23,7 +23,7 @@
     NSMutableDictionary *_errorNotifications;
 }
 
-+ (void)playShortEngagePowerWithSound:(_Bool)arg1 haptic:(_Bool)arg2;
++ (void)playShortEngagementWithSound:(_Bool)arg1 haptic:(_Bool)arg2;
 + (void)notificationFeedbackConfigurationWithSound:(_Bool)arg1 andHaptic:(_Bool)arg2 forFeedbackType:(long long)arg3 completion:(CDUnknownBlockType)arg4;
 @property(retain, nonatomic) NSMutableDictionary *errorNotifications; // @synthesize errorNotifications=_errorNotifications;
 @property(retain, nonatomic) SFChargingUICoordinator *uiCoordinator; // @synthesize uiCoordinator=_uiCoordinator;

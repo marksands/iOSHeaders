@@ -17,6 +17,7 @@
     _Bool _ppt_scrollComposeRecipientsView;
     PXAssetsDataSourceManager *_dataSourceManager;
     PXUIMediaProvider *_mediaProvider;
+    PXCMMPeopleSuggestionsDataSourceManager *_peopleSuggestionsPreviewDataSourceManager;
     PXCMMPeopleSuggestionsDataSourceManager *_peopleSuggestionsDataSourceManager;
     PXCMMPeopleSuggestionsMediaProvider *_peopleSuggestionsMediaProvider;
     PXCMMSendBackSuggestionSource *_sendBackSuggestionSource;
@@ -28,12 +29,6 @@
 }
 
 + (id)new;
-+ (id)_filterAssets:(id)arg1 byLocations:(id)arg2 maxDistanceMeters:(double)arg3;
-+ (id)_assetsInDateRanges:(id)arg1;
-+ (id)_sendBackFetchResultUsingTimeLocationMatching:(id)arg1;
-+ (id)_sendBackFetchResultUsingOverlappingTimeFromStartDate:(id)arg1 endDate:(id)arg2;
-+ (id)sendBackContextTimeLocationMatching:(id)arg1 sourceType:(unsigned long long)arg2;
-+ (id)sendBackContextOverlappingTimeFromStartDate:(id)arg1 endDate:(id)arg2 sourceType:(unsigned long long)arg3;
 @property(readonly, nonatomic) _Bool ppt_scrollComposeRecipientsView; // @synthesize ppt_scrollComposeRecipientsView=_ppt_scrollComposeRecipientsView;
 @property(readonly, nonatomic) _Bool ppt_presentComposeRecipientView; // @synthesize ppt_presentComposeRecipientView=_ppt_presentComposeRecipientView;
 @property(nonatomic) double ppt_delay; // @synthesize ppt_delay=_ppt_delay;
@@ -45,6 +40,7 @@
 @property(readonly, nonatomic) PXCMMSendBackSuggestionSource *sendBackSuggestionSource; // @synthesize sendBackSuggestionSource=_sendBackSuggestionSource;
 @property(readonly, nonatomic) PXCMMPeopleSuggestionsMediaProvider *peopleSuggestionsMediaProvider; // @synthesize peopleSuggestionsMediaProvider=_peopleSuggestionsMediaProvider;
 @property(readonly, nonatomic) PXCMMPeopleSuggestionsDataSourceManager *peopleSuggestionsDataSourceManager; // @synthesize peopleSuggestionsDataSourceManager=_peopleSuggestionsDataSourceManager;
+@property(readonly, nonatomic) PXCMMPeopleSuggestionsDataSourceManager *peopleSuggestionsPreviewDataSourceManager; // @synthesize peopleSuggestionsPreviewDataSourceManager=_peopleSuggestionsPreviewDataSourceManager;
 @property(readonly, nonatomic) PXUIMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
 @property(readonly, nonatomic) PXAssetsDataSourceManager *dataSourceManager; // @synthesize dataSourceManager=_dataSourceManager;
 - (void).cxx_destruct;
@@ -52,10 +48,6 @@
 - (id)assetsProgressListenerWithPresentationStyle:(long long)arg1;
 - (id)initWithContext:(id)arg1;
 - (id)init;
-- (id)_sendBackFetchResultUsingPhotosGraph;
-- (id)sendBackContextPhotosGraphBasedWithSourceType:(unsigned long long)arg1;
-- (id)sendBackContext;
-- (id)_allMetadataAssets;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

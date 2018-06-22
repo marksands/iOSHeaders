@@ -8,7 +8,6 @@
 
 @optional
 @property(readonly, nonatomic) const struct __CFString *forwardingInterposableRunLoopMode;
-@property(readonly, nonatomic) _Bool forwardingInterposableRunLoopTracksMainThread;
 @property(readonly, nonatomic) double forwardingInterposableRunLoopTimeOut;
 @end
 

@@ -14,13 +14,15 @@
 {
     id <SVURLAssetFactory> _URLAssetFactory;
     id <SVVideoURLProviderFactory> _URLProviderFactory;
+    id <SVURLAssetOptionsProviding> _optionsProvider;
 }
 
+@property(readonly, nonatomic) id <SVURLAssetOptionsProviding> optionsProvider; // @synthesize optionsProvider=_optionsProvider;
 @property(readonly, nonatomic) id <SVVideoURLProviderFactory> URLProviderFactory; // @synthesize URLProviderFactory=_URLProviderFactory;
 @property(readonly, nonatomic) id <SVURLAssetFactory> URLAssetFactory; // @synthesize URLAssetFactory=_URLAssetFactory;
 - (void).cxx_destruct;
 - (id)createURLAssetLoaderForVideo:(id)arg1;
-- (id)initWithURLAssetFactory:(id)arg1 URLProviderFactory:(id)arg2;
+- (id)initWithURLAssetFactory:(id)arg1 URLProviderFactory:(id)arg2 optionsProvider:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

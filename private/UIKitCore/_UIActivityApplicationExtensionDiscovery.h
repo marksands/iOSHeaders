@@ -6,15 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, _UIMatchingExtensionsResult;
+@class NSArray, NSObject<OS_dispatch_queue>, _UIMatchingExtensionsResult;
 
 __attribute__((visibility("hidden")))
 @interface _UIActivityApplicationExtensionDiscovery : NSObject
 {
-    _Bool _performsInitialMatching;
     NSArray *_extensionPointIdentifiers;
-    id _extensionMatchingContext;
-    NSObject<OS_dispatch_group> *_primedExtensionsGroup;
     NSObject<OS_dispatch_queue> *_primedExtensionsQueue;
     _UIMatchingExtensionsResult *_primedExtensionsResult;
 }
@@ -23,13 +20,9 @@ __attribute__((visibility("hidden")))
 + (id)extensionBasedActivityForExtension:(id)arg1;
 @property(retain) _UIMatchingExtensionsResult *primedExtensionsResult; // @synthesize primedExtensionsResult=_primedExtensionsResult;
 @property(retain) NSObject<OS_dispatch_queue> *primedExtensionsQueue; // @synthesize primedExtensionsQueue=_primedExtensionsQueue;
-@property(retain) NSObject<OS_dispatch_group> *primedExtensionsGroup; // @synthesize primedExtensionsGroup=_primedExtensionsGroup;
-@property _Bool performsInitialMatching; // @synthesize performsInitialMatching=_performsInitialMatching;
-@property(retain) id extensionMatchingContext; // @synthesize extensionMatchingContext=_extensionMatchingContext;
 @property(copy, nonatomic) NSArray *extensionPointIdentifiers; // @synthesize extensionPointIdentifiers=_extensionPointIdentifiers;
 - (void).cxx_destruct;
-- (void)cancelActivityMatchingUpdates;
-- (id)activitiesForMatchingContext:(id)arg1 error:(id *)arg2 updateBlock:(CDUnknownBlockType)arg3;
+- (id)activitiesForMatchingContext:(id)arg1 error:(id *)arg2;
 - (void)primeWithDiscoveryContext:(id)arg1;
 - (void)dealloc;
 - (id)init;

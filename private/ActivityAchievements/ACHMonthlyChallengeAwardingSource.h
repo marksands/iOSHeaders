@@ -41,7 +41,7 @@
 - (void)samplesAdded:(id)arg1 anchor:(id)arg2;
 - (void)currentActivitySummaryHelper:(id)arg1 didUpdateYesterdayActivitySummary:(id)arg2 changedFields:(unsigned long long)arg3;
 - (void)currentActivitySummaryHelper:(id)arg1 didUpdateTodayActivitySummary:(id)arg2 changedFields:(unsigned long long)arg3;
-- (id)earnedInstancesForHistoricalInterval:(id)arg1;
+- (id)earnedInstancesForHistoricalInterval:(id)arg1 databaseContext:(id)arg2;
 @property(readonly, nonatomic) NSString *uniqueName;
 - (void)daemonReady:(id)arg1;
 - (id)initWithProfile:(id)arg1 awardingEngine:(id)arg2 templateStore:(id)arg3 monthlyDataSource:(id)arg4 creatorDevice:(unsigned char)arg5 progressProvider:(id)arg6;

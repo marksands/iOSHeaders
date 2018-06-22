@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSString, PDFExtensionTopView, PDFPageLabelView, PDFPanGestureRecognizer, PDFPasswordViewController, UILongPressGestureRecognizer, UIScrollView, UISwipeGestureRecognizer, UITapGestureRecognizer;
+@class NSExtension, NSMutableArray, NSString, PDFExtensionTopView, PDFPageLabelView, PDFPanGestureRecognizer, PDFPasswordViewController, UILongPressGestureRecognizer, UIScrollView, UISwipeGestureRecognizer, UITapGestureRecognizer;
 
 __attribute__((visibility("hidden")))
 @interface PDFHostViewControllerPrivate : NSObject
 {
+    NSExtension *extension;
     id <PDFExtensionProtocol> extensionProxy;
     UIScrollView *hostScrollView;
     id <PDFHostViewControllerDelegate> hostViewControllerDelegate;
@@ -33,6 +34,10 @@ __attribute__((visibility("hidden")))
     UILongPressGestureRecognizer *longPressGestureRecognizer;
     PDFPanGestureRecognizer *panGestureRecognizer;
     UISwipeGestureRecognizer *swipeGestureRecognizer;
+    struct CGRect boundsInDocument;
+    struct CGRect boundsInView;
+    struct CGRect scrollViewFrame;
+    double zoomScale;
 }
 
 - (void).cxx_destruct;

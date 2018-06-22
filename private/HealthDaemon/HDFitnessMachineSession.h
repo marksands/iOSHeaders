@@ -33,6 +33,7 @@
     NSArray *_oobDataArray;
 }
 
++ (id)serviceFromRecoveryConfiguration:(id)arg1;
 @property(retain, nonatomic) NSArray *oobDataArray; // @synthesize oobDataArray=_oobDataArray;
 @property(readonly, nonatomic) _Bool waitingOnActivityType; // @synthesize waitingOnActivityType=_waitingOnActivityType;
 @property(readonly, nonatomic) _Bool waitingOnBluetoothConnection; // @synthesize waitingOnBluetoothConnection=_waitingOnBluetoothConnection;

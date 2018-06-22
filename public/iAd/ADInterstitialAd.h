@@ -29,6 +29,7 @@
     long long _options;
     NSString *_adResponseId;
     long long _lastErrorCode;
+    ADLayoutOptions *_layoutOptions;
     ADInterstitialAdPresentationViewController *_presentationViewController;
     ADAdSpace *_adSpace;
     ADInterstitialView *_interstitialView;
@@ -43,6 +44,7 @@
 @property(nonatomic) int creativeType; // @synthesize creativeType=_creativeType;
 @property(nonatomic) _Bool dimmingEnabled; // @synthesize dimmingEnabled=_dimmingEnabled;
 @property(nonatomic, getter=isActionInProgress) _Bool actionInProgress; // @synthesize actionInProgress=_actionInProgress;
+@property(retain, nonatomic) ADLayoutOptions *layoutOptions; // @synthesize layoutOptions=_layoutOptions;
 @property(nonatomic) _Bool reUsed; // @synthesize reUsed=_reUsed;
 @property(nonatomic) _Bool displayed; // @synthesize displayed=_displayed;
 @property(nonatomic) long long lastErrorCode; // @synthesize lastErrorCode=_lastErrorCode;
@@ -91,7 +93,6 @@
 - (void)_presentFromViewController:(id)arg1;
 - (void)presentFromViewController:(id)arg1;
 - (_Bool)presentInView:(id)arg1;
-- (_Bool)_shouldClampPresentedFrame;
 - (void)cancelAction;
 @property(readonly, nonatomic) UIViewController *presentingViewController;
 @property(nonatomic) __weak UIViewController *internalPresentingViewController;
@@ -105,7 +106,6 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(retain, nonatomic) ADLayoutOptions *layoutOptions;
 @property(readonly) Class superclass;
 
 @end

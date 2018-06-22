@@ -29,7 +29,8 @@
 - (void)handleGesture:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)_gestureInit;
-- (void)endPDFViewRotation:(struct CGSize)arg1 horizontalScaleFactor:(double)arg2 documentViewCenter:(struct CGPoint)arg3;
+- (void)endPDFViewRotation:(struct CGSize)arg1 horizontalScaleFactor:(double)arg2 documentViewCenter:(struct CGPoint)arg3 documentViewSize:(struct CGSize)arg4;
+- (struct UIEdgeInsets)_pdfViewInsets;
 - (void)didLongPressPageIndex:(long long)arg1 atLocation:(struct CGPoint)arg2 withAnnotationRect:(struct CGRect)arg3;
 - (void)didLongPressURL:(id)arg1 atLocation:(struct CGPoint)arg2 withAnnotationRect:(struct CGRect)arg3;
 - (void)updateDocumentIsLocked:(_Bool)arg1;
@@ -71,9 +72,12 @@
 - (double)minimumZoomScale;
 - (long long)pageCount;
 - (long long)currentPageIndex;
+- (void)_resetPDFHostViewControllerViews;
 - (void)setDocumentData:(id)arg1 withScrollView:(id)arg2;
 - (void)setDelegate:(id)arg1;
+- (void)_setupExtensionInterruptionBlock;
 - (void)setup;
+- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -43,6 +43,8 @@
 - (void)generateGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
 - (void)loadDataForGadgets;
+- (void)loadDataForPriority;
+@property(readonly, nonatomic) unsigned long long loadingPriority;
 - (id)init;
 
 // Remaining properties

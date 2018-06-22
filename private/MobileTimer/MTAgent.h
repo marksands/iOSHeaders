@@ -9,7 +9,7 @@
 #import "MTAgentDiagnosticDelegate.h"
 #import "MTSystemStateDelegate.h"
 
-@class MTAgentDiagnosticListener, MTAgentNotificationManager, MTAlarmBedtimeDNDMonitor, MTAlarmIntentDonor, MTAlarmScheduler, MTAlarmServer, MTAlarmSnapshot, MTAlarmStorage, MTBedtimeSnapshot, MTLanguageChangeListener, MTPairedDeviceListener, MTSleepMetrics, MTSleepMonitor, MTSyncCommandListener, MTSystemStateListener, MTTimeListener, MTTimerIntentDonor, MTTimerScheduler, MTTimerServer, MTTimerSnapshot, MTTimerStorage, NSDate, NSString;
+@class MTAgentDiagnosticListener, MTAgentNotificationManager, MTAlarmIntentDonor, MTAlarmScheduler, MTAlarmServer, MTAlarmSnapshot, MTAlarmStorage, MTBedtimeDNDMonitor, MTBedtimeSnapshot, MTLanguageChangeListener, MTPairedDeviceListener, MTSleepMetrics, MTSleepMonitor, MTSyncCommandListener, MTSystemStateListener, MTTimeListener, MTTimerIntentDonor, MTTimerScheduler, MTTimerServer, MTTimerSnapshot, MTTimerStorage, NSDate, NSString;
 
 @interface MTAgent : NSObject <MTAgentDiagnosticDelegate, MTSystemStateDelegate>
 {
@@ -30,7 +30,7 @@
     MTAlarmIntentDonor *_alarmIntentDonor;
     MTSleepMonitor *_sleepMonitor;
     MTSleepMetrics *_sleepMetrics;
-    MTAlarmBedtimeDNDMonitor *_alarmBedtimeDNDMonitor;
+    MTBedtimeDNDMonitor *_bedtimeDNDMonitor;
     MTTimerServer *_timerServer;
     MTTimerScheduler *_timerScheduler;
     MTTimerSnapshot *_timerSnapshot;
@@ -48,7 +48,7 @@
 @property(retain, nonatomic) MTTimerSnapshot *timerSnapshot; // @synthesize timerSnapshot=_timerSnapshot;
 @property(retain, nonatomic) MTTimerScheduler *timerScheduler; // @synthesize timerScheduler=_timerScheduler;
 @property(retain, nonatomic) MTTimerServer *timerServer; // @synthesize timerServer=_timerServer;
-@property(retain, nonatomic) MTAlarmBedtimeDNDMonitor *alarmBedtimeDNDMonitor; // @synthesize alarmBedtimeDNDMonitor=_alarmBedtimeDNDMonitor;
+@property(retain, nonatomic) MTBedtimeDNDMonitor *bedtimeDNDMonitor; // @synthesize bedtimeDNDMonitor=_bedtimeDNDMonitor;
 @property(retain, nonatomic) MTSleepMetrics *sleepMetrics; // @synthesize sleepMetrics=_sleepMetrics;
 @property(retain, nonatomic) MTSleepMonitor *sleepMonitor; // @synthesize sleepMonitor=_sleepMonitor;
 @property(retain, nonatomic) MTAlarmIntentDonor *alarmIntentDonor; // @synthesize alarmIntentDonor=_alarmIntentDonor;

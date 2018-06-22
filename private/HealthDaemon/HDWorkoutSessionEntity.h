@@ -22,6 +22,8 @@
 - (_Bool)finishWithTransaction:(id)arg1 error:(id *)arg2;
 - (id)workoutEventsInTransaction:(id)arg1 error:(id *)arg2;
 - (_Bool)insertWorkoutEvent:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
+- (_Bool)setRequestedTargetState:(long long)arg1 transaction:(id)arg2 error:(id *)arg3;
+- (id)requestedTargetStateWithTransaction:(id)arg1 error:(id *)arg2;
 - (_Bool)setState:(long long)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (id)stateWithTransaction:(id)arg1 error:(id *)arg2;
 - (_Bool)setAssociatedBuilder:(id)arg1 transaction:(id)arg2 error:(id *)arg3;

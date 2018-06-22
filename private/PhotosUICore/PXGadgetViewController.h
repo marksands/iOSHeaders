@@ -22,6 +22,7 @@
     _Bool _currentlyVisible;
     _Bool _loadingGadgets;
     _Bool _gadgetAnimating;
+    _Bool _batchUpdating;
     _Bool _isContentVisible;
     struct PXGadgetUpdateFlags _updateFlags;
     PXGadgetDataSourceManager *_dataSourceManager;
@@ -62,6 +63,7 @@
 @property(retain, nonatomic) PXGadgetLayoutSpec *layoutSpec; // @synthesize layoutSpec=_layoutSpec;
 @property(retain, nonatomic) PXGadgetSpec *currentGadgetSpec; // @synthesize currentGadgetSpec=_currentGadgetSpec;
 @property(retain, nonatomic) NSMutableArray *loadedGadgets; // @synthesize loadedGadgets=_loadedGadgets;
+@property(nonatomic, getter=isBatchUpdating) _Bool batchUpdating; // @synthesize batchUpdating=_batchUpdating;
 @property(nonatomic, getter=isGadgetAnimating) _Bool gadgetAnimating; // @synthesize gadgetAnimating=_gadgetAnimating;
 @property(nonatomic, getter=isLoadingGadgets) _Bool loadingGadgets; // @synthesize loadingGadgets=_loadingGadgets;
 @property(nonatomic, getter=isCurrentlyVisible) _Bool currentlyVisible; // @synthesize currentlyVisible=_currentlyVisible;
@@ -78,7 +80,6 @@
 - (_Bool)px_canPerformZoomTransitionWithDetailViewController:(id)arg1;
 - (void)gadgetControllerFinishedUpdatingDataSource;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
-- (void)_updateNavigationBarPrefersLargeTitles:(_Bool)arg1;
 - (void)_dataSourceManagerDidChange;
 - (void)_invalidatePendingNavigation;
 - (void)_navigateIfNeeded;
@@ -104,6 +105,7 @@
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
+@property(readonly, nonatomic) struct UIEdgeInsets insetsForSectionHeaders;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForHeaderInSection:(long long)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
@@ -118,12 +120,14 @@
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (void)visibleBoundsDidChange;
 @property(readonly, nonatomic) struct CGRect visibleBounds;
+- (void)_updateVisibleRectForGadget:(id)arg1 inCell:(id)arg2 collectionView:(id)arg3 visibleBounds:(struct CGRect)arg4;
 - (void)_updateGadgetVisibleRects;
 - (void)_scrollViewDidEndScrolling;
 - (void)extendedTraitCollectionDidChange:(unsigned long long)arg1;
 - (void)_notifyPresentedGadgetsOfVisibilityChange;
 - (void)_updateVisibleGadgetHeaders;
 - (void)_updateHeaderForGadget:(id)arg1 atIndexPath:(id)arg2;
+- (void)_notifyGadgetsThatGadgetControllerHasDisappeared;
 - (void)_notifyGadgetsThatGadgetControllerHasAppeared;
 - (void)_handleGadgetsSeen;
 - (void)_configureHeader:(id)arg1 withGadget:(id)arg2;
@@ -148,13 +152,14 @@
 - (void)reloadContent;
 @property(readonly, nonatomic) PXGadgetCollectionViewLayout *layout;
 - (long long)anchorPosition;
+- (void)_applicationDidEnterBackground:(id)arg1;
+- (void)_applicationWillEnterForeground:(id)arg1;
 - (_Bool)isRootGadgetViewController;
 - (void)didReceiveMemoryWarning;
 - (void)dealloc;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLayoutSubviews;
-- (void)viewWillLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

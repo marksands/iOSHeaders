@@ -11,6 +11,10 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (void)signupPasswordFromKeyboardIncrement;
++ (void)signupPasswordFromAutofillIncrement;
++ (void)loginPasswordFromKeyboardIncrement;
++ (void)loginPasswordFromAutofillIncrement;
 + (void)appAutofillCredentialFromSafariUI;
 + (void)appAutofillExtraKeyTapped;
 + (void)appAutofillFilled;

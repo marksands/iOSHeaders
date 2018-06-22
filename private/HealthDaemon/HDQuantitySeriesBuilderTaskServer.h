@@ -33,13 +33,13 @@
 - (_Bool)_queue_isStateInAllowedStates:(id)arg1 description:(id)arg2 error:(out id *)arg3;
 - (void)_queue_discardWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_queue_finishSeriesWithMetadata:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (_Bool)_queue_insertQuantity:(id)arg1 date:(id)arg2 series:(id)arg3 forceInsert:(_Bool)arg4 error:(out id *)arg5;
+- (_Bool)_queue_insertQuantitySeries:(id)arg1 series:(id)arg2 forceInsert:(_Bool)arg3 error:(out id *)arg4;
 - (void)_queue_newSeriesSaveCompleted;
-- (void)_queue_insertQuantity:(id)arg1 date:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_queue_insertQuantitySeries:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) long long state;
 - (void)remote_discardWithCompletion:(CDUnknownBlockType)arg1;
-- (void)remote_finishSeriesWithMetadata:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)remote_insertQuantity:(id)arg1 date:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)remote_finishSeriesWithMetadata:(id)arg1 finalSeries:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)remote_insertQuantitySeries:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithUUID:(id)arg1 configuration:(id)arg2 client:(id)arg3 profile:(id)arg4 delegate:(id)arg5;
 
 @end

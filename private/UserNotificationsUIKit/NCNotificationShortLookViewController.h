@@ -12,10 +12,11 @@
 #import "PLExpandedPlatterPresentationControllerDelegate.h"
 #import "PLPreviewInteractionManagerDelegate.h"
 #import "PLPreviewInteractionPresenting.h"
+#import "PLViewControllerAnimatorDelegate.h"
 
 @class NCBannerPresentationTransitionDelegate, NSDate, NSHashTable, NSString, PLPreviewInteractionManager, UIScrollView, UITapGestureRecognizer, UIView, UIViewController;
 
-@interface NCNotificationShortLookViewController : NCNotificationViewController <NCNotificationViewControllerObserving, PLPreviewInteractionManagerDelegate, NCBannerPresentationTransitioningDelegateObserver, PLExpandedPlatterPresentationControllerDelegate, NCLongLookDefaultPresentationControllerDelegate, PLPreviewInteractionPresenting>
+@interface NCNotificationShortLookViewController : NCNotificationViewController <NCNotificationViewControllerObserving, PLViewControllerAnimatorDelegate, PLPreviewInteractionManagerDelegate, NCBannerPresentationTransitioningDelegateObserver, PLExpandedPlatterPresentationControllerDelegate, NCLongLookDefaultPresentationControllerDelegate, PLPreviewInteractionPresenting>
 {
     NCBannerPresentationTransitionDelegate *_bannerPresentationTransitionDelegate;
     NCNotificationViewController *_longLookNotificationViewController;
@@ -25,6 +26,7 @@
     NSDate *_tapBeginTime;
     UIView *_audioAccessoryView;
     NSHashTable *_audioAccessoryViewObservers;
+    id <UIViewControllerContextTransitioning> _scrollPresentationTransitionContext;
     _Bool _didScrollPresentLongLookViewController;
     PLPreviewInteractionManager *_previewInteractionManager;
     UIScrollView *_scrollView;
@@ -47,6 +49,7 @@
 - (void)notificationViewControllerWillDismiss:(id)arg1;
 - (void)notificationViewControllerDidPresent:(id)arg1;
 - (void)notificationViewControllerWillPresent:(id)arg1;
+- (void)viewControllerAnimator:(id)arg1 didEndPresentationAnimation:(_Bool)arg2 withTransitionContext:(id)arg3;
 @property(readonly, nonatomic) PLPreviewInteractionManager *previewInteractionManager; // @synthesize previewInteractionManager=_previewInteractionManager;
 @property(readonly, nonatomic) UIView *viewForPreview;
 - (void)previewInteractionManager:(id)arg1 declinedDismissingPresentedContentWithTrigger:(long long)arg2;
@@ -56,7 +59,7 @@
 - (void)previewInteractionManager:(id)arg1 shouldFinishInteractionWithCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)previewInteractionManagerDidEndUserInteraction:(id)arg1;
 - (void)previewInteractionManagerWillBeginUserInteraction:(id)arg1;
-- (_Bool)previewInteractionManagerShouldBeginInteraction:(id)arg1;
+- (_Bool)previewInteractionManager:(id)arg1 shouldBeginInteractionWithTouchAtLocation:(struct CGPoint)arg2;
 - (id)containerViewForPreviewInteractionManager:(id)arg1;
 - (id)transitioningDelegateForPreviewInteractionManager:(id)arg1;
 - (id)presentedViewControllerForPreviewInteractionManager:(id)arg1;
@@ -73,7 +76,6 @@
 - (void)_setAudioAccessoryView:(id)arg1;
 - (void)removeAudioAccesoryViewObserver:(id)arg1;
 - (void)addAudioAccessoryViewObserver:(id)arg1;
-- (_Bool)_shouldPerformNotificationCoalescing;
 - (void)_expandCoalescedNotificationBundle;
 - (_Bool)isCoalescedNotificationBundle;
 - (void)_updateWithProvidedAuxiliaryOptionsContent;
@@ -83,6 +85,7 @@
 - (void)_notificationViewControllerViewDidLoad;
 - (id)_effectiveGroupName;
 - (void)_loadLookView;
+- (void)_completeScrollPresentation;
 - (void)_updateScrollViewContentSize;
 - (_Bool)_shouldPadScrollViewContentSizeHeight;
 - (void)_configureScrollViewIfNecessary;

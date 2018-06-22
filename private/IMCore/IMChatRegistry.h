@@ -9,7 +9,7 @@
 #import "NSFastEnumeration.h"
 #import "TUConversationManagerDelegate.h"
 
-@class IMTimer, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUserActivity, TUConversationManager;
+@class IDSKVStore, IMTimer, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUserActivity, TUConversationManager;
 
 @interface IMChatRegistry : NSObject <TUConversationManagerDelegate, NSFastEnumeration>
 {
@@ -40,6 +40,7 @@
     NSMutableDictionary *_chatPersonIDToChatMap;
     NSMutableDictionary *_groupIDToChatMap;
     NSMutableDictionary *_groupParticipantToChatsMap;
+    IDSKVStore *_chatRenderMetaDataStore;
     _Bool _personaKitRetriveAPITimedOut;
     NSArray *_simulatedChats;
     IMChatRegistry *_batchProcessingRegistry;
@@ -68,6 +69,9 @@
 @property(nonatomic, setter=_setDefaultNumberOfMessagesToLoad:) unsigned long long _defaultNumberOfMessagesToLoad; // @synthesize _defaultNumberOfMessagesToLoad;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool isBatchProcessing;
+- (void)_setMetaDictionary:(id)arg1 forKey:(id)arg2;
+- (id)_transcriptRenderingMetaDictionaryForKey:(id)arg1;
+- (double)_maxDurationForScrutinyMode;
 - (_Bool)_firstLoad;
 - (void)systemApplicationDidResume;
 - (void)_clearMarkAsReadTimerIfNecessary;
@@ -80,6 +84,7 @@
 - (id)_chatsWithMessageGUID:(id)arg1;
 - (id)_chatsWithMessage:(id)arg1;
 - (id)_allGUIDsForChat:(id)arg1;
+- (void)_handleAddressBookChange:(id)arg1;
 - (void)handleIMChatParticipantsDidChange:(id)arg1;
 - (id)loadChatFromDaemonWithChatIdentifier:(id)arg1;
 - (id)_sortedParticipantIDHashForParticipants:(id)arg1;
@@ -110,6 +115,8 @@
 @property(readonly, nonatomic) unsigned long long numberOfExistingChats;
 - (void)_setChatHasCommunicatedOveriMessage:(id)arg1;
 - (_Bool)_hasChat:(id)arg1 forService:(id)arg2;
+- (void)markMessageAsNotCorrupt:(id)arg1;
+- (void)markMessageAsCorrupt:(id)arg1;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (long long)lastFailedMessageDate;
 - (unsigned long long)unreadCount;
@@ -213,6 +220,7 @@
 - (void)attachmentQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4;
 - (void)pagedHistoryQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 numberOfMessagesBefore:(unsigned long long)arg4 numberOfMessagesAfter:(unsigned long long)arg5 finishedWithResult:(id)arg6;
 - (void)historyQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4 limit:(unsigned long long)arg5;
+- (void)_checkIfItemIsCorrupt:(id)arg1;
 - (void)_checkLimitAndSetMessagesToKeepLoadedIfNeeded:(unsigned long long)arg1 chat:(id)arg2;
 - (void)historicalMessageGUIDsDeleted:(id)arg1 chatGUIDs:(id)arg2 queryID:(id)arg3;
 - (void)lastFailedMessageDateChanged:(long long)arg1;
@@ -228,15 +236,15 @@
 - (void)chat:(id)arg1 propertiesUpdated:(id)arg2;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 member:(id)arg5 statusChanged:(int)arg6;
 - (void)leftChat:(id)arg1;
-- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 chatPersonCentricID:(id)arg5 statusChanged:(int)arg6 handleInfo:(id)arg7;
+- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 groupID:(id)arg5 chatPersonCentricID:(id)arg6 statusChanged:(int)arg7 handleInfo:(id)arg8;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 error:(id)arg5;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 updateProperties:(id)arg5;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 invitationReceived:(id)arg5;
-- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 chatPersonCentricID:(id)arg5 messagesReceived:(id)arg6;
-- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 chatPersonCentricID:(id)arg5 messageReceived:(id)arg6;
+- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 groupID:(id)arg5 chatPersonCentricID:(id)arg6 messagesReceived:(id)arg7;
+- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 groupID:(id)arg5 chatPersonCentricID:(id)arg6 messageReceived:(id)arg7;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 notifySentMessage:(id)arg5 sendTime:(id)arg6;
-- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 chatPersonCentricID:(id)arg5 messageSent:(id)arg6;
-- (void)_processMessageForAccount:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 chatPersonCentricID:(id)arg5 message:(id)arg6;
+- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 groupID:(id)arg5 chatPersonCentricID:(id)arg6 messageSent:(id)arg7;
+- (void)_processMessageForAccount:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 groupID:(id)arg5 chatPersonCentricID:(id)arg6 message:(id)arg7;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messageUpdated:(id)arg5;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messagesUpdated:(id)arg5;
 - (void)_account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messagesUpdated:(id)arg5;

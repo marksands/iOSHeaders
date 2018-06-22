@@ -17,6 +17,7 @@
 + (void)dispatchReallyAfter:(long long)arg1 tolerance:(double)arg2 queue:(id)arg3 block:(CDUnknownBlockType)arg4;
 + (_Bool)deviceHasPearl;
 + (_Bool)deviceHasSEP;
++ (_Bool)shouldHideFaceIdForCaller;
 + (_Bool)isSiriPlugin:(id)arg1;
 + (id)callerDisplayNameWithPid:(int)arg1 bundleId:(id *)arg2;
 + (id)_pluginDisplayNameForUUID:(id)arg1 bundleId:(id *)arg2;

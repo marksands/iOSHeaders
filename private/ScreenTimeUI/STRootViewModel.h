@@ -13,10 +13,9 @@
     STUser *_me;
     NSArray *_children;
     NSArray *_devices;
-    NSArray *_selectedDevices;
 }
 
-+ (id)keyPathsForValuesAffectingCanClearUsageData;
++ (id)keyPathsForValuesAffectingCanViewAskForTimeRequests;
 + (id)keyPathsForValuesAffectingCanSetUpFamily;
 + (id)keyPathsForValuesAffectingCanSignIn;
 + (id)keyPathsForValuesAffectingCanRemoveAllowances;
@@ -24,13 +23,11 @@
 + (id)keyPathsForValuesAffectingCanStopScreenTime;
 + (id)keyPathsForValuesAffectingCanStartScreenTime;
 + (id)keyPathsForValuesAffectingScreenTimeEnabled;
-@property(copy, nonatomic) NSArray *selectedDevices; // @synthesize selectedDevices=_selectedDevices;
 @property(copy, nonatomic) NSArray *devices; // @synthesize devices=_devices;
 @property(copy, nonatomic) NSArray *children; // @synthesize children=_children;
 @property(copy, nonatomic) STUser *me; // @synthesize me=_me;
 - (void).cxx_destruct;
-@property(readonly, copy, nonatomic) NSArray *otherDevices;
-@property(readonly, nonatomic) _Bool canClearUsageData;
+@property(readonly, nonatomic) _Bool canViewAskForTimeRequests;
 @property(readonly, nonatomic) _Bool canSetUpFamily;
 @property(readonly, nonatomic) _Bool canSignIn;
 @property(readonly, nonatomic) _Bool canRemoveAllowances;

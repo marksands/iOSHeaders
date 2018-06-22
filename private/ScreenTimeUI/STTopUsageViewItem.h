@@ -8,7 +8,6 @@
 
 @class UILabel, UILayoutGuide;
 
-__attribute__((visibility("hidden")))
 @interface STTopUsageViewItem : NSObject
 {
     UILabel *_titleLabel;

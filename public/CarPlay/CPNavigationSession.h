@@ -24,7 +24,7 @@
 - (void)updateTravelEstimates:(id)arg1 forManeuver:(id)arg2;
 - (void)cancelTrip;
 - (void)finishTrip;
-- (void)pauseTripForReason:(unsigned long long)arg1;
+- (void)pauseTripForReason:(unsigned long long)arg1 description:(id)arg2;
 - (id)_currentTripId;
 - (id)initWithTrip:(id)arg1 provider:(id)arg2 mapTemplate:(id)arg3;
 

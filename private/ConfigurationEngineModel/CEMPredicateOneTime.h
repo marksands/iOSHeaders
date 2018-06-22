@@ -12,14 +12,18 @@
 
 @interface CEMPredicateOneTime : CEMPredicateBase <CEMRegisteredTypeProtocol>
 {
+    NSString *_payloadCalendarIdentifier;
     NSNumber *_payloadSeconds;
+    NSString *_payloadEndTime;
 }
 
-+ (id)buildWithSeconds:(id)arg1;
++ (id)buildWithCalendarIdentifier:(id)arg1 withSeconds:(id)arg2 withEndTime:(id)arg3;
 + (id)allowedPayloadKeys;
 + (id)registeredIdentifier;
 + (id)registeredClassName;
+@property(copy, nonatomic) NSString *payloadEndTime; // @synthesize payloadEndTime=_payloadEndTime;
 @property(copy, nonatomic) NSNumber *payloadSeconds; // @synthesize payloadSeconds=_payloadSeconds;
+@property(copy, nonatomic) NSString *payloadCalendarIdentifier; // @synthesize payloadCalendarIdentifier=_payloadCalendarIdentifier;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)serializePayloadWithAssetProviders:(id)arg1;

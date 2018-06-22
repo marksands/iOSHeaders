@@ -13,12 +13,14 @@
 @interface DNDStateService : NSObject <DNDRemoteServiceConnectionEventListener>
 {
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_calloutQueue;
     NSString *_clientIdentifier;
     NSHashTable *_stateUpdateListeners;
     _Bool _registeredForUpdates;
 }
 
 + (id)serviceForClientIdentifier:(id)arg1;
++ (void)initialize;
 @property(readonly, copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 - (void).cxx_destruct;
 - (void)_handleLostXPCConnection;
@@ -26,10 +28,12 @@
 - (void)remoteService:(id)arg1 didReceiveDoNotDisturbStateUpdate:(id)arg2;
 - (void)didReceiveConnectionInvalidatedEventForRemoteService:(id)arg1;
 - (void)didReceiveConnectionInterruptedEventForRemoteService:(id)arg1;
-- (_Bool)removeStateUpdateListener:(id)arg1 error:(id *)arg2;
-- (_Bool)addStateUpdateListener:(id)arg1 error:(id *)arg2;
+- (void)removeStateUpdateListener:(id)arg1;
+- (void)addStateUpdateListener:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)queryCurrentStateWithError:(id *)arg1;
 - (id)_initWithClientIdentifier:(id)arg1;
+- (_Bool)removeStateUpdateListener:(id)arg1 error:(id *)arg2;
+- (_Bool)addStateUpdateListener:(id)arg1 error:(id *)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

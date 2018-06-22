@@ -18,11 +18,14 @@
     NSMapTable *_delegateToQueue;
 }
 
++ (long long)memorySize;
++ (_Bool)allowsVideo;
++ (_Bool)supportsConversations;
 @property(readonly, nonatomic) NSMapTable *delegateToQueue; // @synthesize delegateToQueue=_delegateToQueue;
 @property(readonly, nonatomic) id <TUConversationManagerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
-- (void)serverDisconnectedForDataSource:(id)arg1;
+- (void)serverDisconnectedForDataSource:(id)arg1 oldConversationsByGroupUUID:(id)arg2;
 - (void)conversationsChangedForDataSource:(id)arg1 oldConversationsByGroupUUID:(id)arg2;
 - (void)buzzMember:(id)arg1 conversation:(id)arg2;
 - (void)addRemoteMembers:(id)arg1 toConversation:(id)arg2;

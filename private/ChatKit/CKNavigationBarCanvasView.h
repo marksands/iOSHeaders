@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class CKEntity, CKNavigationButtonView, UIImageView;
+@class CKNavigationButtonView, UIImageView;
 
 @interface CKNavigationBarCanvasView : UIView
 {
@@ -23,7 +23,6 @@
     double _preferredHeight;
     long long _statusIndicatorType;
     long long _joinButtonStyle;
-    CKEntity *_entity;
     CKNavigationButtonView *_buttonViewFaceTimeAudio;
     CKNavigationButtonView *_buttonViewFaceTimeVideo;
     CKNavigationButtonView *_buttonViewInfo;
@@ -43,7 +42,6 @@
 @property(retain, nonatomic) CKNavigationButtonView *buttonViewInfo; // @synthesize buttonViewInfo=_buttonViewInfo;
 @property(retain, nonatomic) CKNavigationButtonView *buttonViewFaceTimeVideo; // @synthesize buttonViewFaceTimeVideo=_buttonViewFaceTimeVideo;
 @property(retain, nonatomic) CKNavigationButtonView *buttonViewFaceTimeAudio; // @synthesize buttonViewFaceTimeAudio=_buttonViewFaceTimeAudio;
-@property(retain, nonatomic) CKEntity *entity; // @synthesize entity=_entity;
 @property(nonatomic) long long joinButtonStyle; // @synthesize joinButtonStyle=_joinButtonStyle;
 @property(nonatomic) long long statusIndicatorType; // @synthesize statusIndicatorType=_statusIndicatorType;
 @property(nonatomic) _Bool multiwayAudioButtonHidden; // @synthesize multiwayAudioButtonHidden=_multiwayAudioButtonHidden;
@@ -65,7 +63,6 @@
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (_Bool)_shouldUseTallHeight;
 - (void)clearAllItemViews;
-- (void)_handleTranscriptScroll:(id)arg1;
 - (void)_tearDownButtonContainer;
 - (void)_updateJoinButtonStyle;
 - (void)_setupButtonContainer;

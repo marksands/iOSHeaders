@@ -8,7 +8,7 @@
 
 #import "VCUICreateVoiceShortcutViewControllerDelegate.h"
 
-@class NSArray, NSString, VCUIActionDonationCell;
+@class NSArray, NSString, VCUIActionDonationCell, VCUIDonationMetadataCache;
 
 @interface VCUIAppGalleryViewController : UITableViewController <VCUICreateVoiceShortcutViewControllerDelegate>
 {
@@ -17,8 +17,15 @@
     NSString *_query;
     NSArray *_actionDonations;
     VCUIActionDonationCell *_prototypeCell;
+    double _donationCellHeight;
+    double _donationWithSubtitleCellHeight;
+    VCUIDonationMetadataCache *_metadataCache;
 }
 
++ (void)initialize;
+@property(retain, nonatomic) VCUIDonationMetadataCache *metadataCache; // @synthesize metadataCache=_metadataCache;
+@property(readonly, nonatomic) double donationWithSubtitleCellHeight; // @synthesize donationWithSubtitleCellHeight=_donationWithSubtitleCellHeight;
+@property(readonly, nonatomic) double donationCellHeight; // @synthesize donationCellHeight=_donationCellHeight;
 @property(retain, nonatomic) VCUIActionDonationCell *prototypeCell; // @synthesize prototypeCell=_prototypeCell;
 @property(copy, nonatomic) NSArray *actionDonations; // @synthesize actionDonations=_actionDonations;
 @property(readonly, copy, nonatomic) NSString *query; // @synthesize query=_query;
@@ -30,6 +37,8 @@
 - (void)createVoiceShortcutViewControllerDidEnterStateSiriUnavailable:(id)arg1;
 - (void)createVoiceShortcutViewController:(id)arg1 didCreateVoiceShortcut:(id)arg2;
 - (void)createVoiceShortcutViewControllerDidCancel:(id)arg1;
+- (void)setNeedsToComputeDonationCellHeights;
+- (double)cellHeightForDonation:(id)arg1;
 - (void)updateRecommendedShortcuts;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;

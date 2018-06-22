@@ -36,11 +36,10 @@
 @property(nonatomic) __weak id <CKFullScreenAppViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) UIViewController<CKBrowserViewControllerProtocol> *contentViewController; // @synthesize contentViewController=_contentViewController;
 - (void).cxx_destruct;
-- (_Bool)_currentPluginIsJellyfish;
-- (void)collapse;
-- (void)_dismiss:(id)arg1;
 - (_Bool)_shouldShowDimmingView;
 - (void)_updateDimmingViewAlpha;
+- (_Bool)shouldShowAsCard;
+- (_Bool)_currentPluginIsJellyfish;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (_Bool)canBecomeFirstResponder;
 - (id)inputAccessoryView;
@@ -51,7 +50,6 @@
 - (void)dealloc;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (struct CGRect)finalContentViewFrame;
-- (_Bool)shouldShowAsCard;
 - (double)topAreaHeight;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

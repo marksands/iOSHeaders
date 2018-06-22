@@ -33,10 +33,12 @@
     SUInstallPolicy *_installPolicy;
     _Bool _manifestSubmitted;
     NSString *_sessionID;
+    NSString *_lastDeletedSUAssetID;
 }
 
 + (id)currentState;
 + (id)statePath;
+@property(retain, nonatomic) NSString *lastDeletedSUAssetID; // @synthesize lastDeletedSUAssetID=_lastDeletedSUAssetID;
 @property(retain, nonatomic) NSString *sessionID; // @synthesize sessionID=_sessionID;
 @property(retain, nonatomic) NSDictionary *mandatoryUpdateDict; // @synthesize mandatoryUpdateDict=_mandatoryUpdateDict;
 @property(nonatomic) _Bool manifestSubmitted; // @synthesize manifestSubmitted=_manifestSubmitted;

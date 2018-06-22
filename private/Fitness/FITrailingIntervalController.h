@@ -28,7 +28,7 @@
 @property(readonly, nonatomic) double committedDuration;
 - (void)_addResumeEvent:(id)arg1;
 - (void)_addPauseEvent:(id)arg1;
-- (void)addEvent:(id)arg1 withError:(id *)arg2;
+- (_Bool)addEvent:(id)arg1 withError:(id *)arg2;
 - (void)_processUncommittedSamples;
 - (void)_updateSlicesWithSamples:(id)arg1;
 - (void)_determineAndProcessThresholdReached;

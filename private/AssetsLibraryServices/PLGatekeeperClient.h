@@ -23,7 +23,6 @@
 + (id)sharedInstance;
 @property(nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection;
 - (void)queryParticipantsWithEmails:(id)arg1 phoneNumbers:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (unsigned long long)estimateUploadSizeForMomentShare:(id)arg1;
 - (void)acceptMomentShare:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchMomentShareFromShareURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)publishMomentShare:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -76,7 +75,6 @@
 - (void)resetDupesAnalysis;
 - (void)rebuildCloudFeed;
 - (void)dumpPhotoAnalysisStatusWithCompletion:(CDUnknownBlockType)arg1;
-- (void)registerSceneTaxonomySHA:(id)arg1;
 - (void)applySearchIndexGraphUpdates:(id)arg1 supportingData:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)applySearchIndexUpdates:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)rebuildSearchIndexWithCompletion:(CDUnknownBlockType)arg1;

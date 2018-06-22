@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 - (id)_assetCollectionToAssetsMapForAssets:(id)arg1;
 - (id)createPhotosPickerViewControllerWithSelectedAssets:(id)arg1 anchorAtAsset:(id)arg2 inAssetCollection:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic, getter=_isRunningInPhotoPicker) _Bool _isRunningInPhotoPicker;
-- (id)createImportHistoryGridViewControllerWithCollectionList:(id)arg1;
+- (id)createImportHistoryGridViewControllerWithCollection:(id)arg1;
 - (id)createPanoramaViewController;
 - (id)createPhotosAlbumViewControllerForAlbum:(id)arg1 withFetchResult:(id)arg2;
 - (id)createSharedAlbumListViewControllerWithConfiguration:(id)arg1;

@@ -23,7 +23,7 @@
 @property(copy, nonatomic) NSNumber *bookmark;
 @property(copy, nonatomic) NSNumber *playCount;
 @property(copy, nonatomic) NSNumber *hasBeenPlayed;
-@property(copy, nonatomic) NSDate *rentalExpirationDate;
+@property(readonly, copy, nonatomic) NSDate *rentalExpirationDate;
 @property(readonly, copy, nonatomic) NSNumber *rentalPlaybackDuration;
 @property(readonly, copy, nonatomic) VUIMediaItemCredits *credits;
 @property(readonly, copy, nonatomic) NSString *studio;

@@ -11,26 +11,36 @@
 #import "CKBrowserSwitcherViewControllerDelegate.h"
 #import "CKBrowserTransitionCoordinatorDelegate.h"
 #import "CKBrowserViewControllerSendDelegate.h"
+#import "CKFullScreenAppViewControllerDelegate.h"
 
-@class CKBrowserSwitcherFooterView, CKBrowserSwitcherFooterViewDataSource, CKBrowserSwitcherViewController, IMBalloonPlugin, NSString;
+@class CKBrowserSwitcherFooterView, CKBrowserSwitcherFooterViewDataSource, CKBrowserSwitcherViewController, CKBrowserTransitionCoordinator, CKFullScreenAppViewController, IMBalloonPlugin, NSString;
 
-@interface IMADockViewController : UIViewController <CKBrowserSwitcherFooterViewDelegate, CKBrowserViewControllerSendDelegate, CKBrowserSwitcherViewControllerDelegate, CKBrowserDragControllerTranscriptDelegate, CKBrowserTransitionCoordinatorDelegate>
+@interface IMADockViewController : UIViewController <CKBrowserSwitcherFooterViewDelegate, CKBrowserViewControllerSendDelegate, CKBrowserSwitcherViewControllerDelegate, CKFullScreenAppViewControllerDelegate, CKBrowserDragControllerTranscriptDelegate, CKBrowserTransitionCoordinatorDelegate>
 {
     CKBrowserSwitcherFooterView *_appStrip;
     CKBrowserSwitcherFooterViewDataSource *_appStripDataSource;
     IMBalloonPlugin *_currentBalloonPlugin;
+    CKFullScreenAppViewController *_expandedAppViewController;
+    CKBrowserTransitionCoordinator *_alwaysExpandedCoordinator;
+    _Bool _alwaysPresentAppsExpanded;
+    _Bool _hidesCompactAppForStickerDrag;
     id <IMADockViewControllerDelegate> _delegate;
     CKBrowserSwitcherViewController *_switcherViewController;
 }
 
 @property(retain, nonatomic) CKBrowserSwitcherViewController *switcherViewController; // @synthesize switcherViewController=_switcherViewController;
+@property(nonatomic) _Bool hidesCompactAppForStickerDrag; // @synthesize hidesCompactAppForStickerDrag=_hidesCompactAppForStickerDrag;
+@property(nonatomic) _Bool alwaysPresentAppsExpanded; // @synthesize alwaysPresentAppsExpanded=_alwaysPresentAppsExpanded;
 @property(nonatomic) __weak id <IMADockViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)switcherViewControllerDidCollapse:(id)arg1;
 - (void)switcherViewControllerDidFinishSwitching:(id)arg1 toViewController:(id)arg2;
+- (struct CGRect)alwaysExpandedAppViewControllerFrame;
 - (id)transitionsPresentationViewController;
 - (_Bool)shouldAlwaysShowAppTitle;
+- (_Bool)browserTransitionCoordinatorShouldDismissOnDragSuccess:(id)arg1;
 - (double)browserTransitionCoordinatorCollapsedContentHeight:(id)arg1;
+- (struct CGRect)browserTransitionCoordinator:(id)arg1 preferredFrameForBrowser:(id)arg2;
 - (void)browserTransitionCoordinatorDidTransitionOrPresentToFullscreen:(id)arg1 withReason:(long long)arg2;
 - (int)dragManager:(id)arg1 dropAreaForDragTarget:(id)arg2;
 - (void)dragManagerDidEndDragging:(id)arg1;
@@ -49,7 +59,10 @@
 - (void)startEditingPayload:(id)arg1 dismiss:(_Bool)arg2;
 - (void)startEditingPayload:(id)arg1;
 - (void)commitPayload:(id)arg1;
+- (_Bool)isSwitcherOffscreen;
+- (_Bool)isAppCompact;
 - (void)positionSwitcherOffscreen:(_Bool)arg1;
+- (void)animateSwitcherOffscreen:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)addSwitcherForPlugin:(id)arg1;
 - (double)switcherHeight;
 - (id)appViewControllerPresenter;
@@ -58,7 +71,7 @@
 - (void)updateAppStripFrame;
 - (id)imageViewForSticker:(id)arg1;
 - (void)cleanupRunningApps;
-- (void)_hideBrowserAnimated:(_Bool)arg1 clearCurrentPlugin:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_hideCompactBrowserAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)hideBrowserAnimated:(_Bool)arg1;
 - (void)hideAppViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) UIViewController *currentAppViewController;

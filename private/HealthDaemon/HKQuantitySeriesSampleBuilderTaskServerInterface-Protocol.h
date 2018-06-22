@@ -6,11 +6,11 @@
 
 #import "HKUnitTestingTaskServerInterface.h"
 
-@class HKQuantity, NSDate, NSDictionary;
+@class HKCodableQuantitySeries, NSDictionary;
 
 @protocol HKQuantitySeriesSampleBuilderTaskServerInterface <HKUnitTestingTaskServerInterface>
 - (void)remote_discardWithCompletion:(void (^)(_Bool, NSError *))arg1;
-- (void)remote_finishSeriesWithMetadata:(NSDictionary *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
-- (void)remote_insertQuantity:(HKQuantity *)arg1 date:(NSDate *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
+- (void)remote_finishSeriesWithMetadata:(NSDictionary *)arg1 finalSeries:(HKCodableQuantitySeries *)arg2 completion:(void (^)(NSArray *, NSError *))arg3;
+- (void)remote_insertQuantitySeries:(HKCodableQuantitySeries *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 @end
 

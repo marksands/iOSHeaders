@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-@class VUIMPMediaItemDownloadController;
+@class VUIMPMediaItemDownloadController, VUIMPMediaItemDownloadControllerState;
 
 @protocol VUIMPMediaItemDownloadControllerObserver <NSObject>
 
 @optional
-- (void)mediaItemDownloadController:(VUIMPMediaItemDownloadController *)arg1 downloadDidFinishWithSuccess:(_Bool)arg2;
-- (void)mediaItemDownloadController:(VUIMPMediaItemDownloadController *)arg1 stateDidChange:(unsigned long long)arg2 downloadProgress:(double)arg3;
+- (void)mediaItemDownloadController:(VUIMPMediaItemDownloadController *)arg1 stateDidChange:(VUIMPMediaItemDownloadControllerState *)arg2;
 @end
 

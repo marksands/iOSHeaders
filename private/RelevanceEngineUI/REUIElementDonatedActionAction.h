@@ -8,20 +8,16 @@
 
 #import "REUISiriActionsPerformerDelegate.h"
 
-@class NSString, REUISiriActionsPerformer, UIImage;
+@class NSString, REUIDonatedElementProperties, REUISiriActionsPerformer, UIImage;
 
 @interface REUIElementDonatedActionAction : REElementAction <REUISiriActionsPerformerDelegate>
 {
-    NSString *_bundleIdentifier;
-    NSString *_appName;
-    UIImage *_appIcon;
     REUISiriActionsPerformer *_performer;
+    REUIDonatedElementProperties *_properties;
 }
 
+@property(retain, nonatomic) REUIDonatedElementProperties *properties; // @synthesize properties=_properties;
 @property(retain, nonatomic) REUISiriActionsPerformer *performer; // @synthesize performer=_performer;
-@property(readonly, nonatomic) UIImage *appIcon; // @synthesize appIcon=_appIcon;
-@property(readonly, nonatomic) NSString *appName; // @synthesize appName=_appName;
-@property(readonly, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)siriActionsPerformer:(id)arg1 wantsToPresentViewController:(id)arg2;
@@ -31,7 +27,10 @@
 - (void)_performWithContext:(id)arg1;
 - (id)_newPerformer;
 - (void)dealloc;
-- (id)initWithBundleIdentifier:(id)arg1 appName:(id)arg2 appIcon:(id)arg3;
+@property(readonly, nonatomic) UIImage *appIcon;
+@property(readonly, nonatomic) NSString *appName;
+@property(readonly, nonatomic) NSString *bundleIdentifier;
+- (id)initWithProperties:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

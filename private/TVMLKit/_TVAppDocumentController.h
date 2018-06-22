@@ -49,6 +49,7 @@
 @property(nonatomic) __weak id <_TVAppDocumentControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) IKAppDocument *appDocument; // @synthesize appDocument=_appDocument;
 - (void).cxx_destruct;
+- (_Bool)ppt_isLoading;
 - (void)pagePerformanceController:(id)arg1 didUpdateMetrics:(id)arg2;
 - (long long)adaptivePresentationStyleForPresentationController:(id)arg1 traitCollection:(id)arg2;
 - (void)popoverPresentationController:(id)arg1 willRepositionPopoverToRect:(inout struct CGRect *)arg2 inView:(inout id *)arg3;

@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "DNDSLifetimeMonitor.h"
+#import "DNDSSysdiagnoseDataProvider.h"
 
 @class NSArray, NSObject<OS_dispatch_queue>, NSString;
 
-@interface DNDSBaseLifetimeMonitor : NSObject <DNDSLifetimeMonitor>
+@interface DNDSBaseLifetimeMonitor : NSObject <DNDSSysdiagnoseDataProvider, DNDSLifetimeMonitor>
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSArray *_activeLifetimeAssertionUUIDs;
@@ -24,10 +25,13 @@
 @property(readonly, copy, nonatomic) NSArray *activeLifetimeAssertionUUIDs; // @synthesize activeLifetimeAssertionUUIDs=_activeLifetimeAssertionUUIDs;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
+- (id)sysdiagnoseDataForDate:(id)arg1;
+@property(readonly, copy, nonatomic) NSString *sysdiagnoseDataIdentifier; // @dynamic sysdiagnoseDataIdentifier;
 - (void)_queue_refreshMonitorForDate:(id)arg1;
 - (void)refreshMonitorFromQueueForDate:(id)arg1;
 - (void)refreshMonitorForDate:(id)arg1;
 - (id)updateForModeAssertionDetails:(id)arg1 date:(id)arg2;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

@@ -8,14 +8,13 @@
 
 #import "PXCMMSuggestion.h"
 
-@class NSDate, NSString;
+@class NSString;
 
 @interface _PXCMMSizingSuggestion : NSObject <PXCMMSuggestion>
 {
     NSString *_identifier;
-    NSString *_localizedTitle;
-    NSDate *_startDate;
-    NSDate *_endDate;
+    NSString *_title;
+    NSString *_subtitle;
     long long _count;
     id <PXDisplayAsset> _posterAsset;
     id <PXUIImageProvider> _posterMediaProvider;
@@ -26,9 +25,8 @@
 @property(readonly, nonatomic) id <PXUIImageProvider> posterMediaProvider; // @synthesize posterMediaProvider=_posterMediaProvider;
 @property(readonly, nonatomic) id <PXDisplayAsset> posterAsset; // @synthesize posterAsset=_posterAsset;
 @property(readonly, nonatomic) long long count; // @synthesize count=_count;
-@property(readonly, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
-@property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
-@property(readonly, nonatomic) NSString *localizedTitle; // @synthesize localizedTitle=_localizedTitle;
+@property(readonly, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
+@property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) long long aggregateMediaType;

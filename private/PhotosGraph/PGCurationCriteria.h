@@ -10,26 +10,30 @@
 
 @interface PGCurationCriteria : NSObject
 {
-    _Bool _requiresPeople;
     _Bool _filterUtilityAssets;
     double _minimumAssetsRatio;
+    PGCurationIndexSetTrait *_compulsoryScenesTrait;
     PGCurationIndexSetTrait *_scenesTrait;
     PGCurationPartOfDayTrait *_partOfDayTrait;
     PGGraph *_graph;
+    unsigned long long _faceFilter;
     PGCurationSetTrait *_peopleTrait;
+    unsigned long long _client;
 }
 
+@property(readonly, nonatomic) unsigned long long client; // @synthesize client=_client;
 @property(nonatomic) _Bool filterUtilityAssets; // @synthesize filterUtilityAssets=_filterUtilityAssets;
 @property(retain, nonatomic) PGCurationSetTrait *peopleTrait; // @synthesize peopleTrait=_peopleTrait;
-@property(nonatomic) _Bool requiresPeople; // @synthesize requiresPeople=_requiresPeople;
+@property(nonatomic) unsigned long long faceFilter; // @synthesize faceFilter=_faceFilter;
 @property(readonly, nonatomic) PGGraph *graph; // @synthesize graph=_graph;
 @property(retain, nonatomic) PGCurationPartOfDayTrait *partOfDayTrait; // @synthesize partOfDayTrait=_partOfDayTrait;
 @property(retain, nonatomic) PGCurationIndexSetTrait *scenesTrait; // @synthesize scenesTrait=_scenesTrait;
-@property(readonly, nonatomic) double minimumAssetsRatio; // @synthesize minimumAssetsRatio=_minimumAssetsRatio;
+@property(retain, nonatomic) PGCurationIndexSetTrait *compulsoryScenesTrait; // @synthesize compulsoryScenesTrait=_compulsoryScenesTrait;
+@property(nonatomic) double minimumAssetsRatio; // @synthesize minimumAssetsRatio=_minimumAssetsRatio;
 - (void).cxx_destruct;
 - (double)_scoreForSceneClassifications:(id)arg1 withScenesTrait:(id)arg2 traitFailed:(_Bool *)arg3;
 - (_Bool)isPassingForAsset:(id)arg1 score:(double *)arg2;
-- (id)initWithGraph:(id)arg1 minimumAssetsRatio:(double)arg2;
+- (id)initWithGraph:(id)arg1 minimumAssetsRatio:(double)arg2 client:(unsigned long long)arg3;
 
 @end
 

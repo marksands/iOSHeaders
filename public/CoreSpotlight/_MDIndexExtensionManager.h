@@ -19,9 +19,11 @@
     NSObject<OS_dispatch_queue> *_queue;
     NSCondition *_extensionsCondition;
     NSObject<OS_dispatch_source> *_memoryStatusSource;
+    NSObject<OS_dispatch_queue> *_extensionManagerQueue;
 }
 
 + (id)sharedManager;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *extensionManagerQueue; // @synthesize extensionManagerQueue=_extensionManagerQueue;
 @property _Bool isUnderMemoryPressure; // @synthesize isUnderMemoryPressure=_isUnderMemoryPressure;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *memoryStatusSource; // @synthesize memoryStatusSource=_memoryStatusSource;
 @property(retain, nonatomic) NSCondition *extensionsCondition; // @synthesize extensionsCondition=_extensionsCondition;

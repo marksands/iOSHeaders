@@ -24,6 +24,7 @@
 - (void)generateGadgets;
 - (void)loadDataForGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
+- (unsigned long long)loadingPriority;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

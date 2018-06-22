@@ -6,16 +6,19 @@
 
 #import "PLViewControllerAnimatorObserving.h"
 
-@class UIPanGestureRecognizer, UIView, UIViewController;
+@class UIPanGestureRecognizer, UIView, UIView<PLExpandedPlatter>, UIViewController;
 
 @protocol PLExpandedPlatterPresentationController <PLViewControllerAnimatorObserving>
-+ (struct CGRect)useableContainerViewBoundsInContainerViewWithBounds:(struct CGRect)arg1;
++ (struct CGRect)useableContainerViewBoundsForExpandedPlatter:(UIView<PLExpandedPlatter> *)arg1 inContainerViewWithBounds:(struct CGRect)arg2;
 @property(nonatomic) double additionalHomeAffordanceSpacing;
 @property(nonatomic) __weak UIPanGestureRecognizer *homeAffordancePanGesture;
 @property(nonatomic, getter=isHomeAffordanceVisible) _Bool homeAffordanceVisible;
 @property(nonatomic) __weak id <PLExpandedPlatterPresentationControllerDelegate> presentationControllerDelegate;
 - (void)completeDismissal;
 - (void)hintDismissalWithCommitProgress:(double)arg1 overallProgress:(double)arg2;
+- (struct CGRect)initialFrameOfPresentedViewInContainerView;
+- (struct CGRect)finalFrameOfPresentingViewInContainerView;
+- (struct CGRect)initialFrameOfPresentingViewInContainerView;
 - (id)initWithPresentedViewController:(UIViewController *)arg1 presentingViewController:(UIViewController *)arg2 sourceViewController:(UIViewController *)arg3 sourceView:(UIView *)arg4;
 @end
 

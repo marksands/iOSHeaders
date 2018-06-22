@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 
 + (id)shared;
 - (void).cxx_destruct;
+- (id)_sharedComponentFrameworkVersion;
 - (_Bool)_iOSFairPlayDeviceType:(unsigned int *)arg1 error:(id *)arg2;
 - (id)_iOSComponentProductVersion;
 - (id)_iOSComponentParentheticalWithFairPlayDeviceType:(id)arg1;
@@ -24,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (id)_iOSComponentDeviceModel;
 - (id)_iOSComponentClientInfoWithBundleID:(id)arg1;
 - (id)_iOSComponentBuildVersion;
+- (id)userAgentForBundleIdentifier:(id)arg1 additionalComponents:(id)arg2 addAccountMediaTypeComponent:(_Bool)arg3;
 - (id)userAgentForBundleIdentifier:(id)arg1 additionalComponents:(id)arg2;
 - (id)clientVersionForBundleIdentifier:(id)arg1;
 - (id)clientNameForBundleIdentifier:(id)arg1;

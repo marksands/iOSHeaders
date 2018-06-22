@@ -72,6 +72,13 @@ struct FLSpringParameters {
     double responseSmoothing;
 };
 
+struct UIEdgeInsets {
+    double top;
+    double left;
+    double bottom;
+    double right;
+};
+
 struct vector<ASVControlPoint, std::__1::allocator<ASVControlPoint>> {
     CDStruct_183601bc *__begin_;
     CDStruct_183601bc *__end_;

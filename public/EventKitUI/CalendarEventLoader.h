@@ -17,6 +17,7 @@
     NSMutableSet *_occurrencesAwaitingRefresh;
     NSMutableSet *_occurrencesAwaitingDeletion;
     NSSet *_selectedCalendars;
+    _Bool _selectedCalendarsWereSet;
     unsigned int _daysOfPadding;
     unsigned int _maxDaysToCache;
     unsigned long long _componentForExpandingRequests;

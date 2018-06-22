@@ -53,6 +53,7 @@ __attribute__((visibility("hidden")))
 - (id)autofillContextForInputDelegate:(id)arg1;
 - (long long)doTraits:(id)arg1 matchTextContentType:(id)arg2;
 - (id)init;
+- (void)_setAutofillGroup:(id)arg1;
 
 @end
 

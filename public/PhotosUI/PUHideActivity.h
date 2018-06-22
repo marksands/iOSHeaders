@@ -20,7 +20,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)canPerformWithActivityItems:(id)arg1;
 - (id)_activityImageName;
 - (id)_activityBundleImageConfiguration;
-- (id)activityImage;
 - (id)activityTitle;
 - (id)activityType;
 - (void)setItemSourceController:(id)arg1;

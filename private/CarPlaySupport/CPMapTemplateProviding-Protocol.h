@@ -6,15 +6,17 @@
 
 #import "CPBaseTemplateProviding.h"
 
-@class CPNavigationAlert, CPTravelEstimates, CPTrip, NSArray, NSUUID, UIImage;
+@class CPNavigationAlert, CPTravelEstimates, CPTrip, CPTripPreviewTextConfiguration, NSArray, NSUUID, UIImage;
 
 @protocol CPMapTemplateProviding <CPBaseTemplateProviding>
+- (void)updateNavigationAlert:(CPNavigationAlert *)arg1;
 - (void)dismissNavigationAlertAnimated:(_Bool)arg1 completion:(void (^)(_Bool))arg2;
 - (void)showNavigationAlert:(CPNavigationAlert *)arg1 animated:(_Bool)arg2;
+- (void)hostPanInterfaceVisible:(void (^)(_Bool))arg1;
 - (void)hostSetPanInterfaceVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)hostStartNavigationSessionForTrip:(CPTrip *)arg1 reply:(void (^)(id <CPNavigationSessionProviding>))arg2;
 - (void)hostUpdateTravelEstimates:(CPTravelEstimates *)arg1 forTripIdentifier:(NSUUID *)arg2;
-- (void)setHostTripPreviews:(NSArray *)arg1;
+- (void)setHostTripPreviews:(NSArray *)arg1 textConfiguration:(CPTripPreviewTextConfiguration *)arg2;
 - (void)hostSetMapButtons:(NSArray *)arg1;
 - (void)setMapButton:(NSUUID *)arg1 focusedImage:(UIImage *)arg2;
 - (void)setMapButton:(NSUUID *)arg1 image:(UIImage *)arg2;

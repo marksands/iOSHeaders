@@ -28,7 +28,7 @@
 @property(readonly, nonatomic) _Bool isAnimatedImage;
 @property(readonly, nonatomic) _Bool canPlayPhotoIris;
 @property(readonly, nonatomic) _Bool canPlayLoopingVideo;
-- (struct CGRect)bestCropRectForAspectRatio:(double)arg1 useSaliency:(_Bool)arg2;
+- (struct CGRect)bestCropRectForAspectRatio:(double)arg1 verticalContentMode:(long long)arg2 cropMode:(long long)arg3;
 - (struct CGRect)bestCropRectForAspectRatio:(double)arg1;
 @property(readonly, nonatomic) double aspectRatio;
 @property(readonly, nonatomic) double duration;

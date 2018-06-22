@@ -34,11 +34,17 @@
 + (void)determineImportabilityOfRecordingWithAudioURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)creationDateFromStandardRecordingURL:(id)arg1;
 + (id)standardURLForRecordingWithCreationDate:(id)arg1;
++ (id)standardPathForRecording:(id)arg1;
 + (id)_dateFormatterComponentFormatting;
 + (id)savedRecordingsDirectory;
++ (id)newPrivateModel;
++ (id)newSyncModel;
 + (id)cloudMirroringModel;
++ (_Bool)migrateDatabaseIfNecessary;
++ (id)sharedModelForQueue_shouldNotBeCalledDuringSyncing:(id)arg1;
 + (id)sharedModelForQueue:(id)arg1;
 + (id)startStoreServers;
++ (id)currentLocationBasedName;
 @property(readonly, nonatomic) RCSavedRecordingsController *evictedRecordingsController; // @synthesize evictedRecordingsController=_evictedRecordingsController;
 @property(readonly, nonatomic) RCSavedRecordingsController *recordingsController; // @synthesize recordingsController=_recordingsController;
 @property(nonatomic) _Bool disableSaveNotifications; // @synthesize disableSaveNotifications=_disableSaveNotifications;
@@ -107,7 +113,7 @@
 - (id)cloudStore;
 - (void)controllerDidChangeContent:(id)arg1;
 - (void)dealloc;
-- (id)_initWithMirroring:(_Bool)arg1 concurrencyType:(unsigned long long)arg2;
+- (id)_initWithContainer:(id)arg1 concurrencyType:(unsigned long long)arg2;
 - (id)init;
 
 // Remaining properties

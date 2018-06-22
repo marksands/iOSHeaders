@@ -13,7 +13,7 @@
 - (void)_setupViewWithCornerRadius:(double)arg1;
 - (id)initWithTitle:(id)arg1 buttonStyle:(long long)arg2 textStyle:(long long)arg3 controlStyle:(long long)arg4 cornerRadius:(double)arg5;
 - (id)initWithTitle:(id)arg1 controlStyle:(long long)arg2 cornerRadius:(double)arg3;
-- (id)initWithImage:(id)arg1 buttonStyle:(long long)arg2 textStyle:(long long)arg3 controlStyle:(long long)arg4;
+- (id)initWithImage:(id)arg1 buttonStyle:(long long)arg2 textStyle:(long long)arg3 controlStyle:(long long)arg4 largeImageInsets:(struct UIEdgeInsets)arg5;
 - (id)initWithTitle:(id)arg1 buttonStyle:(long long)arg2 textStyle:(long long)arg3 controlStyle:(long long)arg4;
 
 @end

@@ -13,6 +13,7 @@
 + (id)sharedStyleProvider;
 - (_Bool)_isMarzipan;
 - (_Bool)_isIpadOrMarzipan;
+- (_Bool)usesScreenCaptureAsCardBackground;
 - (_Bool)usesNavBarLargeTitleAndSearchBarHosting;
 - (_Bool)showsGradientsInBottomOfCardView;
 - (_Bool)hostsTransportAndDoneButtonInBottomSection;
@@ -27,6 +28,7 @@
 - (_Bool)isAccessibilityLargerTextSizeEnabled;
 - (id)accessibilityLargeSizes;
 - (_Bool)_isIpad;
+- (id)editingControlButtonLabelFont;
 - (id)recordingControlTextFont;
 - (id)descriptionViewScalableMonospacedSecondaryFont;
 - (id)descriptionViewScalableSecondaryFont;
@@ -60,6 +62,7 @@
 - (id)recordingControlInnerColor;
 - (id)recordingControlFontColorResume;
 - (id)recordingControlFontColor;
+- (id)emptyLibraryMessageTextColor;
 - (id)recordingCardTopBorderColor2;
 - (id)recordingCardTopBorderColor1;
 - (id)recordingCardBottomGradientColor;
@@ -99,9 +102,9 @@
 - (double)playbackViewVerticalSpacingAboveOverviewWaveform;
 - (double)playbackViewWaveformOverviewSidePadding;
 - (double)playbackViewTopPadding;
-- (double)playbackViewTimeLabelWidth;
 - (double)playbackViewTimeSectionHeight;
 - (double)playbackViewTimeLabelFontSize;
+- (double)dimmingAlphaForCardBackground;
 - (double)recordingViewWaveformOverviewSidePadding;
 - (double)recordingViewWaveformOverviewSpaceBetweenMainWaveformAndOverview;
 - (double)borderLayerThickness;
@@ -121,6 +124,7 @@
 - (struct CGSize)centerClusterControlSize;
 - (double)centerClusterWidthLibrary;
 - (double)centerClusterWidthCard;
+- (double)emptyLibraryLabelXInset;
 - (double)primaryColumnWidth;
 - (double)descriptionViewSecondaryLabelAlpha;
 - (double)recordingControlAlphaWhenPressed;

@@ -8,6 +8,7 @@
 
 @protocol PXGadgetNavigating <NSObject>
 - (void)presentWelcomeCloudPhotosViewController;
+- (void)navigateToGadgetForCMMSuggestions;
 - (void)navigateToGadgetForCMMInvitations;
 @end
 

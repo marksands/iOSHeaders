@@ -15,6 +15,7 @@
 
 @interface NUVideoAdProvider : NSObject <NUAdContextProvider, ADBannerViewInternalDelegate, SVVideo, SVVideoAdProviding>
 {
+    _Bool _appeared;
     NSString *_identifier;
     NSArray *_contextProviders;
     id <NUAdContextProvider> _contextProviderForVideoBefore;
@@ -28,16 +29,15 @@
     SXVideoAdStateManager *_stateManager;
     id <NUAdProvider> _adProvider;
     id <SVVisibilityMonitoring> _videoPlayerVisibilityMonitor;
-    id <SVVisibilityMonitoring> _videoVisibilityMonitor;
     id <SXVASTAnalyticsEventInfoFactory> _analyticsEventInfoFactory;
     id <NUVideoPlaybackCounter> _playbackCounter;
     id <SVModalPresentationViewControllerProviding> _modalPresentationViewControllerProvider;
 }
 
+@property(nonatomic) _Bool appeared; // @synthesize appeared=_appeared;
 @property(readonly, nonatomic) id <SVModalPresentationViewControllerProviding> modalPresentationViewControllerProvider; // @synthesize modalPresentationViewControllerProvider=_modalPresentationViewControllerProvider;
 @property(readonly, nonatomic) id <NUVideoPlaybackCounter> playbackCounter; // @synthesize playbackCounter=_playbackCounter;
 @property(readonly, nonatomic) id <SXVASTAnalyticsEventInfoFactory> analyticsEventInfoFactory; // @synthesize analyticsEventInfoFactory=_analyticsEventInfoFactory;
-@property(readonly, nonatomic) __weak id <SVVisibilityMonitoring> videoVisibilityMonitor; // @synthesize videoVisibilityMonitor=_videoVisibilityMonitor;
 @property(readonly, nonatomic) __weak id <SVVisibilityMonitoring> videoPlayerVisibilityMonitor; // @synthesize videoPlayerVisibilityMonitor=_videoPlayerVisibilityMonitor;
 @property(readonly, nonatomic) id <NUAdProvider> adProvider; // @synthesize adProvider=_adProvider;
 @property(readonly, nonatomic) SXVideoAdStateManager *stateManager; // @synthesize stateManager=_stateManager;
@@ -72,10 +72,12 @@
 - (void)playbackPaused;
 - (void)playbackStarted;
 - (void)playbackInitiated;
+- (void)didDisappear;
+- (void)didAppear;
 @property(readonly, nonatomic) _Bool allowsCallToActionBar;
 @property(readonly, nonatomic) unsigned long long videoType;
 - (CDUnknownBlockType)loadWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (id)initWithContextProviders:(id)arg1 adProvider:(id)arg2 contextProviderForVideoBefore:(id)arg3 contextProviderForVideoAfter:(id)arg4 eventTracker:(id)arg5 videoPlayerVisibilityMonitor:(id)arg6 videoVisibilityMonitorProvider:(id)arg7 analyticsEventInfoFactory:(id)arg8 playbackCounter:(id)arg9 modalPresentationViewControllerProvider:(id)arg10;
+- (id)initWithContextProviders:(id)arg1 adProvider:(id)arg2 contextProviderForVideoBefore:(id)arg3 contextProviderForVideoAfter:(id)arg4 eventTracker:(id)arg5 videoPlayerVisibilityMonitor:(id)arg6 analyticsEventInfoFactory:(id)arg7 playbackCounter:(id)arg8 modalPresentationViewControllerProvider:(id)arg9;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

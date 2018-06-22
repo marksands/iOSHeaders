@@ -14,6 +14,7 @@
     PHFetchResult *_fetchResult;
     NSArray *_allItems;
     unsigned long long _prefetchOptions;
+    unsigned long long _numberOfAllPeople;
     PHAssetCollection *_assetCollection;
 }
 

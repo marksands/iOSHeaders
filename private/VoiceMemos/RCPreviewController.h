@@ -74,6 +74,8 @@
 @property(nonatomic) double currentTime;
 @property(nonatomic) CDStruct_73a5d3ca playableTimeRange;
 - (void)stop;
+- (void)endScrubbing;
+- (void)beginScrubbing;
 - (void)pause;
 - (void)playWithTimeRange:(CDStruct_73a5d3ca)arg1 startTime:(double)arg2 playbackContextName:(id)arg3;
 - (void)_endActivePreviewRouteAssertion;

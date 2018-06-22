@@ -19,10 +19,10 @@
 @property(readonly, nonatomic) struct CGSize containerSize; // @synthesize containerSize=_containerSize;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (struct CGRect)primaryVideoFrameForVideoSize:(struct CGSize)arg1 subTitleFrame:(struct CGRect)arg2;
+- (struct CGRect)primaryVideoFrameForVideoSize:(struct CGSize)arg1 subTitleFrame:(struct CGRect)arg2 buttonFrame:(struct CGRect)arg3;
 - (struct CGRect)subTitleFrameForString:(id)arg1 titleFrame:(struct CGRect)arg2;
 - (struct CGRect)titleFrameForString:(id)arg1;
-@property(readonly, nonatomic) struct CGRect buttonFrame;
+- (struct CGRect)buttonFrameForString:(id)arg1;
 - (id)initWithContainerSize:(struct CGSize)arg1 edgeInsets:(struct UIEdgeInsets)arg2;
 
 @end

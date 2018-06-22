@@ -22,6 +22,8 @@
 
 + (id)sharedPreferences;
 - (void).cxx_destruct;
+- (id)configOverrides;
+- (void)setConfigOverrides:(id)arg1;
 - (_Bool)cardLoggingEnabled;
 - (void)setCardLoggingEnabled:(_Bool)arg1;
 - (_Bool)shouldLogForQA;
@@ -90,8 +92,12 @@
 - (double)myriadDeviceDelay;
 - (void)setMyriadDeviceAdjust:(float)arg1;
 - (float)myriadDeviceAdjust;
+- (void)setMyriadConstantGoodness:(int)arg1;
+- (int)myriadConstantGoodness;
 - (void)setMyriadDeviceClass:(unsigned char)arg1;
 - (unsigned char)myriadDeviceClass;
+- (void)setMyriadServerProvisioning:(_Bool)arg1;
+- (_Bool)myriadServerProvisioning;
 - (void)setMyriadServerHasProvisioned:(_Bool)arg1;
 - (_Bool)myriadServerHasProvisioned;
 - (void)setMyriadDeviceGroup:(id)arg1;

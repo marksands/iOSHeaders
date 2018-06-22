@@ -37,12 +37,14 @@
 - (double)_suppressionTimeForEntry:(id)arg1 behavior:(long long)arg2;
 - (double)_hideTimeForEntry:(id)arg1;
 - (double)_snoozeTimeForEntry:(id)arg1;
-- (_Bool)canProduceEntriesOfType:(unsigned long long)arg1;
+- (_Bool)canProduceEntriesOfType:(long long)arg1;
+- (_Bool)updateSuggestionEntriesOfType:(long long)arg1;
 - (double)updateSuggestionEntries;
 - (void)stop;
 - (void)start;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
+- (void)_updateChildSourcesForType:(long long)arg1;
 - (void)_updateChildSourcesForceAll:(_Bool)arg1;
 - (double)_updateChildSource:(id)arg1;
 - (void)_stopUpdateChildSources;

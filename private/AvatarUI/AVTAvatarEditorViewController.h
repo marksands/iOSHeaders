@@ -6,18 +6,21 @@
 
 #import "UIViewController.h"
 
+#import "AVTAvatarAttributeEditorViewControllerDelegate.h"
 #import "AVTSplashScreenViewControllerDelegate.h"
 
-@class AVTAvatarAttributeEditorViewController, AVTAvatarRecord, AVTSplashScreenViewController, AVTUIEnvironment, AVTViewSessionProvider, NSString;
+@class AVTAvatarAttributeEditorViewController, AVTAvatarRecord, AVTSplashScreenViewController, AVTUIEnvironment, AVTViewSessionProvider, NSString, UIBarButtonItem;
 
-@interface AVTAvatarEditorViewController : UIViewController <AVTSplashScreenViewControllerDelegate>
+@interface AVTAvatarEditorViewController : UIViewController <AVTSplashScreenViewControllerDelegate, AVTAvatarAttributeEditorViewControllerDelegate>
 {
+    _Bool _isCreating;
     id <AVTAvatarEditorViewControllerDelegate> _delegate;
     AVTAvatarRecord *_initialAvatarRecord;
     id <AVTAvatarStoreInternal> _store;
     AVTViewSessionProvider *_avtViewSessionProvider;
     AVTUIEnvironment *_environment;
     id <AVTUILogger> _logger;
+    UIBarButtonItem *_doneButtonItem;
     AVTSplashScreenViewController *_splashScreenViewController;
     AVTAvatarAttributeEditorViewController *_attributeEditorViewController;
 }
@@ -30,6 +33,8 @@
 + (_Bool)shouldShowSplashScreen;
 @property(readonly, nonatomic) AVTAvatarAttributeEditorViewController *attributeEditorViewController; // @synthesize attributeEditorViewController=_attributeEditorViewController;
 @property(readonly, nonatomic) AVTSplashScreenViewController *splashScreenViewController; // @synthesize splashScreenViewController=_splashScreenViewController;
+@property(retain, nonatomic) UIBarButtonItem *doneButtonItem; // @synthesize doneButtonItem=_doneButtonItem;
+@property(readonly, nonatomic) _Bool isCreating; // @synthesize isCreating=_isCreating;
 @property(readonly, nonatomic) id <AVTUILogger> logger; // @synthesize logger=_logger;
 @property(readonly, nonatomic) AVTUIEnvironment *environment; // @synthesize environment=_environment;
 @property(readonly, nonatomic) AVTViewSessionProvider *avtViewSessionProvider; // @synthesize avtViewSessionProvider=_avtViewSessionProvider;
@@ -37,18 +42,19 @@
 @property(retain, nonatomic) AVTAvatarRecord *initialAvatarRecord; // @synthesize initialAvatarRecord=_initialAvatarRecord;
 @property(nonatomic) __weak id <AVTAvatarEditorViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)attributeEditorDidMakeFirstSelection:(id)arg1;
 - (void)splashScreenViewControllerDidFinish:(id)arg1;
 - (void)finish:(id)arg1;
 - (void)cancel:(id)arg1;
-- (void)configureInitialNavigationItem;
-- (void)loadDummyView;
+- (void)configureNavigationItems;
 - (void)loadAttributeEditorViewWithAvatarRecord:(id)arg1;
 - (void)loadSplashScreen;
 - (void)setupInitialViewState;
+- (id)visibleLayout;
 - (void)applyLayout:(id)arg1;
 - (void)prepareForAnimatedTransitionWithLayout:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)viewDidLoad;
-- (id)initWithAvatarRecord:(id)arg1 avtViewSessionProvider:(id)arg2 store:(id)arg3 enviroment:(id)arg4;
+- (id)initWithAvatarRecord:(id)arg1 avtViewSessionProvider:(id)arg2 store:(id)arg3 enviroment:(id)arg4 isCreating:(_Bool)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

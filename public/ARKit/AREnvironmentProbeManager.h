@@ -8,7 +8,7 @@
 
 #import "ARInternalSessionObserver.h"
 
-@class AREnvironmentProbeUpdate, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSString, NSUUID;
+@class ARCubemapGenerator, AREnvironmentProbeUpdate, ARImageData, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSString, NSUUID;
 
 @interface AREnvironmentProbeManager : NSObject <ARInternalSessionObserver>
 {
@@ -25,22 +25,26 @@
     NSObject<OS_dispatch_semaphore> *_textureDataSemaphore;
     NSMutableArray *_probeUpdateQueue;
     AREnvironmentProbeUpdate *_currentProbeUpdate;
+    NSObject<OS_dispatch_semaphore> *_semaphore;
+    ARImageData *_lastImageData;
+    // Error parsing type: {?="columns"[4]}, name: _lastCameraTransform
+    vector_478e3a44 _lastPlanes;
+    ARCubemapGenerator *_cubemapGenerator;
+    _Bool _isReady;
     long long _mode;
-    id <AREnvironmentTextureProvider> _textureProvider;
 }
 
-@property(readonly, nonatomic) __weak id <AREnvironmentTextureProvider> textureProvider; // @synthesize textureProvider=_textureProvider;
 @property(readonly, nonatomic) long long mode; // @synthesize mode=_mode;
+- (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)requestTextureForProbe:(id)arg1;
--     // Error parsing type: @120@0:8@16{?=[4]}2488104, name: probeWithIdentifier:planeTransform:planeCenter:planeExtent:
+-     // Error parsing type: @32@0:8@16r^{?={array<unsigned char, 16>=[16C]}Q{?=[4]}{array<float __attribute__((ext_vector_type(3))), 4>=[4]}{set<std::__1::array<unsigned char, 16>, std::__1::less<std::__1::array<unsigned char, 16> >, std::__1::allocator<std::__1::array<unsigned char, 16> > >={__tree<std::__1::array<unsigned char, 16>, std::__1::less<std::__1::array<unsigned char, 16> >, std::__1::allocator<std::__1::array<unsigned char, 16> > >=^{__tree_end_node<std::__1::__tree_node_base<void *> *>}{__compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *> *>, std::__1::allocator<std::__1::__tree_node<std::__1::array<unsigned char, 16>, void *> > >={__tree_end_node<std::__1::__tree_node_base<void *> *>=^{__tree_node_base<void *>}}}{__compressed_pair<unsigned long, std::__1::less<std::__1::array<unsigned char, 16> > >=Q}}}@}24, name: probeWithIdentifier:onPlane:
 - (_Bool)addProbeWithAnchor:(id)arg1 timestamp:(double)arg2 textureImmediately:(_Bool)arg3;
 - (void)updateProbesFromExistingAnchors:(id)arg1;
-- (id)updateProbesForTimestamp:(double)arg1 planeData:(id)arg2 addedAnchors:(id)arg3 removedAnchors:(id)arg4;
-- (_Bool)isProbe:(id)arg1 affectedByPlanes:(id)arg2 timestamp:(double)arg3;
-- (_Bool)isProbeUpdateSignificant:(id)arg1 oldProbe:(id)arg2;
+- (id)updateProbesForTimestamp:(double)arg1 planes:(vector_478e3a44)arg2 imageData:(id)arg3 pose:(id)arg4 addedAnchors:(id)arg5 removedAnchors:(id)arg6;
+- (_Bool)isUpdateRequiredForProbe:(id)arg1 timestamp:(double)arg2;
 - (void)insertIntoQueue:(id)arg1;
-- (id)initWithMode:(long long)arg1 textureProvider:(id)arg2;
+- (id)initWithMode:(long long)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

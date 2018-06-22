@@ -9,7 +9,7 @@
 #import "HDHealthDaemonReadyObserver.h"
 #import "HDPeriodicActivityDelegate.h"
 
-@class HDPeriodicActivity, HDProfile, NSObject<OS_dispatch_queue>, NSString;
+@class HDPeriodicActivity, HDProfile, NSObject<OS_dispatch_queue>, NSString, _HDWorkoutCondenserAnalyticsAccumulator;
 
 @interface HDWorkoutCondenser : NSObject <HDHealthDaemonReadyObserver, HDPeriodicActivityDelegate>
 {
@@ -18,6 +18,7 @@
     long long _minimumSeriesSize;
     long long _maximumSeriesSize;
     HDProfile *_profile;
+    _HDWorkoutCondenserAnalyticsAccumulator *_analyticsAccumulator;
 }
 
 + (id)condensableQuantityTypes;
@@ -38,16 +39,19 @@
 + (_Bool)_condenseAndUpdateWorkout:(id)arg1 configuration:(id)arg2 error:(id *)arg3;
 + (_Bool)_condenseWorkouts:(id)arg1 configuration:(id)arg2 error:(id *)arg3;
 + (id)_workoutEntitiesRequiringCondensationWithPredicate:(id)arg1 limit:(long long)arg2 orderingProperties:(id)arg3 orderingDirections:(id)arg4 transaction:(id)arg5 error:(id *)arg6;
++ (id)_workoutEntitiesRequiringCondensationWithProfile:(id)arg1 limit:(long long)arg2 allowRecondensation:(_Bool)arg3 analyticsAccumulator:(id)arg4 error:(id *)arg5;
 + (id)workoutEntitiesRequiringCondensationWithProfile:(id)arg1 limit:(long long)arg2 allowRecondensation:(_Bool)arg3 error:(id *)arg4;
+@property(readonly, nonatomic) _HDWorkoutCondenserAnalyticsAccumulator *analyticsAccumulator; // @synthesize analyticsAccumulator=_analyticsAccumulator;
 @property(readonly, nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (_Bool)periodicActivityRequiresProtectedData:(id)arg1;
 - (void)performPeriodicActivity:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)periodicActivity:(id)arg1 configureXPCActivityCriteria:(id)arg2;
 - (void)daemonReady:(id)arg1;
+- (void)_queue_submitAnalyticEventForReason:(long long)arg1 batchSize:(long long)arg2 success:(_Bool)arg3 duration:(double)arg4 analyticsAccumulator:(id)arg5 error:(id)arg6;
 - (void)_queue_popTTRPromptIfRequiredWithReason:(long long)arg1 success:(_Bool)arg2 error:(id)arg3;
-- (_Bool)_queue_condenseWorkoutsWithAccessibilityAssertion:(id)arg1 batchLimit:(long long)arg2 error:(id *)arg3;
-- (_Bool)_queue_condenseWorkoutsWithBatchLimit:(long long)arg1 error:(id *)arg2;
+- (_Bool)_queue_condenseWorkoutsWithAccessibilityAssertion:(id)arg1 batchLimit:(long long)arg2 analyticsAccumulator:(id)arg3 error:(id *)arg4;
+- (_Bool)_queue_condenseWorkoutsWithBatchLimit:(long long)arg1 analyticsAccumulator:(id)arg2 error:(id *)arg3;
 - (void)_queue_didPerformCondensationForReason:(long long)arg1 success:(_Bool)arg2 error:(id)arg3;
 - (void)setMaximumSeriesSize:(long long)arg1;
 - (void)setMinimumSeriesSize:(long long)arg1;

@@ -15,8 +15,6 @@
 
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-- (void)updateBackgroundColor;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

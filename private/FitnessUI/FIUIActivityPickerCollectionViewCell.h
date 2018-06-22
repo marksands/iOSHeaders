@@ -28,7 +28,7 @@
     double _screenScale;
 }
 
-+ (double)heightForCellWithWidth:(double)arg1 activityType:(id)arg2;
++ (double)heightForCellWithWidth:(double)arg1 activityType:(id)arg2 activityString:(id)arg3;
 + (id)_workoutTypeLabelAttributes:(id)arg1;
 @property(nonatomic) double screenScale; // @synthesize screenScale=_screenScale;
 @property(retain, nonatomic) NLActivityPickerCellLayoutCache *layoutCache; // @synthesize layoutCache=_layoutCache;
@@ -58,6 +58,7 @@
 - (void)setSelected:(_Bool)arg1;
 - (void)setHighlighted:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (_Bool)_hasConfigurationButton;
 - (id)_cellBackgroundColor;
 - (_Bool)_useOpaqueCornerImages;
 

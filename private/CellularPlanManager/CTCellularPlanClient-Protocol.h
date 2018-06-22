@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CTCellularPlanCarrierItem, CTCellularPlanItem, CTXPCServiceSubscriptionContext, NSData, NSDictionary, NSNumber, NSString;
+@class CTCellularPlanCarrierItem, CTCellularPlanItem, CTUserLabel, CTXPCServiceSubscriptionContext, NSData, NSDictionary, NSNumber, NSString;
 
 @protocol CTCellularPlanClient <NSObject>
 - (void)getRemoteInfo:(void (^)(NSDictionary *, NSError *))arg1;
@@ -48,6 +48,7 @@
 - (void)addNewRemotePlan:(_Bool)arg1 withCSN:(NSString *)arg2 withContext:(CTXPCServiceSubscriptionContext *)arg3 userConsent:(long long)arg4 completion:(void (^)(NSError *))arg5;
 - (void)finishRemoteProvisioningWithCompletion:(void (^)(_Bool))arg1;
 - (void)startRemoteProvisioningWithCompletion:(void (^)(_Bool))arg1;
+- (void)remoteUserDidProvideConsentResponse:(_Bool)arg1 plan:(CTCellularPlanItem *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)remotePlanItemsWithUpdateFetch:(_Bool)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)shouldShowAddNewRemotePlanWithContext:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(_Bool, unsigned long long, NSString *, NSError *))arg2;
 - (void)isRemotePlanCapableWithContext:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(_Bool))arg2;
@@ -63,29 +64,30 @@
 - (void)shouldShowPlanList:(void (^)(_Bool))arg1;
 - (void)isAddButtonEnabled:(void (^)(_Bool))arg1;
 - (void)triggerAddNewDataPlan:(void (^)(NSError *))arg1;
+- (void)carrierHandoffToken:(void (^)(NSString *, NSString *, NSError *))arg1;
 - (void)didPurchasePlanForCsn:(NSData *)arg1 iccid:(NSString *)arg2 profileServer:(NSString *)arg3;
 - (void)planLaunchInfoWithCompletion:(void (^)(NSString *, NSDictionary *, NSError *))arg1;
 - (void)eraseAllPlansWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)didDeletePlanItem:(CTCellularPlanItem *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
+- (void)didSelectPlanForIMessage:(CTCellularPlanItem *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)didSelectPlanForDefaultVoice:(CTCellularPlanItem *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
-- (void)setLabelForPlan:(CTCellularPlanItem *)arg1 label:(NSString *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
+- (void)setLabelForPlan:(CTCellularPlanItem *)arg1 label:(CTUserLabel *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)didSelectPlanForData:(CTCellularPlanItem *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)didSelectPlanItem:(CTCellularPlanItem *)arg1 enable:(_Bool)arg2 completion:(void (^)(_Bool, NSError *))arg3;
+- (void)userDidProvideConsentResponse:(_Bool)arg1 plan:(CTCellularPlanItem *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)carrierItemsShouldUpdate:(_Bool)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)planItemsShouldUpdate:(_Bool)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)manageAccountForPlan:(CTCellularPlanItem *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)addNewPlanWithFlowType:(unsigned long long)arg1 completion:(void (^)(NSError *))arg2;
+- (void)addNewPlanWithUserInWebsheetWithCompletion:(void (^)(NSError *))arg1;
 - (void)addNewPlanWithAddress:(NSString *)arg1 matchingId:(NSString *)arg2 oid:(NSString *)arg3 confirmationCode:(NSString *)arg4 triggerType:(long long)arg5 userConsent:(long long)arg6 completion:(void (^)(NSError *))arg7;
 - (void)addNewPlanWithCardData:(NSString *)arg1 confirmationCode:(NSString *)arg2 triggerType:(long long)arg3 userConsent:(long long)arg4 completion:(void (^)(NSError *))arg5;
 - (void)addNewPlanWithCarrierItem:(CTCellularPlanCarrierItem *)arg1 triggerType:(long long)arg2 userConsent:(long long)arg3 completion:(void (^)(NSError *))arg4;
-- (void)exitSimSetupWithCompletion:(void (^)(_Bool))arg1;
-- (void)enterSimSetupWithCompletion:(void (^)(_Bool))arg1;
 - (void)finishProvisioningWithCompletion:(void (^)(_Bool))arg1;
 - (void)startProvisioningWithCompletion:(void (^)(_Bool))arg1;
 - (void)getSupportedFlowTypes:(void (^)(unsigned long long, NSError *))arg1;
 - (void)isNewDataPlanCapable:(void (^)(_Bool))arg1;
 - (void)getSubscriptionContextUUIDforPlan:(NSString *)arg1 completion:(void (^)(NSString *, NSError *))arg2;
-- (void)userDidProvideConsentResponse:(_Bool)arg1 iccid:(NSString *)arg2 isRemote:(_Bool)arg3 completion:(void (^)(_Bool, NSError *))arg4;
 - (void)ping;
 @end
 

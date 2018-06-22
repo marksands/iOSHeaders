@@ -9,13 +9,11 @@
 @interface ARODTResult : NSObject
 {
     unsigned long long _detectedObjectID;
+    void *_imageContext;
     // Error parsing type: {?="columns"[4]}, name: _visionTransform
-    // Error parsing type: {?="columns"[4]}, name: _cameraTransformAtDetection
 }
 
-// Error parsing type for property cameraTransformAtDetection:
-// Property attributes: T{?=[4]},N,V_cameraTransformAtDetection
-
+@property(nonatomic) void *imageContext; // @synthesize imageContext=_imageContext;
 // Error parsing type for property visionTransform:
 // Property attributes: T{?=[4]},N,V_visionTransform
 

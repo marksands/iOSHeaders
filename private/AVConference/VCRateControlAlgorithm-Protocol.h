@@ -15,6 +15,7 @@
 @property(readonly, nonatomic) _Bool isNewRateSentOut;
 @property(readonly, nonatomic) double owrd;
 @property(readonly, nonatomic) double roundTripTime;
+@property(readonly, nonatomic) unsigned int totalPacketReceived;
 @property(readonly, nonatomic) double packetLossRate;
 @property(readonly, nonatomic) unsigned int mostBurstLoss;
 @property(readonly, nonatomic) _Bool isCongested;
@@ -23,8 +24,8 @@
 @property(retain, nonatomic) VCRateControlMediaController *mediaController;
 - (void)enableBasebandDump:(void *)arg1;
 - (void)enableLogDump:(void *)arg1 enablePeriodicLogging:(_Bool)arg2;
-- (void)doRateControlWithBasebandStatistics:(CDStruct_dd06a755)arg1;
-- (void)doRateControlWithStatistics:(CDStruct_dd06a755)arg1;
+- (void)doRateControlWithBasebandStatistics:(CDStruct_e9907a6b)arg1;
+- (void)doRateControlWithStatistics:(CDStruct_e9907a6b)arg1;
 - (void)configure:(struct VCRateControlAlgorithmConfig)arg1 restartRequired:(_Bool)arg2;
 @end
 

@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
 
 + (id)_defaultAttributes;
 - (void).cxx_destruct;
-- (void)invalidateIntrinsicContentSize;
 - (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)tintColorDidChange;
 - (id)_defaultAttributes;

@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <Security/SFAnalytics.h>
+#import "NSObject.h"
 
 #import "NSSecureCoding.h"
 
 @class NSMutableArray, NSMutableDictionary, NSNumber, NSObject<OS_dispatch_queue>, NSObject<OS_os_log>, NSString, NSURL, SFAnalyticsActivityTracker;
 
-@interface SFSignInAnalytics : SFAnalytics <NSSecureCoding>
+@interface SFSignInAnalytics : NSObject <NSSecureCoding>
 {
     _Bool _stopped;
     _Bool _canceled;
@@ -26,15 +26,13 @@
     NSObject<OS_os_log> *_logObject;
     NSNumber *_measurement;
     NSObject<OS_dispatch_queue> *_queue;
-    SFAnalyticsActivityTracker *_tracker;
     SFSignInAnalytics *_root;
+    SFAnalyticsActivityTracker *_tracker;
 }
 
-+ (id)logger;
 + (_Bool)supportsSecureCoding;
-+ (id)databasePath;
-@property(retain, nonatomic) SFSignInAnalytics *root; // @synthesize root=_root;
 @property(retain, nonatomic) SFAnalyticsActivityTracker *tracker; // @synthesize tracker=_tracker;
+@property(retain, nonatomic) SFSignInAnalytics *root; // @synthesize root=_root;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) NSNumber *measurement; // @synthesize measurement=_measurement;
 @property(retain, nonatomic) NSObject<OS_os_log> *logObject; // @synthesize logObject=_logObject;

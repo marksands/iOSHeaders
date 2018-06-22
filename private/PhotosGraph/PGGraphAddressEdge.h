@@ -13,8 +13,8 @@
 }
 
 @property(readonly, nonatomic) struct CLLocationCoordinate2D photoCoordinate;
-@property(readonly, nonatomic) NSDate *endDate;
-@property(readonly, nonatomic) NSDate *startDate;
+@property(readonly, nonatomic) NSDate *universalEndDate;
+@property(readonly, nonatomic) NSDate *universalStartDate;
 @property(readonly, nonatomic) double timestampUTCEnd;
 @property(readonly, nonatomic) double timestampUTCStart;
 

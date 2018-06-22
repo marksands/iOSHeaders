@@ -16,6 +16,7 @@
     _Bool _active;
     _Bool _recurring;
     _Bool _fromMe;
+    _Bool _pending;
     NSString *_identifier;
     NSString *_label;
     CLLocation *_location;
@@ -28,9 +29,12 @@
     NSArray *_followerIds;
     NSString *_friendIdentifier;
     NSString *_createdByIdentifier;
+    NSString *_pendingIdentifier;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic, getter=isPending) _Bool pending; // @synthesize pending=_pending;
+@property(retain, nonatomic) NSString *pendingIdentifier; // @synthesize pendingIdentifier=_pendingIdentifier;
 @property(retain, nonatomic) NSString *createdByIdentifier; // @synthesize createdByIdentifier=_createdByIdentifier;
 @property(retain, nonatomic) NSString *friendIdentifier; // @synthesize friendIdentifier=_friendIdentifier;
 @property(retain, nonatomic) NSArray *followerIds; // @synthesize followerIds=_followerIds;
@@ -53,6 +57,7 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)updateFenceLocation:(id)arg1 placemark:(id)arg2 label:(id)arg3 trigger:(id)arg4 type:(id)arg5 locationType:(unsigned long long)arg6;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1;

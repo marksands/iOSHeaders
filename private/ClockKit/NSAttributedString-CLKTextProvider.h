@@ -7,6 +7,7 @@
 #import "NSAttributedString.h"
 
 @interface NSAttributedString (CLKTextProvider)
+- (id)_attributedStringWithForegroundColor:(id)arg1;
 - (id)_attributedStringWithParagraphStyleFromStyle:(id)arg1;
 @end
 

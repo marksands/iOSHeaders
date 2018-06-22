@@ -7,7 +7,7 @@
 #import "BBSectionInfo.h"
 
 @interface BBSectionInfo (PBConversions)
-- (void)enableAlertsForGizmo:(_Bool)arg1 overrideAllowsAndNC:(_Bool)arg2;
+- (void)updateAlertingStatusForGizmoWithAlertsEnabled:(_Bool)arg1 NCEnabled:(_Bool)arg2;
 - (void)enableAlertsForGizmo:(_Bool)arg1;
 - (id)factorySectionID;
 - (void)setFactorySectionID:(id)arg1;

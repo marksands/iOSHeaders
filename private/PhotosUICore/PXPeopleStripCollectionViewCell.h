@@ -6,25 +6,20 @@
 
 #import "UICollectionViewCell.h"
 
-@class NSArray, PXRoundedCornerOverlayView, UILabel;
+@class NSArray, PXRoundedCornerOverlayView;
 
 @interface PXPeopleStripCollectionViewCell : UICollectionViewCell
 {
-    _Bool _namesVisible;
     NSArray *_people;
     NSArray *_groupAvatarViews;
-    UILabel *_avatarLabel;
     PXRoundedCornerOverlayView *_roundCornerOverlay;
 }
 
 @property(retain, nonatomic) PXRoundedCornerOverlayView *roundCornerOverlay; // @synthesize roundCornerOverlay=_roundCornerOverlay;
-@property(nonatomic) _Bool namesVisible; // @synthesize namesVisible=_namesVisible;
-@property(retain, nonatomic) UILabel *avatarLabel; // @synthesize avatarLabel=_avatarLabel;
 @property(retain, nonatomic) NSArray *groupAvatarViews; // @synthesize groupAvatarViews=_groupAvatarViews;
 @property(retain, nonatomic) NSArray *people; // @synthesize people=_people;
 - (void).cxx_destruct;
 - (void)_layoutAvatarViewsInFrame:(struct CGRect)arg1;
-- (void)setPeople:(id)arg1 namesVisible:(_Bool)arg2;
 - (void)prepareForReuse;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

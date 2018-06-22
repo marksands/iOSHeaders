@@ -15,6 +15,7 @@
     PSIStatement *_checkStatement;
     PSIStatement *_listStatement;
     PSIStatement *_tripResultsForTripIdsStatement;
+    PSIStatement *_tripResultByTripIdWithTripIdsStatement;
     PSIStatement *_selectWithSingleDateStatement;
     PSIStatement *_selectWithStartEndDatesStatement;
     PSIStatement *_selectWithStartDateStatement;
@@ -25,23 +26,32 @@
     PSIStatement *_selectByGroupIdWithEndDateStatement;
     PSIStatement *_selectByGroupIdStatement;
     PSIStatement *_groupIdsWithTripIdsStatement;
+    PSIStatement *_idsOfAllGroupsMatchedByTripsStatement;
+    PSIStatement *_tripIdsByGroupIdWithTripIdsStatement;
+    PSIStatement *_numberOfTripsMatchingGroupWithIdStatement;
+    PSIStatement *_numberOfTripsByGroupIdMatchingGroupsWithIdsStatement;
     PSIStatement *_linkToMomentStatement;
     PSIStatement *_unlinkFromAllMomentsStatement;
     PSIStatement *_getMomentsStatement;
     PSIStatement *_linkToGroupStatement;
     PSIStatement *_unlinkFromGroupsStatement;
-    PSIStatement *_checkGroupStatement;
 }
 
 - (void).cxx_destruct;
 - (id)removeAllTrips;
 - (void)removeTripForId:(long long)arg1;
-- (const struct __CFSet *)unlinkTripForId:(long long)arg1;
+- (void)unlinkTripForId:(long long)arg1;
+- (void)linkTripWithId:(long long)arg1 toGroupWithId:(long long)arg2;
+- (id)idsOfAllGroupsMatchedByTrips;
 - (id)allTripUUIDs;
 - (long long)tripIdForUUID:(id)arg1;
+- (id)numberOfTripsByGroupIdMatchingGroupsWithIds:(id)arg1;
+- (unsigned long long)numberOfTripsMatchingGroupWithId:(long long)arg1;
+- (id)tripIdsByGroupIdWithTripIds:(id)arg1;
 - (const struct __CFSet *)newGroupIdsWithTripIds:(struct __CFSet *)arg1;
 - (const struct __CFArray *)newTripIdsWithDateFilter:(id)arg1;
 - (const struct __CFArray *)newTripIdsWithGroupId:(long long)arg1 dateFilter:(id)arg2;
+- (id)tripResultByTripIdWithTripIds:(id)arg1;
 - (id)tripResultsForTripIds:(struct __CFArray *)arg1 range:(struct _NSRange)arg2;
 - (long long)addTrip:(id)arg1 usingTokenEnumeratingBlock:(CDUnknownBlockType)arg2;
 - (void)cacheOtherStatements;

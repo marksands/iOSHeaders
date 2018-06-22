@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MLModel, NLModelConfiguration, NLModelImpl, NSData, NSDictionary;
+@class MLModel, NLModelConfiguration, NLModelImpl, NSData, NSDictionary, NSObject<OS_dispatch_queue>;
 
 @interface NLModel : NSObject
 {
@@ -16,8 +16,10 @@
     NSData *_data;
     MLModel *_mlModel;
     void *_container;
+    NSObject<OS_dispatch_queue> *_clientQueue;
 }
 
++ (id)modelWithMLModel:(id)arg1 error:(id *)arg2;
 + (id)modelWithContentsOfURL:(id)arg1 error:(id *)arg2;
 - (void).cxx_destruct;
 - (id)testResultsWithDataSet:(id)arg1;
@@ -38,6 +40,7 @@
 - (void)dealloc;
 - (id)initWithContentsOfURL:(id)arg1 error:(id *)arg2;
 - (id)initWithMLModel:(id)arg1 error:(id *)arg2;
+- (id)initWithClassifierMLModel:(id)arg1;
 - (id)initWithData:(id)arg1 error:(id *)arg2;
 - (id)initWithData:(id)arg1 mlModel:(id)arg2 error:(id *)arg3;
 - (id)initWithConfiguration:(id)arg1 modelImpl:(id)arg2;

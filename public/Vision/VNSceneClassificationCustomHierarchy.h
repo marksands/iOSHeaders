@@ -8,12 +8,11 @@
 
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
-#import "VNObservationsCacheKeyProviding.h"
 #import "VNRequestRevisionProviding.h"
 
 @class NSDictionary;
 
-@interface VNSceneClassificationCustomHierarchy : NSObject <VNObservationsCacheKeyProviding, NSCopying, NSSecureCoding, VNRequestRevisionProviding>
+@interface VNSceneClassificationCustomHierarchy : NSObject <NSCopying, NSSecureCoding, VNRequestRevisionProviding>
 {
     shared_ptr_eb20c8f2 _hierarchicalModel_DO_NOT_ACCESS_DIRECTLY;
     NSDictionary *_additionalRelationships;
@@ -25,7 +24,6 @@
 + (id)customHierarchyForSceneClassificationRequest:(id)arg1;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)observationsCacheKey;
 @property(readonly, nonatomic) unsigned long long requestRevision;
 - (unsigned long long)requestDetectionLevel;
 - (id)initWithCoder:(id)arg1;

@@ -117,6 +117,7 @@ __attribute__((visibility("hidden")))
 - (id)accessibilityLinkedElement;
 - (id)accessibilityFlowToElements;
 - (_Bool)accessibilityRequired;
+- (id)accessibilityLinkRelationshipType;
 - (_Bool)accessibilityCanSetValue;
 - (id)_accessibilityPreviousElementsWithCount:(unsigned int)arg1;
 - (id)_accessibilityNextElementsWithCount:(unsigned int)arg1;

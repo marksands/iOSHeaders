@@ -38,20 +38,22 @@ __attribute__((visibility("hidden")))
     _UIPanelInternalState *__previousInternalState;
     UISlidingBarState *__lastComputedPublicState;
     NSArray *__lastPossiblePublicStates;
+    UIView *__contentView;
     UIView *__leadingBorderView;
     UIView *__trailingBorderView;
-    UIView *__sourceSnapshotView;
-    UIView *__destinationSnapshotView;
+    UIView *__sourceTransitionView;
+    UIView *__destTransitionView;
     struct CGSize __lastViewSize;
 }
 
 @property(nonatomic, setter=_setChangingViewControllerParentage:) _Bool _changingViewControllerParentage; // @synthesize _changingViewControllerParentage=__changingViewControllerParentage;
 @property(nonatomic, setter=_setNeedsFirstTimeUpdateForTraitCollection:) _Bool _needsFirstTimeUpdateForTraitCollection; // @synthesize _needsFirstTimeUpdateForTraitCollection=__needsFirstTimeUpdateForTraitCollection;
 @property(nonatomic, setter=_setHasUpdatedForTraitCollection:) _Bool _hasUpdatedForTraitCollection; // @synthesize _hasUpdatedForTraitCollection=__hasUpdatedForTraitCollection;
-@property(retain, nonatomic, setter=_setDestinationSnapshotView:) UIView *_destinationSnapshotView; // @synthesize _destinationSnapshotView=__destinationSnapshotView;
-@property(retain, nonatomic, setter=_setSourceSnapshotView:) UIView *_sourceSnapshotView; // @synthesize _sourceSnapshotView=__sourceSnapshotView;
+@property(retain, nonatomic, setter=_setDestinationTransitionView:) UIView *_destTransitionView; // @synthesize _destTransitionView=__destTransitionView;
+@property(retain, nonatomic, setter=_setSourceTransitionView:) UIView *_sourceTransitionView; // @synthesize _sourceTransitionView=__sourceTransitionView;
 @property(retain, nonatomic, setter=_setTrailingBorderView:) UIView *_trailingBorderView; // @synthesize _trailingBorderView=__trailingBorderView;
 @property(retain, nonatomic, setter=_setLeadingBorderView:) UIView *_leadingBorderView; // @synthesize _leadingBorderView=__leadingBorderView;
+@property(retain, nonatomic, setter=_setContentView:) UIView *_contentView; // @synthesize _contentView=__contentView;
 @property(nonatomic, setter=_setLastViewSize:) struct CGSize _lastViewSize; // @synthesize _lastViewSize=__lastViewSize;
 @property(copy, nonatomic, setter=_setLastPossiblePublicStates:) NSArray *_lastPossiblePublicStates; // @synthesize _lastPossiblePublicStates=__lastPossiblePublicStates;
 @property(copy, nonatomic, setter=_setLastComputedPublicState:) UISlidingBarState *_lastComputedPublicState; // @synthesize _lastComputedPublicState=__lastComputedPublicState;

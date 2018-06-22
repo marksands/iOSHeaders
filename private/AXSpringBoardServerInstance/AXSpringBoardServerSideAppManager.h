@@ -33,7 +33,7 @@
 - (id)_bundleIdentifierForIconView:(id)arg1;
 - (_Bool)_isDockIconView:(id)arg1;
 - (void)launchFloatingApplication:(id)arg1;
-- (void)launchPinnedApplication:(id)arg1 onLeft:(_Bool)arg2;
+- (void)launchPinnedApplication:(id)arg1 onLeadingSide:(_Bool)arg2;
 - (void)launchApplicationWithFullConfiguration:(id)arg1;
 - (void)launchApplication:(id)arg1;
 - (void)_requestTransactionWithPrimaryEntity:(id)arg1 sideEntity:(id)arg2 floatingEntity:(id)arg3 spaceConfiguration:(long long)arg4 floatingConfiguration:(long long)arg5;

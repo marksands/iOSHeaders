@@ -24,7 +24,7 @@
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (void)navigateToRevealAssetCollection:(id)arg1 initiallyHidden:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)navigateToCollection:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)navigateToPeopleAlbumViewControllerAnimated:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)navigateToPeopleAlbumViewControllerAnimated:(_Bool)arg1 withPersonLocalIdentifier:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)navigateToSharedAlbumsViewControllerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)navigateToMyAlbumsViewControllerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

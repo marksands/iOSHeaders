@@ -11,18 +11,22 @@
 @interface CPSAbridgableLabel : UILabel
 {
     NSArray *_textVariants;
+    NSArray *_attributedTextVariants;
     unsigned long long _variantsIndex;
 }
 
++ (id)sanitizedAttributedStringForString:(id)arg1;
 + (id)sanitizedTextForText:(id)arg1;
 @property(nonatomic) unsigned long long variantsIndex; // @synthesize variantsIndex=_variantsIndex;
+@property(copy, nonatomic) NSArray *attributedTextVariants; // @synthesize attributedTextVariants=_attributedTextVariants;
 @property(copy, nonatomic) NSArray *textVariants; // @synthesize textVariants=_textVariants;
 - (void).cxx_destruct;
 - (long long)_compareBoundsSizeToLayoutSizeForString:(id)arg1;
 - (void)_updateVariant;
+- (unsigned long long)_numberOfVariants;
+- (id)_variantsList;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)setText:(id)arg1;
 - (id)init;
 
 @end

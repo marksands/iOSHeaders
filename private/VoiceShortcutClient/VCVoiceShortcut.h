@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSData, NSDate, NSString, WFLWorkflow;
+@class INImage, NSData, NSDate, NSString, WFLWorkflow;
 
 @interface VCVoiceShortcut : NSObject <NSSecureCoding>
 {
@@ -20,13 +20,17 @@
     NSDate *_dateCreated;
     NSDate *_dateLastModified;
     WFLWorkflow *_workflow;
+    INImage *_keyImage;
     NSData *_serializedWorkflowData;
+    NSData *_keyImageData;
 }
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)isValidVoiceShortcut:(id)arg1 error:(id *)arg2;
 + (void)initialize;
+@property(retain, nonatomic) NSData *keyImageData; // @synthesize keyImageData=_keyImageData;
 @property(retain, nonatomic) NSData *serializedWorkflowData; // @synthesize serializedWorkflowData=_serializedWorkflowData;
+@property(retain, nonatomic) INImage *keyImage; // @synthesize keyImage=_keyImage;
 @property(retain, nonatomic) WFLWorkflow *workflow; // @synthesize workflow=_workflow;
 @property(retain, nonatomic) NSDate *dateLastModified; // @synthesize dateLastModified=_dateLastModified;
 @property(retain, nonatomic) NSDate *dateCreated; // @synthesize dateCreated=_dateCreated;
@@ -45,7 +49,7 @@
 - (_Bool)isValid:(id *)arg1;
 @property(readonly, nonatomic) _Bool hasBeenModified;
 - (id)initWithPhrase:(id)arg1 workflow:(id)arg2 error:(id *)arg3;
-- (id)initWithIdentifier:(id)arg1 phrase:(id)arg2 shortcutName:(id)arg3 shortcutDescription:(id)arg4 associatedAppBundleIdentifier:(id)arg5 dateCreated:(id)arg6 dateLastModified:(id)arg7 serializedWorkflowData:(id)arg8 error:(id *)arg9;
+- (id)initWithIdentifier:(id)arg1 phrase:(id)arg2 shortcutName:(id)arg3 shortcutDescription:(id)arg4 associatedAppBundleIdentifier:(id)arg5 dateCreated:(id)arg6 dateLastModified:(id)arg7 serializedWorkflowData:(id)arg8 keyImageData:(id)arg9 error:(id *)arg10;
 
 @end
 

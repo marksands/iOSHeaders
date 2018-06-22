@@ -9,11 +9,11 @@
 #import "NSCopying.h"
 #import "SCNSceneRendererDelegate.h"
 
-@class AVTEyeSkinningDescriptor, AVTPersonalAnimoji, AVTPhysicsController, AVTPupilReflectionCorrectionDescriptor, NSMutableArray, NSString, SCNNode;
+@class AVTEyeSkinningDescriptor, AVTMemoji, AVTPhysicsController, AVTPupilReflectionCorrectionDescriptor, NSMutableArray, NSString, SCNNode;
 
 @interface AVTAvatar : NSObject <NSCopying, SCNSceneRendererDelegate>
 {
-    AVTPersonalAnimoji *_avatar;
+    AVTMemoji *_avatar;
     SCNNode *_avatarNode;
     SCNNode *_skeleton;
     SCNNode *_headNode;
@@ -71,7 +71,7 @@
 - (void)applyHeadPoseWithTrackingInfo:(id)arg1;
 - (void)applyHeadPoseWithTrackingInfo:(id)arg1 gazeCorrection:(_Bool)arg2 pointOfView:(id)arg3;
 - (void)applyBlendShapesWithTrackingInfo:(id)arg1;
-- (void)setupBlendShapeIndirection;
+- (void)setupMorphInfo;
 - (id)effectiveMorphedNodeForTargetName:(id)arg1;
 - (_Bool)morphTargetNameIsDrivenByARKit:(id)arg1;
 - (void)renderer:(id)arg1 didApplyAnimationsAtTime:(double)arg2;

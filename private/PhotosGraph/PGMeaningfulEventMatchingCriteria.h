@@ -16,6 +16,7 @@
 @property(readonly, nonatomic) PGGraphMomentNode *moment; // @synthesize moment=_moment;
 - (void).cxx_destruct;
 - (id)debugDescription;
+- (double)_calculateMatchingScoreForPartOfDayWithMatchingTrait:(id)arg1 requiredTrait:(id)arg2 requiresStrictMatching:(_Bool)arg3;
 - (void)_calculateMatchingScoreForLocationsWithMatchingTrait:(id)arg1 requiredTrait:(id)arg2 result:(CDUnknownBlockType)arg3;
 - (void)_calculateMatchingScoreForPOIROIWithMatchingTrait:(id)arg1 requiredTrait:(id)arg2 result:(CDUnknownBlockType)arg3;
 - (void)_calculateMatchingScoreForScenesWithRequiredCriteria:(id)arg1 result:(CDUnknownBlockType)arg2;

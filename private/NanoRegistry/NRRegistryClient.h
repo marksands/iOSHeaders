@@ -11,6 +11,7 @@
 @interface NRRegistryClient : NRRegistry
 {
     NSMutableDictionary *_diffIndexObservers;
+    _Bool _optimizeGetState;
     _Bool _outstandingRegistryQuery;
     int _devicesUpdateCounterNotifyToken_dispatch;
     int _devicesUpdateCounterNotifyToken_check;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) NSMutableArray *registryQueryCompletionBlockEntries; // @synthesize registryQueryCompletionBlockEntries=_registryQueryCompletionBlockEntries;
 @property(nonatomic) unsigned long long backoffDuration; // @synthesize backoffDuration=_backoffDuration;
 @property(nonatomic) _Bool outstandingRegistryQuery; // @synthesize outstandingRegistryQuery=_outstandingRegistryQuery;
+@property(nonatomic) _Bool optimizeGetState; // @synthesize optimizeGetState=_optimizeGetState;
 @property(nonatomic) int devicesUpdateCounterNotifyToken_check; // @synthesize devicesUpdateCounterNotifyToken_check=_devicesUpdateCounterNotifyToken_check;
 @property(nonatomic) int devicesUpdateCounterNotifyToken_dispatch; // @synthesize devicesUpdateCounterNotifyToken_dispatch=_devicesUpdateCounterNotifyToken_dispatch;
 @property(nonatomic) unsigned long long lastDevicesUpdateCounterNotifyTokenValue; // @synthesize lastDevicesUpdateCounterNotifyTokenValue=_lastDevicesUpdateCounterNotifyTokenValue;

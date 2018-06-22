@@ -14,6 +14,7 @@
 @interface HUCameraStreamContentViewController : UIViewController <HFItemManagerDelegate, PGPictureInPictureViewController>
 {
     _Bool _displayInterrupted;
+    _Bool _showActivityIndicatorWhenLoading;
     _Bool _streaming;
     unsigned long long _viewAppearanceState;
     unsigned long long _displayMode;
@@ -28,6 +29,7 @@
 @property(nonatomic) unsigned long long visibilityState; // @synthesize visibilityState=_visibilityState;
 @property(retain, nonatomic) HUCameraView *cameraView; // @synthesize cameraView=_cameraView;
 @property(retain, nonatomic) HFItemManager *itemManager; // @synthesize itemManager=_itemManager;
+@property(nonatomic) _Bool showActivityIndicatorWhenLoading; // @synthesize showActivityIndicatorWhenLoading=_showActivityIndicatorWhenLoading;
 @property(nonatomic) struct UIOffset defaultCameraBadgeOffset; // @synthesize defaultCameraBadgeOffset=_defaultCameraBadgeOffset;
 @property(retain, nonatomic) HFCameraAudioManager *cameraAudioManager; // @synthesize cameraAudioManager=_cameraAudioManager;
 @property(nonatomic) unsigned long long displayMode; // @synthesize displayMode=_displayMode;
@@ -35,7 +37,8 @@
 @property(nonatomic) unsigned long long viewAppearanceState; // @synthesize viewAppearanceState=_viewAppearanceState;
 - (void).cxx_destruct;
 - (void)_updateIdleTimer;
-- (void)_updateCameraViewsIncludingError:(_Bool)arg1;
+- (void)_updateCameraViewsIncludingOverlayContent:(_Bool)arg1;
+- (unsigned long long)_streamState;
 - (_Bool)_isStreaming;
 - (id)_preferredCameraSource;
 - (id)_cameraManager;

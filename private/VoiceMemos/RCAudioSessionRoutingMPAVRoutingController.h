@@ -6,7 +6,7 @@
 
 #import "MPAVRoutingController.h"
 
-@class AVAudioSession, AVAudioSessionPortDescription, MPAVRoute, NSArray, NSString, RCAudioSessionRoutingAssertion;
+@class AVAudioSession, AVAudioSessionPortDescription, AVAudioSessionRouteDescription, MPAVRoute, NSArray, NSString, RCAudioSessionRoutingAssertion;
 
 @interface RCAudioSessionRoutingMPAVRoutingController : MPAVRoutingController
 {
@@ -14,6 +14,7 @@
     NSString *_audioSessionCategory;
     RCAudioSessionRoutingAssertion *_audioSessionAssertion;
     unsigned long long _audioSessionCategoryOptions;
+    AVAudioSessionRouteDescription *_cachedCurrentRoute;
     _Bool _hasCategoryEverBeenActive;
     AVAudioSessionPortDescription *_cachedPickedInputRoutePortDescription;
     AVAudioSessionPortDescription *_cachedPickedOutputRoutePortDescription;
@@ -35,6 +36,8 @@
 - (void)fetchAvailableRoutesWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)_rcDelegate;
 - (void)setDelegate:(id)arg1;
+- (void)disableDetailedDiscoveryMode;
+- (void)enableDetailedDiscoveryMode;
 - (long long)outputRouteTypeForNavigationIcon;
 - (_Bool)makeAudioSessionCategoryActive:(id)arg1;
 @property(readonly, nonatomic) _Bool isRoutingToPhoneCall;

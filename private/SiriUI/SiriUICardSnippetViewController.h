@@ -81,6 +81,7 @@
 - (void)siriDidStopSpeakingWithIdentifier:(id)arg1 speechQueueIsEmpty:(_Bool)arg2;
 - (void)siriDidStartSpeakingWithIdentifier:(id)arg1;
 - (void)willCancel;
+- (void)siriDidDeactivate;
 - (void)wasAddedToTranscript;
 - (id)requestContext;
 - (_Bool)logContentsIfApplicable;

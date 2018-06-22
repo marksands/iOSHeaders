@@ -185,6 +185,7 @@
 - (id)autoRedEyeFilterWithFeatures:(id)arg1 options:(id)arg2;
 - (id)autoRedEyeFilterWithFeatures:(id)arg1 imageProperties:(id)arg2 options:(id)arg3;
 - (id)_autoRedEyeFilterWithFeatures:(id)arg1 imageProperties:(id)arg2 context:(id)arg3 options:(id)arg4;
+- (struct CGAffineTransform)inverseImageTransformForOrientation:(int)arg1;
 - (id)_dictForFeature:(id)arg1 invOrientationTransform:(struct CGAffineTransform)arg2 extent:(struct CGRect)arg3;
 - (struct CGPoint)pointWithDictionary:(id)arg1 name:(id)arg2 index:(int)arg3 transformedBy:(struct CGAffineTransform)arg4;
 - (id)imageWithMesh:(id)arg1 transform:(struct CGAffineTransform)arg2;

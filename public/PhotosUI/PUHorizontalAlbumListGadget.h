@@ -9,7 +9,7 @@
 #import "PUCloudSharedAlbumViewControllerDelegate.h"
 #import "PUStackedAlbumTransitionDelegate.h"
 
-@class NSString, PUAlbumDropSessionController, PUAlbumListViewControllerSpec, PUAlbumsGadgetProvider, PUPhotoPinchGestureRecognizer, PUSessionInfo;
+@class NSString, NSUserActivity, PUAlbumDropSessionController, PUAlbumListViewControllerSpec, PUAlbumsGadgetProvider, PUPhotoPinchGestureRecognizer, PUSessionInfo;
 
 @interface PUHorizontalAlbumListGadget : PXHorizontalCollectionGadget <PUStackedAlbumTransitionDelegate, PUCloudSharedAlbumViewControllerDelegate>
 {
@@ -17,14 +17,15 @@
     PUSessionInfo *_sessionInfo;
     PUPhotoPinchGestureRecognizer *_pinchGestureRecognizer;
     PUAlbumDropSessionController *_dropSessionController;
+    NSUserActivity *_siriActionActivity;
 }
 
+@property(retain, nonatomic) NSUserActivity *siriActionActivity; // @synthesize siriActionActivity=_siriActionActivity;
 @property(readonly, nonatomic) PUAlbumDropSessionController *dropSessionController; // @synthesize dropSessionController=_dropSessionController;
 @property(readonly, nonatomic) PUPhotoPinchGestureRecognizer *pinchGestureRecognizer; // @synthesize pinchGestureRecognizer=_pinchGestureRecognizer;
 @property(retain, nonatomic) PUSessionInfo *sessionInfo; // @synthesize sessionInfo=_sessionInfo;
 @property(readonly, nonatomic) PUAlbumsGadgetProvider *provider; // @synthesize provider=_provider;
 - (void).cxx_destruct;
-- (id)_collectionAtIndexPath:(id)arg1;
 - (void)sharedAlbumDeletedBySharedAlbumViewController:(id)arg1;
 - (id)stackedAlbumTransition:(id)arg1 layoutForPHCollection:(id)arg2 forCollectionView:(id)arg3;
 - (void)stackedAlbumTransition:(id)arg1 setVisibility:(_Bool)arg2 forPHCollection:(id)arg3;
@@ -44,7 +45,6 @@
 - (_Bool)_canUseStackedAlbumTransitionToNavigationToCollection:(id)arg1;
 - (void)_handlePinch:(id)arg1;
 @property(readonly, nonatomic) PUAlbumListViewControllerSpec *albumListViewControllerSpec;
-- (id)_albumGadgetForCollection:(id)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithAlbumsGadgetProvider:(id)arg1;

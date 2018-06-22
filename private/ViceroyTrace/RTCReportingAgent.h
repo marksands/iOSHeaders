@@ -36,7 +36,8 @@ __attribute__((visibility("hidden")))
 - (int)learntBitrateForSegment:(id)arg1 defaultValue:(int)arg2;
 - (void)reportingSetReportCallback:(CDUnknownFunctionPointerType)arg1 withContext:(void *)arg2;
 - (void)reportingSymptom:(unsigned int)arg1 withOptionalDict:(struct __CFDictionary *)arg2;
-- (void)sendAggregatedReport;
+- (void)sendAggregatedSessionReport;
+- (void)sendAggregatedCallReport;
 - (void)releaseReportingObject;
 - (void)didSendMessageForReportingClient:(id)arg1 event:(id)arg2;
 - (void)reportQR:(id)arg1;

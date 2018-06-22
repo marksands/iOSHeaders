@@ -9,10 +9,14 @@
 __attribute__((visibility("hidden")))
 @interface DownlinkSegment : MultiwaySegment
 {
+    id <DownlinkSegmentDelegate> _delegate;
 }
 
 - (id)segmentReport;
-- (id)initWithSegmentName:(id)arg1 previousSegmentName:(id)arg2;
+- (void)setDelegate:(id)arg1;
+- (id)delegate;
+- (void)dealloc;
+- (id)initWithSegmentName:(id)arg1 previousSegmentName:(id)arg2 delegate:(id)arg3;
 
 @end
 

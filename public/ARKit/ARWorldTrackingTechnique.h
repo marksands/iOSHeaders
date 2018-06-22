@@ -6,10 +6,12 @@
 
 #import <ARKit/ARImageBasedTechnique.h>
 
-@class ARWorldTrackingErrorData, ARWorldTrackingOptions, ARWorldTrackingPoseData, ARWorldTrackingReferenceAnchorData, NSObject<OS_dispatch_semaphore>;
+@class ARWorldTrackingErrorData, ARWorldTrackingOptions, ARWorldTrackingPoseData, ARWorldTrackingReferenceAnchorData, NSHashTable, NSObject<OS_dispatch_semaphore>;
 
 @interface ARWorldTrackingTechnique : ARImageBasedTechnique
 {
+    NSHashTable *_observers;
+    NSObject<OS_dispatch_semaphore> *_observersSemaphore;
     _Bool _useFixedIntrinsics;
     long long _vioHandleState;
     NSObject<OS_dispatch_semaphore> *_vioHandleStateSemaphore;
@@ -22,6 +24,7 @@
     double _lastQualityKeyframeTimestamp;
     long long _previousKeyframeCount;
     double _lastPoseTrackingMapTimestamp;
+    double _lastMajorRelocalizationTimestamp;
     _Bool _relocalizingAfterSensorDataDrop;
     _Bool _didRelocalize;
     _Bool _didClearMap;
@@ -39,8 +42,13 @@
 + (_Bool)supportsVideoResolution:(struct CGSize)arg1;
 + (_Bool)isSupported;
 - (void).cxx_destruct;
+- (id)getObservers;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1;
 - (void)removeReferenceAnchors:(id)arg1;
 - (void)addReferenceAnchors:(id)arg1;
+- (void)loadSurfaceData:(id)arg1;
+- (id)serializeSurfaceData;
 - (void)clearMap;
 - (id)serializeMapData;
 -     // Error parsing type: {?=[4]}24@0:8d16, name: cameraTransformAtTimestamp:

@@ -68,7 +68,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool resultsReady; // @synthesize resultsReady=_resultsReady;
 @property(nonatomic) __weak id <PUSearchResultsSectionedDataSourceChangeObserver> changeObserver; // @synthesize changeObserver=_changeObserver;
 - (void).cxx_destruct;
-@property(readonly, copy) NSString *description;
+@property(readonly, copy) NSString *debugDescription;
 - (id)debugDictionary;
 - (id)tapToRadarAttachments;
 - (id)_parentWordWithWord:(id)arg1;
@@ -86,9 +86,9 @@ __attribute__((visibility("hidden")))
 - (_Bool)hasPendingChanges;
 - (void)_asyncFetchAssetsWithQueryTag:(unsigned long long)arg1;
 - (id)_fetchObjectsWithEntityName:(id)arg1 uuids:(id)arg2;
-- (void)_inqBackgroundProcessAssetResults:(id)arg1 collectionResults:(id)arg2 tripResults:(id)arg3 topAssetsResult:(id)arg4 withTag:(unsigned long long)arg5 searchString:(id)arg6 representedObjects:(id)arg7;
+- (void)_inqBackgroundProcessAssetResults:(id)arg1 collectionResults:(id)arg2 tripResults:(id)arg3 topAssetsResult:(id)arg4 withTag:(unsigned long long)arg5 searchString:(id)arg6 representedObjects:(id)arg7 maxSuggestionCount:(unsigned long long)arg8;
 - (_Bool)_shouldCancel:(unsigned long long)arg1;
-- (void)setSearchString:(id)arg1 representedObjects:(id)arg2;
+- (void)setSearchString:(id)arg1 representedObjects:(id)arg2 maxSuggestionCount:(unsigned long long)arg3;
 - (id)titleForHeaderInSection:(long long)arg1;
 - (_Bool)isTopAssetsSection:(long long)arg1;
 - (id)searchResultAtIndexPath:(id)arg1;
@@ -102,7 +102,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithSearchIndex:(id)arg1;
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

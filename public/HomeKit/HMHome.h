@@ -22,9 +22,9 @@
     NSString *_mediaPassword;
     _Bool _primary;
     _Bool _notificationsEnabled;
-    _Bool _notificationEnableRequested;
     _Bool _ownerUser;
     _Bool _adminUser;
+    _Bool _notificationEnableRequested;
     int _locationAuthorization;
     NSUUID *_uniqueIdentifier;
     id <HMHomeDelegate> _delegate;
@@ -56,14 +56,12 @@
     NSObject<OS_dispatch_queue> *_propertyQueue;
     HMFMessageDispatcher *_msgDispatcher;
     HMThreadSafeMutableArrayCollection *_currentMediaSystems;
-    NSArray *_triggerOwnedActionSets;
 }
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)isValidMediaPassword:(id)arg1 error:(id *)arg2;
 + (id)generateMediaPasswordWithError:(id *)arg1;
 + (_Bool)accessorySupportsMediaAccessControl:(id)arg1;
-@property(readonly, copy, nonatomic) NSArray *triggerOwnedActionSets; // @synthesize triggerOwnedActionSets=_triggerOwnedActionSets;
 @property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentMediaSystems; // @synthesize currentMediaSystems=_currentMediaSystems;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
@@ -71,13 +69,10 @@
 @property(retain, nonatomic) HMDelegateCaller *delegateCaller; // @synthesize delegateCaller=_delegateCaller;
 @property(retain, nonatomic) HMRoom *homeAsRoom; // @synthesize homeAsRoom=_homeAsRoom;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
+@property(nonatomic) _Bool notificationEnableRequested; // @synthesize notificationEnableRequested=_notificationEnableRequested;
 @property(nonatomic) int locationAuthorization; // @synthesize locationAuthorization=_locationAuthorization;
 @property(nonatomic, getter=isAdminUser) _Bool adminUser; // @synthesize adminUser=_adminUser;
 @property(nonatomic, getter=isOwnerUser) _Bool ownerUser; // @synthesize ownerUser=_ownerUser;
-@property(copy) NSString *mediaPassword; // @synthesize mediaPassword=_mediaPassword;
-@property(getter=isMediaPeerToPeerEnabled) _Bool mediaPeerToPeerEnabled; // @synthesize mediaPeerToPeerEnabled=_mediaPeerToPeerEnabled;
-@property long long minimumMediaUserPrivilege; // @synthesize minimumMediaUserPrivilege=_minimumMediaUserPrivilege;
-@property(getter=isAutomaticSoftwareUpdateEnabled) _Bool automaticSoftwareUpdateEnabled; // @synthesize automaticSoftwareUpdateEnabled=_automaticSoftwareUpdateEnabled;
 @property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentOutgoingInvitations; // @synthesize currentOutgoingInvitations=_currentOutgoingInvitations;
 @property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentResidentDevices; // @synthesize currentResidentDevices=_currentResidentDevices;
 @property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentUsers; // @synthesize currentUsers=_currentUsers;
@@ -93,9 +88,6 @@
 @property(nonatomic) __weak HMSetupViewController *setupViewController; // @synthesize setupViewController=_setupViewController;
 @property(nonatomic) __weak HMHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 @property(readonly, nonatomic) unsigned long long homeHubState; // @synthesize homeHubState=_homeHubState;
-@property(nonatomic) _Bool notificationEnableRequested; // @synthesize notificationEnableRequested=_notificationEnableRequested;
-@property(copy, nonatomic) NSDate *notificationsUpdatedTime; // @synthesize notificationsUpdatedTime=_notificationsUpdatedTime;
-@property(nonatomic) _Bool notificationsEnabled; // @synthesize notificationsEnabled=_notificationsEnabled;
 - (void).cxx_destruct;
 - (void)_updateApplicationData:(id)arg1 forAppDataContainerWithUUID:(id)arg2 appDataContainerUUIDKeyName:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)updateApplicationData:(id)arg1 forAppDataContainerWithUUID:(id)arg2 appDataContainerUUIDKeyName:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -249,6 +241,8 @@
 - (id)initWithName:(id)arg1 uuid:(id)arg2 homeAsRoomUUID:(id)arg3 homeAsRoomName:(id)arg4 actionSets:(id)arg5;
 - (id)initWithName:(id)arg1 uuid:(id)arg2;
 - (id)init;
+@property(copy, nonatomic) NSDate *notificationsUpdatedTime; // @synthesize notificationsUpdatedTime=_notificationsUpdatedTime;
+@property(nonatomic, getter=areNotificationsEnabled) _Bool notificationsEnabled; // @synthesize notificationsEnabled=_notificationsEnabled;
 - (id)targetControllers;
 - (id)controlTargets;
 - (id)mediaSystems;
@@ -310,30 +304,23 @@
 - (void)_addServiceGroupWithName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)addServiceGroupWithName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, copy, nonatomic) NSArray *serviceGroups;
-- (_Bool)areNotificationsEnabled;
+- (void)removeUserWithoutConfirmation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)inviteUsers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)addUser:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)addUserWithoutConfirmation:(id)arg1 privilege:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)addUserWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)addUsersWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)owner;
 - (id)administrator;
 - (id)location;
 - (id)residentDevices;
 - (id)_createFailedAccessoriesListFromError:(id)arg1;
-- (void)_removeUser:(id)arg1 confirm:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)_addUser:(id)arg1 privilege:(long long)arg2 confirmWithLocalUser:(_Bool)arg3 confirmWithRemoteUser:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
-- (void)_inviteWithUserInformation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)inviteUsersWithInviteInformation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)inviteUsers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_removeUserWithoutConfirmation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)removeUserWithoutConfirmation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_addUser:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)addUser:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)_addUserWithoutConfirmation:(id)arg1 privilege:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)addUserWithoutConfirmation:(id)arg1 privilege:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_removeUser:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removeUser:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_addUserWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)addUserWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_inviteWithUserInformation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)inviteUsersWithInviteInformation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)homeAccessControlForUser:(id)arg1;
 - (void)_addUsersWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)addUsersWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_manageUsersWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)manageUsersWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSArray *users;
@@ -344,6 +331,7 @@
 - (void)_addActionSetWithName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)addActionSetWithName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)builtinActionSetOfType:(id)arg1;
+@property(readonly, copy, nonatomic) NSArray *triggerOwnedActionSets; // @dynamic triggerOwnedActionSets;
 @property(readonly, copy, nonatomic) NSArray *actionSets;
 - (void)_removeMediaSystem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removeMediaSystem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -360,9 +348,13 @@
 - (void)_queryRemoteAccessWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)queryRemoteAccessWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)updateAutomaticSoftwareUpdateEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
+@property(getter=isAutomaticSoftwareUpdateEnabled) _Bool automaticSoftwareUpdateEnabled; // @dynamic automaticSoftwareUpdateEnabled;
 - (void)updateMediaPassword:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+@property(copy) NSString *mediaPassword; // @dynamic mediaPassword;
 - (void)updateMediaPeerToPeerEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
+@property(getter=isMediaPeerToPeerEnabled) _Bool mediaPeerToPeerEnabled; // @dynamic mediaPeerToPeerEnabled;
 - (void)updateMinimumMediaUserPrivilege:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+@property long long minimumMediaUserPrivilege; // @dynamic minimumMediaUserPrivilege;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

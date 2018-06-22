@@ -27,6 +27,8 @@
 
 + (id)fakeFlightInformationWithAirlineCode:(id)arg1 flightNumber:(id)arg2 flightDate:(id)arg3;
 - (void).cxx_destruct;
+- (void)postHistoricalFlightInformationWithAirlineCode:(id)arg1 flightNumber:(id)arg2 flightDate:(id)arg3 andPayload:(id)arg4;
+- (id)historicalFlightInformationWithAirlineCode:(id)arg1 flightNumber:(id)arg2 flightDate:(id)arg3;
 - (id)_prepareArguments:(id)arg1;
 - (id)_prepareEntity:(id)arg1;
 - (id)outputExceptionsFromOutput:(id)arg1;
@@ -45,6 +47,7 @@
 - (id)sfAirportToDictionnary:(id)arg1;
 - (id)formattedDate:(id)arg1 withTimezone:(id)arg2;
 - (id)sfFlightsToDictionnary:(id)arg1;
+- (id)flightInformationWithAirlineCode:(id)arg1 flightNumber:(id)arg2 flightDate:(id)arg3;
 - (id)mappedArrayBufferForFileName:(id)arg1;
 - (void)initCurrentAsset;
 - (id)loadTrieWithFileName:(id)arg1;

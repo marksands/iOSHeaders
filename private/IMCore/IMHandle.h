@@ -122,6 +122,7 @@
 - (void)_fetchMapItemBannerImageDataForMapItem:(id)arg1;
 - (void)_mapItemImageDataFetchedWithResponse:(id)arg1 statusCode:(long long)arg2 resultData:(id)arg3 remoteURLConnectionError:(id)arg4;
 - (void)_fetchMapItemImageDataForMapItem:(id)arg1;
+- (void)_postOnScreenChangedNotificationForProperty:(id)arg1;
 - (void)_mapItemFetchedWithMapItems:(id)arg1 error:(id)arg2;
 - (void)_fetchBusinessInfo;
 - (void)sendNotificationABPersonChanged;

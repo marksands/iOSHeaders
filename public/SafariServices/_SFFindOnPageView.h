@@ -44,7 +44,7 @@
 - (void)next;
 - (void)previous;
 - (id)textForToolbarLabel;
-- (void)getShortMatchLabelText:(id *)arg1 longMatchLabelText:(id *)arg2;
+- (id)longMatchLabelText;
 - (id)matchLabelText;
 - (void)_webView:(id)arg1 didFailToFindString:(id)arg2;
 - (void)_webView:(id)arg1 didFindMatches:(unsigned long long)arg2 forString:(id)arg3 withMatchIndex:(long long)arg4;

@@ -18,6 +18,7 @@
 + (id)getFixedHighPrioritySerialQueueWithLabel:(id)arg1;
 + (id)getFixedPrioritySerialQueueWithLabel:(id)arg1 fixedPriority:(int)arg2;
 + (id)rootQueueWithFixedPriority:(int)arg1;
++ (_Bool)supportCircularBuffer;
 + (_Bool)shouldDeinterleaveAudioOnCS;
 + (_Bool)supportPacketDecoding;
 + (_Bool)hasRemoteCoreSpeech;
@@ -66,6 +67,7 @@
 + (id)stringForCSSpIdType:(unsigned long long)arg1;
 + (id)stringForInvocationStyle:(unsigned long long)arg1;
 + (id)alertMuteSettings;
++ (id)speexRecordSettings;
 + (id)opusRecordSettings;
 + (id)lpcmRecordSettings;
 + (id)voiceTriggerRecordContext;
@@ -88,6 +90,7 @@
 + (double)hostTimeToTimeInterval:(unsigned long long)arg1;
 + (float)hostTimeToSeconds:(unsigned long long)arg1;
 + (unsigned long long)secondsToHostTime:(float)arg1;
++ (_Bool)isRecordingContextBTDT:(id)arg1;
 + (_Bool)isRecordingContextHDVC:(id)arg1;
 + (_Bool)isRecordContextSpeakerIdTrainingTrigger:(id)arg1;
 + (_Bool)isRecordContextAutoPrompt:(id)arg1;

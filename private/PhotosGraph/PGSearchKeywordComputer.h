@@ -18,7 +18,7 @@
 - (id)eventNodeForUUID:(id)arg1 ofType:(unsigned long long)arg2;
 - (id)curationInfoForTripNode:(id)arg1;
 - (id)searchInformationByTripUUIDWithTripUUIDs:(id)arg1;
-- (id)searchKeywordsByAssetWithEventUUIDs:(id)arg1 ofType:(unsigned long long)arg2;
+- (id)assetSearchKeywordsByMomentUUIDWithEventUUIDs:(id)arg1 ofType:(unsigned long long)arg2;
 - (id)searchKeywordsByEventWithEventUUIDs:(id)arg1 ofType:(unsigned long long)arg2;
 - (id)initWithGraph:(id)arg1;
 

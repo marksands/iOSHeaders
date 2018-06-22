@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)applyUpdate:(id)arg1 toDisplayItem:(id)arg2;
 - (id)viewForIdentifier:(id)arg1;
+- (void)setupDisplayItem:(id)arg1;
 - (id)dependentEntryKeys;
 
 @end

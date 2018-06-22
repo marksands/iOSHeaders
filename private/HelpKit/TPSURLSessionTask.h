@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSHTTPURLResponse, NSHashTable, NSMutableData, NSObject<OS_dispatch_queue>, NSString, NSURL, NSURLSessionTask;
+@class NSError, NSHTTPURLResponse, NSHashTable, NSMutableData, NSObject<OS_dispatch_queue>, NSString, NSURL, NSURLSessionTask;
 
 @interface TPSURLSessionTask : NSObject
 {
@@ -23,11 +23,13 @@
     NSHTTPURLResponse *_response;
     NSString *_lastModified;
     NSMutableData *_dataTaskData;
+    NSError *_dataError;
     NSHashTable *_sessionTaskDelegates;
 }
 
 + (struct TPSURLSessionDelegateResponds)delegateRespondsWithDelegate:(id)arg1;
 @property(retain, nonatomic) NSHashTable *sessionTaskDelegates; // @synthesize sessionTaskDelegates=_sessionTaskDelegates;
+@property(retain, nonatomic) NSError *dataError; // @synthesize dataError=_dataError;
 @property(retain, nonatomic) NSMutableData *dataTaskData; // @synthesize dataTaskData=_dataTaskData;
 @property(retain, nonatomic) NSString *lastModified; // @synthesize lastModified=_lastModified;
 @property(retain, nonatomic) NSHTTPURLResponse *response; // @synthesize response=_response;

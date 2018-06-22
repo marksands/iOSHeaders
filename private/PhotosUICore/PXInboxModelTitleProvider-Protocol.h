@@ -6,10 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSAttributedString, UITraitCollection;
-
 @protocol PXInboxModelTitleProvider <NSObject>
-- (NSAttributedString *)subtitleForModel:(id <PXInboxModel>)arg1 withTraitCollection:(UITraitCollection *)arg2;
-- (NSAttributedString *)titleForModel:(id <PXInboxModel>)arg1 withTraitCollection:(UITraitCollection *)arg2;
+- (void)requestTitleAndSubtitleForModel:(id <PXInboxModel>)arg1 completion:(void (^)(NSAttributedString *, NSAttributedString *))arg2;
 @end
 

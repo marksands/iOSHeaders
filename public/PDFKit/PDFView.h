@@ -28,7 +28,7 @@
 - (void)updatePDFViewLayout:(struct CGRect)arg1 boundsInView:(struct CGRect)arg2 scrollViewFrame:(struct CGRect)arg3 zoomScale:(double)arg4;
 - (struct CGSize)autoScalePageSize;
 - (struct CGSize)pdfDocumentViewSize;
-- (void)setExtensionViewSafeAreaInsets:(struct UIEdgeInsets)arg1;
+- (void)setExtensionViewInsets:(struct UIEdgeInsets)arg1;
 - (void)setExtensionViewFrame:(struct CGRect)arg1;
 - (struct CGRect)extensionViewFrame;
 - (double)extensionViewZoomScale;
@@ -59,6 +59,7 @@
 - (_Bool)isForcingWebKitMainThread;
 - (void)forceWebKitMainThread:(_Bool)arg1;
 - (void)setForcesTopAlignment:(_Bool)arg1;
+@property(nonatomic, setter=enablePageShadows:) _Bool pageShadowsEnabled;
 - (void)setEnablePageShadows:(_Bool)arg1;
 - (_Bool)automaticallyHandleGutter;
 - (double)defaultGutterWidth;

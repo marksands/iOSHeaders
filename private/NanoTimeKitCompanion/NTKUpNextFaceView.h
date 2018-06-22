@@ -84,7 +84,6 @@
 - (void)elementAction:(id)arg1 didFinishTask:(_Bool)arg2;
 - (void)_switchViewModeForCurrentMode:(long long)arg1 animated:(_Bool)arg2;
 - (void)_handleViewModeTapGesture:(id)arg1;
-- (void)updateTimeLabelBackground;
 - (void)_layoutTimeLabelForViewMode:(long long)arg1;
 - (void)_layoutTimeLabelPlatterViewMode:(long long)arg1;
 - (id)_timeLabelStyleForViewMode:(long long)arg1;
@@ -144,6 +143,7 @@
 - (void)_startViewResetTimer;
 - (unsigned long long)_distanceForIndexPathFromNow:(id)arg1;
 - (void)_updateApplicationIdentifiersAndLocationAuthorization;
+- (id)_sectionEnumerationOrder;
 - (void)_availableDataSourcesDidChange;
 - (void)_switchViewModeToDefault;
 - (void)_configureForTransitionFraction:(double)arg1 fromEditMode:(long long)arg2 toEditMode:(long long)arg3;

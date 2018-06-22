@@ -18,6 +18,7 @@
 + (id)_localizationKeyForSeasonNode:(id)arg1;
 @property(readonly, nonatomic) NSArray *localizedSynonyms;
 @property(readonly, nonatomic) NSString *localizedName;
+- (void)enumerateMomentNodesUsingBlock:(CDUnknownBlockType)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

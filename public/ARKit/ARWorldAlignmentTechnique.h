@@ -16,6 +16,7 @@
     _Bool _trackingReferenced;
     _Bool _imageMirrored;
     long long _lastTrackingStateReason;
+    double _lastMajorRelocalizationTimestamp;
     _Bool _relocalizing;
     ARWorldAlignmentData *_relocalizedAlignmentData;
     NSObject<OS_dispatch_semaphore> *_dataSemaphore;

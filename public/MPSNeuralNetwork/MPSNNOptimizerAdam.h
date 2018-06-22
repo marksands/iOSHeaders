@@ -6,19 +6,25 @@
 
 #import <MPSNeuralNetwork/MPSNNOptimizer.h>
 
+@class NSObject<OS_dispatch_semaphore>;
+
 @interface MPSNNOptimizerAdam : MPSNNOptimizer
 {
     double _beta1;
     double _beta2;
     float _epsilon;
     unsigned long long _timeStep;
+    NSObject<OS_dispatch_semaphore> *_timeStepSemaphore;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
-@property(readonly, nonatomic) unsigned long long timeStep; // @synthesize timeStep=_timeStep;
+@property(nonatomic) unsigned long long timeStep; // @synthesize timeStep=_timeStep;
 @property(readonly, nonatomic) float epsilon; // @synthesize epsilon=_epsilon;
 @property(readonly, nonatomic) double beta2; // @synthesize beta2=_beta2;
 @property(readonly, nonatomic) double beta1; // @synthesize beta1=_beta1;
+- (void)dealloc;
+- (void)encodeToCommandBuffer:(id)arg1 batchNormalizationGradientState:(id)arg2 batchNormalizationSourceState:(id)arg3 inputMomentumVectors:(id)arg4 inputVelocityVectors:(id)arg5 resultState:(id)arg6;
+- (void)encodeToCommandBuffer:(id)arg1 convolutionGradientState:(id)arg2 convolutionSourceState:(id)arg3 inputMomentumVectors:(id)arg4 inputVelocityVectors:(id)arg5 resultState:(id)arg6;
 - (void)encodeToCommandBuffer:(id)arg1 inputGradientVector:(id)arg2 inputValuesVector:(id)arg3 inputMomentumVector:(id)arg4 inputVelocityVector:(id)arg5 resultValuesVector:(id)arg6;
 - (id)debugDescription;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;

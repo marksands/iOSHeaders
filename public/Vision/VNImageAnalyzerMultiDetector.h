@@ -15,6 +15,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (shared_ptr_eb20c8f2)createHierarchicalModelForMultiDetectorModel:(unsigned long long)arg1 requestRevision:(unsigned long long)arg2 error:(id *)arg3;
++ (unsigned long long)modelForRequestDetectionLevel:(unsigned long long)arg1;
++ (Class)detectorClassForConfigurationOptions:(id)arg1 error:(id *)arg2;
 + (id)configurationOptionKeysForDetectorKey;
 - (id).cxx_construct;
 - (void).cxx_destruct;

@@ -70,7 +70,7 @@ __attribute__((visibility("hidden")))
     struct CGRect extensionViewBoundsInView;
     double extensionViewZoomScale;
     struct CGRect extensionViewFrame;
-    struct UIEdgeInsets extensionViewSafeAreaInsets;
+    struct UIEdgeInsets extensionViewInsets;
 }
 
 - (void).cxx_destruct;

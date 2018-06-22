@@ -25,10 +25,12 @@
 - (void)subscriptionDetailsForCompletion:(id)arg1;
 - (void)remoteProvisioningDidBecomeAvailable;
 - (void)carrierInfoDidUpdate;
+- (void)localPlanInfoDidUpdate:(id)arg1;
 - (void)planInfoDidUpdate;
 - (id)getSubscriptionContextUUIDforPlan:(id)arg1;
 - (void)userDidProvideConsentResponse:(long long)arg1 forPlan:(id)arg2 isRemote:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)userDidProvideConsentResponse:(long long)arg1 forPlan:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)getPredefinedLabels;
 - (void)eraseAllRemotePlansWithCSN:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)eraseAllRemotePlansWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remotePlansSignupParamsForCsn:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -82,7 +84,9 @@
 - (void)didPurchasePlanWithIccid:(id)arg1 downloadProfile:(_Bool)arg2;
 - (void)setActivePlan:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)manageAccountForPlan:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)didSelectPlanForIMessage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)didSelectPlanForDefaultVoice:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)setLabelForPlan:(id)arg1 label:(id)arg2;
 - (void)setLabelForPlan:(id)arg1 label:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)didSelectPlanForData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)didSelectPlanItem:(id)arg1 isEnable:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
@@ -118,6 +122,7 @@
 - (void)addNewPlanWithCardData:(id)arg1 duringBuddy:(_Bool)arg2 userConsent:(long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)addNewPlanWithCardData:(id)arg1 triggerType:(long long)arg2 userConsent:(long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)addNewPlanWithCarrierItem:(id)arg1 duringBuddy:(_Bool)arg2 userConsent:(long long)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)addNewPlanWithUserInWebsheetWithCompletion:(CDUnknownBlockType)arg1;
 - (void)addNewPlanWithAddress:(id)arg1 matchingId:(id)arg2 oid:(id)arg3 confirmationCode:(id)arg4 triggerType:(long long)arg5 userConsent:(long long)arg6 completion:(CDUnknownBlockType)arg7;
 - (void)addNewPlanWithFlowType:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)addNewPlanWithCardData:(id)arg1 confirmationCode:(id)arg2 triggerType:(long long)arg3 userConsent:(long long)arg4 completion:(CDUnknownBlockType)arg5;

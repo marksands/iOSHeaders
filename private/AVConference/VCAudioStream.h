@@ -11,7 +11,7 @@
 #import "VCAudioIOSource.h"
 #import "VCMediaStreamSyncSource.h"
 
-@class AVTelephonyInterface, DTMFEventHandler, NSMutableArray, NSObject<OS_dispatch_source>, NSObject<VCMediaStreamSyncSourceDelegate>, NSString, VCAudioIO, VCAudioPayload, VCAudioTransmitter, WRMClient;
+@class AVTelephonyInterface, DTMFEventHandler, NSMutableArray, NSNumber, NSObject<OS_dispatch_source>, NSObject<VCMediaStreamSyncSourceDelegate>, NSString, VCAudioIO, VCAudioPayload, VCAudioTransmitter, WRMClient;
 
 __attribute__((visibility("hidden")))
 @interface VCAudioStream : VCMediaStream <VCMediaStreamSyncSource, VCAudioIOSource, VCAudioIOSink, VCAudioIODelegate>
@@ -35,7 +35,7 @@ __attribute__((visibility("hidden")))
     WRMClient *wrmClient;
     VCAudioPayload *currentAudioPayload;
     VCAudioPayload *currentDTXPayload;
-    // Error parsing type: ^{tagVCAudioReceiver={tagVCAudioReceiverConfig=I[3{tagVCAudioReceiverStream=^{tagHANDLE}S}]^v^vIiiB^{opaqueRTCReporting}iB^{__CFString}^{__CFString}SB}^v^v^{opaqueVCJitterBuffer}B^{AudioStreamBasicDescription}id^{tagVCRealTimeThread}{tagVCAudioReceiverReportingTask=^{opaqueRTCReporting}i^{tagHANDLE}}B{_opaque_pthread_mutex_t=q[56c]}{_opaque_pthread_mutex_t=q[56c]}{tagVCAudioDecoderList=^{tagDecoderSettings}I}I{tagVCAudioReceiverStatistics=AI}^{tagWRMMetricsInfo}^?{tagVCAudioReceiverCallbackContext=^v^?^?}^?{tagVCAudioReceiverCallbackContext=^v^?^?}I[2{_RTCPPacketList=(tagNTP=Q{?=II})C[10^{tagRTCPPACKET}][1472C]I[1472C]}]dI[300{tagPacketHistoryInfo=ISIBB}]SS^{tagVCAudioReceiverStream}SSBSS}, name: _audioReceiver
+    // Error parsing type: ^{tagVCAudioReceiver={tagVCAudioReceiverConfig=I[3{tagVCAudioReceiverStream=^{tagHANDLE}S}]^v^vIiiB^{opaqueRTCReporting}iB^{__CFString}^{__CFString}SB}^v^v^{opaqueVCJitterBuffer}B^{AudioStreamBasicDescription}id^{tagVCRealTimeThread}{tagVCAudioReceiverReportingTask=^{opaqueRTCReporting}i^{tagHANDLE}}B{_opaque_pthread_mutex_t=q[56c]}{_opaque_pthread_mutex_t=q[56c]}{tagVCAudioDecoderList=^{tagDecoderSettings}I}I{tagVCAudioReceiverStatistics=AI}^{tagWRMMetricsInfo}^?{tagVCAudioReceiverCallbackContext=^v^?^?}^?{tagVCAudioReceiverCallbackContext=^v^?^?}I[2{_RTCPPacketList=(tagNTP=Q{?=II})C[10^{tagRTCPPACKET}][1472C]I[1472C]}]dI[300{tagPacketHistoryInfo=ISIBB}]SS^{tagVCAudioReceiverStream}SSBSSSS}, name: _audioReceiver
     VCAudioTransmitter *_audioTransmitter;
     int _reportingModuleID;
     AVTelephonyInterface *_telephonyInterface;
@@ -54,11 +54,17 @@ __attribute__((visibility("hidden")))
     _Bool _isRemoteMediaStalled;
     int _packetsSinceStallCount;
     double _lastReceivedAudioTimestamp;
+    _Bool _currentDTXEnable;
+    NSNumber *_targetStreamID;
+    float _volume;
 }
 
 + (id)capabilities;
 + (id)supportedAudioPayloads;
 + (unsigned char)audioIODirectionWithMediaStreamDirection:(long long)arg1;
+@property(nonatomic) float volume; // @synthesize volume=_volume;
+@property(retain, nonatomic) NSNumber *targetStreamID; // @synthesize targetStreamID=_targetStreamID;
+@property(nonatomic, getter=isCurrentDTXEnabled) _Bool currentDTXEnable; // @synthesize currentDTXEnable=_currentDTXEnable;
 @property(nonatomic, getter=isRemoteMuted) _Bool remoteMuted; // @synthesize remoteMuted=_isRemoteMuted;
 @property(retain) VCAudioIO *audioIO; // @synthesize audioIO=_audioIO;
 @property(retain) VCAudioTransmitter *audioTransmitter; // @synthesize audioTransmitter=_audioTransmitter;

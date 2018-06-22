@@ -46,6 +46,11 @@
 @property(retain, nonatomic) NSProgress *currentGraphRebuildProgress; // @synthesize currentGraphRebuildProgress=_currentGraphRebuildProgress;
 @property(nonatomic) unsigned long long flags; // @synthesize flags=_flags;
 - (void).cxx_destruct;
+- (void)graphUpdateMadeProgress:(double)arg1;
+- (void)graphUpdateIsConsistent;
+- (void)graphUpdateDidStop;
+- (_Bool)wantsGraphUpdateNotifications;
+- (_Bool)wantsLiveGraphUpdates;
 - (void)requestSnapshotServiceForPeopleCurationResultsWithGraphOptions:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)requestGraphRebuildNeededWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)requestSnapshotServiceForRelatedResultsWithGraphOptions:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
@@ -163,7 +168,6 @@
 - (void)setupGraphManager;
 - (_Bool)_graphShouldBeConnected;
 - (void)didFinishLastPendingRequest;
-- (_Bool)wantsLiveGraphUpdates;
 - (void)photoAnalysisGraphManager:(id)arg1 willShutdownGraph:(id)arg2;
 - (void)shutdown;
 - (void)cooldown;

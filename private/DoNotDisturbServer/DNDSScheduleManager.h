@@ -28,8 +28,8 @@
 - (void).cxx_destruct;
 - (void)_queue_handleBehaviorOverrideUpdate:(id)arg1;
 - (void)_handleBehaviorOverrideUpdate:(id)arg1;
-- (id)_scheduleAssertionDateInterval;
-- (id)_scheduleAssertion;
+- (id)_queue_scheduleAssertionDateInterval;
+- (id)_queue_scheduleAssertion;
 - (id)allModeAssertionsWithError:(id *)arg1;
 - (id)assertionWithUUID:(id)arg1 error:(id *)arg2;
 - (id)transformedModeIdentifierForModeAssertion:(id)arg1;

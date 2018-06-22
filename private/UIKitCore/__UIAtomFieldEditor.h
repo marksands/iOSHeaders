@@ -9,6 +9,9 @@
 __attribute__((visibility("hidden")))
 @interface __UIAtomFieldEditor : UITextView
 {
+    struct {
+        unsigned int delegateConformsToFieldEditorDelegate:1;
+    } _atomFieldEditorFlags;
 }
 
 - (void)setBounds:(struct CGRect)arg1;
@@ -17,6 +20,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)_rectForScrollToVisible:(struct _NSRange)arg1;
 - (void)scrollRectToVisible:(struct CGRect)arg1 animated:(_Bool)arg2;
 - (id)selectionRectsForRange:(id)arg1;
+- (void)setDelegate:(id)arg1;
 - (void)paste:(id)arg1;
 - (void)copy:(id)arg1;
 - (void)cut:(id)arg1;

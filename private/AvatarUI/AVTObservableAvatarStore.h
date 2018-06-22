@@ -27,6 +27,7 @@
 - (void)deleteAvatar:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchAvatarsForFetchRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)avatarsForFetchRequest:(id)arg1 error:(id *)arg2;
+- (_Bool)canCreateAvatarWithError:(id *)arg1;
 - (_Bool)canCreateAvatar;
 - (id)initWithStore:(id)arg1 callbackQueue:(id)arg2;
 

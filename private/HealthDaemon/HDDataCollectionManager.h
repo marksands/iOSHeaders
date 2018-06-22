@@ -18,15 +18,19 @@
     NSMutableDictionary *_dataAggregatorsByType;
     NSMutableArray *_builtinCollectors;
     HDDatabaseCoalescedWritePool *_pendingSavePool;
+    double _pendingSaveCoalescingInterval;
+    CDUnknownBlockType _unitTest_aggregatorConfigurationChangedHandler;
     HDProfile *_profile;
     NSMutableDictionary *_dataCollectorsByType;
     NSMutableDictionary *_observersByType;
     HDBTLEHeartRateDataCollector *_blteHeartRateDataCollector;
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_assertionQueue;
     HDDemoManager *_demoManager;
 }
 
 @property(retain, nonatomic) HDDemoManager *demoManager; // @synthesize demoManager=_demoManager;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *assertionQueue; // @synthesize assertionQueue=_assertionQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) HDBTLEHeartRateDataCollector *blteHeartRateDataCollector; // @synthesize blteHeartRateDataCollector=_blteHeartRateDataCollector;
 @property(retain, nonatomic) NSMutableDictionary *observersByType; // @synthesize observersByType=_observersByType;
@@ -36,6 +40,9 @@
 - (id)diagnosticDescription;
 - (id)_dataCollectorsDiagnosticDescription;
 - (id)_observersDescription;
+- (void)unitTest_setPendingSaveCoalescingInterval:(double)arg1;
+- (void)unitTest_setAggregatorConfigurationChangeHandler:(CDUnknownBlockType)arg1;
+- (id)unitTest_dataAggregatorConfigurationForType:(id)arg1;
 - (void)unitTest_setAggregator:(id)arg1 forType:(id)arg2;
 - (void)addDataCollector:(id)arg1;
 - (void)stopDataCollectionForType:(id)arg1 observer:(id)arg2;
@@ -57,10 +64,10 @@
 - (void)_queue_alertCollectorsOfTypesWithObservers;
 - (double)_queue_defaultCollectionIntervalForType:(id)arg1;
 - (void)_queue_adjustDataCollectionForType:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (id)_dataAggregatorConfigurationForCollectorState:(CDStruct_0714bc26)arg1;
 - (CDStruct_0714bc26)_queue_collectionStateForType:(id)arg1;
 - (id)_queue_observerMapForType:(id)arg1;
 - (void)assertionManager:(id)arg1 assertionInvalidated:(id)arg2;
-- (void)assertionManager:(id)arg1 assertionTaken:(id)arg2;
 - (id)takeCollectionAssertionWithOwnerIdentifier:(id)arg1 sampleTypes:(id)arg2 observerState:(id)arg3 collectionInterval:(double)arg4;
 - (void)_requestAggregationThroughDate:(id)arg1 type:(id)arg2 mode:(long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_requestAggregationThroughDate:(id)arg1 types:(id)arg2 mode:(long long)arg3 completion:(CDUnknownBlockType)arg4;

@@ -33,6 +33,7 @@
 - (void)setNotificationsLevel:(unsigned long long)arg1 sectionID:(id)arg2 mirror:(_Bool)arg3 spoolToFile:(_Bool)arg4;
 - (void)setNotificationsLevel:(unsigned long long)arg1 sectionID:(id)arg2 mirror:(_Bool)arg3;
 - (void)removeSectionWithSectionID:(id)arg1;
+- (void)removeSectionWithSectionID:(id)arg1 sent:(CDUnknownBlockType)arg2;
 - (_Bool)isSectionInfoSentCacheEmpty;
 - (void)removeSectionInfoSentCacheForSectionID:(id)arg1;
 - (void)clearSectionInfoSentCache;

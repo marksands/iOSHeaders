@@ -14,6 +14,7 @@
     long long _trackingState;
     long long _trackingStateReason;
     unsigned long long _lensType;
+    long long _devicePosition;
     struct CGSize _imageResolution;
     // Error parsing type: , name: _tangentialDistortion
     // Error parsing type: , name: _radialDistortion
@@ -22,6 +23,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) long long devicePosition; // @synthesize devicePosition=_devicePosition;
 // Error parsing type for property tangentialDistortion:
 // Property attributes: T,N,V_tangentialDistortion
 
@@ -50,6 +52,7 @@
 // Error parsing type for property projectionMatrix:
 // Property attributes: T{?=[4]},R,N
 
+-     // Error parsing type: {?=[4]}16@0:8, name: displayCenterTransform
 - (struct CGPoint)principalPoint;
 - (struct CGPoint)focalLength;
 // Error parsing type for property eulerAngles:

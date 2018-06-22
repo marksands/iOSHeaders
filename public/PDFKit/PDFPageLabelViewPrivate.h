@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class PDFTimer, UILabel;
+@class PDFTimer, UILabel, _UIBackdropView;
 
 __attribute__((visibility("hidden")))
 @interface PDFPageLabelViewPrivate : NSObject
 {
+    _UIBackdropView *backdropView;
     UILabel *label;
     PDFTimer *visibilityTimer;
 }

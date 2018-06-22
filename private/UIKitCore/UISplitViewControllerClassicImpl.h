@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
     struct CGRect _rotatingToMasterViewFrame;
     NSArray *_cornerImageViews;
     UIView *_underBarSeparatorView;
+    UITraitCollection *_traitCollectionWhenRemovedFromWindow;
     _Bool _presentsWithGesture;
     UIGestureRecognizer *_popoverPresentationGestureRecognizer;
     UITapGestureRecognizer *_menuGestureRecognizer;

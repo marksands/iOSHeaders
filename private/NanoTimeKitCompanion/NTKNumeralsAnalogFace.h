@@ -22,7 +22,7 @@
 - (id)_complicationSlotDescriptors;
 - (void)_handleLocaleNumberSystemChange;
 - (void)dealloc;
-- (id)init;
+- (void)_commonInit;
 - (id)_complicationMigrationPaths;
 - (long long)_editModeForOldEncodingIndex:(long long)arg1;
 

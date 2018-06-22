@@ -79,6 +79,7 @@
 @property(readonly, nonatomic) long long userInterfaceFeature;
 - (id)memoriesTileSource:(id)arg1 memoryToPreheatForIndexPath:(struct PXSimpleIndexPath)arg2;
 - (void)tilingControllerZoomAnimationCoordinator:(id)arg1 enumerateTilesToAnimateInLayerWithType:(long long)arg2 layout:(id)arg3 zoomAnimationContext:(id)arg4 usingBlock:(CDUnknownBlockType)arg5;
+- (void)prepareForInteractiveTransition:(id)arg1;
 - (id)zoomAnimationCoordinatorForZoomTransition:(id)arg1;
 - (id)regionOfInterestForTransition:(id)arg1;
 - (id)px_endPointForTransition:(id)arg1;
@@ -114,7 +115,7 @@
 - (void)_invalidateLayout;
 - (id)createNewLayoutGenerator;
 - (void)_updateLayoutEngineIfNeeded;
-- (void)_invalidateLayoutEngine;
+- (void)invalidateLayoutEngine;
 - (_Bool)_needsUpdate;
 - (void)_updateIfNeeded;
 - (void)_setNeedsUpdate;

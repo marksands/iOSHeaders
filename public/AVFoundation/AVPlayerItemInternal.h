@@ -155,6 +155,7 @@ __attribute__((visibility("hidden")))
     AVWeakReference *playerReference;
     _Bool didSetAssetToAssetWithFigPlaybackItem;
     struct OpaqueFigCPEProtector *figCPEProtector;
+    NSString *videoEnhancementMode;
 }
 
 @end

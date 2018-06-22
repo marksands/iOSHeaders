@@ -63,6 +63,8 @@ __attribute__((visibility("hidden")))
     VCAdaptiveLearning *_adaptiveLearning;
 }
 
+- (int)shortTermMLAverageForSegment:(id)arg1;
+- (int)longTermMLAverageForSegment:(id)arg1;
 - (int)learntBitrateForSegment:(id)arg1 defaultValue:(int)arg2;
 - (void)updateTargetBitrateForSegment:(id)arg1 newValue:(int)arg2;
 - (int)adaptiveLearningState;
@@ -86,7 +88,8 @@ __attribute__((visibility("hidden")))
 - (unsigned int)RTPeriod;
 - (void)reset;
 - (void)flushCurrentSegment;
-- (id)aggregatedCallReport;
+- (id)aggregatedSessionReport;
+- (id)aggregatedCallReports;
 - (id)aggregatedSegmentQRReport;
 - (id)aggregatedSegmentReport:(int)arg1;
 - (void)saveCallSegmentHistory;

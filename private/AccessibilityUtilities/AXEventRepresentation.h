@@ -137,6 +137,7 @@
 - (struct __IOHIDEvent *)_newButtonHIDEventRefWithType:(unsigned int)arg1;
 - (struct __IOHIDEvent *)_newKeyboardHIDEventRef;
 - (struct __IOHIDEvent *)_newAccelerometerHIDEventRef;
+- (unsigned long long)_machTimeForHIDEventRef;
 - (_Bool)isDownEvent;
 - (struct __IOHIDEvent *)newHIDEventRef;
 - (unsigned int)_contextIDFromHIDEvent:(struct __IOHIDEvent *)arg1;

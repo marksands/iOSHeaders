@@ -15,6 +15,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (void)configureImportHeaderSubtitleLabel:(id)arg1;
+- (void)configureImportHeaderTitleLabel:(id)arg1;
 - (void)configureSlideshowMusicHeaderTitleLabel:(id)arg1;
 @property(readonly, nonatomic) UIColor *slideshowMusicHeaderTextColor;
 @property(readonly, nonatomic) UIColor *slideshowMusicHeaderBackgroundColor;

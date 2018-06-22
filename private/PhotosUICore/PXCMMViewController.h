@@ -7,6 +7,7 @@
 #import "UIViewController.h"
 
 #import "PXActionMenuDelegate.h"
+#import "PXAssetsDataSourceManagerObserver.h"
 #import "PXCMMActionControllerDelegate.h"
 #import "PXCMMActionPerformerDelegate.h"
 #import "PXCMMAssetsViewControllerDelegate.h"
@@ -16,9 +17,10 @@
 
 @class NSArray, NSProgress, NSString, PXActionMenuController, PXCMMAssetsProgressListener, PXCMMAssetsViewController, PXCMMSession, PXCMMSpecManager, PXOneUpPresentation, PXUpdater, UIActivityIndicatorView, UIBarButtonItem, UINavigationBar;
 
-@interface PXCMMViewController : UIViewController <PXChangeObserver, PXCMMAssetsViewControllerDelegate, PXCMMActionControllerDelegate, PXActionMenuDelegate, UIPopoverPresentationControllerDelegate, PXSectionedDataSourceManagerObserver, PXCMMActionPerformerDelegate>
+@interface PXCMMViewController : UIViewController <PXChangeObserver, PXCMMAssetsViewControllerDelegate, PXCMMActionControllerDelegate, PXActionMenuDelegate, UIPopoverPresentationControllerDelegate, PXSectionedDataSourceManagerObserver, PXAssetsDataSourceManagerObserver, PXCMMActionPerformerDelegate>
 {
     PXCMMAssetsProgressListener *_assetsProgressListener;
+    _Bool _hasStartedPreloadingTasks;
     _Bool _showTitleInNavigationBar;
     _Bool _loadingPeopleSuggestions;
     PXCMMSession *_session;
@@ -57,6 +59,7 @@
 - (_Bool)actionPerformer:(id)arg1 dismissViewController:(struct NSObject *)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)actionPerformer:(id)arg1 presentViewController:(struct NSObject *)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)_playMovie;
 - (void)actionMenu:(id)arg1 actionPerformer:(id)arg2 didChangeState:(unsigned long long)arg3;
 - (_Bool)actionMenu:(id)arg1 dismissViewController:(struct NSObject *)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)actionMenu:(id)arg1 presentViewController:(id)arg2;
@@ -78,7 +81,6 @@
 - (void)_handleActionButton;
 - (void)_completePeopleSuggestionsLoading;
 - (void)_presentComposeRecipientViewController;
-- (_Bool)_shouldWaitBeforePresentingComposeRecipientViewController;
 - (_Bool)_canPresentComposeRecipientViewController;
 - (void)_updateStyle;
 - (void)_updateActionProgress;
@@ -92,7 +94,8 @@
 - (_Bool)_shouldShowActionMenu;
 - (void)_setupNavigationItem;
 - (void)updateViewConstraints;
-- (void)viewWillDisappear:(_Bool)arg1;
+- (void)_startPreloadingTasksIfNeeded;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;

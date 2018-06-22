@@ -31,6 +31,8 @@
 - (id)secondaryTitleLabelString;
 - (id)titleLabelString;
 - (id)textAreaLabelStrings;
+- (id)detailsViews;
+- (id)titleView;
 - (id)viewForLastBaselineLayout;
 - (id)viewForFirstBaselineLayout;
 - (_Bool)noFootNote;

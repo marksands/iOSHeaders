@@ -45,6 +45,7 @@
 - (void)updateSelectionWithPoint:(struct CGPoint)arg1;
 - (void)selectionChangedWithTouchAt:(struct CGPoint)arg1 withSelectionTouch:(long long)arg2 withFlags:(long long)arg3;
 - (void)selectionChangedWithGestureAt:(struct CGPoint)arg1 withGesture:(long long)arg2 withState:(long long)arg3 withFlags:(long long)arg4;
+- (void)showSelectionView;
 - (id)_asText;
 - (void)selectionChanged;
 - (void)updateActivatingSelectionView;

@@ -21,11 +21,9 @@
 @property(readonly, nonatomic) NSArray *availableExperiments;
 @property(readonly, copy, nonatomic) NSNumber *currentModdedBucketID;
 @property(readonly, copy, nonatomic) NSString *feldsparID;
-@property(nonatomic) _Bool overrideDisableABTesting;
-@property(copy, nonatomic) NSArray *additionalSegmentSetIDs;
-@property(copy, nonatomic) NSArray *overrideSegmentSetIDs;
 @property(readonly, nonatomic) NSArray *segmentSetIDs;
 @property(readonly, nonatomic) NSArray *treatmentIDs;
 - (void)overrideConfigWithTreatment:(NSNumber *)arg1;
+- (void)fetchAppWidgetConfigurationWithCompletion:(void (^)(id <FCNewsAppConfiguration>, NSData *, NSError *))arg1;
 @end
 

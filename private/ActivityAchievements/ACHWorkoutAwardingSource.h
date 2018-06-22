@@ -33,7 +33,6 @@
 @property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (id)currentDate;
-- (id)_templatesForDate:(id)arg1;
 - (_Bool)_handlesTemplate:(id)arg1;
 - (id)_earnedInstancesForWorkouts:(id)arg1;
 - (void)samplesAdded:(id)arg1 anchor:(id)arg2;
@@ -41,7 +40,7 @@
 - (id)currentGoalQuantityForTemplate:(id)arg1;
 - (id)currentProgressQuantityForTemplate:(id)arg1;
 - (_Bool)providesProgressForTemplate:(id)arg1;
-- (id)earnedInstancesForHistoricalInterval:(id)arg1;
+- (id)earnedInstancesForHistoricalInterval:(id)arg1 databaseContext:(id)arg2;
 @property(readonly, nonatomic) NSString *uniqueName;
 - (void)daemonReady:(id)arg1;
 - (id)initWithProfile:(id)arg1 awardingEngine:(id)arg2 templateStore:(id)arg3 creatorDevice:(unsigned char)arg4 progressProvider:(id)arg5 workoutUtility:(id)arg6;

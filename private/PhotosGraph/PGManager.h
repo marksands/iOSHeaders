@@ -104,7 +104,6 @@
 - (void)performAsynchronousBarrierGraphWriteUsingBlock:(CDUnknownBlockType)arg1;
 @property(retain) PGGraph *graph; // @synthesize graph=_graph;
 - (id)initWithGraphName:(id)arg1 photoLibrary:(id)arg2;
-- (void)dealloc;
 - (id)processSubdirectoryName;
 - (id)graphPersistenceParentDirectoryCandidateURLs;
 @property(retain, nonatomic) NSURL *graphPersistenceParentDirectoryURL;
@@ -211,7 +210,7 @@
 - (id)titleTupleForMemory:(id)arg1 error:(id *)arg2;
 - (id)searchSynonymsDictionaries;
 - (id)searchInformationByTripUUIDWithTripUUIDs:(id)arg1;
-- (id)searchKeywordsByAssetWithUUIDs:(id)arg1 ofType:(unsigned long long)arg2;
+- (id)assetSearchKeywordsByMomentUUIDWithEventUUIDs:(id)arg1 ofType:(unsigned long long)arg2;
 - (id)searchKeywordsByEventWithUUIDs:(id)arg1 ofType:(unsigned long long)arg2;
 - (id)searchMetadataWithOptions:(id)arg1;
 - (id)zeroKeywordsWithOptions:(id)arg1;
@@ -274,8 +273,6 @@
 - (id)_locationTripKeywordsForMemory:(id)arg1 momentNodes:(id)arg2;
 - (id)_keywordsSortedByPriority:(id)arg1;
 - (id)moodKeywordsForMemory:(id)arg1;
-- (id)_collectionsNaturalLanguageFeaturesStatistics;
-- (id)_momentsNaturalLanguageFeaturesStatistics;
 - (id)_sortedTextFeaturesFromTextFeatures:(id)arg1;
 - (id)sharingMessageSuggestionDebugInformationForAssetCollection:(id)arg1;
 - (id)snapshotOuputFilePathURLForKey:(id)arg1;
@@ -333,13 +330,10 @@
 - (id)_bestAssetInAssets:(id)arg1 forReferencePeople:(id)arg2 minimumNumberOfCommonPeople:(unsigned long long)arg3 avoidVideoIfPossible:(_Bool)arg4;
 - (id)_bestAssetInAssets:(id)arg1 forReferencePeople:(id)arg2;
 - (id)bestAssetInAssets:(id)arg1 options:(id)arg2;
-- (id)_filteredAssetsWithFacesForAssets:(id)arg1;
+- (id)_filteredAssetsWithFaceFilter:(unsigned long long)arg1 forAssets:(id)arg2;
 - (double)contentScoreForAssetFeeder:(id)arg1 precision:(unsigned long long)arg2;
 - (_Bool)isAssetFeederInteresting:(id)arg1 precision:(unsigned long long)arg2;
 - (void)_removePrefetchBlock;
-- (id)sharingSuggestionsFromMessageStrings:(id)arg1;
-- (id)sharingSuggestionsFromMessageParticipantPHIdentifiers:(id)arg1;
-- (id)sharingSuggestionsFromMessageStrings:(id)arg1 participantPHIdentifiers:(id)arg2;
 - (_Bool)hasPendingUpdates;
 - (void)performBatchUpdates:(CDUnknownBlockType)arg1 progressHandler:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)reloadAssetCollections:(id)arg1;

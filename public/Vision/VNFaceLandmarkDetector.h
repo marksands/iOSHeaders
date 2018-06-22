@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
     _Bool modelFilesWereMemmapped;
 }
 
-+ (Class)detectorClassForConfigurationOptions:(id)arg1;
++ (Class)detectorClassForConfigurationOptions:(id)arg1 error:(id *)arg2;
 + (struct _Geometry2D_point2D_)_computeCentroidUsingPoints:(const struct _Geometry2D_point2D_ *)arg1 indicies:(const int *)arg2 numberOfIndicies:(int)arg3;
 - (id).cxx_construct;
 - (void).cxx_destruct;

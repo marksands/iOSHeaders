@@ -36,9 +36,11 @@
 + (_Bool)_persistStoreUUIDToMobileCPLPlist:(id)arg1;
 + (_Bool)_fixNilCloudMasterGUID:(id)arg1;
 + (_Bool)_fixAssetMasterResources:(id)arg1;
++ (_Bool)_repushVideoAssetsInStore:(id)arg1;
 + (_Bool)_repushAssetsWithAnyUserConfirmedFaceInStore:(id)arg1;
 + (_Bool)_repushAssetsWithNewGroupingPropertiesInStore:(id)arg1;
-+ (_Bool)_repushAssetsMatchingPredicate:(id)arg1 inStore:(id)arg2;
++ (_Bool)_repushAssetsMatchingPredicate:(id)arg1 inStore:(id)arg2 withMaster:(_Bool)arg3;
++ (_Bool)_findTruncatedOriginaFilesForStore:(id)arg1;
 + (id)_predicateForInconsistentHeifAssets;
 + (void)_fixIncorrectHeifMetadataForAsset:(id)arg1;
 + (_Bool)_fixIncorrectHeifMetadataInStore:(id)arg1;
@@ -101,6 +103,7 @@
 + (_Bool)_populateAdjustmentTimestampsOnAssets:(id)arg1;
 + (_Bool)_migrateCloudResourcesRelationshipsInStagedStore:(id)arg1;
 + (_Bool)_revalidateImportSessionDates:(id)arg1;
++ (_Bool)_setImportedByInPLCloudMaster:(id)arg1;
 + (_Bool)_persistImportSessionAlbumType:(id)arg1;
 + (_Bool)_createImportSessionAlbums:(id)arg1;
 + (_Bool)_removeInvalidImportSessionAlbums:(id)arg1;
@@ -241,7 +244,7 @@
 + (id)_newSyncedPropertiesByAssetUUIDs:(_Bool)arg1;
 + (id)_dateWithiTunesTimeInterval:(double)arg1;
 + (void)_forceCreateIndexOnOrderedAssets:(_Bool)arg1;
-+ (_Bool)shouldRebuildDCIMSubDirectoryAtURL:(id)arg1 directoryEnumerator:(id)arg2 assetsKind:(int *)arg3;
++ (_Bool)shouldImportAssetsFromDCIMSubDirectoryAtURL:(id)arg1 assetsKind:(int *)arg2;
 + (void)forceImportFileSystemDataIntoDatabase;
 + (void)setLoadingFacesFromFileSystem:(_Bool)arg1;
 + (_Bool)isLoadingFacesFromFileSystem;
@@ -270,6 +273,8 @@
 + (void)loadFileSystemDataIntoDatabaseIfNeededWithReason:(id)arg1;
 + (_Bool)waitForDataMigratorToExit;
 + (void)_createDatabase;
++ (void)_performRebuildPreventionSafetyCheckForInternalBuilds;
++ (void)_fatal_cannotProceedRebuildPreventionSafetyCheckTriggered;
 + (_Bool)_createPhotoDataDirectoryIfNecessary;
 + (void)_writeToPhotoDataDirectoryFailedWithNoPermission:(id)arg1;
 + (void)_createPhotoDataDirectoryFailedWithNoPermission:(id)arg1;

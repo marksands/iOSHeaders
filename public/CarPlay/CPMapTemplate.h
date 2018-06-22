@@ -10,13 +10,15 @@
 #import "CPBarButtonProviding.h"
 #import "CPMapButtonDelegate.h"
 #import "CPMapClientTemplateDelegate.h"
+#import "CPNavigationAlertUpdating.h"
 
-@class CPNavigationAlert, NSArray, NSMutableArray, NSMutableDictionary, NSString;
+@class CPMapTemplateConfiguration, CPNavigationAlert, NSArray, NSMutableArray, NSMutableDictionary, NSString;
 
-@interface CPMapTemplate : CPTemplate <CPMapButtonDelegate, CPMapClientTemplateDelegate, CPBannerDelegate, CPBarButtonProviding>
+@interface CPMapTemplate : CPTemplate <CPMapButtonDelegate, CPMapClientTemplateDelegate, CPBannerDelegate, CPNavigationAlertUpdating, CPBarButtonProviding>
 {
     _Bool _automaticallyHidesNavigationBar;
     _Bool _hidesButtonsWithNavigationBar;
+    CPMapTemplateConfiguration *_configuration;
     id <CPMapTemplateDelegate> _mapDelegate;
     CPNavigationAlert *_currentNavigationAlert;
     NSMutableDictionary *_postedBannerObjects;
@@ -34,6 +36,7 @@
 @property(nonatomic) __weak id <CPMapTemplateDelegate> mapDelegate; // @synthesize mapDelegate=_mapDelegate;
 @property(nonatomic) _Bool hidesButtonsWithNavigationBar; // @synthesize hidesButtonsWithNavigationBar=_hidesButtonsWithNavigationBar;
 @property(nonatomic) _Bool automaticallyHidesNavigationBar; // @synthesize automaticallyHidesNavigationBar=_automaticallyHidesNavigationBar;
+@property(readonly, nonatomic) CPMapTemplateConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)_updateBannerIfNecessaryForManeuver:(id)arg1 travelEstimates:(id)arg2;
 - (void)_postBannerIfNecessaryForNavigationAlert:(id)arg1;
@@ -41,17 +44,23 @@
 - (void)bannerTappedWithIdentifier:(id)arg1;
 - (void)bannerDidDisappearWithIdentifier:(id)arg1;
 - (void)bannerDidAppearWithIdentifier:(id)arg1;
+- (long long)_displayStyleForManeuver:(id)arg1;
 - (void)clientTripCanceledByExternalNavigation;
 - (void)clientNavigationAlertDidDisappear:(id)arg1 context:(unsigned long long)arg2;
 - (void)clientNavigationAlertWillDisappear:(id)arg1 context:(unsigned long long)arg2;
 - (void)clientNavigationAlertDidAppear:(id)arg1;
 - (void)clientNavigationAlertWillAppear:(id)arg1;
-- (void)clientPanWithDirection:(unsigned long long)arg1;
-- (void)clientPanEndedWithDirection:(unsigned long long)arg1;
-- (void)clientPanBeganWithDirection:(unsigned long long)arg1;
+- (void)clientPanWithDirection:(long long)arg1;
+- (void)clientPanGestureEndedWithVelocity:(struct CGPoint)arg1;
+- (void)clientPanGestureWithDeltaPoint:(struct CGPoint)arg1 velocity:(struct CGPoint)arg2;
+- (void)clientPanGestureBegan;
+- (void)clientPanEndedWithDirection:(long long)arg1;
+- (void)clientPanBeganWithDirection:(long long)arg1;
 - (void)clientPanViewDidDisappear;
 - (void)clientPanViewWillDisappear;
 - (void)clientPanViewDidAppear;
+- (void)clientTripAlreadyStartedException;
+@property(readonly, nonatomic, getter=isPanningInterfaceVisible) _Bool panningInterfaceVisible;
 - (void)dismissPanningInterfaceAnimated:(_Bool)arg1;
 - (void)showPanningInterfaceAnimated:(_Bool)arg1;
 - (void)startTripIdentifier:(id)arg1 usingRouteIdentifier:(id)arg2;
@@ -59,18 +68,21 @@
 - (void)_resolveTrip:(id)arg1 routeChoice:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)handleActionForControlIdentifier:(id)arg1;
 @property(retain, nonatomic) NSArray *mapButtons;
+- (void)_updateNavigationAlert:(id)arg1;
 - (void)dismissNavigationAlertAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)presentNavigationAlert:(id)arg1 animated:(_Bool)arg2;
 - (_Bool)mapButton:(id)arg1 setFocusedImage:(id)arg2;
 - (_Bool)mapButton:(id)arg1 setImage:(id)arg2;
 - (_Bool)mapButton:(id)arg1 setHidden:(_Bool)arg2;
 - (id)startNavigationSessionForTrip:(id)arg1;
+- (void)updateTravelEstimates:(id)arg1 forTrip:(id)arg2 withTimeRemainingColor:(unsigned long long)arg3;
 - (void)updateTravelEstimates:(id)arg1 forTrip:(id)arg2;
 - (void)hideTripPreviews;
-- (void)showTripPreviews:(id)arg1;
+- (void)showTripPreviews:(id)arg1 textConfiguration:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
+- (id)initWithConfiguration:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

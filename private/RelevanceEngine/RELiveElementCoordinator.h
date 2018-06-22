@@ -10,30 +10,31 @@
 #import "REElementDataSourceControllerDelegate.h"
 #import "REElementRelevanceEngineDelegate.h"
 
-@class NSCountedSet, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, REElementRelevanceEngine, REUpNextScheduler;
+@class NSCountedSet, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, REElementRelevanceEngine, REUpNextScheduler;
 
 @interface RELiveElementCoordinator : REElementCoordinator <REElementDataSourceControllerDelegate, REElementRelevanceEngineDelegate, REDataSourceManagerObserver>
 {
     REElementRelevanceEngine *_relevanceEngine;
     NSMutableDictionary *_elementIdElementMap;
-    NSMutableArray *_updateList;
     REUpNextScheduler *_scheduler;
     NSObject<OS_dispatch_queue> *_controllerQueue;
     _Bool _reloadImmediately;
     NSCountedSet *_remainingInsertOperations;
     NSCountedSet *_remainingRemoveOperations;
     unsigned long long _currentReloadTryCount;
+    NSMutableSet *_refreshedElements;
 }
 
 - (void).cxx_destruct;
+- (void)collectLoggableState:(CDUnknownBlockType)arg1;
 - (void)_onqueue_async:(CDUnknownBlockType)arg1;
 - (void)relevanceEngine:(id)arg1 elementWasRemoved:(id)arg2;
 - (void)relevanceEngine:(id)arg1 elementWasAdded:(id)arg2;
 - (void)relevanceEngine:(id)arg1 didMoveElement:(id)arg2 fromPath:(id)arg3 toPath:(id)arg4;
 - (void)relevanceEngine:(id)arg1 didRemoveElement:(id)arg2 atPath:(id)arg3;
 - (void)relevanceEngine:(id)arg1 didInsertElement:(id)arg2 atPath:(id)arg3;
-- (void)_main_queue_performViewUpdates:(id)arg1 toCoordinator:(id)arg2;
-- (void)_queue_scheduleElementUpdate:(id)arg1;
+- (void)relevanceEngine:(id)arg1 performedBatchUpdates:(CDUnknownBlockType)arg2;
+- (void)_queue_scheduleContentUpdate:(_Bool)arg1;
 - (void)_queue_reload;
 - (void)_queue_removeElement:(id)arg1;
 - (void)_queue_refreshElement:(id)arg1;

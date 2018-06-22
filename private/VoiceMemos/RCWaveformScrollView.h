@@ -12,9 +12,6 @@ __attribute__((visibility("hidden")))
     unsigned long long _ignoreContentOffsetChangesCount;
 }
 
-- (id)accessibilityValue;
-- (id)accessibilityLabel;
-- (_Bool)isAccessibilityElement;
 - (struct CGRect)convertRect:(struct CGRect)arg1 fromView:(id)arg2 usingCurrentAnimatedPosition:(_Bool)arg3;
 - (struct CGPoint)contentOffsetInPresentationLayer:(_Bool)arg1;
 - (void)setContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2;

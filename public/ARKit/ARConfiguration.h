@@ -48,6 +48,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)renderingTechnique;
+- (void)createTechniquesWithParallelTechniques:(id)arg1 serialTechniques:(id)arg2;
 - (id)techniques;
 @property(readonly, nonatomic) ARReplaySensor *replaySensor;
 @property(readonly, nonatomic) NSString *deviceModel;

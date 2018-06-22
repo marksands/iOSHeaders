@@ -18,6 +18,8 @@
     ARImageDetectionResultData *_referenceImageData;
     _Bool _finishedLoadingImages;
     _Bool _tracking;
+    _Bool _deterministicMode;
+    struct shared_ptr<arkit::KeyMapBuffer<const void *, std::__1::vector<unsigned char, std::__1::allocator<unsigned char>>>> _poseBuffer;
     _Bool _needsWorldTrackingPoseData;
     ARODTHandleManager *_odtTHandleManger;
     NSDictionary *_referenceImageMap;
@@ -25,10 +27,12 @@
 
 @property(readonly) NSDictionary *referenceImageMap; // @synthesize referenceImageMap=_referenceImageMap;
 @property(readonly) ARODTHandleManager *odtTHandleManger; // @synthesize odtTHandleManger=_odtTHandleManger;
+- (id).cxx_construct;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (void)_loadReferenceImages;
 @property(readonly, nonatomic) _Bool finishedLoadingImages;
+- (_Bool)deterministicMode;
 - (long long)captureBehavior;
 - (double)requiredTimeInterval;
 - (_Bool)syncWithProcessedImage;

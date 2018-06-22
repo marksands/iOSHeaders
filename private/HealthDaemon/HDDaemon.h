@@ -11,7 +11,7 @@
 #import "HDTaskServerClassProvider.h"
 #import "HDXPCListenerDelegate.h"
 
-@class HDAlertSuppressor, HDAnalyticsSubmissionCoordinator, HDAppLauncher, HDBackgroundTaskScheduler, HDBackgroundWorkoutRunner, HDCarouselServicesManager, HDCloudSyncCoordinator, HDCoachingDiagnosticManager, HDCompanionWorkoutCreditManager, HDContentProtectionManager, HDCoreMotionWorkoutInterface, HDDemoDataGenerator, HDFeatureAvailabilityAssetManager, HDFitnessAppBadgeManager, HDHeartRateRecoveryManager, HDMaintenanceWorkCoordinator, HDPluginManager, HDPowerSavingModeManager, HDPrimaryProfile, HDProcessStateManager, HDProfileManager, HDQueryManager, HDQuietModeManager, HDTaskServerRegistry, HDXPCListener, NSDictionary, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSURL, _HKBehavior;
+@class HDAnalyticsSubmissionCoordinator, HDBackgroundTaskScheduler, HDCloudSyncCoordinator, HDCoachingDiagnosticManager, HDCompanionWorkoutCreditManager, HDContentProtectionManager, HDDemoDataGenerator, HDFeatureAvailabilityAssetManager, HDFitnessAppBadgeManager, HDMaintenanceWorkCoordinator, HDPluginManager, HDPrimaryProfile, HDProcessStateManager, HDProfileManager, HDQueryManager, HDTaskServerRegistry, HDWorkoutPluginDaemonExtension, HDXPCListener, NSDictionary, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSURL, _HKBehavior;
 
 @interface HDDaemon : NSObject <HDTaskServerClassProvider, HDDiagnosticObject, HDXPCListenerDelegate, HDHealthDaemon>
 {
@@ -35,46 +35,30 @@
     NSDictionary *_daemonExtensionsByIdentifier;
     NSString *_medicalIDDirectoryPath;
     HDAnalyticsSubmissionCoordinator *_analyticsSubmissionCoordinator;
-    HDAlertSuppressor *_alertSuppressor;
     id <HDNanoAlertSuppressionService> _alertSuppressionService;
-    HDBackgroundWorkoutRunner *_backgroundWorkoutRunner;
-    HDCarouselServicesManager *_carouselServicesManager;
     HDCoachingDiagnosticManager *_coachingDiagnosticManager;
     HDCompanionWorkoutCreditManager *_companionWorkoutCreditManager;
-    HDCoreMotionWorkoutInterface *_coreMotionWorkoutInterface;
     HDFeatureAvailabilityAssetManager *_featureAvailabilityAssetManager;
     HDFitnessAppBadgeManager *_fitnessAppBadgeManager;
-    HDHeartRateRecoveryManager *_heartRateRecoveryManager;
     HDMaintenanceWorkCoordinator *_maintenanceWorkCoordinator;
-    HDPowerSavingModeManager *_powerSavingModeManager;
     HDQueryManager *_queryManager;
-    HDQuietModeManager *_quietModeManager;
     HDXPCListener *_serviceListener;
-    HDAppLauncher *_appLauncher;
     HDTaskServerRegistry *_taskServerRegistry;
     id <HDDaemonTester> _daemonTester;
 }
 
 @property(nonatomic) __weak id <HDDaemonTester> daemonTester; // @synthesize daemonTester=_daemonTester;
 @property(readonly, nonatomic) HDTaskServerRegistry *taskServerRegistry; // @synthesize taskServerRegistry=_taskServerRegistry;
-@property(readonly, nonatomic) HDAppLauncher *appLauncher; // @synthesize appLauncher=_appLauncher;
 @property(readonly, nonatomic) HDXPCListener *serviceListener; // @synthesize serviceListener=_serviceListener;
-@property(readonly, nonatomic) HDQuietModeManager *quietModeManager; // @synthesize quietModeManager=_quietModeManager;
 @property(readonly, nonatomic) HDQueryManager *queryManager; // @synthesize queryManager=_queryManager;
 @property(readonly, nonatomic) HDPrimaryProfile *primaryProfile; // @synthesize primaryProfile=_primaryProfile;
-@property(readonly, nonatomic) HDPowerSavingModeManager *powerSavingModeManager; // @synthesize powerSavingModeManager=_powerSavingModeManager;
 @property(readonly, nonatomic) HDMaintenanceWorkCoordinator *maintenanceWorkCoordinator; // @synthesize maintenanceWorkCoordinator=_maintenanceWorkCoordinator;
-@property(readonly, nonatomic) HDHeartRateRecoveryManager *heartRateRecoveryManager; // @synthesize heartRateRecoveryManager=_heartRateRecoveryManager;
 @property(readonly, nonatomic) HDFitnessAppBadgeManager *fitnessAppBadgeManager; // @synthesize fitnessAppBadgeManager=_fitnessAppBadgeManager;
 @property(readonly, nonatomic) HDFeatureAvailabilityAssetManager *featureAvailabilityAssetManager; // @synthesize featureAvailabilityAssetManager=_featureAvailabilityAssetManager;
-@property(readonly, nonatomic) HDCoreMotionWorkoutInterface *coreMotionWorkoutInterface; // @synthesize coreMotionWorkoutInterface=_coreMotionWorkoutInterface;
 @property(readonly, nonatomic) HDCompanionWorkoutCreditManager *companionWorkoutCreditManager; // @synthesize companionWorkoutCreditManager=_companionWorkoutCreditManager;
 @property(readonly, nonatomic) HDCoachingDiagnosticManager *coachingDiagnosticManager; // @synthesize coachingDiagnosticManager=_coachingDiagnosticManager;
 @property(readonly, nonatomic) HDCloudSyncCoordinator *cloudSyncCoordinator; // @synthesize cloudSyncCoordinator=_cloudSyncCoordinator;
-@property(readonly, nonatomic) HDCarouselServicesManager *carouselServicesManager; // @synthesize carouselServicesManager=_carouselServicesManager;
-@property(readonly, nonatomic) HDBackgroundWorkoutRunner *backgroundWorkoutRunner; // @synthesize backgroundWorkoutRunner=_backgroundWorkoutRunner;
 @property(retain, nonatomic) id <HDNanoAlertSuppressionService> alertSuppressionService; // @synthesize alertSuppressionService=_alertSuppressionService;
-@property(readonly, nonatomic) HDAlertSuppressor *alertSuppressor; // @synthesize alertSuppressor=_alertSuppressor;
 @property(retain, nonatomic) HDAnalyticsSubmissionCoordinator *analyticsSubmissionCoordinator; // @synthesize analyticsSubmissionCoordinator=_analyticsSubmissionCoordinator;
 @property(readonly, copy) NSString *medicalIDDirectoryPath; // @synthesize medicalIDDirectoryPath=_medicalIDDirectoryPath;
 - (void).cxx_destruct;
@@ -94,6 +78,7 @@
 - (id)_newMainQueue;
 - (id)_newBehavior;
 - (id)diagnosticDescription;
+@property(readonly, nonatomic) HDWorkoutPluginDaemonExtension *workoutPluginExtension;
 @property(readonly, nonatomic) HDProfileManager *profileManager;
 @property(readonly) HDPluginManager *pluginManager;
 @property(readonly, nonatomic) HDProcessStateManager *processStateManager;
@@ -120,6 +105,7 @@
 - (_Bool)_motionTrackingAvailable;
 - (void)_setUpPedometerLaunchEventHandler;
 - (void)_setupMemoryWarningHandler;
+- (void)_handleLaunchServicesEvent:(id)arg1 name:(id)arg2;
 - (void)_setUpDistnotedEventHandler;
 - (void)_setUpNotifydEventHandler;
 - (void)_setUpLaunchEventHandlers;
