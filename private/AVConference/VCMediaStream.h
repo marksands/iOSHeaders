@@ -12,7 +12,7 @@
 #import "VCMediaStreamTransportDelegate.h"
 #import "VCSecurityEventHandler.h"
 
-@class AVCBasebandCongestionDetector, AVCStatisticsCollector, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, VCDatagramChannelIDS, VCMediaStreamConfig, VCMediaStreamTransport, VCWeakObjectHolder;
+@class AVCBasebandCongestionDetector, AVCStatisticsCollector, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, VCDatagramChannelIDS, VCMasterKeyIndex, VCMediaStreamConfig, VCMediaStreamTransport, VCWeakObjectHolder;
 
 __attribute__((visibility("hidden")))
 @interface VCMediaStream : VCObject <VCMediaStreamProtocol, RTCPReportProvider, VCSecurityEventHandler, VCMediaStreamTransportDelegate, VCConnectionChangedHandler>
@@ -33,7 +33,6 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_source> *_timeoutHeartbeat;
     double _lastRTPTimeoutReportTime;
     double _lastRTCPTimeoutReportTime;
-    double _firstMediaPacketReceiveTime;
     unsigned int _localSSRC;
     unsigned int _transportSessionID;
     VCWeakObjectHolder *_notificationDelegate;
@@ -45,10 +44,10 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_transportArray;
     CDUnknownFunctionPointerType _vcMediaCallback;
     struct tagVCMediaQueue *_mediaQueue;
+    VCMasterKeyIndex *_lastReceivedMKI;
 }
 
 + (_Bool)isSameSRTPKey:(id)arg1 newKey:(id)arg2;
-@property(nonatomic) double firstMediaPacketReceiveTime; // @synthesize firstMediaPacketReceiveTime=_firstMediaPacketReceiveTime;
 @property(nonatomic) int operatingMode; // @synthesize operatingMode=_operatingMode;
 @property(nonatomic) struct tagVCMediaQueue *mediaQueue; // @synthesize mediaQueue=_mediaQueue;
 @property(retain, nonatomic) AVCBasebandCongestionDetector *basebandCongestionDetector; // @synthesize basebandCongestionDetector=_basebandCongestionDetector;
@@ -58,6 +57,7 @@ __attribute__((visibility("hidden")))
 - (void)handleActiveConnectionChange:(id)arg1;
 - (void)collectTxChannelMetrics:(CDStruct_1c8e0384 *)arg1;
 - (void)collectRxChannelMetrics:(CDStruct_1c8e0384 *)arg1;
+- (void)collectRxChannelMetrics:(CDStruct_1c8e0384 *)arg1 interval:(float)arg2;
 @property(readonly, nonatomic) double rtcpHeartbeatLeeway;
 @property(readonly, nonatomic) double lastReceivedRTCPPacketTime;
 @property(readonly, nonatomic) double lastReceivedRTPPacketTime;
@@ -108,7 +108,7 @@ __attribute__((visibility("hidden")))
 - (void)stop;
 - (void)start;
 - (_Bool)setStreamConfig:(id)arg1 withError:(id *)arg2;
-- (void)handleEncryptionInfoChange:(id)arg1;
+- (_Bool)handleEncryptionInfoChange:(id)arg1;
 - (id)createTransport;
 - (char *)streamStateToString:(int)arg1;
 - (void)unlock;

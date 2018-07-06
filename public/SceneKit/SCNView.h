@@ -9,7 +9,7 @@
 #import "SCNSceneRenderer.h"
 #import "SCNTechniqueSupport.h"
 
-@class AVAudioEngine, AVAudioEnvironmentNode, CALayer, EAGLContext, NSArray, NSRecursiveLock, NSString, NSThread, SCNCameraController, SCNDisplayLink, SCNJitterer, SCNNode, SCNRenderer, SCNScene, SCNSpriteKitEventHandler, SCNTechnique, SKScene, UIColor;
+@class AVAudioEngine, AVAudioEnvironmentNode, CALayer, EAGLContext, NSArray, NSString, SCNCameraController, SCNDisplayLink, SCNJitterer, SCNNode, SCNRecursiveLock, SCNRenderer, SCNScene, SCNSpriteKitEventHandler, SCNTechnique, SKScene, UIColor;
 
 @interface SCNView : UIView <SCNSceneRenderer, SCNTechniqueSupport>
 {
@@ -38,7 +38,7 @@
     long long _preferredFramePerSeconds;
     CALayer *_backingLayer;
     SCNJitterer *_jitterer;
-    NSRecursiveLock *_lock;
+    SCNRecursiveLock *_lock;
     UIColor *_backgroundColor;
     struct CGSize _boundsSize;
     char *_snapshotImageData;
@@ -46,7 +46,6 @@
     id <SCNEventHandler> _navigationCameraController;
     SCNSpriteKitEventHandler *_spriteKitEventHandler;
     NSArray *_controllerGestureRecognizers;
-    NSThread *_rendererThread;
 }
 
 + (id)currentUIFocusEnvironment;
@@ -123,6 +122,7 @@
 - (_Bool)_checkAndUpdateDisplayLinkStateIfNeeded;
 - (void)_createDisplayLinkIfNeeded;
 - (double)_renderThreadPriority;
+- (void)setDisplayLink:(id)arg1;
 - (id)displayLink;
 - (void)set_wantsSceneRendererDelegationMessages:(_Bool)arg1;
 - (_Bool)_wantsSceneRendererDelegationMessages;
@@ -143,7 +143,7 @@
 - (id)navigationCameraController;
 - (id)eventHandler;
 - (void)setEventHandler:(id)arg1;
-@property(nonatomic) id <SCNSceneRendererDelegate> delegate;
+@property(nonatomic) __weak id <SCNSceneRendererDelegate> delegate;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (struct SCNVector3)unprojectPoint:(struct SCNVector3)arg1;
 - (struct SCNVector3)projectPoint:(struct SCNVector3)arg1;
@@ -195,7 +195,6 @@
 @property(retain, nonatomic) SCNScene *scene;
 - (void)presentScene:(id)arg1 withTransition:(id)arg2 incomingPointOfView:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)dealloc;
-- (void)_cancelRendererThread:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)_selectRenderingAPIWithOptions:(id)arg1;
@@ -203,6 +202,7 @@
 - (id)initWithFrame:(struct CGRect)arg1 options:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_commonInit:(id)arg1;
+- (void)_initializeDisplayLink;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

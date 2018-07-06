@@ -21,6 +21,7 @@
 
 + (struct CGSize)intrinsicContentSizeForOrientation:(long long)arg1;
 + (double)regionSpacing;
++ (double)expandedItemSpacing;
 + (double)itemSpacing;
 + (double)cornerRadius;
 + (double)height;

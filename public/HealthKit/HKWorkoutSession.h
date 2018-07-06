@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+#import "HKStateMachineDelegate.h"
 #import "NSSecureCoding.h"
 #import "_HKXPCExportable.h"
 
-@class HKHealthStore, HKLiveWorkoutBuilder, HKTaskServerProxyProvider, HKWorkoutConfiguration, HKWorkoutSessionTaskConfiguration, NSDate, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HKHealthStore, HKLiveWorkoutBuilder, HKStateMachine, HKTaskServerProxyProvider, HKWorkoutConfiguration, HKWorkoutSessionTaskConfiguration, NSDate, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
-@interface HKWorkoutSession : NSObject <_HKXPCExportable, NSSecureCoding>
+@interface HKWorkoutSession : NSObject <_HKXPCExportable, HKStateMachineDelegate, NSSecureCoding>
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_clientQueue;
@@ -23,6 +24,7 @@
     HKTaskServerProxyProvider *_proxyProvider;
     id <HKWorkoutSessionDelegate> _strongDelegate;
     HKLiveWorkoutBuilder *_associatedWorkoutBuilder;
+    HKStateMachine *_targetStateMachine;
     HKHealthStore *_healthStore;
 }
 
@@ -30,8 +32,11 @@
 + (id)serverInterface;
 + (id)clientInterface;
 + (_Bool)_applicationHasRunningWorkout;
++ (id)targetWorkoutSessionStateMachineForSessionUUID:(id)arg1;
 @property(readonly, nonatomic) HKHealthStore *healthStore; // @synthesize healthStore=_healthStore;
 - (void).cxx_destruct;
+- (void)stopActivity;
+- (void)startActivity;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_unitTest_discardAssociatedWorkoutBuilder;
@@ -53,12 +58,15 @@
 - (void)pause;
 - (void)endWithCompletion:(CDUnknownBlockType)arg1;
 - (void)end;
-- (void)stopActivityWithCompletion:(CDUnknownBlockType)arg1;
-- (void)stopActivity;
-- (void)startActivityWithCompletion:(CDUnknownBlockType)arg1;
-- (void)startActivity;
+- (void)stopActivityWithDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)stopActivityWithDate:(id)arg1;
+- (void)startActivityWithDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)startActivityWithDate:(id)arg1;
 - (void)prepareWithCompletion:(CDUnknownBlockType)arg1;
 - (void)prepare;
+- (void)stateMachine:(id)arg1 didTransition:(id)arg2 fromState:(id)arg3 toState:(id)arg4 date:(id)arg5 error:(id)arg6;
+- (void)stateMachine:(id)arg1 didIgnoreEvent:(long long)arg2 state:(id)arg3;
+- (void)client_synchronizeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)client_didFailWithError:(id)arg1;
 - (void)client_didGenerateEvents:(id)arg1;
 - (void)client_didChangeToState:(long long)arg1 date:(id)arg2;

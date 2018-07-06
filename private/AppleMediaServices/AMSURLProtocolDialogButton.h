@@ -6,23 +6,30 @@
 
 #import <AppleMediaServices/AMSDialogButton.h>
 
-@class AMSURLTaskInfo, NSDictionary, NSString, NSURL;
+@class ACAccount, NSDictionary, NSString, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface AMSURLProtocolDialogButton : AMSDialogButton
 {
-    AMSURLTaskInfo *_taskInfo;
+    ACAccount *_account;
+    id <AMSURLBagContract> _bagContract;
     NSDictionary *_buttonDictionary;
+    NSString *_proxyBundleId;
+    NSString *_logKey;
 }
 
+@property(retain, nonatomic) NSString *logKey; // @synthesize logKey=_logKey;
+@property(retain, nonatomic) NSString *proxyBundleId; // @synthesize proxyBundleId=_proxyBundleId;
 @property(readonly, nonatomic) NSDictionary *buttonDictionary; // @synthesize buttonDictionary=_buttonDictionary;
-@property(readonly, nonatomic) AMSURLTaskInfo *taskInfo; // @synthesize taskInfo=_taskInfo;
+@property(readonly, nonatomic) id <AMSURLBagContract> bagContract; // @synthesize bagContract=_bagContract;
+@property(readonly, nonatomic) ACAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) long long URLType;
 @property(readonly, nonatomic) NSURL *URL;
 @property(readonly, nonatomic) NSString *subtarget;
 - (void)performDefaultAction;
 @property(readonly, nonatomic) long long actionType;
+- (id)initWithTitle:(id)arg1 buttonDictionary:(id)arg2 account:(id)arg3 bagContract:(id)arg4;
 - (id)initWithTitle:(id)arg1 taskInfo:(id)arg2 buttonDictionary:(id)arg3;
 
 @end

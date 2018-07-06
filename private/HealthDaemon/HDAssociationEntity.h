@@ -10,17 +10,17 @@
 {
 }
 
-+ (_Bool)_enumerateAssociationsWithPredicate:(id)arg1 session:(id)arg2 syncAnchorRange:(struct HDSyncAnchorRange)arg3 lastSyncAnchor:(long long *)arg4 healthDatabase:(id)arg5 error:(id *)arg6 block:(CDUnknownBlockType)arg7;
++ (_Bool)_enumerateAssociationsWithPredicate:(id)arg1 syncEntityClass:(Class)arg2 session:(id)arg3 syncAnchorRange:(struct HDSyncAnchorRange)arg4 lastSyncAnchor:(long long *)arg5 healthDatabase:(id)arg6 error:(id *)arg7 block:(CDUnknownBlockType)arg8;
 + (id)deleteStatementForObjectAssociationsWithDatabase:(id)arg1;
 + (id)deleteStatementForAssociationWithDatabase:(id)arg1;
 + (id)objectIDsForAssociationEntityWithPersistentID:(long long)arg1 profile:(id)arg2 error:(id *)arg3;
 + (_Bool)realizePendingAssociationsWithDatabase:(id)arg1 error:(id *)arg2;
 + (_Bool)_insertPendingAssociationsForParentUUID:(id)arg1 childUUIDData:(id)arg2 provenance:(long long)arg3 database:(id)arg4 error:(id *)arg5;
-+ (id)_insertAssociationEntryWithAssociationID:(long long)arg1 objectID:(long long)arg2 provenance:(long long)arg3 database:(id)arg4 error:(id *)arg5;
++ (_Bool)_insertAssociationEntryWithAssociationID:(long long)arg1 objectID:(long long)arg2 provenance:(long long)arg3 database:(id)arg4 error:(id *)arg5;
 + (_Bool)_insertEntriesWithParentUUID:(id)arg1 childUUIDsData:(id)arg2 provenance:(long long)arg3 enforceSameSource:(_Bool)arg4 permitPendingAssociations:(_Bool)arg5 profile:(id)arg6 error:(id *)arg7;
 + (_Bool)_insertEntriesWithParentUUID:(id)arg1 childUUIDsData:(id)arg2 provenance:(long long)arg3 context:(id)arg4 error:(id *)arg5;
 + (id)journalEntryForAssociation:(id)arg1 objects:(id)arg2;
-+ (_Bool)_insertPendingAssociationForParentUUID:(id)arg1 childUUID:(id)arg2 provenance:(long long)arg3 database:(id)arg4 error:(id *)arg5;
++ (_Bool)_insertPendingAssociationForParentUUID:(id)arg1 childUUIDBytes:(unsigned char [16])arg2 provenance:(long long)arg3 database:(id)arg4 error:(id *)arg5;
 + (_Bool)copyAssociationsFromObjectID:(id)arg1 toObjectID:(id)arg2 profile:(id)arg3 error:(id *)arg4;
 + (_Bool)copyAssociationsFromObject:(id)arg1 toObject:(id)arg2 profile:(id)arg3 error:(id *)arg4;
 + (_Bool)insertEntriesWithAssociationUUID:(id)arg1 objectUUIDsData:(id)arg2 profile:(id)arg3 error:(id *)arg4;

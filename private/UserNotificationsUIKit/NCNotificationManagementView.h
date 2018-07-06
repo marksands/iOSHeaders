@@ -25,7 +25,6 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)_explanationSizeForPlatterWidth:(double)arg1;
-- (struct CGSize)_subtitleSizeForPlatterWidth:(double)arg1;
 - (struct CGSize)_titleSizeForPlatterWidth:(double)arg1;
 - (id)_newSeparatorView;
 - (double)_separatorHeight;

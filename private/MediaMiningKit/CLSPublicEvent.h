@@ -26,6 +26,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)supportedCategories;
 @property(nonatomic) long long expectedAttendance; // @synthesize expectedAttendance=_expectedAttendance;
 @property(nonatomic) struct CLLocationCoordinate2D businessItemCoordinates; // @synthesize businessItemCoordinates=_businessItemCoordinates;
 @property(nonatomic) unsigned long long businessItemMuid; // @synthesize businessItemMuid=_businessItemMuid;

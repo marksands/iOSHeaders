@@ -10,7 +10,8 @@
 @class NSArray;
 
 @protocol INSearchForTimersIntentResponseExport <NSObject, JSExport>
-@property(copy, nonatomic) NSArray *timers;
+@property(copy, nonatomic) NSArray *unmatchedTimers;
+@property(copy, nonatomic) NSArray *matchedTimers;
 @property(readonly, nonatomic) long long code;
 @end
 

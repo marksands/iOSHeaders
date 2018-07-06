@@ -26,9 +26,10 @@
 @property(readonly, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
 @property(readonly, nonatomic) NSString *phone; // @synthesize phone=_phone;
 @property(readonly, nonatomic) NSString *email; // @synthesize email=_email;
-@property(readonly, nonatomic) PLCloudSharedAlbumInvitationRecord *invitationRecord; // @synthesize invitationRecord=_invitationRecord;
+@property(readonly, retain, nonatomic) PLCloudSharedAlbumInvitationRecord *invitationRecord; // @synthesize invitationRecord=_invitationRecord;
 - (id)matchingContactWithKeysToFetch:(id)arg1 outMatchingKey:(id *)arg2 outMatchingIdentifier:(id *)arg3;
 @property(readonly, nonatomic) _Bool isOwner;
+- (void)dealloc;
 - (id)initWithInvitationRecord:(id)arg1 email:(id)arg2 phone:(id)arg3 firstName:(id)arg4 lastName:(id)arg5 displayName:(id)arg6;
 - (id)init;
 

@@ -13,6 +13,12 @@
 
 @interface UIMailActivity : UIActivity <UIStateRestoring, UIManagedConfigurationRestrictableActivity>
 {
+    struct os_unfair_lock_s _canSendMailLock;
+    _Bool _canSendMailChecked;
+    struct {
+        unsigned int _hasManagedAccounts:1;
+        unsigned int _hasUnmanagedAccounts:1;
+    } _canSendMail;
     _Bool _sourceIsManaged;
     _Bool _keyboardVisible;
     _Bool _hasAnyAccount;
@@ -43,6 +49,7 @@
 - (void)_setMailSubject:(id)arg1;
 - (void)prepareWithActivityItems:(id)arg1;
 - (CDUnknownBlockType)_backgroundPreheatBlock;
+- (CDStruct_d7010776)_checkCanSendMail;
 - (_Bool)canPerformWithActivityItems:(id)arg1;
 - (void)autosaveWithHandler:(CDUnknownBlockType)arg1;
 - (_Bool)_restoreDraft;

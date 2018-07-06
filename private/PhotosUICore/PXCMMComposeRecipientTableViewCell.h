@@ -6,7 +6,7 @@
 
 #import "UITableViewCell.h"
 
-@class CNAvatarViewController, CNContact, NSString, PXRoundImageView, UIColor, UIImage, UIImageView, UILabel, UIView;
+@class CNAvatarViewController, CNContact, NSString, PXRoundImageView, UIButton, UIColor, UIImage, UILabel, UIView;
 
 @interface PXCMMComposeRecipientTableViewCell : UITableViewCell
 {
@@ -16,7 +16,7 @@
     PXRoundImageView *_customAvatarImageView;
     UILabel *_displayNameLabel;
     UILabel *_transportLabel;
-    UIImageView *_accessoryImageView;
+    UIButton *_accessoryButtonView;
     _Bool _checked;
     int _currentRequestID;
     NSString *_displayName;

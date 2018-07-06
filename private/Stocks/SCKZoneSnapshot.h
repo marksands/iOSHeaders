@@ -19,6 +19,7 @@
 @property(copy, nonatomic) NSArray *records; // @synthesize records=_records;
 @property(retain, nonatomic) SCKZoneSchema *zoneSchema; // @synthesize zoneSchema=_zoneSchema;
 - (void).cxx_destruct;
+- (id)descriptionOfContents;
 - (id)recordWithName:(id)arg1;
 - (id)recordOfType:(id)arg1 passingTest:(CDUnknownBlockType)arg2;
 - (id)recordOfType:(id)arg1;

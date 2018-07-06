@@ -15,7 +15,6 @@
 }
 
 + (id)requestForStorePrimaryAvatar;
-+ (id)requestForEditableAvatars;
 + (id)requestForCustomAvatars;
 + (id)requestForPredefinedAvatars;
 + (id)requestForAvatarWithIdentifier:(id)arg1;

@@ -12,7 +12,7 @@
 #import "HDHealthDaemonReadyObserver.h"
 #import "HDWorkoutSessionObserver.h"
 
-@class CLLocationManager, HDAlertSuppressor, HDAssertion, HDProfile, HDWatchAppStateMonitor, HDWorkoutLocationSmoother, HDWorkoutSessionServer, NSHashTable, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class HDAlertSuppressor, HDAssertion, HDLocationManager, HDProfile, HDWatchAppStateMonitor, HDWorkoutLocationSmoother, HDWorkoutSessionServer, NSHashTable, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface HDWorkoutManager : NSObject <HDDatabaseProtectedDataObserver, HDDiagnosticObject, HDForegroundClientProcessObserver, HDHealthDaemonReadyObserver, HDWorkoutSessionObserver>
 {
@@ -24,7 +24,8 @@
     NSHashTable *_observerTable;
     _Bool _needToCheckForLocationSeriesOnUnlock;
     _Bool _isFirstLaunchAndNotYetSmoothed;
-    CLLocationManager *_locationManager;
+    _Bool _needToCheckForMissedRoutesToSmoothOnUnlock;
+    HDLocationManager *_locationManager;
     HDWatchAppStateMonitor *_appStateMonitor;
     _Bool _hasPerformedPostLaunchSessionRecovery;
     NSMutableArray *_postLaunchRecoveryBlocks;
@@ -37,21 +38,24 @@
 
 @property(retain, nonatomic) HDWorkoutLocationSmoother *locationSmoother; // @synthesize locationSmoother=_locationSmoother;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(readonly, nonatomic) HDLocationManager *locationManager; // @synthesize locationManager=_locationManager;
 @property(readonly, nonatomic) HDAlertSuppressor *alertSuppressor; // @synthesize alertSuppressor=_alertSuppressor;
 @property(readonly, nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (_Bool)isPowerSavingSupportedForCurrentActivity;
 - (void)endHeartRateRecovery;
 @property(readonly, nonatomic) _Bool isInHeartRateRecovery;
+- (id)_missedRoutesToSmoothEnumerator;
 - (void)_queue_logWorkoutStateToPowerLog;
 - (void)_queue_updateFakingDataInSimulator;
 - (void)_postWorkoutUpdatedNotification;
 - (id)_workoutSessionNotCurrentError:(id)arg1;
-- (void)_queue_sessionEnded;
+- (void)_queue_sessionFinished:(id)arg1;
 - (void)_queue_setCurrentWorkout:(id)arg1;
 - (void)workoutSession:(id)arg1 didFailWithError:(id)arg2;
 - (void)workoutSession:(id)arg1 didGenerateEvent:(id)arg2;
 - (void)workoutSession:(id)arg1 didChangeToState:(long long)arg2 fromState:(long long)arg3 date:(id)arg4;
+- (void)unitTest_finishAllDetachedWorkoutBuilders;
 - (void)unitTest_smoothRoute:(id)arg1 withSmoother:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)hk_fakeStopEventWithDate:(id)arg1;
 - (void)hk_fakeLapEventWithDate:(id)arg1 strokeStyle:(long long)arg2;
@@ -63,7 +67,6 @@
 - (void)getCurrentWorkoutSnapshotWithCompletion:(CDUnknownBlockType)arg1;
 - (void)performWhenPostLaunchSessionRecoveryHasCompleted:(CDUnknownBlockType)arg1;
 - (void)_recoverCurrentWorkoutSessionAfterLaunch;
-- (id)_mainQueue_locationManager;
 - (void)generatePauseOrResumeRequestWithCompletion:(CDUnknownBlockType)arg1;
 - (id)currentWorkoutClient;
 - (long long)_queue_currentWorkoutLocationType;
@@ -82,6 +85,7 @@
 - (id)sessionServerWithConfiguration:(id)arg1 sessionUUID:(id)arg2 taskServer:(id)arg3 error:(id *)arg4;
 - (void)sessionServerFromSessionIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)recoveredWorkoutSessionServerWithIdentifier:(id)arg1 error:(id *)arg2;
+- (void)_queue_smoothMissedLocationSeries;
 - (void)_queue_smoothAllUnsmoothedLocationSeries;
 - (id)_queue_locationSmoother;
 - (void)database:(id)arg1 protectedDataDidBecomeAvailable:(_Bool)arg2;

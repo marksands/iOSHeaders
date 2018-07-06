@@ -39,6 +39,7 @@
 - (void)autoFillInputViewDidSelectMorePasswords:(id)arg1;
 - (void)autoFillInputViewDidSelectUseKeyboard:(id)arg1;
 - (void)_didFocusSensitiveFormField;
+- (_Bool)elementIsBeingFocusedForStreamlinedLogin:(id)arg1;
 - (id)_beginAutomaticPasswordInteractionWithInputSession:(id)arg1 generatedPassword:(id)arg2 ignorePreviousDecision:(_Bool)arg3;
 - (id)beginAutomaticPasswordInteractionWithInputSession:(id)arg1;
 - (void)beginAutomaticPasswordInteractionWithInputSession:(id)arg1 generatedPassword:(id)arg2;
@@ -58,6 +59,7 @@
 - (_Bool)displayMessageAsTitleForContext:(id)arg1;
 - (id)passcodePromptForContext:(id)arg1;
 - (id)authenticationMessageForContext:(id)arg1;
+- (id)_websiteForAuthenticationPrompt;
 @property(readonly, nonatomic) WBSOneTimeCodeMonitor *oneTimeCodeMonitor;
 - (void)authenticateForAutoFillOnPageLoad:(_Bool)arg1 forAuthenticationType:(long long)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)_authenticateForAutoFillForHighLevelDomain:(id)arg1 onPageLoad:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
@@ -86,6 +88,7 @@
 - (void)passwordFieldFocused:(id)arg1 inForm:(id)arg2 inFrame:(id)arg3 inputSession:(id)arg4;
 - (void)usernameFieldFocused:(id)arg1 inForm:(id)arg2 inFrame:(id)arg3 inputSession:(id)arg4;
 - (void)_fieldFocused:(id)arg1 inForm:(id)arg2 inFrame:(id)arg3 inputSession:(id)arg4;
+- (void)updateSuggestions;
 - (_Bool)shouldShowIconsInPasswordPicker;
 - (void)insertTextSuggestion:(id)arg1;
 - (void)autoFill;

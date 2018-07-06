@@ -140,6 +140,7 @@
 - (_Bool)_canRegisterForPeerPayment;
 @property(readonly) NSURL *primaryBrokerURL;
 @property(readonly) _Bool needsConfiguration;
+- (_Bool)_needsRegistrationShouldCheckSecureElementOwnership:(_Bool)arg1;
 @property(readonly) _Bool needsRegistration;
 @property(readonly) int paymentSetupSupportedInRegion;
 - (void)sharedPaymentServiceChanged:(id)arg1;

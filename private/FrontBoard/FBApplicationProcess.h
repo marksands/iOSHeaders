@@ -21,10 +21,11 @@
     NSMutableSet *_allowedLockedFilePaths;
     NSMutableArray *_queuedSceneBlocksToExecuteAfterLaunch;
     NSMutableArray *_queue_terminateRequestCompletionBlocks;
-    _Bool _bootstrapped;
+    _Bool _attemptedBootstrap;
+    _Bool _attemptedFinalizedLaunch;
+    _Bool _queue_launchEventReceiptAcknowledged;
     _Bool _bootstrapFailed;
-    _Bool _performedLaunch;
-    _Bool _finishedLaunching;
+    _Bool _exitedBeforeAttemptingFinalizedLaunch;
     _Bool _pendingExit;
     _Bool _beingDebugged;
     BSMachPortSendRight *_gsEventPort;
@@ -46,7 +47,6 @@
 @property(nonatomic, getter=isNowPlayingWithAudio) _Bool nowPlayingWithAudio; // @synthesize nowPlayingWithAudio=_nowPlayingWithAudio;
 @property(nonatomic, getter=isRecordingAudio) _Bool recordingAudio; // @synthesize recordingAudio=_recordingAudio;
 @property(readonly, nonatomic, getter=_queue_cpuStatistics) FBProcessCPUStatistics *cpuStatistics; // @synthesize cpuStatistics=_cpuStatistics;
-@property(readonly, nonatomic) _Bool finishedLaunching; // @synthesize finishedLaunching=_finishedLaunching;
 @property(readonly, nonatomic, getter=isPendingExit) _Bool pendingExit; // @synthesize pendingExit=_pendingExit;
 @property(nonatomic, getter=isBeingDebugged) _Bool beingDebugged; // @synthesize beingDebugged=_beingDebugged;
 @property(readonly, copy, nonatomic) FBProcessExecutionContext *executionContext; // @synthesize executionContext=_executionContext;
@@ -107,9 +107,9 @@
 - (void)launchIfNecessary;
 - (_Bool)bootstrapWithContext:(id)arg1;
 - (id)GSEventPort;
-- (void)setFinishedLaunching:(_Bool)arg1;
 - (void)setPendingExit:(_Bool)arg1;
 @property(readonly, nonatomic) double elapsedCPUTime;
+@property(readonly, nonatomic) _Bool finishedLaunching;
 - (void)_queue_callExitObservers;
 - (id)_applicationWorkspace;
 - (id)_createWorkspace;

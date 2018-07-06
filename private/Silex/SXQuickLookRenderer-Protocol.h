@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSString, SXQuickLookLayoutAttributes, SXQuickLookViewController, UIImage, UIImageView, UILabel;
+@class NSString, SXQuickLookLayoutAttributes, SXQuickLookViewController, UIButton, UIImage, UILabel;
 
 @protocol SXQuickLookRenderer <NSObject>
 - (void)renderErrorMessage:(NSString *)arg1 view:(UILabel *)arg2;
-- (void)renderThumbnailImage:(UIImage *)arg1 view:(UIImageView *)arg2;
+- (void)renderThumbnailImage:(UIImage *)arg1 view:(UIButton *)arg2;
 - (void)render:(SXQuickLookViewController *)arg1 attributes:(SXQuickLookLayoutAttributes *)arg2;
 @end
 

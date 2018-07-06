@@ -27,7 +27,7 @@
 - (void)_handleActionPerformedNotifiction:(id)arg1;
 - (float)_relevanceForHistoricProvider:(id)arg1;
 - (_Bool)_isHistoricProvider:(id)arg1;
-- (float)_relevanceForProvider:(id)arg1;
+- (id)_valueForProvider:(id)arg1 feature:(id)arg2;
 - (void)dealloc;
 - (id)initWithQueue:(id)arg1;
 

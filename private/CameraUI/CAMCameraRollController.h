@@ -33,7 +33,6 @@
         _Bool respondsToPreferredPresentationOrientation;
     } _presentationDelegateFlags;
     _Bool _prefersPresentingStatusbarHidden;
-    _Bool _shouldPauseAudioSessionUpdatesForCapture;
     _Bool __allowUpdating;
     _Bool __updateIsScheduled;
     _Bool __transientAssetsAreValid;
@@ -79,7 +78,6 @@
 @property(readonly, nonatomic) CAMTransientImageManager *_transientImageManager; // @synthesize _transientImageManager=__transientImageManager;
 @property(readonly, nonatomic) CAMTransientDataSource *_transientDataSource; // @synthesize _transientDataSource=__transientDataSource;
 @property(readonly, nonatomic) PUOneUpPresentationHelper *_oneUpPresentationHelper; // @synthesize _oneUpPresentationHelper=__oneUpPresentationHelper;
-@property(nonatomic) _Bool shouldPauseAudioSessionUpdatesForCapture; // @synthesize shouldPauseAudioSessionUpdatesForCapture=_shouldPauseAudioSessionUpdatesForCapture;
 @property(nonatomic, setter=_setPrefersPresentingStatusbarHidden:) _Bool prefersPresentingStatusbarHidden; // @synthesize prefersPresentingStatusbarHidden=_prefersPresentingStatusbarHidden;
 @property(retain, nonatomic, setter=_setPreviewGestureRecognizer:) UIGestureRecognizer *previewGestureRecognizer; // @synthesize previewGestureRecognizer=_previewGestureRecognizer;
 @property(nonatomic) __weak id <CAMCameraRollControllerPresentationDelegate> presentationDelegate; // @synthesize presentationDelegate=_presentationDelegate;

@@ -12,12 +12,15 @@
     float _relevance;
 }
 
++ (id)relevanceSimulatorID;
 @property(readonly, nonatomic) _Bool isHistoric; // @synthesize isHistoric=_isHistoric;
 @property(readonly, nonatomic) float relevance; // @synthesize relevance=_relevance;
 - (id)description;
 - (unsigned long long)_hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)dictionaryEncoding;
+- (id)initWithDictionary:(id)arg1;
 - (id)initWithForcedRelevance:(float)arg1 isHistoric:(_Bool)arg2;
 - (id)initWithForcedRelevance:(float)arg1;
 

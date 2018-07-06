@@ -13,7 +13,6 @@
     id <XCTWaiterDelegate> _delegate;
     XCTWaiterManager *_manager;
     NSArray *_waitCallStackReturnAddresses;
-    NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_delegateQueue;
     NSArray *_expectations;
     NSMutableArray *_fulfilledExpectations;
@@ -30,7 +29,6 @@
 @property(readonly, nonatomic) NSMutableArray *fulfilledExpectations; // @synthesize fulfilledExpectations=_fulfilledExpectations;
 @property(copy, nonatomic) NSArray *expectations; // @synthesize expectations=_expectations;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property XCTWaiterManager *manager; // @synthesize manager=_manager;
 @property id <XCTWaiterDelegate> delegate; // @synthesize delegate=_delegate;
 @property double timeout; // @synthesize timeout=_timeout;

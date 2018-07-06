@@ -23,7 +23,7 @@
 + (id)createPlaceForBusinessItem:(id)arg1;
 + (id)_categoriesDescriptionFromCategories:(id)arg1;
 + (id)filterBusinessItems:(id)arg1 forCategories:(id)arg2 subCategories:(id)arg3 blacklistCategories:(id)arg4;
-+ (id)searchBusinessItemsAtCoordinate:(struct CLLocationCoordinate2D)arg1 forCategories:(id)arg2 precision:(double)arg3;
++ (id)searchBusinessItemsAtCoordinate:(struct CLLocationCoordinate2D)arg1 forCategories:(id)arg2 precision:(double)arg3 inCache:(id)arg4;
 + (id)pointOfInterestCategories;
 + (id)informantDependenciesIdentifiers;
 + (id)classIdentifier;
@@ -32,7 +32,7 @@
 - (id)locationRegionOfInterestCluesForInputClue:(id)arg1;
 - (id)locationPointOfInterestCluesForInputClue:(id)arg1;
 - (id)locationAreaOfInterestCluesForInputClue:(id)arg1;
-- (id)outputLocationCluesForOuputClueKey:(id)arg1 inputClue:(id)arg2 region:(id)arg3 traits:(id)arg4 categories:(id)arg5 exactMatch:(_Bool)arg6 precision:(double)arg7;
+- (id)outputLocationCluesForOuputClueKey:(id)arg1 inputClue:(id)arg2 region:(id)arg3 traits:(id)arg4 categories:(id)arg5 exactMatch:(_Bool)arg6 precision:(double)arg7 cache:(id)arg8;
 - (id)_regionOfInterestTraits;
 - (id)_pointOfInterestTraits;
 - (id)_regionOfInterestCategories;

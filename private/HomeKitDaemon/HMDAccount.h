@@ -29,7 +29,6 @@
 + (id)logCategory;
 + (id)accountWithHandle:(id)arg1;
 + (id)accountWithDestination:(id)arg1;
-+ (id)accountWithAccountContext:(id)arg1 service:(id)arg2;
 @property __weak id <HMDAccountManager> manager; // @synthesize manager=_manager;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
@@ -73,8 +72,6 @@
 - (id)initWithObjectModel:(id)arg1;
 - (id)initWithIdentifier:(id)arg1 handles:(id)arg2 devices:(id)arg3;
 - (id)init;
-- (id)locallySyncedModelsForCurrentAccountChange:(id)arg1;
-- (id)cloudSyncedModelsForCurrentAccountChange:(id)arg1;
 - (id)currentDevice;
 @property(readonly, getter=isCurrentAccount) _Bool currentAccount;
 @property(readonly, copy) NSArray *identities;

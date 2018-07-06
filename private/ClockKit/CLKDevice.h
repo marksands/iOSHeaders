@@ -11,6 +11,7 @@
 @interface CLKDevice : NSObject
 {
     _Bool _isExplorer;
+    _Bool _supportsNewInGallery;
     _Bool _isBridgeActive;
     unsigned long long _sizeClass;
     double _screenScale;
@@ -32,6 +33,7 @@
 + (id)currentDevice;
 @property(nonatomic) _Bool isBridgeActive; // @synthesize isBridgeActive=_isBridgeActive;
 @property(retain, nonatomic) NRDevice *nrDevice; // @synthesize nrDevice=_nrDevice;
+@property(readonly, nonatomic) _Bool supportsNewInGallery; // @synthesize supportsNewInGallery=_supportsNewInGallery;
 @property(nonatomic) unsigned long long materialType; // @synthesize materialType=_materialType;
 @property(nonatomic) unsigned long long collectionType; // @synthesize collectionType=_collectionType;
 @property(nonatomic) _Bool isExplorer; // @synthesize isExplorer=_isExplorer;

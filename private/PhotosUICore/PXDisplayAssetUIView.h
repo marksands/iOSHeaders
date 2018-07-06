@@ -16,6 +16,7 @@
     CDStruct_d97c9657 _updateFlags;
     _Bool _displayLoadingIndicator;
     _Bool _isDisplayingFullQualityContent;
+    _Bool _animatedContentEnabled;
     id <PXDisplayAsset> _asset;
     long long _playbackStyle;
     PXUIMediaProvider *_mediaProvider;
@@ -27,8 +28,8 @@
     PXRoundProgressView *_progressView;
     PXLoadingFailureBadgeView *_failureView;
     struct CGSize _targetSize;
-    struct CGRect _contentsRect;
     struct CGRect _contentBounds;
+    struct CGRect _contentsRect;
 }
 
 + (void)checkInView:(id)arg1;
@@ -38,15 +39,16 @@
 @property(retain, nonatomic) PXLoadingFailureBadgeView *failureView; // @synthesize failureView=_failureView;
 @property(retain, nonatomic) PXRoundProgressView *progressView; // @synthesize progressView=_progressView;
 @property(retain, nonatomic) PXImageRequester *imageRequester; // @synthesize imageRequester=_imageRequester;
+@property(nonatomic) struct CGRect contentsRect; // @synthesize contentsRect=_contentsRect;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(nonatomic) struct CGRect contentBounds; // @synthesize contentBounds=_contentBounds;
 @property(nonatomic) struct CGSize targetSize; // @synthesize targetSize=_targetSize;
 @property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
+@property(nonatomic, getter=isAnimatedContentEnabled) _Bool animatedContentEnabled; // @synthesize animatedContentEnabled=_animatedContentEnabled;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) _Bool isDisplayingFullQualityContent; // @synthesize isDisplayingFullQualityContent=_isDisplayingFullQualityContent;
 @property(nonatomic) _Bool displayLoadingIndicator; // @synthesize displayLoadingIndicator=_displayLoadingIndicator;
 @property(copy, nonatomic) NSArray *placeholderImageFilters; // @synthesize placeholderImageFilters=_placeholderImageFilters;
-@property(nonatomic) struct CGRect contentsRect; // @synthesize contentsRect=_contentsRect;
 @property(retain, nonatomic) PXUIMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
 @property(readonly, nonatomic) long long playbackStyle; // @synthesize playbackStyle=_playbackStyle;
 @property(retain, nonatomic) id <PXDisplayAsset> asset; // @synthesize asset=_asset;
@@ -58,10 +60,12 @@
 - (void)_updateIfNeeded;
 - (void)updateContent;
 - (void)isDisplayingFullQualityContentDidChange;
+- (void)animatedContentEnabledDidChange;
 - (void)contentsRectDidChange;
 - (void)placeholderImageFiltersDidChange;
 - (void)imageDidChange;
 - (void)setNeedsUpdateContent;
+@property(readonly, nonatomic) struct CGRect currentContentsRect;
 @property(readonly, nonatomic) UIImage *currentImage;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)prepareForReuse;

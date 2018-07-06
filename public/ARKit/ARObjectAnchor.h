@@ -20,6 +20,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
+- (id)name;
 -     // Error parsing type: @88@0:8@16{?=[4]}24, name: initWithReferenceObject:transform:
 
 @end

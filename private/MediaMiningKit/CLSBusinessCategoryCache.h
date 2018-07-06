@@ -13,8 +13,6 @@
     NSPredicate *_predicateEntryWithUpdateTimestamp;
 }
 
-+ (id)deserializeCategories:(unsigned int)arg1;
-+ (unsigned int)serializeCategories:(id)arg1;
 + (_Bool)cachedRegion:(id)arg1 isMatchingOtherRegion:(id)arg2;
 + (id)defaultCache;
 @property(readonly, nonatomic) NSPredicate *predicateEntryWithUpdateTimestamp; // @synthesize predicateEntryWithUpdateTimestamp=_predicateEntryWithUpdateTimestamp;

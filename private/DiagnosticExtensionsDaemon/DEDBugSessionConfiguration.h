@@ -16,6 +16,7 @@
 {
     NSSet *_requestedCapabilities;
     _Bool _allowsCellularUpload;
+    _Bool _cloudkitUseDevelopmentEnvironment;
     long long _finishingMove;
     long long _notifyingMove;
     NSString *_seedingDeviceToken;
@@ -35,6 +36,7 @@
 + (_Bool)supportsSecureCoding;
 @property(retain) DEDNotifierConfiguration *notifierConfiguration; // @synthesize notifierConfiguration=_notifierConfiguration;
 @property(retain) NSDictionary *cloudkitData; // @synthesize cloudkitData=_cloudkitData;
+@property _Bool cloudkitUseDevelopmentEnvironment; // @synthesize cloudkitUseDevelopmentEnvironment=_cloudkitUseDevelopmentEnvironment;
 @property(retain) NSString *cloudkitContainer; // @synthesize cloudkitContainer=_cloudkitContainer;
 @property(retain) NSString *radarAuthToken; // @synthesize radarAuthToken=_radarAuthToken;
 @property(retain) NSNumber *radarProblemID; // @synthesize radarProblemID=_radarProblemID;

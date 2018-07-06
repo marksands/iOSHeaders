@@ -7,12 +7,12 @@
 #import "PXHorizontalCollectionGadgetProvider.h"
 
 #import "PXChangeObserver.h"
-#import "PXGadgetProviderDelegate.h"
+#import "PXCollectionsDataSourceManagerObserver.h"
 #import "PXSettingsKeyObserver.h"
 
 @class NSString, PUSessionInfo, PXExtendedTraitCollection, PXPhotoKitCollectionsDataSourceManager;
 
-@interface PUHorizontalAlbumListGadgetProvider : PXHorizontalCollectionGadgetProvider <PXSettingsKeyObserver, PXGadgetProviderDelegate, PXChangeObserver>
+@interface PUHorizontalAlbumListGadgetProvider : PXHorizontalCollectionGadgetProvider <PXSettingsKeyObserver, PXChangeObserver, PXCollectionsDataSourceManagerObserver>
 {
     NSString *_title;
     PUSessionInfo *_sessionInfo;
@@ -30,8 +30,9 @@
 - (id)_seeAllViewController;
 - (id)_fromMyMacConfiguration;
 - (id)_peoplePlacesAndMediaTypesConfiguration;
-- (_Bool)_shouldShowHorizontalGadget;
+- (_Bool)_canProvideGadgets;
 - (id)_newConfiguration;
+- (void)_handleDataSourceChange;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)generateGadgets;

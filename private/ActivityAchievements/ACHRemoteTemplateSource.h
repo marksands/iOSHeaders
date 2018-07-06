@@ -27,7 +27,7 @@
 @property(retain, nonatomic) ACHMobileAssetProvider *mobileAssetProvider; // @synthesize mobileAssetProvider=_mobileAssetProvider;
 @property(nonatomic) __weak NSObject<ACHTemplateSourceDelegate> *delegate; // @synthesize delegate;
 - (void).cxx_destruct;
-- (id)_urlsByUniqueNameForAssets:(id)arg1;
+- (void)_addURLsByUniqueNameToDictionary:(id)arg1 fromAsset:(id)arg2;
 - (id)_resourceAssetURLForTemplate:(id)arg1;
 - (id)propertyListBundleURLForTemplate:(id)arg1;
 - (id)stickerBundleURLForTemplate:(id)arg1;

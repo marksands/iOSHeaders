@@ -6,11 +6,12 @@
 
 #import <PhotosUICore/PXAssetsDataSourceManager.h>
 
+#import "PXPhotoLibraryUIChangeObserver.h"
 #import "PXSectionedDataSourceManagerObserver.h"
 
 @class NSString, PXForYouSuggestionsAssetsDataSource, PXSuggestionsDataSource, PXSuggestionsDataSourceManager;
 
-@interface PXForYouSuggestionAssetsDataSourceManager : PXAssetsDataSourceManager <PXSectionedDataSourceManagerObserver>
+@interface PXForYouSuggestionAssetsDataSourceManager : PXAssetsDataSourceManager <PXSectionedDataSourceManagerObserver, PXPhotoLibraryUIChangeObserver>
 {
     id <PXDisplaySuggestion> _displayOriginalSuggestion;
     PXSuggestionsDataSourceManager *_suggestionsDataSourceManager;
@@ -21,6 +22,7 @@
 @property(readonly, nonatomic) PXSuggestionsDataSourceManager *suggestionsDataSourceManager; // @synthesize suggestionsDataSourceManager=_suggestionsDataSourceManager;
 @property(retain, nonatomic) id <PXDisplaySuggestion> displayOriginalSuggestion; // @synthesize displayOriginalSuggestion=_displayOriginalSuggestion;
 - (void).cxx_destruct;
+- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (id)createInitialDataSource;
 - (id)initWithSuggestionsDataSourceManager:(id)arg1;

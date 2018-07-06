@@ -16,6 +16,7 @@
 @property(readonly, nonatomic) NSDate *creationDate;
 @property(readonly, nonatomic) NSDate *universalEndDate;
 @property(readonly, nonatomic) NSDate *universalStartDate;
+@property(readonly, nonatomic) _Bool containsUnverifiedPersons;
 @property(readonly, copy, nonatomic) NSArray *suggestedPersonLocalIdentifiers;
 @property(readonly, nonatomic) id recipe;
 @property(readonly, nonatomic) NSSet *features;

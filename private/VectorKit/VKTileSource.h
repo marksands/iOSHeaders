@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
     NSString *_tileLoaderClientIdentifier;
     _Bool _preloadOnly;
     _Bool _requireWiFi;
-    _Bool _allowPreliminary;
+    _Bool _enablePreliminary;
     long long _mapType;
     unsigned char _targetDisplay;
     shared_ptr_e963992e _taskContext;
@@ -37,7 +37,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) unsigned char targetDisplay; // @synthesize targetDisplay=_targetDisplay;
 @property(nonatomic) long long mapType; // @synthesize mapType=_mapType;
-@property(nonatomic) _Bool allowPreliminary; // @synthesize allowPreliminary=_allowPreliminary;
+@property(nonatomic) _Bool enablePreliminary; // @synthesize enablePreliminary=_enablePreliminary;
 @property(nonatomic) _Bool requireWiFi; // @synthesize requireWiFi=_requireWiFi;
 @property(nonatomic) _Bool preloadOnly; // @synthesize preloadOnly=_preloadOnly;
 @property(nonatomic) double contentScale; // @synthesize contentScale=_contentScale;
@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) id <VKTileSourceClient> client; // @synthesize client=_client;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool allowPreliminaryTiles;
 - (id)stateDescriptionForRenderKey:(const struct VKTileKey *)arg1;
 - (_Bool)tileHasLoadingIssue:(const struct VKTileKey *)arg1;
 - (void)forceDownload;
@@ -63,7 +64,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_shouldDecodeTile:(const struct VKTileKey *)arg1;
 - (void)cancelAllDownloads;
 - (void)cancelDownload:(const struct _GEOTileKey *)arg1;
-- (void)performDownload:(const struct _GEOTileKey *)arg1 isPrefetch:(_Bool)arg2;
+- (void)performDownload:(const struct _GEOTileKey *)arg1 isPrefetch:(_Bool)arg2 requestPreliminary:(_Bool)arg3;
 - (_Bool)cancelFetchForKey:(const struct VKTileKey *)arg1;
 - (_Bool)cancelFetchForKey:(const struct VKTileKey *)arg1 sourceKey:(const struct VKTileKey *)arg2;
 - (void)fetchTileForKey:(const struct VKTileKey *)arg1 isPrefetch:(_Bool)arg2;
@@ -91,7 +92,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) long long tileSize;
 - (id)detailedDescriptionDictionaryRepresentation;
 - (id)detailedDescription;
-- (void)foreachTileInPool:(CDUnknownBlockType)arg1;
 - (void)clearCaches;
 - (struct TaskQueue *)tileDecodeQueue;
 - (void)dealloc;

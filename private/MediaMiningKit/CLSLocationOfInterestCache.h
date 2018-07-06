@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSMutableDictionary, NSMutableSet;
+@class CLSLocationOfInterestVisit, NSDate, NSMutableDictionary, NSMutableSet;
 
 @interface CLSLocationOfInterestCache : NSObject
 {
@@ -18,8 +18,10 @@
     NSMutableSet *_workLocations;
     unsigned long long _numberOfLocationsOfInterestVisits;
     NSDate *_earliestVisitStartDate;
+    CLSLocationOfInterestVisit *_lastLocationOfInterestVisit;
 }
 
+@property(readonly) CLSLocationOfInterestVisit *lastLocationOfInterestVisit; // @synthesize lastLocationOfInterestVisit=_lastLocationOfInterestVisit;
 @property(readonly) NSDate *earliestVisitStartDate; // @synthesize earliestVisitStartDate=_earliestVisitStartDate;
 @property(readonly) unsigned long long numberOfLocationsOfInterestVisits; // @synthesize numberOfLocationsOfInterestVisits=_numberOfLocationsOfInterestVisits;
 @property(retain, nonatomic) NSMutableSet *workLocations; // @synthesize workLocations=_workLocations;

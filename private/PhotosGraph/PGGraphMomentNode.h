@@ -49,6 +49,7 @@
 - (id)dateNodes;
 - (id)socialGroupNodes;
 - (id)personNodes;
+@property(readonly, nonatomic) NSSet *frequentLocationNodes;
 - (void)enumerateFrequentLocationNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)momentNodes;
 - (void)enumerateMeaningNodesUsingBlock:(CDUnknownBlockType)arg1;
@@ -61,10 +62,10 @@
 - (void)momentEnumerateSocialGroupNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)momentEnumerateMeaningNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateCollectionNodesUsingBlock:(CDUnknownBlockType)arg1;
-@property(readonly) NSSet *collectionNodes;
+@property(readonly, nonatomic) NSSet *collectionNodes;
 - (void)momentEnumeratePersonNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)remoteAddressEdges;
-- (void)enumerateConsolidatedAddressEdgesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateConsolidatedAddressesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)momentEnumerateRemoteAddressNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateAddressNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)addressEdges;

@@ -6,14 +6,14 @@
 
 #import "BSAction.h"
 
-@class NSObject<OS_dispatch_semaphore>, UNNotificationResponse;
+@class UNNotificationResponse;
 
 @interface UINotificationResponseAction : BSAction
 {
-    NSObject<OS_dispatch_semaphore> *_decodeSemaphore;
-    UNNotificationResponse *_cachedResponse;
+    UNNotificationResponse *_response;
 }
 
+@property(readonly, retain, nonatomic) UNNotificationResponse *response; // @synthesize response=_response;
 - (void).cxx_destruct;
 - (id)valueDescriptionForFlag:(long long)arg1 object:(id)arg2 ofSetting:(unsigned long long)arg3;
 - (id)keyDescriptionForSetting:(unsigned long long)arg1;
@@ -23,7 +23,6 @@
 @property(readonly, nonatomic) _Bool isDefaultAction;
 @property(readonly, nonatomic) _Bool isRemote;
 @property(readonly, nonatomic) _Bool isLocal;
-@property(readonly, retain, nonatomic) UNNotificationResponse *response;
 - (id)initWithResponse:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 
 @end

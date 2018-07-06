@@ -9,7 +9,7 @@
 #import "CAAnimationDelegate.h"
 #import "RCWaveformDataSourceObserver.h"
 
-@class CADisplayLink, NSMutableArray, NSMutableSet, NSString, NSTimer, RCWaveformDataSource;
+@class CADisplayLink, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSString, NSTimer, RCWaveformDataSource;
 
 __attribute__((visibility("hidden")))
 @interface RCWaveformRenderer : UIViewController <RCWaveformDataSourceObserver, CAAnimationDelegate>
@@ -23,7 +23,8 @@ __attribute__((visibility("hidden")))
     _Bool _needsVisibleRangeRendering;
     _Bool _isCompactView;
     NSMutableArray *_cachedSegmentArray;
-    NSMutableSet *_waveformSegmentLayers;
+    NSMutableDictionary *_waveformSlices;
+    NSMutableIndexSet *_waveformSliceIndexes;
     _Bool _frequentUpdatesSegmentUpdatesExpectedHint;
     _Bool _isRecordWaveform;
     _Bool _isEditMode;

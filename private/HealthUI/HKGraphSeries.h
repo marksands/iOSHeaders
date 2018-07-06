@@ -87,8 +87,6 @@
 - (struct UIEdgeInsets)yAxisAccessoryViewEdgeInsets;
 - (struct CGSize)yAxisAccessoryViewSize;
 - (void)enumerateCoordinatesInChartRect:(struct CGRect)arg1 xAxis:(id)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 xAxisTransform:(struct CGAffineTransform)arg5 roundToViewScale:(_Bool)arg6 exclusionOptions:(long long)arg7 block:(CDUnknownBlockType)arg8;
-- (void)enumerateCoordinatesInChartRect:(struct CGRect)arg1 xAxis:(id)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 xAxisTransform:(struct CGAffineTransform)arg5 roundToViewScale:(_Bool)arg6 rejectPointsOutOfChartRect:(_Bool)arg7 block:(CDUnknownBlockType)arg8;
-- (void)enumerateCoordinatesInChartRect:(struct CGRect)arg1 xAxis:(id)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 xAxisTransform:(struct CGAffineTransform)arg5 roundToViewScale:(_Bool)arg6 block:(CDUnknownBlockType)arg7;
 - (_Bool)containsCoordinatesInChartRect:(struct CGRect)arg1 xAxis:(id)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 xAxisTransform:(struct CGAffineTransform)arg5;
 - (struct CGAffineTransform)coordinateTransformForChartRect:(struct CGRect)arg1 xAxisTransform:(struct CGAffineTransform)arg2;
 - (void)drawWithChartRect:(struct CGRect)arg1 xAxis:(id)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 zoomLevelConfiguration:(id)arg5 xAxisTransform:(struct CGAffineTransform)arg6 inContext:(struct CGContext *)arg7 secondaryRenderContext:(id)arg8;

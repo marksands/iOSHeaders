@@ -74,6 +74,7 @@
 - (void)setDetailView:(id)arg1 animated:(_Bool)arg2;
 - (void)setRightView:(id)arg1 animated:(_Bool)arg2;
 - (void)setLeftView:(id)arg1 backgroundColor:(id)arg2 animated:(_Bool)arg3;
+- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

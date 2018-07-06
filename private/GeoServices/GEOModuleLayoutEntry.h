@@ -13,6 +13,7 @@
     GEOPDModuleLayoutEntry *_moduleLayoutEntry;
 }
 
++ (id)moduleLayoutEntryFromArray:(id)arg1;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *modules;
 @property(readonly, nonatomic) NSString *debugName;

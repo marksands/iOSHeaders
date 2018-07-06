@@ -39,8 +39,10 @@
 - (void)_configureCoalescingControlsViewIfNecessary;
 - (void)traitCollectionDidChange:(id)arg1;
 - (_Bool)adjustForContentSizeCategoryChange;
+- (id)containerViewForCoalescingControlsPreviewInteractionPresentedContent:(id)arg1;
 - (void)notificationListCoalescingControlsView:(id)arg1 didTransitionToClearState:(_Bool)arg2;
 - (void)notificationListCoalescingControlsViewRequestsRestack:(id)arg1;
+- (void)notificationListCoalescingControlsViewRequestsClearAll:(id)arg1;
 - (void)notificationListCoalescingControlsViewRequestsClear:(id)arg1;
 - (void)adjustForLegibilitySettingsChange:(id)arg1;
 - (void)prepareForReuse;

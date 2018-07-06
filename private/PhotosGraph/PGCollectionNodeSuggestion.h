@@ -12,6 +12,7 @@
 
 @interface PGCollectionNodeSuggestion : NSObject <PGSuggestion>
 {
+    _Bool _containsUnverifiedPersons;
     unsigned char _notificationQuality;
     unsigned short _type;
     unsigned short _subtype;
@@ -33,6 +34,7 @@
 @property(readonly, nonatomic) NSArray *representativeAssets; // @synthesize representativeAssets=_representativeAssets;
 @property(readonly, nonatomic) NSArray *keyAssets; // @synthesize keyAssets=_keyAssets;
 @property(nonatomic) unsigned char notificationQuality; // @synthesize notificationQuality=_notificationQuality;
+@property(readonly, nonatomic) _Bool containsUnverifiedPersons; // @synthesize containsUnverifiedPersons=_containsUnverifiedPersons;
 @property(readonly, copy, nonatomic) NSArray *suggestedPersonLocalIdentifiers; // @synthesize suggestedPersonLocalIdentifiers=_suggestedPersonLocalIdentifiers;
 @property(readonly, nonatomic) NSSet *features; // @synthesize features=_features;
 @property(nonatomic) unsigned short notificationState; // @synthesize notificationState=_notificationState;
@@ -45,7 +47,7 @@
 @property(readonly, nonatomic) unsigned short state;
 @property(readonly, nonatomic) NSDate *creationDate;
 @property(readonly, nonatomic) long long version;
-- (id)initWithType:(unsigned short)arg1 subtype:(unsigned short)arg2 collectionNode:(id)arg3 suggestedPersonLocalIdentifiers:(id)arg4;
+- (id)initWithType:(unsigned short)arg1 subtype:(unsigned short)arg2 collectionNode:(id)arg3 sharingSuggestionResults:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,24 +6,18 @@
 
 #import "NSObject.h"
 
-@class HDActivitySummaryBuilder, NSCalendar;
+@class HDActivitySummaryBuilder;
 
 @interface ACHActivitySummaryUtility : NSObject
 {
-    NSCalendar *_gregorianUTCCalendar;
     HDActivitySummaryBuilder *_summaryBuilder;
 }
 
 @property(retain, nonatomic) HDActivitySummaryBuilder *summaryBuilder; // @synthesize summaryBuilder=_summaryBuilder;
-@property(retain, nonatomic) NSCalendar *gregorianUTCCalendar; // @synthesize gregorianUTCCalendar=_gregorianUTCCalendar;
 - (void).cxx_destruct;
-- (long long)_numberOfDaysFromSummary:(id)arg1 toSummary:(id)arg2;
-- (_Bool)_isActivitySummary:(id)arg1 oneDayAfterActivitySummary:(id)arg2;
-- (id)_newEmptyActivitySummaryOneDayAfterSummary:(id)arg1;
-- (id)summariesByAddingEmptySummariesIntoGaps:(id)arg1 withEndDateComponents:(id)arg2;
 - (id)newEmptyActivitySummaryWithIndex:(long long)arg1 calorieGoal:(id)arg2;
-- (id)activitySummariesForDateComponentInterval:(id)arg1;
-- (id)initWithProfile:(id)arg1 calendar:(id)arg2 shouldIncludePrivateProperties:(_Bool)arg3;
+- (void)enumerateActivitySummariesForDateComponentInterval:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (id)initWithProfile:(id)arg1 shouldIncludePrivateProperties:(_Bool)arg2;
 
 @end
 

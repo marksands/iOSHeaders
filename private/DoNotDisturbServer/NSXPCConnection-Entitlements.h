@@ -7,7 +7,6 @@
 #import "NSXPCConnection.h"
 
 @interface NSXPCConnection (Entitlements)
-- (_Bool)_dnds_isSettingsProcess;
 - (id)_dnds_safeStringArrayEntitlementForKey:(id)arg1;
 - (_Bool)dnds_hasSettingsUpdatesEntitlementForClientIdentifier:(id)arg1;
 - (_Bool)dnds_hasSettingsModificationEntitlementForClientIdentifier:(id)arg1;

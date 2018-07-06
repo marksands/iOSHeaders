@@ -25,6 +25,7 @@
     NSDate *_expiryDate;
     NSData *_previewData;
     NSData *_thumbnailImageData;
+    NSString *_scopeIdentifier;
 }
 
 + (id)fetchMomentSharesOverlappingAssetCollection:(id)arg1 options:(id)arg2;
@@ -43,6 +44,7 @@
 + (id)managedEntityName;
 + (id)propertiesToFetchWithHint:(unsigned long long)arg1;
 + (id)invitedMomentSharesExpiringInDays:(unsigned long long)arg1;
+@property(readonly, nonatomic) NSString *scopeIdentifier; // @synthesize scopeIdentifier=_scopeIdentifier;
 @property(readonly, nonatomic) NSData *thumbnailImageData; // @synthesize thumbnailImageData=_thumbnailImageData;
 @property(readonly, nonatomic) NSData *previewData; // @synthesize previewData=_previewData;
 @property(readonly, nonatomic) _Bool shouldNotifyOnUploadCompletion; // @synthesize shouldNotifyOnUploadCompletion=_shouldNotifyOnUploadCompletion;

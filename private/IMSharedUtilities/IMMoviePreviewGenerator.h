@@ -16,6 +16,7 @@
 + (Class)__AVURLAssetClass;
 + (struct CGImage *)newPreviewFromSourceURL:(id)arg1 withPreviewConstraints:(struct IMPreviewConstraints)arg2 error:(id *)arg3;
 + (id)UTITypes;
++ (id)fetchUTITypes;
 
 @end
 

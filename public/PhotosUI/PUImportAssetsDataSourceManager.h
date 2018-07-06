@@ -23,7 +23,6 @@
     NSArray *_filteredAssetCollections;
     NSObject<OS_dispatch_queue> *_modelQueue;
     long long _maxAlreadyImportedItems;
-    long long _lastAllItemsThumbnailingIndex;
 }
 
 + (void)sortAssetCollectionsInArray:(id)arg1;
@@ -31,7 +30,6 @@
 + (void)addModels:(id)arg1 toAssetCollections:(id)arg2 assetCollectionsById:(id)arg3;
 + (_Bool)assetCollectionsArray:(id)arg1 isEqualToAssetCollectionsArray:(id)arg2;
 + (void)copyFromAssetCollections:(id)arg1 toAssetCollections:(id *)arg2 assetCollectionsById:(id *)arg3;
-@property(nonatomic) long long lastAllItemsThumbnailingIndex; // @synthesize lastAllItemsThumbnailingIndex=_lastAllItemsThumbnailingIndex;
 @property(nonatomic) long long maxAlreadyImportedItems; // @synthesize maxAlreadyImportedItems=_maxAlreadyImportedItems;
 @property(nonatomic) _Bool needsFilterUpdate; // @synthesize needsFilterUpdate=_needsFilterUpdate;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *modelQueue; // @synthesize modelQueue=_modelQueue;
@@ -46,7 +44,6 @@
 @property(retain, nonatomic) PUImportAssetsDataSource *unfilteredDataSource; // @synthesize unfilteredDataSource=_unfilteredDataSource;
 @property(nonatomic) __weak id <PUImportAssetsDataSourceManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)dequeueNextThumbnailWorkItem;
 - (long long)countOfAlreadyImportedAssetCollectionInCollectionsMap:(id)arg1;
 - (long long)countOfUnfilteredAlreadyImportedAssetCollection;
 @property(readonly, nonatomic) PUImportAssetCollection *unfilteredAlreadyImportedAssetCollection;

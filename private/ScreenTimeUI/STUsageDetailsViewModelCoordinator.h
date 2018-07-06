@@ -8,7 +8,7 @@
 
 #import "STUsageDetailsViewModelCoordinator.h"
 
-@class NSArray, NSDate, NSNumber, NSString, NSTimer, STUsageDetailsViewModel;
+@class NSArray, NSDate, NSNumber, NSString, NSTimer, STAppInfoCache, STUsageDetailsViewModel;
 
 @interface STUsageDetailsViewModelCoordinator : NSObject <STUsageDetailsViewModelCoordinator>
 {
@@ -17,6 +17,7 @@
     NSString *_selectedDeviceIdentifier;
     NSString *_organizationIdentifier;
     NSNumber *_userDSID;
+    STAppInfoCache *_appCache;
     id <RMPersistenceControllerProtocol> _persistenceController;
     NSDate *_lastUsageDataRefreshTime;
     NSTimer *_usageDataRefreshTimer;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) NSTimer *usageDataRefreshTimer; // @synthesize usageDataRefreshTimer=_usageDataRefreshTimer;
 @property(retain, nonatomic) NSDate *lastUsageDataRefreshTime; // @synthesize lastUsageDataRefreshTime=_lastUsageDataRefreshTime;
 @property(retain, nonatomic) id <RMPersistenceControllerProtocol> persistenceController; // @synthesize persistenceController=_persistenceController;
+@property(retain, nonatomic) STAppInfoCache *appCache; // @synthesize appCache=_appCache;
 @property(copy, nonatomic) NSNumber *userDSID; // @synthesize userDSID=_userDSID;
 @property(copy, nonatomic) NSString *organizationIdentifier; // @synthesize organizationIdentifier=_organizationIdentifier;
 @property(copy, nonatomic) NSString *selectedDeviceIdentifier; // @synthesize selectedDeviceIdentifier=_selectedDeviceIdentifier;

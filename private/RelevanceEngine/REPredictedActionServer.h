@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>, NSXPCConnection, REUpNextScheduler;
+@class NSArray, NSDate, NSObject<OS_dispatch_queue>, NSXPCConnection, REUpNextScheduler;
 
 @interface REPredictedActionServer : NSObject
 {
     NSXPCConnection *_connection;
     REUpNextScheduler *_scheduler;
     NSArray *_predictions;
+    NSArray *_counts;
+    NSDate *_firstPerformedDate;
     NSObject<OS_dispatch_queue> *_queue;
     id <REPredictedActionServerObserver> _observer;
 }
@@ -24,6 +26,8 @@
 - (void)_notifyObserver;
 - (void)_fetchPredicitions;
 - (void)_requestPredictions;
+- (void)fetchPerformedTodayCountForActionWithBundleIdentifer:(id)arg1 actionIdentifier:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)fetchFirstPerformedActionDate:(CDUnknownBlockType)arg1;
 - (void)fetchPredictedActions:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)init;

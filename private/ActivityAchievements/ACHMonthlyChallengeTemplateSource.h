@@ -14,12 +14,14 @@
 {
     NSDate *_currentDateOverride;
     NSCalendar *_currentCalendarOverride;
+    _Bool _isAppleWatch;
     NSCalendar *_currentCalendar;
     NSDate *_currentDate;
     ACHMonthlyChallengeDataSource *_dataSource;
     ACHMonthlyChallengeTemplateDataProvider *_templateDataProvider;
 }
 
+@property(nonatomic) _Bool isAppleWatch; // @synthesize isAppleWatch=_isAppleWatch;
 @property(retain, nonatomic) ACHMonthlyChallengeTemplateDataProvider *templateDataProvider; // @synthesize templateDataProvider=_templateDataProvider;
 @property(retain, nonatomic) ACHMonthlyChallengeDataSource *dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) NSDate *currentDate; // @synthesize currentDate=_currentDate;

@@ -8,10 +8,11 @@
 
 #import "REIndentedDescription.h"
 
-@class NSString, RECondition;
+@class NSString, RECondition, REConditionEvaluator;
 
 @interface REFilteringRule : RERule <REIndentedDescription>
 {
+    REConditionEvaluator *_conditionEvaluator;
     RECondition *_condition;
     unsigned long long _type;
 }
@@ -26,6 +27,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithCondition:(id)arg1 type:(unsigned long long)arg2;
 - (id)initWithCondition:(id)arg1;
+@property(readonly, nonatomic) REConditionEvaluator *conditionEvaluator;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

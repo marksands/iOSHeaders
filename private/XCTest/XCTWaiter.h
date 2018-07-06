@@ -24,6 +24,7 @@
 + (CDUnknownBlockType)installWatchdogForWaiter:(id)arg1 timeout:(double)arg2;
 + (double)watchdogTimeoutSlop;
 + (void)setWatchdogTimeoutSlop:(double)arg1;
++ (id)subsystemQueue;
 @property(readonly) _XCTWaiterImpl *internalImplementation; // @synthesize internalImplementation=_internalImplementation;
 - (void).cxx_destruct;
 @property(readonly) _Bool currentContextIsNested;
@@ -34,7 +35,6 @@
 @property(readonly, getter=isInProgress) _Bool inProgress;
 @property struct __CFRunLoop *waitingRunLoop;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
 - (void)setWaitCallStackReturnAddresses:(id)arg1;
 @property(readonly, copy) NSArray *waitCallStackReturnAddresses;
 @property(readonly) NSArray *fulfilledExpectations;

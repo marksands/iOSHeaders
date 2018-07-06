@@ -6,7 +6,7 @@
 
 #import <CoreThemeDefinition/TDPersistentDocument.h>
 
-@class NSManagedObjectModel, NSMutableArray, NSMutableDictionary, NSString, NSURL, NSUUID, TDCatalogGlobals, TDDeviceTraits, TDHistorian, TDThreadMOCOrganizer;
+@class NSManagedObjectModel, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSURL, NSUUID, TDCatalogGlobals, TDDeviceTraits, TDHistorian, TDThreadMOCOrganizer;
 
 @interface CoreThemeDocument : TDPersistentDocument
 {
@@ -33,6 +33,7 @@
     struct _renditionkeyfmt *_keyFormat;
     TDCatalogGlobals *_catalogGlobals;
     NSMutableArray *_cachedAppearances;
+    NSMutableSet *_cachedUnknownAppearanceIds;
     id <TDAssetManagementDelegate> _assetManagementDelegate;
     id <TDCustomAssetProvider> _customAssetProvider;
 }

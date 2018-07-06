@@ -9,6 +9,7 @@
 @class XCTElementQuery;
 
 @protocol XCTAutomationTarget <NSObject>
+- (void)fetchAssociatedProcessIdentifierWithReply:(void (^)(int, NSError *))arg1;
 - (void)notifyWhenAnimationsAreIdle:(void (^)(NSError *))arg1;
 - (void)notifyWhenMainRunLoopIsIdle:(void (^)(NSError *))arg1;
 - (void)fetchMatchesForQuery:(XCTElementQuery *)arg1 reply:(void (^)(XCTElementQueryResults *, NSError *))arg2;

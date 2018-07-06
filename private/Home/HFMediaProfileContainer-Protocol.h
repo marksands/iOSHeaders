@@ -8,16 +8,16 @@
 #import "HFFavoritable.h"
 #import "HFGroupableItemProtocol.h"
 #import "HFHomeKitObject.h"
-#import "HFPrettyDescription.h"
 #import "HFReorderableHomeKitObject.h"
 #import "HFRoomContextProviding.h"
+#import "HFStateDumpBuildable.h"
 #import "HFSymptomsHandlerVendor.h"
 #import "HFSymptomsVendor.h"
 #import "HMMediaObject.h"
 
 @class ACAccount, HFAccessorySettingAdapterManager, HFMediaProfileContainerSettingsValueManager, HFServiceNameComponents, HMAccessory, HMHome, HMMediaSession, NAFuture, NSSet, NSString;
 
-@protocol HFMediaProfileContainer <HMMediaObject, HFAccessoryVendor, HFHomeKitObject, HFPrettyDescription, HFReorderableHomeKitObject, HFFavoritable, HFRoomContextProviding, HFGroupableItemProtocol, HFSymptomsVendor, HFSymptomsHandlerVendor>
+@protocol HFMediaProfileContainer <HMMediaObject, HFAccessoryVendor, HFHomeKitObject, HFStateDumpBuildable, HFReorderableHomeKitObject, HFFavoritable, HFRoomContextProviding, HFGroupableItemProtocol, HFSymptomsVendor, HFSymptomsHandlerVendor>
 @property(readonly, nonatomic) HFMediaProfileContainerSettingsValueManager *hf_settingsValueManager;
 @property(readonly, nonatomic) id <HFMediaValueSource> hf_mediaValueSource;
 @property(readonly, nonatomic) HFAccessorySettingAdapterManager *hf_settingsAdapterManager;

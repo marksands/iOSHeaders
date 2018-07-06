@@ -88,6 +88,7 @@
 - (void)setWiFiCallingSettingPreferences:(id)arg1 key:(id)arg2 value:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)copyEmergencyMode:(CDUnknownBlockType)arg1;
 - (void)copyLocationAreaCode:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)copyPublicCellId:(id)arg1 error:(id *)arg2;
 - (void)copyCellId:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)copyCellInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)refreshCellMonitor:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -105,6 +106,7 @@
 - (id)copyCarrierBundleVersion:(id)arg1 error:(id *)arg2;
 - (void)copyCarrierBundleVersion:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)copyCarrierBookmarks:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)copyCarrierBundleLocation:(id)arg1 error:(id *)arg2;
 - (void)copyCarrierBundleLocation:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)context:(id)arg1 getCarrierBundleValue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)context:(id)arg1 getCarrierBundleValue:(id)arg2 error:(id *)arg3;

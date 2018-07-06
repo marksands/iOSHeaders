@@ -13,7 +13,7 @@
     NSURL *_libraryURL;
     _PLPhotoAnalysisXPCConnection *_xpcConnection;
     NSDictionary *_cachedRequestContextDictionary;
-    NSObject<OS_dispatch_queue> *_constraintChangeQueue;
+    NSObject<OS_dispatch_queue> *_backgroundQueue;
 }
 
 - (void).cxx_destruct;
@@ -58,7 +58,7 @@
 - (id)requestContextDictionaryWithOperationId:(_Bool)arg1;
 - (id)requestContextDictionary;
 @property(readonly, nonatomic) NSXPCConnection *xpcConnection;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *constraintChangeQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *backgroundQueue;
 - (void)setJobProcessingConstraintsWithValues:(id)arg1 mask:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)scheduleAssetForOnDemandAnalysisWithUUID:(id)arg1 workerType:(short)arg2 workerFlags:(int)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)requestSharingSuggestionsFromMessageStrings:(id)arg1 participantPHIdentifiers:(id)arg2 error:(id *)arg3;

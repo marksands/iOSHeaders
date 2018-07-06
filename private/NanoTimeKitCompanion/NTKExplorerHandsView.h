@@ -6,11 +6,10 @@
 
 #import <NanoTimeKitCompanion/NTKAnalogHandsView.h>
 
-@class CALayer, UIColor;
+@class UIColor;
 
 @interface NTKExplorerHandsView : NTKAnalogHandsView
 {
-    CALayer *_secondHandDot;
     UIColor *_secondHandDotColor;
 }
 

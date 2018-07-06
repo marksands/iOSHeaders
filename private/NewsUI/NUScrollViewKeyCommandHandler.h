@@ -6,22 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NUScrollViewKeyCommandHandler.h"
-
-@class NSString;
-
-@interface NUScrollViewKeyCommandHandler : NSObject <NUScrollViewKeyCommandHandler>
+@interface NUScrollViewKeyCommandHandler : NSObject
 {
 }
 
 - (void)handleKeyCommand:(id)arg1 forScrollView:(id)arg2;
 - (void)configureWithViewController:(id)arg1 selector:(SEL)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

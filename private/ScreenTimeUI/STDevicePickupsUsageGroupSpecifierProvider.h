@@ -6,26 +6,23 @@
 
 #import <ScreenTimeUI/STUsageGroupSpecifierProvider.h>
 
-@class NSObject<STTimeAllowancesViewModelCoordinator>, PSSpecifier;
+@class PSSpecifier;
 
 @interface STDevicePickupsUsageGroupSpecifierProvider : STUsageGroupSpecifierProvider
 {
-    NSObject<STTimeAllowancesViewModelCoordinator> *_timeAllowancesCoordinator;
     PSSpecifier *_pickupsSummaryGraphSpecifier;
     PSSpecifier *_pickupsAfterBedtimeSpecifier;
 }
 
 @property(retain, nonatomic) PSSpecifier *pickupsAfterBedtimeSpecifier; // @synthesize pickupsAfterBedtimeSpecifier=_pickupsAfterBedtimeSpecifier;
 @property(retain, nonatomic) PSSpecifier *pickupsSummaryGraphSpecifier; // @synthesize pickupsSummaryGraphSpecifier=_pickupsSummaryGraphSpecifier;
-@property(retain, nonatomic) NSObject<STTimeAllowancesViewModelCoordinator> *timeAllowancesCoordinator; // @synthesize timeAllowancesCoordinator=_timeAllowancesCoordinator;
 - (void).cxx_destruct;
 - (id)pickupsAfterBedtime:(id)arg1;
 - (id)mostPickups:(id)arg1;
 - (id)pickupFrequency:(id)arg1;
 - (id)getPickupInfo:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)setViewModel:(id)arg1;
-- (void)invalidate;
+- (void)setCoordinator:(id)arg1;
 - (id)init;
 
 @end

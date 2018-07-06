@@ -75,7 +75,7 @@
 - (void)_setWaveformDataSource:(id)arg1 initialTime:(double)arg2;
 - (void)captureSession:(id)arg1 didFinishWithSuccess:(_Bool)arg2;
 - (void)captureSession:(id)arg1 rateDidChangeToRate:(float)arg2;
-- (void)captureSession:(id)arg1 destinationFragmentDurationDidChangeToDuration:(double)arg2;
+- (void)captureSession:(id)arg1 destinationFragmentDurationDidChangeToDuration:(double)arg2 usingDisplayLinkSmoothing:(_Bool)arg3;
 - (void)previewController:(id)arg1 playbackTimeDidUpdateToCurrentTime:(double)arg2;
 - (void)previewController:(id)arg1 playbackTimeDidUpdateToCurrentTime:(double)arg2 didJumpTime:(_Bool)arg3;
 - (void)previewController:(id)arg1 playbackDidStopPlayingWithError:(id)arg2;

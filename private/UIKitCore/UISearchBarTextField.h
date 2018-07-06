@@ -20,6 +20,9 @@ __attribute__((visibility("hidden")))
     _UISearchBarSearchFieldBackgroundView *_effectBackgroundBottom;
     _Bool _deferringFirstResponder;
     _Bool _animatePlaceholderOnResignFirstResponder;
+    struct {
+        unsigned int delegateWantsShouldSendContentChangedNotificationsIfOnlyMarkedTextChanged:1;
+    } _searchBarTextFieldFlags;
     _Bool __preventSelectionViewActivation;
     long long __textInputSource;
 }
@@ -77,6 +80,7 @@ __attribute__((visibility("hidden")))
 - (void)_setClearButtonImage:(id)arg1 forState:(unsigned long long)arg2;
 - (_Bool)canBecomeFocused;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)setDelegate:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

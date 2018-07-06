@@ -8,20 +8,19 @@
 
 #import "CPSButtonDelegate.h"
 
-@class CPAlert, NSArray, NSString;
+@class CPAlertTemplate, NSArray, NSString;
 
 @interface CPSFullScreenAlertViewController : CPSBaseTemplateViewController <CPSButtonDelegate>
 {
-    CPAlert *_alert;
     NSArray *_alertButtons;
 }
 
 @property(retain, nonatomic) NSArray *alertButtons; // @synthesize alertButtons=_alertButtons;
-@property(retain, nonatomic) CPAlert *alert; // @synthesize alert=_alert;
 - (void).cxx_destruct;
 - (id)preferredFocusEnvironments;
 - (void)didSelectButton:(id)arg1;
 - (void)viewDidLoad;
+@property(readonly, nonatomic) CPAlertTemplate *alert;
 - (id)initWithAlert:(id)arg1 alertDelegate:(id)arg2;
 
 // Remaining properties

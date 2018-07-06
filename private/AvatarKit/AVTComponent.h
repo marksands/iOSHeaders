@@ -12,6 +12,7 @@
 {
     long long _type;
     NSArray *_assets;
+    _Bool _mirrored;
     AVTMemoji *_memoji;
     AVTMaterial *_materials[3];
     double _intensity;
@@ -20,6 +21,7 @@
 + (_Bool)componentTypeSupportsIntensity:(long long)arg1;
 + (id)componentWithAssets:(id)arg1;
 @property(nonatomic) double intensity; // @synthesize intensity=_intensity;
+@property(nonatomic) _Bool mirrored; // @synthesize mirrored=_mirrored;
 @property(readonly) NSArray *assets; // @synthesize assets=_assets;
 - (void).cxx_destruct;
 - (id)description;

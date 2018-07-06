@@ -6,12 +6,13 @@
 
 #import "PXNavigableGadgetViewController.h"
 
-@class NSString, PXMemoriesFeedUIViewController;
+@class NSString, PXMemoriesFeedUIViewController, UIViewController;
 
 @protocol PXNavigableForYouViewController <PXNavigableGadgetViewController>
 - (void)navigateToInvitationCMMWithUUID:(NSString *)arg1 animated:(_Bool)arg2;
 - (void)navigateToSuggestedCMMWithUUID:(NSString *)arg1 animated:(_Bool)arg2;
 - (PXMemoriesFeedUIViewController *)navigateToShowAllMemoriesFeedAnimated:(_Bool)arg1;
+- (UIViewController *)navigateToDetailsForMemoryWithLocalIdentifier:(NSString *)arg1;
 - (void)navigateToRevealTheMostRecentMemoryAnimated:(_Bool)arg1;
 - (void)navigateToSharedAlbumInviteWithUUID:(NSString *)arg1 animated:(_Bool)arg2;
 - (void)navigateToSharedAlbumInvitesAnimated:(_Bool)arg1;

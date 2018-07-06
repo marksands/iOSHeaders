@@ -21,6 +21,7 @@
     NSTimer *_animationUpdateTimer;
     double _timeOffset;
     CALayer *_minuteHandDot;
+    CALayer *_secondHandDot;
     CALayer *_minuteHandTransitionBodyLayer;
     CALayer *_minuteHandTransitionStemLayer;
     CALayer *_minuteHandTransitionPegLayer;
@@ -72,6 +73,7 @@
 - (void)_addHourMinuteHandsTransitionLayers;
 - (void)_removeHourMinuteHandsTransitionLayers;
 - (void)_removeColorTransitionViews;
+- (void)applySecondHandDotColor:(id)arg1;
 - (void)applySecondHandColor:(id)arg1;
 - (void)applySecondHandTransitionFraction:(double)arg1 fromColor:(id)arg2 toColor:(id)arg3;
 - (void)applyHourMinuteHandsTransitionFraction:(double)arg1 fromStrokeColor:(id)arg2 fromFillColor:(id)arg3 toStrokeColor:(id)arg4 toFillColor:(id)arg5;

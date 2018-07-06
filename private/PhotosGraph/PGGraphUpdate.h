@@ -91,6 +91,7 @@
 @property(readonly, nonatomic) NSSet *localIdentifiersOfMomentsToUpdate; // @synthesize localIdentifiersOfMomentsToUpdate=_localIdentifiersOfMomentsToUpdate;
 @property(readonly, nonatomic) NSSet *localIdentifiersOfMomentsToDelete; // @synthesize localIdentifiersOfMomentsToDelete=_localIdentifiersOfMomentsToDelete;
 @property(readonly, nonatomic) NSSet *localIdentifiersOfMomentsToInsert; // @synthesize localIdentifiersOfMomentsToInsert=_localIdentifiersOfMomentsToInsert;
+@property(readonly, nonatomic) _Bool isSignificant;
 @property(readonly, nonatomic) _Bool hasAnythingToDo;
 - (id)cachedDataModelObjectForGraphChange:(id)arg1;
 - (id)initWithManager:(id)arg1;

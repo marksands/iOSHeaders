@@ -6,16 +6,20 @@
 
 #import <RemoteManagement/RMUserNotificationContext.h>
 
-@class NSData, NSString;
+@class NSData, NSNumber, NSString;
 
 @interface RMWeeklyReportUserNotificationContext : RMUserNotificationContext
 {
     NSData *_weeklyReportData;
+    double _deltaScreenTimeUsage;
+    NSNumber *_totalUsage;
     NSString *_notificationBodyKey;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSString *notificationBodyKey; // @synthesize notificationBodyKey=_notificationBodyKey;
+@property(copy, nonatomic) NSNumber *totalUsage; // @synthesize totalUsage=_totalUsage;
+@property(nonatomic) double deltaScreenTimeUsage; // @synthesize deltaScreenTimeUsage=_deltaScreenTimeUsage;
 @property(retain, nonatomic) NSData *weeklyReportData; // @synthesize weeklyReportData=_weeklyReportData;
 - (void).cxx_destruct;
 - (void)customizeNotificationContent:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;

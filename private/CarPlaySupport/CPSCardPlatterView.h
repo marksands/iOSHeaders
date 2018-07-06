@@ -10,6 +10,7 @@
 {
 }
 
+- (void)setBackgroundColor:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

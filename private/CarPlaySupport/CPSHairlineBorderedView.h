@@ -6,11 +6,18 @@
 
 #import "UIView.h"
 
+@class NSLayoutConstraint;
+
 @interface CPSHairlineBorderedView : UIView
 {
+    UIView *_contentView;
+    NSLayoutConstraint *_bottomConstraint;
 }
 
-- (id)initWithView:(id)arg1 borderEdges:(unsigned long long)arg2;
+@property(readonly, nonatomic) NSLayoutConstraint *bottomConstraint; // @synthesize bottomConstraint=_bottomConstraint;
+@property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
+- (void).cxx_destruct;
+- (id)initWithContentView:(id)arg1 borderEdges:(unsigned long long)arg2;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "UICollectionViewDelegate.h"
 
-@class NSIndexPath, NSString, UICollectionView, UISelectionFeedbackGenerator;
+@class NSIndexPath, NSString, UICollectionView, UICollectionViewLayoutAttributes, UISelectionFeedbackGenerator;
 
 @interface AVTCenteringCollectionViewDelegate : NSObject <UICollectionViewDelegate>
 {
@@ -34,6 +34,7 @@
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (_Bool)respondsToSelector:(SEL)arg1;
+@property(readonly, nonatomic) UICollectionViewLayoutAttributes *centerItemAttributes;
 - (id)initWithCollectionView:(id)arg1 delegate:(id)arg2 environment:(id)arg3;
 
 // Remaining properties

@@ -172,6 +172,7 @@
 - (struct CGSize)_maxSizeForComplicationSlot:(id)arg1 layoutOverride:(long long)arg2;
 - (void)_updateMaxSizeForDisplayWrapper:(id)arg1 slot:(id)arg2;
 - (void)_updateComplicationMaxSize;
+- (struct CGAffineTransform)_displayTransformForComplicationSlot:(id)arg1;
 - (struct CGRect)_frameForComplicationDisplayWrapper:(id)arg1 inSlot:(id)arg2;
 - (double)_alphaForComplicationSlot:(id)arg1 inEditOption:(id)arg2 ofEditMode:(long long)arg3;
 - (void)_setTransitionFraction:(double)arg1 fromEditMode:(long long)arg2 toEditMode:(long long)arg3;
@@ -186,6 +187,7 @@
 - (double)verticalPaddingForStatusBar;
 - (_Bool)wantsStatusBarHidden;
 - (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
+- (id)_snapshotContainerView;
 - (void)_finalizeForSnapshotting:(CDUnknownBlockType)arg1;
 - (void)_prepareForSnapshotting;
 - (double)_minimumBreathingScaleForComplicationSlot:(id)arg1;
@@ -256,6 +258,7 @@
 - (id)_blurSourceImage;
 - (void)_renderSynchronouslyWithImageQueueDiscard:(_Bool)arg1;
 - (void)_applyShowsLockedUI;
+- (id)snapshotContainerView;
 - (void)handleUnadornedSnapshotRemoved;
 - (void)loadContentToReplaceUnadornedSnapshot;
 - (void)_loadContentToReplaceUnadornedSnapshot;

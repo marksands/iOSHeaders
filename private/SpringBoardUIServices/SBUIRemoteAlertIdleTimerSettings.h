@@ -11,14 +11,15 @@
 @interface SBUIRemoteAlertIdleTimerSettings : NSObject <NSSecureCoding>
 {
     _Bool _disablesWarn;
-    _Bool _disablesAttentionAwareness;
+    _Bool _usesLockScreenRules;
     double _autoLockTimeout;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) _Bool disablesAttentionAwareness; // @synthesize disablesAttentionAwareness=_disablesAttentionAwareness;
+@property(nonatomic) _Bool usesLockScreenRules; // @synthesize usesLockScreenRules=_usesLockScreenRules;
 @property(nonatomic) _Bool disablesWarn; // @synthesize disablesWarn=_disablesWarn;
 @property(nonatomic) double autoLockTimeout; // @synthesize autoLockTimeout=_autoLockTimeout;
+@property(nonatomic) _Bool disablesAttentionAwareness;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

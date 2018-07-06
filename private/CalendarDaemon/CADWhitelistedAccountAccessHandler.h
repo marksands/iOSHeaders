@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) id <CADACAccountsProvider> accountsProvider; // @synthesize accountsProvider=_accountsProvider;
 - (void).cxx_destruct;
-- (void)invalidate;
+- (void)reset;
 - (id)restrictedCalendarRowIDsForAction:(unsigned long long)arg1;
 - (_Bool)isActionAllowed:(unsigned long long)arg1 forAccountIdentifier:(id)arg2;
 - (_Bool)isAccountManaged:(id)arg1;

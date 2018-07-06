@@ -105,6 +105,7 @@
 - (void)_setPreferredCustomContentSize:(struct CGSize)arg1;
 - (struct CGSize)_preferredCustomContentSizeForSize:(struct CGSize)arg1 parentContentContainerBounds:(struct CGRect)arg2;
 - (void)_notificationViewControllerViewDidLoad;
+- (void)_updateLookView:(struct UIView *)arg1 withTitleFromProvidedStaticContent:(id)arg2;
 - (void)_loadLookView;
 - (id)_contentSizeManagingView;
 @property(readonly, nonatomic, getter=_notificationViewControllerView) NCNotificationViewControllerView *notificationViewControllerView;

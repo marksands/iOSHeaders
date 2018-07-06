@@ -75,7 +75,7 @@
 - (_Bool)isDockVisible;
 - (void)toggleDock;
 - (void)armApplePay;
-- (void)showControlCenter:(_Bool)arg1;
+- (_Bool)showControlCenter:(_Bool)arg1;
 - (_Bool)showNotificationCenter:(_Bool)arg1;
 - (_Bool)isControlCenterVisible;
 - (void)hideNotificationCenter;

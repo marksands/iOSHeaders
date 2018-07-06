@@ -15,8 +15,10 @@
     UIImageView *_previewImageView;
     NSArray *_previewImageViewConstraints;
     long long _placeholderVisibilityRequestID;
+    CDUnknownBlockType _visibilityChangeCompletionHandler;
     _Bool _displayingPlaceholder;
     _Bool _allowsEdgeAntialiasing;
+    id <PXVideoPlayerViewDelegate> _delegate;
     ISWrappedAVPlayer *_player;
     UIImage *_placeholderImage;
     NSArray *_placeholderImageFilters;
@@ -35,6 +37,7 @@
 @property(copy, nonatomic) NSArray *placeholderImageFilters; // @synthesize placeholderImageFilters=_placeholderImageFilters;
 @property(retain, nonatomic) UIImage *placeholderImage; // @synthesize placeholderImage=_placeholderImage;
 @property(retain, nonatomic) ISWrappedAVPlayer *player; // @synthesize player=_player;
+@property(nonatomic) __weak id <PXVideoPlayerViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)generateSnapshotImage;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
@@ -44,6 +47,7 @@
 - (void)_updateEdgeAntialiasing;
 - (void)_updateContentMode;
 - (void)_updateVideoView;
+- (void)setPlaceholderDisplayMode:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

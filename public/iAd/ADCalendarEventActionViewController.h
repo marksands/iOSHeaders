@@ -27,6 +27,7 @@
 - (void)eventEditViewController:(id)arg1 didCompleteWithAction:(long long)arg2;
 - (_Bool)_shouldConsumeHardwarePresses;
 - (void)clientApplicationDidEnterBackground;
+- (void)dismiss;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)didSetAdSpace;

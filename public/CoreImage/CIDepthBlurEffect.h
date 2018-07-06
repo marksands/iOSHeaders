@@ -27,9 +27,11 @@ __attribute__((visibility("hidden")))
     NSString *inputShape;
 }
 
++ (id)customAttributes;
++ (struct CGImageMetadata *)augmentMetadataWithRenderingPropertiesForImage:(id)arg1;
++ (struct CGImageMetadata *)metadataFromDictionary:(id)arg1 metadata:(struct CGImageMetadata *)arg2;
 + (id)tuningParametersFromMetadata:(struct CGImageMetadata *)arg1;
 + (struct CGImageMetadata *)replaceRenderingParameters:(struct CGImageMetadata *)arg1 tuningParameters:(id)arg2;
-+ (id)customAttributes;
 @property(retain, nonatomic) NSString *inputShape; // @synthesize inputShape;
 @property(retain, nonatomic) id inputAuxDataMetadata; // @synthesize inputAuxDataMetadata;
 @property(retain, nonatomic) AVCameraCalibrationData *inputCalibrationData; // @synthesize inputCalibrationData;

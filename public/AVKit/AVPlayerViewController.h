@@ -71,6 +71,7 @@
     CDUnknownBlockType _interactiveDismissalCompletionHandler;
     AVPlayer *_contentTransitioningPlayer;
     AVObservationController *__observationController;
+    long long __numberOfTrackedUserInteractions;
     NSArray *_customControlItems;
 }
 
@@ -85,6 +86,7 @@
 @property(copy, nonatomic) NSArray *customControlItems; // @synthesize customControlItems=_customControlItems;
 @property(nonatomic) _Bool playbackControlsIncludeVolumeControls; // @synthesize playbackControlsIncludeVolumeControls=_playbackControlsIncludeVolumeControls;
 @property(nonatomic) _Bool canPausePlaybackWhenExitingFullScreen; // @synthesize canPausePlaybackWhenExitingFullScreen=_canPausePlaybackWhenExitingFullScreen;
+@property(nonatomic, setter=_setNumberOfTrackedUserInteractions:) long long _numberOfTrackedUserInteractions; // @synthesize _numberOfTrackedUserInteractions=__numberOfTrackedUserInteractions;
 @property(nonatomic) _Bool _hasBegunObservation; // @synthesize _hasBegunObservation=__hasBegunObservation;
 @property(readonly, nonatomic) AVObservationController *_observationController; // @synthesize _observationController=__observationController;
 @property(retain, nonatomic) AVPlayer *contentTransitioningPlayer; // @synthesize contentTransitioningPlayer=_contentTransitioningPlayer;
@@ -155,6 +157,11 @@
 - (void)_notifyDelegateOfMetricsCollectionEvent:(long long)arg1;
 - (void)_mediaSelectionDoneButtonTapped:(id)arg1;
 - (void)_togglePictureInPicture;
+- (_Bool)_isTrackingUserInteractionWithInteractiveView;
+- (_Bool)_isTrackingUserInteraction;
+- (void)_endTrackingUserInteraction;
+- (void)_beginTrackingUserInteraction;
+- (void)_handleUserInteractionObservationRecognizer:(id)arg1;
 - (void)_handleDoubleDoubleTapGesture:(id)arg1;
 - (void)_handleSingleTapGesture:(id)arg1;
 - (void)_handleDoubleTapGesture:(id)arg1;

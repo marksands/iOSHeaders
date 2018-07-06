@@ -33,8 +33,10 @@
     PSIStatement *_inqIdsOfAllGroupsMatchedByCollectionsStatement;
     PSIStatement *_inqRemoveUnmatchedGroupsFromGroupsStatement;
     PSIStatement *_inqIdsOfAllGroupsInPrefixStatement;
+    PSIStatement *_inqRemoveGroupsFromPrefixStatement;
     PSIStatement *_inqRemoveUnmatchedGroupsFromPrefixStatement;
     PSIStatement *_inqIdsOfAllGroupsInLookupStatement;
+    PSIStatement *_inqRemoveGroupsFromLookupStatement;
     PSIStatement *_inqRemoveUnmatchedGroupsFromLookupStatement;
     struct __CFDictionary *_inqGroupObjectsById;
     NSObject<OS_dispatch_queue> *_serialQueue;
@@ -52,6 +54,7 @@
 
 + (id)searchDatabaseLog;
 + (struct sqlite3 *)_openDatabaseAtPath:(id)arg1 options:(long long)arg2;
++ (_Bool)integrityCheckDatabase:(struct sqlite3 *)arg1;
 + (void)_dropDatabase:(struct sqlite3 *)arg1 withCompletion:(CDUnknownBlockType)arg2;
 + (void)dropDatabaseAtPath:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) long long options; // @synthesize options=_options;
@@ -78,18 +81,20 @@
 - (id)_inqGroupWithMatchingGroupId:(unsigned long long)arg1 dateFilter:(id)arg2;
 - (void)_inqUpdateGCTableWithGroupId:(unsigned long long)arg1 collectionId:(unsigned long long)arg2;
 - (void)_inqUpdateGATableWithGroupId:(unsigned long long)arg1 assetId:(unsigned long long)arg2;
-- (void)_inqUpdateSearchTableWithGroupId:(unsigned long long)arg1 text:(id)arg2 category:(short)arg3 textIsSearchable:(_Bool)arg4;
-- (unsigned long long)_inqGroupIdForCategory:(short)arg1 owningGroupId:(unsigned long long)arg2 contentString:(id)arg3 identifier:(id)arg4 insertIfNeeded:(_Bool)arg5 tokenOutput:(const struct tokenOutput_t *)arg6 shouldUpdateOwningGroupId:(_Bool)arg7;
+- (void)_inqAddToSearchTableWithGroupId:(unsigned long long)arg1 text:(id)arg2 category:(short)arg3 textIsSearchable:(_Bool)arg4;
+- (unsigned long long)_inqGroupIdForCategory:(short)arg1 owningGroupId:(unsigned long long)arg2 contentString:(id)arg3 identifier:(id)arg4 insertIfNeeded:(_Bool)arg5 tokenOutput:(const struct tokenOutput_t *)arg6 shouldUpdateOwningGroupId:(_Bool)arg7 didUpdateGroup:(out _Bool *)arg8;
 - (unsigned long long)_inqCollectionIdWithCollection:(id)arg1;
 - (unsigned long long)_inqCollectionIdForUUID:(id)arg1;
 - (unsigned long long)_inqCollectionIdForUUID:(id)arg1 uuid_0:(unsigned long long *)arg2 uuid_1:(unsigned long long *)arg3;
 - (unsigned long long)_inqAssetIdWithAsset:(id)arg1;
 - (unsigned long long)_inqAssetIdForUUID:(id)arg1;
 - (unsigned long long)_inqAssetIdForUUID:(id)arg1 uuid_0:(unsigned long long *)arg2 uuid_1:(unsigned long long *)arg3;
+- (void)_inqUpdateSearchTermsWithSearchableTermsByGroupIds:(id)arg1;
 - (void)_inqRemoveUnusedGroups;
 - (void)_inqRemoveUUID:(id)arg1 objectType:(unsigned long long)arg2 isInBatch:(_Bool)arg3;
-- (unsigned long long)_inqUpdateGroupAndSearchTableForText:(id)arg1 identifier:(id)arg2 category:(short)arg3 owningGroupId:(unsigned long long)arg4 shouldUpdateOwningGroupId:(_Bool)arg5;
-- (unsigned long long)_inqUpdateGroupAndSearchTableForText:(id)arg1 identifier:(id)arg2 category:(short)arg3 owningGroupId:(unsigned long long)arg4;
+- (void)_inqInsertToSearchTablesWithGroupId:(unsigned long long)arg1 text:(id)arg2 identifier:(id)arg3 category:(short)arg4;
+- (unsigned long long)_inqUpdateGroupForText:(id)arg1 identifier:(id)arg2 category:(short)arg3 owningGroupId:(unsigned long long)arg4 shouldUpdateOwningGroupId:(_Bool)arg5 didUpdateGroup:(out _Bool *)arg6;
+- (unsigned long long)_inqUpdateGroupForText:(id)arg1 identifier:(id)arg2 category:(short)arg3 owningGroupId:(unsigned long long)arg4 didUpdateGroup:(out _Bool *)arg5;
 - (void)_inqGetTokensFromString:(id)arg1 forIndexing:(_Bool)arg2 useWildcard:(_Bool)arg3 tokenOutput:(struct tokenOutput_t *)arg4;
 - (void)_prepareTokenOutput:(struct tokenOutput_t *)arg1 forIndexing:(_Bool)arg2;
 - (void)_inqRecycleGroups;
@@ -112,7 +117,7 @@
 - (struct __CFSet *)_inqNewGroupIdsWithCategories:(id)arg1;
 - (struct __CFSet *)_inqNewGroupIdsMatchingString:(id)arg1 categories:(id)arg2 textIsSearchable:(_Bool)arg3;
 - (struct __CFSet *)_inqNewGroupIdsMatchingString:(id)arg1 textIsSearchable:(_Bool)arg2;
-- (id)_inqGroupResultWithDateToken:(id)arg1;
+- (id)_inqGroupResultWithDateFilter:(id)arg1;
 - (id)_inqContentStringForGroupId:(unsigned long long)arg1;
 - (id)_inqCollectionResultsForCollectionIds:(struct __CFArray *)arg1 range:(struct _NSRange)arg2;
 - (id)_inqAssetUUIDsForAssetIds:(struct __CFSet *)arg1;
@@ -162,7 +167,7 @@
 - (void)group:(id)arg1 fetchOwningContentString:(_Bool)arg2 assetIdRange:(struct _NSRange)arg3 collectionIdRange:(struct _NSRange)arg4 tripIdRange:(struct _NSRange)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (id)meNodeIdentifier;
 - (id)wordEmbeddingMatchesForToken:(id)arg1;
-- (id)groupResultWithDateToken:(id)arg1;
+- (id)groupResultWithDateFilter:(id)arg1;
 - (id)groupWithMatchingGroupId:(unsigned long long)arg1 dateFilter:(id)arg2;
 - (const struct __CFSet *)groupIdsMatchingString:(id)arg1 categories:(id)arg2 textIsSearchable:(_Bool)arg3;
 - (id)groupArraysFromGroupIdSets:(id)arg1 dateFilter:(id)arg2 progressBlock:(CDUnknownBlockType)arg3;
@@ -170,7 +175,7 @@
 - (void)executeQuery:(id)arg1 resultsHandler:(CDUnknownBlockType)arg2;
 @property(readonly) NSObject<OS_dispatch_queue> *groupResultsQueue;
 @property(readonly) PSITokenizer *tokenizer;
-- (unsigned long long)updateGroupAndSearchTableForText:(id)arg1 identifier:(id)arg2 category:(short)arg3 owningGroupId:(unsigned long long)arg4;
+- (unsigned long long)updateGroupForText:(id)arg1 identifier:(id)arg2 category:(short)arg3 owningGroupId:(unsigned long long)arg4 didUpdateGroup:(out _Bool *)arg5;
 - (id)groupIdsInLookupTable;
 - (id)groupIdsInPrefixTable;
 - (id)allGroupIds;

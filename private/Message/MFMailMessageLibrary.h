@@ -28,6 +28,8 @@
     int _protectedDataAvailability;
     NSObject<OS_dispatch_queue> *_keyBagQueue;
     NSMutableSet *_messagesToThreadAtUnlock;
+    _Bool _suspendedUnderLock;
+    _Bool _isReconciling;
     MFWeakSet *_middleware;
     _MFMailMessageLibraryStatistics *_lastStats;
     MFFileCompressionQueue *_compressionQueue;
@@ -124,11 +126,13 @@
 - (id)newConnectionForConnectionPool:(id)arg1;
 - (void)_addMessageToThreadAtUnlock:(unsigned int)arg1;
 - (void)_reconcileJournalIsLaunch:(_Bool)arg1;
+- (void)_reconcileJournalOnResume;
 - (void)reconcileJournalOnStartup;
 - (_Bool)_canAccessProtectedData;
+- (void)_cancelPendingJournalReconciliation;
+- (void)_scheduleJournalReconciliation;
 - (void)contentProtectionStateChanged:(int)arg1 previousState:(int)arg2;
 - (_Bool)isProtectedDataAvailable:(struct sqlite3 *)arg1;
-- (long long)_reconcileJournal;
 - (void)_schedulePeriodicStatisticsLogging;
 - (void)_logStatistics;
 - (_Bool)_shouldLogDatabaseStats;
@@ -340,6 +344,7 @@
 - (void)setFlags:(unsigned long long)arg1 forMessage:(id)arg2;
 @property(readonly, nonatomic) unsigned long long pendingIndexItemsCount;
 - (void)applicationWillResume;
+- (void)applicationWillSuspendUnderLock;
 - (void)applicationWillSuspend;
 - (void)invalidateAndWait;
 - (void)dealloc;

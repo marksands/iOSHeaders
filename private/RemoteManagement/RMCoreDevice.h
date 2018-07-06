@@ -6,19 +6,20 @@
 
 #import "NSManagedObject.h"
 
-@class NSData, NSDate, NSString;
+@class NSSet, NSString;
 
 @interface RMCoreDevice : NSManagedObject
 {
 }
 
++ (id)fetchOrCreateLocalDeviceInContext:(id)arg1 error:(id *)arg2;
++ (id)fetchOrCreateDeviceWithIdentifier:(id)arg1 inContext:(id)arg2 error:(id *)arg3;
 
 // Remaining properties
-@property(copy, nonatomic) NSData *capabilitiesPlist; // @dynamic capabilitiesPlist;
-@property(copy, nonatomic) NSString *coreDuetIdentifier; // @dynamic coreDuetIdentifier;
-@property(copy, nonatomic) NSData *deviceInfoPlist; // @dynamic deviceInfoPlist;
 @property(copy, nonatomic) NSString *identifier; // @dynamic identifier;
-@property(copy, nonatomic) NSDate *lastUsageEventDate; // @dynamic lastUsageEventDate;
 @property(copy, nonatomic) NSString *name; // @dynamic name;
+@property(retain, nonatomic) NSSet *userDeviceAddresses; // @dynamic userDeviceAddresses;
+@property(retain, nonatomic) NSSet *userDeviceStates; // @dynamic userDeviceStates;
+
 @end
 

@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
     GEOTileRequester *_activeRequester;
     GEOTileKeyList *_remainingKeysForActiveRequester;
     unsigned long long _successfulTiles;
+    unsigned long long _failedTiles;
     CDUnknownBlockType _tileRequesterCreationBlock;
 }
 

@@ -253,6 +253,7 @@ __attribute__((visibility("hidden")))
 - (void)touchDown:(id)arg1 executionContext:(id)arg2;
 - (_Bool)pointInside:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)_pointAllowedInStaticHitBuffer:(struct CGPoint)arg1;
 - (double)hitBuffer;
 - (struct CGRect)_paddedKeyUnionFrame;
 - (_Bool)_handleTouchForEmojiInputView;
@@ -303,7 +304,7 @@ __attribute__((visibility("hidden")))
 - (id)_variantsByAppendingDualStringKey:(id)arg1 toVariants:(id)arg2;
 - (id)_appendingSecondaryStringToVariantsTop:(id)arg1 secondaryString:(id)arg2 withDirection:(id)arg3;
 - (id)_keyplaneVariantsKeyForString:(id)arg1;
-- (struct CGRect)_keyboardLongPressInteractionRegion;
+- (id)_keyboardLongPressInteractionRegions;
 - (void)longPressAction;
 - (void)showMenu:(id)arg1 forKey:(id)arg2;
 - (_Bool)isLongPressedKey:(id)arg1;

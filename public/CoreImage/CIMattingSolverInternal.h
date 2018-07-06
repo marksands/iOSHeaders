@@ -25,8 +25,6 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)customAttributes;
-+ (id)resizeImage:(id)arg1 toMatchImage:(id)arg2 singleChannel:(_Bool)arg3 bilinear:(_Bool)arg4;
-+ (id)scaleImageRGBA:(id)arg1 scalex:(double)arg2 scaley:(double)arg3 singleChannel:(_Bool)arg4 bilinear:(_Bool)arg5;
 - (id)outputImage;
 
 @end

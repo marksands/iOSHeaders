@@ -61,10 +61,15 @@
 - (void)didUpdateCloudPhotoLibraryEnablement:(id)arg1;
 - (void)presentationRequestForWelcomeCloudViewController:(id)arg1;
 - (id)_sortingRankForGadget:(id)arg1;
-- (void)_updateDynamicSortingRanks;
+- (void)_resetDynamicRanks;
+- (void)_updateDynamicRanks;
+- (void)_updateSortingRanks;
+- (void)_storeSortingRanks;
+- (_Bool)_loadSortingRanksIfNecessary;
 - (id)_singleAssetFetchResult;
 - (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
+- (void)_calendarDayChanged;
 - (id)filteredUndisplayedGadgets:(id)arg1;
 - (CDUnknownBlockType)gadgetSortComparator;
 - (void)_updateNoContentView;

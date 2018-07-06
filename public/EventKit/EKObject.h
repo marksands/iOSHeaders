@@ -9,7 +9,7 @@
 #import "EKFrozenMeltedPair.h"
 #import "EKProtocolMutableObject.h"
 
-@class EKChangeSet, EKEventStore, EKPersistentObject, NSDictionary, NSMutableDictionary, NSString;
+@class EKChangeSet, EKEventStore, EKObjectValidationContext, EKPersistentObject, NSDictionary, NSMutableDictionary, NSString;
 
 __attribute__((visibility("hidden")))
 @interface EKObject : NSObject <EKFrozenMeltedPair, EKProtocolMutableObject>
@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *__cachedMeltedObjects;
     NSDictionary *_additionalFrozenProperties;
     NSMutableDictionary *__cachedValues;
+    EKObjectValidationContext *__validationContext;
 }
 
 + (id)propertiesUnavailableForPartialObjects;
@@ -35,6 +36,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)isDerivedRelationship;
 + (_Bool)isWeakRelationship;
 + (unsigned long long)_numberOfSharedLocksForUnitTesting;
+@property(retain, nonatomic) EKObjectValidationContext *_validationContext; // @synthesize _validationContext=__validationContext;
 @property(retain, nonatomic) NSMutableDictionary *_cachedValues; // @synthesize _cachedValues=__cachedValues;
 @property(retain, nonatomic) NSDictionary *additionalFrozenProperties; // @synthesize additionalFrozenProperties=_additionalFrozenProperties;
 @property(retain, nonatomic) NSMutableDictionary *_cachedMeltedObjects; // @synthesize _cachedMeltedObjects=__cachedMeltedObjects;
@@ -88,6 +90,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithPersistentObject:(id)arg1;
 - (id)init;
+- (id)privacyDescription;
 - (void)emptyMeltedCacheForKeys:(id)arg1;
 - (void)_emptyMeltedCacheForKey:(id)arg1;
 - (void)emptyMeltedCache;

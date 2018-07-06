@@ -8,21 +8,34 @@
 
 #import "PUImportOneUpCellDisplayDelegate.h"
 
-@class PUImportMediaProvider, UIImage;
+@class NSArray, PUImportMediaProvider, PUImportOneUpCellBadgeView, UIImage;
 
 __attribute__((visibility("hidden")))
 @interface PUImportOneUpTransitionView : PUImportOneUpCell <PUImportOneUpCellDisplayDelegate>
 {
     UIImage *_startingImage;
     PUImportMediaProvider *_mediaProvider;
+    PUImportOneUpCellBadgeView *_badgeView;
+    NSArray *_badgeViewOffsetConstraints;
+    struct CGRect _initialFrame;
+    struct CGRect _targetFrame;
 }
 
+@property(nonatomic) struct CGRect targetFrame; // @synthesize targetFrame=_targetFrame;
+@property(nonatomic) struct CGRect initialFrame; // @synthesize initialFrame=_initialFrame;
+@property(readonly, nonatomic) NSArray *badgeViewOffsetConstraints; // @synthesize badgeViewOffsetConstraints=_badgeViewOffsetConstraints;
+@property(readonly, nonatomic) PUImportOneUpCellBadgeView *badgeView; // @synthesize badgeView=_badgeView;
 @property(retain, nonatomic) PUImportMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
 @property(retain, nonatomic) UIImage *startingImage; // @synthesize startingImage=_startingImage;
 - (void).cxx_destruct;
 - (void)importOneUpCell:(id)arg1 didRequestCancellationOfThumbnailRequestWithID:(long long)arg2;
 - (long long)importOneUpCell:(id)arg1 requestedThumbnailForImportItem:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)importOneUpCell:(id)arg1 requestedBadgeUpdateForImportItem:(id)arg2;
+- (void)setInitialFrame:(struct CGRect)arg1 targetFrame:(struct CGRect)arg2;
+- (void)setTransform:(struct CGAffineTransform)arg1;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)updateConstraints;
+- (void)updateBadgeView;
 - (id)initWithImportItem:(id)arg1 startingImage:(id)arg2 mediaProvider:(id)arg3;
 
 @end

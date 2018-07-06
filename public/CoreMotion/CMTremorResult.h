@@ -13,7 +13,6 @@
 
 @interface CMTremorResult : NSObject <NSCopying, NSSecureCoding>
 {
-    float _percentOffWrist;
     float _percentUnknown;
     float _percentNone;
     float _percentSlight;
@@ -31,7 +30,6 @@
 @property(readonly, nonatomic) float percentSlight; // @synthesize percentSlight=_percentSlight;
 @property(readonly, nonatomic) float percentNone; // @synthesize percentNone=_percentNone;
 @property(readonly, nonatomic) float percentUnknown; // @synthesize percentUnknown=_percentUnknown;
-@property(readonly, nonatomic) float percentOffWrist; // @synthesize percentOffWrist=_percentOffWrist;
 @property(readonly, copy, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
 @property(readonly, copy, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 - (id)description;
@@ -40,7 +38,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)initWithParkinsonsResult:(const struct ParkinsonsResult *)arg1;
-- (id)initWithStartDate:(id)arg1 endDate:(id)arg2 percentOffWrist:(float)arg3 percentUnknown:(float)arg4 percentNone:(float)arg5 percentSlight:(float)arg6 percentMild:(float)arg7 percentModerate:(float)arg8 percentStrong:(float)arg9;
+- (id)initWithStartDate:(id)arg1 endDate:(id)arg2 percentUnknown:(float)arg3 percentNone:(float)arg4 percentSlight:(float)arg5 percentMild:(float)arg6 percentModerate:(float)arg7 percentStrong:(float)arg8;
 
 @end
 

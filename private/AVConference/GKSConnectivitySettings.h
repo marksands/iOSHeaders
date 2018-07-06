@@ -26,7 +26,6 @@
 + (int)getAdaptiveLearningState;
 + (int)getRateControllerType;
 + (_Bool)supportiRATRecommendation;
-+ (_Bool)isRedStateA;
 + (_Bool)supportsRedAudio;
 + (_Bool)supportsEVSCodec;
 + (int)getKeepAliveTimeoutFromCarrierBundle;

@@ -18,6 +18,7 @@
 - (void)remoteViewController:(id)arg1 selectedCredential:(id)arg2;
 - (id)_remoteViewController;
 - (void)setAuthenticationGracePeriod:(double)arg1;
+- (void)setExternallyVerifiedAndApprovedSharedWebCredentialsDomains:(id)arg1;
 - (void)setRemoteUnlocalizedAppName:(id)arg1;
 - (void)setRemoteLocalizedAppName:(id)arg1;
 - (void)setRemoteAppID:(id)arg1;

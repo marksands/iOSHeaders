@@ -8,19 +8,21 @@
 
 #import "STGroupSpecifierProviderDelegate.h"
 
-@class NSArray, NSString, PSSpecifier;
+@class NSArray, NSMutableDictionary, NSString;
 
 @interface STListViewController : PSListController <STGroupSpecifierProviderDelegate>
 {
     NSArray *_specifierProviders;
-    id _showingPinTarget;
-    PSSpecifier *_showingPinSpecifier;
+    NSMutableDictionary *_cellHeightBySpecifierIdentifier;
 }
 
-@property(retain, nonatomic) PSSpecifier *showingPinSpecifier; // @synthesize showingPinSpecifier=_showingPinSpecifier;
-@property(retain, nonatomic) id showingPinTarget; // @synthesize showingPinTarget=_showingPinTarget;
+@property(retain, nonatomic) NSMutableDictionary *cellHeightBySpecifierIdentifier; // @synthesize cellHeightBySpecifierIdentifier=_cellHeightBySpecifierIdentifier;
 @property(copy, nonatomic) NSArray *specifierProviders; // @synthesize specifierProviders=_specifierProviders;
 - (void).cxx_destruct;
+- (void)specifierProvider:(id)arg1 showPINSheet:(id)arg2;
+- (void)specifierProvider:(id)arg1 lazyLoadBundle:(id)arg2;
+- (void)specifierProviderEndUpdates:(id)arg1;
+- (void)specifierProviderBeginUpdates:(id)arg1;
 - (void)specifierProvider:(id)arg1 presentViewController:(id)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)specifierProvider:(id)arg1 popToViewControllerAnimated:(_Bool)arg2;
 - (void)specifierProvider:(id)arg1 showConfirmationViewForSpecifier:(id)arg2;
@@ -28,6 +30,7 @@
 - (void)specifierProvider:(id)arg1 dismissViewControllerAnimated:(_Bool)arg2;
 - (void)specifierProvider:(id)arg1 presentViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)specifierProvider:(id)arg1 showController:(id)arg2 animated:(_Bool)arg3;
+- (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)removeObserversForSpecifierProvider:(id)arg1;

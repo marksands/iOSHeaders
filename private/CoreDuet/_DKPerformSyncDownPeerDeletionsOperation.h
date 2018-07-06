@@ -23,6 +23,8 @@
     unsigned long long _batchNumber;
 }
 
++ (void)_updateEventStatsWithTotal:(unsigned long long)arg1 transportType:(long long)arg2;
++ (void)_updateEventStatsWithPreviousSyncDate:(id)arg1 transportType:(long long)arg2;
 - (void).cxx_destruct;
 - (void)endPerfMetrics;
 - (void)startPerfMetrics;

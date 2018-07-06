@@ -12,6 +12,8 @@
 {
     _Bool _allowNotification;
     _Bool _shouldPerformChanges;
+    _Bool _ignoreCollisionsWithExistingSuggestions;
+    _Bool _ignoreCollisionsWithSameBatchSuggestions;
     NSDate *_localToday;
     NSDate *_universalStartDate;
     NSDate *_universalEndDate;
@@ -26,6 +28,8 @@
 @property(retain, nonatomic) NSIndexSet *suggestionTypeBlacklist; // @synthesize suggestionTypeBlacklist=_suggestionTypeBlacklist;
 @property(retain, nonatomic) NSIndexSet *suggestionSubtypeWhitelist; // @synthesize suggestionSubtypeWhitelist=_suggestionSubtypeWhitelist;
 @property(retain, nonatomic) NSIndexSet *suggestionTypeWhitelist; // @synthesize suggestionTypeWhitelist=_suggestionTypeWhitelist;
+@property(nonatomic) _Bool ignoreCollisionsWithSameBatchSuggestions; // @synthesize ignoreCollisionsWithSameBatchSuggestions=_ignoreCollisionsWithSameBatchSuggestions;
+@property(nonatomic) _Bool ignoreCollisionsWithExistingSuggestions; // @synthesize ignoreCollisionsWithExistingSuggestions=_ignoreCollisionsWithExistingSuggestions;
 @property(nonatomic) _Bool shouldPerformChanges; // @synthesize shouldPerformChanges=_shouldPerformChanges;
 @property(nonatomic) _Bool allowNotification; // @synthesize allowNotification=_allowNotification;
 @property(nonatomic) unsigned long long maximumNumberOfSuggestions; // @synthesize maximumNumberOfSuggestions=_maximumNumberOfSuggestions;

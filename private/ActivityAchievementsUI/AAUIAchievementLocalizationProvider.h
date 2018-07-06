@@ -35,6 +35,7 @@
 - (id)unachievedAlertBackDescriptionForAchievement:(id)arg1;
 - (id)unachievedAlertDescriptionForAchievement:(id)arg1;
 - (id)achievedAlertBackDescriptionForAchievement:(id)arg1 sizeVariant:(long long)arg2 dateSizeVariant:(long long)arg3;
+- (id)_backDateStringForDate:(id)arg1 achievement:(id)arg2 dateStyle:(unsigned long long)arg3;
 - (id)achievedAlertDescriptionForAchievement:(id)arg1;
 - (id)friendAchievedDescriptionForAchievement:(id)arg1;
 - (id)friendAchievedTitleForAchievement:(id)arg1;

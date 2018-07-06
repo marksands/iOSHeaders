@@ -13,7 +13,7 @@
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(copy, nonatomic) NSNumber *interruptionBehavior; // @dynamic interruptionBehavior;
+@property(copy, nonatomic) NSNumber *interruptionBehaviorSetting; // @dynamic interruptionBehaviorSetting;
 
 @end
 

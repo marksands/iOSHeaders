@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (void)setContentsScale:(double)arg1;
 - (void)setContentsMultiplyColor:(struct CGColor *)arg1;
 - (void)setContentsFormat:(id)arg1;
 - (void)setNeedsDisplayOnBoundsChange:(_Bool)arg1;

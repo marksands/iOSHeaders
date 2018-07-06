@@ -16,12 +16,15 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_powerSpectrumSinks;
     long long _streamToken;
     id _powerSpectrumSourceDelegate;
+    struct opaqueCMSimpleQueue *_eventQueueAdd;
+    struct opaqueCMSimpleQueue *_eventQueueRemove;
 }
 
 @property(readonly, nonatomic) long long streamToken; // @synthesize streamToken=_streamToken;
 - (void)unregisterAudioPowerSpectrumSink:(id)arg1;
 - (void)registerAudioPowerSpectrumSink:(id)arg1;
 - (void)pushAudioSamples:(struct opaqueVCAudioBufferList *)arg1;
+- (void)processInternalEvents;
 - (void)dealloc;
 - (id)initWithStreamToken:(long long)arg1 delegate:(id)arg2;
 

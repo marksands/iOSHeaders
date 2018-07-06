@@ -8,10 +8,11 @@
 
 #import "CPSNavigationDisplaying.h"
 
-@class CPSCardPlatterView, CPSUpcomingManeuversCardView, NSString;
+@class CPSCardPlatterView, CPSUpcomingManeuversCardView, NSString, UIColor;
 
 @interface CPSNavigationCardView : UIView <CPSNavigationDisplaying>
 {
+    UIColor *_guidanceBackgroundColor;
     CPSCardPlatterView *_platterView;
     UIView *_pausedView;
     CPSUpcomingManeuversCardView *_maneuversView;
@@ -20,6 +21,7 @@
 @property(retain, nonatomic) CPSUpcomingManeuversCardView *maneuversView; // @synthesize maneuversView=_maneuversView;
 @property(retain, nonatomic) UIView *pausedView; // @synthesize pausedView=_pausedView;
 @property(readonly, nonatomic) CPSCardPlatterView *platterView; // @synthesize platterView=_platterView;
+@property(retain, nonatomic) UIColor *guidanceBackgroundColor; // @synthesize guidanceBackgroundColor=_guidanceBackgroundColor;
 - (void).cxx_destruct;
 - (void)navigator:(id)arg1 pausedTripForReason:(unsigned long long)arg2 description:(id)arg3;
 - (void)updateEstimates:(id)arg1 forManeuver:(id)arg2;

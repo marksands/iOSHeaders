@@ -260,7 +260,6 @@
 - (void)_setShouldZoom:(_Bool)arg1;
 - (_Bool)_shouldZoom;
 - (_Bool)_isClassic;
-- (void)_getScheduledLocalNotificationsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)scheduledLocalNotifications;
 - (void)setScheduledLocalNotifications:(id)arg1;
 - (void)cancelAllLocalNotifications;
@@ -271,16 +270,10 @@
 - (void)remoteNotificationRegistrar:(id)arg1 didReceiveDeviceToken:(id)arg2;
 - (void)_registerForRemoteNotificationTypes:(unsigned long long)arg1;
 - (void)registerForRemoteNotificationTypes:(unsigned long long)arg1;
-- (void)_getEnabledRemoteNotificationTypesWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (unsigned long long)_enabledRemoteNotificationTypes;
 - (unsigned long long)enabledRemoteNotificationTypes;
 - (void)unregisterForRemoteNotifications;
 - (_Bool)isRegisteredForRemoteNotifications;
 - (void)registerForRemoteNotifications;
-- (void)_getUserNotificationCategorieWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (id)_userNotificationCategories;
-- (void)_getUserNotificationTypesWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (unsigned long long)_userNotificationTypes;
 - (id)currentUserNotificationSettings;
 - (void)registerUserNotificationSettings:(id)arg1;
 - (_Bool)_supportsShakesWhenNotActive;
@@ -748,6 +741,7 @@
 - (_Bool)_applicationLaunchesIntoPortrait;
 - (double)_launchTime;
 - (double)_execOrResumeTime;
+- (void)_reportAppLaunchComplete;
 - (void)_reportMainSceneUpdateFinished:(CDUnknownBlockType)arg1;
 - (void)workspaceNoteAssertionExpirationImminent:(id)arg1;
 - (void)workspace:(id)arg1 didReceiveActions:(id)arg2;

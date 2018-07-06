@@ -20,7 +20,7 @@
     NSObject<OS_dispatch_queue> *_callbackQueue;
 }
 
-+ (id)zoneMigrationPaths;
++ (id)zoneMergeHandler;
 + (id)zoneSchema;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_callbackQueue;
 @property(retain, nonatomic) SCKStartupQueue *startupQueue; // @synthesize startupQueue=_startupQueue;

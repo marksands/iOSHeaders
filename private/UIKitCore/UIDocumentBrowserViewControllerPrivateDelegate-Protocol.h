@@ -11,6 +11,7 @@
 @protocol UIDocumentBrowserViewControllerPrivateDelegate <UIDocumentBrowserViewControllerDelegate>
 
 @optional
+- (void)documentBrowser:(UIDocumentBrowserViewController *)arg1 commitPreviewOfDocumentAtURL:(NSURL *)arg2;
 - (void)documentBrowser:(UIDocumentBrowserViewController *)arg1 commitDocumentURLPreview:(NSURL *)arg2;
 - (void)documentBrowser:(UIDocumentBrowserViewController *)arg1 didPickImportedURLs:(NSArray *)arg2;
 - (void)documentManagerWasCancelled:(UIDocumentBrowserViewController *)arg1;

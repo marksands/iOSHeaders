@@ -14,6 +14,7 @@
 @property(retain, nonatomic) id <STContentPrivacyViewModelCoordinator> coordinator; // @synthesize coordinator=_coordinator;
 - (void).cxx_destruct;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (_Bool)shouldReloadSpecifiersOnResume;
 - (id)init;
 
 @end

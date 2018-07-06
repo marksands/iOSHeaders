@@ -22,12 +22,10 @@
     NSArray *_fulfillCallStackReturnAddresses;
     _Bool _inverted;
     _Bool _assertForOverFulfill;
-    NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_delegateQueue;
 }
 
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic) unsigned long long numberOfFulfillments; // @synthesize numberOfFulfillments=_numberOfFulfillments;
 @property(nonatomic) unsigned long long expectedFulfillmentCount; // @synthesize expectedFulfillmentCount=_expectedFulfillmentCount;
 @property(copy) NSArray *fulfillCallStackReturnAddresses; // @synthesize fulfillCallStackReturnAddresses=_fulfillCallStackReturnAddresses;

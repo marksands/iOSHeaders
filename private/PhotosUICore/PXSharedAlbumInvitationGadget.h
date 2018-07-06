@@ -7,11 +7,12 @@
 #import "UIViewController.h"
 
 #import "PXGadget.h"
+#import "PXSettingsKeyObserver.h"
 #import "PXSharedAlbumInvitationViewDelegate.h"
 
 @class NSString, PXFeedInvitationSectionInfo, PXGadgetSpec, PXSharedAlbumHeaderView, PXSharedAlbumInvitationView;
 
-@interface PXSharedAlbumInvitationGadget : UIViewController <PXSharedAlbumInvitationViewDelegate, PXGadget>
+@interface PXSharedAlbumInvitationGadget : UIViewController <PXSharedAlbumInvitationViewDelegate, PXSettingsKeyObserver, PXGadget>
 {
     _Bool _loadedContentData;
     PXGadgetSpec *_gadgetSpec;
@@ -31,6 +32,7 @@
 @property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
+- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)sharedAlbumInvitationView:(id)arg1 presentViewController:(id)arg2;
 - (void)sharedAlbumInvitationViewDidReportAsJunk:(id)arg1;
 - (void)sharedAlbumInvitationView:(id)arg1 didAccept:(_Bool)arg2;

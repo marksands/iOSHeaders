@@ -6,21 +6,24 @@
 
 #import <RelevanceEngine/RERelevanceProvider.h>
 
-@class REIdentifier;
+@class NSString, RERecentAction;
 
 @interface RERecentActionRelevanceProvider : RERelevanceProvider
 {
-    REIdentifier *_actionIdentifier;
+    NSString *_bundleIdentifier;
+    unsigned long long _actionIdentifier;
 }
 
-@property(readonly, nonatomic) REIdentifier *actionIdentifier; // @synthesize actionIdentifier=_actionIdentifier;
+@property(readonly, nonatomic) unsigned long long actionIdentifier; // @synthesize actionIdentifier=_actionIdentifier;
+@property(readonly, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (void).cxx_destruct;
 - (id)description;
 - (unsigned long long)_hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithIdentifier:(id)arg1;
+- (id)initWithBundleIdentifier:(id)arg1 actionIdentifier:(unsigned long long)arg2;
 - (id)init;
+@property(readonly, nonatomic) RERecentAction *recentAction;
 
 @end
 

@@ -10,13 +10,17 @@
 
 @interface STTopUsageItemsView : UIView
 {
+    _Bool _isVibrancyEnabled;
     NSArray *_usageItems;
     NSArray *_viewItems;
 }
 
+@property(readonly, nonatomic) _Bool isVibrancyEnabled; // @synthesize isVibrancyEnabled=_isVibrancyEnabled;
 @property(copy, nonatomic) NSArray *viewItems; // @synthesize viewItems=_viewItems;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSArray *usageItems; // @synthesize usageItems=_usageItems;
+- (id)init;
+- (id)initWithVibrancyEnabled:(_Bool)arg1;
 
 @end
 

@@ -22,7 +22,7 @@
 - (void)saveGeneratedWaveformIfNecessary;
 - (id)synchronouslyApproximateWaveformSegmentsByReadingCurrentFileAheadTimeRange:(CDStruct_73a5d3ca)arg1;
 - (_Bool)setPaused:(_Bool)arg1;
-- (void)finishLoadingWithCompletionTimeoutDate:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)finishLoadingWithCompletionTimeout:(unsigned long long)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)startLoading;
 - (void)setLoadingProgress:(float)arg1;
 - (float)loadingProgress;

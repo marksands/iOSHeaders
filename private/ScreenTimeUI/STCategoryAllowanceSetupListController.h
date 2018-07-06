@@ -6,16 +6,18 @@
 
 #import <ScreenTimeUI/STAllowanceSetupListController.h>
 
-@class PSSpecifier;
+@class NSDictionary, PSSpecifier;
 
 @interface STCategoryAllowanceSetupListController : STAllowanceSetupListController
 {
+    NSDictionary *_appsByCategoryIdentifier;
     PSSpecifier *_categoriesGroupSpecifier;
     PSSpecifier *_allAppsAndCategoriesSpecifier;
 }
 
 @property(retain, nonatomic) PSSpecifier *allAppsAndCategoriesSpecifier; // @synthesize allAppsAndCategoriesSpecifier=_allAppsAndCategoriesSpecifier;
 @property(retain, nonatomic) PSSpecifier *categoriesGroupSpecifier; // @synthesize categoriesGroupSpecifier=_categoriesGroupSpecifier;
+@property(copy, nonatomic) NSDictionary *appsByCategoryIdentifier; // @synthesize appsByCategoryIdentifier=_appsByCategoryIdentifier;
 - (void).cxx_destruct;
 - (void)tableView:(id)arg1 didDeselectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;

@@ -24,7 +24,7 @@
     NSObject<OS_dispatch_queue> *_delegateQueue;
 }
 
-+ (CDUnknownBlockType)classBasedLPTPrioritizerForClassTimes:(id)arg1;
++ (CDUnknownBlockType)classBasedLPTPrioritizerForClassTimes:(id)arg1 fallbackExecutionOrdering:(long long)arg2;
 @property(retain) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 @property __weak id <XCTTestSchedulerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly) NSMutableSet *queuedWorkers; // @synthesize queuedWorkers=_queuedWorkers;

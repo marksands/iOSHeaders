@@ -69,6 +69,7 @@
 - (void)transitionCell:(id)arg1 toStopFocusingAnimated:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)transitionCell:(id)arg1 indexPath:(id)arg2 toStartFocusingAnimated:(_Bool)arg3 session:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)transitionCenterCellToStartFocusing:(id)arg1 indexPath:(id)arg2;
+- (void)transitionCenterCellIfPresentToStopFocusingAnimated:(_Bool)arg1;
 - (void)transitionCenterCellIfPresentToStartFocusing;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
@@ -94,6 +95,7 @@
 - (void)notifyDelegateForScrollingTowardItem:(id)arg1 ratio:(double)arg2;
 - (void)notifyDelegateForScrollingTowardItemFromOffset:(struct CGPoint)arg1;
 - (void)transitionCurrentDisplayedRecordAnimated:(_Bool)arg1;
+- (void)setDisplayedRecordFromIndex:(unsigned long long)arg1;
 - (void)updateDisplayedRecordIfNeeded;
 - (_Bool)shouldCurrentlyDisplayedRecordTransitionToLive;
 - (double)engagementRatioForLayoutAttributes:(id)arg1;

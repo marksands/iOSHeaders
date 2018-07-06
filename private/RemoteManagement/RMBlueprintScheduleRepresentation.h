@@ -14,7 +14,7 @@
     NSArray *_customScheduleItems;
 }
 
-@property(retain, nonatomic) NSArray *customScheduleItems; // @synthesize customScheduleItems=_customScheduleItems;
+@property(copy, nonatomic) NSArray *customScheduleItems; // @synthesize customScheduleItems=_customScheduleItems;
 @property(retain, nonatomic) RMBlueprintScheduleSimpleItem *simpleSchedule; // @synthesize simpleSchedule=_simpleSchedule;
 - (void).cxx_destruct;
 

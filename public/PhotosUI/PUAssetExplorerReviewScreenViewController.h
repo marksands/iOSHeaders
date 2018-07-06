@@ -26,6 +26,7 @@
     NSSet *_initialSelectedAssetUUIDs;
     NSSet *_initialDisabledLivePhotoAssetUUIDs;
     PUReviewScreenBarsModel *_reviewBarsModel;
+    unsigned long long _sourceType;
     PUAssetsDataSourceManager *__clientDataSourceManager;
     PUAssetExplorerReviewScreenAssetsDataSourceManager *__reviewDataSourceManager;
     PUMediaProvider *__clientMediaProvider;
@@ -37,14 +38,12 @@
     NSMutableDictionary *__substituteAssetsByUUID;
     PUActivityProgressController *__requestProgressController;
     UIAlertController *__failedReviewAssetRequestAlertController;
-    unsigned long long __sourceType;
     unsigned long long __options;
     PUReviewScreenSpec *__spec;
 }
 
 @property(readonly, nonatomic) PUReviewScreenSpec *_spec; // @synthesize _spec=__spec;
 @property(readonly, nonatomic) unsigned long long _options; // @synthesize _options=__options;
-@property(readonly, nonatomic) unsigned long long _sourceType; // @synthesize _sourceType=__sourceType;
 @property(retain, nonatomic, setter=_setFailedReviewAssetRequestAlertController:) UIAlertController *_failedReviewAssetRequestAlertController; // @synthesize _failedReviewAssetRequestAlertController=__failedReviewAssetRequestAlertController;
 @property(retain, nonatomic, setter=_setRequestProgressController:) PUActivityProgressController *_requestProgressController; // @synthesize _requestProgressController=__requestProgressController;
 @property(readonly, nonatomic) NSMutableDictionary *_substituteAssetsByUUID; // @synthesize _substituteAssetsByUUID=__substituteAssetsByUUID;
@@ -56,6 +55,7 @@
 @property(readonly, nonatomic) PUMediaProvider *_clientMediaProvider; // @synthesize _clientMediaProvider=__clientMediaProvider;
 @property(readonly, nonatomic) PUAssetExplorerReviewScreenAssetsDataSourceManager *_reviewDataSourceManager; // @synthesize _reviewDataSourceManager=__reviewDataSourceManager;
 @property(readonly, nonatomic) PUAssetsDataSourceManager *_clientDataSourceManager; // @synthesize _clientDataSourceManager=__clientDataSourceManager;
+@property(readonly, nonatomic) unsigned long long sourceType; // @synthesize sourceType=_sourceType;
 @property(readonly, nonatomic) PUReviewScreenBarsModel *reviewBarsModel; // @synthesize reviewBarsModel=_reviewBarsModel;
 @property(readonly, copy, nonatomic) NSSet *initialDisabledLivePhotoAssetUUIDs; // @synthesize initialDisabledLivePhotoAssetUUIDs=_initialDisabledLivePhotoAssetUUIDs;
 @property(readonly, copy, nonatomic) NSSet *initialSelectedAssetUUIDs; // @synthesize initialSelectedAssetUUIDs=_initialSelectedAssetUUIDs;

@@ -68,6 +68,7 @@
 @property(nonatomic) short localPublishState; // @dynamic localPublishState;
 @property(retain, nonatomic) NSSet *masters; // @dynamic masters;
 @property(nonatomic) short mode; // @dynamic mode;
+@property(copy, nonatomic) NSString *originatingScopeIdentifier; // @dynamic originatingScopeIdentifier;
 @property(retain, nonatomic) NSSet *participants; // @dynamic participants;
 @property(nonatomic) int photosCount; // @dynamic photosCount;
 @property(copy, nonatomic) NSData *previewData; // @dynamic previewData;

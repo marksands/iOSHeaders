@@ -16,18 +16,20 @@
     double timePlayed;
     id <SXVideoVolumeObserving> _volumeObserver;
     id <SVVideoPlaybackProgressObserving> _playbackProgressObserver;
+    id <SVVideoTimePlayedTracking> _timePlayedTracker;
 }
 
+@property(readonly, nonatomic) id <SVVideoTimePlayedTracking> timePlayedTracker; // @synthesize timePlayedTracker=_timePlayedTracker;
 @property(readonly, nonatomic) id <SVVideoPlaybackProgressObserving> playbackProgressObserver; // @synthesize playbackProgressObserver=_playbackProgressObserver;
 @property(readonly, nonatomic) id <SXVideoVolumeObserving> volumeObserver; // @synthesize volumeObserver=_volumeObserver;
-@property(readonly, nonatomic) double timePlayed; // @synthesize timePlayed;
 @property(readonly, nonatomic) double framerate; // @synthesize framerate;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) double volume;
 @property(readonly, nonatomic) _Bool muted;
+@property(readonly, nonatomic) double timePlayed; // @synthesize timePlayed;
 @property(readonly, nonatomic) double time;
 @property(readonly, nonatomic) double duration;
-- (id)initWithPlaybackProgressObserver:(id)arg1 volumeObserver:(id)arg2;
+- (id)initWithPlaybackProgressObserver:(id)arg1 volumeObserver:(id)arg2 timePlayedTracker:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

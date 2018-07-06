@@ -25,6 +25,9 @@
 - (void)_queue_loadApplicationsIfNeededWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_notify;
 - (void)_sortDonationsByCount:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)fetchFirstPerformedActionDate:(CDUnknownBlockType)arg1;
+- (void)fetchPerformedTodayCountForActionWithBundleIdentifer:(id)arg1 actionIdentifier:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)fetchPerformedCountForAction:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAllUniqueDonationsWithBlock:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchTopDonationsForApplications:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)fetchDonationWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;

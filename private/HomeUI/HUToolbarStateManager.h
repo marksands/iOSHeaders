@@ -18,9 +18,9 @@
 @property(retain, nonatomic) NSMutableArray *pushedViewControllerStack; // @synthesize pushedViewControllerStack=_pushedViewControllerStack;
 @property(nonatomic) __weak id <HUToolbarStateManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (_Bool)_shouldResetToolbarState;
+- (_Bool)_shouldRestoreToolbarButtons;
 - (id)_instanceForBackButtonValues;
-- (void)resetStandardToolbar;
+- (void)restoreStandardToolbarItems;
 - (void)showSettingsButtonWithTarget:(id)arg1 action:(SEL)arg2;
 - (void)showBackButtonWithTarget:(id)arg1 action:(SEL)arg2;
 - (void)willDismissModalViewController:(id)arg1;

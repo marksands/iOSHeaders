@@ -69,8 +69,8 @@
 - (_Bool)assetIsAvailableForNavigation:(id)arg1 inAlbum:(struct NSObject *)arg2;
 - (id)_tabRootViewControllerInNavigationController:(id)arg1;
 - (id)_snapBackRootViewControllerInNavigationController:(id)arg1;
-- (void)navigateToPeopleAlbumAnimated:(_Bool)arg1 revealPersonWithLocalIdentifier:(id)arg2;
-- (id)navigateToMemoryWithLocalIdentifier:(id)arg1;
+- (void)navigateToPeopleAlbumAnimated:(_Bool)arg1 revealPersonWithLocalIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)navigateToMemoryWithLocalIdentifier:(id)arg1;
 - (void)_handleFetchedMomentShare:(id)arg1 error:(id)arg2 timedOut:(_Bool)arg3;
 - (void)navigateToMomentShareWithURL:(id)arg1 animated:(_Bool)arg2;
 - (void)navigateToInvitationCMMWithIdentifier:(id)arg1 animated:(_Bool)arg2;
@@ -94,7 +94,7 @@
 - (void)navigateToOneUpForAsset:(id)arg1 inAssetContainer:(id)arg2 animated:(_Bool)arg3;
 - (void)navigateToOneYearAgoSearch;
 - (void)navigateToPhotosContentBottomAnimated:(_Bool)arg1 showMostRecentPhotoInOneUp:(_Bool)arg2;
-- (void)navigateToAsset:(id)arg1 animated:(_Bool)arg2;
+- (void)navigateToAsset:(id)arg1 openOneUp:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)_navigateToContentMode:(int)arg1 defaultLocationIfNeverDisplayed:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)navigateToContentMode:(int)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)navigateToComment:(id)arg1 forAsset:(id)arg2 animated:(_Bool)arg3;

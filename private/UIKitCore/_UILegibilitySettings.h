@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class NSString, UIColor;
 
-@interface _UILegibilitySettings : NSObject <NSSecureCoding>
+@interface _UILegibilitySettings : NSObject <NSSecureCoding, NSCopying>
 {
     long long _style;
     UIColor *_contentColor;
@@ -38,9 +39,11 @@
 @property(nonatomic) long long style; // @synthesize style=_style;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (void)setPropertiesForStyle:(long long)arg1;
 - (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithStyle:(long long)arg1 primaryColor:(id)arg2 secondaryColor:(id)arg3 shadowColor:(id)arg4;
 - (id)initWithStyle:(long long)arg1 contentColor:(id)arg2;
 - (id)initWithContentColor:(id)arg1 contrast:(double)arg2;

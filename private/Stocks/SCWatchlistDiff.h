@@ -11,15 +11,21 @@
 @interface SCWatchlistDiff : NSObject
 {
     NSArray *_addedStocks;
+    NSDictionary *_indexesOfAddedStocks;
     NSArray *_removedStocks;
     NSArray *_reorderedStocks;
     NSDictionary *_indexesOfReorderedStocks;
+    NSArray *_stocksPreDiff;
+    NSArray *_stocksPostDiff;
 }
 
 + (id)reorderedStocksFrom:(id)arg1 to:(id)arg2;
+@property(readonly, copy, nonatomic) NSArray *stocksPostDiff; // @synthesize stocksPostDiff=_stocksPostDiff;
+@property(readonly, copy, nonatomic) NSArray *stocksPreDiff; // @synthesize stocksPreDiff=_stocksPreDiff;
 @property(readonly, copy, nonatomic) NSDictionary *indexesOfReorderedStocks; // @synthesize indexesOfReorderedStocks=_indexesOfReorderedStocks;
 @property(readonly, copy, nonatomic) NSArray *reorderedStocks; // @synthesize reorderedStocks=_reorderedStocks;
 @property(readonly, copy, nonatomic) NSArray *removedStocks; // @synthesize removedStocks=_removedStocks;
+@property(readonly, copy, nonatomic) NSDictionary *indexesOfAddedStocks; // @synthesize indexesOfAddedStocks=_indexesOfAddedStocks;
 @property(readonly, copy, nonatomic) NSArray *addedStocks; // @synthesize addedStocks=_addedStocks;
 - (void).cxx_destruct;
 @property(readonly, nonatomic, getter=isEmpty) _Bool empty;

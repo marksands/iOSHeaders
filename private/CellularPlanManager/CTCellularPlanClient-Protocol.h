@@ -10,6 +10,7 @@
 
 @protocol CTCellularPlanClient <NSObject>
 - (void)getRemoteInfo:(void (^)(NSDictionary *, NSError *))arg1;
+- (void)setSkipEligibilityCheck:(_Bool)arg1;
 - (void)setRoamingSignupOverride:(_Bool)arg1;
 - (void)getRoamingSignupOverrideWithCompletion:(void (^)(_Bool))arg1;
 - (void)setAutoPlanSelection:(_Bool)arg1;
@@ -88,6 +89,7 @@
 - (void)getSupportedFlowTypes:(void (^)(unsigned long long, NSError *))arg1;
 - (void)isNewDataPlanCapable:(void (^)(_Bool))arg1;
 - (void)getSubscriptionContextUUIDforPlan:(NSString *)arg1 completion:(void (^)(NSString *, NSError *))arg2;
+- (void)getPredefinedLabels:(void (^)(NSArray *, NSError *))arg1;
 - (void)ping;
 @end
 

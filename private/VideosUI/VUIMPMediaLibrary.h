@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
 - (id)_imageLoadOperationWithParams:(id)arg1 scaleToSize:(struct CGSize)arg2 cropToFit:(_Bool)arg3;
 - (id)_imageLoadParamsForImageLoaderObject:(id)arg1;
 - (id)_imageLoaderIdentifier;
+- (_Bool)hasImageCache;
 - (id)saveMediaEntity:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)enqueueFetchRequests:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)enqueueMediaItemEntityTypesFetchWithCompletionHandler:(CDUnknownBlockType)arg1;

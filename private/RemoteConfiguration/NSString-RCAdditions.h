@@ -10,6 +10,7 @@
 + (_Bool)rc_string:(id)arg1 isEqualToString:(id)arg2;
 + (id)stringWithValue:(id)arg1;
 + (id)rc_string:(CDUnknownBlockType)arg1;
+- (id)rc_numberFollowingString:(id)arg1;
 @property(readonly, nonatomic) struct _NSRange range;
 @end
 

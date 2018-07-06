@@ -6,14 +6,17 @@
 
 #import "NSObject.h"
 
+#import "AVTUIRaiseGestureManagerDelegate.h"
 #import "AVTViewFaceTrackingDelegate.h"
 
-@class AVTUserInfoView, AVTView, NSString, NSTimer;
+@class AVTUIEnvironment, AVTUIRaiseGestureManager, AVTUserInfoView, AVTView, NSString, NSTimer;
 
-@interface AVTFaceTrackingManager : NSObject <AVTViewFaceTrackingDelegate>
+@interface AVTFaceTrackingManager : NSObject <AVTViewFaceTrackingDelegate, AVTUIRaiseGestureManagerDelegate>
 {
     _Bool _faceTrackingManagementPaused;
     AVTUserInfoView *_userInfoView;
+    AVTUIEnvironment *_environment;
+    AVTUIRaiseGestureManager *_raiseGestureManager;
     AVTView *_avatarView;
     NSTimer *_trackingLostMessageTimer;
     NSTimer *_pauseTrackingTimer;
@@ -22,16 +25,21 @@
 + (double)desiredUserInfoLabelAlphaForFaceTrackingState:(_Bool)arg1;
 @property(retain, nonatomic) NSTimer *pauseTrackingTimer; // @synthesize pauseTrackingTimer=_pauseTrackingTimer;
 @property(retain, nonatomic) NSTimer *trackingLostMessageTimer; // @synthesize trackingLostMessageTimer=_trackingLostMessageTimer;
-@property(retain, nonatomic) AVTView *avatarView; // @synthesize avatarView=_avatarView;
+@property(readonly, nonatomic) AVTView *avatarView; // @synthesize avatarView=_avatarView;
+@property(readonly, nonatomic) AVTUIRaiseGestureManager *raiseGestureManager; // @synthesize raiseGestureManager=_raiseGestureManager;
+@property(readonly, nonatomic) AVTUIEnvironment *environment; // @synthesize environment=_environment;
 @property(readonly, nonatomic) AVTUserInfoView *userInfoView; // @synthesize userInfoView=_userInfoView;
 @property(nonatomic) _Bool faceTrackingManagementPaused; // @synthesize faceTrackingManagementPaused=_faceTrackingManagementPaused;
 - (void).cxx_destruct;
+- (void)raiseGestureManagerDidRecognizeRaiseGesture:(id)arg1;
 - (void)avatarViewFaceTrackingSessionInterruptionDidEnd:(id)arg1;
 - (void)avatarViewFaceTrackingSessionInterruptionDidBegin:(id)arg1;
 - (void)avatarView:(id)arg1 faceTrackingSessionFailedWithError:(id)arg2;
 - (void)avatarView:(id)arg1 didUpdateWithLowLightStatus:(_Bool)arg2;
 - (void)avatarView:(id)arg1 didUpdateWithFaceTrackingStatus:(_Bool)arg2;
 - (id)userInfoStringForCurrentTrackingState;
+- (void)updateForPausingTracking;
+- (void)updateForTrackingLost;
 - (void)startTrackingLostTimers;
 - (void)invalidateFaceTrackingTimers;
 - (void)updateUserInfoLabelAlphaForFaceTrackingState:(_Bool)arg1 animated:(_Bool)arg2;
@@ -41,7 +49,8 @@
 - (void)resumeFaceTrackingIfNeededAnimated:(_Bool)arg1;
 - (void)tearDown;
 - (void)dealloc;
-- (id)initWithAvatarView:(id)arg1;
+- (id)initWithAvatarView:(id)arg1 raiseGestureManager:(id)arg2 userInfoView:(id)arg3 environment:(id)arg4;
+- (id)initWithAvatarView:(id)arg1 raiseGestureManager:(id)arg2 environment:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

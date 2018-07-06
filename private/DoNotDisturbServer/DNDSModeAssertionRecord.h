@@ -21,7 +21,8 @@
     NSString *_assertionDetailsIdentifier;
     NSString *_assertionDetailsModeIdentifier;
     NSString *_assertionDetailsLifetimeType;
-    NSString *_assertionDetailsCalendarEventLifetimeEventIdentifier;
+    NSString *_assertionDetailsCalendarEventLifetimeEventUniqueIdentifier;
+    NSNumber *_assertionDetailsCalendarEventLifetimeOccurrenceDateTimestamp;
     NSNumber *_assertionDetailsCalendarEventLifetimeOnlyDuringEvent;
     NSNumber *_assertionDetailsDateIntervalLifetimeStartDateTimestamp;
     NSNumber *_assertionDetailsDateIntervalLifetimeEndDateTimestamp;
@@ -31,7 +32,8 @@
 @property(readonly, copy, nonatomic) NSNumber *assertionDetailsDateIntervalLifetimeEndDateTimestamp; // @synthesize assertionDetailsDateIntervalLifetimeEndDateTimestamp=_assertionDetailsDateIntervalLifetimeEndDateTimestamp;
 @property(readonly, copy, nonatomic) NSNumber *assertionDetailsDateIntervalLifetimeStartDateTimestamp; // @synthesize assertionDetailsDateIntervalLifetimeStartDateTimestamp=_assertionDetailsDateIntervalLifetimeStartDateTimestamp;
 @property(readonly, copy, nonatomic) NSNumber *assertionDetailsCalendarEventLifetimeOnlyDuringEvent; // @synthesize assertionDetailsCalendarEventLifetimeOnlyDuringEvent=_assertionDetailsCalendarEventLifetimeOnlyDuringEvent;
-@property(readonly, copy, nonatomic) NSString *assertionDetailsCalendarEventLifetimeEventIdentifier; // @synthesize assertionDetailsCalendarEventLifetimeEventIdentifier=_assertionDetailsCalendarEventLifetimeEventIdentifier;
+@property(readonly, copy, nonatomic) NSNumber *assertionDetailsCalendarEventLifetimeOccurrenceDateTimestamp; // @synthesize assertionDetailsCalendarEventLifetimeOccurrenceDateTimestamp=_assertionDetailsCalendarEventLifetimeOccurrenceDateTimestamp;
+@property(readonly, copy, nonatomic) NSString *assertionDetailsCalendarEventLifetimeEventUniqueIdentifier; // @synthesize assertionDetailsCalendarEventLifetimeEventUniqueIdentifier=_assertionDetailsCalendarEventLifetimeEventUniqueIdentifier;
 @property(readonly, copy, nonatomic) NSString *assertionDetailsLifetimeType; // @synthesize assertionDetailsLifetimeType=_assertionDetailsLifetimeType;
 @property(readonly, copy, nonatomic) NSString *assertionDetailsModeIdentifier; // @synthesize assertionDetailsModeIdentifier=_assertionDetailsModeIdentifier;
 @property(readonly, copy, nonatomic) NSString *assertionDetailsIdentifier; // @synthesize assertionDetailsIdentifier=_assertionDetailsIdentifier;
@@ -48,7 +50,7 @@
 @property(readonly, copy) NSString *description;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
-- (id)_initWithAssertionUUID:(id)arg1 assertionStartDateTimestamp:(id)arg2 assertionClientIdentifier:(id)arg3 assertionDetailsIdentifier:(id)arg4 assertionDetailsModeIdentifier:(id)arg5 assertionDetailsLifetimeType:(id)arg6 assertionDetailsCalendarEventLifetimeEventIdentifier:(id)arg7 assertionDetailsCalendarEventLifetimeOnlyDuringEvent:(id)arg8 assertionDetailsDateIntervalLifetimeStartDateTimestamp:(id)arg9 assertionDetailsDateIntervalLifetimeEndDateTimestamp:(id)arg10;
+- (id)_initWithAssertionUUID:(id)arg1 assertionStartDateTimestamp:(id)arg2 assertionClientIdentifier:(id)arg3 assertionDetailsIdentifier:(id)arg4 assertionDetailsModeIdentifier:(id)arg5 assertionDetailsLifetimeType:(id)arg6 assertionDetailsCalendarEventLifetimeEventUniqueIdentifier:(id)arg7 assertionDetailsCalendarEventLifetimeOccurrenceDateTimestamp:(id)arg8 assertionDetailsCalendarEventLifetimeOnlyDuringEvent:(id)arg9 assertionDetailsDateIntervalLifetimeStartDateTimestamp:(id)arg10 assertionDetailsDateIntervalLifetimeEndDateTimestamp:(id)arg11;
 - (id)_initWithRecord:(id)arg1;
 - (id)init;
 

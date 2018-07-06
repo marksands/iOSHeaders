@@ -39,7 +39,6 @@
 - (id)_dictionaryOnDisk;
 - (void)_writeToDisk;
 - (void)_readFromDisk;
-- (void)_refreshLastKnownLocationFromCache;
 - (long long)_statusForCLAuthorizationStatus:(int)arg1;
 - (id)_dictionaryForCLLocation:(id)arg1;
 - (void)_requestCLLocationUpdates:(CDUnknownBlockType)arg1;

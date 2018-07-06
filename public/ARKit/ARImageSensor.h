@@ -50,6 +50,7 @@
 - (void)captureSessionStateChanged:(id)arg1;
 - (void)_dispatchImageData:(id)arg1;
 - (void)dataOutputSynchronizer:(id)arg1 didOutputSynchronizedDataCollection:(id)arg2;
+- (void)captureOutput:(id)arg1 didDropSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
 - (void)captureOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
 - (void)enableAutoFocusForDevice:(id)arg1;
 - (void)_configureCameraFocusForDevice:(id)arg1;

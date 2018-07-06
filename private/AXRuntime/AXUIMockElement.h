@@ -76,7 +76,6 @@
 - (_Bool)canSetAXAttribute:(long long)arg1;
 - (void)setWritable:(_Bool)arg1 forAXAttribute:(long long)arg2;
 - (_Bool)isEqual:(id)arg1;
-- (_Bool)isKindOfClass:(Class)arg1;
 - (void)disableCache;
 - (void)enableCache:(_Bool)arg1;
 - (id)_valueForAttribute:(long long)arg1;

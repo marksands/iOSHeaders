@@ -174,6 +174,7 @@
 - (id)fallbackImageURL;
 - (_Bool)hasFallbackImage;
 - (void)writeFallbackImageData:(id)arg1;
+- (void)requireMinimumVersionIncludingChildObjects:(long long)arg1;
 - (id)addMediaWithURL:(id)arg1 updateFileBasedAttributes:(_Bool)arg2;
 - (id)addMediaWithURL:(id)arg1;
 - (id)addMediaWithFileWrapper:(id)arg1;

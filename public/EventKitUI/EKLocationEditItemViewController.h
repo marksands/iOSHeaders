@@ -68,6 +68,7 @@
 - (_Bool)presentModally;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)updateViewConstraints;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (struct CGSize)preferredContentSize;
 - (void)setPreferredContentSize:(struct CGSize)arg1;

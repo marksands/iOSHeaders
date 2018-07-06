@@ -16,13 +16,11 @@
     _Bool _autoExpandSingleSectionedResults;
     _Bool _showKeyboardForZeroKeywords;
     _Bool _preferFavoritesInTop8;
-    _Bool _showOtherPhotosSection;
     unsigned long long _maxThumbnailsPerRow;
 }
 
 + (id)settingsControllerModule;
 + (id)sharedInstance;
-@property(nonatomic) _Bool showOtherPhotosSection; // @synthesize showOtherPhotosSection=_showOtherPhotosSection;
 @property(nonatomic) _Bool preferFavoritesInTop8; // @synthesize preferFavoritesInTop8=_preferFavoritesInTop8;
 @property(nonatomic) unsigned long long maxThumbnailsPerRow; // @synthesize maxThumbnailsPerRow=_maxThumbnailsPerRow;
 @property(nonatomic) _Bool showKeyboardForZeroKeywords; // @synthesize showKeyboardForZeroKeywords=_showKeyboardForZeroKeywords;

@@ -30,7 +30,7 @@
 @property(readonly, nonatomic) NSString *ctPhoneNumber;
 - (id)ctSubscriptionInfoWithError:(id)arg1;
 @property(readonly, nonatomic) NSArray *ctServiceSubscriptions;
-- (id)copyCarrierBundleValueForSubscriptionContext:(id)arg1 key:(id)arg2 defaultValue:(id)arg3 valueIfError:(id)arg4;
+- (id)copyCarrierBundleValueForSubscriptionContext:(id)arg1 keyHierarchy:(id)arg2 defaultValue:(id)arg3 valueIfError:(id)arg4;
 - (id)_getCachedCarrierSettingOrReadFromBundleForCarrierBundleKey:(id)arg1 forContext:(id)arg2 defaultValue:(id)arg3;
 - (void)_setCachedCarrierSettingValue:(id)arg1 forCarrierBundleKey:(id)arg2 forPhoneNumber:(id)arg3;
 - (id)_getCachedCarrierSettingValueForCarrierBundleKey:(id)arg1 forPhoneNumber:(id)arg2;

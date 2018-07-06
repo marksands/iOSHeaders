@@ -6,14 +6,13 @@
 
 #import "UIView.h"
 
-@class NSString, TPBadgeView, UIImageView, UILabel, UIStackView, UITapGestureRecognizer;
+@class NSString, TPBadgeView, UILabel, UIStackView, UITapGestureRecognizer;
 
 @interface TPPillView : UIView
 {
     id <TPPillViewDelegate> _delegate;
     NSString *_title;
     UIStackView *_stackView;
-    UIImageView *_imageView;
     TPBadgeView *_badgeView;
     UILabel *_label;
     UITapGestureRecognizer *_gestureRecognizer;
@@ -22,7 +21,6 @@
 @property(readonly, nonatomic) UITapGestureRecognizer *gestureRecognizer; // @synthesize gestureRecognizer=_gestureRecognizer;
 @property(readonly, nonatomic) UILabel *label; // @synthesize label=_label;
 @property(readonly, nonatomic) TPBadgeView *badgeView; // @synthesize badgeView=_badgeView;
-@property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(readonly, nonatomic) UIStackView *stackView; // @synthesize stackView=_stackView;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) __weak id <TPPillViewDelegate> delegate; // @synthesize delegate=_delegate;

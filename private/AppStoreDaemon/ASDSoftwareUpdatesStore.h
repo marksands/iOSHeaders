@@ -44,6 +44,7 @@
 - (void)getMetricsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)getManagedUpdatesWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)clearExpiredUpdateHistoryWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (_Bool)confirmAgentRequestedUpdateAll;
 - (_Bool)autoUpdateEnabled;
 - (void)dealloc;
 - (id)init;

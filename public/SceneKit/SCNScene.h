@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSMutableDictionary, NSURL, SCNAuthoringEnvironment, SCNMaterialProperty, SCNNode, SCNPhysicsWorld, SCNSceneSource;
+@class NSMutableDictionary, NSString, NSURL, SCNAuthoringEnvironment, SCNMaterialProperty, SCNNode, SCNPhysicsWorld, SCNSceneSource;
 
 @interface SCNScene : NSObject <NSSecureCoding>
 {
@@ -27,6 +27,8 @@
     _Bool _paused;
     NSURL *_sourceURL;
     _Bool _pausedForEditing;
+    NSString *_lightingEnvironmentRadiancePath;
+    NSString *_lightingEnvironmentIrradiancePath;
     SCNAuthoringEnvironment *_authoringEnvironment;
 }
 
@@ -59,6 +61,10 @@
 - (id)initForJavascript:(id)arg1;
 - (id)_subnodeFromIndexPath:(id)arg1;
 - (id)_nodeWithIndexPath:(id)arg1;
+- (id)_lightingEnvironmentIrradiancePath;
+- (void)set_lightingEnvironmentIrradiancePath:(id)arg1;
+- (id)_lightingEnvironmentRadiancePath;
+- (void)set_lightingEnvironmentRadiancePath:(id)arg1;
 - (_Bool)isPausedForEditing;
 - (void)setPausedForEditing:(_Bool)arg1;
 - (_Bool)isPausedOrPausedByInheritance;

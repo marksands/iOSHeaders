@@ -6,7 +6,7 @@
 
 #import "CPBaseTemplateProviding.h"
 
-@class CPNavigationAlert, CPTravelEstimates, CPTrip, CPTripPreviewTextConfiguration, NSArray, NSUUID, UIImage;
+@class CPNavigationAlert, CPTravelEstimates, CPTrip, CPTripPreviewTextConfiguration, NSArray, NSUUID, UIColor, UIImage;
 
 @protocol CPMapTemplateProviding <CPBaseTemplateProviding>
 - (void)updateNavigationAlert:(CPNavigationAlert *)arg1;
@@ -16,12 +16,14 @@
 - (void)hostSetPanInterfaceVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)hostStartNavigationSessionForTrip:(CPTrip *)arg1 reply:(void (^)(id <CPNavigationSessionProviding>))arg2;
 - (void)hostUpdateTravelEstimates:(CPTravelEstimates *)arg1 forTripIdentifier:(NSUUID *)arg2;
-- (void)setHostTripPreviews:(NSArray *)arg1 textConfiguration:(CPTripPreviewTextConfiguration *)arg2;
+- (void)setHostTripPreviews:(NSArray *)arg1 textConfiguration:(CPTripPreviewTextConfiguration *)arg2 previewOnlyRouteChoices:(_Bool)arg3;
 - (void)hostSetMapButtons:(NSArray *)arg1;
 - (void)setMapButton:(NSUUID *)arg1 focusedImage:(UIImage *)arg2;
 - (void)setMapButton:(NSUUID *)arg1 image:(UIImage *)arg2;
 - (void)setMapButton:(NSUUID *)arg1 hidden:(_Bool)arg2;
 - (void)setHostHidesButtonsWithNavigationBar:(_Bool)arg1;
 - (void)setHostAutoHidesNavigationBar:(_Bool)arg1;
+- (void)setHostTripEstimateStyle:(unsigned long long)arg1;
+- (void)setHostGuidanceBackgroundColor:(UIColor *)arg1;
 @end
 

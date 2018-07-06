@@ -7,6 +7,7 @@
 @class SCKZoneSchema;
 
 @protocol SCKDatabaseStoreCoordinator
+@property(readonly, nonatomic) id <SCKDatabaseStore> underlyingStore;
 - (void)removeObserver:(id <SCKDatabaseStoreCoordinatorObserver>)arg1;
 - (void)addObserver:(id <SCKDatabaseStoreCoordinatorObserver>)arg1;
 - (void)writeZone:(SCKZoneSchema *)arg1 withAccessor:(void (^)(id <SCKZoneStore>))arg2;

@@ -13,6 +13,7 @@
     AVTCoreModel *_editorCoreModel;
     AVTAvatarConfigurationImageRenderer *_renderer;
     AVTInMemoryImageCache *_inMemoryImageCache;
+    id <AVTUsageTrackingSession> _usageTrackingSession;
     id <AVTUILogger> _logger;
     double _mainScreenScale;
     long long _userInterfaceLayoutDirection;
@@ -30,6 +31,7 @@
 + (id)imageCacheStoreLocationWithError:(id *)arg1;
 + (id)imageStoreLocation;
 + (id)storeLocation;
++ (id)createUsageTrackingSessionWithCoreModel:(id)arg1 serialQueueProvider:(CDUnknownBlockType)arg2 logger:(id)arg3;
 + (id)createEditorCoreModelWithLogger:(id)arg1;
 + (id)createQueueWithQoSClass:(unsigned int)arg1;
 + (CDUnknownBlockType)serialQueueProvider;
@@ -48,6 +50,7 @@
 @property(readonly, nonatomic) double mainScreenScale; // @synthesize mainScreenScale=_mainScreenScale;
 @property(readonly, nonatomic) id <AVTUILogger> logger; // @synthesize logger=_logger;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) id <AVTUsageTrackingSession> usageTrackingSession;
 @property(readonly, nonatomic) AVTInMemoryImageCache *inMemoryImageCache;
 @property(readonly, nonatomic) AVTAvatarConfigurationImageRenderer *renderer;
 @property(readonly, nonatomic) AVTCoreModel *editorCoreModel;

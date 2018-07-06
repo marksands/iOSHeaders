@@ -56,6 +56,7 @@
 - (void)handleActivateWithError:(id)arg1;
 - (void)handleDeviceLost:(id)arg1;
 - (void)handleDeviceChanged:(id)arg1 changes:(unsigned int)arg2;
+- (void)handshakeWithDuetSyncPeer:(id)arg1;
 - (void)handleDeviceFound:(id)arg1;
 - (void)handleInvalidation;
 - (void)startRapport;

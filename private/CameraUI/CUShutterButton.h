@@ -20,6 +20,7 @@
     UIImageView *__outerImageView;
     CAMTimelapseShutterRingView *__timelapseOuterView;
     UIView *__innerView;
+    UIView *__innerViewContrastView;
     UIView *__stopModeBackground;
     UIImageView *__spinnerView;
     long long _layoutStyle;
@@ -35,6 +36,7 @@
 @property(nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 @property(retain, nonatomic) UIImageView *_spinnerView; // @synthesize _spinnerView=__spinnerView;
 @property(retain, nonatomic) UIView *_stopModeBackground; // @synthesize _stopModeBackground=__stopModeBackground;
+@property(readonly, nonatomic) UIView *_innerViewContrastView; // @synthesize _innerViewContrastView=__innerViewContrastView;
 @property(readonly, nonatomic) UIView *_innerView; // @synthesize _innerView=__innerView;
 @property(readonly, nonatomic) CAMTimelapseShutterRingView *_timelapseOuterView; // @synthesize _timelapseOuterView=__timelapseOuterView;
 @property(readonly, nonatomic) UIImageView *_outerImageView; // @synthesize _outerImageView=__outerImageView;

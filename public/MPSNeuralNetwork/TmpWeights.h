@@ -17,6 +17,7 @@
     _Bool _hasBias;
 }
 
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (void)purge;
 - (_Bool)load;

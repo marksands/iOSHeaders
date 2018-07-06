@@ -60,7 +60,7 @@
     UINotificationFeedbackGenerator *_authenticationFeedbackBehavior;
     NSString *_statusText;
     NSString *_statusSubtitleText;
-    CDStruct_c68be025 _proudLockConfiguration;
+    CDStruct_4613c6c6 _proudLockConfiguration;
     CDStruct_930a33b1 _transitionContext;
 }
 
@@ -75,7 +75,7 @@
 @property(retain, nonatomic) _UIKeyboardFeedbackGenerator *keyboardFeedbackBehavior; // @synthesize keyboardFeedbackBehavior=_keyboardFeedbackBehavior;
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(retain, nonatomic) id <SBUIBiometricResource> biometricResource; // @synthesize biometricResource=_biometricResource;
-@property(nonatomic) CDStruct_c68be025 proudLockConfiguration; // @synthesize proudLockConfiguration=_proudLockConfiguration;
+@property(nonatomic) CDStruct_4613c6c6 proudLockConfiguration; // @synthesize proudLockConfiguration=_proudLockConfiguration;
 @property(retain, nonatomic) UIView *biometricAuthenticationView; // @synthesize biometricAuthenticationView=_biometricAuthenticationView;
 @property(retain, nonatomic) UIView *passcodeAuthenticationView; // @synthesize passcodeAuthenticationView=_passcodeAuthenticationView;
 @property(nonatomic) long long passcodeLockViewState; // @synthesize passcodeLockViewState=_passcodeLockViewState;

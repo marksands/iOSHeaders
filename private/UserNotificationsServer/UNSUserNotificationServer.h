@@ -66,6 +66,7 @@
 - (void)_migratePushRegistrations;
 - (void)_migrateNotificationCategories;
 - (void)_migratePendingNotificationRequests;
+- (void)_validateNotificationRepository;
 - (void)_migrateNotificationRepository;
 - (void)didReceiveDeviceToken:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)willPresentNotification:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;

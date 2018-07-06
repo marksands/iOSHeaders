@@ -15,8 +15,10 @@
     unsigned long long _options;
     NSMutableSet *_accessibilityAssertions;
     long long _journalType;
+    long long _cacheScope;
 }
 
+@property(nonatomic) long long cacheScope; // @synthesize cacheScope=_cacheScope;
 @property(nonatomic) long long journalType; // @synthesize journalType=_journalType;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;

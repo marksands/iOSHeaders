@@ -46,11 +46,13 @@
     double _dictationBlueColor;
     SUICAudioLevelSmoother *_levelSmoother;
     int _fidelity;
+    _Bool _transitionFinished;
     _Bool _isInitialized;
     _Bool _hasCustomActiveFrame;
     _Bool _shadersAreCompiled;
     _Bool _reduceMotionEnabled;
     _Bool _showAura;
+    _Bool _freezesAura;
     _Bool _reduceFrameRate;
     _Bool _renderInBackground;
     _Bool _paused;
@@ -71,6 +73,7 @@
 + (void)prewarmShadersForScreen:(id)arg1 size:(struct CGSize)arg2 fidelity:(int)arg3 prewarmInBackground:(_Bool)arg4;
 + (void)prewarmShadersForScreen:(id)arg1 size:(struct CGSize)arg2 fidelity:(int)arg3;
 + (void)prewarmShadersForScreen:(id)arg1 size:(struct CGSize)arg2;
++ (_Bool)_supportsAdaptiveFramerate;
 + (Class)layerClass;
 @property(nonatomic) _Bool accelerateTransitions; // @synthesize accelerateTransitions=_accelerateTransitions;
 @property(nonatomic) double horizontalScaleFactor; // @synthesize horizontalScaleFactor=_horizontalScaleFactor;
@@ -80,6 +83,7 @@
 @property(retain, nonatomic) UIImage *overlayImage; // @synthesize overlayImage=_overlayImage;
 @property(nonatomic) struct CGRect activeFrame; // @synthesize activeFrame=_activeFrame;
 @property(nonatomic) _Bool reduceFrameRate; // @synthesize reduceFrameRate=_reduceFrameRate;
+@property(nonatomic) _Bool freezesAura; // @synthesize freezesAura=_freezesAura;
 @property(nonatomic) _Bool showAura; // @synthesize showAura=_showAura;
 @property(nonatomic) int state; // @synthesize state=_state;
 @property(nonatomic) int mode; // @synthesize mode=_mode;
@@ -87,6 +91,7 @@
 - (void).cxx_destruct;
 - (void)traitCollectionDidChange:(id)arg1;
 - (float)_currentMicPowerLevel;
+- (void)_didFinishTransition;
 - (void)_updateCurveLayer:(id)arg1;
 - (_Bool)_isOriginatingProcessInBackground;
 @property(readonly, nonatomic) _Bool isRenderingEnabled;
@@ -120,7 +125,6 @@
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setHidden:(_Bool)arg1;
-- (void)_updateDisplayLinkPausedStateFromSuccess:(_Bool)arg1;
 - (void)_updateDisplayLinkPausedState;
 - (void)_setPreferredFramesPerSecond;
 - (void)fadeOutCurrentAura;

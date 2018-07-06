@@ -33,6 +33,10 @@
 - (id)specifiersAtIndexes:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *specifiers;
 - (id)mutableSpecifiers;
+- (void)showPINSheet:(id)arg1;
+- (void)lazyLoadBundle:(id)arg1;
+- (void)endUpdates;
+- (void)beginUpdates;
 - (void)presentViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)popToViewControllerAnimated:(_Bool)arg1;
 - (void)showConfirmationViewForSpecifier:(id)arg1;

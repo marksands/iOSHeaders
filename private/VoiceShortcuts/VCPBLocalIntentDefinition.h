@@ -6,19 +6,24 @@
 
 #import <VoiceShortcuts/VCPBIntentDefinition.h>
 
-@class LSBundleProxy;
+#import "VCPBIntentDefinitionHashable.h"
 
-@interface VCPBLocalIntentDefinition : VCPBIntentDefinition
+@class LSBundleProxy, NSArray;
+
+@interface VCPBLocalIntentDefinition : VCPBIntentDefinition <VCPBIntentDefinitionHashable>
 {
     LSBundleProxy *_bundleProxy;
     _Bool _filesLoaded;
+    NSArray *_fileURLs;
 }
 
 - (void).cxx_destruct;
-- (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)unloadFiles;
 - (void)loadAllFiles;
+- (_Bool)hasFilesThatNeedSyncingToWatch;
+- (id)fileURLs;
 - (id)initWithBundleProxy:(id)arg1;
 - (id)initWithAppBundleID:(id)arg1;
 

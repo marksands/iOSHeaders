@@ -8,6 +8,7 @@
 
 @class MLModel;
 
+__attribute__((visibility("hidden")))
 @interface gan_model : NSObject
 {
     MLModel *_model;

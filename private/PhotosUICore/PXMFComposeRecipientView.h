@@ -44,6 +44,7 @@
 - (id)text;
 - (void)setText:(id)arg1;
 - (void)layoutSubviews;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

@@ -9,12 +9,16 @@
 __attribute__((visibility("hidden")))
 @interface PUForYouSuggestionSaveActionPerformer : PUForYouSuggestionActionPerformer
 {
+    _Bool _isReverting;
 }
 
+@property(readonly, nonatomic) _Bool isReverting; // @synthesize isReverting=_isReverting;
 - (void)_performImageSaveWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_performLivePhotoSaveWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_performLoopingVideoSaveWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)performWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)initWithAsset:(id)arg1 isReverting:(_Bool)arg2;
+- (id)initWithAsset:(id)arg1;
 
 @end
 

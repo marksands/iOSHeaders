@@ -153,6 +153,7 @@
 - (void)viewDidLoad;
 - (id)_firstSelectedIndexPath;
 - (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)_updateMainViewAnimated:(_Bool)arg1;
 - (void)_updateNavigationBarAnimated:(_Bool)arg1;
@@ -202,6 +203,7 @@
 - (void)_activityViewControllerDidDismissWithActivityType:(id)arg1 didComplete:(_Bool)arg2;
 - (void)_prepareActivityViewControllerForUse;
 - (id)_requiredActivityViewController;
+- (void)_handleActivityViewControllerReadyToInteractCompletion:(id)arg1;
 - (void)_createActivityViewControllerIfNeeded;
 @property(readonly, nonatomic) PUActivityViewController *_activityViewController;
 - (void)_next:(id)arg1;

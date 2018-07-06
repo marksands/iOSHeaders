@@ -13,22 +13,23 @@
 @interface STDeviceBedtime : NSObject <NSCopying>
 {
     _Bool _deviceBedtimeEnabled;
-    unsigned long long _behaviorOption;
+    _Bool _disableAskForMoreTime;
     NSDateComponents *_start;
     NSDateComponents *_end;
 }
 
++ (id)defaultBedtimeEnd;
++ (id)defaultBedtimeStart;
 @property(copy, nonatomic) NSDateComponents *end; // @synthesize end=_end;
 @property(copy, nonatomic) NSDateComponents *start; // @synthesize start=_start;
-@property(nonatomic) unsigned long long behaviorOption; // @synthesize behaviorOption=_behaviorOption;
+@property(nonatomic) _Bool disableAskForMoreTime; // @synthesize disableAskForMoreTime=_disableAskForMoreTime;
 @property(nonatomic) _Bool deviceBedtimeEnabled; // @synthesize deviceBedtimeEnabled=_deviceBedtimeEnabled;
 - (void).cxx_destruct;
-- (id)defaultBedtimeEnd;
-- (id)defaultBedtimeStart;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_stDeviceBedtimeInitByParsingFamilyBedtimeAllPredicate:(id)arg1;
 - (void)_stDeviceBedtimeInitByParsingPersonalBedtimePredicate:(id)arg1;
 - (id)initWithActivation:(id)arg1;
+- (id)initWithBlueprint:(id)arg1;
 - (id)init;
 
 @end

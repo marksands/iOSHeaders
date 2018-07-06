@@ -24,7 +24,7 @@
     UILongPressGestureRecognizer *_pressGestureRecognizer;
     UISelectionFeedbackGenerator *_feedbackGenerator;
     _Bool _ignoreMenuItemAtTouchLocationAfterExpanded;
-    CCUIMenuModuleItemView *_menuItemToIgnore;
+    struct CGPoint _touchLocationToIgnore;
     CCUIMenuModuleItemView *_footerButtonView;
     _Bool _shouldProvideOwnPlatter;
     _Bool _useTallLayout;
@@ -47,6 +47,7 @@
 - (void)_handlePressGesture:(id)arg1;
 - (_Bool)_toggleSelectionForMenuItem:(id)arg1;
 - (id)_menuItemAtGestureTouchLocation:(id)arg1;
+- (id)_menuItemAtLocation:(struct CGPoint)arg1;
 - (void)_setupMenuItems;
 - (void)_setupTitleLabel;
 - (void)_setupContentViewBounds;

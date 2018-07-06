@@ -17,8 +17,6 @@
     NSMutableDictionary *_dataSourceElementSectionMap;
     NSMutableDictionary *_dataSourceElementIdentifierMap;
     NSObject<OS_dispatch_queue> *_queue;
-    NSObject<OS_dispatch_queue> *_highPriorityQueue;
-    NSObject<OS_dispatch_queue> *_defaultPriorityQueue;
     NSMutableArray *_updates;
     REUpNextScheduler *_updateScheduler;
     REUpNextScheduler *_reloadScheduler;
@@ -62,7 +60,7 @@
 - (void)_queue_performUpdates;
 - (void)_queue_scheduleUpdate:(id)arg1;
 - (id)_groupElements:(id)arg1 bySections:(id)arg2;
-- (void)_queue_reload:(CDUnknownBlockType)arg1;
+- (void)_queue_reloadWithQOS:(unsigned int)arg1 qosOffset:(int)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_performOrEnqueueUpdateBlock:(CDUnknownBlockType)arg1;
 - (void)removeElementsWithIds:(id)arg1;
 - (void)removeElements:(id)arg1 fromSection:(unsigned long long)arg2;

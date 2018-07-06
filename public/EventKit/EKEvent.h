@@ -98,7 +98,7 @@
 - (void)snoozeAlarm:(id)arg1 withTimeIntervalFromNow:(double)arg2;
 - (id)_refreshDateForKey:(id)arg1;
 - (_Bool)refresh;
-- (id)_privacyDescription;
+- (id)privacyDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) _Bool allowsParticipationStatusModifications;
 - (_Bool)hasValidEventAction;

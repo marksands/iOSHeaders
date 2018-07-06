@@ -10,9 +10,9 @@
 
 @interface PHImportResults : PHImportExceptionRecorder
 {
+    unsigned char _result;
     PHImportSource *_importSource;
     NSMutableArray *_importRecords;
-    unsigned long long _result;
     NSDate *_startTime;
     NSDate *_endTime;
     NSMutableDictionary *_pmrInfo;
@@ -22,7 +22,7 @@
 @property(retain, nonatomic) NSMutableDictionary *pmrInfo; // @synthesize pmrInfo=_pmrInfo;
 @property(retain, nonatomic) NSDate *endTime; // @synthesize endTime=_endTime;
 @property(retain, nonatomic) NSDate *startTime; // @synthesize startTime=_startTime;
-@property(readonly) unsigned long long result; // @synthesize result=_result;
+@property(readonly) unsigned char result; // @synthesize result=_result;
 @property(retain, nonatomic) NSMutableArray *importRecords; // @synthesize importRecords=_importRecords;
 @property(readonly) PHImportSource *importSource; // @synthesize importSource=_importSource;
 - (void).cxx_destruct;

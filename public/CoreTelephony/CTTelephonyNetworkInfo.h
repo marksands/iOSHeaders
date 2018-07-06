@@ -7,47 +7,48 @@
 #import "NSObject.h"
 
 #import "CoreTelephonyClientDataDelegate.h"
+#import "CoreTelephonyClientRegistrationDelegate.h"
 
-@class CTCarrier, CTServiceDescriptorContainer, CoreTelephonyClient, NSDictionary, NSLock, NSString;
+@class CTCarrier, CTServiceDescriptorContainer, CoreTelephonyClient, NSDictionary, NSLock, NSMutableDictionary, NSString;
 
-@interface CTTelephonyNetworkInfo : NSObject <CoreTelephonyClientDataDelegate>
+@interface CTTelephonyNetworkInfo : NSObject <CoreTelephonyClientDataDelegate, CoreTelephonyClientRegistrationDelegate>
 {
     struct queue _queue;
     CoreTelephonyClient *_client;
     // Error parsing type: ^{__CTServerConnection={__CFRuntimeBase=QAQ}^{dispatch_queue_s}^{CTServerState}CCI^{_xpc_connection_s}}, name: server_connection
     NSLock *server_lock;
     CDUnknownBlockType _subscriberCellularProviderDidUpdateNotifier;
-    _Bool _monitoringCellId;
     CTServiceDescriptorContainer *_descriptors;
     CTCarrier *_subscriberCellularProvider;
     NSString *_cachedCurrentRadioAccessTechnology;
     NSDictionary *_cachedSignalStrength;
-    NSString *_cachedCellId;
+    NSMutableDictionary *_cachedCellIds;
 }
 
-@property _Bool monitoringCellId; // @synthesize monitoringCellId=_monitoringCellId;
-@property(retain) NSString *cachedCellId; // @synthesize cachedCellId=_cachedCellId;
+@property(retain) NSMutableDictionary *cachedCellIds; // @synthesize cachedCellIds=_cachedCellIds;
 @property(retain) NSDictionary *cachedSignalStrength; // @synthesize cachedSignalStrength=_cachedSignalStrength;
 @property(retain) NSString *cachedCurrentRadioAccessTechnology; // @synthesize cachedCurrentRadioAccessTechnology=_cachedCurrentRadioAccessTechnology;
 @property(retain) CTCarrier *subscriberCellularProvider; // @synthesize subscriberCellularProvider=_subscriberCellularProvider;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)radioAccessTechnology;
-@property(retain, nonatomic) NSString *cellId;
+- (id)getFirstCellId;
+- (id)cellId;
 - (id)signalStrength;
 @property(readonly, retain, nonatomic) NSString *currentRadioAccessTechnology;
-- (void)queryCellId;
+- (void)queryCellIds;
+- (void)updateCellId:(id)arg1 forServiceId:(id)arg2;
 - (void)updateLegacyRat:(id)arg1;
 - (void)updateRat:(id)arg1 descriptor:(id)arg2;
 - (void)queryRatForDescriptor:(id)arg1;
 - (void)queryRat;
 - (void)queryCTSignalStrengthNotification;
 - (void)updateSignalStrength:(id)arg1;
-- (void)handleCTRegistrationCellChangedNotification:(id)arg1;
 - (void)handleCTSignalStrengthNotification:(id)arg1;
 - (id)createSignalStrengthDictWithBars:(id)arg1;
 - (void)postCellularProviderUpdatesIfNecessary;
 - (void)handleNotificationFromConnection:(void *)arg1 ofType:(id)arg2 withInfo:(id)arg3;
+- (void)cellChanged:(id)arg1 cell:(id)arg2;
 - (void)connectionStateChanged:(id)arg1 connection:(int)arg2 dataConnectionStatusInfo:(id)arg3;
 @property(readonly) CTServiceDescriptorContainer *descriptors; // @synthesize descriptors=_descriptors;
 - (_Bool)updateNetworkInfoAndShouldNotifyClient:(_Bool *)arg1;

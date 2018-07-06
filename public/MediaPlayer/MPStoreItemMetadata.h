@@ -64,6 +64,7 @@
 @property(readonly, nonatomic) long long subscriptionAdamID;
 @property(readonly, nonatomic) long long purchasedAdamID;
 @property(readonly, copy, nonatomic) id socialProfileID;
+@property(readonly, copy, nonatomic) NSArray *formerStoreAdamIDs;
 @property(readonly, copy, nonatomic) id storeID;
 @property(readonly, copy, nonatomic) NSString *cloudUniversalLibraryID;
 @property(readonly, nonatomic) _Bool showComposer;

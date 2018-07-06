@@ -84,6 +84,7 @@ struct PXGadgetUpdateFlags {
     _Bool collectionNeedsUpdate;
     _Bool currentGadgetSpecNeedsUpdate;
     _Bool gadgetLoadingNeedsUpdate;
+    _Bool loadRemaingGadgetsAfterViewAppeared;
 };
 
 struct PXMagazineOrigin {

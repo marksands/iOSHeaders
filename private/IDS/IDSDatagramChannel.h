@@ -13,6 +13,7 @@
     _IDSDatagramChannel *_internal;
 }
 
++ (id)realTimeContext;
 - (void).cxx_destruct;
 - (void)optoutStreamIDs:(id)arg1;
 - (void)optinStreamIDs:(id)arg1;

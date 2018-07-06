@@ -14,9 +14,10 @@
 + (id)mockFamilyCircleFile;
 + (id)metadataFile;
 + (id)persistentStoreDirectory;
-+ (id)cachesDirectory;
-+ (id)libraryDirectory;
++ (id)legacyLibraryDirectory;
 + (id)systemGroupContainerDirectory;
++ (id)cachesDirectory;
++ (id)applicationSupportDirectory;
 
 @end
 

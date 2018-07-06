@@ -51,6 +51,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)dialogInteractionController:(id)arg1 shouldBeginInteractionForIndexPath:(id)arg2;
 - (void)removeDownloadDismissed;
 - (void)removeDownloadPressed;
+- (void)willMoveToParentViewController:(id)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)traitCollectionDidChange:(id)arg1;

@@ -18,6 +18,7 @@
         unsigned int ignoringTypingUpdates:1;
     } _conversationFlags;
     _Bool _needsReload;
+    _Bool _hasLoadedAllMessages;
     _Bool _isReportedAsSpam;
     int _wasDetectedAsSMSSpam;
     NSArray *_pendingHandles;
@@ -51,6 +52,7 @@
 + (_Bool)_sms_mediaObjectPassesRestriction:(id)arg1;
 @property(retain, nonatomic) NSNumber *businessConversation; // @synthesize businessConversation=_businessConversation;
 @property(nonatomic) _Bool isReportedAsSpam; // @synthesize isReportedAsSpam=_isReportedAsSpam;
+@property(nonatomic) _Bool hasLoadedAllMessages; // @synthesize hasLoadedAllMessages=_hasLoadedAllMessages;
 @property(copy, nonatomic) NSString *previewText; // @synthesize previewText=_previewText;
 @property(retain, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
 @property(readonly, nonatomic) NSAttributedString *groupName; // @synthesize groupName=_groupName;

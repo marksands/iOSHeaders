@@ -15,7 +15,6 @@
     int cancelFlags[4];
     double _lastUpdateTime;
     NSArray *_reindexIndexers;
-    _Bool _memorypressure;
     id <CSIndexExtensionDelegate> extensionDelegate;
     id <SPCoreSpotlightIndexerDelegate> _indexerDelegate;
     SPCoreSpotlightInteractionHandler *_interactionHandler;
@@ -52,7 +51,6 @@
 + (void)cooldown;
 + (void)preheat;
 + (void)initialize;
-@property(nonatomic) _Bool memorypressure; // @synthesize memorypressure=_memorypressure;
 @property(readonly, nonatomic) long long transactionCount; // @synthesize transactionCount=_transactionCount;
 @property(nonatomic) unsigned long long dataMigrationStage; // @synthesize dataMigrationStage=_dataMigrationStage;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *reindexAllQueue; // @synthesize reindexAllQueue=_reindexAllQueue;

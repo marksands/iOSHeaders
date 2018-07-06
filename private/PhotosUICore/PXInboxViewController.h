@@ -25,20 +25,19 @@
     PXGadgetSpec *_gadgetSpec;
     UITableView *_tableView;
     id <PXNavigableForYouViewController> _forYouNavigationDelegate;
+    NSDate *_lastSeenDate;
     PXInboxAggregateDataSource *_dataSource;
     PXInboxAggregateDataSourceManager *_dataSourceManager;
     PXInboxTableViewCellLayoutCoordinator *_cellLayoutCoordinator;
     double _currentRowHeight;
     PXPhotoKitUIMediaProvider *_mediaProvider;
     id <PXInboxModel> _lastSelectedModel;
-    NSDate *_initialSeenDate;
     struct _NSRange _dataSourceIndexRange;
     struct CGRect _visibleContentRect;
 }
 
 + (void)preloadResources;
 + (id)createInboxDataSourceManager;
-@property(retain, nonatomic) NSDate *initialSeenDate; // @synthesize initialSeenDate=_initialSeenDate;
 @property(nonatomic, getter=isVisible) _Bool visible; // @synthesize visible=_visible;
 @property(retain, nonatomic) id <PXInboxModel> lastSelectedModel; // @synthesize lastSelectedModel=_lastSelectedModel;
 @property(retain, nonatomic) PXPhotoKitUIMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
@@ -46,6 +45,7 @@
 @property(retain, nonatomic) PXInboxTableViewCellLayoutCoordinator *cellLayoutCoordinator; // @synthesize cellLayoutCoordinator=_cellLayoutCoordinator;
 @property(retain, nonatomic) PXInboxAggregateDataSourceManager *dataSourceManager; // @synthesize dataSourceManager=_dataSourceManager;
 @property(retain, nonatomic) PXInboxAggregateDataSource *dataSource; // @synthesize dataSource=_dataSource;
+@property(retain, nonatomic) NSDate *lastSeenDate; // @synthesize lastSeenDate=_lastSeenDate;
 @property(nonatomic) struct _NSRange dataSourceIndexRange; // @synthesize dataSourceIndexRange=_dataSourceIndexRange;
 @property(nonatomic) __weak id <PXNavigableForYouViewController> forYouNavigationDelegate; // @synthesize forYouNavigationDelegate=_forYouNavigationDelegate;
 @property(nonatomic) struct CGRect visibleContentRect; // @synthesize visibleContentRect=_visibleContentRect;

@@ -7,8 +7,8 @@
 @class CKServerChangeToken, NSArray, NSDate, SCKZoneDiff;
 
 @protocol SCKZoneStore
-@property(readonly, copy, nonatomic) NSArray *pendingCommands;
-@property(readonly, copy, nonatomic) NSArray *serverRecords;
+@property(copy, nonatomic) NSArray *pendingCommands;
+@property(copy, nonatomic) NSArray *serverRecords;
 @property(copy, nonatomic) CKServerChangeToken *serverChangeToken;
 @property(copy, nonatomic) NSDate *lastDirtyDate;
 @property(copy, nonatomic) NSDate *lastSyncDate;

@@ -17,6 +17,8 @@
     unsigned long long _origin;
 }
 
++ (unsigned long long)_mostImportantTextFeatureTypeAmongTypes:(id)arg1;
++ (id)vipTextFeatureTypes;
 + (id)mergedTextFeatureFromTextFeatures:(id)arg1;
 + (id)stringForFeatureType:(unsigned long long)arg1;
 + (id)stringForFeatureOrigin:(unsigned long long)arg1;
@@ -33,7 +35,7 @@
 @property(readonly, nonatomic) NSString *originalString; // @synthesize originalString=_originalString;
 @property(readonly, nonatomic) NSString *string; // @synthesize string=_string;
 - (void).cxx_destruct;
-- (void)markAsPuntCandidate;
+- (void)markAsStrippedOut;
 - (id)description;
 - (id)initWithString:(id)arg1 originalString:(id)arg2 type:(unsigned long long)arg3 weight:(float)arg4 origin:(unsigned long long)arg5;
 

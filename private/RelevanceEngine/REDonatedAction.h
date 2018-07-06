@@ -19,6 +19,7 @@
     NSDate *_localSaveDate;
     REIdentifier *_donationIdentifier;
     id <REDonatedActionIdentifierProviding> _actionTypeIdentifier;
+    id <REDonatedActionIdentifierProviding> _simplifiedActionTypeIdentifier;
     unsigned long long _relevanceProvidersHash;
     NSString *_intentTypeName;
     NSString *_activityType;
@@ -26,10 +27,12 @@
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)supportedActivityType:(id)arg1 forBundleID:(id)arg2;
++ (id)bundleIdForExtensionId:(id)arg1;
 @property(readonly, nonatomic) NSString *activityType; // @synthesize activityType=_activityType;
 @property(readonly, nonatomic) NSString *intentTypeName; // @synthesize intentTypeName=_intentTypeName;
-@property(readonly, nonatomic, getter=isLocalDonation) _Bool localDonation; // @synthesize localDonation=_localDonation;
 @property(readonly, nonatomic) unsigned long long relevanceProvidersHash; // @synthesize relevanceProvidersHash=_relevanceProvidersHash;
+@property(readonly, nonatomic, getter=isLocalDonation) _Bool localDonation; // @synthesize localDonation=_localDonation;
+@property(readonly, nonatomic) id <REDonatedActionIdentifierProviding> simplifiedActionTypeIdentifier; // @synthesize simplifiedActionTypeIdentifier=_simplifiedActionTypeIdentifier;
 @property(readonly, nonatomic) id <REDonatedActionIdentifierProviding> actionTypeIdentifier; // @synthesize actionTypeIdentifier=_actionTypeIdentifier;
 @property(readonly, nonatomic) REIdentifier *donationIdentifier; // @synthesize donationIdentifier=_donationIdentifier;
 @property(readonly, nonatomic) NSDate *localSaveDate; // @synthesize localSaveDate=_localSaveDate;

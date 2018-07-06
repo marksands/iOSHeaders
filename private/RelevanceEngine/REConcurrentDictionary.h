@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class NSMapTable, NSObject<OS_dispatch_queue>;
 
 @interface REConcurrentDictionary : NSObject
 {
-    NSMutableDictionary *_dictionary;
+    NSMapTable *_table;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
@@ -22,6 +22,8 @@
 - (id)objectForKeyedSubscript:(id)arg1;
 - (id)objectForKey:(id)arg1;
 @property(readonly) unsigned long long count;
+- (id)initStrongToStrongDictionary;
+- (id)initWeakToStrongDictionary;
 - (id)init;
 
 @end

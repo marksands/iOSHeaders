@@ -37,8 +37,8 @@
 - (void)_XCT_registerForAccessibilityNotification:(long long)arg1 reply:(void (^)(NSNumber *, NSError *))arg2;
 - (void)_XCT_launchApplicationWithBundleID:(NSString *)arg1 arguments:(NSArray *)arg2 environment:(NSDictionary *)arg3 completion:(void (^)(NSError *))arg4;
 - (void)_XCT_startMonitoringApplicationWithBundleID:(NSString *)arg1;
-- (void)_XCT_requestBackgroundAssertionForPID:(int)arg1 reply:(void (^)(_Bool))arg2;
 - (void)_XCT_requestBackgroundAssertionWithReply:(void (^)(void))arg1;
+- (void)_XCT_requestBackgroundAssertionForPID:(int)arg1 reply:(void (^)(_Bool))arg2;
 - (void)_XCT_requestScreenshotOfScreenWithID:(unsigned int)arg1 withRect:(struct CGRect)arg2 uti:(NSString *)arg3 compressionQuality:(double)arg4 withReply:(void (^)(NSData *, NSError *))arg5;
 - (void)_XCT_requestScreenshotOfScreenWithID:(unsigned int)arg1 withRect:(struct CGRect)arg2 withReply:(void (^)(NSData *, NSError *))arg3;
 - (void)_XCT_requestSpindumpWithSpecification:(XCTSpindumpRequestSpecification *)arg1 completion:(void (^)(NSData *, NSError *))arg2;

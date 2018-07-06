@@ -22,6 +22,7 @@
 @property(retain, nonatomic) CPSPanView *panView; // @synthesize panView=_panView;
 @property(nonatomic) __weak id <CPSPanEventDelegate> panDelegate; // @synthesize panDelegate=_panDelegate;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) double sideButtonTopInset;
 - (_Bool)shouldUpdateFocusInContext:(id)arg1;
 - (id)_linearFocusMovementSequences;
 - (void)panView:(id)arg1 panWithDirection:(long long)arg2;

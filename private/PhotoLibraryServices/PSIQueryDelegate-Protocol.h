@@ -7,7 +7,7 @@
 #import "PSIGroupResultDelegate.h"
 #import "PSITopAssetsResultDelegate.h"
 
-@class NSArray, NSIndexSet, NSObject<OS_dispatch_queue>, NSString, PSIDateFilter, PSIGroup, PSIGroupResult, PSIQuery, PSIQueryToken, PSITokenizer;
+@class NSArray, NSIndexSet, NSObject<OS_dispatch_queue>, NSString, PSIDateFilter, PSIGroup, PSIGroupResult, PSIQuery, PSITokenizer;
 
 @protocol PSIQueryDelegate <PSIGroupResultDelegate, PSITopAssetsResultDelegate>
 @property(readonly) NSObject<OS_dispatch_queue> *groupResultsQueue;
@@ -15,7 +15,7 @@
 - (NSString *)meNodeIdentifier;
 - (NSArray *)groupArraysFromGroupIdSets:(NSArray *)arg1 dateFilter:(PSIDateFilter *)arg2 progressBlock:(void (^)(double, _Bool *))arg3;
 - (NSArray *)wordEmbeddingMatchesForToken:(NSString *)arg1;
-- (PSIGroupResult *)groupResultWithDateToken:(PSIQueryToken *)arg1;
+- (PSIGroupResult *)groupResultWithDateFilter:(PSIDateFilter *)arg1;
 - (PSIGroup *)groupWithMatchingGroupId:(unsigned long long)arg1 dateFilter:(PSIDateFilter *)arg2;
 - (const struct __CFSet *)groupIdsMatchingString:(NSString *)arg1 categories:(NSIndexSet *)arg2 textIsSearchable:(_Bool)arg3;
 - (void)executeQuery:(PSIQuery *)arg1 resultsHandler:(void (^)(NSArray *))arg2;

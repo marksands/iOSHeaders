@@ -15,10 +15,10 @@
 {
     UIImage *_bodyImage;
     _Bool _displayAppName;
-    _Bool _localDonation;
     REDonatedAction *_action;
     NSString *_appName;
     UIImage *_appIcon;
+    UIImage *_fullsizeAppIcon;
     NSString *_title;
     NSString *_subtitle;
     NSUserActivity *_userActivity;
@@ -28,13 +28,13 @@
 
 + (_Bool)supportsSecureCoding;
 + (void)createWithDonatedAction:(id)arg1 completion:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic, getter=isLocalDonation) _Bool localDonation; // @synthesize localDonation=_localDonation;
 @property(readonly, nonatomic) INRelevantShortcut *relevantShortcut; // @synthesize relevantShortcut=_relevantShortcut;
 @property(readonly, nonatomic) INIntent *intent; // @synthesize intent=_intent;
 @property(readonly, nonatomic) NSUserActivity *userActivity; // @synthesize userActivity=_userActivity;
 @property(readonly, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) _Bool displayAppName; // @synthesize displayAppName=_displayAppName;
+@property(readonly, nonatomic) UIImage *fullsizeAppIcon; // @synthesize fullsizeAppIcon=_fullsizeAppIcon;
 @property(readonly, nonatomic) UIImage *appIcon; // @synthesize appIcon=_appIcon;
 @property(readonly, nonatomic) NSString *appName; // @synthesize appName=_appName;
 @property(readonly, nonatomic) REDonatedAction *action; // @synthesize action=_action;
@@ -44,10 +44,10 @@
 - (void)_loadContentForRelevantShortcut:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_loadContentForUserActivity:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_loadContentForIntent:(id)arg1 completion:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic) unsigned long long actionIdentifier;
+@property(readonly, nonatomic) unsigned long long trainingActionIdentifier;
 @property(readonly, nonatomic) NSString *bundleIdentifier;
 @property(readonly, nonatomic) UIImage *bodyImage;
-- (_Bool)localDonation;
+@property(readonly, nonatomic, getter=isLocalDonation) _Bool localDonation;
 @property(readonly, nonatomic) _Bool executeRemotely;
 @property(readonly, nonatomic) _Bool wantsThreeLineLayout;
 - (_Bool)_isMusicDonation;

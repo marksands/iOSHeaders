@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString, _INPBInteger, _INPBIntentMetadata;
+@class NSString, _INPBDataString, _INPBInteger, _INPBIntentMetadata;
 
 @protocol _INPBSetSeatSettingsInCarIntent <NSObject>
 @property(nonatomic) _Bool hasSeat;
@@ -23,6 +23,8 @@
 @property(nonatomic) _Bool enableHeating;
 @property(nonatomic) _Bool hasEnableCooling;
 @property(nonatomic) _Bool enableCooling;
+@property(readonly, nonatomic) _Bool hasCarName;
+@property(retain, nonatomic) _INPBDataString *carName;
 - (int)StringAsSeat:(NSString *)arg1;
 - (NSString *)seatAsString:(int)arg1;
 - (int)StringAsRelativeLevelSetting:(NSString *)arg1;

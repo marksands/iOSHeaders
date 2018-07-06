@@ -34,7 +34,7 @@
 - (void)_eaccess_saveCompositionAndRecordingDuration:(_Bool)arg1;
 - (void)_reloadComposition;
 - (id)_nextCaptureWaveformDataSourceWithDestinationTimeRange:(CDStruct_73a5d3ca)arg1 isOverdub:(_Bool)arg2;
-- (void)_endAccessSessionWithToken:(id)arg1 forKey:(id)arg2;
+- (void)_endAccessSessionWithToken:(id)arg1 forKey:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)rcs_repairDecomposedFragmentMetadataIfNecessary;
 - (void)rcs_composeToFinalDestinationAndDeleteDecomposedFragments:(_Bool)arg1 composeWaveform:(_Bool)arg2 canGenerateWaveformByProcessingAVURL:(_Bool)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)deleteCompositionFromFileSystem;
@@ -54,6 +54,7 @@
 - (void)activeRecordingSessionWillFinish;
 - (void)beginRecordingWithInputDevice:(id)arg1 captureInsertionRange:(CDStruct_73a5d3ca)arg2 isUndoable:(_Bool)arg3 isOverdub:(_Bool)arg4 sessionPreparedBlock:(CDUnknownBlockType)arg5 sessionFinishedBlock:(CDUnknownBlockType)arg6;
 - (void)endAccessSessions;
+- (void)_endAccessSessions:(CDUnknownBlockType)arg1;
 - (void)endPreviewAccessSession;
 - (void)endEditing;
 - (void)prepareToBeginEditingWithReadyBlock:(CDUnknownBlockType)arg1;

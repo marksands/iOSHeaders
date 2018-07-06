@@ -39,7 +39,9 @@
 - (void)noteClientIsInForeground;
 - (void)resetStatus;
 - (void)startSyncSession;
+- (void)cancelSyncTaskWithIdentifier:(NSString *)arg1;
 - (void)cancelTaskWithIdentifier:(NSString *)arg1;
+- (void)forceSyncForScopeIdentifiers:(NSArray *)arg1 reply:(void (^)(NSString *))arg2;
 - (void)queryUserIdentitiesWithParticipants:(NSArray *)arg1 completionHandler:(void (^)(NSArray *, NSError *))arg2;
 - (void)acceptMomentShare:(CPLMomentShare *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)fetchMomentShareFromShareURL:(NSURL *)arg1 completionHandler:(void (^)(CPLMomentShare *, NSError *))arg2;

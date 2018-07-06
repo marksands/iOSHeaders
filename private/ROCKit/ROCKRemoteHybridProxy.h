@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)initWithSessionManager:(id)arg1 xpcDictionary:(id)arg2;
 - (_Bool)respondsToSelector:(SEL)arg1;
+- (id)methodSignatureForSelector:(SEL)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (_Bool)conformsToProtocol:(id)arg1;
 

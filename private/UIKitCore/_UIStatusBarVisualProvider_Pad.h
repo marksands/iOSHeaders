@@ -22,7 +22,6 @@ __attribute__((visibility("hidden")))
 + (struct NSDirectionalEdgeInsets)expandedEdgeInsets;
 + (struct NSDirectionalEdgeInsets)edgeInsets;
 + (double)regionSpacing;
-+ (double)itemSpacing;
 + (double)height;
 + (Class)visualProviderSubclassForScreen:(id)arg1;
 @property(retain, nonatomic) NSLayoutConstraint *leadingRegionTrailingAnchorConstraint; // @synthesize leadingRegionTrailingAnchorConstraint=_leadingRegionTrailingAnchorConstraint;

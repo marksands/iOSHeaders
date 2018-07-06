@@ -6,18 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSPointerArray;
 
 @interface CRInvocationChain : NSObject
 {
     id <CRInvocationChainDelegate> _delegate;
-    NSArray *_chainedObjects;
+    NSPointerArray *_chainedObjects;
 }
 
-@property(copy, nonatomic) NSArray *chainedObjects; // @synthesize chainedObjects=_chainedObjects;
+@property(retain, nonatomic, getter=_chainedObjects, setter=_setChainedObjects:) NSPointerArray *chainedObjects; // @synthesize chainedObjects=_chainedObjects;
 @property(nonatomic) __weak id <CRInvocationChainDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)isEligibleForSelector:(SEL)arg1;
+- (void)enumerateChainedObjectsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)addChainedObject:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (_Bool)respondsToSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;

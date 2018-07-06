@@ -16,6 +16,7 @@
     FALockOutView *_lockOutView;
     unsigned long long _style;
     unsigned long long _state;
+    unsigned long long _stateBeforePending;
     unsigned long long _reuseIdentifier;
     LSApplicationProxy *_applicationProxy;
     _Bool _observingApplicationWorkspace;
@@ -98,7 +99,7 @@
 - (void)_changeStateToDisapproved;
 - (void)_changeStateToApproved;
 - (void)_changeStateToPending;
-- (void)_changeStateToAskOrWarn;
+- (void)_changeStateToBeforePending;
 - (void)_changeStateToAsk;
 - (void)_changeStateToWarn;
 - (void)_changeStateToInitial;
@@ -111,12 +112,12 @@
 - (void)_simulateAskForTimeResponse:(long long)arg1 afterDelay:(double)arg2;
 - (void)_authenticatedApproveForAdditionalTime:(double)arg1;
 - (double)_timeIntervalToEndOfDay;
-- (_Bool)_actionRemindMeInMinutesDelayed;
 - (_Bool)_authenticatedApproveActionSheet;
 - (_Bool)_actionEnterScreenTimePasscodeActionSheet;
 - (_Bool)_actionAskOrApproveActionSheet;
 - (_Bool)_actionIgnoreLimitActionSheet;
 - (_Bool)_actionIgnoreLimitForToday;
+- (_Bool)_actionRemindMeInMinutes;
 - (_Bool)_actionAskForMore;
 - (_Bool)_actionDismiss;
 - (_Bool)sender:(id)arg1 requestsAction:(long long)arg2 withParameters:(id)arg3;

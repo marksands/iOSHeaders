@@ -27,10 +27,12 @@
     NSString *_preferenceDomain;
     _Bool _allowsRemoteTraining;
     _Bool _wantsBackup;
+    _Bool _ignoreDeviceLockState;
 }
 
 + (id)defaultConfiguration;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool ignoreDeviceLockState;
 @property(readonly, nonatomic) _Bool wantsBackup;
 @property(readonly, nonatomic) _Bool allowsRemoteTraining;
 @property(readonly, nonatomic) NSString *preferenceDomain;
@@ -50,7 +52,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)initWithModelFileURL:(id)arg1 baseModelFileURL:(id)arg2 allowsUpdatingModelFile:(_Bool)arg3 dataSourceLoader:(id)arg4 trainingBehavior:(unsigned long long)arg5 sectionDescriptions:(id)arg6 locationManager:(id)arg7 featureSet:(id)arg8 wantsImmutableContent:(_Bool)arg9 preferenceDomain:(id)arg10 interactionDescriptions:(id)arg11 allowsRemoteTraining:(_Bool)arg12 wantsBackup:(_Bool)arg13;
+- (id)initWithModelFileURL:(id)arg1 baseModelFileURL:(id)arg2 allowsUpdatingModelFile:(_Bool)arg3 dataSourceLoader:(id)arg4 trainingBehavior:(unsigned long long)arg5 sectionDescriptions:(id)arg6 locationManager:(id)arg7 featureSet:(id)arg8 wantsImmutableContent:(_Bool)arg9 preferenceDomain:(id)arg10 interactionDescriptions:(id)arg11 allowsRemoteTraining:(_Bool)arg12 wantsBackup:(_Bool)arg13 ignoreDeviceLockState:(_Bool)arg14;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

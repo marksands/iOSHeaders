@@ -4,23 +4,29 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <ScreenTimeUI/STUsageGroupSpecifierProvider.h>
+#import <ScreenTimeUI/STShowMoreUsageGroupSpecifierProvider.h>
 
-@class NSDictionary, PSSpecifier;
+@class BBSettingsGateway, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
-@interface STNotificationsUsageGroupSpecifierProvider : STUsageGroupSpecifierProvider
+@interface STNotificationsUsageGroupSpecifierProvider : STShowMoreUsageGroupSpecifierProvider
 {
     NSDictionary *_usageItemsByIdentifier;
-    PSSpecifier *_notificationsSummaryGraphSpecifier;
+    NSMutableDictionary *_notificationSectionByBundleID;
+    BBSettingsGateway *_notificationSettingsGateway;
+    NSObject<OS_dispatch_queue> *_notificationSettingsGatewayQueue;
 }
 
-@property(retain, nonatomic) PSSpecifier *notificationsSummaryGraphSpecifier; // @synthesize notificationsSummaryGraphSpecifier=_notificationsSummaryGraphSpecifier;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *notificationSettingsGatewayQueue; // @synthesize notificationSettingsGatewayQueue=_notificationSettingsGatewayQueue;
+@property(readonly, nonatomic) BBSettingsGateway *notificationSettingsGateway; // @synthesize notificationSettingsGateway=_notificationSettingsGateway;
+@property(readonly, nonatomic) NSMutableDictionary *notificationSectionByBundleID; // @synthesize notificationSectionByBundleID=_notificationSectionByBundleID;
 @property(copy, nonatomic) NSDictionary *usageItemsByIdentifier; // @synthesize usageItemsByIdentifier=_usageItemsByIdentifier;
 - (void).cxx_destruct;
 - (id)getNotificationsInfo:(id)arg1;
 - (id)getUsageReport:(id)arg1;
+- (void)updateSpecifier:(id)arg1 usageItem:(id)arg2;
+- (id)newSpecifierWithUsageItem:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)setViewModel:(id)arg1;
+- (void)setCoordinator:(id)arg1;
 - (id)init;
 
 @end

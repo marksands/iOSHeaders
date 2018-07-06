@@ -23,8 +23,10 @@
 @property(retain, nonatomic) NSManagedObjectContext *suggestionsContext; // @synthesize suggestionsContext=_suggestionsContext;
 @property(retain, nonatomic) NSManagedObjectContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
-- (void)removeIndexForVoiceShortcutIdentifier:(id)arg1;
-- (void)addIndexForVoiceShortcut:(id)arg1;
+- (void)resetSpotlightIndex;
+- (void)removeSpotlightIndexedItemForVoiceShortcutIdentifier:(id)arg1;
+- (void)addSpotlightIndexedItemForVoiceShortcut:(id)arg1;
+- (void)deleteShortcutSuggestionsOnlyKeepingApps:(id)arg1;
 - (void)getShortcutSuggestionsForAllAppsWithLimit:(unsigned long long)arg1 accessSpecifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)getShortcutSuggestionsForAppWithBundleIdentifier:(id)arg1 accessSpecifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setShortcutSuggestions:(id)arg1 forAppWithBundleIdentifier:(id)arg2 accessSpecifier:(id)arg3;
@@ -61,6 +63,7 @@
 - (void)getNumberOfVoiceShortcutsWithAccessSpecifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)loadPersistentStoreWithDescription:(id)arg1 error:(id *)arg2;
 - (_Bool)resetPersistentStore:(id *)arg1;
+- (void)persistentStoreWillNeedRecreation;
 - (id)initWithPersistenceType:(unsigned long long)arg1 databaseFileURL:(id)arg2 error:(id *)arg3;
 - (id)initWithPersistentStoreInDirectory:(id)arg1 error:(id *)arg2;
 - (id)initWithEphemeralStore:(id *)arg1;

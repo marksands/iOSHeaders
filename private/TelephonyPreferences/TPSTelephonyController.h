@@ -33,7 +33,6 @@
 - (_Bool)supportsCellularNetworkSelectionForSubscriptionContext:(id)arg1;
 - (_Bool)supportsCallWaitingForSubscriptionContext:(id)arg1;
 - (_Bool)supportsCallForwardingForSubscriptionContext:(id)arg1;
-- (_Bool)supportsCallerIDForSubscriptionContext:(id)arg1;
 - (_Bool)supportsCapabilityWithName:(id)arg1 subscriptionContext:(id)arg2;
 - (void)performAtomicDelegateBlock:(CDUnknownBlockType)arg1;
 - (void)performAtomicAccessorBlock:(CDUnknownBlockType)arg1;

@@ -9,18 +9,16 @@
 #import "STAllowanceDetailListControllerDelegate.h"
 #import "STAllowanceSetupListControllerDelegate.h"
 
-@class NSObject<STTimeAllowancesViewModelCoordinator>, NSString, PSSpecifier;
+@class NSObject<STRootViewModelCoordinator>, NSString, PSSpecifier;
 
 @interface STAllowanceListController : PSListController <STAllowanceDetailListControllerDelegate, STAllowanceSetupListControllerDelegate>
 {
-    _Bool _canAskForMoreTime;
-    NSObject<STTimeAllowancesViewModelCoordinator> *_coordinator;
+    NSObject<STRootViewModelCoordinator> *_coordinator;
     PSSpecifier *_addAllowanceSpecifier;
 }
 
 @property(retain, nonatomic) PSSpecifier *addAllowanceSpecifier; // @synthesize addAllowanceSpecifier=_addAllowanceSpecifier;
-@property(nonatomic) _Bool canAskForMoreTime; // @synthesize canAskForMoreTime=_canAskForMoreTime;
-@property(retain, nonatomic) NSObject<STTimeAllowancesViewModelCoordinator> *coordinator; // @synthesize coordinator=_coordinator;
+@property(retain, nonatomic) NSObject<STRootViewModelCoordinator> *coordinator; // @synthesize coordinator=_coordinator;
 - (void).cxx_destruct;
 - (void)allowanceSetupListControllerDidCancel:(id)arg1;
 - (void)allowanceSetupListController:(id)arg1 didSelectAllowanceIdentifiers:(id)arg2;
@@ -30,7 +28,6 @@
 - (void)showBudgetDetailController:(id)arg1;
 - (id)budgetDetailText:(id)arg1;
 - (id)budgetSpecifiers;
-- (id)emptyGroupSpecifier;
 - (id)specifiers;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;

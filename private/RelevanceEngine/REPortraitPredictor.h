@@ -19,6 +19,8 @@
 - (void)collectLoggableState:(CDUnknownBlockType)arg1;
 - (float)userAffinityToContent:(id)arg1;
 - (void)update;
+- (void)_loadStoreIfNeeded;
+- (void)dealloc;
 - (id)init;
 
 @end

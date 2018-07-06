@@ -29,7 +29,7 @@
 }
 
 @property(readonly, nonatomic) __weak id <REDataSourceManagerObserver> delegate; // @synthesize delegate=_delegate;
-@property(readonly) NSArray *currentDataSources; // @synthesize currentDataSources=_currentDataSources;
+@property(retain) NSArray *currentDataSources; // @synthesize currentDataSources=_currentDataSources;
 @property(retain) NSSet *currentDataSourceIdentifiers; // @synthesize currentDataSourceIdentifiers=_currentDataSourceIdentifiers;
 @property(retain) NSSet *availableDataSourceIdentifiers; // @synthesize availableDataSourceIdentifiers=_availableDataSourceIdentifiers;
 @property(readonly, nonatomic) REDataSourceLoader *loader; // @synthesize loader=_loader;

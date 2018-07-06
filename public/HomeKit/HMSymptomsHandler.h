@@ -11,29 +11,24 @@
 #import "HMObjectMerge.h"
 #import "NSSecureCoding.h"
 
-@class HMDelegateCaller, HMFMessageDispatcher, HMThreadSafeMutableArrayCollection, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
+@class HMFUnfairLock, HMMutableArray, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID, _HMContext;
 
 @interface HMSymptomsHandler : NSObject <NSSecureCoding, HMFMessageReceiver, HMFLogging, HMObjectMerge>
 {
+    HMFUnfairLock *_lock;
     NSUUID *_sfDeviceIdentifier;
     NSUUID *_uniqueIdentifier;
     id <HMSymptomsHandlerDelegate> _delegate;
-    NSObject<OS_dispatch_queue> *_propertyQueue;
-    NSObject<OS_dispatch_queue> *_clientQueue;
-    HMFMessageDispatcher *_msgDispatcher;
-    HMDelegateCaller *_delegateCaller;
+    _HMContext *_context;
     NSUUID *_uuid;
-    HMThreadSafeMutableArrayCollection *_currentSymptoms;
+    HMMutableArray *_currentSymptoms;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)logCategory;
-@property(readonly, nonatomic) HMThreadSafeMutableArrayCollection *currentSymptoms; // @synthesize currentSymptoms=_currentSymptoms;
+@property(readonly, nonatomic) HMMutableArray *currentSymptoms; // @synthesize currentSymptoms=_currentSymptoms;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
-@property(retain, nonatomic) HMDelegateCaller *delegateCaller; // @synthesize delegateCaller=_delegateCaller;
-@property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
+@property(retain, nonatomic) _HMContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -41,19 +36,19 @@
 - (void)_callSymptomsUpdatedDelegate:(id)arg1;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 @property(readonly, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property(readonly, nonatomic) NSUUID *messageTargetUUID;
+- (id)logIdentifier;
 - (void)_handleSFDeviceIdentifierUpdated:(id)arg1;
 - (void)_handleSymptomsUpdated:(id)arg1;
 - (void)initiateFixWithCompletionHandler:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
-@property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (void)registerForMessages;
 @property(readonly) long long fixState;
 @property(readonly) _Bool canInitiateFix;
 @property(copy, setter=setSFDeviceIdentifier:) NSUUID *sfDeviceIdentifier; // @synthesize sfDeviceIdentifier=_sfDeviceIdentifier;
 @property __weak id <HMSymptomsHandlerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, copy) NSSet *symptoms;
-- (void)_configureClientQueue:(id)arg1 delegateCaller:(id)arg2 msgDispatcher:(id)arg3;
-- (id)logIdentifier;
+- (void)__configureWithContext:(id)arg1;
 - (id)initWithUUID:(id)arg1;
 - (id)init;
 

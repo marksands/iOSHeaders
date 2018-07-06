@@ -50,7 +50,7 @@
 @property(nonatomic, setter=_setShouldScrollToTopOnNextViewLayout:) _Bool _shouldScrollToTopOnNextViewLayout; // @synthesize _shouldScrollToTopOnNextViewLayout=__shouldScrollToTopOnNextViewLayout;
 @property(retain, nonatomic, setter=_setSelectedSubscriberInvitationRecord:) PLCloudSharedAlbumInvitationRecord *_selectedSubscriberInvitationRecord; // @synthesize _selectedSubscriberInvitationRecord=__selectedSubscriberInvitationRecord;
 @property(nonatomic) _Bool streamOwner; // @synthesize streamOwner=_streamOwner;
-@property(nonatomic) NSArray *sharedAlbumSubscribers; // @synthesize sharedAlbumSubscribers=_sharedAlbumSubscribers;
+@property(retain, nonatomic) NSArray *sharedAlbumSubscribers; // @synthesize sharedAlbumSubscribers=_sharedAlbumSubscribers;
 @property(copy, nonatomic) NSString *albumName; // @synthesize albumName=_albumName;
 @property(nonatomic) _Bool isPresentedModally; // @synthesize isPresentedModally=_isPresentedModally;
 @property(retain, nonatomic) PLCloudSharedAlbum *album; // @synthesize album=_album;

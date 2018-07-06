@@ -33,7 +33,6 @@
 - (_Bool)resetLocalData:(id *)arg1;
 - (void)deregisterSyncServiceWithIdentifier:(id)arg1;
 - (void)registerSyncService:(id)arg1 asMaster:(_Bool)arg2;
-- (id)wrapMessageInVCPBChange:(id)arg1;
 - (id)createMessageFromData:(id)arg1;
 - (void)getUnsyncedChangesForSyncServiceWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)markChangesAsSynced:(id)arg1 withSyncServiceWithIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;

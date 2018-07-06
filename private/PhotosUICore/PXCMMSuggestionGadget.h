@@ -30,10 +30,8 @@
 - (void)_tapGesture:(id)arg1;
 - (void)_performPublishForSuggestion:(id)arg1 pptConfigurationBlock:(CDUnknownBlockType)arg2;
 - (void)_setCombinedFaceTileImage:(id)arg1;
-- (void)_updatePeopleSuggestionFaceTileImages;
+- (void)_updatePeopleSuggestionFaceTileImagesForPersons:(id)arg1;
 - (void)_loadSuggestion:(id)arg1;
-- (void)_updateSharePrompt;
-- (id)_sharePromptDisplayNames;
 - (id)uniqueGadgetIdentifier;
 @property(readonly, nonatomic) _Bool supportsSelection;
 @property(readonly, nonatomic) _Bool supportsHighlighting;

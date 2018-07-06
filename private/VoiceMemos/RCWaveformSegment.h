@@ -23,6 +23,7 @@
 + (id)_segmentsByJoiningSegment:(id)arg1 toSegmentIfNecessaryWithGreaterSegment:(id)arg2 averagePowerLevelJoinLimit:(unsigned long long)arg3;
 + (id)_discontinuityRepairedSegmentsByGrowingToFillGapsInSegments:(id)arg1;
 + (id)segmentsByMergingSegments:(id)arg1 preferredSegmentDuration:(double)arg2;
++ (id)segmentsByMergingSegments:(id)arg1 preferredSegmentDuration:(double)arg2 beforeTime:(double)arg3 andThenUsePreferredSegmentDuration:(double)arg4;
 + (id)segmentsByShiftingSegments:(id)arg1 byTimeOffset:(double)arg2;
 + (id)segmentsByReparingDiscontinuitiesInSegments:(id)arg1;
 + (_Bool)supportsSecureCoding;

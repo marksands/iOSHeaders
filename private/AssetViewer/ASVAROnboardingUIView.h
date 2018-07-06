@@ -57,6 +57,7 @@
     _Bool _showAllAnimationStatesBeforeHiding;
     _Bool _showAnimatedUI;
     _Bool _interceptARKitSensorData;
+    _Bool _enableHapticFeedback;
     float _resetButtonLandscapeVerticalOffset;
     float _resetButtonPortraitVerticalOffset;
     float _moveDistanceThreshold;
@@ -65,6 +66,7 @@
     double _minimumAnimationTime;
 }
 
+@property(nonatomic) _Bool enableHapticFeedback; // @synthesize enableHapticFeedback=_enableHapticFeedback;
 @property(nonatomic) _Bool interceptARKitSensorData; // @synthesize interceptARKitSensorData=_interceptARKitSensorData;
 @property(nonatomic) _Bool showAnimatedUI; // @synthesize showAnimatedUI=_showAnimatedUI;
 @property(nonatomic) _Bool showAllAnimationStatesBeforeHiding; // @synthesize showAllAnimationStatesBeforeHiding=_showAllAnimationStatesBeforeHiding;

@@ -10,7 +10,7 @@
 #import "UISearchResultsUpdating.h"
 #import "UITableViewDataSource.h"
 
-@class NSArray, NSString, VCUIDonationMetadataCache;
+@class NSArray, NSString;
 
 @interface VCUIGalleryDataSource : NSObject <UITableViewDataSource, UISearchResultsUpdating, UISearchControllerDelegate>
 {
@@ -18,17 +18,14 @@
     id <VCUIGalleryDataSourceDelegate> _delegate;
     NSString *_query;
     NSArray *_appSuggestionsSections;
-    VCUIDonationMetadataCache *_metadataCache;
 }
 
 + (void)initialize;
-@property(retain, nonatomic) VCUIDonationMetadataCache *metadataCache; // @synthesize metadataCache=_metadataCache;
 @property(nonatomic) _Bool loadedOnce; // @synthesize loadedOnce=_loadedOnce;
 @property(retain, nonatomic) NSArray *appSuggestionsSections; // @synthesize appSuggestionsSections=_appSuggestionsSections;
 @property(copy, nonatomic) NSString *query; // @synthesize query=_query;
 @property(nonatomic) __weak id <VCUIGalleryDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)metadataForDonation:(id)arg1;
 - (void)didDismissSearchController:(id)arg1;
 - (void)updateSearchResultsForSearchController:(id)arg1;
 - (id)gallerySectionForSection:(unsigned long long)arg1;

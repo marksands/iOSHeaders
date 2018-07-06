@@ -43,7 +43,7 @@ __attribute__((visibility("hidden")))
     UIFont *_activeFontForScaling;
     double _resolvedSize;
     _UIButtonBarButton *_backButton;
-    double _preferredBackButtonWidth;
+    double _minimumBackButtonWidth;
     UILabel *_inlineTitleView;
     UIView *_titleView;
     _UITAMICAdaptorView *_titleViewWrapperView;
@@ -68,7 +68,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIView *titleView; // @synthesize titleView=_titleView;
 @property(retain, nonatomic) UILabel *inlineTitleView; // @synthesize inlineTitleView=_inlineTitleView;
 @property(nonatomic) _Bool hasFakedBackButton; // @synthesize hasFakedBackButton=_hasFakedBackButton;
-@property(nonatomic) double preferredBackButtonWidth; // @synthesize preferredBackButtonWidth=_preferredBackButtonWidth;
+@property(nonatomic) double minimumBackButtonWidth; // @synthesize minimumBackButtonWidth=_minimumBackButtonWidth;
 @property(retain, nonatomic) _UIButtonBarButton *backButton; // @synthesize backButton=_backButton;
 @property(readonly, nonatomic) double resolvedSize; // @synthesize resolvedSize=_resolvedSize;
 @property(retain, nonatomic) UIFont *activeFontForScaling; // @synthesize activeFontForScaling=_activeFontForScaling;

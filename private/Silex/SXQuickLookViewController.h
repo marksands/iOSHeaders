@@ -8,7 +8,7 @@
 
 #import "SXQuickLookEventHandlerDelegate.h"
 
-@class NFStateMachine, NFStateMachineState, NSString, UIControl, UIImageView, UILabel;
+@class NFStateMachine, NFStateMachineState, NSString, UIButton, UIImageView, UILabel;
 
 @interface SXQuickLookViewController : UIViewController <SXQuickLookEventHandlerDelegate>
 {
@@ -19,12 +19,12 @@
     NFStateMachineState *_presentingState;
     NFStateMachineState *_errorState;
     UIImageView *_thumbnailImageView;
-    UIControl *_thumbnailControl;
+    UIButton *_thumbnailControl;
     UILabel *_errorLabel;
 }
 
 @property(readonly, nonatomic) UILabel *errorLabel; // @synthesize errorLabel=_errorLabel;
-@property(readonly, nonatomic) UIControl *thumbnailControl; // @synthesize thumbnailControl=_thumbnailControl;
+@property(readonly, nonatomic) UIButton *thumbnailControl; // @synthesize thumbnailControl=_thumbnailControl;
 @property(readonly, nonatomic) UIImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
 @property(readonly, nonatomic) NFStateMachineState *errorState; // @synthesize errorState=_errorState;
 @property(readonly, nonatomic) NFStateMachineState *presentingState; // @synthesize presentingState=_presentingState;

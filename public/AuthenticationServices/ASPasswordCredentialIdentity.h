@@ -28,6 +28,7 @@
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_initWithFoundationCredentialIdentity:(id)arg1;
 - (id)initWithServiceIdentifier:(id)arg1 user:(id)arg2 recordIdentifier:(id)arg3;

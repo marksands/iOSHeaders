@@ -8,7 +8,7 @@
 
 #import "RELoggable.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, REDataSourceCatalog, REDataSourceManager, REEngineLocationManager, REFeatureMapGenerator, REFeatureSet, REFeatureTransmuter, RELiveElementCoordinator, REMLModelManager, RERelevanceEngineConfiguration, RERelevanceEngineLogger, RERelevanceEnginePreferences, RERelevanceEnginePreferencesController, RETrainingManager, _REEngineDefaults;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, REDataSourceCatalog, REDataSourceManager, REEngineLocationManager, REFeatureMapGenerator, REFeatureSet, REFeatureTransmuter, RELiveElementCoordinator, REMLModelManager, RERelevanceEngineConfiguration, RERelevanceEngineLogger, RERelevanceEnginePreferences, RERelevanceEnginePreferencesController, RETrainingManager, _REEngineDefaults;
 
 @interface RERelevanceEngine : NSObject <RELoggable>
 {
@@ -33,6 +33,7 @@
     NSArray *_configurationSectionDescriptors;
     NSArray *_sectionDescriptors;
     NSArray *_historicSectionDescriptors;
+    NSDictionary *_inflectionFeatureValues;
     _Bool _running;
     _Bool _automaticallyResumeEngine;
     RERelevanceEngineConfiguration *_configuration;
@@ -80,6 +81,7 @@
 - (id)newOutputFeatureMap;
 - (id)newInputFeatureMap;
 @property(readonly, nonatomic) REFeatureTransmuter *featureTransmuter;
+@property(readonly, nonatomic) NSDictionary *inflectionFeatureValues;
 @property(readonly, nonatomic) NSArray *historicSectionDescriptors;
 @property(readonly, nonatomic) NSArray *sectionDescriptors;
 @property(readonly, nonatomic) RERelevanceEngineLogger *logger;

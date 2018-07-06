@@ -6,7 +6,9 @@
 
 #import "NSObject.h"
 
-@interface MSVBloomFilter : NSObject
+#import "NSSecureCoding.h"
+
+@interface MSVBloomFilter : NSObject <NSSecureCoding>
 {
     struct __CFBitVector *_vector;
     long long _vectorCapacity;
@@ -16,6 +18,7 @@
     long long _capacity;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) float falsePositiveTolerance; // @synthesize falsePositiveTolerance=_falsePositiveTolerance;
 @property(readonly, nonatomic) long long capacity; // @synthesize capacity=_capacity;
 - (unsigned long long)_murmur2HashObject:(id)arg1;
@@ -25,6 +28,8 @@
 @property(readonly, nonatomic) float falsePositiveProbability;
 - (_Bool)containsObject:(id)arg1;
 - (void)addObject:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithCapacity:(long long)arg1 falsePositiveTolerance:(float)arg2;

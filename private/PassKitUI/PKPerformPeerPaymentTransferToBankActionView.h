@@ -61,7 +61,7 @@
 - (_Bool)_shouldShakeWithNewAmount:(id)arg1;
 - (void)_currentAmountDidChangeTo:(id)arg1 shouldGenerateNewSuggestions:(_Bool)arg2;
 - (void)_updateCurrentAmount:(id)arg1 shouldGenerateNewSuggestions:(_Bool)arg2;
-- (void)_presentAddBankAccountViewController;
+- (void)presentAddBankAccountViewController;
 - (void)_handleEditAccountInformationButtonPressed;
 - (void)_addAccountInformation:(id)arg1;
 - (unsigned long long)_topPadding;

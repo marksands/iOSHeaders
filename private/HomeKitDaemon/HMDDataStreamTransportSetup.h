@@ -8,15 +8,17 @@
 
 #import "NSCopying.h"
 
-@class HMDDataStreamTransportCommand, HMDDataStreamTransportTransportType;
+@class HMDDataStreamTransportCommand, HMDDataStreamTransportTransportType, NSData;
 
 @interface HMDDataStreamTransportSetup : NSObject <NSCopying>
 {
     HMDDataStreamTransportCommand *_command;
     HMDDataStreamTransportTransportType *_transportType;
+    NSData *_controllerKeySalt;
 }
 
 + (id)parsedFromData:(id)arg1 error:(id *)arg2;
+@property(retain, nonatomic) NSData *controllerKeySalt; // @synthesize controllerKeySalt=_controllerKeySalt;
 @property(retain, nonatomic) HMDDataStreamTransportTransportType *transportType; // @synthesize transportType=_transportType;
 @property(retain, nonatomic) HMDDataStreamTransportCommand *command; // @synthesize command=_command;
 - (void).cxx_destruct;
@@ -25,7 +27,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)serializeWithError:(id *)arg1;
 - (_Bool)parseFromData:(id)arg1 error:(id *)arg2;
-- (id)initWithCommand:(id)arg1 transportType:(id)arg2;
+- (id)initWithCommand:(id)arg1 transportType:(id)arg2 controllerKeySalt:(id)arg3;
 - (id)init;
 
 @end

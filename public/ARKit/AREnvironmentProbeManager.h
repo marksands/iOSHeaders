@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-#import "ARInternalSessionObserver.h"
+@class ARCubemapGenerator, AREnvironmentProbeUpdate, ARImageData, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSUUID;
 
-@class ARCubemapGenerator, AREnvironmentProbeUpdate, ARImageData, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSString, NSUUID;
-
-@interface AREnvironmentProbeManager : NSObject <ARInternalSessionObserver>
+@interface AREnvironmentProbeManager : NSObject
 {
     double _minimumProbeUpdateInterval;
     double _minimumProbeUpdateDelay;
@@ -38,19 +36,13 @@
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)requestTextureForProbe:(id)arg1;
--     // Error parsing type: @32@0:8@16r^{?={array<unsigned char, 16>=[16C]}Q{?=[4]}{array<float __attribute__((ext_vector_type(3))), 4>=[4]}{set<std::__1::array<unsigned char, 16>, std::__1::less<std::__1::array<unsigned char, 16> >, std::__1::allocator<std::__1::array<unsigned char, 16> > >={__tree<std::__1::array<unsigned char, 16>, std::__1::less<std::__1::array<unsigned char, 16> >, std::__1::allocator<std::__1::array<unsigned char, 16> > >=^{__tree_end_node<std::__1::__tree_node_base<void *> *>}{__compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *> *>, std::__1::allocator<std::__1::__tree_node<std::__1::array<unsigned char, 16>, void *> > >={__tree_end_node<std::__1::__tree_node_base<void *> *>=^{__tree_node_base<void *>}}}{__compressed_pair<unsigned long, std::__1::less<std::__1::array<unsigned char, 16> > >=Q}}}@}24, name: probeWithIdentifier:onPlane:
+-     // Error parsing type: @40@0:8@16r^{?={array<unsigned char, 16>=[16C]}Q{?=[4]}{array<float __attribute__((ext_vector_type(3))), 4>=[4]}{set<std::__1::array<unsigned char, 16>, std::__1::less<std::__1::array<unsigned char, 16> >, std::__1::allocator<std::__1::array<unsigned char, 16> > >={__tree<std::__1::array<unsigned char, 16>, std::__1::less<std::__1::array<unsigned char, 16> >, std::__1::allocator<std::__1::array<unsigned char, 16> > >=^{__tree_end_node<std::__1::__tree_node_base<void *> *>}{__compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *> *>, std::__1::allocator<std::__1::__tree_node<std::__1::array<unsigned char, 16>, void *> > >={__tree_end_node<std::__1::__tree_node_base<void *> *>=^{__tree_node_base<void *>}}}{__compressed_pair<unsigned long, std::__1::less<std::__1::array<unsigned char, 16> > >=Q}}}@}24@32, name: probeWithIdentifier:onPlane:planeIdentifier:
 - (_Bool)addProbeWithAnchor:(id)arg1 timestamp:(double)arg2 textureImmediately:(_Bool)arg3;
 - (void)updateProbesFromExistingAnchors:(id)arg1;
 - (id)updateProbesForTimestamp:(double)arg1 planes:(vector_478e3a44)arg2 imageData:(id)arg3 pose:(id)arg4 addedAnchors:(id)arg5 removedAnchors:(id)arg6;
 - (_Bool)isUpdateRequiredForProbe:(id)arg1 timestamp:(double)arg2;
 - (void)insertIntoQueue:(id)arg1;
 - (id)initWithMode:(long long)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

@@ -11,6 +11,10 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (id)description;
+- (struct CGSize)size;
+- (void)removeFromSuperview;
+- (id)superview;
 - (_Bool)respondsToSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (id)_actualActivePredictionView;

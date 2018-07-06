@@ -6,12 +6,15 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @interface ATXCacheReaderGuardedData : NSObject
 {
-    unsigned char _consumerSubType;
+    NSString *_cachePath;
     int _cacheFileDescriptor;
 }
 
+- (void).cxx_destruct;
 - (id)init;
 
 @end

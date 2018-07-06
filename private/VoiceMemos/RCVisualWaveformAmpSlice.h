@@ -6,15 +6,25 @@
 
 #import "NSObject.h"
 
+@class CAShapeLayer;
+
 __attribute__((visibility("hidden")))
 @interface RCVisualWaveformAmpSlice : NSObject
 {
+    _Bool _needsPathUpdate;
     double _sliceIndex;
     double _amplitude;
+    long long _visualAmplitudeHeight;
+    CAShapeLayer *_sliceLayer;
 }
 
+@property(nonatomic) _Bool needsPathUpdate; // @synthesize needsPathUpdate=_needsPathUpdate;
+@property(retain, nonatomic) CAShapeLayer *sliceLayer; // @synthesize sliceLayer=_sliceLayer;
+@property(nonatomic) long long visualAmplitudeHeight; // @synthesize visualAmplitudeHeight=_visualAmplitudeHeight;
 @property(nonatomic) double amplitude; // @synthesize amplitude=_amplitude;
 @property(nonatomic) double sliceIndex; // @synthesize sliceIndex=_sliceIndex;
+- (void).cxx_destruct;
+- (id)init;
 - (id)initWithIndex:(double)arg1 amplitude:(double)arg2;
 
 @end

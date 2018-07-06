@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
+- (void)setContinuousCornerRadius:(double)arg1;
 - (void)setContentMode:(long long)arg1;
 - (void)setImage:(id)arg1 animated:(_Bool)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;

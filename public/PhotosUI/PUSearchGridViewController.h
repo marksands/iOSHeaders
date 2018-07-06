@@ -37,7 +37,7 @@ __attribute__((visibility("hidden")))
 - (double)sectionedGridLayout:(id)arg1 sectionHeaderHeightForVisualSection:(long long)arg2;
 - (void)configureSupplementaryView:(id)arg1 ofKind:(id)arg2 forIndexPath:(id)arg3;
 - (struct UIEdgeInsets)fullMomentsLevelSectionHeaderHighlightInset;
-- (void)_getDataForVisualSection:(long long)arg1 locations:(id *)arg2 title:(id *)arg3;
+- (void)_getDataForVisualSection:(long long)arg1 locations:(id *)arg2 title:(id *)arg3 startDate:(id *)arg4 endDate:(id *)arg5;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 

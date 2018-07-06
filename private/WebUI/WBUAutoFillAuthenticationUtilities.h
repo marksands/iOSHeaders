@@ -10,6 +10,8 @@
 {
 }
 
++ (id)passcodePromptForLoggingInWithSavedPasswordOnWebsite:(id)arg1;
++ (id)customAuthenticationTitleForLoggingInWithSavedPasswordOnWebsite:(id)arg1;
 + (id)customAuthenticationTitleForFillingCreditCard;
 + (id)customAuthenticationTitleForFillingSavedPassword;
 + (id)customAuthenticationTitleForViewingSavedPasswords;

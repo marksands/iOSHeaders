@@ -26,12 +26,13 @@
     NSString *_continuationToken;
     NSString *_heartbeatToken;
     NSString *_identityToken;
-    AKDevice *_proxiedDevice;
     NSString *_proxyAppName;
     NSString *_clientAppName;
     NSNumber *_hasEmptyPasswordOverride;
     NSString *_securityUpgradeContext;
     NSString *_followupItems;
+    AKDevice *_proxiedDevice;
+    id <AKAnisetteServiceProtocol> _anisetteDataProvider;
     AKAnisetteData *_proxiedDeviceAnisetteData;
 }
 
@@ -40,12 +41,13 @@
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool shouldSendAbsintheHeader; // @synthesize shouldSendAbsintheHeader=_shouldSendAbsintheHeader;
 @property(retain, nonatomic) AKAnisetteData *proxiedDeviceAnisetteData; // @synthesize proxiedDeviceAnisetteData=_proxiedDeviceAnisetteData;
+@property(retain, nonatomic) id <AKAnisetteServiceProtocol> anisetteDataProvider; // @synthesize anisetteDataProvider=_anisetteDataProvider;
+@property(retain, nonatomic) AKDevice *proxiedDevice; // @synthesize proxiedDevice=_proxiedDevice;
 @property(copy, nonatomic) NSString *followupItems; // @synthesize followupItems=_followupItems;
 @property(copy, nonatomic) NSString *securityUpgradeContext; // @synthesize securityUpgradeContext=_securityUpgradeContext;
 @property(retain, nonatomic) NSNumber *hasEmptyPasswordOverride; // @synthesize hasEmptyPasswordOverride=_hasEmptyPasswordOverride;
 @property(copy, nonatomic) NSString *clientAppName; // @synthesize clientAppName=_clientAppName;
 @property(copy, nonatomic) NSString *proxyAppName; // @synthesize proxyAppName=_proxyAppName;
-@property(retain, nonatomic) AKDevice *proxiedDevice; // @synthesize proxiedDevice=_proxiedDevice;
 @property(copy, nonatomic) NSString *altDSID; // @synthesize altDSID=_altDSID;
 @property(copy, nonatomic) NSString *identityToken; // @synthesize identityToken=_identityToken;
 @property(copy, nonatomic) NSString *heartbeatToken; // @synthesize heartbeatToken=_heartbeatToken;
@@ -67,8 +69,8 @@
 - (void)_signWithFeatureOptInHeaders:(id)arg1;
 - (void)signRequestWithCommonHeaders:(id)arg1;
 - (void)_signRequest:(id)arg1;
-- (void)signRequest:(id)arg1;
 - (void)signRequest:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)signRequest:(id)arg1;
 - (id)initWithAltDSID:(id)arg1 identityToken:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

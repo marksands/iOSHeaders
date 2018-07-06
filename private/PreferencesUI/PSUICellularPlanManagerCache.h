@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class CTCellularPlanItem, NSArray;
+@class CTCellularPlanItem, NSArray, NSDictionary;
 
 @interface PSUICellularPlanManagerCache : NSObject
 {
     _Bool _cacheIsValid;
     NSArray *_planItems;
+    NSDictionary *_referenceMap;
     CTCellularPlanItem *_selectedPlanItem;
     _Bool _hasSubscriptions;
     _Bool _isMultipleDataPlanSupportAvailable;

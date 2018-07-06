@@ -25,6 +25,7 @@
 - (void)resetContext;
 - (_Bool)isDisplayingElementWithIdentifier:(id)arg1;
 - (void)elementWithIdentifierDidEndDisplay:(id)arg1;
+- (void)_trainDwellForElement:(id)arg1 withInterval:(double)arg2;
 - (void)elementWithIdentifierDidDisplay:(id)arg1;
 - (void)selectElementWithIdentifier:(id)arg1;
 - (id)init;

@@ -6,7 +6,7 @@
 
 #import <MPSNeuralNetwork/MPSCNNKernel.h>
 
-@class MPSCNNLogSoftMax, MPSCNNNeuronLinear, MPSNNReduceUnary;
+@class MPSCNNLogSoftMax, MPSCNNNeuron, MPSNNReduceUnary;
 
 @interface MPSCNNLoss : MPSCNNKernel
 {
@@ -21,7 +21,7 @@
     MPSNNReduceUnary *_reduceRows;
     MPSNNReduceUnary *_reduceColumns;
     MPSNNReduceUnary *_reduceFeatureChannels;
-    MPSCNNNeuronLinear *_arithmetic;
+    MPSCNNNeuron *_arithmetic;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;

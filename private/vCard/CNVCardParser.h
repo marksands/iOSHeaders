@@ -99,7 +99,6 @@
 - (id)firstValueForKey:(id)arg1 inExtensionGroup:(id)arg2;
 - (_Bool)parseExtension:(id)arg1;
 - (_Bool)parseInstantMessageValueWithService:(id)arg1;
-- (_Bool)parse_X_APPLE_PREFERRED_CHANNEL;
 - (_Bool)parse_X_APPLE_LIKENESS_SERVICE_IDENTIFIER;
 - (_Bool)parse_X_APPLE_LIKENESS_SOURCE;
 - (_Bool)parse_X_ADDRESSBOOKSERVER_PHONEME_DATA;

@@ -28,7 +28,9 @@
     AVTUIEnvironment *_environment;
 }
 
-+ (_Bool)updateCollectionViewLayout:(id)arg1 forExtended:(_Bool)arg2 withSlider:(_Bool)arg3 numberOfItems:(long long)arg4;
++ (_Bool)updateCollectionViewLayout:(id)arg1 containerSize:(struct CGSize)arg2 environment:(id)arg3 forExtended:(_Bool)arg4 withSlider:(_Bool)arg5 numberOfItems:(long long)arg6;
++ (struct CGSize)cellSizeFittingWidth:(double)arg1 environment:(id)arg2;
++ (double)edgeLengthFittingWidth:(double)arg1 environment:(id)arg2;
 + (_Bool)supportsSelection;
 @property(nonatomic) _Bool needsScrollToSelected; // @synthesize needsScrollToSelected=_needsScrollToSelected;
 @property(readonly, nonatomic) AVTUIEnvironment *environment; // @synthesize environment=_environment;

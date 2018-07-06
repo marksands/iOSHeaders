@@ -10,7 +10,6 @@
 {
 }
 
-- (id)emptyAlbumPlaceholderImage;
 - (id)nameOfRecentlyDeletedAlbumPlaceholderImage;
 - (id)nameOfHiddenAlbumPlaceholderImage;
 - (id)nameOfEmptySharedAlbumPlaceholderImage;

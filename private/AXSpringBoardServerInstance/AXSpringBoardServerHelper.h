@@ -166,7 +166,7 @@
 - (_Bool)isSiriVisibleWithServerInstance:(id)arg1;
 - (void)toggleDockWithServerInstance:(id)arg1;
 - (_Bool)isControlCenterVisibleWithServerInstance:(id)arg1;
-- (void)serverInstance:(id)arg1 showControlCenter:(_Bool)arg2;
+- (_Bool)serverInstance:(id)arg1 showControlCenter:(_Bool)arg2;
 - (void)serverInstance:(id)arg1 setReachabilityEnabled:(_Bool)arg2;
 - (_Bool)serverInstance:(id)arg1 showNotificationCenter:(_Bool)arg2;
 - (_Bool)isCoverSheetVisibleWithServerInstance:(id)arg1;

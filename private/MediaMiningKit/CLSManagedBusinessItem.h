@@ -6,24 +6,25 @@
 
 #import "NSManagedObject.h"
 
-@class NSData, NSSet, NSString;
+@class CLSBusinessCacheEntry, NSNumber, NSString;
 
 @interface CLSManagedBusinessItem : NSManagedObject
 {
 }
 
 + (id)entityName;
+@property(nonatomic) long long venueCapacity;
 
 // Remaining properties
-@property(retain, nonatomic) NSData *businessCategories; // @dynamic businessCategories;
+@property(retain, nonatomic) NSString *businessCategories; // @dynamic businessCategories;
 @property(nonatomic) unsigned int categories; // @dynamic categories;
-@property(retain, nonatomic) NSSet *entries; // @dynamic entries;
+@property(retain, nonatomic) CLSBusinessCacheEntry *entry; // @dynamic entry;
 @property(nonatomic) double latitude; // @dynamic latitude;
 @property(nonatomic) double longitude; // @dynamic longitude;
 @property(nonatomic) unsigned long long muid; // @dynamic muid;
 @property(copy, nonatomic) NSString *name; // @dynamic name;
 @property(nonatomic) double radius; // @dynamic radius;
-@property(nonatomic) long long venueCapacity; // @dynamic venueCapacity;
+@property(retain, nonatomic) NSNumber *venueCapacityAsNumber; // @dynamic venueCapacityAsNumber;
 
 @end
 

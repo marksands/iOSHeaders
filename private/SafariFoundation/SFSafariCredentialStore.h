@@ -19,14 +19,16 @@
 + (void)getApprovedSharedWebCredentialsEntriesSortedByHighestValueForAppWithAppID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)getApprovedSharedWebCredentialsEntriesForAppWithAppID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)_sortCredentials:(id)arg1 usingApprovedSharedWebCredentialsDatabaseEntries:(id)arg2;
-+ (_Bool)_savedPasswordIsRelated:(id)arg1 toEntry:(id)arg2 andWebsiteURL:(id)arg3;
++ (_Bool)_savedPassword:(id)arg1 isRelatedToEntryHighLevelDomains:(id)arg2 andWebsiteURL:(id)arg3;
 + (void)bestDomainForAppID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)_bestDomainFromApprovedDomainsForWebCredentials:(id)arg1 appLinks:(id)arg2 continuity:(id)arg3 appID:(id)arg4;
 + (void)_getAllowedActionForAppCredentialsWithAppID:(id)arg1 websiteURL:(id)arg2 user:(id)arg3 password:(id)arg4 shouldAnalyzeExistingCredentials:(_Bool)arg5 completionHandler:(CDUnknownBlockType)arg6;
 + (void)getAllowedActionForAppCredentialsWithAppID:(id)arg1 websiteURL:(id)arg2 user:(id)arg3 password:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 + (void)getCanSaveCredentialsWithAppID:(id)arg1 websiteURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (id)_credentialsMatchingSharedWebCredentialsDatabaseEntries:(id)arg1 websiteURL:(id)arg2 savedPasswords:(id)arg3;
++ (id)_highLevelDomainsFromDatabaseEntries:(id)arg1;
 + (void)_getCredentialsForAppWithApprovedAndValidSharedWebCredentialsDatabaseEntries:(id)arg1 websiteURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
++ (void)getCredentialsForAppWithAppID:(id)arg1 externallyVerifiedAndApprovedSharedWebCredentialDomains:(id)arg2 websiteURL:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 + (void)getCredentialsForAppWithAppID:(id)arg1 externallyVerifiedAndApprovedSharedWebCredentialDomains:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (void)getCredentialsForAppWithAppID:(id)arg1 websiteURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (void)getCredentialsForAppWithAppID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

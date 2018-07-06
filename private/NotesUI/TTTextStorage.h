@@ -164,6 +164,7 @@
 - (_Bool)_usesSimpleTextEffects;
 - (void)resetTTEdits;
 - (void)restoreAttributedString:(id)arg1;
+@property(readonly, nonatomic) _Bool hasAnyTextViewWithDarkAppearance;
 - (id)initWithAttributedString:(id)arg1 replicaID:(id)arg2 sourceZoomController:(id)arg3 keepSourceZoomController:(_Bool)arg4;
 - (id)initWithAttributedString:(id)arg1 replicaID:(id)arg2;
 - (id)initWithDocument:(id)arg1;

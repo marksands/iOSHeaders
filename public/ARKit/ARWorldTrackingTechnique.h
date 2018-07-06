@@ -25,6 +25,7 @@
     long long _previousKeyframeCount;
     double _lastPoseTrackingMapTimestamp;
     double _lastMajorRelocalizationTimestamp;
+    double _lastPoseMajorRelocalizationTimestamp;
     _Bool _relocalizingAfterSensorDataDrop;
     _Bool _didRelocalize;
     _Bool _didClearMap;
@@ -33,10 +34,6 @@
     double _resultLatency;
     ARWorldTrackingOptions *_options;
     _Bool _allowPoseGraphUpdates;
-    unsigned long long _customLensType;
-    // Error parsing type: {?="columns"[3]}, name: _customIntrinsics
-    // Error parsing type: , name: _radialDistortion
-    // Error parsing type: , name: _tangentialDistortion
 }
 
 + (_Bool)supportsVideoResolution:(struct CGSize)arg1;

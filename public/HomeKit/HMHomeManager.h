@@ -10,10 +10,11 @@
 #import "HMFMessageReceiver.h"
 #import "HMMutableApplicationData.h"
 
-@class HMAccessory, HMApplicationData, HMDelegateCaller, HMFMessageDispatcher, HMHome, HMHomeManagerConfiguration, HMPendingRequests, HMThreadSafeMutableArrayCollection, HMXpcClient, NSArray, NSNumber, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, NSUUID, _HMLocationHandler;
+@class HMAccessory, HMApplicationData, HMFUnfairLock, HMHome, HMHomeManagerConfiguration, HMMutableArray, NSArray, NSNumber, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, NSUUID, _HMContext, _HMLocationHandler;
 
 @interface HMHomeManager : NSObject <HMFMessageReceiver, HMMutableApplicationData, HMApplicationData>
 {
+    HMFUnfairLock *_lock;
     HMAccessory *_currentAccessory;
     _Bool _thisDeviceResidentCapable;
     _Bool _residentEnabledForThisDevice;
@@ -33,20 +34,15 @@
     unsigned long long _residentProvisioningStatus;
     HMHomeManagerConfiguration *_configuration;
     unsigned long long _options;
-    NSObject<OS_dispatch_queue> *_clientQueue;
-    NSObject<OS_dispatch_queue> *_propertyQueue;
-    HMThreadSafeMutableArrayCollection *_currentHomes;
-    HMThreadSafeMutableArrayCollection *_homeInvitations;
-    HMXpcClient *_xpcClient;
-    HMFMessageDispatcher *_msgDispatcher;
+    _HMContext *_context;
+    HMMutableArray *_currentHomes;
+    HMMutableArray *_homeInvitations;
     NSOperationQueue *_mergeOperationQueue;
     NSUUID *_uuid;
     unsigned long long _generationCounter;
     NSNumber *_fileGenerationCounter;
     NSNumber *_fileMetadataVersion;
-    HMPendingRequests *_pendingRequests;
     unsigned long long _metadataVersion;
-    HMDelegateCaller *_delegateCaller;
     _HMLocationHandler *_locationHandler;
     NSString *_homeCacheDir;
     NSString *_homeDataCache;
@@ -59,9 +55,7 @@
 @property(retain) NSString *homeDataCache; // @synthesize homeDataCache=_homeDataCache;
 @property(retain) NSString *homeCacheDir; // @synthesize homeCacheDir=_homeCacheDir;
 @property(readonly, nonatomic) _HMLocationHandler *locationHandler; // @synthesize locationHandler=_locationHandler;
-@property(retain, nonatomic) HMDelegateCaller *delegateCaller; // @synthesize delegateCaller=_delegateCaller;
 @property(nonatomic) unsigned long long metadataVersion; // @synthesize metadataVersion=_metadataVersion;
-@property(retain, nonatomic) HMPendingRequests *pendingRequests; // @synthesize pendingRequests=_pendingRequests;
 @property(retain, nonatomic) NSNumber *fileMetadataVersion; // @synthesize fileMetadataVersion=_fileMetadataVersion;
 @property(retain, nonatomic) NSNumber *fileGenerationCounter; // @synthesize fileGenerationCounter=_fileGenerationCounter;
 @property(nonatomic) int serverGenerationCounterToken; // @synthesize serverGenerationCounterToken=_serverGenerationCounterToken;
@@ -71,12 +65,9 @@
 @property(nonatomic) _Bool didUpdateHomes; // @synthesize didUpdateHomes=_didUpdateHomes;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) NSOperationQueue *mergeOperationQueue; // @synthesize mergeOperationQueue=_mergeOperationQueue;
-@property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
-@property(retain, nonatomic) HMXpcClient *xpcClient; // @synthesize xpcClient=_xpcClient;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *homeInvitations; // @synthesize homeInvitations=_homeInvitations;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentHomes; // @synthesize currentHomes=_currentHomes;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
+@property(retain, nonatomic) HMMutableArray *homeInvitations; // @synthesize homeInvitations=_homeInvitations;
+@property(retain, nonatomic) HMMutableArray *currentHomes; // @synthesize currentHomes=_currentHomes;
+@property(readonly, nonatomic) _HMContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)_pairingIdentityForAccessoryWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)pairingIdentityForAccessoryWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -150,6 +141,7 @@
 - (void)queryMetadata:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_primaryAccountWasDeletedWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)primaryAccountWasDeletedWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)idmsAccountUsernameModifiedWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_primaryAccountDidChange:(id)arg1 modified:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)primaryAccountWasModified:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)primaryAccountDidChange:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

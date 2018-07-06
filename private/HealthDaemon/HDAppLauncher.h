@@ -25,6 +25,7 @@
     long long _maxLaunchCount;
 }
 
++ (double)_launchCountResetThresholdForDelay:(double)arg1 maxLaunchCount:(long long)arg2 base:(double)arg3;
 - (void).cxx_destruct;
 - (_Bool)unitTest_hasAssertionForBundleIdentifier:(id)arg1;
 - (void)unitTest_setBaseLaunchDelay:(double)arg1 launchCountResetThreshold:(double)arg2 maxLaunchCount:(long long)arg3;

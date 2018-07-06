@@ -21,6 +21,7 @@
     id <PXDisplayAsset> _keyAsset;
     PXUIMediaProvider *_mediaProvider;
     PXGadgetSpec *_gadgetSpec;
+    long long _mode;
     PXDisplayAssetUIView *_assetView;
     PXUIAssetBadgeView *_badgeView;
     UILabel *_titleLabel;
@@ -53,6 +54,7 @@
 @property(retain, nonatomic) PXUIAssetBadgeView *badgeView; // @synthesize badgeView=_badgeView;
 @property(retain, nonatomic) PXDisplayAssetUIView *assetView; // @synthesize assetView=_assetView;
 @property(nonatomic) _Bool blursDegradedContent; // @synthesize blursDegradedContent=_blursDegradedContent;
+@property(nonatomic) long long mode; // @synthesize mode=_mode;
 @property(nonatomic) _Bool assetContentHidden; // @synthesize assetContentHidden=_assetContentHidden;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 @property(retain, nonatomic) PXUIMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
@@ -60,6 +62,7 @@
 @property(retain, nonatomic) id <PXDisplaySuggestion> suggestion; // @synthesize suggestion=_suggestion;
 - (void).cxx_destruct;
 - (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
+- (void)_handleChangedAsset:(id)arg1;
 - (void)_updateLabelsContents;
 - (void)_updateBadgeContents;
 - (void)_contentSizeCategoryDidChange:(id)arg1;
@@ -72,6 +75,7 @@
 @property(readonly, nonatomic) struct CGRect assetContentsRect;
 - (struct CGRect)assetContentBoundsInCoordinateSpace:(id)arg1;
 - (struct CGSize)_calculateLayoutWithInputSize:(struct CGSize)arg1 apply:(_Bool)arg2;
+- (struct CGRect)_assetFrameInBounds:(struct CGRect)arg1;
 - (void)_updateIfNeeded;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 @property(readonly, nonatomic) NSError *error;

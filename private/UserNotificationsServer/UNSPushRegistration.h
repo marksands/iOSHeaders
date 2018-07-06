@@ -6,24 +6,29 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
+
 @class NSData, NSString;
 
-@interface UNSPushRegistration : NSObject
+@interface UNSPushRegistration : NSObject <NSCopying>
 {
     NSString *_environment;
     NSData *_token;
     NSString *_tokenIdentifier;
 }
 
-@property(retain, nonatomic) NSString *tokenIdentifier; // @synthesize tokenIdentifier=_tokenIdentifier;
-@property(retain, nonatomic) NSData *token; // @synthesize token=_token;
-@property(retain, nonatomic) NSString *environment; // @synthesize environment=_environment;
++ (id)pushRegistrationWithEnvironment:(id)arg1 tokenIdentifier:(id)arg2 token:(id)arg3;
+@property(readonly, copy, nonatomic) NSString *tokenIdentifier; // @synthesize tokenIdentifier=_tokenIdentifier;
+@property(readonly, copy, nonatomic) NSData *token; // @synthesize token=_token;
+@property(readonly, copy, nonatomic) NSString *environment; // @synthesize environment=_environment;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionaryRepresentation:(id)arg1;
+- (id)initWithEnvironment:(id)arg1 tokenIdentifier:(id)arg2 token:(id)arg3;
 
 @end
 

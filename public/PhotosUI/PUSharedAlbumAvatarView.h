@@ -6,7 +6,7 @@
 
 #import "UIImageView.h"
 
-@class CNMonogrammer, PHAssetCollection, UIGraphicsImageRenderer, UIImage;
+@class CNMonogrammer, PHAssetCollection, PXViewLayoutHelper, UIGraphicsImageRenderer, UIImage;
 
 __attribute__((visibility("hidden")))
 @interface PUSharedAlbumAvatarView : UIImageView
@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     PHAssetCollection *_sharedAlbumCollection;
     CNMonogrammer *_monogrammer;
     UIGraphicsImageRenderer *_imageRenderer;
+    PXViewLayoutHelper *_layoutHelper;
     UIImage *_firstAvatar;
     UIImage *_secondAvatar;
     UIImage *_thirdAvatar;
@@ -23,6 +24,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIImage *thirdAvatar; // @synthesize thirdAvatar=_thirdAvatar;
 @property(retain, nonatomic) UIImage *secondAvatar; // @synthesize secondAvatar=_secondAvatar;
 @property(retain, nonatomic) UIImage *firstAvatar; // @synthesize firstAvatar=_firstAvatar;
+@property(retain, nonatomic) PXViewLayoutHelper *layoutHelper; // @synthesize layoutHelper=_layoutHelper;
 @property(retain, nonatomic) UIGraphicsImageRenderer *imageRenderer; // @synthesize imageRenderer=_imageRenderer;
 @property(retain, nonatomic) CNMonogrammer *monogrammer; // @synthesize monogrammer=_monogrammer;
 @property(retain, nonatomic) PHAssetCollection *sharedAlbumCollection; // @synthesize sharedAlbumCollection=_sharedAlbumCollection;

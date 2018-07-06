@@ -35,6 +35,7 @@
 - (id)_firstUnpopulatedRole;
 @property(retain, nonatomic) HFRoomBuilder *room;
 @property(readonly, nonatomic) _Bool supportsFavoriting;
+- (id)_defaultName;
 @property(readonly, nonatomic) NSString *originalName;
 - (id)_rooms;
 - (id)_updateAssistantAccessControl;

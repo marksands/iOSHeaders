@@ -29,6 +29,7 @@
 - (id)livePhotosBetweenStartDate:(id)arg1 andEndDate:(id)arg2;
 - (void)enumerateLivePhotosAndVariationSuggestionWithLivePhotos:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)recipeForVariationWithLivePhoto:(id)arg1 inResults:(id)arg2 suggestionSubtype:(unsigned short *)arg3;
+- (void)_setDoFlagsWithOptions:(id)arg1;
 - (void)reset;
 - (id)nextSuggestion;
 - (void)startSuggestingWithOptions:(id)arg1;

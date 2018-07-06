@@ -48,7 +48,7 @@ struct LogCategoryPrivate;
 
 struct LogOutput;
 
-struct NSData {
+struct NSDictionary {
     Class _field1;
 };
 

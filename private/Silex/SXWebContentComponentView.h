@@ -18,6 +18,7 @@
     id <SXWebContentNavigationManager> _navigationManager;
     SXWebContentComponentInteractionManager *_interactionManager;
     id <SXReachabilityProvider> _reachabilityProvider;
+    id <SXResourceDataSource> _resourceDataSource;
     NFStateMachine *_stateMachine;
     UIActivityIndicatorView *_loadingIndicator;
     UITapGestureRecognizer *_tapGestureRecognizer;
@@ -36,6 +37,7 @@
 @property(readonly, nonatomic) UITapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
 @property(readonly, nonatomic) UIActivityIndicatorView *loadingIndicator; // @synthesize loadingIndicator=_loadingIndicator;
 @property(readonly, nonatomic) NFStateMachine *stateMachine; // @synthesize stateMachine=_stateMachine;
+@property(readonly, nonatomic) id <SXResourceDataSource> resourceDataSource; // @synthesize resourceDataSource=_resourceDataSource;
 @property(readonly, nonatomic) id <SXReachabilityProvider> reachabilityProvider; // @synthesize reachabilityProvider=_reachabilityProvider;
 @property(readonly, nonatomic) SXWebContentComponentInteractionManager *interactionManager; // @synthesize interactionManager=_interactionManager;
 @property(readonly, nonatomic) id <SXWebContentNavigationManager> navigationManager; // @synthesize navigationManager=_navigationManager;
@@ -64,7 +66,7 @@
 - (void)configure;
 - (void)handleTap:(id)arg1;
 - (void)layoutSubviews;
-- (id)initWithDocumentController:(id)arg1 viewport:(id)arg2 presentationDelegate:(id)arg3 analyticsReporting:(id)arg4 componentStyleRendererFactory:(id)arg5 containerViewController:(id)arg6 configurationProvider:(id)arg7 navigationManager:(id)arg8 componentExposureMonitor:(id)arg9 interactionManagerFactory:(id)arg10 reachabilityProvider:(id)arg11;
+- (id)initWithDocumentController:(id)arg1 viewport:(id)arg2 presentationDelegate:(id)arg3 analyticsReporting:(id)arg4 componentStyleRendererFactory:(id)arg5 containerViewController:(id)arg6 configurationProvider:(id)arg7 navigationManager:(id)arg8 componentExposureMonitor:(id)arg9 interactionManagerFactory:(id)arg10 reachabilityProvider:(id)arg11 resourceDataSource:(id)arg12;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -61,6 +61,7 @@
 @property(readonly, nonatomic) double minimumTimeIntervalToConsiderLeechedLocationInSeconds;
 @property(readonly, nonatomic) double minimumDistanceToConsiderLeechedLocationInMeters;
 @property(readonly, nonatomic) double minimumDistanceToGetLocationUpdatesInMeters;
+@property(readonly, nonatomic) _Bool shouldSnapToParkingLotSegments;
 @property(readonly, nonatomic) _Bool shouldMatchToLAR;
 @property(readonly, nonatomic) double maxDistanceFromOriginToSuppressReroute;
 @property(readonly, nonatomic) _Bool shouldPreloadSubscriptions;

@@ -61,6 +61,7 @@
 - (id)pageNumberIndicator;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)updatePDFViewLayout;
+- (void)viewDidLayoutSubviews;
 - (void)goToPageIndex:(long long)arg1 withViewFrustum:(struct CGRect)arg2;
 - (void)goToPageIndex:(long long)arg1;
 - (void)clearSearchHighlights;

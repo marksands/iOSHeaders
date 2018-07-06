@@ -125,6 +125,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) struct CGRect horizontalSwipeExclusionRect;
+@property(nonatomic) _Bool isPrimaryViewController;
 @property(readonly, nonatomic) long long parentModalPresentationStyle;
 @property(readonly, nonatomic) __weak id <UIViewControllerTransitioningDelegate> parentTransitioningDelegate;
 @property(retain, nonatomic) NSArray *recipients;

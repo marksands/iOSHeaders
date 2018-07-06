@@ -19,6 +19,7 @@
     id <MTLBuffer> _bias;
     unsigned long long _flags;
     _Bool _fullyConnected;
+    _Bool _convolutionTranspose;
     id <MTLBuffer> _qWts;
     int _qType;
     struct NeuronInfo _neuronInfo;
@@ -64,14 +65,17 @@
 - (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;
 - (id)initWithDevice:(id)arg1 weights:(id)arg2;
 - (id)initWithDevice:(id)arg1 weights:(id)arg2 fullyConnected:(_Bool)arg3;
-- (id)initializeWithDevice:(id)arg1 weights:(id)arg2 fullyConnected:(_Bool)arg3;
+- (id)initWithDevice:(id)arg1 weights:(id)arg2 fullyConnected:(_Bool)arg3 convolutionTranspose:(_Bool)arg4;
+- (id)initializeWithDevice:(id)arg1 weights:(id)arg2 fullyConnected:(_Bool)arg3 convolutionTranspose:(_Bool)arg4;
 - (id)initWithDevice:(id)arg1 convolutionDescriptor:(id)arg2 kernelWeights:(const float *)arg3 biasTerms:(const float *)arg4 flags:(unsigned long long)arg5;
 - (id)initWithDevice:(id)arg1 convolutionDescriptor:(id)arg2 kernelWeights:(const float *)arg3 biasTerms:(const float *)arg4 flags:(unsigned long long)arg5 fullyConnected:(_Bool)arg6;
--     // Error parsing type: B84@0:8@16@24r^v32I40r^44r^f52i60r^f64Q72B80, name: initialize:convolutionDescriptor:kernelWeights:dataType:range:lookUpTable:qType:biasTerms:flags:fullyConnected:
+- (id)initWithDevice:(id)arg1 convolutionDescriptor:(id)arg2 kernelWeights:(const float *)arg3 biasTerms:(const float *)arg4 flags:(unsigned long long)arg5 fullyConnected:(_Bool)arg6 convolutionTranspose:(_Bool)arg7;
+-     // Error parsing type: B88@0:8@16@24r^v32I40r^44r^f52i60r^f64Q72B80B84, name: initialize:convolutionDescriptor:kernelWeights:dataType:range:lookUpTable:qType:biasTerms:flags:fullyConnected:convolutionTranspose:
 -     // Error parsing type: B64@0:8@16I24r^v28r^f36i44r^48r^f56, name: PrepareAndLoadData:dataType:weights:biases:quantizationType:ranges:lookUpTable:
 - (id)initWithDevice:(id)arg1;
 @property(readonly, nonatomic) unsigned long long weightsBufferLength;
 - (struct NeuronInfo)neuronInfo;
+- (_Bool)convolutionTranspose;
 - (int)quantizationType;
 - (id)quantizationBuffer;
 - (id)neuronABuffer;

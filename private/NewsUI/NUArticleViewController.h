@@ -28,13 +28,11 @@
     NUArticleAdManager *_adManager;
     id <NUDynamicTypeProviding> _dynamicTypeProviding;
     NFEventManager *_eventManager;
-    id <NUScrollViewKeyCommandHandler> _keyCommandHandler;
     NSHashTable *_loadingListeners;
     struct UIEdgeInsets _contentInsets;
 }
 
 @property(readonly, nonatomic) NSHashTable *loadingListeners; // @synthesize loadingListeners=_loadingListeners;
-@property(readonly, nonatomic) id <NUScrollViewKeyCommandHandler> keyCommandHandler; // @synthesize keyCommandHandler=_keyCommandHandler;
 @property(readonly, nonatomic) NFEventManager *eventManager; // @synthesize eventManager=_eventManager;
 @property(nonatomic) _Bool articleIsPresentingFullscreen; // @synthesize articleIsPresentingFullscreen=_articleIsPresentingFullscreen;
 @property(readonly, nonatomic) id <NUDynamicTypeProviding> dynamicTypeProviding; // @synthesize dynamicTypeProviding=_dynamicTypeProviding;
@@ -54,8 +52,6 @@
 - (void)updatePresentationAttributes;
 - (void)scrollToTopAnimated:(_Bool)arg1;
 - (void)restoreScrollPositionIfNeeded;
-- (void)handleScrollKeyCommand:(id)arg1;
-- (_Bool)canBecomeFirstResponder;
 - (void)dynamicTypeDidChange:(id)arg1;
 - (void)reportEvent:(id)arg1;
 - (void)scrollViewController:(id)arg1 enableNavigation:(_Bool)arg2;
@@ -68,10 +64,11 @@
 - (long long)preferredStatusBarStyle;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)viewDidLayoutSubviews;
+- (_Bool)canBecomeFirstResponder;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (id)initWithArticleDataProvider:(id)arg1 scrollViewController:(id)arg2 articleAdManager:(id)arg3 dynamicTypeProviding:(id)arg4 appStateMonitor:(id)arg5 keyCommandHandler:(id)arg6 loadingListeners:(id)arg7;
+- (id)initWithArticleDataProvider:(id)arg1 scrollViewController:(id)arg2 articleAdManager:(id)arg3 dynamicTypeProviding:(id)arg4 appStateMonitor:(id)arg5 loadingListeners:(id)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

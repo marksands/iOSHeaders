@@ -10,7 +10,6 @@
 
 @class NSMutableArray, NSString, RCWaveformGenerator;
 
-__attribute__((visibility("hidden")))
 @interface RCWaveformSegmentAccumulator : NSObject <RCWaveformGeneratorSegmentOutputObserver>
 {
     _Bool _finishedSuccessfully;

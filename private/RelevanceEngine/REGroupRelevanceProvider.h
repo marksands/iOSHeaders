@@ -13,12 +13,15 @@
     NSString *_groupIdentifier;
 }
 
++ (id)relevanceSimulatorID;
 @property(readonly, nonatomic) NSString *groupIdentifier; // @synthesize groupIdentifier=_groupIdentifier;
 - (void).cxx_destruct;
 - (id)description;
 - (unsigned long long)_hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)dictionaryEncoding;
+- (id)initWithDictionary:(id)arg1;
 - (id)initWithGroupIdentifier:(id)arg1;
 
 @end

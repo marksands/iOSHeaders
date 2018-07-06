@@ -27,7 +27,7 @@
 @property(retain, nonatomic) NSURL *fallbackURL; // @synthesize fallbackURL=_fallbackURL;
 @property(retain, nonatomic) NSString *requestKey; // @synthesize requestKey=_requestKey;
 - (void).cxx_destruct;
-- (void)_parseFallbackResponse:(id)arg1 fallbackURL:(id)arg2 requestKey:(id)arg3 enableExtraLogs:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)_parseFallbackResponse:(id)arg1 fallbackURL:(id)arg2 requestKey:(id)arg3 enableExtraLogs:(_Bool)arg4 maxAge:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)_fetchConfigurationWithURL:(id)arg1 requestKey:(id)arg2 enableExtraLogs:(_Bool)arg3;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;

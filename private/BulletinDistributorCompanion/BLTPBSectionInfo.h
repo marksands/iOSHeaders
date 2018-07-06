@@ -18,7 +18,9 @@
     NSString *_factorySectionID;
     int _groupingSetting;
     BLTPBSectionIcon *_icon;
+    int _lockScreenSetting;
     unsigned int _notificationCenterLimit;
+    int _notificationCenterSetting;
     int _phoneAuthorizationStatus;
     unsigned int _pushSettings;
     int _sectionCategory;
@@ -45,7 +47,9 @@
         unsigned int alertType:1;
         unsigned int authorizationStatus:1;
         unsigned int groupingSetting:1;
+        unsigned int lockScreenSetting:1;
         unsigned int notificationCenterLimit:1;
+        unsigned int notificationCenterSetting:1;
         unsigned int phoneAuthorizationStatus:1;
         unsigned int pushSettings:1;
         unsigned int sectionCategory:1;
@@ -106,6 +110,14 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsNotificationCenterSetting:(id)arg1;
+- (id)notificationCenterSettingAsString:(int)arg1;
+@property(nonatomic) _Bool hasNotificationCenterSetting;
+@property(nonatomic) int notificationCenterSetting; // @synthesize notificationCenterSetting=_notificationCenterSetting;
+- (int)StringAsLockScreenSetting:(id)arg1;
+- (id)lockScreenSettingAsString:(int)arg1;
+@property(nonatomic) _Bool hasLockScreenSetting;
+@property(nonatomic) int lockScreenSetting; // @synthesize lockScreenSetting=_lockScreenSetting;
 @property(nonatomic) _Bool hasPhoneAuthorizationStatus;
 @property(nonatomic) _Bool hasAuthorizationStatus;
 @property(nonatomic) _Bool hasExcludeFromBulletinBoard;

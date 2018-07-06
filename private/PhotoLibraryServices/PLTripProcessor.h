@@ -14,7 +14,7 @@
 + (double)_minimumDistanceBetweenFrequentLocations:(id)arg1 andItem:(id)arg2;
 + (unsigned long long)_numberOfAssetsInItems:(id)arg1;
 + (double)_timeIntervalBetweenItem:(id)arg1 andItem:(id)arg2;
-+ (id)processTripsWithItems:(id)arg1 frequentLocations:(id)arg2 progressBlock:(CDUnknownBlockType)arg3;
++ (id)processTripsWithItems:(id)arg1 frequentLocations:(id)arg2 lastHomeVisit:(id)arg3 progressBlock:(CDUnknownBlockType)arg4;
 
 @end
 

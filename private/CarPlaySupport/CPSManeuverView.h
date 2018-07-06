@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIView.h"
+#import <CarPlaySupport/CPSInheritedBackgroundColorView.h>
 
 @class CPManeuver, CPTravelEstimates;
 
-@interface CPSManeuverView : UIView
+@interface CPSManeuverView : CPSInheritedBackgroundColorView
 {
     _Bool _minimalMode;
     CPManeuver *_representedManeuver;
@@ -21,7 +21,7 @@
 @property(readonly, nonatomic) CPManeuver *representedManeuver; // @synthesize representedManeuver=_representedManeuver;
 @property(readonly, nonatomic, getter=isMinimalMode) _Bool minimalMode; // @synthesize minimalMode=_minimalMode;
 - (void).cxx_destruct;
-- (id)initWithManeuver:(id)arg1 minimalMode:(_Bool)arg2 style:(long long)arg3 backgroundColor:(id)arg4;
+- (id)initWithManeuver:(id)arg1 minimalMode:(_Bool)arg2 style:(long long)arg3;
 
 @end
 

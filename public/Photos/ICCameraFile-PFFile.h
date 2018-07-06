@@ -7,9 +7,6 @@
 #import "ICCameraFile.h"
 
 @interface ICCameraFile (PFFile)
-- (void)sendResponseForRequestType:(unsigned char)arg1 error:(id)arg2;
-- (id)waitingResponseForRequestType:(unsigned char)arg1;
-- (void)setWaitingResponse:(id)arg1 forRequestType:(unsigned char)arg2;
 - (id)uti;
 - (id)uuid;
 @end

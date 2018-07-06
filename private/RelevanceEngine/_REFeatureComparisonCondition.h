@@ -23,6 +23,7 @@
 - (id)descriptionWithIndent:(unsigned long long)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (id)_inflectionFeatureValuePairs;
 - (_Bool)_acceptsLeftFeatureMap:(id)arg1 rightFeatureMap:(id)arg2;
 - (_Bool)_validForRanking;
 - (_Bool)_requiresTwoFeatures;

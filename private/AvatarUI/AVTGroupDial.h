@@ -15,6 +15,7 @@
 @interface AVTGroupDial : UIView <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
     _Bool _isMoving;
+    _Bool _hasFinalizedSelection;
     id <AVTGroupDialDelegate> _delegate;
     AVTUIEnvironment *_environment;
     NSArray *_groupTitles;
@@ -31,6 +32,7 @@
 + (double)estimatedContentWidthForTitleSizes:(id)arg1;
 @property(nonatomic) NSIndexPath *shimmeringItemIndexPath; // @synthesize shimmeringItemIndexPath=_shimmeringItemIndexPath;
 @property(retain, nonatomic) AVTGroupDialMaskingView *maskingView; // @synthesize maskingView=_maskingView;
+@property(nonatomic) _Bool hasFinalizedSelection; // @synthesize hasFinalizedSelection=_hasFinalizedSelection;
 @property(nonatomic) _Bool isMoving; // @synthesize isMoving=_isMoving;
 @property(nonatomic) long long currentSelectedItemIndex; // @synthesize currentSelectedItemIndex=_currentSelectedItemIndex;
 @property(nonatomic) unsigned long long currentScrollDirection; // @synthesize currentScrollDirection=_currentScrollDirection;
@@ -44,8 +46,11 @@
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
+- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
+- (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
+- (void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
@@ -58,7 +63,6 @@
 - (void)startDiscoverability;
 @property(nonatomic) long long selectedGroupIndex;
 - (void)setSelectedGroupIndex:(long long)arg1 animated:(_Bool)arg2;
-- (void)didMoveToWindow;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;

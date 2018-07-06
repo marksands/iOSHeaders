@@ -15,7 +15,6 @@
 @interface ACHTemplateStore : NSObject <HDHealthDaemonReadyObserver, HDDatabaseProtectedDataObserver, ACHTemplateEntitySyncedTemplatesObserver>
 {
     unsigned char _device;
-    _Bool _initialFetchDidFail;
     _Bool _initialFetchComplete;
     HDProfile *_profile;
     ACHTemplateEntityWrapper *_entityWrapper;
@@ -29,7 +28,6 @@
 }
 
 @property(nonatomic) _Bool initialFetchComplete; // @synthesize initialFetchComplete=_initialFetchComplete;
-@property(nonatomic) _Bool initialFetchDidFail; // @synthesize initialFetchDidFail=_initialFetchDidFail;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *synchronizationQueue; // @synthesize synchronizationQueue=_synchronizationQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *notificationQueue; // @synthesize notificationQueue=_notificationQueue;
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
@@ -52,11 +50,11 @@
 - (_Bool)removeTemplates:(id)arg1 error:(id *)arg2;
 - (void)_addTemplatesToLocalCollections:(id)arg1;
 - (_Bool)_queue_addTemplatesToDatabase:(id)arg1 provenance:(long long)arg2 error:(id *)arg3;
-- (void)_queue_addTemplates:(id)arg1 provenance:(long long)arg2;
+- (void)_queue_addTemplates:(id)arg1 provenance:(long long)arg2 triggerSync:(_Bool)arg3;
 - (_Bool)_isValidTemplate:(id)arg1;
 - (void)addTemplates:(id)arg1;
-- (id)_templatesFilteredForDuplicates:(id)arg1;
-- (void)_fetchAllTemplates;
+- (id)_queue_templatesFilteredForDuplicates:(id)arg1;
+- (void)loadAllTemplatesFromDatabaseIfNecessary;
 - (id)availableTemplatesForDateComponents:(id)arg1;
 - (id)templateForTemplateKey:(unsigned long long)arg1;
 - (id)templateForUniqueName:(id)arg1;

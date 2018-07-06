@@ -18,10 +18,13 @@
     _CDMutablePerfMetric *_perfMetric;
     struct _CDPerfEvent _perfEvent;
     NSDate *_now;
-    _DKSyncHistory *_history;
     unsigned long long _batchNumber;
+    _DKSyncHistory *_history;
 }
 
++ (void)_updateEventStatsWithTotal:(unsigned long long)arg1 streamNameCounts:(id)arg2 transportType:(long long)arg3;
++ (void)_updateEventStatsWithPreviousSyncDate:(id)arg1 transportType:(long long)arg2;
+@property(readonly) _DKSyncHistory *history; // @synthesize history=_history;
 - (void).cxx_destruct;
 - (void)endPerfMetrics;
 - (void)startPerfMetrics;

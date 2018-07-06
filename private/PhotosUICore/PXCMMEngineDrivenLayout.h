@@ -23,14 +23,12 @@
     double _headerTopInset;
     double _footerBottomInset;
     double _headerFooterSideInset;
-    PXCMMAssetStatusBadgeTileUserData *__inProgressUserData;
     PXCMMAssetStatusBadgeTileUserData *__copiedUserData;
     struct UIEdgeInsets _reviewSafeAreaInsets;
 }
 
 + (id)_additionalTileKinds;
 @property(readonly, nonatomic) PXCMMAssetStatusBadgeTileUserData *_copiedUserData; // @synthesize _copiedUserData=__copiedUserData;
-@property(readonly, nonatomic) PXCMMAssetStatusBadgeTileUserData *_inProgressUserData; // @synthesize _inProgressUserData=__inProgressUserData;
 @property(nonatomic) struct UIEdgeInsets reviewSafeAreaInsets; // @synthesize reviewSafeAreaInsets=_reviewSafeAreaInsets;
 @property(nonatomic) double headerFooterSideInset; // @synthesize headerFooterSideInset=_headerFooterSideInset;
 @property(nonatomic) double footerBottomInset; // @synthesize footerBottomInset=_footerBottomInset;

@@ -41,6 +41,7 @@
 - (_Bool)allowManualDismiss;
 - (_Bool)restoreInputViews;
 - (void)preserveInputViews;
+- (_Bool)overridesDefaultTitle;
 - (_Bool)defaultContentHidden;
 - (_Bool)performAction:(id)arg1 forNotification:(id)arg2;
 - (_Bool)performAction:(id)arg1 forNotification:(id)arg2 withUserInfo:(id)arg3;

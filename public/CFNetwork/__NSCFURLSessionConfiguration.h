@@ -98,6 +98,7 @@ __attribute__((visibility("hidden")))
     long long _numPriorityLevels;
     long long _numFastLanes;
     long long _minimumFastLanePriority;
+    long long _IDSMessageTimeout;
     _Bool _skip_download_unlink;
     _Bool _requiresClientToOpenFiles;
     NSString *_tcpConnectionPoolName;
@@ -204,6 +205,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)_alwaysPerformDefaultTrustEvaluation;
 - (void)set_ignoreDidReceiveResponseDisposition:(_Bool)arg1;
 - (_Bool)_ignoreDidReceiveResponseDisposition;
+- (void)set_IDSMessageTimeout:(long long)arg1;
+- (long long)_IDSMessageTimeout;
 - (void)set_requiresSustainedDataDelivery:(_Bool)arg1;
 - (_Bool)_requiresSustainedDataDelivery;
 - (void)set_duetPreauthorized:(_Bool)arg1;

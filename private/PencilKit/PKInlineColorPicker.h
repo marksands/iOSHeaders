@@ -9,7 +9,7 @@
 #import "PKColorPickerDelegatePrivate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSArray, NSString, UIColor, UIScrollView;
+@class NSArray, NSString, PKColorPicker, UIColor, UIScrollView;
 
 @interface PKInlineColorPicker : UIView <UIScrollViewDelegate, PKColorPickerDelegatePrivate>
 {
@@ -26,10 +26,12 @@
     UIScrollView *_scrollView;
     UIView *_leftOverflowView;
     UIView *_rightOverflowView;
+    PKColorPicker *_presentedColorPicker;
     UIColor *__pickerColor;
 }
 
 @property(retain, nonatomic) UIColor *_pickerColor; // @synthesize _pickerColor=__pickerColor;
+@property(retain, nonatomic) PKColorPicker *presentedColorPicker; // @synthesize presentedColorPicker=_presentedColorPicker;
 @property(nonatomic) _Bool shouldEmboss; // @synthesize shouldEmboss=_shouldEmboss;
 @property(retain, nonatomic) UIView *rightOverflowView; // @synthesize rightOverflowView=_rightOverflowView;
 @property(retain, nonatomic) UIView *leftOverflowView; // @synthesize leftOverflowView=_leftOverflowView;
@@ -62,8 +64,12 @@
 - (void)colorTappedInCompactChooseToolState:(id)arg1;
 - (void)colorTappedInChooseColorState:(id)arg1;
 - (void)_setSelectedColorIndexAndNotifyDelegate:(unsigned long long)arg1 colorChanged:(_Bool)arg2;
+- (void)_toggleColorPickerPopoverPresentation:(_Bool)arg1;
+- (void)_dismissColorPickerPopover:(_Bool)arg1;
+- (void)_presentColorPickerPopover:(_Bool)arg1;
 - (void)_colorPickerWillDismiss:(id)arg1;
-- (void)_showColorPickerFromButton:(id)arg1;
+- (void)_showColorPickerFromButton:(id)arg1 animated:(_Bool)arg2;
+- (id)_effectiveViewControllerForPopoverPresentation;
 - (void)_forceSetColorSet:(unsigned long long)arg1;
 @property(retain, nonatomic) UIColor *selectedColor;
 - (id)colorForIndex:(long long)arg1;

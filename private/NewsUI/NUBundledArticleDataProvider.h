@@ -21,6 +21,7 @@
 - (void).cxx_destruct;
 - (id)fileURLForBundleURL:(id)arg1;
 - (id)embedForType:(id)arg1;
+- (id)translateURL:(id)arg1;
 - (void)fileURLForURL:(id)arg1 onCompletion:(CDUnknownBlockType)arg2 onError:(CDUnknownBlockType)arg3;
 - (CDUnknownBlockType)loadImagesForImageRequest:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 @property(readonly, copy, nonatomic) NSString *articleID;

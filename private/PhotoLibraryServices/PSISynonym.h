@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "NSCopying.h"
+#import "PSISearchableTerm.h"
 
 @class NSString;
 
-@interface PSISynonym : NSObject <NSCopying>
+@interface PSISynonym : NSObject <NSCopying, PSISearchableTerm>
 {
     NSString *_text;
     unsigned long long _category;
@@ -21,6 +22,7 @@
 @property(readonly, nonatomic) unsigned long long category; // @synthesize category=_category;
 @property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
 - (id)description;
+- (id)identifier;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;

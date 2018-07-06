@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     _Bool _requireEncryptionInfo;
     VCIDSSessionInfoSynchronizer *_sessionInfoSynchronizer;
     _Bool _isIDSDCEventUsageErrorReported;
+    _Bool _isSessionStarted;
 }
 
 @property(readonly, nonatomic) VCIDSSessionInfoSynchronizer *sessionInfoSynchronizer; // @synthesize sessionInfoSynchronizer=_sessionInfoSynchronizer;

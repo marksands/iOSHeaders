@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 - (void)prepareForReuse;
 @property(readonly, nonatomic) UIView *gadgetContentView;
+- (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

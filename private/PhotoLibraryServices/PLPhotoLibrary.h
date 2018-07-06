@@ -107,8 +107,9 @@
 + (void)updateICloudPhotosMarkerForEnable:(_Bool)arg1;
 + (void)setCameraRollCountedInQuota:(_Bool)arg1;
 + (void)setICloudPhotosEnabled:(_Bool)arg1;
-+ (void)setEnableICloudPhotos;
-+ (void)setDisableICloudPhotos;
++ (void)setICloudPhotosEnabledInternal:(_Bool)arg1;
++ (void)_writeEnableICloudPhotosMarker;
++ (void)_writeDisableICloudPhotosMarker;
 + (void)forceSoftResetSync;
 + (_Bool)isMomentAnalysisNeeded;
 + (void)setMomentAnalysisNeeded:(_Bool)arg1;
@@ -128,6 +129,7 @@
 + (id)pauseICloudPhotosFilePath;
 + (id)enableICloudPhotosFilePath;
 + (id)deletedMemoryUUIDsFilePath;
++ (void)deleteCPLDownloadFinishedMarkerFilePath;
 + (id)cplDownloadFinishedMarkerFilePath;
 + (id)cplEnableMarkerFilePath;
 + (id)disableICloudPhotosFilePath;

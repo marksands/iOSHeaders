@@ -18,6 +18,7 @@
 @property(nonatomic) _Bool shouldIncludeStatistics; // @synthesize shouldIncludeStatistics=_shouldIncludeStatistics;
 @property(nonatomic) _Bool shouldIncludePrivateProperties; // @synthesize shouldIncludePrivateProperties=_shouldIncludePrivateProperties;
 - (void).cxx_destruct;
+- (_Bool)_enumerateActivitySummariesAndCachesWithPredicate:(id)arg1 largestAnchor:(long long *)arg2 error:(id *)arg3 handler:(CDUnknownBlockType)arg4;
 - (void)activitySummariesWithPredicate:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (id)activitySummariesWithPredicate:(id)arg1 error:(id *)arg2;
 - (_Bool)enumerateActivitySummariesWithPredicate:(id)arg1 error:(id *)arg2 handler:(CDUnknownBlockType)arg3;

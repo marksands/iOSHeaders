@@ -195,6 +195,7 @@
         unsigned int contentScrollsAlongYAxis:2;
         unsigned int indicatorInsetAdjustmentBehavior:2;
         unsigned int observingBoundingPathChanges:1;
+        unsigned int resetsBoundingPathForSubtree:1;
         unsigned int scrubbing:3;
     } _scrollViewFlags;
     _Bool _useContentDimensionVariablesForConstraintLowering;
@@ -516,6 +517,8 @@
 @property(nonatomic) struct CGPoint contentOffset;
 - (void)_updateContentFitDisableScrolling;
 - (id)_enclosingViewController;
+- (void)_setResetsBoundingPathForSubtree:(_Bool)arg1;
+- (_Bool)_resetsBoundingPathForSubtree;
 - (id)_boundingPathForSubtree;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
 - (void)_willMoveToWindow:(id)arg1;

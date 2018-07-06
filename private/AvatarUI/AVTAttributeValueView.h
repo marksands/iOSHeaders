@@ -46,11 +46,13 @@
 - (void)bringSelectionLayersToFront;
 - (void)updateSelectedState:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)updateHighlightedState:(_Bool)arg1 animated:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (void)updateCornerRadii;
 - (id)clippingBezierPath;
 - (id)selectionBezierPath;
 - (void)configureImageView:(id)arg1;
 - (struct CGRect)shapeLayerRect;
 - (struct CGRect)selectorRect;
+- (void)relayoutSublayers;
 - (void)layoutSubviews;
 - (void)updateSelectionLayer;
 - (id)initWithFrame:(struct CGRect)arg1;

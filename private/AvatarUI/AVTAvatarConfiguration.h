@@ -29,6 +29,10 @@
 @property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)applyToAvatar:(id)arg1;
+- (id)configurationPresetForSettingKind:(CDStruct_597dd055)arg1;
+- (id)configurationPresets;
+- (id)presetConfigurationPresets;
+- (id)colorConfigurationPresets;
 - (id)presetForSettingKind:(CDStruct_597dd055)arg1 storage:(id)arg2;
 - (id)colorPresetForSettingKind:(CDStruct_597dd055)arg1;
 - (id)presetForCategory:(long long)arg1;

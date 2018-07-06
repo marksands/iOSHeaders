@@ -18,6 +18,7 @@
     NSMutableDictionary *_downloadTasks;
     NSMutableDictionary *_inMemoryDownloadTasks;
     NSMutableDictionary *_uploadTasks;
+    NSMutableDictionary *_forceSyncTasks;
     _Bool _diagnosticsEnabled;
     unsigned long long _foregroundCalls;
     NSCountedSet *_disablingReasons;
@@ -25,6 +26,8 @@
     unsigned long long _significantWorkCalls;
     NSMutableDictionary *_outstandingInvocations;
     unsigned long long _outstandingInvocationsCount;
+    NSMutableDictionary *_syncOutstandingInvocations;
+    unsigned long long _syncOutstandingInvocationsCount;
     NSMutableArray *_pendingBlocksAfterOpening;
     int _openingStatus;
     int _notifyToken;
@@ -51,8 +54,10 @@
 - (void)compactFileCacheWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)getResourcesForItemWithScopedIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)barrier;
+- (void)cancelSyncTask:(id)arg1;
 - (void)cancelTask:(id)arg1;
 - (void)connection:(id)arg1 handleInvocation:(id)arg2 isReply:(_Bool)arg3;
+- (void)forceSyncDidFinishForTask:(id)arg1 withErrors:(id)arg2;
 - (void)libraryManagerHasStatusChanges;
 - (void)libraryManagerDidUpdateSizeOfResourcesToUploadToSize:(unsigned long long)arg1 sizeOfOriginalResourcesToUpload:(unsigned long long)arg2 numberOfImages:(unsigned long long)arg3 numberOfVideos:(unsigned long long)arg4 numberOfOtherItems:(unsigned long long)arg5;
 - (void)libraryManagerDidUpdateStatusWithProperties:(id)arg1;
@@ -67,6 +72,9 @@
 - (void)downloadDidFinishForResourceTransferTask:(id)arg1 finalResource:(id)arg2 withError:(id)arg3;
 - (void)downloadDidProgress:(float)arg1 forResourceTransferTask:(id)arg2;
 - (void)downloadDidStartForResourceTransferTask:(id)arg1;
+- (void)forceSynchronizingScopeWithIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_dispatchFailedForceSyncTaskForScopeIdentifiers:(id)arg1 withError:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)_invokeSyncOutstandingInvocationsWithTaskIdentifier:(id)arg1;
 - (_Bool)_setStatusFromDictionary:(id)arg1;
 - (void)addStatusChangesForRecordsWithScopedIdentifiers:(id)arg1 persist:(_Bool)arg2;
 - (void)acknowledgeChangedStatuses:(id)arg1;

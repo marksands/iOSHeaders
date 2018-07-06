@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
     struct CGRect boundsInView;
     struct CGRect scrollViewFrame;
     double zoomScale;
+    _Bool pdfViewIsRotating;
 }
 
 - (void).cxx_destruct;

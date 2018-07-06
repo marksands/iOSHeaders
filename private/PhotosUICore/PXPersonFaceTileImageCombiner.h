@@ -15,7 +15,7 @@
 + (id)placeholderImageForNumberOfFaces:(unsigned long long)arg1 context:(id)arg2;
 + (void)initialize;
 - (void)_returnCombinedImage:(id)arg1 generation:(unsigned long long)arg2 resultHandler:(CDUnknownBlockType)arg3;
-- (void)requestImageForPeopleFetchResult:(id)arg1 context:(id)arg2 resultHandler:(CDUnknownBlockType)arg3;
+- (void)requestImageForPersons:(id)arg1 context:(id)arg2 resultHandler:(CDUnknownBlockType)arg3;
 
 @end
 

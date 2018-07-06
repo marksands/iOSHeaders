@@ -6,21 +6,19 @@
 
 #import "BSAction.h"
 
-@class NSObject<OS_dispatch_semaphore>, UNNotification;
+@class UNNotification;
 
 @interface UINotificationSettingsAction : BSAction
 {
-    NSObject<OS_dispatch_semaphore> *_decodeSemaphore;
-    UNNotification *_cachedNotification;
+    UNNotification *_notification;
 }
 
+@property(readonly, copy, nonatomic) UNNotification *notification; // @synthesize notification=_notification;
 - (void).cxx_destruct;
 - (id)valueDescriptionForFlag:(long long)arg1 object:(id)arg2 ofSetting:(unsigned long long)arg3;
 - (id)keyDescriptionForSetting:(unsigned long long)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
 - (long long)UIActionType;
-- (void)_blockingWaitForDecodeSemaphore;
-@property(readonly, copy, nonatomic) UNNotification *notification;
 - (id)initWithNotification:(id)arg1;
 
 @end

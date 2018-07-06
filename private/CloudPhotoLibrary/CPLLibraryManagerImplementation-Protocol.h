@@ -11,6 +11,7 @@
 @protocol CPLLibraryManagerImplementation <CPLPlatformImplementation>
 - (void)setDiagnosticsEnabled:(_Bool)arg1;
 - (_Bool)diagnosticsEnabled;
+- (void)forceSynchronizingScopeWithIdentifiers:(NSArray *)arg1 completionHandler:(void (^)(CPLForceSyncTask *))arg2;
 - (void)queryUserIdentitiesWithParticipants:(NSArray *)arg1 completionHandler:(void (^)(NSArray *, NSError *))arg2;
 - (void)acceptMomentShare:(CPLMomentShare *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)fetchMomentShareFromShareURL:(NSURL *)arg1 completionHandler:(void (^)(CPLMomentShare *, NSError *))arg2;

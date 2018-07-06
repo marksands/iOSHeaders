@@ -14,11 +14,11 @@
 
 @interface DNDSBehaviorSettingsRecord : NSObject <NSCopying, NSMutableCopying, DNDSBackingStoreRecord>
 {
-    NSNumber *_interruptionBehavior;
+    NSNumber *_interruptionBehaviorSetting;
 }
 
 + (id)migrateDictionaryRepresentations:(id)arg1 withVersionNumber:(unsigned long long)arg2;
-@property(readonly, copy, nonatomic) NSNumber *interruptionBehavior; // @synthesize interruptionBehavior=_interruptionBehavior;
+@property(readonly, copy, nonatomic) NSNumber *interruptionBehaviorSetting; // @synthesize interruptionBehaviorSetting=_interruptionBehaviorSetting;
 - (void).cxx_destruct;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionaryRepresentation:(id)arg1;
@@ -27,7 +27,7 @@
 @property(readonly, copy) NSString *description;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
-- (id)_initWithInterruptionBehavior:(id)arg1;
+- (id)_initWithInterruptionBehaviorSetting:(id)arg1;
 - (id)_initWithRecord:(id)arg1;
 - (id)init;
 

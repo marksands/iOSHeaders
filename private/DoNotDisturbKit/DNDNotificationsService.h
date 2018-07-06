@@ -28,6 +28,7 @@
     UNUserNotificationCenter *_notificationsCenter;
 }
 
++ (void)initialize;
 - (void).cxx_destruct;
 - (id)_attachmentForIdentifier:(id)arg1;
 - (void)_queue_postOrRemoveNotificationWithUpdatedBehavior:(_Bool)arg1;

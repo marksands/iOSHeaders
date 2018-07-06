@@ -8,19 +8,21 @@
 
 #import "HACCContentModule.h"
 
-@class BCBatteryDevice, HACCBatteryGroupView, NSString, UILabel;
+@class BCBatteryDevice, HACCBatteryGroupView, NSString, UIImageView, UILabel;
 
 @interface HACCStatusView : UIControl <HACCContentModule>
 {
     unsigned long long module;
     id <HACCContentModuleDelegate> delegate;
     UILabel *_titleLabel;
+    UIImageView *_iconView;
     HACCBatteryGroupView *_batteryView;
     BCBatteryDevice *_batteryDevice;
 }
 
 @property(retain, nonatomic) BCBatteryDevice *batteryDevice; // @synthesize batteryDevice=_batteryDevice;
 @property(retain, nonatomic) HACCBatteryGroupView *batteryView; // @synthesize batteryView=_batteryView;
+@property(retain, nonatomic) UIImageView *iconView; // @synthesize iconView=_iconView;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(nonatomic) __weak id <HACCContentModuleDelegate> delegate; // @synthesize delegate;
 @property(nonatomic) unsigned long long module; // @synthesize module;

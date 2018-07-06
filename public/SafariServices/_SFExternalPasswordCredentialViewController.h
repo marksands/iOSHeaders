@@ -22,6 +22,9 @@
 - (id)_remoteViewController;
 - (void)presentExternalPasswordCredentialRemoteViewController:(id)arg1;
 - (void)viewDidLoad;
+- (void)dealloc;
+- (void)_applicationDidEnterBackground:(id)arg1;
+- (id)init;
 - (void)autoFillWithExternalCredential:(id)arg1;
 
 // Remaining properties

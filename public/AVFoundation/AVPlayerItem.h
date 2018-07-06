@@ -428,6 +428,7 @@
 - (id)_metadataOutputForKey:(id)arg1;
 @property(retain, nonatomic) id <NSObject><NSCopying> AVKitData;
 - (void)setVideoEnhancementMode:(id)arg1;
+- (void)_updateVideoEnhancementModeOnFigPlaybackItem;
 - (id)videoEnhancementMode;
 
 @end

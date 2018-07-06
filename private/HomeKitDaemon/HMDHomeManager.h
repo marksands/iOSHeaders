@@ -131,7 +131,6 @@
 + (id)_getIntentGroupClientIdentifierSalt;
 + (id)deriveIntentGroupIdentifierFromBaseUUID:(id)arg1;
 + (id)getSPIClientIdentifierSalt;
-+ (id)deriveSPIIdentifierFromBaseUUID:(id)arg1;
 + (id)getUniqueDeviceIdSalt;
 + (_Bool)doesSaveReasonNotAffectLocalData:(id)arg1;
 + (_Bool)doesSaveReasonAffectOnlyLocalData:(id)arg1;
@@ -317,11 +316,10 @@
 - (void)pushMetadataToCloud;
 - (void)_eraseLocalHomeData;
 - (void)eraseLocalHomeData;
-- (void)_handlePrimaryAccountDeleted:(id)arg1;
 - (void)_handleAccountAvailabilityChanged:(CDUnknownBlockType)arg1;
 - (void)_updateAccountAvailabilityChanged:(CDUnknownBlockType)arg1;
 - (void)updateAccountAvailabilityChanged;
-- (void)_handlePrimaryAccountModified:(id)arg1;
+- (void)_handleIdmsAccountUsernameModified:(id)arg1;
 - (void)_handleLogControl:(id)arg1;
 - (void)_handleRemoteSessionTornDown:(id)arg1;
 - (void)_electCompanionForRemoteAccess:(id)arg1;
@@ -449,6 +447,7 @@
 - (void)_extractVendorIdentifierFor:(id)arg1 andRun:(CDUnknownBlockType)arg2;
 - (void)_handleRequestMediaAccessoryControl:(id)arg1;
 - (void)_handlePairingIdentityRequest:(id)arg1;
+- (void)sendPairingIdentity:(id)arg1 includePrivateKey:(_Bool)arg2 requestMessage:(id)arg3;
 - (void)_handleRequestRuntimeStateUpdate:(id)arg1;
 - (void)_getRuntimeStateUpdateForMediaAccessories:(_Bool)arg1 includeHAPAccessoryState:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_handleRequestFetchHomeConfiguration:(id)arg1;

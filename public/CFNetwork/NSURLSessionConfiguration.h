@@ -48,6 +48,7 @@
 @property(retain) NSURLCache *URLCache; // @dynamic URLCache;
 @property(retain) NSURLCredentialStorage *URLCredentialStorage; // @dynamic URLCredentialStorage;
 @property(copy) NSString *_CTDataConnectionServiceType; // @dynamic _CTDataConnectionServiceType;
+@property long long _IDSMessageTimeout; // @dynamic _IDSMessageTimeout;
 @property unsigned long long _TCPAdaptiveReadTimeout; // @dynamic _TCPAdaptiveReadTimeout;
 @property unsigned long long _TCPAdaptiveWriteTimeout; // @dynamic _TCPAdaptiveWriteTimeout;
 @property _Bool _allowTCPIOConnectionStreamTask; // @dynamic _allowTCPIOConnectionStreamTask;

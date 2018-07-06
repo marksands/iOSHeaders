@@ -25,6 +25,7 @@
     NSNumber *_payloadAllowAllAppsAccess;
 }
 
++ (id)buildRequiredOnlyWithURL:(id)arg1;
 + (id)buildWithURL:(id)arg1 withName:(id)arg2 withSubject:(id)arg3 withKeysize:(id)arg4 withKeyType:(id)arg5 withKeyUsage:(id)arg6 withCAFingerprint:(id)arg7 withRetries:(id)arg8 withRetryDelay:(id)arg9 withSubjectAltName:(id)arg10 withKeyIsExtractable:(id)arg11 withChallengeCredential:(id)arg12 withAllowAllAppsAccess:(id)arg13;
 + (id)allowedPayloadKeys;
 @property(copy, nonatomic) NSNumber *payloadAllowAllAppsAccess; // @synthesize payloadAllowAllAppsAccess=_payloadAllowAllAppsAccess;

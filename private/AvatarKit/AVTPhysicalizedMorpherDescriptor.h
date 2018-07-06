@@ -10,6 +10,7 @@
 
 @interface AVTPhysicalizedMorpherDescriptor : NSObject
 {
+    _Bool _mirrored;
     float _simulationFactor;
     SCNNode *_referenceNode;
     SCNNode *_drivingNode;
@@ -24,6 +25,7 @@
     unsigned long long _extraSimulationFactorTargetIndex;
 }
 
+@property(nonatomic) _Bool mirrored; // @synthesize mirrored=_mirrored;
 @property(nonatomic) unsigned long long extraSimulationFactorTargetIndex; // @synthesize extraSimulationFactorTargetIndex=_extraSimulationFactorTargetIndex;
 @property(retain, nonatomic) SCNMorpher *extraSimulationFactorReadMorpher; // @synthesize extraSimulationFactorReadMorpher=_extraSimulationFactorReadMorpher;
 @property(nonatomic) unsigned long long downwardMorphTargetIndex; // @synthesize downwardMorphTargetIndex=_downwardMorphTargetIndex;

@@ -8,7 +8,7 @@
 
 #import "WKNavigationDelegate.h"
 
-@class ADCountdownButton, ADWebView, ADWebViewGestureRecognizer, NSString, NSURL, UITapGestureRecognizer, _WKRemoteObjectInterface;
+@class ADCountdownButton, ADHomeButtonHandler, ADWebView, ADWebViewGestureRecognizer, NSString, NSURL, _WKRemoteObjectInterface;
 
 @interface ADExpandActionViewController : ADActionViewController <WKNavigationDelegate>
 {
@@ -20,14 +20,15 @@
     _Bool _tapWasRecognized;
     ADWebView *_webView;
     ADCountdownButton *_dismissButton;
-    UITapGestureRecognizer *_homeButtonGestureRecognizer;
     NSURL *_URL;
     _WKRemoteObjectInterface *_remoteObjectInterface;
     ADWebViewGestureRecognizer *_gestureRecognizer;
     NSString *_creativeIdentifier;
+    ADHomeButtonHandler *_homeButtonHandler;
     struct CGSize _maximumExpandedSize;
 }
 
+@property(retain, nonatomic) ADHomeButtonHandler *homeButtonHandler; // @synthesize homeButtonHandler=_homeButtonHandler;
 @property(nonatomic) _Bool tapWasRecognized; // @synthesize tapWasRecognized=_tapWasRecognized;
 @property(nonatomic) _Bool shouldBlockNavigation; // @synthesize shouldBlockNavigation=_shouldBlockNavigation;
 @property(nonatomic) _Bool browserContextControllerDidLoad; // @synthesize browserContextControllerDidLoad=_browserContextControllerDidLoad;
@@ -38,7 +39,6 @@
 @property(copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 @property(nonatomic, getter=isVisible) _Bool visible; // @synthesize visible=_visible;
 @property(nonatomic) _Bool adIsDismissing; // @synthesize adIsDismissing=_adIsDismissing;
-@property(retain, nonatomic) UITapGestureRecognizer *homeButtonGestureRecognizer; // @synthesize homeButtonGestureRecognizer=_homeButtonGestureRecognizer;
 @property(retain, nonatomic) ADCountdownButton *dismissButton; // @synthesize dismissButton=_dismissButton;
 @property(retain, nonatomic) ADWebView *webView; // @synthesize webView=_webView;
 - (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
@@ -55,13 +55,10 @@
 - (void)_requestOpenURL:(id)arg1;
 - (void)_unregisterExportedObjectInterface;
 - (void)_registerExportedObjectInterface;
-- (void)_removeHomeButtonGestureRecognizer;
-- (void)_addHomeButtonGestureRecognizer;
 - (void)_dismissKeyboard;
 - (void)_dismissWithSystemEvent:(int)arg1;
 - (void)_updateJSOExpandedSize;
 - (void)_updateWebViewFrame;
-- (void)_homeButtonTapped:(id)arg1;
 - (void)_dismissButtonTapped;
 - (void)dismiss;
 @property(readonly, nonatomic) struct CGRect webViewFrame;

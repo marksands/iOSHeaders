@@ -6,23 +6,25 @@
 
 #import <PhotosUI/PUFeedCell.h>
 
-@class PXFeedSectionInfo, UIButton, UIImage, UILabel;
+@class PXFeedSectionInfo, PXUIButton, UIImage, UILabel;
 
 __attribute__((visibility("hidden")))
 @interface PUFeedCaptionCell : PUFeedCell
 {
     _Bool _hideCaption;
     PXFeedSectionInfo *_sectionInfo;
+    unsigned long long _captionItemIndex;
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
-    UIButton *_likeButton;
+    PXUIButton *_likeButton;
     struct UIEdgeInsets _contentInsets;
 }
 
-@property(retain, nonatomic) UIButton *likeButton; // @synthesize likeButton=_likeButton;
+@property(retain, nonatomic) PXUIButton *likeButton; // @synthesize likeButton=_likeButton;
 @property(retain, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(nonatomic) _Bool hideCaption; // @synthesize hideCaption=_hideCaption;
+@property(nonatomic) unsigned long long captionItemIndex; // @synthesize captionItemIndex=_captionItemIndex;
 @property(retain, nonatomic) PXFeedSectionInfo *sectionInfo; // @synthesize sectionInfo=_sectionInfo;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
 - (void).cxx_destruct;
@@ -30,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)_performLayoutInRect:(struct CGRect)arg1 updateSubviewFrames:(_Bool)arg2;
 - (void)_updateUI;
 - (void)_updateLikeButton;
+- (_Bool)_shouldHideLikeButton;
 - (void)_setLikeButtonLiked:(_Bool)arg1;
 - (void)_updateSubtitle;
 - (void)_updateTitle;

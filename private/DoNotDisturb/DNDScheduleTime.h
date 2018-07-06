@@ -31,6 +31,7 @@
 - (id)_initWithHour:(unsigned long long)arg1 minute:(unsigned long long)arg2;
 - (id)_initWithTime:(id)arg1;
 - (id)init;
+- (id)dateComponents;
 
 @end
 

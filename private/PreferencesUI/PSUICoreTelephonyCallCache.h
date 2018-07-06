@@ -11,7 +11,7 @@
 }
 
 + (id)sharedInstance;
-- (id)localizedPhoneNumber:(id)arg1;
+- (id)localizedPhoneNumber:(id)arg1 context:(id)arg2;
 - (id)currentCallTypes;
 - (id)init;
 - (id)initPrivate;

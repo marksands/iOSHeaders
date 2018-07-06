@@ -57,6 +57,7 @@
 - (_Bool)sensorDataArrayReceived:(id)arg1 deviceEntity:(id)arg2 error:(id *)arg3;
 - (void)sensorDataReceived:(id)arg1 deviceEntity:(id)arg2;
 - (void)_updateDataCollectorsWithPrivacySettings;
+@property(readonly, nonatomic) _Bool hasAccessToFitnessData;
 - (id)pluginDataCollectors;
 - (void)_queue_setupUnprotectedDataDependantState;
 - (void)daemonReady:(id)arg1;

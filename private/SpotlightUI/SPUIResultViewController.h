@@ -19,9 +19,11 @@
     NSArray *_resultSections;
     SFResultSection *_suggestionsSection;
     SFResultSection *_searchThroughSection;
+    unsigned long long _previousQueryId;
 }
 
 + (unsigned long long)defaultStyle;
+@property unsigned long long previousQueryId; // @synthesize previousQueryId=_previousQueryId;
 @property(retain) SFResultSection *searchThroughSection; // @synthesize searchThroughSection=_searchThroughSection;
 @property _Bool hasResultsWaitingToUpdate; // @synthesize hasResultsWaitingToUpdate=_hasResultsWaitingToUpdate;
 @property(retain) SFResultSection *suggestionsSection; // @synthesize suggestionsSection=_suggestionsSection;

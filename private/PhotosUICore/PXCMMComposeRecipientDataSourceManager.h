@@ -17,17 +17,17 @@
     NSMutableSet *_recipients;
     PXCMMPeopleSuggestionsDataSource *_peopleSuggestionsDataSource;
     PXCMMPeopleSuggestionsDataSourceManager *_peopleSuggestionsDataSourceManager;
+    long long _sourceType;
     id <PXCMMComposeRecipientDataSourceManagerDelegate> _delegate;
     PXCMMComposeRecipientDataSource *_dataSource;
-    unsigned long long _peopleSuggestionsSourceType;
     unsigned long long _numberOfPeopleSuggested;
 }
 
 + (id)new;
 @property(nonatomic) unsigned long long numberOfPeopleSuggested; // @synthesize numberOfPeopleSuggested=_numberOfPeopleSuggested;
-@property(nonatomic) unsigned long long peopleSuggestionsSourceType; // @synthesize peopleSuggestionsSourceType=_peopleSuggestionsSourceType;
 @property(retain, nonatomic) PXCMMComposeRecipientDataSource *dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <PXCMMComposeRecipientDataSourceManagerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) long long sourceType; // @synthesize sourceType=_sourceType;
 @property(retain, nonatomic) PXCMMPeopleSuggestionsDataSourceManager *peopleSuggestionsDataSourceManager; // @synthesize peopleSuggestionsDataSourceManager=_peopleSuggestionsDataSourceManager;
 @property(retain, nonatomic) PXCMMPeopleSuggestionsDataSource *peopleSuggestionsDataSource; // @synthesize peopleSuggestionsDataSource=_peopleSuggestionsDataSource;
 - (void).cxx_destruct;
@@ -39,8 +39,7 @@
 - (id)_createComposeRecipientDataSourceFromCurrentState;
 @property(readonly, nonatomic) NSDictionary *diagnosticDictionary;
 - (void)addRecipients:(id)arg1;
-- (void)_handleResultForRecentPeopleSuggestions:(id)arg1 error:(id)arg2 startTime:(double)arg3;
-- (id)initWithPeopleSuggestionsDataSourceManager:(id)arg1;
+- (id)initWithPeopleSuggestionsDataSourceManager:(id)arg1 sourceType:(long long)arg2;
 - (id)init;
 
 // Remaining properties

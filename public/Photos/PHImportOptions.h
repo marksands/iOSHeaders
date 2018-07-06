@@ -30,13 +30,13 @@
 - (_Bool)allowUnsupported;
 - (void)setOmitImportComplete:(_Bool)arg1;
 - (_Bool)omitImportComplete;
-- (void)setMetadataAddMode:(unsigned long long)arg1;
-- (unsigned long long)metadataAddMode;
+- (void)setMetadataAddMode:(unsigned char)arg1;
+- (unsigned char)metadataAddMode;
 @property(nonatomic) _Bool deleteAfterImport;
 @property(nonatomic) _Bool skipDiskSpaceCheck;
 @property(nonatomic) _Bool allowDuplicates;
 @property(nonatomic) _Bool referencedImport;
-@property(nonatomic) unsigned long long fileOperation;
+@property(nonatomic) unsigned char fileOperation;
 @property(nonatomic) _Bool skipAlertWhenFinished;
 @property(nonatomic) _Bool hideProgress;
 - (void)setImportedBy:(short)arg1;

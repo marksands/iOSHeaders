@@ -602,6 +602,7 @@
 - (void)_updateWoWState:(id)arg1;
 - (void)_handleAssistantAccessControlUpdate:(id)arg1;
 - (void)_registerForMessages;
+@property(readonly, nonatomic) NSUUID *spiClientIdentifier;
 - (void)notifyClientOfVendorInfoUpdatedForManufacturers:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)resetConfiguration;
 - (void)_evaluateShouldRelaunchAndSetRelaunch;

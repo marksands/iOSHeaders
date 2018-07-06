@@ -14,6 +14,7 @@
 @property(readonly, nonatomic) unsigned long long relevanceDurationInDays;
 @property(readonly, nonatomic) id recipe;
 @property(readonly, nonatomic) unsigned char notificationQuality;
+@property(readonly, nonatomic) _Bool containsUnverifiedPersons;
 @property(readonly, copy, nonatomic) NSArray *suggestedPersonLocalIdentifiers;
 @property(readonly, nonatomic) NSSet *features;
 @property(readonly, nonatomic) NSArray *representativeAssets;

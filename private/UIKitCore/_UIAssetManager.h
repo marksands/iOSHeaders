@@ -33,6 +33,7 @@
 + (_Bool)_validStackImageData:(id)arg1;
 + (_Bool)validStackImageFile:(id)arg1;
 + (double)_watchScreenScale;
++ (void)_clearAllCachedImagesAndAssets;
 + (void)_dropResourceReferencesForURL:(id)arg1;
 + (void)clearSharedRuntimeAssetMapForUnitTests;
 + (id)_sharedRuntimeAssetMapKeyForAssetName:(id)arg1 fromFilesInBundle:(id)arg2;

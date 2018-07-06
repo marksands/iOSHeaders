@@ -4,14 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+@class NSDate;
+
 @protocol HKWorkoutSessionServerInterface
 - (void)remote_recoverWithCompletion:(void (^)(_Bool, NSError *))arg1;
-- (void)remote_resumeWithCompletion:(void (^)(_Bool, NSError *))arg1;
-- (void)remote_pauseWithCompletion:(void (^)(_Bool, NSError *))arg1;
-- (void)remote_endWithCompletion:(void (^)(_Bool, NSError *))arg1;
-- (void)remote_stopActivityWithCompletion:(void (^)(_Bool, NSError *))arg1;
-- (void)remote_startActivityWithCompletion:(void (^)(_Bool, NSError *))arg1;
-- (void)remote_prepareWithCompletion:(void (^)(_Bool, NSError *))arg1;
-- (void)remote_setupWithCompletion:(void (^)(_Bool, NSError *))arg1;
+- (void)remote_setTargetState:(long long)arg1 date:(NSDate *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 @end
 

@@ -130,7 +130,7 @@
 - (void)startTransitionToFullScreen:(_Bool)arg1 controllable:(_Bool)arg2;
 - (void)stopTransformingCancelled:(_Bool)arg1;
 - (void)updateTransform;
-- (_Bool)willStartTransformingWithGestureRecognizer:(id)arg1;
+- (void)willStartTransformingWithGestureRecognizer:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)handlePinchGestureRecognizer:(id)arg1;
 - (void)presentFullscreenWithIndex:(unsigned long long)arg1;
 - (void)handleOpenTapGesture:(id)arg1;

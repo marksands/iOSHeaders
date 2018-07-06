@@ -6,20 +6,23 @@
 
 #import "NSManagedObject.h"
 
-@class NSDate, NSSet, NSString, RMBlueprintSchedule, RMBlueprintUsageLimit;
+@class NSDate, NSSet, NSString, RMBlueprintSchedule, RMBlueprintUsageLimit, RMCoreOrganizationSettings;
 
 @interface RMBlueprint : NSManagedObject
 {
 }
 
++ (id)fetchRequestMatchingBlueprintsWithIdentifier:(id)arg1;
 + (id)fetchRequestMatchingExpiredBlueprints;
 - (id)declarationsWithError:(id *)arg1;
+- (id)configurationsWithError:(id *)arg1;
 
 // Remaining properties
-@property(retain, nonatomic) NSSet *configurations; // @dynamic configurations;
+@property(nonatomic) _Bool enabled; // @dynamic enabled;
 @property(copy, nonatomic) NSDate *expiration; // @dynamic expiration;
 @property(copy, nonatomic) NSString *identifier; // @dynamic identifier;
 @property(nonatomic) _Bool invertUsageLimit; // @dynamic invertUsageLimit;
+@property(retain, nonatomic) RMCoreOrganizationSettings *organizationSettings; // @dynamic organizationSettings;
 @property(retain, nonatomic) RMBlueprintSchedule *schedule; // @dynamic schedule;
 @property(copy, nonatomic) NSString *type; // @dynamic type;
 @property(retain, nonatomic) RMBlueprintUsageLimit *usageLimit; // @dynamic usageLimit;

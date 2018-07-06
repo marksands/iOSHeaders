@@ -65,7 +65,7 @@
 - (void)toggleDockWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)serverInstance:(_AXSpringBoardServerInstance *)arg1 setReachabilityEnabled:(_Bool)arg2;
 - (_Bool)serverInstance:(_AXSpringBoardServerInstance *)arg1 showNotificationCenter:(_Bool)arg2;
-- (void)serverInstance:(_AXSpringBoardServerInstance *)arg1 showControlCenter:(_Bool)arg2;
+- (_Bool)serverInstance:(_AXSpringBoardServerInstance *)arg1 showControlCenter:(_Bool)arg2;
 - (_Bool)isNotificationCenterVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)isNotificationVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)toggleNotificationCenterWithServerInstance:(_AXSpringBoardServerInstance *)arg1;

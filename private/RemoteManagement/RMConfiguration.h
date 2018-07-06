@@ -6,7 +6,7 @@
 
 #import <RemoteManagement/RMUniquedManagedObject.h>
 
-@class NSData, NSString, RMActivation, RMBlueprint;
+@class NSData, NSString, RMActivation;
 
 @interface RMConfiguration : RMUniquedManagedObject
 {
@@ -19,7 +19,6 @@
 
 // Remaining properties
 @property(retain, nonatomic) RMActivation *activation; // @dynamic activation;
-@property(retain, nonatomic) RMBlueprint *blueprint; // @dynamic blueprint;
 @property(retain, nonatomic) NSData *configurationPlist; // @dynamic configurationPlist;
 @property(copy, nonatomic) NSString *identifier; // @dynamic identifier;
 

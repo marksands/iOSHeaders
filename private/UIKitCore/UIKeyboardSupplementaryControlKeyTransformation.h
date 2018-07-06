@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 + (void)transformKeysForHandwritingKeyplane:(id)arg1 withTransformationContext:(id)arg2;
 + (void)transformKeysForFiveRowKeyplane:(id)arg1 withTransformationContext:(id)arg2;
 + (void)transformKeysForFourRowKeyplane:(id)arg1 withTransformationContext:(id)arg2;
++ (void)adjustHorizontalPaddingForKeyplane:(id)arg1 withTransformationContext:(id)arg2;
 + (id)cachedControlKeySetsForTransformationContext:(id)arg1;
 + (id)transformationIdentifier;
 + (id)_supplementaryShiftKeysWithContext:(id)arg1;
@@ -29,6 +30,8 @@ __attribute__((visibility("hidden")))
 + (id)_supplementaryControlKeySetForOrientation:(long long)arg1 context:(id)arg2;
 + (double)_derivedTrailingControlKeyWidthForRow:(unsigned long long)arg1 orientation:(long long)arg2;
 + (double)_derivedLeadingControlKeyWidthForRow:(unsigned long long)arg1 keyCountForRow:(unsigned long long)arg2 orientation:(long long)arg3;
++ (double)_keyplanePaddingForOrientation:(long long)arg1;
++ (double)_totalKeyPaddingForOrientation:(long long)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

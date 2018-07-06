@@ -6,29 +6,34 @@
 
 #import "CALayer.h"
 
-@class CAGradientLayer, CAShapeLayer, UIColor;
+@class CAShapeLayer, UIColor;
 
-__attribute__((visibility("hidden")))
 @interface LAUICheckmarkLayer : CALayer
 {
     CAShapeLayer *_shapeLayer;
-    CAGradientLayer *_maskLayer;
-    _Bool _covered;
-    struct CATransform3D _uncoveredTransform;
-    struct CATransform3D _coveredTransform;
+    struct vector<CAShapeLayer *, std::__1::allocator<CAShapeLayer *>> _transientShapeLayers;
+    _Bool _animating;
+    unsigned int _animationIndex;
+    double _lineWidth;
+    struct vector<LAUI_CA_utilities::animation_completion_handler_container, std::__1::allocator<LAUI_CA_utilities::animation_completion_handler_container>> _completions;
+    _Bool _revealed;
+    double _lineWidthScale;
     UIColor *_primaryColor;
 }
 
+@property(readonly, nonatomic, getter=isRevealed) _Bool revealed; // @synthesize revealed=_revealed;
 @property(readonly, copy, nonatomic) UIColor *primaryColor; // @synthesize primaryColor=_primaryColor;
+@property(nonatomic) double lineWidthScale; // @synthesize lineWidthScale=_lineWidthScale;
+- (id).cxx_construct;
 - (void).cxx_destruct;
-- (double)_updateCovered:(_Bool)arg1;
-- (double)setCovered:(_Bool)arg1 animated:(_Bool)arg2;
-- (double)setRevealed:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)setRevealed:(_Bool)arg1;
-@property(readonly, nonatomic) _Bool revealed;
-- (void)setPrimaryColor:(id)arg1 animated:(_Bool)arg2;
-- (void)setPrimaryColor:(id)arg1;
-- (void)_createMask;
+- (void)_animationsDidResolve;
+- (void)_executeCompletions:(_Bool)arg1;
+- (void)_updateRevealedAnimated:(_Bool)arg1;
+@property(readonly, nonatomic) struct CGSize aspectSize;
+- (void)setRevealed:(_Bool)arg1 animated:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (void)setRevealed:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setPrimaryColor:(struct UIColor *)arg1 animated:(_Bool)arg2;
+- (void)setPrimaryColor:(struct UIColor *)arg1;
 - (void)layoutSublayers;
 - (void)dealloc;
 - (id)init;

@@ -38,6 +38,7 @@
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic, setter=_setParameterCombinations:) NSDictionary *_parameterCombinations; // @synthesize _parameterCombinations;
 - (void).cxx_destruct;
+- (id)_spotlightContentType;
 - (_Bool)configureAttributeSet:(id)arg1;
 - (_Bool)setValue:(id)arg1 forProperty:(id)arg2;
 - (id)valueForProperty:(id)arg1;

@@ -12,6 +12,7 @@
 
 + (id)categories;
 + (double)defaultPrecision;
+- (id)cache;
 
 @end
 

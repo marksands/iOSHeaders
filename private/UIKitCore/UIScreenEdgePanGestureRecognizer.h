@@ -21,6 +21,8 @@
 - (void).cxx_destruct;
 - (_Bool)ignoreSubsequentTouches;
 - (unsigned long long)touchedEdges;
+- (void)setBottomEdgeAngleWindow:(double)arg1;
+- (double)bottomEdgeAngleWindow;
 - (void)setRecognizeAlongEdge:(_Bool)arg1;
 - (_Bool)recognizeAlongEdge;
 - (void)setRecognizeImmediatelyFromEdgeLocked:(_Bool)arg1;

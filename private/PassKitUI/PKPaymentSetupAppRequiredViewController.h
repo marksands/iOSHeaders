@@ -15,6 +15,7 @@
     PKTableHeaderView *_headerView;
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
     _Bool _isBridge;
+    _Bool _isBuddy;
 }
 
 - (void).cxx_destruct;

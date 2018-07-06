@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "INSpeakable.h"
+
 @class IMDAccount, IMDService, IMDServiceSession, IMMessageItem, NSArray, NSDate, NSDictionary, NSMutableDictionary, NSRecursiveLock, NSString;
 
-@interface IMDChat : NSObject
+@interface IMDChat : NSObject <INSpeakable>
 {
     NSRecursiveLock *_lock;
     NSString *_accountID;
@@ -90,7 +92,7 @@
 - (id)copyDictionaryRepresentation:(_Bool)arg1;
 - (id)dictionaryRepresentationIncludingLastMessage;
 @property(readonly, retain) NSDictionary *chatProperties;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (long long)compareBySequenceNumberAndDateDescending:(id)arg1;
 - (_Bool)isNewerThan:(id)arg1;
 - (_Bool)isOlderThan:(id)arg1;
@@ -132,6 +134,10 @@
 @property(copy) NSString *guid;
 - (void)dealloc;
 - (id)initWithAccountID:(id)arg1 service:(id)arg2 guid:(id)arg3 groupID:(id)arg4 chatIdentifier:(id)arg5 participants:(id)arg6 roomName:(id)arg7 displayName:(id)arg8 lastAddressedLocalHandle:(id)arg9 properties:(id)arg10 state:(long long)arg11 style:(unsigned char)arg12 isFiltered:(_Bool)arg13 hasHadSuccessfulQuery:(_Bool)arg14 engramID:(id)arg15 serverChangeToken:(id)arg16 cloudKitSyncState:(long long)arg17 originalGroupID:(id)arg18 lastReadMessageTimeStamp:(long long)arg19 lastMessageTimeStampOnLoad:(long long)arg20 srServerChangeToken:(id)arg21 srCloudKitSyncState:(long long)arg22 cloudKitRecordID:(id)arg23 srCloudKitRecordID:(id)arg24;
+@property(readonly, nonatomic) NSArray *alternativeSpeakableMatches;
+@property(readonly, nonatomic) NSString *vocabularyIdentifier;
+@property(readonly, nonatomic) NSString *pronunciationHint;
+@property(readonly, nonatomic) NSString *spokenPhrase;
 - (_Bool)applyChangesUsingCKRecord:(id)arg1 isUsingStingRay:(_Bool)arg2;
 - (id)initWithCKRecord:(id)arg1 isUsingStingRay:(_Bool)arg2;
 - (id)copyCKRecordRepresentationWithZoneID:(id)arg1 salt:(id)arg2 isUsingStingRay:(_Bool)arg3;
@@ -141,6 +147,12 @@
 - (id)_recordNameUsingSalt:(id)arg1;
 - (id)_recordIDUsingName:(id)arg1 zoneID:(id)arg2;
 - (id)_recordIDUsingSalt:(id)arg1 zoneID:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSString *identifier;
+@property(readonly) Class superclass;
 
 @end
 

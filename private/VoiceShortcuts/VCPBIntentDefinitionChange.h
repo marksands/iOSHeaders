@@ -7,10 +7,11 @@
 #import "PBCodable.h"
 
 #import "NSCopying.h"
+#import "VCLazyLoadedChange.h"
 
 @class NSString, VCPBIntentDefinition;
 
-@interface VCPBIntentDefinitionChange : PBCodable <NSCopying>
+@interface VCPBIntentDefinitionChange : PBCodable <VCLazyLoadedChange, NSCopying>
 {
     NSString *_associatedBundleID;
     int _changeType;
@@ -22,17 +23,24 @@
 @property(nonatomic) int changeType; // @synthesize changeType=_changeType;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
-- (id)description;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) _Bool hasIntentDefinition;
 - (int)StringAsChangeType:(id)arg1;
 - (id)changeTypeAsString:(int)arg1;
+- (id)buildSYChange;
+@property(readonly, nonatomic) int messageType;
+@property(readonly, copy, nonatomic) NSString *uniqueID;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @interface NSObject (_UIFeedbackHapticEngine)
-- (id)__ui_performAsyncSelector:(SEL)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)__ui_performAsyncSelector:(SEL)arg1 type:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @end
 

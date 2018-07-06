@@ -31,6 +31,7 @@
 @property(nonatomic) float b; // @synthesize b=_b;
 @property(nonatomic) float a; // @synthesize a=_a;
 @property(nonatomic) int neuronType; // @synthesize neuronType=_neuronType;
+- (struct NeuronInfo)neuronInfo;
 - (id)debugDescription;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;

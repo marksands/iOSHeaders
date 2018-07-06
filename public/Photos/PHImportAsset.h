@@ -30,6 +30,7 @@
     _Bool _sidecarsLoaded;
     unsigned char _fileLocation;
     id _uuid;
+    IPAMetadata *_metadata;
     PHImportAsset *_rawAsset;
     PHImportAsset *_videoComplement;
     PHImportAsset *_largeRender;
@@ -65,7 +66,6 @@
     NSSet *_duplicateAssets;
     AVAssetImageGenerator *_imageGenerator;
     NSMutableDictionary *_sidecarAssetsOfType;
-    IPAMetadata *_metadata;
     NSObject<OS_dispatch_queue> *_loadSidecars;
     NSDate *_exifImageDate;
     unsigned long long _copyMethod;
@@ -75,6 +75,7 @@
     struct CGSize _imageSize;
 }
 
++ (void)determineIfTIFFIsRAW:(id)arg1 url:(id)arg2;
 + (id)loadDatesForAssets:(id)arg1 atEnd:(CDUnknownBlockType)arg2;
 + (_Bool)isSidecarType:(id)arg1;
 + (_Bool)isImage:(id)arg1;
@@ -104,7 +105,6 @@
 @property(retain, nonatomic) NSDate *exifImageDate; // @synthesize exifImageDate=_exifImageDate;
 @property(nonatomic) _Bool sidecarsLoaded; // @synthesize sidecarsLoaded=_sidecarsLoaded;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *loadSidecars; // @synthesize loadSidecars=_loadSidecars;
-@property(retain, nonatomic) IPAMetadata *metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) NSMutableDictionary *sidecarAssetsOfType; // @synthesize sidecarAssetsOfType=_sidecarAssetsOfType;
 @property(retain, nonatomic) AVAssetImageGenerator *imageGenerator; // @synthesize imageGenerator=_imageGenerator;
 @property(nonatomic) struct CGSize imageSize; // @synthesize imageSize=_imageSize;
@@ -165,14 +165,13 @@
 - (struct CGImage *)imageThumbnailOfSize:(unsigned long long)arg1 canceler:(id)arg2 error:(id *)arg3;
 - (struct CGImage *)removeBlackBarsFromExifThumbnail:(struct CGImage *)arg1 fullSize:(struct CGSize)arg2;
 - (struct CGSize)cropEXIFThumbSize:(struct CGSize)arg1 originalSize:(struct CGSize)arg2;
-- (void)thumbnailForSize:(unsigned long long)arg1 usingRequest:(id)arg2 atEnd:(CDUnknownBlockType)arg3;
+- (void)thumbnailUsingRequest:(id)arg1 atEnd:(CDUnknownBlockType)arg2;
+- (id)thumbnailForSize:(unsigned long long)arg1 priority:(unsigned char)arg2 atEnd:(CDUnknownBlockType)arg3;
 - (id)thumbnailForSize:(unsigned long long)arg1 atEnd:(CDUnknownBlockType)arg2;
-- (void)updateMetadata:(id)arg1;
-- (id)_loadMetadata;
-- (void)fetchMetadataAsync:(CDUnknownBlockType)arg1;
-- (id)fetchMetadataSync;
+- (void)_setMetadata:(id)arg1;
+@property(retain, nonatomic) IPAMetadata *metadata; // @synthesize metadata=_metadata;
 - (void)loadMetadataAsync:(CDUnknownBlockType)arg1;
-- (_Bool)loadMetadataSync;
+- (void)loadMetadataSync;
 - (void)informDelegateOfAssetUpdates;
 - (void)addBurstAsset:(id)arg1;
 @property(retain, nonatomic) PHImportAsset *audioAsset; // @synthesize audioAsset=_audioAsset;
@@ -235,6 +234,7 @@
 - (id)initWithURL:(id)arg1 uti:(id)arg2 supportedType:(unsigned char)arg3;
 - (id)init;
 - (void)configureWithUTI:(id)arg1 supportedType:(unsigned char)arg2;
+- (void)updateIsRAW:(_Bool)arg1 uti:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

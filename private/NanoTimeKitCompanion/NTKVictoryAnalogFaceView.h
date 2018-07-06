@@ -58,6 +58,7 @@
 - (id)_keylineViewForComplicationSlot:(id)arg1;
 - (unsigned long long)_keylineLabelAlignmentForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (id)_keylineViewForCustomEditMode:(long long)arg1 slot:(id)arg2;
+- (void)_applyDataMode;
 - (id)_additionalPrelaunchApplicationIdentifiers;
 - (void)_unloadSnapshotContentViews;
 - (void)_loadSnapshotContentViews;

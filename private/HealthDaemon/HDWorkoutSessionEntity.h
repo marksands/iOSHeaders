@@ -34,6 +34,8 @@
 - (id)clientApplicationIdentifier:(id)arg1 error:(id *)arg2;
 - (_Bool)setClientBundleIdentifier:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (id)clientBundleIdentifier:(id)arg1 error:(id *)arg2;
+- (_Bool)setHasFailed:(_Bool)arg1 transaction:(id)arg2 error:(id *)arg3;
+- (id)hasFailedInTransaction:(id)arg1 error:(id *)arg2;
 - (_Bool)setEndDate:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (id)endDateInTransaction:(id)arg1 error:(id *)arg2;
 - (_Bool)setStartDate:(id)arg1 transaction:(id)arg2 error:(id *)arg3;

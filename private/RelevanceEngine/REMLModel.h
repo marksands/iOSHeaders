@@ -30,6 +30,7 @@
 - (_Bool)saveModelToURL:(id)arg1 error:(id *)arg2;
 - (id)_predictWithFeatures:(id)arg1;
 - (id)predictWithFeatures:(id)arg1;
+- (void)_clearCache;
 - (void)_trainWithFeatures:(id)arg1 positiveEvent:(id)arg2;
 - (void)trainWithFeatures:(id)arg1 positiveEvent:(id)arg2;
 - (id)initWithFeatureSet:(id)arg1;

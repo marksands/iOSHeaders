@@ -24,7 +24,8 @@
     _Bool _publisherPaidWebAccessOptIn;
     _Bool _hideAccessoryText;
     _Bool _isHidden;
-    _Bool _isRealTimeTrackingEnabed;
+    _Bool _isRealTimeTrackingEnabled;
+    _Bool _isArticleReadCountReportingEnabled;
     NSString *_identifier;
     NSString *_versionKey;
     NSString *_name;
@@ -107,7 +108,8 @@
 @property(copy, nonatomic) NSString *pptFeedIDOverride; // @synthesize pptFeedIDOverride=_pptFeedIDOverride;
 @property(readonly, nonatomic) NSDate *publisherSpecifiedArticleIDsModifiedDate; // @synthesize publisherSpecifiedArticleIDsModifiedDate=_publisherSpecifiedArticleIDsModifiedDate;
 @property(readonly, nonatomic) NSArray *publisherSpecifiedArticleIDs; // @synthesize publisherSpecifiedArticleIDs=_publisherSpecifiedArticleIDs;
-@property(readonly, nonatomic) _Bool isRealTimeTrackingEnabed; // @synthesize isRealTimeTrackingEnabed=_isRealTimeTrackingEnabed;
+@property(readonly, nonatomic) _Bool isArticleReadCountReportingEnabled; // @synthesize isArticleReadCountReportingEnabled=_isArticleReadCountReportingEnabled;
+@property(readonly, nonatomic) _Bool isRealTimeTrackingEnabled; // @synthesize isRealTimeTrackingEnabled=_isRealTimeTrackingEnabled;
 @property(readonly, nonatomic) _Bool isHidden; // @synthesize isHidden=_isHidden;
 @property(readonly, nonatomic) unsigned long long groupingEligibility; // @synthesize groupingEligibility=_groupingEligibility;
 @property(readonly, nonatomic) _Bool hideAccessoryText; // @synthesize hideAccessoryText=_hideAccessoryText;

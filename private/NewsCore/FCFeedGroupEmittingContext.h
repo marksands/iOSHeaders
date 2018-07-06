@@ -78,7 +78,7 @@
 - (_Bool)pageHasPrecedingGroupWithSourceIdentifier:(id)arg1;
 - (_Bool)pageHasExhaustedGroupsWithTypes:(id)arg1;
 - (_Bool)pageWillContainHeadlineCount:(unsigned long long)arg1 fromGroupTypes:(id)arg2;
-- (_Bool)pageWillContainExpandedGroupWithType:(long long)arg1;
+- (_Bool)pageWillContainExpandedNewGroupWithType:(long long)arg1;
 - (_Bool)pageWillContainGroupWithType:(long long)arg1;
 - (unsigned long long)countOfPrecedingAdjacentGroupsWithTypes:(id)arg1;
 - (id)followingAdjacentHeadlinesFromGroupType:(long long)arg1;

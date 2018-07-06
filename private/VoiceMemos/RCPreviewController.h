@@ -67,6 +67,7 @@
 - (void)_playerCurrentRateDidChangeToRate:(float)arg1 hadPlaybackItem:(_Bool)arg2;
 - (void)playerCurrentItemDidBecomeReadyToPlay:(id)arg1;
 - (void)playerDidBecomeInvalid:(id)arg1;
+- (void)sendCurrentTimeUpdates;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 @property(readonly, nonatomic) float rate;

@@ -18,7 +18,7 @@
     struct CGSize _thumbnailSize;
 }
 
-+ (void)applyBlurInContext:(id)arg1;
++ (void)applyBlurWithBackground:(id)arg1 offset:(struct CGPoint)arg2;
 + (id)badgeForThumbnail:(id)arg1;
 + (id)highlightedBlurViewEffects;
 + (id)normalBlurViewEffects;

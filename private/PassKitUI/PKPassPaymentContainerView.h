@@ -79,6 +79,7 @@
     NSObject<OS_dispatch_source> *_summaryAuthenticationTimer;
     _Bool _encounteredTerminalFailure;
     NSMutableArray *_valueAddedPasses;
+    _Bool _didBecomeHiddenWhileAuthorized;
 }
 
 + (_Bool)shouldAutomaticallyAuthorizeForPassType:(unsigned long long)arg1 withContext:(id)arg2;

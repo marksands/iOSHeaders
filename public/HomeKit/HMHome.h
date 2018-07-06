@@ -12,10 +12,11 @@
 #import "NSSecureCoding.h"
 #import "_HMLocationHandlerDelegate.h"
 
-@class CLLocation, HMApplicationData, HMDelegateCaller, HMFMessageDispatcher, HMHomeManager, HMPendingRequests, HMRoom, HMSetupViewController, HMThreadSafeMutableArrayCollection, HMUser, NSArray, NSDate, NSObject<OS_dispatch_queue>, NSString, NSUUID, _HMContext;
+@class CLLocation, HMApplicationData, HMFUnfairLock, HMHomeManager, HMMutableArray, HMRoom, HMSetupViewController, HMUser, NSArray, NSDate, NSObject<OS_dispatch_queue>, NSString, NSUUID, _HMContext;
 
 @interface HMHome : NSObject <_HMLocationHandlerDelegate, NSSecureCoding, HMFMessageReceiver, HMObjectMerge, HMMutableApplicationData>
 {
+    HMFUnfairLock *_lock;
     _Bool _automaticSoftwareUpdateEnabled;
     long long _minimumMediaUserPrivilege;
     _Bool _mediaPeerToPeerEnabled;
@@ -30,7 +31,6 @@
     id <HMHomeDelegate> _delegate;
     CLLocation *_homeLocation;
     NSString *_name;
-    HMPendingRequests *_pendingRequests;
     HMUser *_currentUser;
     HMApplicationData *_applicationData;
     NSDate *_notificationsUpdatedTime;
@@ -38,52 +38,46 @@
     HMHomeManager *_homeManager;
     HMSetupViewController *_setupViewController;
     id <HMSetupRemoteService> _setupRemoteViewController;
-    HMThreadSafeMutableArrayCollection *_currentAccessories;
-    HMThreadSafeMutableArrayCollection *_currentRooms;
-    HMThreadSafeMutableArrayCollection *_currentZones;
-    HMThreadSafeMutableArrayCollection *_currentServiceGroups;
-    HMThreadSafeMutableArrayCollection *_currentActionSets;
-    HMThreadSafeMutableArrayCollection *_currentTriggerOwnedActionSets;
-    HMThreadSafeMutableArrayCollection *_currentActions;
-    HMThreadSafeMutableArrayCollection *_currentTriggers;
-    HMThreadSafeMutableArrayCollection *_currentUsers;
-    HMThreadSafeMutableArrayCollection *_currentResidentDevices;
-    HMThreadSafeMutableArrayCollection *_currentOutgoingInvitations;
+    HMMutableArray *_currentAccessories;
+    HMMutableArray *_currentRooms;
+    HMMutableArray *_currentZones;
+    HMMutableArray *_currentServiceGroups;
+    HMMutableArray *_currentActionSets;
+    HMMutableArray *_currentTriggerOwnedActionSets;
+    HMMutableArray *_currentActions;
+    HMMutableArray *_currentTriggers;
+    HMMutableArray *_currentUsers;
+    HMMutableArray *_currentResidentDevices;
+    HMMutableArray *_currentOutgoingInvitations;
+    _HMContext *_context;
     NSUUID *_uuid;
     HMRoom *_homeAsRoom;
-    HMDelegateCaller *_delegateCaller;
-    NSObject<OS_dispatch_queue> *_clientQueue;
-    NSObject<OS_dispatch_queue> *_propertyQueue;
-    HMFMessageDispatcher *_msgDispatcher;
-    HMThreadSafeMutableArrayCollection *_currentMediaSystems;
+    HMMutableArray *_currentMediaSystems;
 }
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)isValidMediaPassword:(id)arg1 error:(id *)arg2;
 + (id)generateMediaPasswordWithError:(id *)arg1;
 + (_Bool)accessorySupportsMediaAccessControl:(id)arg1;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentMediaSystems; // @synthesize currentMediaSystems=_currentMediaSystems;
-@property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
-@property(retain, nonatomic) HMDelegateCaller *delegateCaller; // @synthesize delegateCaller=_delegateCaller;
+@property(retain, nonatomic) HMMutableArray *currentMediaSystems; // @synthesize currentMediaSystems=_currentMediaSystems;
 @property(retain, nonatomic) HMRoom *homeAsRoom; // @synthesize homeAsRoom=_homeAsRoom;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
+@property(retain, nonatomic) _HMContext *context; // @synthesize context=_context;
 @property(nonatomic) _Bool notificationEnableRequested; // @synthesize notificationEnableRequested=_notificationEnableRequested;
 @property(nonatomic) int locationAuthorization; // @synthesize locationAuthorization=_locationAuthorization;
 @property(nonatomic, getter=isAdminUser) _Bool adminUser; // @synthesize adminUser=_adminUser;
 @property(nonatomic, getter=isOwnerUser) _Bool ownerUser; // @synthesize ownerUser=_ownerUser;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentOutgoingInvitations; // @synthesize currentOutgoingInvitations=_currentOutgoingInvitations;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentResidentDevices; // @synthesize currentResidentDevices=_currentResidentDevices;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentUsers; // @synthesize currentUsers=_currentUsers;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentTriggers; // @synthesize currentTriggers=_currentTriggers;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentActions; // @synthesize currentActions=_currentActions;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentTriggerOwnedActionSets; // @synthesize currentTriggerOwnedActionSets=_currentTriggerOwnedActionSets;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentActionSets; // @synthesize currentActionSets=_currentActionSets;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentServiceGroups; // @synthesize currentServiceGroups=_currentServiceGroups;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentZones; // @synthesize currentZones=_currentZones;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentRooms; // @synthesize currentRooms=_currentRooms;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentAccessories; // @synthesize currentAccessories=_currentAccessories;
+@property(retain, nonatomic) HMMutableArray *currentOutgoingInvitations; // @synthesize currentOutgoingInvitations=_currentOutgoingInvitations;
+@property(retain, nonatomic) HMMutableArray *currentResidentDevices; // @synthesize currentResidentDevices=_currentResidentDevices;
+@property(retain, nonatomic) HMMutableArray *currentUsers; // @synthesize currentUsers=_currentUsers;
+@property(retain, nonatomic) HMMutableArray *currentTriggers; // @synthesize currentTriggers=_currentTriggers;
+@property(retain, nonatomic) HMMutableArray *currentActions; // @synthesize currentActions=_currentActions;
+@property(retain, nonatomic) HMMutableArray *currentTriggerOwnedActionSets; // @synthesize currentTriggerOwnedActionSets=_currentTriggerOwnedActionSets;
+@property(retain, nonatomic) HMMutableArray *currentActionSets; // @synthesize currentActionSets=_currentActionSets;
+@property(retain, nonatomic) HMMutableArray *currentServiceGroups; // @synthesize currentServiceGroups=_currentServiceGroups;
+@property(retain, nonatomic) HMMutableArray *currentZones; // @synthesize currentZones=_currentZones;
+@property(retain, nonatomic) HMMutableArray *currentRooms; // @synthesize currentRooms=_currentRooms;
+@property(retain, nonatomic) HMMutableArray *currentAccessories; // @synthesize currentAccessories=_currentAccessories;
 @property(nonatomic) __weak id <HMSetupRemoteService> setupRemoteViewController; // @synthesize setupRemoteViewController=_setupRemoteViewController;
 @property(nonatomic) __weak HMSetupViewController *setupViewController; // @synthesize setupViewController=_setupViewController;
 @property(nonatomic) __weak HMHomeManager *homeManager; // @synthesize homeManager=_homeManager;
@@ -233,14 +227,6 @@
 - (id)createActionSetWithName:(id)arg1 type:(id)arg2 uuid:(id)arg3;
 - (id)createAndAddActionSetWithName:(id)arg1 type:(id)arg2 uuid:(id)arg3;
 - (void)sendConfigureBulletinNotification;
-- (void)_configure:(id)arg1 primary:(_Bool)arg2 messageDispatcher:(id)arg3 pendingRequests:(id)arg4 delegateCaller:(id)arg5;
-- (void)configure:(id)arg1 primary:(_Bool)arg2 messageDispatcher:(id)arg3 pendingRequests:(id)arg4 delegateCaller:(id)arg5;
-- (void)configure:(id)arg1 primary:(_Bool)arg2 messageDispatcher:(id)arg3 pendingRequests:(id)arg4 delegateCaller:(id)arg5 isOwnerUser:(_Bool)arg6 isAdminUser:(_Bool)arg7;
-@property(readonly, nonatomic) _HMContext *context;
-- (void)dealloc;
-- (id)initWithName:(id)arg1 uuid:(id)arg2 homeAsRoomUUID:(id)arg3 homeAsRoomName:(id)arg4 actionSets:(id)arg5;
-- (id)initWithName:(id)arg1 uuid:(id)arg2;
-- (id)init;
 @property(copy, nonatomic) NSDate *notificationsUpdatedTime; // @synthesize notificationsUpdatedTime=_notificationsUpdatedTime;
 @property(nonatomic, getter=areNotificationsEnabled) _Bool notificationsEnabled; // @synthesize notificationsEnabled=_notificationsEnabled;
 - (id)targetControllers;
@@ -252,9 +238,13 @@
 @property(retain, nonatomic) CLLocation *homeLocation; // @synthesize homeLocation=_homeLocation;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic, getter=isPrimary) _Bool primary; // @synthesize primary=_primary;
-@property(retain, nonatomic) HMPendingRequests *pendingRequests; // @synthesize pendingRequests=_pendingRequests;
 @property(nonatomic) __weak id <HMHomeDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+- (void)__configureWithContext:(id)arg1 homeManager:(id)arg2;
+- (void)dealloc;
+- (id)initWithName:(id)arg1 uuid:(id)arg2 homeAsRoomUUID:(id)arg3 homeAsRoomName:(id)arg4 actionSets:(id)arg5;
+- (id)initWithName:(id)arg1 uuid:(id)arg2;
+- (id)init;
 - (void)_performBatchCharacteristicRequest:(id)arg1;
 - (void)performBatchCharacteristicRequest:(id)arg1;
 - (void)_unblockAccessory:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

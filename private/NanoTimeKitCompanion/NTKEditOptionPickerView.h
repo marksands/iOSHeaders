@@ -18,11 +18,13 @@
     unsigned long long _selectedOptionIndex;
     UIView<NTKEditOptionContainerView> *_containerView;
     struct UIEdgeInsets _padding;
+    struct CGAffineTransform _contentTransform;
 }
 
 @property(retain, nonatomic) UIView<NTKEditOptionContainerView> *containerView; // @synthesize containerView=_containerView;
 @property(nonatomic) _Bool active; // @synthesize active=_active;
 @property(nonatomic) unsigned long long selectedOptionIndex; // @synthesize selectedOptionIndex=_selectedOptionIndex;
+@property(nonatomic) struct CGAffineTransform contentTransform; // @synthesize contentTransform=_contentTransform;
 @property(nonatomic) struct UIEdgeInsets padding; // @synthesize padding=_padding;
 @property(copy, nonatomic) CDUnknownBlockType optionToViewMapper; // @synthesize optionToViewMapper=_optionToViewMapper;
 @property(readonly, nonatomic) unsigned long long numberOfOptions; // @synthesize numberOfOptions=_numberOfOptions;

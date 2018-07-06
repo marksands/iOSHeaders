@@ -14,6 +14,7 @@
 {
     _Bool _didTransitionToOpportunisticDisallowed;
     _Bool _photosAppInForeground;
+    _Bool _cameraAppInForeground;
     NSObject<OS_dispatch_queue> *_isolationQueue;
     NSObject<OS_dispatch_source> *_bonusTimer;
     NSURL *_photoLibraryURL;
@@ -22,6 +23,8 @@
 + (id)sharedConstraintsDirector;
 + (_Bool)_photoanalysisdIsRunning;
 - (void)foregroundMonitor:(id)arg1 changedStateToForeground:(_Bool)arg2 forBundleIdentifier:(id)arg3 context:(id)arg4;
+- (_Bool)shouldScheduleUserInitiatedAnalysisForAssets;
+- (void)informCameraAppForegroundState:(_Bool)arg1;
 - (void)informCameraAppCameraViewControllerVisibilityChanged:(_Bool)arg1;
 - (void)informOpportunisticTasksAllowed:(_Bool)arg1;
 - (void)dealloc;

@@ -11,6 +11,7 @@
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(nonatomic) unsigned long long interruptionBehaviorSetting; // @dynamic interruptionBehaviorSetting;
 @property(nonatomic) unsigned long long interruptionBehavior; // @dynamic interruptionBehavior;
 
 @end

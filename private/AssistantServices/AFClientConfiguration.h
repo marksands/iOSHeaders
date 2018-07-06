@@ -15,6 +15,7 @@
 {
     _Bool _isDeviceInSetupFlow;
     _Bool _isDeviceInCarDNDMode;
+    _Bool _isDeviceInStarkMode;
     _Bool _isAccessibilityVoiceOverTouchEnabled;
     _Bool _isAccessibilityVibrationDisabled;
     float _outputVolume;
@@ -30,6 +31,7 @@
 @property(readonly, nonatomic) float outputVolume; // @synthesize outputVolume=_outputVolume;
 @property(readonly, nonatomic) _Bool isAccessibilityVibrationDisabled; // @synthesize isAccessibilityVibrationDisabled=_isAccessibilityVibrationDisabled;
 @property(readonly, nonatomic) _Bool isAccessibilityVoiceOverTouchEnabled; // @synthesize isAccessibilityVoiceOverTouchEnabled=_isAccessibilityVoiceOverTouchEnabled;
+@property(readonly, nonatomic) _Bool isDeviceInStarkMode; // @synthesize isDeviceInStarkMode=_isDeviceInStarkMode;
 @property(readonly, nonatomic) _Bool isDeviceInCarDNDMode; // @synthesize isDeviceInCarDNDMode=_isDeviceInCarDNDMode;
 @property(readonly, nonatomic) _Bool isDeviceInSetupFlow; // @synthesize isDeviceInSetupFlow=_isDeviceInSetupFlow;
 @property(readonly, nonatomic) long long deviceRingerSwitchState; // @synthesize deviceRingerSwitchState=_deviceRingerSwitchState;
@@ -41,7 +43,7 @@
 - (unsigned long long)hash;
 - (id)_descriptionWithIndent:(unsigned long long)arg1;
 - (id)description;
-- (id)initWithDeviceRingerSwitchState:(long long)arg1 isDeviceInSetupFlow:(_Bool)arg2 isDeviceInCarDNDMode:(_Bool)arg3 isAccessibilityVoiceOverTouchEnabled:(_Bool)arg4 isAccessibilityVibrationDisabled:(_Bool)arg5 outputVolume:(float)arg6 tapToSiriAudioPlaybackRequest:(id)arg7 twoShotAudioPlaybackRequest:(id)arg8;
+- (id)initWithDeviceRingerSwitchState:(long long)arg1 isDeviceInSetupFlow:(_Bool)arg2 isDeviceInCarDNDMode:(_Bool)arg3 isDeviceInStarkMode:(_Bool)arg4 isAccessibilityVoiceOverTouchEnabled:(_Bool)arg5 isAccessibilityVibrationDisabled:(_Bool)arg6 outputVolume:(float)arg7 tapToSiriAudioPlaybackRequest:(id)arg8 twoShotAudioPlaybackRequest:(id)arg9;
 - (id)mutatedCopyWithMutator:(CDUnknownBlockType)arg1;
 
 @end

@@ -31,6 +31,8 @@
 + (_Bool)supportsRemoteAccess;
 + (_Bool)isAppleMediaAccessory;
 + (_Bool)supportsCustomerReset;
++ (_Bool)supportsDeviceLock;
++ (_Bool)supportsSymptomsHandler;
 + (_Bool)supportsIntentDonation;
 + (_Bool)supportsHomeApp;
 + (_Bool)supportsLocalization;

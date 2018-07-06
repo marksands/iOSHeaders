@@ -7,11 +7,12 @@
 #import "UIViewController.h"
 
 #import "CPBaseTemplateProviding.h"
+#import "CPSBaseTemplateViewController.h"
 #import "CPSButtonDelegate.h"
 
 @class CPTemplate, NSString;
 
-@interface CPSBaseTemplateViewController : UIViewController <CPSButtonDelegate, CPBaseTemplateProviding>
+@interface CPSBaseTemplateViewController : UIViewController <CPSButtonDelegate, CPBaseTemplateProviding, CPSBaseTemplateViewController>
 {
     CPTemplate *_associatedTemplate;
     id <CPTemplateDelegate> _templateDelegate;

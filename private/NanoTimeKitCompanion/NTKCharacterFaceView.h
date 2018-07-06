@@ -35,6 +35,7 @@
 - (_Bool)_supportsTimeScrubbing;
 - (struct CGRect)_tapToSpeakRect;
 - (void)_faceTapped:(id)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)applyToForegroundZoomFraction:(double)arg1 faceScale:(double)arg2;
 - (void)_cleanupAfterZoom;

@@ -38,7 +38,6 @@
 + (id)updateSQLForProperties:(id)arg1 predicate:(id)arg2;
 + (id)insertSQLForProperties:(id)arg1 shouldReplace:(_Bool)arg2;
 + (id)entityWithPersistentID:(id)arg1;
-+ (id)queryStatementWithPredicate:(id)arg1 properties:(id)arg2 database:(id)arg3;
 + (id)queryWithDatabase:(id)arg1 predicate:(id)arg2 limit:(unsigned long long)arg3 orderingProperties:(id)arg4 orderingDirections:(id)arg5 groupBy:(id)arg6;
 + (id)queryWithDatabase:(id)arg1 predicate:(id)arg2;
 + (id)distinctProperty:(id)arg1 predicate:(id)arg2 database:(id)arg3 error:(id *)arg4;

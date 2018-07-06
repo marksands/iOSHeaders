@@ -24,7 +24,7 @@
 @property(copy, nonatomic) NSString *transientToken; // @synthesize transientToken=_transientToken;
 @property(readonly, nonatomic) NSArray *searchTokens; // @synthesize searchTokens=_searchTokens;
 - (id)newGroupResult;
-- (id)newGroupResultWithDateToken:(id)arg1;
+- (id)newGroupResultWithDateFilter:(id)arg1;
 - (struct __CFArray *)_newSortedGroupIds;
 - (_Bool)_verifySortedGroupIdsUnique;
 - (id)aggregateItemWithSearchToken:(id)arg1 rangeMatchingToken:(id)arg2 group:(id)arg3;

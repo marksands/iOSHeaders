@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
     id <UITextPasteConfigurationSupporting_Internal> _supportingView;
 }
 
-+ (id)combineAttributedStrings:(id)arg1;
++ (id)combineAttributedStrings:(id)arg1 addingSeparation:(_Bool)arg2;
 @property(nonatomic) __weak id <UITextPasteConfigurationSupporting_Internal> supportingView; // @synthesize supportingView=_supportingView;
 - (void).cxx_destruct;
 - (void)_performPasteOfAttributedString:(id)arg1 toRange:(id)arg2 progressSupport:(id)arg3 animator:(id)arg4 completion:(CDUnknownBlockType)arg5;

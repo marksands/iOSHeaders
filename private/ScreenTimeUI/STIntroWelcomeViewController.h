@@ -6,18 +6,17 @@
 
 #import <ScreenTimeUI/STIntroSplashViewController.h>
 
+@class NSString;
+
 @interface STIntroWelcomeViewController : STIntroSplashViewController
 {
-    _Bool _customizationRequested;
-    _Bool _allowParentalControls;
-    _Bool _forceParentalControls;
+    NSString *_childName;
 }
 
-@property _Bool forceParentalControls; // @synthesize forceParentalControls=_forceParentalControls;
-@property _Bool allowParentalControls; // @synthesize allowParentalControls=_allowParentalControls;
-@property _Bool customizationRequested; // @synthesize customizationRequested=_customizationRequested;
+@property(copy) NSString *childName; // @synthesize childName=_childName;
+- (void).cxx_destruct;
 - (void)viewDidLoad;
-- (id)initWithIntroductionModel:(id)arg1 allowParentalControls:(_Bool)arg2 forceParentalControls:(_Bool)arg3;
+- (id)initWithIntroductionModel:(id)arg1 childName:(id)arg2;
 
 @end
 

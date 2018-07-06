@@ -36,7 +36,6 @@ __attribute__((visibility("hidden")))
 - (id)defaultFocusedInsertImageForCell:(id)arg1 inTableView:(id)arg2;
 - (id)defaultInsertImageForCell:(id)arg1 inTableView:(id)arg2;
 - (id)defaultInsertImageForCell:(id)arg1 forUserInterfaceStyle:(long long)arg2;
-- (id)defaultDeleteBackgroundImageForCell:(id)arg1 inTableView:(id)arg2;
 - (id)defaultFocusedDeleteImageForCell:(id)arg1 inTableView:(id)arg2;
 - (id)defaultDeleteImageForCell:(id)arg1 inTableView:(id)arg2;
 - (id)defaultDeleteImageForCell:(id)arg1 forUserInterfaceStyle:(long long)arg2;

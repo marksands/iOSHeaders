@@ -17,7 +17,6 @@
 - (id)albumViewControllerSpec;
 - (id)gridViewControllerSpec;
 - (long long)albumDeletionConfirmationStyle;
-- (id)emptyAlbumPlaceholderImage;
 - (id)nameOfRecentlyDeletedAlbumPlaceholderImage;
 - (id)nameOfHiddenAlbumPlaceholderImage;
 - (id)nameOfEmptySharedAlbumPlaceholderImage;

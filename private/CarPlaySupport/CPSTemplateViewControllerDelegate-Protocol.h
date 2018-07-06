@@ -6,9 +6,8 @@
 
 #import "NSObject.h"
 
-@class CPSBaseTemplateViewController;
-
 @protocol CPSTemplateViewControllerDelegate <NSObject>
-- (void)templateViewControllerDidPop:(CPSBaseTemplateViewController *)arg1;
+- (void)templateViewControllerDidDismiss:(id <CPSBaseTemplateViewController>)arg1;
+- (void)templateViewControllerDidPop:(id <CPSBaseTemplateViewController>)arg1;
 @end
 

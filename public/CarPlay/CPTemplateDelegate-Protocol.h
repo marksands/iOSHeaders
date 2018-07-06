@@ -12,6 +12,7 @@
 - (void)handleActionForControlIdentifier:(NSUUID *)arg1;
 
 @optional
+- (void)templateDidDismiss:(CPTemplate *)arg1;
 - (void)templateDidDisappear:(CPTemplate *)arg1 animated:(_Bool)arg2;
 - (void)templateWillDisappear:(CPTemplate *)arg1 animated:(_Bool)arg2;
 - (void)templateDidAppear:(CPTemplate *)arg1 animated:(_Bool)arg2;

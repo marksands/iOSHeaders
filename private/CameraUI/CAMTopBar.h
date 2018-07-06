@@ -8,7 +8,7 @@
 
 #import "CAMExpandableMenuButtonDelegate.h"
 
-@class CAMElapsedTimeView, CAMExpandableMenuButton, CAMFilterButton, CAMFlashButton, CAMFlipButton, CAMFramerateIndicatorView, CAMHDRButton, CAMLivePhotoButton, CAMTimerButton, NSArray, PUReviewScreenDoneButton;
+@class CAMElapsedTimeView, CAMExpandableMenuButton, CAMFilterButton, CAMFlashButton, CAMFlipButton, CAMFramerateIndicatorView, CAMHDRButton, CAMLivePhotoButton, CAMTimerButton, NSArray, NSSet, PUReviewScreenDoneButton;
 
 @interface CAMTopBar : UIView <CAMExpandableMenuButtonDelegate>
 {
@@ -27,12 +27,14 @@
     long long _orientation;
     UIView *__backgroundView;
     NSArray *__allowedControls;
+    NSSet *__controlsNeedingNonAnimatedLayout;
     CAMExpandableMenuButton *__expandedMenuButton;
     struct UIEdgeInsets __expandedMenuButtonTappableInsets;
 }
 
 @property(nonatomic, setter=_setExpandedMenuButtonTappableInsets:) struct UIEdgeInsets _expandedMenuButtonTappableInsets; // @synthesize _expandedMenuButtonTappableInsets=__expandedMenuButtonTappableInsets;
 @property(retain, nonatomic, setter=_setExpandedMenuButton:) CAMExpandableMenuButton *_expandedMenuButton; // @synthesize _expandedMenuButton=__expandedMenuButton;
+@property(retain, nonatomic, setter=_setControlsNeedingNonAnimatedLayout:) NSSet *_controlsNeedingNonAnimatedLayout; // @synthesize _controlsNeedingNonAnimatedLayout=__controlsNeedingNonAnimatedLayout;
 @property(readonly, nonatomic) NSArray *_allowedControls; // @synthesize _allowedControls=__allowedControls;
 @property(readonly, nonatomic) UIView *_backgroundView; // @synthesize _backgroundView=__backgroundView;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;

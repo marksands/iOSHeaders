@@ -22,6 +22,7 @@
 }
 
 + (unsigned long long)allowanceTypeForUsageItemType:(unsigned long long)arg1;
++ (double)timeIntervalForAllowanceDateComponents:(id)arg1;
 + (id)displayNameForAllowance:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *iCloudPredicateUserDSIDs; // @synthesize iCloudPredicateUserDSIDs=_iCloudPredicateUserDSIDs;
 @property(nonatomic) unsigned long long behaviorOption; // @synthesize behaviorOption=_behaviorOption;

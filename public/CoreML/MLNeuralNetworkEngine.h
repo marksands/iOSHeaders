@@ -24,8 +24,6 @@
     int _precision;
     int _engine;
     int _qos;
-    unsigned int _batchSize;
-    unsigned int _seqSize;
     NSArray *_classLabels;
     NSString *_classScoreVectorName;
     NSArray *_inputLayers;
@@ -74,8 +72,6 @@
 @property(nonatomic) map_72eb5488 ks; // @synthesize ks=_ks;
 @property(nonatomic) map_72eb5488 heights; // @synthesize heights=_heights;
 @property(nonatomic) map_72eb5488 widths; // @synthesize widths=_widths;
-@property(nonatomic) unsigned int seqSize; // @synthesize seqSize=_seqSize;
-@property(nonatomic) unsigned int batchSize; // @synthesize batchSize=_batchSize;
 @property(nonatomic) _Bool isEspresoBiasPreprocessingShared; // @synthesize isEspresoBiasPreprocessingShared=_isEspresoBiasPreprocessingShared;
 @property(nonatomic) int qos; // @synthesize qos=_qos;
 @property(nonatomic) int engine; // @synthesize engine=_engine;
@@ -113,6 +109,7 @@
 - (id)verifyInputs:(id)arg1 error:(id *)arg2;
 - (id)evaluate:(id)arg1 error:(id *)arg2;
 - (_Bool)_setupContextAndPlanWithForceCPU:(_Bool)arg1 error:(id *)arg2;
+- (_Bool)fillInInitialShapeFromEspressoNet:(id *)arg1;
 - (id)initWithSpec:(id)arg1 classScoreVectorName:(id)arg2 classLabels:(id)arg3 forceCPU:(_Bool)arg4 error:(id *)arg5;
 - (id)initWithSpec:(id)arg1 classScoreVectorName:(id)arg2 classLabels:(id)arg3 error:(id *)arg4;
 - (_Bool)_matchEngineToOptions:(id)arg1 error:(id *)arg2;

@@ -19,6 +19,7 @@
 
 @property(nonatomic) id <UNSNotificationRepositoryDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_queue_performValidation;
 - (void)_queue_performMigrationForPushStoreAtPath:(id)arg1;
 - (void)_queue_performMigration;
 - (void)_logNotification:(id)arg1 forBundleIdentifier:(id)arg2;
@@ -35,6 +36,7 @@
 - (void)_queue_notifyObserversNotificationsDidAddNotifications:(id)arg1 replaceNotifications:(id)arg2 replacementNotifications:(id)arg3 removedNotifications:(id)arg4 shouldRepost:(_Bool)arg5 forBundleIdentifier:(id)arg6;
 - (id)_queue_notificationRecordsForBundleIdentifier:(id)arg1;
 - (id)_notificationsForObjects:(id)arg1;
+- (void)performValidation;
 - (void)performMigration;
 - (id)allBundleIdentifiers;
 - (void)removeNotificationRepository;
@@ -42,7 +44,7 @@
 - (void)removeNotificationRecordsPassingTest:(CDUnknownBlockType)arg1 forBundleIdentifier:(id)arg2;
 - (void)removeAllNotificationRecordsForBundleIdentifier:(id)arg1;
 - (void)saveNotificationRecord:(id)arg1 shouldRepost:(_Bool)arg2 forBundleIdentifier:(id)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
-- (void)notificationRecordsForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)notificationRecordsForBundleIdentifier:(id)arg1;
 - (void)removeObserver:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)addObserver:(id)arg1 forBundleIdentifier:(id)arg2;
 - (id)initWithDataStoreRepository:(id)arg1 observable:(id)arg2 systemService:(id)arg3;

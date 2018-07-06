@@ -15,3 +15,10 @@ struct CGSize {
     double height;
 };
 
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    double _field1;
+    double _field2;
+} CDStruct_c3b9c2ee;
+

@@ -119,6 +119,7 @@
 @property(readonly) SCNNode *neckNode;
 @property(readonly) SCNNode *headNode;
 - (void)setHeadNode:(id)arg1;
+- (id)cameraNode;
 - (id)lightingNode;
 - (void)setAvatarNode:(id)arg1;
 - (float)arScale;

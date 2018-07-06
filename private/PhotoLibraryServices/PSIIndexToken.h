@@ -20,6 +20,7 @@
 @property(readonly, nonatomic) short category; // @synthesize category=_category;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, copy, nonatomic) NSString *text; // @synthesize text=_text;
+- (id)description;
 - (void)dealloc;
 - (id)initWithText:(id)arg1 identifier:(id)arg2 category:(short)arg3 owningCategory:(short)arg4;
 

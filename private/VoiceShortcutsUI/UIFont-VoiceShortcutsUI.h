@@ -7,6 +7,9 @@
 #import "UIFont.h"
 
 @interface UIFont (VoiceShortcutsUI)
++ (id)vcui_preferredContentSize;
++ (id)vcui_preferredFontForTextStyle:(id)arg1 symbolicTraits:(unsigned int)arg2;
++ (id)vcui_preferredFontForTextStyle:(id)arg1;
 + (id)vcui_buttonFont;
 @end
 

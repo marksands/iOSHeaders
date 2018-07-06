@@ -213,7 +213,7 @@
 - (_Bool)performSpaceAction;
 - (_Bool)performReturnAction;
 - (void)didClearInput;
-- (struct CGRect)_keyboardLongPressInteractionRegion;
+- (id)_keyboardLongPressInteractionRegions;
 - (id)_keyboardLayoutView;
 - (void)longPressAction;
 - (_Bool)isShiftKeyPlaneChooser;

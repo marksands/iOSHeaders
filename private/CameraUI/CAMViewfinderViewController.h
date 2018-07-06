@@ -504,6 +504,7 @@
 - (void)_setLightingType:(long long)arg1 forMode:(long long)arg2;
 - (long long)_lightingTypeForMode:(long long)arg1;
 - (void)_updateLightingUIForGraphConfiguration:(id)arg1;
+- (void)_dismissOverlays;
 - (void)_updateFilterNameBadgeAnimated:(_Bool)arg1;
 - (void)_hideUtilityBarAnimated:(_Bool)arg1;
 - (void)_setShowingFilterScrubber:(_Bool)arg1 animated:(_Bool)arg2;
@@ -540,8 +541,6 @@
 - (_Bool)_shouldResetZoomForChangeFromMode:(long long)arg1 toMode:(long long)arg2;
 - (void)cameraRollControllerDidStartSession:(id)arg1;
 - (void)cameraRollController:(id)arg1 didChangeImageWellImage:(id)arg2 withUUID:(id)arg3 animated:(_Bool)arg4;
-- (void)_updatePausingOfCameraRollAudioHandlingForCapture;
-- (_Bool)_shouldSuspendCameraRollAudioHandlingForCapture;
 - (void)_presentCameraRollViewControllerAnimated:(_Bool)arg1 interactive:(_Bool)arg2;
 - (_Bool)_shouldDeferMediaLoadingForGraphConfiguration:(id)arg1;
 - (void)_handleImageWellReleased:(id)arg1;

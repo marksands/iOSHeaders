@@ -50,7 +50,7 @@
 - (void)_attemptCullingOfObsoleteApp:(id)arg1;
 - (_Bool)synchronize:(unsigned long long)arg1;
 - (void)synchronize:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)forceUpdate;
+- (void)forceUpdateWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_supportPath;
 - (void)_dictionaryOnDisk:(CDUnknownBlockType)arg1;
 - (void)_writeToDisk:(id)arg1 completion:(CDUnknownBlockType)arg2;

@@ -7,6 +7,7 @@
 #import <PhotosUI/PUPhotosGridViewController.h>
 
 #import "PUImportActionCoordinatorDelegate.h"
+#import "PUImportAddToAlbumsToolbarViewDelegate.h"
 #import "PUImportAlbumPickerDelegate.h"
 #import "PUImportAssetsDataSourceManagerObserver.h"
 #import "PUImportControllerImportCompletionDelegate.h"
@@ -22,9 +23,9 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 
-@class NSLayoutConstraint, NSMutableDictionary, NSMutableSet, NSProgress, NSString, NSTimer, PHImportSource, PLRoundProgressView, PUImportActionCoordinator, PUImportAddToAlbumsBarItem, PUImportAddToAlbumsPickerViewController, PUImportAssetsDataSource, PUImportAssetsDataSourceManager, PUImportChangeDetailsCollectionViewHelper, PUImportController, PUImportCustomViewBarButton, PUImportFakePhotosDataSource, PUImportFloatingToolbarView, PUImportHistorySectionHeaderView, PUImportProgressDetailViewController, PUImportSessionInfo, PUPhotosGridViewControllerSpec, PXNavigationTitleView, PXSwipeSelectionManager, UIBarButtonItem, UILabel, UITapGestureRecognizer;
+@class NSLayoutConstraint, NSMutableDictionary, NSMutableSet, NSProgress, NSString, NSTimer, PHImportSource, PLRoundProgressView, PUImportActionCoordinator, PUImportAddToAlbumsPickerViewController, PUImportAddToAlbumsToolbarView, PUImportAssetsDataSource, PUImportAssetsDataSourceManager, PUImportChangeDetailsCollectionViewHelper, PUImportController, PUImportCustomViewBarButton, PUImportFakePhotosDataSource, PUImportFloatingToolbarView, PUImportHistorySectionHeaderView, PUImportProgressDetailViewController, PUImportSessionInfo, PUPhotosGridViewControllerSpec, PXNavigationTitleView, PXSelectionSnapshot, PXSwipeSelectionManager, UIBarButtonItem, UILabel, UITapGestureRecognizer;
 
-@interface PUImportViewController : PUPhotosGridViewController <PUSectionedGridLayoutDelegate, PUImportActionCoordinatorDelegate, PUImportAlbumPickerDelegate, PUImportAssetsDataSourceManagerObserver, PUImportControllerImportCompletionDelegate, PUImportControllerNotificationsReceiver, PUImportHistorySectionHeaderViewDelegate, PUImportOneUpTransitioning, PUImportSectionedGridLayoutDelegate, PXSettingsKeyObserver, PUImportDisplayDelegate, PXChangeObserver, PXSwipeSelectionManagerDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate>
+@interface PUImportViewController : PUPhotosGridViewController <PUSectionedGridLayoutDelegate, PUImportActionCoordinatorDelegate, PUImportAlbumPickerDelegate, PUImportAssetsDataSourceManagerObserver, PUImportControllerImportCompletionDelegate, PUImportControllerNotificationsReceiver, PUImportHistorySectionHeaderViewDelegate, PUImportOneUpTransitioning, PUImportSectionedGridLayoutDelegate, PXSettingsKeyObserver, PUImportDisplayDelegate, PXChangeObserver, PXSwipeSelectionManagerDelegate, PUImportAddToAlbumsToolbarViewDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate>
 {
     _Bool _readingImportItems;
     _Bool _completedAnImport;
@@ -36,7 +37,8 @@
     UIBarButtonItem *_stopBarItem;
     UIBarButtonItem *_progressButtonItem;
     UIBarButtonItem *_progressLabel;
-    PUImportAddToAlbumsBarItem *_albumPickerBarItem;
+    UIBarButtonItem *_albumPickerBarItem;
+    PUImportAddToAlbumsToolbarView *_addToAlbumsToolbarView;
     UIBarButtonItem *_contentInfoBarButton;
     UIBarButtonItem *_albumPickerCompactWidthBarButton;
     UIBarButtonItem *_compactContentInfoButton;
@@ -57,7 +59,9 @@
     _Bool _viewAppearing;
     _Bool _hasLoadedInitialBatchOfAssets;
     _Bool _isLoadingInitialBatchOfAssets;
-    _Bool _collapseAlreadyImportedSection;
+    _Bool _performingAlbumPickerPresentation;
+    _Bool _userWantsAlreadyImportedSectionCollapsedIfPossible;
+    _Bool _shouldCollapseAlreadyImportedSection;
     _Bool _userHasScrolled;
     _Bool _shouldStayScrolledToBottom;
     _Bool _animateHeaderActionButtonChanges;
@@ -79,6 +83,7 @@
     PXNavigationTitleView *_navigationTitleView;
     UILabel *_navigationLargeTitleAccessoryLabel;
     PXSwipeSelectionManager *_swipeSelectionManager;
+    PXSelectionSnapshot *_currentSelectionSnapshot;
     PUImportAddToAlbumsPickerViewController *_albumsPickerViewController;
     PLRoundProgressView *_roundProgressView;
     PUImportProgressDetailViewController *_importProgressDetailViewController;
@@ -115,8 +120,11 @@
 @property(retain, nonatomic) PLRoundProgressView *roundProgressView; // @synthesize roundProgressView=_roundProgressView;
 @property(nonatomic) _Bool shouldStayScrolledToBottom; // @synthesize shouldStayScrolledToBottom=_shouldStayScrolledToBottom;
 @property(nonatomic) _Bool userHasScrolled; // @synthesize userHasScrolled=_userHasScrolled;
-@property(nonatomic) _Bool collapseAlreadyImportedSection; // @synthesize collapseAlreadyImportedSection=_collapseAlreadyImportedSection;
+@property(nonatomic) _Bool shouldCollapseAlreadyImportedSection; // @synthesize shouldCollapseAlreadyImportedSection=_shouldCollapseAlreadyImportedSection;
+@property(nonatomic) _Bool userWantsAlreadyImportedSectionCollapsedIfPossible; // @synthesize userWantsAlreadyImportedSectionCollapsedIfPossible=_userWantsAlreadyImportedSectionCollapsedIfPossible;
+@property(nonatomic) _Bool performingAlbumPickerPresentation; // @synthesize performingAlbumPickerPresentation=_performingAlbumPickerPresentation;
 @property(retain, nonatomic) PUImportAddToAlbumsPickerViewController *albumsPickerViewController; // @synthesize albumsPickerViewController=_albumsPickerViewController;
+@property(retain, nonatomic) PXSelectionSnapshot *currentSelectionSnapshot; // @synthesize currentSelectionSnapshot=_currentSelectionSnapshot;
 @property(retain, nonatomic) PXSwipeSelectionManager *swipeSelectionManager; // @synthesize swipeSelectionManager=_swipeSelectionManager;
 @property(readonly, nonatomic) UILabel *navigationLargeTitleAccessoryLabel; // @synthesize navigationLargeTitleAccessoryLabel=_navigationLargeTitleAccessoryLabel;
 @property(readonly, nonatomic) PXNavigationTitleView *navigationTitleView; // @synthesize navigationTitleView=_navigationTitleView;
@@ -186,6 +194,7 @@
 - (double)sectionedGridLayout:(id)arg1 accessibilitySectionHeaderHeightForVisualSection:(long long)arg2;
 - (double)sectionedGridLayout:(id)arg1 sectionHeaderHeightForVisualSection:(long long)arg2;
 - (_Bool)anyAlreadyImportedItemsAreSelected;
+- (void)updateAlreadyImportedCollapseStatus;
 - (void)toggleAlreadyImportedExpansion;
 - (void)selectAllSelectableItems;
 - (_Bool)areAllItemsSelectedInAssetCollection:(id)arg1;
@@ -228,6 +237,7 @@
 - (void)cancelAlbumPickerPopover:(id)arg1;
 - (void)presentAlbumPickerFromView:(id)arg1 orBarItem:(id)arg2;
 - (void)showAlbumPicker:(id)arg1;
+- (void)didTapAddToAlbumsView:(id)arg1;
 - (void)dismissImportProgressPopover;
 - (void)presentImportProgressPopover;
 - (void)showProgress:(id)arg1;

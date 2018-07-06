@@ -14,6 +14,7 @@
 - (_Bool)userInteractionEnabled;
 - (unsigned long long)customContentLocation;
 - (_Bool)allowManualDismiss;
+- (_Bool)overridesDefaultTitle;
 - (_Bool)defaultContentHidden;
 - (_Bool)performAction:(NCNotificationAction *)arg1 forNotification:(NCNotificationRequest *)arg2 withUserInfo:(NSDictionary *)arg3;
 - (_Bool)performAction:(NCNotificationAction *)arg1 forNotification:(NCNotificationRequest *)arg2;

@@ -45,7 +45,7 @@
     UICollectionView *_collectionView;
     UICollectionViewFlowLayout *_flowLayout;
     NSMutableDictionary *_livePluginIdentifierToTimestampMap;
-    UILongPressGestureRecognizer *_horizontalSwipePreventer;
+    UILongPressGestureRecognizer *_touchTracker;
     CKBrowserSwitcherScrollPreventer *_scrollPreventer;
     IMScheduledUpdater *_scrollUpdater;
     IMBalloonPlugin *_currentVisiblePlugin;
@@ -76,7 +76,7 @@
 @property(retain, nonatomic) IMBalloonPlugin *currentVisiblePlugin; // @synthesize currentVisiblePlugin=_currentVisiblePlugin;
 @property(retain, nonatomic) IMScheduledUpdater *scrollUpdater; // @synthesize scrollUpdater=_scrollUpdater;
 @property(retain, nonatomic) CKBrowserSwitcherScrollPreventer *scrollPreventer; // @synthesize scrollPreventer=_scrollPreventer;
-@property(retain, nonatomic) UILongPressGestureRecognizer *horizontalSwipePreventer; // @synthesize horizontalSwipePreventer=_horizontalSwipePreventer;
+@property(retain, nonatomic) UILongPressGestureRecognizer *touchTracker; // @synthesize touchTracker=_touchTracker;
 @property(retain, nonatomic) NSMutableDictionary *livePluginIdentifierToTimestampMap; // @synthesize livePluginIdentifierToTimestampMap=_livePluginIdentifierToTimestampMap;
 @property(retain, nonatomic) UICollectionViewFlowLayout *flowLayout; // @synthesize flowLayout=_flowLayout;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;

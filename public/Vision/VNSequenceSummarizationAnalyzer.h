@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     CDStruct_2bc666a5 _mEspressoNetwork;
 }
 
++ (id)configurationOptionKeysForDetectorKey;
 - (void)dealloc;
 - (id)processWithOptions:(id)arg1 regionOfInterest:(struct CGRect)arg2 warningRecorder:(id)arg3 error:(id *)arg4;
 - (_Bool)completeInitializationAndReturnError:(id *)arg1;

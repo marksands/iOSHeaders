@@ -9,13 +9,12 @@
 #import "PHImportServiceImporterDelegate.h"
 #import "PHImportSourceDelegate.h"
 #import "PUImportAssetsDataSourceManagerDelegate.h"
-#import "PUImportMediaProviderNotificationsReceiver.h"
 #import "PUMutableImportController.h"
 #import "PXChangeObserver.h"
 
-@class NSArray, NSMutableDictionary, NSMutableSet, NSObject<PUImportControllerImportCompletionDelegate>, NSProgress, NSString, NSTimer, PHAssetCollection, PHImportController, PHImportSource, PUImportAssetsDataSourceManager, PUImportDeleteAction, PUImportMediaProvider, PUImportPowerController, PUImportSessionInfo, PXSectionedSelectionManager, PXSelectionSnapshot;
+@class NSArray, NSMutableDictionary, NSMutableSet, NSObject<PUImportControllerImportCompletionDelegate>, NSProgress, NSString, NSTimer, PHAssetCollection, PHImportController, PHImportSource, PUImportAssetsDataSourceManager, PUImportDeleteAction, PUImportMediaLoadingCoordinator, PUImportMediaProvider, PUImportPowerController, PUImportSessionInfo, PXSectionedSelectionManager, PXSelectionSnapshot;
 
-@interface PUImportController : PXObservable <PUImportAssetsDataSourceManagerDelegate, PUMutableImportController, PHImportServiceImporterDelegate, PHImportSourceDelegate, PUImportMediaProviderNotificationsReceiver, PXChangeObserver>
+@interface PUImportController : PXObservable <PUImportAssetsDataSourceManagerDelegate, PUMutableImportController, PHImportServiceImporterDelegate, PHImportSourceDelegate, PXChangeObserver>
 {
     NSArray *_lastSelectedModels;
     _Bool _loadingContent;
@@ -44,6 +43,7 @@
     CDUnknownBlockType _importCompletionHandler;
     CDUnknownBlockType _deleteCompletionHandler;
     PXSelectionSnapshot *_lastSelectionSnapshot;
+    PUImportMediaLoadingCoordinator *_mediaLoadingCoordinator;
 }
 
 + (void)unregisterPUImportControllerNotificationsReceiver:(struct NSObject *)arg1;
@@ -51,6 +51,7 @@
 + (id)itemsConstrainedByAvailableDiskSpaceFromItems:(id)arg1 additionalBytesRequired:(inout long long *)arg2;
 + (id)assetsForModels:(id)arg1;
 + (id)importOperationQueue;
+@property(readonly, nonatomic) PUImportMediaLoadingCoordinator *mediaLoadingCoordinator; // @synthesize mediaLoadingCoordinator=_mediaLoadingCoordinator;
 @property(retain, nonatomic) PXSelectionSnapshot *lastSelectionSnapshot; // @synthesize lastSelectionSnapshot=_lastSelectionSnapshot;
 @property(copy, nonatomic) CDUnknownBlockType deleteCompletionHandler; // @synthesize deleteCompletionHandler=_deleteCompletionHandler;
 @property(copy, nonatomic) CDUnknownBlockType importCompletionHandler; // @synthesize importCompletionHandler=_importCompletionHandler;
@@ -86,8 +87,6 @@
 - (void)startObservingImportProgress;
 - (void)sendActionProgress:(double)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (id)_dequeueNextThumbnailWorkItem;
-- (void)mediaProviderThumbnailingBecameIdle;
 - (id)selectedItems;
 - (void)deselectItem:(id)arg1;
 - (void)selectItem:(id)arg1;

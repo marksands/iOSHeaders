@@ -8,7 +8,7 @@
 
 #import "NSXMLParserDelegate.h"
 
-@class MADatabase, MALoadRegistry, MAPropertyAccessReporter, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class MADatabase, MALoadRegistry, MAPropertyAccessReporter, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
 @interface MAGraph : NSObject <NSXMLParserDelegate>
 {
@@ -21,8 +21,6 @@
     NSMutableDictionary *_nodesByDomain;
     NSMutableDictionary *_edgesByIdentifier;
     NSMutableDictionary *_edgesByLabel;
-    NSMutableIndexSet *_fragmentedNodeIdentifiers;
-    NSMutableIndexSet *_fragmentedEdgeIdentifiers;
     unsigned int _lastNodeIdentifier;
     unsigned int _lastEdgeIdentifier;
     NSMutableArray *_labelStrings;

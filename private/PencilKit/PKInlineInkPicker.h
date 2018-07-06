@@ -21,6 +21,7 @@
     NSArray *_inkIdentifiers;
     unsigned long long _selectedInkIndex;
     unsigned long long _previousDrawingToolIndex;
+    unsigned long long _previousToolIndex;
     NSArray *_toolButtonItems;
     PKInlineColorPicker *_colorPicker;
     UIView *_backgroundView;
@@ -59,10 +60,12 @@
 @property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) PKInlineColorPicker *colorPicker; // @synthesize colorPicker=_colorPicker;
 @property(retain, nonatomic) NSArray *toolButtonItems; // @synthesize toolButtonItems=_toolButtonItems;
+@property(nonatomic) unsigned long long previousToolIndex; // @synthesize previousToolIndex=_previousToolIndex;
 @property(nonatomic) unsigned long long previousDrawingToolIndex; // @synthesize previousDrawingToolIndex=_previousDrawingToolIndex;
 @property(nonatomic) unsigned long long selectedInkIndex; // @synthesize selectedInkIndex=_selectedInkIndex;
 @property(retain, nonatomic) NSArray *inkIdentifiers; // @synthesize inkIdentifiers=_inkIdentifiers;
 - (void).cxx_destruct;
+- (void)_userDidTriggerSettingsUI:(id)arg1;
 - (id)_axLabelForToolButton:(id)arg1;
 - (void)_axHandleLongPressForLargeTextHUD:(id)arg1;
 - (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
@@ -74,9 +77,10 @@
 - (id)minimizedImageForInk:(id)arg1 small:(_Bool)arg2;
 - (double)cachedToolButtonWidthForSizeState:(unsigned long long)arg1;
 - (id)createToolButtonItemWithInkIdentifier:(id)arg1 shouldEmboss:(_Bool)arg2;
-- (void)toolUnpressed:(id)arg1;
-- (void)toolPressed:(id)arg1;
+- (double)offsetForToolIndex:(unsigned long long)arg1 selected:(_Bool)arg2;
+- (void)userDidTouchTool:(id)arg1;
 - (void)toolTapped:(id)arg1;
+- (void)_resetInkAttributePickerState;
 - (void)_dismissInkAttributesPicker;
 - (void)_showInkAttributesPickerFromView:(id)arg1 frame:(struct CGRect)arg2 shouldHideArrow:(_Bool)arg3;
 - (id)_effectiveViewControllerForPopoverPresentation;
@@ -94,12 +98,14 @@
 - (unsigned long long)sizeStateForWidth:(double)arg1;
 - (void)_setSelectionStateNoLayout:(unsigned long long)arg1;
 - (void)_setSizeStateNoLayout:(unsigned long long)arg1;
+@property(readonly, nonatomic) struct CGRect _extentRect; // @dynamic _extentRect;
 - (void)setContentsHidden:(_Bool)arg1 animated:(_Bool)arg2;
 @property(nonatomic) unsigned long long colorSet;
 @property(copy, nonatomic) NSString *selectedInkIdentifier;
 - (void)setColor:(id)arg1 forInkIdentifier:(id)arg2;
 - (id)colorForInkIdentifier:(id)arg1;
 @property(copy, nonatomic) UIColor *selectedColor;
+- (id)inkIdentifierForIndex:(unsigned long long)arg1;
 @property(copy, nonatomic) PKInk *selectedInk;
 - (void)setSelectedInkIdentifier:(id)arg1 animated:(_Bool)arg2;
 - (void)setSelectedColor:(id)arg1 animated:(_Bool)arg2;
@@ -115,6 +121,9 @@
 - (id)_toolButtonContainingPoint:(struct CGPoint)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)_updateFrameForAllowDrawingWhilePresentingPopoverView;
+- (void)_teardownAllowDrawingWhilePresentingPopoverView;
+- (void)_setupAllowDrawingWhilePresentingPopoverViewIfNecessary;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (void)_commonInit;

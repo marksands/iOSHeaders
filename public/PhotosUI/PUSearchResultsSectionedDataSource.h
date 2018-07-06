@@ -69,7 +69,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <PUSearchResultsSectionedDataSourceChangeObserver> changeObserver; // @synthesize changeObserver=_changeObserver;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *debugDescription;
-- (id)debugDictionary;
+@property(readonly) NSDictionary *debugDictionary;
 - (id)tapToRadarAttachments;
 - (id)_parentWordWithWord:(id)arg1;
 - (id)_bestParentWordEmbeddingsWithWordEmbeddings:(id)arg1;

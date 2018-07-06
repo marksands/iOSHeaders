@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class PGManager;
+@class NSObject<OS_os_log>, PGManager;
 
 @interface PGSharingManager : NSObject
 {
     PGManager *_manager;
+    NSObject<OS_os_log> *_loggingConnection;
 }
 
 + (id)_defaultOptions;

@@ -55,7 +55,7 @@
 @property(retain, nonatomic) NSMutableSet *momentIdentifiers; // @synthesize momentIdentifiers=_momentIdentifiers;
 @property(retain, nonatomic) NSSet *momentNodes; // @synthesize momentNodes=_momentNodes;
 - (void).cxx_destruct;
-- (id)sortedTextFeaturesUsingWeightFromTextFeatures:(id)arg1;
+- (id)sortedTextFeaturesUsingWeightAndTypeFromTextFeatures:(id)arg1;
 - (id)_textFeatureForPersonNode:(id)arg1 weight:(float)arg2;
 - (id)_textFeaturesForNode:(id)arg1 type:(unsigned long long)arg2 weight:(float)arg3 options:(unsigned long long)arg4;
 - (id)bestTextFeaturesFromTextFeatures:(id)arg1;

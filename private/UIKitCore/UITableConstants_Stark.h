@@ -28,7 +28,6 @@ __attribute__((visibility("hidden")))
 - (id)defaultMultiSelectSelectedImageForCell:(id)arg1 inTableView:(id)arg2;
 - (id)defaultMultiSelectNotSelectedImageForCell:(id)arg1 inTableView:(id)arg2;
 - (id)defaultInsertImageForCell:(id)arg1 inTableView:(id)arg2;
-- (id)defaultDeleteBackgroundImageForCell:(id)arg1 inTableView:(id)arg2;
 - (id)defaultDeleteImageForCell:(id)arg1 inTableView:(id)arg2;
 - (struct CGRect)defaultDeleteMinusRectForCell:(id)arg1 inTableView:(id)arg2;
 - (double)defaultSpaceBetweenEditAndReorderControlsForCell:(id)arg1 inTableView:(id)arg2;

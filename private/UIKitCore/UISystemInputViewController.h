@@ -16,6 +16,7 @@
     NSMutableDictionary *_accessoryConstraints;
     _Bool _needsSetupAgain;
     _Bool _isVisible;
+    UIResponder<UITraitEnvironment> *_containingResponder;
     _Bool _supportsTouchInput;
     _Bool _supportsRecentInputsIntegration;
     _Bool _isAutomaticResponderTransition;
@@ -24,7 +25,6 @@
     _Bool _didDisplayRecents;
     id <UISystemInputViewControllerDelegate> _systemInputViewControllerDelegate;
     UIResponder<UITextInput> *_persistentDelegate;
-    UIResponder<UITraitEnvironment> *_containingResponder;
     UIKeyboard *_keyboard;
     NSArray *_keyboardConstraints;
     UICompatibilityInputViewController *_keyboardVC;
@@ -74,7 +74,6 @@
 @property(retain, nonatomic) UICompatibilityInputViewController *keyboardVC; // @synthesize keyboardVC=_keyboardVC;
 @property(retain, nonatomic) NSArray *keyboardConstraints; // @synthesize keyboardConstraints=_keyboardConstraints;
 @property(retain, nonatomic) UIKeyboard *keyboard; // @synthesize keyboard=_keyboard;
-@property(retain, nonatomic) UIResponder<UITraitEnvironment> *containingResponder; // @synthesize containingResponder=_containingResponder;
 @property(retain, nonatomic) UIResponder<UITextInput> *persistentDelegate; // @synthesize persistentDelegate=_persistentDelegate;
 @property(nonatomic) _Bool isAutomaticResponderTransition; // @synthesize isAutomaticResponderTransition=_isAutomaticResponderTransition;
 @property(nonatomic) id <UISystemInputViewControllerDelegate> systemInputViewControllerDelegate; // @synthesize systemInputViewControllerDelegate=_systemInputViewControllerDelegate;
@@ -114,6 +113,7 @@
 - (id)preferredFocusEnvironments;
 - (void)viewDidAppear:(_Bool)arg1;
 - (_Bool)_disableAutomaticKeyboardBehavior;
+- (void)resetContainingResponder;
 - (void)prepareForRelease;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
@@ -126,6 +126,8 @@
 - (void)configureRecentsVCIfNecessary;
 - (void)switchToKeyboard;
 - (void)didSelectRecentInput;
+- (void)_windowDidBecomeKey:(id)arg1;
+- (void)_windowWillBecomeKey:(id)arg1;
 - (void)_createKeyboardIfNecessary;
 - (void)_updateRemoteTextEditingSession;
 - (void)_addChildInputViewController;

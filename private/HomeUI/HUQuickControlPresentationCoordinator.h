@@ -8,31 +8,33 @@
 
 #import "HUPresentationDelegate.h"
 #import "HUQuickControlContainerViewControllerDelegate.h"
+#import "HUQuickControlTapGestureRecognizerDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 #import "UITraitEnvironment.h"
 
-@class HUForceInterpolatedPressGestureRecognizer, HUPressedItemContext, HUQuickControlContainerViewController, HUQuickControlPresentationContext, NSMapTable, NSMutableSet, NSString, UITapGestureRecognizer, UITraitCollection, UIView, UIViewController;
+@class HUForceInterpolatedPressGestureRecognizer, HUPressedItemContext, HUQuickControlContainerViewController, HUQuickControlPresentationContext, HUQuickControlTapGestureRecognizer, NSMapTable, NSMutableSet, NSString, UITraitCollection, UIView, UIViewController;
 
-@interface HUQuickControlPresentationCoordinator : NSObject <HUQuickControlContainerViewControllerDelegate, HUPresentationDelegate, UIGestureRecognizerDelegate, UITraitEnvironment>
+@interface HUQuickControlPresentationCoordinator : NSObject <HUQuickControlContainerViewControllerDelegate, HUQuickControlTapGestureRecognizerDelegate, HUPresentationDelegate, UIGestureRecognizerDelegate, UITraitEnvironment>
 {
     HUQuickControlPresentationContext *_presentationContext;
     HUQuickControlContainerViewController *_quickControlViewController;
     UIView *_targetView;
     id <HUQuickControlPresentationCoordinatorDelegate> _delegate;
-    UITapGestureRecognizer *_singleTapGestureRecognizer;
-    UITapGestureRecognizer *_doubleTapGestureRecognizer;
+    HUQuickControlTapGestureRecognizer *_tapGestureRecognizer;
     HUForceInterpolatedPressGestureRecognizer *_pressGestureRecognizer;
     NSMutableSet *_mutuallyExclusiveGestureRecognizers;
     id <NACancelable> _pressGestureActiveTimerCancellationToken;
     NSMapTable *_pressedItemContexts;
+    CDStruct_a4144c17 _pressedStateValues;
 }
 
++ (CDStruct_a4144c17)_defaultPressedStateValues;
 @property(readonly, nonatomic) NSMapTable *pressedItemContexts; // @synthesize pressedItemContexts=_pressedItemContexts;
+@property(readonly, nonatomic) CDStruct_a4144c17 pressedStateValues; // @synthesize pressedStateValues=_pressedStateValues;
 @property(retain, nonatomic) id <NACancelable> pressGestureActiveTimerCancellationToken; // @synthesize pressGestureActiveTimerCancellationToken=_pressGestureActiveTimerCancellationToken;
 @property(readonly, nonatomic) NSMutableSet *mutuallyExclusiveGestureRecognizers; // @synthesize mutuallyExclusiveGestureRecognizers=_mutuallyExclusiveGestureRecognizers;
 @property(retain, nonatomic) HUForceInterpolatedPressGestureRecognizer *pressGestureRecognizer; // @synthesize pressGestureRecognizer=_pressGestureRecognizer;
-@property(retain, nonatomic) UITapGestureRecognizer *doubleTapGestureRecognizer; // @synthesize doubleTapGestureRecognizer=_doubleTapGestureRecognizer;
-@property(retain, nonatomic) UITapGestureRecognizer *singleTapGestureRecognizer; // @synthesize singleTapGestureRecognizer=_singleTapGestureRecognizer;
+@property(retain, nonatomic) HUQuickControlTapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
 @property(nonatomic) __weak id <HUQuickControlPresentationCoordinatorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) __weak UIView *targetView; // @synthesize targetView=_targetView;
 @property(retain, nonatomic) HUQuickControlContainerViewController *quickControlViewController; // @synthesize quickControlViewController=_quickControlViewController;
@@ -45,8 +47,9 @@
 - (_Bool)hasDetailsActionForQuickControlViewController:(id)arg1 item:(id)arg2;
 - (id)quickControlViewController:(id)arg1 applierForSourceViewTransitionWithAnimationSettings:(id)arg2 presenting:(_Bool)arg3;
 - (double)quickControlViewController:(id)arg1 sourceViewInitialScaleForPresentation:(_Bool)arg2;
+- (void)quickControlGestureRecognizer:(id)arg1 didUpdateState:(unsigned long long)arg2;
+- (_Bool)quickControlGestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
-- (_Bool)gestureRecognizer:(id)arg1 shouldRequireFailureOfGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 @property(readonly, nonatomic, getter=isQuickControlPresented) _Bool quickControlIsPresented;
 - (void)_cleanupForQuickControlDismissal;
@@ -66,12 +69,11 @@
 - (void)_initiateProgrammaticBounceForItem:(id)arg1;
 - (void)_configureInitialStateForPressedItemContext:(id)arg1 userInitiated:(_Bool)arg2;
 - (void)_preparePressedItemContextForItem:(id)arg1 startApplier:(_Bool)arg2;
+- (void)_pressGestureDidEndRecognizingTap:(_Bool)arg1;
 - (void)_pressGestureDidEnd:(_Bool)arg1;
 - (void)_pressGestureDidBecomeActive;
 - (void)_pressGestureDidBeginWithLocation:(struct CGPoint)arg1;
 - (void)_handlePressGesture:(id)arg1;
-- (void)_handleDoubleTapGesture:(id)arg1;
-- (void)_handleSingleTapGesture:(id)arg1;
 - (void)_installGestureRecognizer;
 - (id)_gestureInstallationView;
 - (void)_handleMutuallyExclusiveGesture:(id)arg1;

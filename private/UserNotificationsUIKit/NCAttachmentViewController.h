@@ -26,6 +26,7 @@
 - (unsigned long long)customContentLocation;
 - (_Bool)userInteractionEnabled;
 - (_Bool)allowManualDismiss;
+- (_Bool)overridesDefaultTitle;
 - (_Bool)defaultContentHidden;
 - (_Bool)performAction:(id)arg1 forNotification:(id)arg2;
 - (_Bool)performAction:(id)arg1 forNotification:(id)arg2 withUserInfo:(id)arg3;

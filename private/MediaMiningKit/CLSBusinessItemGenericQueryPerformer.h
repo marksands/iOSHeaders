@@ -8,7 +8,7 @@
 
 #import "CLSQueryPerformerProtocol.h"
 
-@class NSArray, NSString;
+@class CLSBusinessCategoryCache, NSArray, NSString;
 
 @interface CLSBusinessItemGenericQueryPerformer : NSObject <CLSQueryPerformerProtocol>
 {
@@ -33,6 +33,7 @@
 - (void).cxx_destruct;
 - (void)logAggdGeoLookupFailureResult;
 - (void)logAggdGeoLookupCounterAndDurationWithLookupDuration:(id)arg1;
+@property(readonly, nonatomic) CLSBusinessCategoryCache *cache;
 - (unsigned long long)cacheItems:(id)arg1;
 - (_Bool)shouldQueryItemsForRegion:(id)arg1 selectedRegions:(id)arg2;
 - (void)cancel;

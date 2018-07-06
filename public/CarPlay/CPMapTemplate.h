@@ -12,13 +12,14 @@
 #import "CPMapClientTemplateDelegate.h"
 #import "CPNavigationAlertUpdating.h"
 
-@class CPMapTemplateConfiguration, CPNavigationAlert, NSArray, NSMutableArray, NSMutableDictionary, NSString;
+@class CPNavigationAlert, NSArray, NSMutableArray, NSMutableDictionary, NSString, UIColor;
 
 @interface CPMapTemplate : CPTemplate <CPMapButtonDelegate, CPMapClientTemplateDelegate, CPBannerDelegate, CPNavigationAlertUpdating, CPBarButtonProviding>
 {
     _Bool _automaticallyHidesNavigationBar;
     _Bool _hidesButtonsWithNavigationBar;
-    CPMapTemplateConfiguration *_configuration;
+    UIColor *_guidanceBackgroundColor;
+    unsigned long long _tripEstimateStyle;
     id <CPMapTemplateDelegate> _mapDelegate;
     CPNavigationAlert *_currentNavigationAlert;
     NSMutableDictionary *_postedBannerObjects;
@@ -36,7 +37,8 @@
 @property(nonatomic) __weak id <CPMapTemplateDelegate> mapDelegate; // @synthesize mapDelegate=_mapDelegate;
 @property(nonatomic) _Bool hidesButtonsWithNavigationBar; // @synthesize hidesButtonsWithNavigationBar=_hidesButtonsWithNavigationBar;
 @property(nonatomic) _Bool automaticallyHidesNavigationBar; // @synthesize automaticallyHidesNavigationBar=_automaticallyHidesNavigationBar;
-@property(readonly, nonatomic) CPMapTemplateConfiguration *configuration; // @synthesize configuration=_configuration;
+@property(nonatomic) unsigned long long tripEstimateStyle; // @synthesize tripEstimateStyle=_tripEstimateStyle;
+@property(retain, nonatomic) UIColor *guidanceBackgroundColor; // @synthesize guidanceBackgroundColor=_guidanceBackgroundColor;
 - (void).cxx_destruct;
 - (void)_updateBannerIfNecessaryForManeuver:(id)arg1 travelEstimates:(id)arg2;
 - (void)_postBannerIfNecessaryForNavigationAlert:(id)arg1;
@@ -78,11 +80,11 @@
 - (void)updateTravelEstimates:(id)arg1 forTrip:(id)arg2 withTimeRemainingColor:(unsigned long long)arg3;
 - (void)updateTravelEstimates:(id)arg1 forTrip:(id)arg2;
 - (void)hideTripPreviews;
+- (void)showRouteChoicesPreviewForTrip:(id)arg1 textConfiguration:(id)arg2;
 - (void)showTripPreviews:(id)arg1 textConfiguration:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
-- (id)initWithConfiguration:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

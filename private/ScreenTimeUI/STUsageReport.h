@@ -63,7 +63,7 @@
 - (unsigned long long)getPickupRateUntilDate:(id)arg1;
 - (unsigned long long)getNotificationRateUntilDate:(id)arg1;
 - (unsigned long long)getNotificationsForUsageItem:(id)arg1;
-- (id)topUsageItemsWithMaxCount:(unsigned long long)arg1 type:(unsigned long long)arg2 includeAggregateItem:(_Bool)arg3 nonAggregateItems:(id *)arg4;
+- (id)topUsageItemsWithMaxCount:(unsigned long long)arg1 type:(unsigned long long)arg2 includeAggregateItem:(_Bool)arg3 nonAggregateItems:(id *)arg4 darkColors:(_Bool)arg5;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

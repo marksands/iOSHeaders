@@ -11,7 +11,6 @@
     _Bool _showForYouSettingsAtTopLevel;
     _Bool _showMemories;
     _Bool _showSharedAlbumActivity;
-    _Bool _showSharedAlbumInbox;
     _Bool _showCMMSuggestions;
     _Bool _showCMMInvitations;
     _Bool _showEditSuggestions;
@@ -27,30 +26,30 @@
     _Bool _useMockData;
     _Bool _forceDisplayReportJunk;
     _Bool _navigateToActivityPost;
+    _Bool _showSharedAlbumActivityGadgetCaption;
     _Bool _forcePortraitBias;
+    _Bool _useSquareSharedAlbumActivity;
     _Bool _showInboxLastSeenDate;
     _Bool _delayEditRenders;
     _Bool _useCachedEditRenders;
     unsigned long long _maxSimultaneousVideoCount;
-    long long _effectTypeForStudioLight;
-    long long _effectTypeForAutoloop;
-    long long _effectTypeForLongExposure;
+    double _minimumVisibilityForVideoPlayback;
 }
 
 + (id)keyPathsAffectingGadgetVisibility;
 + (id)sharedInstance;
 + (id)settingsControllerModule;
-@property(nonatomic) long long effectTypeForLongExposure; // @synthesize effectTypeForLongExposure=_effectTypeForLongExposure;
-@property(nonatomic) long long effectTypeForAutoloop; // @synthesize effectTypeForAutoloop=_effectTypeForAutoloop;
-@property(nonatomic) long long effectTypeForStudioLight; // @synthesize effectTypeForStudioLight=_effectTypeForStudioLight;
 @property(nonatomic) _Bool useCachedEditRenders; // @synthesize useCachedEditRenders=_useCachedEditRenders;
 @property(nonatomic) _Bool delayEditRenders; // @synthesize delayEditRenders=_delayEditRenders;
 @property(nonatomic) _Bool showInboxLastSeenDate; // @synthesize showInboxLastSeenDate=_showInboxLastSeenDate;
+@property(nonatomic) _Bool useSquareSharedAlbumActivity; // @synthesize useSquareSharedAlbumActivity=_useSquareSharedAlbumActivity;
 @property(nonatomic) _Bool forcePortraitBias; // @synthesize forcePortraitBias=_forcePortraitBias;
+@property(nonatomic) _Bool showSharedAlbumActivityGadgetCaption; // @synthesize showSharedAlbumActivityGadgetCaption=_showSharedAlbumActivityGadgetCaption;
 @property(nonatomic) _Bool navigateToActivityPost; // @synthesize navigateToActivityPost=_navigateToActivityPost;
 @property(nonatomic) _Bool forceDisplayReportJunk; // @synthesize forceDisplayReportJunk=_forceDisplayReportJunk;
 @property(nonatomic) _Bool useMockData; // @synthesize useMockData=_useMockData;
 @property(nonatomic) _Bool showTapToRadar; // @synthesize showTapToRadar=_showTapToRadar;
+@property(nonatomic) double minimumVisibilityForVideoPlayback; // @synthesize minimumVisibilityForVideoPlayback=_minimumVisibilityForVideoPlayback;
 @property(nonatomic) unsigned long long maxSimultaneousVideoCount; // @synthesize maxSimultaneousVideoCount=_maxSimultaneousVideoCount;
 @property(nonatomic) _Bool allowGIFPlayback; // @synthesize allowGIFPlayback=_allowGIFPlayback;
 @property(nonatomic) _Bool allowLoopPlayback; // @synthesize allowLoopPlayback=_allowLoopPlayback;
@@ -63,7 +62,6 @@
 @property(nonatomic) _Bool showEditSuggestions; // @synthesize showEditSuggestions=_showEditSuggestions;
 @property(nonatomic) _Bool showCMMInvitations; // @synthesize showCMMInvitations=_showCMMInvitations;
 @property(nonatomic) _Bool showCMMSuggestions; // @synthesize showCMMSuggestions=_showCMMSuggestions;
-@property(nonatomic) _Bool showSharedAlbumInbox; // @synthesize showSharedAlbumInbox=_showSharedAlbumInbox;
 @property(nonatomic) _Bool showSharedAlbumActivity; // @synthesize showSharedAlbumActivity=_showSharedAlbumActivity;
 @property(nonatomic) _Bool showMemories; // @synthesize showMemories=_showMemories;
 @property(nonatomic) _Bool showForYouSettingsAtTopLevel; // @synthesize showForYouSettingsAtTopLevel=_showForYouSettingsAtTopLevel;

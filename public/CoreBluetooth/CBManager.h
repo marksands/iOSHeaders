@@ -23,6 +23,7 @@
 @property(nonatomic) long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
 - (id)peerWithInfo:(id)arg1;
+- (void)triggerBTErrorReport:(long long)arg1;
 - (void)xpcConnectionDidReceiveMsg:(unsigned short)arg1 args:(id)arg2;
 - (void)xpcConnectionIsInvalid;
 - (void)xpcConnectionDidReset;

@@ -28,7 +28,6 @@
 - (double)lastElapsedTime;
 - (unsigned long long)count;
 - (void)startTelemetryWithOSActivity:(id)arg1;
-- (id)_aggdPermittedStringWithString:(id)arg1;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 string:(id)arg2 family:(id)arg3;
 

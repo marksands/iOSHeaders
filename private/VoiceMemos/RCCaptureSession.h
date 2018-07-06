@@ -6,20 +6,25 @@
 
 #import "NSObject.h"
 
-#import "RCCaptureOutputWriterDelegate.h"
 #import "RCWaveformDataSourceObserver.h"
 
-@class NSDate, NSMutableOrderedSet, NSObject<OS_dispatch_group>, NSString, RCAVState, RCAudioSessionRoutingAssertion, RCCaptureInputDevice, RCCaptureInputWaveformDataSource, RCCaptureOutputWriter, SBSLockScreenContentAssertion;
+@class AVAudioEngine, AVAudioFile, AVURLAsset, NSDate, NSError, NSMutableOrderedSet, NSObject<OS_dispatch_group>, NSString, RCAVState, RCAudioSessionRoutingAssertion, RCCaptureInputDevice, RCCaptureInputWaveformDataSource, SBSLockScreenContentAssertion;
 
-@interface RCCaptureSession : NSObject <RCCaptureOutputWriterDelegate, RCWaveformDataSourceObserver>
+@interface RCCaptureSession : NSObject <RCWaveformDataSourceObserver>
 {
-    RCCaptureOutputWriter *_captureOutputWriter;
+    long long _writerState;
+    AVAudioEngine *_captureEngine;
+    AVAudioFile *_captureFile;
+    AVURLAsset *_capturedAsset;
+    NSError *_captureError;
+    double _storeDemoTimeLimit;
     unsigned long long _backgroundTaskIdentifier;
     NSObject<OS_dispatch_group> *_endCaptureTaskGroup;
     RCAudioSessionRoutingAssertion *_captureRouteAssertion;
     long long _sessionCaptureState;
     NSString *_sessionRouteName;
     NSDate *_captureStartDate;
+    double _beginCaptureTime;
     _Bool _handledFinishedCapturingAfterCompletionSound;
     _Bool _handlingDidFinishCapturing;
     _Bool _deleteCapturedOutWhenFinished;
@@ -27,14 +32,17 @@
     _Bool _captureBeginSoundEffectDisabled;
     _Bool _captureEndSoundEffectDisabled;
     NSMutableOrderedSet *_weakObservers;
+    double _lastDuration;
+    double _smoothedDuration;
+    double _smoothedCapturedEndTime;
     RCCaptureInputDevice *_inputDevice;
     RCCaptureInputWaveformDataSource *_captureWaveformDataSource;
-    SBSLockScreenContentAssertion *_assertion;
+    SBSLockScreenContentAssertion *_lockScreenAssertion;
 }
 
 + (void)playCaptureDidFinishSoundEffectWithCompletionBlock:(CDUnknownBlockType)arg1;
 + (void)playCaptureWillStartSoundEffectWithCompletionBlock:(CDUnknownBlockType)arg1;
-@property(retain, nonatomic) SBSLockScreenContentAssertion *assertion; // @synthesize assertion=_assertion;
+@property(retain, nonatomic) SBSLockScreenContentAssertion *lockScreenAssertion; // @synthesize lockScreenAssertion=_lockScreenAssertion;
 @property(readonly, nonatomic) RCCaptureInputWaveformDataSource *captureWaveformDataSource; // @synthesize captureWaveformDataSource=_captureWaveformDataSource;
 @property(readonly, nonatomic) RCCaptureInputDevice *inputDevice; // @synthesize inputDevice=_inputDevice;
 - (void).cxx_destruct;
@@ -45,6 +53,7 @@
 - (void)_deleteCaptureDestinationAndPostDidEndNotification:(id)arg1;
 - (void)_onMainQueueHandleCaptureDidFinishCapturingAfterCompletionSound;
 - (_Bool)_handleFinishWritingByRestartingCaptureForError:(id)arg1 testOnly:(_Bool)arg2;
+- (void)_handleCaptureSessionDidStartWritingToURL:(id)arg1;
 - (void)_handleCaptureSessionDidError:(id)arg1;
 - (void)_beginAVCapturingToDestinationInitiallyPaused:(_Bool)arg1;
 - (void)_setPostPrepareRequestedState:(long long)arg1;
@@ -54,6 +63,7 @@
 - (void)_captureInputDeviceRouteDidChangeNotification:(id)arg1;
 - (void)_captureInputDeviceAvailabilityDidChangeNotification:(id)arg1;
 - (void)captureOutputWriter:(id)arg1 didFinishWritingToOutputFileAtURL:(id)arg2 error:(id)arg3;
+- (void)_didFinishWritingToOutputFileAtURL:(id)arg1 error:(id)arg2;
 - (void)captureOutputWriter:(id)arg1 willFinishWritingToOutputFileAtURL:(id)arg2 error:(id)arg3;
 - (void)captureOutputWriter:(id)arg1 didResumeWritingToOutputFileAtURL:(id)arg2;
 - (void)captureOutputWriter:(id)arg1 didPauseWritingToOutputFileAtURL:(id)arg2;
@@ -62,9 +72,11 @@
 - (void)captureOutputWriter:(id)arg1 captureSessionDidTerminateWithError:(id)arg2;
 - (void)waveformDataSource:(id)arg1 didLoadWaveformSegment:(id)arg2;
 - (void)waveformDataSourceDidFinishLoading:(id)arg1;
+- (_Bool)updateObserversFromDisplayLink;
+- (double)smoothedDuration;
+- (double)smoothedCapturedEndTime;
 - (void)disableCaptureEndSoundEffect;
 - (void)disableCaptureBeginSoundEffect;
-@property(readonly) double storeDemoTimeLimit;
 @property(readonly, nonatomic) RCAVState *AVState;
 @property(readonly, nonatomic) _Bool isCaptureSessionFinished;
 - (_Bool)isCapturePaused;
@@ -75,10 +87,19 @@
 - (void)finishCapturing;
 - (void)resumeCapturing;
 - (_Bool)canResumeCapturingAtCompositionDestinationTime:(double)arg1;
+- (double)capturedEndTime;
 - (void)pauseCapturing;
 - (void)prepareToCaptureWithPreparedHandler:(CDUnknownBlockType)arg1;
 - (void)removeCaptureSessionObserver:(id)arg1;
 - (void)addCaptureSessionObserver:(id)arg1;
+@property(readonly, nonatomic) double captureTime;
+- (double)finalizedFragmentDuration;
+- (_Bool)unsaveableRecordingError;
+@property(nonatomic) double storeDemoTimeLimit;
+- (void)_endWriting;
+- (void)_resumeWriting;
+- (void)_pauseWriting;
+@property(readonly, nonatomic) long long _writerState;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithInputDevice:(id)arg1 captureWaveformDataSource:(id)arg2;

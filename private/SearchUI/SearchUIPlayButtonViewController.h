@@ -26,6 +26,7 @@
 + (id)localMediaItemForStoreIdentifiers:(id)arg1;
 + (id)font;
 + (_Bool)supportsResult:(id)arg1;
++ (void)initialize;
 @property struct CGSize captionLabelSize; // @synthesize captionLabelSize=_captionLabelSize;
 @property struct CGSize playButtonSize; // @synthesize playButtonSize=_playButtonSize;
 @property(retain) NSString *localMediaItemIdentifier; // @synthesize localMediaItemIdentifier=_localMediaItemIdentifier;

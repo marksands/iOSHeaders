@@ -8,7 +8,7 @@
 
 #import "VCUICreateVoiceShortcutViewControllerDelegate.h"
 
-@class NSArray, NSString, VCUIActionDonationCell, VCUIDonationMetadataCache;
+@class NSArray, NSString, VCUIActionDonationCell;
 
 @interface VCUIAppGalleryViewController : UITableViewController <VCUICreateVoiceShortcutViewControllerDelegate>
 {
@@ -19,11 +19,9 @@
     VCUIActionDonationCell *_prototypeCell;
     double _donationCellHeight;
     double _donationWithSubtitleCellHeight;
-    VCUIDonationMetadataCache *_metadataCache;
 }
 
 + (void)initialize;
-@property(retain, nonatomic) VCUIDonationMetadataCache *metadataCache; // @synthesize metadataCache=_metadataCache;
 @property(readonly, nonatomic) double donationWithSubtitleCellHeight; // @synthesize donationWithSubtitleCellHeight=_donationWithSubtitleCellHeight;
 @property(readonly, nonatomic) double donationCellHeight; // @synthesize donationCellHeight=_donationCellHeight;
 @property(retain, nonatomic) VCUIActionDonationCell *prototypeCell; // @synthesize prototypeCell=_prototypeCell;
@@ -44,7 +42,6 @@
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
-- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithApplicationBundleIdentifier:(id)arg1 query:(id)arg2;
 

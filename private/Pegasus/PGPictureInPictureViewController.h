@@ -68,6 +68,7 @@
 - (void)prepareStartAnimationWithInitialInterfaceOrientation:(long long)arg1 initialLayerFrame:(struct CGRect)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setPreferredContentSize:(struct CGSize)arg1;
 - (struct CGSize)preferredContentSize;
+@property(readonly, nonatomic) UIView *contentContainerView;
 - (void)loadView;
 - (void)setStashState:(long long)arg1 animated:(_Bool)arg2;
 - (void)hostedWindowSizeChangeEnded;

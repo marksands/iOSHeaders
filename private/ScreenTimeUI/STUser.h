@@ -8,28 +8,23 @@
 
 #import "NSCopying.h"
 
-@class NSNumber, NSString;
+@class NSManagedObjectID, NSNumber, NSString;
 
 @interface STUser : NSObject <NSCopying>
 {
     _Bool _screenTimeEnabled;
     _Bool _remoteUser;
     _Bool _hasAllowances;
-    _Bool _hasManagementSettings;
     unsigned long long _source;
     NSString *_name;
     NSNumber *_dsid;
     unsigned long long _type;
     NSString *_passcode;
+    NSManagedObjectID *_userObjectID;
 }
 
 + (id)keyPathsForValuesAffectingHasPasscode;
-+ (id)keyPathsForValuesAffectingCanStopSharingScreenTime;
-+ (id)keyPathsForValuesAffectingCanStopScreenTime;
-+ (id)keyPathsForValuesAffectingCanRemoveAllowances;
-+ (id)keyPathsForValuesAffectingCanRemovePasscode;
-+ (id)keyPathsForValuesAffectingCanTogglePasscode;
-@property(nonatomic) _Bool hasManagementSettings; // @synthesize hasManagementSettings=_hasManagementSettings;
+@property(copy, nonatomic) NSManagedObjectID *userObjectID; // @synthesize userObjectID=_userObjectID;
 @property(copy, nonatomic) NSString *passcode; // @synthesize passcode=_passcode;
 @property(nonatomic) _Bool hasAllowances; // @synthesize hasAllowances=_hasAllowances;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
@@ -40,13 +35,8 @@
 @property(nonatomic) unsigned long long source; // @synthesize source=_source;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool hasPasscode;
-@property(readonly, nonatomic) _Bool forceParentalControls;
-@property(readonly, nonatomic) _Bool canStopSharingScreenTime;
-@property(readonly, nonatomic) _Bool canStopScreenTime;
-@property(readonly, nonatomic) _Bool canRemoveAllowances;
-@property(readonly, nonatomic) _Bool canRemovePasscode;
-@property(readonly, nonatomic) _Bool canTogglePasscode;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithUser:(id)arg1;
 - (id)initWithPersonalUser:(id)arg1 familyUser:(id)arg2;
 - (id)init;
 

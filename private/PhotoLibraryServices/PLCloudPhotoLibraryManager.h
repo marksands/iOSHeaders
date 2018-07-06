@@ -35,8 +35,6 @@
     _Bool _pushOnIdle;
     _Bool _pullOnIdle;
     _Bool _modeChangePending;
-    unsigned long long _uploadCounterCheck;
-    unsigned long long _downloadCounterCheck;
     PLPhotoLibrary *_photoLibrary;
     CPLLibraryManager *_cplLibrary;
     _Bool _stopped;
@@ -204,7 +202,6 @@
 - (void)_unpause;
 - (void)setPause:(_Bool)arg1 reason:(short)arg2;
 - (void)_doUnpause;
-- (void)_setInInitialUploadMode:(_Bool)arg1;
 - (void)dealloc;
 - (void)_resetCPLLibrary;
 - (void)cplHasBackgroundDownloadOperationsWithCompletionHandler:(CDUnknownBlockType)arg1;

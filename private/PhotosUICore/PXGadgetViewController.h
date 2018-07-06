@@ -92,7 +92,7 @@
 @property(nonatomic) __weak id <PXGadgetDelegate> nextGadgetResponder;
 - (id)gridPresentation;
 - (id)oneUpPresentation;
-- (_Bool)gadget:(id)arg1 transitionToViewController:(struct NSObject *)arg2 animated:(_Bool)arg3;
+- (_Bool)gadget:(id)arg1 transitionToViewController:(struct NSObject *)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)gadget:(id)arg1 animateChanges:(CDUnknownBlockType)arg2;
 - (struct NSObject *)gadgetViewControllerHostingGadget:(id)arg1;
 - (void)gadget:(id)arg1 didChange:(unsigned long long)arg2;
@@ -143,6 +143,8 @@
 - (void)updateIfNeeded;
 - (void)_unregisterForPreview;
 - (void)_registerForPreview;
+- (void)navigateToAnchor;
+- (void)saveAnchor;
 - (void)performBlockAfterGadgetsLoadingCompletes:(CDUnknownBlockType)arg1;
 - (void)loadAllGadgets;
 - (id)gadgetAtLocation:(struct CGPoint)arg1 inCoordinateSpace:(id)arg2;
@@ -161,6 +163,7 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
+- (void)rootGadgetControllerDidAppear;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)_initializeDataSource;

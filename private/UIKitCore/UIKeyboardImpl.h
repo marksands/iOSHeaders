@@ -416,7 +416,7 @@
 - (void)updateCandidateDisplay;
 - (_Bool)needsToDeferUpdateTextCandidateView;
 - (void)updateCandidateDisplayAsyncWithCandidateSet:(id)arg1;
-- (void)_conditionallyNotifyPredictionsAreAvailableForCandidates:(id)arg1;
+- (void)_conditionallyNotifyPredictionsAreAvailableForCandidates:(id)arg1 containingProactiveTriggers:(_Bool)arg2;
 - (_Bool)displaysCandidates;
 - (void)setCandidateList:(id)arg1;
 - (void)pushAutocorrections:(id)arg1 requestToken:(id)arg2;
@@ -672,6 +672,7 @@
 - (_Bool)callShouldReplaceExtendedRange:(long long)arg1 withText:(id)arg2 includeMarkedText:(_Bool)arg3;
 - (_Bool)callShouldInsertText:(id)arg1 onDelegate:(id)arg2;
 - (_Bool)callShouldInsertText:(id)arg1;
+- (void)_keyboardOutputToRTISourceSession:(CDUnknownBlockType)arg1;
 - (void)inputSession:(id)arg1 documentStateDidChange:(id)arg2;
 - (void)inputSession:(id)arg1 documentTraitsDidChange:(id)arg2;
 - (void)didClearText;
@@ -812,8 +813,10 @@
 - (void)removeASPVisualEffectsIfNecessary:(id)arg1;
 - (void)clearAutofillGroup;
 - (_Bool)isMemberOfPossibleAutofillGroup:(id)arg1;
-- (_Bool)delegateAlreadyInPossibleAutofillGroup;
+- (_Bool)isMemberOfAutofillGroup:(id)arg1;
+- (_Bool)delegateAlreadyInAutofillGroup;
 - (long long)needAutofillCandidate:(id)arg1;
+- (_Bool)preferFallbackAutofillGroup;
 - (void)setPendingAutofillIndex:(long long)arg1;
 - (void)refreshAutofillModeIfNecessary;
 - (void)generateAutofillCandidate;
@@ -836,6 +839,9 @@
 - (void)setCapsLockIfNeeded;
 - (void)setCapsLockSign;
 @property(nonatomic) _Bool hardwareKeyboardIsSeen;
+- (_Bool)_containsUsernamePasswordPairsInAutofillGroup:(id)arg1;
+- (id)_fallbackAutofillGroup;
+- (id)_autofillGroup;
 - (void)_setAutofillGroup:(id)arg1;
 - (void)_clearAutofillGroup;
 - (long long)_needAutofillCandidate:(id)arg1;
@@ -859,6 +865,7 @@
 - (void)endAllowingRemoteTextInput:(id)arg1;
 - (void)beginAllowingRemoteTextInput:(id)arg1;
 - (void)_createRTIClientIfNecessary;
+- (_Bool)isRTIClient;
 - (void)_showAutofillExtras;
 - (_Bool)shouldLoadAutofillSignUpInputViewController;
 - (id)_passwordRules;

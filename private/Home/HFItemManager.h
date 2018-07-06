@@ -16,14 +16,14 @@
 #import "HFResidentDeviceObserver.h"
 #import "HFSoftwareUpdateControllerObserver.h"
 #import "HFSoftwareUpdateObserver.h"
-#import "HFStateDumpSerializable.h"
+#import "HFStateDumpBuildable.h"
 #import "HFSymptomsHandlerObserver.h"
 #import "HFTemperatureUnitObserver.h"
 #import "HFUserObserver.h"
 
 @class HFItem, HFItemManagerBatchedDelegateAdapter, HMHome, NAFuture, NSArray, NSMapTable, NSMutableDictionary, NSMutableSet, NSSet, NSString;
 
-@interface HFItemManager : NSObject <HFStateDumpSerializable, HFHomeManagerObserver, HFHomeObserver, HFAccessoryObserver, HFResidentDeviceObserver, HFCameraObserver, HFMediaSessionObserver, HFMediaObjectObserver, HFSoftwareUpdateControllerObserver, HFSoftwareUpdateObserver, HFSymptomsHandlerObserver, HFUserObserver, HFTemperatureUnitObserver, HFItemUpdating>
+@interface HFItemManager : NSObject <HFStateDumpBuildable, HFHomeManagerObserver, HFHomeObserver, HFAccessoryObserver, HFResidentDeviceObserver, HFCameraObserver, HFMediaSessionObserver, HFMediaObjectObserver, HFSoftwareUpdateControllerObserver, HFSoftwareUpdateObserver, HFSymptomsHandlerObserver, HFUserObserver, HFTemperatureUnitObserver, HFItemUpdating>
 {
     _Bool _hasRequestedFirstUpdate;
     id <HFItemManagerDelegate> _delegate;
@@ -187,7 +187,7 @@
 - (id)initWithDelegate:(id)arg1 sourceItem:(id)arg2;
 - (id)initWithDelegate:(id)arg1;
 - (id)init;
-- (id)hf_serializedStateDumpRepresentation;
+- (id)hf_stateDumpBuilderWithContext:(id)arg1;
 - (id)_debug_itemDescriptions;
 - (id)_debug_itemProviderDescriptions;
 - (void)_debug_registerForStateDump;

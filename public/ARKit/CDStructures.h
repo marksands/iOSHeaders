@@ -273,16 +273,6 @@ typedef struct {
     long long epoch;
 } CDStruct_1b6d18a9;
 
-typedef struct {
-    long long state;
-    long long reason;
-    _Bool majorRelocalization;
-    _Bool minorRelocalization;
-    _Bool poseGraphUpdated;
-    int vioTrackingState;
-    double lastMajorRelocalizationTimestamp;
-} CDStruct_fad22f05;
-
 typedef struct CDStruct_183601bc;
 
 // Template types

@@ -17,7 +17,7 @@
 
 - (void).cxx_destruct;
 - (id)finish;
-- (void)recordPrediction:(id)arg1 totalScore:(float)arg2 scoreInputs:(float *)arg3;
+- (void)recordPrediction:(id)arg1 totalScore:(float)arg2 scoreInputs:(const float *)arg3;
 - (id)init;
 - (id)initWithABGroup:(id)arg1 assetVersion:(long long)arg2;
 

@@ -56,7 +56,7 @@ __attribute__((visibility("hidden")))
 - (void)invalidate;
 @property(readonly, copy, nonatomic) VUIMediaEntityType *mediaEntityType;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *completionDispatchQueue; // @synthesize completionDispatchQueue=_completionDispatchQueue;
-@property(retain, nonatomic) id <VUIMediaEntityAssetControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <VUIMediaEntityAssetControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)init;
 - (id)initWithMediaItemCollection:(id)arg1 mediaEntityIdentifier:(id)arg2 serialProcessingDispatchQueue:(id)arg3;
 

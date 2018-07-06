@@ -8,7 +8,7 @@
 
 #import "CoreTelephonyClientSubscriberDelegate.h"
 
-@class CHManager, CoreTelephonyClient, NSString, PSSpecifier, PSUIAppCellularUsageExtensionGroup, PSUICarrierItemGroup, PSUICellularDataPlanDetailGroup, PSUICellularDataPlanListGroup, PSUICellularDataPlanSetupGroup, PSUISubscriptionContextMenusGroup;
+@class CHManager, CoreTelephonyClient, NSString, PSSpecifier, PSUIAppCellularUsageExtensionGroup, PSUICarrierItemGroup, PSUICellularDataOptionsController, PSUICellularDataPlanDetailGroup, PSUICellularDataPlanListGroup, PSUICellularDataPlanSetupGroup, PSUISubscriptionContextMenusGroup;
 
 @interface PSUICellularController : PSListController <CoreTelephonyClientSubscriberDelegate>
 {
@@ -22,6 +22,7 @@
     PSSpecifier *_lastResetSpecifier;
     _Bool _ignoreNextEntitlementStatusChange;
     PSSpecifier *_personalHotspotSpecifier;
+    PSUICellularDataOptionsController *_cellularDataOptionsController;
     PSUICellularDataPlanSetupGroup *_cellularDataPlanSetupGroup;
     PSUICellularDataPlanListGroup *_cellularDataPlanListGroup;
     PSUICellularDataPlanDetailGroup *_cellularDataPlanDetailGroup;
@@ -40,6 +41,7 @@
 @property(retain, nonatomic) PSUICellularDataPlanDetailGroup *cellularDataPlanDetailGroup; // @synthesize cellularDataPlanDetailGroup=_cellularDataPlanDetailGroup;
 @property(retain, nonatomic) PSUICellularDataPlanListGroup *cellularDataPlanListGroup; // @synthesize cellularDataPlanListGroup=_cellularDataPlanListGroup;
 @property(retain, nonatomic) PSUICellularDataPlanSetupGroup *cellularDataPlanSetupGroup; // @synthesize cellularDataPlanSetupGroup=_cellularDataPlanSetupGroup;
+@property(retain, nonatomic) PSUICellularDataOptionsController *cellularDataOptionsController; // @synthesize cellularDataOptionsController=_cellularDataOptionsController;
 - (void).cxx_destruct;
 - (void)clearStats:(id)arg1;
 - (void)_updateLastResetText;
@@ -81,6 +83,7 @@
 - (id)specifiers;
 - (id)_deadTelephonySpecifiers;
 - (void)learnMoreLinkTapped;
+- (void)reloadSpecifiers;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
 - (id)init;

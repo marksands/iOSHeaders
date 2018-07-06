@@ -6,18 +6,27 @@
 
 #import <CarPlaySupport/CPSManeuverView.h>
 
-@class CPSAbridgableLabel;
+@class CPManeuver, CPSAbridgableLabel, UIImageView;
 
 @interface CPSPrimaryManeuverView : CPSManeuverView
 {
     CPSAbridgableLabel *_distanceLabel;
+    UIImageView *_symbolView;
+    CPManeuver *_maneuver;
+    CPSAbridgableLabel *_titleLabel;
+    CPSAbridgableLabel *_instructionLabel;
 }
 
+@property(retain, nonatomic) CPSAbridgableLabel *instructionLabel; // @synthesize instructionLabel=_instructionLabel;
+@property(retain, nonatomic) CPSAbridgableLabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(retain, nonatomic) CPManeuver *maneuver; // @synthesize maneuver=_maneuver;
+@property(retain, nonatomic) UIImageView *symbolView; // @synthesize symbolView=_symbolView;
 @property(readonly, nonatomic) CPSAbridgableLabel *distanceLabel; // @synthesize distanceLabel=_distanceLabel;
 - (void).cxx_destruct;
 - (void)setCurrentTravelEstimates:(id)arg1;
 - (id)_formattedDistance;
-- (id)initWithManeuver:(id)arg1 minimalMode:(_Bool)arg2 style:(long long)arg3 backgroundColor:(id)arg4;
+- (id)initWithManeuver:(id)arg1 minimalMode:(_Bool)arg2 style:(long long)arg3;
+- (void)backgroundColorDidChange;
 
 @end
 

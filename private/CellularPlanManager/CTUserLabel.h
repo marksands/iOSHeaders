@@ -22,6 +22,8 @@
 @property(readonly, nonatomic) NSString *label; // @synthesize label=_label;
 - (void).cxx_destruct;
 - (id)description;
+- (id)_labelKeyDescription;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

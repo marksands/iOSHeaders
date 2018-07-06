@@ -50,7 +50,7 @@
 - (void)performObserversWork:(CDUnknownBlockType)arg1;
 - (void)performSyncWorkWithRecords:(CDUnknownBlockType)arg1;
 - (_Bool)areRecordsLoaded;
-- (id)initWithRecordStore:(id)arg1 fetchRequest:(id)arg2 callbackQueue:(id)arg3 environment:(id)arg4;
+- (id)initWithRecordStore:(id)arg1 fetchRequest:(id)arg2 callbackQueue:(id)arg3 logger:(id)arg4;
 - (id)initWithRecordStore:(id)arg1 fetchRequest:(id)arg2;
 
 // Remaining properties

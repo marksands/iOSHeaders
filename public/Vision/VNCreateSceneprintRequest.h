@@ -17,8 +17,8 @@
 
 + (void)recordDefaultOptionsInDictionary:(id)arg1;
 + (Class)configurationClass;
-+ (id)_imageAnalyzerMultiDetectorForRevision:(unsigned long long)arg1 detectionLevel:(unsigned long long)arg2 processingDevice:(id)arg3 error:(id *)arg4;
-+ (id)_sceneClassifierForRevision:(unsigned long long)arg1 error:(id *)arg2;
++ (id)_imageAnalyzerMultiDetectorForRevision:(unsigned long long)arg1 detectionLevel:(unsigned long long)arg2 processingDevice:(id)arg3 requestBackingStore:(unsigned long long)arg4 error:(id *)arg5;
++ (id)_sceneClassifierForRevision:(unsigned long long)arg1 requestBackingStore:(unsigned long long)arg2 error:(id *)arg3;
 + (const CDStruct_7d93034e *)revisionAvailability;
 - (void).cxx_destruct;
 - (_Bool)internalCancelInContext:(id)arg1 error:(id *)arg2;

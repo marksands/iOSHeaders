@@ -45,11 +45,13 @@
 - (id)effectiveMarketingProductNumber;
 - (id)loggingProductType;
 - (id)effectiveProductType;
+@property(readonly, nonatomic) NSString *variantIdentifier;
 @property(readonly, nonatomic) NSString *stringIdentifier;
 - (id)initWithProductType:(id)arg1 additionalQueryParameters:(id)arg2;
 - (id)initWithBluetoothProductIdentifier:(unsigned long long)arg1 color:(unsigned long long)arg2 engagement:(_Bool)arg3;
 - (id)initWithHomePodColor:(unsigned long long)arg1;
 - (id)initWithWatchProductType:(id)arg1 marketingProductNumber:(id)arg2;
+- (id)initWithPhoneCaseProductType:(id)arg1 color:(id)arg2;
 - (id)initWithPhoneProductType:(id)arg1 colorHousing:(id)arg2 colorCoverGlass:(id)arg3;
 - (id)initWithProductType:(id)arg1;
 

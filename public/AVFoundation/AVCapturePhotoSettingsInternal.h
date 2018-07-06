@@ -36,6 +36,7 @@
     NSArray *livePhotoMovieMetadataForOriginalPhoto;
     NSDictionary *previewPhotoFormat;
     NSDictionary *embeddedThumbnailPhotoFormat;
+    NSDictionary *rawEmbeddedThumbnailPhotoFormat;
     _Bool squareCropEnabled;
     _Bool turboModeEnabled;
     _Bool burstQualityCaptureEnabled;

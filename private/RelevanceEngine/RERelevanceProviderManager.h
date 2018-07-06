@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSHashTable, NSObject<OS_dispatch_queue>, NSString, REFeatureSet, REPriorityQueue, RERelevanceProviderEnvironment, REUpNextTimer;
+@class NSArray, NSDictionary, NSHashTable, NSObject<OS_dispatch_queue>, NSString, REFeatureSet, REPriorityQueue, RERelevanceProviderEnvironment, REUpNextTimer;
 
 @interface RERelevanceProviderManager : NSObject
 {
@@ -15,13 +15,11 @@
     REPriorityQueue *_scheduledUpdates;
     REUpNextTimer *_updateTimer;
     NSArray *_effectiveFeatures;
+    NSDictionary *_inflectionValues;
     _Bool _dataStoresOpened;
     NSObject<OS_dispatch_queue> *_relevanceQueue;
-    NSObject<OS_dispatch_queue> *_highPriorityQueue;
-    NSObject<OS_dispatch_queue> *_defaultPriorityQueue;
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSString *_loggingHeader;
-    int _boostCount;
     REFeatureSet *_supportedFeatures;
 }
 
@@ -58,6 +56,7 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)_isValidProvider:(id)arg1;
+- (void)enumerateInflectionFeatureValues:(CDUnknownBlockType)arg1;
 @property(nonatomic) __weak RERelevanceProviderEnvironment *environment;
 - (void)relevanceForHistoricProvider:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)isProviderHistoric:(id)arg1 completion:(CDUnknownBlockType)arg2;

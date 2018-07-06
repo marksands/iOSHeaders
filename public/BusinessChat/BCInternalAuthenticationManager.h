@@ -18,11 +18,13 @@
 @property(retain, nonatomic) BCInternalAuthenticationRequest *authenticationRequest; // @synthesize authenticationRequest=_authenticationRequest;
 - (void).cxx_destruct;
 - (id)labelCategory;
+- (id)deviceSerialNumber;
 @property(readonly, nonatomic) long long state;
 @property(readonly, copy, nonatomic) NSString *action;
 @property(readonly, copy, nonatomic) NSString *subtitle;
 @property(readonly, copy, nonatomic) NSString *title;
 @property(readonly, nonatomic) _Bool isUserSignedIn;
+- (id)personIdentifier;
 @property(readonly, copy, nonatomic) NSString *lastName;
 @property(readonly, copy, nonatomic) NSString *middleName;
 @property(readonly, copy, nonatomic) NSString *firstName;

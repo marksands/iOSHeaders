@@ -143,8 +143,6 @@
 - (void)didUpdateDefaultPaymentPassWithUniqueIdentifier:(id)arg1;
 - (void)paymentDeviceDidBecomeUnavailable;
 - (void)paymentDeviceDidBecomeAvailable;
-- (void)paymentDeviceDidLeaveRestrictedMode;
-- (void)paymentDeviceDidEnterRestrictedMode;
 - (void)_cancelSuspendedTransition;
 - (void)_resumeSuspendedTransition;
 - (void)_suspendTransition;

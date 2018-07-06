@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (double)fontSizeForSingleLineLayout;
++ (double)predictionCellTopPadding;
 @property(nonatomic) _Bool isEmoji; // @synthesize isEmoji=_isEmoji;
 @property(nonatomic) long long candidateType; // @synthesize candidateType=_candidateType;
 @property(nonatomic) unsigned int slotID; // @synthesize slotID=_slotID;

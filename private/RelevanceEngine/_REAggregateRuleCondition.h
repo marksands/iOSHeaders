@@ -23,6 +23,7 @@
 - (unsigned long long)hash;
 - (_Bool)_acceptsLeftFeatureMap:(id)arg1 rightFeatureMap:(id)arg2;
 - (_Bool)_acceptsFeatureMap:(id)arg1;
+- (id)_inflectionFeatureValuePairs;
 - (_Bool)_validForRanking;
 - (_Bool)_requiresTwoFeatures;
 - (id)_notCondition;

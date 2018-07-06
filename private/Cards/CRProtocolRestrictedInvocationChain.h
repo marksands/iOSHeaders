@@ -17,6 +17,7 @@
 
 @property(retain, nonatomic) Protocol *restrictingProtocol; // @synthesize restrictingProtocol=_restrictingProtocol;
 - (void).cxx_destruct;
+- (_Bool)_selector:(SEL)arg1 isPartOfProtocol:(id)arg2;
 - (_Bool)_selectorIsPartOfRestrictingProtocol:(SEL)arg1;
 - (_Bool)isEligibleForSelector:(SEL)arg1;
 - (_Bool)invocationChain:(id)arg1 shouldForwardInvocation:(id)arg2 toTarget:(id)arg3;

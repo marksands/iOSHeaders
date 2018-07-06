@@ -14,10 +14,8 @@
     NSDate *_lastLaunchAttempt;
     NSString *_clientBundleIdentifier;
     NSDictionary *_payloadOptions;
-    CDUnknownBlockType _clientResumeDidFailHandler;
 }
 
-@property(copy, nonatomic) CDUnknownBlockType clientResumeDidFailHandler; // @synthesize clientResumeDidFailHandler=_clientResumeDidFailHandler;
 @property(readonly, copy, nonatomic) NSDictionary *payloadOptions; // @synthesize payloadOptions=_payloadOptions;
 @property(readonly, copy, nonatomic) NSString *clientBundleIdentifier; // @synthesize clientBundleIdentifier=_clientBundleIdentifier;
 @property(copy, nonatomic) NSDate *lastLaunchAttempt; // @synthesize lastLaunchAttempt=_lastLaunchAttempt;

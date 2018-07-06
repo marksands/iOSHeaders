@@ -115,7 +115,6 @@
 + (id)sharingPersonID;
 + (_Bool)sharedStreamsExplictlyDisabled;
 + (_Bool)sharedStreamsEnabled;
-+ (_Bool)sharedStreamsUIEnabled;
 + (void)clearCachedAccountState;
 + (void)photosPreferencesChanged;
 + (void)accountSettingsChanged;

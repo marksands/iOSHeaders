@@ -70,11 +70,13 @@
 - (void)removeSampleObserver:(id)arg1;
 - (void)addSampleObserver:(id)arg1;
 - (id)currentMetadata;
+- (id)currentStatisticsByQuantityType;
 - (void)_updateStatisticsPauseResumeMask;
 - (id)_lock_maskedIntervalsForStatisticsOfType:(id)arg1;
 - (void)_didUpdateStatistics:(id)arg1;
 - (id)_lock_statisticsDataSourceForQuantityType:(id)arg1;
 - (id)_lock_sourceOrderProviderForQuantityType:(id)arg1;
+- (id)_lock_statisticsCalculatorForQuantityType:(id)arg1 mergeStrategy:(unsigned long long)arg2;
 - (id)_lock_statisticsCalculatorForQuantityType:(id)arg1;
 - (id)_lock_updateStatisticsWithSamples:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (void)_attemptRequeryForInvalidatedStatisticsCalculators;
@@ -89,6 +91,7 @@
 - (_Bool)_endCollectionWithEndDate:(id)arg1 error:(id *)arg2;
 - (void)_didUpdateMetadata:(id)arg1;
 - (_Bool)_addMetadata:(id)arg1 error:(id *)arg2;
+- (void)remote_setStatisticsMergeStrategy:(unsigned long long)arg1 forType:(id)arg2;
 - (void)remote_updateDevice:(id)arg1;
 - (void)remote_recoverWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_discardWorkout;

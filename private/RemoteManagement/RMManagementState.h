@@ -13,18 +13,20 @@
     _Bool _cachedShouldRequestMoreTime;
     _Bool _cachedIsRestrictionsPasscodeSet;
     NSXPCConnection *_connection;
+    NSXPCConnection *_askForTimeConnection;
 }
 
+@property(retain, nonatomic) NSXPCConnection *askForTimeConnection; // @synthesize askForTimeConnection=_askForTimeConnection;
 @property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 @property _Bool cachedIsRestrictionsPasscodeSet; // @synthesize cachedIsRestrictionsPasscodeSet=_cachedIsRestrictionsPasscodeSet;
 @property _Bool cachedShouldRequestMoreTime; // @synthesize cachedShouldRequestMoreTime=_cachedShouldRequestMoreTime;
 - (void).cxx_destruct;
 - (void)screenTimeSyncStateWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)setScreenTimeEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)screenTimeStateCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)isRestrictionsPasscodeSetWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)screenTimeStateWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)isRestrictionsPasscodeSet:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) _Bool isRestrictionsPasscodeSet;
-- (void)shouldRequestMoreTimeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)shouldRequestMoreTime:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) _Bool shouldRequestMoreTime;
 - (id)init;

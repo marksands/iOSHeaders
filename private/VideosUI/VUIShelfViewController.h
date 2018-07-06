@@ -36,7 +36,9 @@ __attribute__((visibility("hidden")))
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (id)indexPathForPreferredFocusedViewInCollectionView:(id)arg1;
 - (void)viewWillLayoutSubviews;
+- (void)updateContentOffsetWithTransitionCoordinator:(id)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (void)didMoveToParentViewController:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;

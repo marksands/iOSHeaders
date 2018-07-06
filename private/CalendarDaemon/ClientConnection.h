@@ -67,7 +67,7 @@
 @property(readonly, nonatomic) NSString *changeTrackingID;
 - (void)closeDatabase;
 - (void)dealloc;
-- (void)invalidate;
+- (void)handleDatabaseChanged;
 - (void)_initAccountAccessHandler;
 - (id)initWithXPCConnection:(id)arg1;
 

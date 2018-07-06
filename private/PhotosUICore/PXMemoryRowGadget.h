@@ -22,18 +22,18 @@
     id <PXGadgetDelegate> _delegate;
     PXMemoriesFeedWidgetDataSourceManager *_dataSourceManager;
     NSMutableDictionary *_viewControllerEntries;
-    unsigned long long _currentVisibility;
+    long long _currentVisibility;
     id <PXUIViewControllerZoomTransitionEndPoint> _currentTransitionEndPoint;
     unsigned long long _currentNumberOfColumns;
 }
 
-+ (unsigned long long)numberOfColumnsForCurrentVisibility:(unsigned long long)arg1 rowType:(unsigned long long)arg2 numberOfMemories:(unsigned long long)arg3;
-+ (unsigned long long)visibilityForGadgetSpec:(id)arg1 numberOfMemories:(unsigned long long)arg2;
-+ (struct _NSRange)dataSourceRangeForRowType:(unsigned long long)arg1 currentVisibility:(unsigned long long)arg2;
++ (unsigned long long)numberOfColumnsForCurrentVisibility:(long long)arg1 rowType:(unsigned long long)arg2 numberOfMemories:(unsigned long long)arg3;
++ (long long)visibilityForGadgetSpec:(id)arg1 numberOfMemories:(unsigned long long)arg2;
++ (struct _NSRange)dataSourceRangeForRowType:(unsigned long long)arg1 currentVisibility:(long long)arg2;
 @property(nonatomic) _Bool hasAppeared; // @synthesize hasAppeared=_hasAppeared;
 @property(nonatomic) unsigned long long currentNumberOfColumns; // @synthesize currentNumberOfColumns=_currentNumberOfColumns;
 @property(retain, nonatomic) id <PXUIViewControllerZoomTransitionEndPoint> currentTransitionEndPoint; // @synthesize currentTransitionEndPoint=_currentTransitionEndPoint;
-@property(nonatomic) unsigned long long currentVisibility; // @synthesize currentVisibility=_currentVisibility;
+@property(nonatomic) long long currentVisibility; // @synthesize currentVisibility=_currentVisibility;
 @property(retain, nonatomic) NSMutableDictionary *viewControllerEntries; // @synthesize viewControllerEntries=_viewControllerEntries;
 @property(readonly, nonatomic) PXMemoriesFeedWidgetDataSourceManager *dataSourceManager; // @synthesize dataSourceManager=_dataSourceManager;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
@@ -42,10 +42,12 @@
 - (void).cxx_destruct;
 - (long long)_columnSpanForRowType:(unsigned long long)arg1;
 - (struct CGRect)_frameForRowType:(unsigned long long)arg1 inRect:(struct CGRect)arg2;
+- (_Bool)_shouldPageForRowType:(unsigned long long)arg1;
+- (void)_updateScrollingBehaviorForRowType:(unsigned long long)arg1;
 - (void)_removeViewControllerEntryForRowType:(unsigned long long)arg1;
-- (void)_refreshViewControllerForRowType:(unsigned long long)arg1 visibility:(unsigned long long)arg2;
+- (void)_refreshViewControllerForRowType:(unsigned long long)arg1 visibility:(long long)arg2;
 - (void)_fillViewControllerEntryForRowType:(unsigned long long)arg1;
-- (void)_transitionFromCurrentVisibility:(unsigned long long)arg1 toNewVisibility:(unsigned long long)arg2;
+- (void)_transitionFromCurrentVisibility:(long long)arg1 toNewVisibility:(long long)arg2;
 - (id)px_endPointForTransition:(id)arg1;
 - (_Bool)px_canPerformZoomTransitionWithDetailViewController:(id)arg1;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
@@ -63,6 +65,7 @@
 @property(readonly, nonatomic) unsigned long long accessoryButtonType;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) _Bool hasContentToDisplay;
+- (void)_updateScrollingBehaviorIfNeeded;
 - (void)_updateNumberOfColumnsIfNeeded;
 - (void)_updateVisibilityIfNeeded;
 - (void)_dismissIfNeeded;

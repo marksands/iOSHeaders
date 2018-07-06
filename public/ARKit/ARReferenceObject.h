@@ -47,6 +47,7 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
+- (id)referenceObjectByMergingObject:(id)arg1 error:(id *)arg2;
 -     // Error parsing type: @80@0:8{?=[4]}16, name: referenceObjectByApplyingTransform:
 - (_Bool)exportObjectToURL:(id)arg1 previewImage:(id)arg2 error:(id *)arg3;
 - (id)initWithArchiveURL:(id)arg1 error:(id *)arg2;

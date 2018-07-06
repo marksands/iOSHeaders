@@ -76,6 +76,7 @@
 - (id)additionalAdServingDaemonLaunchOptions;
 - (_Bool)shouldConnectToAdServingDaemon;
 - (id)_linkedOnVersion;
+- (void)establishRPCConnection;
 - (id)init;
 - (void)dealloc;
 

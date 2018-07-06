@@ -14,6 +14,7 @@
     NSDictionary *_ANY;
 }
 
++ (id)buildRequiredOnlyWithCode:(id)arg1;
 + (id)buildWithCode:(id)arg1;
 + (id)allowedKeys;
 @property(copy, nonatomic) NSDictionary *ANY; // @synthesize ANY=_ANY;

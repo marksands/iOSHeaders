@@ -9,6 +9,7 @@
 @class NSString;
 
 @protocol PGPersonResult <NSObject>
+@property(readonly, nonatomic) _Bool isVerified;
 @property(readonly, nonatomic) NSString *keywordDescription;
 @property(readonly, nonatomic) NSString *contactIdentifier;
 @property(readonly, nonatomic) NSString *localIdentifier;

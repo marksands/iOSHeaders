@@ -29,8 +29,8 @@
 - (id)_locationsForSampleUUID:(id)arg1 error:(id *)arg2;
 - (_Bool)_containsWorkoutObject:(id)arg1 error:(id *)arg2;
 - (_Bool)_deleteSample:(id)arg1 error:(id *)arg2;
-- (_Bool)_workoutExistsForSample:(id)arg1;
 - (id)_createWorkoutRouteWithMetadata:(id)arg1 sourceEntity:(id)arg2 locations:(id)arg3 error:(id *)arg4;
+- (_Bool)_queue_insertInitialMetadataForRoute:(id)arg1 syncIdentifier:(id)arg2 error:(id *)arg3;
 - (void)_finishSmoothingSample;
 - (id)_queue_createNewSeriesFromTask:(id)arg1 locations:(id)arg2 error:(id *)arg3;
 - (void)_queue_saveLocations:(id)arg1 forTask:(id)arg2 smoothingError:(id)arg3;

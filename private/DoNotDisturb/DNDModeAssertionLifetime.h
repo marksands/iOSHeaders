@@ -15,8 +15,8 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)lifetimeForUserRequest;
-+ (id)lifetimeWithCalendarEventIdentifier:(id)arg1;
-+ (id)lifetimeUntilEndOfCalendarEventWithIdentifier:(id)arg1;
++ (id)lifetimeWithCalendarEventUniqueID:(id)arg1 occurrenceDate:(id)arg2;
++ (id)lifetimeUntilEndOfCalendarEventWithUniqueID:(id)arg1 occurrenceDate:(id)arg2;
 + (id)lifetimeWithDateInterval:(id)arg1;
 + (id)lifetimeWithCurrentLocation;
 + (id)lifetimeWithDuration:(double)arg1;

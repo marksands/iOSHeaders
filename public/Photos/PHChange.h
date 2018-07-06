@@ -15,7 +15,6 @@
     NSSet *_deletedObjectIDs;
     NSDictionary *_changedAttributesByOID;
     NSDictionary *_changedRelationshipsByOID;
-    NSDictionary *_deletedUuidsByObjectId;
     NSMutableDictionary *_updatedObjectsChangedAttributesByEntityName;
     NSMutableDictionary *_updatedObjectsChangedRelationshipsByEntityName;
     NSArray *_changedObjectIDsArray;
@@ -24,14 +23,18 @@
     NSObject<OS_dispatch_queue> *_changeDetailIsolation;
     NSMapTable *_changeHandlingMap;
     _Bool _unknownMergeEvent;
-    NSManagedObjectContext *_context;
     NSMutableDictionary *_objectIDsByLocalIdentifier;
+    NSManagedObjectContext *_context;
+    NSDictionary *_deletedUuidsByObjectId;
     PHPersistentChangeToken *_changeToken;
 }
 
++ (id)mergePersistedChanges:(id)arg1;
 + (id)handlerQueue;
 + (void)pl_simulateChangeWithAssetContainerList:(id)arg1 handler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) PHPersistentChangeToken *changeToken; // @synthesize changeToken=_changeToken;
+@property(readonly, nonatomic) NSDictionary *deletedUuidsByObjectId; // @synthesize deletedUuidsByObjectId=_deletedUuidsByObjectId;
+@property(readonly, nonatomic) NSManagedObjectContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (id)_formatEncodedDictionary:(id)arg1 withDecodeBlock:(CDUnknownBlockType)arg2;
 - (id)_formatedDeletedUUidsByObjectId;

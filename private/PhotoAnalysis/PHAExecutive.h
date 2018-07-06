@@ -21,6 +21,7 @@
     NSMutableArray *_processingLog;
     PHAActivityLog *_currentLog;
     struct os_unfair_lock_s _connectedClientsLock;
+    _Bool _shouldDeferActivity;
     unsigned char _state;
     NSMutableSet *_clients;
     NSMutableDictionary *_managersByLibraryPath;
@@ -45,6 +46,7 @@
 - (void)_registerBackgroundActivity;
 - (void)_installBackgroundAnalysisMonitor;
 - (void)_stopAllBackgroundAnalysisWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_startBackgroundAnalysis;
 - (void)handleOperation:(id)arg1;
 - (void)photoLibraryDidBecomeUnavailable:(id)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;

@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)filterDonationsForTitleLength:(id)arg1;
++ (id)filterDonations:(id)arg1 forApplicationBundleIdentifier:(id)arg2;
 + (_Bool)shouldFilterDonationsForAppWithApplicationBundleIdentifier:(id)arg1;
 + (id)isEligibleForPredictionPredicate;
 + (id)donationWithUUID:(id)arg1;

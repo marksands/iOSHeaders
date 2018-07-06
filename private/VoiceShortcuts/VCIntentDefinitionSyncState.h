@@ -8,10 +8,11 @@
 
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
+#import "VCPBIntentDefinitionHashable.h"
 
 @class NSNumber, NSString;
 
-@interface VCIntentDefinitionSyncState : NSObject <NSSecureCoding, NSCopying>
+@interface VCIntentDefinitionSyncState : NSObject <NSSecureCoding, NSCopying, VCPBIntentDefinitionHashable>
 {
     NSString *_checksum;
     NSNumber *_lastModifiedDate;
@@ -25,9 +26,14 @@
 @property(retain, nonatomic) NSNumber *lastModifiedDate; // @synthesize lastModifiedDate=_lastModifiedDate;
 @property(retain, nonatomic) NSString *checksum; // @synthesize checksum=_checksum;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)associatedBundleID;
+- (double)associatedAppRegistrationDate;
+- (id)syncStateObject;
 
 @end
 

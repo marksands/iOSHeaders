@@ -6,11 +6,12 @@
 
 #import <PhotosUICore/PXNavigationListController.h>
 
+#import "PLNavigableCollectionContainer.h"
 #import "PXGadget.h"
 
 @class NSString, PXGadgetSpec;
 
-@interface PXNavigationListGadget : PXNavigationListController <PXGadget>
+@interface PXNavigationListGadget : PXNavigationListController <PXGadget, PLNavigableCollectionContainer>
 {
     PXGadgetSpec *_gadgetSpec;
     id <PXGadgetDelegate> _delegate;
@@ -22,7 +23,9 @@
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
 - (void)_updateTableViewForVisibleContentRect;
-- (id)navigateToAssetCollection:(id)arg1 animated:(_Bool)arg2;
+- (id)_listItemForCollection:(id)arg1;
+- (void)navigateToCollection:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)canNavigateToCollection:(id)arg1;
 - (struct NSObject *)contentViewController;
 @property(readonly, nonatomic) NSString *localizedTitle;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

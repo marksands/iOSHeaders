@@ -15,7 +15,6 @@
 
 @interface PUBrowsingSession : NSObject <PUAssetsDataSourceManagerDelegate, PUAssetActionManagerDelegate, PULoadingStatusManagerDelegate, PXAssetEditOperationManagerObserver>
 {
-    _Bool _active;
     PUAssetsDataSourceManager *_dataSourceManager;
     PUMediaProvider *_mediaProvider;
     PUAssetActionManager *_actionManager;
@@ -30,7 +29,6 @@
 
 @property(retain, nonatomic) PUTileAnimator *tileAnimator; // @synthesize tileAnimator=_tileAnimator;
 @property(readonly, nonatomic) PXAssetEditOperationManager *editOperationManager; // @synthesize editOperationManager=_editOperationManager;
-@property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
 @property(readonly, nonatomic) PXGestureProvider *gestureProvider; // @synthesize gestureProvider=_gestureProvider;
 @property(readonly, nonatomic) PXPhotosDetailsContext *photosDetailsContext; // @synthesize photosDetailsContext=_photosDetailsContext;
 @property(readonly, nonatomic) PULoadingStatusManager *loadingStatusManager; // @synthesize loadingStatusManager=_loadingStatusManager;

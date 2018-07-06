@@ -20,6 +20,7 @@
     NSMutableArray *_operations;
 }
 
++ (void)_updateEventStatsWithTransportType:(long long)arg1;
 - (void).cxx_destruct;
 - (void)endPerfMetrics;
 - (void)startPerfMetrics;

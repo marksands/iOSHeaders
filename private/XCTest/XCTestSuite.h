@@ -13,8 +13,9 @@
     id _internalImplementation;
 }
 
-+ (id)testClassSuitesForTestIdentifiers:(id)arg1 skippingTestIdentifiers:(id)arg2;
++ (id)testClassSuitesForTestIdentifiers:(id)arg1 skippingTestIdentifiers:(id)arg2 testExecutionOrdering:(long long)arg3;
 + (id)testSuiteForTestConfiguration:(id)arg1;
++ (void)_applyRandomExecutionOrderingSeed:(id)arg1;
 + (id)defaultTestSuite;
 + (id)allTests;
 + (id)testSuiteForTestCaseClass:(Class)arg1;
@@ -28,6 +29,7 @@
 + (id)testCaseNamesForScopeNames:(id)arg1;
 - (void).cxx_destruct;
 - (id)_initWithTestConfiguration:(id)arg1;
+- (void)_applyRandomExecutionOrdering;
 - (void)_sortTestsUsingDefaultExecutionOrdering;
 - (long long)defaultExecutionOrderCompare:(id)arg1;
 @property(readonly) NSDictionary *activityAggregateStatistics;

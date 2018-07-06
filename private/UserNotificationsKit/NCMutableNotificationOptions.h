@@ -13,6 +13,7 @@
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(nonatomic) _Bool lauchUsingSiriForCarPlayDefaultAction; // @dynamic lauchUsingSiriForCarPlayDefaultAction;
 @property(nonatomic) _Bool revealsAdditionalContentIfNoDefaultAction; // @dynamic revealsAdditionalContentIfNoDefaultAction;
 @property(nonatomic) _Bool preventsAutomaticLock; // @dynamic preventsAutomaticLock;
 @property(nonatomic) _Bool coalescesWhenLocked; // @dynamic coalescesWhenLocked;

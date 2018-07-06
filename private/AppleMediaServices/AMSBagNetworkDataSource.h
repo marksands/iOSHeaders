@@ -8,7 +8,7 @@
 
 #import "AMSBagDataSourceProtocol.h"
 
-@class AMSUniqueExecutionQueue, NSDate, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class AMSURLSession, AMSUniqueExecutionQueue, NSDate, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface AMSBagNetworkDataSource : NSObject <AMSBagDataSourceProtocol>
@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     NSDictionary *_cachedData;
     NSObject<OS_dispatch_queue> *_cachedDataAccessQueue;
     AMSUniqueExecutionQueue *_loadDataQueue;
+    AMSURLSession *_URLSession;
     NSString *_storefront;
 }
 
@@ -38,6 +39,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)_isDataDictionary:(id)arg1 equalToDataDictionary:(id)arg2;
 + (id)_account;
 @property(retain, nonatomic) NSString *storefront; // @synthesize storefront=_storefront;
+@property(retain, nonatomic) AMSURLSession *URLSession; // @synthesize URLSession=_URLSession;
 @property(retain, nonatomic) AMSUniqueExecutionQueue *loadDataQueue; // @synthesize loadDataQueue=_loadDataQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *cachedDataAccessQueue; // @synthesize cachedDataAccessQueue=_cachedDataAccessQueue;
 @property(retain, nonatomic) NSDictionary *cachedData; // @synthesize cachedData=_cachedData;

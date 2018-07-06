@@ -44,6 +44,7 @@
 - (void)willTransitionFromLayout:(id)arg1 toLayout:(id)arg2;
 - (void)applyLayoutAttributes:(id)arg1;
 - (void)prepareForReuse;
+- (id)initWithFrame:(struct CGRect)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

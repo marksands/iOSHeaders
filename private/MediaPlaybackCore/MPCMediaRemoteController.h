@@ -25,7 +25,8 @@
     MPCFuture *_queueIdentifierFuture;
     long long _queueIdentifierCacheState;
     NSString *_queueIdentifier;
-    struct _MSVSignedRange _maximumLoadedRange;
+    struct _MSVSignedRange _loadedContentItemsRange;
+    struct _MSVSignedRange _requestedContentItemsRange;
     NSMutableArray *_contentItemIDs;
     MSVLRUDictionary *_contentItems;
     NSMutableDictionary *_optimisticStateContentItems;
@@ -63,7 +64,7 @@
 - (void)_onQueue_invalidateArtworkFuturesForContentItemID:(id)arg1;
 - (void)_onQueue_purgeArtworkForContentItemIdentifier:(id)arg1;
 - (void)_onQueue_purgeArtworkForContentItemIdentifier:(id)arg1 artworkIdentifier:(id)arg2;
-- (void)_onQueue_mergeContentItems:(id)arg1 queueRange:(struct _MSVSignedRange)arg2;
+- (void)_onQueue_mergeContentItems:(id)arg1 queueRange:(struct _MSVSignedRange)arg2 requestRange:(struct _MSVSignedRange)arg3;
 - (id)_onQueue_identifiersForRange:(struct _MSVSignedRange)arg1;
 - (id)_legacyCommands;
 - (void)invalidateAllTokens;

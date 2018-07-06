@@ -16,7 +16,8 @@
 @property(copy, nonatomic) NSNumber *assertionDetailsDateIntervalLifetimeEndDateTimestamp; // @dynamic assertionDetailsDateIntervalLifetimeEndDateTimestamp;
 @property(copy, nonatomic) NSNumber *assertionDetailsDateIntervalLifetimeStartDateTimestamp; // @dynamic assertionDetailsDateIntervalLifetimeStartDateTimestamp;
 @property(copy, nonatomic) NSNumber *assertionDetailsCalendarEventLifetimeOnlyDuringEvent; // @dynamic assertionDetailsCalendarEventLifetimeOnlyDuringEvent;
-@property(copy, nonatomic) NSString *assertionDetailsCalendarEventLifetimeEventIdentifier; // @dynamic assertionDetailsCalendarEventLifetimeEventIdentifier;
+@property(copy, nonatomic) NSNumber *assertionDetailsCalendarEventLifetimeOccurrenceDateTimestamp; // @dynamic assertionDetailsCalendarEventLifetimeOccurrenceDateTimestamp;
+@property(copy, nonatomic) NSString *assertionDetailsCalendarEventLifetimeEventUniqueIdentifier; // @dynamic assertionDetailsCalendarEventLifetimeEventUniqueIdentifier;
 @property(copy, nonatomic) NSString *assertionDetailsLifetimeType; // @dynamic assertionDetailsLifetimeType;
 @property(copy, nonatomic) NSString *assertionDetailsModeIdentifier; // @dynamic assertionDetailsModeIdentifier;
 @property(copy, nonatomic) NSString *assertionDetailsIdentifier; // @dynamic assertionDetailsIdentifier;

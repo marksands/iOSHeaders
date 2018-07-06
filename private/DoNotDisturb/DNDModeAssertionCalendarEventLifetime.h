@@ -6,24 +6,26 @@
 
 #import <DoNotDisturb/DNDModeAssertionLifetime.h>
 
-@class NSString;
+@class NSDate, NSString;
 
 @interface DNDModeAssertionCalendarEventLifetime : DNDModeAssertionLifetime
 {
     _Bool _onlyDuringEvent;
-    NSString *_eventIdentifier;
+    NSString *_eventUniqueID;
+    NSDate *_occurrenceDate;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic, getter=isOnlyDuringEvent) _Bool onlyDuringEvent; // @synthesize onlyDuringEvent=_onlyDuringEvent;
-@property(readonly, copy, nonatomic) NSString *eventIdentifier; // @synthesize eventIdentifier=_eventIdentifier;
+@property(readonly, copy, nonatomic) NSDate *occurrenceDate; // @synthesize occurrenceDate=_occurrenceDate;
+@property(readonly, copy, nonatomic) NSString *eventUniqueID; // @synthesize eventUniqueID=_eventUniqueID;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)initWithEventIdentifier:(id)arg1 onlyDuringEvent:(_Bool)arg2;
+- (id)initWithEventUniqueID:(id)arg1 occurrenceDate:(id)arg2 onlyDuringEvent:(_Bool)arg3;
 
 @end
 

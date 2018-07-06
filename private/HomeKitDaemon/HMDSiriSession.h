@@ -19,7 +19,7 @@
 }
 
 + (id)logCategory;
-+ (id)siriSessionForUIWithIdentifier:(id)arg1;
++ (id)siriSessionForUI;
 @property(retain, nonatomic) HMDActiveSiriSessionInfo *activeSessionInfo; // @synthesize activeSessionInfo=_activeSessionInfo;
 @property(nonatomic) __weak HMDSiriRemoteInputServer *server; // @synthesize server=_server;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;

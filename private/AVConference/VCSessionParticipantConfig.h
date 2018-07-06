@@ -24,8 +24,10 @@ __attribute__((visibility("hidden")))
     _Bool _videoPaused;
     unsigned char _videoQuality;
     unsigned int _visibilityIndex;
+    unsigned int _prominenceIndex;
 }
 
+@property(nonatomic) unsigned int prominenceIndex; // @synthesize prominenceIndex=_prominenceIndex;
 @property(nonatomic) unsigned int visibilityIndex; // @synthesize visibilityIndex=_visibilityIndex;
 @property(nonatomic) unsigned char videoQuality; // @synthesize videoQuality=_videoQuality;
 @property(nonatomic) _Bool videoPaused; // @synthesize videoPaused=_videoPaused;

@@ -18,6 +18,7 @@
     NSDate *_lastTodayWidgetMemoryCreationDate;
     NSDictionary *_snapshotFilenameLookup;
     unsigned long long _pendingGraphRequests;
+    NSDate *_graphUpdateAllowedDate;
     unsigned long long _flags;
     NSProgress *_currentGraphRebuildProgress;
     PGManager *_graphManager;
@@ -184,7 +185,7 @@
 - (_Bool)hasAdditionalJobForGraphRebuildInScenario:(unsigned long long)arg1;
 - (_Bool)hasAdditionalJobForBackgroundMemoryGenerationInScenario:(unsigned long long)arg1;
 - (_Bool)hasAdditionalJobsForScenario:(unsigned long long)arg1 requestReason:(unsigned long long)arg2;
-- (_Bool)_graphShouldProcessLibraryChanges;
+- (_Bool)_graphShouldProcessLibraryChangesForScenario:(unsigned long long)arg1;
 - (void)setupPredicateValidator;
 - (id)initWithPhotoAnalysisManager:(id)arg1 dataLoader:(id)arg2;
 

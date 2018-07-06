@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIView.h"
+#import <CarPlaySupport/CPSInheritedBackgroundColorView.h>
 
 @class UIActivityIndicatorView, UILabel;
 
-@interface CPSPausedCardView : UIView
+@interface CPSPausedCardView : CPSInheritedBackgroundColorView
 {
     UILabel *_title;
     UIActivityIndicatorView *_spinner;
@@ -18,6 +18,8 @@
 @property(readonly, nonatomic) UILabel *title; // @synthesize title=_title;
 - (void).cxx_destruct;
 - (id)initWithTitle:(id)arg1 showsSpinner:(_Bool)arg2 backgroundColor:(id)arg3;
+- (void)backgroundColorDidChange;
+- (id)backgroundColor;
 
 @end
 

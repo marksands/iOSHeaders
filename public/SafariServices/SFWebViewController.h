@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     _Bool _didFinishDocumentLoad;
     _Bool _shouldSuppressDialogsThatBlockWebProcess;
     WBSOneTimeCodeMonitor *_oneTimeCodeMonitor;
+    NSString *_domainWhereUserDeclinedAutomaticStrongPassword;
     _Bool _loading;
     _Bool _didFirstVisuallyNonEmptyLayout;
     id <SFWebViewControllerDelegate> _delegate;
@@ -38,6 +39,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, getter=isLoading) _Bool loading; // @synthesize loading=_loading;
 @property(nonatomic) __weak id <SFWebViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)sfWebViewDidBecomeFirstResponder:(id)arg1;
 - (void)sfWebViewDidChangeSafeAreaInsets:(id)arg1;
 - (void)dialogController:(id)arg1 dismissViewController:(id)arg2 withAdditionalAnimations:(CDUnknownBlockType)arg3;
 - (void)dialogController:(id)arg1 presentViewController:(id)arg2 withAdditionalAnimations:(CDUnknownBlockType)arg3;
@@ -66,16 +68,18 @@ __attribute__((visibility("hidden")))
 - (void)_webView:(id)arg1 accessoryViewCustomButtonTappedInFormInputSession:(id)arg2;
 - (void)_webView:(id)arg1 willSubmitFormValues:(id)arg2 userObject:(id)arg3 submissionHandler:(CDUnknownBlockType)arg4;
 - (_Bool)_webView:(id)arg1 focusRequiresStrongPasswordAssistance:(id)arg2;
-- (_Bool)_focusingElementForStreamlinedLogin:(id)arg1;
 - (long long)_webView:(id)arg1 decidePolicyForFocusedElement:(id)arg2;
 - (void)_webView:(id)arg1 didStartInputSession:(id)arg2;
 - (void)_webView:(id)arg1 willStartInputSession:(id)arg2;
+- (void)_userDeclinedAutomaticStrongPasswordForCurrentDomain;
 - (void)_automaticPasswordInputViewNotification:(id)arg1;
 - (_Bool)formAutoFillControllerShouldShowIconsInPasswordPicker:(id)arg1;
 - (void)formAutoFillControllerGetAuthenticationForAutoFill:(id)arg1 onPageLoad:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)formAutoFillControllerGetAuthenticationForAutoFillOnPageLoad:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)formAutoFillControllerOneTimeCodeMonitor:(id)arg1;
 - (void)_beginOneTimeCodeMonitoringIfNecessary;
+- (void)formAutoFillControllerUserChoseToUseGeneratedPassword:(id)arg1;
+- (_Bool)formAutoFillControllerDidUserDeclineAutomaticStrongPasswordForCurrentDomain:(id)arg1;
 - (_Bool)formAutoFillControllerShouldDisableAutoFill:(id)arg1;
 - (id)formAutoFillControllerURLForFormAutoFill:(id)arg1;
 - (_Bool)formAutoFillControllerCanPrefillForm:(id)arg1;

@@ -15,7 +15,6 @@
     unsigned long long _variantsIndex;
 }
 
-+ (id)sanitizedAttributedStringForString:(id)arg1;
 + (id)sanitizedTextForText:(id)arg1;
 @property(nonatomic) unsigned long long variantsIndex; // @synthesize variantsIndex=_variantsIndex;
 @property(copy, nonatomic) NSArray *attributedTextVariants; // @synthesize attributedTextVariants=_attributedTextVariants;
@@ -27,6 +26,7 @@
 - (id)_variantsList;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (id)sanitizedAttributedStringForString:(id)arg1;
 - (id)init;
 
 @end

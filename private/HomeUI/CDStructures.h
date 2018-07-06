@@ -100,6 +100,15 @@ typedef struct {
 } CDStruct_217e81bd;
 
 typedef struct {
+    double progressionDuration;
+    double initialInputProgress;
+    double maxItemScale;
+    double applierTension;
+    double applierFriction;
+    double maxDurationForTapGestureRecognition;
+} CDStruct_a4144c17;
+
+typedef struct {
     double minScrollPercentage;
     double maxScrollPercentage;
     double maxValue;

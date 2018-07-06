@@ -13,6 +13,7 @@
     int version;
     float apertureFocalRatio;
     float minimumApertureFocalRatio;
+    float maximumApertureFocalRatio;
     float luminanceNoiseAmplitude;
     int faceOrientation;
     NSData *faceObservationsData;
@@ -25,6 +26,7 @@
 @property(retain, nonatomic) NSData *faceObservationsData; // @synthesize faceObservationsData;
 @property(nonatomic) int faceOrientation; // @synthesize faceOrientation;
 @property(nonatomic) float luminanceNoiseAmplitude; // @synthesize luminanceNoiseAmplitude;
+@property(nonatomic) float maximumApertureFocalRatio; // @synthesize maximumApertureFocalRatio;
 @property(nonatomic) float minimumApertureFocalRatio; // @synthesize minimumApertureFocalRatio;
 @property(nonatomic) float apertureFocalRatio; // @synthesize apertureFocalRatio;
 @property(nonatomic) int version; // @synthesize version;

@@ -17,11 +17,13 @@
 {
     NSArray *_relevanceProviders;
     INDefaultCardTemplate *_watchTemplate;
+    long long _shortcutRole;
     INShortcut *_shortcut;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) INShortcut *shortcut; // @synthesize shortcut=_shortcut;
+@property(nonatomic) long long shortcutRole; // @synthesize shortcutRole=_shortcutRole;
 @property(copy, nonatomic) INDefaultCardTemplate *watchTemplate; // @synthesize watchTemplate=_watchTemplate;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

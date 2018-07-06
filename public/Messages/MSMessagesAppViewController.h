@@ -33,6 +33,7 @@
 - (void)setReadyForDisplay;
 - (_Bool)displaysAfterAppearance;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewDidLoad;
 - (struct CGSize)contentSizeThatFits:(struct CGSize)arg1;
 - (void)updateSnapshotWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)didResignActiveWithConversation:(id)arg1;

@@ -19,7 +19,7 @@
 @property(nonatomic) __weak id <ACHEarnedInstanceEntitySyncedEarnedInstancesObserver> syncedEarnedInstancesObserver; // @synthesize syncedEarnedInstancesObserver=_syncedEarnedInstancesObserver;
 @property(retain, nonatomic) HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
-- (void)earnedInstanceEntityDidReceiveSyncedEarnedInstances:(id)arg1 provenance:(long long)arg2;
+- (_Bool)earnedInstanceEntityDidReceiveSyncedEarnedInstances:(id)arg1 provenance:(long long)arg2;
 - (_Bool)removeAllEarnedInstancesWithError:(id *)arg1;
 - (id)allEarnedInstancesWithError:(id *)arg1;
 - (_Bool)removeEarnedInstances:(id)arg1 error:(id *)arg2;

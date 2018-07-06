@@ -6,11 +6,11 @@
 
 #import "PXGadgetViewController.h"
 
-#import "PLNavigableAssetContainerListViewController.h"
+#import "PLNavigableCollectionContainer.h"
 
 @class NSString, PUSessionInfo;
 
-@interface PUAlbumsGadgetViewController : PXGadgetViewController <PLNavigableAssetContainerListViewController>
+@interface PUAlbumsGadgetViewController : PXGadgetViewController <PLNavigableCollectionContainer>
 {
     PUSessionInfo *_sessionInfo;
 }
@@ -22,11 +22,9 @@
 - (void)_handleDoneButton:(id)arg1;
 - (void)_updateNavigationBar;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (void)navigateToRevealAssetCollection:(id)arg1 initiallyHidden:(_Bool)arg2 animated:(_Bool)arg3;
+- (id)_navigableGadgetForCollection:(id)arg1;
 - (void)navigateToCollection:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)navigateToPeopleAlbumViewControllerAnimated:(_Bool)arg1 withPersonLocalIdentifier:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
-- (void)navigateToSharedAlbumsViewControllerWithCompletion:(CDUnknownBlockType)arg1;
-- (void)navigateToMyAlbumsViewControllerWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)canNavigateToCollection:(id)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithLayout:(id)arg1 dataSourceManager:(id)arg2;

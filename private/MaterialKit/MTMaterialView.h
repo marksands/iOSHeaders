@@ -54,6 +54,7 @@
 - (void)_configureBaseOverlayViewIfNecessaryWithSettingsInterpolator:(id)arg1;
 - (void)_configureOverlayView:(id *)arg1 forOverlayOption:(unsigned long long)arg2 withSettingsInterpolator:(id)arg3 colorBlock:(CDUnknownBlockType)arg4;
 - (id)_configureOverlayView:(id *)arg1 ofClass:(Class)arg2 withSettingsInterpolator:(id)arg3 color:(id)arg4;
+- (void)_reevaluateShouldReduceCaptureBitDepth:(_Bool)arg1;
 - (void)_setupOrInvalidateTransformer;
 - (_Bool)_adjustScaleOfBackdropView:(id)arg1 ifNecessaryWithSettingsInterpolator:(id)arg2;
 - (void)_configureBackdropView:(id)arg1 withSettingsInterpolator:(id)arg2;

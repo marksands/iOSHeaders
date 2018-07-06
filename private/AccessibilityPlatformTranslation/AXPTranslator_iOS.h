@@ -42,6 +42,7 @@
 - (id)_processRoleAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processingSmuggledMarzipanRequest:(id)arg1 parameter:(id)arg2 error:(unsigned long long *)arg3;
 - (id)_processChildrenAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
+- (id)_processAttributedLabelAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processIsEnabledAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processIsSelectedAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processStartsMediaSessionAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
@@ -49,9 +50,11 @@
 - (id)_postProcessAttributeRequest:(id)arg1 attribute:(long long)arg2 result:(id)arg3;
 - (id)_processParameterizedAttributeRequest:(id)arg1 attribute:(long long)arg2 parameter:(id)arg3 error:(unsigned long long *)arg4;
 - (id)processActionRequest:(id)arg1;
-- (_Bool)_processPerformCustomAction:(id)arg1;
 - (_Bool)_processScrollToVisibleAction:(id)arg1;
 - (_Bool)_processPressAction:(id)arg1;
+- (_Bool)_processPerformCustomAction:(id)arg1;
+- (_Bool)_processIncrementAction:(id)arg1;
+- (_Bool)_processDecrementAction:(id)arg1;
 - (id)axElementFromTranslatorRequest:(id)arg1;
 - (id)processMultipleAttributeRequest:(id)arg1;
 - (long long)attributeFromRequest:(unsigned long long)arg1;

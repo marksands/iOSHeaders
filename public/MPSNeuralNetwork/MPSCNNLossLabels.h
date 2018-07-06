@@ -14,6 +14,8 @@
     _Bool _isScalarLoss;
     unsigned long long _numNonZeroWeights;
     NSData *_userData;
+    unsigned long long _numFeatureChannels_labels;
+    unsigned long long _numFeatureChannels_loss;
 }
 
 - (void)dealloc;

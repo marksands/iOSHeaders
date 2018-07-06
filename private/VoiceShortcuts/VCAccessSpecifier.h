@@ -25,7 +25,8 @@
 @property(readonly, copy, nonatomic) NSString *associatedAppBundleIdentifier; // @synthesize associatedAppBundleIdentifier=_associatedAppBundleIdentifier;
 @property(readonly, nonatomic) unsigned long long accessLevel; // @synthesize accessLevel=_accessLevel;
 - (void).cxx_destruct;
-- (_Bool)allowWriteAccessForBundleIdentifier:(id)arg1;
+- (_Bool)allowWriteAccessToSuggestionsWithBundleIdentifier:(id)arg1;
+- (_Bool)allowWriteAccessToVoiceShortuctsWithBundleIdentifier:(id)arg1;
 - (id)debugDescription;
 - (id)initWithAccessLevel:(unsigned long long)arg1 associatedAppBundleIdentifier:(id)arg2 processIdentifier:(id)arg3;
 

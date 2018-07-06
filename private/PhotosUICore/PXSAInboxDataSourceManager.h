@@ -25,6 +25,7 @@
 - (void).cxx_destruct;
 - (int)requestImageForPreviewItem:(id)arg1 targetSize:(struct CGSize)arg2 resultHandler:(CDUnknownBlockType)arg3;
 - (void)feedSectionInfosManager:(id)arg1 sectionInfosDidChange:(id)arg2;
+- (id)_sectionInfosForDataSource;
 - (id)_dataSourceSnapshot;
 - (void)_updateDataSource;
 @property(readonly, nonatomic) id <PXInboxModelDetailViewControllerProvider> detailViewControllerProvider;

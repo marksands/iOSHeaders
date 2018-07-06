@@ -6,30 +6,37 @@
 
 #import "UIViewController.h"
 
-@class _UILegibilitySettings;
+#import "SBUIProudLockContainerViewControllerOrientationProvider.h"
 
-@interface SBUIProudLockContainerViewController : UIViewController
+@class SBUIProudLockIconView, UIView, _UILegibilitySettings;
+
+@interface SBUIProudLockContainerViewController : UIViewController <SBUIProudLockContainerViewControllerOrientationProvider>
 {
     long long _desiredIconState;
     _Bool _iconVisible;
+    int _unlockSource;
+    SBUIProudLockIconView *_testProudLockIconView;
+    id <SBUIProudLockContainerViewControllerOrientationProvider> _orientationProvider;
     _Bool _authenticated;
     _Bool _screenOn;
     _Bool _canShowScanningState;
     _Bool _shouldShowScanningState;
     _UILegibilitySettings *_legibilitySettings;
+    UIView *_cameraCoveredView;
     id <SBUIProudLockContainerViewControllerLockStatusProvider> _authenticationInformationProvider;
     CDUnknownBlockType _unlockCompletion;
-    CDStruct_c68be025 _configuration;
+    CDStruct_4613c6c6 _configuration;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType unlockCompletion; // @synthesize unlockCompletion=_unlockCompletion;
 @property(nonatomic) _Bool shouldShowScanningState; // @synthesize shouldShowScanningState=_shouldShowScanningState;
 @property(nonatomic) _Bool canShowScanningState; // @synthesize canShowScanningState=_canShowScanningState;
 @property(nonatomic) __weak id <SBUIProudLockContainerViewControllerLockStatusProvider> authenticationInformationProvider; // @synthesize authenticationInformationProvider=_authenticationInformationProvider;
+@property(readonly, nonatomic) UIView *cameraCoveredView; // @synthesize cameraCoveredView=_cameraCoveredView;
 @property(nonatomic, getter=isScreenOn) _Bool screenOn; // @synthesize screenOn=_screenOn;
 @property(nonatomic, getter=isAuthenticated) _Bool authenticated; // @synthesize authenticated=_authenticated;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
-@property(nonatomic) CDStruct_c68be025 configuration; // @synthesize configuration=_configuration;
+@property(nonatomic) CDStruct_4613c6c6 configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)_allowScanningState;
 - (void)_startScanningStateTimer;
@@ -41,8 +48,13 @@
 - (void)_dontCallThis_showLockIfNeededAnimated:(_Bool)arg1 force:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_updateIconViewStateAnimated:(_Bool)arg1 force:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_updateIconViewStateAnimated:(_Bool)arg1;
+- (void)setOrientationProvider:(id)arg1;
+- (id)orientationProvider;
+- (void)setTestProudLockIconView:(id)arg1;
+- (id)testProudLockIconView;
 - (_Bool)_isBiometricLockedOut;
 - (id)_proudLockIconView;
+@property(readonly, nonatomic) _Bool isPortrait;
 - (void)_updateLockForMatchStarted;
 - (void)_updateLockForFaceInView;
 - (void)handleBiometricEvent:(unsigned long long)arg1;
@@ -51,6 +63,7 @@
 - (void)reset;
 - (void)setAuthenticated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setScreenOn:(_Bool)arg1 fromUnlockSource:(int)arg2;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;

@@ -49,6 +49,7 @@
 @property(readonly, nonatomic) long long policy; // @synthesize policy=_policy;
 @property(readonly, nonatomic) NSDictionary *internalOptions; // @synthesize internalOptions=_internalOptions;
 - (void).cxx_destruct;
+- (void)setShowingCoachingHint:(_Bool)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)fallbackToIdentifier:(long long)arg1;
 - (void)subMechanismCanRestart:(id)arg1;
 - (void)prepareForRestart;

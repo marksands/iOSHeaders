@@ -71,6 +71,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)loadView;
 - (id)_initAsDeferredController;
+- (void)setDeferredSystemView:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

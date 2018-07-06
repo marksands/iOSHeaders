@@ -22,6 +22,7 @@
 
 + (id)_orderedPrefetchConditionStringsOnAssets;
 + (id)_originalResourceTypes;
+- (void).cxx_destruct;
 - (void)_resourcesToPrefetchWithPredicates:(id)arg1 budget:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_resourcesWithPredicate:(id)arg1 limit:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)_predicatesForNonThumbnails;
@@ -47,7 +48,7 @@
 - (long long)diskSpaceBudgetForThumbnails;
 - (void)_handlePrefetchError:(id)arg1 forPLCloudResourceWithObjectID:(id)arg2;
 - (void)_incrementPrefetchCountForPLCloudResources:(id)arg1;
-- (void)_prefetchResources:(id)arg1 shouldAutoPefetchNextBatch:(_Bool)arg2;
+- (void)_prefetchResources:(id)arg1 shouldAutoPefetchNextBatch:(_Bool)arg2 prefetchSignpostId:(unsigned long long)arg3;
 - (void)_startPrefetchNextBatch;
 - (void)_writeDownloadFinishedMarkerIfNeeded;
 - (_Bool)_canPrefetch;

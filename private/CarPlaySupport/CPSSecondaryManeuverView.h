@@ -6,11 +6,21 @@
 
 #import <CarPlaySupport/CPSManeuverView.h>
 
+@class CPManeuver, CPSAbridgableLabel, UIImageView;
+
 @interface CPSSecondaryManeuverView : CPSManeuverView
 {
+    UIImageView *_symbolView;
+    CPManeuver *_maneuver;
+    CPSAbridgableLabel *_instructionLabel;
 }
 
-- (id)initWithManeuver:(id)arg1 minimalMode:(_Bool)arg2 style:(long long)arg3 backgroundColor:(id)arg4;
+@property(retain, nonatomic) CPSAbridgableLabel *instructionLabel; // @synthesize instructionLabel=_instructionLabel;
+@property(retain, nonatomic) CPManeuver *maneuver; // @synthesize maneuver=_maneuver;
+@property(retain, nonatomic) UIImageView *symbolView; // @synthesize symbolView=_symbolView;
+- (void).cxx_destruct;
+- (id)initWithManeuver:(id)arg1 minimalMode:(_Bool)arg2 style:(long long)arg3;
+- (void)backgroundColorDidChange;
 
 @end
 

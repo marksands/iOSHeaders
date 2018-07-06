@@ -19,6 +19,7 @@
 + (id)clientForConsumerType:(unsigned long long)arg1 cacheBasePath:(id)arg2;
 + (id)clientForConsumerType:(unsigned long long)arg1;
 + (id)clientForConsumerType:(unsigned long long)arg1 cachePath:(const char *)arg2;
+@property(readonly, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 - (void).cxx_destruct;
 - (id)_appsForDemoMode;
 - (id)getAppPredictorAssetMappingDescription;
@@ -28,7 +29,7 @@
 - (id)appPredictionsForConsumerSubType:(unsigned char)arg1 limit:(int)arg2;
 - (id)_simulatorResponse;
 - (id)appPredictionsWithLimit:(int)arg1;
-@property(readonly, nonatomic) NSXPCConnection *xpcConnection;
+- (id)_remoteObjectProxy;
 - (void)dealloc;
 - (id)init;
 - (id)initWithConsumerType:(unsigned long long)arg1 cacheBasePath:(id)arg2;

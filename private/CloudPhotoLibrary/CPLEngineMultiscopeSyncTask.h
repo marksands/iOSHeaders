@@ -16,6 +16,7 @@
     NSObject<OS_dispatch_queue> *_currentTaskQueue;
     CPLEngineScopedTask *_currentTask;
     NSMutableArray *_coveredScopes;
+    NSMutableArray *_excludedScopes;
     NSMutableDictionary *_transportScopes;
     NSString *_clientCacheIdentifier;
     CPLEngineScopeStorage *_scopes;
@@ -27,10 +28,13 @@
 - (void)task:(id)arg1 didProgress:(float)arg2 userInfo:(id)arg3;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)cancel;
+- (void)setForeground:(_Bool)arg1;
+- (void)setForceSync:(_Bool)arg1;
 - (void)launch;
 - (void)_launchTaskForNextScope;
 @property(readonly, nonatomic) _Bool shouldSkipScopesWithMissingTransportScope;
 - (_Bool)shouldContinueAfterError:(id)arg1 fromTask:(id)arg2;
+- (_Bool)shouldProcessScope:(id)arg1 inTransaction:(id)arg2;
 - (id)enumerateScopesForTaskInTransaction:(id)arg1;
 - (id)newScopedTaskWithScope:(id)arg1 transportScope:(id)arg2 clientCacheIdentifier:(id)arg3;
 - (_Bool)shouldStartTaskInTransaction:(id)arg1;

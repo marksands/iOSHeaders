@@ -13,21 +13,21 @@
 @interface STRootViewController : STListViewController <STRestrictionsPINControllerDelegate>
 {
     _Bool _shouldRefreshUsageData;
-    _Bool _hasAlreadyEnteredPINForSession;
     STEnableScreenTimeGroupSpecifierProvider *_enableScreenTimeGroupSpecifierProvider;
     NSObject<STRootViewModelCoordinator> *_coordinator;
     id _showingPinTarget;
     PSSpecifier *_showingPinSpecifier;
 }
 
-@property(nonatomic) _Bool hasAlreadyEnteredPINForSession; // @synthesize hasAlreadyEnteredPINForSession=_hasAlreadyEnteredPINForSession;
 @property(retain, nonatomic) PSSpecifier *showingPinSpecifier; // @synthesize showingPinSpecifier=_showingPinSpecifier;
 @property(retain, nonatomic) id showingPinTarget; // @synthesize showingPinTarget=_showingPinTarget;
 @property(nonatomic) _Bool shouldRefreshUsageData; // @synthesize shouldRefreshUsageData=_shouldRefreshUsageData;
 @property(readonly, nonatomic) NSObject<STRootViewModelCoordinator> *coordinator; // @synthesize coordinator=_coordinator;
 @property(retain, nonatomic) STEnableScreenTimeGroupSpecifierProvider *enableScreenTimeGroupSpecifierProvider; // @synthesize enableScreenTimeGroupSpecifierProvider=_enableScreenTimeGroupSpecifierProvider;
 - (void).cxx_destruct;
+- (void)devicePINControllerDidDismissPINPane:(id)arg1;
 - (void)restoreSpecifierTarget;
+- (void)devicePINController:(id)arg1 didAcceptChangedPIN:(id)arg2;
 - (void)devicePINController:(id)arg1 didAcceptSetPIN:(id)arg2;
 - (void)didAcceptRemovePIN;
 - (void)didCancelEnteringPIN;
@@ -37,7 +37,6 @@
 - (void)showPINSheet:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)willResignActive;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (id)initWithRootViewModelCoordinator:(id)arg1;

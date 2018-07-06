@@ -63,7 +63,7 @@ __attribute__((visibility("hidden")))
 - (void)invalidate;
 - (id)connection;
 - (id)description;
-- (id)initWithProxy:(id)arg1 connection:(id)arg2 clientConfig:(id)arg3;
+- (id)initWithProxy:(id)arg1 connection:(id)arg2 clientConfig:(id)arg3 error:(id *)arg4;
 
 @end
 

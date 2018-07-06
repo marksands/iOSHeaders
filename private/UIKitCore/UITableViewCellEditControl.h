@@ -47,7 +47,6 @@ __attribute__((visibility("hidden")))
 - (id)_multiSelectNotSelectedImage;
 - (id)_insertImage:(double)arg1;
 - (id)_deleteImage:(double)arg1;
-- (id)_deleteImageBackground:(double)arg1;
 - (void)_toggleRotate;
 - (struct CGRect)_minusRect;
 - (id)_minusView;

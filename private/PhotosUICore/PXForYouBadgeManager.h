@@ -24,6 +24,8 @@
     unsigned long long _cmmActivityUnreadCount;
 }
 
++ (id)lastSeenBadgeDate;
++ (void)setLastSeenBadgeDate:(id)arg1;
 @property(nonatomic) _Bool hasLoaded; // @synthesize hasLoaded=_hasLoaded;
 @property(nonatomic) unsigned long long cmmActivityUnreadCount; // @synthesize cmmActivityUnreadCount=_cmmActivityUnreadCount;
 @property(nonatomic) unsigned long long sharedAlbumActivityUnreadCount; // @synthesize sharedAlbumActivityUnreadCount=_sharedAlbumActivityUnreadCount;
@@ -34,7 +36,7 @@
 @property(readonly, nonatomic) unsigned long long unreadBadgeCount; // @synthesize unreadBadgeCount=_unreadBadgeCount;
 - (void).cxx_destruct;
 - (void)photoLibraryDidChange:(id)arg1;
-- (void)_inboxLastSeenDateDidChange:(id)arg1;
+- (void)_lastSeenBadgeDateDidChange:(id)arg1;
 - (void)feedSectionInfosManager:(id)arg1 sectionInfosDidChange:(id)arg2;
 - (void)_updateUnreadCounts;
 - (void)_invalidateFetches;

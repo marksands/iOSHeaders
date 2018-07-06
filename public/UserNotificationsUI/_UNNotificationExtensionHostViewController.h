@@ -51,6 +51,7 @@
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (_Bool)__shouldRemoteViewControllerFenceOperations;
 
 @end
 

@@ -7,14 +7,14 @@
 #import "NSObject.h"
 #import "PXCloudFeedNavigating.h"
 
-@class NSString, NSURL, PHAsset, PHAssetCollection, PLCloudSharedAlbum, PLCloudSharedComment, PLManagedAsset, UIViewController;
+@class NSString, NSURL, PHAsset, PHAssetCollection, PLCloudSharedAlbum, PLCloudSharedComment, PLManagedAsset;
 
 @protocol PLRootLibraryNavigationController <NSObject, PXCloudFeedNavigating>
-- (void)navigateToPeopleAlbumAnimated:(_Bool)arg1 revealPersonWithLocalIdentifier:(NSString *)arg2;
+- (void)navigateToPeopleAlbumAnimated:(_Bool)arg1 revealPersonWithLocalIdentifier:(NSString *)arg2 completion:(void (^)(UIViewController *))arg3;
 - (void)navigateToMomentShareWithURL:(NSURL *)arg1 animated:(_Bool)arg2;
 - (void)navigateToInvitationCMMWithIdentifier:(NSString *)arg1 animated:(_Bool)arg2;
 - (void)navigateToSuggestedCMMWithIdentifier:(NSString *)arg1 animated:(_Bool)arg2;
-- (UIViewController *)navigateToMemoryWithLocalIdentifier:(NSString *)arg1;
+- (void)navigateToMemoryWithLocalIdentifier:(NSString *)arg1;
 - (void)navigateToRevealTheMostRecentMemoryAnimated:(_Bool)arg1;
 - (_Bool)assetIsAvailableForNavigationInMoments:(PLManagedAsset *)arg1 refetchSectionsIfNeeded:(_Bool)arg2;
 - (_Bool)assetIsAvailableForNavigationInMoments:(PLManagedAsset *)arg1;
@@ -37,7 +37,7 @@
 - (void)navigateToOneUpForAsset:(PHAsset *)arg1 inAssetContainer:(PHAssetCollection *)arg2 animated:(_Bool)arg3;
 - (void)navigateToOneYearAgoSearch;
 - (void)navigateToPhotosContentBottomAnimated:(_Bool)arg1 showMostRecentPhotoInOneUp:(_Bool)arg2;
-- (void)navigateToAsset:(PLManagedAsset *)arg1 animated:(_Bool)arg2;
+- (void)navigateToAsset:(PLManagedAsset *)arg1 openOneUp:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)navigateToContentMode:(int)arg1 animated:(_Bool)arg2 completion:(void (^)(_Bool))arg3;
 @end
 

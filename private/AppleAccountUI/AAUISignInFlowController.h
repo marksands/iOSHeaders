@@ -46,7 +46,6 @@
 - (void)genericTermsRemoteUI:(id)arg1 didFinishWithSuccess:(_Bool)arg2;
 - (void)_showGenericTermsUIforAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_presentUnableToSaveAccountAlert;
-- (_Bool)_carrierBundleSaysHideFindMyiPhone;
 - (void)_hasActivationLockSupportedWatchWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_promptToEnableFindMyIfPossibleWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_stashLoginResponseWithAuthenticationResults:(id)arg1 completion:(CDUnknownBlockType)arg2;

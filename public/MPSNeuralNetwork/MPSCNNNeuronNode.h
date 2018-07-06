@@ -14,9 +14,11 @@
     float _c;
 }
 
++ (id)nodeWithSource:(id)arg1 descriptor:(id)arg2;
 @property(readonly, nonatomic) float c; // @synthesize c=_c;
 @property(readonly, nonatomic) float b; // @synthesize b=_b;
 @property(readonly, nonatomic) float a; // @synthesize a=_a;
+- (struct FilterGraphNode *)newFilterNode;
 - (id)descriptor;
 - (Class)gradientClass;
 - (_Bool)isEqual:(id)arg1;

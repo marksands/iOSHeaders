@@ -101,7 +101,7 @@
 @property(nonatomic) _Bool shouldRequestRecoveryPET; // @synthesize shouldRequestRecoveryPET=_shouldRequestRecoveryPET;
 @property(copy, nonatomic, setter=setHasEmptyPassword:) NSNumber *hasEmptyPassword; // @synthesize hasEmptyPassword=_hasEmptyPassword;
 @property(copy, nonatomic, setter=setAppleIDLoginEnabled:) NSNumber *isAppleIDLoginEnabled; // @synthesize isAppleIDLoginEnabled=_isAppleIDLoginEnabled;
-@property(copy, nonatomic) id <AKAnisetteServiceProtocol> anisetteDataProvider; // @synthesize anisetteDataProvider=_anisetteDataProvider;
+@property(retain, nonatomic) id <AKAnisetteServiceProtocol> anisetteDataProvider; // @synthesize anisetteDataProvider=_anisetteDataProvider;
 @property(nonatomic) _Bool shouldUpdatePersistentServiceTokens; // @synthesize shouldUpdatePersistentServiceTokens=_shouldUpdatePersistentServiceTokens;
 @property(nonatomic) _Bool shouldPromptForPasswordOnly; // @synthesize shouldPromptForPasswordOnly=_shouldPromptForPasswordOnly;
 @property(nonatomic) unsigned long long authenticationType; // @synthesize authenticationType=_authenticationType;

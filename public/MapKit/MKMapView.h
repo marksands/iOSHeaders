@@ -12,14 +12,15 @@
 #import "MKAnnotationMarkerContainer.h"
 #import "MKMapGestureControllerDelegate.h"
 #import "MKOverlayContainerViewDelegate.h"
+#import "MKRotationFilterDelegate.h"
 #import "MKVariableDelayTapRecognizerDelegate.h"
 #import "NSCoding.h"
 #import "UIGestureRecognizerDelegate.h"
 #import "VKMapViewDelegate.h"
 
-@class CLLocation, GEOMapRegion, GEOResourceManifestConfiguration, MKAnnotationContainerView, MKAnnotationManager, MKAnnotationView, MKAttributionLabel, MKBasicMapView, MKCompassView, MKDebugLocationConsole, MKMapCamera, MKMapGestureController, MKMapViewInternal, MKMapViewLabelMarkerState, MKOverlayContainerView, MKScaleView, MKUserLocation, NSArray, NSDictionary, NSLayoutConstraint, NSObject<OS_dispatch_group>, NSString, NSTimer, UIGestureRecognizer, UIImageView, UILayoutGuide, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, UITapGestureRecognizer, UITextView, VKLabelMarker, VKMapView, VKNavContext, VKRouteContext, VKVenueBuildingFeatureMarker, VKVenueFeatureMarker, _MKCustomFeatureStore, _MKEnvironmentLabel;
+@class CLLocation, GEOMapRegion, GEOResourceManifestConfiguration, MKAnnotationContainerView, MKAnnotationManager, MKAnnotationView, MKAttributionLabel, MKBasicMapView, MKCompassView, MKDebugLocationConsole, MKMapCamera, MKMapGestureController, MKMapViewInternal, MKMapViewLabelMarkerState, MKOverlayContainerView, MKRotationFilter, MKScaleView, MKUserLocation, NSArray, NSDictionary, NSLayoutConstraint, NSObject<OS_dispatch_group>, NSString, NSTimer, UIGestureRecognizer, UIImageView, UILayoutGuide, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, UITapGestureRecognizer, UITextView, VKLabelMarker, VKMapView, VKNavContext, VKRouteContext, VKVenueBuildingFeatureMarker, VKVenueFeatureMarker, _MKCustomFeatureStore, _MKEnvironmentLabel;
 
-@interface MKMapView : UIView <MKOverlayContainerViewDelegate, VKMapViewDelegate, MKMapGestureControllerDelegate, MKAnnotationMarkerContainer, MKAnnotationManagerDelegate, GEOLogContextDelegate, UIGestureRecognizerDelegate, MKVariableDelayTapRecognizerDelegate, GEOResourceManifestTileGroupObserver, NSCoding>
+@interface MKMapView : UIView <MKOverlayContainerViewDelegate, VKMapViewDelegate, MKMapGestureControllerDelegate, MKAnnotationMarkerContainer, MKAnnotationManagerDelegate, GEOLogContextDelegate, MKRotationFilterDelegate, UIGestureRecognizerDelegate, MKVariableDelayTapRecognizerDelegate, GEOResourceManifestTileGroupObserver, NSCoding>
 {
     MKMapViewInternal *_internal;
     UIView *_contentView;
@@ -72,6 +73,7 @@
     long long _annotationTrackingZoomStyle;
     id _topLayoutGuide;
     id _bottomLayoutGuide;
+    MKRotationFilter *_rotationFilter;
     struct {
         unsigned int changingRegion:1;
         unsigned int debugViewHeading:1;
@@ -199,6 +201,7 @@
 - (int)currentUITargetForAnalytics;
 - (void)_clearGesturesAndAnimations;
 - (void)setVehicleState:(CDStruct_b31ca263)arg1;
+- (void)rotationFilter:(id)arg1 didChangeSnapping:(_Bool)arg2;
 - (void)_stopPanningAtPoint:(struct CGPoint)arg1;
 - (void)_updatePanWithTranslation:(struct CGPoint)arg1;
 - (void)_startPanningAtPoint:(struct CGPoint)arg1;

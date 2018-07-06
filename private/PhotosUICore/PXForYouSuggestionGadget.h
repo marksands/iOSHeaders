@@ -7,14 +7,14 @@
 #import "NSObject.h"
 
 #import "PXGadget.h"
-#import "PXPhotoLibraryUIChangeObserver.h"
 
 @class NSString, PXForYouSuggestionGadgetContentView, PXGadgetSpec, PXUIMediaProvider, UIImage;
 
-@interface PXForYouSuggestionGadget : NSObject <PXPhotoLibraryUIChangeObserver, PXGadget>
+@interface PXForYouSuggestionGadget : NSObject <PXGadget>
 {
     _Bool _contentHidden;
     _Bool _blursDegradedContent;
+    _Bool _contentViewVisible;
     PXGadgetSpec *_gadgetSpec;
     unsigned long long _priority;
     id <PXForYouSuggestionGadgetDelegate> _delegate;
@@ -23,11 +23,13 @@
     id <PXDisplayAsset> _keyAsset;
     PXForYouSuggestionGadgetContentView *_contentView;
     struct CGSize _cachedHeightForWidth;
+    struct CGRect _visibleContentRect;
 }
 
 + (id)fetchQueue;
 + (void)preloadResources;
 + (id)placeholderFilters;
+@property(nonatomic) _Bool contentViewVisible; // @synthesize contentViewVisible=_contentViewVisible;
 @property(retain, nonatomic) PXForYouSuggestionGadgetContentView *contentView; // @synthesize contentView=_contentView;
 @property(nonatomic) struct CGSize cachedHeightForWidth; // @synthesize cachedHeightForWidth=_cachedHeightForWidth;
 @property(retain, nonatomic) id <PXDisplayAsset> keyAsset; // @synthesize keyAsset=_keyAsset;
@@ -35,20 +37,24 @@
 @property(nonatomic) _Bool blursDegradedContent; // @synthesize blursDegradedContent=_blursDegradedContent;
 @property(nonatomic, getter=isContentHidden) _Bool contentHidden; // @synthesize contentHidden=_contentHidden;
 @property(retain, nonatomic) id <PXDisplaySuggestion> suggestion; // @synthesize suggestion=_suggestion;
+@property(nonatomic) struct CGRect visibleContentRect; // @synthesize visibleContentRect=_visibleContentRect;
 @property(nonatomic) __weak id <PXForYouSuggestionGadgetDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
+- (void)_updateKeyAsset;
 - (void)_markSuggestionAsDeclined;
 - (void)_markSuggestionAsActive;
 - (void)_handleDismiss;
 - (void)_handleContentViewTap:(id)arg1;
-- (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
+- (void)_updateContentViewMode;
 - (void)didDismissPreviewViewController:(id)arg1 committing:(_Bool)arg2;
 - (void)commitPreviewViewController:(id)arg1;
 - (struct NSObject *)previewViewControllerAtLocation:(struct CGPoint)arg1 fromSourceView:(struct NSObject *)arg2 outSourceRect:(out struct CGRect *)arg3;
 - (id)debugDictionary;
 - (id)debugURLsForDiagnostics;
+- (void)contentViewDidDisappear;
+- (void)contentViewWillAppear;
 - (void)gadgetControllerHasAppeared;
 - (void)contentHasBeenSeen;
 - (id)uniqueGadgetIdentifier;
@@ -73,7 +79,6 @@
 @property(readonly, nonatomic) _Bool supportsAssetsDrop;
 @property(readonly, nonatomic) _Bool supportsHighlighting;
 @property(readonly, nonatomic) _Bool supportsSelection;
-@property(nonatomic) struct CGRect visibleContentRect;
 
 @end
 

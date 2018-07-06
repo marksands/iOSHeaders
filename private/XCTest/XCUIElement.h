@@ -167,6 +167,7 @@
 @property(readonly) double normalizedSliderPosition;
 - (void)adjustToNormalizedSliderPosition:(double)arg1;
 - (void)adjustToPickerWheelValue:(id)arg1;
+- (void)tapOrClick;
 - (void)forcePress;
 
 // Remaining properties

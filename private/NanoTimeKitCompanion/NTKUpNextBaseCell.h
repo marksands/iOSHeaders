@@ -37,7 +37,7 @@
 @property(readonly, nonatomic) UIImage *contentImage; // @synthesize contentImage=_contentImage;
 @property(readonly, nonatomic) CLKDevice *device; // @synthesize device=_device;
 - (void).cxx_destruct;
-- (id)transitionContext;
+- (id)transitionContextInView:(id)arg1;
 - (void)_updateColorOverlay;
 - (void)applyLayoutAttributes:(id)arg1;
 - (void)configureWithContent:(id)arg1;

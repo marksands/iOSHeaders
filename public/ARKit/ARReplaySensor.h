@@ -9,12 +9,12 @@
 #import "ARInternalSessionObserver.h"
 #import "ARSensor.h"
 
-@class ARImageCroppingTechnique, AVAsset, AVAssetReader, AVAssetReaderOutputMetadataAdaptor, AVAssetReaderTrackOutput, NSArray, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSSet, NSString;
+@class ARImageCroppingTechnique, AVAssetReader, AVAssetReaderOutputMetadataAdaptor, AVAssetReaderTrackOutput, AVURLAsset, NSArray, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSSet, NSString;
 
 @interface ARReplaySensor : NSObject <ARInternalSessionObserver, ARSensor>
 {
     _Bool _manualCommandLineMode;
-    AVAsset *_asset;
+    AVURLAsset *_asset;
     NSMutableArray *_arImageData;
     NSMutableArray *_arAccelerometerData;
     NSMutableArray *_arGyroData;
@@ -118,6 +118,7 @@
 - (_Bool)track:(id)arg1 hasMetadataIdentifier:(id)arg2;
 - (void)failWithError:(id)arg1;
 - (void)initializeAssetReaderWithAsset:(id)arg1 buffersOnly:(_Bool)arg2;
+- (_Bool)isEqual:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)customDataForTimestamp:(double)arg1;
 - (id)replayTechniqueForResultDataClasses:(id)arg1;

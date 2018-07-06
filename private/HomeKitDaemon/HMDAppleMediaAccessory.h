@@ -6,11 +6,12 @@
 
 #import <HomeKitDaemon/HMDMediaAccessory.h>
 
+#import "HMDAccessoryUserManagement.h"
 #import "HMFLogging.h"
 
 @class HMDAccessorySettingGroup, HMDAccessorySymptomHandler, HMDDevice, HMDRemoteLoginHandler, HMDSoftwareUpdate, HMDTargetControlManager, HMFPairingIdentity, HMFSoftwareVersion, HMFWiFiNetworkInfo, NSString;
 
-@interface HMDAppleMediaAccessory : HMDMediaAccessory <HMFLogging>
+@interface HMDAppleMediaAccessory : HMDMediaAccessory <HMDAccessoryUserManagement, HMFLogging>
 {
     _Bool _deviceReachable;
     HMDDevice *_device;
@@ -64,6 +65,10 @@
 - (void)updateRootGroup:(id)arg1;
 - (void)addRootSettings;
 - (_Bool)supportsSettings;
+- (void)pairingsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)removeUser:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)addUser:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+@property(readonly) _Bool supportsUserManagement;
 - (void)createPairingIdentity;
 - (void)setPairingIdentity:(id)arg1;
 @property(readonly, copy) HMFPairingIdentity *pairingIdentity; // @synthesize pairingIdentity=_pairingIdentity;
@@ -79,7 +84,6 @@
 - (id)deviceMonitor;
 - (void)handleDeviceReachabilityChange:(_Bool)arg1;
 @property(nonatomic, getter=isDeviceReachable) _Bool deviceReachable; // @synthesize deviceReachable=_deviceReachable;
-- (_Bool)supportsUserManagement;
 - (void)handleCurrentDeviceUpdated:(id)arg1;
 - (void)handleCurrentDeviceChanged:(id)arg1;
 - (_Bool)shouldUpdateWithDevice:(id)arg1;

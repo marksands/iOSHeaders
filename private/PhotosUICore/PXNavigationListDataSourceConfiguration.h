@@ -11,6 +11,7 @@
 @interface PXNavigationListDataSourceConfiguration : NSObject
 {
     NSString *_description;
+    _Bool _emptyCollectionsHidden;
     PHCollectionList *_collectionList;
     PHFetchResult *_collectionsFetchResult;
     long long _indentationLevel;
@@ -23,12 +24,12 @@
 + (id)libraryConfiguration;
 + (id)_collectionListWithSystemItems:(id)arg1 title:(id)arg2;
 @property(readonly, nonatomic) NSArray *systemItems; // @synthesize systemItems=_systemItems;
+@property(nonatomic) _Bool emptyCollectionsHidden; // @synthesize emptyCollectionsHidden=_emptyCollectionsHidden;
 @property(readonly, nonatomic) long long indentationLevel; // @synthesize indentationLevel=_indentationLevel;
 @property(readonly, nonatomic) PHFetchResult *collectionsFetchResult; // @synthesize collectionsFetchResult=_collectionsFetchResult;
 @property(readonly, nonatomic) PHCollectionList *collectionList; // @synthesize collectionList=_collectionList;
 - (void).cxx_destruct;
 - (id)description;
-@property(readonly, nonatomic) _Bool shouldShowAssetCounts;
 - (id)initWithSystemItems:(id)arg1 title:(id)arg2;
 - (id)initWithCollectionList:(id)arg1 indentationLevel:(long long)arg2;
 

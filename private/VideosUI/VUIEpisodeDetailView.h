@@ -26,7 +26,8 @@ __attribute__((visibility("hidden")))
     UIImageView *_contentRatingImageView;
 }
 
-+ (void)configureEpisodeDetailView:(id)arg1 withMedia:(id)arg2;
++ (void)configureEpisodeDetailView:(id)arg1 withMedia:(id)arg2 viewSize:(struct CGSize)arg3;
++ (struct CGSize)_episodeFrameImageSizeWithViewSize:(struct CGSize)arg1;
 @property(retain, nonatomic) UIImageView *contentRatingImageView; // @synthesize contentRatingImageView=_contentRatingImageView;
 @property(retain, nonatomic) VUIMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
 @property(retain, nonatomic) UIFont *contentDescriptionFont; // @synthesize contentDescriptionFont=_contentDescriptionFont;

@@ -6,7 +6,11 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @protocol REPredictionServer <NSObject>
-- (void)requestPredictedActionsWithCompletion:(void (^)(NSArray *))arg1;
+- (void)fetchPerformedTodayCountForActionWithBundleIdentifer:(NSString *)arg1 actionIdentifier:(unsigned long long)arg2 completion:(void (^)(unsigned long long))arg3;
+- (void)fetchFirstPerformedActionDate:(void (^)(NSDate *))arg1;
+- (void)requestPredictedActionsWithCompletion:(void (^)(NSArray *, NSArray *))arg1;
 @end
 

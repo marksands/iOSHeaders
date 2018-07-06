@@ -29,11 +29,13 @@
     UIImage *_selectedImage;
     UIColor *_selectedTintColor;
     NSString *_localizedAccessoryTitle;
+    NSString *_backgroundEffectViewGroupName;
     NSString *_statisticsIdentifier;
     struct UIEdgeInsets _edgeInsets;
 }
 
 @property(copy, nonatomic) NSString *statisticsIdentifier; // @synthesize statisticsIdentifier=_statisticsIdentifier;
+@property(copy, nonatomic) NSString *backgroundEffectViewGroupName; // @synthesize backgroundEffectViewGroupName=_backgroundEffectViewGroupName;
 @property(copy, nonatomic) NSString *localizedAccessoryTitle; // @synthesize localizedAccessoryTitle=_localizedAccessoryTitle;
 @property(nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
 @property(retain, nonatomic) UIColor *selectedTintColor; // @synthesize selectedTintColor=_selectedTintColor;

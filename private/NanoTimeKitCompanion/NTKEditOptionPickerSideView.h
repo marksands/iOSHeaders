@@ -9,7 +9,7 @@
 @interface NTKEditOptionPickerSideView : UIView
 {
     double _contentAlpha;
-    double _breathingScale;
+    struct CGAffineTransform _contentTransform;
     UIView *_optionView;
 }
 
@@ -17,7 +17,7 @@
 - (void).cxx_destruct;
 - (void)_applyContentAlpha;
 - (void)setRotationFromFront:(double)arg1;
-- (void)applyBreathingScale:(double)arg1;
+- (void)applyContentTransform:(struct CGAffineTransform)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

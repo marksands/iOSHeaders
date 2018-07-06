@@ -34,13 +34,11 @@
     long long _subsectionPriority;
     unsigned long long _suppressedSettings;
     unsigned long long _version;
-    long long _bulletinGroupingSetting;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)defaultSectionInfoForType:(long long)arg1;
 + (id)defaultSectionInfoForSection:(id)arg1;
-@property(nonatomic) long long bulletinGroupingSetting; // @synthesize bulletinGroupingSetting=_bulletinGroupingSetting;
 @property(copy, nonatomic) NSArray *filters; // @synthesize filters=_filters;
 @property(nonatomic) unsigned long long version; // @synthesize version=_version;
 @property(copy, nonatomic) NSArray *dataProviderIDs; // @synthesize dataProviderIDs=_dataProviderIDs;
@@ -104,6 +102,7 @@
 - (_Bool)showsMessagePreview;
 @property(nonatomic) long long contentPreviewSetting;
 @property(nonatomic) _Bool showsOnExternalDevices;
+@property(nonatomic) long long bulletinGroupingSetting;
 @property(nonatomic) long long criticalAlertSetting;
 @property(nonatomic) long long carPlaySetting;
 @property(nonatomic) unsigned long long pushSettings;

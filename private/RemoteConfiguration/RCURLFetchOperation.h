@@ -6,7 +6,7 @@
 
 #import <RemoteConfiguration/RCOperation.h>
 
-@class NSData, NSDictionary, NSError, NSHTTPURLResponse, NSObject<OS_dispatch_queue>, NSString, NSURL, NSURLSessionTask;
+@class NSData, NSDictionary, NSError, NSHTTPURLResponse, NSNumber, NSObject<OS_dispatch_queue>, NSString, NSURL, NSURLSessionTask;
 
 @interface RCURLFetchOperation : RCOperation
 {
@@ -27,9 +27,11 @@
     NSHTTPURLResponse *_httpResponse;
     unsigned long long _responseSize;
     NSError *_error;
+    NSNumber *_maxAge;
 }
 
 + (id)sharedURLSession;
+@property(retain, nonatomic) NSNumber *maxAge; // @synthesize maxAge=_maxAge;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) unsigned long long responseSize; // @synthesize responseSize=_responseSize;
 @property(retain, nonatomic) NSHTTPURLResponse *httpResponse; // @synthesize httpResponse=_httpResponse;

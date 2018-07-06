@@ -8,10 +8,13 @@
 
 #import "REIndentedDescription.h"
 
-@class NSString, REComparisonCondition, RECondition;
+@class NSString, REComparisonCondition, RECondition, REConditionEvaluator;
 
 @interface RERankingRule : RERule <REIndentedDescription>
 {
+    REConditionEvaluator *_leftConditionEvaluator;
+    REConditionEvaluator *_rightConditionEvaluator;
+    REConditionEvaluator *_comparisonConditionEvaluator;
     RECondition *_leftCondition;
     RECondition *_rightCondition;
     REComparisonCondition *_comparison;
@@ -29,6 +32,9 @@
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithLeftCondition:(id)arg1 rightCondition:(id)arg2 comparisonCondition:(id)arg3 order:(long long)arg4;
+@property(readonly, nonatomic) REConditionEvaluator *comparisonConditionEvaluator;
+@property(readonly, nonatomic) REConditionEvaluator *rightConditionEvaluator;
+@property(readonly, nonatomic) REConditionEvaluator *leftConditionEvaluator;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

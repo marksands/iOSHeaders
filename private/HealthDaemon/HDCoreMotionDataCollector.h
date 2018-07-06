@@ -37,6 +37,7 @@
 - (id)queue_newDataSource;
 - (id)collectedTypes;
 - (Class)coreMotionDatumClass;
+- (void)_accessToFitnessDataDidChange:(id)arg1;
 - (void)_queue_beginUpdates;
 - (void)_queue_populateLastDatumDictionary;
 - (id)_queue_lastPersistedSensorDatumForType:(id)arg1;

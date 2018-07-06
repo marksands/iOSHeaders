@@ -22,7 +22,7 @@
 @property(nonatomic) __weak id <VCUIGallerySectionHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)didTapSeeAll;
-- (void)configureWithTitle:(id)arg1 appIcon:(id)arg2 applicationBundleIdentifier:(id)arg3 showSeeAllButton:(_Bool)arg4;
+- (void)configureWithTitle:(id)arg1 applicationBundleIdentifier:(id)arg2 showSeeAllButton:(_Bool)arg3;
 - (id)initWithReuseIdentifier:(id)arg1;
 
 @end

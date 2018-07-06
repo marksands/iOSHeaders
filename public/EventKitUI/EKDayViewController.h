@@ -53,6 +53,7 @@
     _Bool _needToCompleteScrollingAnimation;
     _Bool _needToCompleteDeceleration;
     NSObject<OS_dispatch_queue> *_reloadQueue;
+    NSObject<OS_dispatch_queue> *_protectionQueue;
     id <UIViewControllerPreviewing> _viewControllerPreviewingRegistration;
     _Bool _showsBanner;
     _Bool _allowsDaySwitching;
@@ -63,6 +64,7 @@
     _Bool _animateAllDayAreaHeight;
     _Bool _shouldAutoscrollAfterAppearance;
     _Bool _notifyWhenTapOtherEventDuringDragging;
+    _Bool _preloadExtraDays;
     _Bool _transitionedToSameDay;
     id <EKDayViewControllerDelegate> _delegate;
     id <EKDayViewControllerDataSource> _dataSource;
@@ -84,6 +86,7 @@
 @property(retain, nonatomic) EKEventEditViewController *currentEditor; // @synthesize currentEditor=_currentEditor;
 @property(retain, nonatomic) UIView *gestureOccurrenceSuperview; // @synthesize gestureOccurrenceSuperview=_gestureOccurrenceSuperview;
 @property(nonatomic) double gutterWidth; // @synthesize gutterWidth=_gutterWidth;
+@property(nonatomic) _Bool preloadExtraDays; // @synthesize preloadExtraDays=_preloadExtraDays;
 @property(nonatomic) _Bool notifyWhenTapOtherEventDuringDragging; // @synthesize notifyWhenTapOtherEventDuringDragging=_notifyWhenTapOtherEventDuringDragging;
 @property(nonatomic) _Bool shouldAutoscrollAfterAppearance; // @synthesize shouldAutoscrollAfterAppearance=_shouldAutoscrollAfterAppearance;
 @property(nonatomic) _Bool animateAllDayAreaHeight; // @synthesize animateAllDayAreaHeight=_animateAllDayAreaHeight;

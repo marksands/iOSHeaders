@@ -24,6 +24,7 @@
 @property(retain, nonatomic) NSString *label; // @synthesize label=_label;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (void)_setUserInfoProperty:(id)arg1 forKey:(id)arg2;
 - (id)postMetricsWithBagContract:(id)arg1;
 - (id)performActionsWithContract:(id)arg1 account:(id)arg2;
 - (id)generateAction;

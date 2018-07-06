@@ -6,7 +6,7 @@
 
 #import "NSManagedObject.h"
 
-@class CLSManagedPublicEvent, NSData, NSString;
+@class CLSManagedPublicEvent, NSString;
 
 @interface CLSManagedPublicEventCategory : NSManagedObject
 {
@@ -18,7 +18,7 @@
 @property(retain, nonatomic) NSString *category; // @dynamic category;
 @property(retain, nonatomic) CLSManagedPublicEvent *event; // @dynamic event;
 @property(retain, nonatomic) NSString *localizedName; // @dynamic localizedName;
-@property(retain, nonatomic) NSData *localizedSubcategories; // @dynamic localizedSubcategories;
+@property(retain, nonatomic) NSString *localizedSubcategories; // @dynamic localizedSubcategories;
 
 @end
 

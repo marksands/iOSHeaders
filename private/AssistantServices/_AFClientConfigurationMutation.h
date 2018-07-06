@@ -16,6 +16,7 @@
     long long _deviceRingerSwitchState;
     _Bool _isDeviceInSetupFlow;
     _Bool _isDeviceInCarDNDMode;
+    _Bool _isDeviceInStarkMode;
     _Bool _isAccessibilityVoiceOverTouchEnabled;
     _Bool _isAccessibilityVibrationDisabled;
     float _outputVolume;
@@ -26,6 +27,7 @@
         unsigned int hasDeviceRingerSwitchState:1;
         unsigned int hasIsDeviceInSetupFlow:1;
         unsigned int hasIsDeviceInCarDNDMode:1;
+        unsigned int hasIsDeviceInStarkMode:1;
         unsigned int hasIsAccessibilityVoiceOverTouchEnabled:1;
         unsigned int hasIsAccessibilityVibrationDisabled:1;
         unsigned int hasOutputVolume:1;
@@ -41,6 +43,7 @@
 - (void)setOutputVolume:(float)arg1;
 - (void)setIsAccessibilityVibrationDisabled:(_Bool)arg1;
 - (void)setIsAccessibilityVoiceOverTouchEnabled:(_Bool)arg1;
+- (void)setIsDeviceInStarkMode:(_Bool)arg1;
 - (void)setIsDeviceInCarDNDMode:(_Bool)arg1;
 - (void)setIsDeviceInSetupFlow:(_Bool)arg1;
 - (void)setDeviceRingerSwitchState:(long long)arg1;

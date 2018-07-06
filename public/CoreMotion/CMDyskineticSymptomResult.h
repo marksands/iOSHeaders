@@ -13,7 +13,6 @@
 
 @interface CMDyskineticSymptomResult : NSObject <NSCopying, NSSecureCoding>
 {
-    float _percentOffWrist;
     float _percentUnlikely;
     float _percentLikely;
     NSDate *_startDate;
@@ -23,7 +22,6 @@
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) float percentLikely; // @synthesize percentLikely=_percentLikely;
 @property(readonly, nonatomic) float percentUnlikely; // @synthesize percentUnlikely=_percentUnlikely;
-@property(readonly, nonatomic) float percentOffWrist; // @synthesize percentOffWrist=_percentOffWrist;
 @property(readonly, copy, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
 @property(readonly, copy, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 - (id)description;
@@ -32,7 +30,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)initWithParkinsonsResult:(const struct ParkinsonsResult *)arg1;
-- (id)initWithStartDate:(id)arg1 endDate:(id)arg2 percentOffWrist:(float)arg3 percentDyskinesiaUnlikely:(float)arg4 percentDyskinesiaLikely:(float)arg5;
+- (id)initWithStartDate:(id)arg1 endDate:(id)arg2 percentDyskinesiaUnlikely:(float)arg3 percentDyskinesiaLikely:(float)arg4;
 
 @end
 

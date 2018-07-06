@@ -11,18 +11,21 @@
 @interface RMPersistenceStoreChangeProcessingOperation : CATOperation
 {
     NSPersistentStore *_store;
+    id <RMPersistenceControllerProtocol> _persistenceController;
     id <RMPersistenceStoreChangeProcessingOperationDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <RMPersistenceStoreChangeProcessingOperationDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) NSPersistentStore *store; // @synthesize store=_store;
+@property(readonly, nonatomic) id <RMPersistenceControllerProtocol> persistenceController; // @synthesize persistenceController=_persistenceController;
+@property(readonly, nonatomic) NSPersistentStore *store; // @synthesize store=_store;
 - (void).cxx_destruct;
+- (void)_handlePersistenceStoreChanges:(id)arg1 forStore:(id)arg2;
 - (id)_transactionsAfterToken:(id)arg1 store:(id)arg2 context:(id)arg3;
 - (id)_changeTypeForChange:(id)arg1;
 - (id)_entityGroupForChange:(id)arg1;
 - (void)main;
 - (_Bool)isAsynchronous;
-- (id)initWithStore:(id)arg1;
+- (id)initWithPersistenceController:(id)arg1 store:(id)arg2;
 
 @end
 

@@ -10,7 +10,7 @@
 #import "PUSearchResultsValueSorting.h"
 #import "PUTripSearchResult.h"
 
-@class NSArray, NSAttributedString, NSDate, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, PLSearchResult, PSIDate;
+@class NSArray, NSAttributedString, NSDate, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, PLSearchResult, PSIDate;
 
 __attribute__((visibility("hidden")))
 @interface PUSearchResultsValue : NSObject <PUSearchResultsValueSorting, PUSearchResultItem, PUTripSearchResult>
@@ -56,7 +56,7 @@ __attribute__((visibility("hidden")))
 - (void)setStartDate:(id)arg1 endDate:(id)arg2;
 @property(readonly) NSString *collectionSubtitle; // @synthesize collectionSubtitle=_collectionSubtitle;
 @property(readonly, copy) NSString *description;
-- (id)debugDictionary;
+@property(readonly) NSDictionary *debugDictionary;
 - (void)enumerateSearchIndexCategoriesUsingBlock:(CDUnknownBlockType)arg1;
 @property(readonly, copy) NSArray *lookupIdentifiers;
 - (id)groupsMatchRanges;

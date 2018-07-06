@@ -6,25 +6,27 @@
 
 #import <ScreenTimeUI/STGroupSpecifierProvider.h>
 
-@class LSApplicationProxy, PSSpecifier, STUsageItem;
+@class CTCategory, PSSpecifier, STAppInfo, STUsageItem;
 
 @interface STAppDetailsGroupSpecifierProvider : STGroupSpecifierProvider
 {
+    PSSpecifier *_appIconSpecifier;
     STUsageItem *_appUsageItem;
-    LSApplicationProxy *_applicationProxy;
-    PSSpecifier *_categorySpecifier;
+    STAppInfo *_appInfo;
+    CTCategory *_category;
 }
 
-@property(readonly, nonatomic) PSSpecifier *categorySpecifier; // @synthesize categorySpecifier=_categorySpecifier;
-@property(readonly, nonatomic) LSApplicationProxy *applicationProxy; // @synthesize applicationProxy=_applicationProxy;
+@property(retain, nonatomic) CTCategory *category; // @synthesize category=_category;
+@property(readonly, nonatomic) STAppInfo *appInfo; // @synthesize appInfo=_appInfo;
 @property(readonly, nonatomic) STUsageItem *appUsageItem; // @synthesize appUsageItem=_appUsageItem;
+@property(readonly, nonatomic) PSSpecifier *appIconSpecifier; // @synthesize appIconSpecifier=_appIconSpecifier;
 - (void).cxx_destruct;
 - (void)didFetchCategory:(id)arg1;
 - (id)developer:(id)arg1;
 - (id)ageRating:(id)arg1;
 - (id)category:(id)arg1;
 - (id)usageItem:(id)arg1;
-- (id)initWithAppUsageItem:(id)arg1;
+- (id)initWithAppUsageItem:(id)arg1 appInfo:(id)arg2;
 
 @end
 

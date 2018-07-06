@@ -59,7 +59,7 @@
 - (struct CGRect)visibleBounds;
 - (void)extendedTraitCollectionDidChange:(unsigned long long)arg1;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (_Bool)gadget:(id)arg1 transitionToViewController:(struct NSObject *)arg2 animated:(_Bool)arg3;
+- (_Bool)gadget:(id)arg1 transitionToViewController:(struct NSObject *)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)gadget:(id)arg1 didChange:(unsigned long long)arg2;
 - (void)didDismissPreviewViewController:(id)arg1 committing:(_Bool)arg2;
 - (void)commitPreviewViewController:(id)arg1;
@@ -80,6 +80,7 @@
 - (void)userDidSelectAccessoryButton:(id)arg1;
 @property(readonly, nonatomic) unsigned long long accessoryButtonType;
 @property(readonly, nonatomic) NSString *localizedTitle;
+- (long long)anchorPosition;
 - (void)setCollectionHeight:(double)arg1;
 - (void)setCollectionAccessoryButtonType:(unsigned long long)arg1;
 - (void)setCollectionTitle:(id)arg1;

@@ -17,6 +17,7 @@
     id <MPSCNNBatchNormalizationDataSource> _dataSource;
     _Bool _stateNeedsToLoad;
     MPSNNNeuronDescriptor *_fusedNeuronDescriptor;
+    id <MTLBuffer> _preluBuffer;
     float _epsilon;
     unsigned long long _numberOfFeatureChannels;
 }

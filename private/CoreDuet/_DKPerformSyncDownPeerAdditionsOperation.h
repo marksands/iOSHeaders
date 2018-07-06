@@ -24,6 +24,9 @@
     NSArray *_overlappingWindows;
 }
 
++ (void)_updateEventStatsWithTotal:(unsigned long long)arg1 streamNameCounts:(id)arg2 transportType:(long long)arg3;
++ (void)_updateEventStatsWithSyncLatencyOfEvent:(id)arg1 ingressDate:(id)arg2 transportType:(long long)arg3;
++ (void)_updateEventStatsWithPreviousSyncDate:(id)arg1 transportType:(long long)arg2;
 - (void).cxx_destruct;
 - (void)endPerfMetrics;
 - (void)startPerfMetrics;

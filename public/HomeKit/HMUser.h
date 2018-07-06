@@ -11,20 +11,20 @@
 #import "HMObjectMerge.h"
 #import "NSSecureCoding.h"
 
-@class HMAssistantAccessControl, HMHome, HMHomeAccessControl, HMThreadSafeMutableArrayCollection, NSObject<OS_dispatch_queue>, NSString, NSUUID, _HMContext;
+@class HMAssistantAccessControl, HMFUnfairLock, HMHome, HMHomeAccessControl, HMMutableArray, NSObject<OS_dispatch_queue>, NSString, NSUUID, _HMContext;
 
 @interface HMUser : NSObject <HMFLogging, HMFMessageReceiver, NSSecureCoding, HMObjectMerge>
 {
-    HMThreadSafeMutableArrayCollection *_pendingAccessoryInvitations;
+    HMFUnfairLock *_lock;
+    HMMutableArray *_pendingAccessoryInvitations;
     _Bool _currentUser;
-    _HMContext *_context;
     NSUUID *_uniqueIdentifier;
     NSString *_name;
     HMHomeAccessControl *_homeAccessControl;
     HMAssistantAccessControl *_assistantAccessControl;
     NSString *_userID;
     HMHome *_home;
-    NSObject<OS_dispatch_queue> *_propertyQueue;
+    _HMContext *_context;
     id <HMUserDelegatePrivate> _delegate;
     NSUUID *_uuid;
 }
@@ -33,7 +33,7 @@
 + (id)logCategory;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property __weak id <HMUserDelegatePrivate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
+@property(retain) _HMContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 - (id)messageDestination;
@@ -62,11 +62,9 @@
 @property(retain, nonatomic) HMHomeAccessControl *homeAccessControl; // @synthesize homeAccessControl=_homeAccessControl;
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue;
-@property(retain) _HMContext *context; // @synthesize context=_context;
 - (void)_registerNotificationHandlers;
 - (void)_unconfigure;
-- (void)_configureWith:(id)arg1 context:(id)arg2;
+- (void)__configureWithContext:(id)arg1 home:(id)arg2;
 - (void)dealloc;
 - (id)initWithUserID:(id)arg1 name:(id)arg2 uuid:(id)arg3 home:(id)arg4 accessControls:(id)arg5;
 - (id)init;

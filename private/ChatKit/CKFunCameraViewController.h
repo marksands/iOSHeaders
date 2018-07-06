@@ -43,7 +43,6 @@
 - (void)_handleRemoteConnectionInterrupted:(id)arg1;
 - (id)contentViewControllerForPlugin:(id)arg1;
 - (id)configuredContentViewControllerForPlugin:(id)arg1;
-- (unsigned long long)supportedInterfaceOrientations;
 - (void)viewWillLayoutSubviews;
 - (_Bool)prefersStatusBarHidden;
 - (id)initWithConversation:(id)arg1;

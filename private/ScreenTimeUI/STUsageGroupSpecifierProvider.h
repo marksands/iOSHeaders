@@ -6,15 +6,15 @@
 
 #import <ScreenTimeUI/STGroupSpecifierProvider.h>
 
-@class STUsageDetailsViewModel;
+@class NSObject<STRootViewModelCoordinator>;
 
 @interface STUsageGroupSpecifierProvider : STGroupSpecifierProvider
 {
-    STUsageDetailsViewModel *_viewModel;
+    NSObject<STRootViewModelCoordinator> *_coordinator;
 }
 
-+ (id)providerWithViewModel:(id)arg1;
-@property(retain) STUsageDetailsViewModel *viewModel; // @synthesize viewModel=_viewModel;
++ (id)providerWithCoordinator:(id)arg1;
+@property(retain, nonatomic) NSObject<STRootViewModelCoordinator> *coordinator; // @synthesize coordinator=_coordinator;
 - (void).cxx_destruct;
 - (void)invalidate;
 

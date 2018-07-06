@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSData, NSString;
+@class NSDictionary, NSString;
 
 @interface SFRemoteTextSessionInfo : NSObject <NSSecureCoding>
 {
@@ -17,7 +17,7 @@
     long long _keyboardType;
     NSString *_prompt;
     long long _returnKeyType;
-    struct NSData *_rtiPayload;
+    struct NSDictionary *_rtiPayload;
     NSString *_text;
     NSString *_title;
 }
@@ -26,7 +26,7 @@
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 @property(nonatomic) _Bool secureTextEntry; // @synthesize secureTextEntry=_secureTextEntry;
-@property(copy, nonatomic) NSData *rtiPayload; // @synthesize rtiPayload=_rtiPayload;
+@property(copy, nonatomic) NSDictionary *rtiPayload; // @synthesize rtiPayload=_rtiPayload;
 @property(nonatomic) long long returnKeyType; // @synthesize returnKeyType=_returnKeyType;
 @property(copy, nonatomic) NSString *prompt; // @synthesize prompt=_prompt;
 @property(nonatomic) long long keyboardType; // @synthesize keyboardType=_keyboardType;

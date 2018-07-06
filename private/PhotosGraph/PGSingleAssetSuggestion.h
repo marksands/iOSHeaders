@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) unsigned short type; // @synthesize type=_type;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) _Bool containsUnverifiedPersons;
 @property(readonly, copy, nonatomic) NSArray *suggestedPersonLocalIdentifiers;
 @property(readonly, nonatomic) unsigned char notificationQuality;
 @property(readonly, nonatomic) NSDate *universalEndDate;

@@ -14,7 +14,7 @@
 }
 
 + (id)localizedShortPowerUnitString;
-+ (id)localizedShortCadenceUnitString;
++ (id)localizedShortCadenceUnitStringForActivityType:(unsigned long long)arg1;
 + (id)percentStringWithNumber:(id)arg1;
 + (id)stringWithNumber:(id)arg1 decimalPrecision:(unsigned long long)arg2 roundingMode:(unsigned long long)arg3;
 + (id)stringWithNumber:(id)arg1 decimalPrecision:(unsigned long long)arg2;

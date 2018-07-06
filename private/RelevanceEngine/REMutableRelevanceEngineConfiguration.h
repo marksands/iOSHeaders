@@ -14,6 +14,7 @@
 
 + (id)defaultConfiguration;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(nonatomic) _Bool ignoreDeviceLockState; // @dynamic ignoreDeviceLockState;
 @property(nonatomic) _Bool wantsBackup; // @dynamic wantsBackup;
 @property(nonatomic) _Bool allowsRemoteTraining; // @dynamic allowsRemoteTraining;
 @property(copy, nonatomic) NSString *preferenceDomain; // @dynamic preferenceDomain;

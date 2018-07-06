@@ -49,6 +49,7 @@
 @property(retain, nonatomic) NSString *maximumContentSizeCategory; // @synthesize maximumContentSizeCategory=_maximumContentSizeCategory;
 @property(nonatomic) long long textStyle; // @synthesize textStyle=_textStyle;
 - (void).cxx_destruct;
+- (id)attributedStringWithString:(id)arg1 view:(id)arg2;
 - (id)attributedStringWithString:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;

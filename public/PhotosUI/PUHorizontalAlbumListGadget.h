@@ -6,12 +6,13 @@
 
 #import "PXHorizontalCollectionGadget.h"
 
+#import "PLNavigableCollectionContainer.h"
 #import "PUCloudSharedAlbumViewControllerDelegate.h"
 #import "PUStackedAlbumTransitionDelegate.h"
 
 @class NSString, NSUserActivity, PUAlbumDropSessionController, PUAlbumListViewControllerSpec, PUAlbumsGadgetProvider, PUPhotoPinchGestureRecognizer, PUSessionInfo;
 
-@interface PUHorizontalAlbumListGadget : PXHorizontalCollectionGadget <PUStackedAlbumTransitionDelegate, PUCloudSharedAlbumViewControllerDelegate>
+@interface PUHorizontalAlbumListGadget : PXHorizontalCollectionGadget <PUStackedAlbumTransitionDelegate, PUCloudSharedAlbumViewControllerDelegate, PLNavigableCollectionContainer>
 {
     PUAlbumsGadgetProvider *_provider;
     PUSessionInfo *_sessionInfo;
@@ -26,6 +27,9 @@
 @property(retain, nonatomic) PUSessionInfo *sessionInfo; // @synthesize sessionInfo=_sessionInfo;
 @property(readonly, nonatomic) PUAlbumsGadgetProvider *provider; // @synthesize provider=_provider;
 - (void).cxx_destruct;
+- (void)_navigateToCollection:(id)arg1 animated:(_Bool)arg2 interactive:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (_Bool)_canUseStackedAlbumTransitionToNavigationToCollection:(id)arg1;
+- (void)_handlePinch:(id)arg1;
 - (void)sharedAlbumDeletedBySharedAlbumViewController:(id)arg1;
 - (id)stackedAlbumTransition:(id)arg1 layoutForPHCollection:(id)arg2 forCollectionView:(id)arg3;
 - (void)stackedAlbumTransition:(id)arg1 setVisibility:(_Bool)arg2 forPHCollection:(id)arg3;
@@ -38,12 +42,8 @@
 - (void)collectionView:(id)arg1 performDropWithCoordinator:(id)arg2;
 - (_Bool)collectionView:(id)arg1 shouldSpringLoadItemAtIndexPath:(id)arg2 withContext:(id)arg3;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
-- (long long)anchorPosition;
-- (void)navigateToPeopleAlbumAnimated:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (id)_navigateToCollection:(id)arg1 animated:(_Bool)arg2 interactive:(_Bool)arg3;
-- (id)navigateToAssetCollection:(id)arg1 animated:(_Bool)arg2;
-- (_Bool)_canUseStackedAlbumTransitionToNavigationToCollection:(id)arg1;
-- (void)_handlePinch:(id)arg1;
+- (void)navigateToCollection:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)canNavigateToCollection:(id)arg1;
 @property(readonly, nonatomic) PUAlbumListViewControllerSpec *albumListViewControllerSpec;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;

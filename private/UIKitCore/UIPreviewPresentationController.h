@@ -18,7 +18,7 @@
     UIVisualEffectView *_presentationContainerEffectView;
     UIWindow *_statusBarWindow;
     UIView *_statusBarSnapshotView;
-    NSArray *_keyboardSnapshotViews;
+    NSArray *_keyboardSnapshotters;
     NSHashTable *_keyboardWindows;
     UIResponder *_currentPinnedResponder;
     UIWindow *_presentationWindow;
@@ -36,7 +36,7 @@
 @property(nonatomic) __weak UIWindow *presentationWindow; // @synthesize presentationWindow=_presentationWindow;
 @property(nonatomic) __weak UIResponder *currentPinnedResponder; // @synthesize currentPinnedResponder=_currentPinnedResponder;
 @property(copy, nonatomic) NSHashTable *keyboardWindows; // @synthesize keyboardWindows=_keyboardWindows;
-@property(copy, nonatomic) NSArray *keyboardSnapshotViews; // @synthesize keyboardSnapshotViews=_keyboardSnapshotViews;
+@property(copy, nonatomic) NSArray *keyboardSnapshotters; // @synthesize keyboardSnapshotters=_keyboardSnapshotters;
 @property(retain, nonatomic) UIView *statusBarSnapshotView; // @synthesize statusBarSnapshotView=_statusBarSnapshotView;
 @property(retain, nonatomic) UIWindow *statusBarWindow; // @synthesize statusBarWindow=_statusBarWindow;
 @property(retain, nonatomic) UIVisualEffectView *presentationContainerEffectView; // @synthesize presentationContainerEffectView=_presentationContainerEffectView;

@@ -12,7 +12,7 @@
 #import "NCNotificationViewControllerDelegatePrivate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class NCAnimationCoordinator, NCNotificationListCell, NCNotificationListTouchEater, NCNotificationViewController, NSHashTable, NSMutableArray, NSMutableDictionary, NSString, UIAlertController;
+@class NCAnimationCoordinator, NCNotificationListCell, NCNotificationViewController, NCTouchEaterGestureRecognizer, NSHashTable, NSMutableArray, NSMutableDictionary, NSString, UIAlertController;
 
 @interface NCNotificationListViewController : UICollectionViewController <NCNotificationListCellDelegate, UIGestureRecognizerDelegate, NCNotificationViewControllerDelegatePrivate, NCNotificationListCollectionViewDelegate, NCNotificationManagementControllerSettingsDelegate>
 {
@@ -30,7 +30,7 @@
     NSMutableDictionary *_cellsSizesCaches;
     NSMutableDictionary *_cellsSizesCachesSuppressedContent;
     NSHashTable *_observers;
-    NCNotificationListTouchEater *_touchEater;
+    NCTouchEaterGestureRecognizer *_touchEater;
     NCNotificationListCell *_cellWithRevealedActions;
     NCAnimationCoordinator *_childPreferredContentSizeChangeCoordinatorForCurrentTransaction;
     NSMutableArray *_childPreferredContentSizeChangeCoordinators;
@@ -46,7 +46,7 @@
 @property(nonatomic) _Bool notificationRequestRemovedWhilePossiblyInLongLook; // @synthesize notificationRequestRemovedWhilePossiblyInLongLook=_notificationRequestRemovedWhilePossiblyInLongLook;
 @property(nonatomic) _Bool needsReloadData; // @synthesize needsReloadData=_needsReloadData;
 @property(nonatomic) __weak NCNotificationListCell *cellWithRevealedActions; // @synthesize cellWithRevealedActions=_cellWithRevealedActions;
-@property(retain, nonatomic) NCNotificationListTouchEater *touchEater; // @synthesize touchEater=_touchEater;
+@property(retain, nonatomic) NCTouchEaterGestureRecognizer *touchEater; // @synthesize touchEater=_touchEater;
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) NSMutableDictionary *cellsSizesCachesSuppressedContent; // @synthesize cellsSizesCachesSuppressedContent=_cellsSizesCachesSuppressedContent;
 @property(retain, nonatomic) NSMutableDictionary *cellsSizesCaches; // @synthesize cellsSizesCaches=_cellsSizesCaches;
@@ -178,6 +178,7 @@
 - (_Bool)modifyNotificationRequest:(id)arg1 forCoalescedNotification:(id)arg2;
 - (_Bool)insertNotificationRequest:(id)arg1 forCoalescedNotification:(id)arg2;
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
+- (void)viewDidMoveToWindow:(id)arg1 shouldAppearOrDisappear:(_Bool)arg2;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

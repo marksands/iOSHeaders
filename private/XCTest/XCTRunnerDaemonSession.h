@@ -59,9 +59,9 @@
 - (void)registerForAccessibilityNotification:(long long)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)launchApplicationWithBundleID:(id)arg1 arguments:(id)arg2 environment:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)startMonitoringApplicationWithBundleID:(id)arg1;
-- (void)requestBackgroundAssertionForPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)requestSpindumpWithSpecification:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)requestScreenshotOfScreenWithID:(unsigned int)arg1 withRect:(struct CGRect)arg2 formatUTI:(id)arg3 compressionQuality:(double)arg4 imageFormatRespected:(_Bool *)arg5 withReply:(CDUnknownBlockType)arg6;
+- (void)requestBackgroundAssertionForPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)requestAutomationSessionForTestTargetWithPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)requestIDEConnectionTransportForSessionIdentifier:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)_XCT_receivedAccessibilityNotification:(long long)arg1 withPayload:(id)arg2;

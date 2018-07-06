@@ -22,6 +22,7 @@
 + (id)cloudMasterWithScopedIdentifier:(id)arg1 inManagedObjectContext:(id)arg2;
 + (id)cloudMasterWithGUID:(id)arg1 inMomentShare:(id)arg2 inManagedObjectContext:(id)arg3;
 + (id)insertIntoPhotoLibrary:(id)arg1 withCloudMasterGUID:(id)arg2 inMomentShare:(id)arg3;
+- (void)_promptForNilScopeIdentifierRadar;
 - (id)scopedIdentifier;
 - (id)cplFullRecord;
 @property(readonly, retain, nonatomic) id localID;

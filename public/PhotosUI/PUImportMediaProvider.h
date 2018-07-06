@@ -38,13 +38,14 @@
 @property(readonly, nonatomic) struct CGSize gridItemSize;
 - (id)_placeholderExtensionForItem:(id)arg1;
 - (id)_newPlaceholderImageForItemWithExtension:(id)arg1 size:(struct CGSize)arg2;
-- (long long)idleTimeOut;
+- (double)idleTimeOut;
 - (void)performIdleProcessingIfNecessary;
 - (id)cachedImageForModel:(id)arg1 atSize:(unsigned long long)arg2;
 - (_Bool)thumbnailExistsForModel:(id)arg1;
 - (_Bool)thumbnailExistsForModel:(id)arg1 atSize:(unsigned long long)arg2;
+- (long long)requestImageForImportItem:(id)arg1 ofSize:(unsigned long long)arg2 priority:(unsigned char)arg3 completion:(CDUnknownBlockType)arg4;
 - (long long)requestImageForImportItem:(id)arg1 ofSize:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
-- (long long)imageOfSize:(unsigned long long)arg1 forModel:(id)arg2 localCacheOnly:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (long long)imageOfSize:(unsigned long long)arg1 forModel:(id)arg2 localCacheOnly:(_Bool)arg3 priority:(unsigned char)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)stopCachingImagesForAllAssets;
 - (void)stopCachingImagesForAssets:(id)arg1 targetSize:(struct CGSize)arg2 contentMode:(long long)arg3 options:(id)arg4;
 - (void)startCachingImagesForAssets:(id)arg1 targetSize:(struct CGSize)arg2 contentMode:(long long)arg3 options:(id)arg4;

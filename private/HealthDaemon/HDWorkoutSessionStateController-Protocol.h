@@ -18,8 +18,8 @@
 - (_Bool)resumeWithError:(id *)arg1;
 - (_Bool)pauseWithError:(id *)arg1;
 - (_Bool)endWithError:(id *)arg1;
-- (_Bool)stopActivityWithError:(id *)arg1;
-- (_Bool)startActivityWithError:(id *)arg1;
+- (_Bool)stopActivityWithDate:(NSDate *)arg1 error:(id *)arg2;
+- (_Bool)startActivityWithDate:(NSDate *)arg1 error:(id *)arg2;
 - (_Bool)prepareWithError:(id *)arg1;
 @end
 

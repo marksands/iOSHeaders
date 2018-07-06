@@ -25,6 +25,7 @@
 @property(readonly, nonatomic) STCandyBarView *usageBarView; // @synthesize usageBarView=_usageBarView;
 @property(readonly, nonatomic) UILabel *itemNameLabel; // @synthesize itemNameLabel=_itemNameLabel;
 - (void).cxx_destruct;
+- (_Bool)canReload;
 - (void)setValue:(id)arg1;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 

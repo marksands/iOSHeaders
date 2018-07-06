@@ -17,6 +17,7 @@
 }
 
 - (void).cxx_destruct;
+- (id)_annotationViewForLocation:(id)arg1 title:(id)arg2 transitStation:(_Bool)arg3;
 - (_Bool)_locationIsValid:(id)arg1;
 - (id)_snapshotLocationForTransaction:(id)arg1;
 - (void)dealloc;

@@ -14,12 +14,10 @@
     _Bool _enableViewportDebugging;
     NSString *_contentSizeCategory;
     unsigned long long _presentationMode;
-    unsigned long long _mediaSharingPolicy;
     struct CGSize _canvasSize;
 }
 
 @property(nonatomic) _Bool enableViewportDebugging; // @synthesize enableViewportDebugging=_enableViewportDebugging;
-@property(nonatomic) unsigned long long mediaSharingPolicy; // @synthesize mediaSharingPolicy=_mediaSharingPolicy;
 @property(nonatomic) _Bool fadeInComponents; // @synthesize fadeInComponents=_fadeInComponents;
 @property(nonatomic) unsigned long long presentationMode; // @synthesize presentationMode=_presentationMode;
 @property(retain, nonatomic) NSString *contentSizeCategory; // @synthesize contentSizeCategory=_contentSizeCategory;
@@ -29,7 +27,6 @@
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 @property(readonly, nonatomic) _Bool fadeWhenTransitioning;
-- (id)init;
 
 @end
 

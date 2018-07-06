@@ -28,14 +28,14 @@
 + (id)columnsDefinition;
 + (id)protectedDatabaseName;
 + (long long)protectionClass;
-+ (id)predicateForSyncWithPredicate:(id)arg1 session:(id)arg2 syncAnchorRange:(struct HDSyncAnchorRange)arg3;
++ (id)predicateForSyncWithPredicate:(id)arg1 syncEntityClass:(Class)arg2 session:(id)arg3 syncAnchorRange:(struct HDSyncAnchorRange)arg4;
 + (id)propertyForSyncProvenance;
 + (id)propertyForSyncAnchor;
 + (id)_syncQueryWithDatabase:(id)arg1 predicate:(id)arg2 orderingProperties:(id)arg3 orderingDirections:(id)arg4 limit:(unsigned long long)arg5 anchorProperty:(id)arg6;
 + (id)_syncQueryDescriptorWithPredicate:(id)arg1 orderingProperties:(id)arg2 orderingDirections:(id)arg3 limit:(unsigned long long)arg4 anchorProperty:(id)arg5;
-+ (long long)nextSyncAnchorWithStartAnchor:(long long)arg1 predicate:(id)arg2 session:(id)arg3 orderingProperties:(id)arg4 orderingDirections:(id)arg5 limit:(unsigned long long)arg6 healthDatabase:(id)arg7 error:(id *)arg8;
++ (long long)nextSyncAnchorWithStartAnchor:(long long)arg1 predicate:(id)arg2 syncEntityClass:(Class)arg3 session:(id)arg4 orderingProperties:(id)arg5 orderingDirections:(id)arg6 limit:(unsigned long long)arg7 healthDatabase:(id)arg8 error:(id *)arg9;
 + (long long)nextSyncAnchorWithStartAnchor:(long long)arg1 predicate:(id)arg2 session:(id)arg3 healthDatabase:(id)arg4 error:(id *)arg5;
-+ (_Bool)enumerateEntitiesForSyncWithProperties:(id)arg1 predicate:(id)arg2 session:(id)arg3 syncAnchorRange:(struct HDSyncAnchorRange)arg4 orderingProperties:(id)arg5 orderingDirections:(id)arg6 limit:(unsigned long long)arg7 lastSyncAnchor:(long long *)arg8 healthDatabase:(id)arg9 error:(id *)arg10 block:(CDUnknownBlockType)arg11;
++ (_Bool)enumerateEntitiesForSyncWithProperties:(id)arg1 predicate:(id)arg2 syncEntityClass:(Class)arg3 session:(id)arg4 syncAnchorRange:(struct HDSyncAnchorRange)arg5 orderingProperties:(id)arg6 orderingDirections:(id)arg7 limit:(unsigned long long)arg8 lastSyncAnchor:(long long *)arg9 healthDatabase:(id)arg10 error:(id *)arg11 block:(CDUnknownBlockType)arg12;
 + (_Bool)enumerateEntitiesForSyncWithProperties:(id)arg1 predicate:(id)arg2 session:(id)arg3 syncAnchorRange:(struct HDSyncAnchorRange)arg4 limit:(unsigned long long)arg5 lastSyncAnchor:(long long *)arg6 healthDatabase:(id)arg7 error:(id *)arg8 block:(CDUnknownBlockType)arg9;
 + (id)maxRowIDForPredicate:(id)arg1 healthDatabase:(id)arg2 error:(id *)arg3;
 + (id)propertyValueForAnyWithProperty:(id)arg1 predicate:(id)arg2 healthDatabase:(id)arg3 error:(id *)arg4;
@@ -52,6 +52,8 @@
 - (_Bool)updateProperties:(id)arg1 healthDatabase:(id)arg2 error:(id *)arg3 bindingHandler:(CDUnknownBlockType)arg4;
 - (_Bool)setForeignKeyEntity:(id)arg1 forProperty:(id)arg2 transaction:(id)arg3 error:(id *)arg4;
 - (id)foreignKeyEntity:(Class)arg1 forProperty:(id)arg2 transaction:(id)arg3 error:(id *)arg4;
+- (_Bool)setNumber:(id)arg1 forProperty:(id)arg2 transaction:(id)arg3 error:(id *)arg4;
+- (id)numberForProperty:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (_Bool)setString:(id)arg1 forProperty:(id)arg2 transaction:(id)arg3 error:(id *)arg4;
 - (id)stringForProperty:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (_Bool)setDate:(id)arg1 forProperty:(id)arg2 transaction:(id)arg3 error:(id *)arg4;

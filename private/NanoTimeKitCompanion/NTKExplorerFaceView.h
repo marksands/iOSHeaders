@@ -53,6 +53,7 @@
 - (id)_keylineViewForComplicationSlot:(id)arg1;
 - (unsigned long long)_keylineLabelAlignmentForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (id)_keylineViewForCustomEditMode:(long long)arg1 slot:(id)arg2;
+- (long long)_keylineStyleForComplicationSlot:(id)arg1;
 - (double)_verticalPaddingForStatusBar;
 - (struct CGPoint)_contentCenterOffset;
 - (long long)_legacyLayoutOverrideforComplicationType:(unsigned long long)arg1 slot:(id)arg2;

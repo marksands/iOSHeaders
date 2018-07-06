@@ -74,6 +74,7 @@
     _Bool _allowHapticsOnConfigurationTaps;
     _Bool _topBarInvertedForModernPhone;
     _Bool _hasFilteringEntitlement;
+    long long _maximumBurstLength;
     long long _maximumRecordedFileSize;
     long long _back720pMaxFPS;
     long long _front720pMaxFPS;
@@ -158,6 +159,7 @@
 @property(readonly, nonatomic, getter=isStillDuringVideoSupported) _Bool stillDuringVideoSupported; // @synthesize stillDuringVideoSupported=_stillDuringVideoSupported;
 @property(readonly, nonatomic, getter=isVideoSupported) _Bool videoSupported; // @synthesize videoSupported=_videoSupported;
 @property(readonly, nonatomic, getter=isSquareModeSupported) _Bool squareModeSupported; // @synthesize squareModeSupported=_squareModeSupported;
+@property(readonly, nonatomic) long long maximumBurstLength; // @synthesize maximumBurstLength=_maximumBurstLength;
 @property(readonly, nonatomic, getter=isFrontBurstSupported) _Bool frontBurstSupported; // @synthesize frontBurstSupported=_frontBurstSupported;
 @property(readonly, nonatomic, getter=isBackBurstSupported) _Bool backBurstSupported; // @synthesize backBurstSupported=_backBurstSupported;
 @property(readonly, nonatomic, getter=isNaturalLightingAppliedToOriginal) _Bool naturalLightingAppliedToOriginal; // @synthesize naturalLightingAppliedToOriginal=_naturalLightingAppliedToOriginal;
@@ -210,8 +212,6 @@
 - (_Bool)is4k60VideoSupportedForDevice:(long long)arg1;
 - (_Bool)is4k30VideoSupportedForDevice:(long long)arg1;
 - (_Bool)is4k24VideoSupportedForDevice:(long long)arg1;
-- (long long)maximumBurstLength;
-- (_Bool)_is2017iPhone;
 - (double)captureIntervalForDevice:(long long)arg1;
 - (_Bool)isBurstSupportedForDevice:(long long)arg1;
 - (_Bool)isLivePreviewSupportedForLightingType:(long long)arg1 devicePosition:(long long)arg2;

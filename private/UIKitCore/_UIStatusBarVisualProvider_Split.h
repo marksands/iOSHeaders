@@ -37,7 +37,6 @@
 + (double)notchBottomCornerRadius;
 + (double)notchTopCornerRadius;
 + (struct CGSize)notchSize;
-+ (double)itemSpacing;
 + (double)referenceScale;
 + (double)referenceWidth;
 + (double)cornerRadius;

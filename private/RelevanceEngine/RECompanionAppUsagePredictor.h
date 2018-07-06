@@ -18,6 +18,8 @@
 - (void)collectLoggableState:(CDUnknownBlockType)arg1;
 - (id)featureValueForFeature:(id)arg1 element:(id)arg2 engine:(id)arg3 trainingContext:(id)arg4;
 - (void)update;
+- (void)_loadStoreIfNeeded;
+- (void)dealloc;
 - (id)init;
 
 @end

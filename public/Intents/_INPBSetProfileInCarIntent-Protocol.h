@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class _INPBInteger, _INPBIntentMetadata, _INPBString;
+@class _INPBDataString, _INPBInteger, _INPBIntentMetadata, _INPBString;
 
 @protocol _INPBSetProfileInCarIntent <NSObject>
 @property(readonly, nonatomic) _Bool hasProfileNumber;
@@ -17,5 +17,7 @@
 @property(retain, nonatomic) _INPBIntentMetadata *intentMetadata;
 @property(nonatomic) _Bool hasDefaultProfile;
 @property(nonatomic) _Bool defaultProfile;
+@property(readonly, nonatomic) _Bool hasCarName;
+@property(retain, nonatomic) _INPBDataString *carName;
 @end
 

@@ -12,6 +12,7 @@
 
 + (id)sharedInstance;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)_inflectionFeatureValuePairs;
 - (_Bool)_acceptsFeatureMap:(id)arg1;
 - (id)_notCondition;
 

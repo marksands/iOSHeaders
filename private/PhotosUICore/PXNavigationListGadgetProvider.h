@@ -13,11 +13,13 @@
 @interface PXNavigationListGadgetProvider : PXGadgetProvider <PXChangeObserver>
 {
     _Bool _shouldShowNavigationListOnIpad;
+    _Bool _isPresentedInPicker;
     unsigned long long _type;
     PXExtendedTraitCollection *_traitCollection;
     PXNavigationListDataSourceManager *_dataSourceManager;
 }
 
+@property(readonly, nonatomic) _Bool isPresentedInPicker; // @synthesize isPresentedInPicker=_isPresentedInPicker;
 @property(retain, nonatomic) PXNavigationListDataSourceManager *dataSourceManager; // @synthesize dataSourceManager=_dataSourceManager;
 @property(readonly, nonatomic) PXExtendedTraitCollection *traitCollection; // @synthesize traitCollection=_traitCollection;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
@@ -29,7 +31,7 @@
 - (void)loadDataForGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
 - (void)dealloc;
-- (id)initWithType:(unsigned long long)arg1 extendedTraitCollection:(id)arg2;
+- (id)initWithType:(unsigned long long)arg1 extendedTraitCollection:(id)arg2 isPresentedInPicker:(_Bool)arg3;
 - (id)init;
 
 // Remaining properties

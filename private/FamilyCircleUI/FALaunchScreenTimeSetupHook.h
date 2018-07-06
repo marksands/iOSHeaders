@@ -17,7 +17,8 @@
 
 @property(nonatomic) __weak id <AAUIServerHookDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_launchScreenTimeSetupWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_launchScreenTimeSettings;
+- (void)_launchScreenTimeSetupForUser:(id)arg1 WithCompletion:(CDUnknownBlockType)arg2;
 - (void)processObjectModel:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)processElement:(id)arg1 attributes:(id)arg2 objectModel:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (_Bool)shouldMatchModel:(id)arg1;

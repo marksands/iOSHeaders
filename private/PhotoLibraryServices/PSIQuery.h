@@ -31,6 +31,13 @@
 }
 
 + (void)bootstrap;
++ (id)datedParsesWithBaseParse:(id)arg1;
++ (_Bool)enumerateDatedParsesWithParse:(id)arg1 currentTokenIndex:(unsigned long long)arg2 potentialComboAttributes:(id)arg3 usingBlock:(CDUnknownBlockType)arg4;
++ (_Bool)tokenIsEligibleForDateParsing:(id)arg1;
++ (id)dateAttributesFromToken:(id)arg1;
++ (id)dateFilterWithAttributes:(id)arg1 andAttributes:(id)arg2;
++ (id)dateFilterByCombiningDateFilter:(id)arg1 withDateFilter:(id)arg2;
++ (id)dateFilterWithAttributes:(id)arg1;
 @property(readonly, nonatomic) _Bool useWildcardText; // @synthesize useWildcardText=_useWildcardText;
 @property(retain, nonatomic) NSArray *nextKeywordSuggestions; // @synthesize nextKeywordSuggestions=_nextKeywordSuggestions;
 @property(nonatomic) unsigned long long numberOfNextKeywordSuggestionToProcess; // @synthesize numberOfNextKeywordSuggestionToProcess=_numberOfNextKeywordSuggestionToProcess;
@@ -45,10 +52,8 @@
 - (void)enumerateParsesWithMode:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)computeSuggestions;
 - (id)processParse:(id)arg1;
-- (_Bool)recursiveAddToGroupResults:(id)arg1 aggregate:(id)arg2 atIndex:(unsigned long long)arg3 outOf:(unsigned long long)arg4 inGroupArrays:(id)arg5 dateToken:(id)arg6;
+- (_Bool)recursiveAddToGroupResults:(id)arg1 aggregate:(id)arg2 atIndex:(unsigned long long)arg3 outOf:(unsigned long long)arg4 inGroupArrays:(id)arg5 dateFilter:(id)arg6;
 - (void)processWordEmbeddings;
-- (id)_datedParsesWithString:(id)arg1 baseParse:(id)arg2;
-- (id)_dateFilterWithAttributes:(id)arg1;
 - (void)processDates;
 - (void)bootstrap;
 - (struct __CFSet *)_idsOfGroupsMatchingToken:(id)arg1;

@@ -14,16 +14,16 @@
     _Bool _hasReturnedAdjustedResult;
     int _currentVersionRequestID;
     NSString *_uniqueContentIdentifier;
+    struct CGSize _targetSize;
     long long _contentMode;
     PHImageRequestOptions *_options;
     CDUnknownBlockType _resultHandler;
-    struct CGSize _targetSize;
 }
 
++ (id)memoryCache;
 @property(readonly, copy, nonatomic) CDUnknownBlockType resultHandler; // @synthesize resultHandler=_resultHandler;
 @property(readonly, nonatomic) PHImageRequestOptions *options; // @synthesize options=_options;
 @property(readonly, nonatomic) long long contentMode; // @synthesize contentMode=_contentMode;
-@property(readonly, nonatomic) struct CGSize targetSize; // @synthesize targetSize=_targetSize;
 - (void).cxx_destruct;
 - (void)_handleRenderedImage:(id)arg1 error:(id)arg2;
 - (void)_handleImageWasCached;
@@ -35,11 +35,14 @@
 - (_Bool)_deliverCachedUnscaledImageIfPossible;
 - (_Bool)_deliverCachedImageIfPossible;
 - (void)start;
+- (id)memoryCacheKey;
 - (id)_existingCachedImageURL;
 - (id)_unscaledCachedImageURL;
 - (id)_cachedLowResImageURL;
 - (id)_cachedImageURL;
-- (id)initWithRenderQueue:(id)arg1 asset:(id)arg2 targetSize:(struct CGSize)arg3 contentMode:(long long)arg4 options:(id)arg5 resultHandler:(CDUnknownBlockType)arg6;
+- (void)cacheImageInMemory:(id)arg1;
+- (id)memoryCachedImage;
+- (id)initWithRenderQueue:(id)arg1 asset:(id)arg2 contentMode:(long long)arg3 options:(id)arg4 resultHandler:(CDUnknownBlockType)arg5;
 
 @end
 

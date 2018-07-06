@@ -68,6 +68,7 @@
 - (int)verticalSensorBinningFactor;
 - (int)horizontalSensorBinningFactor;
 - (_Bool)capturesStillsFromVideoStream;
+@property(readonly, getter=isWideAsStatsMasterEnabled) _Bool wideAsStatsMasterEnabled;
 @property(readonly, getter=isStagePreviewRenderingSupported) _Bool stagePreviewRenderingSupported;
 @property(readonly, getter=isStudioAndContourPreviewRenderingSupported) _Bool studioAndContourPreviewRenderingSupported;
 @property(readonly, getter=isSecondaryScalerUnavailable) _Bool secondaryScalerUnavailable;
@@ -100,7 +101,6 @@
 - (int)fesBinningFactorVertical;
 - (int)fesBinningFactorHorizontal;
 - (struct CGRect)maxVisibleSensorRect;
-- (CDStruct_79c71658)preferredPreviewDimensions;
 - (int)previewImageQueueSyncStrategy;
 - (float)stabilizationOverscanPercentageOverrideForCinematic;
 - (int)stabilizationTypeOverrideForCinematic;

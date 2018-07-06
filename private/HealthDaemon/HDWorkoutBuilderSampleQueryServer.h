@@ -29,6 +29,7 @@
 - (void)_queue_scheduleHistoricalQuery;
 - (void)_queue_performHistoricalQuery;
 - (void)_queue_start;
+- (_Bool)_shouldExecuteWhenProtectedDataIsUnavailable;
 - (_Bool)_shouldObserveDatabaseProtectedDataAvailability;
 - (_Bool)_shouldObserveOnPause;
 - (_Bool)_shouldListenForUpdates;

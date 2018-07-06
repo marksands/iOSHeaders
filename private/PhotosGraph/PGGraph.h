@@ -24,6 +24,7 @@
     NSSet *_interestingCityNodes;
     NSSet *_highlyInterestingMomentNodes;
     NSMutableDictionary *_momentNodesByMomentID;
+    NSMutableDictionary *_personNodesByPersonID;
     NSMutableDictionary *_isCelebratingInGeneralCache;
     NSArray *_preprocessors;
     NSArray *_postprocessors;

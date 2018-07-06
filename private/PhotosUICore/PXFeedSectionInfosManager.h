@@ -16,16 +16,20 @@
 @interface PXFeedSectionInfosManager : NSObject <PLCloudFeedEntriesObserver, PLCloudCommentsChangeObserver, PLAssetChangeObserver, PLPhotoLibraryShouldReloadObserver>
 {
     PLPhotoLibrary *_photoLibrary;
-    long long _entryFilter;
     NSMutableArray *_sectionInfos;
     NSMapTable *_sectionInfosByCloudFeedEntry;
-    NSDate *_earliestDate;
     NSMutableArray *_pendingFeedEntriesChangeNotifications;
     NSMutableArray *_pendingCommentsChangeNotifications;
     NSMutableArray *_pendingAssetsChangeNotifications;
     id <PXFeedSectionInfosManagerDelegate> _delegate;
+    long long _entryFilter;
+    NSDate *_earliestDate;
+    unsigned long long _fetchLimit;
 }
 
+@property(nonatomic) unsigned long long fetchLimit; // @synthesize fetchLimit=_fetchLimit;
+@property(retain, nonatomic) NSDate *earliestDate; // @synthesize earliestDate=_earliestDate;
+@property(nonatomic) long long entryFilter; // @synthesize entryFilter=_entryFilter;
 @property(nonatomic) __weak id <PXFeedSectionInfosManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)initWithPhotoLibraryForTesting:(id)arg1 filter:(long long)arg2;
@@ -51,8 +55,7 @@
 - (_Bool)hasEnoughCloudFeedAssetEntriesToDisplay;
 - (long long)numberOfSectionInfos;
 - (void)dealloc;
-- (id)initWithPhotoLibrary:(id)arg1 filter:(long long)arg2 earliestDate:(id)arg3;
-- (id)initWithPhotoLibrary:(id)arg1 filter:(long long)arg2;
+- (id)initWithPhotoLibrary:(id)arg1 configurationBlock:(CDUnknownBlockType)arg2;
 
 @end
 

@@ -17,10 +17,10 @@
 - (void)_setRenderConfig:(id)arg1;
 - (int)textEffectsVisibilityLevel;
 - (void)updateFrame:(struct CGRect)arg1 withCorners:(int)arg2;
-- (void)layoutSubviews;
 - (id)_generateCornerContentsImage:(int)arg1;
 - (void)transitionToStyle:(long long)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (_Bool)_applyCornerMaskToSelf;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 

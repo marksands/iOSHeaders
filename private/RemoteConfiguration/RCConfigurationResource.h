@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSData, NSDate, NSString, RCUserSegmentationConfiguration;
+@class NSArray, NSData, NSDate, NSNumber, NSString, RCUserSegmentationConfiguration;
 
 @interface RCConfigurationResource : NSObject <NSCopying, NSSecureCoding>
 {
@@ -22,9 +22,13 @@
     NSString *_contentHash;
     NSString *_lastModifiedString;
     NSDate *_lastFetchedDate;
+    NSNumber *_fallbackMaxAge;
+    NSNumber *_endpointMaxAge;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSNumber *endpointMaxAge; // @synthesize endpointMaxAge=_endpointMaxAge;
+@property(retain, nonatomic) NSNumber *fallbackMaxAge; // @synthesize fallbackMaxAge=_fallbackMaxAge;
 @property(retain, nonatomic) NSDate *lastFetchedDate; // @synthesize lastFetchedDate=_lastFetchedDate;
 @property(retain, nonatomic) NSString *lastModifiedString; // @synthesize lastModifiedString=_lastModifiedString;
 @property(retain, nonatomic) NSString *contentHash; // @synthesize contentHash=_contentHash;
@@ -42,7 +46,7 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) NSData *configurationData;
-- (_Bool)isExpiredWithMaxAge:(double)arg1;
+- (_Bool)isExpiredWithFallbackMaxAge:(double)arg1 allowedToReachEndpoint:(_Bool)arg2;
 
 @end
 

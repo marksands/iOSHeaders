@@ -15,12 +15,13 @@ __attribute__((visibility("hidden")))
     NSObject<OS_xpc_object> *_listener;
     NSMapTable *_sessionMap;
     long long _clientCount;
-    NSError *_tokenError;
     NSString *_tokenID;
     TKToken *_token;
+    NSError *_tokenError;
 }
 
-@property(readonly) TKToken *token; // @synthesize token=_token;
+@property(retain) NSError *tokenError; // @synthesize tokenError=_tokenError;
+@property(retain) TKToken *token; // @synthesize token=_token;
 @property(readonly) NSString *tokenID; // @synthesize tokenID=_tokenID;
 - (void).cxx_destruct;
 - (void)dealloc;

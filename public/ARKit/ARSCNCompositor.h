@@ -10,12 +10,14 @@
 
 @interface ARSCNCompositor : NSObject
 {
+    _Bool _showOcclusion;
     _Bool _showOcclusionGeometry;
     ARFrame *_currentFrame;
     long long _currentOrientation;
 }
 
 @property(nonatomic) _Bool showOcclusionGeometry; // @synthesize showOcclusionGeometry=_showOcclusionGeometry;
+@property(nonatomic) _Bool showOcclusion; // @synthesize showOcclusion=_showOcclusion;
 @property(nonatomic) long long currentOrientation; // @synthesize currentOrientation=_currentOrientation;
 @property(retain, nonatomic) ARFrame *currentFrame; // @synthesize currentFrame=_currentFrame;
 - (void).cxx_destruct;

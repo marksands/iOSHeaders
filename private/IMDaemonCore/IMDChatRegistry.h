@@ -13,26 +13,32 @@
 @interface IMDChatRegistry : NSObject <TUConversationManagerDelegate>
 {
     NSRecursiveLock *_chatsLock;
+    NSRecursiveLock *_handlesLock;
     NSMutableDictionary *_chats;
     _Bool _isLoading;
     _Bool _doneLoadingAfterMerge;
     NSCache *_allChatsByIDCache;
     NSMutableDictionary *_chatsByGroupID;
     _Bool _hasDumpedLogsForNoExisitingGroup;
+    NSMutableDictionary *_idToHandlesMap;
     IMDCKUtilities *_ckUtilities;
     IMDChatStore *_chatStore;
     IMDMessageProcessingController *_messageProcessingController;
     IMDMessageHistorySyncController *_messageHistorySyncController;
+    NSMutableDictionary *_personCentricGroupedChatsCache;
     TUConversationManager *_conversationManager;
 }
 
 + (id)sharedInstance;
 @property(readonly, nonatomic) TUConversationManager *conversationManager; // @synthesize conversationManager=_conversationManager;
+@property(retain, nonatomic) NSMutableDictionary *personCentricGroupedChatsCache; // @synthesize personCentricGroupedChatsCache=_personCentricGroupedChatsCache;
 @property(readonly, nonatomic) IMDMessageHistorySyncController *messageHistorySyncController; // @synthesize messageHistorySyncController=_messageHistorySyncController;
 @property(readonly, nonatomic) IMDMessageProcessingController *messageProcessingController; // @synthesize messageProcessingController=_messageProcessingController;
 @property(nonatomic) _Bool hasDumpedLogsForNoExisitingGroup; // @synthesize hasDumpedLogsForNoExisitingGroup=_hasDumpedLogsForNoExisitingGroup;
 @property(retain, nonatomic) IMDChatStore *chatStore; // @synthesize chatStore=_chatStore;
 @property(retain, nonatomic) IMDCKUtilities *ckUtilities; // @synthesize ckUtilities=_ckUtilities;
+@property(retain, nonatomic) NSMutableDictionary *idToHandlesMap; // @synthesize idToHandlesMap=_idToHandlesMap;
+- (void)invalidatePersonCentricGroupedChatsCache;
 - (void)simulateMessageReceive:(id)arg1 serviceName:(id)arg2 handles:(id)arg3 sender:(id)arg4;
 - (id)_existingiMessageChatForChatIdentifier:(id)arg1 style:(unsigned char)arg2;
 - (_Bool)isBeingSetup;
@@ -75,7 +81,7 @@
 - (_Bool)_mergeDuplicateGroupsIfNeeded;
 - (struct NSArray *)_createGroupChatsArray;
 - (id)_findLosingChatGUIDsInArrayOfChats:(struct NSArray *)arg1 withWinner:(id)arg2;
-- (id)_findChatWinnerInDuplicateChatArray:(struct NSArray *)arg1;
+- (id)_findChatWinnerInDuplicateChatArray:(struct NSArray *)arg1 fixDisplayName:(_Bool *)arg2;
 - (struct NSArray *)findDuplicateChats:(struct NSArray *)arg1;
 - (_Bool)_chat:(id)arg1 isDuplicateOfChat:(id)arg2;
 - (_Bool)_updateDuplicateUnnamedGroupsWithNewGroupIDIfNeeded;
@@ -83,6 +89,9 @@
 - (void)_makeAllAttachmentsClassC;
 - (void)systemDidUnlock;
 - (void)systemDidLeaveFirstDataProtectionLock;
+- (id)allHandlesForID:(id)arg1;
+- (void)removeIMDHandleFromRegistry:(id)arg1;
+- (void)addIMDHandleToRegistry:(id)arg1;
 - (_Bool)updateProperties:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3;
 - (_Bool)saveChats;
 - (_Bool)_saveChats;

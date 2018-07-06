@@ -16,12 +16,11 @@
 #import "PXChangeObserver.h"
 #import "PXInfoProvider.h"
 #import "PXInfoUpdaterObserver.h"
-#import "UIGestureRecognizerDelegate.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 
 @class NSMutableIndexSet, NSString, PUAssetActionPerformer, PUBarButtonItemCollection, PUBrowsingSession, PUPhotoBrowserTitleViewController, PUPlayPauseBarItemsController, PUScrubberView, PXImageModulationManager, PXInfoUpdater, UITapGestureRecognizer, UIView;
 
-@interface PUOneUpBarsController : PUBarsController <PUBrowsingViewModelChangeObserver, PUAssetActionPerformerDelegate, UIPopoverPresentationControllerDelegate, PUPlayPauseBarItemsControllerChangeObserver, PUBarButtonItemCollectionDataSource, PUScrubberViewDelegate, PUPhotoBrowserTitleViewControllerDelegate, PXInfoUpdaterObserver, PXInfoProvider, PXChangeObserver, UIGestureRecognizerDelegate, PUOverOneUpPresentationSessionBarsDelegate>
+@interface PUOneUpBarsController : PUBarsController <PUBrowsingViewModelChangeObserver, PUAssetActionPerformerDelegate, UIPopoverPresentationControllerDelegate, PUPlayPauseBarItemsControllerChangeObserver, PUBarButtonItemCollectionDataSource, PUScrubberViewDelegate, PUPhotoBrowserTitleViewControllerDelegate, PXInfoUpdaterObserver, PXInfoProvider, PXChangeObserver, PUOverOneUpPresentationSessionBarsDelegate>
 {
     struct {
         _Bool respondsToDidChangeShowingPlayPauseButton;
@@ -37,6 +36,7 @@
         _Bool respondsToDidBeginShowingOriginal;
         _Bool respondsToDidEndShowingOriginal;
         _Bool respondsToShouldEnableShowingOriginal;
+        _Bool respondsToCanViewInLibrary;
     } _delegateFlags;
     _Bool _shouldPlaceButtonsInNavigationBar;
     _Bool _shouldUseCompactTitleView;
@@ -115,7 +115,6 @@
 @property(nonatomic) _Bool shouldPlaceButtonsInNavigationBar; // @synthesize shouldPlaceButtonsInNavigationBar=_shouldPlaceButtonsInNavigationBar;
 @property(retain, nonatomic) PUBrowsingSession *browsingSession; // @synthesize browsingSession=_browsingSession;
 - (void).cxx_destruct;
-- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (id)requestInfoOfKind:(id)arg1 withResultHandler:(CDUnknownBlockType)arg2;
 - (void)infoUpdaterDidUpdate:(id)arg1;
@@ -151,6 +150,8 @@
 - (void)_performHideActivityWithAssetsByAssetCollection:(id)arg1;
 - (void)_performAirPlayAction;
 - (void)_performSlideShowAction;
+- (void)_performSuggestionViewInLibraryAction;
+- (void)_peformSuggestionRevertAction;
 - (void)_peformSuggestionSaveAction;
 - (void)_performCancelAction;
 - (void)_performReviewAction;
@@ -165,7 +166,7 @@
 - (void)_performTrashAction;
 - (void)toggleOriginalButtonTouched:(id)arg1;
 - (void)barButtonItemTapped:(id)arg1;
-- (void)shareButtonTouchDown:(id)arg1;
+- (void)_handleSharingPreheat;
 - (void)_updateShowingPlayPauseButton;
 - (void)_updateChromeVisibilityIfNeeded;
 - (void)_invalidateChromeVisibilityWithAnimationType:(long long)arg1;

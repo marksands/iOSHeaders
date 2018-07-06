@@ -75,7 +75,7 @@ __attribute__((visibility("hidden")))
 - (void)configureTextCell:(id)arg1 forLikesWithDescriptionPhrase:(id)arg2 date:(id)arg3;
 - (void)configureTextCell:(id)arg1 forCommentWithDescriptionPhrase:(id)arg2 date:(id)arg3;
 - (void)configureTextCell:(id)arg1 forCaption:(id)arg2 date:(id)arg3;
-- (double)textDetailTextSpacing:(id)arg1;
+- (double)textSpacingBetweenText:(id)arg1 detailText:(id)arg2;
 - (_Bool)shouldShowCommentBadgesInCollectionViewType:(long long)arg1;
 - (void)configureCommentSeparatorMetrics:(inout struct PUFeedSeparatorMetrics *)arg1;
 - (struct UIEdgeInsets)contentInsetsForSectionType:(long long)arg1 collectionViewType:(long long)arg2;

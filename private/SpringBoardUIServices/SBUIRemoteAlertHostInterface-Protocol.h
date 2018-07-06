@@ -34,6 +34,7 @@
 - (void)invalidate;
 - (void)deactivate;
 - (void)dismiss;
+- (void)setAllowsSiri:(_Bool)arg1;
 - (void)setAllowsAlertItems:(_Bool)arg1;
 - (void)setAllowsBanners:(_Bool)arg1;
 @end

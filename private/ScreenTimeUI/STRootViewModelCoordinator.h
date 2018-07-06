@@ -8,16 +8,18 @@
 
 #import "STRootViewModelCoordinator.h"
 
-@class NSArray, NSMutableDictionary, NSNumber, NSObject<STContentPrivacyViewModelCoordinator>, NSObject<STTimeAllowancesViewModelCoordinator>, NSObject<STUsageDetailsViewModelCoordinator>, NSString, STRootViewModel;
+@class NSArray, NSMutableDictionary, NSNumber, NSObject<STContentPrivacyViewModelCoordinator>, NSObject<STTimeAllowancesViewModelCoordinator>, NSObject<STUsageDetailsViewModelCoordinator>, NSString, STAppInfoCache, STRootViewModel;
 
 @interface STRootViewModelCoordinator : NSObject <STRootViewModelCoordinator>
 {
+    _Bool _hasAlreadyEnteredPINForSession;
     _Bool _isLocalUser;
     NSObject<STUsageDetailsViewModelCoordinator> *_usageDetailsCoordinator;
     NSObject<STTimeAllowancesViewModelCoordinator> *_timeAllowancesCoordinator;
     NSObject<STContentPrivacyViewModelCoordinator> *_contentPrivacyCoordinator;
     id <RMPersistenceControllerProtocol> _persistenceController;
     STRootViewModel *_viewModel;
+    STAppInfoCache *_appCache;
     NSMutableDictionary *_coordinatorsByChildDSID;
     NSNumber *_userDSID;
     NSArray *_selectedDeviceIdentifiers;
@@ -32,8 +34,10 @@
 @property(copy, nonatomic) NSArray *selectedDeviceIdentifiers; // @synthesize selectedDeviceIdentifiers=_selectedDeviceIdentifiers;
 @property(copy, nonatomic) NSNumber *userDSID; // @synthesize userDSID=_userDSID;
 @property(retain, nonatomic) NSMutableDictionary *coordinatorsByChildDSID; // @synthesize coordinatorsByChildDSID=_coordinatorsByChildDSID;
+@property(retain, nonatomic) STAppInfoCache *appCache; // @synthesize appCache=_appCache;
 @property(retain, nonatomic) STRootViewModel *viewModel; // @synthesize viewModel=_viewModel;
 @property(retain, nonatomic) id <RMPersistenceControllerProtocol> persistenceController; // @synthesize persistenceController=_persistenceController;
+@property(nonatomic) _Bool hasAlreadyEnteredPINForSession; // @synthesize hasAlreadyEnteredPINForSession=_hasAlreadyEnteredPINForSession;
 - (void).cxx_destruct;
 - (id)organizationIdentifierForManagement;
 - (id)organizationIdentifierForUsage;
@@ -50,6 +54,8 @@
 @property(readonly) NSObject<STTimeAllowancesViewModelCoordinator> *timeAllowancesCoordinator; // @synthesize timeAllowancesCoordinator=_timeAllowancesCoordinator;
 @property(readonly) NSObject<STUsageDetailsViewModelCoordinator> *usageDetailsCoordinator; // @synthesize usageDetailsCoordinator=_usageDetailsCoordinator;
 - (id)coordinatorForChild:(id)arg1;
+- (void)_passcodeSessionHasEnded:(id)arg1;
+- (void)_registerForWillResignActiveNotifications;
 - (void)_persistenceStoreDidChange:(id)arg1;
 - (void)_registerForPersistenceStoreNotifications;
 - (id)initWithPersistenceController:(id)arg1 userDSID:(id)arg2 selectedDevices:(id)arg3;

@@ -9,6 +9,6 @@
 @class NSArray;
 
 @protocol ACHEarnedInstanceEntitySyncedEarnedInstancesObserver <NSObject>
-- (void)earnedInstanceEntityDidReceiveSyncedEarnedInstances:(NSArray *)arg1 provenance:(long long)arg2;
+- (_Bool)earnedInstanceEntityDidReceiveSyncedEarnedInstances:(NSArray *)arg1 provenance:(long long)arg2;
 @end
 

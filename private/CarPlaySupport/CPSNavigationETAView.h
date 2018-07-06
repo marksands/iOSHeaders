@@ -14,18 +14,19 @@
 {
     CPTrip *_trip;
     CPSRouteEstimatesView *_routeEstimatesView;
-    unsigned long long _style;
+    unsigned long long _tripEstimateStyle;
     UIView *_borderView;
 }
 
 @property(retain, nonatomic) UIView *borderView; // @synthesize borderView=_borderView;
-@property(nonatomic) unsigned long long style; // @synthesize style=_style;
+@property(nonatomic) unsigned long long tripEstimateStyle; // @synthesize tripEstimateStyle=_tripEstimateStyle;
 @property(readonly, nonatomic) CPSRouteEstimatesView *routeEstimatesView; // @synthesize routeEstimatesView=_routeEstimatesView;
 @property(readonly, nonatomic) CPTrip *trip; // @synthesize trip=_trip;
 - (void).cxx_destruct;
 - (void)updateEstimates:(id)arg1 forManeuver:(id)arg2;
 - (void)showManeuvers:(id)arg1;
 - (void)didMoveToSuperview;
+- (void)_updateStyle;
 - (void)removeFromSuperview;
 - (id)initWithTrip:(id)arg1 style:(unsigned long long)arg2;
 

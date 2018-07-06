@@ -17,6 +17,10 @@
     struct UIColor *_previewColorMin;
     struct UIColor *_previewColorMid;
     struct UIColor *_previewColorMax;
+    struct UIColor *_previewAccentColorMin;
+    struct UIColor *_previewAccentColorMid;
+    struct UIColor *_previewAccentColorMax;
+    unsigned long long _previewAccentType;
     float _variation;
     NSArray *_materials;
 }
@@ -41,6 +45,7 @@
 - (id)materialAtIndex:(unsigned long long)arg1;
 - (unsigned long long)materialCount;
 - (void)updateMaterialsIfNeeded;
+- (struct UIColor *)previewAccentColor;
 - (struct UIColor *)previewColor;
 @property(readonly) UIImage *thumbnail;
 @property(readonly) _Bool isNatural;

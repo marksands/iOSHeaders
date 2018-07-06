@@ -8,20 +8,16 @@
 
 #import "STAllowanceDetailListControllerDelegate.h"
 
-@class NSObject<STTimeAllowancesViewModelCoordinator>, NSSet, NSString, STUsageItem;
+@class NSSet, NSString, STUsageItem;
 
 @interface STAllowanceProgressGroupSpecifierProvider : STUsageGroupSpecifierProvider <STAllowanceDetailListControllerDelegate>
 {
-    _Bool _canAskForMoreTime;
-    NSObject<STTimeAllowancesViewModelCoordinator> *_timeAllowancesCoordinator;
     NSSet *_budgetedIdentifiers;
     STUsageItem *_usageItem;
 }
 
 @property(readonly, nonatomic) STUsageItem *usageItem; // @synthesize usageItem=_usageItem;
 @property(readonly, copy, nonatomic) NSSet *budgetedIdentifiers; // @synthesize budgetedIdentifiers=_budgetedIdentifiers;
-@property(nonatomic) _Bool canAskForMoreTime; // @synthesize canAskForMoreTime=_canAskForMoreTime;
-@property(retain, nonatomic) NSObject<STTimeAllowancesViewModelCoordinator> *timeAllowancesCoordinator; // @synthesize timeAllowancesCoordinator=_timeAllowancesCoordinator;
 - (void).cxx_destruct;
 - (void)allowanceDetailControllerDidCancel:(id)arg1;
 - (void)allowanceDetailController:(id)arg1 didDeleteAllowance:(id)arg2;
@@ -31,7 +27,7 @@
 - (id)budgetDetailText:(id)arg1;
 - (id)allowanceSpecifiers;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)invalidate;
+- (void)setCoordinator:(id)arg1;
 - (id)initWithBudgetedIdentifiers:(id)arg1 usageItem:(id)arg2;
 - (id)init;
 

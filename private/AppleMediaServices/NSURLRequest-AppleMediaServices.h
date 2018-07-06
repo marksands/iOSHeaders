@@ -8,5 +8,6 @@
 
 @interface NSURLRequest (AppleMediaServices)
 - (id)ams_valueForHTTPHeader:(id)arg1;
+@property(readonly, nonatomic) _Bool ams_requestIsBagLoad;
 @end
 

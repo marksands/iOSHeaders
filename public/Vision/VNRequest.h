@@ -86,6 +86,8 @@
 - (_Bool)performInContext:(id)arg1 error:(id *)arg2;
 - (void)applyConfigurationOfRequest:(id)arg1;
 - (void)copyStateOfRequest:(id)arg1;
+- (id)newDefaultDetectorOptionsForRequestRevision:(unsigned long long)arg1;
+- (id)newDefaultDetectorOptions;
 - (id)newDefaultRequestInstance;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)warmUpRequestPerformer:(id)arg1 error:(id *)arg2;

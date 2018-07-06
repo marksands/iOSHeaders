@@ -25,6 +25,8 @@
 + (id)suiteName;
 @property(nonatomic) long long version; // @synthesize version=_version;
 - (void).cxx_destruct;
+- (void)addDeferredKeyPathObserver:(id)arg1;
+- (void)addDeferredKeyObserver:(id)arg1;
 - (void)removeKeyPathObserver:(id)arg1;
 - (void)addKeyPathObserver:(id)arg1;
 - (void)removeKeyObserver:(id)arg1;

@@ -25,7 +25,7 @@
 + (void)expungeMomentShares:(id)arg1;
 + (void)trashMomentShares:(id)arg1;
 + (id)validateMomentShareCreationDate:(id)arg1 error:(id *)arg2;
-+ (id)creationRequestForMomentShareWithTitle:(id)arg1 mode:(short)arg2 creationDate:(id)arg3 createMomentShareAssetsFromAssets:(id)arg4 assetCreationOptions:(id)arg5 preview:(id)arg6;
++ (id)creationRequestForMomentShareWithTitle:(id)arg1 mode:(short)arg2 creationDate:(id)arg3 createMomentShareAssetsFromAssets:(id)arg4 assetCreationOptions:(id)arg5 preview:(id)arg6 originatingMomentShare:(id)arg7;
 + (id)changeRequestForMomentShare:(id)arg1;
 @property(readonly, nonatomic) PHRelationshipChangeRequestHelper *participantsHelper; // @synthesize participantsHelper=_participantsHelper;
 @property(readonly, nonatomic) PHChangeRequestHelper *helper; // @synthesize helper=_helper;
@@ -59,6 +59,7 @@
 - (id)thumbnailImageData;
 @property(retain, nonatomic) NSDate *creationDate;
 @property(retain, nonatomic) NSString *title;
+@property(retain, nonatomic) NSString *originatingScopeIdentifier;
 @property(readonly, nonatomic) PHObjectPlaceholder *placeholderForCreatedMomentShare;
 @property(readonly, nonatomic) NSString *managedEntityName;
 - (_Bool)prepareForPhotoLibraryCheck:(id)arg1 error:(id *)arg2;

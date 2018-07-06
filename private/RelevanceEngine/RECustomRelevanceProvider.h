@@ -14,6 +14,7 @@
     REFeatureValue *_value;
 }
 
++ (id)relevanceSimulatorID;
 @property(readonly, nonatomic) REFeatureValue *value; // @synthesize value=_value;
 @property(readonly, nonatomic) REFeature *feature; // @synthesize feature=_feature;
 - (void).cxx_destruct;
@@ -21,6 +22,8 @@
 - (unsigned long long)_hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)dictionaryEncoding;
+- (id)initWithDictionary:(id)arg1;
 - (id)initWithFeature:(id)arg1 value:(id)arg2;
 
 @end

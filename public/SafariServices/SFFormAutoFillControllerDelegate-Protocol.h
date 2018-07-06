@@ -14,6 +14,8 @@
 - (_Bool)formAutoFillControllerCanPrefillForm:(_SFFormAutoFillController *)arg1;
 
 @optional
+- (void)formAutoFillControllerUserChoseToUseGeneratedPassword:(_SFFormAutoFillController *)arg1;
+- (_Bool)formAutoFillControllerDidUserDeclineAutomaticStrongPasswordForCurrentDomain:(_SFFormAutoFillController *)arg1;
 - (WBSOneTimeCodeMonitor *)formAutoFillControllerOneTimeCodeMonitor:(_SFFormAutoFillController *)arg1;
 - (_Bool)formAutoFillControllerShouldShowIconsInPasswordPicker:(_SFFormAutoFillController *)arg1;
 - (void)formAutoFillControllerGetAuthenticationForAutoFill:(_SFFormAutoFillController *)arg1 onPageLoad:(_Bool)arg2 completion:(void (^)(_Bool))arg3;

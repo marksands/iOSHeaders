@@ -83,8 +83,8 @@
 - (unsigned long long)_imagesToKeepOutsideVisibleCells;
 - (void)clearImageCacheForPass:(id)arg1;
 - (id)_resizedImageWithImage:(id)arg1 size:(struct CGSize)arg2;
-- (id)_cropImage:(id)arg1 toRect:(struct CGRect)arg2;
-- (id)_createPassStackWithPassImage:(id)arg1 size:(struct CGSize)arg2;
+- (id)_cropImage:(id)arg1 toHeight:(double)arg2;
+- (id)_createPassStackWithPassImage:(id)arg1 withHeight:(double)arg2;
 - (id)_createImageForPass:(id)arg1 imageSize:(struct CGSize)arg2 cacheKey:(id)arg3 fullPass:(_Bool)arg4 stacked:(_Bool)arg5;
 - (void)updateAverageSnapshotDuration:(double)arg1;
 - (void)removeRequestsWithCacheKey:(id)arg1;

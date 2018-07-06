@@ -18,6 +18,7 @@
     MPSCNNConvolutionDescriptor *_descriptor;
 }
 
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)label;
 - (float *)lookupTableForUInt8Kernel;
 -     // Error parsing type: ^16@0:8, name: rangesForUInt8Kernel

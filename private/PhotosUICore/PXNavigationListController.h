@@ -24,7 +24,7 @@
     double _rowHeight;
 }
 
-+ (id)navigateToListItem:(id)arg1 sourceViewController:(id)arg2 animated:(_Bool)arg3;
++ (id)navigateToListItem:(id)arg1 sourceViewController:(id)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 @property(nonatomic, setter=_setNeedsUpdateRowHeight:) _Bool _needsUpdateRowHeight; // @synthesize _needsUpdateRowHeight=__needsUpdateRowHeight;
 @property(nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
 @property(retain, nonatomic) NSUserActivity *siriActionActivity; // @synthesize siriActionActivity=_siriActionActivity;

@@ -10,23 +10,16 @@
 
 @interface STDisableScreenTimeGroupSpecifierProvider : STRootGroupSpecifierProvider
 {
-    PSSpecifier *_togglePasscodeSpecifier;
     PSSpecifier *_disableScreenTimeSpecifier;
-    PSSpecifier *_removePasscodeSpecifier;
-    PSSpecifier *_removeAllowancesSpecifier;
+    PSSpecifier *_stopSharingScreenTimeSpecifier;
 }
 
-@property(retain, nonatomic) PSSpecifier *removeAllowancesSpecifier; // @synthesize removeAllowancesSpecifier=_removeAllowancesSpecifier;
-@property(retain, nonatomic) PSSpecifier *removePasscodeSpecifier; // @synthesize removePasscodeSpecifier=_removePasscodeSpecifier;
+@property(retain, nonatomic) PSSpecifier *stopSharingScreenTimeSpecifier; // @synthesize stopSharingScreenTimeSpecifier=_stopSharingScreenTimeSpecifier;
 @property(retain, nonatomic) PSSpecifier *disableScreenTimeSpecifier; // @synthesize disableScreenTimeSpecifier=_disableScreenTimeSpecifier;
-@property(retain, nonatomic) PSSpecifier *togglePasscodeSpecifier; // @synthesize togglePasscodeSpecifier=_togglePasscodeSpecifier;
 - (void).cxx_destruct;
-- (void)confirmRemoveAllowances:(id)arg1;
-- (void)removePasscode:(id)arg1;
-- (void)confirmRemovePasscode:(id)arg1;
 - (void)disableScreenTime:(id)arg1;
+- (void)confirmStopSharingScreenTime:(id)arg1;
 - (void)confirmDisableScreenTime:(id)arg1;
-- (void)reloadTogglePasscodeSpecifier;
 - (void)updateSpecifiers;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setCoordinator:(id)arg1;

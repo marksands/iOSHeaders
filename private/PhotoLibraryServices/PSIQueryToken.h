@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSIndexSet, NSString, PSIDateFilter, PSIWordEmbeddingMatch;
+@class NSIndexSet, NSString, PSIWordEmbeddingMatch;
 
 @interface PSIQueryToken : NSObject <NSSecureCoding>
 {
@@ -24,7 +24,6 @@
     PSIQueryToken *_parentToken;
     NSString *_resolvedText;
     PSIWordEmbeddingMatch *_wordEmbeddingMatch;
-    PSIDateFilter *_dateFilter;
     struct _NSRange _rangeInSearchText;
 }
 
@@ -33,7 +32,6 @@
 + (id)personQueryTokensFromSocialGroupQueryToken:(id)arg1;
 @property(nonatomic) _Bool belongsToSearchText; // @synthesize belongsToSearchText=_belongsToSearchText;
 @property(nonatomic) _Bool isFullTextToken; // @synthesize isFullTextToken=_isFullTextToken;
-@property(retain, nonatomic) PSIDateFilter *dateFilter; // @synthesize dateFilter=_dateFilter;
 @property(retain, nonatomic) PSIWordEmbeddingMatch *wordEmbeddingMatch; // @synthesize wordEmbeddingMatch=_wordEmbeddingMatch;
 @property(copy, nonatomic) NSString *resolvedText; // @synthesize resolvedText=_resolvedText;
 @property(retain, nonatomic) PSIQueryToken *parentToken; // @synthesize parentToken=_parentToken;

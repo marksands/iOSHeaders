@@ -21,6 +21,8 @@
 + (id)knownMemoryMetrics;
 + (id)measurementFormatter;
 + (id)defaultPerformanceMetrics;
++ (_Bool)_meetsMinimumOperatingSystemVersion;
++ (CDStruct_2ec95fd7)minimumOperatingSystemVersion;
 + (_Bool)_reportPerformanceFailuresForLargeImprovements;
 + (_Bool)_enableSymbolication;
 + (id)testInvocations;
@@ -87,6 +89,7 @@
 - (void)_reportFailuresForUnwaitedExpectations;
 - (void)_reportFailuresAtFile:(id)arg1 line:(unsigned long long)arg2 forTestAssertionsInScope:(CDUnknownBlockType)arg3;
 - (void)invokeTest;
+- (void)testContextPerformInScope:(CDUnknownBlockType)arg1;
 - (Class)testRunClass;
 - (Class)_requiredTestRunBaseClass;
 - (void)recordFailureWithDescription:(id)arg1 inFile:(id)arg2 atLine:(unsigned long long)arg3 expected:(_Bool)arg4;

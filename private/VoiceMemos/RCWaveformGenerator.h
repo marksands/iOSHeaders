@@ -54,16 +54,17 @@
 - (void)_onQueue_appendAveragePowerLevelsByDigestingTimeRange:(CDStruct_73a5d3ca)arg1 inExtAudioFile:(id)arg2 sourceFormat:(struct AudioStreamBasicDescription *)arg3 outputFormat:(struct AudioStreamBasicDescription *)arg4;
 - (void)_appendAveragePowerLevelsByDigestingTimeRange:(CDStruct_73a5d3ca)arg1 inExtAudioFile:(id)arg2 sourceFormat:(struct AudioStreamBasicDescription *)arg3 outputFormat:(struct AudioStreamBasicDescription *)arg4;
 - (void)_appendPowerMeterValuesFromDataInAudioFile:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
+- (void)_appendPowerMeterValuesFromAudioPCMBuffer:(id)arg1;
 - (void)_appendPowerMeterValuesFromSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
 - (void)_appendAveragePowerLevel:(float)arg1;
 - (void)_performObserversBlock:(CDUnknownBlockType)arg1;
 - (void)_performInternalFinishedLoadingBlocksAndFinishObservers;
 - (void)_performLoadingFinishedBlock:(CDUnknownBlockType)arg1 internalBlockUUID:(id)arg2 isTimeout:(_Bool)arg3;
-- (void)_finishLoadingByTerminating:(_Bool)arg1 loadingFinishedBlockTimeoutDate:(id)arg2 loadingFinishedBlock:(CDUnknownBlockType)arg3;
+- (void)_finishLoadingByTerminating:(_Bool)arg1 loadingFinishedBlockTimeout:(unsigned long long)arg2 loadingFinishedBlock:(CDUnknownBlockType)arg3;
 - (_Bool)_isCanceled;
 - (double)totalDigestedTime;
 - (double)totalFlushedTime;
-- (void)finishLoadingWithCompletionTimeoutDate:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)finishLoadingWithCompletionTimeout:(unsigned long long)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)terminateLoadingImmediately;
 @property(nonatomic) _Bool paused;
 - (void)beginLoading;
@@ -74,6 +75,7 @@
 - (_Bool)appendAveragePowerLevel:(float)arg1;
 - (_Bool)appendAveragePowerLevelsByDigestingWaveformSegments:(id)arg1;
 - (_Bool)appendAveragePowerLevelsByDigestingContentsOfAudioFileURL:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
+- (_Bool)appendAveragePowerLevelsByDigestingAudioPCMBuffer:(id)arg1;
 - (_Bool)appendAveragePowerLevelsByDigestingSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
 - (void)flushPendingCapturedSampleBuffers;
 - (void)removeSegmentOutputObserver:(id)arg1;

@@ -13,8 +13,8 @@
     _Bool _separateSectionsForSmartAndUserCollections;
     _Bool _includePeopleAlbum;
     _Bool _shouldIgnoreLibraryChanges;
-    PHCollectionList *_collectionList;
     PHFetchResult *_collectionsFetchResult;
+    PHCollectionList *_collectionList;
     unsigned long long _assetTypesToInclude;
     unsigned long long _collectionTypesToInclude;
 }
@@ -24,7 +24,6 @@
 @property(nonatomic) unsigned long long assetTypesToInclude; // @synthesize assetTypesToInclude=_assetTypesToInclude;
 @property(nonatomic) _Bool includePeopleAlbum; // @synthesize includePeopleAlbum=_includePeopleAlbum;
 @property(nonatomic) _Bool separateSectionsForSmartAndUserCollections; // @synthesize separateSectionsForSmartAndUserCollections=_separateSectionsForSmartAndUserCollections;
-@property(readonly) PHFetchResult *collectionsFetchResult; // @synthesize collectionsFetchResult=_collectionsFetchResult;
 @property(readonly) PHCollectionList *collectionList; // @synthesize collectionList=_collectionList;
 - (void).cxx_destruct;
 - (id)_generatePredicateForAssetTypesToInclude;
@@ -34,6 +33,7 @@
 - (id)newConfigurationWithCollectionsFetchResult:(id)arg1;
 - (id)newConfigurationWithCollectionList:(id)arg1;
 @property(readonly) PHFetchOptions *customFetchOptions;
+@property(readonly) PHFetchResult *collectionsFetchResult; // @synthesize collectionsFetchResult=_collectionsFetchResult;
 - (id)initWithCollectionList:(id)arg1 collectionsFetchResult:(id)arg2;
 - (id)initWithCollectionsFetchResult:(id)arg1;
 - (id)initWithCollectionList:(id)arg1;

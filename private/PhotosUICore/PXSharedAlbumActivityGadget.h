@@ -8,10 +8,11 @@
 
 #import "PXGadget.h"
 #import "PXOneUpPresentationDelegate.h"
+#import "PXSettingsKeyObserver.h"
 
 @class NSArray, NSAttributedString, NSSet, NSString, PXAssetCollageView, PXAssetReference, PXFeedAssetsSectionInfo, PXGadgetSpec, PXPhotoKitAssetsDataSourceManager, PXPhotoKitUIMediaProvider, PXSharedAlbumHeaderView, UILabel, _PXSharedAlbumActivityGadgetContentView;
 
-@interface PXSharedAlbumActivityGadget : NSObject <PXOneUpPresentationDelegate, PXGadget>
+@interface PXSharedAlbumActivityGadget : NSObject <PXOneUpPresentationDelegate, PXSettingsKeyObserver, PXGadget>
 {
     _Bool _wasAskedToLoadContentData;
     PXGadgetSpec *_gadgetSpec;
@@ -28,6 +29,7 @@
     NSArray *_assets;
     NSAttributedString *_caption;
     NSSet *_oneUpHiddenAssetReferences;
+    struct CGRect _visibleContentRect;
 }
 
 + (void)preloadResources;
@@ -42,11 +44,13 @@
 @property(retain, nonatomic) PXAssetCollageView *collageView; // @synthesize collageView=_collageView;
 @property(retain, nonatomic) PXSharedAlbumHeaderView *headerView; // @synthesize headerView=_headerView;
 @property(retain, nonatomic) _PXSharedAlbumActivityGadgetContentView *contentView; // @synthesize contentView=_contentView;
+@property(nonatomic) struct CGRect visibleContentRect; // @synthesize visibleContentRect=_visibleContentRect;
 @property(retain, nonatomic) PXFeedAssetsSectionInfo *assetsSectionInfo; // @synthesize assetsSectionInfo=_assetsSectionInfo;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
+- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)_handleCollageViewTap:(id)arg1;
 - (void)_handleActionTap:(id)arg1;
 - (_Bool)_navigateToActivityFeed:(CDUnknownBlockType)arg1;
@@ -60,6 +64,7 @@
 @property(readonly, nonatomic) _Bool isContentViewLoaded;
 - (void)_loadContentFromSectionInfo;
 - (void)_updateCollageViewHiddenAssets;
+- (void)_updateCollageViewVideoEnabled;
 - (void)oneUpPresentation:(id)arg1 setHiddenAssetReferences:(id)arg2;
 - (id)oneUpPresentation:(id)arg1 currentImageForAssetReference:(id)arg2;
 - (id)oneUpPresentation:(id)arg1 regionOfInterestForAssetReference:(id)arg2 inCoordinateSpace:(id)arg3;
@@ -89,7 +94,6 @@
 @property(readonly, nonatomic) _Bool supportsAssetsDrop;
 @property(readonly, nonatomic) _Bool supportsHighlighting;
 @property(readonly, nonatomic) _Bool supportsSelection;
-@property(nonatomic) struct CGRect visibleContentRect;
 
 @end
 

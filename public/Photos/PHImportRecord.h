@@ -14,16 +14,16 @@
     _Bool _referencedImport;
     _Bool _isDownloaded;
     unsigned char _importType;
+    unsigned char _importFileOperation;
     NSString *_assetIdentifier;
     PHImportAsset *_importAsset;
     NSMutableArray *_relatedRecords;
     NSString *_sourcePath;
     NSString *_destinationPath;
     PHImportTimerCollection *_timers;
-    unsigned long long _importFileOperation;
 }
 
-@property(nonatomic) unsigned long long importFileOperation; // @synthesize importFileOperation=_importFileOperation;
+@property(nonatomic) unsigned char importFileOperation; // @synthesize importFileOperation=_importFileOperation;
 @property(nonatomic) unsigned char importType; // @synthesize importType=_importType;
 @property(retain, nonatomic) PHImportTimerCollection *timers; // @synthesize timers=_timers;
 @property(retain, nonatomic) NSString *destinationPath; // @synthesize destinationPath=_destinationPath;

@@ -41,6 +41,7 @@
 - (_Bool)allowsRemoteNotificationsForBundleIdentifier:(id)arg1;
 - (void)invalidateTokenForRemoteNotificationsForBundleIdentifier:(id)arg1;
 - (void)requestTokenForRemoteNotificationsForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)extracted:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removeAllDeliveredNotificationsForBundleIdentifier:(id)arg1;
 - (void)removeDeliveredNotificationsWithIdentifiers:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)getDeliveredNotificationsForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;

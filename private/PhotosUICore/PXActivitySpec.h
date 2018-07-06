@@ -18,6 +18,7 @@
 + (id)_activityHeaderTextAttributes;
 + (id)sharedAlbumActivityGadgetCaptionTextAttributes;
 + (id)activityDateSubtitleTextAttributes;
++ (id)activityCaptionTextEmphasizedAttributes;
 + (id)activityCaptionTextAttributes;
 + (id)activityAlbumTitleTextAttributesForTextColorStyle:(unsigned long long)arg1;
 + (id)activityPosterTextAttributesForTextColorStyle:(unsigned long long)arg1;

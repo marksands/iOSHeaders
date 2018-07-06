@@ -6,17 +6,16 @@
 
 #import "NSObject.h"
 
-#import "CLLocationManagerDelegate.h"
+#import "HDLocationManagerObserver.h"
 
-@class CLInUseAssertion, CLLocationManager, CMElevation, HDProfile, HKWorkoutRoute, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class CMElevation, HDAssertion, HDProfile, HKWorkoutRoute, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
-@interface HDLocationDataCollector : NSObject <CLLocationManagerDelegate>
+@interface HDLocationDataCollector : NSObject <HDLocationManagerObserver>
 {
     NSObject<OS_dispatch_queue> *_queue;
     HDProfile *_profile;
     long long _state;
     id <HDSampleSaving> _sampleSavingDelegate;
-    CLInUseAssertion *_inUseAssertion;
     int _lastStatus;
     HKWorkoutRoute *_route;
     _Bool _didSaveLocationData;
@@ -24,17 +23,17 @@
     unsigned long long _elevationGain;
     unsigned long long _activityType;
     NSUUID *_workoutUUID;
+    HDAssertion *_locationUpdatingAssertion;
     id <HDLocationEventDelegate> _delegate;
-    CLLocationManager *_locationManager;
     CMElevation *_elevation;
 }
 
 @property(retain, nonatomic) CMElevation *elevation; // @synthesize elevation=_elevation;
-@property(retain, nonatomic) CLLocationManager *locationManager; // @synthesize locationManager=_locationManager;
 @property(nonatomic) __weak id <HDLocationEventDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
-- (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
+- (void)healthLocationManager:(id)arg1 didFailWithError:(id)arg2;
+- (void)healthLocationManager:(id)arg1 didUpdateLocations:(id)arg2;
+- (void)healthLocationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (void)_queue_savedLocationData;
 - (void)_queue_createSeriesSample;
 - (void)_handleElevationData:(id)arg1 error:(id)arg2;
@@ -48,12 +47,13 @@
 - (void)stopUpdates;
 - (void)_queue_deleteCurrentRoute;
 - (void)_queue_freezeCurrentWorkoutRoute;
-- (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (_Bool)isElevationAvailable;
 - (id)createCMElevation;
 - (_Bool)locationServicesEnabled;
 - (int)authorizationStatus;
-- (id)mainQueue_createLocationManager;
+- (id)workoutLocationManager;
+- (long long)state;
+- (void)dealloc;
 - (id)initWithProfile:(id)arg1 sampleSavingDelegate:(id)arg2 activityType:(unsigned long long)arg3 workoutUUID:(id)arg4;
 
 // Remaining properties

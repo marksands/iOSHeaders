@@ -27,6 +27,7 @@
 - (void)_performWithContext:(id)arg1;
 - (id)_newPerformer;
 - (void)dealloc;
+- (id)fullsizeAppIcon;
 @property(readonly, nonatomic) UIImage *appIcon;
 @property(readonly, nonatomic) NSString *appName;
 @property(readonly, nonatomic) NSString *bundleIdentifier;

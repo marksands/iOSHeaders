@@ -27,7 +27,6 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;
--     // Error parsing type: @84@0:8{?=[4]}16f80, name: pointCloudByApplyingTransform:minimumVergenceAngleCosine:
 -     // Error parsing type: @80@0:8{?=[4]}16, name: pointCloudByApplyingTransform:
 - (id)_hitTestPointFromOrigin:(float)arg1 withDirection:maximumAngle: /* Error: Ran out of types for this method. */;
 - (id)filterPointCloudFrom:ellipsoid: /* Error: Ran out of types for this method. */;

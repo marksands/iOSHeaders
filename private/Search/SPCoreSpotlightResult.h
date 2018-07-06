@@ -6,9 +6,11 @@
 
 #import <Search/SFSearchResult_Compatibility.h>
 
+#import "NSCopying.h"
+
 @class NSArray, NSDate, NSString;
 
-@interface SPCoreSpotlightResult : SFSearchResult_Compatibility
+@interface SPCoreSpotlightResult : SFSearchResult_Compatibility <NSCopying>
 {
     _Bool _completed;
     _Bool _hasAssociatedUserActivity;
@@ -41,6 +43,7 @@
 @property struct ranking_index_score_t buddyScore; // @synthesize buddyScore=_buddyScore;
 @property(retain) NSString *relatedUniqueIdentifier; // @synthesize relatedUniqueIdentifier=_relatedUniqueIdentifier;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)debugDescription;
 - (Class)classForCoder;
 @property int title_maxlines;

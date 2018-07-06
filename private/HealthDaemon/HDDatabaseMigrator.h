@@ -17,6 +17,7 @@
     HDDatabaseSchemaManager *_schemaManager;
 }
 
++ (_Bool)_databaseSchemas:(id)arg1 containsTable:(id)arg2;
 @property(readonly, nonatomic) HDDatabaseSchemaManager *schemaManager; // @synthesize schemaManager=_schemaManager;
 @property(readonly, nonatomic) HDDatabaseMigrationTransaction *transaction; // @synthesize transaction=_transaction;
 @property(readonly, nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
@@ -112,7 +113,6 @@
 - (id)erieUnprotectedMigrationSteps;
 - (void)peace_addProtectedMigrationSteps;
 - (void)peace_addUnprotectedMigrationSteps;
-- (_Bool)_databaseSchemas:(id)arg1 containsTable:(id)arg2;
 - (_Bool)_deleteDataEntitySubclassTables:(id)arg1 intermediateTables:(id)arg2 error:(out id *)arg3;
 - (_Bool)_insertDeletedObjectTombstoneWithUUID:(id)arg1 provenanceIdentifier:(id)arg2 deletionDate:(id)arg3 insertedRowID:(out id *)arg4 error:(out id *)arg5;
 - (_Bool)_insertDeletedSampleTombstoneWithUUID:(id)arg1 provenanceIdentifier:(id)arg2 dataTypeCode:(id)arg3 deletionDate:(id)arg4 error:(out id *)arg5;

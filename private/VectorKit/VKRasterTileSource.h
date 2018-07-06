@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (_Bool)allowPreliminaryTiles;
 - (void)decodeData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3 isPreliminary:(_Bool)arg4 userInfo:(id)arg5;
 - (struct VKTileKey)sourceKeyForRenderKey:(const struct VKTileKey *)arg1;
 - (void)_fetchedTile:(id)arg1 isPreliminary:(_Bool)arg2;

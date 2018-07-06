@@ -6,7 +6,7 @@
 
 #import <MPSNeuralNetwork/MPSCNNKernel.h>
 
-@class MPSCNNAdd, MPSCNNLoss, MPSCNNNeuronGradient, MPSCNNNeuronSigmoid, MPSNNSlice, NSData, NSObject<OS_dispatch_semaphore>;
+@class MPSCNNAdd, MPSCNNLoss, MPSCNNNeuron, MPSCNNNeuronGradient, MPSNNSlice, NSData, NSObject<OS_dispatch_semaphore>;
 
 @interface MPSCNNYOLOLoss : MPSCNNKernel
 {
@@ -15,7 +15,7 @@
     MPSCNNLoss *_lossConfidence;
     MPSCNNLoss *_lossClasses;
     int _reductionType;
-    MPSCNNNeuronSigmoid *_sigmoid;
+    MPSCNNNeuron *_sigmoid;
     MPSCNNNeuronGradient *_sigmoidGradient;
     MPSCNNAdd *_add;
     MPSNNSlice *_slice;

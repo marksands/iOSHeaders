@@ -7,6 +7,7 @@
 #import "UISearchContainerViewController.h"
 
 #import "CPListTemplateDelegate.h"
+#import "CPSBaseTemplateViewController.h"
 #import "CPSearchTemplateProviding.h"
 #import "UISearchBarDelegate.h"
 #import "UISearchControllerDelegate.h"
@@ -14,7 +15,7 @@
 
 @class CPSearchTemplate, CPTemplate, NSArray, NSString;
 
-@interface CPSSearchTemplateViewController : UISearchContainerViewController <UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate, CPListTemplateDelegate, CPSearchTemplateProviding>
+@interface CPSSearchTemplateViewController : UISearchContainerViewController <UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate, CPListTemplateDelegate, CPSBaseTemplateViewController, CPSearchTemplateProviding>
 {
     CPTemplate *_associatedTemplate;
     id <CPTemplateDelegate> _templateDelegate;
@@ -31,6 +32,7 @@
 - (void)didDismissSearchController:(id)arg1;
 - (void)searchBarSearchButtonClicked:(id)arg1;
 - (void)listTemplate:(id)arg1 didSelectListItem:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_cps_viewControllerWasPopped;
 @property(readonly, nonatomic) __weak id <CPSearchClientTemplateDelegate> searchTemplateDelegate;
 @property(readonly, nonatomic) CPSearchTemplate *searchTemplate;
 - (void)viewDidLoad;

@@ -9,7 +9,7 @@
 #import "PHPhotoLibraryChangeObserver.h"
 #import "PUSearchResultItem.h"
 
-@class NSArray, NSString, PHFetchResult;
+@class NSArray, NSDictionary, NSString, PHFetchResult;
 
 __attribute__((visibility("hidden")))
 @interface PUSearchTopAssetsResult : NSObject <PHPhotoLibraryChangeObserver, PUSearchResultItem>
@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)init;
 @property(readonly, copy) NSString *debugDescription;
-- (id)debugDictionary;
+@property(readonly) NSDictionary *debugDictionary;
 - (id)_rangeSampledUUIDs:(id)arg1;
 - (void)_curateThumbnailAssets;
 @property(readonly, nonatomic) unsigned long long itemType;

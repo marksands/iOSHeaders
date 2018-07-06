@@ -11,12 +11,15 @@
 @interface ARWorldAlignmentTechnique : ARTechnique
 {
     ARDeviceOrientationData *_deviceOrientationData;
-    // Error parsing type: {?="columns"[4]}, name: _deviceOrientationAlignment
+    float _deviceOrientationAlignmentAngle;
+    float _trackingAlignmentAngle;
+    // Error parsing type: , name: _trackingAlignmentTranslation
     _Bool _deviceOrientationReferenced;
     _Bool _trackingReferenced;
     _Bool _imageMirrored;
     long long _lastTrackingStateReason;
     double _lastMajorRelocalizationTimestamp;
+    double _lastHeadingUpdateTimestamp;
     _Bool _relocalizing;
     ARWorldAlignmentData *_relocalizedAlignmentData;
     NSObject<OS_dispatch_semaphore> *_dataSemaphore;
@@ -30,7 +33,9 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)_handleTrackingStateChanges:(id)arg1 initialized:(_Bool *)arg2 relocalized:(_Bool *)arg3;
 - (id)_deviceOrientationPoseData;
-- (id)_worldAlignmentDataWithTrackingData:(id)arg1;
+- (id)_updateHeadingAlignmentWithPoseData:(id)arg1 timestamp:(double)arg2;
+- (id)_referenceTrackingAlignmentWithPoseData:(id)arg1;
+- (float)_trackingAlignmentAngleForPoseData:(id)arg1;
 - (void)_referenceDeviceOrientation;
 - (id)predictedResultDataAtTimestamp:(double)arg1 context:(id)arg2;
 - (void)requestResultDataAtTimestamp:(double)arg1 context:(id)arg2;

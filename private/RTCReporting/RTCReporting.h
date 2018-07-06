@@ -20,6 +20,8 @@
     int _counter;
     NSMutableDictionary *_periodicServiceDict;
     NSArray *_enabledBackendNames;
+    NSArray *_whitelistedEvents;
+    NSArray *_blacklistedEvents;
     RTCReportingDeallocNotifier *_strongDeallocNotifier;
     id _weakDeallocNotifier;
     id _weakMessageSentDelegate;
@@ -37,6 +39,8 @@
 - (_Bool)flushMessages;
 - (_Bool)sendMessageWithDictionary:(id)arg1 error:(id *)arg2;
 - (_Bool)sendMessageWithCategory:(unsigned short)arg1 type:(unsigned short)arg2 payload:(id)arg3 error:(id *)arg4;
+- (_Bool)isBlacklistedEvent:(unsigned short)arg1;
+- (_Bool)isWhitelistedEvent:(unsigned short)arg1;
 - (void)notifyMessageWasSent:(id)arg1;
 - (void)fetchReportingStatesWithUserInfo:(id)arg1 fetchComplete:(CDUnknownBlockType)arg2;
 - (void)startConfigurationWithCompletionHandler:(CDUnknownBlockType)arg1;

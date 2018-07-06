@@ -16,6 +16,7 @@
 @interface NTKFace : NSObject <NSSecureCoding, NSCopying, NTKInstalledSystemApplicationsChangeObserver, NTKEditModeMapping>
 {
     NTKFaceConfiguration *_configuration;
+    id <NTKFaceObserver> _primaryObserver;
     NSHashTable *_observers;
     NSDictionary *_complicationSlotDescriptors;
     _Bool _editOptionsPrepared;
@@ -25,6 +26,7 @@
     _Bool _resourceDirectoryIsHardLink;
     NSString *_cachedDefaultName;
     _Bool _isLibraryFace;
+    _Bool _complicationExistenceInvalidatesSnapshot;
     _Bool _beingEdited;
     long long _faceStyle;
     CLKDevice *_device;
@@ -72,6 +74,7 @@
 + (id)_linkedResourceRootDirectory;
 @property(nonatomic) _Bool beingEdited; // @synthesize beingEdited=_beingEdited;
 @property(nonatomic) long long mostRecentEditMode; // @synthesize mostRecentEditMode=_mostRecentEditMode;
+@property(readonly, nonatomic) _Bool complicationExistenceInvalidatesSnapshot; // @synthesize complicationExistenceInvalidatesSnapshot=_complicationExistenceInvalidatesSnapshot;
 @property(nonatomic) _Bool isLibraryFace; // @synthesize isLibraryFace=_isLibraryFace;
 @property(readonly, nonatomic) NSString *resourceDirectory; // @synthesize resourceDirectory=_resourceDirectory;
 @property(readonly, nonatomic) NTKFaceConfiguration *configuration; // @synthesize configuration=_configuration;
@@ -175,8 +178,10 @@
 - (_Bool)_complication:(id)arg1 appearsInDailySnapshotForSlot:(id)arg2;
 @property(readonly, nonatomic) NSString *dailySnapshotKey;
 - (void)_notifyObserversFaceUpgradeOccurred;
+- (void)_notifyObserversFaceResourceDirectoryDidChange;
 - (void)_notifyObserversOptionsDidChangeForEditMode:(long long)arg1;
 - (void)_notifyObserversFaceConfigurationDidChange;
+- (void)_notifyObserversThatRespondToSelector:(SEL)arg1 callSelector:(CDUnknownBlockType)arg2;
 - (void)_updateForResourceDirectoryChange:(id)arg1;
 - (void)_setResourceDirectory:(id)arg1;
 - (void)_deleteResourceDirectoryHardLinkIfNecessary;
@@ -184,6 +189,7 @@
 - (void)setResourceDirectoryByHardLinkingDirectory:(id)arg1;
 - (void)setResourceDirectory:(id)arg1;
 - (void)removeObserver:(id)arg1;
+- (void)addPrimaryObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;

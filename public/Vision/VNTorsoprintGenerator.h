@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     CDStruct_2bc666a5 _mEspressoNetwork;
 }
 
++ (id)configurationOptionKeysForDetectorKey;
 + (float)_minimumTorsoInsideInputImageThreshold;
 + (struct CGSize)_torsoprintDescriptorSize;
 + (struct CGSize)_torsoprintInputImageSize;

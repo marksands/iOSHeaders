@@ -32,8 +32,8 @@
 - (void)_queue_applicationDidUninstall:(id)arg1;
 - (void)_queue_notificationSourcesDidUninstall:(id)arg1;
 - (void)notificationSourcesDidUninstall:(id)arg1;
-- (void)_queue_getAttachmentDataForAttachment:(id)arg1 bundleIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)getAttachmentDataForAttachment:(id)arg1 bundleIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)_queue_getAttachmentDataForAttachment:(id)arg1 bundleIdentifier:(id)arg2 error:(id *)arg3;
+- (id)attachmentDataForAttachment:(id)arg1 bundleIdentifier:(id)arg2 error:(id *)arg3;
 - (void)_queue_deleteAttachmentDataForNotificationRecord:(id)arg1 bundleIdentifier:(id)arg2;
 - (void)_queue_deleteAttachmentDataForNotificationRecords:(id)arg1 bundleIdentifier:(id)arg2;
 - (id)_temporaryAttachmentFileURL;

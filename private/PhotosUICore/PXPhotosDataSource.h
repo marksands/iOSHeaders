@@ -42,6 +42,7 @@
     _Bool _reverseSortOrder;
     _Bool _wantsCurationByDefault;
     _Bool _isBackgroundFetching;
+    _Bool _allowNextChangeDeliveryOnAllRunLoopModes;
     unsigned long long _options;
     unsigned long long _versionIdentifier;
     PHFetchResult *_collectionListFetchResult;
@@ -56,6 +57,7 @@
 
 + (id)_emptyAssetsFetchResult;
 + (id)_curationSharedBackgroundQueue;
+@property(nonatomic) _Bool allowNextChangeDeliveryOnAllRunLoopModes; // @synthesize allowNextChangeDeliveryOnAllRunLoopModes=_allowNextChangeDeliveryOnAllRunLoopModes;
 @property(readonly, nonatomic) _Bool isBackgroundFetching; // @synthesize isBackgroundFetching=_isBackgroundFetching;
 @property(readonly, nonatomic) PHPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 @property(nonatomic, setter=_setPreviousCollectionsCount:) unsigned long long _previousCollectionsCount; // @synthesize _previousCollectionsCount=__previousCollectionsCount;

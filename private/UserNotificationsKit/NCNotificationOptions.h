@@ -41,8 +41,10 @@
     _Bool _coalescesWhenLocked;
     _Bool _preventsAutomaticLock;
     _Bool _revealsAdditionalContentIfNoDefaultAction;
+    _Bool _lauchUsingSiriForCarPlayDefaultAction;
 }
 
+@property(readonly, nonatomic) _Bool lauchUsingSiriForCarPlayDefaultAction; // @synthesize lauchUsingSiriForCarPlayDefaultAction=_lauchUsingSiriForCarPlayDefaultAction;
 @property(readonly, nonatomic) _Bool revealsAdditionalContentIfNoDefaultAction; // @synthesize revealsAdditionalContentIfNoDefaultAction=_revealsAdditionalContentIfNoDefaultAction;
 @property(readonly, nonatomic) _Bool preventsAutomaticLock; // @synthesize preventsAutomaticLock=_preventsAutomaticLock;
 @property(readonly, nonatomic) _Bool coalescesWhenLocked; // @synthesize coalescesWhenLocked=_coalescesWhenLocked;

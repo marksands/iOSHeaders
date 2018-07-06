@@ -6,21 +6,19 @@
 
 #import "NSObject.h"
 
-#import "CSAlarmMonitorDelegate.h"
 #import "CSAssetManagerDelegate.h"
 #import "CSAudioRecorderDelegate.h"
 #import "CSAudioRouteChangeMonitorDelegate.h"
 #import "CSAudioServerCrashMonitorGibraltarDelegate.h"
 #import "CSLanguageCodeUpdateMonitorDelegate.h"
 #import "CSSiriEnabledMonitorDelegate.h"
+#import "CSSmartSiriVolumeDelegate.h"
 #import "CSStateMachineDelegate.h"
-#import "CSTimerMonitorDelegate.h"
 #import "CSVoiceTriggerDelegate.h"
-#import "CSVolumeMonitorDelegate.h"
 
 @class CSAudioCircularBuffer, CSAudioRecorder, CSSmartSiriVolume, CSStateMachine, NSDictionary, NSHashTable, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSUUID;
 
-@interface CSSpeechManager : NSObject <CSAudioRecorderDelegate, CSStateMachineDelegate, CSVoiceTriggerDelegate, CSSiriEnabledMonitorDelegate, CSVolumeMonitorDelegate, CSAlarmMonitorDelegate, CSTimerMonitorDelegate, CSAudioServerCrashMonitorGibraltarDelegate, CSAudioRouteChangeMonitorDelegate, CSAssetManagerDelegate, CSLanguageCodeUpdateMonitorDelegate>
+@interface CSSpeechManager : NSObject <CSAudioRecorderDelegate, CSStateMachineDelegate, CSVoiceTriggerDelegate, CSSiriEnabledMonitorDelegate, CSAudioServerCrashMonitorGibraltarDelegate, CSSmartSiriVolumeDelegate, CSAudioRouteChangeMonitorDelegate, CSAssetManagerDelegate, CSLanguageCodeUpdateMonitorDelegate>
 {
     _Bool _isSiriEnabled;
     _Bool _deviceRoleIsStereo;
@@ -75,9 +73,9 @@
 - (void)handleLostServerConnection;
 - (void)_startClearLoggingFilesTimer;
 - (void)_createClearLoggingFileTimer;
-- (void)CSTimerMonitor:(id)arg1 didReceiveTimerChanged:(long long)arg2;
-- (void)CSAlarmMonitor:(id)arg1 didReceiveAlarmChanged:(long long)arg2;
-- (void)CSVolumeMonitor:(id)arg1 didReceiveMusicVolumeChanged:(float)arg2;
+- (void)CSSmartSiriVolumeDidReceiveTimerChanged:(long long)arg1;
+- (void)CSSmartSiriVolumeDidReceiveAlarmChanged:(long long)arg1;
+- (void)CSSmartSiriVolumeDidReceiveMusicVolumeChanged:(float)arg1;
 - (void)CSSiriEnabledMonitor:(id)arg1 didReceiveEnabled:(_Bool)arg2;
 - (float)getEstimatedTTSVolume;
 - (id)_eventName:(unsigned long long)arg1;

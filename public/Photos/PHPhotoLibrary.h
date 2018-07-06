@@ -22,6 +22,7 @@
     PLPhotoLibrary *_photoLibrary;
     PLPhotoLibrary *_changeHandlingPhotoLibrary;
     PLPhotoLibrary *_mainQueuePhotoLibrary;
+    PLPhotoLibrary *_userInitiatedQueuePhotoLibrary;
     PLPhotoLibrary *_backgroundQueuePhotoLibrary;
     PLPhotoLibrary *_backgroundQueueObjectFetchingPhotoLibrary;
     PLPhotoLibrary *_transactionPhotoLibrary;
@@ -76,6 +77,7 @@
 @property(retain, nonatomic) PLPhotoLibrary *transactionPhotoLibrary; // @synthesize transactionPhotoLibrary=_transactionPhotoLibrary;
 @property(retain, nonatomic) PLPhotoLibrary *backgroundQueueObjectFetchingPhotoLibrary; // @synthesize backgroundQueueObjectFetchingPhotoLibrary=_backgroundQueueObjectFetchingPhotoLibrary;
 @property(retain, nonatomic) PLPhotoLibrary *backgroundQueuePhotoLibrary; // @synthesize backgroundQueuePhotoLibrary=_backgroundQueuePhotoLibrary;
+@property(retain, nonatomic) PLPhotoLibrary *userInitiatedQueuePhotoLibrary; // @synthesize userInitiatedQueuePhotoLibrary=_userInitiatedQueuePhotoLibrary;
 @property(retain, nonatomic) PLPhotoLibrary *mainQueuePhotoLibrary; // @synthesize mainQueuePhotoLibrary=_mainQueuePhotoLibrary;
 @property(retain, nonatomic) PLPhotoLibrary *changeHandlingPhotoLibrary; // @synthesize changeHandlingPhotoLibrary=_changeHandlingPhotoLibrary;
 @property(retain, nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;

@@ -12,11 +12,12 @@
 
 @interface _AXDyldImageMonitor : NSObject <AXImageMonitor>
 {
-    NSObject<OS_dispatch_queue> *_queue;
     NSHashTable *_imageMonitorObservers;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (id)sharedInstance;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
 - (void)removeImageMonitorObserver:(id)arg1;
 - (void)addImageMonitorObserver:(id)arg1;

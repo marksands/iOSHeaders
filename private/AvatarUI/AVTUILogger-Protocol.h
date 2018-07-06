@@ -9,6 +9,7 @@
 @class NSString;
 
 @protocol AVTUILogger <NSObject>
+- (void)logCarouselEndsDraggingWithVelocity:(double)arg1 willSwitchIndexPathInsteadOfScrollBack:(_Bool)arg2 forHighVelocity:(_Bool)arg3;
 - (void)logCarouselDelegateDidUpdateRecord:(NSString *)arg1;
 - (void)logCarouselDelegateNearnessFactorDidChange:(double)arg1 towardRecord:(_Bool)arg2 editable:(_Bool)arg3;
 - (void)logCarouselDelegateWillEndFocusRecord:(NSString *)arg1;
@@ -35,6 +36,10 @@
 - (void)logCarouselChangesCenterItemTo:(NSString *)arg1;
 - (void)logCarouselChangingToMultiMode;
 - (void)logCarouselChangingToSingleMode;
+- (void)logUsageTrackingBigDifferencesClusterCount:(unsigned long long)arg1;
+- (void)logUsageTrackingSmallDifferencesClusterCount:(unsigned long long)arg1;
+- (void)logUsageTrackingRecordCount:(unsigned long long)arg1;
+- (void)logSingleModeCantSnapshotForLackOfWindow;
 - (void)logAvatarPreloadEnd;
 - (void)logAvatarPreloadBeginForIdentifier:(NSString *)arg1;
 - (void)logCarouselSnapshotForIndex:(unsigned long long)arg1 size:(struct CGSize)arg2;

@@ -15,7 +15,8 @@
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSDictionary *publicEventCriteriaByCategory; // @synthesize publicEventCriteriaByCategory=_publicEventCriteriaByCategory;
-- (void)_collectConsolidatedAddressesForMomentNodes:(id)arg1 consolidatedAddresses:(id *)arg2 consolidatedAddressesByMomentIdentifier:(id *)arg3;
+- (id)_frequentLocationNodesByMomentIdentifierForMomentNodes:(id)arg1;
+- (void)_collectConsolidatedAddressesForMomentNodes:(id)arg1 inGraph:(id)arg2 consolidatedAddresses:(id *)arg3 consolidatedAddressesByMomentIdentifier:(id *)arg4 momentNodesForConsolidatedAddresses:(id *)arg5;
 - (id)disambiguateEvents:(id)arg1 forTimeLocationTuple:(id)arg2 momentNode:(id)arg3;
 - (void)_insertPublicEventsFromMomentNodes:(id)arg1 graphUpdate:(id)arg2 progressBlock:(CDUnknownBlockType)arg3;
 - (void)runWithGraphUpdate:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;

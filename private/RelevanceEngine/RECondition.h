@@ -30,6 +30,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)descriptionWithIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
+- (id)_inflectionFeatureValuePairs;
 - (_Bool)_acceptsLeftFeatureMap:(id)arg1 rightFeatureMap:(id)arg2;
 - (_Bool)_acceptsFeatureMap:(id)arg1;
 - (_Bool)_validForRanking;

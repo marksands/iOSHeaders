@@ -10,7 +10,7 @@
 {
 }
 
-+ (void)_openPunchoutURL:(id)arg1 isPlaybackURL:(_Bool)arg2;
++ (_Bool)_openPunchoutURL:(id)arg1 isPlaybackURL:(_Bool)arg2;
 + (id)_defaultPunchoutURLWithPlayable:(id)arg1 isPlaybackURL:(_Bool *)arg2;
 + (id)_defaultPunchoutURLWithPlayable:(id)arg1 URLKey:(id)arg2;
 + (id)_defaultPlayPunchoutURLWithPlayable:(id)arg1;

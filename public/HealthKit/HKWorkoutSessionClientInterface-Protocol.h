@@ -7,6 +7,7 @@
 @class NSArray, NSDate, NSError;
 
 @protocol HKWorkoutSessionClientInterface
+- (void)client_synchronizeWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)client_didFailWithError:(NSError *)arg1;
 - (void)client_didGenerateEvents:(NSArray *)arg1;
 - (void)client_didChangeToState:(long long)arg1 date:(NSDate *)arg2;

@@ -6,7 +6,7 @@
 
 #import "UIViewController.h"
 
-#import "PLNavigableAssetContainerListViewController.h"
+#import "PLNavigableCollectionContainer.h"
 #import "PUAlbumListTableViewCellDelegate.h"
 #import "PUAlbumStreamActivityDelegate.h"
 #import "PUCollectionViewReorderDelegate.h"
@@ -30,7 +30,7 @@
 
 @class NSArray, NSMutableSet, NSString, NSUserActivity, PHCachingImageManager, PHCollection, PHImageRequestOptions, PUAlbumDropSessionController, PUAlbumListSectionHeaderView, PUAlbumListTransitionContext, PUAlbumListViewControllerSpec, PUAlbumStreamActivity, PUCollageView, PUCollectionView, PUFeedViewController, PUFontManager, PUPhotoPinchGestureRecognizer, PUSectionedGridLayout, PUSessionInfo, PXAssetBadgeManager, PXCollectionTileLayoutTemplate, PXEditableNavigationTitleView, PXFeatureSpec, PXFeatureSpecManager, PXPeopleAlbumProvider, PXPhotoKitCollectionsDataSource, PXPhotoKitCollectionsDataSourceManager, PXPhotoKitCollectionsDataSourceManagerConfiguration, PXPhotosGlobalFooterView, PXPlacesAlbumCoverProvider, UIAlertAction, UIAlertController, UIBarButtonItem, UICollectionViewLayout, UITableView, UIView, _UIContentUnavailableView;
 
-@interface PUAlbumListViewController : UIViewController <UICollectionViewDropDelegate, UIGestureRecognizerDelegate, PUStackedAlbumTransitionDelegate, PUAlbumStreamActivityDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PUCollectionViewReorderDelegate, PUSectionedGridLayoutDelegate, UITableViewDataSource, UITableViewDelegate, PUAlbumListTableViewCellDelegate, UIPopoverPresentationControllerDelegate, PXPhotoLibraryUIChangeObserver, PXSettingsKeyObserver, PXCollectionsDataSourceManagerObserver, PXPlacesSnapshotFactoryDelegate, PXEditableNavigationTitleViewDelegate, PLNavigableAssetContainerListViewController, PXCloudFeedNavigating, PXNavigableSharedActivityViewController, PUStackedAlbumControllerTransition>
+@interface PUAlbumListViewController : UIViewController <UICollectionViewDropDelegate, UIGestureRecognizerDelegate, PUStackedAlbumTransitionDelegate, PUAlbumStreamActivityDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PUCollectionViewReorderDelegate, PUSectionedGridLayoutDelegate, UITableViewDataSource, UITableViewDelegate, PUAlbumListTableViewCellDelegate, UIPopoverPresentationControllerDelegate, PXPhotoLibraryUIChangeObserver, PXSettingsKeyObserver, PXCollectionsDataSourceManagerObserver, PXPlacesSnapshotFactoryDelegate, PXEditableNavigationTitleViewDelegate, PLNavigableCollectionContainer, PXCloudFeedNavigating, PXNavigableSharedActivityViewController, PUStackedAlbumControllerTransition>
 {
     PUAlbumListViewControllerSpec *_spec;
     UIBarButtonItem *_doneButtonItem;
@@ -235,6 +235,7 @@
 - (void)navigateToCollection:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_createControllerForFolder:(id)arg1;
 - (id)_createControllerForStandInCollection:(id)arg1;
+- (_Bool)canNavigateToCollection:(id)arg1;
 - (void)albumListCellContentView:(id)arg1 didEndRetitingFromTitle:(id)arg2 toTitle:(id)arg3;
 - (_Bool)albumListCellContentViewShouldBeginRetitling:(id)arg1;
 - (void)albumListCellContentView:(id)arg1 performDeleteAction:(id)arg2;

@@ -9,6 +9,7 @@
 @protocol VCSessionDownlinkBandwidthAllocatorClient
 @property(nonatomic, getter=isVideoSuspended) _Bool videoSuspended;
 @property(readonly) _Bool isVisible;
+@property(readonly) unsigned int prominenceIndex;
 @property(readonly) unsigned int visibilityIndex;
 @property(readonly) unsigned char videoQuality;
 @property(readonly) unsigned short activeDownlinkAudioStreamID;

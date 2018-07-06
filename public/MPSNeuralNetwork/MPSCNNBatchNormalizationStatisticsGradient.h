@@ -11,6 +11,7 @@
 @interface MPSCNNBatchNormalizationStatisticsGradient : MPSCNNGradientKernel
 {
     MPSNNNeuronDescriptor *_fusedNeuronDescriptor;
+    id <MTLBuffer> _preluBuffer;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;

@@ -22,6 +22,7 @@
 + (id)_readyToViewInvitationCMMCategory;
 + (id)_expiringCMMCategory;
 + (id)_suggestedCMMCategory;
++ (id)_invitationAcceptedCategory;
 + (id)_invitationsCategoryWithJunkAction:(_Bool)arg1;
 + (id)_updatesCommentedCategory;
 + (id)_updatesLikedCategory;

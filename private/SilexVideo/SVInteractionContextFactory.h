@@ -12,13 +12,9 @@
 
 @interface SVInteractionContextFactory : NSObject <SVInteractionContextFactory>
 {
-    id <UICoordinateSpace> _coordinateSpace;
 }
 
-@property(readonly, nonatomic) id <UICoordinateSpace> coordinateSpace; // @synthesize coordinateSpace=_coordinateSpace;
-- (void).cxx_destruct;
 - (id)createInteractionContextWithView:(id)arg1 frame:(struct CGRect)arg2;
-- (id)initWithCoordinateSpace:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

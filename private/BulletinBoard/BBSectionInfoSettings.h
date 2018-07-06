@@ -22,10 +22,12 @@
     unsigned long long _pushSettings;
     long long _carPlaySetting;
     long long _criticalAlertSetting;
+    long long _bulletinGroupingSetting;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)sectionInfoSettingsForManagedBundleID:(id)arg1;
+@property(nonatomic) long long bulletinGroupingSetting; // @synthesize bulletinGroupingSetting=_bulletinGroupingSetting;
 @property(nonatomic) long long criticalAlertSetting; // @synthesize criticalAlertSetting=_criticalAlertSetting;
 @property(nonatomic) long long carPlaySetting; // @synthesize carPlaySetting=_carPlaySetting;
 @property(nonatomic) unsigned long long pushSettings; // @synthesize pushSettings=_pushSettings;
@@ -42,6 +44,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (id)_bulletinGroupingSettingDescription;
 - (id)_contentPreviewSettingDescription;
 - (id)_alertTypeDescription;
 - (id)_authorizationStatusDescription;

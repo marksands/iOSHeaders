@@ -17,9 +17,17 @@
     NSMutableDictionary *_carrierBundleVersionDict;
     NSMutableDictionary *_volteCustomerCarePhoneNumberDict;
     NSMutableDictionary *_volteCustomerCareWebsiteDict;
+    NSMutableDictionary *_carrierServicesDict;
+    NSMutableDictionary *_showServiceCodes;
+    NSMutableDictionary *_carrierServicesAccountUrlDict;
+    NSMutableDictionary *_carrierMmsInfoUrlDict;
 }
 
 + (id)sharedInstance;
+@property(retain) NSMutableDictionary *carrierMmsInfoUrlDict; // @synthesize carrierMmsInfoUrlDict=_carrierMmsInfoUrlDict;
+@property(retain) NSMutableDictionary *carrierServicesAccountUrlDict; // @synthesize carrierServicesAccountUrlDict=_carrierServicesAccountUrlDict;
+@property(retain) NSMutableDictionary *showServiceCodes; // @synthesize showServiceCodes=_showServiceCodes;
+@property(retain) NSMutableDictionary *carrierServicesDict; // @synthesize carrierServicesDict=_carrierServicesDict;
 @property(retain) NSMutableDictionary *volteCustomerCareWebsiteDict; // @synthesize volteCustomerCareWebsiteDict=_volteCustomerCareWebsiteDict;
 @property(retain) NSMutableDictionary *volteCustomerCarePhoneNumberDict; // @synthesize volteCustomerCarePhoneNumberDict=_volteCustomerCarePhoneNumberDict;
 @property(retain) NSMutableDictionary *carrierBundleVersionDict; // @synthesize carrierBundleVersionDict=_carrierBundleVersionDict;
@@ -27,6 +35,16 @@
 @property(retain, nonatomic) CoreTelephonyClient *client; // @synthesize client=_client;
 - (void).cxx_destruct;
 - (void)carrierBundleChange:(id)arg1;
+- (id)mmsInfoTitle:(id)arg1;
+- (id)mmsInfoUrl:(id)arg1;
+- (void)fetchCarrierMmsInfoUrl;
+- (id)carrierServicesAccountTitle:(id)arg1;
+- (id)carrierServicesAccountUrl:(id)arg1;
+- (void)fetchCarrierServicesAccountUrl;
+- (_Bool)showServiceCodes:(id)arg1;
+- (void)fetchShowServiceCodes;
+- (id)carrierServices:(id)arg1;
+- (void)fetchCarrierServices;
 - (id)volteCustomerCareWebsite:(id)arg1;
 - (void)fetchVolteCustomerCareWebsite;
 - (id)volteCustomerCarePhoneNumber:(id)arg1;
@@ -36,7 +54,12 @@
 - (id)activeDataCarrierName;
 - (id)carrierName:(id)arg1;
 - (void)fetchCarrierName;
+- (id)fetchCarrierBundleValueAsString:(id)arg1;
+- (id)fetchCarrierBundleValue:(id)arg1;
+- (id)carrierBundleValue:(id)arg1 context:(id)arg2;
+- (id)fetchCarrierBundleValue:(id)arg1 context:(id)arg2;
 - (void)willEnterForeground;
+- (void)_clearCache;
 - (id)init;
 - (id)initPrivate;
 

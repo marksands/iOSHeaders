@@ -15,9 +15,11 @@
     NSExtension *_extension;
     UIViewController *_remoteViewController;
     NSArray *_serviceIdentifiers;
+    _Bool _dismissOnBackground;
     id <_ASCredentialProviderExtensionViewControllerDelegate> _delegate;
 }
 
+@property(nonatomic) _Bool dismissOnBackground; // @synthesize dismissOnBackground=_dismissOnBackground;
 @property(nonatomic) __weak id <_ASCredentialProviderExtensionViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)childViewControllerForWhitePointAdaptivityStyle;

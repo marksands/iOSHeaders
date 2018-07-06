@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (id)indexPathForPreferredFocusedViewInCollectionView:(id)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillAppear:(_Bool)arg1;
 - (long long)preferredStatusBarStyle;

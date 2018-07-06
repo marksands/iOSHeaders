@@ -11,7 +11,7 @@
 #import "NSSecureCoding.h"
 #import "_INPBSetSeatSettingsInCarIntent.h"
 
-@class INCodableAttribute, NSString, _INPBInteger, _INPBIntentMetadata;
+@class INCodableAttribute, NSString, _INPBDataString, _INPBInteger, _INPBIntentMetadata;
 
 @interface _INPBSetSeatSettingsInCarIntent : PBCodable <_INPBSetSeatSettingsInCarIntent, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
 {
@@ -27,6 +27,7 @@
     _Bool _enableMassage;
     int _relativeLevelSetting;
     int _seat;
+    _INPBDataString *_carName;
     _INPBIntentMetadata *_intentMetadata;
     _INPBInteger *_level;
     INCodableAttribute *_associatedCodableAttribute;
@@ -40,6 +41,7 @@
 @property(nonatomic) _Bool enableMassage; // @synthesize enableMassage=_enableMassage;
 @property(nonatomic) _Bool enableHeating; // @synthesize enableHeating=_enableHeating;
 @property(nonatomic) _Bool enableCooling; // @synthesize enableCooling=_enableCooling;
+@property(retain, nonatomic) _INPBDataString *carName; // @synthesize carName=_carName;
 - (void).cxx_destruct;
 - (id)dictionaryRepresentation;
 @property(readonly) unsigned long long hash;
@@ -58,6 +60,7 @@
 @property(nonatomic) _Bool hasEnableMassage;
 @property(nonatomic) _Bool hasEnableHeating;
 @property(nonatomic) _Bool hasEnableCooling;
+@property(readonly, nonatomic) _Bool hasCarName;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

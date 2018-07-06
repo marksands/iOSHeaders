@@ -18,10 +18,10 @@
 + (id)knownSceneClassifications;
 + (const CDStruct_d47b9615 *)dependentRequestCompatability;
 + (Class)configurationClass;
-+ (id)_knownVNImageAnalyzerMultiDetectorLabelsForRevision:(unsigned long long)arg1 error:(id *)arg2;
-+ (id)_knownVNSceneClassifierLabelsForRevision:(unsigned long long)arg1 error:(id *)arg2;
-+ (id)_imageAnalyzerMultiDetectorForRevision:(unsigned long long)arg1 detectionLevel:(unsigned long long)arg2 processingDevice:(id)arg3 error:(id *)arg4;
-+ (id)_sceneClassifierForRevision:(unsigned long long)arg1 error:(id *)arg2;
++ (id)_knownVNImageAnalyzerMultiDetectorLabelsForRevision:(unsigned long long)arg1 requestBackingStore:(unsigned long long)arg2 error:(id *)arg3;
++ (id)_knownVNSceneClassifierLabelsForRevision:(unsigned long long)arg1 requestBackingStore:(unsigned long long)arg2 error:(id *)arg3;
++ (id)_imageAnalyzerMultiDetectorForRevision:(unsigned long long)arg1 detectionLevel:(unsigned long long)arg2 processingDevice:(id)arg3 requestBackingStore:(unsigned long long)arg4 error:(id *)arg5;
++ (id)_sceneClassifierForRevision:(unsigned long long)arg1 requestBackingStore:(unsigned long long)arg2 error:(id *)arg3;
 + (const CDStruct_7d93034e *)revisionAvailability;
 - (id)defineCustomHierarchyWithRelationships:(id)arg1 error:(id *)arg2;
 - (_Bool)defineCustomHierarchy:(id)arg1 error:(id *)arg2;

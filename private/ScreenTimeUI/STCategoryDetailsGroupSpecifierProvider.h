@@ -6,24 +6,22 @@
 
 #import <ScreenTimeUI/STGroupSpecifierProvider.h>
 
-@class NSDictionary, NSObject<STTimeAllowancesViewModelCoordinator>, STUsageDetailsViewModel;
+@class NSDictionary, NSObject<STRootViewModelCoordinator>, STUsageDetailsViewModel;
 
 @interface STCategoryDetailsGroupSpecifierProvider : STGroupSpecifierProvider
 {
-    _Bool _canAskForMoreTime;
     NSDictionary *_usageItemsByIdentifier;
     STUsageDetailsViewModel *_usageDetailsViewModel;
-    NSObject<STTimeAllowancesViewModelCoordinator> *_timeAllowancesCoordinator;
+    NSObject<STRootViewModelCoordinator> *_coordinator;
 }
 
-@property(readonly, nonatomic) _Bool canAskForMoreTime; // @synthesize canAskForMoreTime=_canAskForMoreTime;
-@property(readonly, nonatomic) NSObject<STTimeAllowancesViewModelCoordinator> *timeAllowancesCoordinator; // @synthesize timeAllowancesCoordinator=_timeAllowancesCoordinator;
+@property(readonly, nonatomic) NSObject<STRootViewModelCoordinator> *coordinator; // @synthesize coordinator=_coordinator;
 @property(readonly, nonatomic) STUsageDetailsViewModel *usageDetailsViewModel; // @synthesize usageDetailsViewModel=_usageDetailsViewModel;
 @property(readonly, copy, nonatomic) NSDictionary *usageItemsByIdentifier; // @synthesize usageItemsByIdentifier=_usageItemsByIdentifier;
 - (void).cxx_destruct;
 - (void)showMostUsedDetailListController:(id)arg1;
 - (id)totalUsageDescription:(id)arg1;
-- (id)initWithCategoryUsageItem:(id)arg1 usageDetailsViewModel:(id)arg2 timeAllowancesCoordinator:(id)arg3 canAskForMoreTime:(_Bool)arg4;
+- (id)initWithCategoryUsageItem:(id)arg1 coordinator:(id)arg2;
 
 @end
 

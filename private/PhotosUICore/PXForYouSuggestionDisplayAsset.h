@@ -12,12 +12,14 @@
 
 @interface PXForYouSuggestionDisplayAsset : NSObject <PXPhotoKitAdjustedDisplayAsset>
 {
+    _Bool _shouldInvert;
     PHAsset *_photoKitAsset;
     NSString *_adjustedContentIdentifier;
     id <PXDisplaySuggestion> _suggestion;
     id <PXDisplayAsset> _keyAsset;
 }
 
+@property(readonly, nonatomic) _Bool shouldInvert; // @synthesize shouldInvert=_shouldInvert;
 @property(readonly, nonatomic) id <PXDisplayAsset> keyAsset; // @synthesize keyAsset=_keyAsset;
 @property(readonly, nonatomic) id <PXDisplaySuggestion> suggestion; // @synthesize suggestion=_suggestion;
 @property(readonly, nonatomic) NSString *adjustedContentIdentifier; // @synthesize adjustedContentIdentifier=_adjustedContentIdentifier;
@@ -45,6 +47,9 @@
 @property(readonly, nonatomic) unsigned long long mediaSubtypes;
 @property(readonly, nonatomic) long long mediaType;
 @property(readonly, nonatomic) NSString *uniformTypeIdentifier;
+@property(readonly, nonatomic) _Bool isApplied;
+- (id)inverseSuggestionAsset;
+- (id)initWithSuggestion:(id)arg1 keyAsset:(id)arg2 shouldRevert:(_Bool)arg3;
 - (id)initWithSuggestion:(id)arg1 keyAsset:(id)arg2;
 
 // Remaining properties

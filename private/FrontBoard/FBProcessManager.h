@@ -25,11 +25,12 @@
     NSMutableSet *_preventIdleSleepReasons;
     FBApplicationProcess *_foregroundAppProcess;
     FBApplicationProcess *_preferredForegroundAppProcess;
-    FBApplicationProcessWatchdogPolicy *_defaultWatchdogPolicy;
+    FBApplicationProcessWatchdogPolicy *_noDirectAccess_defaultWatchdogPolicy;
     NSMutableDictionary *_workspacesByClientIdentity;
 }
 
 + (id)sharedInstance;
+@property(retain) FBApplicationProcessWatchdogPolicy *defaultWatchdogPolicy; // @synthesize defaultWatchdogPolicy=_noDirectAccess_defaultWatchdogPolicy;
 @property(readonly, nonatomic) FBApplicationProcess *systemApplicationProcess; // @synthesize systemApplicationProcess=_systemAppProcess;
 - (void).cxx_destruct;
 - (void)_queue_evaluateForegroundEventRouting;
@@ -38,6 +39,7 @@
 - (id)_processesQueue_processesForBundleIdentifier:(id)arg1;
 - (void)_queue_removeProcess:(id)arg1 withBundleID:(id)arg2 pid:(int)arg3;
 - (void)_queue_addProcess:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)_queue_reallyRegisterProcessForProcessHandle:(id)arg1;
 - (void)invalidateClientWorkspace:(id)arg1;
 - (id)workspaceForSceneClientWithIdentity:(id)arg1;
 - (id)currentProcess;
@@ -46,6 +48,8 @@
 - (id)watchdogPolicyForProcess:(id)arg1 eventContext:(id)arg2;
 - (void)_setSystemIdleSleepDisabled:(_Bool)arg1 forReason:(id)arg2;
 - (id)_serviceClientAddedWithProcessHandle:(id)arg1;
+- (id)registerProcessForHandle:(id)arg1;
+- (id)registerProcessForAuditToken:(CDStruct_6ad76789)arg1;
 @property(readonly, copy) NSString *description;
 - (id)createApplicationProcessForBundleID:(id)arg1 withExecutionContext:(id)arg2;
 - (id)createApplicationProcessForBundleID:(id)arg1;

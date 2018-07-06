@@ -23,7 +23,7 @@
     NSString *_summaryArgument;
     unsigned long long _summaryArgumentCount;
     NSArray *_icons;
-    UIImage *_carPlayIcon;
+    NSArray *_carPlayIcons;
     UIImage *_attachmentImage;
     NSDate *_date;
     _Bool _dateAllDay;
@@ -36,7 +36,7 @@
 @property(readonly, nonatomic, getter=isDateAllDay) _Bool dateAllDay; // @synthesize dateAllDay=_dateAllDay;
 @property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(readonly, nonatomic) UIImage *attachmentImage; // @synthesize attachmentImage=_attachmentImage;
-@property(readonly, nonatomic) UIImage *carPlayIcon; // @synthesize carPlayIcon=_carPlayIcon;
+@property(readonly, nonatomic) NSArray *carPlayIcons; // @synthesize carPlayIcons=_carPlayIcons;
 @property(readonly, nonatomic) NSArray *icons; // @synthesize icons=_icons;
 @property(readonly, nonatomic) unsigned long long summaryArgumentCount; // @synthesize summaryArgumentCount=_summaryArgumentCount;
 @property(readonly, copy, nonatomic) NSString *summaryArgument; // @synthesize summaryArgument=_summaryArgument;
@@ -57,6 +57,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
+@property(readonly, nonatomic) UIImage *carPlayIcon;
 @property(readonly, nonatomic) UIImage *icon;
 - (id)initWithNotificationContent:(id)arg1;
 

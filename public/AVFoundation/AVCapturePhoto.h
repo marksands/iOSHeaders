@@ -44,7 +44,7 @@
 - (id)description;
 - (id)debugDescription;
 - (void)dealloc;
-- (id)initWithTimestamp:(CDStruct_1b6d18a9)arg1 photoSurface:(void *)arg2 photoSurfaceSize:(unsigned long long)arg3 previewPhotoSurface:(void *)arg4 metadata:(id)arg5 depthDataSurface:(void *)arg6 depthMetadataDictionary:(id)arg7 portraitEffectsMatteSurface:(void *)arg8 portraitEffectsMatteMetadataDictionary:(id)arg9 captureRequest:(id)arg10 bracketSettings:(id)arg11 sequenceCount:(unsigned long long)arg12 photoCount:(unsigned long long)arg13 expectedPhotoProcessingFlags:(unsigned int)arg14 sourceDeviceType:(id)arg15;
+- (id)initWithTimestamp:(CDStruct_1b6d18a9)arg1 photoSurface:(void *)arg2 photoSurfaceSize:(unsigned long long)arg3 previewPhotoSurface:(void *)arg4 embeddedThumbnailSourceSurface:(void *)arg5 metadata:(id)arg6 depthDataSurface:(void *)arg7 depthMetadataDictionary:(id)arg8 portraitEffectsMatteSurface:(void *)arg9 portraitEffectsMatteMetadataDictionary:(id)arg10 captureRequest:(id)arg11 bracketSettings:(id)arg12 sequenceCount:(unsigned long long)arg13 photoCount:(unsigned long long)arg14 expectedPhotoProcessingFlags:(unsigned int)arg15 sourceDeviceType:(id)arg16;
 
 @end
 

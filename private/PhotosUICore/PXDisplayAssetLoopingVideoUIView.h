@@ -35,9 +35,12 @@
 - (void)contentsRectDidChange;
 - (_Bool)isDisplayingFullQualityContent;
 - (void)placeholderImageFiltersDidChange;
+- (void)animatedContentEnabledDidChange;
 - (void)imageDidChange;
 - (void)updateContent;
 - (void)didMoveToWindow;
+- (id)currentImage;
+- (struct CGRect)currentContentsRect;
 - (id)contentView;
 - (long long)playbackStyle;
 

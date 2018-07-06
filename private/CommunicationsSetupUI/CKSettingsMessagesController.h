@@ -103,7 +103,6 @@
 - (void)_updateSwitch;
 - (id)_switchFooterText:(_Bool *)arg1;
 - (void)setMadridEnabled:(id)arg1 specifier:(id)arg2;
-- (_Bool)shouldShowMadridAccount;
 - (id)isMadridEnabled:(id)arg1;
 - (id)madridSwitchSpecifierIdentifiers;
 - (_Bool)shouldShowIDSSubscriptions;

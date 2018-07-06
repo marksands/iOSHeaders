@@ -30,6 +30,7 @@
     NSMutableDictionary *_attributes;
     _Bool _canSendWriteWithoutResponse;
     _Bool _isConnectedToSystem;
+    _Bool _connectedToSystem;
     unsigned int _writesPending;
     id <CBPeripheralDelegate> _delegate;
     NSString *_name;
@@ -38,11 +39,15 @@
     NSArray *_services;
     NSHashTable *_l2capChannels;
     NSString *_BDAddress;
+    long long _PID;
+    long long _VID;
 }
 
+@property(readonly, nonatomic, getter=isConnectedToSystem) _Bool connectedToSystem; // @synthesize connectedToSystem=_connectedToSystem;
+@property long long VID; // @synthesize VID=_VID;
+@property long long PID; // @synthesize PID=_PID;
 @property(retain) NSString *BDAddress; // @synthesize BDAddress=_BDAddress;
 @property(readonly, retain, nonatomic) NSHashTable *l2capChannels; // @synthesize l2capChannels=_l2capChannels;
-@property(readonly, nonatomic) _Bool isConnectedToSystem; // @synthesize isConnectedToSystem=_isConnectedToSystem;
 @property unsigned int writesPending; // @synthesize writesPending=_writesPending;
 @property _Bool canSendWriteWithoutResponse; // @synthesize canSendWriteWithoutResponse=_canSendWriteWithoutResponse;
 @property(retain) NSArray *services; // @synthesize services=_services;
@@ -111,6 +116,9 @@
 - (id)description;
 - (void)dealloc;
 - (id)initWithCentralManager:(id)arg1 info:(id)arg2;
+
+// Remaining properties
+@property(readonly, nonatomic) _Bool isConnectedToSystem; // @synthesize isConnectedToSystem=_isConnectedToSystem;
 
 @end
 

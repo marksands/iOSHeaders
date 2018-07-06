@@ -171,6 +171,7 @@
 - (void)sendCompanionUserNotificationRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)sendStartWorkoutAppRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)requestAuthorizationForRequestRecord:(id)arg1 requestSentHandler:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)unitTest_performWithActiveSyncStore:(CDUnknownBlockType)arg1;
 - (void)updatePairedDevicesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)resetSyncWithCompletion:(CDUnknownBlockType)arg1;
 - (void)waitForLastChanceSyncWithDevicePairingID:(id)arg1 timeout:(double)arg2 completion:(CDUnknownBlockType)arg3;

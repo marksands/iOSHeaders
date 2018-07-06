@@ -41,7 +41,13 @@ struct AccessoryGyro;
 
 struct AccessoryProx;
 
+struct AccessoryProxSensorDrop;
+
+struct AccessoryProxTempComp;
+
 struct AccessoryProximityConfig;
+
+struct AccessoryWake;
 
 struct AirpodEvent;
 
@@ -112,6 +118,8 @@ struct CLElevationChangeEntry {
     int _field8;
     float _field9;
     unsigned char _field10;
+    unsigned short _field11;
+    float _field12;
 };
 
 struct CLGeomagneticModelProvider {
@@ -168,6 +176,7 @@ struct CLMotionActivity {
         unsigned int wifiHint:1;
         unsigned int btHint:1;
     } vehicularFlags;
+    int vehicularConfidence;
     float drivingStowedLikelihoodSum;
     float drivingArmLikelihoodSum;
     float ssLikelihoodSum;
@@ -322,6 +331,8 @@ struct GyroUnpacker {
     int fSampleLast[4];
 };
 
+struct InEarBaseline;
+
 struct InEarBaselining;
 
 struct InEarConstraints;
@@ -330,7 +341,11 @@ struct InEarOpenLid;
 
 struct InEarOptical;
 
+struct InEarSession;
+
 struct InEarTransition;
+
+struct InEarTransitionEntry;
 
 struct InterpolatedAccessoryAccel;
 
@@ -348,7 +363,10 @@ struct Item {
     struct unique_ptr<CMMsl::AccessoryConfig, std::__1::default_delete<CMMsl::AccessoryConfig>> _accessoryConfig;
     struct unique_ptr<CMMsl::AccessoryGyro, std::__1::default_delete<CMMsl::AccessoryGyro>> _accessoryGyro;
     struct unique_ptr<CMMsl::AccessoryProx, std::__1::default_delete<CMMsl::AccessoryProx>> _accessoryProx;
+    struct unique_ptr<CMMsl::AccessoryProxSensorDrop, std::__1::default_delete<CMMsl::AccessoryProxSensorDrop>> _accessoryProxSensorDrop;
+    struct unique_ptr<CMMsl::AccessoryProxTempComp, std::__1::default_delete<CMMsl::AccessoryProxTempComp>> _accessoryProxTempComp;
     struct unique_ptr<CMMsl::AccessoryProximityConfig, std::__1::default_delete<CMMsl::AccessoryProximityConfig>> _accessoryProximityConfig;
+    struct unique_ptr<CMMsl::AccessoryWake, std::__1::default_delete<CMMsl::AccessoryWake>> _accessoryWake;
     struct unique_ptr<CMMsl::AirpodEvent, std::__1::default_delete<CMMsl::AirpodEvent>> _airpodEvent;
     struct unique_ptr<CMMsl::BTConnection, std::__1::default_delete<CMMsl::BTConnection>> _bTConnection;
     struct unique_ptr<CMMsl::BasebandSpeed, std::__1::default_delete<CMMsl::BasebandSpeed>> _basebandSpeed;
@@ -388,11 +406,14 @@ struct Item {
     struct unique_ptr<CMMsl::GyroGps, std::__1::default_delete<CMMsl::GyroGps>> _gyroGps;
     struct unique_ptr<CMMsl::GyroOscarEmu, std::__1::default_delete<CMMsl::GyroOscarEmu>> _gyroOscarEmu;
     struct unique_ptr<CMMsl::GyroTemperature, std::__1::default_delete<CMMsl::GyroTemperature>> _gyroTemperature;
+    struct unique_ptr<CMMsl::InEarBaseline, std::__1::default_delete<CMMsl::InEarBaseline>> _inEarBaseline;
     struct unique_ptr<CMMsl::InEarBaselining, std::__1::default_delete<CMMsl::InEarBaselining>> _inEarBaselining;
     struct unique_ptr<CMMsl::InEarConstraints, std::__1::default_delete<CMMsl::InEarConstraints>> _inEarConstraints;
     struct unique_ptr<CMMsl::InEarOpenLid, std::__1::default_delete<CMMsl::InEarOpenLid>> _inEarOpenLid;
     struct unique_ptr<CMMsl::InEarOptical, std::__1::default_delete<CMMsl::InEarOptical>> _inEarOptical;
+    struct unique_ptr<CMMsl::InEarSession, std::__1::default_delete<CMMsl::InEarSession>> _inEarSession;
     struct unique_ptr<CMMsl::InEarTransition, std::__1::default_delete<CMMsl::InEarTransition>> _inEarTransition;
+    struct unique_ptr<CMMsl::InEarTransitionEntry, std::__1::default_delete<CMMsl::InEarTransitionEntry>> _inEarTransitionEntry;
     struct unique_ptr<CMMsl::InterpolatedAccessoryAccel, std::__1::default_delete<CMMsl::InterpolatedAccessoryAccel>> _interpolatedAccessoryAccel;
     struct unique_ptr<CMMsl::IntersiloNSCodingData, std::__1::default_delete<CMMsl::IntersiloNSCodingData>> _intersiloNSCodingData;
     struct unique_ptr<CMMsl::LocationOscarEmu, std::__1::default_delete<CMMsl::LocationOscarEmu>> _locationOscarEmu;
@@ -486,7 +507,6 @@ struct ParkinsonsResult {
     float _field7;
     float _field8;
     float _field9;
-    float _field10;
 };
 
 struct PearlAttitude;
@@ -811,9 +831,27 @@ struct unique_ptr<CMMsl::AccessoryProx, std::__1::default_delete<CMMsl::Accessor
     } __ptr_;
 };
 
+struct unique_ptr<CMMsl::AccessoryProxSensorDrop, std::__1::default_delete<CMMsl::AccessoryProxSensorDrop>> {
+    struct __compressed_pair<CMMsl::AccessoryProxSensorDrop *, std::__1::default_delete<CMMsl::AccessoryProxSensorDrop>> {
+        struct AccessoryProxSensorDrop *__value_;
+    } __ptr_;
+};
+
+struct unique_ptr<CMMsl::AccessoryProxTempComp, std::__1::default_delete<CMMsl::AccessoryProxTempComp>> {
+    struct __compressed_pair<CMMsl::AccessoryProxTempComp *, std::__1::default_delete<CMMsl::AccessoryProxTempComp>> {
+        struct AccessoryProxTempComp *__value_;
+    } __ptr_;
+};
+
 struct unique_ptr<CMMsl::AccessoryProximityConfig, std::__1::default_delete<CMMsl::AccessoryProximityConfig>> {
     struct __compressed_pair<CMMsl::AccessoryProximityConfig *, std::__1::default_delete<CMMsl::AccessoryProximityConfig>> {
         struct AccessoryProximityConfig *__value_;
+    } __ptr_;
+};
+
+struct unique_ptr<CMMsl::AccessoryWake, std::__1::default_delete<CMMsl::AccessoryWake>> {
+    struct __compressed_pair<CMMsl::AccessoryWake *, std::__1::default_delete<CMMsl::AccessoryWake>> {
+        struct AccessoryWake *__value_;
     } __ptr_;
 };
 
@@ -1045,6 +1083,12 @@ struct unique_ptr<CMMsl::GyroTemperature, std::__1::default_delete<CMMsl::GyroTe
     } __ptr_;
 };
 
+struct unique_ptr<CMMsl::InEarBaseline, std::__1::default_delete<CMMsl::InEarBaseline>> {
+    struct __compressed_pair<CMMsl::InEarBaseline *, std::__1::default_delete<CMMsl::InEarBaseline>> {
+        struct InEarBaseline *__value_;
+    } __ptr_;
+};
+
 struct unique_ptr<CMMsl::InEarBaselining, std::__1::default_delete<CMMsl::InEarBaselining>> {
     struct __compressed_pair<CMMsl::InEarBaselining *, std::__1::default_delete<CMMsl::InEarBaselining>> {
         struct InEarBaselining *__value_;
@@ -1069,9 +1113,21 @@ struct unique_ptr<CMMsl::InEarOptical, std::__1::default_delete<CMMsl::InEarOpti
     } __ptr_;
 };
 
+struct unique_ptr<CMMsl::InEarSession, std::__1::default_delete<CMMsl::InEarSession>> {
+    struct __compressed_pair<CMMsl::InEarSession *, std::__1::default_delete<CMMsl::InEarSession>> {
+        struct InEarSession *__value_;
+    } __ptr_;
+};
+
 struct unique_ptr<CMMsl::InEarTransition, std::__1::default_delete<CMMsl::InEarTransition>> {
     struct __compressed_pair<CMMsl::InEarTransition *, std::__1::default_delete<CMMsl::InEarTransition>> {
         struct InEarTransition *__value_;
+    } __ptr_;
+};
+
+struct unique_ptr<CMMsl::InEarTransitionEntry, std::__1::default_delete<CMMsl::InEarTransitionEntry>> {
+    struct __compressed_pair<CMMsl::InEarTransitionEntry *, std::__1::default_delete<CMMsl::InEarTransitionEntry>> {
+        struct InEarTransitionEntry *__value_;
     } __ptr_;
 };
 

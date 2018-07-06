@@ -8,13 +8,13 @@
 
 #import "PPQuickTypeServantProtocol.h"
 
-@class CNContactStore, NSArray, NSCache, NSObject<OS_dispatch_semaphore>, PPContact, PPContactScorer, _PASLock;
+@class CNContactStore, NSArray, NSCache, NSObject<OS_dispatch_semaphore>, PPContactScorer, _PASLock;
 
 @interface PPQuickTypeContactsServant : NSObject <PPQuickTypeServantProtocol>
 {
     CNContactStore *_store;
     _PASLock *_meCardCacheLock;
-    PPContact *_meContact;
+    _PASLock *_meContactDataLock;
     NSCache *_meQuickTypeItemCache;
     NSArray *_peopleKeysToFetch;
     NSCache *_cachedNameLookups;

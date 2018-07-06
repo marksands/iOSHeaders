@@ -14,6 +14,7 @@
 @interface PXTogglingMemoriesViewController : UIViewController <PXSectionedDataSourceManagerObserver, PXUIViewControllerZoomTransitionEndPoint>
 {
     _Bool _onlyShowFavorites;
+    _Bool _hasAnyMemories;
     PXFetchResultBasedMemoriesDataSourceManager *_favoriteMemoriesDataSourceManager;
     PXMemoriesUIViewController *_favoriteMemoriesViewController;
     UIBarButtonItem *_toggleButton;
@@ -21,6 +22,7 @@
 }
 
 @property(readonly, nonatomic) PXMemoriesFeedUIViewController *memoriesViewController; // @synthesize memoriesViewController=_memoriesViewController;
+@property(nonatomic) _Bool hasAnyMemories; // @synthesize hasAnyMemories=_hasAnyMemories;
 @property(readonly, nonatomic) UIBarButtonItem *toggleButton; // @synthesize toggleButton=_toggleButton;
 @property(nonatomic, setter=setShouldOnlyShowFavorites:) _Bool onlyShowFavorites; // @synthesize onlyShowFavorites=_onlyShowFavorites;
 @property(retain, nonatomic) PXMemoriesUIViewController *favoriteMemoriesViewController; // @synthesize favoriteMemoriesViewController=_favoriteMemoriesViewController;
@@ -35,6 +37,7 @@
 - (id)px_endPointForTransition:(id)arg1;
 - (_Bool)px_canPerformZoomTransitionWithDetailViewController:(id)arg1;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
+- (void)_configureTitleInset;
 - (void)_configureTitle;
 - (void)_configureBarButton;
 - (void)_configureMemoryViewControllers;

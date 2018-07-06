@@ -125,6 +125,7 @@
 - (id)upcomingTriggersAfterDate:(id)arg1;
 - (_Bool)shouldBeScheduled;
 - (id)identifier;
+@property(readonly, nonatomic) INObject *timeObject;
 @property(readonly, nonatomic) NSString *intentLabel;
 @property(readonly, nonatomic) INObject *alarmIDIntentObject;
 - (id)keysAffectingNotification;

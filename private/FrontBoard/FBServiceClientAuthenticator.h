@@ -16,10 +16,8 @@
     unsigned long long _credentials;
 }
 
-+ (id)_processHandleForAuditToken:(id)arg1;
 + (id)_errorForCode:(long long)arg1 process:(id)arg2 failedEntitlement:(id)arg3;
-+ (_Bool)authenticateAuditToken:(id)arg1 forEntitlement:(id)arg2 error:(out id *)arg3;
-+ (_Bool)validateAuditToken:(id)arg1 error:(out id *)arg2;
++ (_Bool)authenticateAuditToken:(CDStruct_6ad76789)arg1 forEntitlement:(id)arg2 error:(out id *)arg3;
 + (id)sharedForegroundUIAppClientAuthenticator;
 + (id)sharedUIAppClientAuthenticator;
 + (id)sharedSystemClientAuthenticator;

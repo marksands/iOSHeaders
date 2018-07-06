@@ -19,7 +19,7 @@
 @property(readonly, nonatomic) NSDictionary *assetCollectionsById; // @synthesize assetCollectionsById=_assetCollectionsById;
 @property(readonly, nonatomic) NSArray *assetCollections; // @synthesize assetCollections=_assetCollections;
 - (void).cxx_destruct;
-- (id)itemForImportAsset:(id)arg1;
+- (id)itemForImportAssetUuid:(id)arg1;
 - (id)notYetImportedItems;
 - (id)allItemsUnsorted;
 - (id)allSelectableItems;

@@ -172,6 +172,7 @@
 @property(readonly, nonatomic) EKCalendar *suggestedEventCalendar;
 - (void)rebuildOccurrenceCache;
 @property(nonatomic) _Bool showDeclinedEvents;
+- (id)scheduledTaskCacheFetchTasksOnDay:(id)arg1 maxResults:(unsigned long long)arg2;
 - (id)scheduledTaskCacheFetchTasksOnDay:(id)arg1;
 - (id)scheduledTaskCacheFetchDaysAndTaskCounts;
 - (id)occurrenceCacheGetOccurrencesForCalendars:(id)arg1;
@@ -201,8 +202,10 @@
 - (id)predicateForPreloadedCompletedRemindersWithDueDate:(id)arg1 calendars:(id)arg2 sortOrder:(int)arg3 preloadProperties:(id)arg4;
 - (id)predicateForCompletedRemindersWithDueDate:(id)arg1 calendars:(id)arg2 sortOrder:(int)arg3;
 - (id)predicateForIncompleteRemindersDueBeforeOrOnDueDate:(id)arg1 calendars:(id)arg2 sortOrder:(int)arg3;
+- (id)predicateForPreloadedIncompleteRemindersWithDueDate:(id)arg1 calendars:(id)arg2 sortOrder:(int)arg3 preloadProperties:(id)arg4 maxResults:(unsigned long long)arg5;
 - (id)predicateForPreloadedIncompleteRemindersWithDueDate:(id)arg1 calendars:(id)arg2 sortOrder:(int)arg3 preloadProperties:(id)arg4;
 - (id)predicateForIncompleteRemindersWithDueDate:(id)arg1 calendars:(id)arg2 sortOrder:(int)arg3;
+- (id)_predicateForRemindersWithDate:(id)arg1 useAsCompletionDate:(_Bool)arg2 calendars:(id)arg3 limitToCompletedOrIncomplete:(_Bool)arg4 completed:(_Bool)arg5 includeDatesBefore:(_Bool)arg6 sortOrder:(int)arg7 preloadProperties:(id)arg8 maxResults:(unsigned long long)arg9;
 - (id)_predicateForRemindersWithDate:(id)arg1 useAsCompletionDate:(_Bool)arg2 calendars:(id)arg3 limitToCompletedOrIncomplete:(_Bool)arg4 completed:(_Bool)arg5 includeDatesBefore:(_Bool)arg6 sortOrder:(int)arg7 preloadProperties:(id)arg8;
 - (id)predicateForCompletedRemindersWithCompletionDateStarting:(id)arg1 ending:(id)arg2 calendars:(id)arg3;
 - (id)predicateForIncompleteRemindersWithDueDateStarting:(id)arg1 ending:(id)arg2 calendars:(id)arg3;

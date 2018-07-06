@@ -49,7 +49,6 @@
 + (_Bool)isLargeIpad;
 + (double)standardTableCellContentInset;
 + (double)onePixelForCurrentScreenResolution;
-+ (double)separatorHeight;
 + (_Bool)backgroundColorPrefersWhiteForegroundText:(id)arg1;
 + (id)uiColorForSFColor:(id)arg1;
 + (id)vibrantButtonColorForStyle:(unsigned long long)arg1;

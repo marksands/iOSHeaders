@@ -47,7 +47,7 @@
 - (void)createDocumentAtCurrentLocation;
 - (void)createDocumentAtLocation:(id)arg1;
 - (void)notifyDelegateOfImportOfURL:(id)arg1 destinationURL:(id)arg2 error:(id)arg3;
-- (id)transitionControllerForDocumentURL:(id)arg1;
+- (id)transitionControllerForDocumentAtURL:(id)arg1;
 - (void)showLocation:(id)arg1 animated:(_Bool)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

@@ -4,18 +4,22 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <PreferencesUI/PSUICellularPlanOptionTableCell.h>
+#import "PSTableCell.h"
 
 @class UILabel;
 
-@interface PSUICellularPlanTableCell : PSUICellularPlanOptionTableCell
+@interface PSUICellularPlanTableCell : PSTableCell
 {
     UILabel *_badgeLabel;
+    UILabel *_nameLabel;
+    UILabel *_numberLabel;
     UILabel *_statusLabel;
 }
 
 + (long long)cellStyle;
 @property(retain, nonatomic) UILabel *statusLabel; // @synthesize statusLabel=_statusLabel;
+@property(retain, nonatomic) UILabel *numberLabel; // @synthesize numberLabel=_numberLabel;
+@property(retain, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
 @property(retain, nonatomic) UILabel *badgeLabel; // @synthesize badgeLabel=_badgeLabel;
 - (void).cxx_destruct;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;

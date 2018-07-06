@@ -151,7 +151,7 @@
 - (void)stopCaptureSession;
 - (void)stopCaptureSessionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)startCaptureSession;
-- (void)startCaptureSessionWithRetryCount:(unsigned long long)arg1 retryInterval:(double)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)startCaptureSessionWithRetryCount:(unsigned long long)arg1 retryInterval:(double)arg2 logReason:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)willPerformRecoveryFromRuntimeError:(id)arg1;
 - (void)queryTimelapseDimensionsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)queryVideoDimensionsWithCompletionBlock:(CDUnknownBlockType)arg1;
@@ -193,6 +193,7 @@
 - (void)_cancelDelayedFocusAndExposureReset;
 - (void)_resetFocusAndExposureAfterCapture;
 - (void)_scheduleFocusAndExposureResetAfterCaptureIfNecessary;
+@property(readonly, nonatomic) _Bool _shouldResetFocusAndExposureAfterCapture;
 - (void)focusAtCenterForVideoRecording;
 - (void)lockFocusAtLensPosition:(float)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)forceDisableSubjectAreaChangeMonitoring;

@@ -33,6 +33,7 @@
 - (void)getDefaultSamplePositions:(CDStruct_6e3f967a *)arg1 count:(unsigned long long)arg2;
 - (void)newRenderPipelineStateWithTileDescriptor:(MTLTileRenderPipelineDescriptor *)arg1 options:(unsigned long long)arg2 completionHandler:(void (^)(id <MTLRenderPipelineState>, MTLRenderPipelineReflection *, NSError *))arg3;
 - (id <MTLRenderPipelineState>)newRenderPipelineStateWithTileDescriptor:(MTLTileRenderPipelineDescriptor *)arg1 options:(unsigned long long)arg2 reflection:(id *)arg3 error:(id *)arg4;
+- (unsigned long long)minimumTextureBufferAlignmentForPixelFormat:(unsigned long long)arg1;
 - (unsigned long long)minimumLinearTextureAlignmentForPixelFormat:(unsigned long long)arg1;
 - (_Bool)supportsTextureSampleCount:(unsigned long long)arg1;
 - (_Bool)supportsFeatureSet:(unsigned long long)arg1;
@@ -65,8 +66,5 @@
 - (CDStruct_4bcfbbae)heapTextureSizeAndAlignWithDescriptor:(MTLTextureDescriptor *)arg1;
 - (id <MTLCommandQueue>)newCommandQueueWithMaxCommandBufferCount:(unsigned long long)arg1;
 - (id <MTLCommandQueue>)newCommandQueue;
-
-@optional
-- (unsigned long long)minimumTextureBufferAlignmentForPixelFormat:(unsigned long long)arg1;
 @end
 

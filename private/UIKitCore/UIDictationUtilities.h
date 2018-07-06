@@ -19,6 +19,9 @@ __attribute__((visibility("hidden")))
 + (unsigned long long)updateCharacterInsertionCount:(id)arg1 delta:(int)arg2;
 + (unsigned long long)updateCharacterSubstitutionCount:(id)arg1 delta:(int)arg2;
 + (unsigned long long)updateCharacterDeletionCount:(id)arg1 delta:(int)arg2;
++ (unsigned long long)characterSubstitutionCount:(id)arg1;
++ (unsigned long long)characterDeletionCount:(id)arg1;
++ (unsigned long long)characterInsertionCount:(id)arg1;
 + (id)_properNameForString:(id)arg1;
 + (_Bool)needsTrailingSpaceForPhrases:(id)arg1 secureInput:(_Bool)arg2;
 + (_Bool)needsLeadingSpaceForPhrases:(id)arg1 secureInput:(_Bool)arg2;

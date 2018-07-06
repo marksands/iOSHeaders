@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSManagedObjectContext, NSManagedObjectModel, NSMutableSet, NSPersistentStoreCoordinator, NSPredicate, NSURL;
+@class NSManagedObjectContext, NSManagedObjectModel, NSMutableDictionary, NSPersistentStoreCoordinator, NSPredicate, NSURL;
 
 @interface MADatabase : NSObject
 {
@@ -20,8 +20,7 @@
     NSPredicate *_predicateIdentifierTemplate;
     NSPredicate *_predicateIdentifiersTemplate;
     NSPredicate *_predicateIdentifierAndKeyTemplate;
-    NSMutableSet *_edgeIdentifiersToRemove;
-    NSMutableSet *_nodeIdentifiersToRemove;
+    NSMutableDictionary *_identifiersByEntityNameToRemove;
 }
 
 + (_Bool)destroyAtURL:(id)arg1 error:(id *)arg2;
@@ -45,13 +44,18 @@
 - (void)removeModelEdgesPropertiesForIdentifiers:(id)arg1;
 - (void)removeModelNodePropertiesForIdentifier:(long long)arg1;
 - (void)removeModelNodesPropertiesForIdentifiers:(id)arg1;
+- (id)_cleanupIdentifiers:(id)arg1 forEntity:(id)arg2;
+- (void)removeModelEdgeForIdentifier:(unsigned long long)arg1;
+- (void)removeModelEdgesForIdentifiers:(id)arg1;
+- (void)removeModelNodeForIdentifier:(unsigned long long)arg1;
+- (void)removeModelNodesForIdentifiers:(id)arg1;
 - (void)setModelEdgePropertyValue:(id)arg1 forKey:(id)arg2 andIdentifier:(long long)arg3;
 - (void)setModelNodePropertyValue:(id)arg1 forKey:(id)arg2 andIdentifier:(long long)arg3;
 - (void)setModelEdgeProperties:(id)arg1 forIdentifier:(long long)arg2 requiresTesting:(_Bool)arg3;
 - (void)setModelNodeProperties:(id)arg1 forIdentifier:(long long)arg2 requiresTesting:(_Bool)arg3;
-- (void)loadProperties:(id)arg1 forEdges:(id)arg2;
-- (void)loadProperties:(id)arg1 forNodes:(id)arg2;
-- (void)loadProperties:(id)arg1 forElements:(id)arg2 forNodes:(_Bool)arg3;
+- (void)loadProperties:(id)arg1 forEdges:(id)arg2 allModels:(_Bool)arg3;
+- (void)loadProperties:(id)arg1 forNodes:(id)arg2 allModels:(_Bool)arg3;
+- (void)loadProperties:(id)arg1 forElements:(id)arg2 forNodes:(_Bool)arg3 allModels:(_Bool)arg4;
 - (id)modelEdgePropertyForIdentifier:(long long)arg1 propertyKey:(id)arg2;
 - (id)modelEdgePropertiesForIdentifier:(long long)arg1 exceptPropertyKeys:(id)arg2;
 - (id)modelEdgePropertiesForIdentifier:(long long)arg1 propertyKeys:(id)arg2;
@@ -68,11 +72,6 @@
 - (void)updateEdge:(id)arg1;
 - (void)addEdge:(id)arg1 requiresTesting:(_Bool)arg2;
 - (void)enumerateModelEdgesWithBlock:(CDUnknownBlockType)arg1;
-- (void)_cleanupIdentifiers:(id)arg1 forEntity:(id)arg2;
-- (void)removeModelEdgesForIdentifiers:(id)arg1;
-- (void)removeModelEdgeForIdentifier:(unsigned long long)arg1;
-- (void)removeModelNodeForIdentifier:(unsigned long long)arg1;
-- (void)removeModelNodesForIdentifiers:(id)arg1;
 - (void)updateNode:(id)arg1;
 - (void)addNode:(id)arg1 requiresTesting:(_Bool)arg2;
 - (void)enumerateModelNodesWithBlock:(CDUnknownBlockType)arg1;
@@ -92,7 +91,9 @@
 - (void)invalidatePersistentStores;
 - (void)_resetCoreDataStack;
 - (void)save:(CDUnknownBlockType)arg1;
+- (_Bool)hasElementIdentifiersToRemove;
 - (void)_save:(CDUnknownBlockType)arg1 force:(_Bool)arg2;
+- (void)_cleanupElementIdentifiers;
 - (void)dealloc;
 - (id)initWithFileURL:(id)arg1 options:(long long)arg2;
 - (id)init;

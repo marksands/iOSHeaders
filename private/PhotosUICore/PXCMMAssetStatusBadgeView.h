@@ -9,19 +9,16 @@
 #import "PXReusableObject.h"
 #import "PXUIViewBasicTile.h"
 
-@class NSString, UIActivityIndicatorView, UIView;
+@class NSString, UIView;
 
 @interface PXCMMAssetStatusBadgeView : UIImageView <PXUIViewBasicTile, PXReusableObject>
 {
     CDStruct_637f5cce _needsUpdateFlags;
     long long _status;
-    UIActivityIndicatorView *_activityIndicatorView;
 }
 
 + (struct CGSize)preferredSize;
-@property(retain, nonatomic) UIActivityIndicatorView *activityIndicatorView; // @synthesize activityIndicatorView=_activityIndicatorView;
 @property(nonatomic) long long status; // @synthesize status=_status;
-- (void).cxx_destruct;
 - (void)_updateImageViewIfNeeded;
 - (void)_invalidateImageView;
 - (void)didApplyGeometry:(struct PXTileGeometry)arg1 withUserData:(id)arg2;

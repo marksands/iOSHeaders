@@ -10,6 +10,7 @@
 
 @class MLMultiArray, NSSet;
 
+__attribute__((visibility("hidden")))
 @interface gan_modelInput : NSObject <MLFeatureProvider>
 {
     MLMultiArray *_input;

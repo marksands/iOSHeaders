@@ -40,6 +40,7 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (id)contentScrollView;
 @property(readonly, nonatomic) double distanceToTopOfAppIcons;
+- (void)updateWithResultSections:(id)arg1 resetScrollPoint:(_Bool)arg2;
 - (void)updateWithResultSections:(id)arg1;
 @property(nonatomic) _Bool shouldUseInsetRoundedSections;
 @property(nonatomic) _Bool shouldHideResultsUnderKeyboard;

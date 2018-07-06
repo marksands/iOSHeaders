@@ -33,6 +33,7 @@
     CLKFont *_textProviderSmallCapsBaseFont;
     double _maxWidth;
     NSParagraphStyle *_paragraphStyle;
+    double _tracking;
     CDUnknownBlockType _nowProvider;
     CDUnknownBlockType _needsResizeHandler;
     struct CGSize _cachedSingleLineSize;
@@ -44,6 +45,7 @@
 @property(nonatomic) struct CGSize cachedSingleLineSize; // @synthesize cachedSingleLineSize=_cachedSingleLineSize;
 @property(copy, nonatomic) CDUnknownBlockType needsResizeHandler; // @synthesize needsResizeHandler=_needsResizeHandler;
 @property(copy, nonatomic) CDUnknownBlockType nowProvider; // @synthesize nowProvider=_nowProvider;
+@property(nonatomic) double tracking; // @synthesize tracking=_tracking;
 @property(copy, nonatomic) NSParagraphStyle *paragraphStyle; // @synthesize paragraphStyle=_paragraphStyle;
 @property(nonatomic) _Bool usesTextProviderTintColoring; // @synthesize usesTextProviderTintColoring=_usesTextProviderTintColoring;
 @property(nonatomic) _Bool uppercase; // @synthesize uppercase=_uppercase;

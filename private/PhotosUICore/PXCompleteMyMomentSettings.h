@@ -15,7 +15,8 @@
     PXCMMWorkflowCoordinator *_workflowCoordinator;
     _Bool _cmmFeatureEnabled;
     _Bool _showCMMSettingsAtTopLevel;
-    _Bool _shouldShowCopyLink;
+    _Bool _shouldCreateLinkForMessages;
+    _Bool _shouldCreateLinkForMail;
     _Bool _alwaysSortAfterAddMore;
     _Bool _showIncomingShares;
     _Bool _showOutgoingShares;
@@ -40,7 +41,6 @@
     _Bool _sectionHeadersShouldFloat;
     _Bool _showProgressInGrid;
     _Bool _directSendMessages;
-    _Bool _showMomentShareMessages;
     _Bool _fakeMomentShareURL;
     _Bool _autoAcceptBubbles;
     _Bool _simulateDelays;
@@ -49,7 +49,6 @@
     _Bool _useDebugColors;
     _Bool _showMessageTextEntryGadget;
     _Bool _insertNewRecipientsAtTheEnd;
-    _Bool _recentsSuggestionEnabled;
     _Bool _graphSuggestionEnabled;
     long long _shareSheetLinkThreshold;
     long long _invitationsDataSourceType;
@@ -65,9 +64,6 @@
     long long _overrideNumberOfColumnsInPortrait;
     long long _overrideNumberOfColumnsInLandscape;
     long long _sharingLinkType;
-    long long _maxNumberOfRecentsPeopleSuggested;
-    double _recentsSuggestionTimeout;
-    long long _recentsModelType;
     double _peopleSuggestionsTimeout;
 }
 
@@ -75,11 +71,7 @@
 + (id)sharedInstance;
 + (id)settingsControllerModule;
 @property(nonatomic) double peopleSuggestionsTimeout; // @synthesize peopleSuggestionsTimeout=_peopleSuggestionsTimeout;
-@property(nonatomic) long long recentsModelType; // @synthesize recentsModelType=_recentsModelType;
-@property(nonatomic) double recentsSuggestionTimeout; // @synthesize recentsSuggestionTimeout=_recentsSuggestionTimeout;
-@property(nonatomic) long long maxNumberOfRecentsPeopleSuggested; // @synthesize maxNumberOfRecentsPeopleSuggested=_maxNumberOfRecentsPeopleSuggested;
 @property(nonatomic) _Bool graphSuggestionEnabled; // @synthesize graphSuggestionEnabled=_graphSuggestionEnabled;
-@property(nonatomic) _Bool recentsSuggestionEnabled; // @synthesize recentsSuggestionEnabled=_recentsSuggestionEnabled;
 @property(nonatomic) long long sharingLinkType; // @synthesize sharingLinkType=_sharingLinkType;
 @property(nonatomic) _Bool insertNewRecipientsAtTheEnd; // @synthesize insertNewRecipientsAtTheEnd=_insertNewRecipientsAtTheEnd;
 @property(nonatomic) _Bool showMessageTextEntryGadget; // @synthesize showMessageTextEntryGadget=_showMessageTextEntryGadget;
@@ -91,7 +83,6 @@
 @property(nonatomic) _Bool simulateDelays; // @synthesize simulateDelays=_simulateDelays;
 @property(nonatomic) _Bool autoAcceptBubbles; // @synthesize autoAcceptBubbles=_autoAcceptBubbles;
 @property(nonatomic) _Bool fakeMomentShareURL; // @synthesize fakeMomentShareURL=_fakeMomentShareURL;
-@property(nonatomic) _Bool showMomentShareMessages; // @synthesize showMomentShareMessages=_showMomentShareMessages;
 @property(nonatomic) _Bool directSendMessages; // @synthesize directSendMessages=_directSendMessages;
 @property(nonatomic) _Bool showProgressInGrid; // @synthesize showProgressInGrid=_showProgressInGrid;
 @property(nonatomic) _Bool sectionHeadersShouldFloat; // @synthesize sectionHeadersShouldFloat=_sectionHeadersShouldFloat;
@@ -127,7 +118,8 @@
 @property(nonatomic) long long invitationsDataSourceType; // @synthesize invitationsDataSourceType=_invitationsDataSourceType;
 @property(nonatomic) _Bool alwaysSortAfterAddMore; // @synthesize alwaysSortAfterAddMore=_alwaysSortAfterAddMore;
 @property(nonatomic) long long shareSheetLinkThreshold; // @synthesize shareSheetLinkThreshold=_shareSheetLinkThreshold;
-@property(nonatomic) _Bool shouldShowCopyLink; // @synthesize shouldShowCopyLink=_shouldShowCopyLink;
+@property(nonatomic) _Bool shouldCreateLinkForMail; // @synthesize shouldCreateLinkForMail=_shouldCreateLinkForMail;
+@property(nonatomic) _Bool shouldCreateLinkForMessages; // @synthesize shouldCreateLinkForMessages=_shouldCreateLinkForMessages;
 @property(nonatomic) _Bool showCMMSettingsAtTopLevel; // @synthesize showCMMSettingsAtTopLevel=_showCMMSettingsAtTopLevel;
 @property(nonatomic) _Bool cmmFeatureEnabled; // @synthesize cmmFeatureEnabled=_cmmFeatureEnabled;
 - (void).cxx_destruct;

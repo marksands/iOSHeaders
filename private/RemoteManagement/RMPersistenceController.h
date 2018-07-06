@@ -9,26 +9,25 @@
 #import "RMPersistenceControllerProtocol.h"
 #import "RMPersistenceStoreChangeProcessingOperationDelegate.h"
 
-@class CATSerialOperationQueue, NSMutableDictionary, NSPersistentContainer, NSString;
+@class CATSerialOperationQueue, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSPersistentContainer, NSString;
 
 @interface RMPersistenceController : NSObject <RMPersistenceControllerProtocol, RMPersistenceStoreChangeProcessingOperationDelegate>
 {
     NSObject *_lastPersistentHistoryTokenByStoreIdentifierLock;
-    _Bool _hasConfiguredViewContext;
     NSPersistentContainer *_persistentContainer;
     NSMutableDictionary *_lastPersistentHistoryTokenByStoreIdentifier;
+    NSObject<OS_dispatch_queue> *_coreDataQueue;
     CATSerialOperationQueue *_operationQueue;
 }
 
 @property(readonly, nonatomic) CATSerialOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
-@property(nonatomic) _Bool hasConfiguredViewContext; // @synthesize hasConfiguredViewContext=_hasConfiguredViewContext;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *coreDataQueue; // @synthesize coreDataQueue=_coreDataQueue;
 @property(readonly, copy, nonatomic) NSMutableDictionary *lastPersistentHistoryTokenByStoreIdentifier; // @synthesize lastPersistentHistoryTokenByStoreIdentifier=_lastPersistentHistoryTokenByStoreIdentifier;
 @property(retain, nonatomic) NSPersistentContainer *persistentContainer; // @synthesize persistentContainer=_persistentContainer;
 - (void).cxx_destruct;
 - (void)_persistentStoreCoordinatorStoresDidChange:(id)arg1;
 - (void)_remotePersistentStoreDidChange:(id)arg1;
 - (id)descriptionForPersistentStore:(id)arg1;
-- (void)handlePersistenceStoreChanges:(id)arg1 forStore:(id)arg2;
 - (void)savePersistentHistoryToken:(id)arg1 forStore:(id)arg2;
 - (id)persistentHistoryTokenForStore:(id)arg1;
 - (id)newBackgroundContext;

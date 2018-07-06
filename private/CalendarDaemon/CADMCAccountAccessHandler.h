@@ -7,11 +7,10 @@
 #import "NSObject.h"
 
 #import "CADAccountAccessHandler.h"
-#import "DatabaseChangeHandling.h"
 
 @class NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
-@interface CADMCAccountAccessHandler : NSObject <DatabaseChangeHandling, CADAccountAccessHandler>
+@interface CADMCAccountAccessHandler : NSObject <CADAccountAccessHandler>
 {
     NSString *_bundleIdentifier;
     id <CADACAccountsProvider> _accountsProvider;
@@ -36,8 +35,6 @@
 @property(readonly, nonatomic) id <CADACAccountsProvider> accountsProvider; // @synthesize accountsProvider=_accountsProvider;
 @property(readonly, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (void).cxx_destruct;
-- (void)_logLevel:(int)arg1 forAction:(unsigned long long)arg2 withFormat:(id)arg3;
-- (void)_logLevel:(int)arg1 withFormat:(id)arg2;
 - (_Bool)_mayShowLocalAccountsForAction:(unsigned long long)arg1;
 - (id)_filteredAccountsForAction:(unsigned long long)arg1 withUnfilteredAccounts:(id)arg2;
 - (id)_restrictedCalStoreInfosForAction:(unsigned long long)arg1;
@@ -45,11 +42,10 @@
 - (_Bool)_existingCalStoreMapsToAccountIdentifier:(id)arg1;
 - (_Bool)_isDisabledForAction:(unsigned long long)arg1;
 - (void)_validateAction:(unsigned long long)arg1;
-- (void)invalidate;
+- (void)reset;
 - (id)restrictedCalendarRowIDsForAction:(unsigned long long)arg1;
 - (_Bool)isActionAllowed:(unsigned long long)arg1 forAccountIdentifier:(id)arg2;
 - (_Bool)isAccountManaged:(id)arg1;
-- (void)_handleDatabaseChanged;
 - (id)initWithCalStoreInfoProvider:(id)arg1 calendarInfoProvider:(id)arg2 accountsProvider:(id)arg3 permissionValidator:(id)arg4 managedConfigHandler:(id)arg5 accountManagement:(unsigned long long)arg6 bundleIdentifier:(id)arg7;
 
 @end

@@ -210,11 +210,12 @@ struct AVVCPluginRecordingEngine {
     CDUnknownFunctionPointerType *_field1;
     struct ControllerImpl *_field2;
     struct OpaqueAudioFileID *_field3;
-    id _field4;
-    unsigned int _field5;
+    int _field4;
+    id _field5;
     unsigned int _field6;
-    float _field7;
-    int _field8;
+    unsigned int _field7;
+    float _field8;
+    int _field9;
 };
 
 struct AVVCRecordingEngine;
@@ -471,16 +472,15 @@ struct ControllerImpl {
     struct MyMutex *_field98[4];
     int _field99;
     int _field100;
-    int _field101;
-    _Bool _field102;
+    _Bool _field101;
+    int _field102;
     int _field103;
-    int _field104;
-    struct ZeroRunLog _field105[75];
-    _Bool _field106;
-    struct AVVCRecordingEngine *_field107;
-    struct AVVCPluginRecordingEngine *_field108;
-    struct AVVCAudioQueueRecordingEngine *_field109;
-    id _field110;
+    struct ZeroRunLog _field104[75];
+    _Bool _field105;
+    struct AVVCRecordingEngine *_field106;
+    struct AVVCPluginRecordingEngine *_field107;
+    struct AVVCAudioQueueRecordingEngine *_field108;
+    id _field109;
 };
 
 struct DataSourceDescriptionImpl {

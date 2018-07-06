@@ -131,6 +131,7 @@
 - (void)prepareForAnimatedTransitionWithLayout:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (struct UIEdgeInsets)adjustedSafeAreaInsets;
 - (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 @property(readonly, nonatomic) AVTAvatarRecord *avatarRecord;

@@ -20,6 +20,7 @@
 - (id)accessibilityValue;
 - (id)accessibilityHint;
 - (id)accessibilityLabel;
+- (_Bool)isWaveformOverview;
 
 @end
 

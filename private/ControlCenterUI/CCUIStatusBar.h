@@ -37,7 +37,7 @@
 @property(nonatomic) double compactTrailingAlpha; // @dynamic compactTrailingAlpha;
 @property(nonatomic) double leadingAlpha; // @dynamic leadingAlpha;
 - (struct CGRect)compactAvoidanceFrame;
-@property(readonly, copy, nonatomic) UIStatusBarStyleRequest *compactStyleRequest; // @dynamic compactStyleRequest;
+@property(readonly, copy, nonatomic) UIStatusBarStyleRequest *compactTrailingStyleRequest; // @dynamic compactTrailingStyleRequest;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

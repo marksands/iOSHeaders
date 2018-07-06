@@ -6,13 +6,14 @@
 
 #import "NSManagedObject.h"
 
-@class NSDate, NSSet, NSString, NSTimeZone;
+@class NSDate, NSNumber, NSSet, NSString, NSTimeZone;
 
 @interface CLSManagedPublicEvent : NSManagedObject
 {
 }
 
 + (id)entityName;
+@property(nonatomic) long long expectedAttendance;
 @property(readonly, nonatomic) NSTimeZone *timeZone;
 
 // Remaining properties
@@ -20,7 +21,7 @@
 @property(nonatomic) double businessItemLongitude; // @dynamic businessItemLongitude;
 @property(nonatomic) unsigned long long businessItemMuid; // @dynamic businessItemMuid;
 @property(retain, nonatomic) NSSet *categories; // @dynamic categories;
-@property(nonatomic) long long expectedAttendance; // @dynamic expectedAttendance;
+@property(retain, nonatomic) NSNumber *expectedAttendanceAsNumber; // @dynamic expectedAttendanceAsNumber;
 @property(retain, nonatomic) NSDate *localEndDate; // @dynamic localEndDate;
 @property(nonatomic) double localEndTime; // @dynamic localEndTime;
 @property(retain, nonatomic) NSDate *localStartDate; // @dynamic localStartDate;

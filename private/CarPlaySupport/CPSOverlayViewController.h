@@ -12,10 +12,11 @@
 
 - (id)templates;
 - (id)topTemplate;
-- (void)dismissAlertAnimated:(_Bool)arg1;
-- (id)_presentedTemplateViewController;
-- (void)presentAlert:(id)arg1;
-- (void)presentTemplateViewController:(id)arg1 animated:(_Bool)arg2 presentationStyle:(unsigned long long)arg3;
+- (void)dismissTemplateAnimated:(_Bool)arg1;
+- (id)presentedTemplateViewController;
+- (void)presentActionSheetTemplate:(id)arg1 animated:(_Bool)arg2;
+- (void)presentTemplateViewController:(id)arg1 animated:(_Bool)arg2;
+- (void)pushTemplateViewController:(id)arg1 animated:(_Bool)arg2 presentationStyle:(unsigned long long)arg3;
 - (void)popToRootTemplateAnimated:(_Bool)arg1;
 - (void)popToTemplate:(id)arg1 animated:(_Bool)arg2;
 - (id)viewControllerForTemplate:(id)arg1;

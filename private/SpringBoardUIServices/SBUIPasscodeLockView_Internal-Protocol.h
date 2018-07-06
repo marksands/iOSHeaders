@@ -9,7 +9,7 @@
 @class NSString, SBUIProudLockContainerViewController;
 
 @protocol SBUIPasscodeLockView_Internal <SBUIPasscodeLockView>
-@property(nonatomic) CDStruct_c68be025 proudLockConfiguration;
+@property(nonatomic) CDStruct_4613c6c6 proudLockConfiguration;
 @property(retain, nonatomic) SBUIProudLockContainerViewController *overrideProudLockContainerViewController;
 - (void)didEndTransitionToState:(long long)arg1;
 - (void)willEndTransitionToState:(long long)arg1;

@@ -20,6 +20,7 @@
     CDUnknownBlockType _secureElementSessionPostlude;
     NSHashTable *_observers;
     NSLock *_observersLock;
+    _Bool _registeredForHardwareUpdates;
 }
 
 + (id)secureElementIdentifiers;
@@ -69,6 +70,8 @@
 - (void)pairingStateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)SEPPairingInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)initializeSecureElementQueuingServerConnection:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)_updateHardwareManagerListener;
+- (void)contactlessPaymentPassesAvailableDidChange;
 - (void)dealloc;
 - (id)init;
 

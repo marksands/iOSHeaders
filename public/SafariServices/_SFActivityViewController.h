@@ -6,11 +6,12 @@
 
 #import "UIActivityViewController.h"
 
-@class LPMetadataProvider, NSString, NSURL, _SFSafariSharingExtensionController;
+@class LPMetadataProvider, NSString, NSURL, _SFPrintController, _SFSafariSharingExtensionController;
 
 @interface _SFActivityViewController : UIActivityViewController
 {
     LPMetadataProvider *_pendingMessageMetadataProvider;
+    _SFPrintController *_printController;
     _Bool _viewCanEarlyDismiss;
     _SFSafariSharingExtensionController *_sharingExtensionController;
     id <_SFActivityViewControllerDelegate> _delegate;
@@ -30,9 +31,12 @@
 - (id)_extensionItemForExtensionActivity:(id)arg1;
 - (id)_javaScriptProcessingFileURLInExtension:(id)arg1;
 - (void)prepareJavaScriptExtensionItemForActivity:(id)arg1;
+- (void)_preparePrint:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_prepareActivity:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_executeActivity;
 - (void)activityDidComplete:(id)arg1 withReturnedItems:(id)arg2 success:(_Bool)arg3;
+- (void)_updatePrintControllerWithActivityItems:(id)arg1;
+- (void)updateActivityItems:(id)arg1 withSharingURL:(id)arg2;
 - (id)initWithActivityItems:(id)arg1 applicationActivities:(id)arg2 sharingURL:(id)arg3 sourceURL:(id)arg4;
 
 @end

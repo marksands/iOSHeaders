@@ -297,7 +297,6 @@
 - (void)_synchronizeMailboxListWithFileSystem;
 - (_Bool)_shouldConfigureMailboxCache;
 - (_Bool)canFetch;
-- (_Bool)shouldListenForPushNotificationsAtLaunch;
 - (void)releaseAllForcedConnections;
 - (void)releaseAllConnections;
 - (void)saveState;

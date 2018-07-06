@@ -17,8 +17,8 @@ __attribute__((visibility("hidden")))
 + (_Bool)renderEspressoBufferImage:(const CDStruct_cf098810 *)arg1 intoCVPixelBuffer:(struct __CVBuffer *)arg2 error:(id *)arg3;
 + (struct __CVBuffer *)createCVPixelBufferWithPixelFormat:(unsigned int)arg1 fromImageInEspressoBuffer:(const CDStruct_cf098810 *)arg2 error:(id *)arg3;
 + (void)tearDownEspressoContext:(void *)arg1 andPlan:(void *)arg2;
-+ (_Bool)createSingleNetworkPlanFromResourceName:(id)arg1 usingProcessingDevice:(id)arg2 explicitNetworkLayersStorageType:(int)arg3 espressoContext:(void **)arg4 espressoPlan:(void **)arg5 espressoNetwork:(CDStruct_2bc666a5 *)arg6 error:(id *)arg7;
-+ (_Bool)createSingleNetworkPlanFromResourceName:(id)arg1 usingProcessingDevice:(id)arg2 espressoContext:(void **)arg3 espressoPlan:(void **)arg4 espressoNetwork:(CDStruct_2bc666a5 *)arg5 error:(id *)arg6;
++ (_Bool)createSingleNetworkPlanFromResourceName:(id)arg1 usingProcessingDevice:(id)arg2 lowPriorityMode:(_Bool)arg3 explicitNetworkLayersStorageType:(int)arg4 espressoContext:(void **)arg5 espressoPlan:(void **)arg6 espressoNetwork:(CDStruct_2bc666a5 *)arg7 error:(id *)arg8;
++ (_Bool)createSingleNetworkPlanFromResourceName:(id)arg1 usingProcessingDevice:(id)arg2 lowPriorityMode:(_Bool)arg3 espressoContext:(void **)arg4 espressoPlan:(void **)arg5 espressoNetwork:(CDStruct_2bc666a5 *)arg6 error:(id *)arg7;
 + (int)espressoDeviceIDForMetalDevice:(id)arg1;
 + (id)pathForEspressoNetworkModelFileWithName:(id)arg1 error:(id *)arg2;
 + (id)pathForEspressoResourceWithFilename:(id)arg1 error:(id *)arg2;

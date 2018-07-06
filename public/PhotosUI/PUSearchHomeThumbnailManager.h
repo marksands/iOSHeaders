@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSCache *cache; // @synthesize cache=_cache;
 - (void).cxx_destruct;
 - (void)cache:(id)arg1 willEvictObject:(id)arg2;
+- (id)_imageForHomeZeroKeywordWithMapImage:(id)arg1;
 - (void)_writeMetadataPlistToDisk;
 - (void)_setMetadataDate:(id)arg1 forKey:(id)arg2;
 - (id)_hashForKeyString:(id)arg1;

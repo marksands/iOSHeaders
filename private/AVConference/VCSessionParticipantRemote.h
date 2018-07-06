@@ -8,7 +8,7 @@
 
 #import "VCSessionDownlinkBandwidthAllocatorClient.h"
 
-@class NSArray, NSNumber, NSString, TimingCollection, VCSessionBandwidthAllocationTable, VCSessionParticipantMediaStreamInfo;
+@class NSArray, NSNumber, NSString, TimingCollection, VCSessionBandwidthAllocationTable, VCSessionParticipantMediaStreamInfo, VCVideoQualityInfo;
 
 __attribute__((visibility("hidden")))
 @interface VCSessionParticipantRemote : VCSessionParticipant <VCSessionDownlinkBandwidthAllocatorClient>
@@ -22,25 +22,26 @@ __attribute__((visibility("hidden")))
     _Bool _remoteVideoPaused;
     unsigned char _videoQuality;
     unsigned int _visibilityIndex;
+    unsigned int _prominenceIndex;
     VCSessionBandwidthAllocationTable *_mediaTable;
     VCSessionBandwidthAllocationTable *_repairMediaTable;
+    VCVideoQualityInfo *_videoQualityInfo;
+    double _lastVideoQualityNotificationUpdate;
     unsigned char _lastVideoPriority;
     _Bool _isProcessingVideoOptIn;
     _Bool _isVideoDegraded;
     _Bool _videoSuspended;
-    // Error parsing type: AQ, name: _lastReceivedVideoFrameTime
     _Bool _isRedundancyRequested;
     _Bool _isRemoteMediaStalled;
     struct _VCSessionParticipantProminenceInfo _prominenceInfo;
     TimingCollection *_perfTimers;
     _Bool _haveReportedPerfTimers;
-    _Bool _haveRecordedFirstOptinTime;
-    _Bool _haveRecordedFirstMKITime;
 }
 
 + (unsigned int)maxVideoNetworkBitrateForVideoQuality:(unsigned char)arg1 isLocalOnWiFi:(_Bool)arg2 isRedundancyRequested:(_Bool)arg3;
 + (unsigned int)maxAudioNetworkBitrateForLocalInterfaceOnWiFi:(_Bool)arg1;
 @property(nonatomic, getter=isRemoteVideoPaused) _Bool remoteVideoPaused; // @synthesize remoteVideoPaused=_remoteVideoPaused;
+@property(nonatomic) unsigned int prominenceIndex; // @synthesize prominenceIndex=_prominenceIndex;
 @property(nonatomic) unsigned int visibilityIndex; // @synthesize visibilityIndex=_visibilityIndex;
 @property(nonatomic) unsigned char videoQuality; // @synthesize videoQuality=_videoQuality;
 @property(nonatomic, getter=isRemoteVideoEnabled) _Bool remoteVideoEnabled; // @synthesize remoteVideoEnabled=_remoteVideoEnabled;
@@ -48,8 +49,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) unsigned short activeDownlinkVideoStreamID; // @synthesize activeDownlinkVideoStreamID=_activeDownlinkVideoStreamID;
 @property(retain, nonatomic) NSNumber *optedInAudioStreamID; // @synthesize optedInAudioStreamID=_optedInAudioStreamID;
 @property(retain, nonatomic) NSNumber *optedInVideoStreamID; // @synthesize optedInVideoStreamID=_optedInVideoStreamID;
-- (void)sendTimings;
-- (void)logPerfTimings;
+- (void)reportParticipantsPerfTimingsOnce;
 - (void)pullAudioSamples:(struct opaqueVCAudioBufferList *)arg1;
 - (void)vcMediaStream:(id)arg1 remoteMediaStalled:(_Bool)arg2;
 - (void)vcMediaStream:(id)arg1 didSwitchFromStreamID:(unsigned short)arg2 toStreamID:(unsigned short)arg3;
@@ -65,6 +65,7 @@ __attribute__((visibility("hidden")))
 - (void)setActualBitrateForOptedInStreamID:(id)arg1 withActiveStreamID:(id)arg2 isVideo:(_Bool)arg3;
 - (_Bool)setupVideoStreamFromMediaBlobWithIDSDestination:(id)arg1;
 - (id)newVideoStreamConfigurationWithNegotiationVideoResult:(id)arg1;
+- (_Bool)isVideoExpected;
 @property(nonatomic, getter=isVideoSuspended) _Bool videoSuspended;
 @property(readonly) _Bool isVisible;
 @property(readonly) unsigned int optedInNetworkBitrateAudio;
@@ -72,13 +73,13 @@ __attribute__((visibility("hidden")))
 @property(readonly) unsigned int actualNetworkBitrateAudio;
 @property(readonly) unsigned int actualNetworkBitrateVideo;
 @property(readonly) NSArray *mediaEntries;
-- (void)checkVideoStalled;
 - (void)setVideoDegraded:(_Bool)arg1;
+- (void)updateVideoQualityNotification;
 - (void)collectAudioChannelMetrics:(CDStruct_1c8e0384 *)arg1;
 - (void)collectVideoChannelMetrics:(CDStruct_1c8e0384 *)arg1;
 - (void)redundancyController:(id)arg1 redundancyIntervalDidChange:(double)arg2;
 - (void)redundancyController:(id)arg1 redundancyPercentageDidChange:(unsigned int)arg2;
-- (void)logNewMKITime;
+- (void)receivedMediaPacketAtTime:(double)arg1 isDecryptable:(_Bool)arg2;
 @property(readonly, nonatomic) VCSessionParticipantMediaStreamInfo *videoStreamInfo;
 @property(readonly, nonatomic) VCSessionParticipantMediaStreamInfo *audioStreamInfo;
 - (_Bool)isVideoActive;
@@ -94,6 +95,7 @@ __attribute__((visibility("hidden")))
 - (id)setupStreamRTP:(id)arg1;
 - (_Bool)setupAudioStreamConfiguration:(id)arg1 audioRules:(id)arg2;
 - (_Bool)processParticipantInfo;
+- (void)updateDownlinkBandwithAllocatorClientConfigurations:(id)arg1;
 - (void)setVideoPaused:(_Bool)arg1;
 - (void)setAudioPaused:(_Bool)arg1;
 - (void)updateProminenceDefaults;

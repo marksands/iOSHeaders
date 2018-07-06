@@ -110,7 +110,7 @@
 - (void)cleanupForStoreDemoMode;
 - (void)noteExpiringMomentShareWithUUIDs:(id)arg1 thumbnailImageData:(id)arg2 notificationTitle:(id)arg3 notificationSubtitle:(id)arg4;
 - (void)noteSuggestedCMMViewedForColletionID:(id)arg1;
-- (void)noteSuggestedCMMNotificationForColletionID:(id)arg1 keyAssetUUID:(id)arg2 notificationTitle:(id)arg3 notificationSubtitle:(id)arg4 notificationDeliveryDate:(id)arg5;
+- (void)noteSuggestedCMMNotificationForColletionID:(id)arg1 notificationDeliveryDate:(id)arg2;
 - (void)reportAsJunkPhotoStreamInvitationForAlbumWithCloudGUID:(id)arg1;
 - (void)noteUserRespondedToMemoriesNotification;
 - (void)noteInterestingMemoryNotificationViewedForColletionID:(id)arg1;

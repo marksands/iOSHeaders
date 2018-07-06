@@ -8,14 +8,20 @@
 
 #import "STUsageDetailsViewModelCoordinator.h"
 
-@class NSArray, NSString, STUsageDetailsViewModel;
+@class NSArray, NSString, STAppInfoCache, STUsageDetailsViewModel;
 
 @interface STSetupAssistantUsageDetailsCoordinator : NSObject <STUsageDetailsViewModelCoordinator>
 {
+    NSArray *_devices;
+    NSString *_selectedDeviceIdentifier;
     STUsageDetailsViewModel *_viewModel;
+    STAppInfoCache *_appCache;
 }
 
+@property(readonly, nonatomic) STAppInfoCache *appCache; // @synthesize appCache=_appCache;
 @property(readonly, nonatomic) STUsageDetailsViewModel *viewModel; // @synthesize viewModel=_viewModel;
+@property(copy, nonatomic) NSString *selectedDeviceIdentifier; // @synthesize selectedDeviceIdentifier=_selectedDeviceIdentifier;
+@property(readonly, copy, nonatomic) NSArray *devices; // @synthesize devices=_devices;
 - (void).cxx_destruct;
 - (void)stopRefreshingUsageData;
 - (void)startRefreshingUsageData;
@@ -26,9 +32,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, copy, nonatomic) NSArray *devices;
 @property(readonly) unsigned long long hash;
-@property(copy, nonatomic) NSString *selectedDeviceIdentifier;
 @property(readonly) Class superclass;
 
 @end

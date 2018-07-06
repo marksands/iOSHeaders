@@ -16,6 +16,7 @@
     CEMAnyPayload *_payload;
 }
 
++ (id)buildRequiredOnlyWithInReplyTo:(id)arg1 withEventType:(id)arg2 withTimestamp:(id)arg3;
 + (id)buildWithInReplyTo:(id)arg1 withEventType:(id)arg2 withTimestamp:(id)arg3 withPayload:(id)arg4;
 + (id)allowedKeys;
 @property(copy, nonatomic) CEMAnyPayload *payload; // @synthesize payload=_payload;

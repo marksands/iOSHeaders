@@ -38,6 +38,7 @@
 - (void)_layoutCustomContentView;
 - (void)_layoutNotificationContentView;
 - (void)_layoutMainContentView;
+- (struct CGSize)_contentViewSize;
 - (struct CGRect)_actionsViewFrame;
 - (void)_configureLookViewTapGestureRecognizerIfNecessary;
 - (void)_configureNotificationContentViewIfNecessary;

@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-#import "RMAskForTimeInterface.h"
+@class NSXPCConnection;
 
-@class NSString, NSXPCConnection;
-
-@interface RMAskForTimeClient : NSObject <RMAskForTimeInterface>
+@interface RMAskForTimeClient : NSObject
 {
     NSXPCConnection *_xpcConnection;
 }
@@ -20,16 +18,11 @@
 - (void)_asynchronousProxyWithHandler:(CDUnknownBlockType)arg1;
 - (void)_synchronousProxyWithHandler:(CDUnknownBlockType)arg1;
 - (void)handleAnswer:(long long)arg1 requestIdentifier:(id)arg2 timeApproved:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)fetchAskForTimeFromMeWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)fetchLastResponseForRequestedResourceIdentifier:(id)arg1 usageType:(long long)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)approveExceptionForRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)sendAskForTimeRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

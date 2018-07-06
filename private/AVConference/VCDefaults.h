@@ -39,7 +39,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldOverrideEffectsFramerate:(unsigned int *)arg1;
 @property(readonly) _Bool forceDisableMediaStalled;
 @property(readonly) _Bool forceDisableVideoDegraded;
-@property(readonly) _Bool forceFaceZoom;
+@property(readonly) _Bool forceDynamicEffectsFramerate;
+@property(readonly) _Bool forceDisableFaceZoom;
 @property(readonly) unsigned int multiwayVideoNetworkBitrateCapCellular;
 @property(readonly) unsigned int multiwayVideoNetworkBitrateCapWifi;
 @property(readonly) unsigned int multiwayAudioNetworkBitrateCapCellular;
@@ -62,10 +63,12 @@ __attribute__((visibility("hidden")))
 @property(readonly) _Bool dumpMediaBlob;
 @property(readonly) _Bool momentsUserPreferenceEnabled;
 @property(readonly) _Bool shouldDisplayVideoInfoLayer;
+@property(readonly) float pauseHeartbeatInterval;
 @property(readonly) int localWRMLinkType;
 @property(readonly) NSNumber *enableiRATSuggestion;
 @property(readonly) _Bool forceIPv6;
 @property(readonly) int max2GRate;
+@property(readonly) int redundancyControlForceVideoRedundancyPercentage;
 @property(readonly) int rateControlForceRxRate;
 @property(readonly) int rateControlForceTxRate;
 @property(readonly) int rateControlForceRxCap;
@@ -111,6 +114,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) _Bool enableVPBLogging;
 @property(readonly) int enable2vuyCapture;
 @property(readonly) _Bool enableBitstreamCapture;
+@property(readonly) _Bool forceMirroredCapture;
 @property(readonly) _Bool forceARCapture;
 @property(readonly) int forceKeyFrameInterval;
 @property(readonly) int forceRecvVideoPayload;

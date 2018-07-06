@@ -53,6 +53,7 @@
 + (id)predicateForCreationDateWithTodayViewRange:(id)arg1;
 + (id)predicateForRecordsWithSortDateFromStartDateComponents:(id)arg1 endDateComponents:(id)arg2;
 + (id)predicateForDiagnosticTestResultCategory:(id)arg1;
++ (id)predicateForRecordsFromGatewayWithExternalIdentifier:(id)arg1;
 + (id)predicateForRecordsFromClinicalAccountIdentifier:(id)arg1;
 + (id)predicateForSamplesForDayFromDate:(id)arg1 calendar:(id)arg2 options:(unsigned long long)arg3;
 + (id)predicateForSamplesWithinDateInterval:(id)arg1 options:(unsigned long long)arg2;

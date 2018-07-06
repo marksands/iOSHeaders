@@ -42,6 +42,7 @@ __attribute__((visibility("hidden")))
 @property(copy) CDUnknownBlockType fileCompletion; // @synthesize fileCompletion=_fileCompletion;
 - (_Bool)isKindOfClass:(Class)arg1;
 - (void)_task_onqueue_didFinish;
+- (void)_supplyExtractorWithData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_task_onqueue_didReceiveDispatchData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_onqueue_didReceiveResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)checkWrite;
@@ -49,7 +50,7 @@ __attribute__((visibility("hidden")))
 - (void)_private_errorCompletion;
 - (id)createResumeInformation:(id)arg1;
 - (void)suspendExtractor;
-- (void)terminateExtractorWithError:(id)arg1;
+- (void)terminateExtractorWithError:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)writeAndResume;
 - (void)_onqueue_willCacheResponse:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_private_posixError:(int)arg1;

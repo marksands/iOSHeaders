@@ -391,6 +391,8 @@
 - (void)_setPreferredMaxLayoutWidth:(double)arg1;
 - (void)_resetUsesExplicitPreferredMaxLayoutWidth;
 - (struct CGRect)_frameOfTrailingWhitespace;
+- (void)setNeedsDisplayInRect:(struct CGRect)arg1;
+- (void)setNeedsDisplay;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)_setFrameOrBounds:(struct CGRect)arg1 fromOldRect:(struct CGRect)arg2 settingAction:(CDUnknownBlockType)arg3;

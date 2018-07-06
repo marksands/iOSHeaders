@@ -17,7 +17,7 @@
     NSDictionary *_accelerationStructureOptions;
     NSDictionary *_statistics;
     id <MTLBuffer> _boundingBoxBuffer;
-    id <MTLComputePipelineState> _copyBoundingBoxPipeline;
+    id <MTLComputePipelineState> _boundingBoxCopyPipeline;
     unsigned long long _status;
     unsigned long long _usage;
 }
@@ -56,7 +56,7 @@
 - (id)accelerationStructureOptions;
 - (void)setBoundingBox:(struct _MPSAxisAlignedBoundingBox)arg1;
 @property(readonly, nonatomic) struct _MPSAxisAlignedBoundingBox boundingBox;
-- (id)copyBoundingBoxPipeline;
+- (id)boundingBoxCopyPipeline;
 - (id)boundingBoxBuffer;
 @property(nonatomic) unsigned long long usage;
 - (void)setGroup:(id)arg1;

@@ -15,6 +15,7 @@
     NSArray *_assets;
     NSString *_variant;
     float _intensity;
+    _Bool _mirrored;
     NSArray *_rigs;
     NSArray *_params;
     NSArray *_dependencies;

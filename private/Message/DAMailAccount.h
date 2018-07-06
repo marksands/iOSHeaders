@@ -44,6 +44,7 @@
     MFDAMailbox *_temporaryInbox;
     _Bool _loadedInitialMailboxList;
     _Bool _receivedInitialMailboxUpdate;
+    _Bool _doneInitialInboxCheck;
     _Bool _observingPushedFoldersPrefsChanged;
     int _supportsServerSearch;
     int _supportsMessageFlagging;
@@ -107,7 +108,6 @@
 - (id)syncAnchorForFolderID:(id)arg1 mailbox:(id *)arg2;
 - (void)stopListeningForNotifications;
 - (void)startListeningForNotifications;
-- (_Bool)shouldListenForPushNotificationsAtLaunch;
 - (id)_updateWatchedFolderIdsAndNotify:(_Bool)arg1;
 - (id)_inboxFolderID;
 - (id)meetingStorePersistentID;

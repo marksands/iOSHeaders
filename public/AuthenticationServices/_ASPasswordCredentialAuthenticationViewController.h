@@ -18,9 +18,11 @@
     _ASCredentialProviderExtensionHostContext *_requestHostContext;
     UIViewController *_remoteViewController;
     NSTimer *_nonUIRequestTimer;
+    _Bool _dismissOnBackground;
     id <_ASPasswordCredentialAuthenticationViewControllerDelegate> _delegate;
 }
 
+@property(nonatomic) _Bool dismissOnBackground; // @synthesize dismissOnBackground=_dismissOnBackground;
 @property(nonatomic) __weak id <_ASPasswordCredentialAuthenticationViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)childViewControllerForWhitePointAdaptivityStyle;

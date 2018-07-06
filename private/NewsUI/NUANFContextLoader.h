@@ -28,6 +28,7 @@
 @property(retain, nonatomic) SXContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (id)asyncLoadContextOnceWithCompletion:(CDUnknownBlockType)arg1;
+- (id)translateURL:(id)arg1;
 - (void)fileURLForURL:(id)arg1 onCompletion:(CDUnknownBlockType)arg2 onError:(CDUnknownBlockType)arg3;
 - (CDUnknownBlockType)loadImagesForImageRequest:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)loadContextWithCompletion:(CDUnknownBlockType)arg1;

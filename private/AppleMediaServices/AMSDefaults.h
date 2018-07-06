@@ -29,6 +29,7 @@
 + (void)setForceLoadUrlMetrics:(long long)arg1;
 + (void)setReversePushEnabled:(long long)arg1;
 + (void)setDisableHARLogging:(_Bool)arg1;
++ (void)setDidRetrieveDeviceOffers:(_Bool)arg1;
 + (void)setDeviceOfferEligibility:(id)arg1;
 + (void)setBagURLCookies:(id)arg1;
 + (void)setAlwaysSendCacheBuster:(_Bool)arg1;
@@ -46,6 +47,7 @@
 + (id)metricsCanaryIdentifier;
 + (long long)reversePushEnabled;
 + (_Bool)disableHARLogging;
++ (_Bool)didRetrieveDeviceOffers;
 + (id)deviceOfferEligibility;
 + (id)bagURLCookies;
 + (_Bool)alwaysSendCacheBuster;

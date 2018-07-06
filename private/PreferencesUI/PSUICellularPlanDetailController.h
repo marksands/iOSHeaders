@@ -16,6 +16,8 @@
 @property(retain, nonatomic) PSUISubscriptionContextMenusGroup *subscriptionContextMenus; // @synthesize subscriptionContextMenus=_subscriptionContextMenus;
 - (void).cxx_destruct;
 - (id)specifiers;
+- (void)willEnterForeground;
+- (id)init;
 
 @end
 

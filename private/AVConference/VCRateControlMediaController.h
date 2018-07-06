@@ -99,7 +99,7 @@ __attribute__((visibility("hidden")))
 - (void)resumeVideoByVCRateControl;
 - (void)stopVideoByVCRateControl;
 - (void)pauseVideoByUser:(_Bool)arg1;
-- (void)updateBasebandSuggestionWithStatistics:(CDStruct_e9907a6b)arg1;
+- (void)updateBasebandSuggestionWithStatistics:(CDStruct_48a7b5a5)arg1;
 - (void)computePacketLossWithTimestamp:(unsigned short)arg1 totalRemoteReceivedPackets:(unsigned int)arg2 packetBurstLoss:(unsigned int)arg3 packetLossRate:(double *)arg4 mostBurstLoss:(unsigned int *)arg5;
 - (void)getMediaQueueRateChangeCounter:(unsigned int *)arg1 rateChangeTime:(double *)arg2;
 - (void)getMediaQueueInVideoBitrate:(double *)arg1 outVideoBitrate:(double *)arg2 inAudioBitrate:(double *)arg3 outAudioBitrate:(double *)arg4;

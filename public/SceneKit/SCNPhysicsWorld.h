@@ -70,7 +70,7 @@
 - (void)removeAllBehaviors;
 - (void)removeBehavior:(id)arg1;
 - (void)addBehavior:(id)arg1;
-@property id <SCNPhysicsContactDelegate> contactDelegate;
+@property __weak id <SCNPhysicsContactDelegate> contactDelegate;
 @property(nonatomic) double timeStep;
 - (double)scale;
 - (void)setScale:(double)arg1;

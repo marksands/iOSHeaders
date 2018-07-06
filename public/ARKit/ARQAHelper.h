@@ -15,9 +15,6 @@
 +     // Error parsing type: @48@0:8r^16Q24r^32Q40, name: getDictionaryForVertices:vertexCount:textureCoordinates:textureCoordinateCount:
 + (id)headerInformationWithSize:(struct CGSize)arg1 andFrameLabelRect:(struct CGRect)arg2 andSessionConfiguration:(id)arg3;
 + (id)generateTagsForConfiguration:(id)arg1 replaySensor:(id)arg2;
-+ (id)getAppleCV3DVersion;
-+ (id)getSceneKitVersion;
-+ (id)getARKitVersion;
 +     // Error parsing type: @32@0:8r^16Q24, name: arrayOf2dPoints:count:
 +     // Error parsing type: @32@0:8r^16Q24, name: arrayOf3dPoints:count:
 +     // Error parsing type: @80@0:8{?=[4]}16, name: arrayWithMatrix4x4:

@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "VCLazyLoadedChange.h"
+
 @class NSData, NSString, VCPBIntentDefinition, VCVoiceShortcut;
 
-@interface VCVoiceShortcutChange : NSObject
+@interface VCVoiceShortcutChange : NSObject <VCLazyLoadedChange>
 {
     VCVoiceShortcut *_voiceShortcut;
     NSString *_voiceShortcutIdentifier;
@@ -23,16 +25,23 @@
 @property(readonly, nonatomic) NSString *voiceShortcutIdentifier; // @synthesize voiceShortcutIdentifier=_voiceShortcutIdentifier;
 @property(readonly, nonatomic) VCVoiceShortcut *voiceShortcut; // @synthesize voiceShortcut=_voiceShortcut;
 - (void).cxx_destruct;
-- (id)debugDescription;
+@property(readonly, copy) NSString *debugDescription;
 - (_Bool)isEqual:(id)arg1;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
 - (id)initWithVoiceShortcut:(id)arg1 voiceShortcutIdentifier:(id)arg2 changeType:(unsigned long long)arg3 syncMetadata:(id)arg4;
 - (id)initWithDeletedVoiceShortcutIdentifier:(id)arg1 syncMetadata:(id)arg2;
 - (id)initWithVoiceShortcut:(id)arg1 changeType:(unsigned long long)arg2 syncMetadata:(id)arg3;
+- (id)buildSYChange;
+@property(readonly, nonatomic) int messageType;
+@property(readonly, copy, nonatomic) NSString *uniqueID;
 - (id)initFromProtobufObject:(id)arg1;
 - (id)protobufObject;
 - (id)syncMetadataForSyncServiceWithIdentifier:(id)arg1 forManagedObject:(id)arg2;
 - (id)initWithVoiceShortcutManagedObject:(id)arg1 syncServiceIdentifier:(id)arg2 error:(id *)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

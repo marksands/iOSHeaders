@@ -34,6 +34,7 @@
 
 + (void)logNetworkHeaders:(id)arg1 identifier:(id)arg2;
 + (void)_networkRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
++ (id)_runSSVNetworkOperationWithProperties:(id)arg1 requiresMescal:(_Bool)arg2 outError:(id *)arg3;
 + (id)_defaultBaseURL;
 + (unsigned long long)preferredCachePolicy;
 @property(copy, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;

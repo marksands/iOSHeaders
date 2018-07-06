@@ -18,10 +18,16 @@
     _Bool _longPressForOneUpInPadSpec;
     _Bool _useThumbnailSizesAsImageSizeHints;
     long long _simulatedBatteryLevel;
+    long long _assetEnumerationBehavior;
+    double _assetEnumerationBatchInterval;
+    unsigned long long _assetEnumerationBatchSize;
 }
 
 + (id)settingsControllerModule;
 + (id)sharedInstance;
+@property(nonatomic) unsigned long long assetEnumerationBatchSize; // @synthesize assetEnumerationBatchSize=_assetEnumerationBatchSize;
+@property(nonatomic) double assetEnumerationBatchInterval; // @synthesize assetEnumerationBatchInterval=_assetEnumerationBatchInterval;
+@property(nonatomic) long long assetEnumerationBehavior; // @synthesize assetEnumerationBehavior=_assetEnumerationBehavior;
 @property(nonatomic) _Bool useThumbnailSizesAsImageSizeHints; // @synthesize useThumbnailSizesAsImageSizeHints=_useThumbnailSizesAsImageSizeHints;
 @property(nonatomic) _Bool longPressForOneUpInPadSpec; // @synthesize longPressForOneUpInPadSpec=_longPressForOneUpInPadSpec;
 @property(nonatomic) _Bool longPressForOneUpInCompactMode; // @synthesize longPressForOneUpInCompactMode=_longPressForOneUpInCompactMode;

@@ -60,6 +60,7 @@
 - (void)shouldForceActivityAppInstalled:(_Bool)arg1;
 - (_Bool)_shouldRunImmediatelyOnTemplateLoad;
 - (_Bool)_didRunToday;
+- (void)_queue_performCleanupTasks;
 - (void)_queue_requestAwardingEvaluation;
 - (void)_queue_removeMaintenanceOperation;
 - (void)scheduleMaintenanceTaskForAwardingWithCompletion:(CDUnknownBlockType)arg1;

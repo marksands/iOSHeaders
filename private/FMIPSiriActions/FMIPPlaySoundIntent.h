@@ -17,6 +17,7 @@
 + (long long)playSoundDeviceClassForDeviceType:(long long)arg1;
 + (id)identityTag;
 + (id)playSoundIntentWithDeviceId:(id)arg1 deviceType:(long long)arg2 deviceDisplayName:(id)arg3;
+- (id)rootAggregateKey;
 
 // Remaining properties
 @property(copy, nonatomic) INObject *deviceId; // @dynamic deviceId;

@@ -18,7 +18,6 @@
     NSString *_budgetItemIdentifier;
     unsigned long long _itemType;
     NSString *_displayName;
-    UIImage *_image;
     unsigned long long _timePeriod;
     NSDate *_startDate;
     unsigned long long _timePeriodUnit;
@@ -42,7 +41,6 @@
 @property(nonatomic) unsigned long long timePeriodUnit; // @synthesize timePeriodUnit=_timePeriodUnit;
 @property(copy, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(nonatomic) unsigned long long timePeriod; // @synthesize timePeriod=_timePeriod;
-@property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(nonatomic) unsigned long long itemType; // @synthesize itemType=_itemType;
 @property(copy, nonatomic) NSString *budgetItemIdentifier; // @synthesize budgetItemIdentifier=_budgetItemIdentifier;
@@ -52,6 +50,7 @@
 @property(readonly, copy, nonatomic) NSArray *higherResolutionUsageItems;
 @property(readonly, nonatomic) NSString *maxUsageDescription;
 @property(readonly, nonatomic) NSString *totalUsageDescription;
+@property(readonly, nonatomic) UIImage *image;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

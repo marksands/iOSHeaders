@@ -14,6 +14,7 @@
 + (id)falseCondition;
 + (id)trueCondition;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)_inflectionFeatureValuePairs;
 - (_Bool)_validForRanking;
 
 @end

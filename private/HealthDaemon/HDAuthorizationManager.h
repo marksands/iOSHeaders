@@ -62,7 +62,7 @@
 - (void)cancelAuthorizationRequestsWithIdentifiers:(id)arg1;
 - (void)handleAuthorizationRequestsForBundleIdentifier:(id)arg1 promptHandler:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)enqueueAuthorizationRequestForBundleIdentifier:(id)arg1 writeTypes:(id)arg2 readTypes:(id)arg3 authorizationNeededHandler:(CDUnknownBlockType)arg4 completion:(CDUnknownBlockType)arg5;
-- (_Bool)hasRequiredAuthorizationStatusesForBundleIdentifier:(id)arg1 requiredWriteTypes:(id)arg2 requiredReadTypes:(id)arg3 error:(id *)arg4;
+- (_Bool)hasRequiredAuthorizationStatusesForBundleIdentifier:(id)arg1 requiredReadTypes:(id)arg2 error:(id *)arg3;
 - (long long)authorizationRequestStatusForClientBundleIdentifier:(id)arg1 writeTypes:(id)arg2 readTypes:(id)arg3 error:(id *)arg4;
 - (void)setAuthorizationStatuses:(id)arg1 authorizationModes:(id)arg2 forBundleIdentifier:(id)arg3 options:(unsigned long long)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)dealloc;

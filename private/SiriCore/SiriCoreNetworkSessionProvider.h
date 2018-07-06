@@ -43,12 +43,14 @@
     NSObject<OS_dispatch_source> *_openTimer;
     NSObject<OS_dispatch_source> *_staleConnectionTimer;
     unsigned long long _readWriteCounter;
+    double _staleConnectionInterval;
 }
 
 + (void)getMetricsContext:(CDUnknownBlockType)arg1;
 - (void).cxx_destruct;
 - (void)writeData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)readData:(CDUnknownBlockType)arg1;
+- (void)setStaleInterval:(double)arg1;
 - (void)setEnforceExtendedValidation:(_Bool)arg1;
 - (void)setConnectByPOPMethod:(_Bool)arg1;
 - (void)setPrefersWWAN:(_Bool)arg1;

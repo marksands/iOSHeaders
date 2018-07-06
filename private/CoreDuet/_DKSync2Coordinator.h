@@ -51,8 +51,10 @@
 }
 
 + (_Bool)isOnPower;
-+ (id)streamNamesToSync;
++ (id)streamNamesToTombstone;
++ (void)_updateEventStatsWithSyncElapsedTimeStartDate:(id)arg1 endDate:(id)arg2;
 + (_Bool)canPerformSyncOperationWithClass:(Class)arg1 syncType:(id)arg2 history:(id)arg3 transport:(id)arg4 peer:(id)arg5 policy:(id)arg6;
++ (_Bool)shouldDeferSyncOperationWithClass:(Class)arg1 syncType:(id)arg2 transport:(id)arg3 peer:(id)arg4 policy:(id)arg5;
 + (id)keyValueStoreForDomain:(id)arg1;
 + (id)storage;
 @property(retain, nonatomic) id <_DKSyncRemoteKnowledgeStorage> transportRapport; // @synthesize transportRapport=_transportRapport;
@@ -99,7 +101,7 @@
 - (void)_performPeriodicJob;
 - (void)_performInitialSync;
 - (void)_possiblyPerformInitialSync;
-- (void)__finishSyncWithTransaction:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)__finishSyncWithTransaction:(id)arg1 startDate:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)__performSyncWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_performSyncWithSyncType:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_synchronizeWithUrgency:(unsigned long long)arg1 client:(id)arg2 completion:(CDUnknownBlockType)arg3;

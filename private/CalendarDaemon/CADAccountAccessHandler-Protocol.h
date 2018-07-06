@@ -7,7 +7,7 @@
 @class NSSet, NSString;
 
 @protocol CADAccountAccessHandler
-- (void)invalidate;
+- (void)reset;
 - (NSSet *)restrictedCalendarRowIDsForAction:(unsigned long long)arg1;
 - (_Bool)isActionAllowed:(unsigned long long)arg1 forAccountIdentifier:(NSString *)arg2;
 - (_Bool)isAccountManaged:(NSString *)arg1;

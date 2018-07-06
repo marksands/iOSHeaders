@@ -12,6 +12,7 @@
 {
 }
 
++ (void)forcedCleanup;
 + (id)directLabradorDevice;
 + (id)defaultLabradorDevice;
 + (id)deviceForMetalDevice:(id)arg1;
@@ -19,6 +20,8 @@
 + (id)defaultCPUDevice;
 + (id)defaultDevice;
 + (id)allDevices;
++ (void)_unlockOnceTokensLock;
++ (void)_lockOnceTokensLock;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (int)espressoStorageType;
 - (int)espressoEngine;

@@ -33,16 +33,16 @@
 - (void)navigateToInvitationCMMWithUUID:(id)arg1 animated:(_Bool)arg2;
 - (void)navigateToSuggestedCMMWithUUID:(id)arg1 animated:(_Bool)arg2;
 - (id)navigateToShowAllMemoriesFeedAnimated:(_Bool)arg1;
+- (id)navigateToDetailsForMemoryWithLocalIdentifier:(id)arg1;
 - (void)navigateToRevealTheMostRecentMemoryAnimated:(_Bool)arg1;
 - (void)navigateToSharedAlbumInviteWithUUID:(id)arg1 animated:(_Bool)arg2;
 - (void)navigateToSharedAlbumInvitesAnimated:(_Bool)arg1;
 @property(readonly, nonatomic) NSString *navigationIdentifier;
 @property(readonly, nonatomic) NSString *navigationTitle;
 - (id)_suggestionDumpURL;
-- (void)_updateLastSeenDate;
 - (void)gadget:(id)arg1 didChange:(unsigned long long)arg2;
+- (void)rootGadgetControllerDidAppear;
 - (void)viewDidDisappear:(_Bool)arg1;
-- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;

@@ -30,7 +30,6 @@
     _Bool _fmfEnabled;
     _Bool _fmfRestricted;
     _Bool _isContactsSectionCollapsed;
-    _Bool _shouldShowDownloadMoreCell;
     _Bool _didPerformPurgedAttachmentsCheck;
     _Bool _isDisplayingPhotos;
     id <CKDetailsControllerDelegate> _detailsControllerDelegate;
@@ -67,7 +66,6 @@
 @property(nonatomic) unsigned long long downloadButtonState; // @synthesize downloadButtonState=_downloadButtonState;
 @property(nonatomic) unsigned long long undownloadedPhotoAttachmentCount; // @synthesize undownloadedPhotoAttachmentCount=_undownloadedPhotoAttachmentCount;
 @property(nonatomic) _Bool didPerformPurgedAttachmentsCheck; // @synthesize didPerformPurgedAttachmentsCheck=_didPerformPurgedAttachmentsCheck;
-@property(nonatomic) _Bool shouldShowDownloadMoreCell; // @synthesize shouldShowDownloadMoreCell=_shouldShowDownloadMoreCell;
 @property(retain, nonatomic) id selfWeakWrapper; // @synthesize selfWeakWrapper=_selfWeakWrapper;
 @property(nonatomic) double contentOffsetYShiftAfterKeyboardNotification; // @synthesize contentOffsetYShiftAfterKeyboardNotification=_contentOffsetYShiftAfterKeyboardNotification;
 @property(nonatomic) _Bool isContactsSectionCollapsed; // @synthesize isContactsSectionCollapsed=_isContactsSectionCollapsed;
@@ -96,8 +94,12 @@
 @property(retain, nonatomic) CKConversation *conversation; // @synthesize conversation=_conversation;
 @property(nonatomic) __weak id <CKDetailsControllerDelegate> detailsControllerDelegate; // @synthesize detailsControllerDelegate=_detailsControllerDelegate;
 - (void).cxx_destruct;
+- (void)_didFetchAttachments:(id)arg1;
 - (void)_insertRowForNewlyDownloadedAttachmentsWithTransferGUIDs:(id)arg1;
 - (void)_handlePurgedAttachmentDownloadNotification:(id)arg1;
+@property(readonly, nonatomic) _Bool shouldShowDownloadMoreCell;
+- (void)_resetPurgedAttachmentCount;
+- (unsigned long long)_purgedAttachmentCount;
 - (void)userDidTapDownloadForAttachmentsFooterView:(id)arg1;
 - (void)businessInfoView:(id)arg1 infoButtonTapped:(id)arg2;
 - (id)downloadButtonText;

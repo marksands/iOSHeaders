@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString, _INPBDouble, _INPBInteger, _INPBIntentMetadata, _INPBTemperature;
+@class NSString, _INPBDataString, _INPBDouble, _INPBInteger, _INPBIntentMetadata, _INPBTemperature;
 
 @protocol _INPBSetClimateSettingsInCarIntent <NSObject>
 @property(readonly, nonatomic) _Bool hasTemperature;
@@ -31,6 +31,8 @@
 @property(nonatomic) _Bool enableAirConditioner;
 @property(nonatomic) _Bool hasClimateZone;
 @property(nonatomic) int climateZone;
+@property(readonly, nonatomic) _Bool hasCarName;
+@property(retain, nonatomic) _INPBDataString *carName;
 @property(nonatomic) _Bool hasAirCirculationMode;
 @property(nonatomic) int airCirculationMode;
 - (int)StringAsRelativeTemperatureSetting:(NSString *)arg1;

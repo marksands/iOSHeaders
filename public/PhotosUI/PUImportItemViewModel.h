@@ -88,6 +88,7 @@
 @property(readonly, nonatomic) long long badgeType;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSString *debugDisplayName;
+@property(readonly, nonatomic) _Bool isNotYetImported;
 @property(readonly, nonatomic) _Bool isMediaAsset;
 @property(readonly, nonatomic) id uuid;
 @property(readonly) unsigned long long hash;

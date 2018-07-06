@@ -10,7 +10,7 @@
 #import "STCustomizeDaysListControllerDelegate.h"
 #import "STUIDateTimePickerCellDelegate.h"
 
-@class NSArray, NSString, PSSpecifier, STAllowance;
+@class NSArray, NSDictionary, NSString, PSSpecifier, STAllowance, STUser;
 
 @interface STAllowanceDetailListController : PSListController <STUIDateTimePickerCellDelegate, STCustomizeDaysListControllerDelegate, STAllowanceSetupListControllerDelegate>
 {
@@ -19,6 +19,8 @@
     _Bool _didDeleteAllowance;
     id <STAllowanceDetailListControllerDelegate> _delegate;
     STAllowance *_allowance;
+    STUser *_affectedUser;
+    NSDictionary *_appsByCategoryIdentifier;
     PSSpecifier *_timeGroupSpecifier;
     PSSpecifier *_timeSpecifier;
     PSSpecifier *_timePickerSpecifier;
@@ -40,7 +42,9 @@
 @property(retain, nonatomic) PSSpecifier *timePickerSpecifier; // @synthesize timePickerSpecifier=_timePickerSpecifier;
 @property(retain, nonatomic) PSSpecifier *timeSpecifier; // @synthesize timeSpecifier=_timeSpecifier;
 @property(retain, nonatomic) PSSpecifier *timeGroupSpecifier; // @synthesize timeGroupSpecifier=_timeGroupSpecifier;
+@property(copy, nonatomic) NSDictionary *appsByCategoryIdentifier; // @synthesize appsByCategoryIdentifier=_appsByCategoryIdentifier;
 @property(nonatomic) _Bool canAskForMoreTime; // @synthesize canAskForMoreTime=_canAskForMoreTime;
+@property(retain, nonatomic) STUser *affectedUser; // @synthesize affectedUser=_affectedUser;
 @property(nonatomic) _Bool isSetupController; // @synthesize isSetupController=_isSetupController;
 @property(copy, nonatomic) STAllowance *allowance; // @synthesize allowance=_allowance;
 @property(nonatomic) __weak id <STAllowanceDetailListControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -51,6 +55,8 @@
 - (id)datePickerForSpecifier:(id)arg1;
 - (void)datePickerChanged:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (id)atEndOfLimitFooterText;
 - (id)askForMoreTime:(id)arg1;
 - (void)setAskForMoreTime:(id)arg1 specifier:(id)arg2;
 - (id)createBudgetedItemSpecifiers;
@@ -61,7 +67,6 @@
 - (id)timeFooterText;
 - (id)budgetTime;
 - (void)showPickerSpecifierForSpecifier:(id)arg1 highlight:(_Bool)arg2;
-- (id)emptyGroupSpecifier;
 - (void)cancelButtonTapped:(id)arg1;
 - (_Bool)hasSetBudgetTimeOrCustomSchedule;
 - (_Bool)hasSetBudgetTime;

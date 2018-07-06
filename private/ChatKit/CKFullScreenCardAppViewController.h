@@ -9,11 +9,10 @@
 #import "CKBrowserViewControllerProtocol.h"
 #import "CKFullScreenAppViewControllerProtocol.h"
 #import "UIGestureRecognizerDelegate.h"
-#import "UIViewControllerTransitioningDelegate.h"
 
 @class CKBrowserDragManager, CKConversation, CKDismissView, IMBalloonPlugin, IMBalloonPluginDataSource, NSArray, NSData, NSNumber, NSObject<CKBrowserViewControllerSendDelegate>, NSString, UIView, UIViewController<CKBrowserViewControllerProtocol>;
 
-@interface CKFullScreenCardAppViewController : UIViewController <CKBrowserViewControllerProtocol, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate, CKFullScreenAppViewControllerProtocol>
+@interface CKFullScreenCardAppViewController : UIViewController <CKBrowserViewControllerProtocol, UIGestureRecognizerDelegate, CKFullScreenAppViewControllerProtocol>
 {
     _Bool _inTransition;
     UIViewController<CKBrowserViewControllerProtocol> *_contentViewController;
@@ -38,7 +37,6 @@
 - (void).cxx_destruct;
 - (_Bool)_shouldShowDimmingView;
 - (void)_updateDimmingViewAlpha;
-- (_Bool)shouldShowAsCard;
 - (_Bool)_currentPluginIsJellyfish;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (_Bool)canBecomeFirstResponder;
@@ -50,7 +48,6 @@
 - (void)dealloc;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (struct CGRect)finalContentViewFrame;
-- (double)topAreaHeight;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
@@ -59,9 +56,6 @@
 - (void)animateBrowserViewFromSourceRect:(struct CGRect)arg1 interactive:(_Bool)arg2 grabberView:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)initWithConversation:(id)arg1 plugin:(id)arg2;
 - (void)_handleRemoteConnectionInterrupted:(id)arg1;
-- (id)presentationControllerForPresentedViewController:(id)arg1 presentingViewController:(id)arg2 sourceViewController:(id)arg3;
-- (id)animationControllerForDismissedController:(id)arg1;
-- (id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3;
 @property(readonly, nonatomic) _Bool inFullScreenModalPresentation;
 @property(readonly, nonatomic) _Bool inExpandedPresentation;
 - (_Bool)isLoaded;
@@ -93,6 +87,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) struct CGRect horizontalSwipeExclusionRect;
+@property(nonatomic) _Bool isPrimaryViewController;
 @property(retain, nonatomic) NSArray *recipients;
 @property(readonly, nonatomic) UIViewController *remoteViewController;
 @property(retain, nonatomic) NSString *sender;

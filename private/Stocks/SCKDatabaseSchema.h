@@ -23,6 +23,7 @@
 - (void).cxx_destruct;
 - (id)schemaForZoneName:(id)arg1;
 @property(readonly, nonatomic) _Bool requiresDeviceToDeviceEncryption;
+@property(readonly, copy, nonatomic) NSArray *zoneIDs;
 @property(readonly, copy, nonatomic) CKContainerID *containerID;
 - (id)initWithName:(id)arg1 environment:(long long)arg2 security:(long long)arg3 zoneSchemas:(id)arg4;
 

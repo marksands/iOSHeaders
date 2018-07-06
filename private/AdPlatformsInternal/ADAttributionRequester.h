@@ -21,6 +21,7 @@
 @property(retain, nonatomic) NSNumber *transactionToken; // @synthesize transactionToken=_transactionToken;
 @property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
+- (void)setStocksAdEnabled:(_Bool)arg1;
 - (void)requestAttributionDetailsWithBlock:(CDUnknownBlockType)arg1;
 - (void)beginAttributionRequest:(id)arg1 xpcToken:(unsigned int)arg2 reason:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)attachSearchMetadataTo:(id)arg1 forAdamID:(id)arg2;

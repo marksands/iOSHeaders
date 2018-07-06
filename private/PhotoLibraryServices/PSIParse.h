@@ -6,21 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString, PSIQueryToken;
+@class NSArray, NSString, PSIDateFilter;
 
 @interface PSIParse : NSObject
 {
     NSArray *_tokens;
     NSString *_string;
-    PSIQueryToken *_dateToken;
+    PSIDateFilter *_dateFilter;
 }
 
-@property(retain, nonatomic) PSIQueryToken *dateToken; // @synthesize dateToken=_dateToken;
+@property(copy, nonatomic) PSIDateFilter *dateFilter; // @synthesize dateFilter=_dateFilter;
 - (void).cxx_destruct;
 - (id)description;
 - (id)descriptionWithToken:(id)arg1;
 - (id)parseByReplacingTokensInRange:(struct _NSRange)arg1 withTokens:(id)arg2;
 - (id)parseByReplacingTokenAtIndex:(unsigned long long)arg1 withToken:(id)arg2;
+- (id)tokenAtIndex:(unsigned long long)arg1;
 - (void)enumerateTokensUsingBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) unsigned long long numberOfTokens;
 - (id)initWithTokens:(id)arg1 fromString:(id)arg2;

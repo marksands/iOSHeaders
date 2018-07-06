@@ -15,6 +15,8 @@
     NSDate *_endDate;
 }
 
++ (id)_simulationDateFormatter;
++ (id)relevanceSimulatorID;
 @property(readonly, nonatomic, getter=isHistoric) _Bool historic; // @synthesize historic=_historic;
 @property(readonly, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
 @property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
@@ -23,6 +25,8 @@
 - (unsigned long long)_hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)dictionaryEncoding;
+- (id)initWithDictionary:(id)arg1;
 - (id)initWithStartDate:(id)arg1 endDate:(id)arg2 historic:(_Bool)arg3;
 - (id)initWithStartDate:(id)arg1 endDate:(id)arg2;
 - (id)init;

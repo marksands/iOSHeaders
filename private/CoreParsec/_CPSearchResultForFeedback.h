@@ -37,8 +37,10 @@
     NSString *_fbr;
     NSString *_userInput;
     unsigned long long _blockId;
+    unsigned long long _hashedIdentifier;
 }
 
+@property(nonatomic) unsigned long long hashedIdentifier; // @synthesize hashedIdentifier=_hashedIdentifier;
 @property(nonatomic) unsigned long long blockId; // @synthesize blockId=_blockId;
 @property(nonatomic) _Bool doNotFold; // @synthesize doNotFold=_doNotFold;
 @property(nonatomic) _Bool isFuzzyMatch; // @synthesize isFuzzyMatch=_isFuzzyMatch;

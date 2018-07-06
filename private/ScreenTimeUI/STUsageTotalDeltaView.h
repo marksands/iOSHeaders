@@ -10,11 +10,13 @@
 
 @interface STUsageTotalDeltaView : UIView
 {
+    _Bool _isVibrancyEnabled;
     NSLayoutYAxisAnchor *_labelLastBaselineAnchor;
     UIImageView *_imageView;
     UILabel *_label;
 }
 
+@property(readonly, nonatomic) _Bool isVibrancyEnabled; // @synthesize isVibrancyEnabled=_isVibrancyEnabled;
 @property(readonly, nonatomic) UILabel *label; // @synthesize label=_label;
 @property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(readonly, copy, nonatomic) NSLayoutYAxisAnchor *labelLastBaselineAnchor; // @synthesize labelLastBaselineAnchor=_labelLastBaselineAnchor;
@@ -22,6 +24,7 @@
 - (void)setDeltaFromAverage:(double)arg1 timePeriod:(unsigned long long)arg2;
 - (id)lastBaselineAnchor;
 - (id)init;
+- (id)initWithVibrancyEnabled:(_Bool)arg1;
 
 @end
 

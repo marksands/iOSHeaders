@@ -16,10 +16,18 @@
     NSData *_changeUUID;
     NSData *_lastKnownReconciledPassSyncStateHash;
     NSData *_passData;
+    unsigned int _passSegmentIndex;
+    unsigned int _passSegmentTotal;
     NPKProtoPassSyncStateItem *_syncStateItem;
     NSString *_uniqueID;
+    struct {
+        unsigned int passSegmentIndex:1;
+        unsigned int passSegmentTotal:1;
+    } _has;
 }
 
+@property(nonatomic) unsigned int passSegmentTotal; // @synthesize passSegmentTotal=_passSegmentTotal;
+@property(nonatomic) unsigned int passSegmentIndex; // @synthesize passSegmentIndex=_passSegmentIndex;
 @property(retain, nonatomic) NSData *passData; // @synthesize passData=_passData;
 @property(retain, nonatomic) NPKProtoPassSyncStateItem *syncStateItem; // @synthesize syncStateItem=_syncStateItem;
 @property(retain, nonatomic) NSString *uniqueID; // @synthesize uniqueID=_uniqueID;
@@ -36,6 +44,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasPassSegmentTotal;
+@property(nonatomic) _Bool hasPassSegmentIndex;
 @property(readonly, nonatomic) _Bool hasPassData;
 @property(readonly, nonatomic) _Bool hasSyncStateItem;
 - (int)StringAsChangeType:(id)arg1;

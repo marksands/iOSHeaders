@@ -83,6 +83,9 @@
 - (void)faceTracker:(id)arg1 sessionWasInterrupted:(id)arg2;
 - (void)faceTracker:(id)arg1 session:(id)arg2 didFailWithError:(id)arg3;
 - (void)faceTrackerDidUpdate:(id)arg1 trackingInfo:(id)arg2;
+- (void)_cancelDelayedtrackingLoss;
+- (void)_delayedTrackingLoss;
+- (void)_fireTrackingLoss;
 - (void)_UIOrientationDidChangeNotification:(id)arg1;
 - (void)setupOrientation;
 - (void)setInterfaceOrientation:(long long)arg1;
@@ -97,6 +100,7 @@
 - (void)_willRecord;
 - (void)willUpdateAvatarWithNewFaceTrackingData:(double)arg1;
 - (void)didLostTrackingForAWhile;
+- (void)_animateToNoTrackingState;
 - (void)_enablePhysics:(_Bool)arg1;
 - (void)renderer:(id)arg1 didApplyAnimationsAtTime:(double)arg2;
 @property(nonatomic) _Bool arMode;

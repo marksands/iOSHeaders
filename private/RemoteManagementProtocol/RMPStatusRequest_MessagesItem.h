@@ -14,6 +14,7 @@
     NSArray *_states;
 }
 
++ (id)buildRequiredOnlyWithInReplyTo:(id)arg1 withStates:(id)arg2;
 + (id)buildWithInReplyTo:(id)arg1 withStates:(id)arg2;
 + (id)allowedKeys;
 @property(copy, nonatomic) NSArray *states; // @synthesize states=_states;

@@ -12,11 +12,11 @@
 
 @interface DNDBehaviorSettings : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
 {
-    unsigned long long _interruptionBehavior;
+    unsigned long long _interruptionBehaviorSetting;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, nonatomic) unsigned long long interruptionBehavior; // @synthesize interruptionBehavior=_interruptionBehavior;
+@property(readonly, nonatomic) unsigned long long interruptionBehaviorSetting; // @synthesize interruptionBehaviorSetting=_interruptionBehaviorSetting;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
@@ -24,9 +24,10 @@
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)_initWithInterruptionBehavior:(unsigned long long)arg1;
+- (id)_initWithInterruptionBehaviorSetting:(unsigned long long)arg1;
 - (id)_initWithSettings:(id)arg1;
 - (id)init;
+@property(readonly, nonatomic) unsigned long long interruptionBehavior; // @dynamic interruptionBehavior;
 
 @end
 

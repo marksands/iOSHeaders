@@ -60,13 +60,13 @@
     _Bool __isPresentedForSecondScreen;
     _Bool __prefersCompactLayoutForSplitScreen;
     _Bool __isIrisPlaying;
-    _Bool __isPerformingPreviewCommitTransition;
+    _Bool __shouldDisableTransitionsUntilAppeared;
     _Bool __suppressColorSettings;
     _Bool __shouldShowAccessoryAfterUnlock;
     _Bool __didPlayCurrentLivePhoto;
     _Bool __prefersHomeIndicatorHidden;
     _Bool _isPresentedForPreview;
-    _Bool _isCommitingPreview;
+    _Bool _appearanceTransitionAnimationsDisabled;
     _Bool _allowsPreviewActions;
     int _appearState;
     PUBrowsingSession *_browsingSession;
@@ -109,7 +109,7 @@
 }
 
 @property(nonatomic, setter=setAllowsPreviewActions:) _Bool allowsPreviewActions; // @synthesize allowsPreviewActions=_allowsPreviewActions;
-@property(nonatomic, setter=setCommitingPreview:) _Bool isCommitingPreview; // @synthesize isCommitingPreview=_isCommitingPreview;
+@property(nonatomic) _Bool appearanceTransitionAnimationsDisabled; // @synthesize appearanceTransitionAnimationsDisabled=_appearanceTransitionAnimationsDisabled;
 @property(nonatomic, setter=setPresentedForPreview:) _Bool isPresentedForPreview; // @synthesize isPresentedForPreview=_isPresentedForPreview;
 @property(nonatomic, setter=_setPrefersHomeIndicatorHidden:) _Bool _prefersHomeIndicatorHidden; // @synthesize _prefersHomeIndicatorHidden=__prefersHomeIndicatorHidden;
 @property(retain, nonatomic) CAMBadgeTextView *originalBadgeView; // @synthesize originalBadgeView=_originalBadgeView;
@@ -124,7 +124,7 @@
 @property(readonly, nonatomic) PUOneUpAccessoryViewControllersManager *_accessoryViewControllersManager; // @synthesize _accessoryViewControllersManager=__accessoryViewControllersManager;
 @property(nonatomic, setter=_setSuppressBackdropColorSettings:) _Bool _suppressColorSettings; // @synthesize _suppressColorSettings=__suppressColorSettings;
 @property(readonly, nonatomic) PUParallaxComputer *_parallaxComputer; // @synthesize _parallaxComputer=__parallaxComputer;
-@property(nonatomic, setter=_setPerformingPreviewCommitTransition:) _Bool _isPerformingPreviewCommitTransition; // @synthesize _isPerformingPreviewCommitTransition=__isPerformingPreviewCommitTransition;
+@property(nonatomic, setter=_setShouldDisableTransitionsUntilAppeared:) _Bool _shouldDisableTransitionsUntilAppeared; // @synthesize _shouldDisableTransitionsUntilAppeared=__shouldDisableTransitionsUntilAppeared;
 @property(nonatomic, setter=_setIrisPlaying:) _Bool _isIrisPlaying; // @synthesize _isIrisPlaying=__isIrisPlaying;
 @property(nonatomic, setter=_setPreloadInsetsBasedOffViewWidth:) double _preloadInsetsBasedOffViewWidth; // @synthesize _preloadInsetsBasedOffViewWidth=__preloadInsetsBasedOffViewWidth;
 @property(nonatomic, setter=_setPendingViewTransitionSize:) struct CGSize _pendingViewTransitionSize; // @synthesize _pendingViewTransitionSize=__pendingViewTransitionSize;
@@ -253,6 +253,7 @@
 - (void)userTransformTileViewController:(id)arg1 didChangeIsUserInteracting:(_Bool)arg2;
 - (void)userTransformTileViewController:(id)arg1 didChangeModelTileTransform:(id)arg2;
 - (_Bool)oneUpBarsController:(id)arg1 shouldEnableShowOriginalForAsset:(id)arg2;
+- (_Bool)oneUpBarsController:(id)arg1 canViewInLibraryForAsset:(id)arg2;
 - (_Bool)oneUpBarsController:(id)arg1 canShowOriginalForAsset:(id)arg2;
 - (void)oneUpBarsControllerDidEndShowingOriginal:(id)arg1;
 - (void)oneUpBarsControllerDidBeginShowingOriginal:(id)arg1;

@@ -152,6 +152,7 @@
 - (id)visibleAttachments;
 - (id)attachments;
 - (void)_observeScrollViewDidScroll:(id)arg1;
+- (_Bool)needToUpdateViewFrame;
 - (void)duplicate:(id)arg1;
 - (void)delete:(id)arg1;
 - (void)copy:(id)arg1;

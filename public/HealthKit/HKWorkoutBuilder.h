@@ -51,11 +51,13 @@
 - (void)connectionInvalidated;
 - (id)remoteInterface;
 - (id)exportedInterface;
+- (void)clientRemote_synchronizeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)clientRemote_didRecoverSeriesBuilders:(id)arg1;
 - (void)clientRemote_didChangeElapsedTimeBasisWithStartDate:(id)arg1 endDate:(id)arg2;
 - (void)clientRemote_didUpdateEvents:(id)arg1;
 - (void)clientRemote_didUpdateMetadata:(id)arg1;
 - (void)clientRemote_didUpdateStatistics:(id)arg1;
+- (void)_resourceQueue_setStatisticsMergeStrategy:(unsigned long long)arg1 forType:(id)arg2;
 - (void)_resourceQueue_updateDevice:(id)arg1;
 - (void)_resourceQueue_freezeSeriesBuilders;
 - (void)_resourceQueue_updateElapsedTimeCache;
@@ -66,12 +68,13 @@
 - (void)_resourceQueue_addWorkoutEvents:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_resourceQueue_addSamples:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_resourceQueue_beginCollectionWithStartDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_setStatisticsMergeStrategy:(unsigned long long)arg1 forType:(id)arg2;
 - (void)_setDevice:(id)arg1;
 - (id)goal;
 - (unsigned long long)goalType;
 - (id)_currentSnapshot;
-- (id)_endDateForSnapshot;
-- (id)_startDateForSnapshot;
+- (id)_resourceQueue_endDateForSnapshot;
+- (id)_resourceQueue_startDateForSnapshot;
 - (id)seriesBuilderForType:(id)arg1;
 - (id)statisticsForType:(id)arg1;
 - (void)discardWorkout;
@@ -90,6 +93,7 @@
 @property(readonly, copy) NSDate *startDate;
 - (void)beginCollectionWithStartDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, copy) HKDevice *device;
+@property(readonly, copy) NSString *description;
 - (id)initWithHealthStore:(id)arg1 builderConfiguration:(id)arg2 builderIdentifier:(id)arg3;
 - (id)initWithHealthStore:(id)arg1 configuration:(id)arg2 goalType:(unsigned long long)arg3 goal:(id)arg4 device:(id)arg5;
 - (id)initWithHealthStore:(id)arg1 configuration:(id)arg2 device:(id)arg3;
@@ -97,7 +101,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

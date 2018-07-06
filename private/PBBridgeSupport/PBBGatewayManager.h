@@ -19,6 +19,7 @@
     NSDateComponents *_dndToComponents;
 }
 
++ (id)dateComponentsFromDNDScheduleTime:(id)arg1;
 + (id)sharedManager;
 @property(readonly, nonatomic) NSDateComponents *dndToComponents; // @synthesize dndToComponents=_dndToComponents;
 @property(readonly, nonatomic) NSDateComponents *dndFromComponents; // @synthesize dndFromComponents=_dndFromComponents;

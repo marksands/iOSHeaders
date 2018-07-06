@@ -15,5 +15,6 @@
 - (id)px_mailingAddressIncludeZipCode:(_Bool)arg1;
 - (id)px_postalAddressIncludeZipCode:(_Bool)arg1;
 - (struct CGRect)faceAreaRect;
+- (struct CGRect)originalFaceAreaRect;
 @end
 

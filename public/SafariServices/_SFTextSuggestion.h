@@ -13,7 +13,6 @@
 
 @property(readonly, copy, nonatomic) CDUnknownBlockType fillHandler; // @synthesize fillHandler=_fillHandler;
 - (void).cxx_destruct;
-- (_Bool)_shouldPersist;
 - (id)initWithFillHandler:(CDUnknownBlockType)arg1;
 
 @end

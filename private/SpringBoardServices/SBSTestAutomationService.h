@@ -10,10 +10,11 @@
 {
 }
 
+- (void)setApplicationBundleIdentifier:(id)arg1 blockedForScreenTime:(_Bool)arg2;
+- (void)resetToHomeScreenAnimated:(_Bool)arg1 useSafeTransitions:(_Bool)arg2;
 - (void)setOrientationLockEnabled:(_Bool)arg1;
 - (void)setIdleTimerEnabled:(_Bool)arg1;
 - (void)setAlertsEnabled:(_Bool)arg1;
-- (void)resetToHomeScreen;
 - (void)suspendAllDisplays;
 
 @end

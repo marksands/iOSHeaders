@@ -6,19 +6,25 @@
 
 #import "PSListController.h"
 
-@class NSArray, PSSpecifier, STAlwaysAllowList;
+@class NSArray, NSDictionary, PSSpecifier, STAlwaysAllowList;
 
 @interface STAlwaysAllowListController : PSListController
 {
     id <STAlwaysAllowListControllerDelegate> _delegate;
     STAlwaysAllowList *_alwaysAllowList;
     NSArray *_chooseBundleIDs;
+    NSDictionary *_appsByBundleID;
     PSSpecifier *_allowedAppsGroupSpecifier;
+    NSArray *_allowedAppsSpecifiers;
     PSSpecifier *_chooseAppsGroupSpecifier;
+    NSArray *_chooseAppsSpecifiers;
 }
 
+@property(retain, nonatomic) NSArray *chooseAppsSpecifiers; // @synthesize chooseAppsSpecifiers=_chooseAppsSpecifiers;
 @property(retain, nonatomic) PSSpecifier *chooseAppsGroupSpecifier; // @synthesize chooseAppsGroupSpecifier=_chooseAppsGroupSpecifier;
+@property(retain, nonatomic) NSArray *allowedAppsSpecifiers; // @synthesize allowedAppsSpecifiers=_allowedAppsSpecifiers;
 @property(retain, nonatomic) PSSpecifier *allowedAppsGroupSpecifier; // @synthesize allowedAppsGroupSpecifier=_allowedAppsGroupSpecifier;
+@property(copy, nonatomic) NSDictionary *appsByBundleID; // @synthesize appsByBundleID=_appsByBundleID;
 @property(copy, nonatomic) NSArray *chooseBundleIDs; // @synthesize chooseBundleIDs=_chooseBundleIDs;
 @property(copy, nonatomic) STAlwaysAllowList *alwaysAllowList; // @synthesize alwaysAllowList=_alwaysAllowList;
 @property(nonatomic) __weak id <STAlwaysAllowListControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -28,8 +34,11 @@
 - (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
 - (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
-- (id)chooseAppsSpecifiers;
-- (id)allowedAppsSpecifiers;
+- (_Bool)shouldReloadSpecifiersOnResume;
+- (CDUnknownBlockType)localizedAppNameComparator;
+- (id)sortedAllowedBundleIDs;
+- (id)createChooseAppsSpecifiers;
+- (id)createAllowedAppsSpecifiers;
 - (id)specifiers;
 - (void)willResignActive;
 - (void)viewWillDisappear:(_Bool)arg1;

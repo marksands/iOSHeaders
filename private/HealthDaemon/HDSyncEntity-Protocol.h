@@ -17,6 +17,7 @@
 + (_Bool)generateSyncObjectsForSession:(HDSyncSession *)arg1 predicate:(HDSQLitePredicate *)arg2 syncAnchorRange:(struct HDSyncAnchorRange)arg3 maxEncodedBytesPerMessage:(long long)arg4 profile:(HDProfile *)arg5 error:(id *)arg6 handler:(_Bool (^)(NSArray *, long long, _Bool, id *))arg7;
 
 @optional
++ (NSSet *)excludedSyncStoresForSession:(HDSyncSession *)arg1;
 + (_Bool)supportsSyncStore:(id <HDSyncStore>)arg1;
 @end
 

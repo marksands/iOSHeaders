@@ -27,6 +27,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *senderIdentifier; // @dynamic senderIdentifier;
 @property(readonly, nonatomic) _Bool mostRecentTextEntryIsByMe;
+@property(readonly, nonatomic) NSString *mostRecentTextEntryLogString;
 @property(readonly, nonatomic) NSString *mostRecentNonSenderTextEntry;
 @property(readonly, nonatomic) NSString *aggregateText;
 - (_Bool)hasPendingEntries;

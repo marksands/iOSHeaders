@@ -393,6 +393,10 @@
 - (_Bool)_accessibilityServesAsFirstResponder;
 - (id)_accessibilityCollectionViewCellContentSubviews;
 - (id)_accessibilityTableViewCellContentSubviews;
+- (void)_accessibilitySetAdditionalElements:(id)arg1;
+- (id)_accessibilityAdditionalElements;
+- (void)_accessibilitySetUserDefinedAdditionalElements:(id)arg1;
+- (id)_accessibilityUserDefinedAdditionalElements;
 - (id)_accessibilitySupplementaryFooterViews;
 - (id)_accessibilitySupplementaryHeaderViews;
 - (_Bool)_accessibilityIsFirstElementForFocus;
@@ -702,6 +706,7 @@
 - (_Bool)_accessibilityAllowOutOfBoundsHitTestAtPoint:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)_accessibilityHitTestSupplementaryViews:(id)arg1 point:(struct CGPoint)arg2 withEvent:(id)arg3;
 - (id)_accessibilityHitTestSupplementaryViews:(struct CGPoint)arg1 event:(id)arg2;
+- (id)_accessibilityHitTestAdditionalElements:(struct CGPoint)arg1 event:(id)arg2;
 - (id)_accessibilityHitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)_accessibilitySetShouldHitTestFallBackToNearestChild:(_Bool)arg1;
 - (_Bool)_accessibilityHitTestShouldFallbackToNearestChild;

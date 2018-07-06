@@ -28,5 +28,8 @@
 - (void)readWithAccessor:(CDUnknownBlockType)arg1;
 - (id)initWithDatabaseStore:(id)arg1;
 
+// Remaining properties
+@property(readonly, nonatomic) id <SCKDatabaseStore> underlyingStore;
+
 @end
 

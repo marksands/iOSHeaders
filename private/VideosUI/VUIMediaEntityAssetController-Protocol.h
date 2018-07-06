@@ -12,7 +12,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *completionDispatchQueue;
 @property(readonly, copy, nonatomic) VUIMediaEntityAssetControllerState *state;
 @property(readonly, nonatomic) _Bool supportsStartingDownload;
-@property(retain, nonatomic) id <VUIMediaEntityAssetControllerDelegate> delegate;
+@property(nonatomic) __weak id <VUIMediaEntityAssetControllerDelegate> delegate;
 @property(readonly, copy, nonatomic) VUIMediaEntityType *mediaEntityType;
 @property(readonly, copy, nonatomic) NSObject<VUIMediaEntityIdentifier> *mediaEntityIdentifier;
 - (void)removeDownloadWithCompletion:(void (^)(_Bool, NSError *))arg1;

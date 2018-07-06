@@ -36,9 +36,11 @@
     double _highTransitionBottomOffset;
     NSIndexPath *_indexPathToSnapTo;
     double _snappingOffset;
+    NSSet *_dwellIndexPathes;
 }
 
 + (Class)layoutAttributesClass;
+@property(readonly, nonatomic) NSSet *dwellIndexPathes; // @synthesize dwellIndexPathes=_dwellIndexPathes;
 @property(nonatomic) double snappingOffset; // @synthesize snappingOffset=_snappingOffset;
 @property(retain, nonatomic) NSIndexPath *indexPathToSnapTo; // @synthesize indexPathToSnapTo=_indexPathToSnapTo;
 @property(nonatomic, getter=isShowingAllAttributes) _Bool showingAllAttributes; // @synthesize showingAllAttributes=_showingAllAttributes;

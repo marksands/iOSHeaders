@@ -38,7 +38,6 @@
 - (void)registerSyncService:(id)arg1 asMaster:(_Bool)arg2;
 - (void)dataWasUpdatedFromSyncServiceWithIdentifier:(id)arg1;
 - (void)dataWasUpdatedInResponseToUserAction;
-- (id)wrapMessageInVCPBChange:(id)arg1;
 - (id)createMessageFromData:(id)arg1;
 - (void)removeSyncStateForSyncServiceWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)markChangesAsSynced:(struct NSOrderedSet *)arg1 withSyncServiceWithIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -47,6 +46,7 @@
 - (void)rehydrateFromMasterSyncServiceIfNeeded;
 @property(nonatomic) _Bool needsToBeRehydratedFromMasterSyncService;
 - (_Bool)resetLocalData:(id *)arg1;
+- (void)deleteShortcutSuggestionsFromDeletedApps;
 - (void)getShortcutSuggestionsForAllAppsWithLimit:(unsigned long long)arg1 accessSpecifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)getShortcutSuggestionsForAppWithBundleIdentifier:(id)arg1 accessSpecifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setShortcutSuggestions:(id)arg1 forAppWithBundleIdentifier:(id)arg2 accessSpecifier:(id)arg3;

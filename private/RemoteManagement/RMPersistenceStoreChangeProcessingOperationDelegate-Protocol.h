@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSPersistentHistoryToken, NSPersistentStore;
+@class NSPersistentHistoryToken, NSPersistentStore;
 
 @protocol RMPersistenceStoreChangeProcessingOperationDelegate <NSObject>
-- (void)performBackgroundTask:(void (^)(NSManagedObjectContext *))arg1;
-- (void)handlePersistenceStoreChanges:(NSDictionary *)arg1 forStore:(NSPersistentStore *)arg2;
 - (void)savePersistentHistoryToken:(NSPersistentHistoryToken *)arg1 forStore:(NSPersistentStore *)arg2;
 - (NSPersistentHistoryToken *)persistentHistoryTokenForStore:(NSPersistentStore *)arg1;
 @end

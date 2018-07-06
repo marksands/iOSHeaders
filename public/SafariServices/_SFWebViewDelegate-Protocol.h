@@ -12,6 +12,7 @@
 
 @optional
 - (void)sfWebViewDidEndFormControlInteraction:(_SFWebView *)arg1;
+- (void)sfWebViewDidBecomeFirstResponder:(_SFWebView *)arg1;
 - (void)sfWebViewDidChangeSafeAreaInsets:(_SFWebView *)arg1;
 @end
 

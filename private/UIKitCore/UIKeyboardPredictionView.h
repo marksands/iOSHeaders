@@ -82,6 +82,7 @@ __attribute__((visibility("hidden")))
 - (void)setPredictions:(id)arg1 autocorrection:(id)arg2 emojiList:(id)arg3;
 - (void)touchUpdateTimer;
 - (void)updateTimerFired:(id)arg1;
+- (void)invalidateUpdateTimer;
 - (void)_setPredictions:(id)arg1 autocorrection:(id)arg2 emojiList:(id)arg3;
 - (_Bool)_shouldUpdatePredictions;
 - (id)labelTextForPrediction:(id)arg1 typedString:(id)arg2;

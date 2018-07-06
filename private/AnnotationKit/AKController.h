@@ -146,7 +146,9 @@
 - (void)redo:(id)arg1;
 - (_Bool)validateUndo:(id)arg1;
 - (void)undo:(id)arg1;
+- (void)applyCurrentCrop;
 - (void)resetToDefaultToolMode;
+- (unsigned long long)toolMode;
 - (id)imageForToolbarButtonItemOfType:(unsigned long long)arg1;
 - (id)toolbarButtonItemOfType:(unsigned long long)arg1;
 - (id)rotationGestureRecognizer;

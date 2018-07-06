@@ -13,6 +13,7 @@
     XCTImage *_internalImage;
 }
 
++ (id)emptyScreenshot;
 + (long long)systemScreenshotQuality;
 + (void)setSystemScreenshotQuality:(long long)arg1;
 + (void)initialize;

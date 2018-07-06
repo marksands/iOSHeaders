@@ -11,6 +11,7 @@
 + (id)px_testingCollectionListWithCollections:(id)arg1 title:(id)arg2;
 + (id)px_testingTransientIdentifier;
 + (id)_assetCollectionsWithAlbumSubtypes:(id)arg1;
++ (id)px_otherAlbumsWithoutDeletedCollectionList;
 + (id)px_otherAlbumsCollectionList;
 + (id)px_mediaTypesCollectionList;
 + (id)px_sharedAlbumsCollectionList;

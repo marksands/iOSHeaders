@@ -9,14 +9,14 @@
 #import "SCNSceneRenderer.h"
 #import "SCNTechniqueSupport.h"
 
-@class AVAudioEngine, AVAudioEnvironmentNode, EAGLContext, NSLock, NSObject<OS_dispatch_queue>, NSString, SCNAuthoringEnvironment, SCNMTLRenderContext, SCNNode, SCNRendererTransitionContext, SCNScene, SCNTechnique, SKScene, UIColor, __SKSCNRenderer;
+@class AVAudioEngine, AVAudioEnvironmentNode, EAGLContext, NSObject<OS_dispatch_queue>, NSString, SCNAuthoringEnvironment, SCNMTLRenderContext, SCNNode, SCNRecursiveLock, SCNRendererTransitionContext, SCNScene, SCNTechnique, SKScene, UIColor, __SKSCNRenderer;
 
 @interface SCNRenderer : NSObject <SCNSceneRenderer, SCNTechniqueSupport>
 {
     SCNScene *_scene;
     SCNNode *_pointOfView;
     SCNNode *_pointOfCulling;
-    NSLock *_lock;
+    SCNRecursiveLock *_lock;
     NSObject<OS_dispatch_queue> *__renderingQueue;
     unsigned long long __antialiasingMode;
     unsigned long long __preparePixelFormat;
@@ -176,7 +176,7 @@
 - (void)updateCurrentTimeIfPlayingWithSystemTime:(double)arg1;
 - (void)set_privateRendererShouldForwardSceneRendererDelegationMessagesToOwner:(_Bool)arg1;
 - (_Bool)_privateRendererShouldForwardSceneRendererDelegationMessagesToOwner;
-@property(nonatomic) id <SCNSceneRendererDelegate> delegate;
+@property(nonatomic) __weak id <SCNSceneRendererDelegate> delegate;
 - (void)_updateEngineCallbacks;
 - (id)programWithNode:(id)arg1 withMaterial:(id)arg2;
 - (void)prepareObjects:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
@@ -185,6 +185,8 @@
 - (void)_releasePreloadRenderer;
 - (_Bool)_preparePreloadRenderer;
 - (_Bool)_preloadResource:(id)arg1 abortHandler:(CDUnknownBlockType)arg2;
+- (void)set_computedLightingEnvironmentMapsPath:(id)arg1;
+- (id)_computedLightingEnvironmentMapsPath;
 - (void)set_recordWithoutExecute:(_Bool)arg1;
 - (_Bool)_recordWithoutExecute;
 - (void)_renderGraphFrameRecordingAtPath:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

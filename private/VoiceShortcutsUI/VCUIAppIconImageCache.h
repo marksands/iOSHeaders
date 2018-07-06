@@ -6,16 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSCache, NSObject<OS_dispatch_queue>;
+@class NSCache;
 
 @interface VCUIAppIconImageCache : NSObject
 {
     NSCache *_appIconImagesCache;
-    NSObject<OS_dispatch_queue> *_appIconImagesCacheIsolationQueue;
 }
 
 + (id)sharedAppIconImageCache;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *appIconImagesCacheIsolationQueue; // @synthesize appIconImagesCacheIsolationQueue=_appIconImagesCacheIsolationQueue;
 @property(retain, nonatomic) NSCache *appIconImagesCache; // @synthesize appIconImagesCache=_appIconImagesCache;
 - (void).cxx_destruct;
 - (id)cachedAppIconImageForKey:(id)arg1;

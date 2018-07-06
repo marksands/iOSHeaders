@@ -72,6 +72,7 @@
 - (_Bool)_hasActiveCell;
 - (void)_stopSpinnerInCellLoadingRemoteUI;
 - (void)_startSpinnerInCellLoadingRemoteUI:(id)arg1;
+- (void)_fireFamilyUpdateNotification;
 - (void)_fetchFamilyPaymentInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_fetchUpdatedFamilyDetailsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_performEventWithContext:(id)arg1 specifier:(id)arg2 completion:(CDUnknownBlockType)arg3;

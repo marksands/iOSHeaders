@@ -13,6 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface AMSKeepAliveSession : NSObject <BKSProcessDelegate>
 {
+    _Bool _interrupted;
     NSString *_assertionName;
     NSCountedSet *_activeNames;
     NSString *_logKey;
@@ -26,6 +27,7 @@ __attribute__((visibility("hidden")))
 + (void)_reapplyAssertion;
 + (void)_deactivateSession;
 + (void)_afterDelay:(long long)arg1 coalesce:(_Bool)arg2 handler:(CDUnknownBlockType)arg3;
++ (void)interrupt;
 + (void)removeKeepAliveForName:(id)arg1;
 + (void)addKeepAliveForName:(id)arg1;
 @property(nonatomic) long long timerId; // @synthesize timerId=_timerId;
@@ -33,6 +35,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSObject<OS_os_transaction> *osTransaction; // @synthesize osTransaction=_osTransaction;
 @property(retain, nonatomic) BKSProcessAssertion *taskAssertion; // @synthesize taskAssertion=_taskAssertion;
 @property(readonly, nonatomic) NSString *logKey; // @synthesize logKey=_logKey;
+@property(nonatomic) _Bool interrupted; // @synthesize interrupted=_interrupted;
 @property(retain, nonatomic) NSCountedSet *activeNames; // @synthesize activeNames=_activeNames;
 @property(readonly, nonatomic) NSString *assertionName; // @synthesize assertionName=_assertionName;
 - (void).cxx_destruct;

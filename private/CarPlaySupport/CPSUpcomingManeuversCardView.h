@@ -4,21 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIView.h"
+#import <CarPlaySupport/CPSInheritedBackgroundColorView.h>
 
 #import "CPSNavigationDisplaying.h"
 
-@class NSArray, NSMutableArray, NSString;
+@class CPSHairlineView, NSArray, NSMutableArray, NSString;
 
-@interface CPSUpcomingManeuversCardView : UIView <CPSNavigationDisplaying>
+@interface CPSUpcomingManeuversCardView : CPSInheritedBackgroundColorView <CPSNavigationDisplaying>
 {
     _Bool _minimalMode;
     NSArray *_maneuvers;
     NSArray *_maneuverStyles;
     NSMutableArray *_maneuverViewStack;
     NSMutableArray *_verticalConstraints;
+    CPSHairlineView *_hairlineView;
 }
 
+@property(readonly, nonatomic) CPSHairlineView *hairlineView; // @synthesize hairlineView=_hairlineView;
 @property(readonly, nonatomic) NSMutableArray *verticalConstraints; // @synthesize verticalConstraints=_verticalConstraints;
 @property(readonly, nonatomic) NSMutableArray *maneuverViewStack; // @synthesize maneuverViewStack=_maneuverViewStack;
 @property(readonly, nonatomic) NSArray *maneuverStyles; // @synthesize maneuverStyles=_maneuverStyles;
@@ -29,7 +31,8 @@
 - (void)updateEstimates:(id)arg1 forManeuver:(id)arg2;
 - (void)showManeuvers:(id)arg1 usingDisplayStyles:(id)arg2;
 - (void)_clearManeuvers;
-- (id)initWithBackgroundColor:(id)arg1;
+- (void)backgroundColorDidChange;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -62,6 +62,7 @@ __attribute__((visibility("hidden")))
 - (void)transitionFrom:(long long)arg1 to:(long long)arg2 duration:(double)arg3;
 - (void)annotationViewDidChangeCenterOffset:(id)arg1;
 - (void)_updateZPositionForAnnotationView:(id)arg1 inBounds:(struct CGRect)arg2;
+- (void)annotationViewDidChangeHidden:(id)arg1;
 - (void)annotationViewDidChangeZIndex:(id)arg1;
 @property(readonly, nonatomic) CDStruct_089f5ccb currentComparisonContext;
 - (void)selectAnnotationView:(id)arg1 animated:(_Bool)arg2;

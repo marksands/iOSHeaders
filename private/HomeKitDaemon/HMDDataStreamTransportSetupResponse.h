@@ -8,15 +8,17 @@
 
 #import "NSCopying.h"
 
-@class HMDDataStreamTransportParameters, HMDDataStreamTransportStatus;
+@class HMDDataStreamTransportParameters, HMDDataStreamTransportStatus, NSData;
 
 @interface HMDDataStreamTransportSetupResponse : NSObject <NSCopying>
 {
     HMDDataStreamTransportStatus *_status;
     HMDDataStreamTransportParameters *_parameters;
+    NSData *_accessoryKeySalt;
 }
 
 + (id)parsedFromData:(id)arg1 error:(id *)arg2;
+@property(retain, nonatomic) NSData *accessoryKeySalt; // @synthesize accessoryKeySalt=_accessoryKeySalt;
 @property(retain, nonatomic) HMDDataStreamTransportParameters *parameters; // @synthesize parameters=_parameters;
 @property(retain, nonatomic) HMDDataStreamTransportStatus *status; // @synthesize status=_status;
 - (void).cxx_destruct;
@@ -25,7 +27,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)serializeWithError:(id *)arg1;
 - (_Bool)parseFromData:(id)arg1 error:(id *)arg2;
-- (id)initWithStatus:(id)arg1 parameters:(id)arg2;
+- (id)initWithStatus:(id)arg1 parameters:(id)arg2 accessoryKeySalt:(id)arg3;
 - (id)init;
 
 @end

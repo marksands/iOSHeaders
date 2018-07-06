@@ -17,6 +17,7 @@
 
 @property(retain, nonatomic) NSDictionary *requiredMeaningfulEventCriteriaByIdentifier; // @synthesize requiredMeaningfulEventCriteriaByIdentifier=_requiredMeaningfulEventCriteriaByIdentifier;
 - (void).cxx_destruct;
+- (id)_lastHomeVisit;
 - (id)_meaningfulCollectionsForMoment:(id)arg1 lastSpecialEventCollections:(id)arg2;
 - (void)_processTripsAndWeekendsWithMomentNodes:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (void)processSpecialEventsWithMomentNodes:(id)arg1 isResumingFullAnalysis:(_Bool)arg2 progressBlock:(CDUnknownBlockType)arg3;

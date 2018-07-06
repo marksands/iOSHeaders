@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CKContainer, NSData, NSHashTable, NSMutableDictionary, NSMutableSet, NSOperation, _DKSyncPeerStatusTracker, _DKThrottledActivity;
+@class CKContainer, CKServerChangeToken, NSHashTable, NSMutableDictionary, NSMutableSet, NSOperation, _DKSyncPeerStatusTracker, _DKThrottledActivity;
 
 @interface _DKSyncCloudKitKnowledgeStorage : NSObject
 {
@@ -16,13 +16,14 @@
     _DKSyncPeerStatusTracker *_tracker;
     _Bool _cloudSyncAvailablityObserverRegistered;
     CKContainer *_container;
+    double _updateSyncedDeviceIdentifiersBackoffTimeInterval;
     NSMutableDictionary *_zoneIDsBySourceDeviceID;
     NSMutableSet *_zoneIDsWithAdditionChanges;
     NSMutableSet *_zoneIDsWithDeletionChanges;
-    NSData *_fetchDatabaseChangesServerChangeTokenData;
+    CKServerChangeToken *_fetchDatabaseChangesServerChangeToken;
     NSOperation *_previousDependentOperation;
     NSHashTable *_outstandingOperations;
-    _Bool _isAvailable;
+    _Bool _available;
     id <_DKSyncRemoteKnowledgeStorageFetchDelegate> _delegate;
 }
 
@@ -31,7 +32,7 @@
 + (void)setMySyncZoneID:(id)arg1;
 + (id)mySyncZoneID;
 + (id)sharedInstance;
-@property _Bool isAvailable; // @synthesize isAvailable=_isAvailable;
+@property(getter=isAvailable) _Bool available; // @synthesize available=_available;
 @property(retain) id <_DKSyncRemoteKnowledgeStorageFetchDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (long long)transportType;
@@ -62,6 +63,7 @@
 - (void)_createZoneWithZoneID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setZoneIDsBySourceDeviceID:(id)arg1;
 - (void)configureCloudPseudoPeerWithMySyncZoneID:(id)arg1;
+- (void)scheduleRetryUpdateSyncedDeviceIdentifiers;
 - (void)finishUpdatingSyncedDeviceIdentifiersWithMySyncZoneID:(id)arg1 orError:(id)arg2 zoneIDsBySourceDeviceID:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)updateSyncedDeviceIdentifiersWithRecordZonesByZoneID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_performThrottledUpdateSyncedDeviceIdentifiersWithCompletion:(CDUnknownBlockType)arg1;

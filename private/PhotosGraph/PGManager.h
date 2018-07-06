@@ -45,6 +45,7 @@
     NSObject<OS_os_log> *_relatedLoggingConnection;
     NSObject<OS_os_log> *_ingestLoggingConnection;
     NSObject<OS_os_log> *_graphLoggingConnection;
+    NSObject<OS_os_log> *_suggestionsLoggingConnection;
     NSArray *_momentsForLibraryAnalysis;
 }
 
@@ -67,6 +68,7 @@
 + (id)matchingWeightToDictionary;
 + (id)assetPropertySetsForCuration;
 @property(retain, nonatomic) NSArray *momentsForLibraryAnalysis; // @synthesize momentsForLibraryAnalysis=_momentsForLibraryAnalysis;
+@property(readonly, nonatomic) NSObject<OS_os_log> *suggestionsLoggingConnection; // @synthesize suggestionsLoggingConnection=_suggestionsLoggingConnection;
 @property(readonly, nonatomic) NSObject<OS_os_log> *graphLoggingConnection; // @synthesize graphLoggingConnection=_graphLoggingConnection;
 @property(readonly, nonatomic) NSObject<OS_os_log> *ingestLoggingConnection; // @synthesize ingestLoggingConnection=_ingestLoggingConnection;
 @property(readonly, nonatomic) NSObject<OS_os_log> *relatedLoggingConnection; // @synthesize relatedLoggingConnection=_relatedLoggingConnection;
@@ -118,8 +120,6 @@
 - (id)suggestedContributionsForAssetsMetadata:(id)arg1;
 - (id)suggestedRecipientIdentifiersForMomentIdentifiers:(id)arg1 sharingStream:(unsigned long long)arg2;
 - (id)sharingSuggestionsWithMomentIdentifiers:(id)arg1;
-- (id)notificationSubtitleForSuggestion:(id)arg1;
-- (id)notificationTitleForSuggestion:(id)arg1;
 - (_Bool)_isMemoryCategoryTriggered:(unsigned long long)arg1;
 - (_Bool)isPGMemoryTriggered:(id)arg1;
 - (_Bool)isPHMemoryTriggered:(id)arg1;
@@ -293,6 +293,7 @@
 - (id)_titleStatistics;
 - (id)_stringDescriptionForPublicEvents:(_Bool)arg1;
 - (id)_stringDescriptionForBusinessItemsIncludingInferredThroughPublicEvents:(_Bool)arg1 verbose:(_Bool)arg2;
+- (id)_stringDescriptionForLocations;
 - (id)_stringDescriptionForDisambiguatedPOIsInMomentNodes:(id)arg1;
 - (id)_stringDescriptionForDisambiguatedLocations;
 - (id)_stringDescriptionForMeNode:(id)arg1;
@@ -310,7 +311,7 @@
 - (id)_stringDescriptionForMemoriesNotification;
 - (id)exportableDictionaryFromKeywords:(id)arg1;
 - (id)_checkConsistencyOfGraph:(id)arg1;
-- (id)_defaultStatistics:(_Bool)arg1;
+- (id)_defaultStatistics:(_Bool)arg1 forDiagnostics:(_Bool)arg2;
 - (id)statisticsWithTypeStrings:(id)arg1;
 - (unsigned int)identifierForMoment:(id)arg1;
 - (id)keywordsForAsset:(id)arg1 relatedType:(unsigned long long)arg2;

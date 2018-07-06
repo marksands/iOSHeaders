@@ -14,13 +14,15 @@
 {
     id <SVVideoPlaybackProgressObserverFactory> _playbackProgressObserverFactory;
     id <SVVideoVolumeObserverFactory> _volumeObserverFactory;
+    id <SVVideoTimePlayedTrackerFactory> _timePlayedTrackerFactory;
 }
 
+@property(readonly, nonatomic) id <SVVideoTimePlayedTrackerFactory> timePlayedTrackerFactory; // @synthesize timePlayedTrackerFactory=_timePlayedTrackerFactory;
 @property(readonly, nonatomic) id <SVVideoVolumeObserverFactory> volumeObserverFactory; // @synthesize volumeObserverFactory=_volumeObserverFactory;
 @property(readonly, nonatomic) id <SVVideoPlaybackProgressObserverFactory> playbackProgressObserverFactory; // @synthesize playbackProgressObserverFactory=_playbackProgressObserverFactory;
 - (void).cxx_destruct;
 - (id)createMetadataProviderForVideo:(id)arg1;
-- (id)initWithPlaybackProgressObserverFactory:(id)arg1 volumeObserverFactory:(id)arg2;
+- (id)initWithPlaybackProgressObserverFactory:(id)arg1 volumeObserverFactory:(id)arg2 timePlayedTrackerFactory:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -20,7 +20,7 @@
 @property(readonly, nonatomic) PHAsset *underlyingAsset; // @synthesize underlyingAsset=_underlyingAsset;
 @property(readonly, nonatomic) PHMomentShare *momentShare; // @synthesize momentShare=_momentShare;
 - (void).cxx_destruct;
-- (struct CGRect)bestCropRectForAspectRatio:(double)arg1 useSaliency:(_Bool)arg2;
+- (struct CGRect)bestCropRectForAspectRatio:(double)arg1 verticalContentMode:(long long)arg2 cropMode:(long long)arg3;
 @property(readonly, nonatomic) double aspectRatio;
 - (struct CGSize)size;
 - (struct CGRect)bestCropRectForAspectRatio:(double)arg1;

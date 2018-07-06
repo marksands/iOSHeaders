@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIKeyboardDockItem *leftDockItem; // @synthesize leftDockItem=_leftDockItem;
 @property(nonatomic) __weak id <UIKeyboardDockViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (struct CGRect)_keyboardLongPressInteractionRegion;
+- (id)_keyboardLongPressInteractionRegions;
 - (id)_keyboardLayoutView;
 - (void)layoutSubviews;
 - (struct CGSize)intrinsicContentSize;

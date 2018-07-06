@@ -83,6 +83,8 @@
 - (void)play;
 - (void)updateViewConstraints;
 - (void)viewDidLoad;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)dealloc;
 - (void)loadView;
 - (id)initWithVolumeReporter:(id)arg1;

@@ -21,6 +21,8 @@
 - (float)timingForKey:(int)arg1;
 - (_Bool)isValidTimingForKey:(int)arg1;
 - (void)stopTimingForKey:(int)arg1;
+- (void)setStopTime:(float)arg1 forKey:(int)arg2;
+- (void)setStartTime:(float)arg1 forKey:(int)arg2;
 - (void)setTiming:(float)arg1 forKey:(int)arg2;
 - (void)startTimingForKey:(int)arg1;
 - (void)dealloc;

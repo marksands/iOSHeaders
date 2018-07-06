@@ -41,7 +41,7 @@
 - (unsigned long long)currentAppBadgeCountForNotificationUNCenter:(id)arg1;
 - (void)postNotificationForExpiringCMMsWithUUIDs:(id)arg1 thumbnailImageData:(id)arg2 notificationTitle:(id)arg3 notificationSubtitle:(id)arg4;
 - (void)removeNotificationForSuggestedCMMWithUUID:(id)arg1;
-- (void)postNotificationForSuggestedCMMWithUUID:(id)arg1 keyAssetUUID:(id)arg2 notificationTitle:(id)arg3 notificationSubtitle:(id)arg4 notificationDeliveryDate:(id)arg5;
+- (void)postNotificationForSuggestedCMMWithUUID:(id)arg1 notificationDeliveryDate:(id)arg2;
 - (void)_deleteNotificationsForAssetWithUUID:(id)arg1 shouldDeleteCommentsOrLikeNotifications:(_Bool)arg2 shouldDeletePhotosAddedToAlbumNotifications:(_Bool)arg3;
 - (_Bool)_notificationType:(long long)arg1 matchesCommentsOrLikeNotifications:(_Bool)arg2 andPhotosAddedToAlbumNotifications:(_Bool)arg3;
 - (void)_deleteNotificationsForAlbumWithUUID:(id)arg1 notificationTypes:(id)arg2;

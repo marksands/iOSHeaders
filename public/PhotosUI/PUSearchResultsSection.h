@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSMutableSet, NSString;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableSet, NSString;
 
 __attribute__((visibility("hidden")))
 @interface PUSearchResultsSection : NSObject
@@ -33,7 +33,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
 - (id)description;
-- (id)debugDictionary;
+@property(readonly) NSDictionary *debugDictionary;
 @property(readonly, nonatomic) unsigned long long visibleCount;
 @property(readonly, nonatomic, getter=isExpandable) _Bool expandable;
 - (void)addSearchResult:(id)arg1;

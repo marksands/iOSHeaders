@@ -7,12 +7,10 @@
 #import "NSObject.h"
 
 #import "ACHEarnedInstanceEntitySyncedEarnedInstancesObserver.h"
-#import "HDDatabaseProtectedDataObserver.h"
-#import "HDHealthDaemonReadyObserver.h"
 
 @class ACHEarnedInstanceDuplicateUtility, ACHEarnedInstanceEntityWrapper, HDProfile, NSArray, NSHashTable, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
-@interface ACHEarnedInstanceStore : NSObject <HDHealthDaemonReadyObserver, HDDatabaseProtectedDataObserver, ACHEarnedInstanceEntitySyncedEarnedInstancesObserver>
+@interface ACHEarnedInstanceStore : NSObject <ACHEarnedInstanceEntitySyncedEarnedInstancesObserver>
 {
     _Bool _initialEarnedInstanceFetchComplete;
     unsigned char _device;
@@ -40,21 +38,19 @@
 - (void)_notifyObserversOfRemovedEarnedInstances:(id)arg1;
 - (void)_notifyObserversOfAddedEarnedInstances:(id)arg1;
 - (void)_notifyInitialFetchComplete;
-- (void)_fetchAllEarnedInstancesFromEntity;
+- (void)loadAllEarnedInstancesFromDatabaseIfNecessary;
 - (_Bool)removeAllEarnedInstancesWithError:(id *)arg1;
 - (_Bool)_queue_removeEarnedInstances:(id)arg1 error:(id *)arg2;
 - (_Bool)removeEarnedInstances:(id)arg1 error:(id *)arg2;
 - (id)_queue_addEarnedInstancesWithSingleTemplate:(id)arg1 provenance:(long long)arg2 databaseContext:(id)arg3 error:(id *)arg4;
-- (_Bool)_queue_addEarnedInstances:(id)arg1 provenance:(long long)arg2 databaseContext:(id)arg3 error:(id *)arg4;
+- (_Bool)_queue_addEarnedInstances:(id)arg1 provenance:(long long)arg2 databaseContext:(id)arg3 triggerSync:(_Bool)arg4 error:(id *)arg5;
 - (void)_queue_appendOrInsertEarnedInstanceToInMemoryStore:(id)arg1;
 - (_Bool)addEarnedInstances:(id)arg1 error:(id *)arg2;
 - (_Bool)addEarnedInstances:(id)arg1 databaseContext:(id)arg2 error:(id *)arg3;
 - (id)earnedInstancesForTemplateUniqueName:(id)arg1;
 @property(readonly, nonatomic) NSArray *earnedInstances;
 - (id)_queue_earnedInstancesArray;
-- (void)earnedInstanceEntityDidReceiveSyncedEarnedInstances:(id)arg1 provenance:(long long)arg2;
-- (void)database:(id)arg1 protectedDataDidBecomeAvailable:(_Bool)arg2;
-- (void)daemonReady:(id)arg1;
+- (_Bool)earnedInstanceEntityDidReceiveSyncedEarnedInstances:(id)arg1 provenance:(long long)arg2;
 - (id)initWithProfile:(id)arg1 earnedInstanceEntityWrapper:(id)arg2 earnedInstanceDuplicateUtility:(id)arg3 device:(unsigned char)arg4;
 
 // Remaining properties

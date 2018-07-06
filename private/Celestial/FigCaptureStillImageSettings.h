@@ -35,6 +35,10 @@
     unsigned int _thumbnailFormat;
     unsigned int _thumbnailWidth;
     unsigned int _thumbnailHeight;
+    _Bool _rawThumbnailEnabled;
+    unsigned int _rawThumbnailFormat;
+    unsigned int _rawThumbnailWidth;
+    unsigned int _rawThumbnailHeight;
     _Bool _noiseReductionEnabled;
     _Bool _burstQualityCaptureEnabled;
     float _scaleFactor;
@@ -107,6 +111,10 @@
 @property(nonatomic) float scaleFactor; // @synthesize scaleFactor=_scaleFactor;
 @property(nonatomic) _Bool burstQualityCaptureEnabled; // @synthesize burstQualityCaptureEnabled=_burstQualityCaptureEnabled;
 @property(nonatomic) _Bool noiseReductionEnabled; // @synthesize noiseReductionEnabled=_noiseReductionEnabled;
+@property(nonatomic) unsigned int rawThumbnailHeight; // @synthesize rawThumbnailHeight=_rawThumbnailHeight;
+@property(nonatomic) unsigned int rawThumbnailWidth; // @synthesize rawThumbnailWidth=_rawThumbnailWidth;
+@property(nonatomic) unsigned int rawThumbnailFormat; // @synthesize rawThumbnailFormat=_rawThumbnailFormat;
+@property(nonatomic) _Bool rawThumbnailEnabled; // @synthesize rawThumbnailEnabled=_rawThumbnailEnabled;
 @property(nonatomic) unsigned int thumbnailHeight; // @synthesize thumbnailHeight=_thumbnailHeight;
 @property(nonatomic) unsigned int thumbnailWidth; // @synthesize thumbnailWidth=_thumbnailWidth;
 @property(nonatomic) unsigned int thumbnailFormat; // @synthesize thumbnailFormat=_thumbnailFormat;
@@ -134,6 +142,7 @@
 @property(readonly, nonatomic) NSString *imageGroupIdentifier;
 - (void)setBracketType:(int)arg1 imageCount:(unsigned int)arg2;
 @property(readonly, nonatomic) NSDictionary *previewPixelBufferAttributes;
+@property(readonly, nonatomic, getter=isOutputFormatCompressed) _Bool outputFormatCompressed;
 @property(readonly, nonatomic) NSDictionary *outputPixelBufferAttributes;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;

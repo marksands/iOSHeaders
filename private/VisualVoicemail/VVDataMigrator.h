@@ -12,10 +12,12 @@
 {
     NSString *_serviceIdentifier;
     NSString *_searchHint;
+    NSString *_isoCountryCode;
 }
 
 + (id)homeDirectory;
 + (id)carrierServiceName;
+@property(copy, nonatomic) NSString *isoCountryCode; // @synthesize isoCountryCode=_isoCountryCode;
 @property(copy, nonatomic) NSString *searchHint; // @synthesize searchHint=_searchHint;
 @property(copy, nonatomic) NSString *serviceIdentifier; // @synthesize serviceIdentifier=_serviceIdentifier;
 - (void).cxx_destruct;

@@ -8,25 +8,32 @@
 
 #import "AMSURLProtocolDialogHandling.h"
 
-@class AMSURLTaskInfo, NSArray, NSDictionary, NSString, NSURL;
+@class ACAccount, NSDictionary, NSImage, NSString;
 
-__attribute__((visibility("hidden")))
 @interface AMSURLProtocolDialog : NSObject <AMSURLProtocolDialogHandling>
 {
     NSDictionary *_dialogDictionary;
-    NSURL *_redirectURL;
-    AMSURLTaskInfo *_taskInfo;
+    ACAccount *_account;
+    id <AMSURLBagContract> _bagContract;
+    long long _dialogOptions;
+    NSImage *_icon;
     NSString *_logKey;
+    NSString *_proxyBundleId;
 }
 
+@property(retain, nonatomic) NSString *proxyBundleId; // @synthesize proxyBundleId=_proxyBundleId;
 @property(retain, nonatomic) NSString *logKey; // @synthesize logKey=_logKey;
-@property(readonly, nonatomic) AMSURLTaskInfo *taskInfo; // @synthesize taskInfo=_taskInfo;
+@property(retain, nonatomic) NSImage *icon; // @synthesize icon=_icon;
+@property(readonly, nonatomic) long long dialogOptions; // @synthesize dialogOptions=_dialogOptions;
+@property(readonly, nonatomic) id <AMSURLBagContract> bagContract; // @synthesize bagContract=_bagContract;
+@property(readonly, nonatomic) ACAccount *account; // @synthesize account=_account;
 @property(readonly, nonatomic) NSDictionary *dialogDictionary; // @synthesize dialogDictionary=_dialogDictionary;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *message;
-@property(readonly, nonatomic) NSArray *buttons;
+- (id)buttons;
 @property(readonly, nonatomic) NSString *title;
 - (id)runDialog;
+- (id)initWithDialogDictionary:(id)arg1 dialogOptions:(long long)arg2 account:(id)arg3 bagContract:(id)arg4;
 - (id)initWithDialogDictionary:(id)arg1 taskInfo:(id)arg2;
 
 // Remaining properties

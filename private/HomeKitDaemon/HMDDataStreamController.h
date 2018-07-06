@@ -40,6 +40,7 @@
 - (void)_cancelStreamTransportWithError:(id)arg1;
 - (void)_finishStreamTransport;
 - (void)_continueStreamSetupWithResponse:(id)arg1;
+- (void)_generateStreamKeys;
 - (void)_initiateStreamSetup;
 - (void)removeBulkSendListener:(id)arg1;
 - (void)addBulkSendListener:(id)arg1 fileType:(id)arg2;

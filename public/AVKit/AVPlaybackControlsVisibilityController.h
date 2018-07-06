@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class AVObservationController, AVPlayerController, AVUserInteractionObserverGestureRecognizer, NSMapTable, NSTimer, UIView, UIViewPropertyAnimator;
+@class AVObservationController, AVPlayerController, NSMapTable, NSTimer, UIViewPropertyAnimator;
 
 @interface AVPlaybackControlsVisibilityController : NSObject
 {
     UIViewPropertyAnimator *_visibilityAnimator;
     AVObservationController *_keyValueObservationController;
     NSMapTable *_itemsAndItemInfos;
-    AVUserInteractionObserverGestureRecognizer *_userInteractionObserverGestureRecognizer;
+    long long _numberOfUserInteractionsBeingTracked;
     double _animationDuration;
     _Bool _visibilityNeedsUpdate;
     _Bool _prefersRegularItemsVisible;
@@ -37,10 +37,8 @@
     _Bool _canHideItems;
     _Bool _showsItemsWhileWaitingToPlay;
     AVPlayerController *_playerController;
-    UIView *_viewForUserInteractionObservation;
 }
 
-@property(nonatomic) __weak UIView *viewForUserInteractionObservation; // @synthesize viewForUserInteractionObservation=_viewForUserInteractionObservation;
 @property(nonatomic) _Bool showsItemsWhileWaitingToPlay; // @synthesize showsItemsWhileWaitingToPlay=_showsItemsWhileWaitingToPlay;
 @property(nonatomic, getter=isPopoverPresented) _Bool popoverPresented; // @synthesize popoverPresented=_popoverPresented;
 @property(nonatomic, getter=isPictureInPictureActive) _Bool pictureInPictureActive; // @synthesize pictureInPictureActive=_pictureInPictureActive;
@@ -64,7 +62,6 @@
 - (void)_startTimerToHideItemsShownForVolumeChange;
 - (void)_showItemsShownForVolumeChangeAndHideAfterDelay;
 - (void)_showItemsShownForVolumeChange;
-- (void)_handleUserInteractionObservationRecognizer:(id)arg1;
 - (_Bool)_hasItemsThatCanBeHidden;
 - (_Bool)_hasItemsThatCanBeShown;
 - (id)_itemsPassingTest:(CDUnknownBlockType)arg1;
@@ -74,6 +71,8 @@
 - (void)_updateVisibilityWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_startControllingVisibilityIfNeeded;
 - (void)flashPlaybackControlsWithDuration:(double)arg1;
+- (void)endTrackingUserInteraction;
+- (void)beginTrackingUserInteraction;
 - (void)stopControllingVisibilityOfItem:(id)arg1;
 - (void)startControllingVisibilityOfItem:(id)arg1 visibilityBehaviorOptions:(long long)arg2;
 - (void)toggleVisibility;

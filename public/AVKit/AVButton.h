@@ -67,6 +67,7 @@
 @property(nonatomic) _Bool wasLongPressed; // @synthesize wasLongPressed=_wasLongPressed;
 - (void).cxx_destruct;
 - (id)_preferredImageName;
+- (void)_updateIsHiddenAndAlpha;
 - (void)_updateImageIfNeeded;
 - (void)_resetTrackedState;
 - (void)_handleUserInteractionGestureRecognizer:(id)arg1;

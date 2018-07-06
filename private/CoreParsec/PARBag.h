@@ -42,6 +42,7 @@
 @property(readonly, nonatomic) _Bool collectAnonymousMetadata;
 @property(readonly, nonatomic) _Bool collectScores;
 @property(readonly, nonatomic) _Bool sampleFeatures;
+@property(readonly, nonatomic) _Bool sampleClientTiming;
 @property(readonly, nonatomic) unsigned long long smartHistoryMinimumQueryLength;
 @property(readonly, nonatomic) _Bool smartHistoryFeatureFeedbackEnabled;
 @property(readonly, nonatomic) unsigned long long smartHistorySampleThreshold;

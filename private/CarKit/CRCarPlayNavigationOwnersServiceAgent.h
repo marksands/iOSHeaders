@@ -10,20 +10,24 @@
 #import "CRCarPlayNavigationOwnersService.h"
 #import "NSXPCListenerDelegate.h"
 
-@class CARSessionStatus, NSMutableSet, NSString;
+@class CARRouteGuidanceiAPSession, CARSessionStatus, NSMutableOrderedSet, NSString;
 
 @interface CRCarPlayNavigationOwnersServiceAgent : NSObject <CARSessionObserving, NSXPCListenerDelegate, CRCarPlayNavigationOwnersService>
 {
     _Bool _cachedDoWeOwnNavigation;
     CARSessionStatus *_sessionStatus;
-    NSMutableSet *_owners;
+    NSMutableOrderedSet *_owners;
+    CARRouteGuidanceiAPSession *_iAPRouteGuidanceSession;
 }
 
 @property(nonatomic) _Bool cachedDoWeOwnNavigation; // @synthesize cachedDoWeOwnNavigation=_cachedDoWeOwnNavigation;
-@property(retain, nonatomic) NSMutableSet *owners; // @synthesize owners=_owners;
+@property(retain, nonatomic) CARRouteGuidanceiAPSession *iAPRouteGuidanceSession; // @synthesize iAPRouteGuidanceSession=_iAPRouteGuidanceSession;
+@property(retain, nonatomic) NSMutableOrderedSet *owners; // @synthesize owners=_owners;
 @property(retain, nonatomic) CARSessionStatus *sessionStatus; // @synthesize sessionStatus=_sessionStatus;
 - (void).cxx_destruct;
+- (_Bool)_navigationOwnerExistsForIdentifier:(id)arg1;
 - (void)fetchNavigationOwnerWithReply:(CDUnknownBlockType)arg1;
+- (void)_updateRouteGuidanceToLastIdentifier;
 - (void)removeNavigationOwnerWithIdentifier:(id)arg1;
 - (void)addNavigationOwnerWithIdentifier:(id)arg1;
 - (void)_navigationOwnershipChangedFromCar:(id)arg1;

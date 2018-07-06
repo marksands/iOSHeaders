@@ -11,6 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface PUPhotoKitAdjustmentSaveNode : PXRunNode
 {
+    _Bool _useRawIfAvailable;
     _Bool _success;
     PUPhotoKitImageDataNode *_imageDataNode;
     PUImageDataRenderNode *_imageRenderNode;
@@ -19,6 +20,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) _Bool success; // @synthesize success=_success;
+@property(readonly, nonatomic) _Bool useRawIfAvailable; // @synthesize useRawIfAvailable=_useRawIfAvailable;
 @property(readonly, copy, nonatomic) PUPhotoEditIrisModel *livePhotoModel; // @synthesize livePhotoModel=_livePhotoModel;
 @property(readonly, nonatomic) id <PUVideoURLNode> videoNode; // @synthesize videoNode=_videoNode;
 @property(readonly, nonatomic) PUImageDataRenderNode *imageRenderNode; // @synthesize imageRenderNode=_imageRenderNode;
@@ -30,7 +32,7 @@ __attribute__((visibility("hidden")))
 - (long long)_adjustmentBaseVersion;
 - (double)_baseDuration;
 - (long long)_baseExifOrientation;
-- (id)initWithImageDataNode:(id)arg1 imageRenderNode:(id)arg2 videoNode:(id)arg3 livePhotoModel:(id)arg4;
+- (id)initWithImageDataNode:(id)arg1 imageRenderNode:(id)arg2 videoNode:(id)arg3 livePhotoModel:(id)arg4 useRawIfAvailable:(_Bool)arg5;
 
 @end
 

@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) NSObject<OS_os_log> *interactionLog; // @synthesize interactionLog=_interactionLog;
 @property(readonly, nonatomic) NSObject<OS_os_log> *generalLog; // @synthesize generalLog=_generalLog;
 - (void).cxx_destruct;
+- (void)logCarouselEndsDraggingWithVelocity:(double)arg1 willSwitchIndexPathInsteadOfScrollBack:(_Bool)arg2 forHighVelocity:(_Bool)arg3;
 - (void)logCarouselDelegateDidUpdateRecord:(id)arg1;
 - (void)logCarouselDelegateNearnessFactorDidChange:(double)arg1 towardRecord:(_Bool)arg2 editable:(_Bool)arg3;
 - (void)logCarouselDelegateWillEndFocusRecord:(id)arg1;
@@ -45,6 +46,10 @@
 - (void)logCarouselChangesCenterItemTo:(id)arg1;
 - (void)logCarouselChangingToMultiMode;
 - (void)logCarouselChangingToSingleMode;
+- (void)logUsageTrackingBigDifferencesClusterCount:(unsigned long long)arg1;
+- (void)logUsageTrackingSmallDifferencesClusterCount:(unsigned long long)arg1;
+- (void)logUsageTrackingRecordCount:(unsigned long long)arg1;
+- (void)logSingleModeCantSnapshotForLackOfWindow;
 - (void)logAvatarPreloadEnd;
 - (void)logAvatarPreloadBeginForIdentifier:(id)arg1;
 - (void)logCarouselSnapshotForIndex:(unsigned long long)arg1 size:(struct CGSize)arg2;

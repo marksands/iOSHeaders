@@ -84,6 +84,7 @@
 - (long long)_defaultShareAuthorizationMode;
 - (void)switchCellValueChanged:(id)arg1 value:(_Bool)arg2;
 - (void)_finishWithError:(id)arg1;
+- (void)_presentViewAppPrivacyPolicyURLErrorAlert;
 - (void)_viewAppPrivacyPolicyCellPressed:(id)arg1;
 - (void)_doNotAllowButtonPressed:(id)arg1;
 - (void)_shareAuthorizationModeCellPressed:(id)arg1;

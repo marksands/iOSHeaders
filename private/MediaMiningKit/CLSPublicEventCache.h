@@ -15,8 +15,6 @@
 
 @property(readonly, nonatomic) NSPredicate *publicEventUpdateTimestamPredicate; // @synthesize publicEventUpdateTimestamPredicate=_publicEventUpdateTimestamPredicate;
 - (void).cxx_destruct;
-- (id)_deserializeLocalizedSubcategoriesData:(id)arg1;
-- (id)_serializeLocalizedSubcategories:(id)arg1;
 - (unsigned long long)numberOftimeLocationTuplesForTimeLocationTuple:(id)arg1;
 - (_Bool)hasTimeLocationTuple:(id)arg1;
 - (id)publicEventFromManagedObject:(id)arg1;

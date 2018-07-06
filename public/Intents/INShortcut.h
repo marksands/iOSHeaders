@@ -18,9 +18,11 @@
     INIntent *_intent;
     NSUserActivity *_userActivity;
     INImage *_activityImage;
+    NSString *_activitySubtitle;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *activitySubtitle; // @synthesize activitySubtitle=_activitySubtitle;
 @property(copy, nonatomic) INImage *activityImage; // @synthesize activityImage=_activityImage;
 @property(readonly, nonatomic) NSUserActivity *userActivity; // @synthesize userActivity=_userActivity;
 @property(copy, nonatomic) INIntent *intent; // @synthesize intent=_intent;

@@ -22,6 +22,7 @@
 - (double)fiui_averageTimePerLap;
 - (id)fiui_connectedGymBrandName;
 - (_Bool)fiui_isConnectedGymWorkout;
+- (id)fiui_finalWorkoutUUID;
 - (double)fiui_averagePace;
 - (id)_fiui_averagePaceQty;
 - (_Bool)fiui_hasAveragePace;
@@ -33,6 +34,7 @@
 - (id)fiui_elevation;
 - (_Bool)fiui_hasElevation;
 - (_Bool)fiui_hasWeatherData;
+- (id)fiui_keyValueSummary;
 - (long long)fiui_numberOfEventsOfType:(long long)arg1;
 - (id)fiui_eventsOfType:(long long)arg1;
 - (double)fiui_completionFactor;

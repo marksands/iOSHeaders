@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDictionary, NSSet, NSString, NSURL, NSUUID, XCTAggregateSuiteRunStatistics;
+@class NSArray, NSDictionary, NSNumber, NSSet, NSString, NSURL, NSUUID, XCTAggregateSuiteRunStatistics;
 
 @interface XCTestConfiguration : NSObject <NSSecureCoding>
 {
@@ -40,12 +40,16 @@
     NSString *_automationFrameworkPath;
     long long _systemAttachmentLifetime;
     long long _userAttachmentLifetime;
+    long long _testExecutionOrdering;
+    NSNumber *_randomExecutionOrderingSeed;
 }
 
 + (id)configurationWithContentsOfFile:(id)arg1;
 + (id)activeTestConfiguration;
 + (void)setActiveTestConfiguration:(id)arg1;
 + (_Bool)supportsSecureCoding;
+@property(retain) NSNumber *randomExecutionOrderingSeed; // @synthesize randomExecutionOrderingSeed=_randomExecutionOrderingSeed;
+@property long long testExecutionOrdering; // @synthesize testExecutionOrdering=_testExecutionOrdering;
 @property long long userAttachmentLifetime; // @synthesize userAttachmentLifetime=_userAttachmentLifetime;
 @property long long systemAttachmentLifetime; // @synthesize systemAttachmentLifetime=_systemAttachmentLifetime;
 @property _Bool emitOSLogs; // @synthesize emitOSLogs=_emitOSLogs;

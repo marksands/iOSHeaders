@@ -8,13 +8,14 @@
 
 #import "STUIDateTimePickerCellDelegate.h"
 
-@class NSString, PSSpecifier, STDeviceBedtime;
+@class NSString, PSSpecifier, STDeviceBedtime, STUser;
 
 @interface STDeviceBedtimeListController : PSListController <STUIDateTimePickerCellDelegate>
 {
     _Bool _canAskForMoreTime;
     id <STDeviceBedtimeListControllerDelegate> _delegate;
     STDeviceBedtime *_bedtime;
+    STUser *_affectedUser;
     PSSpecifier *_deviceBedtimeSpecifier;
     PSSpecifier *_informativeTextGroupSpecifier;
     PSSpecifier *_timeGroupSpecifier;
@@ -38,18 +39,20 @@
 @property(retain, nonatomic) PSSpecifier *informativeTextGroupSpecifier; // @synthesize informativeTextGroupSpecifier=_informativeTextGroupSpecifier;
 @property(retain, nonatomic) PSSpecifier *deviceBedtimeSpecifier; // @synthesize deviceBedtimeSpecifier=_deviceBedtimeSpecifier;
 @property(nonatomic) _Bool canAskForMoreTime; // @synthesize canAskForMoreTime=_canAskForMoreTime;
+@property(retain, nonatomic) STUser *affectedUser; // @synthesize affectedUser=_affectedUser;
 @property(copy, nonatomic) STDeviceBedtime *bedtime; // @synthesize bedtime=_bedtime;
 @property(nonatomic) __weak id <STDeviceBedtimeListControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)datePickerForSpecifier:(id)arg1;
 - (void)datePickerChanged:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)atDowntimeFooterText;
 - (id)askForMoreTime:(id)arg1;
 - (void)setAskForMoreTime:(id)arg1 specifier:(id)arg2;
+- (id)timeFooterText;
 - (id)endTime;
 - (id)startTime;
 - (void)showPickerSpecifierForSpecifier:(id)arg1;
-- (id)emptyGroupSpecifier;
 - (id)deviceBedtimeEnabled:(id)arg1;
 - (void)setDeviceBedtimeEnabled:(id)arg1 specifier:(id)arg2;
 - (id)specifiers;

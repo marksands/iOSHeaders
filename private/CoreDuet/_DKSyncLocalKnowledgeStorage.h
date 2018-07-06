@@ -15,6 +15,8 @@
     _DKKnowledgeStorage *_storage;
 }
 
++ (void)_updateEventStatsWithFetchTombstonesTotal:(unsigned long long)arg1 streamNameCounts:(id)arg2;
++ (void)_updateEventStatsWithFetchEventsTotal:(unsigned long long)arg1 streamNameCounts:(id)arg2;
 @property(retain, nonatomic) _DKKnowledgeStorage *storage; // @synthesize storage=_storage;
 - (void).cxx_destruct;
 - (_Bool)deleteEventsWithEventIDs:(id)arg1 error:(id *)arg2;

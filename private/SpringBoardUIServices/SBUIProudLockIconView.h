@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class LAUIPearlGlyphView, NSSet, SBUICAPackageView, UIColor, _UILegibilitySettings;
+@class LAUIPearlGlyphView, NSSet, SBUICAPackageView, SBUIFaceIDCameraGlyphView, UIColor, _UILegibilitySettings;
 
 @interface SBUIProudLockIconView : UIView
 {
@@ -15,18 +15,22 @@
     NSSet *_imageLayers;
     LAUIPearlGlyphView *_lazy_pearlGlyphView;
     id _pearlGlyphViewSharedResources;
+    SBUIFaceIDCameraGlyphView *_cameraCoveredView;
     _UILegibilitySettings *_legibilitySettings;
+    double _durationOnCameraCoveredGlyphBeforeCoaching;
     UIColor *_contentColor;
 }
 
 @property(retain, nonatomic) UIColor *contentColor; // @synthesize contentColor=_contentColor;
+@property(nonatomic) double durationOnCameraCoveredGlyphBeforeCoaching; // @synthesize durationOnCameraCoveredGlyphBeforeCoaching=_durationOnCameraCoveredGlyphBeforeCoaching;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
+@property(readonly, nonatomic) SBUIFaceIDCameraGlyphView *cameraCoveredView; // @synthesize cameraCoveredView=_cameraCoveredView;
 @property(nonatomic) long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
 - (id)_pearlGlyphView;
 - (double)_alphaForActiveViewForState:(long long)arg1;
 - (struct CGAffineTransform)_transformForActiveViewForState:(long long)arg1;
-- (id)_activeViewForState:(long long)arg1;
+- (id)_activeViewsForState:(long long)arg1;
 - (void)_transitionToState:(long long)arg1 animated:(_Bool)arg2 options:(long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_forEachLayerInHierarchy:(id)arg1 perform:(CDUnknownBlockType)arg2;
 - (void)layoutSubviews;

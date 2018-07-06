@@ -23,6 +23,7 @@
     _Bool _paintCoastlines;
     _Bool _paintBuildingNormals;
     _Bool _paintLoadReason;
+    _Bool _showPreliminaryInfo;
     _Bool _disableRoute;
     _Bool _labelHighlighting;
     _Bool _transitHighlighting;
@@ -140,7 +141,7 @@
     unsigned long long _arSwipeGesture;
     unsigned long long _arPinchGesture;
     _Bool _arRenderAtNativeRate;
-    struct unordered_map<std::__1::basic_string<char>, std::__1::vector<std::__1::shared_ptr<md::ObjectGroup>, std::__1::allocator<std::__1::shared_ptr<md::ObjectGroup>>>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::vector<std::__1::shared_ptr<md::ObjectGroup>, std::__1::allocator<std::__1::shared_ptr<md::ObjectGroup>>>>>> _customLandmarks;
+    struct unique_ptr<(anonymous namespace)::CustomLandmarksContainer, std::__1::default_delete<(anonymous namespace)::CustomLandmarksContainer>> _customLandmarks;
     _Bool _paintPoiTiles;
     _Bool _paintLandcoverTiles;
     _Bool _paintVenues;
@@ -283,6 +284,7 @@
 @property(nonatomic) _Bool transitHighlighting; // @synthesize transitHighlighting=_transitHighlighting;
 @property(nonatomic) _Bool labelHighlighting; // @synthesize labelHighlighting=_labelHighlighting;
 @property(nonatomic) _Bool disableRoute; // @synthesize disableRoute=_disableRoute;
+@property(nonatomic) _Bool showPreliminaryInfo; // @synthesize showPreliminaryInfo=_showPreliminaryInfo;
 @property(nonatomic) _Bool paintLoadReason; // @synthesize paintLoadReason=_paintLoadReason;
 @property(nonatomic) _Bool paintBuildingNormals; // @synthesize paintBuildingNormals=_paintBuildingNormals;
 @property(nonatomic) _Bool paintCoastlines; // @synthesize paintCoastlines=_paintCoastlines;

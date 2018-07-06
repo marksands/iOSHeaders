@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSSet;
+@class _CDPeriodicSchedulerJob;
 
 @interface _DKSyncType : NSObject
 {
@@ -20,10 +20,10 @@
     _Bool _didAddSyncedEvents;
     _Bool _didDeleteSyncedEvents;
     unsigned long long _urgency;
-    NSSet *_disabledFeatures;
+    _CDPeriodicSchedulerJob *_periodicJob;
 }
 
-@property(retain, nonatomic) NSSet *disabledFeatures; // @synthesize disabledFeatures=_disabledFeatures;
+@property(retain, nonatomic) _CDPeriodicSchedulerJob *periodicJob; // @synthesize periodicJob=_periodicJob;
 @property(nonatomic) _Bool didDeleteSyncedEvents; // @synthesize didDeleteSyncedEvents=_didDeleteSyncedEvents;
 @property(nonatomic) _Bool didAddSyncedEvents; // @synthesize didAddSyncedEvents=_didAddSyncedEvents;
 @property(nonatomic) _Bool didReceivePush; // @synthesize didReceivePush=_didReceivePush;
@@ -37,7 +37,6 @@
 - (void).cxx_destruct;
 - (id)description;
 - (void)unionType:(id)arg1;
-- (id)init;
 - (id)initWithIsSingleDevice:(_Bool)arg1;
 
 @end

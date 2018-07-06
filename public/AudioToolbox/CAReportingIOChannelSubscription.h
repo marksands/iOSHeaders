@@ -6,19 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSString;
+@class CAReportingDriver, NSMutableDictionary;
 
 __attribute__((visibility("hidden")))
 @interface CAReportingIOChannelSubscription : NSObject
 {
     NSMutableDictionary *_subscribedChannels;
-    NSString *_driverGroupName;
+    CAReportingDriver *_driver;
 }
 
-@property(retain) NSString *driverGroupName; // @synthesize driverGroupName=_driverGroupName;
+@property(retain) CAReportingDriver *driver; // @synthesize driver=_driver;
 @property(retain) NSMutableDictionary *subscribedChannels; // @synthesize subscribedChannels=_subscribedChannels;
 - (void).cxx_destruct;
-- (id)initWithDriverGroupName:(id)arg1;
+- (id)initWithDriver:(id)arg1;
 
 @end
 

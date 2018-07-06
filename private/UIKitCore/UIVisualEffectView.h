@@ -63,6 +63,7 @@
 - (id)_maskImageForMaskView:(id)arg1;
 @property(nonatomic, getter=_backdropViewBackgroundColorAlpha, setter=_setBackdropViewBackgroundColorAlpha:) double _backdropViewBackgroundColorAlpha;
 @property(nonatomic, getter=_isNoiseEnabled, setter=_setNoiseEnabled:) _Bool _noiseEnabled; // @synthesize _noiseEnabled;
+@property(readonly, nonatomic) _Bool _applyCornerMaskToSelf;
 - (void)_setCornerRadius:(double)arg1 continuous:(_Bool)arg2 maskedCorners:(unsigned long long)arg3;
 - (void)_setContinuousCornerRadius:(double)arg1;
 - (double)_continuousCornerRadius;

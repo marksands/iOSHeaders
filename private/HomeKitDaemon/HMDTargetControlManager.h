@@ -43,6 +43,8 @@
 - (void)__accessoryRemoved:(id)arg1;
 - (void)__accessoryAdded:(id)arg1;
 - (void)__accessoryIsUnreachable:(id)arg1;
+- (void)__accessoryIsReachable:(id)arg1;
+- (void)__accessoryNameUpdated:(id)arg1;
 - (void)__controllerRefreshedConfiguration:(id)arg1;
 - (void)_targetAccessoryRefreshConfigurationWithController:(id)arg1 userInfo:(id)arg2;
 - (id)__selectButtonConfiguration:(id)arg1 receiver:(id)arg2;

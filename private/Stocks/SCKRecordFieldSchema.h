@@ -17,8 +17,8 @@
 }
 
 @property(nonatomic, getter=isRequired) _Bool required; // @synthesize required=_required;
-@property(nonatomic, getter=isEncrypted) _Bool encrypted; // @synthesize encrypted=_encrypted;
 @property(retain, nonatomic) Class valueClass; // @synthesize valueClass=_valueClass;
+@property(readonly, nonatomic, getter=isEncrypted) _Bool encrypted; // @synthesize encrypted=_encrypted;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (_Bool)isValidRecord:(id)arg1;

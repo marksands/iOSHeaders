@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>, NSString;
+@class NSArray, NSImage, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AMSDialog : NSObject
 {
     NSObject<OS_dispatch_queue> *_systemDialogQueue;
     NSArray *_buttons;
     CDUnknownBlockType _completionHandler;
+    NSImage *_icon;
     NSString *_message;
     long long _selectedButtonIndex;
     long long _style;
@@ -27,6 +28,7 @@
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) long long selectedButtonIndex; // @synthesize selectedButtonIndex=_selectedButtonIndex;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
+@property(copy, nonatomic) NSImage *icon; // @synthesize icon=_icon;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(copy, nonatomic) NSArray *buttons; // @synthesize buttons=_buttons;
 - (void).cxx_destruct;

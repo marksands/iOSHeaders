@@ -165,6 +165,7 @@
 - (void)_performRevealAnimationForSectionHeaders;
 - (void)_performRevealAnimationForNotificationCellsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_revealNotificationsHistory;
+- (void)_clearAllNotificationRequests;
 - (void)_clearAllMissedNotificationSectionRequests;
 - (void)_removeNotificationRequestFromMissedNotificationSection:(id)arg1;
 - (void)_removeNotificationRequestsFromMissedNotificationSection:(id)arg1;
@@ -176,8 +177,6 @@
 - (_Bool)_isMissedNotificationSectionAtIndex:(unsigned long long)arg1;
 - (id)_missedNotificationSectionHeaderTitle;
 - (_Bool)_isDisplayingMissedNotificationSection;
-- (_Bool)_isTopIndexPathForSectionWithHeader:(id)arg1;
-- (_Bool)_shouldHideSectionHeaderForSection:(unsigned long long)arg1;
 - (_Bool)_notificationHistoryHasContent;
 - (void)_enumerateAllNotificationListGroupingSectionsWithBlock:(CDUnknownBlockType)arg1;
 - (unsigned long long)_currentAnimationState;
@@ -189,6 +188,8 @@
 - (_Bool)_isRequestInLongLook:(id)arg1;
 - (unsigned long long)_groupingSectionForIndexPath:(id)arg1;
 - (void)notificationListCoalescingControlsHandler:(id)arg1 didTransitionToClearState:(_Bool)arg2;
+- (void)notificationListCoalescingControlsHandlerRequestsClearingAllNotifications:(id)arg1;
+- (id)containerViewForCoalescingControlsHandlerPreviewInteractionPresentedContent:(id)arg1;
 - (void)notificationListCoalescingControlsHandler:(id)arg1 requestsClearingNotificationsWithCoalescingIdentifier:(id)arg2 inSection:(unsigned long long)arg3;
 - (void)notificationListCoalescingControlsHandler:(id)arg1 requestsRestackingNotificationsWithCoalescingIdentifier:(id)arg2 inSection:(unsigned long long)arg3;
 - (id)notificationListSection:(id)arg1 coalescingIdentifierForNotificationRequest:(id)arg2;
@@ -205,6 +206,7 @@
 - (id)legibilitySettingsForSectionHeaderView:(id)arg1;
 - (void)sectionHeaderViewDidDismissForceTouchView:(id)arg1;
 - (void)sectionHeaderViewDidPresentForceTouchView:(id)arg1;
+- (id)containerViewForHeaderViewPreviewInteractionPresentedContent:(id)arg1;
 - (void)sectionHeaderViewDidReceiveClearAllAction:(id)arg1;
 - (void)sectionHeaderView:(id)arg1 didReceiveClearActionForSectionIdentifier:(id)arg2;
 - (void)sectionHeaderViewDidTransitionToClearState:(id)arg1;
@@ -237,6 +239,7 @@
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
+- (void)_contentSizeCategoryDidChange:(id)arg1;
 - (id)storedExpandedNotificationRequestsForCoalescingIdentifier:(id)arg1 inSection:(unsigned long long)arg2;
 - (id)notificationRequestsInSection:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2;
 - (unsigned long long)currentSectionInListForNotificationRequest:(id)arg1;

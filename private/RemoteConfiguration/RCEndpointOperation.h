@@ -25,8 +25,8 @@
 @property(retain, nonatomic) NSDictionary *changeTagsByRequestKey; // @synthesize changeTagsByRequestKey=_changeTagsByRequestKey;
 @property(retain, nonatomic) RCConfigurationSettings *configurationSettings; // @synthesize configurationSettings=_configurationSettings;
 - (void).cxx_destruct;
-- (id)_configurationErrorForEndpointErrors:(id)arg1;
-- (void)_parseEndpointResponse:(id)arg1 configurationSettings:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)_configurationErrorForErrorDicts:(id)arg1;
+- (void)_parseEndpointResponse:(id)arg1 configurationSettings:(id)arg2 maxAge:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)requestDataForSettings:(id)arg1;
 - (void)_fetchConfigurationWithSettings:(id)arg1;
 - (void)operationWillFinishWithError:(id)arg1;

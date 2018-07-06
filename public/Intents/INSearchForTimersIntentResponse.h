@@ -25,6 +25,8 @@
 - (id)propertiesByName;
 - (id)_dictionaryRepresentation;
 @property(copy, nonatomic) NSArray *timers;
+@property(copy, nonatomic) NSArray *unmatchedTimers;
+@property(copy, nonatomic) NSArray *matchedTimers;
 - (id)_responseMessagePBRepresentation;
 - (long long)_intentResponseCode;
 - (id)initWithCoder:(id)arg1;

@@ -51,7 +51,7 @@
 - (void)scaleTargetChanged;
 - (void)quaternionTargetChanged;
 - (void)snapStateChanged;
-- (id)initWithLayer:(id)arg1 device:(id)arg2 pixelFormat:(unsigned long long)arg3 sampleCount:(int)arg4;
+- (id)initWithLayer:(id)arg1 device:(id)arg2 pixelFormat:(unsigned long long)arg3 sampleCount:(int)arg4 deviceMaskImage:(id)arg5;
 @property(readonly, nonatomic) ASVGlyphState *state;
 
 // Remaining properties

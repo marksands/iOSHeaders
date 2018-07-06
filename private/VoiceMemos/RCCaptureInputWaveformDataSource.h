@@ -46,6 +46,7 @@
 - (void)waveformGeneratorDidFinishLoading:(id)arg1 error:(id)arg2;
 - (void)appendAveragePowerLevelsByDigestingWaveformSegment:(id)arg1;
 - (void)flushPendingCapturedSampleBuffers;
+- (_Bool)appendAveragePowerLevelsByDigestingAudioPCMBuffer:(id)arg1;
 - (_Bool)appendAveragePowerLevelsByDigestingCapturedSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
 - (void)undoCapture;
 - (double)duration;
@@ -57,9 +58,9 @@
 - (id)_captureSegmentsInComponentWaveform:(id)arg1 captureTimeRange:(CDStruct_73a5d3ca)arg2 componentWaveformSegmentOffset:(double)arg3;
 - (_Bool)setPaused:(_Bool)arg1;
 - (_Bool)waitUntilFinishedWithFinalizedDestinationFragmentDuration:(double)arg1;
-- (void)finishLoadingWithCompletionTimeoutDate:(id)arg1 finalizedFragmentDuration:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (void)finishLoadingWithCompletionTimeout:(unsigned long long)arg1 finalizedFragmentDuration:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (_Bool)waitUntilFinished;
-- (void)finishLoadingWithCompletionTimeoutDate:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)finishLoadingWithCompletionTimeout:(unsigned long long)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)startLoading;
 - (void)_initializeCaptureComposition;
 - (id)initWithDestinationComposition:(id)arg1 destinationFragment:(id)arg2 isOverdub:(_Bool)arg3;

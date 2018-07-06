@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class HKDevice, NSArray, NSDate, NSDictionary;
+@class HKDevice, HKQuantityType, NSArray, NSDate, NSDictionary;
 
 @protocol HKWorkoutBuilderServerInterface <NSObject>
+- (void)remote_setStatisticsMergeStrategy:(unsigned long long)arg1 forType:(HKQuantityType *)arg2;
 - (void)remote_updateDevice:(HKDevice *)arg1;
 - (void)remote_recoverWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)remote_discardWorkout;

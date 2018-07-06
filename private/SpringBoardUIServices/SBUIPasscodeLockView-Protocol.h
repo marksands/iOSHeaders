@@ -9,13 +9,13 @@
 @class BSAnimationSettings, NSString, UIColor;
 
 @protocol SBUIPasscodeLockView <NSObject>
+@property(nonatomic) _Bool proudLockShowsBiometricStates;
 @property(nonatomic) double backgroundAlpha;
 @property(copy, nonatomic) NSString *unlockDestination;
 @property(nonatomic, getter=isScreenOn) _Bool screenOn;
 @property(retain, nonatomic) id <SBFLegibilitySettingsProvider> backgroundLegibilitySettingsProvider;
 @property(retain, nonatomic) UIColor *customBackgroundColor;
 @property(nonatomic) long long passcodeLockViewState;
-@property(nonatomic) _Bool proudLockShowsBiometricStates;
 @property(nonatomic) _Bool showsProudLock;
 @property(nonatomic) _Bool biometricPresentationAncillaryButtonsVisible;
 @property(nonatomic) _Bool allowsAutomaticBiometricPresentationTransition;

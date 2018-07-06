@@ -27,6 +27,7 @@
     REUpNextScheduler *_scheduler;
     NSObject<OS_dispatch_queue> *_queue;
     _Bool _deviceIsLocked;
+    _Bool _ignoreDeviceLockState;
     id <REElementRelevanceEngineDelegate> _delegate;
 }
 

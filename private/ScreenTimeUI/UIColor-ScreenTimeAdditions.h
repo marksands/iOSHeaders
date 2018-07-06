@@ -7,6 +7,7 @@
 #import "UIColor.h"
 
 @interface UIColor (ScreenTimeAdditions)
++ (id)st_orderedDarkSystemColors;
 + (id)st_orderedSystemColors;
 @end
 

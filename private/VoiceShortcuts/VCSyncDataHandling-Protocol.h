@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSData, NSOrderedSet, NSString, VCPBChange;
+@class NSData, NSOrderedSet, NSString;
 
 @protocol VCSyncDataHandling
 - (_Bool)resetLocalData:(id *)arg1;
 - (void)removeSyncStateForSyncServiceWithIdentifier:(NSString *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)deregisterSyncServiceWithIdentifier:(NSString *)arg1;
 - (void)registerSyncService:(id <VCVoiceShortcutSyncService>)arg1 asMaster:(_Bool)arg2;
-- (VCPBChange *)wrapMessageInVCPBChange:(id)arg1;
 - (id)createMessageFromData:(NSData *)arg1;
 - (void)getUnsyncedChangesForSyncServiceWithIdentifier:(NSString *)arg1 completion:(void (^)(NSOrderedSet *, NSError *))arg2;
 - (void)markChangesAsSynced:(NSOrderedSet *)arg1 withSyncServiceWithIdentifier:(NSString *)arg2 completion:(void (^)(_Bool, NSError *))arg3;

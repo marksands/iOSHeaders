@@ -6,22 +6,36 @@
 
 #import "NSObject.h"
 
-@class CoreTelephonyClient, NSMutableDictionary;
+#import "CoreTelephonyClientSubscriberDelegate.h"
 
-@interface PSUICoreTelephonySubscriberCache : NSObject
+@class CoreTelephonyClient, NSMutableDictionary, NSString;
+
+@interface PSUICoreTelephonySubscriberCache : NSObject <CoreTelephonyClientSubscriberDelegate>
 {
     CoreTelephonyClient *_client;
     NSMutableDictionary *_mobileEquipmentInfoDict;
+    NSMutableDictionary *_isoCountryCodesDict;
 }
 
 + (id)sharedInstance;
+@property(retain) NSMutableDictionary *isoCountryCodesDict; // @synthesize isoCountryCodesDict=_isoCountryCodesDict;
 @property(retain) NSMutableDictionary *mobileEquipmentInfoDict; // @synthesize mobileEquipmentInfoDict=_mobileEquipmentInfoDict;
 @property(retain, nonatomic) CoreTelephonyClient *client; // @synthesize client=_client;
 - (void).cxx_destruct;
+- (void)simStatusDidChange:(id)arg1 status:(id)arg2;
+- (id)isoCountryCode:(id)arg1;
+- (void)fetchCountryCodes;
 - (id)mobileEquipmentInfo:(id)arg1;
 - (void)fetchMobileEquipmentInfo;
+- (void)willEnterForeground;
 - (id)init;
 - (id)initPrivate;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

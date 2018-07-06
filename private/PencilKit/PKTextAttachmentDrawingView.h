@@ -99,8 +99,9 @@
 - (void)_setHeight:(double)arg1 originalHeight:(double)arg2 growFromTop:(_Bool)arg3;
 - (void)updateDrawingHeight:(double)arg1 notifyDrawingDidChange:(_Bool)arg2;
 - (void)updateDrawingHeight:(double)arg1;
-- (void)_adjustResizeIndicatorVisiblity:(_Bool)arg1;
-- (void)_adjustResizeIndicatorVisiblity;
+- (void)_adjustResizeIndicatorVisibility:(_Bool)arg1;
+- (void)_adjustResizeIndicatorVisibility;
+- (void)_adjustResizeIndicatorVisibilityNotification;
 - (void)updateFrameForTextContainer;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)fingerDrawingEnabledDidChange;

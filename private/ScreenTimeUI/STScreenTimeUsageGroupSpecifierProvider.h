@@ -6,11 +6,10 @@
 
 #import <ScreenTimeUI/STUsageGroupSpecifierProvider.h>
 
-@class NSObject<STTimeAllowancesViewModelCoordinator>, PSSpecifier;
+@class PSSpecifier;
 
 @interface STScreenTimeUsageGroupSpecifierProvider : STUsageGroupSpecifierProvider
 {
-    NSObject<STTimeAllowancesViewModelCoordinator> *_timeAllowancesCoordinator;
     PSSpecifier *_usageSummaryGraphSpecifier;
     PSSpecifier *_longestSessionSpecifier;
     PSSpecifier *_weeklyTotalSpecifier;
@@ -21,15 +20,13 @@
 @property(retain, nonatomic) PSSpecifier *weeklyTotalSpecifier; // @synthesize weeklyTotalSpecifier=_weeklyTotalSpecifier;
 @property(retain, nonatomic) PSSpecifier *longestSessionSpecifier; // @synthesize longestSessionSpecifier=_longestSessionSpecifier;
 @property(retain, nonatomic) PSSpecifier *usageSummaryGraphSpecifier; // @synthesize usageSummaryGraphSpecifier=_usageSummaryGraphSpecifier;
-@property(retain, nonatomic) NSObject<STTimeAllowancesViewModelCoordinator> *timeAllowancesCoordinator; // @synthesize timeAllowancesCoordinator=_timeAllowancesCoordinator;
 - (void).cxx_destruct;
 - (id)screenTimeDuringDowntime:(id)arg1;
 - (id)weeklyTotal:(id)arg1;
 - (id)longestSession:(id)arg1;
 - (id)getUsageInfo:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)setViewModel:(id)arg1;
-- (void)invalidate;
+- (void)setCoordinator:(id)arg1;
 - (id)init;
 
 @end

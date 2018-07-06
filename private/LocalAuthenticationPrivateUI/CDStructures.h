@@ -4,26 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#pragma mark Named Structures
+#pragma mark Blocks
 
-struct CATransform3D {
-    double m11;
-    double m12;
-    double m13;
-    double m14;
-    double m21;
-    double m22;
-    double m23;
-    double m24;
-    double m31;
-    double m32;
-    double m33;
-    double m34;
-    double m41;
-    double m42;
-    double m43;
-    double m44;
-};
+typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
+
+#pragma mark Named Structures
 
 struct CGPoint {
     double _field1;
@@ -38,5 +23,27 @@ struct CGRect {
 struct CGSize {
     double _field1;
     double _field2;
+};
+
+struct UIColor {
+    Class _field1;
+};
+
+struct animation_completion_handler_container;
+
+struct vector<CAShapeLayer *, std::__1::allocator<CAShapeLayer *>> {
+    id *__begin_;
+    id *__end_;
+    struct __compressed_pair<CAShapeLayer *__strong *, std::__1::allocator<CAShapeLayer *>> {
+        id *__value_;
+    } __end_cap_;
+};
+
+struct vector<LAUI_CA_utilities::animation_completion_handler_container, std::__1::allocator<LAUI_CA_utilities::animation_completion_handler_container>> {
+    struct animation_completion_handler_container *__begin_;
+    struct animation_completion_handler_container *__end_;
+    struct __compressed_pair<LAUI_CA_utilities::animation_completion_handler_container *, std::__1::allocator<LAUI_CA_utilities::animation_completion_handler_container>> {
+        struct animation_completion_handler_container *__value_;
+    } __end_cap_;
 };
 

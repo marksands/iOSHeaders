@@ -14,8 +14,17 @@
 
 - (void)setBudgetLimit:(double)arg1 forDay:(unsigned long long)arg2;
 - (void)setBudgetLimit:(double)arg1;
+- (id)budgetLimitScheduleRepresentation;
+- (id)limitKeyPaths;
 
 // Remaining properties
+@property(nonatomic) double day0Limit; // @dynamic day0Limit;
+@property(nonatomic) double day1Limit; // @dynamic day1Limit;
+@property(nonatomic) double day2Limit; // @dynamic day2Limit;
+@property(nonatomic) double day3Limit; // @dynamic day3Limit;
+@property(nonatomic) double day4Limit; // @dynamic day4Limit;
+@property(nonatomic) double day5Limit; // @dynamic day5Limit;
+@property(nonatomic) double day6Limit; // @dynamic day6Limit;
 @property(copy, nonatomic) NSArray *itemIdentifiers; // @dynamic itemIdentifiers;
 @property(copy, nonatomic) NSString *usageItemType; // @dynamic usageItemType;
 

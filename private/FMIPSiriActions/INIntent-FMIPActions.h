@@ -6,8 +6,13 @@
 
 #import "INIntent.h"
 
+@class NSString;
+
 @interface INIntent (FMIPActions)
 + (void)undonateForDeviceId:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+@property(readonly, copy, nonatomic) NSString *aggregateLabel;
+@property(readonly, copy, nonatomic) NSString *rootAggregateKey;
+- (id)stringForExecutionContext:(long long)arg1;
 - (void)donateWithCompletion:(CDUnknownBlockType)arg1;
 - (id)groupIdentifierForIdentifiableIntent:(id)arg1;
 - (id)identifierForIdentifiableIntent:(id)arg1;

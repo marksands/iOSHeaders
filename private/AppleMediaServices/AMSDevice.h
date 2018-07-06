@@ -37,10 +37,13 @@
 + (id)buildVersion;
 + (id)deviceOffersForProductType:(unsigned long long)arg1;
 + (_Bool)deviceOffersContainProductType:(unsigned long long)arg1;
++ (id)_followUpItemWithIdentifier:(id)arg1 account:(id)arg2 priority:(long long)arg3 logKey:(id)arg4;
 + (void)registerCompanionWithSerialNumber:(id)arg1;
 + (_Bool)shouldPresentSetupOffersForAccount:(id)arg1;
++ (_Bool)postFollowUpForDeviceOffersWithIdentitier:(id)arg1 account:(id)arg2 priority:(long long)arg3 logKey:(id)arg4;
 + (id)deviceOffersForType:(unsigned long long)arg1;
 + (_Bool)deviceOffersContainType:(unsigned long long)arg1;
++ (_Bool)clearFollowUpForDeviceOffersWithIdentifier:(id)arg1 account:(id)arg2;
 + (_Bool)isGift;
 + (_Bool)isEligibleForOffers;
 + (_Bool)expressedIntent;

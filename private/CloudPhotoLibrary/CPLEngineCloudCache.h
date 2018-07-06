@@ -18,6 +18,7 @@
 - (id)recordsOfClass:(Class)arg1 isFinal:(_Bool)arg2;
 - (void)getCommittedRecord:(id *)arg1 stagedRecord:(id *)arg2 forScopedIdentifier:(id)arg3;
 - (id)resourceOfType:(unsigned long long)arg1 forRecordWithScopedIdentifier:(id)arg2 error:(id *)arg3;
+- (_Bool)discardStagedChangesWithScopeFilter:(id)arg1 error:(id *)arg2;
 - (_Bool)discardStagedChangesForScopeWithIdentifier:(id)arg1 error:(id *)arg2;
 - (_Bool)commitStagedChangesForScopeWithIdentifier:(id)arg1 error:(id *)arg2;
 - (_Bool)remapAllRecordsWithPreviousScopedIdentifier:(id)arg1 newScopedIdentifier:(id)arg2 error:(id *)arg3;

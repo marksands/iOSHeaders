@@ -32,7 +32,7 @@
 - (void)remoteTrainingClientListenerDidDisconnectContext:(id)arg1;
 - (void)remoteTrainingClientListenerDidConnectContext:(id)arg1;
 - (void)makeContextCurrent:(id)arg1;
-- (void)_performTraining;
+- (void)_performTrainingWithForced:(_Bool)arg1;
 - (void)manuallyPerformTraining;
 - (void)performTrainingForElementWithIdentifier:(id)arg1 isPositiveEvent:(_Bool)arg2 interaction:(id)arg3 context:(id)arg4;
 - (void)performTrainingForElementWithIdentifier:(id)arg1 isPositiveEvent:(_Bool)arg2 interaction:(id)arg3;

@@ -16,16 +16,21 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSData *imageData; // @synthesize imageData=_imageData;
+@property(readonly, copy, nonatomic) NSData *imageData; // @synthesize imageData=_imageData;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)_md5HashUUID;
+- (_Bool)_isEligibleForProxying;
+- (void)_setImageData:(id)arg1;
+- (id)_imageData;
 - (id)_copyWithSubclass:(Class)arg1;
-- (_Bool)isEqual:(id)arg1;
 - (id)_dictionaryRepresentation;
 - (id)_identifier;
+- (void)_retrieveImageDataWithReply:(CDUnknownBlockType)arg1;
 - (_Bool)_requiresRetrieval;
+- (_Bool)isEqual:(id)arg1;
+- (id)initWithImageData:(id)arg1;
 - (void)_loadImageDataAndSizeWithHelper:(id)arg1 accessSpecifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 
 @end

@@ -19,6 +19,7 @@
     CEMAnyPayload *_payload;
 }
 
++ (id)buildRequiredOnlyWithTimestamp:(id)arg1 withStatus:(id)arg2;
 + (id)buildWithServerHash:(id)arg1 withAssetsUsed:(id)arg2 withTimestamp:(id)arg3 withStatus:(id)arg4 withReason:(id)arg5 withErrorChain:(id)arg6 withPayload:(id)arg7;
 + (id)allowedKeys;
 @property(copy, nonatomic) CEMAnyPayload *payload; // @synthesize payload=_payload;

@@ -6,18 +6,16 @@
 
 #import "UIView.h"
 
-#import "NCLegibilitySettingsAdjusting.h"
+#import "NCToggleControlDelegate.h"
 #import "PLContentSizeCategoryAdjusting.h"
 
-@class NCNotificationListMaterialTitledWithImageButton, NSString, _UILegibilitySettings;
+@class NCToggleControlPair, NSString, _UILegibilitySettings;
 
-@interface NCNotificationListCoalescingControlsView : UIView <NCLegibilitySettingsAdjusting, PLContentSizeCategoryAdjusting>
+@interface NCNotificationListCoalescingControlsView : UIView <NCToggleControlDelegate, PLContentSizeCategoryAdjusting>
 {
-    _Bool _adjustsFontForContentSizeCategory;
     id <NCNotificationListCoalescingControlsViewDelegate> _delegate;
     NSString *_backgroundGroupName;
-    NCNotificationListMaterialTitledWithImageButton *_restackButton;
-    NCNotificationListMaterialTitledWithImageButton *_clearButton;
+    NCToggleControlPair *_toggleControlPair;
     _UILegibilitySettings *_legibilitySettings;
     double _effectiveButtonHeight;
     double _effectiveHorizontalPadding;
@@ -29,25 +27,21 @@
 @property(nonatomic, getter=_effectiveHorizontalPadding) double effectiveHorizontalPadding; // @synthesize effectiveHorizontalPadding=_effectiveHorizontalPadding;
 @property(nonatomic, getter=_effectiveButtonHeight) double effectiveButtonHeight; // @synthesize effectiveButtonHeight=_effectiveButtonHeight;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
-@property(retain, nonatomic) NCNotificationListMaterialTitledWithImageButton *clearButton; // @synthesize clearButton=_clearButton;
-@property(retain, nonatomic) NCNotificationListMaterialTitledWithImageButton *restackButton; // @synthesize restackButton=_restackButton;
+@property(retain, nonatomic) NCToggleControlPair *toggleControlPair; // @synthesize toggleControlPair=_toggleControlPair;
 @property(copy, nonatomic) NSString *backgroundGroupName; // @synthesize backgroundGroupName=_backgroundGroupName;
 @property(nonatomic) __weak id <NCNotificationListCoalescingControlsViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) _Bool adjustsFontForContentSizeCategory; // @synthesize adjustsFontForContentSizeCategory=_adjustsFontForContentSizeCategory;
 - (void).cxx_destruct;
-- (void)_animateClearButtonStateChange;
-- (void)_collapseClearButtonAnimated:(_Bool)arg1;
-- (void)_expandClearButtonAnimated:(_Bool)arg1;
 - (_Bool)_isClearButtonExpanded;
-- (void)_clearButtonAction:(id)arg1;
-- (void)_restackButtonAction:(id)arg1;
-- (void)_layoutClearButton;
-- (void)_layoutRestackButton;
-- (void)_configureMaterialButton:(id)arg1 withAction:(SEL)arg2;
-- (id)_newTitledWithImageButtonForTitle:(id)arg1 image:(id)arg2 buttonOption:(unsigned long long)arg3;
-- (void)_configureClearButtonIfNecessary;
-- (void)_configureRestackButtonIfNecessary;
-- (void)_updateMaterialsView:(id)arg1 forLegiblitySettings:(id)arg2;
+- (id)_clearButton;
+- (void)_handleClearAll:(id)arg1;
+- (void)_handleClearPrimaryAction:(id)arg1;
+- (void)_handleClearTouchUpInside:(id)arg1;
+- (void)_handleRestackPrimaryAction:(id)arg1;
+- (void)_handleRestackTouchUpInside:(id)arg1;
+- (void)_layoutToggleControlPair;
+- (void)_configureToggleControlPairIfNecessary;
+- (id)_newClearButton;
+- (id)_newRestackButton;
 - (long long)_materialRecipe;
 - (struct UIEdgeInsets)_edgeInsets;
 - (id)_clearButtonTitle;
@@ -55,9 +49,10 @@
 - (double)_cornerRadius;
 - (double)_imageDimension;
 - (double)_effectiveValue:(double)arg1;
+- (id)containerViewForToggleControlPreviewInteractionPresentedContent:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
 - (_Bool)adjustForContentSizeCategoryChange;
-- (void)adjustForLegibilitySettingsChange:(id)arg1;
+@property(nonatomic) _Bool adjustsFontForContentSizeCategory;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (_Bool)shouldReceiveTouchAtPointInWindowSpace:(struct CGPoint)arg1;

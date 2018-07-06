@@ -13,6 +13,7 @@
 
 @interface VCWatchSyncCoordinator : NSObject <PSYSyncCoordinatorDelegate, VCCompanionSyncServiceDelegate>
 {
+    int _pairedDeviceDidChangeNotificationToken;
     PSYSyncCoordinator *_psySyncCoordinator;
     PSYServiceSyncSession *_psySyncSession;
     NSArray *_syncDataHandlers;

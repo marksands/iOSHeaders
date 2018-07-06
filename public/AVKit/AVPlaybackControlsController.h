@@ -34,7 +34,6 @@
     _Bool _playbackControlsIncludeDisplayModeControls;
     _Bool _playbackControlsIncludeVolumeControls;
     _Bool _playbackControlsIncludeStartContentTransitionButtons;
-    _Bool _shouldPreventUserInteractionForContentTransition;
     _Bool _startLeftwardContentTransitionButtonEnabled;
     _Bool _startRightwardContentTransitionButtonEnabled;
     _Bool _playingOnSecondScreen;
@@ -69,7 +68,6 @@
     AVRouteDetectorCoordinator *_routeDetectorCoordinator;
     id _AVRouteDetectorCoordinatorMultipleRoutesDetectedObserver;
     NSTimer *_loadingIndicatorTimer;
-    NSTimer *_nowPlayingLoadingInfoDelayTimer;
     UIViewPropertyAnimator *_collapseExpandSliderAnimator;
     AVScrollViewObserver *_scrollViewObserver;
     AVPlaybackControlsVisibilityControllerItem *_playbackControlsContainerVisibilityItem;
@@ -81,6 +79,7 @@
     long long _timeControlStatus;
     long long _videoGravityButtonType;
     NSString *_videoGravity;
+    NSString *_uniqueIdentifer;
     struct CGRect _playbackViewFrame;
 }
 
@@ -103,6 +102,7 @@
 + (id)keyPathsForValuesAffectingIncludesFullScreenButton;
 + (id)keyPathsForValuesAffectingIncludesDoneButton;
 + (id)keyPathsForValuesAffectingFullScreen;
+@property(readonly, nonatomic) NSString *uniqueIdentifer; // @synthesize uniqueIdentifer=_uniqueIdentifer;
 @property(nonatomic) struct CGRect playbackViewFrame; // @synthesize playbackViewFrame=_playbackViewFrame;
 @property(copy, nonatomic) NSString *videoGravity; // @synthesize videoGravity=_videoGravity;
 @property(nonatomic) long long videoGravityButtonType; // @synthesize videoGravityButtonType=_videoGravityButtonType;
@@ -128,7 +128,6 @@
 @property(readonly, nonatomic) AVPlaybackControlsVisibilityControllerItem *playbackControlsContainerVisibilityItem; // @synthesize playbackControlsContainerVisibilityItem=_playbackControlsContainerVisibilityItem;
 @property(retain, nonatomic) AVScrollViewObserver *scrollViewObserver; // @synthesize scrollViewObserver=_scrollViewObserver;
 @property(nonatomic) __weak UIViewPropertyAnimator *collapseExpandSliderAnimator; // @synthesize collapseExpandSliderAnimator=_collapseExpandSliderAnimator;
-@property(nonatomic) __weak NSTimer *nowPlayingLoadingInfoDelayTimer; // @synthesize nowPlayingLoadingInfoDelayTimer=_nowPlayingLoadingInfoDelayTimer;
 @property(nonatomic) __weak NSTimer *loadingIndicatorTimer; // @synthesize loadingIndicatorTimer=_loadingIndicatorTimer;
 @property(retain, nonatomic) id AVRouteDetectorCoordinatorMultipleRoutesDetectedObserver; // @synthesize AVRouteDetectorCoordinatorMultipleRoutesDetectedObserver=_AVRouteDetectorCoordinatorMultipleRoutesDetectedObserver;
 @property(retain, nonatomic) AVRouteDetectorCoordinator *routeDetectorCoordinator; // @synthesize routeDetectorCoordinator=_routeDetectorCoordinator;
@@ -147,7 +146,6 @@
 @property(retain, nonatomic) AVPictureInPictureController *pictureInPictureController; // @synthesize pictureInPictureController=_pictureInPictureController;
 @property(nonatomic, getter=isStartRightwardContentTransitionButtonEnabled) _Bool startRightwardContentTransitionButtonEnabled; // @synthesize startRightwardContentTransitionButtonEnabled=_startRightwardContentTransitionButtonEnabled;
 @property(nonatomic, getter=isStartLeftwardContentTransitionButtonEnabled) _Bool startLeftwardContentTransitionButtonEnabled; // @synthesize startLeftwardContentTransitionButtonEnabled=_startLeftwardContentTransitionButtonEnabled;
-@property(nonatomic) _Bool shouldPreventUserInteractionForContentTransition; // @synthesize shouldPreventUserInteractionForContentTransition=_shouldPreventUserInteractionForContentTransition;
 @property(copy, nonatomic) CDUnknownBlockType playButtonHandlerForLazyPlayerLoading; // @synthesize playButtonHandlerForLazyPlayerLoading=_playButtonHandlerForLazyPlayerLoading;
 @property(nonatomic) _Bool playbackControlsIncludeStartContentTransitionButtons; // @synthesize playbackControlsIncludeStartContentTransitionButtons=_playbackControlsIncludeStartContentTransitionButtons;
 @property(nonatomic) _Bool playbackControlsIncludeVolumeControls; // @synthesize playbackControlsIncludeVolumeControls=_playbackControlsIncludeVolumeControls;
@@ -174,6 +172,7 @@
 - (void)_updateEdgeInsetsForLetterboxedContentInContentView:(id)arg1;
 - (void)_updateIsBeingScrolledOrOffScreen;
 - (void)_updatePreferredPlaybackControlsLoadedStatusNotifyingContentViewOfChanges:(_Bool)arg1;
+- (void)_updateNowPlayingInfoCenter;
 - (void)_updatePrefersInspectionSuspended;
 - (void)_updateHasPlaybackBegunSincePlayerControllerBecameReadyToPlay:(_Bool)arg1 playing:(_Bool)arg2 userDidEndTappingProminentPlayButton:(_Bool)arg3;
 - (void)_updateVideoGravityButtonType;

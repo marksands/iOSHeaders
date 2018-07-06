@@ -17,6 +17,8 @@
 
 - (void).cxx_destruct;
 - (void)_handleDirChange;
+- (id)readCacheFileForCachePath:(id)arg1;
+- (id)readCacheFileForFilename:(id)arg1;
 - (id)readCacheFileForConsumerSubtype:(unsigned char)arg1;
 - (void)dealloc;
 - (id)init;

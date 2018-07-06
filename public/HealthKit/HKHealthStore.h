@@ -169,6 +169,7 @@
 - (void)_validateHealthDataPurposeStringsForSharingTypes:(id)arg1 readingTypes:(id)arg2;
 - (void)_validateClinicalHealthRecordsPurposeStringsForSharingTypes:(id)arg1 readingTypes:(id)arg2;
 - (void)_validatePurposeStringsForSharingTypes:(id)arg1 readingTypes:(id)arg2;
+- (void)_validateAuthorizationInfoPlist;
 - (void)requestAuthorizationToShareTypes:(id)arg1 readTypes:(id)arg2 shouldPrompt:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_validateAuthorizationRequestWithShareTypes:(id)arg1 readTypes:(id)arg2;
 - (void)requestAuthorizationToShareTypes:(id)arg1 readTypes:(id)arg2 completion:(CDUnknownBlockType)arg3;

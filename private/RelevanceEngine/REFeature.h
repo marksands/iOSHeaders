@@ -14,6 +14,8 @@
 {
 }
 
++ (id)siriActionPerformedCountFeature;
++ (id)siriActionDailyAveragePerformedCountFeature;
 + (id)isDeveloperDonationFeature;
 + (id)isSiriActionFeature;
 + (id)itemIdentifierFeature;

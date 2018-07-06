@@ -13,7 +13,7 @@
 #import "_SFAuthenticationClient.h"
 #import "_SFAuthenticationContextDelegate.h"
 
-@class NSString, NSURL, _ASPasswordCredentialAuthenticationViewController, _SFAuthenticationContext, _SFPasswordPickerViewController;
+@class NSArray, NSString, NSURL, _ASPasswordCredentialAuthenticationViewController, _SFAuthenticationContext, _SFPasswordPickerViewController;
 
 __attribute__((visibility("hidden")))
 @interface SFPasswordPickerServiceViewController : SFPasswordServiceViewController <SFCredentialProviderExtensionManagerObserver, _ASCredentialProviderExtensionViewControllerDelegate, _ASPasswordCredentialAuthenticationViewControllerDelegate, _SFAuthenticationClient, _SFAuthenticationContextDelegate, SFPasswordPickerServiceViewControllerProtocol>
@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
     NSString *_remoteAppID;
     NSString *_remoteLocalizedAppName;
     NSString *_remoteUnlocalizedAppName;
+    NSArray *_externallyVerifiedAssociatedDomains;
     double _authenticationGracePeriod;
 }
 
@@ -38,10 +39,12 @@ __attribute__((visibility("hidden")))
 - (void)credentialProviderExtensionViewController:(id)arg1 didFinishWithCredential:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)credentialProviderExtensionManagerExtensionListDidChange:(id)arg1;
 - (void)setAuthenticationGracePeriod:(double)arg1;
+- (void)setExternallyVerifiedAndApprovedSharedWebCredentialsDomains:(id)arg1;
 - (void)setRemoteUnlocalizedAppName:(id)arg1;
 - (void)setRemoteLocalizedAppName:(id)arg1;
 - (void)setRemoteAppID:(id)arg1;
 - (void)setWebViewURL:(id)arg1;
+- (void)_sendCredentialToClientAndDismiss:(id)arg1;
 - (void)_gatherAndShowPasswordsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_fillCredential:(id)arg1 needsAuthentication:(_Bool)arg2;
 - (void)authenticateToPresentInPopover:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;

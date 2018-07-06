@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSSet, NSString;
+@class NSMutableDictionary, NSNumber, NSSet, NSString;
 
 @interface STContentPrivacyViewModel : NSObject
 {
@@ -14,12 +14,14 @@
     _Bool _includesLocalDevice;
     _Bool _restrictionsEnabled;
     NSString *_userName;
+    NSNumber *_userDSID;
     NSMutableDictionary *_valuesByRestriction;
     NSSet *_visibleRestrictions;
 }
 
 @property(copy, nonatomic) NSSet *visibleRestrictions; // @synthesize visibleRestrictions=_visibleRestrictions;
 @property(retain, nonatomic) NSMutableDictionary *valuesByRestriction; // @synthesize valuesByRestriction=_valuesByRestriction;
+@property(copy, nonatomic) NSNumber *userDSID; // @synthesize userDSID=_userDSID;
 @property(copy, nonatomic) NSString *userName; // @synthesize userName=_userName;
 @property(nonatomic) _Bool restrictionsEnabled; // @synthesize restrictionsEnabled=_restrictionsEnabled;
 @property(nonatomic) _Bool includesLocalDevice; // @synthesize includesLocalDevice=_includesLocalDevice;

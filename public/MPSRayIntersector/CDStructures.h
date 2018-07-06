@@ -74,6 +74,7 @@ struct MPSLibraryInfo {
     struct MPSDeviceSpecificInfo _field18;
     struct MPSDeviceSpecificInfo _field19;
     struct MPSDeviceSpecificInfo _field20;
+    struct MPSDeviceSpecificInfo _field21;
 };
 
 struct vector<MPSBVHRefitLevelData, std::__1::allocator<MPSBVHRefitLevelData>> {

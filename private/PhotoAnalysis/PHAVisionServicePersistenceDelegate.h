@@ -46,7 +46,7 @@
 - (void)_enumeratePersonsWithLocalIdentifiers:(id)arg1 fetchOptions:(id)arg2 personCache:(id)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (void)_getRejectedTrainingFaceCSNs:(id *)arg1 rejectedFaceCSNs:(id *)arg2 rejectedPersonLocalIdentifiers:(id *)arg3 forPerson:(id)arg4 faceInFaceGroupByCSN:(id)arg5;
 - (unsigned long long)_level0ClusterIdForFaceCSN:(unsigned long long)arg1 level0Clusters:(id)arg2;
-- (void)_getTrainingFacesByPerson:(id *)arg1 confirmedFaceCSNs:(id *)arg2 faceCSNsByPerson:(id *)arg3 faceCSNsByMigratedPerson:(id *)arg4 mergeCandidates:(id *)arg5 invalidMergeCandidates:(id *)arg6 rejectedPersonsByPerson:(id *)arg7 faceInFaceGroupByCSN:(id *)arg8 inFaces:(id)arg9 personCache:(id)arg10 canceler:(id)arg11;
+- (void)_getTrainingFacesByPerson:(id *)arg1 confirmedFaceCSNs:(id *)arg2 faceCSNsByPerson:(id *)arg3 faceCSNsByMigratedPerson:(id *)arg4 faceCSNsByQuickClassificationPerson:(id *)arg5 mergeCandidates:(id *)arg6 invalidMergeCandidates:(id *)arg7 rejectedPersonsByPerson:(id *)arg8 faceInFaceGroupByCSN:(id *)arg9 inFaces:(id)arg10 personCache:(id)arg11 canceler:(id)arg12;
 - (void)dedupeGraphVerifiedPersonsInFaceGroup:(id)arg1 personCache:(id)arg2;
 - (void)_getMergeCandidates:(id)arg1 invalidMergeCandidates:(id)arg2 forPersonsWithLocalIdentifiers:(id)arg3;
 - (id)_updatedFaceGroupByFGLocalIdentifierFromClusterCSNsWithCanceler:(id)arg1 fetchLimit:(unsigned long long)arg2;

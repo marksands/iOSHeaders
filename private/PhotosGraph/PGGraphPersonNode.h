@@ -40,6 +40,7 @@
 @property(readonly) _Bool personIsUserCreated;
 - (_Bool)isMeNode;
 @property(readonly) NSString *localIdentifier;
+@property(readonly, nonatomic) _Bool isVerified;
 - (long long)compareToPerson:(id)arg1;
 
 // Remaining properties

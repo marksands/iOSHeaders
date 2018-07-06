@@ -12,6 +12,7 @@
 - (void)reloadFromServerWithReplyHandler:(void (^)(NSArray *, NSError *))arg1;
 - (void)refreshUpdateCountWithReplyHandler:(void (^)(long long, NSError *))arg1;
 - (void)getUpdatesWithReplyHandler:(void (^)(NSArray *))arg1;
+- (void)confirmAgentRequestedUpdateAll:(void (^)(_Bool))arg1;
 - (void)compatibilityUpdateForBundleIDs:(NSArray *)arg1 userInitiated:(_Bool)arg2 withReplyHandler:(void (^)(NSError *))arg3;
 - (void)autoUpdateEnabled:(void (^)(_Bool))arg1;
 @end

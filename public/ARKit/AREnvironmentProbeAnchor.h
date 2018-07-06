@@ -30,6 +30,8 @@
 -     // Error parsing type: @104@0:8@16{?=[4]}2488, name: initWithName:transform:extent:
 -     // Error parsing type: @96@0:8{?=[4]}1680, name: initWithTransform:extent:
 -     // Error parsing type: @88@0:8@16{?=[4]}24, name: initWithIdentifier:transform:
+-     // Error parsing type: @88@0:8@16{?=[4]}24, name: initWithName:transform:
+-     // Error parsing type: @80@0:8{?=[4]}16, name: initWithTransform:
 
 @end
 

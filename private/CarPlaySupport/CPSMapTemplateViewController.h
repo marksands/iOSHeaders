@@ -18,21 +18,23 @@
 #import "CPSTripInitiating.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class CARSessionStatus, CPMapTemplate, CPSApplicationStateMonitor, CPSEventObserver, CPSNavigationAlertQueue, CPSNavigationCardView, CPSNavigationETAView, CPSNavigator, CPSPanViewController, CPSTripCardView, CPTripPreviewTextConfiguration, NSArray, NSLayoutConstraint, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSTimer, UIPanGestureRecognizer, UIStackView, UITapGestureRecognizer, UIView;
+@class CARSessionStatus, CPMapTemplate, CPSApplicationStateMonitor, CPSEventObserver, CPSNavigationAlertQueue, CPSNavigationCardView, CPSNavigationETAView, CPSNavigator, CPSPanViewController, CPSTripPreviewsCardView, CPTripPreviewTextConfiguration, NSArray, NSLayoutConstraint, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSTimer, UIColor, UIPanGestureRecognizer, UIStackView, UITapGestureRecognizer, UIView;
 
 @interface CPSMapTemplateViewController : CPSBaseTemplateViewController <CARSessionObserving, CPSButtonDelegate, CPSTripInitiating, UIGestureRecognizerDelegate, CPSPanEventDelegate, CPSNavigationAlertQueueDelegate, CPSNavigationDisplaying, CARNavigationOwnershipManagerDelegate, CPSEventObserverDelegate, CPSApplicationStateObserving, CPMapTemplateProviding>
 {
+    _Bool _previewOnlyRouteChoices;
     _Bool _autoHidesNavigationBar;
     _Bool _hidesButtonsWithNavigationBar;
     _Bool _demoAutoHideTimerDisabled;
     _Bool _applicationIsFrontmost;
     _Bool _rightHandDrive;
     UIStackView *_trailingBottomStackView;
+    unsigned long long _maximumMapButtonCount;
     NSMutableArray *_mapButtons;
     CPSNavigationCardView *_navigationCardView;
     NSLayoutConstraint *_cardViewBottomConstraint;
     NSLayoutConstraint *_cardViewTopConstraint;
-    CPSTripCardView *_previewsView;
+    CPSTripPreviewsCardView *_previewsView;
     CARSessionStatus *_sessionStatus;
     CPSNavigator *_navigator;
     UITapGestureRecognizer *_hideTapGestureRecognizer;
@@ -44,6 +46,8 @@
     CPTripPreviewTextConfiguration *_tripPreviewTextConfiguration;
     CPSPanViewController *_panViewController;
     UIView *_panContainerView;
+    NSLayoutConstraint *_panContainerLeftConstraint;
+    NSLayoutConstraint *_panContainerRightConstraint;
     CPSNavigationAlertQueue *_navigationAlertQueue;
     NSLayoutConstraint *_navigationAlertBottomConstraint;
     NSLayoutConstraint *_navigationAlertHeightConstraint;
@@ -54,9 +58,13 @@
     id <CPSSafeAreaDelegate> _safeAreaDelegate;
     CPSEventObserver *_eventObserver;
     id <UIFocusItem> _lastFocusedItem;
+    UIColor *_guidanceBackgroundColor;
+    unsigned long long _tripEstimateStyle;
     struct CGPoint _lastPanGesturePoint;
 }
 
+@property(nonatomic) unsigned long long tripEstimateStyle; // @synthesize tripEstimateStyle=_tripEstimateStyle;
+@property(retain, nonatomic) UIColor *guidanceBackgroundColor; // @synthesize guidanceBackgroundColor=_guidanceBackgroundColor;
 @property(nonatomic) struct CGPoint lastPanGesturePoint; // @synthesize lastPanGesturePoint=_lastPanGesturePoint;
 @property(nonatomic) __weak id <UIFocusItem> lastFocusedItem; // @synthesize lastFocusedItem=_lastFocusedItem;
 @property(retain, nonatomic) CPSEventObserver *eventObserver; // @synthesize eventObserver=_eventObserver;
@@ -71,6 +79,8 @@
 @property(retain, nonatomic) NSLayoutConstraint *navigationAlertBottomConstraint; // @synthesize navigationAlertBottomConstraint=_navigationAlertBottomConstraint;
 @property(retain, nonatomic) CPSNavigationAlertQueue *navigationAlertQueue; // @synthesize navigationAlertQueue=_navigationAlertQueue;
 @property(nonatomic) _Bool demoAutoHideTimerDisabled; // @synthesize demoAutoHideTimerDisabled=_demoAutoHideTimerDisabled;
+@property(retain, nonatomic) NSLayoutConstraint *panContainerRightConstraint; // @synthesize panContainerRightConstraint=_panContainerRightConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *panContainerLeftConstraint; // @synthesize panContainerLeftConstraint=_panContainerLeftConstraint;
 @property(retain, nonatomic) UIView *panContainerView; // @synthesize panContainerView=_panContainerView;
 @property(retain, nonatomic) CPSPanViewController *panViewController; // @synthesize panViewController=_panViewController;
 @property(retain, nonatomic) CPTripPreviewTextConfiguration *tripPreviewTextConfiguration; // @synthesize tripPreviewTextConfiguration=_tripPreviewTextConfiguration;
@@ -84,11 +94,13 @@
 @property(retain, nonatomic) UITapGestureRecognizer *hideTapGestureRecognizer; // @synthesize hideTapGestureRecognizer=_hideTapGestureRecognizer;
 @property(retain, nonatomic) CPSNavigator *navigator; // @synthesize navigator=_navigator;
 @property(retain, nonatomic) CARSessionStatus *sessionStatus; // @synthesize sessionStatus=_sessionStatus;
-@property(retain, nonatomic) CPSTripCardView *previewsView; // @synthesize previewsView=_previewsView;
+@property(nonatomic) _Bool previewOnlyRouteChoices; // @synthesize previewOnlyRouteChoices=_previewOnlyRouteChoices;
+@property(retain, nonatomic) CPSTripPreviewsCardView *previewsView; // @synthesize previewsView=_previewsView;
 @property(retain, nonatomic) NSLayoutConstraint *cardViewTopConstraint; // @synthesize cardViewTopConstraint=_cardViewTopConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *cardViewBottomConstraint; // @synthesize cardViewBottomConstraint=_cardViewBottomConstraint;
 @property(retain, nonatomic) CPSNavigationCardView *navigationCardView; // @synthesize navigationCardView=_navigationCardView;
 @property(retain, nonatomic) NSMutableArray *mapButtons; // @synthesize mapButtons=_mapButtons;
+@property(nonatomic) unsigned long long maximumMapButtonCount; // @synthesize maximumMapButtonCount=_maximumMapButtonCount;
 @property(retain, nonatomic) UIStackView *trailingBottomStackView; // @synthesize trailingBottomStackView=_trailingBottomStackView;
 - (void).cxx_destruct;
 - (void)applicationStateMonitor:(id)arg1 didBecomeActive:(_Bool)arg2;
@@ -129,9 +141,11 @@
 - (void)setMapButton:(id)arg1 hidden:(_Bool)arg2;
 - (void)hostStartNavigationSessionForTrip:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)hostUpdateTravelEstimates:(id)arg1 forTripIdentifier:(id)arg2;
-- (void)setHostTripPreviews:(id)arg1 textConfiguration:(id)arg2;
+- (void)setHostTripPreviews:(id)arg1 textConfiguration:(id)arg2 previewOnlyRouteChoices:(_Bool)arg3;
 - (void)setHostHidesButtonsWithNavigationBar:(_Bool)arg1;
 - (void)setHostAutoHidesNavigationBar:(_Bool)arg1;
+- (void)setHostTripEstimateStyle:(unsigned long long)arg1;
+- (void)setHostGuidanceBackgroundColor:(id)arg1;
 - (void)setControl:(id)arg1 enabled:(_Bool)arg2;
 - (void)_nightModeChanged:(id)arg1;
 - (void)sessionDidConnect:(id)arg1;
@@ -140,6 +154,7 @@
 - (id)_buttonForIdentifier:(id)arg1;
 - (id)_buttons;
 - (void)didSelectButton:(id)arg1;
+- (void)showManeuvers:(id)arg1 usingDisplayStyles:(id)arg2;
 - (void)navigator:(id)arg1 didEndTrip:(_Bool)arg2;
 - (id)_tripDidBegin:(id)arg1 withEstimates:(id)arg2 forIdentifier:(id)arg3;
 - (void)_updateManeuverCardIfNeededForAlertShowing:(_Bool)arg1;
@@ -154,6 +169,7 @@
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)_updateMapButtonsWithButtons:(id)arg1;
+- (void)_setMaximumVisibleMapButtons:(unsigned long long)arg1;
 - (void)viewDidLoad;
 @property(readonly, nonatomic) CPMapTemplate *mapTemplate;
 - (void)dealloc;

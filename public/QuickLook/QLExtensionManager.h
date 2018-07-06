@@ -13,12 +13,14 @@
     QLExtensionManagerCache *_thumbnailExtensionCache;
     QLExtensionManagerCache *_previewExtensionCache;
     QLExtensionManagerCache *_previewHighMemoryExtensionCache;
+    QLExtensionManagerCache *_thumbnailHighMemoryExtensionCache;
 }
 
 + (id)sharedManager;
 + (id)ql_previewExtensionCustomLoadingTimeForItem:(id)arg1;
 + (_Bool)ql_isPreviewExtensionThatHaveCustomPresentationViewForItem:(id)arg1;
 + (id)extensionForItem:(id)arg1;
+@property(retain, nonatomic) QLExtensionManagerCache *thumbnailHighMemoryExtensionCache; // @synthesize thumbnailHighMemoryExtensionCache=_thumbnailHighMemoryExtensionCache;
 @property(retain, nonatomic) QLExtensionManagerCache *previewHighMemoryExtensionCache; // @synthesize previewHighMemoryExtensionCache=_previewHighMemoryExtensionCache;
 @property(retain, nonatomic) QLExtensionManagerCache *previewExtensionCache; // @synthesize previewExtensionCache=_previewExtensionCache;
 @property(retain, nonatomic) QLExtensionManagerCache *thumbnailExtensionCache; // @synthesize thumbnailExtensionCache=_thumbnailExtensionCache;

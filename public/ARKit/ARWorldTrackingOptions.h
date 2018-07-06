@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class ARImageSensorSettings, ARWorldMap, NSString;
+@class ARImageSensorSettings, ARWorldMap, NSDictionary, NSString;
 
 @interface ARWorldTrackingOptions : NSObject <NSCopying>
 {
@@ -37,6 +37,7 @@
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) NSDictionary *dictionary;
 - (id)init;
 
 @end

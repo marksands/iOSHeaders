@@ -39,7 +39,7 @@
 - (_Bool)scrollGadgetToVisible:(id)arg1 animated:(_Bool)arg2;
 - (id)gridPresentation;
 - (id)oneUpPresentation;
-- (_Bool)gadget:(id)arg1 transitionToViewController:(struct NSObject *)arg2 animated:(_Bool)arg3;
+- (_Bool)gadget:(id)arg1 transitionToViewController:(struct NSObject *)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)invalidateGadgets;
 - (id)_sortedGadgets;
 - (id)_dataSourceSnapshot;

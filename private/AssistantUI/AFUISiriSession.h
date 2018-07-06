@@ -21,6 +21,7 @@
     AFUIStateMachine *_stateMachine;
     AFUISpeechSynthesis *_speechSynthesis;
     NSMutableSet *_speechRequestGroupGraveyard;
+    AFConnection *_connection;
     CDUnknownBlockType _continuePendingRequest;
     _Bool _sendContextBeforeContinuingSpeechRequest;
     AFSettingsConnection *_settingsConnection;
@@ -31,7 +32,6 @@
     id <AFUISiriSessionLocalDataSource> _localDataSource;
     id <AFUISiriSessionLocalDelegate> _localDelegate;
     AFUISiriSessionInfo *_siriSessionInfo;
-    AFConnection *_connection;
     NSObject<OS_dispatch_group> *_currentSpeechRequestGroup;
 }
 
@@ -39,7 +39,6 @@
 + (void)beginMonitoringSiriAvailability;
 + (unsigned long long)availabilityState;
 @property(retain, nonatomic, getter=_currentSpeechRequestGroup, setter=_setCurrentSpeechRequestGroup:) NSObject<OS_dispatch_group> *currentSpeechRequestGroup; // @synthesize currentSpeechRequestGroup=_currentSpeechRequestGroup;
-@property(readonly, nonatomic, getter=_connection) AFConnection *connection; // @synthesize connection=_connection;
 @property(retain, nonatomic) AFUISiriSessionInfo *siriSessionInfo; // @synthesize siriSessionInfo=_siriSessionInfo;
 @property(readonly, nonatomic) _Bool isProcessingAcousticIdRequest; // @synthesize isProcessingAcousticIdRequest=_isProcessingAcousticIdRequest;
 @property(nonatomic, getter=isEyesFree) _Bool eyesFree; // @synthesize eyesFree=_eyesFree;
@@ -134,7 +133,7 @@
 - (CDUnknownBlockType)safeWrapResponseCompletion:(CDUnknownBlockType)arg1;
 - (void)assistantConnectionRequestWillStart:(id)arg1;
 - (_Bool)speechSynthesisConnectionIsRecording:(id)arg1;
-- (void)speechSynthesisWillStartSpeaking:(id)arg1;
+- (void)speechSynthesis:(id)arg1 prepareForSpeakingWithCompletion:(CDUnknownBlockType)arg2;
 - (void)stopCurrentRecordingForSpeechSynthesis:(id)arg1;
 - (id)speechSynthesis;
 - (void)_continuePendingSpeechRequest;
@@ -153,6 +152,7 @@
 - (void)stateMachine:(id)arg1 didTransitionFromState:(long long)arg2 forEvent:(long long)arg3;
 - (long long)_state;
 - (id)_stateMachine;
+@property(readonly, nonatomic, getter=_connection) AFConnection *connection;
 - (void)_siriNetworkAvailabilityDidChange:(id)arg1;
 - (void)_voiceOverStatusDidChange:(id)arg1;
 - (void)_outputVoiceDidChange:(id)arg1;

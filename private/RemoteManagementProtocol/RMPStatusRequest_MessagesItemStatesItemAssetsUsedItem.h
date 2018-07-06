@@ -14,6 +14,7 @@
     NSString *_serverHash;
 }
 
++ (id)buildRequiredOnlyWithAssetIdentifier:(id)arg1 withServerHash:(id)arg2;
 + (id)buildWithAssetIdentifier:(id)arg1 withServerHash:(id)arg2;
 + (id)allowedKeys;
 @property(copy, nonatomic) NSString *serverHash; // @synthesize serverHash=_serverHash;

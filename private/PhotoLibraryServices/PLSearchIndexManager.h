@@ -72,6 +72,7 @@
 - (long long)_inqReasonIfSearchIndexIsInvalid;
 @property(readonly) PLPhotoLibrary *_inqPhotoLibrary;
 - (void)_inqEnsurePhotoLibraryExists;
+- (void)_inqEnsureSceneTaxonomyProxyExists;
 - (void)_inqIndexPhotoLibrary;
 - (void)_inqEnsureSearchProgressExists;
 - (void)_inqEnsureSearchSystemInfoExists;

@@ -166,10 +166,9 @@
 + (id)predicateForSupportedAssetTypesForUpload;
 + (id)supportedAssetTypesForUpload;
 + (id)assetWithScopedIdentifier:(id)arg1 inLibrary:(id)arg2;
++ (id)assetsByScopedIdentifiers:(id)arg1 inLibrary:(id)arg2;
 + (id)assetsByCloudAssetUUID:(id)arg1 inLibrary:(id)arg2;
 + (id)_assetsWithCloudAssetUUIDs:(id)arg1 inMomentShare:(id)arg2 inLibrary:(id)arg3 fetchLimit:(unsigned long long)arg4;
-+ (id)assetsWithCloudAssetUUIDs:(id)arg1 inLibrary:(id)arg2;
-+ (id)assetWithCloudAssetUUID:(id)arg1 inLibrary:(id)arg2;
 + (id)listOfSyncedProperties;
 + (void)fixupCloudPhotoLibraryAsset:(id)arg1 withCloudMaster:(id)arg2 inLibrary:(id)arg3;
 + (id)createCloudPhotoLibraryAssetWithAssetRecord:(id)arg1 withCloudMaster:(id)arg2 inLibrary:(id)arg3;
@@ -692,6 +691,7 @@
 - (id)_createVideoResourceFromVideoURL:(id)arg1 withResourceType:(unsigned long long)arg2 scopedIdentifier:(id)arg3 applyVideoAdjustments:(_Bool)arg4 forMaster:(_Bool)arg5 forPhotoIris:(_Bool)arg6;
 - (id)_createCPLResourceFromResourcePath:(id)arg1 withResourceType:(unsigned long long)arg2 uniformTypeIdentifier:(id)arg3 scopedIdentifier:(id)arg4;
 - (id)_createImageResourceForResourceType:(unsigned long long)arg1 withPreviewImagePath:(id)arg2 scopedIdentifier:(id)arg3 forMaster:(_Bool)arg4;
+- (void)_promptForNilScopeIdentifierRadar;
 - (id)scopedIdentifier;
 - (id)_generatePosterFrameForVideoAtURL:(id)arg1 withResourceType:(unsigned long long)arg2 scopedIdentifier:(id)arg3 forMaster:(_Bool)arg4;
 - (void)_migrateResourcePathForMaster:(id)arg1;

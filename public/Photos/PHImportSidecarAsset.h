@@ -27,7 +27,7 @@
 @property(readonly, nonatomic) _Bool isValid;
 - (id)getMetadataForImportRecord:(id)arg1 fileData:(id)arg2;
 - (id)thumbnailForSize:(unsigned long long)arg1 atEnd:(CDUnknownBlockType)arg2;
-- (_Bool)loadMetadataSync;
+- (void)loadMetadataSync;
 - (_Bool)canReference;
 - (void)dealloc;
 - (id)initWithSidecarFile:(id)arg1 relatedToImportAsset:(id)arg2;

@@ -96,7 +96,7 @@
 - (void)_configureOccurrenceViewMarginAndPadding:(id)arg1;
 - (void)configureOccurrenceViewForGestureController:(id)arg1;
 - (id)lastDisplayedSecond;
-- (id)_dayStarts;
+- (id)dayStarts;
 @property(readonly, nonatomic) double firstEventSecond;
 - (struct _NSRange)_dayRangeForEvent:(id)arg1 useProposedTime:(_Bool)arg2;
 - (struct _NSRange)_dayRangeForEventWithStartDate:(id)arg1 endDate:(id)arg2;

@@ -10,11 +10,14 @@
 {
 }
 
++ (id)relevanceSimulatorID;
 - (id)description;
 - (unsigned long long)_hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
+- (id)dictionaryEncoding;
+- (id)initWithDictionary:(id)arg1;
 
 @end
 

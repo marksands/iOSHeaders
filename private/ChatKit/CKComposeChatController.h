@@ -70,6 +70,7 @@
 - (_Bool)transcriptCollectionViewControllerPlaybackForOutgoingEffectsIsAllowed:(id)arg1;
 - (void)transcriptCollectionViewController:(id)arg1 balloonView:(id)arg2 tappedForChatItem:(id)arg3;
 - (void)_updateTitleAnimated:(_Bool)arg1;
+- (void)keyboardWillShowOrHide:(id)arg1;
 - (double)topInsetPadding;
 - (_Bool)isSafeToMarkAsRead;
 - (id)outgoingComposeViewForSendAnimation;

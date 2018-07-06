@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) GEOActiveTileSet *tileSet; // @synthesize tileSet=_tileSet;
+- (id)detailedDescription;
 - (id)stateDescriptionForRenderKey:(const struct VKTileKey *)arg1;
 - (_Bool)tileHasLoadingIssue:(const struct VKTileKey *)arg1;
 - (long long)maximumZoomLevelWithoutOverride;

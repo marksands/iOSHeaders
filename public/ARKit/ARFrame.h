@@ -9,7 +9,7 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class ARCamera, ARFaceData, ARFrameTimingData, ARLightEstimate, ARPointCloud, ARRawSceneUnderstandingData, ARWorldTrackingErrorData, AVDepthData, NSArray, NSDate, NSDictionary;
+@class ARCamera, ARFaceData, ARFrameTimingData, ARLightEstimate, ARPointCloud, ARRawSceneUnderstandingData, ARWorldTrackingErrorData, ARWorldTrackingState, AVDepthData, NSArray, NSDate, NSDictionary;
 
 @interface ARFrame : NSObject <NSSecureCoding, NSCopying>
 {
@@ -31,11 +31,11 @@
     ARFrameTimingData *_timingData;
     ARWorldTrackingErrorData *_worldTrackingErrorData;
     NSDictionary *_worldTrackingStateDetails;
+    ARWorldTrackingState *_worldTrackingState;
     long long _renderFramesPerSecond;
     NSDate *_captureDate;
     ARRawSceneUnderstandingData *_rawSceneUnderstandingData;
     ARFaceData *_faceData;
-    CDStruct_fad22f05 _vioStateInformation;
     // Error parsing type: {?="columns"[4]}, name: _referenceOriginTransform
     // Error parsing type: {?="columns"[4]}, name: _referenceOriginDelta
     // Error parsing type: {?="columns"[4]}, name: _sessionOriginTransform
@@ -48,7 +48,7 @@
 @property(retain, nonatomic) NSDate *captureDate; // @synthesize captureDate=_captureDate;
 @property(nonatomic) _Bool shouldRestrictFrameRate; // @synthesize shouldRestrictFrameRate=_shouldRestrictFrameRate;
 @property(nonatomic) long long renderFramesPerSecond; // @synthesize renderFramesPerSecond=_renderFramesPerSecond;
-@property(nonatomic) CDStruct_fad22f05 vioStateInformation; // @synthesize vioStateInformation=_vioStateInformation;
+@property(retain, nonatomic) ARWorldTrackingState *worldTrackingState; // @synthesize worldTrackingState=_worldTrackingState;
 @property(copy, nonatomic) NSDictionary *worldTrackingStateDetails; // @synthesize worldTrackingStateDetails=_worldTrackingStateDetails;
 @property(retain, nonatomic) ARWorldTrackingErrorData *worldTrackingErrorData; // @synthesize worldTrackingErrorData=_worldTrackingErrorData;
 @property(retain, nonatomic) ARFrameTimingData *timingData; // @synthesize timingData=_timingData;
@@ -96,6 +96,7 @@
 - (void)setReferenceOriginTransformUpdated:(_Bool)arg1;
 - (_Bool)referenceOriginTransformUpdated;
 - (_Bool)referenceOriginTransformAvailable;
+- (id)vioStateInformation;
 @property(readonly, nonatomic) ARPointCloud *rawFeaturePoints;
 - (struct CGAffineTransform)displayTransformForOrientation:(long long)arg1 viewportSize:(struct CGSize)arg2;
 - (id)hitTest:(struct CGPoint)arg1 types:(unsigned long long)arg2;

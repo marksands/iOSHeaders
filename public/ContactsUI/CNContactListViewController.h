@@ -27,7 +27,6 @@
 @interface CNContactListViewController : UITableViewController <CNAvatarCardControllerDelegate, CNContactDataSourceDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate, CNContactListBannerViewDelegate, CNContactViewControllerDelegate, UIGestureRecognizerDelegate, CNUIPeopleGroupsGridViewControllerDelegate, CNUIObjectViewControllerDelegate, UITableViewDragSourceDelegate, UITableViewDragDestinationDelegate, CNVCardImportControllerPresentationDelegate, CNVCardImportControllerDelegate, CNAvatarViewControllerDelegate>
 {
     CNContact *_preferredForNameMeContact;
-    _Bool _shouldRefreshMeContact;
     _Bool _shouldDisplayMeContactBanner;
     _Bool _shouldAutoHideMeContactBanner;
     _Bool _allowsSearching;
@@ -86,7 +85,6 @@
 @property(copy, nonatomic) NSString *meContactBannerFootnoteLabel; // @synthesize meContactBannerFootnoteLabel=_meContactBannerFootnoteLabel;
 @property(nonatomic) _Bool shouldAutoHideMeContactBanner; // @synthesize shouldAutoHideMeContactBanner=_shouldAutoHideMeContactBanner;
 @property(nonatomic) __weak id <CNContactListViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) _Bool shouldRefreshMeContact; // @synthesize shouldRefreshMeContact=_shouldRefreshMeContact;
 - (void).cxx_destruct;
 - (void)vCardImportControllerDidCompleteQueue:(id)arg1;
 - (void)vCardImportController:(id)arg1 didSaveContacts:(id)arg2;
@@ -131,6 +129,7 @@
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (id)_contactAtIndexPath:(id)arg1;
 - (id)_sections;
+- (void)contactDataSourceMeContactDidChange:(id)arg1;
 - (void)contactDataSourceDidChangeDisplayName:(id)arg1;
 - (void)contactDataSourceDidChange:(id)arg1;
 - (_Bool)updateFrameAndDisplayNoContactsViewIfNeeded;

@@ -19,6 +19,7 @@
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)descriptionWithIndent:(unsigned long long)arg1;
+- (id)_inflectionFeatureValuePairs;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)_acceptsFeatureMap:(id)arg1;

@@ -8,32 +8,24 @@
 
 @class NSArray, NSString;
 
-__attribute__((visibility("hidden")))
 @interface AMSMetricsLoadURLEvent : AMSMetricsEvent
 {
-    _Bool _xpSamplingForced;
-    double _xpSessionDuration;
-    double _xpSamplingPercentageUsers;
-    double _xpSamplingPercentageCachedResponses;
 }
 
 + (double)_timingDataMetricToServerTimeInterval:(id)arg1;
 + (id)_resolvedIPAddressFromTask:(id)arg1;
 + (double)_randomDouble;
-+ (id)_metricsDictionaryFromTaskInfo:(id)arg1;
-+ (unsigned long long)_messageSizeFromTaskInfo:(id)arg1 forRequest:(_Bool)arg2;
++ (id)_metricsDictionaryFromConfig:(id)arg1;
++ (unsigned long long)_messageSizeFromConfig:(id)arg1 forRequest:(_Bool)arg2;
 + (id)_fetchNetworkQualityReports;
 + (id)_DNSServerIPAddresses;
-+ (_Bool)shouldCollectMetricsFromTask:(id)arg1;
-+ (id)eventWithTaskInfo:(id)arg1;
-@property(nonatomic) double xpSamplingPercentageCachedResponses; // @synthesize xpSamplingPercentageCachedResponses=_xpSamplingPercentageCachedResponses;
-@property(nonatomic) double xpSamplingPercentageUsers; // @synthesize xpSamplingPercentageUsers=_xpSamplingPercentageUsers;
-@property(nonatomic) _Bool xpSamplingForced; // @synthesize xpSamplingForced=_xpSamplingForced;
-@property(nonatomic) double xpSessionDuration; // @synthesize xpSessionDuration=_xpSessionDuration;
-- (void)setXPSamplingPercentageCachedResponses:(double)arg1;
-- (void)setXPSamplingPercentageUsers:(double)arg1;
-- (void)setXPSamplingForced:(_Bool)arg1;
-- (void)setXPSessionDuration:(double)arg1;
++ (_Bool)shouldCollectMetricsForContext:(id)arg1;
+@property(retain, nonatomic) NSString *xxdc;
+@property(nonatomic) double xpSamplingPercentageCachedResponses;
+@property(nonatomic) double xpSamplingPercentageUsers;
+@property(nonatomic) _Bool xpSamplingForced;
+@property(nonatomic) double xpSessionDuration;
+@property(nonatomic) _Bool TLSSessionTickets;
 @property(retain, nonatomic) NSString *TIDState;
 @property(nonatomic) long long statusCode;
 @property(nonatomic) double secureConnectionStartTime;
@@ -48,6 +40,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double redirectStartTime;
 @property(nonatomic) double redirectEndTime;
 @property(nonatomic) unsigned long long redirectCount;
+@property(retain, nonatomic) NSString *radioTechnology;
 @property(retain, nonatomic) NSString *originalApp;
 @property(retain, nonatomic) NSArray *networkQualityReports;
 @property(nonatomic) double fetchStartTime;
@@ -71,6 +64,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool apsRelayDidFallback;
 @property(nonatomic) _Bool apsRelayAttempted;
 @property(retain, nonatomic) NSString *appleTimingApp;
+- (void)_prepareEventWithContext:(id)arg1;
+- (id)initWithContext:(id)arg1;
 
 @end
 

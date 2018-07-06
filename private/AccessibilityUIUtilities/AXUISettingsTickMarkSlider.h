@@ -13,7 +13,6 @@
 - (id)accessibilityValue;
 - (id)accessibilityLabel;
 - (struct CGRect)thumbRectForBounds:(struct CGRect)arg1 trackRect:(struct CGRect)arg2 value:(float)arg3;
-- (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

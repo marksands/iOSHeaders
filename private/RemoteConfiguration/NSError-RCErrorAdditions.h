@@ -7,6 +7,8 @@
 #import "NSError.h"
 
 @interface NSError (RCErrorAdditions)
++ (id)rc_endpointErrorWithUnderlyingEndpointErrors:(id)arg1;
++ (id)rc_parsingError;
 + (id)rc_missingConfigErrorWithUnderlyingError:(id)arg1;
 + (id)rc_offlineErrorWithReason:(long long)arg1;
 + (id)rc_notAvailableError;

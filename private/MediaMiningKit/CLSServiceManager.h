@@ -35,12 +35,14 @@
 - (void)prefetchEventsFromUniversalDate:(id)arg1 toUniversalDate:(id)arg2 forAssetCollectionsSortedByStartDate:(id)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (void)enumerateEventsFromUniversalDate:(id)arg1 toUniversalDate:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)_traceStringForType:(unsigned long long)arg1;
+- (id)lastLocationOfInterestVisit;
 - (void)postProcessLocationsOfInterest;
+- (id)fetchImportantLocationsOfInterest;
 - (id)predominantLocationMobilityForDateInterval:(id)arg1 confidence:(double *)arg2;
 - (id)fetchLocationOfInterestVisitsAtLocation:(id)arg1 inDateInterval:(id)arg2;
+- (id)locationOfInterestCloseToLocation:(id)arg1 inDateInterval:(id)arg2;
 - (id)locationOfInterestAtLocation:(id)arg1;
 - (_Bool)isRemoteLocation:(id)arg1 inDateInterval:(id)arg2;
-- (id)locationOfInterestPlacemarkCloseToLocation:(id)arg1 inDateInterval:(id)arg2;
 - (id)personForPersonHandle:(id)arg1;
 - (void)enumeratePersonsAndBirthdayDateUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumeratePersonsAndHomeAddressUsingBlock:(CDUnknownBlockType)arg1;

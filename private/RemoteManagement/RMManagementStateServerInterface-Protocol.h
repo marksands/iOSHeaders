@@ -10,6 +10,7 @@
 - (void)isRestrictionsPasscodeSetWithCompletionHandler:(void (^)(_Bool, NSError *))arg1;
 - (void)shouldRequestMoreTimeWithCompletionHandler:(void (^)(_Bool, NSError *))arg1;
 - (void)screenTimeSyncStateWithCompletionHandler:(void (^)(long long, NSError *))arg1;
-- (void)screenTimeStateCompletionHandler:(void (^)(long long, NSError *))arg1;
+- (void)setScreenTimeEnabled:(_Bool)arg1 completionHandler:(void (^)(NSError *))arg2;
+- (void)screenTimeStateWithCompletionHandler:(void (^)(long long, NSError *))arg1;
 @end
 

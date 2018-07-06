@@ -51,6 +51,7 @@
 - (id)fmipAccount;
 - (void)fmipAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fmipStateWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)_checkLostModeInSharedContainer;
 - (_Bool)lockdownShouldDisableDevicePairing;
 - (_Bool)lockdownShouldDisableDeviceRestore;
 - (void)deviceActivationDidSucceed;
@@ -63,6 +64,7 @@
 - (id)lostModeInfo;
 - (unsigned long long)_needsAckLostModeType;
 - (unsigned long long)_managedLostModeType;
+- (_Bool)isLostModeActive;
 - (_Bool)isManagedLostModeActive;
 - (_Bool)lostModeIsActive;
 - (void)activationLockVersionWithCompletion:(CDUnknownBlockType)arg1;

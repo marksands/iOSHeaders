@@ -13,6 +13,7 @@
     NSString *_identifier;
 }
 
++ (id)buildRequiredOnlyWithIdentifier:(id)arg1;
 + (id)buildWithIdentifier:(id)arg1;
 + (id)allowedKeys;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;

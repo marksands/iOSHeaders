@@ -14,6 +14,7 @@
 @property(readonly, nonatomic) _Bool shouldShowChatChrome;
 @property(readonly, nonatomic) long long browserPresentationStyle;
 @property(readonly, nonatomic) _Bool mayBeKeptInViewHierarchy;
+@property(nonatomic) _Bool isPrimaryViewController;
 @property(readonly, nonatomic) _Bool shouldSuppressEntryView;
 @property(readonly, nonatomic) _Bool supportsQuickView;
 @property(readonly, nonatomic) _Bool wantsOpaqueUI;

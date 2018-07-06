@@ -43,7 +43,6 @@
 - (long long)recentCompare:(id)arg1;
 - (id)nameFromType:(long long)arg1;
 @property(readonly, nonatomic) NSString *preferredName;
-@property(readonly, nonatomic) id <GEOMapItem> geoMapItem;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

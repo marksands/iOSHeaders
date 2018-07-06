@@ -26,6 +26,7 @@
         unsigned int showingMenu:1;
         unsigned int clearSelectionWhenMenuDisappears:1;
         unsigned int waitingForSelectionAnimationHalfwayPoint:1;
+        unsigned int contentViewWantsSystemLayoutSizeFittingSize:1;
     } _collectionCellFlags;
     long long _dragState;
     _Bool _selected;

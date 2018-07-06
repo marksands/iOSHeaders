@@ -6,23 +6,23 @@
 
 #import <PhotosUI/PUSingleHeightHorizontalAlbumListGadgetLayout.h>
 
-@class NSArray;
+@class NSMutableDictionary;
 
 __attribute__((visibility("hidden")))
 @interface PUDoubleHeightHorizontalAlbumListGadgetLayout : PUSingleHeightHorizontalAlbumListGadgetLayout
 {
-    NSArray *_adjustedLayoutAttributes;
+    NSMutableDictionary *_layoutAttributesByIndexPath;
 }
 
-@property(retain, nonatomic) NSArray *adjustedLayoutAttributes; // @synthesize adjustedLayoutAttributes=_adjustedLayoutAttributes;
+@property(readonly, nonatomic) NSMutableDictionary *layoutAttributesByIndexPath; // @synthesize layoutAttributesByIndexPath=_layoutAttributesByIndexPath;
 - (void).cxx_destruct;
 - (void)_adjustLayoutAttributes:(id)arg1;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
 - (struct CGSize)collectionViewContentSize;
-- (void)prepareLayout;
 - (void)invalidateLayout;
+- (id)init;
 
 @end
 

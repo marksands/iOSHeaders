@@ -17,7 +17,6 @@
 @property(readonly, copy, nonatomic) NSString *syncServiceIdentifier; // @synthesize syncServiceIdentifier=_syncServiceIdentifier;
 @property(readonly, nonatomic) NSDictionary *syncDataHandlers; // @synthesize syncDataHandlers=_syncDataHandlers;
 - (void).cxx_destruct;
-- (void)handleSpecialCasesInPartialErrors:(id)arg1 fromChangeSet:(struct NSOrderedSet *)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)resetDataStoreForSyncSession:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)syncSession:(id)arg1 applyChanges:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (long long)syncSession:(id)arg1 enqueueChanges:(CDUnknownBlockType)arg2 error:(id *)arg3;

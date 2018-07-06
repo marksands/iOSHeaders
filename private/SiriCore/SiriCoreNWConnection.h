@@ -43,6 +43,7 @@
     double _keepaliveIntervalTime;
     double _retransmissionBasedConnectionDropTime;
     unsigned long long _keepaliveUnackedCount;
+    double _staleConnectionInterval;
 }
 
 + (void)getMetricsContext:(CDUnknownBlockType)arg1;
@@ -86,6 +87,7 @@
 - (id)_connectionId;
 - (id)_url;
 - (id)delegate;
+- (void)setStaleInterval:(double)arg1;
 - (void)setEnforceExtendedValidation:(_Bool)arg1;
 - (void)setConnectByPOPMethod:(_Bool)arg1;
 - (void)setPrefersWWAN:(_Bool)arg1;

@@ -30,6 +30,7 @@
     _Bool _barMatchesKnobRadius;
     _Bool _overviewTrimHandleStyle;
     _Bool _playBarOnly;
+    _Bool _isOverView;
     id <RCWaveformSelectionOverlayDelegate> _delegate;
     double _selectedTimeRangeMinimumDuration;
     double _selectedTimeRangeMaximumDuration;
@@ -44,6 +45,7 @@
 }
 
 @property(nonatomic) double trackedAssetCurrentTime; // @synthesize trackedAssetCurrentTime=_trackedAssetCurrentTime;
+@property(nonatomic) _Bool isOverView; // @synthesize isOverView=_isOverView;
 @property(nonatomic) _Bool playBarOnly; // @synthesize playBarOnly=_playBarOnly;
 @property(nonatomic) double playWidthMultiplier; // @synthesize playWidthMultiplier=_playWidthMultiplier;
 @property(nonatomic) double knobWidthMultiplier; // @synthesize knobWidthMultiplier=_knobWidthMultiplier;
@@ -67,7 +69,8 @@
 - (id)_accessibilityHitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)accessibilityDecrement;
 - (void)accessibilityIncrement;
-- (void)_accessibilityIncreaseValue:(_Bool)arg1;
+- (void)_accessibilityIncreaseValue:(_Bool)arg1 bySegment:(double)arg2;
+- (_Bool)accessibilityScroll:(long long)arg1;
 - (id)accessibilityValue;
 - (unsigned long long)accessibilityTraits;
 - (id)accessibilityElements;

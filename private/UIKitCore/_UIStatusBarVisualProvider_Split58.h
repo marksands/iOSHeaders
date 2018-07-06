@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 + (id)expandedFont;
 + (id)normalFont;
 + (double)lowerExpandedBaselineOffset;
++ (double)itemSpacing;
 + (double)baselineBottomInset;
 + (double)centeringEdgeInset;
 + (struct CGSize)notchSize;

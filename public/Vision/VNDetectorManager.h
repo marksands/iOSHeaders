@@ -26,17 +26,20 @@ __attribute__((visibility("hidden")))
 - (void)_forcedCleanupFacePipelineWithLevel:(id)arg1;
 - (void)forcedCleanup;
 - (id)loadedDetectors;
+- (void)_removeAllCachedDetectors;
 - (void)_removeCachedDetectorTypes:(id)arg1;
 - (void)_removeCachedDetectorClasses:(id)arg1;
 - (Class)detectorClassForDetectorType:(id)arg1 options:(id)arg2;
-- (id)detectorOfType:(id)arg1 backingStore:(unsigned long long)arg2 options:(id)arg3 error:(id *)arg4;
 - (id)detectorOfType:(id)arg1 options:(id)arg2 error:(id *)arg3;
+- (id)wisdomParametersForMetalDeviceWithName:(id)arg1;
 - (Class)_detectorClassForDetectorType:(id)arg1 options:(id)arg2 detectorCreationOptions:(id *)arg3 error:(id *)arg4;
 - (id)_detectorOfClass:(Class)arg1 type:(id)arg2 configuredWithOptions:(id)arg3 error:(id *)arg4;
 - (id)_specialCaseLookUpOfExistingDetectorType:(id)arg1 configuredWithOptions:(id)arg2;
-- (id)init;
 - (id)_synchronizationQueueForDetectorType:(id)arg1;
 - (Class)_detectorClassForDetectorType:(id)arg1 error:(id *)arg2;
+- (void)_flushMetalDeviceWisdomParametersCache;
+- (id)_cachedMetalDeviceWisdomParameters;
+- (id)init;
 
 @end
 

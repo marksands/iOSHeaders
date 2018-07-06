@@ -83,6 +83,7 @@
 - (void)setApplicationContext:(id)arg1;
 - (void)willSetApplicationContextWithRefId:(id)arg1;
 - (void)clearContext;
+- (void)getRemoteClockTimerSnapshotWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getCachedObjectsWithIdentifiers:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)getDeferredObjectsWithIdentifiers:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)sendReplyCommand:(id)arg1;
@@ -101,6 +102,7 @@
 - (void)updateSpeechOptions:(id)arg1;
 - (void)stopSpeechWithOptions:(id)arg1;
 - (void)stopSpeech;
+- (void)reportIssueForError:(id)arg1 type:(long long)arg2 context:(id)arg3;
 - (void)failRequestWithError:(id)arg1;
 - (void)cancelRequest;
 - (void)cancelSpeech;
@@ -126,6 +128,7 @@
 - (void)setIsAccessibilityVibrationDisabled:(_Bool)arg1;
 - (void)setIsAccessibilityVoiceOverTouchEnabled:(_Bool)arg1;
 - (void)setCarDNDActive:(_Bool)arg1;
+- (void)setIsDeviceInStarkMode:(_Bool)arg1;
 - (void)setIsStark:(_Bool)arg1;
 - (void)setLockState:(_Bool)arg1 screenLocked:(_Bool)arg2;
 - (void)didDismissUI;

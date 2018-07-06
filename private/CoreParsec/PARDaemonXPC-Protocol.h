@@ -15,7 +15,7 @@
 - (void)fileHandleAndAttributesForResource:(NSString *)arg1 completion:(void (^)(NSFileHandle *, NSDictionary *, NSError *))arg2;
 - (void)listSessions:(void (^)(NSArray *))arg1;
 - (void)stopSessions:(void (^)(NSError *))arg1;
-- (void)teeFeedbackTo:(NSFileHandle *)arg1 completion:(void (^)(NSError *))arg2;
+- (void)teeFeedbackTo:(NSFileHandle *)arg1 prettyPrint:(_Bool)arg2 completion:(void (^)(NSError *))arg3;
 - (void)reportFeedbackPayloadData:(PARSessionConfiguration *)arg1 payloadData:(NSData *)arg2 queryId:(unsigned long long)arg3;
 - (void)request:(PARSessionConfiguration *)arg1 request:(PARRequest *)arg2 reply:(void (^)(unsigned long long, PARReply *, NSError *))arg3;
 - (void)bag:(PARSessionConfiguration *)arg1 reply:(void (^)(PARBag *, NSError *))arg2;

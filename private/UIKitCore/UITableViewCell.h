@@ -12,10 +12,11 @@
 #import "_UIInteractiveHighlighting.h"
 #import "_UILayoutEngineSuspending.h"
 
-@class NSArray, NSIndexPath, NSString, NSTimer, UIColor, UIControl, UIFocusGuide, UIImage, UIImageView, UILabel, UILongPressGestureRecognizer, UIStoryboardPreviewingSegueTemplateStorage, UITableViewCellDeleteConfirmationView, UITapGestureRecognizer, UITextField, UIVisualEffect, _UIFloatingContentView, _UITableViewCellOldEditingData, _UITableViewCellSeparatorView;
+@class NSArray, NSIndexPath, NSMutableDictionary, NSString, NSTimer, UIColor, UIControl, UIFocusGuide, UIImage, UIImageView, UILabel, UILongPressGestureRecognizer, UIStoryboardPreviewingSegueTemplateStorage, UITableViewCellDeleteConfirmationView, UITapGestureRecognizer, UITextField, UIVisualEffect, _UIFloatingContentView, _UITableViewCellOldEditingData, _UITableViewCellSeparatorView;
 
 @interface UITableViewCell : UIView <UIScrollViewDelegate, _UILayoutEngineSuspending, _UIInteractiveHighlighting, NSCoding, UIGestureRecognizerDelegate>
 {
+    NSMutableDictionary *__editingControlTintColors;
     id <UITable_UITableViewCellDelegate> _tableView;
     id _layoutManager;
     id _target;
@@ -321,6 +322,8 @@
 - (void)_setDrawsTopSeparator:(_Bool)arg1;
 - (void)_setShouldIndentWhileEditing:(_Bool)arg1;
 - (void)_setShowingDeleteConfirmation:(_Bool)arg1;
+- (id)_editingControlTintColorForStyle:(long long)arg1;
+- (void)_setEditingControlTintColor:(id)arg1 forStyle:(long long)arg2;
 - (void)_setEditingStyle:(long long)arg1;
 - (id)_reorderControlImage;
 - (void)_setReorderControlImage:(id)arg1;

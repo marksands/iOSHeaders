@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
-@class NCNotificationListCoalescingControlsView;
+@class NCNotificationListCoalescingControlsView, UIView;
 
 @protocol NCNotificationListCoalescingControlsViewDelegate <NSObject>
 
 @optional
 - (void)notificationListCoalescingControlsView:(NCNotificationListCoalescingControlsView *)arg1 didTransitionToClearState:(_Bool)arg2;
 - (void)notificationListCoalescingControlsViewRequestsRestack:(NCNotificationListCoalescingControlsView *)arg1;
+- (void)notificationListCoalescingControlsViewRequestsClearAll:(NCNotificationListCoalescingControlsView *)arg1;
+- (UIView *)containerViewForCoalescingControlsPreviewInteractionPresentedContent:(NCNotificationListCoalescingControlsView *)arg1;
 - (void)notificationListCoalescingControlsViewRequestsClear:(NCNotificationListCoalescingControlsView *)arg1;
 @end
 

@@ -10,11 +10,13 @@
 {
 }
 
++ (id)utility;
 + (id)usage;
 + (id)transport;
 + (id)transaction;
 + (id)tool;
 + (id)test;
++ (id)screenTimeOrganizationController;
 + (id)screentime;
 + (id)serverConduit;
 + (id)persistence;
@@ -26,6 +28,7 @@
 + (id)payloadQueue;
 + (id)payload;
 + (id)organizationController;
++ (id)ohanaOrganizationController;
 + (id)mirroring;
 + (id)metadata;
 + (id)userNotifications;
@@ -33,7 +36,9 @@
 + (id)http;
 + (id)familyUsage;
 + (id)familyServerConduit;
++ (id)familyOrganizationManager;
 + (id)familyOrganizationController;
++ (id)familyMonitor;
 + (id)familyClientConduit;
 + (id)familyCheckinManager;
 + (id)family;
@@ -46,8 +51,10 @@
 + (id)cloudkit;
 + (id)clientConduit;
 + (id)capabilities;
-+ (id)apns;
 + (id)ask;
++ (id)apns;
++ (id)appMonitor;
++ (id)accountMonitor;
 + (id)logCategories;
 
 @end

@@ -39,7 +39,7 @@
 - (void).cxx_destruct;
 - (id)_graphUpdateForPhotoChanges:(id)arg1;
 - (void)_triggerUpdateForGraphUpdate:(id)arg1;
-- (void)_triggerFullRebuildWithProgressBlock:(CDUnknownBlockType)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)_triggerFullRebuildWithProgressBlock:(CDUnknownBlockType)arg1 keepExistingGraph:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_onFinishedProcessingChangesWithTokens:(id)arg1;
 - (void)_processRebuild;
 - (id)_tokensForChanges:(id)arg1;

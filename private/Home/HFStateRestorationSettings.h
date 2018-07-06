@@ -21,8 +21,11 @@
 - (void)_selectedHomeDidChange;
 - (void)_setHomeAppPreferencesValue:(id)arg1 forKey:(id)arg2;
 - (id)_homeAppPreferencesValueForKey:(id)arg1 ofClass:(Class)arg2;
-@property(copy, nonatomic) NSUUID *selectedRoomIdentifier;
 @property(copy, nonatomic) NSString *selectedHomeAppTabIdentifier;
+- (id)_roomKeyForHomeIdentifier:(id)arg1;
+- (void)saveSelectedRoomIdentifier:(id)arg1 forHomeIdentifier:(id)arg2;
+- (id)selectedRoomIdentifierForHomeIdentifier:(id)arg1;
+@property(readonly, copy, nonatomic) NSUUID *selectedRoomIdentifierForSelectedHome;
 @property(copy, nonatomic) NSUUID *selectedHomeIdentifier;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;

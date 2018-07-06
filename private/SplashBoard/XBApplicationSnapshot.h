@@ -16,7 +16,6 @@
     XBSnapshotContainerIdentity *_containerIdentity;
     id <XBSnapshotManifestStore> _store;
     NSMutableDictionary *_variantsByID;
-    _Bool _invalidated;
     NSString *_identifier;
     NSString *_logIdentifier;
     NSString *_groupID;
@@ -32,13 +31,11 @@
     NSDate *_creationDate;
     NSDate *_lastUsedDate;
     NSDate *_expirationDate;
-    _Bool _fullScreen;
     struct CGSize _referenceSize;
     struct CGRect _contentFrame;
     long long _interfaceOrientation;
     long long _contentType;
     long long _fileFormat;
-    _Bool _imageOpaque;
     double _imageScale;
     long long _imageOrientation;
     XBStatusBarSettings *_statusBarSettings;
@@ -48,10 +45,13 @@
     XBApplicationSnapshotGenerationContext *_generationContext;
     UIImage *_cachedImage;
     unsigned long long _imageAccessCount;
+    NSDictionary *_extendedData;
+    _Bool _invalidated;
+    _Bool _fullScreen;
+    _Bool _imageOpaque;
     _Bool _keepImageAccessUntilExpiration;
     _Bool _keepImageAccessForPreHeat;
     _Bool _hasProtectedContent;
-    NSDictionary *_extendedData;
     CDUnknownBlockType _imageGenerator;
     struct CGAffineTransform _imageTransform;
 }

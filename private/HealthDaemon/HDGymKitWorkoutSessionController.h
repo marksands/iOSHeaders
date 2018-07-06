@@ -15,9 +15,9 @@
 @interface HDGymKitWorkoutSessionController : NSObject <HDFitnessMachineSessionObserver, HDWorkoutSessionController, HDWorkoutSessionStateController>
 {
     HDProfile *_profile;
+    id <HDWorkoutSessionStateController> _sessionStateController;
     NSObject<OS_dispatch_queue> *_queue;
     HDDefaultWorkoutSessionController *_defaultSessionController;
-    id <HDWorkoutSessionStateController> _sessionStateController;
     NSUUID *_fitnessMachineSessionUUID;
     _Bool _needsDataAccumulator;
     id <HDWorkoutDataAccumulator> _accumulator;
@@ -40,8 +40,8 @@
 - (_Bool)resumeWithError:(id *)arg1;
 - (_Bool)pauseWithError:(id *)arg1;
 - (_Bool)endWithError:(id *)arg1;
-- (_Bool)stopActivityWithError:(id *)arg1;
-- (_Bool)startActivityWithError:(id *)arg1;
+- (_Bool)stopActivityWithDate:(id)arg1 error:(id *)arg2;
+- (_Bool)startActivityWithDate:(id)arg1 error:(id *)arg2;
 - (_Bool)prepareWithError:(id *)arg1;
 - (void)fitnessMachineSessionUUID:(id)arg1 updatedRecoveryConfiguration:(id)arg2;
 - (void)_queue_reconnectFitnessMachineFromRecoveryState:(id)arg1;

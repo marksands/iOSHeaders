@@ -102,7 +102,7 @@ __attribute__((visibility("hidden")))
 - (void)pullAudioSamples:(struct opaqueVCAudioBufferList *)arg1;
 - (void)didResumeAudioIO:(id)arg1;
 - (void)didSuspendAudioIO:(id)arg1;
-- (void)handleEncryptionInfoChange:(id)arg1;
+- (_Bool)handleEncryptionInfoChange:(id)arg1;
 - (void)vcMediaStream:(id)arg1 requestKeyFrameGenerationWithStreamID:(unsigned short)arg2;
 - (void)vcMediaStream:(id)arg1 didResumeStream:(_Bool)arg2 error:(id)arg3;
 - (void)vcMediaStream:(id)arg1 didPauseStream:(_Bool)arg2 error:(id)arg3;

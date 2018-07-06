@@ -68,11 +68,13 @@
     NSData *_decKey;
     NSData *_hmacKey;
     NSDictionary *_participantIDMap;
+    _Bool _serverIsDegraded;
     double _testStartTime;
     unsigned int _testOptions;
 }
 
 + (id)candidatePairWithLocalCandidate:(id)arg1 remoteCandidate:(id)arg2 sessionID:(id)arg3 delegate:(id)arg4 sendMsgBlock:(CDUnknownBlockType)arg5;
+@property(readonly, nonatomic) _Bool serverIsDegraded; // @synthesize serverIsDegraded=_serverIsDegraded;
 @property(readonly) NSDictionary *participantIDMap; // @synthesize participantIDMap=_participantIDMap;
 @property(readonly) NSData *hmacKey; // @synthesize hmacKey=_hmacKey;
 @property(readonly) NSData *decKey; // @synthesize decKey=_decKey;

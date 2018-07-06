@@ -941,7 +941,7 @@ struct tagVCSourceDestinationInfo {
 
 struct tagVCStatisticsCollection {
     CDStruct_bcb9d60a _field1;
-    CDStruct_8d44645d _field2;
+    CDStruct_39f36834 _field2;
     CDStruct_38c55c66 _field3;
     struct {
         unsigned int _field1;
@@ -1088,15 +1088,6 @@ typedef struct {
 } CDStruct_bcb9d60a;
 
 typedef struct {
-    unsigned int packetLossPercentage;
-    unsigned int burstPacketLoss;
-    unsigned int roundTripTimeMilliseconds;
-    unsigned int isNetworkCongested;
-    unsigned int owrd;
-    unsigned long long statisticsID;
-} CDStruct_8d44645d;
-
-typedef struct {
     unsigned int packetId;
     unsigned int totalPacketsReceived;
     unsigned int localBurstyLoss;
@@ -1188,6 +1179,16 @@ typedef struct {
     unsigned short totalRemoteMediaPacketSent;
     unsigned short totalRemoteMediaPacketReceived;
 } CDStruct_2756d7ac;
+
+typedef struct {
+    double packetLossPercentage;
+    unsigned int burstPacketLoss;
+    unsigned int roundTripTimeMilliseconds;
+    unsigned int isNetworkCongested;
+    unsigned int owrd;
+    unsigned int targetBitrate;
+    unsigned long long statisticsID;
+} CDStruct_39f36834;
 
 typedef struct {
     double lastReceivedPacketTimestamp;
@@ -1287,7 +1288,7 @@ typedef struct {
             char bbString[64];
         } baseband;
         CDStruct_bcb9d60a feedback;
-        CDStruct_8d44645d network;
+        CDStruct_39f36834 network;
         CDStruct_4c345eff probing;
         CDStruct_38c55c66 serverStats;
         struct {
@@ -1311,7 +1312,7 @@ typedef struct {
         } config;
         CDStruct_6c8fb11a mediaEvent;
     } ;
-} CDStruct_e9907a6b;
+} CDStruct_48a7b5a5;
 
 typedef struct {
     int type;

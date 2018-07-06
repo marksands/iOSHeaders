@@ -6,7 +6,7 @@
 
 #import "NSManagedObject.h"
 
-@class CLSLocationCacheEntry, NSData, NSString;
+@class CLSLocationCacheEntry, NSString;
 
 @interface CLSManagedPlacemark : NSManagedObject
 {
@@ -17,7 +17,7 @@
 // Remaining properties
 @property(copy, nonatomic) NSString *administrativeArea; // @dynamic administrativeArea;
 @property(copy, nonatomic) NSString *administrativeAreaCode; // @dynamic administrativeAreaCode;
-@property(copy, nonatomic) NSData *areasOfInterest; // @dynamic areasOfInterest;
+@property(copy, nonatomic) NSString *areasOfInterest; // @dynamic areasOfInterest;
 @property(retain, nonatomic) CLSLocationCacheEntry *entry; // @dynamic entry;
 @property(copy, nonatomic) NSString *inlandWater; // @dynamic inlandWater;
 @property(nonatomic) _Bool isIsland; // @dynamic isIsland;

@@ -16,8 +16,6 @@
 + (_Bool)acceptsComplicationType:(unsigned long long)arg1 withFamily:(long long)arg2 forDevice:(id)arg3;
 - (void).cxx_destruct;
 - (void)_localeDidChange:(id)arg1;
-- (id)_astronomyTemplate;
-- (id)_solarTemplate;
 - (id)_siriTemplate;
 - (id)_newsTemplate;
 - (id)_messagesTemplate;

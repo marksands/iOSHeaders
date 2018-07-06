@@ -7,141 +7,105 @@
 #import "UIViewController.h"
 
 #import "SUICFlamesViewDelegate.h"
-#import "UITextFieldDelegate.h"
+#import "UIScrollViewDelegate.h"
 #import "VCUIAlternativeTranscriptionsViewDelegate.h"
+#import "VCUIButtonTrayDelegate.h"
+#import "VCUIManageVoiceShortcutConfirmationViewDelegate.h"
+#import "VCUIManageVoiceShortcutInterstitialViewDelegate.h"
 #import "VCUIPhraseRecognizerDelegate.h"
+#import "VCUITypeToSiriFieldDelegate.h"
 
-@class NSArray, NSLayoutConstraint, NSString, SUICFlamesView, UIButton, UILabel, UITextField, UIView, VCUIActionDonationDetailView, VCUIAlternativeTranscriptionsView, VCUIHeadlineView, VCUIPhraseRecognizer, VCUIRecordButton, VCVoiceShortcut, VCVoiceShortcutClient;
+@class NSArray, NSString, UIScrollView, VCUIButtonTray, VCUIManageVoiceShortcutView, VCUIPhraseRecognizer, VCVoiceShortcut, VCVoiceShortcutClient;
 
-@interface VCUIManageVoiceShortcutViewController : UIViewController <VCUIPhraseRecognizerDelegate, SUICFlamesViewDelegate, VCUIAlternativeTranscriptionsViewDelegate, UITextFieldDelegate>
+@interface VCUIManageVoiceShortcutViewController : UIViewController <VCUIButtonTrayDelegate, UIScrollViewDelegate, VCUIPhraseRecognizerDelegate, VCUIAlternativeTranscriptionsViewDelegate, VCUIManageVoiceShortcutConfirmationViewDelegate, VCUIManageVoiceShortcutInterstitialViewDelegate, SUICFlamesViewDelegate, VCUITypeToSiriFieldDelegate>
 {
     _Bool _dismissOnClientRequestsCompletion;
-    _Bool _speechStarted;
-    _Bool _animatingHeadlineView;
     _Bool _typeToSiriEnabled;
+    _Bool _userIsFinished;
     id <VCUIManageVoiceShortcutViewControllerDelegate> _delegate;
     id <VCActionDonation> _actionDonation;
     VCVoiceShortcut *_voiceShortcut;
     VCVoiceShortcutClient *_voiceShortcutClient;
-    UIView *_contentView;
-    NSLayoutConstraint *_pageInAnimationBeginConstraint;
-    NSLayoutConstraint *_pageInAnimationCompleteConstraint;
-    VCVoiceShortcut *_createdVoiceShortcut;
+    UIScrollView *_scrollView;
+    NSArray *_pageInAnimationBeginConstraints;
+    NSArray *_pageInAnimationCompleteConstraints;
+    VCUIManageVoiceShortcutView *_currentView;
+    long long _currentViewState;
+    VCUIButtonTray *_buttonTray;
     NSString *_originalVoiceShortcutPhrase;
+    VCVoiceShortcut *_createdVoiceShortcut;
     unsigned long long _clientRequests;
     VCUIPhraseRecognizer *_phraseRecognizer;
     NSString *_latestTranscription;
     NSArray *_alternativeTranscriptions;
     NSArray *_validationResult;
-    VCUIHeadlineView *_headlineView;
-    NSLayoutConstraint *_headlineViewAnimationBeginConstraint;
-    NSLayoutConstraint *_headlineViewAnimationCompleteConstraint;
-    VCUIActionDonationDetailView *_donationDetailView;
-    SUICFlamesView *_flamesView;
-    UIButton *_typeToSiriButton;
-    UILabel *_buttonDescriptionLabel;
-    UIButton *_rerecordPhraseButton;
-    VCUIRecordButton *_recordButton;
-    UIButton *_editButton;
-    UIButton *_deleteButton;
-    UILabel *_phraseRestrictedLabel;
-    VCUIAlternativeTranscriptionsView *_alternativeTranscriptionsView;
-    NSLayoutConstraint *_topConstraint;
-    NSLayoutConstraint *_leadingConstraint;
-    NSLayoutConstraint *_trailingConstraint;
-    UILabel *_typeToSiriLabel;
-    UITextField *_typeToSiriTextField;
-    UIView *_typeToSiriTextFieldTopBorder;
-    UIView *_typeToSiriTextFieldBottomBorder;
 }
 
 + (void)setVoiceRecognitionOverrideWithAudioFileAtPath:(id)arg1;
 + (void)initialize;
-@property(retain, nonatomic) UIView *typeToSiriTextFieldBottomBorder; // @synthesize typeToSiriTextFieldBottomBorder=_typeToSiriTextFieldBottomBorder;
-@property(retain, nonatomic) UIView *typeToSiriTextFieldTopBorder; // @synthesize typeToSiriTextFieldTopBorder=_typeToSiriTextFieldTopBorder;
-@property(retain, nonatomic) UITextField *typeToSiriTextField; // @synthesize typeToSiriTextField=_typeToSiriTextField;
-@property(retain, nonatomic) UILabel *typeToSiriLabel; // @synthesize typeToSiriLabel=_typeToSiriLabel;
+@property(nonatomic) _Bool userIsFinished; // @synthesize userIsFinished=_userIsFinished;
 @property(nonatomic) _Bool typeToSiriEnabled; // @synthesize typeToSiriEnabled=_typeToSiriEnabled;
-@property(retain, nonatomic) NSLayoutConstraint *trailingConstraint; // @synthesize trailingConstraint=_trailingConstraint;
-@property(retain, nonatomic) NSLayoutConstraint *leadingConstraint; // @synthesize leadingConstraint=_leadingConstraint;
-@property(retain, nonatomic) NSLayoutConstraint *topConstraint; // @synthesize topConstraint=_topConstraint;
-@property(nonatomic) __weak VCUIAlternativeTranscriptionsView *alternativeTranscriptionsView; // @synthesize alternativeTranscriptionsView=_alternativeTranscriptionsView;
-@property(retain, nonatomic) UILabel *phraseRestrictedLabel; // @synthesize phraseRestrictedLabel=_phraseRestrictedLabel;
-@property(retain, nonatomic) UIButton *deleteButton; // @synthesize deleteButton=_deleteButton;
-@property(retain, nonatomic) UIButton *editButton; // @synthesize editButton=_editButton;
-@property(retain, nonatomic) VCUIRecordButton *recordButton; // @synthesize recordButton=_recordButton;
-@property(retain, nonatomic) UIButton *rerecordPhraseButton; // @synthesize rerecordPhraseButton=_rerecordPhraseButton;
-@property(retain, nonatomic) UILabel *buttonDescriptionLabel; // @synthesize buttonDescriptionLabel=_buttonDescriptionLabel;
-@property(retain, nonatomic) UIButton *typeToSiriButton; // @synthesize typeToSiriButton=_typeToSiriButton;
-@property(retain, nonatomic) SUICFlamesView *flamesView; // @synthesize flamesView=_flamesView;
-@property(retain, nonatomic) VCUIActionDonationDetailView *donationDetailView; // @synthesize donationDetailView=_donationDetailView;
-@property(nonatomic) _Bool animatingHeadlineView; // @synthesize animatingHeadlineView=_animatingHeadlineView;
-@property(retain, nonatomic) NSLayoutConstraint *headlineViewAnimationCompleteConstraint; // @synthesize headlineViewAnimationCompleteConstraint=_headlineViewAnimationCompleteConstraint;
-@property(retain, nonatomic) NSLayoutConstraint *headlineViewAnimationBeginConstraint; // @synthesize headlineViewAnimationBeginConstraint=_headlineViewAnimationBeginConstraint;
-@property(retain, nonatomic) VCUIHeadlineView *headlineView; // @synthesize headlineView=_headlineView;
-@property(nonatomic) _Bool speechStarted; // @synthesize speechStarted=_speechStarted;
 @property(retain, nonatomic) NSArray *validationResult; // @synthesize validationResult=_validationResult;
 @property(retain, nonatomic) NSArray *alternativeTranscriptions; // @synthesize alternativeTranscriptions=_alternativeTranscriptions;
 @property(retain, nonatomic) NSString *latestTranscription; // @synthesize latestTranscription=_latestTranscription;
 @property(retain, nonatomic) VCUIPhraseRecognizer *phraseRecognizer; // @synthesize phraseRecognizer=_phraseRecognizer;
 @property(nonatomic) _Bool dismissOnClientRequestsCompletion; // @synthesize dismissOnClientRequestsCompletion=_dismissOnClientRequestsCompletion;
 @property(nonatomic) unsigned long long clientRequests; // @synthesize clientRequests=_clientRequests;
-@property(retain, nonatomic) NSString *originalVoiceShortcutPhrase; // @synthesize originalVoiceShortcutPhrase=_originalVoiceShortcutPhrase;
 @property(retain, nonatomic) VCVoiceShortcut *createdVoiceShortcut; // @synthesize createdVoiceShortcut=_createdVoiceShortcut;
-@property(retain, nonatomic) NSLayoutConstraint *pageInAnimationCompleteConstraint; // @synthesize pageInAnimationCompleteConstraint=_pageInAnimationCompleteConstraint;
-@property(retain, nonatomic) NSLayoutConstraint *pageInAnimationBeginConstraint; // @synthesize pageInAnimationBeginConstraint=_pageInAnimationBeginConstraint;
-@property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
+@property(retain, nonatomic) NSString *originalVoiceShortcutPhrase; // @synthesize originalVoiceShortcutPhrase=_originalVoiceShortcutPhrase;
+@property(retain, nonatomic) VCUIButtonTray *buttonTray; // @synthesize buttonTray=_buttonTray;
+@property(nonatomic) long long currentViewState; // @synthesize currentViewState=_currentViewState;
+@property(retain, nonatomic) VCUIManageVoiceShortcutView *currentView; // @synthesize currentView=_currentView;
+@property(retain, nonatomic) NSArray *pageInAnimationCompleteConstraints; // @synthesize pageInAnimationCompleteConstraints=_pageInAnimationCompleteConstraints;
+@property(retain, nonatomic) NSArray *pageInAnimationBeginConstraints; // @synthesize pageInAnimationBeginConstraints=_pageInAnimationBeginConstraints;
+@property(retain, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(readonly, nonatomic) VCVoiceShortcutClient *voiceShortcutClient; // @synthesize voiceShortcutClient=_voiceShortcutClient;
 @property(retain, nonatomic) VCVoiceShortcut *voiceShortcut; // @synthesize voiceShortcut=_voiceShortcut;
 @property(readonly, nonatomic) id <VCActionDonation> actionDonation; // @synthesize actionDonation=_actionDonation;
 @property(nonatomic) __weak id <VCUIManageVoiceShortcutViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)textFieldDidChange:(id)arg1;
-- (_Bool)textFieldShouldReturn:(id)arg1;
-- (void)textFieldDidEndEditing:(id)arg1 reason:(long long)arg2;
-- (void)textFieldDidEndEditing:(id)arg1;
-- (void)finishedClientRequest;
-- (void)startedClientRequest;
-- (id)existingIdentifierFromError:(id)arg1;
-- (void)updateLayout;
-- (void)traitCollectionDidChange:(id)arg1;
-- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
-- (id)filterAlternativeTranscriptions:(id)arg1 withValidationResult:(id)arg2 bestTranscription:(id)arg3;
-- (id)validationResultForPhrase:(id)arg1 fromResults:(id)arg2;
-- (void)validateTranscription:(id)arg1 alternativeTranscriptions:(id)arg2;
+- (void)interstitialComplete;
+- (void)inputComplete:(id)arg1;
+- (void)typeToSiriFieldTextDidChange:(id)arg1;
+- (void)rerecord;
+- (void)alternativeTranscriptionsView:(id)arg1 didSelectTranscription:(id)arg2;
+- (void)scrollViewDidScroll:(id)arg1;
+- (float)audioLevelForFlamesView:(id)arg1;
 - (void)phraseRecognizer:(id)arg1 didReceiveFinalTranscription:(id)arg2 alternativeTranscriptions:(id)arg3;
 - (void)phraseRecognizer:(id)arg1 didReceiveHypothesizedTranscription:(id)arg2;
 - (void)phraseRecognizer:(id)arg1 availabilityDidChange:(_Bool)arg2;
 - (void)phraseRecognizerDidStopRecording:(id)arg1 withError:(id)arg2;
 - (void)phraseRecognizerDidStartRecording:(id)arg1 successfully:(_Bool)arg2 error:(id)arg3;
-- (float)audioLevelForFlamesView:(id)arg1;
-- (void)alternativeTranscriptionsView:(id)arg1 didSelectTranscription:(id)arg2;
-- (void)showPhraseSuggestion;
-- (void)showPhraseSuggestionIfNeeded:(id)arg1;
-- (void)updateDoneButton;
-- (void)updateForTypingPhrase;
-- (void)createOrUpdateCurrentVoiceShortcut;
+- (id)validationResultForPhrase:(id)arg1 fromResults:(id)arg2;
+- (void)validateTranscription:(id)arg1 alternativeTranscriptions:(id)arg2;
 - (void)updateForPhraseRecognitionComplete:(id)arg1;
-- (void)updateForPhraseRecognizerAvailability;
-- (void)resetViewToInitialState;
-- (void)animatePageIn;
-- (void)addEditButton;
-- (void)updatePhraseRestrictedText:(id)arg1;
-- (void)addRerecordPhraseButton;
+- (id)filterAlternativeTranscriptions:(id)arg1 withValidationResult:(id)arg2 bestTranscription:(id)arg3;
+- (id)existingIdentifierFromError:(id)arg1;
 - (_Bool)dismiss;
+- (void)finishedClientRequest;
+- (void)startedClientRequest;
 - (void)dismissWhenComplete;
-- (void)didTapDelete;
-- (void)didTapRecord;
-- (void)didTapEdit;
-- (void)didTapTypeToSiri;
-- (void)didTapEditShortcut:(id)arg1;
-- (void)startRecording;
-- (void)didTapDone;
-- (void)didTapCancel;
-- (id)alertControllerForError:(id)arg1;
 - (void)createShortcutAndDismissOnSuccess:(_Bool)arg1;
 - (void)createShortcut;
-- (_Bool)voiceRecordButtonHidden;
+- (void)createOrUpdateCurrentVoiceShortcut;
+- (void)updateForPhraseRecognizerAvailability;
+- (void)startRecording;
+- (void)didTapTypeToSiri;
+- (void)didTapRecord;
+- (void)didTapDone;
+- (void)didTapDelete;
+- (void)didTapCancel;
+- (void)updateDoneButton;
+- (void)updateButtonTrayBlurState;
+- (void)updateButtonTrayState;
+- (void)transitionToViewState:(long long)arg1 options:(id)arg2;
+- (void)transitionToViewState:(long long)arg1;
+- (void)animatePageIn;
+- (id)alertControllerForError:(id)arg1;
+- (void)addDoneButton;
+- (void)updateScrollHeightMetrics;
+- (void)viewDidLayoutSubviews;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;

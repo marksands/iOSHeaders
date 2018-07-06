@@ -49,13 +49,7 @@
 - (void)workoutSession:(id)arg1 didChangeToState:(long long)arg2 fromState:(long long)arg3 date:(id)arg4;
 - (void)observeWorkoutSessionServer:(id)arg1;
 - (void)remote_recoverWithCompletion:(CDUnknownBlockType)arg1;
-- (void)remote_resumeWithCompletion:(CDUnknownBlockType)arg1;
-- (void)remote_pauseWithCompletion:(CDUnknownBlockType)arg1;
-- (void)remote_endWithCompletion:(CDUnknownBlockType)arg1;
-- (void)remote_stopActivityWithCompletion:(CDUnknownBlockType)arg1;
-- (void)remote_startActivityWithCompletion:(CDUnknownBlockType)arg1;
-- (void)remote_prepareWithCompletion:(CDUnknownBlockType)arg1;
-- (void)remote_setupWithCompletion:(CDUnknownBlockType)arg1;
+- (void)remote_setTargetState:(long long)arg1 date:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setWorkoutDataAccumulator:(id)arg1;
 - (void)setAssociatedWorkoutBuilderEntity:(id)arg1;
 @property(readonly, nonatomic) _Bool requiresCoreLocationAssertion;

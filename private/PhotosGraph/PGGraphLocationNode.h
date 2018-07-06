@@ -19,6 +19,7 @@
 
 @property(nonatomic) struct CLLocationCoordinate2D centroidCoordinate; // @synthesize centroidCoordinate=_centroidCoordinate;
 - (void).cxx_destruct;
+- (id)deepParentLocationNodes;
 - (struct CLLocationCoordinate2D)coordinate;
 - (id)associatedNodesForRemoval;
 - (id)keywordDescription;

@@ -13,6 +13,7 @@
     _Bool _loaded;
     NSURL *_url;
     SCNNode *_lightingNode;
+    SCNNode *_cameraNode;
     NSDictionary *_specializationSettings;
     NSString *_name;
 }
@@ -30,7 +31,6 @@
 + (struct UIImage *)thumbnailForPuppetNamed:(id)arg1 options:(id)arg2;
 + (id)puppetNamed:(id)arg1 options:(id)arg2;
 + (id)puppetNames;
-@property(readonly, nonatomic) SCNNode *lightingNode; // @synthesize lightingNode=_lightingNode;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (id)specializationSettings;
@@ -41,6 +41,8 @@
 - (void)setName:(id)arg1;
 - (id)url;
 - (void)setUrl:(id)arg1;
+@property(readonly, nonatomic) SCNNode *cameraNode;
+@property(readonly, nonatomic) SCNNode *lightingNode;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setAvatarNode:(id)arg1;
 - (id)description;

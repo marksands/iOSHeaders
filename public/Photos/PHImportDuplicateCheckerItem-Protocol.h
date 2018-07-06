@@ -27,7 +27,7 @@
 @property(readonly) id avchdAssetId;
 @property(readonly) NSURL *url;
 @property(readonly) id uuid;
-- (_Bool)loadMetadataSync;
+- (void)loadMetadataSync;
 - (NSSet *)duplicateAssetsForLibrary:(NSString *)arg1;
 - (void)setDuplicates:(NSSet *)arg1 forLibrary:(NSString *)arg2;
 @end

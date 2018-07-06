@@ -24,6 +24,8 @@
 - (void).cxx_destruct;
 - (id)configOverrides;
 - (void)setConfigOverrides:(id)arg1;
+- (void)removeConfigOverrideForKey:(id)arg1;
+- (void)setConfigOverrideWithValue:(id)arg1 forKey:(id)arg2;
 - (_Bool)cardLoggingEnabled;
 - (void)setCardLoggingEnabled:(_Bool)arg1;
 - (_Bool)shouldLogForQA;
@@ -62,14 +64,8 @@
 - (_Bool)applySASToFirstPartyDomains;
 - (void)setUseSASAutoSelectionFeature:(_Bool)arg1;
 - (_Bool)useSASAutoSelectionFeature;
-- (void)setSiriKitEnabledForNativeNotes:(_Bool)arg1;
-- (_Bool)siriKitEnabledForNativeNotes;
-- (void)setSiriKitEnabledForNativeCalling:(_Bool)arg1;
-- (_Bool)siriKitEnabledForNativeCalling;
 - (void)setShouldLoadNativeMessagesExtensionAsBundle:(_Bool)arg1;
 - (_Bool)shouldLoadNativeMessagesExtensionAsBundle;
-- (void)setSiriKitEnabledForNativeMessages:(_Bool)arg1;
-- (_Bool)siriKitEnabledForNativeMessages;
 - (void)setSiriSpeakerGradingDebugUIEnabled:(_Bool)arg1;
 - (_Bool)siriSpeakerGradingDebugUIEnabled;
 - (void)setSiriDebugUIEnabled:(_Bool)arg1;

@@ -86,6 +86,10 @@ struct Weak<JSC::JSString> {
     struct WeakImpl *m_impl;
 };
 
+struct Weak<JSC::Structure> {
+    struct WeakImpl *m_impl;
+};
+
 struct WeakGCMap<id, JSC::JSObject, WTF::PtrHash<id>, WTF::HashTraits<id>>;
 
 struct WeakImpl;

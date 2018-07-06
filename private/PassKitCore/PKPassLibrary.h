@@ -120,6 +120,7 @@
 - (void)openPaymentSetup;
 - (void)addPassesWithData:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)addPasses:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)dataForBundleResources:(id)arg1 objectUniqueIdentifier:(id)arg2;
 - (id)dataForBundleResourceNamed:(id)arg1 withExtension:(id)arg2 objectUniqueIdentifier:(id)arg3;
 - (id)archiveForObjectWithUniqueID:(id)arg1;
 - (_Bool)replacePassWithPass:(id)arg1;

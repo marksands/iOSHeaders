@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CUSystemMonitor, NSArray, NSData, NSObject<OS_dispatch_queue>, NSString, NSURL, SFDeviceDiscovery, SFService;
+@class CUSystemMonitor, NSArray, NSData, NSObject<OS_dispatch_queue>, NSString, NSURL, SFDeviceDiscovery, SFService, SFSession;
 
 @interface SFRemoteAutoFillService : NSObject
 {
@@ -18,8 +18,10 @@
     _Bool _invalidateCalled;
     NSString *_receivedPassword;
     NSString *_receivedUsername;
+    _Bool _requestingAutoFill;
     SFService *_service;
     int _serviceState;
+    SFSession *_session;
     NSData *_systemBTAddress;
     CUSystemMonitor *_systemMonitor;
     int _systemMonitorState;

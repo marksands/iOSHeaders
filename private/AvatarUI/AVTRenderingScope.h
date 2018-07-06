@@ -14,17 +14,20 @@
     NSString *_framingMode;
     long long _renderingType;
     double _scale;
+    unsigned long long _options;
     AVTAvatarPose *_pose;
 }
 
 + (double)thumbnailHeightRatioForFramingMode:(id)arg1;
-+ (double)widthForRenderingType:(long long)arg1;
++ (double)widthForRenderingType:(long long)arg1 options:(unsigned long long)arg2;
++ (unsigned long long)scopeOptionsForEnvironment:(id)arg1;
 + (id)funCamCarouselThumbnailScope;
 + (id)listControllerThumbnailScope;
 + (id)gridThumbnailScope;
 + (id)largeThumbnailScope;
 + (id)thumbnailScope;
 @property(readonly, nonatomic) AVTAvatarPose *pose; // @synthesize pose=_pose;
+@property(readonly, nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(readonly, nonatomic) double scale; // @synthesize scale=_scale;
 @property(readonly, nonatomic) long long renderingType; // @synthesize renderingType=_renderingType;
 @property(readonly, nonatomic) float sizeModifier; // @synthesize sizeModifier=_sizeModifier;
@@ -37,8 +40,9 @@
 @property(readonly, nonatomic) struct CGSize size;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)initWithRenderingType:(long long)arg1 scale:(double)arg2 framingMode:(id)arg3 pose:(id)arg4 sizeModifier:(float)arg5;
-- (id)initWithRenderingType:(long long)arg1 scale:(double)arg2 framingMode:(id)arg3 pose:(id)arg4;
+- (id)initWithRenderingType:(long long)arg1 scale:(double)arg2 options:(unsigned long long)arg3 framingMode:(id)arg4 pose:(id)arg5 sizeModifier:(float)arg6;
+- (id)initWithRenderingType:(long long)arg1 scale:(double)arg2 options:(unsigned long long)arg3 framingMode:(id)arg4 pose:(id)arg5;
+- (id)initWithRenderingType:(long long)arg1 scale:(double)arg2 options:(unsigned long long)arg3;
 - (id)initWithRenderingType:(long long)arg1 scale:(double)arg2;
 - (unsigned long long)cacheableResourceAssociatedCost;
 - (id)cacheableResourceAssociatedIdentifier;

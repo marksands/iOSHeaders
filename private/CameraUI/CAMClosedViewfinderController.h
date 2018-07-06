@@ -35,6 +35,7 @@
 - (void)cancelDelayedRemovalOfReason:(long long)arg1;
 - (void)removeClosedViewfinderReason:(long long)arg1 afterDelay:(double)arg2;
 - (void)_performDelayedRemovalOfReason:(id)arg1;
+- (_Bool)hasClosedViewfinderReason:(long long)arg1;
 - (void)removeClosedViewfinderReason:(long long)arg1;
 - (void)addClosedViewfinderReason:(long long)arg1;
 @property(readonly, nonatomic, getter=isViewfinderClosed) _Bool viewfinderClosed;

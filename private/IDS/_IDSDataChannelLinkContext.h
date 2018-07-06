@@ -25,6 +25,7 @@
     long long _relayServerProvider;
     NSData *_relaySessionToken;
     NSData *_relaySessionKey;
+    _Bool _serverIsDegraded;
 }
 
 - (void).cxx_destruct;

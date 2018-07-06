@@ -74,6 +74,7 @@
     UIInputContextHistory *_inputContextHistory;
     UILabel *_collpasedPlaceholderLabel;
     CKBrowserSwitcherFooterView *_appStrip;
+    UIView *_appStripBackgroundBlurContainerView;
     UIKBVisualEffectView *_appStripBackgroundBlurView;
     CAMShutterButton *_shutterButton;
     CKScheduledUpdater *_entryFieldCollapsedUpdater;
@@ -99,6 +100,7 @@
 @property(retain, nonatomic) CKScheduledUpdater *entryFieldCollapsedUpdater; // @synthesize entryFieldCollapsedUpdater=_entryFieldCollapsedUpdater;
 @property(retain, nonatomic) CAMShutterButton *shutterButton; // @synthesize shutterButton=_shutterButton;
 @property(retain, nonatomic) UIKBVisualEffectView *appStripBackgroundBlurView; // @synthesize appStripBackgroundBlurView=_appStripBackgroundBlurView;
+@property(retain, nonatomic) UIView *appStripBackgroundBlurContainerView; // @synthesize appStripBackgroundBlurContainerView=_appStripBackgroundBlurContainerView;
 @property(retain, nonatomic) CKBrowserSwitcherFooterView *appStrip; // @synthesize appStrip=_appStrip;
 @property(retain, nonatomic) UILabel *collpasedPlaceholderLabel; // @synthesize collpasedPlaceholderLabel=_collpasedPlaceholderLabel;
 @property(nonatomic) _Bool animatingLayoutChange; // @synthesize animatingLayoutChange=_animatingLayoutChange;
@@ -220,6 +222,7 @@
 - (void)messageEntryContentViewDidBeginEditing:(id)arg1;
 - (struct CGSize)messageEntryContentViewMaxShelfPluginViewSize:(id)arg1;
 - (_Bool)messageEntryContentViewShouldBeginEditing:(id)arg1;
+@property(readonly, nonatomic) _Bool showsKeyboardPredictionBar;
 - (void)messageEntryContentViewDidChange:(id)arg1;
 - (void)messageEntryContentViewCancelWasTapped:(id)arg1 shelfPluginPayload:(id)arg2;
 - (void)_animateToCompactLayoutCollapsing:(_Bool)arg1;
@@ -238,7 +241,7 @@
 - (void)selectPluginAtIndexPath:(id)arg1;
 - (void)minifyAppStrip;
 - (void)setShowAppStrip:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
-- (_Bool)shouldShowAppStrip;
+@property(readonly, nonatomic) _Bool shouldShowAppStrip;
 - (id)_currentInputDelegate;
 - (void)setEntryFieldCollapsed:(_Bool)arg1 animated:(_Bool)arg2;
 @property(readonly, nonatomic) _Bool shouldEntryViewBeExpandedLayout;

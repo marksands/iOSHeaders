@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSString, PXCMMPosterHeaderView, PXRoundedCornerOverlayView, UIColor, UIFont, UIImage, UIImageView, UILabel;
+@class NSArray, NSString, PXCMMPosterHeaderView, PXRoundedCornerOverlayView, UIColor, UIFont, UIImage, UIImageView, UILabel;
 
 @interface PXCMMSuggestionView : UIView
 {
@@ -18,7 +18,7 @@
     UIFont *_titleBoldFont;
     struct _NSRange _titleBoldRange;
     PXCMMPosterHeaderView *_headerView;
-    NSString *_title;
+    NSArray *_names;
     NSString *_subtitle;
     UIColor *_opaqueAncestorBackgroundColor;
 }
@@ -26,7 +26,7 @@
 + (double)faceTileImageDiameter;
 @property(copy, nonatomic) UIColor *opaqueAncestorBackgroundColor; // @synthesize opaqueAncestorBackgroundColor=_opaqueAncestorBackgroundColor;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
+@property(copy, nonatomic) NSArray *names; // @synthesize names=_names;
 @property(readonly, nonatomic) PXCMMPosterHeaderView *headerView; // @synthesize headerView=_headerView;
 - (void).cxx_destruct;
 - (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
@@ -38,7 +38,6 @@
 - (void)setAsset:(id)arg1 mediaProvider:(id)arg2;
 @property(nonatomic, getter=isHighlighted) _Bool highlighted;
 @property(retain, nonatomic) UIImage *combinedFaceTileImage;
-- (void)setTitle:(id)arg1 boldRange:(struct _NSRange)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

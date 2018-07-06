@@ -17,7 +17,8 @@
 @property(readonly, nonatomic) UILabel *label; // @synthesize label=_label;
 @property(readonly, nonatomic) UILabel *valueText; // @synthesize valueText=_valueText;
 - (void).cxx_destruct;
-- (id)initWithStyle:(unsigned long long)arg1;
+- (void)setTextColor:(id)arg1;
+- (id)init;
 
 @end
 

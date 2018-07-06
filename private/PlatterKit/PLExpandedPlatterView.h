@@ -57,8 +57,10 @@
 @property(readonly, nonatomic) UIView *customContentView; // @synthesize customContentView=_customContentView;
 - (struct CGSize)_actionsSizeThatFits:(struct CGSize)arg1 includingPadding:(_Bool)arg2;
 - (struct CGSize)_sizeThatFitsContentExcludingActionsWithSize:(struct CGSize)arg1;
+- (double)_dismissControlPlusHeaderHeight;
 - (double)_dismissControlHeightIncludingPadding;
 @property(retain, nonatomic) NSArray *interfaceActions;
+- (struct CGRect)_contentViewFrame;
 - (struct CGRect)scrollViewFrame;
 - (struct CGRect)platterFrameForFrame:(struct CGRect)arg1;
 - (struct CGRect)frameForPlatterFrame:(struct CGRect)arg1;
@@ -85,6 +87,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_layoutCustomContentView;
 - (void)_layoutMainContentView;
+- (struct CGSize)_contentViewSize;
 - (struct CGRect)_actionsViewFrame;
 - (void)_configureCustomContentView;
 - (void)_configureMainContentViewIfNecessary;

@@ -153,6 +153,7 @@
 - (_Bool)_anyUserPreferredLangaugeIsRTL;
 - (void)_localeChange:(id)arg1;
 @property(nonatomic) _Bool voiceOverEditAppsActionEnabled;
+@property(nonatomic) _Bool voiceOverSpeakActionConfirmation;
 @property(copy, nonatomic) NSArray *voiceOverRotorItems;
 @property(nonatomic) _Bool voiceOverSpeakNotificationsEnabled;
 @property(nonatomic) _Bool voiceOverSpeakingRateInRotorEnabled;

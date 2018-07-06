@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _advertiseTriggerCount;
     _Bool _advertisingStartCalled;
     CDStruct_83abfce7 _bleAddress48;
+    _Bool _bleAddressOverride;
     _Bool _bleAddressValid;
     CUSystemMonitor *_bleAddressMonitor;
     CBCentralManager *_centralManager;

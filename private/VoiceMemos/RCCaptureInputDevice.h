@@ -36,7 +36,7 @@
 - (void)_handleDidEndCaptureSession:(id)arg1 success:(_Bool)arg2;
 - (void)_updateSelectedRouteAndPostNotification:(_Bool)arg1;
 - (void)_updateInputAvailabilityAndPostNotification:(_Bool)arg1;
-- (void)captureSession:(id)arg1 destinationFragmentDurationDidChangeToDuration:(double)arg2;
+- (void)captureSession:(id)arg1 destinationFragmentDurationDidChangeToDuration:(double)arg2 usingDisplayLinkSmoothing:(_Bool)arg3;
 - (void)captureSession:(id)arg1 rateDidChangeToRate:(float)arg2;
 - (void)captureSession:(id)arg1 didFinishWithSuccess:(_Bool)arg2;
 - (void)_pickedRouteDidChangeNotification:(id)arg1;

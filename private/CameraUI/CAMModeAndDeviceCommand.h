@@ -39,6 +39,7 @@
 - (id)userInfo;
 - (void)executeWithContext:(id)arg1;
 - (void)_sanitizeDeviceUsingContext:(id)arg1;
+- (id)sessionModificationLogReason;
 - (_Bool)requiresSessionModification;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

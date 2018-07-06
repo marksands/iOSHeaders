@@ -27,6 +27,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithTrackedState:(_Bool)arg1;
 @property(readonly, copy) NSString *description;
+- (id)name;
 -     // Error parsing type: @96@0:8@16{?=[4]}24B88B92, name: initWithReferenceImage:transform:detectionOnly:tracked:
 
 // Remaining properties

@@ -14,9 +14,9 @@
 @interface HDDefaultWorkoutSessionController : NSObject <HDWorkoutEventCollectorDelegate, HDWorkoutSessionController>
 {
     HDProfile *_profile;
+    id <HDWorkoutSessionStateController> _sessionStateController;
     NSObject<OS_dispatch_queue> *_queue;
     HDWorkoutSessionConfiguration *_sessionConfiguration;
-    id <HDWorkoutSessionStateController> _sessionStateController;
     HDSessionAssertionGroup *_assertionGroup;
     HDWorkoutEventsManager *_eventsManager;
     long long _sessionServerState;
@@ -28,6 +28,18 @@
 - (void).cxx_destruct;
 - (id)_relaunchPayloadOptions;
 - (id)_queue_assertionsPerStateForActivityType:(unsigned long long)arg1;
+- (id)_takeQuietModeAssertion;
+- (id)_takePowerSavingAssertion;
+- (id)_takePlatinumAssertion;
+- (id)_takeHeartRateRecoveryAssertion;
+- (id)_takeEventsCollectionAssertion;
+- (id)_takeDataCollectionAssertion;
+- (id)_takeCarouselAssertion;
+- (id)_takeCoreMotionAssertion;
+- (id)_takeClientKeepAliveAssertion;
+- (id)_takeAlertSuppressionAssertion;
+- (id)_takeBackgroundRunningAssertion;
+- (id)_ownerIdentifier;
 - (void)_queue_setupAssertionGroup;
 - (void)hktest_setStateTransitionCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)receivedWorkoutEvent:(id)arg1;

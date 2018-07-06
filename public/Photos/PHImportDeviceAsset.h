@@ -23,9 +23,10 @@
 - (void)didDownloadFile:(id)arg1 error:(id)arg2 options:(id)arg3 contextInfo:(void *)arg4;
 - (void)downloadToPathAsync:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSArray *cameraFiles;
-- (void)thumbnailForSize:(unsigned long long)arg1 usingRequest:(id)arg2 atEnd:(CDUnknownBlockType)arg3;
-- (void)fetchMetadataAsync:(CDUnknownBlockType)arg1;
-- (id)fetchMetadataSync;
+- (void)thumbnailUsingRequest:(id)arg1 atEnd:(CDUnknownBlockType)arg2;
+- (void)loadMetadataAsync:(CDUnknownBlockType)arg1;
+- (void)loadMetadataSync;
+- (id)createMetadataFromCameraFile:(id)arg1;
 - (void)_loadSidecarFiles;
 - (id)duration;
 - (id)mediaGroupId;

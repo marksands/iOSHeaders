@@ -12,7 +12,7 @@
 #import "HUPresentationDelegateHost.h"
 #import "PGPictureInPictureProxyDelegate.h"
 
-@class HFCameraAudioManager, HFCameraItem, HFItem, HFItemManager, HUCameraDemoPlayerView, HUCameraFloatingMicrophoneButton, HUCameraMicrophoneButton, HUCameraStreamContentViewController, MPVolumeSlider, NSLayoutConstraint, NSString, PGPictureInPictureProxy, UIBarButtonItem, UIView;
+@class AVPlayerLooper, HFCameraAudioManager, HFCameraItem, HFItem, HFItemManager, HUCameraDemoPlayerView, HUCameraFloatingMicrophoneButton, HUCameraMicrophoneButton, HUCameraStreamContentViewController, MPVolumeSlider, NSLayoutConstraint, NSString, PGPictureInPictureProxy, UIBarButtonItem, UIView;
 
 @interface HUCameraStreamViewController : UIViewController <HFItemManagerDelegate, HUPresentationDelegate, PGPictureInPictureProxyDelegate, HUItemPresentationContainer, HUPresentationDelegateHost>
 {
@@ -36,9 +36,11 @@
     HUCameraMicrophoneButton *_toolbarMicrophoneButton;
     UIBarButtonItem *_microphoneBarButtonItem;
     HUCameraDemoPlayerView *_demoPlayerView;
+    AVPlayerLooper *_looper;
     struct UIOffset _defaultCameraBadgeOffset;
 }
 
+@property(retain, nonatomic) AVPlayerLooper *looper; // @synthesize looper=_looper;
 @property(retain, nonatomic) HUCameraDemoPlayerView *demoPlayerView; // @synthesize demoPlayerView=_demoPlayerView;
 @property(nonatomic) _Bool didSetupVolumeSliderConstraints; // @synthesize didSetupVolumeSliderConstraints=_didSetupVolumeSliderConstraints;
 @property(nonatomic) _Bool didSetupToolbarMicrophoneButtonConstraints; // @synthesize didSetupToolbarMicrophoneButtonConstraints=_didSetupToolbarMicrophoneButtonConstraints;

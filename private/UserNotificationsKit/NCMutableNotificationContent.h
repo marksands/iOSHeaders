@@ -17,6 +17,7 @@
 @property(nonatomic, getter=isDateAllDay) _Bool dateAllDay; // @dynamic dateAllDay;
 @property(retain, nonatomic) NSDate *date; // @dynamic date;
 @property(retain, nonatomic) UIImage *attachmentImage; // @dynamic attachmentImage;
+@property(retain, nonatomic) NSArray *carPlayIcons; // @dynamic carPlayIcons;
 @property(retain, nonatomic) UIImage *carPlayIcon; // @dynamic carPlayIcon;
 @property(retain, nonatomic) NSArray *icons; // @dynamic icons;
 @property(retain, nonatomic) UIImage *icon; // @dynamic icon;

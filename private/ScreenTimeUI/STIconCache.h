@@ -24,9 +24,12 @@
 - (id)_correctlySizedImageFromImage:(id)arg1;
 - (void)_fetchFamilyPhotoWithDSID:(id)arg1;
 - (id)personImageWithDSID:(id)arg1 fullName:(id)arg2;
-- (id)notificationDotImageWithDiameter:(double)arg1;
 - (id)roundedImageForImageWithName:(id)arg1;
+- (id)circleImageWithFillColor:(id)arg1 fillDiameter:(double)arg2 outlineColor:(id)arg3 outlineWidth:(double)arg4;
+- (id)blankSpaceImageWithSize:(struct CGSize)arg1;
+- (id)imageForCategoryIdentifier:(id)arg1;
 - (id)tableUIImageForBundleID:(id)arg1;
+- (void)injectImage:(id)arg1 forBundleID:(id)arg2;
 - (id)init;
 
 @end

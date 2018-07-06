@@ -22,7 +22,6 @@
     NSObject<OS_dispatch_queue> *_fetchQueue;
 }
 
-+ (void)initialize;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *fetchQueue; // @synthesize fetchQueue=_fetchQueue;
 @property(nonatomic) __weak id <NTKCUpNextDataSourcesManagerIdentifiersDelegate> sportsIdentifiersDelegate; // @synthesize sportsIdentifiersDelegate=_sportsIdentifiersDelegate;
 @property(nonatomic) __weak id <NTKCUpNextDataSourcesManagerIdentifiersDelegate> thirdPartyIdentifiersDelegate; // @synthesize thirdPartyIdentifiersDelegate=_thirdPartyIdentifiersDelegate;
@@ -35,6 +34,7 @@
 @property(readonly, nonatomic) unsigned int watchVersion; // @synthesize watchVersion=_watchVersion;
 - (void).cxx_destruct;
 - (void)_buildRows;
+- (id)_identifiersForThirdParyAppsThatSupportActivitesOrIntents;
 - (void)dealloc;
 - (void)fetchIdentifiers;
 - (void)_dataSourceChangedNotification:(id)arg1;

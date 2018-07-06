@@ -146,7 +146,7 @@
 @property(copy, nonatomic) HKAxis *xAxis; // @synthesize xAxis=_xAxis;
 @property(nonatomic) __weak id <HKGraphViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)enumerateVisibleCoordinatesWithBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateVisibleCoordinatesForSeries:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)_showTiles;
 - (void)_hideTiles;
 - (void)_hideTilesWithForce;
@@ -329,7 +329,6 @@
 - (void)_cancelAllInFlightAutoscales;
 - (_Bool)_anySeriesAnimatingDuringAutoscale;
 - (id)_firstSelectionContext;
-- (id)_firstSeries;
 - (long long)_countOfAllSeries;
 - (long long)_groupRowForSeries:(id)arg1;
 - (void)_walkAllSeries:(CDUnknownBlockType)arg1;

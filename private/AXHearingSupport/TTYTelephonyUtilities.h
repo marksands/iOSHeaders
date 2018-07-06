@@ -57,6 +57,10 @@
 - (void)activeSubscriptionsDidChange;
 - (void)subscriptionInfoDidChange;
 - (void)carrierSettingsDidChange;
+- (id)phoneNumberFromUUID:(id)arg1;
+- (_Bool)contactPathIsMe:(id)arg1;
+- (id)phoneNumberForContext:(id)arg1;
+- (id)myPhoneNumber;
 - (_Bool)relayIsSupported;
 - (_Bool)contactIsTTYContact:(id)arg1;
 - (unsigned long long)currentPreferredTransportMethod;

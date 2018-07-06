@@ -12,17 +12,14 @@
 
 @interface _DKSyncUpCloudKitKnowledgeStorage : NSObject <_DKSyncRemoteKnowledgeStorage>
 {
-    _Bool _isAvailable;
     _DKSyncCloudKitKnowledgeStorage *_common;
     id <_DKSyncRemoteKnowledgeStorageFetchDelegate> _delegate;
 }
 
 + (id)sharedInstance;
-@property _Bool isAvailable; // @synthesize isAvailable=_isAvailable;
 @property(retain) id <_DKSyncRemoteKnowledgeStorageFetchDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain) _DKSyncCloudKitKnowledgeStorage *common; // @synthesize common=_common;
 - (void).cxx_destruct;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (long long)transportType;
 - (id)name;
 - (void)updateStorageWithAddedEvents:(id)arg1 deletedEventIDs:(id)arg2 highPriority:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
@@ -35,7 +32,8 @@
 - (void)prewarmFetchWithCompletion:(CDUnknownBlockType)arg1;
 - (void)cancelOutstandingOperations;
 - (void)start;
-- (void)dealloc;
+@property(getter=isAvailable) _Bool available;
+@property(readonly) _Bool isAvailable;
 - (id)init;
 
 @end

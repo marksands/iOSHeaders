@@ -25,10 +25,6 @@
 - (id)init;
 - (id)initWithInitialConstraints:(id)arg1 delegate:(id)arg2;
 - (void)setShutdownRequested;
-- (void)_handleBackgroundProcessingDisallowedOnSleepWakeNotification:(id)arg1;
-- (void)_handleBackgroundProcessingAllowedOnSleepWakeNotification:(id)arg1;
-- (void)_handleBackgroundProcessingDisallowedNotification:(id)arg1;
-- (void)_handleBackgroundProcessingAllowedNotification:(id)arg1;
 
 @end
 

@@ -10,6 +10,7 @@
 
 @interface CUKeychainItem : NSObject
 {
+    _Bool _invisible;
     _Bool _legacy;
     int _accessibleType;
     int _syncType;
@@ -33,6 +34,7 @@
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) _Bool legacy; // @synthesize legacy=_legacy;
+@property(nonatomic) _Bool invisible; // @synthesize invisible=_invisible;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) int accessibleType; // @synthesize accessibleType=_accessibleType;
 @property(copy, nonatomic) NSString *accessGroup; // @synthesize accessGroup=_accessGroup;
@@ -40,6 +42,7 @@
 - (_Bool)_updateWithAttributesDictionary:(id)arg1 flags:(unsigned int)arg2 error:(id *)arg3;
 - (void)_mergeItem:(id)arg1;
 - (id)_attributesDictionaryWithFlags:(unsigned int)arg1 error:(id *)arg2;
+- (_Bool)isEqualToKeychainItem:(id)arg1 flags:(unsigned int)arg2;
 - (id)descriptionWithLevel:(int)arg1;
 - (id)description;
 

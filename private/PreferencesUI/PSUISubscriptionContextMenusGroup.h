@@ -8,7 +8,7 @@
 
 #import "PSSpecifierGroup.h"
 
-@class CTCellularPlanManager, NSString, PSListController, PSSimStatusCache, PSSpecifier, PSUICallingSubgroup, PSUICarrierSpaceGroup, PSUICellularPlanManagerCache, PSUICoreTelephonyCarrierBundleCache, PSUINetworkSubgroup, PSUISIMSubgroup;
+@class CTCellularPlanManager, NSString, PSListController, PSSimStatusCache, PSSpecifier, PSUICallingSubgroup, PSUICarrierSpaceGroup, PSUICellularPlanManagerCache, PSUICoreTelephonyCarrierBundleCache, PSUIMyNumberSubgroup, PSUINetworkSelectionSubgroup, PSUINetworkSettingsSubgroup, PSUISIMSubgroup;
 
 @interface PSUISubscriptionContextMenusGroup : NSObject <PSSpecifierGroup>
 {
@@ -18,7 +18,9 @@
     PSSpecifier *_parentSpecifier;
     PSUICallingSubgroup *_callingSubgroup;
     PSUICarrierSpaceGroup *_carrierSpaceSubgroup;
-    PSUINetworkSubgroup *_networkSubgroup;
+    PSUINetworkSelectionSubgroup *_networkSelectionSubgroup;
+    PSUIMyNumberSubgroup *_myNumberSubgroup;
+    PSUINetworkSettingsSubgroup *_networkSettingsSubgroup;
     PSUISIMSubgroup *_simSubgroup;
     PSSimStatusCache *_simStatusCache;
     PSUICoreTelephonyCarrierBundleCache *_carrierBundleCache;
@@ -31,7 +33,9 @@
 @property(retain, nonatomic) PSUICoreTelephonyCarrierBundleCache *carrierBundleCache; // @synthesize carrierBundleCache=_carrierBundleCache;
 @property(retain, nonatomic) PSSimStatusCache *simStatusCache; // @synthesize simStatusCache=_simStatusCache;
 @property(retain, nonatomic) PSUISIMSubgroup *simSubgroup; // @synthesize simSubgroup=_simSubgroup;
-@property(retain, nonatomic) PSUINetworkSubgroup *networkSubgroup; // @synthesize networkSubgroup=_networkSubgroup;
+@property(retain, nonatomic) PSUINetworkSettingsSubgroup *networkSettingsSubgroup; // @synthesize networkSettingsSubgroup=_networkSettingsSubgroup;
+@property(retain, nonatomic) PSUIMyNumberSubgroup *myNumberSubgroup; // @synthesize myNumberSubgroup=_myNumberSubgroup;
+@property(retain, nonatomic) PSUINetworkSelectionSubgroup *networkSelectionSubgroup; // @synthesize networkSelectionSubgroup=_networkSelectionSubgroup;
 @property(retain, nonatomic) PSUICarrierSpaceGroup *carrierSpaceSubgroup; // @synthesize carrierSpaceSubgroup=_carrierSpaceSubgroup;
 @property(retain, nonatomic) PSUICallingSubgroup *callingSubgroup; // @synthesize callingSubgroup=_callingSubgroup;
 @property(nonatomic) _Bool popViewControllerOnPlanDeletion; // @synthesize popViewControllerOnPlanDeletion=_popViewControllerOnPlanDeletion;
@@ -42,7 +46,7 @@
 - (id)specifiers;
 - (void)viewWillAppear;
 - (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2;
-- (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2 parentSpecifier:(id)arg3 callingSubgroup:(id)arg4 carrierSpaceSubgroup:(id)arg5 networkSubgroup:(id)arg6 simSubgroup:(id)arg7 simStatusCache:(id)arg8 carrierBundleCache:(id)arg9 planManagerCache:(id)arg10 cellularPlanManager:(id)arg11 popViewControllerOnPlanDeletion:(_Bool)arg12;
+- (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2 parentSpecifier:(id)arg3 callingSubgroup:(id)arg4 carrierSpaceSubgroup:(id)arg5 networkSelectionSubgroup:(id)arg6 myNumberSubgroup:(id)arg7 networkSettingsSubgroup:(id)arg8 simSubgroup:(id)arg9 simStatusCache:(id)arg10 carrierBundleCache:(id)arg11 planManagerCache:(id)arg12 cellularPlanManager:(id)arg13 popViewControllerOnPlanDeletion:(_Bool)arg14;
 - (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2 parentSpecifier:(id)arg3 popViewControllerOnPlanDeletion:(_Bool)arg4;
 
 // Remaining properties

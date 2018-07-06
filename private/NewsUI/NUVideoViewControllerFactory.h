@@ -17,7 +17,7 @@
 
 @property(readonly, nonatomic) id <NFResolver> resolver; // @synthesize resolver=_resolver;
 - (void).cxx_destruct;
-- (id)createVideoViewControllerWithItems:(id)arg1 visibilityMonitor:(id)arg2 eventTrackerConfiguration:(id)arg3 externalAnalyticsReferrer:(id)arg4 placement:(id)arg5 discoverMoreVideosInfo:(id)arg6;
+- (id)createVideoViewControllerWithItems:(id)arg1 visibilityMonitor:(id)arg2 eventTrackerConfiguration:(id)arg3 externalAnalyticsReferrer:(id)arg4 placement:(id)arg5 discoverMoreVideosInfo:(id)arg6 activityViewControllerFactory:(id)arg7;
 - (id)initWithResolver:(id)arg1;
 
 // Remaining properties

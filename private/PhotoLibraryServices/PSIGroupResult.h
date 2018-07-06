@@ -44,6 +44,7 @@
 @property(readonly) NSArray *collectionResults;
 @property(readonly) NSArray *assetUUIDs;
 @property(readonly) NSString *owningContentString;
+- (id)searchTextGroupSnapshot;
 - (_Bool)isMatchedByIdentifierAtIndex:(long long)arg1;
 - (_Bool)isContentStringTextSearchableAtIndex:(long long)arg1;
 - (long long)categoryAtIndex:(long long)arg1;

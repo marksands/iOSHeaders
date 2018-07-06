@@ -10,7 +10,7 @@
 #import "CAMBadgeViewDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class CAMAnimationGenerator, CAMLightingDialBackground, CAMLightingFrameCache, CAMLightingNameBadge, NSArray, NSDate, NSDictionary, NSString, NSTimer, UIImageView, UILongPressGestureRecognizer, UIPanGestureRecognizer, UISelectionFeedbackGenerator, UITapGestureRecognizer;
+@class CAMAnimationGenerator, CAMLightingDialBackground, CAMLightingFrameCache, CAMLightingNameBadge, CAMSelectionFeedbackGenerator, NSArray, NSDate, NSDictionary, NSString, NSTimer, UIImageView, UILongPressGestureRecognizer, UIPanGestureRecognizer, UITapGestureRecognizer;
 
 @interface CAMLightingControl : UIView <UIGestureRecognizerDelegate, CAMBadgeViewDelegate, CAAnimationDelegate>
 {
@@ -45,10 +45,10 @@
     CAMAnimationGenerator *__animationGenerator;
     NSTimer *__collapseTimer;
     unsigned long long __expandedAnimationCounter;
-    UISelectionFeedbackGenerator *__selectionFeedbackGenerator;
+    CAMSelectionFeedbackGenerator *__selectionFeedbackGenerator;
 }
 
-@property(readonly, nonatomic) UISelectionFeedbackGenerator *_selectionFeedbackGenerator; // @synthesize _selectionFeedbackGenerator=__selectionFeedbackGenerator;
+@property(readonly, nonatomic) CAMSelectionFeedbackGenerator *_selectionFeedbackGenerator; // @synthesize _selectionFeedbackGenerator=__selectionFeedbackGenerator;
 @property(nonatomic, setter=_setExpandedAnimationCounter:) unsigned long long _expandedAnimationCounter; // @synthesize _expandedAnimationCounter=__expandedAnimationCounter;
 @property(retain, nonatomic, setter=_setCollapseTimer:) NSTimer *_collapseTimer; // @synthesize _collapseTimer=__collapseTimer;
 @property(readonly, nonatomic) CAMAnimationGenerator *_animationGenerator; // @synthesize _animationGenerator=__animationGenerator;
@@ -139,6 +139,7 @@
 - (void)_layoutItemViewsRadialWithSelectionOffsetAngle:(double)arg1;
 - (double)_safeWidthForWidth:(double)arg1;
 - (double)contentHeightForWidth:(double)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (struct UIEdgeInsets)alignmentRectInsets;
 - (id)initWithFrame:(struct CGRect)arg1;

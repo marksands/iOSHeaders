@@ -6,14 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSObject<STContentPrivacyViewModelCoordinator>, NSObject<STTimeAllowancesViewModelCoordinator>, NSObject<STUsageDetailsViewModelCoordinator>, NSString, STRootViewModel, STUser;
+@class NSObject<STContentPrivacyViewModelCoordinator>, NSObject<STTimeAllowancesViewModelCoordinator>, NSObject<STUsageDetailsViewModelCoordinator>, NSString, STAppInfoCache, STRootViewModel, STUser;
 
 @protocol STRootViewModelCoordinator <NSObject>
 @property(readonly, nonatomic, getter=isPasscodeEnabled) _Bool passcodeEnabled;
+@property(nonatomic) _Bool hasAlreadyEnteredPINForSession;
 @property(nonatomic) _Bool hasShownMiniBuddy;
 @property(readonly) NSObject<STTimeAllowancesViewModelCoordinator> *timeAllowancesCoordinator;
 @property(readonly) NSObject<STUsageDetailsViewModelCoordinator> *usageDetailsCoordinator;
 @property(readonly) NSObject<STContentPrivacyViewModelCoordinator> *contentPrivacyCoordinator;
+@property(readonly, nonatomic) STAppInfoCache *appCache;
 @property(readonly, nonatomic) STRootViewModel *viewModel;
 - (void)setScreenTimeEnabled:(_Bool)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)setPIN:(NSString *)arg1 screenTimeEnabled:(_Bool)arg2 completionHandler:(void (^)(NSError *))arg3;

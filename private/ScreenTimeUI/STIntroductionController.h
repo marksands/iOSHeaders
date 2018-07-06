@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class STIntroductionModel;
+@class NSString, STIntroductionModel;
 
 @interface STIntroductionController : NSObject
 {
@@ -14,6 +14,7 @@
     _Bool _forceParentalControls;
     _Bool _skipWelcome;
     _Bool _isModalPresentation;
+    NSString *_childName;
     CDUnknownBlockType _completionBlock;
     STIntroductionModel *_introductionModel;
 }
@@ -22,6 +23,7 @@
 @property(retain, nonatomic) STIntroductionModel *introductionModel; // @synthesize introductionModel=_introductionModel;
 @property(copy) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
 @property _Bool skipWelcome; // @synthesize skipWelcome=_skipWelcome;
+@property(copy) NSString *childName; // @synthesize childName=_childName;
 @property _Bool forceParentalControls; // @synthesize forceParentalControls=_forceParentalControls;
 @property _Bool allowParentalControls; // @synthesize allowParentalControls=_allowParentalControls;
 - (void).cxx_destruct;

@@ -49,9 +49,11 @@
 - (id)_fetchChangesFromLocalEvent:(id)arg1 shouldTriggerPrefetch:(_Bool *)arg2;
 - (void)_handleInvalidAsset:(id)arg1;
 - (void)_addAsset:(id)arg1 toAssetChanges:(id)arg2 isInsert:(_Bool)arg3 seenAssetUuid:(id)arg4;
+- (id)_syncDescriptionForObject:(id)arg1;
+- (void)_promptToFileRadarWithTitle:(id)arg1 description:(id)arg2;
+- (_Bool)_validate:(id)arg1 onRelatedObject:(id)arg2;
 - (void)_sortData:(id)arg1 isInsert:(_Bool)arg2 forUploadChanges:(id)arg3 shouldTriggerPrefetch:(_Bool *)arg4 inManagedObjectContext:(id)arg5;
 - (void)_sortRelationshipData:(id)arg1 forRelationshipUpdate:(id)arg2 inManagedObjectContext:(id)arg3;
-- (_Bool)shouldProcessDuringInitialUpload:(id)arg1;
 - (id)createUploadBatchesForDeletionFromLocalEvent:(id)arg1;
 - (void)handleUploadBatchesForDeletionFromLocalEvent:(id)arg1;
 - (void)recordDeletions:(id)arg1;

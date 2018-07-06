@@ -58,6 +58,8 @@
 - (id)hf_accessoryWithIdentifier:(id)arg1;
 - (id)hf_allNonEmptyActionSets;
 - (id)hf_zoneWithIdentifier:(id)arg1;
+- (void)hf_setSelectedRoom:(id)arg1;
+- (id)hf_selectedRoom;
 - (id)hf_roomWithIdentifier:(id)arg1;
 - (_Bool)hf_currentUserIsOwner;
 - (_Bool)hf_currentUserIsAdministrator;

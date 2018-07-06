@@ -10,6 +10,7 @@
 
 @interface STOverallUsageSummaryCell : PSTableCell
 {
+    _Bool _isVibrancyEnabled;
     STUsageReport *_usageInfo;
     UILabel *_screenTimeLabel;
     STUsageTotalDeltaView *_deltaView;
@@ -23,13 +24,15 @@
 @property(retain, nonatomic) STCandyBarView *candyBarView; // @synthesize candyBarView=_candyBarView;
 @property(retain, nonatomic) STUsageTotalDeltaView *deltaView; // @synthesize deltaView=_deltaView;
 @property(retain, nonatomic) UILabel *screenTimeLabel; // @synthesize screenTimeLabel=_screenTimeLabel;
+@property(readonly, nonatomic) _Bool isVibrancyEnabled; // @synthesize isVibrancyEnabled=_isVibrancyEnabled;
 @property(retain, nonatomic) STUsageReport *usageInfo; // @synthesize usageInfo=_usageInfo;
 - (void).cxx_destruct;
 - (void)refreshWithUsageReport:(id)arg1;
 - (void)setValue:(id)arg1;
 - (_Bool)canReload;
 - (void)stOverallUsageSummaryCellCommonInit;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3 isVibrancyEnabled:(_Bool)arg4;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end
 

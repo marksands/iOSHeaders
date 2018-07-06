@@ -24,6 +24,7 @@
 - (void)setDataRoamingEnabled:(id)arg1 specifier:(id)arg2;
 - (id)getDataRoamingStatus:(id)arg1;
 - (id)roamingSettingsDescription:(id)arg1;
+- (id)roamingSpecifiers;
 - (id)specifiers;
 - (id)controllerForSpecifier:(id)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

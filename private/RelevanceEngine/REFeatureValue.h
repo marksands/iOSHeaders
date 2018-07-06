@@ -12,8 +12,6 @@
 
 @interface REFeatureValue : NSObject <NSCopying>
 {
-    unsigned long long _type;
-    id _value;
 }
 
 + (id)featureValueWithString:(id)arg1;
@@ -21,7 +19,6 @@
 + (id)featureValueWithInt64:(long long)arg1;
 + (id)featureValueWithBool:(_Bool)arg1;
 + (id)nullValueForFeature:(id)arg1;
-- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
@@ -31,7 +28,6 @@
 @property(readonly, nonatomic) unsigned long long int64Value;
 @property(readonly, nonatomic) _Bool boolValue;
 @property(readonly, nonatomic) unsigned long long type;
-- (id)initWithValue:(id)arg1 type:(unsigned long long)arg2;
 
 @end
 

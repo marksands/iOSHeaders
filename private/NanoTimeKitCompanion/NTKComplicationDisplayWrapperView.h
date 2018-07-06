@@ -82,6 +82,7 @@
 - (void)needsResize;
 - (void)_invokeTouchDownHandler;
 - (void)_invokeTouchUpInsideHandler;
+- (_Bool)_displayIsTappable;
 - (void)_setDimmed:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setDimmed:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_didSetDisplayFromDisplay:(id)arg1 withComplicationAnimation:(unsigned long long)arg2;

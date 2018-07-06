@@ -15,6 +15,7 @@
 
 @interface SCKDatabaseJSONStore : NSObject <SCKOperationThrottlerDelegate, NSFilePresenter, SCKDatabaseStoreCoordinator, SCKDatabaseStore>
 {
+    _Bool _backupEnabled;
     _Bool _loadedFromDisk;
     _Bool _havePendingChanges;
     unsigned int _lastKnownStoreChangeTag;
@@ -52,6 +53,7 @@
 @property(readonly, nonatomic) SCKDatabaseSchema *schema; // @synthesize schema=_schema;
 @property(readonly, retain) NSOperationQueue *presentedItemOperationQueue; // @synthesize presentedItemOperationQueue=_presentedItemOperationQueue;
 @property(readonly, copy) NSURL *presentedItemURL; // @synthesize presentedItemURL=_presentedItemURL;
+@property(nonatomic, getter=isBackupEnabled) _Bool backupEnabled; // @synthesize backupEnabled=_backupEnabled;
 @property(copy, nonatomic) CKServerChangeToken *serverChangeToken; // @synthesize serverChangeToken=_serverChangeToken;
 @property(copy, nonatomic) NSDate *lastDirtyDate; // @synthesize lastDirtyDate=_lastDirtyDate;
 @property(copy, nonatomic) NSDate *lastSyncDate; // @synthesize lastSyncDate=_lastSyncDate;
@@ -64,6 +66,7 @@
 - (void)_reloadIfNeededFromFileURL:(id)arg1;
 - (void)_loadFromFileURL:(id)arg1;
 - (void)_saveIfNeededToFileURL:(id)arg1;
+- (void)_applyBackupEnabledPropertyToStoreURL;
 - (void)_saveToFileURL:(id)arg1;
 - (_Bool)flushToDiskWithTimeout:(double)arg1;
 - (void)savePresentedItemChangesWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -75,6 +78,7 @@
 - (void)reloadWithAccessor:(CDUnknownBlockType)arg1;
 - (void)writeWithAccessor:(CDUnknownBlockType)arg1;
 - (void)readWithAccessor:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) id <SCKDatabaseStore> underlyingStore;
 - (id)zoneStoreForSchema:(id)arg1;
 - (id)initWithSchema:(id)arg1 parentDirectoryURL:(id)arg2;
 

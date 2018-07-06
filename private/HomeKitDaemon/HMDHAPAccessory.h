@@ -9,12 +9,14 @@
 #import "HAPRelayAccessoryDelegate.h"
 #import "HMDAccessoryIdentify.h"
 #import "HMDAccessoryMinimumUserPrivilegeCapable.h"
+#import "HMDAccessoryUserManagement.h"
+#import "HMDServiceOwner.h"
 #import "HMDTimeInformationMonitorDelegate.h"
 #import "HMFTimerDelegate.h"
 
-@class HAPPairingIdentity, HMDAccessorySymptomHandler, HMDCharacteristic, HMDDataStreamController, HMDTargetControllerManager, HMFTimer, NSArray, NSData, NSDate, NSMapTable, NSMutableArray, NSMutableSet, NSNumber, NSSet, NSString;
+@class HMDAccessorySymptomHandler, HMDCharacteristic, HMDDataStreamController, HMDTargetControllerManager, HMFPairingIdentity, HMFTimer, NSArray, NSData, NSDate, NSMapTable, NSMutableArray, NSMutableSet, NSNumber, NSSet, NSString;
 
-@interface HMDHAPAccessory : HMDAccessory <HMDAccessoryMinimumUserPrivilegeCapable, HAPRelayAccessoryDelegate, HMDTimeInformationMonitorDelegate, HMFTimerDelegate, HMDAccessoryIdentify>
+@interface HMDHAPAccessory : HMDAccessory <HMDAccessoryMinimumUserPrivilegeCapable, HMDServiceOwner, HAPRelayAccessoryDelegate, HMDTimeInformationMonitorDelegate, HMFTimerDelegate, HMDAccessoryIdentify, HMDAccessoryUserManagement>
 {
     NSMutableArray *_transportInformationInstances;
     _Bool _relayEnabled;
@@ -86,6 +88,10 @@
 @property(copy, nonatomic) NSData *broadcastKey; // @synthesize broadcastKey=_broadcastKey;
 @property(retain, nonatomic) NSString *relayIdentifier; // @synthesize relayIdentifier=_relayIdentifier;
 - (void).cxx_destruct;
+@property(readonly, copy, nonatomic) NSNumber *hapInstanceId;
+- (id)backingStoreTransactionWithName:(id)arg1;
+- (id)createUpdateServiceTransationWithServiceUUID:(id)arg1;
+- (void)makeServiceNameConsistent:(id)arg1 withName:(id)arg2;
 - (id)messageReceiverChildren;
 - (id)backingStoreObjects:(long long)arg1;
 - (void)populateModelObject:(id)arg1 version:(long long)arg2;
@@ -183,6 +189,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)_getSymptomHandler;
+- (_Bool)shouldConfigureTargetController;
 - (id)hmdCharacteristicForInstanceId:(id)arg1;
 - (id)hmdCharacteristicFromHapCharacteristic:(id)arg1;
 - (void)_readCharacteristicValues:(id)arg1 localOperationRequired:(_Bool)arg2 source:(unsigned long long)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5 errorBlock:(CDUnknownBlockType)arg6;
@@ -190,7 +197,7 @@
 - (void)readCharacteristicValues:(id)arg1 source:(unsigned long long)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_writeCharacteristicValues:(id)arg1 localOperationRequired:(_Bool)arg2 source:(unsigned long long)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5 errorBlock:(CDUnknownBlockType)arg6;
 - (void)writeCharacteristicValues:(id)arg1 source:(unsigned long long)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (_Bool)supportsUserManagement;
+@property(readonly) _Bool supportsUserManagement;
 - (void)_performOperation:(long long)arg1 linkType:(long long)arg2 operationBlock:(CDUnknownBlockType)arg3 errorBlock:(CDUnknownBlockType)arg4;
 - (void)performOperation:(long long)arg1 linkType:(long long)arg2 operationBlock:(CDUnknownBlockType)arg3 errorBlock:(CDUnknownBlockType)arg4;
 - (_Bool)matchesHAPAccessoryWithServerIdentifier:(id)arg1 linkType:(long long *)arg2;
@@ -254,12 +261,14 @@
 - (void)_handleAddServiceTransaction:(id)arg1 message:(id)arg2;
 - (id)serviceWithUUID:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *services;
+@property(readonly, copy) HMFPairingIdentity *pairingIdentity;
 - (void)pairingsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)removeUser:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)addUser:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)isSecuritySessionOpen;
 - (void)verifyPairingWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)isPrimary;
 - (void)savePublicKeyToKeychain;
-@property(readonly, copy, nonatomic) HAPPairingIdentity *pairingIdentity;
 - (void)setPairingUsername:(id)arg1 publicKey:(id)arg2;
 - (void)handlePairedStateChange:(_Bool)arg1;
 @property(readonly, nonatomic, getter=isPaired) _Bool paired;
@@ -334,6 +343,7 @@
 - (_Bool)_resolveSupportedSiriInputType:(id)arg1;
 - (_Bool)_resolveAudioAbility:(id)arg1;
 - (void)getSupportedSiriAudioConfiguration:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) _Bool supportsSiri;
 - (_Bool)canAcceptBulkSendListeners;
 - (void)removeDataStreamBulkSendListener:(id)arg1;
 - (void)addDataStreamBulkSendListener:(id)arg1 fileType:(id)arg2;
