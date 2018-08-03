@@ -4,26 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "DNDState.h"
 
-#import "NSCopying.h"
+@class NSArray;
 
-@class DNDState, NSArray;
-
-@interface DNDSState : NSObject <NSCopying>
+@interface DNDSState : DNDState
 {
-    DNDState *_clientState;
     NSArray *_activeModeAssertions;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) NSArray *activeModeAssertions; // @synthesize activeModeAssertions=_activeModeAssertions;
-@property(readonly, copy, nonatomic) DNDState *clientState; // @synthesize clientState=_clientState;
 - (void).cxx_destruct;
-- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)replacementObjectForCoder:(id)arg1;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)initWithClientState:(id)arg1 activeModeAssertions:(id)arg2;
+- (id)initWithActive:(_Bool)arg1 willSuppressInterruptions:(_Bool)arg2 activeModeIdentifiers:(id)arg3 activeModeAssertions:(id)arg4;
 
 @end
 

@@ -19,7 +19,7 @@
 - (void).cxx_destruct;
 -     // Error parsing type: f96@0:816{?=[4]}32, name: distanceToViewFrustrumAtPosition:withCameraViewProjection:
 - (float)approxCoveredSolidAngleByPlanes:(vector_478e3a44)arg1 atPosition: /* Error: Ran out of types for this method. */;
--     // Error parsing type: v260@0:8{?=[4]}1680{vector<ARTexturedPlane, std::__1::allocator<ARTexturedPlane> >=^{?}^{?}{__compressed_pair<ARTexturedPlane *, std::__1::allocator<ARTexturedPlane> >=^{?}}}96^{__CVBuffer=}120{?=[4]}128{?=[3]}192d240f248@?252, name: cubemapWithTransform:extent:fromPlanes:cameraImage:cameraTransform:cameraIntrinsics:cameraExposure:cameraExposureOffset:completionHandler:
+-     // Error parsing type: v264@0:8{?=[4]}1680{vector<ARTexturedPlane, std::__1::allocator<ARTexturedPlane> >=^{?}^{?}{__compressed_pair<ARTexturedPlane *, std::__1::allocator<ARTexturedPlane> >=^{?}}}96^{__CVBuffer=}120{?=[4]}128{?=[3]}192d240f248B252@?256, name: cubemapWithTransform:extent:fromPlanes:cameraImage:cameraTransform:cameraIntrinsics:cameraExposure:cameraExposureOffset:contentPreview:completionHandler:
 - (id)init;
 
 @end

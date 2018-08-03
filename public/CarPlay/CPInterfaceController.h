@@ -9,7 +9,7 @@
 #import "CPTemplateDelegate.h"
 #import "CPTemplateServiceClientInterface.h"
 
-@class CPMapContentWindow, CPTemplate, NSArray, NSMutableArray, NSString, NSXPCConnection;
+@class CPTemplate, CPWindow, NSArray, NSMutableArray, NSString, NSXPCConnection;
 
 @interface CPInterfaceController : NSObject <CPTemplateDelegate, CPTemplateServiceClientInterface>
 {
@@ -17,7 +17,7 @@
     CPTemplate *_rootTemplate;
     NSXPCConnection *_connection;
     id <CPTemplateProviding> _templateProvider;
-    CPMapContentWindow *_carWindow;
+    CPWindow *_carWindow;
     NSMutableArray *_templateStack;
     CPTemplate *_presentedTemplate;
 }
@@ -28,7 +28,7 @@
 + (void)load;
 @property(retain, nonatomic) CPTemplate *presentedTemplate; // @synthesize presentedTemplate=_presentedTemplate;
 @property(retain, nonatomic) NSMutableArray *templateStack; // @synthesize templateStack=_templateStack;
-@property(retain, nonatomic) CPMapContentWindow *carWindow; // @synthesize carWindow=_carWindow;
+@property(retain, nonatomic) CPWindow *carWindow; // @synthesize carWindow=_carWindow;
 @property(retain, nonatomic) id <CPTemplateProviding> templateProvider; // @synthesize templateProvider=_templateProvider;
 @property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 @property(retain, nonatomic) CPTemplate *rootTemplate; // @synthesize rootTemplate=_rootTemplate;
@@ -51,9 +51,11 @@
 - (id)_listenerEndpointForSettings:(id)arg1;
 - (void)_connectionInterrupted;
 - (void)_connectionInvalidated;
-- (void)_connectToListenerEndpoint:(id)arg1 withWindow:(id)arg2;
+- (void)_connectToListenerEndpoint:(id)arg1;
 - (void)_handleDisconnectedCanvas:(id)arg1;
 - (void)_handleConnectedCanvas:(id)arg1;
+- (_Bool)_applicationHasMapsEntitlement;
+- (id)_windowForCarScreen:(id)arg1;
 - (void)_canvasWillDisconnect:(id)arg1;
 - (void)_canvasDidConnect:(id)arg1;
 - (void)_presentAlertTemplate:(id)arg1 animated:(_Bool)arg2;

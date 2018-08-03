@@ -11,6 +11,8 @@
     void *_impl;
 }
 
+@property(readonly) unsigned char remoteVoiceActivityVAD;
+@property(readonly) unsigned char remoteVoiceActivityRMS;
 @property(readonly) struct AudioStreamBasicDescription *streamDescription;
 @property(readonly) unsigned long long timeStamp;
 - (void)setPacketDescriptions:(const struct AudioStreamPacketDescription *)arg1 count:(int)arg2;

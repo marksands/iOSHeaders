@@ -13,6 +13,11 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) _Bool isReverting; // @synthesize isReverting=_isReverting;
+- (void)_dismissPresentedViewController:(id)arg1;
+- (void)_displayFailureAlert;
+- (void)_displayToast;
+- (void)_handleSuccess:(_Bool)arg1;
+- (void)_updateSuggestionState;
 - (void)_performImageSaveWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_performLivePhotoSaveWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_performLoopingVideoSaveWithCompletionHandler:(CDUnknownBlockType)arg1;

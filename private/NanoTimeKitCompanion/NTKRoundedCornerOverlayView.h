@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class UIImageView;
+@class CLKDevice, UIImageView;
 
 @interface NTKRoundedCornerOverlayView : UIView
 {
@@ -15,6 +15,7 @@
     UIImageView *_upperRightCorner;
     UIImageView *_bottomLeftCorner;
     UIImageView *_bottomRightCorner;
+    CLKDevice *_device;
 }
 
 - (void).cxx_destruct;

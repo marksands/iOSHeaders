@@ -23,14 +23,12 @@
     NSString *_defaultEmailAddress;
     unsigned long long _standaloneState;
     NSArray *_mailboxes;
-    NSString *_subsectionId;
 }
 
 + (id)generateIdentifierFromEmailsAddresses:(id)arg1;
 + (id)generateAccountIdForAccount:(id)arg1;
 + (id)inboxesFromAccounts:(id)arg1;
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) NSString *subsectionId; // @synthesize subsectionId=_subsectionId;
 @property(retain, nonatomic) NSArray *mailboxes; // @synthesize mailboxes=_mailboxes;
 @property(nonatomic) unsigned long long standaloneState; // @synthesize standaloneState=_standaloneState;
 @property(copy, nonatomic) NSString *defaultEmailAddress; // @synthesize defaultEmailAddress=_defaultEmailAddress;

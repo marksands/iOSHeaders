@@ -23,6 +23,7 @@
 + (id)fmipConfiguration;
 + (id)btDiscoveryConfiguration;
 + (id)userNotificationConfiguration;
++ (id)deviceActivityConfiguration;
 + (id)identityConfiguration;
 @property(nonatomic) _Bool machService; // @synthesize machService=_machService;
 @property(nonatomic) unsigned long long options; // @synthesize options=_options;

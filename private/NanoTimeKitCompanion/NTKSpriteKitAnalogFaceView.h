@@ -43,6 +43,7 @@
 - (void)_configureForTransitionFraction:(double)arg1 fromEditMode:(long long)arg2 toEditMode:(long long)arg3;
 - (void)_configureForEditMode:(long long)arg1;
 - (void)_applyFrozen;
+- (struct CGSize)_sceneSize;
 - (_Bool)_needsForegroundContainerView;
 - (void)_renderSynchronouslyWithImageQueueDiscard:(_Bool)arg1;
 - (void)setEditView:(id)arg1;

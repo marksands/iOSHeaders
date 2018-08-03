@@ -44,6 +44,8 @@
 + (id)livePhotoSourceWithPhotoSource:(id)arg1 videoSource:(id)arg2;
 + (id)videoSourceWithURL:(id)arg1;
 + (id)imageSourceWithCIImage:(id)arg1 orientation:(long long)arg2;
++ (id)imageSourceWithURL:(id)arg1 type:(id)arg2 proxyImage:(id)arg3 orientation:(long long)arg4 useEmbeddedPreview:(_Bool)arg5;
++ (id)imageSourceWithURL:(id)arg1 type:(id)arg2 useEmbeddedPreview:(_Bool)arg3;
 + (id)imageSourceWithURL:(id)arg1 type:(id)arg2 proxyImage:(id)arg3 orientation:(long long)arg4;
 + (id)imageSourceWithURL:(id)arg1 type:(id)arg2;
 + (void)initialize;

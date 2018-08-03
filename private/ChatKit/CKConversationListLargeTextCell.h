@@ -14,12 +14,10 @@
     NSLayoutConstraint *_editingDependentConstraint;
     NSArray *_contentSizeCategoryDependentConstraints;
     NSTextAttachment *_unreadIndicatorAttachment;
-    NSTextAttachment *_liveConversationIndicatorAttachment;
 }
 
 + (id)hyphenationParagraphStyle;
 + (id)identifierForConversation:(id)arg1;
-@property(retain, nonatomic) NSTextAttachment *liveConversationIndicatorAttachment; // @synthesize liveConversationIndicatorAttachment=_liveConversationIndicatorAttachment;
 @property(retain, nonatomic) NSTextAttachment *unreadIndicatorAttachment; // @synthesize unreadIndicatorAttachment=_unreadIndicatorAttachment;
 @property(retain, nonatomic) NSArray *contentSizeCategoryDependentConstraints; // @synthesize contentSizeCategoryDependentConstraints=_contentSizeCategoryDependentConstraints;
 @property(retain, nonatomic) NSLayoutConstraint *editingDependentConstraint; // @synthesize editingDependentConstraint=_editingDependentConstraint;
@@ -28,7 +26,6 @@
 - (id)_contentSizeCategoryDependentConstraints;
 - (id)_constraintForEditing:(_Bool)arg1;
 - (void)updateForEditing:(_Bool)arg1;
-- (void)updateLiveConversationIndicatorWithImage:(id)arg1;
 - (void)updateUnreadIndicatorWithImage:(id)arg1;
 - (void)updateFromLabelWithText:(id)arg1;
 - (void)contentSizeCategoryDidChange;

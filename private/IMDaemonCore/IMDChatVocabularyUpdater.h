@@ -10,15 +10,18 @@
 
 @interface IMDChatVocabularyUpdater : NSObject
 {
+    _Bool _haveDeferredUpdateRequest;
     IMDChatRegistry *_chatRegistry;
     INVocabulary *_vocabulary;
 }
 
 + (void)performInitialUpdateIfNeeded;
 + (id)sharedInstance;
+@property(nonatomic) _Bool haveDeferredUpdateRequest; // @synthesize haveDeferredUpdateRequest=_haveDeferredUpdateRequest;
 @property(retain, nonatomic) INVocabulary *vocabulary; // @synthesize vocabulary=_vocabulary;
 @property(retain, nonatomic) IMDChatRegistry *chatRegistry; // @synthesize chatRegistry=_chatRegistry;
 - (void)_updateVocabularyExcludingChat:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)updateVocabularyForDeferredUpdateRequestIfNecessaryWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)updateVocabularyForRenamedChat:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateVocabularyForDeletedChat:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateVocabularyForAddedChat:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

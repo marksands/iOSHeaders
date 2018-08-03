@@ -28,6 +28,7 @@
     HKHealthStore *_healthStore;
 }
 
++ (void)_unitTest_clearAllRunningWorkouts;
 + (_Bool)supportsSecureCoding;
 + (id)serverInterface;
 + (id)clientInterface;
@@ -35,11 +36,11 @@
 + (id)targetWorkoutSessionStateMachineForSessionUUID:(id)arg1;
 @property(readonly, nonatomic) HKHealthStore *healthStore; // @synthesize healthStore=_healthStore;
 - (void).cxx_destruct;
+- (void)_unitTest_discardAssociatedWorkoutBuilder;
 - (void)stopActivity;
 - (void)startActivity;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)_unitTest_discardAssociatedWorkoutBuilder;
 - (void)_setAssociatedWorkoutBuilder:(id)arg1;
 - (id)associatedWorkoutBuilderWithDevice:(id)arg1 goalType:(unsigned long long)arg2 goal:(id)arg3;
 - (id)associatedWorkoutBuilder;

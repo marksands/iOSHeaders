@@ -8,7 +8,7 @@
 
 @interface INIntent (VoiceShortcuts)
 - (id)vcui_keyPeople;
-- (id)vcui_displayImageData;
+- (id)vcui_displayImage;
 - (_Bool)vcui_isIntentFromSystemApp;
 @end
 

@@ -18,8 +18,6 @@
 + (id)systemUnblockableBundleIdentifiers;
 + (id)systemBlockableBundleIdentifiers;
 + (id)sharedCategories;
-+ (id)_newXpcConnection;
-+ (id)_xpcConnection;
 + (void)initialize;
 - (void).cxx_destruct;
 - (void)categoriesForDomainURLs:(id)arg1 responseWithError:(CDUnknownBlockType)arg2;

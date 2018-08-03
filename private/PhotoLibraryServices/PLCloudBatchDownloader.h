@@ -29,6 +29,7 @@
 - (void)_dedupePersonsInSyncContext:(id)arg1;
 - (void)_mergeUpdatedPersons:(id)arg1 inLibrary:(id)arg2;
 - (void)_processNotificationUpdatesForMemories:(id)arg1;
+- (void)_processNotificationUpdatesForSuggestions:(id)arg1;
 - (void)_handleSuggestionRecords:(id)arg1 inLibrary:(id)arg2;
 - (void)_handleMemoryRecords:(id)arg1 inLibrary:(id)arg2;
 - (id)_handleAssetRecords:(id)arg1 inSyncContext:(id)arg2 withChangeBatch:(id)arg3 dedupeGraphPersons:(id *)arg4;

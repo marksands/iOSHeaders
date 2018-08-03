@@ -23,6 +23,7 @@
 @property _Bool allowsInPlaceFiltering;
 @property _Bool captureOnly;
 @property double marginWidth;
+@property double zoom;
 @property struct CGRect backdropRect;
 @property double scale;
 @property _Bool usesGlobalGroupNamespace;

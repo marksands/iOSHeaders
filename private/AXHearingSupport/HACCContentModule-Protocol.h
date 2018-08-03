@@ -11,6 +11,7 @@
 @protocol HACCContentModule <NSObject>
 @property(nonatomic) unsigned long long module;
 @property(nonatomic) __weak id <HACCContentModuleDelegate> delegate;
+- (_Bool)enabled;
 - (NSNumber *)contentValue;
 - (void)updateValue;
 @end

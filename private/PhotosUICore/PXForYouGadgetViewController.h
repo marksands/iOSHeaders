@@ -8,13 +8,13 @@
 
 #import "PXGadgetNavigating.h"
 #import "PXNavigableForYouViewController.h"
-#import "PXNavigableSharedActivityViewController.h"
+#import "PXNavigableSharedAlbumActivityFeedHostViewController.h"
 #import "PXNavigationRoot.h"
 #import "PXSettingsKeyObserver.h"
 
 @class NSString, PXNavigationListDataSourceManager, UIBarButtonItem, UINavigationController;
 
-@interface PXForYouGadgetViewController : PXGadgetViewController <PXGadgetNavigating, PXSettingsKeyObserver, PXNavigationRoot, PXNavigableForYouViewController, PXNavigableSharedActivityViewController>
+@interface PXForYouGadgetViewController : PXGadgetViewController <PXGadgetNavigating, PXSettingsKeyObserver, PXNavigationRoot, PXNavigableForYouViewController, PXNavigableSharedAlbumActivityFeedHostViewController>
 {
     _Bool _needsRefresh;
     UIBarButtonItem *_navigationDisplayModeButtonItem;
@@ -26,7 +26,7 @@
 - (void)ppt_navigateToFirstInvitationCMM:(_Bool)arg1 withCompleteHandler:(CDUnknownBlockType)arg2;
 - (void)ppt_navigateToFirstSuggestedCMMComposeRecipientViewAfterOneSecondWithCompleteHandler:(CDUnknownBlockType)arg1;
 - (void)ppt_navigateToFirstSuggestedCMMWithCompleteHandler:(CDUnknownBlockType)arg1;
-- (void)navigateToSharedActivityMode:(long long)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)navigateToSharedAlbumActivityFeedAnimated:(_Bool)arg1 configuration:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)presentWelcomeCloudPhotosViewController;
 - (void)navigateToGadgetForCMMSuggestions;
 - (void)navigateToGadgetForCMMInvitations;

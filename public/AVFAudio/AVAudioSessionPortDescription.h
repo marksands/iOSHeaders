@@ -28,6 +28,7 @@
 @property(readonly) AVAudioSessionDataSourceDescription *selectedDataSource;
 - (unsigned long long)endpointType;
 - (_Bool)isHeadphones;
+- (_Bool)isLiveListenSupported;
 @property(readonly) _Bool hasHardwareVoiceCallProcessing;
 @property(readonly) NSArray *dataSources;
 @property(readonly) NSArray *channels;

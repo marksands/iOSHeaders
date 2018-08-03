@@ -30,6 +30,8 @@
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+- (void)_contentSizeCategoryDidChange:(id)arg1;
+- (void)_updateFonts;
 - (void)_performLayoutWithSize:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)initWithCoder:(id)arg1;

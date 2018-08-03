@@ -183,6 +183,7 @@
 - (void)batterySaverModeDidChange;
 - (void)_checkEnableState;
 - (void)_processNextTransaction;
+- (void)reportLibrarySizeIfNeeded;
 - (void)_handleOptimizeSettingChange;
 - (void)reportDeviceData:(id)arg1;
 - (id)_addPrefix:(id)arg1 toKeysInDictionary:(id)arg2;

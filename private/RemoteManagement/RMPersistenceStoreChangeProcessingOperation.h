@@ -20,7 +20,6 @@
 @property(readonly, nonatomic) NSPersistentStore *store; // @synthesize store=_store;
 - (void).cxx_destruct;
 - (void)_handlePersistenceStoreChanges:(id)arg1 forStore:(id)arg2;
-- (id)_transactionsAfterToken:(id)arg1 store:(id)arg2 context:(id)arg3;
 - (id)_changeTypeForChange:(id)arg1;
 - (id)_entityGroupForChange:(id)arg1;
 - (void)main;

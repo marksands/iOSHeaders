@@ -11,6 +11,7 @@
 @interface PXGadgetSpec : NSObject
 {
     _Bool _shouldInsetAllContent;
+    _Bool _forceTouchCapabilityAvailable;
     long long _scrollDirection;
     double _interItemSpacing;
     long long _layoutSizeClass;
@@ -22,6 +23,7 @@
 
 + (void)initialize;
 @property(readonly, nonatomic) struct UIEdgeInsets accessoryViewInset; // @synthesize accessoryViewInset=_accessoryViewInset;
+@property(readonly, nonatomic) _Bool forceTouchCapabilityAvailable; // @synthesize forceTouchCapabilityAvailable=_forceTouchCapabilityAvailable;
 @property(readonly, nonatomic) double layoutReferenceWidth; // @synthesize layoutReferenceWidth=_layoutReferenceWidth;
 @property(readonly, nonatomic) long long layoutOrientation; // @synthesize layoutOrientation=_layoutOrientation;
 @property(readonly, nonatomic) long long layoutSizeClass; // @synthesize layoutSizeClass=_layoutSizeClass;

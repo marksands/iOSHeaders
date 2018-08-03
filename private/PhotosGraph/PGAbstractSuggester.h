@@ -15,8 +15,8 @@
     PGSuggestionSession *_session;
 }
 
-+ (id)assetCollectionFilteringSharedAssetsForAssetCollection:(id)arg1;
-+ (id)suggestedPersonLocalIdentifiersFromSharingSuggestionResults:(id)arg1 containsUnverifiedPersons:(_Bool *)arg2;
++ (id)assetCollectionFilteringSharedAssetsForAssetCollection:(id)arg1 loggingConnection:(id)arg2;
++ (id)suggestedPersonLocalIdentifiersFromSharingSuggestionResults:(id)arg1 forMomentNodes:(id)arg2 containsUnverifiedPersons:(_Bool *)arg3;
 + (id)sharingSuggestionResultsForMomentNodes:(id)arg1;
 + (id)suggestionSubtypes;
 + (id)suggestionTypes;

@@ -94,7 +94,6 @@
 @property(readonly, nonatomic) _Bool savingDuringMerge; // @synthesize savingDuringMerge=_savingDuringMerge;
 @property(readonly, nonatomic) _Bool mergingChanges; // @synthesize mergingChanges=_mergingChanges;
 @property(nonatomic) NSObject<OS_xpc_object> *changeHubConnection; // @synthesize changeHubConnection;
-- (void)_contextObjectsDidChange:(id)arg1;
 - (void)tearDownLocalChangeNotifications;
 - (void)setupLocalChangeNotifications;
 - (void)_informPTPDelegateAboutChangesFromRemoteContextSaveNotification:(id)arg1;

@@ -6,27 +6,37 @@
 
 #import "UITableViewHeaderFooterView.h"
 
-@class NSLayoutConstraint, UIButton, UILabel;
+@class NSArray, NSLayoutConstraint, UIButton, UILabel;
 
 __attribute__((visibility("hidden")))
 @interface PUSearchResultsSectionHeaderView : UITableViewHeaderFooterView
 {
+    _Bool _largeTextSizeConstraintsAreActive;
     UILabel *_titleLabel;
     UIButton *_button;
+    NSArray *_smallAndMediumTextSizeConstraints;
+    NSArray *_largeTextSizeConstraints;
     NSLayoutConstraint *_titleCompactLeadingConstraint;
     NSLayoutConstraint *_titleRegularLeadingConstraint;
     NSLayoutConstraint *_buttonCompactTrailingConstraint;
     NSLayoutConstraint *_buttonRegularTrailingConstraint;
 }
 
++ (double)headerViewHeight;
 + (id)reuseIdentifier;
+@property(nonatomic) _Bool largeTextSizeConstraintsAreActive; // @synthesize largeTextSizeConstraintsAreActive=_largeTextSizeConstraintsAreActive;
 @property(retain, nonatomic) NSLayoutConstraint *buttonRegularTrailingConstraint; // @synthesize buttonRegularTrailingConstraint=_buttonRegularTrailingConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *buttonCompactTrailingConstraint; // @synthesize buttonCompactTrailingConstraint=_buttonCompactTrailingConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *titleRegularLeadingConstraint; // @synthesize titleRegularLeadingConstraint=_titleRegularLeadingConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *titleCompactLeadingConstraint; // @synthesize titleCompactLeadingConstraint=_titleCompactLeadingConstraint;
+@property(retain, nonatomic) NSArray *largeTextSizeConstraints; // @synthesize largeTextSizeConstraints=_largeTextSizeConstraints;
+@property(retain, nonatomic) NSArray *smallAndMediumTextSizeConstraints; // @synthesize smallAndMediumTextSizeConstraints=_smallAndMediumTextSizeConstraints;
 @property(readonly, nonatomic) UIButton *button; // @synthesize button=_button;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void).cxx_destruct;
+- (void)setupSmallAndMediumTextConstraints;
+- (void)setupLargeTextConstaints;
+- (void)setupConstraintsForTextSize;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)prepareForReuse;
 - (id)initWithReuseIdentifier:(id)arg1;

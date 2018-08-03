@@ -21,8 +21,8 @@
 @property(readonly, nonatomic) unsigned long long maximumBatchSize; // @synthesize maximumBatchSize=_maximumBatchSize;
 @property(readonly, nonatomic) CLSPublicEventCache *cache; // @synthesize cache=_cache;
 - (void).cxx_destruct;
-- (id)_queryEventsForTimeLocationTuples:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
-- (id)createCacheForTimeLocationTuples:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
+- (id)_queryEventsForTimeLocationTuples:(id)arg1 invalidationTokens:(out id *)arg2 progressBlock:(CDUnknownBlockType)arg3;
+- (id)createCacheForTimeLocationTuples:(id)arg1 invalidationTokens:(out id *)arg2 progressBlock:(CDUnknownBlockType)arg3;
 - (id)initWithCache:(id)arg1 queryRadius:(double)arg2;
 
 @end

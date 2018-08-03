@@ -110,6 +110,8 @@
 - (id)visibleLayout;
 - (void)applyLayout:(id)arg1 layoutAvatarView:(_Bool)arg2;
 - (void)applyLayout:(id)arg1;
+- (void)updateLayoutAttributes;
+- (void)contentSizeCategoryDidChange:(id)arg1;
 - (void)viewDidLayoutSubviews;
 - (id)createAlphaAssetsLabel;
 - (void)didTapAvatarView:(id)arg1;

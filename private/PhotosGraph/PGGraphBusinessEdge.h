@@ -12,8 +12,8 @@
 {
 }
 
-@property(readonly, nonatomic) NSDate *visitUniversalEndDate;
-@property(readonly, nonatomic) NSDate *visitUniversalStartDate;
+@property(readonly, nonatomic) NSDate *universalEndDate;
+@property(readonly, nonatomic) NSDate *universalStartDate;
 @property(readonly, nonatomic) _Bool hasRoutineInfo;
 
 @end

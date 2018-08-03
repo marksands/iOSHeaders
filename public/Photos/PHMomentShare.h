@@ -16,6 +16,8 @@
     _Bool _shouldNotifyOnUploadCompletion;
     unsigned short _status;
     short _mode;
+    unsigned short _trashedState;
+    short _publishState;
     unsigned long long _assetCount;
     unsigned long long _photosCount;
     unsigned long long _videosCount;
@@ -56,6 +58,8 @@
 @property(readonly, nonatomic) unsigned long long videosCount; // @synthesize videosCount=_videosCount;
 @property(readonly, nonatomic) unsigned long long photosCount; // @synthesize photosCount=_photosCount;
 @property(readonly, nonatomic) unsigned long long assetCount; // @synthesize assetCount=_assetCount;
+@property(readonly, nonatomic) short publishState; // @synthesize publishState=_publishState;
+@property(readonly, nonatomic) unsigned short trashedState; // @synthesize trashedState=_trashedState;
 @property(readonly, nonatomic) short mode; // @synthesize mode=_mode;
 @property(readonly, nonatomic) unsigned short status; // @synthesize status=_status;
 - (void).cxx_destruct;

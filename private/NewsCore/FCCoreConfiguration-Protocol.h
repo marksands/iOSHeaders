@@ -64,7 +64,9 @@
 - (FCPersonalizationTreatment *)personalizationTreatmentForFeldsparID:(NSString *)arg1;
 
 @optional
+@property(readonly, nonatomic) _Bool isSpecialEventsMicaAnimationDisabled;
 @property(readonly, nonatomic) long long singleChannelFeedMinFeedItemsPerRequest;
 @property(readonly, nonatomic) long long singleTopicFeedMinFeedItemsPerRequest;
+@property(readonly, nonatomic) _Bool shouldShowAlternateHeadlines;
 @end
 

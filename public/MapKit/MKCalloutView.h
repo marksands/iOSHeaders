@@ -12,9 +12,11 @@
 
 @interface MKCalloutView : UIView <_MKMotionEffectDelegate>
 {
+    _Bool _parallaxEnabled;
     MKAnnotationView *_annotationView;
 }
 
+@property(nonatomic) _Bool parallaxEnabled; // @synthesize parallaxEnabled=_parallaxEnabled;
 @property(readonly) __weak MKAnnotationView *annotationView; // @synthesize annotationView=_annotationView;
 - (void).cxx_destruct;
 - (void)motionEffectDidUpdate:(id)arg1;

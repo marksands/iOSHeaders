@@ -19,6 +19,7 @@
     NSArray *_socialGroupPotentialSuggestions;
     NSEnumerator *_longTimeNoSeeSocialGroupPotentialSuggestionEnumerator;
     NSEnumerator *_socialGroupPotentialSuggestionEnumerator;
+    NSArray *_eligibleAssets;
 }
 
 + (id)suggestionSubtypes;
@@ -26,6 +27,8 @@
 - (void).cxx_destruct;
 - (void)usePotentialSuggestions:(id)arg1;
 - (id)assetsMatchingSocialGroup:(id)arg1 betweenStartDate:(id)arg2 andEndDate:(id)arg3;
+- (id)assetsWithPersonsBetweenStartDate:(id)arg1 andEndDate:(id)arg2;
+- (id)verifiedPersons;
 - (id)potentialSuggestionsWithOptions:(id)arg1;
 - (id)nextSocialGroupPotentialSuggestion;
 - (id)nextLongTimeNoSeeSocialGroupPotentialSuggestion;

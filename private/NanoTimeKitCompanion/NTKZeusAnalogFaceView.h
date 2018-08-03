@@ -45,6 +45,7 @@
 - (void)_unloadSnapshotContentViews;
 - (void)_loadSnapshotContentViews;
 - (void)setOverrideDate:(id)arg1 duration:(double)arg2;
+- (struct CGSize)_sceneSize;
 - (void)_prepareTimeViewForReuse:(id)arg1;
 - (void)_configureReusableTimeView:(id)arg1;
 - (void)_loadScene;

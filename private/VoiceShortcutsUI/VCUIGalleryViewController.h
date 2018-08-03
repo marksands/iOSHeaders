@@ -53,6 +53,7 @@
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)setupActionDonationCellReuseIdentifiers;
 - (void)setNeedsToComputeDonationCellHeights;
 - (double)cellHeightForDonation:(id)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

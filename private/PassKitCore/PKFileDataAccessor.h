@@ -22,6 +22,7 @@
 - (void).cxx_destruct;
 - (id)displayProfileOfType:(long long)arg1;
 - (id)remoteAssetManager;
+- (void)downloadRemoteAssetsWithScreenScale:(double)arg1 suffix:(id)arg2 cloudStoreCoordinatorDelegate:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)downloadRemoteAssetsWithScreenScale:(double)arg1 suffix:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)remoteAssetsDownloaded;
 - (id)bundle;

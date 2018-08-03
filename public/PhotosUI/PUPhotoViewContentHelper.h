@@ -161,6 +161,7 @@
 - (void)setCornersToRound:(unsigned long long)arg1;
 @property(readonly, nonatomic) _Bool providesVisualFeedbackOnPress;
 @property(readonly, nonatomic) UIView *badgeContainerView;
+@property(nonatomic, getter=isImageViewEdgeAntialiasingEnabled) _Bool imageViewEdgeAntialiasingEnabled;
 - (void)updatePhotoImageWithoutReconfiguring:(id)arg1;
 @property(readonly, nonatomic) struct CGRect imageContentFrame;
 - (struct CGRect)imageContentFrameForBounds:(struct CGRect)arg1;

@@ -12,9 +12,13 @@
 
 @interface SXQuickLookPreviewViewControllerFactory : NSObject <SXQuickLookPreviewViewControllerFactory>
 {
+    id <SXMediaSharingPolicyProvider> _mediaSharingPolicyProvider;
 }
 
+@property(readonly, nonatomic) id <SXMediaSharingPolicyProvider> mediaSharingPolicyProvider; // @synthesize mediaSharingPolicyProvider=_mediaSharingPolicyProvider;
+- (void).cxx_destruct;
 - (id)viewControllerForFile:(id)arg1 transitionContext:(id)arg2;
+- (id)initWithMediaSharingPolicyProvider:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

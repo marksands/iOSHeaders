@@ -16,12 +16,14 @@
 - (NSArray *)setupInContainerView:(UIView *)arg1;
 
 @optional
+@property(readonly, nonatomic) _Bool canFixupDisplayItemAttributes;
 - (NSSet *)displayItemIdentifiersForPartWithIdentifier:(NSString *)arg1;
 - (NSSet *)regionIdentifiersForPartWithIdentifier:(NSString *)arg1;
 - (void)actionable:(id <_UIStatusBarActionable>)arg1 highlighted:(_Bool)arg2 initialPress:(_Bool)arg3;
 - (_UIStatusBarAnimation *)removalAnimationForDisplayItemWithIdentifier:(_UIStatusBarIdentifier *)arg1 itemAnimation:(_UIStatusBarAnimation *)arg2;
 - (_UIStatusBarAnimation *)additionAnimationForDisplayItemWithIdentifier:(_UIStatusBarIdentifier *)arg1 itemAnimation:(_UIStatusBarAnimation *)arg2;
 - (_UIStatusBarStyleAttributes *)overriddenStyleAttributesForDisplayItemWithIdentifier:(_UIStatusBarIdentifier *)arg1;
+- (void)statusBarRegionsUpdated;
 - (void)dataUpdated:(_UIStatusBarData *)arg1;
 - (NSOrderedSet *)region:(_UIStatusBarRegion *)arg1 willSetDisplayItems:(NSOrderedSet *)arg2;
 - (NSArray *)willUpdateWithData:(_UIStatusBarData *)arg1;

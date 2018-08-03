@@ -20,9 +20,11 @@
     NSString *_password;
     NSString *_secondEmail;
     NSDictionary *_accountPropertyOverrides;
+    NSDictionary *_overridesByDataclass;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSDictionary *overridesByDataclass; // @synthesize overridesByDataclass=_overridesByDataclass;
 @property(copy, nonatomic) NSDictionary *accountPropertyOverrides; // @synthesize accountPropertyOverrides=_accountPropertyOverrides;
 @property(nonatomic) _Bool accountWantsFlowControl; // @synthesize accountWantsFlowControl=_accountWantsFlowControl;
 @property(nonatomic) _Bool accountWantsPushRegistration; // @synthesize accountWantsPushRegistration=_accountWantsPushRegistration;

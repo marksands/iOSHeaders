@@ -6,11 +6,7 @@
 
 #import <SilexVideo/SVMaterialButton.h>
 
-#import "SVVideoControlItem.h"
-
-@class NSString;
-
-@interface SVVideoAdSkipButton : SVMaterialButton <SVVideoControlItem>
+@interface SVVideoAdSkipButton : SVMaterialButton
 {
     unsigned long long _skipDuration;
 }
@@ -18,17 +14,7 @@
 @property(nonatomic) unsigned long long skipDuration; // @synthesize skipDuration=_skipDuration;
 - (id)titleForDuration:(unsigned long long)arg1;
 - (struct CGSize)intrinsicContentSize;
-- (_Bool)isVisible;
-- (void)hide:(_Bool)arg1 withAnimationCoordinator:(id)arg2;
-@property(readonly, nonatomic) _Bool hideable;
-@property(readonly, nonatomic) _Bool supportsAutoAppearance;
 - (id)initWithFrame:(struct CGRect)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

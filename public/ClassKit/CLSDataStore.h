@@ -41,6 +41,7 @@
 @property(retain, nonatomic) CLSContext *mainAppContext; // @synthesize mainAppContext=_mainAppContext;
 @property(nonatomic) __weak id <CLSDataStoreDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)syncFetchWithCompletion:(CDUnknownBlockType)arg1;
 - (void)pruneDeletedObjectsWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)faultProcessor:(id)arg1 shouldFaultRelation:(id)arg2 fromObject:(struct NSObject *)arg3;
 - (void)deregisterDataObserver:(id)arg1;
@@ -62,6 +63,8 @@
 - (id)runningActivities;
 @property(readonly, nonatomic) CLSActivity *runningActivity;
 @property(readonly, nonatomic) CLSContext *activeContext;
+- (id)syncUtilityServer:(CDUnknownBlockType)arg1;
+- (id)utilityServer:(CDUnknownBlockType)arg1;
 - (id)syncDataServer:(CDUnknownBlockType)arg1;
 - (id)dataServer:(CDUnknownBlockType)arg1;
 - (void)contextsMatchingIdentifierPath:(id)arg1 parentContext:(id)arg2 completion:(CDUnknownBlockType)arg3;

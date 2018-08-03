@@ -250,6 +250,7 @@
 - (void)messageEntryViewSwipeDownGestureRecognized:(id)arg1;
 - (void)updateEntryViewHeightIncludingAppStrip:(_Bool)arg1;
 - (void)updateAppStripVisibility:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)messageEntryView:(id)arg1 appStripDidShow:(_Bool)arg2 animated:(_Bool)arg3;
 - (_Bool)shouldMessageEntryViewReportBrowserButtonHitToInputDelegate:(id)arg1;
 - (_Bool)getContainerWidth:(double *)arg1 offset:(double *)arg2;
 - (struct CGSize)messageEntryViewMaxShelfPluginViewSize:(id)arg1;
@@ -270,6 +271,7 @@
 - (void)messageEntryViewDidChange:(id)arg1;
 - (void)_validateAndSendComposition:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)_shouldValidatePayloadBeforeSendingPayload:(id)arg1;
+- (void)prewarmFunCamera;
 - (void)sendCurrentLocation;
 - (void)chatInputControllerDidTransitionCollapsed:(id)arg1;
 - (void)chatInputControllerWillTransitionCollapsed:(id)arg1;

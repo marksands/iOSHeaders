@@ -14,7 +14,7 @@
 + (void)initUserManagement;
 + (void)initSpringBoardUIServices;
 + (void)initSpringBoardServices;
-+ (void)initMobileCoreServices;
++ (void)initCoreServices;
 + (void)initSetupAssistant;
 + (void)initLoggingSupport;
 + (void)initDAEAS;

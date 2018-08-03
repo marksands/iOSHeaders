@@ -29,8 +29,13 @@
 - (void).cxx_destruct;
 - (id)_pearlGlyphView;
 - (double)_alphaForActiveViewForState:(long long)arg1;
+- (struct CGAffineTransform)_outgoingTransformForView:(id)arg1 fromState:(long long)arg2;
 - (struct CGAffineTransform)_transformForActiveViewForState:(long long)arg1;
+- (struct CGAffineTransform)_incomingTransformForActiveView:(id)arg1 forState:(long long)arg2;
 - (id)_activeViewsForState:(long long)arg1;
+- (id)_defaultAnimationSettingsForTransitionFromViews:(id)arg1 andState:(long long)arg2 toViews:(id)arg3 andState:(long long)arg4;
+- (id)_alphaAnimationSettingsForTransitionFromViews:(id)arg1 andState:(long long)arg2 toViews:(id)arg3 andState:(long long)arg4 forIncomingViews:(_Bool)arg5;
+- (id)_transformAnimationSettingsForTransitionFromViews:(id)arg1 andState:(long long)arg2 toViews:(id)arg3 andState:(long long)arg4 forIncomingViews:(_Bool)arg5;
 - (void)_transitionToState:(long long)arg1 animated:(_Bool)arg2 options:(long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_forEachLayerInHierarchy:(id)arg1 perform:(CDUnknownBlockType)arg2;
 - (void)layoutSubviews;

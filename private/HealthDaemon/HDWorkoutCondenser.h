@@ -9,12 +9,13 @@
 #import "HDHealthDaemonReadyObserver.h"
 #import "HDPeriodicActivityDelegate.h"
 
-@class HDPeriodicActivity, HDProfile, NSObject<OS_dispatch_queue>, NSString, _HDWorkoutCondenserAnalyticsAccumulator;
+@class HDAssertion, HDPeriodicActivity, HDProfile, NSObject<OS_dispatch_queue>, NSString, _HDWorkoutCondenserAnalyticsAccumulator;
 
 @interface HDWorkoutCondenser : NSObject <HDHealthDaemonReadyObserver, HDPeriodicActivityDelegate>
 {
     NSObject<OS_dispatch_queue> *_queue;
     HDPeriodicActivity *_periodicActivity;
+    HDAssertion *_preparedDatabaseAccessibilityAssertion;
     long long _minimumSeriesSize;
     long long _maximumSeriesSize;
     HDProfile *_profile;
@@ -44,7 +45,6 @@
 @property(readonly, nonatomic) _HDWorkoutCondenserAnalyticsAccumulator *analyticsAccumulator; // @synthesize analyticsAccumulator=_analyticsAccumulator;
 @property(readonly, nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
-- (_Bool)periodicActivityRequiresProtectedData:(id)arg1;
 - (void)performPeriodicActivity:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)periodicActivity:(id)arg1 configureXPCActivityCriteria:(id)arg2;
 - (void)daemonReady:(id)arg1;
@@ -59,6 +59,7 @@
 - (id)condensedWorkoutsWithError:(id *)arg1;
 - (_Bool)condenseWorkout:(id)arg1 error:(id *)arg2;
 - (void)condenseWorkoutsForReason:(long long)arg1 workoutBatchLimit:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)dealloc;
 - (id)initWithProfile:(id)arg1;
 
 // Remaining properties

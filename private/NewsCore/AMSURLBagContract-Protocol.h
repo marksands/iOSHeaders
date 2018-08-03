@@ -14,6 +14,10 @@
 @property(readonly, nonatomic) AMSBagValue *metricsURL;
 @property(readonly, nonatomic) id <AMSMetricsBagContract> metricsContract;
 @property(readonly, nonatomic) AMSBagValue *trustedDomains;
+@property(readonly, nonatomic) AMSBagValue *TFOSamplingSessionDuration;
+@property(readonly, nonatomic) AMSBagValue *TFOSamplingPercentage;
+@property(readonly, nonatomic) AMSBagValue *TLSSamplingSessionDuration;
+@property(readonly, nonatomic) AMSBagValue *TLSSamplingPercentage;
 @property(readonly, nonatomic) AMSBagValue *storefrontSuffix;
 @property(readonly, nonatomic) id <AMSMescalBagContract> mescalContract;
 @property(readonly, nonatomic) AMSBagValue *guidSchemes;

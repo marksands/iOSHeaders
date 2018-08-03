@@ -21,6 +21,7 @@
 - (void)addKey:(id)arg1 withValue:(id)arg2;
 - (unsigned long long)valueCount;
 @property(readonly, nonatomic) unsigned long long count;
+- (id)initWithCapacity:(unsigned long long)arg1;
 - (id)init;
 
 @end

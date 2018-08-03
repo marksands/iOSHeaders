@@ -19,7 +19,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, copy, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 @property(nonatomic) __weak id <CPListTemplateDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
@@ -27,7 +27,7 @@
 - (void)updateSections:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithSections:(id)arg1;
+- (id)initWithTitle:(id)arg1 sections:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

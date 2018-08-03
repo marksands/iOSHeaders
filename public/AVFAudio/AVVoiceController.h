@@ -15,6 +15,7 @@
 }
 
 @property(readonly) unsigned long long alertStartTime; // @synthesize alertStartTime=_alertStartTime;
+- (id)currentRecordDeviceInfo;
 - (void)removePluginNotifications;
 - (void)setupPluginNotifications;
 @property(readonly) NSDictionary *metrics;

@@ -12,6 +12,7 @@
 @protocol PSIQueryDelegate <PSIGroupResultDelegate, PSITopAssetsResultDelegate>
 @property(readonly) NSObject<OS_dispatch_queue> *groupResultsQueue;
 @property(readonly) PSITokenizer *tokenizer;
+- (NSArray *)suggestionWhitelistedScenes;
 - (NSString *)meNodeIdentifier;
 - (NSArray *)groupArraysFromGroupIdSets:(NSArray *)arg1 dateFilter:(PSIDateFilter *)arg2 progressBlock:(void (^)(double, _Bool *))arg3;
 - (NSArray *)wordEmbeddingMatchesForToken:(NSString *)arg1;

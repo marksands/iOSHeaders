@@ -6,16 +6,19 @@
 
 #import "NSObject.h"
 
-@class PGGraph;
+@class PGGraph, PGSearchComputationCache;
 
 @interface PGZeroKeywordComputer : NSObject
 {
     PGGraph *_graph;
+    PGSearchComputationCache *_searchComputationCache;
 }
 
 + (id)zeroKeywordLog;
+@property(readonly, nonatomic) PGSearchComputationCache *searchComputationCache; // @synthesize searchComputationCache=_searchComputationCache;
 @property(readonly) PGGraph *graph; // @synthesize graph=_graph;
 - (void).cxx_destruct;
+- (id)densestCloseLocationNodeForNode:(id)arg1 locationMask:(unsigned long long)arg2;
 - (id)meaningNodeZeroKeywordForDisplayMeaningNode:(id)arg1 collectionUUIDsToAvoid:(id)arg2;
 - (id)_tripZeroKeywordWithScore:(out double *)arg1;
 - (id)tripRankedKeyword;
@@ -28,7 +31,7 @@
 - (id)peopleZeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)_zeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)zeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
-- (id)initWithGraph:(id)arg1;
+- (id)initWithGraph:(id)arg1 searchComputationCache:(id)arg2;
 - (id)_zeroKeywordDisplayMeaningNodeForMeaningNode:(id)arg1;
 - (id)contextualDateZeroKeywordsWithOptions:(id)arg1;
 - (id)contextualMeaningZeroKeywordsWithOptions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;

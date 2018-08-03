@@ -11,13 +11,13 @@
 @class CLLocation, NSString;
 
 @interface RTLocationOfInterest (RCLocationOfInterest) <RCLocationOfInterest>
+@property(readonly, nonatomic) id <GEOMapItem> geoMapItem;
 @property(readonly, nonatomic) CLLocation *location;
 
 // Remaining properties
 @property(readonly, nonatomic) double confidence;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) id <GEOMapItem> geoMapItem;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSString *preferredName;
 @property(readonly) Class superclass;

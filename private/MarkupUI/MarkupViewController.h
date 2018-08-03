@@ -200,6 +200,7 @@
 - (void)setFileURL:(id)arg1 withArchivedModelData:(id)arg2;
 - (void)setFileURL:(id)arg1 withArchivedModelData:(id)arg2 placeholderImage:(id)arg3;
 - (void)setToolbarHidden:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)_setLegacyToolbarHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)_useLegacyToolbar;
 - (long long)preferredStatusBarStyle;
 - (void)traitCollectionDidChange:(id)arg1;

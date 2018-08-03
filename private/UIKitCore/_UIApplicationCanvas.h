@@ -29,7 +29,6 @@
 @property(nonatomic, getter=_suspendedEventsOnly, setter=_setSuspendedEventsOnly:) _Bool suspendedEventsOnly; // @synthesize suspendedEventsOnly=_suspendedEventsOnly;
 - (void).cxx_destruct;
 @property(readonly, nonatomic, getter=_hasLifecycle) _Bool hasLifecycle;
-- (void)_setOverscanCompensation:(long long)arg1;
 - (id)initWithScene:(id)arg1;
 - (void)_willAttach;
 - (void)_willResignActive;

@@ -16,7 +16,7 @@
 #import "VCSessionParticipantDelegate.h"
 #import "VCSessionParticipantStreamDelegate.h"
 
-@class AVCRateController, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, VCControlChannelMultiWay, VCNetworkFeedbackController, VCRateControlMediaController, VCSecurityKeyManager, VCSessionConfiguration, VCSessionDownlinkBandwidthAllocator, VCSessionMessaging, VCSessionParticipant, VCSessionParticipantLocal, VCSessionStatsController, VCTransportSession;
+@class AVCRateController, NSArray, NSError, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, VCControlChannelMultiWay, VCNetworkFeedbackController, VCRateControlMediaController, VCSecurityKeyManager, VCSessionConfiguration, VCSessionDownlinkBandwidthAllocator, VCSessionMessaging, VCSessionParticipant, VCSessionParticipantLocal, VCSessionStatsController, VCTransportSession;
 
 __attribute__((visibility("hidden")))
 @interface VCSession : NSObject <VCSessionParticipantStreamDelegate, AVCRateControllerDelegate, VCRateControlMediaControllerDelegate, VCMediaStreamNotification, RTCPReportProvider, VCSecurityEventHandler, VCSessionParticipantDelegate, VCNetworkFeedbackControllerDelegate, VCConnectionChangedHandler>
@@ -58,6 +58,7 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_optInDictionary;
     struct tagVCMediaQueue *_mediaQueue;
     _Bool _forceDisableMediaPriority;
+    NSError *_stopError;
 }
 
 @property(retain, nonatomic) VCSessionMessaging *sessionMessaging; // @synthesize sessionMessaging=_sessionMessaging;
@@ -80,7 +81,8 @@ __attribute__((visibility("hidden")))
 - (void)stopAllParticipants;
 - (void)dispatchedUpdateConfiguration:(id)arg1;
 - (void)tearDown;
-- (void)dispatchedStop;
+- (void)didStopWithError:(id)arg1;
+- (void)dispatchedStopWithError:(id)arg1;
 - (void)dispatchedStart;
 - (void)dispatchedRemoveParticipant:(id)arg1;
 - (void)dispatchedAddParticipantConfigurations:(id)arg1 processID:(int)arg2;
@@ -132,6 +134,7 @@ __attribute__((visibility("hidden")))
 - (void)setSessionInfoSynchronizerPeerSubscribedStreamsCallback;
 - (void)setSessionInfoSynchronizerErrorResponseCallback;
 - (void)setSessionInfoSynchronizerCallbacks;
+- (void)reportingSessionStopEventWithError:(id)arg1;
 - (void)reportingSessionDownlinkOptInEvent:(id)arg1 selectedMediaEntriesForParticipants:(id)arg2;
 - (void)distributeBitrateAndOptInToStreamIDsWithSeamlessTransition:(_Bool)arg1;
 - (void)updateParticipantConfigurations:(id)arg1;

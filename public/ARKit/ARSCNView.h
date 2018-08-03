@@ -40,6 +40,7 @@
     ARSCNCompositor *_compositor;
     NSMutableArray *_environmentProbeNodes;
     _Bool _renderThreadFixed;
+    struct os_unfair_lock_s _occlusionLock;
     _Bool _automaticallyUpdatesLighting;
     _Bool _providesOcclusionGeometry;
     _Bool _shouldRestrictFrameRate;
@@ -70,6 +71,7 @@
 - (void)_updatePreferredFramesPerSecond;
 - (void)_updateFramesPerSecondWithTarget:(long long)arg1 shouldRestrictFrameRate:(_Bool)arg2;
 @property(nonatomic) long long actualPreferredFramesPerSecond;
+- (void)_updateOcclusionCompositor;
 - (void)_updateDebugVisualization:(id)arg1;
 - (void)_addOcclusionGeometryForAnchor:(id)arg1;
 - (void)_removeAnchors:(id)arg1;
@@ -83,6 +85,7 @@
 - (void)_renderCapturedPixelBuffer:(struct __CVBuffer *)arg1;
 - (id)_hitTest:(struct CGPoint)arg1 frame:(id)arg2 types:(unsigned long long)arg3;
 - (id)_anchorForNode:(id)arg1 inFrame:(id)arg2;
+- (void)session:(id)arg1 willRunWithConfiguration:(id)arg2;
 - (void)session:(id)arg1 didOutputAudioSampleBuffer:(struct opaqueCMSampleBuffer *)arg2;
 - (void)sessionShouldAttemptRelocalization:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)sessionInterruptionEnded:(id)arg1;
@@ -111,6 +114,7 @@
 - (void)layoutSubviews;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_commonInit;
+- (id)compositor;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 options:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;

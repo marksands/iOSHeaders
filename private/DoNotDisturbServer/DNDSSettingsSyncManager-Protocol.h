@@ -7,6 +7,9 @@
 #import "NSObject.h"
 
 @protocol DNDSSettingsSyncManager <NSObject>
+@property(nonatomic) __weak id <DNDSSettingsSyncManagerDelegate> delegate;
+@property(nonatomic) __weak id <DNDSSettingsSyncManagerDataSource> dataSource;
+- (void)update;
 - (void)resume;
 @end
 

@@ -14,21 +14,26 @@
 
 + (id)fetchRequestForUsersWithDSID:(id)arg1;
 + (id)fetchRequestMatchingLocalUser;
++ (id)fetchUserWithDSID:(id)arg1 inContext:(id)arg2 error:(id *)arg3;
 + (id)fetchLocalUserInContext:(id)arg1 error:(id *)arg2;
-- (id)fetchOrCreateLocalSettingsInContext:(id)arg1 error:(id *)arg2;
-@property(nonatomic) _Bool screenTimeEnabled;
 - (void)updateWithDescription:(id)arg1;
+- (id)unmodeled_managingOrganization;
+- (id)umodeled_managingOrganizationSettings;
+- (id)unmodeled_effectivePasscode;
+- (void)unmodeled_setScreenTimeEnabled:(_Bool)arg1;
+- (_Bool)unmodeled_screenTimeEnabled;
 
 // Remaining properties
 @property(copy, nonatomic) NSString *appleID; // @dynamic appleID;
+@property(retain, nonatomic) NSSet *blueprints; // @dynamic blueprints;
 @property(retain, nonatomic) RMiCloudOrganizationSettings *cloudSettings; // @dynamic cloudSettings;
 @property(copy, nonatomic) NSNumber *dsid; // @dynamic dsid;
-@property(readonly, copy, nonatomic) NSString *familyMemberType; // @dynamic familyMemberType;
+@property(copy, nonatomic) NSString *familyMemberType; // @dynamic familyMemberType;
 @property(copy, nonatomic) NSString *familyName; // @dynamic familyName;
 @property(retain, nonatomic) RMFamilyOrganizationSettings *familySettings; // @dynamic familySettings;
 @property(copy, nonatomic) NSString *givenName; // @dynamic givenName;
-@property(readonly, nonatomic) _Bool isOrganizer; // @dynamic isOrganizer;
-@property(readonly, nonatomic) _Bool isParent; // @dynamic isParent;
+@property(nonatomic) _Bool isFamilyOrganizer; // @dynamic isFamilyOrganizer;
+@property(nonatomic) _Bool isParent; // @dynamic isParent;
 @property(retain, nonatomic) RMLocalOrganizationSettings *localSettings; // @dynamic localSettings;
 @property(retain, nonatomic) RMUserDeviceState *localUserDeviceState; // @dynamic localUserDeviceState;
 @property(readonly, copy, nonatomic) NSString *phoneticFamilyName; // @dynamic phoneticFamilyName;

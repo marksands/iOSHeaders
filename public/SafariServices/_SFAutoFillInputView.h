@@ -25,8 +25,9 @@
 - (void)_showMorePasswords:(id)arg1;
 - (void)_fillCredential:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
+- (void)_updateFillCredentialButtonLabelMetrics;
 - (void)updateConstraints;
-- (id)initWithHostString:(id)arg1 suggestion:(id)arg2;
+- (id)initWithHostString:(id)arg1 credentialSource:(id)arg2 suggestion:(id)arg3;
 
 @end
 

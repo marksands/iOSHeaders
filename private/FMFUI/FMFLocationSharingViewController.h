@@ -8,24 +8,29 @@
 
 #import "FMFSessionDelegateInternal.h"
 
-@class FMFHandle, NSArray, NSMutableDictionary, NSString, UIAlertController;
+@class FMFHandle, NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, UIAlertController;
 
 @interface FMFLocationSharingViewController : PSListController <FMFSessionDelegateInternal>
 {
     _Bool _isMyLocationEnabled;
     _Bool _useFamilyCirclePhotos;
     _Bool _useFamilyCirclePhotosLoaded;
-    NSArray *_allFollowersHandles;
-    NSArray *_followersHandles;
+    _Bool _areSpecifiersLoaded;
     NSArray *_followersSpecifiers;
     NSArray *_familySpecifiers;
+    NSArray *_deviceSpecifiers;
+    NSArray *_allFollowersHandles;
+    NSArray *_followersHandles;
     NSMutableDictionary *_dsidToFamilyPhoto;
     NSArray *_hashedFamilyDsids;
     FMFHandle *_lastSelectedHandle;
     NSArray *_familyMembers;
     UIAlertController *_genericErrorAlert;
+    NSObject<OS_dispatch_queue> *_specifiersQueue;
 }
 
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *specifiersQueue; // @synthesize specifiersQueue=_specifiersQueue;
+@property(nonatomic) _Bool areSpecifiersLoaded; // @synthesize areSpecifiersLoaded=_areSpecifiersLoaded;
 @property(nonatomic) _Bool useFamilyCirclePhotosLoaded; // @synthesize useFamilyCirclePhotosLoaded=_useFamilyCirclePhotosLoaded;
 @property(nonatomic) _Bool useFamilyCirclePhotos; // @synthesize useFamilyCirclePhotos=_useFamilyCirclePhotos;
 @property(retain, nonatomic) UIAlertController *genericErrorAlert; // @synthesize genericErrorAlert=_genericErrorAlert;
@@ -34,10 +39,11 @@
 @property(retain, nonatomic) FMFHandle *lastSelectedHandle; // @synthesize lastSelectedHandle=_lastSelectedHandle;
 @property(retain, nonatomic) NSArray *hashedFamilyDsids; // @synthesize hashedFamilyDsids=_hashedFamilyDsids;
 @property(retain, nonatomic) NSMutableDictionary *dsidToFamilyPhoto; // @synthesize dsidToFamilyPhoto=_dsidToFamilyPhoto;
-@property(retain, nonatomic) NSArray *familySpecifiers; // @synthesize familySpecifiers=_familySpecifiers;
-@property(retain, nonatomic) NSArray *followersSpecifiers; // @synthesize followersSpecifiers=_followersSpecifiers;
 @property(retain, nonatomic) NSArray *followersHandles; // @synthesize followersHandles=_followersHandles;
 @property(retain, nonatomic) NSArray *allFollowersHandles; // @synthesize allFollowersHandles=_allFollowersHandles;
+@property(retain, nonatomic) NSArray *deviceSpecifiers; // @synthesize deviceSpecifiers=_deviceSpecifiers;
+@property(retain, nonatomic) NSArray *familySpecifiers; // @synthesize familySpecifiers=_familySpecifiers;
+@property(retain, nonatomic) NSArray *followersSpecifiers; // @synthesize followersSpecifiers=_followersSpecifiers;
 - (void).cxx_destruct;
 - (void)networkReachabilityUpdated:(_Bool)arg1;
 - (void)didReceiveServerError:(id)arg1;
@@ -73,6 +79,8 @@
 - (id)_specifierForHandle:(id)arg1;
 - (_Bool)noMeDeviceSelected:(id)arg1;
 - (id)sortedFollowersWithCombinedRecords:(id)arg1;
+- (id)_defaultSpecifiers;
+- (void)_loadSpecifiers;
 - (void)_loadFamilyMemberPhotos;
 - (void)_loadFamilyMembers:(_Bool)arg1;
 - (id)specifiers;
@@ -83,6 +91,7 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

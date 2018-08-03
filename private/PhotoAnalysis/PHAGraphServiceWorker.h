@@ -170,6 +170,7 @@
 - (_Bool)_graphShouldBeConnected;
 - (void)didFinishLastPendingRequest;
 - (void)photoAnalysisGraphManager:(id)arg1 willShutdownGraph:(id)arg2;
+- (_Bool)canRunWhenGraphIsLoaded;
 - (void)shutdown;
 - (void)cooldown;
 - (void)callAndClearPendingReadyCallbacksWithResult:(_Bool)arg1 error:(id)arg2;
@@ -185,7 +186,7 @@
 - (_Bool)hasAdditionalJobForGraphRebuildInScenario:(unsigned long long)arg1;
 - (_Bool)hasAdditionalJobForBackgroundMemoryGenerationInScenario:(unsigned long long)arg1;
 - (_Bool)hasAdditionalJobsForScenario:(unsigned long long)arg1 requestReason:(unsigned long long)arg2;
-- (_Bool)_graphShouldProcessLibraryChangesForScenario:(unsigned long long)arg1;
+- (_Bool)_graphShouldProcessLibraryChangesForScenario:(unsigned long long)arg1 requestReason:(unsigned long long)arg2;
 - (void)setupPredicateValidator;
 - (id)initWithPhotoAnalysisManager:(id)arg1 dataLoader:(id)arg2;
 

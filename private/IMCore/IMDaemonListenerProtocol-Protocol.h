@@ -88,6 +88,7 @@
 - (void)leftChat:(NSString *)arg1;
 - (void)chat:(NSString *)arg1 engramIDUpdated:(NSString *)arg2;
 - (void)chat:(NSString *)arg1 isFilteredUpdated:(_Bool)arg2;
+- (void)chat:(NSString *)arg1 lastAddressedSIMIDUpdated:(NSString *)arg2;
 - (void)chat:(NSString *)arg1 lastAddressedHandleUpdated:(NSString *)arg2;
 - (void)chat:(NSString *)arg1 displayNameUpdated:(NSString *)arg2;
 - (void)chat:(NSString *)arg1 propertiesUpdated:(NSDictionary *)arg2;

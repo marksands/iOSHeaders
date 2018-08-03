@@ -9,7 +9,7 @@
 #import "MFIMAPConnectionDelegate.h"
 #import "MFIMAPSequenceIdentifierProvider.h"
 
-@class MFCancelationToken, MFIMAPCommandPipeline, MFIMAPConnection, MFIMAPDownloadCache, NSArray, NSLock, NSString;
+@class MFCancelationToken, MFIMAPConnection, NSArray, NSLock, NSString;
 
 @interface MFLibraryIMAPStore : MFLibraryStore <MFIMAPConnectionDelegate, MFIMAPSequenceIdentifierProvider>
 {
@@ -28,8 +28,6 @@
     unsigned int _settingServerCount:1;
     unsigned int _reserved:16;
     NSString *_mailboxName;
-    MFIMAPDownloadCache *_downloadCache;
-    MFIMAPCommandPipeline *_fetchPipeline;
     unsigned long long _serverDeletedCount;
     unsigned long long _serverUidNext;
     unsigned long long _lastHighestModSequence;
@@ -67,8 +65,8 @@
 - (_Bool)canPerformOfflineAppend;
 - (id)offlineCacheIfOffline;
 - (id)offlineCache;
-- (id)downloadCache;
-- (id)fetchPipeline;
+- (id)downloadCacheForConnection:(id)arg1;
+- (id)fetchPipelineForConnection:(id)arg1;
 - (void)_setFlagsForMessages:(id)arg1;
 - (void)_handleFlagsChangedForMessages:(id)arg1 flags:(id)arg2 oldFlagsByMessage:(id)arg3;
 - (id)deletedMessages;
@@ -94,8 +92,9 @@
 - (id)_fetchBodyDataForMessage:(id)arg1 andHeaderDataIfReadilyAvailable:(id *)arg2 downloadIfNecessary:(_Bool)arg3 partial:(_Bool *)arg4;
 - (_Bool)bodyFetchRequiresNetworkActivity;
 - (_Bool)shouldRetryEmptyBodyDownloadForMessage:(id)arg1;
-- (id)_performBodyDataDownload:(id)arg1 usingConnection:(id)arg2 isPartial:(_Bool *)arg3;
-- (id)_downloadForMessageBodyData:(id)arg1;
+- (id)_performBodyDataDownload:(id)arg1 usingConnection:(id)arg2 downloadCache:(id)arg3 isPartial:(_Bool *)arg4;
+- (id)_downloadForMessageBodyData:(id)arg1 usingDownloadCache:(id)arg2;
+- (_Bool)_waitForDataFromDownload:(id)arg1 uid:(unsigned int)arg2 downloadCache:(id)arg3 connection:(id)arg4;
 - (id)_fetchFullBodyDataForMessage:(id)arg1 andHeaderDataIfReadilyAvailable:(id *)arg2 downloadIfNecessary:(_Bool)arg3 didDownload:(_Bool *)arg4;
 - (_Bool)_fetchDataForMimePart:(id)arg1 range:(struct _NSRange)arg2 isComplete:(_Bool *)arg3 consumer:(id)arg4;
 - (id)_dataForMessage:(id)arg1 readHeadersOnly:(_Bool)arg2;

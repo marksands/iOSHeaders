@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 - (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
 @property(readonly, nonatomic) _Bool authenticationRequiredToAutoFill;
+- (_Bool)_isUserEnrolledInBiometricAuthentication;
 - (void)dealloc;
 - (id)init;
 

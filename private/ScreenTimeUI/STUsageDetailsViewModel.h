@@ -26,6 +26,7 @@
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSDictionary *rawUsageItemsByStartDateByIdentifier; // @synthesize rawUsageItemsByStartDateByIdentifier=_rawUsageItemsByStartDateByIdentifier;
 @property(readonly, nonatomic) STUsageReport *selectedUsageReport;
+@property(readonly, nonatomic) _Bool hasUsageData;
 - (id)init;
 
 @end

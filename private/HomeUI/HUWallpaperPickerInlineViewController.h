@@ -10,12 +10,13 @@
 #import "UICollectionViewDelegateFlowLayout.h"
 #import "UIDropInteractionDelegate.h"
 
-@class HFWallpaper, HUWallpaperPhotoCell, NSArray, NSIndexPath, NSMutableDictionary, NSString, UICollectionViewFlowLayout, UIDropInteraction;
+@class HFWallpaper, HUWallpaperPhotoCell, NSArray, NSIndexPath, NSMutableDictionary, NSString, UICollectionViewFlowLayout, UIDropInteraction, UIImage;
 
 @interface HUWallpaperPickerInlineViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout, HUWallpaperPhotoCellDelegate, UIDropInteractionDelegate>
 {
     NSArray *_namedWallpapers;
     double _preferedHeight;
+    UIImage *_originalCustomImage;
     id <HUWallpaperPickerInlineViewControllerDelegate> _delegate;
     NSMutableDictionary *_imageCache;
     HUWallpaperPhotoCell *_customWallpaperCell;
@@ -34,6 +35,7 @@
 @property(retain, nonatomic) HUWallpaperPhotoCell *customWallpaperCell; // @synthesize customWallpaperCell=_customWallpaperCell;
 @property(retain, nonatomic) NSMutableDictionary *imageCache; // @synthesize imageCache=_imageCache;
 @property(nonatomic) __weak id <HUWallpaperPickerInlineViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) UIImage *originalCustomImage; // @synthesize originalCustomImage=_originalCustomImage;
 @property(readonly, nonatomic) double preferedHeight; // @synthesize preferedHeight=_preferedHeight;
 @property(retain, nonatomic) NSArray *namedWallpapers; // @synthesize namedWallpapers=_namedWallpapers;
 @property(nonatomic) struct CGSize imageSize; // @synthesize imageSize=_imageSize;

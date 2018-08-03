@@ -25,7 +25,7 @@
 - (void)addOrUpdateSuggestionEntriesData:(id)arg1 sourceNameData:(id)arg2 deleteMissing:(_Bool)arg3 handler:(CDUnknownBlockType)arg4;
 - (_Bool)removeEntry:(id)arg1 behavior:(long long)arg2 handler:(CDUnknownBlockType)arg3;
 - (_Bool)canProduceEntriesOfType:(long long)arg1;
-- (_Bool)updateSuggestionEntriesOfType:(long long)arg1;
+- (double)updateSuggestionEntriesOfType:(long long)arg1;
 - (double)updateSuggestionEntries;
 - (void)stop;
 - (void)start;

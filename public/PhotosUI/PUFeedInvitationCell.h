@@ -8,18 +8,28 @@
 
 #import "PXSharedAlbumInvitationViewDelegate.h"
 
-@class NSString, PXFeedInvitationSectionInfo, PXSharedAlbumHeaderView, PXSharedAlbumInvitationView;
+@class NSString, PXFeedInvitationSectionInfo, PXSharedAlbumHeaderView, PXSharedAlbumInvitationView, UILabel, UIView;
 
 __attribute__((visibility("hidden")))
 @interface PUFeedInvitationCell : PUFeedCell <PXSharedAlbumInvitationViewDelegate>
 {
+    _Bool _useInPopover;
+    _Bool _showHeader;
+    _Bool _showFooter;
     PXFeedInvitationSectionInfo *_invitationSectionInfo;
+    UIView *_separatorView;
     PXSharedAlbumHeaderView *_headerView;
     PXSharedAlbumInvitationView *_invitationView;
+    UILabel *_dateLabel;
 }
 
+@property(retain, nonatomic) UILabel *dateLabel; // @synthesize dateLabel=_dateLabel;
 @property(retain, nonatomic) PXSharedAlbumInvitationView *invitationView; // @synthesize invitationView=_invitationView;
 @property(retain, nonatomic) PXSharedAlbumHeaderView *headerView; // @synthesize headerView=_headerView;
+@property(retain, nonatomic) UIView *separatorView; // @synthesize separatorView=_separatorView;
+@property(nonatomic) _Bool showFooter; // @synthesize showFooter=_showFooter;
+@property(nonatomic) _Bool showHeader; // @synthesize showHeader=_showHeader;
+@property(nonatomic) _Bool useInPopover; // @synthesize useInPopover=_useInPopover;
 @property(retain, nonatomic) PXFeedInvitationSectionInfo *invitationSectionInfo; // @synthesize invitationSectionInfo=_invitationSectionInfo;
 - (void).cxx_destruct;
 - (void)sharedAlbumInvitationView:(id)arg1 presentViewController:(id)arg2;
@@ -27,8 +37,13 @@ __attribute__((visibility("hidden")))
 - (void)sharedAlbumInvitationView:(id)arg1 didAccept:(_Bool)arg2;
 - (id)_delegate;
 - (struct CGSize)_performLayoutInRect:(struct CGRect)arg1 updateSubviewFrames:(_Bool)arg2;
+- (void)_updateFooter;
+- (void)_updateDate;
 - (void)_updateInvitationView;
-@property(nonatomic) _Bool usePopoverColors;
+- (void)_updateHeaderView;
+- (void)_updateColors;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
+- (void)prepareForReuse;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

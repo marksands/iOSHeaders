@@ -134,7 +134,7 @@ __attribute__((visibility("hidden")))
 - (void)checkPaused;
 - (void)checkCongestionStatus;
 - (void)doRateControlWithBasebandStatistics:(CDStruct_48a7b5a5)arg1;
-- (void)doRateControlWithStatistics:(CDStruct_48a7b5a5)arg1;
+- (_Bool)doRateControlWithStatistics:(CDStruct_48a7b5a5)arg1;
 - (void)enableBasebandDump:(void *)arg1;
 - (void)enableLogDump:(void *)arg1 enablePeriodicLogging:(_Bool)arg2;
 - (void)configure:(struct VCRateControlAlgorithmConfig)arg1 restartRequired:(_Bool)arg2;

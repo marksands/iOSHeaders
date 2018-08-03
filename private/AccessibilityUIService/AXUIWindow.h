@@ -13,6 +13,7 @@
 
 + (_Bool)_isSecure;
 @property(nonatomic) _Bool isHandlingFullScreenPresentation; // @synthesize isHandlingFullScreenPresentation=_isHandlingFullScreenPresentation;
+- (long long)_interfaceOrientationForSceneSafeAreaInsetsIncludingStatusBar:(_Bool)arg1;
 - (id)description;
 - (id)accessibilityLabel;
 - (id)_accessibilityElementCommunityIdentifier;

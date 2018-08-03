@@ -68,8 +68,9 @@
     CDStruct_973bafd3 _foregroundActiveState;
     unsigned int _deactivationReasons;
     _Bool _isVisible;
-    _Bool _valueAddedServiceInfoViewHidden;
     _Bool _waitingForPasses;
+    _Bool _VASInfoViewHidden;
+    _Bool _VASInfoViewSuppressedTransactionUpdate;
     double _lastFieldExitTime;
     _Bool _pendingAutomaticAuthorization;
     _Bool _pendingPerformAuthorization;
@@ -90,8 +91,8 @@
 - (_Bool)_hasValueAddedServicePasses;
 - (void)_setValueAddedServicePasses:(id)arg1;
 - (double)_valueAddedServiceInfoViewTopMargin;
-- (void)_setValueAddedServiceInfoViewHidden:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_setValueAddedServiceInfoViewHidden:(_Bool)arg1;
+- (void)_updateVASInfoViewSuppressedTransactionIfNecessary;
+- (void)_setVASInfoViewHidden:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_showTerminalIsRequestingPaymentError;
 - (void)_showTerminalIsNotRequestingPaymentError;
 - (_Bool)_shouldShowTerminalIsNotRequestingPaymentError;
@@ -102,8 +103,9 @@
 - (_Bool)_passContainsPaymentApplication:(id)arg1;
 - (_Bool)_authenticationAllowed;
 - (_Bool)_isDemoMode;
-- (_Bool)_isSummaryViewVisible;
 - (_Bool)_isTransactionViewVisible;
+- (_Bool)_isVASInfoViewVisible;
+- (_Bool)_isSummaryViewVisible;
 - (_Bool)_showTransactionViewDuringPayment;
 - (_Bool)_shouldDisplayTransactionView;
 - (_Bool)_showPeerPaymentAccountResolutionView;
@@ -126,7 +128,7 @@
 - (void)_executeTransitionCompletionHandlers:(_Bool)arg1;
 - (void)_addTransitionCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_endTransition:(_Bool)arg1;
-- (void)_transitionViewsAnimated:(_Bool)arg1;
+- (void)_transitionViewsFromPayState:(long long)arg1 animated:(_Bool)arg2;
 - (void)_commitPendingPayStateAnimated:(_Bool)arg1;
 - (void)_transitionToState:(long long)arg1 withTextOverride:(id)arg2 animated:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_dismissPile;

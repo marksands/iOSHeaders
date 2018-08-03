@@ -6,14 +6,13 @@
 
 #import "PBCodable.h"
 
-#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 #import "_INPBIntentSlotValue.h"
 
-@class INCodableAttribute, NSArray, NSString;
+@class NSArray, NSString;
 
-@interface _INPBIntentSlotValue : PBCodable <_INPBIntentSlotValue, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
+@interface _INPBIntentSlotValue : PBCodable <_INPBIntentSlotValue, NSSecureCoding, NSCopying>
 {
     CDStruct_95bda58d _payloadAccountTypes;
     CDStruct_95bda58d _payloadBalanceTypes;
@@ -117,7 +116,6 @@
     NSArray *_payloadTemporalEventTriggers;
     NSArray *_payloadTimers;
     NSArray *_payloadVoiceCommandDeviceInformations;
-    INCodableAttribute *_associatedCodableAttribute;
 }
 
 + (Class)payloadVoiceCommandDeviceInformationType;
@@ -173,7 +171,6 @@
 + (Class)payloadBillDetailsValueType;
 + (Class)payloadActivityListType;
 + (Class)payloadActivityType;
-@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(copy, nonatomic) NSArray *payloadVoiceCommandDeviceInformations; // @synthesize payloadVoiceCommandDeviceInformations=_payloadVoiceCommandDeviceInformations;
 @property(copy, nonatomic) NSArray *payloadTimers; // @synthesize payloadTimers=_payloadTimers;

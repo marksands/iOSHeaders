@@ -9,11 +9,12 @@
 #import "PXDiagnosticsEnvironment.h"
 #import "PXGadget.h"
 
-@class NSString, PXCMMSuggestionView, PXGadgetSpec, PXPersonFaceTileImageCombiner, UIColor;
+@class NSString, PXCMMSuggestionView, PXGadgetSpec, PXPersonFaceTileImageCombiner, UIColor, UILongPressGestureRecognizer;
 
 @interface PXCMMSuggestionGadget : NSObject <PXDiagnosticsEnvironment, PXGadget>
 {
     PXCMMSuggestionView *_suggestionView;
+    UILongPressGestureRecognizer *_longPressGestureRecognizer;
     PXPersonFaceTileImageCombiner *_faceTileImageCombiner;
     PXGadgetSpec *_gadgetSpec;
     id <PXGadgetDelegate> _delegate;
@@ -27,8 +28,13 @@
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
 - (id)px_diagnosticsItemProvidersForPoint:(struct CGPoint)arg1 inCoordinateSpace:(id)arg2;
+- (void)_longPressGesture:(id)arg1;
+- (void)_updateLongPressGestureRecognizer;
+- (void)commitPreviewViewController:(id)arg1;
+- (struct NSObject *)previewViewControllerAtLocation:(struct CGPoint)arg1 fromSourceView:(struct NSObject *)arg2 outSourceRect:(out struct CGRect *)arg3;
+- (void)_contentSizeCategoryDidChange:(id)arg1;
 - (void)_tapGesture:(id)arg1;
-- (void)_performPublishForSuggestion:(id)arg1 pptConfigurationBlock:(CDUnknownBlockType)arg2;
+- (void)_presentSuggestion:(id)arg1 animated:(_Bool)arg2 pptConfigurationBlock:(CDUnknownBlockType)arg3;
 - (void)_setCombinedFaceTileImage:(id)arg1;
 - (void)_updatePeopleSuggestionFaceTileImagesForPersons:(id)arg1;
 - (void)_loadSuggestion:(id)arg1;
@@ -42,6 +48,7 @@
 @property(readonly, nonatomic) unsigned long long gadgetType;
 - (void)ppt_presentComposeRecipientViewAfterDelay:(double)arg1;
 - (void)ppt_presentDetailView;
+- (void)presentDetailViewAnimated:(_Bool)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *accessoryButtonTitle;

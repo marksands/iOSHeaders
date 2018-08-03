@@ -48,8 +48,6 @@
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSArray *higherResolutionUsageItems;
-@property(readonly, nonatomic) NSString *maxUsageDescription;
-@property(readonly, nonatomic) NSString *totalUsageDescription;
 @property(readonly, nonatomic) UIImage *image;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;

@@ -95,6 +95,7 @@
 - (id)_usersInvolvedForLike;
 - (id)_usersInvolved;
 - (long long)_inboxModelTypeForCloudCommentType;
+@property(readonly, nonatomic) NSString *keyCommentGUID;
 @property(readonly, nonatomic) NSString *ownerEmail;
 @property(readonly, nonatomic) NSString *ownerLastName;
 @property(readonly, nonatomic) NSString *ownerFirstName;

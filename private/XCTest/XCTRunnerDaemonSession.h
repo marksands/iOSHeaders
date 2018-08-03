@@ -64,6 +64,7 @@
 - (void)requestBackgroundAssertionForPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)requestAutomationSessionForTestTargetWithPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)requestIDEConnectionTransportForSessionIdentifier:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)_XCT_receivedAccessibilityNotification:(long long)arg1 fromElement:(id)arg2 payload:(id)arg3;
 - (void)_XCT_receivedAccessibilityNotification:(long long)arg1 withPayload:(id)arg2;
 - (void)_XCT_applicationWithBundleID:(id)arg1 didUpdatePID:(int)arg2 andState:(unsigned long long)arg3;
 @property(readonly) _Bool useLegacyScreenshotPath;

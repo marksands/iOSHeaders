@@ -6,23 +6,23 @@
 
 #import "UIView.h"
 
-@class NSNumberFormatter, UIButton, UILabel;
+@class CPSPagingControlButton, NSNumberFormatter, UILabel;
 
 @interface CPSPagingControlView : UIView
 {
     unsigned long long _pageIndex;
     unsigned long long _pageCount;
     id <CPSPageControlling> _pagingDelegate;
-    UIButton *_previousButton;
+    CPSPagingControlButton *_previousButton;
+    CPSPagingControlButton *_nextButton;
     UILabel *_positionLabel;
-    UIButton *_nextButton;
     NSNumberFormatter *_numberFormatter;
 }
 
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
-@property(retain, nonatomic) UIButton *nextButton; // @synthesize nextButton=_nextButton;
 @property(retain, nonatomic) UILabel *positionLabel; // @synthesize positionLabel=_positionLabel;
-@property(retain, nonatomic) UIButton *previousButton; // @synthesize previousButton=_previousButton;
+@property(retain, nonatomic) CPSPagingControlButton *nextButton; // @synthesize nextButton=_nextButton;
+@property(retain, nonatomic) CPSPagingControlButton *previousButton; // @synthesize previousButton=_previousButton;
 @property(nonatomic) __weak id <CPSPageControlling> pagingDelegate; // @synthesize pagingDelegate=_pagingDelegate;
 @property(nonatomic) unsigned long long pageCount; // @synthesize pageCount=_pageCount;
 @property(nonatomic) unsigned long long pageIndex; // @synthesize pageIndex=_pageIndex;
@@ -31,6 +31,7 @@
 - (void)_handleNextButton:(id)arg1;
 - (void)_handlePreviousButton:(id)arg1;
 - (void)_update;
+- (void)traitCollectionDidChange:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

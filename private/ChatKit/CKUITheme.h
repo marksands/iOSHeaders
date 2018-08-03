@@ -34,8 +34,14 @@
 - (id)primaryBrandColorForBusinessChat:(id)arg1;
 @property(readonly, nonatomic) UIColor *businessInfoViewDescriptionTextColor;
 @property(readonly, nonatomic) UIColor *businessDescriptionViewControllerBackgroundColor;
-@property(readonly, nonatomic) UIColor *fsmPickerCurrentPageColor;
-@property(readonly, nonatomic) UIColor *fsmPickerTextColor;
+@property(readonly, nonatomic) UIColor *fsmPickerBackgroundColor;
+@property(readonly, nonatomic) UIColor *fsmPickerSendButtonColor;
+@property(readonly, nonatomic) UIColor *fsmPickerCloseButtonColor;
+@property(readonly, nonatomic) UIColor *fsmPickerCurrentPageIndicatorColor;
+@property(readonly, nonatomic) UIColor *fsmPickerPageIndicatorColor;
+@property(readonly, nonatomic) UIColor *fsmPickerSecondaryColor;
+@property(readonly, nonatomic) UIColor *fsmPickerPrimaryTintColor;
+@property(readonly, nonatomic) UIColor *fsmPickerPrimaryColor;
 @property(readonly, nonatomic) UIColor *stickerDetailsSubheaderTextColor;
 @property(readonly, nonatomic) UIImage *appSelectionOutline;
 @property(readonly, nonatomic) UIImage *appGrabberCloseImage;

@@ -15,7 +15,7 @@
 + (id)databaseTable;
 + (long long)protectionClass;
 + (id)_predicateForBundleID:(id)arg1;
-+ (_Bool)_getLaunchTimesWithArray:(id)arg1 predicate:(id)arg2 profile:(id)arg3 error:(id *)arg4;
++ (id)_launchTimesWithPredicate:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (_Bool)removeBundleIdentifier:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (id)launchTimeForBundleID:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (_Bool)setLaunchTime:(id)arg1 forBundleID:(id)arg2 profile:(id)arg3 error:(id *)arg4;

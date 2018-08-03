@@ -10,6 +10,7 @@
 {
 }
 
++ (id)sharedMaterialSettings;
 - (double)baseOverlayBlurRadius;
 - (double)baseOverlayBrightness;
 - (double)baseOverlaySaturation;

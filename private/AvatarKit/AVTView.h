@@ -36,17 +36,17 @@
     double _perfPacketUpdateTimestamp;
     _Bool _packetNeedRecording;
     _Bool _showPerfHUD;
+    _Bool _enableReticle;
     int _droppedFrameCount;
     NSTimer *_perfTimeRefreshTimer;
     AVTHUDView *_debugView;
     NSLock *_lock;
     AVTAvatar *_lastRenderedAvatar;
-    _Bool enableReticle;
     _Bool _faceTrackingPaused;
 }
 
 @property(nonatomic, getter=faceTrackingIsPaused) _Bool faceTrackingPaused; // @synthesize faceTrackingPaused=_faceTrackingPaused;
-@property(nonatomic) _Bool enableReticle; // @synthesize enableReticle;
+@property(nonatomic) _Bool enableReticle; // @synthesize enableReticle=_enableReticle;
 - (void).cxx_destruct;
 - (void)_renderer:(id)arg1 didBuildSubdivDataForHash:(id)arg2 dataProvider:(CDUnknownBlockType)arg3;
 - (id)_renderer:(id)arg1 subdivDataForHash:(id)arg2;
@@ -100,7 +100,7 @@
 - (void)_willRecord;
 - (void)willUpdateAvatarWithNewFaceTrackingData:(double)arg1;
 - (void)didLostTrackingForAWhile;
-- (void)_animateToNoTrackingState;
+- (void)_animateToNoTrackingState:(_Bool)arg1;
 - (void)_enablePhysics:(_Bool)arg1;
 - (void)renderer:(id)arg1 didApplyAnimationsAtTime:(double)arg2;
 @property(nonatomic) _Bool arMode;

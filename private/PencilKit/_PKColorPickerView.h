@@ -33,7 +33,6 @@
 - (void)didPanCrosshair:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (void)updateCrosshairView:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

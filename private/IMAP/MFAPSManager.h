@@ -20,6 +20,7 @@
     NSMutableSet *_unwatchedTopics;
     NSConditionLock *_deviceTokenLock;
     NSData *_deviceToken;
+    NSString *_launchMachServiceName;
 }
 
 + (Class)APSConnection;
@@ -34,6 +35,7 @@
 - (void)startWatchingForTopic:(id)arg1;
 - (void)_stopAPS_nts;
 - (void)_startAPS_nts;
+- (void)setLaunchMachServiceName:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

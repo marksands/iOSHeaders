@@ -82,6 +82,8 @@
 - (id)init;
 - (id)_utilityButton;
 - (void)_configureUtilityButtonIfNecessary;
+- (void)_reduceTransparencyStatusDidChange:(id)arg1;
+- (void)_darkerSystemColorsStatusDidChange:(id)arg1;
 - (void)_layoutDateLabelWithScale:(double)arg1;
 - (void)_layoutUtilityButtonWithScale:(double)arg1;
 - (void)_layoutTitleLabelWithScale:(double)arg1;

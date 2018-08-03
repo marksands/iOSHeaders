@@ -6,15 +6,24 @@
 
 #import "NSManagedObject.h"
 
-@class NSSet, RMCoreUser;
+#import "RMUniquelySerializableManagedObject.h"
 
-@interface RMCoreOrganizationSettings : NSManagedObject
+@class NSString, RMCoreUser;
+
+@interface RMCoreOrganizationSettings : NSManagedObject <RMUniquelySerializableManagedObject>
 {
 }
 
++ (id)fetchOrCreateWithDictionaryRepresentation:(id)arg1 inContext:(id)arg2 error:(id *)arg3;
+- (id)dictionaryRepresentation;
+- (void)updateWithDictionaryRepresentation:(id)arg1;
 
 // Remaining properties
-@property(retain, nonatomic) NSSet *blueprints; // @dynamic blueprints;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 @property(retain, nonatomic) RMCoreUser *user; // @dynamic user;
+
 @end
 

@@ -20,6 +20,7 @@
     NSLayoutConstraint *_heightConstraint;
     long long _currentInterfaceOrientation;
     long long _keyboardType;
+    _Bool _logGeneratedPasswordAcceptedImplicitly;
 }
 
 + (void)inputViewControllerWithAutoFillContext:(id)arg1 passwordRules:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -31,6 +32,7 @@
 - (struct CGSize)_currentKeyboardSize;
 - (_Bool)_inputViewControllerShouldDirectlyInsertPassword;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)_postButtonPressedNotificationForButton:(long long)arg1;
 - (void)viewDidLoad;

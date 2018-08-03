@@ -23,10 +23,9 @@
 - (void)notificationViewControllerIsReadyToBePresented:(NCNotificationViewController *)arg1;
 - (_Bool)shouldLoadAudioAccessoryViewForNotificationViewController:(NCNotificationViewController *)arg1;
 - (_Bool)showAdditionalMessageLinesForNotificationViewController:(NCNotificationViewController *)arg1;
-- (struct CGRect)notificationViewController:(NCNotificationViewController *)arg1 convertRect:(struct CGRect)arg2 toLocalWindowSpaceFromView:(UIView *)arg3;
-- (struct CGRect)presentationFrameForNotificationViewController:(NCNotificationViewController *)arg1;
 - (_Bool)notificationViewController:(NCNotificationViewController *)arg1 suggestsDismissingShortLookWithSource:(id)arg2;
 - (void)notificationViewController:(NCNotificationViewController *)arg1 shouldFinishLongLookTransitionWithCompletionBlock:(void (^)(_Bool))arg2;
+- (struct CGRect)notificationViewController:(NCNotificationViewController *)arg1 initialFrameForPresentingLongLookFromView:(UIView *)arg2;
 - (_Bool)notificationViewControllerShouldAllowInteractionGesture:(NCNotificationViewController *)arg1;
 - (_Bool)notificationViewControllerShouldBlurShortLook:(NCNotificationViewController *)arg1;
 - (_Bool)notificationViewControllerShouldInterpretTapAsDefaultAction:(NCNotificationViewController *)arg1;

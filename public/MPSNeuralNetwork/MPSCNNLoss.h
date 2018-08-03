@@ -32,6 +32,7 @@
 @property(readonly, nonatomic) float weight; // @synthesize weight=_weight;
 @property(readonly, nonatomic) int reductionType; // @synthesize reductionType=_reductionType;
 @property(readonly, nonatomic) unsigned int lossType; // @synthesize lossType=_lossType;
+- (unsigned long long)maxBatchSize;
 - (struct NSArray *)encodeBatchToCommandBuffer:(id)arg1 sourceImages:(struct NSArray *)arg2 labels:(struct NSArray *)arg3;
 - (void)encodeBatchToCommandBuffer:(id)arg1 sourceImages:(struct NSArray *)arg2 labels:(struct NSArray *)arg3 destinationImages:(struct NSArray *)arg4;
 - (id)encodeToCommandBuffer:(id)arg1 sourceImage:(id)arg2 labels:(id)arg3;

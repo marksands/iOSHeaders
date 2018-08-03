@@ -146,6 +146,7 @@
 - (id)_screen;
 - (_Bool)_shouldDispatchEvent:(id *)arg1;
 - (void)_dispatchEvent:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (_Bool)_dispatchEvent:(CDUnknownBlockType)arg1 error:(id *)arg2;
 - (void)typeText:(id)arg1;
 - (void)rotate:(double)arg1 withVelocity:(double)arg2;
 - (void)pinchWithScale:(double)arg1 velocity:(double)arg2;
@@ -163,7 +164,7 @@
 - (void)twoFingerTap;
 - (void)doubleTap;
 - (void)tap;
-- (struct CGPoint)_hitPointByAttemptingToScrollToVisibleSnapshot:(id)arg1;
+- (id)_hitPointByAttemptingToScrollToVisibleSnapshot:(id)arg1 error:(id *)arg2;
 @property(readonly) double normalizedSliderPosition;
 - (void)adjustToNormalizedSliderPosition:(double)arg1;
 - (void)adjustToPickerWheelValue:(id)arg1;

@@ -23,6 +23,7 @@
     struct os_unfair_lock_s _connectedClientsLock;
     _Bool _shouldDeferActivity;
     unsigned char _state;
+    PHAActivityLog *_activityLog;
     NSMutableSet *_clients;
     NSMutableDictionary *_managersByLibraryPath;
     PHAPhotoLibraryList *_photoLibraryList;
@@ -41,6 +42,7 @@
 @property unsigned char state; // @synthesize state=_state;
 @property(retain) NSMutableDictionary *managersByLibraryPath; // @synthesize managersByLibraryPath=_managersByLibraryPath;
 @property(retain) NSMutableSet *clients; // @synthesize clients=_clients;
+@property(readonly) PHAActivityLog *activityLog; // @synthesize activityLog=_activityLog;
 - (void).cxx_destruct;
 - (void)_cleanupAfterBackgroundActivityFinishedForDefer:(_Bool)arg1 skipActivityStateCheck:(_Bool)arg2 message:(id)arg3;
 - (void)_registerBackgroundActivity;

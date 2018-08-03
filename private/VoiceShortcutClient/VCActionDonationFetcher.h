@@ -21,6 +21,7 @@
 + (id)fetchDonationsWithPredicate:(id)arg1 limit:(unsigned long long)arg2;
 + (id)fetchEventsWithPredicate:(id)arg1 limit:(unsigned long long)arg2;
 + (id)keyPathForStream:(id)arg1;
++ (_Bool)shouldKeepActionWithAppBundleIdentifierForDisplay:(id)arg1;
 + (id)approvedSiriKitIntents;
 + (id)donationFromEvent:(id)arg1;
 + (id)streams;

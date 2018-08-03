@@ -30,7 +30,6 @@
 - (void)_computeMinimumAndMaximumBeatsPerMinute;
 @property(readonly) NSNumber *_maximumBeatsPerMinute;
 @property(readonly) NSNumber *_minimumBeatsPerMinute;
-- (_Bool)isEqual:(id)arg1;
 - (id)_validateConfiguration;
 - (void)enumerateHeartbeatDataWithBlock:(CDUnknownBlockType)arg1;
 - (id)init;

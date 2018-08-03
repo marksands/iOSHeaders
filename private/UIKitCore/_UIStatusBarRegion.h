@@ -53,7 +53,7 @@
 @property(nonatomic) struct UIEdgeInsets actionInsets; // @synthesize actionInsets=_actionInsets;
 @property(retain, nonatomic) _UIStatusBarAction *action; // @synthesize action=_action;
 - (void).cxx_destruct;
-- (id)displayItemForHUDAtPointInContentView:(struct CGPoint)arg1;
+- (id)displayItemForHUDAtPoint:(struct CGPoint)arg1 inCoordinateSpace:(id)arg2;
 @property(readonly, copy, nonatomic) NSDictionary *displayItemAbsoluteFrames;
 @property(readonly, nonatomic) _UIStatusBarDisplayItem *overflowedDisplayItem;
 @property(readonly, nonatomic) NSArray *currentEnabledDisplayItems;

@@ -8,7 +8,7 @@
 
 #import "_NSExtensionContextHosting.h"
 
-@class NSArray, NSBundle, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
+@class NSArray, NSBundle, NSDictionary, NSMutableDictionary, NSSet, NSString, NSUUID;
 
 @interface NSExtension : NSObject <_NSExtensionContextHosting>
 {
@@ -34,7 +34,6 @@
     NSMutableDictionary *__extensionContexts;
     NSSet *__allowedErrorClasses;
     NSUUID *_connectionUUID;
-    NSObject<OS_dispatch_queue> *__safePluginQueue;
 }
 
 + (void)endMatchingExtensions:(id)arg1;
@@ -51,7 +50,6 @@
 + (id)predicateForActivationRule:(id)arg1;
 + (_Bool)evaluateActivationRule:(id)arg1 withExtensionItemsRepresentation:(id)arg2;
 + (void)initializeFiltering;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *_safePluginQueue; // @synthesize _safePluginQueue=__safePluginQueue;
 @property(copy, nonatomic) NSUUID *connectionUUID; // @synthesize connectionUUID=_connectionUUID;
 @property(nonatomic, getter=_isObservingHostAppStateChanges, setter=_setObservingHostAppStateChanges:) _Bool observingHostAppStateChanges; // @synthesize observingHostAppStateChanges=_observingHostAppStateChanges;
 @property(copy, nonatomic, setter=_setAllowedErrorClasses:) NSSet *_allowedErrorClasses; // @synthesize _allowedErrorClasses=__allowedErrorClasses;

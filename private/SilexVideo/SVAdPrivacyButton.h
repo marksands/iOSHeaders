@@ -6,30 +6,15 @@
 
 #import <SilexVideo/SVButton.h>
 
-#import "SVVideoControlItem.h"
-
-@class NSString;
-
-@interface SVAdPrivacyButton : SVButton <SVVideoControlItem>
+@interface SVAdPrivacyButton : SVButton
 {
-    _Bool hideable;
 }
 
 - (id)accessibilityLabel;
 - (id)accessibilityElements;
 - (_Bool)isAccessibilityElement;
-- (_Bool)isVisible;
-- (void)hide:(_Bool)arg1 withAnimationCoordinator:(id)arg2;
-@property(readonly, nonatomic) _Bool supportsAutoAppearance;
-@property(readonly, nonatomic) _Bool hideable; // @synthesize hideable;
 - (struct CGSize)intrinsicContentSize;
 - (id)initWithFrame:(struct CGRect)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

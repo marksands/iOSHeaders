@@ -91,7 +91,7 @@
 + (id)propertiesToFetchWithHint:(unsigned long long)arg1;
 + (id)_composePropertiesToFetchWithHint:(unsigned long long)arg1;
 + (id)corePropertiesToFetch;
-+ (id)sharingSuggestionWithRandomPick:(_Bool)arg1 fallbackToRecentMoments:(_Bool)arg2;
++ (id)sharingSuggestionWithRandomPick:(_Bool)arg1 fallbackToRecentMoments:(_Bool)arg2 needsNotification:(_Bool)arg3;
 + (id)posterImageForAssetCollection:(id)arg1;
 + (id)pl_PHAssetCollectionForAssetContainer:(id)arg1 includeTrash:(_Bool)arg2;
 + (id)pl_PHAssetCollectionForAssetContainer:(id)arg1;

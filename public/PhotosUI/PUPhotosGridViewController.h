@@ -207,6 +207,8 @@
 - (id)photosGridBarsHelperPhotoSelectionManager:(id)arg1;
 - (double)topMarginForPhotosGlobalFooterView:(id)arg1;
 - (void)photosGlobalFooterView:(id)arg1 presentViewController:(id)arg2;
+- (unsigned long long)additionalOneUpViewControllerOptions;
+- (unsigned long long)oneUpPresentationHelperAdditionalOptions:(id)arg1;
 - (_Bool)oneUpPresentationHelperPreventRevealInMomentAction:(id)arg1;
 - (void)oneUpPresentationHelper:(id)arg1 didDismissOneUpViewController:(id)arg2;
 - (_Bool)oneUpPresentationHelperShouldLeaveContentOnSecondScreen:(id)arg1;
@@ -232,9 +234,9 @@
 - (id)_indexPathForAsset:(id)arg1 inAssetCollection:(id)arg2 refetchIfNeeded:(_Bool)arg3;
 - (void)navigateToPhoto:(id)arg1 inAssetContainer:(id)arg2 refetchIfNeeded:(_Bool)arg3 animated:(_Bool)arg4;
 - (void)navigateToPhoto:(id)arg1 inAssetContainer:(id)arg2 animated:(_Bool)arg3;
+- (id)displayTitleInfoForDetailsOfAssetCollection:(id)arg1 withTitleCategory:(long long)arg2 preferredAttributesPromise:(CDUnknownBlockType)arg3;
 - (void)navigateToPhotosDetailsForAssetCollection:(id)arg1 animated:(_Bool)arg2;
 - (void)navigateToPhotosDetailsForAssetCollection:(id)arg1;
-- (id)displayTitleInfoForDetailsOfAssetCollection:(id)arg1 withTitleCategory:(long long)arg2 preferredAttributesPromise:(CDUnknownBlockType)arg3;
 - (void)_navigateToPhotoAtIndexPath:(id)arg1 animated:(_Bool)arg2 interactive:(_Bool)arg3;
 - (void)_beginInteractiveStackCollapse:(id)arg1;
 - (void)_beginInteractiveNavigationForItemAtIndexPath:(id)arg1;

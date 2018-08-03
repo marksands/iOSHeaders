@@ -9,11 +9,12 @@
 #import "INImageLoading.h"
 #import "INImageStoring.h"
 
-@class NSString, NSXPCConnection;
+@class NSCache, NSString, NSXPCConnection;
 
 @interface INImageServiceConnection : NSObject <INImageLoading, INImageStoring>
 {
     NSXPCConnection *_connection;
+    NSCache *_localStorageCache;
 }
 
 + (id)sharedConnection;
@@ -22,11 +23,13 @@
 - (void)retrieveImageWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)storeImage:(id)arg1 scaled:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)canStoreImage:(id)arg1;
+- (id)loadSchemasForBundleIdentifiers:(id)arg1 error:(id *)arg2;
 - (id)loadImageData:(id)arg1 usingPortableImageLoader:(id)arg2 error:(id *)arg3;
 - (void)loadImageData:(id)arg1 usingPortableImageLoader:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)canLoadImageDataForImage:(id)arg1;
 @property(readonly, nonatomic) unsigned long long servicePriority;
 @property(readonly, nonatomic) NSString *serviceIdentifier;
+- (id)_localStorageCache;
 - (id)serviceProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)synchronousServiceProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (void)loadImageDataFromImage:(id)arg1 completion:(CDUnknownBlockType)arg2;

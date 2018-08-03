@@ -55,6 +55,7 @@
 - (id)synchronousServerWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)asynchronousServerWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)asynchronousServer;
+- (void)handleServerDisconnect;
 - (void)dealloc;
 - (id)init;
 

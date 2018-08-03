@@ -67,6 +67,7 @@
     NSMutableSet *__preheatedAssets;
     PUActivityViewController *__embeddedActivityViewController;
     PUActivityViewController *__unembeddedActivityViewController;
+    PUActivityViewController *__preheatedActivityViewController;
     UICollectionViewLayout *__transitionLayout;
     PUPhotosSharingTransitionContext *_photosSharingTransitionContext;
     PUOneUpAssetTransitionInfo *_assetTransitionInfo;
@@ -90,6 +91,7 @@
 @property(retain, nonatomic) PUOneUpAssetTransitionInfo *assetTransitionInfo; // @synthesize assetTransitionInfo=_assetTransitionInfo;
 @property(retain, nonatomic) PUPhotosSharingTransitionContext *photosSharingTransitionContext; // @synthesize photosSharingTransitionContext=_photosSharingTransitionContext;
 @property(retain, nonatomic, setter=_setTransitionLayout:) UICollectionViewLayout *_transitionLayout; // @synthesize _transitionLayout=__transitionLayout;
+@property(retain, nonatomic, setter=_setPreheatedActivityViewController:) PUActivityViewController *_preheatedActivityViewController; // @synthesize _preheatedActivityViewController=__preheatedActivityViewController;
 @property(retain, nonatomic, setter=_setUnembeddedActivityViewController:) PUActivityViewController *_unembeddedActivityViewController; // @synthesize _unembeddedActivityViewController=__unembeddedActivityViewController;
 @property(retain, nonatomic, setter=_setEmbeddedActivityViewController:) PUActivityViewController *_embeddedActivityViewController; // @synthesize _embeddedActivityViewController=__embeddedActivityViewController;
 @property(retain, nonatomic, setter=_setPreheatedAssets:) NSMutableSet *_preheatedAssets; // @synthesize _preheatedAssets=__preheatedAssets;
@@ -203,8 +205,10 @@
 - (void)_activityViewControllerDidDismissWithActivityType:(id)arg1 didComplete:(_Bool)arg2;
 - (void)_prepareActivityViewControllerForUse;
 - (id)_requiredActivityViewController;
-- (void)_handleActivityViewControllerReadyToInteractCompletion:(id)arg1;
+- (void)_handleActivityViewControllerReadyToInteractCompletion;
 - (void)_createActivityViewControllerIfNeeded;
+- (void)_performPreheatingOfActivityViewController;
+- (id)_createActivityViewControllerForCurrentSelection;
 @property(readonly, nonatomic) PUActivityViewController *_activityViewController;
 - (void)_next:(id)arg1;
 - (void)_cancel:(id)arg1;

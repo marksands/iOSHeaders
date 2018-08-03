@@ -8,18 +8,20 @@
 
 #import "HDAssertionObserver.h"
 
-@class HDAssertionManager, HDProfile, NSObject<OS_dispatch_queue>, NSString;
+@class HDAssertionManager, HDProfile, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
 @interface HDWorkoutEventsManager : NSObject <HDAssertionObserver>
 {
     HDProfile *_profile;
     HDAssertionManager *_assertionManager;
     NSObject<OS_dispatch_queue> *_queue;
+    NSMutableSet *_eventCollectors;
 }
 
 - (void).cxx_destruct;
 - (id)_queue_eventCollectorsForType:(unsigned long long)arg1 delegate:(id)arg2;
 - (void)assertionManager:(id)arg1 assertionInvalidated:(id)arg2;
+- (void)requestPendingEventsThroughDate:(id)arg1 sessionIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)takeSessionAssertionWithOwnerIdentifier:(id)arg1 activityType:(unsigned long long)arg2 sessionIdentifier:(id)arg3 eventsDelegate:(id)arg4;
 - (id)initWithProfile:(id)arg1;
 

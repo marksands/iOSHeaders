@@ -56,7 +56,7 @@
 - (void).cxx_destruct;
 - (void)ppt_performBlockAfterLoadingCompletes:(CDUnknownBlockType)arg1;
 - (void)oneUpPresentation:(id)arg1 setHiddenAssetReferences:(id)arg2;
-- (id)oneUpPresentation:(id)arg1 regionOfInterestForAssetReference:(id)arg2 inCoordinateSpace:(id)arg3;
+- (id)oneUpPresentation:(id)arg1 regionOfInterestForAssetReference:(id)arg2;
 - (id)oneUpPresentationMediaProvider:(id)arg1;
 - (id)oneUpPresentationDataSourceManager:(id)arg1;
 - (void)_startOneUpPresentationForModel:(id)arg1;

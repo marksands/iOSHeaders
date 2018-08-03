@@ -4,28 +4,28 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UITableViewHeaderFooterView.h"
+#import <ScreenTimeUI/STTableViewHeaderFooterView.h>
 
 #import "PSHeaderFooterView.h"
 
 @class PSSpecifier, STSingleLineDetailTextHeaderView, UILabel, UISegmentedControl;
 
-@interface STUsageSummaryHeaderView : UITableViewHeaderFooterView <PSHeaderFooterView>
+@interface STUsageSummaryHeaderView : STTableViewHeaderFooterView <PSHeaderFooterView>
 {
-    PSSpecifier *_specifier;
     UISegmentedControl *_segmentedControl;
+    PSSpecifier *_specifier;
     UILabel *_deviceNameLabel;
     STSingleLineDetailTextHeaderView *_singleLineHeaderView;
 }
 
 @property(readonly, nonatomic) STSingleLineDetailTextHeaderView *singleLineHeaderView; // @synthesize singleLineHeaderView=_singleLineHeaderView;
 @property(readonly, nonatomic) UILabel *deviceNameLabel; // @synthesize deviceNameLabel=_deviceNameLabel;
-@property(readonly, nonatomic) UISegmentedControl *segmentedControl; // @synthesize segmentedControl=_segmentedControl;
 @property(retain, nonatomic) PSSpecifier *specifier; // @synthesize specifier=_specifier;
+@property(readonly, nonatomic) UISegmentedControl *segmentedControl; // @synthesize segmentedControl=_segmentedControl;
 - (void).cxx_destruct;
 - (void)selectedSegmentIndexChanged:(id)arg1;
 - (double)preferredHeightForWidth:(double)arg1;
-- (void)reloadSpecifier;
+- (void)reloadFromSpecifier;
 - (id)initWithSpecifier:(id)arg1;
 
 @end

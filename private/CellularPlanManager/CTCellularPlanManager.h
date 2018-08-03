@@ -115,6 +115,8 @@
 - (void)latitudeLongitudeOverride:(CDUnknownBlockType)arg1;
 - (void)setMcc:(long long)arg1 andMnc:(long long)arg2;
 - (void)mccMncOverride:(CDUnknownBlockType)arg1;
+- (_Bool)getEnableVinylFlowTypeOverride;
+- (void)enableVinylFlowTypeOverride:(_Bool)arg1;
 - (void)showUiIgnoringActivationFlags:(_Bool)arg1;
 - (void)setUseNewCellularPlanUI:(_Bool)arg1;
 - (void)setSelectedProxy:(long long)arg1;
@@ -146,6 +148,7 @@
 - (void)getSupportedFlowTypes:(CDUnknownBlockType)arg1;
 - (void)isNewDataPlanCapable:(CDUnknownBlockType)arg1;
 - (void)ping;
+- (id)synchronousProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)init;
 - (void)_connect_sync;
 - (void)_ensureConnected_sync;

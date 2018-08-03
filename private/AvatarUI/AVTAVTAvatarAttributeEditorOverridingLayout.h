@@ -8,7 +8,7 @@
 
 #import "AVTAvatarAttributeEditorLayout.h"
 
-@class UIColor;
+@class NSString, UIColor;
 
 @interface AVTAVTAvatarAttributeEditorOverridingLayout : NSObject <AVTAvatarAttributeEditorLayout>
 {
@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) double screenScale;
 @property(readonly, nonatomic) struct UIEdgeInsets edgeInsets;
 @property(readonly, nonatomic) struct CGSize containerSize;
+@property(readonly, copy, nonatomic) NSString *contentSizeCategory;
 @property(readonly, nonatomic) struct CGRect avatarContainerFrame; // @synthesize avatarContainerFrame=_avatarContainerFrame;
 - (id)initWithLayout:(id)arg1 avatarContainerFrame:(struct CGRect)arg2;
 

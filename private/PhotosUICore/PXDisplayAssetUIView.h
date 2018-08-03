@@ -21,6 +21,7 @@
     long long _playbackStyle;
     PXUIMediaProvider *_mediaProvider;
     NSArray *_placeholderImageFilters;
+    double _placeholderTransitionDuration;
     NSError *_error;
     UIView *_contentView;
     UIImage *_image;
@@ -48,6 +49,7 @@
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) _Bool isDisplayingFullQualityContent; // @synthesize isDisplayingFullQualityContent=_isDisplayingFullQualityContent;
 @property(nonatomic) _Bool displayLoadingIndicator; // @synthesize displayLoadingIndicator=_displayLoadingIndicator;
+@property(nonatomic) double placeholderTransitionDuration; // @synthesize placeholderTransitionDuration=_placeholderTransitionDuration;
 @property(copy, nonatomic) NSArray *placeholderImageFilters; // @synthesize placeholderImageFilters=_placeholderImageFilters;
 @property(retain, nonatomic) PXUIMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
 @property(readonly, nonatomic) long long playbackStyle; // @synthesize playbackStyle=_playbackStyle;
@@ -60,6 +62,8 @@
 - (void)_updateIfNeeded;
 - (void)updateContent;
 - (void)isDisplayingFullQualityContentDidChange;
+- (void)placeholderTransitionDurationDidChange;
+- (void)contentModeDidChange;
 - (void)animatedContentEnabledDidChange;
 - (void)contentsRectDidChange;
 - (void)placeholderImageFiltersDidChange;

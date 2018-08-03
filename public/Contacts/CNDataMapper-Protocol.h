@@ -53,6 +53,7 @@
 - (_Bool)setMeContact:(CNContact *)arg1 error:(id *)arg2;
 - (NSArray *)groupsWithIdentifiers:(NSArray *)arg1 error:(id *)arg2;
 - (void)setNotificationSource:(id)arg1;
+- (NSNumber *)contactCountForFetchRequest:(CNContactFetchRequest *)arg1 error:(id *)arg2;
 - (NSNumber *)unifiedContactCountWithError:(id *)arg1;
 - (NSString *)identifierWithError:(id *)arg1;
 @end

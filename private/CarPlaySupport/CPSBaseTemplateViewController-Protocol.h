@@ -9,6 +9,7 @@
 @class CPTemplate;
 
 @protocol CPSBaseTemplateViewController <NSObject>
-@property(readonly, nonatomic) CPTemplate *associatedTemplate;
+@property(retain, nonatomic) id <CPTemplateDelegate> templateDelegate;
+@property(retain, nonatomic) CPTemplate *associatedTemplate;
 @end
 

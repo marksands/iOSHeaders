@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     _Bool _showsActionButton;
     _Bool _actionButtonEnabled;
     _Bool _shouldBlurBackground;
+    _Bool _supportsMultipleLinesInCompactLayout;
     _Bool _inLayoutTransition;
     id <PUImportHistorySectionHeaderViewDelegate> _delegate;
     NSString *_actionText;
@@ -38,6 +39,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UILabel *secondaryLabel; // @synthesize secondaryLabel=_secondaryLabel;
 @property(retain, nonatomic) UILabel *spacerLabel; // @synthesize spacerLabel=_spacerLabel;
 @property(retain, nonatomic) UILabel *primaryLabel; // @synthesize primaryLabel=_primaryLabel;
+@property(nonatomic) _Bool supportsMultipleLinesInCompactLayout; // @synthesize supportsMultipleLinesInCompactLayout=_supportsMultipleLinesInCompactLayout;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
 @property(copy, nonatomic) NSString *backdropViewGroupName; // @synthesize backdropViewGroupName=_backdropViewGroupName;
 @property(nonatomic) _Bool shouldBlurBackground; // @synthesize shouldBlurBackground=_shouldBlurBackground;

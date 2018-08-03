@@ -9,9 +9,11 @@
 __attribute__((visibility("hidden")))
 @interface PARFeedbackFilterController : NSObject
 {
+    struct __CFSet *_resultHashes;
     struct __CFSet *_identifierHashes;
 }
 
+- (void)filterResult:(id)arg1 fromRankingEvent:(_Bool)arg2;
 - (void)filterResult:(id)arg1;
 - (void)filterCodable:(id)arg1;
 - (void)resetFilter;

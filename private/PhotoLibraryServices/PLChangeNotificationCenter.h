@@ -34,7 +34,7 @@
 }
 
 + (void)forceFetchingAlbumReload;
-+ (void)getInsertedAssetCount:(unsigned long long *)arg1 deletedAssetCount:(unsigned long long *)arg2 updatedAssets:(id)arg3 fromContextDidChangeNotification:(id)arg4;
++ (void)getInsertedAssetCount:(unsigned long long *)arg1 deletedAssetCount:(unsigned long long *)arg2 fromContextDidChangeNotification:(id)arg3;
 + (id)allManagedObjectKeysStrategy;
 + (id)defaultCenter;
 - (void)removeCameraPreviewWellImageChangeObserver:(id)arg1;

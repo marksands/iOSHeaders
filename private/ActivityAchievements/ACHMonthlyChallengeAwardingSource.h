@@ -12,7 +12,7 @@
 #import "HDDataObserver.h"
 #import "HDHealthDaemonReadyObserver.h"
 
-@class ACHAchievementProgressEngine, ACHEarnedInstanceAwardingEngine, ACHMonthlyChallengeDataSource, ACHTemplateStore, HDProfile, NSString;
+@class ACHAchievementProgressEngine, ACHEarnedInstanceAwardingEngine, ACHEarnedInstanceStore, ACHMonthlyChallengeDataSource, ACHTemplateStore, HDProfile, NSString;
 
 @interface ACHMonthlyChallengeAwardingSource : NSObject <HDHealthDaemonReadyObserver, HDCurrentActivitySummaryHelperObserver, HDDataObserver, ACHEarnedInstanceAwarding, ACHAchievementProgressProviding>
 {
@@ -21,11 +21,13 @@
     ACHEarnedInstanceAwardingEngine *_engine;
     ACHAchievementProgressEngine *_progressProvider;
     ACHTemplateStore *_templateStore;
+    ACHEarnedInstanceStore *_earnedInstanceStore;
     ACHMonthlyChallengeDataSource *_monthlyDataSource;
 }
 
 @property(nonatomic) unsigned char creatorDevice; // @synthesize creatorDevice=_creatorDevice;
 @property(nonatomic) __weak ACHMonthlyChallengeDataSource *monthlyDataSource; // @synthesize monthlyDataSource=_monthlyDataSource;
+@property(nonatomic) __weak ACHEarnedInstanceStore *earnedInstanceStore; // @synthesize earnedInstanceStore=_earnedInstanceStore;
 @property(nonatomic) __weak ACHTemplateStore *templateStore; // @synthesize templateStore=_templateStore;
 @property(nonatomic) __weak ACHAchievementProgressEngine *progressProvider; // @synthesize progressProvider=_progressProvider;
 @property(nonatomic) __weak ACHEarnedInstanceAwardingEngine *engine; // @synthesize engine=_engine;
@@ -44,7 +46,7 @@
 - (id)earnedInstancesForHistoricalInterval:(id)arg1 databaseContext:(id)arg2;
 @property(readonly, nonatomic) NSString *uniqueName;
 - (void)daemonReady:(id)arg1;
-- (id)initWithProfile:(id)arg1 awardingEngine:(id)arg2 templateStore:(id)arg3 monthlyDataSource:(id)arg4 creatorDevice:(unsigned char)arg5 progressProvider:(id)arg6;
+- (id)initWithProfile:(id)arg1 awardingEngine:(id)arg2 templateStore:(id)arg3 earnedInstanceStore:(id)arg4 monthlyDataSource:(id)arg5 creatorDevice:(unsigned char)arg6 progressProvider:(id)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

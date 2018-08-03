@@ -34,7 +34,6 @@
 + (void)tearDown;
 + (void)setUp;
 + (id)defaultTestSuite;
-+ (id)performFailableBlock:(CDUnknownBlockType)arg1 shouldInterruptTest:(_Bool *)arg2;
 + (id)allTestMethodInvocations;
 + (void)_allTestMethodInvocations:(id)arg1;
 + (id)testMethodInvocations;
@@ -124,6 +123,7 @@
 - (void)waitForExpectations:(id)arg1 timeout:(double)arg2;
 - (void)waitForExpectationsWithTimeout:(double)arg1 handler:(CDUnknownBlockType)arg2;
 - (id)_expectationForDarwinNotification:(id)arg1;
+- (id)performFailableBlock:(CDUnknownBlockType)arg1 testCaseRun:(id)arg2 shouldInterruptTest:(_Bool *)arg3;
 - (void)_performTurningExceptionsIntoFailuresInterruptAfterHandling:(_Bool)arg1 block:(CDUnknownBlockType)arg2;
 - (void)_recordActivityWithFailure:(id)arg1;
 - (void)_recordFailure:(id)arg1;

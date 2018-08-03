@@ -43,6 +43,7 @@
 @property(readonly, nonatomic) id <SVVideoAccessoryItemSizing> itemSizer; // @synthesize itemSizer=_itemSizer;
 @property(readonly, nonatomic) id <SVVideoAccessoryBarSizing> barSizer; // @synthesize barSizer=_barSizer;
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)intrinsicContentSize;
 - (void)performPendingTransitions;

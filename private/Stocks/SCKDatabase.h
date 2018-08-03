@@ -17,20 +17,18 @@
     id <SCKContainerProxying> _container;
     NSArray *_mergeHandlers;
     SCKStartupQueue *_startupQueue;
-    SCKAsyncSerialQueue *_ckReadQueue;
-    SCKAsyncSerialQueue *_ckWriteQueue;
+    SCKAsyncSerialQueue *_ckSyncQueue;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     NSMutableDictionary *_observersByZoneName;
-    long long _startupStatus;
+    long long _status;
     NSMutableDictionary *_zoneSnapshotsByZoneName;
 }
 
 @property(retain, nonatomic) NSMutableDictionary *zoneSnapshotsByZoneName; // @synthesize zoneSnapshotsByZoneName=_zoneSnapshotsByZoneName;
-@property long long startupStatus; // @synthesize startupStatus=_startupStatus;
+@property long long status; // @synthesize status=_status;
 @property(retain, nonatomic) NSMutableDictionary *observersByZoneName; // @synthesize observersByZoneName=_observersByZoneName;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_callbackQueue;
-@property(retain, nonatomic) SCKAsyncSerialQueue *ckWriteQueue; // @synthesize ckWriteQueue=_ckWriteQueue;
-@property(retain, nonatomic) SCKAsyncSerialQueue *ckReadQueue; // @synthesize ckReadQueue=_ckReadQueue;
+@property(retain, nonatomic) SCKAsyncSerialQueue *ckSyncQueue; // @synthesize ckSyncQueue=_ckSyncQueue;
 @property(retain, nonatomic) SCKStartupQueue *startupQueue; // @synthesize startupQueue=_startupQueue;
 @property(retain, nonatomic) NSArray *mergeHandlers; // @synthesize mergeHandlers=_mergeHandlers;
 @property(retain, nonatomic) id <SCKContainerProxying> container; // @synthesize container=_container;
@@ -41,12 +39,13 @@
 - (void)_runCKOperation:(id)arg1;
 - (void)_recoverFromIdentityLossWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_reloadSnapshotOfZone:(id)arg1 fromStore:(id)arg2;
-- (id)_dirtyZones;
-- (id)_zonesNeedingFirstSync;
+- (id)_zonesNeedingSave;
+- (id)_zonesNeedingFetch;
+- (id)_emptyZonesNeedingFirstSync;
 - (id)_zoneWithSchema:(id)arg1 zoneStore:(id)arg2;
 - (void)_deleteAndRecreateAllZonesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_createZoneInContainerWithSchema:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_stageZoneForMerge:(id)arg1 zoneStore:(id)arg2;
+- (void)_squashZoneForMerge:(id)arg1 zoneStore:(id)arg2;
 - (void)_saveZonesToContainer:(id)arg1 allowRecoveryAttempt:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_saveZoneToContainer:(id)arg1 allowRecoveryAttempt:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_fetchZoneChangesForZones:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -55,7 +54,8 @@
 - (void)_enqueueStartupSequenceWithFeatures:(long long)arg1;
 - (_Bool)t_flushChangesWithTimeout:(double)arg1;
 - (void)storeCoordinatorDiscoveredExternalChanges:(id)arg1;
-- (void)mergeLocalDataWithServerWithCompletion:(CDUnknownBlockType)arg1;
+- (void)savePendingChangesToServerWithCompletion:(CDUnknownBlockType)arg1;
+- (void)checkSyncingEnabledWithCompletion:(CDUnknownBlockType)arg1;
 - (void)pollForChangesWithCondition:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)handleRemoteNotification:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)removeObserver:(id)arg1 forZone:(id)arg2;

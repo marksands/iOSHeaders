@@ -26,11 +26,13 @@
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) __weak id <MPShuffleControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (void)_generateShuffledIndicesThroughIndex:(unsigned long long)arg1;
+- (void)_incrementCountForItemIdentifer:(id)arg1;
+- (void)_decrementOrRemoveCountForItemIdentifer:(id)arg1;
 - (void)_replaceItemIdentifierAtOriginalIndex:(unsigned long long)arg1 withItemIdentifier:(id)arg2;
 - (void)_removeItemIdentifierAtOriginalIndex:(unsigned long long)arg1;
 - (void)_removeAllItemIdentifiers;
 - (void)_loadItemCountIfPendingInvalidation;
-- (void)_loadItemCount;
 - (unsigned long long)_generateShuffleIndexFromAvailableIndexSet;
 - (void)_commitPendingInvalidations;
 - (void)_clearPendingInvalidationInformation;

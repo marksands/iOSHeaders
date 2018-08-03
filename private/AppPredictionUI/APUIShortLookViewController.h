@@ -91,7 +91,9 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) struct CGRect finalFrameOfViewForPreview;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct CGRect initialFrameOfViewForPreview;
 @property(readonly) Class superclass;
 
 @end

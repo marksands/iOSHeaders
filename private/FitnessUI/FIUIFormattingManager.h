@@ -55,7 +55,8 @@
 - (double)roundedDailyMoveGoalForCalories:(double)arg1;
 - (id)localizedStringWithPersonHeight:(id)arg1 unitStyle:(long long)arg2;
 - (unsigned long long)userDistanceUnitForSwimmingLapLength;
-- (id)localizedDistinguishingPaceUnitStringWithMetricType:(unsigned long long)arg1 distanceType:(unsigned long long)arg2 distanceUnit:(unsigned long long)arg3 paceFormat:(long long)arg4;
+- (id)localizedDistinguishingPaceUnitStringWithMetricType:(unsigned long long)arg1 distanceType:(unsigned long long)arg2 distanceUnit:(unsigned long long)arg3 paceFormat:(long long)arg4 abbreviated:(_Bool)arg5;
+- (id)localizedPaceUnitStringWithDistanceType:(unsigned long long)arg1 distanceUnit:(unsigned long long)arg2 unitStyle:(long long)arg3;
 - (id)localizedPaceUnitStringWithDistanceType:(unsigned long long)arg1 distanceUnit:(unsigned long long)arg2;
 - (id)localizedSpeedUnitString;
 - (id)localizedShortTypeDistinguishingUnitStringForPowerType:(unsigned long long)arg1 unitString:(id)arg2;

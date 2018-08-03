@@ -23,7 +23,7 @@
 @property(readonly, nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(readonly, nonatomic) long long maskMode; // @synthesize maskMode=_maskMode;
 @property(readonly, nonatomic) double scale; // @synthesize scale=_scale;
-@property(readonly, nonatomic) __weak UIImage *rawImage; // @synthesize rawImage=_rawImage;
+@property(readonly, nonatomic) UIImage *rawImage; // @synthesize rawImage=_rawImage;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)hash;

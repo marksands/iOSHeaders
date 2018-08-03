@@ -51,6 +51,10 @@ struct NSDictionary {
     Class _field1;
 };
 
+struct NSString {
+    Class _field1;
+};
+
 struct REContentFeatureExtractor {
     struct _opaque_pthread_rwlock_t m_rwlock;
     struct REFancyShrinkingDictionary m_trueTopTokens;

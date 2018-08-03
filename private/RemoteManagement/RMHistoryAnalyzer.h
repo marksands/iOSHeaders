@@ -13,6 +13,7 @@
     NSPersistentHistoryToken *_finalToken;
 }
 
++ (id)_uninterestingAttributes;
 @property(readonly, nonatomic) NSPersistentHistoryToken *finalToken; // @synthesize finalToken=_finalToken;
 - (void).cxx_destruct;
 - (id)changesForStore:(id)arg1 inManagedObjectContext:(id)arg2 sinceToken:(id)arg3 error:(id *)arg4;

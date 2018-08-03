@@ -20,6 +20,7 @@
 @property(readonly, nonatomic) NSDate *creationDate;
 
 @optional
+@property(readonly, nonatomic) NSString *keyCommentGUID;
 @property(readonly, nonatomic) NSString *ownerEmail;
 @property(readonly, nonatomic) NSString *ownerLastName;
 @property(readonly, nonatomic) NSString *ownerFirstName;

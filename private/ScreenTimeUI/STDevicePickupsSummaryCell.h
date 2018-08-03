@@ -4,25 +4,22 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "PSTableCell.h"
+#import <ScreenTimeUI/STTableCell.h>
 
 @class STUsageGraphView, UILabel;
 
-@interface STDevicePickupsSummaryCell : PSTableCell
+@interface STDevicePickupsSummaryCell : STTableCell
 {
     UILabel *_averagePickupsLabel;
     UILabel *_averagePickupsTextLabel;
-    UILabel *_totalPickupsLabel;
     STUsageGraphView *_graphView;
 }
 
 @property(retain, nonatomic) STUsageGraphView *graphView; // @synthesize graphView=_graphView;
-@property(retain, nonatomic) UILabel *totalPickupsLabel; // @synthesize totalPickupsLabel=_totalPickupsLabel;
 @property(retain, nonatomic) UILabel *averagePickupsTextLabel; // @synthesize averagePickupsTextLabel=_averagePickupsTextLabel;
 @property(retain, nonatomic) UILabel *averagePickupsLabel; // @synthesize averagePickupsLabel=_averagePickupsLabel;
 - (void).cxx_destruct;
 - (void)setValue:(id)arg1;
-- (_Bool)canReload;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end

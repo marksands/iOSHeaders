@@ -33,7 +33,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 @property(readonly, copy) NSString *debugDescription;
-- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithAnchor:(id)arg1;
 -     // Error parsing type: 16@0:8, name: gazePoint
 // Error parsing type for property lookAtPoint:
 // Property attributes: T,R,N

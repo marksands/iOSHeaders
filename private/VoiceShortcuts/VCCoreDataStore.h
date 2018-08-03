@@ -41,7 +41,6 @@
 - (id)managedObjectsMatchingPredicate:(id)arg1 error:(id *)arg2;
 - (id)activeManagedObjectsMatchingPredicate:(id)arg1 sortDescriptors:(id)arg2 accessSpecifier:(id)arg3 error:(id *)arg4;
 - (id)activeManagedObjectsMatchingPredicate:(id)arg1 accessSpecifier:(id)arg2 error:(id *)arg3;
-- (_Bool)validateManagedObjectHasNoUserData:(id)arg1;
 - (_Bool)markManagedObjectAsDeleted:(id)arg1 error:(id *)arg2;
 - (id)markAsDeletedVoiceShortcutWithIdentifier:(id)arg1 accessSpecifier:(id)arg2 error:(id *)arg3;
 - (id)managedObjectFromAddingVoiceShortcut:(id)arg1 accessSpecifier:(id)arg2 error:(id *)arg3;

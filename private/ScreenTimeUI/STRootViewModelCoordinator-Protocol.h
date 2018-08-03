@@ -17,6 +17,7 @@
 @property(readonly) NSObject<STContentPrivacyViewModelCoordinator> *contentPrivacyCoordinator;
 @property(readonly, nonatomic) STAppInfoCache *appCache;
 @property(readonly, nonatomic) STRootViewModel *viewModel;
+- (void)setShareWebUsageEnabled:(_Bool)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)setScreenTimeEnabled:(_Bool)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)setPIN:(NSString *)arg1 screenTimeEnabled:(_Bool)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)setPIN:(NSString *)arg1 completionHandler:(void (^)(NSError *))arg2;

@@ -14,9 +14,11 @@ __attribute__((visibility("hidden")))
     NSDictionary *_defaultValues;
 }
 
+- (id)decodeTopLevelObjectOfClasses:(id)arg1 forKey:(id)arg2 error:(id *)arg3;
+- (id)decodeObjectOfClasses:(id)arg1 forKey:(id)arg2;
 - (id)decodeObjectForKey:(id)arg1;
 - (void)dealloc;
-- (id)initForReadingWithData:(id)arg1 defaultValues:(id)arg2;
+- (id)initForReadingWithData:(id)arg1 defaultValues:(id)arg2 requiresSecureCoding:(_Bool)arg3;
 
 @end
 

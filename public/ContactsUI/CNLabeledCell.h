@@ -15,7 +15,6 @@ __attribute__((visibility("hidden")))
     NSDictionary *_valueTextAttributes;
     _Bool _labelViewNeedsHuggingContent;
     _Bool _valueViewNeedsHuggingContent;
-    _Bool _valueViewNeedsLeadingPriority;
     UIImageView *_chevron;
 }
 
@@ -23,7 +22,6 @@ __attribute__((visibility("hidden")))
 + (_Bool)wantsStandardConstraints;
 + (_Bool)wantsChevron;
 @property(readonly, nonatomic) UIImageView *chevron; // @synthesize chevron=_chevron;
-@property(nonatomic) _Bool valueViewNeedsLeadingPriority; // @synthesize valueViewNeedsLeadingPriority=_valueViewNeedsLeadingPriority;
 @property(nonatomic) _Bool valueViewNeedsHuggingContent; // @synthesize valueViewNeedsHuggingContent=_valueViewNeedsHuggingContent;
 @property(nonatomic) _Bool labelViewNeedsHuggingContent; // @synthesize labelViewNeedsHuggingContent=_labelViewNeedsHuggingContent;
 - (void).cxx_destruct;

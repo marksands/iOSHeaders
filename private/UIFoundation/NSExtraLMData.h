@@ -54,7 +54,7 @@
         unsigned int isLiveScrolling:1;
         unsigned int hasCustomUnderlineColor:1;
         unsigned int applicationPlatformContext:3;
-        unsigned int allowsSecurityMeasures:1;
+        unsigned int limitsLayoutForSuspiciousContents:1;
         unsigned int reserved:5;
     } _lmFlags2;
     struct _NSGlyphIndexForPointCache _glyphIndexForPointCache;

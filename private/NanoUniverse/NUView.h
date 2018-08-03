@@ -8,17 +8,17 @@
 
 #import "CLKUIQuadViewDelegate.h"
 
-@class CLKDevice, CLKUIQuadView, EAGLContext, NSString, NUGLQuad, NUScene;
+@class CLKDevice, CLKUIQuadView, NSString, NUGLQuad, NUScene;
 
 @interface NUView : UIView <CLKUIQuadViewDelegate>
 {
     CLKDevice *_device;
-    EAGLContext *_context;
-    NUScene *_scene;
     CLKUIQuadView *_quadView;
     NUGLQuad *_quad;
+    id <NUViewDelegate> _delegate;
 }
 
+@property(nonatomic) __weak id <NUViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)quadViewWillDisplay:(id)arg1 forTime:(double)arg2;
 - (id)snapshot:(id)arg1 size:(struct CGSize)arg2;

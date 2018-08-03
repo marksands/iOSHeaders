@@ -19,6 +19,9 @@ __attribute__((visibility("hidden")))
     UIKeyboardDockItem *_centerDockItem;
 }
 
++ (id)dockViewHomeGestureExclusionZones;
++ (CDStruct_b7523c42)_itemFramesForBoundingSize:(struct CGSize)arg1;
++ (long long)_effectiveHandBias;
 @property(retain, nonatomic) UIKeyboardDockItem *centerDockItem; // @synthesize centerDockItem=_centerDockItem;
 @property(retain, nonatomic) UIKeyboardDockItem *rightDockItem; // @synthesize rightDockItem=_rightDockItem;
 @property(retain, nonatomic) UIKeyboardDockItem *leftDockItem; // @synthesize leftDockItem=_leftDockItem;
@@ -28,9 +31,12 @@ __attribute__((visibility("hidden")))
 - (id)_keyboardLayoutView;
 - (void)layoutSubviews;
 - (struct CGSize)intrinsicContentSize;
+- (void)_didReceiveHandBiasChangeNotification:(id)arg1;
 - (id)_dockItemWithButton:(id)arg1;
 - (void)_configureDockItem:(id)arg1;
 - (void)_dockItemButtonWasTapped:(id)arg1 withEvent:(id)arg2;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (void)dealloc;
 
 @end
 

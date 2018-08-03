@@ -57,6 +57,7 @@
 - (void)__deviceAddedToCurrentAccount:(id)arg1;
 @property(retain) HMDAccount *account; // @synthesize account=_account;
 @property(readonly) HMDAppleAccountContext *accountContext; // @synthesize accountContext=_accountContext;
+- (void)__handleMigrationUpdated:(id)arg1;
 - (void)__handleUpdatedName:(id)arg1;
 - (void)__handleRemovedAccount:(id)arg1;
 - (void)__handleModifiedAccount:(id)arg1;

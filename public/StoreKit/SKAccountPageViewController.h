@@ -30,7 +30,7 @@
 @property(retain, nonatomic) SKAccountPageViewController *preWarmedViewController; // @synthesize preWarmedViewController=_preWarmedViewController;
 @property(nonatomic) _Bool loadFromBridgedNavigation; // @synthesize loadFromBridgedNavigation=_loadFromBridgedNavigation;
 @property(retain, nonatomic) ACAccount *account; // @synthesize account=_account;
-@property(nonatomic) id <SKAccountPageViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <SKAccountPageViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_requestRemoteViewController;
 - (void)_setupRemoteViewController:(_Bool)arg1;

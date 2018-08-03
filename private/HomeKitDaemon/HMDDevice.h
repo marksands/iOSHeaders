@@ -13,10 +13,11 @@
 #import "HMFObject.h"
 #import "NSSecureCoding.h"
 
-@class HMDAccount, HMDDeviceCapabilities, HMDHomeKitVersion, HMFProductInfo, NSArray, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
+@class HMDAccount, HMDDeviceCapabilities, HMDHomeKitVersion, HMFProductInfo, HMFUnfairLock, NSArray, NSSet, NSString, NSUUID;
 
 @interface HMDDevice : HMFObject <HMFObject, HMFLogging, HMDBackingStoreObjectProtocol, HMDBackingStoreModelBackedObjectProtocol, HMFMerging, NSSecureCoding>
 {
+    HMFUnfairLock *_lock;
     NSSet *_handles;
     _Bool _dirty;
     _Bool _locallyTracked;
@@ -29,7 +30,6 @@
     NSUUID *_idsIdentifierHash;
     NSUUID *_modelIdentifier;
     NSUUID *_identifier;
-    NSObject<OS_dispatch_queue> *_propertyQueue;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -39,7 +39,6 @@
 + (id)destinationForDevice:(id)arg1 service:(id)arg2;
 @property(getter=isCloudTracked) _Bool cloudTracked; // @synthesize cloudTracked=_cloudTracked;
 @property(getter=isLocallyTracked) _Bool locallyTracked; // @synthesize locallyTracked=_locallyTracked;
-@property(readonly) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, copy) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) NSUUID *modelIdentifier; // @synthesize modelIdentifier=_modelIdentifier;
 - (void).cxx_destruct;

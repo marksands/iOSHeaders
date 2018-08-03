@@ -12,14 +12,16 @@
 
 @interface AVTViewCarouselLayout : NSObject <AVTViewCarouselLayout>
 {
+    struct CGSize _avtViewAspectRatio;
 }
 
 + (struct CGSize)fullSizeForBounds:(struct CGSize)arg1;
-+ (struct CGSize)severalItemsSizeForBounds:(struct CGSize)arg1;
-+ (id)adaptativeLayout;
++ (struct CGSize)severalItemsSizeForBounds:(struct CGSize)arg1 aspectRatio:(struct CGSize)arg2;
++ (id)adaptativeLayoutWithAVTViewAspectRatio:(struct CGSize)arg1;
+@property(readonly, nonatomic) struct CGSize avtViewAspectRatio; // @synthesize avtViewAspectRatio=_avtViewAspectRatio;
 - (struct CGSize)contentViewSizeForSize:(struct CGSize)arg1;
 - (struct CGSize)avatarViewSizeForAvailableContentSize:(struct CGSize)arg1;
-- (id)init;
+- (id)initWithAVTViewAspectRatio:(struct CGSize)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

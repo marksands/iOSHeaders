@@ -380,7 +380,7 @@
 - (void)annotationContainerDidFinishMapsTransitionExpanding:(id)arg1;
 - (void)annotationContainerDidAnimateBubble:(id)arg1;
 - (void)annotationContainerWillAnimateBubble:(id)arg1;
-- (void)annotationContainer:(id)arg1 requestRemovingClusterAnnotationView:(id)arg2;
+- (void)annotationContainer:(id)arg1 requestRemovingClusterAnnotationView:(id)arg2 updateVisible:(_Bool)arg3;
 - (id)annotationContainer:(id)arg1 requestAddingClusterForAnnotationViews:(id)arg2;
 - (void)annotationContainer:(id)arg1 scrollToRevealCalloutWithOffset:(struct CGPoint)arg2 annotationCoordinate:(struct CLLocationCoordinate2D)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (_Bool)annotationContainerShouldAlignToPixels:(id)arg1;

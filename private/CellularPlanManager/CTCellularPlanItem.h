@@ -35,7 +35,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) NSUUID *companionSlotUuid; // @synthesize companionSlotUuid=_companionSlotUuid;
+@property(copy, nonatomic) NSUUID *companionSlotUuid; // @synthesize companionSlotUuid=_companionSlotUuid;
 @property(nonatomic) _Bool isSelectable; // @synthesize isSelectable=_isSelectable;
 @property(retain, nonatomic) NSNumber *isSelectedOverride; // @synthesize isSelectedOverride=_isSelectedOverride;
 @property(nonatomic) CTUserLabel *userLabel; // @synthesize userLabel=_userLabel;

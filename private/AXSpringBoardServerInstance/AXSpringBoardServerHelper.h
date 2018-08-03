@@ -18,7 +18,6 @@
     NSMutableArray *_visibleTripleClickItems;
     _Bool _shouldOverrideInterfaceOrientation;
     NSMutableArray *_notificationObservers;
-    _Bool _hearingShortcutSupported;
     AXSpringBoardServerAlertManager *_alertManager;
     UIAlertController *_alertControllerToDismissAfterPresentation;
     AXAssertion *_disableSystemGesturesAssertionForAlert;
@@ -62,7 +61,6 @@
 - (void)activeInterfaceOrientationWillChangeToOrientation:(long long)arg1;
 - (void)didFailToPinAppForSideAppManager:(id)arg1;
 - (void)didFailToFloatAppForSideAppManager:(id)arg1;
-- (void)_updateHearingShortcutSupport;
 - (_Bool)_accessibilityHandleHomeOrLockButtonPress;
 - (void)_handleConfirmRebootDevice;
 - (void)_handleZoomInBuddyAlert;
@@ -173,6 +171,7 @@
 - (_Bool)isNotificationCenterVisibleWithServerInstance:(id)arg1;
 - (void)toggleNotificationCenterWithServerInstance:(id)arg1;
 - (_Bool)isNotificationVisibleWithServerInstance:(id)arg1;
+- (_Bool)isScreenshotWindowVisibleWithServerInstance:(id)arg1;
 - (void)armApplePayWithServerInstance:(id)arg1;
 - (void)openVoiceControlWithServerInstance:(id)arg1;
 - (_Bool)dismissSiriWithServerInstance:(id)arg1;

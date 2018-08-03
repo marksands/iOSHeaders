@@ -17,6 +17,10 @@
 + (void)_configureCardInfo:(id)arg1 forINInteraction:(id)arg2 withConfig:(id)arg3;
 + (id)_generateCardSectionWithInfo:(id)arg1 config:(id)arg2;
 + (unsigned long long)_searchUIStyleForAPUIStyle:(unsigned long long)arg1;
++ (id)cardViewReuseIdentifier;
++ (_Bool)updateCardView:(id)arg1 forNSUserActivity:(id)arg2 withConfig:(id)arg3;
++ (_Bool)updateCardView:(id)arg1 forINInteraction:(id)arg2 withConfig:(id)arg3;
++ (_Bool)updateCardView:(id)arg1 forINIntent:(id)arg2 withConfig:(id)arg3;
 + (id)cardViewForVoiceShortcutWithPhrase:(id)arg1 name:(id)arg2 description:(id)arg3 keyImage:(id)arg4 applicationBundleIdentifier:(id)arg5 config:(id)arg6;
 + (id)cardViewForVoiceShortcutWithPhrase:(id)arg1 name:(id)arg2 description:(id)arg3 applicationBundleIdentifier:(id)arg4 config:(id)arg5;
 + (id)cardViewForINIntent:(id)arg1 withConfig:(id)arg2;
@@ -30,6 +34,7 @@
 + (id)cardSectionForINInteraction:(id)arg1 withConfig:(id)arg2;
 + (id)cardSectionForNSUserActivity:(id)arg1 withConfig:(id)arg2;
 + (id)cardSectionForATXAction:(id)arg1 withConfig:(id)arg2;
++ (void)initialize;
 
 @end
 

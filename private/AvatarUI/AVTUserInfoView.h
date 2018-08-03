@@ -24,6 +24,7 @@
 @property(retain, nonatomic) _UIBackdropViewSettings *backdropSettings; // @synthesize backdropSettings=_backdropSettings;
 @property(nonatomic) struct NSDirectionalEdgeInsets textInsets; // @synthesize textInsets=_textInsets;
 - (void).cxx_destruct;
+- (void)contentSizeCategoryDidChange:(id)arg1;
 - (void)layoutSubviews;
 - (void)updateConstraints;
 @property(retain, nonatomic) NSString *text;

@@ -390,6 +390,7 @@
 - (void)setNeedsReload;
 - (_Bool)contactViewController:(id)arg1 shouldPerformDefaultActionForContact:(id)arg2 propertyKey:(id)arg3 propertyIdentifier:(id)arg4;
 - (void)contactViewController:(id)arg1 didDeleteContact:(id)arg2;
+- (_Bool)shouldShowActionsForAvatarView:(id)arg1;
 - (id)viewControllerForHeaderView:(id)arg1;
 - (void)headerPhotoDidSaveEditsForImageDrop;
 - (void)headerViewDidUpdateLabelSizes;

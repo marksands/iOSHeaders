@@ -33,7 +33,7 @@
 @property(retain, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
 - (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3;
-- (double)preferredHeightForWidth:(double)arg1;
+- (double)preferredHeightForWidth:(double)arg1 inTableView:(id)arg2;
 - (_Bool)isValidLinkRange;
 - (void)_linkify;
 - (void)updateConstraints;

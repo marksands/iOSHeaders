@@ -48,6 +48,7 @@
 - (id)optinLocalizationBundle;
 - (id)optinLocalizationStringsFile;
 - (void)viewDidLayoutSubviews;
+- (double)suggestedChoicePillDetailTextLabelVerticalOffset;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (double)noHWDetailOffset;

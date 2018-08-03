@@ -118,6 +118,7 @@
 - (void)allDayViewDidLayoutSubviews:(id)arg1;
 - (void)allDayView:(id)arg1 didSelectEvent:(id)arg2;
 - (void)reloadDataWithCompletion:(CDUnknownBlockType)arg1;
+- (void)reloadDataSynchronously;
 - (void)reloadData;
 - (void)relayoutExistingTimedOccurrences;
 - (void)setScrollerYInset:(double)arg1 keepingYPointVisible:(double)arg2;

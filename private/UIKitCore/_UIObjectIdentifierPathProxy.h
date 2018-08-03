@@ -6,18 +6,21 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface _UIObjectIdentifierPathProxy : NSObject
+@interface _UIObjectIdentifierPathProxy : NSObject <NSSecureCoding>
 {
     NSString *_identifierPath;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void)dealloc;
 - (id)description;
-- (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithObject:(id)arg1;
 
 @end

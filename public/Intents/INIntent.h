@@ -45,7 +45,6 @@
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
 - (id)valueForKey:(id)arg1;
-@property(readonly, copy, nonatomic) NSArray *_associatedImageAttributes;
 @property(readonly, nonatomic) NSOrderedSet *_displayOrderedAttributes;
 @property(readonly, nonatomic) NSArray *_codableAttributes;
 - (id)_inCodable;
@@ -79,6 +78,7 @@
 - (id)_validParameterCombinationsWithSchema:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *_validParameterCombinations;
 @property(copy, nonatomic, getter=_parameterImages, setter=_setParameterImages:) NSArray *parameterImages;
+@property(readonly, copy, nonatomic, getter=_sortedParameterImages) NSArray *sortedParameterImages;
 - (id)_imageForParameter:(id)arg1;
 - (void)_setImage:(id)arg1 forParameter:(id)arg2;
 - (id)keyImage;
@@ -107,6 +107,7 @@
 - (id)init;
 - (void)_injectProxiesForImages:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_injectProxiesForImagesUsingIntentSlotDescriptionStrategy:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_injectProxiesForParameterImages:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_injectProxyForDefaultImage:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_injectProxiesForImagesUsingCustomCodableStrategy:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly) long long _intents_toggleState;
@@ -127,7 +128,6 @@
 - (id)_intents_launchIdForCurrentPlatform;
 - (long long)_compareSubProducerOne:(id)arg1 subProducerTwo:(id)arg2;
 @property(readonly) INImage *_keyImage;
-- (id)_keyImageWithCustomCodableStrategy;
 - (id)_keyImageWithIntentDescriptionStrategy;
 
 // Remaining properties

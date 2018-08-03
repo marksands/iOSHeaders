@@ -84,6 +84,7 @@
 - (_Bool)_isRotating;
 @property(nonatomic, getter=_usesExtraWidePrimaryColumn, setter=_setUsesExtraWidePrimaryColumn:) _Bool usesExtraWidePrimaryColumn;
 @property(nonatomic, getter=_usesDeviceOverlayPreferences, setter=_setUsesDeviceOverlayPreferences:) _Bool usesDeviceOverlayPreferences;
+@property(nonatomic, getter=_prefersOverlayInRegularWidthPhone, setter=_setPrefersOverlayInRegularWidthPhone:) _Bool prefersOverlayInRegularWidthPhone;
 - (id)detailViewController;
 - (id)masterViewController;
 - (_Bool)_isCollapsed;

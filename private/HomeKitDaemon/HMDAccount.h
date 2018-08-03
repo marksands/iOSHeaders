@@ -13,15 +13,15 @@
 #import "NSFastEnumeration.h"
 #import "NSSecureCoding.h"
 
-@class CNContact, HMDAccountIdentifier, NSArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
+@class CNContact, HMDAccountIdentifier, HMFUnfairLock, NSArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
 @interface HMDAccount : HMFObject <HMFLogging, HMFMerging, HMDBackingStoreObjectProtocol, HMDBackingStoreModelBackedObjectProtocol, NSFastEnumeration, NSSecureCoding>
 {
+    NSObject<OS_dispatch_queue> *_queue;
+    HMFUnfairLock *_lock;
     NSSet *_handles;
     NSMutableSet *_devices;
     HMDAccountIdentifier *_identifier;
-    NSObject<OS_dispatch_queue> *_clientQueue;
-    NSObject<OS_dispatch_queue> *_propertyQueue;
     id <HMDAccountManager> _manager;
 }
 
@@ -30,8 +30,6 @@
 + (id)accountWithHandle:(id)arg1;
 + (id)accountWithDestination:(id)arg1;
 @property __weak id <HMDAccountManager> manager; // @synthesize manager=_manager;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(readonly, copy) HMDAccountIdentifier *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (id)modelBackedObjects;

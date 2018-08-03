@@ -50,6 +50,8 @@
 - (void)notificationViewControllerDidPresent:(id)arg1;
 - (void)notificationViewControllerWillPresent:(id)arg1;
 - (void)viewControllerAnimator:(id)arg1 didEndPresentationAnimation:(_Bool)arg2 withTransitionContext:(id)arg3;
+@property(readonly, nonatomic) struct CGRect finalFrameOfViewForPreview;
+@property(readonly, nonatomic) struct CGRect initialFrameOfViewForPreview;
 @property(readonly, nonatomic) PLPreviewInteractionManager *previewInteractionManager; // @synthesize previewInteractionManager=_previewInteractionManager;
 @property(readonly, nonatomic) UIView *viewForPreview;
 - (void)previewInteractionManager:(id)arg1 declinedDismissingPresentedContentWithTrigger:(long long)arg2;

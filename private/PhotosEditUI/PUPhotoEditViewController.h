@@ -165,6 +165,7 @@
 + (_Bool)_isForceTouchEnabled;
 + (double)toggleOriginalLongPressDelay;
 + (_Bool)_shouldForwardViewWillTransitionToSize;
++ (id)photoEditLog;
 @property(copy) CDUnknownBlockType ppt_didEndPlaybackBlock; // @synthesize ppt_didEndPlaybackBlock=_ppt_didEndPlaybackBlock;
 @property(copy) CDUnknownBlockType ppt_willBeginPlaybackBlock; // @synthesize ppt_willBeginPlaybackBlock=_ppt_willBeginPlaybackBlock;
 @property(copy) CDUnknownBlockType ppt_afterAutoenhanceBlock; // @synthesize ppt_afterAutoenhanceBlock=_ppt_afterAutoenhanceBlock;
@@ -392,7 +393,6 @@
 - (void)_updateProgressIndicatorAnimated:(_Bool)arg1;
 - (struct UIEdgeInsets)_mediaViewEdgeInsets;
 - (struct UIEdgeInsets)_currentToolPreviewInsets;
-- (double)_mediaToolbarHeight;
 - (void)_updateMediaViewEdgeInsets;
 - (void)_updateMediaViewLayoutWithCoordinator:(id)arg1 layoutOrientation:(long long)arg2;
 - (void)_updateLightingNameBadgeForOrientation:(long long)arg1 expanded:(_Bool)arg2;

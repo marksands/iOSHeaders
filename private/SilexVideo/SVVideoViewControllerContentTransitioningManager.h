@@ -18,11 +18,11 @@
     id <SVPlayerProviding> _playerProvider;
     id <SVVideoVisiblePercentageManager> _visiblePercentageManager;
     id <SVVideoSkipLockObserverFactory> _skipLockObserverFactory;
-    id <SVVideoPlaybackProgressObserverFactory> _progressObserverFactory;
+    id <SVVideoTimeProviderFactory> _timeProviderFactory;
     id <SVVideoPlaybackSeekerFactory> _seekerFactory;
     id <SVScrubbingPolicyHandling> _scrubbingPolicy;
     id <SVVideoSkipLockObserving> _skipLockObserver;
-    id <SVVideoPlaybackProgressObserving> _progressObserver;
+    id <SVVideoTimeProviding> _timeProvider;
     id <SVVideoPlaybackSeeking> _seeker;
     id <SVVisiblePercentageReporting> _visibilityReporterForAppearingVideo;
     id <SVVisiblePercentageReporting> _visibilityReporterForDisappearingVideo;
@@ -31,11 +31,11 @@
 @property(nonatomic) __weak id <SVVisiblePercentageReporting> visibilityReporterForDisappearingVideo; // @synthesize visibilityReporterForDisappearingVideo=_visibilityReporterForDisappearingVideo;
 @property(nonatomic) __weak id <SVVisiblePercentageReporting> visibilityReporterForAppearingVideo; // @synthesize visibilityReporterForAppearingVideo=_visibilityReporterForAppearingVideo;
 @property(retain, nonatomic) id <SVVideoPlaybackSeeking> seeker; // @synthesize seeker=_seeker;
-@property(retain, nonatomic) id <SVVideoPlaybackProgressObserving> progressObserver; // @synthesize progressObserver=_progressObserver;
+@property(retain, nonatomic) id <SVVideoTimeProviding> timeProvider; // @synthesize timeProvider=_timeProvider;
 @property(retain, nonatomic) id <SVVideoSkipLockObserving> skipLockObserver; // @synthesize skipLockObserver=_skipLockObserver;
 @property(readonly, nonatomic) id <SVScrubbingPolicyHandling> scrubbingPolicy; // @synthesize scrubbingPolicy=_scrubbingPolicy;
 @property(readonly, nonatomic) id <SVVideoPlaybackSeekerFactory> seekerFactory; // @synthesize seekerFactory=_seekerFactory;
-@property(readonly, nonatomic) id <SVVideoPlaybackProgressObserverFactory> progressObserverFactory; // @synthesize progressObserverFactory=_progressObserverFactory;
+@property(readonly, nonatomic) id <SVVideoTimeProviderFactory> timeProviderFactory; // @synthesize timeProviderFactory=_timeProviderFactory;
 @property(readonly, nonatomic) id <SVVideoSkipLockObserverFactory> skipLockObserverFactory; // @synthesize skipLockObserverFactory=_skipLockObserverFactory;
 @property(readonly, nonatomic) id <SVVideoVisiblePercentageManager> visiblePercentageManager; // @synthesize visiblePercentageManager=_visiblePercentageManager;
 @property(readonly, nonatomic) id <SVPlayerProviding> playerProvider; // @synthesize playerProvider=_playerProvider;
@@ -51,7 +51,7 @@
 - (void)playerViewControllerWillCancelContentTransition:(id)arg1;
 - (void)playerViewController:(id)arg1 didUpdateContentTransitionProgress:(double)arg2;
 - (void)playerViewControllerWillBeginContentTransition:(id)arg1;
-- (id)initWithVisiblePercentageManager:(id)arg1 visibilityReporter:(id)arg2 queueProvider:(id)arg3 playerProvider:(id)arg4 skipLockObserverFactory:(id)arg5 progressObserverFactory:(id)arg6 seekerFactory:(id)arg7 scrubbingPolicy:(id)arg8;
+- (id)initWithVisiblePercentageManager:(id)arg1 visibilityReporter:(id)arg2 queueProvider:(id)arg3 playerProvider:(id)arg4 skipLockObserverFactory:(id)arg5 timeProviderFactory:(id)arg6 seekerFactory:(id)arg7 scrubbingPolicy:(id)arg8;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

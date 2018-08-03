@@ -37,6 +37,7 @@
 @property(readonly, nonatomic) RCCompositionFragment *destinationFragment; // @synthesize destinationFragment=_destinationFragment;
 @property(readonly, nonatomic) RCComposition *destinationComposition; // @synthesize destinationComposition=_destinationComposition;
 - (void).cxx_destruct;
+- (_Bool)shouldMergeLiveWaveform;
 - (void)_truncateAccumulatedWaveformSegmentsToEndTime:(double)arg1;
 - (void)_extendAccumulatedWaveformSegmentsToMatchFinalDuration:(double)arg1;
 - (void)_modifyAccumulatedWaveformSegmentsToMatchFinalDuration:(double)arg1;

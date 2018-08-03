@@ -20,12 +20,8 @@
     long long _maxLinesForTitle;
     long long _maxLinesForSubtitle;
     long long _maxLinesForFootnote;
-    NSString *_title;
-    NSString *_subtitle;
 }
 
-@property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) long long maxLinesForFootnote; // @synthesize maxLinesForFootnote=_maxLinesForFootnote;
 @property(nonatomic) long long maxLinesForSubtitle; // @synthesize maxLinesForSubtitle=_maxLinesForSubtitle;
 @property(nonatomic) long long maxLinesForTitle; // @synthesize maxLinesForTitle=_maxLinesForTitle;

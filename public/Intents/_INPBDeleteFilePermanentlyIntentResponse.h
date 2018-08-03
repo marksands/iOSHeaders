@@ -6,14 +6,13 @@
 
 #import "PBCodable.h"
 
-#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 #import "_INPBDeleteFilePermanentlyIntentResponse.h"
 
-@class INCodableAttribute, NSString;
+@class NSString;
 
-@interface _INPBDeleteFilePermanentlyIntentResponse : PBCodable <_INPBDeleteFilePermanentlyIntentResponse, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
+@interface _INPBDeleteFilePermanentlyIntentResponse : PBCodable <_INPBDeleteFilePermanentlyIntentResponse, NSSecureCoding, NSCopying>
 {
     struct {
         unsigned int confirm:1;
@@ -21,13 +20,10 @@
     } _has;
     _Bool _confirm;
     _Bool _success;
-    INCodableAttribute *_associatedCodableAttribute;
 }
 
-@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(nonatomic) _Bool success; // @synthesize success=_success;
 @property(nonatomic) _Bool confirm; // @synthesize confirm=_confirm;
-- (void).cxx_destruct;
 - (id)dictionaryRepresentation;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;

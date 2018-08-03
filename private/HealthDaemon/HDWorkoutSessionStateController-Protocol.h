@@ -11,6 +11,7 @@
 - (_Bool)storeSessionControllerState:(NSData *)arg1 forRecoveryIdentifier:(NSString *)arg2 error:(id *)arg3;
 - (void)generateError:(NSError *)arg1;
 - (void)generateEvent:(_HKWorkoutEvent *)arg1;
+- (void)finishAggregationWithDate:(NSDate *)arg1;
 - (void)finish;
 - (void)endHeartRateRecovery;
 - (void)autoResumeWithDate:(NSDate *)arg1;

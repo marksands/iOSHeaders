@@ -23,6 +23,7 @@
     NSOperationQueue *_fragmentLoadingOperationQueue;
 }
 
++ (id)fragmentLoadingOperationQueue;
 @property(retain, nonatomic) NSOperationQueue *fragmentLoadingOperationQueue; // @synthesize fragmentLoadingOperationQueue=_fragmentLoadingOperationQueue;
 @property(nonatomic) _Bool highlightLastDecomposedFragment; // @synthesize highlightLastDecomposedFragment=_highlightLastDecomposedFragment;
 @property(nonatomic) _Bool saveGeneratedWaveform; // @synthesize saveGeneratedWaveform=_saveGeneratedWaveform;

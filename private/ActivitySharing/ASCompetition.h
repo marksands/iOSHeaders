@@ -20,12 +20,14 @@
     NSDateComponents *_startDateComponents;
     NSDateComponents *_durationDateComponents;
     NSArray *_preferredVictoryBadgeStyles;
+    unsigned long long _maximumNumberOfPointsPerDay;
     NSDate *_currentDateOverride;
 }
 
 + (id)competitionWithCodableCompetition:(id)arg1;
 + (id)codableDatabaseCompetitionsFromCompetitions:(id)arg1 withFriendWithUUID:(id)arg2 withType:(long long)arg3;
 @property(retain, nonatomic) NSDate *currentDateOverride; // @synthesize currentDateOverride=_currentDateOverride;
+@property(nonatomic) unsigned long long maximumNumberOfPointsPerDay; // @synthesize maximumNumberOfPointsPerDay=_maximumNumberOfPointsPerDay;
 @property(retain, nonatomic) NSArray *preferredVictoryBadgeStyles; // @synthesize preferredVictoryBadgeStyles=_preferredVictoryBadgeStyles;
 @property(retain, nonatomic) NSDateComponents *durationDateComponents; // @synthesize durationDateComponents=_durationDateComponents;
 @property(retain, nonatomic) NSDateComponents *startDateComponents; // @synthesize startDateComponents=_startDateComponents;
@@ -42,6 +44,7 @@
 @property(readonly, nonatomic) _Bool hasCalculatedFinalScore;
 - (_Bool)isParticipantWinning:(long long)arg1;
 - (id)daysWonByParticipant:(long long)arg1;
+- (unsigned long long)dailyScoreForParticipant:(long long)arg1 onDate:(id)arg2;
 @property(readonly, nonatomic) _Bool isScoreTied;
 @property(readonly, nonatomic) unsigned long long opponentDailyAverageScore;
 @property(readonly, nonatomic) unsigned long long opponentTotalScore;
@@ -56,6 +59,7 @@
 @property(readonly, nonatomic) NSDate *endDate;
 @property(readonly, nonatomic) NSDate *startDate;
 @property(readonly, nonatomic) unsigned int victoryBadgeStyle;
+@property(readonly, nonatomic) _Bool isDailyScoreCapped;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;

@@ -16,12 +16,12 @@
     NSString *_identifier;
 }
 
-@property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithName:(id)arg1 identifier:(id)arg2;
 - (id)initWithDevice:(id)arg1;
-- (id)init;
 
 @end
 

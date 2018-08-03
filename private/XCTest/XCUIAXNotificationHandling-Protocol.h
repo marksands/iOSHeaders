@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-@class NSData;
+@class NSData, XCAccessibilityElement;
 
 @protocol XCUIAXNotificationHandling <NSObject>
-- (void)handleAccessibilityNotification:(long long)arg1 withPayload:(NSData *)arg2;
+- (void)handleAccessibilityNotification:(long long)arg1 fromElement:(XCAccessibilityElement *)arg2 payload:(NSData *)arg3;
 @end
 

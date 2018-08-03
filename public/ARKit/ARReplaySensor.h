@@ -21,6 +21,7 @@
     NSMutableArray *_arDeviceOrientationData;
     CDUnknownBlockType _customDataGetter;
     NSDictionary *_recordedResultGetters;
+    double _originalToReplayTimestampDifference;
     NSObject<OS_dispatch_queue> *_replayQueue;
     NSObject<OS_dispatch_source> *_timer;
     double _startTime;
@@ -45,6 +46,9 @@
     AVAssetReaderOutputMetadataAdaptor *_accelOutputMetadataAdaptor;
     AVAssetReaderOutputMetadataAdaptor *_gyroOutputMetadataAdaptor;
     AVAssetReaderOutputMetadataAdaptor *_imageOutputMetadataAdaptor;
+    AVAssetReaderOutputMetadataAdaptor *_accelOutputMetadataAdaptor_CV3D;
+    AVAssetReaderOutputMetadataAdaptor *_gyroOutputMetadataAdaptor_CV3D;
+    AVAssetReaderOutputMetadataAdaptor *_imageOutputMetadataAdaptor_CV3D;
     AVAssetReaderOutputMetadataAdaptor *_deviceOrientationOutputMetadataAdaptor;
     AVAssetReaderOutputMetadataAdaptor *_customDataOutputMetadataAdaptor;
     NSDictionary *_recordedResultAdaptors;
@@ -93,6 +97,7 @@
 - (struct __CVBuffer *)requestNextDepthPixelBufferForTimestamp:(double)arg1;
 - (struct __CVBuffer *)requestNextPixelBufferForTimestamp:(double)arg1;
 - (void)enumerateDataWithIdentifier:(id)arg1 inOutputAdaptor:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (id)unpackTimestampedCV3DDictionaryItemsOfClass:(Class)arg1 withIdentifier:(id)arg2 inOutputAdaptor:(id)arg3;
 - (id)unpackTimestampedItemsOfClasses:(id)arg1 withIdentifier:(id)arg2 inOutputAdaptor:(id)arg3;
 - (id)unpackItemsOfClass:(Class)arg1 withIdentifier:(id)arg2 inOutputAdaptor:(id)arg3;
 - (CDUnknownBlockType)createResultForTimestampGetterBlockFromTimestampedResults:(id)arg1;

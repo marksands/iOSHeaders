@@ -34,7 +34,6 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)redactedDescription;
 - (id)description;
 @property(readonly, copy) NSString *helpAnchor;
 @property(readonly) id recoveryAttempter;
@@ -55,8 +54,8 @@
 - (id)init;
 - (id)_cocoaErrorString:(id)arg1;
 - (id)_cocoaErrorString:(id)arg1 fromBundle:(id)arg2 tableName:(id)arg3;
-- (id)_formatCocoaErrorString:(id)arg1 parameters:(const char *)arg2 applicableFormatters:(struct **)arg3 count:(long long)arg4;
-- (long long)_collectApplicableUserInfoFormatters:(struct **)arg1 max:(long long)arg2;
+- (id)_formatCocoaErrorString:(id)arg1 parameters:(const char *)arg2 applicableFormatters:(CDStruct_183601bc **)arg3 count:(long long)arg4;
+- (long long)_collectApplicableUserInfoFormatters:(CDStruct_183601bc **)arg1 max:(long long)arg2;
 - (id)_web_failingURL;
 - (id)_web_localizedDescription;
 - (_Bool)_web_errorIsInDomain:(id)arg1;

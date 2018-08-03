@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldOverrideEffectsFramerate:(unsigned int *)arg1;
 @property(readonly) _Bool forceDisableMediaStalled;
 @property(readonly) _Bool forceDisableVideoDegraded;
+@property(readonly) float depthFrameRateMultiplier;
 @property(readonly) _Bool forceDynamicEffectsFramerate;
 @property(readonly) _Bool forceDisableFaceZoom;
 @property(readonly) unsigned int multiwayVideoNetworkBitrateCapCellular;
@@ -114,6 +115,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) _Bool enableVPBLogging;
 @property(readonly) int enable2vuyCapture;
 @property(readonly) _Bool enableBitstreamCapture;
+@property(readonly) _Bool forceDisablePearlCamera;
 @property(readonly) _Bool forceMirroredCapture;
 @property(readonly) _Bool forceARCapture;
 @property(readonly) int forceKeyFrameInterval;

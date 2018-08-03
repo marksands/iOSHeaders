@@ -16,9 +16,17 @@
 }
 
 + (id)_thumbnailWidthInterpolator;
++ (_Bool)cellLabelTextNeedsMultipleLines:(id)arg1 cellWidth:(double)arg2;
 + (id)attributedStringForCellLabelWithString:(id)arg1;
++ (double)_calculateHeightNeededForTextLabelWithNumberOfLines:(unsigned long long)arg1;
++ (double)expectedNumberOfCellsVisibleWithAccessibilityText:(_Bool)arg1 withInset:(struct UIEdgeInsets)arg2 cellSpacing:(double)arg3 screenWidth:(double)arg4;
++ (struct CGSize)_thumbnailSizeWithMetric:(double)arg1;
++ (struct CGSize)thumbnailSizeForAccessibilityTextUsingCollectionInset:(struct UIEdgeInsets)arg1 cellSpacing:(double)arg2 screenWidth:(double)arg3;
 + (struct CGSize)thumbnailSize;
-+ (struct CGSize)cellSizeWithTextLabel:(_Bool)arg1;
++ (struct CGSize)cellSizeForAccessibilityTextWithTextLabelNumberOfLines:(unsigned long long)arg1 collectionInset:(struct UIEdgeInsets)arg2 collectionCellSpacing:(double)arg3 screenWidth:(double)arg4;
++ (struct CGSize)cellSizeForAccessibilityTextWithoutTextLabelUsingCollectionInset:(struct UIEdgeInsets)arg1 collectionCellSpacing:(double)arg2 screenWidth:(double)arg3;
++ (struct CGSize)cellSizeWithTextLabelNumberOfLines:(unsigned long long)arg1;
++ (struct CGSize)cellSizeWithoutTextLabel;
 + (id)reuseIdentifier;
 @property(readonly, nonatomic) PXRoundedCornerOverlayView *imageCornerOverlayView; // @synthesize imageCornerOverlayView=_imageCornerOverlayView;
 @property(retain, nonatomic) UILabel *textLabel; // @synthesize textLabel=_textLabel;

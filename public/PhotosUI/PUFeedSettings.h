@@ -25,6 +25,7 @@
     _Bool _simulateSharedStreamsEnabled;
     _Bool _vitalityEnabled;
     _Bool _showGroupIDHeaders;
+    _Bool _loopsEnabled;
     double _smallTileSizeTolerance;
     long long _maximumScrollRegimeForQualityImageFormats;
     double _speedometerMediumUpperThreshold;
@@ -46,6 +47,7 @@
 + (id)_localizedStrings;
 + (id)settingsControllerModule;
 + (id)sharedInstance;
+@property(nonatomic) _Bool loopsEnabled; // @synthesize loopsEnabled=_loopsEnabled;
 @property(nonatomic) _Bool showGroupIDHeaders; // @synthesize showGroupIDHeaders=_showGroupIDHeaders;
 @property(nonatomic) _Bool vitalityEnabled; // @synthesize vitalityEnabled=_vitalityEnabled;
 @property(nonatomic) _Bool simulateSharedStreamsEnabled; // @synthesize simulateSharedStreamsEnabled=_simulateSharedStreamsEnabled;

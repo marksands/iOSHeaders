@@ -808,6 +808,7 @@
 - (void)deactivateLayout;
 - (void)clearLayouts;
 @property(retain, nonatomic) TIKeyboardLayout *layoutForKeyHitTest;
+- (_Bool)suppressOptOutASPCandidateUpdateForDelegate:(id)arg1;
 - (void)trackResponderForAutofillIfNeeded:(id)arg1;
 - (void)handleAutofillCredentialSaveIfNeeded:(id)arg1;
 - (void)removeASPVisualEffectsIfNecessary:(id)arg1;

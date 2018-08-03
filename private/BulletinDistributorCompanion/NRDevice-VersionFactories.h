@@ -7,6 +7,7 @@
 #import "NRDevice.h"
 
 @interface NRDevice (VersionFactories)
++ (_Bool)activePairedDeviceSupportsUserNotificationListDestination;
 + (_Bool)activePairedDeviceSupportsAuthorizationStatusLockScreenAndNCSettings;
 + (_Bool)activePairedDeviceSupportsDisplayingSubtitle;
 + (_Bool)activePairedDeviceSupportsSiriActionAppList;

@@ -33,8 +33,9 @@
 - (id)_endpointURLForEnvironment:(unsigned long long)arg1;
 - (void)_fetchMultiConfigurationFromEndpointURL:(id)arg1 settings:(id)arg2 changeTagsByRequestKey:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (_Bool)_isAllowedToReachEndpointWithSettings:(id)arg1 configurationResource:(id)arg2 endpointURL:(id)arg3;
-- (_Bool)_isValidConfigurationResource:(id)arg1 allowedToReachEndpoint:(_Bool)arg2;
-- (_Bool)_areConfigurationResourcesValid:(id)arg1 allowedToReachEndpoint:(_Bool)arg2 requestKeys:(id)arg3;
+- (_Bool)_isValidConfigurationResource:(id)arg1 allowedToReachEndpoint:(_Bool)arg2 useBackgroundRefreshRate:(_Bool)arg3;
+- (_Bool)_areAllConfigurationResourcesInvalid:(id)arg1 allowedToReachEndpoint:(_Bool)arg2 useBackgroundRefreshRate:(_Bool)arg3 requestKeys:(id)arg4;
+- (_Bool)_areAllConfigurationResourcesAvailable:(id)arg1 requestKeys:(id)arg2;
 - (void)fetchMultiConfigurationWithSettings:(id)arg1 completionQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)fetchConfigurationWithSettings:(id)arg1 completionQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)fetchSingleConfigurationWithSettings:(id)arg1 completionQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;

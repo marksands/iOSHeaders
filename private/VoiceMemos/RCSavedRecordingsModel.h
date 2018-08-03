@@ -34,6 +34,7 @@
 + (void)determineImportabilityOfRecordingWithAudioURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)creationDateFromStandardRecordingURL:(id)arg1;
 + (id)standardURLForRecordingWithCreationDate:(id)arg1;
++ (id)standardPathForRecordingWithCreationDate:(id)arg1 uniqueID:(id)arg2;
 + (id)standardPathForRecording:(id)arg1;
 + (id)_dateFormatterComponentFormatting;
 + (id)savedRecordingsDirectory;

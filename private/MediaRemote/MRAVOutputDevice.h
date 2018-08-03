@@ -30,6 +30,7 @@
     _Bool _localDevice;
     _Bool _supportsExternalScreen;
     _Bool _requiresAuthorization;
+    _Bool _parentGroupContainsDiscoverableLeader;
     _Bool _volumeControlAvailable;
     unsigned int _deviceType;
     unsigned int _deviceSubtype;
@@ -44,6 +45,7 @@
     NSData *_MACAddress;
     NSDictionary *_modelSpecificInfo;
     NSString *_playingPairedDeviceName;
+    NSString *_parentGroupIdentifier;
     MRAVOutputDeviceSourceInfo *_sourceInfo;
     MRAVEndpoint *_endpoint;
 }
@@ -54,6 +56,8 @@
 @property(nonatomic) float volume; // @synthesize volume=_volume;
 @property(readonly, nonatomic) MRAVOutputDeviceSourceInfo *sourceInfo; // @synthesize sourceInfo=_sourceInfo;
 @property(readonly, nonatomic, getter=isVolumeControlAvailable) _Bool volumeControlAvailable; // @synthesize volumeControlAvailable=_volumeControlAvailable;
+@property(copy, nonatomic) NSString *parentGroupIdentifier; // @synthesize parentGroupIdentifier=_parentGroupIdentifier;
+@property(readonly, nonatomic) _Bool parentGroupContainsDiscoverableLeader; // @synthesize parentGroupContainsDiscoverableLeader=_parentGroupContainsDiscoverableLeader;
 @property(readonly, nonatomic) _Bool requiresAuthorization; // @synthesize requiresAuthorization=_requiresAuthorization;
 @property(readonly, nonatomic) _Bool supportsExternalScreen; // @synthesize supportsExternalScreen=_supportsExternalScreen;
 @property(readonly, nonatomic, getter=isLocalDevice) _Bool localDevice; // @synthesize localDevice=_localDevice;

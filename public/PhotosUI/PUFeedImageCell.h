@@ -6,7 +6,7 @@
 
 #import <PhotosUI/PUFeedCell.h>
 
-@class PUImageViewExtraction, PXRoundedCornerOverlayView, PXUIAssetBadgeView, UIButton, UIImage, UIImageView, UIView<PXVideoOverlayButton>;
+@class AVPlayerItem, ISWrappedAVPlayer, PUImageViewExtraction, PXRoundedCornerOverlayView, PXUIAssetBadgeView, PXVideoPlayerView, UIButton, UIImage, UIImageView, UIView<PXVideoOverlayButton>;
 
 __attribute__((visibility("hidden")))
 @interface PUFeedImageCell : PUFeedCell
@@ -17,12 +17,16 @@ __attribute__((visibility("hidden")))
     _Bool __shouldHideCenterOverlayImageView;
     _Bool __shouldHideCommentButton;
     _Bool _shouldHideLikeBadge;
+    int _playerItemRequestID;
     UIImage *_image;
+    AVPlayerItem *_playerItem;
     long long _imageContentMode;
     long long _imageAlignment;
     long long _overlayOptions;
     long long _commentCount;
     double _cornerRadius;
+    PXVideoPlayerView *_videoPlayerView;
+    ISWrappedAVPlayer *_videoPlayer;
     UIImageView *__imageView;
     long long __imageTag;
     UIView<PXVideoOverlayButton> *__overlayPlayButton;
@@ -57,6 +61,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, setter=_setImageFrame:) struct CGRect _imageFrame; // @synthesize _imageFrame=__imageFrame;
 @property(nonatomic, setter=_setImageTag:) long long _imageTag; // @synthesize _imageTag=__imageTag;
 @property(retain, nonatomic, setter=_setImageView:) UIImageView *_imageView; // @synthesize _imageView=__imageView;
+@property(readonly, nonatomic) ISWrappedAVPlayer *videoPlayer; // @synthesize videoPlayer=_videoPlayer;
+@property(readonly, nonatomic) PXVideoPlayerView *videoPlayerView; // @synthesize videoPlayerView=_videoPlayerView;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(nonatomic) long long commentCount; // @synthesize commentCount=_commentCount;
 @property(nonatomic) long long overlayOptions; // @synthesize overlayOptions=_overlayOptions;
@@ -64,6 +70,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct CGSize maximumImageSize; // @synthesize maximumImageSize=_maximumImageSize;
 @property(nonatomic, getter=isImageHidden) _Bool imageHidden; // @synthesize imageHidden=_imageHidden;
 @property(nonatomic) long long imageContentMode; // @synthesize imageContentMode=_imageContentMode;
+@property(nonatomic) int playerItemRequestID; // @synthesize playerItemRequestID=_playerItemRequestID;
+@property(retain, nonatomic) AVPlayerItem *playerItem; // @synthesize playerItem=_playerItem;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
 - (void)_handleCommentButton:(id)arg1;
@@ -76,6 +84,7 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)_layoutImageView;
+- (void)_updateVideoViewContentMode;
 - (void)setImage:(id)arg1 withTag:(long long)arg2;
 - (void)setParallaxOffset:(struct CGPoint)arg1;
 - (void)prepareForReuse;

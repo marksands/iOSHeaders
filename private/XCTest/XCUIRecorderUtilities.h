@@ -37,6 +37,7 @@
 - (id)remoteNodeWithButtonSymbolName:(id)arg1;
 - (id)commentNodeWithString:(id)arg1;
 - (id)applicationNode;
+- (id)adjustedSnapshotForApplicationSnapshot:(id)arg1;
 - (id)focusedAccessibilityElementForApplicationSnapshot:(id)arg1;
 - (id)snapshotsForAccessibilityElement:(id)arg1 applicationSnapshot:(id)arg2;
 - (id)snapshotInTreeStartingWithSnapshot:(id)arg1 forElement:(id)arg2;

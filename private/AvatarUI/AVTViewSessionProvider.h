@@ -27,7 +27,7 @@
     struct CGSize _avtViewBackingSize;
 }
 
-+ (struct CGSize)defaultBackingSize;
++ (struct CGSize)backingSizeForEnvironment:(id)arg1;
 + (CDUnknownBlockType)creatorForAVTRecordView;
 + (CDUnknownBlockType)creatorForAVTView;
 @property(readonly, nonatomic) AVTUIEnvironment *environment; // @synthesize environment=_environment;

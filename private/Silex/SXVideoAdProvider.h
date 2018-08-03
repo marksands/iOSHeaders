@@ -37,6 +37,7 @@
 @property(nonatomic) __weak id <SXVideoAdProviderDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (id)viewControllerForStoryboardPresentationFromBannerView:(id)arg1;
+- (void)adVisibilityStateChanged;
 - (void)reportEngagementEventWithType:(unsigned long long)arg1;
 - (void)configureTimelineForImpressionReporting;
 - (void)nextVideoStartPlaying;

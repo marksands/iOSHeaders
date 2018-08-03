@@ -13,6 +13,7 @@
     UIView *_cardView;
 }
 
++ (id)preferredReuseIdentifier;
 @property(nonatomic) __weak UIView *cardView; // @synthesize cardView=_cardView;
 - (void).cxx_destruct;
 - (_Bool)_donationHasSubtitle:(id)arg1;

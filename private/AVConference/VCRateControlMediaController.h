@@ -73,6 +73,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isVideoStoppedByVCRateControl; // @synthesize isVideoStoppedByVCRateControl=_isVideoStoppedByVCRateControl;
 @property(readonly, nonatomic) int basebandFlushedAudioCount; // @synthesize basebandFlushedAudioCount=_basebandFlushedAudioCount;
 @property(readonly, nonatomic) int basebandFlushedVideoCount; // @synthesize basebandFlushedVideoCount=_basebandFlushedVideoCount;
+@property(nonatomic) int basebandFlushCount; // @synthesize basebandFlushCount=_basebandFlushCount;
 @property(nonatomic) unsigned int targetBitrate; // @synthesize targetBitrate=_targetBitrate;
 @property(nonatomic) unsigned int minTargetBitrate; // @synthesize minTargetBitrate=_minTargetBitrate;
 @property(nonatomic) unsigned int audioSendingBitrate; // @synthesize audioSendingBitrate=_audioSendingBitrate;
@@ -92,7 +93,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned int probingLargeFrameSize; // @synthesize probingLargeFrameSize=_probingLargeFrameSize;
 - (_Bool)rampUpAudioFraction;
 - (_Bool)rampDownAudioFraction;
-@property(readonly, nonatomic) int basebandFlushCount; // @synthesize basebandFlushCount=_basebandFlushCount;
 - (_Bool)didMediaGetFlushedWithPayloadType:(unsigned char)arg1 transactionID:(unsigned short)arg2 packetDropped:(unsigned short)arg3 sequenceNumberArray:(unsigned short *)arg4;
 - (void)decreaseFlushCount:(int)arg1;
 @property(readonly, nonatomic) _Bool isVideoStopped;

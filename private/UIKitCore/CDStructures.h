@@ -407,6 +407,7 @@ typedef struct {
     long long touchLevel;
     unsigned long long interactionModel;
     unsigned long long primaryInteractionModel;
+    unsigned long long artworkSubtype;
     long long horizontalSizeClass;
     long long verticalSizeClass;
     long long userInterfaceStyle;
@@ -414,7 +415,7 @@ typedef struct {
     long long forceTouchCapability;
     long long preferredContentSizeCategory;
     double displayCornerRadius;
-} CDStruct_759b680f;
+} CDStruct_477bbee4;
 
 typedef struct {
     long long width;
@@ -573,6 +574,11 @@ typedef struct {
     struct CGRect _field2;
     struct CGRect _field3;
 } CDStruct_6b60c6e5;
+
+typedef struct {
+    struct CGRect _field1;
+    struct CGRect _field2;
+} CDStruct_b7523c42;
 
 typedef struct {
     CDStruct_6b60c6e5 _field1;

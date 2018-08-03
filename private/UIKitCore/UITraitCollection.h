@@ -13,7 +13,7 @@
 
 @interface UITraitCollection : NSObject <NSCopying, NSSecureCoding>
 {
-    CDStruct_759b680f _builtinTraits;
+    CDStruct_477bbee4 _builtinTraits;
     NSDictionary *_clientDefinedTraits;
 }
 
@@ -29,6 +29,7 @@
 + (id)traitCollectionWithHorizontalSizeClass:(long long)arg1;
 + (id)traitCollectionWithDisplayGamut:(long long)arg1;
 + (id)traitCollectionWithDisplayScale:(double)arg1;
++ (id)traitCollectionWithArtworkSubtype:(unsigned long long)arg1;
 + (id)traitCollectionWithPrimaryInteractionModel:(unsigned long long)arg1;
 + (id)traitCollectionWithInteractionModel:(unsigned long long)arg1;
 + (id)traitCollectionWithTouchLevel:(long long)arg1;
@@ -47,6 +48,7 @@
 @property(readonly, nonatomic) long long horizontalSizeClass;
 @property(readonly, nonatomic) long long displayGamut;
 @property(readonly, nonatomic) double displayScale;
+- (unsigned long long)artworkSubtype;
 - (unsigned long long)primaryInteractionModel;
 - (unsigned long long)interactionModel;
 - (long long)touchLevel;
@@ -66,7 +68,7 @@
 - (unsigned long long)hash;
 - (void)dealloc;
 - (id)init;
-- (id)_initWithBuiltinTraitStorage:(CDStruct_759b680f *)arg1 clientDefinedTraits:(id)arg2;
+- (id)_initWithBuiltinTraitStorage:(CDStruct_477bbee4 *)arg1 clientDefinedTraits:(id)arg2;
 @property(readonly, nonatomic) long long barPosition;
 @property(readonly, nonatomic) long long barMetrics;
 - (id)_namedImageDescription;

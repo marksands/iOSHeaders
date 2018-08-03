@@ -18,6 +18,7 @@
 @property(readonly, nonatomic) STUsageReport *report; // @synthesize report=_report;
 - (void).cxx_destruct;
 - (struct CGSize)preferredContentSize;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)viewDidLoad;

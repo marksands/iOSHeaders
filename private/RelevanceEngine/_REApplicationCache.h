@@ -8,32 +8,36 @@
 
 #import "LSApplicationWorkspaceObserverProtocol.h"
 
-@class NARApplicationWorkspace, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class NARApplicationWorkspace, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, REKeyValueMap;
 
 @interface _REApplicationCache : RESingleton <LSApplicationWorkspaceObserverProtocol>
 {
     NSMutableDictionary *_restrictedApps;
     NSMutableDictionary *_removedApps;
     NSMutableDictionary *_applicationTypes;
-    NSDictionary *_remoteApplicationsMap;
-    NARApplicationWorkspace *_workspace;
     NSObject<OS_dispatch_queue> *_queue;
+    REKeyValueMap *_remoteApplicationsMap;
+    NARApplicationWorkspace *_workspace;
 }
 
 - (void).cxx_destruct;
+- (void)_applicationsDidChange:(id)arg1;
 - (void)applicationsDidUninstall:(id)arg1;
 - (void)applicationsDidInstall:(id)arg1;
 - (void)applicationStateDidChange:(id)arg1;
-- (void)_queue_applicationsDidChange:(id)arg1 state:(unsigned long long)arg2;
 - (void)_queue_loadApplicationTypes;
 - (void)_queue_loadStateForBundleID:(id)arg1;
 - (void)_queue_loadNanoRegistryCompletion:(CDUnknownBlockType)arg1;
-- (void)loadNanoRegistryApplications;
+- (void)clearNanoRegistryApplications;
 - (unsigned long long)typeForApplication:(id)arg1;
-- (id)localApplicationForRemoteApplication:(id)arg1;
+- (void)_accessRemoteApplicationsMapWithCompletion:(CDUnknownBlockType)arg1;
+- (id)remoteApplicationForLocalApplication:(struct NSString *)arg1;
+- (id)localApplicationForRemoteApplication:(struct NSString *)arg1;
 - (_Bool)applicationIsRemote:(id)arg1;
-- (_Bool)systemApplicationIsRestricted:(id)arg1;
-- (_Bool)systemApplicationIsRemoved:(id)arg1;
+- (_Bool)_queue_applicationIsRestricted:(id)arg1;
+- (_Bool)applicationIsRestricted:(id)arg1;
+- (_Bool)_queue_applicationIsRemoved:(id)arg1;
+- (_Bool)applicationIsRemoved:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

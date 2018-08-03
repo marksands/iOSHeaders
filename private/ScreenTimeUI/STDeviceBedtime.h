@@ -13,7 +13,7 @@
 @interface STDeviceBedtime : NSObject <NSCopying>
 {
     _Bool _deviceBedtimeEnabled;
-    _Bool _disableAskForMoreTime;
+    _Bool _askForMoreTime;
     NSDateComponents *_start;
     NSDateComponents *_end;
 }
@@ -22,7 +22,7 @@
 + (id)defaultBedtimeStart;
 @property(copy, nonatomic) NSDateComponents *end; // @synthesize end=_end;
 @property(copy, nonatomic) NSDateComponents *start; // @synthesize start=_start;
-@property(nonatomic) _Bool disableAskForMoreTime; // @synthesize disableAskForMoreTime=_disableAskForMoreTime;
+@property(nonatomic) _Bool askForMoreTime; // @synthesize askForMoreTime=_askForMoreTime;
 @property(nonatomic) _Bool deviceBedtimeEnabled; // @synthesize deviceBedtimeEnabled=_deviceBedtimeEnabled;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -117,6 +117,8 @@
 - (void)_setupFeedback;
 @property(retain, nonatomic, getter=_modulationFeedbackGenerator, setter=_setModulationFeedbackGenerator:) _UIModulationFeedbackGenerator *modulationFeedbackGenerator;
 @property(retain, nonatomic, getter=_edgeFeedbackGenerator, setter=_setEdgeFeedbackGenerator:) _UIEdgeFeedbackGenerator *edgeFeedbackGenerator;
+- (void)_contentSizeCategoryChanged:(id)arg1;
+- (void)_listenForContentSizeCategoryChangesIfNecessary;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;

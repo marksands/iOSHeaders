@@ -11,7 +11,7 @@
 #import "_SFAuthenticationClient.h"
 #import "_SFAutoFillInputViewDelegate.h"
 
-@class NSArray, NSMutableIndexSet, NSMutableSet, NSString, NSTimer, SFFormAutoFillFrameHandle, SFFormAutocompleteState, UIView<WBUFormAutoFillWebView>, WBSOneTimeCodeMonitor, WKWebView<WBUFormAutoFillWebView>, _SFAuthenticationContext, _SFAutoFillAuthenticationCache, _SFAutoFillInputView, _SFFormAutoFillInputSession, _WKRemoteObjectInterface;
+@class NSArray, NSDictionary, NSMutableIndexSet, NSMutableSet, NSString, NSTimer, SFFormAutoFillFrameHandle, SFFormAutocompleteState, UIView<WBUFormAutoFillWebView>, WBSOneTimeCodeMonitor, WKWebView<WBUFormAutoFillWebView>, _SFAuthenticationContext, _SFAutoFillAuthenticationCache, _SFAutoFillInputView, _SFFormAutoFillInputSession, _WKRemoteObjectInterface;
 
 @interface _SFFormAutoFillController : NSObject <SFCredentialProviderExtensionManagerObserver, _SFAutoFillInputViewDelegate, SFFormMetadataObserver, _SFAuthenticationClient>
 {
@@ -30,9 +30,13 @@
     SFFormAutoFillFrameHandle *_frameHandleForAutomaticPasswords;
     _SFFormAutoFillInputSession *_inputSessionForAutomaticPasswords;
     _SFAutoFillInputView *_autoFillInputView;
+    NSDictionary *_externalCredentialIdentitiesForStreamlinedAutoFill;
     _Bool _metadataCorrectionsEnabled;
 }
 
++ (id)_filterAndSortCredentialIdentities:(id)arg1 pageURL:(id)arg2 exactMatchesOnly:(_Bool)arg3;
++ (void)_getExternalLoginCredentialSuggestionsForDomains:(id)arg1 pageURL:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (void)_getExternalLoginCredentialSuggestionsForDomains:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(nonatomic) _Bool metadataCorrectionsEnabled; // @synthesize metadataCorrectionsEnabled=_metadataCorrectionsEnabled;
 - (void).cxx_destruct;
 - (void)credentialProviderExtensionManagerExtensionListDidChange:(id)arg1;
@@ -48,7 +52,7 @@
 - (void)automaticPasswordSheetDismissed;
 - (void)removeAutomaticPasswordButtonInitiatedByUser:(_Bool)arg1;
 - (void)didRemoveAutomaticStrongPasswordInForm:(id)arg1 inputSessionUserObject:(id)arg2 inFrame:(id)arg3;
-- (void)autoFillDidFinishWithUpdatedFormMetadata:(id)arg1;
+- (void)autoFillDidFinishWithUpdatedFormMetadata:(id)arg1 inFrame:(id)arg2;
 - (void)_removeUniqueIDsOfAutoFilledForm:(id)arg1;
 - (void)_addUniqueIDsOfAutoFilledForm:(id)arg1;
 - (void)willNavigateFrame:(id)arg1 withUnsubmittedForm:(id)arg2 loadingIsDeferred:(_Bool)arg3;
@@ -65,7 +69,6 @@
 - (void)_authenticateForAutoFillForHighLevelDomain:(id)arg1 onPageLoad:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) _SFAuthenticationContext *authenticationContext;
 @property(readonly, nonatomic) _SFAutoFillAuthenticationCache *authenticationCache;
-- (void)_didCollectURLsForPreFilling:(id)arg1 atURL:(id)arg2;
 - (void)didCollectURLsForPreFilling:(id)arg1 atURL:(id)arg2;
 - (void)willSubmitFormValues:(id)arg1 userObject:(id)arg2 submissionHandler:(CDUnknownBlockType)arg3;
 - (void)_fieldFocusedWithInputSession:(id)arg1;

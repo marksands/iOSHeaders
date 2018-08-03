@@ -4,26 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <Vision/VNRequestConfiguration.h>
 
-@class NSMutableArray, NSMutableDictionary;
+@class NSArray, NSDictionary, NSString;
 
 __attribute__((visibility("hidden")))
-@interface VNImageAnalyzerCompoundRequestConfiguration : NSObject
+@interface VNImageAnalyzerCompoundRequestConfiguration : VNRequestConfiguration
 {
-    NSMutableDictionary *_detectorConfigurationOptions;
-    NSMutableArray *_originalRequests;
-    NSMutableArray *_observationClasses;
+    NSString *_detectorType;
+    NSDictionary *_detectorConfigurationOptions;
+    NSArray *_originalRequestConfigurations;
 }
 
+@property(copy, nonatomic) NSArray *originalRequestConfigurations; // @synthesize originalRequestConfigurations=_originalRequestConfigurations;
+@property(copy, nonatomic) NSDictionary *detectorConfigurationOptions; // @synthesize detectorConfigurationOptions=_detectorConfigurationOptions;
+@property(copy, nonatomic) NSString *detectorType; // @synthesize detectorType=_detectorType;
 - (void).cxx_destruct;
-- (_Bool)preferBackgroundProcessing;
-- (id)observationClasses;
-- (id)originalRequests;
-- (id)detectorConfigurationOptions;
-- (void)addOriginalRequest:(id)arg1 withObservationClass:(Class)arg2;
-- (void)setDetectorConfigurationOption:(id)arg1 value:(id)arg2;
-- (id)init;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

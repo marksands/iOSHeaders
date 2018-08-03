@@ -48,6 +48,7 @@
 + (id)activeKeyboardForScreen:(id)arg1;
 + (void)_clearActiveKeyboard;
 + (id)activeKeyboard;
++ (id)homeGestureExclusionZones;
 + (_Bool)candidateDisplayIsExtended;
 + (void)setPredictionViewPrewarmsPredictiveCandidates:(_Bool)arg1;
 + (_Bool)predictionViewPrewarmsPredictiveCandidates;

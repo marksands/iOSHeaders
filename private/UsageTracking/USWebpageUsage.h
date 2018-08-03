@@ -17,17 +17,11 @@
     NSDate *_inFocusStartDate;
 }
 
-+ (void)deleteAllHistoryWithCompletionHandler:(CDUnknownBlockType)arg1;
-+ (void)deleteHistoryFromDate:(id)arg1 toDate:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-+ (void)deleteHistoryDuringInterval:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-+ (void)deleteHistoryForDomain:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-+ (void)deleteHistoryForURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)_xpcConnection;
 @property(retain) NSDate *inFocusStartDate; // @synthesize inFocusStartDate=_inFocusStartDate;
 @property(retain) NSDate *inUseStartDate; // @synthesize inUseStartDate=_inUseStartDate;
 @property(readonly) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
-- (void)_updateStorageWithDomain:(id)arg1 inUseStartDate:(id)arg2 inFocusStartDate:(id)arg3 endDate:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)changeState:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1;

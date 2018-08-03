@@ -15,14 +15,15 @@
 @interface DNDSSettingsRecord : NSObject <NSCopying, NSMutableCopying, DNDSBackingStoreRecord>
 {
     DNDSBehaviorSettingsRecord *_behaviorSettings;
-    DNDSBypassSettingsRecord *_bypassSettings;
+    DNDSBypassSettingsRecord *_phoneCallBypassSettings;
     DNDSScheduleSettingsRecord *_scheduleSettings;
 }
 
-+ (id)migrateDictionaryRepresentations:(id)arg1 withVersionNumber:(unsigned long long)arg2;
++ (id)migrateDictionaryRepresentation:(id)arg1 fromVersionNumber:(unsigned long long)arg2 toVersionNumber:(unsigned long long)arg3;
 + (id)backingStoreWithFileURL:(id)arg1;
++ (id)recordWithBulletinBoardSettingsURL:(id)arg1 error:(id *)arg2;
 @property(readonly, copy, nonatomic) DNDSScheduleSettingsRecord *scheduleSettings; // @synthesize scheduleSettings=_scheduleSettings;
-@property(readonly, copy, nonatomic) DNDSBypassSettingsRecord *bypassSettings; // @synthesize bypassSettings=_bypassSettings;
+@property(readonly, copy, nonatomic) DNDSBypassSettingsRecord *phoneCallBypassSettings; // @synthesize phoneCallBypassSettings=_phoneCallBypassSettings;
 @property(readonly, copy, nonatomic) DNDSBehaviorSettingsRecord *behaviorSettings; // @synthesize behaviorSettings=_behaviorSettings;
 - (void).cxx_destruct;
 - (id)dictionaryRepresentation;
@@ -32,7 +33,7 @@
 @property(readonly, copy) NSString *description;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
-- (id)_initWithBehaviorSettings:(id)arg1 bypassSettings:(id)arg2 scheduleSettings:(id)arg3;
+- (id)_initWithBehaviorSettings:(id)arg1 phoneCallBypassSettings:(id)arg2 scheduleSettings:(id)arg3;
 - (id)_initWithRecord:(id)arg1;
 - (id)init;
 

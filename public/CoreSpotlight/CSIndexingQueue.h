@@ -10,7 +10,6 @@
 
 @interface CSIndexingQueue : NSObject
 {
-    _Bool _timerArmed;
     long long _mode;
     double _idleTime;
     double _idleTimeLeeway;
@@ -25,7 +24,6 @@
 
 @property(retain, nonatomic) id <CSIndexQueuableItem> lastPushedItem; // @synthesize lastPushedItem=_lastPushedItem;
 @property double lastPush; // @synthesize lastPush=_lastPush;
-@property _Bool timerArmed; // @synthesize timerArmed=_timerArmed;
 @property(copy) CDUnknownBlockType notifyBlock; // @synthesize notifyBlock=_notifyBlock;
 @property(retain) NSObject<OS_dispatch_source> *coalescingTimer; // @synthesize coalescingTimer=_coalescingTimer;
 @property(retain) NSObject<OS_dispatch_queue> *coalescingQueue; // @synthesize coalescingQueue=_coalescingQueue;

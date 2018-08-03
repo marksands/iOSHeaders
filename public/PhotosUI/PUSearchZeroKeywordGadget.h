@@ -21,8 +21,10 @@ __attribute__((visibility("hidden")))
     unsigned long long _dataSourceSection;
     long long _sectionType;
     PUSearchHomeThumbnailManager *_thumbnailManager;
+    unsigned long long _cellLabelNumberOfLinesPermitted;
 }
 
+@property(nonatomic) unsigned long long cellLabelNumberOfLinesPermitted; // @synthesize cellLabelNumberOfLinesPermitted=_cellLabelNumberOfLinesPermitted;
 @property(retain, nonatomic) PUSearchHomeThumbnailManager *thumbnailManager; // @synthesize thumbnailManager=_thumbnailManager;
 @property(readonly, nonatomic) long long sectionType; // @synthesize sectionType=_sectionType;
 @property(readonly, nonatomic) unsigned long long dataSourceSection; // @synthesize dataSourceSection=_dataSourceSection;
@@ -32,6 +34,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
 - (void).cxx_destruct;
 - (void)contentSizeCategoryDidChangeNotification:(id)arg1;
+- (void)updateCellLabelNumberOfLinesWithScreenSize:(struct CGSize)arg1;
+- (void)layoutPeopleViews;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (struct CGSize)getCellThumbnailSize;
+- (struct CGSize)getCellSizeWithScreenWidth:(double)arg1;
+- (struct CGSize)getCellSize;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)prefetchThumbnailForKey:(id)arg1 itemType:(long long)arg2;
 - (void)collectionView:(id)arg1 prefetchItemsAtIndexPaths:(id)arg2;
@@ -40,6 +48,7 @@ __attribute__((visibility("hidden")))
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
+- (void)_configureCellLabelNumberOfLinesWithScreenSize:(struct CGSize)arg1;
 - (void)_configureCollectionView;
 - (id)debugURLsForDiagnostics;
 - (_Bool)hasLoadedContentData;
@@ -48,6 +57,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool hasContentToDisplay;
 @property(readonly, nonatomic) unsigned long long gadgetType;
 @property(readonly, nonatomic) NSString *localizedTitle;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithDataSource:(id)arg1 dataSourceSection:(unsigned long long)arg2 sectionType:(long long)arg3;
 

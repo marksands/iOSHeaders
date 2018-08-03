@@ -60,6 +60,7 @@
 - (id)_keylineViewForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (void)_applyDataMode;
 - (id)_additionalPrelaunchApplicationIdentifiers;
+- (void)_configureReusableTimeView:(id)arg1;
 - (void)_unloadSnapshotContentViews;
 - (void)_loadSnapshotContentViews;
 - (id)initWithFaceStyle:(long long)arg1 forDevice:(id)arg2 clientIdentifier:(id)arg3;

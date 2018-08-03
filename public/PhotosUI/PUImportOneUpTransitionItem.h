@@ -13,14 +13,18 @@ __attribute__((visibility("hidden")))
 {
     UIImage *_snapshotImage;
     PUImportItemViewModel *_importItem;
+    double _initialContentAlpha;
     UIView *_transitionView;
+    double _targetContentAlpha;
     struct CGRect _initialFrame;
     struct PXSimpleIndexPath _indexPath;
     struct CGRect _targetFrame;
 }
 
+@property(nonatomic) double targetContentAlpha; // @synthesize targetContentAlpha=_targetContentAlpha;
 @property(nonatomic) struct CGRect targetFrame; // @synthesize targetFrame=_targetFrame;
 @property(retain, nonatomic) UIView *transitionView; // @synthesize transitionView=_transitionView;
+@property(nonatomic) double initialContentAlpha; // @synthesize initialContentAlpha=_initialContentAlpha;
 @property(readonly, nonatomic) struct PXSimpleIndexPath indexPath; // @synthesize indexPath=_indexPath;
 @property(readonly, nonatomic) PUImportItemViewModel *importItem; // @synthesize importItem=_importItem;
 @property(retain, nonatomic) UIImage *snapshotImage; // @synthesize snapshotImage=_snapshotImage;

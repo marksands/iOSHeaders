@@ -19,7 +19,7 @@
 }
 
 + (unsigned long long)_timerNotificationActionForUserNotificationAction:(id)arg1;
-+ (unsigned long long)_alarmNotificationActionForUserNotificationAction:(id)arg1;
++ (unsigned long long)_alarmNotificationActionForUserNotificationAction:(id)arg1 nonSnoozableNotification:(_Bool)arg2;
 @property(retain, nonatomic) MTMetrics *metrics; // @synthesize metrics=_metrics;
 @property(retain, nonatomic) MTTimerStorage *timerStorage; // @synthesize timerStorage=_timerStorage;
 @property(retain, nonatomic) MTAlarmStorage *alarmStorage; // @synthesize alarmStorage=_alarmStorage;

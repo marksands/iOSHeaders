@@ -10,22 +10,24 @@
 
 @interface PHSuggestionMessageContext : NSObject
 {
-    NSArray *_cnParticipants;
-    NSArray *_phParticipants;
     NSArray *_messages;
     NSDateInterval *_dateInterval;
+    unsigned long long _numberOfParticipants;
+    NSArray *_cnParticipants;
+    NSArray *_phParticipants;
+    NSMutableDictionary *_suggestionMatchingResultsBySuggestionIdentifier;
     NSArray *_resolvedParticipants;
     NSArray *_messageTokens;
-    unsigned long long _numberOfParticipants;
-    NSMutableDictionary *_suggestionMatchingResultsBySuggestionIdentifier;
 }
 
+@property(retain, nonatomic) NSArray *messageTokens; // @synthesize messageTokens=_messageTokens;
+@property(retain, nonatomic) NSArray *resolvedParticipants; // @synthesize resolvedParticipants=_resolvedParticipants;
 @property(readonly, nonatomic) NSMutableDictionary *suggestionMatchingResultsBySuggestionIdentifier; // @synthesize suggestionMatchingResultsBySuggestionIdentifier=_suggestionMatchingResultsBySuggestionIdentifier;
+@property(readonly, nonatomic) NSArray *phParticipants; // @synthesize phParticipants=_phParticipants;
+@property(readonly, nonatomic) NSArray *cnParticipants; // @synthesize cnParticipants=_cnParticipants;
 @property(readonly, nonatomic) unsigned long long numberOfParticipants; // @synthesize numberOfParticipants=_numberOfParticipants;
 @property(readonly, nonatomic) NSDateInterval *dateInterval; // @synthesize dateInterval=_dateInterval;
 @property(readonly, nonatomic) NSArray *messages; // @synthesize messages=_messages;
-@property(readonly, nonatomic) NSArray *phParticipants; // @synthesize phParticipants=_phParticipants;
-@property(readonly, nonatomic) NSArray *cnParticipants; // @synthesize cnParticipants=_cnParticipants;
 - (void).cxx_destruct;
 - (id)_mostRecentSuggestionFromSuggestions:(id)arg1;
 - (id)confidentMatchSuggestionUsingStrategy:(unsigned long long)arg1;
@@ -34,8 +36,6 @@
 - (id)_suggestionsMatchingType:(long long)arg1;
 - (id)detailedDescription;
 - (id)description;
-@property(readonly, nonatomic) NSArray *messageTokens; // @synthesize messageTokens=_messageTokens;
-@property(readonly, nonatomic) NSArray *resolvedParticipants; // @synthesize resolvedParticipants=_resolvedParticipants;
 - (void)setPhParticipants:(id)arg1;
 - (void)setCnParticipants:(id)arg1;
 - (id)initWithMessages:(id)arg1 participantsFromPersons:(id)arg2;

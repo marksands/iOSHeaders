@@ -16,6 +16,7 @@
     _Bool _isSimPresent;
     long long _slotID;
     NSUUID *_uuid;
+    NSString *_labelID;
     NSString *_label;
     NSString *_phoneNumber;
     NSNumber *_userDataPreferred;
@@ -30,6 +31,7 @@
 @property(retain, nonatomic) NSNumber *userDataPreferred; // @synthesize userDataPreferred=_userDataPreferred;
 @property(retain, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 @property(retain, nonatomic) NSString *label; // @synthesize label=_label;
+@property(retain, nonatomic) NSString *labelID; // @synthesize labelID=_labelID;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(readonly, nonatomic) long long slotID; // @synthesize slotID=_slotID;
 - (void).cxx_destruct;

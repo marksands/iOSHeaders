@@ -52,8 +52,6 @@
 - (void)setEnabled:(_Bool)arg1;
 @property(readonly, nonatomic) struct CGSize titleContentSize;
 - (void)addTarget:(id)arg1 action:(SEL)arg2 forControlEvents:(unsigned long long)arg3;
-- (id)initWithImage:(id)arg1 controlStyle:(long long)arg2;
-- (id)initWithTitle:(id)arg1 controlStyle:(long long)arg2;
 - (id)initWithImage:(id)arg1 buttonStyle:(long long)arg2 textStyle:(long long)arg3 controlStyle:(long long)arg4 largeImageInsets:(struct UIEdgeInsets)arg5;
 - (id)initWithImage:(id)arg1 buttonStyle:(long long)arg2 textStyle:(long long)arg3 controlStyle:(long long)arg4;
 - (id)initWithTitle:(id)arg1 buttonStyle:(long long)arg2 textStyle:(long long)arg3 controlStyle:(long long)arg4;

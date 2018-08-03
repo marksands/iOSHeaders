@@ -67,7 +67,7 @@
 - (void)_handleUnlockDeviceCommand:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setLockState:(unsigned long long)arg1;
 - (void)setCarDNDActive:(_Bool)arg1;
-- (void)setIsStark:(_Bool)arg1;
+- (void)setDeviceInStarkMode:(_Bool)arg1;
 - (void)rollbackClearContext;
 - (void)resetContextTypes:(long long)arg1;
 - (void)clearContext;

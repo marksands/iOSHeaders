@@ -39,7 +39,7 @@
 - (void)suspend;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)updateCurrentRequest:(id)arg1;
-- (id)_loggableDescription;
+@property(readonly, nonatomic) NSString *_loggableDescription; // @dynamic _loggableDescription;
 - (struct __CFDictionary *)_copySocketStreamProperties;
 - (long long)computeAdjustedPoolPriority;
 - (void)_onqueue_releasePowerAsssertion;

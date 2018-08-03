@@ -13,7 +13,7 @@
 #import "VKInteractiveMap.h"
 #import "VKMapDataAccess.h"
 
-@class GEOResourceManifestConfiguration, NSArray, NSMutableArray, NSSet, NSString, VKARCameraController, VKAnchorWrapper, VKGlobeCameraController, VKGlobeLineContainer;
+@class GEOResourceManifestConfiguration, NSArray, NSHashTable, NSSet, NSString, VKARCameraController, VKAnchorWrapper, VKGlobeCameraController, VKGlobeLineContainer;
 
 __attribute__((visibility("hidden")))
 @interface VKClassicGlobeCanvas : VKScreenCanvas <VKCameraControllerDelegate, LabelManagerDelegate, GEOResourceManifestTileGroupObserver, VKGlobeLineContainerDelegate, VKInteractiveMap, VKMapDataAccess>
@@ -41,7 +41,7 @@ __attribute__((visibility("hidden")))
     double _currentZoomLevel;
     CDUnknownBlockType _sceneDidLoadCallback;
     CDUnknownBlockType _artworkIsReadyBlock;
-    NSMutableArray *_externalAnchors;
+    NSHashTable *_externalAnchors;
     GEOResourceManifestConfiguration *_manifestConfiguration;
     struct shared_ptr<md::AnchorContext> _anchorContext;
     VKARCameraController *_arCameraController;

@@ -6,17 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>;
+@class AVWeakReference, NSMutableArray, NSObject<OS_dispatch_queue>;
 
 __attribute__((visibility("hidden")))
 @interface AVSampleBufferRenderSynchronizerInternal : NSObject
 {
-    float rate;
+    AVWeakReference *weakObserver;
     struct OpaqueCMTimebase *readOnlyTimebase;
+    NSObject<OS_dispatch_queue> *rateQueue;
+    float rate;
+    NSObject<OS_dispatch_queue> *rendererListQueue;
     NSMutableArray *renderers;
     NSMutableArray *timedRenderRemovals;
     NSObject<OS_dispatch_queue> *figSynchronizerAccessQueue;
-    NSObject<OS_dispatch_queue> *rendererListQueue;
     struct OpaqueFigSampleBufferRenderSynchronizer *figSynchronizer;
 }
 

@@ -53,9 +53,9 @@
 - (id)newTextEffectStackForStylePresetName:(id)arg1 styleConfiguration:(id)arg2 foregroundColor:(struct CGColor *)arg3;
 - (id)newShapeEffectPresetForStylePresetName:(id)arg1 styleConfiguration:(id)arg2;
 - (id)renditionKeyForShapeEffectPresetForStylePresetName:(id)arg1 styleConfiguration:(id)arg2;
-- (_Bool)_effectStyle:(unsigned long long *)arg1 state:(long long *)arg2 presentationState:(long long *)arg3 value:(long long *)arg4 resolution:(unsigned long long *)arg5 fromStyleConfiguration:(id)arg6;
-- (id)renditionKeyForShapeEffectPresetWithStylePresetName:(id)arg1 state:(long long)arg2 presentationState:(long long)arg3 value:(long long)arg4 resolution:(unsigned long long)arg5;
-- (id)renditionKeyForShapeEffectPresetWithStyleID:(unsigned long long)arg1 state:(long long)arg2 presentationState:(long long)arg3 value:(long long)arg4 resolution:(unsigned long long)arg5;
+- (_Bool)_effectStyle:(unsigned long long *)arg1 state:(long long *)arg2 presentationState:(long long *)arg3 value:(long long *)arg4 resolution:(unsigned long long *)arg5 dimension1:(unsigned long long *)arg6 fromStyleConfiguration:(id)arg7;
+- (id)renditionKeyForShapeEffectPresetWithStylePresetName:(id)arg1 state:(long long)arg2 presentationState:(long long)arg3 value:(long long)arg4 resolution:(unsigned long long)arg5 dimension1:(unsigned long long)arg6;
+- (id)renditionKeyForShapeEffectPresetWithStyleID:(unsigned long long)arg1 state:(long long)arg2 presentationState:(long long)arg3 value:(long long)arg4 resolution:(unsigned long long)arg5 dimension1:(unsigned long long)arg6;
 - (_Bool)canGetShapeEffectRenditionWithKey:(id)arg1;
 - (id)newShapeEffectPresetWithRenditionKey:(id)arg1;
 - (long long)artVariantIDOrZero;

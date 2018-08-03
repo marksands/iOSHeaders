@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (id)_dataNetworkImageName;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (id)contentsImage;
+- (_Bool)_updateWithData:(CDStruct_c6256135 *)arg1 networkType:(int)arg2;
 - (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
 - (double)maximumOverlap;
 - (double)extraRightPadding;

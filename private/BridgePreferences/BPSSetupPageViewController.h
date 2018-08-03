@@ -31,6 +31,7 @@
 - (id)followUpActions;
 - (id)localizedTitle;
 - (id)followUpIdentifier;
+- (id)titleAttributedString;
 - (id)titleString;
 @property(readonly, nonatomic) UIView *contentView;
 - (_Bool)contentViewIsInAdjustedScrollView;

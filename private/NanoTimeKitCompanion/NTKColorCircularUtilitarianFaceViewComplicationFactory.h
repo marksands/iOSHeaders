@@ -19,6 +19,10 @@
 @property(nonatomic) __weak id <NTKColorCircularUtilitarianFaceViewComplicationFactoryDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)utilityDateComplicationFontForDateStyle:(unsigned long long)arg1;
+- (void)applyComplicationContentSpecificAttributesAnimated:(_Bool)arg1 attributes:(unsigned long long)arg2 faceView:(id)arg3;
+- (void)applyComplicationContentSpecificAttributesAnimated:(_Bool)arg1 faceView:(id)arg2;
+- (void)cleanupAfterEditingForFaceView:(id)arg1;
+- (void)prepareForEditingForFaceView:(id)arg1;
 - (id)_complicationSlots;
 - (id)_colorComplicationSlots;
 - (id)_utilityComplicationSlots;

@@ -31,6 +31,7 @@
 - (id)accessibilityLabel;
 - (_Bool)isAccessibilityElement;
 - (void)buttonTapped:(id)arg1;
+- (_Bool)enabled;
 - (id)contentValue;
 - (void)updateValue;
 - (void)updateConstraints;

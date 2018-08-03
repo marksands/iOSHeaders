@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-@class DNDSScheduleManager, NSDate, NSString;
+@class DNDSScheduleManager, DNDSScheduleSettings;
 
 @protocol DNDSScheduleManagerDataSource <NSObject>
-- (NSDate *)lastScheduleSettingsChangedDateForScheduleManager:(DNDSScheduleManager *)arg1;
-- (NSDate *)lastModeAssertionsCompleteInvalidationDateForScheduleManager:(DNDSScheduleManager *)arg1;
-- (NSString *)scheduleAssertionModeIdentifierForScheduleManager:(DNDSScheduleManager *)arg1;
+- (DNDSScheduleSettings *)scheduleSettingsForScheduleManager:(DNDSScheduleManager *)arg1;
 @end
 

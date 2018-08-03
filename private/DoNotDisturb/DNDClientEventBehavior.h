@@ -9,20 +9,25 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
+@class DNDClientEventDetails;
+
 @interface DNDClientEventBehavior : NSObject <NSCopying, NSSecureCoding>
 {
+    DNDClientEventDetails *_eventDetails;
     unsigned long long _interruptionSuppression;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) unsigned long long interruptionSuppression; // @synthesize interruptionSuppression=_interruptionSuppression;
+@property(readonly, copy, nonatomic) DNDClientEventDetails *eventDetails; // @synthesize eventDetails=_eventDetails;
+- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)initWithInterruptionSuppression:(unsigned long long)arg1;
+- (id)initWithEventDetails:(id)arg1 interruptionSuppression:(unsigned long long)arg2;
 
 @end
 

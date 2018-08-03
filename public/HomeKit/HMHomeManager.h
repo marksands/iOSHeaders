@@ -34,11 +34,9 @@
     unsigned long long _residentProvisioningStatus;
     HMHomeManagerConfiguration *_configuration;
     unsigned long long _options;
-    _HMContext *_context;
     HMMutableArray *_currentHomes;
     HMMutableArray *_homeInvitations;
     NSOperationQueue *_mergeOperationQueue;
-    NSUUID *_uuid;
     unsigned long long _generationCounter;
     NSNumber *_fileGenerationCounter;
     NSNumber *_fileMetadataVersion;
@@ -47,10 +45,14 @@
     NSString *_homeCacheDir;
     NSString *_homeDataCache;
     NSString *_metadataCache;
+    NSUUID *_uuid;
+    _HMContext *_context;
 }
 
 + (_Bool)dataSyncInProgressFromDataSyncState:(unsigned long long)arg1;
 @property(nonatomic, getter=isViewServiceActive) _Bool viewServiceActive; // @synthesize viewServiceActive=_viewServiceActive;
+@property(readonly, nonatomic) _HMContext *context; // @synthesize context=_context;
+@property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain) NSString *metadataCache; // @synthesize metadataCache=_metadataCache;
 @property(retain) NSString *homeDataCache; // @synthesize homeDataCache=_homeDataCache;
 @property(retain) NSString *homeCacheDir; // @synthesize homeCacheDir=_homeCacheDir;
@@ -63,11 +65,9 @@
 @property(nonatomic) _Bool fetchInProgress; // @synthesize fetchInProgress=_fetchInProgress;
 @property(nonatomic) _Bool frameworkMergeComplete; // @synthesize frameworkMergeComplete=_frameworkMergeComplete;
 @property(nonatomic) _Bool didUpdateHomes; // @synthesize didUpdateHomes=_didUpdateHomes;
-@property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) NSOperationQueue *mergeOperationQueue; // @synthesize mergeOperationQueue=_mergeOperationQueue;
 @property(retain, nonatomic) HMMutableArray *homeInvitations; // @synthesize homeInvitations=_homeInvitations;
 @property(retain, nonatomic) HMMutableArray *currentHomes; // @synthesize currentHomes=_currentHomes;
-@property(readonly, nonatomic) _HMContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)_pairingIdentityForAccessoryWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)pairingIdentityForAccessoryWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

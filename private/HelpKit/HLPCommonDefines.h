@@ -12,6 +12,11 @@
 
 + (id)assetRequestHeaderFields;
 + (id)contentRequestHeaderFields;
++ (_Bool)hasServiceTicket;
++ (id)assetServiceTicket;
++ (id)contentServiceTicket;
++ (id)clientID;
++ (id)userName;
 + (void)setAuthenticationContext:(id)arg1;
 
 @end

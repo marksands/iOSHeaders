@@ -12,7 +12,7 @@
 
 @interface PXSharedAlbumInvitationView : UIView <PXSettingsKeyObserver>
 {
-    _Bool _usePopoverColors;
+    _Bool _useInPopover;
     id <PXSharedAlbumInvitationViewDelegate> _delegate;
     PXFeedInvitationSectionInfo *_invitationSectionInfo;
     double _cornerRadius;
@@ -36,7 +36,7 @@
 @property(retain, nonatomic) UILabel *infoLabel; // @synthesize infoLabel=_infoLabel;
 @property(retain, nonatomic) UIImageView *avatarView; // @synthesize avatarView=_avatarView;
 @property(retain, nonatomic) PXRoundedCornerOverlayView *roundedCornerOverlayView; // @synthesize roundedCornerOverlayView=_roundedCornerOverlayView;
-@property(nonatomic) _Bool usePopoverColors; // @synthesize usePopoverColors=_usePopoverColors;
+@property(nonatomic) _Bool useInPopover; // @synthesize useInPopover=_useInPopover;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
 @property(retain, nonatomic) PXFeedInvitationSectionInfo *invitationSectionInfo; // @synthesize invitationSectionInfo=_invitationSectionInfo;
@@ -59,7 +59,7 @@
 - (void)_updateColors;
 - (id)_roundedCornerViewBackgroundColor;
 - (id)_declineButtonColor;
-- (id)_contenViewBackgroundColor;
+- (id)_parentViewBackgroundColor;
 - (struct CGSize)_performLayoutInRect:(struct CGRect)arg1 updateSubviewFrames:(_Bool)arg2;
 - (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_updateUI;

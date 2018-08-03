@@ -33,6 +33,7 @@
     double _lowTransitionShift;
     double _highTransitionScale;
     double _highTransitionShift;
+    double _maximumDarkeningAmount;
     double _highTransitionBottomOffset;
     NSIndexPath *_indexPathToSnapTo;
     double _snappingOffset;
@@ -46,6 +47,7 @@
 @property(nonatomic, getter=isShowingAllAttributes) _Bool showingAllAttributes; // @synthesize showingAllAttributes=_showingAllAttributes;
 @property(nonatomic, getter=isSnappingEnabled) _Bool snappingEnabled; // @synthesize snappingEnabled=_snappingEnabled;
 @property(nonatomic) double highTransitionBottomOffset; // @synthesize highTransitionBottomOffset=_highTransitionBottomOffset;
+@property(nonatomic) double maximumDarkeningAmount; // @synthesize maximumDarkeningAmount=_maximumDarkeningAmount;
 @property(nonatomic) _Bool useFixedLowTransitionLayout; // @synthesize useFixedLowTransitionLayout=_useFixedLowTransitionLayout;
 @property(nonatomic) double highTransitionShift; // @synthesize highTransitionShift=_highTransitionShift;
 @property(nonatomic) double highTransitionScale; // @synthesize highTransitionScale=_highTransitionScale;
@@ -74,6 +76,7 @@
 - (id)flowLayoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)invalidationContextForBoundsChange:(struct CGRect)arg1;
 - (void)finalizeCollectionViewUpdates;
+- (_Bool)isLastIndexPathWithContent:(id)arg1;
 - (void)prepareLayout;
 - (void)invalidateLayoutWithContext:(id)arg1;
 - (_Bool)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;

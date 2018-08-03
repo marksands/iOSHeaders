@@ -10,10 +10,11 @@
 #import "PLCloudCommentsChangeObserver.h"
 #import "PLCloudFeedEntriesObserver.h"
 #import "PLPhotoLibraryShouldReloadObserver.h"
+#import "PXConfigurableFeedSectionInfosManager.h"
 
 @class NSDate, NSMapTable, NSMutableArray, PLPhotoLibrary;
 
-@interface PXFeedSectionInfosManager : NSObject <PLCloudFeedEntriesObserver, PLCloudCommentsChangeObserver, PLAssetChangeObserver, PLPhotoLibraryShouldReloadObserver>
+@interface PXFeedSectionInfosManager : NSObject <PLCloudFeedEntriesObserver, PLCloudCommentsChangeObserver, PLAssetChangeObserver, PLPhotoLibraryShouldReloadObserver, PXConfigurableFeedSectionInfosManager>
 {
     PLPhotoLibrary *_photoLibrary;
     NSMutableArray *_sectionInfos;
@@ -21,16 +22,16 @@
     NSMutableArray *_pendingFeedEntriesChangeNotifications;
     NSMutableArray *_pendingCommentsChangeNotifications;
     NSMutableArray *_pendingAssetsChangeNotifications;
-    id <PXFeedSectionInfosManagerDelegate> _delegate;
     long long _entryFilter;
     NSDate *_earliestDate;
     unsigned long long _fetchLimit;
+    id <PXFeedSectionInfosManagerDelegate> _delegate;
 }
 
+@property(nonatomic) __weak id <PXFeedSectionInfosManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned long long fetchLimit; // @synthesize fetchLimit=_fetchLimit;
 @property(retain, nonatomic) NSDate *earliestDate; // @synthesize earliestDate=_earliestDate;
 @property(nonatomic) long long entryFilter; // @synthesize entryFilter=_entryFilter;
-@property(nonatomic) __weak id <PXFeedSectionInfosManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)initWithPhotoLibraryForTesting:(id)arg1 filter:(long long)arg2;
 - (CDUnknownBlockType)_sectionInfoSortingComparator;
@@ -45,6 +46,8 @@
 - (void)_rebuildSectionInfos;
 - (id)indexesOfInvitationsReceivedSectionInfos;
 - (long long)numberOfInvitationsReceived;
+- (_Bool)reconfigureToIncludeCloudFeedEntry:(id)arg1;
+- (void)reconfigure:(CDUnknownBlockType)arg1;
 - (void)loadSectionInfosAtIndexes:(id)arg1;
 - (id)indexesOfUnloadedSectionInfosAtIndexes:(id)arg1;
 - (long long)indexOfSectionInfoForCloudFeedEntry:(id)arg1;

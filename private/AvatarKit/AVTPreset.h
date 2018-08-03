@@ -49,6 +49,7 @@
 @property(readonly, nonatomic) _Bool hasComponent;
 - (struct UIImage *)maskImage;
 @property(readonly, nonatomic) UIImage *thumbnail;
+@property(readonly, nonatomic) NSString *localizedName;
 @property(readonly, nonatomic) NSString *displayableName;
 @property(readonly, nonatomic) NSString *identifier;
 @property(readonly, nonatomic) long long category;

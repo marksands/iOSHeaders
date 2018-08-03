@@ -7,25 +7,20 @@
 #import "UICollectionViewCell.h"
 
 #import "AVTAvatarTransitionModel.h"
-#import "AVTEngagementRatioSupport.h"
 
 @class AVTImageTransitioningContainerView, AVTView, NSString, UIImage, UIView;
 
-@interface AVTAvatarListCell : UICollectionViewCell <AVTAvatarTransitionModel, AVTEngagementRatioSupport>
+@interface AVTAvatarListCell : UICollectionViewCell <AVTAvatarTransitionModel>
 {
-    double _engagementRatio;
     AVTView *_avtView;
     id <AVTAvatarRecord> _avatar;
     AVTImageTransitioningContainerView *_containerView;
 }
 
-+ (struct CGRect)actualContentRectForContentViewRect:(struct CGRect)arg1 engagementRatio:(double)arg2;
-+ (double)actualContentAlphaForEngagementRatio:(double)arg1;
 + (id)reuseIdentifier;
 @property(readonly, nonatomic) AVTImageTransitioningContainerView *containerView; // @synthesize containerView=_containerView;
 @property(retain, nonatomic) id <AVTAvatarRecord> avatar; // @synthesize avatar=_avatar;
 @property(retain, nonatomic) AVTView *avtView; // @synthesize avtView=_avtView;
-@property(nonatomic) double engagementRatio; // @synthesize engagementRatio=_engagementRatio;
 - (void).cxx_destruct;
 - (id)liveView;
 - (void)applyFullAlpha;
@@ -37,9 +32,11 @@
 - (void)layoutSubviews;
 - (void)endUsingAVTView;
 - (void)beginUsingAVTViewFromSession:(id)arg1;
+@property(nonatomic) struct CGSize aspectRatio;
 @property(readonly, nonatomic) UIView *avtViewContainer;
 - (void)setImage:(id)arg1 animated:(_Bool)arg2;
 @property(retain, nonatomic) UIImage *image;
+- (id)snapshotViewAfterScreenUpdates:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)downcastWithCellHandler:(CDUnknownBlockType)arg1 listCellHandler:(CDUnknownBlockType)arg2;
 

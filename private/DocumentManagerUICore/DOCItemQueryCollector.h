@@ -13,6 +13,7 @@
     NSObject<OS_dispatch_queue> *_queryingQueue;
     NSObject<OS_dispatch_queue> *_processingQueue;
     NSMutableDictionary *_itemsByBundleAndID;
+    _Bool _suspended;
     unsigned long long _numberOfRecoveryAttempts;
     NSDate *_lastStartOfRecovery;
     _Bool _gathering;
@@ -31,7 +32,6 @@
 @property(retain, nonatomic) DOCItemQueryDescriptor *itemQueryDescriptor; // @synthesize itemQueryDescriptor=_itemQueryDescriptor;
 - (void).cxx_destruct;
 - (unsigned long long)_itemOriginForItems:(id)arg1;
-- (void)start;
 - (void)_start;
 - (void)query:(id)arg1 didFinishWithError:(id)arg2;
 - (void)queryDidFinishGathering:(id)arg1;
@@ -45,11 +45,10 @@
 - (void)setNeedsItemOriginUpdateForObservers:(id)arg1;
 - (id)_filterItems:(id)arg1 forObserver:(id)arg2 excludedItemIDs:(id *)arg3;
 - (_Bool)shouldFilterUpdatesForObserver:(id)arg1;
-- (void)stop;
-- (void)_cleanUp;
 - (void)_stop;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
+- (void)setSuspended:(_Bool)arg1;
 - (id)description;
 - (void)_commonInit;
 - (id)init;

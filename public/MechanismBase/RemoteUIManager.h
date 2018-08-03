@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "LARemoteUIHost.h"
+#import "SBSRemoteAlertHandleObserver.h"
 
-@class MechanismBase<LAUIMechanism><LARemoteUIHost>;
+@class MechanismBase<LAUIMechanism><LARemoteUIHost>, NSString;
 
-@interface RemoteUIManager : NSObject <LARemoteUIHost>
+@interface RemoteUIManager : NSObject <SBSRemoteAlertHandleObserver, LARemoteUIHost>
 {
     MechanismBase<LAUIMechanism><LARemoteUIHost> *_uiMechanism;
     CDUnknownBlockType _pendingShowUiReply;
@@ -30,8 +31,17 @@
 - (void)_assignPendingMechanism:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)prepareForRemoteViewControllerWithMechanism:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)_activateUi;
-- (void)showUiForMechanism:(id)arg1 options:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)remoteAlertHandle:(id)arg1 didInvalidateWithError:(id)arg2;
+- (void)remoteAlertHandleDidDeactivate:(id)arg1;
+- (void)remoteAlertHandleDidActivate:(id)arg1;
+- (void)showUiForMechanism:(id)arg1 auditToken:(id)arg2 options:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

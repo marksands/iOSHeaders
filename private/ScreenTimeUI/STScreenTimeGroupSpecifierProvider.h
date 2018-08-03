@@ -18,7 +18,7 @@
 @property(retain, nonatomic) PSSpecifier *thisDeviceSpecifier; // @synthesize thisDeviceSpecifier=_thisDeviceSpecifier;
 - (void).cxx_destruct;
 - (void)showUsageDetailController:(id)arg1;
-- (id)getUsageInfo:(id)arg1;
+- (id)getCoordinator:(id)arg1;
 - (id)getUsageDescription:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setCoordinator:(id)arg1;

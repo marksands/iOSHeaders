@@ -8,9 +8,10 @@
 
 #import "PGPersonResult.h"
 
-@class NSString;
+@class NSDate, NSString;
 
 @interface PHPerson (PGPersonResult) <PGPersonResult>
+@property(readonly, nonatomic) NSDate *birthdayDate;
 - (long long)compareToPerson:(id)arg1;
 @property(readonly, nonatomic) NSString *contactIdentifier;
 @property(readonly, nonatomic) NSString *keywordDescription;

@@ -40,6 +40,7 @@
 @property(readonly, getter=isMutated) _Bool mutated;
 @property(readonly, getter=isNew) _Bool new;
 - (_Bool)applyMutationsToManagedObject:(id)arg1 error:(id *)arg2;
+- (void)markReactivated;
 - (void)markRetired;
 - (void)markDeclined;
 - (void)markAccepted;

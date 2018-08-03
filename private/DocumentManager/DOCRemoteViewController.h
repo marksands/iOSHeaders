@@ -34,8 +34,8 @@
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)fetchAllSourcesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)updateEditingTo:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)updateAppearance:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)updateAppearance:(id)arg1 shouldFlushCA:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (void)updateAppearance:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)viewDidLoad;
 
 @end

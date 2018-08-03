@@ -6,14 +6,13 @@
 
 #import "PBCodable.h"
 
-#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 #import "_INPBPayloadUnsupported.h"
 
-@class INCodableAttribute, NSArray, NSString;
+@class NSArray, NSString;
 
-@interface _INPBPayloadUnsupported : PBCodable <_INPBPayloadUnsupported, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
+@interface _INPBPayloadUnsupported : PBCodable <_INPBPayloadUnsupported, NSSecureCoding, NSCopying>
 {
     struct {
         unsigned int requestPaymentIntentCurrencyAmountUnsupportedReason:1;
@@ -34,11 +33,9 @@
     int _sendMessageIntentRecipientUnsupportedReason;
     int _setTimerAttributeIntentTargetTimerUnsupportedReason;
     NSArray *_conflictingParameters;
-    INCodableAttribute *_associatedCodableAttribute;
 }
 
 + (Class)conflictingParametersType;
-@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(nonatomic) int setTimerAttributeIntentTargetTimerUnsupportedReason; // @synthesize setTimerAttributeIntentTargetTimerUnsupportedReason=_setTimerAttributeIntentTargetTimerUnsupportedReason;
 @property(nonatomic) int sendMessageIntentRecipientUnsupportedReason; // @synthesize sendMessageIntentRecipientUnsupportedReason=_sendMessageIntentRecipientUnsupportedReason;
 @property(nonatomic) int reason; // @synthesize reason=_reason;

@@ -9,11 +9,12 @@
 #import "PXChangeObserver.h"
 #import "PXGadget.h"
 
-@class NSManagedObjectID, NSString, PXCMMAssetsProgressListener, PXCMMInvitationView, PXGadgetSpec, UIColor;
+@class NSManagedObjectID, NSString, PXCMMAssetsProgressListener, PXCMMInvitationView, PXGadgetSpec, UIColor, UILongPressGestureRecognizer;
 
 @interface PXCMMInvitationGadget : NSObject <PXChangeObserver, PXGadget>
 {
     PXCMMInvitationView *_invitationView;
+    UILongPressGestureRecognizer *_longPressGestureRecognizer;
     PXGadgetSpec *_gadgetSpec;
     id <PXGadgetDelegate> _delegate;
     NSManagedObjectID *_objectID;
@@ -31,11 +32,16 @@
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
+- (void)_longPressGesture:(id)arg1;
+- (void)_updateLongPressGestureRecognizer;
+- (void)commitPreviewViewController:(id)arg1;
+- (struct NSObject *)previewViewControllerAtLocation:(struct CGPoint)arg1 fromSourceView:(struct NSObject *)arg2 outSourceRect:(out struct CGRect *)arg3;
+- (void)_contentSizeCategoryDidChange:(id)arg1;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)_tapGesture:(id)arg1;
 - (void)_updateStatusString;
 - (void)_registerAssetsProgressListener;
-- (void)_calendarDayChangedNotification:(id)arg1;
+- (void)_inboxLastSeenDateDidChange:(id)arg1;
 - (void)_updateIsNewStatus;
 - (void)_loadInvitation:(id)arg1;
 - (id)uniqueGadgetIdentifier;

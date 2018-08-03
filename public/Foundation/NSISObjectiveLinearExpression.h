@@ -23,10 +23,10 @@
 - (void)verifyInternalIntegrity;
 - (void)leadingPriority:(double *)arg1 andValue:(double *)arg2 forVar:(CDStruct_fcd6c539)arg3;
 - (_Bool)restrictedVarWithCoefficientOfLargestNegativeMagnitudeOutVar:(CDStruct_fcd6c539 *)arg1;
-- (void)replaceVar:(CDStruct_fcd6c539)arg1 withExpression:(id)arg2 processVarNewToReceiver:(CDUnknownBlockType)arg3 processVarDroppedFromReceiver:(CDUnknownBlockType)arg4;
+- (void)replaceVar:(CDStruct_fcd6c539)arg1 withExpression:(CDStruct_9ac54d62 *)arg2 processVarNewToReceiver:(CDUnknownBlockType)arg3 processVarDroppedFromReceiver:(CDUnknownBlockType)arg4;
 - (void)replaceVar:(CDStruct_fcd6c539)arg1 withVarPlusDelta:(double)arg2 timesVar:(CDStruct_fcd6c539)arg3 processVarNewToReceiver:(CDUnknownBlockType)arg4 processVarDroppedFromReceiver:(CDUnknownBlockType)arg5;
 - (void)replaceVar:(CDStruct_fcd6c539)arg1 withVarPlusDelta:(double)arg2;
-- (void)addExpression:(id)arg1 priority:(double)arg2 times:(double)arg3 processVarNewToReceiver:(CDUnknownBlockType)arg4 processVarDroppedFromReceiver:(CDUnknownBlockType)arg5;
+- (void)addExpression:(CDStruct_9ac54d62 *)arg1 priority:(double)arg2 times:(double)arg3 processVarNewToReceiver:(CDUnknownBlockType)arg4 processVarDroppedFromReceiver:(CDUnknownBlockType)arg5;
 - (void)addVar:(CDStruct_fcd6c539)arg1 priority:(double)arg2 times:(double)arg3 processVarNewToReceiver:(CDUnknownBlockType)arg4 processVarDroppedFromReceiver:(CDUnknownBlockType)arg5;
 - (void)addVar:(CDStruct_fcd6c539)arg1 priority:(double)arg2 times:(double)arg3;
 - (void)setPriorityVector:(struct __CFData *)arg1 forKnownAbsentVar:(CDStruct_fcd6c539)arg2;
@@ -40,7 +40,7 @@
 - (void)incrementConstantWithPriority:(double)arg1 value:(double)arg2;
 - (id)description;
 - (void)dealloc;
-- (id)initWithLinearExpression:(id)arg1 priority:(double)arg2 engine:(id)arg3;
+- (id)initWithLinearExpression:(CDStruct_9ac54d62 *)arg1 priority:(double)arg2 engine:(id)arg3;
 - (id)initWithEngine:(id)arg1;
 - (id)init;
 

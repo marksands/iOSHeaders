@@ -29,6 +29,14 @@
     NSMapTable *_objCTypesToMethodSignatures;
 }
 
++ (id)remoteProxyWithMachServiceName:(id)arg1 options:(id)arg2 eventQueue:(id)arg3 eventHandler:(CDUnknownBlockType)arg4;
++ (id)remoteProxyWithServiceName:(id)arg1 options:(id)arg2 eventQueue:(id)arg3 eventHandler:(CDUnknownBlockType)arg4;
++ (id)remoteProxyWithXPCConnection:(id)arg1 options:(id)arg2 eventQueue:(id)arg3 eventHandler:(CDUnknownBlockType)arg4;
++ (id)forwardingProxyWithInstance:(id)arg1 machServiceName:(id)arg2 options:(id)arg3 eventQueue:(id)arg4 eventHandler:(CDUnknownBlockType)arg5;
++ (id)forwardingProxyWithBlock:(id)arg1 xpcAnonymousConnection:(id)arg2 options:(id)arg3 eventQueue:(id)arg4 eventHandler:(CDUnknownBlockType)arg5;
++ (id)forwardingProxyWithInstance:(id)arg1 xpcAnonymousConnection:(id)arg2 options:(id)arg3 eventQueue:(id)arg4 eventHandler:(CDUnknownBlockType)arg5;
++ (void)forwardingProxyWithInstance:(id)arg1 options:(id)arg2 eventQueue:(id)arg3 eventHandler:(CDUnknownBlockType)arg4;
++ (id)sessionManagerWithOptions:(id)arg1 eventQueue:(id)arg2 eventHandler:(CDUnknownBlockType)arg3;
 + (id)remoteProxyWithMachServiceName:(id)arg1 eventQueue:(id)arg2 eventHandler:(CDUnknownBlockType)arg3;
 + (id)remoteProxyWithServiceName:(id)arg1 eventQueue:(id)arg2 eventHandler:(CDUnknownBlockType)arg3;
 + (id)remoteProxyWithXPCConnection:(id)arg1 eventQueue:(id)arg2 eventHandler:(CDUnknownBlockType)arg3;
@@ -36,7 +44,6 @@
 + (id)forwardingProxyWithBlock:(id)arg1 xpcAnonymousConnection:(id)arg2 eventQueue:(id)arg3 eventHandler:(CDUnknownBlockType)arg4;
 + (id)forwardingProxyWithInstance:(id)arg1 xpcAnonymousConnection:(id)arg2 eventQueue:(id)arg3 eventHandler:(CDUnknownBlockType)arg4;
 + (void)forwardingProxyWithInstance:(id)arg1 eventQueue:(id)arg2 eventHandler:(CDUnknownBlockType)arg3;
-+ (id)sessionManagerWithEventQueue:(id)arg1 eventHandler:(CDUnknownBlockType)arg2;
 @property(retain, nonatomic) NSMapTable *objCTypesToMethodSignatures; // @synthesize objCTypesToMethodSignatures=_objCTypesToMethodSignatures;
 @property(retain, nonatomic) NSMapTable *xpcProtocolsToClasses; // @synthesize xpcProtocolsToClasses=_xpcProtocolsToClasses;
 @property(retain, nonatomic) NSMapTable *protocolsToMethodSignatures; // @synthesize protocolsToMethodSignatures=_protocolsToMethodSignatures;
@@ -56,7 +63,7 @@
 @property(retain, nonatomic) NSObject<OS_xpc_object> *serviceConnection; // @synthesize serviceConnection=_serviceConnection;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (id)initWithEventQueue:(id)arg1 eventHandler:(CDUnknownBlockType)arg2;
+- (id)initWithOptions:(id)arg1 eventQueue:(id)arg2 eventHandler:(CDUnknownBlockType)arg3;
 - (id)init;
 
 @end

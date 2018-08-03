@@ -6,20 +6,26 @@
 
 #import <RelevanceEngine/RESingleton.h>
 
+#import "REElementActionDelegate.h"
 #import "RETrainingSimulationServerInterface.h"
 
-@class NSMutableDictionary, NSString, RETrainingSimulationServer;
+@class NSMapTable, NSMutableDictionary, NSString, RETrainingSimulationServer;
 
-@interface RETrainingSimulationCoordinator : RESingleton <RETrainingSimulationServerInterface>
+@interface RETrainingSimulationCoordinator : RESingleton <REElementActionDelegate, RETrainingSimulationServerInterface>
 {
     RETrainingSimulationServer *_server;
     NSMutableDictionary *_elementsAddedByEngine;
+    NSMapTable *_actionCompletionBlocks;
     _Bool _isActivelyTraining;
 }
 
 + (void)prewarm;
 @property _Bool isActivelyTraining; // @synthesize isActivelyTraining=_isActivelyTraining;
 - (void).cxx_destruct;
+- (void)elementAction:(id)arg1 wantsViewControllerDisplayed:(id)arg2;
+- (void)elementAction:(id)arg1 wantsToPerformTapActionForComplicationSlot:(id)arg2;
+- (void)elementAction:(id)arg1 didFinishTask:(_Bool)arg2;
+- (void)relevanceEngine:(id)arg1 runActionOfElementWithDescription1:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)gatherDiagnosticLogsForRelevanceEngine:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAllElementsInRelevanceEngine:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAllElementIdentifiersInRelevanceEngine:(id)arg1 completion:(CDUnknownBlockType)arg2;

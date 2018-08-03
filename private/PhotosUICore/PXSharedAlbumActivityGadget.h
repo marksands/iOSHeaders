@@ -53,10 +53,10 @@
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)_handleCollageViewTap:(id)arg1;
 - (void)_handleActionTap:(id)arg1;
-- (_Bool)_navigateToActivityFeed:(CDUnknownBlockType)arg1;
 - (struct CGSize)_performLayoutInRect:(struct CGRect)arg1 updateSubviewFrames:(_Bool)arg2;
 - (void)_loadCaption;
 - (void)_loadAssets;
+- (_Bool)_isAccessibilityContentSize;
 - (unsigned long long)_numberOfLinesForCaption;
 - (void)_updateCollageView;
 - (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
@@ -67,7 +67,7 @@
 - (void)_updateCollageViewVideoEnabled;
 - (void)oneUpPresentation:(id)arg1 setHiddenAssetReferences:(id)arg2;
 - (id)oneUpPresentation:(id)arg1 currentImageForAssetReference:(id)arg2;
-- (id)oneUpPresentation:(id)arg1 regionOfInterestForAssetReference:(id)arg2 inCoordinateSpace:(id)arg3;
+- (id)oneUpPresentation:(id)arg1 regionOfInterestForAssetReference:(id)arg2;
 - (id)oneUpPresentationInitialAssetReference:(id)arg1;
 - (id)oneUpPresentationMediaProvider:(id)arg1;
 - (id)oneUpPresentationDataSourceManager:(id)arg1;

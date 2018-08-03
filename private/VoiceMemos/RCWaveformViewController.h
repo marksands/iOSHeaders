@@ -19,6 +19,8 @@
     RCWaveformSelectionOverlay *_selectionOverlay;
     UIView *_timeMarkerView;
     UIView *_backgroundView;
+    UIView *_backgroundWaveFormHighlightView;
+    UIView *_selectionBackgroundView;
     NSMutableArray *_timeMarkerViews;
     NSTimer *_overlayAutoscrollTimer;
     _Bool _timeMarkerViewsNeedInitialLayout;
@@ -45,6 +47,7 @@
     _Bool _selectedTimeRangeEditingEnabled;
     _Bool _selectedTimeRangeScrubbingEnabled;
     _Bool _selectionOverlayShouldUseInsertMode;
+    _Bool _showPlayBarOnly;
     id <RCWaveformViewDelegate> _delegate;
     RCUIConfiguration *_UIConfiguration;
     RCLayoutMetrics *_layoutMetrics;
@@ -57,6 +60,7 @@
     CDStruct_73a5d3ca _selectedTimeRange;
 }
 
+@property(nonatomic) _Bool showPlayBarOnly; // @synthesize showPlayBarOnly=_showPlayBarOnly;
 @property(nonatomic) _Bool selectionOverlayShouldUseInsertMode; // @synthesize selectionOverlayShouldUseInsertMode=_selectionOverlayShouldUseInsertMode;
 @property(nonatomic, getter=isSelectedTimeRangeEditingEnabled) _Bool selectedTimeRangeScrubbingEnabled; // @synthesize selectedTimeRangeScrubbingEnabled=_selectedTimeRangeScrubbingEnabled;
 @property(nonatomic) double maximumSelectionDuration; // @synthesize maximumSelectionDuration=_maximumSelectionDuration;
@@ -92,12 +96,15 @@
 - (_Bool)_shouldAutoAnimateScrollChanges;
 - (void)_updateAnnotationViews;
 - (void)_updateWaveformViewContentSizeAndOffset;
+- (void)_updateWaveformViewContentSizeAndOffsetToSize:(double)arg1;
+- (void)_updateBackgroundWaveformHighlight;
 - (void)_setTimeMarkerViewUpdatesDisabled:(_Bool)arg1;
 - (void)_autoscrollOverlayIfNecessary;
 - (void)_setSelectedTimeRange:(CDStruct_73a5d3ca)arg1 updateVisibleTimeRange:(_Bool)arg2 notifyDelegate:(_Bool)arg3 animationDuration:(double)arg4;
 - (void)_setVisibleTimeRange:(CDStruct_73a5d3ca)arg1 animationDuration:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (CDStruct_73a5d3ca)_visibleTimeRangeForCurrentSelectionTimeRange;
 - (double)_desiredTimeDeltaForVisibleTimeRange;
+- (void)updateBackgroundColor;
 - (void)waveformRendererDidSynchronizeToDisplayLink:(id)arg1;
 - (void)waveformRendererContentDidFinishLoading:(id)arg1;
 - (void)waveformRenderer:(id)arg1 contentWidthDidChange:(double)arg2;

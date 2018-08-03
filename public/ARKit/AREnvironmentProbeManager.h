@@ -11,7 +11,6 @@
 @interface AREnvironmentProbeManager : NSObject
 {
     double _minimumProbeUpdateInterval;
-    double _minimumProbeUpdateDelay;
     double _lastProbeUpdateTime;
     NSMutableArray *_initialProbeIdentifiers;
     NSMutableArray *_anchorsToRemove;
@@ -40,7 +39,6 @@
 - (_Bool)addProbeWithAnchor:(id)arg1 timestamp:(double)arg2 textureImmediately:(_Bool)arg3;
 - (void)updateProbesFromExistingAnchors:(id)arg1;
 - (id)updateProbesForTimestamp:(double)arg1 planes:(vector_478e3a44)arg2 imageData:(id)arg3 pose:(id)arg4 addedAnchors:(id)arg5 removedAnchors:(id)arg6;
-- (_Bool)isUpdateRequiredForProbe:(id)arg1 timestamp:(double)arg2;
 - (void)insertIntoQueue:(id)arg1;
 - (id)initWithMode:(long long)arg1;
 

@@ -6,16 +6,14 @@
 
 #import "UIView.h"
 
-@class PKInlineInkPicker;
-
 @interface _PKAllowDrawingWhilePresentingPopoverView : UIView
 {
     _Bool _isHitTesting;
-    PKInlineInkPicker *_weakInkPicker;
+    id <_PKAllowDrawingWhilePresentingPopoverViewDelegate> _delegate;
 }
 
 @property(nonatomic) _Bool isHitTesting; // @synthesize isHitTesting=_isHitTesting;
-@property(nonatomic) __weak PKInlineInkPicker *weakInkPicker; // @synthesize weakInkPicker=_weakInkPicker;
+@property(nonatomic) __weak id <_PKAllowDrawingWhilePresentingPopoverViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)_rootAncestorViewOfDimmmingView:(struct CGPoint)arg1 withEvent:(id)arg2;

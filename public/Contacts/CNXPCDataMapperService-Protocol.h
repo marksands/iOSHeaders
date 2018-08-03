@@ -34,6 +34,7 @@
 - (void)progressiveContactsForFetchRequest:(CNContactFetchRequest *)arg1 progressHandler:(id <ProgressiveResultsHandlerProtocol>)arg2 reply:(void (^)(id <CNCancelable>))arg3;
 - (void)encodedContactsAndCursorForFetchRequest:(CNContactFetchRequest *)arg1 withReply:(void (^)(NSData *, id <CNEncodedFetchCursor>, NSError *))arg2;
 - (void)contactsForFetchRequest:(CNContactFetchRequest *)arg1 withMatchInfoReply:(void (^)(NSArray *, NSDictionary *, NSError *))arg2;
+- (void)contactCountForFetchRequest:(CNContactFetchRequest *)arg1 withReply:(void (^)(NSNumber *, NSError *))arg2;
 - (void)unifiedContactCountWithReply:(void (^)(NSNumber *, NSError *))arg1;
 - (void)identifierWithReply:(void (^)(NSString *, NSError *))arg1;
 - (void)configureServiceWithOptions:(NSDictionary *)arg1;

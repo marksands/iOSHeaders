@@ -10,6 +10,7 @@
 
 @interface STAppInfoCache : NSObject
 {
+    _Bool _fetchIcons;
     id <RMPersistenceControllerProtocol> _persistenceController;
     NSObject<OS_dispatch_queue> *_lookupQueue;
     NSURLSession *_urlSession;
@@ -21,6 +22,7 @@
 @property(readonly, nonatomic) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *lookupQueue; // @synthesize lookupQueue=_lookupQueue;
 @property(readonly, nonatomic) id <RMPersistenceControllerProtocol> persistenceController; // @synthesize persistenceController=_persistenceController;
+@property(nonatomic) _Bool fetchIcons; // @synthesize fetchIcons=_fetchIcons;
 - (void).cxx_destruct;
 - (void)_failToFetchApps:(id)arg1 error:(id)arg2;
 - (void)_finishFetchingApp:(id)arg1 info:(id)arg2;

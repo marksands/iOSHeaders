@@ -51,6 +51,7 @@
     _Bool _alwaysShowUndoButton;
     _Bool _shareButtonHidden;
     _Bool _translucent;
+    _Bool _contentsHidden;
     AKController *_annotationController;
 }
 
@@ -58,6 +59,7 @@
 + (id)undoButtonImage;
 + (id)redoButtonImageWithStyle:(unsigned long long)arg1;
 + (id)undoButtonImageWithStyle:(unsigned long long)arg1;
+@property(nonatomic) _Bool contentsHidden; // @synthesize contentsHidden=_contentsHidden;
 @property(nonatomic, getter=isTranslucent) _Bool translucent; // @synthesize translucent=_translucent;
 @property(nonatomic, getter=isShareButtonHidden) _Bool shareButtonHidden; // @synthesize shareButtonHidden=_shareButtonHidden;
 @property(nonatomic) _Bool alwaysShowUndoButton; // @synthesize alwaysShowUndoButton=_alwaysShowUndoButton;
@@ -113,6 +115,7 @@
 - (void)upateAttributesPickerButtonWithCurrentSelection:(id)arg1;
 - (id)createUndoViewController;
 - (void)resetToLastDrawingTool;
+- (void)setContentsHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)shouldUseCompactHeight;
 - (_Bool)shouldUseCompactWidth;
 - (void)traitCollectionDidChange:(id)arg1;

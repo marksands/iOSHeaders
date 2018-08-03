@@ -44,7 +44,7 @@
 - (_Bool)_addCalendarEventFieldsToEntry:(id)arg1 event:(id)arg2;
 - (_Bool)_addTicketedEventFieldsToEntry:(id)arg1 fromSchemaOrgDictionary:(id)arg2 event:(id)arg3;
 - (_Bool)_addCarRentalFieldsToEntry:(id)arg1 event:(id)arg2;
-- (_Bool)_addHotelFieldsToEntry:(id)arg1 event:(id)arg2;
+- (_Bool)_addHotelFieldsToEntry:(id)arg1 fromSchemaOrgDictionary:(id)arg2 event:(id)arg3;
 - (_Bool)_addTravelFlightFieldsToEntry:(id)arg1 fromSchemaOrgDictionary:(id)arg2 event:(id)arg3;
 - (void)_createEntriesFromEventsAndUpdateSuggestions:(id)arg1 currentLocation:(id)arg2;
 - (double)updateSuggestionEntries;

@@ -360,7 +360,7 @@
 - (id)pParagraphStyleWithFrequentAttributesInString:(id)arg1 withinStringRange:(struct _NSRange)arg2 currentParagraphStyle:(id)arg3;
 - (void)pMapAttributesFromAttributedString:(id)arg1 ontoRange:(struct _NSRange)arg2 asCharacterStylesOnly:(_Bool)arg3;
 - (id)pTextListsFromListStyle:(id)arg1 atLevel:(unsigned long long)arg2 labelTypeMap:(id)arg3;
-- (id)pExportParagraphAttributes:(id)arg1 nextParagraphStyle:(id)arg2;
+- (id)pExportParagraphAttributes:(id)arg1 nextParagraphStyle:(id)arg2 scale:(double)arg3;
 - (long long)pMapListsFromStorageRange:(struct _NSRange)arg1 toString:(id)arg2 atStringLoc:(unsigned long long)arg3 textListMap:(id)arg4;
 - (id)pExportAttributes:(unsigned long long)arg1 effectiveRange:(struct _NSRange *)arg2 stickyFont:(id *)arg3 scale:(double)arg4;
 - (id)pNSAttributedStringWithAttributeDelegate:(id)arg1 ignoreLists:(_Bool)arg2 stripTextualAttachments:(_Bool)arg3 stripGraphicalAttachments:(_Bool)arg4 stripInlineAttachments:(_Bool)arg5 attachmentChar:(id)arg6 scale:(double)arg7 withLayoutParent:(id)arg8;

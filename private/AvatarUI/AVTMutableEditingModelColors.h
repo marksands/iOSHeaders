@@ -15,7 +15,7 @@
 
 @property(readonly, nonatomic) NSMutableDictionary *mutableStorage; // @synthesize mutableStorage=_mutableStorage;
 - (void).cxx_destruct;
-- (void)setColor:(id)arg1 forSettingKind:(CDStruct_597dd055)arg2 name:(id)arg3;
+- (void)setColor:(id)arg1 forSettingKind:(CDStruct_597dd055)arg2 identifier:(id)arg3;
 - (id)initWithVariationStore:(id)arg1;
 - (id)initWithStorage:(struct NSDictionary *)arg1 variationStore:(id)arg2;
 

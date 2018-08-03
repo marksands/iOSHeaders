@@ -103,7 +103,7 @@
 - (void)_updateBarPresentationStyleForPresentingViewController:(id)arg1;
 - (_Bool)_allowFormSheetStylePresentation;
 - (void)_removeCarPlayLimitedUIObserver;
-- (void)_limitedUIDidChange;
+- (void)_limitedUIDidChangeAnimated:(_Bool)arg1;
 - (void)_setCarPlayLimitedUIViewController:(id)arg1;
 - (id)_carPlayLimitedUIViewController;
 - (void)_setCarPlayLimitedUIToken:(id)arg1;
@@ -119,6 +119,7 @@
 - (void)_dismissPresentation:(_Bool)arg1;
 - (void)_performAutomaticPresentation;
 - (id)_locatePresentingViewController;
+- (id)_locatePresentingViewControllerIfInManagedPalette;
 - (void)_searchBarSuperviewChanged;
 - (void)_searchBarCancelButtonClicked:(id)arg1;
 - (void)_searchBarSearchButtonClicked:(id)arg1;

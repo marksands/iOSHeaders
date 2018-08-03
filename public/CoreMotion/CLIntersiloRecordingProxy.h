@@ -25,7 +25,7 @@
 - (void).cxx_destruct;
 - (void)dealloc;
 - (_Bool)offsiloHandleInvocation:(id)arg1 selectorInfo:(id)arg2 peer:(id)arg3;
-- (void)dispatchEncodedInvocation:(id)arg1;
+- (void)dispatchEncodedInvocation:(id)arg1 expectedClasses:(id)arg2;
 - (void)setDelegateEntityName:(const char *)arg1;
 - (void)setProxyPairRecordingWriter:(shared_ptr_06cc74dc)arg1;
 - (void)setRecordingWriter:(shared_ptr_06cc74dc)arg1;

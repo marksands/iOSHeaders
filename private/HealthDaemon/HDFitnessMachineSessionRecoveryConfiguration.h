@@ -17,9 +17,11 @@
     unsigned long long _machineType;
     NSString *_machineName;
     NSString *_machineBrand;
+    unsigned long long _activityType;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) unsigned long long activityType; // @synthesize activityType=_activityType;
 @property(copy, nonatomic) NSString *machineBrand; // @synthesize machineBrand=_machineBrand;
 @property(readonly, copy, nonatomic) NSString *machineName; // @synthesize machineName=_machineName;
 @property(readonly, nonatomic) unsigned long long machineType; // @synthesize machineType=_machineType;
@@ -28,7 +30,7 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithSessionUUID:(id)arg1 machineUUID:(id)arg2 machineType:(unsigned long long)arg3 machineName:(id)arg4 machineBrand:(id)arg5;
+- (id)initWithSessionUUID:(id)arg1 machineUUID:(id)arg2 machineType:(unsigned long long)arg3 machineName:(id)arg4 machineBrand:(id)arg5 activityType:(unsigned long long)arg6;
 
 @end
 

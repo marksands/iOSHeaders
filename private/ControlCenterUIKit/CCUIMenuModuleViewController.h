@@ -42,6 +42,7 @@
 - (double)_footerHeight;
 - (void)_contentSizeCategoryDidChange;
 - (double)_menuItemsHeightForWidth:(double)arg1;
+- (_Bool)_shouldLimitContentSizeCategory;
 - (id)_titleFont;
 - (double)_separatorHeight;
 - (void)_handlePressGesture:(id)arg1;
@@ -53,6 +54,7 @@
 - (void)_setupContentViewBounds;
 - (struct CGAffineTransform)_contentTransformForScale:(double)arg1;
 - (double)_contentScaleForSize:(struct CGSize)arg1;
+- (double)_titleWidthForContainerWidth:(double)arg1;
 - (void)_layoutFooterSeparatorForSize:(struct CGSize)arg1;
 - (void)_layoutHeaderSeparatorForSize:(struct CGSize)arg1;
 - (void)_layoutFooterButtonForSize:(struct CGSize)arg1;

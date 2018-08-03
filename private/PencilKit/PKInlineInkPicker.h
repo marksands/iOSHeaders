@@ -9,10 +9,12 @@
 #import "PKInkAttributesPickerDelegate.h"
 #import "PKInlineColorPickerDelegate.h"
 #import "UIPopoverPresentationControllerDelegate.h"
+#import "_PKAllowDrawingWhilePresentingPopoverViewDelegate.h"
+#import "_PKInlineColorPickerAllowDrawingWithPopoverDelegate.h"
 
 @class NSArray, NSMutableDictionary, NSString, PKInk, PKInkAttributesPicker, PKInlineColorPicker, UIColor, UILayoutGuide, UIView, _PKAllowDrawingWhilePresentingPopoverView;
 
-@interface PKInlineInkPicker : UIControl <PKInlineColorPickerDelegate, PKInkAttributesPickerDelegate, UIPopoverPresentationControllerDelegate>
+@interface PKInlineInkPicker : UIControl <PKInlineColorPickerDelegate, PKInkAttributesPickerDelegate, UIPopoverPresentationControllerDelegate, _PKInlineColorPickerAllowDrawingWithPopoverDelegate, _PKAllowDrawingWhilePresentingPopoverViewDelegate>
 {
     _Bool _shouldEmboss;
     _Bool _forceCompactLayout;
@@ -68,6 +70,11 @@
 - (void)_userDidTriggerSettingsUI:(id)arg1;
 - (id)_axLabelForToolButton:(id)arg1;
 - (void)_axHandleLongPressForLargeTextHUD:(id)arg1;
+- (void)_allowDrawingWhilePresentingPopoverViewDidBeginDrawing:(id)arg1;
+- (void)_inlineColorPickerUpdateFrameForAllowDrawingPassthroughView:(id)arg1;
+- (void)_inlineColorPickerTeardownAllowDrawingPassthroughView:(id)arg1;
+- (void)_inlineColorPickerSetupAllowDrawingPassthroughViewIfNeeded:(id)arg1;
+- (id)_inlineColorPickerAllowDrawingPassthroughView:(id)arg1;
 - (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
 - (long long)adaptivePresentationStyleForPresentationController:(id)arg1 traitCollection:(id)arg2;
 - (void)inkAttributesPickerDidChangeSelectedInk:(id)arg1;
@@ -81,8 +88,8 @@
 - (void)userDidTouchTool:(id)arg1;
 - (void)toolTapped:(id)arg1;
 - (void)_resetInkAttributePickerState;
-- (void)_dismissInkAttributesPicker;
-- (void)_showInkAttributesPickerFromView:(id)arg1 frame:(struct CGRect)arg2 shouldHideArrow:(_Bool)arg3;
+- (void)_dismissInkAttributesPicker:(CDUnknownBlockType)arg1;
+- (void)_showInkAttributesPickerFromView:(id)arg1 frame:(struct CGRect)arg2 shouldHideArrow:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)_effectiveViewControllerForPopoverPresentation;
 - (void)resetInksForAttributeSet:(unsigned long long)arg1;
 - (void)resetToDrawingToolWithAnimation:(_Bool)arg1;
@@ -123,7 +130,8 @@
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)_updateFrameForAllowDrawingWhilePresentingPopoverView;
 - (void)_teardownAllowDrawingWhilePresentingPopoverView;
-- (void)_setupAllowDrawingWhilePresentingPopoverViewIfNecessary;
+- (void)_setupAllowDrawingWhilePresentingPopoverViewIfNecessaryWithDelegate:(id)arg1;
+- (id)_allowDrawingWhilePresentingPopoverViewPassthroughArray;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (void)_commonInit;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MKAnnotationView, MKQuadTrie, NSArray, NSMapTable, NSMutableDictionary, NSMutableSet, NSTimer;
+@class MKAnnotationView, MKQuadTrie, NSArray, NSHashTable, NSMapTable, NSMutableDictionary, NSMutableSet, NSTimer;
 
 __attribute__((visibility("hidden")))
 @interface MKAnnotationManager : NSObject
@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     _Bool _annotationRepresentationsAreAddedImmediately;
     NSTimer *_updateVisibleTimer;
     MKQuadTrie *_annotations;
-    NSMutableSet *_visibleAnnotations;
+    NSHashTable *_visibleAnnotations;
     NSMutableSet *_pendingAnnotations;
     NSMutableSet *_disallowAnimationAnnotations;
     NSMutableSet *_invalidCoordinateAnnotations;
@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
     NSMapTable *_reusableAnnotationRepresentations;
     NSMutableSet *_pendingRemovalAnnotationRepresentations;
     NSMutableDictionary *_registeredIdentifierToRepresentationClasses;
+    NSHashTable *_allClusterAnnotations;
     _Bool _isChangingCoordinate;
     _Bool _isDeferringContainerSelection;
     _Bool _deferredContainerSelectionAnimated;
@@ -62,6 +63,7 @@ __attribute__((visibility("hidden")))
 - (void)addRepresentationsForAnnotations:(id)arg1;
 - (void)replaceAnnotation:(id)arg1 withAnnotation:(id)arg2;
 - (void)removeAnnotations:(id)arg1;
+- (void)removeAnnotation:(id)arg1 updateVisible:(_Bool)arg2;
 - (void)removeAnnotation:(id)arg1;
 - (void)_removeAnnotation:(id)arg1 updateVisible:(_Bool)arg2 removeFromContainer:(_Bool)arg3;
 - (id)addRepresentationForAnnotation:(id)arg1;

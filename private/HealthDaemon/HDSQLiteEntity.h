@@ -25,6 +25,7 @@
 + (Class)entityForProperty:(id)arg1;
 + (id)allDatabaseColumnNames;
 + (id)privateSubEntities;
++ (_Bool)isTemporary;
 + (id)indices;
 + (id)columnsDefinition;
 + (id)disambiguatedDatabaseTable;

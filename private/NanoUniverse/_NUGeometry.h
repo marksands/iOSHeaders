@@ -8,7 +8,7 @@
 
 @interface _NUGeometry : NSObject
 {
-    // Error parsing type: ^, name: _vertices
+    struct _NUVertex *_vertices;
     unsigned short *_indices;
     int _vcount;
     int _icount;
@@ -17,11 +17,9 @@
 @property(readonly, nonatomic) int icount; // @synthesize icount=_icount;
 @property(readonly, nonatomic) int vcount; // @synthesize vcount=_vcount;
 @property(readonly, nonatomic) const unsigned short *indices; // @synthesize indices=_indices;
-// Error parsing type for property vertices:
-// Property attributes: Tr^,R,N,V_vertices
-
+@property(readonly, nonatomic) const struct _NUVertex *vertices; // @synthesize vertices=_vertices;
 - (int)addIndices:(const unsigned short *)arg1 count:(int)arg2 vbase:(int)arg3;
--     // Error parsing type: i28@0:8r^16i24, name: addVertices:count:
+- (int)addVertices:(const struct _NUVertex *)arg1 count:(int)arg2;
 - (void)dealloc;
 
 @end

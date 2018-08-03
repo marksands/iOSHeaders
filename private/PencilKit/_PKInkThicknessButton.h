@@ -17,14 +17,6 @@
     struct CGRect _lastRenderedBounds;
 }
 
-+ (double)renderScaleForTemplateInk:(id)arg1 path:(id)arg2 imageSize:(struct CGSize)arg3 insetX:(double)arg4 insetY:(double)arg5;
-+ (CDUnknownBlockType)_defaultVelocityForDistanceFunction;
-+ (double)inkWeightForThumbnailWithIdentifier:(id)arg1 weight:(double)arg2;
-+ (id)linePathForButtonImage;
-+ (id)curvedPathForButtonImage;
-+ (void)_getImageForStroke:(id)arg1 centeredInSize:(struct CGSize)arg2 renderScale:(double)arg3 callback:(CDUnknownBlockType)arg4;
-+ (id)imageRendererQueue;
-+ (void)_getTemplateImageForInk:(id)arg1 size:(struct CGSize)arg2 callback:(CDUnknownBlockType)arg3;
 + (id)imageTintColorForIsSelected:(_Bool)arg1 highlighted:(_Bool)arg2;
 + (id)backgroundColorForIsSelected:(_Bool)arg1 highlighted:(_Bool)arg2;
 @property(retain, nonatomic) UIImage *assetImage; // @synthesize assetImage=_assetImage;
@@ -33,7 +25,6 @@
 @property(readonly, nonatomic) double weight; // @synthesize weight=_weight;
 @property(readonly, nonatomic) NSString *inkIdentifier; // @synthesize inkIdentifier=_inkIdentifier;
 - (void).cxx_destruct;
-- (id)inkForRenderingThumbnail;
 - (void)didTouchUpInside;
 - (void)_animateToHighlightedState:(_Bool)arg1;
 - (void)_animateToSelectedState:(_Bool)arg1;

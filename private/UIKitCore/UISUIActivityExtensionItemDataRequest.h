@@ -20,6 +20,7 @@
     NSUUID *_activityUUID;
     NSString *_activityType;
     long long _activityCategory;
+    long long _maxPreviews;
     NSString *_extensionIdentifier;
     NSDictionary *_activitySpecificMetadata;
     struct CGSize _thumbnailSize;
@@ -33,6 +34,7 @@
 @property(nonatomic) _Bool isAirDropActivity; // @synthesize isAirDropActivity=_isAirDropActivity;
 @property(nonatomic) NSString *extensionIdentifier; // @synthesize extensionIdentifier=_extensionIdentifier;
 @property(nonatomic) struct CGSize thumbnailSize; // @synthesize thumbnailSize=_thumbnailSize;
+@property(nonatomic) long long maxPreviews; // @synthesize maxPreviews=_maxPreviews;
 @property(nonatomic) _Bool wantsAttachmentURLItemData; // @synthesize wantsAttachmentURLItemData=_wantsAttachmentURLItemData;
 @property(nonatomic) _Bool wantsThumbnailItemData; // @synthesize wantsThumbnailItemData=_wantsThumbnailItemData;
 @property(nonatomic) long long activityCategory; // @synthesize activityCategory=_activityCategory;

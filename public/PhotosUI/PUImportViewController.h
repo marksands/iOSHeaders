@@ -23,7 +23,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 
-@class NSLayoutConstraint, NSMutableDictionary, NSMutableSet, NSProgress, NSString, NSTimer, PHImportSource, PLRoundProgressView, PUImportActionCoordinator, PUImportAddToAlbumsPickerViewController, PUImportAddToAlbumsToolbarView, PUImportAssetsDataSource, PUImportAssetsDataSourceManager, PUImportChangeDetailsCollectionViewHelper, PUImportController, PUImportCustomViewBarButton, PUImportFakePhotosDataSource, PUImportFloatingToolbarView, PUImportHistorySectionHeaderView, PUImportProgressDetailViewController, PUImportSessionInfo, PUPhotosGridViewControllerSpec, PXNavigationTitleView, PXSelectionSnapshot, PXSwipeSelectionManager, UIBarButtonItem, UILabel, UITapGestureRecognizer;
+@class NSLayoutConstraint, NSMutableSet, NSNumber, NSProgress, NSString, NSTimer, PHImportSource, PLRoundProgressView, PUImportActionCoordinator, PUImportAddToAlbumsPickerViewController, PUImportAddToAlbumsToolbarView, PUImportAssetsDataSource, PUImportAssetsDataSourceManager, PUImportChangeDetailsCollectionViewHelper, PUImportController, PUImportCustomViewBarButton, PUImportFakePhotosDataSource, PUImportFloatingToolbarView, PUImportHistorySectionHeaderView, PUImportSessionInfo, PUPhotosGridViewControllerSpec, PXNavigationTitleView, PXSelectionSnapshot, PXSwipeSelectionManager, UIBarButtonItem, UILabel, UITapGestureRecognizer;
 
 @interface PUImportViewController : PUPhotosGridViewController <PUSectionedGridLayoutDelegate, PUImportActionCoordinatorDelegate, PUImportAlbumPickerDelegate, PUImportAssetsDataSourceManagerObserver, PUImportControllerImportCompletionDelegate, PUImportControllerNotificationsReceiver, PUImportHistorySectionHeaderViewDelegate, PUImportOneUpTransitioning, PUImportSectionedGridLayoutDelegate, PXSettingsKeyObserver, PUImportDisplayDelegate, PXChangeObserver, PXSwipeSelectionManagerDelegate, PUImportAddToAlbumsToolbarViewDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate>
 {
@@ -46,8 +46,6 @@
     UIBarButtonItem *_compactImportDestinationButton;
     UIBarButtonItem *_compactSpacer2;
     unsigned long long _busyCount;
-    _Bool _canSkipDupCheckOnDelete;
-    _Bool _skipDupCheckOnDelete;
     _Bool _allowsSelection;
     id _mstreamd_pause_context;
     _Bool _acceptsLongPress;
@@ -75,6 +73,7 @@
     PUImportController *_importController;
     PUImportAssetsDataSourceManager *_importDataSourceManager;
     PUImportAssetsDataSource *_importDataSource;
+    PUImportAssetsDataSourceManager *_unfilteredImportDataSourceManager;
     PUImportAssetsDataSource *_pendingDataSource;
     PUImportChangeDetailsCollectionViewHelper *_changeDetailsHelper;
     NSTimer *_initialBatchOfAssetsTimer;
@@ -86,15 +85,15 @@
     PXSelectionSnapshot *_currentSelectionSnapshot;
     PUImportAddToAlbumsPickerViewController *_albumsPickerViewController;
     PLRoundProgressView *_roundProgressView;
-    PUImportProgressDetailViewController *_importProgressDetailViewController;
-    NSString *_localizedProgressText;
+    long long _numItemsCompleted;
+    long long _numTotalItemsToComplete;
     NSMutableSet *_itemsBeingTransitioned;
     PUImportFloatingToolbarView *_compactWidthToolbar;
     NSLayoutConstraint *_compactWidthToolbarTopConstraint;
     PXNavigationTitleView *_contentInfoBarButtonView;
     PXNavigationTitleView *_compactWidthAlbumPickerBarButtonView;
     PUImportCustomViewBarButton *_compactWidthAlbumPickerButton;
-    NSMutableDictionary *_headerHeightCache;
+    NSNumber *_cachedHeaderHeight;
     PUImportHistorySectionHeaderView *_referenceHeaderView;
     double _referenceWidth;
     UITapGestureRecognizer *_doubleTapGestureRecognizer;
@@ -106,7 +105,7 @@
 @property(nonatomic) double referenceWidth; // @synthesize referenceWidth=_referenceWidth;
 @property(nonatomic) _Bool isPeeking; // @synthesize isPeeking=_isPeeking;
 @property(retain, nonatomic) PUImportHistorySectionHeaderView *referenceHeaderView; // @synthesize referenceHeaderView=_referenceHeaderView;
-@property(retain, nonatomic) NSMutableDictionary *headerHeightCache; // @synthesize headerHeightCache=_headerHeightCache;
+@property(retain, nonatomic) NSNumber *cachedHeaderHeight; // @synthesize cachedHeaderHeight=_cachedHeaderHeight;
 @property(retain, nonatomic) PUImportCustomViewBarButton *compactWidthAlbumPickerButton; // @synthesize compactWidthAlbumPickerButton=_compactWidthAlbumPickerButton;
 @property(retain, nonatomic) PXNavigationTitleView *compactWidthAlbumPickerBarButtonView; // @synthesize compactWidthAlbumPickerBarButtonView=_compactWidthAlbumPickerBarButtonView;
 @property(retain, nonatomic) PXNavigationTitleView *contentInfoBarButtonView; // @synthesize contentInfoBarButtonView=_contentInfoBarButtonView;
@@ -115,8 +114,8 @@
 @property(retain, nonatomic) PUImportFloatingToolbarView *compactWidthToolbar; // @synthesize compactWidthToolbar=_compactWidthToolbar;
 @property(nonatomic) _Bool animateHeaderActionButtonChanges; // @synthesize animateHeaderActionButtonChanges=_animateHeaderActionButtonChanges;
 @property(retain, nonatomic) NSMutableSet *itemsBeingTransitioned; // @synthesize itemsBeingTransitioned=_itemsBeingTransitioned;
-@property(copy, nonatomic) NSString *localizedProgressText; // @synthesize localizedProgressText=_localizedProgressText;
-@property(retain, nonatomic) PUImportProgressDetailViewController *importProgressDetailViewController; // @synthesize importProgressDetailViewController=_importProgressDetailViewController;
+@property(nonatomic) long long numTotalItemsToComplete; // @synthesize numTotalItemsToComplete=_numTotalItemsToComplete;
+@property(nonatomic) long long numItemsCompleted; // @synthesize numItemsCompleted=_numItemsCompleted;
 @property(retain, nonatomic) PLRoundProgressView *roundProgressView; // @synthesize roundProgressView=_roundProgressView;
 @property(nonatomic) _Bool shouldStayScrolledToBottom; // @synthesize shouldStayScrolledToBottom=_shouldStayScrolledToBottom;
 @property(nonatomic) _Bool userHasScrolled; // @synthesize userHasScrolled=_userHasScrolled;
@@ -139,6 +138,7 @@
 @property(retain, nonatomic) PUImportAssetsDataSource *pendingDataSource; // @synthesize pendingDataSource=_pendingDataSource;
 @property(nonatomic) _Bool needsDataReloadAfterAnimatingDataSourceChange; // @synthesize needsDataReloadAfterAnimatingDataSourceChange=_needsDataReloadAfterAnimatingDataSourceChange;
 @property(nonatomic) _Bool performingDataSourceChange; // @synthesize performingDataSourceChange=_performingDataSourceChange;
+@property(retain, nonatomic) PUImportAssetsDataSourceManager *unfilteredImportDataSourceManager; // @synthesize unfilteredImportDataSourceManager=_unfilteredImportDataSourceManager;
 @property(retain, nonatomic) PUImportAssetsDataSource *importDataSource; // @synthesize importDataSource=_importDataSource;
 @property(retain, nonatomic) PUImportAssetsDataSourceManager *importDataSourceManager; // @synthesize importDataSourceManager=_importDataSourceManager;
 @property(retain, nonatomic) PUImportController *importController; // @synthesize importController=_importController;
@@ -150,7 +150,6 @@
 @property(retain, nonatomic, setter=_setSpec:) PUPhotosGridViewControllerSpec *_spec; // @synthesize _spec=__spec;
 - (void).cxx_destruct;
 - (id)ppt_importButton;
-- (void)_importContentSizeCategoryDidChangeNotification:(id)arg1;
 - (id)previewPresentationTransitioningDelegateForPosition:(struct CGPoint)arg1 inSourceView:(id)arg2;
 - (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
 - (void)didDismissPreviewViewController:(id)arg1 committing:(_Bool)arg2;
@@ -166,8 +165,9 @@
 - (struct PXSimpleIndexPath)swipeSelectionManager:(id)arg1 itemIndexPathClosestAboveLocation:(struct CGPoint)arg2;
 - (struct PXSimpleIndexPath)swipeSelectionManager:(id)arg1 itemIndexPathClosestLeadingLocation:(struct CGPoint)arg2;
 - (struct PXSimpleIndexPath)swipeSelectionManager:(id)arg1 itemIndexPathAtLocation:(struct CGPoint)arg2;
-- (void)endSwipeSelection;
-- (void)beginSwipeSelection;
+- (void)disableSwipeSelection;
+- (void)enableSwipeSelection;
+- (_Bool)canBeginSwipeSelectionAtScrollViewLocation:(struct CGPoint)arg1;
 - (void)stayScrolledToBottomIfAtBottomAfterDrag:(id)arg1;
 - (void)navigateToBottomAnimated:(_Bool)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
@@ -177,6 +177,7 @@
 - (struct CGRect)imageRectFromPhotoView:(id)arg1;
 - (void)didTransitionFromViewController:(id)arg1 toViewController:(id)arg2 withTransitionItems:(id)arg3;
 - (void)willTransitionFromViewController:(id)arg1 toViewController:(id)arg2 withTransitionItems:(id)arg3;
+- (void)prepareTransitionItemViewForDestination:(id)arg1;
 - (struct CGRect)targetFrameForTransitionItem:(id)arg1;
 - (id)transitionItemsForContext:(id)arg1;
 - (void)handlePhotoOrStackPinchGestureRecognizer:(id)arg1;
@@ -220,6 +221,8 @@
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)notifyUserOfImportCompletionIfNeededWithImportSession:(id)arg1 results:(id)arg2;
 - (void)importController:(id)arg1 didCompleteImportWithImportSession:(id)arg2 results:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_importControllerWillBeginAction;
+- (void)_importControllerDidEndAction;
 - (id)importDestinationForActionCoordinator:(id)arg1;
 - (void)actionCoordinatorDidEndDelete:(id)arg1;
 - (void)actionCoordinatorDidBeginDelete:(id)arg1;
@@ -238,13 +241,7 @@
 - (void)presentAlbumPickerFromView:(id)arg1 orBarItem:(id)arg2;
 - (void)showAlbumPicker:(id)arg1;
 - (void)didTapAddToAlbumsView:(id)arg1;
-- (void)dismissImportProgressPopover;
-- (void)presentImportProgressPopover;
-- (void)showProgress:(id)arg1;
-- (void)importControllerProgressDidChange:(id)arg1 descriptiveText:(id)arg2 context:(id)arg3;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)stopMonitoringImportProgress:(id)arg1;
-- (void)startMonitoringImportProgress:(id)arg1;
+- (void)importControllerProgressDidChange:(id)arg1 completedItemCount:(id)arg2 totalItemCount:(id)arg3 context:(id)arg4;
 - (void)stopImport:(id)arg1;
 - (void)delete:(id)arg1;
 - (void)import:(id)arg1;
@@ -259,6 +256,9 @@
 - (void)handleImportCompleteAlertResponse:(struct __CFUserNotification *)arg1 flags:(unsigned long long)arg2;
 - (void)_deleteItems:(id)arg1;
 - (void)_endImport;
+- (void)_beginImport;
+- (void)_resumePhotoStreams;
+- (void)_pausePhotoStreams;
 - (void)_endUninterruptibleOperation;
 - (void)_beginUninterruptibleOperation;
 - (void)_updateItemViewAtIndex:(id)arg1;
@@ -280,6 +280,7 @@
 - (id)_newGridLayoutFromSpec:(id)arg1;
 - (id)_gridLayout;
 - (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_updateLayoutMetrics;
 - (void)_updateContentOffsetForPendingViewSizeTransition;
 - (_Bool)updateSpec;

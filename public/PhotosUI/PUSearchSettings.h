@@ -8,28 +8,14 @@
 
 @interface PUSearchSettings : PXSettings
 {
-    _Bool _showMomentsSection;
-    _Bool _showPeopleSection;
-    _Bool _showGroupsSection;
-    _Bool _showPlacesSection;
-    _Bool _showCategoriesSection;
-    _Bool _autoExpandSingleSectionedResults;
     _Bool _showKeyboardForZeroKeywords;
-    _Bool _preferFavoritesInTop8;
-    unsigned long long _maxThumbnailsPerRow;
+    _Bool _alwaysTrySiriSearch;
 }
 
 + (id)settingsControllerModule;
 + (id)sharedInstance;
-@property(nonatomic) _Bool preferFavoritesInTop8; // @synthesize preferFavoritesInTop8=_preferFavoritesInTop8;
-@property(nonatomic) unsigned long long maxThumbnailsPerRow; // @synthesize maxThumbnailsPerRow=_maxThumbnailsPerRow;
+@property(nonatomic) _Bool alwaysTrySiriSearch; // @synthesize alwaysTrySiriSearch=_alwaysTrySiriSearch;
 @property(nonatomic) _Bool showKeyboardForZeroKeywords; // @synthesize showKeyboardForZeroKeywords=_showKeyboardForZeroKeywords;
-@property(nonatomic) _Bool autoExpandSingleSectionedResults; // @synthesize autoExpandSingleSectionedResults=_autoExpandSingleSectionedResults;
-@property(nonatomic) _Bool showCategoriesSection; // @synthesize showCategoriesSection=_showCategoriesSection;
-@property(nonatomic) _Bool showPlacesSection; // @synthesize showPlacesSection=_showPlacesSection;
-@property(nonatomic) _Bool showGroupsSection; // @synthesize showGroupsSection=_showGroupsSection;
-@property(nonatomic) _Bool showPeopleSection; // @synthesize showPeopleSection=_showPeopleSection;
-@property(nonatomic) _Bool showMomentsSection; // @synthesize showMomentsSection=_showMomentsSection;
 - (void)setDefaultValues;
 - (id)parentSettings;
 

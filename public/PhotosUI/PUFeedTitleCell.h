@@ -12,15 +12,15 @@ __attribute__((visibility("hidden")))
 @interface PUFeedTitleCell : PUFeedCell
 {
     long long _collectionViewType;
-    long long _tappableArea;
+    unsigned long long _tappableArea;
     PXFeedSectionInfo *_sectionInfo;
     PXSharedAlbumHeaderView *_headerView;
     struct UIEdgeInsets _contentInsets;
 }
 
-@property(retain, nonatomic) PXSharedAlbumHeaderView *headerView; // @synthesize headerView=_headerView;
+@property(readonly, nonatomic) PXSharedAlbumHeaderView *headerView; // @synthesize headerView=_headerView;
 @property(retain, nonatomic) PXFeedSectionInfo *sectionInfo; // @synthesize sectionInfo=_sectionInfo;
-@property(nonatomic) long long tappableArea; // @synthesize tappableArea=_tappableArea;
+@property(nonatomic) unsigned long long tappableArea; // @synthesize tappableArea=_tappableArea;
 @property(nonatomic) long long collectionViewType; // @synthesize collectionViewType=_collectionViewType;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
 - (void).cxx_destruct;

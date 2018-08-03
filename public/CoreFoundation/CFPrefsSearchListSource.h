@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (void)deferredNotifyCausedByLoadingOfChangesFromDictionary:(struct __CFDictionary *)arg1 toDictionary:(struct __CFDictionary *)arg2;
 - (void)deferredNotifyCausedByLocalWriteOfChangesToKey:(struct __CFString *)arg1 fromValue:(void *)arg2 toValue:(void *)arg3;
 - (struct __CFArray *)_getPendingNotifications;
+- (void)alreadylocked_getDictionary:(CDUnknownBlockType)arg1;
 - (struct __CFDictionary *)alreadylocked_copyDictionary;
 - (void)alreadylocked_reloadCacheIfStale;
 - (long long)generationCount;
@@ -49,12 +50,11 @@ __attribute__((visibility("hidden")))
 - (_Bool)synchronize;
 - (_Bool)alreadylocked_requestNewData;
 - (void)fullCloudSynchronizeWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)alreadylocked_setValues:(const void **)arg1 forKeys:(const struct __CFString **)arg2 count:(long long)arg3 from:(id)arg4;
+- (void)alreadylocked_setPrecopiedValues:(const void **)arg1 forKeys:(const struct __CFString **)arg2 count:(long long)arg3 from:(id)arg4;
 - (_Bool)alreadylocked_hasNonRegisteredValueForKey:(struct __CFString *)arg1;
 - (_Bool)alreadylocked_hasCloudValueForKey:(struct __CFString *)arg1;
 - (_Bool)alreadylocked_useCloudForKey:(struct __CFString *)arg1;
 - (void *)alreadylocked_copyValueForKey:(struct __CFString *)arg1;
-- (void)addCompatibilitySource;
 - (void)addNamedVolatileSourceForIdentifier:(struct __CFString *)arg1;
 - (void)addSuiteSourceForIdentifier:(struct __CFString *)arg1 user:(struct __CFString *)arg2;
 - (void)addCloudSourceForIdentifier:(struct __CFString *)arg1 configurationPath:(struct __CFString *)arg2 storeName:(struct __CFString *)arg3 container:(struct __CFString *)arg4;

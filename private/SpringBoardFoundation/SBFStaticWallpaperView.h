@@ -52,6 +52,7 @@
 - (id)wallpaperImage;
 - (_Bool)isDisplayingWallpaperWithConfiguration:(id)arg1 forVariant:(long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1 wallpaperImage:(id)arg2 cacheGroup:(id)arg3 variant:(long long)arg4 options:(unsigned long long)arg5 wallpaperSettingsProvider:(id)arg6;
+- (void)preheatImageData;
 - (void)_generateImageForImage:(id)arg1 options:(unsigned long long)arg2 downsampleFactor:(double)arg3 generationHandler:(CDUnknownBlockType)arg4;
 - (void)_setupWallpaperImage:(id)arg1 options:(unsigned long long)arg2;
 - (long long)wallpaperType;

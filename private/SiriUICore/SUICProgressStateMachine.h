@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CUState, CUStateMachine, NSArray, NSDictionary;
+@class CUState, CUStateMachine, NSDictionary, NSPointerArray;
 
 @interface SUICProgressStateMachine : NSObject
 {
@@ -14,13 +14,16 @@
     NSDictionary *_stateForStateName;
     unsigned long long _currentState;
     CUState *_abstractState;
-    NSArray *_observers;
+    NSPointerArray *_stateMachineObservers;
 }
 
-@property(copy, nonatomic) NSArray *observers; // @synthesize observers=_observers;
+@property(retain, nonatomic, getter=_stateMachineObservers, setter=_setStateMachineObservers:) NSPointerArray *stateMachineObservers; // @synthesize stateMachineObservers=_stateMachineObservers;
 - (void).cxx_destruct;
 - (void)_ignoreEvent:(unsigned long long)arg1;
 - (void)_transitionToState:(unsigned long long)arg1 forEvent:(unsigned long long)arg2;
+- (void)addObservers:(id)arg1;
+- (void)addObserver:(id)arg1;
+- (void)setObservers:(id)arg1;
 @property(readonly) unsigned long long state;
 - (void)handleEvent:(unsigned long long)arg1;
 - (void)dealloc;

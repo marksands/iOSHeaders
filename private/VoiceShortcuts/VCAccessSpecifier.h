@@ -10,6 +10,7 @@
 
 @interface VCAccessSpecifier : NSObject
 {
+    _Bool _hasSuggestionReadEntitlement;
     unsigned long long _accessLevel;
     NSString *_associatedAppBundleIdentifier;
     NSString *_processIdentifier;
@@ -21,10 +22,12 @@
 + (id)accessSpecifierUnrestricted;
 + (id)accessSpecifierUnrestrictedWithProcessIdentifier:(int)arg1;
 + (void)initialize;
+@property(nonatomic) _Bool hasSuggestionReadEntitlement; // @synthesize hasSuggestionReadEntitlement=_hasSuggestionReadEntitlement;
 @property(readonly, copy, nonatomic) NSString *processIdentifier; // @synthesize processIdentifier=_processIdentifier;
 @property(readonly, copy, nonatomic) NSString *associatedAppBundleIdentifier; // @synthesize associatedAppBundleIdentifier=_associatedAppBundleIdentifier;
 @property(readonly, nonatomic) unsigned long long accessLevel; // @synthesize accessLevel=_accessLevel;
 - (void).cxx_destruct;
+- (_Bool)allowReadAccessToSuggestionsWithBundleIdentifier:(id)arg1;
 - (_Bool)allowWriteAccessToSuggestionsWithBundleIdentifier:(id)arg1;
 - (_Bool)allowWriteAccessToVoiceShortuctsWithBundleIdentifier:(id)arg1;
 - (id)debugDescription;

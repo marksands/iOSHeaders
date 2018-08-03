@@ -43,6 +43,7 @@
 - (id)_description;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) _Bool _isSupportedForDonation;
 @property(readonly, nonatomic) _Bool _isEligibleForProxying;
 - (id)_initWithURLRepresentation:(id)arg1;
 - (id)_URLRepresentation;

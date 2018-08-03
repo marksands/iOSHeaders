@@ -17,6 +17,7 @@
     NSObject<OS_dispatch_queue> *_workQueue;
     id <AVTUILogger> _logger;
     id <AVTAggDClient> _ntsAggDClient;
+    id <AVTDifferentialPrivacyRecorder> _ntsDPRecorder;
     id <AVTAvatarConfigurationMetric> _metric;
     CDUnknownBlockType _recordTransformer;
     AVTAvatarConfiguration *_defaultConfiguration;
@@ -30,12 +31,14 @@
 + (CDUnknownBlockType)puppetIndexProviderForStore:(id)arg1 callbackQueue:(id)arg2 logger:(id)arg3;
 + (CDUnknownBlockType)likenessComparator;
 + (CDUnknownBlockType)configurationDistanceClassifierWithMetric:(id)arg1;
++ (id)makeDPKey:(id)arg1;
 + (id)makeKeyAggDCompliant:(id)arg1;
-+ (id)makeDistributionKey:(id)arg1;
-+ (id)makeScalarKey:(id)arg1;
-+ (id)keyBasePrefix;
++ (id)makeAggDDistributionKey:(id)arg1;
++ (id)makeAggDScalarKey:(id)arg1;
++ (id)dpKeyBasePrefix;
++ (id)aggDKeyBasePrefix;
 + (id)colorPresetDescriptionForAvatarConfiguration:(id)arg1;
-+ (id)presetDescriptionForAvatarConfiguration:(id)arg1;
++ (void)getPresetDescription:(out id *)arg1 usedCategoriesDescription:(out id *)arg2 forAvatarConfiguration:(id)arg3 defaultConfiguration:(id)arg4;
 + (id)keyContentForAvatarRecord:(id)arg1 puppetIndexProvider:(CDUnknownBlockType)arg2 action:(id)arg3 includingPuppetIndex:(_Bool)arg4;
 + (CDUnknownBlockType)defaultTimeProvider;
 + (CDUnknownBlockType)defaultRecordTransformerForCoreModel:(id)arg1;
@@ -49,6 +52,7 @@
 @property(readonly, nonatomic) AVTAvatarConfiguration *defaultConfiguration; // @synthesize defaultConfiguration=_defaultConfiguration;
 @property(readonly, copy, nonatomic) CDUnknownBlockType recordTransformer; // @synthesize recordTransformer=_recordTransformer;
 @property(readonly, nonatomic) id <AVTAvatarConfigurationMetric> metric; // @synthesize metric=_metric;
+@property(readonly, nonatomic) id <AVTDifferentialPrivacyRecorder> ntsDPRecorder; // @synthesize ntsDPRecorder=_ntsDPRecorder;
 @property(readonly, nonatomic) id <AVTAggDClient> ntsAggDClient; // @synthesize ntsAggDClient=_ntsAggDClient;
 @property(readonly, nonatomic) id <AVTUILogger> logger; // @synthesize logger=_logger;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
@@ -56,7 +60,7 @@
 - (void)nts_reportExpandedModeWithClient:(id)arg1;
 - (void)nts_reportAvatarComplexity:(id)arg1 withClient:(id)arg2;
 - (void)nts_reportAvatarLikenessClustersWithClient:(id)arg1;
-- (void)nts_reportAvatarDescription:(id)arg1 client:(id)arg2;
+- (void)nts_reportAvatarDescription:(id)arg1 dpRecorder:(id)arg2;
 - (void)nts_reportAvatarCountWithClient:(id)arg1;
 - (void)nts_reportFaceTrackingTimeWithEndTime:(id)arg1 client:(id)arg2;
 - (void)nts_reportEditorTimeWithExitTime:(id)arg1 client:(id)arg2;
@@ -83,7 +87,7 @@
 - (void)didSendVideoWithAvatar:(id)arg1 duration:(double)arg2;
 - (void)reportAddOneForScalarKey:(id)arg1;
 - (void)performClientWork:(CDUnknownBlockType)arg1;
-- (id)initWithAggDClient:(id)arg1 serialQueueProvider:(CDUnknownBlockType)arg2 recordTransformer:(CDUnknownBlockType)arg3 defaultConfiguration:(id)arg4 timeProvider:(CDUnknownBlockType)arg5 configurationMetric:(id)arg6 logger:(id)arg7;
+- (id)initWithAggDClient:(id)arg1 dpRecorder:(id)arg2 serialQueueProvider:(CDUnknownBlockType)arg3 recordTransformer:(CDUnknownBlockType)arg4 defaultConfiguration:(id)arg5 timeProvider:(CDUnknownBlockType)arg6 configurationMetric:(id)arg7 logger:(id)arg8;
 - (id)initWithSerialQueueProvider:(CDUnknownBlockType)arg1 recordTransformer:(CDUnknownBlockType)arg2 logger:(id)arg3;
 
 @end

@@ -23,6 +23,7 @@
     NSString *_roomName;
     NSString *_displayName;
     NSString *_lastAddressedLocalHandle;
+    NSString *_lastAddressedSIMID;
     NSArray *_participants;
     IMMessageItem *_lastMessage;
     NSMutableDictionary *_chatInfo;
@@ -70,6 +71,8 @@
 - (void)updateNumberOfTimesRespondedToThread;
 - (void)updateIsFiltered:(_Bool)arg1;
 - (void)updateDisplayName:(id)arg1;
+- (void)updateLastAddressedSIMID:(id)arg1;
+- (void)updateLastAddressedHandle:(id)arg1 forceUpdate:(_Bool)arg2;
 - (void)updateLastAddressedHandle:(id)arg1;
 - (void)resetCKSyncState;
 - (void)updateSrCloudKitRecordID:(id)arg1;
@@ -118,6 +121,7 @@
 @property unsigned char style;
 @property(retain) IMMessageItem *lastMessage;
 @property(retain) NSDictionary *properties;
+@property(copy) NSString *lastAddressedSIMID;
 @property(copy) NSString *lastAddressedLocalHandle;
 @property(nonatomic) long long lastReadMessageTimeStamp;
 - (void)setOriginalGroupID:(id)arg1;
@@ -133,7 +137,7 @@
 @property(copy) NSString *chatIdentifier;
 @property(copy) NSString *guid;
 - (void)dealloc;
-- (id)initWithAccountID:(id)arg1 service:(id)arg2 guid:(id)arg3 groupID:(id)arg4 chatIdentifier:(id)arg5 participants:(id)arg6 roomName:(id)arg7 displayName:(id)arg8 lastAddressedLocalHandle:(id)arg9 properties:(id)arg10 state:(long long)arg11 style:(unsigned char)arg12 isFiltered:(_Bool)arg13 hasHadSuccessfulQuery:(_Bool)arg14 engramID:(id)arg15 serverChangeToken:(id)arg16 cloudKitSyncState:(long long)arg17 originalGroupID:(id)arg18 lastReadMessageTimeStamp:(long long)arg19 lastMessageTimeStampOnLoad:(long long)arg20 srServerChangeToken:(id)arg21 srCloudKitSyncState:(long long)arg22 cloudKitRecordID:(id)arg23 srCloudKitRecordID:(id)arg24;
+- (id)initWithAccountID:(id)arg1 service:(id)arg2 guid:(id)arg3 groupID:(id)arg4 chatIdentifier:(id)arg5 participants:(id)arg6 roomName:(id)arg7 displayName:(id)arg8 lastAddressedLocalHandle:(id)arg9 lastAddressedSIMID:(id)arg10 properties:(id)arg11 state:(long long)arg12 style:(unsigned char)arg13 isFiltered:(_Bool)arg14 hasHadSuccessfulQuery:(_Bool)arg15 engramID:(id)arg16 serverChangeToken:(id)arg17 cloudKitSyncState:(long long)arg18 originalGroupID:(id)arg19 lastReadMessageTimeStamp:(long long)arg20 lastMessageTimeStampOnLoad:(long long)arg21 srServerChangeToken:(id)arg22 srCloudKitSyncState:(long long)arg23 cloudKitRecordID:(id)arg24 srCloudKitRecordID:(id)arg25;
 @property(readonly, nonatomic) NSArray *alternativeSpeakableMatches;
 @property(readonly, nonatomic) NSString *vocabularyIdentifier;
 @property(readonly, nonatomic) NSString *pronunciationHint;

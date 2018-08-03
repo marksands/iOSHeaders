@@ -16,7 +16,6 @@
 + (id)_resolvedIPAddressFromTask:(id)arg1;
 + (double)_randomDouble;
 + (id)_metricsDictionaryFromConfig:(id)arg1;
-+ (unsigned long long)_messageSizeFromConfig:(id)arg1 forRequest:(_Bool)arg2;
 + (id)_fetchNetworkQualityReports;
 + (id)_DNSServerIPAddresses;
 + (_Bool)shouldCollectMetricsForContext:(id)arg1;
@@ -25,8 +24,10 @@
 @property(nonatomic) double xpSamplingPercentageUsers;
 @property(nonatomic) _Bool xpSamplingForced;
 @property(nonatomic) double xpSessionDuration;
+@property(retain, nonatomic) NSString *wt;
 @property(nonatomic) _Bool TLSSessionTickets;
 @property(retain, nonatomic) NSString *TIDState;
+@property(nonatomic) _Bool TFOEnabled;
 @property(nonatomic) long long statusCode;
 @property(nonatomic) double secureConnectionStartTime;
 @property(nonatomic) double responseStartTime;
@@ -44,6 +45,7 @@
 @property(retain, nonatomic) NSString *originalApp;
 @property(retain, nonatomic) NSArray *networkQualityReports;
 @property(nonatomic) double fetchStartTime;
+@property(retain, nonatomic) NSString *environmentDataCenter;
 @property(retain, nonatomic) NSString *edgeNodeCacheStatus;
 @property(nonatomic) double domainLookupStartTime;
 @property(nonatomic) double domainLookupEndTime;

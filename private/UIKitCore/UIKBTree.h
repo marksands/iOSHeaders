@@ -61,6 +61,8 @@
 - (_Bool)isExemptFromInputManagerLayout;
 - (void)setParentKey:(id)arg1;
 - (id)parentKey;
+- (void)setMergeAsMoreKey:(_Bool)arg1;
+- (_Bool)mergeAsMoreKey;
 - (void)setForceMultitap:(_Bool)arg1;
 - (_Bool)forceMultitap;
 - (void)setClipCorners:(int)arg1;

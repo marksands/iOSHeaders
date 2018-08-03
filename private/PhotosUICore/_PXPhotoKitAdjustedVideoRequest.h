@@ -23,7 +23,7 @@
 - (void)progressDidChange;
 - (void)editSourceDidChange;
 - (void)start;
-- (id)initWithRenderQueue:(id)arg1 asset:(id)arg2 options:(id)arg3 resultHandler:(CDUnknownBlockType)arg4;
+- (id)initWithRenderQueue:(id)arg1 asset:(id)arg2 imageManager:(id)arg3 options:(id)arg4 resultHandler:(CDUnknownBlockType)arg5;
 
 @end
 

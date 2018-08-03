@@ -6,24 +6,37 @@
 
 #import "NSManagedObject.h"
 
-@class NSDate, NSSet, NSString, RMBlueprintSchedule, RMBlueprintUsageLimit, RMCoreOrganizationSettings;
+#import "RMUniquelySerializableManagedObject.h"
 
-@interface RMBlueprint : NSManagedObject
+@class NSDate, NSSet, NSString, RMBlueprintSchedule, RMBlueprintUsageLimit, RMCoreOrganization;
+
+@interface RMBlueprint : NSManagedObject <RMUniquelySerializableManagedObject>
 {
 }
 
-+ (id)fetchRequestMatchingBlueprintsWithIdentifier:(id)arg1;
++ (id)fetchOrCreateWithDictionaryRepresentation:(id)arg1 inContext:(id)arg2 error:(id *)arg3;
++ (id)fetchRequestMatchingBlueprintsForUserWithDSID:(id)arg1 ofType:(id)arg2 withIdentifier:(id)arg3 fromOrganization:(id)arg4;
++ (id)fetchRequestMatchingBlueprintsForUserWithDSID:(id)arg1 ofType:(id)arg2 withIdentifier:(id)arg3;
++ (id)fetchRequestMatchingBlueprintsForUserWithDSID:(id)arg1 ofType:(id)arg2 fromOrganization:(id)arg3;
++ (id)fetchRequestMatchingBlueprintsForUserWithDSID:(id)arg1 ofType:(id)arg2;
++ (id)fetchRequestMatchingBlueprintsForUserWithDSID:(id)arg1;
 + (id)fetchRequestMatchingExpiredBlueprints;
+- (id)dictionaryRepresentation;
+- (void)updateWithDictionaryRepresentation:(id)arg1;
 - (id)declarationsWithError:(id *)arg1;
-- (id)configurationsWithError:(id *)arg1;
 
 // Remaining properties
+@property(retain, nonatomic) NSSet *configurations; // @dynamic configurations;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(nonatomic) _Bool enabled; // @dynamic enabled;
 @property(copy, nonatomic) NSDate *expiration; // @dynamic expiration;
+@property(readonly) unsigned long long hash;
 @property(copy, nonatomic) NSString *identifier; // @dynamic identifier;
 @property(nonatomic) _Bool invertUsageLimit; // @dynamic invertUsageLimit;
-@property(retain, nonatomic) RMCoreOrganizationSettings *organizationSettings; // @dynamic organizationSettings;
+@property(retain, nonatomic) RMCoreOrganization *organization; // @dynamic organization;
 @property(retain, nonatomic) RMBlueprintSchedule *schedule; // @dynamic schedule;
+@property(readonly) Class superclass;
 @property(copy, nonatomic) NSString *type; // @dynamic type;
 @property(retain, nonatomic) RMBlueprintUsageLimit *usageLimit; // @dynamic usageLimit;
 @property(retain, nonatomic) NSSet *users; // @dynamic users;

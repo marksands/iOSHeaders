@@ -48,6 +48,7 @@
 - (int)_isApplePaySupportedInCurrentRegion;
 - (void)_applyPropertiesToPass:(id)arg1;
 - (void)_clearCaches;
+- (void)_invalidateCachedPassWithUniqueID:(id)arg1;
 - (void)_removePassWithUniqueIDFromCache:(id)arg1;
 - (void)_addPassToCache:(id)arg1;
 - (id)_cachedPassForUniqueID:(id)arg1;

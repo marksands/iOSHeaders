@@ -610,6 +610,7 @@ struct HTMLVideoElement {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
+    unsigned int :1;
     int _field89;
     struct optional<WTF::MediaTime> _field90;
     struct String _field91;
@@ -1199,17 +1200,18 @@ struct MediaSessionManageriOS {
     struct unique_ptr<WebCore::RemoteCommandListener, std::__1::default_delete<WebCore::RemoteCommandListener>> _field6;
     struct unique_ptr<PAL::SystemSleepListener, std::__1::default_delete<PAL::SystemSleepListener>> _field7;
     struct RefPtr<WebCore::AudioHardwareListener, WTF::DumbPtrTraits<WebCore::AudioHardwareListener>> _field8;
-    _Bool _field9;
+    struct unique_ptr<WebCore::DeferrableOneShotTimer, std::__1::default_delete<WebCore::DeferrableOneShotTimer>> _field9;
     _Bool _field10;
     _Bool _field11;
-    int _field12;
-    struct RetainPtr<WebMediaSessionHelper> _field13;
-    double _field14;
+    _Bool _field12;
+    int _field13;
+    struct RetainPtr<WebMediaSessionHelper> _field14;
     double _field15;
     double _field16;
-    unsigned long long _field17;
-    struct String _field18;
-    _Bool _field19;
+    double _field17;
+    unsigned long long _field18;
+    struct String _field19;
+    _Bool _field20;
 };
 
 struct MediaStream;
@@ -2558,6 +2560,12 @@ struct unique_ptr<WTF::HashMap<WTF::CString, unsigned long long, WTF::CStringHas
 struct unique_ptr<WebCore::AXComputedObjectAttributeCache, std::__1::default_delete<WebCore::AXComputedObjectAttributeCache>> {
     struct __compressed_pair<WebCore::AXComputedObjectAttributeCache *, std::__1::default_delete<WebCore::AXComputedObjectAttributeCache>> {
         struct AXComputedObjectAttributeCache *_field1;
+    } _field1;
+};
+
+struct unique_ptr<WebCore::DeferrableOneShotTimer, std::__1::default_delete<WebCore::DeferrableOneShotTimer>> {
+    struct __compressed_pair<WebCore::DeferrableOneShotTimer *, std::__1::default_delete<WebCore::DeferrableOneShotTimer>> {
+        struct DeferrableOneShotTimer *_field1;
     } _field1;
 };
 

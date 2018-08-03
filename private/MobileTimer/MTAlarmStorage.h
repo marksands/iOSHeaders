@@ -87,6 +87,7 @@
 @property(readonly, nonatomic) NSArray *allAlarms;
 @property(readonly, nonatomic) NSArray *alarms;
 - (void)_queue_resetAlarmsTo:(id)arg1 sleepAlarm:(id)arg2;
+- (id)updateBedTimeDNDForAlarm:(id)arg1;
 - (void)_loadAlarmsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)loadAlarmsSync;
 - (void)loadAlarms;

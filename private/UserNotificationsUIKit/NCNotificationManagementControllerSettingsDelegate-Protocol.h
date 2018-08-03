@@ -11,6 +11,9 @@
 @protocol NCNotificationManagementControllerSettingsDelegate <NSObject>
 - (void)notificationManagementController:(id <NCNotificationManagementController>)arg1 setDeliverQuietly:(_Bool)arg2 forNotificationRequest:(NCNotificationRequest *)arg3 withSectionIdentifier:(NSString *)arg4 subSectionIdentifier:(NSString *)arg5;
 - (void)notificationManagementController:(id <NCNotificationManagementController>)arg1 setAllowsNotifications:(_Bool)arg2 forNotificationRequest:(NCNotificationRequest *)arg3 withSectionIdentifier:(NSString *)arg4;
-- (NCNotificationSectionSettings *)notificationManagementController:(id <NCNotificationManagementController>)arg1 sectionSettingsForSectionId:(NSString *)arg2;
+- (NCNotificationSectionSettings *)notificationManagementController:(id <NCNotificationManagementController>)arg1 sectionSettingsForSectionIdentifier:(NSString *)arg2;
+
+@optional
+- (void)notificationManagementControllerDidDismissManagementView:(id <NCNotificationManagementController>)arg1;
 @end
 

@@ -59,6 +59,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _lastReportedVideoPacketSent;
     unsigned int _initialRampUpTime;
     int _initialBitrateDelta;
+    int _initialBitrate;
     VCHistogram *_callVideoSwitchPeriodHistogram;
     VCAdaptiveLearning *_adaptiveLearning;
 }

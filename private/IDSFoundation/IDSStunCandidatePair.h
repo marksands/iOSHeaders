@@ -125,6 +125,7 @@
 @property(readonly) IDSStunCandidate *local; // @synthesize local=_local;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
+- (void)_notifyQREventAdded:(id)arg1;
 - (void)_notifySessionStreamInfoReceived:(id)arg1 withParticipants:(id)arg2 sentBytes:(unsigned long long)arg3 receivedBytes:(unsigned long long)arg4 success:(_Bool)arg5;
 - (void)processSessionInfoRequestTimeout:(id)arg1;
 - (_Bool)processStunErrorResponse:(id)arg1 packetBuffer:(CDStruct_f4928324 *)arg2 headerOverhead:(unsigned long long)arg3;

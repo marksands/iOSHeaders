@@ -49,6 +49,7 @@
 - (void)_dismissProgressIndicator;
 - (void)_showProgressIndicator;
 - (void)_finishExportingWithMediaItem:(id)arg1;
+- (void)_handleExportFailureWithError:(id)arg1;
 - (void)_exportWithCompletion:(unsigned long long)arg1;
 - (void)_handleExportWithCompletion:(unsigned long long)arg1;
 - (void)_handleDismissCompletion;

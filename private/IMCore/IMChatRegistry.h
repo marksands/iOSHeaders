@@ -54,6 +54,7 @@
 + (Class)messageClass;
 + (void)setMessageClass:(Class)arg1;
 + (id)sharedInstance;
++ (id)performanceLogHandle;
 + (void)setHasInitializedChatFiltering:(_Bool)arg1;
 + (_Bool)hasInitializedChatFiltering;
 @property(retain, nonatomic) NSDictionary *chatIdToLastMessageItemMap; // @synthesize chatIdToLastMessageItemMap=_chatIdToLastMessageItemMap;
@@ -131,13 +132,13 @@
 - (id)chatForURL:(id)arg1 outMessageText:(id *)arg2 outRecipientIDs:(id *)arg3 outService:(id *)arg4 outMessageGUID:(id *)arg5;
 - (id)messagesURLWithChat:(id)arg1 orHandles:(id)arg2 withMessageText:(id)arg3;
 - (id)chatForRoom:(id)arg1 onAccount:(id)arg2;
-- (id)chatForIMHandles:(id)arg1 chatName:(id)arg2 lastAddressedHandle:(id)arg3;
+- (id)chatForIMHandles:(id)arg1 chatName:(id)arg2 lastAddressedHandle:(id)arg3 lastAddressedSIMID:(id)arg4;
 - (id)chatForIMHandles:(id)arg1 chatName:(id)arg2;
-- (id)chatForIMHandles:(id)arg1 displayName:(id)arg2 joinedChatsOnly:(_Bool)arg3 lastAddressedHandle:(id)arg4;
+- (id)chatForIMHandles:(id)arg1 displayName:(id)arg2 joinedChatsOnly:(_Bool)arg3 lastAddressedHandle:(id)arg4 lastAddressedSIMID:(id)arg5;
 - (id)chatForIMHandles:(id)arg1 displayName:(id)arg2 joinedChatsOnly:(_Bool)arg3;
-- (id)chatForIMHandles:(id)arg1 lastAddressedHandle:(id)arg2;
+- (id)chatForIMHandles:(id)arg1 lastAddressedHandle:(id)arg2 lastAddressedSIMID:(id)arg3;
 - (id)chatForIMHandles:(id)arg1;
-- (id)chatForIMHandle:(id)arg1 lastAddressedHandle:(id)arg2;
+- (id)chatForIMHandle:(id)arg1 lastAddressedHandle:(id)arg2 lastAddressedSIMID:(id)arg3;
 - (id)chatForIMHandle:(id)arg1;
 - (void)_unregisterChatWithGUID:(id)arg1;
 - (void)_unregisterChat:(id)arg1;
@@ -151,6 +152,7 @@
 - (id)_chatInstanceForGUID:(id)arg1;
 - (void)_noteChatDealloc:(id)arg1;
 - (void)_noteChatInit:(id)arg1;
+- (id)performanceLogHandle;
 - (void)verifyFilteringForAllChats;
 - (void)enumerateAllChatsAndIncludingSyncedAttachmentSizes:(_Bool)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)_postMultiWayStateChangedNotification:(id)arg1;
@@ -176,6 +178,7 @@
 - (void)_chat_loadPagedHistory:(id)arg1 numberOfMessagesBefore:(unsigned long long)arg2 numberOfMessagesAfter:(unsigned long long)arg3 messageGUID:(id)arg4 queryID:(id)arg5;
 - (void)_chat_loadHistory:(id)arg1 limit:(unsigned long long)arg2 beforeGUID:(id)arg3 afterGUID:(id)arg4 queryID:(id)arg5;
 - (void)_chat:(id)arg1 updateIsFiltered:(_Bool)arg2;
+- (void)_chat:(id)arg1 updateLastAddressedSIMID:(id)arg2;
 - (void)_chat:(id)arg1 updateLastAddressedHandle:(id)arg2;
 - (void)_chat:(id)arg1 updateDisplayName:(id)arg2;
 - (void)_chat:(id)arg1 setValue:(id)arg2 forChatProperty:(id)arg3;
@@ -231,6 +234,7 @@
 - (void)engroupParticipantsUpdatedForChat:(id)arg1;
 - (void)chat:(id)arg1 engramIDUpdated:(id)arg2;
 - (void)chat:(id)arg1 isFilteredUpdated:(_Bool)arg2;
+- (void)chat:(id)arg1 lastAddressedSIMIDUpdated:(id)arg2;
 - (void)chat:(id)arg1 lastAddressedHandleUpdated:(id)arg2;
 - (void)chat:(id)arg1 displayNameUpdated:(id)arg2;
 - (void)chat:(id)arg1 propertiesUpdated:(id)arg2;
@@ -245,6 +249,7 @@
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 notifySentMessage:(id)arg5 sendTime:(id)arg6;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 groupID:(id)arg5 chatPersonCentricID:(id)arg6 messageSent:(id)arg7;
 - (void)_processMessageForAccount:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 groupID:(id)arg5 chatPersonCentricID:(id)arg6 message:(id)arg7;
+- (id)_existingChatForChatStyle:(unsigned char)arg1 groupID:(id)arg2 chatIdentifier:(id)arg3 accountID:(id)arg4;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messageUpdated:(id)arg5;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messagesUpdated:(id)arg5;
 - (void)_account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messagesUpdated:(id)arg5;

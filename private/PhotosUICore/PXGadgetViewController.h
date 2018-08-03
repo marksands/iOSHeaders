@@ -92,6 +92,8 @@
 @property(nonatomic) __weak id <PXGadgetDelegate> nextGadgetResponder;
 - (id)gridPresentation;
 - (id)oneUpPresentation;
+- (void)dismissGadgetViewController:(struct NSObject *)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)presentGadgetViewController:(struct NSObject *)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)gadget:(id)arg1 transitionToViewController:(struct NSObject *)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)gadget:(id)arg1 animateChanges:(CDUnknownBlockType)arg2;
 - (struct NSObject *)gadgetViewControllerHostingGadget:(id)arg1;

@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 - (void)fetchReportsForUsageType:(unsigned long long)arg1 interval:(id)arg2 partitionInterval:(double)arg3 focalOnly:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)fetchReportsDuringInterval:(id)arg1 partitionInterval:(double)arg2 forceImmediateSync:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)getLocalDeviceIdentifierAndReturnError:(id *)arg1;
 - (void)dealloc;
 - (id)init;
 

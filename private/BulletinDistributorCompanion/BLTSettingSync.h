@@ -49,6 +49,7 @@
 - (void)sendRemoveSectionWithSectionID:(id)arg1 sent:(CDUnknownBlockType)arg2;
 - (void)sendSectionInfoWithSectionID:(id)arg1 completion:(CDUnknownBlockType)arg2 spoolToFile:(_Bool)arg3;
 - (id)_overriddenSectionInfoForSectionID:(id)arg1;
+- (void)sendOverrideOnly:(id)arg1 sectionID:(id)arg2 spoolToFile:(_Bool)arg3;
 - (void)_updateAllBBSectionsWithCompletion:(CDUnknownBlockType)arg1 withProgress:(CDUnknownBlockType)arg2 spoolToFile:(_Bool)arg3;
 - (id)_alertingSectionIDs;
 - (void)_sendSectionSubtypeParameterIcons:(id)arg1 sectionID:(id)arg2 waitForAcknowledgement:(_Bool)arg3 spoolToFile:(_Bool)arg4 andCompletion:(CDUnknownBlockType)arg5;

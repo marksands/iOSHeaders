@@ -8,27 +8,34 @@
 
 #import "DNDSSettingsSyncManager.h"
 
-@class BBSettingsGateway, NPSDomainAccessor, NPSManager, NSString;
+@class NPSDomainAccessor, NPSManager, NSString;
 
 @interface DNDSLegacySettingsSyncManager : NSObject <DNDSSettingsSyncManager>
 {
+    _Bool _listen;
+    _Bool _send;
     NPSManager *_npsManager;
     NPSDomainAccessor *_accessor;
-    BBSettingsGateway *_settingsGateway;
+    id <DNDSSettingsSyncManagerDataSource> _dataSource;
+    id <DNDSSettingsSyncManagerDelegate> _delegate;
 }
 
++ (id)managerForReceiver;
++ (id)managerForSender;
 + (void)cleanupState;
-+ (void)initialize;
+@property(nonatomic) __weak id <DNDSSettingsSyncManagerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <DNDSSettingsSyncManagerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
-- (void)_updatePrivilegedSenderTypes;
-- (void)_propagatePrivilegedSenderTypes:(unsigned long long)arg1;
-- (void)_updateEffectiveOverrides;
-- (void)_propagateBehaviorOverrides:(id)arg1;
+- (void)_updateBypassSettings;
+- (void)_propagateBypassSettings:(id)arg1;
+- (void)_updateScheduleSettings;
+- (void)_propagateScheduleSettings:(id)arg1;
 - (void)_endMonitoringForChanges;
 - (void)_beginMonitoringForChanges;
+- (void)update;
 - (void)resume;
 - (void)dealloc;
-- (id)init;
+- (id)_initWithListen:(_Bool)arg1 send:(_Bool)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

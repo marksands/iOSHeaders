@@ -53,6 +53,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)applyToEKEvent:(id)arg1 isAllDay:(_Bool)arg2 isFloating:(_Bool)arg3;
+- (_Bool)startedMoreThan24HoursAgo;
 - (_Bool)isValidAllDayRange;
 - (id)endDateComponents;
 - (id)startDateComponents;

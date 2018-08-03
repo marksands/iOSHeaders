@@ -191,6 +191,7 @@
 - (id)newViewControllerForPage:(id)arg1 ofType:(long long)arg2 returningError:(id *)arg3;
 - (id)newPlaceholderViewController;
 - (id)newFetchOperation;
+- (void)forceLoadingForNeverAppearedPage;
 - (void)enqueueFetchOperationForPageSection:(id)arg1;
 - (void)enqueueFetchOperation;
 - (void)_finishWebViewLoadWithResult:(_Bool)arg1 error:(id)arg2;

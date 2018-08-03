@@ -11,7 +11,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "WKNavigationDelegate.h"
 
-@class HLPHelpBookController, HLPHelpLoadingView, HLPHelpLocale, HLPHelpTopicHistoryItem, HLPHelpUsageController, NSArray, NSCache, NSLayoutConstraint, NSMutableArray, NSString, NSURL, TPSURLSessionItem, UIBarButtonItem, WKWebView;
+@class HLPHelpBookController, HLPHelpLoadingView, HLPHelpLocale, HLPHelpTopicHistoryItem, HLPHelpUsageController, NSArray, NSCache, NSLayoutConstraint, NSMutableArray, NSMutableDictionary, NSString, NSURL, TPSURLSessionItem, UIBarButtonItem, WKWebView;
 
 @interface HLPHelpTopicViewController : UIViewController <UIGestureRecognizerDelegate, WKNavigationDelegate, HLPHelpTopicViewControllerDelegate, HLPHelpLoadingViewDelegate>
 {
@@ -20,6 +20,7 @@
     _Bool _webViewLoaded;
     _Bool _RTL;
     HLPHelpBookController *_helpBookController;
+    NSString *_assetHostOverride;
     NSMutableArray *_topicHistory;
     UIBarButtonItem *_tocBarButtonItem;
     UIBarButtonItem *_backBarButtonItem;
@@ -38,8 +39,10 @@
     TPSURLSessionItem *_URLSessionItem;
     NSCache *_topicCache;
     NSArray *_searchTerms;
+    NSMutableDictionary *_webViewRequestsMap;
 }
 
+@property(retain, nonatomic) NSMutableDictionary *webViewRequestsMap; // @synthesize webViewRequestsMap=_webViewRequestsMap;
 @property(retain, nonatomic) NSArray *searchTerms; // @synthesize searchTerms=_searchTerms;
 @property(retain, nonatomic) NSCache *topicCache; // @synthesize topicCache=_topicCache;
 @property(retain, nonatomic) TPSURLSessionItem *URLSessionItem; // @synthesize URLSessionItem=_URLSessionItem;
@@ -56,13 +59,14 @@
 @property(nonatomic) __weak id <HLPHelpTopicViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)webView:(id)arg1 startURLSchemeTask:(id)arg2;
+- (void)webView:(id)arg1 stopURLSchemeTask:(id)arg2;
 - (void)showHelpBookInfo:(id)arg1;
 - (void)helpTopicViewControllerShowHelpBookInfo:(id)arg1;
 - (void)helpTopicViewController:(id)arg1 topicLoaded:(id)arg2;
 - (void)helpTopicViewController:(id)arg1 failToLoadWithError:(id)arg2;
 - (void)helpTopicViewControllerDoneButtonTapped:(id)arg1;
 - (void)helpTopicViewControllerCurrentTopicIsPassionPoint:(id)arg1;
-- (void)_webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
+- (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
 - (void)webView:(id)arg1 didFailNavigation:(id)arg2 withError:(id)arg3;
 - (void)webView:(id)arg1 didFailProvisionalNavigation:(id)arg2 withError:(id)arg3;
 - (void)webView:(id)arg1 didFinishNavigation:(id)arg2;
@@ -81,6 +85,7 @@
 - (void)forwardButtonTapped;
 - (void)backButtonTapped;
 - (void)updateDoneButton;
+- (void)contentSizeCategoryDidChange:(id)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

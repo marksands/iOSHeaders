@@ -6,16 +6,20 @@
 
 #import "NSManagedObject.h"
 
+#import "RMSerializableManagedObject.h"
+
 @class NSArray, NSString;
 
-@interface RMBlueprintUsageLimit : NSManagedObject
+@interface RMBlueprintUsageLimit : NSManagedObject <RMSerializableManagedObject>
 {
 }
 
++ (id)limitKeyPaths;
+- (id)dictionaryRepresentation;
+- (void)updateWithDictionaryRepresentation:(id)arg1;
 - (void)setBudgetLimit:(double)arg1 forDay:(unsigned long long)arg2;
 - (void)setBudgetLimit:(double)arg1;
 - (id)budgetLimitScheduleRepresentation;
-- (id)limitKeyPaths;
 
 // Remaining properties
 @property(nonatomic) double day0Limit; // @dynamic day0Limit;
@@ -25,7 +29,11 @@
 @property(nonatomic) double day4Limit; // @dynamic day4Limit;
 @property(nonatomic) double day5Limit; // @dynamic day5Limit;
 @property(nonatomic) double day6Limit; // @dynamic day6Limit;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
 @property(copy, nonatomic) NSArray *itemIdentifiers; // @dynamic itemIdentifiers;
+@property(readonly) Class superclass;
 @property(copy, nonatomic) NSString *usageItemType; // @dynamic usageItemType;
 
 @end

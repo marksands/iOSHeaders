@@ -81,6 +81,7 @@
 - (id)_invitationsCellSpecifier;
 - (unsigned long long)_familyState;
 @property(copy, nonatomic) NSArray *specifiers; // @synthesize specifiers=_specifiers;
+- (_Bool)_isEnabled;
 - (id)_requestConfigurator;
 - (id)_grandSlamSigner;
 - (_Bool)isAccountInGrayMode;

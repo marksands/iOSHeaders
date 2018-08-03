@@ -14,8 +14,8 @@
 {
 }
 
-+ (_Bool)canSuggestMomentNodeWithoutPeople:(id)arg1;
-+ (_Bool)shouldSuggestMomentNode:(id)arg1;
++ (_Bool)canSuggestMomentNodeWithoutPeople:(id)arg1 loggingConnection:(id)arg2;
++ (_Bool)shouldSuggestMomentNode:(id)arg1 loggingConnection:(id)arg2;
 + (id)suggestionSubtypes;
 + (id)suggestionTypes;
 - (id)suggestionsWithOptions:(id)arg1 progress:(CDUnknownBlockType)arg2;

@@ -52,6 +52,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCategory:(long long)arg1 description:(id)arg2;
+@property(readonly) NSString *localizedName;
 
 @end
 

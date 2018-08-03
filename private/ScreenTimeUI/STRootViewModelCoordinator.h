@@ -45,6 +45,7 @@
 - (void)loadViewModelRightNow;
 - (void)saveViewModel:(id)arg1;
 - (void)setPIN:(id)arg1 screenTimeEnabled:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)setShareWebUsageEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)setScreenTimeEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)setPIN:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)validatePIN:(id)arg1;

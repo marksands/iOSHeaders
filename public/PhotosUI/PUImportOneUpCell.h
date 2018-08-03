@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     long long _thumbnailRequestID;
 }
 
++ (double)alphaForSelectedCells;
 @property(nonatomic) long long thumbnailRequestID; // @synthesize thumbnailRequestID=_thumbnailRequestID;
 @property(retain, nonatomic) UITextField *debugTextField; // @synthesize debugTextField=_debugTextField;
 @property(retain, nonatomic) PUImportItemViewModel *importItem; // @synthesize importItem=_importItem;
@@ -34,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)updatePhotoViewForImportItem:(id)arg1;
 - (void)prepareForReuse;
 - (void)dealloc;
+- (void *)contextForObservingViewModelChanges;
 - (void)setHighlighted:(_Bool)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

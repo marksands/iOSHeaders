@@ -64,9 +64,10 @@
 - (void)adjustForLegibilitySettingsChange:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
 - (_Bool)adjustForContentSizeCategoryChange;
-- (_Bool)_shouldPerformClipping;
+- (_Bool)_deviceStateSupportsClipping;
 - (void)_resetClipping;
 - (void)_setupClipping;
+- (void)_resetClippingIfActionsHidden;
 - (void)_configureClippingIfNecessary;
 - (void)_performSideSwipeHintingHideAnimation;
 - (void)_performSideSwipeHintingRevealAnimation;
@@ -91,6 +92,7 @@
 - (void)notificationViewControllerDidEndUserInteraction:(id)arg1;
 - (void)notificationViewControllerWillBeginUserInteraction:(id)arg1;
 - (void)_updateTargetPosition:(double)arg1;
+- (_Bool)_isShowingActions;
 - (void)_setupContentOffsetFloatAnimatableProperty;
 - (double)_actionButtonTriggerDistanceForView:(id)arg1;
 - (id)_notificationCellView;

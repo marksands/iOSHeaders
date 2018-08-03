@@ -27,6 +27,7 @@
     NSString *_companyName;
     NSMutableDictionary *_socialProfiles;
     NSSet *_emailAddresses;
+    NSSet *_phoneNumbers;
     unsigned long long _relationship;
     NSArray *_sourceURLs;
 }
@@ -46,6 +47,7 @@
 + (id)person;
 @property(readonly, nonatomic) NSArray *sourceURLs; // @synthesize sourceURLs=_sourceURLs;
 @property(nonatomic) unsigned long long relationship; // @synthesize relationship=_relationship;
+@property(retain, nonatomic) NSSet *phoneNumbers; // @synthesize phoneNumbers=_phoneNumbers;
 @property(retain, nonatomic) NSSet *emailAddresses; // @synthesize emailAddresses=_emailAddresses;
 @property(retain, nonatomic) NSMutableDictionary *socialProfiles; // @synthesize socialProfiles=_socialProfiles;
 @property(retain, nonatomic) NSString *companyName; // @synthesize companyName=_companyName;

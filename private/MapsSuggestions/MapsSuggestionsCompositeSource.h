@@ -38,7 +38,7 @@
 - (double)_hideTimeForEntry:(id)arg1;
 - (double)_snoozeTimeForEntry:(id)arg1;
 - (_Bool)canProduceEntriesOfType:(long long)arg1;
-- (_Bool)updateSuggestionEntriesOfType:(long long)arg1;
+- (double)updateSuggestionEntriesOfType:(long long)arg1;
 - (double)updateSuggestionEntries;
 - (void)stop;
 - (void)start;

@@ -8,7 +8,7 @@
 
 #import "UIActivityItemSource.h"
 
-@class NSMutableArray, NSMutableDictionary, NSString, RCCaptureSession, RCComposition;
+@class NSMutableArray, NSMutableDictionary, NSString, RCCaptureSession, RCComposition, RCSSavedRecordingService, _RCCompositionUndoItem;
 
 @interface RCCompositionController : NSObject <UIActivityItemSource>
 {
@@ -18,6 +18,8 @@
     NSMutableArray *_finalizeCompletionBlocks;
     _Bool _hasLoggedUsageStatisticRecordingEvent;
     unsigned long long _usageHistoryMask;
+    _RCCompositionUndoItem *_trimCancelUndoItem;
+    RCSSavedRecordingService *_sharedService;
     RCComposition *_composition;
     RCCaptureSession *_activeCaptureSession;
 }
@@ -43,6 +45,7 @@
 @property(readonly, nonatomic) _Bool isTopUndoableCompositionFromCapture;
 @property(readonly, nonatomic) unsigned long long countOfUndoableCompositions;
 - (void)performCompositionRedoWithRedoItem:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)performTrimModeCancelWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)performCompositionUndoWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)sanitizeWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)finalizingComposedAssetWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -58,6 +61,7 @@
 - (void)endPreviewAccessSession;
 - (void)endEditing;
 - (void)prepareToBeginEditingWithReadyBlock:(CDUnknownBlockType)arg1;
+- (void)_setEditingFlag:(_Bool)arg1;
 @property(readonly, nonatomic) NSString *savedRecordingUUID;
 - (id)init;
 - (id)initWithComposition:(id)arg1;

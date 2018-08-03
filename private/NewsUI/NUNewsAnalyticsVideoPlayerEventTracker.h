@@ -39,7 +39,7 @@
 - (id)_currentArticleViewingSessionID;
 - (id)_currentArticleID;
 - (id)_articleViewingSessionIDForVideoItem:(id)arg1;
-- (unsigned long long)_displayRankOfVideoItem:(id)arg1;
+- (int)_rankInVideoPlaylistOfVideoItem:(id)arg1;
 - (id)_widgetEngagementForVideoItem:(id)arg1;
 - (id)_eventObjectWithLinkTapEvent:(id)arg1;
 - (id)_linkTapEventWithLinkType:(int)arg1 forVideoItem:(id)arg2;

@@ -6,14 +6,14 @@
 
 #import "UIView.h"
 
-@class CPSRouteEstimatesView, CPTravelEstimates, CPTrip, NSString, UILabel;
+@class CPSHidingLabel, CPSRouteEstimatesView, CPTravelEstimates, CPTrip, NSString, UILabel;
 
 @interface CPSRouteOverviewView : UIView
 {
     CPTrip *_representedTrip;
     UILabel *_destinationName;
-    UILabel *_destinationAddress;
-    UILabel *_routeNoteLabel;
+    CPSHidingLabel *_destinationAddress;
+    CPSHidingLabel *_routeNoteLabel;
     NSString *_routeNote;
     CPTravelEstimates *_currentTravelEstimates;
     CPSRouteEstimatesView *_estimatesView;
@@ -27,8 +27,8 @@
 @property(readonly, nonatomic) CPSRouteEstimatesView *estimatesView; // @synthesize estimatesView=_estimatesView;
 @property(retain, nonatomic) CPTravelEstimates *currentTravelEstimates; // @synthesize currentTravelEstimates=_currentTravelEstimates;
 @property(copy, nonatomic) NSString *routeNote; // @synthesize routeNote=_routeNote;
-@property(readonly, nonatomic) UILabel *routeNoteLabel; // @synthesize routeNoteLabel=_routeNoteLabel;
-@property(readonly, nonatomic) UILabel *destinationAddress; // @synthesize destinationAddress=_destinationAddress;
+@property(readonly, nonatomic) CPSHidingLabel *routeNoteLabel; // @synthesize routeNoteLabel=_routeNoteLabel;
+@property(readonly, nonatomic) CPSHidingLabel *destinationAddress; // @synthesize destinationAddress=_destinationAddress;
 @property(readonly, nonatomic) UILabel *destinationName; // @synthesize destinationName=_destinationName;
 @property(readonly, nonatomic) CPTrip *representedTrip; // @synthesize representedTrip=_representedTrip;
 - (void).cxx_destruct;

@@ -9,6 +9,7 @@
 @class NSDictionary, NSString;
 
 @protocol RETrainingSimulationServerInterface <NSObject>
+- (void)relevanceEngine:(NSString *)arg1 runActionOfElementWithDescription1:(NSString *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)gatherDiagnosticLogsForRelevanceEngine:(NSString *)arg1 completion:(void (^)(NSString *))arg2;
 - (void)fetchAllElementsInRelevanceEngine:(NSString *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)fetchAllElementIdentifiersInRelevanceEngine:(NSString *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;

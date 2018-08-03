@@ -106,6 +106,7 @@
 @property(retain) NSString *deviceUniqueID; // @synthesize deviceUniqueID=_deviceUniqueID;
 @property(retain) NSString *cbuuid; // @synthesize cbuuid=_cbuuid;
 - (void).cxx_destruct;
+- (void)candidatePair:(id)arg1 didAddQREvent:(id)arg2;
 - (void)candidatePair:(id)arg1 didReceiveStunErrorResponse:(long long)arg2 errorCode:(unsigned short)arg3;
 - (void)candidatePair:(id)arg1 didReceiveSessionInfo:(id)arg2 success:(_Bool)arg3;
 - (void)_notifySessionInfoReceived:(id)arg1 relayGroupID:(id)arg2 relaySessionID:(id)arg3 success:(_Bool)arg4;
@@ -219,7 +220,7 @@
 - (void)_updateDefaultCandidatePair:(id)arg1;
 - (void)disconnectWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)connectWithSessionInfo:(id)arg1 interfaceAddress:(id)arg2 joinSession:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)_addQRAAWDBlock:(id)arg1 allocateRequestTime:(double)arg2 inferredExternalIP:(unsigned int)arg3 stunTransport:(long long)arg4 relayProviderType:(long long)arg5 idsSessionID:(id)arg6;
+- (void)_addQRAAWDBlock:(id)arg1 allocateRequestTime:(double)arg2 inferredExternalIP:(unsigned int)arg3 stunTransport:(long long)arg4 relayProviderType:(long long)arg5 idsSessionID:(id)arg6 sessionToken:(id)arg7;
 - (_Bool)hasReachableInterface:(unsigned long long)arg1;
 - (unsigned long long)defaultLinkType;
 - (void)startWithOptions:(id)arg1;

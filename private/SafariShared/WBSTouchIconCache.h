@@ -64,6 +64,7 @@
 - (id)_responseForRequest:(id)arg1 withTouchIcon:(id)arg2;
 - (_Bool)_shouldGenerateTouchIconFromTouchIcon:(id)arg1 forRequest:(id)arg2;
 - (void)_removeTouchIconsDataForHost:(id)arg1;
+- (void)removeTouchIconMetadataForHosts:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_updateTouchIconsDataForHost:(id)arg1 image:(id)arg2 requestDidSucceed:(_Bool)arg3 isUserLoadedWebpageRequest:(_Bool)arg4 higherPriorityIconDownloadFailedDueToNetworkError:(_Bool)arg5 UUIDString:(id)arg6;
 - (void)_saveTouchIconToDiskWithResult:(id)arg1 forRequest:(id)arg2;
 - (void)_enumerateRequestsForHost:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
@@ -97,6 +98,7 @@
 - (id)_touchIconForURL:(id)arg1;
 - (void)_ensureCacheDirectory;
 - (void)_setUpImageCacheSettingsSQLiteStore;
+- (id)uuidStringToHost;
 - (void)_openCacheSettingsDatabaseIfNeeded;
 - (void)dealloc;
 - (id)initWithCacheDirectoryURL:(id)arg1 isReadOnly:(_Bool)arg2 protectionType:(long long)arg3 allowFetchingOverCellularNetwork:(_Bool)arg4 fileMappingStyle:(long long)arg5;

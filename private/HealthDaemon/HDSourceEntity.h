@@ -15,7 +15,7 @@
 + (id)_sourcesWithPredicate:(id)arg1 includeDeleted:(_Bool)arg2 profile:(id)arg3 error:(id *)arg4;
 + (id)countOfWatchSourcesWithDatabase:(id)arg1 error:(id *)arg2;
 + (id)orderedBundleIdentifiersFromSourceUUIDsData:(id)arg1 database:(id)arg2 error:(id *)arg3;
-+ (id)bundleIdentifiersForSourcesWithPredicate:(id)arg1 database:(id)arg2 error:(id *)arg3;
++ (_Bool)enumerateBundleIdentifiersForSourcesWithPredicate:(id)arg1 database:(id)arg2 error:(id *)arg3 enumerationHandler:(CDUnknownBlockType)arg4;
 + (id)sourcesWithPredicate:(id)arg1 orderingProperties:(id)arg2 orderingDirections:(id)arg3 includeDeleted:(_Bool)arg4 database:(id)arg5 error:(id *)arg6;
 + (id)sourcesWithPredicate:(id)arg1 includeDeleted:(_Bool)arg2 database:(id)arg3 error:(id *)arg4;
 + (id)sourcesWithPredicate:(id)arg1 includeDeleted:(_Bool)arg2 profile:(id)arg3 error:(id *)arg4;

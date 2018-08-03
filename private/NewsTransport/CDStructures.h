@@ -71,6 +71,7 @@ typedef struct {
     unsigned int previousArticleHostViewTypeIfSwipe:1;
     unsigned int previousWebEmbedLocation:1;
     unsigned int publisherArticleVersion:1;
+    unsigned int rankInVideoPlaylist:1;
     unsigned int topStoryMandatoryArticleCount:1;
     unsigned int topStoryOptionalArticleCount:1;
     unsigned int topStoryType:1;
@@ -101,7 +102,7 @@ typedef struct {
     unsigned int isVideoInFeed:1;
     unsigned int subscriptionOnlyArticle:1;
     unsigned int viewFromNotificationDirectOpen:1;
-} CDStruct_19501b32;
+} CDStruct_120998a0;
 
 // Ambiguous groups
 typedef struct {

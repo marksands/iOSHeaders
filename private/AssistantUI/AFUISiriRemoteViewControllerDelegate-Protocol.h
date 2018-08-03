@@ -9,7 +9,6 @@
 @class AFUIRequestOptions, AFUISiriRemoteViewController, NSDictionary, NSError, NSString, NSURL;
 
 @protocol AFUISiriRemoteViewControllerDelegate <NSObject>
-- (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 didChangeUserAttentionStatus:(_Bool)arg2;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 didRequestCurrentTextInputWithReplyHandler:(void (^)(NSString *))arg2;
 - (void)siriRemoteViewControllerDidEndTapToEdit:(AFUISiriRemoteViewController *)arg1;
 - (void)siriRemoteViewControllerWillBeginTapToEdit:(AFUISiriRemoteViewController *)arg1;

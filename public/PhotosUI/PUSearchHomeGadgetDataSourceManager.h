@@ -6,12 +6,10 @@
 
 #import "PXGadgetDataSourceManager.h"
 
-#import "PXSettingsKeyObserver.h"
-
-@class NSString, PUSearchZeroKeywordGadgetProvider, PXNoContentGadget;
+@class PUSearchZeroKeywordGadgetProvider, PXNoContentGadget;
 
 __attribute__((visibility("hidden")))
-@interface PUSearchHomeGadgetDataSourceManager : PXGadgetDataSourceManager <PXSettingsKeyObserver>
+@interface PUSearchHomeGadgetDataSourceManager : PXGadgetDataSourceManager
 {
     PUSearchZeroKeywordGadgetProvider *_zeroKeywordGadgetProvider;
     PXNoContentGadget *_searchNoContentGadget;
@@ -21,20 +19,11 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) PUSearchZeroKeywordGadgetProvider *zeroKeywordGadgetProvider; // @synthesize zeroKeywordGadgetProvider=_zeroKeywordGadgetProvider;
 - (void).cxx_destruct;
 - (void)ppt_prepareZeroKeywordRequest:(CDUnknownBlockType)arg1;
-- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (id)_sortingRankForGadget:(id)arg1;
 - (void)refreshData;
-- (id)filteredUndisplayedGadgets:(id)arg1;
 - (CDUnknownBlockType)gadgetSortComparator;
 - (id)noContentGadget;
 - (id)gadgetProviders;
-- (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

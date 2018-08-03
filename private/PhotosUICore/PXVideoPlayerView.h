@@ -42,6 +42,7 @@
 - (id)generateSnapshotImage;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
+- (void)_runVisibilityChangeCompletionHandler;
 - (void)_setDisplayingPlaceholder:(_Bool)arg1 requestID:(long long)arg2;
 - (void)_updateSubviewsVisibility;
 - (void)_updateEdgeAntialiasing;

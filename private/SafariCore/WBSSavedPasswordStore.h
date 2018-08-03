@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSMutableDictionary, WBSAutoFillQuirksManager, WBSKeychainCredentialNotificationMonitor;
+@class NSArray, NSDictionary, NSMutableDictionary, NSSet, WBSAutoFillQuirksManager, WBSKeychainCredentialNotificationMonitor;
 
 @interface WBSSavedPasswordStore : NSObject
 {
@@ -36,11 +36,12 @@
 - (void)_removePassword:(id)arg1;
 @property(readonly, copy, nonatomic) NSDictionary *domainToSavedPasswords;
 @property(readonly, nonatomic) NSArray *savedPasswords;
+@property(readonly, nonatomic) NSSet *highLevelDomainsOfAllSavedPasswordsExcludingNeverSaveMarkerPasswords;
 @property(readonly, nonatomic) NSArray *savedPasswordsExcludingNeverSaveMarkerPasswords;
 - (id)_allInternetPasswordEntriesFromKeychain;
 - (id)savedPasswordForURL:(id)arg1 user:(id)arg2 password:(id)arg3;
 - (void)dealloc;
-- (id)init;
+- (id)initUsingAutoFillQuirksManager:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool hasDuplicatedPasswords;
 - (_Bool)savedPasswordHasReusedPassword:(id)arg1;
 - (id)savedPasswordsWithDuplicatedPassword:(id)arg1;

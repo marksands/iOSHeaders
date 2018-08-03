@@ -19,6 +19,7 @@
 + (id)deviceSearchCompleted;
 - (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *resolvedDevices;
+@property(nonatomic) _Bool remotePlaySoundRestricted;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

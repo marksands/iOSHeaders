@@ -23,8 +23,10 @@
     NSNumber *_maximum;
     NSDictionary *_measurement;
     PDContainer *_container;
+    NSString *_cachedMetricFilter;
 }
 
+@property(retain, nonatomic) NSString *cachedMetricFilter; // @synthesize cachedMetricFilter=_cachedMetricFilter;
 @property(nonatomic) __weak PDContainer *container; // @synthesize container=_container;
 @property(retain, nonatomic) NSDictionary *measurement; // @synthesize measurement=_measurement;
 @property(retain, nonatomic) NSNumber *maximum; // @synthesize maximum=_maximum;
@@ -50,6 +52,7 @@
 - (id)metricFilterIgnoringNullableVariables:(id)arg1;
 - (id)metricFilterIgnoringVariables:(id)arg1;
 - (id)metricFilter;
+- (_Bool)matchesVariables:(id)arg1 ignoringMissing:(_Bool)arg2;
 - (_Bool)matchesMetricFilter:(id)arg1;
 - (id)description;
 - (id)initWithContainer:(id)arg1 dictionary:(id)arg2 group:(unsigned long long)arg3 error:(id *)arg4;

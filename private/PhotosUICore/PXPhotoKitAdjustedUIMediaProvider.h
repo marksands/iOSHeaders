@@ -18,9 +18,11 @@
     PHCachingImageManager *_imageManager;
     _Bool _useCachedRenders;
     _Bool _delayRenders;
+    _Bool _cachesUnadjustedImageForRequestedAssets;
 }
 
 + (void)clearCachedRenders;
+@property(nonatomic) _Bool cachesUnadjustedImageForRequestedAssets; // @synthesize cachesUnadjustedImageForRequestedAssets=_cachesUnadjustedImageForRequestedAssets;
 @property(nonatomic) _Bool delayRenders; // @synthesize delayRenders=_delayRenders;
 @property(nonatomic) _Bool useCachedRenders; // @synthesize useCachedRenders=_useCachedRenders;
 - (void).cxx_destruct;

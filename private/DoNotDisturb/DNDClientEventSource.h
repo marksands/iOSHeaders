@@ -19,6 +19,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)sourceWithPhoneNumber:(id)arg1;
++ (id)sourceWithDestinationIdentifier:(id)arg1;
 + (id)sourceWithCNContactIdentifier:(id)arg1;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(readonly, copy, nonatomic) NSString *value; // @synthesize value=_value;
@@ -26,6 +27,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)debugDescription;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

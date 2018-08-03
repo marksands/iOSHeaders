@@ -13,6 +13,7 @@
     double _absoluteStartTime;
     double _absoluteEndTime;
     unsigned long long _status;
+    unsigned long long _graphRequestInterruptionCount;
     NSDate *_startDate;
     double _duration;
 }
@@ -22,6 +23,7 @@
 @property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 - (void).cxx_destruct;
 - (id)description;
+- (void)markProcessingInterruptedByGraphRequest;
 - (void)markProcessingStopped:(unsigned long long)arg1;
 - (id)init;
 

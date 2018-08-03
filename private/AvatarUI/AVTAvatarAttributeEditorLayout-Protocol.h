@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class UIColor;
+@class NSString, UIColor;
 
 @protocol AVTAvatarAttributeEditorLayout
 @property(readonly, nonatomic) UIColor *backgroundColor;
@@ -18,6 +18,7 @@
 @property(readonly, nonatomic) struct CGRect attributesContentViewFrame;
 @property(readonly, nonatomic) struct CGRect groupDialContainerFrame;
 @property(readonly, nonatomic) struct CGRect avatarContainerFrame;
+@property(readonly, copy, nonatomic) NSString *contentSizeCategory;
 @property(readonly, nonatomic) double screenScale;
 @property(readonly, nonatomic) struct UIEdgeInsets edgeInsets;
 @property(readonly, nonatomic) struct CGSize containerSize;

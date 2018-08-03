@@ -15,6 +15,7 @@
     NSException *_exception;
 }
 
++ (id)failureWithException:(id)arg1 description:(id)arg2;
 + (id)failureWithException:(id)arg1;
 + (id)failureWithDescription:(id)arg1;
 @property(readonly) NSException *exception; // @synthesize exception=_exception;

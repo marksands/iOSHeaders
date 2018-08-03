@@ -159,7 +159,6 @@
 - (void)_loadThirdPartySpecifiersWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_loadThirdPartySpecifiersIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)setDesiredVerticalContentOffsetItemNamed:(id)arg1;
-- (id)dndGlobalState:(id)arg1;
 - (_Bool)handlePendingURL;
 - (id)specifiers;
 - (id)bundle;

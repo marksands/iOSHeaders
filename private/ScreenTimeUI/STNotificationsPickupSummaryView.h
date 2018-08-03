@@ -17,6 +17,11 @@
 @property(retain, nonatomic) UIStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain, nonatomic) STUsageReport *usageReport; // @synthesize usageReport=_usageReport;
 - (void).cxx_destruct;
+- (id)_attributedString:(id)arg1 withFont:(id)arg2;
+- (id)_attributedStringForPickUpDetailText;
+- (id)_attributedStringForPickUpTitle;
+- (id)_attributedStringForNotificationsDetailText;
+- (id)_attributedStringForNotificationsTitle;
 - (id)initWithUsageReport:(id)arg1;
 
 @end

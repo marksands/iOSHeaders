@@ -26,7 +26,6 @@
 @property(nonatomic) __weak id <PXForYouMemoriesViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) long long userInterfaceFeature;
-- (struct CGPoint)tilingController:(id)arg1 initialVisibleOriginForLayout:(id)arg2;
 - (id)createNewLayoutGenerator;
 - (void)scrollViewControllerWillEndScrolling:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)pushViewController:(id)arg1 animated:(_Bool)arg2;

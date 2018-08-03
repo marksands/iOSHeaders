@@ -13,13 +13,13 @@
 @interface INUIAddVoiceShortcutViewController : UIViewController <INUIVoiceShortcutRemoteViewControllerAddDelegate>
 {
     INShortcut *_shortcut;
-    INUIVoiceShortcutHostViewController *_remoteHostViewController;
     id <INUIAddVoiceShortcutViewControllerDelegate> _delegate;
+    INUIVoiceShortcutHostViewController *_remoteHostViewController;
 }
 
 + (void)initialize;
+@property(retain, nonatomic, getter=_remoteHostViewController, setter=_setRemoteHostViewController:) INUIVoiceShortcutHostViewController *remoteHostViewController; // @synthesize remoteHostViewController=_remoteHostViewController;
 @property(nonatomic) __weak id <INUIAddVoiceShortcutViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) INUIVoiceShortcutHostViewController *_remoteHostViewController; // @synthesize _remoteHostViewController;
 @property(retain, nonatomic) INShortcut *_shortcut; // @synthesize _shortcut;
 - (void).cxx_destruct;
 - (void)remoteViewControllerAddDidCacnel;

@@ -9,7 +9,16 @@
 @class NSData, NSDictionary, NSString, _CPActionItemForFeedback, _CPPunchoutForFeedback, _CPStruct;
 
 @protocol _CPSearchResultForFeedback <NSObject>
+@property(readonly, nonatomic) unsigned long long whichApplicationbundleid;
+@property(readonly, nonatomic) unsigned long long whichSectionbundleid;
+@property(readonly, nonatomic) unsigned long long whichResultbundleidentifier;
 @property(readonly, nonatomic) NSData *jsonData;
+@property(nonatomic) int knownApplicationBundleIdentifier;
+@property(copy, nonatomic) NSString *applicationBundleIdentifier;
+@property(nonatomic) int knownSectionBundleIdentifier;
+@property(copy, nonatomic) NSString *sectionBundleIdentifier;
+@property(nonatomic) int knownResultBundleId;
+@property(copy, nonatomic) NSString *resultBundleId;
 @property(nonatomic) unsigned long long hashedIdentifier;
 @property(nonatomic) unsigned long long blockId;
 @property(nonatomic) _Bool doNotFold;
@@ -25,9 +34,6 @@
 @property(nonatomic) _Bool isStaticCorrection;
 @property(nonatomic) double rankingScore;
 @property(copy, nonatomic) NSString *resultType;
-@property(copy, nonatomic) NSString *sectionBundleIdentifier;
-@property(copy, nonatomic) NSString *applicationBundleIdentifier;
-@property(copy, nonatomic) NSString *resultBundleId;
 @property(retain, nonatomic) _CPStruct *localFeatures;
 @property(copy, nonatomic) NSString *srf;
 @property(nonatomic) int type;

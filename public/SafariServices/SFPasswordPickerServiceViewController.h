@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 @interface SFPasswordPickerServiceViewController : SFPasswordServiceViewController <SFCredentialProviderExtensionManagerObserver, _ASCredentialProviderExtensionViewControllerDelegate, _ASPasswordCredentialAuthenticationViewControllerDelegate, _SFAuthenticationClient, _SFAuthenticationContextDelegate, SFPasswordPickerServiceViewControllerProtocol>
 {
     _ASPasswordCredentialAuthenticationViewController *_externalCredentialViewController;
+    CDUnknownBlockType _credentialProviderDismissalHandler;
     _SFPasswordPickerViewController *_passwordPickerViewController;
     _Bool _presentInPopover;
     _Bool _hasAuthenticationForOtherPasswords;
@@ -29,6 +30,7 @@ __attribute__((visibility("hidden")))
     NSString *_remoteUnlocalizedAppName;
     NSArray *_externallyVerifiedAssociatedDomains;
     double _authenticationGracePeriod;
+    _Bool _credentialListPresentedDirectly;
 }
 
 + (id)_exportedInterface;
@@ -46,10 +48,12 @@ __attribute__((visibility("hidden")))
 - (void)setWebViewURL:(id)arg1;
 - (void)_sendCredentialToClientAndDismiss:(id)arg1;
 - (void)_gatherAndShowPasswordsWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)_shouldDismissOnCompletion;
 - (void)_fillCredential:(id)arg1 needsAuthentication:(_Bool)arg2;
 - (void)authenticateToPresentInPopover:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_presentCredentialListForExtension:(id)arg1;
+- (void)_presentCredentialListForExtension:(id)arg1 animated:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (id)_actionForPresentingPasswordManagerExtension:(id)arg1;
+- (void)dealloc;
 - (void)_authenticateToViewOtherPasswordsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_dismiss;
 - (void)viewWillDisappear:(_Bool)arg1;

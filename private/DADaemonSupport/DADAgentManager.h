@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface DADAgentManager : NSObject
 {
-    NSMutableArray *_activeAgents;
-    NSMutableArray *_agentsAwaitingShutdown;
+    NSArray *_activeAgents;
+    NSObject<OS_dispatch_queue> *_activeAgentsQueue;
     NSMutableDictionary *_watchedIDs;
     unsigned int _pmNotifier;
     struct IONotificationPort *_pmPort;
@@ -29,7 +29,6 @@
 @property(readonly, nonatomic) NSMutableDictionary *disableMonitoringAgentsTokens; // @synthesize disableMonitoringAgentsTokens=_disableMonitoringAgentsTokens;
 @property(nonatomic) unsigned long long nextDisableMonitoringAgentsToken; // @synthesize nextDisableMonitoringAgentsToken=_nextDisableMonitoringAgentsToken;
 @property(retain, nonatomic) NSMutableArray *subCalHandlers; // @synthesize subCalHandlers=_subCalHandlers;
-@property(retain, nonatomic) NSMutableArray *activeAgents; // @synthesize activeAgents=_activeAgents;
 - (void).cxx_destruct;
 - (void)upgradeAccountsInSimulator;
 - (void)disableActiveSync;
@@ -59,7 +58,6 @@
 - (void)enableMonitoringAgentsWithToken:(unsigned long long)arg1;
 - (void)_addAccountAggdEntries;
 - (void)_stopMonitoringAndSaveAgents;
-- (void)agentHasStoppedMonitoring:(id)arg1;
 - (void)registerForBuddy;
 - (void)_loadAndStartMonitoringAgents;
 - (void)_handleCellularDataUsageChangedNotification;
@@ -92,6 +90,7 @@
 - (id)accountWithAccountID:(id)arg1 andClassName:(id)arg2;
 - (id)accountWithAccountID:(id)arg1;
 - (id)agentWithAccountID:(id)arg1;
+@property(readonly, nonatomic) NSArray *activeAgents;
 - (void)dealloc;
 - (id)init;
 

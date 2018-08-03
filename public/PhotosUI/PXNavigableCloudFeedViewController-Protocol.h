@@ -15,5 +15,6 @@
 - (void)navigateToRevealCloudFeedComment:(PLCloudSharedComment *)arg1 completion:(void (^)(UIViewController *))arg2;
 - (void)navigateToCloudFeedAsset:(PLManagedAsset *)arg1 completion:(void (^)(UIViewController *))arg2;
 - (void)navigateToRevealCloudFeedAsset:(PLManagedAsset *)arg1 completion:(void (^)(UIViewController *))arg2;
+- (void)performWhenReadyToNavigate:(void (^)(void))arg1;
 @end
 

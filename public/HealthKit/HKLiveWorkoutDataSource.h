@@ -36,6 +36,7 @@
 - (void)connectionInvalidated;
 - (id)remoteInterface;
 - (id)exportedInterface;
+- (void)workoutBuilderDidFinish;
 - (id)_queue_dataSourceConfiguration;
 - (void)disableCollectionForType:(id)arg1;
 - (void)enableCollectionForType:(id)arg1 predicate:(id)arg2;

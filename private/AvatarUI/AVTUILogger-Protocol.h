@@ -58,6 +58,7 @@
 - (void)logDidFinishEditingWithError:(NSString *)arg1;
 - (void)logDidFinishEditingWithSuccess;
 - (void)logErrorFetchingRecords:(NSString *)arg1;
+- (void)logErrorDuplicatingThumbnailsForIdentifier:(NSString *)arg1 error:(NSString *)arg2;
 - (void)logErrorDeletingThumbnailsForIdentifier:(NSString *)arg1 error:(NSString *)arg2;
 - (void)logGeneratingImageError:(NSString *)arg1;
 - (void)logGeneratingImageForRecord:(NSString *)arg1 scope:(NSString *)arg2 type:(long long)arg3;

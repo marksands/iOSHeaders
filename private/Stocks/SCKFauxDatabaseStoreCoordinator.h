@@ -26,10 +26,8 @@
 - (void)reloadWithAccessor:(CDUnknownBlockType)arg1;
 - (void)writeWithAccessor:(CDUnknownBlockType)arg1;
 - (void)readWithAccessor:(CDUnknownBlockType)arg1;
-- (id)initWithDatabaseStore:(id)arg1;
-
-// Remaining properties
 @property(readonly, nonatomic) id <SCKDatabaseStore> underlyingStore;
+- (id)initWithDatabaseStore:(id)arg1;
 
 @end
 

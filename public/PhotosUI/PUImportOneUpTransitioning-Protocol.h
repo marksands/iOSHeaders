@@ -9,6 +9,7 @@
 @protocol PUImportOneUpTransitioning
 - (void)didTransitionFromViewController:(UIViewController *)arg1 toViewController:(UIViewController *)arg2 withTransitionItems:(NSArray *)arg3;
 - (void)willTransitionFromViewController:(UIViewController *)arg1 toViewController:(UIViewController *)arg2 withTransitionItems:(NSArray *)arg3;
+- (void)prepareTransitionItemViewForDestination:(PUImportOneUpTransitionItem *)arg1;
 - (struct CGRect)targetFrameForTransitionItem:(PUImportOneUpTransitionItem *)arg1;
 - (NSArray *)transitionItemsForContext:(id <UIViewControllerContextTransitioning>)arg1;
 @end

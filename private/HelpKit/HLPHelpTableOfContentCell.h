@@ -14,6 +14,7 @@
     NSLayoutConstraint *_arrowImageViewWidthConstraint;
     NSLayoutConstraint *_sectionImageWidthConstraint;
     NSLayoutConstraint *_sectionImageLeadingConstraint;
+    NSLayoutConstraint *_labelToArrowViewLeadingConstraint;
     _Bool _showFirstLevelIcon;
     _Bool _ignoreLevels;
     _Bool _closed;
@@ -43,6 +44,7 @@
 - (void)updateConstraints;
 - (void)layoutSubviews;
 - (void)cancelIconRequest;
+- (void)contentSizeCategoryDidChange:(id)arg1;
 - (void)prepareForReuse;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 - (void)dealloc;

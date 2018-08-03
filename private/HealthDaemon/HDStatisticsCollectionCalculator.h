@@ -13,6 +13,7 @@
 
 @interface HDStatisticsCollectionCalculator : NSObject <HDStatisticsSourceOrderProvider, NSSecureCoding>
 {
+    long long _computationMethod;
     struct unique_ptr<_HDStatisticsCollectionCalculatorImplementation, std::__1::default_delete<_HDStatisticsCollectionCalculatorImplementation>> _implementation;
     CDUnknownBlockType _statisticsHandler;
     NSArray *_maskedIntervals;
@@ -21,6 +22,7 @@
 
 + (id)calculatorForArchivedRepresentation:(id)arg1 error:(id *)arg2;
 + (_Bool)supportsSecureCoding;
++ (id)calculatorForQuantityType:(id)arg1 intervalCollection:(id)arg2 options:(unsigned long long)arg3 mergeStrategy:(unsigned long long)arg4 computationMethod:(long long)arg5;
 + (id)calculatorForQuantityType:(id)arg1 intervalCollection:(id)arg2 options:(unsigned long long)arg3 mergeStrategy:(unsigned long long)arg4;
 @property(nonatomic) __weak id <HDStatisticsCollectionCalculatorSourceOrderProvider> sourceOrderProvider; // @synthesize sourceOrderProvider=_sourceOrderProvider;
 @property(copy, nonatomic) CDUnknownBlockType statisticsHandler; // @synthesize statisticsHandler=_statisticsHandler;
@@ -47,7 +49,7 @@
 @property(readonly, nonatomic) unsigned long long options;
 @property(readonly, copy, nonatomic) _HKDateIntervalCollection *intervalCollection;
 @property(readonly, copy, nonatomic) HKQuantityType *quantityType;
-- (id)initForQuantityType:(id)arg1 intervalCollection:(id)arg2 options:(unsigned long long)arg3 mergeStrategy:(unsigned long long)arg4;
+- (id)initForQuantityType:(id)arg1 intervalCollection:(id)arg2 options:(unsigned long long)arg3 mergeStrategy:(unsigned long long)arg4 computationMethod:(long long)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

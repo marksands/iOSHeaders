@@ -34,6 +34,8 @@
 - (void)_validatePath;
 @property(readonly, nonatomic) AVAsset *avAsset;
 @property(readonly, nonatomic) _Bool evicted;
+- (void)setEditing:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool editing;
 - (void)setManuallyRenamed:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool manuallyRenamed;
 - (void)setPlayable:(_Bool)arg1;

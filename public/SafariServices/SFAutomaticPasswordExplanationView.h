@@ -6,19 +6,26 @@
 
 #import "UIView.h"
 
-@class NSLayoutConstraint, UIButton, UILabel, UILayoutGuide, UIScrollView;
+#import "SFAutomaticPasswordScrollViewContentViewLayoutObserver.h"
+#import "UIScrollViewDelegate.h"
+#import "_UIScrollViewLayoutObserver.h"
+
+@class NSArray, NSLayoutConstraint, NSString, SFAutomaticPasswordScrollViewContentView, UIButton, UIImageView, UILabel, UILayoutGuide, UIScrollView;
 
 __attribute__((visibility("hidden")))
-@interface SFAutomaticPasswordExplanationView : UIView
+@interface SFAutomaticPasswordExplanationView : UIView <_UIScrollViewLayoutObserver, SFAutomaticPasswordScrollViewContentViewLayoutObserver, UIScrollViewDelegate>
 {
     _Bool _isPad;
     long long _keyboardType;
     UIScrollView *_scrollView;
-    UIView *_scrollableContentView;
+    SFAutomaticPasswordScrollViewContentView *_scrollableContentView;
+    UIImageView *_shadowImageView;
     NSLayoutConstraint *_strongPasswordButtonWidthConstraint;
     NSLayoutConstraint *_strongPasswordButtonHeightConstraint;
     NSLayoutConstraint *_useCustomPasswordButtonWidthConstraint;
     NSLayoutConstraint *_useCustomPasswordBaselineToBottomConstraint;
+    NSArray *_wideShadowImageViewConstraints;
+    NSArray *_narrowShadowImageViewConstraints;
     UILayoutGuide *_contentLayoutGuide;
     NSLayoutConstraint *_contentLayoutGuideBottomConstraint;
     UILayoutGuide *_scrollableContentCenterLayoutGuide;
@@ -28,6 +35,7 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_wideContentTrailingConstraint;
     NSLayoutConstraint *_narrowContentLeadingConstraint;
     NSLayoutConstraint *_narrowContentTrailingConstraint;
+    _Bool _scrollViewNeedsShadowCachedValue;
     UILabel *_explanationLabel;
     UILabel *_passwordRetrievalExpalantionLabel;
     UIButton *_useStrongPasswordButton;
@@ -41,6 +49,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) UILabel *passwordRetrievalExpalantionLabel; // @synthesize passwordRetrievalExpalantionLabel=_passwordRetrievalExpalantionLabel;
 @property(readonly, nonatomic) UILabel *explanationLabel; // @synthesize explanationLabel=_explanationLabel;
 - (void).cxx_destruct;
+- (void)scrollViewDidScroll:(id)arg1;
+- (void)automaticPasswordScrollContentViewDidLayout:(id)arg1;
+- (void)_scrollViewDidLayoutSubviews:(id)arg1;
+- (void)_updateShadowViewAlpha;
+- (_Bool)_scrollViewNeedsShadow:(_Bool)arg1;
 - (void)updateConstraints;
 - (void)_updateContentLayoutGuideBottomConstraint;
 - (void)safeAreaInsetsDidChange;
@@ -54,6 +67,12 @@ __attribute__((visibility("hidden")))
 - (void)_updateTextAndButtonColor;
 - (void)_createSubviews;
 - (id)initWithKeyboardType:(long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

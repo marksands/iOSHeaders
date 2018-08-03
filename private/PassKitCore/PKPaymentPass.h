@@ -98,6 +98,7 @@
 @property(readonly, nonatomic) unsigned long long activationState;
 - (unsigned long long)_activationStateForApplicationState:(long long)arg1;
 - (_Bool)hasContactlessDevicePaymentApplicationsAvailable;
+- (id)deviceContactlessPaymentApplications;
 - (long long)effectiveContactlessPaymentApplicationState;
 - (id)sanitizedDeviceAccountNumber;
 @property(readonly) __weak NSString *deviceAccountNumberSuffix;

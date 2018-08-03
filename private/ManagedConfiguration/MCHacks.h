@@ -28,7 +28,7 @@
 - (id)quantizedAutoLockInSeconds:(id)arg1;
 - (id)quantizedGracePeriodInSeconds:(id)arg1;
 - (id)_selectLargestNumberFromSortedArray:(id)arg1 equalToOrLessThanNumber:(id)arg2;
-- (id)_permittedAutoLockNumbers;
+- (id)permittedAutoLockNumbers;
 - (id)_permittedGracePeriodNumbers;
 - (void)_applyServerSideChangesWithOldRestrictions:(id)arg1 newRestrictions:(id)arg2 oldEffectiveUserSettings:(id)arg3 newEffectiveUserSettings:(id)arg4;
 

@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
     NSString *_annotationText;
 }
 
++ (double)labelOffset;
 + (_Bool)highlightAffectsBackground;
 + (double)widthForCandidate:(id)arg1;
 + (_Bool)drawsSideBorders;
@@ -63,7 +64,6 @@ __attribute__((visibility("hidden")))
 - (void)_setRenderConfig:(id)arg1;
 - (void)didMoveToWindow;
 - (void)setCandidate:(id)arg1;
-- (double)labelOffset;
 - (void)prepareForReuse;
 - (void)applyLayoutAttributes:(id)arg1;
 - (int)style;

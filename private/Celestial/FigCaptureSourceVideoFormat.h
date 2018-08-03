@@ -42,6 +42,7 @@
 @property(readonly, getter=isExternalFormat) _Bool externalFormat;
 @property(readonly) NSArray *AVCaptureSessionPresets;
 @property(readonly, getter=isHighProfileH264Supported) _Bool highProfileH264Supported;
+- (_Bool)sushiRawBlackBorderingEnabled;
 - (id)rawLensShadingCorrection;
 @property(readonly) unsigned int supportedRawPixelFormat;
 @property(readonly) NSArray *supportedColorSpaces;

@@ -22,9 +22,15 @@
     MLObjectBoundingBoxOutputDescription *_boundingBoxOutputDescription;
     unsigned long long _inputImageWidth;
     unsigned long long _inputImageHeight;
+    unsigned long long _scenePrintRevision;
+    NSString *_inputScenePrintKey;
+    long long _inputScenePrintMLMultiArrayDataType;
 }
 
 + (id)modelForMLModel:(id)arg1 error:(id *)arg2;
+@property(readonly) long long inputScenePrintMLMultiArrayDataType; // @synthesize inputScenePrintMLMultiArrayDataType=_inputScenePrintMLMultiArrayDataType;
+@property(retain) NSString *inputScenePrintKey; // @synthesize inputScenePrintKey=_inputScenePrintKey;
+@property(readonly) unsigned long long scenePrintRevision; // @synthesize scenePrintRevision=_scenePrintRevision;
 @property(readonly) unsigned int inputImageFormat; // @synthesize inputImageFormat=_inputImageFormat;
 @property(readonly) unsigned long long inputImageHeight; // @synthesize inputImageHeight=_inputImageHeight;
 @property(readonly) unsigned long long inputImageWidth; // @synthesize inputImageWidth=_inputImageWidth;
@@ -37,6 +43,9 @@
 - (void).cxx_destruct;
 - (id)sequencedRequestPreviousObservationsKey;
 - (_Bool)wantsSequencedRequestObservationsRecording;
+@property(readonly, copy, nonatomic) id <NSObject><NSCopying> cachingIdentifier;
+- (id)predictWithScenePrint:(id)arg1 options:(id)arg2 error:(id *)arg3;
+- (id)featureValueFromScenePrint:(id)arg1 dataType:(long long)arg2;
 - (id)predictWithCVPixelBuffer:(struct __CVBuffer *)arg1 options:(id)arg2 error:(id *)arg3;
 - (void)_updateModelWithFlexibleImageConstraintUsingWidth:(long long)arg1 height:(long long)arg2;
 - (_Bool)setupInputImageFromModelDescription:(id)arg1;

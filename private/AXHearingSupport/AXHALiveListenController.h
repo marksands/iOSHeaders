@@ -9,6 +9,7 @@
 @interface AXHALiveListenController : NSObject
 {
     _Bool _isListening;
+    id <AXHALiveListenDelegate> _delegate;
     struct OpaqueAudioComponentInstance *_rioUnit;
     struct OpaqueAudioComponentInstance *_mixerUnit;
 }
@@ -16,6 +17,8 @@
 @property(nonatomic) _Bool isListening; // @synthesize isListening=_isListening;
 @property(readonly, nonatomic) struct OpaqueAudioComponentInstance *mixerUnit; // @synthesize mixerUnit=_mixerUnit;
 @property(readonly, nonatomic) struct OpaqueAudioComponentInstance *rioUnit; // @synthesize rioUnit=_rioUnit;
+@property(nonatomic) __weak id <AXHALiveListenDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (_Bool)stopListeningWithError:(id *)arg1;
 - (_Bool)startListeningWithError:(id *)arg1;
 - (float)audioLevel;

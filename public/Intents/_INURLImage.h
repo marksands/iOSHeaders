@@ -6,19 +6,23 @@
 
 #import <Intents/INImage.h>
 
-@class NSURL;
+@class NSData, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface _INURLImage : INImage
 {
+    NSData *_sandboxExtensionData;
     NSURL *_imageURL;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) NSURL *imageURL; // @synthesize imageURL=_imageURL;
+@property(copy, nonatomic, setter=_setSandboxExtensionData:) NSData *_sandboxExtensionData; // @synthesize _sandboxExtensionData;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (_Bool)_isSupportedForDonation;
+- (_Bool)_isEligibleForProxying;
 - (id)_initWithURLRepresentation:(id)arg1;
 - (id)_URLRepresentation;
 - (void)_setUri:(id)arg1;

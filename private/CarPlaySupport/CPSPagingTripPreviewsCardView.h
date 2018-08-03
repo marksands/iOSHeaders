@@ -20,7 +20,6 @@
     CPSHairlineBorderedView *_borderedAlternatesView;
     CPSHairlineBorderedView *_borderedGoButton;
     CPSHairlineBorderedView *_borderedMoreRoutesButton;
-    NSLayoutConstraint *_platterWidthConstraint;
     NSLayoutConstraint *_contentTopConstraint;
     NSLayoutConstraint *_contentBottomConstraint;
     NSLayoutConstraint *_alternateRoutesHeightConstraint;
@@ -31,7 +30,6 @@
 @property(retain, nonatomic) NSLayoutConstraint *alternateRoutesHeightConstraint; // @synthesize alternateRoutesHeightConstraint=_alternateRoutesHeightConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *contentBottomConstraint; // @synthesize contentBottomConstraint=_contentBottomConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *contentTopConstraint; // @synthesize contentTopConstraint=_contentTopConstraint;
-@property(retain, nonatomic) NSLayoutConstraint *platterWidthConstraint; // @synthesize platterWidthConstraint=_platterWidthConstraint;
 @property(nonatomic) _Bool showMoreRoutes; // @synthesize showMoreRoutes=_showMoreRoutes;
 @property(readonly, nonatomic) CPSHairlineBorderedView *borderedMoreRoutesButton; // @synthesize borderedMoreRoutesButton=_borderedMoreRoutesButton;
 @property(readonly, nonatomic) CPSHairlineBorderedView *borderedGoButton; // @synthesize borderedGoButton=_borderedGoButton;

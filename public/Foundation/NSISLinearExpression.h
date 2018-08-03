@@ -7,27 +7,13 @@
 #import "NSObject.h"
 
 #import "NSFastEnumeration.h"
-#import "NSISRowBody.h"
 
-@class NSISEngine, NSString;
+@class NSISEngine;
 
-@interface NSISLinearExpression : NSObject <NSISRowBody, NSFastEnumeration>
+@interface NSISLinearExpression : NSObject <NSFastEnumeration>
 {
     NSISEngine *engine;
-    unsigned int inline_capacity;
-    unsigned int var_count;
-    double constant;
-    union {
-        struct {
-            id stored_extern_marker;
-            struct *slab;
-            unsigned long long capacity;
-        } extern_data;
-        struct {
-            unsigned long long aligner;
-        } inline_slab;
-        unsigned char padding[36];
-    } data;
+    CDStruct_9ac54d62 linExp;
 }
 
 + (id)acquireFromPoolForUseCase:(long long)arg1 engine:(id)arg2;
@@ -40,54 +26,34 @@
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (id)initWithInlineCapacity:(unsigned long long)arg1 engine:(id)arg2;
 - (void)verifyInternalIntegrity;
-- (void)scaleBy:(double)arg1 processVarDroppedFromReceiver:(CDUnknownBlockType)arg2;
 - (void)scaleBy:(double)arg1;
-- (id)varsArray;
 - (id)variablesArray;
 - (unsigned long long)variableCount;
 - (_Bool)enumerateVariablesAndCoefficientsUntil:(CDUnknownBlockType)arg1;
-- (_Bool)enumerateVarsUntil:(CDUnknownBlockType)arg1;
-- (_Bool)enumerateVarsAndCoefficientsUntil:(CDUnknownBlockType)arg1;
 - (void)enumerateVariables:(CDUnknownBlockType)arg1;
-- (void)enumerateVars:(CDUnknownBlockType)arg1;
 - (void)enumerateVariablesAndCoefficients:(CDUnknownBlockType)arg1;
-- (void)enumerateVarsAndCoefficients:(CDUnknownBlockType)arg1;
-@property(readonly, copy) NSString *description;
+- (id)description;
 - (void)replaceVariable:(id)arg1 withExpression:(id)arg2 processVariableNewToReceiver:(CDUnknownBlockType)arg3 processVariableDroppedFromReceiver:(CDUnknownBlockType)arg4;
-- (void)replaceVar:(CDStruct_fcd6c539)arg1 withExpression:(id)arg2 processVarNewToReceiver:(CDUnknownBlockType)arg3 processVarDroppedFromReceiver:(CDUnknownBlockType)arg4;
 - (void)replaceVariable:(id)arg1 withVariablePlusDelta:(double)arg2 timesVariable:(id)arg3 processVariableNewToReceiver:(CDUnknownBlockType)arg4 processVariableDroppedFromReceiver:(CDUnknownBlockType)arg5;
-- (void)replaceVar:(CDStruct_fcd6c539)arg1 withVarPlusDelta:(double)arg2 timesVar:(CDStruct_fcd6c539)arg3 processVarNewToReceiver:(CDUnknownBlockType)arg4 processVarDroppedFromReceiver:(CDUnknownBlockType)arg5;
 - (void)replaceVariable:(id)arg1 withVariablePlusDelta:(double)arg2;
-- (void)replaceVar:(CDStruct_fcd6c539)arg1 withVariablePlusDelta:(double)arg2;
 - (_Bool)isConstant;
 @property double constant;
 - (double)incrementConstant:(double)arg1;
 - (void)addVariable:(id)arg1 coefficient:(double)arg2 processVariableNewToReceiver:(CDUnknownBlockType)arg3 processVariableDroppedFromReceiver:(CDUnknownBlockType)arg4;
-- (void)addVar:(CDStruct_fcd6c539)arg1 coefficient:(double)arg2 processVarNewToReceiver:(CDUnknownBlockType)arg3 processVarDroppedFromReceiver:(CDUnknownBlockType)arg4;
 - (void)addVariable:(id)arg1 coefficient:(double)arg2;
-- (void)addVar:(CDStruct_fcd6c539)arg1 coefficient:(double)arg2;
 - (void)addExpression:(id)arg1 times:(double)arg2 processVariableNewToReceiver:(CDUnknownBlockType)arg3 processVariableDroppedFromReceiver:(CDUnknownBlockType)arg4;
-- (void)addExpression:(id)arg1 times:(double)arg2 processVarNewToReceiver:(CDUnknownBlockType)arg3 processVarDroppedFromReceiver:(CDUnknownBlockType)arg4;
 - (void)addExpression:(id)arg1 times:(double)arg2;
 - (void)dealloc;
 - (void)replaceVariable:(id)arg1 withVariable:(id)arg2 coefficient:(double)arg3;
-- (void)replaceVar:(CDStruct_fcd6c539)arg1 withVar:(CDStruct_fcd6c539)arg2 coefficient:(double)arg3;
 - (void)setCoefficient:(double)arg1 forVariable:(id)arg2;
-- (void)setCoefficient:(double)arg1 forVar:(CDStruct_fcd6c539)arg2;
 - (double)coefficientForVariable:(id)arg1;
-- (double)coefficientForVar:(CDStruct_fcd6c539)arg1;
 - (void)removeVariable:(id)arg1;
-- (void)removeVar:(CDStruct_fcd6c539)arg1;
 @property(readonly) NSISEngine *engine;
-@property(readonly) unsigned long long hash;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithEngine:(id)arg1;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly) Class superclass;
 
 @end
 

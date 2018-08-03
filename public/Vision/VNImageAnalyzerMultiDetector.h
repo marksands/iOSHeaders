@@ -22,8 +22,8 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)allSceneLabels;
 - (id)processWithOptions:(id)arg1 regionOfInterest:(struct CGRect)arg2 warningRecorder:(id)arg3 error:(id *)arg4;
-- (struct __CVBuffer *)_createScaledImagePixelBufferFromCropRect:(struct CGRect)arg1 ofImageBuffer:(id)arg2 forNetworkInputImageSize:(struct _Geometry2D_size2D_)arg3 usingAnisotropicScaling:(_Bool)arg4 options:(id)arg5 error:(id *)arg6;
-- (struct __CVBuffer *)_createScaledImagePixelBufferFromImageBuffer:(id)arg1 forNetworkInputImageSize:(struct _Geometry2D_size2D_)arg2 usingAnisotropicScaling:(_Bool)arg3 options:(id)arg4 error:(id *)arg5;
+- (struct __CVBuffer *)_createScaledImagePixelBufferFromCropRect:(struct CGRect)arg1 ofImageBuffer:(id)arg2 forNetworkInputImageSize:(struct _Geometry2D_size2D_)arg3 imageCropAndScaleOption:(unsigned long long)arg4 options:(id)arg5 error:(id *)arg6;
+- (struct __CVBuffer *)_createScaledImagePixelBufferFromImageBuffer:(id)arg1 forNetworkInputImageSize:(struct _Geometry2D_size2D_)arg2 imageCropAndScaleOption:(unsigned long long)arg3 options:(id)arg4 error:(id *)arg5;
 - (_Bool)completeInitializationAndReturnError:(id *)arg1;
 - (id)_observationsForScene:(_Bool)arg1 sceneprint:(_Bool)arg2 aesthetics:(_Bool)arg3 saliencyHeatMap:(_Bool)arg4 of32BGRAImageInPixelBuffer:(struct __CVBuffer *)arg5 withOptions:(id)arg6 originalImageSize:(struct CGSize)arg7 regionOfInterest:(struct CGRect)arg8 warningRecorder:(id)arg9 error:(id *)arg10;
 - (void)_addClassificationObservationsForSceneRequestRevisionNumber:(unsigned long long)arg1 toArray:(id)arg2 fromSceneLabelsAndConfidences:(const vector_a3c5a2fc *)arg3;

@@ -12,7 +12,7 @@
 #import "PUMutableImportController.h"
 #import "PXChangeObserver.h"
 
-@class NSArray, NSMutableDictionary, NSMutableSet, NSObject<PUImportControllerImportCompletionDelegate>, NSProgress, NSString, NSTimer, PHAssetCollection, PHImportController, PHImportSource, PUImportAssetsDataSourceManager, PUImportDeleteAction, PUImportMediaLoadingCoordinator, PUImportMediaProvider, PUImportPowerController, PUImportSessionInfo, PXSectionedSelectionManager, PXSelectionSnapshot;
+@class NSArray, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<PUImportControllerImportCompletionDelegate>, NSProgress, NSString, NSTimer, PHAssetCollection, PHImportController, PHImportSource, PUImportAssetsDataSourceManager, PUImportDeleteAction, PUImportMediaLoadingCoordinator, PUImportMediaProvider, PUImportPowerController, PUImportSessionInfo, PXSectionedSelectionManager, PXSelectionSnapshot;
 
 @interface PUImportController : PXObservable <PUImportAssetsDataSourceManagerDelegate, PUMutableImportController, PHImportServiceImporterDelegate, PHImportSourceDelegate, PXChangeObserver>
 {
@@ -37,6 +37,7 @@
     PUImportDeleteAction *_deleteAction;
     PXSectionedSelectionManager *_selectionManager;
     NSMutableDictionary *_sharedViewModelsById;
+    NSObject<OS_dispatch_queue> *_sharedViewModelsUpdateQueue;
     NSMutableSet *_otherDataSourceManagers;
     PUImportPowerController *_powerController;
     NSTimer *_assetLoadingPowerAssertionTimer;
@@ -61,6 +62,7 @@
 @property(nonatomic) unsigned int importAssetsPowerAssertionIdentifier; // @synthesize importAssetsPowerAssertionIdentifier=_importAssetsPowerAssertionIdentifier;
 @property(retain, nonatomic) PUImportPowerController *powerController; // @synthesize powerController=_powerController;
 @property(readonly, nonatomic) NSMutableSet *otherDataSourceManagers; // @synthesize otherDataSourceManagers=_otherDataSourceManagers;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *sharedViewModelsUpdateQueue; // @synthesize sharedViewModelsUpdateQueue=_sharedViewModelsUpdateQueue;
 @property(readonly, nonatomic) NSMutableDictionary *sharedViewModelsById; // @synthesize sharedViewModelsById=_sharedViewModelsById;
 @property(nonatomic) _Bool hasLoadedAssets; // @synthesize hasLoadedAssets=_hasLoadedAssets;
 @property(nonatomic) _Bool alreadyImportedItemsSelectable; // @synthesize alreadyImportedItemsSelectable=_alreadyImportedItemsSelectable;

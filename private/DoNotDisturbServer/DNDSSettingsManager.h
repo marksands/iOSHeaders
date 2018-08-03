@@ -8,24 +8,22 @@
 
 #import "DNDSSyncSettingsProviderDelegate.h"
 
-@class BBSettingsGateway, CNContactStore, DNDSSyncSettingsProvider, NSDate, NSObject<OS_dispatch_queue>, NSString;
+@class CNContactStore, DNDSSyncSettingsProvider, NSObject<OS_dispatch_queue>, NSString;
 
 @interface DNDSSettingsManager : NSObject <DNDSSyncSettingsProviderDelegate>
 {
     NSObject<OS_dispatch_queue> *_queue;
     id <DNDSBackingStore> _backingStore;
-    BBSettingsGateway *_settingsGateway;
     CNContactStore *_contactStore;
     DNDSSyncSettingsProvider *_syncSettingsProvider;
     id <DNDSSettingsManagerDelegate> _delegate;
 }
 
-+ (void)initialize;
 @property(nonatomic) __weak id <DNDSSettingsManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)syncSettingsProvider:(id)arg1 didReceiveUpdatedSyncSettings:(id)arg2;
-- (void)_saveScheduleSettings:(id)arg1;
-- (void)_addEventListeners;
+- (unsigned long long)_saveBehaviorSettings:(id)arg1 phoneCallBypassSettings:(id)arg2 scheduleSettings:(id)arg3 error:(id *)arg4;
+- (id)_readSettingsReturningError:(id *)arg1;
 - (id)syncSettingsWithError:(id *)arg1;
 - (_Bool)setScheduleSettings:(id)arg1 withError:(id *)arg2;
 - (id)scheduleSettingsWithError:(id *)arg1;
@@ -33,8 +31,7 @@
 - (id)phoneCallBypassSettingsWithError:(id *)arg1;
 - (_Bool)setBehaviorSettings:(id)arg1 withError:(id *)arg2;
 - (id)behaviorSettingsWithError:(id *)arg1;
-@property(readonly, copy, nonatomic) NSDate *lastScheduleLastModifiedDate; // @dynamic lastScheduleLastModifiedDate;
-- (id)initWithBackingStore:(id)arg1 settingsGateway:(id)arg2 contactStore:(id)arg3;
+- (id)initWithBackingStore:(id)arg1 contactStore:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

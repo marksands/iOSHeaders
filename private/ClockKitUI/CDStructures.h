@@ -33,6 +33,7 @@ struct CLKUIAtlasBackingStructure {
     unsigned int planes;
     unsigned int planeLength;
     unsigned int bytesPerPixel;
+    unsigned int mipCount;
     unsigned char format;
     unsigned char filter;
     unsigned char wrap;

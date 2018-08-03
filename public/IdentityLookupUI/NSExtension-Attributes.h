@@ -7,6 +7,7 @@
 #import "NSExtension.h"
 
 @interface NSExtension (Attributes)
+- (id)networkReportDestination;
 - (id)SMSReportDestination;
 @end
 

@@ -23,6 +23,7 @@
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) HDDataAggregator *aggregator; // @synthesize aggregator=_aggregator;
 - (void).cxx_destruct;
+- (id)description;
 - (id)initWithAggregator:(id)arg1 identifier:(id)arg2;
 
 @end

@@ -19,8 +19,10 @@ __attribute__((visibility("hidden")))
     PUPhotoEditResourceLoadRequest *__currentRequest;
     NSMutableArray *__enqueuedRequests;
     PHResourceDownloadRequest *__downloadRequest;
+    unsigned long long __downloadSignpostId;
 }
 
+@property(nonatomic) unsigned long long _downloadSignpostId; // @synthesize _downloadSignpostId=__downloadSignpostId;
 @property(retain, nonatomic, setter=_setDownloadRequest:) PHResourceDownloadRequest *_downloadRequest; // @synthesize _downloadRequest=__downloadRequest;
 @property(retain, nonatomic, setter=_setEnqueuedRequests:) NSMutableArray *_enqueuedRequests; // @synthesize _enqueuedRequests=__enqueuedRequests;
 @property(retain, nonatomic, setter=_setCurrentRequest:) PUPhotoEditResourceLoadRequest *_currentRequest; // @synthesize _currentRequest=__currentRequest;
@@ -30,6 +32,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) PUEditableMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
 @property(readonly, nonatomic) id <PUEditableAsset> asset; // @synthesize asset=_asset;
 - (void).cxx_destruct;
+- (void)_downloadSignpostEvent:(const char *)arg1;
+- (void)_downloadSignpostEnd;
+- (void)_downloadSignpostBegin;
 - (int)_loadVideoIfNeededWithRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (int)_loadImageURLIfNeededWithRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (int)_loadImageIfNeededWithRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;

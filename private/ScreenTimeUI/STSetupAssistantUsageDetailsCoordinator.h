@@ -26,7 +26,8 @@
 - (void)stopRefreshingUsageData;
 - (void)startRefreshingUsageData;
 - (id)introUsageItemsByStartDateByIdentifier;
-- (id)appBundleIdentifiers;
+- (id)categoryConfigByIdentifier;
+- (id)appConfigByIdentifier;
 - (id)init;
 
 // Remaining properties

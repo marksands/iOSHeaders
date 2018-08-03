@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class UIViewController;
+@class PXAssetActionManager, PXAssetReference, PXAssetsDataSourceManager, PXGestureProvider, PXPhotosDetailsContext, PXUIMediaProvider, UIViewController;
 
 @interface PXOneUpPresentation : NSObject
 {
@@ -49,17 +49,17 @@
 - (void)_updateImplementationDelegate;
 - (void)setHiddenAssetReferences:(id)arg1;
 - (void)scrollAssetReferenceToVisible:(id)arg1;
-- (id)regionOfInterestForAssetReference:(id)arg1 inCoordinateSpace:(id)arg2;
+- (id)regionOfInterestForAssetReference:(id)arg1;
 - (id)currentImageForAssetReference:(id)arg1;
 @property(readonly, nonatomic) _Bool shouldAutoPlay;
-- (long long)actionContext;
-- (id)actionManagerForPreviewing;
-- (id)actionManager;
-- (id)initialAssetReference;
-- (id)photosDetailsContext;
-- (id)gestureProvider;
-- (id)mediaProvider;
-- (id)dataSourceManager;
+@property(readonly, nonatomic) long long actionContext;
+@property(readonly, nonatomic) PXAssetActionManager *actionManagerForPreviewing;
+@property(readonly, nonatomic) PXAssetActionManager *actionManager;
+@property(readonly, nonatomic) PXAssetReference *initialAssetReference;
+@property(readonly, nonatomic) PXPhotosDetailsContext *photosDetailsContext;
+@property(readonly, nonatomic) PXGestureProvider *gestureProvider;
+@property(readonly, nonatomic) PXUIMediaProvider *mediaProvider;
+@property(readonly, nonatomic) PXAssetsDataSourceManager *dataSourceManager;
 - (_Bool)handlePresentingPinchGestureRecognizer:(id)arg1;
 - (void)invalidatePresentingGeometry;
 - (void)stopAnimated:(_Bool)arg1;

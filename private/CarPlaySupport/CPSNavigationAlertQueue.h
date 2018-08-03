@@ -33,7 +33,7 @@
 - (void)_visibleAlertTimerFired:(id)arg1;
 - (void)_startAlertAnimations;
 - (void)dismissCurrentNavigationAlertAnimated:(_Bool)arg1 context:(unsigned long long)arg2;
-- (void)prepareNavigationAlert:(id)arg1 templateDelegate:(id)arg2 forDisplayInFrame:(struct CGRect)arg3 animated:(_Bool)arg4;
+- (void)prepareNavigationAlert:(id)arg1 templateDelegate:(id)arg2 animated:(_Bool)arg3;
 @property(readonly, nonatomic) _Bool canDisplayAlert;
 - (id)initWithDelegate:(id)arg1 applicationStateMonitor:(id)arg2;
 

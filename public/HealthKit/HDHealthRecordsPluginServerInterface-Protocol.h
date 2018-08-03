@@ -26,6 +26,7 @@
 - (void)remote_performCodingTasks:(NSSet *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)remote_conceptForCodings:(HKMedicalCodingCollection *)arg1 preferredSystems:(NSArray *)arg2 completion:(void (^)(HKMedicalConcept *, NSError *))arg3;
 - (void)remote_displayStringForMedicalCodingSystem:(NSString *)arg1 code:(NSString *)arg2 version:(NSString *)arg3 completion:(void (^)(NSString *, NSError *))arg4;
+- (void)remote_fetchExportedPropertiesForHealthRecord:(HKMedicalRecord *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)remote_fetchRawSourceStringForHealthRecord:(HKMedicalRecord *)arg1 completion:(void (^)(NSString *, NSError *))arg2;
 - (void)remote_fetchFHIRJSONDocumentWithAccountIdentifier:(NSUUID *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)remote_setHealthRecordsIngestionFrequency:(long long)arg1 completion:(void (^)(_Bool, NSError *))arg2;

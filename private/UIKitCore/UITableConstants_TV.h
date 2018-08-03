@@ -98,6 +98,7 @@ __attribute__((visibility("hidden")))
 - (id)defaultBackgroundEffectsForTableViewStyle:(long long)arg1;
 - (id)defaultBackgroundColorForTableViewStyle:(long long)arg1;
 - (_Bool)supportsUserInterfaceStyles;
+- (id)variantForActive:(_Bool)arg1 dark:(_Bool)arg2;
 - (id)sidebarVariant;
 
 // Remaining properties

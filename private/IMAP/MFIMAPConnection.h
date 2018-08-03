@@ -6,7 +6,7 @@
 
 #import "MFConnection.h"
 
-@class MFInvocationQueue, MFWeakReferenceHolder, NSArray, NSMutableData, NSMutableSet, NSString;
+@class MFIMAPCommandPipeline, MFIMAPDownloadCache, MFInvocationQueue, MFWeakReferenceHolder, NSArray, NSMutableData, NSMutableSet, NSString;
 
 @interface MFIMAPConnection : MFConnection
 {
@@ -46,6 +46,8 @@
         unsigned int willRemoveDelegation:1;
         unsigned int shouldStartIdle:1;
     } _delegateState;
+    MFIMAPDownloadCache *_downloadCache;
+    MFIMAPCommandPipeline *_fetchPipeline;
     unsigned long long _idleCommandSequenceNumber;
     id <MFCancelable> _idleSubscriptionCancelable;
 }
@@ -55,9 +57,9 @@
 + (id)_UIDPlusInfoFromIMAPResponses:(id)arg1;
 @property(retain, nonatomic) id <MFCancelable> idleSubscriptionCancelable; // @synthesize idleSubscriptionCancelable=_idleSubscriptionCancelable;
 @property(nonatomic) unsigned long long idleCommandSequenceNumber; // @synthesize idleCommandSequenceNumber=_idleCommandSequenceNumber;
+@property(nonatomic) int tag; // @synthesize tag=_tag;
 @property(readonly, nonatomic) _Bool gotBadResponse; // @synthesize gotBadResponse=_gotBadResponse;
 @property(readonly, nonatomic) double connectTime; // @synthesize connectTime=_connectTime;
-@property(nonatomic) int tag; // @synthesize tag=_tag;
 - (void)didFinishCommands:(CDStruct_1f207a6d *)arg1 count:(unsigned long long)arg2;
 - (_Bool)sendResponsesForUIDs:(id)arg1 fields:(id)arg2 flagSearchResults:(id)arg3 toQueue:(id)arg4;
 - (id)searchUIDs:(id)arg1 withFlagRequests:(id)arg2;
@@ -176,6 +178,8 @@
 - (void)_clearCapabilities;
 - (void)setMailboxListFilter:(id)arg1;
 - (id)mailboxListFilter;
+@property(readonly, retain, nonatomic) MFIMAPDownloadCache *downloadCache; // @synthesize downloadCache=_downloadCache;
+@property(readonly, retain, nonatomic) MFIMAPCommandPipeline *fetchPipeline; // @synthesize fetchPipeline=_fetchPipeline;
 @property(nonatomic) __weak id <MFIMAPConnectionDelegate> delegate;
 - (id)copyDiagnosticInformation;
 - (void)dealloc;

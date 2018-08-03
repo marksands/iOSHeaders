@@ -26,7 +26,8 @@
 - (void)didMoveToSuperview;
 - (void)_updateSecondsLabelForDelegate:(id)arg1;
 - (void)_updateSecondsLabel;
-- (void)_updateValue:(double)arg1 andText:(_Bool)arg2;
+- (void)updateWithValue:(double)arg1 shouldUpdateTextField:(_Bool)arg2;
+@property(readonly, nonatomic) _Bool shouldResizeTextFieldOnUpdate;
 - (void)_textFieldChanged:(id)arg1;
 - (void)_stepperChanged:(id)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;

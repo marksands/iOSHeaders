@@ -25,6 +25,7 @@
 - (id)diagnosticLogFileForRelevanceEngine:(id)arg1;
 - (id)fetchAllElementsInRelevanceEngine:(id)arg1;
 - (id)fetchAllElementIdentifiersInRelevanceEngine:(id)arg1;
+- (_Bool)relevanceEngine:(id)arg1 runActionOfElementWithDescription1:(id)arg2;
 - (id)availableRelevanceEngines;
 - (_Bool)relevanceEngine:(id)arg1 performCommand:(id)arg2 withOptions:(id)arg3;
 - (void)relevanceEngine:(id)arg1 createElementFromDescription:(id)arg2;

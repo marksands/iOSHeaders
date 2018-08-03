@@ -9,7 +9,7 @@
 #import "MRNowPlayingClientState.h"
 #import "MRTransactionSourceDelegate.h"
 
-@class MRNowPlayingArtwork, MRNowPlayingPlayerClientCallbacks, MRPlaybackQueuePlayerClient, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, _MRContentItemProtobuf, _MRNowPlayingPlayerPathProtobuf, _MRPlaybackQueueProtobuf;
+@class MRNowPlayingArtwork, MRNowPlayingPlayerClientCallbacks, MRPlaybackQueueSubscriptionController, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, _MRContentItemProtobuf, _MRNowPlayingPlayerPathProtobuf, _MRPlaybackQueueProtobuf;
 
 @interface MRNowPlayingPlayerClient : NSObject <MRNowPlayingClientState, MRTransactionSourceDelegate>
 {
@@ -29,12 +29,12 @@
     NSMutableArray *_transactionSources;
     NSMutableDictionary *_cachedContentItemUpdates;
     _MRNowPlayingPlayerPathProtobuf *_playerPath;
-    MRPlaybackQueuePlayerClient *_playbackQueueClient;
+    MRPlaybackQueueSubscriptionController *_subscriptionController;
     MRNowPlayingPlayerClientCallbacks *_clientCallbacks;
 }
 
 @property(readonly, nonatomic) MRNowPlayingPlayerClientCallbacks *clientCallbacks; // @synthesize clientCallbacks=_clientCallbacks;
-@property(readonly, nonatomic) MRPlaybackQueuePlayerClient *playbackQueueClient; // @synthesize playbackQueueClient=_playbackQueueClient;
+@property(readonly, nonatomic) MRPlaybackQueueSubscriptionController *subscriptionController; // @synthesize subscriptionController=_subscriptionController;
 @property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath; // @synthesize playerPath=_playerPath;
 - (void).cxx_destruct;
 - (id)debugDescription;

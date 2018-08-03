@@ -6,26 +6,27 @@
 
 #import "UIView.h"
 
-@class CALayer;
+@class _PKColorPickerCrosshairCornerMaskView, _PKColorPickerSimpleCrosshairView;
 
 @interface PKColorPickerCrosshairView : UIView
 {
-    _Bool _isCircleMode;
     id <PKColorPickerCrosshairViewDelegate> _delegate;
-    CALayer *_shadowLayer;
-    CALayer *_borderLayer;
+    unsigned long long _cornerPosition;
+    _PKColorPickerSimpleCrosshairView *_baseView;
+    _PKColorPickerCrosshairCornerMaskView *_baseMaskView;
+    _PKColorPickerSimpleCrosshairView *_cornerEdgeView;
+    _PKColorPickerCrosshairCornerMaskView *_cornerEdgeMaskView;
 }
 
-@property(nonatomic) _Bool isCircleMode; // @synthesize isCircleMode=_isCircleMode;
-@property(retain, nonatomic) CALayer *borderLayer; // @synthesize borderLayer=_borderLayer;
-@property(retain, nonatomic) CALayer *shadowLayer; // @synthesize shadowLayer=_shadowLayer;
+@property(retain, nonatomic) _PKColorPickerCrosshairCornerMaskView *cornerEdgeMaskView; // @synthesize cornerEdgeMaskView=_cornerEdgeMaskView;
+@property(retain, nonatomic) _PKColorPickerSimpleCrosshairView *cornerEdgeView; // @synthesize cornerEdgeView=_cornerEdgeView;
+@property(retain, nonatomic) _PKColorPickerCrosshairCornerMaskView *baseMaskView; // @synthesize baseMaskView=_baseMaskView;
+@property(retain, nonatomic) _PKColorPickerSimpleCrosshairView *baseView; // @synthesize baseView=_baseView;
+@property(nonatomic) unsigned long long cornerPosition; // @synthesize cornerPosition=_cornerPosition;
 @property(nonatomic) __weak id <PKColorPickerCrosshairViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)configureBorderLayerForCircleMode:(_Bool)arg1;
-- (void)configureShadowLayerForCircleMode:(_Bool)arg1;
+- (void)update;
 - (void)layoutSubviews;
-- (void)setIsCircleMode:(_Bool)arg1 animated:(_Bool)arg2 duration:(double)arg3;
-- (void)setFrame:(struct CGRect)arg1 animated:(_Bool)arg2 duration:(double)arg3;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

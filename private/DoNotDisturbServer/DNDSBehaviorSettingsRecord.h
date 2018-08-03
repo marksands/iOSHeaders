@@ -17,7 +17,8 @@
     NSNumber *_interruptionBehaviorSetting;
 }
 
-+ (id)migrateDictionaryRepresentations:(id)arg1 withVersionNumber:(unsigned long long)arg2;
++ (id)migrateDictionaryRepresentation:(id)arg1 fromVersionNumber:(unsigned long long)arg2 toVersionNumber:(unsigned long long)arg3;
++ (id)_recordWithEncodedInfo:(id)arg1 error:(id *)arg2;
 @property(readonly, copy, nonatomic) NSNumber *interruptionBehaviorSetting; // @synthesize interruptionBehaviorSetting=_interruptionBehaviorSetting;
 - (void).cxx_destruct;
 - (id)dictionaryRepresentation;

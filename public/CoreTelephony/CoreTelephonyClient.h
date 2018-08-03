@@ -92,9 +92,13 @@
 - (void)copyCellId:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)copyCellInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)refreshCellMonitor:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)getOperatorMultiPartyCallCountMaximum:(id)arg1 error:(id *)arg2;
 - (void)getOperatorMultiPartyCallCountMaximum:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)getCallCapabilities:(id)arg1 error:(id *)arg2;
 - (void)getCallCapabilities:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (_Bool)isEmergencyNumberWithWhitelistIncluded:(id)arg1 number:(id)arg2 error:(id *)arg3;
 - (void)isEmergencyNumberWithWhitelistIncluded:(id)arg1 number:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)isEmergencyNumber:(id)arg1 number:(id)arg2 error:(id *)arg3;
 - (void)isEmergencyNumber:(id)arg1 number:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)copyBundleVersion:(id)arg1 bundleType:(id)arg2 error:(id *)arg3;
 - (void)copyBundleVersion:(id)arg1 bundleType:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -120,6 +124,7 @@
 - (void)copyCarrierBundleValue:(id)arg1 key:(id)arg2 bundleType:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)checkRadioBootHealth:(CDUnknownBlockType)arg1;
 - (void)setVoLTEAudioCodec:(id)arg1 codecInfo:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)SIMUnlockProcedureDidComplete;
 - (void)generateUICCAuthenticationInfo:(id)arg1 authParams:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setActiveUserDataSelection:(id)arg1 error:(id *)arg2;
 - (void)setActiveUserDataSelection:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -129,6 +134,8 @@
 - (void)setLabel:(id)arg1 label:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)copyLabel:(id)arg1 error:(id *)arg2;
 - (void)copyLabel:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)getSimLabel:(id)arg1 error:(id *)arg2;
+- (void)getSimLabel:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)getRemainingPUKAttemptCount:(id)arg1 error:(id *)arg2;
 - (void)getRemainingPUKAttemptCount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)getRemainingPINAttemptCount:(id)arg1 error:(id *)arg2;
@@ -155,6 +162,7 @@
 - (id)getMobileSubscriberHomeCountryList:(id)arg1 error:(id *)arg2;
 - (void)getMobileSubscriberHomeCountryList:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (long long)isEsimFor:(id)arg1 error:(id *)arg2;
+- (id)copyMobileSubscriberIsoCountryCode:(id)arg1 error:(id *)arg2;
 - (id)copyMobileSubscriberCountryCode:(id)arg1 error:(id *)arg2;
 - (void)copyMobileSubscriberCountryCode:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)context:(id)arg1 evaluateMobileSubscriberIdentity:(id)arg2;
@@ -261,6 +269,7 @@
 - (void)saveCallingLineIdRestrictionValue:(id)arg1 restrictionValue:(int)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)saveCallBarringValue:(id)arg1 facility:(int)arg2 callClass:(int)arg3 enabled:(_Bool)arg4 password:(id)arg5;
 - (void)saveCallBarringValue:(id)arg1 facility:(int)arg2 callClass:(int)arg3 enabled:(_Bool)arg4 password:(id)arg5 completion:(CDUnknownBlockType)arg6;
+- (void)isUnconditionalCallForwardingActive:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)saveCallForwardingValue:(id)arg1 value:(id)arg2;
 - (void)saveCallForwardingValue:(id)arg1 value:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)saveCallWaitingValue:(id)arg1 callClass:(int)arg2 enabled:(_Bool)arg3;

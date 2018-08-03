@@ -31,6 +31,7 @@
 - (void)encodeWithCoder:(id)arg1;
 @property(readonly, nonatomic) UISpringTimingParameters *springTimingParameters;
 @property(readonly, nonatomic) UICubicTimingParameters *cubicTimingParameters;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithDampingRatio:(double)arg1;
 - (id)init;

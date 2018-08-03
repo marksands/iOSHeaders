@@ -10,14 +10,18 @@
 
 @interface STSingleLineButtonHeaderView : STSingleLineHeaderView
 {
-    UIButton *_button;
+    UIButton *_selectedButton;
+    UIButton *_button1;
+    UIButton *_button2;
 }
 
-@property(readonly, nonatomic) UIButton *button; // @synthesize button=_button;
+@property(readonly, nonatomic) UIButton *button2; // @synthesize button2=_button2;
+@property(readonly, nonatomic) UIButton *button1; // @synthesize button1=_button1;
+@property(retain, nonatomic) UIButton *selectedButton; // @synthesize selectedButton=_selectedButton;
 - (void).cxx_destruct;
 - (void)setSpecifier:(id)arg1;
 - (void)reloadFromSpecifier;
-- (id)initWithSpecifier:(id)arg1;
+- (id)initWithSpecifier:(id)arg1 useContentLayoutGuide:(_Bool)arg2;
 
 @end
 

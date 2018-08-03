@@ -8,7 +8,7 @@
 
 #import "PXGadget.h"
 
-@class NSString, PXForYouSuggestionGadgetContentView, PXGadgetSpec, PXUIMediaProvider, UIImage;
+@class NSString, PXForYouSuggestionGadgetContentView, PXGadgetSpec, PXRegionOfInterest, PXUIMediaProvider, UIImage;
 
 @interface PXForYouSuggestionGadget : NSObject <PXGadget>
 {
@@ -61,7 +61,7 @@
 @property(readonly, nonatomic) _Bool hasContentToDisplay;
 @property(readonly, nonatomic) unsigned long long gadgetType;
 @property(readonly, nonatomic) UIImage *currentImage;
-- (id)regionOfInterestForOneUpTransitionInCoordinateSpace:(id)arg1;
+@property(readonly, nonatomic) PXRegionOfInterest *regionOfInterestForOneUpTransition;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;
 - (id)initWithSuggestion:(id)arg1;

@@ -32,10 +32,12 @@
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;
-@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, copy, nonatomic) NSString *identifier;
+@property(readonly, copy, nonatomic) NSString *localizedName;
 - (id)copyWithRangeMin:(float)arg1 rangeMax:(float)arg2 showSlider:(_Bool)arg3;
 - (id)initWithColorPreset:(id)arg1 settingKind:(CDStruct_597dd055)arg2 order:(unsigned long long)arg3 showSlider:(_Bool)arg4 rangeMin:(float)arg5 rangeMax:(float)arg6 derivedColorsByCategories:(id)arg7;
 - (id)initWithColorPreset:(id)arg1 settingKind:(CDStruct_597dd055)arg2 order:(unsigned long long)arg3 derivedColorsByCategories:(id)arg4;
+- (_Bool)requiresEncryption;
 - (unsigned long long)costForScope:(id)arg1;
 - (id)volatileIdentifierForScope:(id)arg1;
 - (id)thumbnail;

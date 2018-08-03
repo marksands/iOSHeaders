@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSData, NSError, NSString, NSURL;
+@class CKRecordZoneID, NSData, NSError, NSString, NSURL;
 
 @interface CKAssetRereferenceInfo : NSObject
 {
+    CKRecordZoneID *_sourceZoneID;
     NSURL *_contentBaseURL;
     NSString *_owner;
     NSString *_requestor;
@@ -30,11 +31,13 @@
 @property(retain, nonatomic) NSString *requestor; // @synthesize requestor=_requestor;
 @property(retain, nonatomic) NSString *owner; // @synthesize owner=_owner;
 @property(retain, nonatomic) NSURL *contentBaseURL; // @synthesize contentBaseURL=_contentBaseURL;
+@property(retain, nonatomic) CKRecordZoneID *sourceZoneID; // @synthesize sourceZoneID=_sourceZoneID;
 - (void).cxx_destruct;
 - (_Bool)validateAndSetRecordFetchPropertiesWithAsset:(id)arg1 assetReference:(id)arg2;
 - (void)clearRecordFetchProperties;
 - (id)description;
 - (id)CKDescriptionPropertiesWithPublic:(_Bool)arg1 private:(_Bool)arg2 shouldExpand:(_Bool)arg3;
+- (id)initWithSourceZoneID:(id)arg1;
 
 @end
 

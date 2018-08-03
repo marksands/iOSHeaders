@@ -33,7 +33,8 @@
 - (id)_newGadgetForSuggestion:(id)arg1;
 - (void)generateGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
-- (void)presentSuggestionGadget:(id)arg1 context:(id)arg2;
+- (void)presentQuickActionsForSuggestionGadget:(id)arg1;
+- (void)presentSuggestionGadget:(id)arg1 context:(id)arg2 animated:(_Bool)arg3;
 - (id)initWithDataSourceManager:(id)arg1;
 - (id)init;
 

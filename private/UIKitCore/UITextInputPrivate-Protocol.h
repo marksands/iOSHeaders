@@ -43,6 +43,7 @@
 - (void)streamingDictationDidEnd;
 - (void)streamingDictationDidBegin;
 - (struct CGRect)visibleRect;
+- (UIView *)selectionContainerView;
 - (UIView *)automaticallySelectedOverlay;
 - (void)setBottomBufferHeight:(double)arg1;
 - (id <UISelectionInteractionAssistant>)selectionInteractionAssistant;

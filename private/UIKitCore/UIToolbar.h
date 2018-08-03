@@ -39,6 +39,7 @@
 + (double)defaultHeightForBarSize:(int)arg1;
 + (double)defaultHeight;
 + (id)defaultButtonFont;
++ (_Bool)_forceLegacyVisualProvider;
 @property(nonatomic) _Bool centerTextButtons; // @synthesize centerTextButtons=_centerTextButtons;
 @property(nonatomic, setter=_setWantsLetterpressContent:) _Bool _wantsLetterpressContent; // @synthesize _wantsLetterpressContent=__wantsLetterpressContent;
 @property(copy, nonatomic) NSArray *backgroundEffects; // @synthesize backgroundEffects=_backgroundEffects;
@@ -114,6 +115,7 @@
 - (_Bool)_hostsLayoutEngineAllowsTAMIC_NO;
 - (void)_doCommonToolbarInit;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+@property(readonly, copy) NSString *description;
 - (double)_defaultAutolayoutSpacing;
 - (double)_autolayoutSpacingAtEdge:(int)arg1 forAttribute:(long long)arg2 inContainer:(id)arg3 isGuide:(_Bool)arg4;
 - (_Bool)_hasCustomAutolayoutNeighborSpacingForAttribute:(long long *)arg1;
@@ -121,7 +123,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

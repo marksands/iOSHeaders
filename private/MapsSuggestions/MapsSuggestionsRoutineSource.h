@@ -8,7 +8,7 @@
 
 #import "MapsSuggestionsSource.h"
 
-@class GEOLocationShifter, MapsSuggestionsNetworkRequester, NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, RTRoutineManager;
+@class GEOLocationShifter, MapsSuggestionsLimitedDictionary, MapsSuggestionsNetworkRequester, NSArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, RTRoutineManager;
 
 @interface MapsSuggestionsRoutineSource : MapsSuggestionsBaseSource <MapsSuggestionsSource>
 {
@@ -22,8 +22,8 @@
     _Bool _areFrequentLocationsAvailable;
     GEOLocationShifter *_locationShifter;
     MapsSuggestionsNetworkRequester *_requester;
-    NSMutableDictionary *_mapItemCache;
-    NSMutableDictionary *_mapItemCacheOrigin;
+    MapsSuggestionsLimitedDictionary *_mapItemCache;
+    MapsSuggestionsLimitedDictionary *_mapItemCacheOrigin;
 }
 
 + (unsigned long long)disposition;

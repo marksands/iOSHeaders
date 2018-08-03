@@ -41,6 +41,7 @@
     _Bool __didSetupMechanismsForStoppingCaptureSession;
     _Bool __didStopCaptureSession;
     _Bool __deferringStagedMediaLoading;
+    _Bool __shouldSkipPhotosFrameworkPreheat;
     unsigned short _sessionIdentifier;
     id <CAMCameraRollControllerSessionDelegate> _sessionDelegate;
     id <CAMCameraRollControllerImageWellDelegate> _imageWellDelegate;
@@ -59,6 +60,7 @@
     NSObject<OS_dispatch_queue> *__photosFrameworksPreheatQueue;
 }
 
+@property(nonatomic, setter=_setShouldSkipPhotosFrameworkPreheat:) _Bool _shouldSkipPhotosFrameworkPreheat; // @synthesize _shouldSkipPhotosFrameworkPreheat=__shouldSkipPhotosFrameworkPreheat;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *_photosFrameworksPreheatQueue; // @synthesize _photosFrameworksPreheatQueue=__photosFrameworksPreheatQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_source> *_memoryWarningSource; // @synthesize _memoryWarningSource=__memoryWarningSource;
 @property(nonatomic, getter=_isDeferringStagedMediaLoading, setter=_setDeferringStagedMediaLoading:) _Bool _deferringStagedMediaLoading; // @synthesize _deferringStagedMediaLoading=__deferringStagedMediaLoading;
@@ -145,8 +147,7 @@
 - (void)ignoreImageWellChangeNotificationForEV0UUID:(id)arg1 withHDRUUID:(id)arg2;
 - (void)cameraPreviewWellImageDidChange:(id)arg1;
 - (id)persistedThumbnailImage;
-- (void)_performPreload;
-- (void)ppt_preload;
+- (void)ppt_awaitPreload:(CDUnknownBlockType)arg1;
 - (void)preload;
 - (void)photoLibraryDidChange:(id)arg1;
 - (void)_scheduleUpdateIfOneUpIsActive;

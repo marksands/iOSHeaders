@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class FIUIUnitManager, NSDate, NSString;
+@class FIUIUnitManager, NSCalendar, NSDate, NSString;
 
 @interface AAUIAchievementLocalizationProvider : NSObject
 {
@@ -14,8 +14,10 @@
     NSString *_name;
     FIUIUnitManager *_unitManager;
     NSDate *_currentDateOverride;
+    NSCalendar *_gregorianCalendar;
 }
 
+@property(retain, nonatomic) NSCalendar *gregorianCalendar; // @synthesize gregorianCalendar=_gregorianCalendar;
 @property(retain, nonatomic) NSDate *currentDateOverride; // @synthesize currentDateOverride=_currentDateOverride;
 @property(retain, nonatomic) FIUIUnitManager *unitManager; // @synthesize unitManager=_unitManager;
 @property(nonatomic) _Bool wheelchairUser; // @synthesize wheelchairUser=_wheelchairUser;
@@ -45,6 +47,7 @@
 - (id)unachievedDescriptionForAchievement:(id)arg1;
 - (id)titleForAchievement:(id)arg1;
 - (id)currentDate;
+- (id)init;
 
 @end
 

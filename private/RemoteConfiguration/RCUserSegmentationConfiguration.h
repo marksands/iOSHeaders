@@ -12,7 +12,8 @@
 
 @interface RCUserSegmentationConfiguration : NSObject <NSSecureCoding>
 {
-    unsigned long long _refreshRate;
+    unsigned long long _foregroundRefreshRate;
+    unsigned long long _backgroundRefreshRate;
     unsigned long long _modThreshold;
     unsigned long long _modMax;
     NSString *_endpointURLString;
@@ -24,14 +25,15 @@
 @property(readonly, copy, nonatomic) NSString *endpointURLString; // @synthesize endpointURLString=_endpointURLString;
 @property(readonly, nonatomic) unsigned long long modMax; // @synthesize modMax=_modMax;
 @property(readonly, nonatomic) unsigned long long modThreshold; // @synthesize modThreshold=_modThreshold;
-@property(readonly, nonatomic) unsigned long long refreshRate; // @synthesize refreshRate=_refreshRate;
+@property(readonly, nonatomic) unsigned long long backgroundRefreshRate; // @synthesize backgroundRefreshRate=_backgroundRefreshRate;
+@property(readonly, nonatomic) unsigned long long foregroundRefreshRate; // @synthesize foregroundRefreshRate=_foregroundRefreshRate;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)initWithRefreshRate:(unsigned long long)arg1 modThreshold:(unsigned long long)arg2 modMax:(unsigned long long)arg3 endpointURLString:(id)arg4;
+- (id)initWithForegroundRefreshRate:(unsigned long long)arg1 backgroundRefreshRate:(unsigned long long)arg2 modThreshold:(unsigned long long)arg3 modMax:(unsigned long long)arg4 endpointURLString:(id)arg5;
 
 @end
 

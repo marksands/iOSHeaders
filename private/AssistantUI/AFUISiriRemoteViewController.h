@@ -50,7 +50,6 @@
 - (void)setRequestOptions:(id)arg1;
 - (void)siriDidActivateFromSource:(long long)arg1;
 - (void)siriWillActivateFromSource:(long long)arg1;
-- (void)serviceDidChangeUserAttentionStatus:(_Bool)arg1;
 - (void)serviceDidDetectAudioRoutePickerTap;
 - (void)serviceDidPresentConversationFromBreadcrumb;
 - (void)servicePresentationDidChangePeekMode:(unsigned long long)arg1;

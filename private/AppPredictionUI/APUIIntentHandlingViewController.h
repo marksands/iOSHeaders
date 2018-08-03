@@ -10,7 +10,7 @@
 #import "CRKCardPresentationDelegate.h"
 #import "CRKCardViewControllerDelegate.h"
 
-@class APUIWFLIntentController, CRKCardPresentation, INIntent, NSString, UIViewController<CRKCardViewControlling>;
+@class APUIWFLIntentController, ATXAction, CRKCardPresentation, INIntent, NSString, UIViewController<CRKCardViewControlling>;
 
 @interface APUIIntentHandlingViewController : UIViewController <CRKCardPresentationDelegate, CRKCardViewControllerDelegate, APUIWFLIntentControllerDelegate>
 {
@@ -22,8 +22,10 @@
     CRKCardPresentation *_cardPresentation;
     UIViewController<CRKCardViewControlling> *_currentCardViewController;
     double _preferredPlatterContentHeight;
+    ATXAction *_atxAction;
 }
 
+@property(retain, nonatomic) ATXAction *atxAction; // @synthesize atxAction=_atxAction;
 @property(nonatomic) double preferredPlatterContentHeight; // @synthesize preferredPlatterContentHeight=_preferredPlatterContentHeight;
 @property(retain, nonatomic) UIViewController<CRKCardViewControlling> *currentCardViewController; // @synthesize currentCardViewController=_currentCardViewController;
 @property(retain, nonatomic) CRKCardPresentation *cardPresentation; // @synthesize cardPresentation=_cardPresentation;
@@ -43,6 +45,7 @@
 - (_Bool)intentController:(id)arg1 shouldRequireConfirmationForIntent:(id)arg2 intentResponse:(id)arg3;
 - (void)_updateCardViewControllerForInteraction:(id)arg1 error:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_constructCardViewControllerForInteraction:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)_contentForCardRequestWithInteraction:(id)arg1;
 - (void)_createOrUpdateCardViewControllerForInteraction:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_installChildViewController:(id)arg1;
 - (id)titleForConfirmAction;

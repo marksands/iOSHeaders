@@ -42,6 +42,7 @@
 - (void)_continueStreamSetupWithResponse:(id)arg1;
 - (void)_generateStreamKeys;
 - (void)_initiateStreamSetup;
+- (void)sendTargetControlWhoAmIWithIdentifier:(unsigned int)arg1;
 - (void)removeBulkSendListener:(id)arg1;
 - (void)addBulkSendListener:(id)arg1 fileType:(id)arg2;
 - (_Bool)canAcceptBulkSendListeners;

@@ -147,7 +147,7 @@
 - (void)touchUpInsideCellSpeakerButton:(id)arg1;
 - (void)touchUpInsideCellStatusButton:(id)arg1;
 - (void)touchUpInsideCellFailureButton:(id)arg1;
-- (void)updateLastAddressedHandleID:(id)arg1;
+- (void)updateLastAddressedHandleID:(id)arg1 lastAddressedSIMID:(id)arg2;
 - (void)selectChatItem:(id)arg1;
 - (id)cellForAssociatedChatItem:(id)arg1;
 - (id)chatItemForCell:(id)arg1;

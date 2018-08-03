@@ -11,10 +11,11 @@
 #import "SXAutomaticFullscreenVideoPlaybackBehaviorManagerDelegate.h"
 #import "SXVideoAdViewControllerProviding.h"
 #import "SXVideoPlaybackObserver.h"
+#import "UIGestureRecognizerDelegate.h"
 
-@class AVPlayerViewController, NSString, SVAdPrivacyButton, SVKeyValueObserver, SVLearnMoreButton, SXAutomaticFullscreenVideoPlaybackBehaviorManager, SXPlaybackCoordinator, SXVideoAdSkipButton, SXVideoPlaybackQueue, SXVideoVolumeObserver, UIActivityIndicatorView;
+@class AVPlayerViewController, NSString, SVAdPrivacyButton, SVKeyValueObserver, SVLearnMoreButton, SXAutomaticFullscreenVideoPlaybackBehaviorManager, SXPlaybackCoordinator, SXVideoAdSkipButton, SXVideoPlaybackQueue, SXVideoVolumeObserver, UIActivityIndicatorView, UIGestureRecognizer;
 
-@interface SXVideoPlayerViewController : UIViewController <SXVideoPlaybackObserver, AVPlayerViewControllerDelegate_WebKitOnly, AVPlayerViewControllerDelegatePrivate, SXAutomaticFullscreenVideoPlaybackBehaviorManagerDelegate, SXVideoAdViewControllerProviding>
+@interface SXVideoPlayerViewController : UIViewController <SXVideoPlaybackObserver, AVPlayerViewControllerDelegate_WebKitOnly, AVPlayerViewControllerDelegatePrivate, SXAutomaticFullscreenVideoPlaybackBehaviorManagerDelegate, UIGestureRecognizerDelegate, SXVideoAdViewControllerProviding>
 {
     _Bool _fullscreen;
     id <SXVideoPlayerViewControllerDelegate> _delegate;
@@ -33,8 +34,10 @@
     SXAutomaticFullscreenVideoPlaybackBehaviorManager *_fullscreenBehaviorManager;
     id <SVVolumeReporting> _volumeReporter;
     SXVideoVolumeObserver *_volumeObserver;
+    UIGestureRecognizer *_tapGesture;
 }
 
+@property(readonly, nonatomic) UIGestureRecognizer *tapGesture; // @synthesize tapGesture=_tapGesture;
 @property(retain, nonatomic) SXVideoVolumeObserver *volumeObserver; // @synthesize volumeObserver=_volumeObserver;
 @property(readonly, nonatomic) id <SVVolumeReporting> volumeReporter; // @synthesize volumeReporter=_volumeReporter;
 @property(readonly, nonatomic) SXAutomaticFullscreenVideoPlaybackBehaviorManager *fullscreenBehaviorManager; // @synthesize fullscreenBehaviorManager=_fullscreenBehaviorManager;
@@ -53,6 +56,8 @@
 @property(nonatomic) __weak id <SXVideoPlayerViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <SXVideoPlayerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (void)tapped;
 @property(readonly, nonatomic) UIViewController *viewControllerForModalPresentation;
 - (void)updateSkipButtonWithThreshold:(unsigned long long)arg1 time:(double)arg2;
 - (_Bool)playbackAllowedForPlaybackCoordinator:(id)arg1;
@@ -73,6 +78,8 @@
 - (void)playbackCoordinatorPausedPlayback:(id)arg1;
 - (void)playbackCoordinatorStartedPlayback:(id)arg1;
 - (void)playerViewController:(id)arg1 metricsCollectionEventOccured:(long long)arg2;
+- (void)playerViewController:(id)arg1 willBeginFullScreenPresentationWithAnimationCoordinator:(id)arg2;
+- (void)playerViewController:(id)arg1 willEndFullScreenPresentationWithAnimationCoordinator:(id)arg2;
 - (void)playerViewController:(id)arg1 willTransitionToVisibilityOfPlaybackControls:(_Bool)arg2 withAnimationCoordinator:(id)arg3;
 - (_Bool)playerViewController:(id)arg1 shouldExitFullScreenWithReason:(long long)arg2;
 - (void)fullscreenBehaviorManagerRequiresFullscreenPlayback:(id)arg1;

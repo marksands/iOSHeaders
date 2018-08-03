@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSMutableDictionary, NSString, NSURL, SCNAuthoringEnvironment, SCNMaterialProperty, SCNNode, SCNPhysicsWorld, SCNSceneSource;
+@class NSMutableDictionary, NSURL, SCNAuthoringEnvironment, SCNMaterialProperty, SCNNode, SCNPhysicsWorld, SCNSceneSource;
 
 @interface SCNScene : NSObject <NSSecureCoding>
 {
@@ -27,8 +27,7 @@
     _Bool _paused;
     NSURL *_sourceURL;
     _Bool _pausedForEditing;
-    NSString *_lightingEnvironmentRadiancePath;
-    NSString *_lightingEnvironmentIrradiancePath;
+    _Bool _allowsDefaultLightingEnvironmentFallback;
     SCNAuthoringEnvironment *_authoringEnvironment;
 }
 
@@ -61,10 +60,6 @@
 - (id)initForJavascript:(id)arg1;
 - (id)_subnodeFromIndexPath:(id)arg1;
 - (id)_nodeWithIndexPath:(id)arg1;
-- (id)_lightingEnvironmentIrradiancePath;
-- (void)set_lightingEnvironmentIrradiancePath:(id)arg1;
-- (id)_lightingEnvironmentRadiancePath;
-- (void)set_lightingEnvironmentRadiancePath:(id)arg1;
 - (_Bool)isPausedForEditing;
 - (void)setPausedForEditing:(_Bool)arg1;
 - (_Bool)isPausedOrPausedByInheritance;
@@ -87,6 +82,8 @@
 @property(nonatomic) double fogDensityExponent;
 @property(nonatomic) double fogEndDistance;
 @property(retain, nonatomic) id fogColor;
+- (void)set_allowsDefaultLightingEnvironmentFallback:(_Bool)arg1;
+- (_Bool)_allowsDefaultLightingEnvironmentFallback;
 @property(readonly, nonatomic) SCNMaterialProperty *lightingEnvironment;
 @property(readonly, nonatomic) SCNMaterialProperty *background;
 - (id)attributeForKey:(id)arg1;

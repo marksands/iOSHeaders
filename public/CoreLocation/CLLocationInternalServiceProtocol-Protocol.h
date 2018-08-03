@@ -14,8 +14,8 @@
 - (void)getActivitiesWithReplyBlock:(void (^)(NSError *, NSArray *))arg1;
 - (void)setMapMatchingRouteHint:(NSData *)arg1 replyBlock:(void (^)(NSError *))arg2;
 - (void)getStatusBarIconState:(void (^)(NSError *, int))arg1;
-- (void)getStatusBarIconEnabledForEntityClass:(int)arg1 replyBlock:(void (^)(NSError *, _Bool))arg2;
-- (void)setStatusBarIconEnabledForEntityClass:(int)arg1 enabled:(_Bool)arg2 replyBlock:(void (^)(NSError *))arg3;
+- (void)getStatusBarIconEnabledForEntityClass:(unsigned int)arg1 replyBlock:(void (^)(NSError *, _Bool))arg2;
+- (void)setStatusBarIconEnabledForEntityClass:(unsigned int)arg1 enabled:(_Bool)arg2 replyBlock:(void (^)(NSError *))arg3;
 - (void)resetAllClientsWithReplyBlock:(void (^)(NSError *))arg1;
 - (void)getLocationForBundleID:(NSString *)arg1 orBundlePath:(NSString *)arg2 dynamicAccuracyReductionEnabled:(_Bool)arg3 allowsAlteredAccessoryLocations:(_Bool)arg4 replyBlock:(void (^)(NSError *, struct))arg5;
 - (void)getMonitoredRegionsForBundleID:(NSString *)arg1 orBundlePath:(NSString *)arg2 replyBlock:(void (^)(NSError *, NSDictionary *))arg3;

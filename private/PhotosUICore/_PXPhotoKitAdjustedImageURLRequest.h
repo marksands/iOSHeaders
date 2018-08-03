@@ -25,7 +25,7 @@
 - (void)progressDidChange;
 - (void)editSourceDidChange;
 - (void)start;
-- (id)initWithRenderQueue:(id)arg1 asset:(id)arg2 pairingIdentifier:(id)arg3 options:(id)arg4 resultHandler:(CDUnknownBlockType)arg5;
+- (id)initWithRenderQueue:(id)arg1 asset:(id)arg2 pairingIdentifier:(id)arg3 imageManager:(id)arg4 options:(id)arg5 resultHandler:(CDUnknownBlockType)arg6;
 
 @end
 

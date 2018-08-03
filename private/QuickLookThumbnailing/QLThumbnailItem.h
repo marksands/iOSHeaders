@@ -19,11 +19,14 @@
     NSData *_data;
     NSString *_contentType;
     unsigned long long _downloadStatus;
+    NSString *_dataContentType;
+    NSString *_computedContentType;
 }
 
 + (_Bool)supportsSecureCoding;
 @property unsigned long long downloadStatus; // @synthesize downloadStatus=_downloadStatus;
-@property(readonly, nonatomic) NSString *contentType; // @synthesize contentType=_contentType;
+@property(copy) NSString *computedContentType; // @synthesize computedContentType=_computedContentType;
+@property(readonly, nonatomic) NSString *dataContentType; // @synthesize dataContentType=_dataContentType;
 @property(readonly) NSData *data; // @synthesize data=_data;
 @property(readonly) FPSandboxingURLWrapper *urlWrapperForExtension; // @synthesize urlWrapperForExtension=_urlWrapperForExtension;
 @property(readonly) NSURL *url; // @synthesize url=_url;

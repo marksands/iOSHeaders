@@ -110,6 +110,7 @@
 + (id)predicateForMeContact;
 + (id)predicateForFaultFulfillmentForLegacyIdentifier:(unsigned int)arg1 identifier:(id)arg2;
 + (id)predicateForContactsWithNonUnifiedIdentifiers:(id)arg1;
++ (id)predicateForContactsMatchingPreferredChannel:(id)arg1 limitOne:(_Bool)arg2;
 + (id)predicateForContactsMatchingInstantMessageAddress:(id)arg1;
 + (id)predicateForContactsMatchingSocialProfile:(id)arg1;
 + (id)predicateForLegacyIdentifier:(unsigned int)arg1;

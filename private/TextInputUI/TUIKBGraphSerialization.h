@@ -17,6 +17,7 @@
     NSData *_serializedData;
     NSMutableDictionary *_minEdgeWidths;
     NSMutableDictionary *_maxEdgeWidths;
+    NSMutableDictionary *_referenceCount;
     _Bool _disableOffsets;
     NSMutableDictionary *_deserializationCache;
 }
@@ -49,6 +50,8 @@
 - (id)keyboardForName:(id)arg1;
 @property(retain, nonatomic) NSData *serializedData;
 - (unsigned long long)serializedObjectCount;
+- (void)preheatWithStatistics:(id)arg1;
+- (id)statistics;
 - (void)serializeObject:(id)arg1;
 - (id)_objectAtSerializedOffset:(int)arg1;
 - (int)_serializedOffsetForObject:(id)arg1;

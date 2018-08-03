@@ -8,12 +8,13 @@
 
 #import "_UIStatusBarDisplayable.h"
 
-@class CALayer, CAShapeLayer, NSString, UIAccessibilityHUDItem, UIColor, _UIBatteryViewAXHUDImageCacheInfo;
+@class CALayer, CAShapeLayer, NSString, UIAccessibilityHUDItem, UIColor, UILabel, _UIBatteryViewAXHUDImageCacheInfo;
 
 @interface _UIBatteryView : UIView <_UIStatusBarDisplayable>
 {
     _Bool _saverModeActive;
     _Bool _showsInlineChargingIndicator;
+    _Bool _showsPercentage;
     double _chargePercent;
     long long _chargingState;
     UIColor *_fillColor;
@@ -25,6 +26,7 @@
     CALayer *_fillLayer;
     CAShapeLayer *_boltMaskLayer;
     CAShapeLayer *_boltLayer;
+    UILabel *_percentageLabel;
     _UIBatteryViewAXHUDImageCacheInfo *_accessibilityHUDImageCacheInfo;
     long long _internalSizeCategory;
 }
@@ -33,8 +35,10 @@
 + (double)_lineWidthAndInterspaceForIconSize:(long long)arg1;
 + (struct CGSize)_pinSizeForIconSize:(long long)arg1;
 + (struct CGSize)_batterySizeForIconSize:(long long)arg1;
+@property(nonatomic) _Bool showsPercentage; // @synthesize showsPercentage=_showsPercentage;
 @property(nonatomic) long long internalSizeCategory; // @synthesize internalSizeCategory=_internalSizeCategory;
 @property(retain, nonatomic) _UIBatteryViewAXHUDImageCacheInfo *accessibilityHUDImageCacheInfo; // @synthesize accessibilityHUDImageCacheInfo=_accessibilityHUDImageCacheInfo;
+@property(retain, nonatomic) UILabel *percentageLabel; // @synthesize percentageLabel=_percentageLabel;
 @property(retain, nonatomic) CAShapeLayer *boltLayer; // @synthesize boltLayer=_boltLayer;
 @property(retain, nonatomic) CAShapeLayer *boltMaskLayer; // @synthesize boltMaskLayer=_boltMaskLayer;
 @property(retain, nonatomic) CALayer *fillLayer; // @synthesize fillLayer=_fillLayer;
@@ -53,9 +57,11 @@
 - (struct CGSize)intrinsicContentSize;
 - (void)applyStyleAttributes:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
+- (_Bool)_currentlyShowsPercentage;
 @property(readonly, nonatomic, getter=isLowBattery) _Bool lowBattery;
 @property(nonatomic) long long sizeCategory;
 - (void)_unflipBoltIfNecessary;
+- (void)_updatePercentage;
 - (void)_updateBolt;
 - (void)_updateFillLayer;
 - (void)_updateFillColor;
@@ -66,7 +72,8 @@
 - (double)_lineWidthAndInterspaceForTraitCollection:(id)arg1;
 - (struct CGSize)_pinSizeForTraitCollection:(id)arg1;
 - (struct CGSize)_batterySizeForTraitCollection:(id)arg1;
-- (id)_batteryColor;
+- (id)_batteryTextColor;
+- (id)_batteryFillColor;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithSizeCategory:(long long)arg1;

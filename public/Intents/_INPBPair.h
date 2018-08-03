@@ -6,14 +6,13 @@
 
 #import "PBCodable.h"
 
-#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 #import "_INPBPair.h"
 
-@class INCodableAttribute, NSString, _INPBContactValue, _INPBCurrencyAmountValue, _INPBCustomObject, _INPBDataString, _INPBDistanceValue, _INPBDoubleValue, _INPBImageValue, _INPBIntegerValue, _INPBLocationValue, _INPBPaymentMethodValue, _INPBStringValue, _INPBTemperatureValue, _INPBURLValue;
+@class NSString, _INPBContactValue, _INPBCurrencyAmountValue, _INPBCustomObject, _INPBDataString, _INPBDistanceValue, _INPBDoubleValue, _INPBImageValue, _INPBIntegerValue, _INPBLocationValue, _INPBPaymentMethodValue, _INPBStringValue, _INPBTemperatureValue, _INPBURLValue;
 
-@interface _INPBPair : PBCodable <_INPBPair, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
+@interface _INPBPair : PBCodable <_INPBPair, NSSecureCoding, NSCopying>
 {
     struct _has;
     NSString *_key;
@@ -30,10 +29,8 @@
     _INPBStringValue *_pairStringValue;
     _INPBTemperatureValue *_pairTemperatureValue;
     _INPBURLValue *_pairUrlValue;
-    INCodableAttribute *_associatedCodableAttribute;
 }
 
-@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(retain, nonatomic) _INPBURLValue *pairUrlValue; // @synthesize pairUrlValue=_pairUrlValue;
 @property(retain, nonatomic) _INPBTemperatureValue *pairTemperatureValue; // @synthesize pairTemperatureValue=_pairTemperatureValue;
 @property(retain, nonatomic) _INPBStringValue *pairStringValue; // @synthesize pairStringValue=_pairStringValue;

@@ -15,6 +15,7 @@
     UIView *_sourceView;
     UIView<PLExpandedPlatter> *_presentedExpandedPlatter;
     struct CGRect _sourceViewInitialFrame;
+    struct CGRect _sourceViewFinalFrame;
     struct CGAffineTransform _sourceViewInitialTransform;
     id <UIViewControllerTransitionCoordinator> _activeTransitionCoordinator;
     UIView *_dismissLabelContainerView;
@@ -27,6 +28,7 @@
     struct {
         unsigned int didPerformPresentedExpandedPlatterCheck:1;
         unsigned int didSetSourceViewInitialFrame:1;
+        unsigned int didSetSourceViewFinalFrame:1;
     } _expandedPlatterPresentationControllerHelperFlags;
     _Bool _listenToKeyboardEvents;
     _Bool _homeAffordanceVisible;
@@ -64,6 +66,7 @@
 - (struct CGRect)finalFrameOfPresentingViewInContainerView;
 - (struct CGRect)initialFrameOfPresentedViewInContainerView;
 - (struct CGRect)initialFrameOfPresentingViewInContainerView;
+- (struct CGRect)_sourceViewFinalFrame;
 - (struct CGRect)_sourceViewInitialFrame;
 @property(readonly, nonatomic) struct CGRect frameOfPresentedViewInContainerView;
 - (id)presentedViewController;

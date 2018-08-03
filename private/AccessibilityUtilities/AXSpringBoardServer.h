@@ -82,6 +82,7 @@
 - (void)showNotificationCenter;
 - (void)toggleNotificationCenter;
 - (_Bool)isNotificationVisible;
+- (_Bool)isScreenshotWindowVisible;
 - (_Bool)isNotificationCenterVisible;
 - (_Bool)isMakingEmergencyCall;
 - (_Bool)hasActiveOrPendingCallOrFaceTime;

@@ -9,27 +9,28 @@
 #import "CAAnimationDelegate.h"
 #import "RCWaveformDataSourceObserver.h"
 
-@class CADisplayLink, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSString, NSTimer, RCWaveformDataSource;
+@class NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSString, RCWaveformDataSource;
 
 __attribute__((visibility("hidden")))
 @interface RCWaveformRenderer : UIViewController <RCWaveformDataSourceObserver, CAAnimationDelegate>
 {
-    CADisplayLink *_displayLink;
+    _Bool displayLinkConnected;
     CDStruct_73a5d3ca _renderedTimeRange;
     _Bool _renderedTimeRangeIsApproximatedWaveform;
     double _cachedContentWidth;
     _Bool _contentWidthDirty;
-    NSTimer *_displayLinkTerminationTimer;
     _Bool _needsVisibleRangeRendering;
     _Bool _isCompactView;
     NSMutableArray *_cachedSegmentArray;
     NSMutableDictionary *_waveformSlices;
     NSMutableIndexSet *_waveformSliceIndexes;
+    _Bool _requiresFullRefresh;
     _Bool _frequentUpdatesSegmentUpdatesExpectedHint;
     _Bool _isRecordWaveform;
     _Bool _isEditMode;
     _Bool _isPlayback;
     _Bool _isOverview;
+    _Bool _isPlayBarOnlyMode;
     _Bool _paused;
     _Bool _activeDisplayLinkRequired;
     RCWaveformDataSource *_dataSource;
@@ -46,6 +47,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double spacingWidth; // @synthesize spacingWidth=_spacingWidth;
 @property(nonatomic, getter=isActiveDisplayLinkRequired) _Bool activeDisplayLinkRequired; // @synthesize activeDisplayLinkRequired=_activeDisplayLinkRequired;
 @property(nonatomic, getter=isPaused) _Bool paused; // @synthesize paused=_paused;
+@property(nonatomic) _Bool isPlayBarOnlyMode; // @synthesize isPlayBarOnlyMode=_isPlayBarOnlyMode;
 @property(nonatomic) _Bool isOverview; // @synthesize isOverview=_isOverview;
 @property(nonatomic) _Bool isCompactView; // @synthesize isCompactView=_isCompactView;
 @property(nonatomic) _Bool isPlayback; // @synthesize isPlayback=_isPlayback;
@@ -65,21 +67,18 @@ __attribute__((visibility("hidden")))
 - (CDStruct_73a5d3ca)_timeRangeToRenderForVisibleTimeRange:(CDStruct_73a5d3ca)arg1;
 - (id)_updateCachedSegmentArray:(id)arg1 withTimeRange:(CDStruct_73a5d3ca)arg2;
 - (CDStruct_73a5d3ca)_updateRenderTimeRange:(CDStruct_73a5d3ca)arg1;
-- (void)_renderVisibleTimeRangeImmediately;
-- (void)_renderSegments:(id)arg1 timeRangeOfSegments:(CDStruct_73a5d3ca)arg2 isApproximatedWaveform:(_Bool)arg3;
+- (void)_renderVisibleTimeRangeWithDuration:(double)arg1;
+- (void)_renderSegments:(id)arg1 timeRangeOfSegments:(CDStruct_73a5d3ca)arg2 isApproximatedWaveform:(_Bool)arg3 withDuration:(double)arg4;
 - (void)_clearRenderingState;
-- (void)_draw:(id)arg1;
-- (void)_displayLinkDidUpdate:(id)arg1;
-- (void)_cancelScheduledTerminateDisplayLink;
-- (void)_scheduleTerminateDisplayLink;
-- (void)_performScheduledTerminateDisplayLink;
+- (void)_draw:(double)arg1;
+- (void)displayLinkDidUpdate:(id)arg1 withCurrentCaptureSession:(id)arg2;
 - (void)_stopRendering;
 - (void)_startRendering;
 - (void)_setNeedsVisibleTimeRangeRendering;
 - (void)_setNeedsRendering;
 - (void)_stopUpdating;
 - (void)_startUpdating;
-- (double)_nonCachedContentWidth;
+- (double)_nonCachedContentWidthWithDuration:(double)arg1;
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)waveformDataSourceDidFinishLoading:(id)arg1;
 - (void)waveformDataSource:(id)arg1 didLoadWaveformSegment:(id)arg2;

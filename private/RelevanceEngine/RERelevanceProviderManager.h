@@ -39,7 +39,7 @@
 - (void)_prepareForUpdateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_queue_resetTimer;
 - (void)_queue_performPendingUpdatesAndScheduleTimerIfNeeded;
-- (void)_performUpdate:(id)arg1;
+- (void)_queue_performUpdate:(id)arg1;
 - (void)_removeAllPendingUpdates;
 - (void)_scheduleUpdate:(id)arg1;
 - (void)_handleSignificantTimeChange;

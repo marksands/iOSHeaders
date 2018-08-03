@@ -8,10 +8,11 @@
 
 #import "NSSecureCoding.h"
 #import "QLPreviewItemPrivateProtocol.h"
+#import "QLSExtensionThumbnailItem.h"
 
 @class FPItem, FPSandboxingURLWrapper, NSData, NSDictionary, NSItemProvider, NSNumber, NSString, NSURL, NSUUID, QLItemFetcher, QLUTIAnalyzer, UIColor, UIDocumentInteractionController;
 
-@interface QLItem : NSObject <QLPreviewItemPrivateProtocol, NSSecureCoding>
+@interface QLItem : NSObject <QLSExtensionThumbnailItem, QLPreviewItemPrivateProtocol, NSSecureCoding>
 {
     long long _editedFileExtensionHandle;
     _Bool _useAVPlayerViewController;
@@ -131,6 +132,8 @@
 - (id)initWithFPItem:(id)arg1;
 - (id)initWithPreviewItemProvider:(id)arg1 contentType:(id)arg2 previewTitle:(id)arg3 fileSize:(id)arg4;
 - (void)_commonInit;
+@property(readonly, copy, nonatomic) NSString *contentType;
+- (void)provideURLWrapper:(CDUnknownBlockType)arg1;
 - (_Bool)canBePrintedWithCustomPrinter;
 - (struct CGSize)previewSizeForItemViewControllerSize:(struct CGSize)arg1;
 - (unsigned long long)maximumNumberOfCachedPreviews;

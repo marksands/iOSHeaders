@@ -26,6 +26,7 @@
     NSObject<OS_dispatch_queue> *_handlesQueue;
 }
 
++ (_Bool)isAnyAccountManaged;
 + (_Bool)isProvisionedForLocationSharing;
 + (_Bool)FMFRestricted;
 + (_Bool)FMFAllowed;
@@ -87,6 +88,7 @@
 - (void)_daemonDidLaunch;
 - (id)internalConnection;
 - (void)includeDeviceInAutomations:(CDUnknownBlockType)arg1;
+- (void)showShareMyLocationiCloudSettingsOffAlert;
 - (void)getDataForPerformanceRequest:(CDUnknownBlockType)arg1;
 - (void)sessionHandleReport:(CDUnknownBlockType)arg1;
 - (void)dumpStateWithCompletion:(CDUnknownBlockType)arg1;

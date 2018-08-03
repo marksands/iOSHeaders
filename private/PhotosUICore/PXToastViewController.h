@@ -11,6 +11,7 @@
 @interface PXToastViewController : UIViewController
 {
     _Bool _shouldUseAnimatedCheckmark;
+    id <PXToastViewControllerDelegate> _delegate;
     NSString *_message;
     UIImage *_image;
     PXToastPresentationWindow *_presentationWindow;
@@ -35,6 +36,7 @@
 @property(retain, nonatomic) PXToastPresentationWindow *presentationWindow; // @synthesize presentationWindow=_presentationWindow;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
+@property(nonatomic) __weak id <PXToastViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_animateCheckMark;
 - (void)_dismissAfterDelay:(double)arg1;

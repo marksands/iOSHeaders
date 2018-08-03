@@ -7,9 +7,10 @@
 #import "NSObject.h"
 #import "PXMediaTypeAggregating.h"
 
-@class NSDate, NSString, PXCMMContext;
+@class NSDate, NSString, PXAssetCollectionActionManager, PXCMMContext;
 
 @protocol PXCMMInvitation <NSObject, PXMediaTypeAggregating>
+@property(readonly, nonatomic) PXAssetCollectionActionManager *assetCollectionActionManager;
 @property(readonly, nonatomic) id <PXUIImageProvider> posterMediaProvider;
 @property(readonly, nonatomic) id <PXDisplayAsset> posterAsset;
 @property(readonly, nonatomic) id <PXCMMInvitationParticipant> owner;

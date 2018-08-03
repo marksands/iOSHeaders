@@ -9,6 +9,7 @@
 @class NSString;
 
 @protocol AVTCacheableResource <NSObject>
+- (_Bool)requiresEncryption;
 - (unsigned long long)costForScope:(id <AVTCacheableResourceScope>)arg1;
 - (NSString *)volatileIdentifierForScope:(id <AVTCacheableResourceScope>)arg1;
 

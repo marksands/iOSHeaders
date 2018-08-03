@@ -15,7 +15,6 @@
 
 + (id)sharedInstance;
 - (void).cxx_destruct;
-- (void)_fetchAudioRouteState;
 - (void)_stopMonitoring;
 - (void)_startMonitoringWithQueue:(id)arg1;
 - (void)preferredExternalRouteDidChange:(id)arg1;

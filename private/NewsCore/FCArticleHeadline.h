@@ -8,7 +8,7 @@
 
 #import "FCHeadlineStocksFields.h"
 
-@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCHeadlineThumbnail, FCInterestToken, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSString, NSURL, NTPBArticleRecord;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCHeadlineExperimentalTitleMetadata, FCHeadlineThumbnail, FCInterestToken, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSString, NSURL, NTPBArticleRecord;
 
 @interface FCArticleHeadline : FCHeadline <FCHeadlineStocksFields>
 {
@@ -33,6 +33,7 @@
     unsigned long long _contentType;
     NSString *_title;
     NSString *_titleCompact;
+    FCHeadlineExperimentalTitleMetadata *_experimentalTitleMetadata;
     NSString *_primaryAudience;
     NSDate *_publishDate;
     long long _publisherArticleVersion;
@@ -151,6 +152,8 @@
 - (void)setPublishDate:(id)arg1;
 - (id)publishDate;
 - (id)primaryAudience;
+- (void)setExperimentalTitleMetadata:(id)arg1;
+- (id)experimentalTitleMetadata;
 - (void)setTitleCompact:(id)arg1;
 - (id)titleCompact;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
@@ -176,7 +179,7 @@
 - (id)endOfArticleTopicIDs;
 - (id)contentManifestWithContext:(id)arg1;
 - (id)initWithArticleRecordData:(id)arg1 sourceChannel:(id)arg2 assetManager:(id)arg3;
-- (id)initWithArticleRecord:(id)arg1 articleInterestToken:(id)arg2 sourceChannel:(id)arg3 storyStyleConfigs:(id)arg4 storyTypeTimeout:(long long)arg5 rapidUpdatesTimeout:(long long)arg6 assetManager:(id)arg7;
+- (id)initWithArticleRecord:(id)arg1 articleInterestToken:(id)arg2 sourceChannel:(id)arg3 storyStyleConfigs:(id)arg4 storyTypeTimeout:(long long)arg5 rapidUpdatesTimeout:(long long)arg6 assetManager:(id)arg7 experimentalTitleProvider:(id)arg8;
 - (id)init;
 
 @end

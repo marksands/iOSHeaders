@@ -49,6 +49,7 @@
 - (void).cxx_destruct;
 - (id)description;
 - (void)_postProcessPersonGroupsInGroupArrays:(id)arg1;
+- (id)suggestionWhitelistedScenes;
 - (void)enumerateParsesWithMode:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)computeSuggestions;
 - (id)processParse:(id)arg1;

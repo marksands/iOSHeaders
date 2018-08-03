@@ -23,6 +23,8 @@
 - (void)latitudeLongitudeOverride:(void (^)(double, double))arg1;
 - (void)setMcc:(long long)arg1 andMnc:(long long)arg2;
 - (void)mccMncOverride:(void (^)(long long, long long))arg1;
+- (void)getEnableVinylFlowTypeOverride:(void (^)(_Bool))arg1;
+- (void)enableVinylFlowTypeOverride:(_Bool)arg1;
 - (void)showUiIgnoringActivationFlags:(_Bool)arg1;
 - (void)setUseNewCellularPlanUI:(_Bool)arg1;
 - (void)setSelectedProxy:(long long)arg1;

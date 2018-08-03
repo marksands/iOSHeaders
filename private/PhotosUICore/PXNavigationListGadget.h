@@ -8,11 +8,13 @@
 
 #import "PLNavigableCollectionContainer.h"
 #import "PXGadget.h"
+#import "PXNavigationListContainer.h"
 
 @class NSString, PXGadgetSpec;
 
-@interface PXNavigationListGadget : PXNavigationListController <PXGadget, PLNavigableCollectionContainer>
+@interface PXNavigationListGadget : PXNavigationListController <PXNavigationListContainer, PXGadget, PLNavigableCollectionContainer>
 {
+    _Bool _preferredHeightNeedsUpdate;
     PXGadgetSpec *_gadgetSpec;
     id <PXGadgetDelegate> _delegate;
     struct CGRect _visibleContentRect;
@@ -23,6 +25,7 @@
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
 - (void)_updateTableViewForVisibleContentRect;
+- (void)listViewController:(id)arg1 listViewDidChangeContentSize:(struct CGSize)arg2;
 - (id)_listItemForCollection:(id)arg1;
 - (void)navigateToCollection:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)canNavigateToCollection:(id)arg1;
@@ -31,8 +34,8 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) _Bool hasContentToDisplay;
 @property(readonly, nonatomic) unsigned long long gadgetType;
+- (void)viewWillLayoutSubviews;
 - (void)_updateTableViewLayoutMargins;
-- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 
 // Remaining properties

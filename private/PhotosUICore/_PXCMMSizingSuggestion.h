@@ -8,7 +8,7 @@
 
 #import "PXCMMSuggestion.h"
 
-@class NSString;
+@class NSString, PXAssetCollectionActionManager;
 
 @interface _PXCMMSizingSuggestion : NSObject <PXCMMSuggestion>
 {
@@ -19,8 +19,10 @@
     id <PXDisplayAsset> _posterAsset;
     id <PXUIImageProvider> _posterMediaProvider;
     id <PXPeopleFetchResult> _peopleFetchResult;
+    PXAssetCollectionActionManager *_assetCollectionActionManager;
 }
 
+@property(readonly, nonatomic) PXAssetCollectionActionManager *assetCollectionActionManager; // @synthesize assetCollectionActionManager=_assetCollectionActionManager;
 @property(readonly, nonatomic) id <PXPeopleFetchResult> peopleFetchResult; // @synthesize peopleFetchResult=_peopleFetchResult;
 @property(readonly, nonatomic) id <PXUIImageProvider> posterMediaProvider; // @synthesize posterMediaProvider=_posterMediaProvider;
 @property(readonly, nonatomic) id <PXDisplayAsset> posterAsset; // @synthesize posterAsset=_posterAsset;

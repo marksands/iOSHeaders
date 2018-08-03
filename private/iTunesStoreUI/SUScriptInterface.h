@@ -9,10 +9,11 @@
 #import "SFSafariViewControllerDelegate.h"
 #import "SUScriptModalDialogDelegate.h"
 #import "SUScriptXMLHTTPRequestDelegate.h"
+#import "SUScriptXMLHTTPStoreRequestDelegate.h"
 
 @class NSArray, NSMutableDictionary, NSMutableSet, NSNumber, NSObject<OS_dispatch_queue>, NSString, SFSafariViewController, SSAuthenticationContext, SUClientInterface, SUScriptAccount, SUScriptAccountManager, SUScriptAppleAccountStore, SUScriptApplication, SUScriptCarrierBundlingController, SUScriptDevice, SUScriptDictionary, SUScriptFairPlayContext, SUScriptKeyValueStore, SUScriptMediaLibrary, SUScriptMetricsController, SUScriptNavigationBar, SUScriptNavigationSimulator, SUScriptNotificationObserver, SUScriptOperationDelegate, SUScriptPassbookLibrary, SUScriptPreviewOverlay, SUScriptProtocol, SUScriptPurchaseManager, SUScriptSectionsController, SUScriptStoreBagLoader, SUScriptSubscriptionStatusCoordinator, SUScriptTelephony, SUScriptViewController, SUScriptWindow, SUScriptWindowContext, WebFrame;
 
-@interface SUScriptInterface : SUScriptObject <SUScriptModalDialogDelegate, SUScriptXMLHTTPRequestDelegate, SFSafariViewControllerDelegate>
+@interface SUScriptInterface : SUScriptObject <SUScriptModalDialogDelegate, SUScriptXMLHTTPRequestDelegate, SUScriptXMLHTTPStoreRequestDelegate, SFSafariViewControllerDelegate>
 {
     SUScriptAccountManager *_accountManager;
     SUScriptKeyValueStore *_applicationLocalStorage;
@@ -51,6 +52,7 @@
 @property(retain, nonatomic) NSString *safariViewControllerIdentifier; // @synthesize safariViewControllerIdentifier=_safariViewControllerIdentifier;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
+- (_Bool)scriptXMLHTTPStoreRequest:(id)arg1 requiresCellularForURL:(id)arg2;
 - (_Bool)scriptXMLHTTPRequest:(id)arg1 requiresCellularForURL:(id)arg2;
 - (id)presentingViewControllerForScriptModalDialog:(id)arg1;
 - (void)_cleanUpSafariViewController;
@@ -114,6 +116,7 @@
 @property(readonly) NSNumber *orientation;
 @property(readonly) SUScriptNavigationSimulator *navigationSimulator;
 @property(readonly) SUScriptNavigationBar *navigationBar;
+- (id)makeXMLHTTPStoreRequest;
 - (id)makeXMLHTTPRequest;
 @property(readonly) id loggingEnabled;
 @property(readonly) NSString *gsToken;
@@ -141,6 +144,7 @@
 - (void)sendPostOfType:(id)arg1 withOptions:(id)arg2;
 - (void)requireCellularForResourceWithURL:(id)arg1;
 - (void)reportAProblemForIdentifier:(id)arg1;
+- (void)removeDeviceOfferWithIdentifier:(id)arg1 account:(id)arg2;
 - (void)registerNavBarButtonWithTitle:(id)arg1 side:(id)arg2 function:(id)arg3;
 - (id)presentPrivacySplashWithIdentifier:(id)arg1;
 - (id)presentPrivacyViewControllerWithIdentifier:(id)arg1;

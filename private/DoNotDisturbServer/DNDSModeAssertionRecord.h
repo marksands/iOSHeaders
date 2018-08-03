@@ -21,6 +21,8 @@
     NSString *_assertionDetailsIdentifier;
     NSString *_assertionDetailsModeIdentifier;
     NSString *_assertionDetailsLifetimeType;
+    NSNumber *_assertionDetailsUserRequested;
+    NSNumber *_assertionDetailsSyncSuppressionOptions;
     NSString *_assertionDetailsCalendarEventLifetimeEventUniqueIdentifier;
     NSNumber *_assertionDetailsCalendarEventLifetimeOccurrenceDateTimestamp;
     NSNumber *_assertionDetailsCalendarEventLifetimeOnlyDuringEvent;
@@ -28,12 +30,14 @@
     NSNumber *_assertionDetailsDateIntervalLifetimeEndDateTimestamp;
 }
 
-+ (id)migrateDictionaryRepresentations:(id)arg1 withVersionNumber:(unsigned long long)arg2;
++ (id)migrateDictionaryRepresentation:(id)arg1 fromVersionNumber:(unsigned long long)arg2 toVersionNumber:(unsigned long long)arg3;
 @property(readonly, copy, nonatomic) NSNumber *assertionDetailsDateIntervalLifetimeEndDateTimestamp; // @synthesize assertionDetailsDateIntervalLifetimeEndDateTimestamp=_assertionDetailsDateIntervalLifetimeEndDateTimestamp;
 @property(readonly, copy, nonatomic) NSNumber *assertionDetailsDateIntervalLifetimeStartDateTimestamp; // @synthesize assertionDetailsDateIntervalLifetimeStartDateTimestamp=_assertionDetailsDateIntervalLifetimeStartDateTimestamp;
 @property(readonly, copy, nonatomic) NSNumber *assertionDetailsCalendarEventLifetimeOnlyDuringEvent; // @synthesize assertionDetailsCalendarEventLifetimeOnlyDuringEvent=_assertionDetailsCalendarEventLifetimeOnlyDuringEvent;
 @property(readonly, copy, nonatomic) NSNumber *assertionDetailsCalendarEventLifetimeOccurrenceDateTimestamp; // @synthesize assertionDetailsCalendarEventLifetimeOccurrenceDateTimestamp=_assertionDetailsCalendarEventLifetimeOccurrenceDateTimestamp;
 @property(readonly, copy, nonatomic) NSString *assertionDetailsCalendarEventLifetimeEventUniqueIdentifier; // @synthesize assertionDetailsCalendarEventLifetimeEventUniqueIdentifier=_assertionDetailsCalendarEventLifetimeEventUniqueIdentifier;
+@property(readonly, copy, nonatomic) NSNumber *assertionDetailsSyncSuppressionOptions; // @synthesize assertionDetailsSyncSuppressionOptions=_assertionDetailsSyncSuppressionOptions;
+@property(readonly, copy, nonatomic) NSNumber *assertionDetailsUserRequested; // @synthesize assertionDetailsUserRequested=_assertionDetailsUserRequested;
 @property(readonly, copy, nonatomic) NSString *assertionDetailsLifetimeType; // @synthesize assertionDetailsLifetimeType=_assertionDetailsLifetimeType;
 @property(readonly, copy, nonatomic) NSString *assertionDetailsModeIdentifier; // @synthesize assertionDetailsModeIdentifier=_assertionDetailsModeIdentifier;
 @property(readonly, copy, nonatomic) NSString *assertionDetailsIdentifier; // @synthesize assertionDetailsIdentifier=_assertionDetailsIdentifier;
@@ -50,7 +54,7 @@
 @property(readonly, copy) NSString *description;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
-- (id)_initWithAssertionUUID:(id)arg1 assertionStartDateTimestamp:(id)arg2 assertionClientIdentifier:(id)arg3 assertionDetailsIdentifier:(id)arg4 assertionDetailsModeIdentifier:(id)arg5 assertionDetailsLifetimeType:(id)arg6 assertionDetailsCalendarEventLifetimeEventUniqueIdentifier:(id)arg7 assertionDetailsCalendarEventLifetimeOccurrenceDateTimestamp:(id)arg8 assertionDetailsCalendarEventLifetimeOnlyDuringEvent:(id)arg9 assertionDetailsDateIntervalLifetimeStartDateTimestamp:(id)arg10 assertionDetailsDateIntervalLifetimeEndDateTimestamp:(id)arg11;
+- (id)_initWithAssertionUUID:(id)arg1 assertionStartDateTimestamp:(id)arg2 assertionClientIdentifier:(id)arg3 assertionDetailsIdentifier:(id)arg4 assertionDetailsModeIdentifier:(id)arg5 assertionDetailsLifetimeType:(id)arg6 assertionDetailsUserRequested:(id)arg7 assertionDetailsSyncSuppressionOptions:(id)arg8 assertionDetailsCalendarEventLifetimeEventUniqueIdentifier:(id)arg9 assertionDetailsCalendarEventLifetimeOccurrenceDateTimestamp:(id)arg10 assertionDetailsCalendarEventLifetimeOnlyDuringEvent:(id)arg11 assertionDetailsDateIntervalLifetimeStartDateTimestamp:(id)arg12 assertionDetailsDateIntervalLifetimeEndDateTimestamp:(id)arg13;
 - (id)_initWithRecord:(id)arg1;
 - (id)init;
 

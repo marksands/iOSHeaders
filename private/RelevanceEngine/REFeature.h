@@ -14,6 +14,7 @@
 {
 }
 
++ (id)nowPlayingStateFeature;
 + (id)siriActionPerformedCountFeature;
 + (id)siriActionDailyAveragePerformedCountFeature;
 + (id)isDeveloperDonationFeature;

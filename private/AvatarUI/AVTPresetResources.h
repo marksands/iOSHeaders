@@ -17,6 +17,7 @@
 
 @property(readonly, nonatomic) AVTPreset *preset; // @synthesize preset=_preset;
 - (void).cxx_destruct;
+- (_Bool)requiresEncryption;
 - (unsigned long long)costForScope:(id)arg1;
 - (id)volatileIdentifierForScope:(id)arg1;
 @property(readonly, nonatomic) id resources;

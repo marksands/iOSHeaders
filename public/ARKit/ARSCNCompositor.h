@@ -12,6 +12,8 @@
 {
     _Bool _showOcclusion;
     _Bool _showOcclusionGeometry;
+    unsigned long long _uncertaintyRadius;
+    unsigned long long _erodeRadius;
     ARFrame *_currentFrame;
     long long _currentOrientation;
 }
@@ -20,6 +22,8 @@
 @property(nonatomic) _Bool showOcclusion; // @synthesize showOcclusion=_showOcclusion;
 @property(nonatomic) long long currentOrientation; // @synthesize currentOrientation=_currentOrientation;
 @property(retain, nonatomic) ARFrame *currentFrame; // @synthesize currentFrame=_currentFrame;
+@property(nonatomic) unsigned long long erosionRadius; // @synthesize erosionRadius=_erodeRadius;
+@property(nonatomic) unsigned long long uncertaintyRadius; // @synthesize uncertaintyRadius=_uncertaintyRadius;
 - (void).cxx_destruct;
 - (id)initWithView:(id)arg1;
 

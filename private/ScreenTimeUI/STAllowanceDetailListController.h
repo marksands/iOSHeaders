@@ -10,17 +10,15 @@
 #import "STCustomizeDaysListControllerDelegate.h"
 #import "STUIDateTimePickerCellDelegate.h"
 
-@class NSArray, NSDictionary, NSString, PSSpecifier, STAllowance, STUser;
+@class NSArray, NSObject<STRootViewModelCoordinator>, NSString, PSSpecifier, STAllowance, UIColor;
 
 @interface STAllowanceDetailListController : PSListController <STUIDateTimePickerCellDelegate, STCustomizeDaysListControllerDelegate, STAllowanceSetupListControllerDelegate>
 {
     _Bool _isSetupController;
-    _Bool _canAskForMoreTime;
     _Bool _didDeleteAllowance;
     id <STAllowanceDetailListControllerDelegate> _delegate;
     STAllowance *_allowance;
-    STUser *_affectedUser;
-    NSDictionary *_appsByCategoryIdentifier;
+    NSObject<STRootViewModelCoordinator> *_coordinator;
     PSSpecifier *_timeGroupSpecifier;
     PSSpecifier *_timeSpecifier;
     PSSpecifier *_timePickerSpecifier;
@@ -30,8 +28,10 @@
     NSArray *_budgetedItemSpecifiers;
     PSSpecifier *_atAllowanceGroupSpecifier;
     PSSpecifier *_atAllowanceSpecifier;
+    UIColor *_defaultTimeCellDetailTextColor;
 }
 
+@property(retain, nonatomic) UIColor *defaultTimeCellDetailTextColor; // @synthesize defaultTimeCellDetailTextColor=_defaultTimeCellDetailTextColor;
 @property _Bool didDeleteAllowance; // @synthesize didDeleteAllowance=_didDeleteAllowance;
 @property(retain, nonatomic) PSSpecifier *atAllowanceSpecifier; // @synthesize atAllowanceSpecifier=_atAllowanceSpecifier;
 @property(retain, nonatomic) PSSpecifier *atAllowanceGroupSpecifier; // @synthesize atAllowanceGroupSpecifier=_atAllowanceGroupSpecifier;
@@ -42,9 +42,7 @@
 @property(retain, nonatomic) PSSpecifier *timePickerSpecifier; // @synthesize timePickerSpecifier=_timePickerSpecifier;
 @property(retain, nonatomic) PSSpecifier *timeSpecifier; // @synthesize timeSpecifier=_timeSpecifier;
 @property(retain, nonatomic) PSSpecifier *timeGroupSpecifier; // @synthesize timeGroupSpecifier=_timeGroupSpecifier;
-@property(copy, nonatomic) NSDictionary *appsByCategoryIdentifier; // @synthesize appsByCategoryIdentifier=_appsByCategoryIdentifier;
-@property(nonatomic) _Bool canAskForMoreTime; // @synthesize canAskForMoreTime=_canAskForMoreTime;
-@property(retain, nonatomic) STUser *affectedUser; // @synthesize affectedUser=_affectedUser;
+@property(readonly, nonatomic) NSObject<STRootViewModelCoordinator> *coordinator; // @synthesize coordinator=_coordinator;
 @property(nonatomic) _Bool isSetupController; // @synthesize isSetupController=_isSetupController;
 @property(copy, nonatomic) STAllowance *allowance; // @synthesize allowance=_allowance;
 @property(nonatomic) __weak id <STAllowanceDetailListControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -70,13 +68,17 @@
 - (void)cancelButtonTapped:(id)arg1;
 - (_Bool)hasSetBudgetTimeOrCustomSchedule;
 - (_Bool)hasSetBudgetTime;
+- (void)showOrHideCustomizeDaysSpecifier;
 - (void)updateSaveButton;
 - (void)saveButtonTapped:(id)arg1;
 - (void)willResignActive;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (id)specifiers;
+- (_Bool)shouldReloadSpecifiersOnResume;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
+- (id)initWithCoordinator:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
     struct CGRect _scaledDisplayRect;
 }
 
++ (double)alphaForSelectedCells;
 @property(nonatomic) long long thumbnailRequestID; // @synthesize thumbnailRequestID=_thumbnailRequestID;
 @property(nonatomic) struct CGRect scaledDisplayRect; // @synthesize scaledDisplayRect=_scaledDisplayRect;
 @property(nonatomic) _Bool needsBadgeUpdate; // @synthesize needsBadgeUpdate=_needsBadgeUpdate;

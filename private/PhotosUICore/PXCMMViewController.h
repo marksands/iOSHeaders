@@ -13,11 +13,12 @@
 #import "PXCMMAssetsViewControllerDelegate.h"
 #import "PXChangeObserver.h"
 #import "PXSectionedDataSourceManagerObserver.h"
+#import "PXToastViewControllerDelegate.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 
 @class NSArray, NSProgress, NSString, PXActionMenuController, PXCMMAssetsProgressListener, PXCMMAssetsViewController, PXCMMSession, PXCMMSpecManager, PXOneUpPresentation, PXUpdater, UIActivityIndicatorView, UIBarButtonItem, UINavigationBar;
 
-@interface PXCMMViewController : UIViewController <PXChangeObserver, PXCMMAssetsViewControllerDelegate, PXCMMActionControllerDelegate, PXActionMenuDelegate, UIPopoverPresentationControllerDelegate, PXSectionedDataSourceManagerObserver, PXAssetsDataSourceManagerObserver, PXCMMActionPerformerDelegate>
+@interface PXCMMViewController : UIViewController <PXChangeObserver, PXCMMAssetsViewControllerDelegate, PXCMMActionControllerDelegate, PXActionMenuDelegate, UIPopoverPresentationControllerDelegate, PXSectionedDataSourceManagerObserver, PXAssetsDataSourceManagerObserver, PXToastViewControllerDelegate, PXCMMActionPerformerDelegate>
 {
     PXCMMAssetsProgressListener *_assetsProgressListener;
     _Bool _hasStartedPreloadingTasks;
@@ -56,6 +57,7 @@
 @property(nonatomic) __weak id <PXCMMViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) PXCMMSession *session; // @synthesize session=_session;
 - (void).cxx_destruct;
+- (void)didDismissToastViewController:(id)arg1;
 - (_Bool)actionPerformer:(id)arg1 dismissViewController:(struct NSObject *)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)actionPerformer:(id)arg1 presentViewController:(struct NSObject *)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
@@ -75,8 +77,6 @@
 - (_Bool)shouldShowAddMoreButtonForAssetsViewController:(id)arg1;
 - (long long)positionForBar:(id)arg1;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
-- (_Bool)px_canPerformCrossfadeTransitionWithMasterViewController:(id)arg1;
-- (_Bool)px_canPerformCrossfadeTransitionWithDetailViewController:(id)arg1;
 - (void)_handleComposeRecipientCancelButton:(id)arg1;
 - (void)_handleActionButton;
 - (void)_completePeopleSuggestionsLoading;

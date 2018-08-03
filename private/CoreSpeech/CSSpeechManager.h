@@ -73,6 +73,7 @@
 - (void)handleLostServerConnection;
 - (void)_startClearLoggingFilesTimer;
 - (void)_createClearLoggingFileTimer;
+- (void)CSSmartSiriVolumeDidReceivePhoneCallStateChanged:(_Bool)arg1;
 - (void)CSSmartSiriVolumeDidReceiveTimerChanged:(long long)arg1;
 - (void)CSSmartSiriVolumeDidReceiveAlarmChanged:(long long)arg1;
 - (void)CSSmartSiriVolumeDidReceiveMusicVolumeChanged:(float)arg1;
@@ -109,10 +110,14 @@
 - (void)didTransitFrom:(long long)arg1 to:(long long)arg2 by:(long long)arg3;
 - (void)mediaserverdDidRestart;
 - (void)audioRecorderLostMediaserverd:(id)arg1;
+- (void)_stopRecordingWithEvent:(unsigned long long)arg1;
 - (void)stopRecordingWithEvent:(unsigned long long)arg1;
 - (void)_startRecordingForClient:(id)arg1 error:(id *)arg2;
 - (_Bool)_startRecordingForAOPFirstPassTriggerWithSettings:(id)arg1 error:(id *)arg2;
+- (_Bool)_startRecordingWithSettings:(id)arg1 event:(unsigned long long)arg2 error:(id *)arg3;
 - (_Bool)startRecordingWithSetting:(id)arg1 event:(unsigned long long)arg2 error:(id *)arg3;
+- (void)startRecordingAsyncWithSetting:(id)arg1 event:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)_handleVoiceTriggerSwitchAOP2APEvent:(unsigned long long)arg1 settings:(id)arg2 error:(id *)arg3;
 - (_Bool)_handleAOPFirstPassTriggerEvent:(unsigned long long)arg1 settings:(id)arg2 error:(id *)arg3;
 - (_Bool)_releaseAudioSessionForListening:(unsigned long long)arg1 error:(id *)arg2;
 - (void)_releaseClientAudioSession:(unsigned long long)arg1;

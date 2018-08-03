@@ -36,6 +36,7 @@
 @property(readonly, nonatomic) long long titleLocation; // @synthesize titleLocation=_titleLocation;
 @property(readonly, nonatomic) __weak UINavigationItem *navigationItem; // @synthesize navigationItem=_navigationItem;
 - (void).cxx_destruct;
+@property(readonly, copy) NSString *description;
 - (void)transitionCompleted:(long long)arg1 willBeDisplayed:(_Bool)arg2;
 - (void)_transitionCompleted:(long long)arg1 willBeDisplayed:(_Bool)arg2;
 - (void)performTransition:(long long)arg1 willBeDisplayed:(_Bool)arg2;
@@ -64,7 +65,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

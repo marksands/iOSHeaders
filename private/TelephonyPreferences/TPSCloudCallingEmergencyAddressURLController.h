@@ -22,7 +22,7 @@
 - (_Bool)isCapabilityEnabled;
 - (void)webSheetCompletion;
 - (void)enableCapability;
-- (id)initWithSubscriptionContext:(id)arg1 subscriptionCapabilities:(id)arg2;
+- (id)initWithSubscriptionContext:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

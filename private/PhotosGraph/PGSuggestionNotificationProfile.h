@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDate, NSSet;
+@class NSArray, NSDate, NSObject<OS_os_log>, NSSet;
 
 @interface PGSuggestionNotificationProfile : NSObject
 {
@@ -15,10 +15,12 @@
     unsigned char _userType;
     NSSet *_shareParticipantContactIdentifiers;
     NSDate *_dateOfLastNotification;
+    NSObject<OS_os_log> *_loggingConnection;
 }
 
 + (double)_requiredTimeIntervalFromLastNotificationForUserType:(unsigned char)arg1;
 + (unsigned char)_requiredNotificationQualityForUserType:(unsigned char)arg1;
+@property(nonatomic) NSObject<OS_os_log> *loggingConnection; // @synthesize loggingConnection=_loggingConnection;
 - (void).cxx_destruct;
 - (unsigned char)notificationQualityForCollectionNode:(id)arg1;
 - (unsigned char)notificationQualityForMomentNode:(id)arg1;

@@ -34,6 +34,7 @@
 - (id)accessibilityLabel;
 - (_Bool)isAccessibilityElement;
 - (id)contentValue;
+- (_Bool)enabled;
 - (void)updateValue;
 - (void)buttonTapped:(id)arg1;
 - (void)liveListenAudioLevelDidChange:(double)arg1;

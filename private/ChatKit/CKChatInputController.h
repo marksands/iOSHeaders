@@ -210,6 +210,8 @@
 - (void)showAppsBrowser;
 - (void)_showFullScreenBrowser:(id)arg1;
 - (void)showDTCompose;
+- (void)showFunCamera:(id)arg1;
+- (void)showFunCamera;
 - (void)showPhotosBrowserCollapsingEntryField:(_Bool)arg1;
 - (void)showPhotosBrowser;
 - (void)_loadPhotosBrowserCollapsingEntryField:(_Bool)arg1;

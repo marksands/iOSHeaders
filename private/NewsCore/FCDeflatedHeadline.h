@@ -8,7 +8,7 @@
 
 #import "FCHeadlineProviding.h"
 
-@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCFeedPersonalizedArticleScoreProfile, FCHeadlineThumbnail, FCSharedStringIndex, FCTopStoriesStyleConfiguration, NSArray, NSData, NSDate, NSSet, NSString, NSURL, NTPBFeedViewportHeadline;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCFeedPersonalizedArticleScoreProfile, FCHeadlineExperimentalTitleMetadata, FCHeadlineThumbnail, FCSharedStringIndex, FCTopStoriesStyleConfiguration, NSArray, NSData, NSDate, NSSet, NSString, NSURL, NTPBFeedViewportHeadline;
 
 @interface FCDeflatedHeadline : NSObject <FCHeadlineProviding>
 {
@@ -97,6 +97,7 @@
 @property(readonly, nonatomic) long long backendArticleVersion;
 @property(readonly, nonatomic) long long publisherArticleVersion;
 @property(readonly, copy, nonatomic) NSDate *publishDate;
+@property(copy, nonatomic) FCHeadlineExperimentalTitleMetadata *experimentalTitleMetadata;
 @property(readonly, copy, nonatomic) NSString *titleCompact;
 @property(readonly, copy, nonatomic) NSString *title;
 @property(readonly, copy, nonatomic) NSString *primaryAudience;

@@ -14,6 +14,7 @@
 {
     MTMaterialSettingsInterpolator *_settingsInterpolator;
     _MTBackdropView *_backdropView;
+    UIView *_reducedTransparencyBackdropReplacementView;
     UIView *_baseOverlayView;
     UIView *_primaryOverlayView;
     UIView *_secondaryOverlayView;
@@ -32,6 +33,7 @@
 + (id)materialViewWithRecipe:(long long)arg1 options:(unsigned long long)arg2;
 + (id)materialViewWithRecipe:(long long)arg1 options:(unsigned long long)arg2 initialWeighting:(double)arg3;
 + (void)initialize;
++ (double)highlightAlpha;
 + (id)materialViewWithSettings:(id)arg1 options:(unsigned long long)arg2 initialWeighting:(double)arg3 scaleAdjustment:(CDUnknownBlockType)arg4;
 + (id)materialViewWithRecipe:(long long)arg1 options:(unsigned long long)arg2 initialWeighting:(double)arg3 scaleAdjustment:(CDUnknownBlockType)arg4;
 @property(retain, nonatomic) UIViewFloatAnimatableProperty *backdropFloatAnimatableProperty; // @synthesize backdropFloatAnimatableProperty=_backdropFloatAnimatableProperty;

@@ -22,6 +22,8 @@
 - (double)_doubleValueForKey:(id)arg1 usingDefaultValue:(double)arg2;
 - (_Bool)_boolValueForKey:(id)arg1 usingDefaultValue:(_Bool)arg2;
 @property(readonly, nonatomic) _Bool computeNowPlayingApplication;
+@property(readonly, nonatomic) double pauseWhileOnLockScreenTimeout;
+@property(readonly, nonatomic) double pausedLockScreenTimeout;
 @property(readonly, nonatomic) double nowPlayingApplicationTimeout;
 @property(retain, nonatomic) NSArray *connectedClientPIDs;
 @property(readonly, nonatomic) _Bool useGenericTransportForHostedEndpoints;

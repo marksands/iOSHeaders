@@ -7,13 +7,13 @@
 #import "UIColor.h"
 
 @interface UIColor (ActivitySharing)
-+ (id)as_competitionMessageBubblePlatterGold;
-+ (id)as_competitionPlatterGold;
 + (id)as_colorForParticipant:(long long)arg1 competition:(id)arg2;
-+ (id)as_competitionNotificationAccentGold;
++ (id)as_competitionGraphBackgroundIndicatorGold;
 + (id)as_competitionButtonGold;
++ (id)as_competitionNotificationAccentGold;
 + (id)as_competitionNotificationPlatterGold;
 + (id)as_competitionFriendListPlatterGold;
++ (id)as_brightCompetitionGold;
 + (id)as_darkCompetitionGold;
 + (id)as_lightCompetitionGold;
 @end

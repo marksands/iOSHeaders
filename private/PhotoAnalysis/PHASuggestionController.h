@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, PGManager;
+@class NSArray, NSMutableArray, NSObject<OS_os_log>, PGManager;
 
 @interface PHASuggestionController : NSObject
 {
     PGManager *_graphManager;
+    NSObject<OS_os_log> *_loggingConnection;
     NSMutableArray *_existingSuggestions;
     NSMutableArray *_existingSharingSuggestions;
     NSArray *_existingMemories;
@@ -32,6 +33,9 @@
 - (void)processExistingSuggestionsWithOptions:(id)arg1;
 @property(readonly, nonatomic) NSArray *existingSuggestions;
 - (id)initWithGraphManager:(id)arg1;
+- (void)recordCreatedSuggestions:(id)arg1 duringSession:(id)arg2;
+- (void)recordDeletedSuggestions:(id)arg1;
+- (void)recordRetiredSuggestions:(id)arg1;
 
 @end
 

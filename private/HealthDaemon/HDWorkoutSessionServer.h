@@ -80,6 +80,7 @@
 @property(readonly, nonatomic) id <HDWorkoutDataAccumulator> workoutDataAccumulator;
 - (void)generateError:(id)arg1;
 - (void)generateEvent:(id)arg1;
+- (void)finishAggregationWithDate:(id)arg1;
 - (void)finish;
 - (void)endHeartRateRecovery;
 - (void)autoResumeWithDate:(id)arg1;

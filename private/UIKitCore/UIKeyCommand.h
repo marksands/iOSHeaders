@@ -43,6 +43,7 @@
 @property(readonly, nonatomic) long long modifierFlags; // @synthesize modifierFlags=_modifierFlags;
 @property(readonly, nonatomic) NSString *input; // @synthesize input=_input;
 - (void).cxx_destruct;
+- (id)description;
 - (void)_setViewControllerForSegue:(id)arg1;
 - (id)_controllerForSegue;
 - (id)_segueIdentifier;

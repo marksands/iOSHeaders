@@ -8,18 +8,21 @@
 
 #import "AVTAvatarAttributeEditorLayout.h"
 
-@class UIColor;
+@class NSString, UIColor;
 
 @interface AVTAvatarAttributeEditorLayout : NSObject <AVTAvatarAttributeEditorLayout>
 {
     double _screenScale;
+    NSString *_contentSizeCategory;
     struct CGSize _containerSize;
     struct UIEdgeInsets _edgeInsets;
 }
 
+@property(readonly, copy, nonatomic) NSString *contentSizeCategory; // @synthesize contentSizeCategory=_contentSizeCategory;
 @property(readonly, nonatomic) double screenScale; // @synthesize screenScale=_screenScale;
 @property(readonly, nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
 @property(readonly, nonatomic) struct CGSize containerSize; // @synthesize containerSize=_containerSize;
+- (void).cxx_destruct;
 - (void)raiseExceptionForPropertyString:(id)arg1;
 @property(readonly, nonatomic) UIColor *backgroundColor;
 @property(readonly, nonatomic) struct UIEdgeInsets attributesContentViewScrollIndicatorInsets;

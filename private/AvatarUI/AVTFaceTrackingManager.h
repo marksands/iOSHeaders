@@ -14,10 +14,12 @@
 @interface AVTFaceTrackingManager : NSObject <AVTViewFaceTrackingDelegate, AVTUIRaiseGestureManagerDelegate>
 {
     _Bool _faceTrackingManagementPaused;
+    _Bool _shouldRecheckLowLightState;
     AVTUserInfoView *_userInfoView;
     AVTUIEnvironment *_environment;
     AVTUIRaiseGestureManager *_raiseGestureManager;
     AVTView *_avatarView;
+    NSTimer *_lowLightLockoutTimer;
     NSTimer *_trackingLostMessageTimer;
     NSTimer *_pauseTrackingTimer;
 }
@@ -25,6 +27,8 @@
 + (double)desiredUserInfoLabelAlphaForFaceTrackingState:(_Bool)arg1;
 @property(retain, nonatomic) NSTimer *pauseTrackingTimer; // @synthesize pauseTrackingTimer=_pauseTrackingTimer;
 @property(retain, nonatomic) NSTimer *trackingLostMessageTimer; // @synthesize trackingLostMessageTimer=_trackingLostMessageTimer;
+@property(nonatomic) _Bool shouldRecheckLowLightState; // @synthesize shouldRecheckLowLightState=_shouldRecheckLowLightState;
+@property(retain, nonatomic) NSTimer *lowLightLockoutTimer; // @synthesize lowLightLockoutTimer=_lowLightLockoutTimer;
 @property(readonly, nonatomic) AVTView *avatarView; // @synthesize avatarView=_avatarView;
 @property(readonly, nonatomic) AVTUIRaiseGestureManager *raiseGestureManager; // @synthesize raiseGestureManager=_raiseGestureManager;
 @property(readonly, nonatomic) AVTUIEnvironment *environment; // @synthesize environment=_environment;
@@ -36,6 +40,7 @@
 - (void)avatarViewFaceTrackingSessionInterruptionDidBegin:(id)arg1;
 - (void)avatarView:(id)arg1 faceTrackingSessionFailedWithError:(id)arg2;
 - (void)avatarView:(id)arg1 didUpdateWithLowLightStatus:(_Bool)arg2;
+- (void)cancelLowLightTimer;
 - (void)avatarView:(id)arg1 didUpdateWithFaceTrackingStatus:(_Bool)arg2;
 - (id)userInfoStringForCurrentTrackingState;
 - (void)updateForPausingTracking;
@@ -45,6 +50,7 @@
 - (void)updateUserInfoLabelAlphaForFaceTrackingState:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)updateUserInfoLabelAlphaForFaceTrackingState:(_Bool)arg1;
 - (void)resetForResumingTrackingAnimated:(_Bool)arg1;
+- (void)resetForFaceIsTrackedAnimated:(_Bool)arg1;
 - (void)updateUserInfoBackdropForCurrentLabel;
 - (void)resumeFaceTrackingIfNeededAnimated:(_Bool)arg1;
 - (void)tearDown;

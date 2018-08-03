@@ -20,8 +20,8 @@
 - (unsigned char)setAuthorizationStatusByType:(int)arg1 forBundleID:(const struct __CFString *)arg2 orBundlePath:(const struct __CFString *)arg3;
 - (const struct __CFArray *)copyActivityAlarms;
 - (int)getStatusBarIconState;
-- (unsigned char)getStatusBarIconEnabled:(_Bool *)arg1 forEntityClass:(int)arg2;
-- (unsigned char)setStatusBarIconEnabled:(_Bool)arg1 forEntityClass:(int)arg2;
+- (unsigned char)getStatusBarIconEnabled:(_Bool *)arg1 forEntityClass:(unsigned int)arg2;
+- (unsigned char)setStatusBarIconEnabled:(_Bool)arg1 forEntityClass:(unsigned int)arg2;
 - (unsigned char)copyLastLog;
 - (void)setMapMatchingRouteHint:(unsigned long long *)arg1 count:(int)arg2;
 - (unsigned char)getLocationForBundleID:(const struct __CFString *)arg1 orBundlePath:(const struct __CFString *)arg2 dynamicAccuracyReductionEnabled:(unsigned char)arg3 allowsAlteredAccessoryLocations:(unsigned char)arg4 location:(CDStruct_05ee51d2 *)arg5;

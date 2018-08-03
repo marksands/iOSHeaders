@@ -32,6 +32,7 @@
 - (void).cxx_destruct;
 - (void)pingWorkerWithOptions:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
 @property(readonly, getter=isQuiescent) _Bool quiescent;
+- (_Bool)canRunWhenGraphIsLoaded;
 - (id)nextAdditionalJobWithScenario:(unsigned long long)arg1 requestReason:(unsigned long long)arg2;
 - (_Bool)hasAdditionalJobsForScenario:(unsigned long long)arg1 requestReason:(unsigned long long)arg2;
 - (_Bool)stopAcknowledgeDeletionsJob:(id)arg1 error:(id *)arg2;

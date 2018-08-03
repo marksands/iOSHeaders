@@ -51,6 +51,7 @@
 @property(readonly, getter=isImageOrVideo) _Bool imageOrVideo;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 name:(id)arg2 type:(id)arg3 MIMEType:(id)arg4 isContentManaged:(_Bool)arg5 sourceAuditToken:(const CDStruct_4c969caf *)arg6;
+- (id)iconDataForVariant:(int)arg1 withOptions:(int)arg2;
 - (id)applicationsAvailableForOpeningWithTypeDeclarer:(_Bool)arg1 style:(unsigned char)arg2 XPCConnection:(id)arg3 error:(id *)arg4;
 - (id)_boundDocumentProxy;
 

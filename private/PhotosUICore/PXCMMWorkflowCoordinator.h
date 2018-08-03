@@ -28,6 +28,8 @@
 - (id)_createWorkflowViewControllerWithContext:(id)arg1;
 - (void)completeMyMomentViewController:(id)arg1 showPhotoPickerForSession:(id)arg2;
 - (void)didCancelCompleteMyMomentViewController:(id)arg1;
+- (void)startPreloadingTasksForCompleteMyMomentViewController:(id)arg1;
+- (void)_session:(id)arg1 finishedAccepting:(_Bool)arg2 withError:(id)arg3;
 - (id)completeMyMomentViewController:(id)arg1 performSendBackActionForSession:(id)arg2;
 - (id)completeMyMomentViewController:(id)arg1 performActionForSession:(id)arg2;
 - (_Bool)actionPerformer:(id)arg1 dismissViewController:(struct NSObject *)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -38,6 +40,7 @@
 - (void)_completePhotosPickerActionForSession:(id)arg1 withSuccess:(_Bool)arg2 error:(id)arg3;
 - (void)_completePublishForSession:(id)arg1 withURL:(id)arg2 error:(id)arg3;
 - (void)_presentSendBackFlowWithContext:(id)arg1;
+- (void)_didFinishSession:(id)arg1 withState:(unsigned long long)arg2 avoidDismissal:(_Bool)arg3;
 - (void)_didFinishSession:(id)arg1 withState:(unsigned long long)arg2;
 - (void)_performSendBackActionForSession:(id)arg1;
 - (void)_performCleanupActionForSession:(id)arg1;

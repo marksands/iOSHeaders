@@ -43,6 +43,8 @@
 - (void)_handleRemoteConnectionInterrupted:(id)arg1;
 - (id)contentViewControllerForPlugin:(id)arg1;
 - (id)configuredContentViewControllerForPlugin:(id)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillLayoutSubviews;
 - (_Bool)prefersStatusBarHidden;
 - (id)initWithConversation:(id)arg1;

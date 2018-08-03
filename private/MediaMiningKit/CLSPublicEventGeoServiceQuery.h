@@ -18,12 +18,14 @@
     NSDictionary *_parametersByTimeLocationTupleIdentifier;
     id <GEOMapServiceSpatialEventLookupTicket> _ticket;
     NSDictionary *_resolvedPublicEventsForTimeLocationTuples;
+    NSDictionary *_invalidationTokens;
     NSObject<OS_dispatch_queue> *_geoQueue;
 }
 
 + (unsigned long long)maximumBatchSize;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *geoQueue; // @synthesize geoQueue=_geoQueue;
 @property(readonly, nonatomic) _Bool isCancelled; // @synthesize isCancelled=_isCancelled;
+@property(retain, nonatomic) NSDictionary *invalidationTokens; // @synthesize invalidationTokens=_invalidationTokens;
 @property(retain, nonatomic) NSDictionary *resolvedPublicEventsForTimeLocationTuples; // @synthesize resolvedPublicEventsForTimeLocationTuples=_resolvedPublicEventsForTimeLocationTuples;
 @property(readonly, nonatomic) id <GEOMapServiceSpatialEventLookupTicket> ticket; // @synthesize ticket=_ticket;
 @property(readonly, nonatomic) NSDictionary *parametersByTimeLocationTupleIdentifier; // @synthesize parametersByTimeLocationTupleIdentifier=_parametersByTimeLocationTupleIdentifier;

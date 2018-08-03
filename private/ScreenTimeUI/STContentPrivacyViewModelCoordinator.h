@@ -8,7 +8,7 @@
 
 #import "STContentPrivacyViewModelCoordinator.h"
 
-@class NSMutableDictionary, NSNumber, NSString, STContentPrivacyViewModel;
+@class NSManagedObjectID, NSMutableDictionary, NSNumber, NSString, STContentPrivacyViewModel;
 
 @interface STContentPrivacyViewModelCoordinator : NSObject <STContentPrivacyViewModelCoordinator>
 {
@@ -17,10 +17,12 @@
     NSString *_organizationIdentifier;
     NSNumber *_userDSID;
     NSString *_userName;
+    NSManagedObjectID *_userObjectID;
     NSMutableDictionary *_configurationPayloadsByType;
 }
 
 @property(retain, nonatomic) NSMutableDictionary *configurationPayloadsByType; // @synthesize configurationPayloadsByType=_configurationPayloadsByType;
+@property(copy, nonatomic) NSManagedObjectID *userObjectID; // @synthesize userObjectID=_userObjectID;
 @property(copy, nonatomic) NSString *userName; // @synthesize userName=_userName;
 @property(copy, nonatomic) NSNumber *userDSID; // @synthesize userDSID=_userDSID;
 @property(copy, nonatomic) NSString *organizationIdentifier; // @synthesize organizationIdentifier=_organizationIdentifier;

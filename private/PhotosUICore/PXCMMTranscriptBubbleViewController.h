@@ -10,17 +10,15 @@
 #import "PXPhotoLibraryUIChangeObserver.h"
 #import "PXTouchingUIGestureRecognizerDelegate.h"
 
-@class NSError, NSString, NSURL, PHFetchResult, PHPhotoLibrary, PXCMMAssetsProgressListener, PXCMMPreviewAsset, PXCMMPreviewUIImageProvider, PXCMMSpecManager, PXCMMTranscriptBubbleStatusView, PXCMMTranscriptBubbleView;
+@class NSError, NSString, NSURL, PHFetchResult, PHMomentShare, PHPhotoLibrary, PXCMMAssetsProgressListener, PXCMMPreviewAsset, PXCMMPreviewUIImageProvider, PXCMMSpecManager, PXCMMTranscriptBubbleStatusView, PXCMMTranscriptBubbleView;
 
 @interface PXCMMTranscriptBubbleViewController : PXTranscriptBubbleViewController <PXPhotoLibraryUIChangeObserver, PXChangeObserver, PXTouchingUIGestureRecognizerDelegate>
 {
     PHPhotoLibrary *_photoLibrary;
     PHFetchResult *_backingFetchResult;
-    PHFetchResult *_assetFetch;
     PHFetchResult *_keyAssetFetch;
     PXCMMAssetsProgressListener *_progressListener;
     long long _saveInProgressTotal;
-    _Bool _isMomentShareBacked;
     PXCMMTranscriptBubbleView *_bubbleView;
     PXCMMTranscriptBubbleStatusView *_errorStatusView;
     PXCMMTranscriptBubbleStatusView *_loadingStatusView;
@@ -70,14 +68,14 @@
 - (_Bool)_shouldNavigateToContent;
 - (void)_acceptMomentShareIfNeeded:(id)arg1;
 - (void)_autoAcceptMomentShareIfNeeded:(id)arg1;
-- (void)_momentShareURL:(id)arg1 didFailWithError:(id)arg2;
+- (void)_momentShareURL:(id)arg1 fetchDidFailWithError:(id)arg2;
 - (void)_fetchMomentShareFromNetworkURL:(id)arg1;
 - (id)_fetchKeyAssetsFromBackingCollection;
-- (id)_fetchAssetsFromBackingCollection;
 - (_Bool)_canFetchAssetsFromMomentShare:(id)arg1;
 - (id)_debugStatusDescription;
 - (id)_secondaryDescription;
 - (id)_primaryDescription;
+@property(readonly, nonatomic) PHMomentShare *momentShare;
 - (struct CGSize)contentSizeThatFits:(struct CGSize)arg1;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;

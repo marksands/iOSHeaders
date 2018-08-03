@@ -105,6 +105,7 @@
 - (void)startWorkoutSession:(id)arg1;
 - (void)_replaceWorkout:(id)arg1 withWorkout:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)addSamples:(id)arg1 toWorkout:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)supportsHealthRecords;
 - (void)_generatePauseOrResumeRequest:(CDUnknownBlockType)arg1;
 - (void)_generateWorkoutMarkerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_currentWorkoutSnapshotWithCompletion:(CDUnknownBlockType)arg1;

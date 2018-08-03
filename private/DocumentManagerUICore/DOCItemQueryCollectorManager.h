@@ -22,6 +22,8 @@
 - (void)enumerationWasResumed:(id)arg1;
 - (id)registerCollection:(id)arg1 withEnumerationProperties:(id)arg2;
 - (void)collection:(id)arg1 userSearchStringDidChange:(id)arg2;
+- (void)_applicationWillEnterForeground:(id)arg1;
+- (void)_applicationDidEnterBackground:(id)arg1;
 - (id)init;
 
 @end

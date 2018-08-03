@@ -146,6 +146,7 @@
 - (void)rotateOf:(double)arg1;
 - (float)_targetDistance;
 - (float)_translationCoef;
+- (float)_cappedTranslationDelta:(float)arg1;
 - (void)_switchToFreeViewCamera;
 - (void)_installFreeViewCameraIfNeeded;
 - (void)_prepareFreeViewCamera;

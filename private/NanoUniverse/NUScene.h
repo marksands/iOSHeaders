@@ -56,9 +56,8 @@
 - (void)setCamera:(float)arg1 target:up:roll: /* Error: Ran out of types for this method. */;
 - (void)updateFromDateIfNeeded;
 - (id)spheroidOfType:(unsigned long long)arg1;
-- (void)updateSunLocationForDate:(id)arg1 animated:(_Bool)arg2;
-- (void)updateSunLocation;
-@property(retain, nonatomic) NSDate *date; // @dynamic date;
+- (void)updateSunLocationAnimated:(_Bool)arg1;
+@property(readonly, nonatomic) NSDate *date; // @dynamic date;
 - (void)removeAnimation:(id)arg1;
 - (void)removeAllAnimationsFor:(id)arg1 withKeys:(unsigned long long)arg2;
 - (void)addAnimation:(id)arg1;

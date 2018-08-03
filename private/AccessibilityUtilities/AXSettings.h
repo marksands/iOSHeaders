@@ -16,6 +16,7 @@
     _Bool _assistiveTouchInternalOnlyHiddenNubbitModeEnabled;
     _Bool _writeAXLogsToFile;
     _Bool _voiceOverVerbositySpeakCustomActionsHint;
+    _Bool _touchAccommodationsHoldDurationAllowsSwipeGesturesToBypass;
     float _reduceWhitePointLevel;
     double _lastPlatformSwitchTimeResetCount;
     double _lastGuidedAccessTimeLimitResetCount;
@@ -38,6 +39,7 @@
 @property(nonatomic) double lastGuidedAccessTimeLimitResetCount; // @synthesize lastGuidedAccessTimeLimitResetCount=_lastGuidedAccessTimeLimitResetCount;
 @property(nonatomic) double lastPlatformSwitchTimeResetCount; // @synthesize lastPlatformSwitchTimeResetCount=_lastPlatformSwitchTimeResetCount;
 @property(nonatomic) float reduceWhitePointLevel; // @synthesize reduceWhitePointLevel=_reduceWhitePointLevel;
+@property(nonatomic) _Bool touchAccommodationsHoldDurationAllowsSwipeGesturesToBypass; // @synthesize touchAccommodationsHoldDurationAllowsSwipeGesturesToBypass=_touchAccommodationsHoldDurationAllowsSwipeGesturesToBypass;
 @property(nonatomic) _Bool voiceOverVerbositySpeakCustomActionsHint; // @synthesize voiceOverVerbositySpeakCustomActionsHint=_voiceOverVerbositySpeakCustomActionsHint;
 @property(nonatomic) _Bool writeAXLogsToFile; // @synthesize writeAXLogsToFile=_writeAXLogsToFile;
 @property(nonatomic) _Bool assistiveTouchInternalOnlyHiddenNubbitModeEnabled; // @synthesize assistiveTouchInternalOnlyHiddenNubbitModeEnabled=_assistiveTouchInternalOnlyHiddenNubbitModeEnabled;
@@ -98,8 +100,9 @@
 @property(nonatomic) long long touchAccommodationsTapActivationMethod;
 @property(nonatomic) double touchAccommodationsIgnoreRepeatDuration;
 @property(nonatomic) _Bool touchAccommodationsIgnoreRepeatEnabled;
-@property(nonatomic) long long touchAccommodationsHoldDurationSwipeGestureSensitivity;
-@property(nonatomic) _Bool touchAccommodationsHoldDurationAllowsSwipeGesturesToBypass;
+@property(readonly, nonatomic) long long touchAccommodationsHoldDurationSwipeGestureSensitivity;
+@property(nonatomic) double touchAccommodationsSwipeGestureMinimumDistance;
+@property(nonatomic) _Bool touchAccommodationsAllowsSwipeGesturesToBypass;
 @property(nonatomic) double touchAccommodationsHoldDuration;
 @property(nonatomic) _Bool touchAccommodationsHoldDurationEnabled;
 @property(nonatomic) _Bool touchAccommodationsUsageConfirmed;

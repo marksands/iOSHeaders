@@ -26,8 +26,10 @@
     unsigned long long _maximumNumberOfChangesToFetch;
     unsigned long long _maximumNumberOfMutationsPerChange;
     unsigned long long _mode;
+    PHPersistentChangeToken *_lastReadToken;
 }
 
+@property(retain, nonatomic) PHPersistentChangeToken *lastReadToken; // @synthesize lastReadToken=_lastReadToken;
 @property unsigned long long mode; // @synthesize mode=_mode;
 @property(readonly, nonatomic) unsigned long long maximumNumberOfMutationsPerChange; // @synthesize maximumNumberOfMutationsPerChange=_maximumNumberOfMutationsPerChange;
 @property(readonly, nonatomic) unsigned long long maximumNumberOfChangesToFetch; // @synthesize maximumNumberOfChangesToFetch=_maximumNumberOfChangesToFetch;

@@ -56,6 +56,8 @@
     NSData *_localFrequency;
     NSData *_remoteFrequency;
     long long _videoStreamToken;
+    long long _inputAudioPowerSpectrumToken;
+    long long _outputAudioPowerSpectrumToken;
     long long _remoteScreenOrientation;
     NSUUID *_callGroupUUID;
     NSDictionary *_providerContext;
@@ -93,6 +95,8 @@
 @property(copy, nonatomic) NSUUID *callGroupUUID; // @synthesize callGroupUUID=_callGroupUUID;
 @property(nonatomic) long long remoteScreenOrientation; // @synthesize remoteScreenOrientation=_remoteScreenOrientation;
 - (_Bool)requiresRemoteVideo;
+@property(nonatomic) long long outputAudioPowerSpectrumToken; // @synthesize outputAudioPowerSpectrumToken=_outputAudioPowerSpectrumToken;
+@property(nonatomic) long long inputAudioPowerSpectrumToken; // @synthesize inputAudioPowerSpectrumToken=_inputAudioPowerSpectrumToken;
 @property(nonatomic) long long videoStreamToken; // @synthesize videoStreamToken=_videoStreamToken;
 @property(nonatomic) float remoteMeterLevel; // @synthesize remoteMeterLevel=_remoteMeterLevel;
 @property(nonatomic) float localMeterLevel; // @synthesize localMeterLevel=_localMeterLevel;

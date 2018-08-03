@@ -66,6 +66,7 @@
 - (void)logRequestingPreLoadingTask:(id)arg1 forIndex:(unsigned long long)arg2 section:(unsigned long long)arg3;
 - (void)logPreLoadingNeededForIndex:(unsigned long long)arg1 section:(unsigned long long)arg2;
 - (void)logErrorFetchingRecords:(id)arg1;
+- (void)logErrorDuplicatingThumbnailsForIdentifier:(id)arg1 error:(id)arg2;
 - (void)logErrorDeletingThumbnailsForIdentifier:(id)arg1 error:(id)arg2;
 - (void)logGeneratingImageError:(id)arg1;
 - (void)logGeneratingImageForRecord:(id)arg1 scope:(id)arg2 type:(long long)arg3;

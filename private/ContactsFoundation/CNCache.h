@@ -14,7 +14,7 @@
     id <CNScheduler> _resourceScheduler;
     NSMutableDictionary *_storage;
     NSMutableArray *_didEvictHandlers;
-    NSArray *_didEvictValuesToSend;
+    NSArray *_evictedKeysAndValues;
 }
 
 + (id)boundingStrategyWithTTL:(double)arg1 timeProvider:(id)arg2;
@@ -24,13 +24,13 @@
 + (id)atomicCacheScheduler;
 + (id)atomicCache;
 + (id)cache;
-@property(copy, nonatomic) NSArray *didEvictValuesToSend; // @synthesize didEvictValuesToSend=_didEvictValuesToSend;
+@property(copy, nonatomic) NSArray *evictedKeysAndValues; // @synthesize evictedKeysAndValues=_evictedKeysAndValues;
 @property(readonly, nonatomic) NSMutableArray *didEvictHandlers; // @synthesize didEvictHandlers=_didEvictHandlers;
 @property(readonly, nonatomic) NSMutableDictionary *storage; // @synthesize storage=_storage;
 @property(readonly, nonatomic) id <CNScheduler> resourceScheduler; // @synthesize resourceScheduler=_resourceScheduler;
 @property(readonly, copy, nonatomic) NSArray *boundingStrategies; // @synthesize boundingStrategies=_boundingStrategies;
 - (void).cxx_destruct;
-- (void)callDidEvictHandlers;
+- (void)callDidEvictHandlersIfNecessary;
 - (void)resourceLock_evictObjectsForKeys:(id)arg1;
 - (void)resourceLock_evictObjectForKey:(id)arg1;
 - (void)resourceLock_validateAllKeys;
@@ -42,6 +42,7 @@
 @property(readonly, copy) NSArray *allObjects;
 @property(readonly, copy) NSArray *allKeys;
 - (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
+- (void)resourceLock_setObject:(id)arg1 forKey:(id)arg2;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKeyedSubscript:(id)arg1;
 - (id)objectForKey:(id)arg1 onCacheMiss:(CDUnknownBlockType)arg2;

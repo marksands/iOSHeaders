@@ -35,13 +35,18 @@
 - (void)livePhotoEffectRenderingFailed;
 - (void)livePhotoEffectOptionsAppeared;
 - (void)logNavigationListViewTapWithKey:(struct __CFString *)arg1;
+- (void)logSearchNumberOfTermsInSearchFieldOnSuccessfulSearch:(unsigned long long)arg1;
+- (void)logSearchPerSessionNextTokenSuggestionTapped:(_Bool)arg1 wordCompletionTapped:(_Bool)arg2;
 - (void)logSearchSuccessfulResult:(_Bool)arg1;
 - (void)logSearchSiriFoundResults:(_Bool)arg1;
 - (void)logSearchTapSearch;
 - (void)logSearchZeroKeywordSearch;
 - (void)logSearchNextTokenSuggestionTapped;
+- (void)logSearchWordCompletionTapped;
 - (void)logSearchWordEmbeddingSelected;
 - (void)logSearchWordEmbeddingsPresented;
+- (void)logZKSectionVisible:(_Bool)arg1 forSectionType:(long long)arg2;
+- (void)logTappedZKItemType:(long long)arg1;
 - (void)logSearchResultType:(unsigned long long)arg1;
 - (void)logForYouInboxItemSelectedWithType:(long long)arg1;
 - (void)logForYouInboxViewedCount;

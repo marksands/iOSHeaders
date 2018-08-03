@@ -53,7 +53,7 @@
 - (void)didMoveToWindow;
 - (id)_scrollView;
 - (id)_newImageView;
-- (void)_setupContentView;
+- (void)_setupContentViewWithOptions:(unsigned long long)arg1;
 - (double)_parallaxFactorWithZoomScale:(double)arg1 contentOffset:(struct CGPoint)arg2;
 - (double)_scrollViewParallaxFactor;
 - (double)parallaxFactor;

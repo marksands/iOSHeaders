@@ -23,6 +23,7 @@
 - (_Bool)_saveModelToURL:(id)arg1 error:(id *)arg2;
 - (id)_predictWithFeatures:(id)arg1;
 - (void)_trainWithFeatures:(id)arg1 positiveEvent:(id)arg2;
+- (void)_clearCache;
 - (void)trainWithFeatures:(id)arg1 positiveEvent:(id)arg2 interaction:(id)arg3;
 - (_Bool)requiresDirectory;
 - (id)initWithFeatureSet:(id)arg1 interactionDescriptors:(id)arg2;

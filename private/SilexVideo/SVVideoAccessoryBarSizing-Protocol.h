@@ -6,8 +6,9 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @protocol SVVideoAccessoryBarSizing <NSObject>
-@property(readonly, nonatomic) double accessoryBarMaxWidth;
-@property(readonly, nonatomic) double accessoryBarHeight;
+- (double)accessoryBarHeightForContentSizeCategory:(NSString *)arg1;
 @end
 

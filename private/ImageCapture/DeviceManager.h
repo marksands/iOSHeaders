@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 
 - (void)postNotification:(id)arg1;
 - (void)postCommandCompletionNotification:(id)arg1;
+- (long long)getDataOfFile:(id)arg1 fromDevice:(id)arg2 withOptions:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)enumerateContent;
 - (void)aptpRetrieveDataForFilesImp:(id)arg1;
 - (void)aptpRequestDataForFilesImp:(id)arg1;

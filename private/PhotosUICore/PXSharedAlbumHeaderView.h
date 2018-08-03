@@ -10,8 +10,10 @@
 
 @interface PXSharedAlbumHeaderView : UIView
 {
+    _Bool _useInPopover;
     unsigned long long _textColorStyle;
-    long long _tappableArea;
+    unsigned long long _tappableArea;
+    unsigned long long _layoutStyle;
     PXFeedSectionInfo *_sectionInfo;
     UIImage *_headerImage;
     UIImageView *_headerImageView;
@@ -27,8 +29,10 @@
 @property(retain, nonatomic) UIImageView *headerImageView; // @synthesize headerImageView=_headerImageView;
 @property(retain, nonatomic) UIImage *headerImage; // @synthesize headerImage=_headerImage;
 @property(retain, nonatomic) PXFeedSectionInfo *sectionInfo; // @synthesize sectionInfo=_sectionInfo;
-@property(nonatomic) long long tappableArea; // @synthesize tappableArea=_tappableArea;
+@property(nonatomic) unsigned long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
+@property(nonatomic) unsigned long long tappableArea; // @synthesize tappableArea=_tappableArea;
 @property(nonatomic) unsigned long long textColorStyle; // @synthesize textColorStyle=_textColorStyle;
+@property(nonatomic) _Bool useInPopover; // @synthesize useInPopover=_useInPopover;
 - (void).cxx_destruct;
 - (struct CGSize)_performLayoutInRect:(struct CGRect)arg1 updateSubviewFrames:(_Bool)arg2;
 - (void)_updateUI;
@@ -38,11 +42,11 @@
 - (void)_updateTitle;
 - (void)_updateAvatar;
 - (void)_updateHeaderImage;
+- (void)_updateBackgroundColor;
 - (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (void)setTextColor:(unsigned long long)arg1;
 - (id)init;
 
 @end

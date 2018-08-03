@@ -84,7 +84,6 @@ __attribute__((visibility("hidden")))
 - (id)_suggestedProposalForPosition:(id)arg1 inSession:(id)arg2 allowCancel:(_Bool)arg3;
 - (void)_updateDropCaretToPosition:(id)arg1;
 - (id)_dropRequestWithPosition:(id)arg1 inSession:(id)arg2;
-- (void)_viewBecomeFirstResponderIfNeededAfterDrop;
 - (long long)_dropInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dropInteraction:(id)arg1 item:(id)arg2 willAnimateDropWithAnimator:(id)arg3;
 - (id)dropInteraction:(id)arg1 previewForDroppingItem:(id)arg2 withDefault:(id)arg3;

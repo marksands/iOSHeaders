@@ -14,6 +14,7 @@
     _Bool _showNotYetImportedItems;
     _Bool _alreadyImportedItemsSelectable;
     _Bool _needsFilterUpdate;
+    _Bool _forceAlreadyImportedCenterTruncation;
     id <PUImportAssetsDataSourceManagerDelegate> _delegate;
     PUImportAssetsDataSource *_unfilteredDataSource;
     NSSet *_visibleImportAssetIdentifiers;
@@ -30,6 +31,7 @@
 + (void)addModels:(id)arg1 toAssetCollections:(id)arg2 assetCollectionsById:(id)arg3;
 + (_Bool)assetCollectionsArray:(id)arg1 isEqualToAssetCollectionsArray:(id)arg2;
 + (void)copyFromAssetCollections:(id)arg1 toAssetCollections:(id *)arg2 assetCollectionsById:(id *)arg3;
+@property(nonatomic) _Bool forceAlreadyImportedCenterTruncation; // @synthesize forceAlreadyImportedCenterTruncation=_forceAlreadyImportedCenterTruncation;
 @property(nonatomic) long long maxAlreadyImportedItems; // @synthesize maxAlreadyImportedItems=_maxAlreadyImportedItems;
 @property(nonatomic) _Bool needsFilterUpdate; // @synthesize needsFilterUpdate=_needsFilterUpdate;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *modelQueue; // @synthesize modelQueue=_modelQueue;

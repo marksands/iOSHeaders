@@ -28,7 +28,6 @@
 - (void)manageVoiceShortcutViewController:(id)arg1 didDeleteVoiceShortcut:(id)arg2;
 - (void)manageVoiceShortcutViewController:(id)arg1 didSaveVoiceShortcut:(id)arg2;
 - (void)manageVoiceShortcutViewControllerDidCancel:(id)arg1;
-- (unsigned long long)supportedInterfaceOrientations;
 - (void)viewDidLoad;
 - (id)initWithVoiceShortcut:(id)arg1 voiceShortcutClient:(id)arg2;
 

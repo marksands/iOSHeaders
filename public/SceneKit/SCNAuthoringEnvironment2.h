@@ -27,6 +27,7 @@
     SCNRenderer *_renderer;
     SCNGeometry *_lightGeometry;
     SCNGeometry *_cameraFrustumGeometry;
+    SCNGeometry *_cameraOrthographicFrustumGeometry;
     SCNGeometry *_cameraGeometry;
     SCNGeometry *_cameraNearPlaneGeometry;
     SCNGeometry *_particlesGeometry;
@@ -77,6 +78,7 @@
 - (void)addCameraNode:(id)arg1;
 - (id)fieldGeometry;
 - (id)cameraNearPlaneGeometry;
+- (id)cameraOrthographicFrustumGeometry;
 - (id)cameraFrustumGeometry;
 - (id)cameraGeometry;
 - (void)addParticlesNode:(id)arg1;

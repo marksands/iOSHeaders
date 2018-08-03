@@ -10,10 +10,15 @@
 {
 }
 
++ (void)openApplicationWithBundleIdentifier:(id)arg1;
++ (id)richTextForBlockedAppName:(id)arg1 style:(unsigned long long)arg2;
++ (_Bool)bundleIdentifierIsBlockedForScreenTimeExpiration:(id)arg1;
++ (_Bool)resultIsSiriAction:(id)arg1;
 + (_Bool)appIsValidForBundleIdentifier:(id)arg1;
 + (id)stringForSFRichTextArray:(id)arg1;
 + (id)stringForSFRichText:(id)arg1;
 + (id)localizedStringForKey:(id)arg1;
++ (void)playNegativeHaptic;
 + (void)requestDeviceUnlockWithSuccessHandler:(CDUnknownBlockType)arg1;
 + (_Bool)deviceIsAuthenticated;
 + (id)sendFeedbackForPunchout:(id)arg1 toListener:(id)arg2 fromCardSection:(id)arg3 triggerEvent:(unsigned long long)arg4;

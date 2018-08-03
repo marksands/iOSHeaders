@@ -10,6 +10,8 @@
 {
 }
 
++ (unsigned long long)advancedStatusVerifiedPersonLimit;
++ (unsigned long long)advancedStatusMergeCandidateLimit;
 + (_Bool)isBlacklistDisabled;
 + (unsigned long long)faceIDModelRebuildPeriod;
 + (_Bool)faceIDModelAlwaysRebuild;

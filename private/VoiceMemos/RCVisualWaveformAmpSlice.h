@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class CAShapeLayer;
+@class CAShapeLayer, NSMutableSet;
 
 __attribute__((visibility("hidden")))
 @interface RCVisualWaveformAmpSlice : NSObject
 {
+    NSMutableSet *_segments;
     _Bool _needsPathUpdate;
     double _sliceIndex;
     double _amplitude;
@@ -24,6 +25,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double amplitude; // @synthesize amplitude=_amplitude;
 @property(nonatomic) double sliceIndex; // @synthesize sliceIndex=_sliceIndex;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool segmentsAreRendered;
+- (void)clearSegments;
+- (void)addSegment:(id)arg1;
 - (id)init;
 - (id)initWithIndex:(double)arg1 amplitude:(double)arg2;
 

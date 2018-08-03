@@ -17,13 +17,14 @@
 #import "HFSoftwareUpdateControllerObserver.h"
 #import "HFSoftwareUpdateObserver.h"
 #import "HFStateDumpBuildable.h"
+#import "HFSymptomFixSessionObserver.h"
 #import "HFSymptomsHandlerObserver.h"
 #import "HFTemperatureUnitObserver.h"
 #import "HFUserObserver.h"
 
 @class HFItem, HFItemManagerBatchedDelegateAdapter, HMHome, NAFuture, NSArray, NSMapTable, NSMutableDictionary, NSMutableSet, NSSet, NSString;
 
-@interface HFItemManager : NSObject <HFStateDumpBuildable, HFHomeManagerObserver, HFHomeObserver, HFAccessoryObserver, HFResidentDeviceObserver, HFCameraObserver, HFMediaSessionObserver, HFMediaObjectObserver, HFSoftwareUpdateControllerObserver, HFSoftwareUpdateObserver, HFSymptomsHandlerObserver, HFUserObserver, HFTemperatureUnitObserver, HFItemUpdating>
+@interface HFItemManager : NSObject <HFStateDumpBuildable, HFHomeManagerObserver, HFHomeObserver, HFAccessoryObserver, HFResidentDeviceObserver, HFCameraObserver, HFMediaSessionObserver, HFMediaObjectObserver, HFSoftwareUpdateControllerObserver, HFSoftwareUpdateObserver, HFSymptomsHandlerObserver, HFUserObserver, HFSymptomFixSessionObserver, HFTemperatureUnitObserver, HFItemUpdating>
 {
     _Bool _hasRequestedFirstUpdate;
     id <HFItemManagerDelegate> _delegate;
@@ -211,8 +212,7 @@
 - (void)home:(id)arg1 willExecuteActionSets:(id)arg2;
 - (void)home:(id)arg1 willWriteValuesForCharacteristics:(id)arg2;
 - (void)home:(id)arg1 willReadValuesForCharacteristics:(id)arg2;
-- (void)symptomsHandler:(id)arg1 didUpdateCanInitiateFix:(long long)arg2;
-- (void)symptomsHandler:(id)arg1 didUpdateFixState:(long long)arg2;
+- (void)session:(id)arg1 didChangeState:(long long)arg2;
 - (void)symptomsHandler:(id)arg1 didUpdateSymptoms:(id)arg2;
 - (void)accessorySettings:(id)arg1 didWriteValueForSettings:(id)arg2 failedSettings:(id)arg3;
 - (void)accessorySettings:(id)arg1 willWriteValueForSettings:(id)arg2;

@@ -22,7 +22,10 @@
 }
 
 + (unsigned long long)allowanceTypeForUsageItemType:(unsigned long long)arg1;
++ (id)usageLimitTypeForAllowanceType:(unsigned long long)arg1;
++ (unsigned long long)allowanceTypeForUsageLimitType:(id)arg1;
 + (double)timeIntervalForAllowanceDateComponents:(id)arg1;
++ (id)dateComponentsForDuration:(double)arg1;
 + (id)displayNameForAllowance:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *iCloudPredicateUserDSIDs; // @synthesize iCloudPredicateUserDSIDs=_iCloudPredicateUserDSIDs;
 @property(nonatomic) unsigned long long behaviorOption; // @synthesize behaviorOption=_behaviorOption;
@@ -39,6 +42,7 @@
 - (void)_stAllowanceInitByParsingFamilyBudgetAllPredicate:(id)arg1;
 - (void)_stAllowanceInitByParsingPersonalBudgetPredicate:(id)arg1;
 - (id)initWithBudget:(id)arg1;
+- (id)initWithBlueprint:(id)arg1;
 - (id)init;
 
 @end

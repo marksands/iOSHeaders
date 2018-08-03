@@ -17,7 +17,6 @@
     id _boostContext;
     NSString *_uniqueID;
     NSString *_accountID;
-    NSString *_serviceName;
     NSSet *_destinations;
     NSString *_fromID;
     IDSBaseSocketPairConnection *_unreliableSocketPairConnection;
@@ -65,6 +64,7 @@
 - (void)sessionDidJoinGroup:(id)arg1 participantsInfo:(id)arg2 error:(id)arg3;
 - (void)groupSessionEnded:(id)arg1 withReason:(unsigned int)arg2 error:(id)arg3;
 - (void)groupSessionDidTerminate:(id)arg1;
+- (void)session:(id)arg1 didReceiveReport:(id)arg2;
 - (void)requestActiveParticipants;
 @property(readonly, nonatomic) unsigned int sessionEndedReason;
 - (void)setPreferences:(id)arg1;
@@ -81,7 +81,6 @@
 - (void)daemonDisconnected;
 - (void)dealloc;
 - (id)initWithAccount:(id)arg1 destinations:(id)arg2 options:(id)arg3 delegateContext:(id)arg4;
-- (long long)maxClientContextDataSize;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

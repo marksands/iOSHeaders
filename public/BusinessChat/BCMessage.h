@@ -53,6 +53,7 @@
 @property(readonly, nonatomic) NSData *data;
 @property(readonly, nonatomic) NSURL *url;
 @property(readonly, nonatomic) NSDictionary *dictionaryValue;
+- (void)updateTitles;
 - (id)initFromOriginalMessage:(id)arg1 rootKey:(id)arg2 rootObject:(id)arg3 receivedMessage:(id)arg4 replyMessage:(id)arg5;
 - (id)initWithData:(id)arg1 url:(id)arg2 isFromMe:(_Bool)arg3;
 - (id)initWithData:(id)arg1 url:(id)arg2 messageGUID:(id)arg3 isFromMe:(_Bool)arg4;

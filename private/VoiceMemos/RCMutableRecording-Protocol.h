@@ -9,6 +9,7 @@
 @class CLLocation, NSDate, NSString;
 
 @protocol RCMutableRecording <RCRecording>
+@property(nonatomic) _Bool editing;
 @property(nonatomic) _Bool manuallyRenamed;
 @property(nonatomic) _Bool playable;
 @property(nonatomic) _Bool pendingRestore;

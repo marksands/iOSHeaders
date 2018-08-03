@@ -145,6 +145,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isEqualToAppLibrary:(id)arg1;
 @property(readonly, nonatomic) _Bool isGreedy;
 - (_Bool)hasUbiquityClientsConnected;
+- (void)didUpdateDocumentScopePublic;
 - (void)clearStateBits:(unsigned int)arg1;
 - (_Bool)setStateBits:(unsigned int)arg1;
 - (unsigned int)_activateState:(unsigned int)arg1 origState:(unsigned int)arg2;

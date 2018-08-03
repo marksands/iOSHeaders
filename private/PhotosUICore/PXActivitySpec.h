@@ -16,13 +16,14 @@
 + (id)_activityPosterTextAttributes;
 + (id)_activityHeaderWhiteTextAttributes;
 + (id)_activityHeaderTextAttributes;
++ (id)invitationParentViewBackgroundColor:(_Bool)arg1;
++ (id)activityAlbumTitleTextAttributesForTextColorStyle:(unsigned long long)arg1;
++ (id)activityPosterTextAttributesForTextColorStyle:(unsigned long long)arg1;
++ (id)activityHeaderTextAttributesForTextColorStyle:(unsigned long long)arg1;
 + (id)sharedAlbumActivityGadgetCaptionTextAttributes;
 + (id)activityDateSubtitleTextAttributes;
 + (id)activityCaptionTextEmphasizedAttributes;
 + (id)activityCaptionTextAttributes;
-+ (id)activityAlbumTitleTextAttributesForTextColorStyle:(unsigned long long)arg1;
-+ (id)activityPosterTextAttributesForTextColorStyle:(unsigned long long)arg1;
-+ (id)activityHeaderTextAttributesForTextColorStyle:(unsigned long long)arg1;
 + (id)invitationReportJunkLinkAttributes;
 + (id)invitationReportJunkTextAttributes;
 + (id)invitationAlbumTitleTextAttributes;

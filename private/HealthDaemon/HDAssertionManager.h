@@ -10,7 +10,7 @@
 
 @interface HDAssertionManager : NSObject
 {
-    NSObject<OS_dispatch_queue> *_queue;
+    struct os_unfair_lock_s _lock;
     NSObject<OS_dispatch_queue> *_notificationQueue;
     NSMutableDictionary *_assertionRecordsByIdentifier;
     NSMutableDictionary *_observerSetsByAssertionIdentifier;
@@ -21,7 +21,7 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *assertionExpirationQueue; // @synthesize assertionExpirationQueue=_assertionExpirationQueue;
 - (void).cxx_destruct;
 - (void)_postNotification:(id)arg1 forAssertion:(id)arg2;
-- (void)_queue_enumerateActiveAssertionsWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (void)_lock_enumerateActiveAssertionsWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)_releaseAssertion:(id)arg1;
 - (void)invalidate;
 - (void)removeObserver:(id)arg1;

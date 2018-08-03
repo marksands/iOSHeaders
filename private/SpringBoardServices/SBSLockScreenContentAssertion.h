@@ -16,6 +16,7 @@
     CDUnknownBlockType _errorHandler;
 }
 
++ (_Bool)_isRestrictedDevice;
 + (id)acquireContentProviderAssertionForType:(unsigned long long)arg1 slot:(id)arg2 identifier:(id)arg3 errorHandler:(CDUnknownBlockType)arg4;
 @property(copy, nonatomic, getter=_errorHandler, setter=_setErrorHandler:) CDUnknownBlockType errorHandler; // @synthesize errorHandler=_errorHandler;
 @property(retain, nonatomic) SBSLockScreenContentAction *action; // @synthesize action=_action;

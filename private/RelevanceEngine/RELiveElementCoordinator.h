@@ -47,6 +47,7 @@
 - (void)elementDataSourceController:(id)arg1 didReloadElement:(id)arg2;
 - (void)elementDataSourceController:(id)arg1 didAddElement:(id)arg2 toSection:(id)arg3;
 - (void)elementDataSourceController:(id)arg1 performBatchUpdates:(CDUnknownBlockType)arg2;
+- (id)_predictionForElement:(id)arg1;
 - (id)predictionForElementAtPath:(id)arg1;
 - (void)removeElement:(id)arg1;
 - (void)addElement:(id)arg1 toSection:(id)arg2;

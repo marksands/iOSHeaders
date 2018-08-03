@@ -25,8 +25,8 @@
 
 @property(retain, nonatomic) NSArray *searchResults; // @synthesize searchResults=_searchResults;
 @property(nonatomic) __weak id <CPSTemplateViewControllerDelegate> viewControllerDelegate; // @synthesize viewControllerDelegate=_viewControllerDelegate;
-@property(readonly, nonatomic) id <CPTemplateDelegate> templateDelegate; // @synthesize templateDelegate=_templateDelegate;
-@property(readonly, nonatomic) CPTemplate *associatedTemplate; // @synthesize associatedTemplate=_associatedTemplate;
+@property(retain, nonatomic) id <CPTemplateDelegate> templateDelegate; // @synthesize templateDelegate=_templateDelegate;
+@property(retain, nonatomic) CPTemplate *associatedTemplate; // @synthesize associatedTemplate=_associatedTemplate;
 - (void).cxx_destruct;
 - (void)updateSearchResultsForSearchController:(id)arg1;
 - (void)didDismissSearchController:(id)arg1;

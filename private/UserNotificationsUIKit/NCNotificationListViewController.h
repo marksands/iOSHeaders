@@ -8,13 +8,12 @@
 
 #import "NCNotificationListCellDelegate.h"
 #import "NCNotificationListCollectionViewDelegate.h"
-#import "NCNotificationManagementControllerSettingsDelegate.h"
 #import "NCNotificationViewControllerDelegatePrivate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class NCAnimationCoordinator, NCNotificationListCell, NCNotificationViewController, NCTouchEaterGestureRecognizer, NSHashTable, NSMutableArray, NSMutableDictionary, NSString, UIAlertController;
+@class NCAnimationCoordinator, NCNotificationListCell, NCNotificationViewController, NCTouchEaterGestureRecognizer, NSHashTable, NSMutableArray, NSMutableDictionary, NSString;
 
-@interface NCNotificationListViewController : UICollectionViewController <NCNotificationListCellDelegate, UIGestureRecognizerDelegate, NCNotificationViewControllerDelegatePrivate, NCNotificationListCollectionViewDelegate, NCNotificationManagementControllerSettingsDelegate>
+@interface NCNotificationListViewController : UICollectionViewController <NCNotificationListCellDelegate, UIGestureRecognizerDelegate, NCNotificationViewControllerDelegatePrivate, NCNotificationListCollectionViewDelegate>
 {
     _Bool _backgroundBlurred;
     _Bool _needsReloadData;
@@ -26,7 +25,6 @@
     NCNotificationViewController *_notificationViewControllerForSizing;
     NCNotificationViewController *_viewControllerPresentingLongLook;
     NCNotificationViewController *_viewControllerPossiblyPresentingLongLook;
-    UIAlertController *_notificationManagementAlertViewController;
     NSMutableDictionary *_cellsSizesCaches;
     NSMutableDictionary *_cellsSizesCachesSuppressedContent;
     NSHashTable *_observers;
@@ -34,11 +32,11 @@
     NCNotificationListCell *_cellWithRevealedActions;
     NCAnimationCoordinator *_childPreferredContentSizeChangeCoordinatorForCurrentTransaction;
     NSMutableArray *_childPreferredContentSizeChangeCoordinators;
-    CDStruct_bbbec371 _destinationDelegateFlags;
+    CDStruct_021c1d70 _destinationDelegateFlags;
     struct UIEdgeInsets _insetMargins;
 }
 
-@property(nonatomic) CDStruct_bbbec371 destinationDelegateFlags; // @synthesize destinationDelegateFlags=_destinationDelegateFlags;
+@property(nonatomic) CDStruct_021c1d70 destinationDelegateFlags; // @synthesize destinationDelegateFlags=_destinationDelegateFlags;
 @property(nonatomic) CDStruct_27a46a9e userInteractionDelegateFlags; // @synthesize userInteractionDelegateFlags=_userInteractionDelegateFlags;
 @property(retain, nonatomic) NSMutableArray *childPreferredContentSizeChangeCoordinators; // @synthesize childPreferredContentSizeChangeCoordinators=_childPreferredContentSizeChangeCoordinators;
 @property(retain, nonatomic) NCAnimationCoordinator *childPreferredContentSizeChangeCoordinatorForCurrentTransaction; // @synthesize childPreferredContentSizeChangeCoordinatorForCurrentTransaction=_childPreferredContentSizeChangeCoordinatorForCurrentTransaction;
@@ -50,7 +48,6 @@
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) NSMutableDictionary *cellsSizesCachesSuppressedContent; // @synthesize cellsSizesCachesSuppressedContent=_cellsSizesCachesSuppressedContent;
 @property(retain, nonatomic) NSMutableDictionary *cellsSizesCaches; // @synthesize cellsSizesCaches=_cellsSizesCaches;
-@property(retain, nonatomic) UIAlertController *notificationManagementAlertViewController; // @synthesize notificationManagementAlertViewController=_notificationManagementAlertViewController;
 @property(retain, nonatomic) NCNotificationViewController *viewControllerPossiblyPresentingLongLook; // @synthesize viewControllerPossiblyPresentingLongLook=_viewControllerPossiblyPresentingLongLook;
 @property(retain, nonatomic) NCNotificationViewController *viewControllerPresentingLongLook; // @synthesize viewControllerPresentingLongLook=_viewControllerPresentingLongLook;
 @property(readonly, nonatomic) struct UIEdgeInsets insetMargins; // @synthesize insetMargins=_insetMargins;
@@ -60,10 +57,7 @@
 @property(nonatomic) __weak id <NCNotificationListViewControllerUserInteractionDelegate> userInteractionDelegate; // @synthesize userInteractionDelegate=_userInteractionDelegate;
 - (void).cxx_destruct;
 - (_Bool)_isInViewControllerThatHandlesKeyboardAvoidance;
-- (void)_setDeliverQuietly:(_Bool)arg1 forNotificationRequest:(id)arg2 withSectionIdentifier:(id)arg3 subSectionIdentifier:(id)arg4;
-- (void)_setAllowsNotifications:(_Bool)arg1 forNotificationRequest:(id)arg2 withSectionIdentifier:(id)arg3;
-- (void)_presentNotificationManagementViewType:(unsigned long long)arg1 forRequest:(id)arg2 withPresentingViewController:(id)arg3 presentingView:(id)arg4;
-- (id)_sectionSettingsForSectionId:(id)arg1;
+- (id)_sectionSettingsForSectionIdentifier:(id)arg1;
 - (void)setHomeAffordancePanGesture:(id)arg1;
 - (id)homeAffordancePanGesture;
 - (void)setHomeAffordanceVisible:(_Bool)arg1;
@@ -82,17 +76,14 @@
 - (void)_handleEatenTouch:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)_installTouchEater;
-- (void)notificationManagementController:(id)arg1 setDeliverQuietly:(_Bool)arg2 forNotificationRequest:(id)arg3 withSectionIdentifier:(id)arg4 subSectionIdentifier:(id)arg5;
-- (void)notificationManagementController:(id)arg1 setAllowsNotifications:(_Bool)arg2 forNotificationRequest:(id)arg3 withSectionIdentifier:(id)arg4;
-- (id)notificationManagementController:(id)arg1 sectionSettingsForSectionId:(id)arg2;
 - (void)notificationListCollectionView:(id)arg1 willSetFrame:(struct CGRect)arg2;
 - (_Bool)notificationListCell:(id)arg1 shouldPanHorizontallyWithTouch:(id)arg2;
 - (void)notificationListCellDidHideCellActions:(id)arg1 resetCellScrollPosition:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)notificationListCellDidRevealCellActions:(id)arg1;
 - (void)notificationListCellDidSignificantUserInteraction:(id)arg1;
 - (void)notificationListCellRequestsDismissAction:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (id)notificationListCellRequestsSectionSettings:(id)arg1 sectionId:(id)arg2;
-- (void)notificationListCellRequestsPresentingQuickSettings:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)notificationListCellRequestsSectionSettings:(id)arg1 sectionIdentifier:(id)arg2;
+- (void)notificationListCellRequestsPresentingManagementView:(id)arg1 withPresentingView:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)notificationListCellRequestsPresentingLongLook:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)notificationListCellRequestsDefaultAction:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)willTearDownNotificationListCell:(id)arg1;
@@ -107,6 +98,7 @@
 - (id)hideHomeAffordanceAnimationSettingsForNotificationViewController:(id)arg1;
 - (id)notificationViewController:(id)arg1 keyboardAssertionForGestureWindow:(id)arg2;
 - (_Bool)showAdditionalMessageLinesForNotificationViewController:(id)arg1;
+- (struct CGRect)notificationViewController:(id)arg1 initialFrameForPresentingLongLookFromView:(id)arg2;
 - (_Bool)notificationViewControllerShouldAllowInteractionGesture:(id)arg1;
 - (id)notificationViewController:(id)arg1 auxiliaryOptionsContentProviderForNotificationRequest:(id)arg2 withLongLook:(_Bool)arg3;
 - (id)notificationViewController:(id)arg1 staticContentProviderForNotificationRequest:(id)arg2;
@@ -159,13 +151,14 @@
 - (id)notificationRequestInLongLook;
 @property(readonly, nonatomic, getter=isPresentingNotificationInLongLook) _Bool presentingNotificationInLongLook;
 - (_Bool)isContentExtensionVisible:(id)arg1;
+- (void)didDismissModalView;
+- (void)didPresentModalView;
 - (_Bool)hasVisibleContent;
 - (_Bool)hasContent;
 - (void)showRequestsForNotificationSectionSettings:(id)arg1;
 - (void)hideRequestsForNotificationSectionSettings:(id)arg1;
 - (void)showRequestsForNotificationSectionIdentifier:(id)arg1 subSectionIdentifier:(id)arg2;
 - (void)hideRequestsForNotificationSectionIdentifier:(id)arg1 subSectionIdentifier:(id)arg2;
-- (void)presentNotificationManagementViewType:(unsigned long long)arg1 forNotificationRequest:(id)arg2 withPresentingView:(id)arg3;
 - (void)updateContentForNotificationRequest:(id)arg1;
 - (void)reloadNotificationRequests:(id)arg1 clearCachedSizes:(_Bool)arg2;
 - (void)reloadNotificationRequest:(id)arg1;

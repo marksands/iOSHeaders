@@ -134,7 +134,7 @@ struct NTKLabelPosition {
 
 struct NUProgram {
     unsigned int program;
-    int uniforms[13];
+    int uniforms[12];
 };
 
 struct RingLayout {
@@ -153,8 +153,8 @@ struct UIEdgeInsets {
 };
 
 struct _NSRange {
-    unsigned long long _field1;
-    unsigned long long _field2;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 struct _NTKCompanion1stPartyInfo {
@@ -162,6 +162,12 @@ struct _NTKCompanion1stPartyInfo {
     id _field2;
     unsigned long long _field3;
     id _field4;
+};
+
+struct jetsam_info {
+    long long currentKB;
+    long long maxLifetimeKB;
+    long long maxIntervalKB;
 };
 
 #pragma mark Typedef'd Structures

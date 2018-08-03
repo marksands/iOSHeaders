@@ -73,6 +73,7 @@
 - (void)configureUserInfoLabel;
 - (void)beginUsingAVTViewFromSession:(id)arg1;
 - (void)beginAVTViewSessionWithDidBeginBlock:(CDUnknownBlockType)arg1;
+- (void)contentSizeCategoryDidChange:(id)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)layoutViewFromModel:(id)arg1;

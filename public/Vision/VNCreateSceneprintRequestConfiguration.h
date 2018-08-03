@@ -11,8 +11,10 @@ __attribute__((visibility("hidden")))
 {
     _Bool _returnAllResults;
     _Bool _useCenterTileOnly;
+    unsigned long long _imageCropAndScaleOption;
 }
 
+@property(nonatomic) unsigned long long imageCropAndScaleOption; // @synthesize imageCropAndScaleOption=_imageCropAndScaleOption;
 @property(nonatomic) _Bool useCenterTileOnly; // @synthesize useCenterTileOnly=_useCenterTileOnly;
 @property(nonatomic) _Bool returnAllResults; // @synthesize returnAllResults=_returnAllResults;
 - (id)copyWithZone:(struct _NSZone *)arg1;

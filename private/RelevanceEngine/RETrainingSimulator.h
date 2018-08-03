@@ -21,6 +21,7 @@
 @property(readonly, nonatomic) NSString *targetProcessName; // @synthesize targetProcessName=_targetProcessName;
 - (void).cxx_destruct;
 - (id)storedDiagnosticLogsPath;
+- (_Bool)runActionOfElementWithDescription1:(id)arg1;
 - (id)availableRelevanceEngines;
 - (id)allElements;
 - (id)allElementIdentifiers;

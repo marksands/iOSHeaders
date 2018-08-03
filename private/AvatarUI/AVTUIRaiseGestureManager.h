@@ -24,6 +24,7 @@
 - (void)wakeGestureManager:(id)arg1 didUpdateWakeGesture:(long long)arg2;
 - (void)stopRaiseGestureUpdates;
 - (void)startRaiseGestureUpdates;
+- (void)dealloc;
 - (id)initWithBackingWakeGestureManager:(id)arg1 callbackQueue:(id)arg2;
 - (id)init;
 

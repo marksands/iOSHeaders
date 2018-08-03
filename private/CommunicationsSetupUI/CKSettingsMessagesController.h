@@ -10,7 +10,7 @@
 #import "CNFRegWizardControllerDelegate.h"
 #import "IMCloudKitEventHandler.h"
 
-@class CKFilteringListController, CKMultipleCTSubscriptionsController, CKMultipleIDSSubscriptionsController, CKNSExtension, IMCTXPCServiceSubscriptionInfo, NSString;
+@class CKFilteringListController, CKMultipleCTSubscriptionsController, CKNSExtension, IMCTXPCServiceSubscriptionInfo, NSString;
 
 @interface CKSettingsMessagesController : CNFRegListController <CNFRegWizardControllerDelegate, AKAppleIDAuthenticationDelegate, IMCloudKitEventHandler>
 {
@@ -20,7 +20,6 @@
     id _beginMappingID;
     CKMultipleCTSubscriptionsController *_mmsMessagingController;
     CKMultipleCTSubscriptionsController *_mmsAllowsGroupMessagingController;
-    CKMultipleIDSSubscriptionsController *_idsSubscriptionsMessagingController;
     IMCTXPCServiceSubscriptionInfo *_ctSubscriptionInfo;
     CKNSExtension *_ckExtension;
 }
@@ -30,7 +29,6 @@
 + (_Bool)currentMessageAutoKeepForType:(int)arg1;
 @property(retain, nonatomic) CKNSExtension *ckExtension; // @synthesize ckExtension=_ckExtension;
 @property(retain, nonatomic) IMCTXPCServiceSubscriptionInfo *ctSubscriptionInfo; // @synthesize ctSubscriptionInfo=_ctSubscriptionInfo;
-@property(retain, nonatomic) CKMultipleIDSSubscriptionsController *idsSubscriptionsMessagingController; // @synthesize idsSubscriptionsMessagingController=_idsSubscriptionsMessagingController;
 @property(retain, nonatomic) CKMultipleCTSubscriptionsController *mmsAllowsGroupMessagingController; // @synthesize mmsAllowsGroupMessagingController=_mmsAllowsGroupMessagingController;
 @property(retain, nonatomic) CKMultipleCTSubscriptionsController *mmsMessagingController; // @synthesize mmsMessagingController=_mmsMessagingController;
 @property(retain) id beginMappingID; // @synthesize beginMappingID=_beginMappingID;
@@ -38,7 +36,6 @@
 - (void).cxx_destruct;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)controllerForSpecifier:(id)arg1;
-- (id)idsSubscriptionContextController;
 - (id)_smsRelayDevicesController;
 - (id)_madridSettingsController;
 - (void)_clearMessagesAppExtensionSalt;

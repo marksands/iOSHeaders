@@ -21,8 +21,6 @@
 @property(readonly) int connectionPid; // @synthesize connectionPid=_connectionPid;
 @property(readonly) NSXPCConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
-- (int)associatedProcessIdentifierWithError:(id *)arg1;
-@property(readonly) _Bool supportsAssociatedProcessIdentifier;
 - (void)notifyWhenAnimationsAreIdle:(CDUnknownBlockType)arg1;
 @property(readonly) _Bool supportsAnimationsIdleNotifications;
 - (void)notifyWhenMainRunLoopIsIdle:(CDUnknownBlockType)arg1;

@@ -32,6 +32,7 @@
 - (id)remoteInterface;
 - (id)exportedInterface;
 - (void)clientRemote_didReceiveMetrics:(id)arg1;
+- (void)workoutBuilderDidFinish;
 - (id)initWithHealthStore:(id)arg1 workoutConfiguration:(id)arg2;
 
 // Remaining properties

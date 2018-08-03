@@ -6,11 +6,12 @@
 
 #import "UISlider.h"
 
+#import "AVExternalGestureRecognizerPreventing.h"
 #import "UIScrollViewDelegate.h"
 
 @class NSArray, NSMutableArray, NSString, NSTimer, UIImageView, UIScrollView, UISelectionFeedbackGenerator, UIView;
 
-@interface AVScrubber : UISlider <UIScrollViewDelegate>
+@interface AVScrubber : UISlider <UIScrollViewDelegate, AVExternalGestureRecognizerPreventing>
 {
     struct CGPoint _previousTouchLocationInView;
     double _trackingStartTime;
@@ -66,6 +67,7 @@
 - (void).cxx_destruct;
 - (void)_updateSlowKnobMovementDetectedForTargetValue:(float)arg1;
 - (void)_updateSlowKnobMovementDetected;
+- (_Bool)_shouldTrackTouchAtPoint:(struct CGPoint)arg1;
 - (struct CGPoint)contentOffsetFromValue;
 - (float)valueFromScrollView;
 - (double)normalizedScrollOffset;
@@ -90,6 +92,7 @@
 - (struct CGRect)minimumValueImageRectForBounds:(struct CGRect)arg1;
 - (void)setValue:(float)arg1;
 - (struct CGSize)intrinsicContentSize;
+- (_Bool)avkit_shouldPreventExternalGestureRecognizerAtPoint:(struct CGPoint)arg1;
 @property(readonly, nonatomic, getter=isCollapsedOrExcluded) _Bool collapsedOrExcluded;
 @property(readonly, nonatomic) double timeIntervalSinceTrackingEnded;
 @property(readonly, nonatomic) NSString *localizedScrubbingSpeedName;

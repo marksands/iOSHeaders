@@ -344,6 +344,7 @@
 - (_Bool)_resolveAudioAbility:(id)arg1;
 - (void)getSupportedSiriAudioConfiguration:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) _Bool supportsSiri;
+- (void)sendTargetControlWhoAmIWithIdentifier:(unsigned int)arg1;
 - (_Bool)canAcceptBulkSendListeners;
 - (void)removeDataStreamBulkSendListener:(id)arg1;
 - (void)addDataStreamBulkSendListener:(id)arg1 fileType:(id)arg2;

@@ -20,6 +20,7 @@
 - (_Bool)isEligibleForSelector:(SEL)arg1;
 - (void)enumerateChainedObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)addChainedObject:(id)arg1;
+- (id)_immutableChainedObjects;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (_Bool)respondsToSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;

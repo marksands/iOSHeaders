@@ -47,7 +47,7 @@
 @property(readonly, nonatomic) unsigned short state;
 @property(readonly, nonatomic) NSDate *creationDate;
 @property(readonly, nonatomic) long long version;
-- (id)initWithType:(unsigned short)arg1 subtype:(unsigned short)arg2 momentNode:(id)arg3 sharingSuggestionResults:(id)arg4;
+- (id)initWithType:(unsigned short)arg1 subtype:(unsigned short)arg2 momentNode:(id)arg3 sharingSuggestionResults:(id)arg4 loggingConnection:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

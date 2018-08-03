@@ -90,6 +90,7 @@
 - (id)_cacheKeyForParameters:(CDStruct_83077358)arg1 includingTint:(_Bool)arg2 downsampleFactor:(double)arg3;
 - (id)_imageForBackdropParameters:(CDStruct_83077358)arg1 includeTint:(_Bool)arg2;
 - (id)_blurredImage;
+- (void)preheatImageData;
 - (void)_stopGeneratingBlurredImages;
 - (void)_startGeneratingBlurredImages;
 - (double)_contrastInContentViewRect:(struct CGRect)arg1 contrastWithinBoxes:(double *)arg2 contrastBetweenBoxes:(double *)arg3;

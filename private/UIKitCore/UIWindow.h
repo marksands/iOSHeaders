@@ -316,6 +316,7 @@
 - (void)_screenWillTransitionToTraitCollection:(id)arg1;
 - (_Bool)_shouldPropagateTraitCollectionChanges;
 - (id)_boundingPath;
+- (void)_setNeedsBoundingPathUpdate;
 - (void)_willChangeToSize:(struct CGSize)arg1 orientation:(long long)arg2 screen:(id)arg3 withTransitionCoordinator:(id)arg4;
 @property(readonly, nonatomic) CDStruct_d58201db __sizeClassPair;
 - (void)_updateWindowTraitsAndNotify:(_Bool)arg1;

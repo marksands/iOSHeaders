@@ -48,6 +48,7 @@
 - (id)description;
 - (void)update;
 - (id)avatarNode;
+- (void)loadIfNeeded;
 - (void)_load;
 
 @end

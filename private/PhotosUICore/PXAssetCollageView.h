@@ -40,7 +40,7 @@
 - (double)_firstAssetAspectRatio;
 - (id)_displayAssetViewWithIndex:(long long)arg1;
 - (id)_displayAssetViews;
-- (void)_updateAssetViewsVideoEnabled;
+- (void)_updateAssetViewsAnimatedContentEnabled;
 - (id)_checkoutAndConfigureAssetViewForAsset:(id)arg1 withIndex:(long long)arg2;
 - (void)_updateHiddenViews;
 - (void)resetViewState;

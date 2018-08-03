@@ -122,6 +122,7 @@
     _Bool _managesAirPlayBehaviors;
     _Bool _wantsPictureInPicture;
     _Bool _automaticallyHidesVideoLayersForMusicVideosWhenApplicationBackgrounds;
+    _Bool _allowsExternalPlaybackError;
     MPAVPolicyEnforcer *_policyEnforcer;
     MPQueuePlayer *_queuePlayer;
     MPAVQueueCoordinator *_queueCoordinator;
@@ -139,6 +140,7 @@
 + (_Bool)isNetworkSupportedPath:(id)arg1;
 + (void)initialize;
 @property(nonatomic) _Bool shouldEnforceHDCP; // @synthesize shouldEnforceHDCP=_shouldEnforceHDCP;
+@property(nonatomic) _Bool allowsExternalPlaybackError; // @synthesize allowsExternalPlaybackError=_allowsExternalPlaybackError;
 @property(nonatomic) _Bool automaticallyHidesVideoLayersForMusicVideosWhenApplicationBackgrounds; // @synthesize automaticallyHidesVideoLayersForMusicVideosWhenApplicationBackgrounds=_automaticallyHidesVideoLayersForMusicVideosWhenApplicationBackgrounds;
 @property(readonly, nonatomic) AVPictureInPictureController *pictureInPictureController; // @synthesize pictureInPictureController=_pictureInPictureController;
 @property(nonatomic) _Bool wantsPictureInPicture; // @synthesize wantsPictureInPicture=_wantsPictureInPicture;

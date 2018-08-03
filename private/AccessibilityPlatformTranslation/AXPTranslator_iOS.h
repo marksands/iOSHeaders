@@ -6,7 +6,7 @@
 
 #import <AccessibilityPlatformTranslation/AXPTranslator.h>
 
-@class AXUIElement, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class AXUIElement, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>;
 
 @interface AXPTranslator_iOS : AXPTranslator
 {
@@ -14,6 +14,7 @@
     NSMutableDictionary *_backTranslationCache;
     NSObject<OS_dispatch_queue> *_cacheQueue;
     struct __IOHIDEventSystemClient *_ioSystemPostBackClient;
+    NSObject<OS_dispatch_semaphore> *_appAXReadySemaphore;
     _Bool _accessibilityEnabled;
     struct __AXObserver *_axEventObserver;
     AXUIElement *_systemAppElement;
@@ -34,6 +35,7 @@
 - (id)processFrontMostApp:(id)arg1;
 - (id)processApplicationObject:(id)arg1;
 - (id)processAttributeRequest:(id)arg1;
+- (id)_preprocessRequest:(long long)arg1 parameter:(id)arg2;
 - (id)processSetAttribute:(id)arg1;
 - (id)processCanSetAttribute:(id)arg1;
 - (id)_processAttributeSpecialCases:(unsigned long long)arg1 uiElement:(id)arg2 parameter:(id)arg3 error:(unsigned long long *)arg4;
@@ -41,13 +43,16 @@
 - (id)_processSubroleAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processRoleAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processingSmuggledMarzipanRequest:(id)arg1 parameter:(id)arg2 error:(unsigned long long *)arg3;
+- (id)_processMoveFocusToOpaqueElementAttributeRequest:(id)arg1 parameter:(id)arg2 direction:(long long)arg3 error:(unsigned long long *)arg4;
 - (id)_processChildrenAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processAttributedLabelAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processIsEnabledAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processIsSelectedAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processStartsMediaSessionAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
-- (id)_processDirectAttributeRequest:(id)arg1 attribute:(long long)arg2 parameter:(id)arg3 error:(unsigned long long *)arg4;
-- (id)_postProcessAttributeRequest:(id)arg1 attribute:(long long)arg2 result:(id)arg3;
+- (id)_processDirectAttributeRequest:(id)arg1 iosAttribute:(long long)arg2 axpAttribute:(unsigned long long)arg3 parameter:(id)arg4 error:(unsigned long long *)arg5;
+- (id)_processCustomRotorData:(id)arg1;
+- (id)_processOutgoingCustomRotorSearchResult:(id)arg1;
+- (id)_postProcessAttributeRequest:(id)arg1 iosAttribute:(long long)arg2 axpAttribute:(unsigned long long)arg3 result:(id)arg4;
 - (id)_processParameterizedAttributeRequest:(id)arg1 attribute:(long long)arg2 parameter:(id)arg3 error:(unsigned long long *)arg4;
 - (id)processActionRequest:(id)arg1;
 - (_Bool)_processScrollToVisibleAction:(id)arg1;
@@ -59,6 +64,7 @@
 - (id)processMultipleAttributeRequest:(id)arg1;
 - (long long)attributeFromRequest:(unsigned long long)arg1;
 - (void)enableAccessibility;
+- (void)_signalAppAXReady;
 - (void)setAccessibilityEnabled:(_Bool)arg1;
 - (void)initializeAXRuntimeForSystemAppServer;
 - (id)_processAccessibilityAttributeValue:(long long)arg1 forParameter:(id)arg2;

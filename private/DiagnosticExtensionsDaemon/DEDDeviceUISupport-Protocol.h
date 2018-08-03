@@ -4,7 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+@class NSData;
+
 @protocol DEDDeviceUISupport
+- (NSData *)imageData;
 - (void)fetchIconImageDataForScale:(float)arg1 completionCompletion:(void (^)(NSData *))arg2;
 @end
 

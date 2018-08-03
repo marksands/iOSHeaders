@@ -27,13 +27,17 @@
 @property(retain, nonatomic) AVPlayerItem *videoPlayerItem; // @synthesize videoPlayerItem=_videoPlayerItem;
 @property(retain, nonatomic) ISWrappedAVPlayer *videoPlayer; // @synthesize videoPlayer=_videoPlayer;
 - (void).cxx_destruct;
+- (void)_updateVideoViewContentMode;
 - (void)_updateVideoPlayerPlayerItem;
 - (void)_handlePlayerItemResult:(id)arg1 info:(id)arg2 requestID:(long long)arg3;
 - (void)_loadVideo;
+- (void)_handleDidShowPlaceholderForUnloadingPlayerItem:(id)arg1;
 - (void)_unloadVideo;
 @property(nonatomic) unsigned long long activityCoordinatorQueuePosition;
 - (void)contentsRectDidChange;
+- (void)placeholderTransitionDurationDidChange;
 - (_Bool)isDisplayingFullQualityContent;
+- (void)contentModeDidChange;
 - (void)placeholderImageFiltersDidChange;
 - (void)animatedContentEnabledDidChange;
 - (void)imageDidChange;

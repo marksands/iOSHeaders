@@ -16,6 +16,7 @@
 @interface PXNavigationListController : UIViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, PXNavigationListDataSourceManagerObserver>
 {
     _Bool __needsUpdateRowHeight;
+    _Bool _isTableViewUpdating;
     UITableView *_tableView;
     PXNavigationListDataSourceManager *_dataSourceManager;
     id <PXNavigationListContainer> _container;
@@ -25,6 +26,7 @@
 }
 
 + (id)navigateToListItem:(id)arg1 sourceViewController:(id)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+@property(nonatomic) _Bool isTableViewUpdating; // @synthesize isTableViewUpdating=_isTableViewUpdating;
 @property(nonatomic, setter=_setNeedsUpdateRowHeight:) _Bool _needsUpdateRowHeight; // @synthesize _needsUpdateRowHeight=__needsUpdateRowHeight;
 @property(nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
 @property(retain, nonatomic) NSUserActivity *siriActionActivity; // @synthesize siriActionActivity=_siriActionActivity;
@@ -36,6 +38,9 @@
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (id)_navigateTolistItem:(id)arg1 animated:(_Bool)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)_updateCellSeparatorStyle:(id)arg1 forRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (void)_updateCell:(id)arg1 atIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;

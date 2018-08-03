@@ -6,21 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary, NSString, NSUserDefaults;
+@class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUserDefaults;
 
 @interface TPSDataCacheController : NSObject
 {
-    _Bool _dataCacheDirty;
-    NSUserDefaults *_userDefaults;
-    unsigned long long _maxDataCacheSize;
-    NSString *_identifier;
+    NSObject<OS_dispatch_queue> *_dataCacheSerialQueue;
     long long _dataType;
-    NSMutableDictionary *_dataCacheMap;
     _Bool _backgroundOriginUpdate;
+    _Bool _dataCacheDirty;
     float _defaultPriority;
     NSString *_languageCode;
     NSMutableArray *_dataCacheArray;
     unsigned long long _cacheSize;
+    unsigned long long _maxDataCacheSize;
+    NSString *_identifier;
+    NSUserDefaults *_userDefaults;
+    NSMutableDictionary *_dataCacheMap;
     NSString *_cacheDirectory;
     NSMutableArray *_originFetchItems;
 }
@@ -29,6 +30,11 @@
 + (void)setAppGroupIdentifier:(id)arg1;
 @property(retain, nonatomic) NSMutableArray *originFetchItems; // @synthesize originFetchItems=_originFetchItems;
 @property(retain, nonatomic) NSString *cacheDirectory; // @synthesize cacheDirectory=_cacheDirectory;
+@property(retain, nonatomic) NSMutableDictionary *dataCacheMap; // @synthesize dataCacheMap=_dataCacheMap;
+@property(retain, nonatomic) NSUserDefaults *userDefaults; // @synthesize userDefaults=_userDefaults;
+@property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(nonatomic) _Bool dataCacheDirty; // @synthesize dataCacheDirty=_dataCacheDirty;
+@property(nonatomic) unsigned long long maxDataCacheSize; // @synthesize maxDataCacheSize=_maxDataCacheSize;
 @property(nonatomic) unsigned long long cacheSize; // @synthesize cacheSize=_cacheSize;
 @property(retain, nonatomic) NSMutableArray *dataCacheArray; // @synthesize dataCacheArray=_dataCacheArray;
 @property(retain, nonatomic) NSString *languageCode; // @synthesize languageCode=_languageCode;

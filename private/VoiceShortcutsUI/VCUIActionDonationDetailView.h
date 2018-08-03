@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class BFFPaneHeaderView, NSLayoutConstraint, NSString, UIImage;
+@class BFFPaneHeaderView, INImage, NSLayoutConstraint, NSString, UIImage;
 
 @interface VCUIActionDonationDetailView : UIView
 {
@@ -15,14 +15,14 @@
     NSString *_donationSubtitle;
     BFFPaneHeaderView *_headerView;
     NSLayoutConstraint *_heightConstraint;
-    UIImage *_keyImage;
+    INImage *_keyImage;
     NSString *_appName;
     UIImage *_appIcon;
 }
 
 @property(retain, nonatomic) UIImage *appIcon; // @synthesize appIcon=_appIcon;
 @property(copy, nonatomic) NSString *appName; // @synthesize appName=_appName;
-@property(retain, nonatomic) UIImage *keyImage; // @synthesize keyImage=_keyImage;
+@property(retain, nonatomic) INImage *keyImage; // @synthesize keyImage=_keyImage;
 @property(retain, nonatomic) NSLayoutConstraint *heightConstraint; // @synthesize heightConstraint=_heightConstraint;
 @property(retain, nonatomic) BFFPaneHeaderView *headerView; // @synthesize headerView=_headerView;
 @property(nonatomic) _Bool showsSphiriIcon; // @synthesize showsSphiriIcon=_showsSphiriIcon;
@@ -32,8 +32,9 @@
 @property(readonly, nonatomic) UIView *iconView;
 - (id)appAttributedString;
 - (void)layoutSubviews;
+- (void)_updateViewWithIcon:(id)arg1;
 - (void)updateView;
-- (id)initWithTitle:(id)arg1 subtitle:(id)arg2 keyImageData:(id)arg3 applicationBundleIdentifier:(id)arg4;
+- (id)initWithTitle:(id)arg1 subtitle:(id)arg2 keyImage:(id)arg3 applicationBundleIdentifier:(id)arg4;
 
 @end
 

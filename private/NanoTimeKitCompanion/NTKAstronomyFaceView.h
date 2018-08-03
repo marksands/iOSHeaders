@@ -11,7 +11,7 @@
 #import "NTKTimeView.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class NSDate, NSDateFormatter, NSString, NTKAstronomyLocationDot, NTKAstronomyRotationModel, NTKAstronomyVistaView, NTKColoringLabel, NTKDelayedBlock, NTKDigitalTimeLabel, NTKDigitalTimeLabelStyle, NTKDigitialUtilitarianFaceViewComplicationFactory, UIImageView, UIPanGestureRecognizer, UITapGestureRecognizer;
+@class NSArray, NSDate, NSDateFormatter, NSString, NTKAstronomyLocationDot, NTKAstronomyRotationModel, NTKAstronomyVistaView, NTKColoringLabel, NTKDelayedBlock, NTKDigitalTimeLabel, NTKDigitalTimeLabelStyle, NTKDigitialUtilitarianFaceViewComplicationFactory, UIImageView, UIPanGestureRecognizer, UITapGestureRecognizer;
 
 @interface NTKAstronomyFaceView : NTKDigitalFaceView <NTKTimeView, NTKAstronomyRotationModelObserver, NTKAstronomyVistaViewObserver, UIGestureRecognizerDelegate>
 {
@@ -45,6 +45,7 @@
     long long _previousDataMode;
     long long _animatingToViewMode;
     unsigned long long _vista;
+    NSArray *_editingAnimations[3];
     unsigned int _isAnimatingViewMode:1;
     unsigned int _isContentLoaded:1;
     unsigned int _isFlying:1;
@@ -65,7 +66,8 @@
 - (void)_cleanupAfterEditing;
 - (void)_prepareForEditing;
 - (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
-- (void)_applyVista:(unsigned long long)arg1 animated:(_Bool)arg2;
+- (void)_applyFromVista:(unsigned long long)arg1 toVista:(unsigned long long)arg2 fraction:(double)arg3;
+- (void)_applyVista:(unsigned long long)arg1;
 - (_Bool)_canEnterInteractiveMode;
 - (void)_disableCrown;
 - (void)_enableCrownForAstronomyVista:(unsigned long long)arg1;
@@ -103,6 +105,7 @@
 - (void)_applyDataMode;
 - (id)_digitalTimeLabelStyle:(long long)arg1;
 - (void)astronomyVistaViewContentsAnimationFinished:(id)arg1;
+- (void)astronomyVistaViewWillDisplay:(id)arg1 forTime:(double)arg2;
 - (void)rotationModelStoppedByDecelerating:(id)arg1;
 - (void)_handleSpheroidPanGesture:(id)arg1;
 - (void)_handleSupplementalModeGesture:(id)arg1;

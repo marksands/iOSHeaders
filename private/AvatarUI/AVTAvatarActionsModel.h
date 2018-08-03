@@ -43,6 +43,7 @@
 - (void)didTapCreateNew:(id)arg1;
 - (id)createBarButtonItem;
 - (id)generateInlineActionButtons;
+- (void)updateForChangedContentCategorySize;
 @property(readonly, nonatomic) NSArray *inlineActionButtons;
 - (_Bool)canPerformActionType:(long long)arg1;
 - (id)initWithAvatarRecord:(id)arg1 dataSource:(id)arg2 avtViewSessionProvider:(id)arg3 environment:(id)arg4;

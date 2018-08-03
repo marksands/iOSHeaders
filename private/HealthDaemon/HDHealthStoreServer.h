@@ -65,6 +65,7 @@
 @property(readonly, nonatomic) HDProfile *profile; // @synthesize profile=_profile;
 @property(readonly, nonatomic) __weak HDDaemon *daemon; // @synthesize daemon=_daemon;
 - (void).cxx_destruct;
+- (void)remote_getIsFeatureSetAvailable:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_containerAppExtensionEntitlementsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_badgeHealthAppForEmergencyContactsConsolidationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_setDaemonPreferenceValue:(id)arg1 forKey:(id)arg2 completion:(CDUnknownBlockType)arg3;

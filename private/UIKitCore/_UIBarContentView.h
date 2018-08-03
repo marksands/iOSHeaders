@@ -8,7 +8,7 @@
 
 #import "_UIButtonBarAppearanceDelegate.h"
 
-@class UIColor, UIImage;
+@class NSString, UIColor, UIImage;
 
 __attribute__((visibility("hidden")))
 @interface _UIBarContentView : UIView <_UIButtonBarAppearanceDelegate>
@@ -61,6 +61,10 @@ __attribute__((visibility("hidden")))
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 @property(readonly, nonatomic) UIColor *tintColor; // @dynamic tintColor;
 
 @end

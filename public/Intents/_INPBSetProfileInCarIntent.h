@@ -6,14 +6,13 @@
 
 #import "PBCodable.h"
 
-#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 #import "_INPBSetProfileInCarIntent.h"
 
-@class INCodableAttribute, NSString, _INPBDataString, _INPBInteger, _INPBIntentMetadata, _INPBString;
+@class NSString, _INPBDataString, _INPBInteger, _INPBIntentMetadata, _INPBString;
 
-@interface _INPBSetProfileInCarIntent : PBCodable <_INPBSetProfileInCarIntent, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
+@interface _INPBSetProfileInCarIntent : PBCodable <_INPBSetProfileInCarIntent, NSSecureCoding, NSCopying>
 {
     struct {
         unsigned int defaultProfile:1;
@@ -23,10 +22,8 @@
     _INPBIntentMetadata *_intentMetadata;
     _INPBString *_profileName;
     _INPBInteger *_profileNumber;
-    INCodableAttribute *_associatedCodableAttribute;
 }
 
-@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(retain, nonatomic) _INPBInteger *profileNumber; // @synthesize profileNumber=_profileNumber;
 @property(retain, nonatomic) _INPBString *profileName; // @synthesize profileName=_profileName;
 @property(retain, nonatomic) _INPBIntentMetadata *intentMetadata; // @synthesize intentMetadata=_intentMetadata;

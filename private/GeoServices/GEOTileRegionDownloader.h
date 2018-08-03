@@ -30,9 +30,10 @@ __attribute__((visibility("hidden")))
     GEOTileKeyMap *_cacheMissType;
 }
 
++ (unsigned char)_reason;
 - (void).cxx_destruct;
 - (void)downloadDidFailForTile:(struct _GEOTileKey *)arg1 error:(id)arg2;
-- (void)downloadDidSucceedForTile:(struct _GEOTileKey *)arg1 downloadSize:(unsigned long long)arg2;
+- (void)downloadDidSucceedForTile:(struct _GEOTileKey *)arg1 downloadSize:(unsigned long long)arg2 httpStatus:(unsigned int)arg3;
 - (void)_addMoreKeysToListIfNeeded:(id)arg1 staleCachedETags:(id)arg2 staleCachedData:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_popNextZoomLevel;
 - (void)_popNextTileSet;

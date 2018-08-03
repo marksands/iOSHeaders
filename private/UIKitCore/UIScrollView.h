@@ -387,6 +387,7 @@
 @property(nonatomic) _Bool canCancelContentTouches;
 @property(nonatomic) _Bool bouncesZoom;
 - (_Bool)_isInterruptingDeceleration;
+- (_Bool)_touchMayChangeSelection;
 @property(readonly, nonatomic, getter=isDecelerating) _Bool decelerating;
 @property(readonly, nonatomic, getter=isDragging) _Bool dragging;
 @property(readonly, nonatomic, getter=isTracking) _Bool tracking;

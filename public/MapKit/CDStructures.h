@@ -64,18 +64,7 @@ struct GEOJunctionElement {
     int _field1;
     int _field2;
     int _field3;
-    struct {
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-    } _field4;
-};
-
-struct NSDirectionalEdgeInsets {
-    double _field1;
-    double _field2;
-    double _field3;
-    double _field4;
+    CDStruct_81fb2dc1 _field4;
 };
 
 struct UIEdgeInsets {
@@ -284,6 +273,12 @@ typedef struct {
     unsigned long long *_field3;
     unsigned long long _field4[5];
 } CDStruct_70511ce9;
+
+typedef struct {
+    unsigned int hasCoordinate:1;
+    unsigned int hasTitle:1;
+    unsigned int hasSubtitle:1;
+} CDStruct_81fb2dc1;
 
 typedef struct {
     long long x;

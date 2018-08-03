@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class HDProfile, HDWorkoutSessionConfiguration, NSData, NSString;
+@class HDProfile, HDWorkoutSessionConfiguration, NSData, NSDate, NSString;
 
 @protocol HDWorkoutSessionController
 + (void)willFinishSessionWithRecoveryData:(NSData *)arg1 profile:(HDProfile *)arg2;
 + (NSString *)recoveryIdentifier;
 - (void)hktest_setStateTransitionCompletionHandler:(void (^)(long long, long long))arg1;
 - (void)workoutSessionServer:(id <HDWorkoutSessionStateController>)arg1 accumulatorDidChange:(id <HDWorkoutDataAccumulator>)arg2;
-- (void)workoutSessionServer:(id <HDWorkoutSessionStateController>)arg1 didTransitionToState:(long long)arg2 fromState:(long long)arg3;
+- (void)workoutSessionServer:(id <HDWorkoutSessionStateController>)arg1 didTransitionFromState:(long long)arg2 toState:(long long)arg3 date:(NSDate *)arg4;
 - (void)workoutSessionServer:(id <HDWorkoutSessionStateController>)arg1 didChangeConfiguration:(HDWorkoutSessionConfiguration *)arg2;
 - (id)initWithProfile:(HDProfile *)arg1 sessionConfiguration:(HDWorkoutSessionConfiguration *)arg2 sessionStateController:(id <HDWorkoutSessionStateController>)arg3 recoveryState:(NSData *)arg4;
 @end

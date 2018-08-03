@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 - (id)createActionProgress;
 - (id)performActionWithSession:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)canPerformActionWithSession:(id)arg1;
 
 // Remaining properties
 @property(nonatomic) __weak id <PXCMMActionPerformerDelegate> delegate; // @dynamic delegate;

@@ -551,6 +551,7 @@
 - (_Bool)_shouldRotateTopBarForGraphConfiguration:(id)arg1;
 - (void)_rotateTopBarAndControlsToOrientation:(long long)arg1 shouldAnimate:(_Bool)arg2;
 - (void)_updateTopBarStyleForGraphConfiguration:(id)arg1 capturing:(_Bool)arg2 animated:(_Bool)arg3;
+- (void)_validateViewfinderLayoutIfNeeded;
 - (void)_endDisablingInterfaceAutorotation;
 - (void)_beginDisablingInterfaceAutorotation;
 - (void)_updateUIForCaptureOrientationAnimated:(_Bool)arg1;

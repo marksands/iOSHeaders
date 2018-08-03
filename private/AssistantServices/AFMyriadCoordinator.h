@@ -140,6 +140,7 @@
 - (void)setInTask:(_Bool)arg1;
 - (_Bool)inTask;
 - (void)endTask;
+- (void)_loseElection;
 - (void)endAdvertisingWithDeviceProhibitions:(id)arg1;
 - (void)_endAdvertisingWithDeviceProhibitions:(id)arg1;
 - (id)_endAdvertisingAnalyticsContext:(_Bool)arg1;

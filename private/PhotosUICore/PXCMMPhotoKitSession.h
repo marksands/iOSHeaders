@@ -12,10 +12,12 @@
 {
     PHMomentShare *_momentShare;
     PHSuggestion *_suggestion;
+    PHMomentShare *_originatingMomentShare;
     PHAsset *_anchorAsset;
 }
 
 @property(nonatomic) __weak PHAsset *anchorAsset; // @synthesize anchorAsset=_anchorAsset;
+@property(readonly, nonatomic) PHMomentShare *originatingMomentShare; // @synthesize originatingMomentShare=_originatingMomentShare;
 @property(readonly, nonatomic) PHSuggestion *suggestion; // @synthesize suggestion=_suggestion;
 @property(readonly, nonatomic) PHMomentShare *momentShare; // @synthesize momentShare=_momentShare;
 - (void).cxx_destruct;

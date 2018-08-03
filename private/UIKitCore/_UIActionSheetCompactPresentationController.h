@@ -59,6 +59,7 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)preferredContentSize;
 - (void)_applyVisualAffordancesToViews;
 - (void)_layoutViews;
+- (struct CGRect)_frameOfPresentedViewControllerViewInSuperview;
 - (struct CGRect)frameOfPresentedViewInContainerView;
 - (void)_transitionToPresentationController:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;

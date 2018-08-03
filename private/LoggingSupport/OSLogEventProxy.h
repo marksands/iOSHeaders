@@ -107,7 +107,6 @@
 
 + (id)_make;
 @property(nonatomic) unsigned long long _timesyncRangeUUIDIndex; // @synthesize _timesyncRangeUUIDIndex=_uuidi;
-- (id)valueForUndefinedKey:(id)arg1;
 @property(readonly, nonatomic) CDStruct_0dd72924 lossCount;
 @property(readonly, nonatomic) struct timezone *lossEndUnixTimeZone;
 @property(readonly, nonatomic) struct timeval *lossEndUnixDate;

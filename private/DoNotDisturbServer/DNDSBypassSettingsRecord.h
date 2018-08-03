@@ -19,7 +19,9 @@
     NSNumber *_repeatEventSourceBehaviorEnabledSetting;
 }
 
-+ (id)migrateDictionaryRepresentations:(id)arg1 withVersionNumber:(unsigned long long)arg2;
++ (id)migrateDictionaryRepresentation:(id)arg1 fromVersionNumber:(unsigned long long)arg2 toVersionNumber:(unsigned long long)arg3;
++ (id)recordForLegacyPrivilegedSenderType:(unsigned long long)arg1 legacyAddressBookID:(int)arg2;
++ (id)_recordWithEncodedInfo:(id)arg1 error:(id *)arg2;
 @property(readonly, copy, nonatomic) NSNumber *repeatEventSourceBehaviorEnabledSetting; // @synthesize repeatEventSourceBehaviorEnabledSetting=_repeatEventSourceBehaviorEnabledSetting;
 @property(readonly, copy, nonatomic) NSString *immediateBypassCNGroupIdentifier; // @synthesize immediateBypassCNGroupIdentifier=_immediateBypassCNGroupIdentifier;
 @property(readonly, copy, nonatomic) NSNumber *immediateBypassEventSourceType; // @synthesize immediateBypassEventSourceType=_immediateBypassEventSourceType;
@@ -34,6 +36,7 @@
 - (id)_initWithImmediateBypassEventSourceType:(id)arg1 immediateBypassCNGroupIdentifier:(id)arg2 repeatEventSourceBehaviorEnabledSetting:(id)arg3;
 - (id)_initWithRecord:(id)arg1;
 - (id)init;
+- (unsigned long long)legacyPrivilegedSenderType;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

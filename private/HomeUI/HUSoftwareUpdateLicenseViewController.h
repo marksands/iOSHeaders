@@ -12,7 +12,7 @@
 #import "WKNavigationDelegate.h"
 #import "WKUIDelegate.h"
 
-@class HMHTMLDocument, NAFuture, NSFileManager, NSString, NSURL, UIButton, UIScrollView, WKWebView;
+@class HMHTMLDocument, HUWebViewController, NSFileManager, NSString, NSURL, UIButton, UIScrollView, WKWebView;
 
 @interface HUSoftwareUpdateLicenseViewController : UIViewController <UIScrollViewDelegate, WKUIDelegate, WKNavigationDelegate, MFMailComposeViewControllerDelegate, HUPreloadableViewController>
 {
@@ -22,16 +22,14 @@
     CDUnknownBlockType _disagreeHandler;
     UIScrollView *_scrollView;
     UIButton *_retainCopyOfTermsButton;
-    WKWebView *_webView;
-    NAFuture *_loadFuture;
     NSString *_license;
     NSFileManager *_fileManager;
+    HUWebViewController *_webViewController;
 }
 
+@property(readonly, nonatomic) HUWebViewController *webViewController; // @synthesize webViewController=_webViewController;
 @property(retain, nonatomic) NSFileManager *fileManager; // @synthesize fileManager=_fileManager;
 @property(readonly, nonatomic) NSString *license; // @synthesize license=_license;
-@property(readonly, nonatomic) NAFuture *loadFuture; // @synthesize loadFuture=_loadFuture;
-@property(readonly, nonatomic) WKWebView *webView; // @synthesize webView=_webView;
 @property(readonly, nonatomic) UIButton *retainCopyOfTermsButton; // @synthesize retainCopyOfTermsButton=_retainCopyOfTermsButton;
 @property(readonly, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(copy, nonatomic) CDUnknownBlockType disagreeHandler; // @synthesize disagreeHandler=_disagreeHandler;
@@ -39,25 +37,22 @@
 @property(readonly, copy, nonatomic) HMHTMLDocument *document; // @synthesize document=_document;
 @property(readonly, copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) WKWebView *webView;
 - (id)_evaluateHeight:(id)arg1;
 - (void)_saveToDesktop:(id)arg1;
 - (void)_emailTermsAndConditions:(id)arg1;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(long long)arg2 error:(id)arg3;
 - (id)viewForZoomingInScrollView:(id)arg1;
-- (void)webView:(id)arg1 didFinishNavigation:(id)arg2;
-- (void)webView:(id)arg1 didFailNavigation:(id)arg2 withError:(id)arg3;
-- (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
-- (void)_startLoadWithDocument:(id)arg1 orMaybeAURL:(id)arg2;
 - (void)_disagreeToTerms:(id)arg1;
 - (void)_agreeToTerms:(id)arg1;
-- (void)loadLicense;
+- (id)loadLicense;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillLayoutSubviews;
 - (void)loadView;
 - (id)hu_preloadContent;
-- (id)_initWithDocument:(id)arg1 orMaybeAURL:(id)arg2;
+- (id)_initWithWebViewController:(id)arg1;
 - (id)initWithDocument:(id)arg1;
 - (id)initWithURL:(id)arg1;
 

@@ -9,6 +9,7 @@
 @class NSUUID;
 
 @protocol HKWorkoutDataSource <NSObject>
+- (void)workoutBuilderDidFinish;
 - (NSUUID *)identifier;
 @end
 

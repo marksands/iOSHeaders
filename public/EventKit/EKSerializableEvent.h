@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)classesForKey;
++ (id)serializedProperties;
 @property(retain, nonatomic) NSArray *attachments; // @synthesize attachments=_attachments;
 @property(retain, nonatomic) NSArray *alarms; // @synthesize alarms=_alarms;
 @property(retain, nonatomic) NSArray *attendees; // @synthesize attendees=_attendees;

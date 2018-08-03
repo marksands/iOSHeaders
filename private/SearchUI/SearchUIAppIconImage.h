@@ -28,6 +28,7 @@
 - (id)loadImage;
 - (void)setUiImage:(id)arg1;
 - (id)uiImage;
+- (_Bool)needsTinting;
 - (id)initWithBundleIdentifier:(id)arg1 variant:(unsigned long long)arg2;
 
 @end

@@ -6,7 +6,7 @@
 
 #import "UISlider.h"
 
-@class CALayer, CAShapeLayer, UIImageView, UIImpactFeedbackGenerator;
+@class CALayer, CAShapeLayer, UIImageView, UISelectionFeedbackGenerator, _UIEdgeFeedbackGenerator;
 
 @interface AVTColorSlider : UISlider
 {
@@ -17,13 +17,15 @@
     CALayer *_thumbContentLayer;
     CAShapeLayer *_thumbBorderLayer;
     UIImageView *_thumbView;
-    UIImpactFeedbackGenerator *_impactFeedbackGenerator;
+    _UIEdgeFeedbackGenerator *_edgeFeedbackGenerator;
+    UISelectionFeedbackGenerator *_selectionFeedbackGenerator;
     long long _layoutDirection;
 }
 
 @property(nonatomic) long long layoutDirection; // @synthesize layoutDirection=_layoutDirection;
 @property(nonatomic) _Bool shouldTriggerFeedback; // @synthesize shouldTriggerFeedback=_shouldTriggerFeedback;
-@property(retain, nonatomic) UIImpactFeedbackGenerator *impactFeedbackGenerator; // @synthesize impactFeedbackGenerator=_impactFeedbackGenerator;
+@property(retain, nonatomic) UISelectionFeedbackGenerator *selectionFeedbackGenerator; // @synthesize selectionFeedbackGenerator=_selectionFeedbackGenerator;
+@property(retain, nonatomic) _UIEdgeFeedbackGenerator *edgeFeedbackGenerator; // @synthesize edgeFeedbackGenerator=_edgeFeedbackGenerator;
 @property(retain, nonatomic) UIImageView *thumbView; // @synthesize thumbView=_thumbView;
 @property(retain, nonatomic) CAShapeLayer *thumbBorderLayer; // @synthesize thumbBorderLayer=_thumbBorderLayer;
 @property(retain, nonatomic) CALayer *thumbContentLayer; // @synthesize thumbContentLayer=_thumbContentLayer;

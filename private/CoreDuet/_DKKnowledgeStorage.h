@@ -60,8 +60,10 @@
 - (unsigned long long)deleteHistogram:(id)arg1;
 - (void)saveHistogram:(id)arg1 responseQueue:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (_Bool)coreDataStorage:(id)arg1 didAutoMigratePersistentStore:(id)arg2 toManagedObjectModel:(id)arg3 havingVersion:(unsigned long long)arg4 error:(id *)arg5;
+- (_Bool)coreDataStorage:(id)arg1 willAutoMigrateStoreAtURL:(id)arg2 fromManagedObjectModel:(id)arg3 havingVersion:(unsigned long long)arg4 error:(id *)arg5;
 - (id)coreDataStorage:(id)arg1 needsManagedObjectModelNameForVersion:(unsigned long long)arg2;
 - (_Bool)coreDataStorage:(id)arg1 shouldCallDelegateAfterAutoMigrationToManagedObjectModelHavingVersion:(unsigned long long)arg2;
+- (_Bool)coreDataStorage:(id)arg1 shouldCallDelegateBeforeAutoMigrationFromManagedObjectModelHavingVersion:(unsigned long long)arg2;
 - (void)closeSyncStorage;
 - (void)closeStorage;
 - (unsigned long long)deleteObjectsInEventStream:(id)arg1 ifNeededToLimitEventCount:(unsigned long long)arg2 batchLimit:(unsigned long long)arg3;
@@ -113,7 +115,9 @@
 - (id)keyValueStoreForDomain:(id)arg1;
 - (_Bool)copyValueToManagedObject:(id)arg1;
 - (_Bool)updateDataAfterAutoMigrationToVersion:(unsigned long long)arg1 inPersistentStore:(id)arg2 error:(id *)arg3;
+- (_Bool)updateDataBeforeAutoMigrationFromVersion:(unsigned long long)arg1 inStoreAtURL:(id)arg2 error:(id *)arg3;
 - (id)versionsRequiringManualMigration;
+- (id)versionsRequiringManualSetup;
 @property(readonly, nonatomic) unsigned long long finalMigrationVersion;
 - (void)updateToFinalMetadata:(id)arg1;
 

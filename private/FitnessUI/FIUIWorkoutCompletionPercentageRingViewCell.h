@@ -14,6 +14,7 @@
     HKWorkout *_workout;
     double _currentCompletionFactor;
     HKRingsView *_ringsView;
+    UIImageView *_gradientBackgroundImageView;
     UIImageView *_iconImageView;
     UILabel *_typeLabel;
     UILabel *_secondaryLabel;
@@ -30,6 +31,7 @@
 @property(retain, nonatomic) UILabel *secondaryLabel; // @synthesize secondaryLabel=_secondaryLabel;
 @property(retain, nonatomic) UILabel *typeLabel; // @synthesize typeLabel=_typeLabel;
 @property(retain, nonatomic) UIImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
+@property(retain, nonatomic) UIImageView *gradientBackgroundImageView; // @synthesize gradientBackgroundImageView=_gradientBackgroundImageView;
 @property(retain, nonatomic) HKRingsView *ringsView; // @synthesize ringsView=_ringsView;
 @property(nonatomic) _Bool showDivider; // @synthesize showDivider=_showDivider;
 @property(nonatomic) double currentCompletionFactor; // @synthesize currentCompletionFactor=_currentCompletionFactor;

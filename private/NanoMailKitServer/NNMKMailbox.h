@@ -31,6 +31,7 @@
 + (unsigned long long)defaultFilterTypes;
 + (unsigned long long)syncedTypeFromFilterType:(unsigned long long)arg1;
 + (unsigned long long)syncedTypeFromMailbox:(id)arg1;
++ (id)generateMailboxIdWithAccountId:(id)arg1 mailboxName:(id)arg2;
 + (unsigned long long)messageStateForMailboxFilterType:(unsigned long long)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)idsFromMailboxes:(id)arg1;

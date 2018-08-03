@@ -18,6 +18,10 @@
 }
 
 + (id)_predicateForAdjustedAssetsWithMissingResources;
++ (id)_irisesWithZeroVideoCpDuration;
++ (id)_jpegImagesPredicate;
++ (id)_imagesWithZeroWidthHeightPredicate;
++ (id)_predicateForSupportedAssetTypesForUpload;
 + (id)sharedManager;
 @property(nonatomic) long long state; // @synthesize state=_state;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;

@@ -30,6 +30,7 @@
 - (void)connectionInvalidated;
 - (id)remoteInterface;
 - (id)exportedInterface;
+- (void)workoutBuilderDidFinish;
 - (id)initWithHealthStore:(id)arg1 workoutConfiguration:(id)arg2;
 
 // Remaining properties

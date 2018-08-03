@@ -23,7 +23,9 @@
     NSNumber *_bedtimeBehaviorEnabledSetting;
 }
 
-+ (id)migrateDictionaryRepresentations:(id)arg1 withVersionNumber:(unsigned long long)arg2;
++ (id)migrateDictionaryRepresentation:(id)arg1 fromVersionNumber:(unsigned long long)arg2 toVersionNumber:(unsigned long long)arg3;
++ (id)recordForLegacyBehaviorOverride:(id)arg1 lastUpdated:(id)arg2;
++ (id)_recordWithEncodedInfo:(id)arg1 error:(id *)arg2;
 @property(readonly, copy, nonatomic) NSNumber *bedtimeBehaviorEnabledSetting; // @synthesize bedtimeBehaviorEnabledSetting=_bedtimeBehaviorEnabledSetting;
 @property(readonly, copy, nonatomic) NSNumber *timePeriodEndTimeMinute; // @synthesize timePeriodEndTimeMinute=_timePeriodEndTimeMinute;
 @property(readonly, copy, nonatomic) NSNumber *timePeriodEndTimeHour; // @synthesize timePeriodEndTimeHour=_timePeriodEndTimeHour;
@@ -42,6 +44,7 @@
 - (id)_initWithLastUpdatedTimestamp:(id)arg1 scheduleEnabledSetting:(id)arg2 timePeriodStartTimeHour:(id)arg3 timePeriodStartTimeMinute:(id)arg4 timePeriodEndTimeHour:(id)arg5 timePeriodEndTimeMinute:(id)arg6 bedtimeBehaviorEnabledSetting:(id)arg7;
 - (id)_initWithRecord:(id)arg1;
 - (id)init;
+- (id)legacyBehaviorOverride;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

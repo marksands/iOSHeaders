@@ -90,6 +90,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)updateTypeName;
 - (unsigned long long)totalRequiredFreeSpace;
 - (unsigned long long)preparationSize;
 - (id)humanReadableUpdateName;

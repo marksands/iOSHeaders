@@ -67,6 +67,10 @@
 - (void)getCurrentWorkoutSnapshotWithCompletion:(CDUnknownBlockType)arg1;
 - (void)performWhenPostLaunchSessionRecoveryHasCompleted:(CDUnknownBlockType)arg1;
 - (void)_recoverCurrentWorkoutSessionAfterLaunch;
+- (void)_notifyForPostLaunchSessionRecovery;
+- (void)_finishAllWorkoutsExcludingSessions:(id)arg1;
+- (id)_recoverActiveWorkoutSessionServersIfNeeded;
+- (void)_scheduleFinishForDetachedWorkoutBuilders;
 - (void)generatePauseOrResumeRequestWithCompletion:(CDUnknownBlockType)arg1;
 - (id)currentWorkoutClient;
 - (long long)_queue_currentWorkoutLocationType;

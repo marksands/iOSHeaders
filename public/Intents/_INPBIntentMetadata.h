@@ -6,14 +6,13 @@
 
 #import "PBCodable.h"
 
-#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 #import "_INPBIntentMetadata.h"
 
-@class INCodableAttribute, NSArray, NSString, _INPBImageValue, _INPBString;
+@class NSArray, NSString, _INPBImageValue, _INPBString;
 
-@interface _INPBIntentMetadata : PBCodable <_INPBIntentMetadata, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
+@interface _INPBIntentMetadata : PBCodable <_INPBIntentMetadata, NSSecureCoding, NSCopying>
 {
     CDStruct_95bda58d _requiredEntitlements;
     struct {
@@ -41,11 +40,9 @@
     NSArray *_parameterImages;
     NSString *_suggestedInvocationPhrase;
     _INPBString *_userUtterance;
-    INCodableAttribute *_associatedCodableAttribute;
 }
 
 + (Class)parameterImagesType;
-@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(retain, nonatomic) _INPBString *userUtterance; // @synthesize userUtterance=_userUtterance;
 @property(nonatomic) _Bool userConfirmationRequired; // @synthesize userConfirmationRequired=_userConfirmationRequired;
 @property(nonatomic) int triggerMethod; // @synthesize triggerMethod=_triggerMethod;

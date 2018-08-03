@@ -54,6 +54,7 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_streamMap;
     AVCStatisticsCollector *_statisticsCollector;
     AVCBasebandCongestionDetector *_basebandCongestionDetector;
+    unsigned int _cellularUniqueTag;
     float _volume;
     float _audioPosition;
     _Bool _isMuted;
@@ -80,6 +81,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) VCMediaNegotiator *mediaNegotiator; // @synthesize mediaNegotiator=_mediaNegotiator;
 @property(readonly, nonatomic) unsigned long long idsParticipantID; // @synthesize idsParticipantID=_idsParticipantID;
 @property(readonly, nonatomic) VCAudioRuleCollection *supportedAudioRules; // @synthesize supportedAudioRules=_supportedAudioRules;
+@property(nonatomic) unsigned int cellularUniqueTag; // @synthesize cellularUniqueTag=_cellularUniqueTag;
 @property(retain, nonatomic) AVCBasebandCongestionDetector *basebandCongestionDetector; // @synthesize basebandCongestionDetector=_basebandCongestionDetector;
 @property(retain, nonatomic) AVCStatisticsCollector *statisticsCollector; // @synthesize statisticsCollector=_statisticsCollector;
 @property(readonly, nonatomic) float audioPosition; // @synthesize audioPosition=_audioPosition;
@@ -166,6 +168,8 @@ __attribute__((visibility("hidden")))
 - (void)dispatchedStream:(id)arg1 didStart:(_Bool)arg2 error:(id)arg3;
 - (void)dispatchedStop;
 - (void)dispatchedStart;
+- (void)callStreamDelegateWithBlock:(CDUnknownBlockType)arg1;
+- (void)callDelegateWithBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic) struct opaqueRTCReporting *reportingAgent;
 
 // Remaining properties

@@ -91,7 +91,6 @@
 - (id)movieFileOutput;
 - (id)stillImageOutput;
 - (id)audioCaptureDeviceInput;
-- (id)_correspondingCaptureEngineDeviceForCaptureInput:(id)arg1;
 - (id)panoramaConfiguration;
 - (id)audioCaptureDevice;
 - (id)_captureEngineDeviceForDevice:(long long)arg1;
@@ -156,6 +155,7 @@
 - (id)_accumulatedUserInfoFromCommand:(id)arg1;
 - (_Bool)_isSessionModificationRequiredByCommand:(id)arg1 logReason:(out id *)arg2;
 - (void)_updateContext:(id)arg1;
+- (id)_videoDeviceInputFromSession:(id)arg1;
 - (void)_handleApplicationDidEnterBackground:(id)arg1;
 - (void)_handleApplicationWillEnterForeground:(id)arg1;
 - (void)_scheduleDelayedRecoveryCheckIfNecessary;
@@ -163,7 +163,7 @@
 - (void)_cancelDelayedSessionNonstartRecovery;
 - (void)_validateSessionRecovery;
 - (void)_handleFailedSessionRecoveryAttemptAfterDelay:(_Bool)arg1;
-- (void)_markSessionRecoveryAsRecovered;
+- (void)_resetPerformingRecoveryState;
 - (void)_recoverFromSessionRuntimeError;
 - (double)_delayForRecoveryAttempt:(unsigned long long)arg1;
 - (void)_handleSessionInterruptionEnded:(id)arg1;

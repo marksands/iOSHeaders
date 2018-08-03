@@ -21,6 +21,7 @@
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
     PKPaymentProvisioningController *_provisioningController;
     _Bool _isBridgeContext;
+    double _previousHeaderHeight;
     _Bool _showScanCardButton;
     id <PKPaymentSetupBrowseProductsViewControllerDelegate> _delegate;
     PKPaymentSetupProduct *_selectedProduct;
@@ -63,6 +64,7 @@
 - (id)defaultHeaderViewTitle;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
+- (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)dealloc;

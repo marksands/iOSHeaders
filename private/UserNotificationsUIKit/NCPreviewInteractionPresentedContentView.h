@@ -19,11 +19,14 @@
 
 @property(retain, nonatomic) MTVibrantStylingProvider *vibrantStylingProvider; // @synthesize vibrantStylingProvider=_vibrantStylingProvider;
 - (void).cxx_destruct;
+- (void)_reduceTransparencyStatusDidChange:(id)arg1;
+- (void)_darkerSystemColorsStatusDidChange:(id)arg1;
 - (void)_configureTitleLabelIfNecessaryWithTitle:(id)arg1;
 - (void)_updateTitleLabelVibrantStyling;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)didMoveToSuperview;
+- (void)dealloc;
 - (id)initWithTitle:(id)arg1;
 
 // Remaining properties

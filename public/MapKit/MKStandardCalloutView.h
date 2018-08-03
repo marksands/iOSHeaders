@@ -6,11 +6,9 @@
 
 #import <MapKit/MKCalloutView.h>
 
-#import "NUIContainerBoxViewDelegate.h"
+@class MKSmallCalloutView, UIMotionEffectGroup, _MKCalloutContentView, _MKCalloutLayer;
 
-@class MKSmallCalloutView, NSString, _MKCalloutContentView, _MKCalloutLayer, _MKMotionEffect;
-
-@interface MKStandardCalloutView : MKCalloutView <NUIContainerBoxViewDelegate>
+@interface MKStandardCalloutView : MKCalloutView
 {
     struct {
         struct CGPoint origin;
@@ -28,11 +26,11 @@
         unsigned int isObserving:1;
         unsigned int reserved:26;
     } _flags;
-    _MKCalloutLayer *_contentMaskLayer;
     _MKCalloutLayer *_contentStrokeLayer;
     _MKCalloutContentView *_contentView;
     MKSmallCalloutView *_calloutView;
-    _MKMotionEffect *_motionEffect;
+    _MKCalloutLayer *_maskLayer;
+    UIMotionEffectGroup *_motionEffect;
 }
 
 + (double)defaultHeight;
@@ -57,8 +55,9 @@
 - (long long)anchorPosition;
 - (void)_runBounceAnimationWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)_layoutSubviews:(_Bool)arg1;
+- (void)didMoveToWindow;
 - (void)forceAnchorPosition:(long long)arg1;
-- (void)_updateMask;
+- (void)_frameDidChange;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_setOriginForScale:(double)arg1;
 - (struct CGPoint)_originForScale:(double)arg1;
@@ -75,12 +74,6 @@
 - (void)setRightView:(id)arg1 animated:(_Bool)arg2;
 - (void)setLeftView:(id)arg1 backgroundColor:(id)arg2 animated:(_Bool)arg3;
 - (void)dealloc;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

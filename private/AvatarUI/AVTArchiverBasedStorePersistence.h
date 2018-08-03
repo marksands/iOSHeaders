@@ -13,7 +13,8 @@
 + (_Bool)_createStoreEmptyFileIfNeededAtLocation:(id)arg1 logger:(id)arg2 fileManager:(id)arg3 error:(id *)arg4;
 + (_Bool)_createStoreFolderIfNeededAtLocation:(id)arg1 logger:(id)arg2 fileManager:(id)arg3 error:(id *)arg4;
 + (id)_migrateDifferentAvatarKitVersionsForContent:(id)arg1 logger:(id)arg2;
-+ (_Bool)_migrateFromPre0_5ForStoreAtLocation:(id)arg1 logger:(id)arg2 fileManager:(id)arg3 error:(id *)arg4;
++ (_Bool)_migrateFromPre0_6ToCurrentForStoreAtLocation:(id)arg1 logger:(id)arg2 fileManager:(id)arg3 error:(id *)arg4;
++ (_Bool)_migrateFromPre0_5ToCurrentForStoreAtLocation:(id)arg1 logger:(id)arg2 fileManager:(id)arg3 error:(id *)arg4;
 + (_Bool)_performMigrationIfNeededForStoreAtLocation:(id)arg1 logger:(id)arg2 fileManager:(id)arg3 error:(id *)arg4;
 + (_Bool)_createStoreIfNeededAtLocation:(id)arg1 logger:(id)arg2 error:(id *)arg3;
 + (_Bool)_writeContent:(id)arg1 toDiskAtLocation:(id)arg2 logger:(id)arg3 error:(id *)arg4;

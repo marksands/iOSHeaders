@@ -8,7 +8,7 @@
 
 #import "UIApplicationSceneClientSettings.h"
 
-@class FBSDisplayMode, NSArray, NSString;
+@class FBSDisplayConfigurationRequest, FBSDisplayMode, NSArray, NSString;
 
 @interface UIMutableApplicationSceneClientSettings : FBSMutableSceneClientSettings <UIApplicationSceneClientSettings>
 {
@@ -28,8 +28,8 @@
 @property(nonatomic) _Bool homeIndicatorAutoHidden;
 @property(nonatomic) unsigned long long screenEdgesDeferringSystemGestures;
 @property(nonatomic, getter=isReachabilitySupported) _Bool reachabilitySupported;
-@property(retain, nonatomic) FBSDisplayMode *requestedDisplayMode;
-@property(nonatomic) long long overscanCompensation;
+@property(copy, nonatomic) FBSDisplayConfigurationRequest *displayConfigurationRequest;
+@property(copy, nonatomic) FBSDisplayMode *requestedDisplayMode;
 @property(nonatomic) long long whitePointAdaptivityStyle;
 @property(nonatomic) _Bool idleModeVisualEffectsEnabled;
 @property(nonatomic) long long backgroundStyle;

@@ -45,6 +45,7 @@
     NSString *_previousArticleId;
     NSString *_previousArticleVersion;
     int _publisherArticleVersion;
+    int _rankInVideoPlaylist;
     NSString *_referencedArticleId;
     NSString *_sectionHeadlineId;
     NSString *_sourceChannelId;
@@ -74,6 +75,7 @@
         unsigned int mediaPlayLocation:1;
         unsigned int mediaType:1;
         unsigned int publisherArticleVersion:1;
+        unsigned int rankInVideoPlaylist:1;
         unsigned int videoType:1;
         unsigned int adSupportedChannel:1;
         unsigned int isBreakingNewsArticle:1;
@@ -86,6 +88,7 @@
 
 + (Class)fractionalCohortMembershipType;
 + (Class)namedEntitiesType;
+@property(nonatomic) int rankInVideoPlaylist; // @synthesize rankInVideoPlaylist=_rankInVideoPlaylist;
 @property(retain, nonatomic) NTPBAlternateHeadline *alternateHeadline; // @synthesize alternateHeadline=_alternateHeadline;
 @property(retain, nonatomic) NSData *groupViewExposureId; // @synthesize groupViewExposureId=_groupViewExposureId;
 @property(retain, nonatomic) NSString *iadNativeCampaignAd; // @synthesize iadNativeCampaignAd=_iadNativeCampaignAd;
@@ -135,6 +138,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasRankInVideoPlaylist;
 @property(readonly, nonatomic) _Bool hasAlternateHeadline;
 @property(readonly, nonatomic) _Bool hasGroupViewExposureId;
 @property(readonly, nonatomic) _Bool hasIadNativeCampaignAd;

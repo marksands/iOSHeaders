@@ -35,6 +35,7 @@
 - (void)createVoiceShortcutViewControllerDidEnterStateSiriUnavailable:(id)arg1;
 - (void)createVoiceShortcutViewController:(id)arg1 didCreateVoiceShortcut:(id)arg2;
 - (void)createVoiceShortcutViewControllerDidCancel:(id)arg1;
+- (void)setupActionDonationCellReuseIdentifiers;
 - (void)setNeedsToComputeDonationCellHeights;
 - (double)cellHeightForDonation:(id)arg1;
 - (void)updateRecommendedShortcuts;

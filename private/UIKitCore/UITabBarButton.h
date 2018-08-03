@@ -8,7 +8,7 @@
 
 #import "UISpringLoadedInteractionSupporting.h"
 
-@class NSMutableDictionary, NSString, UIColor, UIImage, UIImageView, UITabBar, UITabBarButtonLabel, UITabBarSwappableImageView, UIVisualEffectView, _UIBadgeView;
+@class NSMutableDictionary, NSString, UIColor, UIImage, UIImageView, UITabBar, UITabBarButtonLabel, UITabBarSwappableImageView, UIView, UIVisualEffectView, _UIBadgeView;
 
 __attribute__((visibility("hidden")))
 @interface UITabBarButton : UIControl <UISpringLoadedInteractionSupporting>
@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
     UIColor *_badgeColor;
     NSMutableDictionary *_badgeTextAttributesForState;
     _Bool _horizontalLayout;
+    UIView *_highContrastFocusIndicator;
     _Bool _showsHighlightedState;
     _Bool _centerAllContents;
     Class _appearanceGuideClass;

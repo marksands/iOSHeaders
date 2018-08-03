@@ -8,19 +8,21 @@
 
 #import "DNDSAssertionSyncManagerDataSource.h"
 #import "DNDSAssertionSyncManagerDelegate.h"
+#import "DNDSEventBehaviorResolverDataSource.h"
 #import "DNDSLifetimeMonitorDataSource.h"
 #import "DNDSLifetimeMonitorDelegate.h"
 #import "DNDSModeAssertionProviderObserver.h"
 #import "DNDSModeAssertionStateProviderDataSource.h"
 #import "DNDSRemoteServiceProviderDelegate.h"
 #import "DNDSScheduleManagerDataSource.h"
-#import "DNDSScheduleManagerDelegate.h"
 #import "DNDSSettingsManagerDelegate.h"
+#import "DNDSSettingsSyncManagerDataSource.h"
+#import "DNDSSettingsSyncManagerDelegate.h"
 #import "DNDSStateProviderUpdateListener.h"
 
-@class BBQuietModeOverrideAssertion, BBSettingsGateway, DNDSBulletinBoardEventBehaviorResolver, DNDSLocalAssertionManager, DNDSModeAssertionStateProvider, DNDSRemoteServiceProvider, DNDSScheduleManager, DNDSSettingsManager, NSArray, NSObject<OS_dispatch_queue>, NSString;
+@class DNDSEventBehaviorResolver, DNDSLocalAssertionManager, DNDSModeAssertionStateProvider, DNDSRemoteServiceProvider, DNDSScheduleManager, DNDSSettingsManager, NSArray, NSObject<OS_dispatch_queue>, NSString;
 
-@interface DNDSServer : NSObject <DNDSLifetimeMonitorDataSource, DNDSLifetimeMonitorDelegate, DNDSModeAssertionProviderObserver, DNDSModeAssertionStateProviderDataSource, DNDSStateProviderUpdateListener, DNDSRemoteServiceProviderDelegate, DNDSAssertionSyncManagerDataSource, DNDSAssertionSyncManagerDelegate, DNDSScheduleManagerDataSource, DNDSScheduleManagerDelegate, DNDSSettingsManagerDelegate>
+@interface DNDSServer : NSObject <DNDSEventBehaviorResolverDataSource, DNDSLifetimeMonitorDataSource, DNDSLifetimeMonitorDelegate, DNDSModeAssertionProviderObserver, DNDSModeAssertionStateProviderDataSource, DNDSStateProviderUpdateListener, DNDSRemoteServiceProviderDelegate, DNDSAssertionSyncManagerDataSource, DNDSAssertionSyncManagerDelegate, DNDSSettingsSyncManagerDataSource, DNDSSettingsSyncManagerDelegate, DNDSScheduleManagerDataSource, DNDSSettingsManagerDelegate>
 {
     NSObject<OS_dispatch_queue> *_queue;
     DNDSLocalAssertionManager *_localAssertionManager;
@@ -28,30 +30,32 @@
     DNDSScheduleManager *_scheduleManager;
     NSArray *_assertionTransformers;
     DNDSModeAssertionStateProvider *_stateProvider;
-    DNDSBulletinBoardEventBehaviorResolver *_eventBehaviorResolver;
+    DNDSEventBehaviorResolver *_eventBehaviorResolver;
     DNDSRemoteServiceProvider *_serviceProvider;
     id <DNDSAssertionSyncManager> _assertionSyncManager;
     id <DNDSSettingsSyncManager> _settingsSyncManager;
-    BBSettingsGateway *_settingsGateway;
     DNDSSettingsManager *_settingsManager;
-    BBQuietModeOverrideAssertion *_quietModeAssertion;
+    unsigned long long _lockState;
+    unsigned long long _lostModeState;
 }
 
-+ (void)initialize;
+@property unsigned long long lostModeState; // @synthesize lostModeState=_lostModeState;
+@property unsigned long long lockState; // @synthesize lockState=_lockState;
 - (void).cxx_destruct;
 - (void)_queue_handleSyncSettingsChange:(id)arg1;
 - (id)_activeModeAssertionsConsideringProviders:(id)arg1;
-- (void)_queue_updateBulletinBoardAssertionWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_queue_updateLifetimeMonitorsAndState;
 - (void)_queue_resume;
 - (void)settingsManager:(id)arg1 didReceiveUpdatedSyncSettings:(id)arg2;
 - (void)settingsManager:(id)arg1 didReceiveUpdatedScheduleSettings:(id)arg2;
 - (void)settingsManager:(id)arg1 didReceiveUpdatedPhoneCallBypassSettings:(id)arg2;
 - (void)settingsManager:(id)arg1 didReceiveUpdatedBehaviorSettings:(id)arg2;
-- (void)scheduleChangedForScheduleManager:(id)arg1;
-- (id)lastScheduleSettingsChangedDateForScheduleManager:(id)arg1;
 - (id)lastModeAssertionsCompleteInvalidationDateForScheduleManager:(id)arg1;
-- (id)scheduleAssertionModeIdentifierForScheduleManager:(id)arg1;
+- (id)scheduleSettingsForScheduleManager:(id)arg1;
+- (void)syncManager:(id)arg1 didReceiveUpdatedScheduleSettings:(id)arg2;
+- (void)syncManager:(id)arg1 didReceiveUpdatedPhoneCallBypassSettings:(id)arg2;
+- (id)scheduleSettingsForSyncManager:(id)arg1;
+- (id)phoneCallBypassSettingsForSyncManager:(id)arg1;
 - (void)syncManager:(id)arg1 invalidateAllModeAssertionsTakenBeforeDate:(id)arg2 forReason:(unsigned long long)arg3;
 - (id)currentStateForSyncManager:(id)arg1;
 - (id)lastModeAssertionsCompleteInvalidationDateForSyncManager:(id)arg1;
@@ -67,8 +71,11 @@
 - (id)remoteServiceProvider:(id)arg1 invalidateModeAssertionWithUUID:(id)arg2 reason:(unsigned long long)arg3 error:(id *)arg4;
 - (id)remoteServiceProvider:(id)arg1 takeModeAssertionWithDetails:(id)arg2 clientIdentifier:(id)arg3 error:(id *)arg4;
 - (id)remoteServiceProvider:(id)arg1 assertionWithClientIdentifer:(id)arg2 error:(id *)arg3;
-- (id)remoteServiceProvider:(id)arg1 resolveBehaviorForEventDetails:(id)arg2 error:(id *)arg3;
+- (id)remoteServiceProvider:(id)arg1 resolveBehaviorForEventDetails:(id)arg2 clientIdentifier:(id)arg3 date:(id)arg4 error:(id *)arg5;
 - (void)stateProvider:(id)arg1 didUpdateDoNotDisturbState:(id)arg2;
+- (unsigned long long)currentLostModeStateForStateProvider:(id)arg1;
+- (unsigned long long)currentUILockStateForStateProvider:(id)arg1;
+- (unsigned long long)currentInterruptionBehaviorSettingForStateProvider:(id)arg1;
 - (id)stateProvider:(id)arg1 effectiveModeIdentifierForModeAssertion:(id)arg2;
 - (id)currentlyActiveModeAssertionsForStateProvider:(id)arg1;
 - (void)modeAssertionProvider:(id)arg1 didPerformInvalidations:(id)arg2;
@@ -77,6 +84,11 @@
 - (void)activeAssertionsDidChangeForLifetimeMonitor:(id)arg1;
 - (id)lifetimeMonitor:(id)arg1 effectiveLifetimeForModeAssertion:(id)arg2;
 - (id)allModeAssertionsForLifetimeMonitor:(id)arg1;
+- (id)eventBehaviorResolver:(id)arg1 bypassSettingsForClientIdentifier:(id)arg2;
+- (id)currentStateForEventBehaviorResolver:(id)arg1;
+- (_Bool)setLostModeState:(unsigned long long)arg1 error:(id *)arg2;
+- (_Bool)setUILockState:(unsigned long long)arg1 error:(id *)arg2;
+- (void)handleSignificantTimeChange;
 - (void)resume;
 - (id)init;
 

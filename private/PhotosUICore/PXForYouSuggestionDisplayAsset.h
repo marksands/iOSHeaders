@@ -25,6 +25,7 @@
 @property(readonly, nonatomic) NSString *adjustedContentIdentifier; // @synthesize adjustedContentIdentifier=_adjustedContentIdentifier;
 @property(readonly, nonatomic) PHAsset *photoKitAsset; // @synthesize photoKitAsset=_photoKitAsset;
 - (void).cxx_destruct;
+- (id)_computedPortraitEffectSettingsForEditModel:(id)arg1 editSource:(id)arg2;
 - (id)applyAdjustmentsToEditModel:(id)arg1 editSource:(id)arg2;
 @property(readonly, nonatomic) _Bool wantsAdjustments;
 @property(readonly, nonatomic) _Bool isAnimatedImage;

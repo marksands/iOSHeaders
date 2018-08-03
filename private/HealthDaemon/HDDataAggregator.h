@@ -21,6 +21,7 @@
 
 @property(readonly, nonatomic) __weak HDDataCollectionManager *dataCollectionManager; // @synthesize dataCollectionManager=_dataCollectionManager;
 - (void).cxx_destruct;
+- (id)diagnosticDescription;
 - (void)daemonReady:(id)arg1;
 - (id)configurationForCollector:(id)arg1;
 - (void)recomputeCollectorConfiguration;

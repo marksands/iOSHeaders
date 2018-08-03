@@ -17,7 +17,6 @@
     _Bool _hasStartedLoading;
     _Bool _hasSavedGeneratedWaveform;
     NSObject<OS_dispatch_queue> *_queue;
-    NSObject<OS_dispatch_queue> *_observerQueue;
     RCWaveformGenerator *_waveformGenerator;
     NSURL *_generatedWaveformOutputURL;
     NSHashTable *_weakObservers;
@@ -28,7 +27,6 @@
 @property(readonly, nonatomic) NSHashTable *weakObservers; // @synthesize weakObservers=_weakObservers;
 @property(readonly, nonatomic) NSURL *generatedWaveformOutputURL; // @synthesize generatedWaveformOutputURL=_generatedWaveformOutputURL;
 @property(readonly, nonatomic) RCWaveformGenerator *waveformGenerator; // @synthesize waveformGenerator=_waveformGenerator;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *observerQueue; // @synthesize observerQueue=_observerQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(readonly, nonatomic) RCWaveform *liveRecordingMergingWaveform; // @synthesize liveRecordingMergingWaveform=_liveRecordingMergingWaveform;
 @property(readonly, nonatomic) RCWaveform *accumulatorWaveform; // @synthesize accumulatorWaveform=_accumulatorWaveform;
@@ -40,6 +38,7 @@
 - (void)waveformGeneratorWillBeginLoading:(id)arg1;
 - (void)updateAccumulatorWaveformSegmentsWithBlock:(CDUnknownBlockType)arg1;
 - (void)mergeGeneratedWaveformIfNecessary;
+- (_Bool)shouldMergeLiveWaveform;
 - (void)saveGeneratedWaveformIfNecessary;
 - (id)saveableWaveform;
 - (id)synchronouslyApproximateWaveformSegmentsByReadingCurrentFileAheadTimeRange:(CDStruct_73a5d3ca)arg1;

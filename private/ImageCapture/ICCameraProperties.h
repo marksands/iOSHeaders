@@ -48,6 +48,7 @@ __attribute__((visibility("hidden")))
     NSNumber *_applePTPObjectLimit;
     long long _appleRelatedUUIDSupport;
     long long _enumerationOrder;
+    unsigned int _deviceFailureCount;
     unsigned long long _mediaPresentation;
     NSMutableOrderedSet *_indexedCameraFileUUIDs;
     NSMutableOrderedSet *_indexedCameraFileDates;
@@ -55,6 +56,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain) NSMutableOrderedSet *indexedCameraFileDates; // @synthesize indexedCameraFileDates=_indexedCameraFileDates;
 @property(retain) NSMutableOrderedSet *indexedCameraFileUUIDs; // @synthesize indexedCameraFileUUIDs=_indexedCameraFileUUIDs;
+@property unsigned int deviceFailureCount; // @synthesize deviceFailureCount=_deviceFailureCount;
 @property long long enumerationOrder; // @synthesize enumerationOrder=_enumerationOrder;
 @property long long appleRelatedUUIDSupport; // @synthesize appleRelatedUUIDSupport=_appleRelatedUUIDSupport;
 @property(retain) NSNumber *applePTPObjectLimit; // @synthesize applePTPObjectLimit=_applePTPObjectLimit;
@@ -93,6 +95,7 @@ __attribute__((visibility("hidden")))
 @property _Bool beingEjected; // @synthesize beingEjected=_beingEjected;
 @property _Bool ejectable; // @synthesize ejectable=_ejectable;
 @property(retain) NSString *volumePath; // @synthesize volumePath=_volumePath;
+- (unsigned int)incrementDeviceFailureCount;
 - (void)dealloc;
 - (void)unlockContents;
 - (void)lockContents;

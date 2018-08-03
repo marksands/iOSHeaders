@@ -20,6 +20,8 @@
 @property(readonly, nonatomic) WBSHistory *history; // @synthesize history=_history;
 - (void).cxx_destruct;
 - (void)contextForPageURL:(id)arg1 content:(id)arg2 contentType:(long long)arg3 metadata:(id)arg4 isPrivate:(_Bool)arg5 isReaderAvailable:(_Bool)arg6 withCompletionHandler:(CDUnknownBlockType)arg7;
+- (void)invalidateCachedResults;
+- (void)cachedResponseForURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithHistory:(id)arg1 contextClient:(id)arg2;
 
 @end

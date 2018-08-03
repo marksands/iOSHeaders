@@ -25,9 +25,8 @@ __attribute__((visibility("hidden")))
 - (void)_zoomOrientationChange:(id)arg1;
 - (void)loadView;
 - (void)_setupPositioningAndRotationForInterfaceOrientation:(long long)arg1 offscreen:(_Bool)arg2;
-- (void)_updateZoomButtonTitle;
+- (void)_updateZoomButton;
 - (void)_changeZoom:(id)arg1;
-- (id)_zoomText:(_Bool)arg1;
 - (_Bool)isClassicControlWindow:(id)arg1;
 - (void)dealloc;
 - (id)init;

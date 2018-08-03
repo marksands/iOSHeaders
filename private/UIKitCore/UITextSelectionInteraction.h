@@ -22,7 +22,9 @@ __attribute__((visibility("hidden")))
 - (void)confirmMarkedText:(id)arg1;
 - (void)oneFingerTap:(id)arg1;
 - (void)oneFingerTapSelectsAll:(id)arg1;
+- (void)performTapActionAtPoint:(struct CGPoint)arg1 granularity:(long long)arg2 modifierFlags:(long long)arg3;
 - (void)performTapActionAtPoint:(struct CGPoint)arg1 granularity:(long long)arg2;
+- (_Bool)_isShiftKeyBeingHeldForGesture:(id)arg1;
 - (void)oneFingerDoubleTap:(id)arg1;
 - (id)initWithMode:(long long)arg1;
 

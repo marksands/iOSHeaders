@@ -34,6 +34,7 @@
 - (id)exportedInterface;
 - (void)clientRemote_didUpdateRoute:(id)arg1;
 - (void)clientRemote_didUpdateElevation:(id)arg1;
+- (void)workoutBuilderDidFinish;
 - (id)initWithWorkoutSession:(id)arg1;
 
 // Remaining properties

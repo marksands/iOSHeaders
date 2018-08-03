@@ -38,11 +38,10 @@
 - (id)memoryCacheKey;
 - (id)_existingCachedImageURL;
 - (id)_unscaledCachedImageURL;
-- (id)_cachedLowResImageURL;
 - (id)_cachedImageURL;
 - (void)cacheImageInMemory:(id)arg1;
 - (id)memoryCachedImage;
-- (id)initWithRenderQueue:(id)arg1 asset:(id)arg2 contentMode:(long long)arg3 options:(id)arg4 resultHandler:(CDUnknownBlockType)arg5;
+- (id)initWithRenderQueue:(id)arg1 asset:(id)arg2 contentMode:(long long)arg3 imageManager:(id)arg4 options:(id)arg5 resultHandler:(CDUnknownBlockType)arg6;
 
 @end
 

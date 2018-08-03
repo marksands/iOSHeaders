@@ -18,6 +18,7 @@
     NSHashTable *_observers;
 }
 
++ (id)sharedInstance;
 @property(readonly, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(copy, nonatomic) NSString *feldsparID; // @synthesize feldsparID=_feldsparID;
 @property(retain, nonatomic) FCUserInfo *userInfo; // @synthesize userInfo=_userInfo;

@@ -24,6 +24,8 @@
     unsigned long long _activityType;
     NSUUID *_workoutUUID;
     HDAssertion *_locationUpdatingAssertion;
+    unsigned long long _validLocationsCount;
+    unsigned long long _skippedLocationsCount;
     id <HDLocationEventDelegate> _delegate;
     CMElevation *_elevation;
 }
@@ -52,13 +54,13 @@
 - (_Bool)locationServicesEnabled;
 - (int)authorizationStatus;
 - (id)workoutLocationManager;
+@property(readonly, copy) NSString *description;
 - (long long)state;
 - (void)dealloc;
 - (id)initWithProfile:(id)arg1 sampleSavingDelegate:(id)arg2 activityType:(unsigned long long)arg3 workoutUUID:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

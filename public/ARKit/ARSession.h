@@ -70,6 +70,7 @@
 - (void)_sessionDidFailWithError:(id)arg1;
 - (void)_sessionCameraDidChangeTrackingState:(id)arg1;
 - (void)_sessionDidUpdateFrame:(id)arg1;
+- (void)_sessionWillRunWithConfiguration:(id)arg1;
 - (void)sensorDidRestart:(id)arg1;
 - (void)sensorDidPause:(id)arg1;
 - (void)sensor:(id)arg1 didFailWithError:(id)arg2;

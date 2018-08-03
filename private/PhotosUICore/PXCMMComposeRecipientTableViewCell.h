@@ -17,6 +17,7 @@
     UILabel *_displayNameLabel;
     UILabel *_transportLabel;
     UIButton *_accessoryButtonView;
+    _Bool _emphasizeDisplayName;
     _Bool _checked;
     int _currentRequestID;
     NSString *_displayName;
@@ -38,6 +39,7 @@
 @property(retain, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
 @property(retain, nonatomic) UIImage *faceImage; // @synthesize faceImage=_faceImage;
 @property(copy, nonatomic) NSString *transport; // @synthesize transport=_transport;
+@property(nonatomic) _Bool emphasizeDisplayName; // @synthesize emphasizeDisplayName=_emphasizeDisplayName;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 - (void).cxx_destruct;
 - (void)_updateAccessoryImageView;

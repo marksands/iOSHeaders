@@ -22,10 +22,11 @@
 + (_Bool)shouldDeinterleaveAudioOnCS;
 + (_Bool)supportPacketDecoding;
 + (_Bool)hasRemoteCoreSpeech;
++ (_Bool)supportPremiumModel;
 + (_Bool)supportRaiseToSpeak;
 + (_Bool)supportSAT;
 + (_Bool)canLookupVoiceTriggerModelFromMobileAsset;
-+ (_Bool)supportImplictTraining;
++ (_Bool)supportImplicitTraining;
 + (_Bool)supportSmartVolume;
 + (_Bool)supportHybridEndpointer;
 + (_Bool)supportCSTwoShotDecision;
@@ -84,6 +85,7 @@
 + (_Bool)readAudioChunksFrom:(id)arg1 block:(CDUnknownBlockType)arg2;
 + (void)iterateBitset:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 + (unsigned int)getNumElementInBitset:(unsigned long long)arg1;
++ (unsigned long long)macHostTimeFromBridgeHostTime:(unsigned long long)arg1;
 + (unsigned long long)sampleCountFromHostTime:(unsigned long long)arg1 anchorHostTime:(unsigned long long)arg2 anchorSampleCount:(unsigned long long)arg3;
 + (unsigned long long)hostTimeFromSampleCount:(unsigned long long)arg1 anchorHostTime:(unsigned long long)arg2 anchorSampleCount:(unsigned long long)arg3;
 + (double)getHostClockFrequency;

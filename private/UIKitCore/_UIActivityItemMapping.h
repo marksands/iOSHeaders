@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 + (id)_dataTypeIdentifierForActivityItem:(id)arg1 activityType:(id)arg2;
 + (id)_subjectForActivityItem:(id)arg1 activityType:(id)arg2;
 + (id)_itemProviderForActivityItem:(id)arg1 typeIdentifier:(id)arg2 thumbnailSize:(struct CGSize)arg3 activityType:(id)arg4;
++ (id)_activityViewControllerForActivityItem:(id)arg1;
 + (void)_clearActivityItems:(id)arg1;
 + (void)_addActivityItem:(id)arg1 activityViewController:(id)arg2 originalActivityItem:(id)arg3;
 + (id)_activeActivityViewControllers;

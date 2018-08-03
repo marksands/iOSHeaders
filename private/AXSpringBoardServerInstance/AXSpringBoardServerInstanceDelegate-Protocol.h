@@ -69,6 +69,7 @@
 - (_Bool)isNotificationCenterVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)isNotificationVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)toggleNotificationCenterWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
+- (_Bool)isScreenshotWindowVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)openVoiceControlWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)dismissSiriWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)openSiriWithServerInstance:(_AXSpringBoardServerInstance *)arg1;

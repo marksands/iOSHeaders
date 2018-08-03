@@ -13,8 +13,10 @@
     _PKHueSpectrumView *_hueSpectrumView;
     CAShapeLayer *_selectedColorLayer;
     UIImageView *_embossImageView;
+    CAShapeLayer *_strokeShapeLayer;
 }
 
+@property(retain, nonatomic) CAShapeLayer *strokeShapeLayer; // @synthesize strokeShapeLayer=_strokeShapeLayer;
 @property(retain, nonatomic) UIImageView *embossImageView; // @synthesize embossImageView=_embossImageView;
 @property(retain, nonatomic) CAShapeLayer *selectedColorLayer; // @synthesize selectedColorLayer=_selectedColorLayer;
 @property(retain, nonatomic) _PKHueSpectrumView *hueSpectrumView; // @synthesize hueSpectrumView=_hueSpectrumView;

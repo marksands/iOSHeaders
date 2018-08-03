@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
     NSSet *_protocols;
 }
 
-+ (void)forwardingProxyWithInstance:(id)arg1 eventQueue:(id)arg2 eventHandler:(CDUnknownBlockType)arg3;
++ (void)forwardingProxyWithInstance:(id)arg1 options:(id)arg2 eventQueue:(id)arg3 eventHandler:(CDUnknownBlockType)arg4;
 + (id)forwardingProxyWithSessionManager:(id)arg1 instance:(id)arg2 error:(id *)arg3;
 @property(readonly, nonatomic) NSSet *protocols; // @synthesize protocols=_protocols;
 @property(retain, nonatomic) id <NSObject> instance; // @synthesize instance=_instance;

@@ -28,14 +28,10 @@
 @property(retain) STIntroductionModel *model; // @synthesize model=_model;
 @property(copy) CDUnknownBlockType completionBlock; // @synthesize completionBlock;
 - (void).cxx_destruct;
-- (void)passcodeInput:(id)arg1 tappedFooterButton:(id)arg2;
 - (void)passcodeInput:(id)arg1 enteredPasscode:(id)arg2;
-- (void)passcodeInput:(id)arg1 willChangeContents:(id)arg2;
-- (void)updateNextButton:(id)arg1;
 - (void)updatePasscodeType;
 - (void)userEnteredPasscode:(id)arg1;
 - (void)nextButtonTapped;
-- (_Bool)usesSimplePasscodeEntry;
 - (id)passcodeInputView;
 - (void)passcodeTypeChanged:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

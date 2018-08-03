@@ -39,6 +39,16 @@ __attribute__((visibility("hidden")))
     struct CGRect scrollViewFrame;
     double zoomScale;
     _Bool pdfViewIsRotating;
+    struct {
+        struct UIEdgeInsets contentInset;
+        struct UIEdgeInsets safeAreaInsets;
+        struct UIEdgeInsets expandedContentInsetPortrait;
+        struct UIEdgeInsets collapsedContentInsetPortrait;
+        struct UIEdgeInsets expandedContentInsetLandscape;
+        struct UIEdgeInsets collapsedContentInsetLandscape;
+        struct UIEdgeInsets endRotationContentInset;
+        _Bool contentInsetIsExpandedDuringRotation;
+    } hostScrollViewInsets;
 }
 
 - (void).cxx_destruct;

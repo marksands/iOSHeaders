@@ -19,7 +19,7 @@
 - (void).cxx_destruct;
 - (id)pickupsAfterBedtime:(id)arg1;
 - (id)mostPickups:(id)arg1;
-- (id)pickupFrequency:(id)arg1;
+- (id)totalPickups:(id)arg1;
 - (id)getPickupInfo:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setCoordinator:(id)arg1;

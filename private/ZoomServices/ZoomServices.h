@@ -23,6 +23,7 @@
 @property(nonatomic, getter=isShowingZoomLens) _Bool showingZoomLens; // @synthesize showingZoomLens=_showingZoomLens;
 @property(retain, nonatomic) AXUIClient *zoomWindowClient; // @synthesize zoomWindowClient=_zoomWindowClient;
 - (void).cxx_destruct;
+- (id)activeZoomMode;
 - (double)zoomLevel;
 - (struct CGRect)zoomFrame;
 - (double)appSwitcherRevealAnimationStartDelay;

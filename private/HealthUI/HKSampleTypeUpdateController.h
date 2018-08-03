@@ -26,6 +26,7 @@
 - (void)_setQueryState:(long long)arg1 forType:(id)arg2;
 - (long long)_queryStateForType:(id)arg1;
 - (_Bool)_typeRequiresNewQuery:(id)arg1;
+- (_Bool)isQueryStateRunningForType:(id)arg1;
 - (id)_allObservedTypes;
 - (void)_callObservers:(id)arg1 withType:(id)arg2 samplesAdded:(id)arg3 objectsRemoved:(id)arg4;
 - (id)_observersForType:(id)arg1;

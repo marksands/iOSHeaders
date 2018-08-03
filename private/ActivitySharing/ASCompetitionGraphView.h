@@ -15,6 +15,8 @@
     _Bool _highlightsCurrentDay;
     _Bool _showsBackgroundDateGuide;
     _Bool _showsBackgroundScoreGuide;
+    _Bool _drawsDailyScoreLabels;
+    _Bool _drawsFutureScoreDots;
     long long _alignment;
     double _horizontalInset;
     double _barWidth;
@@ -32,6 +34,8 @@
 
 + (id)gizmoGraph;
 + (id)companionGraph;
+@property(nonatomic) _Bool drawsFutureScoreDots; // @synthesize drawsFutureScoreDots=_drawsFutureScoreDots;
+@property(nonatomic) _Bool drawsDailyScoreLabels; // @synthesize drawsDailyScoreLabels=_drawsDailyScoreLabels;
 @property(nonatomic) _Bool showsBackgroundScoreGuide; // @synthesize showsBackgroundScoreGuide=_showsBackgroundScoreGuide;
 @property(nonatomic) _Bool showsBackgroundDateGuide; // @synthesize showsBackgroundDateGuide=_showsBackgroundDateGuide;
 @property(nonatomic) _Bool highlightsCurrentDay; // @synthesize highlightsCurrentDay=_highlightsCurrentDay;
@@ -54,10 +58,9 @@
 - (id)_allScores;
 - (unsigned long long)_minDailyScore;
 - (unsigned long long)_maxDailyScore;
-- (double)_maxScoreY;
-- (double)_minScoreYForGraphHeight:(double)arg1 cornerRadius:(double)arg2;
 - (double)_firstBarOriginXForDateLabelOriginX:(double)arg1 dateLabelWidth:(double)arg2;
-- (id)_attributesForLabelWithDate:(id)arg1;
+- (id)_attributesForDateLabelWithDate:(id)arg1;
+@property(readonly, nonatomic) double lastBaselineY;
 - (double)preferredHeight;
 @property(copy, nonatomic) NSString *dateFormat;
 - (void)drawRect:(struct CGRect)arg1;

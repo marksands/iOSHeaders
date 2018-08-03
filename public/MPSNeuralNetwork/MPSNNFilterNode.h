@@ -23,6 +23,7 @@
 @property(readonly, nonatomic) MPSNNImageNode *resultImage; // @synthesize resultImage=_resultImage;
 - (id)sourceStates;
 - (id)sourceImages;
+- (id)trainingGraphWithSourceGradient:(id)arg1 nodeHandler:(CDUnknownBlockType)arg2;
 - (id)gradientFiltersWithSource:(id)arg1;
 - (id)gradientFiltersWithSources:(id)arg1;
 - (id)gradientFilterWithSource:(id)arg1;

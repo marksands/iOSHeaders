@@ -25,7 +25,7 @@
 - (void)setStyle:(unsigned long long)arg1;
 - (id)init;
 - (unsigned long long)desiredDateComplicationDateStyle;
-- (void)setDateComplicationText:(id)arg1 forDateStyle:(unsigned long long)arg2;
+- (void)setDateComplicationText:(id)arg1 withDayRange:(struct _NSRange)arg2 forDateStyle:(unsigned long long)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

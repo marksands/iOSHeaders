@@ -28,9 +28,8 @@
 - (void).cxx_destruct;
 - (void)colorPickerCrosshairViewShouldUpdateWithColor:(id)arg1;
 - (void)colorPickerCrosshairViewShouldUpdateColor:(id)arg1 point:(struct CGPoint)arg2;
-- (struct CGRect)panningBoundsForColorPickerCrosshairView:(id)arg1;
-- (_Bool)circleModeForColorPickerCrosshairView:(id)arg1;
 - (id)colorForColorPickerCrosshairView:(id)arg1 frame:(struct CGRect)arg2;
+- (unsigned long long)cornerPositionForColorPickerCrosshairView:(id)arg1;
 - (struct CGRect)frameForColorPickerCrosshairView:(id)arg1;
 - (id)representableColorForColor:(id)arg1;
 - (void)layoutSubviews;

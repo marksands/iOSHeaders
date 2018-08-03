@@ -12,6 +12,7 @@
 {
     _Bool _separateSectionsForSmartAndUserCollections;
     _Bool _includePeopleAlbum;
+    _Bool _skipKeyAssetFetches;
     _Bool _shouldIgnoreLibraryChanges;
     PHFetchResult *_collectionsFetchResult;
     PHCollectionList *_collectionList;
@@ -22,6 +23,7 @@
 @property _Bool shouldIgnoreLibraryChanges; // @synthesize shouldIgnoreLibraryChanges=_shouldIgnoreLibraryChanges;
 @property(nonatomic) unsigned long long collectionTypesToInclude; // @synthesize collectionTypesToInclude=_collectionTypesToInclude;
 @property(nonatomic) unsigned long long assetTypesToInclude; // @synthesize assetTypesToInclude=_assetTypesToInclude;
+@property(nonatomic) _Bool skipKeyAssetFetches; // @synthesize skipKeyAssetFetches=_skipKeyAssetFetches;
 @property(nonatomic) _Bool includePeopleAlbum; // @synthesize includePeopleAlbum=_includePeopleAlbum;
 @property(nonatomic) _Bool separateSectionsForSmartAndUserCollections; // @synthesize separateSectionsForSmartAndUserCollections=_separateSectionsForSmartAndUserCollections;
 @property(readonly) PHCollectionList *collectionList; // @synthesize collectionList=_collectionList;

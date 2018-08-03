@@ -17,6 +17,7 @@
 + (NSString *)disambiguatedDatabaseTable;
 + (Class)entityForProperty:(NSString *)arg1;
 + (NSArray *)privateSubEntities;
++ (_Bool)isTemporary;
 + (NSArray *)indices;
 + (NSArray *)columnsDefinition;
 + (NSArray *)tableAliases;

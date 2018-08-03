@@ -64,7 +64,6 @@
 - (void)_resetBattery;
 - (void)_collapseBattery;
 - (void)_stopBatteryCollapseTimer;
-- (id)_entryKeysDelayedDuringBatteryExpansion;
 - (id)_removalAnimationForBatteryCharging;
 - (id)_additionAnimationForBatteryCharging;
 - (struct CGAffineTransform)_expandedChargingBoltTransformForDisplayItem:(id)arg1;
@@ -83,6 +82,7 @@
 - (void)_updateSystemNavigationWithData:(id)arg1;
 - (void)updateDataForSystemNavigation:(id)arg1;
 - (void)updateDataForService:(id)arg1;
+- (_Bool)canFixupDisplayItemAttributes;
 - (id)displayItemIdentifiersForPartWithIdentifier:(id)arg1;
 - (id)regionIdentifiersForPartWithIdentifier:(id)arg1;
 - (void)actionable:(id)arg1 highlighted:(_Bool)arg2 initialPress:(_Bool)arg3;

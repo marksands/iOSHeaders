@@ -50,8 +50,6 @@
 - (void)icloudHearingSettingsDidChange:(id)arg1;
 - (_Bool)shouldUseiCloud;
 - (id)convertPersistentRepresentation:(id)arg1 fromVersion:(float)arg2 toVersion:(float)arg3;
-- (void)updateControlCenterPreference;
-- (_Bool)hearingShortcutSupported;
 - (_Bool)isiCloudPaired;
 - (_Bool)isPairedWithFakeHearingAids;
 - (void)dealloc;

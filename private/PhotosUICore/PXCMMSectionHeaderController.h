@@ -10,25 +10,29 @@
 #import "PXReusableObject.h"
 #import "PXUIViewBasicTile.h"
 
-@class NSString, PXCMMViewModel, UIButton, UIView;
+@class NSString, PXCMMAssetsProgressListener, PXCMMViewModel, UIButton, UILabel, UIView;
 
 @interface PXCMMSectionHeaderController : NSObject <PXChangeObserver, PXUIViewBasicTile, PXReusableObject>
 {
     unsigned long long _activityType;
     PXCMMViewModel *_viewModel;
+    PXCMMAssetsProgressListener *_assetsProgressListener;
     _Bool _isViewLoaded;
     UIView *_underlyingView;
     UIButton *_actionButton;
     UIButton *_secondaryButton;
+    UILabel *_photosLabel;
     long long _actionButtonType;
     long long _secondaryActionButtonType;
 }
 
++ (id)_photosLabelFont;
 + (id)_buttonLabelFont;
 + (id)new;
 @property(nonatomic, setter=_setSecondaryActionButtonType:) long long secondaryActionButtonType; // @synthesize secondaryActionButtonType=_secondaryActionButtonType;
 @property(nonatomic, setter=_setActionButtonType:) long long actionButtonType; // @synthesize actionButtonType=_actionButtonType;
 - (void).cxx_destruct;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)prepareForReuse;
 - (void)becomeReusable;
@@ -42,7 +46,7 @@
 - (void)_handleActionButtonTapped:(id)arg1;
 @property(readonly, nonatomic) UIView *view;
 - (void)_loadViewIfNeeded;
-- (id)initWithActivityType:(unsigned long long)arg1 viewModel:(id)arg2;
+- (id)initWithActivityType:(unsigned long long)arg1 viewModel:(id)arg2 assetsProgressListener:(id)arg3;
 - (id)init;
 
 // Remaining properties

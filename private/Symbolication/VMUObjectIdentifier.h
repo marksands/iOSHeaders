@@ -75,6 +75,7 @@
 - (id)labelForProtocol:(void *)arg1;
 - (id)labelForOSXPCConnection:(void *)arg1;
 - (id)labelForOSTransaction:(void *)arg1;
+- (id)labelForOSLog:(void *)arg1;
 - (id)labelForOSDispatchQueue:(void *)arg1;
 - (id)labelForOSDispatchMach:(void *)arg1;
 - (id)labelForNSInlineData:(void *)arg1;

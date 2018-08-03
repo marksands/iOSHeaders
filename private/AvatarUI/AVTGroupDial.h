@@ -59,6 +59,7 @@
 - (void)updateSelectedState:(_Bool)arg1 forItemAtIndexPath:(id)arg2 animated:(_Bool)arg3;
 - (void)selectItemAtIndex:(long long)arg1 updateScrollPosition:(_Bool)arg2 animated:(_Bool)arg3;
 - (struct CGSize)cellSizeForItemAtIndex:(long long)arg1;
+- (void)reloadData;
 - (void)stopDiscoverability;
 - (void)startDiscoverability;
 @property(nonatomic) long long selectedGroupIndex;

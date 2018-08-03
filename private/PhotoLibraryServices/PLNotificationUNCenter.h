@@ -16,6 +16,7 @@
 }
 
 + (id)_contentUserInfoForNotification:(id)arg1;
++ (id)_threadIdentifierForNotification:(id)arg1;
 + (id)_categoryIdentifierForNotification:(id)arg1;
 + (id)_topicIdentifiersForNotificationType:(long long)arg1;
 + (id)_soundForNotification:(id)arg1;

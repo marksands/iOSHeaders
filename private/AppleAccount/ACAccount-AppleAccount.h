@@ -6,7 +6,7 @@
 
 #import "ACAccount.h"
 
-@class AARegionInfo, NSArray, NSNumber, NSString;
+@class AARegionInfo, AASuspensionInfo, NSArray, NSNumber, NSString;
 
 @interface ACAccount (AppleAccount)
 - (void)aa_updateWithProvisioningResponse:(id)arg1;
@@ -36,6 +36,8 @@
 @property(readonly, nonatomic) _Bool aa_isUsingiCloud;
 @property(nonatomic, setter=aa_setCloudDocsMigrationComplete:) _Bool aa_isCloudDocsMigrationComplete;
 @property(nonatomic, setter=aa_setUsesCloudDocs:) _Bool aa_isUsingCloudDocs;
+@property(readonly, copy, nonatomic) AASuspensionInfo *aa_suspensionInfo;
+@property(readonly, nonatomic) _Bool aa_isSuspended;
 @property(nonatomic, setter=aa_setNeedsToVerifyTerms:) _Bool aa_needsToVerifyTerms;
 @property(nonatomic, setter=aa_setPrimaryEmailVerified:) _Bool aa_isPrimaryEmailVerified;
 @property(nonatomic, setter=aa_setPrimaryAccount:) _Bool aa_isPrimaryAccount;

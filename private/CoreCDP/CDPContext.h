@@ -42,6 +42,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)_metricsQueue;
++ (id)preflightContext:(id)arg1;
 @property(nonatomic) _Bool idmsMasterKeyRecovery; // @synthesize idmsMasterKeyRecovery=_idmsMasterKeyRecovery;
 @property(nonatomic) _Bool idmsRecovery; // @synthesize idmsRecovery=_idmsRecovery;
 @property(copy, nonatomic) NSString *_recoveryToken; // @synthesize _recoveryToken=__recoveryToken;

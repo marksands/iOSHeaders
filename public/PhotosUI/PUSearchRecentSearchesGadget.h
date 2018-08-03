@@ -8,7 +8,7 @@
 
 #import "PXGadget.h"
 
-@class NSOrderedSet, NSString, PXGadgetSpec;
+@class NSLayoutConstraint, NSOrderedSet, NSString, PXGadgetSpec;
 
 __attribute__((visibility("hidden")))
 @interface PUSearchRecentSearchesGadget : UITableViewController <PXGadget>
@@ -17,23 +17,31 @@ __attribute__((visibility("hidden")))
     id <PXGadgetDelegate> _delegate;
     unsigned long long _accessoryButtonType;
     NSOrderedSet *_recentSearches;
+    NSLayoutConstraint *_separatorRegularTrailingConstraint;
+    NSLayoutConstraint *_separatorCompactWidthConstraint;
 }
 
+@property(retain, nonatomic) NSLayoutConstraint *separatorCompactWidthConstraint; // @synthesize separatorCompactWidthConstraint=_separatorCompactWidthConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *separatorRegularTrailingConstraint; // @synthesize separatorRegularTrailingConstraint=_separatorRegularTrailingConstraint;
 @property(copy, nonatomic) NSOrderedSet *recentSearches; // @synthesize recentSearches=_recentSearches;
 @property(readonly, nonatomic) unsigned long long accessoryButtonType; // @synthesize accessoryButtonType=_accessoryButtonType;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
+- (void)resetLineSeparatorInsets;
 - (void)userDidSelectAccessoryButton:(id)arg1;
 - (struct NSObject *)contentViewController;
 @property(readonly, nonatomic) NSString *localizedTitle;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) _Bool hasContentToDisplay;
+@property(readonly, nonatomic) unsigned long long headerStyle;
 @property(readonly, nonatomic) unsigned long long gadgetType;
 - (struct CGSize)contentSize;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)traitCollectionDidChange:(id)arg1;
+- (void)viewLayoutMarginsDidChange;
 - (void)_reloadData;
 - (void)_updateTableViewLayoutMargins;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
@@ -46,7 +54,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) unsigned long long headerStyle;
 @property(nonatomic) unsigned long long priority;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) _Bool supportsAssetsDrop;

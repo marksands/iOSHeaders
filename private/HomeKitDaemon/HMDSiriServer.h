@@ -14,6 +14,7 @@
 
 @interface HMDSiriServer : NSObject <HMDDataStreamBulkSendListener, HMDSiriAccessoryMonitorDelegate, HMFLogging>
 {
+    unsigned int _targetControlIdentifier;
     NSObject<OS_dispatch_queue> *_queue;
     HMDNotificationRegistration *_notificationRegistration;
     HMDSiriRemoteInputServer *_siriInputServer;
@@ -23,6 +24,7 @@
 
 + (id)logCategory;
 + (id)sharedSiriServer;
+@property(nonatomic) unsigned int targetControlIdentifier; // @synthesize targetControlIdentifier=_targetControlIdentifier;
 @property(retain, nonatomic) HMDSiriSession *siriUISession; // @synthesize siriUISession=_siriUISession;
 @property(retain, nonatomic) HMDSiriAccessoryMonitor *siriAccessoryMonitor; // @synthesize siriAccessoryMonitor=_siriAccessoryMonitor;
 @property(retain, nonatomic) HMDSiriRemoteInputServer *siriInputServer; // @synthesize siriInputServer=_siriInputServer;
@@ -30,6 +32,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
 - (void)accessoryDidCloseDataStream:(id)arg1;
+- (void)accessoryDidStartListening:(id)arg1;
 - (void)accessory:(id)arg1 didReceiveBulkSessionCandidate:(id)arg2;
 - (void)monitorHasNoAccessoriesForDragonSiri:(id)arg1;
 - (void)monitor:(id)arg1 willNotAllowAccessoryForDragonSiri:(id)arg2;

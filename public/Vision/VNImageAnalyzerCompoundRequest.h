@@ -6,22 +6,20 @@
 
 #import <Vision/VNUniqueObservationClassCompoundRequest.h>
 
-@class NSDictionary, NSString;
-
 __attribute__((visibility("hidden")))
 @interface VNImageAnalyzerCompoundRequest : VNUniqueObservationClassCompoundRequest
 {
-    NSString *_detectorType;
-    NSDictionary *_detectorConfigurationOptions;
 }
 
++ (Class)configurationClass;
 + (_Bool)warmUpRequestPerformer:(id)arg1 error:(id *)arg2;
 + (id)compoundRequestsForOriginalRequests:(id)arg1;
-+ (void)_addCompoundRequestsToArray:(id)arg1 forModel:(unsigned long long)arg2 withConfigurations:(id)arg3;
-- (void).cxx_destruct;
++ (void)_addCompoundRequestsToArray:(id)arg1 forModel:(unsigned long long)arg2 withGroupingConfigurations:(id)arg3;
 - (_Bool)internalPerformRevision:(unsigned long long)arg1 inContext:(id)arg2 error:(id *)arg3;
+- (_Bool)willAcceptCachedResultsFromRequestWithConfiguration:(id)arg1;
+- (_Bool)allowsCachingOfResults;
 - (id)_configuredDetectorForRequestRevision:(unsigned long long)arg1 appliedConfigurationOptions:(id *)arg2 error:(id *)arg3;
-- (id)initWithDetectorType:(id)arg1 configuration:(id)arg2;
+- (id)initWithDetectorType:(id)arg1 groupingConfiguration:(id)arg2;
 
 @end
 

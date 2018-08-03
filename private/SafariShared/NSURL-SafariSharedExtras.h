@@ -15,7 +15,7 @@
 - (_Bool)safari_isWellKnownChangePasswordURL;
 @property(readonly, nonatomic) _Bool safari_isURLTooLongToDisplay;
 - (id)safari_userVisibleStringConsideringLongURLs;
-- (_Bool)safari_canBeSafelyRedirectedToURL:(id)arg1;
+- (_Bool)safari_shouldBeAssociatedWithFaviconFromRedirectedURL:(id)arg1;
 @property(readonly, nonatomic) _Bool safari_isTopLevelURL;
 - (id)safari_URLWithUniqueFilename;
 - (id)safari_userVisibleHostWithoutWWWSubdomain;

@@ -17,12 +17,14 @@
 }
 
 + (id)strokeColorForStrokeShapeLayerWithColor:(id)arg1 isUsedOnDarkBackground:(_Bool)arg2;
-+ (id)pathForStrokeShapeLayerWithSwatchRect:(struct CGRect)arg1 selected:(_Bool)arg2 color:(id)arg3 isUsedOnDarkBackground:(_Bool)arg4;
++ (id)pathForStrokeShapeLayerWithSwatchRect:(struct CGRect)arg1 selected:(_Bool)arg2 color:(id)arg3 isUsedOnDarkBackground:(_Bool)arg4 isCompact:(_Bool)arg5;
 + (id)pathForSelectedColorShapeLayerWithSwatchRect:(struct CGRect)arg1 selected:(_Bool)arg2 embossed:(_Bool)arg3 isCompact:(_Bool)arg4;
-+ (id)pathForFillShapeLayerWithSwatchRect:(struct CGRect)arg1 selected:(_Bool)arg2;
++ (id)pathForFillShapeLayerWithSwatchRect:(struct CGRect)arg1 selected:(_Bool)arg2 isCompact:(_Bool)arg3;
 + (id)embossOverlayImageForColor:(id)arg1 selected:(_Bool)arg2 isCompact:(_Bool)arg3;
 + (double)swatchInsetForIsCompact:(_Bool)arg1;
 + (struct CGRect)swatchRectForBounds:(struct CGRect)arg1 isCompact:(_Bool)arg2;
++ (double)innerColorCircleInset:(_Bool)arg1;
++ (double)transparentSelectionRingInset:(_Bool)arg1;
 + (id)buttonWithColor:(id)arg1 isCompact:(_Bool)arg2;
 @property(retain, nonatomic) _PKInkColorButtonOpacityMaskView *opacityMaskView; // @synthesize opacityMaskView=_opacityMaskView;
 @property(nonatomic) _Bool isUsedOnDarkBackground; // @synthesize isUsedOnDarkBackground=_isUsedOnDarkBackground;

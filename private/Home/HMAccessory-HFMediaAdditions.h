@@ -22,8 +22,7 @@
 @property(readonly, nonatomic) _Bool hf_fakeWiFiPerformanceSymptom;
 @property(readonly, nonatomic) _Bool hf_fakeWiFiSymptom;
 @property(readonly, nonatomic) _Bool hf_fakeUnreachableError;
-- (id)hf_fixSymptom:(id)arg1;
-- (_Bool)hf_shouldDisplayManualFixOption;
+- (_Bool)hf_shouldDisplayManualFixOptionForSymptom:(long long)arg1;
 - (_Bool)hf_shouldShowSoftwareUpdateInfo;
 - (id)hf_identifyHomePod;
 @property(readonly, nonatomic) _Bool hf_needsSoftwareUpdateToSupportBeingAddedToMediaSystem;

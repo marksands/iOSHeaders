@@ -23,6 +23,7 @@
     id <OccurrenceCacheDataSourceProtocol> _occurrenceCacheFilteredDataSource;
     long long _cachedFakeTodayIndex;
     long long _displayableAccountErrorsCount;
+    _Bool _autoStartNotificationMonitor;
     NSSet *_selectedCalendars;
     NSString *_searchString;
     NSCalendar *_calendar;
@@ -32,6 +33,7 @@
 }
 
 + (id)calendarModelWithDataPath:(id)arg1;
+@property(nonatomic) _Bool autoStartNotificationMonitor; // @synthesize autoStartNotificationMonitor=_autoStartNotificationMonitor;
 @property(retain, nonatomic) EKEvent *selectedOccurrence; // @synthesize selectedOccurrence=_selectedOccurrence;
 @property(nonatomic) unsigned long long firstVisibleSecond; // @synthesize firstVisibleSecond=_firstVisibleSecond;
 @property(copy, nonatomic) EKCalendarDate *selectedDate; // @synthesize selectedDate=_selectedDate;

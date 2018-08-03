@@ -47,9 +47,11 @@
 - (void)airplaneModeChanged;
 - (void)callObserver:(id)arg1 callChanged:(id)arg2;
 - (void)_updateActiveCalls;
+- (void)simStatusDidChange:(id)arg1 status:(id)arg2;
 - (void)dataStatus:(id)arg1 dataStatusInfo:(id)arg2;
 - (void)preferredDataSimChanged:(id)arg1;
 - (void)connectionActivationError:(id)arg1 connection:(int)arg2 error:(int)arg3;
+- (void)_carrierBundleDidChange;
 - (void)removeBackgroundWifiClient:(id)arg1;
 - (void)addBackgroundWifiClient:(id)arg1;
 - (void)_updateWifiClientType;

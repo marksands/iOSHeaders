@@ -8,13 +8,15 @@
 
 #import "SVVideoControlsVisibilityManager.h"
 #import "SVVideoTransitionObserver.h"
+#import "SVVideoViewControllerAppearanceObserver.h"
 #import "SVVideoViewControllerControlsVisibilityDelegate.h"
 
 @class NSMutableSet, NSString, SVTimeBasedAction, SVTimeline;
 
-@interface SVVideoControlsVisibilityManager : NSObject <SVVideoTransitionObserver, SVVideoControlsVisibilityManager, SVVideoViewControllerControlsVisibilityDelegate>
+@interface SVVideoControlsVisibilityManager : NSObject <SVVideoTransitionObserver, SVVideoControlsVisibilityManager, SVVideoViewControllerControlsVisibilityDelegate, SVVideoViewControllerAppearanceObserver>
 {
     _Bool _autoHidingEnabled;
+    _Bool _shouldIgnoreControlItemHideability;
     SVTimeline *_timeline;
     id <SVVideoQueueProviding> _queueProvider;
     id <SVVideoControlsTimingProviding> _timingProvider;
@@ -27,6 +29,7 @@
     SVTimeBasedAction *_autoAppearanceAction;
 }
 
+@property(nonatomic) _Bool shouldIgnoreControlItemHideability; // @synthesize shouldIgnoreControlItemHideability=_shouldIgnoreControlItemHideability;
 @property(nonatomic) _Bool autoHidingEnabled; // @synthesize autoHidingEnabled=_autoHidingEnabled;
 @property(retain, nonatomic) SVTimeBasedAction *autoAppearanceAction; // @synthesize autoAppearanceAction=_autoAppearanceAction;
 @property(readonly, nonatomic) NSMutableSet *items; // @synthesize items=_items;
@@ -39,6 +42,9 @@
 @property(readonly, nonatomic) id <SVVideoQueueProviding> queueProvider; // @synthesize queueProvider=_queueProvider;
 @property(readonly, nonatomic) SVTimeline *timeline; // @synthesize timeline=_timeline;
 - (void).cxx_destruct;
+- (void)videoViewControllerWillDisappear:(id)arg1;
+- (void)videoViewControllerDidAppear:(id)arg1;
+- (void)videoViewControllerWillAppear:(id)arg1;
 - (void)videoViewController:(id)arg1 willTransitionToVisibilityOfPlaybackControls:(_Bool)arg2 withAnimationCoordinator:(id)arg3;
 - (id)itemsPassingTest:(CDUnknownBlockType)arg1;
 - (void)scheduleAutoAppearanceWithTimeInterval:(double)arg1;

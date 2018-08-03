@@ -29,6 +29,7 @@
 @property(readonly, nonatomic) NSArray *input; // @synthesize input=_input;
 @property(readonly, nonatomic) WFLAction *action; // @synthesize action=_action;
 - (void).cxx_destruct;
+- (void)launchAppWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)cancelRunning;
 - (void)run;
 - (void)finishRunningWithError:(id)arg1;

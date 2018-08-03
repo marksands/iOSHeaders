@@ -52,6 +52,7 @@
 @property(copy, nonatomic) REImageContentProvider *bodyImageContentProvider;
 @property(copy, nonatomic) REImageContentProvider *headerImageContentProvider;
 @property(copy, nonatomic) RETextContentProvider *headerTextContentProvider;
+@property(retain, nonatomic) NSString *bodyImageCompositingFilter;
 @property(retain, nonatomic) UIImage *overrideBodyImage;
 @property(retain, nonatomic) UIImage *overrideHeaderImage;
 @property(readonly, copy) NSString *description;

@@ -15,6 +15,7 @@
     double _date;
     double _publicationDate;
     double _requiredExpirationDate;
+    double _soundAudioVolume;
     double _soundMaximumDuration;
     NSMutableArray *_additionalAttachments;
     NSData *_alertSuppressionContexts;
@@ -63,6 +64,7 @@
         unsigned int date:1;
         unsigned int publicationDate:1;
         unsigned int requiredExpirationDate:1;
+        unsigned int soundAudioVolume:1;
         unsigned int soundMaximumDuration:1;
         unsigned int attachmentType:1;
         unsigned int sectionSubtype:1;
@@ -84,6 +86,7 @@
 + (void)_addAttachmentsFromBBBulletin:(id)arg1 toBLTPBBulletin:(id)arg2 observer:(id)arg3 completion:(CDUnknownBlockType)arg4;
 + (void)_attachmentFromBBAttachmentMetadata:(id)arg1 bulletin:(id)arg2 observer:(id)arg3 fileOption:(unsigned long long)arg4 completion:(CDUnknownBlockType)arg5;
 + (void)bulletinWithBBBulletin:(id)arg1 sockPuppetAppBundleID:(id)arg2 observer:(id)arg3 feed:(unsigned long long)arg4 teamID:(id)arg5 universalSectionID:(id)arg6 isCriticalBulletin:(_Bool)arg7 replyToken:(id)arg8 gizmoLegacyCategoryID:(id)arg9 useUserInfoForContext:(_Bool)arg10 completion:(CDUnknownBlockType)arg11;
+@property(nonatomic) double soundAudioVolume; // @synthesize soundAudioVolume=_soundAudioVolume;
 @property(nonatomic) _Bool hasCriticalIcon; // @synthesize hasCriticalIcon=_hasCriticalIcon;
 @property(nonatomic) _Bool soundShouldIgnoreRingerSwitch; // @synthesize soundShouldIgnoreRingerSwitch=_soundShouldIgnoreRingerSwitch;
 @property(nonatomic) _Bool soundShouldRepeat; // @synthesize soundShouldRepeat=_soundShouldRepeat;
@@ -141,6 +144,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSoundAudioVolume;
 @property(nonatomic) _Bool hasHasCriticalIcon;
 @property(nonatomic) _Bool hasSoundShouldIgnoreRingerSwitch;
 @property(nonatomic) _Bool hasSoundShouldRepeat;

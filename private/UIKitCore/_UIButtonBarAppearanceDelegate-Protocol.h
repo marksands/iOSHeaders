@@ -4,9 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+#import "NSObject.h"
+
 @class UIBarButtonItem, UIColor, UIFontDescriptor, UIImage;
 
-@protocol _UIButtonBarAppearanceDelegate
+@protocol _UIButtonBarAppearanceDelegate <NSObject>
 @property(readonly, nonatomic) double backButtonMaximumWidth;
 @property(readonly, nonatomic) double backButtonMargin;
 @property(readonly, nonatomic) double defaultTextPadding;

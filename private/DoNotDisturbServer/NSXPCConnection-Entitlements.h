@@ -15,7 +15,7 @@
 - (_Bool)dnds_hasStateRequestEntitlementForClientIdentifier:(id)arg1;
 - (_Bool)dnds_hasUserRequestedModeAssertionEntitlementForClientIdentifier:(id)arg1;
 - (_Bool)dnds_hasModeAssertionEntitlementForClientIdentifier:(id)arg1;
-- (_Bool)dnds_hasModeAssertionEntitlementsToRequestLifetime:(id)arg1 forClientIdentifier:(id)arg2;
+- (_Bool)dnds_hasEntitlementsToRequestAssertionWithDetails:(id)arg1 clientIdentifier:(id)arg2;
 - (_Bool)dnds_hasBehaviorResolutionEntitlementForClientIdentifier:(id)arg1;
 - (_Bool)dnds_hasAnyValidEntitlement;
 @end

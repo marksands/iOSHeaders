@@ -4,28 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "PSTableCell.h"
+#import <ScreenTimeUI/STTableCell.h>
 
-@class NSLayoutConstraint, STCandyBarView, STUsageItem, UIImageView, UILabel;
+@class NSLayoutConstraint, STCandyBarView, STUsageItem, UILabel;
 
-@interface STUsageCell : PSTableCell
+@interface STUsageCell : STTableCell
 {
     UILabel *_itemNameLabel;
     STCandyBarView *_usageBarView;
     UILabel *_usageLabel;
     STUsageItem *_usageItem;
-    UIImageView *_itemIconView;
     NSLayoutConstraint *_usageBarWidthConstraint;
 }
 
 @property(readonly, nonatomic) NSLayoutConstraint *usageBarWidthConstraint; // @synthesize usageBarWidthConstraint=_usageBarWidthConstraint;
-@property(readonly, nonatomic) UIImageView *itemIconView; // @synthesize itemIconView=_itemIconView;
 @property(retain, nonatomic) STUsageItem *usageItem; // @synthesize usageItem=_usageItem;
 @property(readonly, nonatomic) UILabel *usageLabel; // @synthesize usageLabel=_usageLabel;
 @property(readonly, nonatomic) STCandyBarView *usageBarView; // @synthesize usageBarView=_usageBarView;
 @property(readonly, nonatomic) UILabel *itemNameLabel; // @synthesize itemNameLabel=_itemNameLabel;
 - (void).cxx_destruct;
-- (_Bool)canReload;
 - (void)setValue:(id)arg1;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 

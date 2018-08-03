@@ -38,6 +38,7 @@
 @property(readonly, nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (id)diagnosticDescription;
+- (id)_dataAggregatorsDiagnosticDescription;
 - (id)_dataCollectorsDiagnosticDescription;
 - (id)_observersDescription;
 - (void)unitTest_setPendingSaveCoalescingInterval:(double)arg1;

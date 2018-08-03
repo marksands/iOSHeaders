@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSError, NSObject<OS_dispatch_queue>, PLEditSource, PLPhotoEditModel, PXPhotoKitEditSourceLoader;
+@class NSError, NSObject<OS_dispatch_queue>, PHImageManager, PLEditSource, PLPhotoEditModel, PXPhotoKitEditSourceLoader;
 
 @interface _PXPhotoKitAdjustedUIMediaRequest : NSObject
 {
@@ -15,6 +15,7 @@
     _Bool _useCachedRenders;
     id <PXPhotoKitAdjustedDisplayAsset> _asset;
     NSObject<OS_dispatch_queue> *_renderQueue;
+    PHImageManager *_imageManager;
     PLEditSource *_editSource;
     NSError *_loadError;
     PLPhotoEditModel *_baseEditModel;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) PLPhotoEditModel *baseEditModel; // @synthesize baseEditModel=_baseEditModel;
 @property(retain, nonatomic) NSError *loadError; // @synthesize loadError=_loadError;
 @property(retain, nonatomic) PLEditSource *editSource; // @synthesize editSource=_editSource;
+@property(readonly, nonatomic) PHImageManager *imageManager; // @synthesize imageManager=_imageManager;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *renderQueue; // @synthesize renderQueue=_renderQueue;
 @property(readonly, nonatomic) id <PXPhotoKitAdjustedDisplayAsset> asset; // @synthesize asset=_asset;
 - (void).cxx_destruct;
@@ -38,7 +40,7 @@
 - (void)cancel;
 - (void)beginLoadingEditSource;
 - (void)start;
-- (id)initWithAsset:(id)arg1 renderQueue:(id)arg2;
+- (id)initWithAsset:(id)arg1 renderQueue:(id)arg2 imageManager:(id)arg3;
 
 @end
 

@@ -9,6 +9,7 @@
 @interface NSFileManager (SafariNSFileManagerExtras)
 - (_Bool)safari_removeFileAtURL:(id)arg1 error:(id *)arg2;
 - (id)safari_createTemporaryDirectoryWithTemplate:(id)arg1;
+- (id)safari_autoFillQuirksDownloadDirectoryURL;
 - (id)safari_productionSafariSettingsDirectory;
 - (id)safari_settingsDirectoryURL;
 - (id)safari_settingsDirectoryForHomeDirectory:(id)arg1;

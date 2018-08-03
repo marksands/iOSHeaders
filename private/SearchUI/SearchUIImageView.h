@@ -8,7 +8,7 @@
 
 #import "CNAvatarViewDelegate.h"
 
-@class CNAvatarView, NSString, SFImage, SearchUIButton;
+@class CNAvatarView, NSString, SFImage, SearchUIButton, UIView;
 
 @interface SearchUIImageView : TLKImageView <CNAvatarViewDelegate>
 {
@@ -16,10 +16,12 @@
     SearchUIButton *_overlayPlayButton;
     unsigned long long _searchUIStyle;
     CNAvatarView *_avatarView;
+    UIView *_tintView;
 }
 
 + (id)thumbnailForResult:(id)arg1;
 + (id)imageViewWithImage:(id)arg1 style:(unsigned long long)arg2;
+@property(retain) UIView *tintView; // @synthesize tintView=_tintView;
 @property(retain) CNAvatarView *avatarView; // @synthesize avatarView=_avatarView;
 @property unsigned long long searchUIStyle; // @synthesize searchUIStyle=_searchUIStyle;
 @property(retain) SearchUIButton *overlayPlayButton; // @synthesize overlayPlayButton=_overlayPlayButton;

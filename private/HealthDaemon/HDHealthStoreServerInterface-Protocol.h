@@ -67,6 +67,7 @@
 - (void)remote_requestAuthorizationToShareTypes:(NSSet *)arg1 readTypes:(NSSet *)arg2 shouldPrompt:(_Bool)arg3 completion:(void (^)(_Bool, NSError *))arg4;
 - (void)remote_getRequestStatusForAuthorizationToShareTypes:(NSSet *)arg1 readTypes:(NSSet *)arg2 completion:(void (^)(long long, NSError *))arg3;
 - (void)remote_authorizationStatusForType:(HKObjectType *)arg1 completion:(void (^)(NSNumber *, NSError *))arg2;
+- (void)remote_getIsFeatureSetAvailable:(unsigned long long)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)remote_fetchDisplayNameWithCompletion:(void (^)(NSString *, NSError *))arg1;
 - (void)remote_fetchPluginServiceEndpointWithIdentifier:(NSString *)arg1 completion:(void (^)(NSXPCListenerEndpoint *, NSError *))arg2;
 - (void)remote_createTaskServerForIdentifier:(NSString *)arg1 taskUUID:(NSUUID *)arg2 configuration:(HKTaskConfiguration *)arg3 completion:(void (^)(NSXPCListenerEndpoint *, NSError *))arg4;

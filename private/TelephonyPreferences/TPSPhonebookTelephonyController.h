@@ -12,14 +12,15 @@
 
 @interface TPSPhonebookTelephonyController : TPSTelephonyController <CoreTelephonyClientSuppServicesDelegate>
 {
-    int _selectedPhoneBookName;
-    int _pendingPhoneBookNameSelection;
     CTPhoneNumberInfo *_phoneNumberInfo;
     CTXPCServiceSubscriptionContext *_subscriptionContext;
     long long _phoneBookEntryCount;
+    NSString *_updatePhoneNumber;
+    CDUnknownBlockType _updatePhoneNumberInfoCompletion;
 }
 
-@property(nonatomic) int pendingPhoneBookNameSelection; // @synthesize pendingPhoneBookNameSelection=_pendingPhoneBookNameSelection;
+@property(copy, nonatomic) CDUnknownBlockType updatePhoneNumberInfoCompletion; // @synthesize updatePhoneNumberInfoCompletion=_updatePhoneNumberInfoCompletion;
+@property(copy, nonatomic) NSString *updatePhoneNumber; // @synthesize updatePhoneNumber=_updatePhoneNumber;
 @property(nonatomic) long long phoneBookEntryCount; // @synthesize phoneBookEntryCount=_phoneBookEntryCount;
 @property(readonly, nonatomic) CTXPCServiceSubscriptionContext *subscriptionContext; // @synthesize subscriptionContext=_subscriptionContext;
 - (void).cxx_destruct;
@@ -29,20 +30,10 @@
 - (void)savePhoneBookEntryAtIndex:(int)arg1 withContactName:(id)arg2 contactNumber:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)savePhoneBookEntryAtIndex:(int)arg1 withContactName:(id)arg2 contactNumber:(id)arg3;
 - (void)selectPhoneBookWithName:(int)arg1 password:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)selectPhoneBookWithName:(int)arg1 password:(id)arg2;
 - (void)fetchPhoneNumberInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchPhoneNumberInfo;
-- (void)fetchPhoneBookEntryCountWithCompletion:(CDUnknownBlockType)arg1;
-- (void)fetchPhoneBookEntryCount;
-- (void)fetchPhoneBookEntryAtIndex:(int)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)getPhoneNumberInfoWithError:(id *)arg1;
 - (id)getPhoneNumberInfo;
-- (long long)getPhoneBookEntryCountWithError:(id *)arg1;
-- (long long)getPhoneBookEntryCount;
-- (id)getPhoneBookEntryAtIndex:(int)arg1 error:(id *)arg2;
-- (id)getPhoneBookEntryAtIndex:(int)arg1;
-- (void)setSelectedPhoneBookName:(int)arg1;
-@property(readonly, nonatomic) int selectedPhoneBookName; // @synthesize selectedPhoneBookName=_selectedPhoneBookName;
 @property(retain, nonatomic) CTPhoneNumberInfo *phoneNumberInfo; // @synthesize phoneNumberInfo=_phoneNumberInfo;
 - (id)initWithSubscriptionContext:(id)arg1;
 - (id)init;

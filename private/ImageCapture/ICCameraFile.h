@@ -115,7 +115,7 @@
 - (void)addSidecarFile:(id)arg1;
 @property(readonly) NSArray *sidecarFiles;
 - (id)subImageDictForPixelWidth:(id)arg1;
-- (void)addSubImageDict:(id)arg1 forPixelWidth:(id)arg2;
+- (void)addSubImageDict:(id)arg1;
 - (id)subImages;
 - (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3;
 

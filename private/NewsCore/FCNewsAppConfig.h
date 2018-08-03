@@ -48,6 +48,7 @@
 @property(readonly, nonatomic) NSDictionary *configDictionary; // @synthesize configDictionary=_configDictionary;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *feedNavigationConfigJSON;
+@property(readonly, nonatomic) _Bool shouldShowAlternateHeadlines;
 @property(readonly, nonatomic) _Bool disableThumbnailsForArticleRecirculation;
 @property(readonly, nonatomic) long long articleRecirculationPopularFeedQueryTimeRange;
 @property(readonly, nonatomic) NSString *articleRecirculationComponentPlacementConfigJSON;
@@ -98,6 +99,7 @@
 @property(readonly, nonatomic) NSArray *onboardingFeedIDs;
 @property(readonly, nonatomic) long long minimumFollowCountToRemovePersonalizePlacardInFollowingAndForYou;
 @property(readonly, nonatomic) _Bool isExpired;
+@property(readonly, nonatomic) _Bool isSpecialEventsMicaAnimationDisabled;
 - (id)analyticsEnvelopeContentTypeConfigsForEnvironment:(unsigned long long)arg1;
 - (id)todayConfigWithQueueConfigs:(id)arg1 maxSlotCount:(unsigned long long)arg2;
 - (id)personalizationTreatmentForFeldsparID:(id)arg1;

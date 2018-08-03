@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (id)contentsImage;
 - (id)_signalStrengthBarsImageName;
+- (_Bool)_updateWithRaw:(int)arg1 bars:(int)arg2 enableRSSI:(_Bool)arg3 showFailure:(_Bool)arg4;
 - (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
 
 @end

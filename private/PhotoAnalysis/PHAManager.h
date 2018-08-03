@@ -29,6 +29,7 @@
 @property(readonly) PHAJobCoordinator *jobCoordinator; // @synthesize jobCoordinator=_jobCoordinator;
 @property(retain) PHPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 @property(retain) NSURL *libraryURL; // @synthesize libraryURL=_libraryURL;
+@property(readonly) PHAExecutive *executive; // @synthesize executive=_executive;
 - (void).cxx_destruct;
 - (id)monitoring;
 - (void)enumerateWorkersUsingBlock:(CDUnknownBlockType)arg1;
@@ -41,6 +42,8 @@
 - (void)requestLocalizedSceneAncestryInformationWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)dumpAnalysisStatusWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)handleOperation:(id)arg1;
+- (void)graphManagerDidUnloadGraph:(id)arg1;
+- (void)graphManagerWillLoadGraph:(id)arg1;
 - (void)backgroundActivityDidBegin;
 - (void)stopBackgroundActivity;
 - (void)triggerBackgroundActivity;

@@ -27,7 +27,6 @@
 - (void).cxx_destruct;
 - (id)sysdiagnoseDataForDate:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *sysdiagnoseDataIdentifier; // @dynamic sysdiagnoseDataIdentifier;
-- (void)_queue_refreshMonitorForDate:(id)arg1;
 - (void)refreshMonitorFromQueueForDate:(id)arg1;
 - (void)refreshMonitorForDate:(id)arg1;
 - (id)updateForModeAssertionDetails:(id)arg1 date:(id)arg2;

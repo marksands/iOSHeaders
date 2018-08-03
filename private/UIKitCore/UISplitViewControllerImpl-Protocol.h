@@ -12,6 +12,7 @@
 @property(nonatomic, getter=_usesExtraWidePrimaryColumn, setter=_setUsesExtraWidePrimaryColumn:) _Bool usesExtraWidePrimaryColumn;
 @property(copy, nonatomic, setter=_setDisplayModeButtonItemTitle:) NSString *_displayModeButtonItemTitle;
 @property(nonatomic) _Bool usesDeviceOverlayPreferences;
+@property(nonatomic) _Bool prefersOverlayInRegularWidthPhone;
 @property(nonatomic) _Bool hidesMasterViewInPortrait;
 @property(nonatomic) float gutterWidth;
 @property(nonatomic) float masterColumnWidth;

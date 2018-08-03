@@ -11,6 +11,7 @@
 }
 
 + (id)buttonTitleForEmptyPhotoLibrary;
++ (id)messageForEmptyForYou;
 + (id)messageForEmptyPhotoLibrary;
 + (id)titleForEmptyPhotoLibrary;
 

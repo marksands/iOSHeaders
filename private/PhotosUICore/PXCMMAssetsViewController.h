@@ -6,6 +6,7 @@
 
 #import <PhotosUICore/PXCMMComponentViewController.h>
 
+#import "PXActionPerformerDelegate.h"
 #import "PXAssetsSceneDelegate.h"
 #import "PXCMMBannerTileControllerDelegate.h"
 #import "PXCMMEngineDrivenLayoutDelegate.h"
@@ -21,7 +22,7 @@
 
 @class NSMutableSet, NSSet, NSString, PXAssetReference, PXBasicTileAnimator, PXCMMAssetsProgressListener, PXCMMBannerTileController, PXCMMFooterViewModel, PXCMMSendBackBannerView, PXCMMSendBackSuggestionSource, PXCMMSpec, PXCMMSpecManager, PXContextualNotification, PXLayoutGenerator, PXOneUpPresentation, PXPhotosGlobalFooterView, PXSectionedLayoutEngine, PXSwipeSelectionManager, PXTilingController, PXUIAssetsScene, PXUIScrollViewController, PXUITapGestureRecognizer, PXUpdater, UILongPressGestureRecognizer;
 
-@interface PXCMMAssetsViewController : PXCMMComponentViewController <PXAssetsSceneDelegate, PXTileSource, PXCMMEngineDrivenLayoutDelegate, PXSwipeSelectionManagerDelegate, PXChangeObserver, PXOneUpPresentationDelegate, PXCMMBannerTileControllerDelegate, PXScrollViewControllerObserver, PXPhotosGlobalFooterViewDelegate, PXCMMFooterViewModelActionDelegate, UIViewControllerPreviewingDelegate, PXContextualNotificationDelegate>
+@interface PXCMMAssetsViewController : PXCMMComponentViewController <PXAssetsSceneDelegate, PXTileSource, PXCMMEngineDrivenLayoutDelegate, PXSwipeSelectionManagerDelegate, PXChangeObserver, PXOneUpPresentationDelegate, PXCMMBannerTileControllerDelegate, PXScrollViewControllerObserver, PXPhotosGlobalFooterViewDelegate, PXCMMFooterViewModelActionDelegate, UIViewControllerPreviewingDelegate, PXContextualNotificationDelegate, PXActionPerformerDelegate>
 {
     PXUpdater *_updater;
     PXLayoutGenerator *_layoutGenerator;
@@ -72,6 +73,8 @@
 @property(nonatomic) __weak id <PXCMMAssetsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 - (void).cxx_destruct;
+- (_Bool)actionPerformer:(id)arg1 dismissViewController:(struct NSObject *)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (_Bool)actionPerformer:(id)arg1 presentViewController:(struct NSObject *)arg2;
 - (void)scrollViewControllerWillBeginScrolling:(id)arg1;
 - (void)contextualNotificationDidDisappear:(id)arg1;
 - (void)contextualNotificationWasDiscarded:(id)arg1;
@@ -95,7 +98,7 @@
 - (id)assetsScene:(id)arg1 layoutForDataSource:(id)arg2;
 - (void)_updateLayoutEngine;
 - (double)_progressTileHeightFromReferenceSize:(struct CGSize)arg1 insets:(struct UIEdgeInsets)arg2;
-- (void)_updateSendBackNotification;
+- (void)updateSendBackNotification;
 - (_Bool)_canShowSendBackSuggestion;
 - (double)_sendBackFooterHeightFromReferenceSize:(struct CGSize)arg1;
 - (double)_statusFooterHeightFromReferenceSize:(struct CGSize)arg1 insets:(struct UIEdgeInsets)arg2;
@@ -112,18 +115,20 @@
 - (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
 - (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
 - (struct NSObject *)previewViewControllerAtLocation:(struct CGPoint)arg1 fromSourceView:(struct NSObject *)arg2 outSourceRect:(out struct CGRect *)arg3;
-- (id)_regionOfInterestForAssetReference:(id)arg1 inCoordinateSpace:(id)arg2;
+- (id)_regionOfInterestForAssetReference:(id)arg1;
 - (_Bool)_isLocationWithinCurrentLayoutBounds:(struct CGPoint)arg1;
 - (void)oneUpPresentation:(id)arg1 setHiddenAssetReferences:(id)arg2;
 - (void)oneUpPresentation:(id)arg1 scrollAssetReferenceToVisible:(id)arg2;
-- (id)oneUpPresentation:(id)arg1 regionOfInterestForAssetReference:(id)arg2 inCoordinateSpace:(id)arg3;
+- (id)oneUpPresentation:(id)arg1 regionOfInterestForAssetReference:(id)arg2;
 - (id)oneUpPresentationInitialAssetReference:(id)arg1;
+- (id)oneUpPresentationActionManagerForPreviewing:(id)arg1;
 - (id)oneUpPresentationActionManager:(id)arg1;
 - (id)oneUpPresentationMediaProvider:(id)arg1;
 - (id)oneUpPresentationDataSourceManager:(id)arg1;
 - (long long)oneUpPresentationActionContext:(id)arg1;
 - (_Bool)_shouldShowOneUpActions;
 @property(readonly, nonatomic) PXOneUpPresentation *_oneUpPresentation;
+- (void)_updateSelectionIfNeeded;
 - (void)_updatePlaceholder;
 - (void)_selectionModeDidChange;
 - (void)addButtonTapped:(id)arg1;
@@ -163,6 +168,7 @@
 - (void)_scheduleLayout;
 - (void)_deselectAllAssets;
 - (void)_selectAllAssets;
+- (_Bool)_areAllNotCopiedAssetsSelected;
 - (void)_selectNonCopiedAssets;
 - (void)_selectCuratedAssets;
 - (void)_performInitialSelectionIfNeeded;

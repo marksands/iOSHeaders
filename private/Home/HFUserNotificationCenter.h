@@ -13,7 +13,7 @@
 @interface HFUserNotificationCenter : NSObject <UNUserNotificationCenterDelegate>
 {
     UNUserNotificationCenter *_userNotificationCenter;
-    id <HFUserNotificationCustomSettingsPresentationHandling> _customSettingsPresentationHandler;
+    id <HFUserNotificationPresentationHandling> _presentationHandler;
     NAFuture *_notificationSettingsFuture;
     NSHashTable *_observers;
 }
@@ -21,9 +21,10 @@
 + (id)sharedInstance;
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) NAFuture *notificationSettingsFuture; // @synthesize notificationSettingsFuture=_notificationSettingsFuture;
-@property(nonatomic) __weak id <HFUserNotificationCustomSettingsPresentationHandling> customSettingsPresentationHandler; // @synthesize customSettingsPresentationHandler=_customSettingsPresentationHandler;
+@property(nonatomic) __weak id <HFUserNotificationPresentationHandling> presentationHandler; // @synthesize presentationHandler=_presentationHandler;
 @property(retain, nonatomic) UNUserNotificationCenter *userNotificationCenter; // @synthesize userNotificationCenter=_userNotificationCenter;
 - (void).cxx_destruct;
+- (void)userNotificationCenter:(id)arg1 didReceiveNotificationResponse:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)userNotificationCenter:(id)arg1 openSettingsForNotification:(id)arg2;
 - (id)notificationSettings;
 - (void)userNotificationCenter:(id)arg1 willPresentNotification:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;

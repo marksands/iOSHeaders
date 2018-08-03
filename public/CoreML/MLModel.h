@@ -36,6 +36,7 @@
 - (id)initDescriptionOnlyWithSpecification:(struct _MLModelSpecification *)arg1 error:(id *)arg2;
 - (id)objectBoundingBoxOutputDescription;
 - (id)initInterfaceAndMetadataWithCompiledArchive:(struct _MLModelInputArchiver *)arg1 error:(id *)arg2;
+- (id)visionFeaturePrintInfo;
 - (id)debugQuickLookObject;
 - (id)vectorizeInput:(id)arg1 error:(id *)arg2;
 

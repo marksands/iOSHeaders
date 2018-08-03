@@ -23,6 +23,7 @@
     NSString *_roomName;
     NSString *_roomNameWithoutSuffix;
     NSString *_lastAddressedHandleID;
+    NSString *_lastAddressedSIMID;
     NSString *_groupID;
     NSData *_engramID;
     NSArray *_participants;
@@ -65,7 +66,6 @@
     _Bool _isCurrentlyDownloadingPurgedAssets;
     _Bool _hasSurfRequest;
     NSString *_personCentricID;
-    IMMessage *_lastSentMessage;
     NSDictionary *_bizIntent;
     double _latestTypingIndicatorTimeInterval;
     TUConversation *_conversation;
@@ -87,10 +87,10 @@
 + (void)_storeGUID:(id)arg1 forKey:(id)arg2;
 + (id)_GUIDsForKey:(id)arg1;
 @property(readonly, nonatomic) TUConversation *conversation; // @synthesize conversation=_conversation;
+@property(retain, nonatomic) NSString *lastAddressedSIMID; // @synthesize lastAddressedSIMID=_lastAddressedSIMID;
 @property(nonatomic) double latestTypingIndicatorTimeInterval; // @synthesize latestTypingIndicatorTimeInterval=_latestTypingIndicatorTimeInterval;
 @property(copy, nonatomic) NSDictionary *bizIntent; // @synthesize bizIntent=_bizIntent;
 @property(readonly, nonatomic) long long lastMessageTimeStampOnLoad; // @synthesize lastMessageTimeStampOnLoad=_lastMessageTimeStampOnLoad;
-@property(readonly, nonatomic) IMMessage *lastSentMessage; // @synthesize lastSentMessage=_lastSentMessage;
 @property(nonatomic) _Bool hasSurfRequest; // @synthesize hasSurfRequest=_hasSurfRequest;
 @property(readonly, nonatomic) NSData *engramID; // @synthesize engramID=_engramID;
 @property(retain, nonatomic) NSString *personCentricID; // @synthesize personCentricID=_personCentricID;
@@ -184,7 +184,7 @@
 @property(readonly, nonatomic) NSString *roomNameWithoutSuffix;
 @property(readonly, nonatomic) NSString *deviceIndependentID;
 @property(readonly, nonatomic) NSString *persistentID;
-- (void)setLastAddressedHandle:(id)arg1;
+- (void)_updateLastAddressedSIMID:(id)arg1;
 - (void)_updateLastAddressedHandleID:(id)arg1;
 - (void)_updateEngramID:(id)arg1;
 - (void)_updateDisplayName:(id)arg1;
@@ -243,6 +243,7 @@
 @property(readonly, nonatomic) unsigned long long messageCount;
 @property(readonly, nonatomic) long long lastFinishedMessageID;
 @property(readonly, nonatomic) NSDate *lastSentMessageDate;
+@property(readonly, nonatomic) IMMessage *lastSentMessage;
 @property(readonly, nonatomic) NSDate *lastFinishedMessageDate;
 @property(readonly, nonatomic) _Bool lastMessageExists;
 @property(readonly, nonatomic) IMMessage *lastMessage;
@@ -270,7 +271,7 @@
 - (void)dealloc;
 - (id)init;
 - (void)_initialize;
-- (id)_initWithGUID:(id)arg1 account:(id)arg2 style:(unsigned char)arg3 roomName:(id)arg4 displayName:(id)arg5 lastAddressedHandle:(id)arg6 items:(id)arg7 participants:(id)arg8 isFiltered:(_Bool)arg9 hasHadSuccessfulQuery:(_Bool)arg10;
+- (id)_initWithGUID:(id)arg1 account:(id)arg2 style:(unsigned char)arg3 roomName:(id)arg4 displayName:(id)arg5 lastAddressedHandle:(id)arg6 lastAddressedSIMID:(id)arg7 items:(id)arg8 participants:(id)arg9 isFiltered:(_Bool)arg10 hasHadSuccessfulQuery:(_Bool)arg11;
 - (void)_setupObservation;
 @property(nonatomic) _Bool forceMMS;
 @property(readonly, nonatomic) _Bool suppressAccountRetargetingForNamedGroupConversation;

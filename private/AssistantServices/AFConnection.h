@@ -129,7 +129,6 @@
 - (void)setIsAccessibilityVoiceOverTouchEnabled:(_Bool)arg1;
 - (void)setCarDNDActive:(_Bool)arg1;
 - (void)setIsDeviceInStarkMode:(_Bool)arg1;
-- (void)setIsStark:(_Bool)arg1;
 - (void)setLockState:(_Bool)arg1 screenLocked:(_Bool)arg2;
 - (void)didDismissUI;
 - (void)willPresentUI;

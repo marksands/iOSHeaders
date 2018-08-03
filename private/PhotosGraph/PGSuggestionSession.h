@@ -36,8 +36,11 @@
 - (id)bestSuggestionBetween:(id)arg1 and:(id)arg2;
 - (id)electedSuggestionsFromSuggestions:(id)arg1 options:(id)arg2 progress:(CDUnknownBlockType)arg3;
 - (_Bool)suggestion:(id)arg1 collidesWithMemories:(id)arg2;
-- (id)anySuggestionCollidingWithSuggestion:(id)arg1 inSuggestions:(id)arg2;
-- (_Bool)suggestion:(id)arg1 collidesWithSuggestion:(id)arg2;
+- (id)anySuggestionCollidingWithSuggestion:(id)arg1 inSuggestions:(id)arg2 relaxCollisionRules:(_Bool)arg3;
+- (_Bool)supportsRelaxedCollisionRulesForSuggester:(id)arg1;
+- (_Bool)outstanderSuggestion:(id)arg1 collidesWithSuggestion:(id)arg2 relaxCollisionRules:(_Bool)arg3;
+- (_Bool)singleAssetSuggestion:(id)arg1 collidesWithSuggestion:(id)arg2;
+- (_Bool)suggestion:(id)arg1 collidesWithSuggestion:(id)arg2 relaxCollisionRules:(_Bool)arg3;
 @property(readonly, nonatomic) NSArray *assetPropertySetsForCuration;
 @property(readonly, nonatomic) PHPhotoLibrary *photoLibrary;
 - (id)initWithProfile:(unsigned char)arg1 graphManager:(id)arg2;

@@ -37,6 +37,7 @@
     unsigned long long _diskWriteCount;
 }
 
++ (id)preferredFileURLForSchema:(id)arg1 parentDirectoryURL:(id)arg2;
 @property(readonly, nonatomic) unsigned long long diskWriteCount; // @synthesize diskWriteCount=_diskWriteCount;
 @property(readonly, nonatomic) unsigned long long diskReadCount; // @synthesize diskReadCount=_diskReadCount;
 @property(readonly, copy, nonatomic) NSURL *storeURL; // @synthesize storeURL=_storeURL;
@@ -81,6 +82,7 @@
 @property(readonly, nonatomic) id <SCKDatabaseStore> underlyingStore;
 - (id)zoneStoreForSchema:(id)arg1;
 - (id)initWithSchema:(id)arg1 parentDirectoryURL:(id)arg2;
+- (id)initWithSchema:(id)arg1 fileURL:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

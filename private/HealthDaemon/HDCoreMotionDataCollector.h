@@ -43,6 +43,7 @@
 - (id)_queue_lastPersistedSensorDatumForType:(id)arg1;
 - (void)_queue_updateCollectionType:(unsigned long long)arg1;
 - (void)didReceiveCoreMotionData:(id)arg1 startingDatum:(id)arg2 error:(id)arg3;
+- (id)_queue_diagnosticDescription;
 - (void)_queue_forwardCoreMotionData:(id)arg1;
 - (void)_queue_forwardCoreMotionData:(id)arg1 forType:(id)arg2;
 - (id)coreMotionDatumFromSensorDatum:(id)arg1;

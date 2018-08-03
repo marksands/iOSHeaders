@@ -43,6 +43,7 @@
 @property(readonly, nonatomic) unsigned long long numberOfCompetitionWinsAgainstMe;
 @property(readonly, nonatomic) _Bool hasCompetitionHistory;
 @property(readonly, nonatomic) _Bool isEligibleToReceiveCompetitionRequest;
+@property(readonly, nonatomic) _Bool hasCompletedFirstDayOfCurrentCompetition;
 @property(readonly, nonatomic) _Bool hasCompletedCompetition;
 @property(readonly, nonatomic) ASCompetition *competitionPendingAcceptance;
 @property(readonly, nonatomic) ASCompetition *currentCompetition;
@@ -79,9 +80,11 @@
 @property(readonly, nonatomic) NSUUID *UUID;
 - (id)initWithActivitySnapshots:(id)arg1 friendAchievements:(id)arg2 friendWorkouts:(id)arg3 contact:(id)arg4 competitions:(id)arg5;
 - (id)codableFriendIncludingCloudKitFields:(_Bool)arg1;
-- (id)as_competitionLearnMoreAction;
 - (id)as_competitionLearnMoreReceivedNotificationMessage;
 - (id)as_competitionLearnMoreSendConfirmationMessage;
+- (id)as_competitionLearnMoreAction;
+- (id)as_competitionLearnMoreReceivedNotificationMessageWithWheelchairUse:(long long)arg1;
+- (id)as_competitionLearnMoreSendConfirmationMessageWithWheelchairUse:(long long)arg1;
 - (id)as_competitionLearnMoreTitle;
 - (id)_competitionStartMessage:(id)arg1 replacingNameAndDatePlaceholdersForCompetitionStartDate:(id)arg2;
 - (id)as_competitionAcceptConfirmationMessageForCompetition:(id)arg1;

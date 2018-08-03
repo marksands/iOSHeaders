@@ -71,11 +71,11 @@
 - (void)_setSelectionOverlayEnabled:(_Bool)arg1;
 - (void)_updateDisplayableTimesWithBlock:(CDUnknownBlockType)arg1;
 - (void)_didUpdateDisplayableTime;
-- (void)_updateCurrentTimeForCapturedInput;
+- (void)_updateCurrentTimeForCapturedInputAtTime:(double)arg1;
 - (void)_setWaveformDataSource:(id)arg1 initialTime:(double)arg2;
 - (void)captureSession:(id)arg1 didFinishWithSuccess:(_Bool)arg2;
 - (void)captureSession:(id)arg1 rateDidChangeToRate:(float)arg2;
-- (void)captureSession:(id)arg1 destinationFragmentDurationDidChangeToDuration:(double)arg2 usingDisplayLinkSmoothing:(_Bool)arg3;
+- (void)captureSession:(id)arg1 destinationFragmentDurationDidChangeToDuration:(double)arg2 captureTime:(double)arg3 usingDisplayLinkSmoothing:(_Bool)arg4;
 - (void)previewController:(id)arg1 playbackTimeDidUpdateToCurrentTime:(double)arg2;
 - (void)previewController:(id)arg1 playbackTimeDidUpdateToCurrentTime:(double)arg2 didJumpTime:(_Bool)arg3;
 - (void)previewController:(id)arg1 playbackDidStopPlayingWithError:(id)arg2;
@@ -86,6 +86,7 @@
 - (void)waveformViewControllerDidEndEditingSelectedTimeRange:(id)arg1;
 - (void)waveformViewControllerWillBeginEditingSelectedTimeRange:(id)arg1;
 - (void)waveformViewController:(id)arg1 didScrubToTime:(double)arg2 finished:(_Bool)arg3;
+- (void)resetSelectedTimeRangeToFullDuration;
 @property(readonly, nonatomic) CDStruct_73a5d3ca selectedTimeRange;
 - (void)setSelectedTimeRange:(CDStruct_73a5d3ca)arg1 animationDuration:(double)arg2;
 - (void)hidSelectionOverlayWithCompletionBlock:(CDUnknownBlockType)arg1;

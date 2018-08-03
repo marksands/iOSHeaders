@@ -70,6 +70,7 @@
 - (void)_migrateNotificationRepository;
 - (void)didReceiveDeviceToken:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)willPresentNotification:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (_Bool)isApplicationForeground:(id)arg1;
 - (void)applicationsDidAuthorizeNotificationSettings:(id)arg1;
 - (void)applicationsDidDenyNotificationSettings:(id)arg1;
 - (void)applicationsDidUninstall:(id)arg1;

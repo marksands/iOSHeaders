@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     long long _SRTPCipherSuite;
     _Bool _rtpTimeOutEnabled;
     double _rtpTimeOutInterval;
+    unsigned int _cellularUniqueTag;
     _Bool _rtcpEnabled;
     double _rtcpSendInterval;
     long long _SRTCPCipherSuite;
@@ -43,6 +44,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSData *receiveMasterKey; // @synthesize receiveMasterKey=_receiveMasterKey;
 @property(retain, nonatomic) NSData *sendMasterKey; // @synthesize sendMasterKey=_sendMasterKey;
 @property(nonatomic) unsigned long long recommendedMTU; // @synthesize recommendedMTU=_recommendedMTU;
+@property(nonatomic) unsigned int cellularUniqueTag; // @synthesize cellularUniqueTag=_cellularUniqueTag;
 @property(nonatomic) double rtcpTimeOutInterval; // @synthesize rtcpTimeOutInterval=_rtcpTimeOutInterval;
 @property(nonatomic) double rtpTimeOutInterval; // @synthesize rtpTimeOutInterval=_rtpTimeOutInterval;
 @property(nonatomic, getter=isRTCPTimeOutEnabled) _Bool rtcpTimeOutEnabled; // @synthesize rtcpTimeOutEnabled=_rtcpTimeOutEnabled;

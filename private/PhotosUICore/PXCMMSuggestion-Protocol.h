@@ -7,9 +7,10 @@
 #import "NSObject.h"
 #import "PXMediaTypeAggregating.h"
 
-@class NSString, PXCMMContext;
+@class NSString, PXAssetCollectionActionManager, PXCMMContext;
 
 @protocol PXCMMSuggestion <NSObject, PXMediaTypeAggregating>
+@property(readonly, nonatomic) PXAssetCollectionActionManager *assetCollectionActionManager;
 @property(readonly, nonatomic) id <PXPeopleFetchResult> peopleFetchResult;
 @property(readonly, nonatomic) id <PXUIImageProvider> posterMediaProvider;
 @property(readonly, nonatomic) id <PXDisplayAsset> posterAsset;

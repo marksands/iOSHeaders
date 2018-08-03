@@ -20,6 +20,7 @@
 - (id)defaultAlwaysAllowBundleIDs;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithActivation:(id)arg1;
+- (id)initWithBlueprint:(id)arg1;
 - (id)init;
 
 @end

@@ -251,7 +251,6 @@
 - (void)__handleUpdatedCurrentDevice:(id)arg1;
 - (void)__accountRegistryRemovedAccount:(id)arg1;
 - (void)__accountRegistryAddedAccount:(id)arg1;
-- (void)__accountUpdatedDevice:(id)arg1;
 - (void)__accountRemovedDevice:(id)arg1;
 - (void)__accountAddedDevice:(id)arg1;
 - (void)accessoryBrowserDidFindNewAccessory;

@@ -30,6 +30,7 @@
 - (id)descriptionForPersistentStore:(id)arg1;
 - (void)savePersistentHistoryToken:(id)arg1 forStore:(id)arg2;
 - (id)persistentHistoryTokenForStore:(id)arg1;
+- (id)viewContext;
 - (id)newBackgroundContext;
 - (void)performBackgroundTaskAndWait:(CDUnknownBlockType)arg1;
 - (void)performBackgroundTask:(CDUnknownBlockType)arg1;

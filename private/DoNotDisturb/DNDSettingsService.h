@@ -32,13 +32,16 @@
 - (void)didReceiveConnectionInterruptedEventForRemoteService:(id)arg1;
 - (void)removeSettingsUpdateListener:(id)arg1;
 - (void)addSettingsUpdateListener:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (_Bool)setScheduleSettings:(id)arg1 returningError:(id *)arg2;
+- (_Bool)setScheduleSettings:(id)arg1 error:(id *)arg2;
 - (id)scheduleSettingsReturningError:(id *)arg1;
-- (_Bool)setPhoneCallBypassSettings:(id)arg1 returningError:(id *)arg2;
+- (_Bool)setPhoneCallBypassSettings:(id)arg1 error:(id *)arg2;
 - (id)phoneCallBypassSettingsReturningError:(id *)arg1;
-- (_Bool)setBehaviorSettings:(id)arg1 returningError:(id *)arg2;
+- (_Bool)setBehaviorSettings:(id)arg1 error:(id *)arg2;
 - (id)behaviorSettingsReturningError:(id *)arg1;
 - (id)_initWithClientIdentifier:(id)arg1;
+- (_Bool)setScheduleSettings:(id)arg1 returningError:(id *)arg2;
+- (_Bool)setPhoneCallBypassSettings:(id)arg1 returningError:(id *)arg2;
+- (_Bool)setBehaviorSettings:(id)arg1 returningError:(id *)arg2;
 - (_Bool)removeSettingsUpdateListener:(id)arg1 error:(id *)arg2;
 - (_Bool)addSettingsUpdateListener:(id)arg1 error:(id *)arg2;
 

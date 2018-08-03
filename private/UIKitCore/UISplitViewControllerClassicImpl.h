@@ -27,7 +27,6 @@ __attribute__((visibility("hidden")))
     UISnapshotView *_collapsingDetailSnapshotView;
     double _masterColumnWidth;
     float _gutterWidth;
-    _Bool _usesDeviceOverlayPreferences;
     long long _rotatingFromOrientation;
     long long _lastPresentedOrientation;
     struct CGRect _rotatingFromMasterViewFrame;
@@ -83,6 +82,8 @@ __attribute__((visibility("hidden")))
         unsigned int delegateImplementsPrivateIsPrimaryVisible:1;
         unsigned int delegateImplementsPrivateCollapseSecondaryViewControllerWhileSuspended:1;
         unsigned int usesExtraWidePrimaryColumn:1;
+        unsigned int usesDeviceOverlayPreferences:1;
+        unsigned int prefersOverlayInRegularWidthPhone:1;
     } _splitViewControllerFlags;
     NSString *_displayModeButtonItemTitle;
     double _preferredPrimaryColumnWidthFraction;
@@ -255,8 +256,10 @@ __attribute__((visibility("hidden")))
 - (id)_primaryDimmingView;
 - (_Bool)_isMasterViewShown;
 - (long long)_currentInterfaceIdiom;
+- (_Bool)_iPhoneShouldUseOverlayIfRegularWidth;
 - (_Bool)_iPhoneShouldUseOverlayInCurrentEnvironment;
 @property(nonatomic) _Bool usesDeviceOverlayPreferences;
+@property(nonatomic) _Bool prefersOverlayInRegularWidthPhone;
 - (void)_setPrimaryHidingStateForCurrentOrientation:(long long)arg1;
 - (long long)_primaryHidingStateForCurrentOrientation;
 - (void)_setPrimaryHidingState:(long long)arg1;

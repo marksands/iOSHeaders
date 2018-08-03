@@ -45,7 +45,6 @@
 - (_Bool)isCellularBundleID:(id)arg1;
 - (id)dataUsageWorkspaceInfo;
 - (id)assistantAndSearchSpecifiers;
-- (id)_sectionInfo;
 - (id)notificationSpecifier;
 - (id)specifiersForPolicyOptions:(unsigned long long)arg1 force:(_Bool)arg2;
 - (id)specifiers;

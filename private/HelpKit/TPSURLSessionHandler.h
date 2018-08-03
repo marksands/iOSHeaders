@@ -13,14 +13,17 @@
 
 @interface TPSURLSessionHandler : NSObject <TPSURLSessionManagerDelegate, TPSURLSessionDelegate>
 {
+    _Bool _shouldIgnoreInMemoryCaching;
     NSIndexSet *_excludeCachingDataTypes;
 }
 
 + (id)sharedInstance;
 + (void)setRootViewController:(id)arg1;
 @property(retain, nonatomic) NSIndexSet *excludeCachingDataTypes; // @synthesize excludeCachingDataTypes=_excludeCachingDataTypes;
+@property(nonatomic) _Bool shouldIgnoreInMemoryCaching; // @synthesize shouldIgnoreInMemoryCaching=_shouldIgnoreInMemoryCaching;
 - (void).cxx_destruct;
 - (void)sessionTask:(id)arg1 didReceiveChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)URLSessionManagerDidReceiveChallenge:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)sessionTask:(id)arg1 didCompleteWithError:(id)arg2;
 - (_Bool)respectCachingForRequest:(id)arg1;
 - (void)sessionTask:(id)arg1 didReceiveResponse:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -28,7 +31,6 @@
 - (id)processJSONFormattedDataForCDSError:(id)arg1;
 - (_Bool)shouldCacheToDiskForSessionTask:(id)arg1;
 - (void)sessionTask:(id)arg1 willCacheResponse:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)didReceiveChallenge:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)URLSessionManagerRequestCompleted:(id)arg1 sessionTask:(id)arg2;
 - (void)URLSessionManagerRequestResumed:(id)arg1 sessionTask:(id)arg2;
 - (_Bool)URLSessionManagerShouldCoalesceRequest:(id)arg1;

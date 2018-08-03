@@ -7,24 +7,27 @@
 #import "QLPreviewController.h"
 
 #import "QLPreviewControllerDataSource.h"
-#import "QLPreviewControllerDelegate.h"
+#import "QLPreviewControllerPrivateDelegate.h"
 
 @class NSString, SXQuickLookFile, SXQuickLookTransitionContext;
 
-@interface SXQuickLookPreviewViewController : QLPreviewController <QLPreviewControllerDelegate, QLPreviewControllerDataSource>
+@interface SXQuickLookPreviewViewController : QLPreviewController <QLPreviewControllerPrivateDelegate, QLPreviewControllerDataSource>
 {
     SXQuickLookFile *_file;
+    id <SXMediaSharingPolicyProvider> _mediaSharingPolicyProvider;
     SXQuickLookTransitionContext *_transitionContext;
 }
 
 @property(readonly, nonatomic) SXQuickLookTransitionContext *transitionContext; // @synthesize transitionContext=_transitionContext;
+@property(readonly, nonatomic) id <SXMediaSharingPolicyProvider> mediaSharingPolicyProvider; // @synthesize mediaSharingPolicyProvider=_mediaSharingPolicyProvider;
 @property(readonly, nonatomic) SXQuickLookFile *file; // @synthesize file=_file;
 - (void).cxx_destruct;
 - (id)previewController:(id)arg1 previewItemAtIndex:(long long)arg2;
 - (long long)numberOfPreviewItemsInPreviewController:(id)arg1;
+- (_Bool)previewController:(id)arg1 canShareItem:(id)arg2;
 - (id)previewController:(id)arg1 transitionViewForPreviewItem:(id)arg2;
 - (void)viewDidLoad;
-- (id)initWithFile:(id)arg1 transitionContext:(id)arg2;
+- (id)initWithFile:(id)arg1 mediaSharingPolicyProvider:(id)arg2 transitionContext:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

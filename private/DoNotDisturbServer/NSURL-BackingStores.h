@@ -7,6 +7,7 @@
 #import "NSURL.h"
 
 @interface NSURL (BackingStores)
++ (id)dnds_legacySettingsFileURL;
 + (id)dnds_settingsBackingStoreFileURL;
 + (id)dnds_localAssertionBackingStoreFileURL;
 @end

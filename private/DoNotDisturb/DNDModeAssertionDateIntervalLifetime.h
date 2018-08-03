@@ -21,6 +21,7 @@
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (_Bool)isActiveForDate:(id)arg1;
 - (id)initWithDateInterval:(id)arg1;
 
 @end

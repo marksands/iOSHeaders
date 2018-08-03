@@ -22,6 +22,7 @@
     NSString *_idleTitle;
     NSString *_byline;
     long long _state;
+    long long _numberOfAssetsNotCopied;
     PHFetchResult *_downloadingAssetsFetchResult;
     PHFetchResult *_copiedAssetsFetchResult;
     PHFetchResult *_allAssetsWithThumbnailFetchResult;
@@ -33,6 +34,7 @@
 @property(retain, nonatomic) PHFetchResult *allAssetsWithThumbnailFetchResult; // @synthesize allAssetsWithThumbnailFetchResult=_allAssetsWithThumbnailFetchResult;
 @property(retain, nonatomic) PHFetchResult *copiedAssetsFetchResult; // @synthesize copiedAssetsFetchResult=_copiedAssetsFetchResult;
 @property(retain, nonatomic) PHFetchResult *downloadingAssetsFetchResult; // @synthesize downloadingAssetsFetchResult=_downloadingAssetsFetchResult;
+@property(nonatomic) long long numberOfAssetsNotCopied; // @synthesize numberOfAssetsNotCopied=_numberOfAssetsNotCopied;
 @property(readonly, nonatomic) long long state; // @synthesize state=_state;
 @property(nonatomic) float activityProgress; // @synthesize activityProgress=_activityProgress;
 @property(copy, nonatomic) NSString *byline; // @synthesize byline=_byline;

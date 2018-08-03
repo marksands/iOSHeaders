@@ -307,6 +307,8 @@ struct Display {
     unsigned int _field22;
     unsigned int _field23;
     struct EDIDAttributes _field24;
+    _Bool _field25;
+    int _field26;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -520,8 +522,10 @@ struct Server {
     unsigned int _field16;
     struct Context *_field17;
     struct Renderer *_field18;
-    double _field19;
+    struct Bounds _field19;
     double _field20;
+    double _field21;
+    unsigned int :1;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;

@@ -18,6 +18,7 @@
     _UIActivityResourceLoader *_activitySettingsImageLoader;
     CDUnknownBlockType _activityCompletionWithItemsHandler;
     CDUnknownBlockType _didFinishPerformingActivityHandler;
+    long long _maxPreviews;
     unsigned long long _indexInApplicationDefinedActivities;
     NSUUID *_activityUUID;
 }
@@ -25,6 +26,8 @@
 + (Class)classForPreparingExtensionItemData;
 + (id)preparedActivityExtensionItemDataForActivityItemValues:(id)arg1 extensionItemDataRequest:(id)arg2;
 + (id)_activityExtensionItemsForActivityItemValues:(id)arg1 extensionItemDataRequest:(id)arg2;
++ (void)_performAfterActivityImageLoadingCompletes:(CDUnknownBlockType)arg1;
++ (id)_imageByApplyingDefaultEffectsToImage:(id)arg1 activityCategory:(long long)arg2;
 + (id)_defaultFallbackActivityType;
 + (unsigned long long)_xpcAttributes;
 + (long long)activityCategory;
@@ -32,10 +35,10 @@
 + (id)_activityImageForBundleImageConfiguration:(id)arg1;
 + (id)_activitySettingsImageForApplicationBundleIdentifier:(id)arg1;
 + (id)_activityImageForApplicationBundleIdentifier:(id)arg1;
-+ (id)_imageByApplyingDefaultEffectsToImage:(id)arg1 activityCategory:(long long)arg2;
 + (id)_activityImageForActionRepresentationImage:(id)arg1;
 @property(readonly, nonatomic) NSUUID *activityUUID; // @synthesize activityUUID=_activityUUID;
 @property(nonatomic) unsigned long long indexInApplicationDefinedActivities; // @synthesize indexInApplicationDefinedActivities=_indexInApplicationDefinedActivities;
+@property(nonatomic) long long maxPreviews; // @synthesize maxPreviews=_maxPreviews;
 @property(copy, nonatomic) CDUnknownBlockType didFinishPerformingActivityHandler; // @synthesize didFinishPerformingActivityHandler=_didFinishPerformingActivityHandler;
 @property(copy, nonatomic) CDUnknownBlockType activityCompletionWithItemsHandler; // @synthesize activityCompletionWithItemsHandler=_activityCompletionWithItemsHandler;
 - (void).cxx_destruct;

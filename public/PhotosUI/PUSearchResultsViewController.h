@@ -16,7 +16,7 @@
 #import "UITableViewDataSourcePrefetching.h"
 #import "UITableViewDelegate.h"
 
-@class NSArray, NSIndexPath, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, PHCachingImageManager, PLSearchMetadataStore, PSIDatabase, PUNavigationController, PUSearchResultsFooterView, PUSearchResultsSectionedDataSource, PXAssetReference, PXAssetsDataSourceManager, PXOneUpPresentation, PXPhotoKitUIMediaProvider, UILabel, UISearchController, UITableView, UITableViewCell;
+@class NSArray, NSIndexPath, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, PHCachingImageManager, PLSearchMetadataStore, PSIDatabase, PUNavigationController, PUSearchResultsFooterView, PUSearchResultsSectionedDataSource, PUSearchResultsSuggestionsAggdLogHelper, PUSearchTopResultContentView, PXAssetReference, PXAssetsDataSourceManager, PXOneUpPresentation, PXPhotoKitUIMediaProvider, UILabel, UISearchController, UITableView, UITableViewCell;
 
 @interface PUSearchResultsViewController : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching, UITableViewDelegate, PUSearchResultsSectionedDataSourceChangeObserver, PUSearchResultsFooterViewDelegate, PUTopResultDelegate, PXOneUpPresentationDelegate, UISearchResultsUpdating>
 {
@@ -36,6 +36,7 @@
     NSArray *_representedObjects;
     NSArray *_searchTokenRepresentedObjects;
     PUSearchResultsFooterView *_tableFooterView;
+    PUSearchTopResultContentView *__topResultsContentView;
     UITableView *_searchResultsTableView;
     UILabel *_axDummyTitleLabel;
     UILabel *_axDummySubtitleLabel;
@@ -43,6 +44,7 @@
     NSTimer *_searchIndexStatusTimer;
     PUNavigationController *_oneUpNavigationController;
     NSIndexPath *_selectedTopAssetsResultTVIndexPath;
+    PUSearchResultsSuggestionsAggdLogHelper *_suggestionsAggdLogHelper;
     CDUnknownBlockType _ppt_searchTestCompletionHandler;
 }
 
@@ -50,6 +52,7 @@
 + (_Bool)_wantsFewerSuggestions;
 + (id)gridViewControllerSpec;
 @property(copy, nonatomic) CDUnknownBlockType ppt_searchTestCompletionHandler; // @synthesize ppt_searchTestCompletionHandler=_ppt_searchTestCompletionHandler;
+@property(retain, nonatomic) PUSearchResultsSuggestionsAggdLogHelper *suggestionsAggdLogHelper; // @synthesize suggestionsAggdLogHelper=_suggestionsAggdLogHelper;
 @property(nonatomic) _Bool aggdSearchSucceeded; // @synthesize aggdSearchSucceeded=_aggdSearchSucceeded;
 @property(retain, nonatomic) NSIndexPath *selectedTopAssetsResultTVIndexPath; // @synthesize selectedTopAssetsResultTVIndexPath=_selectedTopAssetsResultTVIndexPath;
 @property(retain, nonatomic) PUNavigationController *oneUpNavigationController; // @synthesize oneUpNavigationController=_oneUpNavigationController;
@@ -58,6 +61,7 @@
 @property(retain, nonatomic) UILabel *axDummySubtitleLabel; // @synthesize axDummySubtitleLabel=_axDummySubtitleLabel;
 @property(retain, nonatomic) UILabel *axDummyTitleLabel; // @synthesize axDummyTitleLabel=_axDummyTitleLabel;
 @property(retain, nonatomic) UITableView *searchResultsTableView; // @synthesize searchResultsTableView=_searchResultsTableView;
+@property(retain, nonatomic) PUSearchTopResultContentView *_topResultsContentView; // @synthesize _topResultsContentView=__topResultsContentView;
 @property(retain, nonatomic) PUSearchResultsFooterView *tableFooterView; // @synthesize tableFooterView=_tableFooterView;
 @property(nonatomic, getter=isIndexing) _Bool indexing; // @synthesize indexing=_indexing;
 @property(copy, nonatomic) NSArray *searchTokenRepresentedObjects; // @synthesize searchTokenRepresentedObjects=_searchTokenRepresentedObjects;
@@ -73,11 +77,11 @@
 - (long long)oneUpPresentationActionContext:(id)arg1;
 - (void)oneUpPresentation:(id)arg1 scrollAssetReferenceToVisible:(id)arg2;
 - (id)oneUpPresentationInitialAssetReference:(id)arg1;
-- (id)oneUpPresentation:(id)arg1 regionOfInterestForAssetReference:(id)arg2 inCoordinateSpace:(id)arg3;
+- (id)oneUpPresentation:(id)arg1 regionOfInterestForAssetReference:(id)arg2;
 - (id)oneUpPresentationMediaProvider:(id)arg1;
 - (id)oneUpPresentationDataSourceManager:(id)arg1;
 - (void)showOneUpWithAssetCollection:(id)arg1 withInitialAsset:(id)arg2 atIndex:(unsigned long long)arg3;
-- (struct CGRect)_frameForAsset:(id)arg1;
+- (id)_regionOfInterestForAsset:(id)arg1;
 - (id)_topResultContentViewForIndexPath:(id)arg1;
 - (void)topResultContentView:(id)arg1 didSelectAssetIndex:(unsigned long long)arg2 inRect:(struct CGRect)arg3 withNumberOfImages:(unsigned long long)arg4;
 @property(readonly, nonatomic) _Bool _shouldApplyReadabilityInset;
@@ -102,9 +106,9 @@
 - (unsigned long long)_numberOfSuggestions;
 - (long long)_rowForSuggestedSearchesRow;
 - (_Bool)_shouldShowSuggestedSearchesRow;
-- (_Bool)_shouldShowStringLiteralRow;
 - (_Bool)_hasSuggestions;
 - (_Bool)_shouldShowSuggestionSection;
+- (unsigned long long)cornerMaskForCell:(id)arg1 inSection:(long long)arg2 inRow:(long long)arg3;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
@@ -133,6 +137,8 @@
 - (void)_getInfoForCellInTableView:(id)arg1 atIndexPath:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_getTitleForSearchResult:(id)arg1 outAttributedTitle:(id *)arg2 outSubtitle:(id *)arg3;
 - (id)_resultTitleForCurrentSearch;
+- (id)_defaultDateRangeFormatter;
+- (id)_localizedTitleForAssetCollection:(id)arg1 titleCategory:(long long *)arg2 dateRangeFormatter:(id)arg3;
 - (void)_pushPersonDetailViewForPersonUUID:(id)arg1;
 - (void)_pushDetailViewForPhotosWithUUIDs:(id)arg1 title:(id)arg2;
 - (void)_pushViewForTripSearchResult:(id)arg1;

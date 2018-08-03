@@ -30,6 +30,7 @@
 - (void)_mapkit_setBackgroundColor:(id)arg1;
 - (void)_mapkit_layoutBelowIfNeeded;
 - (void)_mapkit_layoutIfNeeded;
+- (void)_mapkit_updateConstraintsIfNeeded;
 - (void)_mapkit_setNeedsLayout;
 - (void)_mapkit_setNeedsUpdateConstraints;
 @end

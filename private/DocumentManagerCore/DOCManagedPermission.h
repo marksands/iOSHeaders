@@ -48,7 +48,9 @@
 - (_Bool)isEphemeralMultiUser;
 - (_Bool)mayOpenFromUnmanagedToManaged;
 - (_Bool)mayOpenFromManagedToUnmanaged;
+- (void)dealloc;
 - (void)_loadSharedConnectionValues;
+- (void)resetAllCachedPermissions;
 - (id)init;
 
 @end

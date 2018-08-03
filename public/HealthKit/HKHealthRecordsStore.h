@@ -50,6 +50,7 @@
 - (void)displayStringForMedicalCodingSystem:(id)arg1 code:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)displayStringForMedicalCodingSystem:(id)arg1 code:(id)arg2 version:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)fetchFHIRJSONDocumentWithAccountIdentifier:(struct NSUUID *)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)fetchExportedPropertiesForHealthRecord:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchRawSourceStringForHealthRecord:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setHealthRecordsIngestionFrequency:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)getHealthRecordsIngestionFrequencyWithCompletion:(CDUnknownBlockType)arg1;

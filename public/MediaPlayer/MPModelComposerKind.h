@@ -13,6 +13,7 @@
     MPModelAlbumKind *_albumKind;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)kindWithAlbumKind:(id)arg1;
 @property(readonly, copy, nonatomic) MPModelAlbumKind *albumKind; // @synthesize albumKind=_albumKind;
 - (void).cxx_destruct;

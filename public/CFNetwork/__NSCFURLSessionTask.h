@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 {
     unsigned long long _taskIdentifier;
     NSString *_taskDescription;
+    NSString *_loggableDescription;
     NSURLRequest *_originalRequest;
     NSURLRequest *_currentRequest;
     NSURLResponse *_response;
@@ -177,7 +178,6 @@ __attribute__((visibility("hidden")))
 - (unsigned int)_powerAssertion;
 - (void)set_storagePartitionIdentifier:(id)arg1;
 - (id)_storagePartitionIdentifier;
-- (void)set_uniqueIdentifier:(id)arg1;
 - (id)_uniqueIdentifier;
 - (void)set_requestPriority:(long long)arg1;
 - (long long)_requestPriority;
@@ -281,7 +281,6 @@ __attribute__((visibility("hidden")))
 - (id)originalRequest;
 - (void)setTaskDescription:(id)arg1;
 - (id)taskDescription;
-- (void)setTaskIdentifier:(unsigned long long)arg1;
 - (unsigned long long)taskIdentifier;
 - (_Bool)_preconnect;
 - (void)set_preconnect:(_Bool)arg1;
@@ -359,6 +358,9 @@ __attribute__((visibility("hidden")))
 - (void)resume;
 - (void)suspend;
 - (void)cancel;
+- (id)_loggableDescription;
+- (void)set_uniqueIdentifier:(id)arg1;
+- (void)setTaskIdentifier:(unsigned long long)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithTask:(id)arg1;

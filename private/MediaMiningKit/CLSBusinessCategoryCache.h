@@ -25,8 +25,8 @@
 - (id)businessItemFromManagedObject:(id)arg1;
 - (id)businessItemsForMuids:(id)arg1;
 - (id)businessItemsForMuid:(unsigned long long)arg1;
-- (id)_businessItemInRegion:(id)arg1 matchingCategories:(id)arg2 forBusinessItems:(id)arg3;
-- (id)businessItemsInRegion:(id)arg1 categories:(id)arg2;
+- (id)_businessItemInRegion:(id)arg1 matchingCategories:(id)arg2 maximumDistance:(double)arg3 forBusinessItems:(id)arg4;
+- (id)businessItemsInRegion:(id)arg1 categories:(id)arg2 maximumDistance:(double)arg3;
 - (id)businessItemsForRegion:(id)arg1;
 - (id)nearestItemForRegion:(id)arg1 inItems:(id)arg2;
 - (void)insertBatchesOfBusinessItems:(id)arg1 forRegions:(id)arg2;

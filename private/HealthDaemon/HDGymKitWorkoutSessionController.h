@@ -29,6 +29,7 @@
 - (void)_queue_sessionFinished;
 - (void)_queue_sessionPrepared;
 - (void)hktest_setStateTransitionCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)finishAggregationWithDate:(id)arg1;
 - (_Bool)storeSessionControllerState:(id)arg1 forRecoveryIdentifier:(id)arg2 error:(id *)arg3;
 @property(readonly, nonatomic) id <HDWorkoutDataAccumulator> workoutDataAccumulator;
 - (void)generateError:(id)arg1;
@@ -49,7 +50,7 @@
 - (void)_setupRecoveryState:(id)arg1;
 - (void)workoutSessionServer:(id)arg1 accumulatorDidChange:(id)arg2;
 - (void)workoutSessionServer:(id)arg1 didChangeConfiguration:(id)arg2;
-- (void)workoutSessionServer:(id)arg1 didTransitionToState:(long long)arg2 fromState:(long long)arg3;
+- (void)workoutSessionServer:(id)arg1 didTransitionFromState:(long long)arg2 toState:(long long)arg3 date:(id)arg4;
 - (id)initWithProfile:(id)arg1 sessionConfiguration:(id)arg2 sessionStateController:(id)arg3 recoveryState:(id)arg4;
 
 @end

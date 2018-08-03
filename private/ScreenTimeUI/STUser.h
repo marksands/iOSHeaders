@@ -13,6 +13,7 @@
 @interface STUser : NSObject <NSCopying>
 {
     _Bool _screenTimeEnabled;
+    _Bool _webUsageEnabled;
     _Bool _remoteUser;
     _Bool _hasAllowances;
     unsigned long long _source;
@@ -29,6 +30,7 @@
 @property(nonatomic) _Bool hasAllowances; // @synthesize hasAllowances=_hasAllowances;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(nonatomic, getter=isRemoteUser) _Bool remoteUser; // @synthesize remoteUser=_remoteUser;
+@property(nonatomic, getter=isWebUsageEnabled) _Bool webUsageEnabled; // @synthesize webUsageEnabled=_webUsageEnabled;
 @property(nonatomic, getter=isScreenTimeEnabled) _Bool screenTimeEnabled; // @synthesize screenTimeEnabled=_screenTimeEnabled;
 @property(copy, nonatomic) NSNumber *dsid; // @synthesize dsid=_dsid;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;

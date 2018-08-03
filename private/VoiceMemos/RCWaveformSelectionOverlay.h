@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class CALayer, NSMutableDictionary, RCOverlayBarLayer, RCUIConfiguration;
+@class CALayer, NSMutableDictionary, RCOverlayBarLayer, RCUIConfiguration, UIButton;
 
 @interface RCWaveformSelectionOverlay : UIView
 {
@@ -15,7 +15,13 @@
     RCOverlayBarLayer *_beginTimeSelection;
     RCOverlayBarLayer *_endTimeSelection;
     CALayer *_middleSelectionOverlay;
+    CALayer *_corneredDimOverlayContainer;
+    CALayer *_leftWaveformLightOverlay;
+    CALayer *_rightWaveformLightOverlay;
+    CALayer *_leftWaveformDimOverlay;
+    CALayer *_rightWaveformDimOverlay;
     RCOverlayBarLayer *_currentTimeBar;
+    RCOverlayBarLayer *_compactCurrentTimeBar;
     _Bool _beginTimeLayerOffsetForThumb;
     _Bool _endTimeLayerOffsetForThumb;
     _Bool _isRecording;
@@ -40,11 +46,17 @@
     double _axSegment;
     double _knobWidthMultiplier;
     double _playWidthMultiplier;
+    long long _selectionMode;
+    UIView *_selectionBackgroundView;
     double _trackedAssetCurrentTime;
+    UIButton *_resetRegionButton;
     CDStruct_73a5d3ca _selectedTimeRange;
 }
 
+@property(retain, nonatomic) UIButton *resetRegionButton; // @synthesize resetRegionButton=_resetRegionButton;
 @property(nonatomic) double trackedAssetCurrentTime; // @synthesize trackedAssetCurrentTime=_trackedAssetCurrentTime;
+@property(nonatomic) __weak UIView *selectionBackgroundView; // @synthesize selectionBackgroundView=_selectionBackgroundView;
+@property(nonatomic) long long selectionMode; // @synthesize selectionMode=_selectionMode;
 @property(nonatomic) _Bool isOverView; // @synthesize isOverView=_isOverView;
 @property(nonatomic) _Bool playBarOnly; // @synthesize playBarOnly=_playBarOnly;
 @property(nonatomic) double playWidthMultiplier; // @synthesize playWidthMultiplier=_playWidthMultiplier;
@@ -114,6 +126,7 @@
 @property(readonly, nonatomic) double currentTimeIndicatorCoordinate;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)reloadSelectionOffsets;
+- (void)resetSelectionButtonPressed;
 - (void)setSelectedTimeRange:(CDStruct_73a5d3ca)arg1;
 - (void)setSelectedTimeRange:(CDStruct_73a5d3ca)arg1 withAnimationDuration:(double)arg2;
 - (void)setSelectionRect:(struct CGRect)arg1;

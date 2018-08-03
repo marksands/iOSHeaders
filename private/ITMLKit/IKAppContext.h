@@ -20,6 +20,7 @@
     struct __CFRunLoopSource *_jsThreadRunLoopSource;
     NSObject<OS_dispatch_source> *_lowMemoryWarningSource;
     _Bool _respondsToTraitCollection;
+    _Bool _isAirplaneModeEnabled;
     struct {
         _Bool respondsToHighlightViewForOneElement;
         _Bool respondsToHighlightViewsForManyElements;
@@ -84,6 +85,7 @@
 @property(readonly, nonatomic) unsigned long long mode; // @synthesize mode=_mode;
 @property(readonly, nonatomic) __weak id <IKApplication> app; // @synthesize app=_app;
 - (void).cxx_destruct;
+- (void)_networkPropertiesChanged:(id)arg1;
 - (void)handleCacheUpdate;
 - (void)appCache:(id)arg1 didUpdateWithChecksum:(id)arg2;
 - (void)unregisterLoaderWithIdentifier:(id)arg1;
@@ -130,6 +132,7 @@
 - (void)resumeWithOptions:(id)arg1;
 - (void)suspendWithOptions:(id)arg1;
 - (void)start;
+- (void)dealloc;
 - (id)initWithApplication:(id)arg1 mode:(unsigned long long)arg2 delegate:(id)arg3;
 - (id)initWithApplication:(id)arg1 mode:(unsigned long long)arg2 cache:(_Bool)arg3 delegate:(id)arg4;
 @property(readonly, nonatomic) IKJSArrayBufferStore *arrayBufferStore;

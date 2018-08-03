@@ -34,6 +34,7 @@
 + (id)_newPushServiceConnectionWithEnvironmentName:(id)arg1 namedDelegatePort:(id)arg2 queue:(id)arg3;
 @property(nonatomic) id <UNSRemoteNotificationServerObserver> observer; // @synthesize observer=_observer;
 - (void).cxx_destruct;
+- (void)_queue_performMigration;
 - (void)_queue_didCompleteInitialization;
 - (void)_queue_removeClientForBundleIdentifier:(id)arg1;
 - (void)_queue_invalidateTokenForBundleIdentifier:(id)arg1;
@@ -79,6 +80,7 @@
 - (void)_queue_connection:(id)arg1 didReceiveToken:(id)arg2 forTopic:(id)arg3 identifier:(id)arg4;
 - (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;
 - (void)connection:(id)arg1 didReceiveToken:(id)arg2 forTopic:(id)arg3 identifier:(id)arg4;
+- (void)performMigration;
 - (void)didCompleteInitialization;
 - (void)didChangeApplicationState:(unsigned int)arg1 forBundleIdentifier:(id)arg2;
 - (void)applicationsDidDenyNotificationSettings:(id)arg1;

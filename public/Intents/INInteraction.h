@@ -16,6 +16,7 @@
 
 @interface INInteraction : NSObject <INInteractionExport, INImageProxyInjecting, INKeyImageProducing, NSSecureCoding, NSCopying>
 {
+    unsigned long long _indexingHash;
     _Bool _donatedBySiri;
     SAUISnippet *_snippet;
     INIntent *_intent;
@@ -43,6 +44,7 @@
 @property(retain, nonatomic, setter=_setSnippet:) SAUISnippet *_snippet; // @synthesize _snippet;
 - (void).cxx_destruct;
 - (id)parameterValueForParameter:(id)arg1;
+@property(readonly) unsigned long long _indexingHash;
 @property(readonly, copy) CSSearchableItem *_searchableItem;
 - (id)_dictionaryRepresentation;
 - (id)descriptionAtIndent:(unsigned long long)arg1;

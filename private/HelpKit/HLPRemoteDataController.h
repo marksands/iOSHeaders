@@ -6,17 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSURL, TPSURLSessionItem;
+@class NSDictionary, NSURL, TPSURLSessionItem;
 
 @interface HLPRemoteDataController : NSObject
 {
     _Bool _loading;
     _Bool _hasLoaded;
     NSURL *_URL;
+    NSDictionary *_headerFields;
     TPSURLSessionItem *_URLSessionItem;
 }
 
 @property(retain, nonatomic) TPSURLSessionItem *URLSessionItem; // @synthesize URLSessionItem=_URLSessionItem;
+@property(retain, nonatomic) NSDictionary *headerFields; // @synthesize headerFields=_headerFields;
 @property(copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 @property(nonatomic) _Bool hasLoaded; // @synthesize hasLoaded=_hasLoaded;
 @property(nonatomic) _Bool loading; // @synthesize loading=_loading;

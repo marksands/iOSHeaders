@@ -7,6 +7,8 @@
 #import "UIApplication.h"
 
 @interface UIApplication (Camera)
+@property(readonly, nonatomic) long long cam_applicationState;
+@property(readonly, nonatomic) _Bool cam_isSuspended;
 @property(readonly, nonatomic) long long cam_currentInterfaceOrientation;
 @end
 

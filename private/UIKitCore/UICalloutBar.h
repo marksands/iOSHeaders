@@ -6,7 +6,7 @@
 
 #import <UIKitCore/UIView.h>
 
-@class NSArray, NSDictionary, NSMutableArray, NSString, UICalloutBarBackground, UICalloutBarButton, UIResponder, UIScrollView, UIStackView, UIWindow;
+@class NSArray, NSDictionary, NSMutableArray, NSString, UICalloutBarBackground, UICalloutBarButton, UIResponder, UIScrollView, UIStackView;
 
 @interface UICalloutBar : UIView
 {
@@ -25,7 +25,7 @@
     _Bool m_supressesHorizontalMovement;
     struct CGRect m_controlFrame;
     struct CGRect m_targetRect;
-    UIWindow *m_targetWindow;
+    UIView *m_targetView;
     struct CGRect m_supressesHorizontalMovementFrame;
     double m_supressedHorizontalMovementX;
     int m_arrowDirection;
@@ -54,7 +54,9 @@
     NSMutableArray *m_axSeparatorViews;
 }
 
++ (void)hideSharedCalloutBarIfTargetView:(id)arg1;
 + (void)hideSharedCalloutBar;
++ (void)fadeSharedCalloutBarIfTargetView:(id)arg1;
 + (void)fadeSharedCalloutBar;
 + (_Bool)sharedCalloutBarIsVisible;
 + (void)_releaseSharedInstance;
@@ -73,7 +75,7 @@
 @property(copy, nonatomic) NSArray *replacements; // @synthesize replacements=m_replacements;
 @property(nonatomic) __weak UIResponder *responderTarget; // @synthesize responderTarget=m_responderTarget;
 @property(nonatomic) int arrowDirection; // @synthesize arrowDirection=m_arrowDirection;
-@property(nonatomic) __weak UIWindow *targetWindow; // @synthesize targetWindow=m_targetWindow;
+@property(nonatomic) __weak UIView *targetView; // @synthesize targetView=m_targetView;
 @property(nonatomic) struct CGRect targetRect; // @synthesize targetRect=m_targetRect;
 @property(readonly, nonatomic) NSArray *rectsToEvade; // @synthesize rectsToEvade=m_rectsToEvade;
 @property(nonatomic) __weak id delegate; // @synthesize delegate=m_delegate;
@@ -97,7 +99,9 @@
 - (void)updateAnimated:(_Bool)arg1;
 - (void)update;
 - (void)hide;
+- (void)hideIfTargetView:(id)arg1;
 - (void)fade;
+- (void)fadeIfTargetView:(id)arg1;
 - (void)_fadeAfterCommand:(SEL)arg1;
 - (void)_endOngoingAppearOrFadeAnimations;
 - (void)appear;

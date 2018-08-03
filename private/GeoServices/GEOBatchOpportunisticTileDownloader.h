@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _tileRequesterCreationBlock;
 }
 
++ (unsigned char)_reason;
 - (void).cxx_destruct;
 - (void)tileRequesterFinished:(id)arg1;
 - (void)tileRequester:(id)arg1 receivedError:(id)arg2;
@@ -46,7 +47,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithDelegate:(id)arg1 delegateQueue:(id)arg2 countryCode:(id)arg3 region:(id)arg4 log:(id)arg5 logPrefix:(id)arg6 tileRequesterCreationBlock:(CDUnknownBlockType)arg7;
 - (id)init;
 - (void)downloadDidFailForTile:(struct _GEOTileKey *)arg1 error:(id)arg2;
-- (void)downloadDidSucceedForTile:(struct _GEOTileKey *)arg1 downloadSize:(unsigned long long)arg2;
+- (void)downloadDidSucceedForTile:(struct _GEOTileKey *)arg1 downloadSize:(unsigned long long)arg2 httpStatus:(unsigned int)arg3;
 - (void)determineNextBatchWithQueue:(id)arg1 callback:(CDUnknownBlockType)arg2;
 
 @end

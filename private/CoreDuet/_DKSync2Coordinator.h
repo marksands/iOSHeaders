@@ -92,6 +92,7 @@
 - (void)knowledgeStorage:(id)arg1 didInsertSyncedEvents:(id)arg2;
 - (void)knowledgeStorage:(id)arg1 didHaveInsertsAndDeletesWithCount:(unsigned long long)arg2;
 - (void)handleDataProtectionChangeFor:(id)arg1 willBeAvailable:(_Bool)arg2;
+- (_Bool)isSingleDevice;
 - (void)_unregisterPeriodicJob;
 - (void)_registerPeriodicJobWithInterval:(double)arg1;
 - (void)_reregisterPeriodicJob;

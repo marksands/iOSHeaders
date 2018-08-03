@@ -9,8 +9,7 @@
 @protocol PKColorPickerCrosshairViewDelegate
 - (void)colorPickerCrosshairViewShouldUpdateWithColor:(UIColor *)arg1;
 - (void)colorPickerCrosshairViewShouldUpdateColor:(PKColorPickerCrosshairView *)arg1 point:(struct CGPoint)arg2;
-- (struct CGRect)panningBoundsForColorPickerCrosshairView:(PKColorPickerCrosshairView *)arg1;
-- (_Bool)circleModeForColorPickerCrosshairView:(PKColorPickerCrosshairView *)arg1;
+- (unsigned long long)cornerPositionForColorPickerCrosshairView:(PKColorPickerCrosshairView *)arg1;
 - (UIColor *)colorForColorPickerCrosshairView:(PKColorPickerCrosshairView *)arg1 frame:(struct CGRect)arg2;
 - (struct CGRect)frameForColorPickerCrosshairView:(PKColorPickerCrosshairView *)arg1;
 @end

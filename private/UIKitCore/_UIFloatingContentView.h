@@ -17,6 +17,7 @@
     _UIFloatingContentCornerRadiusAnimatingView *_visualEffectContainerView;
     UIView *_shadowView;
     UIView *_contentView;
+    UIView *_highContrastFocusIndicatorView;
     struct __CFDictionary *_backgroundColorsByState;
     NSMutableArray *_contentMotionEffects;
     double _shadowOpacityLight;
@@ -33,6 +34,7 @@
     _Bool _scalesBackwards;
     _Bool _roundContentWhenDeselected;
     _Bool __disableOutsetShadowPath;
+    _Bool _showsHighContrastFocusIndicator;
     double _cornerRadius;
     double _visualEffectContainerViewScaleFactor;
     _UIFocusAnimationConfiguration *_focusAnimationConfiguration;
@@ -56,6 +58,7 @@
 
 + (id)_defaultFocusAnimationConfiguration;
 @property(copy, nonatomic) CDUnknownBlockType focusAnimationConfigurationHandler; // @synthesize focusAnimationConfigurationHandler=_focusAnimationConfigurationHandler;
+@property(nonatomic) _Bool showsHighContrastFocusIndicator; // @synthesize showsHighContrastFocusIndicator=_showsHighContrastFocusIndicator;
 @property(nonatomic) _Bool _disableOutsetShadowPath; // @synthesize _disableOutsetShadowPath=__disableOutsetShadowPath;
 @property(nonatomic) struct CGSize asymmetricFocusedSizeIncrease; // @synthesize asymmetricFocusedSizeIncrease=_asymmetricFocusedSizeIncrease;
 @property(nonatomic) struct CGSize asymmetricScaleFactor; // @synthesize asymmetricScaleFactor=_asymmetricScaleFactor;
@@ -84,6 +87,7 @@
 - (id)_preferredConfigurationForFocusAnimation:(long long)arg1 inContext:(id)arg2;
 - (void)_setShadowImageIfNeeded;
 - (void)_updateShadowContentsScaleForPrimaryState:(unsigned long long)arg1;
+- (void)_updateHighContrastFocusIndicatorForPrimaryState:(unsigned long long)arg1;
 - (void)_updateTransformForPrimaryState:(unsigned long long)arg1;
 - (void)_updateHighlightViewForPrimaryState:(unsigned long long)arg1;
 - (void)_updateContainerLayerQualityForPrimaryState:(unsigned long long)arg1;
@@ -104,6 +108,7 @@
 - (void)_setControlState:(unsigned long long)arg1 withAnimationCoordinator:(id)arg2;
 - (void)setControlState:(unsigned long long)arg1 withAnimationCoordinator:(id)arg2;
 - (void)setControlState:(unsigned long long)arg1 animated:(_Bool)arg2;
+- (void)_layoutHighContrastFocusIndicator;
 - (void)_layoutShadow;
 - (void)layoutSubviews;
 - (void)traitCollectionDidChange:(id)arg1;

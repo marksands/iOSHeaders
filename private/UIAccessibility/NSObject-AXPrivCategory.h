@@ -71,6 +71,7 @@
 - (id)_accessibilityWebAreaURL;
 - (id)accessibilityURL;
 - (id)accessibilityDatetimeValue;
+- (_Bool)_accessibilityShouldApplyTouchContainerTrait;
 - (id)_accessibilityUserTestingActionIdentifiers;
 - (_Bool)_accessibilityPerformUserTestingAction:(id)arg1;
 - (id)_accessibilityUserTestingActions;
@@ -312,6 +313,7 @@
 - (_Bool)_accessibilityOpaqueScrollViewSupportsLastResortScrollBeyondBounds;
 - (id)_accessibilitySortedElementsWithin;
 - (void)_accessibilityOpaqueElementScrollToDirection:(long long)arg1;
+- (id)_accessibilityFindElementInDirection:(long long)arg1 searchType:(long long)arg2 allowOutOfBoundsChild:(_Bool)arg3 startingTouchContainer:(id)arg4;
 - (id)_accessibilityFindElementInDirection:(long long)arg1 searchType:(long long)arg2 allowOutOfBoundsChild:(_Bool)arg3;
 - (void)_accessibilityOpaqueElementScrollCleanup;
 - (double)_accessibilityLeftOpaqueScrollViewContentOffsetLimit;
@@ -503,6 +505,7 @@
 - (struct CGRect)accessibilityVisibleContentRect;
 - (_Bool)_accessibilityVisiblePointHonorsScreenBounds;
 - (_Bool)_accessibilityTouchContainerShouldOutputBraille;
+- (_Bool)accessibilitySupportsTextSelection;
 - (id)_accessibilityTouchContainer;
 - (_Bool)_accessibilityIsMap;
 - (_Bool)_accessibilityIsGuideElement;

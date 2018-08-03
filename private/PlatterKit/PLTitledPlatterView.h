@@ -6,12 +6,13 @@
 
 #import <PlatterKit/PLPlatterView.h>
 
+#import "PLContentSizeCategoryAdjusting.h"
 #import "PLPlatterInternal.h"
 #import "PLTitled.h"
 
 @class NSArray, NSDate, NSString, NSTimeZone, PLPlatterHeaderContentView, UIButton, UIView;
 
-@interface PLTitledPlatterView : PLPlatterView <PLPlatterInternal, PLTitled>
+@interface PLTitledPlatterView : PLPlatterView <PLPlatterInternal, PLTitled, PLContentSizeCategoryAdjusting>
 {
     UIView *_headerContainerView;
     UIView *_headerOverlayView;

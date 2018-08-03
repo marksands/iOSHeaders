@@ -12,7 +12,7 @@
 #import "HMFNetMonitorDelegate.h"
 #import "HMFTimerDelegate.h"
 
-@class HAPAccessory, HAPAccessoryProtocolInfo, HAPAccessoryServerBrowserIP, HAPAuthSession, HAPHTTPClient, HAPWACClient, HMFBlockOperation, HMFNetMonitor, HMFTimer, NSArray, NSData, NSDictionary, NSMutableArray, NSMutableSet, NSOperationQueue, NSString;
+@class HAPAccessory, HAPAccessoryProtocolInfo, HAPAccessoryServerBrowserIP, HAPAuthSession, HAPHTTPClient, HAPWACClient, HMFBlockOperation, HMFNetAddress, HMFNetMonitor, HMFTimer, NSArray, NSData, NSDictionary, NSMutableArray, NSMutableSet, NSOperationQueue, NSString;
 
 @interface HAPAccessoryServerIP : HAPAccessoryServer <HAPHTTPClientDelegate, HAPHTTPClientDebugDelegate, HMFTimerDelegate, HAPAuthSessionDelegate, HMFNetMonitorDelegate>
 {
@@ -30,7 +30,6 @@
     _Bool _continuingLegacyWACpairing;
     _Bool _wacStarted;
     _Bool _hasStartedPairing;
-    _Bool _networkReachable;
     _Bool _tokenRequestPending;
     _Bool _tokenValidationPending;
     NSString *_model;
@@ -60,7 +59,6 @@
 + (id)sharedPairOperationQueue;
 @property(nonatomic, getter=isTokenValidationPending) _Bool tokenValidationPending; // @synthesize tokenValidationPending=_tokenValidationPending;
 @property(nonatomic, getter=isTokenRequestPending) _Bool tokenRequestPending; // @synthesize tokenRequestPending=_tokenRequestPending;
-@property(nonatomic, getter=isNetworkReachable) _Bool networkReachable; // @synthesize networkReachable=_networkReachable;
 @property(readonly, nonatomic) HMFNetMonitor *networkMonitor; // @synthesize networkMonitor=_networkMonitor;
 @property(nonatomic) _Bool hasStartedPairing; // @synthesize hasStartedPairing=_hasStartedPairing;
 @property(retain, nonatomic) HMFTimer *bonjourEventTimer; // @synthesize bonjourEventTimer=_bonjourEventTimer;
@@ -187,6 +185,7 @@
 - (void)_isAccessoryPublicKeyPresent:(_Bool *)arg1 registeredWithHomeKit:(_Bool *)arg2;
 - (void)_establishSecureConnectionAndFetchAttributeDatabase;
 - (void)discoverAccessories;
+@property(readonly, nonatomic) HMFNetAddress *localAddress;
 - (long long)linkType;
 - (id)primaryAccessory;
 - (id)services;

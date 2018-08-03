@@ -6,17 +6,26 @@
 
 #import "UIControl.h"
 
-@class UIImageView, UILabel;
+@class NSLayoutConstraint, UIImageView, UILabel;
 
 @interface SVMoreFromButton : UIControl
 {
     UIImageView *_imageView;
     UILabel *_titleLabel;
+    NSLayoutConstraint *_titleLabelBottomConstraint;
+    NSLayoutConstraint *_imageViewHeightConstraint;
 }
 
+@property(retain, nonatomic) NSLayoutConstraint *imageViewHeightConstraint; // @synthesize imageViewHeightConstraint=_imageViewHeightConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *titleLabelBottomConstraint; // @synthesize titleLabelBottomConstraint=_titleLabelBottomConstraint;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 - (void).cxx_destruct;
+- (void)determineNumberOfLines;
+- (void)updateImageViewHeight;
+- (void)updateFonts;
+- (void)preferredContentSizeCategoryDidChange;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)setHighlighted:(_Bool)arg1;
 - (void)updateConstraints;
 - (void)setTitle:(id)arg1;

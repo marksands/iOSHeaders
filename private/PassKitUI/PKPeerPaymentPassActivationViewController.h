@@ -7,7 +7,6 @@
 #import <PassKitUI/PKExplanationViewController.h>
 
 #import "AAUIDeviceToDeviceEncryptionHelperDelegate.h"
-#import "PKCheckGlyphLayerDelegate.h"
 #import "PKExplanationViewControllerDelegate.h"
 #import "PKExplanationViewDelegate.h"
 #import "PKPaymentSetupViewControllerDelegate.h"
@@ -15,7 +14,7 @@
 
 @class NSString, PKPaymentProvisioningController, PKPeerPaymentCredential, PKPeerPaymentSetupFlowHeroView, PKPeerPaymentWebService, RemoteUIController, UIImage;
 
-@interface PKPeerPaymentPassActivationViewController : PKExplanationViewController <PKPaymentSetupViewControllerDelegate, AAUIDeviceToDeviceEncryptionHelperDelegate, PKExplanationViewControllerDelegate, RemoteUIControllerDelegate, PKExplanationViewDelegate, PKCheckGlyphLayerDelegate>
+@interface PKPeerPaymentPassActivationViewController : PKExplanationViewController <PKPaymentSetupViewControllerDelegate, AAUIDeviceToDeviceEncryptionHelperDelegate, PKExplanationViewControllerDelegate, RemoteUIControllerDelegate, PKExplanationViewDelegate>
 {
     PKPaymentProvisioningController *_provisioningController;
     PKPeerPaymentCredential *_credential;
@@ -44,7 +43,6 @@
 - (void)_handleActivatedState;
 - (void)_setState:(unsigned long long)arg1;
 - (void)_presentActivationFailedErrorAlert;
-- (void)_setShowCheckmark:(_Bool)arg1;
 - (void)_setShowSpinner:(_Bool)arg1;
 - (void)_provisionPeerPaymentPass;
 - (void)_resetApplyPayManateeView;
@@ -56,7 +54,6 @@
 - (struct CGSize)_snapshotSize;
 - (void)_processCloudStorePCSError;
 - (void)_initalizeCloudStoreWithTargetDevice:(id)arg1 ifNecessaryWithCompletion:(CDUnknownBlockType)arg2;
-- (void)checkmarkGlyphLayer:(id)arg1 stateChanged:(_Bool)arg2;
 - (void)remoteUIController:(id)arg1 didReceiveObjectModel:(id)arg2 actionSignal:(unsigned long long *)arg3;
 - (void)deviceToDeviceEncryptionHelper:(id)arg1 shouldContinueUpgradingUserToHSA2WithCompletion:(CDUnknownBlockType)arg2;
 - (void)explanationViewControllerDidSelectCancel:(id)arg1;

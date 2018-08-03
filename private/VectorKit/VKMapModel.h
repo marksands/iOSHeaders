@@ -12,7 +12,7 @@
 #import "VKPolylineOverlayRouteRibbonObserver.h"
 #import "VKTileProviderClient.h"
 
-@class GEOResourceManifestConfiguration, NSArray, NSLocale, NSMapTable, NSMutableArray, NSMutableSet, NSSet, NSString, VKNavigationPuck, VKPolylineOverlay, VKRasterOverlayTileSource, VKSceneConfiguration, VKTileProvider, VKTimedAnimation, VKTrafficTileSource;
+@class GEOResourceManifestConfiguration, NSArray, NSHashTable, NSLocale, NSMapTable, NSMutableSet, NSSet, NSString, VKNavigationPuck, VKPolylineOverlay, VKRasterOverlayTileSource, VKSceneConfiguration, VKTileProvider, VKTimedAnimation, VKTrafficTileSource;
 
 __attribute__((visibility("hidden")))
 @interface VKMapModel : VKModelObject <GEOResourceManifestTileGroupObserver, VKPolylineOverlayRouteRibbonObserver, GEOExperimentConfigurationObserver, VKTileProviderClient, VKPolylineGroupOverlayObserver>
@@ -69,7 +69,7 @@ __attribute__((visibility("hidden")))
     _Bool _limitingNavCameraHeight;
     NSMutableSet *_blockingStylesheetObservers;
     double _styleTransitionProgress;
-    NSMutableArray *_externalAnchors;
+    NSHashTable *_externalAnchors;
     double _forcedMaxZoomLevel;
     _Bool _disableTransitLines;
     VKTimedAnimation *_modeTransitionAnimation;
@@ -91,7 +91,7 @@ __attribute__((visibility("hidden")))
     VKNavigationPuck *_navigationPuck;
     struct set<VKPolylineGroupOverlay *, std::__1::less<VKPolylineGroupOverlay *>, std::__1::allocator<VKPolylineGroupOverlay *>> _observedOverlays;
     struct set<geo::_retain_ptr<VKOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::less<geo::_retain_ptr<VKOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<geo::_retain_ptr<VKOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> _overlays;
-    unsigned char _mapZoomLevel;
+    struct optional<gss::MapZoomLevel> _mapZoomLevel;
     _Bool _isEmphasisSet;
     shared_ptr_e963992e _taskContext;
     _Bool _showsPointsOfInterest;

@@ -45,7 +45,7 @@
 - (void)receivedWorkoutEvent:(id)arg1;
 - (void)workoutSessionServer:(id)arg1 accumulatorDidChange:(id)arg2;
 - (void)workoutSessionServer:(id)arg1 didChangeConfiguration:(id)arg2;
-- (void)workoutSessionServer:(id)arg1 didTransitionToState:(long long)arg2 fromState:(long long)arg3;
+- (void)workoutSessionServer:(id)arg1 didTransitionFromState:(long long)arg2 toState:(long long)arg3 date:(id)arg4;
 - (void)dealloc;
 - (id)initWithProfile:(id)arg1 sessionConfiguration:(id)arg2 sessionStateController:(id)arg3 recoveryState:(id)arg4;
 

@@ -16,7 +16,7 @@
 @property(readonly, nonatomic) UILabel *detailLabel; // @synthesize detailLabel=_detailLabel;
 - (void).cxx_destruct;
 - (void)reloadFromSpecifier;
-- (id)initWithSpecifier:(id)arg1;
+- (id)initWithSpecifier:(id)arg1 useContentLayoutGuide:(_Bool)arg2;
 
 @end
 

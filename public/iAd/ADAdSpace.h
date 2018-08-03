@@ -40,6 +40,7 @@
     NSURL *_serverURL;
     NSString *_advertisingSection;
     ADSInternalSize *_containerSize;
+    ADSInternalSize *_reorientedContainerSize;
     NSString *_authenticationUserName;
     ADContext *_context;
     ADAdImpressionPublicAttributes *_currentAdImpressionPublicAttributes;
@@ -100,6 +101,7 @@
 @property(nonatomic) _Bool requiresFastVisibiltyTestOnly; // @synthesize requiresFastVisibiltyTestOnly=_requiresFastVisibiltyTestOnly;
 @property(copy, nonatomic) ADContext *context; // @synthesize context=_context;
 @property(copy, nonatomic) NSString *authenticationUserName; // @synthesize authenticationUserName=_authenticationUserName;
+@property(retain, nonatomic) ADSInternalSize *reorientedContainerSize; // @synthesize reorientedContainerSize=_reorientedContainerSize;
 @property(retain, nonatomic) ADSInternalSize *containerSize; // @synthesize containerSize=_containerSize;
 @property(copy, nonatomic) NSString *advertisingSection; // @synthesize advertisingSection=_advertisingSection;
 @property(copy, nonatomic) NSURL *serverURL; // @synthesize serverURL=_serverURL;

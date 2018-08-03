@@ -14,6 +14,7 @@
 @interface REUIDonatedElementProperties : NSObject <NSSecureCoding, NSCopying>
 {
     UIImage *_bodyImage;
+    _Bool _isUsingPlaceholderArtwork;
     _Bool _displayAppName;
     REDonatedAction *_action;
     NSString *_appName;
@@ -42,13 +43,19 @@
 - (void)_loadAppContentPropertiesWithCompletion:(CDUnknownBlockType)arg1;
 - (id)scaleImageForDisplay:(id)arg1;
 - (void)_loadContentForRelevantShortcut:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_loadContentForUserActivityOnShortcut:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_loadContentForUserActivity:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_loadContentForIntent:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) unsigned long long trainingActionIdentifier;
+@property(readonly, nonatomic) NSString *localBundleIdentifier;
+@property(readonly, nonatomic) NSString *remoteBundleIdentifier;
 @property(readonly, nonatomic) NSString *bundleIdentifier;
+@property(readonly, nonatomic) NSString *bodyImageCompositingFilter;
 @property(readonly, nonatomic) UIImage *bodyImage;
 @property(readonly, nonatomic, getter=isLocalDonation) _Bool localDonation;
-@property(readonly, nonatomic) _Bool executeRemotely;
+- (id)_placeholderImageNameForBundleID:(id)arg1;
+@property(readonly, nonatomic) _Bool supportsLocalIntentExecution;
+@property(readonly, nonatomic) _Bool requiresRemoteExecution;
 @property(readonly, nonatomic) _Bool wantsThreeLineLayout;
 - (_Bool)_isMusicDonation;
 @property(readonly, nonatomic) _Bool isMediaDonation;

@@ -20,7 +20,6 @@
     _Bool _animationsHaveFinished;
     _Bool _hasExitCode;
     _Bool _hasCrashReport;
-    int _associatedProcessIdentifier;
     XCUIApplicationImpl *_applicationImplementation;
     id <XCTRunnerAutomationSession> _automationSession;
     XCElementSnapshot *_lastSnapshot;
@@ -35,7 +34,6 @@
 + (id)keyPathsForValuesAffectingRunning;
 @property(retain) id <XCUIAccessibilityInterface> axInterface; // @synthesize axInterface=_axInterface;
 @property(retain) XCUIApplicationMonitor *applicationMonitor; // @synthesize applicationMonitor=_applicationMonitor;
-@property int associatedProcessIdentifier; // @synthesize associatedProcessIdentifier=_associatedProcessIdentifier;
 @property(retain) XCElementSnapshot *lastSnapshot; // @synthesize lastSnapshot=_lastSnapshot;
 @property(retain) id <XCTRunnerAutomationSession> automationSession; // @synthesize automationSession=_automationSession;
 @property _Bool hasCrashReport; // @synthesize hasCrashReport=_hasCrashReport;
@@ -44,7 +42,6 @@
 - (void)terminate;
 - (void)waitForViewControllerViewDidDisappearWithTimeout:(double)arg1;
 - (void)acquireBackgroundAssertion;
-- (void)waitForAssociatedProcessIdentifier;
 - (void)waitForAutomationSession;
 - (void)waitForQuiescenceIncludingAnimationsIdle:(_Bool)arg1;
 - (void)_notifyWhenAnimationsAreIdle:(CDUnknownBlockType)arg1;

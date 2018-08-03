@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSISEngine, NSIndexSet, NSObject;
+@class NSISEngine, NSIndexSet, NSMutableIndexSet, NSObject;
 
 #pragma mark Function Pointers and Blocks
 
@@ -407,13 +407,6 @@ typedef struct {
 
 typedef struct {
     id _field1;
-    unsigned int _field2;
-    unsigned int :1;
-    unsigned int :2;
-} CDStruct_7661fe95;
-
-typedef struct {
-    id _field1;
     void *_field2;
 } CDStruct_c69bce23;
 
@@ -521,21 +514,28 @@ typedef struct {
     long long _field3;
 } CDStruct_2ec95fd7;
 
+typedef struct CDStruct_183601bc;
+
 typedef struct {
     NSISEngine *engine;
-    CDStruct_fcd6c539 index;
-} CDStruct_5cfd13ef;
+    CDStruct_183601bc *storage;
+} CDStruct_a8d20eab;
 
 typedef struct {
-    CDStruct_fcd6c539 _field1;
-    id _field2;
-} CDStruct_c9e4ae99;
+    unsigned long long _field1;
+    unsigned long long _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    CDStruct_183601bc *_field6;
+} CDStruct_fee1177a;
 
 typedef struct {
-    CDStruct_fcd6c539 _field1;
-    unsigned int :1;
-    id _field2;
-} CDStruct_319c8348;
+    CDStruct_183601bc *blocks;
+    unsigned long long blocksCount;
+    unsigned long long blocksCapacity;
+    NSMutableIndexSet *freeIndexes;
+} CDStruct_fb1e53bb;
 
 typedef struct {
     id objects;
@@ -549,6 +549,23 @@ typedef struct {
         unsigned long long count;
     } list;
 } CDStruct_29daef6c;
+
+typedef struct {
+    unsigned short inline_capacity;
+    unsigned int var_count;
+    double constant;
+    union {
+        struct {
+            id stored_extern_marker;
+            CDStruct_183601bc *slab;
+            unsigned long long capacity;
+        } extern_data;
+        struct {
+            unsigned long long aligner;
+        } inline_slab;
+        unsigned char padding[48];
+    } data;
+} CDStruct_9ac54d62;
 
 #pragma mark Typedef'd Unions
 

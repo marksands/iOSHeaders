@@ -28,6 +28,8 @@ __attribute__((visibility("hidden")))
 - (id)_postExchangeData:(id)arg1 contract:(id)arg2 logKey:(id)arg3 error:(id *)arg4;
 - (id)_loadCertificateDataWithContract:(id)arg1 logKey:(id)arg2 error:(id *)arg3;
 - (id)_establishContextWithContract:(id)arg1 logKey:(id)arg2 error:(id *)arg3;
+- (id)_cachedCertData;
+- (_Bool)_cacheCertData:(id)arg1;
 - (_Bool)verifyData:(id)arg1 withSignature:(id)arg2 contract:(id)arg3 logKey:(id)arg4 error:(id *)arg5;
 - (id)signData:(id)arg1 contract:(id)arg2 logKey:(id)arg3 error:(id *)arg4;
 - (_Bool)primeTheConnectionWithContract:(id)arg1 logKey:(id)arg2 error:(id *)arg3;

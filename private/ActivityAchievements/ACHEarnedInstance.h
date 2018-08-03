@@ -22,6 +22,7 @@
 }
 
 + (id)_allTemplateUniqueNames;
++ (struct os_unfair_lock_s)_templateUniqueNameLock;
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSDate *createdDate; // @synthesize createdDate=_createdDate;
 @property(retain, nonatomic) HKQuantity *value; // @synthesize value=_value;

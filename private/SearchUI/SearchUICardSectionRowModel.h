@@ -27,7 +27,6 @@
 - (id)dragText;
 - (id)dragSubtitle;
 - (id)dragTitle;
-- (_Bool)isSiriAction;
 - (_Bool)isDraggable;
 - (_Bool)isTappable;
 - (id)nextCard;

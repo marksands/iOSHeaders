@@ -24,12 +24,15 @@
 @property(nonatomic) __weak id <BLTSettingSyncingClient> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_handleResponse:(id)arg1;
+- (void)handleSetNotificationsGroupingRequest:(id)arg1;
 - (void)handleSetNotificationsAlertLevelRequest:(id)arg1;
 - (void)handleSetSectionSubtypeParametersIconResponse:(id)arg1;
 - (void)handleRemoveSectionRequest:(id)arg1;
 - (void)handleSetSectionSubtypeParametersIconRequest:(id)arg1;
 - (void)handleSetSectionInfoResponse:(id)arg1;
 - (void)handleSetSectionInfoRequest:(id)arg1;
+- (void)setNotificationsGrouping:(int)arg1 sectionID:(id)arg2 spoolToFile:(_Bool)arg3;
+- (void)setNotificationsGrouping:(int)arg1 sectionID:(id)arg2;
 - (void)setNotificationsLevel:(unsigned long long)arg1 sectionID:(id)arg2 mirror:(_Bool)arg3 spoolToFile:(_Bool)arg4;
 - (void)setNotificationsLevel:(unsigned long long)arg1 sectionID:(id)arg2 mirror:(_Bool)arg3;
 - (void)removeSectionWithSectionID:(id)arg1;

@@ -22,6 +22,7 @@
     _Bool _dismissOnClientRequestsCompletion;
     _Bool _typeToSiriEnabled;
     _Bool _userIsFinished;
+    _Bool _recordButtonTapped;
     id <VCUIManageVoiceShortcutViewControllerDelegate> _delegate;
     id <VCActionDonation> _actionDonation;
     VCVoiceShortcut *_voiceShortcut;
@@ -43,6 +44,7 @@
 
 + (void)setVoiceRecognitionOverrideWithAudioFileAtPath:(id)arg1;
 + (void)initialize;
+@property(nonatomic) _Bool recordButtonTapped; // @synthesize recordButtonTapped=_recordButtonTapped;
 @property(nonatomic) _Bool userIsFinished; // @synthesize userIsFinished=_userIsFinished;
 @property(nonatomic) _Bool typeToSiriEnabled; // @synthesize typeToSiriEnabled=_typeToSiriEnabled;
 @property(retain, nonatomic) NSArray *validationResult; // @synthesize validationResult=_validationResult;

@@ -146,6 +146,7 @@
 - (id)valueRestrictionForFeature:(id)arg1;
 - (int)boolRestrictionForFeature:(id)arg1;
 - (id)effectiveRestrictions;
+- (id)permittedAutoLockSeconds;
 - (id)lockedDownRootCertificatesWithOutLocalizedSourceDescription:(id *)arg1;
 - (id)userValueForUnionSetting:(id)arg1;
 - (id)userValueForIntersectionSetting:(id)arg1;

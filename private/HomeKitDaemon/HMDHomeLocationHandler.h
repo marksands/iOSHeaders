@@ -6,13 +6,13 @@
 
 #import "HMFObject.h"
 
+#import "HMDBatchLocationDelegate.h"
 #import "HMDHomeMessageReceiver.h"
-#import "HMDLocationDelegate.h"
 #import "NSSecureCoding.h"
 
 @class CLLocation, CLRegion, HMDHome, HMDHomeLocationData, HMFMessageDispatcher, NSDate, NSObject<OS_dispatch_queue>, NSSet, NSString, NSTimeZone, NSUUID;
 
-@interface HMDHomeLocationHandler : HMFObject <HMDLocationDelegate, HMDHomeMessageReceiver, NSSecureCoding>
+@interface HMDHomeLocationHandler : HMFObject <HMDBatchLocationDelegate, HMDHomeMessageReceiver, NSSecureCoding>
 {
     _Bool _isExtractingCurrentLocation;
     int _locationAuthorization;

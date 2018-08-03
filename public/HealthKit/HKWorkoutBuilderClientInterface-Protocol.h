@@ -6,9 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDate, NSDictionary;
+@class HKWorkout, NSArray, NSDate, NSDictionary, NSError;
 
 @protocol HKWorkoutBuilderClientInterface <NSObject>
+- (void)clientRemote_didFailWithError:(NSError *)arg1;
+- (void)clientRemote_finishedWorkout:(HKWorkout *)arg1;
+- (void)clientRemote_stateDidChange:(long long)arg1 startDate:(NSDate *)arg2 endDate:(NSDate *)arg3;
 - (void)clientRemote_synchronizeWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)clientRemote_didRecoverSeriesBuilders:(NSDictionary *)arg1;
 - (void)clientRemote_didChangeElapsedTimeBasisWithStartDate:(NSDate *)arg1 endDate:(NSDate *)arg2;

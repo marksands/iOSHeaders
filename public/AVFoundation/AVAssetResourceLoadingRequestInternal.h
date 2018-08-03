@@ -15,7 +15,6 @@ __attribute__((visibility("hidden")))
     AVWeakReference *weakReferenceToResourceLoader;
     struct OpaqueFigCustomURLLoader *customURLLoader;
     struct OpaqueFigCustomURLHandler *customURLHandler;
-    struct OpaqueFigCustomURLHandler *contentKeySessionCustomURLHandler;
     struct __CFDictionary *requestInfo;
     unsigned long long requestID;
     long long responseInfoSentOnceToken;

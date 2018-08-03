@@ -29,7 +29,7 @@
 }
 
 @property(nonatomic) __weak id <NUAnimationObserver> observer; // @synthesize observer=_observer;
-@property(retain, nonatomic) id <NUAnimatable> animatable; // @synthesize animatable=_animatable;
+@property(nonatomic) __weak id <NUAnimatable> animatable; // @synthesize animatable=_animatable;
 @property(nonatomic) unsigned long long key; // @synthesize key=_key;
 @property(nonatomic) unsigned long long function; // @synthesize function=_function;
 @property(nonatomic, getter=isPaused) _Bool paused; // @synthesize paused=_paused;
@@ -45,6 +45,7 @@
 @property(nonatomic) float duration; // @synthesize duration=_duration;
 @property(nonatomic) float startTime; // @synthesize startTime=_startTime;
 - (void).cxx_destruct;
+- (void)apply:(float)arg1;
 - (_Bool)update:(float)arg1;
 - (id)initWithAnimatable:(id)arg1 value:(unsigned long long)arg2 key: /* Error: Ran out of types for this method. */;
 - (id)initWithAnimatable:(id)arg1 from:(unsigned long long)arg2 to:key: /* Error: Ran out of types for this method. */;

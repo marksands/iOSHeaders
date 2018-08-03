@@ -72,7 +72,7 @@
 - (id)makeMetaDataDictionaryItems:(id)arg1 withIdentifier:(id)arg2;
 - (_Bool)isValidJSONObject:(id)arg1 path:(id)arg2;
 - (id)getJsonFriendlyCopy:(id)arg1;
-- (id)getMetadataForBuffer:(struct __CVBuffer *)arg1 presentationTime:(CDStruct_1b6d18a9)arg2;
+- (id)getMetadataForBuffer:(struct __CVBuffer *)arg1 additionalMetadata:(id)arg2;
 - (void)writeAccelerometerMetadata:(id)arg1;
 - (void)writeAudioData:(id)arg1;
 - (void)writeImageMetadata:(id)arg1;

@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (void)initAdaptiveLearningWithParameters:(id)arg1;
 - (void)flushCurrentSegment;
 - (void)throwNotSupportedExceptionForMethod:(id)arg1;
+@property(readonly) id <VCAggregatorDelegate> delegate;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
 

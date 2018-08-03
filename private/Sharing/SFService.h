@@ -33,6 +33,7 @@
     struct LogCategory *_ucatCrypto;
     NSXPCConnection *_xpcCnx;
     unsigned char _deviceActionType;
+    _Bool _duetSync;
     _Bool _needsAWDL;
     _Bool _needsKeyboard;
     _Bool _needsSetup;
@@ -50,6 +51,7 @@
     unsigned char _serviceType;
     _Bool _touchRemoteEnabled;
     _Bool _watchLocked;
+    _Bool _wifiP2P;
     unsigned int _pinType;
     unsigned int _sessionFlags;
     long long _advertiseRate;
@@ -87,6 +89,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool wifiP2P; // @synthesize wifiP2P=_wifiP2P;
 @property(nonatomic) _Bool watchLocked; // @synthesize watchLocked=_watchLocked;
 @property(nonatomic) _Bool touchRemoteEnabled; // @synthesize touchRemoteEnabled=_touchRemoteEnabled;
 @property(retain, nonatomic) NSXPCListenerEndpoint *testListenerEndpoint; // @synthesize testListenerEndpoint=_testListenerEndpoint;
@@ -136,6 +139,7 @@
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(copy, nonatomic) NSString *fixedPIN; // @synthesize fixedPIN=_fixedPIN;
+@property(nonatomic) _Bool duetSync; // @synthesize duetSync=_duetSync;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(nonatomic) unsigned char deviceActionType; // @synthesize deviceActionType=_deviceActionType;
 @property(nonatomic) long long advertiseRate; // @synthesize advertiseRate=_advertiseRate;

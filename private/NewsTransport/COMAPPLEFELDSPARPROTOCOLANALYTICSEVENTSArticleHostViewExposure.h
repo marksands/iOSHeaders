@@ -93,6 +93,7 @@
     NSString *_previousWebEmbedId;
     int _previousWebEmbedLocation;
     int _publisherArticleVersion;
+    int _rankInVideoPlaylist;
     NSString *_referencedArticleId;
     NSString *_referringSourceApplication;
     NSString *_referringUrl;
@@ -137,12 +138,13 @@
     _Bool _isVideoInFeed;
     _Bool _subscriptionOnlyArticle;
     _Bool _viewFromNotificationDirectOpen;
-    CDStruct_19501b32 _has;
+    CDStruct_120998a0 _has;
 }
 
 + (Class)surfacedByTagIdsType;
 + (Class)fractionalCohortMembershipType;
 + (Class)namedEntitiesType;
+@property(nonatomic) int rankInVideoPlaylist; // @synthesize rankInVideoPlaylist=_rankInVideoPlaylist;
 @property(retain, nonatomic) COMAPPLEFELDSPARPROTOCOLANALYTICSEVENTSAlternateHeadline *alternateHeadline; // @synthesize alternateHeadline=_alternateHeadline;
 @property(nonatomic) double subscribedChannelCtr; // @synthesize subscribedChannelCtr=_subscribedChannelCtr;
 @property(nonatomic) _Bool didExpandDuringView; // @synthesize didExpandDuringView=_didExpandDuringView;
@@ -254,6 +256,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasRankInVideoPlaylist;
 @property(readonly, nonatomic) _Bool hasAlternateHeadline;
 @property(nonatomic) _Bool hasSubscribedChannelCtr;
 @property(nonatomic) _Bool hasDidExpandDuringView;

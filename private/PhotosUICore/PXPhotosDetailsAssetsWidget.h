@@ -133,7 +133,7 @@
 - (_Bool)oneUpPresentationShouldAutoPlay:(id)arg1;
 - (void)oneUpPresentation:(id)arg1 setHiddenAssetReferences:(id)arg2;
 - (void)oneUpPresentation:(id)arg1 scrollAssetReferenceToVisible:(id)arg2;
-- (id)oneUpPresentation:(id)arg1 regionOfInterestForAssetReference:(id)arg2 inCoordinateSpace:(id)arg3;
+- (id)oneUpPresentation:(id)arg1 regionOfInterestForAssetReference:(id)arg2;
 - (id)oneUpPresentation:(id)arg1 currentImageForAssetReference:(id)arg2;
 - (id)oneUpPresentationActionManagerForPreviewing:(id)arg1;
 - (id)oneUpPresentationInitialAssetReference:(id)arg1;
@@ -184,7 +184,7 @@
 @property(readonly, nonatomic) PXSectionedSelectionManager *selectionManager;
 - (id)dataSourceManager;
 - (void)_fallBackByTogglingCurationIfNeeded;
-- (id)_regionOfInterestForAssetReference:(id)arg1 inCoordinateSpace:(id)arg2;
+- (id)_regionOfInterestForAssetReference:(id)arg1;
 - (void)_performTilingChangeWithoutAnimationTransition:(CDUnknownBlockType)arg1;
 - (_Bool)_isLocationWithinCurrentLayoutBounds:(struct CGPoint)arg1;
 - (id)_assetReferenceAtPoint:(struct CGPoint)arg1 padding:(struct UIEdgeInsets)arg2;

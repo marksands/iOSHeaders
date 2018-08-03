@@ -29,7 +29,7 @@
 - (void)ak_addLocalUserHasAppleIDLoginHeader;
 - (void)ak_addICSCIntentHeader;
 - (void)ak_addPRKRequestHeader;
-- (void)ak_addTimeZoneHeader;
+- (void)ak_addTimeZoneHeaders;
 - (void)ak_addLocaleHeader;
 - (void)ak_addCountryHeader;
 - (void)ak_addPasswordResetKeyHeader:(id)arg1;

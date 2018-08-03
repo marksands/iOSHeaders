@@ -39,7 +39,7 @@
     _Bool _recordingStartedOnRoute;
     _Bool _visible;
     _Bool _eyesFree;
-    _Bool _isStark;
+    _Bool _deviceIsInStarkMode;
     _Bool _carDNDActive;
     _Bool _receivedIncomingPhoneCall;
     _Bool _turnsOnScreenOnAppearance;
@@ -84,7 +84,7 @@
 @property(nonatomic) _Bool turnsOnScreenOnAppearance; // @synthesize turnsOnScreenOnAppearance=_turnsOnScreenOnAppearance;
 @property(nonatomic) _Bool receivedIncomingPhoneCall; // @synthesize receivedIncomingPhoneCall=_receivedIncomingPhoneCall;
 @property(nonatomic) _Bool carDNDActive; // @synthesize carDNDActive=_carDNDActive;
-@property(nonatomic) _Bool isStark; // @synthesize isStark=_isStark;
+@property(nonatomic, getter=isDeviceInStarkMode, setter=setDeviceInStarkMode:) _Bool deviceIsInStarkMode; // @synthesize deviceIsInStarkMode=_deviceIsInStarkMode;
 @property(nonatomic, getter=isEyesFree) _Bool eyesFree; // @synthesize eyesFree=_eyesFree;
 @property(nonatomic, getter=isVisible) _Bool visible; // @synthesize visible=_visible;
 @property(nonatomic) __weak id <AFUISiriViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -192,7 +192,6 @@
 - (void)keyboardViewDidReceiveHelpButtonAction:(id)arg1;
 - (void)keyboardViewDidReceiveReportBugAction:(id)arg1;
 - (void)keyboardView:(id)arg1 didReceiveText:(id)arg2;
-- (void)siriRemoteViewController:(id)arg1 didChangeUserAttentionStatus:(_Bool)arg2;
 - (void)_setShowKeyboardIfTextInputEnabled:(_Bool)arg1 minimized:(_Bool)arg2;
 - (void)_setShowKeyboardIfTextInputEnabled:(_Bool)arg1;
 - (void)_setStatusViewHidden:(_Bool)arg1;

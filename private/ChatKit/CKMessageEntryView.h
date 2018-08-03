@@ -222,7 +222,11 @@
 - (void)messageEntryContentViewDidBeginEditing:(id)arg1;
 - (struct CGSize)messageEntryContentViewMaxShelfPluginViewSize:(id)arg1;
 - (_Bool)messageEntryContentViewShouldBeginEditing:(id)arg1;
+- (_Bool)is3rdPartyKeyboardVisible;
+- (_Bool)isPredictionBarEnabled;
 @property(readonly, nonatomic) _Bool showsKeyboardPredictionBar;
+- (void)handleContentViewChange;
+- (void)messageEntryContentViewShelfDidChange:(id)arg1;
 - (void)messageEntryContentViewDidChange:(id)arg1;
 - (void)messageEntryContentViewCancelWasTapped:(id)arg1 shelfPluginPayload:(id)arg2;
 - (void)_animateToCompactLayoutCollapsing:(_Bool)arg1;

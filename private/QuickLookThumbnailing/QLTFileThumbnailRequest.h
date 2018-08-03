@@ -23,6 +23,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (id)initWithFileAtURL:(id)arg1 size:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 iconMode:(_Bool)arg5;
+- (id)initWithFileAtURL:(id)arg1 size:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 iconMode:(_Bool)arg5 error:(id *)arg6;
+- (id)initWithFileAtURL:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 iconMode:(_Bool)arg4 error:(id *)arg5;
 - (id)initWithFileAtURL:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 iconMode:(_Bool)arg4;
 
 @end

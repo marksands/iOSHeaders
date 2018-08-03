@@ -64,6 +64,10 @@
 + (id)predicateForEventsBetweenStartDate:(id)arg1 endDate:(id)arg2;
 + (id)predicateForObjectsWithUUIDs:(id)arg1;
 + (id)predicateForObjectWithUUID:(id)arg1;
++ (id)predicateForSpotlightEventsWithBundleID:(id)arg1 sinceDate:(id)arg2;
++ (id)predicateForSpotlightEventsWithItemIdentifiers:(id)arg1 bundleID:(id)arg2;
++ (id)predicateForSpotlightEventsWithDomainIdentifiers:(id)arg1 bundleID:(id)arg2;
++ (id)predicateForSpotlightEventsWithBundleID:(id)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

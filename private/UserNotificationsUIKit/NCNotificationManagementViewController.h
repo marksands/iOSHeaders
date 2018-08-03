@@ -27,7 +27,7 @@
 - (void).cxx_destruct;
 - (void)notificationManagementController:(id)arg1 setDeliverQuietly:(_Bool)arg2 forNotificationRequest:(id)arg3 withSectionIdentifier:(id)arg4 subSectionIdentifier:(id)arg5;
 - (void)notificationManagementController:(id)arg1 setAllowsNotifications:(_Bool)arg2 forNotificationRequest:(id)arg3 withSectionIdentifier:(id)arg4;
-- (id)notificationManagementController:(id)arg1 sectionSettingsForSectionId:(id)arg2;
+- (id)notificationManagementController:(id)arg1 sectionSettingsForSectionIdentifier:(id)arg2;
 - (void)_offButtonTapped:(id)arg1;
 - (void)_deliveryButtonTapped:(id)arg1;
 - (struct CGSize)preferredContentSize;

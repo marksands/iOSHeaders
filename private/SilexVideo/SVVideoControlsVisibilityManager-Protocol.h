@@ -7,7 +7,7 @@
 #import "NSObject.h"
 
 @protocol SVVideoControlsVisibilityManager <NSObject>
-- (void)removeItem:(id <SVVideoControlItem>)arg1;
-- (void)addItem:(id <SVVideoControlItem>)arg1;
+- (void)removeItem:(id <SVVideoControlVisibilityItem>)arg1;
+- (void)addItem:(id <SVVideoControlVisibilityItem>)arg1;
 @end
 

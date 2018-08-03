@@ -6,25 +6,23 @@
 
 #import "NSObject.h"
 
-@class CADisplayMode, FBSDisplayMode;
+@class FBSDisplayMode;
 
 @interface UIScreenMode : NSObject
 {
     FBSDisplayMode *_mode;
-    CADisplayMode *_caMode;
     _Bool _mainScreen;
 }
 
-+ (id)_screenModeForDisplayMode:(id)arg1 CADisplayMode:(id)arg2 mainScreen:(_Bool)arg3;
++ (id)_screenModeForDisplayMode:(id)arg1 mainScreen:(_Bool)arg2;
 @property(getter=_isMainScreen, setter=_setMainScreen:) _Bool _mainScreen; // @synthesize _mainScreen;
 - (void).cxx_destruct;
 - (id)description;
-- (id)_CADisplayMode;
 - (id)_displayMode;
 @property(readonly, nonatomic) double pixelAspectRatio;
+- (id)valueForKey:(id)arg1;
 @property(readonly, nonatomic) struct CGSize size;
 - (struct CGSize)_sizeWithLevel:(unsigned long long)arg1;
-- (id)initWithDisplayMode:(id)arg1 CADisplayMode:(id)arg2 mainScreen:(_Bool)arg3;
 - (id)initWithDisplayMode:(id)arg1 mainScreen:(_Bool)arg2;
 
 @end

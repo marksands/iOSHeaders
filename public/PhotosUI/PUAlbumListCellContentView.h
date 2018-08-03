@@ -6,21 +6,22 @@
 
 #import "UIView.h"
 
+#import "UIGestureRecognizerDelegate.h"
 #import "UITextFieldDelegate.h"
 
 @class NSString, PUSharedAlbumAvatarView, PUStackView, PXUIButton, UIFont, UILabel, UITextField;
 
-@interface PUAlbumListCellContentView : UIView <UITextFieldDelegate>
+@interface PUAlbumListCellContentView : UIView <UITextFieldDelegate, UIGestureRecognizerDelegate>
 {
     _Bool _combinesPhotoDecorations;
     _Bool _topInsetEnabled;
     _Bool _showsAvatarView;
-    _Bool _shouldUseLabelForTitle;
     _Bool _editing;
     _Bool _enabled;
     _Bool _showsDeleteButtonWhenEditing;
     _Bool _highlighted;
     _Bool __showsTitleAndSubtitle;
+    _Bool _usesLabelForTitle;
     id <PUAlbumListCellDelegate> _delegate;
     PUStackView *_stackView;
     PUSharedAlbumAvatarView *_avatarView;
@@ -38,6 +39,7 @@
     PXUIButton *__deleteButton;
 }
 
+@property(nonatomic) _Bool usesLabelForTitle; // @synthesize usesLabelForTitle=_usesLabelForTitle;
 @property(retain, nonatomic, setter=_setDeleteButton:) PXUIButton *_deleteButton; // @synthesize _deleteButton=__deleteButton;
 @property(retain, nonatomic, setter=_setSubtitleLabel:) UILabel *_subtitleLabel; // @synthesize _subtitleLabel=__subtitleLabel;
 @property(retain, nonatomic, setter=_setTitleLabel:) UILabel *_titleLabel; // @synthesize _titleLabel=__titleLabel;
@@ -52,7 +54,6 @@
 @property(nonatomic) unsigned long long editCapabilities; // @synthesize editCapabilities=_editCapabilities;
 @property(nonatomic) long long layout; // @synthesize layout=_layout;
 @property(nonatomic) double xInset; // @synthesize xInset=_xInset;
-@property(nonatomic) _Bool shouldUseLabelForTitle; // @synthesize shouldUseLabelForTitle=_shouldUseLabelForTitle;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) UIView *customImageView; // @synthesize customImageView=_customImageView;
@@ -65,7 +66,9 @@
 - (void).cxx_destruct;
 - (void)_updateSubtitleLabelStyle;
 - (void)_updateTitleStyle;
+- (void)handleLabelTap:(id)arg1;
 - (void)_deleteAction:(id)arg1;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (_Bool)textFieldShouldReturn:(id)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;

@@ -2456,6 +2456,21 @@ struct map<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>, std
     } __tree_;
 };
 
+struct map<VKTileKey, IncompleteTileData, bool (*)(const VKTileKey &, const VKTileKey &), std::__1::allocator<std::__1::pair<const VKTileKey, IncompleteTileData>>> {
+    struct __tree<std::__1::__value_type<VKTileKey, IncompleteTileData>, std::__1::__map_value_compare<VKTileKey, std::__1::__value_type<VKTileKey, IncompleteTileData>, bool (*)(const VKTileKey &, const VKTileKey &), false>, std::__1::allocator<std::__1::__value_type<VKTileKey, IncompleteTileData>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<VKTileKey, IncompleteTileData>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<VKTileKey, std::__1::__value_type<VKTileKey, IncompleteTileData>, bool (*)(const VKTileKey &, const VKTileKey &), false>> {
+            unsigned long long _field1;
+            struct __map_value_compare<VKTileKey, std::__1::__value_type<VKTileKey, IncompleteTileData>, bool (*)(const VKTileKey &, const VKTileKey &), false> {
+                CDUnknownFunctionPointerType _field1;
+            } _field2;
+        } _field3;
+    } _field1;
+};
+
 struct map<VKTileKey, VKTile *, bool (*)(const VKTileKey &, const VKTileKey &), std::__1::allocator<std::__1::pair<const VKTileKey, VKTile *>>> {
     struct __tree<std::__1::__value_type<VKTileKey, VKTile *>, std::__1::__map_value_compare<VKTileKey, std::__1::__value_type<VKTileKey, VKTile *>, bool (*)(const VKTileKey &, const VKTileKey &), false>, std::__1::allocator<std::__1::__value_type<VKTileKey, VKTile *>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
@@ -2627,10 +2642,12 @@ struct optional<float> {
 
 struct optional<gss::IconStyle> {
     _Bool _hasValue;
-    union ValueUnion {
-        unsigned char data[1];
-        unsigned char type;
-    } _value;
+    ValueUnion_42b55164 _value;
+};
+
+struct optional<gss::MapZoomLevel> {
+    _Bool _hasValue;
+    ValueUnion_42b55164 _value;
 };
 
 struct optional<md::MeshSet<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh, ggl::BuildingFlatStroke::DefaultVbo>> {
@@ -6091,4 +6108,15 @@ typedef struct weak_ptr<md::GlobeOverlayContainer> {
     struct GlobeOverlayContainer *__ptr_;
     struct __shared_weak_count *__cntrl_;
 } weak_ptr_96fca551;
+
+#pragma mark Named Unions
+
+#if 0
+// Names with conflicting types:
+typedef union {
+    unsigned char data[1];
+    unsigned char type;
+} ValueUnion_42b55164;
+
+#endif
 

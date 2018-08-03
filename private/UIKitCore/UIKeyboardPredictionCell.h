@@ -27,10 +27,12 @@ __attribute__((visibility("hidden")))
     UIView *_leftSeperatorView;
     UIView *_rightSeperatorView;
     long long _candidateType;
+    long long _state;
 }
 
 + (double)fontSizeForSingleLineLayout;
 + (double)predictionCellTopPadding;
+@property(nonatomic) long long state; // @synthesize state=_state;
 @property(nonatomic) _Bool isEmoji; // @synthesize isEmoji=_isEmoji;
 @property(nonatomic) long long candidateType; // @synthesize candidateType=_candidateType;
 @property(nonatomic) unsigned int slotID; // @synthesize slotID=_slotID;

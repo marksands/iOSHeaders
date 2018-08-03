@@ -37,10 +37,12 @@ __attribute__((visibility("hidden")))
     NSNumber *_sendingStreamID;
     _Bool _isCompoundStreamIDsIncreased;
     _Bool _shouldEnableFaceZoom;
+    double _fecRatio;
 }
 
 + (id)capabilities;
 + (id)supportedVideoPayloads;
+@property(nonatomic) double fecRatio; // @synthesize fecRatio=_fecRatio;
 @property(nonatomic) _Bool shouldEnableFaceZoom; // @synthesize shouldEnableFaceZoom=_shouldEnableFaceZoom;
 @property(readonly, nonatomic) _Bool isCompoundStreamIDsIncreased; // @synthesize isCompoundStreamIDsIncreased=_isCompoundStreamIDsIncreased;
 @property(readonly, nonatomic) NSNumber *sendingStreamID; // @synthesize sendingStreamID=_sendingStreamID;

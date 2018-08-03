@@ -6,26 +6,21 @@
 
 #import "NSObject.h"
 
-#import "BBObserverDelegate.h"
 #import "DNDSStateProvider.h"
 
-@class BBObserver, DNDSState, NSHashTable, NSObject<OS_dispatch_queue>, NSString;
+@class DNDSState, NSHashTable, NSObject<OS_dispatch_queue>, NSString;
 
-@interface DNDSModeAssertionStateProvider : NSObject <BBObserverDelegate, DNDSStateProvider>
+@interface DNDSModeAssertionStateProvider : NSObject <DNDSStateProvider>
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSHashTable *_stateUpdateListeners;
-    BBObserver *_observer;
-    unsigned long long _bbState;
     DNDSState *_currentState;
     id <DNDSModeAssertionStateProviderDataSource> _dataSource;
 }
 
-+ (void)initialize;
 @property(nonatomic) __weak id <DNDSModeAssertionStateProviderDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (void)_queue_recalculateState;
-- (void)observer:(id)arg1 noteAlertBehaviorOverrideStateChanged:(unsigned long long)arg2;
 - (void)removeUpdateListener:(id)arg1;
 - (void)addUpdateListener:(id)arg1;
 - (id)currentStateWithError:(id *)arg1;

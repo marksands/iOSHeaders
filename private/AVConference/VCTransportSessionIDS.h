@@ -50,6 +50,7 @@ __attribute__((visibility("hidden")))
 - (void)setConnectionSetupPiggybackBlob:(id)arg1;
 - (void)stop;
 - (void)start;
+- (void)processDatagramChannelEventInfo:(id)arg1;
 - (_Bool)getConnectionSetupData:(id *)arg1 withOptions:(id)arg2 error:(id *)arg3;
 - (void)dealloc;
 - (id)initWithCallID:(unsigned int)arg1 requireEncryptionInfo:(_Bool)arg2 reportingAgent:(id)arg3 notificationQueue:(id)arg4 isMultiwaySession:(_Bool)arg5;

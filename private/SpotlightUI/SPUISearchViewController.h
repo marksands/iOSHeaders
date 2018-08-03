@@ -18,9 +18,8 @@
 
 @interface SPUISearchViewController : UIViewController <SPUISearchHeaderDelegate, SearchUIFirstTimeExperienceDelegate, SPUIResultViewDelegate, UIGestureRecognizerDelegate, SFFeedbackListener, SearchUIResultViewDelegate, APUIShortLookViewControllerDelegate>
 {
-    unsigned long long _queryStartTime;
-    NSTimer *_queryUpdateTimer;
     _Bool _internetOverrideForPPT;
+    _Bool _lastQueryWasAuthenticated;
     id <SPUISearchViewControllerDelegate> _delegate;
     _UILegibilitySettings *_legibilitySettings;
     SPUISearchHeader *_searchHeader;
@@ -30,7 +29,6 @@
     SPUIResultViewController *_proactiveResultViewController;
     SPUILockScreenFooterView *_lockScreenFooterView;
     unsigned long long _presentationMode;
-    double _statusBarDismissTime;
     NSTimer *_clearResultsTimer;
     SPUITestingHelper *_testingHelper;
 }
@@ -40,7 +38,7 @@
 + (_Bool)_isSuggestionResult:(id)arg1;
 @property(retain) SPUITestingHelper *testingHelper; // @synthesize testingHelper=_testingHelper;
 @property(retain) NSTimer *clearResultsTimer; // @synthesize clearResultsTimer=_clearResultsTimer;
-@property double statusBarDismissTime; // @synthesize statusBarDismissTime=_statusBarDismissTime;
+@property _Bool lastQueryWasAuthenticated; // @synthesize lastQueryWasAuthenticated=_lastQueryWasAuthenticated;
 @property _Bool internetOverrideForPPT; // @synthesize internetOverrideForPPT=_internetOverrideForPPT;
 @property unsigned long long presentationMode; // @synthesize presentationMode=_presentationMode;
 @property(retain) SPUILockScreenFooterView *lockScreenFooterView; // @synthesize lockScreenFooterView=_lockScreenFooterView;

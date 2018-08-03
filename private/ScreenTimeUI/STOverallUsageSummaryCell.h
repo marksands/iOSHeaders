@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "PSTableCell.h"
+#import <ScreenTimeUI/STTableCell.h>
 
-@class STCandyBarView, STNoUsageDataView, STTopUsageItemsView, STUsageReport, STUsageTotalDeltaView, UILabel;
+@class STCandyBarView, STNoUsageDataView, STTopUsageItemsView, STUsageTotalDeltaView, UILabel;
 
-@interface STOverallUsageSummaryCell : PSTableCell
+@interface STOverallUsageSummaryCell : STTableCell
 {
     _Bool _isVibrancyEnabled;
-    STUsageReport *_usageInfo;
     UILabel *_screenTimeLabel;
     STUsageTotalDeltaView *_deltaView;
     STCandyBarView *_candyBarView;
@@ -25,11 +24,9 @@
 @property(retain, nonatomic) STUsageTotalDeltaView *deltaView; // @synthesize deltaView=_deltaView;
 @property(retain, nonatomic) UILabel *screenTimeLabel; // @synthesize screenTimeLabel=_screenTimeLabel;
 @property(readonly, nonatomic) _Bool isVibrancyEnabled; // @synthesize isVibrancyEnabled=_isVibrancyEnabled;
-@property(retain, nonatomic) STUsageReport *usageInfo; // @synthesize usageInfo=_usageInfo;
 - (void).cxx_destruct;
-- (void)refreshWithUsageReport:(id)arg1;
+- (void)refreshWithCoordinator:(id)arg1;
 - (void)setValue:(id)arg1;
-- (_Bool)canReload;
 - (void)stOverallUsageSummaryCellCommonInit;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3 isVibrancyEnabled:(_Bool)arg4;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;

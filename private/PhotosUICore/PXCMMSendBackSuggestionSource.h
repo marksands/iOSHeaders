@@ -6,14 +6,16 @@
 
 #import <PhotosUICore/PXObservable.h>
 
-@class NSObject<OS_dispatch_queue>, PXAssetsDataSource, PXCMMContext, PXCMMSendBackSuggestion;
+@class NSObject<OS_dispatch_queue>, PHMomentShare, PXAssetsDataSource, PXCMMContext, PXCMMSendBackSuggestion;
 
 @interface PXCMMSendBackSuggestionSource : PXObservable
 {
     NSObject<OS_dispatch_queue> *_fetchQueue;
     unsigned long long _sourceType;
     _Bool _hasInitiatedFetchRequest;
+    _Bool _shouldShowBanner;
     PXAssetsDataSource *_assetsDataSource;
+    PHMomentShare *_originatingMomentShare;
     PXCMMSendBackSuggestion *_suggestion;
     PXCMMContext *_sendBackContext;
 }
@@ -25,8 +27,10 @@
 + (id)sendBackContextTimeLocationMatching:(id)arg1 sourceType:(unsigned long long)arg2;
 + (id)sendBackContextOverlappingTimeFromStartDate:(id)arg1 endDate:(id)arg2 sourceType:(unsigned long long)arg3;
 + (id)new;
+@property(readonly, nonatomic) _Bool shouldShowBanner; // @synthesize shouldShowBanner=_shouldShowBanner;
 @property(readonly, nonatomic) PXCMMContext *sendBackContext; // @synthesize sendBackContext=_sendBackContext;
 @property(readonly, nonatomic) PXCMMSendBackSuggestion *suggestion; // @synthesize suggestion=_suggestion;
+@property(readonly, nonatomic) PHMomentShare *originatingMomentShare; // @synthesize originatingMomentShare=_originatingMomentShare;
 @property(readonly, nonatomic) PXAssetsDataSource *assetsDataSource; // @synthesize assetsDataSource=_assetsDataSource;
 - (void).cxx_destruct;
 - (id)_sendBackFetchResultUsingPhotosGraph;
@@ -35,6 +39,7 @@
 - (id)_allMetadataAssets;
 - (id)mutableChangeObject;
 - (void)performChanges:(CDUnknownBlockType)arg1;
+- (void)setShouldShowBanner:(_Bool)arg1;
 - (void)setSendBackContext:(id)arg1;
 - (void)setSuggestion:(id)arg1;
 - (void)_fetchQueue_fetchSuggestedSendBackContext;
@@ -42,7 +47,7 @@
 - (id)_fetchSuggestedParticipantsForAssetCollection:(id)arg1;
 - (_Bool)_existingOverlappingMomentSharesFromOwnerForAssetCollection:(id)arg1;
 - (void)startLoading;
-- (id)initWithAssetsDataSource:(id)arg1 sourceType:(unsigned long long)arg2;
+- (id)initWithAssetsDataSource:(id)arg1 sourceType:(unsigned long long)arg2 originatingMomentShare:(id)arg3;
 - (id)init;
 
 @end

@@ -17,6 +17,7 @@
 }
 
 - (void).cxx_destruct;
+- (id)diagnosticDescription;
 - (void)setConfiguration:(id)arg1 forAggregator:(id)arg2;
 - (id)mergedConfiguration;
 - (void)setLastSensorDatum:(id)arg1 forAggregator:(id)arg2;

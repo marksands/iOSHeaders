@@ -6,39 +6,41 @@
 
 #import "UIView.h"
 
-@class ASCompetitionScoreViewConfiguration, ASCompetitionWinCountView, NSNumber, NSString, UIColor, UIFont, UIImage, UILabel;
+@class ASCompetitionScoreViewConfiguration, NSNumber, NSString, UIColor, UILabel;
 
 @interface ASCompetitionParticipantScoreView : UIView
 {
     ASCompetitionScoreViewConfiguration *_configuration;
-    ASCompetitionWinCountView *_winCountView;
     UILabel *_nameLabel;
-    UILabel *_scoreLabel;
+    UILabel *_primaryScoreLabel;
+    UILabel *_secondaryScoreLabel;
     NSNumber *_previousLayoutWidth;
-    _Bool _scoreIsVisible;
     NSString *_name;
-    UIFont *_nameFont;
-    unsigned long long _score;
-    UIFont *_scoreFont;
+    double _nameFontSizeReduction;
+    unsigned long long _primaryScore;
+    double _primaryScoreFontSizeReduction;
+    unsigned long long _secondaryScore;
     UIColor *_scoreColor;
-    unsigned long long _winCount;
-    UIFont *_winCountFont;
-    UIImage *_badge;
+    double _scoreLeftMargin;
+    double _scoreRightMargin;
 }
 
-@property(retain, nonatomic) UIImage *badge; // @synthesize badge=_badge;
-@property(nonatomic) UIFont *winCountFont; // @synthesize winCountFont=_winCountFont;
-@property(nonatomic) unsigned long long winCount; // @synthesize winCount=_winCount;
-@property(nonatomic) UIColor *scoreColor; // @synthesize scoreColor=_scoreColor;
-@property(nonatomic) UIFont *scoreFont; // @synthesize scoreFont=_scoreFont;
-@property(nonatomic) unsigned long long score; // @synthesize score=_score;
-@property(nonatomic) _Bool scoreIsVisible; // @synthesize scoreIsVisible=_scoreIsVisible;
-@property(retain, nonatomic) UIFont *nameFont; // @synthesize nameFont=_nameFont;
+@property(nonatomic) double scoreRightMargin; // @synthesize scoreRightMargin=_scoreRightMargin;
+@property(nonatomic) double scoreLeftMargin; // @synthesize scoreLeftMargin=_scoreLeftMargin;
+@property(retain, nonatomic) UIColor *scoreColor; // @synthesize scoreColor=_scoreColor;
+@property(nonatomic) unsigned long long secondaryScore; // @synthesize secondaryScore=_secondaryScore;
+@property(nonatomic) double primaryScoreFontSizeReduction; // @synthesize primaryScoreFontSizeReduction=_primaryScoreFontSizeReduction;
+@property(nonatomic) unsigned long long primaryScore; // @synthesize primaryScore=_primaryScore;
+@property(nonatomic) double nameFontSizeReduction; // @synthesize nameFontSizeReduction=_nameFontSizeReduction;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
-- (double)adjustedWinCountFontSizeForMaximumWidth:(double)arg1 originalFont:(id)arg2;
-- (double)adjustedScoreFontSizeForMaximumWidth:(double)arg1 originalFont:(id)arg2;
-- (double)adjustedNameFontSizeForMaximumWidth:(double)arg1 originalFont:(id)arg2;
+- (void)_updatePrimaryScoreLabelWithFontSizeReduction:(double)arg1;
+- (void)_updateNameLabelWithFontSizeReduction:(double)arg1;
+- (double)_availableScoreWidthForWidth:(double)arg1;
+- (double)_computeFontSizeReductionForLabel:(id)arg1 width:(double)arg2 maxReduction:(double)arg3 updateBlock:(CDUnknownBlockType)arg4;
+- (double)computeNameFontSizeReductionForWidth:(double)arg1;
+- (double)computePrimaryScoreFontSizeReductionForWidth:(double)arg1;
+@property(readonly, nonatomic) double nameBaselineY;
 - (void)layoutForWidth:(double)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

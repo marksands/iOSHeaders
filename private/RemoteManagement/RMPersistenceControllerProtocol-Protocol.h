@@ -10,6 +10,7 @@
 
 @protocol RMPersistenceControllerProtocol <NSObject>
 - (NSManagedObjectContext *)newBackgroundContext;
+- (NSManagedObjectContext *)viewContext;
 - (void)performBackgroundTaskAndWait:(void (^)(NSManagedObjectContext *))arg1;
 - (void)performBackgroundTask:(void (^)(NSManagedObjectContext *))arg1;
 @end

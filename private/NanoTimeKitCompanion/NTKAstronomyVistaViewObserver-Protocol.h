@@ -7,6 +7,7 @@
 @class NTKAstronomyVistaView;
 
 @protocol NTKAstronomyVistaViewObserver
+- (void)astronomyVistaViewWillDisplay:(NTKAstronomyVistaView *)arg1 forTime:(double)arg2;
 - (void)astronomyVistaViewContentsAnimationFinished:(NTKAstronomyVistaView *)arg1;
 @end
 

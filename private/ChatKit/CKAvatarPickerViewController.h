@@ -16,7 +16,6 @@
 @interface CKAvatarPickerViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CNAvatarViewDelegate, CKAvatarPickerLayoutDelegate>
 {
     CKAvatarTitleCollectionReusableView *_titleView;
-    long long _chevronMode;
     long long _indicatorType;
     UICollectionView *_collectionView;
     CKAvatarPickerLayout *_layout;
@@ -33,7 +32,6 @@
 @property(retain, nonatomic) CKAvatarPickerLayout *layout; // @synthesize layout=_layout;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(nonatomic) long long indicatorType; // @synthesize indicatorType=_indicatorType;
-@property(nonatomic) long long chevronMode; // @synthesize chevronMode=_chevronMode;
 @property(retain, nonatomic) CKAvatarTitleCollectionReusableView *titleView; // @synthesize titleView=_titleView;
 - (void).cxx_destruct;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
@@ -60,6 +58,7 @@
 - (void)_animateInTitleView;
 @property(readonly, nonatomic) struct CGRect titleViewFrame;
 - (_Bool)hasTitle;
+- (void)setAvatarPickerActive:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithConversation:(id)arg1;

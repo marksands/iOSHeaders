@@ -34,7 +34,8 @@
 @property(readonly) NSString *deviceClass; // @synthesize deviceClass=_deviceClass;
 @property(readonly) NSString *buildVersion; // @synthesize buildVersion=_buildVersion;
 @property _Bool basicMediaModel; // @synthesize basicMediaModel=_basicMediaModel;
-- (void)receivedDeviceCommandCompletion;
+- (void)waitForCommandCompletion;
+- (void)signalCommandCompletion;
 - (void)requestDataForFiles:(id)arg1 withProperties:(id)arg2;
 - (void)requestMetadataForFiles:(id)arg1;
 - (void)requestThumbnailsForFiles:(id)arg1 options:(id)arg2;
@@ -87,6 +88,7 @@
 - (void)pendNotifyingDelegateOfAddedItem:(id)arg1;
 - (void)notifyDelegateOfAddedItems:(id)arg1;
 - (void)notifyDelegateOfAddedItem:(id)arg1;
+- (unsigned int)increaseDeviceFailureCount;
 @property long long enumerationOrder;
 - (void)setApplePTPObjectLimit:(id)arg1;
 - (id)applePTPObjectLimit;

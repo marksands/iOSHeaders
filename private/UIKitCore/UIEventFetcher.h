@@ -45,7 +45,6 @@ __attribute__((visibility("hidden")))
 - (void)filterEvents;
 - (void)drainEventsIntoEnvironment:(id)arg1;
 - (void)_receiveHIDEventInternal:(struct __IOHIDEvent *)arg1;
-- (void)_receiveHIDEvent:(struct __IOHIDEvent *)arg1;
 - (void)setupThreadAndRun;
 - (void)threadMain;
 - (void)displayLinkDidFire:(id)arg1;

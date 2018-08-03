@@ -13,13 +13,16 @@
     id <MPSHandle> _handle;
     MPSNNFilterNode *_parent;
     id <MPSImageAllocator> _imageAllocator;
-    _Bool _exportFromGraph;
+    unsigned long long _clientCount;
     unsigned long long _format;
+    _Bool _exportFromGraph;
     _Bool _synchronize;
+    _Bool _stopGradient;
 }
 
 + (id)exportedNodeWithHandle:(id)arg1;
 + (id)nodeWithHandle:(id)arg1;
+@property(nonatomic) _Bool stopGradient; // @synthesize stopGradient=_stopGradient;
 @property(nonatomic) _Bool synchronizeResource; // @synthesize synchronizeResource=_synchronize;
 @property(nonatomic) _Bool exportFromGraph; // @synthesize exportFromGraph=_exportFromGraph;
 @property(retain, nonatomic) id <MPSImageAllocator> imageAllocator; // @synthesize imageAllocator=_imageAllocator;

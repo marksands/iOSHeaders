@@ -106,7 +106,9 @@
 - (void)gizmoOOBAdvertiseAndPairWithName:(id)arg1 operationHasBegun:(CDUnknownBlockType)arg2;
 - (void)companionPasscodePairWithDevice:(id)arg1 withOptions:(id)arg2 operationHasBegun:(CDUnknownBlockType)arg3;
 - (void)companionOOBDiscoverAndPairWithName:(id)arg1 withOutOfBandPairingKey:(id)arg2 withOptions:(id)arg3 operationHasBegun:(CDUnknownBlockType)arg4;
+- (id)getAllDevicesWithArchivedDevicesMatching:(CDUnknownBlockType)arg1;
 - (id)getDevicesMatching:(CDUnknownBlockType)arg1;
+- (id)getAllDevicesWithArchivedDevices;
 - (id)getAllDevices;
 - (id)getActivePairedDevice;
 - (id)getPairedDevices;

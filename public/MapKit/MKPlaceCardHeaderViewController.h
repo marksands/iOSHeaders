@@ -11,7 +11,7 @@
 #import "_MKInfoCardChildViewControllerAnalyticsDelegate.h"
 #import "_MKStackViewDelegate.h"
 
-@class MKPlaceSectionRowView, NSArray, NSLayoutConstraint, NSString, NSURL, UIImageView, UILayoutGuide, _MKDataHeaderModel, _MKLocalizedHoursBuilder, _MKTokenAttributedString, _MKUILabel;
+@class MKPlaceSectionRowView, NSArray, NSLayoutConstraint, NSString, NSURL, UIImageView, UILayoutGuide, UIView, _MKDataHeaderModel, _MKLocalizedHoursBuilder, _MKTokenAttributedString, _MKUILabel;
 
 @interface MKPlaceCardHeaderViewController : MKPlaceSectionViewController <_MKStackViewDelegate, _MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol, MKETAProviderObserver>
 {
@@ -23,7 +23,7 @@
     _MKUILabel *_firstLabel;
     _MKUILabel *_secondLabel;
     _MKUILabel *_thirdLabel;
-    _MKUILabel *_thirdDisplayedLabel;
+    UIView *_thirdDisplayedLabel;
     NSArray *_constraints;
     UILayoutGuide *_leadingGuide;
     NSURL *_logoURL;

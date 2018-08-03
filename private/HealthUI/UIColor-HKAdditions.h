@@ -8,6 +8,7 @@
 
 @interface UIColor (HKAdditions)
 + (id)hk_randomColor;
++ (id)hk_lightGrayTextColor;
 + (id)hk_unknownCategoryClinicalGradientBottomColor;
 + (id)hk_unknownCategoryClinicalGradientTopColor;
 + (id)hk_unknownCategoryClinicalKeyColor;

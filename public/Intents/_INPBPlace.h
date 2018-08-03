@@ -6,14 +6,13 @@
 
 #import "PBCodable.h"
 
-#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 #import "_INPBPlace.h"
 
-@class INCodableAttribute, NSArray, NSString, _INPBString;
+@class NSArray, NSString, _INPBString;
 
-@interface _INPBPlace : PBCodable <_INPBPlace, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
+@interface _INPBPlace : PBCodable <_INPBPlace, NSSecureCoding, NSCopying>
 {
     struct {
         unsigned int personalPlaceType:1;
@@ -22,11 +21,9 @@
     NSArray *_placeDescriptors;
     _INPBString *_placeSubType;
     _INPBString *_placeType;
-    INCodableAttribute *_associatedCodableAttribute;
 }
 
 + (Class)placeDescriptorsType;
-@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(retain, nonatomic) _INPBString *placeType; // @synthesize placeType=_placeType;
 @property(retain, nonatomic) _INPBString *placeSubType; // @synthesize placeSubType=_placeSubType;
 @property(copy, nonatomic) NSArray *placeDescriptors; // @synthesize placeDescriptors=_placeDescriptors;

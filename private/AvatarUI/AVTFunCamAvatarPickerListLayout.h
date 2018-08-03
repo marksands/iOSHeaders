@@ -4,30 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UICollectionViewLayout.h"
+#import <AvatarUI/AVTEngagementListCollectionViewLayout.h>
 
-#import "AVTCollectionViewLayout.h"
-
-@class AVTEngagementLayout;
-
-@interface AVTFunCamAvatarPickerListLayout : UICollectionViewLayout <AVTCollectionViewLayout>
+@interface AVTFunCamAvatarPickerListLayout : AVTEngagementListCollectionViewLayout
 {
-    AVTEngagementLayout *_engagementLayout;
 }
 
-@property(retain, nonatomic) AVTEngagementLayout *engagementLayout; // @synthesize engagementLayout=_engagementLayout;
-- (void).cxx_destruct;
-- (struct CGSize)contentSizeForVisibleBounds:(struct CGRect)arg1 numberOfItems:(long long)arg2;
-- (struct CGPoint)centerForCenteringElementAtIndex:(long long)arg1 visibleBoundsSize:(struct CGSize)arg2 proposedOrigin:(struct CGPoint)arg3;
-- (id)indexesForElementsInRect:(struct CGRect)arg1 visibleBounds:(struct CGRect)arg2 numberOfItems:(long long)arg3;
-- (struct CGRect)frameForElementAtIndex:(long long)arg1 visibleBounds:(struct CGRect)arg2;
-- (id)layoutAttributesForItemAtIndexPath:(id)arg1;
-- (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
-- (struct CGSize)collectionViewContentSize;
-- (void)invalidateLayout;
-- (_Bool)flipsHorizontallyInOppositeLayoutDirection;
-- (_Bool)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
-- (id)initWithEngagementLayout:(id)arg1;
+- (struct UIEdgeInsets)engagementInsetsForCollectionViewBounds:(struct CGSize)arg1;
 
 @end
 

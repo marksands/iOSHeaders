@@ -197,6 +197,8 @@
 @property(readonly, nonatomic) _Bool isOnHold;
 - (void)answerWithRequest:(id)arg1;
 - (void)_handleStatusChange;
+@property(readonly, nonatomic) long long outputAudioPowerSpectrumToken;
+@property(readonly, nonatomic) long long inputAudioPowerSpectrumToken;
 @property(readonly, nonatomic) long long videoStreamToken;
 @property(readonly, nonatomic) float localMeterLevel;
 @property(readonly, nonatomic) float remoteMeterLevel;

@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSMapTable;
+@class NSMapTable, NSObject<OS_dispatch_queue>;
 
 @interface PPEventStore : NSObject
 {
     NSMapTable *_recordLoadingDelegates;
+    NSObject<OS_dispatch_queue> *_serialQueue;
 }
 
 - (void).cxx_destruct;

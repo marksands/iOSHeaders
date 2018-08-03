@@ -22,6 +22,7 @@
     id <ICCloudContextDelegate> _cloudContextDelegate;
     NSDate *_lastSyncDate;
     long long _qualityOfService;
+    unsigned long long _discretionaryNetworkBehavior;
     CKContainer *_container;
     NSOperationQueue *_operationQueue;
     NSObject<OS_dispatch_queue> *_processingQueue;
@@ -74,6 +75,7 @@
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(retain, nonatomic) CKContainer *container; // @synthesize container=_container;
 @property(getter=isDisabled) _Bool disabled; // @synthesize disabled=_disabled;
+@property(nonatomic) unsigned long long discretionaryNetworkBehavior; // @synthesize discretionaryNetworkBehavior=_discretionaryNetworkBehavior;
 @property(nonatomic) long long qualityOfService; // @synthesize qualityOfService=_qualityOfService;
 @property _Bool needsToUpdateSubscriptions; // @synthesize needsToUpdateSubscriptions=_needsToUpdateSubscriptions;
 @property(retain) NSDate *lastSyncDate; // @synthesize lastSyncDate=_lastSyncDate;

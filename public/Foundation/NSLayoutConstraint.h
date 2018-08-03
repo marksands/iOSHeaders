@@ -39,6 +39,7 @@
 + (void)deactivateConstraints:(id)arg1;
 + (void)activateConstraints:(id)arg1;
 + (void)_setLegacyDecodingOnly:(_Bool)arg1;
++ (double)_constraintConstantLimit;
 @property(copy, setter=_setSecondAnchor:) NSLayoutAnchor *secondAnchor; // @synthesize secondAnchor=_secondAnchor;
 @property(copy, setter=_setFirstAnchor:) NSLayoutAnchor *firstAnchor; // @synthesize firstAnchor=_firstAnchor;
 @property(getter=isActive) _Bool active;
@@ -46,6 +47,7 @@
 - (_Bool)_nsib_isRedundant;
 - (_Bool)_nsib_isRedundantInEngine:(id)arg1;
 - (id)_layoutEngine;
+- (int)nsis_orientationHintForVariable:(id)arg1;
 - (id)nsis_descriptionOfVariable:(id)arg1;
 - (id)_explainUnsatisfaction;
 - (void)_forceSatisfactionMeasuringUnsatisfactionChanges:(id *)arg1 andMutuallyExclusiveConstraints:(id *)arg2;
@@ -83,7 +85,6 @@
 @property(copy) NSString *symbolicConstant;
 - (void)_setSymbolicConstant:(id)arg1;
 - (id)_symbolicConstant;
-- (void)_ensureValueMaintainsArbitraryLimit:(double *)arg1;
 @property double constant;
 - (id)_constantDescriptionForDTrace;
 - (id)_descriptionforSymbolicConstant;
@@ -106,7 +107,6 @@
 - (id)_markerAndPositiveExtraVar;
 - (_Bool)nsis_valueOfVariableIsUserObservable:(id)arg1;
 - (void)nsis_valueOfVariable:(id)arg1 didChangeInEngine:(id)arg2;
-- (double)_allowedMagnitudeForIntegralizationAdjustmentOfConstraintWithMarkerScaling:(double *)arg1;
 - (double)_allowedMagnitudeForIntegralizationAdjustment;
 - (double)_fudgeIncrement;
 - (_Bool)_isFudgeable;

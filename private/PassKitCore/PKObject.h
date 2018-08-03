@@ -59,6 +59,7 @@
 - (id)serializedFileWrapper;
 - (id)archiveData;
 - (id)localizedString:(id)arg1;
+- (void)downloadRemoteAssetsWithCloudStoreCoordinatorDelegate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)downloadRemoteAssetsWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) _Bool remoteAssetsDownloaded;
 - (void)noteShared;

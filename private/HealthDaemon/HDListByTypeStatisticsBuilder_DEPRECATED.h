@@ -48,12 +48,14 @@
 - (void)_updateStatisticsForDataType:(id)arg1;
 - (void)_updateStatisticsForAllCalculators;
 - (_Bool)addQuantitySamplesForType:(long long)arg1 value:(double)arg2 bucketStartTime:(double)arg3 bucketEndTime:(double)arg4 startTime:(double)arg5 endTime:(double)arg6 sourceId:(long long)arg7 enforceLatest:(_Bool)arg8;
+- (_Bool)_updateWithQuantitySamples:(id)arg1 typeCode:(long long)arg2;
 - (_Bool)addCategorySamplesForType:(long long)arg1 value:(double)arg2 startTime:(double)arg3 endTime:(double)arg4 sourceId:(long long)arg5 enforceLatest:(_Bool)arg6;
 - (_Bool)addBinarySamplesForType:(long long)arg1 startTime:(double)arg2 endTime:(double)arg3 sourceId:(long long)arg4;
 - (_Bool)_addSleepSample:(id)arg1;
 - (_Bool)_addWorkoutSample:(id)arg1;
 - (_Bool)wasUpdated;
-- (void)updateValuesWithAddedSample:(id)arg1 anchor:(id)arg2;
+- (_Bool)_updateNonQuantityValuesWithAddedSamples:(id)arg1 typeCode:(long long)arg2;
+- (void)updateValuesWithAddedSamples:(id)arg1 typeCode:(long long)arg2 anchor:(id)arg3;
 - (id)_calculatedQuantityForDataTypeCode:(id)arg1;
 - (id)calculatedQuantitiesByDataType;
 - (_Bool)_queryForSleepSamplesWithDatabase:(id)arg1 error:(id *)arg2;

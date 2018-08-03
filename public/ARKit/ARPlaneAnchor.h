@@ -34,7 +34,8 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithAnchor:(id)arg1;
+- (float)area;
 - (id)debugQuickLookObject;
 - (id)description;
 - (id)_description:(_Bool)arg1;

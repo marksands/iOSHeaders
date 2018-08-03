@@ -143,8 +143,8 @@
 @property(readonly) _Bool isWebTunnelMessage;
 @property(readonly) _Bool wantsSignature;
 @property(readonly) _Bool ignoresNetworkConnectivity;
+@property(readonly) _Bool allowsServerProvidedLenientAnisetteTimeout;
 @property(readonly) double anisetteHeadersTimeout;
-@property(readonly) _Bool wantsAnisetteHeaders;
 @property(readonly) _Bool wantsAPSRetries;
 @property(readonly) _Bool wantsManagedRetries;
 @property(readonly) _Bool wantsExtraTimeoutRetry;

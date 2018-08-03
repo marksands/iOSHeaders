@@ -54,7 +54,7 @@
 - (id)description;
 - (void)stop;
 - (void)play;
-- (void)_playAtTime:(double)arg1;
+- (void)_playAtTime:(double)arg1 engine:(id)arg2;
 @property(readonly, nonatomic, getter=_effectiveDelay) double effectiveDelay;
 @property(readonly, nonatomic, getter=_allSystemSoundIDs) NSIndexSet *allSystemSoundIDs;
 @property(readonly, nonatomic, getter=_allEventTypes) NSIndexSet *allEventTypes;

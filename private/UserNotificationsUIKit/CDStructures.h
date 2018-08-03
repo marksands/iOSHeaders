@@ -69,6 +69,7 @@ typedef struct {
     unsigned int isUpdatingContent:1;
     unsigned int willDismissRemainingContentWithTransitionCoordinator:1;
     unsigned int setRaiseGestureDetectionEnabled:1;
+    unsigned int willRemoveNotificationRequestInLongLook:1;
     unsigned int didRemoveNotificationRequestInLongLook:1;
     unsigned int requestsClearingNotificationRequestsInSections:1;
     unsigned int requestsClearingNotificationRequestsFromDateToDate:1;
@@ -88,11 +89,9 @@ typedef struct {
     unsigned int isExpandedCoalescedBundleForNotificationRequest:1;
     unsigned int leadingNotificationRequestForCoalescingIdentifier:1;
     unsigned int coalescingIdentifierForNotificationRequest:1;
-    unsigned int sectionSettingsForSectionId:1;
-    unsigned int setAllowsNotifications:1;
-    unsigned int setDeliverQuietly:1;
-    unsigned int shouldMakeQuietingSuggestionForRequest:1;
-} CDStruct_bbbec371;
+    unsigned int sectionSettingsForSectionIdentifier:1;
+    unsigned int requestsPresentingManagementView:1;
+} CDStruct_021c1d70;
 
 typedef struct {
     unsigned int significantUserInteraction:1;

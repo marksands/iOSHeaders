@@ -26,7 +26,7 @@
 - (void)webSheetCompletion;
 - (_Bool)shouldShowEmergencyAddress;
 - (id)requestTimeoutController;
-- (id)initWithSubscriptionContext:(id)arg1 subscriptionCapabilities:(id)arg2;
+- (id)initWithSubscriptionContext:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

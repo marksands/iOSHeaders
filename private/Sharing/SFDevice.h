@@ -17,12 +17,14 @@
     unsigned char _deviceActionType;
     unsigned char _deviceClassCode;
     unsigned char _deviceModelCode;
+    _Bool _duetSync;
     _Bool _hasProblem;
     _Bool _needsAWDL;
     _Bool _needsKeyboard;
     _Bool _needsSetup;
     _Bool _wakeDevice;
     _Bool _watchLocked;
+    _Bool _wifiP2P;
     unsigned char _osVersion;
     _Bool _paired;
     unsigned int _deviceFlags;
@@ -43,6 +45,7 @@
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool paired; // @synthesize paired=_paired;
 @property(nonatomic) unsigned char osVersion; // @synthesize osVersion=_osVersion;
+@property(readonly, nonatomic) _Bool wifiP2P; // @synthesize wifiP2P=_wifiP2P;
 @property(nonatomic) _Bool watchLocked; // @synthesize watchLocked=_watchLocked;
 @property(nonatomic) _Bool wakeDevice; // @synthesize wakeDevice=_wakeDevice;
 @property(nonatomic) unsigned int systemPairState; // @synthesize systemPairState=_systemPairState;
@@ -56,6 +59,7 @@
 @property(copy, nonatomic) NSString *idsIdentifier; // @synthesize idsIdentifier=_idsIdentifier;
 @property(copy, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) _Bool hasProblem; // @synthesize hasProblem=_hasProblem;
+@property(readonly, nonatomic) _Bool duetSync; // @synthesize duetSync=_duetSync;
 @property(nonatomic) long long distance; // @synthesize distance=_distance;
 @property(readonly, nonatomic) long long deviceType; // @synthesize deviceType=_deviceType;
 @property(readonly, nonatomic) unsigned char deviceModelCode; // @synthesize deviceModelCode=_deviceModelCode;

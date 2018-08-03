@@ -113,6 +113,7 @@
 - (void)_removeBrowserWithPluginIdentifierFromViewHierarchy:(id)arg1;
 - (void)_updateBrowserViewPositionForPluginAndInsertIfNecessary:(id)arg1;
 - (void)_insertCurrentBrowserAndRemoveOldBrowsersIfNeeded;
+- (_Bool)_currentPluginIsJellyfish;
 - (_Bool)shouldAutorotate;
 - (void)_transitionSnapshotViewToBrowserView;
 - (void)_handleRemoteViewControllerConnectionInterrupted:(id)arg1;

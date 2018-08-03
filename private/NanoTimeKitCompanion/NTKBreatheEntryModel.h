@@ -14,6 +14,7 @@
 }
 
 + (_Bool)supportsFlowerImages;
++ (id)companionModel;
 + (id)lockedEntryModel;
 + (id)modelWithActivitySummary:(id)arg1;
 + (_Bool)familySupportsLiveData:(long long)arg1;

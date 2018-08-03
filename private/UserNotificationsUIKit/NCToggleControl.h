@@ -66,6 +66,8 @@
 - (void)previewInteractionPresenterDidPresent:(id)arg1;
 - (_Bool)previewInteractionPresenterShouldBegin:(id)arg1;
 - (id)containerViewForPreviewInteractionPresenter:(id)arg1;
+- (void)_reduceTransparencyStatusDidChange:(id)arg1;
+- (void)_darkerSystemColorsStatusDidChange:(id)arg1;
 - (void)_handleTouchUpInsideWithEvent:(id)arg1;
 - (void)_sendActionsForEvents:(unsigned long long)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;

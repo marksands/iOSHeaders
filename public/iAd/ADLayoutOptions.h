@@ -11,8 +11,10 @@
 @interface ADLayoutOptions : NSObject <NSCopying>
 {
     struct CGSize _containerSize;
+    struct CGSize _reorientedContainerSize;
 }
 
+@property(nonatomic) struct CGSize reorientedContainerSize; // @synthesize reorientedContainerSize=_reorientedContainerSize;
 @property(nonatomic) struct CGSize containerSize; // @synthesize containerSize=_containerSize;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

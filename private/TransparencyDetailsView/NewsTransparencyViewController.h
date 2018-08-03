@@ -8,7 +8,7 @@
 
 #import "WKNavigationDelegate.h"
 
-@class NSDictionary, NSString, UIActivityIndicatorView, UILabel, UINavigationBar, WKWebView;
+@class NSDictionary, NSString, TDVHomeButtonHandler, UIActivityIndicatorView, UILabel, UINavigationBar, WKWebView;
 
 @interface NewsTransparencyViewController : UIViewController <WKNavigationDelegate>
 {
@@ -24,8 +24,10 @@
     double _statusBarOffset;
     WKWebView *_myNewsPrivacyWebView;
     UINavigationBar *_transparencyNavBar;
+    TDVHomeButtonHandler *_homeButtonHandler;
 }
 
+@property(retain, nonatomic) TDVHomeButtonHandler *homeButtonHandler; // @synthesize homeButtonHandler=_homeButtonHandler;
 @property(nonatomic) _Bool isClientTodayWidget; // @synthesize isClientTodayWidget=_isClientTodayWidget;
 @property(nonatomic) _Bool isiPad; // @synthesize isiPad=_isiPad;
 @property(retain, nonatomic) UINavigationBar *transparencyNavBar; // @synthesize transparencyNavBar=_transparencyNavBar;
@@ -41,6 +43,8 @@
 - (id)bundleForTransparencyDetailsViewFramework;
 - (id)normalizeChineseLanguage:(id)arg1;
 - (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)errorDelegate;
 - (void)presentViewDelegate;
 - (void)_closeViewController:(id)arg1;

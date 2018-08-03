@@ -16,14 +16,17 @@
     CDStruct_95bda58d _preferredVictoryBadgeStyles;
     CDStruct_5df41632 _scores;
     long long _currentCacheIndex;
+    long long _maximumNumberOfPointsPerDay;
     ASCodableCloudKitDateComponents *_durationDateComponents;
     ASCodableCloudKitDateComponents *_startDateComponents;
     NSData *_uuid;
     struct {
         unsigned int currentCacheIndex:1;
+        unsigned int maximumNumberOfPointsPerDay:1;
     } _has;
 }
 
+@property(nonatomic) long long maximumNumberOfPointsPerDay; // @synthesize maximumNumberOfPointsPerDay=_maximumNumberOfPointsPerDay;
 @property(retain, nonatomic) ASCodableCloudKitDateComponents *durationDateComponents; // @synthesize durationDateComponents=_durationDateComponents;
 @property(retain, nonatomic) ASCodableCloudKitDateComponents *startDateComponents; // @synthesize startDateComponents=_startDateComponents;
 @property(nonatomic) long long currentCacheIndex; // @synthesize currentCacheIndex=_currentCacheIndex;
@@ -38,6 +41,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasMaximumNumberOfPointsPerDay;
 - (void)setPreferredVictoryBadgeStyles:(int *)arg1 count:(unsigned long long)arg2;
 - (int)preferredVictoryBadgeStylesAtIndex:(unsigned long long)arg1;
 - (void)addPreferredVictoryBadgeStyles:(int)arg1;

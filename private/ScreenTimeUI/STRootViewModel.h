@@ -15,12 +15,15 @@
     NSArray *_devices;
 }
 
++ (id)keyPathsForValuesAffectingCanToggleWebsiteData;
 + (id)keyPathsForValuesAffectingForceParentalControls;
 + (id)keyPathsForValuesAffectingCanViewAskForTimeRequests;
 + (id)keyPathsForValuesAffectingCanSetUpFamily;
 + (id)keyPathsForValuesAffectingCanSignIn;
 + (id)keyPathsForValuesAffectingCanTogglePasscode;
 + (id)keyPathsForValuesAffectingCanRemovePasscode;
++ (id)keyPathsForValuesAffectingWebUsageEnabled;
++ (id)keyPathsForValuesAffectingIsSharingUsageData;
 + (id)keyPathsForValuesAffectingCanStopSharingScreenTime;
 + (id)keyPathsForValuesAffectingCanStopScreenTime;
 + (id)keyPathsForValuesAffectingCanStartScreenTime;
@@ -29,12 +32,15 @@
 @property(copy, nonatomic) NSArray *children; // @synthesize children=_children;
 @property(copy, nonatomic) STUser *me; // @synthesize me=_me;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool canToggleWebsiteData;
 @property(readonly, nonatomic) _Bool forceParentalControls;
 @property(readonly, nonatomic) _Bool canViewAskForTimeRequests;
 @property(readonly, nonatomic) _Bool canSetUpFamily;
 @property(readonly, nonatomic) _Bool canSignIn;
 @property(readonly, nonatomic) _Bool canTogglePasscode;
 @property(readonly, nonatomic) _Bool canRemovePasscode;
+@property(readonly, nonatomic, getter=isWebUsageEnabled) _Bool webUsageEnabled;
+@property(readonly, nonatomic) _Bool isSharingUsageData;
 @property(readonly, nonatomic) _Bool canStopSharingScreenTime;
 @property(readonly, nonatomic) _Bool canStopScreenTime;
 @property(readonly, nonatomic) _Bool canStartScreenTime;

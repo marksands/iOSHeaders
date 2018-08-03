@@ -17,7 +17,7 @@
 
 + (_Bool)isEnabled;
 - (_Bool)dedupeByEnrichingEntry:(id)arg1 withEntry:(id)arg2;
-- (id)initWithType:(long long)arg1;
+- (id)initWithSacrificedType:(long long)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

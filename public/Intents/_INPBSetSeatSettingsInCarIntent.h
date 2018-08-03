@@ -6,14 +6,13 @@
 
 #import "PBCodable.h"
 
-#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 #import "_INPBSetSeatSettingsInCarIntent.h"
 
-@class INCodableAttribute, NSString, _INPBDataString, _INPBInteger, _INPBIntentMetadata;
+@class NSString, _INPBDataString, _INPBInteger, _INPBIntentMetadata;
 
-@interface _INPBSetSeatSettingsInCarIntent : PBCodable <_INPBSetSeatSettingsInCarIntent, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
+@interface _INPBSetSeatSettingsInCarIntent : PBCodable <_INPBSetSeatSettingsInCarIntent, NSSecureCoding, NSCopying>
 {
     struct {
         unsigned int enableCooling:1;
@@ -30,10 +29,8 @@
     _INPBDataString *_carName;
     _INPBIntentMetadata *_intentMetadata;
     _INPBInteger *_level;
-    INCodableAttribute *_associatedCodableAttribute;
 }
 
-@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(nonatomic) int seat; // @synthesize seat=_seat;
 @property(nonatomic) int relativeLevelSetting; // @synthesize relativeLevelSetting=_relativeLevelSetting;
 @property(retain, nonatomic) _INPBInteger *level; // @synthesize level=_level;

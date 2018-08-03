@@ -25,6 +25,7 @@
     id <FCNewsAppConfiguration> _currentAppConfiguration;
     NSArray *_treatmentIDs;
     NSArray *_segmentSetIDs;
+    NSArray *_widgetChangeTags;
     NSHashTable *_appConfigObservers;
     NSHashTable *_coreConfigObservers;
 }
@@ -34,6 +35,7 @@
 + (id)internalOverrideSegmentSetIDs;
 @property(retain, nonatomic) NSHashTable *coreConfigObservers; // @synthesize coreConfigObservers=_coreConfigObservers;
 @property(retain, nonatomic) NSHashTable *appConfigObservers; // @synthesize appConfigObservers=_appConfigObservers;
+@property(copy, nonatomic) NSArray *widgetChangeTags; // @synthesize widgetChangeTags=_widgetChangeTags;
 @property(nonatomic) _Bool shouldIgnoreCache; // @synthesize shouldIgnoreCache=_shouldIgnoreCache;
 @property(copy, nonatomic) NSArray *segmentSetIDs; // @synthesize segmentSetIDs=_segmentSetIDs;
 @property(copy, nonatomic) NSArray *treatmentIDs; // @synthesize treatmentIDs=_treatmentIDs;
@@ -46,19 +48,23 @@
 @property(readonly, nonatomic) FCContextConfiguration *contextConfiguration; // @synthesize contextConfiguration=_contextConfiguration;
 @property(readonly, nonatomic) RCConfigurationManager *remoteConfigurationManager; // @synthesize remoteConfigurationManager=_remoteConfigurationManager;
 - (void).cxx_destruct;
+- (id)_deserializeChangeTags:(id)arg1;
+- (id)_serializeChangeTags:(id)arg1;
+- (id)_changeTagsInRecords:(id)arg1;
+- (id)_widgetChangeTagsInData:(id)arg1;
 - (unsigned long long)_configurationSourceForSourceName:(id)arg1;
 - (id)_recordIDForRequestKey:(id)arg1 storefrontID:(id)arg2;
 - (id)_permanentURLForRequestKey:(id)arg1 storefrontID:(id)arg2;
 - (unsigned long long)_remoteConfigurationEnvironmentForContextIdentifier:(long long)arg1;
 - (id)_responseKeyForRequestKey:(id)arg1;
-- (id)_configurationSettingsWithRequestInfos:(id)arg1 feldsparID:(id)arg2 storefrontID:(id)arg3 contextConfiguration:(id)arg4;
+- (id)_configurationSettingsWithRequestInfos:(id)arg1 feldsparID:(id)arg2 storefrontID:(id)arg3 contextConfiguration:(id)arg4 useBackgroundRefreshRate:(_Bool)arg5;
 - (id)_requestInfoForRequestKey:(id)arg1 storefrontID:(id)arg2 additionalChangeTags:(id)arg3;
 - (void)feldsparIDProviderDidChangeFeldsparID:(id)arg1;
 - (_Bool)_checkIfShouldIgnoreCache;
 - (void)_loadConfigurationFromStore:(id)arg1;
 - (void)_configurationDidChange;
 - (id)_storefrontID;
-- (void)_fetchAppWidgetConfigurationIfNeededWithCompletionQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_fetchAppWidgetConfigurationIfNeededUseBackgroundRefreshRate:(_Bool)arg1 completionQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_fetchAppConfigurationIfNeededWithCompletionQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
@@ -69,7 +75,7 @@
 - (void)removeAppConfigObserver:(id)arg1;
 - (void)addAppConfigObserver:(id)arg1;
 - (void)fetchTrendingSearchesIfNeededWithCompletion:(CDUnknownBlockType)arg1;
-- (void)fetchAppWidgetConfigurationWithCompletion:(CDUnknownBlockType)arg1;
+- (void)fetchAppWidgetConfigurationUseBackgroundRefreshRate:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)refreshAppConfigurationIfNeededWithCompletionQueue:(id)arg1 refreshCompletion:(CDUnknownBlockType)arg2;
 - (void)fetchAppConfigurationIfNeededWithCompletionQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAppConfigurationIfNeededWithCompletion:(CDUnknownBlockType)arg1;

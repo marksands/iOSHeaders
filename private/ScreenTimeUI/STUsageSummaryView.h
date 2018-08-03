@@ -10,6 +10,7 @@
 
 @interface STUsageSummaryView : UIView
 {
+    _Bool _useDailyAverageLabel;
     STUsageReport *_usageReport;
     UILabel *_screenTimeLabel;
     STUsageTotalDeltaView *_deltaView;
@@ -17,13 +18,14 @@
     STUsageGraphView *_graphView;
 }
 
-@property(retain, nonatomic) STUsageGraphView *graphView; // @synthesize graphView=_graphView;
-@property(retain, nonatomic) STTopUsageItemsView *topItemsView; // @synthesize topItemsView=_topItemsView;
-@property(retain, nonatomic) STUsageTotalDeltaView *deltaView; // @synthesize deltaView=_deltaView;
-@property(retain, nonatomic) UILabel *screenTimeLabel; // @synthesize screenTimeLabel=_screenTimeLabel;
+@property(readonly, nonatomic) STUsageGraphView *graphView; // @synthesize graphView=_graphView;
+@property(readonly, nonatomic) STTopUsageItemsView *topItemsView; // @synthesize topItemsView=_topItemsView;
+@property(readonly, nonatomic) STUsageTotalDeltaView *deltaView; // @synthesize deltaView=_deltaView;
+@property(readonly, nonatomic) UILabel *screenTimeLabel; // @synthesize screenTimeLabel=_screenTimeLabel;
+@property(readonly, nonatomic) _Bool useDailyAverageLabel; // @synthesize useDailyAverageLabel=_useDailyAverageLabel;
 @property(retain, nonatomic) STUsageReport *usageReport; // @synthesize usageReport=_usageReport;
 - (void).cxx_destruct;
-- (id)init;
+- (id)initWithDailyAverageLabel:(_Bool)arg1;
 
 @end
 

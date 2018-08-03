@@ -22,7 +22,7 @@
 - (void).cxx_destruct;
 - (void)_updateSecondaryLabel;
 - (void)_updatePrimaryLabel;
-- (struct CGSize)_performLayoutInSize:(struct CGSize)arg1 updateSubviewFrames:(_Bool)arg2;
+- (struct CGSize)_performLayoutInSize:(struct CGSize)arg1 minimizingSize:(_Bool)arg2 updateSubviewFrames:(_Bool)arg3;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

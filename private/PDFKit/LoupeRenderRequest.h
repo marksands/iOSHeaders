@@ -11,13 +11,10 @@
 __attribute__((visibility("hidden")))
 @interface LoupeRenderRequest : NSObject
 {
+    CALayer *contentsLayer;
     int loupeType;
     struct CGPoint pagePoint;
-    CALayer *loupeLayer;
     struct CGSize imageSize;
-    struct CGRect layerFrame;
-    struct CGAffineTransform layerTransform;
-    struct CGRect backgroundLayerFrame;
 }
 
 - (void).cxx_destruct;

@@ -40,6 +40,7 @@
 - (_Bool)_isBackdropRequiredForMainMaterialWithSettings:(id)arg1 options:(unsigned long long)arg2;
 - (id)_colorForBackdrop:(_Bool)arg1 withGetterBlock:(CDUnknownBlockType)arg2;
 - (double)_propertyValueForProperty:(id)arg1;
+- (double)_propertyValueForProperty:(id)arg1 withTransformer:(CDUnknownBlockType)arg2;
 - (_Bool)_isPropertyEnabled:(id)arg1 consideringWeighting:(_Bool)arg2;
 - (id)_performanceConfiguringSettingsForSettings:(id)arg1;
 - (id)_v2SettingsForSettings:(id)arg1;
@@ -59,6 +60,7 @@
 @property(readonly, nonatomic) double brightness;
 @property(readonly, nonatomic) double saturation;
 @property(readonly, nonatomic) double luminanceAlpha;
+@property(readonly, nonatomic) double blurRadiusWithTransformer;
 @property(readonly, nonatomic) double blurRadius;
 - (_Bool)isBackdropRequiredForOverlayOption:(unsigned long long)arg1;
 @property(readonly, nonatomic, getter=isZoomEnabled) _Bool zoomEnabled;

@@ -16,6 +16,7 @@
 - (_Bool)tv_marqueeOnHighlight;
 - (_Bool)tv_showOnHighlight;
 - (_Bool)tv_isProxyView;
+- (id)tv_elementName;
 - (unsigned long long)tv_elementType;
 - (id)tv_highlightColor;
 - (id)tv_backgroundColor;

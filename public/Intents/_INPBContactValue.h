@@ -6,14 +6,13 @@
 
 #import "PBCodable.h"
 
-#import "INCodableAttributeAssociating.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 #import "_INPBContactValue.h"
 
-@class INCodableAttribute, NSArray, NSString, _INPBContactHandle, _INPBImageValue, _INPBValueMetadata;
+@class NSArray, NSString, _INPBContactHandle, _INPBImageValue, _INPBValueMetadata;
 
-@interface _INPBContactValue : PBCodable <_INPBContactValue, NSSecureCoding, NSCopying, INCodableAttributeAssociating>
+@interface _INPBContactValue : PBCodable <_INPBContactValue, NSSecureCoding, NSCopying>
 {
     struct {
         unsigned int isMe:1;
@@ -29,18 +28,32 @@
     NSString *_handle;
     _INPBImageValue *_image;
     NSString *_lastName;
+    NSString *_middleName;
+    NSString *_namePrefix;
+    NSString *_nameSuffix;
     NSString *_nickName;
+    NSString *_phoneticFirstName;
+    NSString *_phoneticLastName;
+    NSString *_phoneticMiddleName;
+    NSString *_phoneticNamePrefix;
+    NSString *_phoneticNameSuffix;
     NSString *_relationship;
     _INPBValueMetadata *_valueMetadata;
-    INCodableAttribute *_associatedCodableAttribute;
 }
 
 + (Class)aliasesType;
-@property(copy, nonatomic) INCodableAttribute *associatedCodableAttribute; // @synthesize associatedCodableAttribute=_associatedCodableAttribute;
 @property(retain, nonatomic) _INPBValueMetadata *valueMetadata; // @synthesize valueMetadata=_valueMetadata;
 @property(nonatomic) int suggestionType; // @synthesize suggestionType=_suggestionType;
 @property(copy, nonatomic) NSString *relationship; // @synthesize relationship=_relationship;
+@property(copy, nonatomic) NSString *phoneticNameSuffix; // @synthesize phoneticNameSuffix=_phoneticNameSuffix;
+@property(copy, nonatomic) NSString *phoneticNamePrefix; // @synthesize phoneticNamePrefix=_phoneticNamePrefix;
+@property(copy, nonatomic) NSString *phoneticMiddleName; // @synthesize phoneticMiddleName=_phoneticMiddleName;
+@property(copy, nonatomic) NSString *phoneticLastName; // @synthesize phoneticLastName=_phoneticLastName;
+@property(copy, nonatomic) NSString *phoneticFirstName; // @synthesize phoneticFirstName=_phoneticFirstName;
 @property(copy, nonatomic) NSString *nickName; // @synthesize nickName=_nickName;
+@property(copy, nonatomic) NSString *nameSuffix; // @synthesize nameSuffix=_nameSuffix;
+@property(copy, nonatomic) NSString *namePrefix; // @synthesize namePrefix=_namePrefix;
+@property(copy, nonatomic) NSString *middleName; // @synthesize middleName=_middleName;
 @property(copy, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
 @property(nonatomic) _Bool isMe; // @synthesize isMe=_isMe;
 @property(retain, nonatomic) _INPBImageValue *image; // @synthesize image=_image;
@@ -62,7 +75,15 @@
 - (id)suggestionTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasSuggestionType;
 @property(readonly, nonatomic) _Bool hasRelationship;
+@property(readonly, nonatomic) _Bool hasPhoneticNameSuffix;
+@property(readonly, nonatomic) _Bool hasPhoneticNamePrefix;
+@property(readonly, nonatomic) _Bool hasPhoneticMiddleName;
+@property(readonly, nonatomic) _Bool hasPhoneticLastName;
+@property(readonly, nonatomic) _Bool hasPhoneticFirstName;
 @property(readonly, nonatomic) _Bool hasNickName;
+@property(readonly, nonatomic) _Bool hasNameSuffix;
+@property(readonly, nonatomic) _Bool hasNamePrefix;
+@property(readonly, nonatomic) _Bool hasMiddleName;
 @property(readonly, nonatomic) _Bool hasLastName;
 @property(nonatomic) _Bool hasIsMe;
 @property(readonly, nonatomic) _Bool hasImage;

@@ -52,7 +52,6 @@ struct NSNumber {
 };
 
 struct PowerMeter {
-    _Bool mInstantaneousMode;
     double mSampleRate;
     double mPeakDecay1;
     double mPeakDecay;
@@ -60,7 +59,6 @@ struct PowerMeter {
     double mDecay;
     int mPrevBlockSize;
     int mPeakHoldCount;
-    double mPeak;
     double mAveragePowerPeak;
     double mMaxPeak;
     struct AudioUnitMeterClipping mClipping;

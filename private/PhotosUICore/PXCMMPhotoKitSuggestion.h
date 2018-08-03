@@ -10,7 +10,7 @@
 #import "PXCMMSuggestion.h"
 #import "PXMediaTypeAggregating.h"
 
-@class NSString, PHAssetCollection, PHFetchResult;
+@class NSString, PHAssetCollection, PHFetchResult, PXAssetCollectionActionManager;
 
 @interface PXCMMPhotoKitSuggestion : NSObject <PXMediaTypeAggregating, PXCMMSuggestion, NSCopying>
 {
@@ -40,6 +40,7 @@
 - (void)decline;
 - (void)markAsActiveIfNeeded;
 - (id)contextForActivityType:(unsigned long long)arg1 sourceType:(unsigned long long)arg2;
+@property(readonly, nonatomic) PXAssetCollectionActionManager *assetCollectionActionManager;
 @property(readonly, nonatomic) id <PXPeopleFetchResult> peopleFetchResult;
 @property(readonly, nonatomic) long long count;
 @property(readonly, nonatomic) NSString *identifier;

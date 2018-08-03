@@ -6,7 +6,7 @@
 
 #import "UIControl.h"
 
-@class MTMaterialView, NSString, UIImage, UIImageView;
+@class MTMaterialView, NSString, UIImage, UIImageView, UIView;
 
 @interface PLGlyphControl : UIControl
 {
@@ -17,9 +17,11 @@
     UIImageView *_glyphView;
     MTMaterialView *_backgroundMaterialView;
     MTMaterialView *_overlayMaterialView;
+    UIView *_highlightView;
 }
 
 + (id)dismissControlWithMaterialRecipe:(long long)arg1 backgroundMaterialOptions:(unsigned long long)arg2 overlayMaterialOptions:(unsigned long long)arg3;
+@property(retain, nonatomic, getter=_hightlightView) UIView *highlightView; // @synthesize highlightView=_highlightView;
 @property(retain, nonatomic, getter=_overlayMaterialView) MTMaterialView *overlayMaterialView; // @synthesize overlayMaterialView=_overlayMaterialView;
 @property(retain, nonatomic, getter=_backgroundMaterialView) MTMaterialView *backgroundMaterialView; // @synthesize backgroundMaterialView=_backgroundMaterialView;
 @property(retain, nonatomic, getter=_glyphView) UIImageView *glyphView; // @synthesize glyphView=_glyphView;
@@ -40,8 +42,11 @@
 - (void)_sendActionsForEvents:(unsigned long long)arg1 withEvent:(id)arg2;
 - (void)setHighlighted:(_Bool)arg1;
 @property(copy, nonatomic) UIImage *glyph;
+- (void)dealloc;
 - (id)initWithMaterialRecipe:(long long)arg1 backgroundMaterialOptions:(unsigned long long)arg2 overlayMaterialOptions:(unsigned long long)arg3;
 - (void)_updateVibrantStylingOfView:(id)arg1;
+- (void)_reduceTransparencyStatusDidChange:(id)arg1;
+- (void)_darkerSystemColorsStatusDidChange:(id)arg1;
 - (void)_handleTouchUpInsideWithEvent:(id)arg1;
 
 @end

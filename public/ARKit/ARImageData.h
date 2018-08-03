@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
+#import "ARDictionaryCoding.h"
 #import "ARSensorData.h"
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class ARFaceData, AVDepthData, NSDate, NSString;
 
-@interface ARImageData : NSObject <ARSensorData, NSCopying, NSSecureCoding>
+@interface ARImageData : NSObject <ARDictionaryCoding, ARSensorData, NSCopying, NSSecureCoding>
 {
     _Bool _mirrored;
     float _exposureTargetOffset;
@@ -62,6 +63,8 @@
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)encodeToDictionary;
+- (id)initWithDictionary:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (_Bool)isEqual:(id)arg1;

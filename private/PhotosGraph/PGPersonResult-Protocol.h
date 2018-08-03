@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSDate, NSString;
 
 @protocol PGPersonResult <NSObject>
+@property(readonly, nonatomic) NSDate *birthdayDate;
 @property(readonly, nonatomic) _Bool isVerified;
 @property(readonly, nonatomic) NSString *keywordDescription;
 @property(readonly, nonatomic) NSString *contactIdentifier;

@@ -31,6 +31,7 @@
 - (_Bool)markedConstraintIsEligibleForIntegralizationAdjustment;
 - (double)allowedMagnitudeForIntegralizationAdjustmentOfMarkedConstraint;
 - (_Bool)shouldBeIntegral;
+@property(readonly) int orientationHint;
 - (id)description;
 - (id)descriptionInEngine:(id)arg1;
 - (id)_delegateDescription;

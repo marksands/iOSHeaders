@@ -16,7 +16,6 @@
     PXRoundedCornerOverlayView *_roundedCornerOverlayView;
     UIFont *_titleFont;
     UIFont *_titleBoldFont;
-    struct _NSRange _titleBoldRange;
     PXCMMPosterHeaderView *_headerView;
     NSArray *_names;
     NSString *_subtitle;
@@ -29,7 +28,8 @@
 @property(copy, nonatomic) NSArray *names; // @synthesize names=_names;
 @property(readonly, nonatomic) PXCMMPosterHeaderView *headerView; // @synthesize headerView=_headerView;
 - (void).cxx_destruct;
-- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
+- (void)_contentSizeCategoryDidChange:(id)arg1;
+- (void)_updateFonts;
 - (struct CGSize)_performLayoutInWidth:(double)arg1 updateSubviewFrames:(_Bool)arg2;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

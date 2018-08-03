@@ -17,11 +17,9 @@
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_userTestingNotificationHandlers;
     NSMutableDictionary *_cachedAccessibilityLoadedValuesForPIDs;
-    unsigned long long _alertNotificationCounter;
 }
 
 + (id)sharedClient;
-@property unsigned long long alertNotificationCounter; // @synthesize alertNotificationCounter=_alertNotificationCounter;
 @property(retain) NSMutableDictionary *cachedAccessibilityLoadedValuesForPIDs; // @synthesize cachedAccessibilityLoadedValuesForPIDs=_cachedAccessibilityLoadedValuesForPIDs;
 @property(retain) NSMutableDictionary *userTestingNotificationHandlers; // @synthesize userTestingNotificationHandlers=_userTestingNotificationHandlers;
 @property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
@@ -35,6 +33,7 @@
 - (_Bool)performAction:(int)arg1 onElement:(id)arg2 value:(id)arg3 error:(id *)arg4;
 - (id)parameterizedAttribute:(id)arg1 forElement:(id)arg2 parameter:(id)arg3;
 - (_Bool)setAttribute:(id)arg1 value:(id)arg2 element:(id)arg3 outError:(id *)arg4;
+@property(readonly) _Bool allowsRemoteAccess;
 - (id)attributesForElement:(id)arg1 attributes:(id)arg2 error:(id *)arg3;
 - (id)attributesForElement:(id)arg1 attributes:(id)arg2;
 - (id)attributesForElementSnapshot:(id)arg1 attributeList:(id)arg2;
@@ -46,7 +45,7 @@
 @property(readonly) _Bool supportsAnimationsInactiveNotifications;
 - (void)notifyWhenEventLoopIsIdleForApplication:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (id)interruptingUIElementsAffectingSnapshot:(id)arg1;
-- (void)handleAccessibilityNotification:(long long)arg1 withPayload:(id)arg2;
+- (void)handleAccessibilityNotification:(long long)arg1 fromElement:(id)arg2 payload:(id)arg3;
 - (void)notifyOnNextOccurrenceOfUserTestingEvent:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)handleUserTestingNotification:(id)arg1;
 - (id)hitTestElement:(id)arg1 withPoint:(struct CGPoint)arg2 error:(id *)arg3;

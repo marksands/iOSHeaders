@@ -4,32 +4,62 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NUIContainerStackView.h"
+#import "UIView.h"
 
-#import "NUIContainerStackViewDelegate.h"
-
-@class NSString, UIView, UIView<_MKCalloutAccessoryView>, _MKSmallCalloutPassthroughButton, _MKUILabel;
+@class NSArray, NSLayoutConstraint, NSString, UILayoutGuide, UIView<_MKCalloutAccessoryView>, _MKSmallCalloutPassthroughButton, _MKUILabel;
 
 __attribute__((visibility("hidden")))
-@interface MKSmallCalloutView : NUIContainerStackView <NUIContainerStackViewDelegate>
+@interface MKSmallCalloutView : UIView
 {
     _MKUILabel *_titleLabel;
     _MKUILabel *_subtitleLabel;
     UIView<_MKCalloutAccessoryView> *_leftView;
     UIView<_MKCalloutAccessoryView> *_rightView;
-    _MKSmallCalloutPassthroughButton *_maskedContainerView;
+    UIView<_MKCalloutAccessoryView> *_externalLeftView;
+    UIView<_MKCalloutAccessoryView> *_externalRightView;
+    UIView<_MKCalloutAccessoryView> *_externalDetailView;
     UIView<_MKCalloutAccessoryView> *_detailView;
+    struct CGSize _preferredContentSize;
+    _Bool _shouldPositionTitleForMapsTransitionMovingSideways;
+    _MKSmallCalloutPassthroughButton *_maskedContainerView;
+    UIView *_unmaskedContainerView;
     CDStruct_80aa614a _mapDisplayStyle;
-    double _minWidth;
-    double _maxWidth;
-    NUIContainerStackView *_middleStackView;
+    _Bool _needsPreferredContentSizeUpdate;
+    NSLayoutConstraint *_minWidthConstraint;
+    NSLayoutConstraint *_maxWidthConstraint;
+    NSLayoutConstraint *_unmaskedContainerLeadingConstraint;
+    NSLayoutConstraint *_unmaskedContainerTrailingConstraint;
+    NSArray *_titleLabelConstraints;
+    NSLayoutConstraint *_titleBaselineFromTopMinimumConstraint;
+    NSLayoutConstraint *_titleBaselineFromTopConstraint;
+    NSLayoutConstraint *_titleMinimumBaselineToBottomConstraint;
+    UILayoutGuide *_centerContentLeadingGuide;
+    UILayoutGuide *_centerContentTrailingGuide;
+    NSLayoutConstraint *_leftViewMinCalloutWidthConstraint;
+    NSLayoutConstraint *_leftViewHorizontalPositionConstraint;
+    NSLayoutConstraint *_leftViewTopSpacerBottomConstraint;
+    NSLayoutConstraint *_leftViewCenterContentMarginConstraint;
+    UILayoutGuide *_leftViewTopSpacer;
+    UILayoutGuide *_leftViewLeftSpacer;
+    NSLayoutConstraint *_rightViewMinCalloutWidthConstraint;
+    NSLayoutConstraint *_rightViewHorizontalPositionConstraint;
+    NSLayoutConstraint *_rightViewTopSpacerBottomConstraint;
+    NSLayoutConstraint *_rightViewCenterContentMarginConstraint;
+    UILayoutGuide *_rightViewTopSpacer;
+    UILayoutGuide *_rightViewRightSpacer;
+    NSLayoutConstraint *_detailViewMinTopConstraint;
+    NSLayoutConstraint *_detailViewBottomConstraint;
+    NSLayoutConstraint *_detailViewTrailingConstraint;
+    _Bool _parallaxEnabled;
+    UIView *_titlesContainerView;
 }
 
+@property(nonatomic) _Bool parallaxEnabled; // @synthesize parallaxEnabled=_parallaxEnabled;
+@property(readonly, nonatomic) UIView *titlesContainerView; // @synthesize titlesContainerView=_titlesContainerView;
 @property(nonatomic) CDStruct_80aa614a mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
 - (void).cxx_destruct;
-- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)_updateAccessoryViewStyles;
+- (_Bool)canDisplayCompleteTitleWhenExpanded;
 - (void)setDetailView:(id)arg1 animated:(_Bool)arg2;
 @property(retain, nonatomic) UIView *detailView;
 - (void)setRightView:(id)arg1 animated:(_Bool)arg2;
@@ -37,25 +67,21 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIView *rightView;
 @property(retain, nonatomic) UIView *leftView;
 @property(copy, nonatomic) NSString *calloutSubtitle;
-- (void)_setCalloutSubtitleLabel:(id)arg1 animated:(_Bool)arg2;
 - (void)setCalloutSubtitle:(id)arg1 animated:(_Bool)arg2;
 @property(copy, nonatomic) NSString *calloutTitle;
-@property(readonly, nonatomic) struct CGSize preferredContentSize;
-- (void)containerViewDidLayoutArrangedSubviews:(id)arg1;
-- (struct CGSize)containerView:(id)arg1 systemLayoutSizeFittingSize:(struct CGSize)arg2 forArrangedSubview:(id)arg3;
-- (struct CGSize)effectiveLayoutSizeFittingSize:(struct CGSize)arg1;
+- (id)_maskedContainerView;
+@property(readonly, nonatomic) struct CGSize preferredContentSize; // @synthesize preferredContentSize=_preferredContentSize;
+- (void)_updatePreferredContentSize;
+- (void)_updatePreferredContentSizeIfNeeded;
+- (void)_setNeedsUpdatePreferredContentSize;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)beginMapsTransitionMovingSideways;
 - (void)reset;
+- (void)dealloc;
 @property(nonatomic) double maximumWidth;
 @property(nonatomic) double minimumWidth;
 - (void)_contentSizeCategoryDidChange:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-@property(readonly, nonatomic) UIView *titlesContainerView;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

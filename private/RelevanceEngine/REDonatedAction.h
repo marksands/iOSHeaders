@@ -46,6 +46,8 @@
 - (void)loadIntent:(CDUnknownBlockType)arg1;
 - (void)loadUserActivity:(CDUnknownBlockType)arg1;
 - (void)_loadDuetEvent:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) NSString *localBundleIdentifier;
+@property(readonly, nonatomic) NSString *remoteBundleIdentifier;
 @property(readonly, nonatomic) NSString *bundleIdentifier;
 @property(readonly, nonatomic) NSString *identifier;
 - (id)initWithEvent:(id)arg1 filtered:(_Bool)arg2;

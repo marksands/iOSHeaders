@@ -27,6 +27,8 @@
 @property(nonatomic) _Bool separatorVisible; // @synthesize separatorVisible=_separatorVisible;
 @property(readonly, copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
 - (void).cxx_destruct;
+- (void)_contentSizeCategoryDidChange;
+- (_Bool)_shouldUseTallLayout;
 - (void)_updateForStateChange;
 - (struct NSDirectionalEdgeInsets)_labelInsets;
 - (double)_glyphMargin;
@@ -35,6 +37,9 @@
 - (_Bool)_shouldHorizontallyCenterText;
 - (double)_textHeightForLabel:(id)arg1 width:(double)arg2;
 - (id)_subtitleFont;
+- (id)_titleFont;
+- (_Bool)_shouldLimitContentSizeCategory;
+- (id)_preferredFontForTextStyle:(id)arg1 hiFontStyle:(long long)arg2;
 - (double)_separatorHeight;
 - (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)_setContinuousCornerRadius:(double)arg1;

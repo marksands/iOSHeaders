@@ -14,8 +14,7 @@
 {
 }
 
-@property(readonly, nonatomic) double accessoryBarMaxWidth;
-@property(readonly, nonatomic) double accessoryBarHeight;
+- (double)accessoryBarHeightForContentSizeCategory:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

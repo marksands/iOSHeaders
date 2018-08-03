@@ -22,6 +22,7 @@
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (id)tokenForObservingChangesWithHandler:(CDUnknownBlockType)arg1;
+- (_Bool)requiresEncryption;
 - (unsigned long long)costForScope:(id)arg1;
 - (id)identifierForScope:(id)arg1;
 - (id)persistentIdentifierForScope:(id)arg1;

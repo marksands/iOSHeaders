@@ -9,13 +9,14 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSSet, NSString, NSUUID, TUHandle;
+@class NSSet, NSString, NSUUID, TUContactsDataProvider, TUHandle;
 
 @interface TUConversation : NSObject <NSCopying, NSSecureCoding>
 {
     _Bool _audioEnabled;
     _Bool _videoEnabled;
     _Bool _locallyCreated;
+    TUContactsDataProvider *_contactsDataProvider;
     NSUUID *_UUID;
     NSUUID *_groupUUID;
     long long _state;
@@ -51,7 +52,9 @@
 - (unsigned long long)hash;
 - (_Bool)isEqualToConversation:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
+@property(readonly, nonatomic) TUContactsDataProvider *contactsDataProvider; // @synthesize contactsDataProvider=_contactsDataProvider;
 - (_Bool)isRepresentedByRemoteMembers:(id)arg1;
+- (id)initiatorLocalizedName;
 - (id)displayName;
 - (id)description;
 - (id)initWithUUID:(id)arg1 groupUUID:(id)arg2;

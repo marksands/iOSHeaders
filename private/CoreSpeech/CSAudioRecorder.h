@@ -12,7 +12,7 @@
 #import "CSAudioFileReaderDelegate.h"
 #import "CSBeepCancellerDelegate.h"
 
-@class AVVoiceController, CSAudioDecoder, CSAudioFileReader, CSAudioSampleRateConverter, CSAudioZeroCounter, CSAudioZeroFilter, CSBeepCanceller, CSRemoteRecordClient, NSDictionary, NSString;
+@class AVVoiceController, CSAudioDecoder, CSAudioFileReader, CSAudioPowerMeter, CSAudioSampleRateConverter, CSAudioZeroCounter, CSAudioZeroFilter, CSBeepCanceller, CSRemoteRecordClient, NSDictionary, NSString;
 
 @interface CSAudioRecorder : NSObject <AVVoiceControllerRecordDelegate, AVVoiceControllerPlaybackDelegate, CSBeepCancellerDelegate, CSAudioDecoderDelegate, CSAudioFileReaderDelegate>
 {
@@ -27,12 +27,15 @@
     CSAudioSampleRateConverter *_sampleRateConverter;
     _Bool _needSampleRateConversion;
     CSRemoteRecordClient *_remoteRecordClient;
+    CSAudioPowerMeter *_powerMeter;
+    _Bool _shouldUsePowerMeter;
     NSDictionary *_latestContext;
     _Bool _shouldUseRemoteRecord;
     CSAudioDecoder *_opusDecoder;
     CSAudioZeroCounter *_continuousZeroCounter;
     CSAudioFileReader *_audioFileReader;
     unsigned long long _audioFilePathIndex;
+    _Bool _waitingForDidStart;
     id <CSAudioRecorderDelegate> _delegate;
 }
 
@@ -42,6 +45,7 @@
 - (void)audioFileReaderDidStartRecording:(id)arg1 successfully:(_Bool)arg2 error:(id)arg3;
 - (void)audioFileReaderBufferAvailable:(id)arg1 buffer:(id)arg2 atTime:(unsigned long long)arg3;
 - (_Bool)_needResetAudioInjectionIndex:(id)arg1;
+- (void)_createAudioPowerMeterIfNeeded;
 - (void)_createSampleRateConverterIfNeeded;
 - (void)_createDeInterleaverIfNeeded;
 - (id)_deinterleaveBufferIfNeeded:(id)arg1;

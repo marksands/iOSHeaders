@@ -6,37 +6,26 @@
 
 #import "NSObject.h"
 
-#import "DNDSModeAssertionProvider.h"
+#import "DNDSModeAssertionProviderObserver.h"
 #import "DNDSModeAssertionTransformer.h"
 
-@class BBBehaviorOverride, BBSettingsGateway, NSDateInterval, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class DNDSLocalAssertionManager, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
-@interface DNDSScheduleManager : NSObject <DNDSModeAssertionTransformer, DNDSModeAssertionProvider>
+@interface DNDSScheduleManager : NSObject <DNDSModeAssertionProviderObserver, DNDSModeAssertionTransformer>
 {
     NSObject<OS_dispatch_queue> *_queue;
-    BBSettingsGateway *_settingsGateway;
-    BBBehaviorOverride *_behaviorOverride;
-    NSUUID *_assertionUUID;
-    NSDateInterval *_assertionDateInterval;
+    DNDSLocalAssertionManager *_localAssertionManager;
+    NSUUID *_currentAssertionUUID;
     id <DNDSScheduleManagerDataSource> _dataSource;
-    id <DNDSScheduleManagerDelegate> _delegate;
 }
 
-+ (void)initialize;
-@property(nonatomic) __weak id <DNDSScheduleManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <DNDSScheduleManagerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
-- (void)_queue_handleBehaviorOverrideUpdate:(id)arg1;
-- (void)_handleBehaviorOverrideUpdate:(id)arg1;
-- (id)_queue_scheduleAssertionDateInterval;
-- (id)_queue_scheduleAssertion;
-- (id)allModeAssertionsWithError:(id *)arg1;
-- (id)assertionWithUUID:(id)arg1 error:(id *)arg2;
-- (id)transformedModeIdentifierForModeAssertion:(id)arg1;
-- (id)transformedLifetimeForModeAssersion:(id)arg1;
-- (void)invalidateAllModeAssertionsTakenBeforeDate:(id)arg1 forReason:(unsigned long long)arg2;
-- (void)resume;
-- (id)init;
+- (void)_queue_refreshWithDate:(id)arg1;
+- (id)transformedLifetimeForModeAssertion:(id)arg1;
+- (void)modeAssertionProvider:(id)arg1 didPerformInvalidations:(id)arg2;
+- (void)refresh;
+- (id)initWithLocalAssertionManager:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

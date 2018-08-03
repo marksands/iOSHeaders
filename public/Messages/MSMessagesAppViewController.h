@@ -14,11 +14,15 @@
 @interface MSMessagesAppViewController : UIViewController <MSConversationDelegate, MSMessagesAppTranscriptPresentation>
 {
     _Bool _isReadyForDisplay;
+    _Bool _viewHasAppeared;
     MSConversation *_activeConversation;
     id <_MSMessageComposeExtensionImplProtocol> _appContext;
+    struct CGRect _initialFrameBeforeAppearance;
 }
 
 @property(retain, nonatomic) id <_MSMessageComposeExtensionImplProtocol> appContext; // @synthesize appContext=_appContext;
+@property(nonatomic) struct CGRect initialFrameBeforeAppearance; // @synthesize initialFrameBeforeAppearance=_initialFrameBeforeAppearance;
+@property(nonatomic) _Bool viewHasAppeared; // @synthesize viewHasAppeared=_viewHasAppeared;
 @property(nonatomic) _Bool isReadyForDisplay; // @synthesize isReadyForDisplay=_isReadyForDisplay;
 @property(retain, nonatomic) MSConversation *activeConversation; // @synthesize activeConversation=_activeConversation;
 - (void).cxx_destruct;
@@ -45,6 +49,7 @@
 - (void)requestPresentationStyle:(unsigned long long)arg1;
 - (void)_conversation:(id)arg1 didSelectMessage:(id)arg2;
 - (void)_conversation:(id)arg1 willSelectMessage:(id)arg2;
+- (void)viewWillLayoutSubviews;
 - (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1;
 - (void)dealloc;
 - (void)didTransitionToPresentationStyle:(unsigned long long)arg1;

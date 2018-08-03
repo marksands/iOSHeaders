@@ -44,6 +44,7 @@ struct LSBundleData {
     unsigned char _iconFlags;
     unsigned char _highResFlags;
     unsigned char _appNapFlags;
+    unsigned char eGPUFlags;
     unsigned short _archFlags;
     unsigned int _hfsType;
     unsigned int _hfsCreator;

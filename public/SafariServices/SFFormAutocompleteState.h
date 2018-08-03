@@ -54,10 +54,10 @@ __attribute__((visibility("hidden")))
 - (void)_updateSuggestions:(unsigned long long)arg1;
 - (void)updateSuggestions;
 - (id)_textSuggestionForCredentialDisplayData:(id)arg1 submitForm:(_Bool)arg2;
-- (id)suggestKeychainCredentials;
+- (id)_textSuggestionForExternalCredentialIdentity:(id)arg1;
+- (id)textSuggestionForStreamlinedAutoFillWithCredentialIdentity:(id)arg1;
 - (id)_matchingKeychainCredentialsIncludingCredentialsWithEmptyUsernames:(_Bool)arg1;
 - (void)_suggestLoginCredentialsShowingQuickTypeKey:(_Bool)arg1;
-- (void)_getExternalLoginCredentialSuggestionsForDomains:(id)arg1 pageURL:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)codesUpdatedForOneTimeCodeMonitor:(id)arg1;
 - (id)externalCredentialIdentities;
 - (Class)_passwordPickerViewControllerClass;

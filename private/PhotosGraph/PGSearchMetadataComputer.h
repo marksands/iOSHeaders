@@ -15,6 +15,9 @@
 
 @property(readonly) PGGraph *graph; // @synthesize graph=_graph;
 - (void).cxx_destruct;
+- (id)_blacklistedMeaningsByMeaning;
+- (id)_sceneWhitelist;
+- (id)_mePersonUUID;
 - (id)searchMetadataWithOptions:(id)arg1;
 - (id)initWithGraph:(id)arg1;
 

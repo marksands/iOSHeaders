@@ -10,7 +10,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class CALayer, NSString, NSTextAttachment, PKTextAttachmentDrawingResizeView, PKTextAttachmentDrawingViewTouchRecognizer, UIPanGestureRecognizer, UIScrollView, UITapGestureRecognizer, UIView;
+@class CALayer, NSString, NSTextAttachment, PKSelectDrawingGestureRecognizer, PKTextAttachmentDrawingResizeView, PKTextAttachmentDrawingViewTouchRecognizer, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIScrollView, UITapGestureRecognizer, UIView;
 
 @interface PKTextAttachmentDrawingView : _UITextAttachmentDrawingView <PKTextAttachmentView, UIGestureRecognizerDelegate, UIScrollViewDelegate>
 {
@@ -26,7 +26,10 @@
     CALayer *_linesLayer;
     PKTextAttachmentDrawingViewTouchRecognizer *_resizeHighlightGestureRecognizer;
     UIPanGestureRecognizer *_resizeDragGestureRecognizer;
-    UITapGestureRecognizer *_menuTapGestureRecognizer;
+    PKSelectDrawingGestureRecognizer *_selectDrawingGestureRecognizer;
+    UITapGestureRecognizer *_eatKeyboardGestureRecognizer;
+    UILongPressGestureRecognizer *_showMenuGestureRecognizer;
+    UILongPressGestureRecognizer *_hideMenuGestureRecognizer;
     double _zoomStartScale;
     struct CGPoint _zoomStartLocationInWindow;
     struct CGPoint _zoomStartLocationInAttachment;
@@ -46,7 +49,10 @@
 @property(nonatomic) struct CGRect originalViewBounds; // @synthesize originalViewBounds=_originalViewBounds;
 @property(nonatomic) struct CGRect originalDrawingBounds; // @synthesize originalDrawingBounds=_originalDrawingBounds;
 @property(nonatomic) _Bool resizeUpper; // @synthesize resizeUpper=_resizeUpper;
-@property(retain, nonatomic) UITapGestureRecognizer *menuTapGestureRecognizer; // @synthesize menuTapGestureRecognizer=_menuTapGestureRecognizer;
+@property(retain, nonatomic) UILongPressGestureRecognizer *hideMenuGestureRecognizer; // @synthesize hideMenuGestureRecognizer=_hideMenuGestureRecognizer;
+@property(retain, nonatomic) UILongPressGestureRecognizer *showMenuGestureRecognizer; // @synthesize showMenuGestureRecognizer=_showMenuGestureRecognizer;
+@property(retain, nonatomic) UITapGestureRecognizer *eatKeyboardGestureRecognizer; // @synthesize eatKeyboardGestureRecognizer=_eatKeyboardGestureRecognizer;
+@property(retain, nonatomic) PKSelectDrawingGestureRecognizer *selectDrawingGestureRecognizer; // @synthesize selectDrawingGestureRecognizer=_selectDrawingGestureRecognizer;
 @property(retain, nonatomic) UIPanGestureRecognizer *resizeDragGestureRecognizer; // @synthesize resizeDragGestureRecognizer=_resizeDragGestureRecognizer;
 @property(retain, nonatomic) PKTextAttachmentDrawingViewTouchRecognizer *resizeHighlightGestureRecognizer; // @synthesize resizeHighlightGestureRecognizer=_resizeHighlightGestureRecognizer;
 @property(retain, nonatomic) CALayer *linesLayer; // @synthesize linesLayer=_linesLayer;
@@ -86,16 +92,21 @@
 - (_Bool)becomeFirstResponder;
 - (_Bool)canBecomeFirstResponder;
 - (void)showDrawingMenu:(id)arg1;
+- (void)hideDrawingMenu:(id)arg1;
+- (void)selectDrawing:(id)arg1;
 - (void)menuDidHide:(id)arg1;
 @property(readonly, nonatomic) _Bool drawingMenuVisible;
 - (void)drawingScrollViewDidScroll:(id)arg1;
 - (void)resizeDrawing:(id)arg1;
 - (void)higlightResize:(id)arg1;
 - (_Bool)gestureRecognizerShouldDelayLift:(id)arg1;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRequireFailureOfGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (void)_preemptKeyboardForTapOnDrawing:(id)arg1;
 - (_Bool)hitTestResizeHandles:(struct CGPoint)arg1 threshold:(double)arg2;
 - (_Bool)hitChrome:(struct CGPoint)arg1 isStylus:(_Bool)arg2;
-- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)_setHeight:(double)arg1 originalHeight:(double)arg2 growFromTop:(_Bool)arg3;
 - (void)updateDrawingHeight:(double)arg1 notifyDrawingDidChange:(_Bool)arg2;
 - (void)updateDrawingHeight:(double)arg1;

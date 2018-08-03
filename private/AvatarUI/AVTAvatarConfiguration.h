@@ -48,6 +48,7 @@
 - (void)addPreset:(id)arg1;
 - (id)initWithPresets:(id)arg1 colorPresets:(id)arg2;
 - (id)init;
+- (_Bool)requiresEncryption;
 - (unsigned long long)costForScope:(id)arg1;
 - (id)persistentIdentifierForScope:(id)arg1;
 - (id)volatileIdentifierForScope:(id)arg1;

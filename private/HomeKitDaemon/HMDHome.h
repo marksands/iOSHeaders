@@ -94,6 +94,7 @@
     HMDRoom *_roomForEntireHome;
     long long _lastKnownReachableAccessoryCount;
     long long _configurationVersion;
+    long long _lastSyncedConfigurationVersion;
     long long _expectedConfigurationVersion;
     NSString *_ownerName;
     HMDNotificationRegistry *_notificationRegistry;
@@ -171,6 +172,7 @@
 @property(nonatomic) int regionState; // @synthesize regionState=_regionState;
 @property(retain, nonatomic) NSString *ownerName; // @synthesize ownerName=_ownerName;
 @property(nonatomic) long long expectedConfigurationVersion; // @synthesize expectedConfigurationVersion=_expectedConfigurationVersion;
+@property(nonatomic) long long lastSyncedConfigurationVersion; // @synthesize lastSyncedConfigurationVersion=_lastSyncedConfigurationVersion;
 @property(nonatomic) long long configurationVersion; // @synthesize configurationVersion=_configurationVersion;
 @property(nonatomic) long long lastKnownReachableAccessoryCount; // @synthesize lastKnownReachableAccessoryCount=_lastKnownReachableAccessoryCount;
 @property(retain, nonatomic) HMDRoom *roomForEntireHome; // @synthesize roomForEntireHome=_roomForEntireHome;
@@ -405,6 +407,7 @@
 - (void)_writeCharacteristicValues:(id)arg1 requestMessage:(id)arg2 source:(unsigned long long)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
 - (void)_redispatchWriteForAccessories:(id)arg1 dispatchGroup:(id)arg2 requestMap:(id)arg3 requestMessage:(id)arg4 responseTuples:(id)arg5;
 - (void)_loadBalancedRedispatchForAccessories:(id)arg1 source:(unsigned long long)arg2 dispatchGroup:(id)arg3 writeRequestMap:(id)arg4 requestMessage:(id)arg5 responseTuples:(id)arg6;
+- (id)__residentDeviceForAccesory:(id)arg1 fromMap:(id)arg2;
 - (void)_writeCharacteristicValuesForAccessories:(id)arg1 writeRequestMap:(id)arg2 responseTuples:(id)arg3 requestMessage:(id)arg4 viaDevice:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (id)_applyDeviceLockCheck:(id)arg1 forSource:(unsigned long long)arg2;
 - (void)writeCharacteristicValues:(id)arg1 source:(unsigned long long)arg2 identifier:(id)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
@@ -518,6 +521,7 @@
 - (void)_handleCancelPairingAccessory:(id)arg1;
 - (CDUnknownBlockType)_setupCodeProviderForMessage:(id)arg1;
 - (void)_presentPairingPasswordDialogForAccessory:(id)arg1 setupCodeAvailable:(CDUnknownBlockType)arg2;
+- (void)_retrieveStateForTrackedAccessory:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)getReachableIPAccessories:(unsigned long long *)arg1 btleAccessories:(unsigned long long *)arg2 mediaAccessories:(unsigned long long *)arg3;
 - (unsigned long long)reachableIPAccessories;
 - (long long)reachableMediaAccessories;
@@ -666,6 +670,7 @@
 - (void)saveSharedHomeToAccountWithReason:(id)arg1 postSyncNotification:(_Bool)arg2 options:(id)arg3;
 - (void)_updateExpectConfigurationVersion;
 - (void)_updateConfigurationVersion;
+- (void)__saveConfigurationVersionTransaction;
 - (void)_modifyAllRegistrationsForNotificationsInNotificationRegistry:(_Bool)arg1;
 - (void)_handleModifyCharacteristicNotifications:(id)arg1;
 - (void)auditUsersForNotifications:(id)arg1;

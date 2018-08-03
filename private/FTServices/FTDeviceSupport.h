@@ -32,7 +32,6 @@
     _Bool _supportsWLAN;
     _Bool _supportsNonWiFiFaceTime;
     _Bool _supportsCellularData;
-    _Bool _shouldUseSIMState;
     _Bool _simBecameNotReady;
     long long _simInserted;
     _Bool _wantsForcedCellularQueries;

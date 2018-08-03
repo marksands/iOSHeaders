@@ -25,7 +25,6 @@
 
 + (id)supportedVideoFormats;
 + (id)new;
-+ (_Bool)isObjectDetectionSupported;
 + (_Bool)isSupported;
 @property(nonatomic) _Bool deliverRawSceneUnderstandingResults; // @synthesize deliverRawSceneUnderstandingResults=_deliverRawSceneUnderstandingResults;
 @property(nonatomic, getter=isMLModelEnabled) _Bool mlModelEnabled; // @synthesize mlModelEnabled=_mlModelEnabled;

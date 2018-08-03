@@ -24,8 +24,11 @@
     long long _animatingToDisplayMode;
     _Bool _lastShouldAllowChange;
     _Bool _lastNotifiedIsCollapsed;
-    _Bool _usesDeviceOverlayPreferences;
     UITraitCollection *_transitioningToTraitCollection;
+    struct {
+        unsigned int determinedPrimaryWasVisibleBeforeExpansion:1;
+        unsigned int primaryWasVisibleBeforeExpansion:1;
+    } _transitioningFlags;
     struct CGSize _transitioningToSize;
     long long _transitioningToOrientation;
     UITraitCollection *_suspendedTraitCollection;
@@ -43,6 +46,8 @@
         unsigned int firstResponderChangedFromPostTransitionResponder:1;
         unsigned int firstResponderChangedFromPostTransitionResponderToNil:1;
         unsigned int usesExtraWidePrimaryColumn:1;
+        unsigned int usesDeviceOverlayPreferences:1;
+        unsigned int prefersOverlayInRegularWidthPhone:1;
     } _flags;
     double _lastUserInitiatedPrimaryWidth;
     _Bool _presentsWithGesture;
@@ -171,6 +176,7 @@
 - (_Bool)_isRotating;
 @property(nonatomic, getter=_usesExtraWidePrimaryColumn, setter=_setUsesExtraWidePrimaryColumn:) _Bool usesExtraWidePrimaryColumn;
 @property(nonatomic) _Bool usesDeviceOverlayPreferences;
+@property(nonatomic) _Bool prefersOverlayInRegularWidthPhone;
 - (id)detailViewController;
 - (id)masterViewController;
 - (_Bool)_isCollapsed;

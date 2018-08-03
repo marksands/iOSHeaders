@@ -6,18 +6,18 @@
 
 #import <PhotosUI/PUHorizontalCollectionViewLayout.h>
 
-@class NSIndexPath;
+@class NSSet;
 
 __attribute__((visibility("hidden")))
 @interface PUSelectableAssetCollectionViewLayout : PUHorizontalCollectionViewLayout
 {
-    NSIndexPath *_zoomingCellIndexPath;
+    NSSet *_floatingCellIndexPaths;
     struct UIOffset _sharingBadgeOffset;
     struct CGSize _layoutReferenceSize;
 }
 
 @property(nonatomic) struct CGSize layoutReferenceSize; // @synthesize layoutReferenceSize=_layoutReferenceSize;
-@property(retain, nonatomic) NSIndexPath *zoomingCellIndexPath; // @synthesize zoomingCellIndexPath=_zoomingCellIndexPath;
+@property(retain, nonatomic) NSSet *floatingCellIndexPaths; // @synthesize floatingCellIndexPaths=_floatingCellIndexPaths;
 @property(nonatomic) struct UIOffset sharingBadgeOffset; // @synthesize sharingBadgeOffset=_sharingBadgeOffset;
 - (void).cxx_destruct;
 - (struct CGRect)collectionViewBounds;

@@ -19,7 +19,7 @@
 - (PXAssetActionManager *)oneUpPresentationActionManager:(PXOneUpPresentation *)arg1;
 - (void)oneUpPresentation:(PXOneUpPresentation *)arg1 setHiddenAssetReferences:(NSSet *)arg2;
 - (void)oneUpPresentation:(PXOneUpPresentation *)arg1 scrollAssetReferenceToVisible:(PXAssetReference *)arg2;
-- (PXRegionOfInterest *)oneUpPresentation:(PXOneUpPresentation *)arg1 regionOfInterestForAssetReference:(PXAssetReference *)arg2 inCoordinateSpace:(id <UICoordinateSpace>)arg3;
+- (PXRegionOfInterest *)oneUpPresentation:(PXOneUpPresentation *)arg1 regionOfInterestForAssetReference:(PXAssetReference *)arg2;
 - (UIImage *)oneUpPresentation:(PXOneUpPresentation *)arg1 currentImageForAssetReference:(PXAssetReference *)arg2;
 - (_Bool)oneUpPresentationShouldAutoPlay:(PXOneUpPresentation *)arg1;
 - (PXAssetReference *)oneUpPresentationInitialAssetReference:(PXOneUpPresentation *)arg1;

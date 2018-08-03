@@ -52,6 +52,7 @@
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;
 - (unsigned long long)length;
 - (void)convertAttachmentsWithBlock:(CDUnknownBlockType)arg1;
+- (id)stringByTrimmingCharactersInSet:(id)arg1;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithStringOrAttributedString:(id)arg1;

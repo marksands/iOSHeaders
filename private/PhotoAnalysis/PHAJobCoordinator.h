@@ -19,8 +19,10 @@
 @interface PHAJobCoordinator : NSObject <PHAJobCoalescerDelegate, PHAJobConstraintsObserverDelegate, PHAWorkerJobDelegate, PHADirtyChangeCoalescerDelegate, PHAActivityGovernorDelegate, PHAGraphManagerClientMessagesReceiver, PLPhotoAnalysisJobServiceProtocol>
 {
     // Error parsing type: Ai, name: _pendingAsyncTasksCount
+    _Bool _graphUpdateNeeded;
     _Bool _newConstraintsPending;
     _Bool _shouldIgnoreConstraintChanges;
+    PHAWorkerWarmer *_warmer;
     PHAJobCoalescer *_jobCoalescer;
     PHADirtyChangeCoalescer *_dirtyCoalescer;
     PHAJobConstraintsObserver *_constraintsObserver;
@@ -32,7 +34,6 @@
     PHAWorkerHealthMonitor *_healthMonitor;
     PHAActivityGovernor *_activityGovernor;
     PHAJobGenerator *_jobGenerator;
-    PHAWorkerWarmer *_warmer;
     PHAManager *_manager;
     PHAJobConstraints *_currentConstraints;
     PHAWorkerJob *_currentForegroundJob;
@@ -51,7 +52,6 @@
 @property(retain, nonatomic) PHAWorkerJob *currentForegroundJob; // @synthesize currentForegroundJob=_currentForegroundJob;
 @property(copy) PHAJobConstraints *currentConstraints; // @synthesize currentConstraints=_currentConstraints;
 @property(nonatomic) __weak PHAManager *manager; // @synthesize manager=_manager;
-@property(readonly, nonatomic) PHAWorkerWarmer *warmer; // @synthesize warmer=_warmer;
 @property(readonly, nonatomic) PHAJobGenerator *jobGenerator; // @synthesize jobGenerator=_jobGenerator;
 @property(readonly, nonatomic) PHAActivityGovernor *activityGovernor; // @synthesize activityGovernor=_activityGovernor;
 @property(readonly, nonatomic) PHAWorkerHealthMonitor *healthMonitor; // @synthesize healthMonitor=_healthMonitor;
@@ -65,6 +65,8 @@
 @property(readonly, nonatomic) PHAJobConstraintsObserver *constraintsObserver; // @synthesize constraintsObserver=_constraintsObserver;
 @property(readonly, nonatomic) PHADirtyChangeCoalescer *dirtyCoalescer; // @synthesize dirtyCoalescer=_dirtyCoalescer;
 @property(readonly, nonatomic) PHAJobCoalescer *jobCoalescer; // @synthesize jobCoalescer=_jobCoalescer;
+@property(readonly) _Bool graphUpdateNeeded; // @synthesize graphUpdateNeeded=_graphUpdateNeeded;
+@property(readonly, nonatomic) PHAWorkerWarmer *warmer; // @synthesize warmer=_warmer;
 - (void).cxx_destruct;
 - (void)setJobProcessingConstraintsWithValues:(id)arg1 mask:(id)arg2 context:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)scheduleAssetForOnDemandAnalysisWithUUID:(id)arg1 workerType:(short)arg2 workerFlags:(int)arg3 context:(id)arg4 reply:(CDUnknownBlockType)arg5;
@@ -86,6 +88,8 @@
 - (void)governorDidGrantBackgroundAccess:(id)arg1;
 - (void)jobConstraintsObserver:(id)arg1 constraintsDidChange:(id)arg2 mask:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_inq_reconsiderWantsFGActivityBasedOnConstraints:(id)arg1;
+- (void)graphManagerDidUnloadGraph:(id)arg1;
+- (void)graphManagerWillLoadGraph:(id)arg1;
 - (void)_inq_stopJobsAfterConstraintOrActivityChange;
 - (void)_inq_stopJobDueToConstraintOrActivityChange:(id)arg1;
 - (void)_inq_handleNoMoreJobsExpected;

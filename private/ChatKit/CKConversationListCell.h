@@ -21,7 +21,6 @@
     NSString *_searchMessageGUID;
     NSDate *_searchMessageDate;
     _Bool _verified;
-    _Bool _hasLiveRemoteConversationParticipants;
     NSObject<CKConversationListCellDelegate> *_delegate;
     CKConversation *_conversation;
 }
@@ -30,7 +29,6 @@
 + (id)identifierForConversation:(id)arg1;
 @property(retain, nonatomic) CKConversation *conversation; // @synthesize conversation=_conversation;
 @property(nonatomic) __weak NSObject<CKConversationListCellDelegate> *delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) _Bool hasLiveRemoteConversationParticipants; // @synthesize hasLiveRemoteConversationParticipants=_hasLiveRemoteConversationParticipants;
 @property(nonatomic) _Bool verified; // @synthesize verified=_verified;
 @property(copy, nonatomic) NSString *searchSummaryText; // @synthesize searchSummaryText=_searchSummaryText;
 @property(retain, nonatomic) NSDate *searchMessageDate; // @synthesize searchMessageDate=_searchMessageDate;
@@ -41,9 +39,10 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)updateWithSearchResult:(id)arg1;
 - (id)_makeSummaryAttributedStringWithText:(id)arg1;
+- (void)updateSummaryTextForConversation:(id)arg1 fastPreview:(_Bool)arg2;
+- (void)updateContentsForConversation:(id)arg1 fastPreview:(_Bool)arg2;
 - (void)updateContentsForConversation:(id)arg1;
 - (void)updateFromLabelWithText:(id)arg1;
-- (void)updateLiveConversationIndicatorWithImage:(id)arg1;
 - (void)updateUnreadIndicatorWithImage:(id)arg1;
 - (_Bool)showingEditControl;
 - (void)increaseContrastDidChange;

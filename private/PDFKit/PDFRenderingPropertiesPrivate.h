@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, PDFLayerController, PDFView, UIColor;
+@class PDFLayerController, PDFView, UIColor;
 
 __attribute__((visibility("hidden")))
 @interface PDFRenderingPropertiesPrivate : NSObject
@@ -27,7 +27,6 @@ __attribute__((visibility("hidden")))
     _Bool enableTileUpdates;
     _Bool isUsingPDFExtensionView;
     struct CGColorSpace *deviceColorSpace;
-    NSObject<OS_dispatch_queue> *loupeWorkQueue;
 }
 
 - (void).cxx_destruct;

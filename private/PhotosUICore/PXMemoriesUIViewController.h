@@ -28,7 +28,6 @@
         _Bool layoutEngine;
         _Bool layout;
     } _updateFlags;
-    _Bool _pendingInitialScrollToBottom;
     _Bool __performNextTransitionWithoutAnimation;
     _Bool _embedded;
     PXMemoriesDataSourceManager *_dataSourceManager;

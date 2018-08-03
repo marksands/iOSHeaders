@@ -53,6 +53,7 @@
     NSString *_roleIdentifier;
     NSArray *_forbiddenActionIdentifiers;
     double _thumbnailFetchingTimeOut;
+    double _thumbnailFadeAnimationDuration;
     NSArray *_documentTypes;
 }
 
@@ -61,6 +62,7 @@
 + (id)configurationForImportingDocumentsWithContentTypes:(id)arg1 mode:(unsigned long long)arg2;
 + (id)configurationForOpeningDocumentsOfApplicationWithBundleIdentifier:(id)arg1;
 @property(copy, nonatomic) NSArray *documentTypes; // @synthesize documentTypes=_documentTypes;
+@property double thumbnailFadeAnimationDuration; // @synthesize thumbnailFadeAnimationDuration=_thumbnailFadeAnimationDuration;
 @property _Bool enableThumbnailFadeAnimation; // @synthesize enableThumbnailFadeAnimation=_enableThumbnailFadeAnimation;
 @property double thumbnailFetchingTimeOut; // @synthesize thumbnailFetchingTimeOut=_thumbnailFetchingTimeOut;
 @property(retain) NSArray *forbiddenActionIdentifiers; // @synthesize forbiddenActionIdentifiers=_forbiddenActionIdentifiers;

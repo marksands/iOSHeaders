@@ -66,7 +66,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)hasObservers;
 - (void)drainPendingChanges;
 - (void)observingConnectionWasInvalidated:(unsigned long long)arg1;
-- (void)asyncNotifyObserversOfWriteFromConnection:(id)arg1;
+- (void)asyncNotifyObserversOfWriteFromConnection:(id)arg1 message:(id)arg2;
 - (id)copyPropertyListValidatingPlist:(_Bool)arg1;
 - (id)copyPropertyListWithoutDrainingPendingChangesValidatingPlist:(_Bool)arg1;
 - (void)handleDeviceUnlock;

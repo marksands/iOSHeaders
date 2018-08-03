@@ -15,17 +15,16 @@
 #import "PUReviewScrubberDataSource.h"
 #import "PUReviewScrubberDelegate.h"
 #import "PUSelectableAssetCollectionViewLayoutDelegate.h"
-#import "PUTransitionViewAnimatorDelegate.h"
 #import "PXChangeObserver.h"
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 
-@class NSIndexPath, NSMutableArray, NSMutableSet, NSString, PFCoalescer, PLDateRangeFormatter, PLRoundProgressView, PUImportActionCoordinator, PUImportAssetsDataSource, PUImportAssetsDataSourceManager, PUImportChangeDetailsCollectionViewHelper, PUImportController, PUImportOneUpViewControllerSpecManager, PUImportProgressDetailViewController, PUOneUpAssetTransitionInfo, PUPhotoPinchGestureRecognizer, PUPhotosSharingTransitionContext, PUPhotosZoomingSharingGridCell, PUReviewScrubber, PUSelectableAssetCollectionViewLayout, PUTransitionViewAnimator, PXAssetReference, PXMediaProvider, PXNavigationTitleView, UIBarButtonItem, UICollectionView, UICollectionViewLayout, UITapGestureRecognizer;
+@class NSIndexPath, NSMutableArray, NSMutableSet, NSString, PFCoalescer, PLDateRangeFormatter, PLRoundProgressView, PUImportActionCoordinator, PUImportAssetsDataSource, PUImportAssetsDataSourceManager, PUImportChangeDetailsCollectionViewHelper, PUImportController, PUImportOneUpViewControllerSpecManager, PUReviewScrubber, PUSelectableAssetCollectionViewLayout, PXAssetReference, PXMediaProvider, PXNavigationTitleView, UIBarButtonItem, UICollectionView, UICollectionViewLayout, UITapGestureRecognizer;
 
 __attribute__((visibility("hidden")))
-@interface PUImportOneUpViewController : UIViewController <PUImportActionCoordinatorDelegate, PUImportAssetsDataSourceManagerObserver, PUImportControllerNotificationsReceiver, PUImportOneUpCellDisplayDelegate, PUImportOneUpScrubberCellDisplayDelegate, PUSelectableAssetCollectionViewLayoutDelegate, PUTransitionViewAnimatorDelegate, PUReviewScrubberDataSource, PUReviewScrubberDelegate, PXChangeObserver, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate, PUImportOneUpTransitioning>
+@interface PUImportOneUpViewController : UIViewController <PUImportActionCoordinatorDelegate, PUImportAssetsDataSourceManagerObserver, PUImportControllerNotificationsReceiver, PUImportOneUpCellDisplayDelegate, PUImportOneUpScrubberCellDisplayDelegate, PUSelectableAssetCollectionViewLayoutDelegate, PUReviewScrubberDataSource, PUReviewScrubberDelegate, PXChangeObserver, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate, PUImportOneUpTransitioning>
 {
     _Bool _isCommitingPreview;
     _Bool _performingDataSourceChange;
@@ -52,8 +51,6 @@ __attribute__((visibility("hidden")))
     UIBarButtonItem *_deleteBarButtonItem;
     UIBarButtonItem *_progressButtonItem;
     PLRoundProgressView *_roundProgressView;
-    PUImportProgressDetailViewController *_importProgressDetailViewController;
-    NSString *_localizedProgressText;
     UIBarButtonItem *_bottomSpacerBarButtonItem;
     PUImportActionCoordinator *_actionCoordinator;
     PXNavigationTitleView *_navigationTitleView;
@@ -65,21 +62,11 @@ __attribute__((visibility("hidden")))
     NSMutableSet *_itemsWithInvalidImageSizes;
     PFCoalescer *_relayoutCoalescer;
     NSMutableArray *_itemsNeedingRelayout;
-    PUPhotoPinchGestureRecognizer *_photoZoomPinchGestureRecognizer;
-    PUTransitionViewAnimator *_photoZoomAnimator;
-    PUPhotosZoomingSharingGridCell *_photoZoomCell;
     UICollectionViewLayout *_transitionLayout;
-    PUPhotosSharingTransitionContext *_photosSharingTransitionContext;
-    PUOneUpAssetTransitionInfo *_assetTransitionInfo;
 }
 
 @property(nonatomic, getter=isAnimatingTransition) _Bool animatingTransition; // @synthesize animatingTransition=_animatingTransition;
-@property(retain, nonatomic) PUOneUpAssetTransitionInfo *assetTransitionInfo; // @synthesize assetTransitionInfo=_assetTransitionInfo;
-@property(retain, nonatomic) PUPhotosSharingTransitionContext *photosSharingTransitionContext; // @synthesize photosSharingTransitionContext=_photosSharingTransitionContext;
 @property(retain, nonatomic) UICollectionViewLayout *transitionLayout; // @synthesize transitionLayout=_transitionLayout;
-@property(retain, nonatomic) PUPhotosZoomingSharingGridCell *photoZoomCell; // @synthesize photoZoomCell=_photoZoomCell;
-@property(retain, nonatomic) PUTransitionViewAnimator *photoZoomAnimator; // @synthesize photoZoomAnimator=_photoZoomAnimator;
-@property(retain, nonatomic) PUPhotoPinchGestureRecognizer *photoZoomPinchGestureRecognizer; // @synthesize photoZoomPinchGestureRecognizer=_photoZoomPinchGestureRecognizer;
 @property(retain, nonatomic) NSMutableArray *itemsNeedingRelayout; // @synthesize itemsNeedingRelayout=_itemsNeedingRelayout;
 @property(retain, nonatomic) PFCoalescer *relayoutCoalescer; // @synthesize relayoutCoalescer=_relayoutCoalescer;
 @property(retain, nonatomic) NSMutableSet *itemsWithInvalidImageSizes; // @synthesize itemsWithInvalidImageSizes=_itemsWithInvalidImageSizes;
@@ -95,8 +82,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool allowsSelection; // @synthesize allowsSelection=_allowsSelection;
 @property(retain, nonatomic) PUImportActionCoordinator *actionCoordinator; // @synthesize actionCoordinator=_actionCoordinator;
 @property(readonly, nonatomic) UIBarButtonItem *bottomSpacerBarButtonItem; // @synthesize bottomSpacerBarButtonItem=_bottomSpacerBarButtonItem;
-@property(copy, nonatomic) NSString *localizedProgressText; // @synthesize localizedProgressText=_localizedProgressText;
-@property(retain, nonatomic) PUImportProgressDetailViewController *importProgressDetailViewController; // @synthesize importProgressDetailViewController=_importProgressDetailViewController;
 @property(retain, nonatomic) PLRoundProgressView *roundProgressView; // @synthesize roundProgressView=_roundProgressView;
 @property(readonly, nonatomic) UIBarButtonItem *progressButtonItem; // @synthesize progressButtonItem=_progressButtonItem;
 @property(readonly, nonatomic) UIBarButtonItem *deleteBarButtonItem; // @synthesize deleteBarButtonItem=_deleteBarButtonItem;
@@ -121,12 +106,11 @@ __attribute__((visibility("hidden")))
 - (id)previousIndexPath:(id)arg1;
 - (long long)nextSectionWithItems:(long long)arg1;
 - (long long)previousSectionWithItems:(long long)arg1;
-- (void)transitionViewAnimatorDidEnd:(id)arg1 finished:(_Bool)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
-- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (struct CGRect)imageRectFromPhotoView:(id)arg1;
 - (void)didTransitionFromViewController:(id)arg1 toViewController:(id)arg2 withTransitionItems:(id)arg3;
 - (void)willTransitionFromViewController:(id)arg1 toViewController:(id)arg2 withTransitionItems:(id)arg3;
+- (void)prepareTransitionItemViewForDestination:(id)arg1;
 - (struct CGRect)targetFrameForTransitionItem:(id)arg1;
 - (id)transitionItemsForContext:(id)arg1;
 - (_Bool)reviewScrubber:(id)arg1 shouldProvideFeedbackForCellAtIndexPath:(id)arg2;
@@ -155,7 +139,8 @@ __attribute__((visibility("hidden")))
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
-- (void)_endImport;
+- (void)_importControllerWillBeginAction;
+- (void)_importControllerDidEndAction;
 - (id)importDestinationForActionCoordinator:(id)arg1;
 - (void)actionCoordinatorDidEndDelete:(id)arg1;
 - (void)actionCoordinatorDidBeginDelete:(id)arg1;
@@ -166,10 +151,7 @@ __attribute__((visibility("hidden")))
 - (void)actionCoordinatorWillBeginImport:(id)arg1;
 - (void)deleteItems:(id)arg1;
 - (long long)adaptivePresentationStyleForPresentationController:(id)arg1 traitCollection:(id)arg2;
-- (void)dismissImportProgressPopover;
-- (void)presentImportProgressPopover;
-- (void)showProgress:(id)arg1;
-- (void)importControllerProgressDidChange:(id)arg1 descriptiveText:(id)arg2 context:(id)arg3;
+- (void)importControllerProgressDidChange:(id)arg1 completedItemCount:(id)arg2 totalItemCount:(id)arg3 context:(id)arg4;
 - (void)_stopImportAction:(id)arg1;
 - (void)_deleteAction:(id)arg1;
 - (void)_importAction:(id)arg1;
@@ -182,8 +164,6 @@ __attribute__((visibility("hidden")))
 - (double)absoluteProgressFromCurrentContentOffset;
 - (int)reviewScrubberImageFormat;
 @property(readonly, nonatomic) PUReviewScrubber *reviewScrubber; // @synthesize reviewScrubber=_reviewScrubber;
-- (void)endZoomingForCell;
-- (void)beginZoomingForCellAtIndexPath:(id)arg1;
 - (void)updateCollectionViewLayoutInsets;
 - (id)badgeViewAtIndexPath:(id)arg1 forCollectionView:(id)arg2;
 - (id)_indexPathInCollectionView:(id)arg1 closestToPoint:(struct CGPoint)arg2 excludingIndexPath:(id)arg3;
@@ -195,14 +175,11 @@ __attribute__((visibility("hidden")))
 - (id)importAssetAtIndexPath:(id)arg1;
 - (id)assetAtIndexPath:(id)arg1;
 - (id)_currentAsset;
-- (void)_handlePhotoPinch:(id)arg1;
 - (void)_handleTapInMainCollectionView:(id)arg1;
 - (void)_handleTapAtIndexPath:(id)arg1;
 - (void)loadCenterPrioritizedVisibleThumbnails;
 - (void)beginCenterPrioritizedThumbnailLoading;
 - (struct CGRect)selectionBadgeFrameForItemFrame:(struct CGRect)arg1 atIndexPath:(id)arg2;
-- (void)updateCell:(id)arg1 forItemAtIndexPath:(id)arg2;
-- (void)_updatePhotoForAsset:(id)arg1 cell:(id)arg2 atIndexPath:(id)arg3;
 - (void)getFirstValidIndexPath:(id *)arg1 lastValidIndexPath:(id *)arg2;
 - (void)getMainCollectionViewFrame:(struct CGRect *)arg1 collectionViewLayoutInsets:(struct UIEdgeInsets *)arg2 orientation:(long long)arg3;
 - (void)updateMainViewAnimated:(_Bool)arg1;

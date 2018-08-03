@@ -61,7 +61,7 @@
 - (void)saveUnsubmittedGeneratedPasswordInFrame:(id)arg1 form:(id)arg2 closingWebView:(_Bool)arg3;
 - (void)clearAllFormCredentials;
 - (void)gatherValuesForForm:(id)arg1 inFrame:(id)arg2 multiRoundAutoFillManager:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (_Bool)shouldAllowPasswordAutoFillOnURL:(id)arg1;
+- (_Bool)shouldAllowPasswordAutoFillOnURL:(id)arg1 allowExternalCredentials:(_Bool)arg2;
 - (id)_credentialForLoginForm:(id)arg1 inFrame:(id)arg2 completingPartialUser:(_Bool)arg3 matches:(id *)arg4 potentialMatches:(id *)arg5;
 - (id)credentialForLoginForm:(id)arg1 inFrame:(id)arg2;
 - (id)credentialFromMatches:(id)arg1 completingPartialUserInLoginForm:(id)arg2;

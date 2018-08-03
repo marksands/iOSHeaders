@@ -537,7 +537,7 @@ __attribute__((visibility("hidden")))
 - (double)sessionTransmittingFramerate;
 - (_Bool)initializeVideoReceiver:(id *)arg1 reportingAgent:(struct opaqueRTCReporting *)arg2;
 - (_Bool)initializeVideoTransmitter:(id *)arg1 encodeRule:(id)arg2 captureRuleWifi:(id)arg3 captureRuleCellular:(id)arg4 unpausing:(_Bool)arg5 reportingAgent:(struct opaqueRTCReporting *)arg6;
-- (struct CGSize)computeVisibleAspectRatioWithRemoteScreenAspectRatio:(struct CGSize *)arg1 remoteExpectedAspectRatio:(struct CGSize *)arg2 encodeWidth:(int)arg3 encodeHeight:(int)arg4;
+- (struct CGSize)computeVisibleAspectRatioWithRemoteScreenAspectRatio:(struct CGSize)arg1 remoteExpectedAspectRatio:(struct CGSize)arg2 encodeWidth:(int)arg3 encodeHeight:(int)arg4;
 - (unsigned int)parameterSetForPayload:(int)arg1;
 - (void)onPlayVideo:(struct __CVBuffer *)arg1 frameTime:(CDStruct_1b6d18a9)arg2 cameraStatusBits:(unsigned char)arg3;
 - (_Bool)onCaptureFrame:(struct opaqueCMSampleBuffer *)arg1 audioTS:(unsigned int)arg2 audioHT:(double)arg3 videoHT:(CDStruct_1b6d18a9)arg4 droppedFrames:(int)arg5 cameraBits:(unsigned char)arg6;

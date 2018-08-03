@@ -174,6 +174,7 @@
 - (void)awakeFromFetch;
 - (void)awakeFromInsert;
 - (void)didTurnIntoFault;
+- (_Bool)isSupportedByCurrentNotes;
 - (id)initWithEntity:(id)arg1 insertIntoManagedObjectContext:(id)arg2;
 
 // Remaining properties

@@ -36,6 +36,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *assetQueryQueue; // @synthesize assetQueryQueue=_assetQueryQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *cacheConcurrentQueue; // @synthesize cacheConcurrentQueue=_cacheConcurrentQueue;
 - (void).cxx_destruct;
+- (void)populateVoiceData:(id)arg1 fromAsset:(id)arg2;
 - (id)voiceDataFromAsset:(id)arg1;
 - (id)_localVoiceForLanguage:(id)arg1 gender:(long long)arg2;
 - (id)_builtInVoiceForLanguage:(id)arg1;

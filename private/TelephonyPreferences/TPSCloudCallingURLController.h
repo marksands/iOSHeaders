@@ -14,23 +14,21 @@
     _Bool _capabilityProvisioningURLInvalid;
     int _capabilityProvisioningStatus;
     id <TPSCloudCallingURLControllerDelegate> _delegate;
-    TUSenderIdentityCapabilities *_subscriptionCapabilities;
+    CTXPCServiceSubscriptionContext *_subscriptionContext;
     NSURL *_capabilityProvisioningURL;
     NSData *_capabilityProvisioningPostData;
     TPSCarrierBundleController *_carrierBundleController;
-    CTXPCServiceSubscriptionContext *_subscriptionContext;
     TPSCloudCallingWebViewController *_webViewController;
 }
 
 @property(nonatomic) __weak TPSCloudCallingWebViewController *webViewController; // @synthesize webViewController=_webViewController;
-@property(readonly, nonatomic) CTXPCServiceSubscriptionContext *subscriptionContext; // @synthesize subscriptionContext=_subscriptionContext;
 @property(retain, nonatomic) TPSCarrierBundleController *carrierBundleController; // @synthesize carrierBundleController=_carrierBundleController;
 @property(readonly, copy, nonatomic) NSData *capabilityProvisioningPostData; // @synthesize capabilityProvisioningPostData=_capabilityProvisioningPostData;
 @property(readonly, nonatomic, getter=isCapabilityProvisioningURLInvalid) _Bool capabilityProvisioningURLInvalid; // @synthesize capabilityProvisioningURLInvalid=_capabilityProvisioningURLInvalid;
 @property(readonly, copy, nonatomic) NSURL *capabilityProvisioningURL; // @synthesize capabilityProvisioningURL=_capabilityProvisioningURL;
 @property(readonly, nonatomic) int capabilityProvisioningStatus; // @synthesize capabilityProvisioningStatus=_capabilityProvisioningStatus;
 @property(readonly, nonatomic, getter=isCapabilityEnabled) _Bool capabilityEnabled; // @synthesize capabilityEnabled=_capabilityEnabled;
-@property(readonly, nonatomic) TUSenderIdentityCapabilities *subscriptionCapabilities; // @synthesize subscriptionCapabilities=_subscriptionCapabilities;
+@property(readonly, nonatomic) CTXPCServiceSubscriptionContext *subscriptionContext; // @synthesize subscriptionContext=_subscriptionContext;
 @property(nonatomic) __weak id <TPSCloudCallingURLControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)webSheetCompletion;
@@ -42,7 +40,9 @@
 - (void)loadWebViewController;
 - (void)reloadWebViewController;
 - (id)genericErrorAlertController;
-- (id)initWithSubscriptionContext:(id)arg1 subscriptionCapabilities:(id)arg2;
+- (id)subscriptionCapabilitiesForSubscriptionContextUUID:(id)arg1;
+@property(readonly, nonatomic) TUSenderIdentityCapabilities *subscriptionCapabilities;
+- (id)initWithSubscriptionContext:(id)arg1;
 - (id)init;
 
 @end

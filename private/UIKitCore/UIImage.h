@@ -182,6 +182,7 @@
 - (void)registerLoadHandlersToItemProvider:(id)arg1;
 - (_Bool)_hasDecompressionInfo;
 - (_Bool)_isDecompressing;
+- (id)_initWithData:(id)arg1 immediateLoadWithMaxSize:(struct CGSize)arg2 scale:(double)arg3 renderingIntent:(int)arg4 cache:(_Bool)arg5;
 - (id)_initWithData:(id)arg1 immediateLoadWithMaxSize:(struct CGSize)arg2 scale:(double)arg3 renderingIntent:(int)arg4;
 - (void)_startEagerDecompression;
 - (void)_saveDecompressedImage:(struct CGImage *)arg1;

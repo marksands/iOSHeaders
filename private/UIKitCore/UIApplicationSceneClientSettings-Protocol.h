@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class FBSDisplayMode, NSArray, NSString;
+@class FBSDisplayConfigurationRequest, FBSDisplayMode, NSArray, NSString;
 
 @protocol UIApplicationSceneClientSettings <NSObject>
 @property(readonly, nonatomic) double brightnessLevel;
@@ -16,8 +16,8 @@
 @property(readonly, nonatomic) _Bool homeIndicatorAutoHidden;
 @property(readonly, nonatomic) unsigned long long screenEdgesDeferringSystemGestures;
 @property(readonly, nonatomic, getter=isReachabilitySupported) _Bool reachabilitySupported;
-@property(readonly, nonatomic) FBSDisplayMode *requestedDisplayMode;
-@property(readonly, nonatomic) long long overscanCompensation;
+@property(readonly, copy, nonatomic) FBSDisplayConfigurationRequest *displayConfigurationRequest;
+@property(readonly, copy, nonatomic) FBSDisplayMode *requestedDisplayMode;
 @property(readonly, nonatomic) long long whitePointAdaptivityStyle;
 @property(readonly, nonatomic) _Bool idleModeVisualEffectsEnabled;
 @property(readonly, nonatomic) long long backgroundStyle;

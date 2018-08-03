@@ -9,6 +9,7 @@
 @class NSArray, NSDictionary, XCAccessibilityElement;
 
 @protocol XCTElementSnapshotAttributeDataSource <NSObject>
+@property(readonly) _Bool allowsRemoteAccess;
 - (NSDictionary *)attributesForElement:(XCAccessibilityElement *)arg1 attributes:(NSArray *)arg2 error:(id *)arg3;
 @end
 

@@ -58,6 +58,7 @@
 - (void)_handleUpdateToPersistentKey:(id)arg1 forKeyIdentifier:(id)arg2;
 - (int)createAndInstallCustomURLHandlerForAsset:(id)arg1 outHandler:(struct OpaqueFigCustomURLHandler **)arg2;
 - (void)_handleRequest:(struct __CFDictionary *)arg1 withRequestID:(unsigned long long)arg2 fromHandler:(struct OpaqueFigCustomURLHandler *)arg3 willHandleRequest:(_Bool *)arg4;
+- (void)_sendFinishLoadingForPreloadedKeyRequest:(struct __CFDictionary *)arg1 withRequestID:(unsigned long long)arg2 fromHandler:(struct OpaqueFigCustomURLHandler *)arg3;
 - (const struct OpaqueFigContentKeySession *)_figContentKeySession;
 - (id)_weakReference;
 - (const struct OpaqueFigCPECryptor *)copyDecryptorForIdentifier:(id)arg1 initializationData:(id)arg2;

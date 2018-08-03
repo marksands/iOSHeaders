@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+#import "ARDictionaryCoding.h"
 #import "ARMutableSensorData.h"
 #import "NSSecureCoding.h"
 
 @class NSString;
 
-@interface ARGyroscopeData : NSObject <ARMutableSensorData, NSSecureCoding>
+@interface ARGyroscopeData : NSObject <ARDictionaryCoding, ARMutableSensorData, NSSecureCoding>
 {
     double _timestamp;
     CDStruct_31142d93 _rotationRate;
@@ -22,6 +23,8 @@
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithDictionary:(id)arg1;
+- (id)encodeToDictionary;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 

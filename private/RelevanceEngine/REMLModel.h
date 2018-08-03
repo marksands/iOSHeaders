@@ -11,6 +11,7 @@
 @interface REMLModel : NSObject
 {
     REConcurrentDictionary *_predictionCache;
+    _Bool _wantsPredictionCache;
 }
 
 + (unsigned long long)maxFeatureCount;
@@ -33,6 +34,8 @@
 - (void)_clearCache;
 - (void)_trainWithFeatures:(id)arg1 positiveEvent:(id)arg2;
 - (void)trainWithFeatures:(id)arg1 positiveEvent:(id)arg2;
+- (_Bool)wantsPredictionCache;
+- (void)setWantsPredictionCache:(_Bool)arg1;
 - (id)initWithFeatureSet:(id)arg1;
 - (id)init;
 

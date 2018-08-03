@@ -6,21 +6,23 @@
 
 #import "NSObject.h"
 
-@class PGGraph;
+@class PGGraph, PGSearchComputationCache;
 
 @interface PGSearchKeywordComputer : NSObject
 {
     PGGraph *_graph;
+    PGSearchComputationCache *_searchComputationCache;
 }
 
+@property(readonly, nonatomic) PGSearchComputationCache *searchComputationCache; // @synthesize searchComputationCache=_searchComputationCache;
 - (void).cxx_destruct;
-- (id)_assetsForMomentNode:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;
+- (void)_enumerateBusinessAndPublicEventKeywordsForEventNode:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)eventNodeForUUID:(id)arg1 ofType:(unsigned long long)arg2;
 - (id)curationInfoForTripNode:(id)arg1;
 - (id)searchInformationByTripUUIDWithTripUUIDs:(id)arg1;
 - (id)assetSearchKeywordsByMomentUUIDWithEventUUIDs:(id)arg1 ofType:(unsigned long long)arg2;
 - (id)searchKeywordsByEventWithEventUUIDs:(id)arg1 ofType:(unsigned long long)arg2;
-- (id)initWithGraph:(id)arg1;
+- (id)initWithGraph:(id)arg1 searchComputationCache:(id)arg2;
 
 @end
 

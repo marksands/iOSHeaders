@@ -16,10 +16,12 @@
     NSString *_name;
     NSString *_websheetURL;
     NSString *_planPurchaseEndpointType;
+    NSString *_warningText;
     _Bool _applePaySupported;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) NSString *warningText; // @synthesize warningText=_warningText;
 @property(readonly, nonatomic) NSString *planPurchaseEndpointType; // @synthesize planPurchaseEndpointType=_planPurchaseEndpointType;
 @property(nonatomic) _Bool applePaySupported; // @synthesize applePaySupported=_applePaySupported;
 @property(readonly, nonatomic) NSString *websheetURL; // @synthesize websheetURL=_websheetURL;
@@ -29,7 +31,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithName:(id)arg1 url:(id)arg2 applePaySupported:(_Bool)arg3 responseType:(id)arg4;
+- (id)initWithName:(id)arg1 url:(id)arg2 applePaySupported:(_Bool)arg3 responseType:(id)arg4 warningText:(id)arg5;
 
 @end
 

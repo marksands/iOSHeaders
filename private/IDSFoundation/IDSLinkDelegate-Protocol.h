@@ -14,6 +14,7 @@
 - (void)link:(id)arg1 didConnectForDeviceUniqueID:(NSString *)arg2 cbuuid:(NSString *)arg3;
 
 @optional
+- (void)link:(id)arg1 didAddQREvent:(NSDictionary *)arg2;
 - (void)link:(id)arg1 didReceiveReportEvent:(NSDictionary *)arg2;
 - (void)link:(id)arg1 didReceiveSessionInfo:(NSDictionary *)arg2 relayGroupID:(NSString *)arg3 relaySessionID:(NSString *)arg4 success:(_Bool)arg5;
 - (void)link:(id)arg1 didCellularMTUChange:(unsigned short)arg2;

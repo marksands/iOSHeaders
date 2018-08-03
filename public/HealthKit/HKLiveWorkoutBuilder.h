@@ -22,6 +22,7 @@
 - (void)connectionInterrupted;
 - (void)clientRemote_didUpdateMetadata:(id)arg1;
 - (void)clientRemote_didUpdateStatistics:(id)arg1;
+- (void)stateMachine:(id)arg1 didEnterState:(id)arg2 date:(id)arg3 error:(id)arg4;
 @property(retain) HKLiveWorkoutDataSource *dataSource;
 @property(retain) NSArray *additionalDataSources;
 - (void)_resourceQueue_updateElapsedTimeCache;

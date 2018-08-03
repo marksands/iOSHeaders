@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCopying.h"
+#import "ARAnchorCopying.h"
 #import "NSSecureCoding.h"
 
 @class NSString, NSUUID;
 
-@interface ARAnchor : NSObject <NSCopying, NSSecureCoding>
+@interface ARAnchor : NSObject <ARAnchorCopying, NSSecureCoding>
 {
     NSUUID *_identifier;
     NSString *_name;
@@ -34,13 +34,13 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithAnchor:(id)arg1;
 - (id)debugQuickLookObject;
 - (id)description;
 - (id)_description:(_Bool)arg1;
 - (_Bool)isEqualToAnchor:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
--     // Error parsing type: @96@0:8@16@24{?=[4]}32, name: initWithIdentifier:name:transform:
 -     // Error parsing type: @88@0:8@16{?=[4]}24, name: initWithIdentifier:transform:
 -     // Error parsing type: @88@0:8@16{?=[4]}24, name: initWithName:transform:
 -     // Error parsing type: @80@0:8{?=[4]}16, name: initWithTransform:

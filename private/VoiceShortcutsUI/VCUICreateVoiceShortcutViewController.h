@@ -27,7 +27,6 @@
 - (void)manageVoiceShortcutViewControllerDidEnterStateSiriUnavailable:(id)arg1;
 - (void)manageVoiceShortcutViewController:(id)arg1 didCreateVoiceShortcut:(id)arg2;
 - (void)manageVoiceShortcutViewControllerDidCancel:(id)arg1;
-- (unsigned long long)supportedInterfaceOrientations;
 - (void)loadView;
 - (id)initWithActionDonation:(id)arg1 voiceShortcutClient:(id)arg2;
 

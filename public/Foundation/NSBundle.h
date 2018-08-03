@@ -16,7 +16,7 @@
     Class _principalClass;
     id _initialPath;
     id _resolvedPath;
-    id _reserved3;
+    Class _firstClass;
     id _lock;
 }
 

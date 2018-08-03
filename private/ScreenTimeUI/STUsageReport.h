@@ -58,8 +58,7 @@
 - (id)getLocalizedPickupsDuringDeviceBedtime:(id)arg1;
 - (id)getLocalizedUsageDuringDeviceBedtime:(id)arg1 usageItem:(id)arg2;
 - (id)getLocalizedScreenTimeDuringDeviceBedtime:(id)arg1;
-- (id)getLocalizedPickupFrequencyUntilDate:(id)arg1;
-- (unsigned long long)getUsageRateForItems:(id)arg1 totalUsage:(unsigned long long)arg2 referenceDate:(id)arg3;
+- (unsigned long long)getUsageRateWithTotalUsage:(unsigned long long)arg1 referenceDate:(id)arg2;
 - (unsigned long long)getPickupRateUntilDate:(id)arg1;
 - (unsigned long long)getNotificationRateUntilDate:(id)arg1;
 - (unsigned long long)getNotificationsForUsageItem:(id)arg1;

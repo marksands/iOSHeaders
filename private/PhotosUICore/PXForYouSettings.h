@@ -26,12 +26,13 @@
     _Bool _useMockData;
     _Bool _forceDisplayReportJunk;
     _Bool _navigateToActivityPost;
-    _Bool _showSharedAlbumActivityGadgetCaption;
     _Bool _forcePortraitBias;
     _Bool _useSquareSharedAlbumActivity;
+    _Bool _showFeaturedPhotosBadges;
     _Bool _showInboxLastSeenDate;
     _Bool _delayEditRenders;
     _Bool _useCachedEditRenders;
+    _Bool _allowSharingEditSuggestions;
     unsigned long long _maxSimultaneousVideoCount;
     double _minimumVisibilityForVideoPlayback;
 }
@@ -39,12 +40,13 @@
 + (id)keyPathsAffectingGadgetVisibility;
 + (id)sharedInstance;
 + (id)settingsControllerModule;
+@property(nonatomic) _Bool allowSharingEditSuggestions; // @synthesize allowSharingEditSuggestions=_allowSharingEditSuggestions;
 @property(nonatomic) _Bool useCachedEditRenders; // @synthesize useCachedEditRenders=_useCachedEditRenders;
 @property(nonatomic) _Bool delayEditRenders; // @synthesize delayEditRenders=_delayEditRenders;
 @property(nonatomic) _Bool showInboxLastSeenDate; // @synthesize showInboxLastSeenDate=_showInboxLastSeenDate;
+@property(nonatomic) _Bool showFeaturedPhotosBadges; // @synthesize showFeaturedPhotosBadges=_showFeaturedPhotosBadges;
 @property(nonatomic) _Bool useSquareSharedAlbumActivity; // @synthesize useSquareSharedAlbumActivity=_useSquareSharedAlbumActivity;
 @property(nonatomic) _Bool forcePortraitBias; // @synthesize forcePortraitBias=_forcePortraitBias;
-@property(nonatomic) _Bool showSharedAlbumActivityGadgetCaption; // @synthesize showSharedAlbumActivityGadgetCaption=_showSharedAlbumActivityGadgetCaption;
 @property(nonatomic) _Bool navigateToActivityPost; // @synthesize navigateToActivityPost=_navigateToActivityPost;
 @property(nonatomic) _Bool forceDisplayReportJunk; // @synthesize forceDisplayReportJunk=_forceDisplayReportJunk;
 @property(nonatomic) _Bool useMockData; // @synthesize useMockData=_useMockData;

@@ -9,6 +9,10 @@
 @class NSData, PKBarcode;
 
 @interface PKPass (NanoPassKit)
++ (void)npkClearTransitValuePendingStateIfNecessaryForPassWithID:(id)arg1 withBalance:(id)arg2;
++ (void)npkHandleTransitValuePendingAmount:(id)arg1 withBalance:(id)arg2 forPassWithID:(id)arg3;
+- (id)npkLastAddValueAmount;
+- (_Bool)npkIsAddValuePending;
 @property(readonly) _Bool npkHasValidNFCPayload;
 @property(readonly) _Bool hasLogoImageSet;
 - (id)npkCompleteHashForWatchOSVersion:(unsigned long long)arg1;

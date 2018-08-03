@@ -18,11 +18,9 @@ __attribute__((visibility("hidden")))
     NSNumber *inputScale;
     id inputAuxDataMetadata;
     NSString *inputShape;
-    NSNumber *inputShouldAutoRotate;
 }
 
 + (id)customAttributes;
-@property(retain, nonatomic) NSNumber *inputShouldAutoRotate; // @synthesize inputShouldAutoRotate;
 @property(retain, nonatomic) NSString *inputShape; // @synthesize inputShape;
 @property(retain, nonatomic) id inputAuxDataMetadata; // @synthesize inputAuxDataMetadata;
 @property(retain, nonatomic) NSNumber *inputScale; // @synthesize inputScale;

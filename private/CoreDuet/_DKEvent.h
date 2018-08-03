@@ -44,9 +44,8 @@
 + (id)eventWithSearchableItem:(id)arg1 bundleIdentifier:(id)arg2;
 + (id)eventWithRelevantShortcut:(id)arg1 bundleID:(id)arg2;
 + (id)fromPBCodable:(id)arg1;
-+ (id)interactionWithEvent:(id)arg1;
-+ (id)eventWithInteraction:(id)arg1 bundleIdentifier:(id)arg2;
-+ (id)metadataForInteraction:(id)arg1;
++ (id)eventWithInteraction:(id)arg1 bundleIdentifier:(id)arg2 storeKeyImage:(_Bool)arg3;
++ (id)metadataForInteraction:(id)arg1 storeKeyImage:(_Bool)arg2;
 + (_Bool)copyMetadata:(id)arg1 toManagedObject:(id)arg2;
 + (id)fetchCustomMetadataWithName:(id)arg1 valueHash:(id)arg2 context:(id)arg3;
 + (id)eventValueFromManagedObject:(id)arg1 streamName:(id)arg2 readMetadata:(_Bool)arg3 cache:(id)arg4;
@@ -79,7 +78,8 @@
 - (id)relevantAction;
 - (id)relevantShortcut;
 - (id)toPBCodable;
-- (id)asInteraction;
+- (void)fetchInteractionWithPopulatedKeyImage:(CDUnknownBlockType)arg1;
+- (id)interaction;
 - (_Bool)copyToManagedObject:(id)arg1;
 - (unsigned long long)eventValueClassOf:(id)arg1;
 - (id)metadataFromCustomMetadata:(id)arg1 cache:(id)arg2;

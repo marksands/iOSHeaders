@@ -9,7 +9,7 @@
 #import "FCFeedElement.h"
 #import "FCHeadlineProviding.h"
 
-@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCFeedPersonalizedArticleScoreProfile, FCHeadlineThumbnail, FCTopStoriesStyleConfiguration, NSArray, NSData, NSDate, NSSet, NSString, NSURL;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCFeedPersonalizedArticleScoreProfile, FCHeadlineExperimentalTitleMetadata, FCHeadlineThumbnail, FCTopStoriesStyleConfiguration, NSArray, NSData, NSDate, NSSet, NSString, NSURL;
 
 @interface FCHeadline : NSObject <FCHeadlineProviding, FCFeedElement>
 {
@@ -38,6 +38,7 @@
     FCHeadlineThumbnail *_thumbnailWidget;
     FCHeadlineThumbnail *_thumbnailWidgetHQ;
     NSString *_title;
+    FCHeadlineExperimentalTitleMetadata *_experimentalTitleMetadata;
     NSString *_articleID;
     NSString *_referencedArticleID;
     NSString *_clusterID;
@@ -167,6 +168,7 @@
 @property(copy, nonatomic) NSString *clusterID; // @synthesize clusterID=_clusterID;
 @property(readonly, copy, nonatomic) NSString *referencedArticleID; // @synthesize referencedArticleID=_referencedArticleID;
 @property(copy, nonatomic) NSString *articleID; // @synthesize articleID=_articleID;
+@property(copy, nonatomic) FCHeadlineExperimentalTitleMetadata *experimentalTitleMetadata; // @synthesize experimentalTitleMetadata=_experimentalTitleMetadata;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) FCHeadlineThumbnail *thumbnailWidgetHQ; // @synthesize thumbnailWidgetHQ=_thumbnailWidgetHQ;
 @property(readonly, nonatomic) FCHeadlineThumbnail *thumbnailWidget; // @synthesize thumbnailWidget=_thumbnailWidget;

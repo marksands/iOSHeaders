@@ -165,6 +165,7 @@
 - (id)statementFromString:(id)arg1;
 - (void)fetchAssetUUIDsForAssetIDs:(struct __CFArray *)arg1 creationDateSorted:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)group:(id)arg1 fetchOwningContentString:(_Bool)arg2 assetIdRange:(struct _NSRange)arg3 collectionIdRange:(struct _NSRange)arg4 tripIdRange:(struct _NSRange)arg5 completionHandler:(CDUnknownBlockType)arg6;
+- (id)suggestionWhitelistedScenes;
 - (id)meNodeIdentifier;
 - (id)wordEmbeddingMatchesForToken:(id)arg1;
 - (id)groupResultWithDateFilter:(id)arg1;

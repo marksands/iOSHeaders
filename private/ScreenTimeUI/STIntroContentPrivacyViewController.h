@@ -10,6 +10,7 @@
 {
 }
 
+- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 
 @end

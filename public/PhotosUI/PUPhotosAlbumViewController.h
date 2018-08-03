@@ -59,6 +59,7 @@
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (unsigned long long)additionalOneUpViewControllerOptions;
 - (unsigned long long)userEventSourceType;
 - (long long)cellFillMode;
 - (_Bool)allowSelectAllButton;

@@ -25,11 +25,9 @@ __attribute__((visibility("hidden")))
     id inputAuxDataMetadata;
     NSDictionary *tuningParameters;
     float simulatedAperture;
-    NSNumber *inputShouldAutoRotate;
 }
 
 + (id)customAttributes;
-@property(retain, nonatomic) NSNumber *inputShouldAutoRotate; // @synthesize inputShouldAutoRotate;
 @property(retain, nonatomic) AVCameraCalibrationData *inputCalibrationData; // @synthesize inputCalibrationData;
 @property(retain, nonatomic) id inputAuxDataMetadata; // @synthesize inputAuxDataMetadata;
 @property(copy, nonatomic) NSNumber *inputScale; // @synthesize inputScale;
@@ -43,7 +41,6 @@ __attribute__((visibility("hidden")))
 @property(retain) CIImage *inputShiftmapImage; // @synthesize inputShiftmapImage;
 @property(retain) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (id)transformPoints:(id)arg1 transform:(struct CGAffineTransform)arg2;
 - (id)blurMapV3:(id)arg1 shiftmap:(id)arg2 alphaImage:(id)arg3;
 - (id)refineShiftMapV3WithMainImage:(id)arg1 shiftmap:(id)arg2;
 - (id)blurMapV2:(id)arg1;

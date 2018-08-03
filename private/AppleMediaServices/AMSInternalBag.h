@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
+#import "AMSLookupBagContract.h"
 #import "AMSMescalBagContract.h"
 #import "AMSMetricsBagContract.h"
 
 @class AMSBag, AMSBagValue, NSString;
 
 __attribute__((visibility("hidden")))
-@interface AMSInternalBag : NSObject <AMSMetricsBagContract, AMSMescalBagContract>
+@interface AMSInternalBag : NSObject <AMSMetricsBagContract, AMSMescalBagContract, AMSLookupBagContract>
 {
     AMSBag *_bag;
 }
@@ -21,8 +22,18 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) AMSBag *bag; // @synthesize bag=_bag;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) AMSBagValue *trustedDomains;
+@property(readonly, nonatomic) AMSBagValue *TFOSamplingSessionDuration;
+@property(readonly, nonatomic) AMSBagValue *TFOSamplingPercentage;
+@property(readonly, nonatomic) AMSBagValue *TLSSamplingSessionDuration;
+@property(readonly, nonatomic) AMSBagValue *TLSSamplingPercentage;
+@property(readonly, nonatomic) AMSBagValue *storefrontSuffix;
 @property(readonly, nonatomic) id <AMSMetricsBagContract> metricsContract;
 @property(readonly, nonatomic) id <AMSMescalBagContract> mescalContract;
+@property(readonly, nonatomic) AMSBagValue *guidSchemes;
+@property(readonly, nonatomic) AMSBagValue *guidRegexes;
+@property(readonly, nonatomic) AMSBagValue *apsAllowedProductTypes;
+@property(readonly, nonatomic) AMSBagValue *apsSamplingPercent;
+@property(readonly, nonatomic) AMSBagValue *apsEnabledPatterns;
 @property(readonly, nonatomic) AMSBagValue *mescalSignSapResponses;
 @property(readonly, nonatomic) AMSBagValue *mescalSignSapRequests;
 @property(readonly, nonatomic) AMSBagValue *mescalSignedActions;
@@ -30,20 +41,16 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) AMSBagValue *mescalCertificateURL;
 @property(readonly, nonatomic) AMSBagValue *metricsURL;
 @property(readonly, nonatomic) AMSBagValue *metricsDictionary;
+@property(readonly, nonatomic) AMSBagValue *unpersonalizedLookupURL;
 - (id)init;
 
 // Remaining properties
-@property(readonly, nonatomic) AMSBagValue *apsAllowedProductTypes;
-@property(readonly, nonatomic) AMSBagValue *apsEnabledPatterns;
-@property(readonly, nonatomic) AMSBagValue *apsSamplingPercent;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) AMSBagValue *guidRegexes;
-@property(readonly, nonatomic) AMSBagValue *guidSchemes;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) AMSBagValue *mescalPrimingURL;
 @property(readonly, nonatomic) AMSBagValue *metricsUrl;
-@property(readonly, nonatomic) AMSBagValue *storefrontSuffix;
+@property(readonly, nonatomic) AMSBagValue *personalizedLookupURL;
 @property(readonly) Class superclass;
 
 @end

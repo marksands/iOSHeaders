@@ -11,7 +11,6 @@
 }
 
 + (_Bool)settingEnabled;
-+ (void)initialize;
 - (_Bool)isNumericPIN;
 - (_Bool)simplePIN;
 - (struct __CFString *)blockedStateKey;

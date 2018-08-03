@@ -18,13 +18,14 @@
     AVURLAsset *_capturedAsset;
     NSError *_captureError;
     double _storeDemoTimeLimit;
+    double _beginCaptureTime;
+    double _capturedDisplayTime;
     unsigned long long _backgroundTaskIdentifier;
     NSObject<OS_dispatch_group> *_endCaptureTaskGroup;
     RCAudioSessionRoutingAssertion *_captureRouteAssertion;
     long long _sessionCaptureState;
     NSString *_sessionRouteName;
     NSDate *_captureStartDate;
-    double _beginCaptureTime;
     _Bool _handledFinishedCapturingAfterCompletionSound;
     _Bool _handlingDidFinishCapturing;
     _Bool _deleteCapturedOutWhenFinished;
@@ -32,9 +33,6 @@
     _Bool _captureBeginSoundEffectDisabled;
     _Bool _captureEndSoundEffectDisabled;
     NSMutableOrderedSet *_weakObservers;
-    double _lastDuration;
-    double _smoothedDuration;
-    double _smoothedCapturedEndTime;
     RCCaptureInputDevice *_inputDevice;
     RCCaptureInputWaveformDataSource *_captureWaveformDataSource;
     SBSLockScreenContentAssertion *_lockScreenAssertion;
@@ -72,9 +70,9 @@
 - (void)captureOutputWriter:(id)arg1 captureSessionDidTerminateWithError:(id)arg2;
 - (void)waveformDataSource:(id)arg1 didLoadWaveformSegment:(id)arg2;
 - (void)waveformDataSourceDidFinishLoading:(id)arg1;
-- (_Bool)updateObserversFromDisplayLink;
-- (double)smoothedDuration;
-- (double)smoothedCapturedEndTime;
+- (void)updateObserversFromDisplayLink:(id)arg1;
+- (_Bool)updateFromDisplayLink;
+- (double)capturedTimeFromDisplayTime:(double)arg1;
 - (void)disableCaptureEndSoundEffect;
 - (void)disableCaptureBeginSoundEffect;
 @property(readonly, nonatomic) RCAVState *AVState;

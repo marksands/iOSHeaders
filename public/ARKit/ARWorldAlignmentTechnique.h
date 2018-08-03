@@ -6,11 +6,11 @@
 
 #import <ARKit/ARTechnique.h>
 
-@class ARDeviceOrientationData, ARWorldAlignmentData, NSObject<OS_dispatch_semaphore>;
+@class ARTimeKeyedList, ARWorldAlignmentData, NSObject<OS_dispatch_semaphore>;
 
 @interface ARWorldAlignmentTechnique : ARTechnique
 {
-    ARDeviceOrientationData *_deviceOrientationData;
+    ARTimeKeyedList *_deviceOrientationDataByTime;
     float _deviceOrientationAlignmentAngle;
     float _trackingAlignmentAngle;
     // Error parsing type: , name: _trackingAlignmentTranslation
@@ -32,11 +32,11 @@
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (void)_handleTrackingStateChanges:(id)arg1 initialized:(_Bool *)arg2 relocalized:(_Bool *)arg3;
-- (id)_deviceOrientationPoseData;
-- (id)_updateHeadingAlignmentWithPoseData:(id)arg1 timestamp:(double)arg2;
-- (id)_referenceTrackingAlignmentWithPoseData:(id)arg1;
-- (float)_trackingAlignmentAngleForPoseData:(id)arg1;
-- (void)_referenceDeviceOrientation;
+- (id)_deviceOrientationPoseDataFromDeviceOrientation:(id)arg1;
+- (id)_updateHeadingAlignmentWithPoseData:(id)arg1 deviceOrientation:(id)arg2 timestamp:(double)arg3;
+- (id)_referenceTrackingAlignmentWithPoseData:(id)arg1 deviceOrientation:(id)arg2;
+- (float)_trackingAlignmentAngleForPoseData:(id)arg1 deviceOrientation:(id)arg2;
+- (void)_referenceDeviceOrientation:(id)arg1;
 - (id)predictedResultDataAtTimestamp:(double)arg1 context:(id)arg2;
 - (void)requestResultDataAtTimestamp:(double)arg1 context:(id)arg2;
 - (id)processData:(id)arg1;

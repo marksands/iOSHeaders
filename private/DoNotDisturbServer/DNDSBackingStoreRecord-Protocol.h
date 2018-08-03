@@ -9,8 +9,11 @@
 @class NSArray, NSDictionary;
 
 @protocol DNDSBackingStoreRecord <NSObject>
-+ (NSArray *)migrateDictionaryRepresentations:(NSArray *)arg1 withVersionNumber:(unsigned long long)arg2;
 - (NSDictionary *)dictionaryRepresentation;
 - (id)initWithDictionaryRepresentation:(NSDictionary *)arg1;
+
+@optional
++ (NSArray *)migrateDictionaryRepresentations:(NSArray *)arg1 fromVersionNumber:(unsigned long long)arg2 toVersionNumber:(unsigned long long)arg3;
++ (NSDictionary *)migrateDictionaryRepresentation:(NSDictionary *)arg1 fromVersionNumber:(unsigned long long)arg2 toVersionNumber:(unsigned long long)arg3;
 @end
 

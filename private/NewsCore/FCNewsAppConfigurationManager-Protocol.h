@@ -24,6 +24,6 @@
 @property(readonly, nonatomic) NSArray *segmentSetIDs;
 @property(readonly, nonatomic) NSArray *treatmentIDs;
 - (void)overrideConfigWithTreatment:(NSNumber *)arg1;
-- (void)fetchAppWidgetConfigurationWithCompletion:(void (^)(id <FCNewsAppConfiguration>, NSData *, NSError *))arg1;
+- (void)fetchAppWidgetConfigurationUseBackgroundRefreshRate:(_Bool)arg1 completion:(void (^)(id <FCNewsAppConfiguration>, NSData *, NSError *))arg2;
 @end
 

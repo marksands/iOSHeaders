@@ -12,9 +12,11 @@
 {
     float _aperture;
     NSNumber *_minimumAperture;
+    NSNumber *_maximumAperture;
 }
 
 + (id)apertureValuesFromImageProperties:(id)arg1 error:(out id *)arg2;
+@property(retain, nonatomic) NSNumber *maximumAperture; // @synthesize maximumAperture=_maximumAperture;
 @property(retain, nonatomic) NSNumber *minimumAperture; // @synthesize minimumAperture=_minimumAperture;
 @property(nonatomic) float aperture; // @synthesize aperture=_aperture;
 - (void).cxx_destruct;

@@ -62,6 +62,7 @@
 - (void)openWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)resetBackoffInterval;
 - (void)noteSyncSessionFailedDuringPhase:(unsigned long long)arg1 withError:(id)arg2;
+- (void)_handleResetGlobalAnchorWithError:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handleResetAnchorWithError:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handleResetCloudCacheWithError:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handleResetClientCacheWithError:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

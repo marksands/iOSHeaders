@@ -70,6 +70,7 @@
 @property(readonly, copy, nonatomic) NSString *firstUseDescriptionText;
 @property(readonly, copy, nonatomic) NSArray *enabledDomains;
 @property(readonly, copy, nonatomic) NSArray *recentlyUsedAppIdentifierWhitelist;
+@property(readonly, nonatomic) long long maximumNumberOfFeedbackFiles;
 @property(readonly, nonatomic) _Bool feedbackEnabled;
 @property(readonly, nonatomic) unsigned long long maximumCachedQueriesToSend;
 @property(readonly, nonatomic) unsigned long long maximumCachedResultsToSend;

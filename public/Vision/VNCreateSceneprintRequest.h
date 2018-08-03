@@ -26,6 +26,7 @@
 - (void)applyConfigurationOfRequest:(id)arg1;
 - (_Bool)hasCancellationHook;
 - (_Bool)willAcceptCachedResultsFromRequestWithConfiguration:(id)arg1;
+@property(nonatomic) unsigned long long imageCropAndScaleOption;
 @property(nonatomic) _Bool useCenterTileOnly;
 @property(nonatomic) _Bool returnAllResults;
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

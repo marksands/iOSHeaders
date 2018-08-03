@@ -40,6 +40,9 @@
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (id)aggregateMeasurementsMatchingFilter:(id)arg1 error:(id *)arg2;
+- (_Bool)enumerateAggregatedMeasurementsMatchingNullableFilter:(id)arg1 ignoringVariables:(id)arg2 error:(id *)arg3 usingBlock:(CDUnknownBlockType)arg4;
+- (_Bool)enumerateAggregatedMeasurementsIgnoringVariables:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (_Bool)enumerateAggregatedMeasurementsMatchingFilter:(id)arg1 ignoringVariables:(id)arg2 error:(id *)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (_Bool)enumerateMeasurementsMatchingNullableFilter:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (_Bool)enumerateMeasurementsMatchingFilter:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (_Bool)enumerateMeasurementsWithError:(id *)arg1 usingBlock:(CDUnknownBlockType)arg2;

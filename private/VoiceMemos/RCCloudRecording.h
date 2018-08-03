@@ -36,6 +36,8 @@
 - (void)setName:(id)arg1;
 @property(readonly, copy, nonatomic) NSURL *URIRepresentation;
 @property(readonly, copy, nonatomic) NSURL *url;
+- (void)setEditing:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool editing;
 - (void)setManuallyRenamed:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool manuallyRenamed;
 - (void)setPlayable:(_Bool)arg1;

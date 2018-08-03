@@ -19,6 +19,7 @@
 - (void).cxx_destruct;
 - (id)errorWithCode:(long long)arg1 localizedDescription:(id)arg2 localizedTitle:(id)arg3 underlyingError:(id)arg4 intentResponse:(id)arg5;
 - (id)appNotInstalledErrorForIntent:(id)arg1 underlyingError:(id)arg2;
+- (void)launchAppWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)cancelRunning;
 - (void)handleIntent:(id)arg1 inBackgroundAppWithBundleIdentifier:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)finishRunningByContinuingInApp;

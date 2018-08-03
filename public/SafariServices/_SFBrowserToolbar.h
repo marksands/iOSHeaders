@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
     id <_SFBrowserToolbarDataSource> _dataSource;
 }
 
-+ (_Bool)_forceLegacyVisualProvider;
 @property(nonatomic) __weak id <_SFBrowserToolbarDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (void)didCompleteBarRegistrationWithToken:(id)arg1;

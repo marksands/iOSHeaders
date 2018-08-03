@@ -6,7 +6,7 @@
 
 #import <ARKit/ARImageBasedTechnique.h>
 
-@class ARWorldTrackingErrorData, ARWorldTrackingOptions, ARWorldTrackingPoseData, ARWorldTrackingReferenceAnchorData, NSHashTable, NSObject<OS_dispatch_semaphore>;
+@class ARWorldTrackingErrorData, ARWorldTrackingOptions, ARWorldTrackingPoseData, ARWorldTrackingReferenceAnchorData, NSDictionary, NSHashTable, NSObject<OS_dispatch_semaphore>;
 
 @interface ARWorldTrackingTechnique : ARImageBasedTechnique
 {
@@ -15,6 +15,7 @@
     _Bool _useFixedIntrinsics;
     long long _vioHandleState;
     NSObject<OS_dispatch_semaphore> *_vioHandleStateSemaphore;
+    NSObject<OS_dispatch_semaphore> *_vioObjectDetectionSemaphore;
     ARWorldTrackingReferenceAnchorData *_anchorData;
     ARWorldTrackingErrorData *_errorData;
     ARWorldTrackingPoseData *_cachedPoseData;
@@ -34,11 +35,13 @@
     double _resultLatency;
     ARWorldTrackingOptions *_options;
     _Bool _allowPoseGraphUpdates;
+    NSDictionary *_objectDetectionOptions;
 }
 
 + (_Bool)supportsVideoResolution:(struct CGSize)arg1;
 + (_Bool)isSupported;
 - (void).cxx_destruct;
+- (_Bool)setupObjectDetection:(id)arg1;
 - (id)getObservers;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;

@@ -50,7 +50,6 @@ __attribute__((visibility("hidden")))
 - (void)_asyncAutovacuumIfNeeds:(id)arg1;
 - (long long)_vacuumDB:(id)arg1 amount:(long long)arg2 withUrgency:(int)arg3;
 - (long long)_doIncrementalVacuum:(id)arg1 amount:(long long)arg2;
-- (long long)_doFullVacuum:(id)arg1;
 - (long long)_fullVacuumIfPossible:(id)arg1;
 - (long long)_dbAutovacuumableSpaceInBytes:(id)arg1;
 - (long long)_dbSizeInBytes:(id)arg1;

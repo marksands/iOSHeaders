@@ -31,7 +31,6 @@
     NSString *_subtitle;
     NSString *_caption;
     unsigned long long _badgeTypes;
-    long long _badgeCount;
 }
 
 + (id)placeholderFilters;
@@ -43,7 +42,6 @@
 + (double)scaledSuggestionBaselineDistance;
 + (void)preloadResources;
 + (struct CGSize)sizeThatFits:(struct CGSize)arg1 withSuggestion:(id)arg2 keyAsset:(id)arg3;
-@property(nonatomic) long long badgeCount; // @synthesize badgeCount=_badgeCount;
 @property(nonatomic) unsigned long long badgeTypes; // @synthesize badgeTypes=_badgeTypes;
 @property(copy, nonatomic) NSString *caption; // @synthesize caption=_caption;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;

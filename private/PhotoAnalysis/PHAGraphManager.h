@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "PFMulticasterDelegate.h"
+#import "PFWeakContainerNilNotificationDelegate.h"
 
-@class NSMutableSet, PFSerialQueue, PGGraphUpdateManager, PGManager, PHAManager;
+@class NSMutableSet, PFSerialQueue, PFWeakContainer, PGGraphUpdateManager, PGManager, PHAManager;
 
-@interface PHAGraphManager : NSObject <PFMulticasterDelegate>
+@interface PHAGraphManager : NSObject <PFMulticasterDelegate, PFWeakContainerNilNotificationDelegate>
 {
     struct PFDirectMessagingMulticaster *_clientMulticaster;
     PGGraphUpdateManager *_updateManager;
@@ -18,6 +19,7 @@
     _Bool _rebuildInProgress;
     PFSerialQueue *_serializer;
     PGManager *_graphManager;
+    PFWeakContainer *_graphMonitor;
     PHAManager *_photoAnalysisManager;
 }
 
@@ -28,12 +30,14 @@
 - (void)unloadGraph;
 - (void)performFullRebuildWithProgressBlock:(CDUnknownBlockType)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)loadGraph;
+- (_Bool)isGraphLoaded;
 - (void)multicasterHasNoReceivers:(id)arg1 invalidateBlock:(CDUnknownBlockType)arg2;
 - (void)unregisterGraphClient:(id)arg1;
 - (id)registerGraphClient:(id)arg1;
 - (_Bool)graphNeedsRebuild;
 - (void)shutdown;
 - (void)_graphBecameReady:(id)arg1;
+- (void)weakReferenceBecameNil:(id)arg1;
 - (void)dealloc;
 - (id)initWithManager:(id)arg1;
 

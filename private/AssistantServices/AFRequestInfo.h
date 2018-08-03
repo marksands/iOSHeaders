@@ -13,7 +13,7 @@
 @interface AFRequestInfo : NSObject <NSSecureCoding>
 {
     _Bool _handoffRequiresUserInteraction;
-    _Bool _suppressAlert;
+    unsigned long long _options;
     NSNumber *_notifyState;
     NSString *_text;
     NSString *_directAction;
@@ -50,7 +50,6 @@
 @property(copy, nonatomic) NSNumber *combinedRank; // @synthesize combinedRank=_combinedRank;
 @property(copy, nonatomic) AFSpeechRequestOptions *speechRequestOptions; // @synthesize speechRequestOptions=_speechRequestOptions;
 @property(nonatomic) long long activationEvent; // @synthesize activationEvent=_activationEvent;
-@property(nonatomic) _Bool suppressAlert; // @synthesize suppressAlert=_suppressAlert;
 @property(copy, nonatomic) SAStartLocalRequest *startLocalRequest; // @synthesize startLocalRequest=_startLocalRequest;
 @property(copy, nonatomic) SAStartRequest *startRequest; // @synthesize startRequest=_startRequest;
 @property(copy, nonatomic) NSDictionary *correctedSpeechContext; // @synthesize correctedSpeechContext=_correctedSpeechContext;
@@ -63,6 +62,7 @@
 @property(copy, nonatomic) NSString *directAction; // @synthesize directAction=_directAction;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 @property(copy, nonatomic) NSNumber *notifyState; // @synthesize notifyState=_notifyState;
+@property(nonatomic) unsigned long long options; // @synthesize options=_options;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

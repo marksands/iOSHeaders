@@ -29,6 +29,8 @@
 - (_Bool)deleteStatisticsForType:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (id)workoutEventsInTransaction:(id)arg1 error:(id *)arg2;
 - (_Bool)insertWorkoutEvent:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
+- (id)_queryForAssociatedSamplePropertyEnumerationInTransaction:(id)arg1 predicate:(id)arg2;
+- (_Bool)_enumerateAssociatedSamplePropertiesInTransaction:(id)arg1 error:(id *)arg2 handler:(CDUnknownBlockType)arg3;
 - (_Bool)pruneAssociatedSamplesToDateInterval:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (_Bool)_setupForEnumerationOfType:(id)arg1 interval:(id)arg2 profile:(id)arg3 error:(id *)arg4 handler:(CDUnknownBlockType)arg5;
 - (_Bool)_setupForEnumerationOfType:(id)arg1 interval:(id)arg2 transaction:(id)arg3 error:(id *)arg4 handler:(CDUnknownBlockType)arg5;

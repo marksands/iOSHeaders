@@ -7,6 +7,6 @@
 #import "UILabel.h"
 
 @interface UILabel (Truncation)
-- (_Bool)px_isTruncatedForWidth:(double)arg1;
+- (_Bool)px_isTruncatedForWidth:(double)arg1 lines:(long long)arg2;
 @end
 

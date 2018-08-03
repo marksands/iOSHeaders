@@ -55,9 +55,9 @@ __attribute__((visibility("hidden")))
 - (void)replaceAllValuesWithValues:(const void **)arg1 forKeys:(const struct __CFString **)arg2 count:(long long)arg3 from:(id)arg4;
 - (void)_notifyObserversOfChangeFromValuesForKeys:(id)arg1 toValuesForKeys:(id)arg2;
 - (void)setValue:(void *)arg1 forKey:(struct __CFString *)arg2 from:(id)arg3;
-- (void)setValues:(const void **)arg1 forKeys:(const struct __CFString **)arg2 count:(long long)arg3 from:(id)arg4;
-- (void)setValues:(const void **)arg1 forKeys:(const struct __CFString **)arg2 count:(long long)arg3 removeValuesForKeys:(const struct __CFString **)arg4 count:(long long)arg5 from:(id)arg6;
-- (void)alreadylocked_setValues:(const void **)arg1 forKeys:(const struct __CFString **)arg2 count:(long long)arg3 from:(id)arg4;
+- (void)setValues:(const void **)arg1 forKeys:(const struct __CFString **)arg2 count:(long long)arg3 copyValues:(_Bool)arg4 from:(id)arg5;
+- (void)setValues:(const void **)arg1 forKeys:(const struct __CFString **)arg2 count:(long long)arg3 copyValues:(_Bool)arg4 removeValuesForKeys:(const struct __CFString **)arg5 count:(long long)arg6 from:(id)arg7;
+- (void)alreadylocked_setPrecopiedValues:(const void **)arg1 forKeys:(const struct __CFString **)arg2 count:(long long)arg3 from:(id)arg4;
 - (void)handleRemoteChangeNotificationForDomainIdentifier:(struct __CFString *)arg1;
 - (void)alreadylocked_updateObservingRemoteChanges;
 - (void)removePreferencesObserver:(id)arg1;

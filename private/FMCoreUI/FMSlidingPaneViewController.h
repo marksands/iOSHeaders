@@ -6,11 +6,13 @@
 
 #import <FMCoreUI/FMViewController.h>
 
-@class SlidingPaneViewState, UIView, UIViewController, UIVisualEffect;
+@class FMFuture, SlidingPaneViewState, UIView, UIViewController, UIVisualEffect;
 
 @interface FMSlidingPaneViewController : FMViewController
 {
     _Bool _didHideToolbar;
+    _Bool _isPresenting;
+    _Bool _isDismissing;
     UIVisualEffect *_paneVisualEffect;
     id <FMSlidingPaneViewControllerDelegate> _delegate;
     double _animationDuration;
@@ -18,10 +20,16 @@
     double _animationInitialVelocity;
     unsigned long long _animationOptions;
     SlidingPaneViewState *_paneState;
+    FMFuture *_presentingFuture;
+    FMFuture *_dismissingFuture;
     struct UIEdgeInsets _paneInsets;
     struct UIEdgeInsets _paneContentInsets;
 }
 
+@property(retain, nonatomic) FMFuture *dismissingFuture; // @synthesize dismissingFuture=_dismissingFuture;
+@property(nonatomic) _Bool isDismissing; // @synthesize isDismissing=_isDismissing;
+@property(retain, nonatomic) FMFuture *presentingFuture; // @synthesize presentingFuture=_presentingFuture;
+@property(nonatomic) _Bool isPresenting; // @synthesize isPresenting=_isPresenting;
 @property(nonatomic) _Bool didHideToolbar; // @synthesize didHideToolbar=_didHideToolbar;
 @property(retain, nonatomic) SlidingPaneViewState *paneState; // @synthesize paneState=_paneState;
 @property(nonatomic) unsigned long long animationOptions; // @synthesize animationOptions=_animationOptions;

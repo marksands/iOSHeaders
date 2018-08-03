@@ -10,7 +10,7 @@
 #import "UICoordinateSpace.h"
 #import "_UICanvasLifecycleStateMonitoring.h"
 
-@class FBSScene, FBSSceneSettings, NSArray, NSPointerArray, NSString, UIScreen, _UIContextBinder, __UISceneSubstrate;
+@class FBSDisplayConfigurationRequest, FBSScene, FBSSceneSettings, NSArray, NSPointerArray, NSString, UIScreen, _UIContextBinder, __UISceneSubstrate;
 
 @interface _UICanvas : UIResponder <UICoordinateSpace, FBSSceneDelegate, _UICanvasLifecycleStateMonitoring>
 {
@@ -22,6 +22,7 @@
     id <_UICanvasMetricsUpdating> _metricsCalculator;
     NSPointerArray *_inheritingCanvases;
     _Bool _active;
+    unsigned char _displayConfigurationRequestRefCount;
     _Bool suspendedEventsOnly;
     _Bool runningInTaskSwitcher;
     _Bool suspendedUnderLock;
@@ -53,6 +54,8 @@
 @property(nonatomic, getter=_suspendedEventsOnly, setter=_setSuspendedEventsOnly:) _Bool suspendedEventsOnly; // @synthesize suspendedEventsOnly;
 @property(readonly, nonatomic) long long state; // @synthesize state;
 - (void).cxx_destruct;
+@property(retain, nonatomic, getter=_displayConfigurationRequest, setter=_setDisplayConfigurationRequest:) FBSDisplayConfigurationRequest *displayConfigurationRequest;
+@property(readonly, nonatomic) _Bool _activeDisplayConfigurationRequestTransaction; // @dynamic _activeDisplayConfigurationRequestTransaction;
 @property(readonly, nonatomic) id <_UIAnimationFenceCoordinating> animationFencingCoordinator;
 - (void)_invalidate;
 - (void)_recycleAttachmentForWindow:(id)arg1;

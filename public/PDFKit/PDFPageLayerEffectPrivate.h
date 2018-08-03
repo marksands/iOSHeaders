@@ -36,9 +36,8 @@ __attribute__((visibility("hidden")))
     CALayer *lollipopMagnifierLayer;
     struct CGImage *lollipopImageMask;
     struct CGSize lollipopSize;
-    LoupeRenderRequest *currentLoupeRenderRequest;
-    int isRenderingLoupe;
-    int loupeNeedsUpdate;
+    LoupeRenderRequest *loupeRenderRequest;
+    struct os_unfair_lock_s loupeRenderRequestLock;
 }
 
 - (void).cxx_destruct;

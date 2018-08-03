@@ -123,10 +123,9 @@
 - (void)_removePanController;
 - (void)_addPanControllerAsChild;
 - (void)_setPanInterfaceVisible:(_Bool)arg1 animated:(_Bool)arg2;
-- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)_handlePanGesture:(id)arg1;
-- (void)_gestureNoOp:(id)arg1;
+- (void)_handleTapGesture:(id)arg1;
 - (void)_hideBar:(id)arg1;
 - (void)_showBar;
 - (void)_animateButtonsHidden:(_Bool)arg1;
@@ -164,7 +163,6 @@
 - (void)updateNavigationAlert:(id)arg1;
 - (void)dismissNavigationAlertAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)showNavigationAlert:(id)arg1 animated:(_Bool)arg2;
-- (struct CGRect)_rectForNavigationAlert:(id)arg1;
 - (void)_reloadPreviewsView;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

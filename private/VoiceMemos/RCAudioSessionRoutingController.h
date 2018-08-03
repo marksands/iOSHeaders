@@ -38,9 +38,6 @@
 @property(nonatomic) _Bool enableProximityMonitorIfAppropriateForOutputRoute; // @synthesize enableProximityMonitorIfAppropriateForOutputRoute=_enableProximityMonitorIfAppropriateForOutputRoute;
 @property(nonatomic) _Bool useVoiceMemoSettings; // @synthesize useVoiceMemoSettings=_useVoiceMemoSettings;
 - (void).cxx_destruct;
-- (void)_pickAudioDeviceRouteType:(long long)arg1;
-- (void)_pickSpeakerAudioDeviceRoute;
-- (void)_pickHandsetAudioDeviceRoute;
 - (void)_setShouldRouteToSpeakerUserDefaultValue:(_Bool)arg1;
 - (_Bool)_routeDefaultBoolForKey:(id)arg1 nonVoiceMemoAppValue:(_Bool)arg2;
 - (unsigned long long)_availableRoutesMask;
@@ -50,8 +47,6 @@
 - (_Bool)_speakerRouteIsPickedOrPreferred;
 - (void)_updateProximitySetting;
 - (void)_updateSpeakerRouteDefault;
-- (void)_applyUserDefaultAudioRoute;
-- (void)_applyUserDefaultAudioRouteAllowingDefaultOverride:(_Bool)arg1;
 - (void)_setWeakSessionRoutingAssertions:(struct __CFArray *)arg1;
 - (id)_activeAudioSessionRoutingAssertion;
 - (_Bool)_isRoutingToAirPlayDestination;
@@ -69,7 +64,6 @@
 @property(readonly, nonatomic) NSString *selectedRouteName;
 @property(readonly, nonatomic) long long selectedRouteType;
 @property(readonly, nonatomic) unsigned long long availableRoutesMask;
-- (void)toggleSpeaker;
 - (void)showAvailableRoutesInWindow:(id)arg1;
 - (void)removeRouteAssertion:(id)arg1;
 - (void)addRouteAssertion:(id)arg1;

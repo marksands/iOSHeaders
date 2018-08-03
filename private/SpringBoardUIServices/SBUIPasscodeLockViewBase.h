@@ -38,7 +38,6 @@
     unsigned long long _biometricMatchingState;
     id <BSInvalidatable> _biometricMatchingAssertion;
     NSMutableSet *_biometricMatchingEnabledOverrideReasons;
-    id <BSInvalidatable> _faceDetectAssertion;
     _Bool _deviceHasBeenUnlockedOnceSinceBoot;
     _Bool _pendingBioUnlock;
     int _currentPendingBioUnlockToken;

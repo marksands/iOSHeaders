@@ -11,7 +11,7 @@
 }
 
 + (id)sharedSavingWorkerQueue;
-- (void)performBackgroundTask;
+- (void)performUserInteractionTask;
 - (_Bool)isCancellable;
 - (id)createActionProgress;
 

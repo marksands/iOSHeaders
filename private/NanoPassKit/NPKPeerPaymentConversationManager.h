@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSConversation, NPKPeerPaymentConversationContext, NSString, PKPeerPaymentRecipient;
+@class MSConversation, NPKPeerPaymentConversationContext, NSString, PKPeerPaymentController, PKPeerPaymentRecipient;
 
 @interface NPKPeerPaymentConversationManager : NSObject
 {
@@ -14,9 +14,11 @@
     PKPeerPaymentRecipient *_recipient;
     NPKPeerPaymentConversationContext *_conversationContext;
     NSString *_currentRecipientAddressLookup;
+    PKPeerPaymentController *_currentPeerPaymentController;
 }
 
 + (id)sharedInstance;
+@property __weak PKPeerPaymentController *currentPeerPaymentController; // @synthesize currentPeerPaymentController=_currentPeerPaymentController;
 @property(retain) NSString *currentRecipientAddressLookup; // @synthesize currentRecipientAddressLookup=_currentRecipientAddressLookup;
 @property(retain, nonatomic) NPKPeerPaymentConversationContext *conversationContext; // @synthesize conversationContext=_conversationContext;
 @property(retain) PKPeerPaymentRecipient *recipient; // @synthesize recipient=_recipient;

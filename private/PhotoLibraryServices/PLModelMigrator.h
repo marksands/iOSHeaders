@@ -18,6 +18,7 @@
     NSDictionary *_syncedPropertiesByUUID;
 }
 
++ (_Bool)_deleteVideoThumbsMadeFromPreferredFrameInStore:(id)arg1;
 + (_Bool)_filterSceneClassificationsInStore:(id)arg1;
 + (_Bool)_ensureAllUserVerifiedPersonsHaveFaceCropsInStore:(id)arg1;
 + (_Bool)_removeUntrackedPersonMetadataInStore:(id)arg1;
@@ -40,7 +41,6 @@
 + (_Bool)_repushAssetsWithAnyUserConfirmedFaceInStore:(id)arg1;
 + (_Bool)_repushAssetsWithNewGroupingPropertiesInStore:(id)arg1;
 + (_Bool)_repushAssetsMatchingPredicate:(id)arg1 inStore:(id)arg2 withMaster:(_Bool)arg3;
-+ (_Bool)_findTruncatedOriginaFilesForStore:(id)arg1;
 + (id)_predicateForInconsistentHeifAssets;
 + (void)_fixIncorrectHeifMetadataForAsset:(id)arg1;
 + (_Bool)_fixIncorrectHeifMetadataInStore:(id)arg1;

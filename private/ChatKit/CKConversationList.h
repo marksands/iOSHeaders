@@ -53,7 +53,7 @@
 - (void)setNeedsReload;
 - (void)resetCaches;
 - (id)conversationForExistingChat:(id)arg1;
-- (id)conversationForHandles:(id)arg1 displayName:(id)arg2 lastAddressedHandle:(id)arg3 joinedChatsOnly:(_Bool)arg4 create:(_Bool)arg5;
+- (id)conversationForHandles:(id)arg1 displayName:(id)arg2 lastAddressedHandle:(id)arg3 lastAddressedSIMID:(id)arg4 joinedChatsOnly:(_Bool)arg5 create:(_Bool)arg6;
 - (id)conversationForHandles:(id)arg1 displayName:(id)arg2 joinedChatsOnly:(_Bool)arg3 create:(_Bool)arg4;
 - (id)_copyEntitiesForAddressStrings:(id)arg1;
 - (void)_handleRegistryWillUnregisterChatNotification:(id)arg1;

@@ -66,6 +66,7 @@
 - (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
+- (_Bool)shouldHideSeparatorsForCell:(id)arg1 indexPath:(id)arg2;
 - (id)childViewControllersToPreload;
 - (void)textDidChange:(id)arg1 forTextField:(id)arg2 item:(id)arg3;
 - (id)currentTextForTextField:(id)arg1 item:(id)arg2;

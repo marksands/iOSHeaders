@@ -21,6 +21,8 @@
     NSString *_configurationID;
     NSString *_contentHash;
     NSString *_lastModifiedString;
+    NSString *_etag;
+    NSString *_lastModifiedFallbackString;
     NSDate *_lastFetchedDate;
     NSNumber *_fallbackMaxAge;
     NSNumber *_endpointMaxAge;
@@ -30,6 +32,8 @@
 @property(retain, nonatomic) NSNumber *endpointMaxAge; // @synthesize endpointMaxAge=_endpointMaxAge;
 @property(retain, nonatomic) NSNumber *fallbackMaxAge; // @synthesize fallbackMaxAge=_fallbackMaxAge;
 @property(retain, nonatomic) NSDate *lastFetchedDate; // @synthesize lastFetchedDate=_lastFetchedDate;
+@property(retain, nonatomic) NSString *lastModifiedFallbackString; // @synthesize lastModifiedFallbackString=_lastModifiedFallbackString;
+@property(retain, nonatomic) NSString *etag; // @synthesize etag=_etag;
 @property(retain, nonatomic) NSString *lastModifiedString; // @synthesize lastModifiedString=_lastModifiedString;
 @property(retain, nonatomic) NSString *contentHash; // @synthesize contentHash=_contentHash;
 @property(retain, nonatomic) NSString *configurationID; // @synthesize configurationID=_configurationID;

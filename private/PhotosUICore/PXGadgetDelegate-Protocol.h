@@ -12,6 +12,8 @@
 - (_Bool)scrollGadgetToVisible:(id <PXGadget>)arg1 animated:(_Bool)arg2;
 - (id <PXGridPresentation>)gridPresentation;
 - (PXOneUpPresentation *)oneUpPresentation;
+- (void)dismissGadgetViewController:(struct NSObject *)arg1 animated:(_Bool)arg2 completion:(void (^)(void))arg3;
+- (void)presentGadgetViewController:(struct NSObject *)arg1 animated:(_Bool)arg2 completion:(void (^)(void))arg3;
 - (_Bool)gadget:(id <PXGadget>)arg1 transitionToViewController:(struct NSObject *)arg2 animated:(_Bool)arg3 completion:(void (^)(void))arg4;
 
 @optional

@@ -745,6 +745,7 @@
 @property(nonatomic) _Bool remembersLastFocusedIndexPath;
 - (id)_contentFocusContainerGuide;
 - (void)_setUpContentFocusContainerGuide;
+- (id)_sidebarVariantOfConstants:(id)arg1;
 - (void)_scrollViewAnimationEnded:(id)arg1 finished:(_Bool)arg2;
 - (void)_nudgeScroll:(long long)arg1;
 - (void)_handleNudgeInDirection:(long long)arg1;

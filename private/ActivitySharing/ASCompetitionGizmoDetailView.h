@@ -6,31 +6,31 @@
 
 #import "UIView.h"
 
-@class ASCompetitionGraphView, ASCompetitionMessageBubbleView, ASCompetitionScoreView, ASCompetitionScoreViewConfiguration, ASCompetitionTimeRemainingLabel, ASFriend, NSNumber;
+@class ASCompetitionGraphView, ASCompetitionMessageBubbleView, ASCompetitionScoreView, ASCompetitionTimeRemainingLabel, NSNumber;
 
 @interface ASCompetitionGizmoDetailView : UIView
 {
-    ASCompetitionScoreView *_scoreView;
+    ASCompetitionScoreView *_totalScoreView;
+    ASCompetitionScoreView *_totalWinsScoreView;
     ASCompetitionGraphView *_graphView;
     ASCompetitionTimeRemainingLabel *_timeRemainingLabel;
     ASCompetitionMessageBubbleView *_messageBubbleView;
-    UIView *_separatorView;
+    UIView *_timeRemainingSeparator;
+    UIView *_totalWinsSeparator;
     NSNumber *_previousLayoutWidth;
-    ASCompetitionScoreViewConfiguration *_configuration;
+    long long _modules;
+    long long _type;
     _Bool _isInteractionEnabled;
-    ASFriend *_friend;
-    long long _timeRemainingLabelAlignment;
 }
 
-@property(nonatomic) long long timeRemainingLabelAlignment; // @synthesize timeRemainingLabelAlignment=_timeRemainingLabelAlignment;
 @property(nonatomic) _Bool isInteractionEnabled; // @synthesize isInteractionEnabled=_isInteractionEnabled;
-@property(retain, nonatomic) ASFriend *friend; // @synthesize friend=_friend;
 - (void).cxx_destruct;
 - (_Bool)supportsSmackTalkReply;
+- (void)setFriend:(id)arg1 competition:(id)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutForWidth:(double)arg1;
 - (void)layoutSubviews;
-- (id)initWithDetailViewType:(long long)arg1;
+- (id)initWithDetailViewType:(long long)arg1 thumbnailCreationBlock:(CDUnknownBlockType)arg2;
 
 @end
 

@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+#import "HKStateMachineDelegate.h"
 #import "HKWorkoutBuilderClientInterface.h"
 #import "_HKXPCExportable.h"
 
-@class HKDevice, HKHealthStore, HKTaskServerProxyProvider, HKWorkoutBuilderConfiguration, HKWorkoutConfiguration, NSArray, NSDate, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID;
+@class HKDevice, HKHealthStore, HKStateMachine, HKTaskServerProxyProvider, HKWorkoutBuilderConfiguration, HKWorkoutConfiguration, NSArray, NSDate, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
-@interface HKWorkoutBuilder : NSObject <_HKXPCExportable, HKWorkoutBuilderClientInterface>
+@interface HKWorkoutBuilder : NSObject <_HKXPCExportable, HKWorkoutBuilderClientInterface, HKStateMachineDelegate>
 {
     HKWorkoutBuilderConfiguration *_builderConfiguration;
     NSDate *_workoutStartDate;
@@ -21,6 +22,12 @@
     double _accumulatedElapsedTime;
     double _lastResumeTimestamp;
     _Bool _currentlyRunning;
+    long long _serverConstructionState;
+    HKStateMachine *_constructionStateMachine;
+    CDUnknownBlockType _beginCollectionCompletionHandler;
+    CDUnknownBlockType _endCollectionCompletionHandler;
+    CDUnknownBlockType _finishWorkoutCompletionHandler;
+    CDUnknownBlockType _unitTest_serverStateChangedHandler;
     HKWorkoutConfiguration *_workoutConfiguration;
     NSMutableDictionary *_seriesBuilders;
     NSMutableDictionary *_statisticsByType;
@@ -33,7 +40,8 @@
 + (id)serverInterface;
 + (id)clientInterface;
 + (double)_elapsedTimeAtDate:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 sortedEvents:(id)arg4;
-+ (long long)_stateAtDate:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 sortedEvents:(id)arg4;
++ (long long)_collectionStateAtDate:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 sortedEvents:(id)arg4;
++ (id)_constructionStateMachineForBuilderConfiguration:(id)arg1 builderIdentifier:(id)arg2;
 @property(readonly, copy, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) HKHealthStore *healthStore; // @synthesize healthStore=_healthStore;
 @property(readonly, nonatomic) HKTaskServerProxyProvider *proxyProvider; // @synthesize proxyProvider=_proxyProvider;
@@ -42,6 +50,7 @@
 @property(retain, nonatomic) NSMutableDictionary *seriesBuilders; // @synthesize seriesBuilders=_seriesBuilders;
 @property(readonly, copy) HKWorkoutConfiguration *workoutConfiguration; // @synthesize workoutConfiguration=_workoutConfiguration;
 - (void).cxx_destruct;
+- (void)unitTest_setServerStateChangeHandler:(CDUnknownBlockType)arg1;
 - (void)_restoreRecoveredSeriesBuildersWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_recoverWithCompletion:(CDUnknownBlockType)arg1;
 @property(copy, nonatomic) HKWorkoutBuilderConfiguration *configuration;
@@ -51,23 +60,31 @@
 - (void)connectionInvalidated;
 - (id)remoteInterface;
 - (id)exportedInterface;
+- (void)clientRemote_didFailWithError:(id)arg1;
+- (void)clientRemote_finishedWorkout:(id)arg1;
+- (void)clientRemote_stateDidChange:(long long)arg1 startDate:(id)arg2 endDate:(id)arg3;
 - (void)clientRemote_synchronizeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)clientRemote_didRecoverSeriesBuilders:(id)arg1;
 - (void)clientRemote_didChangeElapsedTimeBasisWithStartDate:(id)arg1 endDate:(id)arg2;
 - (void)clientRemote_didUpdateEvents:(id)arg1;
 - (void)clientRemote_didUpdateMetadata:(id)arg1;
 - (void)clientRemote_didUpdateStatistics:(id)arg1;
+- (void)_resourceQueue_setStatisticsComputationMethod:(long long)arg1 forType:(id)arg2;
 - (void)_resourceQueue_setStatisticsMergeStrategy:(unsigned long long)arg1 forType:(id)arg2;
 - (void)_resourceQueue_updateDevice:(id)arg1;
 - (void)_resourceQueue_freezeSeriesBuilders;
 - (void)_resourceQueue_updateElapsedTimeCache;
 - (id)_resourceQueue_seriesBuilderWithIdentifier:(id)arg1 type:(id)arg2;
-- (void)_resourceQueue_finishWorkoutWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_resourceQueue_endCollectionWithEndDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_resourceQueue_addMetadata:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_resourceQueue_addWorkoutEvents:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_resourceQueue_addSamples:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_resourceQueue_finishWorkoutWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_resourceQueue_endCollectionWithEndDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_resourceQueue_beginCollectionWithStartDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_pushCurrentTargetState;
+- (void)stateMachine:(id)arg1 didTransition:(id)arg2 fromState:(id)arg3 toState:(id)arg4 date:(id)arg5 error:(id)arg6;
+- (void)stateMachine:(id)arg1 didEnterState:(id)arg2 date:(id)arg3 error:(id)arg4;
+- (void)_setStatisticsComputationMethod:(long long)arg1 forType:(id)arg2;
 - (void)_setStatisticsMergeStrategy:(unsigned long long)arg1 forType:(id)arg2;
 - (void)_setDevice:(id)arg1;
 - (id)goal;
@@ -78,7 +95,6 @@
 - (id)seriesBuilderForType:(id)arg1;
 - (id)statisticsForType:(id)arg1;
 - (void)discardWorkout;
-- (void)finishWorkoutWithEndDate:(id)arg1 metadata:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)finishWorkoutWithCompletion:(CDUnknownBlockType)arg1;
 - (void)endCollectionWithEndDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, copy) NSDictionary *metadata;

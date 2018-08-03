@@ -4,14 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "DOCRemoteAppearanceInterface.h"
 
-@class DOCAppearance, DOCConfiguration;
+@class DOCConfiguration;
 
-@protocol DOCServiceContextProtocol <NSObject>
+@protocol DOCServiceContextProtocol <DOCRemoteAppearanceInterface>
 - (void)fetchAllSourcesWithCompletionHandler:(void (^)(NSArray *))arg1;
-- (void)updateEditingTo:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)updateAppearance:(DOCAppearance *)arg1 completionBlock:(void (^)(void))arg2;
 - (void)configureAsBrowserViewWithHostProxy:(id <DOCHostBrowserViewControllerProxy>)arg1 configuration:(DOCConfiguration *)arg2 completionBlock:(void (^)(id <DOCServiceBrowserViewControllerProxy>))arg3;
 - (void)configureAsSourceViewWithHostProxy:(id <DOCHostSourceViewControllerProxy>)arg1 configuration:(DOCConfiguration *)arg2 completionBlock:(void (^)(id <DOCServiceSourceViewControllerProxy>))arg3;
 - (void)configureAsInfoViewWithHostProxy:(id <DOCHostInfoViewControllerProxy>)arg1 configuration:(DOCConfiguration *)arg2 completionBlock:(void (^)(id <DOCServiceInfoViewControllerProxy>))arg3;

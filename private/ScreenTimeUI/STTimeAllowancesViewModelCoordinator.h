@@ -8,7 +8,7 @@
 
 #import "STTimeAllowancesViewModelCoordinator.h"
 
-@class NSNumber, NSString, RMAskForTimeClient, STTimeAllowancesViewModel;
+@class NSManagedObjectID, NSNumber, NSString, RMAskForTimeClient, STTimeAllowancesViewModel;
 
 @interface STTimeAllowancesViewModelCoordinator : NSObject <STTimeAllowancesViewModelCoordinator>
 {
@@ -17,8 +17,10 @@
     NSNumber *_userDSID;
     id <RMPersistenceControllerProtocol> _persistenceController;
     RMAskForTimeClient *_askForTimeClient;
+    NSManagedObjectID *_userObjectID;
 }
 
+@property(copy, nonatomic) NSManagedObjectID *userObjectID; // @synthesize userObjectID=_userObjectID;
 @property(readonly, nonatomic) RMAskForTimeClient *askForTimeClient; // @synthesize askForTimeClient=_askForTimeClient;
 @property(readonly, nonatomic) id <RMPersistenceControllerProtocol> persistenceController; // @synthesize persistenceController=_persistenceController;
 @property(copy, nonatomic) NSNumber *userDSID; // @synthesize userDSID=_userDSID;
@@ -42,6 +44,7 @@
 - (void)loadViewModelWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_persistenceStoreDidChange:(id)arg1;
 - (void)_registerForPersistenceStoreNotifications;
+- (void)_saveDefaultAlwaysAllowList;
 - (id)initWithPersistenceController:(id)arg1 organizationIdentifier:(id)arg2 userDSID:(id)arg3;
 
 // Remaining properties

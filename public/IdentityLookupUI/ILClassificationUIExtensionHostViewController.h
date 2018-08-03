@@ -7,54 +7,52 @@
 #import "UIViewController.h"
 
 #import "ILClassificationUIExtensionHostContextDelegate.h"
-#import "MFMessageComposeViewControllerDelegate.h"
 #import "UINavigationBarDelegate.h"
 
-@class ILClassificationRequest, ILClassificationResponse, ILClassificationUIExtensionHostContext, NSExtension, NSObject<OS_dispatch_queue>, NSString, NSUUID, UINavigationBar;
+@class ILClassificationReportingController, ILClassificationRequest, ILClassificationResponse, ILClassificationUIExtensionHostContext, NSExtension, NSObject<OS_dispatch_queue>, NSString, NSUUID, UINavigationBar;
 
-@interface ILClassificationUIExtensionHostViewController : UIViewController <ILClassificationUIExtensionHostContextDelegate, UINavigationBarDelegate, MFMessageComposeViewControllerDelegate>
+@interface ILClassificationUIExtensionHostViewController : UIViewController <ILClassificationUIExtensionHostContextDelegate, UINavigationBarDelegate>
 {
     id <ILClassificationUIExtensionHostViewControllerDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_queue;
-    NSString *_extensionIdentifier;
     ILClassificationRequest *_classificationRequest;
     ILClassificationResponse *_classificationResponse;
+    NSString *_sender;
+    NSString *_isoCountryCode;
     NSExtension *_extension;
     NSUUID *_extensionRequestIdentifier;
     UIViewController *_extensionRemoteViewController;
     UINavigationBar *_navigationBar;
     ILClassificationUIExtensionHostContext *_extensionHostContext;
-    NSString *_sender;
-    NSString *_isoCountryCode;
+    ILClassificationReportingController *_reportingController;
 }
 
-@property(copy, nonatomic) NSString *isoCountryCode; // @synthesize isoCountryCode=_isoCountryCode;
-@property(copy, nonatomic) NSString *sender; // @synthesize sender=_sender;
+@property(readonly, nonatomic) ILClassificationReportingController *reportingController; // @synthesize reportingController=_reportingController;
 @property(retain, nonatomic) ILClassificationUIExtensionHostContext *extensionHostContext; // @synthesize extensionHostContext=_extensionHostContext;
 @property(retain, nonatomic) UINavigationBar *navigationBar; // @synthesize navigationBar=_navigationBar;
 @property(retain, nonatomic) UIViewController *extensionRemoteViewController; // @synthesize extensionRemoteViewController=_extensionRemoteViewController;
 @property(retain, nonatomic) NSUUID *extensionRequestIdentifier; // @synthesize extensionRequestIdentifier=_extensionRequestIdentifier;
 @property(retain, nonatomic) NSExtension *extension; // @synthesize extension=_extension;
+@property(copy, nonatomic) NSString *isoCountryCode; // @synthesize isoCountryCode=_isoCountryCode;
+@property(copy, nonatomic) NSString *sender; // @synthesize sender=_sender;
 @property(retain, nonatomic) ILClassificationResponse *classificationResponse; // @synthesize classificationResponse=_classificationResponse;
 @property(readonly, nonatomic) ILClassificationRequest *classificationRequest; // @synthesize classificationRequest=_classificationRequest;
-@property(readonly, copy, nonatomic) NSString *extensionIdentifier; // @synthesize extensionIdentifier=_extensionIdentifier;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic) __weak id <ILClassificationUIExtensionHostViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)blockNumber:(id)arg1 withCountryCode:(id)arg2;
 - (void)launchSettings;
-- (void)presentBlockAlert;
-- (void)messageComposeViewController:(id)arg1 didFinishWithResult:(long long)arg2;
-- (void)reportViaSMSWithSender:(id)arg1 body:(id)arg2;
+- (void)presentBlockAlertWithCompletion:(CDUnknownBlockType)arg1;
 - (void)finish;
-- (void)reportResponse:(id)arg1;
 - (void)didCompleteClassificationRequestWithResponse:(id)arg1;
 - (void)context:(id)arg1 didBecomeReadyForClassificationResponse:(_Bool)arg2;
 - (void)userDidCancelClassification;
 - (void)userDidCompleteClassification;
 - (long long)positionForBar:(id)arg1;
-- (void)viewDidLoad;
+- (void)presentExtensionRemoteViewController:(id)arg1;
+- (void)activateExtension;
 - (void)setupNavigationBar;
+- (void)viewDidLoad;
 - (id)initWithClassificationRequest:(id)arg1 sender:(id)arg2 isoCountryCode:(id)arg3;
 
 // Remaining properties

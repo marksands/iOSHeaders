@@ -20,8 +20,9 @@
 + (void)getApprovedSharedWebCredentialsEntriesForAppWithAppID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)_sortCredentials:(id)arg1 usingApprovedSharedWebCredentialsDatabaseEntries:(id)arg2;
 + (_Bool)_savedPassword:(id)arg1 isRelatedToEntryHighLevelDomains:(id)arg2 andWebsiteURL:(id)arg3;
++ (id)bestDomainForAutoFillFromDomains:(id)arg1 appID:(id)arg2;
 + (void)bestDomainForAppID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-+ (id)_bestDomainFromApprovedDomainsForWebCredentials:(id)arg1 appLinks:(id)arg2 continuity:(id)arg3 appID:(id)arg4;
++ (id)_bestDomainFromApprovedDomainsForWebCredentials:(id)arg1 appLinks:(id)arg2 continuity:(id)arg3 appID:(id)arg4 allDomains:(id *)arg5;
 + (void)_getAllowedActionForAppCredentialsWithAppID:(id)arg1 websiteURL:(id)arg2 user:(id)arg3 password:(id)arg4 shouldAnalyzeExistingCredentials:(_Bool)arg5 completionHandler:(CDUnknownBlockType)arg6;
 + (void)getAllowedActionForAppCredentialsWithAppID:(id)arg1 websiteURL:(id)arg2 user:(id)arg3 password:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 + (void)getCanSaveCredentialsWithAppID:(id)arg1 websiteURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

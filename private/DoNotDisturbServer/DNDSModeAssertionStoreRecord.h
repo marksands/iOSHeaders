@@ -19,7 +19,7 @@
     NSArray *_storeAssertionRecords;
 }
 
-+ (id)migrateDictionaryRepresentations:(id)arg1 withVersionNumber:(unsigned long long)arg2;
++ (id)migrateDictionaryRepresentations:(id)arg1 fromVersionNumber:(unsigned long long)arg2 toVersionNumber:(unsigned long long)arg3;
 + (id)backingStoreWithFileURL:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *storeAssertionRecords; // @synthesize storeAssertionRecords=_storeAssertionRecords;
 @property(readonly, copy, nonatomic) NSNumber *storeLastCompleteInvalidationTimestamp; // @synthesize storeLastCompleteInvalidationTimestamp=_storeLastCompleteInvalidationTimestamp;

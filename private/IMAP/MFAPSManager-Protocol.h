@@ -13,5 +13,6 @@
 - (void)stopWatchingForTopic:(NSString *)arg1;
 - (void)startWatchingForTopic:(NSString *)arg1;
 - (NSString *)copyDiagnosticInformation;
+- (void)setLaunchMachServiceName:(NSString *)arg1;
 @end
 

@@ -8,7 +8,7 @@
 
 #import "RELoggable.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>, NSString, REContentRanker, REMLLinearModel, REMLMetricsSet, REObserverStore;
+@class NSArray, NSDate, NSObject<OS_dispatch_queue>, NSString, REContentRanker, REMLLinearModel, REMLMetricsSet, REObserverStore;
 
 @interface REMLModelManager : RERelevanceEngineSubsystem <RELoggable>
 {
@@ -20,6 +20,7 @@
     NSString *_modelFileLocation;
     _Bool _supportsContentRanking;
     NSArray *_orderedFeatures;
+    NSDate *_lastCacheResetDate;
 }
 
 - (void).cxx_destruct;
@@ -29,7 +30,7 @@
 - (id)comparatorWithRules:(id)arg1;
 - (void)performModelClear;
 - (void)_notifyObserversThatModelUpdated;
-- (void)performTrainingWithFeatureMaps:(id)arg1 content:(id)arg2 events:(id)arg3 interactions:(id)arg4;
+- (void)performTrainingWithFeatureMaps:(id)arg1 content:(id)arg2 events:(id)arg3 interactions:(id)arg4 purgeCaches:(_Bool)arg5;
 - (_Bool)_saveModelToDisk:(id *)arg1;
 - (id)createOutputFeatureFromDouble:(double)arg1 error:(id *)arg2;
 - (void)removeObserver:(id)arg1;

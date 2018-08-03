@@ -10,7 +10,7 @@
 #import "PXCMMInvitation.h"
 #import "PXMediaTypeAggregating.h"
 
-@class NSDate, NSString, PHAssetCollection, PHFetchResult;
+@class NSDate, NSString, PHAssetCollection, PHFetchResult, PXAssetCollectionActionManager;
 
 @interface PXCMMSharedAlbumInvitation : NSObject <PXMediaTypeAggregating, PXCMMInvitation, NSCopying>
 {
@@ -41,6 +41,7 @@
 - (void)notifyUserWhenReadyToViewIfNeeded;
 - (void)acceptWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)contextForActivityType:(unsigned long long)arg1;
+@property(readonly, nonatomic) PXAssetCollectionActionManager *assetCollectionActionManager;
 @property(readonly, nonatomic) unsigned long long count;
 @property(readonly, nonatomic) NSDate *expiryDate;
 @property(readonly, nonatomic) NSDate *creationDate;

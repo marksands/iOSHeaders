@@ -56,7 +56,7 @@
 - (void)removeMRCIndicatorForIdentifier:(id)arg1;
 - (void)addMRCIndicator:(id)arg1 forIdentifier:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *mrcIndicatorViews;
-- (struct CGRect)frameForSubjectIndicator:(id)arg1 andFaceResult:(id)arg2 useNominalSize:(_Bool)arg3;
+- (struct CGRect)frameForSubjectIndicator:(id)arg1 andFaceResult:(id)arg2 useFixedSize:(_Bool)arg3;
 - (void)removeTrackedSubjectIndicatorForIdentifier:(long long)arg1;
 - (void)addTrackedSubjectIndicator:(id)arg1 forIdentifier:(long long)arg2;
 @property(readonly, nonatomic) NSDictionary *trackedSubjectIndicatorsByIdentifier;

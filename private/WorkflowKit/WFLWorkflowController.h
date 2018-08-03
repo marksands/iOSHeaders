@@ -36,6 +36,7 @@
 - (void)workflowControllerWillRun;
 - (id)createImplementationForAction:(id)arg1;
 - (void)stepWithInput:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)launchAppWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)stop;
 - (void)runWithInput:(id)arg1;
 - (void)dealloc;

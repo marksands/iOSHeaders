@@ -212,10 +212,13 @@ struct AVVCPluginRecordingEngine {
     struct OpaqueAudioFileID *_field3;
     int _field4;
     id _field5;
-    unsigned int _field6;
+    id _field6;
     unsigned int _field7;
-    float _field8;
-    int _field9;
+    unsigned int _field8;
+    float _field9;
+    int _field10;
+    unsigned char _field11;
+    unsigned char _field12;
 };
 
 struct AVVCRecordingEngine;
@@ -481,6 +484,7 @@ struct ControllerImpl {
     struct AVVCPluginRecordingEngine *_field107;
     struct AVVCAudioQueueRecordingEngine *_field108;
     id _field109;
+    id _field110;
 };
 
 struct DataSourceDescriptionImpl {
@@ -584,6 +588,8 @@ struct MyAudioQueueBuffer {
     struct AudioStreamPacketDescription *_field6;
     unsigned int _field7;
     struct AudioStreamBasicDescription _field8;
+    unsigned char _field9;
+    unsigned char _field10;
 };
 
 struct MyMutex;
@@ -612,11 +618,12 @@ struct PortDescriptionImpl {
     id _field5;
     _Bool _field6;
     _Bool _field7;
-    unsigned long long _field8;
-    id _field9;
+    _Bool _field8;
+    unsigned long long _field9;
     id _field10;
     id _field11;
     id _field12;
+    id _field13;
 };
 
 struct RouteDescriptionImpl {

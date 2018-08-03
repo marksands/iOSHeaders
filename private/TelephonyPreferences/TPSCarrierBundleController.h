@@ -14,6 +14,8 @@
 - (void)carrierBundleChange:(id)arg1;
 - (id)objectForKey:(id)arg1 subscriptionContext:(id)arg2 error:(id *)arg3;
 - (id)objectForKey:(id)arg1 subscriptionContext:(id)arg2;
+- (id)localizedStringForKey:(id)arg1 subscriptionContext:(id)arg2 error:(id *)arg3;
+- (id)localizedStringForKey:(id)arg1 subscriptionContext:(id)arg2;
 - (id)localizedCarrierNameForSubscriptionContext:(id)arg1;
 
 @end

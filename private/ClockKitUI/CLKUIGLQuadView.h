@@ -12,6 +12,7 @@
 {
     EAGLContext *_context;
     CLKUIGLQuadRenderer *_renderer;
+    struct CGSize _layoutSize;
     unsigned int _defaultFramebuffer;
     unsigned int _colorRenderbuffer;
     unsigned int _depthRenderbuffer;

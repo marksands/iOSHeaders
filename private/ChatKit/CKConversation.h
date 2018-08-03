@@ -23,6 +23,7 @@
     int _wasDetectedAsSMSSpam;
     NSArray *_pendingHandles;
     NSString *_selectedLastAddressedHandle;
+    NSString *_selectedLastAddressedSIMID;
     NSSet *_pendingRecipients;
     NSAttributedString *_groupName;
     NSString *_previewText;
@@ -36,7 +37,7 @@
 + (double)_iMessage_maxTrimDurationForMediaType:(int)arg1;
 + (unsigned long long)_iMessage_maxTransferFileSizeForWiFi:(_Bool)arg1;
 + (id)_iMessage_localizedErrorForReason:(long long)arg1;
-+ (_Bool)_iMessage_canSendComposition:(id)arg1 lastAddressedHandle:(id)arg2 error:(id *)arg3;
++ (_Bool)_iMessage_canSendComposition:(id)arg1 lastAddressedHandle:(id)arg2 lastAddressedSIMID:(id)arg3 error:(id *)arg4;
 + (_Bool)_iMessage_canSendMessageWithMediaObjectTypes:(int *)arg1;
 + (_Bool)_iMessage_canSendMessageWithMediaObjectTypes:(int *)arg1 errorCode:(long long *)arg2;
 + (long long)_iMessage_maxAttachmentCount;
@@ -44,11 +45,11 @@
 + (_Bool)_sms_mediaObjectPassesDurationCheck:(id)arg1;
 + (double)_sms_maxTrimDurationForMediaType:(int)arg1;
 + (id)_sms_localizedErrorForReason:(long long)arg1;
-+ (_Bool)_sms_canSendComposition:(id)arg1 lastAddressedHandle:(id)arg2 error:(id *)arg3;
-+ (_Bool)_sms_canAcceptMediaObjectType:(int)arg1 givenMediaObjects:(id)arg2 phoneNumber:(id)arg3;
-+ (_Bool)_sms_canSendMessageWithMediaObjectTypes:(int *)arg1 phoneNumber:(id)arg2;
-+ (_Bool)_sms_canSendMessageWithMediaObjectTypes:(int *)arg1 phoneNumber:(id)arg2 errorCode:(long long *)arg3;
-+ (long long)_sms_maxAttachmentCountForPhoneNumber:(id)arg1;
++ (_Bool)_sms_canSendComposition:(id)arg1 lastAddressedHandle:(id)arg2 lastAddressedSIMID:(id)arg3 error:(id *)arg4;
++ (_Bool)_sms_canAcceptMediaObjectType:(int)arg1 givenMediaObjects:(id)arg2 phoneNumber:(id)arg3 simID:(id)arg4;
++ (_Bool)_sms_canSendMessageWithMediaObjectTypes:(int *)arg1 phoneNumber:(id)arg2 simID:(id)arg3;
++ (_Bool)_sms_canSendMessageWithMediaObjectTypes:(int *)arg1 phoneNumber:(id)arg2 simID:(id)arg3 errorCode:(long long *)arg4;
++ (long long)_sms_maxAttachmentCountForPhoneNumber:(id)arg1 simID:(id)arg2;
 + (_Bool)_sms_mediaObjectPassesRestriction:(id)arg1;
 @property(retain, nonatomic) NSNumber *businessConversation; // @synthesize businessConversation=_businessConversation;
 @property(nonatomic) _Bool isReportedAsSpam; // @synthesize isReportedAsSpam=_isReportedAsSpam;
@@ -57,6 +58,7 @@
 @property(retain, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
 @property(readonly, nonatomic) NSAttributedString *groupName; // @synthesize groupName=_groupName;
 @property(retain, nonatomic) NSSet *pendingRecipients; // @synthesize pendingRecipients=_pendingRecipients;
+@property(retain, nonatomic) NSString *selectedLastAddressedSIMID; // @synthesize selectedLastAddressedSIMID=_selectedLastAddressedSIMID;
 @property(retain, nonatomic) NSString *selectedLastAddressedHandle; // @synthesize selectedLastAddressedHandle=_selectedLastAddressedHandle;
 @property(readonly, nonatomic) _Bool needsReload; // @synthesize needsReload=_needsReload;
 @property(nonatomic) unsigned int limitToLoad; // @synthesize limitToLoad=_limitToLoad;
@@ -73,6 +75,7 @@
 @property(readonly, nonatomic) BOOL buttonColor;
 @property(nonatomic, getter=isPinned) _Bool pinned;
 @property(readonly, nonatomic) _Bool isPreviewTextForAttachment;
+- (id)fastPreviewTextIgnoringPluginContent;
 @property(nonatomic) NSString *displayName;
 @property(readonly, nonatomic) _Bool hasDisplayName;
 @property(readonly, nonatomic) NSString *name; // @dynamic name;
@@ -174,6 +177,8 @@
 - (void)setNeedsReload;
 - (void)resetCaches;
 - (void)resetNameCaches;
+@property(readonly, nonatomic) NSString *lastAddressedSIMID;
+@property(readonly, nonatomic) NSString *lastAddressedHandle;
 - (void)didBecomeActive;
 - (void)willBecomeInactive;
 - (id)initWithChat:(id)arg1;

@@ -452,7 +452,6 @@
 @property(readonly, nonatomic) _Bool shouldBackfillTranscript;
 @property(readonly, nonatomic) Class businessChatControllerClass;
 @property(readonly, nonatomic) Class chatControllerClass;
-@property(readonly, nonatomic) UIImage *liveConversationIndicatorImage;
 @property(readonly, nonatomic) UIImage *defaultWaveformImage;
 @property(readonly, nonatomic) UIImage *messageAcknowledgmentPickerBarBubbleImage;
 @property(readonly, nonatomic) UIImage *trashImage;

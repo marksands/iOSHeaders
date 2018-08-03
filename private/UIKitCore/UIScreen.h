@@ -37,7 +37,7 @@
         unsigned int bitsPerComponent:4;
         unsigned int initialized:1;
         unsigned int connected:1;
-        unsigned int overscanCompensation:2;
+        unsigned int initialOverscanCompensation:2;
         unsigned int wantsWideContentMargins:1;
         unsigned int queriedDeviceContentMargins:1;
         unsigned int hasCalculatedPointsPerInch:1;
@@ -147,6 +147,7 @@
 - (void)_handleEffectiveUserInterfaceStyleChanged:(id)arg1;
 - (void)_accessibilityForceTouchEnabledChanged:(id)arg1;
 @property(readonly, nonatomic) double nativeScale;
+- (double)_nativeScale;
 @property(readonly, nonatomic) struct CGRect nativeBounds;
 - (struct CGRect)_nativeDisplayBounds;
 - (id)_snapshotExcludingWindows:(id)arg1 withRect:(struct CGRect)arg2;
@@ -174,6 +175,7 @@
 - (id)fbsDisplay;
 - (void)_setExternalDeviceShouldInputText:(_Bool)arg1;
 - (double)_displayCornerRadius;
+- (double)_traitCollectionDisplayCornerRadius;
 - (long long)_forceTouchCapability;
 - (_Bool)_isForceTouchCapable;
 - (void)_setCapability:(id)arg1 forKey:(id)arg2;
@@ -209,6 +211,7 @@
 - (long long)gamut;
 - (double)_maximumSupportedScale;
 - (void)_setScale:(double)arg1;
+- (id)valueForKey:(id)arg1;
 - (double)_scale;
 @property(readonly, nonatomic) double scale; // @synthesize scale=_scale;
 - (id)displayLinkWithTarget:(id)arg1 selector:(SEL)arg2;
@@ -265,8 +268,7 @@
 - (struct CGRect)_applicationFrameForInterfaceOrientation:(long long)arg1 usingStatusbarHeight:(double)arg2 ignoreStatusBar:(_Bool)arg3;
 - (void)_setInterfaceOrientation:(long long)arg1;
 - (long long)_interfaceOrientation;
-- (void)_updateOverscanCompensationAllowingBackgroundUpdate:(_Bool)arg1;
-- (_Bool)_overscanAdjustmentNeedsUpdate;
+- (void)_updateInitialOverscanCompensation;
 - (_Bool)_isOverscanned;
 - (_Bool)_hasWindows;
 - (void)_updateDisplayConfiguration:(id)arg1;

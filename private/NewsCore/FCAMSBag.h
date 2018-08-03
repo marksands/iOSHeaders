@@ -23,6 +23,10 @@
 - (id)init;
 
 // Remaining properties
+@property(readonly, nonatomic) AMSBagValue *TFOSamplingPercentage;
+@property(readonly, nonatomic) AMSBagValue *TFOSamplingSessionDuration;
+@property(readonly, nonatomic) AMSBagValue *TLSSamplingPercentage;
+@property(readonly, nonatomic) AMSBagValue *TLSSamplingSessionDuration;
 @property(readonly, nonatomic) AMSBagValue *apsAllowedProductTypes;
 @property(readonly, nonatomic) AMSBagValue *apsEnabledPatterns;
 @property(readonly, nonatomic) AMSBagValue *apsSamplingPercent;

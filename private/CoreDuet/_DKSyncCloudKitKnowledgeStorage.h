@@ -54,6 +54,10 @@
 - (void)fetchEventsFromPeer:(id)arg1 creationDateBetweenDate:(id)arg2 andDate:(id)arg3 streamNames:(id)arg4 limit:(unsigned long long)arg5 fetchOrder:(long long)arg6 highPriority:(_Bool)arg7 completion:(CDUnknownBlockType)arg8;
 - (void)commitFetchDatabaseChangesServerChangeToken;
 - (void)prewarmFetchWithCompletion:(CDUnknownBlockType)arg1;
+- (void)setHasDeletionsFlag:(_Bool)arg1 forPeer:(id)arg2;
+- (_Bool)hasDeletionsFlagForPeer:(id)arg1;
+- (void)setHasAdditionsFlag:(_Bool)arg1 forPeer:(id)arg2;
+- (_Bool)hasAdditionsFlagForPeer:(id)arg1;
 - (void)removeSourceDeviceIdentifierWithRecordZoneID:(id)arg1;
 - (void)fastForwardPastDeletionsInZoneWithZoneID:(id)arg1;
 - (void)configurePeerWithSourceDeviceID:(id)arg1 zoneID:(id)arg2;

@@ -387,6 +387,7 @@ struct StreamTaskTestConfig {
     long long port;
     NSDictionary *proxyConfig;
     int connectionType;
+    _Bool allowTimeout;
 };
 
 struct TCPIOConnection;

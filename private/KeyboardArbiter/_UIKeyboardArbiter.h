@@ -59,6 +59,7 @@
 - (void)captureStateForDebug;
 - (void)retrieveDebugInformationWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, copy) NSString *description;
+- (id)_descriptionWithScene:(_Bool)arg1;
 - (void)dealloc;
 - (void)resume;
 - (id)initWithLink:(id)arg1;

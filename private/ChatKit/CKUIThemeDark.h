@@ -10,6 +10,13 @@
 {
 }
 
+- (id)fsmPickerSendButtonColor;
+- (id)fsmPickerCloseButtonColor;
+- (id)fsmPickerCurrentPageIndicatorColor;
+- (id)fsmPickerPageIndicatorColor;
+- (id)fsmPickerSecondaryColor;
+- (id)fsmPickerPrimaryTintColor;
+- (id)fsmPickerPrimaryColor;
 - (id)businessInfoViewDescriptionTextColor;
 - (id)businessDescriptionViewControllerBackgroundColor;
 - (id)appGrabberCloseImage;

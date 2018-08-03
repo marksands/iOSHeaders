@@ -11,18 +11,18 @@
 @interface NTKAstronomyTimelineEntryModel : NTKTimelineEntryModel
 {
     unsigned long long _vista;
-    NSDate *_date;
+    NSDate *_currentDate;
     CLLocation *_currentLocation;
     CLLocation *_anyLocation;
 }
 
 @property(readonly, nonatomic) CLLocation *anyLocation; // @synthesize anyLocation=_anyLocation;
 @property(readonly, nonatomic) CLLocation *currentLocation; // @synthesize currentLocation=_currentLocation;
-@property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
+@property(readonly, nonatomic) NSDate *currentDate; // @synthesize currentDate=_currentDate;
 @property(readonly, nonatomic) unsigned long long vista; // @synthesize vista=_vista;
 - (void).cxx_destruct;
 - (id)templateForComplicationFamily:(long long)arg1;
-- (id)initWithVista:(unsigned long long)arg1 date:(id)arg2 currentLocation:(id)arg3 anyLocation:(id)arg4;
+- (id)initWithVista:(unsigned long long)arg1 entryDate:(id)arg2 currentDate:(id)arg3 currentLocation:(id)arg4 anyLocation:(id)arg5;
 
 @end
 

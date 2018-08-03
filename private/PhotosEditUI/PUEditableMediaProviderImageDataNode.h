@@ -48,6 +48,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, getter=isRunning) _Bool running;
 @property(readonly) unsigned long long state;
 @property(readonly) Class superclass;
+@property(readonly, nonatomic) _Bool useEmbeddedPreview;
 @property(readonly, getter=isWaiting) _Bool waiting;
 
 @end

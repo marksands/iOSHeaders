@@ -13,8 +13,10 @@
     PXCMMPhotoKitActionManager *_photoKitActionManager;
     PHMomentShare *_momentShare;
     PHSuggestion *_suggestion;
+    PHMomentShare *_originatingMomentShare;
 }
 
+@property(retain, nonatomic) PHMomentShare *originatingMomentShare; // @synthesize originatingMomentShare=_originatingMomentShare;
 @property(readonly, nonatomic) PHSuggestion *suggestion; // @synthesize suggestion=_suggestion;
 @property(readonly, nonatomic) PHMomentShare *momentShare; // @synthesize momentShare=_momentShare;
 - (void).cxx_destruct;

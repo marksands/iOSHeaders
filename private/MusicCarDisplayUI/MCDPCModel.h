@@ -10,6 +10,7 @@
 
 @interface MCDPCModel : NSObject
 {
+    _Bool _initiatedActivityInSession;
     _Bool _didFinishInitialLoad;
     _Bool _shouldReloadAgain;
     unsigned int _supportedAPIMask;
@@ -39,6 +40,7 @@
 @property(retain, nonatomic) NSIndexPath *selectedIndexPath; // @synthesize selectedIndexPath=_selectedIndexPath;
 @property(copy, nonatomic) CDUnknownBlockType containerCompletion; // @synthesize containerCompletion=_containerCompletion;
 @property(copy, nonatomic) CDUnknownBlockType playbackCompletion; // @synthesize playbackCompletion=_playbackCompletion;
+@property(nonatomic) _Bool initiatedActivityInSession; // @synthesize initiatedActivityInSession=_initiatedActivityInSession;
 @property(nonatomic) struct CGSize imageSize; // @synthesize imageSize=_imageSize;
 @property(readonly, nonatomic) MCDPCItem *rootItem; // @synthesize rootItem=_rootItem;
 @property(readonly, copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;

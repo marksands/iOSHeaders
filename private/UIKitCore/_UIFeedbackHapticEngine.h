@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     NSMutableSet *_playersInUse;
     _Bool _serverDown;
     AVHapticPlayer *_feedbackPlayer;
+    unsigned long long _mediaserverdDeathCount;
     NSTimer *_finishTimeoutTimer;
 }
 
@@ -23,6 +24,7 @@ __attribute__((visibility("hidden")))
 + (id)sharedEngine;
 @property(nonatomic) _Bool serverDown; // @synthesize serverDown=_serverDown;
 @property(retain, nonatomic) NSTimer *finishTimeoutTimer; // @synthesize finishTimeoutTimer=_finishTimeoutTimer;
+@property(nonatomic) unsigned long long mediaserverdDeathCount; // @synthesize mediaserverdDeathCount=_mediaserverdDeathCount;
 @property(retain, nonatomic) AVHapticPlayer *feedbackPlayer; // @synthesize feedbackPlayer=_feedbackPlayer;
 - (void).cxx_destruct;
 - (id)_stats_key;

@@ -39,6 +39,7 @@
 - (id)_newGadgetForObjectID:(id)arg1;
 - (void)generateGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
+- (void)presentQuickActionsForInvitationGadget:(id)arg1;
 - (void)presentInvitationGadget:(id)arg1;
 - (id)initWithDataSourceManager:(id)arg1;
 - (id)init;

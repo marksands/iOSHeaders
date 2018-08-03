@@ -51,7 +51,6 @@
 @property(nonatomic) double disabledMicOpacity; // @synthesize disabledMicOpacity=_disabledMicOpacity;
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
 - (void).cxx_destruct;
-- (void)flamesViewAuraDidDisplay:(id)arg1;
 - (float)audioLevelForFlamesView:(id)arg1;
 - (void)_handleKeyboardWillHideNotification:(id)arg1;
 - (void)_handleKeyboardDidShowNotification:(id)arg1;

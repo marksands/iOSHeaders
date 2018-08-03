@@ -15,6 +15,7 @@
     NSMutableSet *_lazyMonitorNames;
     CDUnknownBlockType _generalInstantHandler;
     CDUnknownBlockType _generalHistoricalHandler;
+    CDUnknownBlockType _generalHistoricalDeletingHandler;
     NSMutableDictionary *_instantHandlerMap;
     NSMutableDictionary *_historicalHandlerMap;
     NSObject<OS_dispatch_queue> *_monitorWorkQueue;
@@ -45,6 +46,7 @@
 - (void)start;
 - (void)startMonitorForStream:(id)arg1;
 - (void)_startMonitorForStreamName:(id)arg1;
+- (void)setHistoricalDeletingHandler:(CDUnknownBlockType)arg1;
 - (void)setHistoricalHandler:(CDUnknownBlockType)arg1;
 - (void)setHistoricalHandler:(CDUnknownBlockType)arg1 forStream:(id)arg2;
 - (void)_setHistoricalHandler:(CDUnknownBlockType)arg1 forStreamName:(id)arg2;

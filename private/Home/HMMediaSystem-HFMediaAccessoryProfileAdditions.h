@@ -45,7 +45,7 @@
 @property(readonly, copy) NSSet *symptoms;
 @property(readonly, nonatomic) __weak HMRoom *hf_parentRoom;
 @property(readonly, nonatomic) HMHome *hf_home;
-- (id)accessories;
+@property(readonly, nonatomic) NSSet *accessories;
 @property(readonly, nonatomic) id <HFHomeKitObject> homeKitObject;
 
 // Remaining properties

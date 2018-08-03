@@ -12,13 +12,13 @@
 
 @interface INUIEditVoiceShortcutViewController : UIViewController <INUIVoiceShortcutRemoteViewControllerEditDelegate>
 {
-    INUIVoiceShortcutHostViewController *_remoteHostViewController;
     id <INUIEditVoiceShortcutViewControllerDelegate> _delegate;
+    INUIVoiceShortcutHostViewController *_remoteHostViewController;
 }
 
 + (void)initialize;
+@property(retain, nonatomic, getter=_remoteHostViewController, setter=_setRemoteHostViewController:) INUIVoiceShortcutHostViewController *remoteHostViewController; // @synthesize remoteHostViewController=_remoteHostViewController;
 @property(nonatomic) __weak id <INUIEditVoiceShortcutViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) INUIVoiceShortcutHostViewController *_remoteHostViewController; // @synthesize _remoteHostViewController;
 - (void).cxx_destruct;
 - (void)remoteViewControllerEditDidCacnel;
 - (void)remoteViewControllerDidDeleteVoiceShortcutWithIdentifier:(id)arg1;

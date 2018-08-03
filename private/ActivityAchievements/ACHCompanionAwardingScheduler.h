@@ -46,11 +46,11 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) NSCalendar *calendar; // @synthesize calendar=_calendar;
 @property(retain, nonatomic) HDPeriodicActivity *scheduler; // @synthesize scheduler=_scheduler;
-@property(nonatomic) __weak ACHEarnedInstanceAwardingEngine *awardingEngine; // @synthesize awardingEngine=_awardingEngine;
-@property(nonatomic) __weak ACHTemplateStore *templateStore; // @synthesize templateStore=_templateStore;
-@property(nonatomic) __weak ACHEarnedInstanceStore *earnedInstanceStore; // @synthesize earnedInstanceStore=_earnedInstanceStore;
-@property(nonatomic) __weak ACHDataStore *dataStore; // @synthesize dataStore=_dataStore;
-@property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
+@property(retain, nonatomic) ACHEarnedInstanceAwardingEngine *awardingEngine; // @synthesize awardingEngine=_awardingEngine;
+@property(retain, nonatomic) ACHTemplateStore *templateStore; // @synthesize templateStore=_templateStore;
+@property(retain, nonatomic) ACHEarnedInstanceStore *earnedInstanceStore; // @synthesize earnedInstanceStore=_earnedInstanceStore;
+@property(retain, nonatomic) ACHDataStore *dataStore; // @synthesize dataStore=_dataStore;
+@property(retain, nonatomic) HDProfile *profile; // @synthesize profile=_profile;
 @property(retain, nonatomic) NSDate *lastSuccessfulRunDate; // @synthesize lastSuccessfulRunDate=_lastSuccessfulRunDate;
 - (void).cxx_destruct;
 - (void)_queue_callAwardingCompletionsWithSuccess:(_Bool)arg1 error:(id)arg2;

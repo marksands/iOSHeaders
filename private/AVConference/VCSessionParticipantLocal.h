@@ -35,8 +35,6 @@ __attribute__((visibility("hidden")))
     struct tagVCMemoryPool *_redundancyPool;
     struct tagVCMemoryPool *_videoRedundancyPool;
     // Error parsing type: AC, name: _videoPriority
-    struct OpaqueVTPixelTransferSession *_transferSession;
-    struct __CVPixelBufferPool *_bufferPool;
     _Bool _shouldResize;
     _Bool _enableRedundancy;
     _Bool _enableVADFiltering;
@@ -78,7 +76,6 @@ __attribute__((visibility("hidden")))
 - (id)clientCaptureRule;
 - (void)avConferencePreviewError:(id)arg1;
 - (_Bool)onCaptureFrame:(struct opaqueCMSampleBuffer *)arg1 frameTime:(CDStruct_1b6d18a9)arg2 droppedFrames:(int)arg3 cameraStatusBits:(unsigned char)arg4;
-- (struct opaqueCMSampleBuffer *)newResizedFrame:(struct opaqueCMSampleBuffer *)arg1 time:(CDStruct_1b6d18a9)arg2;
 - (void)generateKeyFrameForStreamsWithNewCompoundStreamIDsWithActiveVideoStreams:(id)arg1;
 - (void)updateStreamIDsWithActiveVideoStreams:(id)arg1;
 - (void)updateActiveAudioStreams:(id)arg1;
@@ -89,10 +86,9 @@ __attribute__((visibility("hidden")))
 - (void)redundancyController:(id)arg1 redundancyIntervalDidChange:(double)arg2;
 - (void)redundancyController:(id)arg1 redundancyPercentageDidChange:(unsigned int)arg2;
 - (void)flushVideoRedundancyEventQueue;
-- (void)processVideoEventQueueWithSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
+- (void)processVideoEventQueue;
 - (void)enableRedundancy:(_Bool)arg1;
 - (void)generateKeyFrameWithStreamID:(unsigned short)arg1;
-- (void)setCaptureFrame:(struct opaqueCMSampleBuffer *)arg1 fecRatio:(double)arg2;
 - (void)setupEncodingModeWithVideoStreamConfig:(id)arg1;
 - (_Bool)setupVideoStreamWithConfiguration:(id)arg1 idsDestination:(id)arg2;
 - (void)setupVideoStreamConfig:(id)arg1 initialConfiguration:(id)arg2;

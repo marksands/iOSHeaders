@@ -6,21 +6,25 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
 #import "RCSerializable.h"
 
 @class NSString;
 
-@interface RCChangeTag : NSObject <RCSerializable>
+@interface RCChangeTag : NSObject <RCSerializable, NSSecureCoding>
 {
     NSString *_identifier;
     NSString *_contentHash;
     NSString *_lastModifiedString;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) NSString *lastModifiedString; // @synthesize lastModifiedString=_lastModifiedString;
 @property(readonly, copy, nonatomic) NSString *contentHash; // @synthesize contentHash=_contentHash;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

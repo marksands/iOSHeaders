@@ -14,10 +14,14 @@
 + (void)_setValue:(id)arg1 forKey:(id)arg2;
 + (void)_setInteger:(long long)arg1 forKey:(id)arg2;
 + (void)_setBool:(_Bool)arg1 forKey:(id)arg2;
++ (double)_randomDouble;
 + (long long)_integerForKey:(id)arg1 defaultValue:(long long)arg2 domain:(struct __CFString *)arg3;
 + (long long)_integerForKey:(id)arg1 defaultValue:(long long)arg2;
 + (_Bool)_boolForKey:(id)arg1 defaultValue:(_Bool)arg2 domain:(struct __CFString *)arg3;
 + (_Bool)_boolForKey:(id)arg1 defaultValue:(_Bool)arg2;
++ (_Bool)ss_ignoreServerTrustEvaluation;
++ (_Bool)shouldSampleWithPercentageValue:(id)arg1 sessionDurationValue:(id)arg2 identifier:(id)arg3;
++ (_Bool)shouldSampleWithPercentage:(double)arg1 sessionDuration:(double)arg2 identifier:(id)arg3;
 + (void)setStorefrontSuffixes:(id)arg1;
 + (void)setShowSandboxAccountUI:(_Bool)arg1;
 + (void)setIncludeFullResponseInHARLogging:(_Bool)arg1;
@@ -26,6 +30,7 @@
 + (void)setMigratedToNewCookieStorage:(_Bool)arg1;
 + (void)setMetricsTimingWindowStartTime:(id)arg1;
 + (void)setMetricsCanaryIdentifier:(id)arg1;
++ (void)setMescalCertExpiration:(id)arg1;
 + (void)setForceLoadUrlMetrics:(long long)arg1;
 + (void)setReversePushEnabled:(long long)arg1;
 + (void)setDisableHARLogging:(_Bool)arg1;
@@ -34,10 +39,11 @@
 + (void)setBagURLCookies:(id)arg1;
 + (void)setAlwaysSendCacheBuster:(_Bool)arg1;
 + (void)setAlwaysSendGUID:(_Bool)arg1;
-+ (_Bool)ss_ignoreServerTrustEvaluation;
++ (id)deviceOffersSerialNumber;
 + (_Bool)useNewCookieStorage;
 + (id)storefrontSuffixes;
 + (id)metricsTimingWindowStartTime;
++ (id)mescalCertExpiration;
 + (_Bool)includeFullResponseInHARLogging;
 + (_Bool)includeFullRequestInHARLogging;
 + (_Bool)showSandboxAccountUI;

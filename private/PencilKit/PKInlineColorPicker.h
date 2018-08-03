@@ -7,11 +7,13 @@
 #import "UIView.h"
 
 #import "PKColorPickerDelegatePrivate.h"
+#import "UIPopoverPresentationControllerDelegate.h"
 #import "UIScrollViewDelegate.h"
+#import "_PKAllowDrawingWhilePresentingPopoverViewDelegate.h"
 
 @class NSArray, NSString, PKColorPicker, UIColor, UIScrollView;
 
-@interface PKInlineColorPicker : UIView <UIScrollViewDelegate, PKColorPickerDelegatePrivate>
+@interface PKInlineColorPicker : UIView <UIScrollViewDelegate, PKColorPickerDelegatePrivate, UIPopoverPresentationControllerDelegate, _PKAllowDrawingWhilePresentingPopoverViewDelegate>
 {
     _Bool _isUsedOnDarkBackground;
     _Bool _shouldEmboss;
@@ -28,8 +30,10 @@
     UIView *_rightOverflowView;
     PKColorPicker *_presentedColorPicker;
     UIColor *__pickerColor;
+    id <_PKInlineColorPickerAllowDrawingWithPopoverDelegate> __allowDrawingWithPopoverDelegate;
 }
 
+@property(nonatomic) __weak id <_PKInlineColorPickerAllowDrawingWithPopoverDelegate> _allowDrawingWithPopoverDelegate; // @synthesize _allowDrawingWithPopoverDelegate=__allowDrawingWithPopoverDelegate;
 @property(retain, nonatomic) UIColor *_pickerColor; // @synthesize _pickerColor=__pickerColor;
 @property(retain, nonatomic) PKColorPicker *presentedColorPicker; // @synthesize presentedColorPicker=_presentedColorPicker;
 @property(nonatomic) _Bool shouldEmboss; // @synthesize shouldEmboss=_shouldEmboss;
@@ -48,6 +52,9 @@
 - (void).cxx_destruct;
 - (id)_axLabelForColorButton:(id)arg1;
 - (void)_axHandleLongPressOnColorButtonForLargeTextHUD:(id)arg1;
+- (void)_allowDrawingWhilePresentingPopoverViewDidBeginDrawing:(id)arg1;
+- (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
+- (long long)adaptivePresentationStyleForPresentationController:(id)arg1 traitCollection:(id)arg2;
 - (void)_colorPicker:(id)arg1 willDismissAnimated:(_Bool)arg2;
 - (void)_colorPickerUserDidTouchUpInside:(id)arg1;
 - (void)colorPickerDidChangeSelectedColor:(id)arg1;

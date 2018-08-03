@@ -11,7 +11,7 @@
 #import "HMObjectMerge.h"
 #import "NSSecureCoding.h"
 
-@class HMFUnfairLock, HMMutableArray, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID, _HMContext;
+@class HMFUnfairLock, HMMutableArray, NSHashTable, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID, _HMContext;
 
 @interface HMSymptomsHandler : NSObject <NSSecureCoding, HMFMessageReceiver, HMFLogging, HMObjectMerge>
 {
@@ -20,6 +20,7 @@
     NSUUID *_uniqueIdentifier;
     id <HMSymptomsHandlerDelegate> _delegate;
     _HMContext *_context;
+    NSHashTable *_fixSessions;
     NSUUID *_uuid;
     HMMutableArray *_currentSymptoms;
 }
@@ -28,20 +29,24 @@
 + (id)logCategory;
 @property(readonly, nonatomic) HMMutableArray *currentSymptoms; // @synthesize currentSymptoms=_currentSymptoms;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
+@property(retain, nonatomic) NSHashTable *fixSessions; // @synthesize fixSessions=_fixSessions;
 @property(retain, nonatomic) _HMContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)_callSFDeviceIdentifierUpdatedDelegate:(id)arg1;
+- (void)_callFixSessionAvailabilityUpdatedDelegate;
 - (void)_callSymptomsUpdatedDelegate:(id)arg1;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 @property(readonly, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (id)logIdentifier;
+- (id)_findAndRemoveFixSessionsForSymptom:(id)arg1;
+- (void)_addFixSession:(id)arg1;
 - (void)_handleSFDeviceIdentifierUpdated:(id)arg1;
 - (void)_handleSymptomsUpdated:(id)arg1;
 - (void)initiateFixWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)newFixSessionForSymptom:(id)arg1;
 - (void)registerForMessages;
 @property(readonly) long long fixState;
 @property(readonly) _Bool canInitiateFix;

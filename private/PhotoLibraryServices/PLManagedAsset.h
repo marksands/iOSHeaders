@@ -420,7 +420,6 @@
 - (id)mutableDetectedFaces;
 - (id)addLegacyFaceWithRelativeRect:(struct CGRect)arg1 identifier:(short)arg2 albumUUID:(id)arg3;
 - (id)legacyFaceWithIdentifier:(short)arg1;
-- (void)setCustomMetadataWithPersistedFileSystemAttributes;
 - (void)synchronizeWithPersistedFileSystemAttributes;
 - (void)persistMetadataToFilesystem;
 - (id)_mediaGroupUUIDFromPersistence:(id)arg1;

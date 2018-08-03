@@ -14,7 +14,7 @@
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(copy, nonatomic) DNDSScheduleSettingsRecord *scheduleSettings; // @dynamic scheduleSettings;
-@property(copy, nonatomic) DNDSBypassSettingsRecord *bypassSettings; // @dynamic bypassSettings;
+@property(copy, nonatomic) DNDSBypassSettingsRecord *phoneCallBypassSettings; // @dynamic phoneCallBypassSettings;
 @property(copy, nonatomic) DNDSBehaviorSettingsRecord *behaviorSettings; // @dynamic behaviorSettings;
 
 @end

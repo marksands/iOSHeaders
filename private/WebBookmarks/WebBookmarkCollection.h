@@ -192,7 +192,7 @@
 - (struct sqlite3_stmt *)_selectBookmarksWhere:(id)arg1 returnType:(long long)arg2;
 - (struct sqlite3_stmt *)_selectBookmarksWhere:(id)arg1;
 - (id)_rootFolderHiddenChildrenClause;
-- (_Bool)_restoreMissingSpecialBookmarks;
+- (_Bool)_restoreMissingSpecialBookmarksWithChangeNotification:(_Bool)arg1;
 - (_Bool)_restoreBookmarkBarIfMissing;
 - (_Bool)_migrateBookmarksPlist:(id)arg1 syncAnchorPlist:(id)arg2;
 - (_Bool)_migrateToCurrentSchema;

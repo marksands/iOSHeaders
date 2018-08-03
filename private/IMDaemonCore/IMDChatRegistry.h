@@ -42,6 +42,7 @@
 - (void)simulateMessageReceive:(id)arg1 serviceName:(id)arg2 handles:(id)arg3 sender:(id)arg4;
 - (id)_existingiMessageChatForChatIdentifier:(id)arg1 style:(unsigned char)arg2;
 - (_Bool)isBeingSetup;
+- (_Bool)doneLoadingAfterMerge;
 - (void)clearPendingDeleteTable;
 - (id)copyRecordIDsAndGUIDsPendingCloudKitDelete;
 - (void)processMessageUsingCKRecord:(id)arg1 updatedLastMessageCount:(int)arg2;
@@ -67,7 +68,7 @@
 - (void)_insertChatUsingCKRecord:(id)arg1;
 - (void)updateChatWithGUID:(id)arg1 serverChangeToken:(id)arg2 recordID:(id)arg3;
 - (id)chatsToUploadToCloudKitWithLimit:(unsigned long long)arg1 isUsingStingRay:(_Bool)arg2;
-- (id)personCentricGroupedChatsArrayWithMaximumNumberOfChats:(long long)arg1;
+- (id)personCentricGroupedChatsArrayWithMaximumNumberOfChats:(long long)arg1 skipsLastMessageLoading:(_Bool)arg2;
 - (id)chatIdToLastMessageMapOfOldChats;
 - (id)sortPersonCentricChatGroups:(id)arg1;
 - (id)truncateSortedChatsGroupedByPersonCentricID:(id)arg1 toMaximumNumberOfChats:(long long)arg2;
@@ -121,6 +122,8 @@
 - (void)updateLastMessageForChat:(id)arg1 hintMessage:(id)arg2 historyQuery:(_Bool)arg3;
 - (void)updateLastMessageForChat:(id)arg1 hintMessage:(id)arg2;
 - (id)allExistingChatsWithIdentifier:(id)arg1 style:(unsigned char)arg2;
+- (id)allExistingSupportedServiceChatsWithIdentifier:(id)arg1 style:(unsigned char)arg2;
+- (id)allChatsWithIdentifier:(id)arg1 style:(unsigned char)arg2 serviceNames:(id)arg3;
 - (id)existingChatForRoom:(id)arg1 account:(id)arg2;
 - (id)existingChatForIDs:(id)arg1 account:(id)arg2 displayName:(id)arg3 groupID:(id)arg4 style:(unsigned char)arg5;
 - (id)existingChatForIDs:(id)arg1 account:(id)arg2 style:(unsigned char)arg3;
@@ -131,8 +134,8 @@
 - (id)existingChatsWithGroupID:(id)arg1;
 - (id)existingChatWithGUID:(id)arg1;
 - (id)chatForRoom:(id)arg1 account:(id)arg2 chatIdentifier:(id)arg3 guid:(id)arg4;
-- (id)chatForHandles:(id)arg1 account:(id)arg2 chatIdentifier:(id)arg3 style:(unsigned char)arg4 groupID:(id)arg5 displayName:(id)arg6 guid:(id)arg7 lastAddressedHandle:(id)arg8;
-- (id)chatForHandle:(id)arg1 account:(id)arg2 chatIdentifier:(id)arg3 guid:(id)arg4 lastAddressedHandle:(id)arg5;
+- (id)chatForHandles:(id)arg1 account:(id)arg2 chatIdentifier:(id)arg3 style:(unsigned char)arg4 groupID:(id)arg5 displayName:(id)arg6 guid:(id)arg7 lastAddressedHandle:(id)arg8 lastAddressedSIMID:(id)arg9;
+- (id)chatForHandle:(id)arg1 account:(id)arg2 chatIdentifier:(id)arg3 guid:(id)arg4 lastAddressedHandle:(id)arg5 lastAddressedSIMID:(id)arg6;
 @property(readonly, nonatomic) NSArray *chats;
 - (void)dealloc;
 - (id)init;

@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool highlighted; // @synthesize highlighted=_highlighted;
 - (void).cxx_destruct;
 - (id)viewForIdentifier:(id)arg1;
+- (void)prepareForHighlighting;
 - (id)applyUpdate:(id)arg1 toDisplayItem:(id)arg2;
 - (id)dependentEntryKeys;
 

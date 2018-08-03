@@ -6,17 +6,19 @@
 
 #import <ARKit/ARAnchor.h>
 
-@class NSUUID;
+@class NSData, NSUUID;
 
 @interface AREnvironmentProbeAnchor : ARAnchor
 {
     id <MTLTexture> _environmentTexture;
+    NSData *_lastTextureState;
     NSUUID *_trackedPlaneIdentifier;
     // Error parsing type: , name: _extent
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSUUID *trackedPlaneIdentifier; // @synthesize trackedPlaneIdentifier=_trackedPlaneIdentifier;
+@property(retain, nonatomic) NSData *lastTextureState; // @synthesize lastTextureState=_lastTextureState;
 // Error parsing type for property extent:
 // Property attributes: T,R,N,V_extent
 
@@ -24,7 +26,7 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithAnchor:(id)arg1;
 - (id)description;
 -     // Error parsing type: @104@0:8@16{?=[4]}2488, name: initWithIdentifier:transform:extent:
 -     // Error parsing type: @104@0:8@16{?=[4]}2488, name: initWithName:transform:extent:

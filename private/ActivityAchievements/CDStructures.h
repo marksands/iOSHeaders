@@ -19,6 +19,10 @@ struct NSObject {
     Class _field1;
 };
 
+struct os_unfair_lock_s {
+    unsigned int _field1;
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {

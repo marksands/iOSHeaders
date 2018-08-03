@@ -42,6 +42,7 @@
 @property(readonly, nonatomic) _Bool isMultipleDataPlanSupportAvailable;
 - (void)setSelectedPlanItemForData:(id)arg1;
 @property(retain, nonatomic) CTCellularPlanItem *selectedPlanItem;
+- (id)planFromReference:(id)arg1;
 @property(readonly, nonatomic) NSArray *embeddedPlanItems;
 @property(readonly, nonatomic) NSArray *planItems;
 @property(readonly, nonatomic) _Bool shouldShowDataPlanList;

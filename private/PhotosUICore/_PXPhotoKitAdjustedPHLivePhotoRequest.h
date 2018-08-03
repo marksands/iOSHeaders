@@ -30,7 +30,7 @@
 - (void)_handleImageRequestResult:(id)arg1 info:(id)arg2;
 - (void)cancel;
 - (void)start;
-- (id)initWithRenderQueue:(id)arg1 asset:(id)arg2 targetSize:(struct CGSize)arg3 contentMode:(long long)arg4 options:(id)arg5 resultHandler:(CDUnknownBlockType)arg6;
+- (id)initWithRenderQueue:(id)arg1 asset:(id)arg2 targetSize:(struct CGSize)arg3 contentMode:(long long)arg4 imageManager:(id)arg5 options:(id)arg6 resultHandler:(CDUnknownBlockType)arg7;
 
 @end
 

@@ -72,6 +72,7 @@
 - (NSArray *)defaultBackgroundEffectsForTableViewStyle:(long long)arg1;
 - (UIColor *)defaultBackgroundColorForTableViewStyle:(long long)arg1;
 - (_Bool)supportsUserInterfaceStyles;
+- (id <UITableConstants>)variantForActive:(_Bool)arg1 dark:(_Bool)arg2;
 - (id <UITableConstants>)sidebarVariant;
 
 @optional

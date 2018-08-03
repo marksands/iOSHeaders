@@ -23,7 +23,7 @@
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)colorsForSettingKind:(CDStruct_597dd055)arg1;
-- (id)colorForSettingKind:(CDStruct_597dd055)arg1 name:(id)arg2;
+- (id)colorForSettingKind:(CDStruct_597dd055)arg1 identifier:(id)arg2;
 - (id)initWithStorage:(struct NSDictionary *)arg1 variationStore:(id)arg2;
 - (id)init;
 

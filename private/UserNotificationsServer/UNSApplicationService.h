@@ -23,6 +23,7 @@
 - (void)_queue_notificationSourcesDidUninstall:(id)arg1;
 - (void)_queue_notificationSourcesDidInstall:(id)arg1;
 - (void)willPresentNotification:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (_Bool)isApplicationForeground:(id)arg1;
 - (void)didChangeApplicationState:(unsigned int)arg1 forBundleIdentifier:(id)arg2;
 - (void)notificationSourcesDidUninstall:(id)arg1;
 - (void)notificationSourcesDidInstall:(id)arg1;

@@ -45,6 +45,7 @@
 @property(readonly) unsigned long long width;
 - (void)calculateOrientationCorrectedImageDimensions;
 - (int)orientation;
+- (struct __CVBuffer *)cropAndScaleBufferWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2 cropRect:(struct CGRect)arg3 format:(unsigned int)arg4 imageCropAndScaleOption:(unsigned long long)arg5 options:(id)arg6 error:(id *)arg7 calculatedNormalizedOriginOffset:(struct CGPoint *)arg8 calculatedScaleX:(double *)arg9 calculatedScaleY:(double *)arg10;
 - (struct __CVBuffer *)croppedBufferWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2 format:(unsigned int)arg3 cropRect:(struct CGRect)arg4 options:(id)arg5 error:(id *)arg6;
 - (_Bool)_cropImageSourceManager:(id)arg1 outBuffer:(struct __CVBuffer **)arg2 width:(unsigned long long)arg3 height:(unsigned long long)arg4 format:(unsigned int)arg5 cropRect:(struct CGRect)arg6 performCrop:(_Bool)arg7 options:(id)arg8 error:(id *)arg9;
 - (_Bool)_cropCIImage:(id)arg1 outBuffer:(struct __CVBuffer **)arg2 width:(unsigned long long)arg3 height:(unsigned long long)arg4 format:(unsigned int)arg5 cropRect:(struct CGRect)arg6 performCrop:(_Bool)arg7 options:(id)arg8 error:(id *)arg9;

@@ -14,6 +14,7 @@
 @property(readonly, nonatomic) unsigned long long numberOfSearchConfidenceAssets;
 @property(readonly, nonatomic) unsigned long long numberOfHighConfidenceAssets;
 @property(readonly, nonatomic) unsigned long long numberOfAssets;
+@property(readonly, nonatomic) _Bool isSearchableForEvent;
 @property(readonly, nonatomic) _Bool isReliable;
 
 @end

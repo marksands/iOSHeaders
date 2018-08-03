@@ -13,6 +13,7 @@
     CLKComplicationTemplate *_complicationTemplate;
 }
 
++ (_Bool)acceptsClassicComplicationType:(unsigned long long)arg1 withFamily:(long long)arg2;
 + (_Bool)acceptsComplicationType:(unsigned long long)arg1 withFamily:(long long)arg2 forDevice:(id)arg3;
 - (void).cxx_destruct;
 - (void)_localeDidChange:(id)arg1;
@@ -27,6 +28,7 @@
 - (id)_podcastTemplate;
 - (id)_radioTemplate;
 - (id)_musicTemplate;
+- (id)_city;
 - (id)_worldClockTemplate;
 - (id)_alarmTemplate;
 - (id)_stopwatchTemplate;
@@ -37,13 +39,25 @@
 - (id)_sunriseTemplate;
 - (id)_heartrateTemplate;
 - (id)_batteryTemplate;
-- (id)_weatherConditionsTemplate;
-- (id)_weatherTemplate;
-- (id)_temperatureStringForDegreesFahrenheit:(long long)arg1 convertToCelsius:(_Bool)arg2;
 - (id)_dateTemplate;
 - (id)currentSwitcherTemplate;
 - (void)dealloc;
 - (id)initWithComplication:(id)arg1 family:(long long)arg2 forDevice:(id)arg3;
+- (id)_createConditionsUtilitarianSmallFlatTemplate;
+- (id)_createConditionsUtilitarianSmallTemplate;
+- (id)_createConditionsModularSmallTemplate;
+- (id)_createConditionsExtraLargeTemplate;
+- (id)_createConditionsCircularSmallTemplate;
+- (id)_createConditionsCircularMediumTemplate;
+- (id)_weatherConditionsTemplate;
+- (id)_createUtilitarianSmallTemplate;
+- (id)_createUtilitarianLargeTemplate;
+- (id)_createModularSmallTemplate;
+- (id)_createModularLargeTemplate;
+- (id)_createExtraLargeTemplate;
+- (id)_createCircularSmallTemplate;
+- (id)_createCircularMediumTemplate;
+- (id)_weatherTemplate;
 
 @end
 

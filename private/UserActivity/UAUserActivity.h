@@ -48,6 +48,8 @@
     _Bool _eligibleForPrediction;
     NSString *_persistentIdentifier;
     id <UAUserActivityDelegate> _delegate;
+    unsigned int _userInfoChangeCount;
+    NSDictionary *_savedUserInfo;
     _Bool _invalidated;
     _Bool _userInfoContainsFileURLs;
     _Bool _canCreateStreams;
@@ -151,9 +153,12 @@
 - (id)teamID;
 @property _Bool needsSave; // @dynamic needsSave;
 @property _Bool dirty; // @dynamic dirty;
-- (void)addUserInfoEntriesFromDictionary:(id)arg1;
 @property(copy) NSURL *referrerURL; // @dynamic referrerURL;
 @property(copy) NSURL *webpageURL; // @dynamic webpageURL;
+- (_Bool)finishUserInfoUpdate;
+- (unsigned long long)beginUserInfoUpdate:(id)arg1;
+@property(readonly) unsigned long long userInfoChangeCount;
+- (void)addUserInfoEntriesFromDictionary:(id)arg1;
 @property(copy) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(copy) NSString *title; // @dynamic title;
 - (void)dealloc;

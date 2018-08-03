@@ -63,6 +63,7 @@
 - (id)_descriptionForStoreWithURL:(id)arg1 protectionClass:(id)arg2 sync:(_Bool)arg3;
 - (id)_defaultOptionsForStoreWithProtectionClass:(id)arg1;
 - (_Bool)didAutoMigratePersistentStore:(id)arg1 toManagedObjectModel:(id)arg2 havingVersion:(unsigned long long)arg3 error:(id *)arg4;
+- (_Bool)willAutoMigrateStoreAtURL:(id)arg1 fromManagedObjectModel:(id)arg2 havingVersion:(unsigned long long)arg3 error:(id *)arg4;
 - (id)autoMigratePersistentStoreAtURL:(id)arg1 toManagedObjectModel:(id)arg2 protectionClass:(id)arg3 error:(id *)arg4;
 - (_Bool)migratePersistentStoreAtURL:(id)arg1 toManagedObjectModel:(id)arg2 protectionClass:(id)arg3 startVersion:(unsigned long long)arg4 endVersion:(unsigned long long)arg5 error:(id *)arg6;
 - (_Bool)migratePersistentStoreAtURL:(id)arg1 toManagedObjectModel:(id)arg2 protectionClass:(id)arg3 error:(id *)arg4;
@@ -78,6 +79,7 @@
 - (void)removePersistentStoresInCoordinator:(id)arg1;
 - (void)invalidateManagedObjectContextAndPersistentStoreCoordinatorFor:(id)arg1;
 - (void)handleDataProtectionChangeFor:(id)arg1 willBeAvailable:(_Bool)arg2;
+- (_Bool)isDatabaseOwner;
 - (id)initWithDirectory:(id)arg1 databaseName:(id)arg2 modelURL:(id)arg3 readOnly:(_Bool)arg4 localOnly:(_Bool)arg5 sync:(_Bool)arg6;
 - (id)initWithDirectory:(id)arg1 databaseName:(id)arg2 modelURL:(id)arg3 sync:(_Bool)arg4;
 - (id)initWithDirectory:(id)arg1 databaseName:(id)arg2 modelURL:(id)arg3 readOnly:(_Bool)arg4 localOnly:(_Bool)arg5;

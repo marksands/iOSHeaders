@@ -6,18 +6,21 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class UIStoryboard;
 
 __attribute__((visibility("hidden")))
-@interface _UIStoryboardProxy : NSObject
+@interface _UIStoryboardProxy : NSObject <NSSecureCoding>
 {
     UIStoryboard *_storyboard;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void)dealloc;
 - (id)description;
-- (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithStoryboard:(id)arg1;
 
 @end

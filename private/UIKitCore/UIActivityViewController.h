@@ -224,7 +224,7 @@
 - (void)_sendInitialShareServiceConfigurationAndUpdatePreferredContentSize;
 - (void)_retryRemoteViewServiceConnectionIfPossibleWithPriming:(_Bool)arg1 previousAttempts:(long long)arg2;
 - (void)_connectToRemoteViewServiceOnceWithPriming:(_Bool)arg1 previousAttempts:(long long)arg2;
-- (void)_connectToRemoteViewServiceOnceWithPriming:(_Bool)arg1;
+- (void)_primeExtensionDiscovery;
 - (void)_preloadInitialConfigurationLocallyIfNeeded;
 - (id)initWithActivityItems:(id)arg1 applicationActivities:(id)arg2;
 - (id)initWithCoder:(id)arg1;

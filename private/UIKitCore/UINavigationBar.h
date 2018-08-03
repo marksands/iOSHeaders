@@ -70,6 +70,7 @@
 + (id)_defaultVisualStyleForOrientation:(long long)arg1;
 + (id)_statusBarBaseTintColorForStyle:(long long)arg1 translucent:(_Bool)arg2 tintColor:(id)arg3;
 + (id)_statusBarBaseTintColorForStyle:(long long)arg1 translucent:(_Bool)arg2 tintColor:(id)arg3 backgroundImage:(id)arg4 viewSize:(struct CGSize)arg5;
++ (_Bool)_forceLegacyVisualProvider;
 @property(nonatomic, setter=_setAlwaysUseDefaultMetrics:) _Bool alwaysUseDefaultMetrics; // @synthesize alwaysUseDefaultMetrics=_alwaysUseDefaultMetrics;
 @property(nonatomic, setter=_setTitleOpacity:) double _titleOpacity; // @synthesize _titleOpacity=__titleOpacity;
 @property(nonatomic, setter=_setBackgroundOpacity:) double _backgroundOpacity; // @synthesize _backgroundOpacity=__backgroundOpacity;
@@ -226,6 +227,8 @@
 - (CDStruct_c3b9c2ee)_heightRangeForNavigationItem:(id)arg1 fittingWidth:(double)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) long long currentContentSize;
+- (_Bool)_canShowBackgroundEffects;
+- (id)_effectiveBackgroundEffects;
 - (long long)effectiveInterfaceOrientation;
 - (long long)_effectiveMetricsForMetrics:(long long)arg1;
 - (void)_addItems:(id)arg1 withEffectiveDelegate:(id)arg2 transition:(int)arg3;
@@ -335,6 +338,7 @@
 - (double)_internalShadowAlpha;
 @property(retain, nonatomic, setter=_setBackgroundView:) UIView *_backgroundView;
 - (void)_performUpdatesIgnoringLock:(CDUnknownBlockType)arg1;
+@property(readonly, copy) NSString *description;
 - (double)_defaultAutolayoutSpacing;
 - (double)_autolayoutSpacingAtEdge:(int)arg1 forAttribute:(long long)arg2 inContainer:(id)arg3 isGuide:(_Bool)arg4;
 - (_Bool)_hasCustomAutolayoutNeighborSpacingForAttribute:(long long *)arg1;
@@ -344,7 +348,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

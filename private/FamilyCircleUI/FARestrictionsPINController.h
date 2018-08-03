@@ -10,6 +10,7 @@
 {
 }
 
+- (id)stringsBundle;
 - (id)stringsTable;
 
 @end

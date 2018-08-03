@@ -13,8 +13,10 @@ __attribute__((visibility("hidden")))
 }
 
 - (void)canBeginDragCursor:(id)arg1;
+- (void)loupeGestureWithState:(long long)arg1 atGesturePoint:(CDUnknownBlockType)arg2 modifierFlags:(long long)arg3 shouldCancel:(_Bool *)arg4;
 - (void)loupeGestureWithState:(long long)arg1 atGesturePoint:(CDUnknownBlockType)arg2 shouldCancel:(_Bool *)arg3;
 - (void)loupeGesture:(id)arg1;
+- (_Bool)_isShiftKeyBeingHeldForGesture:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)finishSetup;
 - (id)initWithConfigurator:(Class)arg1;

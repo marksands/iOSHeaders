@@ -10,9 +10,9 @@
 
 @interface CKAvatarTitleCollectionReusableView : UICollectionReusableView
 {
+    _Bool _avatarPickerActive;
     long long _style;
     long long _avatarTitleAccessoryImageType;
-    long long _chevronMode;
     long long _statusIndicatorType;
     CKLabel *_titleLabel;
     UIImageView *_chevronImageView;
@@ -27,10 +27,11 @@
 @property(retain, nonatomic) UIImageView *chevronImageView; // @synthesize chevronImageView=_chevronImageView;
 @property(retain, nonatomic) CKLabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(nonatomic) long long statusIndicatorType; // @synthesize statusIndicatorType=_statusIndicatorType;
-@property(nonatomic) long long chevronMode; // @synthesize chevronMode=_chevronMode;
+@property(nonatomic, getter=isAvatarPickerActive) _Bool avatarPickerActive; // @synthesize avatarPickerActive=_avatarPickerActive;
 @property(nonatomic) long long avatarTitleAccessoryImageType; // @synthesize avatarTitleAccessoryImageType=_avatarTitleAccessoryImageType;
 @property(nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
+- (_Bool)isLTR;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)configureWithTitle:(id)arg1;

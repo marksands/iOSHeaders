@@ -6,26 +6,36 @@
 
 #import "NSManagedObject.h"
 
+#import "RMUniquelySerializableManagedObject.h"
+
 @class NSData, NSDate, NSString, RMCoreDevice, RMCoreUser;
 
-@interface RMUserDeviceState : NSManagedObject
+@interface RMUserDeviceState : NSManagedObject <RMUniquelySerializableManagedObject>
 {
 }
 
-+ (id)fetchRequestMatchingLocalUserDeviceState;
++ (id)fetchOrCreateWithDictionaryRepresentation:(id)arg1 inContext:(id)arg2 error:(id *)arg3;
++ (id)fetchLocalUserDeviceStateInContext:(id)arg1 error:(id *)arg2;
 + (id)fetchOrCreateLocalUserDeviceStateInContext:(id)arg1 error:(id *)arg2;
+- (id)dictionaryRepresentation;
+- (void)updateWithDictionaryRepresentation:(id)arg1;
 
 // Remaining properties
 @property(copy, nonatomic) NSData *capabilitiesPlist; // @dynamic capabilitiesPlist;
 @property(copy, nonatomic) NSString *coreDuetIdentifier; // @dynamic coreDuetIdentifier;
-@property(retain, nonatomic) RMCoreUser *currentUser; // @dynamic currentUser;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(retain, nonatomic) RMCoreDevice *device; // @dynamic device;
 @property(copy, nonatomic) NSData *deviceInfoPlist; // @dynamic deviceInfoPlist;
+@property(readonly) unsigned long long hash;
 @property(copy, nonatomic) NSDate *lastUsageEventDate; // @dynamic lastUsageEventDate;
+@property(retain, nonatomic) RMCoreDevice *localDevice; // @dynamic localDevice;
+@property(retain, nonatomic) RMCoreUser *localUser; // @dynamic localUser;
 @property(nonatomic) _Bool managementEnabled; // @dynamic managementEnabled;
 @property(copy, nonatomic) NSString *passcode; // @dynamic passcode;
 @property(copy, nonatomic) NSString *passcodeOwner; // @dynamic passcodeOwner;
 @property(nonatomic) _Bool screenTimeEnabled; // @dynamic screenTimeEnabled;
+@property(readonly) Class superclass;
 @property(retain, nonatomic) RMCoreUser *user; // @dynamic user;
 
 @end

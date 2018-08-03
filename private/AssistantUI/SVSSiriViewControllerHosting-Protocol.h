@@ -9,7 +9,6 @@
 @class AFUIRequestOptions, NSDictionary, NSString, NSURL;
 
 @protocol SVSSiriViewControllerHosting <NSObject>
-- (void)serviceDidChangeUserAttentionStatus:(_Bool)arg1;
 - (void)serviceDidRequestCurrentTextInput:(void (^)(NSString *))arg1;
 - (void)serviceDidEndTaptoEdit;
 - (void)serviceWillBeginTapToEdit;

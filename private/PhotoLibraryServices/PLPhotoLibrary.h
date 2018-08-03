@@ -23,10 +23,6 @@
     NSSet *_rawImageFileExtensions;
     NSSet *_audioFileExtensions;
     NSSet *_extraVideoExtensions;
-    unsigned long long _lastFetchedGPSCount;
-    unsigned long long _insertedCountSinceLastFetchedGPSCount;
-    unsigned long long _deletedCountSinceLastFetchedGPSCount;
-    unsigned long long _newlyCompleteWithGPS;
     PLManagedAlbum *_cameraRollAlbum;
     PLFetchingAlbum *_userLibraryAlbum;
     PLFetchingAlbum *_cameraSessionAlbum;
@@ -219,9 +215,7 @@
 - (struct NSObject *)allPhotosAlbum;
 - (unsigned long long)editableAlbumCount;
 - (id)syncedAlbums;
-- (void)_updateWithInsertedAssetsCount:(unsigned long long)arg1 deletedCount:(unsigned long long)arg2 updatedAssets:(id)arg3;
-- (void)_updateHasAtLeastOnePhotoWithGPSWithInsertedCount:(unsigned long long)arg1 deletedCount:(unsigned long long)arg2 updatedAssets:(id)arg3;
-- (_Bool)hasAtLeastOnePhotoWithGPS;
+- (void)_updateWithInsertedAssetsCount:(unsigned long long)arg1 deletedCount:(unsigned long long)arg2;
 - (void)resetCachedImportAlbumsIfNeededForAlbum:(id)arg1;
 - (id)lastImportedPhotosAlbumCreateIfNeeded:(_Bool)arg1;
 - (id)lastImportedPhotosAlbum;
@@ -250,7 +244,11 @@
 - (void)prepareDatabaseForOTAAssetsPhase;
 - (id)_allAssetsForDeletion:(id)arg1;
 - (id)_fetchCompleteAssetIDsWithSavedAssetType:(short)arg1 context:(id)arg2;
-- (void)_batchDeleteAssets:(id)arg1 inManagedObjectContext:(id)arg2 withReason:(id)arg3;
+- (_Bool)batchDeleteObjectsWithEntity:(id)arg1 predicate:(id)arg2 error:(id *)arg3;
+- (_Bool)batchDeleteAssetsWithPredicate:(id)arg1 reason:(id)arg2 error:(id *)arg3;
+- (id)_fetchedObjectsForDeleteWithEntity:(id)arg1 predicate:(id)arg2 batchSize:(unsigned long long)arg3 error:(id *)arg4;
+- (void)batchDeleteAssets:(id)arg1 withReason:(id)arg2;
+- (_Bool)_safeSave:(id)arg1 error:(id *)arg2;
 - (void)_safeSave:(id)arg1;
 - (void)_calculatePendingItemCountsAfterOTARestoreWithMangedObjectContext:(id)arg1;
 - (void)_removeSyncedAlbumsInTransactionWithManagedObjectContext:(id)arg1;
@@ -295,7 +293,7 @@
 - (struct NSObject *)eventWithName:(id)arg1 andImportSessionIdentifier:(id)arg2;
 @property(readonly, retain, nonatomic) PLFetchingAlbum *userLibraryAlbum;
 - (void)addCompletionHandlerToCurrentTransaction:(CDUnknownBlockType)arg1;
-- (void)deleteITunesSyncedContentWithReason:(id)arg1;
+- (void)_deleteITunesSyncedContentWithReason:(id)arg1;
 - (id)iTunesSyncedContentInfo;
 - (_Bool)_hasIncompleteAsset;
 - (_Bool)hasAtLeastOnePhoto;

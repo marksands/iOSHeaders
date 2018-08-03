@@ -87,6 +87,8 @@
     PUPhotoBrowserOneUpPresentationAdaptor *__photoBrowserOneUpPresentationAdaptor;
     PUFeedAssetContainerList *__oneUpPresentationAssetContainerList;
     id <UIViewControllerPreviewing> __previewingItem;
+    NSMutableSet *_imageCellsPlayingVideo;
+    CDUnknownBlockType _onNextViewLayout;
     struct CGSize __targetSize;
     struct CGPoint __lastPreheatedContentOffset;
     struct CGSize __assetsAddedCachedSectionHeaderSize;
@@ -94,6 +96,8 @@
 }
 
 + (void)initialize;
+@property(copy, nonatomic) CDUnknownBlockType onNextViewLayout; // @synthesize onNextViewLayout=_onNextViewLayout;
+@property(readonly, nonatomic) NSMutableSet *imageCellsPlayingVideo; // @synthesize imageCellsPlayingVideo=_imageCellsPlayingVideo;
 @property(nonatomic) _Bool observingPopoverContentSizeChange; // @synthesize observingPopoverContentSizeChange=_observingPopoverContentSizeChange;
 @property(retain, nonatomic, setter=_setPreviewingItem:) id <UIViewControllerPreviewing> _previewingItem; // @synthesize _previewingItem=__previewingItem;
 @property(nonatomic, setter=_setHasAppeared:) _Bool _hasAppeared; // @synthesize _hasAppeared=__hasAppeared;
@@ -201,6 +205,11 @@
 - (void)didTapFeedCell:(id)arg1;
 - (_Bool)pu_handleSecondTabTap;
 - (_Bool)prepareForDismissingForced:(_Bool)arg1;
+- (void)_endPlayingVideoInCellIfNeeded:(id)arg1;
+- (void)_handleVideoRequestResult:(id)arg1 forCellAtIndexPath:(id)arg2 withTag:(long long)arg3;
+- (void)_handleVideoRequestID:(int)arg1 forCellAtIndexPath:(id)arg2 withTag:(long long)arg3;
+- (_Bool)_beginPlayingVideoInCellIfNeeded:(id)arg1;
+- (void)_updateCellsVideoEnabledness;
 - (void)_navigateToSectionInfo:(id)arg1 atItemIndex:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_loadedSectionInfoForCloudFeedEntry:(id)arg1;
 - (_Bool)_navigateToRevealComment:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -212,6 +221,7 @@
 - (void)navigateToRevealCloudFeedComment:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)navigateToCloudFeedAsset:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)navigateToRevealCloudFeedAsset:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)performWhenReadyToNavigate:(CDUnknownBlockType)arg1;
 - (_Bool)cloudFeedInvitationForAlbumIsAvailableForNavigation:(id)arg1;
 - (_Bool)cloudFeedCommentIsAvailableForNavigation:(id)arg1;
 - (_Bool)cloudFeedAssetIsAvailableForNavigation:(id)arg1;
@@ -376,6 +386,7 @@
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)_viewWillLayoutBeforeAppearing;
+- (void)_performOnNextViewLayout:(CDUnknownBlockType)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
 - (_Bool)shouldAutorotate;

@@ -6,11 +6,12 @@
 
 #import "UIControl.h"
 
+#import "AVExternalGestureRecognizerPreventing.h"
 #import "AVPlaybackControlsViewItem.h"
 
 @class AVMicaPackage, NSString, NSTimer, UISelectionFeedbackGenerator, UIViewPropertyAnimator;
 
-@interface AVVolumeButtonControl : UIControl <AVPlaybackControlsViewItem>
+@interface AVVolumeButtonControl : UIControl <AVExternalGestureRecognizerPreventing, AVPlaybackControlsViewItem>
 {
     long long _trackingState;
     _Bool _included;
@@ -62,6 +63,7 @@
 - (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)willMoveToWindow:(id)arg1;
+- (_Bool)avkit_shouldPreventExternalGestureRecognizerAtPoint:(struct CGPoint)arg1;
 - (void)triggerSelectionChangedFeedback;
 @property(readonly, nonatomic, getter=isCollapsedOrExcluded) _Bool collapsedOrExcluded;
 @property(readonly, nonatomic) UISelectionFeedbackGenerator *feedbackGenerator; // @synthesize feedbackGenerator=_feedbackGenerator;

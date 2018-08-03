@@ -11,5 +11,9 @@
 @protocol PLPreviewInteractionPresenting <NSObject>
 @property(readonly, nonatomic) UIView *viewForPreview;
 @property(readonly, nonatomic) PLPreviewInteractionManager *previewInteractionManager;
+
+@optional
+@property(readonly, nonatomic) struct CGRect finalFrameOfViewForPreview;
+@property(readonly, nonatomic) struct CGRect initialFrameOfViewForPreview;
 @end
 

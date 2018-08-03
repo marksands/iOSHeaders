@@ -35,6 +35,7 @@
 - (oneway void)getRemoteClockTimerSnapshotWithCompletion:(void (^)(AFClockTimerSnapshot *, NSError *))arg1;
 - (oneway void)getSerializedCachedObjectsWithIdentifiers:(NSSet *)arg1 completion:(void (^)(NSDictionary *))arg2;
 - (oneway void)getDeferredObjectsWithIdentifiers:(NSArray *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
+- (oneway void)recordAWDSuccessMetrics;
 - (oneway void)recordCancellationMetrics;
 - (oneway void)recordFailureMetricsForError:(NSError *)arg1;
 - (oneway void)recordUIMetrics:(AFMetrics *)arg1;
@@ -63,7 +64,6 @@
 - (oneway void)willPresentUIWithReply:(void (^)(void))arg1;
 - (oneway void)setConfiguration:(AFClientConfiguration *)arg1;
 - (oneway void)setCarDNDActive:(_Bool)arg1;
-- (oneway void)setIsStark:(_Bool)arg1;
 - (oneway void)setLockState:(_Bool)arg1 showingLockScreen:(_Bool)arg2;
 - (oneway void)resumeInterruptedAudioPlaybackIfNeeded;
 - (oneway void)forceAudioSessionInactiveWithOptions:(unsigned long long)arg1 completion:(void (^)(void))arg2;

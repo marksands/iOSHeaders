@@ -10,7 +10,7 @@
 #import "CLKUIResourceProviderDelegate.h"
 #import "NTKColorCircularUtilitarianFaceViewComplicationFactoryDelegate.h"
 
-@class CLKUIQuadView, CLKUIResourceProviderKey, NSString, NTKColorCircularUtilitarianFaceViewComplicationFactory, NTKKaleidoscopePathfinder, NTKRoundedCornerOverlayView, UIColor;
+@class CLKUIQuadView, CLKUIResourceProviderKey, NSMapTable, NSString, NTKColorCircularUtilitarianFaceViewComplicationFactory, NTKRoundedCornerOverlayView, UIColor;
 
 @interface NTKKaleidoscopeFaceView : NTKAnalogFaceView <NTKColorCircularUtilitarianFaceViewComplicationFactoryDelegate, CLKUIQuadViewDelegate, CLKUIResourceProviderDelegate>
 {
@@ -20,7 +20,6 @@
     double _crownOffset;
     unsigned int _frameCounter;
     double _contentScale;
-    NTKKaleidoscopePathfinder *_pathfinder;
     UIColor *_complicationColor;
     UIColor *_complicationPlatterColor;
     double _lastComplicationUpdateTime;
@@ -28,6 +27,7 @@
     CLKUIResourceProviderKey *_resourceProviderKey;
     float _crownTurnsPerRotation;
     double _dayDuration;
+    NSMapTable *_quadPathfinderMapTable;
     unsigned long long _currentAsset;
     unsigned long long _currentStyle;
 }
